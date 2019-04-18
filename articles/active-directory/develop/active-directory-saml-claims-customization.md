@@ -19,10 +19,10 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878565"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
@@ -64,7 +64,7 @@ ms.locfileid: "58878565"
 | **預設值** | Azure AD 會使用預設的來源格式。 |
 | **持續性** | Azure AD 會使用永續做為 NameID 格式。 |
 | **EmailAddress** | Azure AD 會使用 EmailAddress 做為 NameID 格式。 |
-| **不透露** | Azure AD 會使用未指定，做為 NameID 格式。 |
+| **未指定** | Azure AD 會使用未指定，做為 NameID 格式。 |
 | **暫時性** | Azure AD 會使用暫時性做為 NameID 格式。 |
 
 若要深入了解 NameIDPolicy 屬性，請參閱[單一登入 SAML 通訊協定](single-sign-on-saml-protocol.md)。
@@ -114,7 +114,7 @@ ms.locfileid: "58878565"
 | **Join()** | 藉由聯結兩個屬性建立新的值。 （選擇性） 您可以使用兩個屬性之間的分隔符號。 |
 | **ToLower()** | 將所選取屬性中的字元轉換成小寫字元。 |
 | **ToUpper()** | 將所選取屬性中的字元轉換成大寫字元。 |
-| **Contains （)** | 輸出的屬性或常數，如果輸入符合指定的值。 否則您可以指定另一個輸出，如果沒有相符項目。<br/>例如，如果您想要發出的宣告，其中的值是使用者的電子郵件地址時如果它包含網域"@contoso.com」，否則在您想要輸出的使用者主體名稱。 若要這樣做，您會設定下列值：<br/>*參數 1(input)*: user.email<br/>*值*: 「@contoso.com"<br/>參數 2 （輸出）： user.email<br/>參數 3 （如果沒有相符的輸出）： user.userprincipalname |
+| **Contains()** | 輸出的屬性或常數，如果輸入符合指定的值。 否則您可以指定另一個輸出，如果沒有相符項目。<br/>例如，如果您想要發出的宣告，其中的值是使用者的電子郵件地址時如果它包含網域"@contoso.com」，否則在您想要輸出的使用者主體名稱。 若要這樣做，您會設定下列值：<br/>*參數 1(input)*: user.email<br/>*值*: 「@contoso.com"<br/>參數 2 （輸出）： user.email<br/>參數 3 （如果沒有相符的輸出）： user.userprincipalname |
 | **EndWith()** | 輸出的屬性或常數，如果輸入結束使用指定的值。 否則您可以指定另一個輸出，如果沒有相符項目。<br/>比方說，如果您想要發出的宣告，其中的值是使用者的 employeeid 如果 employeeid 結尾為"000"，否則您想要輸出的延伸模組屬性。 若要這樣做，您會設定下列值：<br/>*參數 1(input)*: user.employeeid<br/>*值*："000"<br/>參數 2 （輸出）： user.employeeid<br/>參數 3 （如果沒有相符的輸出）： user.extensionattribute1 |
 | **StartWith()** | 輸出的屬性或常數，如果輸入的開頭指定的值。 否則您可以指定另一個輸出，如果沒有相符項目。<br/>比方說，如果您想要發出的宣告，其中的值是使用者的 employeeid 如果國家/地區的開頭 「 美國 」，否則您想要輸出的延伸模組屬性。 若要這樣做，您會設定下列值：<br/>*參數 1(input)*: user.country<br/>*值*：「 我們的 」<br/>參數 2 （輸出）： user.employeeid<br/>參數 3 （如果沒有相符的輸出）： user.extensionattribute1 |
 | **Extract （)-比對之後** | 它會比對指定的值之後，傳回子字串。<br/>比方說，如果輸入的值為"Finance_BSimon 」，相符的值是"Finance_ 」，然後宣告的輸出是"是 BSimon"。 |
@@ -131,6 +131,6 @@ ms.locfileid: "58878565"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 Azure AD 中的應用程式管理](../manage-apps/what-is-application-management.md)
-* [針對不在 Azure AD 應用程式資源庫中的應用程式設定單一登入](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Azure AD 中的應用程式管理](../manage-apps/what-is-application-management.md)
+* [對不存在於 Azure AD 應用程式庫的應用程式設定單一登入](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [針對 SAML 型單一登入進行疑難排解](howto-v1-debug-saml-sso-issues.md)

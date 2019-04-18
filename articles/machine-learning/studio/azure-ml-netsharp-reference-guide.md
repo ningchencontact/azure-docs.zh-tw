@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886092"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 Net# 類神經規格語言指南
@@ -149,7 +149,7 @@ output Result auto from Hidden all;
 
 目前支援五種連線套組：
 
-+ **完整**套組，以關鍵字 `all`
++ **完整**套件組合，以關鍵字 `all` 指出
 + **篩選**套件組合，以關鍵字 `where` 指出，其後接著述詞運算式
 + **迴旋**套件組合，以關鍵字 `convolve` 指出，其後接著迴旋屬性
 + **集區**套組，以關鍵字 **max pool** 或 **mean pool** 指出
@@ -454,11 +454,10 @@ output Digit [10] from Hid3 all;
 + 每個核心的加權數目是 `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`。 或 `26 * 50 = 1300`。
 + 您可以用下列方式計算每個隱藏層中的節點數：
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5`
-    `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
-+ 節點總數可計算所使用的圖層，該層的宣告的維度 [50，5，5]，如下所示： `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
++ 節點總數可使用該層的宣告維度 [50, 5, 5] 來計算，如下所示：`MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
 + 由於只有 `d == 0` 時，`Sharing[d]` 才會是 False，因此核心數為 `MapCount * NodeCount\[0] = 10 * 5 = 50`。
 
 ## <a name="acknowledgements"></a>通知

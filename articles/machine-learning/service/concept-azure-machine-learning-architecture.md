@@ -11,17 +11,17 @@ author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489942"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
 深入了解架構、 概念和 Azure Machine Learning 服務的工作流程。 服務的主要元件以及使用服務時的一般工作流程顯示在下圖中：
 
-[![Aazure Machine Learning 服務架構和工作流程](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning 服務架構與工作流程](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 ## <a name="workflow"></a>工作流程
 
@@ -68,7 +68,7 @@ ms.locfileid: "59489942"
 
 下圖說明工作區的分類：
 
-[![Workspace 分類](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![工作區分類](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>實驗
 

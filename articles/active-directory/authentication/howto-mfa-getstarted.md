@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358120"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>規劃雲端架構的 Azure Multi-factor Authentication
@@ -315,5 +315,5 @@ Azure Multi-factor Authentication 提供透過 Azure 入口網站的報表：
 ## <a name="next-steps"></a>後續步驟
 
 * [驗證方法有哪些？](concept-authentication-methods.md)
-* [啟用 Azure Multi-factor Authentication 與 Azure AD 自助式密碼重設的聚合式的註冊](concept-registration-mfa-sspr-converged.md)
+* [啟用 Azure Multi-Factor Authentication 的聚合式註冊和 Azure AD 自助密碼重設](concept-registration-mfa-sspr-converged.md)
 * 系統會還是不會提示使用者執行 MFA 的原因？ 請參閱＜Azure Multi-Factor Authentication 中的報告＞文件中的 [Azure AD 登入報告](howto-mfa-reporting.md#azure-ad-sign-ins-report)一節。

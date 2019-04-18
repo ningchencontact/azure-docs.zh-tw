@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916796"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>在 Azure CDN 中管理 Azure Blob 儲存體的到期
@@ -59,7 +59,7 @@ Azure 儲存體中的 [Blob 儲存體服務](../storage/common/storage-introduct
    ![CDN 快取頁面](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 
-**若要使用全域快取規則設定 Blob 儲存體服務的 Cache-control 標頭：**
+**使用全域快取規則設定 blob 儲存體服務的 Cache-Control 標頭：**
 
 1. 在 [全域快取規則] 下方，將 [查詢字串快取行為] 設定為 [忽略查詢字串]，並將 [快取行為] 設定為 [覆寫]。
       
@@ -71,7 +71,7 @@ Azure 儲存體中的 [Blob 儲存體服務](../storage/common/storage-introduct
 
 3. 選取 [ **儲存**]。
  
-**若要使用自訂快取規則設定 blob 檔案的 Cache-control 標頭：**
+**使用自訂快取規則設定 blob 檔案的 Cache-Control 標頭：**
 
 1. 在 [自訂快取規則] 下，建立兩個比對條件：
 
@@ -172,14 +172,14 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 ### <a name="azure-storage-services-rest-api"></a>Azure 儲存體服務 REST API
 您可以使用 [Azure 儲存體服務 REST API](/rest/api/storageservices/) \(英文\)，在要求上使用下列作業來明確設定 *x-ms-blob-cache-control* 屬性：
   
-   - [放置 Blob](/rest/api/storageservices/Put-Blob)
-   - [放置區塊清單](/rest/api/storageservices/Put-Block-List)
-   - [設定 Blob 屬性](/rest/api/storageservices/Set-Blob-Properties)
+   - [Put Blob](/rest/api/storageservices/Put-Blob) \(英文\)
+   - [Put Block List](/rest/api/storageservices/Put-Block-List) \(英文\)
+   - [Set Blob Properties](/rest/api/storageservices/Set-Blob-Properties) \(英文\)
 
 ## <a name="testing-the-cache-control-header"></a>測試 Cache-Control 標頭
 您可以輕鬆地驗證 Blob 的 TTL 設定。 使用瀏覽器的[開發人員工具](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)，測試 blob 是否包含 `Cache-Control` 的回應標頭。 您也可以使用 [Wget](https://www.gnu.org/software/wget/) \(英文\)、[Postman](https://www.getpostman.com/) \(英文\) 或 [Fiddler](https://www.telerik.com/fiddler) \(英文\) 之類的工具來檢查回應標頭。
 
 ## <a name="next-steps"></a>後續步驟
-* [了解如何管理 Azure CDN 中的雲端服務內容的到期](cdn-manage-expiration-of-cloud-service-content.md)
-* [深入了解快取概念](cdn-how-caching-works.md)
+* [了解如何在 Azure CDN 中管理雲端服務內容的到期](cdn-manage-expiration-of-cloud-service-content.md)
+* [了解快取概念](cdn-how-caching-works.md)
 

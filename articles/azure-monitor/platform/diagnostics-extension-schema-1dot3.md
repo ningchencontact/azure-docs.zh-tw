@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497078"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 診斷 1.3 版和更新版本的組態結構描述
@@ -408,7 +408,7 @@ ms.locfileid: "59497078"
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration*
 
 已在 1.3 版中新增。  
 
@@ -425,7 +425,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**IsEnabled**|布林值。 請參閱本頁面上其他部分的說明。|  
 
 ## <a name="publicconfig-element"></a>PublicConfig 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig*
 
  說明公用診斷組態。  
 
@@ -434,16 +434,16 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**WadCfg**|必要。 請參閱本頁面上其他部分的說明。|  
 |**StorageAccount**|要儲存資料的 Azure 儲存體帳戶名稱。 可能也會在執行 Set-AzureServiceDiagnosticsExtension Cmdlet 時指定為參數。|  
 |**StorageType**|可以是 Table、Blob 或 TableAndBlob。 預設值是 Table。 若選擇 TableAndBlob，系統會將診斷資料寫入兩次 -- 每種類型寫入一次。|  
-|**LocalResourceDirectory**|虛擬機器上監視代理程式儲存事件資料的目錄。 如果沒有，請設定，否則會使用預設的目錄：<br /><br /> 背景工作 /web 角色： `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> 虛擬機器： `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 必要屬性包括：<br /><br /> - **path** - 系統上 Azure 診斷所使用的目錄。<br /><br /> - **expandEnvironment** - 控制是否要展開路徑名稱中的環境變數。|  
+|**LocalResourceDirectory**|虛擬機器上監視代理程式儲存事件資料的目錄。 如果沒有，請設定，否則會使用預設的目錄：<br /><br /> 針對背景工作/web 角色：`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> 針對虛擬機器：`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 必要屬性包括：<br /><br /> - **path** - 系統上 Azure 診斷所使用的目錄。<br /><br /> - **expandEnvironment** - 控制是否要展開路徑名稱中的環境變數。|  
 
 ## <a name="wadcfg-element"></a>WadCFG 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG*
 
  識別並設定要收集的遙測資料。  
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration 元素
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
  必要項
 
@@ -460,9 +460,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**CrashDumps**|請參閱本頁面上其他部分的說明。|  
 |**DiagnosticInfrastructureLogs**|啟用收集 Azure 診斷所產生的記錄。 診斷基礎結構記錄適用於疑難排解診斷系統本身。 選用屬性包括：<br /><br /> - **scheduledTransferLogLevelFilter** - 設定所收集之記錄的最低嚴重性層級。<br /><br /> - **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。 |  
-|**目錄**|請參閱本頁面上其他部分的說明。|  
+|**Directories**|請參閱本頁面上其他部分的說明。|  
 |**EtwProviders**|請參閱本頁面上其他部分的說明。|  
-|**度量**|請參閱本頁面上其他部分的說明。|  
+|**計量**|請參閱本頁面上其他部分的說明。|  
 |**PerformanceCounters**|請參閱本頁面上其他部分的說明。|  
 |**WindowsEventLog**|請參閱本頁面上其他部分的說明。|
 |**DockerSources**|請參閱本頁面上其他部分的說明。 |
@@ -470,7 +470,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="crashdumps-element"></a>CrashDumps 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
 
  啟用收集損毀傾印。  
 
@@ -485,7 +485,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**CrashDumpConfiguration**|必要。 定義每個處理序的組態值。<br /><br /> 以下也是必要屬性：<br /><br /> **processName** - 您希望 Azure 診斷收集損毀傾印的處理序名稱。|  
 
 ## <a name="directories-element"></a>Directories 元素
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories*
 
  啟用收集目錄、IIS 失敗的存取要求記錄和/或 IIS 記錄的內容。  
 
@@ -501,7 +501,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="datasources-element"></a>DataSources 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources*
 
  要監視的目錄清單。  
 
@@ -514,19 +514,19 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
 
  可能包括 **Absolute** 或 **LocalResource** 元素，但非兩者。  
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**絕對**|要監視之目錄的絕對路徑。 以下為必要屬性：<br /><br /> - **Path** - 要監視之目錄的絕對路徑。<br /><br /> - **expandEnvironment** - 設定是否要展開 Path 中的環境變數。|  
+|**Absolute**|要監視之目錄的絕對路徑。 以下為必要屬性：<br /><br /> - **Path** - 要監視之目錄的絕對路徑。<br /><br /> - **expandEnvironment** - 設定是否要展開 Path 中的環境變數。|  
 |**LocalResource**|相對於要監視之本機資源的路徑。 必要屬性包括：<br /><br /> - **Name** - 包含要監視之目錄的本機資源<br /><br /> - **relativePath** - 包含要監視目錄之 Name 的相對路徑|  
 
 
 
 ## <a name="etwproviders-element"></a>EtwProviders 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
 
  設定要收集來自 EventSource 和/或以 ETW 資訊清單為基礎之提供者的 ETW 事件。  
 
@@ -538,7 +538,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
 
  設定要收集從 [EventSource 類別](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)產生的事件。  
 
@@ -550,7 +550,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
 |子元素|描述|  
 |--------------------|-----------------|  
@@ -560,7 +560,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="metrics-element"></a>Metrics 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
 
  讓您能夠產生已最佳化的效能計數器資料表來進行快速查詢。 除了效能計數器資料表之外，**PerformanceCounters** 元素中所定義的每個效能計數器都會儲存於 Metrics 資料表中。  
 
@@ -573,7 +573,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
 
  啟用收集效能計數器。  
 
@@ -590,7 +590,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 元素
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
 
  啟用收集 Windows 事件記錄。  
 
@@ -604,7 +604,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="logs-element"></a>Logs 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
 
  出現在 1.0 和 1.1 版中。 在 1.2 中消失。 再度新增於 1.3 中。  
 
@@ -618,16 +618,16 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**sinks** |**字串**| 在 1.5 中新增。 選用。 同時要傳送診斷資料的接收位置指標。 例如，Application Insights 或事件中樞。|  
 
 ## <a name="dockersources"></a>DockerSources
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
 
  已在 1.9 版中新增。
 
 |元素名稱|描述|  
 |------------------|-----------------|  
-|**狀態**|會請系統收集 Docker 容器的統計資料|  
+|**Stats**|會請系統收集 Docker 容器的統計資料|  
 
 ## <a name="sinksconfig-element"></a>SinksConfig 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
 
  傳送診斷資料的位置清單，以及與這些位置相關聯的組態。  
 
@@ -636,7 +636,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**接收**|請參閱本頁面上其他部分的說明。|  
 
 ## <a name="sink-element"></a>Sink 元素
- *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
 
  已在 1.5 版中新增。  
 
@@ -649,10 +649,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |元素|類型|描述|  
 |-------------|----------|-----------------|  
 |**Application Insights**|字串|僅會在將資料傳送至 Application Insights 時使用。 包含您有權存取之使用中 Application Insights 帳戶的檢測金鑰。|  
-|**聲道**|字串|每個可額外篩選該資料流的其中一個|  
+|**Channels**|字串|每個可額外篩選該資料流的其中一個|  
 
 ## <a name="channels-element"></a>Channels 元素  
- *樹狀結構︰根目錄-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
 
  已在 1.5 版中新增。  
 
@@ -660,10 +660,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素|類型|描述|  
 |-------------|----------|-----------------|  
-|**通道**|字串|請參閱本頁面上其他部分的說明。|  
+|**Channel**|字串|請參閱本頁面上其他部分的說明。|  
 
 ## <a name="channel-element"></a>Channel 元素
- *樹狀結構︰根目錄-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels-Channel*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
 
  已在 1.5 版中新增。  
 
@@ -676,7 +676,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig 元素
- *樹狀結構︰Root - DiagnosticsConfiguration - PrivateConfig*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - PrivateConfig*
 
  已在 1.3 版中新增。  
 
@@ -690,7 +690,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="isenabled-element"></a>IsEnabled 元素  
- *樹狀結構︰Root - DiagnosticsConfiguration - IsEnabled*
+ *樹狀結構：根目錄 - DiagnosticsConfiguration - IsEnabled*
 
  布林值。 使用 `true` 來啟用診斷或 `false` 來停用診斷。
 

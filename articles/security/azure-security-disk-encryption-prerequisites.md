@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1da35b55a458ad73689f51c49e73855fd33ee45f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496245"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁碟加密的先決條件
@@ -302,7 +302,7 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
  
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
-> [啟用 Windows 的 Azure 磁碟加密](azure-security-disk-encryption-windows.md)
+> [啟用適用於 Windows 的 Azure 磁碟加密](azure-security-disk-encryption-windows.md)
 
 > [!div class="nextstepaction"]
 > [啟用適用於 Linux 的 Azure 磁碟加密](azure-security-disk-encryption-linux.md)

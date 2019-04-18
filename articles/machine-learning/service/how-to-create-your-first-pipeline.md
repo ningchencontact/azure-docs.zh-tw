@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278542"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679987"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
@@ -93,7 +93,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-中繼資料 (或步驟的輸出) 會由 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 物件代表。 `output_data1` 產生做為輸出的步驟中，並做為輸入的一或多個後續的步驟。 `PipelineData` 導入了資料之間的相依性的步驟，並在管線中建立的隱含的執行順序。
+中繼資料 (或步驟的輸出) 會由 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 物件代表。 `output_data1` 會產生為步驟的輸出，並用來作為一或多個未來步驟的輸入。 `PipelineData` 會在步驟之間導入資料相依性，並在管線中建立隱含的執行順序。
 
 ```python
 output_data1 = PipelineData(
@@ -253,8 +253,8 @@ trainStep = PythonScriptStep(
 
 定義步驟之後，您必須使用這些步驟中的部分或全部步驟來建置管線。
 
->[!NOTE]
->當您定義步驟或建置管線時，並不會將任何檔案或資料上傳到 Azure Machine Learning 服務。
+> [!NOTE]
+> 當您定義步驟或建置管線時，並不會將任何檔案或資料上傳到 Azure Machine Learning 服務。
 
 ```python
 # list of steps to run
@@ -289,8 +289,12 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ## <a name="submit-the-pipeline"></a>提交管線
 
-當您提交管線時，Azure Machine Learning 服務會檢查每個步驟的相依性，並上傳您所指定之來源目錄的快照集。 如果未指定來源目錄，則會上傳目前的本機目錄。
+當您提交管線時，Azure Machine Learning 服務會檢查每個步驟的相依性，並上傳您所指定之來源目錄的快照集。 如果未指定來源目錄，則會上傳目前的本機目錄。 快照集也會儲存為工作區中實驗的一部分。
 
+> [!IMPORTANT]
+> 若要防止檔案包含快照中，建立[.gitignore](https://git-scm.com/docs/gitignore)或`.amlignore`檔案的目錄中，並將檔案新增至它。 `.amlignore`檔案使用相同的語法，並做為模式[.gitignore](https://git-scm.com/docs/gitignore)檔案。 如果這兩個檔案存在，`.amlignore`檔有優先順序。
+>
+> 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshot)。
 
 ```python
 # Submit the pipeline to be run
@@ -361,7 +365,7 @@ response = requests.post(published_pipeline1.endpoint,
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。  
 
 1. [檢視您的工作區](how-to-manage-workspace.md#view)以尋找管線清單。
- ![機器學習服務管線的清單](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ ![機器學習管線清單](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 選取特定管線以查看執行結果。
 

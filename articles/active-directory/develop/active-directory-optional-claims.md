@@ -18,10 +18,10 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501054"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>作法：提供給您的 Azure AD 應用程式的選擇性宣告
@@ -78,7 +78,7 @@ ms.locfileid: "59501054"
 
 一律包含在 v1.0 Azure AD 權杖，但不是包含在 v2.0 權杖中，除非要求這些宣告。 這些宣告僅適用於 Jwt （識別碼權杖和存取權杖）。 
 
-**表 3：僅限 V2.0 選擇性宣告**
+**表 3：僅適用於 V2.0 的選擇性宣告**
 
 | JWT 宣告     | 名稱                            | 描述                                | 注意 |
 |---------------|---------------------------------|-------------|-------|
@@ -98,13 +98,13 @@ ms.locfileid: "59501054"
 
 有些選擇性宣告可經由設定來變更傳回宣告的方式。 這些額外的屬性大多數用來協助移轉對資料有不同要求的內部部署應用程式 (例如 `include_externally_authenticated_upn_without_hash` 可協助無法處理 UPN 中井號 (`#`) 的用戶端)
 
-**表 4：設定選擇性宣告的值**
+**表 4：用來設定選擇性宣告的值**
 
 | 屬性名稱  | 額外屬性名稱 | 描述 |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | 可同時用於 SAML 和 JWT 回應，以及用於 v1.0 和 v2.0 權杖。 |
 |                | `include_externally_authenticated_upn`  | 包含儲存在資源租用戶中的來賓 UPN。 例如， `foo_hometenant.com#EXT#@resourcetenant.com` |             
-|                | `include_externally_authenticated_upn_without_hash` | 同上，只不過雜湊標記 (`#`) 都會以底線取代 (`_`)，例如 `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | 同上，只是將井號 (`#`) 取代成底線 (`_`)，例如 `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>額外屬性範例
 
@@ -196,7 +196,7 @@ ms.locfileid: "59501054"
 
 在 JWT 內，這些宣告將會以下列名稱格式發出：`extn.<attributename>`。
 
-在 SAML 權杖中，這些宣告將會以下列 URI 格式發出： `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+在 SAML 權杖內，這些宣告則會以下列 URI 格式發出：`http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
 ## <a name="optional-claims-example"></a>選擇性宣告範例
 
@@ -247,5 +247,5 @@ ms.locfileid: "59501054"
 
 深入了解 Azure AD 所提供的標準宣告。
 
-- [ID 權杖](id-tokens.md)
+- [識別碼權杖](id-tokens.md)
 - [存取權杖](access-tokens.md)

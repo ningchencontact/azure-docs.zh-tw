@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339001"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678882"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>在 Azure 監視器中具有動態閾值的計量警示 (公開預覽)
 
@@ -41,6 +41,9 @@ ms.locfileid: "58339001"
 
 選取閾值的方式，是偏離這些閾值的程度必須表示計量行為出現異常。
 
+> [!NOTE]
+> 季節性模式的偵測會設定為小時、 天或週的間隔。 這表示其他模式，例如 bihourly 模式或 semiweekly 可能無法偵測。
+
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>動態閾值中的「敏感度」設定有何意義？
 
 警示閾值敏感度是一項基本概念，可控制須偏離計量行為達何種程度才會觸發警示。
@@ -48,7 +51,7 @@ ms.locfileid: "58339001"
 
 - 高 – 閾值會嚴格且接近計量序列模式。 最小的偏差即會觸發警示規則，因此會產生較多警示。
 - 中 – 較不嚴格而較為中庸的閾值，產生的警示會比高敏感度少 (預設值)。
-- 低 – 閾值會寬鬆且偏離計量序列模式較遠。 只有較大的偏差才會觸發警示規則，因此會產生較少警示。
+- 低 – 閾值會寬鬆且偏離計量序列模式較遠。 在大型的差，導致較少的警示，才會觸發警示的規則。
 
 ## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>動態閾值中有哪些「運算子」設定選項？
 
@@ -73,13 +76,23 @@ ms.locfileid: "58339001"
 
 **忽略資料 (以下時間之前)** - 使用者也可以選擇性地定義系統應開始計算閾值的開始日期。 如果資源先前執行於測試模式中，而現已升級供生產工作負載之用，因此應忽略任何計量在測試階段的行為，就可能會發生常見的使用案例。
 
+## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>您要如何找出已觸發動態臨界值警示的原因？
+
+您可以藉由按一下連結以查看在 Azure 入口網站中檢視警示的電子郵件或簡訊或瀏覽器中探索觸發的警示執行個體，在 [警示] 檢視中。 [深入了解 [警示] 檢視](alerts-overview.md#alerts-experience)。
+
+警示檢視會顯示：
+
+- 目前所有計量的詳細資料的動態臨界值警示引發。
+- 警示是包含在該點的時間使用的動態閾值的觸發程序期間的圖表。
+- 若要提供意見反應動態臨界值警示和警示 檢視體驗，可改善未來的偵測功能。
+
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>計量中緩慢的行為變更是否會觸發警示？
 
 大概沒有。 動態閾值適合用於偵測明顯的偏差，而不是緩慢發展的問題。
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>會有多少資料用來預覽並計算閾值？
 
-出現在圖表中之前的計量建立警示規則, 的臨界值會計算夠歷程記錄資料來計算小時或每日季節性模式 （10 天）。 按下 '顯示每週 pattern' 上將會取得足夠的歷史資料來計算每週季節性模式 （28 天）。 一旦建立警示規則時，動態臨界值將使用所需的所有歷程記錄資料，而且將持續學習和精英根據新資料進行更精確的臨界值。
+出現在圖表中之前的計量建立警示規則, 的臨界值會計算夠歷程記錄資料來計算小時或每日季節性模式 （10 天）。 一旦建立警示規則時，動態臨界值將使用所需的所有歷程記錄資料，而且將持續學習和精英根據新資料進行更精確的臨界值。 這表示，之後此計算圖表也會顯示每週的模式。
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>觸發警示時，不需要多少資料？
 

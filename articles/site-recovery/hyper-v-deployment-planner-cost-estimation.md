@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359041"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署規劃工具的成本估計報告 
@@ -107,9 +107,9 @@ DR 總成本是根據兩個不同的狀態來分類的：複寫和 DR 演練。
 
 1. 根據符合此組態的約略 VM 大小和 VM 數目，填入下列資料行： 
 
-    a. **Vm 數目**
+    a. **VM 數目**
 
-    b. **IaaS 大小 （您的選擇）**
+    b. **IaaS 大小 (您的選擇)**
 
     c. **儲存體類型標準/進階**
 
@@ -117,11 +117,11 @@ DR 總成本是根據兩個不同的狀態來分類的：複寫和 DR 演練。
 
     e. **一年中的 DR 演練次數**
 
-    f. **每次 DR 演練持續時間 （天）**
+    f. **每次 DR 演練持續時間 (天)**
 
     g. **OS 類型**
 
-    h. **資料備援**
+    h.如果该值不存在，请单击“添加行”。 **資料備援**
 
     i. **Azure Hybrid Use Benefit**
 

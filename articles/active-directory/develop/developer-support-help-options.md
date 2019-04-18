@@ -19,10 +19,10 @@ ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501581"
 ---
 # <a name="support-and-help-options-for-developers"></a>開發人員的支援和協助選項
@@ -55,7 +55,7 @@ ms.locfileid: "59501581"
 | 工具  | 描述  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | 貼上識別碼或存取權杖以將宣告名稱和值解碼。 |
-| [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| 此工具可讓您針對 Microsoft Graph API 提出要求並查看回應。 |
+| [Microsoft Graph 總管](https://developer.microsoft.com/graph/graph-explorer)| 此工具可讓您針對 Microsoft Graph API 提出要求並查看回應。 |
 
 ## <a name="post-a-question-to-stack-overflow"></a>在 Stack Overflow 張貼問題
 
@@ -76,7 +76,7 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 開發人員社�
 Stack Overflow 的下列貼文包含如何提出問題以及如何新增原始程式碼的提示。 遵循這些指導方針以增加社群成員快速評估並回應您問題的機會：
 
 * [要如何問一個好問題](https://stackoverflow.com/help/how-to-ask)
-* [如何建立最小、 更完整且可驗證的範例](https://stackoverflow.com/help/mcve)
+* [如何建立最小、完成且可驗證的範例](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>建立 GitHub 問題
 

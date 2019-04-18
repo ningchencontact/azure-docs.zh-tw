@@ -17,10 +17,10 @@ ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 025a9d7df16b2be5e22104010be057403ce53c25
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>教學課程：Azure Active Directory 與 CloudSuite 整合
@@ -97,7 +97,7 @@ ms.locfileid: "58880622"
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 Infor CloudSuite 應用程式中設定單一登入。
 
-**若要設定 Azure AD 單一登入與 Infor CloudSuite，執行下列步驟：**
+**若要使用 Infor CloudSuite 設定 Azure AD 單一登入，請執行下列步驟：**
 
 1. 在 Azure 入口網站的 [Infor CloudSuite] 應用程式整合頁面上，按一下 [單一登入]。
 

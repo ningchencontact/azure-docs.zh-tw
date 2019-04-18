@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283064"
 ---
 # <a name="optimize-apache-spark-jobs"></a>最佳化 Apache Spark 作業
@@ -33,7 +33,7 @@ Spark 上的舊版資料抽象化，Spark 1.3 使用 Rdd，而且 1.6 DataFrames
     * 直接記憶體存取。
     * 低記憶體回收 (GC) 額外負荷。
     * 不像 DataSets 適合開發人員使用，因為沒有任何編譯時間檢查或網域物件程式設計。
-* **資料集**
+* **DataSets**
     * 適合可接受效能影響的複雜 ETL 管線。
     * 不適合效能影響可能相當大的彙總。
     * 透過 Catalyst 提供查詢最佳化。
@@ -41,7 +41,7 @@ Spark 上的舊版資料抽象化，Spark 1.3 使用 Rdd，而且 1.6 DataFrames
     * 新增序列化/還原序列化額外負荷。
     * 高 GC 額外負荷。
     * 中斷整體階段程式碼產生。
-* **Rdd**
+* **RDDs**
     * 除非您需要建立新的自訂 RDD，否則不需要使用 RDD。
     * 沒有透過 Catalyst 的任何查詢最佳化。
     * 沒有整體階段程式碼產生。
@@ -160,9 +160,9 @@ sql("SELECT col1, col2 FROM V_JOIN")
 
 以下是您可以調整的一些常見參數：
 
-* `--num-executors` 設定適當的執行程式數目。
+* `--num-executors` 設定適當數量的執行程式。
 * `--executor-cores` 設定每個執行程式的核心數目。 一般而言，您應該有中型執行程式，因為其他處理序會耗用一些可用的記憶體。
-* `--executor-memory` 設定每個執行程式，控制 YARN 的堆積大小的記憶體大小。 您應該對於執行額外負荷保留一些記憶體。
+* `--executor-memory` 設定每個執行程式的記憶體大小，控制 YARN 的堆積大小。 您應該對於執行額外負荷保留一些記憶體。
 
 ### <a name="select-the-correct-executor-size"></a>選取正確的執行程式大小
 
@@ -214,8 +214,8 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ## <a name="next-steps"></a>後續步驟
 
 * [對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯](apache-spark-job-debugging.md)
-* [管理 HDInsight 上的 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [在 HDInsight 上管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
 * [使用 Apache Spark REST API 將遠端作業提交至 Apache Spark 叢集](apache-spark-livy-rest-interface.md)
-* [微調的 Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [如何實際調整您的 Apache Spark 作業讓它們運作](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [調整 Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [如何實際調整 Apache Spark 作業，以便這些作業運作](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo 序列化](https://github.com/EsotericSoftware/kryo)

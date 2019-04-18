@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/12/2019
-ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545819"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678593"
 ---
 # <a name="automated-backups"></a>自動備份
 
-SQL Database 會自動建立保留 7 到 35 天的資料庫備份，並使用 Azure 讀取權限異地備援儲存體 (RA-GRS)，以確保即使在資料中心都無法使用時可保留它們。 這些備份是自動建立的，且不需額外付費。 您不需要採取任何動作來進行，且您可以[變更備份保留期限](#how-to-change-the-pitr-backup-retention-period)。 資料庫備份可保護資料免於意外損毀或刪除，是商務持續性和災害復原策略中不可或缺的一部分。 如果您的安全性規則需要備份可供使用一段時間 (最長 10 年)，您可以設定[長期保留](sql-database-long-term-retention.md)。
+SQL Database 會自動建立資料庫備份保留 7 到 35 天之間，並使用 Azure 讀取權限異地備援儲存體 (RA-GRS)，以確保即使資料中心都無法使用會保留。 這些備份是自動建立的，且不需額外付費。 您不需要採取任何動作來進行，且您可以[變更備份保留期限](#how-to-change-the-pitr-backup-retention-period)。 資料庫備份可保護資料免於意外損毀或刪除，是商務持續性和災害復原策略中不可或缺的一部分。 如果您的安全性規則需要備份可供使用一段時間 (最長 10 年)，您可以設定[長期保留](sql-database-long-term-retention.md)。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

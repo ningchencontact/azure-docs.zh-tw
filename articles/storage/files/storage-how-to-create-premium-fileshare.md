@@ -9,10 +9,10 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288422"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>如何建立 Azure 的進階檔案共用
@@ -156,7 +156,7 @@ az login
 
 若要使用 CLI 的進階檔案的互動，您必須將延伸加入至您的殼層。
 
-若要這樣做，請使用 Cloud Shell 或在本機的殼層中輸入下列命令： `az extension add --name storage-preview`
+若要這樣做，請使用 Cloud Shell 或本機殼層輸入以下命令：`az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
@@ -219,4 +219,4 @@ az group delete --name myResourceGroup
 在本文中，您已建立進階檔案儲存體帳戶。 若要深入了解此帳戶提供的效能，繼續規劃指南的效能層一節。
 
 > [!div class="nextstepaction"]
-> [檔案共用效能層級](storage-files-planning.md#file-share-performance-tiers)
+> [檔案共用的效能層級](storage-files-planning.md#file-share-performance-tiers)

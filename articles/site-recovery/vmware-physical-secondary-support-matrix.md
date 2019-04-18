@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360155"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>從 VMware VM 和實體伺服器至次要網站之災害復原的支援矩陣
@@ -40,7 +40,7 @@ vCenter 伺服器 | vCenter 5.5、6.0 和 6.5<br/><br/> 如果您是執行 6.0 �
 **作業系統** | **詳細資料**
 --- | ---
 Windows Server | 64 位元的 Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少含 SP1)。
- Linux | Red Hat Enterprise Linux 6.7、6.8、6.9、7.1、7.2 <br/><br/> Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/> Oracle Enterprise Linux 6.4、6.5 或 6.8，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3、11 SP4 
+Linux | Red Hat Enterprise Linux 6.7、6.8、6.9、7.1、7.2 <br/><br/> Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/> Oracle Enterprise Linux 6.4、6.5 或 6.8，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3、11 SP4 
 
 
 ## <a name="linux-machine-storage"></a>Linux 機器儲存體
@@ -72,7 +72,7 @@ Windows Server | 64 位元的 Windows Server 2016、Windows Server 2012 R2、Win
 
 ### <a name="host-storage"></a>主機儲存體
 
-**儲存體 （主機）** | **支援** 
+**儲存體 (主機)** | **支援** 
 --- | --- 
 NFS | 是 
 SMB 3.0 | N/A 
@@ -101,7 +101,7 @@ RDM | 是
 
 ## <a name="vaults"></a>保存庫
 
-** 動作** | **支援** 
+**Action** | **支援** 
 --- | --- 
 跨資源群組間移動保存庫 (在訂用帳戶之內或跨訂用帳戶) | 否 
 跨資源群組間移動儲存體、網路、Azure VM (在訂用帳戶之內或跨訂用帳戶) | 否 
@@ -120,5 +120,5 @@ RDM | 是
 
 下載 [InMage Scout 使用者指南](https://aka.ms/asr-scout-user-guide)
 
-- [將 VMM 雲端中的 HYPER-V Vm 複寫至次要站台](tutorial-vmm-to-vmm.md)
-- [將 VMWare VM 和實體伺服器複寫至次要網站](tutorial-vmware-to-vmware.md)
+- [將 VMM 雲端中的 Hyper-V VM 複寫至次要網站](tutorial-vmm-to-vmm.md)
+- [將 VMware VM 和實體伺服器複寫至次要網站](tutorial-vmware-to-vmware.md)

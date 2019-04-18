@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: alkohli
 ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881761"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure 中部署資料閘道的系統需求
@@ -48,7 +48,7 @@ ms.locfileid: "58881761"
 
 ## <a name="supported-virtualization-platforms-for-device"></a>裝置的受支援虛擬化平台
 
-| **作業系統/平台**  |**版本**   |**注意**  |
+| **作業系統/平台**  |**版本**   |**注意事項**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016  |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |不支援 VMware 工具。         |
@@ -95,5 +95,5 @@ ms.locfileid: "58881761"
 
 ## <a name="next-step"></a>後續步驟
 
-* [部署您的 Azure 資料方塊閘道](data-box-gateway-deploy-prep.md)
+* [部署 Azure 資料箱閘道](data-box-gateway-deploy-prep.md)
 

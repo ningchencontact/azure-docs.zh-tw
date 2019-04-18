@@ -11,10 +11,10 @@ ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894896"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C：遷移具有社交身分識別的使用者
@@ -29,11 +29,11 @@ ms.locfileid: "58894896"
 
 * **社交帳戶**的身分識別會儲存在 `userIdentities` 集合中。 此項目會指定 `issuer` (識別提供者名稱，例如 facebook.com) 和 `issuerUserId` (這是簽發者的唯一使用者識別碼)。 `userIdentities` 屬性包含一或多個 UserIdentity 記錄，該記錄會指定來自社交識別提供者的社交帳戶類型和唯一使用者識別碼。
 
-* **結合本機帳戶與社交識別**。 如前所述，本機帳戶登入名稱和社交帳戶身分識別會儲存在不同的屬性中。 `signInNames` 是用於本機帳戶，而`userIdentities`針對社交帳戶。 單一 Azure AD B2C 帳戶可以是純本機帳戶、純社交帳戶，或在一個使用者記錄中結合本機帳戶與社交識別。 此行為可讓您管理單一帳戶，而使用者又可使用本機帳戶認證或使用社交識別來登入。
+* **結合本機帳戶與社交識別**。 如前所述，本機帳戶登入名稱和社交帳戶身分識別會儲存在不同的屬性中。 `signInNames` 用於本機帳戶，`userIdentities` 則用於社交帳戶。 單一 Azure AD B2C 帳戶可以是純本機帳戶、純社交帳戶，或在一個使用者記錄中結合本機帳戶與社交識別。 此行為可讓您管理單一帳戶，而使用者又可使用本機帳戶認證或使用社交識別來登入。
 
-* `UserIdentity` 類型-包含 Azure AD B2C 租用戶中社交帳戶使用者的身分識別相關資訊：
-  * `issuer` 身分識別提供者發出的使用者識別碼，例如 facebook.com 的字串表示。
-  * `issuerUserId` 以 base64 格式的社交身分識別提供者所使用的唯一使用者識別碼。
+* `UserIdentity` 類型 - 包含 Azure AD B2C 租用戶中社交帳戶使用者的身分識別相關資訊：
+  * `issuer` 以字串表示、發出了使用者識別碼的識別提供者，例如 facebook.com。
+  * `issuerUserId` 社交識別提供者所使用的唯一使用者識別碼 (採用 base64 格式)。
 
     ```JSON
     "userIdentities": [{

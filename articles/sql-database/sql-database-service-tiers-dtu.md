@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
 ms.openlocfilehash: 05164985c7851ed828e22f4eeafde64a1940ebc0
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357606"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>以 DTU 為基礎的購買模式的服務層
@@ -62,7 +62,7 @@ ms.locfileid: "59357606"
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>彈性集區 eDTU、儲存體及集區資料庫限制
 
-| | **基本** | **標準** | **進階** |
+| | **基本** | **标准** | **高級** |
 | :-- | --: | --: | --: |
 | 每個資料庫的儲存體大小上限  | 2 GB | 1 TB | 1 TB |
 | 每個集區的儲存體大小上限 | 156 GB | 4 TB | 4 TB |

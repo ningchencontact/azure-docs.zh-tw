@@ -17,10 +17,10 @@ ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881081"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>適用於 SAP NetWeaver 的 SQL Server Azure 虛擬機器 DBMS 部署
@@ -315,7 +315,7 @@ ms.locfileid: "58881081"
 
 
 > [!IMPORTANT]
-> 本文件討論對象是 SQL Server 上的 Windows 版本。 SAP 不支援 Linux 版本的 SQL Server 安裝任何的 SAP 軟體。 木文件不討論 Microsoft Azure SQL Database，此為 Microsoft Azure 平台的「平台即服務」供應項目。 本白皮書中討論的是如何執行 SQL Server 產品 (已知適用於 Azure 虛擬機器中的內部部署)，以及如何運用 Azure 的「基礎架構即為服務」功能。 這兩個產品之間所提供的資料庫性能與功能並不相同，不應混用彼此。 另請參閱： <https://azure.microsoft.com/services/sql-database/>
+> 本文件討論對象是 SQL Server 上的 Windows 版本。 SAP 不支援 Linux 版本的 SQL Server 安裝任何的 SAP 軟體。 木文件不討論 Microsoft Azure SQL Database，此為 Microsoft Azure 平台的「平台即服務」供應項目。 本白皮書中討論的是如何執行 SQL Server 產品 (已知適用於 Azure 虛擬機器中的內部部署)，以及如何運用 Azure 的「基礎架構即為服務」功能。 這兩個產品之間所提供的資料庫性能與功能並不相同，不應混用彼此。 另請參閱：<https://azure.microsoft.com/services/sql-database/>
 > 
 >
 
@@ -362,7 +362,7 @@ ms.locfileid: "58881081"
 ### <a name="formatting-the-disks"></a>將磁碟格式化
 針對 SQL Server，適用於含有 SQL Server 資料和記錄檔之磁碟的 NTFS 區塊大小應該是 64 KB。 不需要將 D:\ 磁碟機格式化。 此磁碟機已預先格式化。
 
-若要確定還原或建立資料庫不會藉由清空檔案的內容來初始化資料檔，您應該確定 SQL Server 服務執行所在的使用者內容具有特定的權限。 通常，Windows 系統管理員群組中的使用者會擁有這些權限。 在非 Windows 系統管理員使用者的使用者內容中執行 SQL Server 服務時，您需要為該使用者指派**執行磁碟區維護工作**的使用者權限。  請參閱 Microsoft 知識庫文件中的詳細資料： <https://support.microsoft.com/kb/2574695>
+若要確定還原或建立資料庫不會藉由清空檔案的內容來初始化資料檔，您應該確定 SQL Server 服務執行所在的使用者內容具有特定的權限。 通常，Windows 系統管理員群組中的使用者會擁有這些權限。 在非 Windows 系統管理員使用者的使用者內容中執行 SQL Server 服務時，您需要為該使用者指派**執行磁碟區維護工作**的使用者權限。  詳細資料請參閱這篇 Microsoft 知識庫文章︰<https://support.microsoft.com/kb/2574695>
 
 ### <a name="impact-of-database-compression"></a>資料庫壓縮的影響
 在 I/O 頻寬可能變成限制因素的組態中，減少 IOPS 的每個量值可能都有助於延展您可以在類似 Azure 的 IaaS 案例中執行的工作負載。 因此，如果尚未這麼做，SAP 和 Microsoft 建議您套用 SQL Server 頁面壓縮，然後再將現有的 SAP 資料庫上傳至 Azure。
@@ -486,16 +486,16 @@ SAP 支援的「資料庫鏡像」(請參閱 SAP 附註 [965908]) 有賴於在 S
 
 至於僅限雲端的部署，最簡單的方式是在 Azure 中設定另一個網域，以便讓這些 DBMS VM (最好專屬於 SAP VM) 位於一個網域。
 
-如果網域不可行，也可以使用憑證資料庫鏡像端點，如下所述： <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
+如果網域不可行，您也可以針對資料庫鏡像端點使用憑證，相關說明請見︰<https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 
-若要設定 Azure 中的資料庫鏡像的教學課程可以在這裡找到： <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
+在 Azure 中設定資料庫鏡像的教學課程可在下列網址中找到︰<https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
 ### <a name="sql-server-always-on"></a>SQL Server Always On
 因為 SAP 內部部署支援 Always On (請參閱 SAP 附註 [1772688])，因此與 Azure 中的 SAP 搭配使用時，同樣得到支援。 有一些關於 SQL Server 可用性群組接聽程式 (請勿與 Azure 可用性設定組混淆) 的特殊考量，因為 Azure 可能在內部部署中，所以目前不允許建立 AD/DNS 物件。 因此，需要有一些不同的安裝步驟來克服 Azure 的特定行為。
 
 以下是使用可用性群組接聽程式的一些考量︰
 
-* 使用可用性群組接聽程式，只能使用 Windows Server 2012 或更高版本作為 VM 的客體作業系統。 適用於 Windows Server 2012，您必須先確定會套用此修補程式： <https://support.microsoft.com/kb/2854082> 
+* 使用可用性群組接聽程式，只能使用 Windows Server 2012 或更高版本作為 VM 的客體作業系統。 針對 Windows Server 2012，務必要套用此修補程式︰<https://support.microsoft.com/kb/2854082> 
 * Windows Server 2008 R2 則沒有此修補程式，必須以和使用「資料庫鏡像」相同的方式使用 AlwaysOn，方法是在連接字串中指定容錯移轉夥伴 (透過 SAP default.pfl 參數 dbs/mss/server 來完成 - 請參閱 SAP 附註 [965908])。
 * 使用可用性群組接聽程式時，資料庫 VM 需要連接到專用的負載平衡器。 為了避免 Azure 在這兩個 VM 意外關閉的情況下指派新的 IP 位址，您應該在 Always On 組態中為這些 VM 的網路介面指派靜態 IP 位址 (如需了解如何定義靜態 IP 位址，請參閱[這篇][virtual-networks-reserved-private-ip]文章)
 * 建置叢集需要指派特定 IP 位址的 WSFC 叢集組態時需要特殊的步驟，因為具有其目前功能的 Azure 會為叢集名稱指派與叢集建立所在的節點相同的 IP 位址。 這表示必須執行手動步驟，為叢集指派不同的 IP 位址。

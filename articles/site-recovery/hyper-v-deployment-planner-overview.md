@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360264"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>關於 Hyper-V 至 Azure 災害復原的 Azure Site Recovery 部署規劃工具
@@ -57,7 +57,7 @@ Azure Site Recovery 部署規劃工具是一項命令列工具，適用於 Hyper
 * 每個批次的保護順序
 * 每個批次完成初始複寫的估計時間
 
-**估計 Azure DR 成本**
+**Azure DR 的估計成本**
 * Azure DR 的總估計成本：計算、儲存體、網路和 Azure Site Recovery 授權成本
 * 每一 VM 的詳細成本分析
 
@@ -70,7 +70,7 @@ Azure Site Recovery 部署規劃工具是一項命令列工具，適用於 Hyper
 
 ## <a name="support-matrix"></a>支援矩陣
 
-| | **VMware 至 Azure** |**Hyper-V 至 Azure**|**Azure 至 Azure**|**Hyper-v 至次要站台**|**VMware 至次要網站**
+| | **VMware 至 Azure** |**Hyper-V 至 Azure**|**Azure 至 Azure**|**Hyper-V 至次要網站**|**VMware 至次要網站**
 --|--|--|--|--|--
 支援的案例 |是|是|否|是*|否
 支援的版本 | vCenter 6.5、6.0 或 5.5| Windows Server 2016、Windows Server 2012 R2 | NA |Windows Server 2016、Windows Server 2012 R2|NA
@@ -84,7 +84,7 @@ Azure Site Recovery 部署規劃工具是一項命令列工具，適用於 Hyper
 
 | 伺服器需求 | 描述 |
 |---|---|
-|取得 VM 清單、分析，以及測量輸送量 |<ul><li>作業系統：Microsoft Windows Server 2016 或 Microsoft Windows Server 2012 R2 </li><li>機器組態：8 個 vCPU、16 GB RAM、300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft VisualC++適用於 Visual Studio 2012 可轉散發套件](https://aka.ms/vcplusplus-redistributable)</li><li>透過網際網路從這部伺服器存取 Azure</li><li>Azure 儲存體帳戶</li><li>伺服器的系統管理員存取權</li><li>100 GB 的可用磁碟空間下限 (假設剖析平均各有 3 個磁碟的 1000 部 VM 30 天)</li><li>用來執行 Azure Site Recovery 部署規劃工具的 VM 必須新增到所有 Hyper-V 伺服器的 TrustedHosts 清單。</li><li>要分析的所有 Hyper-V 伺服器必須新增到要用來執行此工具之用戶端 VM 的 TrustedHosts 清單。 [進一步了解如何將伺服器新增到 TrustedHosts 清單](#steps-to-add-servers-into-trustedhosts-list)。 </li><li> 請從用戶端上的 PowerShell 或命令列主控台，以系統管理權限執行此工具</ul></ul>|
+|取得 VM 清單、分析，以及測量輸送量 |<ul><li>作業系統：Microsoft Windows Server 2016 或 Microsoft Windows Server 2012 R2 </li><li>機器組態：8 個 vCPU、16 GB RAM、300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[適用於 Visual Studio 2012 的 Microsoft Visual C++ 可轉散發套件](https://aka.ms/vcplusplus-redistributable)</li><li>透過網際網路從這部伺服器存取 Azure</li><li>Azure 儲存體帳戶</li><li>伺服器的系統管理員存取權</li><li>100 GB 的可用磁碟空間下限 (假設剖析平均各有 3 個磁碟的 1000 部 VM 30 天)</li><li>用來執行 Azure Site Recovery 部署規劃工具的 VM 必須新增到所有 Hyper-V 伺服器的 TrustedHosts 清單。</li><li>要分析的所有 Hyper-V 伺服器必須新增到要用來執行此工具之用戶端 VM 的 TrustedHosts 清單。 [進一步了解如何將伺服器新增到 TrustedHosts 清單](#steps-to-add-servers-into-trustedhosts-list)。 </li><li> 請從用戶端上的 PowerShell 或命令列主控台，以系統管理權限執行此工具</ul></ul>|
 | 報告產生 | 具有 Microsoft Excel 2013 和更新版本的 Windows PC 或 Windows Server |
 | 使用者權限 | 系統管理員帳戶，可在取得 VM 清單和分析作業期間，用來存取 Hyper-V 叢集/Hyper-v 主機。<br>所有必須進行分析之主機所擁有的網域系統管理員帳戶，都應該具有相同認證 (也就是使用者名稱和密碼)
  |

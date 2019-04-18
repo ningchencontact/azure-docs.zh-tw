@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494913"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>建立效能計數器來追蹤效能的分區對應管理員

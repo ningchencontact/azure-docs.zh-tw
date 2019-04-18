@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: c5d4299d2d391a25bfab579f5f78da3718afc24c
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 6b1029c5532e106c269b47e6e184b9c93faf8d09
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042992"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681415"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>使用適用於 Azure CLI 的 IoT 擴充功能來管理 Azure IoT 中樞裝置
 
@@ -32,10 +32,10 @@ ms.locfileid: "48042992"
 | 直接方法             | 使裝置執行動作，例如啟動或停止傳送訊息，或是將裝置重新開機。                                        |
 | 對應項的所需屬性    | 讓裝置進入特定狀態，例如將 LED 設定為綠色，或將遙測傳送間隔設定為 30 分鐘。         |
 | 對應項的報告屬性   | 取得裝置的報告狀態。 例如，裝置會回報 LED 現在正閃爍不停。                                    |
-| 對應項標記                  | 在雲端儲存裝置特定的中繼資料。 例如，販賣機的部署位置。                         |
+| 對應項標記                  | 将设备特定的元数据存储在云中。 例如，販賣機的部署位置。                         |
 | 裝置對應項查詢        | 查詢所有裝置對應項以擷取具有任意條件的這些裝置，例如識別可供使用的裝置。 |
 
-如需差異的詳細說明和使用這些選項的相關指導方針，請參閱[裝置對雲端通訊指導方針](iot-hub-devguide-d2c-guidance.md)和[雲端對裝置通訊指導方針](iot-hub-devguide-c2d-guidance.md)。
+如需差異的詳細說明和使用這些選項的相關指引，請參閱[裝置對雲端通訊指引](iot-hub-devguide-d2c-guidance.md)和[雲端對裝置通訊指引](iot-hub-devguide-c2d-guidance.md)。
 
 「裝置對應項」是存放裝置狀態資訊 (中繼資料、組態和條件) 的 JSON 文件。 IoT 中樞會為其連線的每個裝置保存裝置對應項。 如需裝置對應項的詳細資訊，請參閱[開始使用裝置對應項](iot-hub-node-node-twin-getstarted.md)。
 
@@ -49,13 +49,13 @@ ms.locfileid: "48042992"
 
 ## <a name="what-you-need"></a>您需要什麼
 
-* 完成涵蓋下列需求的[設定裝置](iot-hub-raspberry-pi-kit-node-get-started.md)教學課程：
+* 完成[Raspberry Pi 線上模擬器](iot-hub-raspberry-pi-web-simulator-get-started.md)教學課程中，或其中一個裝置教學課程中，例如[搭配 node.js 的 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)。 這些會涵蓋下列需求：
 
   - 有效的 Azure 訂用帳戶。
-  - 位於您訂用帳戶中的 Azure IoT 中樞。
-  - 將訊息傳送到您 Azure IoT 中樞的用戶端應用程式。
+  - 已在订阅中创建一个 Azure IoT 中心。
+  - 一个可向 Azure IoT 中心发送消息的客户端应用程序。
 
-* 請確定在此教學課程期間，您的裝置是和用戶端應用程式一起執行。
+* 請確定在本教學課程期間，您的裝置是和用戶端應用程式一起執行。
 
 * [Python 2.7x 或 Python 3.x](https://www.python.org/downloads/)
 

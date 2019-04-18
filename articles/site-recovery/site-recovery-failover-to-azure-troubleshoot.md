@@ -10,10 +10,10 @@ ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
 ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492850"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>針對將 VMware VM 或實體機器容錯移轉至 Azure 時的錯誤進行疑難排解
@@ -76,10 +76,10 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 這可�
 
 如果 Azure 中容錯移轉虛擬機器上的 [連線] 按鈕呈現灰色，而您未透過 Express Route 或網站間 VPN 連線來連線到 Azure，則請：
 
-1. 移至 [虛擬機器] > [網路]，按一下所需網路介面的名稱。  ![網路介面](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. 移至 [虛擬機器] > [網路]，按一下所需網路介面的名稱。  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. 瀏覽至 [IP 組態]，然後按一下所需 IP 組態的名稱欄位。 ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. 若要啟用公用 IP 位址，請按一下 [啟用]。 ![啟用 IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. 按一下 [設定必要設定] > [建立新項目]。 ![新建](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. 按一下 [設定必要設定] > [建立新項目]。 ![建立新項目](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. 輸入公用位址的名稱，選擇 [SKU] 和 [指派] 的預設選項，然後按一下 [確定]。
 6. 現在，為了儲存所做的變更，請按一下 [儲存]。
 7. 關閉面板，然後瀏覽至虛擬機器的 [概觀] 區段來進行連線/RDP。

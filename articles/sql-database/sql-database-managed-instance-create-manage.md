@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6362084c11ce7aa9078823758700239694162765
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359146"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL Database 受控執行個體的管理 API 參考
@@ -31,7 +31,7 @@ ms.locfileid: "59359146"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 若要使用 Azure PowerShell 建立和管理受控執行個體，請使用下列 PowerShell 指令程式。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
@@ -58,14 +58,14 @@ ms.locfileid: "59359146"
 
 | Cmdlet | 描述 |
 | --- | --- |
-|[az sql mi 建立](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |建立受控執行個體|
-|[az sql mi 的清單](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|列出可用的受控執行個體|
+|[az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |建立受控執行個體|
+|[az sql mi list](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|列出可用的受控執行個體|
 |[az sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|取得受控執行個體的詳細資料|
 |[az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|更新受控執行個體|
 |[az sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|移除受控執行個體|
-|[az sql midb 建立](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |建立受控資料庫|
-|[az sql midb 清單](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|列出可用的受控資料庫|
-|[az sql midb 還原](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|還原受控資料庫|
+|[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |建立受控資料庫|
+|[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|列出可用的受控資料庫|
+|[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|還原受控資料庫|
 |[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|移除受控資料庫|
 
 ## <a name="transact-sql-create-and-manage-instance-databases"></a>Transact-SQL：建立和管理執行個體資料庫
@@ -79,7 +79,7 @@ ms.locfileid: "59359146"
 
 | 命令 | 描述 |
 | --- | --- |
-|[建立資料庫](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|建立新的受控執行個體資料庫。 您必須連線到 master 資料庫才能建立新的資料庫。|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|建立新的受控執行個體資料庫。 您必須連線到 master 資料庫才能建立新的資料庫。|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |修改 Azure SQL Database 受控執行個體資料庫。|
 
 ## <a name="rest-api-create-and-manage-managed-instances"></a>REST API：建立和管理受控執行個體
@@ -88,12 +88,12 @@ ms.locfileid: "59359146"
 
 | 命令 | 描述 |
 | --- | --- |
-|[受控執行個體-建立或更新](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|建立或更新受控執行個體。|
-|[受管理的執行個體-刪除](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|刪除受控執行個體。|
-|[受管理的執行個體-取得](https://docs.microsoft.com/rest/api/sql/managedinstances/get)|取得受控執行個體。|
-|[受管理的執行個體-清單](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|傳回訂用帳戶之中受控執行個體的清單。|
-|[受控執行個體-依資源群組的清單](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|傳回資源群組之中受控執行個體的清單。|
-|[受管理的執行個體-更新](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|更新受控執行個體。|
+|[Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|建立或更新受控執行個體。|
+|[Managed Instances - Delete](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|刪除受控執行個體。|
+|[Managed Instances - Get](https://docs.microsoft.com/rest/api/sql/managedinstances/get)|取得受控執行個體。|
+|[Managed Instances - List](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|傳回訂用帳戶之中受控執行個體的清單。|
+|[Managed Instances - List By Resource Group](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|傳回資源群組之中受控執行個體的清單。|
+|[Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|更新受控執行個體。|
 
 ## <a name="next-steps"></a>後續步驟
 

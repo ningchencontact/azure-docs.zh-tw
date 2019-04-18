@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426523"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>範例 3：： 建置周邊網路，以透過防火牆、 UDR 和 Nsg 保護網路
@@ -27,7 +27,7 @@ ms.locfileid: "59426523"
 
 在此範例中，您會建立周邊網路 （也稱為 DMZ、 非軍事區域和遮蔽式子網路）。 此範例會實作防火牆、 四個 Windows 伺服器、 使用者定義路由 (UDR)、 IP 轉送和網路安全性群組 (Nsg)。 這篇文章會引導您透過每個相關的命令，以提供更深入的了解每個步驟。 流量案例一節也說明深入了解如何流量流經周邊網路中的防禦層。 最後，[參考] 區段包含所有的程式碼和指示，來建置此環境，讓您能夠測試和試驗各種案例。
 
-![有 NVA、NSG 和 UDR 的雙向周邊網路][1]
+![包含 NVA、NSG 和 UDR 的双向外围网络][1]
 
 ## <a name="environment-setup"></a>環境設定
 

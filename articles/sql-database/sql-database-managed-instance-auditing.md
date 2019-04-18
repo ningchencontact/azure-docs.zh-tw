@@ -15,10 +15,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357434"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>開始使用 Azure SQL Database 受控執行個體稽核
@@ -60,7 +60,7 @@ ms.locfileid: "59357434"
 
         ![Blob 容器屬性按鈕](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     1. 按一下複製圖示來複製容器 URL，然後儲存 URL (例如，儲存在 [記事本] 中) 供之後使用。 容器 URL 的格式應該是 `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. 按一下複製圖示來複製容器 URL，然後儲存 URL (例如，儲存在 [記事本] 中) 供之後使用。 容器 URL 的格式應為 `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
         ![Blob 容器複製 URL](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
@@ -135,7 +135,7 @@ ms.locfileid: "59357434"
 
      1. 從下拉式清單中選取訂用帳戶、儲存體帳戶和 Blob 容器，或者，藉由按一下 [建立] 來建立您自己的容器。 當您完成後，請按一下 [確定]：
 
-        ![選取 Azure 訂用帳戶、 儲存體帳戶和 blob 容器](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![选择 Azure 订阅、存储帐户和 Blob 容器](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. 在 [建立稽核] 對話方塊中按一下 [確定]。
 
@@ -154,13 +154,13 @@ ms.locfileid: "59357434"
 
 如需其他資訊：
 
-- [稽核 Azure SQL Database 和 SQL Server 資料庫中單一資料庫、 彈性集區、 s 和受管理的執行個體之間的差異](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
-- [建立伺服器稽核](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
+- [Azure SQL Database 中的單一資料庫、彈性集區和受控執行個體以及 SQL Server 中的資料庫兩者之間的稽核差異](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>設定您的伺服器事件中樞或 Azure 監視器的記錄檔的稽核
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>将服务器的审核设置为事件中心或 Azure Monitor 日志
 
-從受管理的執行個體的稽核記錄可以傳送至事件中樞或 Azure 監視器記錄檔中。 本節說明如何進行此設定：
+可将托管实例的审核日志发送到事件中心或 Azure Monitor 日志。 本節說明如何進行此設定：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中瀏覽至受控執行個體。
 
@@ -170,7 +170,7 @@ ms.locfileid: "59357434"
 
 4. 從記錄清單中選取 [SQLSecurityAuditEvents]。
 
-5. 選取的稽核事件-事件中樞、 Azure 監視器記錄檔，或兩者的目的地。 為每個目標設定必要的參數 (例如 Log Analytics 工作區)。
+5. 选择审核事件的目标 - 事件中心和/或 Azure Monitor 日志。 為每個目標設定必要的參數 (例如 Log Analytics 工作區)。
 
 6. 按一下 [檔案] 。
 
@@ -190,7 +190,7 @@ ms.locfileid: "59357434"
    - [建立伺服器稽核規格 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [建立資料庫稽核規格 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. 啟用在步驟 8 中建立伺服器稽核：
+10. 启用在步骤 8 中创建的服务器审核：
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
@@ -234,10 +234,10 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 向 Azure Blob 儲存體進行稽核的 `CREATE AUDIT` 語法有一個主要差異：
 
 - 已提供新的 `TO URL` 語法，可讓您指定放置 `.xel` 檔案的 Azure Blob 儲存體容器 URL。
-- 一種新語法`TO EXTERNAL MONITOR`提供，讓即使中樞和 Azure 監視器的記錄目標。
+- 提供了新语法 `TO EXTERNAL MONITOR` 以启用事件中心和 Azure Monitor 日志这两个目标。
 - `TO FILE` 語法**不受支援**，因為 SQL Database 無法存取 Windows 檔案共用。
 - **不支援**關機選項。
-- `queue_delay` 0 的**不支援**。
+- **不支援**使用 0 的 `queue_delay`。
 
 ## <a name="next-steps"></a>後續步驟
 

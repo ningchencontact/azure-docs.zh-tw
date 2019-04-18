@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
 ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361248"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>連線到媒體服務 v3 API-.NET
@@ -225,17 +225,17 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>後續步驟
 
-- [教學課程：上傳、 編碼和串流處理視訊-.NET](stream-files-tutorial-with-api.md) 
-- [教學課程：Stream 即時使用媒體服務 v3-.NET](stream-live-tutorial-with-api.md)
-- [教學課程：分析影片使用媒體服務 v3-.NET](analyze-videos-tutorial-with-api.md)
-- [從本機檔案-.NET 中建立的作業輸入](job-input-from-local-file-how-to.md)
-- [從 HTTPS URL-.NET 中建立的作業輸入](job-input-from-http-how-to.md)
-- [使用自訂的轉換為.NET 進行編碼](customize-encoder-presets-how-to.md)
-- [使用 AES-128 動態加密和金鑰傳遞服務-.NET](protect-with-aes128.md)
-- [使用 DRM 動態加密和授權傳遞服務-.NET](protect-with-drm.md)
-- [取得簽署金鑰，從現有的原則-.NET](get-content-key-policy-dotnet-howto.md)
-- [使用媒體服務-.NET 建立篩選器](filters-dynamic-manifest-dotnet-howto.md)
-- [進階的 Azure Functions v2 使用媒體服務 v3 的影片隨範例](https://aka.ms/ams3functions)
+- [教學課程：上傳、編碼和串流影片 - .NET](stream-files-tutorial-with-api.md) 
+- [教學課程：透過媒體服務 v3 進行即時串流 - .NET](stream-live-tutorial-with-api.md)
+- [教學課程：透過媒體服務 v3 分析影片 - .NET](analyze-videos-tutorial-with-api.md)
+- [從本機檔案建立作業輸入 - .NET](job-input-from-local-file-how-to.md)
+- [從 HTTPS URL 建立作業輸入 - .NET](job-input-from-http-how-to.md)
+- [使用自訂轉換進行編碼 - .NET](customize-encoder-presets-how-to.md)
+- [使用 AES-128 動態加密和金鑰傳遞服務 - .NET](protect-with-aes128.md)
+- [使用 DRM 動態加密與授權傳遞服務 - .NET](protect-with-drm.md)
+- [從現有原則取得簽署金鑰 - .NET](get-content-key-policy-dotnet-howto.md)
+- [使用媒體服務建立篩選 - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [搭配使用 Azure Functions v2 與媒體服務 v3 的進階影片隨選範例](https://aka.ms/ams3functions)
 
 ## <a name="see-also"></a>請參閱
 

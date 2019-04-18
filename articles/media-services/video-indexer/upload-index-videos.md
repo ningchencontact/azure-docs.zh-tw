@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893447"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
@@ -85,9 +85,9 @@ ms.locfileid: "58893447"
 
 如果原始或外部錄影包含背景雜訊，請使用此參數。 此參數會用來設定索引編製程序。 您可以指定下列值：
 
-- `Default` – 索引並擷取使用音訊和視訊的深入解析
-- `AudioOnly` – 索引並擷取深入解析使用音訊唯一 （忽略影片）
-- `DefaultWithNoiseReduction` – 索引，並從音訊及視訊擷取深入解析，同時在音訊資料流上套用雜訊減少演算法
+- `Default` – 使用音訊和視訊來編製索引及擷取深入解析
+- `AudioOnly` – 只使用音訊 (忽略視訊) 來編製索引及擷取深入解析
+- `DefaultWithNoiseReduction` – 從音訊及視訊編製索引及擷取深入解析的同時，在音訊串流上套用減少雜訊演算法
 
 價格取決於選取的索引編製選項。  
 

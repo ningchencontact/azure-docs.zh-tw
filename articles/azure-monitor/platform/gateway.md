@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 81005c2c95c9cccb32796d1afca4208f5ff8b919
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437334"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699265"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Azure 監視器中使用 Log Analytics 閘道沒有網際網路存取的電腦連接
 
@@ -124,9 +124,9 @@ Log Analytics 閘道支援只傳輸層安全性 (TLS) 1.0、 1.1 及 1.2。  它
 1. 在您的工作區刀鋒視窗中，於 [設定] 下選取 [進階設定]。
 1. 移至**連接的來源** > **Windows 伺服器**，然後選取**下載 Log Analytics 閘道**。
 
-## <a name="install-the-log-analytics-gateway"></a>安裝 Log Analytics 閘道
+## <a name="install-log-analytics-gateway-using-setup-wizard"></a>安裝使用安裝精靈的 Log Analytics 閘道
 
-若要安裝閘道，請遵循下列步驟。  （如果您安裝先前版本，稱為 「 Log Analytics 轉寄站時，它將會升級至此版本。）
+若要安裝閘道，使用安裝精靈，請遵循下列步驟。 
 
 1. 從目的地資料夾中，按兩下 **Log Analytics gateway.msi**。
 1. 在 [歡迎] 頁面上，選取 [下一步]。
@@ -152,6 +152,40 @@ Log Analytics 閘道支援只傳輸層安全性 (TLS) 1.0、 1.1 及 1.2。  它
 
    ![顯示螢幕擷取畫面的本機服務，OMS 閘道正在執行](./media/gateway/gateway-service.png)
 
+## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>使用命令列將 Log Analytics 閘道安裝
+為閘道下載的檔案是支援從命令列或其他自動化的方法的無訊息安裝的 Windows Installer 套件。 如果您不熟悉 Windows 安裝程式的標準命令列選項，請參閱[命令列選項](https://docs.microsoft.com/windows/desktop/Msi/command-line-options)。   
+
+下表會反白顯示安裝程式所支援的參數。
+
+|參數| 注意|
+|----------|------| 
+|連接埠號碼 | 閘道上接聽的 TCP 連接埠號碼 |
+|PROXY | Proxy 伺服器的 IP 位址 |
+|INSTALLDIR | 指定的閘道軟體檔案的安裝目錄的完整的路徑 |
+|使用者名稱 | 若要使用 proxy 伺服器進行驗證的使用者識別碼 |
+|密碼 | 使用者識別碼來向 proxy 的密碼 |
+|LicenseAccepted | 指定的值為**1**以確認您接受授權合約 |
+|HASAUTH | 指定的值為**1**時指定使用者名稱/密碼參數 |
+|HASPROXY | 指定的值為**1**指定的 IP 位址時**PROXY**參數 |
+
+若要以無訊息方式安裝閘道，並設定特定的 proxy 位址、 連接埠號碼，輸入下列命令：
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+```
+
+使用 /qn 命令列選項會隱藏安裝程式、 /qb 無訊息安裝期間顯示的設定。  
+
+如果您需要提供認證來向 proxy，輸入下列命令：
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+```
+
+安裝完成後，您可以確認設定是否接受 （exlcuding 使用者名稱和密碼） 使用下列 PowerShell cmdlet:
+
+- **取得 OMSGatewayConfig** – 傳回閘道器設定為接聽 TCP 連接埠。
+- **取得 OMSGatewayRelayProxy** – 傳回您將其設定為與通訊的 proxy 伺服器的 IP 位址。
 
 ## <a name="configure-network-load-balancing"></a>設定網路負載平衡 
 您可以使用的網路負載平衡 (NLB) 使用 Microsoft 為高可用性閘道設定[網路負載平衡 (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing)， [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)，或以硬體為基礎的負載平衡器。 負載平衡器可藉由跨其節點將來自 Log Analytics 代理程式或 Operations Manager 管理伺服器的要求連線進行重新導向，來管理流量。 如果閘道伺服器故障，流量就會被重新導向到其他節點。

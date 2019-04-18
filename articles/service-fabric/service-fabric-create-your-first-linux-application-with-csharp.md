@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 04163bea8f4c1247f42b65c35c2b82910e623bc9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7bb9b1c545d30f66a09817ba977f12666a9f41c9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661372"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699127"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>建立第一個 Azure Service Fabric 應用程式
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Service Fabric Yeoman 範本包含建置指令碼，可用來從終端機建置�
 
 1. 使用監看式公用程式執行指令碼，以查看動作項目服務的輸出。
 
-   如果是 MAC OS X，您需要藉由執行下列其他命令，將 myactorsvcTestClient 資料夾複製到容器內的某些位置。
+   MAC OS X，如果您需要執行下列的其他命令，將 myactorsvcTestClient 資料夾複製到相同的位置，在容器內。
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

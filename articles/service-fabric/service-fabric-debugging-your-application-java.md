@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880284"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>使用 Eclipse 針對 Java Service Fabric 應用程式進行偵錯
@@ -27,7 +27,7 @@ ms.locfileid: "58880284"
 > * [Eclipse/Java](service-fabric-debugging-your-application-java.md)
 > 
 
-1. 遵循 [設定 Service Fabric 開發環境](service-fabric-get-started-linux.md)中的步驟來啟動本機開發叢集。
+1. 按 [设置 Service Fabric 开发环境](service-fabric-get-started-linux.md)中的步骤创建本地开发群集。
 
 2. 更新您想要偵錯之服務的 entryPoint.sh，使其以遠端偵錯參數開始 Java 處理程序。 您可以在以下位置找到此檔案：`ApplicationName\ServiceNamePkg\Code\entrypoint.sh`。 此範例已設定連接埠 8001 來進行偵錯。
 
@@ -50,5 +50,5 @@ ms.locfileid: "58880284"
 
 ### <a name="next-steps"></a>後續步驟
 
-* [使用 Linux Azure 診斷來收集記錄檔](service-fabric-diagnostics-how-to-setup-lad.md)。
+* [使用 Linux Azure 診斷來收集記錄](service-fabric-diagnostics-how-to-setup-lad.md)。
 * [在本機監視及診斷服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)。

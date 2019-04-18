@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: c7edc7979636ced8697aa5ad724f9c6600d840bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283353"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>加速網路與 Azure 虛擬機器災害復原
@@ -58,7 +58,7 @@ Azure Site Recovery 只有在來源虛擬機器已啟用加速網路時，才支
 * **RHEL 7.4**
 * **CentOS 7.4**
 * **CoreOS Linux**
-* **Debian 選取 「 伸展 」 具有反向移植核心**
+* **具有反向移植核心的 Debian "Stretch"**
 * **Oracle Linux 7.4**
 
 ### <a name="supported-vm-instances"></a>支援的 VM 執行個體

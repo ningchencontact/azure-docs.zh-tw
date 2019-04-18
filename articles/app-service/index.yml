@@ -106,7 +106,7 @@ sections:
         style: ordered
         items:
           - html: 使用 <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> 或 <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">將現有的自訂網域對應至您的應用程式 </a>
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">將現有的自訂網域對應至您的應用程式</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">將現有的 SSL 憑證與您的應用程式繫結</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">將 CDN 加入至您的應用程式</a>
   - title: 透過 Microsoft Learn 增進您的技巧

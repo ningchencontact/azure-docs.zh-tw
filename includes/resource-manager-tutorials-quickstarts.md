@@ -15,10 +15,10 @@ ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
 ms.openlocfilehash: 8c5347b412475b86222acabb76b88baaceb7645a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59291795"
 ---
 ## <a name="quickstarts-and-tutorials"></a>快速入門與教學課程
@@ -41,12 +41,12 @@ ms.locfileid: "59291795"
     |[建立多個執行個體](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|建立多個 Azure 資源執行個體。 在本教學課程中，您會建立多個儲存體帳戶執行個體。|
     |[設定資源部署順序](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|定義資源相依性。 在本教學課程中，您會建立虛擬網路、虛擬機器及相依的 Azure 資源。 您會了解如何定義相依性。|
     |[使用條件](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|根據一些參數值來部署資源。 在本教學課程中，您會定義範本，以根據參數值建立新的儲存體帳戶或使用現有的儲存體帳戶。|
-    |[將 key vault 整合](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|從 Azure Key Vault 擷取祕密/密碼。 在本教學課程中，您會建立虛擬機器。  虛擬機器系統管理員密碼會擷取自 Key Vault。|
+    |[整合金鑰保存庫](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|從 Azure Key Vault 擷取祕密/密碼。 在本教學課程中，您會建立虛擬機器。  虛擬機器系統管理員密碼會擷取自 Key Vault。|
     |[建立連結的範本](../articles/azure-resource-manager/resource-manager-tutorial-create-linked-templates.md)|將範本模組化，並從某個範本呼叫其他範本。 在本教學課程中，您會建立虛擬網路、虛擬機器及相依的資源。  連結的範本中會定義相依儲存體帳戶。 |
-    |[部署虛擬機器擴充功能](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|使用延伸模組來執行部署後工作。 在本教學課程中，您會部署自訂指令碼延伸模組，以在虛擬機器上安裝 Web 伺服器。 |
+    |[部署虛擬機器延伸模組](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|使用延伸模組來執行部署後工作。 在本教學課程中，您會部署自訂指令碼延伸模組，以在虛擬機器上安裝 Web 伺服器。 |
     |[部署 SQL 延伸模組](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|使用延伸模組來執行部署後工作。 在本教學課程中，您會部署自訂指令碼延伸模組，以在虛擬機器上安裝 Web 伺服器。 |
     |[保護成品](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|保護完成部署所需的成品。 在教學課程中，您將了解如何保護 Deploy SQL 擴充功能教學課程中使用的成品。 |
-    |[使用安全部署實務](../articles/azure-resource-manager/deployment-manager-tutorial.md)|使用 Azure 部署管理員。 |
-    |[教學課程：對 Resource Manager 範本的部署進行疑難排解](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md)|針對範本部署問題進行疑難排解。|
+    |[使用安全部署做法](../articles/azure-resource-manager/deployment-manager-tutorial.md)|使用 Azure 部署管理員。 |
+    |[教學課程：對 Resource Manager 範本部署進行疑難排解](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md)|針對範本部署問題進行疑難排解。|
 
 您可以個別使用這些教學課程，或是當作一個用以學習主要 Resource Manager 範本開發概念的系列。

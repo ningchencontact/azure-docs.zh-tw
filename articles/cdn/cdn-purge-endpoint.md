@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: magattus
 ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916474"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>清除 Azure CDN 端點
@@ -75,5 +75,5 @@ Azure CDN 邊緣節點會快取資產，直到資產的存留時間 (TTL) 到期
 
 ## <a name="see-also"></a>請參閱
 * [在 Azure CDN 端點上預先載入資產](cdn-preload-endpoint.md)
-* [Azure CDN REST API 參考-清除或預先載入端點](/rest/api/cdn/endpoints)
+* [Azure CDN REST API 參考資料 - 清除或預先載入端點](/rest/api/cdn/endpoints)
 

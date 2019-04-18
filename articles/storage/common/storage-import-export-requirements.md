@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 47ecfc2ae1352ad24b5cfd7fc39bca26bae09df7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457780"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679721"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 匯入/匯出系統需求
 
@@ -26,7 +26,7 @@ ms.locfileid: "55457780"
 
 |平台 |版本 |
 |---------|---------|
-| Windows     | Windows 7 Enterprise、Windows 7 Ultimate <br> Windows 8 Pro、Windows 8 Enterprise、Windows 8.1 Pro、Windows 8.1 Enterprise <br> Windows 10        |
+|Windows     | Windows 7 Enterprise、Windows 7 Ultimate <br> Windows 8 Pro、Windows 8 Enterprise、Windows 8.1 Pro、Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012、Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Windows 用戶端的其他必要軟體
@@ -74,7 +74,7 @@ Azure 匯入/匯出服務支援下列儲存體帳戶類型：
 
 |磁碟類型  |大小  |支援 |不支援  |
 |---------|---------|---------|---------|
-|SSD    |   2.5 吋      |         |         |
+|SSD    |   2.5 吋      |SATA III          |  USB       |
 |HDD     |  2.5 吋<br>3.5 吋       |SATA II、SATA III         |具有內建 USB 介面卡的外接式 HDD <br> 外接式 HDD 機殼內的磁碟         |
 
 

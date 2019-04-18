@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884341"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>避免在組織中使用不當密碼
@@ -123,4 +123,4 @@ Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD 
 ## <a name="next-steps"></a>後續步驟
 
 * [設定自訂禁用密碼清單](howto-password-ban-bad.md)
-* [啟用 Azure AD 密碼保護代理程式內部](howto-password-ban-bad-on-premises-deploy.md)
+* [啟用內部部署的 Azure AD 密碼保護代理程式](howto-password-ban-bad-on-premises-deploy.md)

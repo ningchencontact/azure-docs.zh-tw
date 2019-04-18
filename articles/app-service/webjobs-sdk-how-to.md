@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895202"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 進行事件驅動幕後處理
@@ -52,7 +52,7 @@ ms.locfileid: "58895202"
 
 在本地运行时，WebJobs SDK 在 local.settings.json 文件中查找 Azure 存储和 Azure 服务总线连接字符串；在 Azure 中运行时，它会在 WebJob 的环境中查找这些字符串。 默认情况下，需要名为 `AzureWebJobsStorage` 的存储连接字符串设置。  
 
-使用版本 2.*x* 的 SDK，可以对这些连接字符串使用自己的名称，或将其存储于其他位置。 您可以在程式碼中使用設定名稱[ `JobHostConfiguration` ]，如下所示：
+使用版本 2.*x* 的 SDK，可以对这些连接字符串使用自己的名称，或将其存储于其他位置。 可在代码中使用 [`JobHostConfiguration`] 设置名称，如下所示：
 
 ```cs
 static void Main(string[] args)
@@ -80,7 +80,7 @@ static void Main(string[] args)
 
 | 屬性 | 開發設定 |
 | ------------- | ------------- |
-| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` 若要最大化記錄輸出。 |
+| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` 將記錄輸出最大化。 |
 | `Queues.MaxPollingInterval`  | 最低值可確保立即觸發佇列方法。  |
 | `Singleton.ListenerLockPeriod` | 15 秒在快速反覆式開發法中有幫助。 |
 
@@ -368,11 +368,11 @@ class Program
 
 可配置以下绑定：
 
-* [Azure CosmosDB 觸發程序](#azure-cosmosdb-trigger-configuration-version-3x)
-* [事件中樞觸發程序](#event-hubs-trigger-configuration-version-3x)
+* [Azure CosmosDB 触发器](#azure-cosmosdb-trigger-configuration-version-3x)
+* [事件中心触发器](#event-hubs-trigger-configuration-version-3x)
 * 佇列儲存體觸發程序
-* [SendGrid 繫結](#sendgrid-binding-configuration-version-3x)
-* [服務匯流排觸發程序](#service-bus-trigger-configuration-version-3x)
+* [SendGrid 绑定](#sendgrid-binding-configuration-version-3x)
+* [服务总线触发器](#service-bus-trigger-configuration-version-3x)
 
 ### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Azure CosmosDB 触发器配置（版本 3.*x*）
 
@@ -672,7 +672,7 @@ Azure Functions 會實作 `INameResolver`，以從應用程式設定取得值，
 
 如果需要在使用 `Queue`、`Blob` 或 `Table` 等绑定特性之前在函数中执行某项操作，可以使用 `IBinder` 接口。
 
-下列範例會使用輸入佇列訊息，並在輸出佇列中建立含有相同內容的新訊息。 輸出佇列名稱會由函數主體中的程式碼設定。
+下列範例會使用輸入佇列訊息，並在輸出佇列中建立含有相同內容的新訊息。 输出队列名称由函数正文中的代码设置。
 
 ```cs
 public static void CreateQueueMessage(
@@ -803,7 +803,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs)以實作分散式鎖定。 可以在 `AzureWebJobsStorage` 存储帐户的 `azure-webjobs-host` 容器中的路径“locks”下面找到单一实例使用的租约 Blob。 例如，稍早所示第一個 `ProcessImage` 範例的租用二進位大型物件路徑可以是 `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`。 所有路徑皆包含 JobHost 識別碼，在此個案中為 061851c758f04938a4426aa9ab3869c0。
 
-## <a name="async-functions"></a>Async 函數
+## <a name="async-functions"></a>异步函数
 
 有关如何编写异步函数代码的信息，请参阅 [Azure Functions 文档](../azure-functions/functions-dotnet-class-library.md#async)。
 
@@ -1013,6 +1013,6 @@ config.LoggerFactory = new LoggerFactory()
 [`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
 [`TelemetryClient`]: /dotnet/api/microsoft.applicationinsights.telemetryclient
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
-[' ITelemetryInitializer']: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
+[`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
 [`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
 ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878497"
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
@@ -181,7 +181,7 @@ ER 與 VPN 閘道路由傳播，可以透過使用路由表上的屬性來在子
 ### <a name="requirements"></a>需求
 
 1. 在相同的 Azure 區域中實作兩個虛擬網路，並且讓資源可在虛擬網路之間通訊。
-2. 啟用內部部署網路，以透過 VPN 通道在網際網路間安全地與兩個虛擬網路進行通訊。 *或者，可以使用 ExpressRoute 連線，但在此範例中，使用 VPN 連線。*
+2. 啟用內部部署網路，以透過 VPN 通道在網際網路間安全地與兩個虛擬網路進行通訊。 *或者，也可以使用 ExpressRoute 連線，但此範例中會使用 VPN 連線。*
 3. 針對一個虛擬網路中有一個子網路：
  
     - 強制子網路的所有輸出流量 (除了傳送至 Azure 儲存體和子網路內的流量) 通過網路的虛擬設備，以便進行檢查和記錄。
@@ -255,8 +255,8 @@ Subnet2 的路由表包含所有 Azure 建立的預設路由和選擇性 VNet �
 
 ## <a name="next-steps"></a>後續步驟
 
-- [建立使用者定義的路由表與路由和網路虛擬設備](tutorial-create-route-table-portal.md)
-- [設定適用於 Azure VPN 閘道 BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [使用 ExpressRoute 與 BGP](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
+- [使用路由和網路虛擬設備建立使用者定義路由表](tutorial-create-route-table-portal.md)
+- [設定適用於 Azure VPN 閘道的 BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [搭配使用 ExpressRoute 與 BGP](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [檢視子網路的所有路由](diagnose-network-routing-problem.md)。 使用者定義路由表只會顯示使用者定義路由，而不會顯示子網路的預設和 BGP 路由。 檢視所有路由會顯示子網路 (內含網路介面) 的預設、BGP 及使用者定義路由。
 - 在虛擬機器和目的地 IP 位址間[判斷下一個躍點類型](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 Azure 網路監看員的下一個躍點功能，可讓您判斷流量是否離開子網路且正在路由到您覺得正確的地方。

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360524"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>使用影片索引器 API 自訂人員模型
@@ -54,7 +54,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 ### <a name="request-parameters"></a>要求參數 
 
-|**名稱**|**類型**|**必要項**|**描述**|
+|**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
 |location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
 |accountId|字串|是|帳戶的全域唯一識別碼|
@@ -99,7 +99,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要項**|**描述**|
+|**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
 |location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
 |accountId|字串|是|帳戶的全域唯一識別碼|
@@ -136,7 +136,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要項**|**描述**|
+|**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
 |location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
 |accountId|字串|是|帳戶的全域唯一識別碼|
@@ -191,7 +191,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要項**|**描述**|
+|**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
 |location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
 |accountId|字串|是|帳戶的全域唯一識別碼|
@@ -212,4 +212,4 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ## <a name="next-steps"></a>後續步驟
 
-[自訂使用影片索引子網站的人員模型](customize-person-model-with-website.md)
+[使用影片索引器網站自訂人員模型](customize-person-model-with-website.md)

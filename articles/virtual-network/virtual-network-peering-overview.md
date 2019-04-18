@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489976"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678474"
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -63,8 +63,7 @@ ms.locfileid: "59489976"
 
 ![虛擬網路對等互連傳輸](./media/virtual-networks-peering-overview/figure04.png)
 
-VNet 對等互連和全域 VNet 對等互連 （預覽） 支援閘道傳輸。 您可以使用遠端閘道，或全域對等互連在預覽中的虛擬網路中允許閘道傳輸。 預覽適用於所有 Azure 區域、 中國雲端區域和政府雲端區域。 不需要加入允许列表。 可以通过 CLI、PowerShell、模板或 API 在预览版中进行测试。 预览版不支持门户。
-只有當閘道位於虛擬網路 (Resource Manager) 時，才支援透過不同部署模型 （Resource Manager 和傳統） 建立虛擬網路之間的閘道傳輸。 若要深入了解如何使用閘道來進行傳輸，請參閱[設定 VPN 閘道以在虛擬網路對等互連中進行傳輸](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+VNet 對等互連和全域 VNet 對等互連支援閘道傳輸。 只有當閘道位於虛擬網路 (Resource Manager) 時，才支援透過不同部署模型 （Resource Manager 和傳統） 建立虛擬網路之間的閘道傳輸。 若要深入了解如何使用閘道來進行傳輸，請參閱[設定 VPN 閘道以在虛擬網路對等互連中進行傳輸](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 當共用單一 Azure ExpressRoute 連線的虛擬網路已對等互連時，它們之間的流量會經過對等互連關聯性 (也就是透過 Azure 骨幹網路)。 您依然可以在每個虛擬網路中使用本機閘道來連線內部部署線路。 此外，您也可以使用共用閘道並設定內部部署連線的傳輸。
 

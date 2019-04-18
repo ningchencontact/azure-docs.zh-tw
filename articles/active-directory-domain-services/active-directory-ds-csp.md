@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
 ms.openlocfilehash: 8beba4f66cf24a937eec77e4bfdee2057b417269
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892801"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure 雲端方案提供者 (CSP) 的 Azure Active Directory (AD) Domain Services
@@ -79,7 +79,7 @@ Azure AD Domain Services 現在支援 Azure CSP 訂用帳戶。 您現在可以�
 * **CSP 管理專員無法使用其認證在受控網域執行進行中的管理工作：** CSP 管理使用者無法使用其認證在受控網域內執行例行管理工作。 這些使用者對客戶的 Azure AD 目錄而言屬於外部，而其認證在客戶的 Azure AD 目錄內無法使用。 因此，Azure AD Domain Services 沒有這些使用者 Kerberos 和 NTLM 密碼雜湊的存取權。 如此一來，這類使用者在 Azure AD Domain Services 的受控網域上無法通過驗證。
 
   > [!WARNING]
-  > **您必須建立在受控網域上執行進行中的管理工作的客戶的目錄內的使用者帳戶。**
+  > **您必須在客戶的目錄內建立使用者帳戶，才能在受控網域上執行進行中的管理工作。**
   > 您無法使用 CSP 管理使用者的認證來登入受控網域。 請使用屬於客戶 Azure AD 目錄的使用者帳戶認證來執行此動作。 對於將虛擬機器加入受控網域、管理 DNS、管理群組原則之類工作，您需要這些認證。
   >
 
@@ -90,4 +90,4 @@ Azure AD Domain Services 現在支援 Azure CSP 訂用帳戶。 您現在可以�
 * [註冊參加 Azure CSP 計畫](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program)，然後開始透過 Azure CSP 建立企業。
 * 檢閱 [Azure CSP 中可用的 Azure 服務](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services)清單。
 * [使用 PowerShell 啟用 Azure AD Domain Services](active-directory-ds-enable-using-powershell.md)
-* [開始使用 Azure AD 網域服務](active-directory-ds-getting-started.md)
+* [開始使用 Azure AD Domain Services](active-directory-ds-getting-started.md)

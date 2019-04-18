@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501584"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 代理者流程
@@ -227,4 +227,4 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 * [OAuth 2.0 用戶端認證授與在 Microsoft 身分識別平台](v2-oauth2-client-creds-grant-flow.md)
 * [在 Microsoft 身分識別平台的 OAuth 2.0 程式碼流程](v2-oauth2-auth-code-flow.md)
-* [使用`/.default`範圍](v2-permissions-and-consent.md#the-default-scope)
+* [使用 `/.default` 範圍](v2-permissions-and-consent.md#the-default-scope)

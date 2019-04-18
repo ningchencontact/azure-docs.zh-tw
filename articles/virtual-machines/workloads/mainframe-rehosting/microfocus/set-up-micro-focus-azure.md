@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 33d0baf10df1882baf212c3e2c2683c8ca072fcc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896325"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>在 Azure 上安裝 Micro Focus Enterprise Server 4.0 和企業開發人員 4.0
@@ -38,7 +38,7 @@ ms.locfileid: "58896325"
 > [!NOTE]
 > 最佳做法是讓您能夠控制其存取 Azure Vm，設定站對站虛擬私人網路 (VPN) 通道或 jumpbox。
 
-## <a name="install-enterprise-server"></a>安裝企業伺服器
+## <a name="install-enterprise-server"></a>安裝 Enterprise Server
 
 1. 取得較佳的安全性和管理能力，請考慮建立新的資源群組，只針對此專案，例如**RGMicroFocusEntServer**。 在 Azure 中使用名稱的第一個部分，以指定要讓它更容易找出清單中的資源類型。
 
@@ -74,7 +74,7 @@ ms.locfileid: "58896325"
 
 ### <a name="check-for-updates"></a>檢查更新
 
-安裝之後，請務必檢查有任何其他的更新，因為有一些必要條件，例如與企業伺服器一起安裝的 Microsoft c + + 可轉散發套件和.NET Framework。
+安裝之後，請務必檢查是否有任何其他的更新，因為有一些必要條件，例如 MicrosoftC++可轉散發套件和.NET Framework 與企業伺服器一起安裝。
 
 ### <a name="upload-the-license"></a>上傳的授權
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
 ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905693"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights Connector 管理解決方案 (取代)
@@ -97,11 +97,11 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 此儀表板包含下表所示的刀鋒視窗。 每個刀鋒視窗最多會列出 10 個與該刀鋒視窗中指定範圍和時間範圍的準則相符的項目。 當您按一下刀鋒視窗底部的 [查看全部]，或按一下刀鋒視窗標頭時，您可以執行記錄搜尋來傳回所有記錄。
 
 
-| **欄** | **描述** |
+| **資料行** | **說明** |
 | --- | --- |
-| 應用程式 - 應用程式的數目 | 顯示 [應用程式] 資源中的應用程式數目。 也會列出應用程式名稱以及各自的應用程式記錄計數。 按一下 數字可執行的記錄搜尋 <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  按一下應用程式名稱，可執行應用程式的記錄搜尋，以顯示每個主機的應用程式記錄、各遙測類型的記錄，以及各類型的所有資料 (以最後一天為基礎)。 |
-| 資料量 - 傳送資料的主機 | 顯示傳送資料的電腦主機數目。 也會列出電腦主機和每部主機的記錄計數。 按一下 數字可執行的記錄搜尋 <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> 按一下電腦名稱，可執行主機的記錄搜尋，以顯示每個主機的應用程式記錄、各遙測類型的記錄，以及各類型的所有資料 (以最後一天為基礎)。 |
-| 可用性 – Webtest 結果 | 顯示 Web 測試結果的環圈圖，指出成功或失敗。 按一下圖表可執行的記錄搜尋 <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> 結果會顯示所有測試的通過和失敗數目。 它會顯示過去一分鐘有流量的所有 Web Apps。 按一下應用程式名稱，以檢視可顯示失敗 Web 測試詳細資料的記錄搜尋。 |
+| 應用程式 - 應用程式的數目 | 顯示 [應用程式] 資源中的應用程式數目。 也會列出應用程式名稱以及各自的應用程式記錄計數。 按一下此數字可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  按一下應用程式名稱，可執行應用程式的記錄搜尋，以顯示每個主機的應用程式記錄、各遙測類型的記錄，以及各類型的所有資料 (以最後一天為基礎)。 |
+| 資料量 - 傳送資料的主機 | 顯示傳送資料的電腦主機數目。 也會列出電腦主機和每部主機的記錄計數。 按一下此數字可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> 按一下電腦名稱，可執行主機的記錄搜尋，以顯示每個主機的應用程式記錄、各遙測類型的記錄，以及各類型的所有資料 (以最後一天為基礎)。 |
+| 可用性 – Webtest 結果 | 顯示 Web 測試結果的環圈圖，指出成功或失敗。 按一下該圖表可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> 結果會顯示所有測試的通過和失敗數目。 它會顯示過去一分鐘有流量的所有 Web Apps。 按一下應用程式名稱，以檢視可顯示失敗 Web 測試詳細資料的記錄搜尋。 |
 | 伺服器要求 – 每小時的要求 | 顯示各種應用程式每小時的伺服器要求折線圖。 將滑鼠移至圖表中的一條線上，可查看在某個時間點接收最多要求的前 3 個應用程式。 也會顯示在所選期間內接收要求的應用程式清單和要求數目。 <br><br>按一下圖表可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> 結果會顯示各種應用程式每小時的伺服器要求折線圖。 <br><br> 按一下清單中的應用程式可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> 結果會顯示要求清單、不同時間和要求期間的要求圖表，以及要求回應碼的清單。   |
 | 失敗 – 每小時失敗的要求 | 顯示每小時失敗的應用程式要求折線圖。 將滑鼠移至圖表上，可查看在某個時間點具有最多失敗要求的前 3 個應用程式。 也會顯示詳列失敗要求數目的應用程式清單。 按一下圖表可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> 結果會顯示更詳細的失敗應用程式要求折線圖。 <br><br>按一下清單中的項目可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> 結果會顯示失敗的要求、不同時間和要求期間的失敗要求圖表，以及失敗要求回應碼的清單。 |
 | 例外狀況 – 每小時的例外狀況 | 顯示每小時的例外狀況折線圖。 將滑鼠移至圖表上，可查看在某個時間點具有最多例外狀況的前 3 個應用程式。 也會顯示詳列例外狀況數目的應用程式清單。 按一下圖表可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> 結果會顯示更詳細的例外狀況折線圖。 <br><br>按一下清單中的項目可執行記錄搜尋，以搜尋 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> 結果會顯示例外狀況清單、不同時間的例外狀況和失敗要求圖表，以及例外狀況類型的清單。  |

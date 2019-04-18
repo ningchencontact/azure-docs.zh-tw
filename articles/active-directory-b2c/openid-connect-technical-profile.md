@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916762"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 自訂原則中定義的 OpenId Connect 的技術設定檔
@@ -104,9 +104,9 @@ Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](https://openid.
 
 範例：
 
-- [新增 Microsoft 帳戶 (MSA) 作為身分識別提供者使用自訂原則](active-directory-b2c-custom-setup-msa-idp.md)
-- [使用 Azure AD 帳戶登入](active-directory-b2c-setup-aad-custom.md)
-- [允許使用者登入使用自訂原則的多租用戶 Azure AD 身分識別提供者](active-directory-b2c-setup-commonaad-custom.md)
+- [使用自訂原則新增 Microsoft 帳戶 (MSA) 作為識別提供者](active-directory-b2c-custom-setup-msa-idp.md)
+- [使用 Azure AD 帳戶來登入](active-directory-b2c-setup-aad-custom.md)
+- [使用自訂原則允許使用者登入多租用戶 Azure AD 識別提供者](active-directory-b2c-setup-commonaad-custom.md)
 
  
 

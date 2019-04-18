@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a686465b0006c2e9aac6e06cb4ab12d30921e8c5
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58802672"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>使用媒體服務 .NET SDK 管理資產和相關的實體
@@ -203,7 +203,7 @@ ms.locfileid: "58802672"
 ```
 
 ## <a name="list-all-access-policies"></a>列出所有存取原則
-在媒體服務中，您可以定義資產或其檔案的存取原則。 存取原則會定義檔案或資產 (存取的類型和持續時間) 的權限。 在您的媒體服務程式碼中，通常會藉由建立 IAccessPolicy 物件，然後將其與現有資產產生關聯，來定義存取原則。 然後，您會建立 ILocator 物件，這可讓您直接存取媒體服務中的資產。 本文件系列隨附的 Visual Studio 專案包含數個程式碼範例，示範如何建立及指派存取原則和定位器給資產。
+在媒體服務中，您可以定義資產或其檔案的存取原則。 存取原則會定義檔案或資產 (存取的類型和持續時間) 的權限。 在您的媒體服務程式碼中，通常會藉由建立 IAccessPolicy 物件，然後將其與現有資產產生關聯，來定義存取原則。 然后创建一个 ILocator 对象，它允许你提供对媒体服务中的资产的直接访问。 本文件系列隨附的 Visual Studio 專案包含數個程式碼範例，示範如何建立及指派存取原則和定位器給資產。
 
 下列程式碼範例顯示如何列出伺服器上的所有存取原則，並顯示每個相關聯的權限的類型。 檢視存取原則的另一個實用方式，是列出伺服器上的所有 ILocator 物件，然後針對每個定位器，您可以使用其 AccessPolicy 屬性列出其相關聯的存取原則。
 

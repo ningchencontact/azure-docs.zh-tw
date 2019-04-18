@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 0c2ca8c17abd6ac5e540beec1bde715931e022a4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 58d7aeb3c710610d93eda09b37374a167b444bd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609399"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679001"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm 從一個區域複寫到另一個的支援矩陣
 
@@ -225,6 +225,7 @@ ZRS | 不支援 |
 進階 P10 或 P15 磁碟 | 32 KB 或更大 | 8 MB/秒 | 每個磁碟 672 GB
 進階 P20、P30、P40 或 P50 磁碟 | 8 KB    | 5 MB/秒 | 每個磁碟 421 GB
 進階 P20、P30、P40 或 P50 磁碟 | 16 KB 或更大 |20 MB/秒 | 每個磁碟的 1684 GB
+
 ## <a name="replicated-machines---networking"></a>複寫的機器 - 網路
 **設定** | **支援** | **詳細資料**
 --- | --- | ---
@@ -236,6 +237,7 @@ NIC 上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，�
 子網路上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，使 NSG 與子網路產生關聯。
 保留 (靜態) IP 位址 | 支援 | 如果來源 VM 上的 NIC 有靜態 IP 位址，而目標子網路有相同的 IP 位址可用，則會將它指派給容錯移轉 VM。<br/><br/> 如果目標子網路沒有相同的 IP 位址，子網路中一個可用的 IP 位址會被保留供 VM 使用。<br/><br/> 您也可以在 [複寫的項目] > [設定] > [計算與網路] > [網路介面] 中指定固定的 IP 位址和子網路。
 動態 IP 位址 | 支援 | 如果來源上的 NIC 有動態 IP 位址，則容錯移轉 VM 上的 NIC 預設也是動態。<br/><br/> 如有需要，您可以將此修改為固定的 IP 位址。
+多個 IP 位址 | 不支援 | 當您容錯移轉具有多個 IP 位址的 NIC 的 VM 時，則會保留在來源區域中的 nic 只能主要 IP 位址。 若要指派多個 IP 位址，您可以新增 Vm 來[復原計劃](recovery-plan-overview.md)以及附加的指令碼，以將其他 IP 位址指派給計劃，或您可以在容錯移轉之後進行變更以手動方式或使用指令碼。 
 流量管理員     | 支援 | 您可以預先設定流量管理員，定期將流量傳輸到來源區域中的端點，如果發生容錯移轉，則傳輸到目標區域中的端點。
 Azure DNS | 支援 |
 自訂 DNS  | 支援 |

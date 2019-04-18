@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493139"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679273"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM 適用的 Azure 磁碟加密常見問題集
 
@@ -45,8 +45,9 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 
 | Linux 散發套件 | 版本 | 支援加密的磁碟區類型|
 | --- | --- |--- |
+| Ubuntu | 18.04| 作業系統和資料磁碟 |
 | Ubuntu | 16.04| 作業系統和資料磁碟 |
-| Ubuntu | 14.04.5</br>[使用 Azure 調整核心更新為 4.15 或更新版本](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | 作業系統和資料磁碟 |
+| Ubuntu | 14.04.5</br>[搭配更新至 4.15 或更新版本的 Azure 調整核心](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | 作業系統和資料磁碟 |
 | RHEL | 7.6 | 作業系統和資料磁碟* |
 | RHEL | 7.5 | 作業系統和資料磁碟* |
 | RHEL | 7.4 | 作業系統和資料磁碟* |
@@ -171,5 +172,5 @@ Azure 備份提供一個機制來備份與還原加密的 VM 的相同的訂用�
 在本文件中，您已了解有關 Azure 磁碟加密的常見問題。 如需此服務的詳細資訊，請參閱下列文章：
 
 - [Azure 磁碟加密概觀](azure-security-disk-encryption-overview.md)
-- [在 Azure 資訊安全中心中套用磁碟加密](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Azure 資料靜態加密](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [在 Azure 資訊安全中心套用磁碟加密](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
+- [待用 Azure 資料加密](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

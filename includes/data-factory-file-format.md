@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919173"
 ---
 ## <a name="specifying-formats"></a>指定格式
@@ -31,7 +31,7 @@ Azure Data Factory 支援下列格式類型：
 | quoteChar |用來引用字串值的字元。 引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。 這個屬性同時適用於輸入和輸出資料集。<br/><br/>您無法同時為資料表指定 escapeChar 和 quoteChar。 |只允許一個字元。 沒有預設值。 <br/><br/>例如，如果您以逗號 (',') 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：<Hello, world>)，您可以定義 " (雙引號) 做為引用字元，並在來源中使用字串 "Hello, world"。 |否 |
 | nullValue |用來代表 null 值的一個或多個字元。 |一或多個字元。 **預設值**為 **"\N" 和 "NULL"** (讀取時) 及 **"\N"** (寫入時)。 |否 |
 | encodingName |指定編碼名稱。 |有效的編碼名稱。 請參閱 [Encoding.EncodingName 屬性](/dotnet/api/system.text.encoding)。 例如：windows-1250 或 shift_jis。 **預設值**為 **UTF-8**。 |否 |
-| firstRowAsHeader |指定是否將第一個資料列視為標頭。 對於輸入資料集，Data Factory 會讀取第一個資料列做為標頭。 對於輸出資料集，Data Factory 會寫入第一個資料列做為標頭。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |True<br/>**FALSE (預設值)** |否 |
+| firstRowAsHeader |指定是否將第一個資料列視為標頭。 對於輸入資料集，Data Factory 會讀取第一個資料列做為標頭。 對於輸出資料集，Data Factory 會寫入第一個資料列做為標頭。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |True<br/>**False (預設值)** |否 |
 | skipLineCount |表示從輸入檔讀取資料時要略過的資料列數目。 如果指定 skipLineCount 和 firstRowAsHeader，則會先略過程式碼行，再從輸入檔讀取標頭資訊。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |整數  |否 |
 | treatEmptyAsNull |指定從輸入檔讀取資料時，是否將 null 或空字串視為 null 值。 |**True (預設值)**<br/>False |否 |
 
@@ -85,7 +85,7 @@ Azure Data Factory 支援下列格式類型：
 
 複製活動可以剖析的 JSON 檔案模式如下︰
 
-- **類型 I:setofobjects**
+- **類型 I：setOfObjects**
 
     每個檔案都會包含單一物件，或以行分隔/串連的多個物件。 在輸出資料集中選擇此選項時，複製活動會產生單一 JSON 檔案，每行一個物件 (以行分隔)。
 
@@ -139,7 +139,7 @@ Azure Data Factory 支援下列格式類型：
         }
         ```
 
-- **類型 II: arrayOfObjects**
+- **類型 II：arrayOfObjects**
 
     每個檔案都會包含物件的陣列。
 
@@ -178,7 +178,7 @@ Azure Data Factory 支援下列格式類型：
 
 從 JSON 檔案複製資料時，請參閱以下兩個範例類型，並注意一般要點︰
 
-**範例 1： 從物件和陣列擷取資料**
+**範例 1︰從物件和陣列擷取資料**
 
 在此範例中，預計會有一個根 JSON 物件對應至表格式結果中的單一記錄。 如果您的 JSON 檔案含有下列內容：  
 
@@ -213,8 +213,8 @@ Azure Data Factory 支援下列格式類型：
 
 **JsonFormat** 類型的輸入資料集定義如下：(僅含相關元素的局部定義)。 具體而言：
 
-- `structure` 區段會定義自訂資料行名稱和對應的資料類型轉換成表格式資料時。 除非您需要對應資料行，否則這個區段是**選擇性**。 如需詳細資訊，請參閱＜指定矩形資料集的結構定義＞一節。
-- `jsonPathDefinition` 指定每個資料行指出要擷取的資料位置的 JSON 路徑。 若要從陣列複製資料，您可以使用 **array[x].property** 從第 x 個物件擷取指定屬性的值，也可以使用 **array[*].property** 從任何包含這類屬性的物件中尋找此值。
+- `structure` 區段定義自訂資料行名稱，以及轉換成表格式資料時對應的資料類型。 除非您需要對應資料行，否則這個區段是**選擇性**。 如需詳細資訊，請參閱＜指定矩形資料集的結構定義＞一節。
+- `jsonPathDefinition` 指定每個資料行的 JSON 路徑，以指出從哪裡擷取資料。 若要從陣列複製資料，您可以使用 **array[x].property** 從第 x 個物件擷取指定屬性的值，也可以使用 **array[*].property** 從任何包含這類屬性的物件中尋找此值。
 
 ```json
 "properties": {
@@ -251,7 +251,7 @@ Azure Data Factory 支援下列格式類型：
 }
 ```
 
-**範例 2︰ 交叉套用多個具有相同的模式物件陣列中**
+**範例 2︰交叉套用陣列中具有相同模式的多個物件**
 
 在此範例中，預計會將一個根 JSON 物件轉換成表格式結果中的多筆記錄。 如果您的 JSON 檔案含有下列內容：  
 
@@ -286,9 +286,9 @@ Azure Data Factory 支援下列格式類型：
 
 **JsonFormat** 類型的輸入資料集定義如下：(僅含相關元素的局部定義)。 具體而言：
 
-- `structure` 區段會定義自訂資料行名稱和對應的資料類型轉換成表格式資料時。 除非您需要對應資料行，否則這個區段是**選擇性**。 如需詳細資訊，請參閱＜指定矩形資料集的結構定義＞一節。
-- `jsonNodeReference` 表示要逐一查看，並從下相同模式的物件中擷取資料**陣列**orderlines。
-- `jsonPathDefinition` 指定每個資料行指出要擷取的資料位置的 JSON 路徑。 在此範例中，"ordernumber"、"orderdate" 和 "city" 位於根物件下，JSON 路徑開頭為 "$."，而 "order_pd" 和 "order_price" 以衍生自陣列元素的路徑定義，不含 "$."。
+- `structure` 區段定義自訂資料行名稱，以及轉換成表格式資料時對應的資料類型。 除非您需要對應資料行，否則這個區段是**選擇性**。 如需詳細資訊，請參閱＜指定矩形資料集的結構定義＞一節。
+- `jsonNodeReference` 表示逐一查看**陣列** orderlines 下相同模式的物件並擷取資料。
+- `jsonPathDefinition` 指定每個資料行的 JSON 路徑，以指出從哪裡擷取資料。 在此範例中，"ordernumber"、"orderdate" 和 "city" 位於根物件下，JSON 路徑開頭為 "$."，而 "order_pd" 和 "order_price" 以衍生自陣列元素的路徑定義，不含 "$."。
 
 ```json
 "properties": {
@@ -326,14 +326,14 @@ Azure Data Factory 支援下列格式類型：
 }
 ```
 
-**請注意下列幾點：**
+**請注意下列幾點**：
 
 * 如果 Data Factory 資料集中未定義 `structure`和 `jsonPathDefinition`，複製活動會偵測第一個物件的結構描述，並簡維整個物件。
 * 如果 JSON 輸入具有陣列，依預設，複製活動會將整個陣列值轉換為字串。 您可以選擇使用 `jsonNodeReference` 及/或 `jsonPathDefinition` 從其中擷取資料，或不要在 `jsonPathDefinition` 中指定以略過它。
 * 如果相同層級中有重複的名稱，複製活動會挑選最後一個。
 * 屬性名稱會區分大小寫。 名稱相同但大小寫不同的兩個屬性會被視為兩個不同的屬性。
 
-**案例 2︰將資料寫入至 JSON 檔案**
+**案例 2：將資料寫入 JSON 檔案**
 
 如果您在 SQL Database 中有下列資料表︰
 

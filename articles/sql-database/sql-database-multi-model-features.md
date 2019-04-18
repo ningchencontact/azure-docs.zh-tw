@@ -13,22 +13,22 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
 ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892461"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database 的多模型功能
 
 多模型資料庫可讓您儲存及處理以多種資料格式 (例如關聯式資料、圖形、JSON/XML 文件、索引鍵/值組) 表現的資料。
 
-## <a name="when-to-use-multi-model-capabilities"></a>使用多模型功能的時機
+## <a name="when-to-use-multi-model-capabilities"></a>何时使用多模型功能
 
 Azure SQL Database 的設計訴求是要使用關聯式模型，在各種一般用途應用程式的大部分情況下達到最佳效能。 不過，Azure SQL Database 不限於關聯式資料。 Azure SQL Database 可讓您使用緊密整合到關聯式模型中的各種非關聯式格式。
-您應該考慮使用 Azure SQL Database 的多模型的功能在下列情況：
-- 您有一些資訊或結構，會更適合用於 NoSQL 模型，而且您不想要使用不同的 NoSQL 資料庫。
-- 多數資料適用於關聯式模型中，並且您要建立您的資料，NoSQL 樣式中的某些部分的模型。
+对于以下情况，应考虑使用 Azure SQL 数据库的多模型功能：
+- 某些信息或结构更适合 NoSQL 模型，并且你不想要使用独立的 NoSQL 数据库。
+- 大部分数据适合关系模型，并且你需要以 NoSQL 形式为某些数据部分建模。
 - 您想要利用豐富的 TRANSACT-SQL 語言來查詢及分析關聯式和 NoSQL 資料，並將它與各種不同的工具和應用程式可以使用 SQL 語言整合。
 - 您想要套用的資料庫功能，例如[記憶體內部技術](sql-database-in-memory.md)提升您分析效能或處理您的 NoSQL 資料 strucutres，使用[異動複寫](sql-database-managed-instance-transactional-replication.md)或[可讀取複本](sql-database-read-scale-out.md)上其他位置中建立資料複本，並卸載某些分析的工作負載，從主要資料庫。
 
@@ -140,7 +140,7 @@ CREATE TABLE Collection (
 ## <a name="next-steps"></a>後續步驟
 Azure SQL Database 中的多模型功能也是 Azure SQL Database 與 SQL Server 之間共用的核心 SQL Server 資料庫引擎功能。 若要了解這些功能的詳細資訊，請瀏覽 SQL 關聯式資料庫文件頁面：
 
-* [圖形處理](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
+* [圖表處理](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
 * [JSON 資料](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server)
 * [空間支援](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
 * [XML 資料](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server)

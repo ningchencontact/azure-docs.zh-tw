@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc2a1bd8b751ab1b88e54876227892ea3c257a3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517533"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699025"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>作法：在 Azure Active Directory Identity Protection (已重新整理) 中設定風險原則
 
@@ -41,7 +41,8 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 登入風險原則是您可以針對特定登入風險層級設定的自動化回應。 在您的回應中，您可以封鎖對資源的存取，或需要傳遞多重要素驗證 (MFA) 查問以取得存取。
 
-   
+當使用者成功完成登入風險原則所觸發的 MFA 提示字元時，它可讓意見反應的登入來自合法使用者的身分識別保護。 因此，觸發 MFA 提示登入風險事件會自動關閉，Identity Protection 會防止這個事件提供給使用者風險的權限提升。 啟用登入風險原則，可以讓使用者能夠自我補救 mfa 出現提示時，並在之後自動關閉相關聯有風險登入減少 noisiness 有風險的登入檢視中。
+
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>如何存取登入風險原則？
    
 登入風險原則位於 [Azure AD Identity Protection] 頁面的 [設定](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 區段中。

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 7a98d3acc3f45772f9e28c23a639f495b75bea0a
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58850055"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒體服務概觀 
@@ -55,7 +55,7 @@ Microsoft Azure 媒體服務 (AMS) 是一個可延伸的雲端式平台，供開
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)、
     * [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (這是非 Microsoft 版本的 Node.js SDK。 它是由社群維護，且目前並沒有 AMS API 的 100% 涵蓋範圍)。
 * 現有的工具：
-    * [Azure 入口網站](https://portal.azure.com/)
+    * [Azure 门户](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure 媒體服務總管 (AMSE) 是適用於 Windows 的 Winforms/C# 應用程式)
 
 > [!NOTE]

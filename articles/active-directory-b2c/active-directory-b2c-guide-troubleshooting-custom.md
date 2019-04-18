@@ -11,10 +11,10 @@ ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880639"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>針對 Azure AD B2C 自訂原則和身分識別體驗架構進行疑難排解
@@ -29,7 +29,7 @@ ms.locfileid: "58880639"
 設定自訂原則時，最常見的錯誤是 XML 格式不正確。 良好的 XML 編輯器幾乎不可或缺。 良好的 XML 編輯器會顯示 XML 原貌、為內容加上色彩、預先填入常用字詞、保持編製 XML 元素的索引，而且可以根據結構描述進行驗證。 以下是我們最喜愛的兩個 XML 編輯器：
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Notepad + +](https://notepad-plus-plus.org/)
+* [Notepad++](https://notepad-plus-plus.org/)
 
 在您上傳 XML 檔案之前，XML 結構描述驗證會識別錯誤。 在入門套件的根資料夾中，取得 XML 結構描述定義 TrustFrameworkPolicy_0.3.0.0.xsd。 如需詳細資訊，請在 XML 編輯器的文件中尋找「XML 工具」和「XML 驗證」。
 
@@ -41,16 +41,16 @@ ms.locfileid: "58880639"
  
  常見的驗證錯誤包括下列幾個。
 
-錯誤的程式碼片段： `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
+錯誤程式碼片段︰`... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * ClaimType 值可能拼字錯誤，或不存在於結構描述中。
 * ClaimType 值至少必須定義於原則內的其中一個檔案中。 
-    例如︰ `<ClaimType Id="socialIdpUserId">`
+    例如：`<ClaimType Id="socialIdpUserId">`
 * 如果 ClaimType 定義於擴充檔案中，但也用於基底檔案的 TechnichalProfile 值中，則上傳基底檔案會導致錯誤。
 
-錯誤的程式碼片段： `...makes a reference to a ClaimsTransformation with id...`
+錯誤程式碼片段︰`...makes a reference to a ClaimsTransformation with id...`
 * 此錯誤的原因可能與 ClaimType 錯誤一樣。
 
-錯誤的程式碼片段： `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+錯誤程式碼片段︰`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 * 檢查 **\<TrustFrameworkPolicy\>** 和 **\<BasePolicy\>** 元素中的 TenantId 值符合目標 Azure AD B2C 租用戶。  
 
 ## <a name="troubleshoot-the-runtime"></a>針對執行階段進行疑難排解
@@ -66,11 +66,11 @@ ms.locfileid: "58880639"
 
 ## <a name="recommended-practices"></a>建議的做法
 
-**保留多個版本，為您的情節。 將它們分組在專案中，使用您的應用程式。** 基底、擴充和信賴憑證者檔案直接相互依存。 將它們儲存成一個群組。 有新功能新增至您的原則時，保留個別的工作版本。 將工作版本和其所互動的應用程式程式碼，分階段放入您自己的檔案系統中。  您的應用程式可能會在一個租用戶中叫用許多不同的信賴憑證者原則。 它們可能會變成相依於您的 Azure AD B2C 原則可能提供的宣告。
+**為您的情節保留多個版本。將它們和您的應用程式一起放在一個專案中。** 基底、擴充和信賴憑證者檔案直接相互依存。 將它們儲存成一個群組。 有新功能新增至您的原則時，保留個別的工作版本。 將工作版本和其所互動的應用程式程式碼，分階段放入您自己的檔案系統中。  您的應用程式可能會在一個租用戶中叫用許多不同的信賴憑證者原則。 它們可能會變成相依於您的 Azure AD B2C 原則可能提供的宣告。
 
-**開發及測試與已知的使用者旅程圖的技術設定檔。** 使用已測試的入門套件原則來設定您的技術設定檔。 將它們併入您自己的使用者旅程圖之前，先個別進行測試。
+**使用已知的使用者旅程圖來開發和測試技術設定檔。** 使用已測試的入門套件原則來設定您的技術設定檔。 將它們併入您自己的使用者旅程圖之前，先個別進行測試。
 
-**開發及測試與測試的技術設定檔的使用者旅程圖。** 累加地變更使用者旅程圖的協調流程步驟。 漸進地建置您想要的情節。
+**使用已測試的技術設定檔來開發和測試使用者旅程圖。** 累加地變更使用者旅程圖的協調流程步驟。 漸進地建置您想要的情節。
 
 ## <a name="next-steps"></a>後續步驟
 

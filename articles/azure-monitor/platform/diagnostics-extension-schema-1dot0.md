@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492714"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure 診斷 1.0 組態結構描述
@@ -207,7 +207,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
-|**path**|字串|必要。 要監視之目錄的絕對路徑。|  
+|**路徑**|字串|必要。 要監視之目錄的絕對路徑。|  
 |**expandEnvironment**|布林值|必要。 如果設定為 **true**，就會展開路徑中的環境變數。|  
 
 ## <a name="localresource-element"></a>LocalResource 元素  

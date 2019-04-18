@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904622"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
@@ -45,7 +45,7 @@ ms.locfileid: "58904622"
 * 網路連線之間必須存在每個網域中的至少一個網域控制站和至少一部伺服器裝載的密碼保護的 proxy 服務。 此連線必須允許存取 RPC 端點對應程式連接埠 135 和 RPC 伺服器連接埠上的 proxy 服務的網域控制站。 根據預設，RPC 伺服器連接埠是動態的 RPC 連接埠，但將它設定為[使用靜態連接埠](#static)。
 * 裝載 proxy 服務的所有機器都必須都具有下列端點的網路存取：
 
-    |**端點**|**目的**|
+    |**端點**|**用途**|
     | --- | --- |
     |`https://login.microsoftonline.com`|驗證要求|
     |`https://enterpriseregistration.windows.net`|Azure AD 密碼保護功能|
@@ -92,7 +92,7 @@ ms.locfileid: "58904622"
 
    * 若要檢查服務正在執行，請使用下列 PowerShell 命令：
 
-      `Get-Service AzureADPasswordProtectionProxy | fl`上也提供本文中使用的原始碼。
+      `Get-Service AzureADPasswordProtectionProxy | fl` 。
 
      結果應該會顯示**狀態**為"Running"。
 
@@ -223,7 +223,7 @@ ms.locfileid: "58904622"
 
 1. 選用：Proxy 服務設定為接聽特定通訊埠上的密碼保護。
    * 網域控制站上的密碼保護的 DC 代理程式軟體會使用 RPC over TCP 通訊的 proxy 服務。 根據預設，proxy 服務會接聽任何可用的動態 RPC 端點。 但如果這是因為網路拓樸或您的環境中的防火牆需求所需，您可以設定為接聽特定 TCP 通訊埠，服務。
-      * <a id="static" /></a>若要將服務設定成在靜態連接埠下執行，請使用 `Set-AzureADPasswordProtectionProxyConfiguration` Cmdlet。
+      * <a id="static" /></a>若要設定靜態連接埠之下執行服務，請使用`Set-AzureADPasswordProtectionProxyConfiguration`cmdlet。
 
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>

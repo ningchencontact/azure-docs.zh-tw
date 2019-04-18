@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357243"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680854"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測的模型
 
@@ -34,27 +34,27 @@ ms.locfileid: "59357243"
 
 最重要的差異之間預測的迴歸工作類型和迴歸工作自動化的 machine learning 中的型別代表有效的時間序列資料中包含一項功能。 規則的時間序列具有定義完善且一致的頻率，在每個樣本點，持續時間範圍中的值。 請考慮下列快照集檔案的`sample.csv`。
 
-    week_starting,store,sales_quantity,week_of_year
+    day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
     9/3/2018,B,600,36
-    9/10/2018,A,2300,37
-    9/10/2018,B,550,37
-    9/17/2018,A,2100,38
-    9/17/2018,B,650,38
-    9/24/2018,A,2400,39
-    9/24/2018,B,700,39
-    10/1/2018,A,2450,40
-    10/1/2018,B,650,40
+    9/4/2018,A,2300,36
+    9/4/2018,B,550,36
+    9/5/2018,A,2100,36
+    9/5/2018,B,650,36
+    9/6/2018,A,2400,36
+    9/6/2018,B,700,36
+    9/7/2018,A,2450,36
+    9/7/2018,B,650,36
 
-此資料集有兩個不同的存放區，A 和 b。 此外，公司的每週銷售資料的簡單範例，就是功能`week_of_year`，這可讓偵測每週的季節性模型。 欄位`week_starting`表示初始狀態的時間序列、 每週頻率與欄位`sales_quantity`是執行預測的目標資料行。 資料讀取至 Pandas 資料框架，然後使用`to_datetime`函式，以確保時間序列是`datetime`型別。
+此資料集有兩個不同的存放區，A 和 b。 此外，公司的每日銷售資料的簡單範例，就是功能`week_of_year`，這可讓偵測每週的季節性模型。 欄位`day_datetime`與每日頻率 和  欄位表示初始狀態的時間序列`sales_quantity`是執行預測的目標資料行。 資料讀取至 Pandas 資料框架，然後使用`to_datetime`函式，以確保時間序列是`datetime`型別。
 
 ```python
 import pandas as pd
 data = pd.read_csv("sample.csv")
-data["week_starting"] = pd.to_datetime(data["week_starting"])
+data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-在此情況下已排序資料的時間欄位遞增`week_starting`。 不過，當設定實驗，確定所需的時間資料行以遞增順序來建置有效的時間序列進行排序。 假設資料包含 1,000 筆記錄，並具有決定性的分割中建立定型和測試資料集的資料。 然後個別目標欄位`sales_quantity`建立預測訓練和測試集。
+在此情況下已排序資料的時間欄位遞增`day_datetime`。 不過，當設定實驗，確定所需的時間資料行以遞增順序來建置有效的時間序列進行排序。 假設資料包含 1,000 筆記錄，並具有決定性的分割中建立定型和測試資料集的資料。 然後個別目標欄位`sales_quantity`建立預測訓練和測試集。
 
 ```python
 X_train = data.iloc[:950]
@@ -84,14 +84,18 @@ y_test = X_test.pop("sales_quantity").values
 |`time_column_name`|用來指定用來建立時間序列和推斷其頻率的輸入資料中的日期時間資料行。|✓|
 |`grain_column_names`|輸入資料中定義個別的數列群組的名稱。 如果未定義資料粒度，資料集被假設一個時間序列。||
 |`max_horizon`|所需的時間序列的頻率單位的預測時間範圍的上限。|✓|
+|`target_lags`|*n*轉寄延隔時間週期的目標在模型定型之前的值。||
+|`target_rolling_window_size`|*n*歷程記錄的期間，用來產生預測的值，< = 定型集大小。 如果省略， *n*完整的定型集大小。||
 
-時間序列設定建立成一個字典物件。 設定`time_column_name`至`week_starting`資料集中的欄位。 定義`grain_column_names`參數，確保**兩個不同的時間序列群組**是針對我們的資料; 一個用於存放區 A 和 b。 最後，將所建立`max_horizon`設為 50，若要預測的整個測試設定。
+時間序列設定建立成一個字典物件。 設定`time_column_name`至`day_datetime`資料集中的欄位。 定義`grain_column_names`參數，確保**兩個不同的時間序列群組**而建立的資料; 一個用於存放區 A 和 b。 最後，將`max_horizon`設為 50，若要預測的整個測試設定。 將預測的視窗設成 10 個週期`target_rolling_window_size`，以及目標值 2 期向前邁進的延隔`target_lags`參數。
 
 ```python
 time_series_settings = {
-    "time_column_name": "week_starting",
+    "time_column_name": "day_datetime",
     "grain_column_names": ["store"],
-    "max_horizon": 50
+    "max_horizon": 50,
+    "target_lags": 2,
+    "target_rolling_window_size": 10
 }
 ```
 
@@ -141,11 +145,11 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-現在，整體尚未決定模型的精確度、 最實際的下一個步驟是使用模型來預測未知的未來值。 只需要提供資料集當做測試集相同格式`X_test`但產生的預測未來的日期時間，與集是每個時間序列步驟的預測的值。 假設資料集內的最後一個時間序列記錄已針對一週開始 2018 年 12 月 31 日。 若要預測下一週的隨選 (或多個句號，您要預測，< = `max_horizon`)，建立一個時間序列記錄每個存放區的一週開始 01/07/2019年。
+現在，整體尚未決定模型的精確度、 最實際的下一個步驟是使用模型來預測未知的未來值。 只需要提供資料集當做測試集相同格式`X_test`但產生的預測未來的日期時間，與集是每個時間序列步驟的預測的值。 假定 2018 年 12 月 31 日的資料集內的最後一個時間序列記錄。 若要預測隔天的需求 (或多個句號，您要預測，< = `max_horizon`)，建立一個時間序列記錄每個存放區 01/01/2019年。
 
-    week_starting,store,week_of_year
-    01/07/2019,A,2
-    01/07/2019,A,2
+    day_datetime,store,week_of_year
+    01/01/2019,A,1
+    01/01/2019,A,1
 
 重複這個未來將資料載入至資料框架，然後執行必要的步驟`best_run.predict(X_test)`來預測未來值。
 

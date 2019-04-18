@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 5349a8a81c1d1361637b4fc9cf83e1ee83f5276a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265503"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677981"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>使用 Power BI 可视化 Azure IoT 中心的实时传感器数据
 
@@ -37,7 +37,7 @@ ms.locfileid: "59265503"
 
 ## <a name="what-you-need"></a>您需要什麼
 
-* 完成涵蓋下列需求的[設定裝置](iot-hub-raspberry-pi-kit-node-get-started.md)教學課程︰
+* 完成[Raspberry Pi 線上模擬器](iot-hub-raspberry-pi-web-simulator-get-started.md)教學課程中，或其中一個裝置教學課程中，例如[搭配 node.js 的 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)。 這些會涵蓋下列需求：
   
   * 有效的 Azure 訂用帳戶。
   * 已在订阅中创建一个 Azure IoT 中心。

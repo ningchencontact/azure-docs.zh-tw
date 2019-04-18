@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360184"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 購買模型
@@ -36,7 +36,7 @@ Azure SQL Database 部署模型提供不同的購買模型：
 
 下列資料表和圖表會比較和對照這兩種購買模型。
 
-|**購買模型**|**描述**|**適用對象**|
+|**購買模型**|**說明**|**適用對象**|
 |---|---|---|
 |以 DTU 為基礎的模型|此模型是以計算、儲存體和 IO 資源的配套量值為基礎。 單一資料庫的計算大小會以資料庫交易單位 (DTU) 表示，而彈性集區的計算大小則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[什麼是 DTU 和 eDTU？](sql-database-purchase-models.md#dtu-based-purchasing-model)。|適合想要簡單選項且該選項已預先設定好資源的客戶。|
 |以虛擬核心為基礎的模型|此模型可讓您獨立地選擇計算和儲存體資源。 以虛擬核心為基礎的購買模型也可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，以節省成本。|適合重視彈性、控制力和透明度的客戶。|

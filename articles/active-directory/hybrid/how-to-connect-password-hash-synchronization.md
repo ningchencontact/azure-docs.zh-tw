@@ -16,10 +16,10 @@ search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916371"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
@@ -119,12 +119,12 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 ### <a name="password-hash-synchronization-and-fips"></a>密碼雜湊同步處理和 FIPS
 如果我們已經根據美國聯邦資訊處理標準 (FIPS) 鎖定您的伺服器，則 MD5 會停用。
 
-**若要針對密碼雜湊同步處理啟用 MD5，請執行下列步驟：**
+**若要針對密碼雜湊同步處理啟用 MD5，請執行下列步驟︰**
 
 1. 移至 %programfiles%\Azure AD Sync\Bin。
 2. 開啟 miiserver.exe.config。
 3. 移至檔案結尾處的 configuration/runtime 節點。
-4. 新增下列節點： `<enforceFIPSPolicy enabled="false"/>`
+4. 添加以下节点： `<enforceFIPSPolicy enabled="false"/>`
 5. 儲存您的變更。
 
 如需參考，此程式碼片段就是其大致樣貌︰
@@ -145,4 +145,4 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 ## <a name="next-steps"></a>後續步驟
 * [Azure AD Connect 同步：自訂同步處理選項](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
-* [取得逐步部署計劃從 ADFS 移轉至密碼雜湊同步處理](https://aka.ms/authenticationDeploymentPlan)
+* [取得從 ADFS 遷移至密碼雜湊同步處理的逐步部署方案](https://aka.ms/authenticationDeploymentPlan)

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283404"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-sqlserver-connector.md)
-> * [目前版本](connector-sql-server.md)
+> * [目前的版本](connector-sql-server.md)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 SQL Server 資料庫複製資料及將資料複製到該處。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
@@ -64,7 +64,7 @@ ms.locfileid: "59283404"
 >[!TIP]
 >如果您遇到錯誤，其錯誤碼為 "UserErrorFailedToConnectToSqlServer"，以及「資料庫的工作階段限制為 XXX 並已達到。」訊息，請將 `Pooling=false` 新增至您的連接字串並再試一次。
 
-**範例 1： 使用 SQL 驗證**
+**範例 1：使用 SQL 驗證**
 
 ```json
 {
@@ -85,7 +85,7 @@ ms.locfileid: "59283404"
 }
 ```
 
-**範例 2： 使用 SQL 驗證，以在 Azure Key Vault 的密碼**
+**範例 2：使用 SQL 驗證搭配 Azure Key Vault 中的密碼**
 
 ```json
 {
@@ -114,7 +114,7 @@ ms.locfileid: "59283404"
 }
 ```
 
-**範例 3： 使用 Windows 驗證**
+**範例 3：使用 Windows 驗證**
 
 ```json
 {
@@ -190,7 +190,7 @@ ms.locfileid: "59283404"
 - 如果已為 SqlSource 指定 **sqlReaderQuery**，「複製活動」就會針對 SQL Server 來源執行此查詢來取得資料。 或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
 - 如果您未指定 "sqlReaderQuery" 或 "sqlReaderStoredProcedureName"，就會使用資料集 JSON 的 "structure" 區段中定義的資料行，來建構要針對 SQL Server 執行的查詢 (`select column1, column2 from mytable`)。 如果資料集定義沒有 "structure"，則會從資料表中選取所有資料行。
 
-**範例： 使用 SQL 查詢**
+**範例：使用 SQL 查詢**
 
 ```json
 "activities":[
@@ -222,7 +222,7 @@ ms.locfileid: "59283404"
 ]
 ```
 
-**範例： 使用預存程序**
+**範例：使用預存程序**
 
 ```json
 "activities":[
@@ -258,7 +258,7 @@ ms.locfileid: "59283404"
 ]
 ```
 
-**預存程序定義中：**
+**預存程序定義：**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -294,7 +294,7 @@ GO
 > [!TIP]
 > 將資料複製到 SQL Server 時，複製活動預設會將資料附加至接收資料表。 若要執行 UPSERT 或其他商務邏輯，請在 SqlSink 中使用該預存程序。 若要了解更多詳細資料，請參閱[叫用 SQL 接收器的預存程序](#invoking-stored-procedure-for-sql-sink)。
 
-**範例 1： 附加資料**
+**範例 1：附加資料**
 
 ```json
 "activities":[
@@ -326,7 +326,7 @@ GO
 ]
 ```
 
-**範例 2： 叫用預存程序，在複製 upsert**
+**範例 2：在複製期間叫用預存程序來進行更新插入**
 
 若要了解更多詳細資料，請參閱[叫用 SQL 接收器的預存程序](#invoking-stored-procedure-for-sql-sink)。
 
@@ -516,7 +516,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | bit |BOOLEAN |
 | char |String、Char[] |
 | 日期 |DateTime |
-| DateTime |DateTime |
+| datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |

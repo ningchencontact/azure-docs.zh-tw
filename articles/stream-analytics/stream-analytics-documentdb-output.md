@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
 ms.openlocfilehash: 734cf09869e5a2df5f9a505a3cb8ccc7bc2338d5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495971"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure 串流分析輸出至 Azure Cosmos DB  
@@ -88,5 +88,5 @@ Azure Cosmos DB [無限制](../cosmos-db/partition-data.md)容器是建議的資
 |帳戶識別碼      | Azure Cosmos DB 帳戶的名稱或端點 URI。|
 |帳戶金鑰     | Azure Cosmos DB 帳戶的共用存取金鑰。|
 |資料庫        | Azure Cosmos DB 資料庫名稱。|
-|集合名稱模式 | 要使用的集合之集合名稱。 `MyCollection` 範例有效輸入為一個名為集合`MyCollection`必須存在。  |
+|集合名稱模式 | 要使用的集合之集合名稱。 `MyCollection` 是範例有效輸入 - 必須有名稱為 `MyCollection` 的集合存在。  |
 |文件識別碼     | 選用。 輸出事件中的資料行名稱，輸出事件是作為唯一索引鍵，插入或更新作業必須依據該索引鍵。 如果保留空白，所有事件都會插入，沒有更新選項。|

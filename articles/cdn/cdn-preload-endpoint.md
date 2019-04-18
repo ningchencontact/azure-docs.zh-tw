@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
 ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918360"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>在 Azure CDN 端點上預先載入資產
@@ -50,8 +50,8 @@ ms.locfileid: "58918360"
    > 在您開始輸入文字之後，會出現更多 [內容路徑] 文字方塊，可讓您建置多個資產的清單。 若要將資產從清單中刪除，請選取省略符號 (...) 按鈕，然後選取 [刪除]。
    > 
    > 每個內容路徑都必須是符合下列[規則運算式](/dotnet/standard/base-types/regular-expression-language-quick-reference)的相對 URL：  
-   > - 載入單一檔案路徑： `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - 載入單一檔案使用的查詢字串： `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > - 載入單一檔案路徑：`^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - 使用查詢字串來載入單一檔案：`^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > 由於每個資產都必須有自己的路徑，因此預先載入資產沒有萬用字元功能。
    > 

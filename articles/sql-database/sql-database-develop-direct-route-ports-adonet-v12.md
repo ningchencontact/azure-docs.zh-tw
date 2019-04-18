@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916167"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5 超過 1433 以外的連接埠
@@ -84,6 +84,6 @@ ms.locfileid: "58916167"
 * [TDS 通訊協定版本清單](http://www.freetds.org/userguide/tdshistory.htm)
 * [SQL Database 開發概觀](sql-database-develop-overview.md)
 * [Azure SQL Database 防火牆](sql-database-firewall-configure.md)
-* [作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
+* [操作說明：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
 
 

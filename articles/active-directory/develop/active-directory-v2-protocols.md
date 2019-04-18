@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490703"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft 身分識別平台通訊協定
@@ -86,8 +86,8 @@ Microsoft 身分識別平台實作 OAuth 2.0 和 OpenID Connect 進行廣泛運�
 
 若您準備好查看部分範例要求，請開始使用以下的其中一個教學課程。 每個教學課程皆對應至特定的驗證案例。 如果您需要決定哪一個正確的流程，為您的協助，請參閱[您可以使用 Microsoft 身分識別平台建置的應用程式類型](v2-app-types.md)。
 
-* [建置使用 OAuth 2.0 的行動和原生應用程式](v2-oauth2-auth-code-flow.md)
-* [建置使用 OpenID Connect 的 web 應用程式](v2-protocols-oidc.md)
-* [建置使用 OAuth 2.0 隱含流程的單一頁面應用程式](v2-oauth2-implicit-grant-flow.md)
-* [建置精靈或伺服器端處理序使用 OAuth 2.0 用戶端認證流程](v2-oauth2-client-creds-grant-flow.md)
-* [在 web API 使用 OAuth 2.0 代理者的流程中取得權杖](v2-oauth2-on-behalf-of-flow.md)
+* [使用 OAuth 2.0 建置行動與原生應用程式](v2-oauth2-auth-code-flow.md)
+* [使用 OpenID Connect 建置 Web 應用程式](v2-protocols-oidc.md)
+* [使用 OAuth 2.0 隱含流程建置單一頁面應用程式](v2-oauth2-implicit-grant-flow.md)
+* [使用 OAuth 2.0 用戶端認證流程建置精靈或伺服器端處理程序](v2-oauth2-client-creds-grant-flow.md)
+* [透過 OAuth 2.0 代理者流程在 Web API 中取得權杖](v2-oauth2-on-behalf-of-flow.md)

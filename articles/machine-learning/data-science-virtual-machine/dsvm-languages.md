@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877409"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上所支援的語言 
@@ -83,7 +83,7 @@ DSVM 上的預設 Python 環境為全域環境，可由所有使用者讀取。 
 | DSVM 上的相關工具      | PySpark、R、Julia      |
 ### <a name="how-to-use--run-it"></a>如何使用/執行它？    
 
-** Linux**
+**Linux**
 * 在終端機中執行
 
 開啟終端機，並根據您所要執行的 Python 版本執行下列命令。 
@@ -145,7 +145,7 @@ DSVM 上的預設 Python 環境為全域環境，可由所有使用者讀取。 
 | ------------- | ------------- |
 | 支援的語言版本 | Microsoft R Open 3.x (與 CRAN-R 100% 相容)<br /> Microsoft R Server 9.x Developer 版本 (可擴充且符合企業需求的 R 平台)|
 | 支援的 DSVM 版本      | Linux、Windows     |
-| 它是如何在 DSVM 上設定/安裝的？  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux： `/usr/lib64/microsoft-r/3.3/lib64/R`    |
+| 它是如何在 DSVM 上設定/安裝的？  | Windows：`C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux：`/usr/lib64/microsoft-r/3.3/lib64/R`    |
 | 範例的連結      | 已包含適用於 R 的範例 Jupyter 筆記本     |
 | DSVM 上的相關工具      | SparkR、Python、Julia      |
 ### <a name="how-to-use--run-it"></a>如何使用/執行它？    
@@ -209,7 +209,7 @@ R 是安裝在 DSVM 上可由所有使用者讀取的全域環境中。 但只�
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以選擇為將核心類型 `Julia VERSION` 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以將核心類型選擇為 `Julia VERSION` 
 
 * 安裝 Julia 套件
 
@@ -226,7 +226,7 @@ R 是安裝在 DSVM 上可由所有使用者讀取的全域環境中。 但只�
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以選擇為將核心類型 `Julia VERSION` 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以將核心類型選擇為 `Julia VERSION` 
 
 * 安裝 Julia 套件
 
@@ -236,7 +236,7 @@ R 是安裝在 DSVM 上可由所有使用者讀取的全域環境中。 但只�
 
 **C#**：可於 Windows 上使用，並可透過 Visual Studio Community 版本存取，或是在可直接執行 `csc` 命令的 `Developer Command Prompt for Visual Studio` 上存取。 
 
-**Java**︰OpenJDK 可於 DSVM 的 Linux 和 Windows 版本上使用，並已設定於路徑上。 您可以在 Windows 中的命令提示字元，或 Linux 中的 Bash 殼層上輸入 `javac` 或 `java` 命令來使用 Java。 
+**Java**：OpenJDK 可於 DSVM 的 Linux 和 Windows 版本上使用，並已設定於路徑上。 您可以在 Windows 中的命令提示字元，或 Linux 中的 Bash 殼層上輸入 `javac` 或 `java` 命令來使用 Java。 
 
 **node.js**：: node.js 可於 DSVM 的 Linux 和 Windows 版本上使用，並已設定於路徑上。 您可以在 Windows 中的命令提示字元，或 Linux 中的 Bash 殼層上輸入 `node` 或 `npm` 命令來使用 node.js。 在 Windows 上，系統會安裝「適用於 Visual Studio 的 Node.js 工具」擴充功能，以提供圖形化的 IDE 來開發 node.js 應用程式。 
 

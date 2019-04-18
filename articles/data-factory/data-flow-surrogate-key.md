@@ -1,20 +1,20 @@
 ---
 title: Azure Data Factory 資料流 Surrogate 索引鍵轉換
-description: Azure Data Factory 資料流 Surrogate 索引鍵轉換
+description: 如何使用 Azure Data Factory 的對應資料流動 Surrogate 索引鍵 轉換產生循序的索引鍵值
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 6243905857f0450168541f556636d90bb4d855f7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: eaa1c577f7e208400d3430222b006e0dbbd7956a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734943"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698430"
 ---
-# <a name="azure-data-factory-mapping-data-flow-surrogate-key-transformation"></a>Azure Data Factory 資料流 Surrogate 索引鍵轉換
+# <a name="mapping-data-flow-surrogate-key-transformation"></a>對應資料流程 Surrogate 索引鍵轉換
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -25,3 +25,31 @@ ms.locfileid: "56734943"
 [索引鍵資料行] 是您要為新 Surrogate 索引鍵資料行取的名稱。
 
 [開始值] 是遞增值的開始點。
+
+## <a name="increment-keys-from-existing-sources"></a>遞增索引鍵，從現有來源
+
+如果您想要啟動您的順序從來源中的值，您可以使用緊接 Surrogate 索引鍵轉換 「 衍生的資料行 」 轉換，並一起加入兩個值：
+
+![SK 加入最大](media/data-flow/sk006.png "Surrogate 索引鍵轉換加入最大值")
+
+若要植入使用先前的最大的索引鍵值，有兩種技術可供您：
+
+### <a name="database-sources"></a>資料庫來源
+
+您可以使用 「 查詢 」 選項，從您使用 「 來源 」 轉換的來源選取 max （）：
+
+![Surrogate 索引鍵的查詢](media/data-flow/sk002.png "Surrogate 索引鍵轉換查詢")
+
+### <a name="file-sources"></a>檔案來源
+
+如果您先前的最大值是在檔案中，您可以使用您的來源轉型，以及彙總 」 轉換，並使用 max （） 運算式函數來取得先前的最大值：
+
+![Surrogate 索引鍵的檔案](media/data-flow/sk008.png "Surrogate 索引鍵的檔案")
+
+在這兩種情況下，您必須將您連入的新資料與您的來源，其中包含先前的最大值：
+
+![Surrogate 索引鍵聯結](media/data-flow/sk004.png "Surrogate 索引鍵聯結")
+
+## <a name="next-steps"></a>後續步驟
+
+這些範例會使用[聯結](data-flow-join.md)並[衍生的資料行](data-flow-derived-column.md)轉換。

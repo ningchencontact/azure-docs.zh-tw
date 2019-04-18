@@ -4,17 +4,16 @@ description: 針對在 Azure 虛擬機器、Service Fabric 或 雲端服務中�
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.topic: conceptual
+ms.date: 04/17/2019
+ms.author: robb
+ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822131"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699093"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 診斷疑難排解
 本文說明有關使用 Azure 診斷的疑難排解資訊。 如需有關 Azure 診斷的詳細資訊，請參閱 [Azure 診斷概觀](diagnostics-extension-overview.md)。
@@ -82,7 +81,7 @@ Azure 診斷會提供計量資料，這些資料可以在 Azure 入口網站中�
 如果設定都正確，但您仍然沒有看到計量資料，請使用下列指導方針來進行疑難排解。
 
 
-## <a name="azure-diagnostics-isnt-starting"></a>Azure 診斷未啟動
+## <a name="azure-diagnostics-is-not-starting"></a>Azure 診斷未啟動
 如需 Azure 診斷為何無法啟動的相關詳細資訊，請參閱稍早所提供記錄檔位置中的 **DiagnosticsPluginLauncher.log** 和 **DiagnosticsPlugin.log** 檔案。
 
 如果這些記錄指出 `Monitoring Agent not reporting success after launch`，則表示啟動 MonAgentHost.exe 失敗。 在前一節針對 `MonAgentHost log file` 所指示的位置中，查看這些記錄。
@@ -105,9 +104,16 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 解決方案：更正診斷組態，並重新安裝診斷程式。
 
-如果已正確地設定儲存體帳戶，請從遠端存取該電腦，並確定 DiagnosticsPlugin.exe 和 MonAgentCore.exe 正在執行中。 如果這兩個執行檔並未執行，請依照「Azure 診斷未啟動」中的步驟操作。
+如果儲存體帳戶是已正確設定的遠端存取電腦，並確認*DiagnosticsPlugin.exe*並*MonAgentCore.exe*正在執行。 如果這兩個執行檔並未執行，請依照 [Azure 診斷未啟動](#azure-diagnostics-is-not-starting)中的步驟操作。
 
 如果處理序正在執行，請移至[是否正在本機擷取資料](#is-data-getting-captured-locally)，並依照該處的指示操作。
+
+如果這樣做無法解決問題，請試著：
+
+1. 解除安裝代理程式
+2. Remove directory C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+3. 重新安裝代理程式
+
 
 ### <a name="part-of-the-data-is-missing"></a>遺漏部分資料
 如果您取得部分資料，但不是全部資料，則表示資料收集/傳輸管線的設定正確。 請依照此處子小節的說明，以縮小問題範圍。
@@ -118,12 +124,12 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 #### <a name="is-the-host-generating-data"></a>主機是否正在產生資料？
 - **效能計數器**：開啟 Perfmon 並檢查計數器。
 
-- **追蹤記錄檔**：從遠端存取 VM，並將 TextWriterTraceListener 新增至應用程式的組態檔。  請參閱 https://msdn.microsoft.com/library/sk36c28t.aspx 設定文字接聽程式。  確定 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
-如果未看到任何追蹤記錄產生，請參閱「關於遺漏追蹤記錄的詳細資訊」。
+- **追蹤記錄**：從遠端存取 VM，並將 TextWriterTraceListener 新增至應用程式的組態檔。  請參閱 https://msdn.microsoft.com/library/sk36c28t.aspx 設定文字接聽程式。  確定 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
+如果未看到任何追蹤記錄產生，請參閱「關於遺漏追蹤記錄檔的詳細資訊」。
 
 - **ETW 追蹤**：從遠端存取 VM 並安裝 PerfView。  在 PerfView 中執行 [File] \(檔案\) > [User Command] \(使用者命令\) > [Listen etwprovder1] \(接聽 etwprovder1\) > [etwprovider2]，依此類推。 **Listen** 命令會區分大小寫，而且在以逗號區隔的 ETW 提供者清單之間不能有空格。 如果命令執行失敗，您可以選取 Perfview 工具右下方的 [Log] \(記錄\) 按鈕，即可查看已嘗試執行的動作與執行結果。  如果輸入正確，就會跳出新的視窗。 在幾秒鐘內，就會開始看到 ETW 追蹤。
 
-- **事件記錄檔**：從遠端存取 VM。 開啟 `Event Viewer`，然後確認事件存在。
+- **事件記錄**：從遠端存取 VM。 開啟 `Event Viewer`，然後確認事件存在。
 
 #### <a name="is-data-getting-captured-locally"></a>是否正在本機擷取資料？
 接下來，確定正在本機擷取資料。
@@ -224,7 +230,7 @@ Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure 診斷外掛程式結束代碼
 外掛程式會傳回下列結束代碼：
 
-| 結束代碼 | 說明 |
+| 結束代碼 | 描述 |
 | --- | --- |
 | 0 |成功。 |
 | -1 |一般錯誤。 |
@@ -241,7 +247,7 @@ Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
 | -105 |診斷外掛程式無法開啟診斷組態檔。<p><p>只有在 VM 上不正確地手動叫用診斷外掛程式時，才會發生此內部錯誤。 |
 | -106 |無法讀取診斷組態檔。<p><p>原因是組態檔未通過結構描述驗證。 <br><br>解決方案：提供符合結構描述的組態檔。 如需詳細資訊，請參閱[如何檢查診斷擴充功能組態](#how-to-check-diagnostics-extension-configuration)。 |
 | -107 |傳遞給監視代理程式的資源目錄無效。<p><p>只有在 VM 上不正確地手動叫用監視代理程式時，才會發生此內部錯誤。</p> |
-| -108 |無法將診斷組態檔轉換成監視代理程式組態檔。<p><p>此內部錯誤應只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。 |
+| -108 |無法將診斷組態檔轉換成監視代理程式組態檔。<p><p>此内部错误应仅当使用无效的配置文件手动调用了诊断插件时才会发生。 |
 | -110 |一般診斷組態錯誤。<p><p>此內部錯誤應只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。 |
 | -111 |無法啟動監視代理程式。<p><p>解決方案：確認有足夠的系統資源可用。 |
 | -112 |一般錯誤 |

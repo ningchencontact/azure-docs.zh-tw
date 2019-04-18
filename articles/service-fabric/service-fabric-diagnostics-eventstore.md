@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b8e1958947ced5ea2d0bd8b34667210bf935072d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 36d01a9e6e55ae54377ba3f983f779dbc692c49a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662902"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681517"
 ---
 # <a name="eventstore-service-overview"></a>EventStore 服務概觀
 
@@ -72,7 +72,7 @@ EventStore 服務還能將叢集中的事件相互關聯。 透過同時間寫�
 
 ### <a name="azure-cluster"></a>Azure 叢集
 
-在叢集的 Azure Resource Manager 範本中，您可藉由執行[叢集組態升級](service-fabric-cluster-config-upgrade-azure.md)並新增下列程式碼，以開啟 EventStore 服務。 `upgradeDescription` 區段會設定要在節點上觸發重新啟動的組態升級。 您可以在另一項更新中移除此區段。
+在叢集的 Azure Resource Manager 範本中，您可以開啟 EventStore 服務藉由執行[叢集組態升級](service-fabric-cluster-config-upgrade-azure.md)並新增下列程式碼，您可以使用 PlacementConstraints 把 EventStore 的複本在某個特定節點類型，例如專用的系統服務的某個節點類型上的服務。 `upgradeDescription` 區段會設定要在節點上觸發重新啟動的組態升級。 您可以在另一項更新中移除此區段。
 
 ```json
     "fabricSettings": [
@@ -89,6 +89,10 @@ EventStore 服務還能將叢集中的事件相互關聯。 透過同時間寫�
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
+              }
+              {
+                "name": "PlacementConstraints",
+                "value": "(NodeType==<node_type_name_here>)"
               }
             ]
           }

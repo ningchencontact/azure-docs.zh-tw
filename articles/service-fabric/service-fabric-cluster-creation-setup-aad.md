@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/15/2019
 ms.author: aljo
-ms.openlocfilehash: 132609529fbeda9b6dbd76a3ef6c824e84c15164
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: c02e38880fdf8e8f1a2229f009b343d6431af853
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670756"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699178"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>設定用戶端驗用的 Azure Active Directory
 
@@ -39,7 +39,7 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 2. 在 zip 檔案上按一下滑鼠右鍵，選取 [屬性]、選取 [解除封鎖] 核取方塊，然後按一下 [套用]。
 3. 解壓縮 zip 檔案。
 
-## <a name="create-azure-ad-applications-and-asssign-users-to-roles"></a>建立 Azure AD 應用程式，並為使用者指派角色
+## <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>建立 Azure AD 應用程式，並將使用者指派給角色
 建立兩個 Azure AD 應用程式來控制對叢集的存取：一個 Web 應用程式和一個原生應用程式。 建立應用程式來代表您的叢集之後，請將使用者指派給 [Service Fabric 所支援的角色](service-fabric-cluster-security-roles.md)︰唯讀和系統管理員。
 
 執行 `SetupApplications.ps1`，並提供租用戶識別碼、叢集名稱和 Web 應用程式回覆 URL 作為參數。  同時也應指定使用者的使用者名稱和密碼。  例如︰

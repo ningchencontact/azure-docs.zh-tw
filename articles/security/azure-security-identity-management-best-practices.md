@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
 ms.openlocfilehash: f872c61ad0597d2307cd244668fdfc258f7a45cb
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895679"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 身分識別管理和存取控制安全性最佳作法
@@ -183,11 +183,11 @@ ms.locfileid: "58895679"
 
 [確認全域系統管理員帳戶的個別使用者帳戶和郵件轉寄](../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
 
-[請確定您的系統管理帳戶的密碼最近有變更](../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+[確訂系統管理帳戶的密碼近期做過變更](../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
 
 [開啟密碼雜湊同步處理](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
 
-[需要多重要素驗證的所有特殊權限角色的使用者，以及公開的使用者](../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[所有具有特殊權限角色的使用者和公開的使用者，都必須進行多重要素驗證](../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
 
 [取得您的 Office 365 安全分數 (如果使用 Office 365)](../active-directory/users-groups-roles/directory-admin-roles-secure.md#obtain-your-office-365-secure-score-if-using-office-365)  
 
@@ -197,7 +197,7 @@ ms.locfileid: "58895679"
 
 [建立事件/緊急回應計劃擁有者](../active-directory/users-groups-roles/directory-admin-roles-secure.md#establish-incidentemergency-response-plan-owners)  
 
-[安全的內部特殊權限的系統管理帳戶](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
+[保護內部部署的特殊權限系統管理帳戶](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
 
 如果您不保護特殊權限的存取，則可能發現您有太多具備較高特殊權限角色的使用者，而且比較容易遭受攻擊。 包括網路攻擊者在內的惡意人士通常會以管理帳戶和特殊權限存取的其他元素為目標，以利用認證竊取來取得敏感性資料和系統的存取權。
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283472"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN 規則引擎比對條件 
@@ -54,7 +54,7 @@ ms.locfileid: "59283472"
 名稱 | 目的
 -----|--------
 [AS 號碼](#as-number) | 識別源自特定網路的要求。
-[國家 (地區)](#country) | 識別源自特定國家/地區的要求。
+[國家/地區](#country) | 識別源自特定國家/地區的要求。
 
 ## <a name="origin-match-conditions"></a>原點比對條件
 
@@ -75,7 +75,7 @@ ms.locfileid: "59283472"
 [Cookie 參數](#cookie-parameter) | 檢查與每個適用於指定值之要求相關聯的 Cookie。
 [Cookie 參數 Regex](#cookie-parameter-regex) | 檢查與每個適用於規則運算式之要求相關聯的 Cookie。
 [邊緣 Cname](#edge-cname) | 識別指向特定邊緣 CNAME 的要求。
-[轉介網域](#referring-domain) | 識別從指定主機名稱轉介的要求。
+[參考網域](#referring-domain) | 識別從指定主機名稱轉介的要求。
 [要求標頭常值](#request-header-literal) | 識別包含設為指定值之指定標頭的要求。
 [要求標頭 Regex](#request-header-regex) | 識別包含指定標頭的要求，該標頭已設定為符合特定規則運算式的值。
 [要求標頭萬用字元](#request-header-wildcard) | 識別包含指定標頭的要求，該標頭已設定為符合特定模式的值。
@@ -89,8 +89,8 @@ ms.locfileid: "59283472"
 名稱 | 目的
 -----|--------
 [URL 路徑目錄](#url-path-directory) | 依其相對路徑來識別要求。
-[URL 路徑的副檔名](#url-path-extension) | 依其副檔名來識別要求。
-[URL 路徑的檔案名稱](#url-path-filename) | 依其檔案名稱來識別要求。
+[URL 路徑副檔名](#url-path-extension) | 依其副檔名來識別要求。
+[URL 路徑檔案名稱](#url-path-filename) | 依其檔案名稱來識別要求。
 [URL 路徑常值](#url-path-literal) | 比較要求的相對路徑與指定的值。
 [URL 路徑 Regex](#url-path-regex) | 比較要求的相對路徑與指定的規則運算式。
 [URL 路徑萬用字元](#url-path-wildcard) | 比較要求的相對路徑與指定的模式。
@@ -974,5 +974,5 @@ user=joe              | 當所要求 URL 的查詢字串為 "?user=joe" 時，�
 * [規則引擎參考](cdn-rules-engine-reference.md)
 * [規則引擎條件運算式](cdn-rules-engine-reference-conditional-expressions.md)
 * [規則引擎功能](cdn-rules-engine-reference-features.md)
-* [覆寫預設使用的規則引擎的 HTTP 行為](cdn-rules-engine.md)
+* [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)
 

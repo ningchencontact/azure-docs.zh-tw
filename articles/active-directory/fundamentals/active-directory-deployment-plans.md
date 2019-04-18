@@ -13,10 +13,10 @@ ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2519d8b16795512c56ce76b574b0bba91fa10da3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892155"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 部署方案
@@ -39,4 +39,4 @@ ms.locfileid: "58892155"
 |傳遞驗證的 ADFS[可下載的計劃](https://aka.ms/ADFSTOPTADPDownload)或[online 方案](https://aka.ms/deploymentplans/adfs2pta)|Azure AD 傳遞驗證可協助使用者以相同密碼同時登入內部部署和雲端式應用程式。 這項功能可讓您的使用者獲得更好的體驗，不僅少了一個要記住的密碼，還會因為使用者不太可能忘了如何登入而降低 IT 技術服務人員成本。 當使用者使用 Azure AD 登入時，此功能會向您的內部部署 Active Directory 直接驗證使用者的密碼。|
 |[Azure AD 應用程式 Proxy](https://aka.ms/AppProxyDPDownload)|現今的員工想要隨時隨地都能在任何裝置發揮生產力。 他們想要在自己的裝置上工作，不論這些裝置是平板電腦、手機或膝上型電腦。 而且員工期望能夠存取其所有的應用程式︰雲端中的 SaaS 應用程式以及內部部署的公司應用程式。 傳統上，提供內部部署應用程式的存取權會涉及虛擬私人網路 (VPN) 或周邊網路 (DMZ)。 這些解決方案不僅複雜且難以確保安全，而且設定及管理成本也很高。 還有更好的辦法！ - Azure AD 應用程式 Proxy|
 |[使用者佈建](https://aka.ms/UserProvisioningDPDownload)|Azure AD 可協助您自動化在雲端 (SaaS) 應用程式 (例如 Dropbox、Salesforce、ServiceNow 等等) 中建立、維護和移除使用者身分識別的作業。|
-|[Workday 導向輸入的使用者佈建](https://aka.ms/WorkdayDeploymentPlan)|對 Active Directory 進行 Workday 導向的輸入使用者佈建，可為進行中的身分識別治理建立基底，並為依賴權威性身分識別資料的商務程序加強品質。 您可以使用這項功能來設定規則，將「新進-調職-離職」程序 (例如新僱用、終止雇用、調職) 對應至 IT 佈建動作 (例如建立、啟用、停用、刪除帳戶)，以無縫地管理員工和約聘人員的身分識別週期。|
+|[Workday 導向的輸入使用者佈建](https://aka.ms/WorkdayDeploymentPlan)|對 Active Directory 進行 Workday 導向的輸入使用者佈建，可為進行中的身分識別治理建立基底，並為依賴權威性身分識別資料的商務程序加強品質。 您可以使用這項功能來設定規則，將「新進-調職-離職」程序 (例如新僱用、終止雇用、調職) 對應至 IT 佈建動作 (例如建立、啟用、停用、刪除帳戶)，以無縫地管理員工和約聘人員的身分識別週期。|

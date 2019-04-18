@@ -16,10 +16,10 @@ ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
 ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895778"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows 上節點應用程式的最佳作法和疑難排解指南
@@ -274,7 +274,7 @@ http.createServer(function (req, res) {
 | 503 |1002 |檢查 win32 錯誤碼的實際原因 – 無法將要求分派至 node.exe。 |
 | 503 |1003 |具名管道太忙 – 檢查 node.exe 是否正耗用大量的 CPU |
 
-NODE.exe 具有稱為 `NODE_PENDING_PIPE_INSTANCES` 的設定。 在 Azure App Service 上，此值會設為 5000。 這表示該 node.exe 在具名管道上一次能接受 5000 個要求。 這個值應足以滿足大部分在 Azure App Service 上執行的節點應用程式。 您不應該看見 Azure App Service 上 503.1003，因為的最高值 `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe 具有稱為 `NODE_PENDING_PIPE_INSTANCES` 的設定。 在 Azure App Service 上，此值會設為 5000。 這表示該 node.exe 在具名管道上一次能接受 5000 個要求。 這個值應足以滿足大部分在 Azure App Service 上執行的節點應用程式。 您應該不會在 Azure App Service 上看見 503.1003，因為 `NODE_PENDING_PIPE_INSTANCES` 的值較高
 
 ## <a name="more-resources"></a>其他資源
 
@@ -283,6 +283,6 @@ NODE.exe 具有稱為 `NODE_PENDING_PIPE_INSTANCES` 的設定。 在 Azure App S
 * [在 Azure App Service 中開始使用 Node.js Web 應用程式](app-service-web-get-started-nodejs.md)
 * [如何在 Azure App Service 中偵錯 Node.js Web 應用程式](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [使用 Node.js 模組與 Azure 應用程式搭配](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service Web 應用程式：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service Web Apps：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 開發人員中心](../nodejs-use-node-modules-azure-apps.md)
 * [探索神秘無比的 Kudu 偵錯主控台](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

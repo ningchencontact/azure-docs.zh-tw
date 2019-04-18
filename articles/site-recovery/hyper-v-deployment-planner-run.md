@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361348"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>針對 Hyper-V 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具
@@ -256,7 +256,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 
 * [內部部署摘要](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [建議](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [VM 儲存體放置](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [虛擬機器儲存體放置](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [相容的 VM](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [不相容的 VM](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [內部部署儲存體需求](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)

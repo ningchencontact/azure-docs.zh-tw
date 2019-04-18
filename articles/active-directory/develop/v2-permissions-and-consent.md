@@ -19,10 +19,10 @@ ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87103b1052b5d9168928193eacc78a935e68067f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501241"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>權限及同意 Microsoft 身分識別平台端點中
@@ -38,9 +38,9 @@ ms.locfileid: "59501241"
 
 Microsoft 身分識別平台會實作 [OAuth 2.0](active-directory-v2-protocols.md) 授權通訊協定。 OAuth 2.0 是一種可讓協力廠商應用程式代表使用者存取 Web 主控資源的方法。 任何與 Microsoft 身分識別平台整合的 Web 主控資源都具有資源識別碼 (或稱為「應用程式識別碼 URI」)。 例如，Microsoft 的 Web 主控資源包括：
 
-* Microsoft Graph: `https://graph.microsoft.com`
-* Office 365 郵件 API: `https://outlook.office.com`
-* Azure AD Graph： `https://graph.windows.net`
+* Microsoft Graph：`https://graph.microsoft.com`
+* Office 365 郵件 API：`https://outlook.office.com`
+* Azure AD Graph：`https://graph.windows.net`
 
 > [!NOTE]
 > 強烈建議您使用 Microsoft Graph，而不要使用 Azure AD Graph、Office 365 郵件 API 等工具。
@@ -55,9 +55,9 @@ Microsoft 身分識別平台會實作 [OAuth 2.0](active-directory-v2-protocols.
 
 在 OAuth 2.0 中，這些類型的權限也稱為「範圍」。 它們也經常稱為*權限*。 權限在 Microsoft 身分識別平台中會以字串值表示。 繼續討論 Microsoft Graph 範例，每個權限的字串值如下：
 
-* 使用讀取使用者的行事曆 `Calendars.Read`
-* 使用寫入使用者的行事曆 `Calendars.ReadWrite`
-* 所使用的使用者身分傳送郵件 `Mail.Send`
+* 使用 `Calendars.Read` 來讀取使用者的行事曆
+* 使用 `Calendars.ReadWrite` 來寫入使用者的行事曆
+* 使用 `Mail.Send` 來以使用者身分傳送郵件
 
 應用程式最常要求的 Microsoft 身分識別平台的要求中指定範圍的這些權限授權端點。 不過，較高權限的特定權限只能透過系統管理員的同意授與和要求/使用授與[系統管理員同意端點](v2-permissions-and-consent.md#admin-restricted-permissions)。 繼續閱讀以深入了解。
 
@@ -140,9 +140,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 Microsoft 生態系統中的某些高特權權限可以設定為「受系統管理員限制」。 這類權限的範例包括：
 
-* 使用讀取所有使用者的完整設定檔 `User.Read.All`
-* 使用將資料寫入組織的目錄 `Directory.ReadWrite.All`
-* 使用讀取組織目錄中的所有群組 `Groups.Read.All`
+* 使用 `User.Read.All` 讀取所有使用者的完整設定檔
+* 使用 `Directory.ReadWrite.All` 將資料寫入組織的目錄
+* 使用 `Groups.Read.All` 讀取組織目錄中的所有群組
 
 雖然取用者使用者可以為應用程式授與這類資料的存取權，但組織使用者會受到限制，而無法授與同一組機密公司資料的存取權。 如果您的應用程式要求存取其中一個權限向組織使用者，使用者會收到錯誤訊息，指出他們未經授權同意您的應用程式權限。
 
@@ -285,7 +285,7 @@ Content-Type: application/json
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>範例 3：使用者已同意，但用戶端要求額外的範圍
 
-使用者已經對用戶端同意 `mail.read`。 用戶端已在其註冊中註冊 `contacts.read` 範圍。 當用戶端使用 `scope=https://graph.microsoft.com/.default` 提出權杖要求，並透過 `prompt=consent` 要求同意時，使用者只會對應用程式註冊的所有權限看到同意畫面。 `contacts.read` 將會出現在同意畫面上，但`mail.read`不會。 傳回的權杖會適用於 Microsoft Graph，而且包含 `mail.read` 和 `contacts.read`。
+使用者已經對用戶端同意 `mail.read`。 用戶端已在其註冊中註冊 `contacts.read` 範圍。 當用戶端使用 `scope=https://graph.microsoft.com/.default` 提出權杖要求，並透過 `prompt=consent` 要求同意時，使用者只會對應用程式註冊的所有權限看到同意畫面。 `contacts.read` 將會呈現在同意畫面中，但 `mail.read` 不會。 傳回的權杖會適用於 Microsoft Graph，而且包含 `mail.read` 和 `contacts.read`。
 
 ### <a name="using-the-default-scope-with-the-client"></a>使用 /.default 範圍搭配用戶端
 

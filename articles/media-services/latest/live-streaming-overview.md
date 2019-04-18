@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916020"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
@@ -68,7 +68,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 若要了解媒體服務 v3 中的即時串流工作流程，您必須先檢閱，並了解下列概念： 
 
 - [串流端點](streaming-endpoint-concept.md)
-- [即時事件與即時輸出](live-events-outputs-concept.md)
+- [實況活動與實況輸出](live-events-outputs-concept.md)
 - [串流定位器](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>一般步驟
@@ -89,11 +89,11 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 - [建議的即時編碼器](recommended-on-premises-live-encoders.md)
 - [使用雲端 DVR](live-event-cloud-dvr.md)
-- [即時事件類型的功能比較](live-event-types-comparison.md)
-- [狀態與計費](live-event-states-billing.md)
-- [Latency](live-event-latency.md)
+- [即時事件類型功能比較](live-event-types-comparison.md)
+- [狀態和計費](live-event-states-billing.md)
+- [延遲](live-event-latency.md)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [即時串流的教學課程](stream-live-tutorial-with-api.md)
+* [即時串流教學課程](stream-live-tutorial-with-api.md)
 * [從媒體服務 v2 移動至 v3 的移轉指導](migrate-from-v2-to-v3.md)

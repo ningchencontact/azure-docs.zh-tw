@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500459"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680871"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 上 App Service 的 Java 開發人員指南
 
@@ -28,9 +28,9 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在全受控 Linux 服務
 
 ## <a name="deploying-your-app"></a>部署應用程式
 
-您可以使用 Maven 外掛程式來部署 .jar 和 .war 檔案。 如需有關 Maven 外掛程式的詳細資訊，請參閱[這份文件](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) \(英文\)。
+您可以使用[適用於 Azure App Service 的 Maven 外掛程式](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)將.jar 和.war 檔案部署。 與熱門的 Ide 部署也支援[適用於 IntelliJ 的 Azure 工具組](/java/azure/intellij/azure-toolkit-for-intellij)或是[適用於 Eclipse 的 Azure 工具組](/java/azure/eclipse/azure-toolkit-for-eclipse)。
 
-如果您不是使用 Maven，則部署方法將會取決於您的封存類型：
+否則，您的部署方法將取決於您的封存類型：
 
 - 若要將 .war 檔案部署至 Tomcat，請使用 `/api/wardeploy/` 端點透過 POST 張貼您的封存檔案。 如需有關此 API 的詳細資訊，請參閱[這份文件](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file)。
 - 若要部署 Java SE 映像上的 .jar 檔案，請使用 Kudu 網站的 `/api/zipdeploy/` 端點。 如需有關此 API 的詳細資訊，請參閱[這份文件](https://docs.microsoft.com/azure/app-service/deploy-zip#rest)。
@@ -79,7 +79,7 @@ az webapp log tail --name webappname --resource-group myResourceGroup
 
 ## <a name="customization-and-tuning"></a>自訂和調整
 
-Azure App Service for Linux 支援透過 Azure 入口網站和 CLI 的預設調整和自訂。 請檢閱下列非 Java 特定 Web 應用程式設定的文章：
+適用於 Linux 的 azure App Service 支援的微調方塊和透過 Azure 入口網站和 CLI 進行自訂。 請檢閱下列非 Java 特定 Web 應用程式設定的文章：
 
 - [設定 App Service 設定](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [設定自訂網域](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -93,7 +93,7 @@ Azure App Service for Linux 支援透過 Azure 入口網站和 CLI 的預設調�
 
 在 Azure 入口網站中，於 Web 應用程式的 [應用程式設定] 下，建立名為 `JAVA_OPTS` 且包含其他設定的新應用程式設定 (例如 `-Xms512m -Xmx1204m`)。
 
-若要設定 Maven 外掛程式中的應用程式設定，設定/值標記的區段中新增 Azure 外掛程式。 下列範例設定特定最小和最大 Java 堆積大小：
+若要設定 Maven 外掛程式中的應用程式設定，設定/值標記的區段中新增 Azure 外掛程式。 下列範例會設定特定最小和最大 Java 堆積大小：
 
 ```xml
 <appSettings>
@@ -156,7 +156,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ### <a name="authenticate-users"></a>驗證使用者
 
-使用 [驗證與授權] 選項，設定 Azure 入口網站中的應用程式驗證。 在這裡，您可以使用 Azure Active Directory 或社交登入 (例如 Facebook、Google 或 GitHub) 來啟用驗證。 只有在設定單一驗證提供者時，Azure 入口網站設定才會運作。  如需詳細資訊，請參閱[設定 App Service 應用程式使用 Azure Active Directory 登入](/azure/app-service/configure-authentication-provider-aad)，以及其他身分識別提供者的相關文章。
+設定使用 Azure 入口網站中的應用程式驗證**驗證和授權**選項。 在這裡，您可以使用 Azure Active Directory 或社交登入 (例如 Facebook、Google 或 GitHub) 來啟用驗證。 只有在設定單一驗證提供者時，Azure 入口網站設定才會運作。  如需詳細資訊，請參閱[設定 App Service 應用程式使用 Azure Active Directory 登入](/azure/app-service/configure-authentication-provider-aad)，以及其他身分識別提供者的相關文章。
 
 如果您需要啟用多個登入提供者，請遵循[自訂 App Service 驗證](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)一文中的指示。
 
@@ -297,7 +297,7 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 
     此連接字串是可存取我們的應用程式作為環境變數，名為`CUSTOMCONNSTR_<your-string-name>`。 例如，前面所建立的連接字串將會命名為`CUSTOMCONNSTR_exampledb`。
 
-2. 在您`application.properties`檔案中，參考環境變數名稱與這個連接字串。 我們的範例中，我們會使用下列程式碼。
+2. 在您`application.properties`檔案中，參考環境變數名稱與此連接字串。 我們的範例中，我們會使用下列程式碼。
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}

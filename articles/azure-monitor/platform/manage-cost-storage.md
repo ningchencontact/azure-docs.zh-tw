@@ -15,10 +15,10 @@ ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
 ms.openlocfilehash: a2f90c52823664df5fdc71c55220cc660c2f68e3
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878140"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Azure 監視器中的 Log analytics 管理使用量和成本
@@ -92,7 +92,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
  
 1. 在工作區中，從左側窗格中選取 [使用量和估計成本]。
 2. 在 [使用量和估計成本] 頁面上，按一下頁面頂端的 [資料量管理]。
-5. 在窗格上，移動滑桿來增加或減少天數，然後按一下 [確定]。  如果您位於「免費」層，將無法修改資料保留期，必須升級至付費層，才能控制此設定。<br><br> ![變更工作區資料保留設定](media/manage-cost-storage/manage-cost-change-retention-01.png)
+5. 在窗格上，移動滑桿來增加或減少天數，然後按一下 [確定]。  如果您位於「免費」層，將無法修改資料保留期，必須升級至付費層，才能控制此設定。<br><br> ![變更工作區資料保留期設定](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="legacy-pricing-tiers"></a>舊版定價層
 
@@ -110,7 +110,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 2. 在 [工作區] 窗格的 [一般] 下方，選取 [定價層]。  
 
 3. 在 [定價層] 下方選取定價層，然後按一下 [選取]。  
-    ![選取定價方案](media/manage-cost-storage/workspace-pricing-tier-info.png)
+    ![選取的定價方案](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
 如果您想要將工作區移至目前的定價層，則需要[在 Azure 監視器中變更訂用帳戶的監視定價模型](usage-estimated-costs.md#moving-to-the-new-pricing-model)，這將變更該訂用帳戶中所有工作區的定價層。
 
@@ -340,7 +340,7 @@ Azure 警示支援使用搜尋查詢的[記錄警示](alerts-unified-log.md)。
 - **定義警示條件**：將您的 Log Analytics 工作區指定為資源目標。
 - **警示準則**：指定下列項目：
    - **訊號名稱**：選取 [自訂記錄搜尋]
-   - **搜尋查詢**至 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
    - [警示邏輯] 為 [根據結果數目]，而 [條件] 為 [大於臨界值 0]
    - [時間週期] 為 1440 分鐘，而 [警示頻率] 設定為 60 分鐘，因為使用量資料每小時只會更新一次。
 - **定義警示詳細資料**：指定下列項目：
@@ -354,7 +354,7 @@ Azure 警示支援使用搜尋查詢的[記錄警示](alerts-unified-log.md)。
 - **定義警示條件**：將您的 Log Analytics 工作區指定為資源目標。
 - **警示準則**：指定下列項目：
    - **訊號名稱**：選取 [自訂記錄搜尋]
-   - **搜尋查詢**至 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
    - [警示邏輯] 為 [根據結果數目]，而 [條件] 為 [大於臨界值 0]
    - [時間週期] 為 180 分鐘，而 [警示頻率] 設定為 60 分鐘，因為使用量資料每小時只會更新一次。
 - **定義警示詳細資料**：指定下列項目：

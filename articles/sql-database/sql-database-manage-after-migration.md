@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358426"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的單一和集區資料庫
@@ -88,7 +88,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 
 不支援傳統 Windows 驗證。 Azure Active Directory (AD) 是集中式身分識別和存取管理服務。 利用此服務，您可以非常輕鬆地為組織中的所有人員提供單一登入存取 (SSO)。 這表示認證會在所有 Azure 服務間共用，以簡化驗證。 AAD 支援 [MFA (多重要素驗證)](sql-database-ssms-mfa-authentication.md)，[只要按幾下滑鼠](../active-directory/hybrid/how-to-connect-install-express.md)，AAD 即可與 Windows Server Active Directory 整合。 SQL 驗證的運作方式正如同您過去使用它的方式。 您提供使用者名稱/密碼，而您可以向指定 SQL Database 伺服器上的任何資料庫驗證使用者。 這也可讓 SQL Database 和 SQL 資料倉儲提供多重要素驗證和 Azure AD 網域內的來賓使用者帳戶。 如果您已經有內部部署 Active Directory，您可以使目錄與 Azure Active Directory 結成同盟，將您的目錄延伸至 Azure。
 
-|**如果您...**|**SQL Database / SQL 資料倉儲**|
+|**如果您...**|**SQL Database/SQL 資料倉儲**|
 |---|---|
 |不想在 Azure 中使用 Azure Active Directory (AD)|使用 [SQL 驗證](sql-database-security-overview.md)|
 |已在內部部署 SQL Server 上使用 AD|[使 AD 與 Azure AD 結成同盟](../active-directory/hybrid/whatis-hybrid-identity.md)，並使用 Azure AD 驗證。 如此一來，您即可使用單一登入。|
@@ -152,9 +152,9 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 |**特性**|**一律加密**|**透明資料加密**|
 |---|---|---|
 |**加密範圍**|端對端|待用資料|
-|**資料庫伺服器可以存取機密資料**|否|是，因為加密用於待用資料|
+|**資料庫伺服器可以存取敏感性資料**|否|是，因為加密用於待用資料|
 |**允許的 T-SQL 作業**|相等比較|所有 T-SQL 介面區域可供使用|
-|**若要使用的功能所需的應用程式變更**|有限|非常有限|
+|**使用此功能需要進行應用程式變更**|有限|非常有限|
 |**加密資料細微度**|資料行層級|資料庫層級|
 ||||
 
@@ -195,14 +195,14 @@ Always Encrypted 中也有[雙重金鑰階層](/sql/relational-databases/securit
 
 您的組織與 SQL Database 之間的網路流量通常會透過公用網路路由傳送。 不過，如果您選擇將此路徑最佳化，並使其更安全，您可以研究一下 Express Route。 Express Route 基本上可讓您透過私人連線將公司網路延伸至 Azure 平台。 如此一來，您不會經過公用網際網路。 您也會獲得較高的安全性、可靠性和轉譯至較低網路延遲的路由最佳化，以及比您一般透過公用網際網路會遇到更快的速度。 如果您計劃在組織與 Azure 之間傳輸大量資料區塊，使用 Express Route 可以產生成本優勢。 您可以從您的組織連線至 Azure 的三種不同的連線模型中選擇：
 
-- [雲端 Exchange 共](../expressroute/expressroute-connectivity-models.md#CloudExchange)
-- [任意-到-任意](../expressroute/expressroute-connectivity-models.md#IPVPN)
-- [Point-to-Point](../expressroute/expressroute-connectivity-models.md#Ethernet)
+- [雲端 Exchange 共置](../expressroute/expressroute-connectivity-models.md#CloudExchange)
+- [任意對任意](../expressroute/expressroute-connectivity-models.md#IPVPN)
+- [點對點](../expressroute/expressroute-connectivity-models.md#Ethernet)
 
 Express Route 也可讓您高載至所購買的頻寬限制最多 2 倍，不額外收費。 您也可以使用 Express Route 設定跨區域連線。 若要查看 ER 連線提供者的清單，請參閱：[Express Route 合作夥伴和對等互連位置](../expressroute/expressroute-locations.md)。 下列文章更詳細說明 Express Route：
 
 - [Express Route 簡介](../expressroute/expressroute-introduction.md)
-- [必要條件](../expressroute/expressroute-prerequisites.md)
+- [先決條件](../expressroute/expressroute-prerequisites.md)
 - [工作流程](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database 是否符合任何法規需求，以及這對於自己組織的合規性有何幫助
@@ -285,7 +285,7 @@ SQL Database 提供三個服務層：基本、標準和進階。 在每個服務
 |---|---|
 |**基本**|應用程式具有少數使用者與一個資料庫，沒有高度並行能力、規模和效能需求。 |
 |**標準**|應用程式具有相當大的並行能力、規模和效能需求，結合低到中等的 IO 要求。 |
-|**進階**|應用程式具有許多並行使用者、高度 CPU/記憶體和高度 IO 要求。 高度並行能力、高輸送量和對延遲敏感的應用程式可以利用高級層級。 |
+|**高級**|應用程式具有許多並行使用者、高度 CPU/記憶體和高度 IO 要求。 高度並行能力、高輸送量和對延遲敏感的應用程式可以利用高級層級。 |
 |||
 
 若要確定您已採用正確的計算大小，您可以透過上述「如何在 SQL Database 中監視效能和資源使用量？」中之其中一個方式來監視您的查詢和資料庫資源耗用量。 如果您發現您的查詢/資料庫持續耗用 CPU/記憶體等，可以考慮向上增加至更高的計算大小。 同樣地，如果您發現即使在尖峰時刻也未使用一樣多的資源，請考慮從目前的計算大小向下縮減。

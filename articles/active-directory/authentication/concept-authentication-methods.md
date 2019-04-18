@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360642"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
@@ -236,9 +236,9 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 
 ## <a name="next-steps"></a>後續步驟
 
-[啟用自助式密碼重設為您的組織](quickstart-sspr.md)
+[啟用貴組織的自助密碼重設](quickstart-sspr.md)
 
-[為您的組織中啟用 Azure Multi-factor Authentication](howto-mfa-getstarted.md)
+[啟用貴組織的 Azure 多重要素驗證](howto-mfa-getstarted.md)
 
 [在您的租用戶中的啟用結合註冊](howto-registration-mfa-sspr-combined.md)
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453a3316288cbc0b07d82e2fad9ecc7c3d353e9b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501309"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698447"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft 身分識別平台和隱含授與流程
 
@@ -52,7 +52,7 @@ ms.locfileid: "59501309"
 
 ## <a name="send-the-sign-in-request"></a>傳送登入要求
 
-若要一開始將使用者登入您的應用程式，您可以傳送[OpenID Connect](v2-protocols-oidc.md)授權要求，以及如何取得`id_token`從 Microsoft 身分識別平台的端點。
+若要一開始將使用者登入您的應用程式，您可以傳送[OpenID Connect](v2-protocols-oidc.md)驗證要求，以及如何取得`id_token`從 Microsoft 身分識別平台的端點。
 
 > [!IMPORTANT]
 > 若要成功要求識別碼權杖，應用程式註冊[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)分頁必須具有正確，選取啟用的隱含授與流程**存取權杖**和**識別碼權杖**底下**隱含授與**一節。 如果未啟用，`unsupported_response`便會傳回錯誤：**不允許此用戶端使用為輸入參數 "response_type" 提供的值。值應為 'code'**
@@ -84,7 +84,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | 選用 |指定將產生的權杖送回到應用程式所應該使用的方法。 預設為查詢存取權杖，但若要求包含 id_token，則會查詢片段。 |
 | `state` | 建議使用 |同样随令牌响应返回的请求中所包含的值。 其可以是您想要之任何內容的字串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
 | `nonce` | 必要 |由應用程式產生且包含在要求中的值，會以宣告方式包含在產生的 id_token 中。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 只有要求 id_token 時，才需要此值。 |
-| `prompt` | 選用 |表示需要的使用者互動類型。 目前的有效值只有 'login'、'none'、'select_account' 和 'consent'。 `prompt=login` 會強制使用者在該要求，否定單一登入上輸入其認證。 `prompt=none` 則相反-它會確保使用者不顯示任何互動式提示。 如果無法透過單一登入以無訊息方式完成要求，Microsoft 身分識別平台端點會傳回錯誤。 `prompt=select_account` 將使用者傳送到帳戶選擇器的所有已記住的工作階段中的帳戶出現的位置。 `prompt=consent` 在使用者登入，要求使用者授與應用程式的權限之後，就會觸發 OAuth 同意對話方塊。 |
+| `prompt` | 選用 |表示需要的使用者互動類型。 目前的有效值只有 'login'、'none'、'select_account' 和 'consent'。 `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。 `prompt=none` 則相反-它會確保使用者不顯示任何互動式提示。 如果無法透過單一登入以無訊息方式完成要求，Microsoft 身分識別平台端點會傳回錯誤。 `prompt=select_account` 會將使用者傳送至帳戶選擇器，工作階段中記下的所有帳戶都會出現在當中。 `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
 | `login_hint`  |選用 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常，应用会在重新身份验证期间使用此参数，并且已经使用 `preferred_username` 声明从前次登录提取用户名。|
 | `domain_hint` | 選用 |可以是 `consumers` 或 `organizations` 其中一個。 如果包含，它會略過電子郵件為基礎的探索程序，使用者會經歷在登入頁面上，導致稍微更流暢的使用者體驗。 通常應用程式會在重新驗證期間使用此參數，方法是從 id_token 擷取 `tid` 宣告。 如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad` (Microsoft 帳戶取用者租用戶)，您應該使用 `domain_hint=consumers`。 否則，您可以在重新驗證期間使用 `domain_hint=organizations`。 |
 

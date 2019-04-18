@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886449"
 ---
 # <a name="dynamic-packaging"></a>動態封裝
@@ -92,7 +92,7 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>動態封裝支援的音訊轉碼器
 
-動態封裝支援 MP4 檔案，其中包含以編碼的音訊[AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC、 HE-AAC v1、 HE-AAC v2)， [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)（增強式 AC-3 或 E-AC3） Dolby Atmos 或[DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)(DTS Express、 DTS LBR，DTS HD，DTS HD 不失真)。 適用於標準，例如 MPEG DASH 通訊協定，與一般串流格式 (CSF) 或一般媒體應用程式格式 (CMAF) 分散的 MP4，並透過 HTTP Live Streaming (HLS) 與 CMAF 支援 Dolby Atmos 內容的串流。
+动态打包支持 MP4 文件，其中包含使用 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)（AAC-LC、HE-AAC v1、HE-AAC v2）、[Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)（增强版 AC-3 或 E-AC3）、Dolby Atmos 或 [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)（DTS Express、DTS LBR、DTS HD、DTS HD 无损）编码的音频。 流式传输 Dolby Atmos 内容适用于特定的标准（例如 MPEG-DASH 协议），采用通用流式传输格式 (CSF) 或通用媒体应用程序格式 (CMAF) 分段 MP4，在使用 CMAF 的情况通过 HTTP 实时传送视频流 (HLS) 来进行。
 
 > [!NOTE]
 > 動態封裝不支援包含 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) 音訊的檔案 (它是舊版的轉碼器)。
@@ -200,5 +200,5 @@ Smooth Streaming 資訊清單的範例如下：
 
 ## <a name="next-steps"></a>後續步驟
 
-[上傳、 編碼、 串流影片](stream-files-tutorial-with-api.md)
+[上傳、編碼、串流影片](stream-files-tutorial-with-api.md)
 

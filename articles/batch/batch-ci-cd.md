@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494639"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>使用 Azure 管線來建置和部署的 HPC 解決方案
@@ -51,7 +51,7 @@ Azure 的管線會提供一系列新式 CI/CD 程序，建置、 部署、 測�
 本節假設您已熟悉使用版本控制和設計 Resource Manager 範本。 如果您不熟悉這些概念，請參閱下列頁面，如需詳細資訊。
 
 * [什麼是原始檔控制？](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
-* [了解 Azure Resource Manager 範本的結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)
+* [了解 Azure Resource Manager 範本的的結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)
 
 #### <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
 
@@ -302,7 +302,7 @@ Azure 的管線會提供一系列新式 CI/CD 程序，建置、 部署、 測�
 * **Arm 範本**儲存我們的基礎結構即程式碼資料夾。
 * **Hpc 應用程式**ffmpeg 的二進位檔所在的資料夾
 * **管線**包含我們建置的管線定義的資料夾。
-* **選擇性**：**用戶端應用程式**會儲存為.NET 應用程式的程式碼的資料夾。 我們不會將這在範例中，但在您自己的專案中，您可能想要執行的 HPC 批次應用程式透過用戶端應用程式。
+* **選用**：**用戶端應用程式**會儲存為.NET 應用程式的程式碼的資料夾。 我們不會將這在範例中，但在您自己的專案中，您可能想要執行的 HPC 批次應用程式透過用戶端應用程式。
 
 > [!NOTE]
 > 這是結構的一個範例程式碼基底。 這種方法用於便於示範，會將應用程式、 基礎結構，以及管線程式碼儲存在相同的儲存機制。
@@ -506,5 +506,5 @@ az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 
 除了本文中，有兩個教學課程會使用 ffmpeg，使用.NET 和 Python。 這些教學課程，如需詳細資訊，請參閱如何與 Batch 帳戶，透過簡單的應用程式互動。
 
-* [使用 Python API 透過 Azure Batch 執行平行工作負載](tutorial-parallel-python.md)
-* [使用 .NET API 透過 Azure Batch 執行平行工作負載](tutorial-parallel-dotnet.md)
+* [透過使用 Python API 的 Azure Batch 執行平行工作負載](tutorial-parallel-python.md)
+* [透過使用.NET API 的 Azure Batch 執行平行工作負載](tutorial-parallel-dotnet.md)

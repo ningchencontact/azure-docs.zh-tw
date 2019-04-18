@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: 5f9a225e8a256dd55feadf97f0a7b9f922487a6f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492799"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>使用 Azure Log Analytics 代理程式收集記錄資料
@@ -105,8 +105,7 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺
 |proxyhost | Proxy 伺服器/Log Analytics 閘道的位址或 FQDN |
 |連接埠 | Proxy 伺服器/Log Analytics 閘道的選擇性連接埠號碼 |
 
-例如︰
-`https://user01:password@proxy01.contoso.com:30443`
+例如：`https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > 若您在您的密碼中使用特殊字元 (例如 "\@")，您會收到 Proxy 連線錯誤訊息，因為系統無法正確剖析該值。  若要暫時解決此問題，請使用 [URLDecode](https://www.urldecoder.org/) 之類的工具將 URL 中的密碼編碼。  
@@ -119,7 +118,7 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺
 |Azure VM| - 適用於 [Windows](../../virtual-machines/extensions/oms-windows.md) 或 [Linux](../../virtual-machines/extensions/oms-linux.md) 的 Log Analytics VM 擴充功能，使用 Azure CLI 或 Azure Resource Manager 範本<br>- [從 Azure 入口網站手動執行](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)。 | 擴充功能會在 Azure 虛擬機器上安裝 Log Analytics 代理程式，並且在現有的 Azure 監視器工作區中註冊這些機器。|
 | 混合式 Windows 電腦|- [手動安裝](agent-windows.md)<br>- [Azure 動化 DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [搭配 Azure Stack 的資源管理員範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |從命令列或使用自動化方法 (例如 Azure 自動化 DSC、[System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications)) 來安裝 Microsoft Monitoring 代理程式，或者如果您已經在您的資料中心部署 Microsoft Azure Stack，請使用 Azure Resource Manager 範本。| 
 | 混合式 Linux 電腦| [手動安裝](../../azure-monitor/learn/quick-collect-linux-computer.md)|安裝適用於 Linux 的代理程式需要 GitHub 上裝載的包裝函式指令碼。 | 
-| System Center Operations Manager|[整合 Operations Manager 與 Log Analytics](../../azure-monitor/platform/om-agents.md) | 設定 Operations Manager 與 Log Analytics 之間的整合，以將收集的資料從 Linux 與 Windows 電腦報告轉送到管理群組。|  
+| System Center Operations Manager|[將 Operations Manager 與 Log Analytics 整合](../../azure-monitor/platform/om-agents.md) | 設定 Operations Manager 與 Log Analytics 之間的整合，以將收集的資料從 Linux 與 Windows 電腦報告轉送到管理群組。|  
 
 ## <a name="next-steps"></a>後續步驟
 

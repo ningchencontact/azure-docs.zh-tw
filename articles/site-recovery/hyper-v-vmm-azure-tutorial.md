@@ -9,17 +9,17 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 64559f653ba8a466de7bec10db34383b508e3e4b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361284"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>將 VMM 雲端中 Hyper-V VM 的災害復原設定至 Azure
 
 這篇文章說明如何為內部部署 HYPER-V Vm 至 Azure 的災害復原的受管理的 System Center Virtual Machine Manager (VMM)，啟用複寫[Azure Site Recovery](site-recovery-overview.md)服務。 如果您未使用 VMM，然後[遵循本教學課程](hyper-v-azure-tutorial.md)。
 
-這是說明如何設定內部部署 VMware vm 至 Azure 的災害復原一系列的第三個教學課程。 在上一個教學課程中，我們[準備好內部部署 HYPER-V 環境](hyper-v-prepare-on-premises-tutorial.md)災害復原至 Azure。 
+這是一系列中的第三個教學課程，說明如何為內部部署 VMware VM 設定 Azure 的災害復原。 在上一個教學課程中，我們[準備好內部部署 HYPER-V 環境](hyper-v-prepare-on-premises-tutorial.md)災害復原至 Azure。 
 
 在本教學課程中，您了解如何：
 
@@ -33,7 +33,7 @@ ms.locfileid: "59361284"
 
 
 > [!NOTE]
-> 教學課程會示範最簡單的部署路徑的案例。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，檢閱 [如何] 區段中的站台復原資料表的內容。
+> 這些教學課程示範案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱 Site Recovery 目錄的「操作說明」區段中的文章。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -45,11 +45,11 @@ ms.locfileid: "59361284"
 
 ## <a name="select-a-replication-goal"></a>選取複寫目標
 
-1. 在 [復原服務保存庫] 中選取保存庫。 我們已備妥的保存庫**ContosoVMVault**先前的教學課程中。
+1. 在 [復原服務保存庫] 中選取保存庫。 我們已在上一個教學課程中備妥保存庫 **ContosoVMVault**。
 2. 在 [使用者入門] 中，按一下 [Site Recovery]。 然後按一下 [準備基礎結構]
 3. 在 **保護目標** > **所在位置，您的電腦位於？**，選取**內部**。
-4. 在 **您要在其中複寫您的機器？**，選取**至 Azure**。
-5. 在 **您的電腦虛擬化嗎？** 選取**Yes，with HYPER-V 使用**。
+4. 在 [您要將電腦複寫到何處?] 中，選取 [複製到 Azure]。
+5. 在 [您的電腦虛擬化了嗎?] 中，選取 [是，使用 Hyper-V]。
 6. 在 [您是否使用 System Center VMM]，選取 [是]。 然後按一下 [確定] 。
 
     ![複寫目標](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
@@ -57,7 +57,7 @@ ms.locfileid: "59361284"
 
 ## <a name="confirm-deployment-planning"></a>確認部署規劃
 
-1. 在 **部署規劃**，如果您計劃的大型部署，從頁面上的連結，下載適用於 HYPER-V 的部署規劃工具。 [了解更多](hyper-v-deployment-planner-overview.md)關於 HYPER-V 部署規劃。
+1. 在 [部署規劃] 中，如果您正在規劃大型部署，請從頁面上的連結下載適用於 Hyper-V 的部署規劃工具。 [深入了解](hyper-v-deployment-planner-overview.md) Hyper-V 部署規劃。
 2. 基於本教學課程的目的，我們不需要部署規劃工具。 在 **完成部署規劃了嗎？**，選取**我會稍後再進行**。 然後按一下 [確定] 。
 
 
@@ -119,7 +119,7 @@ Site Recovery 會檢查您是否有一或多個相容的 Azure 儲存體帳戶�
 ## <a name="set-up-a-replication-policy"></a>設定複寫原則
 
 1. 按一下 [準備基礎結構] > [複寫設定] > [+建立並產生關聯]。
-2. 在 [建立及關聯原則] 中指定原則名稱。 我們會使用**ContosoReplicationPolicy**。
+2. 在 [建立及關聯原則] 中指定原則名稱。 我們使用的是 **ContosoReplicationPolicy**。
 3. 保留預設值設定，然後按一下 [確定]。
     - [複製頻率] 指出差異資料 (在初始複寫之後) 將會每隔五分鐘複寫一次。
     - **復原點保留期**表示可供每個復原點將會保留兩個小時。

@@ -16,10 +16,10 @@ ms.date: 10/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 936ad2e49aaf449144296dd941a3fbc42719fe4f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879024"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>教學課程：Azure Active Directory 與 Skillport 整合
@@ -99,7 +99,7 @@ Skillport 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 Skillport 應用程式中設定單一登入。
 
-**若要設定 Azure AD 單一登入與 Skillport 搭配運作，請執行下列步驟：**
+**若要使用 Skillport 設定 Azure AD 單一登入功能，請執行下列步驟：**
 
 1. 在 Azure 入口網站的 [Skillport] 應用程式整合頁面上，按一下 [單一登入]。
 
@@ -115,21 +115,21 @@ Skillport 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，輸入 URL：
       
-      EU 資料中心： `https://adfs.skillport.eu`
+      EU 資料中心：`https://adfs.skillport.eu`
    
-      美國資料中心： `https://sso.skillport.com`
+      US 資料中心：`https://sso.skillport.com`
 
     b. 在 [識別碼] 文字方塊中，輸入 URL：
       
-      EU 資料中心： `http://adfs.skillport.eu/adfs/services/trust`
+      EU 資料中心：`http://adfs.skillport.eu/adfs/services/trust`
    
-      美國資料中心： `https://sso.skillport.com`
+      US 資料中心：`https://sso.skillport.com`
    
     c. 在 [回覆 URL] 文字方塊中，輸入 URL：
     
-      EU 資料中心： `https://adfs.skillport.eu/adfs/ls/`
+      EU 資料中心：`https://adfs.skillport.eu/adfs/ls/`
     
-      美國資料中心： `https://sso.skillport.com/sp/ACS.saml2`
+      US 資料中心：`https://sso.skillport.com/sp/ACS.saml2`
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將 XML 檔案儲存在您的電腦上。
 
@@ -146,7 +146,7 @@ Skillport 與 Azure AD 整合提供下列優點：
 
 ![建立 Azure AD 使用者][100]
 
-**若要在 Azure AD 中建立的測試使用者，請執行下列步驟：**
+**若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
 1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -182,7 +182,7 @@ Skillport 與 Azure AD 整合提供下列優點：
 
 ![指派使用者][200] 
 
-**若要將 Britta Simon 指派給 Skillport 中，執行下列步驟：**
+**若要將 Britta Simon 指派給 Skillport，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 

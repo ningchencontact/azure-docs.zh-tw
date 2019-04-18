@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 災害復原 | Microsoft Docs
-description: Azure Service Fabric 提供處理各類型災害所需的功能。 本文說明可能會發生的災害類型以及如何加以處理。
+description: Azure Service Fabric 提供所需的功能用于应对各种灾难。 本文說明可能會發生的災害類型以及如何加以處理。
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883236"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的災害復原
@@ -67,17 +67,17 @@ Service Fabric 的目標幾乎都是自動管理故障。 不過，為了處理�
 
 例如電源故障造成機器的機架同時故障。 指定服務單一失敗的另一個例子是，容錯網域中有多個服務複本執行的許多機器出現損失。 這就是容錯網域的管理為何對確保服務的高可用性如此重要。 在 Azure 中執行 Service Fabric 時，會自動管理容錯網域。 在其他環境中則不會。 如果您要在內部部署中建立自己的叢集，請務必正確地對應及規劃您的容錯網域配置。
 
-升級網域對於要在同時升級的軟體中模型化區域相當有用。 有鑑於此，升級網域也經常定義計劃升級期間刪除軟體的邊界。 Service Fabric 和您的服務升級皆遵循相同的模型。 如需輪流升級、升級網域的相關資訊，或是進一步了解 Service Fabric 健康情況模型如何幫助避免非預期的變更影響在叢集和服務，請參閱下列文件：
+升級網域對於要在同時升級的軟體中模型化區域相當有用。 有鑑於此，升級網域也經常定義計劃升級期間刪除軟體的邊界。 Service Fabric 和您的服務升級皆遵循相同的模型。 若要详细了解滚动升级、升级域和有助于防止意外更改影响群集和服务的 Service Fabric 运行状况模型，请参阅以下文档：
 
- - [應用程式升級](service-fabric-application-upgrade.md)
- - [應用程式升級教學課程](service-fabric-application-upgrade-tutorial.md)
- - [Service Fabric 健全狀況模型](service-fabric-health-introduction.md)
+ - [应用程序升级](service-fabric-application-upgrade.md)
+ - [应用程序升级教程](service-fabric-application-upgrade-tutorial.md)
+ - [Service Fabric 健康情況模型](service-fabric-health-introduction.md)
 
 您可以使用 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中提供的叢集對應，視覺化您的叢集配置：
 
 <center>
 
-![節點散佈於 Service Fabric 總管中的容錯網域][sfx-cluster-map]
+![Service Fabric Explorer 中分散在容错域之间的节点][sfx-cluster-map]
 </center>
 
 > [!NOTE]
@@ -140,7 +140,7 @@ Service Fabric 有種子節點的概念。 種子節點是維護基礎叢集可�
 - 了解如何使用 [Testability 架構](service-fabric-testability-overview.md)
 - 閱讀其他災害復原和高可用性的資源。 Microsoft 已發佈大量有關這些主題的指引。 雖然其中有些文件提到其他產品中使用的特定技術，但還是包含許多您可在 Service Fabric 內容中應用的一般最佳作法︰
   - [可用性檢查清單](../best-practices-availability-checklist.md)
-  - [執行災害復原演練](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [执行灾难恢复演练](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Azure 應用程式的災害復原和高可用性][dr-ha-guide]
 - 了解 [Service Fabric 支援選項](service-fabric-support.md)
 

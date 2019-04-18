@@ -19,10 +19,10 @@ ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2054a873d73bce7048ef9e48adabf3fb5279df9
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500384"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>作法：讓任何 Azure Active Directory (AD) 使用者以多租用戶應用程式的模式登入
@@ -36,12 +36,12 @@ ms.locfileid: "59500384"
 
 將您的應用程式轉換成 Azure AD 多租用戶應用程式包含四個簡單的步驟︰
 
-1. [將您的應用程式註冊更新成多租用戶](#update-registration-to-be-multi-tenant)
-2. [將您的程式碼更新成將要求傳送給 /common 端點](#update-your-code-to-send-requests-to-common)
-3. [將您的程式碼更新成可處理多個簽發者值](#update-your-code-to-handle-multiple-issuer-values)
-4. [了解使用者和系統管理員的同意意向並進行適當的程式碼變更](#understand-user-and-admin-consent)
+1. [將您的應用程式註冊更新為多租用戶應用程式](#update-registration-to-be-multi-tenant)
+2. [更新您的程式碼以將要求傳送給 /common 端點](#update-your-code-to-send-requests-to-common)
+3. [更新您的程式碼以處理多個簽發者值](#update-your-code-to-handle-multiple-issuer-values)
+4. [取得使用者和系統管理員的同意並進行適當的程式碼變更](#understand-user-and-admin-consent)
 
-让我们详细了解每个步骤。 您也可以直接跳到[這份多租用戶範例清單][AAD-Samples-MT]。
+讓我們仔細看看每個步驟。 您也可以直接跳到[這份多租用戶範例清單][AAD-Samples-MT]。
 
 ## <a name="update-registration-to-be-multi-tenant"></a>將註冊更新成多租用戶
 
@@ -58,7 +58,7 @@ Azure AD 中的 Web 應用程式/API 註冊預設是單一租用戶。 您只要
 
 在單一租用戶應用程式中，登入要求會傳送至租用戶的登入端點。 例如，以 contoso.onmicrosoft.com 來說，端點會是：`https://login.microsoftonline.com/contoso.onmicrosoft.com`。 傳送給租用戶端點的要求可以讓該租用戶中的使用者 (或來賓) 登入該租用戶中的應用程式。
 
-使用多租用戶應用程式時，應用程式事先並不知道使用者來自哪個租用戶，因此您無法將要求傳送給租用戶的端點。 取而代之的是，會將要求傳送給在所有 Azure AD 租用戶進行多工的端點： `https://login.microsoftonline.com/common`
+使用多租用戶應用程式時，應用程式事先並不知道使用者來自哪個租用戶，因此您無法將要求傳送給租用戶的端點。 反之，其會將要求傳送給在跨所有 Azure AD 租用戶進行多工作業的端點：`https://login.microsoftonline.com/common`
 
 當 Microsoft 身分識別平台收到的要求 /common 端點，它將使用者登入，如此一來，會探索使用者是來自哪個租用戶。 /Common 端點可以搭配所有的 Azure AD 所支援的驗證通訊協定：OpenID Connect、OAuth 2.0、SAML 2.0 和 WS-同盟。
 

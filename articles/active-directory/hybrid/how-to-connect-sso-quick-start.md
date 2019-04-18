@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256884"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680890"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -93,7 +93,7 @@ ms.locfileid: "59256884"
 ![Azure 入口網站：[Azure AD Connect] 窗格](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> 無縫 SSO 會建立名為的電腦帳戶`AZUREADSSOACC`您內部部署中每個 AD 樹系的 Active Directory (AD) 中。 `AZUREADSSOACC`電腦帳戶需要強保護，基於安全性考量。 只有網域系統管理員應該能夠管理的電腦帳戶。 請確定已停用電腦帳戶的 Kerberos 委派。 它們是安全遭到意外刪除，而且只有網域系統管理員可以存取儲存的電腦帳戶在組織單位 (OU)。
+> 無縫 SSO 會建立名為的電腦帳戶`AZUREADSSOACC`您內部部署中每個 AD 樹系的 Active Directory (AD) 中。 `AZUREADSSOACC`電腦帳戶需要強保護，基於安全性考量。 只有網域系統管理員應該能夠管理的電腦帳戶。 確定的已停用電腦帳戶的 Kerberos 委派，，而且沒有 Active Directory 中的其他帳戶有委派權限`AZUREADSSOACC`電腦帳戶。 它們是安全遭到意外刪除，而且只有網域系統管理員可以存取儲存的電腦帳戶在組織單位 (OU)。
 
 >[!NOTE]
 > 如果您在內部部署環境中使用傳遞-雜湊及認證竊取風險降低的架構，進行適當的變更，以確保`AZUREADSSOACC`電腦帳戶不會止隔離容器中。 
@@ -132,7 +132,7 @@ ms.locfileid: "59256884"
 
      結果如下所示：
 
-     值名稱： `https://autologon.microsoftazuread-sso.com`
+     值名稱：`https://autologon.microsoftazuread-sso.com`
   
      值 (資料)：1
 

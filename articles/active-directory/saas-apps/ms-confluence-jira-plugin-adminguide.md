@@ -15,10 +15,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862857"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>適用於 Azure Active Directory 的 Atlassian Jira 和 Confluence 管理員指南
@@ -146,7 +146,7 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 
 * **您想要停用 WebSudo (停用安全的系統管理員工作階段)**：
 
-  * 針對 Jira，預設會啟用安全的系統管理員工作階段 (也就是確認密碼後才能存取管理功能)。 如果您想要在 Jira 執行個體中移除這項功能，請在 jira-config.propertie 檔案中指定下面這一行： `ira.websudo.is.disabled = true`
+  * 針對 Jira，預設會啟用安全的系統管理員工作階段 (也就是確認密碼後才能存取管理功能)。 如果您想要在 Jira 執行個體中移除這個功能，在 jira-config.propertie 檔案中指定以下這一行：`ira.websudo.is.disabled = true`
 
   * 針對 Confluence，請遵循 [Confluence支援網站](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html)上的步驟。
 

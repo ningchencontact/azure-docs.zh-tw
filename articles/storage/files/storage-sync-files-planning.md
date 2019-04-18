@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918632"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
@@ -172,7 +172,7 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 **代理程式版本 5.0.2.0**   
 重複資料刪除會在 Windows Server 2016 和 Windows Server 2019 中，已啟用雲端階層處理的磁碟區上受到支援。 在已啟用雲端階層處理的磁碟區上啟用重複資料刪除，可讓您在內部部署中快取更多檔案，而不需佈建更多儲存空間。
 
-**Windows Server 2012 R2 或舊版的代理程式**  
+**Windows Server 2012 R2 或舊版代理程式**  
 針對未啟用雲端階層處理的磁碟區，Azure 檔案同步支援在磁碟區上啟用 Windows Server 重複資料刪除。
 
 ### <a name="distributed-file-system-dfs"></a>分散式檔案系統 (DFS)
@@ -293,8 +293,8 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>後續步驟
-* [請考慮防火牆和 proxy 設定](storage-sync-files-firewall-and-proxy.md)
-* [規劃 Azure 檔案服務部署](storage-files-planning.md)
-* [部署 Azure 檔案](storage-files-deployment-guide.md)
+* [考量防火牆和 Proxy 設定](storage-sync-files-firewall-and-proxy.md)
+* [規劃 Azure 檔案部署](storage-files-planning.md)
+* [部署 Azure 檔案服務](storage-files-deployment-guide.md)
 * [部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)
 * [監視 Azure 檔案同步](storage-sync-files-monitoring.md)

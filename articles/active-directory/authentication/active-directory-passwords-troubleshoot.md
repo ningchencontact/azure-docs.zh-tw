@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496398"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
@@ -55,8 +55,8 @@ ms.locfileid: "59496398"
 
 | Error | 解決方法 |
 | --- | --- |
-| 目錄未啟用密碼重設功能。 **您的系統管理員還沒為您啟用這項功能。** | 將 [已啟用自助式密碼重設] 旗標切換為 [選取項目] 或 [全部]，然後選取 [儲存]。 |
-| 使用者尚未獲得 Azure AD Premium 或 Basic 授權。 **您的系統管理員還沒為您啟用這項功能。** | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。|
+| 目錄未啟用密碼重設功能。 **您的系統管理員尚未為您啟用這項功能。** | 將 [已啟用自助式密碼重設] 旗標切換為 [選取項目] 或 [全部]，然後選取 [儲存]。 |
+| 使用者尚未獲得 Azure AD Premium 或 Basic 授權。 **您的系統管理員尚未為您啟用這項功能。** | 如果您未將 Azure AD Premium 或 Basic 授權指派給執行此作業的系統管理員，就會發生這種情況。 <br> <br> 您可以將授權指派給所提及的系統管理員帳戶，以解決這個問題。 如需詳細資訊，請參閱[指派、驗證授權及解決其問題](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)。|
 | 處理要求時發生錯誤。 | 許多問題都會造成此情形，但這個錯誤通常是因為服務中斷或設定問題所導致。 如果您看到這個錯誤，而且它會影響您的業務，請連絡 Microsoft 支援服務人員以尋求其他協助。 |
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>疑難排解密碼重設入口網站
@@ -155,9 +155,9 @@ ms.locfileid: "59496398"
 
 * [檢查網路連線](#confirm-network-connectivity)
 * [重新啟動 Azure AD Connect 同步處理服務](#restart-the-azure-ad-connect-sync-service)
-* [先將「密碼回寫」功能停用，然後再重新啟用](#disable-and-re-enable-the-password-writeback-feature)
+* [將密碼回寫功能先停用再重新啟用](#disable-and-re-enable-the-password-writeback-feature)
 * [安裝最新版的 Azure AD Connect](#install-the-latest-azure-ad-connect-release)
-* [針對密碼回寫進行疑難排解](#troubleshoot-password-writeback)
+* [疑難排解密碼回寫](#troubleshoot-password-writeback)
 
 一般而言，若要以最快速的方式復原服務，建議您依上述順序執行這些步驟。
 
@@ -266,7 +266,7 @@ Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密�
 * **支援碼**：使用者看到錯誤時所產生的支援碼？
    * 若要找到支援碼，請重現錯誤，然後按一下畫面底部的 [支援碼] 連結，將所產生的 GUID 傳送給支援工程師。
 
-   ![尋找畫面底部的支援程式碼][Support code]
+   ![尋找畫面底部的支援碼][Support code]
 
   * 如果您所在的頁面底部沒有支援碼，請選取 F12，搜尋 SID 和 CID，然後將這兩個結果傳送給支援工程師。
 * **日期、時間和時區**：請包含發生錯誤的精確日期和時間 (含時區)。
@@ -285,14 +285,14 @@ Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密�
 
 下列文章提供有關透過 Azure AD 重設密碼的其他資訊：
 
-* [我要如何完成 SSPR 成功推出？](howto-sspr-deployment.md)
+* [如何完成 SSPR 成功首度發行？](howto-sspr-deployment.md)
 * [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)
 * [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)
 * [您有授權問題嗎？](concept-sspr-licensing.md)
-* [SSPR 使用哪些資料以及哪些資料應該您為使用者填入嗎？](howto-sspr-authenticationdata.md)
-* [使用者可以使用哪些驗證方法？](concept-sspr-howitworks.md#authentication-methods)
+* [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
+* [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)
 * [使用 SSPR 的原則選項有哪些？](concept-sspr-policy.md)
-* [什麼是密碼回寫，為什麼我需要了解它？](howto-sspr-writeback.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](howto-sspr-writeback.md)
 * [如何回報 SSPR 中的活動？](howto-sspr-reporting.md)
-* [所有 SSPR 中的選項是什麼，以及做什麼它們的意義？](concept-sspr-howitworks.md)
-* [我有已某處並未涵蓋其他的問題](active-directory-passwords-faq.md)
+* [SSPR 中的所有選項有哪些，以及它們有何意義？](concept-sspr-howitworks.md)
+* [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)

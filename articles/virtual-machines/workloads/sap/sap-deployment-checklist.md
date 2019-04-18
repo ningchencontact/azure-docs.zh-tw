@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878718"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure 上 SAP 工作負載的規劃和部署檢查清單 
@@ -50,7 +50,7 @@ ms.locfileid: "58878718"
         2.  SAP 支援附註 [#2039619](https://launchpad.support.sap.com/#/notes/2039619) \(英文\)。 此附註定義了 Azure 上的 Oracle 支援對照表。 請注意，在適用於 SAP 的 Azure 工作負載中，Oracle 僅支援以 Windows 和 Oracle Linux 作為客體 OS。 這個支援聲明也適用於執行 SAP 執行個體的 SAP 應用程式層。 不過，在 Oracle Linux 中，Oracle 並不是透過 Pacemaker 支援 SAP Central Services 的高可用性。 如果您需要 Oracle Linux 上的 ASCS 高可用性，將需要利用適用於 Linux 的 SIOS 保護套件。 如需詳細的 SAP 認證資料，請參閱 SAP 支援附註[#1662610 - 適用於 Linux 的 SIOS 保護套件的支援詳細資料](https://launchpad.support.sap.com/#/notes/1662610)。 針對 Windows，Windows 容錯移轉叢集的容錯移轉解決方案可由 SAP 支援且適用於 SAP Central Services，並可與作為 DBMS 層的 Oracle 搭配使用。 
         3.  SAP 支援附註 [#2235581](https://launchpad.support.sap.com/#/notes/2235581) \(英文\) 提供各種不同 OS 版本上 SAP HANA 的支援對照表
         4.  支援 SAP HANA 的 Azure VM 和 [HANA 大型執行個體](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 皆列在[這裡](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-        5.  [SAP 產品可用性對照表](https://support.sap.com/en/)
+        5.  [SAP 產品可用性對照表](https://support.sap.com/en/) \(英文\)
         6.  適用於其他 SAP 特定產品的 SAP 附註  
     5.  建議您針對 SAP 生產環境系統採用嚴格的 3 層式設計。 不建議在同一個 VM 上結合使用 ASCS + APP 伺服器。  在 Azure 上搭配 Windows 作為客體 OS 時，支援使用 SAP Central Services 的多重 SID 叢集設定。 不過，在 Azure 上搭配 Linux 作業系統時，則不支援 SAP Central Services 多重 SID 叢集設定。 如需 Windows 客體 OS 案例的相關文件，請參閱：
         1.  [在 Azure 上搭配 Windows Server 容錯移轉叢集和共用磁碟的 SAP ASCS/SCS 執行個體多重 SID 高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
@@ -78,8 +78,8 @@ ms.locfileid: "58878718"
 6.  定義 Azure 訂用帳戶數目和不同訂用帳戶的核心配額。 請視需要[開啟支援要求以增加 Azure 訂用帳戶的配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) 
 7.  將 SAP 資料移轉至 Azure 的資料減量和資料移轉計劃。 針對 SAP NetWeaver 系統，SAP 具有關於如何限制大量資料之數量的指導方針。 SAP 發佈了[這份深入指南](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) \(英文\)，說明 SAP ERP 系統中的資料管理。 不過，有些內容確實適用於大部分 NetWeaver 和 S/4HANA 系統。
 8.  定義並決定自動化部署方法。 Azure 上基礎結構部署背後的自動化目標是要以決定性的方式進行部署，並獲得決定性的結果。 許多客戶都使用 Power Shell 或 CLI 型指令碼。 但有各式各樣的開放原始碼技術可用來部署適用於 SAP 的 Azure 基礎結構，甚至是安裝 SAP 軟體。 可以在 GitHub 中找到範例：
-    1.  [Azure 雲端中的自動化的 SAP 部署](https://github.com/Azure/sap-hana)
-    2.  [SAP HANA 安裝](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
+    1.  [Azure Cloud 雲端中的自動化 SAP 部署](https://github.com/Azure/sap-hana) \(英文\)
+    2.  [SAP HANA 安裝](https://github.com/AzureCAT-GSI/SAP-HANA-ARM) \(英文\)
 9.  定義您 (客戶)、系統整合者、Microsoft 及其他相關對象之間定期的設計和部署檢閱步調
 
  

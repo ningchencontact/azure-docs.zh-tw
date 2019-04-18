@@ -18,10 +18,10 @@ ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500290"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>作法：設定應用程式的服務及隱私權聲明條款
@@ -50,16 +50,16 @@ ms.locfileid: "59500290"
 | 有效的結構描述 | HTTP 和 HTTPS<br/>建議使用 HTTPS |
 | 最大長度    | 2048 個字元                       |
 
-範例：`https://myapp.com/terms-of-service`和 `https://myapp.com/privacy-statement`
+範例：`https://myapp.com/terms-of-service` 和 `https://myapp.com/privacy-statement`
 
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>新增服務條款和隱私權聲明的連結
 
 準備好服務條款和隱私權聲明時，即可使用下列其中一種方法在應用程式中新增這些文件的連結：
 
 * [透過 Azure 入口網站](#registered-in-azure-portal)
-* [在 應用程式註冊入口網站或開發人員中心](#registered-in-app-reg-portal)
+* [在應用程式註冊入口網站或開發人員中心](#registered-in-app-reg-portal)
 * [使用應用程式物件 JSON](#app-object-json)
-* [使用 MSGraph beta 版 REST API](#msgraph-beta-rest-api)
+* [使用 MSGraph 搶鮮版 (Beta) REST API](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>如果您之前在 Azure 入口網站中註冊應用程式
 
@@ -114,5 +114,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> * 請小心不要覆寫任何預先存在的值，您已指派給這些欄位： `supportUrl`， `marketingUrl`，及 `logoUrl`
+> * 請小心避免覆寫已指派給下列欄位的預先存在值：`supportUrl`、`marketingUrl` 和 `logoUrl`
 > * 當您使用 Azure AD 帳戶登入時，MSGraph 搶鮮版 (Beta) REST API 才能運作。 不支援 Microsoft 個人帳戶。

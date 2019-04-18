@@ -15,10 +15,10 @@ ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880690"
 ---
 # <a name="onboarding-requirements"></a>上線需求
@@ -66,12 +66,12 @@ ms.locfileid: "58880690"
 
 - SAP HANA (平台或企業版) 的授權和軟體安裝元件。
 
-**[應用程式]**
+**應用程式**
 
 - 任何連線至 SAP HANA 及相關 SAP 支援合約之 SAP 應用程式的授權和軟體安裝元件。
 - 與 SAP HANA on Azure (大型執行個體) 環境及相關支援合約搭配使用的任何非 SAP 應用程式所具有的授權和軟體安裝元件。
 
-**技術**
+**技能**
 
 - Azure IaaS 及其元件的相關經驗與知識。
 - 在 Azure 中部署 SAP 工作負載的相關經驗與知識。

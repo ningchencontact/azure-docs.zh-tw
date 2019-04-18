@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7cca9d9c91f35c30bbd71ae82b9f02447051078d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: e7cb9f4750fc26d4e03d255c8614e42a42944fd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983163"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678100"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure 監視器中的整合警示和監視取代了傳統警示和監視
 
@@ -23,14 +23,14 @@ Azure 監視器現在已成為整合的完整堆疊監視服務，其現在可�
 
  ![Azure 入口網站中的傳統警示](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
-建議您開始使用警示，並在新的平台中重新建立警示。 對於有大量警示的客戶，我們正設法提供自動化的方式，讓其可以將現有傳統警示移至新的警示系統，而不會中斷作業或增加成本。
+建議您開始使用警示，並在新的平台中重新建立警示。 有大量警示的客戶，我們會[輪流逾時是以階段](alerts-understand-migration.md#roll-out-phases)，則[自願性移轉工具](alerts-using-migration-tool.md)將現有的傳統警示移至新的警示系統，而不會中斷或已新增的成本。
 
 > [!IMPORTANT]
 > 在 [活動記錄] 上建立的傳統警示規則將不會被淘汰或移轉。 從新的 [Azure 監視器 - 警示] 即可依原樣存取和使用在 [活動記錄] 上建立的所有傳統警示規則。 如需詳細資訊，請參閱[使用 Azure 監視器來建立、檢視及管理活動記錄警示](../../azure-monitor/platform/alerts-activity-log.md)。 同樣地，從新的 [服務健康狀態] 區段也可以依原樣存取和使用 [服務健康狀態] 上的警示。 如需詳細資料，請參閱[服務健康狀態通知的相關警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
 
 ## <a name="unified-metrics-and-alerts-in-application-insights"></a>Application Insights 中的整合計量和警示
 
-Azure 監視器的較新計量平台現在可強化來自 Application Insights 的監視功能。 此變動表示 Application Insights 將會連結至動作群組，從而能夠提供更多的選項，而不只是先前的電子郵件和 Webhook 呼叫。 警示現在可以觸發語音電話、Azure Functions、Logic Apps、簡訊和 ITSM 工具 (例如 ServiceNow 和自動化 Runbook)。 由於有近乎即時的監視和警示功能，新的平台可讓 Application Insights 使用者利用相同技術，來強化其他 Azure 資源的監視功能，並支援 Microsoft 產品的監視功能。
+Azure 監視器的較新計量平台現在可強化來自 Application Insights 的監視功能。 這項變動表示 Application Insights 將會連結至動作群組，從而能夠提供更多的選項，而不只是先前的電子郵件和 Webhook 呼叫。 警示現在可以觸發語音電話、Azure Functions、Logic Apps、簡訊和 ITSM 工具 (例如 ServiceNow 和自動化 Runbook)。 由於有近乎即時的監視和警示功能，新的平台可讓 Application Insights 使用者利用相同技術，來強化其他 Azure 資源的監視功能，並支援 Microsoft 產品的監視功能。
 
 新的 Application Insights 整合監視和警示將會包含：
 
@@ -60,13 +60,14 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 
 2019 年 6 月底時，在 Azure 監視器中：
 
-- 傳統的監視及警示服務將會停用，且無法再建立新的警示規則
+- 傳統的監視及警示服務會停用且無法再建立新的警示規則。
 - 在 2019 年 6 月之後繼續存在於警示 (傳統) 中的任何警示規則都將會繼續執行並引發通知，但不可供修改之用。
-- 從 2019 年 6 月開始，傳統監視和警示中的警示規則將由 Microsoft 自動遷移至其在新 Azure 監視器平台的對等位置。 此程序無須停機即可順利進行，而且客戶不會遺失任何監視涵蓋範圍。
-- 移轉至新警示平台的警示規則將提供與之前一樣的監視涵蓋範圍，但會引發具有新承載的通知。 與傳統警示規則相關聯的任何電子郵件地址、Webhook 端點或邏輯應用程式連結在移轉時都將被轉移，但可能無法正確運作，因為新平台中的警示承載將有所不同
+- 啟動第 2019 年 7 月警示規則在傳統的監視與警示可以移轉的會自動變成 microsoft 新的 Azure 監視器平台在其對等項目。 此程序無須停機即可順利進行，而且客戶不會遺失任何監視涵蓋範圍。
+- 移轉至新警示平台的警示規則將提供與之前一樣的監視涵蓋範圍，但會引發具有新承載的通知。 任何電子郵件地址、 webhook 端點或與傳統的警示規則相關聯的邏輯應用程式連結在移轉時，將向前進行，但可能無法正確運作警示承載將會在新的平台不同。
+- 有些[傳統警示規則，也就無法自動移轉](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated)，而且需要使用者手動動作將會繼續執行直到 2020 年 6 月。
 
 > [!IMPORTANT]
-> Microsoft Azure 監視器近期將為客戶提供相關工具，使其能夠將傳統警示規則自動移轉至新平台。 且自 2019 年 7 月起，將強制對仍然存在的傳統警示規則執行該工具。 移轉至傳統警示規則之後，客戶必須確實調整使用傳統警示規則的自動化作業，以處理來自 [Application Insights 中的整合計量和警示](#unified-metrics-and-alerts-in-application-insights)或[其他 Azure 資源的整合計量和警示](#unified-metrics-and-alerts-for-other-azure-resources)的新承載。 
+> Microsoft Azure 監視器有分階段首展[工具來主動移轉](alerts-using-migration-tool.md)入新的平台推出其傳統警示規則。 然後執行它的所有傳統的警示規則，仍然存在，可以移轉，啟動 2019 年 7 月的強制。 移轉至傳統警示規則之後，客戶必須確實調整使用傳統警示規則的自動化作業，以處理來自 [Application Insights 中的整合計量和警示](#unified-metrics-and-alerts-in-application-insights)或[其他 Azure 資源的整合計量和警示](#unified-metrics-and-alerts-for-other-azure-resources)的新承載。 如需詳細資訊，請參閱[為傳統的警示規則移轉做準備](alerts-prepare-migration.md)
 
 我們很快就會提供工具，讓您可以自行從 Azure 入口網站的 [[警示 (傳統)] 區段](../../azure-monitor/platform/alerts-classic.overview.md)遷移至新的 Azure 警示。 [警示 (傳統)] 中所設定並遷移至新 Azure 監視器的規則全都會維持免費，不會收費。 所遷移的傳統警示規則也不會因為透過電子郵件、Webhook 或 LogicApp 推送通知而需要承擔任何費用。 不過，使用較新的通知或動作類型 (例如簡訊、語音電話、ITSM 整合等等) 則會收費，不論其新增到遷移的警示還是新的警示都是如此。 如需詳細資訊，請參閱 [Azure 監視器定價](https://azure.microsoft.com/pricing/details/monitor/)。
 
@@ -84,4 +85,3 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 
 * 了解[新的整合 Azure 監視器](../../azure-monitor/overview.md)。
 * 深入了解新的 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)。
-

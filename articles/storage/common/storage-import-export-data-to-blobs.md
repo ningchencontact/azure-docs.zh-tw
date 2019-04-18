@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283268"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure Blob 儲存體
@@ -55,7 +55,7 @@ ms.locfileid: "59283268"
 5.  若要取得磁碟機的 BitLocker 金鑰，請執行下列命令：
     
     `manage-bde -protectors -get <DriveLetter>:`
-6.  若要準備磁碟，請執行下列命令。 **根據資料大小，這可能需要數小時的時間為天。** 
+6.  若要準備磁碟，請執行下列命令。 **視資料大小而定，這可能需要數小時到數天的時間。** 
 
     ```
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
@@ -70,7 +70,7 @@ ms.locfileid: "59283268"
     |/id:     |工作階段識別碼。 針對命令的每個執行個體使用唯一的工作階段號碼。      |
     |/sk:     |Azure 儲存體帳戶金鑰。         |
     |/t:     |要寄送之磁碟的磁碟機代號。 例如，磁碟機 `D`。         |
-    |/bk:     |磁碟機的 BitLocker 金鑰。 從輸出中其數字密碼 `manage-bde -protectors -get D:`      |
+    |/bk:     |磁碟機的 BitLocker 金鑰。 其數字密碼來自 `manage-bde -protectors -get D:` 的輸出      |
     |/srcdir:     |要寄送之磁碟的磁碟機代號，其後緊接著 `:\`。 例如： `D:\`。         |
     |/dstdir:     |Azure 儲存體中目的地容器的名稱。         |
     |/skipwrite：     |此選項表示不需要複製新資料，且即將準備磁碟上的現有資料。          |
@@ -144,7 +144,7 @@ ms.locfileid: "59283268"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [檢視工作和磁碟機狀態](storage-import-export-view-drive-status.md)
+* [檢視作業和磁碟機狀態](storage-import-export-view-drive-status.md)
 * [檢閱匯入/匯出的需求](storage-import-export-requirements.md)
 
 

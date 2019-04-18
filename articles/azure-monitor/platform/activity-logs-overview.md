@@ -9,10 +9,10 @@ ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496874"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活動記錄監視訂用帳戶活動
@@ -48,7 +48,7 @@ ms.locfileid: "59496874"
 
 ## <a name="event-schema-per-category"></a>每個類別的事件結構描述
 
-[請參閱本文，了解活動記錄事件結構描述，每個類別。](../../azure-monitor/platform/activity-log-schema.md)
+[請參閱這篇文章以了解每一類活動記錄事件的結構描述。](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Azure 活動記錄檔的用途
 
@@ -58,7 +58,7 @@ ms.locfileid: "59496874"
 
 
 * 在 **Azure 入口網站**中查詢和檢視活動記錄檔。
-* [建立活動記錄事件的警示。](../../azure-monitor/platform/activity-log-alerts.md)
+* [根據活動記錄事件建立警示。](../../azure-monitor/platform/activity-log-alerts.md)
 * [Stream 以便**事件中樞**](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)供第三方服務或自訂的分析解決方案，例如 Power BI 擷取。
 * 分析中使用 Power BI [ **Power BI 內容套件**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)。
 * [將活動記錄檔儲存到**儲存體帳戶**以供封存或手動檢查](../../azure-monitor/platform/archive-activity-log.md)。 您可以使用**記錄設定檔**指定保留時間 (以天為單位)。
@@ -92,7 +92,7 @@ ms.locfileid: "59496874"
 **記錄檔設定檔** 控制活動記錄檔的匯出方式。 使用記錄檔設定檔，您可以設定︰
 
 * 活動記錄檔應該要傳送至何處 (儲存體帳戶或事件中樞)
-* 應該要傳送何種事件分類 (Write、Delete、Action)。 *記錄設定檔和活動記錄事件中的 「 類別 」 的意義都不同。 在記錄設定檔中，「類別」代表作業類型 (寫入、刪除、動作)。 活動記錄事件，在"category"屬性會代表來源或類型的事件 （例如，管理、 ServiceHealth、 警示等等）。*
+* 应发送哪些事件类别（写入、删除、操作）。 *「類別」一詞在記錄設定檔和活動記錄事件中的意義並不相同。在記錄設定檔中，「類別」代表作業類型 (寫入、刪除、動作)。在活動記錄事件中，「類別」屬性代表事件的來源或類型 (例如，管理、ServiceHealth、警示等等)。*
 * 應該要匯出哪一個區域 (位置)。 請務必包含「全域」，因為活動記錄中的許多事件都是全域事件。
 * 活動記錄應該在儲存體帳戶中保留多久。
     - 保留期為 0 天表示會永遠保留記錄。 否則，值可以是任意數目的 1 到 365 之間的天數。
@@ -183,5 +183,5 @@ az monitor log-profiles delete --name <profile name>
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入了解活動記錄檔 （前身為稽核記錄檔）](../../azure-resource-manager/resource-group-audit.md)
+* [详细了解活动日志（以前称为审核日志）](../../azure-resource-manager/resource-group-audit.md)
 * [將 Azure 活動記錄檔串流至事件中樞](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

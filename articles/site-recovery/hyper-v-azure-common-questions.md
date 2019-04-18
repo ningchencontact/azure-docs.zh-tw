@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358002"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常見問題 - 從 Hyper-V 至 Azure 的災害復原
@@ -33,9 +33,9 @@ ms.locfileid: "59358002"
 
 對於 Hyper-V 主機伺服器，您的需求視部署案例而定。 請查看下列主題中的 Hyper-V 先決條件：
 
-* [將 HYPER-V Vm （不含 VMM) 複寫至 Azure](site-recovery-hyper-v-site-to-azure.md)
-* [將 HYPER-V Vm （含 VMM) 複寫至 Azure](site-recovery-vmm-to-azure.md)
-* [將 HYPER-V Vm 複寫至次要資料中心](site-recovery-vmm-to-vmm.md)
+* [將 Hyper-V VM (不使用 VMM) 複寫至 Azure](site-recovery-hyper-v-site-to-azure.md)
+* [將 Hyper-V VM (使用 VMM) 複寫至 Azure](site-recovery-vmm-to-azure.md)
+* [將 Hyper-V VM 複寫至次要資料中心](site-recovery-vmm-to-vmm.md)
 * 如果您要複寫至次要資料中心，請參閱 [支援的 Hyper-V VM 客體作業系統](https://technet.microsoft.com/library/mt126277.aspx)。
 * 如果是覆寫至 Azure，則 Site Recovery 支援 [Azure 支援的](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)所有客體作業系統。
 
@@ -114,8 +114,8 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>我是否可以透過 SDK 自動化 Site Recovery 案例？
 是。 您可以使用 Rest API、PowerShell 或 Azure SDK 將 Site Recovery 的工作流程自動化。 目前支援使用 PowerShell 將 Hyper-V 複寫到 Azure 的案例：
 
-- [將 HYPER-V 複寫沒有 VMM 使用 PowerShell](hyper-v-azure-powershell-resource-manager.md)
-- [複寫與 VMM 中使用 Powershell 的 HYPER-V](hyper-v-vmm-powershell-resource-manager.md)
+- [在沒有 VMM 的情況下使用 PowerShell 來複寫 Hyper-V](hyper-v-azure-powershell-resource-manager.md)
+- [在有 VMM 的情況下使用 PowerShell 來複寫 Hyper-V](hyper-v-vmm-powershell-resource-manager.md)
 
 ## <a name="replication"></a>複寫
 

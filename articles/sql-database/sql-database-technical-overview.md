@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358327"
 ---
 # <a name="what-is-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務
@@ -254,10 +254,10 @@ SQL Database 客戶將會有下列與適用於 SQL Server 的 Azure Hybrid Benef
 - 如需單一資料庫及彈性資料庫的成本比較和計算機，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。
 - 請參閱下列快速入門，以便開始使用產品：
 
-  - [在 Azure 入口網站中建立 SQL database](sql-database-single-database-get-started.md)  
-  - [使用 Azure CLI 建立 SQL database](sql-database-get-started-cli.md)
-  - [建立使用 PowerShell 為 SQL database](sql-database-get-started-powershell.md)
+  - [在 Azure 入口網站中建立 SQL Database](sql-database-single-database-get-started.md)  
+  - [使用 Azure CLI 建立 SQL Database](sql-database-get-started-cli.md)
+  - [使用 PowerShell 建立 SQL Database](sql-database-get-started-powershell.md)
 
 - 如需一組 Azure CLI 和 PowerShell 範例，請參閱︰
-  - [SQL Database 的 azure CLI 範例](sql-database-cli-samples.md)
-  - [SQL Database 的 azure PowerShell 範例](sql-database-powershell-samples.md)
+  - [SQL Database 的 Azure CLI 範例](sql-database-cli-samples.md)
+  - [SQL Database 的 Azure PowerShell 範例](sql-database-powershell-samples.md)

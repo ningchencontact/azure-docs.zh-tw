@@ -11,10 +11,10 @@ author: Blackmist
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883185"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>使用 Azure Resource Manager 範本來建立 Azure 機器學習服務工作區
@@ -182,9 +182,9 @@ ms.locfileid: "58883185"
 
 如需範本的詳細資訊，請參閱下列文章：
 
-* [製作 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)
-* [部署 Azure Resource Manager 範本的應用程式](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Microsoft.MachineLearningServices 資源類型](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [編寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [使用 Azure Resource Manager 範本部署應用程式](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Microsoft.MachineLearningServices resource 類型](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 

@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: dfa41dc695cf6ab357a9cd4cdbd32454b6dd107d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896312"
 ---
-# <a name="scenes-shots-and-keyframes"></a>場景、 擷取畫面和主要畫面格
+# <a name="scenes-shots-and-keyframes"></a>場景、擷取畫面和主要畫面格
 
 分割成時態單位結構化及語意屬性為基礎的影片的影片索引子支援。 這項功能可讓客戶輕鬆地瀏覽、 管理及編輯它們以不同的資料粒度的視訊內容。 例如，根據場景、 擷取畫面和主要畫面格，本主題中所述。 **場景偵測**功能目前處於預覽狀態。   
 
-![場景、 擷取畫面和主要畫面格](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
+![場景、擷取畫面和主要畫面格](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
 
 ## <a name="scene-detection-preview"></a>場景偵測 （預覽）
 

@@ -11,10 +11,10 @@ ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 07865b2120aa91381d3711688e1a5c8e3187fab3
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793370"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>使用 HTTP 基本驗證保護 RESTful 服務

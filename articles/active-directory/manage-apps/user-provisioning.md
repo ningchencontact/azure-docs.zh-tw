@@ -16,10 +16,10 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894401"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
@@ -58,13 +58,13 @@ Azure Active Directory (Azure AD) 可讓您自動化建立、 維護和移除在
 **Azure AD 佈建服務**使用者佈建至 SaaS 應用程式和其他系統藉由連接到每個應用程式廠商所提供的使用者管理 API 端點。 這些使用者管理 API 端點可以讓 Azure AD 以程式設計方式建立、更新和移除使用者。 針對選取的應用程式，佈建服務可以也建立、 更新和移除其他身分識別相關的物件，例如群組和角色。 
 
 ![佈建](./media/user-provisioning/provisioning0.PNG)
- *[圖 1:Azure AD 佈建服務*
+*圖 1：Azure AD 佈建服務*
 
 ![輸出佈建](./media/user-provisioning/provisioning1.PNG)
- *[圖 2:從 Azure AD 至熱門 SaaS 應用程式的「輸出」使用者佈建工作流程*
+*圖 2：從 Azure AD 至熱門 SaaS 應用程式的「輸出」使用者佈建工作流程*
 
 ![輸入佈建](./media/user-provisioning/provisioning2.PNG)
- *[圖 3:從熱門人力資本管理 (HCM) 應用程式至 Azure Active Directory 和 Windows Server Active Directory 的「輸入」使用者佈建工作流程*
+*圖 3：從熱門人力資本管理 (HCM) 應用程式至 Azure Active Directory 和 Windows Server Active Directory 的「輸入」使用者佈建工作流程*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>哪些應用程式和系統可以搭配使用 Azure AD 自動使用者佈建？
@@ -278,8 +278,8 @@ Azure Active Directory (Azure AD) 可讓您自動化建立、 維護和移除在
 ## <a name="related-articles"></a>相關文章
 
 - [如何整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)
-- [自訂使用者佈建屬性的對應](customize-application-attributes.md)
+- [自訂使用者佈建的屬性對應](customize-application-attributes.md)
 - [撰寫屬性對應的運算式](functions-for-customizing-application-data.md)
-- [範圍篩選器來佈建使用者](define-conditional-rules-for-provisioning-user-accounts.md)
+- [適用於使用者佈建的範圍篩選器](define-conditional-rules-for-provisioning-user-accounts.md)
 - [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](use-scim-to-provision-users-and-groups.md)
 - [Azure AD 同步處理 API 概觀](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

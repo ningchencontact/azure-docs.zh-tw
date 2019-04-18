@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7accb8f2d97f5e4b4dc19ba93ab9edc1a4e6ce8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 557228bafc00c3028a1fda520da8fe4ec8c7a6f2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541328"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678712"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>教學課程：使用 Data Factory 將資料從 Blob 儲存體複製到 SQL Database
 > [!div class="op_single_selector"]
 > * [概觀和必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [複製精靈](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure 门户](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager 範本](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -95,7 +95,6 @@ ms.locfileid: "57541328"
     ```
 2. 使用 [Azure 儲存體總管](https://storageexplorer.com/)這類的工具建立 **adftutorial** 容器，以及將 **emp.txt** 檔案上傳至該容器。
 
-    ![Azure 儲存體總管。 將資料從 Blob 儲存體複製到 SQL Database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. 使用以下 SQL 指令碼，在您的 Azure SQL Database 中建立 **emp** 資料表。  
 
     ```SQL
@@ -118,7 +117,7 @@ ms.locfileid: "57541328"
 您已完成必要條件。 您可以使用下列其中一個方式建立 Data Factory。 按一下頂端下拉式清單中的其中一個選項，或按一下下列連結以執行教學課程。     
 
 * [複製精靈](data-factory-copy-data-wizard-tutorial.md)
-* [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)
+* [Azure 门户](data-factory-copy-activity-tutorial-using-azure-portal.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 * [Azure Resource Manager 範本](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)

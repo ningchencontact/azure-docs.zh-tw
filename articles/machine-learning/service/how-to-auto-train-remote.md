@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 6f2d71abeacee531b21a8276f621367dd39a39d9
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891662"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>使用雲端中的自動化機器學習來將模型定型
@@ -238,7 +238,7 @@ RunDetails(remote_run).show()
 以下是小工具的靜態影像。  在筆記本中，您可以按一下資料表中的任一行以查看執行的屬性，以及該次執行的輸出記錄。   您也可以使用圖表上方的下拉式清單，以針對每個反覆項目檢視每個可用度量的圖表。
 
 ![小工具資料表](./media/how-to-auto-train-remote/table.png)
-![widget 繪圖](./media/how-to-auto-train-remote/plot.png)
+![小工具繪圖](./media/how-to-auto-train-remote/plot.png)
 
 小工具會顯示 URL，您可以使用它來查看並瀏覽個別執行的詳細資料。
  

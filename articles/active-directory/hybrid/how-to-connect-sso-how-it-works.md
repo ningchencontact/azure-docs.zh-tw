@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 788b03bb55abdc3040df8c5317f1f55738ebb023
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268343"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677879"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory 無縫單一登入：深入技術性討論
 
@@ -44,7 +44,7 @@ ms.locfileid: "59268343"
 - 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。 如果有多個 AD 樹系，每個電腦帳戶將會有自己唯一的 Kerberos 解密金鑰。
 
 >[!IMPORTANT]
-> `AZUREADSSOACC`電腦帳戶需要強保護，基於安全性考量。 只有網域系統管理員應該能夠管理的電腦帳戶。 請確定已停用電腦帳戶的 Kerberos 委派。 它們是安全遭到意外刪除，而且只有網域系統管理員可以存取儲存的電腦帳戶在組織單位 (OU)。 電腦帳戶的 Kerberos 解密金鑰也應視為是為機密的。 強烈建議您至少每隔 30 天變換一次 `AZUREADSSOACC` 電腦帳戶的 [Kerberos 解密金鑰](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)。
+> `AZUREADSSOACC`電腦帳戶需要強保護，基於安全性考量。 只有網域系統管理員應該能夠管理的電腦帳戶。 確定的已停用電腦帳戶的 Kerberos 委派，，而且沒有 Active Directory 中的其他帳戶有委派權限`AZUREADSSOACC`電腦帳戶... 它們是安全遭到意外刪除，而且只有網域系統管理員可以存取儲存的電腦帳戶在組織單位 (OU)。 電腦帳戶的 Kerberos 解密金鑰也應視為是為機密的。 強烈建議您至少每隔 30 天變換一次 `AZUREADSSOACC` 電腦帳戶的 [Kerberos 解密金鑰](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)。
 
 設定完成之後，無縫 SSO 登入的運作方式與其他任何使用整合式 Windows 驗證 (IWA) 的登入相同。
 

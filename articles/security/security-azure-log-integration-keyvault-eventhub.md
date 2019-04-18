@@ -12,10 +12,10 @@ ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
 ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883905"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 記錄整合教學課程：使用事件中樞處理 Azure Key Vault 事件
@@ -44,7 +44,7 @@ ms.locfileid: "58883905"
 如需本教學課程提及之服務的詳細資訊，請參閱： 
 
 - [Azure 金鑰保存庫](../key-vault/key-vault-whatis.md)
-- [Azure 事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Azure 記錄整合](security-azure-log-integration-overview.md)
 
 
@@ -89,13 +89,13 @@ ms.locfileid: "58883905"
 1. 驗證成功後，您已登入。 由於您在後續步驟中需要使用訂用帳戶識別碼和訂用帳戶名稱，因此請記下這些資訊。
 
 1. 建立變數來儲存稍後將使用的值。 逐行下列每一行 PowerShell。 您可能需要調整該值以符合您的環境。
-    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` （您的訂用帳戶名稱可能會不同。 您可以看到其顯示為先前命令輸出的一部分。)
-    - ```$location = 'West US'``` （此變數會用來傳遞應該建立資源的位置。 您可以將此變數變更為您所選擇的任何位置。)
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (您的訂用帳戶名稱可能會不同。 您可以看到其顯示為先前命令輸出的一部分。)
+    - ```$location = 'West US'``` (此變數會用於傳遞應該建立資源的位置。 您可以將此變數變更為您所選擇的任何位置。)
     - ```$random = Get-Random```
-    - ```$name = 'azlogtest' + $random``` （名稱可以是任何項目，但它應該包含小寫字母和數字）。
-    - ```$storageName = $name``` （此變數會使用儲存體帳戶名稱）。
-    - ```$rgname = $name``` （此變數會使用的資源群組名稱）。
-    - ```$eventHubNameSpaceName = $name``` （這是事件中樞命名空間的名稱）。
+    - ```$name = 'azlogtest' + $random``` (名稱可以是任何項目，但必須只包含小寫字母和數字。)
+    - ```$storageName = $name``` (此變數會作為儲存體帳戶名稱使用。)
+    - ```$rgname = $name``` (此變數會作為資源群組名稱使用。)
+    - ```$eventHubNameSpaceName = $name``` (此為事件中樞命名空間的名稱。)
 1. 指定您要使用的訂用帳戶：
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -157,8 +157,7 @@ ms.locfileid: "58883905"
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. 設定和讀取密碼以產生其他記錄項目：
     
-   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
-   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![傳回的密碼](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -183,4 +182,4 @@ ms.locfileid: "58883905"
 
 - [Azure 記錄整合常見問題集](security-azure-log-integration-faq.md)
 - [開始使用 Azure 記錄整合](security-azure-log-integration-get-started.md)
-- [從 Azure 資源的記錄，整合到 SIEM 系統](security-azure-log-integration-overview.md)
+- [將記錄從 Azure 資源整合到 SIEM 系統](security-azure-log-integration-overview.md)

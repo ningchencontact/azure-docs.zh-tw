@@ -11,10 +11,10 @@ ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361141"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>將您的資料倉儲升級為 Gen2
@@ -101,57 +101,57 @@ Microsoft 協助降低執行資料倉儲的初階的成本。  低廉的計算�
 
 ## <a name="migration-frequently-asked-questions"></a>移轉常見問題集
 
-**問：Gen2 成本 Gen1 相同嗎？**
+**问：Gen2 與 Gen1 的成本相同嗎？**
 
 - 答：是。
 
-**問：升級會如何影響我的自動化指令碼？**
+**问：升級會如何影響我的自動化指令碼？**
 
 - 答：任何參考服務等級目標的自動化指令碼都應該變更為對應至 Gen2 對等項目。  請參閱[這裡](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal)的詳細資料。
 
-**問：自我升級通常需要花費多久時間？**
+**问：自我升級通常需要花費多久時間？**
 
 - 答：您可以就地升級或從還原點升級。  
    - 就地升級會導致資料倉儲短暫地暫停和繼續。  資料倉儲上線時，就會繼續進行背景程序。  
    - 如果您要透過還原點升級，則需花費較長的時間，因為升級會經歷完整的還原程序。
 
-**問：如何自動升級需要多久？**
+**问：自動升級需要多久時間？**
 
 - 答：升級的實際停機時間就只是暫停並繼續服務所需的時間，這介於 5 到 10 分鐘。 在短暫的停機之後，背景程序會執行儲存體移轉。 背景程序的時間長度取決於您的資料倉儲大小。
 
-**問：何時此自動升級會進行？**
+**问：此自動升級何時會進行？**
 
 - 答：在您的維護排程期間。 運用您選擇的維護排程會盡可能不中斷您的業務。
 
-**問：如果我背景的升級程序似乎會停滯我該怎麼辦？**
+**问：如果背景升級程序似乎停滯，我該怎麼辦？**
 
  - 答：開始重新編製資料行存放區資料表的索引。 請注意，在此作業期間，重新編製資料表的索引將會離線進行。
 
-**問：我必須在 Gen1 如果 Gen2 沒有服務等級目標嗎？**
+**问：如果 Gen2 沒有我在 Gen1 上擁有的服務等級目標，該怎麼辦？**
 - 答：如果您在 Gen1 上執行 DW600 或 DW1200，建議分別使用 DW500c 或 DW1000c，因為 Gen2 提供比 Gen1 更多的記憶體、資源和更高的效能。
 
-**問：可以停用異地備份嗎？**
+**问：可以停用異地備份嗎？**
 - 答：沒有。 異地備份是企業版功能，可在區域變得無法使用時，保留您的資料倉儲可用性。 如果您有進一步考量，請開啟[支援要求](sql-data-warehouse-get-started-create-support-ticket.md)。
 
-**問：有在 T-SQL 語法 sku:gen1 和 Gen2 之間的差異嗎？**
+**问：Gen1 與 Gen2 之間的 T-SQL 語法有差異嗎？**
 
 - 答：Gen1 與 Gen2 之間的 T-SQL 語言語法沒有任何變更。
 
-**問：Gen2 是否支援維護 Windows？**
+**问：Gen2 是否支援維護時段？**
 
 - 答：是。
 
-**問：我可以升級我的區域之後，建立新的 Gen1 執行個體嗎？**
+**问：在我的區域升級之後，我可以建立新的 Gen1 執行個體嗎？**
 
 - 答：沒有。 在區域升級之後，新 Gen1 執行個體的建立將會停用。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [升級步驟](upgrade-to-latest-generation.md)
-- [維護期間](maintenance-scheduling.md)
-- [資源健全狀況監視](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [在開始移轉之前，請檢閱](upgrade-to-latest-generation.md#before-you-begin)
-- [就地升級和升級從還原點](upgrade-to-latest-generation.md)
+- [維護時段](maintenance-scheduling.md)
+- [資源健康情況監視器](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [在開始移轉之前檢閱](upgrade-to-latest-generation.md#before-you-begin)
+- [就地升級和從還原點升級](upgrade-to-latest-generation.md)
 - [建立使用者定義的還原點](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
 - [了解如何還原至 Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
-- [申請 SQL 資料倉儲支援](https://go.microsoft.com/fwlink/?linkid=857950)
+- [開始 SQL 資料倉儲支援要求](https://go.microsoft.com/fwlink/?linkid=857950)

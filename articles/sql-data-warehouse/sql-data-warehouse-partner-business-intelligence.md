@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a0c675ac9c8a782b94d127e877646bf37af1371
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621476"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678661"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL 資料倉儲商業智慧合作夥伴
 若要建立端對端資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。  這篇文章特別介紹 Microsoft 夥伴公司官方的商務智慧 (BI) 解決方案支援 Azure SQL 資料倉儲。
@@ -26,7 +26,7 @@ ms.locfileid: "58621476"
 | ![Birst][1] |**Birst**<br>Birst 透過交互編排虛擬化 BI 執行個體上機上的共用的共用分析網狀架構的網路連接在整個組織|[產品頁面][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
 | ![ClearStory Data][2] |**ClearStory Data （連續的商務深入解析）**<br>ClearStory Data 能夠快速分析 SQL 資料倉儲中儲存的不同資料。 ClearStory 的整合式 Spark 架構平台和分析應用程式可加速度資料存取並調和不同的資料集。 他們可讓商務使用者一起合作來快速探索，獨立地取得見解。 |[產品頁面][clearstory_website]<br> |
 | ![Dundas][4] |**Dundas BI**<br>Dundas Data Visualization 是商業智慧與資料視覺化軟體的全球性領先提供者。  Dundas 儀表板、報告和視覺化資料分析可以完美整合到商務應用程式，能夠制定更好的決策、更快地發現見解。|[產品頁面][dundas_bi_website]<br>[Azure Marketplace][dundas_bi_marketplace]<br> |
-| ![IBM Cognos][3] |**IBM Cognos Analytics**< brCognos Analytics 包含可進行簡單、 清楚且簡單易用，無論您是經驗豐富的商務分析師檢查 vast 的供應鏈或最佳化奇異果市場商人解決智慧自助服務的功能單一活動。 Cognos 分析使用 AI 和其他智慧功能來執行繁重的工作，引導資料探索，並讓使用者更輕鬆地取得所需的解答|[產品頁面][cognosanalytics_website]<br>|
+| ![IBM Cognos][3] |**IBM Cognos 分析**<br>Cognos Analytics 包含可製作簡單、 清楚且簡單易用，無論您是經驗豐富的商務分析師檢查 vast 的供應鏈或最佳化單一活動奇異果市場商人中解決智慧自助服務的功能。 Cognos 分析使用 AI 和其他智慧功能來執行繁重的工作，引導資料探索，並讓使用者更輕鬆地取得所需的解答|[產品頁面][cognosanalytics_website]<br>|
 | ![資訊的產生器][13] |**資訊產生器 (WebFOCUS)**<br>WebFOCUS 商業智慧可協助公司使用策略性地跨內外的企業更多的資料。 它可讓使用者和系統管理員，結合來自多個資料來源和格式的內容，並提供強固的安全性和可順暢，全面控管的儀表板，快速建立安全 diverly 和共用的任何 BI 和分析內容|[產品頁面][informationbuilders_website]<br> |
 ![Jinfonet][5] |**Jinfonet JReport**<br>JReport 是為企業打造的可內嵌 BI 解決方案。 此解決方案可讓使用者在雲端、巨量資料和交易式資料來源上建立報告、儀表板和資料分析。 透過資料視覺化，您便可以執行自己的報告功能和資料探索，來進行靈活、即時的決策。 |[產品頁面][jinfonet_website]<br> |
 | ![LogiAnalytics][6] |**Logi Analytics**<br>Logi Analytics 與「Azure SQL 資料倉儲」結合可讓您的組織收集、分析及立即因應全世界最大且最多樣化的資料集。 |[產品頁面][logianalytics_website]<br>|

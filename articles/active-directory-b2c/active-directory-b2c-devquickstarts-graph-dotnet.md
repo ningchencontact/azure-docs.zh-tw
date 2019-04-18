@@ -11,10 +11,10 @@ ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0f380aa9f2efc1ae9636b7704f7eb75004bb71f9
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895049"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD Graph API
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) B2C 租用戶通常會很龐大。 這表示�
 3. 在左側導覽窗格中，選擇 [所有服務]、按一下 [應用程式註冊]，然後按一下 [新增]。
 4. 遵照提示進行，並建立新的應用程式。 
     1. 選取 [Web 應用程式/API] 作為 [應用程式類型]。    
-    2. 提供**任何登入 URL** (例如`https://B2CGraphAPI`) 因為這個範例無關。  
+    2. 提供任一登录 URL（例如 `https://B2CGraphAPI`），因为它与此示例不相关。  
 5. 應用程式會立即顯示在應用程式清單中，按一下它以取得 [應用程式識別碼] (也稱為用戶端識別碼)。 將它複製下來，稍後一節需要用到。
 6. 在 [設定] 功能表中，按一下 [金鑰]。
 7. 在 [密碼] 區段中，輸入金鑰描述並選取持續時間，然後按一下 [儲存]。 複製金鑰值 (也稱為用戶端祕密)，以便在後面的章節中使用。
@@ -126,7 +126,7 @@ B2C Help
 這會顯示每個命令的簡短描述。 您每次叫用上述其中一個命令時， `B2CGraphClient` 會對 Azure AD 圖形 API 發出要求。
 
 ### <a name="get-an-access-token"></a>取得存取權杖
-對圖形 API 發出任何要求時，需要有存取權杖進行驗證。 `B2CGraphClient` 您可以使用開放原始碼 Active Directory Authentication Library (ADAL) 來協助取得存取權杖。 ADAL 提供簡單的 API 並處理一些重要的細節，例如快取存取權杖，可讓您輕鬆取得權杖。 不過，您不必使用 ADAL 來取得權杖。 您也可以藉由製作 HTTP 要求來取得權杖。
+對圖形 API 發出任何要求時，需要有存取權杖進行驗證。 `B2CGraphClient` 會使用開放原始碼 Active Directory 驗證程式庫 (ADAL) 來協助取得存取權杖。 ADAL 提供簡單的 API 並處理一些重要的細節，例如快取存取權杖，可讓您輕鬆取得權杖。 不過，您不必使用 ADAL 來取得權杖。 您也可以藉由製作 HTTP 要求來取得權杖。
 
 > [!NOTE]
 > 此程式碼範例會使用 ADAL v2，以便與圖形 API 通訊。  您必須使用 ADAL v2 或 v3，才能取得可與 Azure AD 圖形 API 搭配使用的存取權杖。
@@ -355,7 +355,7 @@ B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-使用 `B2CGraphClient`，您會有一個服務應用程式可利用程式設計方式來管理 B2C 租用戶使用者。 `B2CGraphClient` 使用自己的應用程式身分識別來向 Azure AD Graph API。 它也會使用用戶端密碼來取得權杖。 將這項功能納入您的應用程式時，請記住 B2C 應用程式的幾個重點：
+使用 `B2CGraphClient`，您會有一個服務應用程式可利用程式設計方式來管理 B2C 租用戶使用者。 `B2CGraphClient` 會使用自己的應用程式身分識別，向 Azure AD 圖形 API 進行驗證。 它也會使用用戶端密碼來取得權杖。 將這項功能納入您的應用程式時，請記住 B2C 應用程式的幾個重點：
 
 * 您需要將租用戶中的適當權限授與應用程式。
 * 現在，您需要使用 ADAL (不是 MSAL) 取得存取權杖。 (也可以直接傳送通訊協定訊息，而不使用程式庫)。

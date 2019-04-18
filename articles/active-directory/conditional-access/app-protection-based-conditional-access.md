@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496925"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>使用條件式存取 （預覽） 存取雲端應用程式需要應用程式保護原則
@@ -206,11 +206,11 @@ Azure Active Directory 條件式存取會限制存取您的雲端應用程式，
 
 5. 底下**存取控制**，選取下列選項：
 
-   - **裝置需要標記為符合規範**
+   - [裝置需要標記為合規]
 
-   - **需要應用程式保護原則 (預覽)**
+   - **需要應用程式保護原則 （預覽）**
 
-   - **需要其中一個選取的控制項**   
+   - [需要其中一個選取的控制項]   
  
      ![條件式存取](./media/app-protection-based-conditional-access/11.png)
 
@@ -238,11 +238,11 @@ Azure Active Directory 條件式存取會限制存取您的雲端應用程式，
 
 5. 底下**存取控制**，選取下列選項：
 
-   - **裝置需要標記為符合規範**
+   - [裝置需要標記為合規]
 
-   - **需要應用程式保護原則 (預覽)**
+   - **需要應用程式保護原則 （預覽）**
 
-   - **需要其中一個選取的控制項**
+   - [需要其中一個選取的控制項]
 
      ![條件式存取](./media/app-protection-based-conditional-access/11.png)
 
@@ -308,11 +308,11 @@ Azure Active Directory 條件式存取會限制存取您的雲端應用程式，
 
 5. 底下**存取控制**，選取下列選項：
 
-   - **裝置需要標記為符合規範**
+   - [裝置需要標記為合規]
 
-   - **需要應用程式保護原則 (預覽)**
+   - **需要應用程式保護原則 （預覽）**
 
-   - **需要所有選取的控制項**   
+   - [需要所有選取的控制項]   
  
      ![條件式存取](./media/app-protection-based-conditional-access/13.png)
 
@@ -340,11 +340,11 @@ Azure Active Directory 條件式存取會限制存取您的雲端應用程式，
 
 5. 底下**存取控制**，選取下列選項：
 
-   - **裝置需要標記為符合規範**
+   - [裝置需要標記為合規]
 
-   - **需要應用程式保護原則 (預覽)**
+   - **需要應用程式保護原則 （預覽）**
 
-   - **需要所有選取的控制項**   
+   - [需要所有選取的控制項]   
  
      ![條件式存取](./media/app-protection-based-conditional-access/13.png)
 
@@ -415,11 +415,11 @@ Azure Active Directory 條件式存取會限制存取您的雲端應用程式，
 
 5. 底下**存取控制**，選取下列選項：
 
-   - **需要已核准的用戶端應用程式**
+   - **需要核准的用戶端應用程式**
 
-   - **需要應用程式保護原則 (預覽)**
+   - **需要應用程式保護原則 （預覽）**
 
-   - **需要其中一個選取的控制項**
+   - [需要其中一個選取的控制項]
  
      ![條件式存取](./media/app-protection-based-conditional-access/12.png)
 

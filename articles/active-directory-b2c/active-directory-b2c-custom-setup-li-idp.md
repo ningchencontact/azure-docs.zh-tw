@@ -11,10 +11,10 @@ ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 5dad12596dde13cfa7e0c2031d58f605061b0e20
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862789"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶進行登入
@@ -220,7 +220,7 @@ LinkedIn 的技術設定檔需要**ExtractGivenNameFromLinkedInResponse**並**Ex
 
 1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInLinkedIn.xml*。
 2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInLinkedIn`。
-3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如，`http://contoso.com/B2C_1A_signup_signin_linkedin`
+3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_linkedin`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignLinkedIn) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
 6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。
@@ -280,7 +280,7 @@ LinkedIn 的技術設定檔需要**ExtractGivenNameFromLinkedInResponse**並**Ex
 
 1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInLinkedIn.xml*。
 2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInLinkedIn`。
-3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如，`http://contoso.com/B2C_1A_signup_signin_linkedin`
+3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_linkedin`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignLinkedIn) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
 6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。

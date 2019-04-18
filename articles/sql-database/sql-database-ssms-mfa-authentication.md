@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
 ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494896"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>使用多重要素 AAD 驗證搭配 Azure SQL Database 和 Azure SQL 資料倉儲 （mfa 的 SSMS 支援）
@@ -72,7 +72,7 @@ Azure MFA 有助於保護對資料與應用程式的存取，同時可以滿足�
 - 授與其他人存取您的資料庫：[SQL Database 驗證和授權：授與存取權](sql-database-manage-logins.md)  
 - 請確定其他人可以透過防火牆連線：[使用 Azure 入口網站設定 Azure SQL Database 伺服器層級防火牆規則](sql-database-configure-firewall-settings.md)  
 - [使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)  
-- [Microsoft SQL Server 資料層應用程式架構 (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
+- [Microsoft SQL Server Data-Tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
 - [將 BACPAC 檔案匯入到新的 Azure SQL Database](../sql-database/sql-database-import.md)  
 - [將 Azure SQL 資料庫匯出到 BACPAC 檔案](../sql-database/sql-database-export.md)  

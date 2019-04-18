@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d5120b7569acbe9735ea1a70fcb609d322d60793
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: c719bcaca91f9a6e77d79735283cf2c68404ef16
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154366"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680531"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 SAML 技術設定檔
 
@@ -81,21 +81,6 @@ https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadat
   </KeyInfo>
 </KeyDescriptor>
 ```
-
-## <a name="identity-provider-initiated-flow"></a>識別提供者起始的流程
-
-在 IDP 所起始的單一登入工作階段 (未經要求的要求) 中，會將未經要求的 SAML 回應傳送到服務提供者，在此案例中為 Azure AD B2C 技術設定檔。 在此流程中，使用者不會先經過 Web 應用程式，但會導向至識別提供者。 傳送要求時，驗證頁面會由識別提供者提供給使用者。 使用者會完成登入，然後使用包含判斷提示的 SAML 回應來將要求重新導向至 Azure AD B2C。 Azure AD B2C 會讀取判斷提示並發出新的 SAML 權杖，然後將使用者重新導向回到信賴憑證者應用程式。 重新導向會透過 **AssertionConsumerService** 元素的 **Location** 屬性來完成。
-
-
-![SAML IDP 起始](media/saml-technical-profile/technical-profile-idp-saml-idp-initiated.png) 
-
-建立識別提供者起始的流程時，請考慮下列原則需求：
-
-- 第一個協調流程步驟必須是指向 SAML 技術設定檔的單一宣告交換。
-- 技術設定檔必須將名為 **IdpInitiatedProfileEnabled** 的中繼資料項目設定為 `true`。
-- 信賴憑證者原則必須是 SAML 信賴憑證者。
-- 信賴憑證者原則必須將名為 **IdpInitiatedProfileEnabled** 的中繼資料項目設定為 `true`。
-- 未經要求的回應必須傳送到 `/your-tenant/your-policy/samlp/sso/assertionconsumer` 端點。 回應中所包含的任何轉送狀態都會轉送到信賴憑證者。 取代下列值：將 **your-tenant** 取代為您的租用戶名稱。 將 **your-policy** 取代為您的信賴憑證者原則名稱。
     
 ## <a name="protocol"></a>通訊協定
 
@@ -136,7 +121,7 @@ Protocol 元素的 **Name** 屬性必須設定為 `SAML2`。
 
 ## <a name="metadata"></a>中繼資料
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | PartnerEntity | 是 | SAML 識別提供者的中繼資料 URL。 複製識別提供者中繼資料，並在 CDATA 元素 `<![CDATA[Your IDP metadata]]>` 內新增它 |
 | WantsSignedRequests | 否 | 指出技術設定檔是否需要所有連出驗證要求都經過簽署。 可能的值：`true` 或 `false`。 預設值為 `true`。 將值設定為 `true` 時，**SamlMessageSigning** 密碼編譯金鑰必須經過簽署，而所有連出驗證要求也都要經過簽署。 如果將值設定為 `false`，則會略過要求中的 **SigAlg** 和 **Signature** 參數 (查詢字串或張貼參數)。 此中繼資料也會控制中繼資料 **AuthnRequestsSigned** 屬性，其為要與識別提供者共用之 Azure AD B2C 技術設定檔中繼資料內的輸出。 如果技術設定檔中繼資料中的 **WantsSignedRequests** 設為 `false`，以及識別提供者中繼資料 **WantAuthnRequestsSigned** 設為 `false` 或未指定，則 Azure AD B2C 不會簽署要求。 |
@@ -155,7 +140,7 @@ Protocol 元素的 **Name** 屬性必須設定為 `SAML2`。
 
 **CryptographicKeys** 元素包含下列屬性：
 
-| 屬性 |必要 | 說明 |
+| 屬性 |必要項 | 描述 |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |是 | 用來簽署 SAML 訊息的 X509 憑證 (RSA 金鑰組)。 Azure AD B2C 會使用此金鑰來簽署要求，並將它們傳送到識別提供者。 |
 | SamlAssertionDecryption |是 | 用來將 SAML 訊息解密的 X509 憑證 (RSA 金鑰組)。 此憑證應該由識別提供者來提供。 Azure AD B2C 會使用此憑證來將識別提供者所傳送的資料解密。 |

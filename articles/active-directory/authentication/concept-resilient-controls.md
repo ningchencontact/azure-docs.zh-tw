@@ -12,10 +12,10 @@ ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886075"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>使用 Azure Active Directory 來建立具彈性的存取控制管理策略
@@ -75,7 +75,7 @@ ms.locfileid: "58886075"
 下列範例說明若要提供具彈性的存取控制措施以便讓使用者存取其應用程式和資源，您必須建立哪些原則。 在此範例中，您將需要一個安全性群組 **AppUsers** (含有您要授與存取權的目標使用者)、一個名為 **CoreAdmins** 的群組 (含有核心系統管理員)，以及一個名為 **EmergencyAccess** 的群組 (含有緊急存取帳戶)。
 **AppUsers** 中選取的使用者只要是從受信任的裝置進行存取或提供增強式驗證 (例如 MFA)，此範例原則集便會對他們授與所選應用程式的存取權。 此範例原則集會排除緊急帳戶和核心系統管理員。
 
-**風險降低的 CA 原則設定：**
+**CA 風險降低原則集：**
 
 * 原則 1：對目標群組外的人員封鎖存取
   * 使用者和群組：包含所有使用者。 排除 AppUsers、CoreAdmins 及 EmergencyAccess
@@ -137,7 +137,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 
 下列範例：**範例 A - 用以還原對任務關鍵性共同作業應用程式之存取權的應變 CA 原則**是一個典型的公司應變措施。 在此案例中，組織通常會針對所有 Exchange Online 和 SharePoint Online 存取要求使用 MFA，而在此情況下，中斷係指客戶的 MFA 提供者發生中斷狀況 (不論是 Azure MFA、內部部署 MFA 提供者，還是協力廠商 MFA)。 此原則可降低此中斷狀況的風險，方法是允許特定的目標使用者從受信任的 Windows 裝置存取這些應用程式，但只有在從受信任的公司網路存取應用程式時才允許。 它也會將緊急帳戶和核心系統管理員從這些限制中排除。 目標使用者將得以存取 Exchange Online 和 SharePoint Online，而其他使用者仍將因中斷而無法存取應用程式。 此範例將需要一個具名的網路位置 **CorpNetwork** 和一個安全性群組 **ContingencyAccess** (含有目標使用者)、一個名為 **CoreAdmins** 的群組 (含有核心系統管理員)，以及一個名為 **EmergencyAccess** 的群組 (含有緊急存取帳戶)。 此應變措施需要四個原則來提供所需的存取權。 
 
-**範例 A-若要還原存取關鍵任務的共同作業應用程式的緊急應變 CA 原則：**
+**範例 A - 用以還原對任務關鍵性共同作業應用程式之存取權的應變 CA 原則：**
 
 * 原則 1：針對 Exchange 和 SharePoint 要求要有「已加入網域」的裝置
   * 名稱：EM001 - ENABLE IN EMERGENCY:MFA Disruption[1/4] - Exchange SharePoint - 需要混合式 Azure AD Join
@@ -179,7 +179,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 
 在這個接下來的範例 (**範例 B - 用以允許對 Salesforce 進行行動存取的應變 CA 原則**) 中，會還原一個商務應用程式的存取權。 在此案例中，客戶通常會要求只有當其銷售員工使用符合規範的裝置時，才允許他們從行動裝置存取 Salesforce (已針對使用 Azure AD 進行單一登入做設定)。 而在此情況下，中斷係指評估裝置合規性時發生問題，而中斷狀況發生在銷售小組需要存取 Salesforce 以完成交易的敏感時間。 這些應變原則將授與關鍵使用者從行動裝置存取 Salesforce 的權限，以便讓他們能夠繼續完成交易而不會中斷業務。 在此範例中，**SalesforceContingency** 包含所有需要保留存取權的銷售員工，而 **SalesAdmins** 則包含必要的 Salesforce 系統管理員。
 
-**範例 B-應變計 CA 原則：**
+**範例 B - 應變 CA 原則：**
 
 * 原則 1：封鎖不在 SalesContingency 小組中的所有人員
   * 名稱：EM001 - ENABLE IN EMERGENCY:Device Compliance Disruption[1/2] - Salesforce - 封鎖 SalesforceContingency 以外的所有使用者
@@ -265,8 +265,8 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 * [在 Azure AD 中管理緊急存取系統管理帳戶](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [在 Azure Active Directory 中設定具名位置](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
-* [如何設定混合式 Azure Active Directory 已加入的裝置](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Windows Hello for Business 部署指南](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
-  * [密碼指導方針-Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+* [如何設定混合式 Azure Active Directory 已聯結裝置](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
+* [Windows Hello 企業版部署指南](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+  * [密碼指引 - Microsoft 研究](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf) \(英文\)
 * [什麼是 Azure Active Directory 條件式存取中的條件？](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [什麼是 Azure Active Directory 條件式存取中的存取控制？](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

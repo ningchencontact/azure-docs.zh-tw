@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495903"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Webhook 活動
@@ -74,10 +74,10 @@ Web 勾點活動本身失敗只當自訂端點的呼叫失敗。 可以新增至
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動：
 
-- [If 條件活動](control-flow-if-condition-activity.md)
-- [執行管線活動](control-flow-execute-pipeline-activity.md)
+- [If Condition 活動](control-flow-if-condition-activity.md)
+- [執行管道活動](control-flow-execute-pipeline-activity.md)
 - [For Each 活動](control-flow-for-each-activity.md)
 - [取得中繼資料活動](control-flow-get-metadata-activity.md)
 - [查閱活動](control-flow-lookup-activity.md)
-- [網路活動](control-flow-web-activity.md)
+- [Web 活動](control-flow-web-activity.md)
 - [Until 活動](control-flow-until-activity.md)

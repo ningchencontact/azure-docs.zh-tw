@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 601ae4a896c4e52d8a1f4022c92a22988465369c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 5e37d9c0c242de1bd95a93f12171a2a4271b064d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578470"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680701"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ ms.locfileid: "58578470"
 - Salesforce Developer、Professional、Enterprise 或 Unlimited 版本。
 - 從 Salesforce 生產環境、沙箱、自訂網域複製資料，以及將資料複製到這些位置。
 
-Salesforce 連接器已內建於 Salesforce REST API 之上，搭配 [v39](https://developer.salesforce.com/docs/atlas.en-us.206.0.api_rest.meta/api_rest/resources_list.htm) 可用來從中複製資料，搭配 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 則可將資料複製到其中。
+Salesforce 連接器已內建在 Salesforce REST API 之上[v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm)複製資料並[v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm)複製資料。
 
 ## <a name="prerequisites"></a>必要條件
 

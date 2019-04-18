@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/08/2019
 ms.author: raynew
 ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361354"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
@@ -186,8 +186,8 @@ Azure Site Recovery 會透過公用端點，將資料複寫至 Azure 儲存體�
 ### <a name="can-i-throttle-bandwidth-allotted-for-replication-traffic"></a>我可以調節複寫流量配置的頻寬嗎？
 是。 您可以深入了解這些文章中的頻寬節流：
 
-* [將 VMware Vm 和實體伺服器複寫的容量規劃](site-recovery-plan-capacity-vmware.md)
-* [容量規劃 HYPER-V Vm 複寫至 Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [適用於複寫 VMware VM 和實體伺服器的容量規劃](site-recovery-plan-capacity-vmware.md)
+* [適用於將 Hyper-V VM 複寫至 Azure 的容量規劃](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 
 
@@ -215,17 +215,17 @@ Azure 是針對復原能力而設計的。 Site Recovery 已經設計成可進�
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-fail-back-to-a-different-host"></a>如果我的內部部署主機沒有回應或當機，是否可以容錯回復至不同的主機？
 是，您可以使用替代位置復原從 Azure 針對不同的主機進行容錯回復。
 
-* [適用於 VMware 虛擬機器](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [適用於 HYPER-V 虛擬機器](hyper-v-azure-failback.md#perform-failback)
+* [針對 VMware 虛擬機器](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [針對 Hyper-V 虛擬機器](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="automation"></a>自動化
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>我是否可以透過 SDK 自動化 Site Recovery 案例？
 是。 您可以使用 Rest API、PowerShell 或 Azure SDK 將 Site Recovery 的工作流程自動化。 針對使用 PowerShell 來部署 Site Recovery，目前支援的案例包括︰
 
-* [將 Vmm 雲端中的 HYPER-V Vm 複寫至 Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
-* [將不含 VMM 的 HYPER-V Vm 複寫至 Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
-* [將 VMware 複寫至 Azure 中搭配 PowerShell Resource Manager](vmware-azure-disaster-recovery-powershell.md)
+* [將 VMM 雲端中的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
+* [將不使用 VMM 的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
+* [使用 PowerShell Resource Manager 將 VMware 複寫至 Azure](vmware-azure-disaster-recovery-powershell.md)
 
 ## <a name="componentprovider-upgrade"></a>元件/提供者升級
 

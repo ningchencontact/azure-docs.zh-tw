@@ -17,10 +17,10 @@ ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc492142200c7fd028360d01c2602904531550dc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884477"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>教學課程：Azure Active Directory 與 Insignia SAML SSO 整合
@@ -97,7 +97,7 @@ Insignia SAML SSO 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在您的 Insignia SAML SSO 應用程式中設定單一登入。
 
-**若要設定 Azure AD 單一登入與 Insignia SAML SSO，請執行下列步驟：**
+**若要設定與 Insignia SAML SSO 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
 1. 在 Azure 入口網站的 [Insignia SAML SSO] 應用程式整合頁面上，按一下 [單一登入]。
 
@@ -149,7 +149,7 @@ Insignia SAML SSO 與 Azure AD 整合提供下列優點：
 
    ![建立 Azure AD 測試使用者][100]
 
-**若要在 Azure AD 中建立的測試使用者，請執行下列步驟：**
+**若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
 1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory] 按鈕。
 
@@ -185,7 +185,7 @@ Insignia SAML SSO 與 Azure AD 整合提供下列優點：
 
 ![指派使用者角色][200] 
 
-**若要將 Britta Simon 指派給 Insignia SAML SSO 中，執行下列步驟：**
+**若要將 Britta Simon 指派給 Insignia SAML SSO，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 

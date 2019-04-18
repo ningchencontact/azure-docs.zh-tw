@@ -16,10 +16,10 @@ ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880146"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 使用者佈建服務 SCIM 2.0 通訊協定相容性的已知問題和解決方法
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 
 ## <a name="scim-20-compliance-issues-and-status"></a>SCIM 2.0 相容性問題和狀態
 
-| **SCIM 2.0 相容性問題** |  **修正嗎？** | **修正日期**  |  
+| **SCIM 2.0 相容性問題** |  **已修正？** | **修正日期**  |  
 |---|---|---|
 | Azure AD 要求應用程式的 SCIM 端點 URL 根目錄中必須有 "/scim"  | 是  |  2018 年 12 月 18 日 | 
 | 延伸模組屬性在屬性名稱前面使用點 "." 標記法，而不是冒號 ":" 標記法 |  是  | 2018 年 12 月 18 日  | 
@@ -112,5 +112,5 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 
 
 ## <a name="next-steps"></a>後續步驟
-[深入了解佈建和取消佈建到 SaaS 應用程式](user-provisioning.md)
+[深入了解對於 SaaS 應用程式的佈建和取消佈建](user-provisioning.md)
 

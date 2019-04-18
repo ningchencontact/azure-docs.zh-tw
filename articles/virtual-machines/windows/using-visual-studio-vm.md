@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: phillee
 keywords: visualstudio
 ms.openlocfilehash: df91ba12c1ee74b8e28f75344a5cd55af018d3cd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884868"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
@@ -97,7 +97,7 @@ Visual Studio 會依循 Azure 中的「自備授權」模型。 如同專用硬�
 
 快速摘要：使用系統準備工具 (Sysprep) 並關閉執行中的 VM，然後透過 Azure 入口網站的 UI 擷取 VM 作為映像 (圖 1)。 Azure 會將包含該映像的 `.vhd` 檔案儲存在您選擇的儲存體帳戶中。 然後，新的映像就會在您訂用帳戶的資源清單中顯示為映像資源。
 
-<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(圖 1)擷取的映像，透過 Azure 入口網站 UI。*</center>
+<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(圖 1) 透過 Azure 入口網站 UI 擷取映像。*</center>
 
 如需詳細資訊，請參閱[在 Azure 中建立一般化 VM 的受控映像](/azure/virtual-machines/windows/capture-image-resource)。
 

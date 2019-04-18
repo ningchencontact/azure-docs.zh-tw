@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 244d7fc3caa96173e408a193e13acd656d4a7f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579337"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698770"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 儲存體計量
 
@@ -342,8 +342,8 @@ Azure 儲存體會提供下列 Azure 監視器容量計量。
 
 | 度量名稱 | 描述 |
 | ------------------- | ----------------- |
-| BlobCapacity | 儲存體帳戶中所使用的 Blob 儲存體總計。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
-| BlobCount    | 儲存體帳戶中所儲存的 Blob 物件數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
+| BlobCapacity | 儲存體帳戶中所使用的 Blob 儲存體總計。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 <br/> 維度：**BlobType**，並**BlobTier** ([定義](#metrics-dimensions)) |
+| BlobCount    | 儲存體帳戶中所儲存的 Blob 物件數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 值範例：1024 <br/> 維度：**BlobType**，並**BlobTier** ([定義](#metrics-dimensions)) |
 | ContainerCount    | 儲存體帳戶中的容器數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 | IndexCapacity     | ADLS Gen2 階層式索引使用的儲存體容量 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
@@ -392,11 +392,12 @@ Azure 儲存體支援下列 Azure 監視器計量維度。
 
 | 維度名稱 | 描述 |
 | ------------------- | ----------------- |
-| BlobType | 只適用於 Blob 計量的 Blob 類型。 支援的值有 **BlockBlob** 和 **PageBlob**。 附加 Blob 隨附於 BlockBlob。 |
-| ResponseType | 交易回應類型。 可用的值包括： <br/><br/> <li>ServerOtherError：描述項目之外的其他所有伺服器端錯誤 </li> <li> ServerBusyError：傳回 HTTP 503 狀態碼的已驗證要求。 </li> <li> ServerTimeoutError：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 逾時是因為伺服器錯誤而發生。 </li> <li> AuthorizationError：由於未經授權存取資料或授權失敗，從而發生失敗的已驗證要求。 </li> <li> NetworkError：由於網路錯誤而失敗的已驗證要求。 當用戶端在逾時到期前就過早關閉連線時，最常會發生這個情況。 </li> <li>    ClientThrottlingError：用戶端節流錯誤。 </li> <li> ClientTimeoutError：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 如果用戶端的網路逾時或要求逾時設定為比儲存體服務預期的值還低，則此值是符合預期的逾時。 否則，它會回報為 ServerTimeoutError。 </li> <li> ClientOtherError：描述項目之外的其他所有用戶端錯誤。 </li> <li> 成功：成功的要求。|
-| GeoType | 來自主要或次要叢集的交易。 可用的值包括 Primary 和 Secondary。 在從次要租用戶讀取物件時，此維度會套用到讀取權限異地備援儲存體 (RA-GRS)。 |
-| ApiName | 作業的名稱。 例如︰ <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 如需所有的作業名稱，請參閱[文件](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)。 |
-| Authentication | 交易中所使用的驗證類型。 可用的值包括： <br/> <li>AccountKey：交易會使用儲存體帳戶金鑰進行驗證。</li> <li>SAS：交易會使用共用存取簽章進行驗證。</li> <li>OAuth：交易會使用 OAuth 存取權杖進行驗證。</li> <li>Anonymous：以匿名方式要求交易。 不包括預檢要求。</li> <li>AnonymousPreflight：交易是預檢要求。</li> |
+| **BlobType** | 只適用於 Blob 計量的 Blob 類型。 支援的值為**BlockBlob**， **PageBlob**，並**Azure Data Lake Storage**。 附加 Blob 隨附於 BlockBlob。 |
+| **BlobTier** | Azure 存储提供了不同的访问层，允许以最具成本效益的方式存储 Blob 对象数据。 請參閱中的其他資訊[Azure 儲存體 blob 層](../blobs/storage-blob-storage-tiers.md)。 支援的值包括： <br/> <li>**熱**:經常性存取層</li> <li>**非經常性存取**:非經常性存取層</li> <li>**封存**：封存層</li> <li>**Premium**:區塊 blob 的進階層</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**:進階分頁 blob 的層類型</li> <li>**標準**：標準分頁 Blob 的層類型</li> <li>**Untiered**:一般用途 v1 儲存體帳戶的層類型</li> |
+| **GeoType** | 來自主要或次要叢集的交易。 可用的值包括**主要**並**次要**。 在從次要租用戶讀取物件時，此維度會套用到讀取權限異地備援儲存體 (RA-GRS)。 |
+| **ResponseType** | 交易回應類型。 可用的值包括： <br/><br/> <li>**ServerOtherError**：描述項目之外的其他所有伺服器端錯誤 </li> <li>**ServerBusyError**：傳回 HTTP 503 狀態碼的已驗證要求。 </li> <li>**ServerTimeoutError**：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 逾時是因為伺服器錯誤而發生。 </li> <li>**AuthorizationError**：由於未經授權存取資料或授權失敗，從而發生失敗的已驗證要求。 </li> <li>**NetworkError**：由於網路錯誤而失敗的已驗證要求。 當用戶端在逾時到期前就過早關閉連線時，最常會發生這個情況。 </li> <li>**ClientThrottlingError**：用戶端節流錯誤。 </li> <li>**ClientTimeoutError**：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 如果用戶端的網路逾時或要求逾時設定為比儲存體服務預期的值還低，則此值是符合預期的逾時。 否則，它會回報為 ServerTimeoutError。 </li> <li>**ClientOtherError**：描述項目之外的其他所有用戶端錯誤。 </li> <li>**成功**：成功的要求</li> |
+| **ApiName** | 作業的名稱。 例如︰ <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> 如需所有的作業名稱，請參閱[文件](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)。 |
+| **驗證** | 交易中所使用的驗證類型。 可用的值包括： <br/> <li>**AccountKey**:交易會使用儲存體帳戶金鑰進行驗證。</li> <li>**SAS**:交易會使用共用存取簽章進行驗證。</li> <li>**OAuth**:交易會使用 OAuth 存取權杖進行驗證。</li> <li>**匿名**:以匿名方式要求交易。 不包括預檢要求。</li> <li>**AnonymousPreflight**:交易是預檢要求。</li> |
 
 對於計量支援維度，您必須指定維度值才能查看對應的計量值。 例如，如果您要查看成功回應的 **Transactions** 值，則需要篩選具有 **Success** 值的 **ResponseType** 維度。 或者，如果您要查看區塊 Blob 的 **BlobCount** 值，就需要篩選具有 **BlockBlob** 值的 **BlobType** 維度。
 

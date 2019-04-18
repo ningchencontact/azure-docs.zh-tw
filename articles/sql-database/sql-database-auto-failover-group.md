@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58848389"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
@@ -131,15 +131,15 @@ ms.locfileid: "58848389"
   > 受控執行個體不支援多個容錯移轉群組。
   
 ## <a name="permissions"></a>權限
-透過管理容錯移轉群組的權限[角色型存取控制 (RBAC)](../role-based-access-control/overview.md)。 [SQL Server 參與者](../role-based-access-control/built-in-roles.md#sql-server-contributor)角色具有所有必要的權限來管理容錯移轉群組。 
+通过[基于角色的访问控制 (RBAC)](../role-based-access-control/overview.md) 管理故障转移组的权限。 [SQL Server 参与者](../role-based-access-control/built-in-roles.md#sql-server-contributor)角色拥有管理故障转移组所需的全部权限。 
 
-### <a name="create-failover-group"></a>建立容錯移轉群組
-若要建立的容錯移轉群組，您會需要這兩個主要和次要伺服器，並在容錯移轉群組中的所有資料庫的 RBAC 的寫入存取。 是受管理的執行個體，您需要 RBAC 寫入權限，這兩個主要和次要受控執行個體，但個別資料庫的權限不相關，因為無法加入或從容錯移轉群組中移除個別受管理的執行個體的資料庫。 
+### <a name="create-failover-group"></a>创建故障转移组
+若要创建某个故障转移组，需要对主服务器和辅助服务器，以及该故障转移组中的所有数据库拥有 RBAC 写入访问权限。 是受管理的執行個體，您需要 RBAC 寫入權限，這兩個主要和次要受控執行個體，但個別資料庫的權限不相關，因為無法加入或從容錯移轉群組中移除個別受管理的執行個體的資料庫。 
 
-### <a name="update-a-failover-group"></a>更新容錯移轉群組
+### <a name="update-a-failover-group"></a>更新故障转移组
 若要更新的容錯移轉群組，您需要 RBAC 容錯移轉群組，並在目前的主要伺服器或受管理的執行個體上的所有資料庫的寫入權限。  
 
-### <a name="failover-a-failover-group"></a>容錯移轉的容錯移轉群組
+### <a name="failover-a-failover-group"></a>对故障转移组进行故障转移
 若要容錯移轉的容錯移轉群組，您需要在新的主要伺服器上的容錯移轉群組的 RBAC 寫入權限，或受控執行個體。 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>將容錯移轉群組與單一資料庫和彈性集區一起使用的最佳做法
@@ -282,9 +282,9 @@ ms.locfileid: "58848389"
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>升級或降級主要資料庫
 
-您可以將主要資料庫升級或降級至不同的計算大小 (在相同的服務層內，而不是一般用途和業務關鍵之間)，而不需要將任何次要資料庫中斷連線。 升級時，我們建議您先升級所有次要資料庫，然後再升級主要。 降級時，順序相反︰ 先降級主要，然後再降級次要資料庫的所有。 當您將資料庫升級或降級到不同的服務層時，會強制執行這項建議。
+您可以將主要資料庫升級或降級至不同的計算大小 (在相同的服務層內，而不是一般用途和業務關鍵之間)，而不需要將任何次要資料庫中斷連線。 升级时，建议先升级所有辅助数据库，再升级主数据库。 降级时，请反转顺序：先降级主数据库，再降级所有辅助数据库。 當您將資料庫升級或降級到不同的服務層時，會強制執行這項建議。
 
-此順序特別建議可避免在較低 SKU 的次要位置取得多載，而且必須是升級或降級的程序期間重新植入的問題。 您也可以將主要變成唯讀，但會犧牲影響所有針對主要的讀寫工作負載，以避免此問題。 
+具体而言，建议采用此顺序的目的是避免较低 SKU 上的辅助数据库在过载时出现问题，并且必须在升级或降级过程中重新设定种子。 此外，可以通过将主数据库设为只读来避免问题，代价是针对主数据库的所有读写工作负荷会受到影响。 
 
 > [!NOTE]
 > 如果您已在容錯移轉群組設定中建立次要資料庫，則不建議降級次要資料庫。 這是為了確保您的資料層在容錯移轉啟動之後有足夠的容量來處理一般工作負載。

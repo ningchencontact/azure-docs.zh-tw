@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360493"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>快速入門：設定 Azure VM 以連線到 Azure SQL Database 受控執行個體
@@ -74,20 +74,20 @@ ms.locfileid: "59360493"
 
 2. 使用下表中的資訊填妥表單：
 
-   | 設定| 建議的值 | 描述 |
+   | 設定| 建議的值 | 說明 |
    | ---------------- | ----------------- | ----------- |
    | **訂用帳戶** | 有效的訂用帳戶 | 必須是您有權限在其中建立新資源的訂用帳戶。 |
    | **資源群組** |您在[建立受控執行個體](sql-database-managed-instance-get-started.md)快速入門中指定的資源群組。|此資源群組必須是 VNet 所在的資源群組。|
    | **位置** | 資源群組的位置 | 根據選取的資源群組填入此值。 |
    | **虛擬機器名稱**  | 任何有效名稱 | 如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
-   |**管理員使用者名稱**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。<br>您隨時要[連線至 VM](#connect-to-virtual-machine) 時，都可以使用這個使用者名稱。|
+   |**系統管理員使用者名稱**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。<br>您隨時要[連線至 VM](#connect-to-virtual-machine) 時，都可以使用這個使用者名稱。|
    |**密碼**|任何有效密碼|密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。<br>您隨時要[連線至 VM](#connect-to-virtual-machine) 時，都可以使用這個密碼。|
    | **虛擬機器大小** | 任何有效大小 | 在此快速入門中，使用此範本的預設值 **Standard_B2s** 就已足夠。 |
    | **位置**|[resourceGroup().location]。| 請勿變更此值。 |
    | **虛擬網路名稱**|在其中创建了托管实例的虚拟网络。|
    | **子網路名稱**|您在上一個程序中建立的子網路名稱| 請勿選擇您在其中建立受控執行個體的子網路。|
    | **構件位置** | [deployment().properties.templateLink.uri] | 請勿變更此值。 |
-   | **構件位置 Sas 權杖** | 保留空白 | 請勿變更此值。 |
+   | **構件位置 SAS 權杖** | 保留空白 | 請勿變更此值。 |
 
    ![建立用戶端 VM](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 

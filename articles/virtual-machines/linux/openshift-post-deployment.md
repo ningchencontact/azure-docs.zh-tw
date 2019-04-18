@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
 ms.openlocfilehash: cf3a3ca1f751ce9eed5ee5c5397c1d9c864a1dd6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903670"
 ---
 # <a name="post-deployment-tasks"></a>部署後工作
@@ -39,11 +39,11 @@ ms.locfileid: "58903670"
 
 這些步驟使用 Azure CLI 建立應用程式註冊，以及使用 GUI (入口網站) 設定權限。 若要建立應用程式註冊，您需要下列五項資訊：
 
-- 顯示名稱：應用程式註冊名稱 (例如 OCPAzureAD)
-- 首頁：（例如，OpenShift 主控台 URL https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- 識別碼 URI:（例如，OpenShift 主控台 URL https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- 回覆 URL:主要公用 URL 以及應用程式註冊名稱 （例如， https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
-- 密碼：安全密碼 （使用強式密碼）
+- 顯示名稱：应用注册名称（例如 OCPAzureAD）
+- 主页：OpenShift 控制台 URL（例如 https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- 标识符 URI：OpenShift 控制台 URL（例如 https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- 答复 URL：主公用 URL 和应用注册名称（例如 https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- 密碼：安全密码（使用强密码）
 
 下列範例將會使用上述資訊建立應用程式註冊：
 
@@ -83,11 +83,11 @@ az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.
 
    ![App 註冊](media/openshift-post-deployment/app-registration.png)
 
-6. 按一下 步驟 1:選取 API，然後按一下**Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**。 按一下底部的 [選取]。
+6. 依次单击“步骤 1:选择 API”、“Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)”。 按一下底部的 [選取]。
 
    ![應用程式註冊選取 API](media/openshift-post-deployment/app-registration-select-api.png)
 
-7. 在步驟 2:選取權限，請選取**登入及讀取使用者設定檔**下方**委派的權限**，然後按一下**選取**。
+7. 在“步骤 2:选择权限”中，选择“委托的权限”下的“登录并读取用户配置文件”，并单击“选择”。
 
    ![應用程式註冊存取](media/openshift-post-deployment/app-registration-access.png)
 
@@ -147,11 +147,11 @@ oauthConfig:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-請確定 identityProviders 下方的文字已正確對齊。 使用下列 CLI 命令找到租用戶識別碼： ```az account show```
+請確定 identityProviders 下方的文字已正確對齊。 使用下列 CLI 命令找到租用戶識別碼：```az account show```
 
 重新啟動所有主要節點上的 OpenShift 主要服務：
 
-**OpenShift 容器平台 (OCP) 具有多個主機**
+**具有多個主機的 OpenShift 容器平台 (OCP)**
 
 ```bash
 sudo systemctl restart atomic-openshift-master-api
@@ -171,7 +171,7 @@ sudo systemctl restart origin-master-api
 sudo systemctl restart origin-master-controllers
 ```
 
-**具有單一主機 OKD**
+**具有單一主機的 OKD**
 
 ```bash
 sudo systemctl restart origin-master
@@ -251,7 +251,7 @@ OpenShift 容器平台服務 Marketplace 供應項目也會提供在叢集安裝
 
 使用部署期間提供的認證，透過 SSH 連線至第一個主要節點 (根據使用中的範本和分支)。 發出以下命令：
 
-**OpenShift 容器平台 3.7 及更早版本**
+**OpenShift 容器平台 3.7 和更早版本**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -263,7 +263,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-**OpenShift 容器平台 3.9 及更新版本**
+**OpenShift 容器平台 3.9 和更新版本**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -275,7 +275,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 -e openshift_logging_es_pvc_dynamic=true
 ```
 
-**OKD 3.7 及更早版本**
+**OKD 3.7 和更早版本**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -287,7 +287,7 @@ ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-l
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-**OKD 3.9 及更新版本**
+**OKD 3.9 和更新版本**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -304,7 +304,7 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 使用部署期間提供的認證，透過 SSH 連線至第一個主要節點 (根據使用中的範本和分支)。 發出以下命令：
 
 
-**OpenShift 容器平台 3.7 及更早版本**
+**OpenShift 容器平台 3.7 和更早版本**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -314,7 +314,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_logging_install_logging=True
 ```
 
-**OpenShift 容器平台 3.9 及更新版本**
+**OpenShift 容器平台 3.9 和更新版本**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -324,7 +324,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 -e openshift_logging_install_logging=True
 ```
 
-**OKD 3.7 及更早版本**
+**OKD 3.7 和更早版本**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -334,7 +334,7 @@ ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-l
 -e openshift_logging_install_logging=True
 ```
 
-**OKD 3.9 及更新版本**
+**OKD 3.9 和更新版本**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -351,5 +351,5 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 
 ## <a name="next-steps"></a>後續步驟
 
-- [開始使用 OpenShift 容器平台](https://docs.openshift.com/container-platform)
+- [開始使用 OpenShift 容器平台](https://docs.openshift.com/container-platform) \(英文\)
 - [開始使用 OKD](https://docs.okd.io/latest)

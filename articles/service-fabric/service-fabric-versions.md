@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: d99000e1682b662f4bceb28096395243c894282f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191642"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681602"
 ---
 # <a name="supported-service-fabric-versions"></a>支援的 Service Fabric 版本
 
@@ -30,7 +30,9 @@ ms.locfileid: "57191642"
 - [在 Azure 叢集上升級 Service Fabric 版本](service-fabric-cluster-upgrade.md)
 - [升級獨立 windows 伺服器叢集上的 Service Fabric 版本](service-fabric-cluster-upgrade-windows-server.md)
 
-以下是支援的 Service Fabric 版本清單以及其支援結束日期。
+## <a name="supported-versions"></a>支援的版本
+
+下表列出支援的 Service Fabric 版本和其支援結束日期。
 
 | **叢集中的 Service Fabric 執行階段** | **可直接自叢集版本升級** |**相容的 SDK / NuGet 套件版本** | **結束支援日期** |
 | --- | --- |--- | --- |
@@ -45,3 +47,18 @@ ms.locfileid: "57191642"
 | 6.2.* | 6.0.232.* |小於或等於 3.1 版 |2018 年 10 月 26 日   |
 | 6.3.* | 6.1.480.* |小於或等於 3.2 版 |31,2019 年 3 月  |
 | 6.4.* | 6.2.301.* |小於或等於 3.3 版 |目前版本，沒有結束日期 |
+
+## <a name="supported-operating-systems"></a>受支援的作業系統
+
+ 下表列出支援的 Service Fabric 版本支援的作業系統。
+
+| **作業系統** | **最早的受支援的 Service Fabric 版本** |
+| --- | --- |
+| Windows Server 2012 R2 | 所有版本 |
+| Windows Server 2016 | 所有版本 |
+| Windows Server 1709 | 6.0 |
+| Windows Server 1803 | 6.4 |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+

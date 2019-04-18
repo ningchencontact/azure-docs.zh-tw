@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880996"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 與 PredicateValidations
@@ -194,7 +194,7 @@ ms.locfileid: "58880996"
 - 使用 `IncludesCharacters` 方法的 **Lowercase**，驗證密碼包含小寫字母。
 - 使用 `IncludesCharacters` 方法的 **Uppercase**，驗證密碼包含大寫字母。
 - 使用 `IncludesCharacters` 方法的 **Number**，驗證密碼包含數字。
-- **符號**使用`IncludesCharacters`方法，可讓您驗證密碼包含下列符號 `@#$%^&*\-_+=[]{}|\:',?/~"();!`
+- 使用 `IncludesCharacters` 方法的 **Symbol**，驗證密碼包含下列其中一個符號：`@#$%^&*\-_+=[]{}|\:',?/~"();!`
 - 使用 `MatchesRegex` 方法的 **PIN**，驗證密碼只包含數字。
 - 使用 `MatchesRegex` 方法的 **AllowedAADCharacters**，驗證提供了只對密碼無效的字元。
 - 使用 `MatchesRegex` 方法的 **DisallowedWhitespace**，驗證密碼不是以空白字元開始或結尾。

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492083"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>如何從適用於 VM 的 Azure 監視器 (預覽) 查詢記錄
@@ -69,7 +69,7 @@ ms.locfileid: "59492083"
 |LinksFailed |在報告時間範圍內失敗的實體網路連線數目。 此資訊目前僅適用於輸出連線。 |
 |LinksLive |已在報告時間範圍結束時開啟的實體網路連線數目|
 
-#### <a name="metrics"></a>度量
+#### <a name="metrics"></a>指标
 
 除了連線計數計量，在指定邏輯連線或網路連接埠上傳送與接收的資料量相關資訊也會包含於記錄的下列屬性中：
 
@@ -115,7 +115,7 @@ ms.locfileid: "59492083"
 |描述 |觀察到的威脅的說明。 |
 |TLPLevel |號誌燈通訊協定 (TLP) 層級是已定義的值 (*白色*、*綠色*、*琥珀色*、*紅色*) 之一。 |
 |信賴度 |值為 *0 – 100*。 |
-|嚴重性 |值為 *0 – 5*，其中 *5* 為最嚴重，*0* 為根本不嚴重。 預設值為 *3*。  |
+|严重性 |值為 *0 – 5*，其中 *5* 為最嚴重，*0* 為根本不嚴重。 預設值為 *3*。  |
 |FirstReportedDateTime |提供者第一次回報指標。 |
 |LastReportedDateTime |Interflow 最後一次看到指標。 |
 |IsActive |使用 *True* 或 *False* 值表示指標停用。 |
@@ -143,7 +143,7 @@ VMBoundPort 中的每一筆記錄識別下列欄位：
  
 身分識別連接埠衍生自上述的五個欄位，並會儲存在 PortId 屬性。 這個屬性可用來跨時間快速尋找特定的連接埠的記錄。 
 
-#### <a name="metrics"></a>度量 
+#### <a name="metrics"></a>指标 
 連接埠記錄包含計量代表與其相關聯的連線。 下列計量目前報告 （每個度量的詳細資料會在上一節中所述）： 
 
 - BytesSent 和 BytesReceived 

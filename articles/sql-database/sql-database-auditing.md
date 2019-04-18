@@ -11,13 +11,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 9fac8291799216b4ca4527b482aefee169f7fc59
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/16/2019
+ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361272"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680352"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -88,6 +88,9 @@ ms.locfileid: "59361272"
     ![瀏覽窗格][3]
 
 5. **新增** - 您現在有多個選項可設定要寫入稽核記錄的位置。 Azure 儲存體帳戶、 Log Analytics 工作區，供 Azure 監視器記錄檔，或使用事件中樞取用的事件中樞，您可以寫入記錄。 您可以設定這些選項的任何組合，並將稽核記錄寫入至每個組合。
+
+   > [!WARNING]
+   > 啟用稽核至 Log Analytics 會產生根據擷取速率的成本。 請特別注意相關聯的成本，使用這[選項](https://azure.microsoft.com/en-us/pricing/details/monitor/)，或考慮在 Azure 儲存體帳戶中儲存稽核記錄。
 
     ![儲存體選項](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -229,10 +232,10 @@ ms.locfileid: "59361272"
 
 **PowerShell Cmdlet (包含其他篩選的 WHERE 子句支援)**：
 
-- [建立或更新資料庫稽核原則 (設定 AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [建立或更新伺服器稽核原則 (設定 AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
-- [取得資料庫稽核原則 (Get AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [取得伺服器稽核原則 (Get AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [创建或更新数据库审核策略 (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [创建或更新服务器审核策略 (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [取得資料庫稽核原則 (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [获取服务器审核策略 (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 如需指令碼範例，請參閱[使用 PowerShell 設定稽核與威脅偵測](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
 
@@ -247,18 +250,18 @@ ms.locfileid: "59361272"
 
 具有 WHERE 子句而可支援其他篩選的擴充原則：
 
-- [建立或更新資料庫*擴充*稽核原則](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [建立或更新伺服器*擴充*稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [取得資料庫*擴充*稽核原則](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [取得伺服器*擴充*稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [创建或更新数据库扩展审核策略](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [创建或更新服务器扩展审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [获取数据库扩展审核策略](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [获取服务器扩展审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-10"></a>使用 ARM 範本管理 SQL 資料庫稽核
 
 您可以使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 範本來管 Azure SQL 資料庫，如下列範例所示：
 
-- [部署 Azure SQL Server 以啟用稽核來稽核記錄寫入 Azure Blob 儲存體帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [部署 Azure SQL Server 以啟用稽核來稽核記錄檔寫入 Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
-- [部署 Azure SQL Server 以啟用稽核來稽核記錄寫入至事件中樞](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+- [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入至 Azure Blob 儲存體帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) \(英文\)
+- [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入 Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入事件中樞](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 > [!NOTE]
 > 連結的範例位於外部公用儲存機制，而提供 ' 為 '，不提供擔保，並不受任何 Microsoft 支援的程式/服務。

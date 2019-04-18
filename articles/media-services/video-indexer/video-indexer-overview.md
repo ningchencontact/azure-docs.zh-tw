@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
 ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895963"
 ---
 # <a name="what-is-video-indexer"></a>什麼是影片索引子？
@@ -80,5 +80,5 @@ Azure 影片索引器是以 Azure 媒體分析、Azure 搜尋服務、認知服�
 您已可以開始使用影片索引器。 如需詳細資訊，請參閱下列文章：
 
 - [開始使用影片索引器網站](video-indexer-get-started.md)
-- [使用影片索引子 REST API 的處理序內容](video-indexer-use-apis.md)
-- [應用程式中內嵌 visual 的小工具](video-indexer-embed-widgets.md)
+- [使用影片索引器 REST API 處理內容](video-indexer-use-apis.md)
+- [將視覺介面控件內嵌到應用程式](video-indexer-embed-widgets.md)

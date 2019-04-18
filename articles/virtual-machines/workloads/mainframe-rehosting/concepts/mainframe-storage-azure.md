@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: 4fea787e7fe20d60de91761811e1b69bebf3a010
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896249"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>將大型主機儲存體移至 Azure
@@ -107,15 +107,15 @@ Blob 儲存體提供 Azure 上的最大的磁碟區的儲存體。 除了儲存�
 - [大型主機移轉](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [大型主機重新裝載的 Azure 虛擬機器上](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [將大型主機計算移至 Azure](mainframe-compute-Azure.md)
-- [決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
+- [決定何時使用 Azure Blob、 Azure 檔案服務或 Azure 磁碟](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
 - [標準 SSD 受控磁碟的 Azure VM 工作負載](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)
 
 ### <a name="ibm-resources"></a>IBM 資源
 
 - [平行 Sysplex 上 IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
 - [IBM CICS 和結合性功能：進階功能](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
-- [建立 Db2 pureScale 功能安裝的必要的使用者](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
-- [Db2icrt-建立執行個體 命令](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+- [針對 Db2 pureScale 功能安裝建立必要使用者](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+- [Db2icrt - 建立執行個體命令](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 - [Db2 pureScale 叢集資料庫解決方案](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
@@ -126,6 +126,6 @@ Blob 儲存體提供 Azure 上的最大的磁碟區的儲存體。 除了儲存�
 
 ### <a name="more-migration-resources"></a>其他移轉資源
 
-- [平台現代化 Alliance:在 Azure 上的 IBM Db2](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
-- [Azure 虛擬資料中心增益與 Shift 輔助線](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
+- [Platform Modernization Alliance：在 Azure 上的 IBM Db2](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
+- [Azure 虛擬資料中心：原形移轉指南](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
 - [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
