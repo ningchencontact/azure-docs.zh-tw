@@ -390,16 +390,16 @@ rpm -e dependency-agent dependency-agent-connector
 
 | 屬性 | 描述 |
 |---|---|
-| 電腦 | 收集資料所在的電腦名稱 |
+| Computer | 收集資料所在的電腦名稱 |
 | TimeGenerated | 記錄的時間 |
 | LocalIP | 本機電腦的 IP 位址 |
 | SessionState | 已連線或已中斷連線 |
 | ReceivedBytes | 接收的位元組數目 |
 | ProtocolName | 使用的網路通訊協定名稱 |
 | IPVersion | IP 版本 |
-| 方向 | 輸入或輸出 |
+| Direction | 輸入或輸出 |
 | MaliciousIP | 已知惡意來源的 IP 位址 |
-| 嚴重性 | 可疑惡意程式碼嚴重性 |
+| Severity | 可疑惡意程式碼嚴重性 |
 | RemoteIPCountry | 遠端 IP 位址的國家/地區 |
 | ManagementGroupName | Operations Manager 管理群組的名稱 |
 | SourceSystem | 收集資料所在的來源 |
