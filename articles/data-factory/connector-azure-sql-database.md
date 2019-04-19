@@ -260,7 +260,7 @@ ms.locfileid: "59683863"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 **type**屬性必須設定為 **SqlSource**。 | 是 |
-| SqlReaderQuery | 使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. | 否 |
+| sqlReaderQuery | 使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. | 否 |
 | sqlReaderStoredProcedureName | 從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 | 否 |
 | storedProcedureParameters | 預存程序的參數。<br/>允許的值為名稱或值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 |
 
@@ -596,36 +596,36 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |BOOLEAN |
-| char |String、Char[] |
-| 日期 |DateTime |
-| datetime |DateTime |
+| bit |Boolean |
+| char |String, Char[] |
+| date |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM 屬性 (varbinary(max)) |Byte[] |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| 映像 |Byte[] |
+| image |Byte[] |
 | int |Int32 |
 | money |Decimal |
-| nchar |String、Char[] |
-| ntext |String、Char[] |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
 | numeric |Decimal |
-| nvarchar |String、Char[] |
+| nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
-| text |String、Char[] |
-| 分析 |TimeSpan |
+| text |String, Char[] |
+| time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
-| varchar |String、Char[] |
-| xml |xml |
+| varchar |String, Char[] |
+| xml |Xml |
 
 >[!NOTE]
 > 針對對應至 Decimal 過渡期類型的資料類型，目前 ADF 支援的有效位數最多可達 28。 如果您有有效位數超過 28 的資料，請考慮在 SQL 查詢中將其轉換成字串。
