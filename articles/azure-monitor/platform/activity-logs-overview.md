@@ -140,12 +140,12 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 
 | 屬性 | 必要項 | 描述 |
 | --- | --- | --- |
-| 名稱 |是 |記錄檔設定檔的名稱。 |
+| Name |是 |記錄檔設定檔的名稱。 |
 | StorageAccountId |否 |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
 | serviceBusRuleId |否 |服务总线命名空间（需在其中创建事件中心）的服务总线规则 ID。 將會是此格式的字串︰`{service bus resource ID}/authorizationrules/{key name}`。 |
-| 位置 |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 |
+| Location |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 |
 | RetentionInDays |是 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄。 |
-| 類別 |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。 |
+| Category |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。 |
 
 #### <a name="remove-a-log-profile"></a>移除記錄檔設定檔
 
