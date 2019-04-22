@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: dcfc2480cd9a62b57255163132373998db328034
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 80566b0246179064d2a479b8c9bf3c79a2a93aac
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075794"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681279"
 ---
 # <a name="available-event-hubs-apis"></a>可用的事件中樞 API
 
@@ -36,7 +36,7 @@ ms.locfileid: "58075794"
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
 | .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/A |
 | Java | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22) | [GitHub](https://github.com/Azure/azure-event-hubs-java) |
-| 節點 | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N/A | [GitHub](https://github.com/Azure/azure-event-hubs-node) |
+| 節點 | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N/A | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) |
 | C | N/A | N/A | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
 
 ### <a name="additional-information"></a>其他資訊
@@ -47,7 +47,7 @@ ms.locfileid: "58075794"
 
 #### <a name="node"></a>節點
 
-[Node.js 程式庫](https://github.com/Azure/azure-event-hubs-node)目前為預覽版，並且由 Microsoft 員工和外部參與者以業餘專案的形式維護。 我們非常歡迎所有的參與，包括原始程式碼，而且都會加以檢閱。
+[Node.js 程式庫](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs)目前為預覽版，並且由 Microsoft 員工和外部參與者以業餘專案的形式維護。 我們非常歡迎所有的參與，包括原始程式碼，而且都會加以檢閱。
 
 ## <a name="management-apis"></a>管理 API
 

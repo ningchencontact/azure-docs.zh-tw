@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 11/16/2018
+ms.date: 4/11/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 01a1c1fef5dd2dabf99677d59126caf41e1f6885
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d76f7ac6c8b60e2dec7d7d95cf419e1352b97f15
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900602"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545123"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>快速入門：如何使用 Azure PowerShell 建立和查詢 Azure SQL 資料倉儲
 
@@ -103,8 +103,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## <a name="create-a-data-warehouse-with-sample-data"></a>使用範例資料建立資料倉儲
-這個範例會使用先前定義的變數建立資料倉儲。  它會將服務目標指定為成本較低的資料倉儲起點 DW400。 
+## <a name="create-a-data-warehouse"></a>建立資料倉儲
+這個範例會使用先前定義的變數建立資料倉儲。  並將服務目標指定為成本較低的資料倉儲起點 DW100c。 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -112,7 +112,7 @@ New-AzSqlDatabase `
     -ServerName $servername `
     -DatabaseName $databasename `
     -Edition "DataWarehouse" `
-    -RequestedServiceObjectiveName "DW400" `
+    -RequestedServiceObjectiveName "DW100c" `
     -CollationName "SQL_Latin1_General_CP1_CI_AS" `
     -MaxSizeBytes 10995116277760
 ```
@@ -128,7 +128,7 @@ New-AzSqlDatabase `
 選擇性參數如下：
 
 - **CollationName**：未指定定序時的預設值為 SQL_Latin1_General_CP1_CI_AS。 無法變更資料庫的定序。
-- **MaxSizeBytes**：資料庫的預設大小上限為 10 GB。
+- **MaxSizeBytes**：資料庫的預設大小上限為 240TB。 大小上限會限制資料列存放區資料。 單欄式資料則無儲存限制。
 
 如需有關參數選項的詳細資訊，請參閱 [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)。
 

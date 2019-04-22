@@ -4,8 +4,8 @@ description: 了解如何使用 Linux 上的 App Service 來建立 Ruby on Rails
 keywords: azure app service, linux, oss, ruby, rails
 services: app-service
 documentationcenter: ''
-author: SyntaxC4
-manager: cfowler
+author: cephalin
+manager: jeconnoc
 editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
@@ -13,22 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/23/2019
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c5858aaf09cd832a5d60d32bb33aeeb51795b406
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 29126171a2d808153c7578d911e0725641ec39ff
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870430"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545140"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 Ruby on Rails 應用程式
 
 [Linux 上的 Azure App Service](app-service-linux-intro.md) 提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何建立基本的 [Ruby on Rails](https://rubyonrails.org/) 應用程式，然後將它當作 Linux 上的 Web 應用程式部署至 Azure。
 
 > [!NOTE]
-> Ruby 開發堆疊目前僅支援 Ruby on Rails。 如果您想要使用不同的平台 (例如 Sinatra)，或是要使用[不支援的 Ruby 版本](app-service-linux-intro.md)，請參閱[用於容器的 Web App](https://docs.microsoft.com/azure/app-service/containers/) 的快速入門。
+> Ruby 開發堆疊目前僅支援 Ruby on Rails。 如果您想要使用不同的平台 (例如 Sinatra)，或是要使用[不支援的 Ruby 版本](app-service-linux-intro.md)，則必須[在自訂容器中加以執行](quickstart-docker-go.md)。
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -139,4 +139,7 @@ http://<app name>.azurewebsites.net
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Ruby on Rails with Postgres](tutorial-ruby-postgres-app.md)
+> [教學課程：Ruby on Rails with Postgres](tutorial-ruby-postgres-app.md)
+
+> [!div class="nextstepaction"]
+> [設定 Ruby 應用程式](configure-language-ruby.md)

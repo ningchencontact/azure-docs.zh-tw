@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
-ms.openlocfilehash: 7095d3b94fb94d3f3ec246d16c7fb4fdaa4d89eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/15/2019
+ms.openlocfilehash: 7dd313789665348ce0a7bfa2da3569867854be94
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860783"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617281"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>使用 Azure 入口網站建立 Azure Database for MySQL 伺服器
 
@@ -49,7 +49,7 @@ ms.locfileid: "57860783"
     確認密碼 | 您的選擇| 確認管理帳戶密碼。
     位置 | *最接近使用者的區域*| 選擇最靠近您的使用者或其他 Azure 應用程式的位置。
     版本 | *最新主要版本*| 最新主要版本 (除非您有需要另一個版本的特定需求)。
-    定價層 | **一般用途**、**Gen 5**、**2 個虛擬核心**、**5 GB**、**7 天**、**異地備援** | 新伺服器的計算、儲存體和備份組態。 選取 [定價層]。 接下來，選取 [一般用途] 索引標籤。Gen 5、2 個虛擬核心、5 GB 和 7 天是**計算世代**、**虛擬核心**、**儲存體**和**備份保留期限**的預設值。 您可以讓這些滑桿保留原狀。 若要啟用異地備援儲存體中的伺服器備份，請從 [備份備援選項] 中選取 [異地備援]。 若要儲存此定價層選取項目，請選取 [確定]。 下方螢幕擷取畫面會擷取這些選取項目。
+    定價層 | **一般用途**、**Gen 5**、**2 個虛擬核心**、**5 GB**、**7 天**、**異地備援** | 新伺服器的計算、儲存體和備份組態。 選取 [定價層]。 接下來，選取 [一般用途] 索引標籤。Gen 5、4 個虛擬核心、100 GB 和 7 天是 [計算世代]、[虛擬核心]、[儲存體]和 [備份保留期限] 的預設值。 您可以讓這些滑桿保留原狀。 若要啟用異地備援儲存體中的伺服器備份，請從 [備份備援選項] 中選取 [異地備援]。 若要儲存此定價層選取項目，請選取 [確定]。 下方螢幕擷取畫面會擷取這些選取項目。
   
    > [!NOTE]
    > 如果您的工作負載只需要輕量計算和 I/O，請考慮使用基本定價層。 請注意，在基本定價層中建立的伺服器後續無法調整為「一般用途」或「記憶體最佳化」。 如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/mysql/)。
@@ -185,7 +185,7 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
     連線方式 | 標準 (TCP/IP) | 標準 (TCP/IP) 就足夠了。 |
     主機名稱 | *伺服器名稱* | 您稍早建立 Azure Database for MySQL 伺服器時所用的伺服器名稱值。 範例伺服器是 **mydemoserver.mysql.database.azure.com**。 使用如範例所示的完整網域名稱 (**\*.mysql.database.azure.com**)。 如果您不記得您的伺服器名稱，請依照上一節中的步驟執行，以取得連線資訊。|
      Port | 3306 | 連線至 Azure Database for MySQL 伺服器時所要使用的連接埠。 |
-    使用者名稱 |  伺服器管理員登入名稱 | 您稍早建立 Azure Database for MySQL 時所提供的伺服器管理員登入資訊。 我們的範例使用者名稱為 **myadmin\@mydemoserver**。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式是 username\@servername。
+    使用者名稱 |  伺服器管理員登入名稱 | 您稍早建立 Azure Database for MySQL 時所提供的伺服器管理員登入資訊。 我們的範例使用者名稱為 **myadmin\@mydemoserver**。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式是 *username\@servername*。
     密碼 | *您的密碼* | 選取 [儲存在保存庫...] 按鈕以儲存密碼。 |
 
 4. 選取 [測試連線] 以測試所有參數是否都已設定正確。 然後選取 [確定] 可儲存連線。 

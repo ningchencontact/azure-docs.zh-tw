@@ -8,19 +8,19 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 58022ca4f605b4672cd9b6e22993fca8ff6dc591
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 977b59c3344eaf2c4877f51afea176455d22ecc9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510937"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546682"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>如何從 Node.js 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>概觀
-本文示範如何在 Node.js 應用程式中使用「Azure 儲存體資料表」服務或 Azure Cosmos DB 來執行一般案例。
+此文章示範如何在 Node.js 應用程式中使用「Azure 儲存體資料表」服務或 Azure Cosmos DB 來執行一般案例。
 
 ## <a name="create-an-azure-service-account"></a>建立 Azure 服務帳戶
 
@@ -37,7 +37,7 @@ ms.locfileid: "55510937"
 ## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>設定您的應用程式以存取 Azure 儲存體或 Azure Cosmos DB 資料表 API
 若要使用 Azure 儲存體或 Azure Cosmos DB，您需要 Azure Storage SDK for Node.js，這包含一組能與「儲存體 REST」服務進行通訊的便利程式庫。
 
-### <a name="use-node-package-manager-npm-to-install-the-package"></a>使用 Node Package Manager (NPM) 安裝封裝
+### <a name="use-node-package-manager-npm-to-install-the-package"></a>使用 Node Package Manager (NPM) 來安裝套件
 1. 使用命令列介面，例如 **PowerShell** (Windows)、**終端機** (Mac) 或 **Bash** (Unix)，瀏覽至儲存所建立應用程式的資料夾。
 2. 在命令視窗中輸入 **npm install azure-storage** 。 此命令的輸出類似下列範例。
 
@@ -51,9 +51,9 @@ ms.locfileid: "55510937"
        +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
        +-- xml2js@0.2.7 (sax@0.5.2)
        +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-3. 您可以手動執行 **ls** 命令，確認已建立 **node_modules** 資料夾。 該資料夾中有 **azure-storage** 封裝，當中包含存取儲存體所需的程式庫。
+3. 您可以手動執行 **ls** 命令，確認已建立 **node_modules** 資料夾。 該資料夾中有 **azure-storage** 套件，其中包含存取儲存體所需的程式庫。
 
-### <a name="import-the-package"></a>匯入封裝
+### <a name="import-the-package"></a>匯入套件
 將下列程式碼加在應用程式中的 **server.js** 檔案之上：
 
 ```javascript
@@ -295,7 +295,7 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 如果作業成功，`result.entries` 就會包含符合查詢的實體陣列。 如果查詢無法傳回所有實體，`result.continuationToken` 便不是 *Null*，而可作為 **queryEntities** 的第三個參數來擷取更多結果。 在初始查詢中，第三個參數請使用 *null* 。
 
 ### <a name="query-a-subset-of-entity-properties"></a>查詢實體屬性的子集
-一項資料表查詢可以只擷取實體的少數欄位。
+一個資料表查詢可以只擷取實體的少數欄位。
 這可以減少頻寬並提高查詢效能 (尤其是對大型實體而言)。 請使用 **select** 子句，並傳遞要傳回的欄位名稱。 例如，下列查詢只會傳回 **description** 和 **dueDate** 欄位。
 
 ```javascript
@@ -364,6 +364,8 @@ dc.table.queryEntities(tableName,
 ```
 
 如果您檢查 `continuationToken` 物件，您會找到像是 `nextPartitionKey`、`nextRowKey` 和 `targetLocation` 的屬性，這些屬性可以用來逐一查看所有結果。
+
+您還可以使用 `top` 和 `continuationToken` 來設定頁面大小。 
 
 ## <a name="work-with-shared-access-signatures"></a>使用共用存取簽章
 共用存取簽章 (SAS) 可安全地提供對資料表的細微存取權，而不必提供您的儲存體帳戶名稱或金鑰。 SAS 通常用來提供對資料的有限存取，例如允許行動應用程式查詢記錄。

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/06/2017
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 1cbf08cc903069f5b1cf81f57b7daa16f24c0216
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cf280dfb806399a8c09838d965d71e7b18cb905f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043850"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521385"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>匯出 Azure Cosmos DB 模擬器憑證以與 Java、Python 和 Node.js 搭配使用
 
@@ -19,7 +19,7 @@ ms.locfileid: "54043850"
 
 Azure Cosmos DB 模擬器提供一個模擬 Azure Cosmos DB 服務的本機環境作為開發之用，當中也能使用 SSL 連線。 這篇文章示範如何匯出 SSL 憑證，以用於未整合 Windows 憑證存放區的語言和執行階段；例如使用自身[憑證存放區 (certificate store)](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) 的 Java、和使用[通訊端包裝函式 (socket wrappers)](https://docs.python.org/2/library/ssl.html) 的 Python，以及使用 [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback) 的 Node.js。 您可以閱讀[使用 Azure Cosmos DB 模擬器進行開發和測試](./local-emulator.md)，了解更多有關模擬器的資訊。
 
-本教學課程涵蓋下列工作：
+此教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 輪替憑證
@@ -70,7 +70,7 @@ Azure Cosmos DB 本機模擬器中的憑證會在模擬器第一次執行時產�
 
 ## <a name="how-to-use-the-certificate-in-java"></a>如何在 Java 中使用憑證
 
-執行 Java 應用程式或執行使用 Java 用戶端的 MongoDB 應用程式時，將憑證安裝到 Java 預設憑證存放區比傳遞 "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>" 旗標更簡單。 例如包含的 [Java 示範應用程式](https://localhost:8081/_explorer/index.html)會根據預設的憑證存放區。
+執行 Java 應用程式或執行使用 Java 用戶端的 MongoDB 應用程式時，將憑證安裝到 Java 預設憑證存放區比傳遞 `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` 旗標更簡單。 例如包含的 [Java 示範應用程式](https://localhost:8081/_explorer/index.html)會根據預設的憑證存放區。
 
 遵循[新增憑證至 Java CA 憑證存放區](https://docs.microsoft.com/azure/java-add-certificate-ca-store)中的指示，將 X.509 憑證匯入預設的 Java 憑證存放區。 請記住，執行 keytool 時您會在 %JAVA_HOME% 目錄中工作。
 
@@ -86,7 +86,7 @@ Azure Cosmos DB 本機模擬器中的憑證會在模擬器第一次執行時產�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已完成下列操作：
+在此教學課程中，您已完成下列操作：
 
 > [!div class="checklist"]
 > * 輪替憑證

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
 ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496090"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
@@ -28,7 +28,7 @@ ms.locfileid: "59496090"
 
 以下說明如何使用 Azure 備份服務來備份和還原 Azure VM。
 
-**案例** | **Backup ** | **代理程式** |**Restore**
+**案例** | **備份** | **代理程式** |**Restore**
 --- | --- | --- | ---
 直接備份 Azure VM  | 備份整個 VM。  | Azure VM 上不需要代理程式。 Azure 備份會安裝並使用的延伸模組[Azure VM 代理程式](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)VM 上執行。 | 以下列方式進行還原：<br/><br/> - **建立基本 VM**。 這非常有用，如果 VM 不有任何特殊的設定，例如多個 IP 位址。<br/><br/> - **還原 VM 磁碟**。 還原磁碟。 然後將它附加至現有的 VM，或使用 PowerShell，從磁碟建立新的 VM。<br/><br/> - **取代 VM 磁碟**。 如果有 VM 存在，且該 VM 使用受控磁碟 (未加密)，您可以還原某個磁碟，並用它來取代 VM 上現有的磁碟。<br/><br/> - **還原特定檔案/資料夾**。 您可以從 VM，而不是從整個 VM 還原檔案/資料夾。
 直接備份 Azure vm (僅 Windows)  | 備份特定檔案/資料夾/磁碟區。 | 安裝[Azure 復原服務代理程式](backup-azure-file-folder-backup-faq.md)。<br/><br/> 您可以將 MARS 代理程式與 Azure VM 代理程式的備份擴充功能一起執行，以在檔案/資料夾層級備份 VM。 | 還原特定資料夾/檔案。
@@ -38,7 +38,7 @@ ms.locfileid: "59496090"
 
 ## <a name="supported-backup-actions"></a>支援的備份動作
 
-** 動作** | **支援**
+**Action** | **支援**
 --- | ---
 建立 Windows Azure VM 時啟用備份 | 支援：Windows Server 2019 (資料中心/Datacenter Core)、 Windows Server 2016 (資料中心/Datacenter Core);Windows Server 2012 R2 Datacenter;Windows Server 2008 R2 （RTM 和 SP1）
 建立 Linux VM 時啟用備份 | 支援：<br/><br/> - Ubuntu Server：1710、1704、1604 (LTS)、1404 (LTS)<br/><br/> - Red Hat：RHEL 6.7、6.8、6.9、7.2、7.3、7.4<br/><br/> - SUSE Linux Enterprise Server：11 SP4，12 SP2，12 SP3，15 <br/><br/> - Debian：8、9<br/><br/> - CentOS：6.9、7.3<br/><br/> -Oracle Linux:6.7、6.8、6.9、7.2、7.3
@@ -69,7 +69,7 @@ ms.locfileid: "59496090"
 
 以下是您備份 Linux 機器時所支援的項目。
 
-** 動作** | **支援**
+**Action** | **支援**
 --- | ---
 使用 Linux Azure VM 代理程式備份 Linux Azure VM | 檔案一致備份。<br/><br/> 使用[自訂指令碼](backup-azure-linux-app-consistent.md)進行應用程式一致備份。<br/><br/> 在還原期間，您可以建立新的 VM，還原磁碟並使用它來建立 VM 時，或還原磁碟並使用它來取代現有的 VM 上的磁碟。 您也可以還原個別檔案和資料夾。
 使用 MARS 代理程式備份 Linux Azure VM | 不支援。<br/><br/> MARS 代理程式只能安裝在 Windows 機器上。
@@ -100,7 +100,7 @@ DPM/MABS 磁碟上的復原點 | 檔案伺服器和應用程式伺服器的 448 
 
 ## <a name="supported-restore-methods"></a>支援的還原方法
 
-**Restore 方法** | **詳細資料**
+**還原方法** | **詳細資料**
 --- | ---
 建立新的 VM | 您可以在還原程序中建立 VM。 <br/><br/> 此選項會啟動基本 VM 並加以執行。 您可以指定 VM 名稱、資源群組、虛擬網路、子網路和儲存體。  
 還原磁碟 | 您可以還原磁碟，並使用它來建立 VM。<br/><br/> 選取此選項時，Azure 備份會將資料從保存庫複製到您選取的儲存體帳戶。 還原作業會產生範本。 您可以下載此範本，用它來指定自訂的 VM 設定，並建立 VM。<br/><br/> 相較於前述用來建立 VM 的選項，此選項可讓您指定更多設定。<br/><br/>

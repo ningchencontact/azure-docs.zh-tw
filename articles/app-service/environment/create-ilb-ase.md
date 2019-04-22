@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101528"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546537"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -170,13 +170,13 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理�
 
 4. 設定 ASE 網域的 DNS。 您可以在您的 DNS 中使用萬用字元搭配您的網域。 若要執行一些簡單測試，請編輯 VM 上的主機檔案來將應用程式名稱設定為 VIP IP 位址：
 
-    a. 如果您的 ASE 網域名稱為 .ilbase.com，且您建立名為 mytestapp 的應用程式，則它將定址為 mytestapp.ilbase.com。 然後，您設定 mytestapp.ilbase.com 以解析 ILB 位址。 (在 Windows 上，主機檔案位於 _C:\Windows\System32\drivers\etc\_。)
+    a. 如果您的 ASE 網域名稱為 .ilbase.com，且您建立名為 mytestapp 的應用程式，則它將定址為 mytestapp.ilbase.com。 然後，您設定 mytestapp.ilbase.com 以解析 ILB 位址。 (在 Windows 上，主機檔案位於 C:\Windows\System32\drivers\etc\\。)
 
     b. 若要測試 Web 部署發佈或存取進階主控台，建立 mytestapp.scm.ilbase.com 的記錄。
 
 5. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 (或移至任何名稱含您的網域的應用程式。)
 
-6. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 如果您使用自我簽署憑證，就必須接受安全性不足。
+6. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 如果您使用自我簽署憑證，就必須接受安全性不足。
 
     您的 ILB IP 位址列在 [IP 位址] 底下。 此清單中也有外部 VIP 使用的 IP 位址以及用於輸入管理流量的 IP 位址。
 

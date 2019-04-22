@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: b439b702fb5ae4990c8c31838fe9677cb882d2a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7a17c695482f2e9c8158c437c9c40c0abcb07e67
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546304"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616283"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>快速入門：使用 Bing 拼字檢查 REST API 和 C# 進行檢查拼字
 
@@ -24,7 +24,10 @@ ms.locfileid: "57546304"
 ## <a name="prerequisites"></a>必要條件
 
 * 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
-* [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
+* 在 Visual Studio 中安裝 `Newtonsoft.Json` 作為 NuGet 套件：
+    1. 在 [方案總管] 中，以滑鼠右鍵按一下 [方案] 檔案。
+    1. 選取 [管理解決方案的 NuGet 套件]。
+    1. 然後搜尋 `Newtonsoft.Json` 並安裝該套件。
 * 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/) 來執行此應用程式。
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
@@ -52,14 +55,14 @@ ms.locfileid: "57546304"
         {
             static string host = "https://api.cognitive.microsoft.com";
             static string path = "/bing/v7.0/spellcheck?";
-            static string key = "enter your key here";
+            static string key = "<ENTER-KEY-HERE>";
             //text to be spell-checked
             static string text = "Hollo, wrld!";
         }
     }
     ```
 
-3. 針對您的搜尋參數建立變數。 將您的市場代碼附加至 `mkt=`，以及將您的拼字檢查模式新增至 `&mode=`。
+3. 針對您的搜尋參數建立變數。 在 `mkt=` 之後附加您的市場代碼。 市場代碼是您提出要求的國家/地區。 另外，在 `&mode=` 之後附加拼字檢查模式。 模式是 `proof` (攔截大部分的拼字/文法錯誤) 或 `spell` (攔截大部分的拼字檢查，但沒有多少文法錯誤)。
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -76,10 +79,10 @@ ms.locfileid: "57546304"
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
         HttpResponseMessage response = new HttpResponseMessage();
-        //...
+        // add the rest of the code snippets here (except for main())...
     }
 
-2. Create the URI for your request by appending your host, path, and parameters. 
+2. Create the URI for your request by appending your host, path, and parameters.
     
     ```csharp
     string uri = host + path + params_;

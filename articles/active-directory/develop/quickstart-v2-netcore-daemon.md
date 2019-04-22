@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 .NET Core 精靈 | Microsoft Docs
-description: 了解 .NET Core 程序要如何使用應用程式本身的身分識別來取得存取權杖，並呼叫受 Azure Active Directory v2.0 端點保護的 API
+title: Microsoft 身分識別平台 .NET Core 精靈 | Azure
+description: 了解 .NET Core 程序要如何使用應用程式本身的身分識別來取得存取權杖，並呼叫受 Microsoft 身分識別平台端點保護的 API
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c63269630d0ed74d1b17edbc5cb9e787499604e
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a0a40c9ee06751edfb7b218cf15275019c142545
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200509"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491316"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>快速入門：使用應用程式的身分識別來取得權杖並從主控台應用程式呼叫 Microsoft Graph API
 
@@ -30,11 +30,11 @@ ms.locfileid: "58200509"
 
 在本快速入門中，您將了解如何撰寫 .NET Core 應用程式，以使用應用程式本身的身分識別取得存取權杖，然後呼叫 Microsoft Graph API 以顯示目錄中[使用者的清單](https://docs.microsoft.com/graph/api/user-list)。 此案例適用於無周邊的自動作業或 Windows 服務需要使用應用程式身分識別 (而非使用者的身分識別) 才能執行的情況。
 
-![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-netcore-daemon/netcore-daemon-intro-updated.png)
+![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
 ## <a name="prerequisites"></a>必要條件
 
-本快速入門需要 [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1)。
+本快速入門需要 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)。
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>註冊並下載快速入門應用程式
@@ -47,7 +47,7 @@ ms.locfileid: "58200509"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例
 >
-> 1. 移至 [Azure 入口網站 - 應用程式註冊 (預覽)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs)。
+> 1. 移至新的 [Azure 入口網站 - 應用程式註冊](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs)窗格。
 > 1. 輸入應用程式的名稱，並選取 [註冊]。
 > 1. 依照指示按一下滑鼠，即可下載並自動設定新的應用程式。
 >
@@ -59,7 +59,9 @@ ms.locfileid: "58200509"
 >
 > 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 > 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-> 1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)] > [新增註冊]。
+> 1. 瀏覽至 Microsoft 身分識別平台，以取得開發人員的[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面。
+> 1. 選取 [新增註冊]。
+> 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊。 
 > 1. 在 [名稱] 區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱 (例如，`Daemon-console`)，然後選取 [註冊] 以建立應用程式。
 > 1. 註冊之後，請選取 [憑證和祕密] 功能表。
 > 1. 在 [用戶端密碼] 底下，選取 [+ 新增用戶端密碼]。 為其提供名稱，然後選取 [新增]。 將祕密複製到安全的位置。 程式碼會需要用到它。
@@ -80,7 +82,7 @@ ms.locfileid: "58200509"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>步驟 2：下載您的 Visual Studio 專案
 
-[下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+[下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>步驟 3：設定您的 Visual Studio 專案
 
@@ -99,7 +101,7 @@ ms.locfileid: "58200509"
     > [!div renderon="docs"]
     >> 其中：
     >> * `Enter_the_Application_Id_Here` - 是您註冊的應用程式所具備的**應用程式 (用戶端) 識別碼**。
-    >> * `Enter_the_Tenant_Id_Here` - 請將此值取代為 [租用戶識別碼] 或 [租用戶名稱] (例如 contoso.microsoft.com)
+    >> * `Enter_the_Tenant_Id_Here` - 請將此值取代為**租用戶識別碼**或**租用戶名稱** (例如 contoso.microsoft.com)
     >> * `Enter_the_Client_Secret_Here` - 請將此值取代為步驟 1 所建立的用戶端密碼。
 
     > [!div renderon="docs"]
@@ -130,7 +132,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> 其中：
->> * `Enter_the_Tenant_Id_Here` - 請將此值取代為 [租用戶識別碼] 或 [租用戶名稱] (例如 contoso.microsoft.com)
+>> * `Enter_the_Tenant_Id_Here` - 請將此值取代為**租用戶識別碼**或**租用戶名稱** (例如 contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` - 是您註冊的應用程式所具備的**應用程式 (用戶端) 識別碼**。
 
 > [!NOTE]
@@ -157,12 +159,12 @@ dotnet run
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) 是一個程式庫，可用來登入使用者並要求用來存取受 Microsoft Azure Active Directory (Azure AD) 保護之 API 的權杖。 如前所述，本快速入門會使用應用程式本身的身分識別 (而非委派的權限) 來要求權杖。 此案例所使用的驗證流程稱為[用戶端認證 OAuth 流程](v2-oauth2-client-creds-grant-flow.md)。 如需如何搭配使用 MSAL.NET 與用戶端認證流程的詳細資訊，請參閱[這篇文章](https://aka.ms/msal-net-client-credentials)。
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) 這個程式庫是用來登入使用者並要求權杖，該權杖會用來存取受 Microsoft 身分識別平台保護的 API。 如前所述，本快速入門會使用應用程式本身的身分識別 (而非委派的權限) 來要求權杖。 此案例所使用的驗證流程稱為[用戶端認證 OAuth 流程](v2-oauth2-client-creds-grant-flow.md)。 如需如何搭配使用 MSAL.NET 與用戶端認證流程的詳細資訊，請參閱[這篇文章](https://aka.ms/msal-net-client-credentials)。
 
  您可以在 Visual Studio 的 [套件管理員主控台] 中，透過執行下列命令來安裝 MSAL.NET：
 
 ```powershell
-Install-Package Microsoft.Identity.Client
+Install-Package Microsoft.Identity.Client -Pre
 ```
 
 或者，如果您是不使用 Visual Studio，您可以執行下列命令來將 MSAL 新增至您的專案：
@@ -182,47 +184,43 @@ using Microsoft.Identity.Client;
 接著，使用下列程式碼將 MSAL 初始化：
 
 ```csharp
-ClientCredential clientCredentials = new ClientCredential(secret: config.ClientSecret);
-
-var app = new ConfidentialClientApplication(
-    clientId: config.ClientId, 
-    authority: config.Authority, 
-    redirectUri: "https://daemon", 
-    clientCredential: clientCredentials, 
-    userTokenCache: null, 
-    appTokenCache: new TokenCache()
+IConfidentialClientApplication app;
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+                                          .WithClientSecret(config.ClientSecret)
+                                          .WithAuthority(new Uri(config.Authority))
+                                          .Build();
 );
 ```
 
 > | 其中： ||
 > |---------|---------|
-> | `secret` | 在 Azure 入口網站中為應用程式建立的用戶端密碼。 |
-> | `clientId` | 是註冊於 Azure 入口網站中的應用程式所具備的**應用程式 (用戶端) 識別碼**。 您可以在 Azure 入口網站的應用程式 [概觀] 頁面中找到此值。 |
-> | `Authority`    | (選擇性) 供使用者用於驗證的 STS 端點。 若為公用雲端，通常是 <https://login.microsoftonline.com/{tenant}>，其中 {tenant} 是租用戶的名稱或租用戶識別碼。|
-> | `redirectUri`  | 會在使用者通過驗證之後將其送往的 URL。 在此案例中，因為這是主控台/非互動式應用程式，所以不會使用此參數 |
-> | `clientCredentials`  | 用戶端認證物件，包含密碼或憑證 |
-> | `userTokenCache`  | 使用者的權杖快取執行個體。 在此案例中，因為此應用程式在應用程式 (而不是使用者) 內容中執行，所以這個值是 null|
-> | `appTokenCache`  | 應用程式的權杖快取執行個體|
+> | `config.ClientSecret` | 在 Azure 入口網站中為應用程式建立的用戶端密碼。 |
+> | `config.ClientId` | 是註冊於 Azure 入口網站中的應用程式所具備的**應用程式 (用戶端) 識別碼**。 您可以在 Azure 入口網站的應用程式 [概觀] 頁面中找到此值。 |
+> | `config.Authority`    | (選擇性) 供使用者用於驗證的 STS 端點。 若為公用雲端，通常是 <https://login.microsoftonline.com/{tenant}>，其中 {tenant} 是租用戶的名稱或租用戶識別碼。|
 
-如需詳細資訊，請參閱[下列項目的參考文件：`ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet)
+如需詳細資訊，請參閱[下列項目的參考文件：`ConfidentialClientApplication`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
 
 ### <a name="requesting-tokens"></a>要求權杖
 
-若要使用應用程式的身分識別來要求權杖，請使用 `AcquireTokenForClientAsync` 方法：
+若要使用應用程式的身分識別來要求權杖，請使用 `AcquireTokenForClient` 方法：
 
 ```csharp
-result = await app.AcquireTokenForClientAsync(scopes);
+result = await app.AcquireTokenForClient(scopes)
+                  .ExecuteAsync();
 ```
 
 > |其中：| |
 > |---------|---------|
 > | `scopes` | 包含所要求的範圍。 針對機密用戶端，這應該使用類似 `{Application ID URI}/.default` 的格式，以指出所要求的範圍是 Azure 入口網站中所設定應用程式物件中以靜態方式定義的範圍 (若為 Microsoft Graph，`{Application ID URI}` 會指向 `https://graph.microsoft.com`)。 若為自訂 Web API，`{Application ID URI}` 會定義在 Azure 入口網站「應用程式註冊 (預覽)」中的 [公開 API] 區段底下。 |
 
-如需詳細資訊，請參閱[下列項目的參考文件：`AcquireTokenForClientAsync`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
+如需詳細資訊，請參閱[下列項目的參考文件：`AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
+
+> [!div class="nextstepaction"]
+> [.NET Core 精靈範例](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 深入了解權限和同意：
 

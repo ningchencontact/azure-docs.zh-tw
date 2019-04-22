@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
 ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492340"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>為虛擬網路對等互連設定 VPN 閘道傳輸
@@ -50,9 +50,9 @@ ms.locfileid: "59492340"
 
 請參閱下列文件的指示：
 
-1. [在 虛擬網路中建立 VPN 閘道](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [建立虛擬網路對等互連，使用相同的部署模型](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [建立虛擬網路對等互連使用不同的部署模型](../virtual-network/create-peering-different-deployment-models.md)
+1. [在虛擬網路中建立 VPN 閘道](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+2. [以相同部署模型建立虛擬網路對等互連](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [以不同部署模型建立虛擬網路對等互連](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>權限
 
@@ -60,7 +60,7 @@ ms.locfileid: "59492340"
     
 |虛擬網路|部署模型|角色|權限|
 |---|---|---|---|
-|Hub-RM|Resource Manager|[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+|Hub-RM|Resource Manager|[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |傳統|[傳統網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
 |Spoke-Classic|Resource Manager|[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||傳統|[傳統網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|

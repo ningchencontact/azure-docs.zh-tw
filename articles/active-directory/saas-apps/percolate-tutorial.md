@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2110b1ec7d5d6b317341855ff19acf7975733e71
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275839"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>教學課程：Azure Active Directory 與 Percolate 整合
 
-在本教學課程中，您將了解如何整合 Percolate 與 Azure Active Directory (Azure AD)。
+在此教學課程中，您將了解如何整合 Percolate 與 Azure Active Directory (Azure AD)。
 Percolate 與 Azure AD 整合可提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Percolate 的人員。
@@ -43,7 +43,7 @@ Percolate 與 Azure AD 整合可提供下列優點：
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
+在此教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * Percolate 支援由 **SP** 和 **IDP** 起始的 SSO
 
@@ -71,7 +71,7 @@ Percolate 與 Azure AD 整合可提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Percolate 搭配運作的 Azure AD 單一登入。
+在此節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Percolate 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Percolate 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Percolate 搭配運作的 Azure AD 單一登入，您必須完成下列建置組塊：
@@ -85,7 +85,7 @@ Percolate 與 Azure AD 整合可提供下列優點：
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
+在此節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
 若要設定與 Percolate 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
@@ -101,7 +101,7 @@ Percolate 與 Azure AD 整合可提供下列優點：
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 設定] 區段上，如果您想要以  **IDP**  起始模式設定應用程式，則使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
+4. 在 [基本 SAML 設定] 區段上，如果您想要以 **IDP** 起始模式設定應用程式，則使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
     ![Percolate 網域和 URL 單一登入資訊](common/preintegrated.png)
 
@@ -141,7 +141,7 @@ Percolate 與 Azure AD 整合可提供下列優點：
 
     b. 在 [實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼] 值。
 
-    c. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後貼到 [x509 憑證] ****  方塊中。
+    c. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後貼到 [x509 憑證] 方塊中。
 
     d. 在 [電子郵件屬性] 文字方塊中，輸入**電子郵件地址**。
 
@@ -155,7 +155,7 @@ Percolate 與 Azure AD 整合可提供下列優點：
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
-本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+此節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
@@ -179,7 +179,7 @@ Percolate 與 Azure AD 整合可提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Percolate 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在此節中，您會將 Percolate 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Percolate]。
 
@@ -219,15 +219,15 @@ Percolate 與 Azure AD 整合可提供下列優點：
 
     ![設定單一登入](./media/percolate-tutorial/configure04.png)
 
-    a. 在 [電子郵件] ****  文字方塊中，輸入使用者的電子郵件，例如 brittasimon@contoso.com。
+    a. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 brittasimon@contoso.com。
 
-    b. 在 [Fullname] ****  文字方塊中，輸入使用者的名稱，例如  **Brittasimon**。
+    b. 在 [全名] 文字方塊中，輸入使用者的姓名，如 **Brittasimon**。
 
     c. 按一下 [建立使用者]。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
-在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+在此節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Percolate] 圖格時，應該會自動登入您已設定 SSO 的 Percolate。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 

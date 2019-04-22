@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278100"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>教學課程：Azure Active Directory 與 Tableau Online 整合
 
-在本教學課程中，您將了解如何整合 Tableau Online 與 Azure Active Directory (Azure AD)。
+在此教學課程中，您將了解如何整合 Tableau Online 與 Azure Active Directory (Azure AD)。
 Tableau Online 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Tableau Online 的人員。
@@ -43,7 +43,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
+在此教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * Tableau Online 支援由 **SP** 起始的 SSO
 
@@ -71,7 +71,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Tableau Online 搭配運作的 Azure AD 單一登入。
+在此節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Tableau Online 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Tableau Online 中相關使用者之間的連結關聯性。
 
 若要使用 Tableau Online 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
@@ -85,7 +85,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
+在此節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
 若要設定與 Tableau Online 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
@@ -105,12 +105,12 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
     ![Tableau Online 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，輸入 URL： `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
+    a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL： `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：`https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
     > [!NOTE]
-    > 您會收到本教學課程的 [設定 Tableau Online] 區段中的 `<entityid>` 值。 實體 ID 值會是 [設定 Tableau Online] 區段中的 [Azure AD 識別碼] 值。
+    > 您會收到此教學課程的 [設定 Tableau Online] 區段中的 `<entityid>` 值。 實體 ID 值會是 [設定 Tableau Online] 區段中的 [Azure AD 識別碼] 值。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -172,7 +172,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
-本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+此節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
@@ -189,7 +189,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
     b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
-    例如， BrittaSimon@contoso.com
+    例如，BrittaSimon\@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
@@ -197,7 +197,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Tableau Online 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在此節中，您會將 Tableau Online 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Tableau Online]。
 
@@ -223,7 +223,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-tableau-online-test-user"></a>建立 Tableau Online 測試使用者
 
-在本節中，您要在 Tableau Online 中建立名為 Britta Simon 的使用者。
+在此節中，您要在 Tableau Online 中建立名為 Britta Simon 的使用者。
 
 1. 在 [Tableau Online] 中，依序按一下 [設定] 和 [驗證] 區段。 向下捲動至 [管理使用者] 區段。 依序按一下 [新增使用者] 和 [輸入電子郵件地址]。
   
@@ -237,7 +237,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+在此節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Tableau Online 圖格時，應該會自動登入您設定 SSO 的 Tableau Online。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 

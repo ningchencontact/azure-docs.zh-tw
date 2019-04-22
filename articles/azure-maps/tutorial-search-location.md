@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3db2b810ba4ba96e492c6b6ba841d9cfa35418a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 125e0c4331eea105ffc201bd1f5f26bdbec1c553
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260840"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549383"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>使用 Azure 地圖服務來搜尋附近景點
 
-本教學課程說明如何使用 Azure 地圖服務來設定帳戶，然後使用地圖服務 API 來搜尋景點。 在本教學課程中，您了解如何：
+此教學課程說明如何使用 Azure 地圖服務來設定帳戶，然後使用地圖服務 API 來搜尋景點。 在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立 Azure 地圖服務帳戶
@@ -59,7 +59,7 @@ ms.locfileid: "59260840"
 
 1. 在入口網站中開啟地圖服務帳戶。
 2. 在 [設定] 區段上，選取 [驗證]。
-3. 將 [主索引鍵] 複製到剪貼簿。 將其儲存在本機，以供本教學課程稍後使用。
+3. 將 [主索引鍵] 複製到剪貼簿。 將其儲存在本機，以供此教學課程稍後使用。
 
 ![在入口網站中取得主索引鍵](./media/tutorial-search-location/get-key.png)
 
@@ -167,7 +167,7 @@ ms.locfileid: "59260840"
 
 ## <a name="add-search-capabilities"></a>新增搜尋功能
 
-本節說明如何使用「地圖服務」的[搜尋 API](https://docs.microsoft.com/rest/api/maps/search)在地圖上尋找景點。 這是針對開發人員所設計的 RESTful API，用於搜尋地址、景點及其他地理資訊。 搜尋服務會將經緯度資訊指派給指定的地址。 以下說明的**服務模組**可讓您使用地圖服務搜尋 API 來搜尋位置。
+此節說明如何使用「地圖服務」的[搜尋 API](https://docs.microsoft.com/rest/api/maps/search)在地圖上尋找景點。 這是針對開發人員所設計的 RESTful API，用於搜尋地址、景點及其他地理資訊。 搜尋服務會將經緯度資訊指派給指定的地址。 以下說明的**服務模組**可讓您使用地圖服務搜尋 API 來搜尋位置。
 
 ### <a name="service-module"></a>服務模組
 
@@ -272,7 +272,7 @@ ms.locfileid: "59260840"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 使用 Azure 地圖服務建立帳戶
@@ -280,11 +280,11 @@ ms.locfileid: "59260840"
 > * 使用地圖控制項 API 建立新網頁
 > * 使用搜尋服務來尋找附近景點
 
-您可以在這裡存取本教學課程的程式碼範例：
+> [!div class="nextstepaction"]
+> [檢視完整的原始程式碼](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
-> [使用 Azure 地圖服務搜尋位置](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-[請參閱此處的實際範例](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+> [!div class="nextstepaction"]
+> [檢視即時範例](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 下一個教學課程會示範如何顯示兩個位置之間的路線。
 

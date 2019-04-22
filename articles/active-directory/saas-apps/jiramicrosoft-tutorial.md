@@ -8,23 +8,24 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 4b663047-7f88-443b-97bd-54224b232815
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90c3d4731883991f867b49eb3d4884ee1b7d4a6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a0911588141552e616e8555380b14c910225840
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57882092"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 與 JIRA SAML SSO by Microsoft 整合
 
-在本教學課程中，您會了解如何整合 JIRA SAML SSO by Microsoft 與 Azure Active Directory (Azure AD)。
+在此教學課程中，您會了解如何整合 JIRA SAML SSO by Microsoft 與 Azure Active Directory (Azure AD)。
 JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 JIRA SAML SSO by Microsoft 的人員。
@@ -36,7 +37,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 ## <a name="description"></a>說明
 
-使用 Microsoft Azure Active Directory 帳戶搭配 Atlassian JIRA 伺服器來啟用單一登入。 如此一來，所有組織使用者即可使用 Azure AD 認證來登入 JIRA 應用程式。 此外掛程式使用 SAML 2.0 來進行同盟。
+使用 Microsoft Azure Active Directory 帳戶搭配 Atlassian JIRA 伺服器來啟用單一登入。 如此一來，所有組織使用者都能使用 Azure AD 認證來登入 JIRA 應用程式。 此外掛程式使用 SAML 2.0 來進行同盟。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -52,9 +53,9 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 - JIRA 伺服器應用程式中建立的測試使用者
 
 > [!NOTE]
-> 若要測試本教學課程中的步驟，我們不建議使用 JIRA 的生產環境。 先在應用程式的開發或預備環境中測試整合，然後使用生產環境。
+> 若要測試此教學課程中的步驟，我們不建議使用 JIRA 的生產環境。 先在應用程式的開發或預備環境中測試整合，然後使用生產環境。
 
-若要測試本教學課程中的步驟，您應該遵循這些建議：
+若要測試此教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
 - 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用版供應項目](https://azure.microsoft.com/pricing/free-trial/)。
@@ -65,9 +66,12 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 * JIRA Service Desk 3.0.0 到 3.5.0
 * JIRA 也支援 5.2。 如需詳細資訊，請按一下[適用於 JIRA 5.2 的 Microsoft Azure Active Directory 單一登入](jira52microsoft-tutorial.md)
 
+> [!NOTE]
+> 請留意到，JIRA 也支援 Linux Ubuntu 16.04 版
+
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
+在此教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * JIRA SAML SSO by Microsoft 支援由 **SP** 起始的 SSO
 
@@ -95,7 +99,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 JIRA SAML SSO by Microsoft 搭配運作的 Azure AD 單一登入。
+在此節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 JIRA SAML SSO by Microsoft 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 JIRA SAML SSO by Microsoft 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 JIRA SAML SSO by Microsoft 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
@@ -109,7 +113,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
+在此節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
 若要設定與 JIRA SAML SSO by Microsoft 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
@@ -129,14 +133,14 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     ![JIRA SAML SSO by Microsoft 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<domain:port>/plugins/servlet/saml/auth`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰ `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：`https://<domain:port>/`
+    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL： `https://<domain:port>/`
 
-    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<domain:port>/plugins/servlet/saml/auth`
+    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
-    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 如果連接埠是具名 URL，則為選擇性。 在設定 Jira 外掛程式 (本教學課程稍後會說明) 期間會收到這些值。
+    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 如果連接埠是具名 URL，則為選擇性。 在設定 Jira 外掛程式 (此教學課程稍後會說明) 期間會收到這些值。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將其儲存在您的電腦上。
 
@@ -186,7 +190,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     c. 在 [登入按鈕名稱] 中，輸入您的組織要讓使用者在登入畫面上看到的按鈕名稱。
 
-    d. 在 [SAML 使用者識別碼位置] 中，選取 [使用者識別碼在 Subject 陳述式的 NameIdentifier 元素中] 或 [使用者識別碼在 Attribute 元素中]。  此識別碼必須為 JIRA 使用者識別碼。如果使用者識別碼不符，系統將不會允許使用者登入。
+    d. 在 [SAML 使用者識別碼位置] 中，選取 [使用者識別碼在 Subject 陳述式的 NameIdentifier 元素中] 或 [使用者識別碼在 Attribute 元素中]。  此識別碼必須為 JIRA 使用者識別碼。 如果使用者識別碼不相符，系統就不會允許使用者登入。
 
     > [!Note]
     > 預設 SAML 使用者識別碼位置是名稱識別碼。 您可以將它變更為屬性選項，並輸入適當的屬性名稱。
@@ -206,7 +210,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
-本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+此節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
@@ -222,8 +226,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
-    例如， BrittaSimon@contoso.com
+    b. 在 [使用者名稱] 欄位中，輸入 `brittasimon\@yourcompanydomain.extension`。 例如： BrittaSimon@contoso.com。
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
@@ -231,7 +234,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 JIRA SAML SSO by Microsoft 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在此節中，您會將 JIRA SAML SSO by Microsoft 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [JIRA SAML SSO by Microsoft]。
 
@@ -291,7 +294,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
-在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+在此節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [JIRA SAML SSO by Microsoft] 圖格時，應該會自動登入您已設定 SSO 的 JIRA SAML SSO by Microsoft。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 

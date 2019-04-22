@@ -1,6 +1,6 @@
 ---
 title: 將資料複製到您的 Microsoft Azure 資料箱磁碟 | Microsoft Docs
-description: 使用本教學課程以了解如何將資料複製到您的 Azure 資料箱磁碟
+description: 使用此教學課程以了解如何將資料複製到您的 Azure 資料箱磁碟
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106894"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548741"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
-本教學課程說明如何從主機電腦複製資料，然後產生總和檢查碼來確認資料完整性。
+此教學課程說明如何從主機電腦複製資料，然後產生總和檢查碼來確認資料完整性。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 將資料複製到資料箱磁碟
@@ -44,14 +44,15 @@ ms.locfileid: "58106894"
 - 複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱磁碟限制](data-box-disk-limits.md)中所述的大小限制。
 - 如果資料 (由資料箱磁碟上傳) 同時由資料箱磁碟以外的其他應用程式上傳，則可能導致上傳作業失敗和資料損毀。
 
-如果您在訂單中指定了受控磁碟，請檢閱下列其他考量：
+   > [!IMPORTANT]
+   >  如果在建立順序時，將受控磁碟指定為其中一個儲存體目的地，則以下部分適用。
 
 - 在所有預先建立的資料夾之間以及在所有資料箱磁碟之間，您在一個資源群組中只能有一個具指定名稱的受控磁碟。 這表示上傳至預先建立資料夾的 VHD 應具備唯一名稱。 請確定指定的名稱不會與資源群組中現有的受控磁碟相符。 如果 VHD 具有相同名稱，則只會將一個 VHD 轉換為具該名稱的受控磁碟。 其他 VHD 會以分頁 Blob 形式上傳至暫存的儲存體帳戶。
 - 一律將 VHD 複製到其中一個預先建立的資料夾。 如果您在這些資料夾外部或您所建立的資料夾中複製 VHD，就會將 VHD 上傳至 Azure 儲存體帳戶以作為分頁 Blob，而非受控磁碟。
 - 只能上傳固定的 VHD 來建立受控磁碟。 不支援動態 VHD、差異 VHD 或 VHDX 檔案。
 
 
-執行下列步驟以從電腦連線到資料箱磁碟，並且複製資料。
+## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>執行下列步驟以從電腦連線到資料箱磁碟，並且複製資料。
 
 1. 檢視已解除鎖定磁碟機的內容。 根據建立資料箱磁碟訂單時所選取的選項而定，磁碟中預先建立的資料夾和子資料夾清單會有所不同。
 
@@ -91,14 +92,14 @@ ms.locfileid: "58106894"
     |目的地       | 指定目的地目錄的路徑。        |
     |/E                  | 複製子目錄，包含空的目錄。 |
     |/MT[:N]             | 建立具有 N 個執行緒的多執行緒複製，其中 N 是介於 1 到 128 之間的整數。 <br>N 的預設值為 8。        |
-    |/R: <N>             | 指定失敗複製的重試次數。 N 的預設值為 1000000 (1 百萬次重試)。        |
-    |/W: <N>             | 指定重試之間的等待時間 (以秒為單位)。 N 的預設值為 30 (等候時間 30 秒)。        |
+    |/R:\<N>             | 指定失敗複製的重試次數。 N 的預設值為 1000000 (1 百萬次重試)。        |
+    |/W:\<N>             | 指定重試之間的等待時間 (以秒為單位)。 N 的預設值為 30 (等候時間 30 秒)。        |
     |/NFL                | 指定不會記錄檔案名稱。        |
     |/NDL                | 指定不會記錄目錄名稱。        |
     |/FFT                | 假設 FAT 檔案時間 (兩秒精確度)。        |
-    |/Log:<Log File>     | 將狀態輸出寫入至記錄檔 (覆寫現有記錄檔)。         |
+    |/Log:\<記錄檔>     | 將狀態輸出寫入至記錄檔 (覆寫現有記錄檔)。         |
 
-    您可採平行方式使用多個磁碟，在每個磁碟上執行多項作業。
+    您可採平行方式使用多個磁碟，在每個磁碟上執行多個作業。
 
 6. 當作業正在進行中時，檢查複製狀態。 下列範例顯示將檔案複製到資料箱磁碟的 robocopy 命令輸出。
 
@@ -232,7 +233,7 @@ ms.locfileid: "58106894"
 
     ![分割複製資料](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
-10. 分割和複製資料集後，複製工作階段的分割複製工具摘要會隨即顯示。 下方顯示一項範例輸出。
+10. 分割和複製資料集後，複製工作階段的分割複製工具摘要會隨即顯示。 下方顯示一個範例輸出。
 
     ![分割複製資料](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
@@ -272,7 +273,7 @@ ms.locfileid: "58106894"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解 Azure 資料箱磁碟的相關主題，像是：
+在此教學課程中，您已了解 Azure 資料箱磁碟的相關主題，像是：
 
 > [!div class="checklist"]
 > * 將資料複製到資料箱磁碟

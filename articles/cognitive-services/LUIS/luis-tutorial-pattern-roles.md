@@ -1,7 +1,7 @@
 ---
 title: 模式角色
 titleSuffix: Azure Cognitive Services
-description: 使用模式來從正確格式的語句範本擷取資料。 語句範本會使用簡單的實體和角色來擷取相關資料，例如原始位置和目的地位置。
+description: 模式會從正確格式的語句範本擷取資料。 語句範本會使用簡單的實體和角色來擷取相關資料，例如原始位置和目的地位置。
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106588"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523269"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>教學課程：使用角色擷取內容相關的模式
 
-在本教學課程中，使用模式來從正確格式的語句範本擷取資料。 語句範本會使用簡單的實體和角色來擷取相關資料，例如原始位置和目的地位置。  使用模式時，需要針對意圖使用較少的範例語句。
+在本教學課程中，使用模式來從正確格式的語句範本擷取資料。 語句範本會使用[簡單的實體](luis-concept-entity-types.md#simple-entity)和[角色](luis-concept-roles.md)來擷取相關資料，例如原始位置和目的地位置。  使用模式時，需要針對意圖使用較少的範例語句。
 
 
 **在本教學課程中，您將了解如何：**
@@ -373,19 +373,6 @@ ms.locfileid: "58106588"
     ```
 
 意圖分數現在會高出許多，而且角色名稱為實體回應的一部分。
-
-## <a name="hierarchical-entities-versus-roles"></a>階層式實體與角色
-
-在[階層式教學課程](luis-quickstart-intent-and-hier-entity.md)中，**MoveEmployee** 意圖偵測到現有員工從某一棟建築物和辦公室搬遷另一棟的時機。 範例語句含有來源和目的地位置，但未使用角色。 相反地，來源和目的地都是階層式實體的子系。 
-
-在本教學課程中，人力資源應用程式會偵測將新員工從某個城市搬遷到另一個的相關語句。 語句的這兩種類型相同，但會使用不同的 LUIS 能力來加以解決。
-
-|教學課程|範例語句|來源和目的地位置|
-|--|--|--|
-|[階層式 (沒有角色)](luis-quickstart-intent-and-hier-entity.md)|將 Jill Jones 從 **a-2349** 搬遷到 **b-1298**|a-2349、b-1298|
-|本教學課程 (含有角色)|將 Billy Patterson 從 **Yuma** 搬遷到 **Denver**。|Yuma、Denver|
-
-如需詳細資訊，請參閱[角色與階層式實體](luis-concept-roles.md#roles-versus-hierarchical-entities)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

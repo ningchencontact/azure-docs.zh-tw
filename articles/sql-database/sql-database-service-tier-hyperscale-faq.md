@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540664"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680891"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
 
@@ -216,7 +216,7 @@ SQL Database 超大規模架構不僅支援大型資料庫，同時也可提供�
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>移轉至超大規模服務層之後是否會失去任何運作性或功能
 
-是。 Azure SQL Database 功能的一些不支援超大規模在公開預覽期間，包括但不是限於長字詞保留備份。 在您將資料庫移轉至「超大規模」後，這些功能將會停止運作。
+是。 在超大規模在公開預覽期間不支援 Azure SQL Database 中的長期保留備份。 您以超大規模移轉資料庫之後，這項功能會停止運作。
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>我是否可將內部部署 SQL Server 資料庫或 SQL Server 虛擬機器資料庫移至「超大規模」
 
@@ -295,7 +295,7 @@ RPO 為 0 分鐘。RTO 目標小於 10 分鐘，無論資料庫大小為何。 �
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>移轉至超大規模服務層之後是否會失去任何運作性或功能
 
-是。 部分 Azure SQL Database 功能在公開預覽階段的「超大規模」中不受支援，其中包括 (但不限於) TDE 和長期保留備份。 在您將資料庫移轉至「超大規模」後，這些功能將會停止運作。
+是。 在超大規模在公開預覽期間不支援 Azure SQL Database 中的長期保留備份。 您以超大規模移轉資料庫之後，這項功能會停止運作。
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>Polybase 適用於「SQL Database 超大規模」
 

@@ -1,34 +1,34 @@
 ---
-title: 在 Linux 上建置搭配 MySQL 的 PHP 應用程式- Azure App Service |Microsoft Docs
-description: 了解如何讓 PHP 應用程式在 Linux 上的 Azure App Service 中運作，並連線至 Azure 中的 MySQL 資料庫。
+title: 在 Linux 上建置搭配 MySQL 的 PHP (Laravel) - Azure App Service | Microsoft Docs
+description: 了解如何讓 PHP 應用程式在 Linux 上的 Azure App Service 中運作，並連線至 Azure 中的 MySQL 資料庫。 此教學課程中將使用 Laravel。
 services: app-service\web
 author: cephalin
-manager: erikre
+manager: jeconnoc
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0470c12f7965ec5d7e151bb6b03163d6946b83e6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6d9ef67f39a67fd06a5b42afe4432b5a0156fead
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548178"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549826"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 PHP 和 MySQL 應用程式
 
 > [!NOTE]
-> 本文會將應用程式部署至 Linux 上的 App Service。 若要在 Windows 上部署至 App Service，請參閱[在 Azure 中建置 PHP 和 MySQL 應用程式](../app-service-web-tutorial-php-mysql.md)。
+> 此文章會將應用程式部署至 Linux 上的 App Service。 若要在 Windows 上部署至 App Service，請參閱[在 Azure 中建置 PHP 和 MySQL 應用程式](../app-service-web-tutorial-php-mysql.md)。
 >
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何建立 PHP 應用程式，並將它連線到 MySQL 資料庫。 完成後，您將有一個在 Linux 上的 App Service 上執行的 [Laravel](https://laravel.com/) 應用程式。
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 此教學課程示範如何建立 PHP 應用程式，並將它連線到 MySQL 資料庫。 完成後，您將有一個在 Linux 上的 App Service 上執行的 [Laravel](https://laravel.com/) 應用程式。
 
 ![在 Azure App Service 中執行的 PHP 應用程式](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 中建立 MySQL 資料庫
@@ -42,7 +42,7 @@ ms.locfileid: "57548178"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程：
+若要完成此教學課程：
 
 * [安裝 Git](https://git-scm.com/)
 * [安裝 PHP 5.6.4 或更新版本](https://php.net/downloads.php)
@@ -52,11 +52,11 @@ ms.locfileid: "57548178"
 
 ## <a name="prepare-local-mysql"></a>準備本機 MySQL
 
-在此步驟中，您可以在本機 MySQL 伺服器中建立資料庫，供您在本教學課程中使用。
+在此步驟中，您可以在本機 MySQL 伺服器中建立資料庫，供您在此教學課程中使用。
 
 ### <a name="connect-to-local-mysql-server"></a>連線至本機 MySQL 伺服器
 
-在終端機視窗中，連線到您的本機 MySQL 伺服器。 您可使用這個終端機視窗來執行本教學課程中的所有命令。
+在終端機視窗中，連線到您的本機 MySQL 伺服器。 您可使用這個終端機視窗來執行此教學課程中的所有命令。
 
 ```bash
 mysql -u root -p
@@ -141,7 +141,7 @@ php artisan key:generate
 php artisan serve
 ```
 
-在瀏覽器中，瀏覽至 `http://localhost:8000` 。 在頁面中新增幾項工作。
+在瀏覽器中，瀏覽至 `http://localhost:8000` 。 在頁面中新增一些工作。
 
 ![PHP 成功連線至 MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
@@ -161,22 +161,22 @@ php artisan serve
 
 使用 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) 命令，在適用於 MySQL 的 Azure 資料庫中建立伺服器。
 
-在下列命令中，使用唯一的伺服器名稱取代 \<mysql_server_name> 預留位置，使用使用者名稱取代 \<admin_user> 預留位置，並使用密碼取代 \<admin_password> 預留位置。 這個伺服器名稱會用來作為 MySQL 端點 (`https://<mysql_server_name>.mysql.database.azure.com`) 的一部分，所以在 Azure 的所有伺服器中必須是唯一的名稱。 如需有關選取 MySQL DB SKU 的詳細資訊，請參閱[建立適用於 MySQL 的 Azure 資料庫伺服器](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server)。
+在下列命令中，使用唯一的伺服器名稱取代 *\<mysql-server-name>* 預留位置，使用使用者名稱取代 *\<admin-user>* 預留位置，並使用密碼取代 *\<admin-password>* 預留位置。 這個伺服器名稱會用來作為 MySQL 端點 (`https://<mysql-server-name>.mysql.database.azure.com`) 的一部分，所以在 Azure 的所有伺服器中必須是唯一的名稱。 如需有關選取 MySQL DB SKU 的詳細資訊，請參閱[建立適用於 MySQL 的 Azure 資料庫伺服器](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server)。
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
+az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
 ```
 
 建立 MySQL 伺服器後，Azure CLI 會顯示類似下列範例的資訊：
 
 ```json
 {
-  "administratorLogin": "<admin_user>",
+  "administratorLogin": "<admin-user>",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql_server_name>.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
+  "fullyQualifiedDomainName": "<mysql-server-name>.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
   "location": "westeurope",
-  "name": "<mysql_server_name>",
+  "name": "<mysql-server-name>",
   "resourceGroup": "myResourceGroup",
   ...
 }
@@ -187,25 +187,25 @@ az mysql server create --resource-group myResourceGroup --name <mysql_server_nam
 使用 [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create) 命令，建立 MySQL 伺服器的防火牆規則來允許用戶端連線。 當起始 IP 和結束 IP 都設為 0.0.0.0 時，防火牆只會為其他 Azure 資源開啟。 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP] 
 > [僅使用您的應用程式所用的輸出 IP 位址](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)，讓您的防火牆規則更具限制性。
 >
 
-在 Cloud Shell 中，將 *\<您的 IP 位址>* 取代為[您的本機 IPv4 IP 位址](https://www.whatsmyip.org/)並再次執行命令，以允許從您的本機電腦進行存取。
+在 Cloud Shell 中，將*\<您的 IP 位址>* 取代為[您的本機 IPv4 IP 位址](https://www.whatsmyip.org/)並再次執行命令，以允許從您的本機電腦進行存取。
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
+az mysql server firewall-rule create --name AllowLocalClient --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
 ```
 
 ### <a name="connect-to-production-mysql-server-locally"></a>在本機連線到生產環境 MySQL 伺服器
 
-在終端機視窗中，連線至 Azure 中的 MySQL 伺服器。 使用您先前針對 _&lt;admin_user>_ 和 _&lt;mysql_server_name>_ 指定的值。 當系統提示您輸入密碼時，請使用您在 Azure 中建立資料庫時指定的密碼。
+在終端機視窗中，連線至 Azure 中的 MySQL 伺服器。 使用您先前針對 _&lt;admin-user>_ 和 _&lt;mysql-server-name>_ 指定的值。 當系統提示您輸入密碼時，請使用您在 Azure 中建立資料庫時指定的密碼。
 
 ```bash
-mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
+mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
 ```
 
 ### <a name="create-a-production-database"></a>建立生產環境資料庫
@@ -239,7 +239,7 @@ quit
 
 ### <a name="configure-the-database-connection"></a>設定資料庫連接
 
-在存放庫根目錄中，建立 _.env.production_ 檔案，並將下列變數複製到檔案中。 取代預留位置 _&lt;mysql_server_name>_。
+在存放庫根目錄中，建立 _.env.production_ 檔案，並將下列變數複製到檔案中。 取代預留位置 _&lt;mysql-server-name>_。
 
 ```txt
 APP_ENV=production
@@ -247,9 +247,9 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.mysql.database.azure.com
+DB_HOST=<mysql-server-name>.mysql.database.azure.com
 DB_DATABASE=sampledb
-DB_USERNAME=phpappuser@<mysql_server_name>
+DB_USERNAME=phpappuser@<mysql-server-name>
 DB_PASSWORD=MySQLAzure2017
 MYSQL_SSL=true
 ```
@@ -271,12 +271,12 @@ MYSQL_SSL=true
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
     'options' => (env('MYSQL_SSL')) ? [
-        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem', 
+        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem',
     ] : []
 ],
 ```
 
-為了方便起見，本教學課程中的 `BaltimoreCyberTrustRoot.crt.pem` 憑證會在存放庫中提供。 
+為了方便起見，此教學課程中的 `BaltimoreCyberTrustRoot.crt.pem` 憑證會在存放庫中提供。
 
 ### <a name="test-the-application-locally"></a>在本機測試應用程式
 
@@ -300,7 +300,7 @@ php artisan serve --env=production
 
 瀏覽至 `http://localhost:8000`。 如果頁面載入無誤，PHP 應用程式就會連線至 Azure 中的 MySQL 資料庫。
 
-在頁面中新增幾項工作。
+在頁面中新增一些工作。
 
 ![PHP 順利連線至適用於 MySQL 的 Azure 資料庫](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
@@ -323,10 +323,7 @@ git commit -m "database.php updates"
 
 Laravel 應用程式會在 /public 目錄中啟動。 App Service 的預設 PHP Docker 映像會使用 Apache，且不會讓您自訂 Laravel 的 `DocumentRoot`。 不過，您可以使用 `.htaccess` 將所有要求重寫為指向 /public，而不是指向根目錄。 在存放庫根路徑中，已針對此目的新增 `.htaccess`。 因此，您的 Laravel 應用程式已準備好進行部署。
 
-> [!NOTE] 
-> 如果您不要使用 .htaccess 重寫，您可以改為使用[自訂 Docker 映像](quickstart-docker-go.md)來部署 Laravel 應用程式。
->
->
+如需詳細資訊，請參閱[變更站台根目錄](configure-language-php.md#change-site-root)。
 
 ### <a name="configure-a-deployment-user"></a>設定部署使用者
 
@@ -344,13 +341,13 @@ Laravel 應用程式會在 /public 目錄中啟動。 App Service 的預設 PHP 
 
 在 App Service 中，您可以使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令將環境變數設定為「應用程式設定」。
 
-下列命令會設定 `DB_HOST`、`DB_DATABASE`、`DB_USERNAME`、`DB_PASSWORD` 應用程式設定。 取代預留位置 _&lt;appname>_ 和 _&lt;mysql_server_name>_。
+下列命令會設定 `DB_HOST`、`DB_DATABASE`、`DB_USERNAME`、`DB_PASSWORD` 應用程式設定。 取代預留位置 _&lt;appname>_ 和 _&lt;mysql-server-name>_。
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql-server-name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-您可以使用 PHP [getenv](https://php.net/manual/en/function.getenv.php) 方法來存取這些設定。 Laravel 程式碼會透過 PHP `getenv` 使用 [env](https://laravel.com/docs/5.4/helpers#method-env) 包裝函式。 例如，在 _config/database.php_ 中的 MySQL 設定看起來像這樣︰
+您可以使用 PHP [getenv](https://php.net/manual/en/function.getenv.php) 方法來[存取這些設定](configure-language-php.md#access-environment-variables)。 Laravel 程式碼會透過 PHP `getenv` 使用 [env](https://laravel.com/docs/5.4/helpers#method-env) 包裝函式。 例如，在 _config/database.php_ 中的 MySQL 設定看起來像這樣︰
 
 ```php
 'mysql' => [
@@ -376,7 +373,7 @@ php artisan key:generate --show
 使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令，在 App Service 應用程式中設定應用程式金鑰。 取代 _&lt;appname>_ 和 _&lt;outputofphpartisankey:generate>_ 預留位置。
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
 當部署的應用程式遇到錯誤，`APP_DEBUG="true"` 會告訴 Laravel 傳回偵錯資訊。 執行生產環境應用程式時，將它設為 `false` 會更安全。
@@ -419,12 +416,12 @@ remote: Running deployment command...
 > - `deploy.sh` - 自訂部署指令碼。 如果您檢閱檔案，您將看到它會在 `npm install` 之後執行 `php composer.phar install`。
 > - `composer.phar` - Composer 套件管理員。
 >
-> 您可以使用這種方法，將您任何以 Git 為基礎的部署步驟新增至 App Service。 如需相關資訊，請參閱[自訂部署指令碼](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)。
+> 您可以使用這種方法，將您任何以 Git 為基礎的部署步驟新增至 App Service。 如需詳細資訊，請參閱[執行 Composer](configure-language-php.md#run-composer)。
 >
 
 ### <a name="browse-to-the-azure-app"></a>瀏覽至 Azure 應用程式
 
-瀏覽至 `http://<app_name>.azurewebsites.net` 並將幾項工作新增至清單。
+瀏覽至 `http://<app-name>.azurewebsites.net` 並將一些工作新增至清單。
 
 ![在 Azure App Service 中執行的 PHP 應用程式](./media/tutorial-php-mysql-app/php-mysql-in-azure.png)
 
@@ -572,6 +569,10 @@ git push azure master
 
 如果您新增任何工作，它們會保留在資料庫中。 對資料結構描述進行的更新，現有資料會原封不動。
 
+## <a name="stream-diagnostic-logs"></a>資料流診斷記錄
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+
 ## <a name="manage-the-azure-app"></a>管理 Azure 應用程式
 
 移至 [Azure 入口網站](https://portal.azure.com)，以管理您所建立的應用程式。
@@ -592,7 +593,7 @@ git push azure master
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 中建立 MySQL 資料庫
@@ -605,4 +606,9 @@ git push azure master
 前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure App Service](../app-service-web-tutorial-custom-domain.md)
+> [教學課程：將自訂 DNS 名稱對應至應用程式](../app-service-web-tutorial-custom-domain.md)
+
+或者，查看其他資源：
+
+> [!div class="nextstepaction"]
+> [設定 PHP 應用程式](configure-language-php.md)

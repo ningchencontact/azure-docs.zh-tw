@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
 author: sachinpMSFT
-ms.author: sachinp
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
-ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/11/2019
+ms.openlocfilehash: a5fbc58feea8779ba8a7a61dfc89158e20bd2c92
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075180"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544263"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure SQL Database 中建立單一資料庫
 
@@ -34,51 +34,62 @@ ms.locfileid: "58075180"
 若要建立包含 AdventureWorksLT 範例資料的單一資料庫：
 
 1. 選取 Azure 入口網站左上角的 [建立資源]。
-2. 選取 [資料庫]，然後選取 [SQL Database]。
-3. 在 [建立 SQL Database] 表單中，輸入或選取下列值：
+2. 選取 [資料庫]，然後選取 [SQL Database] 以開啟 [建立 SQL Database] 頁面。 
 
-   - **資料庫名稱**：輸入 mySampleDatabase。
-   - 訂用帳戶：下拉並選取正確的訂用帳戶 (若未出現)。
-   - **資源群組**：選取 [新建]，輸入 *myResourceGroup*，然後選取 [確定]。
-   - **選取來源**：下拉並選取 [範例 (AdventureWorksLT)]。
-
-     > [!IMPORTANT]
-     > 請務必選取 [範例 (AdventureWorksLT)] 資料，以便依照本快速入門和使用這項資料的其他 Azure SQL Database 快速入門的指示操作。
-  
    ![建立單一資料庫](./media/sql-database-get-started-portal/create-database-1.png)
 
-4. 在 [伺服器] 底下，選取 [新建]。
-5. 在 [新增伺服器] 表單中，輸入或選取下列值：
+1. 在 [基本資料] 索引標籤的 [專案詳細資料] 區段中，輸入或選取下列值：
 
-   - **伺服器名稱**：輸入 mysqlserver。
-   - **伺服器管理員登入**：輸入 azureuser。
-   - **密碼**：輸入 Azure1234567。
-   - **確認密碼**：重新輸入密碼。
-   - **位置**：下拉並選取任何有效位置。  
+   - 訂用帳戶：下拉並選取正確的訂用帳戶 (若未出現)。
+   - **資源群組**：選取 [新建]，輸入 `myResourceGroup`，然後選取 [確定]。
+
+   ![新的 SQL 資料庫 - 基本資料索引標籤](media/sql-database-get-started-portal/new-sql-database-basics.png)
+
+
+1. 在 [資料庫詳細資料] 區段中，輸入或選取下列值： 
+
+   - **資料庫名稱**：輸入 `mySampleDatabase` 。
+   - **伺服器**：選取 [新建] 並輸入下列值，然後選取 [選取]。 
+       - **伺服器名稱**：`mysqlserver`類別；伴隨一些表示唯一性的數字。 
+       - **伺服器管理員登入**：輸入 `azureuser`。
+       - **密碼**：輸入複雜密碼以符合密碼需求。 
+       - **位置**：從下拉式清單中選擇位置，例如 `West US 2`。 
+
+       ![New server](media/sql-database-get-started-portal/new-server.png)
+
+        > [!IMPORTANT]
+        > 請記得記錄下伺服器管理員登入和密碼，以便在進行這個和其他快速入門時能夠登入伺服器和資料庫。 如果您忘記登入或密碼，您可以在 [SQL Server] 頁面上取得登入名稱或重設密碼。 若要開啟 [SQL Server] 頁面，請在資料庫建立後，選取資料庫 [概觀] 頁面上的伺服器名稱。
+
+      ![SQL Database 詳細資料](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
+
+   - **您要使用 SQL 彈性集區嗎**：選取 [否] 選項。 
+   - **計算 + 儲存體**：選取 [設定資料庫]，在此快速入門中，請選取 [標準] 服務層，然後使用滑桿選取 **10 DTU (S0)** 和 **1** GB 的儲存體。 選取 [套用] 。 
+
+    ![設定服務層](media/sql-database-get-started-portal/create-database-s1.png) 
+
+
+      > [!NOTE]
+      > 本快速入門使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，但[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)也可供使用。
+      > [!IMPORTANT]
+      > 所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列區域除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 區域和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。  如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+
+    
+
+
+
+1. 選取 [其他設定] 索引標籤。 
+1. 在 [資料來源] 區段的 [使用現有資料] 下方，選取 `Sample`。 
+
+   ![其他 SQL DB 設定](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
-   > 請記得記錄下伺服器管理員登入和密碼，以便在進行這個和其他快速入門時能夠登入伺服器和資料庫。 如果您忘記登入或密碼，您可以在 [SQL Server] 頁面上取得登入名稱或重設密碼。 若要開啟 [SQL Server] 頁面，請在資料庫建立後，選取資料庫 [概觀] 頁面上的伺服器名稱。
+   > 請務必選取 [範例 (AdventureWorksLT)] 資料，以便依照本快速入門和使用這項資料的其他 Azure SQL Database 快速入門的指示操作。
 
-    ![建立伺服器](./media/sql-database-get-started-portal/create-database-server.png)
+1. 將其餘的值保留為預設值，然後在表單底部選取 [檢閱 + 建立]。 
+1. 檢閱最終設定，然後選取 [建立]。 
 
-6. 選擇 [選取]。
-7. 在 [SQL Database] 表單上，選取 [定價層]。 瀏覽每個服務層可用的 DTU 數量和儲存體。
+8. 在 [SQL Database] 表單中，選取 [建立] 以部署和佈建資源群組、伺服器和資料庫。
 
-   > [!NOTE]
-   > 本快速入門使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，但[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)也可供使用。
-   > [!IMPORTANT]
-   > 所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列區域除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 區域和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。  如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
-
-8. 在此快速入門中，請選取 [標準] 服務層，然後使用滑桿選取 **10 DTU (S0)** 和 **1** GB 的儲存體。
-9. 選取 [套用] 。  
-
-   ![選取定價](./media/sql-database-get-started-portal/create-database-s1.png)
-
-10. 在 [SQL Database] 表單中，選取 [建立] 以部署和佈建資源群組、伺服器和資料庫。
-
-    部署需要幾分鐘的時間。 您可以選取工具列上的 [通知] 來監視部署進度。
-
-    ![通知](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>查詢資料庫
 

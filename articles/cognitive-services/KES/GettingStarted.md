@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00c5ed3e3ea5c083f727d06c2ed305fe35ed03db
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994944"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523319"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>開始使用知識探索服務
 
@@ -252,7 +252,7 @@ ms.locfileid: "57994944"
 
 [交換](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md)預備位置與生產位置的內容，如此一來，即時流量現在會導向至新部署的服務。 使用新的資料部署更新的服務版本時，您可以重複此程序。 與其他所有 Azure 雲端服務一樣，您可以選擇性地使用 Azure 入口網站來設定[自動規模調整](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md)。
 
-在此範例中，您要使用 *<vm_size>* VM，將 *Academic* 索引部署至現有雲端服務的預備位置。 使用下列命令：
+在此範例中，您要使用 *\<vm_size>* VM，將 *Academic* 索引部署至現有雲端服務的預備位置。 使用下列命令：
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 

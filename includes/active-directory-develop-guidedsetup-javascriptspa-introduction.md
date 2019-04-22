@@ -11,42 +11,42 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: a6fcbc0e8adac75f17d7379ff512ba650d0bb118
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 8c2dc41fde9387da291b6e4a6c8a6220ae62b514
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203288"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503240"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>從 JavaScript 單一頁面應用程式 (SPA) 呼叫 Microsoft Graph API
+# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>登入使用者並從 JavaScript 單頁應用程式 (SPA) 呼叫 Microsoft 圖形 API
 
-本指南示範 JavaScript 單一頁面應用程式 (SPA) 如何登入個人、公司和學校帳戶、取得存取權杖，以及呼叫 Microsoft Graph API 或其他需要來自 Azure Active Directory v2.0 端點之存取權杖的 API。
+此指南示範 JavaScript 單頁應用程式 (SPA) 如何登入個人公司及學校帳戶，取得存取權杖，以及呼叫 Microsoft 圖形 API 或需要來自 Microsoft 身分識別平台端點之存取權杖的其他 API。
 
-## <a name="how-the-sample-app-generated-by-this-guide-works"></a>本指南產生之範例應用程式的運作方式
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>此指南產生之範例應用程式的運作方式
 
-![顯示範例應用程式如何產生此教學課程適用於](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro-updated.png)
+![顯示此教學課程所產生的範例應用程式如何運作](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
 <!--start-collapse-->
 ### <a name="more-information"></a>相關資訊
 
-本指南所建立的範例應用程式可讓 JavaScript SPA 查詢 Microsoft Graph API，或查詢可接受來自 Azure Active Directory v2.0 端點之權杖的 Web API。 針對這個案例，在使用者登入之後，系統會透過授權標頭要求一個存取權杖，並將其新增到 HTTP 要求。 權杖取得和更新作業是由 Microsoft Authentication Library (MSAL) 處理。
+此指南建立的範例應用程式可讓 JavaScript SPA 查詢 Microsoft 圖形 API，或查詢可接受來自 Microsoft 身分識別平台端點之權杖的 Web API。 針對這個案例，在使用者登入之後，系統會透過授權標頭要求一個存取權杖，並將其新增到 HTTP 要求。 權杖取得和更新作業是由 Microsoft Authentication Library (MSAL) 處理。
 
 <!--end-collapse-->
 
 <!--start-collapse-->
 ### <a name="libraries"></a>程式庫
 
-本指南使用下列程式庫：
+此指南使用下列程式庫：
 
-|程式庫|描述|
+|程式庫|說明|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript 預覽|
 
 > [!NOTE]
-> *msal.js* 的目標是「Azure Active Directory v2.0 端點」 - 它會啟用個人、學校及公司帳戶以登入和取得權杖。 「Azure Active Directory v2.0 端點」具有[一些限制](../articles/active-directory/develop/active-directory-v2-limitations.md)。
+> *msal.js* 的目標是「Microsoft 身分識別平台」端點 - 它能讓個人、學校及公司帳戶以登入和取得權杖。 「Microsoft 身分識別平台」有[一些限制](../articles/active-directory/develop/active-directory-v2-limitations.md)。
 > 若要了解 v1.0 與 v2.0 端點之間的差異，請參閱[端點比較指南](../articles/active-directory/develop/azure-ad-endpoint-comparison.md)。
 
 <!--end-collapse-->

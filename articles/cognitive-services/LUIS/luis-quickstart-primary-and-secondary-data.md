@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100287"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526555"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教學課程：使用簡單實體和片語清單來擷取名稱
 
@@ -48,7 +48,7 @@ ms.locfileid: "58100287"
 * 資料的格式不正確，例如規則運算式。
 * 資料不常見，例如電話號碼或資料的預先建置實體。
 * 資料未完全符合已知字組清單，例如清單實體。
-* 資料不包含其他資料項目，例如複合實體或階層式實體。
+* 資料不包含其他資料項目，例如複合實體或內容相關的角色。
 
 請考慮下列來自聊天機器人的語句：
 

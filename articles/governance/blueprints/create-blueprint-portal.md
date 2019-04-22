@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 598df72bf9c37b8687e2122813609e165ae8c2fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260658"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505680"
 ---
 # <a name="define-and-assign-a-blueprint-in-the-portal"></a>在入口網站中定義和指派藍圖
 
@@ -41,116 +41,117 @@ ms.locfileid: "59260658"
 
    ![在 [藍圖定義] 頁面中建立藍圖](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. 提供 [藍圖名稱]，例如 **MyBlueprint**。 (最多可使用 48 個字母和數字，但不含空格或特殊字元)。 暫時將 [藍圖描述] 保留為空白。 
-   
+1. 提供 [藍圖名稱]，例如 **MyBlueprint**。 (最多可使用 48 個字母和數字，但不含空格或特殊字元)。 暫時將 [藍圖描述] 保留為空白。
+
 1. 在 [定義位置] 方塊中，選取右側的省略符號，選取您要從中儲存藍圖的[管理群組](../management-groups/overview.md)或訂用帳戶，然後選擇 [選取]。
 
 1. 確認資訊正確無誤。 [藍圖名稱] 和 [定義位置] 欄位無法在之後變更。 然後，選取 **[下一步：成品]** 或頁面頂端的 [成品] 索引標籤。
 
-1. 新增訂用帳戶層級的角色指派： 
+1. 新增訂用帳戶層級的角色指派：
 
-   a. 選取 [訂用帳戶] 下方的 [+ 新增成品] 資料列。 [新增成品] 視窗會在瀏覽器右側開啟。 
-   
-   b. 選取 [角色指派] 作為 [成品類型]。 
-   
-   c. 在 [角色] 底下，選取 [參與者]。 在 [新增使用者、應用程式或群組] 方塊中，勾選表示動態參數的核取方塊。 
-   
-   d. 選取 [新增] 以將此成品新增至藍圖。
+   1. 選取 [訂用帳戶] 下方的 [+ 新增成品] 資料列。 [新增成品] 視窗會在瀏覽器右側開啟。
+
+   1. 選取 [角色指派] 作為 [成品類型]。
+
+   1. 在 [角色] 底下，選取 [參與者]。 在 [新增使用者、應用程式或群組] 方塊中，勾選表示動態參數的核取方塊。
+
+   1. 選取 [新增] 以將此成品新增至藍圖。
 
    ![藍圖成品的角色指派](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > 大部分的成品均支援參數。 在藍圖建立期間獲得指派值的參數，是*靜態參數*。 如果是在藍圖指派期間受指派的參數，則為*動態參數*。 如需詳細資訊，請參閱[藍圖參數](./concepts/parameters.md)。
 
-1. 新增訂用帳戶層級的原則指派： 
+1. 新增訂用帳戶層級的原則指派：
 
-   a. 選取角色指派成品下方的 [+ 新增成品] 資料列。 
-   
-   b. 選取 [原則指派] 作為 [成品類型]。 
-   
-   c. 將 [類型] 變更為 [內建]。 在 [搜尋] 中，輸入**標記**。 
-   
-   d. 按一下 [搜尋] 進行篩選。 選取 [將標記及其預設值套用至資源群組]。 
-   
-   e. 選取 [新增] 以將此成品新增至藍圖。
+   1. 選取角色指派成品下方的 [+ 新增成品] 資料列。
 
-1. 選取 [將標記及其預設值套用至資源群組] 原則指派的資料列。 
+   1. 選取 [原則指派] 作為 [成品類型]。
+
+   1. 將 [類型] 變更為 [內建]。 在 [搜尋] 中，輸入**標記**。
+
+   1. 按一下 [搜尋] 進行篩選。 選取 [將標籤即其預設值套用至資源群組]。
+
+   1. 選取 [新增] 以將此成品新增至藍圖。
+
+1. 選取 [將標記及其預設值套用至資源群組] 原則指派的資料列。
 
 1. 在藍圖定義中提供成品參數的視窗隨即開啟，可用來根據此藍圖設定所有指派的參數 (靜態參數)，而不需要在指派期間設定 (動態參數)。 此範例會在藍圖指派期間使用動態參數，因此請保留預設值，並選取 [取消]。
 
-1. 新增訂用帳戶層級的資源群組： 
+1. 新增訂用帳戶層級的資源群組：
 
-   a. 選取 [訂用帳戶] 下方的 [+ 新增成品] 資料列。 
-   
-   b. 選取 [資源群組] 作為 [成品類型]。 
-   
-   c. 將 [成品顯示名稱]、[資源群組名稱] 和 [位置] 方塊保留為空白，但請務必勾選每個參數屬性的核取方塊，將其設為動態參數。 
-   
-   d. 選取 [新增] 以將此成品新增至藍圖。
+   1. 選取 [訂用帳戶] 下方的 [+ 新增成品] 資料列。
 
-1. 在資源群組下新增範本： 
+   1. 選取 [資源群組] 作為 [成品類型]。
 
-   a. 選取 [資源群組] 項目下方的 [+ 新增成品] 資料列。 
-   
-   b. 選取 [Azure Resource Manager 範本] 作為 [成品類型]，並將 [成品顯示名稱] 設為 **StorageAccount**，將 [描述] 保留為空白。 
-   
-   c. 在編輯器方塊的 [範本] 索引標籤中，貼上以下的 Resource Manager 範本。 貼上範本後，請選取 [參數] 索引標籤，並請留意已偵測到範本參數 **storageAccountType** 和**位置**。 系統會自動偵測並填入每個參數，但將其設定為動態參數。 
-   
-   > [!IMPORTANT]
-   > 如果要匯入範本，請確定檔案僅有 JSON，不含 HTML。 指向 GitHub 上的 URL 時，請確定您是選取 [RAW] 以取得純 JSON 檔案，而不是以 HTML 包裝以顯示於 GitHub 上的檔案。 如果匯入的範本並非單純的 JSON，則會發生錯誤。
+   1. 將 [成品顯示名稱]、[資源群組名稱] 和 [位置] 方塊保留為空白，但請務必勾選每個參數屬性的核取方塊，將其設為動態參數。
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "storageAccountType": {
-               "type": "string",
-               "defaultValue": "Standard_LRS",
-               "allowedValues": [
-                   "Standard_LRS",
-                   "Standard_GRS",
-                   "Standard_ZRS",
-                   "Premium_LRS"
-               ],
-               "metadata": {
-                   "description": "Storage Account type"
-               }
-           },
-           "location": {
-               "type": "string",
-               "defaultValue": "[resourceGroups('ResourceGroup').location]",
-               "metadata": {
-                   "description": "Location for all resources."
-               }
-           }
-       },
-       "variables": {
-           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-       },
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts",
-           "name": "[variables('storageAccountName')]",
-           "location": "[parameters('location')]",
-           "apiVersion": "2018-07-01",
-           "sku": {
-               "name": "[parameters('storageAccountType')]"
-           },
-           "kind": "StorageV2",
-           "properties": {}
-       }],
-       "outputs": {
-           "storageAccountName": {
-               "type": "string",
-               "value": "[variables('storageAccountName')]"
-           }
-       }
-   }
-   ```
+   1. 選取 [新增] 以將此成品新增至藍圖。
 
-   d. 清除 **storageAccountType** 核取方塊，並留意下拉式清單中僅包含 Resource Manager 範本的 **allowedValues** 下方所含的值。 選取方塊，將其設回動態參數。 
-   
-   e. 選取 [新增] 以將此成品新增至藍圖。
+1. 在資源群組下新增範本：
+
+   1. 選取 [資源群組] 項目下方的 [+ 新增成品] 資料列。
+
+   1. 選取 [Azure Resource Manager 範本] 作為 [成品類型]，並將 [成品顯示名稱] 設為 [儲存體帳戶]，將 [描述] 保留為空白。
+
+   1. 在編輯器方塊的 [範本] 索引標籤中，貼上以下的 Resource Manager 範本。
+      貼上範本後，請選取 [參數] 索引標籤，並請留意已偵測到範本參數 **storageAccountType** 和**位置**。 系統會自動偵測並填入每個參數，但將其設定為動態參數。
+
+      > [!IMPORTANT]
+      > 如果要匯入範本，請確定檔案僅有 JSON，不含 HTML。 指向 GitHub 上的 URL 時，請確定您是選取 [RAW] 以取得純 JSON 檔案，而不是以 HTML 包裝以顯示於 GitHub 上的檔案。 如果匯入的範本並非單純的 JSON，則會發生錯誤。
+
+      ```json
+      {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+              "storageAccountType": {
+                  "type": "string",
+                  "defaultValue": "Standard_LRS",
+                  "allowedValues": [
+                      "Standard_LRS",
+                      "Standard_GRS",
+                      "Standard_ZRS",
+                      "Premium_LRS"
+                  ],
+                  "metadata": {
+                      "description": "Storage Account type"
+                  }
+              },
+              "location": {
+                  "type": "string",
+                  "defaultValue": "[resourceGroup().location]",
+                  "metadata": {
+                      "description": "Location for all resources."
+                  }
+              }
+          },
+          "variables": {
+              "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+          },
+          "resources": [{
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[variables('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                  "name": "[parameters('storageAccountType')]"
+              },
+              "kind": "StorageV2",
+              "properties": {}
+          }],
+          "outputs": {
+              "storageAccountName": {
+                  "type": "string",
+                  "value": "[variables('storageAccountName')]"
+              }
+          }
+      }
+      ```
+
+   1. 清除 **storageAccountType** 核取方塊，並留意下拉式清單中僅包含 Resource Manager 範本的 **allowedValues** 下方所含的值。 選取方塊，將其設回動態參數。
+
+   1. 選取 [新增] 以將此成品新增至藍圖。
 
    ![藍圖成品的 Resource Manager 範本](./media/create-blueprint-portal/add-resource-manager-template.png)
 
@@ -172,16 +173,16 @@ ms.locfileid: "59260658"
 
 1. 選取 [下一步：**成品]** 或頁面頂端的 [成品] 索引標籤。
 
-1. 在資源群組下新增角色指派： 
+1. 在資源群組下新增角色指派：
 
-   a. 直接在 [資源群組] 項目下方選取 [+ 新增成品] 資料列。 
-   
-   b. 選取 [角色指派] 作為 [成品類型]。 
-   
-   c. 在 [角色] 下方選取 [擁有者]，並清除 [新增使用者、應用程式或群組] 方塊下方的核取方塊。 
-   
-   d. 搜尋並選取要新增的使用者、應用程式或群組。 此成品會在每次指派此藍圖時使用設定相同的靜態參數。 
-   
+   1. 直接在 [資源群組] 項目下方選取 [+ 新增成品] 資料列。
+
+   1. 選取 [角色指派] 作為 [成品類型]。
+
+   1. 在 [角色] 下方選取 [擁有者]，並清除 [新增使用者、應用程式或群組] 方塊下方的核取方塊。
+
+   1. 搜尋並選取要新增的使用者、應用程式或群組。 此成品會在每次指派此藍圖時使用設定相同的靜態參數。
+
    e. 選取 [新增] 以將此成品新增至藍圖。
 
    ![藍圖成品的第二個角色指派](./media/create-blueprint-portal/add-role-assignment-2.png)
@@ -217,15 +218,15 @@ ms.locfileid: "59260658"
 
    如果 [Azure 計費](../../billing/index.md)中有支援的企業供應項目，則會在 [訂用帳戶] 方塊下方啟動 [新建] 連結。 請遵循下列步驟：
 
-   a. 選取 [新建] 以建立新的訂用帳戶，而不選取現有的訂用帳戶。
+   1. 選取 [新建] 以建立新的訂用帳戶，而不選取現有的訂用帳戶。
 
-   b. 提供新訂用帳戶的**顯示名稱**。
+   1. 提供新訂用帳戶的**顯示名稱**。
 
-   c. 從下拉式清單中選取可用的**供應項目**。
+   1. 從下拉式清單中選取可用的**供應項目**。
 
-   d. 使用省略符號選取訂用帳戶將成為其子系的[管理群組](../management-groups/index.md)。
+   1. 使用省略符號選取訂用帳戶將成為其子系的[管理群組](../management-groups/index.md)。
 
-   e. 選取頁面底部的 [建立]。
+   1. 選取頁面底部的 [建立]。
 
    ![建立訂用帳戶作為藍圖指派訂用帳戶](./media/create-blueprint-portal/assignment-create-subscription.png)
 
@@ -254,7 +255,8 @@ ms.locfileid: "59260658"
 1. 對於 **ResourceGroup**，請從下拉式清單中提供 **StorageAccount** 的 [名稱] 和 [美國東部 2] 的 [位置]。
 
    > [!NOTE]
-   > 您在藍圖定義期間新增於資源群組下的每個成品，都應與其部署所需的資源群組或物件相符。 不接受參數的成品，或是在指派時並未定義任何參數的成品，僅會列出內容資訊。
+   > 您在藍圖定義期間新增於資源群組下的每個成品，都應與其部署所需的資源群組或物件相符。
+   > 不接受參數的成品，或是在指派時並未定義任何參數的成品，僅會列出內容資訊。
 
 1. 在 Azure Resource Manager 範本 **StorageAccount** 中，選取 **Standard_GRS** 作為 **storageAccountType** 參數。
 
@@ -294,7 +296,8 @@ ms.locfileid: "59260658"
 1. 以滑鼠右鍵按一下您要刪除的藍圖，然後選取 [刪除藍圖]。 然後，選取確認對話方塊中的 [是]。
 
 > [!NOTE]
-> 以此方法刪除藍圖，也會將所選藍圖的已發佈版本全數刪除。 若要刪除單一版本，請開啟藍圖，選取 [已發佈的版本] 索引標籤，選取要刪除的版本，然後選取 [刪除此版本]。 同樣地，您必須先刪除藍圖定義的所有藍圖指派，才能刪除該藍圖。
+> 以此方法刪除藍圖，也會將所選藍圖的已發佈版本全數刪除。
+> 若要刪除單一版本，請開啟藍圖，選取 [已發佈的版本] 索引標籤，選取要刪除的版本，然後選取 [刪除此版本]。 同樣地，您必須先刪除藍圖定義的所有藍圖指派，才能刪除該藍圖。
 
 ## <a name="next-steps"></a>後續步驟
 

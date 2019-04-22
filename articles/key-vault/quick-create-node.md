@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882745"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522299"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>快速入門：使用 Node Web 應用程式從 Azure Key Vault 設定及擷取祕密 
 
@@ -150,7 +150,7 @@ npm install
     ```
     http://<app name>.azurewebsites.net
     ```
-前述命令也會建立具有 Git 功能的應用程式，讓您從本機 Git 存放庫部署至 Azure。 本機 Git 存放庫已設定為使用此 URL： https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git。
+前述命令也會建立具有 Git 功能的應用程式，讓您從本機 Git 存放庫部署至 Azure。 本機 Git 存放庫設定為此 URL：`https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`。
 
 在完成前述命令之後，您可以將 Azure 遠端新增到您的本機 Git 存放庫。 使用 Git 存放庫的 URL 取代 `<url>`。
 
@@ -194,7 +194,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 git push azure master
 ```
 
-在此之後，當您瀏覽至 https://<app_name>.azurewebsites.net 時，您可以看見祕密值。 確定您已使用保存庫名稱取代名稱 <YourKeyVaultName>。
+在此之後，當您瀏覽至 `https://<app_name>.azurewebsites.net` 時，您可以看見祕密值。 確定您已使用保存庫名稱取代名稱 `<YourKeyVaultName>`。
 
 ## <a name="next-steps"></a>後續步驟
 

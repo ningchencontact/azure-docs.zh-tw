@@ -1,6 +1,6 @@
 ---
-title: 建置搭配 MySQL 的 PHP 應用程式- Azure App Service |Microsoft Docs
-description: 了解如何取得在 Azure 中運作的 PHP 應用程式，並連線至 Azure 中的 MySQL 資料庫。
+title: 搭配 MySQL 的 PHP (Laravel) - Azure App Service | Microsoft Docs
+description: 了解如何取得在 Azure 中運作的 PHP 應用程式，並連線至 Azure 中的 MySQL 資料庫。 本教學課程中將使用 Laravel。
 services: app-service\web
 documentationcenter: php
 author: cephalin
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c906880897b14cf999fcffd17abba0adebc1adf6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 35f9b97f7955f0ba430f94f559b0ab160cc2efcd
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552124"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544614"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>教學課程：在 Azure 中建置 PHP 和 MySQL 應用程式
 

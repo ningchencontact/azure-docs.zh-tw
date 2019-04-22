@@ -3,7 +3,7 @@ title: Azure 資訊安全中心快速入門 - 將 Azure Stack 虛擬機器登入
 description: 此快速入門說明如何在 Azure Stack 虛擬機器上佈建 Azure 監視器、更新和組態管理虛擬機器擴充功能。
 services: security-center
 documentationcenter: na
-author: monhaber
+author: pipposera
 manager: dsavage
 editor: ''
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 9efd6514b722168f8ecb1235159e7463ce318118
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.author: fiseraci
+ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904010"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563789"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>快速入門：將 Azure Stack 虛擬機器登入至資訊安全中心
 將您的 Azure 訂用帳戶登入後，您即可從 Azure Stack Marketplace 新增 **Azure 監視器、更新和組態管理**虛擬機器擴充功能，讓資訊安全中心保護您在 Azure Stack 上執行的虛擬機器。
@@ -32,7 +32,7 @@ ms.locfileid: "58904010"
 
 請確定您具有資訊安全中心標準層的 Azure 訂用帳戶，再開始進行此快速入門。 如需升級指示，請參閱[將 Azure 訂用帳戶上架到資訊安全中心標準定價層](security-center-get-started.md)。 您可以免費試用資訊安全中心標準層 30 天。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
-## <a name="add-an-azure-stack-virtual-machine"></a>新增 Azure Stack 虛擬機器
+## <a name="select-your-workspace-in-azure-security-center"></a>在 Azure 資訊安全中心中選取您的工作區
 
 1. 登入 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。
 2. 在 [Microsoft Azure] 功能表中，選取 [資訊安全中心]。 [資訊安全中心 - 概觀] 隨即開啟。 
@@ -65,6 +65,10 @@ ms.locfileid: "58904010"
 3. 選取 [擴充功能]。 此時會列出安裝在此虛擬機器上的虛擬機器擴充功能。
 4. 按一下 [新增] 索引標籤。[新增資源] 功能表刀鋒視窗隨即開啟，並顯示可用的虛擬機器擴充功能清單。 
 5. 選取 [Azure 監視器、更新和組態管理] 擴充功能，然後按一下 [建立]。 [安裝擴充功能] 組態刀鋒視窗隨即開啟。
+
+>[!NOTE]
+> 如果您沒有看到 **Azure Monitor, Update and Configuration Management** 擴充在市集中列出，請洽詢您的 Azure Stack 操作員以使該擴充可供取得。
+
 6. 在 [安裝擴充功能] 組態刀鋒視窗上，貼上您在先前程序中複製到「記事本」中的 [工作區識別碼] 和 [工作區金鑰 (主要金鑰)]。
 7.  提供必要的組態設定後，請按一下 [確定]。
 8. 擴充功能安裝完成後，其狀態會顯示為 [佈建成功]。 虛擬機器最多可能需要一小時才會出現在資訊安全中心入口網站中。

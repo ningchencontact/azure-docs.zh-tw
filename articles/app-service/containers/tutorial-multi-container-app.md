@@ -12,21 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1480032b7ff018081d9dc25038bf336740810079
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cd7edb576264ac8bb8a076bbb4b2970579056f13
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657555"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547626"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>教學課程：在適用於容器的 Web 應用程式中建立多容器 (預覽) 應用程式
 
-[適用於容器的 Web 應用程式](app-service-linux-intro.md)提供彈性的 Docker 映像使用方式。 在本教學課程中，您將了解如何使用 WordPress 和 MySQL 建立多容器應用程式。 您會在 Cloud Shell 中完成本教學課程，但您也可以在本機使用 [Azure CLI](/cli/azure/install-azure-cli) 命令列工具 (2.0.32 或更新版本) 來執行這些命令。
+[適用於容器的 Web 應用程式](app-service-linux-intro.md)提供彈性的 Docker 映像使用方式。 在此教學課程中，您將了解如何使用 WordPress 和 MySQL 建立多容器應用程式。 您會在 Cloud Shell 中完成此教學課程，但您也可以在本機使用 [Azure CLI](/cli/azure/install-azure-cli) 命令列工具 (2.0.32 或更新版本) 來執行這些命令。
 
-在本教學課程中，您將了解如何：
+在此教學課程中，您了解如何：
+
 > [!div class="checklist"]
 > * 將 Docker Compose 組態轉換為使用適用於容器的 Web 應用程式
 > * 將 Kubernetes 組態轉換為使用適用於容器的 Web 應用程式
@@ -38,20 +39,17 @@ ms.locfileid: "55657555"
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="preview-feature-limitations"></a>預覽功能限制
-多容器目前為預覽狀態，不支援下列 App Service 平台功能。 我們預計在公開上市 (GA) 之前，對多容器的 Web 應用程式啟用下列功能：
-* 驗證 / 授權
-* 受控識別
-
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程，您需要有 [Docker Compose](https://docs.docker.com/compose/) 或 [Kubernetes](https://kubernetes.io/) 的使用經驗。
+若要完成此教學課程，您需要有 [Docker Compose](https://docs.docker.com/compose/) 或 [Kubernetes](https://kubernetes.io/) 的使用經驗。
 
 ## <a name="download-the-sample"></a>下載範例
 
-在本教學課程中，您會使用 [Docker](https://docs.docker.com/compose/wordpress/#define-the-project) 中的 Compose 檔案，但您會加以修改，使其包含適用於 MySQL 的 Azure 資料庫、永續性儲存體和 Redis。 組態檔位於 [Azure 範例](https://github.com/Azure-Samples/multicontainerwordpress)中。
+在此教學課程中，您會使用 [Docker](https://docs.docker.com/compose/wordpress/#define-the-project) 中的 Compose 檔案，但您會加以修改，使其包含適用於 MySQL 的 Azure 資料庫、永續性儲存體和 Redis。 組態檔位於 [Azure 範例](https://github.com/Azure-Samples/multicontainerwordpress)中。
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
+
+如需支援的設定選項，請參閱 [Docker Compose 選項](configure-custom-container.md#docker-compose-options)。
 
 在 Cloud Shell 中，建立教學課程目錄並變更為此目錄。
 
@@ -115,41 +113,14 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 }
 ```
 
-## <a name="docker-compose-configuration-options"></a>Docker Compose 組態選項
-
-在本教學課程中，您會使用 [Docker](https://docs.docker.com/compose/wordpress/#define-the-project) 中的 Compose 檔案，但您會加以修改，使其包含適用於 MySQL 的 Azure 資料庫、永續性儲存體和 Redis。 或者，您也可以使用 [Kubernetes 組態](#use-a-kubernetes-configuration-optional)。 組態檔位於 [Azure 範例](https://github.com/Azure-Samples/multicontainerwordpress)中。
-
-下列清單顯示適用於容器的 Web 應用程式中支援和不支援的 Docker Compose 組態選項：
-
-### <a name="supported-options"></a>支援的選項
-
-* 命令
-* entrypoint
-* Environment
-* 映像
-* 連接埠
-* restart
-* 服務
-* 磁碟區
-
-### <a name="unsupported-options"></a>不支援的選項
-
-* build (不允許)
-* depends_on (已忽略)
-* networks (已忽略)
-* secrets (已忽略)
-
-> [!NOTE]
-> 公開預覽中也會忽略任何未明確標註的其他選項。
-
 ### <a name="docker-compose-with-wordpress-and-mysql-containers"></a>用於 WordPress 和 MySQL 容器的 Docker Compose
 
 ## <a name="create-a-docker-compose-app"></a>建立 Docker Compose 應用程式
 
-在 Cloud Shell 中，使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 命令，在 `myAppServicePlan` App Service 方案中建立多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app_name>_ 取代為唯一的應用程式名稱。
+在 Cloud Shell 中，使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 命令，在 `myAppServicePlan` App Service 方案中建立多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app-name>_ 取代為唯一的應用程式名稱。
 
-```bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
+```azurecli-interactive
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
 建立 Web 應用程式後，Cloud Shell 會顯示類似下列範例的輸出：
@@ -163,7 +134,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
+  "defaultHostName": "<app-name>.azurewebsites.net",
   "enabled": true,
   < JSON data removed for brevity. >
 }
@@ -171,7 +142,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 ### <a name="browse-to-the-app"></a>瀏覽至應用程式
 
-瀏覽至已部署的應用程式 (位於 `http://<app_name>.azurewebsites.net`)。 此應用程式可能需要數分鐘才能載入。 如果發生錯誤，請再等待數分鐘，然後重新整理瀏覽器。 如果您在到問題而想要進行疑難排解，請檢閱[容器記錄](#find-docker-container-logs)。
+瀏覽至已部署的應用程式 (位於 `http://<app-name>.azurewebsites.net`)。 此應用程式可能需要數分鐘才能載入。 如果發生錯誤，請再等待數分鐘，然後重新整理瀏覽器。 如果您在到問題而想要進行疑難排解，請檢閱[容器記錄](#find-docker-container-logs)。
 
 ![適用於容器的 Web 應用程式上的範例多容器應用程式][1]
 
@@ -185,10 +156,10 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 使用 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) 命令建立適用於 MySQL 伺服器的 Azure 資料庫。
 
-在下列命令中，在您看見 _&lt;mysql_server_name>_ 預留位置的地方，取代成您自己的 MySQL 伺服器名稱 (有效字元有 `a-z`、`0-9`、`-`)。 這個名稱是 MySQL 伺服器主機名稱 (`<mysql_server_name>.database.windows.net`) 的一部分，必須是全域唯一的。
+在下列命令中，在您看見 _&lt;mysql-server-name>_ 預留位置的地方，取代成您自己的 MySQL 伺服器名稱 (有效字元有 `a-z`、`0-9`、`-`)。 這個名稱是 MySQL 伺服器主機名稱 (`<mysql-server-name>.database.windows.net`) 的一部分，必須是全域唯一的。
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
 建立伺服器需要幾分鐘的時間才能完成。 建立 MySQL 伺服器後，Cloud Shell 會顯示類似下列範例的資訊：
@@ -197,10 +168,10 @@ az mysql server create --resource-group myResourceGroup --name <mysql_server_nam
 {
   "administratorLogin": "adminuser",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql_server_name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
+  "fullyQualifiedDomainName": "<mysql-server-name>.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
   "location": "southcentralus",
-  "name": "<mysql_server_name>",
+  "name": "<mysql-server-name>",
   "resourceGroup": "myResourceGroup",
   ...
 }
@@ -211,7 +182,7 @@ az mysql server create --resource-group myResourceGroup --name <mysql_server_nam
 使用 [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create) 命令，建立 MySQL 伺服器的防火牆規則來允許用戶端連線。 當起始 IP 和結束 IP 都設為 0.0.0.0 時，防火牆只會為其他 Azure 資源開啟。
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP]
@@ -220,8 +191,8 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 
 ### <a name="create-the-wordpress-database"></a>建立 WordPress 資料庫
 
-```bash
-az mysql db create --resource-group myResourceGroup --server-name <mysql_server_name> --name wordpress
+```azurecli-interactive
+az mysql db create --resource-group myResourceGroup --server-name <mysql-server-name> --name wordpress
 ```
 
 資料庫建立後，Cloud Shell 會顯示類似於下列範例的資訊：
@@ -231,7 +202,7 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql_server_
   "additionalProperties": {},
   "charset": "latin1",
   "collation": "latin1_swedish_ci",
-  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>/databases/wordpress",
+  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>/databases/wordpress",
   "name": "wordpress",
   "resourceGroup": "myResourceGroup",
   "type": "Microsoft.DBforMySQL/servers/databases"
@@ -244,8 +215,8 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql_server_
 
 若要進行這些變更，請在 Cloud Shell 中使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 應用程式設定為區分大小寫和空格分隔。
 
-```bash
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql-server-name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
 ```
 
 應用程式設定建立後，Cloud Shell 會顯示類似於下列範例的資訊：
@@ -255,12 +226,12 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
   {
     "name": "WORDPRESS_DB_HOST",
     "slotSetting": false,
-    "value": "<mysql_server_name>.mysql.database.azure.com"
+    "value": "<mysql-server-name>.mysql.database.azure.com"
   },
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@<mysql_server_name>"
+    "value": "adminuser@<mysql-server-name>"
   },
   {
     "name": "WORDPRESS_DB_NAME",
@@ -279,6 +250,8 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
   }
 ]
 ```
+
+如需有關環境變數的詳細資訊，請參閱[設定環境變數](configure-custom-container.md#configure-environment-variables)。
 
 ### <a name="use-a-custom-image-for-mysql-ssl-and-other-configurations"></a>使用 MySQL SSL 和其他組態的自訂映像
 
@@ -314,10 +287,10 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>使用新組態更新應用程式
 
-在 Cloud Shell 中，使用 [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 命令重新設定多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app_name>_ 取代為您先前建立的 Web 應用程式名稱。
+在 Cloud Shell 中，使用 [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 命令重新設定多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app-name>_ 取代為您先前建立的 Web 應用程式名稱。
 
-```bash
-az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
+```azurecli-interactive
+az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
 應用程式重新設定後，Cloud Shell 會顯示類似下列範例的資訊：
@@ -333,20 +306,20 @@ az webapp config container set --resource-group myResourceGroup --name <app_name
 
 ### <a name="browse-to-the-app"></a>瀏覽至應用程式
 
-瀏覽至已部署的應用程式 (位於 `http://<app_name>.azurewebsites.net`)。 應用程式現在會使用適用於 MySQL 的 Azure 資料庫。
+瀏覽至已部署的應用程式 (位於 `http://<app-name>.azurewebsites.net`)。 應用程式現在會使用適用於 MySQL 的 Azure 資料庫。
 
 ![用於容器的 Web App 上的範例多容器應用程式][1]
 
 ## <a name="add-persistent-storage"></a>新增永續性儲存體
 
-您的多個容器現在會在適用於容器的 Web 應用程式中執行。 不過，如果您此時安裝 WordPress，並於稍後重新啟動應用程式，您會發現 WordPress 安裝已消失。 之所以發生此狀況，是因為您的 Docker Compose 組態目前指向容器內的儲存位置。 安裝到容器中的檔案在應用程式重新啟動後將不會保存。 在本節中，您會將永續性儲存體新增至 WordPress 容器。
+您的多個容器現在會在適用於容器的 Web 應用程式中執行。 不過，如果您此時安裝 WordPress，並於稍後重新啟動應用程式，您會發現 WordPress 安裝已消失。 之所以發生此狀況，是因為您的 Docker Compose 組態目前指向容器內的儲存位置。 安裝到容器中的檔案在應用程式重新啟動後將不會保存。 在此節中，您會將[永續性儲存體新增至](configure-custom-container.md#use-persistent-shared-storage) WordPress 容器。
 
 ### <a name="configure-environment-variables"></a>設定環境變數
 
 若要使用永續性儲存體，您必須在 App Service 內啟用此設定。 若要進行這項變更，請在 Cloud Shell 中使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 應用程式設定為區分大小寫和空格分隔。
 
-```bash
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
 應用程式設定建立後，Cloud Shell 會顯示類似於下列範例的資訊：
@@ -390,10 +363,10 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>使用新組態更新應用程式
 
-在 Cloud Shell 中，使用 [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 命令重新設定多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app_name>_ 取代為唯一的應用程式名稱。
+在 Cloud Shell 中，使用 [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 命令重新設定多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app-name>_ 取代為唯一的應用程式名稱。
 
-```bash
-az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
+```azurecli-interactive
+az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
 在命令執行後，將會顯示類似於下列範例的輸出：
@@ -414,7 +387,7 @@ az webapp config container set --resource-group myResourceGroup --name <app_name
 
 ### <a name="browse-to-the-app"></a>瀏覽至應用程式
 
-瀏覽至已部署的應用程式 (位於 `http://<app_name>.azurewebsites.net`)。
+瀏覽至已部署的應用程式 (位於 `http://<app-name>.azurewebsites.net`)。
 
 WordPress 容器現在會使用適用於 MySQL 的 Azure 資料庫和永續性儲存體。
 
@@ -437,8 +410,8 @@ WordPress 容器現在會使用適用於 MySQL 的 Azure 資料庫和永續性�
 
 若要使用 Redis，您必須在 App Service 內啟用此設定 `WP_REDIS_HOST`。 這是讓 WordPress 與 Redis 主機進行通訊的*必要設定*。 若要進行這項變更，請在 Cloud Shell 中使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 應用程式設定為區分大小寫和空格分隔。
 
-```bash
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WP_REDIS_HOST="redis"
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WP_REDIS_HOST="redis"
 ```
 
 應用程式設定建立後，Cloud Shell 會顯示類似於下列範例的資訊：
@@ -449,7 +422,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@<mysql_server_name>"
+    "value": "adminuser@<mysql-server-name>"
   },
   {
     "name": "WP_REDIS_HOST",
@@ -461,10 +434,10 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### <a name="update-app-with-new-configuration"></a>使用新組態更新應用程式
 
-在 Cloud Shell 中，使用 [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 命令重新設定多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app_name>_ 取代為唯一的應用程式名稱。
+在 Cloud Shell 中，使用 [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 命令重新設定多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app-name>_ 取代為唯一的應用程式名稱。
 
-```bash
-az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
+```azurecli-interactive
+az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 
 在命令執行後，將會顯示類似於下列範例的輸出：
@@ -480,7 +453,7 @@ az webapp config container set --resource-group myResourceGroup --name <app_name
 
 ### <a name="browse-to-the-app"></a>瀏覽至應用程式
 
-瀏覽至已部署的應用程式 (位於 `http://<app_name>.azurewebsites.net`)。
+瀏覽至已部署的應用程式 (位於 `http://<app-name>.azurewebsites.net`)。
 
 完成相關步驟並安裝 WordPress。
 
@@ -512,21 +485,7 @@ WordPress 會連線至 Redis 伺服器。 連線**狀態**會顯示在相同頁�
 
 ## <a name="use-a-kubernetes-configuration-optional"></a>使用 Kubernetes 組態 (選用)
 
-在本節中，您將了解如何使用 Kubernetes 組態來部署多個容器。 請確實依照先前步驟建立[資源群組](#create-a-resource-group)和 [App Service 方案](#create-an-azure-app-service-plan)。 由於大部分的步驟都與 Compose 區段的步驟類似，因此系統已為您合併組態檔。
-
-### <a name="supported-kubernetes-options-for-multi-container"></a>多個容器支援的 Kubernetes 選項
-
-* args
-* 命令
-* containers
-* 映像
-* name
-* 連接埠
-* 規格
-
-> [!NOTE]
->公開預覽中不支援任何未明確標註的其他 Kubernetes 選項。
->
+在此節中，您將了解如何使用 Kubernetes 組態來部署多個容器。 請確實依照先前步驟建立[資源群組](#create-a-resource-group)和 [App Service 方案](#create-an-azure-app-service-plan)。 由於大部分的步驟都與 Compose 區段的步驟類似，因此系統已為您合併組態檔。
 
 ### <a name="kubernetes-configuration-file"></a>Kubernetes 設定檔
 
@@ -534,14 +493,16 @@ WordPress 會連線至 Redis 伺服器。 連線**狀態**會顯示在相同頁�
 
 [!code-yml[Main](../../../azure-app-service-multi-container/kubernetes-wordpress.yml)]
 
+如需支援的設定選項，請參閱 [Kubernetes 選項](configure-custom-container.md#kubernetes-configuration-options)
+
 ### <a name="create-an-azure-database-for-mysql-server"></a>建立適用於 MySQL 的 Azure 資料庫伺服器
 
 使用 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) 命令，在適用於 MySQL 的 Azure 資料庫中建立伺服器。
 
-在下列命令中，在您看見 _&lt;mysql_server_name>_ 預留位置的地方，取代成您自己的 MySQL 伺服器名稱 (有效字元有 `a-z`、`0-9`、`-`)。 這個名稱是 MySQL 伺服器主機名稱 (`<mysql_server_name>.database.windows.net`) 的一部分，必須是全域唯一的。
+在下列命令中，在您看見 _&lt;mysql-server-name>_ 預留位置的地方，取代成您自己的 MySQL 伺服器名稱 (有效字元有 `a-z`、`0-9`、`-`)。 這個名稱是 MySQL 伺服器主機名稱 (`<mysql-server-name>.database.windows.net`) 的一部分，必須是全域唯一的。
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
 建立 MySQL 伺服器後，Cloud Shell 會顯示類似下列範例的資訊：
@@ -550,10 +511,10 @@ az mysql server create --resource-group myResourceGroup --name <mysql_server_nam
 {
   "administratorLogin": "adminuser",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql_server_name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
+  "fullyQualifiedDomainName": "<mysql-server-name>.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
   "location": "southcentralus",
-  "name": "<mysql_server_name>",
+  "name": "<mysql-server-name>",
   "resourceGroup": "myResourceGroup",
   ...
 }
@@ -564,7 +525,7 @@ az mysql server create --resource-group myResourceGroup --name <mysql_server_nam
 使用 [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create) 命令，建立 MySQL 伺服器的防火牆規則來允許用戶端連線。 當起始 IP 和結束 IP 都設為 0.0.0.0 時，防火牆只會為其他 Azure 資源開啟。
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP]
@@ -575,8 +536,8 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 
 如果您尚未建立[適用於 MySQL 伺服器的 Azure 資料庫](#create-an-azure-database-for-mysql-server)，請加以建立。
 
-```bash
-az mysql db create --resource-group myResourceGroup --server-name <mysql_server_name> --name wordpress
+```azurecli-interactive
+az mysql db create --resource-group myResourceGroup --server-name <mysql-server-name> --name wordpress
 ```
 
 資料庫建立後，Cloud Shell 會顯示類似於下列範例的資訊：
@@ -586,7 +547,7 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql_server_
   "additionalProperties": {},
   "charset": "latin1",
   "collation": "latin1_swedish_ci",
-  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>/databases/wordpress",
+  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>/databases/wordpress",
   "name": "wordpress",
   "resourceGroup": "myResourceGroup",
   "type": "Microsoft.DBforMySQL/servers/databases"
@@ -595,10 +556,10 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql_server_
 
 ### <a name="create-a-multi-container-app-kubernetes"></a>建立多容器應用程式 (Kubernetes)
 
-在 Cloud Shell 中，使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 命令，在 `myResourceGroup` 資源群組和 `myAppServicePlan` App Service 方案中建立多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app_name>_ 取代為唯一的應用程式名稱。
+在 Cloud Shell 中，使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 命令，在 `myResourceGroup` 資源群組和 `myAppServicePlan` App Service 方案中建立多容器 [Web 應用程式](app-service-linux-intro.md)。 別忘了將 _\<app-name>_ 取代為唯一的應用程式名稱。
 
-```bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
+```azurecli-interactive
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
 ```
 
 建立 Web 應用程式後，Cloud Shell 會顯示類似下列範例的輸出：
@@ -611,7 +572,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
+  "defaultHostName": "<app-name>.azurewebsites.net",
   "enabled": true,
   < JSON data removed for brevity. >
 }
@@ -621,8 +582,8 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 若要將 WordPress 應用程式連線至這個新的 MySQL 伺服器，您必須設定幾個 WordPress 專屬環境變數。 若要進行這項變更，請在 Cloud Shell 中使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 應用程式設定為區分大小寫和空格分隔。
 
-```bash
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql-server-name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
 ```
 
 應用程式設定建立後，Cloud Shell 會顯示類似於下列範例的資訊：
@@ -632,12 +593,12 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
   {
     "name": "WORDPRESS_DB_HOST",
     "slotSetting": false,
-    "value": "<mysql_server_name>.mysql.database.azure.com"
+    "value": "<mysql-server-name>.mysql.database.azure.com"
   },
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@<mysql_server_name>"
+    "value": "adminuser@<mysql-server-name>"
   },
   {
     "name": "WORDPRESS_DB_NAME",
@@ -654,14 +615,14 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### <a name="add-persistent-storage"></a>新增永續性儲存體
 
-您的多個容器現在會在適用於容器的 Web 應用程式中執行。 資料將在重新啟動後清除，因為檔案不會持續保存。 在本節中，您會將永續性儲存體新增至 WordPress 容器。
+您的多個容器現在會在適用於容器的 Web 應用程式中執行。 資料將在重新啟動後清除，因為檔案不會持續保存。 在此節中，您會將[永續性儲存體新增至](configure-custom-container.md#use-persistent-shared-storage) WordPress 容器。
 
 ### <a name="configure-environment-variables"></a>設定環境變數
 
 若要使用永續性儲存體，您必須在 App Service 內啟用此設定。 若要進行這項變更，請在 Cloud Shell 中使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 應用程式設定為區分大小寫和空格分隔。
 
-```bash
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
 應用程式設定建立後，Cloud Shell 會顯示類似於下列範例的資訊：
@@ -678,7 +639,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### <a name="browse-to-the-app"></a>瀏覽至應用程式
 
-瀏覽至已部署的應用程式 (位於 `http://<app_name>.azurewebsites.net`)。
+瀏覽至已部署的應用程式 (位於 `http://<app-name>.azurewebsites.net`)。
 
 應用程式現在會在適用於容器的 Web 應用程式中執行多個容器。
 
@@ -690,7 +651,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ## <a name="find-docker-container-logs"></a>尋找 Docker 容器記錄
 
-如果您在使用多個容器時發生問題，您可以瀏覽至下列位置存取容器記錄：`https://<app_name>.scm.azurewebsites.net/api/logs/docker`。
+如果您在使用多個容器時發生問題，您可以瀏覽至下列位置存取容器記錄：`https://<app-name>.scm.azurewebsites.net/api/logs/docker`。
 
 您會看到類似於下列範例的輸出：
 
@@ -700,7 +661,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
       "machineName":"RD00XYZYZE567A",
       "lastUpdated":"2018-05-10T04:11:45Z",
       "size":25125,
-      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log",
+      "href":"https://<app-name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log",
       "path":"/home/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log"
    }
 ]
@@ -710,7 +671,9 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-在本教學課程中，您已了解如何：
+## <a name="next-steps"></a>後續步驟
+
+在此教學課程中，您已了解如何：
 > [!div class="checklist"]
 > * 將 Docker Compose 組態轉換為使用適用於容器的 Web 應用程式
 > * 將 Kubernetes 組態轉換為使用適用於容器的 Web 應用程式
@@ -720,10 +683,15 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 > * 連線到適用於 MySQL 的 Azure 資料庫
 > * 針對錯誤進行疑難排解
 
-## <a name="next-steps"></a>後續步驟
+前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
 
 > [!div class="nextstepaction"]
-> [對適用於容器的 Web 應用程式使用自訂 Docker 映像](tutorial-custom-docker-image.md)
+> [教學課程：將自訂 DNS 名稱對應至應用程式](../app-service-web-tutorial-custom-domain.md)
+
+或者，查看其他資源：
+
+> [!div class="nextstepaction"]
+> [設定自訂容器](configure-custom-container.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

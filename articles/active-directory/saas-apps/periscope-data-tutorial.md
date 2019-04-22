@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275533"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617881"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>教學課程：Azure Active Directory 與 Periscope Data 整合
 
-在本教學課程中，您會了解如何整合 Periscope Data 與 Azure Active Directory (Azure AD)。
+在此教學課程中，您會了解如何整合 Periscope Data 與 Azure Active Directory (Azure AD)。
 Periscope Data 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Periscope Data 的人員。
@@ -42,7 +42,7 @@ Periscope Data 與 Azure AD 整合提供下列優點：
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
+在此教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * Periscope Data 支援 **SP** 起始的 SSO
 
@@ -70,7 +70,7 @@ Periscope Data 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Periscope Data 搭配運作的 Azure AD 單一登入。
+在此節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Periscope Data 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Periscope Data 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Periscope Data 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -84,7 +84,7 @@ Periscope Data 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
+在此節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
 若要使用 Periscope Data 設定 Azure AD 單一登入，請執行下列步驟：
 
@@ -111,10 +111,10 @@ Periscope Data 與 Azure AD 整合提供下列優點：
     | `https://app.periscopedata.com/` |
     | `https://app.periscopedata.com/app/<SITENAME>` |
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://app.periscopedata.com/<SITENAME>/sso`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://app.periscopedata.com/<SITENAME>/sso`
 
     > [!NOTE]
-    > [登入 URL] 的值不是真正的值。 請以實際的登入 URL 更新該值。 請連絡 [Periscope Data 用戶端支援小組](mailto:support@periscopedata.com)以取得此值，以及從**設定 Periscope Data 單一登入**一節取得的識別碼值 (稍後會在本教學課程中說明)。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > [登入 URL] 的值不是真正的值。 請以實際的登入 URL 更新該值。 請連絡 [Periscope Data 用戶端支援小組](mailto:support@periscopedata.com)以取得此值，以及從**設定 Periscope Data 單一登入**一節取得的識別碼值 (稍後會在此教學課程中說明)。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將其儲存在您的電腦上。
 
@@ -136,7 +136,7 @@ Periscope Data 與 Azure AD 整合提供下列優點：
 
     d. 尋找 **SingleLogoutService** 標記，並在 [SLO URL] 文字方塊中貼上**位置**值。
 
-    e. 複製執行個體的**識別碼**值，並將其貼入 Azure 入口網站上 [基本 SAML 設定] 區段中的 [識別碼 (實體識別碼)] **** 文字方塊內。
+    e. 複製執行個體的 [識別碼] 值，並將其貼入 Azure 入口網站上 [基本 SAML 設定] 區段中的 [識別碼 (實體識別碼)] 文字方塊內。
 
     f. 尋找 XML 檔案的第一個標記，複製 **entityID** 的值，並將其貼入 [簽發者] 文字方塊。
 
@@ -150,7 +150,7 @@ Periscope Data 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
-本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+此節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
@@ -175,7 +175,7 @@ Periscope Data 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Periscope Data 的存取權授與 Britta Simon，讓其能夠使用 Azure 單一登入。
+在此節中，您會將 Periscope Data 的存取權授與 Britta Simon，讓其能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Periscope Data]。
 
@@ -225,7 +225,7 @@ Periscope Data 與 Azure AD 整合提供下列優點：
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
-在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+在此節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Periscope Data] 圖格時，應該會自動登入您設定 SSO 的 Periscope Data。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 

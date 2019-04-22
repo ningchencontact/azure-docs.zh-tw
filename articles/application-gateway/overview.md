@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 447c5b1e94b848e9e560db1188a767f2040740c0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225530"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546845"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -118,9 +118,12 @@ WebSocket 和 HTTP/2 通訊協定都可透過長時間執行的 TCP 連線，讓
 
 ## <a name="rewrite-http-headers-public-preview"></a>重新撰寫 HTTP 標頭 (公開預覽)
 
-HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。 重新撰寫這些 HTTP 標頭可幫助您完成數個重要的狀況，例如新增與安全性相關的標頭欄位 (例如 HSTS/ X-XSS-Protection) 或刪除可能會揭露機密資訊 (例如後端伺服器的名稱) 的回應標頭欄位。 
+HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。 重寫這些 HTTP 標頭可協助您完成幾個重要的案例，例如：
+- 新增安全性相關的標頭欄位，例如 HSTS/ X-XSS-Protection。
+- 移除可能會顯示機密資訊的回應標頭欄位。
+- 從 X-Forwarded-For 標頭中移除連接埠資訊。
 
-應用程式閘道現在支援重新撰寫內送 HTTP 要求以及外送 HTTP 回應之標頭的能力。 當要求/回應封包在用戶端與後端集區之間移動時，您將能夠新增、移除或更新 HTTP 要求和回應標頭。 您可以重新撰寫這兩個標準 (定義於 [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt) \(英文\) 中) 以及非標準的標頭欄位。  
+Application Gateway 支援在要求及回應封包於用戶端與後端應用程式之間移動時，新增、移除或更新 HTTP 要求及回應標頭的功能。 它還為您提供了新增條件的功能，以確保僅在符合特定條件時才重新寫入指定的標頭。
 
 如需此公開預覽功能的詳細資訊，請參閱[重新撰寫 HTTP 標頭](rewrite-http-headers.md)。
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2018
 ms.author: genli
 ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492374"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：點對站連線問題
@@ -29,9 +29,9 @@ ms.locfileid: "59492374"
 
 ### <a name="symptom"></a>徵狀
 
-當您嘗試使用 VPN 用戶端來連線到 Azure 虛擬網路時，會收到下列錯誤訊息：
+尝试使用 VPN 客户端连接到 Azure 虚拟网络时，看到以下错误消息：
 
-**找不到可用於這個可延伸驗證通訊協定的憑證。 （錯誤 798）**
+**找不到可用于此可扩展身份验证协议的证书。(錯誤 798)**
 
 ### <a name="cause"></a>原因
 
@@ -93,7 +93,7 @@ Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您�
 
 當您嘗試使用 VPN 用戶端來連線到 Azure 虛擬網路時，會收到下列錯誤訊息：
 
-**收到的訊息超出預期或格式不正確。 （錯誤 0x80090326）**
+**接收到的訊息超出預期或格式不正確。(錯誤 0x80090326)**
 
 ### <a name="cause"></a>原因
 
@@ -116,7 +116,7 @@ Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您�
 
 當您嘗試使用 VPN 用戶端來連線到 Azure 虛擬網路時，會收到下列錯誤訊息：
 
-**憑證鏈結處理但它終止於信任提供者不信任的根憑證。**
+**憑證鏈結已處理，但它終止於信任提供者所未信任的根憑證。**
 
 ### <a name="solution"></a>解決方法
 
@@ -136,7 +136,7 @@ Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您�
 
 您收到下列錯誤訊息：
 
-**檔案下載錯誤。 未指定目標 URI。**
+**檔案下載錯誤。未指定目標 URI。**
 
 ### <a name="cause"></a>原因 
 
@@ -152,7 +152,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 當您嘗試使用 VPN 用戶端來連線到 Azure 虛擬網路時，會收到下列錯誤訊息：
 
-**自訂指令碼 （更新您的路由表） 失敗。 （錯誤 8007026f）**
+**自訂指令碼 (更新您的路由表) 失敗。(錯誤 8007026f)**
 
 ### <a name="cause"></a>原因
 
@@ -185,7 +185,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 當您嘗試在 Azure 入口網站中儲存 VPN 閘道變更時，收到下列錯誤訊息：
 
-**無法儲存虛擬網路閘道&lt;*閘道名稱*&gt;。 憑證資料&lt;*憑證識別碼*&gt;無效。**
+**無法儲存虛擬網路閘道 &lt;*閘道名稱*&gt;。憑證 &lt;*憑證識別碼*&gt; 的資料無效。**
 
 ### <a name="cause"></a>原因 
 
@@ -232,7 +232,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 當您嘗試下載 VPN 用戶端組態套件時，收到下列錯誤訊息：
 
-**無法下載檔案。 錯誤詳細資料：錯誤 503。 伺服器太忙碌。**
+**無法下載檔案。錯誤詳細資料：錯誤 503。伺服器忙碌中。**
  
 ### <a name="solution"></a>解決方法
 

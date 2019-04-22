@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/10/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014124"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496789"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>教學課程：建立和管理匯出的資料
 
@@ -75,6 +75,10 @@ ms.locfileid: "58014124"
 
 **自訂** – 可讓您使用當週和當月選項來排程每週和每月匯出。 *初始匯出會立即執行。*
 
+如果您有預付型方案、MSDN 或 Visual Studio 訂用帳戶，則您發票的計費期間可能與行事曆月份不同。 對於這些類型的訂用帳戶和資源群組，您可以建立遵循發票期間或行事曆月份的匯出項目。 若要建立遵循發票月份的匯出項目，請瀏覽至 [自訂]，然後選取 [迄今為止的計費期間]。  若要建立遵循行事曆月份的匯出項目，請選取 [月初至今]。
+>
+>
+
 ![[新匯出 - 基本資料] 索引標籤，其中顯示自訂每週的當週選取項目](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
 ## <a name="verify-that-data-is-collected"></a>驗證已收集資料
@@ -92,6 +96,7 @@ ms.locfileid: "58014124"
 檔案隨即便會使用設為開啟 CSV 檔案副檔名的程式或應用程式開啟。 以下是 Excel 中的範例。
 
 ![Excel 中顯示的範例匯出 CSV 資料](./media/tutorial-export-acm-data/example-export-data.png)
+
 
 ## <a name="access-exported-data-from-other-systems"></a>從其他系統存取匯出資料
 

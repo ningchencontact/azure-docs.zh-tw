@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 737244e4be49b7626efaff496956a4028e12dae8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 57f71be436ac7632f111a7f88f9dc2d4bea608c4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001346"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680191"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用靜態公用 IP 位址建立輸入控制器
 
@@ -33,7 +33,7 @@ ms.locfileid: "58001346"
 
 本文使用 Helm 來安裝 NGINX 輸入控制器、cert-manager 及範例 Web 應用程式。 您需要在 AKS 叢集內將 Helm 初始化，並使用適用於 Tiller 的服務帳戶。 請確定您使用的是 Helm 的最新版本。 如需升級指示，請參閱 [Helm 安裝文件][helm-install]。如需設定及使用 Helm 的詳細資訊，請參閱[在 Azure Kubernetes Service (AKS) 中使用 Helm 安裝應用程式][use-helm]。
 
-本文也會要求您執行 Azure CLI 版本 2.0.59 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+本文也會要求您執行 Azure CLI 版本 2.0.61 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 ## <a name="create-an-ingress-controller"></a>建立輸入控制器
 
@@ -66,11 +66,15 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 現在，使用 Helm 部署 nginx-ingress 圖表。 新增 `--set controller.service.loadBalancerIP` 參數，並指定上一個步驟中所建立的自有公用 IP 位址。 為了新增備援，您必須使用 `--set controller.replicaCount` 參數部署兩個 NGINX 輸入控制器複本。 為充分享有執行輸入控制器複本的好處，請確定 AKS 叢集中有多個節點。
 
 > [!TIP]
-> 下列範例會在 `kube-system` 命名空間中安裝輸入控制器和憑證。 您可以視需要，為自己的環境指定不同的命名空間。 此外，如果您的 AKS 叢集並未啟用 RBAC，請將 `--set rbac.create=false` 新增到命令中。
+> 下列範例會建立名為輸入資源的 Kubernetes 命名空間*輸入 basic*。 視需要請指定您自己的環境的命名空間。 如果您的 AKS 叢集不啟用 RBAC，請新增`--set rbac.create=false`Helm 命令。
 
 ```console
+# Create a namespace for your ingress resources
+kubectl create namespace ingress-basic
+
+# Use Helm to deploy an NGINX ingress controller
 helm install stable/nginx-ingress \
-    --namespace kube-system \
+    --namespace ingress-basic \
     --set controller.service.loadBalancerIP="40.121.63.72"  \
     --set controller.replicaCount=2
 ```
@@ -78,7 +82,7 @@ helm install stable/nginx-ingress \
 為 NGINX 輸入控制器建立 Kubernetes 負載平衡器服務時，系統會指派靜態 IP 位址，如下列輸出範例所示：
 
 ```
-$ kubectl get service -l app=nginx-ingress --namespace kube-system
+$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
 
 NAME                                        TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
 dinky-panda-nginx-ingress-controller        LoadBalancer   10.0.232.56   40.121.63.72   80:31978/TCP,443:32037/TCP   3m
@@ -119,36 +123,27 @@ NGINX 輸入控制器支援 TLS 終止。 有數種方式可擷取和設定 HTTP
 若要在已啟用 RBAC 的叢集中安裝 cert-manager 控制器，請使用下列 `helm install` 命令：
 
 ```console
-kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+# Install the CustomResourceDefinition resources separately
+kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.7/deploy/manifests/00-crds.yaml
 
-kubectl apply \
-    -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
-    
-helm install stable/cert-manager \
-    --namespace kube-system \
-    --set ingressShim.defaultIssuerName=letsencrypt-staging \
-    --set ingressShim.defaultIssuerKind=ClusterIssuer \
-    --version v0.6.6
-```
+# Create the namespace for cert-manager
+kubectl create namespace cert-manager
 
-> [!TIP]
-> 如果您收到錯誤，例如， `Error: failed to download "stable/cert-manager"`，請確定您已成功執行`helm repo update`以取得最新可用的 Helm 圖表的清單。
+# Label the cert-manager namespace to disable resource validation
+kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
 
-如果您的叢集並未啟用 RBAC，請改用下列命令：
+# Add the Jetstack Helm repository
+helm repo add jetstack https://charts.jetstack.io
 
-```console
-kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+# Update your local Helm chart repository cache
+helm repo update
 
-kubectl apply \
-    -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
-    
-helm install stable/cert-manager \
-    --namespace kube-system \
-    --set ingressShim.defaultIssuerName=letsencrypt-staging \
-    --set ingressShim.defaultIssuerKind=ClusterIssuer \
-    --set rbac.create=false \
-    --set serviceAccount.create=false \
-    --version v0.6.6
+# Install the cert-manager Helm chart
+helm install \
+  --name cert-manager \
+  --namespace cert-manager \
+  --version v0.7.0 \
+  jetstack/cert-manager
 ```
 
 如需 cert-manager 設定的詳細資訊，請參閱 [cert-manager 專案][cert-manager]。
@@ -164,6 +159,7 @@ apiVersion: certmanager.k8s.io/v1alpha1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-staging
+  namespace: ingress-basic
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
@@ -181,55 +177,6 @@ $ kubectl apply -f cluster-issuer.yaml
 clusterissuer.certmanager.k8s.io/letsencrypt-staging created
 ```
 
-## <a name="create-a-certificate-object"></a>建立憑證物件
-
-接下來，必須建立憑證資源。 憑證資源會定義所需的 X.509 憑證。 如需詳細資訊，請參閱 [cert-manager 憑證][cert-manager-certificates]。
-
-Cert-manager 有可能已使用 ingress-shim 自動為您建立憑證物件，v0.2.2 之後的 cert-manager 會自動與 ingress-shim 搭配部署。 如需詳細資訊請，請參閱 [ingress-shim 文件][ingress-shim] \(英文\)。
-
-若要確認已成功建立憑證，請使用 `kubectl describe certificate tls-secret` 命令。
-
-如果已發出憑證，您將會看到類似下列的輸出：
-```
-Type    Reason          Age   From          Message
-----    ------          ----  ----          -------
-  Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
-  Normal  DomainVerified  10m   cert-manager  Domain "demo-aks-ingress.eastus.cloudapp.azure.com" verified with "http-01" validation
-  Normal  IssueCert       10m   cert-manager  Issuing certificate...
-  Normal  CertObtained    10m   cert-manager  Obtained certificate from ACME server
-  Normal  CertIssued      10m   cert-manager  Certificate issued successfully
-```
-
-如果您需要建立額外的憑證資源，可以使用下列範例資訊清單來執行該動作。 建立名為*certificates.yaml* ，並更新*dnsNames*並*網域*您在上一個步驟中建立的 DNS 名稱。 如果您使用僅供內部使用的輸入控制器，請為您的服務指定內部 DNS 名稱。
-
-```yaml
-apiVersion: certmanager.k8s.io/v1alpha1
-kind: Certificate
-metadata:
-  name: tls-secret
-spec:
-  secretName: tls-secret
-  dnsNames:
-  - demo-aks-ingress.eastus.cloudapp.azure.com
-  acme:
-    config:
-    - http01:
-        ingressClass: nginx
-      domains:
-      - demo-aks-ingress.eastus.cloudapp.azure.com
-  issuerRef:
-    name: letsencrypt-staging
-    kind: ClusterIssuer
-```
-
-若要建立憑證資源，請使用 `kubectl apply -f certificates.yaml` 命令。
-
-```
-$ kubectl apply -f certificates.yaml
-
-certificate.certmanager.k8s.io/tls-secret created
-```
-
 ## <a name="run-demo-applications"></a>執行示範應用程式
 
 輸入控制器和憑證管理解決方案皆已設定。 現在讓我們在您的 AKS 叢集中執行兩個示範應用程式。 在此範例中，會使用 Helm 來部署簡單 'Hello world' 應用程式的兩個執行個體。
@@ -243,13 +190,16 @@ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 使用下列命令，從 Helm 圖表建立第一個示範應用程式：
 
 ```console
-helm install azure-samples/aks-helloworld
+helm install azure-samples/aks-helloworld --namespace ingress-basic
 ```
 
 現在，請安裝示範應用程式的第二個執行個體。 對第二個執行個體指定新的標題，以便在視覺上區分這兩個應用程式。 您也要指定唯一的服務名稱：
 
 ```console
-helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
+helm install azure-samples/aks-helloworld \
+    --namespace ingress-basic \
+    --set title="AKS Ingress Demo" \
+    --set serviceName="ingress-demo"
 ```
 
 ## <a name="create-an-ingress-route"></a>建立輸入路由
@@ -265,6 +215,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
+  namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-staging
@@ -296,6 +247,56 @@ $ kubectl apply -f hello-world-ingress.yaml
 ingress.extensions/hello-world-ingress created
 ```
 
+## <a name="create-a-certificate-object"></a>建立憑證物件
+
+接下來，必須建立憑證資源。 憑證資源會定義所需的 X.509 憑證。 如需詳細資訊，請參閱 [cert-manager 憑證][cert-manager-certificates]。
+
+Cert-manager 有可能已使用 ingress-shim 自動為您建立憑證物件，v0.2.2 之後的 cert-manager 會自動與 ingress-shim 搭配部署。 如需詳細資訊請，請參閱 [ingress-shim 文件][ingress-shim] \(英文\)。
+
+若要確認已成功建立憑證，請使用 `kubectl describe certificate tls-secret --namespace ingress-basic` 命令。
+
+如果已發出憑證，您將會看到類似下列的輸出：
+```
+Type    Reason          Age   From          Message
+----    ------          ----  ----          -------
+  Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
+  Normal  DomainVerified  10m   cert-manager  Domain "demo-aks-ingress.eastus.cloudapp.azure.com" verified with "http-01" validation
+  Normal  IssueCert       10m   cert-manager  Issuing certificate...
+  Normal  CertObtained    10m   cert-manager  Obtained certificate from ACME server
+  Normal  CertIssued      10m   cert-manager  Certificate issued successfully
+```
+
+如果您需要建立額外的憑證資源，可以使用下列範例資訊清單來執行該動作。 將 *dnsNames* 和 *domains* 更新為您在上一個步驟中建立的 DNS 名稱。 如果您使用僅供內部使用的輸入控制器，請為您的服務指定內部 DNS 名稱。
+
+```yaml
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: tls-secret
+  namespace: ingress-basic
+spec:
+  secretName: tls-secret
+  dnsNames:
+  - demo-aks-ingress.eastus.cloudapp.azure.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - demo-aks-ingress.eastus.cloudapp.azure.com
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+```
+
+若要建立憑證資源，請使用 `kubectl apply -f certificates.yaml` 命令。
+
+```
+$ kubectl apply -f certificates.yaml
+
+certificate.certmanager.k8s.io/tls-secret created
+```
+
 ## <a name="test-the-ingress-configuration"></a>測試輸入組態
 
 開啟網頁瀏覽器至您 Kubernetes 輸入控制器的 FQDN，例如 *https://demo-aks-ingress.eastus.cloudapp.azure.com*。
@@ -318,7 +319,25 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="clean-up-resources"></a>清除資源
 
-本文使用 Helm 來安裝輸入元件、憑證及範例應用程式。 部署 Helm 圖表時會建立一些 Kubernetes 資源。 這些資源包含 Pod、部署和服務。 若要清除，請先移除憑證資源：
+本文使用 Helm 來安裝輸入元件、憑證及範例應用程式。 部署 Helm 圖表時會建立一些 Kubernetes 資源。 這些資源包含 Pod、部署和服務。 若要清除這些資源，您可以刪除整個範例命名空間或個別資源。
+
+### <a name="delete-the-sample-namespace-and-all-resources"></a>刪除範例命名空間和所有資源
+
+若要刪除整個範例命名空間，請使用`kubectl delete`命令並指定您的命名空間名稱。 會刪除命名空間中的所有資源。
+
+```console
+kubectl delete namespace ingress-basic
+```
+
+然後，移除 AKS hello world 應用程式的 Helm 存放庫：
+
+```console
+helm repo remove azure-samples
+```
+
+### <a name="delete-resources-individually"></a>個別地刪除資源
+
+或者，更細微的方法是刪除建立的個別資源。 首先，移除憑證資源：
 
 ```console
 kubectl delete -f certificates.yaml
@@ -358,6 +377,12 @@ helm repo remove azure-samples
 
 ```console
 kubectl delete -f hello-world-ingress.yaml
+```
+
+將自己刪除命名空間。 使用`kubectl delete`命令並指定您的命名空間名稱：
+
+```console
+kubectl delete namespace ingress-basic
 ```
 
 最後，移除針對輸入控制器所建立的靜態公用 IP 位址。 提供您在本文第一個步驟中取得的 MC_ 叢集資源群組名稱，例如 MC_myResourceGroup_myAKSCluster_eastus：

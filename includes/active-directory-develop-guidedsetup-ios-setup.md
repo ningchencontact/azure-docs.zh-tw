@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d8e249a788d80108d46a61f316b795ab04e541a2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: e72c4b0cf8f77a057ff07f8bce7acae4e834e28d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203477"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502915"
 ---
 ## <a name="setting-up-your-ios-application"></a>設定您的 iOS 應用程式
 
-本節提供建立新專案的逐步指示，用以示範如何將 iOS 應用程式 (Swift) 與「使用 Microsoft 進行登入」整合，讓它能夠查詢需要權杖的 Web API。
+此節提供建立新專案的逐步指示，用以示範如何將 iOS 應用程式 (Swift) 與「使用 Microsoft 進行登入」整合，讓它能夠查詢需要權杖的 Web API。
 
 > 想要改為下載此範例的 XCode 專案嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)並跳至[設定步驟](#register-your-application)，以在執行之前先設定程式碼範例。
 
@@ -61,7 +61,7 @@ echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" >
 carthage update
 ```
 
-> 上述程序是用來下載並建置 Microsoft Authentication Library (MSAL)。 MSAL 會處理使用者權杖的取得、快取及重新整理，這些權杖是用來存取受 Azure Active Directory v2.0 保護的 API。
+> 上述程序是用來下載並建置 Microsoft Authentication Library (MSAL)。 MSAL 會處理使用者權杖的取得、快取及重新整理作業，這些權杖是用來存取受 Microsoft 身分識別平台保護的 API。
 
 ## <a name="add-the-msal-framework-to-your-application"></a>將 MSAL 架構新增至您的應用程式
 
@@ -91,7 +91,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 
 系統應會自動建立 Main.storyboard 檔案，作為專案範本的一部分。 請遵循下列指示以建立應用程式 UI：
 
-1.  按住 Ctrl 鍵並按一下 `Main.storyboard` 以顯示內容功能表，然後按一下：`Open As` > `Source Code`
+1.  按住 Ctrl 鍵並按一下 [`Main.storyboard`] 以顯示快顯功能表，然後按一下：[`Open As` > ]`Source Code`
 2.  使用下列程式碼來取代 `<scenes>` 節點：
 
 ```xml

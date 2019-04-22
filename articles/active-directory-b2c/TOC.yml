@@ -85,8 +85,8 @@ items:
     href: add-native-application.md
   - name: 設定年齡管制
     href: basic-age-gating.md
-  - name: 設定權杖
-    href: active-directory-b2c-token-session-sso.md
+  - name: 設定工作階段行為
+    href: session-behavior.md
   - name: 自訂語言
     href: active-directory-b2c-reference-language-customization.md
   - name: 自訂密碼
@@ -111,8 +111,6 @@ items:
       href: active-directory-b2c-ui-customization-custom.md
     - name: 以動態方式自訂 UI
       href: active-directory-b2c-ui-customization-custom-dynamic.md
-    - name: 自訂權杖
-      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
     - name: 定義自訂屬性
       href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
     - name: 啟用讓我保持登入
@@ -147,8 +145,6 @@ items:
         href: active-directory-b2c-custom-setup-twitter-idp.md
     - name: 網頁合約
       href: page-contract.md
-    - name: 透過存取權杖傳遞
-      href: idp-pass-through-custom.md
     - name: 密碼複雜度
       href: active-directory-b2c-reference-password-complexity-custom.md
     - name: 密碼變更
@@ -159,6 +155,12 @@ items:
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: Salesforce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: 權杖
+      items:
+      - name: 自訂權杖
+        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+      - name: 透過存取權杖傳遞
+        href: idp-pass-through-custom.md
     - name: 追蹤使用者行為
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: 參考
@@ -272,10 +274,6 @@ items:
       href: active-directory-b2c-devquickstarts-ios.md
     - name: 使用 App Auth 的 Android
       href: active-directory-b2c-devquickstarts-android.md
-  - name: 取得存取權杖
-    href: active-directory-b2c-access-tokens.md
-  - name: 透過存取權杖傳遞
-    href: idp-pass-through-user-flow.md
   - name: 報告使用方式
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: 資源擁有者密碼認證
@@ -284,6 +282,14 @@ items:
     href: direct-signin.md
   - name: 設定自助密碼重設
     href: active-directory-b2c-reference-sspr.md
+  - name: 權杖
+    items:
+    - name: 設定權杖
+      href: configure-tokens.md
+    - name: 透過存取權杖傳遞
+      href: idp-pass-through-user-flow.md
+    - name: 要求存取權杖
+      href: active-directory-b2c-access-tokens.md
   - name: 使用 b2clogin.com
     href: b2clogin.md
   - name: 使用 Azure AD Graph API
@@ -326,9 +332,9 @@ items:
     href: active-directory-b2c-support.md
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: cebc59a7d10ce669fd8187687b80f291a07d1c06
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: de9ae82220bd464cbee7345b7f2421d02f0fc545
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886568"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681126"

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: bb73f58c5dca5e49cdb075b046f883ffeb77c95c
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: c13c9ece54d512adf271532a4ac17876a88d733e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203293"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502984"
 ---
 ## <a name="test-your-code"></a>測試您的程式碼
 
@@ -35,7 +35,7 @@ ms.locfileid: "58203293"
     ```
 1. 開啟瀏覽器並輸入 http://<span></span>localhost:30662 or http://<span></span>localhost:{port}，其中的 port 是網頁伺服器正在接聽的連接埠。 您應會看到 index.html 檔案的內容和 [登入] 按鈕。
 
-<p/><!-- -->
+<p><!-- -->
 
 ### <a name="test-with-visual-studio"></a>使用 Visual Studio 進行測試
 
@@ -43,7 +43,7 @@ ms.locfileid: "58203293"
 
 ## <a name="test-your-application"></a>測試您的應用程式
 
-在瀏覽器載入您的 index.html 檔案之後，請按一下 [登入]。 系統會提示您使用 Microsoft Azure Active Directory (Azure AD) v2.0 端點登入：
+在瀏覽器載入您的 index.html 檔案之後，請按一下 [登入]。 系統會提示您使用 Microsoft 身分識別平台端點登入：
 
 ![登入您的 JavaScript SPA 帳戶](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

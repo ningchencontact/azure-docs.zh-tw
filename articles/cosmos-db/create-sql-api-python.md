@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: 269a66441529efee358cea22bb4f98b81a4b2f23
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: b257c1dbbed225bee9adfdb427bd036f0230ea47
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586319"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565056"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB：使用 Azure Cosmos DB SQL API 帳戶建置 Python 應用程式
 
@@ -26,7 +26,7 @@ ms.locfileid: "56586319"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
+Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值和圖形資料庫。 所有這些作業都受惠於 Azure Cosmos DB 的散發和調整。
 
 此快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帳戶、文件資料庫和容器。 接著，您要建置和執行以適用於 [SQL API](sql-api-sdk-python.md) 的 Python SDK 為基礎的主控台應用程式。 本快速入門使用 3.0 版的 [Python SDK]。(https://pypi.org/project/azure-cosmos)
 
@@ -34,7 +34,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="prerequisites"></a>必要條件
 
-* [Python 3.6](https://www.python.org/downloads/)，而且 \<安裝位置\>\Python36 和 \<安裝位置>\Python36\Scripts 會新增至您的 PATH。 
+* [Python 3.6](https://www.python.org/downloads/) \(英文\)，可在您的 `PATH` 中取得 `python` 可執行檔。
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [適用於 Visual Studio Code 的 Python 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -98,7 +98,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 
+此為選用步驟。 了解以程式碼建立的資料庫資源，或直接跳到[更新您的連接字串](#update-your-connection-string)。
 
 請注意，如果您熟悉舊版 Python SDK，您可能已習慣看到「集合」和「文件」等字詞。 因為 Azure Cosmos DB 支援多個 API 模型，3.0+ 版的 Python SDK 會使用「容器」這個泛用字詞，此字詞可能是用來說明容器內容的集合、圖表或資料表和「項目」。
 

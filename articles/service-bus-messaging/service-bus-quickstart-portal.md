@@ -5,32 +5,28 @@ services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: fa6d2b7d1fbd99e482cc013720c39b4b150f6742
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889540"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607750"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>快速入門：使用 Azure 入口網站建立服務匯流排佇列
-Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提供安全的傳訊和絕對的可靠性。 典型的服務匯流排案例通常會牽涉到將兩個或更多應用程式、服務或程序彼此分開處理，以及傳輸狀態或資料變更。 此類案例可能牽涉到在另一個應用程式或服務中排程多個批次作業，或觸發訂單履行。 例如，零售公司可能會將其銷售點資料傳送至後端辦公室或區域配送中心，以進行補貨和庫存更新。 在此案例中，用戶端應用程式會對服務匯流排佇列傳送及接收訊息。  
-
-![佇列](./media/service-bus-quickstart-portal/quick-start-queue.png)
-
 本快速入門說明如何使用 [Azure 入口網站][Azure portal]建立傳訊命名空間和該命名空間內的佇列，以對服務匯流排佇列傳送和接收訊息，以及如何取得該命名空間上的授權認證。 程序接著會說明如何使用 [.NET Standard 程式庫](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)從這個佇列傳送和接收訊息。
 
-如果您沒有 Azure 訂用帳戶，您可以在開始前建立[免費帳戶][]。
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您已安裝︰
 
-- [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](https://www.visualstudio.com/vs) 或更新版本。
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以在開始前建立[免費帳戶][]。
+- [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](https://www.visualstudio.com/vs) 或更新版本。 您會使用 Visual Studio 來建置範例，以將訊息傳送至佇列，並從中接收訊息。 此範例將用來測試您使用 PowerShell 建立的佇列。 
 - [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
@@ -204,10 +200,10 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已建立從佇列傳送和接收訊息所需的服務匯流排命名空間和其他資源。 若要深入了解如何撰寫用來傳送和接收訊息的程式碼，請繼續進行服務匯流排的下列教學課程：
+在本文中，您已建立從佇列傳送和接收訊息所需的服務匯流排命名空間和其他資源。 若要深入了解如何撰寫用來傳送和接收訊息的程式碼，請繼續進行＜傳送及接收訊息＞一節中的教學課程。 
 
 > [!div class="nextstepaction"]
-> [使用 Azure 入口網站更新庫存](./service-bus-tutorial-topics-subscriptions-portal.md)
+> [傳送及接收訊息](service-bus-dotnet-get-started-with-queues.md)
 
 
 [免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

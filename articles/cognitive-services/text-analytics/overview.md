@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 59763b1146986b9920b87152101fd1dcdb00fece
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 054f0cf91904497b77fd08165808f9b4c381ecca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904758"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500374"
 ---
 # <a name="what-is-text-analytics-api"></a>什麼是文字分析 API？
 
@@ -58,6 +58,18 @@ ms.locfileid: "58904758"
 輸出會根據識別碼以單一 JSON 文件的形式傳回，且附有您發佈的每個文字文件所產生的結果。 您可在後續分析和視覺化結果，或將結果分類為可操作的深入解析。
 
 資料不會儲存在您的帳戶中。 文字分析 API 所執行的作業是無狀態的，這表示您提供的文字經處理後隨即傳回結果。
+
+## <a name="text-analytics-for-multiple-programming-experience-levels"></a>適用於多個程式設計經驗層級的 Text Analytics
+
+即使您沒有太多程式設計經驗，也可以在您的流程中開始使用 Text Analytics API。 使用這些教學課程可以了解如何使用 API 以不同的方式來分析文字，以符合您的經驗層級。 
+
+* 所需的最少程式設計：
+    * [使用 Text Analytics API 和 MS Flow 來識別 Yammer 群組中註解的情緒](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [將 Power BI 與 Text Analytics API 整合以分析客戶的意見反應](tutorials/tutorial-power-bi-key-phrases.md)
+* 建議的程式設計體驗：
+    * [使用 Azure Databricks 對串流資料進行情感分析](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [建置 Flask 應用程式以翻譯文字、分析情緒及合成語音](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+
 
 <a name="supported-languages"></a>
 

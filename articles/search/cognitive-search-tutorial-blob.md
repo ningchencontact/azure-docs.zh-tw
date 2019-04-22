@@ -1,6 +1,6 @@
 ---
-title: 教學課程：在索引管線中呼叫認知服務 API - Azure 搜尋服務
-description: 逐步說明在透過 JSON Blob 擷取和轉換資料的 Azure 搜尋服務索引中，進行資料擷取、自然語言和影像 AI 處理的範例。
+title: 教學課程：在索引管線中呼叫認知服務 REST API - Azure 搜尋服務
+description: 逐步說明在使用 Postman 和 REST API 透過 JSON Blob 擷取和轉換資料的 Azure 搜尋服務索引中，進行資料擷取、自然語言和影像 AI 處理的範例。
 manager: pablocas
 author: luiscabrer
 services: search
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b6e3335ba78d29896c8a253ac710e6ec0da1829a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261916"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528368"
 ---
-# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API (預覽)
+# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>REST 教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API (預覽)
 
 在本教學課程中，您將了解在 Azure 搜尋服務中使用*認知技能*進行資料擴充程式設計的機制。 技能會受到自然語言處理 (NLP) 與認知服務中的映像分析功能所支援。 透過技能組合和設定，您可以擷取文字，以及映像或所掃描文件檔案的文字表示法。 您也可以偵測語言、實體、關鍵片語等。 其最終結果是，AI 支援的索引管線會在 Azure 搜尋服務索引中建立豐富的額外內容。 
 
@@ -43,31 +43,37 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 ## <a name="prerequisites"></a>必要條件
 
+本教學課程會使用下列服務、工具和資料。 
+
 [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
+
+[建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。
 
 [Postman 傳統型應用程式](https://www.getpostman.com/)可用來對 Azure 搜尋服務發出 REST 呼叫。
 
-### <a name="get-an-azure-search-api-key-and-endpoint"></a>取得 Azure 搜尋服務的 API 金鑰和端點
+下載由不同類型小型檔案集組成的[範例資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)。 
+
+## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
 REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
-1. 在 Azure 入口網站中，您的搜尋服務 [概觀] 頁面上，取得 URL。 範例端點看起來會像是 `https://my-service-name.search.windows.net`。
+1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀] 頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
-2. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
+1. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
 ![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
 
 所有要求均都需要在傳送至您服務上的每個要求上使用 API 金鑰。 擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
 
-### <a name="set-up-azure-blob-service-and-load-sample-data"></a>設定 Azure Blob 服務並載入範例資料
+## <a name="prepare-sample-data"></a>準備範例資料
 
-擴充管線會從 Azure 資料來源中提取資料。 來源資料必須來自 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源類型。 請注意，認知服務不支援 Azure 資料表儲存體。 針對此練習，我們會使用 Blob 儲存體來展現多個內容類型。
+擴充管線會從 Azure 資料來源中提取資料。 來源資料必須來自 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源類型。 Azure 表格儲存體不支援認知搜尋。 針對此練習，我們會使用 Blob 儲存體來展現多個內容類型。
 
-1. [下載範例資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)，其中有不同類型的小型檔案集。 
+1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]，然後按一下 [+ 容器]。
 
-1. [註冊 Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)、建立儲存體帳戶、開啟 Blob 服務頁面，以及建立容器。 在 Azure 搜尋服務的所在區域中建立儲存體帳戶。
+1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)以容納範例資料。 您可以將公用存取層級設定為任何有效值。
 
-1. 在您建立的 容器中，按一下 [上傳] 以上傳您在上一步中下載的範例檔案。
+1. 建立容器之後，將其開啟，然後在命令列上選取 [上傳]，將您在上一個步驟中下載的範例檔案上傳。
 
    ![Azure Blob 儲存體中的來源檔案](./media/cognitive-search-quickstart-blob/sample-data.png)
 
@@ -81,11 +87,22 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 此外也有其他方式可指定連接字串，例如提供共用存取簽章。 若要深入了解資料來源認證，請參閱[編製 Azure Blob 儲存體的索引](search-howto-indexing-azure-blob-storage.md#Credentials)。
 
+## <a name="set-up-postman"></a>設定 Postman
+
+啟動 Postman 及設定 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Postman 探索 Azure 搜尋服務 REST API](search-fiddler.md)。
+
+本教學課程中使用的要求方法為 **POST**、**PUT** 和 **GET**。 標題金鑰是設定為 "application/json" 的「內容類型」和設定為您 Azure 搜尋服務管理員金鑰的「API 金鑰」。 主體是您放置呼叫實際內容的地方。 
+
+  ![半結構化搜尋](media/search-semi-structured-data/postmanoverview.png)
+
+我們使用 Postman 來對您的搜尋服務進行四個 API 呼叫，以建立資料來源、技能集、索引及索引子。 資料來源包括指向您儲存體帳戶和您 JSON 資料的指標。 您的搜尋服務會在載入資料時進行連線。
+
+
 ## <a name="create-a-data-source"></a>建立資料來源
 
 現在，您的服務和來源檔案皆已備妥，您可以開始組合索引管線的元件。 首先請從[資料來源物件](https://docs.microsoft.com/rest/api/searchservice/create-data-source)開始；此物件會指示 Azure 搜尋服務如何擷取外部來源資料。
 
-在本教學課程中，請使用可編寫及傳送 HTTP 要求的 REST API 和工具，例如 PowerShell、Postman 或 Fiddler。 在要求標頭中，提供您在建立 Azure 搜尋服務時所使用的服務名稱，以及為您的搜尋服務產生的 API 金鑰。 在要求本文中，指定 Blob 容器名稱和連接字串。
+在要求標頭中，提供您在建立 Azure 搜尋服務時所使用的服務名稱，以及為您的搜尋服務產生的 API 金鑰。 在要求本文中，指定 Blob 容器名稱和連接字串。
 
 ### <a name="sample-request"></a>範例要求
 ```http
@@ -108,7 +125,7 @@ api-key: [admin key]
 ```
 傳送要求。 Web 測試工具應會傳回確認成功的狀態碼 201。 
 
-由於這是您第一次的要求，請查看 Azure 入口網站，以確認已在 Azure 搜尋服務中建立資料來源。 在搜尋服務儀表板頁面上，確認 [資料來源] 圖格有新的項目。 您可能需要等候幾分鐘，讓入口網站重新整理頁面。 
+由於這是您第一次的要求，請查看 Azure 入口網站，以確認已在 Azure 搜尋服務中建立資料來源。 在搜尋服務儀表板頁面上，確認 [資料來源] 清單有新的項目。 您可能需要等候幾分鐘，讓入口網站重新整理頁面。 
 
   ![入口網站中的資料來源圖格](./media/cognitive-search-tutorial-blob/data-source-tile.png "入口網站中的資料來源圖格")
 
@@ -116,13 +133,13 @@ api-key: [admin key]
 
 ## <a name="create-a-skillset"></a>建立技能集
 
-在此步驟中，您會定義一組要套用至資料的擴充步驟。 我們將每個擴充步驟稱為*技能*，一組擴充步驟則稱之為*技能集*。 本教學課程會使用為技能集[預先定義的認知技能](cognitive-search-predefined-skills.md)：
+在此步驟中，您會定義一組要套用至資料的擴充步驟。 我們將每個擴充步驟稱為*技能*，一組擴充步驟則稱之為*技能集*。 本教學課程會使用為技能集[內建的認知技能](cognitive-search-predefined-skills.md)：
 
 + [語言偵測](cognitive-search-skill-language-detection.md)，用以識別內容的語言。
 
 + [文字分割](cognitive-search-skill-textsplit.md)，用以在呼叫關鍵片語擷取技能之前，將大型內容分成較小的區塊。 關鍵片語擷取可接受不超過 50,000 個字元的輸入。 有些範例檔案需要進行分割，以符合這項限制。
 
-+ [具名實體辨識](cognitive-search-skill-named-entity-recognition.md)，用以從 Blob 容器中的內容擷取組織名稱。
++ [實體辨識](cognitive-search-skill-entity-recognition.md)，用以從 Blob 容器中的內容擷取組織名稱。
 
 + [關鍵片語擷取](cognitive-search-skill-keyphrases.md)，用以提取最高排名的關鍵片語。 
 
@@ -144,7 +161,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
       "inputs": [
@@ -217,7 +234,7 @@ Content-Type: application/json
 
 傳送要求。 Web 測試工具應會傳回確認成功的狀態碼 201。 
 
-#### <a name="about-the-request"></a>關於要求
+#### <a name="explore-the-request-body"></a>探索要求本文
 
 請留意每個頁面套用關鍵片語擷取技能的情形。 藉由將內容設定為 ```"document/pages/*"```，將可擴充每個文件/頁面陣列成員 (文件中的每個頁面) 的這項執行。
 
@@ -306,11 +323,13 @@ Content-Type: application/json
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>建立索引子、對應欄位，並執行轉換
 
-至此，您已建立資料來源、技能集和索引。 這三項元件構成了[索引子](search-indexer-overview.md)的一部分，可將各項資料一併提取到多階段的單一作業中。 若要在索引子中結合這些項目，您必須定義欄位對應。 欄位對應是索引子定義的一部分，可在您提交要求時執行轉換。
+至此，您已建立資料來源、技能集和索引。 這三項元件構成了[索引子](search-indexer-overview.md)的一部分，可將各項資料一併提取到多階段的單一作業中。 若要在索引子中結合這些項目，您必須定義欄位對應。 
 
-針對非擴充索引，如果欄位名稱或資料類型不會精確比對，或是想要使用函式，則索引子定義會提供選用的 *fieldMappings* 區段。
++ fieldMappings 會在技能集之前進行處理，用來將資料來源中的來源欄位對應到索引中的目標欄位。 如果兩端上的欄位名稱和類型都相同，則不需要任何對應。
 
-對於具有擴充管線的認知搜尋工作負載，索引子必須要有 *outputFieldMappings*。 當內部程序 (擴充管線) 為欄位值的來源時，就會使用這些對應。 *outputFieldMappings* 特有的行為包括能夠處理在擴充 (透過塑形器技能) 的過程中建立的複雜類型。 此外，每份文件可能會有多個元素 (例如，一份文件中有多個組織)。 *outputFieldMappings* 建構可以指示系統 將元素的集合壓平合併為單一記錄。
++ outputFieldMappings 會在技能集之後進行處理，用來參考文件萃取或擴充後才建立的 sourceFieldNames。 targetFieldName 是索引中的欄位。
+
+除了將輸入連結至輸出外，您也可以使用欄位對應來壓平合併資料結構。 如需詳細資訊，請參閱[如何將擴充的欄位對應至可搜尋的索引](cognitive-search-output-field-mapping.md)。
 
 ### <a name="sample-request"></a>範例要求
 
@@ -378,7 +397,7 @@ Content-Type: application/json
 > [!TIP]
 > 建立索引子時會叫用管線。 資料的存取、輸入和輸出的對應或作業順序若有問題，都會在這個階段中出現。 若要透過程式碼或指令碼的變更重新執行管線，您可能需要先卸除物件。 如需詳細資訊，請參閱[重設並重新執行](#reset)。
 
-### <a name="explore-the-request-body"></a>探索要求本文
+#### <a name="explore-the-request-body"></a>探索要求本文
 
 指令碼會將 ```"maxFailedItems"``` 設定為 -1，這會指示索引引擎在資料匯入期間忽略錯誤。 此設定有其用處，因為示範資料來源中只有少量文件。 若要有較大的資料來源，您應將值設定為大於 0。
 

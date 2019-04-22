@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.openlocfilehash: 84c578fdbcfb555bde23d6a9e6f8258259cff8de
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497095"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
@@ -33,7 +33,7 @@ Azure Functions Core Tools 可讓您從命令提示字元或終端機，在本�
 > * [定義儲存體和其他連接。](#local-settings-file)
 > * [建立函式，從觸發程序和特定語言的範本。](#create-func)
 > * [在本機執行函式](#start)
-> * [將專案發佈到 Azure](#publish)
+> * [將專案發佈至 Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Core Tools 版本
 
@@ -147,7 +147,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-`func init` 支援下列選項，也就是版本 2.x-僅限，除非另有說明：
+`func init` 支援下列選項 (僅限用於 2.x 版，除非另有指定)：
 
 | 選項     | 描述                            |
 | ------------ | -------------------------------------- |
@@ -203,9 +203,9 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
 這些函數應用程式設定值在您的程式碼中也可以做為環境變數加以讀取。 如需詳細資訊，請參閱這些特定語言參考主題的「環境變數」章節：
 
-* [C#先行編譯](functions-dotnet-class-library.md#environment-variables)
+* [先行編譯 C#](functions-dotnet-class-library.md#environment-variables)
 * [C# 指令碼 (.csx)](functions-reference-csharp.md#environment-variables)
-* [F#指令碼 (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [F# 指令碼 (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -217,7 +217,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
 即使使用儲存體模擬器進行開發，您可能想要透過實際的儲存體連接進行測試。 假設您已經[建立了儲存體帳戶](../storage/common/storage-create-storage-account.md)，您可以透過下列其中一種方式取得有效的儲存體連接字串：
 
-+ 從 [Azure 入口網站]。 瀏覽至您的儲存體帳戶，並在 **[設定]** 中選取 **[存取金鑰]**，然後複製其中一個**連接字串**值。
++ 從 [Azure 门户]。 瀏覽至您的儲存體帳戶，並在 **[設定]** 中選取 **[存取金鑰]**，然後複製其中一個**連接字串**值。
 
   ![從 Azure 入口網站複製連接字串](./media/functions-run-local/copy-storage-connection-portal.png)
 
@@ -431,7 +431,7 @@ func azure functionapp publish <FunctionAppName>
 
 此命令會發行至 Azure 中的現有函式應用程式。 訂用帳戶中沒有 `<FunctionAppName>` 時，會發生錯誤。 若要了解如何使用 Azure CLI 從命令提示字元或終端機視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。
 
-`publish` 命令會將 Functions 專案目錄的內容上傳。 如果您在本機將檔案刪除，`publish` 命令並不會從 Azure 刪除它們。 您可以使用 [Azure 入口網站] 中的 [Kudu 工具](functions-how-to-use-azure-function-app-settings.md#kudu)來刪除 Azure 中的檔案。
+`publish` 命令會將 Functions 專案目錄的內容上傳。 如果您在本機將檔案刪除，`publish` 命令並不會從 Azure 刪除它們。 您可以使用 [Azure 门户] 中的 [Kudu 工具](functions-how-to-use-azure-function-app-settings.md#kudu)來刪除 Azure 中的檔案。
 
 >[!IMPORTANT]
 > 當您在 Azure 入口網站中建立函式應用程式時，依預設會使用 2.x 版的函式執行階段。 若要讓函式應用程式使用 1.x 版的執行階段，請依照[在 1.x 版上執行](functions-versions.md#creating-1x-apps)中的指示操作。
@@ -472,7 +472,7 @@ func deploy
 | 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | 目前的使用者所登入的 Docker 登錄名稱。 |
-| **`--platform`** | 函式應用程式的裝載平台。 有效的選項 `kubernetes` |
+| **`--platform`** | 函式應用程式的裝載平台。 有效選項為 `kubernetes` |
 | **`--name`** | 函式應用程式名稱。 |
 | **`--max`**  | (選擇性) 設定作為部署目標的函式應用程式執行個體數目上限。 |
 | **`--min`**  | (選擇性) 設定作為部署目標的函式應用程式執行個體數目下限。 |
@@ -480,9 +480,9 @@ func deploy
 
 ## <a name="monitoring-functions"></a>監視函式
 
-監視您的函式執行的建議的方式是藉由使用 Azure Application Insights 整合。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成這項整合。 不過，當您使用 Azure CLI 建立您的函式應用程式，您在 Azure 中的函式應用程式中的整合不會完成。
+監視您的函式執行的建議的方式是藉由使用 Azure Application Insights 整合。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成這項整合。 不過，當您使用 Azure CLI 建立函式應用程式時，則不會在 Azure 中完成您的函式應用程式整合。
 
-若要啟用函式應用程式的 Application Insights:
+若要為您的函式應用程式啟用 Application Insights：
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -495,7 +495,7 @@ Azure Functions Core Tools 是[開放原始碼且裝載於 GitHub 上](https://g
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure 入口網站]: https://portal.azure.com 
+[Azure 门户]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

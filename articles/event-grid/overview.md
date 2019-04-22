@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045400"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578402"
 ---
 # <a name="what-is-azure-event-grid"></a>什麼是 Azure 事件方格？
 
@@ -22,7 +22,7 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 首�
 
 您可以使用篩選器將特定事件路由傳送到不同的端點、多點傳送至多個端點，並確定您的事件會可靠地進行傳遞。
 
-目前，Azure 事件格線在所有公用區域中均適用。 它尚不適用於 Azure 德國、Azure 中國或 Azure Government 雲端中。
+目前，Azure 事件格線在所有公用區域中均適用。 它尚不適用於 Azure 德國、Azure China 21Vianet 或 Azure Government 雲端中。
 
 本文提供 Azure Event Grid 的概觀。 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。 
 
@@ -34,30 +34,29 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 首�
 
 如需各個來源的功能以及相關文件的完整資料，請參閱[事件來源](event-sources.md)。 目前支援將事件傳送到事件格線的 Azure 服務如下：
 
-* Azure 訂用帳戶 (管理作業)
-* Container Registry
-* 自訂主題
-* 事件中樞
-* IoT 中樞
-* 媒體服務
-* 資源群組 (管理作業)
-* 服務匯流排
-* 儲存體 Blob
-* 儲存體一般用途 v2 (GPv2)
-* Azure 地圖服務
+* [Azure 訂用帳戶 (管理作業)](event-sources.md#azure-subscriptions)
+* [容器登錄](event-sources.md#container-registry)
+* [自訂主題](event-sources.md#custom-topics)
+* [事件中樞](event-sources.md#event-hubs)
+* [IoT 中心](event-sources.md#iot-hub)
+* [媒體服務](event-sources.md#media-services)
+* [資源群組 (管理作業)](event-sources.md#resource-groups)
+* [服務匯流排](event-sources.md#service-bus)
+* [儲存體 Blob](event-sources.md#storage)
+* [Azure 地圖服務](event-sources.md#maps)
 
 ## <a name="event-handlers"></a>事件處理常式
 
 如需各個處理常式的功能以及相關文件的完整資料，請參閱[處理常式來源](event-handlers.md)。 目前支援處理來自事件格線之事件的 Azure 服務如下： 
 
-* Azure 自動化
-* Azure Functions
-* 事件中樞
-* 混合式連線
-* Logic Apps
-* Microsoft Flow
-* 佇列儲存體
-* Webhook
+* [Azure 自動化](event-handlers.md#azure-automation)
+* [Azure Functions](event-handlers.md#azure-functions)
+* [事件中樞](event-handlers.md#event-hubs)
+* [混合式連線](event-handlers.md#hybrid-connections)
+* [Logic Apps](event-handlers.md#logic-apps)
+* [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
+* [佇列儲存體](event-handlers.md#queue-storage)
+* [WebHook](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>概念
 
@@ -118,9 +117,9 @@ Azure Event Grid 使用依事件支付計價模式，因此您只需就使用量
   使用 Event Grid 回應儲存體 blob 事件。
 * [建立並訂閱自訂事件](custom-event-quickstart.md)  
   直接進入正題並開始使用 Azure Event Grid 快速入門來將您自己的自訂事件傳送至任何端點。
-* [使用 Logic Apps 作為事件處理常式](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+* [使用 Logic Apps 來作為事件處理常式](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   有關使用 Logic Apps 建置應用程式以回應 Event Grid 所推送之事件的教學課程。
 * [將巨量資料串流處理至資料倉儲](event-grid-event-hubs-integration.md)  
   使用 Azure Functions 將資料從事件中樞串流到 SQL 資料倉儲的教學課程。
-* [事件方格 REST API 參考](/rest/api/eventgrid)  
+* [Event Grid REST API 參考](/rest/api/eventgrid)  
   提供參考內容來管理事件訂閱、路由和篩選。

@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 ASP.NET Core Web 應用程式快速入門 | Microsoft Docs
+title: Microsoft 身分識別平台 ASP.NET Core Web 應用程式快速入門 | Azure
 description: 深入了解如何使用 OpenID Connect，在 ASP.NET Core Web 應用程式上實作 Microsoft 登入
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dfa78177974499badc29b7e83556b6a91db7979
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005664"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579456"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Core Web 應用程式
 
@@ -30,7 +30,7 @@ ms.locfileid: "59005664"
 
 在本快速入門中，您將了解 ASP.NET Core Web 應用程式如何從任何 Azure Active Directory (Azure AD) 執行個體登入個人帳戶 (hotmail.com、outlook.com 等) 與公司和學校帳戶。
 
-![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
+![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>註冊並下載快速入門應用程式
@@ -55,9 +55,9 @@ ms.locfileid: "59005664"
 > 1. 選取 [新增註冊]。
 > 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
 >    - 在 [名稱] 區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `AspNetCore-Quickstart`。
->    - 在 [回覆 URL] 中新增 `https://localhost:44321/`，然後選取 [註冊]。
+>    - 在 [重新導向 URL] 中新增 `https://localhost:44321/`，然後選取 [註冊]。
 > 1. 選取 [驗證] 功能表，然後新增下列資訊：
->    - 在 [回覆 URL] 中新增 `https://localhost:44321/signin-oidc`，然後選取 [註冊]。
+>    - 在 [重新導向 URL] 中新增 `https://localhost:44321/signin-oidc`，然後選取 [儲存]。
 >    - 在 [進階設定] 區段中，將 [登出 URL]設定為 `https://localhost:44321/signout-oidc`。
 >    - 在 [隱含授與] 底下，核取 [識別碼權杖]。
 >    - 選取 [ **儲存**]。
@@ -88,8 +88,8 @@ ms.locfileid: "59005664"
 
 > [!div renderon="docs"]
 > 其中：
-> - `Enter_the_Application_Id_here` - 是註冊於 Azure 入口網站中的應用程式所具備的**應用程式 (用戶端) 識別碼**。 您可以在應用程式的 [概觀] 頁面中找到**應用程式 (用戶端) 識別碼**。
-> - `Enter_the_Tenant_Info_Here` - 是下列其中一個選項：
+> - `Enter_the_Application_Id_here` 是註冊於 Azure 入口網站中的應用程式所具備的**應用程式 (用戶端) 識別碼**。 您可以在應用程式的 [概觀] 頁面中找到**應用程式 (用戶端) 識別碼**。
+> - `Enter_the_Tenant_Info_Here` 是下列其中一個選項：
 >   - 如果您的應用程式支援 [僅限此組織目錄中的帳戶]，請將此值取代為 [租用戶識別碼] 或 [租用戶名稱] (例如 contoso.microsoft.com)
 >   - 如果您的應用程式支援 [任何組織目錄中的帳戶]，請將此值取代為 `organizations`
 >   - 如果您的應用程式支援 [所有 Microsoft 帳戶使用者]，請將此值取代為 `common`
@@ -120,7 +120,7 @@ public void ConfigureServices(IServiceCollection services)
 
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
   {
-    options.Authority = options.Authority + "/v2.0/";         // Azure AD v2.0
+    options.Authority = options.Authority + "/v2.0/";         // Microsoft identity platform
 
     options.TokenValidationParameters.ValidateIssuer = false; // accept several tenants (here simplified)
   });
@@ -138,13 +138,18 @@ public void ConfigureServices(IServiceCollection services)
 
 `AddAuthentication` 方法會將服務設定為可新增 Cookie 型驗證 (用於瀏覽器案例)，以及可對 OpenID Connect 設定挑戰。 
 
-包含 `.AddAzureAd` 的程式碼行會將 Azure AD 驗證新增至您的應用程式。 然後設定為使用 Azure AD v2.0 端點登入。
+包含 `.AddAzureAd` 的程式碼行會將 Microsoft 身分識別驗證新增至您的應用程式。 然後設定為使用 Microsoft 身分識別平台端點登入。
 
 > |Where  |  |
 > |---------|---------|
 > | ClientId  | 應用程式 (用戶端) 識別碼 (在 Azure 入口網站中註冊的應用程式)。 |
 > | 授權單位 | 供使用者用於驗證的 STS 端點。 通常，這會是公用雲端的 <https://login.microsoftonline.com/{tenant}/v2.0>，其中 {tenant} 為您的租用戶名稱或租用戶識別碼，或是使用 common，以參考一般端點 (用於多租用戶應用程式) |
 > | TokenValidationParameters | 用於權杖驗證的參數清單。 在此案例中，`ValidateIssuer` 設為 `false`，表示它可以接受來自任何個人或公司或學校帳戶的登入。 |
+
+
+> [!NOTE]
+> 設定 `ValidateIssuer = false` 可簡化本快速入門。 在實際的應用程式中，您需要驗證簽發者。
+> 請參閱範例以了解如何執行該動作。
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>保護控制器或控制器的方法
 
@@ -154,8 +159,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱此 ASP.NET Core 快速入門的 GitHub 存放庫，包括如何將驗證新增至全新 ASP.NET Core Web 應用程式的指示：
+請查看此 ASP.NET Core 教學課程的 GitHub 存放庫，以取得詳細資訊：包括如何將驗證新增至全新 ASP.NET Core Web 應用程式、如何呼叫 Microsoft Graph 和其他 Microsoft API、如何呼叫您自己的 API、如何新增授權、如何在國家雲端登入使用者、或使用社交身分識別登入使用者的指示等：
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core Web 應用程式的程式碼範例](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
-
+> [ASP.NET Core Web 應用程式教學課程](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

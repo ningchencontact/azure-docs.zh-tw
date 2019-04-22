@@ -1,6 +1,6 @@
 ---
 title: 新增內部部署應用程式：Azure Active Directory 中的應用程式 Proxy | Microsoft Docs
-description: Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使用者使用其 Azure AD 帳戶登入來存取內部部署應用程式。 本教學課程會示範如何準備環境以便與應用程式 Proxy 搭配使用，然後會使用 Azure 入口網站將內部部署應用程式新增至 Azure AD 租用戶。
+description: Azure Active Directory (Azure AD) 有一個應用程式 Proxy 服務，可讓使用者使用其 Azure AD 帳戶登入來存取內部部署應用程式。 此教學課程會示範如何準備環境以便與應用程式 Proxy 搭配使用，然後會使用 Azure 入口網站將內部部署應用程式新增至 Azure AD 租用戶。
 services: active-directory
 author: CelesteDG
 manager: mtillman
@@ -12,18 +12,18 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd494ffe6bc48495c882ed84062503bdc00ae9f4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: fc454fdba6ec875c3d3b572a7aba91bb9d389845
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917833"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617205"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
-Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使用者使用其 Azure AD 帳戶登入來存取內部部署應用程式。 本教學課程會準備環境以便與應用程式 Proxy 搭配使用。 環境準備就緒後，您會使用 Azure 入口網站將內部部署應用程式新增至 Azure AD 租用戶。
+Azure Active Directory (Azure AD) 有一個應用程式 Proxy 服務，可讓使用者使用其 Azure AD 帳戶登入來存取內部部署應用程式。 此教學課程會準備環境以便與應用程式 Proxy 搭配使用。 環境準備就緒後，您會使用 Azure 入口網站將內部部署應用程式新增至 Azure AD 租用戶。
 
-本教學課程會：
+此教學課程會：
 
 > [!div class="checklist"]
 > * 對輸出流量開啟連接埠，並允許存取特定 URL。
@@ -43,7 +43,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 若要使用應用程式 Proxy，您需要執行 Windows Server 2012 R2 或更新版本的 Windows 伺服器。 您會在伺服器上安裝應用程式 Proxy 連接器。 此連接器伺服器需要連線至 Azure 中的「應用程式 Proxy」服務，以及您打算發佈的內部部署應用程式。
 
-若要在生產環境中實現高可用性，建議您準備多個 Windows 伺服器。 在本教學課程中，一部 Windows 伺服器就已足夠。
+若要在生產環境中實現高可用性，建議您準備多個 Windows 伺服器。 在此教學課程中，一部 Windows 伺服器就已足夠。
 
 #### <a name="recommendations-for-the-connector-server"></a>針對連接器伺服器的建議
 
@@ -114,7 +114,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 ### <a name="general-remarks"></a>一般備註
 
-如果您先前已安裝連接器，請重新安裝以取得最新版本。
+如果您先前已安裝連接器，請重新安裝以取得最新版本。 若要查看先前發行的版本和所含變更的資訊，請參閱[應用程式 Proxy - 版本發行記錄](application-proxy-release-version-history.md)。
 
 如果您選擇為內部部署應用程式準備多個 Windows 伺服器，則必須在每一部伺服器上安裝和註冊連接器。 您可以將連接器組織成連接器群組。 如需詳細資訊，請參閱[連接器群組](application-proxy-connector-groups.md)。 
 
@@ -122,7 +122,6 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 如需有關連接器、容量規劃以及其如何保持最新狀態的相關資訊，請參閱[了解 Azure AD 應用程式 Proxy 連接器](application-proxy-connectors.md)。 
 
-如果您使用 Qlik Sense 應用程式，則一律安裝最新的連接器。 Qlik Sense 會使用 WebSockets，其僅在連接器 1.5.612.0 版或更新版本提供支援。
 
 ## <a name="verify-the-connector-installed-and-registered-correctly"></a>確認連接器的安裝和註冊是否正確
 
@@ -172,7 +171,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
     | 欄位 | 說明 |
     | :---- | :---------- |
-    | **Name** | 會出現在存取面板上和 Azure 入口網站的應用程式名稱。 |
+    | **名稱** | 會出現在存取面板上和 Azure 入口網站的應用程式名稱。 |
     | **內部 URL** | 用於從私用網路內部存取應用程式的 URL。 您可以提供後端伺服器上要發佈的特定路徑，而伺服器的其餘部分則不發佈。 如此一來，您可以在相同的伺服器上將不同網站發佈為不同應用程式，並給予各自的名稱和存取規則。<br><br>如果您發佈路徑，請確定其中包含您的應用程式的所有必要映像、指令碼和樣式表。 例如，如果您的應用程式位於 https:\//yourapp/app 並使用位於 https:\//yourapp/media 的映像，您應該發佈 https:\//yourapp/ 做為路徑。 此內部 URL 不一定是您使用者所看見的登陸頁面。 如需詳細資訊，請參閱[針對發佈應用程式設定自訂的首頁](application-proxy-configure-custom-home-page.md)。 |
     | **外部 URL** | 可讓使用者從網路外部存取應用程式的位址。 如果您不想使用預設的應用程式 Proxy 網域，請閱讀 [Azure AD Application Proxy 中的自訂網域](application-proxy-configure-custom-domain.md)。|
     | **預先驗證** | 應用程式 Proxy 在給予您的應用程式存取權前，用來驗證使用者的方式。<br><br>**Azure Active Directory** - 應用程式 Proxy 會重新導向使用者以使用 Azure AD 登入，進而驗證目錄和應用程式的權限。 建議您將這個選項保持為預設值，讓您可以利用諸如條件式存取以及 Multi-Factor Authentication 等 Azure AD 安全性功能。 利用 Microsoft Cloud Application Security 監視應用程式時需要 **Azure Active Directory**。<br><br>**即時通行** - 使用者不必向 Azure Active Directory 進行驗證即可存取應用程式。 您還是可以在後端設定驗證需求。 |
@@ -226,7 +225,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已讓內部部署環境準備好與應用程式 Proxy 搭配運作，然後安裝並註冊了應用程式 Proxy 連接器。 接下來，您將應用程式新增至 Azure AD 租用戶。 您已確認使用者可以使用 Azure AD 帳戶登入應用程式。
+在此教學課程中，您已讓內部部署環境準備好與應用程式 Proxy 搭配運作，然後安裝並註冊了應用程式 Proxy 連接器。 接下來，您將應用程式新增至 Azure AD 租用戶。 您已確認使用者可以使用 Azure AD 帳戶登入應用程式。
 
 您進行了下列事項：
 > [!div class="checklist"]

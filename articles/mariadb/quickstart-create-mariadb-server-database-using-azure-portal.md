@@ -6,15 +6,15 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
-ms.openlocfilehash: 296005f68592a8c89f3ec78da8ece4d1741f253f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/15/2019
+ms.openlocfilehash: 536d06948510dd5df05bfc2d46cc79b9cf1559ae
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880818"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618017"
 ---
-# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立適用於 MariaDB 的 Azure 資料庫伺服器
+# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>使用 Azure 入口網站建立適用於 MariaDB 的 Azure 資料庫伺服器
 
 適用於 MariaDB 的 Azure 資料庫是一個受控服務，您可用來在雲端執行、管理及調整高可用性 MariaDB 資料庫。 本快速入門說明如何使用 Azure 入口網站，在大約五分鐘內建立適用於 MariaDB 的 Azure 資料庫伺服器。  
 
@@ -32,7 +32,7 @@ ms.locfileid: "57880818"
 
 1. 選取入口網站左上角的 [建立資源] 按鈕 (+)。
 
-2. 在搜尋方塊中輸入 [適用於 MariaDB 的 Azure 資料庫]，以尋找此服務。
+2. 選取 [資料庫] > [適用於 MariaDB 的 Azure 資料庫]。 您也可以在搜尋方塊中輸入 **MariaDB** 以尋找此服務。
 
    ![適用於 MariaDB 的 Azure 資料庫選項](./media/quickstart-create-mariadb-server-database-using-azure-portal/2_navigate-to-mariadb.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "57880818"
     確認密碼 | 您的選擇| 確認管理帳戶密碼。
     位置 | 最接近使用者的區域| 選擇最靠近使用者或其他 Azure 應用程式的位置。
     版本 | 最新版本| 最新版本 (除非您有使用不同版本的特定需求)。
-    定價層 | 請參閱說明。 | 新伺服器的計算、儲存體和備份組態。 選取 [定價層] > [一般用途]。 保留下列設定的預設值：<br><ul><li>**計算產生** (Gen 5)</li><li>**虛擬核心** (2 個虛擬核心)</li><li>**儲存體** (5 GB)</li><li>**備份保留期限** (7 天)</li></ul><br>若要啟用異地備援儲存體中的伺服器備份，請為 [備份備援選項] 選取 [異地備援]。 <br><br>若要儲存此定價層選取項目，請選取 [確定]。 下方螢幕擷取畫面會擷取這些選取項目。
+    定價層 | 請參閱說明。 | 新伺服器的計算、儲存體和備份組態。 選取 [定價層] > [一般用途]。 保留下列設定的預設值：<br><ul><li>**計算產生** (Gen 5)</li><li>**vCore** (4 個 vCore)</li><li>**儲存體** (100 GB)</li><li>**備份保留期限** (7 天)</li></ul><br>若要啟用異地備援儲存體中的伺服器備份，請為 [備份備援選項] 選取 [異地備援]。 <br><br>若要儲存此定價層選取項目，請選取 [確定]。 下方螢幕擷取畫面會擷取這些選取項目。
   
    > [!NOTE]
    > 如果您的工作負載只需要輕量計算和 I/O，請考慮使用基本定價層。 請注意，在基本定價層中建立的伺服器後續無法調整為「一般用途」或「記憶體最佳化」。 如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/mariadb/)。

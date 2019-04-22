@@ -8,19 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 04/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d8b4c20ee7aa932109c0e89904456fea8dd437
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854699"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>教學課程：Azure Active Directory 與 Evernote 整合
 
@@ -53,7 +53,7 @@ Evernote 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Evernote，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽面板中，按一下 [Azure Active Directory] 圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
@@ -61,7 +61,7 @@ Evernote 與 Azure AD 整合提供下列優點：
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
@@ -97,7 +97,7 @@ Evernote 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上按一下 [編輯] 圖示，以開啟 [基本 SAML 組態] 對話方塊。
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -117,7 +117,17 @@ Evernote 與 Azure AD 整合提供下列優點：
 
     ![憑證下載連結](common/certificatebase64.png)
 
-7. 在 [設定 Evernote] 區段上，依據您的需求複製適當的 URL。
+7. 若要修改**簽署**選項，請按一下 [編輯] 按鈕以開啟 [SAML 簽署憑證] 對話方塊。
+
+    ![映像](common/edit-certificate.png) 
+
+    ![映像](./media/evernote-tutorial/samlassertion.png)
+
+    a. 選取 [簽署 SAML 回應及判斷提示] 選項作為 [簽署選項]。
+
+    b. 按一下 [儲存] 
+
+8. 在 [設定 Evernote] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -169,8 +179,7 @@ Evernote 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
-    例如， BrittaSimon@contoso.com
+    b. 在 [使用者名稱] 欄位中，輸入 `brittasimon@yourcompanydomain.extension`。 例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 

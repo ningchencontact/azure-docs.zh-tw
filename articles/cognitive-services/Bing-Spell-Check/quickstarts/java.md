@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: d2905d05dce48b705de44780425ed2b55b02555c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: a139d0558565114725c6198f64e139e5a5019c75
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888979"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616690"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>快速入門：使用 Bing 拼字檢查 REST API 和 Java 進行拼字檢查
 
@@ -23,18 +23,20 @@ ms.locfileid: "56888979"
 
 ## <a name="prerequisites"></a>必要條件
 
-Java 開發套件 (JDK) 7 或更新版本。
+* Java 開發套件 (JDK) 7 或更新版本。
+
+* 匯入 [gson-2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) 或最新的 [Gson](https://github.com/google/gson) 版本。 對於命令列執行，將 `.jar` 新增至主要類別的 Java 資料夾中。
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-
 ## <a name="create-and-initialize-an-application"></a>建立應用程式並將其初始化
 
-1. 在您慣用的 IDE 或編輯器中建立新的 Java 專案，並匯入下列套件。
+1. 在您慣用的 IDE 或編輯器中，使用您選擇的類別名稱建立新的 Java 專案，並匯入下列套件。
 
     ```java
     import java.io.*;
     import java.net.*;
+    import com.google.gson.*;
     import javax.net.ssl.HttpsURLConnection;
     ```
 
@@ -44,7 +46,7 @@ Java 開發套件 (JDK) 7 或更新版本。
     static String host = "https://api.cognitive.microsoft.com";
     static String path = "/bing/v7.0/spellcheck";
 
-    static String key = "ENTER YOUR KEY HERE";
+    static String key = "<ENTER-KEY-HERE>";
 
     static String mkt = "en-US";
     static String mode = "proof";
@@ -58,7 +60,7 @@ Java 開發套件 (JDK) 7 或更新版本。
    ```java
    public static void check () throws Exception {
        String params = "?mkt=" + mkt + "&mode=" + mode;
-   //...
+      // add the rest of the code snippets here (except prettify() and main())...
    }
    ```
 
@@ -66,13 +68,12 @@ Java 開發套件 (JDK) 7 或更新版本。
 
     ```java
     URL url = new URL(host + path + params);
-    HttpsURLConnection connection = (HttpsURLConnection) 
+    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. 開啟 URL 的連線。 將要求方法設為 `POST`。 新增要求參數。 請務必將您的訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭。 
+3. 開啟 URL 的連線。 將要求方法設為 `POST`。 新增要求參數。 請務必將您的訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭。
 
     ```java
-    url.openConnection();
     connection.setRequestMethod("POST");
     connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
     connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
@@ -88,21 +89,34 @@ Java 開發套件 (JDK) 7 或更新版本。
         wr.close();
     ```
 
-## <a name="read-the-response"></a>讀取回應
+## <a name="format-and-read-the-api-response"></a>格式化並讀取 API 回應
 
-1. 建立 `BufferedReader`，並讀取 API 的回應。 將其列印至主控台。
+1. 將此方法新增至您的類別。 它會將 JSON 格式化以取得更容易閱讀的輸出。
+
+    ``` java
+    // This function prettifies the json response.
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonElement json = parser.parse(json_text);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+
+1. Create a `BufferedReader` and read the response from the API. Print it to the console.
     
     ```java
     BufferedReader in = new BufferedReader(
     new InputStreamReader(connection.getInputStream()));
     String line;
     while ((line = in.readLine()) != null) {
-        System.out.println(line);
+        System.out.println(prettify(line);
     }
     in.close();
     ```
 
-2. 在應用程式的 main 函式中，呼叫在上方建立的函式。 
+## <a name="call-the-api"></a>呼叫 API
+
+在應用程式的 main 函式中，呼叫您在上方建立的 check() 方法。
 
     ```java
     public static void main(String[] args) {
@@ -114,10 +128,26 @@ Java 開發套件 (JDK) 7 或更新版本。
         }
     }
     ```
-    
+
+## <a name="run-the-application"></a>執行應用程式
+
+建置並執行專案。
+
+如果您使用命令列，請使用下列命令建置並執行該應用程式。
+
+**Build:**
+```bash
+javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
+```
+
+**Run:**
+```bash
+java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+```
+
 ## <a name="example-json-response"></a>範例 JSON 回應
 
-如以下範例所示，成功的回應會以 JSON 格式來傳回： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回：
 
 ```json
 {

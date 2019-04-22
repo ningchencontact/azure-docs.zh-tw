@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 Windows UWP 快速入門 | Microsoft Docs
-description: 了解通用 Windows 平台 (UWP) 應用程式可取得存取權杖，以及呼叫受 Azure Active Directory v2.0 端點保護之 API 的方法。
+title: Microsoft 身分識別平台 Windows UWP 快速入門 | Azure
+description: 了解通用 Windows 平台 (UWP) 應用程式如何取得存取權杖，以及呼叫受 Microsoft 身分識別平台端點保護的 API。
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: e7ed2830b704d379e2ecc5a5e548f831800af56d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360111"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526379"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入門：自通用 Windows 平台 (UWP) 應用程式呼叫 Microsoft Graph API
 
@@ -30,7 +30,7 @@ ms.locfileid: "59360111"
 
 此快速入門包含程式碼範例，用以示範通用 Windows 平台 (UWP) 應用程式如何登入個人或公司與學校帳戶的使用者、取得存取權杖，以及呼叫 Microsoft Graph API。
 
-![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-uwp/uwp-intro-updated.png)
+![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-uwp/uwp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>註冊並下載快速入門應用程式
@@ -41,7 +41,7 @@ ms.locfileid: "59360111"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例
 >
-> 1. 移至 [Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs)
+> 1. 移至新的 [Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs)窗格。
 > 1. 輸入您的應用程式名稱，然後按一下 [註冊]。
 > 1. 依照指示按一下滑鼠，即可下載並自動設定新的應用程式。
 >
@@ -51,7 +51,8 @@ ms.locfileid: "59360111"
 > 若要註冊您的應用程式，並將應用程式註冊資訊新增到您的解決方案，請執行下列步驟：
 > 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 > 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-> 1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)] > [新增註冊]。
+> 1. 瀏覽至 Microsoft 身分識別平台，以取得開發人員的[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面。
+> 1. 選取 [新增註冊]。
 > 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
 >      - 在 [名稱] 區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `UWP-App-calling-MsGraph`。
 >      - 在 [支援的帳戶類型] 區段中，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]，例如 Skype、Xbox、Outlook.com。
@@ -71,29 +72,32 @@ ms.locfileid: "59360111"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>步驟 2：下載您的 Visual Studio 專案
 
- - [下載 Visual Studio 2017 專案](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
+ - [下載 Visual Studio 2017 專案](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>步驟 3：設定您的 Visual Studio 專案
 
 1. 將 Zip 檔案解壓縮至磁碟根目錄附近的本機資料夾，例如 **C:\Azure-Samples**。
-1. 在 Visual Studio 中開啟專案。
-1. 編輯 **App.Xaml.cs**，並將欄位 `ClientId` 和 `Tenant` 的值取代為：
+1. 在 Visual Studio 中開啟專案。 系統可能會提示您安裝 UWP SDK。 在此情況下，請同意安裝。
+1. 編輯 **MainPage.Xaml.cs**，並取代 `ClientId` 欄位的值：
 
     ```csharp
-    private static string ClientId = "Enter_the_Application_Id_here";
-    private static string Tenant = "Enter_the_Tenant_Info_Here";
+    private const string ClientId = "Enter_the_Application_Id_here";
     ```
 
 > [!div renderon="docs"]
 > 其中：
 > - `Enter_the_Application_Id_here` - 是您註冊的應用程式所具備的應用程式識別碼。
-> - `Enter_the_Tenant_Info_Here` - 是下列選項之一：
->   - 如果您的應用程式支援 [僅限我的組織]，請將此值取代為 [租用戶識別碼] 或 [租用戶名稱] (例如 contoso.onmicrosoft.com)
->   - 如果您的應用程式支援 [任何組織目錄中的帳戶]，請將此值取代為 `organizations`
->   - 如果您的應用程式支援 [所有 Microsoft 帳戶使用者]，請將此值取代為 `common`
 >
 > > [!TIP]
-> > 若要尋找 [應用程式識別碼]、[目錄 (租用戶) 識別碼] 和 [支援的帳戶類型]，請移至 [概觀] 頁面
+> > 若要尋找「應用程式識別碼」的值，請前往 [概觀] 頁面
+
+#### <a name="step-4-run-your-application"></a>步驟 4：執行您的應用程式
+
+如果您想要在 Windows 機器上嘗試快速入門：
+
+1. 在 Visual Studio 工具列中，選擇正確的平台 (可能是 **x64** 或 **x86**，但不是 ARM)。
+   > 您會看到目標裝置從「裝置」變成「本機電腦」
+1. 選取偵錯 | **未經偵錯即啟動**
 
 ## <a name="more-information"></a>詳細資訊
 
@@ -101,10 +105,10 @@ ms.locfileid: "59360111"
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) 這個程式庫是用來登入使用者並要求用來存取受 Microsoft Azure Active Directory 保護之 API 的權杖。 您可以在 Visual Studio 的 [套件管理員主控台] 中，透過執行下列命令來安裝 MSAL：
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) 是用來登入使用者並要求安全性權杖的程式庫。 API 若是由適用於開發人員的 Microsoft 身分識別平台所保護，則需使用安全性權杖來存取。 您可以在 Visual Studio 的 [套件管理員主控台] 中，透過執行下列命令來安裝 MSAL：
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### <a name="msal-initialization"></a>MSAL 初始化
@@ -118,7 +122,9 @@ using Microsoft.Identity.Client;
 接著，使用下列程式碼將 MSAL 初始化：
 
 ```csharp
-public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+public static IPublicClientApplication PublicClientApp;
+PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
+                                                    .Build();
 ```
 
 > |其中： ||
@@ -127,11 +133,11 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 ### <a name="requesting-tokens"></a>要求權杖
 
-MSAL 有兩種取得權杖的方法：`AcquireTokenAsync` 與 `AcquireTokenSilentAsync`。
+MSAL 有兩個以互動方式取得權杖的方法：`AcquireTokenInteractive` 和 `AcquireTokenSilent`。
 
 #### <a name="get-a-user-token-interactively"></a>以互動方式取得使用者權杖
 
-有些情況需要強制使用者透過快顯視窗與 Azure AD v2.0 端點進行互動，以驗證其認證或取得同意。 部分範例包括：
+有些情況需要強制使用者透過快顯視窗與 Microsoft 身分識別平台端點進行互動，以驗證其認證或取得同意。 部分範例包括：
 
 - 使用者首次登入應用程式
 - 使用者因為密碼已過期而可能需要重新輸入其認證時
@@ -139,7 +145,8 @@ MSAL 有兩種取得權杖的方法：`AcquireTokenAsync` 與 `AcquireTokenSilen
 - 需要雙因素驗證時
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireTokenAsync(scopes);
+authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
+                      .ExecuteAsync();
 ```
 
 > |其中：||
@@ -148,17 +155,19 @@ authResult = await App.PublicClientApp.AcquireTokenAsync(scopes);
 
 #### <a name="get-a-user-token-silently"></a>以無訊息方式取得使用者權杖
 
-您不應該在每次使用者需要存取資源時都要求使用者驗證其認證。 在大部分時間，您會希望權杖取得和更新作業不需要與使用者進行任何互動。 在初始 `AcquireTokenAsync` 方法之後，您可以使用 `AcquireTokenSilentAsync` 方法取得權杖以存取受保護的資源：
+您不應該在每次使用者需要存取資源時都要求使用者驗證其認證。 在大部分時間，您會希望權杖取得和更新作業不需要與使用者進行任何互動。 在初始 `AcquireTokenAsync` 方法之後，您可以使用 `AcquireTokenSilent` 方法取得權杖以存取受保護的資源：
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
-authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
+var firstAccount = accounts.FirstOrDefault();
+authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+                                      .ExecuteAsync();
 ```
 
 > |其中： ||
 > |---------|---------|
 > | `scopes` | 包含所要求的範圍，例如適用於 Microsoft Graph 的 `{ "user.read" }` 或適用於自訂 Web API 的 `{ "api://<Application ID>/access_as_user" }` |
-> | `accounts.FirstOrDefault()` | 指定快取中的第一個使用者 (MSAL 在單一應用程式中支援多個使用者) |
+> | `firstAccount` | 指定快取中的第一個使用者帳戶 (MSAL 在單一應用程式中支援多個使用者) |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

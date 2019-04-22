@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ae0aefe194ca8bca6ea62420314b4fbdb1e0187
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 539a06398675dc7851017ec5d428e0942e54ce1f
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357915"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>教學課程：Azure Active Directory 與 Tableau Server 整合
 
@@ -105,11 +105,11 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 
     ![Tableau Server 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰ `https://azure.<domain name>.link`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://azure.<domain name>.link`
 
-    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL： `https://azure.<domain name>.link`
+    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：`https://azure.<domain name>.link`
 
-    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://azure.<domain name>.link/wg/saml/SSO/index.html`
+    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
     > [!NOTE]
     > 上述值並非真正的值。 請使用 [Tableau Server 設定] 頁面中實際的 URL 和識別碼來更新這些值，如本教學課程稍後所說明。
@@ -256,9 +256,9 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 
 ## <a name="additional-resources"></a>其他資源
 
-- [ 如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

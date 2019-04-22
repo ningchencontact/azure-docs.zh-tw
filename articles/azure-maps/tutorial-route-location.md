@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8ceb9aefb1e68ceb6030f078aba8b0717cdf9e7c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f9987a4aee561340c5ebe2639626e5f66a55358e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260879"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544597"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>使用 Azure 地圖服務的景點路線
 
@@ -218,11 +218,11 @@ ms.locfileid: "59260879"
 > * 設定地址座標
 > * 查詢路線規劃服務以了解如何前往景點
 
-您可以在這裡存取本教學課程的程式碼範例：
+> [!div class="nextstepaction"]
+> [檢視完整的原始程式碼](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
-> [使用 Azure 地圖服務尋找路線](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
-
-[請參閱此處的實際範例](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+> [!div class="nextstepaction"]
+> [檢視即時範例](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 下一個教學課程會示範如何建立具有限制 (例如，行進模式或貨物類型) 的路線查詢 ，然後在同一個地圖上顯示多條路線。
 

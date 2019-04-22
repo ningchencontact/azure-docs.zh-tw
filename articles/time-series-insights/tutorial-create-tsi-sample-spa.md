@@ -1,6 +1,6 @@
 ---
-title: 教學課程：建立 Azure 時間序列深入解析單一頁面 Web 應用程式 | Microsoft Docs
-description: 了解如何建立會從 TSI 環境查詢及轉譯資料的單一頁面 Web 應用程式。
+title: 教學課程：建立 Azure 時間序列深入解析單頁 Web 應用程式 | Microsoft Docs
+description: 了解如何建立會從 TSI 環境查詢及轉譯資料的單頁 Web 應用程式。
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
@@ -8,16 +8,16 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fe8b6113646589e30ff839c8bd47968138d98b03
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312201"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521420"
 ---
-# <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教學課程：建立 Azure 時間序列深入解析單一頁面 Web 應用程式
+# <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教學課程：建立 Azure 時間序列深入解析單頁 Web 應用程式
 
-本教學課程將逐步引導您建立自己的單一頁面 Web 應用程式 (SPA) 來存取 TSI 資料 (仿造自[時間序列深入解析 (TSI) 範例應用程式](https://insights.timeseries.azure.com/clientsample))。 在本教學課程中，您將了解：
+此教學課程將逐步引導您建立自己的單頁 Web 應用程式 (SPA) 來存取 TSI 資料 (仿造自[時間序列深入解析 (TSI) 範例應用程式](https://insights.timeseries.azure.com/clientsample))。 在此教學課程中，您將了解：
 
 > [!div class="checklist"]
 > * 應用程式設計
@@ -28,16 +28,16 @@ ms.locfileid: "58312201"
 
 如果您沒有帳戶，請註冊[免費 Azure 訂用帳戶](https://azure.microsoft.com/free/)。 
 
-如果您尚未安裝 Visual Studio，您也必須加以安裝。 在本教學課程中，您可以[下載/安裝免費 Community 版本或免費試用版](https://www.visualstudio.com/downloads/)。
+如果您尚未安裝 Visual Studio，您也必須加以安裝。 在此教學課程中，您可以[下載/安裝免費 Community 版本或免費試用版](https://www.visualstudio.com/downloads/)。
 
 ## <a name="application-design-overview"></a>應用程式設計概觀
 
-如前所述，TSI 範例應用程式會提供本教學課程中使用的設計和程式碼的基礎。 該程式碼會使用 TSI 用戶端 JavaScript 程式庫。 TSI 用戶端程式庫會提供兩種主要 API 類別的概念：
+如前所述，TSI 範例應用程式會提供此教學課程中使用的設計和程式碼的基礎。 該程式碼會使用 TSI 用戶端 JavaScript 程式庫。 TSI 用戶端程式庫會提供兩種主要 API 類別的概念：
 
 - **用來呼叫 TSI 查詢 API 的包裝函式方法**：可讓您使用 JSON 型運算式來查詢 TSI 資料的 REST API。 這些方法會組織在程式庫的 `TsiClient.server` 命名空間下。
 - **用來建立和填入數種圖表控制項類型的方法**：用來將網頁中的 TSI 資料視覺化的方法。 這些方法會組織在程式庫的 `TsiClient.ux` 命名空間下。
 
-本教學課程也使用來自範例應用程式 TSI 環境的資料。 如需 TSI 範例應用程式的結構及其如何使用 TSI 用戶端程式庫的詳細資訊，請參閱[探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫](tutorial-explore-js-client-lib.md)教學課程。
+此教學課程也使用來自範例應用程式 TSI 環境的資料。 如需 TSI 範例應用程式的結構及其如何使用 TSI 用戶端程式庫的詳細資訊，請參閱[探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫](tutorial-explore-js-client-lib.md)教學課程。
 
 ## <a name="register-the-application-with-azure-ad"></a>向 Azure AD 註冊應用程式 
 
@@ -179,12 +179,12 @@ ms.locfileid: "58312201"
 錯誤碼/情況 | 說明
 ---------------------| -----------
 *AADSTS50011：未註冊應用程式的回覆位址。* | Azure AD 註冊遺漏「回覆 URL」屬性。 請移至 [設定] / [回覆 URL] 頁面檢視您的 Azure AD 應用程式註冊。 確認先前在[向 Azure AD 註冊應用程式](#register-the-application-with-azure-ad)的步驟 3 中指定的**登入** URL 存在於該處。 
-*AADSTS50011：在要求中指定的回覆 URL 不符合為應用程式設定的回覆 URL：'<Application ID GUID>'。* | 在[建置和發佈 Web 應用程式](#build-and-publish-the-web-application)的步驟 4.b 中指定的 `postLogoutRedirectUri`，必須符合在您 Azure AD 應用程式中的 [設定] / [回覆 URL] 屬性下指定的值。 也請務必將 [目的地 URL] 變更為使用 `https` (根據 [建置和發佈 Web 應用程式](#build-and-publish-the-web-application)的步驟 5.e)。
+*AADSTS50011：在要求中指定的回覆 URL 不符合為應用程式設定的回覆 URL：'\<Application ID GUID>'*。 | 在[建置和發佈 Web 應用程式](#build-and-publish-the-web-application)的步驟 4.b 中指定的 `postLogoutRedirectUri`，必須符合在您 Azure AD 應用程式中的 [設定] / [回覆 URL] 屬性下指定的值。 也請務必將 [目的地 URL] 變更為使用 `https` (根據 [建置和發佈 Web 應用程式](#build-and-publish-the-web-application)的步驟 5.e)。
 Web 應用程式會載入，但使用無樣式的文字登入頁面，和白色背景。 | 請確認[建置和發佈 Web 應用程式](#build-and-publish-the-web-application)的步驟 4.a 中討論的路徑正確無誤。 如果 Web 應用程式找不到 .css 檔案，頁面將無法正確套用樣式。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-本教學課程建立了數個執行中的 Azure 服務。 如果您不打算完成本教學課程系列，建議您刪除所有資源，以避免產生不必要的成本。 
+此教學課程建立了數個執行中的 Azure 服務。 如果您不打算完成此教學課程系列，建議您刪除所有資源，以避免產生不必要的成本。 
 
 從 Azure 入口網站的左側功能表：
 
@@ -193,14 +193,14 @@ Web 應用程式會載入，但使用無樣式的文字登入頁面，和白色�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 應用程式設計
 > * 如何向 Azure Active Directory (AD) 註冊您的應用程式
 > * 如何建置、發佈和測試您的 Web 應用程式 
 
-本教學課程與 Azure AD 整合，使用登入使用者的身分識別取得存取權杖。 若要了解如何使用服務/精靈應用程式的身分識別存取 TSI API，請參閱：
+此教學課程與 Azure AD 整合，使用登入使用者的身分識別取得存取權杖。 若要了解如何使用服務/精靈應用程式的身分識別存取 TSI API，請參閱：
 
 > [!div class="nextstepaction"]
 > [Azure 時間序列深入解析 API 的驗證和授權](time-series-insights-authentication-and-authorization.md)

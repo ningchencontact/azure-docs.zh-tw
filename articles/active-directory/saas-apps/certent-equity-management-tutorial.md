@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58b439d12b313bd6f01c9524b230bbfecc21ef0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 47adab265978b4b760450ab1176cf28c55bc0548
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283909"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certent-equity-management"></a>教學課程：Azure Active Directory 與 Certent Equity Management 整合
 
@@ -106,9 +106,9 @@ ms.locfileid: "59283909"
 
     ![Certent Equity Management 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<SUBDOMAIN>.certent.com/sys/sso/saml/acs.aspx`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<SUBDOMAIN>.certent.com/sys/sso/saml/acs.aspx`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<SUBDOMAIN>.certent.com/sys/sso/saml/acs.aspx`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<SUBDOMAIN>.certent.com/sys/sso/saml/acs.aspx`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡客戶成功管理員所指派的 Certent Integration Analyst 以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -224,9 +224,9 @@ ms.locfileid: "59283909"
 
 ## <a name="additional-resources"></a>其他資源
 
-- [ 如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

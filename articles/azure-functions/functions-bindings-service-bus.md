@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
 ms.openlocfilehash: e1cd7d9e135f5e3196f02237076c5c8069048fb0
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501037"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
@@ -75,8 +75,8 @@ public static void Run(
 此範例適用於 Azure Functions 1.x 版。 若要讓此程式碼適用於 2.x：
 
 - [省略存取權限參數](#trigger---configuration)
-- 變更的記錄參數的型別`TraceWriter`至 `ILogger`
-- 變更`log.Info`至 `log.LogInformation`
+- 將記錄參數的類型從 `TraceWriter` 變更為 `ILogger`
+- 將 `log.Info` 變更為 `log.LogInformation`
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
@@ -283,7 +283,7 @@ module.exports = function(context, myQueueItem) {
 |**queueName**|**QueueName**|要監視的佇列名稱。  只有在監視佇列時設定 (不適用於主題)。
 |**topicName**|**TopicName**|要監視的主題名稱。 只有在監視主題時設定 (不適用於佇列)。|
 |**subscriptionName**|**SubscriptionName**|要監視的訂用帳戶名稱。 只有在監視主題時設定 (不適用於佇列)。|
-|**connection**|**連線**|應用程式設定的名稱包含要用於此繫結的服務匯流排連接字串。 如果應用程式設定名稱是以 "AzureWebJobs" 開頭，您只能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為 "MyServiceBus"，則 Functions 執行階段會尋找名稱為 "AzureWebJobsMyServiceBus" 的應用程式設定。 如果您將 `connection` 保留空白，則 Functions 執行階段會使用應用程式設定中名稱為 "AzureWebJobsServiceBus" 的預設服務匯流排連接字串。<br><br>若要取得連接字串，請遵循[取得管理認證](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string)所示的步驟。 連接字串必須是用於服務匯流排命名空間，而不限於特定佇列或主題。 |
+|**連接**|**連接**|應用程式設定的名稱包含要用於此繫結的服務匯流排連接字串。 如果應用程式設定名稱是以 "AzureWebJobs" 開頭，您只能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為 "MyServiceBus"，則 Functions 執行階段會尋找名稱為 "AzureWebJobsMyServiceBus" 的應用程式設定。 如果您將 `connection` 保留空白，則 Functions 執行階段會使用應用程式設定中名稱為 "AzureWebJobsServiceBus" 的預設服務匯流排連接字串。<br><br>若要取得連接字串，請遵循[取得管理認證](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string)所示的步驟。 連接字串必須是用於服務匯流排命名空間，而不限於特定佇列或主題。 |
 |**accessRights**|**Access**|連接字串的存取權限。 可用值為 `manage` 和 `listen`。 預設值是 `manage`，這表示 `connection` 已具備**管理**權限。 如果您使用沒有**管理**權限的連接字串，請將 `accessRights` 設定為 "listen"。 否則，Functions 執行階段在嘗試執行需要管理權限的作業時可能會失敗。 在 Azure Functions 第 2.x 版中，這個屬性無法使用，因為最新版的儲存體 SDK 不支援管理作業。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -292,8 +292,8 @@ module.exports = function(context, myQueueItem) {
 
 在 C# 和 C# 指令碼中，您可以針對佇列或主題訊息使用下列參數類型：
 
-* `string` -如果訊息是文字。
-* `byte[]` -適用於二進位資料。
+* `string` - 如果訊息是文字。
+* `byte[]` - 適用於二進位資料。
 * 自訂類型 - 如果訊息包含 JSON，Azure Functions 會嘗試將 JSON 資料還原序列化。
 * `BrokeredMessage` - 利用 [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 方法提供您還原序列化的訊息。
 
@@ -598,7 +598,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 |**name** | n/a | 代表函式程式碼中佇列或主題的變數名稱。 設為 "$return" 以參考函式傳回值。 |
 |**queueName**|**QueueName**|佇列的名稱。  只有在傳送佇列訊息時設定 (不適用於主題)。
 |**topicName**|**TopicName**|要監視的主題名稱。 只有在傳送主題訊息時設定 (不適用於佇列)。|
-|**connection**|**連線**|應用程式設定的名稱包含要用於此繫結的服務匯流排連接字串。 如果應用程式設定名稱是以 "AzureWebJobs" 開頭，您只能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為 "MyServiceBus"，則 Functions 執行階段會尋找名稱為 "AzureWebJobsMyServiceBus" 的應用程式設定。 如果您將 `connection` 保留空白，則 Functions 執行階段會使用應用程式設定中名稱為 "AzureWebJobsServiceBus" 的預設服務匯流排連接字串。<br><br>若要取得連接字串，請遵循[取得管理認證](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string)所示的步驟。 連接字串必須是用於服務匯流排命名空間，而不限於特定佇列或主題。|
+|**連接**|**連接**|應用程式設定的名稱包含要用於此繫結的服務匯流排連接字串。 如果應用程式設定名稱是以 "AzureWebJobs" 開頭，您只能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為 "MyServiceBus"，則 Functions 執行階段會尋找名稱為 "AzureWebJobsMyServiceBus" 的應用程式設定。 如果您將 `connection` 保留空白，則 Functions 執行階段會使用應用程式設定中名稱為 "AzureWebJobsServiceBus" 的預設服務匯流排連接字串。<br><br>若要取得連接字串，請遵循[取得管理認證](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string)所示的步驟。 連接字串必須是用於服務匯流排命名空間，而不限於特定佇列或主題。|
 |**accessRights**|**Access**|連接字串的存取權限。 可用值為 `manage` 和 `listen`。 預設值是 `manage`，這表示 `connection` 已具備**管理**權限。 如果您使用沒有**管理**權限的連接字串，請將 `accessRights` 設定為 "listen"。 否則，Functions 執行階段在嘗試執行需要管理權限的作業時可能會失敗。 在 Azure Functions 第 2.x 版中，這個屬性無法使用，因為最新版的儲存體 SDK 不支援管理作業。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -609,11 +609,11 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 在 C# 和 C# 指令碼中，您可以針對輸出繫結使用下列參數類型：
 
-* `out T paramName` - `T` 可以是任何 JSON 可序列化的型別。 當函式結束時，如果參數值為 Null，則 Functions 會使用 Null 物件建立訊息。
-* `out string` -如果函式結束時，參數值是 null，函式不會建立一則訊息。
-* `out byte[]` -如果函式結束時，參數值是 null，函式不會建立一則訊息。
-* `out BrokeredMessage` -如果函式結束時，參數值是 null，函式不會建立一則訊息。
-* `ICollector<T>` 或`IAsyncCollector<T>`-適用於建立多個訊息。 當您呼叫 `Add` 方法時，就會建立一則訊息。
+* `out T paramName` - `T` 可以是任何可序列化 JSON 的類型。 當函式結束時，如果參數值為 Null，則 Functions 會使用 Null 物件建立訊息。
+* `out string` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
+* `out byte[]` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
+* `out BrokeredMessage` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
+* `ICollector<T>` 或 `IAsyncCollector<T>` - 適用於建立多個訊息。 當您呼叫 `Add` 方法時，就會建立一則訊息。
 
 在非同步函式中，使用傳回值或 `IAsyncCollector`，而不是 `out` 參數。
 
@@ -664,4 +664,4 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [深入了解 Azure functions 觸發程序和繫結](functions-triggers-bindings.md)
+> [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)

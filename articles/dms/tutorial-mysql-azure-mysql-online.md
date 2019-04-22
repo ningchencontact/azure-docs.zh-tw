@@ -10,18 +10,18 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 0aaa88e1ebe1c8cefadbe55a8348d730ae04bb56
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/16/2019
+ms.openlocfilehash: b39ce138677fc8933b62bd999f20abc21c0ae690
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883051"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617949"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>教學課程：使用 DMS 在線上將 MySQL 移轉至適用於 MySQL 的 Azure 資料庫
-您可以使用 Azure 資料庫移轉服務，在最短的停止運作時間內將資料庫從內部部署 MySQL 執行個體移轉至[適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/)。 換句話說，移轉可在最短的應用程式停止運作時間內完成。 在本教學課程中，您會在 Azure 資料庫移轉服務中使用線上移轉活動，將 **Employees** 範例資料庫從內部部署的 MySQL 5.7 執行個體移轉至適用於 MySQL 的 Azure 資料庫。
+您可以使用 Azure 資料庫移轉服務，在最短的停止運作時間內將資料庫從內部部署 MySQL 執行個體移轉至[適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/)。 換句話說，移轉可在最短的應用程式停止運作時間內完成。 在此教學課程中，您會在 Azure 資料庫移轉服務中使用線上移轉活動，將 **Employees** 範例資料庫從內部部署的 MySQL 5.7 執行個體移轉至適用於 MySQL 的 Azure 資料庫。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 > [!div class="checklist"]
 > * 使用 mysqldump 公用程式移轉範例結構描述。
 > * 建立 Azure 資料庫移轉服務的執行個體。
@@ -36,7 +36,7 @@ ms.locfileid: "58883051"
 > 為了獲得最佳的移轉體驗，Microsoft 建議在目標資料庫所在的同一個 Azure 區域中，建立 Azure 資料庫移轉服務的執行個體。 跨區域或地理位置移動資料可能使移轉程序變慢，並產生錯誤。
 
 ## <a name="prerequisites"></a>必要條件
-若要完成本教學課程，您需要：
+若要完成此教學課程，您需要：
 
 - 下載並安裝 [MySQL 社群版](https://dev.mysql.com/downloads/mysql/) 5.6 或 5.7。 內部部署 MySQL 版本必須符合「適用於 MySQL 的 Azure 資料庫」的版本。 例如，MySQL 5.6 只能移轉至「適用於 MySQL 的 Azure 資料庫」5.6，而無法升級至 5.7。
 - [在適用於 MySQL 的 Azure 資料庫中建立執行個體](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)。 如需關於如何使用 Azure 入口網站連接及建立資料庫的詳細資訊，請參閱[使用 MySQL Workbench 來連接及查詢資料](https://docs.microsoft.com/azure/mysql/connect-workbench)一文。  
@@ -120,6 +120,9 @@ SET group_concat_max_len = 8192;
  ```
         
 執行查詢結果中的 Drop 外部索引鍵 (這是第二個資料行)，以卸除外部索引鍵。
+
+> [!IMPORTANT]
+> 也請務必從結構描述中移除任何 DEFINER 陳述式以避免移轉失敗。
 
 如果您的資料中有觸發程序 (Insert 或 Update 觸發程序)，該觸發程序將會在來源中的複寫資料傳入之前，在目標中強制執行資料完整性。 建議您在移轉期間停用目標上所有資料表中的觸發程序，並在移轉完成後再啟用觸發程序。
 

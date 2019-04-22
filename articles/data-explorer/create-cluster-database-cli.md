@@ -6,13 +6,13 @@ ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: b1cc7d2966572da23a64e4555a0e94b440efa005
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/10/2019
+ms.openlocfilehash: 1fb9027ab3301bb860d260aed737ab7674039d9b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59043967"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524713"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>使用 Azure CLI 建立 Azure 資料總管叢集與資料庫
 
@@ -32,7 +32,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝並使用 Azure CLI，則在進行本快速入門時，必須使用 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 來檢查您的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)。
+如果您選擇在本機安裝並使用 Azure CLI，則在進行本快速入門時，必須使用 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 來檢查您的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="configure-the-cli-parameters"></a>設定 CLI 參數
 
@@ -79,7 +79,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 1. 使用下列命令建立您的資料庫：
 
     ```azurecli-interactive
-    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period P365D --hot-cache-period P31D
     ```
 
    |**設定** | **建議的值** | **欄位描述**|
@@ -87,8 +87,8 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
    | 叢集名稱 | *azureclitest* | 將在其中建立資料庫的叢集名稱。|
    | name | *clidatabase* | 您的資料庫名稱。|
    | resource-group | *testrg* | 將在其中建立叢集的資源群組名稱。 |
-   | soft-delete-period | *3650:00:00:00* | 將保留資料以供查詢的時間長度。 |
-   | hot-cache-period | *3650:00:00:00* | 資料將保留在快取中的時間長度。 |
+   | soft-delete-period | *P365D* | 表示保留資料以供查詢的時間長度。 如需詳細資訊，請參閱[保留原則](/azure/kusto/concepts/retentionpolicy)。 |
+   | hot-cache-period | *P31D* | 表示資料保留在快取中的時間長度。 如需詳細資訊，請參閱[快取原則](/azure/kusto/concepts/cachepolicy)。 |
 
 1. 執行下列命令以查看您所建立的資料庫：
 

@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493241"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>部署至現有的專案的 OPC 對應項
@@ -140,4 +140,4 @@ cd azure-iiot-components
 既然您已了解如何將 OPC 對應項部署至現有的專案，以下是建議的下一個步驟：
 
 > [!div class="nextstepaction"]
-> [OPC 用戶端和 OPC PLC 間的安全通訊](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [OPC 用戶端和 OPC 有安全的通訊](howto-opc-vault-deploy-existing-client-plc-communication.md)

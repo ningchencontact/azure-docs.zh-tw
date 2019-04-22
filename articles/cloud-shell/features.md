@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: damaerte
 ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500612"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell 的功能和工具
@@ -64,9 +64,9 @@ Cloud Shell 包含預先設定的驗證，可用於開放原始碼工具，例�
 |文字編輯器           |code (Cloud Shell 編輯器)<br> vim<br> nano<br> emacs    |
 |原始檔控制         |git                    |
 |建置工具            |make<br> maven<br> npm<br> pip         |
-|容器             |[Docker 機器](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
-|資料庫              |MySQL 用戶端<br> PostgreSql 用戶端<br> [sqlcmd 公用程式](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|其他                  |iPython 用戶端<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)|
+|容器             |[Docker 機器](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/) \(英文\)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli) \(英文\)         |
+|資料庫              |MySQL 用戶端<br> PostgreSql 用戶端<br> [sqlcmd 公用程式](https://docs.microsoft.com/sql/tools/sqlcmd-utility) \(英文\)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|其他                  |iPython 用戶端<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli) \(英文\)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)|
 
 ## <a name="language-support"></a>語言支援
 
@@ -80,7 +80,7 @@ Cloud Shell 包含預先設定的驗證，可用於開放原始碼工具，例�
 |Python     |2.7 和 3.5 (預設)|
 
 ## <a name="next-steps"></a>後續步驟
-[Cloud Shell 快速入門中的 bash](quickstart.md) <br>
-[在 Cloud Shell 快速入門中的 PowerShell](quickstart-powershell.md) <br>
+[Cloud Shell 中 Bash 的快速入門](quickstart.md) <br>
+[Cloud Shell 中 PowerShell 的快速入門](quickstart-powershell.md) <br>
 [了解 Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [了解 Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

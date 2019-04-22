@@ -1,6 +1,6 @@
 ---
 title: 保護 Azure SQL Database 中的單一或集區資料庫 | Microsoft Docs
-description: 了解用來對 Azure SQL Database 中的單一或集區資料庫進行保護的技術和功能。
+description: 本教學課程將教導您保護 Azure SQL Database 中單一或集區資料庫的技術和功能。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,23 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seoapril2019
+ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893266"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496432"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>教學課程：保護單一或集區資料庫
+
+在本教學課程中，您將了解如何：
+
+> [!div class="checklist"]
+> - 建立伺服器層級和資料庫層級防火牆規則
+> - 設定 Azure Active Directory (AD) 管理員
+> - 使用 SQL 驗證、Azure AD 驗證和安全的連接字串來管理使用者存取
+> - 啟用安全性功能，例如進階資料安全性、稽核、資料遮罩和加密
 
 Azure SQL Database 可讓您以下列方式保護單一或集區資料庫中的資料：
 
@@ -28,14 +37,6 @@ Azure SQL Database 可讓您以下列方式保護單一或集區資料庫中的�
 
 > [!NOTE]
 > 如 [Azure SQL 資料庫受控執行個體](sql-database-managed-instance-index.yml)和[連線架構](sql-database-managed-instance-connectivity-architecture.md)所述，使用網路安全性群組規則和私人端點來保護受控執行個體上的 Azure SQL 資料庫。
-
-只要幾個簡單步驟，就可以改善資料庫安全性。 在本教學課程中，您將了解如何：
-
-> [!div class="checklist"]
-> - 建立伺服器層級和資料庫層級防火牆規則
-> - 設定 Azure Active Directory (AD) 管理員
-> - 使用 SQL 驗證、Azure AD 驗證和安全的連接字串來管理使用者存取
-> - 啟用安全性功能，例如進階資料安全性、稽核、資料遮罩和加密
 
 若要深入了解，請參閱 [Azure SQL Database 安全性概觀](/azure/sql-database/sql-database-security-index)和[功能](sql-database-security-overview.md)文章。
 
@@ -349,4 +350,4 @@ Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能
 前進至下一個教學課程，以了解如何實作地理分散。
 
 > [!div class="nextstepaction"]
->[實作異地分散式資料庫](sql-database-implement-geo-distributed-database.md)
+>[實作異地分散資料庫](sql-database-implement-geo-distributed-database.md)

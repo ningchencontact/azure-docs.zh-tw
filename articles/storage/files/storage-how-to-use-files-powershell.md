@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 59d8b9ffa8c0cbeaaa354f2497d279ac8c285ae1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f353c9952d9ccec0f279d6bd98bf5db215758559
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437117"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524539"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立及管理 Azure 檔案共用 
 本指南會逐步說明透過 PowerShell 來使用 [Azure 檔案共用](storage-files-introduction.md)的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 
@@ -40,7 +40,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 儲存體帳戶是可用來部署 Azure 檔案共用或其他儲存體資源 (例如 Blob 或佇列) 的共用儲存體集區。 儲存體帳戶可包含無限制數目的共用，而共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。
 
-此範例會使用 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) Cmdlet 來建立儲存體帳戶。 儲存體帳戶的名稱為 mystorageaccount<random number>，而且該儲存體帳戶的參考會儲存在 **$storageAcct** 變數中。 儲存體帳戶名稱必須是唯一的，因此，請使用 `Get-Random` 為名稱附加一個數字，使其成為唯一名稱。 
+此範例會使用 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) Cmdlet 來建立儲存體帳戶。 儲存體帳戶的名稱為 *mystorageaccount\<隨機數字>*，而且該儲存體帳戶的參考會儲存在 **$storageAcct** 變數中。 儲存體帳戶名稱必須是唯一的，因此，請使用 `Get-Random` 為名稱附加一個數字，使其成為唯一名稱。 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzStorageAccount `

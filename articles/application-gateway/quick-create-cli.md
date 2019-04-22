@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: eb0f73d31abced8decbed31e5604a2056584eb98
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a4f6cc2af7b9e044e5a72767898f876932fbf973
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549420"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528284"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure CLI
 
-本快速入門說明如何使用 Azure 入門網站建立應用程式閘道。  建立應用程式閘道之後，您要加以測試，確定它可正常運作。 您會使用 Azure 應用程式閘道，將接聽程式指派給連接埠、建立規則，以及將資源新增至後端集區，來將應用程式網路流量導向至特定資源。 為了簡單起見，本文使用簡單的設定，包括公用前端 IP、在此應用程式閘道上裝載單一網站的基本接聽程式、用於後端集區的兩部虛擬機器，以及基本的要求路由規則。
+本快速入門說明如何使用 Azure CLI 建立應用程式閘道。  建立應用程式閘道之後，您要加以測試，確定它可正常運作。 您會使用 Azure 應用程式閘道，將接聽程式指派給連接埠、建立規則，以及將資源新增至後端集區，來將應用程式網路流量導向至特定資源。 為了簡單起見，本文使用簡單的設定，包括公用前端 IP、在此應用程式閘道上裝載單一網站的基本接聽程式、用於後端集區的兩部虛擬機器，以及基本的要求路由規則。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -25,7 +25,7 @@ ms.locfileid: "57549420"
 
 ## <a name="prerequisites"></a>必要條件
 
-### <a name="azure-powershell-module"></a>Azure PowerShell 模組
+### <a name="azure-cli"></a>Azure CLI
 
 如果您選擇在本機安裝和使用 CLI，請執行 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 **az --version**。 如需安裝或升級的相關資訊，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 04/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 16844f60f03e2bf488450797f43915462df08064
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c9b30eb89080137e17042feb4458f2601bf48a05
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904911"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617966"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>適用於 Python 的 Azure 認知服務電腦視覺 SDK
 
@@ -46,8 +46,8 @@ ms.locfileid: "58904911"
 
 建立金鑰後請保存下列項目：
 
-* 金鑰值：32 個字元的字串，格式如下： `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-* 金鑰端點：基底端點 URL https://westcentralus.api.cognitive.microsoft.com
+* 金鑰值：一個包含 32 個字元、採用 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 格式的字串
+* 金鑰端點：基本端點 URL (https\://westcentralus.api.cognitive.microsoft.com)
 
 ### <a name="if-you-have-an-azure-subscription"></a>如果您有 Azure 訂用帳戶
 
@@ -216,12 +216,13 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>從影像中取得文字
 
-您可以從影像中取得任何手寫或列印的文字。 這需要對 SDK 發出兩個呼叫：[`recognize_text`][ref_computervisionclient_recognize_text] 和 [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]。 對於 recognize_text 的呼叫是非同步的。 在 get_text_operation_result 呼叫的結果中，您必須先確認第一個呼叫是否已完成且有 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes]，再擷取文字資料。 結果中會包含文字以及文字的週框座標。
+您可以從影像中取得任何手寫或列印的文字。 這需要對 SDK 發出兩個呼叫：[`batch_read_file`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) 和 [`get_read_operation_result`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-)。 對 `batch_read_file` 的呼叫是非同步的。 在 `get_read_operation_result` 呼叫的結果中，您必須先確認第一個呼叫是否已完成且有 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes]，再擷取文字資料。 結果中會包含文字以及文字的週框座標。
 
 ```Python
 # import models
 from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
 from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+import time
 
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
@@ -230,7 +231,7 @@ custom_headers = None
 numberOfCharsInOperationId = 36
 
 # Async SDK call
-rawHttpResponse = client.recognize_text(url, mode, custom_headers,  raw)
+rawHttpResponse = client.batch_read_file(url, mode, custom_headers,  raw)
 
 # Get ID from returned headers
 operationLocation = rawHttpResponse.headers["Operation-Location"]
@@ -239,16 +240,17 @@ operationId = operationLocation[idLocation:]
 
 # SDK call
 while True:
-    result = client.get_text_operation_result(operationId)
+    result = client.get_read_operation_result(operationId)
     if result.status not in ['NotStarted', 'Running']:
         break
     time.sleep(1)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
-    for line in result.recognition_result.lines:
-        print(line.text)
-        print(line.bounding_box)
+    for textResult in result.recognition_results:
+        for line in textResult.lines:
+            print(line.text)
+            print(line.bounding_box)
 ```
 
 ### <a name="generate-thumbnail"></a>產生縮圖
@@ -314,12 +316,6 @@ except HTTPFailure as e:
 
 在使用 [ComputerVisionClient][ref_computervisionclient] 用戶端時，您可能會遇到由於服務強制執行[速率限制][computervision_request_units]而造成的暫時性失敗，或遇到其他暫時性問題 (例如，網路中斷)。 如需如何處理這些失敗類型的相關資訊，請參閱《雲端設計模式》指南中的[重試模式][azure_pattern_retry]，以及相關的[斷路器模式][azure_pattern_circuit_breaker]。
 
-### <a name="more-sample-code"></a>更多的程式碼範例
-
-SDK 的 GitHub 存放庫中有數個電腦視覺 Python SDK 範例可供您參考。 這些範例會提供在使用電腦視覺時所經常遇到其他案例的程式碼範例：
-
-* [recognize_text][recognize-text]
-
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
@@ -329,7 +325,7 @@ SDK 的 GitHub 存放庫中有數個電腦視覺 Python SDK 範例可供您參�
 [pip]: https://pypi.org/project/pip/
 [python]: https://www.python.org/downloads/
 
-[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
+[azure_cli]: https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
 [azure_pattern_circuit_breaker]: https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker
 [azure_pattern_retry]: https://docs.microsoft.com/azure/architecture/patterns/retry
 [azure_portal]: https://portal.azure.com
@@ -350,7 +346,7 @@ SDK 的 GitHub 存放庫中有數個電腦視覺 Python SDK 範例可供您參�
 [ref_httpfailure]: https://docs.microsoft.com/python/api/msrest/msrest.exceptions.httpoperationerror?view=azure-python
 
 
-[computervision_resource]: https://azure.microsoft.com/en-us/try/cognitive-services/?
+[computervision_resource]: https://azure.microsoft.com/try/cognitive-services/?
 
 [computervision_docs]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/home
 
@@ -364,8 +360,6 @@ SDK 的 GitHub 存放庫中有數個電腦視覺 Python SDK 範例可供您參�
 
 [ref_computervisionclient_describe_image]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
 
-[ref_computervisionclient_recognize_text]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
-
 [ref_computervisionclient_get_text_operation_result]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
 
 [ref_computervisionclient_generate_thumbnail]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
@@ -376,6 +370,3 @@ SDK 的 GitHub 存放庫中有數個電腦視覺 Python SDK 範例可供您參�
 [ref_computervision_model_textoperationstatuscodes]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.textoperationstatuscodes?view=azure-python
 
 [computervision_request_units]:https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/
-
-[recognize-text]:https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/vision/computer_vision_samples.py
-

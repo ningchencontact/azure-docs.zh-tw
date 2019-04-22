@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0688235d928584df223a3a6a6ca2821282e4cb92
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762679"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680799"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>在 Azure 中 Windows 虛擬機器上執行的 SQL Server 常見問題集
 
@@ -56,7 +56,7 @@ ms.locfileid: "58762679"
 
 1. **可以從 SQL Server VM 建立 VHD 映像嗎？**
 
-   可以，但有幾點需要考量。 如果您將此 VHD 部署至 Azure 中的新 VM，則入口網站不會出現 [SQL Server 組態] 區段。 您接下來必須透過 PowerShell 管理 SQL Server 組態選項。 此外，將按照映像原先所在的 SQL VM 的費率向您收費。 即使您在部署前先從 VHD 移除 SQL Server 也是如此。 
+   可以，但有幾點需要考量。 如果您將此 VHD 部署至 Azure 中的新 VM 時，您不會收到在入口網站的 [SQL Server 組態] 區段。 您接下來必須透過 PowerShell 管理 SQL Server 組態選項。 此外，將按照映像原先所在的 SQL VM 的費率向您收費。 即使您在部署前先從 VHD 移除 SQL Server 也是如此。 
 
 1. **是否可以設定虛擬機器資源庫中未顯示的組態 (例如 Windows 2008 R2 + SQL Server 2012)？**
 
@@ -82,7 +82,7 @@ ms.locfileid: "58762679"
 
 1. **如果只是用於待命/容錯移轉，需要對 Azure VM 上的 SQL Server 授權付費嗎？**
 
-   如果您具有軟體保證，並在中所述，使用授權流動性[虛擬機器授權常見問題集](https://azure.microsoft.com/pricing/licensing-faq/)，則您不需要對參加為 HA 部署中被動次要複本的一個 SQL Server 授權付費。 否則，您必須支付它的授權費用。
+   如果有[虚拟机许可常见问题解答](https://azure.microsoft.com/pricing/licensing-faq/)中所述的“软件保障”并且使用“许可证移动性”，则无需付费即可为在 HA 部署中作为被动次要副本参与的 SQL Server 授予许可。 否則，您必須支付它的授權費用。
 
 1. **如果是從其中一個隨收隨付資源庫映像建立，可以將 VM 變更為使用自己的 SQL Server 授權嗎？**
 
@@ -127,17 +127,17 @@ ms.locfileid: "58762679"
 
 1. **是否可以在相同的 VM 上安裝第二個 SQL Server 執行個體？是否可以變更預設執行個體的已安裝功能？**
 
-   是。 SQL Server 安裝媒體位於 **C** 磁碟機的資料夾中。 您可從該位置執行 **Setup.exe** 來新增新的 SQL Server 執行個體，或變更機器上 SQL Server 的其他已安裝功能。 請注意，某些功能，例如自動備份、 自動修補和 Azure Key Vault 整合，只會對預設執行個體或具名執行個體的設定正確 (請參閱問題 3)。 
+   是。 SQL Server 安裝媒體位於 **C** 磁碟機的資料夾中。 您可從該位置執行 **Setup.exe** 來新增新的 SQL Server 執行個體，或變更機器上 SQL Server 的其他已安裝功能。 请注意，某些功能（例如自动备份、自动修补和 Azure Key Vault 集成）仅对默认实例或者正确配置的命名实例起作用（请参阅“问题 3”）。 
 
 1. **是否可以將 SQL Server 的預設執行個體解除安裝**
 
-   可以，但有幾點考量。 如先前的回答中所述，有功能依賴[SQL Server IaaS 代理程式擴充功能](virtual-machines-windows-sql-server-agent-extension.md)。  如果您未也移除 IaaS 延伸模組解除安裝的預設執行個體，擴充功能會繼續尋找它，並可能會產生事件記錄檔錯誤。 這些錯誤來自下列兩個來源：**Microsoft SQL Server 認證管理**和 **Microsoft SQL Server IaaS 代理程式**。 其中一個錯誤應如下所示：
+   可以，但有幾點考量。 如前面的解答中所述，某些功能依赖于 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。  如果卸载默认实例但未同时删除 IaaS 扩展，该扩展会继续查找默认实例并可能生成事件日志错误。 這些錯誤來自下列兩個來源：**Microsoft SQL Server 認證管理**和 **Microsoft SQL Server IaaS 代理程式**。 其中一個錯誤應如下所示：
 
       和 SQL Server 建立連線時，發生與網路相關或執行個體特定的錯誤。 找不到或無法存取伺服器。
 
    如果您決定要將預設執行個體解除安裝，則也會將 [SQL Server IaaS 代理程式擴充功能](virtual-machines-windows-sql-server-agent-extension.md)解除安裝。
 
-1. **可以使用具名執行個體的 SQL Server IaaS 擴充功能與**嗎？
+1. **是否可将 SQL Server 的命名实例与 IaaS 扩展配合使用**？
    
    是，具名執行個體是否在 SQL Server 中，唯一的執行個體，以及原始的預設執行個體是否[正確解除安裝](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation)。 如果沒有預設執行個體，且單一的 SQL Server VM 上有多個具名執行個體，IaaS 擴充功能將無法安裝。 
 
@@ -149,7 +149,7 @@ ms.locfileid: "58762679"
 
 1. **如何變更至新的 Azure VM 中的 SQL Server 版本/版本？**
 
-   具備軟體保證的客戶就能夠進行就地升級大量授權入口網站中使用安裝媒體的 Azure VM 上執行其 SQL server。 不過，目前沒有任何方法可以變更的 SQL Server 執行個體的版本。 使用所需的 SQL Server 版本中，建立新的 Azure 虛擬機器，然後將資料庫移轉到新的伺服器，使用標準[資料移轉技術](virtual-machines-windows-migrate-sql.md)。
+   享有软件保障的客户可以使用批量许可门户中的安装媒体对 Azure VM 上运行的 SQL Server 执行就地升级。 但是，目前没有任何办法可以更改 SQL Server 实例的版本。 请使用所需的 SQL Server 版本创建新的 Azure 虚拟机，然后使用[标准数据迁移技术](virtual-machines-windows-migrate-sql.md)，将数据库迁移到新的服务器。
 
 1. **如何將更新和 Service Pack 套用到 SQL Server VM 上？**
 

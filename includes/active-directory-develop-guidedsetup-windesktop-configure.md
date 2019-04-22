@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 220723988f349bf015d2de7633af78782bc03bac
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203184"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59498364"
 ---
 ## <a name="register-your-application"></a>註冊您的應用程式
 
@@ -28,33 +28,25 @@ ms.locfileid: "58203184"
 ### <a name="option-1-express-mode"></a>選項 1：快速模式
 
 執行下列動作，即可快速註冊您的應用程式：
-1. 移至 [Microsoft 應用程式註冊入口網站](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)。
+1. 移至 [Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs)。
+1. 輸入應用程式的名稱，並選取 [註冊]。
+1. 依照指示按一下滑鼠，即可下載並自動設定新的應用程式。
 
-2. 選取 [新增應用程式]。
-
-3. 在 [應用程式名稱] 方塊中，輸入應用程式的名稱。
-
-4. 確認已選取 [引導式設定] 核取方塊，然後選取 [建立]。
-
-5. 依照指示取得應用程式識別碼，然後將它貼到您的程式碼中。
-
-### <a name="option-2-advanced-mode"></a>選項 2：進階的模式
+### <a name="option-2-advanced-mode"></a>選項 2：進階模式
 
 若要註冊您的應用程式並將應用程式註冊資訊新增到您的解決方案，請執行下列作業：
-1. 如果您尚未註冊您的應用程式，請移至 [Microsoft 應用程式註冊入口網站](https://apps.dev.microsoft.com/portal/register-app)。
-
-2. 選取 [新增應用程式]。
-
-3. 在 [應用程式名稱] 方塊中，輸入應用程式的名稱。
-
-4. 確認已清除 [引導式設定] 核取方塊，然後選取 [建立]。
-
-5. 選取 [新增平台]，選取 [原生應用程式]，然後選取 [儲存]。
-
-6. 在 [應用程式 ID] 方塊中，複製 GUID。
-
-7. 移至 Visual Studio，開啟 App.xaml.cs 檔案，然後將 `your_client_id_here` 取代為您剛剛註冊及複製的應用程式 ID。
+1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
+1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
+1. 瀏覽至 Microsoft 身分識別平台，以取得開發人員的[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面。
+1. 選取 [新增註冊]。
+   - 在 [名稱] 區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `Win-App-calling-MsGraph`。
+   - 在 [支援的帳戶類型] 區段中，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]，例如 Skype、Xbox、Outlook.com。
+   - 選取 [註冊] 以建立應用程式。
+1. 在應用程式頁面清單中，選取 [驗證]。
+1. 在 [重新導向 URI] 區段中，找出 [建議的公用用戶端 (行動裝置、桌面) 重新導向 URI] 區段，然後選取 **"urn:ietf:wg:oauth:2.0:oob**。
+1. 選取 [ **儲存**]。
+1. 移至 Visual Studio，開啟 App.xaml.cs 檔案，然後將 `Enter_the_Application_Id_here` 取代為您剛剛註冊及複製的應用程式 ID。
 
     ```csharp
-    private static string ClientId = "your_application_id_here";
+    private static string ClientId = "Enter_the_Application_Id_here";
     ```

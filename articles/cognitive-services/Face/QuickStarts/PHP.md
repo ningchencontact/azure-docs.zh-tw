@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 0c48b85e48153eb70400fc6da4822271f49b7fbe
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630169"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490441"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>快速入門：使用 REST API 和 PHP 偵測影像中的人臉
 
@@ -26,6 +26,7 @@ ms.locfileid: "58630169"
 - 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。
 - 程式碼編輯器，例如 [Visual Studio Code](https://code.visualstudio.com/download)。
 - PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) 套件。
+- 啟用 PHP 的網頁瀏覽器。 如果您尚未進行此設定，可以在電腦上安裝並設定 [XAMPP](https://www.apachefriends.org/)。
 
 ## <a name="initialize-the-html-file"></a>初始化 HTML 檔案
 
@@ -290,4 +291,4 @@ catch (HttpException $ex)
 探索臉部 API，此 API 可用來偵測影像中的人臉、使用矩形標定臉部，以及傳回例如年齡和性別等屬性。
 
 > [!div class="nextstepaction"]
-> [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (英文)
+> [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

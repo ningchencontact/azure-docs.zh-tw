@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 701b08cafd2e6d38a68252ea5919c8f4cd7de9b4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203589"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505788"
 ---
 ## <a name="set-up-your-project"></a>設定專案
 
-本節說明使用 OpenID Connect 在 ASP.NET 專案中，透過 OWIN 中介軟體安裝及設定驗證管線的步驟。
+此節說明使用 OpenID Connect 在 ASP.NET 專案中，透過 OWIN 中介軟體安裝及設定驗證管線的步驟。
 
 > 想要改為下載此範例的 Visual Studio 專案嗎？ [下載專案](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)並跳至[設定步驟](#register-your-application)，以在執行之前先設定程式碼範例。
 
@@ -31,7 +31,7 @@ ms.locfileid: "58203589"
 
 1. 在 Visual Studio 中：`File` > `New` > `Project`
 2. 在 *Visual C#\Web* 底下，選取 `ASP.NET Web Application (.NET Framework)`。
-3. 命名应用程序，然后单击“确定”
+3. 為您的應用程式命名並按一下 [確定]
 4. 選取 `Empty` 並選取核取方塊以新增 `MVC` 參考
 
 ## <a name="add-authentication-components"></a>新增驗證元件
@@ -51,11 +51,12 @@ ms.locfileid: "58203589"
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>設定驗證管線
+
 下面的步驟是用來建立 OWIN 中介軟體啟動類別，以設定 OpenID Connect 驗證。 此類別將會在您的 IIS 處理序啟動時自動執行。
 
 > [!TIP]
 > 如果您專案的根資料夾中沒有 `Startup.cs` 檔案：
-> 1. 在專案的根資料夾上按一下滑鼠右鍵： > `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 1. 在專案的根資料夾上按一下滑鼠右鍵：> `Add` > `New Item...` > `OWIN Startup class`<br/>
 > 2. 將它命名為 `Startup.cs`
 >
 >> 確定選取的類別是 OWIN 啟動類別，而非標準 C# 類別。 如果命名空間上方顯示 `[assembly: OwinStartup(typeof({NameSpace}.Startup))]`，請勾選以確認此項目。
@@ -113,10 +114,10 @@ ms.locfileid: "58203589"
                     ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
-                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
+                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
                     TokenValidationParameters = new TokenValidationParameters()
                     {
-                        ValidateIssuer = false
+                        ValidateIssuer = false // This is a simplification
                     },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
@@ -140,6 +141,9 @@ ms.locfileid: "58203589"
         }
     }
     ```
+
+> [!NOTE]
+> 設定 `ValidateIssuer = false` 可簡化此快速入門。 在實際應用程式中，您必須驗證簽發者，請參閱範例以了解作法。
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>相關資訊

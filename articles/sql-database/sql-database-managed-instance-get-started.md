@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: a6abaf9b444ca9b3f14093dde1239d9158dfd3ff
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: d94e00c8a475e29ddd671004b8137ba4e6efd107
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469636"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495032"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入門：建立 Azure SQL Database 受控執行個體
 
@@ -52,6 +52,7 @@ ms.locfileid: "59469636"
    |**Collation**|您要用於受控執行個體的定序|如果您從 SQL Server 遷移資料庫，請使用 `SELECT SERVERPROPERTY(N'Collation')` 來檢查來源定序並使用該值。 如需定序的相關資訊，請參閱[伺服器層級的定序](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)。|
    |**位置**|要在其中建立受控執行個體的位置|如需有關區域的資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。|
    |**虛擬網路**|選取 [建立新的虛擬網路] 或有效的虛擬網路與子網路。| 如果網路/子網路無法使用，您必須先[修改成符合網路需求](sql-database-managed-instance-configure-vnet-subnet.md)後，才能選取它作為新的受控執行個體目標。 如需關於設定受控執行個體網路環境的需求資訊，請參閱[設定受控執行個體的 VNet](sql-database-managed-instance-connectivity-architecture.md)。 |
+   |**連線類型**|在 Proxy 和重新導向連線類型之間做選擇|如需有關連線類型的詳細資訊，請參閱 [Azure SQL 連線原則](sql-database-connectivity-architecture.md#connection-policy)。|
    |**資源群組**|新的或現有的資源群組|如需有效的資源群組名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
 
    ![受控執行個體表單](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

@@ -8,16 +8,16 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 749e211c9844f644e04d5135f99d71918d65b66b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523727"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680331"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>整合 Azure 虛擬網路中的函式應用程式
 
-本逐步教學課程將示範如何使用 Azure Functions 來連線到 Azure VNET 中的資源。
+本教學課程會示範如何使用 Azure Functions 來連線到 Azure VNET 中的資源。
 
 本教學課程中，我們會部署在私人非網際網路可存取的 VNET 中 VM 上的 WordPress 網站。 我們接著將部署可存取網際網路與 VNET 的函式。 我們將使用該函式，從部署在 VNET 內的 WordPress 網站存取資源。
 

@@ -3,19 +3,19 @@ title: 本快速入門說明如何使用 Node.js 向 Azure 裝置佈建服務註
 description: 本快速入門使用群組註冊。 在本快速入門中，您會使用 Node.js 服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 X.509 裝置
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/21/2017
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 3459814108450e3c8faead6ab373ce62b951885e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a861bc52734f5b2bc6e455965428328cd1415b76
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095783"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500663"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>快速入門：使用 Node.js 向裝置佈建服務註冊 X.509 裝置
 
@@ -50,7 +50,7 @@ ms.locfileid: "55095783"
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
+   預期此作業需要幾分鐘的時間才能完成。
 
    測試工具位於您所複製的存放庫 *azure-iot-sdk-c/tools/CACertificates* 中。    
 

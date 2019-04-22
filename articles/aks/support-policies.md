@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
 ms.openlocfilehash: f173fc7c794729eae8c60cceefa88d153800a816
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59502169"
 ---
 # <a name="azure-kubernetes-service-aks-support-policies"></a>Azure Kubernetes Service (AKS) 的支援原則
@@ -41,7 +41,7 @@ AKS 不是 100 %managed**叢集**解決方案。 某些元件 （例如背景工
  **管理**，Microsoft 和 AKS 小組部署的方式運作，以及負責的可用性和這些服務的功能。 **客戶無法改變這些元件**。 自訂僅限於確保一致且可調整的使用者體驗。 如需可完全自訂的解決方案，請參閱[AKS 引擎](https://github.com/Azure/aks-engine)。
 
 > [!NOTE]
-> 請務必了解 Azure Kubernetes 服務背景工作角色節點顯示在 Azure 入口網站中，做為一般的 Azure IaaS 資源，雖然這些虛擬機器會部署到自訂的 Azure 資源群組 (加上 MC\\*)。 使用者可能會改變，SSH 到它們就像一般的虛擬機器 （不過，您不能變更基底的 OS 映像，並變更不會保存透過更新，或不可能重新開機），而且您可以連接其他 Azure 資源，或修改它們。 **不過，這樣的頻外管理和自訂，表示，AKS 叢集本身可能會變得不受支援。 除非 Microsoft 支援服務的指示，請避免背景工作節點的改變。**
+> 請務必了解 Azure Kubernetes 服務背景工作角色節點顯示在 Azure 入口網站中，做為一般的 Azure IaaS 資源，雖然這些虛擬機器會部署到自訂的 Azure 資源群組 (加上 MC\\*)。 使用者可能會改變，SSH 到它們就像一般的虛擬機器 （不過，您不能變更基底的 OS 映像，並變更不會保存透過更新，或不可能重新開機），而且您可以連接其他 Azure 資源，或修改它們。 **不過，這樣的頻外管理和自訂，表示，AKS 叢集本身可能會變得不受支援。除非 Microsoft 支援服務的指示，請避免背景工作節點的改變。**
 
 ## <a name="what-is-shared-responsibility"></a>什麼被共用的責任
 

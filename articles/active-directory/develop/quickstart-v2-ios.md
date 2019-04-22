@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2 iOS 快速入門 | Microsoft Docs
+title: Microsoft 身分識別平台 iOS 快速入門 | Azure
 description: 了解如何在 iOS 原生應用程式中登入使用者及查詢 Microsoft Graph。
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439257"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496124"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>快速入門：從 iOS 原生應用程式登入使用者及呼叫 Microsoft Graph API
 
@@ -30,7 +30,7 @@ ms.locfileid: "58439257"
 
 本快速入門包含示範原生 iOS 應用程式如何登入個人、公司與學校帳戶、取得存取權杖，以及呼叫 Microsoft Graph API 的程式碼範例。
 
-![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-ios/ios-intro-updated.png)
+![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>註冊及下載
@@ -49,7 +49,7 @@ ms.locfileid: "58439257"
 > > [為我進行這項變更]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![已設定](media/quickstart-v2-ios/green-check.png) 您的應用程式已設定了這個屬性
+> > ![已設定](media/quickstart-v2-ios/green-check.png)您的應用程式已設定了這個屬性
 
 #### <a name="step-2-download-your-web-server-or-project"></a>步驟 2：下載您的 Web 伺服器或專案
 
@@ -147,7 +147,7 @@ self.applicationContext = try MSALPublicClientApplication(clientId: kClientID, a
 > |其中： ||
 > |---------|---------|
 > | `clientId` | 來自在 *portal.azure.com* 中註冊之應用程式的應用程式識別碼 |
-> | `authority` | Azure AD v2.0 端點。 在大部分情況下，這會是 *https<span/>://login.microsoftonline.com/common* |
+> | `authority` | Microsoft 身分識別平台端點。 在大部分情況下，這會是 *https<span/>://login.microsoftonline.com/common* |
 
 ### <a name="requesting-tokens"></a>要求權杖
 
@@ -155,7 +155,7 @@ MSAL 有兩種取得權杖的方法：`acquireToken` 與 `acquireTokenSilent`。
 
 #### <a name="getting-an-access-token-interactively"></a>以互動方式取得存取權杖
 
-有些情況需要強制使用者與 Azure Active Directory (Azure AD) v2.0 端點互動，這會導致系統將環境切換至系統瀏覽器，以驗證使用者的認證或要求同意。 部分範例包括：
+有些情況需要強制使用者與 Microsoft 身分識別平台端點互動，這會導致系統將環境切換至系統瀏覽器，以驗證使用者的認證或要求同意。 部分範例包括：
 
 * 使用者首次登入應用程式
 * 使用者因為密碼已過期而可能需要重新輸入其認證時

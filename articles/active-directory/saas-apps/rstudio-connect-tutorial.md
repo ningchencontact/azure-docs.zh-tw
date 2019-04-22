@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ee8c94b216b9e4e0699e70819e3eb775d62234
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4bda20d9ce06f756913e6dfb3e980399ac7e0a6
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283869"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565444"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>教學課程：Azure Active Directory 與 RStudio Connect 整合
 
@@ -108,9 +108,9 @@ ms.locfileid: "59283869"
 
     ![RStudio Connect 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://connect.<example>.com/__login__/saml`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://connect.<example>.com/__login__/saml`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://connect.<example>.com/__login__/saml/acs`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://connect.<example>.com/__login__/saml/acs`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -195,9 +195,9 @@ ms.locfileid: "59283869"
 
 ## <a name="additional-resources"></a>其他資源
 
-- [ 如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

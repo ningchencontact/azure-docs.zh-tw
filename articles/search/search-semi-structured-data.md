@@ -1,6 +1,6 @@
 ---
 title: 教學課程：編製 JSON Blob 中半結構化資料的索引 - Azure 搜尋服務
-description: 了解如何使用 Azure 搜尋服務和 Postman，編製半結構化 Azure JSON Blob 的索引並進行搜尋。
+description: 了解如何使用 Azure 搜尋服務 REST API 和 Postman，編製半結構化 Azure JSON Blob 的索引並進行搜尋。
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471455"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525342"
 ---
-# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>教學課程：在 Azure 搜尋服務中編製半結構化資料 (JSON Blob) 的索引
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST 教學課程：在 Azure 搜尋服務中編製半結構化資料 (JSON Blob) 的索引
 
 Azure 搜尋服務可以在 Azure Blob 儲存體中，使用[索引子](search-indexer-overview.md)來為 JSON 文件和陣列編製索引，以了解如何讀取半結構化資料。 半結構化資料會包含在資料內分隔內容的標籤或標記。 這些資料會將不同的內容區分為必須完整編製索引的未結構化資料，以及遵循資料模型 (例如關聯式資料庫結構描述) 且可依據欄位逐一編製索引的正式結構化資料。
 
-在本教學課程中，使用 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) 和 REST 用戶端來執行下列工作：
+在此教學課程中，使用 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) 和 REST 用戶端來執行下列工作：
 
 > [!div class="checklist"]
 > * 設定 Azure Blob 容器的 Azure 搜尋服務資料來源
@@ -29,19 +29,19 @@ Azure 搜尋服務可以在 Azure Blob 儲存體中，使用[索引子](search-i
 > * 搜尋剛剛建立的索引
 
 > [!NOTE]
-> 本教學課程仰賴 JSON 陣列支援，該功能目前是 Azure 搜尋服務中的預覽功能， 因此入口網站並未提供。 基於此因素，我們使用提供這項功能的預覽 REST API 和 REST 用戶端工具來呼叫 API。
+> 此教學課程仰賴 JSON 陣列支援，該功能目前是 Azure 搜尋服務中的預覽功能， 因此入口網站並未提供。 基於此因素，我們使用提供這項功能的預覽 REST API 和 REST 用戶端工具來呼叫 API。
 
 ## <a name="prerequisites"></a>必要條件
 
-本快速入門會使用下列服務、工具和資料。 
+此快速入門使用下列服務、工具與資料。 
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。 
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此教學課程的免費服務。 
 
-[建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，用來儲存範例資料。
+[建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。
 
-[Postman 傳統型應用程式](https://www.getpostman.com/)用來將要求傳送至 Azure 搜尋服務。
+[Postman 傳統型應用程式](https://www.getpostman.com/)可將要求傳送至 Azure 搜尋服務。
 
-[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) 包含本教學課程中使用的資料。 下載此檔案並將其解壓縮到它自己的資料夾中。 資料源自 [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results)，已針對本教學課程轉換為 JSON。
+[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) 包含此教學課程中使用的資料。 下載此檔案並將其解壓縮到它自己的資料夾中。 資料源自 [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results)，已針對此教學課程轉換為 JSON。
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
@@ -59,9 +59,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]，然後按一下 [+ 容器]。
 
-1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)以容納範例資料。 因為您將會使用金鑰和儲存體帳戶名稱進行連線，請確定容器的公用存取層級設定為 [容器 (容器的匿名讀取存取)]。
-
-   ![設定公用存取層級](media/search-semi-structured-data/container-public-access-level.png "設定公用存取層級")
+1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)以容納範例資料。 您可以將公用存取層級設定為任何有效值。
 
 1. 建立容器之後，請加以開啟，然後選取命令列的 [上傳]。
 
@@ -77,7 +75,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 啟動 Postman 及設定 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Postman 探索 Azure 搜尋服務 REST API](search-fiddler.md)。
 
-本教學課程中每個呼叫的要求方法都是 **POST**。 標頭金鑰為 "Content-type" 和 "api-key"。 標頭金鑰的值分別為 "application/json" 和您的「管理金鑰」(管理金鑰是您搜尋主索引鍵的預留位置)。 主體是您放置呼叫實際內容的地方。 根據使用的用戶端而定，您用以建構查詢的方式可能會有一些變化，但那些都是基本的。
+此教學課程中每個呼叫的要求方法都是 **POST**。 標頭金鑰為 "Content-type" 和 "api-key"。 標頭金鑰的值分別為 "application/json" 和您的「管理金鑰」(管理金鑰是您搜尋主索引鍵的預留位置)。 主體是您放置呼叫實際內容的地方。 根據使用的用戶端而定，您用以建構查詢的方式可能會有一些變化，但那些都是基本的。
 
   ![半結構化搜尋](media/search-semi-structured-data/postmanoverview.png)
 
@@ -295,7 +293,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以將具有 AI 功能的認知服務演算法附加至索引子管線。 下一個步驟中，繼續進行下列教學課程。
+有數種方法和多個選項可用於編製 JSON Blob 的索引。 下一個步驟中，檢閱及測試各種不同的選項，以查看最適合您的案例。
 
 > [!div class="nextstepaction"]
-> [使用 AI 編製索引](cognitive-search-tutorial-blob.md)
+> [如何使用 Azure 搜尋服務 Blob 索引子編製 JSON Blob 的索引](search-howto-index-json-blobs.md)

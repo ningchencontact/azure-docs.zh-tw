@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: cd0b41966a392f6e56a5f0dfb97c00fc713d17d7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: cd77dcc7202f61a801d29d42f61815c8ce7c2067
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266268"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496209"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>教學課程：準備建立迴歸模型所需的資料
 
@@ -84,7 +84,7 @@ ms.locfileid: "59266268"
 如果您還沒有必要的套件，請使用下列步驟加以安裝。
 
 ```shell
-pip install azureml-dataprep==1.0.17
+pip install "azureml-dataprep>=1.1.0,<1.2.0"
 ```
 
 匯入 SDK。
@@ -94,7 +94,7 @@ import azureml.dataprep as dprep
 ```
 
 > [!IMPORTANT]
-> 請確定您安裝 1.0.17 版。 最新版本 1.1.0 不適用於本教學課程
+> 請確定您已安裝最新版本。 低於 1.1.0 的版本號碼不適用於本教學課程
 
 ## <a name="load-data"></a>載入資料
 
@@ -1090,8 +1090,7 @@ final_df = final_df.filter(dprep.col("cost") > 0)
 import os
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
-package = dprep.Package([final_df])
-package.save(file_path)
+final_df.save(file_path)
 ```
 
 ## <a name="clean-up-resources"></a>清除資源

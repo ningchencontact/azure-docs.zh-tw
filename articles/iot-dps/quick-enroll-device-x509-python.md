@@ -3,19 +3,19 @@ title: 本快速入門說明如何使用 Python 向 Azure 裝置佈建服務註�
 description: 本快速入門使用群組註冊。 在本快速入門中，您會使用 Python 向 Azure IoT 中樞裝置佈建服務註冊 X.509 裝置
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/25/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: aad21bd4003f789a0a315d6514bf428a4ef3f9f5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d9ed0cb82f8ad1c19f95299b3dd651fc099368b8
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187333"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500765"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>快速入門：使用 Python 向裝置佈建服務註冊 X.509 裝置
 
@@ -52,7 +52,7 @@ ms.locfileid: "53187333"
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
+   預期此作業需要幾分鐘的時間才能完成。
 
    測試工具位於您所複製的存放庫 *azure-iot-sdk-c/tools/CACertificates* 中。    
 

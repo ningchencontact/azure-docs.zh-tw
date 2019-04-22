@@ -10,10 +10,10 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496585"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>将作业状态和作业流从自动化转发到 Azure Monitor 日志
@@ -68,8 +68,7 @@ Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 
 运行此脚本后，可能需要一小时才能开始在 Azure Monitor 日志中看到写入新 JobLogs 或 JobStreams 的记录。
 
-若要查看記錄檔，請在 log analytics 記錄搜尋中執行下列查詢：
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+若要查看日志，请在 Log Analytics 日志搜索中运行以下查询：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>驗證組態
 
@@ -137,8 +136,7 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 
 开始将自动化作业日志发送到 Azure Monitor 日志后，让我们看一下在 Azure Monitor 日志中可对这些日志执行哪些操作。
 
-若要查看記錄檔，請執行下列查詢：
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+若要查看記錄，請執行下列查詢：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>在 Runbook 工作失敗或暫停時傳送電子郵件
 客戶最常要求的其中一項功能便是希望系統能在 Runbook 作業發生問題時，傳送電子郵件或文字通知。   
@@ -146,7 +144,7 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 若要建立警示規則，首先針對應叫用警示的 Runbook 工作記錄，建立記錄檔搜尋。 按一下 [警示] 按鈕，以建立並設定警示規則。
 
 1. 在“Log Analytics 工作区概述”页中，单击“查看日志”。
-2. 在查詢欄位中鍵入下列搜尋內容來為您的警示建立記錄搜尋查詢：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  您也可以依 RunbookName 分組，使用： `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. 在查詢欄位中鍵入下列搜尋內容來為您的警示建立記錄搜尋查詢：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  您也可以透過使用下列內容來依 RunbookName 分組：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    如果您將來自多個「自動化」帳戶或訂用帳戶的記錄設定到您的工作區，就能依訂用帳戶或「自動化」帳戶來將警示分組。 您可以在搜尋 JobLogs 時，在 [資源] 欄位中找到「自動化」帳戶名稱。
 3. 若要開啟 [建立規則] 畫面，按一下頁面頂端的 [+ 新增警示規則]。 如需設定警示選項的詳細資訊，請參閱 [Azure 中的記錄警示](../azure-monitor/platform/alerts-unified-log.md)。

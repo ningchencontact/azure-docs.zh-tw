@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: e228c49d4ad8e691e59f76a9b6fb9013f7b1bb3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 68598d4bb7fb9fd928a7b664e6ce0c02220ca4bb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890882"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503205"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>使用 Microsoft Authentication Library (MSAL) 登入使用者
 
@@ -124,19 +124,19 @@ if (!isIE) {
 <!--start-collapse-->
 ### <a name="more-information"></a>相關資訊
 
-在使用者第一次按一下 [登入] 按鈕之後，`signIn` 方法會呼叫 `loginPopup` 以將使用者登入。 這個方法會導致「Microsoft Azure Active Directory v2.0 端點」開啟快顯視窗，以提示及驗證使用者的認證。 如果成功登入，使用者會被重新導向回到原始 index.html 分頁，並且會收到權杖，由 `msal.js` 處理，並且會快取權杖中包含的資訊。 此權杖也稱為「ID 權杖」且包含使用者的基本資訊，例如使用者顯示名稱。 如果您打算將此權杖所提供的任何資料用於任何目的，您必須確定後端伺服器已驗證此權杖，以保證權杖是發給您應用程式的有效使用者。
+在使用者第一次按一下 [登入] 按鈕之後，`signIn` 方法會呼叫 `loginPopup` 以將使用者登入。 這個方法會導致「Microsoft 身分識別平台端點」開啟快顯視窗，以提示及驗證使用者的認證。 如果成功登入，使用者會被重新導向回到原始 index.html 分頁，並且會收到權杖，由 `msal.js` 處理，並且會快取權杖中包含的資訊。 此權杖也稱為「ID 權杖」且包含使用者的基本資訊，例如使用者顯示名稱。 如果您打算將此權杖所提供的任何資料用於任何目的，您必須確定後端伺服器已驗證此權杖，以保證權杖是發給您應用程式的有效使用者。
 
-本指南所產生的 SPA 會呼叫 `acquireTokenSilent` 和/或 `acquireTokenPopup`，以取得用來查詢 Microsoft Graph API 中使用者設定檔資訊的「存取權杖」。 如果您需要可驗證 ID 權杖的範例，請看一下 GitHub 中的 [這個](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 範例")範例應用程式 – 此範例使用 ASP.NET Web API 進行權杖驗證。
+此指南所產生的 SPA 會呼叫 `acquireTokenSilent` 和/或 `acquireTokenPopup`，以取得用來查詢 Microsoft Graph API 中使用者設定檔資訊的「存取權杖」。 如果您需要可驗證 ID 權杖的範例，請看一下 GitHub 中的 [這個](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 範例")範例應用程式 – 此範例使用 ASP.NET Web API 進行權杖驗證。
 
 #### <a name="getting-a-user-token-interactively"></a>以互動方式取得使用者權杖
 
-初始登入之後，您不希望在使用者每次必須要求權杖來存取資源時，都要求使用者重新驗證，因此，通常應該使用 *acquireTokenSilent* 以取得權杖。 不過，在某些情況下，您需要強制使用者與 Azure Active Directory v2.0 端點互動，一些範例包括：
+初始登入之後，您不希望在使用者每次必須要求權杖來存取資源時，都要求使用者重新驗證，因此，通常應該使用 *acquireTokenSilent* 以取得權杖。 然而，在某些情況下您需要強制使用者來與 Microsoft 身分識別平台端點互動，部分範例包括：
 
 - 使用者可能需要重新輸入其認證，因為密碼已過期
 - 您的應用程式要求的資源存取權，需要使用者同意
 - 需要雙因素驗證
 
-呼叫 *acquireTokenPopup(scope)* 會導致出現快顯視窗 (或是呼叫 *acquireTokenRedirect(scope)* 會導致將使用者重新導向到 Azure Active Directory v2.0 端點)，其中使用者必須藉由確認其認證、對必要資源表示同意或完成雙因素驗證來進行互動。
+呼叫 *acquireTokenPopup(scope)* 會導致快顯示窗 (或者呼叫 *acquireTokenRedirect(scope)* 會導致將使用者重新導向至 Microsoft 身分識別平台端點)，使用者必須藉由確認其認證、同意必要的資源，或完成雙因素驗證來進行互動。
 
 #### <a name="getting-a-user-token-silently"></a>以無訊息方式取得使用者權杖
 
@@ -171,7 +171,7 @@ function callMSGraph(theUrl, accessToken, callback) {
 
 ### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>針對受保護 API 進行 REST 呼叫的詳細資訊
 
-在本指南建立的範例應用程式中，`callMSGraph()` 方法是用來針對受保護資源提出 HTTP `GET` 要求，那些受保護資源需要權杖才能存取，然後再將內容傳回給使用者。 此方法會在「HTTP 授權標頭」中加入取得的權杖。 對於本指南建立的範例應用程式，資源為 Microsoft 圖形 API *me* 端點，它會顯示使用者的設定檔資訊。
+在此指南建立的範例應用程式中，`callMSGraph()` 方法是用來針對受保護資源提出 HTTP `GET` 要求，那些受保護資源需要權杖才能存取，然後再將內容傳回給使用者。 此方法會在「HTTP 授權標頭」中加入取得的權杖。 對於此指南建立的範例應用程式，資源為 Microsoft 圖形 API *me* 端點，它會顯示使用者的設定檔資訊。
 
 <!--end-collapse-->
 

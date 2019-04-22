@@ -1,6 +1,6 @@
 ---
 title: Azure 媒體服務 v3 SDK - Azure
-description: 本文概述如何使用 SDK/工具，透過媒體服務 v3 API 開始進行開發。
+description: 本文概述如何使用 SDK，透過媒體服務 v3 API 開始進行開發。
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -13,24 +13,24 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9fb4d1561a661387f759aada9e776d43a95aa5c7
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044401"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564503"
 ---
-# <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>使用 SDK/工具透過媒體服務 v3 API 開始進行開發
+# <a name="develop-against-media-services-v3-api-using-sdks"></a>使用 SDK 對媒體服務 v3 API 進行開發
 
 身為開發人員，您可以使用媒體服務 [REST API](https://aka.ms/ams-v3-rest-ref)，或是可讓您與 REST API 互動的用戶端程式庫，輕鬆建立、管理及維護自訂媒體工作流程。 [媒體服務 v3](https://aka.ms/ams-v3-rest-sdk) API 以 OpenAPI 規格 (先前稱為 Swagger) 作為基礎。
 
-本主題會提供 SDK、工具和文件的連結。 也會提供一些適用於不同開發環境的實用資訊。
-
 > [!NOTE]
 > Azure 媒體服務 v3 SDK 不一定是安全執行緒。 在開發多執行緒應用程式時，您應新增本身的執行緒同步處理邏輯以保護用戶端，或為每個執行緒使用新的 AzureMediaServicesClient 物件。 您也應留意程式碼提供給用戶端 (例如 .NET 中的 HttpClient 執行個體) 的選擇性物件所引起的多執行緒處理問題。
+
+本主題會提供 SDK、工具和操作指南的連結。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,25 +38,26 @@ ms.locfileid: "59044401"
 
 - 有效的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
 - [了解基本概念](concepts-overview.md)
+- 檢閱[透過媒體服務 v3 API 開始進行開發](media-services-apis-overview.md)
 - [建立媒體服務帳戶 - CLI](create-account-cli-how-to.md)
 
 ## <a name="start-developing-with-sdks"></a>開始使用 SDK 開發
 
 ### <a name="net"></a>.NET
 
-使用 [.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)。
+使用 [.NET SDK](https://aka.ms/ams-v3-dotnet-sdk) [連線到媒體服務](configure-connect-dotnet-howto.md)。
 
 探索媒體服務 [.NET 參考](https://aka.ms/ams-v3-dotnet-ref)文件。
 
 ### <a name="java"></a>Java
 
-使用 [Java SDK](https://aka.ms/ams-v3-java-sdk)。
+使用 [Java SDK](https://aka.ms/ams-v3-java-sdk) [連線到媒體服務](configure-connect-java-howto.md)。
 
 檢閱媒體服務 [Java 參考](https://aka.ms/ams-v3-java-ref)文件。
 
 ### <a name="nodejs"></a>Node.js
 
-使用 [Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)。
+使用 [Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) [連線到媒體服務](configure-connect-nodejs-howto.md)。
 
 探索媒體服務 [Node.js 參考](https://aka.ms/ams-v3-nodejs-ref)文件，並查看[範例](https://github.com/Azure-Samples/media-services-v3-node-tutorials)示範如何搭配使用媒體服務 API 與 Node.js。
 

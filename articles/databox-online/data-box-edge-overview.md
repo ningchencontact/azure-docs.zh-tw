@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 04/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e07678604797e7e2090f5fefcdb3f3adff40161
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521766"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544563"
 ---
 # <a name="what-is-azure-data-box-edge"></a>什麼是 Azure 資料箱邊緣？ 
 
@@ -93,7 +93,7 @@ Data Box Edge 實體裝置、Azure 資源，以及您要將資料傳輸至其中
     - **歐盟** - 西歐
     - **亞太地區** - 東南亞
     
-    Data Box Gateway 也可部署在 Azure Government 雲端中。 如需詳細資訊，請參閱[何謂 Azure Government？](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)。
+    Data Box Edge 也可部署在 Azure Government 雲端中。 如需詳細資訊，請參閱[何謂 Azure Government？](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)。
     
 - **目的地儲存體帳戶** - 儲存資料的儲存體帳戶在所有 Azure 區域都可用。 
 

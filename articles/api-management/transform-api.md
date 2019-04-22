@@ -14,20 +14,20 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68c516ee7ca2d76339760ce0ad95590686250603
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084975"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521932"
 ---
 # <a name="transform-and-protect-your-api"></a>轉換及保護您的 API
 
-本教學課程示範如何轉換您的 API，使它不會揭露私人的後端資訊。 例如，您可以隱藏在後端執行之技術堆疊的相關資訊。 您也可以隱藏 API HTTP 回應主體中出現的原始 URL，改為將它們重新導向至 APIM 閘道。
+此教學課程示範如何轉換您的 API，使它不會揭露私人的後端資訊。 例如，您可以隱藏在後端執行之技術堆疊的相關資訊。 您也可以隱藏 API HTTP 回應主體中出現的原始 URL，改為將它們重新導向至 APIM 閘道。
 
-本教學課程示範透過使用「Azure API 管理」設定速率限制，來為後端 API 新增保護是多麼簡單容易的工作。 例如，您可以限制呼叫 API 的呼叫次數，使得開發人員不會過度使用它。 如需詳細資訊，請參閱 [API 管理原則](api-management-policies.md)。
+此教學課程示範透過使用「Azure API 管理」設定速率限制，來為後端 API 新增保護是多麼簡單容易的工作。 例如，您可以限制呼叫 API 的呼叫次數，使得開發人員不會過度使用它。 如需詳細資訊，請參閱 [API 管理原則](api-management-policies.md)。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 >
@@ -49,7 +49,7 @@ ms.locfileid: "58084975"
 
 ## <a name="transform-an-api-to-strip-response-headers"></a>轉換 API 以刪除回應標頭
 
-本節示範如何隱藏您不想向使用者顯示的 HTTP 標頭。 在此範例中，會在 HTTP 回應中刪除下列標頭：
+此節示範如何隱藏您不想向使用者顯示的 HTTP 標頭。 在此範例中，會在 HTTP 回應中刪除下列標頭：
 
 -   **X-Powered-By**
 -   **X-AspNet-Version**
@@ -81,7 +81,7 @@ ms.locfileid: "58084975"
 
    ![原則](./media/transform-api/transform-api.png)
 
-7. 修改您的 **<outbound>** 程式碼，使它看起來如下：
+7. 修改您的 **\<outbound>** 程式碼，使它看起來如下：
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -92,7 +92,7 @@ ms.locfileid: "58084975"
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>使用 APIM 閘道 URL 取代 API 回應主體中的原始 URL
 
-本節示範如何隱藏 API HTTP 回應主體中出現的原始 URL，改為將它們重新導向至 APIM 閘道。
+此節示範如何隱藏 API HTTP 回應主體中出現的原始 URL，改為將它們重新導向至 APIM 閘道。
 
 ### <a name="test-the-original-response"></a>測試原始回應
 
@@ -121,7 +121,7 @@ ms.locfileid: "58084975"
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>新增速率限制原則 (節流) 來保護 API
 
-本節示範如何透過設定速率限制來為後端 API 新增保護。 例如，您可以限制呼叫 API 的呼叫次數，使得開發人員不會過度使用它。 在此範例中，會針對每個訂用帳戶 ID，將限制設定為每 15 秒呼叫 3 次。15 秒之後，開發人員就可重試呼叫 API。
+此節示範如何透過設定速率限制來為後端 API 新增保護。 例如，您可以限制呼叫 API 的呼叫次數，使得開發人員不會過度使用它。 在此範例中，會針對每個訂用帳戶 ID，將限制設定為每 15 秒呼叫 3 次。15 秒之後，開發人員就可重試呼叫 API。
 
 ![設定輸入原則](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
 
@@ -159,7 +159,7 @@ ms.locfileid: "58084975"
         </on-error>
     </policies>
 
-本節的其餘部分將測試您在此文章中設定的原則轉換。
+此節的其餘部分將測試您在此文章中設定的原則轉換。
 
 ### <a name="test-the-stripped-response-headers"></a>測試已刪除的回應標頭
 
@@ -202,7 +202,7 @@ ms.locfileid: "58084975"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 >

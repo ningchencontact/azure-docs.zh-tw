@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8bc213c14553bc73c7eb7fffcb1c1dcad924aaed
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c1b3282417cd95f1aaff472890ec655e4c5a983f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906050"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546264"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>在 Azure (預覽) 中執行自訂 Windows 容器
 
@@ -179,7 +179,7 @@ https://<app_name>.scm.azurewebsites.net/api/logstream
 您可以自由使用不同的自訂 Docker 映像來執行應用程式。 不過，您必須為您要的架構選擇正確的[父映像](https://docs.docker.com/develop/develop-images/baseimages/)： 
 
 - 若要部署 .NET Framework 應用程式，請根據 Windows Server Core 2019 [長期維護通道 (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) 版本使用正確的父映像。 
-- 若要部署 .NET Core 應用程式，請根據 Windows Server Nano 1809 [長期維護通道 (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) 版本使用正確的父映像。 
+- 若要部署 .NET Core 應用程式，請根據 Windows Server Nano 1809 [半年維護通道 (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) 版本使用正確的父映像。 
 
 在應用程式啟動期間，下載父映像需要一些時間。 不過，您可以使用下列其中一個已在 Azure App Service 中快取的父映像，以縮短啟動時間：
 

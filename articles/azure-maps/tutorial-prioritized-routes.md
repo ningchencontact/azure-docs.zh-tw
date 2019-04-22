@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: db01c2f51e9069e8fc9ee979eacf746bee8dbdd2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3e33eef430db627a82bb82e8c22ddc861d08982b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260913"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546255"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>使用 Azure 地圖服務尋找不同行進模式的路線
 
@@ -283,16 +283,16 @@ ms.locfileid: "59260913"
 > * 建立會宣告行進模式的路線查詢
 > * 在地圖上顯示多條路線
 
-您可以在這裡存取本教學課程的程式碼範例：
+> [!div class="nextstepaction"]
+> [檢視完整的原始程式碼](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
 
-> [Azure 地圖服務的多個路線](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
-
-[請參閱此處的實際範例](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+> [!div class="nextstepaction"]
+> [檢視即時範例](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
 下一個教學課程示範使用 Azure 地圖服務來建立簡單存放區定位器的程序。
 
 > [!div class="nextstepaction"]
-> [使用 Azure 地圖服務建立商店定位器](./tutorial-create-store-locator.md)
+> [使用 Azure 地圖服務建立存放區定位器](./tutorial-create-store-locator.md)
 
 > [!div class="nextstepaction"]
 > [使用資料驅動樣式運算式](data-driven-style-expressions-web-sdk.md)

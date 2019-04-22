@@ -1,10 +1,10 @@
 ---
-title: 在 Linux 上建置搭配 SQL Database 的 .NET Core 應用程式 - Azure App Service | Microsoft Docs
-description: 了解如何讓 .NET Core 應用程式在 Linux 上的 Azure App Service 中運作，並連線至 SQL Database。
+title: Linux 上搭配 SQL Database 的 ASP.NET Core 應用程式 - Azure App Service | Microsoft Docs
+description: 了解如何讓 ASP.NET Core 應用程式在 Linux 上的 Azure App Service 中運作，並連線至 SQL Database。
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
@@ -12,27 +12,27 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9d4aee884e91c52be48c8a44f185f188b0c93ab5
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c90d0d2596eb6b8650e2d9809b23bb0e184d97c0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511134"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547822"
 ---
-# <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式
+# <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 ASP.NET Core 和 SQL Database 應用程式
 
 > [!NOTE]
-> 本文會將應用程式部署至 Linux 上的 App Service。 若要在 _Windows_ 上部署至 App Service，請參閱[在 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式](../app-service-web-tutorial-dotnetcore-sqldb.md)。
+> 此文章會將應用程式部署至 Linux 上的 App Service。 若要在 _Windows_ 上部署至 App Service，請參閱[在 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式](../app-service-web-tutorial-dotnetcore-sqldb.md)。
 >
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何建立 .NET Core 應用程式，並將它連線到 SQL Database。 當您完成時，您就會有在 Linux 上的 App Service中執行的 .NET Core MVC 應用程式。
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 此教學課程示範如何建立 .NET Core 應用程式，並將它連線到 SQL Database。 當您完成時，您就會有在 Linux 上的 App Service中執行的 .NET Core MVC 應用程式。
 
 ![在 Linux 上的 App Service 中執行的應用程式](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-您會了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 中建立 SQL Database
@@ -46,7 +46,7 @@ ms.locfileid: "55511134"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程：
+若要完成此教學課程：
 
 * [安裝 Git](https://git-scm.com/)
 * [安裝 .NET Core](https://www.microsoft.com/net/core/)
@@ -90,7 +90,7 @@ dotnet run
 
 在此步驟中，您要在 Azure 中建立 SQL Database。 當您的應用程式部署至 Azure 時，它會使用此雲端資料庫。
 
-對於 SQL Database，本教學課程使用 [Azure SQL Database](/azure/sql-database/)。
+對於 SQL Database，此教學課程使用 [Azure SQL Database](/azure/sql-database/)。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
@@ -100,11 +100,11 @@ dotnet run
 
 在 Cloud Shell 中，使用 [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) 命令建立 SQL Database 邏輯伺服器。
 
-將 \<server_name> 預留位置取代為唯一的 SQL Database 名稱。 這個名稱會用來作為 SQL Database 端點 `<server_name>.database.windows.net` 的一部分，因此，這個名稱在 Azure 中的所有邏輯伺服器必須是唯一的。 名稱只能包含小寫字母、數字及連字號 (-) 字元，且長度必須為 3 到 50 個字元。 此外，將 \<db_username> 和 \<db_password> 取代為您選擇的使用者名稱和密碼。 
+將 *\<server-name>* 預留位置取代為唯一的 SQL Database 名稱。 這個名稱會用來作為 SQL Database 端點 `<server-name>.database.windows.net` 的一部分，因此，這個名稱在 Azure 中的所有邏輯伺服器必須是唯一的。 名稱只能包含小寫字母、數字及連字號 (-) 字元，且長度必須為 3 到 50 個字元。 此外，將 *\<db-username>* 和 *\<db-password>* 取代為您選擇的使用者名稱和密碼。 
 
 
 ```azurecli-interactive
-az sql server create --name <server_name> --resource-group myResourceGroup --location "West Europe" --admin-user <db_username> --admin-password <db_password>
+az sql server create --name <server-name> --resource-group myResourceGroup --location "West Europe" --admin-user <db-username> --admin-password <db-password>
 ```
 
 建立 SQL Database 邏輯伺服器後，Azure CLI 會顯示類似下列範例的資訊：
@@ -113,12 +113,12 @@ az sql server create --name <server_name> --resource-group myResourceGroup --loc
 {
   "administratorLogin": "sqladmin",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<server_name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/<server_name>",
+  "fullyQualifiedDomainName": "<server-name>.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/<server-name>",
   "identity": null,
   "kind": "v12.0",
   "location": "westeurope",
-  "name": "<server_name>",
+  "name": "<server-name>",
   "resourceGroup": "myResourceGroup",
   "state": "Ready",
   "tags": null,
@@ -132,7 +132,7 @@ az sql server create --name <server_name> --resource-group myResourceGroup --loc
 使用 [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) 命令建立 [Azure SQL Database 伺服器層級防火牆規則](../../sql-database/sql-database-firewall-configure.md)。 當起始 IP 和結束 IP 都設為 0.0.0.0 時，防火牆只會為其他 Azure 資源開啟。 
 
 ```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 ### <a name="create-a-database"></a>建立資料庫
@@ -140,15 +140,15 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 使用 [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) 命令在伺服器中建立具有 [S0 效能等級](../../sql-database/sql-database-service-tiers-dtu.md)的資料庫。
 
 ```azurecli-interactive
-az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
+az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
 ```
 
 ### <a name="create-connection-string"></a>建立連接字串
 
-將下列字串取代為您稍早使用的 \<server_name>、\<db_username> 和 \<db_password>。
+將下列字串取代為您稍早使用的 *\<server-name>*、*\<db-username>* 和 *\<db-password>*。
 
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
+Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
 ```
 
 此為您 .NET Core 應用程式的連接字串。 複製它以供稍後使用。
@@ -171,18 +171,18 @@ Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_u
 
 ### <a name="configure-an-environment-variable"></a>設定環境變數
 
-若要設定 Azure 應用程式的連接字串，請在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 在下列命令中，將 \<app name> 以及 \<connection_string> 參數取代為您稍早建立的連接字串。
+若要設定 Azure 應用程式的連接字串，請在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 在下列命令中，將 *\<app-name>* 以及 *\<connection-string>* 參數取代為您稍早建立的連接字串。
 
 ```azurecli-interactive
-az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
+az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
 ```
 
 接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為_生產_。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLite，針對 Azure 環境使用 SQL Database。
 
-下列範例會在 Azure 應用程式中設定 `ASPNETCORE_ENVIRONMENT` 應用程式設定。 取代 \<app_name> 預留位置。
+下列範例會在 Azure 應用程式中設定 `ASPNETCORE_ENVIRONMENT` 應用程式設定。 取代 *\<app-name>* 預留位置。
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
 
 ### <a name="connect-to-sql-database-in-production"></a>在生產環境中連線到 SQL Database
@@ -209,11 +209,11 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-如果此程式碼偵測到正在生產環境 (表示 Azure 環境) 中執行，則它會使用您設定的連接字串，連線到 SQL Database。
+如果此程式碼偵測到正在生產環境 (表示 Azure 環境) 中執行，則它會使用您設定的連接字串，連線到 SQL Database。 如需有關如何在您程式碼中存取這些應用程式設定的詳細資訊，請參閱[存取環境變數](configure-language-dotnetcore.md#access-environment-variables)。
 
-`Database.Migrate()` 呼叫可在於 Azure 中執行時協助您，因為它會根據其移轉設定，自動建立您的 .NET Core 應用程式需要的資料庫。 
+`Database.Migrate()` 呼叫可在於 Azure 中執行時協助您，因為它會根據其移轉設定，自動建立您的 .NET Core 應用程式需要的資料庫。
 
-儲存變更，然後將變更認可至 Git 存放庫中。 
+儲存變更，然後將變更認可至 Git 存放庫中。
 
 ```bash
 git add .
@@ -246,7 +246,7 @@ remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
  * [new branch]      master -> master
 ```
 
@@ -255,7 +255,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 使用網頁瀏覽器，瀏覽至已部署的應用程式。
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 新增幾個待辦事項項目。
@@ -292,7 +292,7 @@ dotnet ef database update
 
 ### <a name="use-the-new-property"></a>使用新屬性
 
-在您的程式碼中進行一些變更以使用 `Done` 屬性。 為了簡單起見，在本教學課程中，您僅需變更 `Index` 和 `Create` 檢視，以查看作用中的屬性。
+在您的程式碼中進行一些變更以使用 `Done` 屬性。 為了簡單起見，在此教學課程中，您僅需變更 `Index` 和 `Create` 檢視，以查看作用中的屬性。
 
 開啟 _Controllers\TodosController.cs_。
 
@@ -369,23 +369,9 @@ git push azure master
 
 > [!NOTE]
 > 專案的記錄層級在 appsettings.json 中設定為 `Information`。
-> 
+>
 
-在 Linux 上的 App Service 中，應用程式會在來自預設 Docker 映像的容器內執行。 您可以存取從容器內產生的主控台記錄。 若要取得記錄，請先在 Cloud Shell 中執行 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 命令以開啟容器記錄功能。
-
-```azurecli-interactive
-az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
-```
-
-開啟容器記錄功能後，請在 Cloud Shell 中執行 [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) 命令以觀看記錄資料流。
-
-```azurecli-interactive
-az webapp log tail --name <app_name> --resource-group myResourceGroup
-```
-
-開始記錄資料流之後，重新整理瀏覽器中的 Azure 應用程式，以取得部分 Web 流量。 您現在會看到使用管線傳送到終端機的主控台記錄。 如果您沒有立即看到主控台記錄，請在 30 秒後再查看。
-
-若要隨時停止記錄資料流，輸入 `Ctrl`+`C`。
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
 如需自訂 ASP.NET Core 記錄的詳細資訊，請參閱[登入 ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging)。
 
@@ -419,4 +405,9 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure App Service](../app-service-web-tutorial-custom-domain.md)
+> [教學課程：將自訂 DNS 名稱對應至應用程式](../app-service-web-tutorial-custom-domain.md)
+
+或者，查看其他資源：
+
+> [!div class="nextstepaction"]
+> [設定 ASP.NET Core 應用程式](configure-language-dotnetcore.md)

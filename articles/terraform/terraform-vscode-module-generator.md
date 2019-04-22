@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001270"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526736"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>使用 Yeoman 在 Azure 中建立 Terraform 基底範本
 
@@ -73,8 +73,8 @@ Yeoman 範本會在**目前的目錄**中產生檔案。 因此，您必須建�
 1. 瀏覽到您要新增空白目錄的父目錄。
 1. 輸入 `mkdir <new-directory-name>` 。
 
-    >[!NOTE]
-    >將 <new-directory-name> 取代為新目錄的名稱。 在此範例中，我們將新目錄命名為 `GeneratorDocSample`。
+    > [!NOTE]
+    > 將 `<new-directory-name>` 替換為您的新目錄名稱。 在此範例中，我們將新目錄命名為 `GeneratorDocSample`。
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
@@ -250,7 +250,7 @@ Yeoman 範本會在**目前的目錄**中產生檔案。 因此，您必須建�
 
 1. 如果尚無 $GOPATH 資料夾，請建立一個：輸入 `mkdir ~/go` 。
 
-1. 在 $GOPATH 資料夾內建立資料夾：輸入 `mkdir ~/go/src` 。 此資料夾將用來保存及組織您可能建立的其他專案資料夾，例如我們將在下個步驟中建立的 <your-module-name> 資料夾。
+1. 在 $GOPATH 資料夾內建立資料夾：輸入 `mkdir ~/go/src` 。 此資料夾將用來保存及組織您可能建立的其他專案資料夾，例如我們將在下個步驟中建立的 `<your-module-name>` 資料夾。
 
 1. 建立資料夾以保存您的 Terraform 模組：輸入 `mkdir ~/go/src/<your-module-name>` 。
 

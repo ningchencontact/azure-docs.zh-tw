@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 30eedd982fa0536ce45506c159de6d04132e9a14
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493981"
 ---
 # <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>安全 OPC 用戶端與 OPC 有的通訊
@@ -31,7 +31,7 @@ OPC 保存庫的指令碼：
 
 ## <a name="generate-a-self-signed-certificate-on-startup"></a>產生自我簽署的憑證，在啟動
 
-**準備工作**
+**準備**
 
 - 確保環境變數`$env:_PLC_OPT`並`$env:_CLIENT_OPT`都未定義，例如`$env:_PLC_OPT=""`在您的 PowerShell。
 
@@ -70,7 +70,7 @@ opcclient-123456 | Opc.Ua.ServiceResultException: Certificate is not trusted.
 
 ## <a name="sign-and-install-certificates-in-opc-ua-components"></a>登入，然後將憑證安裝在 OPC UA 元件
 
-**準備工作**
+**準備**
 1. 查看 步驟 1 的記錄輸出，並擷取 OPC 有和 OPC 用戶端的 「 CreateSigningRequest 資訊 」。 這裡 OPC 有只顯示輸出：
 
     ```

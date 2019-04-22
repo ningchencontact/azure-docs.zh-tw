@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 55207e1eb8fe1b88df7f9bfb84a1da505d0e0252
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 89c83ed6d02a60978bd54fb97d37063e34f6c0c7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332212"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578845"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>教學課程：在 Azure Blockchain Workbench 中使用應用程式
 
@@ -40,7 +40,7 @@ ms.locfileid: "54332212"
 
 您必須以 Blockchain Workbench 成員的身分進行登入。 如果未列出應用程式，代表您是 Blockchain Workbench 的成員，但不是任何應用程式的成員。 Blockchain Workbench 系統管理員可以將成員指派至應用程式。
 
-## <a name="create-new-contract"></a>建立新的合約 
+## <a name="create-new-contract"></a>建立新的合約
 
 若要建立新合約，您必須是指定為合約**啟動者**的成員。 如需有關定義應用程式角色和合約啟動者的資訊，請參閱[組態概觀中的工作流程](configuration.md#workflows)。 如需將成員指派給應用程式角色的資訊，請參閱[將成員新增至應用程式](manage-users.md#add-member-to-application)。
 

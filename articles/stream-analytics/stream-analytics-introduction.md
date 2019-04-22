@@ -1,21 +1,19 @@
 ---
 title: Azure 串流分析概觀
 description: 了解串流分析，這是可協助您即時分析物聯網 (IoT) 資料流的受控服務。
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
-ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: f0104bdc4b5ea5c5c6333e12b95defafb34665b3
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 09f402f81700b53eb9e4a95e36545ef02850660a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295499"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524475"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure 串流分析是什麼？
 
@@ -51,9 +49,9 @@ Azure 串流分析的設計訴求是方便使用、具靈活性、可靠，以�
 
 ## <a name="ease-of-getting-started"></a>輕鬆開始使用
 
-您可以輕鬆地開始使用 Azure 串流分析。 只要按幾下就能連線到多個來源、接收並建立端對端管線。 串流分析可以連線到 [Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs/)和 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/)來擷取串流資料。 它也可以連線到 [Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/storage-introduction)服務來擷取歷史資料。 它可以結合事件中樞的資料與其他資料來源和處理引擎。 作業輸入也可以包含靜態參考資料或變更緩慢的資料，而且您可以將串流資料加入到此參考資料，以執行查閱作業。
+您可以輕鬆地開始使用 Azure 串流分析。 只要按幾下就能連線到多個來源、接收並建立端對端管線。 串流分析可以連線到 [Azure 事件中樞](/azure/event-hubs/)和 [Azure IoT 中樞](/azure/iot-hub/)來擷取串流資料。 它也可以連線到 [Azure Blob 儲存體](/azure/storage/storage-introduction)服務來擷取歷史資料。 它可以結合事件中樞的資料與其他資料來源和處理引擎。 作業輸入也可以包含靜態參考資料或變更緩慢的資料，而且您可以將串流資料加入到此參考資料，以執行查閱作業。
 
-串流分析可將作業輸出路由至許多儲存體系統，例如 [Azure Blob](https://docs.microsoft.com/azure/storage/storage-introduction)、[Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)、[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/) 或 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)。 儲存後，您可以使用 Azure HDInsight 執行批次分析，也可以將輸出傳送至另一個服務 (例如事件中樞) 以供取用，或傳送至 [Power BI](https://docs.microsoft.com/power-bi/) 以使用 Power BI 串流 API 來即時呈現視覺效果。
+串流分析可將作業輸出路由至許多儲存體系統，例如 [Azure Blob](/azure/storage/storage-introduction)、[Azure SQL Database](/azure/sql-database/)、[Azure Data Lake Store](/azure/data-lake-store/) 或 [Azure Cosmos DB](/azure/cosmos-db/introduction)。 儲存後，您可以使用 Azure HDInsight 執行批次分析，也可以將輸出傳送至另一個服務 (例如事件中樞) 以供取用，或傳送至 [Power BI](https://docs.microsoft.com/power-bi/) 以使用 Power BI 串流 API 來即時呈現視覺效果。
 
 ## <a name="programmer-productivity"></a>程式設計人員生產力
 
@@ -69,7 +67,7 @@ Azure 串流分析是 Azure 上完全受控的無伺服器 (PaaS) 供應項目�
 
 ## <a name="run-in-the-cloud-on-in-the-intelligent-edge"></a>在雲端或在智慧邊緣執行
 
-Azure 串流分析可以在雲端執行以便進行大規模分析，或在智慧邊緣執行以便進行超低延遲分析。
+Azure 串流分析可以在雲端執行以進行大規模分析，或在智慧邊緣執行以進行超低延遲分析。
 Azure 串流分析會在雲端和智慧邊緣上使用相同的查詢語言，讓開發人員能夠建置真正的混合式架構進行串流處理。
 
 ## <a name="low-total-cost-of-ownership"></a>低擁有權總成本
@@ -79,7 +77,8 @@ Azure 串流分析會在雲端和智慧邊緣上使用相同的查詢語言，�
 ## <a name="mission-critical-ready"></a>任務關鍵性就緒
 Azure 串流分析適用於全球多個區域，其設計訴求是藉由支援可靠性、安全性和合規性需求來執行任務關鍵性工作負載。
 ### <a name="reliability"></a>可靠性
-Azure 串流分析可保證僅只一次的事件處理，以及至少一次的事件傳遞，因此永遠不會遺失事件。 如[事件傳遞保證](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)所述，保證選取的輸出恰好處理一次。 Azure 串流分析具有可在事件傳遞失敗時進行復原的內建功能。 此外，串流分析會提供內建檢查點來維護作業的狀態，並提供可重複出現的結果。
+Azure 串流分析可保證僅只一次的事件處理，以及至少一次的事件傳遞，因此永遠不會遺失事件。 如[事件傳遞保證](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)所述，保證選取的輸出恰好處理一次。
+Azure 串流分析具有可在事件傳遞失敗時進行復原的內建功能。 此外，串流分析會提供內建檢查點來維護作業的狀態，並提供可重複出現的結果。
 
 串流分析為受控服務，可保證處理事件在分鐘層級有 99.9% 的可用性。 如需詳細資訊，請參閱[串流分析 SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) 頁面。 
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
-ms.author: aahi
-ms.openlocfilehash: 8e3379a086eb09745142f4e3997ed195eb4d1de5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 04/02/2019
+ms.author: aahill
+ms.openlocfilehash: 0a1260de6428f6ebc70757261cdcc3002820ec7b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56885902"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547759"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>快速入門：使用 Bing 拼字檢查 REST API 和 Node.js 進行拼字檢查
 
-使用本快速入門，第一次呼叫 Bing 拼字檢查 REST API。 這個簡單的 Python 應用程式會將要求傳送至 API，並傳回無法辨識的字組清單，後面接著建議的更正。 雖然此應用程式是以 Python 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js) 上找到此應用程式的原始程式碼。
+使用本快速入門，第一次呼叫 Bing 拼字檢查 REST API。 此簡單 Node 應用程式會將要求傳送至 API 並傳回無法辨識的字組清單，後面接著建議的修正。 雖然此應用程式是以 Node.js 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js) 上找到此應用程式的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,18 +30,18 @@ ms.locfileid: "56885902"
 
 ## <a name="create-and-initialize-a-project"></a>建立專案並將其初始化
 
-1. 在您最愛的 IDE 或編輯器中建立新的 JavaScript 檔案。 請設定嚴謹度，並要求使用 HTTPS。 然後，為您 API 端點的主機、路徑和訂用帳戶金鑰建立變數。
+1. 在您最愛的 IDE 或編輯器中建立新的 JavaScript 檔案。 請設定嚴謹度，並要求使用 `https`。 然後，為您 API 端點的主機、路徑和訂用帳戶金鑰建立變數。
 
     ```javascript
     'use strict';
     let https = require ('https');
-    
+
     let host = 'api.cognitive.microsoft.com';
     let path = '/bing/v7.0/spellcheck';
-    let key = 'ENTER KEY HERE';
+    let key = '<ENTER-KEY-HERE>';
     ```
 
-2. 為您的市場、拼字檢查模式，以及您要檢查的文字建立變數。 接著，建立將 `?mkt=` 參數附加至市場、並將 `&mode=` 附加至模式的字串。
+2. 為搜尋參數和要檢查的文字建立變數。 在 `mkt=` 之後附加您的市場代碼。 市場代碼是您提出要求的國家/地區。 另外，在 `&mode=` 之後附加拼字檢查模式。 模式是 `proof` (攔截大部分的拼字/文法錯誤) 或 `spell` (攔截大部分的拼字檢查，但沒有多少文法錯誤)。
 
     ```javascript
     let mkt = "en-US";
@@ -78,7 +78,8 @@ let response_handler = function (response) {
         body += d;
     });
     response.on ('end', function () {
-        console.log (body);
+        let body_ = JSON.parse (body);
+        console.log (body_);
     });
     response.on ('error', function (e) {
         console.log ('Error: ' + e.message);
@@ -98,7 +99,7 @@ req.end ();
 
 ## <a name="example-json-response"></a>範例 JSON 回應
 
-如以下範例所示，成功的回應會以 JSON 格式來傳回： 
+如以下範例所示，成功的回應會以 JSON 格式來傳回：
 
 ```json
 {

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: 9a17bbc26a65d3747683ad0fc0ecba40a22088d7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: de0bd93b4cdd41ebd0ccc3aa89185e4501b711e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856204"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524203"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure Database for PostgreSQL 伺服器
 
@@ -141,7 +141,7 @@ Azure Database for PostgreSQL 會在伺服器層級建立防火牆。 它會防�
     > [!TIP]
     > 如果未將防火牆設定為允許用戶端的 IP 位址，就會發生下列錯誤：
     > 
-    > "psql:FATAL: no pg_hba.conf entry for host "<IP address>", user "myadmin", database "postgres", SSL on FATAL：需要 SSL 連線。 指定 SSL 選項，然後再試一次。
+    > "psql:FATAL: no pg_hba.conf entry for host `<IP address>`, user "myadmin", database "postgres", SSL on FATAL：需要 SSL 連線。 指定 SSL 選項，然後再試一次。
     > 
     > 若要解決此錯誤，請確定伺服器組態符合本文的「設定伺服器層級防火牆規則」一節中的步驟。
 

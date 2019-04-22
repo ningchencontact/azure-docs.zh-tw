@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a1034a55bc4d516244e11d035f17fcc3b94929
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855634"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523778"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>教學課程：Azure Active Directory 與 SAP NetWeaver 整合
 
-在本教學課程中，您會了解如何整合 SAP NetWeaver 與 Azure Active Directory (Azure AD)。
+在此教學課程中，您會了解如何整合 SAP NetWeaver 與 Azure Active Directory (Azure AD)。
 SAP NetWeaver 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 SAP NetWeaver 的人員。
@@ -44,7 +44,7 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
+在此教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * SAP NetWeaver 支援 **SP** 起始的 SSO
 
@@ -72,7 +72,7 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 SAP NetWeaver 搭配運作的 Azure AD 單一登入。
+在此節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 SAP NetWeaver 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 SAP NetWeaver 中相關使用者之間的連結關聯性。
 
 若要使用 SAP NetWeaver 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
@@ -86,7 +86,7 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
+在此節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
 若要使用 SAP NetWeaver 設定 Azure AD 單一登入，請執行下列步驟：
 
@@ -135,7 +135,7 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 6. 將 [提供者名稱] 從 T01122 取代為 `http://T01122`，然後按一下 [儲存]。
 
     > [!NOTE]
-    > 根據預設，提供者名稱來自 <sid><client> 格式，但 Azure AD 預期有 <protocol>://<name> 格式的名稱，並建議將提供者名稱保持為 https://<sid><client>，以允許在 Azure AD 中設定多個 SAP NetWeaver ABAP 引擎。
+    > 根據預設，提供者名稱格式為 `<sid><client>`，但 Azure AD 預期該名稱的格式為 `<protocol>://<name>`，因此建議將提供者名稱保持為 `https://<sid><client>`，以允許在 Azure AD 中設定多個 SAP NetWeaver ABAP 引擎。
 
     ![憑證下載連結](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
@@ -300,7 +300,7 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
-本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+此節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
@@ -325,7 +325,7 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 SAP NetWeaver 的存取權授與 ，讓 Britta Simon 能夠使用 Azure 單一登入。
+在此節中，您會將 SAP NetWeaver 的存取權授與 ，讓 Britta Simon 能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [SAP NetWeaver]。
 
@@ -351,7 +351,7 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-sap-netweaver-test-user"></a>建立 SAP NetWeaver 測試使用者
 
-在本節中，您要在 SAP NetWeaver 中建立名為 Britta Simon 的使用者。 請與您內部的 SAP 專家小組合作，或與貴組織的 SAP 夥伴合作，在 SAP NetWeaver 平台中新增使用者。
+在此節中，您要在 SAP NetWeaver 中建立名為 Britta Simon 的使用者。 請與您內部的 SAP 專家小組合作，或與貴組織的 SAP 夥伴合作，在 SAP NetWeaver 平台中新增使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

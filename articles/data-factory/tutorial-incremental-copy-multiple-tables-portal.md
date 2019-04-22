@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257428"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566000"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -491,11 +491,12 @@ END
 1. 切換至 [接收] 索引標籤，然後選取 **SinkDataset** 作為 [接收資料集]。 
         
     ![複製活動 - 接收設定](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. 切換至 [參數] 索引標籤，並執行下列步驟：
+1. 請執行下列步驟：
 
-    1. 針對 [接收預存程序名稱] 屬性，輸入 `@{item().StoredProcedureNameForMergeOperation}`。
+    1. 在 [資料集] 屬性中，針對 **SinkTableName** 參數輸入 `@{item().TABLE_NAME}`。
+    1. 針對 [預存程序名稱] 屬性，輸入 `@{item().StoredProcedureNameForMergeOperation}`。
     1. 針對 [接收資料表類型] 屬性，輸入 `@{item().TableType}`。
-    1. 在 [接收資料集] 區段中，針對 **SinkTableName** 參數輸入 `@{item().TABLE_NAME}`。
+
 
         ![複製活動 - 參數](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. 將 [活動] 工具箱中的 [預存程序] 活動拖放至管線設計工具介面。 將 [複製] 活動連線至 [預存程序] 活動。 

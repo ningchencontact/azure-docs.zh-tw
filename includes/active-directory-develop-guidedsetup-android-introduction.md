@@ -14,22 +14,22 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 33e2ac136ae68ee0c0ce0109a6f6934727d3a6c5
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: e054456662af3ef9df0760af163ec5d09df18b21
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203679"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502653"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>從 Android 應用程式登入使用者並呼叫 Microsoft Graph
 
-在本教學課程中，您將了解如何建置 Android 應用程式，並將它整合到 Microsoft 身分識別平台中。 具體來說，此應用程式會讓使用者登入、取得存取權杖來呼叫 Microsoft Graph API，以及對 Microsoft Graph API 提出基本要求。  
+在此教學課程中，您將了解如何建置 Android 應用程式，並將它整合到 Microsoft 身分識別平台中。 具體來說，此應用程式會讓使用者登入、取得存取權杖來呼叫 Microsoft Graph API，以及對 Microsoft Graph API 提出基本要求。  
 
-完成本指南後，您的應用程式會接受使用個人Microsoft 帳戶 (包括 outlook.com、live.com 和其他帳戶)，以及採用 Azure Active Directory 的公司或組織所提供的公司或學校帳戶登入。
+完成此指南後，您的應用程式會接受使用個人Microsoft 帳戶 (包括 outlook.com、live.com 和其他帳戶)，以及採用 Azure Active Directory 的公司或組織所提供的公司或學校帳戶登入。
 
-## <a name="how-the-sample-app-generated-by-this-guide-works"></a>本指南產生之範例應用程式的運作方式
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>此指南產生之範例應用程式的運作方式
 
-![顯示範例應用程式如何產生此教學課程適用於](media/active-directory-develop-guidedsetup-android-intro/android-intro-updated.png)
+![顯示此教學課程所產生的範例應用程式如何運作](media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
 
 此範例中的應用程式將會登入使用者，並且代表他們取得資料。  此資料會透過需要授權的遠端 API 來存取 (在此情況下為 Microsoft Graph API)，也會受到 Microsoft 身分識別平台保護。
 
@@ -50,8 +50,8 @@ ms.locfileid: "58203679"
 
 ## <a name="library"></a>程式庫
 
-本指南使用下列驗證程式庫：
+此指南使用下列驗證程式庫：
 
-|程式庫|描述|
+|程式庫|說明|
 |---|---|
-|[com.microsoft.identity.client (英文)](http://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft 身份验证库 (MSAL)|
+|[com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|

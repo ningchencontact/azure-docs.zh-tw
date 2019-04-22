@@ -7,10 +7,10 @@ ms.topic: hub-page
 featureFlags:
 - clicktale
 ms.openlocfilehash: 3b35608c30262f633af073daacc8795f8eca1e7e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496500"
 ---
 <div id="main" class="v2">
@@ -45,7 +45,7 @@ ms.locfileid: "59496500"
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure 應用程式架構指南</span>
+                                    <span class="likeAnH3">Azure 應用程式架構手冊</span>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +176,7 @@ Go</a>
                                                <h4>應用程式模型</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
-                                                    <li><a class="barLink" href="/azure/azure-functions/">無伺服器函式</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-functions/">無伺服器#</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">容器</a></li>
                                                     <li><a class="barLink" href="/azure/aks/">使用 Kubernetes 的微服務</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">搭配 Service Fabric 的微服務</a></li>
@@ -210,7 +210,7 @@ Go</a>
                                                 </ul>
                                                 <h4>認知服務</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
+                                                    <li><a class="barLink" href="/azure/machine-learning/">機器學習服務</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">認知服務</a></li>
                                                     <li><a class="barLink" href="/azure/notebooks/">Azure Notebooks</a></li>
                                                 </ul>
@@ -239,12 +239,12 @@ Azure PowerShell </a>
                                                     <li>
                                                         <a class="barLink" href="/azure/azure-portal/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="">
-Azure 入口網站 </a>
+Azure 入口網站</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="https://azure.microsoft.com/features/azure-portal/mobile-app/">
                                                             <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="">
-Azure 行動應用程式 </a>
+Azure 行動應用程式</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -315,7 +315,7 @@ Azure 服務和功能導覽 </a>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/principles-cloud-computing/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/principles-cloud-computing.svg" alt="">
-雲端運算原則 </a>
+雲端運算原則</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">
@@ -2759,7 +2759,7 @@ Azure 服務和功能導覽 </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">行動</a>
+                        <a href="#mobile">Mobile</a>
                         <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-mobile">
@@ -5951,7 +5951,7 @@ Azure 服務和功能導覽 </a>
                 <a href="#sdkstools">SDK/工具</a>
                 <ul id="sdkstools">
                     <li>
-                        <a href="#sdkstools-all">所有</a>
+                        <a href="#sdkstools-all">全部</a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
@@ -5974,7 +5974,7 @@ Azure 服務和功能導覽 </a>
                                                     <a href="/dotnet/azure">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/api/overview/azure/?view=azure-dotnet">API 參考資料</a>
+                                                    <a href="/dotnet/api/overview/azure/?view=azure-dotnet">API 參考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -5997,7 +5997,7 @@ Azure 服務和功能導覽 </a>
                                                     <a href="/python/azure">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/python/api/overview/azure/">API 參考資料</a>
+                                                    <a href="/python/api/overview/azure/">API 參考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6020,7 +6020,7 @@ Azure 服務和功能導覽 </a>
                                                     <a href="/javascript/azure/">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/javascript/api/overview/azure/">API 參考資料</a>
+                                                    <a href="/javascript/api/overview/azure/">API 參考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6043,7 +6043,7 @@ Azure 服務和功能導覽 </a>
                                                     <a href="/java/azure">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api">API 參考資料</a>
+                                                    <a href="/java/api">API 參考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6200,10 +6200,10 @@ Azure CLI </h3>
                                                     <a href="/visualstudio/azure/">Visual Studio</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=navigation+cta&utm_content=download+vs2017">下載 Windows 版</a>
+                                                    <a href="https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=navigation+cta&utm_content=download+vs2017">針對 Windows 下載</a>
                                                 </p>
                                                  <p>
-                                                    <a href="https://visualstudio.microsoft.com/vs/mac/">下載 Mac 版</a>
+                                                    <a href="https://visualstudio.microsoft.com/vs/mac/">針對 Mac 下載</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6221,10 +6221,10 @@ Azure CLI </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio Code</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio                             Code</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">App Service 方案</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">App Service</a>
                                                 </p>
                                                  <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
@@ -6256,13 +6256,13 @@ Docker </h3>
                                                     <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools for Docker</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">適用於 Visual Studio 的下載</a>
+                                                    <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">針對 Visual Studio 下載</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">適用 Visual Studio Code 的下載</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">針對 Visual Studio Code 下載</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">適用 Azure DevOps 的下載</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">下載 Azure DevOps</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6365,13 +6365,13 @@ Azure Resource Manager </h3>
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=722418">下載 Linux 版</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=722418">針對 Linux 下載</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708342">下載 Mac 版</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708342">針對 Mac 下載</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">下載 Windows 版</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">針對 Windows 下載</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6391,10 +6391,10 @@ Azure Resource Manager </h3>
                                                 <h3>
 Service Fabric SDK 和工具 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">下載 Windows 版</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">針對 Windows 下載</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">下載 Linux 版</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">針對 Linux 下載</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">下載 Mac OS X</a>
@@ -6425,7 +6425,7 @@ SQL 工具 </h3>
                                                 <p>
                                                     <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
                                                 </p>                                            <p>
-                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server 資料工具 (SSDT)</a>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
                                                 </p>
                                                 <p>
                                                     <a href="/sql/tools/overview-sql-tools">查看所有 SQL 工具</a>

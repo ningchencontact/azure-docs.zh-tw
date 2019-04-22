@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495289"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>安全 OPC UA 用戶端與 OPC UA 伺服器應用程式 
@@ -29,7 +29,7 @@ OPC 保存庫的指令碼：
 > 如需詳細資訊，請參閱 GitHub[存放庫](https://github.com/Azure-Samples/iot-edge-industrial-configs#testbeds)。
 
 ## <a name="generate-a-new-certificate-and-private-key"></a>產生新的憑證和私密金鑰 
-**準備工作**
+**準備**
 - 請確認環境變數`$env:_PLC_OPT`和`$env:_CLIENT_OPT`為未定義。 比方說，`$env:_PLC_OPT=""`在您的 PowerShell
 - 設定環境變數`$env:_OPCVAULTID`設為字串，可讓您一次 OPC 保存庫中尋找您的資料。 我們建議將它設定為 6 位數的數字。 我們的範例，"123456"用於做為值的變數。
 - 請確定沒有 docker 磁碟區`opcclient`或`opcplc`。 洽詢`docker volume ls`並將它們與移除`docker volume rm <volumename>`。 您可能需要移除也具有容器`docker rm <containerid>`如果容器仍使用磁碟區。

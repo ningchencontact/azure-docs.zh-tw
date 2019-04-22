@@ -1,10 +1,10 @@
 ---
-title: 在 Linux 上建置搭配 MongoDB 的 Node.js 應用程式- Azure App Service |Microsoft Docs
-description: 了解如何讓 Node.js 應用程式在 Linux 上的 Azure App Service 中運作，並利用 MongoDB 連接字串連線到 Cosmos DB 資料庫。
+title: Linux 上搭配 MongoDB 的 Node.js (MEAN.js) - Azure App Service | Microsoft Docs
+description: 了解如何讓 Node.js 應用程式在 Linux 上的 Azure App Service 中運作，並利用 MongoDB 連接字串連線到 Cosmos DB 資料庫。 本教學課程中將使用 MEAN.js。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 10/10/2017
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 73f810072fce9345208593342df597b72c522a73
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3a5f6b5b1f66542a534c9016c5d9d60a1273975f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894507"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544788"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB 應用程式
 
@@ -32,7 +32,7 @@ ms.locfileid: "57894507"
 
 ![在 Azure App Service 中執行的 MEAN.js 應用程式](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-您會了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 使用 Azure Cosmos DB 的 MongoDB 版 API 建立資料庫
@@ -131,10 +131,10 @@ MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果�
 
 在 Cloud Shell 中，使用 [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) 命令來建立 Cosmos DB 帳戶。
 
-在下列命令中，以唯一的 Cosmos DB 名稱取代 \<cosmosdb_name> 預留位置。 這個名稱會用來作為 Cosmos DB 端點 `https://<cosmosdb_name>.documents.azure.com/` 的一部分，因此，這個名稱在 Azure 中的所有 Cosmos DB 帳戶上必須是唯一的。 名稱只能包含小寫字母、數字及連字號 (-) 字元，且長度必須為 3 到 50 個字元。
+在下列命令中，以唯一的 Cosmos DB 名稱取代 \<cosmosdb-name> 預留位置。 這個名稱會用來作為 Cosmos DB 端點 `https://<cosmosdb-name>.documents.azure.com/` 的一部分，因此，這個名稱在 Azure 中的所有 Cosmos DB 帳戶上必須是唯一的。 名稱只能包含小寫字母、數字及連字號 (-) 字元，且長度必須為 3 到 50 個字元。
 
 ```azurecli-interactive
-az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
+az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
 ```
 
 --kind MongoDB 參數會啟用 MongoDB 用戶端連線。
@@ -150,7 +150,7 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
     "maxStalenessPrefix": 100
   },
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
+  "documentEndpoint": "https://<cosmosdb-name>.documents.azure.com:443/",
   "failoverPolicies":
   ...
   < Output truncated for readability >
@@ -166,7 +166,7 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
 若要連線至 Cosmos DB 資料庫，您需要資料庫金鑰。 在 Cloud Shell 中，使用 [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) 命令來擷取主要金鑰。
 
 ```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
+az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
 ```
 
 Azure CLI 會顯示類似下列範例的資訊：
@@ -188,12 +188,12 @@ Azure CLI 會顯示類似下列範例的資訊：
 
 在本機 MEAN.js 存放庫的 _config/env/_ 資料夾中，建立名為 _local-production.js_ 的檔案。 _.gitignore_ 設定為在存放庫外保留此檔案。
 
-請將下列程式碼複製到其中。 務必要將這兩個 \<cosmosdb_name> 預留位置取代為您的 Cosmos DB 資料庫名稱，並將 \<primary_master_key> 預留位置取代為您在上一個步驟中複製的金鑰。
+請將下列程式碼複製到其中。 務必要將這兩個 \<cosmosdb-name> 預留位置取代為您的 Cosmos DB 資料庫名稱，並將 \<primary-master-key> 預留位置取代為您在上一個步驟中複製的金鑰。
 
 ```javascript
 module.exports = {
   db: {
-    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false'
+    uri: 'mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false'
   }
 };
 ```
@@ -226,7 +226,7 @@ MEAN.JS
 
 Environment:     production
 Server:          http://0.0.0.0:8443
-Database:        mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false
+Database:        mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false
 App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
@@ -259,13 +259,13 @@ MEAN.JS version: 0.5.0
 
 若要設定應用程式的設定，請在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。
 
-下列範例會在 Azure 應用程式中設定 `MONGODB_URI` 應用程式設定。 取代 \<app_name>、\<cosmosdb_name> 和 \<primary_master_key> 預留位置。
+下列範例會在 Azure 應用程式中設定 `MONGODB_URI` 應用程式設定。 取代 \<app-name>、\<cosmosdb-name> 和 \<primary-master-key> 預留位置。
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
-在 Node.js 程式碼中，您可以利用 `process.env.MONGODB_URI` 來存取此應用程式設定，就像存取任何環境變數一樣。 
+在 Node.js 程式碼中，您可以利用 `process.env.MONGODB_URI` 來[存取此應用程式設定](configure-language-nodejs.md#access-environment-variables)，就像存取任何環境變數一樣。
 
 在本機 MEAN.js 存放庫中，開啟 _config/env/production.js_ (而不是 _config/env/local-production.js_)，它具有生產環境特定設定。 預設的 MEAN.js 應用程式已經設定為使用您建立的 `MONGODB_URI` 環境變數。
 
@@ -296,7 +296,7 @@ remote: Handling node.js deployment.
 .
 .
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
  * [new branch]      master -> master
 ```
 
@@ -305,14 +305,14 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 - _.deployment_ - 此檔案會告訴 App Service，執行 `bash deploy.sh` 以作為自訂部署指令碼。
 - _deploy.sh_ - 自訂部署指令碼。 如果您檢閱檔案，您將看到它會在 `npm install` 和 `bower install` 之後執行 `gulp prod`。
 
-您可以使用這種方法，將任何步驟新增至您的 Git 部署。 如果您在任一時間點重新啟動 Azure 應用程式，App Service 並不會重新執行這些自動化工作。
+您可以使用這種方法，將任何步驟新增至您的 Git 部署。 如果您在任一時間點重新啟動 Azure 應用程式，App Service 並不會重新執行這些自動化工作。 如需詳細資訊，請參閱[執行 Grunt/Bower/Gulp](configure-language-nodejs.md#run-gruntbowergulp)。
 
 ### <a name="browse-to-the-azure-app"></a>瀏覽至 Azure 應用程式
 
 使用網頁瀏覽器，瀏覽至已部署的應用程式。
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 按一下上層功能表中的 [註冊]，然後建立一位虛擬使用者。
@@ -451,6 +451,10 @@ git push azure master
 
 如果您先前已新增任何文章，您仍然可以看到它們。 Cosmos DB 中的現有資料不會遺失。 此外，您的變更會更新至資料結構描述，並讓現有資料保留不變。
 
+## <a name="stream-diagnostic-logs"></a>資料流診斷記錄
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+
 ## <a name="manage-your-azure-app"></a>管理您的 Azure 應用程式
 
 移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的應用程式。
@@ -482,4 +486,9 @@ git push azure master
 前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure App Service](../app-service-web-tutorial-custom-domain.md)
+> [教學課程：將自訂 DNS 名稱對應至應用程式](../app-service-web-tutorial-custom-domain.md)
+
+或者，查看其他資源：
+
+> [!div class="nextstepaction"]
+> [設定 Node.js 應用程式](configure-language-nodejs.md)

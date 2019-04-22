@@ -3,26 +3,25 @@ title: 包含檔案
 description: 包含檔案
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/26/2018
-ms.author: andret
+ms.date: 04/12/2019
+ms.author: celested
 ms.custom: include file
-ms.openlocfilehash: 92e6aa1fe6cc6dd7deab92242fa9333a4778fc9b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 127544e6fc4647dbd76c956bdb1085d8454c6fb9
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47019757"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502733"
 ---
 |   |
 |---|
-| **適用範圍：**<br><ul><li>Azure AD v2.0 端點</ul> |
+| **適用於：**<br><ul><li>Microsoft 身分識別平台端點</ul> |
 |   |

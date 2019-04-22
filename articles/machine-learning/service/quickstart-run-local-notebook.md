@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281126"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549130"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>快速入門：使用您自有的 Notebook 伺服器來開始使用 Azure Machine Learning
 
@@ -33,7 +33,7 @@ ms.locfileid: "59281126"
 
 * 已安裝 Azure Machine Learning SDK 的 Python 3.6 Notebook 伺服器
 * Azure Machine Learning 服務工作區
-* 工作區組態檔 (**aml_config/config.json**)。
+* 工作區組態檔 (**.azureml/config.json**)。
 
 從[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md#portal)取得上述所有必要條件。
 
@@ -74,6 +74,6 @@ print(run.get_portal_url())
 在本文中，您已建立進行實驗和部署模型所需的資源。 您在 Notebook 中執行了程式碼，並且在雲端的工作區中探索了該程式碼的執行歷程記錄。
 
 > [!div class="nextstepaction"]
-> [教學課程：將映像分類模型定型](tutorial-train-models-with-aml.md)
+> [教學課程：將影像分類模型定型](tutorial-train-models-with-aml.md)
 
 您也可以探索 [GitHub 上更進階的範例](https://aka.ms/aml-notebooks)或檢視 [SDK 使用者指南](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。

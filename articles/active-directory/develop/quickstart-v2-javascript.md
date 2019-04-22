@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 JavaScript 快速入門 | Microsoft Docs
-description: 深入了解 JavaScript 應用程式如何呼叫需要來自 Azure Active Directory v2.0 端點存取權杖的 API
+title: Microsoft 身分識別平台 JavaScript 快速入門 | Azure
+description: 深入了解 JavaScript 應用程式如何呼叫需要來自 Microsoft身分識別平台存取權杖的 API。
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -12,24 +12,32 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe8c2287da7a7eabc26ff134d8bb44c5e45085f1
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 2021c5028637a6f7e732df61b6f7c034ef79324f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203042"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547392"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>快速入門：登入使用者及從 JavaScript 應用程式取得存取權杖
+# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>快速入門：登入使用者及從 JavaScript 單頁應用程式 (SPA) 取得存取權杖
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-在本快速入門中，您會了解如何使用程式碼範例，該範例示範 JavaScript 單頁應用程式 (SPA) 如何登入個人帳戶、公司和學校帳戶、取得存取權杖以呼叫 Microsoft Graph API 或任何 Web API。
+在本快速入門中，您會了解如何使用程式碼範例，該範例示範 JavaScript 單頁應用程式 (SPA) 如何登入個人帳戶、公司和學校帳戶，以及取得存取權杖以呼叫 Microsoft Graph API 或任何 Web API。
 
-![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-javascript/javascriptspa-intro-updated.png)
+![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+
+## <a name="prerequisites"></a>必要條件
+
+您需要下列設定來完成此快速入門：
+* 若要搭配 node.js 伺服器來執行專案，
+    * 安裝 [Node.js](https://nodejs.org/en/download/)
+    * 安裝 [Visual Studio Code](https://code.visualstudio.com/download) 來編輯專案檔
+* 若要執行作為 Visual Studio 解決方案的專案，請安裝 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)。
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>註冊並下載快速入門應用程式
@@ -39,7 +47,9 @@ ms.locfileid: "58203042"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例
 >
-> 1. 移至 [Azure 入口網站 - 應用程式註冊 (預覽)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs)。
+> 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
+> 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
+> 1. 移至新的 [Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs)窗格。
 > 1. 輸入您的應用程式名稱，然後按一下 [註冊]。
 > 1. 依照指示按一下滑鼠，即可下載並自動設定新的應用程式。
 >
@@ -47,9 +57,10 @@ ms.locfileid: "58203042"
 >
 > #### <a name="step-1-register-your-application"></a>步驟 1：註冊您的應用程式
 >
-> 1. 登入 [Azure 入口網站](https://portal.azure.com/)以註冊應用程式。
+> 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 > 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-> 1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)] > [新增註冊]。
+> 1. 瀏覽至 Microsoft 身分識別平台，以取得開發人員的[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面。
+> 1. 選取 [新增註冊]。
 > 1. [註冊應用程式] 頁面出現時，輸入您應用程式的名稱。
 > 1. 在 [支援的帳戶類型] 底下，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]。
 > 1. 在 [重新導向 URI] 區段底下選取 [Web] 平台，並將值設為 `http://localhost:30662/`。
@@ -121,14 +132,16 @@ var applicationConfig = {
 
 * 如果您使用 [Visual Studio](https://visualstudio.microsoft.com/downloads/)，請務必選取專案解決方案，然後按 **F5** 來執行專案。
 
+在瀏覽器載入應用程式之後，請按一下 [登入]。  第一次登入時，系統會提示您同意允許應用程式存取您的設定檔，並將您登入。 成功登入後，您應該會看到頁面上顯示您的使用者設定檔資訊。
+
 ## <a name="more-information"></a>相關資訊
 
 ### <a name="msaljs"></a>*msal.js*
 
-MSAL 是程式庫，用來登入使用者並要求權杖，該權杖是用來存取受 Microsoft Azure Active Directory (Azure AD) 保護的 API。 快速入門的 index.html 包含程式庫的參考：
+MSAL 是程式庫，用來登入使用者並要求權杖，該權杖是用來存取受 Microsoft 身分識別平台保護的 API。 快速入門的 index.html 包含程式庫的參考：
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.min.js"></script>
 ```
 
 或者，如果您已安裝節點，可以透過 npm 下載它：
@@ -189,14 +202,14 @@ myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (acces
 
 #### <a name="get-a-user-token-interactively"></a>以互動方式取得使用者權杖
 
-您有可能必須強制使用者與 Azure AD v2.0 端點互動。 例如︰
+您有可能必須強制使用者與 Microsoft 身分識別平台端點互動。 例如︰
 * 使用者可能需要重新輸入其認證，因為密碼已過期
 * 您的應用程式要求其他資源範圍的存取權，需要使用者同意
 * 需要雙因素驗證
 
 大部分應用程式的一般建議模式是先呼叫 `acquireTokenSilent`、捕捉例外狀況，然後呼叫 `acquireTokenRedirect` (或 `acquireTokenPopup`) 以啟動互動式要求。
 
-呼叫 `acquireTokenPopup(scope)` 會導致要登入的快顯視窗 (或者呼叫 `acquireTokenRedirect(scope)` 會導致將使用者重新導向至 Azure AD v2.0 端點)，使用者必須藉由確認其認證、同意必要的資源，或完成雙因素驗證來進行互動。
+呼叫 `acquireTokenPopup(scope)` 會導致要登入的快顯視窗 (或者呼叫 `acquireTokenRedirect(scope)` 會導致將使用者重新導向至 Microsoft 身分識別平台端點)，使用者必須藉由確認其認證、同意必要的資源，或完成雙因素驗證來進行互動。
 
 ```javascript
 myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (accessToken) {

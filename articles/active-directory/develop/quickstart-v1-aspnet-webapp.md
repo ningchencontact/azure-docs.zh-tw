@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007619"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548540"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
 
@@ -32,7 +32,7 @@ ms.locfileid: "58007619"
 完成本快速入門之後，您的應用程式將能接受已與 Azure Active Directory (Azure AD) 整合之組織的公司和學校帳戶進行登入。
 
 > [!NOTE]
-> 如果除了公司和學校帳戶之外，您也需要為個人帳戶啟用登入，則可以使用 [v2.0 端點](azure-ad-endpoint-comparison.md)。 如需詳細資訊，請參閱[這個適用於 v2.0 端點的 ASP.NET 教學課程](tutorial-v2-asp-webapp.md)，以及[這篇](active-directory-v2-limitations.md)說明 v2.0 端點目前限制的文章。
+> 如果除了公司和學校帳戶之外，您也需要為個人帳戶啟用登入，則可以使用 [Microsoft 身分識別平台端點](azure-ad-endpoint-comparison.md)。 如需詳細資訊，請參閱[此 ASP.NET 教學課程](tutorial-v2-asp-webapp.md)，以及說明「Microsoft 身分識別平台端點」的[這篇文章](active-directory-v2-limitations.md)。
 
 ## <a name="prerequisites"></a>必要條件
 

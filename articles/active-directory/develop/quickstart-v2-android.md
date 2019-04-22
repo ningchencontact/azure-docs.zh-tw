@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 Android 快速入門 | Microsoft Docs
-description: 深入了解 Android 應用程式如何呼叫需要來自 Azure Active Directory v2.0 端點存取權杖的 API
+title: Microsoft 身分識別平台 Android 快速入門 | Azure
+description: 深入了解 Android 應用程式如何呼叫需要來自 Microsoft身分識別平台端點存取權杖的 API。
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/11/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd78e6acd801f3b973cc45609b72f86b257f4d43
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862755"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495306"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入門：從 Android 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -30,7 +30,7 @@ ms.locfileid: "58862755"
 
 此快速入門包含示範 Android 應用程式如何登入個人或公司與學校帳戶、取得存取權杖，以及呼叫 Microsoft Graph API 的程式碼範例。
 
-![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-android/android-intro-updated.png)
+![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **必要條件**
@@ -47,7 +47,7 @@ ms.locfileid: "58862755"
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例
 > #### <a name="step-1-register-your-application"></a>步驟 1：註冊您的應用程式
 > 若要註冊您的應用程式，
-> 1. 移至 [Azure 入口網站 - 應用程式註冊 (預覽)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs)。
+> 1. 移至新的 [Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs)窗格。
 > 1. 輸入應用程式的名稱，並選取 [註冊]。
 > 1. 依照指示按一下滑鼠，即可下載並自動設定新的應用程式。
 >
@@ -58,7 +58,8 @@ ms.locfileid: "58862755"
 >
 > 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 > 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-> 1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)] > [新增註冊]。
+> 1. 瀏覽至 Microsoft 身分識別平台，以取得開發人員的[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面。
+> 1. 選取 [新增註冊]。
 > 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
 >      - 在 [名稱] 區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `Android-Quickstart`。
 >      - 按 `Register` 按鈕。
@@ -145,7 +146,7 @@ ms.locfileid: "58862755"
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) 是一個程式庫，可用來登入使用者並要求用來存取受 Microsoft Azure Active Directory (Azure AD) 保護之 API 的權杖。 您可以使用 Gradle 安裝它，方法是將下列內容新增到 Gradle Scripts > build.gradle (Module: app) 中的 **Dependencies**下：
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) 這個程式庫是用來登入使用者並要求權杖，該權杖會用來存取受 Microsoft 身分識別平台保護的 API。 您可以使用 Gradle 安裝它，方法是將下列內容新增到 Gradle Scripts > build.gradle (Module: app) 中的 **Dependencies**下：
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -178,7 +179,7 @@ MSAL 有兩種取得權杖的方法：`acquireToken` 與 `acquireTokenSilentAsyn
 
 #### <a name="getting-a-user-token-interactively"></a>以互動方式取得使用者權杖
 
-有些情況需要強制使用者與 Azure AD v2.0 端點互動，這會導致將環境切換至系統瀏覽器以驗證使用者的認證或要求使用者同意。 部分範例包括：
+有些情況需要強制使用者與 Microsoft 身分識別平台端點互動，這會導致系統將環境切換至系統瀏覽器，以驗證使用者的認證或要求同意。 部分範例包括：
 
 * 使用者首次登入應用程式
 * 使用者因為密碼已過期而可能需要重新輸入其認證時

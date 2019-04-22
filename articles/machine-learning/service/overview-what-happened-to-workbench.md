@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22615d07e69d707c90e3ff9bda83bfa6f0852996
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 217eecfe8f380718361c2f1b56965e4af85d54c9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360279"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526702"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 發生什麼事？
 
@@ -76,7 +76,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 您不會遺失任何程式碼或作品。 在舊版中，專案是具有本機目錄的雲端實體。 在最新版中，您將使用本機設定檔將本機目錄附加到 Azure Machine Learning 服務工作區。 [請參閱最新架構的圖表](concept-azure-machine-learning-architecture.md)。
 
-大部分專案內容都已經在您的本機電腦上。 因此，您只需要在該目錄中建立設定檔，並在您的程式碼中參照它，就能連線到您的工作區。 若要繼續使用包含您檔案和指令碼的本機目錄，請在 ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python 命令中或使用 'az ml project attach' CLI 命令指定目錄的名稱。  例如︰
+大部分專案內容都已經在您的本機電腦上。 因此，您只需要在該目錄中建立設定檔，並在您的程式碼中參照它，就能連線到您的工作區。 若要繼續使用包含您檔案和指令碼的本機目錄，請在 ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python 命令中或使用 `az ml project attach` CLI 命令指定目錄的名稱。  例如︰
 ```python
 run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 ```

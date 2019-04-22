@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 412bf66902f156c6c8720a720973f97d1d7b1d8f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 79854c71410c7e796961f23c8c31a4d0809cd69c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751611"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527977"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>教學課程：透過 REST API 將資料複製到 Azure 資料箱 Blob 儲存體  
 
@@ -79,7 +79,7 @@ ms.locfileid: "55751611"
 
 1. 登入 Azure 入口網站。
 2. 移至您的資料箱訂單，並巡覽至 [一般] > [裝置詳細資料]。
-3. 在 [裝置認證] 下方，移至 [裝置的 API 存取]。 按一下 [下載] 。 此動作會下載 **<your order name>.cer** 憑證檔案。 **儲存**這個檔案。 您會將此憑證安裝在將用來連線到裝置的用戶端或主機電腦上。
+3. 在 [裝置認證] 下方，移至 [裝置的 API 存取]。 按一下 [下載] 。 此動作會下載 **\<您的訂單號碼>.cer** 憑證檔案。 **儲存**這個檔案。 您會將此憑證安裝在將用來連線到裝置的用戶端或主機電腦上。
 
     ![在 Azure 入口網站下載憑證](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  

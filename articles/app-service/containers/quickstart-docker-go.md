@@ -9,17 +9,17 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/17/2018
+ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3335163c15319e39858003032ae7113c9c26a3fd
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438575"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547299"
 ---
-# <a name="deploy-a-dockergo-web-app-in-web-app-for-containers"></a>在 Web App for Containers 中部署 Docker/Go Web 應用程式
+# <a name="run-a-custom-linux-container-in-azure-app-service"></a>在 Azure App Service 中執行自訂的 Linux 容器
 
 [App Service Linux](app-service-linux-intro.md) 可在 Linux 上提供預先定義的應用程式堆疊，且支援 .NET、PHP、Node.js 等其他語言。 您也可以使用自訂 Docker 映像，在尚未於 Azure 中定義的應用程式堆疊上執行 Web 應用程式。 本快速入門示範如何建立 Web 應用程式，以及從 Docker Hub 部署 Go 映像。 [使用 Azure CLI 建立 Web 應用程式](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)
 
@@ -75,4 +75,10 @@ http://<app_name>.azurewebsites.net/hello
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用自訂 Docker 映像](tutorial-custom-docker-image.md)
+> [教學課程：從私人容器存放庫部署](tutorial-custom-docker-image.md)
+
+> [!div class="nextstepaction"]
+> [設定自訂容器](configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [教學課程：多容器 WordPress 應用程式](tutorial-multi-container-app.md)

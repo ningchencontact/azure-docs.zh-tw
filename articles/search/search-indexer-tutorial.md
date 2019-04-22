@@ -7,17 +7,17 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270453"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528045"
 ---
-# <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C# 教學課程：使用 Azure 搜尋索引子搜耙 Azure SQL 資料庫
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C# 教學課程：使用 Azure 搜尋索引子搜耙 Azure SQL 資料庫
 
 了解如何設定索引子，以便從範例 Azure SQL 資料庫擷取可搜尋的資料。 [索引子](search-indexer-overview.md)是 Azure 搜尋服務的元件，可搜耙外部資料來源，以內容填入[搜尋索引](search-what-is-an-index.md)。 在所有索引子中，最廣泛使用的是 Azure SQL Database 的索引子。 
 
@@ -56,7 +56,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀] 頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
-1.. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
+1. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
 ![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
 
@@ -87,7 +87,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 下列練習假設沒有任何現有的伺服器或資料庫，並指示您在步驟 2 中建立兩者。 (選擇性) 如果您有現有的資源，您可以在其中新增 hotels 資料表 (在步驟 4 開始)。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。 
+1. [登入 Azure 入口網站](https://portal.azure.com/)。 
 
 2. 尋找或建立 **Azure SQL Database**，以建立資料庫、伺服器和資源群組。 您可以使用預設值和最低層級的定價層。 建立伺服器的優點之一是您可以指定系統管理員使用者名稱和密碼，以便在稍後步驟中建立和載入資料表。
 
@@ -99,7 +99,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
    ![SQL 資料庫頁面](./media/search-indexer-tutorial/hotels-db.png)
 
-4. 在命令列上，按一下 [工具] > [查詢編輯器]。
+4. 在導覽窗格上，按一下 [查詢編輯器 (預覽)]。
 
 5. 按一下 [登入]，並輸入伺服器管理員的使用者名稱和密碼。
 
@@ -116,7 +116,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
     ```sql
     SELECT HotelId, HotelName, Tags FROM Hotels
     ```
-    典型查詢 `SELECT * FROM Hotels` 不適用於查詢編輯器中。 範例資料包含 [位置] 欄位中的地理座標，目前並未在編輯器中處理該欄位。 如需要查詢的其他資料行清單，您可以執行此陳述式： `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    典型查詢 `SELECT * FROM Hotels` 不適用於查詢編輯器中。 範例資料包含 [位置] 欄位中的地理座標，目前並未在編輯器中處理該欄位。 如需要查詢的其他資料行清單，您可以執行此陳述式：`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. 您現在有外部資料集，請複製資料庫的 ADO.NET 連接字串。 在您資料庫的 [SQL Database] 頁面上，移至 [設定] > [連接字串]，並複製 ADO.NET 連接字串。
  
@@ -137,7 +137,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="understand-the-code"></a>了解程式碼
 
-您的程式碼現在已準備進行建置和執行。 這麼做之前，請花一分鐘研究此範例中的索引和索引子定義。 相關程式碼位於兩個檔案中：
+當資料和組態設定都就緒之後，即可建置和執行 **DotNetHowToIndexers.sln** 中的範例程式。 這麼做之前，請花一分鐘研究此範例中的索引和索引子定義。 相關程式碼位於兩個檔案中：
 
   + **hotel.cs**，內含可定義索引的結構描述
   + **Program.cs**，內含用於建立和管理您服務中結構的函式
@@ -155,45 +155,65 @@ public string HotelName { get; set; }
 
 結構描述也可以包含其他元素，包括提高搜尋分數、自訂分析城市和其他建構的評分設定檔。 不過，基於我們的目的，結構描述並未嚴密定義，只包含在範例資料集中找到的欄位。
 
-在本教學課程中，索引子會從一個資料來源提取資料。 實際上，您可以將多個索引子附加至相同的索引，並從多個資料來源和索引子建立合併的可搜尋索引。 根據您需要彈性的狀況而定，您可以使用相同的索引-索引子配對、不同的資料來源組合，或具有各種索引子和資料來源組合的一個索引。
+在本教學課程中，索引子會從一個資料來源提取資料。 實際上，您可以將多個索引子附加至相同的索引，並從多個資料來源建立合併的可搜尋索引。 根據您需要彈性的狀況而定，您可以使用相同的索引-索引子配對、不同的資料來源組合，或具有各種索引子和資料來源組合的一個索引。
 
 ### <a name="in-programcs"></a>在 Program.cs 中
 
-主要程式包含三個代表性資料來源的函式。 只將焦點放在 Azure SQL Database，下列物件會突顯出來：
+主要程式包含用於建立用戶端、索引、資料來源和索引子的邏輯。 在您可能會執行此程式多次的假設之下，此程式碼會檢查並刪除現有的同名資源。
+
+資料來源物件上會配置專屬於 Azure SQL 資料庫資源的設定，包括[累加式索引編製](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)，以充分利用 Azure SQL 的內建[變更偵測功能](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)。 在 Azure SQL 中，示範用的飯店資料庫具有名為 **IsDeleted** 的「虛刪除」資料行。 當此資料行在資料庫中設定為 true 時，索引子就會從 Azure 搜尋服務索引中移除對應文件。
 
   ```csharp
-  private const string IndexName = "hotels";
-  private const string AzureSqlHighWaterMarkColumnName = "RowVersion";
-  private const string AzureSqlDataSourceName = "azure-sql";
-  private const string AzureSqlIndexerName = "azure-sql-indexer";
+  Console.WriteLine("Creating data source...");
+
+  DataSource dataSource = DataSource.AzureSql(
+      name: "azure-sql",
+      sqlConnectionString: configuration["AzureSQLConnectionString"],
+      tableOrViewName: "hotels",
+      deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
+          softDeleteColumnName: "IsDeleted",
+          softDeleteMarkerValue: "true"));
+  dataSource.DataChangeDetectionPolicy = new SqlIntegratedChangeTrackingPolicy();
+
+  searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
   ```
 
-在 Azure 搜尋中，您可以個別檢視、設定或刪除的物件包括索引、索引子和資料來源 (分別是 hotels、azure-sql-indexer、azure-sql)。 
-
-*AzureSqlHighWaterMarkColumnName* 資料行值得特別一提，因為它提供變更偵測資訊，以便索引子用來判斷自從上次編製索引工作負載後資料列是否已變更。 [變更偵測原則](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)僅對索引子提供支援，並隨著資料來源而有所不同。 對於 Azure SQL Database，您可以根據資料庫需求，從兩個原則中進行選擇。
-
-下列程式碼會顯示 Program.cs 中用來建立資料來源和索引子的方法。 在您可能會執行此程式多次的假設之下，此程式碼會檢查並刪除現有的同名資源。
+索引子物件可跨平台使用，不論來源為何，其中的設定、排程和引動過程都相同。 此索引子範例包括排程及用於清除索引子記錄的重設選項，並且會呼叫方法來立即建立並執行索引子。
 
   ```csharp
-  private static string SetupAzureSqlIndexer(SearchServiceClient serviceClient, IConfigurationRoot configuration)
+  Console.WriteLine("Creating Azure SQL indexer...");
+  Indexer indexer = new Indexer(
+      name: "azure-sql-indexer",
+      dataSourceName: dataSource.Name,
+      targetIndexName: index.Name,
+      schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
+  // Indexers contain metadata about how much they have already indexed
+  // If we already ran the sample, the indexer will remember that it already
+  // indexed the sample data and not run again
+  // To avoid this, reset the indexer if it exists
+  exists = await searchService.Indexers.ExistsAsync(indexer.Name);
+  if (exists)
   {
-    Console.WriteLine("Deleting Azure SQL data source if it exists...");
-    DeleteDataSourceIfExists(serviceClient, AzureSqlDataSourceName);
+      await searchService.Indexers.ResetAsync(indexer.Name);
+  }
 
-    Console.WriteLine("Creating Azure SQL data source...");
-    DataSource azureSqlDataSource = CreateAzureSqlDataSource(serviceClient, configuration);
+  await searchService.Indexers.CreateOrUpdateAsync(indexer);
 
-    Console.WriteLine("Deleting Azure SQL indexer if it exists...");
-    DeleteIndexerIfExists(serviceClient, AzureSqlIndexerName);
+  // We created the indexer with a schedule, but we also
+  // want to run it immediately
+  Console.WriteLine("Running Azure SQL indexer...");
 
-    Console.WriteLine("Creating Azure SQL indexer...");
-    Indexer azureSqlIndexer = CreateIndexer(serviceClient, AzureSqlDataSourceName, AzureSqlIndexerName);
-
-    return azureSqlIndexer.Name;
+  try
+  {
+      await searchService.Indexers.RunAsync(indexer.Name);
+  }
+  catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+  {
+      Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
   }
   ```
 
-請注意，索引子 API 呼叫與平台無關，但 [DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 除外，其可指定要叫用的編目程式類型。
+
 
 ## <a name="run-the-indexer"></a>執行索引子
 
@@ -236,12 +256,10 @@ public string HotelName { get; set; }
 
 所有索引子 (包括您剛才以程式設計方式建立的索引子) 都會列在入口網站中。 您可以開啟索引子定義及檢視其資料來源，或設定重新整理排程，以掌握全新和變更的資料列。
 
-1. 開啟 Azure 搜尋服務的服務 [概觀] 頁面。
-2. 向下捲動以尋找 [索引子] 和 [資料來源] 的圖格。
-3. 按一下圖格，以開啟每個資源的清單。 您可以選取個別的索引子或資料來源，以檢視或修改組態設定。
+1. [登入 Azure 入口網站](https://portal.azure.com/)，並在您搜尋服務的 [概觀] 頁面上，按一下 [索引]、[索引子] 和 [資料來源] 的連結。
+3. 選取要檢視的個別物件或修改組態設定。
 
    ![索引子和資料來源圖格](./media/search-indexer-tutorial/tiles-portal.png)
-
 
 ## <a name="clean-up-resources"></a>清除資源
 

@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: b8d43188c337e0c12db60b51dee053ef7259701a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492935"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>開始使用 U-SQL 的辨識功能
@@ -32,6 +32,6 @@ U-SQL 的辨識功能讓開發人員可以在其公司的巨量資料程式中�
 在開始之前，請遵循本文，以在 U-SQL 中註冊認知的延伸模組中的步驟：[在 U-SQL 中註冊認知的擴充功能](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions)。
 
 ## <a name="next-steps"></a>後續步驟
-* [U-/ 認知範例](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
-* [開發 U-SQL 指令碼，使用 Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [針對 Azure Data Lake Analytics 工作使用 U-SQL 視窗函式](data-lake-analytics-use-window-functions.md)
+* [U-SQL/認知範例](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
+* [使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
+* [針對 Azure 資料湖分析工作使用 U-SQL 視窗函式](data-lake-analytics-use-window-functions.md)

@@ -7,12 +7,12 @@ ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 3b7ceb07fe874ebc012696f73c21d5c270cb3cee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1a811d3d0796b37053ffbabf56b63b4e4f68e203
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268988"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524067"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>使用 Resource Manager 建立原則指派以識別不相容資源
 
@@ -37,14 +37,14 @@ ms.locfileid: "59268988"
 
 1. 選取以下影像來登入 Azure 入口網站並開啟範本：
 
-   [![D將原則範本部署到 Azure(./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   [![將原則範本部署到 Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
 1. 選取或輸入下列值：
 
    | Name | 值 |
    |------|-------|
    | 訂用帳戶 | 選取 Azure 訂用帳戶。 |
-   | 資源群組 | 選取 [新建]指定名稱，然後選取 [確定]。 在螢幕擷取畫面中，資源群組名稱為 *mypolicyquickstart<Date in MMDD>rg*。 |
+   | 資源群組 | 選取 [新建]指定名稱，然後選取 [確定]。 在螢幕擷取畫面中，資源群組名稱為 *mypolicyquickstart\<MMDD 格式的日期>rg*。 |
    | 位置 | 選取區域。 例如，**美國中部**。 |
    | 原則指派名稱 | 指定原則指派名稱。 若有需要，您可以使用原則定義顯示。 例如，「稽核未使用受控磁碟的 VM」。 |
    | Rg 名稱 | 指定您要指派原則的資源群組名稱。 在本快速入門中，使用預設值 [resourceGroup().name]。 **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** 是擷取資源群組的範本函式。 |

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: bda40470e3ccf3a5d7b23dca38b21090e864b16a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256374"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491743"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>什麼是產業 IoT (IIoT)
 
@@ -23,7 +23,7 @@ IIoT 是指產業物聯網。 IIoT 可透過在製造業中應用 IoT 來提升�
 
 利用連線的工廠解決方案加速器，加強您的作業產能與獲利率。 在雲端連線及監視您的產業設備與裝置 (包含已經在製造商工廠運作的機器)。 分析您的 IoT 資料取得見解，來協助您增加整個製造商工廠的效能。
 
-透過 Azure IoT OPC UA 裝置管理 (OPC 對應項) 減少存取廠房機器的耗時程序，並將您的時間投注在建置 IIoT 解決方案上。 簡化憑證管理以及與 Azure IoT OPC UA 憑證管理 (OPC 保存庫) 的產業資產整合，並確信資產連線受到保護。 這些微服務可在 [Azure 產業 IoT 元件](https://github.com/Azure/azure-iiot-opc-ua)之上提供 REST 型 API。 服務 API 可讓您控制 Edge 模組的功能。 
+透過 OPC 對應項減少存取廠房機器的耗時程序，並將您的時間投注在建置 IIoT 解決方案上。 簡化憑證管理以及與 OPC 保存庫的產業資產整合，並確信資產連線受到保護。 這些微服務可在 [Azure 產業 IoT 元件](https://github.com/Azure/azure-iiot-opc-ua)之上提供 REST 型 API。 服務 API 可讓您控制 Edge 模組的功能。 
 
 ![產業 IoT 概觀](media/overview-iot-industrial/overview.png)
 
@@ -39,11 +39,11 @@ IIoT 是指產業物聯網。 IIoT 可透過在製造業中應用 IoT 來提升�
 
 ## <a name="factory-floor-connectivity"></a>廠房連線
 
-Azure IoT OPC UA 裝置管理也稱為 OPC 對應項，這是一個 IIoT 元件，可將裝置探索和註冊自動化，以及透過 REST API 提供對產業裝置的遠端控制。 OPC 對應項會使用 Azure IoT Edge 與 IoT 中樞來連接雲端和工廠網路。 OPC 對應項可讓 IIoT 開發人員全心建置 IIoT 應用程式，而不需擔心如何安全地存取內部部署機器。
+OPC 對應項是一個 IIoT 元件，可將裝置探索和註冊自動化，以及透過 REST API 提供對產業裝置的遠端控制。 OPC 對應項會使用 Azure IoT Edge 與 IoT 中樞來連接雲端和工廠網路。 OPC 對應項可讓 IIoT 開發人員全心建置 IIoT 應用程式，而不需擔心如何安全地存取內部部署機器。
 
 ## <a name="security"></a>安全性
 
-Azure IoT OPC UA 憑證管理或 OPC 保存庫是 OPC UA Global Discovery Server (GDS) 的實作，可以設定、註冊和管理雲端中的 OPC UA 伺服器和用戶端應用程式的憑證生命週期。 OPC 保存庫可簡化在產業空間中實作和維護安全資產連線的工作。 透過自動化憑證管理，OPC 保存庫讓工廠操作員無須手動繁複地執行與連線和憑證管理相關聯的程序。
+OPC 保存庫是 OPC UA Global Discovery Server (GDS) 的實作，可以設定、註冊和管理雲端中的 OPC UA 伺服器和用戶端應用程式的憑證生命週期。 OPC 保存庫可簡化在產業空間中實作和維護安全資產連線的工作。 透過自動化憑證管理，OPC 保存庫讓工廠操作員無須手動繁複地執行與連線和憑證管理相關聯的程序。
 
 ## <a name="next-steps"></a>後續步驟
 

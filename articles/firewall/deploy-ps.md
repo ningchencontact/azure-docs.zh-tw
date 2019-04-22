@@ -7,15 +7,15 @@ ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.openlocfilehash: c2d49defa2e0fbbd12c5403ccca74e91cf4ec981
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59502109"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>部署和設定使用 Azure PowerShell 的 Azure 防火牆
 
-控制輸出網路存取是整體網路安全性計畫的重要部分。 例如，您可能要限制對網站的存取。 或者，您可能想要限制的輸出 IP 位址和連接埠可存取。
+控制輸出網路存取是整體網路安全性計畫的重要部分。 例如，您可以限制對網站的存取。 或者，限制可存取的輸出 IP 位址和連接埠。
 
 要控制從 Azure 子網路的輸出網路存取，使用 Azure 防火牆是可行的方式之一。 透過 Azure 防火牆，您可以設定：
 
@@ -24,7 +24,7 @@ ms.locfileid: "59502109"
 
 當您將網路流量路由傳送到防火牆作為子網路預設閘道時，網路流量必須遵守設定的防火牆規則。
 
-在本文中中,，您可以建立簡化的單一 VNet 具有三個子網路，以便於部署。 生產環境部署[中樞和支點模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)建議，防火牆會位於它自己的 VNet。 工作負載的伺服器位於一個或多個子網路使用相同的區域中的對等互連 Vnet 中。
+在本文中中,，您可以建立簡化的單一 VNet 具有三個子網路，以便於部署。 對於生產環境部署，建議您使用[中樞和支點模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)，其中防火牆會位於自己的 VNet 中。 工作負載伺服器位於相同區域中的對等互連 VNet，其中包含一個或多個子網路。
 
 * **AzureFirewallSubnet** - 防火牆位於此子網路中。
 * **Workload-SN** - 工作負載伺服器位於此子網路。 此子網路的網路流量會通過防火牆。
@@ -38,7 +38,7 @@ ms.locfileid: "59502109"
 > * 設定測試網路環境
 > * 部署防火牆
 > * 建立預設路由
-> * 設定應用程式規則以允許存取 www.google.com
+> * 設定允許存取 www.google.com 的應用程式規則
 > * 設定允許存取外部 DNS 伺服器的網路規則
 > * 測試防火牆
 
@@ -212,7 +212,7 @@ $NIC | Set-AzNetworkInterface
 
 ## <a name="test-the-firewall"></a>測試防火牆
 
-現在，測試防火牆，以確認它如預期般運作。
+現在請測試防火牆，以確認其運作符合預期。
 
 1. 請注意的私人 IP 位址**Srv 工作**虛擬機器：
 
@@ -220,7 +220,7 @@ $NIC | Set-AzNetworkInterface
    $NIC.IpConfigurations.PrivateIpAddress
    ```
 
-1. 連接到遠端桌面**Srv 跳躍**虛擬機器，然後登入。 在這裡，開啟 遠端桌面連線**Srv 工作**私用 IP 位址和登入。
+1. 將遠端桌面連線到 **Srv-Jump** 虛擬機器，然後登入。 在這裡，開啟 遠端桌面連線**Srv 工作**私用 IP 位址和登入。
 
 3. 在  **SRV 工作**、 開啟 PowerShell 視窗並執行下列命令：
 
@@ -258,4 +258,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>後續步驟
 
-* [教學課程：監視 Azure 防火牆記錄檔](./tutorial-diagnostics.md)
+* [教學課程：監視 Azure 防火牆記錄](./tutorial-diagnostics.md)

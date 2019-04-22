@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5417c1c008b5abaada158530c7c29c67e0dc1ca0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119661"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521266"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教學課程：從語句取得完全相符的文字項目資料
 
@@ -185,5 +185,5 @@ ms.locfileid: "58119661"
 繼續搭配此應用程式執行，並[新增複合實體](luis-tutorial-composite-entity.md)。
 
 > [!div class="nextstepaction"]
-> [在應用程式中新增階層式實體](luis-quickstart-intent-and-hier-entity.md)
+> [將具有角色的預先建置實體新增至應用程式](tutorial-entity-roles.md)
 

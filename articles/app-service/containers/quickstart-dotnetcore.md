@@ -5,7 +5,7 @@ keywords: azure app service, Web 應用程式, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/11/2018
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43016b3c31a0371f953f758bc7afb53bd1508495
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: da4d246e098751f650eb6315de3794ad957884d6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278508"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543888"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 ASP.NET Core 應用程式
 
@@ -188,4 +188,7 @@ git push azure master
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式](tutorial-dotnetcore-sqldb-app.md)
+> [教學課程：ASP.NET Core 應用程式搭配 SQL Database](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [設定 ASP.NET Core 應用程式](configure-language-dotnetcore.md)

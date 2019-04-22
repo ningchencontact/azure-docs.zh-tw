@@ -3,31 +3,31 @@ title: 為裝置設定 Azure IoT 中樞裝置佈建服務
 description: 在裝置製造過程中將裝置設定為透過 IoT 中樞裝置佈建服務進行佈建
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/02/2018
+ms.date: 04/10/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: eae674693b647eed5bce0a38236d44d457c1c2ae
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 344cc3b8ba3f7698f5124d464f3c277b6cb5cdde
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486915"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500969"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>將裝置設定為使用 Azure IoT 中樞裝置佈建服務進行佈建
 
-在上一個教學課程中，您已了解如何將 Azure IoT 中樞裝置佈建服務設定為自動將裝置佈建到 IoT 中樞。 本教學課程示範如何在製造過程中設定您的裝置，讓它能透過 IoT 中樞自動佈建。 第一次開機並連線至佈建服務時，您的裝置會根據其[證明機制](concepts-device.md#attestation-mechanism)進行佈建。 本教學課程涵蓋下列工作：
+在上一個教學課程中，您已了解如何將 Azure IoT 中樞裝置佈建服務設定為自動將裝置佈建到 IoT 中樞。 此教學課程示範如何在製造過程中設定您的裝置，讓它能透過 IoT 中樞自動佈建。 第一次開機並連線至佈建服務時，您的裝置會根據其[證明機制](concepts-device.md#attestation-mechanism)進行佈建。 此教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 建置平台特定裝置佈建服務用戶端 SDK
 > * 擷取安全構件
 > * 建立裝置註冊軟體
 
-本教學課程預期您已使用[設定雲端資源](tutorial-set-up-cloud.md)教學課程中的指示，建立裝置佈建服務執行個體和 IoT 中樞。
+此教學課程預期您已使用[設定雲端資源](tutorial-set-up-cloud.md)教學課程中的指示，建立裝置佈建服務執行個體和 IoT 中樞。
 
-本教學課程使用 [Azure IoT SDK 及適用於 C 存放庫的程式庫](https://github.com/Azure/azure-iot-sdk-c)，其中包含適用於 C 的裝置佈建服務用戶端 SDK。此 SDK 目前針對在 Windows 或 Ubuntu 實作上執行的裝置，提供 TPM 和 X.509 支援。 本教學課程是以使用 Windows 開發用戶端為基礎，而且假設熟悉 Visual Studio 2017 基本功能。 
+此教學課程使用 [Azure IoT SDK 及適用於 C 存放庫的程式庫](https://github.com/Azure/azure-iot-sdk-c)，其中包含適用於 C 的裝置佈建服務用戶端 SDK。此 SDK 目前針對在 Windows 或 Ubuntu 實作上執行的裝置，提供 TPM 和 X.509 支援。 此教學課程是以使用 Windows 開發用戶端為基礎，而且假設熟悉 Visual Studio 2017 基本功能。 
 
 如果您不熟悉自動佈建程序，請務必先檢閱[自動佈建概念](concepts-auto-provisioning.md)才能繼續。 
 
@@ -43,25 +43,9 @@ ms.locfileid: "58486915"
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>建置 SDK 的平台特定版本
 
-裝置佈建服務用戶端 SDK 可協助您實作裝置註冊軟體。 但是，您必須先建置您的開發用戶端平台和證明機制特有的 SDK 版本，才可以使用該軟體。 在本教學課程中，您會針對支援的證明類型，在 Windows 開發平台上建置使用 Visual Studio 2017 的 SDK：
+裝置佈建服務用戶端 SDK 可協助您實作裝置註冊軟體。 但是，您必須先建置您的開發用戶端平台和證明機制特有的 SDK 版本，才可以使用該軟體。 在此教學課程中，您會針對支援的證明類型，在 Windows 開發平台上建置使用 Visual Studio 2017 的 SDK：
 
-1. 下載 [CMake 建置系統](https://cmake.org/download/)。 請確認所下載的二進位檔使用與下載版本對應的密碼編譯雜湊值。 密碼編譯雜湊值也可從已經提供的 CMake 下載連結找到。
-
-    下列範例使用 Windows PowerShell 來驗證 x64 MSI 發行版本 3.13.4 的密碼編譯雜湊：
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    在撰寫此文章時，CMake 網站上列出了3.13.4 版的下列雜湊值：
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. 下載 [CMake 建置系統](https://cmake.org/download/)。
 
     在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
 
@@ -70,7 +54,7 @@ ms.locfileid: "58486915"
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
+    預期此作業需要幾分鐘的時間才能完成。
 
 
 1. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 
@@ -211,13 +195,13 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-至此，您可能有在入口網站中執行的裝置佈建和 IoT 中樞服務。 如果您想要放棄裝置佈建設定及 (或) 延遲完成本教學課程系列，建議您將其關閉以避免產生不必要的成本。
+至此，您可能有在入口網站中執行的裝置佈建和 IoT 中樞服務。 如果您想要放棄裝置佈建設定及 (或) 延遲完成此教學課程系列，建議您將其關閉以避免產生不必要的成本。
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的裝置佈建服務。 在 [所有資源] 刀鋒視窗的頂端，按一下 [刪除]。  
 1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的 IoT 中樞。 在 [所有資源] 刀鋒視窗的頂端，按一下 [刪除]。  
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已了解如何：
+在此教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 建置平台特定裝置佈建服務用戶端 SDK

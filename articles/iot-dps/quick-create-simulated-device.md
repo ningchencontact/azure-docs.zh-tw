@@ -3,18 +3,18 @@ title: 使用 C 將模擬 TPM 裝置佈建到 Azure IoT 中樞 | Microsoft Docs
 description: 本快速入門使用個別註冊。 在此快速入門中，您將使用適用於 Azure IoT 中樞裝置佈建服務的 C 裝置 SDK 來建立及佈建模擬 TPM 裝置。
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/13/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 0ec778cc349ba7c21e693437b6a20c40f2e9c173
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: e705ce17f0f09d341f2c650dfaccbbad60da14c7
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485307"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500187"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>快速入門：使用 Azure IoT C SDK 佈建模擬 TPM 裝置
 
@@ -44,23 +44,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 在本節中，您會準備用來建置 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 和 [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) 裝置模擬器範例的開發環境。
 
-1. 下載 [CMake 建置系統](https://cmake.org/download/)。 請確認所下載的二進位檔使用與下載版本對應的密碼編譯雜湊值。 密碼編譯雜湊值也可從已經提供的 CMake 下載連結找到。
-
-    下列範例使用 Windows PowerShell 來驗證 x64 MSI 發行版本 3.13.4 的密碼編譯雜湊：
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    在撰寫此文章時，CMake 網站上列出了3.13.4 版的下列雜湊值：
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. 下載 [CMake 建置系統](https://cmake.org/download/)。
 
     在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
 
@@ -69,7 +53,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
+    預期此作業需要幾分鐘的時間才能完成。
 
 
 3. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 

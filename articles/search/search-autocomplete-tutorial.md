@@ -11,10 +11,10 @@ ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
 ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495731"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>範例：將建議或自動完成功能新增至您的 Azure 搜尋服務應用程式
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-若要設定 「 example1a"的輸入方塊的 jQuery UI 自動完成的頁面載入上，瀏覽器中執行上述程式碼。  `minLength: 3` 可確保在搜尋方塊中有至少三個字元時，才會顯示建議。  來源值很重要：
+若要設定 「 example1a"的輸入方塊的 jQuery UI 自動完成的頁面載入上，瀏覽器中執行上述程式碼。  `minLength: 3` 可確保在搜尋方塊中至少有三個字元時，才會顯示建議。  來源值很重要：
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",

@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492187"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
@@ -44,14 +44,14 @@ ms.locfileid: "59492187"
 
 | 元素名稱 | 必要項 | 描述 |
 |:--- |:--- |:--- |
-| $schema |是 |JSON 結構描述檔案的位置，說明範本語言的版本。<br><br> 資源群組部署，請使用： `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>對於訂用帳戶的部署，請使用： `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |是 |JSON 結構描述檔案的位置，說明範本語言的版本。<br><br> 針對資源群組部署，使用：`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>針對訂用帳戶部署，使用：`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |是 |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用此值在範本中記載重大變更。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
 | apiProfile |否 | 用作资源类型 API 版本集合的 API 版本。 使用此值可以避免为模板中的每个资源指定 API 版本。 如果你指定 API 配置文件版本但不指定资源类型的 API 版本，则资源管理器将使用配置文件中为该资源类型定义的 API 版本。<br><br>将模板部署到不同的环境（例如 Azure Stack 和全球 Azure）时，API 配置文件属性非常有用。 使用 API 配置文件版本可确保模板自动使用两个环境均支持的版本。 有关最新 API 配置文件版本以及配置文件中定义的资源 API 版本的列表，请参阅 [API 配置文件](https://github.com/Azure/azure-rest-api-specs/tree/master/profile)。<br><br>有关详细信息，请参阅[使用 API 配置文件跟踪版本](templates-cloud-consistency.md#track-versions-using-api-profiles)。 |
-| [parameters](#parameters) |否 |執行部署以自訂資源部署時所提供的值。 |
-| [variables](#variables) |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
+| [參數](#parameters) |否 |執行部署以自訂資源部署時所提供的值。 |
+| [變數](#variables) |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
 | [functions](#functions) |否 |範本中可用的使用者定義函式。 |
 | [resources](#resources) |是 |在資源群組或訂用帳戶中部署或更新的資源類型。 |
-| [輸出](#outputs) |否 |部署後傳回的值。 |
+| [outputs](#outputs) |否 |部署後傳回的值。 |
 
 每個元素都有可以設定的屬性。 本文將詳細說明範本的各個區段。
 
@@ -267,7 +267,7 @@ ms.locfileid: "59492187"
 
 |範本  |描述  |
 |---------|---------|
-|[使用預設值的函式的參數](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | 示範定義參數的預設值時，如何使用範本函式。 範本不會部署任何資源。 它會建構參數值，並傳回這些值。 |
+|[具有預設值之帶有函式的參數](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | 示範定義參數的預設值時，如何使用範本函式。 範本不會部署任何資源。 它會建構參數值，並傳回這些值。 |
 |[參數物件](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | 示範如何針對參數使用物件。 範本不會部署任何資源。 它會建構參數值，並傳回這些值。 |
 
 ## <a name="variables"></a>變數
@@ -669,9 +669,9 @@ ms.locfileid: "59492187"
 
 形成巢狀後，類型會設為 `databases`，但是其完整資源類型為 `Microsoft.Sql/servers/databases`。 您未提供 `Microsoft.Sql/servers/`，因為它被認為是來自父資源類型。 子資源名稱會設為 `exampledatabase`，但是完整名稱包含父系名稱。 您未提供 `exampleserver`，因為它被認為是來自父資源。
 
-子資源類型的格式為： `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+子資源類型的格式如下︰`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
-子資源名稱的格式為： `{parent-resource-name}/{child-resource-name}`
+子資源名稱的格式如下︰`{parent-resource-name}/{child-resource-name}`
 
 但是，您不必在伺服器內定義資料庫。 您可以定義最上層的子資源。 如果父資源並未部署在相同範本中，或者想要使用 `copy` 來建立多個子資源，您可以使用此方法。 使用這個方法，您必須提供完整資源類型，並將父資源名稱納入子資源名稱中。
 
@@ -700,7 +700,7 @@ ms.locfileid: "59492187"
 
 例如︰
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` 正確`Microsoft.Compute/virtualMachines/extensions/myVM/myExt`不正確
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` 為正確 `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` 為不正確
 
 ## <a name="outputs"></a>輸出
 

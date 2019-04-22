@@ -12,25 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5cca0d866442583c87665b3a1db8c65c66d12f0a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285372"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607767"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>在 Linux 上的 Azure App Service 中建立 Python 應用程式 (預覽)
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門說明如何使用 [Azure CLI](/cli/azure/install-azure-cli) 在 Linux 上的 App Service 中將 Python 應用程式部署於內建的 Python 映像 (預覽) 之上。
-
-您可以使用 Mac、Windows 或 Linux 機器，依照本文中的步驟操作。
+在本快速入門中，您將一個簡單的 Python 應用程式部署到 [Linux 上的 App Service](app-service-linux-intro.md)，它提供了一個可高度擴充、自我修復的 Web 裝載服務。 您可以透過互動式的瀏覽器型 Azure Cloud Shell 使用 Azure 命令列介面 ([Azure CLI](/cli/azure/install-azure-cli))，以便您可以遵循使用 Mac、Linux 或 Windows 電腦的步驟進行操作。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-python/hello-world-in-browser.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,6 +34,7 @@ ms.locfileid: "58285372"
 
 * <a href="https://www.python.org/downloads/" target="_blank">安裝 Python 3.7</a>
 * <a href="https://git-scm.com/" target="_blank">安裝 Git</a>
+* Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 ## <a name="download-the-sample-locally"></a>將範例下載到本機
 
@@ -109,7 +106,7 @@ Checking connectivity... done.
 
 變更為包含範例程式碼的目錄，並執行 `az webapp up` 命令。
 
-在下列範例中，使用唯一的應用程式名稱取代 <app-name>。
+在下列範例中，使用唯一的應用程式名稱取代 `<app-name>`。
 
 ```bash
 cd python-docs-hello-world
@@ -174,10 +171,10 @@ return "Hello Azure!"
 
 儲存您的變更並結束編輯器。 使用 `^S` 命令進行儲存，以及使用 `^Q` 來結束作業。
 
-您現在將重新部署應用程式。 使用應用程式替代 `<app-name>`。
+使用 [`az webapp up`](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) 命令重新部署應用程式。 將應用程式的名稱替代為 `<app-name>`，並指定 `<location-name>` 的位置 (使用 [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 命令中其中一個顯示的值)。
 
 ```bash
-az webapp up -n <app-name>
+az webapp up -n <app-name> -l <location-name>
 ```
 
 部署完成後，切換回在**瀏覽至應用程式**步驟中開啟的瀏覽器視窗，然後重新整理頁面。
@@ -205,13 +202,10 @@ az webapp up -n <app-name>
 在 Linux 上的 App Service 中，內建的 Python 映像目前處於預覽狀態，您可以自訂用來啟動應用程式的命令。 您也可以改用自訂容器來建立生產 Python 應用程式。
 
 > [!div class="nextstepaction"]
-> [Python with PostgreSQL](tutorial-python-postgresql-app.md)
+> [教學課程：使用 PostgreSQL 的 Python 應用程式](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [設定自訂啟動命令](how-to-configure-python.md#customize-startup-command)
+> [設定 Python 應用程式](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [疑難排解](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [使用自訂映像](tutorial-custom-docker-image.md)
+> [教學課程：在自訂容器中執行 Python 應用程式](tutorial-custom-docker-image.md)

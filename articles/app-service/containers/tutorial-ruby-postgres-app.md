@@ -1,23 +1,23 @@
 ---
-title: 在 Linux 上建置搭配 Postgres 的 Ruby 應用程式 - Azure App Service | Microsoft Docs
-description: 了解如何取得在 Azure 中運作的 Ruby 應用程式，並連線至 Azure 中的 PostgreSQL 資料庫。
+title: Linux 上搭配 Postgres 的 Ruby (Rails) - Azure App Service | Microsoft Docs
+description: 了解如何取得在 Azure 中運作的 Ruby 應用程式，並連線至 Azure 中的 PostgreSQL 資料庫。 本教學課程中將使用 Rails。
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: jeconnoc
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: ruby
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e42d9592d74e845410441097fa6082cfb3f4ac5e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3ec19b1c564c09406ab1f29c38aef6332d80f8f1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713874"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544683"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Ruby 和 Postgres 應用程式
 
@@ -65,7 +65,7 @@ sudo -u postgres psql
 使用您的登入 Linux 使用者名稱，建立可藉由執行下列命令來建立資料庫的 Postgres 使用者。
 
 ```bash
-sudo -u postgres createuser -d <signed_in_user>
+sudo -u postgres createuser -d <signed-in-user>
 ```
 
 <a name="step2"></a>
@@ -125,10 +125,10 @@ rails server
 
 使用 [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) 命令來建立 PostgreSQL 伺服器。
 
-在 Cloud Shell 中執行下列命令，並使用唯一的伺服器名稱取代 *\<postgres_server_name>* 預留位置。 伺服器名稱在 Azure 中的所有伺服器之間必須是唯一的。 
+在 Cloud Shell 中執行下列命令，並使用唯一的伺服器名稱取代 \<postgres-server-name> 預留位置。 伺服器名稱在 Azure 中的所有伺服器之間必須是唯一的。 
 
 ```azurecli-interactive
-az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres_server_name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
+az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres-server-name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
 ```
 
 建立適用於 PostgreSQL 的 Azure 資料庫伺服器後，Azure CLI 會顯示類似下列範例的資訊：
@@ -137,10 +137,10 @@ az postgres server create --location "West Europe" --resource-group myResourceGr
 {
   "administratorLogin": "adminuser",
   "earliestRestoreDate": "2018-06-15T12:38:25.280000+00:00",
-  "fullyQualifiedDomainName": "<postgres_server_name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgres_server_name>",
+  "fullyQualifiedDomainName": "<postgres-server-name>.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgres-server-name>",
   "location": "westeurope",
-  "name": "<postgres_server_name>",
+  "name": "<postgres-server-name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "capacity": 2,
@@ -155,10 +155,10 @@ az postgres server create --location "West Europe" --resource-group myResourceGr
 
 ### <a name="configure-server-firewall"></a>設定伺服器防火牆
 
-在 Cloud Shell 中，使用 [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create) 命令，建立 Postgres 伺服器的防火牆規則來允許用戶端連線。 當起始 IP 和結束 IP 都設為 0.0.0.0 時，防火牆只會為其他 Azure 資源開啟。 使用唯一的伺服器名稱取代 *\<postgres_server_name>* 預留位置。
+在 Cloud Shell 中，使用 [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create) 命令，建立 Postgres 伺服器的防火牆規則來允許用戶端連線。 當起始 IP 和結束 IP 都設為 0.0.0.0 時，防火牆只會為其他 Azure 資源開啟。 使用唯一的伺服器名稱取代 \<postgres-server-name>  預留位置。
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres_server_name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres-server-name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!TIP] 
@@ -167,10 +167,10 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ### <a name="connect-to-production-postgres-server-locally"></a>在本機連線到生產環境 Postgres 伺服器
 
-在 Cloud Shell 中，連線到 Azure 中的 Postgres 伺服器。 使用您先前為 _&lt;postgres_server_name>_ 預留位置指定的值。
+在 Cloud Shell 中，連線到 Azure 中的 Postgres 伺服器。 使用您先前為&lt;postgres-server-name> 預留位置指定的值。
 
 ```bash
-psql -U adminuser@<postgres_server_name> -h <postgres_server_name>.postgres.database.azure.com postgres
+psql -U adminuser@<postgres-server-name> -h <postgres-server-name>.postgres.database.azure.com postgres
 ```
 
 當系統提示您輸入密碼時，使用您建立資料庫伺服器時指定的 _My5up3r$tr0ngPa$w0rd!_。
@@ -188,7 +188,7 @@ CREATE DATABASE sampledb;
 建立名為 railsappuser 的資料庫使用者，並將 `sampledb` 資料庫的所有權限賦予給它。
 
 ```sql
-CREATE USER railsappuser WITH PASSWORD 'MyPostgresAzure2017'; 
+CREATE USER railsappuser WITH PASSWORD 'MyPostgresAzure2017';
 GRANT ALL PRIVILEGES ON DATABASE sampledb TO railsappuser;
 ```
 
@@ -220,13 +220,13 @@ production:
 回到本機終端機，設定下列環境變數：
 
 ```bash
-export DB_HOST=<postgres_server_name>.postgres.database.azure.com
+export DB_HOST=<postgres-server-name>.postgres.database.azure.com
 export DB_DATABASE=sampledb 
-export DB_USERNAME=railsappuser@<postgres_server_name>
+export DB_USERNAME=railsappuser@<postgres-server-name>
 export DB_PASSWORD=MyPostgresAzure2017
 ```
 
-使用您剛設定的生產值來執行 Rails 資料庫移轉，可在適用於 PostgreSQL 的 Azure 資料庫中的 Postgres 資料庫中建立資料表。 
+使用您剛設定的生產值來執行 Rails 資料庫移轉，可在適用於 PostgreSQL 的 Azure 資料庫中的 Postgres 資料庫中建立資料表。
 
 ```bash
 rake db:migrate RAILS_ENV=production
@@ -247,8 +247,8 @@ rails secret
 將祕密金鑰儲存至 Rails 生產環境所使用的個別變數。 為了方便起見，您可對兩個變數使用相同的金鑰。
 
 ```bash
-export RAILS_MASTER_KEY=<output_of_rails_secret>
-export SECRET_KEY_BASE=<output_of_rails_secret>
+export RAILS_MASTER_KEY=<output-of-rails-secret>
+export SECRET_KEY_BASE=<output-of-rails-secret>
 ```
 
 讓 Rails 生產環境可支援 JavaScript 和 CSS 檔案。
@@ -302,15 +302,15 @@ git commit -m "database.yml updates"
 
 在 App Service 中，您可以在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令將環境變數設定為「應用程式設定」。
 
-下列 Cloud Shell 命令會設定 `DB_HOST`、`DB_DATABASE`、`DB_USERNAME`和 `DB_PASSWORD` 應用程式設定。 取代預留位置 _&lt;appname>_ 和 _&lt;postgres_server_name>_。
+下列 Cloud Shell 命令會設定 `DB_HOST`、`DB_DATABASE`、`DB_USERNAME`和 `DB_PASSWORD` 應用程式設定。 取代預留位置 &lt;appname> 和 &lt;postgres-server-name>。
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<postgres_server_name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres_server_name>" DB_PASSWORD="MyPostgresAzure2017"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres-server-name>" DB_PASSWORD="MyPostgresAzure2017"
 ```
 
 ### <a name="configure-rails-environment-variables"></a>設定 Rails 環境變數
 
-在本機終端機中，為 Azure 中的 Rails 生產環境產生新的秘密金鑰。
+在本機終端機中，為 Azure 中的 Rails 生產環境[產生新的秘密](configure-language-ruby.md#set-secret_key_base-manually)。
 
 ```bash
 rails secret
@@ -318,20 +318,20 @@ rails secret
 
 設定 Rails 生產環境所需的變數。
 
-在下列 Cloud Shell 命令中，以本機終端機中產生的新秘密金鑰取代兩個 _&lt;output_of_rails_secret>_ 預留位置。
+在下列 Cloud Shell 命令中，以本機終端機中產生的新秘密金鑰取代兩個 &lt;output-of-rails-secret> 預留位置。
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output_of_rails_secret>" SECRET_KEY_BASE="<output_of_rails_secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output-of-rails-secret>" SECRET_KEY_BASE="<output-of-rails-secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
 ```
 
-`ASSETS_PRECOMPILE="true"` 會告知預設的 Ruby 容器要預先編譯各個 Git 部署上的資產。
+`ASSETS_PRECOMPILE="true"` 會告知預設的 Ruby 容器要預先編譯各個 Git 部署上的資產。 如需詳細資訊，請參閱[先行編譯資產](configure-language-ruby.md#precompile-assets)和[處理靜態資產](configure-language-ruby.md#serve-static-assets)。
 
 ### <a name="push-to-azure-from-git"></a>從 Git 推送至 Azure
 
 在本機終端中，將 Azure 遠端新增至本機 Git 存放庫。
 
 ```bash
-git remote add azure <paste_copied_url_here>
+git remote add azure <paste-copied-url-here>
 ```
 
 推送至 Azure 遠端以部署 Ruby on Rails 應用程式。 建立部署使用者時，系統會提示您輸入稍早提供的密碼。
@@ -359,7 +359,7 @@ remote: Running deployment command...
 
 ### <a name="browse-to-the-azure-app"></a>瀏覽至 Azure 應用程式
 
-瀏覽至 `http://<app_name>.azurewebsites.net` 並將幾項工作新增至清單。
+瀏覽至 `http://<app-name>.azurewebsites.net` 並將幾項工作新增至清單。
 
 ![在 Azure App Service 中執行的 Ruby on Rails 應用程式](./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png)
 
@@ -476,6 +476,10 @@ git push azure master
 
 如果您新增任何工作，它們會保留在資料庫中。 對資料結構描述進行的更新，現有資料會原封不動。
 
+## <a name="stream-diagnostic-logs"></a>資料流診斷記錄
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+
 ## <a name="manage-the-azure-app"></a>管理 Azure 應用程式
 
 移至 [Azure 入口網站](https://portal.azure.com)，以管理您所建立的應用程式。
@@ -509,4 +513,9 @@ git push azure master
 前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure App Service](../app-service-web-tutorial-custom-domain.md)
+> [教學課程：將自訂 DNS 名稱對應至應用程式](../app-service-web-tutorial-custom-domain.md)
+
+或者，查看其他資源：
+
+> [!div class="nextstepaction"]
+> [設定 Ruby 應用程式](configure-language-ruby.md)

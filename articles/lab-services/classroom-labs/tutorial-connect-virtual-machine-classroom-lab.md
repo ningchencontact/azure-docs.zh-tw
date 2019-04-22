@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 5482ea720ea8d21230587dd9216bd006bf4e5a6e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 3be1da54b16a24ce3c4431dfe26eb778cea5c83d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650643"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545258"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>教學課程：存取 Azure 實驗室服務中的教室實驗室
 在本教學課程中，您會以學生的身分連線到教室實驗室中的虛擬機器 (VM)。 
@@ -32,7 +32,7 @@ ms.locfileid: "58650643"
 
 ## <a name="use-the-registration-link"></a>使用註冊連結
 
-1. 瀏覽至教師/授課者提供給您的**註冊 URL**。 完成註冊之後，您不需要使用註冊 URL。 請改用 URL：[https://labs.azure.com](https://labs.azure.com)。 
+1. 瀏覽至教師/授課者提供給您的**註冊 URL**。 完成註冊之後，您不需要使用註冊 URL。 請改用 URL：[https://labs.azure.com](https://labs.azure.com)。 請注意，目前不支援 Internet Explorer 11。 
 1. 使用學校帳戶登入服務，以完成註冊。 
 2. 註冊之後，請確認您有看到可存取的實驗室虛擬機器。 
 3. 等候虛擬機器就緒，然後**啟動** VM。 這個程序需要一些時間。  

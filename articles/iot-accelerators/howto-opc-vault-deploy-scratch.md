@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496891"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>從頭開始部署 OPC 保存庫
@@ -71,11 +71,11 @@ Visual Studio 可讓您快速開啟應用程式，而不使用命令提示字元
 
 指令碼 資料夾包含一些常見的工作的指令碼：
 
-- `build`：編譯的所有專案，並執行測試。
+- `build`:編譯的所有專案，並執行測試。
 
-- `compile`：編譯的所有專案。
+- `compile`:編譯的所有專案。
 
-- `run`：編譯專案並執行的服務，也會提示提高權限的權限，在 Windows 中執行 web 服務。
+- `run`:編譯專案並執行的服務，也會提示提高權限的權限，在 Windows 中執行 web 服務。
 
 指令碼會檢查環境變數設定。 您可以在您的作業系統，全域設定環境變數，或使用指令碼資料夾中的 「 環境變數-安裝程式 」 指令碼。
 
@@ -85,9 +85,9 @@ Visual Studio 可讓您快速開啟應用程式，而不使用命令提示字元
 
 - `build --in-sandbox`:執行 Docker 容器內部建置工作 (簡短形式`build -s`)。
 
-- `compile --in-sandbox`：執行 Docker 容器內部的編譯工作 (簡短形式`compile -s`)。
+- `compile --in-sandbox`:執行 Docker 容器內部的編譯工作 (簡短形式`compile -s`)。
 
-- `run --in-sandbox`：啟動 Docker 容器內部的服務 (簡短形式`run -s`)。
+- `run --in-sandbox`:啟動 Docker 容器內部的服務 (簡短形式`run -s`)。
 
 Docker 映像用於沙箱會裝載於 Docker Hub[此處](https://hub.docker.com/r/azureiotpcs/code-builder-dotnet)。
 
@@ -95,9 +95,9 @@ Docker 映像用於沙箱會裝載於 Docker Hub[此處](https://hub.docker.com/
 
 `scripts`資料夾包含 docker 子資料夾與封裝成 Docker 映像的服務所需的檔案：
 
-- `Dockerfile`：Docker 映像規格。
-- `build`：建置 Docker 容器，並儲存在本機登錄的映像。
-- `run`：從映像儲存在本機登錄中執行 Docker 容器。
+- `Dockerfile`:Docker 映像規格。
+- `build`:建置 Docker 容器，並儲存在本機登錄的映像。
+- `run`:從映像儲存在本機登錄中執行 Docker 容器。
 - `content`:具有檔案複製到映像，包括進入點指令碼的資料夾。
 
 ## <a name="azure-iot-hub-setup"></a>Azure IoT 中樞設定

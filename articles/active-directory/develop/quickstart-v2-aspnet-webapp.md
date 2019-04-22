@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 ASP.NET Web 伺服器快速入門 | Microsoft Docs
+title: Microsoft 身分識別平台 ASP.NET Web 伺服器快速入門 | Azure
 description: 了解如何使用 OpenID Connect 在 ASP.NET Web 應用程式上實作 Microsoft 登入。
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ae388798716565c1fdeeb10b274c2a168ca86ea
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4b83f5e6735f5b2554af2f5e6c74a7c9095d23fd
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200254"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579473"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
 
@@ -29,7 +29,7 @@ ms.locfileid: "58200254"
 
 在本快速入門中，您將了解 ASP.NET Web 應用程式如何從任何 Azure Active Directory (Azure AD) 執行個體登入個人帳戶 (hotmail.com、outlook.com 等) 與公司和學校帳戶。
 
-![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro-updated.png)
+![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>註冊並下載快速入門應用程式
@@ -39,7 +39,7 @@ ms.locfileid: "58200254"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例
 >
-> 1. 移至 [Azure 入口網站 - 應用程式註冊 (預覽)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)。
+> 1. 移至新的 [Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)窗格。
 > 1. 輸入您的應用程式名稱，然後按一下 [註冊]。
 > 1. 依照指示按一下滑鼠，即可下載並自動設定新的應用程式。
 >
@@ -50,10 +50,11 @@ ms.locfileid: "58200254"
 >
 > 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 > 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-> 1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)] > [新增註冊]。
+> 1. 瀏覽至 Microsoft 身分識別平台，以取得開發人員的[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面。
+> 1. 選取 [新增註冊]。
 > 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
 >      - 在 [名稱] 區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `ASPNET-Quickstart`。
->      - 在 [回覆 URL] 中新增 `https://localhost:44368/`，然後按一下 [註冊]。
+>      - 在 [重新導向 URL] 中新增 `https://localhost:44368/`，然後按一下 [註冊]。
 選取 [驗證] 功能表、在 [隱含授與] 下方設定 [識別碼權杖]，然後選取 [儲存]。
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -132,7 +133,7 @@ public void Configuration(IAppBuilder app)
             // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
             TokenValidationParameters = new TokenValidationParameters()
             {
-                ValidateIssuer = false
+                ValidateIssuer = false // Simplification (see note below)
             },
             // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
             Notifications = new OpenIdConnectAuthenticationNotifications
@@ -148,12 +149,17 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | 來自註冊於 Azure 入口網站中之應用程式的應用程式識別碼 |
 > | `Authority`    | 供使用者用於驗證的 STS 端點。 通常針對公用雲端為 <https://login.microsoftonline.com/{tenant}/v2.0>，其中 {tenant} 為您租用戶的名稱、您的租用戶識別碼，或 *common* 以參考一般端點 (用於多租用戶應用程式) |
-> | `RedirectUri`  | 在使用者針對 Azure AD v2.0 端點完成驗證之後，會被送往的 URL |
+> | `RedirectUri`  | 在使用者針對 Azure 身分識別平台端點完成驗證之後，會被送往的 URL |
 > | `PostLogoutRedirectUri`     | 在使用者登出之後，會被送往的 URL |
 > | `Scope`     | 所要求之範圍的清單 (以空格分隔) |
 > | `ResponseType`     | 來自驗證的回應包含識別碼權杖的要求 |
 > | `TokenValidationParameters`     | 用於權杖驗證的參數清單。 在此案例中，`ValidateIssuer` 是設為 `false`，以表示它可以接受來自任何個人或公司或學校帳戶類型的登入 |
 > | `Notifications`     | 可在不同 *OpenIdConnect* 訊息上執行之委派的清單 |
+
+
+> [!NOTE]
+> 設定 `ValidateIssuer = false` 可簡化本快速入門。 在實際的應用程式中，您需要驗證簽發者。
+> 請參閱範例以了解如何執行該動作。
 
 ### <a name="initiate-an-authentication-challenge"></a>起始驗證挑戰
 
