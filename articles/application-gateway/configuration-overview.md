@@ -1,5 +1,5 @@
 ---
-title: Azure 應用程式閘道設定概觀
+title: Azure 应用程序网关配置概述
 description: 這篇文章說明如何設定 Azure 應用程式閘道的元件
 services: application-gateway
 author: abshamsft
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
 ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58906118"
 ---
-# <a name="application-gateway-configuration-overview"></a>應用程式閘道設定概觀
+# <a name="application-gateway-configuration-overview"></a>应用程序网关配置概述
 
 Azure 應用程式閘道是由您可以針對不同案例的各種方式設定的數個元件所組成。 這篇文章會示範如何設定每個元件。
 
@@ -27,7 +27,7 @@ Azure 應用程式閘道是由您可以針對不同案例的各種方式設定�
 
 ## <a name="prerequisites"></a>必要條件
 
-### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 虛擬網路和專用子網路
+### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 虚拟网络和专用子网
 
 應用程式閘道是專用的部署，在您的虛擬網路中。 在您的虛擬網路內的專用子網路是必要應用程式閘道。 您可以將多個執行個體的指定應用程式閘道部署在子網路。 您也可以部署其他的應用程式閘道子網路中。 但您無法部署應用程式閘道子網路中的任何其他資源。
 
@@ -57,7 +57,7 @@ Azure 也會保留供內部使用的每個子網路中的 5 個 IP 位址： 第
 
 - 流量**AzureLoadBalancer**必須允許標記。
 
-##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>將一些來源 Ip 允許清單應用程式閘道存取
+##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>将应用程序网关列入白名单以便能够访问一些源 IP
 
 此案例中，使用 Nsg 中的應用程式閘道子網路上的內容。 依照此優先順序在子網路上將下列限制：
 
@@ -67,7 +67,7 @@ Azure 也會保留供內部使用的每個子網路中的 5 個 IP 位址： 第
 4. 使用全部拒絕規則，以封鎖其他所有的連入流量。
 5. 允許所有目的地對網際網路的輸出流量。
 
-#### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>使用者定義的路由應用程式閘道子網路支援
+#### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>应用程序网关子网支持用户定义的路由
 
 使用者定義路由 (Udr) v1 SKU，則支援應用程式閘道子網路，只要它們不會改變端對端要求/回應通訊。 比方說，您可以設定在應用程式閘道子網路 UDR 以指向防火牆設備的封包檢查。 但是，您必須先確定的封包都可以聯繫其目的地之後檢查。 若要這樣做可能會導致不正確的健全狀況探查或流量路由的行為。 這包括學習到的路由或預設 0.0.0.0/0 路由傳送虛擬網路中的 Azure ExpressRoute 或 VPN 閘道。
 
@@ -96,15 +96,15 @@ V2 sku，不支援應用程式閘道子網路的 Udr。 如需詳細資訊，請
 
 當您使用 Azure 入口網站建立應用程式閘道時，您也會建立預設的接聽程式接聽程式選擇的通訊協定和連接埠。 您可以選擇是否要啟用接聽程式上的 HTTP2 支援。 建立應用程式閘道之後，您可以編輯該預設接聽程式的設定 (*appGatewayHttpListener*/*appGatewayHttpsListener*) 或建立新的接聽程式。
 
-### <a name="listener-type"></a>接聽項型別
+### <a name="listener-type"></a>侦听器类型
 
 當您建立新的接聽程式時，您選擇[*基本*並*多站台*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners)。
 
 - 如果您裝載的應用程式閘道的單一站台，請選擇 [基本]。 了解[如何建立基本接聽程式的應用程式閘道](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)。
 
-- 如果您要設定一個以上的 web 應用程式或多個相同的父系網域的子網域相同的應用程式閘道執行個體上，選擇多站台接聽程式。 多站台接聽程式，您也必須輸入主機名稱。 這是因為應用程式閘道會依賴 HTTP 1.1 主機標頭來裝載多個網站上的相同公用 IP 位址和連接埠。
+- 如果您要設定一個以上的 web 應用程式或多個相同的父系網域的子網域相同的應用程式閘道執行個體上，選擇多站台接聽程式。 多站台接聽程式，您也必須輸入主機名稱。 这是因为，应用程序网关需要使用 HTTP 1.1 主机标头才能在相同的公共 IP 地址和端口上托管多个网站。
 
-#### <a name="order-of-processing-listeners"></a>處理接聽程式的順序
+#### <a name="order-of-processing-listeners"></a>侦听器的处理顺序
 
 V1 的 sku，接聽程式會處理它們所列出的順序。 如果基本接聽程式符合傳入的要求，接聽程式會先處理該要求。 因此，設定多站台接聽程式之前先確定流量會路由至正確的後端的基本接聽程式。
 
@@ -128,13 +128,13 @@ V2 sku，多站台接聽程式會處理之前基本接聽程式。
 
 若要設定 SSL 終止和端對端 SSL 加密，您必須將憑證加入接聽程式，以啟用應用程式閘道，以衍生對稱金鑰。 這取決於 SSL 通訊協定規格。 對稱金鑰用來加密和解密會傳送至閘道的流量。 閘道憑證必須是個人資訊交換 (PFX) 格式。 此格式可讓您匯出私密金鑰閘道用來加密和解密流量。
 
-#### <a name="supported-certificates"></a>支援的憑證
+#### <a name="supported-certificates"></a>支持的证书
 
-請參閱[支援 SSL 終止憑證](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination)。
+请参阅[支持用于 SSL 终止的证书](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination)。
 
-### <a name="additional-protocol-support"></a>其他通訊協定支援
+### <a name="additional-protocol-support"></a>其他协议支持
 
-#### <a name="http2-support"></a>HTTP2 支援
+#### <a name="http2-support"></a>HTTP2 支持
 
 連線到應用程式閘道接聽程式的用戶端可存取 HTTP/2 通訊協定支援。 後端伺服器集區的通訊是透過 HTTP/1.1。 預設已停用 HTTP/2 支援。 下列 Azure PowerShell 程式碼片段示範如何啟用此功能：
 
@@ -162,7 +162,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 您可以集中管理 SSL 憑證，並降低額外負荷的後端伺服器陣列的加密解密。 集中式的 SSL 處理也可讓您指定適合您的安全性需求的中央 SSL 原則。 您可以選擇*預設*，*預先定義*，或*自訂*SSL 原則。
 
-您設定 SSL 原則來控制 SSL 通訊協定版本。 您可以將應用程式閘道設定為拒絕 TLS1.0、 TLS1.1 和 tls 1.2。 根據預設，SSL 2.0 和 3.0 會停用，而不是可設定。 如需詳細資訊，請參閱 <<c0> [ 應用程式閘道 SSL 原則概觀](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview)。
+您設定 SSL 原則來控制 SSL 通訊協定版本。 您可以將應用程式閘道設定為拒絕 TLS1.0、 TLS1.1 和 tls 1.2。 根據預設，SSL 2.0 和 3.0 會停用，而不是可設定。 有关详细信息，请参阅[应用程序网关 SSL 策略概述](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview)。
 
 建立接聽程式之後，您會將其與要求路由規則。 該規則會判斷如何接聽程式所接收的要求會路由傳送至後端。
 
@@ -177,13 +177,13 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 - 如果您想要轉寄的相關聯的接聽程式上的所有要求，請選擇基本 (例如*部落格<i></i>.contoso.com/\*)* 至單一後端集區。
 - 選擇路徑為基礎如果您想要路由傳送到特定的後端集區的要求從特定的 URL 路徑。 路径模式仅应用到 URL 的路径，而不应用到该 URL 的查询参数。
 
-#### <a name="order-of-processing-rules"></a>處理規則的順序
+#### <a name="order-of-processing-rules"></a>规则的处理顺序
 
 V1 的 sku，模式比對連入要求的處理，則會列出路徑的路徑型規則的 URL 路徑對應中的順序。 如果要求符合路徑對應中的兩個或多個路徑中的模式，所列路徑中第一次會比對。 會將要求轉送至後端與該路徑相關聯。
 
 V2 sku，確切的相符項目會是較高的優先順序高於在 URL 路徑對應中的路徑順序。 如果要求符合兩個或多個路徑中的模式，此要求被轉送至後端完全符合要求的路徑與相關聯。 如果連入要求中的路徑不完全符合對應中的任何路徑，模式比對要求的處理路徑型規則路徑對應順序 清單中。
 
-### <a name="associated-listener"></a>相關聯的接聽程式
+### <a name="associated-listener"></a>关联的侦听器
 
 關聯規則的接聽程式，讓*要求路由規則*相關聯的接聽程式進行評估以判斷後端集區，以將要求路由傳送。
 
@@ -207,7 +207,7 @@ V2 sku，確切的相符項目會是較高的優先順序高於在 URL 路徑對
 
 針對路徑為基礎的規則，將每個 URL 路徑中的多個對應的後端 HTTP 設定。 比對 URL 路徑，此設定中的要求都會轉送到對應的後端目標中，使用對應至每個 URL 路徑的 HTTP 設定。 此外，新增的預設 HTTP 設定。 不符合此規則中的任何 URL 路徑的要求都會轉送到預設的後端集區中，使用預設 HTTP 設定。
 
-### <a name="redirection-setting"></a>重新導向設定
+### <a name="redirection-setting"></a>重定向设置
 
 如果重新導向設定的基本規則，相關聯的接聽程式上的所有要求重新都導向目標。 這是*全域*重新導向。 如果重新導向路徑型規則設定，只有在特定網站區域中的要求會被重新導向。 範例是由表示的購物車區域 */cart/\**。 這是*路徑型*重新導向。
 
@@ -267,7 +267,7 @@ V2 sku，確切的相符項目會是較高的優先順序高於在 URL 路徑對
 
 ### <a name="port"></a>Port
 
-此設定會指定其中的後端伺服器接聽流量從應用程式閘道的連接埠。 您可以設定介於 1 到 65535 之間的連接埠。
+此設定會指定其中的後端伺服器接聽流量從應用程式閘道的連接埠。 可以配置 1 到 65535 的端口号。
 
 ### <a name="request-timeout"></a>要求逾時
 
@@ -279,21 +279,21 @@ V2 sku，確切的相符項目會是較高的優先順序高於在 URL 路徑對
 
 - 當 HTTP 設定附加至基本的要求路由規則：
 
-  | 原始要求  | 覆寫後端路徑 | 要求轉送至後端 |
+  | 原始请求  | 覆寫後端路徑 | 要求轉送至後端 |
   | ----------------- | --------------------- | ---------------------------- |
-  | /home/            | /override/            | 覆寫/home / /              |
-  | / home/secondhome / | /override/            | 覆寫/home/secondhome /   |
+  | /home/            | /override/            | /override/home/              |
+  | /home/secondhome/ | /override/            | /override/home/secondhome/   |
 
 - 當 HTTP 設定附加至路徑為基礎的要求路由規則：
 
-  | 原始要求           | 路徑規則       | 覆寫後端路徑 | 要求轉送至後端 |
+  | 原始请求           | 路径规则       | 覆寫後端路徑 | 要求轉送至後端 |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |
-  | /pathrule/home /            | /pathrule*      | /override/            | 覆寫/home / /              |
-  | /pathrule/home/secondhome/ | /pathrule*      | /override/            | 覆寫/home/secondhome /   |
-  | /home/                     | /pathrule*      | /override/            | 覆寫/home / /              |
-  | / home/secondhome /          | /pathrule*      | /override/            | 覆寫/home/secondhome /   |
-  | /pathrule/home /            | pathrule/首頁 * | /override/            | /override/                   |
-  | /pathrule/home/secondhome/ | pathrule/首頁 * | /override/            | 覆寫/secondhome / /        |
+  | /pathrule/home/            | /pathrule*      | /override/            | /override/home/              |
+  | /pathrule/home/secondhome/ | /pathrule*      | /override/            | /override/home/secondhome/   |
+  | /home/                     | /pathrule*      | /override/            | /override/home/              |
+  | /home/secondhome/          | /pathrule*      | /override/            | /override/home/secondhome/   |
+  | /pathrule/home/            | /pathrule/home* | /override/            | /override/                   |
+  | /pathrule/home/secondhome/ | /pathrule/home* | /override/            | /override/secondhome/        |
 
 ### <a name="use-for-app-service"></a>使用 app service
 
@@ -301,7 +301,7 @@ V2 sku，確切的相符項目會是較高的優先順序高於在 URL 路徑對
 
 ### <a name="use-custom-probe"></a>使用自訂探查
 
-這項設定將產生關聯[自訂探查](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe)HTTP 設定。 您可以將只有一個自訂探查關聯的 HTTP 設定。 如果您沒有明確地使自訂探查[預設探查](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings)用來監視後端的健康情況。 我們建議您建立更充分地掌控您的後端健康情況監視的自訂探查。
+這項設定將產生關聯[自訂探查](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe)HTTP 設定。 只能将一个自定义探测关联到某个 HTTP 设置。 如果您沒有明確地使自訂探查[預設探查](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings)用來監視後端的健康情況。 我們建議您建立更充分地掌控您的後端健康情況監視的自訂探查。
 
 > [!NOTE]
 > 自訂探查不監視後端集區的健全狀況，除非明確相關聯的接聽程式對應的 HTTP 設定。
@@ -321,7 +321,7 @@ V2 sku，確切的相符項目會是較高的優先順序高於在 URL 路徑對
 > [!NOTE]
 > 此設定不需要 App Service Environment for PowerApps，這是專用的部署。
 
-### <a name="host-name-override"></a>主機名稱覆寫
+### <a name="host-name-override"></a>主机名替代
 
 此功能取代了*主機*傳入要求您指定的主機名稱的應用程式閘道中的標頭。
 

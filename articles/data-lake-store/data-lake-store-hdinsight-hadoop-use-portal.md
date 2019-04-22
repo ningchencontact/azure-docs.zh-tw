@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 6f9064c6027499fff3a8551ee60722cd66c54dc2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883423"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>使用 Azure 入口網站建立搭配 Azure Data Lake Storage Gen1 的 HDInsight 叢集
 > [!div class="op_single_selector"]
 > * [使用 Azure 入口網站](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [使用 PowerShell （針對預設儲存體）](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [使用 PowerShell （針對額外儲存體）](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [使用 PowerShell (針對預設儲存體)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [使用 PowerShell (針對額外儲存體)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [使用 Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
@@ -47,7 +47,7 @@ ms.locfileid: "58883423"
 
 ### <a name="create-a-cluster-with-data-lake-storage-gen1-as-default-storage"></a>建立以 Data Lake Storage Gen1 做為預設儲存體的叢集
 
-**若要建立 HDInsight 叢集與 Data Lake 儲存體 Gen1 帳戶做為預設儲存體帳戶**
+**建立使用 Data Lake Storage Gen1 作為預設儲存體帳戶的 HDInsight 叢集**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 請遵循[建立叢集](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)，以取得建立 HDInsight 叢集的一般資訊。
@@ -67,7 +67,7 @@ ms.locfileid: "58883423"
 
 下列指示說明如何建立使用 Azure 儲存體帳戶作為預設儲存體，並使用 Data Lake Storage Gen1 帳戶作為其他儲存體的 HDInsight 叢集。
 
-**若要建立 HDInsight 叢集與 Data Lake 儲存體 Gen1 帳戶做為額外的儲存體帳戶**
+**建立使用 Data Lake Storage Gen1 作為額外儲存體帳戶的 HDInsight 叢集**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 請遵循[建立叢集](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)，以取得建立 HDInsight 叢集的一般資訊。
@@ -93,7 +93,7 @@ ms.locfileid: "58883423"
 
 從 Azure 入口網站中，您可以使用現有的服務主體或建立一個新的服務主體。
 
-**若要從 Azure 入口網站建立服務主體**
+**從 Azure 入口網站中建立服務主體**
 
 1. 從 [儲存體] 刀鋒視窗中，按一下 [Data Lake Store 存取]。
 2. 在 [Data Lake Storage Gen1 存取] 刀鋒視窗中，按一下 [新建]。
@@ -105,7 +105,7 @@ ms.locfileid: "58883423"
 4. 按一下 [存取] 來設定資料夾存取。  請參閱[設定檔案權限](#configure-file-permissions)。
 
 
-**若要使用現有的服務主體在 Azure 入口網站**
+**使用 Azure 入口網站中現有的服務主體**
 
 1. 按一下 [Data Lake Store 存取]。
 1. 在 [Data Lake Storage Gen1 存取] 刀鋒視窗中，按一下 [使用現有項目]。
@@ -129,7 +129,7 @@ ms.locfileid: "58883423"
 
     - 您需要其檔案存取權之資料夾的權限。
 
-**若要將 Data Lake 儲存體 Gen1 帳戶根層級的權限指派**
+**指派 Data Lake Storage Gen1 帳戶根層級的權限**
 
 1. 在 [Data Lake Storage Gen1 存取權] 刀鋒視窗中，按一下 [存取]。 隨即會開啟 [選取檔案權限] 刀鋒視窗。 其中列出您訂用帳戶中的所有 Data Lake Storage Gen1 帳戶。
 2. 請將滑鼠游標暫留 (請勿按一下) 在 Data Lake Storage Gen1 帳戶的名稱上，以顯示核取方塊，然後選取此核取方塊。
@@ -142,7 +142,7 @@ ms.locfileid: "58883423"
 4. 按一下 [執行] 來指派權限。
 5. 按一下 [完成] 。
 
-**若要將 HDInsight 叢集根層級的權限指派**
+**指派 HDInsight 叢集根層級的權限**
 
 1. 在 [Data Lake Storage Gen1 存取權] 刀鋒視窗中，按一下 [存取]。 隨即會開啟 [選取檔案權限] 刀鋒視窗。 其中列出您訂用帳戶中的所有 Data Lake Storage Gen1 帳戶。
 1. 從 [選取檔案權限] 刀鋒視窗中，按一下要顯示其內容的 Data Lake Storage Gen1 名稱。
@@ -185,9 +185,9 @@ ms.locfileid: "58883423"
     CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
 
 說明：
-* `adl://hdiadlsg1storage.azuredatalakestore.net/` 為 Data Lake 儲存體 Gen1 帳戶的根目錄。
-* `/clusters/myhdiadlcluster` 是您在建立叢集時指定的叢集資料的根目錄。
-* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` 是您在查詢中使用的範例檔案的位置。
+* `adl://hdiadlsg1storage.azuredatalakestore.net/` 是 Data Lake Storage Gen1 帳戶的根。
+* `/clusters/myhdiadlcluster` 是您在建立叢集時指定之叢集資料的根目錄。
+* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` 是您在查詢中使用之範例檔案的位置。
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-storage-gen1-account-as-additional-storage"></a>針對 Data Lake Storage Gen1 帳戶 (做為額外儲存體) 中的資料執行 Hive 查詢
 
@@ -195,8 +195,8 @@ ms.locfileid: "58883423"
 
 如需如何將資料從 Blob 儲存體複製到 Data Lake Storage Gen1 帳戶的詳細資訊，請參閱下列文章：
 
-* [使用 Distcp 在 Azure 儲存體 blob 與 Data Lake 儲存體 Gen1 之間複製資料](data-lake-store-copy-data-wasb-distcp.md)
-* [使用 AdlCopy 將資料從 Azure 儲存體 blob 複製到 Data Lake 儲存體 Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [使用 Distcp 在 Azure 儲存體 Blob 與 Data Lake Storage Gen1 之間複製資料](data-lake-store-copy-data-wasb-distcp.md)
+* [使用 AdlCopy 將資料從 Azure 儲存體 Blob 複製到 Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 
 ### <a name="use-data-lake-storage-gen1-with-a-spark-cluster"></a>使用 Data Lake Storage Gen1 搭配 Spark 叢集
 您可以使用 Spark 叢集對 Data Lake Storage Gen1 中儲存的資料執行 Spark 作業。 如需詳細資訊，請參閱[使用 HDInsight Spark 叢集來分析 Data Lake Storage Gen1 中的資料](../hdinsight/spark/apache-spark-use-with-data-lake-store.md)。
@@ -207,7 +207,7 @@ ms.locfileid: "58883423"
 
 ## <a name="see-also"></a>請參閱
 * [搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen1](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [PowerShell：建立 HDInsight 叢集以使用 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [PowerShell：建立 HDInsight 叢集以使用 Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

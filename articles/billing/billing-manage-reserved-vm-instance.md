@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
 ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904436"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>管理 Azure 資源的保留
@@ -99,8 +99,8 @@ ms.locfileid: "58904436"
 視保留類型而定，您可能可以取消或交換保留。 如需詳細資訊，請參閱下列主題中的取消和交換小節：
 
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
-- [從 Azure Reservations 預付 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
-- [預付具有 Azure SQL Database 保留容量的 SQL Database 計算資源](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+- [從 Azure 保留預付 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [以 Azure SQL Database 保留容量預先支付 SQL 資料庫計算資源的費用](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>變更保留 VM 執行個體的最佳化設定
 
@@ -130,18 +130,18 @@ ms.locfileid: "58904436"
 
 購買服務方案：
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [預付具有 Azure SQL Database 保留容量的 SQL Database 計算資源](../sql-database/sql-database-reserved-capacity.md)
-- [使用 Azure Cosmos DB，保留容量預先支付 Azure Cosmos DB 資源](../cosmos-db/cosmos-db-reserved-capacity.md)
+- [以 Azure SQL Database 保留容量預先支付 SQL 資料庫計算資源的費用](../sql-database/sql-database-reserved-capacity.md)
+- [以 Azure Cosmos DB 保留容量預先支付 Azure Cosmos DB 資源的費用](../cosmos-db/cosmos-db-reserved-capacity.md)
 
 購買軟體方案：
 - [預付的 Azure 保留項目從 Red Hat 軟體方案](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [從 Azure Reservations 預付 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [從 Azure 保留預付 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md)
 
 了解折扣和使用方式：
-- [了解如何將 VM 的保留折扣套用](billing-understand-vm-reservation-charges.md)
+- [了解 VM 保留折扣的套用方式](billing-understand-vm-reservation-charges.md)
 - [了解 Red Hat Enterprise Linux 軟體計劃折扣如何套用](../billing/billing-understand-rhel-reservation-charges.md)
 - [了解如何套用 SUSE Linux Enterprise 軟體方案折扣](../billing/billing-understand-suse-reservation-charges.md)
-- [了解其他保留折扣套用](billing-understand-reservation-charges.md)
-- [了解您的隨用隨付訂用帳戶的保留使用情況](billing-understand-reserved-instance-usage.md)
-- [了解 Enterprise 註冊之保留項目使用方式](billing-understand-reserved-instance-usage-ea.md)
-- [Windows 軟體成本不包括在保留項目](billing-reserved-instance-windows-software-costs.md)
+- [了解其他保留折扣的套用方式](billing-understand-reservation-charges.md)
+- [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
+- [Windows 軟體成本不包含在 Reservations 內](billing-reserved-instance-windows-software-costs.md)

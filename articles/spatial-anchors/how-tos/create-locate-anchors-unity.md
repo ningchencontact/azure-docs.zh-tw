@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: d1c5f906fef495f7ef1dde5df38a84629a6d6c61
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915945"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>如何建立並找出在 Unity 中使用 Azure 空間的錨點的錨點
@@ -25,7 +25,7 @@ ms.locfileid: "58915945"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial Anchors 可讓您在世界各地的不同裝置間共用錨點。 它支援數種不同的開發環境。 在本文中，我們將探討如何使用 Azure 空間的錨點 SDK，在 Unity 中，以：
+Azure Spatial Anchors 可讓您在世界各地的不同裝置間共用錨點。 其支援數種不同的開發環境。 在本文中，我們將探討如何使用 Azure 空間的錨點 SDK，在 Unity 中，以：
 
 - 正確地設定和管理 Azure 空間的錨點的工作階段。
 - 建立並設定本機的錨點屬性。
@@ -36,10 +36,10 @@ Azure Spatial Anchors 可讓您在世界各地的不同裝置間共用錨點。 
 
 若要完成本指南，請確定您具有：
 
-- 閱讀[Azure 空間的錨點概觀](../overview.md)。
-- 已完成的其中一個[5 分鐘快速入門](../index.yml)。
-- 基本知識C#和 Unity。
-- 基本知識<a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a>如果您想要使用 Android，或<a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a>如果您想要使用 iOS。
+- 已完整閱讀 [Azure Spatial Anchors 概觀](../overview.md)。
+- 已完成其中一個 [5 分鐘快速入門](../index.yml)。
+- 已基本了解 C# 和 Unity。
+- 已基本了解 <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> (如果您想要使用 Android) 或 <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a> (如果您想要使用 iOS)。
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

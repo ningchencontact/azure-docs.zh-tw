@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895008"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 針對 Azure App Service 中的應用程式進行疑難排解
@@ -77,9 +77,9 @@ Visual Studio 可讓您存取 [Azure 入口網站](https://go.microsoft.com/fwli
 ## <a name="remoteview"></a>在伺服器總管中存取應用程式檔案
 部署 Web 專案時，通常會將 Web.config 檔案中的 `customErrors` 旗標設為 `On` 或 `RemoteOnly`，這表示出現問題時，您將不會收到有用的錯誤訊息。 對許多錯誤而言，您只會看到如下列之一的頁面：
 
-**'/' 應用程式中的伺服器錯誤：**
+**'/' 應用程式中有伺服器錯誤：**
 
-![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
+![无用的错误页](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
 **發生錯誤：**
 
@@ -263,7 +263,7 @@ public ActionResult About()
   Web 伺服器會為每個通往應用程式的 HTTP 要求建立記錄項目。
 * **詳細的錯誤訊息記錄**<br/>
   Web 伺服器會針對失敗的 HTTP 要求 (產生狀態碼 400 或以上的要求) 建立含有一些額外資訊的 HTML 頁面。
-* **失敗要求追蹤記錄檔**<br/>
+* **失敗要求追蹤記錄**<br/>
   Web 伺服器會針對失敗的 HTTP 要求建立含有詳細追蹤資訊的 XML 檔案。 Web 伺服器會一併提供 XSL 檔案，在瀏覽器中格式化 XML。
 
 記錄功能會影響應用程式效能，因此 Azure 可讓您視需要啟用或停用每一種記錄類型。 對於應用程式記錄，您可以指定只寫入高於特定嚴重性層級的記錄。 當您建立新的應用程式時，預設會停用所有記錄功能。
@@ -639,9 +639,9 @@ App Service 應用程式會使用 IIS 7.0 及更新版本所提供的相同失�
 如需針對 App Service 應用程式與 WebJob 進行遠端偵錯的詳細資訊，請參閱下列資源：
 
 * [遠端偵錯 Azure App Service 的簡介](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/)。
-* [遠端偵錯 Azure App Service 第 2 部分-內部遠端偵錯的簡介](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [了解 Azure App Service 第 3 部分-多重執行個體環境和 GIT 遠端偵錯](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
-* [WebJobs 偵錯 （影片）](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
+* [遠端偵錯 Azure App Service 的簡介第 2 部分 - 內部遠端偵錯](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [遠端偵錯 Azure App Service 的簡介第 3 部分 - 多重執行個體環境和 GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [WebJobs 偵錯 (影片)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 如果您的應用程式使用 Azure Web API 或行動服務後端，而您需要加以偵錯，請參閱[在 Visual Studio 中對 .NET 後端進行偵錯](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx)。
 
@@ -654,9 +654,9 @@ App Service 應用程式會使用 IIS 7.0 及更新版本所提供的相同失�
    舊有但仍是該主題的基本簡介的良好資源。
 * [追蹤接聽程式](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   內含有關追蹤接聽程式的資訊，但是沒有提到 [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener)。
-* [逐步解說：整合 ASP.NET 追蹤與 System.Diagnostics 追蹤](/previous-versions/b0ectfxd(v=vs.140))<br/>
+* [逐步解說︰整合 ASP.NET 追蹤與 System.Diagnostics 追蹤](/previous-versions/b0ectfxd(v=vs.140))<br/>
   本文同樣為舊有的資料，但是內含簡介文章沒有提到的一些額外資訊。
-* [ASP.NET MVC Razor 檢視中的追蹤](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+* [追蹤 ASP.NET MVC Razor 檢視](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   除了追蹤 Razor 檢視之外，該文同時說明了如何建立錯誤篩選條件以便記錄 MVC 應用程式所出現的所有未處理的例外。 如需如何記錄 Web Form 應用程式中所有未處理的例外項目的詳細資訊，請參閱 MSDN 上 [完整的錯誤處理常式範例](/previous-versions/bb397417(v=vs.140)) (英文) 的 Global.asax 範例。 無論是 MVC 還是 Web Form，如果您想要記錄特定例外，但是讓預設的架構處理功能生效，則您可以如以下範例所示捕捉並重新擲回這些例外：
 
 ``` c#
@@ -671,7 +671,7 @@ catch (Exception ex)
 }
 ```
 
-* [串流診斷追蹤記錄從 Azure 命令列 （加上 Glimpse ！）](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+* [從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
    如何使用命令列來執行本教學課程所示範的 Visual Studio 步驟。 [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) (英文) 工具可供您偵錯 ASP.NET 應用程式。
 * [使用 Azure Web Apps 記錄和診斷功能 - 與 David Ebbo 合作](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/)以及[來自 Web Apps 的串流記錄 - 與 David Ebbo 合作](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
    (英文) 影片，由 Scott Hanselman 與 David Ebbo 共同錄製。
@@ -681,14 +681,14 @@ catch (Exception ex)
 此外，您不需要使用 ASP.NET 或 `System.Diagnostics` 追蹤從 Azure 取得串流記錄。 App Service 應用程式串流記錄服務會串流它在 [LogFiles] 資料夾所找到的任何 *.txt*、*.html* 或 *.log* 檔案。 因此，您可以建立自己的記錄系統以寫入應用程式的檔案系統，而您的檔案會自動進行串流與下載。 您只需撰寫會在 d:\home\logfiles 資料夾中建立相關檔案的應用程式碼。
 
 ### <a name="analyzing-web-server-logs"></a>分析 Web 伺服器記錄
-如需分析 Web 伺服器記錄的詳細資訊，請參閱下列資源：
+有关分析 Web 服务器日志的详细信息，请参阅以下资源：
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   用於檢視 Web 伺服器記錄 (*.log* 檔案) 中資料的工具。
 * [疑難排解 IIS 效能問題或使用 LogParser 的應用程式錯誤](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    此篇介紹可以用來分析 Web 伺服器記錄的 Log Parser 工具。
-* [部落格文章 Robert mcmurray 關於使用 LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
-* [在 IIS 7.0、 7.5 與 IIS 8.0 中的 HTTP 狀態碼](https://support.microsoft.com/kb/943891)
+* [Robert McMurray 關於使用 LogParser 的部落格文章](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [IIS 7.0、IIS 7.5 與 IIS 8.0 中的 HTTP 狀態碼](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>分析失敗要求追蹤記錄
 Microsoft TechNet 網站內的 [使用失敗要求追蹤](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) \(英文\) 小節可能有助您了解如何使用這些記錄。 不過，本文主要著重在 IIS 內設定失敗要求追蹤功能，這是您無法在 Azure App Service 中執行的功能。

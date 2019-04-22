@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876950"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 在 Azure Data Lake Storage Gen1 上進行檔案系統作業
@@ -59,8 +59,8 @@ ms.locfileid: "58876950"
    2. 在 [NuGet 套件管理員] 索引標籤中，確定 [套件來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
    3. 搜尋並安裝下列 NuGet 封裝：
 
-      * `Microsoft.Azure.DataLake.Store` -本教學課程使用 v1.0.0。
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -本教學課程使用 v2.3.1。
+      * `Microsoft.Azure.DataLake.Store` - 本教學課程使用 v1.0.0。
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 本教學課程使用 v2.3.1。
     
       關閉 [NuGet 套件管理員]。
 
@@ -174,12 +174,12 @@ ms.locfileid: "58876950"
 
 ## <a name="samples"></a>範例
 以下是幾個有關如何使用 Data Lake Storage Gen1 Filesystem SDK 的範例。
-* [在 GitHub 上的基本範例](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
-* [在 GitHub 上的進階的範例](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
+* [GitHub 上的基本範例](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [GitHub 上的進階範例](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>請參閱
-* [帳戶管理作業在 Data Lake 儲存體 Gen1 上使用.NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Data Lake 儲存體 Gen1.NET SDK 參考](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [使用.NET SDK 在 Data Lake Storage Gen1 上進行帳戶管理作業](data-lake-store-get-started-net-sdk.md)
+* [Data Lake Storage Gen1 .NET SDK 參考](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>後續步驟
-* [保護 Data Lake 儲存體 Gen1 中的資料](data-lake-store-secure-data.md)
+* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)

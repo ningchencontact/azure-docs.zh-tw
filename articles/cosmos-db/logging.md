@@ -8,10 +8,10 @@ ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904860"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
@@ -260,7 +260,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 /MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/CONTOSOCOSMOSDB/y=2017/m=09/d=28/h=19/m=00/PT1H.json
 ```
 
-您可以看到此輸出中，blob 遵循以下命名慣例： `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+在此輸出中我們可以看到，blob 遵循以下命名慣例：`resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 日期和時間值使用 UTC。
 
@@ -440,22 +440,22 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 
 | Azure 儲存體欄位或屬性 | Azure Monitor 日志属性 | 描述 |
 | --- | --- | --- |
-| **分析** | **TimeGenerated** | 作業發生的日期和時間 (UTC)。 |
-| **ResourceId** | **資源** | 啟用記錄的 Azure Cosmos DB 帳戶。|
-| **category** | **類別** | 對於 Azure Cosmos DB 記錄，**DataPlaneRequests** 是唯一的可用值。 |
+| **time** | **TimeGenerated** | 作業發生的日期和時間 (UTC)。 |
+| **resourceId** | **Resource** | 啟用記錄的 Azure Cosmos DB 帳戶。|
+| **類別** | **類別** | 對於 Azure Cosmos DB 記錄，**DataPlaneRequests** 是唯一的可用值。 |
 | **operationName** | **OperationName** | 作業名稱。 這個值可以是下列任一作業：Create、Update、Read、ReadFeed、Delete、Replace、Execute、SqlQuery、Query、JSQuery、Head、HeadFeed 或 Upsert。   |
 | **properties** | n/a | 此欄位的內容說明於下列資料列中。 |
 | **activityId** | **activityId_g** | 所記錄作業的唯一 GUID。 |
 | **userAgent** | **userAgent_s** | 此字串指定執行要求的用戶端使用者代理程式。 格式為 {使用者代理程式名稱}/{版本}。|
 | **requestResourceType** | **requestResourceType_s** | 存取的資源類型。 這個值可以是下列任一資源類型：Database、Container、Document、Attachment、User、Permission、StoredProcedure、Trigger、UserDefinedFunction 或 Offer。 |
-| **StatusCode** | **statusCode_s** | 作業的回應狀態。 |
+| **statusCode** | **statusCode_s** | 作業的回應狀態。 |
 | **requestResourceId** | **ResourceId** | 關於要求的 resourceId。 根據執行的作業，此值可能表示 databaseRid、collectionRid 或 documentRid。|
 | **clientIpAddress** | **clientIpAddress_s** | 用戶端的 IP 位址。 |
 | **requestCharge** | **requestCharge_s** | 作業使用的 RU 數 |
 | **collectionRid** | **collectionId_s** | 集合的唯一識別碼。|
 | **duration** | **duration_s** | 以刻度為單位的作業持續時間。 |
 | **requestLength** | **requestLength_s** | 以位元組為單位的要求長度。 |
-| **responseLength** | **requestLength_s** | 以位元組為單位的回應長度。|
+| **responseLength** | **responseLength_s** | 以位元組為單位的回應長度。|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | 使用[資源權杖](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens)進行驗證時，此值為非空白值。 此值表示使用者的資源識別碼。 |
 
 ## <a name="next-steps"></a>後續步驟

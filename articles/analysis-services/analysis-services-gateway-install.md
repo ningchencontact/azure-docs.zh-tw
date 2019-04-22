@@ -9,10 +9,10 @@ ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 629a97048ceba4ac02e3aa1dd59310980e5a0c95
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894161"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
@@ -26,13 +26,13 @@ ms.locfileid: "58894161"
 * .NET 4.5 Framework
 * 64 位元版本的 Windows 7 / Windows Server 2008 R2 (或更新版本)
 
-**建議使用：**
+**建議配備：**
 
-* 8 核心 CPU
+* 8 核 CPU
 * 8 GB 記憶體
 * 64 位元版本的 Windows 2012 R2 (或更新版本)
 
-**重要考量：**
+**重要考量︰**
 
 * 在設定期間，向 Azure 註冊您的閘道時，系統會選取您訂用帳戶的預設區域。 您可以選擇不同的區域。 如果您有伺服器位於多個區域中，您必須針對每個區域安裝一個閘道。 
 * 閘道無法安裝在網域控制站上。
@@ -121,6 +121,6 @@ ms.locfileid: "58894161"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Azure Analysis Services](analysis-services-manage.md)   
+* [ Analysis Services](analysis-services-manage.md)   
 * [從 Azure Analysis Services 取得資料](analysis-services-connect.md)   
 * [使用 Azure 虛擬網路上的資料來源閘道](analysis-services-vnet-gateway.md)

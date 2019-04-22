@@ -7,10 +7,10 @@ ms.service: dns
 ms.date: 4/3/2019
 ms.author: victorh
 ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905404"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>使用 Azure CLI 匯入及匯出 DNS 區域檔案
@@ -67,9 +67,9 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 
 值：
 
-* `<resource group>` 是 Azure DNS 中區域的資源群組的名稱。
+* `<resource group>` 是 Azure DNS 中區域的資源群組名稱。
 * `<zone name>` 是區域的名稱。
-* `<zone file name>` 是要匯入區域檔案的路徑/名稱。
+* `<zone file name>` 是要匯入之區域檔案的路徑/名稱。
 
 如果資源群組中不存在具有此名稱的區域，則會為您建立。 如果區域已經存在，則匯入的記錄集會與現有的記錄集合併。 
 
@@ -161,7 +161,7 @@ az network dns zone export -g <resource group> -n <zone name> -f <zone file name
 
 值：
 
-* `<resource group>` 是 Azure DNS 中區域的資源群組的名稱。
+* `<resource group>` 是 Azure DNS 中區域的資源群組名稱。
 * `<zone name>` 是區域的名稱。
 * `<zone file name>` 是要匯出之區域檔案的路徑/名稱。
 

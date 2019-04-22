@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/22/2019
 ms.author: cwatson
 ms.openlocfilehash: fe0d0f0baa2b3d1c08e871541dce1511e00f7f87
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917051"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>了解如何將 Red Hat Linux Enterprise 軟體保留計劃折扣套用適用於 Azure
@@ -158,12 +158,12 @@ Azure 入口網站市集名稱：
 
 若要深入了解保留，請參閱下列文章：
 
-- [Azure 保留項目有哪些？](billing-save-compute-costs-reservations.md)
+- [什麼是 Azure 的保留](billing-save-compute-costs-reservations.md)
 - [支付使用 Azure 保留的 Red Hat 軟體方案](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
-- [了解您的隨用隨付訂用帳戶的保留使用情況](billing-understand-reserved-instance-usage.md)
-- [了解 Enterprise 註冊之保留項目使用方式](billing-understand-reserved-instance-usage-ea.md)
+- [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
 

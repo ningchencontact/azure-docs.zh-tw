@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883389"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>如何使用 Azure 搜尋服務索引子的 Cosmos DB 編製索引
@@ -173,7 +173,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 |---------|-------------|
 | **name** | 必要。 選擇任何名稱，以代表您的資料來源物件。 |
 |**type**| 必要。 必須是 `documentdb`。 |
-|**認證** | 必要。 必須是 Cosmos DB 連接字串。<br/>對於 SQL 集合，連接字串會以下列格式： `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>針對 MongoDB 集合，新增 **/api 種類 = MongoDb**的連接字串：<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>請避免在端點 URL 中使用連接埠號碼。 如果您加入連接埠號碼，Azure 搜尋服務將無法為 Azure Cosmos DB 資料庫編製索引。|
+|**credentials** | 必要。 必須是 Cosmos DB 連接字串。<br/>對於 SQL 集合，連接字串會以下列格式： `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>針對 MongoDB 集合，新增 **/api 種類 = MongoDb**的連接字串：<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>請避免在端點 URL 中使用連接埠號碼。 如果您加入連接埠號碼，Azure 搜尋服務將無法為 Azure Cosmos DB 資料庫編製索引。|
 | **container** | 包含下列元素： <br/>**名稱**：必要。 指定要編製索引的資料庫集合識別碼。<br/>**查詢**：選用。 您可以指定查詢將任意 JSON 文件簡維成 Azure 搜尋服務可以編製索引的一般結構描述。<br/>針對 MongoDB 集合，不支援查詢。 |
 | **dataChangeDetectionPolicy** | 建議使用。 請參閱[索引變更的文件](#DataChangeDetectionPolicy)小節。|
 |**dataDeletionDetectionPolicy** | 選用。 請參閱[索引刪除的文件](#DataDeletionDetectionPolicy)小節。|

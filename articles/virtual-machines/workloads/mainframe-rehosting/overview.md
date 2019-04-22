@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 8b7c2a088dc917c319acf6cad251ad53367a14b6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895032"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Azure 虛擬機器上的大型主機重新裝載
@@ -119,7 +119,7 @@ Azure Government 所獲得的操作 (P-ATO) 取得暫時性的授權單位的 Fe
 - [大型主機主題相關的技術白皮書](mainframe-white-papers.md)
 - [大型主機移轉](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [疑難排解](/azure/virtual-machines/troubleshooting/)
-- [Azure 移轉的大型主機釋疑](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [揭開大型主機移轉至 Azure 的神秘面紗](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

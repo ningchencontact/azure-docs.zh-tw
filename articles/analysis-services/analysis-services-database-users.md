@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891679"
 ---
 # <a name="manage-database-roles-and-users"></a>管理資料庫角色和使用者
@@ -48,7 +48,7 @@ ms.locfileid: "58891679"
     |**None**|成員無法修改模型結構描述，也無法查詢資料。|  
     |**讀取**|成員可以查詢資料 (根據資料列篩選條件)，但無法修改模型結構描述。|  
     |**讀取和處理**|成員可以查詢資料 (根據資料列層級的篩選條件)，並執行「處理」和「全部處理」作業，但無法修改模型結構描述。|  
-    |**Process**|成員可以執行「處理」和「全部處理」作業。 無法修改模型結構描述，也無法查詢資料。|  
+    |**处理**|成員可以執行「處理」和「全部處理」作業。 無法修改模型結構描述，也無法查詢資料。|  
     |**系統管理員**|成員可以修改模型結構描述及查詢所有資料。|   
   
 5.  如果您建立的角色具有「讀取」或「讀取和處理」權限，您可以使用 DAX 公式來新增資料列篩選條件。 按一下 [資料列篩選條件] 索引標籤，然後選取資料表，再按一下 [DAX 篩選條件] 欄位，然後輸入 DAX 公式。
@@ -74,8 +74,8 @@ ms.locfileid: "58891679"
 
    |權限|描述|  
    |----------------|-----------------|  
-   |**完整控制權 （管理員）**|成員可以修改模型結構描述、程序，以及查詢所有資料。| 
-   |**處理資料庫**|成員可以執行「處理」和「全部處理」作業。 無法修改模型結構描述，也無法查詢資料。|  
+   |**完全控制 (系統管理員)**|成員可以修改模型結構描述、程序，以及查詢所有資料。| 
+   |**處理資料庫**|成員可以執行「處理」和「全部處理」作業。 无法修改模型架构，也无法查询数据。|  
    |**讀取**|成員可以查詢資料 (根據資料列篩選條件)，但無法修改模型結構描述。|  
   
 4. 按一下 [成員資格]，然後依照電子郵件地址輸入 Azure AD 租用戶中的使用者或群組。
@@ -124,7 +124,7 @@ ms.locfileid: "58891679"
   
 |Cmdlet|描述|
 |------------|-----------------| 
-|[Add-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|將成員新增到資料庫角色。| 
+|[Add-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|向数据库角色添加成员。| 
 |[Remove-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|從資料庫角色移除成員。|   
 |[Invoke-ASCmd](/sql/analysis-services/powershell/analysis-services-powershell-reference)|執行 TMSL 指令碼。|
 

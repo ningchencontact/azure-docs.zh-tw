@@ -9,10 +9,10 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896018"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>透過內部部署資料閘道連線至內部部署資料來源
@@ -185,7 +185,7 @@ ms.locfileid: "58896018"
 ## <a name="telemetry"></a>遙測
 遙測可應用在監視和疑難排解上。 依照預設
 
-**若要開啟遙測**
+**開啟遙測**
 
 1.  檢查電腦上的內部部署資料閘道用戶端目錄。 此目錄通常是 **%systemdrive%\Program Files\內部部署資料閘道**。 或者，您可以開啟 [服務] 主控台並查看可執行檔的路徑：內部部署資料閘道服務的一個屬性。
 2.  在來自用戶端目錄的 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 檔案中， 將 SendTelemetry 設定變更為 true。
@@ -203,5 +203,5 @@ ms.locfileid: "58896018"
 
 ## <a name="next-steps"></a>後續步驟
 * [安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)。   
-* [Azure Analysis Services](analysis-services-manage.md)
+* [ Analysis Services](analysis-services-manage.md)
 * [從 Azure Analysis Services 取得資料](analysis-services-connect.md)

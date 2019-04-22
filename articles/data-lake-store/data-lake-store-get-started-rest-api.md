@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880163"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>使用 REST API 對 Azure Data Lake Storage Gen1 進行帳戶管理作業
@@ -75,6 +75,6 @@ ms.locfileid: "58880163"
 * [使用 REST API 在 Data Lake Storage Gen1 上進行檔案系統作業](data-lake-store-data-operations-rest-api.md)。
 
 ## <a name="see-also"></a>請參閱
-* [Azure Data Lake 儲存體 Gen1 REST API 參考](https://docs.microsoft.com/rest/api/datalakestore/)
-* [開放原始碼巨量資料應用程式與 Azure Data Lake 儲存體 Gen1 相容](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake Storage Gen1 REST API 參考](https://docs.microsoft.com/rest/api/datalakestore/)
+* [與 Azure Data Lake Storage Gen1 相容的開放原始碼巨量資料應用程式](data-lake-store-compatible-oss-other-applications.md)
 

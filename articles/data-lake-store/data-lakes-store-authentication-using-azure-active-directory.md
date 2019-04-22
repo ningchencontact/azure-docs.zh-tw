@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: f83cf183bee930dd07c707b0eb49125cecd70b84
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884630"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>使用 Azure Active Directory 向 Azure Data Lake Storage Gen1 進行驗證
@@ -42,8 +42,8 @@ Azure Data Lake Storage Gen1 使用 Azure Active Directory 進行驗證。 撰�
 |服務對服務 (使用用戶端金鑰)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
 |服務對服務 (使用用戶端憑證) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
-<i>* 按一下<b>✔\* </b>符號。 它是連結。</i><br>
-<i>* * MFA 是指多重要素驗證</i>
+<i>* 按一下<b>✔\* </b>符號。它是連結。</i><br>
+<i>** MFA 是指多重要素驗證</i>
 
 如需如何使用 Azure Active Directory 進行驗證的詳細資訊，請參閱 [Azure Active Directory 的驗證案例](../active-directory/develop/authentication-scenarios.md)。
 

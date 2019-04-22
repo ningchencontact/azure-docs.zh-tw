@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917471"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
@@ -703,7 +703,7 @@ public override void Run()
 
 有時佇列訊息的內容會造成處理錯誤。 這稱為 *有害訊息*，而如果您只是記錄錯誤並重新啟動迴圈，可能會不斷的嘗試處理該訊息。  因此，Catch 區塊包含 If 陳述式，檢查以查看應用程式已嘗試處理目前訊息的次數，而如果已超過 5 次，即會從佇列中刪除訊息。
 
-`ProcessQueueMessage` 找到佇列訊息時呼叫。
+`ProcessQueueMessage` 。
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -777,5 +777,5 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。 �
 
 * [Azure 雲端服務第 1 部分：簡介](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [如何管理雲端服務](cloud-services-how-to-manage-portal.md)
-* [Azure 儲存體](https://docs.microsoft.com/azure/storage/)
+* [Azure 存储](https://docs.microsoft.com/azure/storage/)
 * [如何選擇雲端服務提供者](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

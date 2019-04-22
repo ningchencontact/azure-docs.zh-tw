@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877664"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 中的存取控制
@@ -47,7 +47,7 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 
 |            |    檔案     |   資料夾 |
 |------------|-------------|----------|
-| **Read (R)** | 可以讀取檔案的內容 | 需要 [讀取] 和 [執行] 才能列出資料夾內容|
+| **讀取 (R)** | 可以讀取檔案的內容 | 需要 [讀取] 和 [執行] 才能列出資料夾內容|
 | **寫入 (W)** | 可寫入或附加至檔案 | 需要 [寫入] 和 [執行] 才能在資料夾中建立子項目 |
 | **執行 (X)** | 不表示 Data Lake Storage Gen1 內容中的任何項目 | 需要周遊資料夾的子項目 |
 
@@ -75,7 +75,7 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | 讀取      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | 附加至 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| 刪除    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | 建立    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | 列出      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | 列出      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
@@ -130,7 +130,7 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 
 因為 Data Lake Storage Gen1 中的使用者沒有相關聯的「主要群組」，所以會如下指派擁有群組。
 
-**指派新的檔案或資料夾的擁有群組**
+**指派新檔案或資料夾的擁有群組**
 
 * **案例 1**：根資料夾 "/"。 建立 Data Lake Storage Gen1 帳戶時，會建立這個資料夾。 在此情況下，擁有群組會設定為全部為零的 GUID。  這個值不允許任何存取。  將這類時間指派給群組以前，這是一個預留位置。
 * **案例 2** (每個其他案例)：建立新項目時，會從父資料夾複製擁有群組。
@@ -288,14 +288,14 @@ ACL 中的項目會儲存為對應於 Azure AD 中使用者的 GUID。 API 會�
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>何處可以進一步了解 POSIX 存取控制模型？
 
-* [在 Linux 上的 POSIX 存取控制清單](https://www.linux.com/news/posix-acls-linux)
+* [Linux 上的 POSIX 存取控制清單](https://www.linux.com/news/posix-acls-linux)
 * [HDFS 權限指南](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 * [POSIX 常見問題集](https://www.opengroup.org/austin/papers/posix_faq.html)
 * [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
 * [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 * [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
-* [在 Ubuntu 上的 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [在 Linux 上使用存取控制清單的 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [Ubuntu 上的 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
+* [Linux 上使用存取控制清單的 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>請參閱
 

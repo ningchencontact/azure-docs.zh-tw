@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
 ms.openlocfilehash: 1a4bfae22477e345176971bd40b0afa91c8867fb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885820"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>部署適用於 VM 的 Azure 監視器 (預覽)
@@ -222,7 +222,7 @@ ms.locfileid: "58885820"
 
 如果您不熟悉使用範本部署資源，請參閱：
 * [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/resource-group-template-deploy.md)
-* [使用 Resource Manager 範本和 Azure CLI 來部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 您必須執行 Azure CLI 2.0.27 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
@@ -640,7 +640,7 @@ Dependency Agent 的檔案位於下列目錄：
 
 如果您不熟悉使用範本部署資源，請參閱：
 * [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/resource-group-template-deploy.md)
-* [使用 Resource Manager 範本和 Azure CLI 來部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [使用 Resource Manager 範本與 Azure CLI 部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 您必須執行 Azure CLI 2.0.27 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 

@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896154"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 開發人員參考
@@ -29,7 +29,7 @@ Azure Functions 支援 C# 和 C# 指令碼程式設計語言。 如果您需要[
 本文假設您已閱讀下列文章：
 
 * [Azure Functions 開發人員指南](functions-reference.md)
-* [Azure Functions Visual Studio 2017 工具](functions-develop-vs.md)
+* [Azure Functions Visual Studio 2017 Tools](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Functions 類別庫專案
 
@@ -344,7 +344,7 @@ public static class EnvironmentVariablesExample
   }
   ```
 
-  `BindingTypeAttribute` 是定義您的繫結的.NET 屬性和`T`是該繫結類型所支援的輸入或輸出類型。 `T` 不能`out`參數類型 (例如`out JObject`)。 例如，Mobile Apps 資料表輸出繫結支援[六個輸出類型](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)，但您只可以搭配命令式繫結使用 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)。
+  `BindingTypeAttribute` 是可定義繫結的 .NET 屬性，而 `T` 是該繫結類型所支援的輸入或輸出類型。 `T` 不能是 `out` 參數類型 (例如 `out JObject`)。 例如，Mobile Apps 資料表輸出繫結支援[六個輸出類型](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)，但您只可以搭配命令式繫結使用 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)。
 
 ### <a name="single-attribute-example"></a>單一屬性範例
 
@@ -408,4 +408,4 @@ public static class IBinderExampleMultipleAttributes
 > [深入了解觸發程序和繫結](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [深入了解最佳做法適用於 Azure Functions](functions-best-practices.md)
+> [深入了解 Azure Functions 的最佳做法](functions-best-practices.md)

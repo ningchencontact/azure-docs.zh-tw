@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 8aea4a74ba84855f011dada70ea75ec0d5fb64fe
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896300"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>將大型主機計算移至 Azure
@@ -122,8 +122,8 @@ Azure 為基礎的優點之一是解決方案的向外延展的能力。幾乎�
 
 - [平行 Sysplex 上 IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
 - [IBM CICS 和結合性功能：進階功能](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
-- [建立 Db2 pureScale 功能安裝的必要的使用者](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
-- [Db2icrt-建立執行個體 命令](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+- [針對 Db2 pureScale 功能安裝建立必要使用者](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+- [Db2icrt - 建立執行個體命令](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 - [Db2 pureScale 叢集資料庫解決方案](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
@@ -134,6 +134,6 @@ Azure 為基礎的優點之一是解決方案的向外延展的能力。幾乎�
 
 ### <a name="more-migration-resources"></a>其他移轉資源
 
-- [平台現代化 Alliance:在 Azure 上的 IBM Db2](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
-- [Azure 虛擬資料中心增益與 Shift 輔助線](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
+- [Platform Modernization Alliance：在 Azure 上的 IBM Db2](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
+- [Azure 虛擬資料中心：原形移轉指南](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
 - [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

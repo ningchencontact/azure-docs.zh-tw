@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895574"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>使用 Webhook 和 Azure Logic Apps 建立以事件為基礎的工作流程或動作
@@ -110,7 +110,7 @@ ms.locfileid: "58895574"
 
 Webhook 要求
 
-| 屬性名稱 | 資料類型 | 描述 |
+| 屬性名稱 | 数据类型 | 描述 |
 | --- | --- | --- |
 | headers |物件 |Webhook 要求標頭 |
 | body |物件 |Webhook 要求物件 |
@@ -146,7 +146,7 @@ Webhook 要求
 
 Webhook 要求
 
-| 屬性名稱 | 資料類型 | 描述 |
+| 屬性名稱 | 数据类型 | 描述 |
 | --- | --- | --- |
 | headers |物件 |Webhook 要求標頭 |
 | body |物件 |Webhook 要求物件 |

@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: f09d768c0c6c1d351f737b053da9fd3282867099
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861684"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>如需 IoT 必要條件的 azure 資訊安全中心
 
 > [!IMPORTANT]
-> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
+> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 本文提供不同的建置組塊的 Azure 資訊安全中心 (ASC) IoT 服務，您需要開始和基本概念來協助您了解服務的說明。 

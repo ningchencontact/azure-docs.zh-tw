@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877545"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>使用 Azure 串流分析將來自 Azure 儲存體 Blob 的資料串流處理至 Azure Data Lake Storage Gen1
@@ -119,4 +119,4 @@ ms.locfileid: "58877545"
     請注意，在 [資料總管] 窗格中，輸出會寫入到 Data Lake Storage Gen1 輸出設定中所指定的資料夾路徑 (`streamanalytics/job/output/{date}/{time}`)。  
 
 ## <a name="see-also"></a>請參閱
-* [建立 HDInsight 叢集以使用 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [建立 HDInsight 叢集以使用 Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
 ms.openlocfilehash: 232a235cdbf9dc3934bdac14f9612d6865718823
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892410"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 指令碼 (.csx) 開發人員參考
@@ -55,7 +55,7 @@ FunctionsProject
  | - bin
 ```
 
-其中有一個可用來設定函數應用程式的共用 [host.json](functions-host-json.md) 檔案。 每個函數都具有本身的程式碼檔案 (.csx) 和繫結設定檔 (function.json)。
+有一个共享的 [host.json](functions-host-json.md) 文件，可用于配置函数应用。 每個函數都具有本身的程式碼檔案 (.csx) 和繫結設定檔 (function.json)。
 
 Functions 執行階段 [版本 2.x](functions-versions.md) 中所需的繫結延伸模組，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中定義。 在本機開發時，您必須[註冊繫結擴充功能](./functions-bindings-register.md#local-development-azure-functions-core-tools)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
 
@@ -216,9 +216,9 @@ public class Order
 
 您可以使用包含 `#load` 指示詞的相對路徑：
 
-* `#load "mylogger.csx"` 載入位於函式資料夾中的檔案。
-* `#load "loadedfiles\mylogger.csx"` 載入位於函式資料夾中的資料夾中的檔案。
-* `#load "..\shared\mylogger.csx"` 載入位於函式資料夾，也就是相同的層級的資料夾中的檔案直接在底下*wwwroot*。
+* `#load "mylogger.csx"` 會載入位於函式資料夾中的檔案。
+* `#load "loadedfiles\mylogger.csx"` 會載入位於函式資料夾的資料夾中的檔案。
+* `#load "..\shared\mylogger.csx"` 會載入位於與函式資料夾相同層級的資料夾中的檔案 (也就是在 [wwwroot] 的正下方)。
 
 `#load` 指示詞只適用於 .csx 檔案，而不適用於 .cs 檔案。
 
@@ -465,7 +465,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` 是定義繫結的.NET 屬性和`T`是該繫結類型所支援的輸入或輸出類型。 `T` 不能`out`參數類型 (例如`out JObject`)。 例如，Mobile Apps 資料表輸出繫結支援[六個輸出類型](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)，但您只可以對 `T` 使用 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)。
+`BindingTypeAttribute` 是可定義繫結的.NET 屬性，而 `T` 是該繫結類型所支援的輸入或輸出類型。 `T` 不能是 `out` 參數類型 (例如 `out JObject`)。 例如，Mobile Apps 資料表輸出繫結支援[六個輸出類型](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)，但您只可以對 `T` 使用 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)。
 
 ### <a name="single-attribute-example"></a>單一屬性範例
 
@@ -530,4 +530,4 @@ public static async Task Run(string input, Binder binder)
 > [深入了解觸發程序和繫結](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [深入了解最佳做法適用於 Azure Functions](functions-best-practices.md)
+> [深入了解 Azure Functions 的最佳做法](functions-best-practices.md)

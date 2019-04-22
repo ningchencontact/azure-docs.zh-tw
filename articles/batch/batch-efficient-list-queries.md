@@ -16,10 +16,10 @@ ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918530"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>建立查詢以便有效率地列出 Batch 資源
@@ -74,7 +74,7 @@ IPagedEnumerable<CloudTask> completedTasks =
 * 多個運算式可以透過邏輯運算子 `and` 和 `or` 結合。
 * 此範例篩選字串只會列出執行中「轉譯」工作： `(state eq 'running') and startswith(id, 'renderTask')`。
 
-### <a name="select"></a>選取
+### <a name="select"></a>选择
 選取字串限制每個項目傳回的屬性值。 指定屬性名稱的清單，而且查詢結果中只有針對項目傳回的那些屬性值。
 
 * 選取字串由屬性名稱的逗號分隔清單組成。 您可以針對查詢的實體類型指定任何屬性。
@@ -98,8 +98,8 @@ IPagedEnumerable<CloudTask> completedTasks =
 * 所有屬性名稱都會區分大小寫，但屬性值不會區分大小寫。
 * 日期/時間字串有兩種格式，開頭必須加上 `DateTime`。
   
-  * W3C-DTF 格式範例： `creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  * RFC 1123 格式範例： `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+  * W3C-DTF 格式範例：`creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  * RFC 1123 格式範例：`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 * 布林值字串為 `true` 或 `false`。
 * 如果指定無效的屬性或運算子，將會導致 `400 (Bad Request)` 錯誤。
 

@@ -6,10 +6,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892478"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>在 Azure 上微焦點企業開發人員 4.0 設定 Micro 焦點 CICS BankDemo
@@ -78,7 +78,7 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
     - **NetTcpPortSharing**
     - **Net.Pipe Listener Adapter**
-    - **Net.tcp Listener Adapter**
+    - **Net.tcp 接聽程式配接器**
 
 10. 若要設定 IIS 和 WAS 的支援，請從功能表中找到**Micro 焦點企業開發人員命令提示字元 （64 位元）** 並執行為**管理員**。
 
@@ -261,7 +261,7 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
 6. 使用者識別碼的輸入**B0001**和密碼，輸入任何內容。 第一個畫面 BANK20 隨即開啟。
 
-![大型主機顯示 歡迎使用畫面](media/14-demo.png)
+![大型主機顯示歡迎使用 畫面](media/14-demo.png)
 ![大型主機顯示-Rumba-子系統示範畫面](media/15-demo.png)
 
 恭喜！ 您現在已執行的 CICS 應用程式在 Azure 中使用 Micro Focus Enterprise Server。
@@ -272,4 +272,4 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 - [大型主機移轉-入口網站](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
 - [虛擬機器](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [疑難排解](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Azure 移轉的大型主機釋疑](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [揭開大型主機移轉至 Azure 的神秘面紗](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58847530"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
@@ -338,18 +338,18 @@ Azure IoT Edge 允许使用支持的 IoT 中心协议从本地服务器来与 Az
 |AMQP|5671|已封鎖 (預設值)|開放 (預設值)|<ul> <li>IoT Edge 的預設通訊協定。 <li> 如果未設定 Azure IoT Edge 使用其他支援的通訊協定，或 AMQP 是所需的通訊協定，則必須設定為「開放」。<li>IoT Edge 不支援適用於 AMQP 的 5672。<li>當 Azure IoT Edge 使用不同的 IoT Hub 已支援通訊協定時，請封鎖此連接埠。<li>應該將傳入 (輸入) 連線封鎖。</ul></ul>|
 |HTTPS|443|已封鎖 (預設值)|開放 (預設值)|<ul> <li>設定連出 (輸出) 在 443 上開啟以進行 IoT Edge 佈建。 使用手動指令碼或 Azure IoT 裝置佈建服務 (DPS) 時，就需要此設定。 <li>「傳入」(輸入) 連線應該只有針對特定案例才設定為「開放」： <ul> <li>  如果您有透明閘道，而此閘道具有可能傳送方法要求的分葉裝置。 在此情況下，無須對外部網路開放連接埠 443，即可連線至 IoTHub 或透過 Azure IoT Edge 提供 IoTHub 服務。 因此，可將傳入規則限制成只從內部網路開放「傳入」(輸入)。 <li> 針對「用戶端到裝置」(C2D) 案例。</ul><li>IoT Edge 不支援適用於 HTTP 的 80。<li>如果無法在企業中設定非 HTTP 通訊協定 (例如 AMQP 或 MQTT)；則可透過 WebSocket 傳送訊息。 在該情況下，會使用連接埠 443 來進行 WebSocket 通訊。</ul>|
 
-## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge 代理程式模組持續報告 '空的組態檔' 和任何模組在裝置上啟動
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge 代理模块持续报告“配置文件为空”，且设备上不会启动任何模块
 
-裝置具有無法啟動部署中定義的模組。 只有 edgeAgent 正在執行，但持續報告 '...空的組態檔'。
+设备在启动部署中定义的模块时出现问题。 只有 edgeAgent 在运行，但它持续报告“配置文件为空...”。
 
-### <a name="potential-root-cause"></a>可能的根本原因
-根據預設，IoT Edge 會在自己的隔離的容器網路中啟動模組。 裝置可能會發生此私人網路內的 DNS 名稱解析問題。
+### <a name="potential-root-cause"></a>潜在的根本原因
+默认情况下，IoT Edge 在模块自身的隔离容器网络中启动模块。 在此专用网络中，设备可能会遇到 DNS 名称解析方面的问题。
 
 ### <a name="resolution"></a>解決方案
 
-**選項 1：在容器中的引擎設定設定 DNS 伺服器**
+**選項 1：在容器引擎设置中设置 DNS 服务器**
 
-指定 DNS 伺服器，為您的環境中的容器引擎設定將套用至由引擎所啟動的所有容器模組。 建立名為`daemon.json`指定要使用的 DNS 伺服器。 例如︰
+在要应用到引擎启动的所有容器模块的容器引擎设置中，指定环境的 DNS 服务器。 创建名为 `daemon.json` 的文件，并在其中指定要使用的 DNS 服务器。 例如︰
 
 ```
 {
@@ -357,27 +357,27 @@ Azure IoT Edge 允许使用支持的 IoT 中心协议从本地服务器来与 Az
 }
 ```
 
-上述範例中可公開存取的 DNS 服務設定 DNS 伺服器。 如果 edge 裝置無法存取此 IP，從其環境，請將它取代為可存取的 DNS 伺服器位址。
+上面的示例将 DNS 服务器设置为可公开访问的 DNS 服务。 如果 Edge 设备无法从其所在环境访问此 IP，请将其替换为可访问的 DNS 服务器地址。
 
-位置`daemon.json`適用於您平台的正確位置： 
+将 `daemon.json` 放入平台上的适当位置： 
 
 | 平台 | 位置 |
 | --------- | -------- |
-|  Linux | `/etc/docker` |
-| 使用 Windows 容器的 Windows 主機 | `C:\ProgramData\iotedge-moby-data\config` |
+| Linux | `/etc/docker` |
+| 包含 Windows 容器的 Windows 主机 | `C:\ProgramData\iotedge-moby-data\config` |
 
-如果位置已包含`daemon.json`檔案中，新增**dns**金鑰給它，然後儲存檔案。
+如果该位置已包含 `daemon.json` 文件，请在其中添加 **dns** 密钥，然后保存该文件。
 
-*重新啟動容器引擎，讓更新生效*
+*重启容器引擎，使更新生效*
 
 | 平台 | 命令 |
 | --------- | -------- |
-|  Linux | `sudo systemctl restart docker` |
-| Windows (系統管理員的 Powershell) | `Restart-Service iotedge-moby -Force` |
+| Linux | `sudo systemctl restart docker` |
+| Windows（管理 Powershell） | `Restart-Service iotedge-moby -Force` |
 
-**選項 2：每個模組的 IoT Edge 部署中設定 DNS 伺服器**
+**選項 2：在每个模块的 IoT Edge 部署中设置 DNS 服务器**
 
-您可以設定每個模組的 DNS 伺服器*createOptions* IoT Edge 部署中。 例如︰
+可以针对 IoT Edge 部署中每个模块的 *createOptions* 设置 DNS 服务器。 例如︰
 
 ```
 "createOptions": {
@@ -389,7 +389,7 @@ Azure IoT Edge 允许使用支持的 IoT 中心协议从本地服务器来与 Az
 }
 ```
 
-若要設定此項目，請務必*edgeAgent*並*edgeHub*的模組。 
+同时，请务必为 *edgeAgent* 和 *edgeHub* 模块设置此项。 
 
 ## <a name="next-steps"></a>後續步驟
 您在 IoT Edge 平台中發現到錯誤嗎？ [提交問題](https://github.com/Azure/iotedge/issues)，讓我們可以持續進行改善。 

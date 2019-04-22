@@ -9,15 +9,15 @@ ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
 ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904112"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的進階威脅防護
 
-Azure 儲存體的進階的威脅防護提供一層額外的安全智慧，偵測到不尋常且有危害意圖存取或惡意探索儲存體帳戶。 這個防護層讓您不需是安全性專家或管理安全性監視系統，就能解決威脅。 
+Azure 儲存體的進階威脅防護可多提供一道安全智慧，偵測儲存體帳戶中異常而且可能有害的存取或攻擊意圖。 這個防護層讓您不需是安全性專家或管理安全性監視系統，就能解決威脅。 
 
 在活動中的異常狀況發生時，便會觸發安全性警示。  這些安全性警示整合在一起[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)，並也會透過電子郵件傳送給訂用帳戶系統管理員，具有可疑活動和有關如何調查和修復威脅的建議事項的詳細資料。
 
@@ -80,7 +80,7 @@ Azure 儲存體的進階的威脅防護內嵌讀取、 寫入和刪除要求，�
 
 使用下列 PowerShell cmdlet:
 
-  * [啟用進階威脅防護](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [啟用進階的威脅防護](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
   * [取得進階威脅防護](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [停用進階的威脅防護](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 

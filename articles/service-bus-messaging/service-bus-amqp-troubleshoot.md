@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/03/2019
 ms.author: aschhab
 ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58910041"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Azure 服務匯流排中 AMQP 錯誤
@@ -51,8 +51,8 @@ Error{condition=amqp:connection:forced, description='The connection was inactive
 
 * [服務匯流排 AMQP 概觀]
 * [AMQP 1.0 通訊協定指南]
-* [在適用於 Windows Server 的服務匯流排的 AMQP]
+* [Windows Server 服務匯流排中的 AMQP]
 
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 [AMQP 1.0 通訊協定指南]: service-bus-amqp-protocol-guide.md
-[在適用於 Windows Server 的服務匯流排的 AMQP]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[Windows Server 服務匯流排中的 AMQP]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

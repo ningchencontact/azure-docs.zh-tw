@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
 ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905285"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>升級為 Azure 資訊安全中心標準層以增強安全性
@@ -65,7 +65,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 在本文中，已向您介紹資訊安全中心的價格。 若要深入了解標準層的增強式安全性和進階威脅防護，請參閱：
 
 - [進階威脅偵測](security-center-threat-report.md)
-- [Just-in-time VM 存取控制](security-center-just-in-time.md)
+- [Just-In-Time VM 存取控制](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

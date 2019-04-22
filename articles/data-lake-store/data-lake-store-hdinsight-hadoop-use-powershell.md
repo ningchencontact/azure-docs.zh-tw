@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: f78ad8d58bb1bc760a31b792b44a4a39ed25e1f3
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880095"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>使用 Azure PowerShell 建立搭配 Azure Data Lake Storage Gen1 (作為附加儲存體) 的 HDInsight 叢集
 
 > [!div class="op_single_selector"]
 > * [使用入口網站](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [使用 PowerShell （針對預設儲存體）](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [使用 PowerShell （針對額外儲存體）](data-lake-store-hdinsight-hadoop-use-powershell.md)
-> * [使用資源管理員](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+> * [使用 PowerShell (針對預設儲存體)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [使用 PowerShell (針對額外儲存體)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [使用 Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
@@ -271,7 +271,7 @@ ms.locfileid: "58880095"
 
 ## <a name="see-also"></a>另请参阅
 * [搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen1](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [入口網站：建立 HDInsight 叢集以使用 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [入口網站：建立 HDInsight 叢集以使用 Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

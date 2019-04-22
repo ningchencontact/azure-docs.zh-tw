@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
 ms.openlocfilehash: b3660901c86dd644369e6d1913e825cbd5ea316b
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918462"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>使用 Azure 自動化管理 Azure 雲端服務
@@ -36,8 +36,8 @@ Azure 雲端服務可透過 [Azure PowerShell 工具](/powershell/)中提供的 
 
 某些範例使用 Azure 自動化來管理 Azure 雲端服務，包括︰
 
-* [在 Azure Blob 儲存體中更新 cscfg 或 cspkg 時的雲端服務的持續部署](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
-* [正在重新啟動雲端服務執行個體，以平行方式，一次一個升級網域](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
+* [每當 Azure Blob 儲存體中更新 cscfg 或 cspkg 時，即連續部署雲端服務](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+* [以平行方式重新啟動雲端服務執行個體，一次升級一個網域](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## <a name="next-steps"></a>後續步驟
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure 雲端服務之後，請參考下列連結，以深入了解 Azure 自動化。

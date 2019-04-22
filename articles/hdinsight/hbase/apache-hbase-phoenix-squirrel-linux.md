@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
 ms.openlocfilehash: 38f86bd19c85440fbad0e7fd56a3dd9ba836c7b8
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903297"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>在 HDInsight 中搭配 Linux 型 Apache HBase 叢集使用 Apache Phoenix
@@ -34,14 +34,14 @@ ms.locfileid: "58903297"
 
 連線到 HBase 叢集時，您必須連線到其中一個 [Apache ZooKeeper](https://zookeeper.apache.org/) \(英文\) VM。 每個 HDInsight 叢集有三個 ZooKeeper VM。
 
-**若要取得 ZooKeeper 主機名稱**
+**取得 ZooKeeper 主機名稱**
 
 1. 瀏覽至 **https://\<叢集名稱\>.azurehdinsight.net** 以開啟 [Apache Ambari](https://ambari.apache.org/) \(英文\)。
 2. 輸入 HTTP (叢集) 使用者名稱和密碼來登入。
 3. 在左側功能表中，選取 **ZooKeeper**。 系統會列出三個 **ZooKeeper 伺服器** 執行個體。
 4. 選取其中一個 **ZooKeeper 伺服器**執行個體。 在 [摘要] 窗格中，找到 [主機名稱]。 主機名稱會類似 *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*。
 
-**若要開始使用 SQLLine**
+**使用 SQLLine**
 
 1. 使用 SSH 連線到叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 

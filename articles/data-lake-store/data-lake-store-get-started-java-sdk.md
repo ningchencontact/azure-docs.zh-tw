@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883542"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>使用 Java SDK 在 Azure Data Lake Storage Gen1 上進行檔案系統作業
@@ -209,7 +209,7 @@ ms.locfileid: "58883542"
 2. 若要產生您可以從命令列執行的獨立 jar，請使用 [Maven 組件外掛程式](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html)建置內含所有相依性的 jar。 [GitHub 上的範例原始程式碼](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml)中的 pom.xml 有範例。
 
 ## <a name="next-steps"></a>後續步驟
-* [探索適用於 Java 的 JavaDoc SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [保護 Data Lake 儲存體 Gen1 中的資料](data-lake-store-secure-data.md)
+* [瀏覽 Java SDK 的 JavaDoc](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
 
 

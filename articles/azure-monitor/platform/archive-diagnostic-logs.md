@@ -76,7 +76,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 
 | 屬性 | 必要項 | 描述 |
 | --- | --- | --- |
-| ResourceId |是 |要设置诊断设置的资源的资源 ID。 |
+| resourceId |是 |要设置诊断设置的资源的资源 ID。 |
 | StorageAccountId |否 |資源識別碼，診斷記錄應該要儲存至此儲存體帳戶。 |
 | Categories |否 |要啟用之記錄類別的逗號分隔清單。 |
 | Enabled |是 |布林值，表示要對資源啟用還是停用診斷。 |

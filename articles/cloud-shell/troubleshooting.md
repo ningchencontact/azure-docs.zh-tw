@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: eb7deacc068661ca9a4f473ee2d36b7d4464c81c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905506"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 的疑難排解和限制
@@ -41,7 +41,7 @@ ms.locfileid: "58905506"
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>儲存體對話方塊 - 錯誤：403 RequestDisallowedByPolicy
 
-- **詳細資料**：因為您的系統管理員設置的 Azure 原則，透過 Cloud Shell 建立儲存體帳戶失敗。將包含錯誤訊息： `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **詳細資料**：因為您的系統管理員設置的 Azure 原則，透過 Cloud Shell 建立儲存體帳戶失敗。錯誤訊息包括：`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **解決方案**︰連絡您的 Azure 系統管理員，請他移除或更新拒絕儲存體建立的 Azure 原則。
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>儲存體對話方塊 - 錯誤：400 DisallowedOperation
@@ -177,7 +177,7 @@ PowerShell：
   ((Invoke-WebRequest -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}).Content | ConvertFrom-Json).properties | Format-List
 ```
 
-### <a name="delete"></a>刪除
+### <a name="delete"></a>Delete
 若要刪除 Cloud Shell 為您儲存的使用者設定 (例如慣用殼層、字型大小和字型)，請執行下列命令。 下次您啟動 Cloud Shell 時，系統會要求您再次設置檔案共用。 
 
 >[!Note]

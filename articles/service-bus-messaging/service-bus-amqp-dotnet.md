@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885701"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>搭配使用 .NET 的服務匯流排與 AMQP 1.0
@@ -100,7 +100,7 @@ ms.locfileid: "58885701"
 相較於預設通訊協定，使用 AMQP 時，服務匯流排 .NET API 有一些細微的行為差異：
 
 * [OperationTimeout][OperationTimeout] 屬性會被忽略。
-* `MessageReceiver.Receive(TimeSpan.Zero)` 會實作為`MessageReceiver.Receive(TimeSpan.FromSeconds(10))`。
+* `MessageReceiver.Receive(TimeSpan.Zero)` 是以 `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` 的形式实现的。
 * 只有最初收到訊息的訊息接收者能夠以鎖定權杖完成訊息。
 
 ## <a name="control-amqp-protocol-settings"></a>控制 AMQP 通訊協定設定
@@ -114,7 +114,7 @@ ms.locfileid: "58885701"
 
 ## <a name="next-steps"></a>後續步驟
 
-準備好進行深入了解嗎？ 請造訪下列連結：
+準備好進行深入了解嗎？ 请访问以下链接：
 
 * [服務匯流排 AMQP 概觀]
 * [AMQP 1.0 通訊協定指南]

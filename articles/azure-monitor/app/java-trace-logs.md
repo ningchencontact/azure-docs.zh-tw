@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 614f9a44f7c699be38906ac00e12f523490ce112
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884290"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>在 Application Insights 中探索 Java 追蹤記錄
@@ -27,7 +27,7 @@ ms.locfileid: "58884290"
 依指示安裝 [Application Insights SDK for Java][java]，如果您還未完成的話。
 
 ## <a name="add-logging-libraries-to-your-project"></a>將記錄程式庫加入至專案
-*選擇適當的方式，為您的專案。*
+*選擇適合您的專案的方式。*
 
 #### <a name="if-youre-using-maven"></a>如果您使用 Maven...
 如果您的專案已設定為使用 Maven 來建置，請將下列其中一個程式碼片段合併至 pom.xml 檔案。

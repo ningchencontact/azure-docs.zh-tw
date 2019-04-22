@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905532"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>使用内部负载均衡器 (ILB) 终结点配置应用程序网关
@@ -30,7 +30,7 @@ ms.locfileid: "58905532"
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-在 Azure 入口網站登入 <https://portal.azure.com>
+在 <https://portal.azure.com> 上登入 Azure 入口網站
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 

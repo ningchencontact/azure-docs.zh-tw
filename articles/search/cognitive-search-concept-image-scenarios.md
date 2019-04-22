@@ -12,10 +12,10 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916966"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>如何在認知搜尋案例中處理影像並從影像擷取資訊
@@ -218,9 +218,9 @@ OCR 技術可讓您選取要用來偵測影像中文字的演算法。 目前支
 ```
 
 ## <a name="see-also"></a>請參閱
-+ [建立索引子 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [分析影像技能](cognitive-search-skill-image-analysis.md)
-+ [OCR 技術](cognitive-search-skill-ocr.md)
-+ [文字合併技能](cognitive-search-skill-textmerger.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md)
-+ [如何將豐富的欄位對應](cognitive-search-output-field-mapping.md)
++ [建立索引子 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)(英文)
++ [分析影像技術](cognitive-search-skill-image-analysis.md) (英文)
++ [OCR 技術](cognitive-search-skill-ocr.md) (英文)
++ [文字合併技術](cognitive-search-skill-textmerger.md) (英文)
++ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
++ [如何對應豐富型欄位](cognitive-search-output-field-mapping.md) (英文)

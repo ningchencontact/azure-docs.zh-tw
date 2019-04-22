@@ -1,6 +1,6 @@
 ---
-title: 如何建立並找出錨點使用 Azure 空間的錨點，在 C + + /cli NDK |Microsoft Docs
-description: 深入說明如何建立並找出錨點使用 Azure 空間的錨點，在 C + + /cli NDK。
+title: 如何建立並找出使用 Azure 中的空間錨點的錨點C++/NDK |Microsoft Docs
+description: 深入的說明，如何建立並找出使用 Azure 中的空間錨點的錨點的C++/NDK。
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 09809270d6b42a5491d322628f1d98c580f65206
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915917"
 ---
-# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>如何建立並找出錨點使用 Azure 空間的錨點，在 C + + /cli NDK
+# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>如何建立並找出使用 Azure 中的空間錨點的錨點C++/NDK
 
 > [!div  class="op_single_selector"]
 > * [Unity](create-locate-anchors-unity.md)
@@ -25,7 +25,7 @@ ms.locfileid: "58915917"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial Anchors 可讓您在世界各地的不同裝置間共用錨點。 它支援數種不同的開發環境。 在本文中，我們將探討如何使用 Azure 空間的錨點 SDK，在 C + + /cli NDK 為：
+Azure Spatial Anchors 可讓您在世界各地的不同裝置間共用錨點。 其支援數種不同的開發環境。 在本文中，我們將探討如何使用 Azure 空間的錨點 SDK，在C++/NDK 至：
 
 - 正確地設定和管理 Azure 空間的錨點的工作階段。
 - 建立並設定本機的錨點屬性。
@@ -36,9 +36,9 @@ Azure Spatial Anchors 可讓您在世界各地的不同裝置間共用錨點。 
 
 若要完成本指南，請確定您具有：
 
-- 閱讀[Azure 空間的錨點概觀](../overview.md)。
-- 已完成的其中一個[5 分鐘快速入門](../index.yml)。
-- C + + 的基本知識並<a href="https://developer.android.com/ndk/" target="_blank">Android Native Development Kit</a>。
+- 已完整閱讀 [Azure Spatial Anchors 概觀](../overview.md)。
+- 已完成其中一個 [5 分鐘快速入門](../index.yml)。
+- 基本知識C++和<a href="https://developer.android.com/ndk/" target="_blank">Android Native Development Kit</a>。
 - 基本知識<a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.5。
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]

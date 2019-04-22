@@ -13,10 +13,10 @@ ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
 ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877800"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>使用 Java 和 IntelliJ 中建立第一個 Azure 函式
@@ -68,7 +68,7 @@ Maven 會在和 [ArtifactId] 值具有相同名稱的新資料夾中建立專案
 1. 開啟 [Maven 專案] 工具列。
 1. 展開 [生命週期]，然後開啟 [套件]。 解決方案會建置並封裝在新建立的目標目錄中。
 1. 展開 [外掛程式] > [azure-functions]，然後開啟 [azure-functions:run] 以啟動 Azure Functions 本機執行階段。  
-  ![適用於 Azure Functions 的 maven 工具列](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
+  ![適用於 Azure Functions 的 Maven 工具列](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. 當您完成測試函式時，關閉執行對話方塊。 一次只能有一個函式主機是作用中且在本機執行。
 

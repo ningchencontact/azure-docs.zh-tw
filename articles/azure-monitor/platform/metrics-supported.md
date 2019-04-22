@@ -9,10 +9,10 @@ ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58851174"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
@@ -84,7 +84,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |FailedRequests|失败的网关请求数|計數|總計|閘道要求中的失敗數目|位置，主機名稱|
 |OtherRequests|其他閘道器要求|計數|總計|其他閘道器要求數目|位置，主機名稱|
 |Duration|閘道要求的整體持續期間|毫秒|平均值|閘道要求的整體持續期間，以毫秒為單位|位置，主機名稱|
-|Capacity|Capacity|百分比|平均值|ApiManagement 服務的使用率衡量標準|位置|
+|容量|容量|百分比|平均值|ApiManagement 服務的使用率衡量標準|位置|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -137,16 +137,16 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |cachehits|快取點擊|計數|總計||ShardId|
 |cachemisses|缓存未命中数|計數|總計||ShardId|
 |getcommands|获取数|計數|總計||ShardId|
-|setcommands|設定|計數|總計||ShardId|
+|setcommands|设置数|計數|總計||ShardId|
 |operationsPerSecond|每秒的作業數|計數|最大值||ShardId|
 |evictedkeys|收回的金鑰|計數|總計||ShardId|
 |totalkeys|索引鍵總計|計數|最大值||ShardId|
-|expiredkeys|到期的金鑰|計數|總計||ShardId|
+|expiredkeys|过期的密钥数|計數|總計||ShardId|
 |usedmemory|已使用的記憶體|位元組|最大值||ShardId|
 |usedmemorypercentage|已用的記憶體百分比|百分比|最大值||ShardId|
 |usedmemoryRss|已用的記憶體 RSS|位元組|最大值||ShardId|
 |serverLoad|服务器负载|百分比|最大值||ShardId|
-|cacheWrite|快取寫入|每秒位元組|最大值||ShardId|
+|cacheWrite|缓存写入量|每秒位元組|最大值||ShardId|
 |cacheRead|快取讀取|每秒位元組|最大值||ShardId|
 |percentProcessorTime|CPU|百分比|最大值||ShardId|
 |cacheLatency|快取延遲 (毫秒) (預覽)|計數|平均值||ShardId、SampleType|
@@ -529,13 +529,13 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |memory_percent|記憶體百分比|百分比|平均值|記憶體百分比|無維度|
 |io_consumption_percent|IO 百分比|百分比|平均值|IO 百分比|無維度|
 |storage_percent|儲存體百分比|百分比|平均值|儲存體百分比|無維度|
-|storage_used|已使用儲存體|位元組|平均值|已使用儲存體|無維度|
+|storage_used|已使用儲存體|位元組|平均值|已用的存储量|無維度|
 |storage_limit|儲存體限制|位元組|平均值|儲存體限制|無維度|
 |serverlog_storage_percent|伺服器記錄儲存體百分比|百分比|平均值|伺服器記錄儲存體百分比|無維度|
 |serverlog_storage_usage|使用的伺服器記錄儲存體|位元組|平均值|使用的伺服器記錄儲存體|無維度|
 |serverlog_storage_limit|伺服器記錄儲存體限制|位元組|平均值|伺服器記錄儲存體限制|無維度|
 |active_connections|作用中的連線|計數|平均值|作用中的連線|無維度|
-|connections_failed|失敗的連線|計數|總計|失敗的連線|無維度|
+|connections_failed|失敗的連線|計數|總計|失败的连接数|無維度|
 |network_bytes_egress|Network Out|位元組|總計|跨作用中連線的網路輸出|無維度|
 |network_bytes_ingress|Network In|位元組|總計|跨作用中連線的網路輸入|無維度|
 
@@ -547,13 +547,13 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |memory_percent|記憶體百分比|百分比|平均值|記憶體百分比|無維度|
 |io_consumption_percent|IO 百分比|百分比|平均值|IO 百分比|無維度|
 |storage_percent|儲存體百分比|百分比|平均值|儲存體百分比|無維度|
-|storage_used|已使用儲存體|位元組|平均值|已使用儲存體|無維度|
+|storage_used|已使用儲存體|位元組|平均值|已用的存储量|無維度|
 |storage_limit|儲存體限制|位元組|平均值|儲存體限制|無維度|
 |serverlog_storage_percent|伺服器記錄儲存體百分比|百分比|平均值|伺服器記錄儲存體百分比|無維度|
 |serverlog_storage_usage|使用的伺服器記錄儲存體|位元組|平均值|使用的伺服器記錄儲存體|無維度|
 |serverlog_storage_limit|伺服器記錄儲存體限制|位元組|平均值|伺服器記錄儲存體限制|無維度|
 |active_connections|作用中的連線|計數|平均值|作用中的連線|無維度|
-|connections_failed|失敗的連線|計數|總計|失敗的連線|無維度|
+|connections_failed|失敗的連線|計數|總計|失败的连接数|無維度|
 |seconds_behind_master|複寫延遲 (秒)|計數|平均值|複寫延遲 (秒)|無維度|
 |network_bytes_egress|Network Out|位元組|總計|跨作用中連線的網路輸出|無維度|
 |network_bytes_ingress|Network In|位元組|總計|跨作用中連線的網路輸入|無維度|
@@ -566,13 +566,13 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |memory_percent|記憶體百分比|百分比|平均值|記憶體百分比|無維度|
 |io_consumption_percent|IO 百分比|百分比|平均值|IO 百分比|無維度|
 |storage_percent|儲存體百分比|百分比|平均值|儲存體百分比|無維度|
-|storage_used|已使用儲存體|位元組|平均值|已使用儲存體|無維度|
+|storage_used|已使用儲存體|位元組|平均值|已用的存储量|無維度|
 |storage_limit|儲存體限制|位元組|平均值|儲存體限制|無維度|
 |serverlog_storage_percent|伺服器記錄儲存體百分比|百分比|平均值|伺服器記錄儲存體百分比|無維度|
 |serverlog_storage_usage|使用的伺服器記錄儲存體|位元組|平均值|使用的伺服器記錄儲存體|無維度|
 |serverlog_storage_limit|伺服器記錄儲存體限制|位元組|平均值|伺服器記錄儲存體限制|無維度|
 |active_connections|作用中的連線|計數|平均值|作用中的連線|無維度|
-|connections_failed|失敗的連線|計數|總計|失敗的連線|無維度|
+|connections_failed|失敗的連線|計數|總計|失败的连接数|無維度|
 |network_bytes_egress|Network Out|位元組|總計|跨作用中連線的網路輸出|無維度|
 |network_bytes_ingress|Network In|位元組|總計|跨作用中連線的網路輸入|無維度|
 
@@ -1298,11 +1298,11 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |physical_data_read_percent|資料 IO 百分比|百分比|平均值|資料 IO 百分比|無維度|
 |log_write_percent|記錄 IO 百分比|百分比|平均值|記錄 IO 百分比|無維度|
 |dtu_consumption_percent|DTU 百分比|百分比|平均值|DTU 百分比|無維度|
-|storage|資料庫大小總計|位元組|最大值|資料庫大小總計|無維度|
+|儲存體|資料庫大小總計|位元組|最大值|数据库总大小|無維度|
 |connection_successful|成功的連線|計數|總計|成功的連線|無維度|
-|connection_failed|失敗的連線|計數|總計|失敗的連線|無維度|
+|connection_failed|失败的连接数|計數|總計|失败的连接数|無維度|
 |blocked_by_firewall|遭到防火牆封鎖|計數|總計|遭到防火牆封鎖|無維度|
-|deadlock|死結|計數|總計|死結|無維度|
+|死結|死結|計數|總計|死結|無維度|
 |storage_percent|資料庫大小百分比|百分比|最大值|資料庫大小百分比|無維度|
 |xtp_storage_percent|記憶體內部 OLTP 儲存體百分比|百分比|平均值|記憶體內部 OLTP 儲存體百分比|無維度|
 |workers_percent|背景工作角色百分比|百分比|平均值|背景工作角色百分比|無維度|
@@ -1311,7 +1311,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |dtu_used|已使用 DTU|計數|平均值|已使用 DTU|無維度|
 |dwu_limit|DWU 限制|計數|最大值|DWU 限制|無維度|
 |dwu_consumption_percent|DWU 百分比|百分比|最大值|DWU 百分比|無維度|
-|dwu_used|已使用 DWU|計數|最大值|已使用 DWU|無維度|
+|dwu_used|已用的 DWU|計數|最大值|已用的 DWU|無維度|
 |dw_cpu_percent|DW 節點層級 CPU 百分比|百分比|平均值|DW 節點層級 CPU 百分比|DwLogicalNodeId|
 |dw_physical_data_read_percent|DW 節點層級資料 IO 百分比|百分比|平均值|DW 節點層級資料 IO 百分比|DwLogicalNodeId|
 
@@ -1329,7 +1329,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |eDTU_limit|eDTU 限制|計數|平均值|eDTU 限制|無維度|
 |storage_limit|儲存體限制|位元組|平均值|儲存體限制|無維度|
 |eDTU_used|已使用 eDTU|計數|平均值|已使用 eDTU|無維度|
-|storage_used|已使用儲存體|位元組|平均值|已使用儲存體|無維度|
+|storage_used|已使用儲存體|位元組|平均值|已用的存储量|無維度|
 |xtp_storage_percent|記憶體內部 OLTP 儲存體百分比|百分比|平均值|記憶體內部 OLTP 儲存體百分比|無維度|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances

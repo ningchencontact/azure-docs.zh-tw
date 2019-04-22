@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4e262c9e5bb88e77bc9c09853c06f4cdb41eedaa
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58890890"
 ---
 ## <a name="preparing-for-updates"></a>準備更新
@@ -19,7 +19,7 @@ ms.locfileid: "58890890"
    
      `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network>`
    
-    **測試連線時固定的 Ip 可連線到網際網路的範例輸出**
+    **當固定 IP 能連線到網際網路時測試連線的範例輸出**
 
         Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
 

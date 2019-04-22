@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be8d4172476ca0613e80e62739b9ab36f8ab4c3b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881149"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 向 Azure Data Lake Storage Gen1 進行服務對服務驗證
@@ -54,8 +54,8 @@ ms.locfileid: "58881149"
    2. 在 [NuGet 套件管理員] 索引標籤中，確定 [套件來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
    3. 搜尋並安裝下列 NuGet 封裝：
 
-      * `Microsoft.Azure.Management.DataLake.Store` -本教學課程使用 v2.1.3-preview。
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -本教學課程使用 v2.2.12。
+      * `Microsoft.Azure.Management.DataLake.Store` - 本教學課程使用 v2.1.3-preview。
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 本教學課程使用 v2.2.12。
 
         ![新增 NuGet 來源](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "建立新的 Azure Data Lake 帳戶")
    4. 關閉 [NuGet 套件管理員]。
@@ -122,5 +122,5 @@ private static void Main(string[] args)
 ## <a name="next-steps"></a>後續步驟
 在此文章中，您已了解如何使用 .NET SDK 透過服務對服務驗證向 Data Lake Storage Gen1 進行驗證。 您現在可以看看下列文章，了解如何使用 .NET SDK 搭配 Data Lake Storage Gen1。
 
-* [帳戶管理作業在 Data Lake 儲存體 Gen1 上使用.NET SDK](data-lake-store-get-started-net-sdk.md)
-* [使用.NET SDK 在 Data Lake 儲存體 Gen1 上的資料作業](data-lake-store-data-operations-net-sdk.md)
+* [使用 .NET SDK 對 Data Lake Storage Gen1 進行帳戶管理作業](data-lake-store-get-started-net-sdk.md)
+* [使用 .NET SDK 對 Data Lake Storage Gen1 進行資料作業](data-lake-store-data-operations-net-sdk.md)

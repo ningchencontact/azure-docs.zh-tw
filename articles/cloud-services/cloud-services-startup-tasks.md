@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917612"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>如何設定和執行雲端服務的啟動工作
@@ -30,7 +30,7 @@ ms.locfileid: "58917612"
 > 
 
 ## <a name="how-startup-tasks-work"></a>啟動工作的運作方式
-啟動工作是在您的角色開始之前採取的動作，而且在 [ServiceDefinition.csdef] 檔案中利用 [Startup] 元素內的 [Task] 元素來定義。 启动任务通常是批处理文件，但它们也可以是控制台应用程序或启动 PowerShell 脚本的批处理文件。
+啟動工作是在您的角色開始之前採取的動作，而且在 [ServiceDefinition.csdef] 檔案中利用 [ServiceDefinition.csdef] 元素內的 [Task] 元素來定義。 启动任务通常是批处理文件，但它们也可以是控制台应用程序或启动 PowerShell 脚本的批处理文件。
 
 環境變數可將資訊傳入啟動工作，而本機存放區可以用來傳遞來自啟動工作的資訊。 例如，環境變數可以指定您想要安裝的程式路徑，以及可以將哪些檔案寫入本機存放區，以便日後供您的角色讀取。
 
@@ -88,7 +88,7 @@ EXIT /B 0
 > 
 
 ## <a name="description-of-task-attributes"></a>工作屬性說明
-以下說明 **ServiceDefinition.csdef** 檔案中 [Task] 項目的屬性：
+以下說明 **ServiceDefinition.csdef** 檔案中 [ServiceDefinition.csdef] 項目的屬性：
 
 **commandLine** - 指定啟動工作的命令列：
 
@@ -99,7 +99,7 @@ EXIT /B 0
 
 **executionContext** - 指定啟動工作的權限等級。 權限等級可以是 limited (受到限制) 或 elevated (提高權限)：
 
-* **限制**  
+* **limited**  
    啟動工作執行時會使用和角色相同的權限。 當 [Runtime] 項目的 **executionContext** 屬性也是 **limited** 時，就會用到使用者權限。
 * **elevated**  
    啟動工作執行時會使用系統管理員權限。 這可讓啟動工作安裝程式、變更 IIS 組態、執行登錄變更，以及其他系統管理員層級的工作，且不會提高角色本身的權限等級。  
@@ -111,7 +111,7 @@ EXIT /B 0
 
 **taskType** - 指定啟動工作執行的方式。
 
-* **簡單**  
+* **simple**  
   工作會以同步的方式執行，一次一個，並依照 [ServiceDefinition.csdef] 檔案所指定的順序。 當某個 **simple** 啟動工作結束時的 **errorlevel** 為零，就會執行下一個 **simple** 啟動工作。 如果沒有任何 **simple** 啟動工作需要執行，則會啟動角色本身。   
   
   > [!NOTE]
@@ -120,9 +120,9 @@ EXIT /B 0
   > 
   
     若要確保批次檔結束時的 **errorlevel** 為零，請在批次檔處理序結束時執行命令 `EXIT /B 0`。
-* **背景資訊**  
-   以非同步方式執行工作，並與角色的啟動工作平行進行。
-* **前景**  
+* **background**  
+  任务与角色同时启动，并以异步方式执行。
+* **foreground**  
    以非同步方式執行工作，並與角色的啟動工作平行進行。 **foreground** 和 **background** 工作之間的主要差異，在於 **foreground** 工作可避免角色在工作結束之前遭到回收或關閉。 **background** 工作則不具備這項限制功能。
 
 ## <a name="environment-variables"></a>環境變數
@@ -130,9 +130,9 @@ EXIT /B 0
 
 啟動工作的環境變數有兩種類型，包括靜態環境變數，還有以 [RoleEnvironment] 類別的成員為基礎的環境變數。 這兩者都位於 [ServiceDefinition.csdef] 檔案的 [Environment] 區段中，而且都使用 [Variable] 元素和 **name** 屬性。
 
-靜態環境變數會使用 **Variable** 項目的 [value] 屬性。 上述範例會建立環境變數 **MyVersionNumber**，這具有靜態值 "**1.0.0.0**"。 另一個範例則是建立 **StagingOrProduction** 環境變數，您可以手動將值設為 "**staging**" 或 "**production**"，以根據 **StagingOrProduction** 環境變數的值執行不同的啟動動作。
+靜態環境變數會使用 **Variable** 項目的 [Variable] 屬性。 上述範例會建立環境變數 **MyVersionNumber**，這具有靜態值 "**1.0.0.0**"。 另一個範例則是建立 **StagingOrProduction** 環境變數，您可以手動將值設為 "**staging**" 或 "**production**"，以根據 **StagingOrProduction** 環境變數的值執行不同的啟動動作。
 
-以 RoleEnvironment 類別的成員為基礎的環境變數不會使用 **Variable** 項目的 [value] 屬性。 相反地，這會使用具有適當 **XPath** 屬性值的 [RoleInstanceValue] 子元素，藉此建立以 [RoleEnvironment] 類別的特定成員為基礎的環境變數。 [這裡](cloud-services-role-config-xpath.md)有存取各種 [RoleEnvironment] 值的 **XPath** 屬性值。
+以 RoleEnvironment 類別的成員為基礎的環境變數不會使用 **Variable** 項目的 [Variable] 屬性。 相反地，這會使用具有適當 **XPath** 屬性值的 [RoleInstanceValue] 子元素，藉此建立以 [RoleEnvironment] 類別的特定成員為基礎的環境變數。 [這裡](cloud-services-role-config-xpath.md)有存取各種 [RoleEnvironment] 值的 **XPath** 屬性值。
 
 例如，若要建立一個環境變數，而且當執行個體在計算模擬器中執行時值為 "**true**"，而在雲端中執行時值為 "**false**"，請使用下列 [Variable] 和 [RoleInstanceValue] 元素：
 
@@ -162,9 +162,9 @@ EXIT /B 0
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[啟動]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[執行階段]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[環境]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[變數]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[ServiceDefinition.csdef]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
+[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
+[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

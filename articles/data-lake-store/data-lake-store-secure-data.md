@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885667"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>保護儲存在 Azure Data Lake Storage Gen1 中的資料
@@ -149,10 +149,10 @@ Data Lake Storage Gen1 可讓您進一步在網路層級鎖定資料存放區的
 
 ## <a name="see-also"></a>請參閱
 * [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
-* [將資料從 Azure 儲存體 Blob 複製到 Data Lake 儲存體 Gen1](data-lake-store-copy-data-azure-storage-blob.md)
-* [使用 Azure Data Lake Analytics 與 Data Lake 儲存體 Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [使用 Azure HDInsight 與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [使用 PowerShell 開始使用 Data Lake Storage Gen1](data-lake-store-get-started-powershell.md)
-* [開始使用 Data Lake 儲存體 Gen1 使用.NET SDK](data-lake-store-get-started-net-sdk.md)
-* [存取 Data Lake 儲存體 Gen1 的診斷記錄檔](data-lake-store-diagnostic-logs.md)
+* [將資料從 Azure 儲存體 Blob 複製到 Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [利用 PowerShell 開始使用 Data Lake Storage Gen1](data-lake-store-get-started-powershell.md)
+* [利用 .NET SDK 開始使用 Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md)
+* [存取 Data Lake Storage Gen1 的診斷記錄](data-lake-store-diagnostic-logs.md)
 

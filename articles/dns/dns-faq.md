@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 3/21/2019
 ms.author: victorh
 ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905710"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常見問題集
@@ -42,7 +42,7 @@ Azure 保證有效的 DNS 要求 100% 的時間都至少會從一部 Azure DNS �
 
 網域是網域名稱系統中的唯一名稱。 例如 contoso.com。
 
-DNS 區域用來裝載特定網域的 DNS 記錄。 例如，contoso.com 網域可能包含數筆 DNS 記錄。 記錄可能包含 mail.contoso.com 的郵件伺服器與 www\.contoso.com 的網站。 這些記錄會裝載在 contoso.com DNS 區域中。
+DNS 區域用來裝載特定網域的 DNS 記錄。 例如，contoso.com 網域可能包含數筆 DNS 記錄。 这些记录可能包含 mail.contoso.com（用于邮件服务器）和 www\.contoso.com（用于网站）。 這些記錄會裝載在 contoso.com DNS 區域中。
 
 網域名稱「只是一個名稱」。 DNS 區域則是包含網域名稱 DNS 記錄的資料資源。 您可以使用 Azure DNS 來裝載 DNS 區域，並在 Azure 中管理網域的 DNS 記錄。 它也提供 DNS 名稱伺服器以回應來自網際網路的 DNS 查詢。
 
@@ -116,10 +116,10 @@ Azure DNS 區域中的下列記錄類型支援別名記錄集：
 
 ### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>哪些資源可支援作為別名記錄集的目標？
 
-- **指向從 DNS A/AAAA 記錄集的公用 IP 資源。** 您可以建立 A/AAAA 記錄集，並使其成為別名記錄集來指向公用 IP 資源。
+- **從 DNS A/AAAA 記錄集指向公用 IP 資源**。 您可以建立 A/AAAA 記錄集，並使其成為別名記錄集來指向公用 IP 資源。
 - **從 DNS A/AAAA/CNAME 記錄集指向流量管理員設定檔。** 您可以從 DNS CNAME 記錄集指向流量管理員設定檔的 CNAME。 例如，contoso.trafficmanager.net。 現在，您也可以從 DNS 區域中的 A 或 AAAA 記錄集，指向具有外部端點的流量管理員設定檔。
 - **指向 Azure 內容傳遞網路 (CDN) 端點**。 當您建立使用 Azure 儲存體和 Azure CDN 的靜態網站時，這非常有用。
-- **指向相同區域中另一個 DNS 記錄集。** 別名記錄可以參考其他相同類型的記錄集。 例如，DNS CNAME 記錄集可以是相同類型的另一個 CNAME 記錄集所用的別名。 如果您想要讓某些記錄集成為別名，某些成為非別名，便可使用這種安排。
+- **指向相同區域中的另一個 DNS 記錄集**。 別名記錄可以參考其他相同類型的記錄集。 例如，DNS CNAME 記錄集可以是相同類型的另一個 CNAME 記錄集所用的別名。 如果您想要讓某些記錄集成為別名，某些成為非別名，便可使用這種安排。
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>我是否可從 Azure 入口網站建立及更新別名記錄？
 
@@ -143,11 +143,11 @@ Azure DNS 區域中的下列記錄類型支援別名記錄集：
 
 ## <a name="use-azure-dns"></a>使用 Azure DNS
 
-### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>我可以共同裝載網域使用 Azure DNS 與其他 DNS 提供者嗎？
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>是否可以使用 Azure DNS 和其他 DNS 提供程序共同托管域？
 
 是。 Azure DNS 支援與其他 DNS 服務共同裝載網域。
 
-若要設定共同裝載，修改為指向兩個提供者的名稱伺服器網域的 NS 記錄。 名稱伺服器 (NS) 記錄可控制哪些提供者會收到網域的 DNS 查詢。 您可以在 Azure DNS 中、在另一個提供者中，以及在父區域中修改這些 NS 記錄。 父區域通常會透過網域名稱註冊機構來設定。 如需有關 DNS 委派的詳細資訊，請參閱 [DNS 網域委派](dns-domain-delegation.md)。
+若要设置共同托管，请将域的 NS 记录修改为指向这两个提供程序的名称服务器。 名稱伺服器 (NS) 記錄可控制哪些提供者會收到網域的 DNS 查詢。 您可以在 Azure DNS 中、在另一個提供者中，以及在父區域中修改這些 NS 記錄。 父區域通常會透過網域名稱註冊機構來設定。 如需有關 DNS 委派的詳細資訊，請參閱 [DNS 網域委派](dns-domain-delegation.md)。
 
 此外，請確保網域的 DNS 記錄在這兩個 DNS 提供者之間保持同步。 Azure DNS 目前不支援 DNS 區域傳輸。 您必須使用 [Azure DNS 管理入口網站](dns-operations-recordsets-portal.md)、[REST API](https://docs.microsoft.com/powershell/module/az.dns) \(英文\)、[SDK](dns-sdk.md)、[PowerShell Cmdlet](dns-operations-recordsets.md) 或 [CLI 工具](dns-operations-recordsets-cli.md)，來同步處理 DNS 記錄。
 

@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 8f5a6187b0a651da9dd8de1cb5670a8faffded1a
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862415"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>選取並部署您的 IoT 裝置上的安全性代理程式
 
 > [!IMPORTANT]
-> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
+> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 IoT 的 azure 資訊安全中心 (ASC) 提供參考架構的安全性監視和收集資料，從 IoT 裝置的代理程式。

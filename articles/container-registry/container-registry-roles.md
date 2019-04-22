@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894263"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 角色和權限
 
 Azure Container Registry 服務可支援一組 Azure 角色，對於 Azure Container Registry 提供不同程度的權限。 Azure[角色型存取控制](../role-based-access-control/index.yml) (RBAC) 可用來將特定權限指派給必須與登錄互動的使用者或服務主體。
 
-| 角色/權限       | [存取 Resource Manager](#access-resource-manager) | [建立/刪除登錄](#create-and-delete-registry) | [推送映像](#push-image) | [提取映像](#pull-image) | [刪除映像資料](#delete-image-data) | [變更原則](#change-policies) |   [簽署映像](#sign-images)  |
+| 角色/權限       | [存取 Resource Manager](#access-resource-manager) | [建立/刪除登錄](#create-and-delete-registry) | [推送映像](#push-image) | [提取映像](#pull-image) | [删除映像数据](#delete-image-data) | [變更原則](#change-policies) |   [簽署映像](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 擁有者 | X | X | X | X | X | X |  |  
 | 參與者 | X | X | X |  X | X | X |  |  
@@ -63,7 +63,7 @@ Azure Container Registry 服務可支援一組 Azure 角色，對於 Azure Conta
 
 ## <a name="delete-image-data"></a>刪除映像資料
 
-能夠[刪除容器映像](container-registry-delete.md)，或刪除其他[支援成品](container-registry-image-formats.md)例如 Helm 圖表，從登錄。
+能够从注册表中[删除容器映像](container-registry-delete.md)或者删除其他[受支持的项目](container-registry-image-formats.md)，例如 Helm 图表。
 
 ## <a name="change-policies"></a>變更原則
 

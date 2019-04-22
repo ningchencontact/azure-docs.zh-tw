@@ -9,13 +9,13 @@ ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: 8f8dcff0b72ea92e835c0702113a9cb6a7678e86
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58851694"
 ---
-# <a name="common-alert-schema"></a>常見的警示結構描述
+# <a name="common-alert-schema"></a>一般警示結構描述
 
 本文說明常見的警示結構描述的是，使用它，以及如何啟用它的優點。
 

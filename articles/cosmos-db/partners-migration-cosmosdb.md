@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
 ms.openlocfilehash: f3b744f676dd352bb38e5cbca6e532c650617816
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880605"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 移轉和應用程式開發合作夥伴
@@ -19,14 +19,14 @@ ms.locfileid: "58880605"
 
 ## <a name="migration-tools"></a>移轉工具
 
-|**合作夥伴**  |**功能和經驗**  |**支援的國家/地區**  |**連絡人**  |
+|**合作夥伴**  |**功能和體驗**  |**支援的國家/地區**  |**連絡人**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | 進行從 MongoDB 到 Azure Cosmos DB 的[資料移轉](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf)。 <br/> Imanis Data 讓全球的企業能夠快速又輕鬆地將其內部部署或雲端 MongoDB 資料庫移轉到 Azure Cosmos DB。 Imanis Data 提供無代理程式、不限次數的雲端移轉方法來部署 MongoDB 資料存放區，不僅簡化了移轉程序，也大幅減少停機時間。|  USA  |   [網站](http://www.imanisdata.com/)      |
 |![Striim][2]    |  從各種資料來源[將即時資料移至 Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/)。 <br/> Striim 簡化從各種內部部署來源，包括企業文件和關聯式資料庫、 感應器和記錄檔到 Azure Cosmos DB 的資料移動與即時的集合。 |   USA   |  [網站](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>系統整合者合作夥伴
 
-|**合作夥伴**  |**功能和經驗**  |**支援的國家/地區**  |**連絡人**  |
+|**合作夥伴**  |**功能和體驗**  |**支援的國家/地區**  |**連絡人**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL 移轉；新的應用程式開發 | USA | [網站](https://www.10thmagnitude.com/)|
 |![Altoros 開發 LLC][3]    |  NoSQL 移轉、 <br/> 應用程式創新 (現有的應用程式)、 <br/> 新的應用程式開發 |   美國、挪威、芬蘭、白俄羅斯、阿根廷 |  [網站](https://www.altoros.com/)     |

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fbefe233ce0d2477982faf0a9f38a73062e0c7a1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884460"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>使用 Distcp 在 Azure 儲存體 Blob 與 Azure Data Lake Storage Gen1 之間複製資料
@@ -32,7 +32,7 @@ ms.locfileid: "58884460"
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure Data Lake Storage Gen1 帳戶**。 如需建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* 可存取 Data Lake Storage Gen1 帳戶的 **Azure HDInsight 叢集**。 請參閱[建立搭配 Data Lake Storage Gen1 的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)。 請確實為叢集啟用遠端桌面。
+* 可存取 Data Lake Storage Gen1 帳戶的 **Azure HDInsight 叢集**。 請參閱[建立具有 Data Lake Storage Gen1 的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)。 請確實為叢集啟用遠端桌面。
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>使用來自 HDInsight Linux 叢集的 Distcp
 
@@ -76,9 +76,9 @@ HDInsight 叢集隨附 Distcp 公用程式，可用來將不同來源的資料�
 
 以下是一些您可以使用的指引。
 
-* **步驟 1：确定总 YARN 内存** - 第一步是确定可供运行 DistCp 作业的群集使用的 YARN 内存。 您可以在與叢集相關聯的 Ambari 入口網站中取得這項資訊。 瀏覽至 YARN，檢視 [設定] 索引標籤以查看 YARN 記憶體。 若要計算 YARN 記憶體總計，請將每個節點的 YARN 記憶體乘以您在叢集中的節點數目。
+* **步骤 1：确定总 YARN 内存** - 第一步是确定可供运行 DistCp 作业的群集使用的 YARN 内存。 您可以在與叢集相關聯的 Ambari 入口網站中取得這項資訊。 瀏覽至 YARN，檢視 [設定] 索引標籤以查看 YARN 記憶體。 若要計算 YARN 記憶體總計，請將每個節點的 YARN 記憶體乘以您在叢集中的節點數目。
 
-* **步驟 2：計算對應程式數目** - **m** 的值等於 YARN 記憶體總計除以 YARN 容器大小的商數。 Ambari 入口網站中也提供 YARN 容器大小的資訊。 瀏覽至 YARN，檢視 [設定] 索引標籤。YARN 容器大小會顯示在此視窗中。 計算對應程式數目 (**m**) 的方程式是
+* **步骤 2：計算對應程式數目** - **m** 的值等於 YARN 記憶體總計除以 YARN 容器大小的商數。 Ambari 入口網站中也提供 YARN 容器大小的資訊。 瀏覽至 YARN，檢視 [設定] 索引標籤。YARN 容器大小會顯示在此視窗中。 計算對應程式數目 (**m**) 的方程式是
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
@@ -111,7 +111,7 @@ HDInsight 叢集隨附 Distcp 公用程式，可用來將不同來源的資料�
 * 如果您從 Azure Blob 儲存體帳戶複製，Blob 儲存體端可能會節流複製作業。 這會降低複製作業的效能。 若要深入了解 Azure Blob 儲存體的限制，請參閱 [Azure 訂用帳戶和服務限制](../azure-subscription-service-limits.md)中的 Azure 儲存體限制。
 
 ## <a name="see-also"></a>請參閱
-* [將資料從 Azure 儲存體 Blob 複製到 Data Lake 儲存體 Gen1](data-lake-store-copy-data-azure-storage-blob.md)
-* [保護 Data Lake 儲存體 Gen1 中的資料](data-lake-store-secure-data.md)
-* [使用 Azure Data Lake Analytics 與 Data Lake 儲存體 Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [使用 Azure HDInsight 與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [將資料從 Azure 儲存體 Blob 複製到 Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)

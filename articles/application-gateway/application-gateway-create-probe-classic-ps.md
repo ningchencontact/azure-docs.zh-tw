@@ -16,23 +16,23 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861874"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>使用 PowerShell 建立 Azure 應用程式閘道 (傳統) 的自訂探查
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](application-gateway-create-probe-portal.md)
+> * [Azure 门户](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
-> * [Azure 傳統 PowerShell](application-gateway-create-probe-classic-ps.md)
+> * [Azure 经典 PowerShell](application-gateway-create-probe-classic-ps.md)
 
 在本文中，您會使用 PowerShell 將自訂探查新增到現有的應用程式閘道。 對於具有特定健康狀態檢查頁面的應用程式，或是在預設 Web 應用程式上不提供成功回應的應用程式，自訂探查非常實用。
 
 > [!IMPORTANT]
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 了解如何[使用 Resource Manager 模型執行這些步驟](application-gateway-create-probe-ps.md)。
+> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 了解如何[使用 Resource Manager 模型執行這些步驟](application-gateway-create-probe-ps.md)。
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -65,7 +65,7 @@ Get-AzureApplicationGateway AppGwTest
 > 
 > 
 
-因為尚未啟動閘道，所以 VirtualIPs 和 DnsName 會顯示為空白。 这些值在网关进入运行状态后立即创建。
+*VirtualIPs* 和 *DnsName* 显示为空白，因为网关尚未启动。 这些值在网关进入运行状态后立即创建。
 
 ### <a name="configure-an-application-gateway-by-using-xml"></a>使用 XML 設定應用程式閘道
 
@@ -154,7 +154,7 @@ Get-AzureApplicationGateway AppGwTest
 | **通訊協定** | 使用的通訊協定 (可能的值是 HTTP 或 HTTPS)。|
 | **Host** 和 **Path** | 應用程式閘道所叫用的完整 URL 路徑，可藉以判斷執行個體健康狀態。 例如，如果您擁有網站 http:\//contoso.com/，然後自訂探查可設定為"http:\//contoso.com/path/custompath.htm 」 讓探查檢查有成功的 HTTP 回應。|
 | **間隔** | 以秒為單位設定探查間隔檢查。|
-| **逾時** | 定義 HTTP 回應檢查的探查逾時。|
+| **超时** | 定義 HTTP 回應檢查的探查逾時。|
 | **UnhealthyThreshold** | 要將後端執行個體標記為「狀況不良」所需的失敗 HTTP 回應次數。|
 
 \<BackendHttpSettings\> 配置中会引用探测名称，以分配使用自定义探测设置的后端池。
@@ -169,7 +169,7 @@ Get-AzureApplicationGateway AppGwTest
    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
    ```
 
-1. 在文字編輯器中開啟 XML 檔案。 在 `<frontendport>` 之後新增 `<probe>` 區段。
+1. 在文本编辑器中打开 XML 文件。 在 `<frontendport>` 之後新增 `<probe>` 區段。
 
    ```xml
    <Probes>

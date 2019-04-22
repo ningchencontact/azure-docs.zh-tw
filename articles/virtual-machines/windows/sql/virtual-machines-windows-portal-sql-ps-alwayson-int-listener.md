@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.openlocfilehash: 5b647af7925ceb81c524deb0accf90f9e895080e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876984"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>設定一或多個 Always On 可用性群組接聽程式 - Resource Manager
@@ -33,7 +33,7 @@ ms.locfileid: "58876984"
 
 本主題會要求您已經設定可用性群組。  
 
-相關主題包括：
+相关主题包括：
 
 * [在 Azure VM (GUI) 中設定 AlwaysOn 可用性群組](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [使用 Azure Resource Manager 和 PowerShell 來設定 VNet 對 VNet 連線](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
@@ -135,7 +135,7 @@ foreach($VMName in $VMNames)
 前端連接埠是應用程式用來連線到 SQL Server 執行個體的連接埠。 不同可用性群組的 IP 位址可以使用相同的前端連接埠。
 
 > [!NOTE]
-> 就 SQL Server 可用性群組而言，每個 IP 位址都需要一個特定的探查連接埠。 例如，如果負載平衡器上有一個 IP 位址使用探查連接埠 59999，該負載平衡器上的任何其他 IP 位址就不能使用探查連接埠 59999。
+> 对于 SQL Server 可用性组，每个 IP 地址需要一个特定的探测端口。 例如，如果負載平衡器上有一個 IP 位址使用探查連接埠 59999，該負載平衡器上的任何其他 IP 位址就不能使用探查連接埠 59999。
 
 * 如需有關負載平衡器限制的資訊，請參閱[網路限制 - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits) 底下的「每個負載平衡器的私人前端 IP」。
 * 如需有關可用性群組限制的資訊，請參閱[限制 (可用性群組)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG)。
@@ -216,7 +216,7 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 SQLCMD 連線會自動連線到任何一個裝載主要複本的 SQL Server 執行個體。 
 
 > [!NOTE]
-> 確定您指定的連接埠在兩部 SQL Server 在防火牆上開啟。 这两个服务器需要所用 TCP 端口的入站规则。 如需詳細資訊，請參閱 [新增或編輯防火牆規則](https://technet.microsoft.com/library/cc753558.aspx) 。 
+> 确保指定的端口已在两个 SQL Server 的防火墙上打开。 这两个服务器需要所用 TCP 端口的入站规则。 如需詳細資訊，請參閱 [新增或編輯防火牆規則](https://technet.microsoft.com/library/cc753558.aspx) 。 
 > 
 > 
 

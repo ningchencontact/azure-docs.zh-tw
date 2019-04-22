@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894127"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 工作參考：YAML
@@ -404,8 +404,8 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 
 `when` 屬性會指定步驟與工作內其他步驟的相依性。 它支援兩個參數值：
 
-* `when: ["-"]` -表示不會相依於其他步驟。 指定 `when: ["-"]` 的步驟將立即開始執行，並可啟用並行步驟執行。
-* `when: ["id1", "id2"]` -指出的步驟，是取決於使用的步驟`id`"id1 」 和`id`"id2 」。 此步驟必須等到 "id1" 和 "id2" 步驟都完成後，才會執行。
+* `when: ["-"]` - 表示與其他步驟沒有相依性。 指定 `when: ["-"]` 的步驟將立即開始執行，並可啟用並行步驟執行。
+* `when: ["id1", "id2"]` - 表示步驟與 `id` 為 "id1" 和 `id` 為 "id2" 的步驟相依。 此步驟必須等到 "id1" 和 "id2" 步驟都完成後，才會執行。
 
 如果步驟中未指定 `when`，則該步驟會取決於 `acr-task.yaml` 檔案中的前一個步驟是否完成。
 

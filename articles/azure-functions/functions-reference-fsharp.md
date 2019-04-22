@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 981ffce34c56f4becee2ed0c72da72baa220e395
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894350"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 開發人員參考
@@ -147,7 +147,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 * `System.Net.Http`
 * `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`上也提供本文中使用的原始碼。
+* `Microsoft.Azure.WebJobs.Host` 。
 
 ## <a name="referencing-external-assemblies"></a>參考外部組件
 同樣地，在新增架構組件參考時也可以加上 `#r "AssemblyName"` 指示詞。
@@ -166,7 +166,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 
 Azure Functions 裝載環境會自動加入下列組件︰
 
-* `mscorlib`，
+* `mscorlib`,
 * `System`
 * `System.Core`
 * `System.Xml`
@@ -175,7 +175,7 @@ Azure Functions 裝載環境會自動加入下列組件︰
 * `Microsoft.Azure.WebJobs.Host`
 * `Microsoft.Azure.WebJobs.Extensions`
 * `System.Web.Http`
-* `System.Net.Http.Formatting`上也提供本文中使用的原始碼。
+* `System.Net.Http.Formatting`。
 
 此外，下列組件為特殊案例，可以使用簡單名稱來參考 (例如 `#r "AssemblyName"`)：
 
@@ -183,7 +183,7 @@ Azure Functions 裝載環境會自動加入下列組件︰
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNEt.WebHooks.Common`上也提供本文中使用的原始碼。
+* `Microsoft.AspNEt.WebHooks.Common` 。
 
 如果您需要參考私用組件，您可以將組件檔案上傳至您函式的相對 `bin` 資料夾，然後使用檔案名稱來參考它 (例如 `#r "MyAssembly.dll"`)。 如需如何將檔案上傳至函數資料夾的資訊，請參閱以下的＜封裝管理＞小節。
 
@@ -284,16 +284,16 @@ let mylog(log: ILogger, text: string) =
 
 提供給 `#load` 指示詞的路徑會相對於 `.fsx` 檔案的位置。
 
-* `#load "logger.fsx"` 載入位於函式資料夾中的檔案。
-* `#load "package\logger.fsx"` 載入檔案，位於`package`函式資料夾中的資料夾。
-* `#load "..\shared\mylogger.fsx"` 載入檔案，位於`shared`做為函式資料夾，也就是相同層級的資料夾正下方`wwwroot`。
+* `#load "logger.fsx"` 會載入位於函式資料夾中的檔案。
+* `#load "package\logger.fsx"` 會載入位於函式資料夾的 `package`資料夾中的檔案。
+* `#load "..\shared\mylogger.fsx"` 會載入位於與函式資料夾相同層級的 `shared`資料夾中的檔案 (也就是在 `wwwroot` 的正下方)。
 
 `#load` 指示詞只能搭配 `.fsx` (F# 指令碼) 檔案運作，而不能與 `.fs` 檔案搭配。
 
 ## <a name="next-steps"></a>後續步驟
 如需詳細資訊，請參閱下列資源：
 
-* [F#快速入門](/dotnet/articles/fsharp/index)
+* [F# 指南](/dotnet/articles/fsharp/index)
 * [Azure Functions 的最佳作法](functions-best-practices.md)
 * [Azure Functions 開發人員參考](functions-reference.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)

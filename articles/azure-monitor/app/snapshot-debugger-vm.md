@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
 ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877732"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>啟用快照集偵錯工具在 Azure Service Fabric、 雲端服務和虛擬機器中的.NET 應用程式
@@ -77,7 +77,7 @@ ms.locfileid: "58877732"
 
 3. 修改您應用程式的 `Startup` 類別，以新增和設定快照集收集器的遙測處理器。
 
-    新增下列 using 陳述式 `Startup.cs`
+    將下列 using 陳述式新增至 `Startup.cs`
 
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;

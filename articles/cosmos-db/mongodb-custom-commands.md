@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876883"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>使用 MongoDB 的延伸模組命令來管理適用於 MongoDB 的 Azure Cosmos DB 的 API 中所儲存資料 
@@ -43,7 +43,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 下表描述在命令中的參數：
 
-|**欄位**|**類型** |**描述** |
+|**欄位**|**類型** |**說明** |
 |---------|---------|---------|
 | customAction   |  字串  |   名稱的自訂命令，它必須是"CreateDatabase 」。      |
 | offerThroughput | int  | 您在資料庫設定的佈建的輸送量。 這是選擇性參數。 |
@@ -85,7 +85,7 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 
 下表描述在命令中的參數：
 
-|**欄位**|**類型** |**描述** |
+|**欄位**|**類型** |**說明** |
 |---------|---------|---------|
 | customAction    |    字串     |   自訂命令名稱。 必須是"UpdateDatabase 」。      |
 |  offerThroughput   |  int       |     您想要在資料庫上設定的新佈建的輸送量。    |
@@ -118,7 +118,7 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 下表描述在命令中的參數：
 
 
-|**欄位**|**類型** |**描述** |
+|**欄位**|**類型** |**說明** |
 |---------|---------|---------|
 |  customAction   |   字串      |   自訂命令名稱。 必須是 「 GetDatabase"|
         
@@ -126,7 +126,7 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 
 如果命令成功，回應會包含具有下列欄位的文件：
 
-|**欄位**|**類型** |**描述** |
+|**欄位**|**類型** |**說明** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   回應的狀態。 1 = = 成功。 0 = = 失敗。      |
 | `database`    |    `string`        |   資料庫名稱。      |
@@ -160,7 +160,7 @@ db.runCommand({customAction: "GetDatabase"});
 
 下表描述在命令中的參數：
 
-|**欄位**|**類型** |**描述** |
+|**欄位**|**類型** |**說明** |
 |---------|---------|---------|
 | customAction    | 字串 | 自訂命令名稱。 必須是 「 CreateDatabase"     |
 | collection      | 字串 | 集合的名稱                                   |
@@ -205,7 +205,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 下表描述在命令中的參數：
 
-|**欄位**|**類型** |**描述** |
+|**欄位**|**類型** |**說明** |
 |---------|---------|---------|
 |  customAction   |   字串      |   自訂命令名稱。 必須是"UpdateCollection 」。      |
 |  collection   |   字串      |   集合的名稱。       |
@@ -240,7 +240,7 @@ db.runCommand({customAction: "UpdateCollection", collection: "testCollection", o
 下表描述在命令中的參數：
 
 
-|**欄位**|**類型** |**描述** |
+|**欄位**|**類型** |**說明** |
 |---------|---------|---------|
 | customAction    |   字串      |   自訂命令名稱。 必須是"GetCollection 」。      |
 | collection    |    字串     |    集合的名稱。     |
@@ -250,7 +250,7 @@ db.runCommand({customAction: "UpdateCollection", collection: "testCollection", o
 如果命令成功，回應會包含具有下列欄位的文件
 
 
-|**欄位**|**類型** |**描述** |
+|**欄位**|**類型** |**說明** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   回應的狀態。 1 = = 成功。 0 = = 失敗。      |
 | `database`    |    `string`     |   資料庫名稱。      |
@@ -275,7 +275,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 如果未指定，自訂的回應會包含具有下列欄位的文件：
 
-|**欄位**|**類型** |**描述** |
+|**欄位**|**類型** |**說明** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   回應的狀態。 1 = = 成功。 0 = = 失敗。      |
 | `code`    |   `int`      |   命令失敗時，才傳回 （也就是 [確定] = = 0）。 包含 MongoDB 錯誤程式碼。 這是選擇性的回應參數。      |
@@ -286,4 +286,4 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 接下來，您可以繼續了解下列的 Azure Cosmos DB 概念： 
 
 * [Azure Cosmos DB 中的編製索引](../cosmos-db/index-policy.md)
-* [讓 Azure Cosmos DB 中的資料會自動利用存留時間過期](../cosmos-db/time-to-live.md)
+* [利用存留時間讓 Azure Cosmos DB 中的資料自動過期](../cosmos-db/time-to-live.md)

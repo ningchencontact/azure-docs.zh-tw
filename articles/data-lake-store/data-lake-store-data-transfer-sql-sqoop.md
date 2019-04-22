@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 7d3283b03d15278d1f7fd42a72b154dab1a442b4
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878516"
 ---
 # <a name="copy-data-between-azure-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>使用 Sqoop 在 Azure Data Lake Storage Gen1 和 Azure SQL Database 之間複製資料
@@ -138,7 +138,7 @@ HDInsight 叢集已有可用的 Sqoop 套件。 如果您已設定 HDInsight 叢
 關於 Sqoop 作業將資料複製到 Data Lake Storage Gen1 時的效能調整，請參閱 [Sqoop 效能文件](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)。
 
 ## <a name="see-also"></a>請參閱
-* [將資料從 Azure 儲存體 Blob 複製到 Data Lake 儲存體 Gen1](data-lake-store-copy-data-azure-storage-blob.md)
-* [保護 Data Lake 儲存體 Gen1 中的資料](data-lake-store-secure-data.md)
-* [使用 Azure Data Lake Analytics 與 Data Lake 儲存體 Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [使用 Azure HDInsight 與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [將資料從 Azure 儲存體 Blob 複製到 Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)

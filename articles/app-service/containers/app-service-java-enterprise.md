@@ -14,10 +14,10 @@ ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
 ms.openlocfilehash: 8db65fd9a1f271aea4ceb345f4d9dfbb6b9ff8a6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877375"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>適用於 Linux 上 App Service 的 Java Enterprise 指南
@@ -119,5 +119,4 @@ App Service 會提供工具，以協助您進行應用程式問題的疑難排�
 
 -   在左側導覽窗格中，按一下 [診斷記錄] 來開啟記錄。 按一下 [檔案系統] 來設定您的儲存體配額和保留期間，並儲存您的變更。 您可以在 `/home/LogFiles/` 下方找到這些記錄。
 -   [使用 SSH 連線到應用程式執行個體](app-service-linux-ssh-support.md)，以檢視執行中應用程式的記錄。
--   檢查診斷記錄放入**診斷記錄**面板入口網站中，或使用 Azure CLI 命令：
-`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`
+-   在入口網站的 [診斷記錄] 面板中，或使用下列 Azure CLI 命令，來檢查診斷記錄：`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

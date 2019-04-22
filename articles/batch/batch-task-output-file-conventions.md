@@ -16,10 +16,10 @@ ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d30a5ca0910c5ceebb38dec7b4cdbffd9b3cf27e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916779"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用適用於 .NET 的 Batch 檔案慣例程式庫將作業和工作輸出保存到 Azure 儲存體
@@ -200,7 +200,7 @@ Azure 入口網站會顯示使用 [Batch 檔案慣例標準](https://github.com/
 1. 將 Azure 儲存體帳戶連結到您的 Batch 帳戶。
 1. 保存輸出時，依照預先定義的儲存體容器命名與檔案命名慣例。 您可以在檔案慣例程式庫的[讀我檔案][github_file_conventions_readme]中找到這些慣例的定義。 如果您使用 [Azure Batch 檔案慣例][nuget_package]程式庫來保存您的輸出，您的檔案會根據檔案慣例標準進行保存。
 
-若要在 Azure 入口網站中檢視工作輸出檔案和記錄，請瀏覽到您對其輸出有興趣的工作，然後按一下 [已儲存的輸出檔案] 或 [已儲存的記錄]。 此影像顯示識別碼為 "007" 之工作的 [已儲存的輸出檔案]  ：
+若要在 Azure 入口網站中檢視工作輸出檔案和記錄，請瀏覽到您對其輸出有興趣的工作，然後按一下 [已儲存的輸出檔案] 或 [已儲存的記錄]。 下图显示了 ID 为“007”的任务的“保存的输出文件”：
 
 ![Azure 入口網站中的 [工作輸出] 刀鋒視窗][2]
 

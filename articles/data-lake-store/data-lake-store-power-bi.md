@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880061"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>使用 Power BI 分析 Azure Data Lake Storage Gen1 中的資料
@@ -97,5 +97,5 @@ ms.locfileid: "58880061"
 在 Power BI Desktop 中建立視覺效果之後，即可將它發佈到 Power BI 服務，與其他人共用。 如需如何執行的指示，請參閱[從 Power BI Desktop 發佈](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/)。
 
 ## <a name="see-also"></a>請參閱
-* [分析 Data Lake 儲存體 Gen1 中的資料使用 Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [使用 Data Lake Analytics 分析 Data Lake Storage Gen1 中的資料](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8b72604d7e736230911d0a0987b88d372be4ddf3
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881268"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>使用 Python 向 Azure Data Lake Storage Gen1 進行使用者驗證
@@ -48,7 +48,7 @@ ms.locfileid: "58881268"
 
 * `azure-mgmt-resource` 模組，這包括適用於 Active Directory 等等的 Azure 模組。
 * `azure-mgmt-datalake-store` 模組包括 Azure Data Lake Storage Gen1 帳戶管理作業。 如需關於此模組的詳細資訊，請參閱 [Azure Data Lake Storage Gen1 Management module reference (Azure Data Lake Storage Gen1 管理模組參考)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)。
-* `azure-datalake-store` 模組，含有 Azure Data Lake Storage Gen1 檔案系統作業。 如需關於此模組的詳細資訊，請參閱 [azure-datalake-store Filesystem module reference (azure-datalake-store 檔案系統模組參考)](https://azure-datalake-store.readthedocs.io/en/latest/)。
+* `azure-datalake-store` 模組包括 Azure Data Lake Storage Gen1 檔案系統作業。 如需關於此模組的詳細資訊，請參閱 [azure-datalake-store Filesystem module reference (azure-datalake-store 檔案系統模組參考)](https://azure-datalake-store.readthedocs.io/en/latest/)。
 
 使用下列命令來安裝新模組。
 
@@ -118,6 +118,6 @@ pip install azure-datalake-store
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何使用 Python，使用使用者驗證向 Azure Data Lake Storage Gen1 進行驗證。 您現在可以看看下列文章，了解如何配合使用 Python 與 Azure Data Lake Storage Gen1。
 
-* [帳戶管理作業在 Data Lake 儲存體 Gen1 上使用 Python](data-lake-store-get-started-python.md)
-* [使用 Python 在 Data Lake 儲存體 Gen1 上的資料作業](data-lake-store-data-operations-python.md)
+* [使用 Python 對 Data Lake Storage Gen1 進行帳戶管理作業](data-lake-store-get-started-python.md)
+* [使用 Python 對 Data Lake Storage Gen1 進行資料作業](data-lake-store-data-operations-python.md)
 

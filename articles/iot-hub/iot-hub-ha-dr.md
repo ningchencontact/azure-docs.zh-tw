@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
 ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879687"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中樞高可用性和災害復原
@@ -137,5 +137,5 @@ IoT 解決方案中部署拓撲的完整處理方式不在本文討論範圍內�
 
 遵循下列連結以深入了解 Azure IoT 中樞：
 
-* [開始使用 IoT 中樞 （快速入門）](quickstart-send-telemetry-dotnet.md)
-* [何謂 Azure IoT 中心？](about-iot-hub.md)
+* [開始使用 IoT 中樞 (快速入門)](quickstart-send-telemetry-dotnet.md)
+* [何謂 Azure IoT 中樞？](about-iot-hub.md)

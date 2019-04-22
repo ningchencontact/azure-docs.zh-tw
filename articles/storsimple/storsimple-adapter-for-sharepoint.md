@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
 ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885582"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>安裝和設定 StorSimple Adapter for SharePoint
@@ -59,7 +59,7 @@ RBS 的 Microsoft Azure StorSimple 實作提供下列優點：
 
 * 請確定內容的大小總計 (內容資料庫大小，加上任何相關聯的外部化 BLOB 大小) 不超過 SharePoint 所支援的 RBS 大小限制。 這項限制為 200 GB。 
   
-    **若要測量內容資料庫和 BLOB 大小**
+    **測量內容資料庫和 BLOB 大小**
   
   1. 在中央管理 WFE 上執行此查詢。 啟動 SharePoint 管理命令介面，然後輸入下列 Windows PowerShell 命令來取得內容資料庫的大小：
      

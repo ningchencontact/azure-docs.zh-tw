@@ -16,10 +16,10 @@ ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894913"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>在 Azure App Service 中針對應用程式啟用診斷記錄
@@ -57,8 +57,8 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 
 | Level| 包含的記錄類別 |
 |-|-|
-|**已停用** | None |
-|**Error** | 錯誤、嚴重 |
+|**Disabled** | None |
+|**錯誤** | 錯誤、嚴重 |
 |**警告** | 警告、錯誤、嚴重|
 |**資訊** | 資訊、警告、錯誤、嚴重|
 |**詳細資訊** | 追蹤、偵錯、資訊、警告、錯誤、嚴重 (所有類別) |
@@ -115,7 +115,7 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-此命令會儲存名為 'appname' 為檔案的應用程式記錄**webapp_logs.zip**目前目錄中。
+此命令将名为“appname”的应用的日志保存到当前目录中名为 **webapp_logs.zip** 的文件。
 
 > [!NOTE]
 > 如果您尚未安裝 Azure CLI，或尚未將其設定為使用您的「Azure 訂用帳戶」，請參閱[如何使用 Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)。
@@ -132,7 +132,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 3. 上傳您的專案並執行，以產生記錄資料。
 4. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您新的 Application Insights 資源，然後開啟 [搜尋]。 您應該會看到您的記錄資料，以及要求、使用情況及其他遙測。 有些遙測可能需要數分鐘才能抵達：按一下 [重新整理]。 [深入了解](../azure-monitor/app/diagnostic-search.md)
 
-[深入了解使用 Application Insights 追蹤的效能](../azure-monitor/app/azure-web-apps.md)
+[深入了解使用 Application Insights 的效能追蹤](../azure-monitor/app/azure-web-apps.md)
 
 ## <a name="streamlogs"></a> 操作說明：串流記錄
 開發應用程式時，如果能夠幾近即時地檢視記錄資訊，通常會很實用。 您可以使用 Azure CLI，將記錄資訊串流至開發環境。
@@ -231,5 +231,5 @@ Web 伺服器記錄使用 [W3C 擴充記錄格式](/windows/desktop/Http/w3c-log
 
 ## <a name="nextsteps"></a> 後續步驟
 * [如何監視 Azure App Service](web-sites-monitor.md)
-* [在 Visual Studio 中疑難排解 Azure App Service](troubleshoot-dotnet-visual-studio.md)
-* [分析 HDInsight 中的應用程式記錄檔](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [在 Visual Studio 中進行 Azure App Service 的疑難排解](troubleshoot-dotnet-visual-studio.md)
+* [在 HDInsight 中分析應用程式記錄](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) \(英文\)

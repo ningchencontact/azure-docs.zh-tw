@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 4a53bcf77696d3aa53a4a404bfacd6f6d468885b
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862092"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>針對 IoT 部署 Azure 資訊安全中心C#-適用於 Linux 的安全性代理程式
 
 > [!IMPORTANT]
-> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
+> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 本指南說明如何安裝和部署 iot 的 Azure 資訊安全中心 (ASC) C#-以 Linux 為主的安全性代理程式。
@@ -52,7 +52,7 @@ ms.locfileid: "58862092"
 
 1. 解壓縮套件的內容，然後瀏覽至 /Install 資料夾。
 
-1. 新增執行權限**InstallSecurityAgent 指令碼**執行 `chmod +x InstallSecurityAgent.sh` 
+1. 執行 `chmod +x InstallSecurityAgent.sh` 將執行權限新增至 **InstallSecurityAgent** 指令碼 
 
 1. 接下來，請執行： 
 
@@ -75,7 +75,7 @@ ms.locfileid: "58862092"
 - 使用所提供的驗證參數來設定代理程式。
 
 
-如需其他協助，請使用 –help 參數來執行指令碼： `./InstallSecurityAgent.sh --help`
+如需其他協助，請使用 –help 參數來執行指令碼：`./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>解除安裝代理程式
 
@@ -118,7 +118,7 @@ ms.locfileid: "58862092"
 
    1. 如需失敗的詳細資訊，請檢視記錄檔。  
 
-       記錄檔位置是： `/var/ASCIoTAgent/IotAgentLog.log`
+       記錄檔位置是：`/var/ASCIoTAgent/IotAgentLog.log`
 
        根據您在步驟 2 為 **logFilePath** 選擇的名稱，來變更檔案位置路徑。 
 

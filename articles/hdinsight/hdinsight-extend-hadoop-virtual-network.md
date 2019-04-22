@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883559"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
@@ -26,7 +26,7 @@ ms.locfileid: "58883559"
 * 直接存取無法透過網際網路公開使用的 [Apache Hadoop](https://hadoop.apache.org/) 服務。 例如，[Apache Kafka](https://kafka.apache.org/) API 或 [Apache HBase](https://hbase.apache.org/) Java API。
 
 > [!IMPORTANT]  
-> 在 2019 年 2 月 28 日之後, 將相同的 HDInsight 叢集資源群組中佈建的網路資源 （例如 Nic、 LBs 等） 在 VNET 中建立的新叢集。 先前，VNET 資源群組中所佈建這些資源。 不沒有目前執行的叢集和建立 VNET 沒有這些叢集的任何變更。
+> 2019 年 2 月 28 日以后，在 VNET 中创建的新群集的网络资源（例如 NIC、LB 等）会在同一 HDInsight 群集资源组中进行预配。 以前，这些资源在 VNET 资源组中预配。 当前运行的群集以及那些在没有 VNET 的情况下创建的群集没有任何更改。
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>如需程式碼範例和範例的必要條件
 
@@ -111,10 +111,10 @@ ms.locfileid: "58883559"
 
 4. 建立 HDInsight 叢集，並在設定期間選擇 Azure 虛擬網路。 使用下列文件中的步驟，以了解叢集建立程序：
 
-    * [建立使用 Azure 入口網站的 HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md)
-    * [建立 HDInsight 使用 Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-    * [建立 HDInsight 使用 Azure 傳統 CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-    * [建立 HDInsight 使用 Azure Resource Manager 範本](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+    * [使用 Azure 入口網站建立 HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md)
+    * [使用 Azure PowerShell 建立 HDInsight](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+    * [使用 Azure 傳統 CLI 建立 HDInsight](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [使用 Azure Resource Manager 範本建立 HDInsight](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
    > [!IMPORTANT]  
    > 將 HDInsight 新增至虛擬網路是選擇性的設定步驟。 請務必在設定叢集時選取虛擬網路。
@@ -240,13 +240,13 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 如需網路安全性群組或使用者定義路由的詳細資訊，請參閱下列文件：
 
-* [網路安全性群組](../virtual-network/security-overview.md)
+* [网络安全组](../virtual-network/security-overview.md)
 
-* [使用者定義的路由](../virtual-network/virtual-networks-udr-overview.md)
+* [使用者定義路由](../virtual-network/virtual-networks-udr-overview.md)
 
 #### <a name="forced-tunneling-to-on-premise"></a>流向內部部署的強制通道
 
-強制通道是一種使用者定義路由設定，其中來自子網路的所有流量都會強制流向特定網路或位置，例如內部部署網路。 HDInsight 會__不__支援強制通道的內部部署網路。 如果您使用 Azure 防火牆或網路虛擬設備，裝載在 Azure 中，您可以使用流量路由傳送到其進行監視，並允許所有連出流量的 Udr。
+強制通道是一種使用者定義路由設定，其中來自子網路的所有流量都會強制流向特定網路或位置，例如內部部署網路。 HDInsight 會__不__支援強制通道的內部部署網路。 如果使用托管在 Azure 中的 Azure 防火墙或网络虚拟设备，则可以使用 UDR 将流量路由到它以便进行监视并允许所有传出流量。
 
 ## <a id="hdinsight-ip"></a> 所需的 IP 位址
 
@@ -328,10 +328,10 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 下列資源管理範本會建立限制輸入流量的虛擬網路，但允許來自 HDInsight 所需 IP 位址的流量。 此範本也會在虛擬網路中建立 HDInsight 叢集。
 
-* [部署受保護的 Azure 虛擬網路和 HDInsight Hadoop 叢集](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+* [部署安全的 Azure 虛擬網路和 HDInsight Hadoop 叢集](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]  
-> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
+> 更改此示例中使用的 IP 地址，使之与要使用的 Azure 区域匹配。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -653,7 +653,7 @@ $vnet | Set-AzVirtualNetwork
 
     不適用於虛擬網路 DNS 尾碼 (例如，microsoft.com) 的任何要求都是透過 Azure 遞迴解析程式所處理。
 
-4. 若要使用設定，請重新啟動 Bind。 例如，兩部 DNS 伺服器上的 `sudo service bind9 restart`。
+4. 若要使用此配置，请重启 Bind。 例如，兩部 DNS 伺服器上的 `sudo service bind9 restart`。
 
 完成這些步驟之後，您可以使用完整網域名稱 (FQDN) 連線至虛擬網路中的資源。 现在可以将 HDInsight 安装到虚拟网络。
 

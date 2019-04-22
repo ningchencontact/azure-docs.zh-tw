@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877511"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的使用者帳戶執行工作
@@ -328,9 +328,9 @@ Batch 服務版本 2017-01-01.4.0 導入重大變更，將舊版中的 **runElev
 
 | 如果您的程式碼使用...                      | 將它更新為...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `run_elevated=True`                       | `user_identity=user`其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
-| `run_elevated=False`                      | `user_identity=user`其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
-| `run_elevated` 未指定 | 不需要更新                                                                                                                                  |
+| `run_elevated=True`                       | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
+| `run_elevated=False`                      | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
+| `run_elevated` 未指定 | 无需更新                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>後續步驟

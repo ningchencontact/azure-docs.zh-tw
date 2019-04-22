@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 2a8ae3ab71b258d92d9761cc813b168717e44d82
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878004"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>運用 Azure 資料表進行潛在客戶管理之說明
@@ -34,7 +34,7 @@ ms.locfileid: "58878004"
 
     ![建立 Azure 儲存體帳戶的步驟](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-4.  複製金鑰的儲存體帳戶連接字串，並將它貼到 Cloud Partner 入口網站上的 [儲存體帳戶連接字串] 欄位。 連接字串的範例 `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
+4.  複製金鑰的儲存體帳戶連接字串，並將它貼到 Cloud Partner 入口網站上的 [儲存體帳戶連接字串] 欄位。 以下是連接字串的範例：`DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
     
     ![Azure 儲存體金鑰](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "58878004"
 
      ![為 Azure 資料表名稱挑選一個自訂值](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **篩選查詢** – 按一下此欄位，[取得過去時間] 圖示便會顯示在快顯視窗中。 選取 [過去時間] 以使用這個作為時間戳記來篩選查詢。 或者，您可以將此函式貼到欄位： `gt datetime'@{body('Get_past_time')}'`
+   - **篩選查詢** – 按一下此欄位，[取得過去時間] 圖示便會顯示在快顯視窗中。 選取 [過去時間] 以使用這個作為時間戳記來篩選查詢。 或者，您可以將此函式貼到欄位中：`gt datetime'@{body('Get_past_time')}'`
 
      ![設定篩選查詢函式](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

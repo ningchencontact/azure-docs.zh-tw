@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893175"
 ---
 # <a name="monitor-server-metrics"></a>監視伺服器計量
@@ -85,6 +85,6 @@ Analysis Services 提供計量來協助您監視伺服器的效能和健康情�
 |TotalConnectionRequests|連線要求的總計|計數|平均值|連線要求的總計。 |
 
 ## <a name="next-steps"></a>後續步驟
-[Microsoft Azure 中的监视](../monitoring-and-diagnostics/monitoring-overview.md)   
+[在 Microsoft Azure 中監視](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Microsoft Azure 中的計量](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Azure 監視器 REST API 中的計量](/rest/api/monitor/metrics)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
 ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918717"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>軟體的成本不包括在 Azure 保留的虛擬機器執行個體內
@@ -74,9 +74,9 @@ ms.locfileid: "58918717"
 - [Azure 保留項目有哪些？](billing-save-compute-costs-reservations.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
-- [了解如何套用保留折扣](billing-understand-vm-reservation-charges.md)
-- [了解您的隨用隨付訂用帳戶的保留使用情況](billing-understand-reserved-instance-usage.md)
-- [了解 Enterprise 註冊之保留項目使用方式](billing-understand-reserved-instance-usage-ea.md)
+- [了解保留項目折扣的套用方式](billing-understand-vm-reservation-charges.md)
+- [了解預付型方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
 

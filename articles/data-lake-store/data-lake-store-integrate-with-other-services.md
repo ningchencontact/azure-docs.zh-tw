@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: e28863f9980d6403bef1f88de01b7a9b5271b444
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879296"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>將 Azure Data Lake Storage Gen1 與其他 Azure 服務整合
@@ -27,9 +27,9 @@ Azure Data Lake Storage Gen1 可以與其他 Azure 服務一起使用，以啟�
 
 如需如何使用 Data Lake Storage Gen1 佈建 HDInsight 叢集的指示，請參閱：
 
-* [佈建 HDInsight 叢集與 Data Lake 儲存體 Gen1 使用 Azure 入口網站](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [做為預設儲存體使用 Azure PowerShell 佈建 HDInsight 叢集與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-* [作為其他儲存體使用 Azure PowerShell 佈建 HDInsight 叢集與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [使用 Azure 入口網站佈建 HDInsight 叢集與 Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [使用 Azure PowerShell 以 Data Lake Storage Gen1 作為預設儲存體佈建 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+* [使用 Azure PowerShell 以 Data Lake Storage Gen1 作為額外儲存體佈建 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 ## <a name="use-data-lake-storage-gen1-with-azure-data-lake-analytics"></a>搭配 Azure Data Lake Analytics 使用 Data Lake Storage Gen1
 [Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) 可讓您在雲端規模使用巨量資料。 它以動態方式佈建資源，讓您能夠分析 TB 或甚至是 EB 的資料，這些資料可以儲存在許多支援的資料來源，其中一個就是 Data Lake Storage Gen1。 Data Lake Analytics 已特別最佳化以搭配 Data Lake Storage Gen1 使用 - 提供最高層級的效能、輸送量和您的巨量資料工作負載的平行處理。
@@ -67,6 +67,6 @@ Azure Data Lake Storage Gen1 提供命令列工具 AdlCopy，可讓您將資料�
 
 ## <a name="see-also"></a>請參閱
 * [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
-* [開始使用 Data Lake 儲存體 Gen1 使用入口網站](data-lake-store-get-started-portal.md)
-* [開始使用 Data Lake 儲存體 Gen1 使用 PowerShell](data-lake-store-get-started-powershell.md)  
+* [使用入口網站開始使用 Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* [使用 PowerShell 開始使用 Data Lake Storage Gen1](data-lake-store-get-started-powershell.md)  
 

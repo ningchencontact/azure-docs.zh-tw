@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883440"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>更新 Office 365 和 Azure Active Directory 的同盟憑證
@@ -114,7 +114,7 @@ Azure AD 會嘗試監視同盟中繼資料，並依照此中繼資料的指示�
 
 **1.AD FS 屬性 AutoCertificateRollover 必須設定為 True。** 這表示 AD FS 會在舊憑證到期之前，自動產生新的權杖簽署和權杖解密憑證。
 
-**2.可公開存取的 AD FS 同盟中繼資料。**  從公用網際網路 (離開公司網路) 的電腦瀏覽到下列 URL 檢查同盟中繼資料是否可公開存取：
+**2.可公開取得 AD FS 同盟中繼資料。**  從公用網際網路 (離開公司網路) 的電腦瀏覽到下列 URL 檢查同盟中繼資料是否可公開存取：
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
@@ -130,11 +130,11 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 在這些案例中，每當您更新權杖簽署憑證時，您還必須使用 PowerShell 命令 Update-MsolFederatedDomain 更新 Office 365 網域。
 
 ### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>步骤 1：確定 AD FS 具有新的權杖簽署憑證
-**非預設的組態**
+**非預設設定**
 
 如果您處於非預設的 AD FS 設定 (也就是 **AutoCertificateRollover** 設定為 **False**)，則您想必也是使用自訂憑證 (非自我簽署)。 如需如何更新 AD FS 權杖簽署憑證的詳細資訊，請參閱 [給未使用 AD FS 自我簽署憑證之客戶的指導方針](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert)。
 
-**不是公開可用同盟中繼資料**
+**無法公開取得同盟中繼資料**
 
 另一方面，如果 **AutoCertificateRollover** 設定為 **True**，但無法公開取得同盟中繼資料，請先確定 AD FS 已產生新的權杖簽署憑證。 执行以下步骤，确认有新的令牌签名证书：
 

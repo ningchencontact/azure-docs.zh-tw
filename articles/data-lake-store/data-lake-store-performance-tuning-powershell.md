@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
 ms.openlocfilehash: 1c554b0eee844a632e6412b6f8a285c7a2573326
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885310"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>使用 PowerShell 搭配 Azure Data Lake Storage Gen1 的效能微調指導方針
@@ -95,8 +95,8 @@ ms.locfileid: "58885310"
 * **節流錯誤**：如果並行處理量太高，您可能會看到節流錯誤。 如果您看到節流錯誤，則應該減少並行處理量或與我們連絡。
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 Azure Data Lake 儲存體 Gen1 處理巨量資料需求](data-lake-store-data-scenarios.md) 
-* [保護 Data Lake 儲存體 Gen1 中的資料](data-lake-store-secure-data.md)
-* [使用 Azure Data Lake Analytics 與 Data Lake 儲存體 Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [使用 Azure HDInsight 與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [使用 Azure Data Lake Storage Gen1 處理巨量資料需求](data-lake-store-data-scenarios.md) 
+* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 

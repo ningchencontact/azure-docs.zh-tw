@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
 ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878106"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 中資料的災害復原指導方針
@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen1 提供本地備援儲存體 (LRS)。 因此，透�
 ## <a name="disaster-recovery-guidance"></a>災害復原指引
 每位客戶備妥自己的災害復原計畫是相當重要的。 請參閱本文的資訊來擬定您的災害復原計劃。 這裡有一些資源可協助您建立自己的計畫。
 
-* [災害復原和高可用性 Azure 應用程式](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
+* [Azure 應用程式的災害復原和高可用性](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Azure 復原技術指導](../resiliency/resiliency-technical-guidance.md)
 
 ### <a name="best-practices"></a>最佳作法
@@ -42,6 +42,6 @@ Azure Data Lake Storage Gen1 提供本地備援儲存體 (LRS)。 因此，透�
 組織也可以為其 Data Lake Storage Gen1 帳戶啟用[診斷記錄](data-lake-store-diagnostic-logs.md)，以收集資料存取稽核線索來提供刪除或更新檔案之可疑人員的相關資訊。
 
 ## <a name="next-steps"></a>後續步驟
-* [開始使用 Azure Data Lake 儲存體 Gen1](data-lake-store-get-started-portal.md)
-* [保護 Data Lake 儲存體 Gen1 中的資料](data-lake-store-secure-data.md)
+* [開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
 

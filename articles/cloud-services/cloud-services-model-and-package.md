@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917306"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什麼是雲端服務模型？如何封裝？
@@ -92,7 +92,7 @@ ms.locfileid: "58917306"
 
 您可以參考[服務定義結構描述](/previous-versions/azure/reference/ee758711(v=azure.100))，進一步了解此處所使用的 XML 結構描述，不過，以下是某些元素的簡短說明：
 
-**網站**  
+**Sites**  
  包含 IIS7 中所裝載的網站或 Web 應用程式的定義。
 
 **InputEndpoints**  
@@ -104,16 +104,16 @@ ms.locfileid: "58917306"
 **ConfigurationSettings**  
  包含特定角色功能的設定定義。
 
-**憑證**  
+**Certificates**  
  包含角色所需的憑證的定義。 上述程式碼範例顯示用於設定 Azure Connect 的憑證。
 
 **LocalResources**  
  包含本機儲存資源的定義。 本機儲存資源是執行中角色執行個體所在之虛擬機器的檔案系統上的保留目錄。
 
-**匯入**  
+**Imports**  
  包含匯入的模組的定義。 上述程式碼範例顯示遠端桌面連線與 Azure Connect 的模組。
 
-**啟動**  
+**Startup**  
  包含角色啟動時執行的工作。 這些工作是在 .cmd 或可執行檔中定義。
 
 <a name="cscfg"></a>
@@ -143,13 +143,13 @@ ms.locfileid: "58917306"
 
 您可以參考 [服務組態結構描述](/previous-versions/azure/reference/ee758710(v=azure.100)) ，進一步了解此處所使用的 XML 結構描述，不過，以下是元素的簡短說明：
 
-**執行個體**  
- 設定執行中角色執行個體的數目。 為防止您的雲端服務在升級期間可能變成無法使用，建議您部署多個 Web 對向角色執行個體。 部署多個執行個體的做法符合 [Azure 計算服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/)中的指導方針，當您為服務部署兩個或更多個角色執行個體時，此等級協定可保證網際網路對向角色有 99.95% 的外部連線能力。
+**Instances**  
+为角色配置运行角色实例数。 為防止您的雲端服務在升級期間可能變成無法使用，建議您部署多個 Web 對向角色執行個體。 部署多個執行個體的做法符合 [Azure 計算服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/)中的指導方針，當您為服務部署兩個或更多個角色執行個體時，此等級協定可保證網際網路對向角色有 99.95% 的外部連線能力。
 
 **ConfigurationSettings**  
  設定執行中角色執行個體的設定。 `<Setting>` 元素的名稱必須符合服務定義檔中的設定定義。
 
-**憑證**  
+**Certificates**  
  設定服務所使用的憑證。 上述程式碼範例顯示如何定義 RemoteAccess 模組的憑證。 *thumbprint* 屬性的值必須設定為要使用的憑證的指紋。
 
 <p/>
@@ -210,10 +210,10 @@ Azure 仅允许 Web 角色有一个入口点。 這表示所有流量都是透�
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>使用服務執行階段事件處理組態變更
 [Azure 執行階段程式庫](/previous-versions/azure/reference/mt419365(v=azure.100))包含 [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)) 命名空間，其中提供從角色來與 Azure 環境互動的類別。 [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) 類別會定義組態變更前後會引發的下列事件：
 
-* **[變更](/previous-versions/azure/reference/ee758134(v=azure.100))事件**  
+* **[Changing](/previous-versions/azure/reference/ee758134(v=azure.100)) 事件**  
   這會在組態變更套用至指定的角色執行個體之前發生，讓您有機會記下角色執行個體 (如有需要)。
-* **[變更](/previous-versions/azure/reference/ee758129(v=azure.100))事件**  
-  ：在組態變更套用至指定的角色執行個體之後發生。
+* **[Changed](/previous-versions/azure/reference/ee758129(v=azure.100)) 事件**  
+  发生在配置更改已应用于某个角色的指定实例之后。
 
 > [!NOTE]
 > 由於憑證變更時，一律會讓角色執行個體離線，因此不會引發 RoleEnvironment.Changing 或 RoleEnvironment.Changed 事件。

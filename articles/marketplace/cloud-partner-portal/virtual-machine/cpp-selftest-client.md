@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58848925"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>建立用來預先驗證 Azure 虛擬機器映像的自我測試用戶端
@@ -71,7 +71,7 @@ Request body:    The Request body parameters should use the following JSON forma
 
 |      欄位         |    描述    |
 |  ---------------   |  ---------------  |
-|  Authorization     |  "Bearer xxxx-xxxx-xxxx-xxxxx" 字串包含可使用 PowerShell 建立的 Azure Active Directory (AD) 用戶端權杖。          |
+|  授權     |  "Bearer xxxx-xxxx-xxxx-xxxxx" 字串包含可使用 PowerShell 建立的 Azure Active Directory (AD) 用戶端權杖。          |
 |  DNS 名稱           |  要測試的 VM 所具備的 DNS 名稱    |
 |  使用者              |  用來登入 VM 的使用者名稱         |
 |  密碼          |  用來登入 VM 的密碼          |

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
 ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917782"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>了解如何將 SUSE Linux Enterprise 軟體保留計劃折扣套用適用於 Azure
@@ -127,11 +127,11 @@ Azure 入口網站市集名稱：
 若要深入了解保留，請參閱下列文章：
 
 - [什麼是 Azure 保留項目？](billing-save-compute-costs-reservations.md)
-- [支付使用 Azure 保留的 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [使用 Azure Reservations 預付 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [管理 Azure 保留的項目](billing-manage-reserved-vm-instance.md)
-- [了解您的隨用隨付訂用帳戶的保留使用情況](billing-understand-reserved-instance-usage.md)
-- [了解 Enterprise 註冊之保留項目使用方式](billing-understand-reserved-instance-usage-ea.md)
+- [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
+- [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
 

@@ -8,10 +8,10 @@ ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894930"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>從虛擬網路 (VNet) 存取 Azure Cosmos DB
@@ -61,6 +61,6 @@ NSG 規則可用來限制子網路和虛擬網路的往返連線。 當您將 Az
 
 ## <a name="next-steps"></a>後續步驟
 
-* [如何限制 Azure Cosmos 帳戶的存取權的虛擬網路內的子網路](how-to-configure-vnet-service-endpoint.md)
-* [如何設定您的 Azure Cosmos 帳戶的 IP 防火牆](how-to-configure-firewall.md)
+* [如何限制 Azure Cosmos 帳戶對虛擬網路內子網路的存取](how-to-configure-vnet-service-endpoint.md)
+* [如何設定 Azure Cosmos 帳戶的 IP 防火牆](how-to-configure-firewall.md)
 

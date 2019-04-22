@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
 ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916677"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>針對 Azure 上的 SQL Server 備份進行疑難排解
@@ -35,7 +35,7 @@ ms.locfileid: "58916677"
 
 ### <a name="backup-type-unsupported"></a>不支援的備份類型
 
-| 嚴重性 | 描述 | 可能的原因 | 建議的動作 |
+| 严重性 | 描述 | 可能的原因 | 建議的動作 |
 |---|---|---|---|
 | 警告 | 此資料庫目前的設定不支援相關聯的原則中出現的的特定種類備份類型。 | <li>**Master DB**：只有完整資料庫備份作業可對 master 資料庫中;既不**差異**備份或交易**記錄**的備份。 </li> <li>**簡單復原模式**中的任何資料庫不允許交易**記錄**進行備份。</li> | 修改資料庫設定，使其支援原則中的所有備份類型。 或者，變更目前的原則，僅納入支援的備份類型。 否則，排定的備份期間將略過不支援的備份類型或臨機操作備份的備份作業將會失敗。
 
@@ -49,7 +49,7 @@ ms.locfileid: "58916677"
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
 | 此 SQL 資料庫不支援所要求的備份類型。 | 當資料庫復原模式不允許所要求的備份類型時便會發生。 此錯誤會於下列情況時發生： <br/><ul><li>使用簡單復原模式的資料庫不允許記錄備份。</li><li>master 資料庫不允許差異備份和記錄備份。</li></ul>如需詳細資訊，請參閱 [SQL 復原模式](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server)文件。 | 如果在簡單復原模式下的資料庫記錄備份失敗，請嘗試下列其中一個選項：<ul><li>如果資料庫處於簡單復原模式，請停用記錄備份。</li><li>使用 [SQL 文件](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server)將資料庫復原模式變更為「完整」或「大量記錄」。 </li><li> 如果您不想變更復原模式，而且所用來備份多個資料庫的標準原則無法變更，則請忽略此錯誤。 完整和差異備份會依排程運作。 記錄備份則會略過，這符合此案例的預期。</li></ul>如果是 master 資料庫，而且您已設定差異或記錄備份，請使用下列任何步驟：<ul><li>使用入口網站將 master 資料庫的備份原則排程變更為「完整」。</li><li>如果所用來備份多個資料庫的標準原則無法變更，則請忽略此錯誤。 完整備份會依排程運作。 差異或記錄備份則不會進行，這符合此案例的預期。</li></ul> |
-| 作業遭到取消，原因是同一個資料庫上已在執行衝突的作業。 | 請參閱關於同時執行的[備份和還原限制部落格文章](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database)。| [您可以使用 SQL Server Management Studio (SSMS) 來監視備份作業。](manage-monitor-sql-database-backup.md) 衝突的作業失敗後，請重新啟動作業。|
+| 作業遭到取消，原因是同一個資料庫上已在執行衝突的作業。 | 請參閱關於同時執行的[備份和還原限制部落格文章](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database)。| [使用 SQL Server Management Studio (SSMS) 來監視備份作業。](manage-monitor-sql-database-backup.md) 衝突的作業失敗後，請重新啟動作業。|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
@@ -169,8 +169,7 @@ ms.locfileid: "58916677"
   * 長導致過期延伸模組組態，它已關閉 VM
   * 已刪除 VM 和具有相同名稱和相同的資源群組，為已刪除的 VM 中建立另一個 VM
   * 其中一個 AG 節點未收到完整的備份設定，這可能是在可用性群組註冊至保存庫時，或新增新的節點取得  <br>
-   
-在上述案例中，建議您使用觸發重新註冊在 VM 上的作業。 這個選項才可透過 PowerShell，並即將推出在 Azure 入口網站中。
+    在上述案例中，建議您使用觸發重新註冊在 VM 上的作業。 這個選項才可透過 PowerShell，並即將推出在 Azure 入口網站中。
 
 
 ## <a name="next-steps"></a>後續步驟

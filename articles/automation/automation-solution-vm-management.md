@@ -10,10 +10,10 @@ ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58762934"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
@@ -379,6 +379,6 @@ ms.locfileid: "58762934"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解如何建構不同的搜尋查詢，以及檢閱使用 Azure 監視器記錄檔的自動化作業記錄檔，請參閱[Azure 監視器記錄檔中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)。
+- 若要详细了解如何使用 Azure Monitor 日志构造不同的搜索查询和查看自动化作业日志，请参阅 [Azure Monitor 日志中的日志搜索](../log-analytics/log-analytics-log-searches.md)。
 - 若要深入了解 Runbook 執行方式、如何監視 Runbook 作業，以及其他技術性詳細資料，請參閱[追蹤 Runbook 作業](automation-runbook-execution.md)。
-- 若要深入了解 Azure 監視器記錄檔和資料收集來源，請參閱[在 Azure 監視器中收集 Azure 儲存體的資料記錄檔概觀](../azure-monitor/platform/collect-azure-metrics-logs.md)。
+- 若要了解有关 Azure Monitor 日志和数据收集源的详细信息，请参阅[在 Azure Monitor 日志中收集 Azure 存储数据概述](../azure-monitor/platform/collect-azure-metrics-logs.md)。

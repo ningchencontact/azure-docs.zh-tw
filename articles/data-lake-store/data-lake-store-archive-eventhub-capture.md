@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bb67c1769510710b368bef4dc0b501f939b3427e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884496"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>使用 Azure Data Lake Storage Gen1 從事件中樞擷取資料
@@ -26,7 +26,7 @@ ms.locfileid: "58884496"
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-* **Azure Data Lake Storage Gen1 帳戶**。 如需有關如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)。
+* **Azure Data Lake Storage Gen1 帳戶**。 如需如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)。
 
 *  **事件中樞命名空間**。 如需相關指示，請參閱[建立事件中樞命名空間](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)。 請確定 Data Lake Storage Gen1 帳戶和事件中樞命名空間位於相同的 Azure 訂用帳戶中。
 
@@ -123,5 +123,5 @@ ms.locfileid: "58884496"
   
 
 ## <a name="see-also"></a>請參閱
-* [保護 Data Lake 儲存體 Gen1 中的資料](data-lake-store-secure-data.md)
-* [將資料從 Azure 儲存體 Blob 複製到 Data Lake 儲存體 Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
+* [將資料從 Azure 儲存體 Blob 複製到 Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)

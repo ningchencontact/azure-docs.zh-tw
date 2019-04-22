@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905082"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>如何以 WebJobs 的形式运行 Durable Functions
@@ -32,8 +32,8 @@ WebJobs SDK 2.x 版中提供了有关链接 Durable Functions 的示例：下载
 本文假設您已熟悉 WebJobs SDK、Azure Functions 的C# 類別庫開發和 Durable Functions 等項目的基本概念。 如果您需要這些主題的簡介，請參閱下列資源：
 
 * [開始使用 WebJobs SDK](../../app-service/webjobs-sdk-get-started.md)
-* [使用 Visual Studio 建立第一個函式](../functions-create-your-first-function-visual-studio.md)
-* [長期函式](durable-functions-sequence.md)
+* [使用 Visual Studio 建立第一個函數](../functions-create-your-first-function-visual-studio.md)
+* [Durable Functions](durable-functions-sequence.md)
 
 若要完成本文中的步驟：
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876831"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Virtual Array 系統需求
@@ -39,7 +39,7 @@ ms.locfileid: "58876831"
 軟體需求包括支援的網頁瀏覽器、SMB 版本、虛擬化平台和最低虛擬裝置需求的資訊。
 
 ### <a name="supported-virtualization-platforms"></a>支援的虛擬化平台
-| **hypervisor** | **版本** |
+| **Hypervisor** | **版本** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 和更新版本 |
 | VMware ESXi |5.0、5.5、6.0 和 6.5。 |
@@ -92,7 +92,7 @@ ms.locfileid: "58876831"
 ## <a name="networking-requirements"></a>網路需求
 下表列出必須在您的防火牆中開啟的連接埠，以允許 iSCSI、SMB、雲端或管理流量。 在這個資料表中，*in* 或 *inbound* 指的是輸入用戶端要求存取裝置的方向。 *Out* 或 *outbound* 指的是 StorSimple 裝置於外部傳送資料至部署之上的方向：例如，輸出到網際網路。
 
-| **連接埠號碼<sup>1</sup>** | **內或外** | **連接埠範圍** | **必要項** | **注意** |
+| **連接埠號碼<sup>1</sup>** | **內或外** | **連接埠範圍** | **必要** | **注意事項** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |外 |WAN |否 |輸出連接埠用於網際網路存取以擷取更新。 <br></br>輸出 Web Proxy 可由使用者設定。 |
 | TCP 443 (HTTPS) |外 |WAN |是 |輸出連接埠用來存取雲端中的資料。 <br></br>輸出 Web Proxy 可由使用者設定。 |
@@ -133,4 +133,4 @@ ms.locfileid: "58876831"
 | `https://*.data.microsoft.com` |Windows 中的遙測服務，請參閱[客戶經驗和診斷遙測的更新](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>後續步驟
-* [準備入口網站來部署 StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
+* [準備入口網站以部署 StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

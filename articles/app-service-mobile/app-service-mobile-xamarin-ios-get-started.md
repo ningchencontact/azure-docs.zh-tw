@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892427"
 ---
 # <a name="create-a-xamarinios-app"></a>建立 Xamarin.iOS 應用程式
@@ -49,7 +49,7 @@ ms.locfileid: "58892427"
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-xamarinios-app"></a>下载并运行 Xamarin.iOS 应用
-1. 在瀏覽器視窗中開啟 [Azure 入口網站] 。
+1. 在瀏覽器視窗中開啟 [Azure 门户] 。
 2. 在行動應用程式的設定刀鋒視窗上，按一下 [開始使用]  >  [Xamarin.iOS]。 在步驟 3 中，按一下 [建立新的應用程式]  \(如果尚未選取的話)。  接著按一下 [下載]  按鈕。
 
       已下載連接到您的行動後端的用戶端應用程式。 將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
@@ -72,8 +72,8 @@ ms.locfileid: "58892427"
 
 ## <a name="next-steps"></a>後續步驟
 * [將離線同步處理新增至您的應用程式](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [在您的應用程式中新增驗證](app-service-mobile-xamarin-ios-get-started-users.md)
-* [將推播通知新增至 Xamarin.Android 應用程式](app-service-mobile-xamarin-ios-get-started-push.md)
+* [將驗證新增至應用程式中](app-service-mobile-xamarin-ios-get-started-users.md)
+* [將推播通知新增至您的 Xamarin.Android 應用程式](app-service-mobile-xamarin-ios-get-started-push.md)
 * [如何針對 Azure Mobile Apps 使用受控用戶端](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
@@ -88,4 +88,4 @@ ms.locfileid: "58892427"
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/

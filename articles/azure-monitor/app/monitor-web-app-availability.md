@@ -14,10 +14,10 @@ ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
 ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005737"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
@@ -92,7 +92,7 @@ ms.locfileid: "59005737"
 
     ![在 Visual Studio Enterprise 版本中，從「Web 效能」和「負載測試」範本建立專案。](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *看不到的 Web 效能和負載測試範本嗎？* - 關閉 Visual Studio Enterprise。 開啟 [Visual Studio 安裝程式] 以修改 Visual Studio Enterprise 安裝。 在 [個別元件] 之下，選取 [Web 效能和負載測試工具]。
+   * *沒看見 Web 效能和負載測試範本嗎？* - 關閉 Visual Studio Enterprise。 開啟 [Visual Studio 安裝程式] 以修改 Visual Studio Enterprise 安裝。 在 [個別元件] 之下，選取 [Web 效能和負載測試工具]。
 
 2. 開啟 .webtest 檔案，並開始記錄。
 
@@ -175,7 +175,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 
 當您對服務執行維護時，您可能會想要停用可用性測試或與其相關聯的警示規則。
 
-![停用 web 測試](./media/monitor-web-app-availability/6disable.png)
+![停用 Web 測試](./media/monitor-web-app-availability/6disable.png)
 ![編輯測試](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>如果您看到失敗
@@ -211,10 +211,10 @@ Web 測試外掛程式提供將時間參數化的方法。
 >  使用[新的整合警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)時，**必須**在警示體驗中設定[動作群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)的相關警示規則嚴重性和通知喜好設定。 若不進行下列步驟，您只會收到入口網站內部通知。
 
 1. 儲存可用性測試之後，在 [詳細資料] 索引標籤上，按一下您剛剛建立之測試旁的省略符號。 按一下 [編輯警示]。
-![編輯儲存後](./media/monitor-web-app-availability/9editalert.png)
+![儲存後編輯](./media/monitor-web-app-availability/9editalert.png)
 
 2. 設定所需的嚴重性層級、規則描述以及，同時也是最重要的，您想要用於此警示規則的通知喜好設定出現在其中的動作群組。
-![編輯儲存後](./media/monitor-web-app-availability/10editalert.png)
+![儲存後編輯](./media/monitor-web-app-availability/10editalert.png)
 
 
 > [!NOTE]
@@ -227,7 +227,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 1. 在 [計量] 體驗中選取某個 Application Insights 資源，然後選取 [可用性] 計量：![可用性計量選取項目](./media/monitor-web-app-availability/selectmetric.png)
 
 2. 從功能表設定警示選項會帶您前往新的體驗，您可以在其中選取特定測試或位置來設定警示規則。 您也可以在這裡設定此警示規則的動作群組。
-    ![設定可用性警示](./media/monitor-web-app-availability/availabilitymetricalert.png)
+    ![可用性警示設定](./media/monitor-web-app-availability/availabilitymetricalert.png)
 
 ### <a name="alert-on-custom-analytics-queries"></a>自訂分析查詢的警示
 使用[新的整合警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)時，您可以設定[自訂記錄檔查詢](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log)的警示。 使用自訂查詢，您可以設定任何任意條件的警示，協助您取得可用性問題的最可靠訊號。 如果您要使用 TrackAvailability SDK 的傳送自訂可用性結果，這也特別適用。 
@@ -293,7 +293,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 
 ## <a name="qna"></a>常見問題集
 
-* *網站看似正常，但我看到測試失敗？ 原因 Application Insights 警示我？*
+* *網站看似正常，但我看到測試失敗？為什麼 Application Insights 發出警示？*
 
     * 您的測試是否啟用「剖析相依要求」？ 這會對於指令碼、影像之類的資源進行嚴格的檢查。這種類型的失敗可能在瀏覽器上不明顯。 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。 如果其中有任何一個失敗，即使主要的 html 頁面載入正常，測試皆會回報為失敗。 若要使這類資源失敗的測試去敏化，只要從測試組態取消核取「剖析相依要求」即可。 
 
@@ -305,15 +305,15 @@ Web 測試外掛程式提供將時間參數化的方法。
 
     * 所有位置都回報失敗，還是只有一部分回報？ 如果只有一部分回報失敗時，則可能是因為網路/CDN 問題。 同樣地，按一下紅點應該有助於您了解位置回報失敗的原因。
 
-* *我未取得電子郵件時觸發警示，或已解決或兩者？*
+* *警示觸發和/或解決時，我未收到電子郵件？*
 
     檢查傳統警示組態以確認您的電子郵件直接列出，或您列在其中的通訊群組清單已設定為接收通知。 如果是，請檢查發佈清單設定以確認可以接收外部電子郵件。 也檢查郵件系統管理員是否可能已設定會導致此問題的任何原則。
 
-* *我並未收到 webhook 通知嗎？*
+* *我並未收到 Webhook 通知？*
 
     檢查以確定接收 Webhook 通知的應用程式可供使用，而且成功處理 Webhook 要求。 如需詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook)。
 
-* *通訊協定違規錯誤的間歇性測試失敗？*
+* *包含通訊協定違規錯誤的間歇性測試失敗？*
 
     此錯誤 (「通訊協定違規..CR 後面必須接著 LF」) 表示伺服器 (或相依性) 有問題。 這會發生於回應中設定的標頭格式不正確時。 可能是由負載平衡器或 CDN 所造成。 具體來說，某些標頭可能未使用 CRLF 來指出行尾，這違反了 HTTP 規格，因此無法通過 .NET WebRequest 層級的驗證。 檢查回應以找出可能違規的標頭。
     
@@ -323,7 +323,7 @@ Web 測試外掛程式提供將時間參數化的方法。
     
     如果您已針對伺服器端應用程式設定 Application Insights，這可能是因為正在進行[取樣](../../azure-monitor/app/sampling.md)。 請選取不同的可用性結果。
 
-* *可以從我的 web 測試呼叫程式碼嗎？*
+* *可以從我的 Web 測試呼叫程式碼嗎？*
 
     沒有。 測試步驟必須在 .webtest 檔案中。 而且您不能呼叫其他 Web 測試或使用迴圈。 但是這裡有一些您會覺得有用的外掛程式。
 
@@ -331,18 +331,18 @@ Web 測試外掛程式提供將時間參數化的方法。
 
     我們支援 TLS 1.1 和 TLS 1.2。 我們目前不會檢查 HTTPS 憑證錯誤。  
 
-* *有 「 web 測試 」 和 「 可用性測試 」 之間的差異嗎？*
+* *「Web 測試」和「可用性測試」之間有任何差異嗎？*
 
     這兩個詞彙可能會交替參考。 可用性測試是更廣泛的詞彙，除了多重步驟 Web 測試以外，還包含單一 URL ping 測試。
     
-* *我想要在防火牆後方執行的內部伺服器上使用可用性測試。*
+* *我想要在位於防火牆後面執行的內部伺服器上使用可用性測試。*
 
     有兩個可能的解決方案：
     
     * 設定防火牆以允許來自[我們 Web 測試代理程式的 IP 位址](../../azure-monitor/app/ip-addresses.md)所發出的內送要求。
     * 撰寫您自己的程式碼以定期測試您的內部伺服器。 執行程式碼作為您防火牆後方測試伺服器上的背景處理序。 您的測試處理序可以使用核心 SDK 套件中的 [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API，將其結果傳送至 Application Insights。 這需要測試伺服器具有 Application Insights 內嵌端點的連出存取，但這比起替代的允許連入要求是較小的安全性風險。 結果不會出現在 [可用性 web 測試] 刀鋒視窗中，但會在分析、搜尋和計量瀏覽器中出現作為可用性結果。
 
-* *將上傳多步驟 web 測試失敗*
+* *上傳多步驟 Web 測試失敗*
 
     這可能是由於一些原因而發生：
     * 有 300 K 的大小限制。

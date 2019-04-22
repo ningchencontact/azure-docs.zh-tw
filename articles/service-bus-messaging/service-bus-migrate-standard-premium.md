@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
 ms.openlocfilehash: 7b153c36e10f1d4e2be2a0cf42f998c31cb6473a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896320"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-premium-tier"></a>將現有 Azure 服務匯流排標準命名空間移轉至進階層
@@ -185,7 +185,7 @@ ms.locfileid: "58896320"
 
 #### <a name="azure-portal"></a>Azure 入口網站
 
-![中止流程-中止同步][]
+![中止流程-中止同步處理][]
 ![中止流程-中止完成][]
 
 當中止移轉程序時，它實際上從標準中止複製的實體 （主題、 訂用帳戶和篩選） 的程序，為進階命名空間，並會中斷配對。

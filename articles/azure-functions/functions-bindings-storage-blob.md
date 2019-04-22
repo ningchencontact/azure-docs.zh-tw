@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
 ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895844"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
@@ -319,8 +319,8 @@ public void run(
 |**type** | n/a | 必須設為 `blobTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 例外狀況在[使用方式](#trigger---usage)一節中會加以說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。 |
-|**path** | **BlobPath** |[要監](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)視的容器。  可能是 [Blob 名稱模式](#trigger---blob-name-patterns)。 |
-|**connection** | **連線** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須是用於一般用途的儲存體帳戶，而不是[Blob 儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
+|**路徑** | **BlobPath** |[要監](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)視的容器。  可能是 [Blob 名稱模式](#trigger---blob-name-patterns)。 |
+|**連接** | **連接** | 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須是用於一般用途的儲存體帳戶，而不是[Blob 儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -636,8 +636,8 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 
 本區段包含下列範例：
 
-* [HTTP 觸發程序，從查詢字串的 blob 名稱查閱](#http-trigger-look-up-blob-name-from-query-string-java)
-* [佇列觸發程序，接收來自佇列訊息的 blob 名稱](#queue-trigger-receive-blob-name-from-queue-message-java)
+* [HTTP 觸發程序，從查詢字串中查閱 Blob 名稱](#http-trigger-look-up-blob-name-from-query-string-java)
+* [佇列觸發程序，接收來自佇列訊息的 Blob 名稱](#queue-trigger-receive-blob-name-from-queue-message-java)
 
 #### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>HTTP 觸發程序，從查詢字串中查閱 Blob 名稱 (Java)
 
@@ -730,8 +730,8 @@ public static void Run(
 |**type** | n/a | 必須設為 `blob`。 |
 |**direction** | n/a | 必須設為 `in`。 例外狀況在[使用方式](#input---usage)一節中會加以說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。|
-|**path** |**BlobPath** | blob 的路徑。 |
-|**connection** |**連線**| 應用程式設定的名稱包含要用於此繫結的[儲存體連接字串](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account)。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
+|**路徑** |**BlobPath** | blob 的路徑。 |
+|**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的[儲存體連接字串](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account)。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 |n/a | **Access** | 指出您是否將讀取或寫入。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -1064,8 +1064,8 @@ public static void Run(
 |**type** | n/a | 必須設為 `blob`。 |
 |**direction** | n/a | 必須針對輸出繫結設定為 `out`。 例外狀況在[使用方式](#output---usage)一節中會加以說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。  設為 `$return` 以參考函式傳回值。|
-|**path** |**BlobPath** | blobco 的路徑。 |
-|**connection** |**連線**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
+|**路徑** |**BlobPath** | blobco 的路徑。 |
+|**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 |n/a | **Access** | 指出您是否將讀取或寫入。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -1109,7 +1109,7 @@ public static void Run(
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入了解 Azure functions 觸發程序和繫結](functions-triggers-bindings.md)
+* [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
 <!---
 > [!div class="nextstepaction"]
