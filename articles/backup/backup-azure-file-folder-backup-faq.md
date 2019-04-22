@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
 ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426251"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>關於 Azure 備份代理程式的問題
@@ -81,8 +81,8 @@ ms.locfileid: "59426251"
 
     | 登錄路徑 | 登錄金鑰 | 值 |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*新的快取資料夾位置* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*新的快取資料夾位置* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*「新的快取資料夾位置」* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*「新的快取資料夾位置」* |
 
 4. 在提高權限的命令提示字元中執行下列命令以重新啟動備份引擎：
 
@@ -114,7 +114,7 @@ ms.locfileid: "59426251"
 ## <a name="restore"></a>Restore
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>如果我取消進行中的還原作業，會發生什麼事？
-如果取消進行中的還原作業時，還原程序會停止，且所有的檔案還原，取消作業，才能維持設定的目的地 （原始或替代位置），而不需要任何回復。
+如果取消進行中的還原作業，還原程序會停止，而所有在取消前還原的檔案會留在所設定的目的地 (原始或替代位置)，不需要回復。
 
 
 ## <a name="manage-backups"></a>管理備份

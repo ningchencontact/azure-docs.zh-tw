@@ -9,15 +9,15 @@ ms.date: 03/26/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: 246c9ad8ab3083c1b847c1c25230a7193a8192e3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263565"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>建置用來將其他 IoT 雲端連線至 IoT Central 的 IoT Central 裝置橋接器
 
-*本主題適用於系統管理員。*
+*此主題適用於系統管理員。*
 
 IoT Central 裝置橋接器是一項開放原始碼解決方案，可將您的 Sigfox、粒子、物聯網和其他雲端連線至 IoT Central 應用程式。 無論您使用連線至 Sigfox 低功率廣域網路的資產追蹤裝置，還是在粒子裝置雲端上使用空氣品質監視裝置，或是在 TTN 上使用土壤濕度監視裝置，您都可以透過 IoT Central 裝置橋接器直接利用 IoT Central 的強大功能。 裝置橋接器可藉由將您的裝置傳送到其他雲端的資料轉送至 IoT Central 應用程式，來連線其他 IoT 雲端與 IoT Central。 在您的 IoT Central 應用程式中，您可以建置規則並對該資料執行分析、在 Microsoft Flow 和 Azure 邏輯應用程式中建立工作流程、匯出該資料，以及其他工作。 從 GitHub 取得 [IoT Central 裝置橋接器](https://aka.ms/iotcentralgithubdevicebridge)
 

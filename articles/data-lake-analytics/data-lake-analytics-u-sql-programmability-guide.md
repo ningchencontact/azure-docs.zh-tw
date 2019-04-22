@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489651"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 可程式性指南
@@ -85,7 +85,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>使用 C# 運算式來表示今天的日期
 
-若要提取今天的日期，我們可以使用下列C#運算式： `DateTime.Now.ToString("M/d/yyyy")`
+若要提取今天的日期，我們可以使用下列 C# 運算式：`DateTime.Now.ToString("M/d/yyyy")`
 
 如何在指令碼中使用此運算式的範例如下︰
 
@@ -534,7 +534,7 @@ public class MyTypeFormatter : IFormatter<MyType>
 * **序列化**：使用指定根將物件或物件圖形序列化到所提供的串流。
 
 `MyType` 執行個體：類型的執行個體。  
-`IColumnWriter` 寫入器 /`IColumnReader`讀取器：基礎資料行串流。  
+`IColumnWriter` 寫入器 / `IColumnReader` 讀取器：基礎資料行串流。  
 `ISerializationContext` 內容：定義一組旗標的列舉，可在序列化期間指定串流的來源或目的地內容。
 
 * **中繼**：指定來源或目的地內容不是持續性存放區。
@@ -1267,9 +1267,9 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output` 會呼叫每個輸入資料列。 它會傳回 `IUnstructuredWriter output` 資料列集。
+* 會針對每個輸入資料列呼叫 `Output`。 它會傳回 `IUnstructuredWriter output` 資料列集。
 * 建構函式類別可用來將參數傳遞至使用者定義輸出器。
-* `Close` 用來選擇性地覆寫，以釋出耗費資源的狀態，或判斷最後一個資料列已寫入時。
+* `Close` 可選擇性地覆寫，以釋出耗費資源的狀態或判斷最後一個資料列的寫入時間。
 
 **SqlUserDefinedOutputter** 表示類型應該註冊為使用者定義輸出器。 這個類別無法繼承。
 

@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876697"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化多重區域成本
 
 您可以隨時在 Azure Cosmos 帳戶中新增及移除區域。 您為各種 Azure Cosmos 資料庫和容器設定的輸送量，將保留在與您的帳戶相關聯的每個區域中。 如果每小時佈建輸送量，亦即在 Azure Cosmos 帳戶的所有資料庫和容器中設定的 RU/秒總和為 `T` 且與您的資料庫帳戶相關聯的 Azure 區域數目為 `N`，則指定小時的 Cosmos 帳戶的總佈建輸送量等於：
 
-1. `T x N RU/s` 如果您的 Azure Cosmos 帳戶設有單一寫入區域。 
+1. `T x N RU/s` 如果您的 Azure Cosmos 帳戶已設定為使用單一寫入區域。 
 
-1. `T x (N+1) RU/s` 如果您的 Azure Cosmos 帳戶設有可處理寫入的所有區域。 
+1. `T x (N+1) RU/s`如果您的 Azure Cosmos 帳戶設定可處理寫入的所有區域。 
 
 單一寫入區域佈建的輸送量為每 100 RU/秒美元 0.008/小時，多個可寫入區域佈建的輸送量為每 100 RU/秒美元 0.016/小時。 若要深入了解，請參閱 Azure Cosmos DB [定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。
 
@@ -31,7 +31,7 @@ ms.locfileid: "58876697"
 
 假設您本月在美國西部以每秒 10,000 RU 的輸送量佈建了一個容器，並儲存了 1TB 的資料。 假設您新增三個區域 - 美國東部、北歐和東亞，每個區域都有相同的儲存體和輸送量，且希望能從您全球散發的應用程式寫入所有四個區域中的容器。 您每月帳單總計 (假設一個月 31 天) 如下所示：
 
-|**Item**|**使用方式 （每月）**|**費率**|**每個月的成本**|
+|**Item**|**使用量 (每月)**|**費率**|**每個月的成本**|
 |----|----|----|----|
 |美國西部容器的輸送量計費 (多個寫入區域) |10K RU/秒 * 24 * 31 |每小時 $0.016 (每 100 RU/秒) |$1,190.40 |
 |3 個新增區域 (美國東部、北歐和東亞) 的輸送量計費 (多個寫入區域) |(3 + 1) * 10K RU/秒 * 24 * 31 |每小時 $0.016 (每 100 RU/秒) |$4,761.60 |

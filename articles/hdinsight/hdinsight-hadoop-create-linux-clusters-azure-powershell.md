@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 30154c55e60b7150257729c9bc90ee07a561e08e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264534"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>使用 Azure PowerShell 在 HDInsight 中建立以 Linux 為基礎的叢集
@@ -35,7 +35,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 * [Azure PowerShell](/powershell/azure/install-Az-ps)
 
     > [!IMPORTANT]  
-    > 使用 Azure Service Manager 管理 HDInsight 資源的 Azure PowerShell 支援已**被取代**，並已在 2017 年 1 月 1 日移除。 本文件中的步驟會使用可與 Azure Resource Manager 搭配使用的新 HDInsight Cmdlet。
+    > 使用 Azure Service Manager 管理 HDInsight 資源的 Azure PowerShell 支援已**被取代**，並已在 2017 年 1 月 1 日移除。 本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
     >
     > 請遵循[安裝 Azure PowerShell (英文)](https://docs.microsoft.com/powershell/azure/install-Az-ps) 中的步驟來安裝最新版的 Azure PowerShell。 如果您需要修改指令碼才能使用適用於 Azure Resource Manager 的新 Cmdlet，請參閱 [移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)](hdinsight-hadoop-development-using-azure-resource-manager.md) ，以取得詳細資訊。
 
@@ -95,25 +95,25 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 
 ### <a name="apache-hadoop-clusters"></a>Apache Hadoop 叢集
 
-* [使用 Apache Hive 與 HDInsight](hadoop/hdinsight-use-hive.md)
-* [使用 Apache Pig 與 HDInsight](hadoop/hdinsight-use-pig.md)
-* [搭配 HDInsight 使用 MapReduce](hadoop/hdinsight-use-mapreduce.md)
+* [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
+* [〈搭配 HDInsight 使用 MapReduce〉](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase 叢集
 
-* [開始使用 Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [開發 Apache HBase on HDInsight 的 Java 應用程式](hbase/apache-hbase-build-java-maven-linux.md)
+* [開始使用 HDInsight 上的 Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [開發適用於 HDInsight 上 Apache HBase 的 Java 應用程式](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm 叢集
 
-* [開發 Storm on HDInsight 的 Java 拓撲](storm/apache-storm-develop-java-topology.md)
-* [在 Storm on HDInsight 中使用 Python 元件](storm/apache-storm-develop-python-topology.md)
-* [部署和監視拓撲使用 Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [在 HDInsight 上開發適用於 Storm 的 Java 拓撲](storm/apache-storm-develop-java-topology.md)
+* [在 HDInsight 上的 Storm 中使用 Python 元件](storm/apache-storm-develop-python-topology.md)
+* [在 HDInsight 上使用 Storm 部署和監視拓撲](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="apache-spark-clusters"></a>Apache Spark 叢集
 
-* [建立使用 Scala 的獨立應用程式](spark/apache-spark-create-standalone-application.md)
-* [使用 Apache Livy 的 Apache Spark 叢集上遠端執行作業](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark 和 BI:執行互動式資料分析與 BI 工具，在 HDInsight 中使用 Spark](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [使用 Scala 建立獨立應用程式](spark/apache-spark-create-standalone-application.md)
+* [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
 

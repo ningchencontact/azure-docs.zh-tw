@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a56f2546eec12d04dcc64665e60a9874b8e991b6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201920"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684135"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上傳 Apache Hadoop 作業的資料
 
-Azure HDInsight 在 Azure 儲存體和 Azure Data Lake Storage (Gen1 和 Gen2) 上提供了功能完整的 Hadoop 分散式檔案系統 (HDFS)。 Azure 儲存體和 Data Lake Storage Gen1 和 Gen2 是設計作為 HDFS 的延伸，以便為客戶提供順暢的體驗。 它們可讓 Hadoop 生態系統中的完整元件集直接在它管理的資料上運作。 Azure 儲存體、Data Lake Storage Gen1 和 Gen2 是不同的檔案系統，但經過最佳化後，都非常適合儲存資料以及計算儲存的資料。 如需關於使用 Azure 儲存體有哪些優點的資訊，請參閱[搭配 HDInsight 使用 Azure Storage][hdinsight-storage]、[搭配 HDInsight 使用 Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) 及[搭配 HDInsight 使用 Data Lake Storage Gen2](../storage/blobs/data-lake-storage-use-hdi-cluster.md)。
+Azure HDInsight 在 Azure 儲存體和 Azure Data Lake Storage (Gen1 和 Gen2) 上提供了功能完整的 Hadoop 分散式檔案系統 (HDFS)。 Azure 儲存體和 Data Lake Storage Gen1 和 Gen2 是設計作為 HDFS 的延伸，以便為客戶提供順暢的體驗。 它們可讓 Hadoop 生態系統中的完整元件集直接在它管理的資料上運作。 Azure 儲存體、Data Lake Storage Gen1 和 Gen2 是不同的檔案系統，但經過最佳化後，都非常適合儲存資料以及計算儲存的資料。 如需關於使用 Azure 儲存體有哪些優點的資訊，請參閱[搭配 HDInsight 使用 Azure Storage][hdinsight-storage]、[搭配 HDInsight 使用 Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) 及[搭配 HDInsight 使用 Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,16 +30,16 @@ Azure HDInsight 在 Azure 儲存體和 Azure Data Lake Storage (Gen1 和 Gen2) �
 
     - [搭配 HDInsight 使用 Azure 儲存體][hdinsight-storage]
     - [搭配 HDInsight 使用 Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md)
-    - [搭配 HDInsight 使用 Data Lake Storage Gen2](../storage/blobs/data-lake-storage-use-hdi-cluster.md)  
+    - [搭配 HDInsight 使用 Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## <a name="upload-data-to-azure-storage"></a>將資料上傳至 Azure 儲存體
 
 ## <a name="utilities"></a>公用事業
 Microsoft 提供下列公用程式來使用 Azure 儲存體：
 
-| 工具 |  Linux | OS X |  Windows |
+| 工具 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure 入口網站](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure 门户](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
@@ -53,7 +53,7 @@ Microsoft 提供下列公用程式來使用 Azure 儲存體：
 ## <a id="commandline"></a>Hadoop 命令列
 Hadoop 命令列僅適用於當資料已存在於叢集前端節點時，將資料儲存到 Azure 儲存體 blob。
 
-若要使用 Hadoop 命令，您必須先使用連接至前端節點[SSH 或 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md)。
+若要使用 Hadoop 命令，必须先通过 [SSH 或 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md) 连接到头节点。
 
 連線之後，您就可以使用下列語法來將檔案上傳到儲存體。
 
@@ -79,7 +79,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 ## <a name="graphical-clients"></a>圖形化用戶端
 其他還有數個應用程式也會提供可搭配 Azure 儲存體使用的圖形化介面。 以下資料表提供數個這類應用程式的清單：
 
-| 用戶端 |  Linux | OS X |  Windows |
+| 用戶端 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio Tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure 儲存體總管](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |

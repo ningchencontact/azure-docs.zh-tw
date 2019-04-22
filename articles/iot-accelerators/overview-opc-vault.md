@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Azure IoT OPC UA 憑證管理 | Microsoft Docs
+title: 什麼是 OPC 保存庫 - Azure | Microsoft Docs
 description: OPC 保存庫概觀
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: ba3313d927ec4317d6c051f6058d75a415b92288
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 99dfcaeb1ef5b52e6827f1b3ac65d6201557a8fb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759732"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490371"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-ua-certificate-management"></a>什麼是 Azure IoT 開放平台通訊 (OPC) UA 憑證管理？
+# <a name="what-is-opc-vault"></a>什麼是 OPC 保存庫？
 
-Azure IoT OPC UA 憑證管理也稱為 OPC 保存庫，這是一項微服務，可以設定、註冊和管理雲端中的 OPC UA 伺服器和用戶端應用程式的憑證生命週期。 本文將說明 OPC 保存庫的簡單使用案例。
+OPC 保存庫是一項微服務，可以設定、註冊和管理雲端中的 OPC UA 伺服器和用戶端應用程式的憑證生命週期。 本文將說明 OPC 保存庫的簡單使用案例。
 
 ## <a name="certificate-management"></a>憑證管理
 

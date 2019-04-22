@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 6ee3e2b452dedbf791bdc05bbc81b07531e1f075
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049308"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>從 Azure Marketplace 部署虛擬機器
@@ -31,7 +31,7 @@ ms.locfileid: "59049308"
 
 快速入門 Azure VM 部署範本，可以線上檔案 [azuredeploy.json](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json) 的形式取得。  該範本包含下列參數：
 
-|  **參數**        |   **描述**                                 |
+|  **參數**        |   **說明**                                 |
 |  -------------        |   ---------------                                 |
 | newStorageAccountName | 儲存體帳戶的名稱                       |
 | dnsNameForPublicIP    | 公用 IP 的 DNS 名稱。 必須是小寫字母。    |
@@ -44,7 +44,7 @@ ms.locfileid: "59049308"
 | vmName                | VM 的名稱                                    |
 | vaultName             | 金鑰保存庫的名稱                             |
 | vaultResourceGroup    | 金鑰保存庫的資源群組                   |
-| certificateUrl        | 憑證，例如在金鑰保存庫，包括版本的 URL  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| certificateUrl        | 用於憑證的 URL，包括 KeyVault 中的版本，例如 `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 |  |  |
 
 

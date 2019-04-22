@@ -4,15 +4,15 @@ description: 本文說明如何建立及使用 Azure Cosmos DB 資料庫、容�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f3bec1b279c07e62e246ebfa933b3942e38406de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762889"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678783"
 ---
 # <a name="work-with-databases-containers-and-items"></a>使用資料庫、容器和項目
 
@@ -61,7 +61,7 @@ Azure Cosmos 容器是與結構描述無關的項目容器。 容器內的項目
 
 藉由使用[變更摘要](change-feed.md)，您可以訂閱會為每個邏輯分割區，您的容器管理作業記錄檔。 變更摘要會提供在容器上執行之所有更新的記錄檔，以及項目的之前和之後映像。 請參閱[如何建立使用變更摘要的回應式應用程式](serverless-computing-database.md)。 您也可以使用變更摘要在容器上的原則，來設定的 「 變更摘要的保留持續時間。 
 
-您可以註冊[預存程序、 觸發程序，使用者定義函數 (Udf)](stored-procedures-triggers-udfs.md)並[合併程序](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure)與您的 Azure Cosmos 容器。 
+您可以註冊[預存程序、 觸發程序，使用者定義函數 (Udf)](stored-procedures-triggers-udfs.md)並[合併程序](how-to-manage-conflicts.md)與您的 Azure Cosmos 容器。 
 
 您可以指定[唯一的索引鍵條件約束](unique-keys.md)上您的 Azure Cosmos 容器。 您可以建立唯一索引鍵原則，以確保每個邏輯分割區索引鍵一或多個值的唯一性。 一旦使用唯一索引鍵原則建立容器，即可防止使用與唯一索引鍵條件約束所指定值重複的值，建立任何新的或已更新的項目。 若要進一步了解，請參閱[唯一索引鍵條件約束](unique-keys.md)。
 

@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 0df4eb664accd828c47d834fb0014d0d60f57458
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051728"
 ---
 # <a name="auto-provisioning-concepts"></a>自動佈建概念
@@ -97,9 +97,9 @@ Azure IoT 自動佈建可分成三個階段：
 
 請從最適合您管理工具喜好設定的「設定自動佈建」快速入門開始著手，這會引導您完成「服務設定」階段：
 
-- [設定自動佈建使用 Azure CLI](quick-setup-auto-provision-cli.md)
-- [設定自動佈建使用 Azure 入口網站](quick-setup-auto-provision.md)
-- [設定自動佈建使用 Resource Manager 範本](quick-setup-auto-provision-rm.md)
+- [使用 Azure CLI 來設定自動佈建](quick-setup-auto-provision-cli.md)
+- [使用 Azure 入口網站來設定自動佈建](quick-setup-auto-provision.md)
+- [使用 Resource Manager 範本來設定自動佈建](quick-setup-auto-provision-rm.md)
 
 接著，繼續進行適合您裝置證明機制和「裝置佈建服務」SDK/語言喜好設定的「自動佈建模擬裝置」快速入門。 在此快速入門中，您將逐步完成「裝置註冊」和「裝置登錄與設定」階段： 
 

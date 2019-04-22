@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050725"
 ---
 # <a name="upload-files-with-iot-hub"></a>透過 IoT 中樞上傳檔案
@@ -123,7 +123,7 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 
 每個 IoT 中樞都具備下列適用於檔案上傳通知的組態選項：
 
-| 屬性 | 描述 | 範圍和預設值 |
+| 屬性 | 描述 | 范围和默认值 |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |控制是否將檔案上傳通知寫入檔案通知端點。 |布林 預設值：True。 |
 | **fileNotifications.ttlAsIso8601** |檔案上傳通知的預設 TTL。 |ISO_8601 間隔高達 48H (最小為 1 分鐘)。 預設值：1 小時。 |
@@ -160,4 +160,4 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 
 若要嘗試本文所述的一些概念，請參閱下列「IoT 中樞」教學課程：
 
-* [如何上傳到 IoT 中樞雲端裝置中的檔案](iot-hub-csharp-csharp-file-upload.md)
+* [如何使用 IoT 中樞從裝置將檔案上傳至雲端](iot-hub-csharp-csharp-file-upload.md)

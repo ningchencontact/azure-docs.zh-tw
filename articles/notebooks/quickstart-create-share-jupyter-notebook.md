@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273663"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>快速入門：建立及共用筆記本
@@ -43,7 +43,7 @@ ms.locfileid: "59273663"
 
 1. 幾分鐘後，Azure Notebooks 會帶您瀏覽至新的專案。 選取 [+ 新增] 下拉式清單 (可能只顯示為 **+**)，然後選取 [Notebook]，將 Notebook 新增至專案：
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "新的空專案並加入 notebook 命令")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    [![](media/quickstarts/empty-project-new-notebook-button.png "新的空專案和新增 Notebook 命令")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
 1. 在顯示的 [建立新的 Notebook] 快顯視窗中輸入 Notebook 的檔案名稱，例如 *HelloWorldInPython.ipynb* (*.ipynb* 表示 IronPython (Jupyter) Notebook)，然後選取 [Python 3.6] 作為語言 (也稱為*核心*)：
 
@@ -106,4 +106,4 @@ ms.locfileid: "59273663"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [教學課程： 建立執行的 Jupyter notebook 來執行線性迴歸](tutorial-create-run-jupyter-notebook.md)
+> [教學課程：建立和執行 Jupyter Notebook 來執行線性迴歸](tutorial-create-run-jupyter-notebook.md)

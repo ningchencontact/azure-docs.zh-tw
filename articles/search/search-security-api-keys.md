@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/06/2019
 ms.author: heidist
 ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273408"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>針對 Azure 搜尋服務建立及管理 API 金鑰
@@ -99,4 +99,4 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 
 + [Azure 搜尋服務中的角色型存取控制](search-security-rbac.md)
 + [使用 Powershell 管理](search-manage-powershell.md) 
-+ [效能與最佳化文章](search-performance-optimization.md)
++ [效能與最佳化發行項](search-performance-optimization.md)

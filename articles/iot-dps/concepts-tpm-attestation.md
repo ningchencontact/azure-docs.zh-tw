@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048872"
 ---
 # <a name="tpm-attestation"></a>TPM 證明
@@ -67,5 +67,5 @@ TPM 有另一種類型的金鑰，稱為儲存根金鑰 (SRK)。 TPM 的擁有�
 
 現在，裝置會連線到 IoT 中樞，您可以放心地相信裝置的金鑰已安全地儲存。 現在，您知道裝置佈建服務如何使用 TPM 安全地驗證裝置的身分識別，若要深入了解，請參閱下列文章：
 
-* [深入了解在自動佈建的所有概念](./concepts-auto-provisioning.md)
+* [了解中自動佈建的所有概念](./concepts-auto-provisioning.md)
 * [開始使用自動佈建](./quick-setup-auto-provision.md)，使用 SDK 來完成流程。

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
 ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050640"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>疑難排解 Azure 流量管理員上的已降級狀態
@@ -88,7 +88,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[在 Traffic Manager 的作業 （REST API 參考）](https://go.microsoft.com/fwlink/?LinkId=313584)
+[流量管理員的相關作業 (REST API 參考)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure 流量管理員 Cmdlet][1]
 

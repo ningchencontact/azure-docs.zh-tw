@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793266"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
@@ -53,7 +53,7 @@ ms.locfileid: "58793266"
 ![啟用 GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> 未定義名為的值為任何機密資料會儲存在存放庫，並將保留在其歷程記錄中，直到您停用並重新啟用 Git 存取。 具名的值提供安全的地方，以管理所有 API 組態和原則，都包括密碼，因此您不必將它們儲存在您的原則陳述式直接的常數字串值。 如需詳細資訊，請參閱 <<c0> [ 如何在 Azure API 管理原則中使用名為值](api-management-howto-properties.md)。
+> 未定义为“命名值”的任何机密都将保存在存储库中，并将保留在其历史记录中，直到禁用并重新启用 Git 访问。 “命名值”提供了管理所有 API 配置和策略的常量字符串值（包括机密）的安全位置，因此无需将它们直接存储在策略声明中。 有关详细信息，请参阅[如何在 Azure API 管理策略中使用命名值](api-management-howto-properties.md)。
 >
 >
 
@@ -175,7 +175,7 @@ git push
 >
 > * [使用者](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
 > * [訂用帳戶](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
-> * [具名的值](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
+> * [命名值](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
 > * 樣式以外的開發人員入口網站實體
 >
 

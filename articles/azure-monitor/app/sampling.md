@@ -14,10 +14,10 @@ ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
 ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046576"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
@@ -401,13 +401,13 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ### <a name="which-type-of-sampling-should-i-use"></a>我應該使用哪種類型的取樣？
 
-**使用擷取取樣，如果：**
+**如果是下列情形，請使用擷取取樣：**
 
 * 您的遙測經常會超出每月配額。
 * 您使用不支援取樣的 SDK 版本，例如比 ASP.NET 版本 2 早的版本。
 * 您收到太多的遙測資料從使用者的網頁瀏覽器。
 
-**使用固定速率取樣，如果：**
+**如果是下列情形，則使用固定取樣率：**
 
 * 您使用 Application Insights SDK for ASP.NET Web 服務版本 2.0.0 或更新版本或 Java SDK v2.0.1 或更新版本，且
 * 您想要同步處理用戶端與伺服器之間的取樣，因此，當您在 [搜尋](../../azure-monitor/app/diagnostic-search.md)中調查事件時，您可以在用戶端與伺服器的相關事件之間調查，例如頁面檢視和 HTTP 要求。
@@ -429,7 +429,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 如果小於 100 的任何類型的 RetainedPercentage，該項目是所取樣。
 
-**Application Insights 不會對取樣工作階段中，度量和效能計數器遙測類型，在上述任何取樣技巧。 降低有效位數可以是這些遙測類型非常不想要為這些型別一律會從取樣排除**
+**Application Insights 不會對取樣工作階段中，度量和效能計數器遙測類型，在上述任何取樣技巧。降低有效位數可以是這些遙測類型非常不想要為這些型別一律會從取樣排除**
 
 ## <a name="how-does-sampling-work"></a>取樣運作方式？
 
@@ -455,7 +455,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 用戶端 (JavaScript) SDK 與伺服器端 SDK 一同參與固定取樣率。 已檢測的頁面只會從伺服器端決定「納入取樣」的相同使用者傳送用戶端遙測。 此邏輯的設計是為了在用戶端和伺服器端之間保有使用者工作階段的完整性。 如此一來，您可以從 Application Insights 中的任何特定遙測項目找到這個使用者或工作階段的所有其他遙測項目。 
 
-*我的用戶端和伺服器端遙測資料不會顯示協調的範例您上方描述。*
+*我的用戶端和伺服器端遙測未顯示您上方描述的協調範例。*
 
 * 請確認您在伺服器及用戶端上都已啟用固定取樣率。
 * 確定 SDK 版本為 2.0 或更新版本。
@@ -487,35 +487,35 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 * 沒有。 SamplingTelemetryProcessors 略過從取樣的考量，如果項目已經在取樣的項目。 也是如此，這不會套用取樣已取樣的 SDK 本身中的項目為擷取取樣。 '
 
-*為什麼不取樣簡單的 「 收集每個遙測類型百分之 X 」？*
+*為什麼不取樣簡單的「收集每個遙測類型百分之 X」？*
 
 * 雖然這個取樣方法會提供高層級的精確度的度量近似值，它會破壞相互關聯每個使用者、 工作階段，以及要求，也就是很重要的診斷資料的能力。 因此，對於「收集應用程式使用者百分之 X 的所有遙測項目」或「收集應用程式要求百分之 X 的所有遙測」邏輯，取樣的效果更佳。 對於不相關聯 （例如背景非同步處理） 的要求遙測項目，此後援是 「 收集百分之 X 的每個遙測類型的所有項目。 」 
 
-*隨著時間而改變的取樣百分比？*
+*取樣百分比會隨著時間變更嗎？*
 
 * 是的，調適性取樣會根據目前觀察到的遙測量，逐漸變更取樣百分比。
 
-*如果我使用固定取樣率，如何知道哪個取樣百分比將最適用於我的應用程式？*
+*如果我使用固定取樣率，如何知道哪個取樣百分比最適合我的應用程式？*
 
 * 開始使用調適性取樣的其中一個方法，就是找出它選擇的取樣率 (請參閱上一個問題)，然後再切換為使用該取樣率的固定取樣率。 
   
     否則，您就必須猜測。 分析 Application Insights 中您目前的遙測使用量、觀察目前的節流，並估計所收集之遙測的量。 這三項輸入與所選定價層，可對您可能想要減少收集的遙測量提出建議。 不過，使用者數目的增加或遙測量的其他某些變化可能會讓您的評估失效。
 
-*如果設定太低的取樣百分比，發生什麼事？*
+*如果將取樣百分比設定成太低會發生什麼事？*
 
 * 當 Application Insights 嘗試補償減少資料量縮減的資料視覺效果時，過度低的取樣百分比 (過度積極取樣) 會降低近似值的精確度。 此外，診斷經驗可能會有負面影響，因為可能會出取樣出某些不常失敗或緩慢的要求。
 
-*如果我將取樣百分比設定太高，發生什麼事？*
+*如果將取樣百分比設定成太高會發生什麼事？*
 
 * 設定太高的取樣百分比 (不夠積極) 會導致收集的遙測量減少不足。 您可能仍會遇到與節流相關的遙測資料遺失，而使用 Application Insights 的成本由於超額費可能高於您的計劃。
 
-*在何種平台上可以使用取樣？*
+*我可以在何種平台上使用取樣？*
 
 * 如果 SDK 未執行取樣，則擷取取樣會在任何遙測超過特定數量時自動運作。 此組態會運作，比方說，如果您使用舊版 ASP.NET SDK 或舊版 Java SDK(1.0.10 or before)。
 * 如果您使用 ASP.NET SDK 版本 2.0.0 和更新版本或 ASP.NET CORE SDK 版本 2.2.0 版和更新版本 （裝載於 Azure 或您自己的伺服器上），您會得到調適性取樣預設情況下，但是上面所述，您可以切換到固定速率。 使用固定取樣率，瀏覽器 SDK 會自動同步至取樣相關的事件。 
 * 如果您使用 Java SDK 版本 2.0.1 或更新版本中，您可以設定 ApplicationInsights.xml 來開啟固定速率取樣。 根據預設取樣功能為關閉。 使用固定取樣率，瀏覽器 SDK 會自動同步至取樣相關的事件。
 
-*有我一律想要看見特定罕見的事件。 如何取得它們通過取樣模組？*
+*我一律想要看見特定罕見的事件。我要如何讓它們通過取樣模組？*
 
 * 若要達到此目的，最好是撰寫自訂[TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering)，集合`SamplingPercentage`100 的遙測項目上要保留的如下所示。 這可確保所有的取樣技巧將會忽略這個項目，從任何取樣的考量。
 

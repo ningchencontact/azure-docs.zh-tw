@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048753"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>使用封包擷取搭配警示和 Azure Functions 進行主動式網路監視
@@ -347,9 +347,9 @@ $Encryptedpassword
   |**設定** | **值** | **詳細資料** |
   |---|---|---|
   |**名稱**|TCP_Segments_Sent_Exceeded|警示規則的名稱。|
-  |**描述**|傳送的 TCP 區段超出閾值|警示規則的描述。|
+  |**說明**|傳送的 TCP 區段超出閾值|警示規則的描述。|
   |**計量**|傳送的 TCP 區段| 用以觸發警示的計量。 |
-  |**條件**|大於| 評估計量所用的條件。|
+  |**Condition**|大於| 評估計量所用的條件。|
   |**閾值**|100| 觸發警示的計量值。 此值應該設為您環境的有效值。|
   |**期間**|過去五分鐘| 決定尋找計量閾值的期間。|
   |**Webhook**|[函數應用程式中的 Webhook URL]| 先前步驟中所建立函數應用程式中的 Webhook URL。|

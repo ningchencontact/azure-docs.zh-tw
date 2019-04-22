@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262001"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>快速入門：使用自訂環境建立專案
@@ -61,7 +61,7 @@ Azure Notebooks 中的專案是一組檔案，集合了筆記本、資料檔案�
 
     | 作業 | 描述 |
     | --- | --- |
-    | Requirements.txt | Python 專案會在 requirements.txt 檔案中定義其相依性。 使用此選項，請從專案的檔案清單中選取適當的檔案，還要在出現的其他下拉式清單中選取 Python 版本。 若有必要，請選取 [取消] 以回到專案、上傳或建立檔案，接著返回 [專案設定] > [環境] 索引標籤，然後建立新的步驟。 使用就地此步驟中，會自動執行在專案中的 notebook 會執行 `pip install -r <file>` |
+    | Requirements.txt | Python 專案會在 requirements.txt 檔案中定義其相依性。 使用此選項，請從專案的檔案清單中選取適當的檔案，還要在出現的其他下拉式清單中選取 Python 版本。 若有必要，請選取 [取消] 以回到專案、上傳或建立檔案，接著返回 [專案設定] > [環境] 索引標籤，然後建立新的步驟。 備妥此步驟，在專案中的執行 Notebook 就會自動執行 `pip install -r <file>` |
     | Shell 指令碼 | 選取 bash shell 指令碼 (通常是具有 *.sh* 副檔名的檔案)，其中包含您希望執行以初始化環境的任何命令。 |
     | Environment.yml | 使用 Conda 管理環境的 Python 專案，可使用 *environments.yml* 檔案來描述相依性。 使用此選項時，請從專案的檔案清單中選取適當的檔案。 |
 
@@ -74,7 +74,7 @@ Azure Notebooks 中的專案是一組檔案，集合了筆記本、資料檔案�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [管理和設定 Azure Notebook 中的專案](configure-manage-azure-notebooks-projects.md)
+> [在 Azure Notebooks 中管理和設定專案](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [教學課程： 建立執行的 Jupyter notebook 來執行線性迴歸](tutorial-create-run-jupyter-notebook.md)
+> [教學課程：建立和執行 Jupyter Notebook 來執行線性迴歸](tutorial-create-run-jupyter-notebook.md)

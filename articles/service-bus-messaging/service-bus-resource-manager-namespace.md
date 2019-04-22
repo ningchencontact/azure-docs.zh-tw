@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045077"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本來建立服務匯流排命名空間
@@ -27,10 +27,10 @@ ms.locfileid: "59045077"
 > [!NOTE]
 > 下列 Azure Resource Manager 範本可供下載和部署。 
 > 
-> * [建立服務匯流排命名空間和佇列](service-bus-resource-manager-namespace-queue.md)
+> * [创建包含队列的服务总线命名空间](service-bus-resource-manager-namespace-queue.md)
 > * [建立服務匯流排命名空間與主題和訂用帳戶](service-bus-resource-manager-namespace-topic.md)
-> * [建立服務匯流排命名空間與佇列和授權規則](service-bus-resource-manager-namespace-auth-rule.md)
-> * [建立服務匯流排命名空間與主題、 訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [创建包含队列和授权规则的服务总线命名空间](service-bus-resource-manager-namespace-auth-rule.md)
+> * [建立服務匯流排命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > 若要檢查最新的範本，請造訪 [Azure 快速入門範本][Azure Quickstart Templates]資源庫並搜尋「服務匯流排」。
 
@@ -40,7 +40,7 @@ ms.locfileid: "59045077"
 ## <a name="quick-deployment"></a>快速部署
 若要在不撰寫任何 JSON 及執行 PowerShell/CLI 命令的情況下執行範例，請選取下列按鈕：
 
-[![Deploy 至 Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+[![部署至 Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 若要手動建立及部署範本，請瀏覽本文中的下列各節。
 

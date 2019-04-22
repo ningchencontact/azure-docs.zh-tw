@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
 ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59488706"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>開始在 Azure Data Lake Analytics 中使用 U-SQL
@@ -56,8 +56,8 @@ OUTPUT @searchlog
 
 ### <a name="key-concepts"></a>重要概念
 * **資料列集變數**:每個產生的資料列集的查詢運算式可以指派給變數。 在指令碼中，U-SQL 會遵循 T-SQL 變數命名模式 (例如 `@searchlog`)。
-* EXTRACT 關鍵字會從檔案讀取資料，並在讀取時定義結構描述。 `Extractors.Tsv` 是內建的 U-SQL 擷取器的定位點分隔值檔案。 您可以開發自訂擷取器。
-* OUTPUT 會將資料列集的資料寫入檔案。 `Outputters.Csv()` 是內建的 U-SQL 輸出器，用於建立以逗號分隔值檔案。 您可以開發自訂輸出器。
+* EXTRACT 關鍵字會從檔案讀取資料，並在讀取時定義結構描述。 `Extractors.Tsv` 是內建的 U-SQL 擷取器，適用於以定位點分隔值的檔案。 您可以開發自訂擷取器。
+* OUTPUT 會將資料列集的資料寫入檔案。 `Outputters.Csv()` 是內建的 U-SQL 輸出器，用於建立以逗號分隔值的檔案。 您可以開發自訂輸出器。
 
 ### <a name="file-paths"></a>檔案路徑
 
@@ -226,4 +226,4 @@ U-SQL 的 HAVING 子句可以用來將輸出限制為符合 HAVING 條件的群�
 
 ## <a name="next-steps"></a>後續步驟
 * [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)
-* [使用適用於 Visual Studio 的 Data Lake 工具來開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
+* [使用 Data Lake Tools for Visual Studio 來開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)

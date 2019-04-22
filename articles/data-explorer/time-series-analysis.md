@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273068"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 資料總管中的時間序列分析
@@ -57,10 +57,10 @@ demo_make_series1
 ```
 
 - 使用 [`make-series`](/azure/kusto/query/make-seriesoperator) 運算子來建立含三個時間序列的集合，其中：
-    - `num=count()`： 時間序列的流量
-    - `range(min_t, max_t, 1h)`： 在 1 小時量化中的時間範圍 （最舊和最新時間戳記的資料表記錄） 中建立時間序列
-    - `default=0`： 指定遺漏的分類收納組來建立規則的時間序列的填滿方法。 或者，使用 [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction)、[`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction)、[`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) 及 [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) 進行變更
-    - `byOsVer`： 作業系統磁碟分割
+    - `num=count()`：流量的時間序列
+    - `range(min_t, max_t, 1h)`：在時間範圍 (資料表記錄的最舊和最新時間戳記) 內，以 1 小時的間隔來建立時間序列
+    - `default=0`：指定填滿遺漏間隔的方法以來建立標準時間序列。 或者，使用 [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction)、[`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction)、[`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) 及 [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) 進行變更
+    - `byOsVer`：依 OS 分割
 - 實際的時間序列資料結構是每個時間間隔中彙總值的數值陣列。 我們使用 `render timechart` 來產生視覺效果。
 
 在上述資料表中，我們有三個分割區。 我們可以針對每個 OS 版本建立個別的時間序列：Windows 10 (紅色)、7 (藍色) 和 8.1 (綠色)，如下圖所示：
@@ -78,7 +78,7 @@ demo_make_series1
 - 有兩個泛型篩選函式：
     - [`series_fir()`](/azure/kusto/query/series-firfunction)：套用 FIR 篩選。 用於移動時間序列平均和差異的簡單計算，以進行變更偵測。
     - [`series_iir()`](/azure/kusto/query/series-iirfunction)：套用 IIR 篩選。 用於指數平滑和累計總和。
-- `Extend` 時間序列加入移動平均一系列新的設定調整大小的 5 個分類收納 (名為*ma_num*) 查詢：
+- `Extend` 時間序列，此時間序列會透過在查詢中新增大小 5 個間隔的新移動平均序列 (名為 *ma_num*) 來設定：
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -180,7 +180,7 @@ demo_many_series1
 
 |   |   |   |   |   |   |
 | --- | --- | --- | --- | --- | --- |
-|   | 時間戳記 | Loc | anonOp | DB | DataRead |
+|   | TIMESTAMP | Loc | anonOp | DB | DataRead |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 262 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 241 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | -865998331941149874 | 262 | 279862 |

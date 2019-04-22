@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281109"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中設定 IP 防火牆
@@ -159,7 +159,7 @@ az cosmosdb update \
 
 若要設定 Azure Cosmos DB 帳戶的虛擬網路服務端點，請參閱下列文章：
 
-* [您的 Azure Cosmos DB 帳戶的虛擬網路和子網路存取控制](vnet-service-endpoint.md)
+* [適用於 Azure Cosmos DB 帳戶的虛擬網路和子網路存取控制](vnet-service-endpoint.md)
 * [針對 Azure Cosmos DB 帳戶設定虛擬網路和子網路型存取](how-to-configure-vnet-service-endpoint.md)
 
 

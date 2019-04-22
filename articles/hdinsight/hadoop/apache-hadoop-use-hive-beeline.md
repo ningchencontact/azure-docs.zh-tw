@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.openlocfilehash: 89303e5c827fc24540d345a9a2b9a0743e453a4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257122"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>使用 Apache Beeline 用戶端搭配 Apache Hive
@@ -180,17 +180,17 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
     這些陳述式會執行下列動作：
 
-    * `DROP TABLE` -如果資料表存在，則會將它刪除。
+    * `DROP TABLE` - 如果資料表存在，則會刪除它。
 
-    * `CREATE EXTERNAL TABLE` -建立**外部**在 Hive 中的資料表。 外部資料表只會將資料表定義儲存在 Hive 中。 資料會留在原來的位置。
+    * `CREATE EXTERNAL TABLE` - 在 Hive 中建立**外部**資料表。 外部資料表只會將資料表定義儲存在 Hive 中。 資料會留在原來的位置。
 
-    * `ROW FORMAT` -如何格式化資料。 在此情況下，每個記錄中的欄位會以空格隔開。
+    * `ROW FORMAT` - 設定資料格式的方式。 在此情况下，每个日志中的字段以空格分隔。
 
-    * `STORED AS TEXTFILE LOCATION` -當資料儲存和以何種檔案格式。
+    * `STORED AS TEXTFILE LOCATION` - 儲存資料的所在位置以及以何種檔案格式儲存。
 
-    * `SELECT` -選取的所有資料列計數，資料行**t4**含有值 **[ERROR]**。 此查詢會傳回值 **3** ，因為有 3 個資料列包含此值。
+    * `SELECT` - 選取其資料行 **t4** 包含值 **[ERROR]** 的所有資料列計數。 此查詢會傳回值 **3** ，因為有 3 個資料列包含此值。
 
-    * `INPUT__FILE__NAME LIKE '%.log'` -Hive 嘗試將結構描述套用至目錄中的所有檔案。 在此情況下，目錄包含不符合結構描述的檔案。 若要防止結果中出現亂碼資料，此陳述式會告訴 Hive 只應該從檔名以 .log 結尾的檔案傳回資料。
+    * `INPUT__FILE__NAME LIKE '%.log'` - Hive 嘗試將結構描述套用至目錄中的所有檔案。 在此情況下，目錄包含不符合結構描述的檔案。 若要防止結果中出現亂碼資料，此陳述式會告訴 Hive 只應該從檔名以 .log 結尾的檔案傳回資料。
 
    > [!NOTE]  
    > 當您預期會由外部來源來更新基礎資料時，請使用外部資料表。 例如，自動化的資料上傳程序，或透過其他 MapReduce 作業。
@@ -284,12 +284,12 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 如需有關 HDInsight 中 Hive 的更多一般資訊，請參閱下列文件：
 
-* [使用 Apache Hive 與 HDInsight 上的 Apache Hadoop](hdinsight-use-hive.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)
 
 如需您可以使用 HDInsight 上的 Hadoop 之其他方式的詳細資訊，請參閱下列文件：
 
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
-* [搭配使用 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

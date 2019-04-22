@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: yizhon
 ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261389"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>使用 Azure IoT C SDK 開發受限裝置
@@ -83,4 +83,4 @@ C SDK 支援兩種程式設計模型。 一組具有 _LL_ 中置詞 (代表較�
 
 若要深入了解 Azure IoT C SDK 架構：
 -   [Azure IoT C SDK 原始程式碼](https://github.com/Azure/azure-iot-sdk-c/)
--   [Azure IoT 裝置 SDK for C 簡介](iot-hub-device-sdk-c-intro.md)
+-   [C 適用的 Azure IoT 裝置 SDK 簡介](iot-hub-device-sdk-c-intro.md)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
 ms.openlocfilehash: 2f3967c64e79b2bc7b01b35eff26f5ac0d4e3db4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288602"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>如何評估您的 Gremlin 查詢中使用的執行設定檔的步驟
@@ -133,20 +133,20 @@ ms.locfileid: "59288602"
 
 ExecutionProfile() 函式的回應將會產生具有下列結構的 JSON 物件的階層：
   - **Gremlin 作業物件**:代表整個執行的 Gremlin 作業。 包含下列屬性。
-    - `gremlin`：明確 Gremlin 陳述式執行。
-    - `totalTime`：時間 （毫秒），在產生的執行步驟。 
-    - `metrics`：陣列，其中包含每個 Cosmos DB 執行階段運算子可完成查詢所執行。 這份清單是以執行順序排序。
+    - `gremlin`:明確 Gremlin 陳述式執行。
+    - `totalTime`:時間 （毫秒），在產生的執行步驟。 
+    - `metrics`:陣列，其中包含每個 Cosmos DB 執行階段運算子可完成查詢所執行。 這份清單是以執行順序排序。
     
   - **Cosmos DB 執行階段運算子**:代表每個元件的整個 Gremlin 作業。 這份清單是以執行順序排序。 每個物件包含下列屬性：
-    - `name`：操作員名稱。 這是已評估，並執行步驟的類型。 下表中閱讀更多。
-    - `time`：以毫秒為單位，指定的運算子所花費的時間量。
-    - `annotations`：包含其他資訊，特定運算子所執行。
-    - `annotations.percentTime`：執行特定運算子所花費的總時間百分比。
-    - `counts`：這個運算子所傳回的儲存層的物件數目。 這個包含`counts.resultCount`內的純量值。
-    - `storeOps`：表示可以跨越一或多個資料分割的儲存體作業。
-    - `storeOps.fanoutFactor`：代表這個特定的儲存體作業存取的資料分割數目。
-    - `storeOps.count`：表示此儲存體作業傳回的結果數目。
-    - `storeOps.size`：表示的大小，以位元組為單位的指定儲存體作業的結果。
+    - `name`:操作員名稱。 這是已評估，並執行步驟的類型。 下表中閱讀更多。
+    - `time`:以毫秒為單位，指定的運算子所花費的時間量。
+    - `annotations`:包含其他資訊，特定運算子所執行。
+    - `annotations.percentTime`:執行特定運算子所花費的總時間百分比。
+    - `counts`:這個運算子所傳回的儲存層的物件數目。 這個包含`counts.resultCount`內的純量值。
+    - `storeOps`:表示可以跨越一或多個資料分割的儲存體作業。
+    - `storeOps.fanoutFactor`:代表這個特定的儲存體作業存取的資料分割數目。
+    - `storeOps.count`:表示此儲存體作業傳回的結果數目。
+    - `storeOps.size`:表示的大小，以位元組為單位的指定儲存體作業的結果。
 
 Cosmos DB Gremlin 執行階段運算子|描述
 ---|---

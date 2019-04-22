@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 602c7385b252daa7db22bd47f43afec3ad072263
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904197"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679341"
 ---
-# <a name="set-up-a-device-template-new-ui-design"></a>設定裝置範本 (新 UI 設計)
+# <a name="set-up-a-device-template"></a>設定裝置範本
 
 裝置範本是一份藍圖，可為連線至 Azure IoT Central 應用程式的某種裝置，定義其所具有的特性和行為。
 
@@ -197,8 +197,8 @@ ms.locfileid: "58904197"
    ![含位置詳細資料的 [設定位置] 表單](./media/howto-set-up-template/locationcloudproperty2.png)
 
    新增位置有兩種支援的格式：
-   - **為位址的位置**
-   - **座標的位置**
+   - **以地址新增位置**
+   - **以座標新增位置**
 
 4. 選取 [ **儲存**]。 操作員可以在 [Device Explorer] 中更新位置值。
 
@@ -212,7 +212,7 @@ ms.locfileid: "58904197"
 
 3. 設定顯示名稱和欄位名稱，然後選取 [位置] 作為資料類型：
 
-    | 顯示名稱  | 欄位名稱 | 資料類型 |
+    | 顯示名稱  | 欄位名稱 | 数据类型 |
     | --------------| -----------|-----------|
     | 裝置位置 | deviceLocation | location  |
 
@@ -235,7 +235,7 @@ ms.locfileid: "58904197"
 
 比方說，您可以加入新**Echo**藉由選取命令**命令** 索引標籤，然後選取 **+ 新增 命令**，並輸入新的命令詳細資料：
 
-| 顯示名稱  | 欄位名稱 | 預設逾時 | 資料類型 |
+| 顯示名稱  | 欄位名稱 | 預設逾時 | 数据类型 |
 | --------------| -----------|---------------- | --------- |
 | 回應命令  | 回應       |  30             | text      |
 

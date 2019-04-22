@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 7f63293900e116fd3175b0ea6d704993a2dcf591
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051388"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>連線 Google Cloud Platform 帳戶
@@ -28,7 +28,7 @@ ms.locfileid: "59051388"
 
 1. 登入 Google Cloud Platform 主控台：[https://console.cloud.google.com](https://console.cloud.google.com)。
 2. 檢閱要在 Cloudyn 上線的專案資訊，並記下 [專案名稱] 和 [專案 ID]。 請就近保存此資訊以使用於後續步驟。  
-    ![專案名稱和 Google Cloud Platform 主控台中顯示的專案識別碼](./media/connect-google-account/gcp-console01.png)
+    ![Google Cloud Platform 主控台中 顯示的專案名稱和專案識別碼](./media/connect-google-account/gcp-console01.png)
 3. 如果未啟用計費並連結至您的專案，請建立計費帳戶。 如需詳細資訊，請參閱[建立新的計費帳戶](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account) \(英文\)。
 
 ## <a name="enable-storage-bucket-billing-export"></a>啟用儲存體貯體計費匯出
@@ -39,7 +39,7 @@ Cloudyn 會從儲存體貯體擷取您的 Google 帳單資料。 請記下 [Buck
 
 1. 如果您未啟用計費匯出至檔案，請遵循[如何啟用計費匯出至檔案](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file)的指示。 您可以使用 JSON 或 CSV 計費匯出格式。
 2. 否則，在 Google Cloud Platform 主控台中，巡覽至 [計費] > [計費匯出]。 注意您的計費「貯體名稱」和「報告前置詞」。  
-    ![帳單的 [匯出] 頁面上所顯示的計費匯出資訊](./media/connect-google-account/billing-export.png)
+    ![[計費匯出] 頁面上顯示的計費匯出資訊](./media/connect-google-account/billing-export.png)
 
 ## <a name="enable-google-cloud-platform-apis"></a>啟用 Google Cloud Platform API
 

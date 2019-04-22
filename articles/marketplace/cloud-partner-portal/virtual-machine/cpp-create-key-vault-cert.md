@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045691"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>建立 Azure Key Vault 的憑證
@@ -39,7 +39,7 @@ ms.locfileid: "59045691"
 
 編輯並執行下列 Azure Powershell 指令碼，以便在本機資料夾中建立憑證檔案 (.pfx)。  您必須取代下列參數的值：
 
-|  **參數**        |   **描述**                                                               |
+|  **參數**        |   **說明**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | 儲存 .pfx 檔案所在的本機資料夾  |
 | `$location`    | 其中一個 Azure 標準的地理位置  |
@@ -85,7 +85,7 @@ ms.locfileid: "59045691"
 
 將[金鑰保存庫部署範本](./cpp-key-vault-deploy-template.md)的內容複製至本機電腦上的檔案  (在以下的範例指令碼中，此資源是 `C:\certLocation\keyvault.json`)。編輯並執行下列 Azure Powershell 指令碼來建立 Azure Key Vault 執行個體和相關聯的資源群組。  您必須取代下列參數的值：
 
-|  **參數**        |   **描述**                                                               |
+|  **參數**        |   **說明**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | 附加至部署識別碼的任意數字字串                     |
 | `$rgName`             | 要建立的 Azure 資源群組 (RG) 名稱                                        |

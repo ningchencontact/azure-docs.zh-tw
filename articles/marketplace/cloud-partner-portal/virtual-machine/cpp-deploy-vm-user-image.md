@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046730"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>從使用者 VHD 部署 Azure VM
@@ -31,10 +31,10 @@ ms.locfileid: "59046730"
 
 將適用於 [VHD 部署](cpp-deploy-json-template.md)的 Azure Resource Manager 範本複製到名為 `VHDtoImage.json` 的本機檔案。  編輯此檔案以提供下列參數值。 
 
-|  **參數**             |   **描述**                                                              |
+|  **參數**             |   **說明**                                                              |
 |  -------------             |   ---------------                                                              |
 | resourceGroupName          | 現有的 Azure 資源群組名稱。  通常會使用與您金鑰保存庫相關聯的相同 RG  |
-| TemplateFile               | 檔案的完整路徑名稱 `VHDtoImage.json`                                    |
+| TemplateFile               | 檔案 `VHDtoImage.json` 的完整路徑名稱                                    |
 | userStorageAccountName     | 儲存體帳戶的名稱                                                    |
 | sNameForPublicIP           | 公用 IP 的 DNS 名稱。 必須是小寫                                  |
 | subscriptionId             | Azure 訂用帳戶識別碼                                                  |
@@ -42,7 +42,7 @@ ms.locfileid: "59046730"
 | vmName                     | 虛擬機器的名稱                                                    |
 | vaultName                  | 金鑰保存庫的名稱                                                          |
 | vaultResourceGroup         | 金鑰保存庫的資源群組
-| certificateUrl             | Url 的憑證，包括版本儲存在金鑰保存庫，例如：  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| certificateUrl             | 憑證的 URL，包括儲存於金鑰保存庫的版本，例如：`https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | 虛擬硬碟的 URL                                                   |
 | vmSize                     | 虛擬機器執行個體的大小                                           |
 | publicIPAddressName        | 公用 IP 位址的名稱                                                  |

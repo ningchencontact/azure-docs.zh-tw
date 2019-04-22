@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490734"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中建立自訂映像處理站
@@ -27,7 +27,7 @@ ms.locfileid: "59490734"
 
 - [建立映像處理站](image-factory-create.md)
 - [從 Azure DevOps 執行映像處理站](image-factory-set-up-devops-lab.md)
-- [儲存自訂映像並散發至多個實驗室](image-factory-save-distribute-custom-images.md)
+- [儲存自訂映像，並散發的多個實驗室](image-factory-save-distribute-custom-images.md)
 
 下列項目應該已經準備就緒：
 

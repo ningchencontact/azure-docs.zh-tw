@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270178"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結到您的 Azure 帳戶
@@ -126,15 +126,15 @@ C:\ az managementpartner delete --partner-id 12345
 
 夥伴組織中負責管理客戶 Azure 資源的任何使用者，都可將合作夥伴識別碼連結到帳戶。
 
-**合作夥伴識別碼後可以改變連結嗎？**
+**連結合作夥伴識別碼之後可加以改變嗎？**
 
 是。 連結的合作夥伴識別碼可以變更、新增或移除。
 
-**如果使用者擁有帳戶中多個客戶租用戶？**
+**如果使用者在多個客戶租用戶中具有同一帳戶，將會如何？**
 
 合作夥伴識別碼與帳戶之間的連結必須對個別的客戶租用戶建立。 在每個客戶租用戶中連結合作夥伴識別碼。
 
-**可以其他夥伴或客戶編輯或移除合作夥伴識別碼連結嗎？**
+**其他合作夥伴或客戶是否可編輯或移除合作夥伴識別碼的連結？**
 
 連結會在使用者帳戶層級產生關聯。 只有您才可編輯或移除合作夥伴識別碼的連結。 客戶和其他合作夥伴無法變更合作夥伴識別碼的連結。 
 

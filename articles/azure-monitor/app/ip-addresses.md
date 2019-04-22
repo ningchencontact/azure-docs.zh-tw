@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: b383a4f85a039eb8eed87e2e78940aaf48b30a33
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425911"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 位址
@@ -52,7 +52,7 @@ ms.locfileid: "59425911"
 | 組態 |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | 組態 |`auth.gfx.ms` | |`443` |
 | 組態 |`login.live.com` | |`443` |
-| 安裝 |`packages.nuget.org` `nuget.org`， `api.nuget.org`， `az320820.vo.msecnd.net` （NuGet 下載） | |`443` |
+| 安裝 |`packages.nuget.org`、`nuget.org`、`api.nuget.org`、`az320820.vo.msecnd.net` (NuGet 下載) | |`443` |
 
 ## <a name="availability-tests"></a>可用性集合
 這是用來執行 [可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md) 的位址清單。 如果您想要在您的應用程式上執行 Web 測試，但您的 Web 伺服器限於為特定用戶端提供服務，則您必須允許來自我們的可用性測試伺服器的連入流量。

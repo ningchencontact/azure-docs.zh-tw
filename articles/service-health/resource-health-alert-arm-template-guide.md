@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
 ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047512"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>使用 Resource Manager 範本設定資源健康狀態警示
@@ -164,7 +164,7 @@ Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康�
 ],
 ```
 
-例如︰ `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+例如：`"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > 您可以移至 Azure 入口網站，並在檢視您的 Azure 資源時查看 URL 以取得此字串。
 
@@ -429,7 +429,7 @@ Azure 資源健康狀態可以使用測試執行器持續監視資源，以向�
 
 深入了解資源健康狀態：
 -  [Azure 資源健康狀態概觀](Resource-health-overview.md)
--  [可透過 Azure 資源健康狀態取得的資源類型和健康狀態檢查](resource-health-checks-resource-types.md)
+-  [可透過 Azure 資源健康狀態使用的資源類型和健康檢查](resource-health-checks-resource-types.md)
 
 建立服務健康狀態警示：
--  [設定服務健康情況警示](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [設定適用於服務健康情況的警示](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

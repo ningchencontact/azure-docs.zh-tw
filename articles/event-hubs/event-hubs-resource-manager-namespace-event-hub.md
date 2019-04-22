@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 8664b431239f7b288deccedeadff0806ab600bcd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: d5dc65dc225d11a996d9b9d3c329151a17321fb6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232508"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678236"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本建立事件中樞
 Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可接收和處理數百萬個事件。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
@@ -180,10 +180,17 @@ az group deployment create --name <Specify a name for the deployment> --resource
 
 ## <a name="next-steps"></a>後續步驟
 
-在此文章中，您已建立事件中樞命名空間，並使用範例應用程式來傳送事件到事件中樞，或從事件中樞接收事件。 如需將事件傳送至事件中樞或從事件樞接收事件的逐步指示，請參閱下列教學課程： 
+在此文章中，您已建立事件中樞命名空間，並使用範例應用程式來傳送事件到事件中樞，或從事件中樞接收事件。 若要傳送事件至 （或） 從事件中樞接收事件的逐步指示，請參閱**傳送與接收事件**教學課程： 
 
-- **將事件傳送至事件中樞**：[.NET Core](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
-- **從事件中樞接收事件**：[.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C （僅傳送）](event-hubs-c-getstarted-send.md)
+- [Apache Storm (只有 reecive)](event-hubs-storm-getstarted-receive.md)
+
 
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png

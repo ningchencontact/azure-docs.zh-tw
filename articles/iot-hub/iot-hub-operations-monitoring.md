@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258108"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT 中樞作業監視 （已過時）
@@ -270,4 +270,4 @@ class Program
 
 * [IoT 中樞開發人員指南](iot-hub-devguide.md)
 
-* [使用 Azure IoT Edge 將 AI 部署到 edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)

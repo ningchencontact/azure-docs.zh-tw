@@ -16,10 +16,10 @@ ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259196"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 入口網站中佈建 Windows SQL Server 虛擬機器
@@ -72,15 +72,15 @@ ms.locfileid: "59259196"
 
 | 步驟 | 描述 |
 | --- | --- |
-| **基本概念** |[設定基本設定](#1-configure-basic-settings) |
+| **基础知识** |[設定基本設定](#1-configure-basic-settings) |
 | **選用功能** |[設定選用功能](#2-configure-optional-features) |
 | **SQL Server 設定** |[進行 SQL Server 設定](#3-configure-sql-server-settings) |
-| **檢閱及建立** | [檢閱摘要](#4-review--create) |
+| **檢閱 + 建立** | [檢閱摘要](#4-review--create) |
 
 ## <a name="1-configure-basic-settings"></a>1.設定基本設定
 
 
-在 **基本概念**索引標籤上，提供下列資訊：
+在 [基本概念] 索引標籤中提供下列資訊：
 
 * 底下**專案的詳細資料**，請確定已選取正確的訂用帳戶。 
 *  在 **資源群組**一節，請選取現有的資源群組清單中，或選擇**建立新**來建立新的資源群組。 資源群組是 Azure (虛擬機器、儲存體帳戶、虛擬網路等) 中相關資源的集合。 
@@ -91,12 +91,12 @@ ms.locfileid: "59259196"
   > 如果您只是測試或了解 Azure 中的 SQL Server 部署，使用新的資源群組很有幫助。 完成測試之後，請刪除資源群組以自動刪除此 VM 以及與該資源群組相關聯的所有資源。 如需有關資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../../azure-resource-manager/resource-group-overview.md)。
 
 
-* 底下**執行個體詳細資料**:
+* 在 [執行個體詳細資料] 下方：
     1. 輸入唯一**虛擬機器名稱**。  
-    1. 選擇一個位置，供您**地區**。 
-    1. 本指南中，為了保留**可用性選項**設為_沒有所需的基礎結構備援性_。 若要了解可用性選項的詳細資訊，請參閱[Azure 區域和可用性](../../windows/regions-and-availability.md)。 
-    1. 在 [**映像**清單中，選取_免費的 SQL Server 授權：_ Windows Server 2016 上的 SQL Server 2017 Developer] 的映像。  
-    1. 選擇**變更大小**for**大小**的虛擬機器，然後選取**基本 A2**供應項目。 請務必清除資源，一旦您完成以防止任何未預期的費用。 對於生產工作負載，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](virtual-machines-windows-sql-performance.md)中建議的機器大小和組態。
+    1. 選擇 [區域] 的位置。 
+    1. 本指南中，為了保留**可用性選項**設為_沒有所需的基礎結構備援性_。 如需關於可用性選項的詳細資訊，請參閱 [Azure 區域和可用性](../../windows/regions-and-availability.md)。 
+    1. 在 [映像]** _清單中，選取 **[免費的 SQL Server 授權：_ Windows Server 2016 上的 SQL Server 2017 Developer] 的映像。  
+    1. 選擇為虛擬機器的**大小** [變更大小]，然後選取 **A2 Basic** 供應項目。 在資源使用完畢後請務必加以清除，以防止產生任何非預期的費用。 對於生產工作負載，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](virtual-machines-windows-sql-performance.md)中建議的機器大小和組態。
 
     ![執行個體詳細資料](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
@@ -107,7 +107,7 @@ ms.locfileid: "59259196"
 
    ![系統管理員帳戶](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
-* 底下**輸入連接埠規則**，選擇**允許選取的連接埠**，然後選取**RDP (3389)** 從下拉式清單。 
+* 在 [輸入連接埠規則] 下方選擇 [允許選取的連接埠]，然後從下拉式清單中選取 [RDP (3389)]。 
 
    ![輸入連接埠規則](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
@@ -158,8 +158,8 @@ ms.locfileid: "59259196"
 | 設定 |
 | --- |
 | [連線能力](#connectivity) |
-| [Authentication](#authentication) |
-| [Azure Key Vault 整合](#azure-key-vault-integration) |
+| [驗證](#authentication) |
+| [Azure 金鑰保存庫整合](#azure-key-vault-integration) |
 | [儲存體組態](#storage-configuration) |
 | [自動修補](#automated-patching) |
 | [自動備份](#automated-backup) |
@@ -211,10 +211,10 @@ ms.locfileid: "59259196"
 
 | 參數 | 描述 | 範例 |
 | --- | --- | --- |
-| **Key Vault URL** |金鑰保存庫的位置。 |https:\//contosokeyvault.vault.azure.net/ |
-| **主體名稱** |Azure Active Directory 服務主體名稱。 此名稱也稱為「用戶端識別碼」。 |fde2b411-33d5-4e11-af04eb07b669ccf2 |
-| **主體秘密** |Azure Active Directory 服務主體密碼。 此密碼也稱為「用戶端密碼」。 |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **Credential name (認證名稱)** |**認證名稱**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 選擇此認證的名稱。 |mycred1 |
+| **金鑰保存庫 URL** |金鑰保存庫的位置。 |https:\//contosokeyvault.vault.azure.net/ |
+| **主體名稱** |Azure Active Directory 服务主体名称。 此名稱也稱為「用戶端識別碼」。 |fde2b411-33d5-4e11-af04eb07b669ccf2 |
+| **主體密碼** |Azure Active Directory 服務主體密碼。 此密碼也稱為「用戶端密碼」。 |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
+| **認證名稱** |**認證名稱**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 選擇此認證的名稱。 |mycred1 |
 
 如需詳細資訊，請參閱 [在 Azure VM 上設定 SQL Server 的 Azure 金鑰保存庫整合](virtual-machines-windows-ps-sql-keyvault.md)。
 
@@ -274,9 +274,9 @@ ms.locfileid: "59259196"
 您可以選擇啟用[SQL Server R Services （進階分析）](/sql/advanced-analytics/r/sql-server-r-services/)。 此選項可讓您搭配使用進階分析與 SQL Server 2017。 按一下 [SQL Server 設定] 視窗上的 [啟用]。
 
 
-## <a name="4-review--create"></a>4.檢閱及建立
+## <a name="4-review--create"></a>4.檢閱 + 建立
 
-在 **檢閱 + 建立**索引標籤上，檢閱摘要，然後選取**建立**建立 SQL Server、 資源群組，並為此 VM 指定的資源。
+在 [檢閱 + 建立] 索引標籤上檢閱摘要，然後選取 [建立] 以建立為此 VM 指定的 SQL Server、資源群組及資源。
 
 您可以從 Azure 入口網站監視部署。 畫面頂端的 [通知]  按鈕會顯示基本的部署狀態。
 

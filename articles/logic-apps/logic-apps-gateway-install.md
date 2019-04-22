@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065795"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679120"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -238,7 +238,7 @@ TcpTestSucceeded       : True
 
 閘道會使用這些完整的網域名稱：
 
-| 網域名稱 | 輸出連接埠 | 說明 | 
+| 網域名稱 | 輸出連接埠 | 描述 | 
 | ------------ | -------------- | ----------- | 
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
@@ -435,26 +435,6 @@ TcpTestSucceeded       : True
 
    ![檢視閘道的事件記錄](./media/logic-apps-gateway-install/event-viewer.png)
 
-### <a name="telemetry"></a>遙測
-
-如需額外的監視和疑難排解，您可以開啟並收集遙測。 
-
-1. 瀏覽至內部部署資料閘道用戶端的位置，您通常可以在此找到該位置：```C:\Program Files\On-premises data gateway```
-
-   否則，若要尋找用戶端位置，請在同一部電腦上開啟 [服務] 主控台，尋找 [內部部署資料閘道服務]，然後檢視 [可執行檔的路徑] 屬性。
-
-2. 開啟此「組態」檔：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-3. 將 **SendTelemetry** 值變更為 **true**：
-
-   ```html
-   <setting name="SendTelemetry" serializeAs="String">
-      <value>true</value>
-   </setting>
-   ```
-
-4. 儲存您的變更，然後重新啟動 Windows 服務。
-
 ### <a name="review-slow-query-performance"></a>檢閱緩慢查詢效能
 
 如果您發現透過閘道執行的查詢速度很慢，您可以開啟額外記錄來輸出查詢及其持續時間。 這些記錄可以協助您找出哪些查詢緩慢或長時間執行。 若要調整查詢效能，您可能必須修改您的資料來源，例如，調整 SQL Server 查詢的索引。
@@ -505,7 +485,7 @@ TcpTestSucceeded       : True
 
    2. 若要尋找查詢，請搜尋活動類型，例如： 
 
-      | 活動類型 | 說明 | 
+      | 活動類型 | 描述 | 
       |---------------|-------------| 
       | MGEQ | 透過 ADO.NET 執行的查詢。 | 
       | MGEO | 透過 OLEDB 執行的查詢。 | 
@@ -526,7 +506,7 @@ TcpTestSucceeded       : True
 
 ### <a name="trace-traffic-with-fiddler"></a>使用 Fiddler 追蹤流量
 
-[Fiddler](http://www.telerik.com/fiddler) 是一個 Telerik 公司開發，用來監視 HTTP 流量的免費工具。 您可以從用戶端電腦，使用 Power BI 服務來查閱此流量。 此服務可能會顯示錯誤和其他相關資訊。
+[Fiddler](https://www.telerik.com/fiddler) 是一個 Telerik 公司開發，用來監視 HTTP 流量的免費工具。 您可以從用戶端電腦，使用 Power BI 服務來查閱此流量。 此服務可能會顯示錯誤和其他相關資訊。
 
 ## <a name="next-steps"></a>後續步驟
     

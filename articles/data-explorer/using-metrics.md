@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050592"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>監視 Azure 資料總管效能、 健全狀況和使用量計量
@@ -40,7 +40,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 
 1. 若要建立的計量圖表，請選取**公制**名稱和相關**彙總**每個計量，如以下。 **Resource**並**度量命名空間**選擇器會預先選取為您的 Azure 資料總管叢集。
 
-    **計量** | **單位** | **彙總** | **度量說明**
+    **度量** | **單位** | **彙總** | **度量說明**
     |---|---|---|---|
     | 快取使用量 | 百分比 | Avg、 Max、 Min | 已配置的快取中的資源目前的叢集所使用的百分比。 快取是指配置給使用者的活動，根據定義的快取原則的 SSD 的大小。 平均快取使用量的 80%或更少是叢集的持續性狀態。 如果平均快取使用量高於 80%，叢集就應該[相應增加](manage-cluster-scale-up.md)到儲存體最佳化的定價層或[相應放大](manage-cluster-scale-out.md)到更多執行個體。 或者，調整快取原則 （在快取中的較少天）。 如果快取使用量超過 100%，快取，快取原則，根據資料大小是較大的叢集上的快取的大小總計。 |
     | CPU | 百分比 | Avg、 Max、 Min | 目前在叢集中的機器所使用的配置的計算資源的百分比。 平均 CPU 時間的 80%或更少是叢集的持續性。 CPU 的最大值是 100%，這表示沒有額外的計算資源來處理資料。 當叢集不順利執行時，請檢查來判斷是否有封鎖的特定 Cpu 的 CPU 的最大值。 |

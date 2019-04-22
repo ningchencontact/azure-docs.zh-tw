@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: monhaber
 ms.openlocfilehash: 3d9658a6b7501714a6aad0e8eaa30ce587284bfe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046192"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>保護 Azure 資訊安全中心內的網路資源
@@ -101,7 +101,7 @@ Azure 資訊安全中心會持續分析 Azure 資源的安全性狀態，以獲�
 1. 當您在地圖上選取特定的資源時，右窗格會開啟，並提供您資源的一般資訊、連線的安全性解決方案 (如果有的話)，以及與資源相關的建議。 對於您選取的每種類型資源而言，這是相同類型的行為。 
 2. 按一下 [流量] 可針對資源查看可能的輸出和輸入流量清單，這是誰可以與資源進行通訊、誰可以進行通訊，以及透過哪些通訊協定與連接埠的完整清單。 例如，當您選取 VM，它可以與通訊的所有 Vm 會顯示，而當您選取的子網路時，會顯示所有與通訊的子網路。
 
-**這項資料為基礎的網路安全性群組，以及進階的機器學習演算法來分析多個規則，以了解其 crossovers 與互動分析。** 
+**此資料是以網路安全性群組以及進階機器學習演算法為基礎，後者可以分析多個規則，以了解其交叉與互動。** 
 
 ![網路流量地圖](./media/security-center-network-recommendations/network-map-traffic.png)
 
@@ -146,7 +146,7 @@ Vnet|5|啟用 DDoS 保護標準|針對在這些虛擬網路中具有公用 IP �
 
 * [保護 Azure 資訊安全中心內的虛擬機器](security-center-virtual-machine-recommendations.md)
 * [保護 Azure 資訊安全中心內的應用程式](security-center-application-recommendations.md)
-* [保護您的 Azure SQL 服務，Azure 資訊安全中心](security-center-sql-service-recommendations.md)
+* [保護 Azure 資訊安全中心內的 Azure SQL 服務](security-center-sql-service-recommendations.md)
 
 如要深入了解資訊安全中心，請參閱下列主題：
 

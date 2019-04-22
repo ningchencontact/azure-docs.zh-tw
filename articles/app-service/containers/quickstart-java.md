@@ -4,7 +4,7 @@ description: 在本快速入門中，您將在短短幾分鐘內在 Linux 上的
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 12/10/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 4b95c75b863cdc86dd8a1ebe8347b77b637b110c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af1256b4432e42f91209b622239ca55901929a1b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999110"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544733"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>快速入門：在 Linux 上的 App Service 中建立 Java 應用程式
 
@@ -99,17 +99,15 @@ mvn package azure-webapp:deploy
 
 **恭喜！** 您已將第一個 Java 應用程式部署至 Linux 上的 App Service。
 
-
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
-
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已使用 Maven 建立 Java 應用程式、設定[適用於 Azure Web Apps 的 Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，然後將以網頁封存封裝的 Java 應用程式部署至 Linux 上的 App Service。 如需在 Linux 上的 App Service 中裝載 Java 應用程式的詳細資訊，請參閱下列教學課程和操作說明文章。
+> [!div class="nextstepaction"]
+> [教學課程：搭配 PostgreSQL 的 Java Enterprise 應用程式](tutorial-java-enterprise-postgresql-app.md)
 
-- [教學課程：使用 PostgreSQL 部署 Java Enterprise 應用程式](tutorial-java-enterprise-postgresql-app.md)
-- [設定 Tomcat 資料來源](app-service-linux-java.md#tomcat)
-- [使用 Jenkins 的 CI/CD](/azure/jenkins/deploy-jenkins-app-service-plugin)
-- [設定應用程式效能監視工具](how-to-java-apm-monitoring.md)
-- [Linux 上 App Service 的 Java 開發人員指南](app-service-linux-java.md)
+> [!div class="nextstepaction"]
+> [設定 Java 應用程式](configure-custom-container.md)
 
+> [!div class="nextstepaction"]
+> [使用 Jenkins 的 CI/CD](/azure/jenkins/deploy-jenkins-app-service-plugin)

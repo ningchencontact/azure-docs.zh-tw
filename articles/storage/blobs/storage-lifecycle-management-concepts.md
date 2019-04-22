@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: e6f4f1feb5c1c78e78ff5d71b08a0e8a40537d13
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803238"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681721"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 儲存體生命週期
 
@@ -45,7 +45,7 @@ ms.locfileid: "58803238"
 您可以新增、 編輯或移除原則，使用 Azure 入口網站中， [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)，Azure CLI [REST Api](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies)，或用戶端工具。 這篇文章會示範如何使用入口網站和 PowerShell 方法來管理原則。  
 
 > [!NOTE]
-> 如果您啟用儲存體帳戶的防火牆規則，可能會封鎖生命週期管理要求。 您可以提供例外狀況來解除封鎖這些要求。 如需詳細資訊，請參閱[設定防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)中的＜例外狀況＞一節。
+> 如果您啟用儲存體帳戶的防火牆規則，可能會封鎖生命週期管理要求。 您可以提供例外狀況來解除封鎖這些要求。 是必要的略過： `Logging,  Metrics,  AzureServices`。 如需詳細資訊，請參閱[設定防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)中的＜例外狀況＞一節。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 

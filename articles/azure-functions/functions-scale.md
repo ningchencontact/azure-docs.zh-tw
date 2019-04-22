@@ -14,10 +14,10 @@ ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266917"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
@@ -164,4 +164,4 @@ Azure Functions 使用名為「縮放控制器」的元件來監視事件的速�
 
 有用的查詢，以及如何了解耗用量計費的詳細資訊，請參閱[計費的常見問題集 >](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ)。
 
-[Azure Functions 定價頁面]: https://azure.microsoft.com/pricing/details/functions
+[Azure Functions 價格頁面]: https://azure.microsoft.com/pricing/details/functions

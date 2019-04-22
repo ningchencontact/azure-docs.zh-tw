@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045776"
 ---
 # <a name="handle-duplicate-data-in-azure-data-explorer"></a>處理 Azure 資料總管 中的重複資料
@@ -122,4 +122,4 @@ DeviceEventsAll
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [撰寫 Azure 資料總管查詢](write-queries.md)
+> [撰寫 Azure 資料總管的查詢](write-queries.md)

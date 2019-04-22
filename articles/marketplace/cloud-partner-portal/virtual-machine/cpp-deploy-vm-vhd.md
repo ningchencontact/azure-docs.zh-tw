@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046677"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>從您的 VHD 部署 VM
@@ -30,7 +30,7 @@ ms.locfileid: "59046677"
 若要深入了解 VM 映像，請參閱下列部落格文章：
 
 - [VM 映像](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [VM 映像 PowerShell 「 如何 」](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [VM 映像 PowerShell 使用說明](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/) (英文)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -53,26 +53,26 @@ ms.locfileid: "59046677"
 VM 部署完成後，您便可準備開始[認證您的 VM 映像](./cpp-certify-vm.md)。
 
 1. 按一下 [新增] 並搜尋**範本部署**，然後選取 [在編輯器中建置自己的範本]。  <br/>
-   ![建置在 Azure 入口網站中的 VHD 部署範本](./media/publishvm_021.png)
+   ![在 Microsoft Azure 入口網站建置 VHD 部署範本](./media/publishvm_021.png)
 
 1. 複製並將此 [JSON 範本](./cpp-deploy-json-template.md)貼上至編輯器，然後按一下 [儲存]。 <br/>
-   ![儲存在 Azure 入口網站中的 VHD 部署範本](./media/publishvm_022.png)
+   ![將 VHD 部署範本儲存於 Microsoft Azure 入口網站](./media/publishvm_022.png)
 
 1. 為顯示的**自訂部署**屬性頁面提供參數值。
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **參數**              |   **描述**                                                            |
+   |  **參數**              |   **說明**                                                            |
    |  -------------              |   ---------------                                                            |
    | 儲存體帳戶名稱   | 一般化 VHD 所在的儲存體帳戶名稱                    |
    | 輸入儲存體容器名稱 | 一般化 VHD 所在的容器名稱                          |
    | 公用 IP 的 DNS 名稱      | 公用 IP 的 DNS 名稱                                                           |
    | 管理員使用者名稱             | 新 VM 系統管理員帳戶的使用者名稱                                  |
    | 管理員密碼              | 新 VM 管理員帳戶密碼                                  |
-   | OS 類型                     | VM 的作業系統： `Windows` \| `Linux`                                    |
-   | 訂用帳戶識別碼             | 讓選取的訂用帳戶取得安全性建議                                      |
+   | OS 類型                     | VM 作業系統：`Windows` \| `Linux`                                    |
+   | 订阅 ID             | 讓選取的訂用帳戶取得安全性建議                                      |
    | 位置                    | 部署的地理位置                                        |
-   | VM 大小                     | [Azure VM 大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)，例如 `Standard_A2` |
+   | VM 大小                     | [Azure VM 大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)，例如`Standard_A2` |
    | 公用 IP 位址      | 您的公用 IP 位址名稱                                               |
    | 虛擬機器名稱                     | 新 VM 名稱                                                           |
    | 虛擬網路名稱        | VM 使用的虛擬網路名稱                                   |

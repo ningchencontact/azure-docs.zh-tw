@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 405fe71676de311ed7e59ea72798ff4fd2db0f62
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280463"
 ---
 # <a name="run-a-notebook-slideshow"></a>執行 Notebook 投影片
@@ -102,7 +102,7 @@ Azure Notebooks 預先設定有 Jupyter/IPython 投影片擴充功能 (RISE)，�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [作法：設定和管理專案](configure-manage-azure-notebooks-projects.md)
-- [作法：從 Notebook 內安裝套件](install-packages-jupyter-notebook.md)
-- [作法：使用資料檔案](work-with-project-data-files.md)
-- [作法：存取資料資源](access-data-resources-jupyter-notebooks.md)
+- [操作說明：設定和管理專案](configure-manage-azure-notebooks-projects.md)
+- [操作說明：從 Notebook 內安裝套件](install-packages-jupyter-notebook.md)
+- [操作說明：使用資料檔案](work-with-project-data-files.md)
+- [操作說明：存取資料資源](access-data-resources-jupyter-notebooks.md)

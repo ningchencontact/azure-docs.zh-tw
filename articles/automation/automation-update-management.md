@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/09/2019
+ms.date: 04/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426474"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679069"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -88,11 +88,11 @@ ms.locfileid: "59426474"
 
 ### <a name="client-requirements"></a>用戶端需求
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠存取 Microsoft Update。 您可以搭配 System Center Configuration Manager 使用「更新管理」。 若要深入了解整合案例，請參閱[整合 System Center Configuration Manager 與更新管理](oms-solution-updatemgmt-sccmintegration.md#configuration)。 需要 [Windows 代理程式](../azure-monitor/platform/agent-windows.md)。 此代理程式會在您讓 Azure 虛擬機器上線時自動安裝。
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 
 針對 Linux，機器必須能夠存取更新存放庫。 更新存放庫可以是私人或公用。 必須使用 TLS 1.1 或 TLS 1.2，才能與更新管理互動。 此解決方案不支援已設定為向多個 Log Analytics 工作區回報的「適用於 Linux 的 Log Analytics 代理程式」。
 
@@ -136,21 +136,21 @@ Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠
 
 * [從虛擬機器](automation-onboard-solutions-from-vm.md)
 * [從瀏覽多部電腦](automation-onboard-solutions-from-browse.md)
-* [從您的自動化帳戶](automation-onboard-solutions-from-automation-account.md)
-* [使用 Azure 自動化 runbook](automation-onboard-solutions.md)
+* [從自動化帳戶](automation-onboard-solutions-from-automation-account.md)
+* [使用 Azure 自動化 Runbook](automation-onboard-solutions.md)
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>確認非 Azure 機器已上線
 
 若要確認直接連線的機器會在幾分鐘的時間之後, 通訊與 Azure 監視器記錄檔，您可以執行其中一個下列的記錄搜尋。
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 
 ```loganalytics
 Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```loganalytics
 Heartbeat
@@ -208,9 +208,9 @@ Heartbeat
 
 ## <a name="install-updates"></a>安裝更新
 
-工作區中的所有 Linux 和 Windows 電腦皆進行過更新評估之後，您可以建立「更新部署」來安裝必要的更新。 更新部署是為一或多部電腦排定的必要更新安裝作業。 您應該指定部署的日期和時間，以及應該包含在部署範圍中的電腦或電腦群組。 若要深入了解電腦群組，請參閱[Azure 監視器記錄檔中的電腦群組](../azure-monitor/platform/computer-groups.md)。
+工作區中的所有 Linux 和 Windows 電腦皆進行過更新評估之後，您可以建立「更新部署」來安裝必要的更新。 若要建立更新部署，您必須具有 「 自動化 」 帳戶的寫入權限且屬於任何 Azure Vm 的 「 寫入 」 權限設為目標的部署中。 更新部署是為一或多部電腦排定的必要更新安裝作業。 您應該指定部署的日期和時間，以及應該包含在部署範圍中的電腦或電腦群組。 若要深入了解電腦群組，請參閱[Azure 監視器記錄檔中的電腦群組](../azure-monitor/platform/computer-groups.md)。
 
- 當您將電腦群組納入更新部署時，只會在建立排程時評估一次群組成員資格。 系統不會反映群組的後續變更。 若要規避這個問題，請使用[動態群組](#using-dynamic-groups)，這些群組會在部署階段被解析，並由查詢定義。
+當您將電腦群組納入更新部署時，只會在建立排程時評估一次群組成員資格。 系統不會反映群組的後續變更。 若要解決這種使用問題[動態群組](#using-dynamic-groups)，這些群組在部署階段解決，而且針對 Azure Vm 或非 Azure Vm 的已儲存的搜尋查詢所定義。
 
 > [!NOTE]
 > 依預設，從 Azure Marketplace 部署的 Windows 虛擬機器會設定為從 Windows Update 服務接收自動更新。 當您新增這個解決方案或將 Windows 虛擬機器新增至您的工作區時，此行為並不會變更。 如果您未使用這個解決方案來主動管理更新，則會套用預設行為 (自動套用更新)。
@@ -219,13 +219,13 @@ Heartbeat
 
 需註冊從隨選 Red Hat Enterprise Linux (RHEL) 映像 (可在 Azure Marketplace 中找到) 建立的虛擬機器，以存取部署在 Azure 中的 [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)。 針對任何其他 Linux 發行版本，則必須從發行版本線上檔案存放庫，依照其支援的方法來更新。
 
-若要建立新的更新部署，請選取 [排程更新部署]。 [新增更新部署] 窗格隨即開啟。 為下表描述的屬性輸入相關的值，然後按一下 [建立]：
+若要建立新的更新部署，請選取 [排程更新部署]。 **新的更新部署**頁面隨即開啟。 為下表描述的屬性輸入相關的值，然後按一下 [建立]：
 
 | 屬性 | 描述 |
 | --- | --- |
 | 名稱 |用以識別更新部署的唯一名稱。 |
 |作業系統| Linux 或 Windows|
-| 要更新的群組 (預覽)|根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建置要包含在您部署中的動態 Azure VM 群組。 若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)|
+| 若要更新的群組 |適用於 Azure 的機器，定義查詢的訂用帳戶、 資源群組、 位置和標記，來建立要包含在您的部署中的 Azure Vm 的動態群組結合。 </br></br>對於非 Azure 機器，選取現有的已儲存的搜尋，以選取要包含在部署中的非 Azure 機器群組。 </br></br>若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)|
 | 要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md) |
 |更新分類|選取您需要的所有更新分類|
 |包含/排除更新|這會開啟 [包含]/[排除] 頁面。 要包含或排除的更新會在個別的索引標籤上。 如需有關如何處理包含的詳細資訊，請參閱[包含行為](automation-update-management.md#inclusion-behavior) |
@@ -267,7 +267,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 下表列出「更新管理」中的更新分類清單，以及每個分類的定義。
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 |分類  |描述  |
 |---------|---------|
@@ -280,7 +280,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 |工具     | 有助於完成一或多個工作的公用程式或功能。        |
 |更新     | 目前安裝之應用程式或檔案的更新。        |
 
-### <a name="linux"></a> Linux
+### <a name="linux"></a>Linux
 
 |分類  |描述  |
 |---------|---------|
@@ -567,7 +567,14 @@ Update
 
 ## <a name="using-dynamic-groups"></a>使用動態群組
 
-「更新管理」讓您能夠以動態 Azure VM 群組作為更新部署目標。 這些群組會由查詢定義，當更新部署開始時，就會評估該群組的成員。 動態群組功能不適用於傳統 Vm。 定義查詢時，可以搭配使用下列項目來填入動態群組
+更新管理可讓您為目標更新部署的 Azure 或非 Azure Vm 的動態群組。 這些群組會在部署期間評估，因此您不需要編輯您的部署新增電腦。
+
+> [!NOTE]
+> 建立更新部署時，您必須有適當的權限。 若要進一步了解，請參閱[安裝更新](#install-updates)。
+
+### <a name="azure-machines"></a>Azure 機器
+
+這些群組會由查詢定義，當更新部署開始時，就會評估該群組的成員。 動態群組功能不適用於傳統 Vm。 定義查詢時，可以搭配使用下列項目來填入動態群組
 
 * 訂用帳戶
 * 資源群組
@@ -579,6 +586,12 @@ Update
 若要預覽動態群組的結果，請按一下 [預覽] 按鈕。 此預覽會顯示該時間的群組成員資格，在此範例中，我們搜尋的是 **Role** 標記等於 **BackendServer** 的機器。 如果有更多機器新增此標記，系統就會將它們都新增至針對該群組進行的所有未來部署。
 
 ![預覽群組](./media/automation-update-management/preview-groups.png)
+
+### <a name="non-azure-machines"></a>非 Azure 電腦
+
+適用於非 Azure 電腦，已儲存的搜尋也稱為電腦群組用來建立動態群組。 若要了解如何建立已儲存的搜尋，請參閱[建立電腦群組](../azure-monitor/platform/computer-groups.md#creating-a-computer-group)。 建立您的群組之後您可以從已儲存搜尋的清單中選取它。 按一下 **預覽**預覽中儲存的搜尋，在該時間的電腦。
+
+![選取群組](./media/automation-update-management/select-groups-2.png)
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>與 System Center Configuration Manager 進行整合
 

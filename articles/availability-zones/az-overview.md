@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
 ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268716"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>什麼是 Azure 中的可用性區域？
@@ -79,14 +79,14 @@ Azure 區域中的可用性區域是由容錯網域和更新網域組成。 例�
 
 ## <a name="get-started-with-availability-zones"></a>開始使用可用性區域
 - [建立虛擬機器](../virtual-machines/windows/create-portal-availability-zone.md)
-- [新增受控磁碟，使用 PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
+- [使用 PowerShell 來新增受控磁碟](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [建立區域備援虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [使用具有區域備援前端的標準 Load Balancer 的區域之間的負載平衡 Vm](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [使用具有區域前端的標準 Load Balancer 區域內的負載平衡 Vm](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [使用具有區域備援前端的標準 Load Balancer 來進行跨區域的 VM 負載平衡](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [使用具有區域前端的標準 Load Balancer 來進行區域內的 VM 負載平衡](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [區域備援儲存體](../storage/common/storage-redundancy-zrs.md)
 - [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
-- [事件中樞異地災害復原](../event-hubs/event-hubs-geo-dr.md#availability-zones)
-- [服務匯流排異地災害復原](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
+- [事件中樞地理災害復原](../event-hubs/event-hubs-geo-dr.md#availability-zones)
+- [服務匯流排地理災害復原](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [建立區域備援虛擬網路閘道](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 

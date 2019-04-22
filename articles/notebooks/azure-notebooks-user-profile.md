@@ -14,25 +14,25 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: b8c21b908ca9162a7e44c7af1e222babc6ee1eb7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265605"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>您 Azure Notebooks 的設定檔和使用者識別碼
 
 在 Azure Notebooks 功能強大的共同作業空間內，在您的使用者設定檔可將您的公共形象呈現給他人：
 
-[![An Azure Notebooks 的設定檔頁面](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
+[![Azure Notebooks 設定檔頁面](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 您的使用者識別碼會包含在您用來共用專案和 Notebook 的 URL 中。 下列清單將說明不同的 URL 模式：
 
-- `https://notebooks.azure.com/<user_id>`：您的設定檔頁面。
-- `https://notebooks.azure.com/<user_id>/projects`：您的專案。 您會看到所有專案；其他使用者只會看到您的公用專案。
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>`：專案檔。
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`：特定專案的複製品。
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`：特定 Notebook 或檔案的 HTML 預覽。
+- `https://notebooks.azure.com/<user_id>`:您的設定檔頁面。
+- `https://notebooks.azure.com/<user_id>/projects`:您的專案。 您會看到所有專案；其他使用者只會看到您的公用專案。
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>`:專案檔。
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`:特定專案的複製品。
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`:特定 Notebook 或檔案的 HTML 預覽。
 
 ## <a name="your-user-id"></a>您的使用者識別碼
 
@@ -69,4 +69,4 @@ ms.locfileid: "59265605"
 ## <a name="next-steps"></a>後續步驟  
 
 > [!div class="nextstepaction"]
-> [教學課程： 建立執行的 Jupyter notebook 來執行線性迴歸](tutorial-create-run-jupyter-notebook.md)
+> [教學課程：建立和執行 Jupyter Notebook 來執行線性迴歸](tutorial-create-run-jupyter-notebook.md)

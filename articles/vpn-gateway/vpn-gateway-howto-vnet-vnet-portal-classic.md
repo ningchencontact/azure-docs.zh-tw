@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046117"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>設定 VNet 對 VNet 連線 (傳統)
@@ -29,12 +29,12 @@ ms.locfileid: "59046117"
 本文可協助您建立虛擬網路之間的 VPN 閘道連線。 虛擬網路可位於相同或不同的區域，以及來自相同或不同的訂用帳戶。 本文中的步驟適用於傳統部署模型和 Azure 入口網站。 您也可從下列清單中選取不同的選項，以使用不同的部署工具或部署模型來建立此組態：
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure 入口網站 (傳統)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [連線不同部署模型-Azure 入口網站](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [連線不同部署模型-PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [连接不同的部署模型 - Azure 门户](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [連線不同的部署模型 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
@@ -57,7 +57,7 @@ ms.locfileid: "59046117"
 * **跨區域的異地備援和異地目前狀態**
 
   * 您可以使用安全連線設定自己的異地複寫或同步處理，而不用查看網際網路對向端點。
-  * 有了 Azure Load Balancer 和 Microsoft 或第三方叢集技術，您便可以利用跨多個 Azure 區域的異地備援，設定具有高可用性的工作負載。 其中一個重要的範例就是使用分散在多個 Azure 區域的可用性群組來設定 SQL Always On。
+  * 有了 Azure Load Balancer 和 Microsoft 或第三方叢集技術，您便可以利用跨多個 Azure 區域的異地備援，設定具有高可用性的工作負載。 一个重要的示例就是对分布在多个 Azure 区域中的可用性组设置 SQL Always On。
 * **具有嚴密隔離界限的區域性多層式應用程式**
 
   * 在相同的區域中，您可以設定既有多個 VNet 相連又有嚴密的隔離及安全的層次間通訊的多層式應用程式。
@@ -118,13 +118,13 @@ GatewaySubnet：10.11.1.0/27
 位置：美國西部<br>
 GatewaySubnet：10.41.1.0/27
 
-**在建立 Vnet 時，請牢記下列設定：**
+**在建立 VNet 時，請牢記下列設定︰**
 
 * **虛擬網路位址空間** – 在 [虛擬網路位址空間] 頁面上，指定您想要用於虛擬網路的位址範圍。 這些是將指派給 VM 的動態 IP 位址，以及指派給您部署至此虛擬網路之其他角色執行個體的動態 IP 位址。<br>您選取的位址空間不能與任何其他 VNet 的位址空間，或此 VNet 連線之內部部署位置的位址空間重疊。
 
 * **位置** – 當您建立虛擬網路時，您會將該位置與 Azure 位置 (區域) 產生關聯。 例如，如果您希望部署到虛擬網路的 VM 實際位於美國西部，請選取該位置。 建立關聯之後，您就無法變更與您的虛擬網路相關聯的位置。
 
-**建立 Vnet 之後, 您可以新增下列設定：**
+**建立 VNet 之後，您可以新增下列設定︰**
 
 * **位址空間** – 此組態不需要額外的位址空間，但是您可以在建立 VNet 之後新增額外的位址空間。
 

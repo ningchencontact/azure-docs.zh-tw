@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105296"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489309"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>教學課程：在 Azure 入口網站中使用基本負載平衡器來平衡內部流量負載
 
@@ -95,11 +95,10 @@ ms.locfileid: "58105296"
     | 資源群組         | 選取 [新建]，並在文字方塊中輸入 *MyResourceGroupLB*。|
     | Name                   | *myLoadBalancer*                                   |
     | 區域         | 選取 [西歐]。                                        |
-    | 類型          | 選取 [公用]。                                        |
+    | 類型          | 選取 [內部]。                                        |
     | SKU           | 選取 [基本]。                          |
     | 虛擬網路           | 選取 [MyVNet]。                          |    
-| 公用 IP 位址 | 選取 [建立新的]。 |
-    | 公用 IP 位址指派              | 選取 [靜態]。   |
+    | IP 位址指派              | 選取 [靜態]。   |
     | 私人 IP 位址|輸入位於您虛擬網路和子網路的位址空間內的位址，例如 *10.3.0.7*。  |
 
 3. 在 [檢閱 + 建立] 索引標籤中，按一下 [建立]。 
@@ -266,4 +265,4 @@ ms.locfileid: "58105296"
 接下來，您可以了解如何跨越多個可用性區域為 VM 進行負載平衡。
 
 > [!div class="nextstepaction"]
-> [跨越多個可用性區域為 VM 進行負載平衡](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [跨越多個可用性區域為虛擬機器進行負載平衡](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

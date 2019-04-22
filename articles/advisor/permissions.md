@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: cbd2e456c96dbf8ca01387f0c7c17a1541dbfe55
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052788"
 ---
 # <a name="permissions-in-azure-advisor"></a>Azure Advisor 中的權限
@@ -54,4 +54,4 @@ Azure Advisor 提供的使用方式和設定您的 Azure 資源和訂用帳戶�
 這篇文章概要介紹如何 Advisor 會使用 RBAC 來控制使用者權限，以及如何解決常見的問題。 若要深入了解 Advisor，請參閱︰
 
 - [何謂 Azure 建議程式？](https://docs.microsoft.com/azure/advisor/advisor-overview)
-- [開始使用 Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)
+- [開始使用 Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)

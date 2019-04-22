@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e96abfbdbd9394d27fbffbcb64aa9cbfabbbcb69
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29814cb8aef09a8ead30d6daa615554dd55135dd
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835430"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678576"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure 事件中樞的程式設計指南
 本文會討論一些使用 Azure 事件中樞來撰寫程式碼的常見案例。 它假設使用者對事件中樞已有初步了解。 如需事件中樞的概念概觀，請參閱 [事件中樞概觀](event-hubs-what-is-event-hubs.md)。
@@ -110,7 +110,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 若要啟動事件處理，請將 [EventProcessorHost][] 具現化，其中需為事件中樞提供適當的參數。 例如︰
 
 > [!NOTE]
-> EventProcessorHost 和其相關的類別中提供**Microsoft.Azure.EventHubs.Processor**封裝。 將套件新增至您的 Visual Studio 專案中，依照中的指示[這篇文章](event-hubs-dotnet-framework-getstarted-receive-eph.md#add-the-event-hubs-nuget-package)或藉由發出下列命令在[Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)視窗：`Install-Package Microsoft.Azure.EventHubs.Processor`。
+> EventProcessorHost 及其相关类在 **Microsoft.Azure.EventHubs.Processor** 包中提供。 按照[此文](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package)中的说明或在[包管理器控制台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)窗口中发出以下命令，将包添加到 Visual Studio 项目中：`Install-Package Microsoft.Azure.EventHubs.Processor`。
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

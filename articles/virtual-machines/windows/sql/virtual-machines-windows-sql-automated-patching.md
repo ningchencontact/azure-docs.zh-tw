@@ -17,10 +17,10 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 348979a53bff76c85e6d1531bd16cd695145e21b
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425980"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 虛擬機器的 SQL Server 自動修補 (Resource Manager)
@@ -69,8 +69,8 @@ ms.locfileid: "59425980"
 | **自動修補** |啟用/停用 (已停用) |啟用或停用 Azure 虛擬機器的自動修補。 |
 | **維護排程** |每天、星期一、星期二、星期三、星期四、星期五、星期六、星期日 |虛擬機器的 Windows、SQL Server 和 Microsoft 更新的下載及安裝排程。 |
 | **維護開始時間** |0-24 |更新虛擬機器的當地開始時間。 |
-| **維護時段持續時間** |30-180 |允許完成下載和安裝更新的分鐘數。 |
-| **Patch 類別** |重要事項 | 要下載並安裝之 Windows 更新的類別。|
+| **維護時間範圍** |30-180 |允許完成下載和安裝更新的分鐘數。 |
+| **PATCH 類別** |重要事項 | 要下載並安裝之 Windows 更新的類別。|
 
 ## <a name="configuration-in-the-portal"></a>入口網站的組態
 您可以在佈建期間或針對現有的 VM，使用 Azure 入口網站來設定「自動修補」。
@@ -115,7 +115,7 @@ ms.locfileid: "59425980"
 
 | 參數 | 效果 |
 | --- | --- |
-| **星期幾** |在每個星期四安裝修補程式。 |
+| **DayOfWeek** |在每個星期四安裝修補程式。 |
 | **MaintenanceWindowStartingHour** |在上午 11:00 開始更新。 |
 | **MaintenanceWindowsDuration** |必須在 120 分鐘內安裝修補程式。 根據開始時間，其必須在下午 1:00 之前完成。 |
 | **PatchCategory** |此參數的唯一可能設定是 **Important**。 這會安裝標示為 [重要] 的 Windows 更新；它不會安裝未包含於此類別中的任何 SQL Server 更新。 |

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288707"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure 監視器活頁簿建立互動式報表
@@ -40,7 +40,7 @@ ms.locfileid: "59288707"
 | 連線 | 連線會從受監視的 Vm，可深入檢視輸入和輸出連線。 | 大規模 |
 | 使用中的連接埠 | 提供之處理序的繫結至連接埠上的受監視的 Vm 和其所選時間範圍中的活動清單。 | 大規模 |
 | 開放連接埠 | 提供受監視的 Vm 上開啟的連接埠的數目和詳細資料的開啟連接埠。 | 大規模 |
-| 失敗的連線 | 在受監視的 Vm 失敗趨勢上顯示的連線失敗計數，如果失敗的百分比會隨著時間增加。 | 大規模 |
+| 失败的连接数 | 在受監視的 Vm 失敗趨勢上顯示的連線失敗計數，如果失敗的百分比會隨著時間增加。 | 大規模 |
 | 安全性和稽核 | 您整體連線，惡意的連線，IP 端點全域所在的位置的報表中的 TCP/IP 流量分析。  若要啟用所有功能，您必須都啟用安全性偵測。 | 大規模 |
 | TCP 流量 | 排名的報表，您受監視的 Vm 和其傳送、 接收，和總計的網路流量在方格中，且顯示為的趨勢線。 | 大規模 |
 | 流量比較 | 此活頁簿可讓您比較在單一機器或機器群組的網路流量趨勢。 | 大規模 |

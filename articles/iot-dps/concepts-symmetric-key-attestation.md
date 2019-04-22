@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050939"
 ---
 # <a name="symmetric-key-attestation"></a>對稱金鑰證明
@@ -115,5 +115,5 @@ String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(mas
 您了解對稱金鑰證明後，請參閱下列文章以瞭解詳細資訊：
 
 * [快速入門：使用對稱金鑰佈建模擬的裝置](quick-create-simulated-device-symm-key.md)
-* [深入了解在自動佈建概念](./concepts-auto-provisioning.md)
+* [了解自動佈建中的概念](./concepts-auto-provisioning.md)
 * [開始使用自動佈建](./quick-setup-auto-provision.md) 

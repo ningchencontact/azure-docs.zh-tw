@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426217"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure 監視器中的代理程式健全狀況解決方案
@@ -51,7 +51,7 @@ Azure 中的代理程式健全狀況解決方案可協助您了解，針對所�
 | System Center Operations Manager 管理群組 | 是 | 從管理群組回報每隔 60 秒的代理程式收集活動訊號事件，然後轉送到 Azure 監視器。 不需要從 Operations Manager 代理程式的直接連線至 Azure 監視器。 活動訊號事件資料會從管理群組轉送至 Log Analytics 工作區。|
 
 ## <a name="using-the-solution"></a>使用解決方案
-當您將解決方案新增至 Log Analytics 工作區時，[代理程式健全狀況] 磚會新增至您的儀表板。 此圖格會顯示過去 24 小時內的代理程式總數和沒有回應的代理程式數目。<br><br> ![在 儀表板上的代理程式健全狀況解決方案圖格](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+當您將解決方案新增至 Log Analytics 工作區時，[代理程式健全狀況] 磚會新增至您的儀表板。 此圖格會顯示過去 24 小時內的代理程式總數和沒有回應的代理程式數目。<br><br> ![儀表板上的代理程式健全狀況圖格](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 按一下 [代理程式健全狀況] 圖格，以開啟 [代理程式健全狀況] 儀表板。  此儀表板包含下表中的資料行。 每個資料行依計數列出前十個事件，這幾個事件符合該資料行中指定時間範圍的準則。 您可以選取每個資料行右下角的 [查看全部] ，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
 
@@ -76,7 +76,7 @@ Azure 中的代理程式健全狀況解決方案可協助您了解，針對所�
 
 | 屬性 | 描述 |
 | --- | --- |
-| `Type` | *Heartbeat*|
+| `Type` | *活動訊號*|
 | `Category` | 值為 [直接代理程式]、[SCOM 代理程式] 或 [SCOM 管理伺服器]。|
 | `Computer` | 電腦名稱。|
 | `OSType` | Windows 或 Linux 作業系統。|

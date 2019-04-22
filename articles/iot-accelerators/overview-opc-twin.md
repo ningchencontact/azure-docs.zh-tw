@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Azure IoT OPC UA 裝置管理 | Microsoft Docs
+title: 什麼是 OPC 對應項 - Azure | Microsoft Docs
 description: OPC 對應項概觀
 author: dominicbetts
 ms.author: dobett
@@ -8,15 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3bbc20aa61faafb1405fa756b334bae05ec4129b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759700"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496806"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>什麼是 Azure IoT 開放平台通訊 (OPC) 裝置管理？
-Azure IoT OPC UA 裝置管理也稱為 OPC 對應項，是由使用 Azure IoT Edge 與 IoT 中樞連接雲端和工廠網路的微服務所組成。 OPC 對應項可透過 REST API 提供對產業裝置的探索、註冊和遠端控制等功能。 OPC 對應項不需要 OPC 統一架構 (OPC UA) SDK、其程式設計語言無從驗證，而且可以包含在無伺服器工作流程中。 本文說明數個 OPC 對應項的使用案例。
+
+OPC 對應項是由使用 Azure IoT Edge 與 IoT 中樞連接雲端和工廠網路的微服務所組成。 OPC 對應項可透過 REST API 提供對產業裝置的探索、註冊和遠端控制等功能。 OPC 對應項不需要 OPC 統一架構 (OPC UA) SDK、其程式設計語言無從驗證，而且可以包含在無伺服器工作流程中。 本文說明數個 OPC 對應項的使用案例。
 
 ## <a name="discovery-and-control"></a>探索和控制
 您可以使用 OPC 對應項進行簡單的探索和註冊。

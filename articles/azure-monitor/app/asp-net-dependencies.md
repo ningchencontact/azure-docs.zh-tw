@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273102"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>設定 Application Insights：相依性追蹤
@@ -71,7 +71,7 @@ ms.locfileid: "59273102"
 [失敗計數] 會顯示在 [失敗] 刀鋒視窗上。 失敗是指任何範圍不在 200-399 內或是不明的傳回碼。
 
 > [!NOTE]
-> **100%失敗？** - 這可能是指您取得的只是部分相依性資料。 您必須[設定適合您平台的相依性監視](#set-up-dependency-monitoring)。
+> **100% 失敗？** - 這可能是指您取得的只是部分相依性資料。 您必須[設定適合您平台的相依性監視](#set-up-dependency-monitoring)。
 >
 >
 
@@ -154,7 +154,7 @@ ms.locfileid: "59273102"
 ## <a name="troubleshooting"></a>疑難排解
 *相依性成功旗標一律顯示 true 或 false。*
 
-*不會顯示完整的 SQL 查詢。*
+*SQL 查詢未完整顯示。*
 
 請參閱下表，確保您已選擇正確的設定來啟用應用程式的相依性監視。
 
@@ -168,4 +168,4 @@ ms.locfileid: "59273102"
 ## <a name="next-steps"></a>後續步驟
 * [例外狀況](../../azure-monitor/app/asp-net-exceptions.md)
 * [使用者和頁面資料](../../azure-monitor/app/javascript.md)
-* [可用性](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Availability](../../azure-monitor/app/monitor-web-app-availability.md)

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009190"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678528"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：將分散式應用程式分級
 
@@ -90,9 +90,9 @@ ms.locfileid: "59009190"
 
 ![Analytics 體驗的螢幕擷取畫面](media/app-map/alerts-view.png)
 
-## <a name="set-cloudrolename"></a>設定 cloud_RoleName
+## <a name="set-cloud-role-name"></a>設定雲端角色名稱
 
-應用程式對應會使用 `cloud_RoleName` 屬性以識別地圖上的元件。 Application Insights SDK 會自動將 `cloud_RoleName` 屬性新增由元件發出的遙測。 例如，SDK 會將網站名稱或服務角色名稱新增至 `cloud_RoleName` 屬性。 但是，有時候您可能會想覆寫預設值。 覆寫 cloud_RoleName 和變更在應用程式對應上顯示的內容：
+使用應用程式對應**雲端角色名稱**屬性來識別在地圖上的元件。 Application Insights SDK 會自動新增至遙測元件發出的雲端角色名稱屬性。 比方說，SDK 會將網站名稱或服務的角色名稱加入雲端角色名稱屬性。 但是，有時候您可能會想覆寫預設值。 若要覆寫雲端角色名稱，並變更應用程式對應上顯示的內容取得：
 
 ### <a name="net"></a>.NET
 
@@ -171,9 +171,9 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 `spring.application.name=<name-of-app>`
 
-Spring Boot 入門版會自動將 cloudRoleName 指派給您給 spring.application.name 屬性輸入的值。
+Spring Boot starter，您輸入 spring.application.name 屬性的值，將會自動指派雲端角色名稱。
 
-如需有關 JAVA 相互關聯的更多資訊，並進一步了解如何設定非 SpringBoot 應用程式的 cloudRoleName，請參閱[此節](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name)內相互關聯的相關資訊。
+如需 Java 的進一步資訊相互關聯，以及如何設定雲端角色名稱非 SpringBoot 應用程式簽出這[一節](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name)上相互關聯。
 
 ### <a name="clientbrowser-side-javascript"></a>用戶端/瀏覽器端 JavaScript
 
@@ -186,15 +186,15 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
-### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>了解 Cloud.RoleName 內容中的應用程式對應
+### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>了解雲端應用程式對應的內容中的角色名稱
 
-遠如何思考 Cloud.RoleName 很有幫助查看應用程式對應具有多個 Cloud.RoleNames 存在：
+如何看待而言**雲端角色名稱**，很有幫助，若要查看有多個雲端角色名稱存在應用程式對應：
 
 ![應用程式對應螢幕擷取畫面](media/app-map/cloud-rolename.png)
 
-在上方的綠色方塊中的名稱的每個應用程式對應是 Cloud.RoleName/role 值，這個特定的分散式應用程式的不同層面。 讓此應用程式及其角色所組成： `Authentication`， `acmefrontend`， `Inventory Management`、 `Payment Processing Worker Role`。 
+在上方的綠色方塊中的名稱的每個應用程式對應是雲端角色名稱值，這個特定的分散式應用程式的不同層面。 讓此應用程式及其角色所組成： `Authentication`， `acmefrontend`， `Inventory Management`、 `Payment Processing Worker Role`。 
 
-在此應用程式每個這些情況下`Cloud.RoleNames`也代表不同的獨特的 Application Insights 資源，與他們自己的檢測金鑰。 因為此應用程式的擁有者可以存取每個這些四個不同的 Application Insights 資源，應用程式對應是能夠將拼接在一起的基礎關聯性的對應。
+在使用此應用程式的情況下，為每個這些雲端角色名稱也代表不同的獨特的 Application Insights 資源與他們自己的檢測金鑰。 因為此應用程式的擁有者可以存取每個這些四個不同的 Application Insights 資源，應用程式對應是能夠將拼接在一起的基礎關聯性的對應。
 
 針對[正式定義](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
 
@@ -208,15 +208,17 @@ appInsights.context.addTelemetryInitializer((envelope) => {
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-或者，Cloud.RoleInstance 可以是其中 Cloud.RoleName 會告訴您問題就在您的 web 前端，但您可能會執行您 web 前端跨越多個負載平衡的伺服器，能夠向下鑽研更深入一層的情況下很有幫助透過 Kusto 查詢和了解問題影響所有 web 前端伺服器/執行個體，或僅只一個可以是非常重要。
+或者，**雲端角色執行個體**很有幫助案例所在**雲端角色名稱**告訴您，問題就在您的 web 前端，但您可能會執行您的 web 前端之間多個負載平衡伺服器因此能夠向下切入 Kusto 查詢透過更深入一層，以及如何了解，是否此問題會影響所有 web 前端伺服器/執行個體，或其中一個是非常重要。
 
-您可能想要針對 Cloud.RoleInstance 覆寫值的案例是如果您的應用程式執行容器化的環境中，只了解個別的伺服器可能不足夠的資訊來找出特定的問題。
+如果您的應用程式執行容器化的環境中，只了解個別的伺服器可能不足夠的資訊來找出特定的問題時，可能的案例，其中您可能會想要覆寫雲端角色執行個體的值。
 
-如需如何使用遙測初始設定式覆寫 cloud_RoleName 屬性的詳細資訊，請參閱[新增屬性：ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer)。
+如需如何使用遙測初始設定式來覆寫雲端角色名稱屬性的詳細資訊，請參閱[新增屬性：ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer)。
 
 ## <a name="troubleshooting"></a>疑難排解
 
 如果您無法讓應用程式對應如預期般運作，請嘗試以下步驟：
+
+### <a name="general"></a>一般
 
 1. 請確定您使用的是正式支援的 SDK。 不支援的 SDK 或社群 SDK 可能不支援相互關聯。
 
@@ -226,9 +228,23 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 
 3. 如果您是將 C# 搭配 Azure Functions 使用，請升級至 [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions)。
 
-4. 請確認 [cloud_RoleName](#set-cloud_rolename) 設定正確無誤。
+4. 確認[雲端角色名稱](#set-cloud-role-name)已正確設定。
 
 5. 如果缺少相依性，請確定相依性是否列在這份[自動收集的相依性](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies) (英文) 清單中。 如果不在此清單中，仍可以使用[追蹤相依性呼叫](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency) (英文)，以手動方式進行追蹤。
+
+### <a name="too-many-nodes-on-the-map"></a>在地圖上有太多的節點
+
+應用程式對應建構每個獨特的雲端角色名稱出現在您的要求遙測的應用程式節點，而每個唯一組合的型別、 目標和相依性遙測中的雲端角色名稱的相依性節點。 如果您的遙測資料中有 10,000 名以上的節點，應用程式對應會無法擷取所有的節點和連結，讓您的對應將會不完整。 如果發生這種情況，檢視對應時，會出現一則警告訊息。
+
+此外，應用程式對應只會支援多達 1000 個不同的已取消群組的節點，呈現一次。 應用程式對應可降低 visual 組成群組的相依性的複雜性，具有相同的類型和呼叫端，但如果您的遙測都有獨特的雲端角色名稱太多或太多的相依性類型，該群組將會不足，並對應將無法轉譯。
+
+若要修正此問題，您將需要變更您的檢測設定正確的雲端角色名稱、 相依性類型及相依性目標欄位。
+
+* 相依性目標應該代表相依性的邏輯名稱。 在許多情況下，它就相當於伺服器或相依性的資源名稱項目。 比方說，在 HTTP 相依性的情況下，它會設定主機名稱。 它不應包含唯一識別碼或變更兩個不同要求之間的參數。
+
+* 相依性類型應該代表相依性的邏輯類型。 例如，HTTP、 SQL 或 Azure Blob 是一般的相依性類型。 它不應包含唯一識別碼。
+
+* 雲端角色名稱的目的詳述[ 區段上方](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name)。
 
 ## <a name="portal-feedback"></a>入口網站意見反應
 

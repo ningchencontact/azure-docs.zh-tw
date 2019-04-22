@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 504158f248cde3a399475cdec99de3e6a4ebfcc5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276843"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>從 Notebook 內安裝套件
@@ -73,5 +73,5 @@ Paket.Package
 
 ## <a name="next-steps"></a>後續步驟
 
-- [作法：設定和管理專案](configure-manage-azure-notebooks-projects.md)
-- [作法：顯示投影片放映](present-jupyter-notebooks-slideshow.md)
+- [操作說明：設定和管理專案](configure-manage-azure-notebooks-projects.md)
+- [操作說明：放映投影片](present-jupyter-notebooks-slideshow.md)

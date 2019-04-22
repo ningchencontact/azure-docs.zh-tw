@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490388"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>使用 U-SQL 資料庫專案開發 Azure Data Lake 的 U-SQL 資料庫
@@ -92,7 +92,7 @@ U-SQL 資料庫專案的建置輸出，是一個名稱加上 `.usqldbpack` 尾�
   
 ### <a name="deploy-u-sql-database-by-using-the-sdk"></a>使用 SDK 部署 U-SQL 資料庫
 
-`PackageDeploymentTool.exe` 提供的程式設計和幫助您部署 U-SQL 資料庫的命令列介面。 SDK 包含在 [U-SQL SDK Nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)中，位於 `build/runtime/PackageDeploymentTool.exe`。
+`PackageDeploymentTool.exe` 提供程式設計和命令列介面，協助您部署 U-SQL 資料庫。 SDK 包含在 [U-SQL SDK Nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)中，位於 `build/runtime/PackageDeploymentTool.exe`。
 
 [深入了解 SDK，以及如何為 U-SQL 資料庫部署設定 CI/CD 管線](data-lake-analytics-cicd-overview.md)。
 

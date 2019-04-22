@@ -10,10 +10,10 @@ ms.date: 04/06/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269549"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure 搜尋服務中的安全性和資料隱私權
@@ -28,11 +28,11 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [SOC 2 Type 2 合規性](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) 如需完整的報告，請移至 [Azure - 和 Azure Government SOC 2 Type II 報告](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports) \(英文\)。 
-+ [Health Insurance Portability and Accountability Act (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
-+ [GxP (21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
++ [健康保險流通與責任法案 (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
++ [GxP (法規 21 章第 11 條)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
 + [PCI DSS 層級 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
-+ [澳洲 IRAP 未分類的 DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
++ [澳洲 IRAP 的未分類 DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 標準合規性適用於正式推出的功能。 預覽功能在轉換為正式推出的功能時會通過認證，且不得用於具有嚴格標準需求的解決方案。 合規性憑證會記載於 [Microsoft Azure 合規性概觀](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)和[信任中心](https://www.microsoft.com/en-us/trustcenter)。 
 
@@ -53,8 +53,8 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 
 整個 Azure 有數個可用的安全性機制，因此會自動提供給您建立的「Azure 搜尋服務」資源使用。
 
-+ [訂用帳戶或資源層級，以防止刪除鎖定](../azure-resource-manager/resource-group-lock-resources.md)
-+ [角色型存取控制 (RBAC) 來控制存取資訊和系統管理作業](../role-based-access-control/overview.md)
++ [可防止刪除的訂用帳戶或資源層級鎖定](../azure-resource-manager/resource-group-lock-resources.md)
++ [可控制對資訊和系統管理作業之存取的角色型存取控制 (RBAC)](../role-based-access-control/overview.md)
 
 所有 Azure 服務都支援角色型存取控制 (RBAC)，可在所有服務以一致的方式設定存取層級。 例如，限制只有「擁有者」和「參與者」角色才能檢視敏感性資料 (例如管理金鑰)，而讓所有角色的成員都可以檢視服務狀態。 RBAC 提供的角色包括「擁有者」、「參與者」及「讀者」。 根據預設，所有服務管理員都是擁有者角色的成員。
 
@@ -97,8 +97,8 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 
 | 方法 | 描述 |
 |----------|-------------|
-|[根據身分識別篩選條件的安全性範圍縮減](search-security-trimming-for-azure-search.md)  | 記載實作使用者身分識別存取控制的基本工作流程。 其中涵蓋在索引中新增安全性識別碼，然後說明如何針對該欄位進行篩選來縮減所禁止內容的結果。 |
-|[根據 Azure Active Directory 身分識別的安全性範圍縮減](search-security-trimming-for-azure-search-with-aad.md)  | 本文是上一篇文章的延伸，提供從 Azure Active Directory (AAD) (Azure 雲端平台上的其中一項[免費服務](https://azure.microsoft.com/free/)) 擷取身分識別的步驟。 |
+|[根據身分識別篩選進行安全性範圍縮減](search-security-trimming-for-azure-search.md)  | 記載實作使用者身分識別存取控制的基本工作流程。 其中涵蓋在索引中新增安全性識別碼，然後說明如何針對該欄位進行篩選來縮減所禁止內容的結果。 |
+|[根據 Azure Active Directory 身分識別進行安全性範圍縮減](search-security-trimming-for-azure-search-with-aad.md)  | 本文是上一篇文章的延伸，提供從 Azure Active Directory (AAD) (Azure 雲端平台上的其中一項[免費服務](https://azure.microsoft.com/free/)) 擷取身分識別的步驟。 |
 
 ## <a name="table-permissioned-operations"></a>表格：許可的作業
 
@@ -124,8 +124,8 @@ Microsoft 資料中心提供業界頂尖的實體安全性，符合一組廣泛�
 
 ## <a name="see-also"></a>請參閱
 
-+ [取得開始使用的.NET （示範如何使用系統管理金鑰，來建立索引）](search-create-index-dotnet.md)
-+ [取得開始使用的 REST （示範如何使用系統管理金鑰，來建立索引）](search-create-index-rest-api.md)
-+ [使用 Azure 搜尋服務篩選的身分識別型存取控制](search-security-trimming-for-azure-search.md)
-+ [使用 Azure 搜尋服務篩選的 active Directory 身分識別型存取控制](search-security-trimming-for-azure-search-with-aad.md)
++ [開始使用 .NET (使用管理金鑰來建立索引以進行示範)](search-create-index-dotnet.md)
++ [開始使用 REST (使用管理金鑰來建立索引以進行示範)](search-create-index-rest-api.md)
++ [使用 Azure 搜尋服務篩選來進行身分識別型存取控制](search-security-trimming-for-azure-search.md)
++ [使用 Azure 搜尋服務篩選來進行 Active Directory 身分識別型存取控制](search-security-trimming-for-azure-search-with-aad.md)
 + [Azure 搜尋服務中的篩選條件](search-filters.md)

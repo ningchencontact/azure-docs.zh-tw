@@ -9,13 +9,13 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263760"
 ---
-# <a name="get-compliance-data-of-azure-resources"></a>取得 Azure 資源的合規性資料
+# <a name="get-compliance-data-of-azure-resources"></a>获取 Azure 资源的符合性数据
 
 Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的資源或訂用帳戶的[管理群組](../../management-groups/overview.md)，提供相關見解和控制權。 此控制權可運用在許多不同方面，例如防止在錯誤的位置建立資源、強制執行通用且一致的標記使用方式，或稽核現有的資源以取得適當的組態和設定。 在所有情況下，原則都會產生資料，讓您了解環境的合規性狀態。
 
@@ -27,7 +27,7 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 在查看這些報告合規性的方法之前，讓我們來看何時會更新合規性資訊，以及觸發評估週期的頻率和事件。
 
 > [!WARNING]
-> 如果合規性狀態報告為**未註冊**，確認**Microsoft.PolicyInsights**註冊資源提供者和使用者有適當的角色型存取控制 （RBAC) 權限中所述[Azure 原則中的 RBAC](../overview.md#rbac-permissions-in-azure-policy)。
+> 如果符合性状态被报告为“未注册”，请验证是否已注册 **Microsoft.PolicyInsights** 资源提供程序，并验证用户是否具有适当的基于角色的访问控制 (RBAC) 权限，如 [Azure Policy 中的 RBAC](../overview.md#rbac-permissions-in-azure-policy) 所述。
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -55,8 +55,8 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 
 在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
 
-- `{YourRG}` -以您的資源群組名稱取代
-- `{subscriptionId}` -以您的訂用帳戶識別碼取代
+- `{YourRG}` - 以您的資源群組名稱取代
+- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
 
 掃描支援訂用帳戶或資源群組中的資源評估。 請使用 REST API **POST** 命令，運用下列 URI 結構來依據範圍啟動掃描：
 
@@ -78,7 +78,7 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
 ```
 
-`{ResourceContainerGUID}` 以靜態方式會產生要求的範圍。 如果某個範圍已在執行隨選掃描，則不會啟動新的掃描。 相反地，系統會提供相同的 `{ResourceContainerGUID}` **location** URI 新要求以取得狀態。 針對 **Location** URI 的 REST API **GET** 命令會傳回 **202 已接受**，同時持續進行評估。 評估掃描完成時，會傳回 **200 確定**狀態。 完成掃描的主體是具有狀態的 JSON 回應：
+`{ResourceContainerGUID}` 是針對要求的範圍以靜態方式所產生。 如果某個範圍已在執行隨選掃描，則不會啟動新的掃描。 相反地，系統會提供相同的 `{ResourceContainerGUID}` **location** URI 新要求以取得狀態。 針對 **Location** URI 的 REST API **GET** 命令會傳回 **202 已接受**，同時持續進行評估。 評估掃描完成時，會傳回 **200 確定**狀態。 完成掃描的主體是具有狀態的 JSON 回應：
 
 ```json
 {
@@ -119,27 +119,27 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 合規性百分比是透過將**符合規範**資源除以_總資源_來決定的。
 _總資源_定義為**符合規範**、**不符合規範**和**衝突**資源的總和。 整體的合規性數字是**符合規範**之不同資源的總和除以所有不同資源的總和。 在下圖中，有 20 種適用的不同資源，只有一種是**不符合規範**。 整體資源合規性為 95% (20 分之 19)。
 
-![從合規性] 頁面的 [原則合規性的範例](../media/getting-compliance-data/simple-compliance.png)
+![符合性页面上的策略符合性示例](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>入口網站
 
 Azure 入口網站示範視覺化並了解您環境中合規性狀態的圖形化體驗。 在 [原則] 頁面上，[概觀] 選項提供有關原則和計畫合規性之可用範圍的詳細資料。 除了每個指派的合規性狀態和計數之外，還包含一個圖表，顯示過去七天的合規性。
 [合規性] 頁面包含大部分相同的資訊 (圖表除外)，但提供額外的篩選和排序選項。
 
-![原則合規性頁面範例](../media/getting-compliance-data/compliance-page.png)
+![策略符合性页面的示例](../media/getting-compliance-data/compliance-page.png)
 
 由於可以將一個原則或方案指派給不同的範圍，因此表格包含每個指派的範圍，以及所指派的定義類型。 也會提供每個指派的不符合規範的資源和不符合規範的原則數目。 按一下表格中的原則或計畫可讓您更深入地查看該特定指派的合規性。
 
-![原則合規性詳細資料頁面範例](../media/getting-compliance-data/compliance-details.png)
+![策略符合性详细信息页面的示例](../media/getting-compliance-data/compliance-details.png)
 
 [資源合規性] 索引標籤上的資源清單會顯示目前指派的現有資源評估狀態。 此索引標籤預設為 [不符合規範]，但您可以進行篩選。
 由要求所觸發來建立資源的事件 (附加、稽核、拒絕、部署) 會顯示在 [事件] 索引標籤底下。
 
-![原則合規性事件的範例](../media/getting-compliance-data/compliance-events.png)
+![策略符合性事件的示例](../media/getting-compliance-data/compliance-events.png)
 
 以滑鼠右鍵按一下您想要收集更多詳細資料的事件資料列，然後選取 [顯示活動記錄]。 活動記錄頁面隨即開啟，並會預先篩選至顯示指派和事件詳細資料的搜尋結果。 活動記錄檔提供有關這些事件的其他內容和資訊。
 
-![原則合規性活動記錄檔的範例](../media/getting-compliance-data/compliance-activitylog.png)
+![策略符合性活动日志的示例](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>了解非合規性
 

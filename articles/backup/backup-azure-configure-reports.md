@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278814"
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
@@ -151,5 +151,5 @@ ms.locfileid: "59278814"
 在您設定好儲存體帳戶並匯入「Azure 備份」內容套件之後，接下來的步驟就是自訂報告，並使用報告資料模型來建立報告。 如需詳細資訊，請參閱下列文章。
 
 * [使用 Azure 備份報告資料模型](backup-azure-reports-data-model.md)
-* [在 Power BI 中篩選報表](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-* [在 Power BI 中建立報表](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [在 Power BI 中篩選報告](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+* [在 Power BI 中建立報告](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

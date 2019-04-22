@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 80c27d588bb8b4c60ae8432fbd3a2ac3d2db1394
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58802655"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集
@@ -44,7 +44,7 @@ ms.locfileid: "58802655"
 | Item| 描述 |
 |---|---|
 |移動|將叢集移至另一個資源群組或另一個訂用帳戶。|
-|刪除|刪除叢集。 |
+|Delete|刪除叢集。 |
 |重新整理|重新整理檢視。|
 
 **左側功能表**：  
@@ -82,7 +82,7 @@ ms.locfileid: "58802655"
     | Item| 描述 |
     |---|---|
     |警示|管理警示和動作。|
-    |度量|监视 Azure Monitor 日志中的群集指标。|
+    |指标|监视 Azure Monitor 日志中的群集指标。|
     |診斷設定|要在其中儲存診斷計量的設定。|
     |Operations Management Suite|监视 Azure Operations Management Suite (OMS) 和 Azure Monitor 日志中的群集。|
 

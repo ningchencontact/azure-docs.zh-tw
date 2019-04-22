@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731084"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678899"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace ‎商業交易功能和考量
 
@@ -44,7 +44,7 @@ Azure Marketplace 發行者可取得下列發行選項。
 
 ## <a name="transact-general-overview"></a>交易一般概觀
 
-當使用交易發行選項時，Microsoft 會啟用對客戶的 Azure 訂用帳戶進行協力廠商軟體銷售和部署。 當發行者在 Azure Marketplace 中選取計費模型和供應項目類型時，必須考慮 Azure 基礎結構費用的計費，以及發行者自己的軟體授權費用。 
+當使用交易發行選項時，Microsoft 可讓的協力廠商軟體的銷售和客戶的 Azure 訂用帳戶的某些供應項目類型的部署。 當發行者在 Azure Marketplace 中選取計費模型和供應項目類型時，必須考慮 Azure 基礎結構費用的計費，以及發行者自己的軟體授權費用。
 
 Azure Marketplace 中的交易發行選項目前支援下列提供項目類型：虛擬機器、Azure 應用程式或 SaaS 應用程式。
 
@@ -58,7 +58,7 @@ Azure Marketplace 中的交易發行選項目前支援下列提供項目類型�
 
 **SaaS 應用程式**
 
-對於 SaaS 應用程式，發行者必須將 Azure 基礎結構使用費用及軟體授權費用為算為單一的成本項目。  它是以一般每月費用向客戶呈現。 Azure 基礎結構使用量是對合作夥伴直接管理及計費。  客戶不會看到實際的基礎結構使用量費用。  發行者通常選擇將 Azure 基礎結構使用量費用算在他們的軟體授權定價中。  軟體授權費用不是計量付費或以使用情況為基礎。
+對於 SaaS 應用程式，發行者必須將 Azure 基礎結構使用費用及軟體授權費用為算為單一的成本項目。  它被以美元給客戶。 Azure 基礎結構使用量是對合作夥伴直接管理及計費。  客戶不會看到實際的基礎結構使用量費用。  發行者通常選擇將 Azure 基礎結構使用量費用算在他們的軟體授權定價中。  軟體授權費用不是計量付費或以使用情況為基礎。
 
 ## <a name="transact-billing-models"></a>交易計費模型
 

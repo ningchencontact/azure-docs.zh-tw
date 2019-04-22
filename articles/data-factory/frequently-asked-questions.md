@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048209"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
@@ -145,7 +145,7 @@ Data Factory 中的連結服務，有兩個用途：
 
 如需 Data Factory 概念的詳細資訊，請參閱下列文章：
 
-- [資料集和連結的服務](concepts-datasets-linked-services.md)
+- [資料集和連結服務](concepts-datasets-linked-services.md)
 - [管線和活動](concepts-pipelines-activities.md)
 - [整合執行階段](concepts-integration-runtime.md)
 
@@ -211,5 +211,5 @@ Data Factory 中的連結服務，有兩個用途：
 ## <a name="next-steps"></a>後續步驟
 如需建立資料處理站的逐步指示，請參閱下列教學課程：
 
-- [快速入門：建立 Data Factory](quickstart-create-data-factory-dot-net.md)
+- [快速入門：建立資料處理站](quickstart-create-data-factory-dot-net.md)
 - [教學課程：複製雲端中的資料](tutorial-copy-data-dot-net.md)

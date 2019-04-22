@@ -11,10 +11,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.openlocfilehash: 1f0746436fa980b6becfa7a88560734aa07a54e2
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58801924"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
@@ -40,11 +40,11 @@ HDInsight 提供數種已針對特定工作負載進行微調的叢集類型。 
 | **使用此方法**，如果您想要... | ...**互動式**查詢 | ...**批次** 處理 | ...從此 **用戶端作業系統** |
 |:--- |:---:|:---:|:--- |:--- |
 | [適用於 Visual Studio Code 的 HDInsight 工具](../hdinsight-for-vscode.md) |✔ |✔ | Linux、Unix、Mac OS X 或 Windows |
-| [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ | Windows |
+| [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
 | [Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |任何 (以瀏覽器為基礎) |
 | [Beeline 用戶端](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux、Unix、Mac OS X 或 Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux、Unix、Mac OS X 或 Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ | Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
 
 ## <a name="hiveql-language-reference"></a>HiveQL 語言參考

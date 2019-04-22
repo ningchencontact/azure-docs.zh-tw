@@ -9,15 +9,15 @@ ms.date: 04/05/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 334859aecf3a5f7a5678c0af656c6837d5661dac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270858"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>可供連接到 Azure Analysis Services 的用戶端程式庫
 
-用戶端程式庫是用戶端應用程式和工具連接到 Analysis Services 伺服器的必備條件。 Microsoft 用戶端應用程式，例如 Power BI Desktop、 Excel、 SQL Server Management Studio (SSMS)，和 SQL Server Data Tools (SSDT) 安裝所有三個用戶端程式庫，並加以更新，以及一般的應用程式更新。 在某些情況下，您可能需要安裝較新版的用戶端程式庫。 自訂用戶端應用程式也需要安裝用戶端程式庫。
+用戶端程式庫是用戶端應用程式和工具連接到 Analysis Services 伺服器的必備條件。 Microsoft 客户端应用程序（例如 Power BI Desktop、Excel、SQL Server Management Studio (SSMS) 和 SQL Server Data Tools (SSDT)）会安装全部三个客户端库并通过定期的应用程序更新来更新它们。 在某些情况下，可能需要安装较新版本的客户端库。 自定义客户端应用程序还需要安装客户端库。
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>下載最新的用戶端程式庫 (Windows Installer)  
 
@@ -93,4 +93,4 @@ Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Excel 進行連接](analysis-services-connect-excel.md)    
-[使用 Power BI 進行連接](analysis-services-connect-pbi.md)
+[與 Power BI 連線](analysis-services-connect-pbi.md)

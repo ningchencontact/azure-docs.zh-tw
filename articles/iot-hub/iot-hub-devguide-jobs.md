@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044367"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>排程多個裝置上的作業
@@ -32,7 +32,7 @@ ms.locfileid: "59044367"
 作業由解決方案後端起始，並由 IoT 中樞維護。 您可以透過面向服務的 URI (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`) 起始作業，並透過面向服務的 URI (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`) 查詢執行中作業的進度。 在作業起始後，若要重新整理執行中作業的狀態，請執行作業查詢。
 
 > [!NOTE]
-> 當您起始作業時，屬性名稱和值只能包含 US-ASCII 可列印英數字元，除了下列集合中的任何： `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+> 當您起始作業時，屬性名稱和值只能包含 US-ASCII 可列印英數字元，下列集合中的任何字元除外︰`$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
 ## <a name="jobs-to-execute-direct-methods"></a>用以執行直接方法的作業
 
@@ -117,7 +117,7 @@ ContinuationToken 會從回應來提供。
 | --- | --- |
 | **jobId** |應用程式所提供的作業識別碼。 |
 | **startTime** |應用程式所提供的作業開始時間 (ISO-8601)。 |
-| **EndTime** |IoT 中樞所提供的作業完成日期 (ISO-8601)。 在作業到達「已完成」狀態後才有效。 |
+| **endTime** |IoT 中樞所提供的作業完成日期 (ISO-8601)。 在作業到達「已完成」狀態後才有效。 |
 | **type** |作業類型： |
 | | **scheduledUpdateTwin**:用來更新一組所需的屬性或標記的作業。 |
 | | **scheduledDeviceMethod**:用來叫用裝置方法，在一組裝置對應項上的作業。 |
@@ -154,4 +154,4 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 
 若要嘗試本文所述的一些概念，請參閱下列「IoT 中樞」教學課程：
 
-* [排程及廣播作業](iot-hub-node-node-schedule-jobs.md)
+* [排程及廣播工作](iot-hub-node-node-schedule-jobs.md)

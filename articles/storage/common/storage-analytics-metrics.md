@@ -9,10 +9,10 @@ ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489275"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure 存储分析指标（经典）
@@ -125,7 +125,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 有关使用 REST API 配置存储指标的一般信息，请参阅[启用和配置存储分析](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)。  
 
-##  <a name="viewing-storage-metrics"></a>檢視儲存體度量  
+##  <a name="viewing-storage-metrics"></a>查看存储指标  
 在您設定儲存體分析計量監視您的儲存體帳戶後，儲存體分析會將計量記錄在您儲存體帳戶中一組已知資料表中。 您可以在 [Azure 入口網站](https://portal.azure.com)中將圖表設定為檢視每小時計量：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的儲存體帳戶。
@@ -139,10 +139,10 @@ queueClient.SetServiceProperties(serviceProperties);
 
 ||||  
 |-|-|-|  
-|**度量**|**資料表名稱**|**注意**|  
-|每小時度量|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|在版本 2013-08-15 之前，这些表名为：<br /><br /> $MetricsTransactionsBlob <br /><br /> $MetricsTransactionsTable<br /><br />  $MetricsTransactionsQueue<br /><br /> 从版本 2015-04-05 开始提供文件服务的指标。|  
+|**計量**|**資料表名稱**|**注意事項**|  
+|小时指标|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|在版本 2013-08-15 之前，这些表名为：<br /><br /> $MetricsTransactionsBlob <br /><br /> $MetricsTransactionsTable<br /><br />  $MetricsTransactionsQueue<br /><br /> 从版本 2015-04-05 开始提供文件服务的指标。|  
 |每分鐘度量|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|只能通过 PowerShell 或编程方式启用。<br /><br /> 从版本 2015-04-05 开始提供文件服务的指标。|  
-|Capacity|$MetricsCapacityBlob|仅限 Blob 服务。|  
+|容量|$MetricsCapacityBlob|仅限 Blob 服务。|  
 
 您可以在 [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema)上找到這些資料表之結構描述的完整詳細資料。 下列資料列範例只會顯示可用的資料行子集，但可說明儲存體度量儲存這些度量資訊之方式的一些重要功能：  
 
@@ -226,7 +226,7 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 -   如果选择启用了日志，则 Blob 的容量表每天会添加两行。 这意味着，此表的大小每天最多增大约 300 字节。
 
 ## <a name="next-steps"></a>後續步驟
-* [如何监视存储帐户](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [存储分析指标表架构](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
-* [存储分析记录的操作和状态消息](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
-* [存储分析日志记录](storage-analytics-logging.md)
+* [如何監視儲存體帳戶](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
+* [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [儲存體分析記錄作業和狀態訊息](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
+* [儲存體分析記錄](storage-analytics-logging.md)

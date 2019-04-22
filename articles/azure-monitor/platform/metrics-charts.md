@@ -9,10 +9,10 @@ ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271674"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 計量瀏覽器的進階的功能
@@ -138,7 +138,7 @@ ms.locfileid: "59271674"
 
 ## <a name="troubleshooting"></a>疑難排解
 
-*我看不到任何資料，我的圖表上。*
+*我看不到我的圖表上的任何資料。*
 
 * 篩選會套用至窗格上的所有圖表。 請確定，當您將焦點放在某個圖表時，您未在其他圖表上設定會排除所有資料的篩選。
 

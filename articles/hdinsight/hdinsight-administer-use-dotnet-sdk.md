@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: 2e57726c3519fbb2660d7dfb4794a885871acc0d
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793905"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Apache Hadoop 叢集
@@ -230,7 +230,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > [!NOTE]  
 > 透過授與/撤銷存取權，您將重設叢的使用者名稱和密碼。
 
-這也可以透過入口網站完成。 請參閱[使用 Azure 入口網站在 HDInsight 中管理 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)。
+這也可以透過入口網站完成。 请参阅[使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)。
 
 ## <a name="update-http-user-credentials"></a>更新 HTTP 使用者認證
 

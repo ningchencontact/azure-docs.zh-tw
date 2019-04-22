@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
 ms.openlocfilehash: 840c2793928816c6346e2039a38678585f8e0bc7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273119"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure 資料表儲存體作業 
@@ -161,7 +161,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 如需詳細資訊，請參閱下列文章
 
-* [儲存體 PowerShell cmdlet](/powershell/module/az.storage#storage)
+* [儲存體 PowerShell Cmdlet](/powershell/module/az.storage#storage)
 
 * [使用 PowerShell-AzureRmStorageTable AzTable PS 模組 v2.0 從 Azure 資料表](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 

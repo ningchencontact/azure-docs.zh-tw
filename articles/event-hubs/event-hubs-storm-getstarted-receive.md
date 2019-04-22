@@ -15,18 +15,21 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3c50916f648a2bce634f7aeb109147a873de1de6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094605"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679256"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>使用 Apache Storm 從事件中樞接收事件
 
-[Apache Storm](https://storm.incubator.apache.org) 是分散式即時運算系統，可簡化未繫結資料串流的可靠處理。 本節說明如何使用「Azure 事件中樞」Storm Spout 來接收來自「事件中樞」的事件。 使用 Apache Storm，您可以將事件分割到多個裝載於不同節點的處理序。 事件中心與 Storm 的整合透過使用 Storm 的 Zookeeper 安裝透明地設定檢查點以檢查其進度、管理持續檢查點以及來自事件中心的平行接收，以簡化事件的使用。
+[Apache Storm](https://storm.incubator.apache.org) 是分散式即時運算系統，可簡化未繫結資料串流的可靠處理。 本節說明如何使用「Azure 事件中樞」Storm Spout 來接收來自「事件中樞」的事件。 使用 Apache Storm，您可以將事件分割到多個裝載於不同節點的處理序。 事件中心与 Storm 集成后，通过使用风暴的 Zookeeper 安装以透明方式对事件使用进度执行检查点操作、管理持久检查点以及从事件中心并行接收，简化了事件使用。
 
 如需事件中樞接收模式的詳細資訊，請參閱 [事件中樞概觀][Event Hubs overview]。
+
+## <a name="prerequisites"></a>必要條件
+快速入門中，您開始之前**建立事件中樞命名空間和事件中樞**。 使用[Azure 入口網站](https://portal.azure.com)建立類型為事件中樞的命名空間，並取得您的應用程式與事件中樞進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。 
 
 ## <a name="create-project-and-add-code"></a>建立專案並新增程式碼
 
@@ -242,7 +245,7 @@ ms.locfileid: "53094605"
 ## <a name="next-steps"></a>後續步驟
 您可以造訪下列連結以深入了解事件中樞︰
 
-* [事件中樞概觀][Event Hubs overview]
+* [事件中心概述][Event Hubs overview]
 * [建立事件中樞](event-hubs-create.md)
 * [事件中樞常見問題集](event-hubs-faq.md)
 

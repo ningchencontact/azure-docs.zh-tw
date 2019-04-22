@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426387"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用適用於容器的 Azure 監視器來了解 AKS 叢集效能 
@@ -71,7 +71,7 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 | |警告 |N/A |
 | |重要 |<100% |
 | |不明 |如果未在過去 30 分鐘內報告 |
-|**節點** | | |
+|**Node** | | |
 | |Healthy |>85% |
 | |警告 |60 - 84% |
 | |重要 |<60% |

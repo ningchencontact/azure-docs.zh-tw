@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 7a8617ae2b01fc89a4c957b8610164a2b53a16f5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274768"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>一致性層級與 Azure Cosmos DB API
@@ -33,7 +33,7 @@ Azure Cosmos DB 會提供原生支援的網路通訊協定相容的 Api，針對
 
 下表將說明如何在原生的 Cassandra 一致性層級對應至 Azure Cosmos DB 的一致性層級使用 Cassandra API 時：  
 
-[![Cassandra 一致性模型對應](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[![Cassandra 的一致性模型對應](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
 ## <a id="mongo-mapping"></a>MongoDB 和 Azure Cosmos DB 的一致性層級之間的對應
 
@@ -51,12 +51,12 @@ Azure Cosmos DB 會提供原生支援的網路通訊協定相容的 Api，針對
 
 下表說明原生 MongoDB 寫入/讀取考量的如何使用適用於 MongoDB 的 Azure Cosmos DB 的 API 時，會對應至 Azure Cosmos 一致性層級：
 
-[![MongoDB 一致性模型對應](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![MongoDB 的一致性模型對應](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 
 深入了解 Azure Cosmos DB API 與開放原始碼 API 之間的一致性層級與相容性。 請參閱下列文章：
 
 * [各種一致性層級的可用性和效能權衡取捨](consistency-levels-tradeoffs.md)
-* [Azure Cosmos DB API for MongoDB 支援的 MongoDB 功能](mongodb-feature-support.md)
-* [Azure Cosmos DB Cassandra API 所支援的 Apache Cassandra 功能](cassandra-support.md)
+* [適用於 MongoDB 的 Azure Cosmos DB API 所支援的 MongoDB 功能](mongodb-feature-support.md)
+* [Azure Cosmos DB Cassandra API 支援的 Apache Cassandra 功能](cassandra-support.md)

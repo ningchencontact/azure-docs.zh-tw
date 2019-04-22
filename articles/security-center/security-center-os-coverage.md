@@ -3,7 +3,7 @@ title: Azure 資訊安全中心所支援的功能和平台 | Microsoft Docs
 description: 本文件提供 Azure 資訊安全中心所支援的功能和平台清單。
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/9/2019
-ms.author: rkarlin
-ms.openlocfilehash: 5422ba1b29ac48a7255f25ac0beb43e3481d256a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 4/17/2019
+ms.author: monhaber
+ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105887"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678304"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure 資訊安全中心所支援的平台和功能
 
@@ -37,11 +37,12 @@ ms.locfileid: "56105887"
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Windows 電腦和 VM 支援的平台
 以下為支援的 Windows 作業系統：
 
-* Windows Server 2008
-* Windows Server 2008 R2
-* Windows Server 2012
-* Windows Server 2012 R2
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows Server 2008
 
 > [!NOTE]
 > 與 Windows Defender ATP 整合僅支援 Windows Server 2012 R2 和 Windows Server 2016。
@@ -69,7 +70,7 @@ ms.locfileid: "56105887"
 > [!div class="mx-tableFixed"]
 > 
 
-|伺服器| Windows|| Linux||
+|伺服器|Windows||Linux||
 |----|----|----|----|----|
 |環境|Azure|非 Azure|Azure|非 Azure|
 |VMBA 威脅偵測警示|✔|✔|✔ (在支援的版本上)|✔|
@@ -97,11 +98,11 @@ ms.locfileid: "56105887"
 
 | 端點保護| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
 |------|------|-----|-----|
-| Windows Defender (Microsoft 反惡意程式碼軟體)| Windows Server 2016| 否，內建於 OS| yes |
-| System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 (請參閱下列附註) | 透過延伸模組 | yes |
-| Trend Micro – 所有版本 | Windows Server 系列  | 否 | yes |
-| Symantec v12.1.1100+| Windows Server 系列  | 否 | yes |
-| McAfee v10+ | Windows Server 系列  | 否 | yes |
+| Windows Defender (Microsoft 反惡意程式碼軟體)| Windows Server 2016| 否，內建於 OS| 是 |
+| System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 (請參閱下列附註) | 透過延伸模組 | 是 |
+| Trend Micro – 所有版本 | Windows Server 系列  | 否 | 是 |
+| Symantec v12.1.1100+| Windows Server 系列  | 否 | 是 |
+| McAfee v10+ | Windows Server 系列  | 否 | 是 |
 | Kaspersky| Windows Server 系列  | 否 | 否  |
 | Sophos| Windows Server 系列  | 否 | 否  |
 

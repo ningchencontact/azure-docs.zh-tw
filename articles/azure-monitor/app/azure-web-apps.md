@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
 ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489617"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
@@ -99,9 +99,9 @@ ms.locfileid: "59489617"
 * 選取 **設定**> * * * * 應用程式設定 * * *
    * 在應用程式設定 下加入新**應用程式設定名稱**並**值**:
 
-     名稱： `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     名稱：`APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     值： `true`
+     值: `true`
 
    * **儲存**設定並**重新啟動**您的應用程式。
 
@@ -120,7 +120,7 @@ ms.locfileid: "59489617"
 
      名稱： `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     值： `false`
+     值: `false`
 
    * **儲存**設定並**重新啟動**您的應用程式。
 
@@ -137,7 +137,7 @@ ms.locfileid: "59489617"
 |應用程式設定名稱 |  定義 | 值 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 主要擴充功能，控制執行階段監視。 | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  在預設模式的唯一、 不可或缺的功能會啟用以確保最佳效能。 | `default` 或`recommended`。 |
+|XDT_MicrosoftApplicationInsights_Mode |  在預設模式的唯一、 不可或缺的功能會啟用以確保最佳效能。 | `default` 或 `recommended`。 |
 |InstrumentationEngine_EXTENSION_VERSION | 如果可控制二進位重寫引擎`InstrumentationEngine`將會開啟。 此設定會影響效能，並會影響冷起始/啟動時間。 | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | 如果 SQL 和 Azure 資料表的文字控制項將會擷取以及相依性呼叫。 效能警告： 此設定需要`InstrumentationEngine`。 | `~1` |
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
 ms.openlocfilehash: 50e24ce29b5378b3aa930c54824fd444cd823b46
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279885"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>探索和使用範例 Notebook
@@ -37,11 +37,11 @@ ms.locfileid: "59279885"
 - [有趣 Notebook 的資源庫](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (GitHub 上的 Jupyter 專案)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - [倫敦帝國學院物理系](https://notebooks.azure.com/cvanbreu/libraries)的物理導論
-- [Azure Machine Learning 開始使用範例](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
+- [Azure Machine Learning 使用者入門範例](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## <a name="next-steps"></a>後續步驟  
 
-- [作法：設定和管理專案](configure-manage-azure-notebooks-projects.md)
-- [作法：使用資料檔案](work-with-project-data-files.md)
-- [作法：存取資料資源](access-data-resources-jupyter-notebooks.md)
-- [作法：使用 Azure 機器學習服務](use-machine-learning-services-jupyter-notebooks.md)
+- [操作說明：設定和管理專案](configure-manage-azure-notebooks-projects.md)
+- [操作說明：使用資料檔案](work-with-project-data-files.md)
+- [操作說明：存取資料資源](access-data-resources-jupyter-notebooks.md)
+- [操作說明：使用 Azure Machine Learning 服務](use-machine-learning-services-jupyter-notebooks.md)

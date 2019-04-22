@@ -9,10 +9,10 @@ ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283642"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 語言參考 
@@ -62,7 +62,7 @@ SELECT 陳述式中的子句的順序必須如上所述。 您可以省略任一
 
 查詢語言支援 T-SQL 樣式的註解，例如  
 
--   SQL 陳述式 `-- comment text [newline]`  
+-   陳述式`-- comment text [newline]`  
 
 若空白字元和註解在文法中不具備任何重要性，則必須用來分隔權杖。 例如：`-1e5` 是單一數字的權杖，而 `: – 1 e5` 則是加上減號的權杖，後面接著數字 1 和識別碼 e5。  
 
@@ -108,7 +108,7 @@ SELECT <select_specification>
   
 **備註**  
   
-`SELECT *` 語法只有在 FROM 子句已明顯宣告一個別名時才會有效。 `SELECT *` 提供身分識別投影，如果不需要的任何投影則可能很有用。 SELECT * 只有在已指定 FROM 子句且只導入單一輸入來源時才有效。  
+`SELECT *` 語法只有在 FROM 子句已明顯宣告一個別名時才會有效。 `SELECT *` 提供一個身分識別投影，在無需投影的情況下會非常實用。 SELECT * 只有在已指定 FROM 子句且只導入單一輸入來源時才有效。  
   
 請注意，`SELECT <select_list>` 和 `SELECT *` 為「語法捷徑」，可以使用如下所示的簡單 SELECT 陳述式另外表示。  
   
@@ -120,11 +120,11 @@ SELECT <select_specification>
   
 2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
   
-   相當於：  
+   等效于：  
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-**另请参阅**  
+**另請參閱**  
   
 [純量運算式](#bk_scalar_expressions)  
 [SELECT 子句](#bk_select_query)  
@@ -226,7 +226,7 @@ FROM <from_specification>
   
 ### <a name="examples-of-joins"></a>聯結範例  
   
-讓我們看看下列 FROM 子句： `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+我們來看看下面的 FROM 子句：`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  讓每個來源定義 `input_alias1, input_alias2, …, input_aliasN`。 這個 FROM 子句會傳回一組 N-Tuple (具有 N 個值的 Tuple)。 每個 Tuple 所擁有的值，都是將所有容器別名在其個別集合上反覆運算所產生的。  
   
@@ -236,13 +236,13 @@ FROM <from_specification>
   
 - 讓 `<from_source2>` 為參照 input_alias1 的文件範圍，並代表以下集：  
   
-    {1，2} 的 `input_alias1 = A,`  
+    {1, 2} 為 `input_alias1 = A,`  
   
-    {3} 針對 `input_alias1 = B,`  
+    {3} 為 `input_alias1 = B,`  
   
-    {4，5} 的 `input_alias1 = C,`  
+    {4, 5} 為 `input_alias1 = C,`  
   
-- FROM 子句 `<from_source1> JOIN <from_source2>` 會產生下列 Tuple：  
+- FROM 子句 `<from_source1> JOIN <from_source2>` 将生成以下元组：  
   
     (`input_alias1, input_alias2`):  
   
@@ -254,17 +254,17 @@ FROM <from_specification>
   
 - 讓 `<from_source2>` 為參照 `input_alias1` 的文件範圍，並代表以下集：  
   
-    {1，2} 的 `input_alias1 = A,`  
+    {1, 2} 為 `input_alias1 = A,`  
   
-    {3} 針對 `input_alias1 = B,`  
+    {3} 為 `input_alias1 = B,`  
   
-    {4，5} 的 `input_alias1 = C,`  
+    {4, 5} 為 `input_alias1 = C,`  
   
 - 讓 `<from_source3>` 為參照 `input_alias2` 的文件範圍，並代表以下集：  
   
-    {100，200} 的 `input_alias2 = 1,`  
+    {100, 200} 為 `input_alias2 = 1,`  
   
-    {300} 針對 `input_alias2 = 3,`  
+    {300} 為 `input_alias2 = 3,`  
   
 - FROM 子句 `<from_source1> JOIN <from_source2> JOIN <from_source3>` 會產生下列 Tuple：  
   
@@ -283,17 +283,17 @@ FROM <from_specification>
   
 - 讓 <from_source2> 為參照 input_alias1 的文件範圍，並代表以下集：  
   
-    {1，2} 的 `input_alias1 = A,`  
+    {1, 2} 為 `input_alias1 = A,`  
   
-    {3} 針對 `input_alias1 = B,`  
+    {3} 為 `input_alias1 = B,`  
   
-    {4，5} 的 `input_alias1 = C,`  
+    {4, 5} 為 `input_alias1 = C,`  
   
 - 讓 `<from_source3>` 將範圍設定為 `input_alias1` 並代表集：  
   
-    {100，200} 的 `input_alias2 = A,`  
+    {100, 200} 為 `input_alias2 = A,`  
   
-    {300} 針對 `input_alias2 = C,`  
+    {300} 為 `input_alias2 = C,`  
   
 - FROM 子句 `<from_source1> JOIN <from_source2> JOIN <from_source3>` 會產生下列 Tuple：  
   
@@ -304,7 +304,7 @@ FROM <from_specification>
   > [!NOTE]
   > 這會在 `<from_source2>` 和 `<from_source3>` 之間產生交叉乘積，因為兩者都只限於相同的 `<from_source1>` 範圍。  這會讓 4 (2x2) Tuple 具備值 A，0 Tuple 具備值 B (1x0) 而 2 (2x1) Tuple 具備值 C。  
   
-**請參閱**  
+**另請參閱**  
   
  [SELECT 子句](#bk_select_query)  
   
@@ -469,35 +469,35 @@ ORDER BY <sort_specification>
   
  請參閱以下的**運算子類別**表格，如需處理**未定義**值的詳細資料，請輸入輸入值的需求，以及透過不相符的值處理值的需求。  
   
- **運算子類別目錄：**  
+ **運算子類別：**  
   
 |**類別**|**詳細資料**|  
 |-|-|  
-|**算術運算**|運算子預期的輸入為數字。 輸出也是數字。 若有任何**未定義的**輸入，或輸入了數字以外的類型，則會產生**未定義**的結果。|  
-|**位元**|運算子預期的輸入為 32 位元的帶正負號整數。 輸出也為 32 位元的帶正負號整數。<br /><br /> 任何非整數值均會進行四捨五入。 正值會無條件捨去，負值則會進位。<br /><br /> 除了 32 位元整數範圍的任何值，都會以去掉其兩個元件標記法的最後 32 位元進行轉換。<br /><br /> 若有任何**未定義的**輸入，或輸入了數字以外的類型，則會產生**未定義**的結果。<br /><br /> **附註：** 以上行為會與 JavaScript 位元運算子行為相容。|  
-|**邏輯**|運算子預期的輸入為布林值。 輸出也是布林值。<br />若有任何**未定義的**輸入，或輸入了布林值以外的類型，則會產生**未定義**的結果。|  
-|**比較**|運算子預期的輸入具有相同的未定義類型。 輸出也是布林值。<br /><br /> 若有任何**未定義的**輸入，或是不同類型的輸入，則會產生**未定義**的結果。<br /><br /> 請參閱**比較值順序**表格以取得值順序的詳細資料。|  
+|**arithmetic**|運算子預期的輸入為數字。 輸出也是數字。 若有任何**未定義的**輸入，或輸入了數字以外的類型，則會產生**未定義**的結果。|  
+|**bitwise**|運算子預期的輸入為 32 位元的帶正負號整數。 輸出也為 32 位元的帶正負號整數。<br /><br /> 任何非整數值均會進行四捨五入。 正值會無條件捨去，負值則會進位。<br /><br /> 除了 32 位元整數範圍的任何值，都會以去掉其兩個元件標記法的最後 32 位元進行轉換。<br /><br /> 若有任何**未定義的**輸入，或輸入了數字以外的類型，則會產生**未定義**的結果。<br /><br /> **附註：** 以上行為會與 JavaScript 位元運算子行為相容。|  
+|**logical**|運算子預期的輸入為布林值。 輸出也是布林值。<br />若有任何**未定義的**輸入，或輸入了布林值以外的類型，則會產生**未定義**的結果。|  
+|**比较**|運算子預期的輸入具有相同的未定義類型。 輸出也是布林值。<br /><br /> 若有任何**未定義的**輸入，或是不同類型的輸入，則會產生**未定義**的結果。<br /><br /> 請參閱**比較值順序**表格以取得值順序的詳細資料。|  
 |**字串**|運算子預期的輸入為字串。 輸出也是字串。<br />若有任何**未定義的**輸入，或輸入了字串以外的類型，則會產生**未定義**的結果。|  
   
- **一元運算子：**  
+ **一元運算子**  
   
 |**名稱**|**運算子**|**詳細資料**|  
 |-|-|-|  
-|**算術運算**|+<br /><br /> -|傳回數值。<br /><br /> 位元否定。 傳回否定的數值。|  
-|**位元**|~|1 的補數。 傳回數值的補數。|  
-|**邏輯**|**NOT**|否定。 傳回否定布林值。|  
+|**arithmetic**|+<br /><br /> -|傳回數值。<br /><br /> 位元否定。 傳回否定的數值。|  
+|**bitwise**|~|1 的補數。 傳回數值的補數。|  
+|**Logical**|**NOT**|否定。 傳回否定布林值。|  
   
  **二元運算子：**  
   
 |**名稱**|**運算子**|**詳細資料**|  
 |-|-|-|  
-|**算術運算**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|加法。<br /><br /> 減法。<br /><br /> 乘法。<br /><br /> 除法。<br /><br /> 調節。|  
-|**位元**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|位元 OR。<br /><br /> 位元 AND。<br /><br /> 位元 XOR。<br /><br /> 向左移位。<br /><br /> 向右移位。<br /><br /> 向右移位並填滿零。|  
-|**邏輯**|**AND**<br /><br /> **或**|邏輯結合。 若兩個引數都為 **True**，則傳回 **True**，否則會傳回 **False**。<br /><br /> 邏輯分離。 若任何引數為 **True**，則傳回 **True**，否則會傳回 **False**。|  
-|**比較**|**=**<br /><br /> **!=、<>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|等於。 若引數相等，則傳回 **True**，否則會傳回 **False**。<br /><br /> 不等於。 若引數不相等，則傳回 **True**，否則會傳回 **False**。<br /><br /> 大於。 如果第一個引數大於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 大於或等於。 如果第一個引數大於或等於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 小於。 如果第一個引數小於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 小於或等於。 如果第一個引數小於或等於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 聯合。 若第一個引數為**未定義的**值，則會傳回第二個引數。|  
-|**字串**|**&#124;&#124;**|串連。 傳回兩個引數的串連。|  
+|**arithmetic**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|加法。<br /><br /> 減法。<br /><br /> 乘法。<br /><br /> 除法。<br /><br /> 調節。|  
+|**bitwise**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|位元 OR。<br /><br /> 位元 AND。<br /><br /> 位元 XOR。<br /><br /> 向左移位。<br /><br /> 向右移位。<br /><br /> 向右移位並填滿零。|  
+|**logical**|**AND**<br /><br /> **或**|邏輯結合。 若兩個引數都為 **True**，則傳回 **True**，否則會傳回 **False**。<br /><br /> 邏輯分離。 若任何引數為 **True**，則傳回 **True**，否則會傳回 **False**。|  
+|**comparison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|等於。 若引數相等，則傳回 **True**，否則會傳回 **False**。<br /><br /> 不等於。 若引數不相等，則傳回 **True**，否則會傳回 **False**。<br /><br /> 大於。 如果第一個引數大於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 大於或等於。 如果第一個引數大於或等於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 小於。 如果第一個引數小於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 小於或等於。 如果第一個引數小於或等於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 聯合。 若第一個引數為**未定義的**值，則會傳回第二個引數。|  
+|**字符串**|**&#124;&#124;**|串連。 傳回兩個引數的串連。|  
   
- **三元運算子：**  
+ **三元運算子：**   
 
 |**名稱**|**運算子**|**詳細資料**| 
 |-|-|-|  
@@ -506,13 +506,13 @@ ORDER BY <sort_specification>
   
  **比較值順序**  
   
-|**類型**|**值順序**|  
+|**类型**|**值順序**|  
 |-|-|  
-|**Undefined**|無法比較。|  
+|**未定義**|無法比較。|  
 |**Null**|單一值：**Null**|  
-|**數字**|自然實數。<br /><br /> 負的無限值小於其他任何數值。<br /><br /> 正無限值大於其他任何數值。**NaN** 值無法比較。 與 **NaN** 比較會產生**未定義的**值。|  
-|**字串**|詞彙編篡順序。|  
-|**陣列**|沒有順序，但合理。|  
+|**Number**|自然實數。<br /><br /> 負的無限值小於其他任何數值。<br /><br /> 正無限值大於其他任何數值。**NaN** 值無法比較。 與 **NaN** 比較會產生**未定義的**值。|  
+|**String**|詞彙編篡順序。|  
+|**Array**|沒有順序，但合理。|  
 |**Object**|沒有順序，但合理。|  
   
  **備註**  
@@ -536,13 +536,13 @@ ORDER BY <sort_specification>
   
 |**類型**|**值順序**|  
 |-|-|  
-|**Undefined**|單一值： **未定義**|  
+|**未定義**|單一值： **未定義**|  
 |**Null**|單一值：**Null**|  
-|**BOOLEAN**|值：**False**，**True**。|  
-|**數字**|雙精確度浮點數，符合 IEEE 754 標準。|  
-|**字串**|零或更多 Unicode 字元的序列。 字串必須以單引號或雙引號括住。|  
-|**陣列**|零或更多元素的序列。 除了未定義的類型，每個元素都可以是任何純量資料類型的值。|  
-|**Object**|未排序的零或更多名稱/值組。 名稱為 Unicode 字串；除了**未定義**的類型，值可以是任何純量資料類型。|  
+|**布林值**|值：**False**，**True**。|  
+|**数字**|雙精確度浮點數，符合 IEEE 754 標準。|  
+|**String**|零或更多 Unicode 字元的序列。 字串必須以單引號或雙引號括住。|  
+|**Array**|零或更多元素的序列。 除了未定義的類型，每個元素都可以是任何純量資料類型的值。|  
+|**对象**|未排序的零或更多名稱/值組。 名稱為 Unicode 字串；除了**未定義**的類型，值可以是任何純量資料類型。|  
   
  **語法**  
   
@@ -574,7 +574,7 @@ ORDER BY <sort_specification>
   
 ```  
   
- **引數**  
+ **参数**  
   
 * `<undefined_constant>; undefined`  
   
@@ -618,7 +618,7 @@ ORDER BY <sort_specification>
   
   允許下列逸出序列：  
   
-|**逸出序列**|**描述**|**Unicode 字元**|  
+|**逸出序列**|**說明**|**Unicode 字元**|  
 |-|-|-|  
 |\\'|apostrophe (')|U+0027|  
 |\\"|引號 (")|U+0022|  
@@ -678,11 +678,11 @@ ORDER BY <sort_specification>
   
 |函式|描述|  
 |--------------|-----------------|  
-|[數學函數](#bk_mathematical_functions)|每個數學函數都會執行計算，通常以提供做為引數的輸入值為基礎，並且會傳回數值。|  
-|[類型檢查函數](#bk_type_checking_functions)|類型檢查函數可讓您檢查 SQL 查詢中的運算式類型。|  
-|[字串函數](#bk_string_functions)|下列字串函式會對字串輸入值執行作業，並傳回字串、數值或布林值。|  
-|[陣列函數](#bk_array_functions)|下列陣列函式會對陣列輸入值執行作業，並傳回數值、布林值或陣列值。|  
-|[空間函數](#bk_spatial_functions)|下列空間函數會對空間物件輸入值執行作業，並傳回數值或布林值。|  
+|[數學函式](#bk_mathematical_functions)|每個數學函數都會執行計算，通常以提供做為引數的輸入值為基礎，並且會傳回數值。|  
+|[類型檢查函式](#bk_type_checking_functions)|类型检查函数允许检查 SQL 查询内表达式的类型。|  
+|[字串函式](#bk_string_functions)|下列字串函式會對字串輸入值執行作業，並傳回字串、數值或布林值。|  
+|[陣列函式](#bk_array_functions)|下列陣列函式會對陣列輸入值執行作業，並傳回數值、布林值或陣列值。|  
+|[空間函式](#bk_spatial_functions)|下列空間函數會對空間物件輸入值執行作業，並傳回數值或布林值。|  
   
 ###  <a name="bk_mathematical_functions"></a>數學函式  
  下列函式都會執行計算，通常以提供作為引數的輸入值為基礎，並且會傳回數值。  
@@ -692,7 +692,7 @@ ORDER BY <sort_specification>
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
 |[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[CEILING](#bk_ceiling)|  
 |[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
-|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[記錄](#bk_log)|  
+|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
 |[RADIANS](#bk_radians)|[ROUND](#bk_round)|[SIN](#bk_sin)|  
 |[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
@@ -701,7 +701,7 @@ ORDER BY <sort_specification>
 ####  <a name="bk_abs"></a> ABS  
  傳回指定之數值運算式的絕對 (正) 值。  
   
- **語法**  
+ **语法**  
   
 ```  
 ABS (<numeric_expression>)  
@@ -711,9 +711,9 @@ ABS (<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -744,9 +744,9 @@ ACOS(<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -777,9 +777,9 @@ ASIN(<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -810,9 +810,9 @@ ATAN(<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -843,9 +843,9 @@ ATN2(<numeric_expression>, <numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -876,9 +876,9 @@ CEILING (<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -909,9 +909,9 @@ COS(<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -942,13 +942,13 @@ COT(<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
-  **範例**  
+  **示例**  
   
   下列範例會計算指定角度的 COS 值。  
   
@@ -975,9 +975,9 @@ DEGREES (<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -1008,9 +1008,9 @@ FLOOR (<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -1041,11 +1041,11 @@ EXP (<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
-  傳回數值運算式。  
+  返回一个数值表达式。  
   
   **備註**  
   
@@ -1100,9 +1100,9 @@ LOG (<numeric_expression> [, <base>])
   
    選用數值引數會設定對數基數。  
   
-  **傳回型別**  
+  **傳回類型**  
   
-  傳回數值運算式。  
+  返回一个数值表达式。  
   
   **備註**  
   
@@ -1151,11 +1151,11 @@ LOG10 (<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
-  傳回數值運算式。  
+  返回一个数值表达式。  
   
   **備註**  
   
@@ -1188,9 +1188,9 @@ PI ()
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -1227,7 +1227,7 @@ POWER (<numeric_expression>, <y>)
   
    為要提高至 `numeric_expression` 的乘冪。  
   
-  **傳回型別**  
+  **返回类型**  
   
   傳回數值運算式。  
   
@@ -1258,9 +1258,9 @@ RADIANS (<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -1297,9 +1297,9 @@ ROUND(<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -1330,9 +1330,9 @@ SIGN(<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -1363,9 +1363,9 @@ SIN(<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -1396,9 +1396,9 @@ SQRT(<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -1417,7 +1417,7 @@ SELECT SQRT(1) AS s1, SQRT(2.0) AS s2, SQRT(3) AS s3
 ```  
   
 ####  <a name="bk_square"></a> SQUARE  
- 傳回指定之數值的平方。  
+ 返回指定数字值的平方。  
   
  **語法**  
   
@@ -1429,9 +1429,9 @@ SQUARE(<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -1462,9 +1462,9 @@ TAN (<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -1495,9 +1495,9 @@ TRUNC(<numeric_expression>)
   
 - `numeric_expression`  
   
-   為數值運算式。  
+   是一个数值表达式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -1539,7 +1539,7 @@ IS_ARRAY(<expression>)
   
    為任何有效運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -1579,7 +1579,7 @@ IS_BOOL(<expression>)
   
    為任何有效運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -1619,7 +1619,7 @@ IS_DEFINED(<expression>)
   
    為任何有效運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -1652,7 +1652,7 @@ IS_NULL(<expression>)
   
    為任何有效運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -1692,7 +1692,7 @@ IS_NUMBER(<expression>)
   
    為任何有效運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -1732,7 +1732,7 @@ IS_OBJECT(<expression>)
   
    為任何有效運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -1772,7 +1772,7 @@ IS_PRIMITIVE(<expression>)
   
    為任何有效運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -1812,7 +1812,7 @@ IS_STRING(<expression>)
   
    為任何有效運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -1838,7 +1838,7 @@ SELECT
 ```  
   
 ###  <a name="bk_string_functions"></a> 字串函式  
- 下列純量函數會對字串輸入值執行作業，並傳回字串、數值或布林值。  
+ 下面的标量函数对字符串输入值执行操作，并返回字符串、数值或布尔值。  
   
 ||||  
 |-|-|-|  
@@ -1852,7 +1852,7 @@ SELECT
 |[TRIM](#bk_trim)|[UPPER](#bk_upper)||
   
 ####  <a name="bk_concat"></a> CONCAT  
- 傳回字串，該字串是串連兩個或多個字串值的結果。  
+ 返回一个字符串，该字符串是连接两个或多个字符串值的结果。  
   
  **語法**  
   
@@ -1866,7 +1866,7 @@ CONCAT(<str_expr>, <str_expr> [, <str_expr>])
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -1899,7 +1899,7 @@ CONTAINS(<str_expr>, <str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -1918,7 +1918,7 @@ SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2
 ```  
   
 ####  <a name="bk_endswith"></a> ENDSWITH  
- 傳回布林值，表示第一個字串運算式是否以第二個字串運算式結尾。  
+ 返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式结尾。  
   
  **語法**  
   
@@ -1932,7 +1932,7 @@ ENDSWITH(<str_expr>, <str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -1965,7 +1965,7 @@ INDEX_OF(<str_expr>, <str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -2002,7 +2002,7 @@ LEFT(<str_expr>, <num_expr>)
   
    為任何有效的數值運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2035,7 +2035,7 @@ LENGTH(<str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2068,7 +2068,7 @@ LOWER(<str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2088,7 +2088,7 @@ SELECT LOWER("Abc") AS lower
 ```  
   
 ####  <a name="bk_ltrim"></a> LTRIM  
- 傳回移除開頭空白之後的字串運算式。  
+ 返回删除前导空格后的字符串表达式。  
   
  **語法**  
   
@@ -2102,7 +2102,7 @@ LTRIM(<str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2135,7 +2135,7 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2175,7 +2175,7 @@ REPLICATE(<str_expr>, <num_expr>)
   > [!NOTE]
   > 結果的最大長度為 10,000 個字元，亦即 (length(str_expr)  *  num_expr) <= 10,000。
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2194,7 +2194,7 @@ SELECT REPLICATE("a", 3) AS replicate
 ```  
   
 ####  <a name="bk_reverse"></a> REVERSE  
- 傳回反向順序的字串值。  
+ 返回字符串值的逆序排序形式。  
   
  **語法**  
   
@@ -2208,7 +2208,7 @@ REVERSE(<str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2245,7 +2245,7 @@ RIGHT(<str_expr>, <num_expr>)
   
    為任何有效的數值運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2278,7 +2278,7 @@ RTRIM(<str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2311,7 +2311,7 @@ STARTSWITH(<str_expr>, <str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -2344,7 +2344,7 @@ StringToArray(<expr>)
   
    是任何有效的純量運算式評估為 JSON 陣列運算式。 請注意，必須為有效的雙引號括住寫入巢狀的字串值。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)
   
-  **傳回型別**  
+  **傳回類型**  
   
   返回一个数组表达式或未定义的表达式。  
   
@@ -2419,7 +2419,7 @@ StringToBoolean(<expr>)
   
    是任何有效的純量運算式，才能評估為布林的運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   返回一个布尔表达式或未定义的表达式。  
   
@@ -2492,7 +2492,7 @@ StringToNull(<expr>)
   
    是任何有效的純量運算式，才能評估為 null 的運算式。
   
-  **傳回型別**  
+  **傳回類型**  
   
   返回一个 Null 表达式或未定义的表达式。  
   
@@ -2564,7 +2564,7 @@ StringToNumber(<expr>)
   
    是任何有效的純量運算式評估為 JSON 數字運算式。 JSON 中的数字必须是整数或浮点数。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
   
-  **傳回型別**  
+  **傳回類型**  
   
   返回一个数字表达式或未定义的表达式。  
   
@@ -2634,7 +2634,7 @@ StringToObject(<expr>)
   
    是任何有效的純量運算式評估為 JSON 物件運算式。 請注意，必須為有效的雙引號括住寫入巢狀的字串值。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
   
-  **傳回型別**  
+  **傳回類型**  
   
   返回一个对象表达式或未定义的表达式。  
   
@@ -2729,7 +2729,7 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
   
    是任何用來表示開始和結束字元的有效數值運算式。    
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2761,7 +2761,7 @@ ToString(<expr>)
   
    為任何有效的純量運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2843,7 +2843,7 @@ TRIM(<str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2875,7 +2875,7 @@ UPPER(<str_expr>)
   
    為任何有效的字運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回字串運算式。  
   
@@ -2916,7 +2916,7 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
   
    為任何有效陣列運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回陣列運算式。  
   
@@ -2957,7 +2957,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
    為任何布林運算式。 如果設定為 'true' 且指定的搜尋值是物件，則該命令會針對部分相符進行檢查 (搜尋物件是其中一個物件的子集)。 如果設定為 'false'，則此命令會針對完全相符來檢查陣列中所有物件。 若未指定，則預設值為 false。 
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林值。  
   
@@ -3011,7 +3011,7 @@ ARRAY_LENGTH(<arr_expr>)
   
    為任何有效陣列運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式。  
   
@@ -3052,7 +3052,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
 
    結果陣列中的元素數目上限。    
 
-  **傳回型別**  
+  **傳回類型**  
   
   傳回陣列運算式。  
   
@@ -3109,7 +3109,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
    為任何有效的 GeoJSON 點、Polygon 或 LineString 物件運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回數值運算式，其中包含距離。 這在預設參照系統中以公尺表示。  
   
@@ -3144,13 +3144,13 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
 - `spatial_expr`  
   
-   為任何有效的 GeoJSON 點、Polygon 或 LineString 物件運算式。  
+   是任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
  
 - `spatial_expr`  
   
    為任何有效的 GeoJSON 點、Polygon 或 LineString 物件運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林值。  
   
@@ -3186,13 +3186,13 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
 - `spatial_expr`  
   
-   為任何有效的 GeoJSON 點、Polygon 或 LineString 物件運算式。  
+   是任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
  
 - `spatial_expr`  
   
    為任何有效的 GeoJSON 點、Polygon 或 LineString 物件運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林值。  
   
@@ -3230,7 +3230,7 @@ ST_ISVALID(<spatial_expr>)
   
    為任何有效的 GeoJSON 點、Polygon 或 LineString 運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
   傳回布林運算式。  
   
@@ -3253,7 +3253,7 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b
 ```  
   
 ####  <a name="bk_st_isvaliddetailed"></a> ST_ISVALIDDETAILED  
- 如果指定的 GeoJSON Point、Polygon 或 LineString 運算式有效，就傳回包含布林值的 JSON 值；但如果是無效的，就會額外加上做為字串值的原因。  
+ 如果指定的 GeoJSON 点、多边形或 LineString 表达式有效，则返回包含布尔值的 JSON 值；如果无效，则额外加上作为字符串值的原因。  
   
  **語法**  
   
@@ -3267,9 +3267,9 @@ ST_ISVALIDDETAILED(<spatial_expr>)
   
    為任何有效的 GeoJSON 點或多邊形運算式。  
   
-  **傳回型別**  
+  **傳回類型**  
   
-  如果指定的 GeoJSON 點或多邊形運算式是有效的，就會傳回包含布林值的 JSON 值；但如果是無效的，就會額外加上做為字串值的原因。  
+  如果指定的 GeoJSON 点或多边形表达式有效，则返回包含布尔值的 JSON 值；如果无效，则额外以字符串值提供原因。  
   
   **範例**  
   
@@ -3295,6 +3295,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>後續步驟  
 
-- [SQL 語法和 Cosmos DB 的 SQL 查詢](how-to-sql-query.md)
+- [適用於 Cosmos DB 的 SQL 語法和 SQL 查詢](how-to-sql-query.md)
 
 - [Cosmos DB 文件](https://docs.microsoft.com/azure/cosmos-db/)  

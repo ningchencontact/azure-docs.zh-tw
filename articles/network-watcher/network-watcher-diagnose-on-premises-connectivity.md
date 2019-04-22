@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051575"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>透過 VPN 閘道診斷內部部署連線
@@ -45,7 +45,7 @@ Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網�
 
 ### <a name="ike-phase-1-setup"></a>IKE 第 1 階段設定
 
-| **屬性** | **PolicyBased** | **路由式和標準或高效能 VPN 閘道** |
+| **屬性** | **原則式** | **路由式和標準或高效能 VPN 閘道** |
 | --- | --- | --- |
 | IKE 版本 |IKEv1 |IKEv2 |
 | Diffie-Hellman 群組 |群組 2 (1024 位元) |群組 2 (1024 位元) |

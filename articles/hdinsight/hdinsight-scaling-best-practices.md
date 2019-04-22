@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
 ms.openlocfilehash: d2eaab80abed6615f46ef190bae56b8a70db2888
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050674"
 ---
 # <a name="scale-hdinsight-clusters"></a>調整 HDInsight 叢集
@@ -35,7 +35,7 @@ Microsoft 提供以下实用程序来缩放群集：
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<群集名称> -TargetInstanceCount \<NewSize>|
 |[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<资源组> --name \<群集名称> --target-instance-count \<NewSize>|
 |[Azure 傳統 CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<目标实例计数>|
-|[Azure 入口網站](https://portal.azure.com)|打开 HDInsight 群集的窗格，在左侧菜单中选择“群集大小”，然后在“群集大小”窗格中键入工作节点数并选择“保存”。|  
+|[Azure 门户](https://portal.azure.com)|打开 HDInsight 群集的窗格，在左侧菜单中选择“群集大小”，然后在“群集大小”窗格中键入工作节点数并选择“保存”。|  
 
 ![調整叢集](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
@@ -154,7 +154,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![安全模式關閉](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> `-D` 是必要參數，原因是 HDInsight 中的預設檔案系統是 Azure 儲存體或 Azure Data Lake Storage。 `-D` 指定對本機 HDFS 檔案系統，執行的命令。
+> `-D` 是必要參數，原因是 HDInsight 中的預設檔案系統是 Azure 儲存體或 Azure Data Lake Storage。 `-D` 會指定讓命令對本機 HDFS 檔案系統來執行。
 
 接下來，您可以檢視報告，報告中會顯示 HDFS 狀態的詳細資料：
 

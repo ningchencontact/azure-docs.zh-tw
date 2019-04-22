@@ -11,28 +11,28 @@ ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
 ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58805162"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)幫助您建立及執行自動化的整合工作流程，可以在雲端中調整。 本文說明如何計費和定價適用於 Azure Logic Apps。 如需特定的定價資訊，請參閱 < [Azure Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps)。
+借助 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)可以创建和运行可在云中缩放的自动化集成工作流。 本文介绍 Azure 逻辑应用的计费和定价方式。 有关具体的定价信息，请参阅 [Azure 逻辑应用定价](https://azure.microsoft.com/pricing/details/logic-apps)。
 
 <a name="consumption-pricing"></a>
 
 ## <a name="consumption-pricing-model"></a>取用量定價模式
 
-新的邏輯執行的應用程式在公用或 「 全域 」 Azure Logic Apps 服務中，您只需支付您所使用的項目。 這些邏輯應用程式會使用以取用量為基礎的方案和定價模型。 在邏輯應用程式定義中，每一個步驟都是一個動作。 例如，動作包括： 
+对于在公共或“全球”Azure 逻辑应用服务中运行的新逻辑应用，只需根据实际使用的资源付费。 這些邏輯應用程式會使用以取用量為基礎的方案和定價模型。 在邏輯應用程式定義中，每一個步驟都是一個動作。 例如，操作包括： 
 
-* 觸發程序，也就是特殊的動作。 所有的邏輯應用程式需要觸發程序的第一個步驟。
-* 「 內建 」 或原生動作，例如 HTTP、 呼叫 Azure Functions 和 API 管理等等
-* 呼叫連接器，例如 Outlook 365、 Dropbox 等等
-* 控制流程的步驟，例如迴圈、 條件陳述式，並依此類推
+* 触发器（特殊的操作）。 所有逻辑应用需将一个触发器用作第一个步骤。
+* “内置”或本机操作，例如 HTTP、对 Azure Functions 和 API 管理的调用，等等
+* 对 Outlook 365、Dropbox 等连接器的调用
+* 控制流步骤，例如循环、条件语句，等等
 
-Azure Logic Apps 會測量執行邏輯應用程式中的所有動作。 深入了解帳單如何運作[觸發程序](#triggers)並[動作](#actions)。
+Azure 逻辑应用对逻辑应用中运行的所有操作进行计量。 详细了解[触发器](#triggers)和[操作](#actions)的计费方式。
 
 <a name="fixed-pricing"></a>
 
@@ -43,44 +43,44 @@ Azure Logic Apps 會測量執行邏輯應用程式中的所有動作。 深入�
 ISE 基底單元有固定的容量，因此如果您需要更多的輸送量，您可以[新增更多縮放單位](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity)，請在建立期間或之後。
 
 > [!NOTE]
-> ISE 處於[*公開預覽*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 如需特定的定價資訊，請參閱 < [Azure Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps)。
+> ISE 處於[*公開預覽*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 有关具体的定价信息，请参阅 [Azure 逻辑应用定价](https://azure.microsoft.com/pricing/details/logic-apps)。
 
 <a name="connectors"></a>
 
 ## <a name="connectors"></a>連接器
 
-Azure Logic Apps 連接器提供協助您的邏輯應用程式存取應用程式、 服務和系統在雲端或內部部署[觸發程序](#triggers)，[動作](#actions)，或兩者。 連接器會歸類為 Standard 或 Enterprise。 如需有關這些連接器的概觀，請參閱 <<c0> [ 適用於 Azure Logic Apps 的連接器](../connectors/apis-list.md)。 下列各節提供如何計費觸發程序的詳細資訊，並執行工作。
+Azure 逻辑应用连接器通过提供[触发器](#triggers)和/或[操作](#actions)，帮助逻辑应用访问云中或本地的应用、服务和系统。 连接器分类为“标准”或“企业”连接器。 有关这些连接器的概述，请参阅[适用于 Azure 逻辑应用的连接器](../connectors/apis-list.md)。 以下部分提供有关触发器和操作的计费方式的详细信息。
 
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>觸發程序
 
-觸發程序是在特定事件發生時建立邏輯應用程式執行個體的特殊動作。 觸發程序會以不同動作影響邏輯應用程式計量方式。 以下是不同種類的存在於 Azure Logic Apps 的觸發程序：
+觸發程序是在特定事件發生時建立邏輯應用程式執行個體的特殊動作。 觸發程序會以不同動作影響邏輯應用程式計量方式。 下面是 Azure 逻辑应用中存在的各种触发器：
 
-* **輪詢觸發程序**:此觸發程序會持續檢查端點來取得滿足的準則建立邏輯應用程式執行個體，而啟動的工作流程的訊息。 即使未建立任何邏輯應用程式執行個體，Logic Apps 也會將每個輪詢要求當作一個執行來計量。 您可以透過邏輯應用程式設計工具來設定觸發程序，以指定輪詢間隔。
+* **轮询触发器**：此触发器持续检查终结点是否收到满足创建逻辑应用实例和启动工作流的条件的消息。 即使未建立任何邏輯應用程式執行個體，Logic Apps 也會將每個輪詢要求當作一個執行來計量。 您可以透過邏輯應用程式設計工具來設定觸發程序，以指定輪詢間隔。
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook 觸發程序**:此觸發程序會等候用戶端將要求傳送至特定端點。 每個傳送至 Webhook 端點的要求都會計算為一個動作執行。 例如，要求和 HTTP Webhook 觸發程序都是 Webhook 觸發程序。
+* **Webhook 触发器**：此触发器等待客户端向特定的终结点发送请求。 每個傳送至 Webhook 端點的要求都會計算為一個動作執行。 例如，要求和 HTTP Webhook 觸發程序都是 Webhook 觸發程序。
 
-* 重复周期触发器：此觸發程序會建立邏輯應用程式的執行個體，根據您在觸發程序中設定循環間隔。 比方說，您可以設定每隔三天執行一次循環觸發程序，或在更複雜的排程上。
+* 重复周期触发器：此触发器基于在触发器中设置的重复间隔创建逻辑应用实例。 例如，可以设置每隔三天运行的，或者根据更复杂的计划运行的定期触发器。
 
 <a name="actions"></a>
 
 ## <a name="actions"></a>動作
 
-Azure Logic Apps 會測量 「 內建 」 的動作，例如 HTTP、 以原生動作。 比方說，內建動作包含 HTTP 呼叫，呼叫 Azure Functions 或 API 管理中，從控制流程步驟，例如條件、 迴圈和 switch 陳述式。 每個動作都有自己的動作類型。 例如，呼叫的動作[連接器](https://docs.microsoft.com/connectors)具有"ApiConnection"類型。 這些連接器會歸類為標準或企業連接器，計量，以其各自[定價](https://azure.microsoft.com/pricing/details/logic-apps)。 在企業連接器*預覽*收取標準連接器。
+Azure 逻辑应用将 HTTP 等“内置”操作作为本机操作进行计量。 例如，内置操作包括 HTTP 调用、来自 Azure Functions 或 API 管理的调用，以及条件、循环和开关语句等控制流步骤。 每个操作具有自身的操作类型。 例如，调用[连接器](https://docs.microsoft.com/connectors)的操作为“ApiConnection”类型。 这些连接器分类为“标准”或“企业”连接器，根据各自的[定价](https://azure.microsoft.com/pricing/details/logic-apps)进行计量。 预览版的企业连接器按标准连接器计费。
 
-Azure Logic Apps 會測量為執行成功和失敗的所有動作。 不過，Logic Apps 不測量這些動作：
+Azure 逻辑应用将所有成功和不成功的操作作为执行进行计量。 但是，逻辑应用不会计量以下操作：
 
 * 因為條件不符而略過的動作
 * 因為邏輯應用程式在完成前停止而不會執行的動作
 
-在迴圈內執行的動作，Azure Logic Apps 會計算每個循環迴圈中的每個動作。 例如，假設您有可處理清單的 "for each" 迴圈。 Logic Apps 會將清單項目數目乘以迴圈中的動作數目，以計量該迴圈中的動作，並新增可啟動迴圈的動作。 因此，10 個項目清單的計算是 (10 * 1) + 1，11 個動作執行結果。
+对于在循环内部运行的操作，Azure 逻辑应用会对循环中每个周期的每个操作进行计数。 例如，假設您有可處理清單的 "for each" 迴圈。 Logic Apps 會將清單項目數目乘以迴圈中的動作數目，以計量該迴圈中的動作，並新增可啟動迴圈的動作。 因此，包含 10 个项的列表的计算公式为 (10 * 1) + 1，即 11 个操作执行。
 
-## <a name="disabled-logic-apps"></a>停用的邏輯應用程式
+## <a name="disabled-logic-apps"></a>禁用的逻辑应用
 
-停用，因為他們無法建立新的執行個體，它們停用時，不需支付費用應用程式的邏輯。
+禁用的逻辑应用在禁用期间不会产生费用，因为它们无法创建新实例。
 停用邏輯應用程式之後，其目前正在執行的執行個體可能需要一些時間才能完全停止。
 
 ## <a name="integration-accounts"></a>整合帳戶

@@ -10,10 +10,10 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282690"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 將您的第一個映像推送至私人 Docker 容器登錄
@@ -62,7 +62,7 @@ docker pull nginx
 docker run -it --rm -p 8080:80 nginx
 ```
 
-瀏覽至`http://localhost:8080`來檢視由 Nginx 在執行中的容器中的預設網頁。 您應該會看到如下所示的頁面：
+浏览到 `http://localhost:8080`，查看由正在运行的容器中的 Nginx 提供服务的默认网页。 您應該會看到如下所示的頁面：
 
 ![本機電腦上的 Nginx](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -104,7 +104,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-瀏覽至`http://localhost:8080`若要檢視執行中的容器。
+浏览到 `http://localhost:8080` 以查看正在运行的容器。
 
 若要停止並移除該容器，請按 `Control`+`C`。
 
@@ -127,10 +127,10 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 現在您已瞭解基本概念了，可以開始使用您的登錄庫！ 例如，將登錄中的容器映像部署至：
 
 * [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
-* [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Azure 容器執行個體](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 
-選擇性地安裝[適用於 Visual Studio Code 的 Docker 擴充功能](https://code.visualstudio.com/docs/azure/docker)並[Azure 帳戶](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)才能使用您的 Azure 容器登錄庫的延伸模組。 提取，並將映像推送至 Azure container registry，或者執行 ACR 工作，全部都在 Visual Studio Code 內。
+您可以選擇性地安裝[適用於 Visual Studio Code 的 Docker 擴充功能](https://code.visualstudio.com/docs/azure/docker)和 [Azure 帳戶](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)擴充功能，來搭配 Azure 容器登錄使用。 通过 Azure 容器注册表拉取和推送映像，或者运行 ACR 任务，这一切都可以在 Visual Studio Code 中进行。
 
 
 <!-- LINKS - external -->

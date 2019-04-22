@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: a4bf2ef252b5a948f2e3614e3e7cf64a4cb19277
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 472ff85adaf72f91948c4072b12cca3ff8e59f37
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772053"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545345"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java EE 和 Postgres Web 應用程式
 
 本教學課程會說明如何在 Azure App Service 上建立 Java Enterprise Edition (EE) Web 應用程式，並將其連線至 Postgres 資料庫。 當您完成後，在 [Linux 上的 Azure App Service](app-service-linux-intro.md) 上執行的 [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) 中會有一個儲存資料的 [Wildfly](https://www.wildfly.org/about/) 應用程式。
 
-在本教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 > [!div class="checklist"]
 > * 使用 Maven 將 Java EE 應用程式部署至 Azure
 > * 在 Azure 中建立 Postgres 資料庫
@@ -158,7 +158,9 @@ az postgres server create -n <desired-name> -g <same-resource-group> --sku-name 
 
 ## <a name="configure-the-wildfly-application-server"></a>設定 WildFly 應用程式伺服器
 
-在部署重新設定過的應用程式之前，我們必須先使用 Postgres 模組和其相依性來更新 WildFly 應用程式伺服器。 若要設定伺服器，我們需要 `wildfly_config/` 目錄中的四個檔案：
+在部署重新設定過的應用程式之前，我們必須先使用 Postgres 模組和其相依性來更新 WildFly 應用程式伺服器。 您可以在[設定 WildFly 伺服器](configure-language-java.md#configure-wildfly-server)中找到組態的詳細資訊。
+
+若要設定伺服器，我們需要 `wildfly_config/` 目錄中的四個檔案：
 
 - **postgresql-42.2.5.jar**：這個 JAR 檔案是 Postgres 的 JDBC 驅動程式。 如需詳細資訊，請參閱[官方網站](https://jdbc.postgresql.org/index.html)。
 - **postgres-module.xml**：這個 XML 檔案會宣告 Postgres 模組 (org.postgres) 的名稱。 此外，它也會指定所要使用模組的必要資源和相依性。
@@ -172,7 +174,6 @@ az postgres server create -n <desired-name> -g <same-resource-group> --sku-name 
 我們必須將 `wildfly_config/` 的內容以 FTP 傳送至 App Service 執行個體。 若要取得 FTP 認證，請在 Azure 入口網站中的 [App Service] 刀鋒視窗上，按一下 [取得發行設定檔] 按鈕。 FTP 使用者名稱和密碼會位於所下載的 XML 文件中。 如需發行設定檔的詳細資訊，請參閱[這份文件](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials)。
 
 使用您選擇的 FTP 工具，將 `wildfly_config/` 中的四個檔案傳輸至 `/home/site/deployments/tools/`。 (注意，請勿傳輸目錄，只要傳輸檔案本身即可)。
-
 
 ### <a name="finalize-app-service"></a>完成 App Service
 
@@ -195,9 +196,26 @@ mvn clean install -DskipTests azure-webapp:deploy
 如果您不需要這些資源來進行其他教學課程 (請參閱後續步驟)，您可以執行下列命令來將這些資源刪除︰
 
 ```bash
-az group delete --name <your_resource_group> 
+az group delete --name <your-resource-group>
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-您已將 Java EE 應用程式部署至 App Service，接下來請參閱 [Java Enterprise 開發人員指南](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java)，以深入了解如何設定服務、進行疑難排解和調整應用程式。
+在本教學課程中，您已了解如何：
+
+> [!div class="checklist"]
+> * 使用 Maven 將 Java EE 應用程式部署至 Azure
+> * 在 Azure 中建立 Postgres 資料庫
+> * 將 WildFly 伺服器設定為使用 Postgres
+> * 更新和重新部署應用程式
+> * 在 Wildfly 上執行單元測試
+
+前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
+
+> [!div class="nextstepaction"]
+> [教學課程：將自訂 DNS 名稱對應至應用程式](../app-service-web-tutorial-custom-domain.md)
+
+或者，查看其他資源：
+
+> [!div class="nextstepaction"]
+> [設定 Java 應用程式](configure-language-java.md)

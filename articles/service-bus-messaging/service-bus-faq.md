@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 41a5f08be833d1235146d6e748580751af2c9d73
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046082"
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
@@ -121,8 +121,8 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 ## <a name="next-steps"></a>後續步驟
 若要深入了解服務匯流排，請參閱下列文章：
 
-* [簡介 Azure 服務匯流排進階層 （部落格文章）](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Azure 服務匯流排進階 (Channel9) 簡介](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+* [Azure 服務匯流排進階簡介 (部落格文章)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Azure 服務匯流排進階簡介 (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [服務匯流排概觀](service-bus-messaging-overview.md)
 * [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 

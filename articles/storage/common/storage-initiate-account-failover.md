@@ -9,10 +9,10 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044958"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>起始儲存體帳戶容錯移轉 (預覽)
@@ -106,6 +106,6 @@ az storage account failover \ --name accountName
 
 ## <a name="next-steps"></a>後續步驟
 
-- [災害復原和帳戶的容錯移轉 （預覽） 在 Azure 儲存體](storage-disaster-recovery-guidance.md)
+- [Azure 儲存體中的災害復原和帳戶容錯移轉 (預覽)](storage-disaster-recovery-guidance.md)
 - [使用 RA-GRS 設計高可用性應用程式](storage-designing-ha-apps-with-ragrs.md)
 - [教學課程：建置採用 Blob 儲存體的高可用性應用程式](../blobs/storage-create-geo-redundant-storage.md) 

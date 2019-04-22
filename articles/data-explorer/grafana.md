@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048311"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>在 Grafana 中從 Azure 資料總管將資料視覺化
@@ -208,6 +208,6 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
 ## <a name="next-steps"></a>後續步驟
 
-[撰寫 Azure 資料總管查詢](write-queries.md)
+[撰寫 Azure 資料總管的查詢](write-queries.md)
 
-[教學課程：Azure 中的資料總管 Power BI 中的資料視覺化](visualize-power-bi.md)
+[教學課程：在 Power BI 中從 Azure 資料總管將資料視覺化](visualize-power-bi.md)

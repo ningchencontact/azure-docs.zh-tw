@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: yizhon
 ms.openlocfilehash: 8e36cee9857c00fcb618a8491595432fb0fd60fd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264568"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>使用 Azure IoT SDK 針對 Android Things 平台進行開發
@@ -103,4 +103,4 @@ az iot hub monitor-events --device-id MyAndroidThingsDevice --hub-name YourIoTHu
 
 * 深入了解[如何使用 IoT 中樞 SDK 來管理連線能力和可靠傳訊](iot-hub-reliability-features-in-sdks.md)。
 * 深入了解如何對 iOS 和 Android 等[行動平台進行開發](iot-hub-how-to-develop-for-mobile-devices.md)。
-* [Azure IoT SDK 平台支援](iot-hub-device-sdk-platform-support.md)
+* [Auzre IoT SDK 平台支援](iot-hub-device-sdk-platform-support.md)

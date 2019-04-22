@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59043876"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>連接到 Azure 的資料總管，使用 ODBC
@@ -100,6 +100,6 @@ ms.locfileid: "59043876"
 
 ## <a name="next-steps"></a>後續步驟
 
-[撰寫 Azure 資料總管查詢](write-queries.md)
+[撰寫 Azure 資料總管的查詢](write-queries.md)
 
-[教學課程：Azure 中的資料總管 Power BI 中的資料視覺化](visualize-power-bi.md)
+[教學課程：在 Power BI 中從 Azure 資料總管將資料視覺化](visualize-power-bi.md)

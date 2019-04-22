@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c508c402707663489fc383dccd958559df6b217f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194677"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544935"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>快速入門：建置 AngularJS 單一頁面應用程式 與 Azure Active Directory 整合進行登入和登出
 
@@ -45,6 +45,9 @@ Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入�
 1. 向 Azure AD 註冊應用程式.
 2. 安裝 ADAL 並設定單一頁面應用程式。
 3. 使用 ADAL 來保護單一頁面應用程式中的頁面。
+
+> [!NOTE]
+> 如果除了公司和學校帳戶之外，您也需要為個人帳戶啟用登入，則可以使用 [Microsoft 身分識別平台端點](azure-ad-endpoint-comparison.md)。 如需詳細資訊，請參閱[此 JavaScript SPA 教學課程](tutorial-v2-javascript-spa.md)，以及說明「Microsoft 身分識別平台端點」的[這篇文章](active-directory-v2-limitations.md)。 
 
 ## <a name="prerequisites"></a>必要條件
 

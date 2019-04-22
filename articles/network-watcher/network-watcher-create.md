@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051558"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>建立 Azure 網路監看員執行個體
@@ -113,6 +113,6 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 * [下一個躍點](network-watcher-next-hop-overview.md)
 * [安全性群組檢視](network-watcher-security-group-view-overview.md)
 * [NSG 流量記錄](network-watcher-nsg-flow-logging-overview.md)
-* [虛擬網路閘道進行疑難排解](network-watcher-troubleshoot-overview.md)
+* [虛擬網路閘道疑難排解](network-watcher-troubleshoot-overview.md)
 
 一旦有網路監看員執行個體後，您可以啟用虛擬機器內的封包擷取。 若要了解做法，請參閱[建立警示觸發的封包擷取](network-watcher-alert-triggered-packet-capture.md)

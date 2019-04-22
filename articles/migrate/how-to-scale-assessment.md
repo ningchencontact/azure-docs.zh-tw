@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490632"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>探索及評定大型 VMware 環境
@@ -18,7 +18,7 @@ ms.locfileid: "59490632"
 Azure Migrate 具有每個專案 1500 部機器的限制，本文說明如何使用 [Azure Migrate](migrate-overview.md) 來評定大量內部部署虛擬機器 (VM)。
 
 > [!NOTE]
-> 我們有預覽版本可用，可以允許使用單一設備的單一專案中探索最多 10,000 個 VMware Vm，如果您有興趣想試用看看，請登入[這裡。](https://aka.ms/migratefuture)
+> 我們有提供預覽版本，可允許在使用單一設備的單一專案中探索多達 10,000 個 VMware VM，如果您有興趣試用看看，請登入[這裡。](https://aka.ms/migratefuture)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -149,7 +149,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此虛�
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-   使用方式範例: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   使用方式範例：```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. 確定所產生的雜湊符合下列設定。
 
@@ -278,7 +278,7 @@ SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
 收集器設備會以 20 秒的間隔，從 ESXi 主機收集下列每個 VM 的效能計數器。 這些計數器是 vCenter 計數器，雖然術語說明是平均計數器，但 20 秒範例是即時計數器。 然後，設備會彙總 20 秒的樣本，並從 20 秒的樣本中選取尖峰值，建立以 15 分鐘為間隔的單一資料點，並將其傳送至 Azure。 啟動探索兩小時之後，就可以在入口網站上取得 VM 效能資料。 強烈建議您至少先等候一天的時間，再建立以效能為基礎的評量，以取得正確的適當大小建議。 如果您要尋求立即滿足，則可以使用*內部部署*作為調整大小準則來建立評量，這不會考慮適當大小的效能資料。
 
-**計數器** |  **上評量的影響**
+**計數器** |  **對評量的影響**
 --- | ---
 cpu.usage.average | 建議的虛擬機器大小和成本  
 mem.usage.average | 建議的虛擬機器大小和成本  

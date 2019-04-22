@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c5eb69ddd9c621024799b940ef58c34e7caaa3ff
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b80cb0d68e6875881f2a9fc97fa52531525c1cdc
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294020"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579184"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>教學課程：將自訂網域新增至 Azure CDN 端點
 本教學課程說明如何將自訂網域新增至 Azure 內容傳遞網路 (CDN) 端點。 使用 CDN 端點來傳遞內容時，如果您想要在 CDN URL 中顯示您自己的網域名稱，則需要自訂網域。 有可見的網域名稱對您的客戶而言較為方便，並且也有助於宣傳商標。 
@@ -50,7 +50,7 @@ ms.locfileid: "58294020"
 自訂網域及其子網域一次只能與單一端點相關聯。 不過，您可以使用多個 CNAME 記錄，將來自相同自訂網域的不同子網域用於不同的 Azure 服務端點。 您也可以將具有不同子網域的自訂網域對應至相同的 CDN 端點。
 
 > [!NOTE]
-> 如果您使用 Azure DNS 作為網域提供者，則可將任何別名記錄類型用於自訂網域。 本逐步解說會使用 CNAME 記錄類型。 如果您使用 A 或 AAAA 記錄類型，則以您選擇的記錄類型取代 CNAME 時，只需依照以下相同步驟即可。 如果您使用別名記錄來新增根網域作為自訂網域，並且想要啟用 SSL，就必須使用手動驗證，如[這裡](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint)所述
+> 如果您使用 Azure DNS 作為網域提供者，則可將任何別名記錄類型用於自訂網域。 本逐步解說會使用 CNAME 記錄類型。 如果您使用 A 或 AAAA 記錄類型，請遵循以下相同步驟並以您選擇的記錄類型取代 CNAME。 如果您使用別名記錄來新增根網域作為自訂網域，並且想要啟用 SSL，則必須使用手動驗證，如[本文](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint)所述。 如需詳細資訊，請參閱[將區域 Apex 指向 Azure CDN 端點](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints)。
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>對應暫時 cdnverify 子網域
 

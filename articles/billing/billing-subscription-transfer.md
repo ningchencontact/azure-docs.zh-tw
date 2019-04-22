@@ -14,15 +14,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d8baa5f10aeba179ef141cfea86fded8cf44dfc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878205"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678814"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 
@@ -30,7 +30,7 @@ ms.locfileid: "57878205"
 
 > [!IMPORTANT]
 > 
-> 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。
+> 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。 您也必須以手動方式重新建立適用於 Azure 資源管理的身分識別。 如需詳細資訊，請參閱 <<c0> [ 常見問題集和已知的問題的受管理身分識別](../active-directory/managed-identities-azure-resources/known-issues.md)。
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>轉移 Azure 訂用帳戶的擁有權
 
@@ -52,7 +52,7 @@ ms.locfileid: "57878205"
 
    > [!IMPORTANT]
    > 
-   > 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。
+   > 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。 您也必須以手動方式重新建立適用於 Azure 資源管理的身分識別。 如需詳細資訊，請參閱 <<c0> [ 常見問題集和已知的問題的受管理身分識別](../active-directory/managed-identities-azure-resources/known-issues.md)。
 
    ![移轉訂用帳戶對話方塊](./media/billing-subscription-transfer/image2.PNG)
 

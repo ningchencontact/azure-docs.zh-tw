@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425962"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central 中的裝置連線能力
@@ -35,7 +35,7 @@ ms.locfileid: "59425962"
 1. [快速連線使用單一裝置的 SAS](#connect-a-single-device)
 1. [使用 SAS 大規模的裝置連線](#connect-devices-at-scale-using-sas)
 1. [連接的裝置使用 X.509 憑證的大量](#connect-devices-using-x509-certificates)這是建議用於生產環境的方法。
-1. [將裝置來連線但先不註冊](#connect-without-registering-devices)
+1. [將裝置連線但先不註冊](#connect-without-registering-devices)
 
 ## <a name="connect-a-single-device"></a>將單一裝置連線
 
@@ -87,7 +87,7 @@ ms.locfileid: "59425962"
 
 - 適用於 [RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases) 的範例實作。
 
-- [在 c 中的範例裝置用戶端](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+- [C 範例裝置用戶端](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)。
 
 ### <a name="for-testing-purposes-only"></a>僅供測試用途
 
@@ -115,7 +115,7 @@ IoT 中心可讓主要案例就是 oem 大量製造裝置可以連線到 IoT Cen
 
     - **X.509 憑證：**[新增並驗證根/中繼憑證](#connect-devices-using-x509-certificates)並用它來產生下一個步驟中的裝置憑證。
     - **SAS：** 將複製的主索引鍵。 這個金鑰是 IoT Central 應用程式的群組 SAS 索引鍵。 使用金鑰來產生下一個步驟中的裝置的 SAS 金鑰。
-    ![SAS 的連線設定](media/concepts-connectivity/connection-settings-sas.png)
+    ![連線設定 SAS](media/concepts-connectivity/connection-settings-sas.png)
 
 1. 產生您的裝置認證
     - **X.509 憑證中：** 產生您使用的根或中繼憑證，您新增至您的 IoT Central 應用程式的裝置之分葉憑證。 請務必使用小寫**裝置識別碼**為分葉憑證的 CNAME。 針對測試用途，使用這[命令列工具](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md )來產生裝置憑證。
@@ -181,8 +181,8 @@ Azure 裝置 Sdk 供應項目最簡單的方式為您實作裝置程式碼。 �
 
 若要深入了解如何使用裝置 SDK，請參閱下列其中一篇文章，以取得程式碼範例：
 
-- [泛型的 Node.js 用戶端連接到您的 Azure IoT Central 應用程式](howto-connect-nodejs.md)
-- [將 Raspberry Pi 裝置連線至 Azure IoT Central 應用程式](howto-connect-raspberry-pi-python.md)
+- [將一般 Node.js 用戶端連線至 Azure IoT Central 應用程式](howto-connect-nodejs.md)
+- [將 Raspberry Pi 裝置連線到 Azure IoT Central 應用程式](howto-connect-raspberry-pi-python.md)
 - [將 DevDiv kit 裝置連線到 Azure IoT Central 應用程式](howto-connect-devkit.md)
 
 ### <a name="protocols"></a>通訊協定
@@ -205,7 +205,7 @@ Azure 裝置 Sdk 供應項目最簡單的方式為您實作裝置程式碼。 �
 
 既然您已了解在 Azure IoT Central 的裝置連線能力，以下是建議的後續步驟：
 
-- [準備並將 DevKit 裝置連線](howto-connect-devkit.md)
+- [準備及連線 DevKit 裝置](howto-connect-devkit.md)
 - [準備及連線 Raspberry Pi](howto-connect-raspberry-pi-python.md)
-- [泛型的 Node.js 用戶端連接到您的 Azure IoT Central 應用程式](howto-connect-nodejs.md)
+- [將一般 Node.js 用戶端連線至 Azure IoT Central 應用程式](howto-connect-nodejs.md)
 - [C SDK:佈建的裝置用戶端 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a1c74f0ed9fd9b9abccfb7c2762cadf948c8fce0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884790"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492357"
 ---
 # <a name="connect-data-sources"></a>連線資料來源
 
@@ -34,9 +34,9 @@ ms.locfileid: "57884790"
 
 ![資料收集器](./media/collect-data/collect-data-page.png)
 
-## <a name="data-collection-methods"></a>資料收集方法
+## <a name="data-connection-methods"></a>資料連線方法
 
-Azure Sentinel 支援下列資料收集方法：
+Azure Sentinel 支援下列資料連線方法：
 
 - **Microsoft 服務**：<br> Microsoft 服務會以原生方式連線，並運用 Azure 基礎進行立即整合，只需按幾下就可以與下列解決方案連線：
     - [Office 365](connect-office-365.md)
@@ -52,7 +52,7 @@ Azure Sentinel 支援下列資料收集方法：
 
 - **透過 API 連線的外部解決方案**：某些資料來源會使用自身提供的 API 進行連線。 一般而言，大部分的安全性技術都會提供一組 API，藉此來擷取事件記錄。API 可連線到 Azure Sentinel 並收集特定資料類型，然後將其傳送至 Azure Log Analytics。 透過 API 連線的設備包括：
     - [Barracuda](connect-barracuda.md)
-    - Symantec
+    - [Symantec](connect-symantec.md)
 - **透過代理程式連線的外部解決方案**：透過代理程式，Azure Sentinel 可以連線到所有其他使用 Syslog 通訊協定執行即時記錄串流的資料來源。 <br>大部分設備會使用 Syslog 通訊協定來傳送事件訊息，包含記錄本身和記錄的相關資料。 記錄的格式並不相同，但大部分的設備都支援常見事件格式 (CEF) 標準。 <br>Azure Sentinel 代理程式以 OMS 代理程式作為基礎，可將 CEF 格式的記錄轉換成 Log Analytics 可擷取的格式。 根據不同設備類型，代理程式可能會直接安裝在設備上，或安裝在專用的 Linux 伺服器上。 適用於 Linux 的代理程式會透過 UDP 從 Syslog 精靈接收事件，但如果預期 Linux 機器會收集大量的 Syslog 事件，則會透過 TCP 將事件從 Syslog 精靈傳送到代理程式，然後從該處傳送至 Log Analytics。
     - 防火牆、Proxy 和端點：
         - [F5](connect-f5.md)

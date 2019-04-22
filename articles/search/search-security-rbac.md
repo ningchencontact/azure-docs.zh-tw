@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 34def35eba1e5c1645e6e1f9a505704d153ac716
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277761"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>設定系統管理存取權的 RBAC 角色
@@ -39,5 +39,5 @@ Azure 特別為透過入口網站或 Resource Manager API 管理的所有服務�
 ## <a name="see-also"></a>請參閱
 
 + [使用 Powershell 管理](search-manage-powershell.md) 
-+ [效能與最佳化，在 Azure 搜尋服務](search-performance-optimization.md)
++ [Azure 搜尋服務中的效能和最佳化](search-performance-optimization.md)
 + [在 Azure 入口網站中開始使用角色型存取控制](../role-based-access-control/overview.md)。

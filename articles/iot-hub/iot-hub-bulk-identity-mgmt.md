@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049967"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>匯入和匯出大量的 IoT 中樞裝置身分識別
@@ -258,7 +258,7 @@ JobProperties importJob =
 | **createOrUpdate** |如果裝置不存在具有指定之**識別碼**，它新註冊。 <br/>如果裝置已存在，則會以所提供的輸入資料覆寫現有資訊，而不管 **ETag** 值為何。 <br> 用户可以选择在指定设备数据的同时指定孪生数据。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
 | **create** |如果裝置不存在具有指定之**識別碼**，它新註冊。 <br/>如果裝置已存在，則會在記錄檔中寫入錯誤。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
 | **update** |如果裝置已存在具有指定**識別碼**，以所提供的輸入資料，而不需要方面來覆寫現有資訊**ETag**值。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 |
-| **updateIfMatchETag** |如果裝置已存在具有指定**識別碼**，會覆寫現有資訊以所提供的輸入資料才**ETag**比對。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 <br/>如果 **ETag** 不相符，則會在記錄檔中寫入錯誤。 |
+| **pdateIfMatchETagu** |如果裝置已存在具有指定**識別碼**，會覆寫現有資訊以所提供的輸入資料才**ETag**比對。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 <br/>如果 **ETag** 不相符，則會在記錄檔中寫入錯誤。 |
 | **createOrUpdateIfMatchETag** |如果裝置不存在具有指定之**識別碼**，它新註冊。 <br/>如果裝置已存在，則當 **ETag** 相符時，才會以所提供的輸入資料覆寫現有資訊。 <br/>如果 **ETag** 不相符，則會在記錄檔中寫入錯誤。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
 | **delete** |如果裝置已存在具有指定**識別碼**，它刪除沒有不管**ETag**值。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 |
 | **deleteIfMatchETag** |如果裝置已存在具有指定**識別碼**，它刪除沒有時，才**ETag**比對。 如果裝置不存在，則會在記錄檔中寫入錯誤。 <br/>如果 ETag 不相符，則會在記錄檔中寫入錯誤。 |
@@ -425,7 +425,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
 * [IoT 中樞開發人員指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 將 AI 部署到 edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)
 
 若要探索使用 IoT 中樞裝置佈建服務進行 Just-In-Time 自動佈建，請參閱： 
 

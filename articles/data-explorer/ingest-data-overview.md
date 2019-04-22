@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045589"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 資料總管資料擷取
@@ -92,7 +92,7 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目內嵌及查詢資料：
 | --- | --- |
 | **內嵌擷取** | 立即 |
 | **從查詢擷取** | 查詢時間 + 處理時間 |
-| **擷取從儲存體** | 下載時間 + 處理時間 |
+| **從儲存體擷取** | 下載時間 + 處理時間 |
 | **已排入佇列的擷取** | 批次處理時間 + 處理時間 |
 | |
 
@@ -144,16 +144,16 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目內嵌及查詢資料：
 > [將資料從事件中樞內嵌至 Azure 資料總管](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [擷取資料，使用 Event Grid 訂用帳戶到 Azure 資料總管](ingest-data-event-grid.md)
+> [使用事件格線訂用帳戶將資料內嵌至 Azure 資料總管](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [將資料從 Kafka 擷取至 Azure 資料總管](ingest-data-kafka.md)
+> [將資料從 Kafka 內嵌至 Azure 資料總管](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
 > [使用 Azure 資料總管 Python 程式庫內嵌資料](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [使用 Azure 資料總管 Node 程式庫擷取資料](node-ingest-data.md)
+> [使用 Azure 資料總管 Node 程式庫內嵌資料](node-ingest-data.md)
 
 > [!div class="nextstepaction"]
 > [使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)](net-standard-ingest-data.md)
