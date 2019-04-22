@@ -4,9 +4,15 @@ description: 了解管理群組及權限如何運作，以及如何使用。
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rithorn
 ms.topic: overview
+ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699370"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源
 
@@ -37,11 +43,11 @@ ms.topic: overview
 ## <a name="root-management-group-for-each-directory"></a>每個目錄的根管理群組
 
 每個目錄會都會有一個最上層管理群組，名為「根」管理群組。
-這個根管理群組會建置於階層內，讓所有的管理群組和訂用帳戶摺疊於其中。 這個根管理群組可讓全域原則和 RBAC 指派在目錄層級套用。 [Azure AD 全域管理員必須提高本身的權限](../../role-based-access-control/elevate-access-global-admin.md)，以成為此根群組最初的擁有者。 管理員一旦成為群組的擁有者，即可將任何 RBAC 角色指派給其他目錄使用者或群組，以管理階層。
+這個根管理群組會建置於階層內，讓所有的管理群組和訂用帳戶摺疊於其中。 這個根管理群組可讓全域原則和 RBAC 指派在目錄層級套用。 [Azure AD 全域管理員必須提高本身的權限](../../role-based-access-control/elevate-access-global-admin.md)，以成為此根群組最初的使用者存取管理員角色。 提高存取權限後，管理員即可將任何 RBAC 角色指派給其他目錄使用者或群組，以管理階層。 身為管理員，您可以將自己的帳戶指派為根管理群組的擁有者。
 
 ### <a name="important-facts-about-the-root-management-group"></a>關於根管理群組的重要事實
 
-- 依預設會提供根管理群組的名稱和識別碼。 顯示名稱可隨時更新，而在 Azure 入口網站中呈現為不同名稱。
+- 依預設會提供根管理群組的名稱和識別碼。 顯示名稱可隨時更新，而在 Azure 入口網站中呈現為不同名稱。 若要[變更名稱](manage.md#change-the-name-of-a-management-group)，您必須在根管理群組中指派帳戶擁有者或參與者角色。
   - 名稱會是 "Tenant root group" (租用戶根群組)。
   - 識別碼則是 Azure Active Directory 識別碼。
 - 根管理群組不同於其他管理群組，無法移動或刪除。  
@@ -63,7 +69,7 @@ ms.topic: overview
 
 ## <a name="trouble-seeing-all-subscriptions"></a>看不到所有訂用帳戶
 
-若目錄在 2018 年 6 月 25 日 之前已在早期預覽版本中開始使用管理群組，則您可能會發現並非所有訂用帳戶都在階層內。  系統會在目錄中的根管理群組中將角色或原則指派完成之後，才會進行將訂用帳戶排定至階層的流程。
+若目錄在 2018 年 6 月 25 日 之前已在早期預覽版本中開始使用管理群組，則您可能會發現並非所有訂用帳戶都在階層內。 系統會在目錄中的根管理群組中將角色或原則指派完成之後，才會進行將訂用帳戶排定至階層的流程。 
 
 ### <a name="how-to-resolve-the-issue"></a>如何解決此問題
 

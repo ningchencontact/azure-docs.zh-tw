@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243768"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698263"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>適用於 VM 的 Azure 監視器 (預覽) 常見問題集
 此 Microsoft 常見問題集是適用於 VM 的 Azure 監視器常見問題清單。 若您有任何關於解決方案的其他問題，請前往[討論論壇](https://feedback.azure.com/forums/34192--general-feedback)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
@@ -100,7 +100,7 @@ ms.locfileid: "56243768"
 * 受監視的 VM 現在包含於用戶端群組節點中，而環圈圖會顯示群組中受監視與未受監視的虛擬機器比例。  它也可以在展開群組時用來篩選機器清單。
 * 受監視的虛擬機器現在包含於伺服器連接埠群組節點中，而環圈圖會顯示群組中受監視與未受監視的機器比例。  它也可以在展開群組時用來篩選機器清單。
 * 對應樣式已更新，以便與 Application Insights 的應用程式對應更為一致。
-* 側邊面板已更新，但尚未與服務對應中支援的項目完全整合：更新管理、變更追蹤、安全性及服務台。 
+* 側邊面板已經更新，並不需要完整的整合的服務對應-更新管理、 變更追蹤、 安全性和服務台中才支援。 
 * 用來選擇要對應之群組與機器的選項已更新，現在支援訂用帳戶、資源群組、Azure 虛擬機器擴展集和雲端服務。
 * 您無法在適用於 VM 的 Azure 監視器對應功能中建立新的服務對應機器群組。  
 
@@ -125,6 +125,12 @@ ms.locfileid: "56243768"
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>[效能] 索引標籤上的網路圖表為什麼看起來與 [Azure VM 概觀] 頁面上的網路圖表不同呢？
 
 適用於 Azure 虛擬機器的概觀頁面會根據客體 VM 中主機的活動量值來顯示圖表。  至於 [Azure VM 概觀] 上的網路圖表，它只會顯示將收費的網路流量。  這不包括虛擬網路間的流量。  針對適用於 VM 的 Azure 監視器顯示的資料和圖表，會以來自客體 VM 的資料為基礎，而網路圖表會顯示輸入和輸出到該 VM (包括虛擬網路間) 的所有 TCP/IP 流量。
+
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>回應時間方式測量資料儲存在 VMConnection，並顯示在連線 面板和活頁簿？
+
+回應時間是近似值。 因為我們未執行檢測的應用程式的程式碼，我們並不真的知道何時開始將要求和回應的送達時。 而是我們觀察到的連接上傳送的資料，然後返回該連接上的資料。 我們的代理程式會追蹤這些傳送及接收並嘗試加以配對： 接收的傳送，後面接著一連串的序列會解譯為要求/回應配對。 這些作業之間的時間是回應時間。 它會包括網路延遲和伺服器處理時間。
+
+這項估計值非常適合基礎要求/回應通訊協定： 單一要求送出連線，並以單一回應到達時。 這是 HTTP (S) （不含管線），但不是符合其他通訊協定。
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>如果我採用 Log Analytics 免費定價方案，有何限制？
 如果您使用「免費」定價層設定了具有 Log Analytics 工作區的 Azure 監視器，則適用於 VM 的 Azure 監視器的對應功能僅支援五部已連線到工作區的電腦。 如果您有五部連線至免費工作區的 VM，您可中斷其中一部 VM 的連線，然後連線新的 VM，則新的 VM 不受監視，而且不會反映於 [對應] 頁面。  

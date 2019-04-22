@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881183"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699299"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>利用 Azure Advisor 改善應用程式的可用性
 
@@ -66,6 +66,10 @@ Azure Advisor 可協助您確保和改善業務關鍵應用程式的持續性。
 
 在主動-主動組態中，VPN 閘道的兩個執行個體將會建立到您的內部部署 VPN 裝置的 S2S VPN 通道。 當一個閘道器執行個體發生計劃性維護事件或非計劃性事件時，系統會自動將流量切換到另一個主動 IPsec 通道。 Azure Advisor 將識別未設定為主動-主動的 VPN 閘道，並建議您設定它們以獲得高可用性。
 
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>若要執行生產工作負載使用生產環境的 VPN 閘道
+
+Azure 建議程式會檢查的 VPN 閘道的基本 SKU，並建議您改為使用生產 SKU。 基本 SKU 專為開發和測試用途。 生產環境 Sku 提供較高數目的通道、 BGP 支援、 主動-主動組態選項、 自訂 Ipsec/IKE 原則和更高穩定性和可用性。
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>如何存取建議程式中的高可用性建議
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
@@ -77,7 +81,7 @@ Azure Advisor 可協助您確保和改善業務關鍵應用程式的持續性。
 如需 Advisor 建議的詳細資訊，請參閱：
 * [Azure 建議程式簡介](advisor-overview.md)
 * [開始使用 Advisor](advisor-get-started.md)
-* [Azure Advisor 成本建議](advisor-cost-recommendations.md)
-* [建議程式效能建議](advisor-performance-recommendations.md)
-* [建議程式安全性建議](advisor-security-recommendations.md)
+* [Advisor 成本建議](advisor-cost-recommendations.md)
+* [Advisor 效能建議](advisor-performance-recommendations.md)
+* [Advisor 安全性建議](advisor-security-recommendations.md)
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: d0cc13227bfe02594a57a7fb0ba8ee1cb3383d56
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494673"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785154"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>連接 Azure 活動記錄檔資料
 
@@ -27,7 +27,7 @@ ms.locfileid: "59494673"
 > Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-您可以從串流記錄[Azure 活動記錄檔](../azure-monitor/platform/activity-logs-overview.md)到 Azure Sentinel 只要按一下。 活動記錄是訂用帳戶記錄，可深入了解 Azure 中發生的訂用帳戶層級事件的進度。 所涵蓋的資料範圍從 Azure Resource Manager 作業資料到服務健康情況事件的更新。 您可以使用活動記錄檔，判斷 '內容、 對象和時間' 的任何寫入作業 (PUT、 POST、 DELETE)，您的訂用帳戶中的資源上。 您也可以了解作業的狀態和其他相關屬性。 活動記錄不包含讀取 (GET) 作業或作業之資源的使用傳統 /"RDFE"模型。 
+您可以從串流記錄[Azure 活動記錄檔](../azure-monitor/platform/activity-logs-overview.md)到 Azure Sentinel 只要按一下。 活動記錄是訂用帳戶記錄，可深入了解 Azure 中發生的訂用帳戶層級事件的進度。 这包括从 Azure 资源管理器操作数据到服务运行状况事件更新的一系列数据。 您可以使用活動記錄檔，判斷 '內容、 對象和時間' 的任何寫入作業 (PUT、 POST、 DELETE)，您的訂用帳戶中的資源上。 您也可以了解作業的狀態和其他相關屬性。 活動記錄不包含讀取 (GET) 作業或作業之資源的使用傳統 /"RDFE"模型。 
 
 
 ## <a name="prerequisites"></a>必要條件

@@ -1,223 +1,216 @@
-items:
 - name: Azure 地圖服務文件
   href: index.yml
 - name: 概觀
   items:
-  - name: 什麼是 Azure 地圖服務？
-    href: about-azure-maps.md
+    - name: 什麼是 Azure 地圖服務？
+      href: about-azure-maps.md
 - name: 快速入門
   items:
-  - name: 建立 Web 應用程式
-    href: quick-demo-map-app.md
+    - name: 建立 Web 應用程式
+      href: quick-demo-map-app.md
 - name: 教學課程
   items:
-  - name: Web SDK 教學課程
-    items:
-    - name: 搜尋景點
-      href: tutorial-search-location.md
-    - name: 前往目的地的路線
-      href: tutorial-route-location.md
-    - name: 依旅遊方式區分的多個路線
-      href: tutorial-prioritized-routes.md
-    - name: 建立存放區定位器
-      href: tutorial-create-store-locator.md
-  - name: REST API 教學課程
-    items:
-    - name: 設定地理柵欄
-      href: tutorial-geofence.md
+    - name: Web SDK 教學課程
+      items:
+        - name: 搜尋景點
+          href: tutorial-search-location.md
+        - name: 前往目的地的路線
+          href: tutorial-route-location.md
+        - name: 依旅遊方式區分的多個路線
+          href: tutorial-prioritized-routes.md
+        - name: 建立存放區定位器
+          href: tutorial-create-store-locator.md
+    - name: REST API 教學課程
+      items:
+        - name: 設定地理柵欄
+          href: tutorial-geofence.md
 - name: 概念
   items:
-  - name: 向 Azure 地圖服務驗證
-    href: azure-maps-authentication.md
-  - name: Azure 地圖服務事件方格整合
-    href: azure-maps-event-grid-integration.md
-  - name: 選擇適當的定價層
-    href: choose-pricing-tier.md
-  - name: 涵蓋範圍
-    items:
-    - name: 地理編碼涵蓋範圍
-      href: geocoding-coverage.md
-    - name: 流量涵蓋範圍
-      href: traffic-coverage.md
-    - name: 轉譯涵蓋範圍
-      href: render-coverage.md
-    - name: 路由涵蓋範圍
-      href: routing-coverage.md
-  - name: 支援的語言
-    href: supported-languages.md
-  - name: 支援的地圖樣式
-    href: supported-map-styles.md
-  - name: Web SDK 支援的瀏覽器
-    href: supported-browsers.md
-  - name: 縮放層級和圖格格線
-    href: zoom-levels-and-tile-grid.md
+    - name: 向 Azure 地圖服務驗證
+      href: azure-maps-authentication.md
+    - name: Azure 地圖服務事件方格整合
+      href: azure-maps-event-grid-integration.md
+    - name: 選擇適當的定價層
+      href: choose-pricing-tier.md
+    - name: 涵蓋範圍
+      items:
+        - name: 地理編碼涵蓋範圍
+          href: geocoding-coverage.md
+        - name: 流量涵蓋範圍
+          href: traffic-coverage.md
+        - name: 轉譯涵蓋範圍
+          href: render-coverage.md
+        - name: 路由涵蓋範圍
+          href: routing-coverage.md
+    - name: 支援的語言
+      href: supported-languages.md
+    - name: 支援的地圖樣式
+      href: supported-map-styles.md
+    - name: Web SDK 支援的瀏覽器
+      href: supported-browsers.md
+    - name: 縮放層級和圖格格線
+      href: zoom-levels-and-tile-grid.md
 - name: 使用說明指南
   items:
-  - name: 管理地圖服務帳戶
-    items:
-    - name: 管理帳戶
-      href: how-to-manage-account-keys.md
-    - name: 管理驗證
-      href: how-to-manage-authentication.md
-    - name: 管理定價層
-      href: how-to-manage-pricing-tier.md
-    - name: 檢視使用計量
-      href: how-to-view-api-usage.md
-  - name: 從 REST API 取得地圖資料
-    items:
-    - name: 搜尋地址
-      href: how-to-search-for-address.md
-    - name: 搜尋的最佳做法
-      href: how-to-use-best-practices-for-search.md
-    - name: 轉譯靜態地圖上的自訂資料
-      href: how-to-render-custom-data.md
-  - name: 利用 Web SDK 進行開發
-    items:
-    - name: 地圖控制項
+    - name: 管理地圖服務帳戶
       items:
-      - name: 使用地圖控制項
-        href: how-to-use-map-control.md
-      - name: 建立地圖
-        href: map-create.md
-      - name: 選擇地圖樣式
-        href: choose-map-style.md
-      - name: 將控制項新增至地圖
-        href: map-add-controls.md
-      - name: 新增符號圖層
-        href: map-add-pin.md
-      - name: 新增快顯
-        href: map-add-popup.md
-      - name: 新增泡泡圖層
-        href: map-add-bubble-layer.md
-      - name: 新增圖形
-        href: map-add-shape.md
-      - name: 新增熱度圖層
-        href: map-add-heat-map-layer.md
-      - name: 叢集點資料
-        href: clustering-point-data-web-sdk.md
-      - name: 使用資料驅動樣式運算式
-        href: data-driven-style-expressions-web-sdk.md
-      - name: 將影像重疊
-        href: map-add-image-layer.md
-      - name: 新增圖格圖層
-        href: map-add-tile-layer.md
-      - name: HTML 標記
-        href: map-add-custom-html.md
-      - name: 顯示流量
-        href: map-show-traffic.md
-      - name: 與滑鼠事件互動
-        href: map-events.md
-      - name: 讓應用程式可供存取
-        href: map-accessibility.md
-    - name: 服務模組
+        - name: 管理帳戶
+          href: how-to-manage-account-keys.md
+        - name: 管理驗證
+          href: how-to-manage-authentication.md
+        - name: 管理定價層
+          href: how-to-manage-pricing-tier.md
+        - name: 檢視使用計量
+          href: how-to-view-api-usage.md
+    - name: 從 REST API 取得地圖資料
       items:
-      - name: 使用服務模組
-        href: how-to-use-services-module.md
-      - name: 顯示搜尋結果
-        href: map-search-location.md
-      - name: 從座標取得資訊
-        href: map-get-information-from-coordinate.md
-      - name: 顯示從甲地到乙地的指示
-        href: map-route.md
-  - name: 使用 Android SDK 進行開發
-    items:
-    - name: 如何使用 Android 的地圖控制項
-      href: how-to-use-android-map-control-library.md
+        - name: 搜尋地址
+          href: how-to-search-for-address.md
+        - name: 搜尋的最佳做法
+          href: how-to-use-best-practices-for-search.md
+        - name: 轉譯靜態地圖上的自訂資料
+          href: how-to-render-custom-data.md
+    - name: 利用 Web SDK 進行開發
+      items:
+        - name: 地圖控制項
+          items:
+            - name: 使用地圖控制項
+              href: how-to-use-map-control.md
+            - name: 建立地圖
+              href: map-create.md
+            - name: 選擇地圖樣式
+              href: choose-map-style.md
+            - name: 將控制項新增至地圖
+              href: map-add-controls.md
+            - name: 新增符號圖層
+              href: map-add-pin.md
+            - name: 新增快顯
+              href: map-add-popup.md
+            - name: 新增泡泡圖層
+              href: map-add-bubble-layer.md
+            - name: 新增圖形
+              href: map-add-shape.md
+            - name: 新增熱度圖層
+              href: map-add-heat-map-layer.md
+            - name: 叢集點資料
+              href: clustering-point-data-web-sdk.md
+            - name: 使用資料驅動樣式運算式
+              href: data-driven-style-expressions-web-sdk.md
+            - name: 將影像重疊
+              href: map-add-image-layer.md
+            - name: 新增圖格圖層
+              href: map-add-tile-layer.md
+            - name: HTML 標記
+              href: map-add-custom-html.md
+            - name: 顯示流量
+              href: map-show-traffic.md
+            - name: 與滑鼠事件互動
+              href: map-events.md
+            - name: 讓應用程式可供存取
+              href: map-accessibility.md
+        - name: 服務模組
+          items:
+            - name: 使用服務模組
+              href: how-to-use-services-module.md
+            - name: 顯示搜尋結果
+              href: map-search-location.md
+            - name: 從座標取得資訊
+              href: map-get-information-from-coordinate.md
+            - name: 顯示從甲地到乙地的指示
+              href: map-route.md
+    - name: 使用 Android SDK 進行開發
+      items:
+        - name: 如何使用 Android 的地圖控制項
+          href: how-to-use-android-map-control-library.md
 - name: 參考
   items:
-  - name: API 和參數擴充功能
-    items:
-    - name: 車輛耗用模型
-      href: consumption-model.md
-    - name: 擴充 GeoJSON 格式
-      href: extend-geojson.md
-    - name: 地理柵欄 GEOJSON 格式
-      href: geofence-geojson.md
-    - name: 支援的搜尋類別
-      href: supported-search-categories.md
-  - name: REST
-    items:
-    - name: 資料服務
-      href: https://docs.microsoft.com/rest/api/maps/data
-    - name: 地理位置服務
-      href: https://docs.microsoft.com/rest/api/maps/geolocation
-    - name: 轉譯服務
-      href: https://docs.microsoft.com/rest/api/maps/render
-    - name: 路線規劃服務
-      href: https://docs.microsoft.com/rest/api/maps/route
-    - name: 搜尋服務
-      href: https://docs.microsoft.com/rest/api/maps/search
-    - name: 空間服務
-      href: https://docs.microsoft.com/rest/api/maps/spatial
-    - name: 時區服務
-      href: https://docs.microsoft.com/rest/api/maps/timezone
-    - name: 交通服務
-      href: https://docs.microsoft.com/rest/api/maps/traffic
-    - name: 地圖服務帳戶管理
-      href: https://docs.microsoft.com/rest/api/maps-management
-  - name: JavaScript
-    items:
-    - name: 地圖控制項
-      href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
-    - name: 服務模組
-      href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
-  - name: Resource Manager 範本
-    href: /azure/templates/microsoft.maps/accounts
+    - name: API 和參數擴充功能
+      items:
+        - name: 車輛耗用模型
+          href: consumption-model.md
+        - name: 擴充 GeoJSON 格式
+          href: extend-geojson.md
+        - name: 地理柵欄 GEOJSON 格式
+          href: geofence-geojson.md
+        - name: 支援的搜尋類別
+          href: supported-search-categories.md
+    - name: REST
+      items:
+        - name: 資料服務
+          href: 'https://docs.microsoft.com/rest/api/maps/data'
+        - name: 地理位置服務
+          href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
+        - name: 轉譯服務
+          href: 'https://docs.microsoft.com/rest/api/maps/render'
+        - name: 路線規劃服務
+          href: 'https://docs.microsoft.com/rest/api/maps/route'
+        - name: 搜尋服務
+          href: 'https://docs.microsoft.com/rest/api/maps/search'
+        - name: 空間服務
+          href: 'https://docs.microsoft.com/rest/api/maps/spatial'
+        - name: 時區服務
+          href: 'https://docs.microsoft.com/rest/api/maps/timezone'
+        - name: 交通服務
+          href: 'https://docs.microsoft.com/rest/api/maps/traffic'
+        - name: 地圖服務帳戶管理
+          href: 'https://docs.microsoft.com/rest/api/maps-management'
+    - name: JavaScript
+      items:
+        - name: 地圖控制項
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+        - name: 服務模組
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
+    - name: Resource Manager 範本
+      href: /azure/templates/microsoft.maps/accounts
 - name: 資源
   items:
-  - name: Azure 地圖服務使用規定
-    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
-  - name: Azure 地圖服務定價
-    href: https://azure.microsoft.com/pricing/details/azure-maps
-  - name: 定價計算機
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: 堆疊溢位
-    href: https://stackoverflow.com/questions/tagged/azure-maps
-  - name: MSDN 論壇
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
-  - name: Azure 地圖服務影片
-    href: https://aka.ms/AzureMapsVideos
-  - name: Azure 地圖服務字彙
-    href: glossary.md
-  - name: 服務更新
-    href: https://azure.microsoft.com/updates
-  - name: Azure IoT 開發人員中心
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Azure 藍圖
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: 技術案例研究
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: IoT School 中的 Azure 地圖服務
-    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
+    - name: Azure 地圖服務使用規定
+      href: 'https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31'
+    - name: Azure 地圖服務定價
+      href: 'https://azure.microsoft.com/pricing/details/azure-maps'
+    - name: 定價計算機
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/questions/tagged/azure-maps'
+    - name: MSDN 論壇
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
+    - name: Azure 地圖服務影片
+      href: 'https://aka.ms/AzureMapsVideos'
+    - name: Azure 地圖服務字彙
+      href: glossary.md
+    - name: 服務更新
+      href: 'https://azure.microsoft.com/updates'
+    - name: Azure IoT 開發人員中心
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: 技術案例研究
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: IoT School 中的 Azure 地圖服務
+      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'
 - name: 相關參考
   items:
-  - name: 解決方案
-    items:
-    - name: IoT 解決方案加速器
-      href: /azure/iot-suite
-    - name: IoT 中心
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: 平台服務
-    items:
-    - name: IoT 中樞
-      href: /azure/iot-hub
-    - name: IoT 中樞裝置佈建服務
-      href: /azure/iot-dps
-    - name: 地圖
-      href: /azure/azure-maps
-    - name: 服務 SDK
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: 時間序列深入解析
-      href: /azure/time-series-insights
-  - name: IoT Edge
-    items:
+    - name: 解決方案
+      items:
+        - name: IoT 解決方案加速器
+          href: /azure/iot-suite
+        - name: IoT 中心
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: 平台服務
+      items:
+        - name: IoT 中樞
+          href: /azure/iot-hub
+        - name: IoT 中樞裝置佈建服務
+          href: /azure/iot-dps
+        - name: 地圖
+          href: /azure/azure-maps
+        - name: 服務 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: 時間序列深入解析
+          href: /azure/time-series-insights
     - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT 裝置 SDK
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: 94e02b599bffd24e9c9aa65560e4a74bd05ecea6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263584"
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 裝置 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

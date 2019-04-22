@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: ca473474c62d0cb57c3ee76095740568398c67d7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c54d8aedb9464364f93a087de4bdb00c693a96ae
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272745"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698906"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 共用服務藍圖範例概觀
 
@@ -36,7 +36,7 @@ VDC 是經過實證的一組參考架構、自動化工具和業務開發模型�
 - [Log Analytics](../../../../azure-monitor/overview.md) 會部署為第一個 Azure 服務，以確保當您開始進行安全部署時，所有動作和服務皆會記錄到中央位置
 - 虛擬網路，其支援用於連接回內部部署資料中心的子網路、用於網際網路連線的輸入和輸出堆疊，以及為進行完整微型分割而使用 NSG 和 ASG 的共用服務子網路，包括：
   - 作為管理用途的 Jumpbox 或防禦主機，其只能透過輸入堆疊子網路中部署的 [Azure 防火牆](../../../../firewall/overview.md)來存取
-  - 執行 Active Directory 目錄服務 (ADDS) 和 DNS 的兩部虛擬機器，這兩部虛擬機器只能透過 Jumpbox 存取，而且可設定為只能透過 VPN 或 [ExpressRoute](../../../../expressroute/expressroute-introduction.md) 連線來複寫 AD (不是由藍圖所部署)
+  - 執行 Active Directory Domain Services (ADDS) 和 DNS 的兩部虛擬機器，這兩部虛擬機器只能透過 Jumpbox 存取，而且可設定為只能透過 VPN 或 [ExpressRoute](../../../../expressroute/expressroute-introduction.md) 連線來複寫 AD (不是由藍圖所部署)
   - 使用 [Azure 網路監看員](../../../../network-watcher/network-watcher-monitoring-overview.md)與標準 DDoS 保護
 - [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) 執行個體，用來裝載共用服務環境中已部署 VM 所使用的祕密
 

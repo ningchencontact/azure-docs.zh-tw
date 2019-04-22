@@ -5,20 +5,20 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.author: danlep
-ms.openlocfilehash: f3206da25a3c0727e3f9fe12190580a6c28c81a3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983246"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683455"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>刪除 Azure Container Registry 中的容器映像
 
 若要維護 Azure Container Registry 的大小，您應該定期刪除過時的映像資料。 雖然有些部署至生產環境的容器映像可能需要較長時間的儲存，但其他容器映像通常可以更快速地刪除。 例如，在自動化建置和測試案例中，您的登錄可以快速地填入可能永遠不會部署的映像，並可在完成建置和測試行程後立刻清除。
 
-您可以用數種不同的方式刪除映像資料，因此務必了解每項刪除作業對於儲存體使用量有何影響。 本文會先介紹 Docker 登錄和容器映像的元件，然後說明數種可供刪除映像資料的方法。
+您可以用數種不同的方式刪除映像資料，因此務必了解每項刪除作業對於儲存體使用量有何影響。 本文會先介紹 Docker 登錄和容器映像的元件，然後說明數種可供刪除映像資料的方法。 範例指令碼可供協助自動進行刪除作業。
 
 ## <a name="registry"></a>登錄
 
@@ -34,7 +34,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-存放庫名稱也可以包含[命名空間](container-registry-best-practices.md#repository-namespaces)。 命名空間可讓您使用以正斜線分隔的存放庫名稱，將映像分組，例如：
+存放庫名稱也可以包含[命名空間](container-registry-best-practices.md#repository-namespaces)。 命名空間可讓您使用正斜線分隔的存放庫名稱，例如群組映像：
 
 ```
 marketing/campaign10-18/web:v2
@@ -50,11 +50,11 @@ product-returns/legacy-integrator:20180715
 
 ### <a name="tag"></a>Tag
 
-映像的「標記」可指定其版本。 存放庫中的單一映像可獲派一或多個標記，也可以「取消標記」。 也就是說，您可以刪除映像的所有標記，然而映像的資料 (其層次) 會保留在登錄中。
+映像的「標記」可指定其版本。 存放庫中的單一映像可獲派一或多個標記，也可以「取消標記」。 也就是說，您可以刪除所有標記從映像，而映像的資料 （其為圖層） 維持在登錄中。
 
 存放庫 (或存放庫和命名空間) 以及標記可定義映像的名稱。 您可以在推送或提取作業中指定映像名稱，以推送和提取映像。
 
-在 Azure Container Registry 之類的私人登錄中，映像名稱也會包含登錄主機的完整名稱。 ACR 中映像的登錄主機格式為 acrname.azurecr.io。 例如，上一節 'marketing' 命名空間中第一個映像的完整名稱會是：
+在 Azure Container Registry 之類的私人登錄中，映像名稱也會包含登錄主機的完整名稱。 在 ACR 中映像的登錄主機的格式*acrname.azurecr.io* （全部小寫）。 例如，在上一節中的 「 行銷 」 命名空間中的第一個影像的完整名稱會是：
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
@@ -158,7 +158,7 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> 「依標記」刪除不應該與刪除標記 (取消標記) 混淆。 您可以使用 Azure CLI 命令 [az acr repository untag][az-acr-repository-untag] 來刪除標記。 當您取消標記映像時，不會釋放任何空間，因為其[資訊清單](#manifest)和層次資料仍保留在登錄中。 只有標記參考本身會被刪除。
+> 「依標記」刪除不應該與刪除標記 (取消標記) 混淆。 您可以使用 Azure CLI 命令 [az acr repository untag][az-acr-repository-untag] 來刪除標記。 不含空格會釋放，當您解除標記的映像，因為其[資訊清單](#manifest)和圖層資料保持在登錄中。 只有標記參考本身會被刪除。
 
 ## <a name="delete-by-manifest-digest"></a>依資訊清單摘要刪除
 
@@ -201,7 +201,56 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): y
 ```
 
-"acr-helloworld:v2" 映像會從登錄中刪除，因為任何層次資料對該映像而言都是唯一的。 如果資訊清單與多個標記相關聯，也會一併刪除所有相關聯的標記。
+`acr-helloworld:v2`從登錄中，會刪除映像，因為是任何唯一至該映像的圖層資料。 如果資訊清單與多個標記相關聯，也會一併刪除所有相關聯的標記。
+
+### <a name="list-digests-by-timestamp"></a>依時間戳記清單摘要
+
+若要維持存放庫或登錄的大小，您可能需要定期刪除早於在特定日期的資訊清單摘要。
+
+下列 Azure CLI 命令會列出超過指定的時間戳記，以遞增順序的存放庫中的所有資訊清單摘要。 以適合您環境的值取代 `<acrName>` 和 `<repositoryName>`。 時間戳記可能是完整的日期時間運算式或日期，如此範例所示。
+
+```azurecli
+az acr repository show-manifests --name <acrName> --repository <repositoryName> \
+--orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
+```
+
+### <a name="delete-digests-by-timestamp"></a>刪除摘要依時間戳記
+
+找出過時資訊清單的摘要之後, 您可以執行下列 Bash 指令碼，刪除早於指定的時間戳記資訊清單的摘要。 它需要 Azure CLI 和 **xargs**。 根據預設，此指令碼不會執行任何刪除。 將 `ENABLE_DELETE` 值變更為 `true`，以啟用映像刪除。
+
+> [!WARNING]
+> 使用下列的範例指令碼，請謹慎-已刪除的映像資料是 UNRECOVERABLE。 如果您有提取映像的資訊清單的摘要 （相對於映像名稱） 的系統，您應該不會執行這些指令碼。 刪除資訊清單的摘要，會造成這些系統無法從登錄提取映像。 請考慮採用「唯一標記」配置(這是[建議的最佳做法][tagging-best-practices])，而不是依照資訊清單提取。 
+
+```bash
+#!/bin/bash
+
+# WARNING! This script deletes data!
+# Run only if you do not have systems
+# that pull images via manifest digest.
+
+# Change to 'true' to enable image delete
+ENABLE_DELETE=false
+
+# Modify for your environment
+# TIMESTAMP can be a date-time string such as 2019-03-15T17:55:00.
+REGISTRY=myregistry
+REPOSITORY=myrepository
+TIMESTAMP=2019-04-05  
+
+# Delete all images older than specified timestamp.
+
+if [ "$ENABLE_DELETE" = true ]
+then
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+    --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].digest" -o tsv \
+    | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
+else
+    echo "No data deleted."
+    echo "Set ENABLE_DELETE=true to enable deletion of these images in $REPOSITORY:"
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+   --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].[digest, timestamp]" -o tsv
+fi
+```
 
 ## <a name="delete-untagged-images"></a>刪除已取消標記的映像
 
@@ -245,7 +294,7 @@ Are you sure you want to continue? (y/n): y
    ]
    ```
 
-如您所見的輸出序列中的最後一個步驟中，現在會被遺棄資訊清單的`"tags"`屬性是空的清單。 此資訊清單以及它所參考的任何唯一層次資料，仍存在於登錄中。 **若要刪除這類孤立映像及其層次資料，您必須依資訊清單摘要刪除**。
+正如上一步骤的输出中所示，现在存在一个 `"tags"` 属性为空列表的孤立清单。 此資訊清單以及它所參考的任何唯一層次資料，仍存在於登錄中。 **若要刪除這類孤立映像及其層次資料，您必須依資訊清單摘要刪除**。
 
 ### <a name="list-untagged-images"></a>列出已取消標記的映像
 
@@ -257,14 +306,12 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 
 ### <a name="delete-all-untagged-images"></a>刪除所有已取消標記的映像
 
-請小心使用下列範例指令碼--無法復原已刪除的映像資料。
+> [!WARNING]
+> 請小心使用下列範例指令碼--無法復原已刪除的映像資料。 如果您有提取映像的資訊清單的摘要 （相對於映像名稱） 的系統，您應該不會執行這些指令碼。 刪除已取消標記的映像，會導致這些系統無法從登錄中提取映像。 請考慮採用「唯一標記」配置(這是[建議的最佳做法][tagging-best-practices])，而不是依照資訊清單提取。
 
 **Bash 中的 Azure CLI**
 
 下列 Bash 指令碼會從存放庫中刪除所有已取消標記的映像。 它需要 Azure CLI 和 **xargs**。 根據預設，此指令碼不會執行任何刪除。 將 `ENABLE_DELETE` 值變更為 `true`，以啟用映像刪除。
-
-> [!WARNING]
-> 如果您有系統依照資訊清單摘要 (相對於映像名稱) 提取映像，則不應該執行此指令碼。 刪除已取消標記的映像，會導致這些系統無法從登錄中提取映像。 請考慮採用「唯一標記」配置(這是[建議的最佳做法][tagging-best-practices])，而不是依照資訊清單提取。
 
 ```bash
 #!/bin/bash
@@ -293,9 +340,6 @@ fi
 **PowerShell 中的 Azure CLI**
 
 下列 PowerShell 指令碼會從存放庫中刪除所有已取消標記的映像。 它需要 PowerShell 和 Azure CLI。 根據預設，此指令碼不會執行任何刪除。 將 `$enableDelete` 值變更為 `$TRUE`，以啟用映像刪除。
-
-> [!WARNING]
-> 如果您有系統依照資訊清單摘要 (相對於映像名稱) 提取映像，則不應該執行此指令碼。 刪除已取消標記的映像，會導致這些系統無法從登錄中提取映像。 請考慮採用「唯一標記」配置(這是[建議的最佳做法][tagging-best-practices])，而不是依照資訊清單提取。
 
 ```powershell
 # WARNING! This script deletes data!

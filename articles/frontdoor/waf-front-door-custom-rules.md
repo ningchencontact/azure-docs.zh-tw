@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59362958"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59783962"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>與 Azure 前端的 web 應用程式防火牆的自訂規則
 與前端服務的 azure web 應用程式防火牆 (WAF) 可讓您控制存取您的 web 應用程式，根據您定義的條件。 自訂 WAF 規則是由優先順序號碼、 規則類型，比對條件和動作所組成。 有兩種類型的自訂規則： 比對規則和速率限制規則。 比對規則控制存取根據比對條件，而速率限制規則控制存取根據比對條件和內送要求的速率。 您可能會停用自訂的規則，以防止它進行評估，但仍保留組態。 這篇文章討論 http 參數為基礎的比對規則。

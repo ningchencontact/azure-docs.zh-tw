@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 7e120980ed1379fb4ea18bca9f1e84938964cac5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882813"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684152"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>使用 Azure Data Lake Storage Gen1 的最佳做法
 
@@ -182,10 +182,9 @@ Data Lake Storage Gen1 提供詳細的診斷記錄和稽核。 Data Lake Storage
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
-* [Azure Data Lake 儲存體 Gen1 中的存取控制](data-lake-store-access-control.md)
+* [Azure Data Lake Storage Gen1 中的存取控制](data-lake-store-access-control.md)
 * [Azure Data Lake Storage Gen1 安全性](data-lake-store-security-overview.md)
 * [調整 Azure Data Lake Storage Gen1 的效能](data-lake-store-performance-tuning-guidance.md)
-* [Azure Data Lake 儲存體 Gen1 搭配使用 HDInsight Spark 效能微調方針](data-lake-store-performance-tuning-spark.md)
-* [使用 HDInsight Hive 和 Azure Data Lake 儲存體 Gen1 的效能微調方針](data-lake-store-performance-tuning-hive.md)
-* [使用 Azure Data Factory 進行 Azure Data Lake 儲存體 Gen1 的資料協調流程](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [建立 HDInsight 叢集與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [HDInsight 和 Azure Data Lake Storage Gen1 上的 Spark 效能微調方針](data-lake-store-performance-tuning-spark.md)
+* [HDInsight 和 Azure Data Lake Storage Gen1 上的 Hive 效能微調指導方針](data-lake-store-performance-tuning-hive.md)
+* [建立搭配 Data Lake Storage Gen1 的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee4a78148c36c7838edcc36f8f76ad612ac87ab0
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: b10be061e015686c68684723fd2d73c1431c7266
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487952"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699401"
 ---
 # <a name="automation-with-service-principals"></a>使用服務主體進行自動化
 
@@ -47,7 +47,7 @@ ms.locfileid: "58487952"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-當資源管理作業，以使用服務主體[Az.AnalysisServices](/powershell/module/az.analysisservices)模組，請使用`Connect-AzAccount`cmdlet。 透過 [SQLServer](https://www.powershellgallery.com/packages/SqlServer) 模組針對伺服器作業使用服務主體時，請使用 `Add-AzAnalysisServicesAccount` Cmdlet。 
+将服务主体与 [Az.AnalysisServices](/powershell/module/az.analysisservices) 模块配合使用以进行资源管理操作时，请使用 `Connect-AzAccount` cmdlet。 透過 [SQLServer](https://www.powershellgallery.com/packages/SqlServer) 模組針對伺服器作業使用服務主體時，請使用 `Add-AzAnalysisServicesAccount` Cmdlet。 
 
 在下列範例中，appID 和密碼可用來執行模型資料庫重新整理作業：
 
@@ -62,9 +62,7 @@ $PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
 
 $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
 
-Add-AzAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "westcentralus.asazure.windows.net"
-
-Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserver" -TableName "MyTable" -Database "MyDb" -RefreshType "Full"
+Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserver" -TableName "MyTable" -Database "MyDb" -RefreshType "Full" -ServicePrincipal -ApplicationId $AppId -TenantId $TenantId -Credential $Credential
 ```
 
 ### <a name="amo-and-adomd"></a>AMO 和 ADOMD 

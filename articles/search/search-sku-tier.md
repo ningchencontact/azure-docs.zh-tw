@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b50d0c0ca9a4000cc0c725453a3ef04b4bed9275
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270933"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681554"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
@@ -43,7 +43,7 @@ ms.locfileid: "59270933"
 
 下表列出可用的層。 包含其他層資訊來源[定價頁面](https://azure.microsoft.com/pricing/details/search/)，[服務和資料限制](search-limits-quotas-capacity.md)，及入口網站的頁面上，當佈建服務。
 
-|層 | Capacity |
+|層 | 容量 |
 |-----|-------------|
 |免費 | 與其他訂閱者共用。 非可調整性限制為 3 個索引和 50 MB 儲存空間。 |
 |基本 | 對於規模較小的生產工作負載專用的計算資源。 一個 2 GB 的磁碟分割和最多三個複本。 |
@@ -64,35 +64,36 @@ ms.locfileid: "59270933"
 
 ### <a name="1-core-service-costs-fixed-and-variable"></a>1.核心服務成本 （固定且可變）
 
-服務本身，最小的費用是依第一個搜尋單位 （1 個複本 x 1 磁碟分割），以及此數量是服務的存留期的常數，因為服務不能執行任何小於此組態。 
+服務本身的最低收費的第一個搜尋單位 （1 個複本 x 1 磁碟分割），且此數量固定服務的存留期間因為服務無法執行任何小於此組態。 
 
-在下列螢幕擷取畫面中，每個單位定價指定 Free、 Basic 和 S1 （S2、 S3、 L1 和 L2 不會顯示）。 如果您建立**基本**，**標準**，或**儲存體最佳化**服務，您每月的成本會平均所顯示的值*價格 1*並*價格 2*分別。 單位成本往每個層級因為在每個連續層的計算能力和儲存體容量大於。
+超過最小值，您可以新增複本和分割區獨立。 例如，您可以新增只能 「 複本 」 或 「 只有資料分割。 增量增加到複本和分割區的容量會構成變數成本的成分。 
+
+計費根據[公式 (複本磁碟分割 x 速率)](#search-units)。 向您收取的費率，取決於您選取的定價層。
+
+在下列螢幕擷取畫面中，每個單位定價指定 Free、 Basic 和 S1 （S2、 S3、 L1 和 L2 不會顯示）。 如果您建立**基本**，**標準**，或**儲存體最佳化**服務，您每月的成本會平均所顯示的值*價格 1*並*價格 2*分別。 單位成本往每個層級因為在每個連續層的計算能力和儲存體容量大於。 發佈的 Azure 搜尋服務的費率[Azure 搜尋服務定價頁面](https://azure.microsoft.com/pricing/details/search/)。
 
 ![每單位定價](./media/search-sku-tier/per-unit-pricing.png "每單位價格")
 
-額外的複本和分割區是初始的免費的附加元件。 搜尋服務需要複本和分割區，因此最小的組態，每一個。 超過最小值，您新增複本和分割區獨立。 比方說，您可以新增只能 「 複本 」 或 「 只有資料分割。 
+當搜尋解決方案的成本計算方式，請注意定價和容量不會線性 （加倍容量多個雙精度浮點數的成本）。 如需公式的運作方式的範例，請參閱 < ["How to 複本和分割區配置"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)。
 
-額外的複本和分割區收費依據[公式](#search-units)。 成本不是線性 （加倍容量多個雙精度浮點數的成本）。 如需公式的運作方式的範例，請參閱 < ["How to 複本和分割區配置"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)。
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2.編製索引期間的資料輸出費用
 
-利用[Azure 搜尋服務索引子](search-indexer-overview.md)可能會導致計費影響而定之服務的所在位置。 完全如果在您的資料與相同的區域中建立 Azure 搜尋服務，您可以排除資料輸出費用。
+利用[Azure 搜尋服務索引子](search-indexer-overview.md)可能會導致根據所在的位置服務的計費影響。 完全如果在您的資料與相同的區域中建立 Azure 搜尋服務，您可以排除資料輸出費用。 下列各點是從[頻寬定價頁面](https://azure.microsoft.com/pricing/details/bandwidth/)。
 
-+ 在 Azure 上的任何服務的任何輸入資料不需要費用。
++ Microsoft 不會收費的任何輸入的資料，以在 Azure 上的任何服務或的任何輸出資料從 Azure 搜尋服務。
 
-+ Azure 搜尋服務中的任何輸出資料不需要費用。
++ 在多服務的解決方案中，有跨越網路，當所有服務都都在相同的區域中的資料產生任何費用。
 
-+ 免費的資料或檔案從 SQL DB，Cosmos，Blob 儲存體輸出 （輸入到 Azure 搜尋服務），只要所有服務都都位於相同的區域。
-
-+ 如果儲存體和 Azure 搜尋服務位於不同的區域費用適用輸出資料或檔案。
-
-當資料路由傳送跨 Azure 區域中，您會看到這些資源的帳單中的頻寬費用。 這些費用並不屬於您 Azure 搜尋服務的帳單，但是他們提及這裡因為如果您使用索引子來提取資料或檔案在網路上，您會看到該費用，您整體的帳單中。
-
-如果您未使用索引子，會有任何頻寬費用。 
+如果服務位於不同區域費用適用的輸出資料。 這類的費用不屬於您的 Azure 搜尋服務帳單本身，但它們會提因為如果您使用資料或 AI 擴充索引子將資料提取來自不同區域，您會看到這些成本會反映在您的整體費用。 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3.AI 豐富的編製索引使用認知服務
 
-針對[認知服務與 AI 索引](cognitive-search-concept-intro.md)僅映像擷取文件破解期間的計費依據從您的文件中擷取的映像數目。 文字擷取目前是免費的。 自然語言處理，例如其他類，根據[內建認知技能](cognitive-search-predefined-skills.md)收費認知服務資源。 擴充的計費費率如同您直接使用認知服務執行工作。
+針對[認知服務與 AI 索引](cognitive-search-concept-intro.md)，您應該規劃將附加的可計費的認知服務資源時 S0 定價層的隨用隨付的處理。 沒有附加認知服務相關聯的任何 「 固定的成本 」。 您只需支付您所需要的處理。
+
+在文件破解的映像擷取是 Azure 搜尋服務的費用，計費依據從您的文件中擷取的映像數目。 文字擷取目前是免費的。 
+
+自然語言處理，例如其他類，根據[內建認知技能](cognitive-search-predefined-skills.md)如同執行直接使用認知服務的工作，針對認知服務資源，相同的費率計費。 如需詳細資訊，請參閱 <<c0> [ 附加的技能與認知服務資源](cognitive-search-attach-cognitive-services.md)。
 
 <a name="search-units"></a>
 
@@ -193,7 +194,7 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
 其中一個預估容量的方法是從**免費**層開始。 請回想一下，**免費**服務最多可提供 3 個索引，50 MB 的儲存體，和 2 分鐘的索引時間。 使用這些條件約束來預估預計的索引大小並不容易，但下列範例會示範一個方法：
 
-+ [建立一項免費服務](search-create-service-portal.md)
++ [建立免費服務](search-create-service-portal.md)
 + 準備具代表性的小型資料集 (假設有 5000 份文件，取樣大小為 10%)
 + [建置初始索引](search-create-index-portal.md)，並注意它在入口網站中的大小 (假設有 30 MB)
 
@@ -221,7 +222,7 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 > 如果文件包含無關的資料，儲存體需求可能會過度膨脹。 理想情況是，文件只包含搜尋體驗所需的資料。 二進位資料不可搜尋，應該分開存放 (或許存放在 Azure 資料表或 Blob 儲存體中)，並且在索引中要有一個欄位用來保存外部資料的 URL 參考。 個別文件的大小上限是 16 MB (如果您在單一要求中大量上傳多個文件，則會小於 16 MB)。 [Azure 搜尋服務中的服務限制](search-limits-quotas-capacity.md)有更多資訊。
 >
 
-**查詢磁碟區的注意事項**
+**查詢量的考量**
 
 在微調效能時，每秒查詢數 (QPS) 計量會顯得重要，但除非您一開始就預期會有大量的查詢，否則此計量通常不是定價層的考量事項。
 

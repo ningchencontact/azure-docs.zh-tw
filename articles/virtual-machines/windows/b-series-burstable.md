@@ -3,7 +3,7 @@ title: B 系列 Azure Windows VM 大小 | Microsoft Docs
 description: 描述 B 系列高載 Azure VM 的大小。
 services: virtual-machines-windows
 documentationcenter: ''
-author: jonbeck7
+author: ayshakeen
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/07/2017
-ms.author: jonbeck
-ms.openlocfilehash: 366981c0a92aab80e4cbc41ff7202be42b386d6a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.author: ayshak
+ms.openlocfilehash: 8530682baac1544de2c73186b35fdf193e1826bd
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30917906"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682911"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B 系列高載虛擬機器大小
 
@@ -29,7 +29,7 @@ ms.locfileid: "30917906"
 
 ## <a name="other-sizes"></a>其他大小
 - [一般用途](sizes-general.md)
-- [計算最佳化](sizes-compute.md)
+- [计算优化](sizes-compute.md)
 - [記憶體最佳化](../virtual-machines-windows-sizes-memory.md)
 - [儲存體最佳化](../virtual-machines-windows-sizes-storage.md)
 - [GPU 最佳化](sizes-gpu.md)

@@ -12,11 +12,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/31/2019
 ms.openlocfilehash: a078ac38cef5b395a19481188c474c7f908160d5
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791604"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784478"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Azure SQL Database 的進階資料安全性
 
@@ -24,11 +24,11 @@ ms.locfileid: "58791604"
 
 ## <a name="overview"></a>概觀
 
-進階的資料安全性 (ADS) 提供一組的進階 SQL 安全性功能，包括資料探索與分類、 弱點評估和進階威脅防護。
+高级数据安全性 (ADS) 提供一组高级 SQL 安全功能，包括数据发现和分类、漏洞评估和高级威胁防护。
 
 - [資料探索與分類](sql-database-data-discovery-and-classification.md) (目前處於預覽階段) 提供內建於 Azure SQL Database 的功能，可用來探索、分類、標記和保護資料庫中的敏感性資料。 它可用來讓您檢視資料庫分類狀態、追蹤對資料庫內敏感性資料的存取，並具有其他多方面的用途。
 - [弱點評估](sql-vulnerability-assessment.md)是容易設定的服務，可探索、追蹤及協助您修復潛在的資料庫弱點。 它可讓您檢視安全性狀態，且包含解決安全性問題和增強資料庫防護性的可行步驟。
-- [進階威脅防護](sql-database-threat-detection-overview.md)偵測到不尋常且有危害的意圖存取或攻擊資料庫異常活動。 它會持續監視您的資料庫是否有可疑的活動，並在發現潛在弱點、SQL 插入式攻擊和異常資料庫存取模式時提供即時安全性警示。 進階威脅防護，警示會提供可疑活動的詳細資料，以及如何調查與降低威脅的建議。
+- [高级威胁防护](sql-database-threat-detection-overview.md)检测异常活动，指出尝试访问或利用数据库的行为异常且可能有害。 它會持續監視您的資料庫是否有可疑的活動，並在發現潛在弱點、SQL 插入式攻擊和異常資料庫存取模式時提供即時安全性警示。 高级威胁防护警报提供可疑活动的详细信息，并建议如何调查和缓解威胁。
 
 只要啟用 SQL ADS，其中包含的所有功能即會一併啟用。 只要按一下按鍵，即可對 SQL Database 伺服器或受控執行個體上的所有資料庫啟用 ADS。 啟用或管理 ADS 設定需要屬於 [SQL 安全性管理員角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)、SQL 資料庫管理員角色或 SQL Server 管理員角色。 
 
@@ -43,7 +43,7 @@ ADS 的定價與 Azure 資訊安全中心標準層相同，每個受保護的 SQ
 針對您的 SQL Database 伺服器或受控執行個體，瀏覽至 [安全性] 標題下的 [進階資料安全性]，以啟用 ADS。 若要對資料庫伺服器或受控執行個體上的所有資料庫啟用 ADS，請按一下 [在伺服器上啟用進階資料安全性]。
 
 > [!NOTE]
-> 儲存體帳戶會自動建立及設定儲存至您**弱點評量**掃描結果。 如果您已啟用廣告的另一部伺服器位於相同的資源群組和區域中，則會使用現有的儲存體帳戶。
+> 系统会自动创建一个存储帐户用于存储**漏洞评估**的扫描结果。 如果为同一个资源组和区域中的另一台服务器启用了 ADS，则使用现有的存储帐户。
 
 ![啟用 ADS](./media/sql-advanced-protection/enable_ads.png) 
 
@@ -64,9 +64,9 @@ ADS 的定價與 Azure 資訊安全中心標準層相同，每個受保護的 SQ
 
 若要覆寫特定資料庫的 ADS 設定，請勾選 [啟用資料庫層級的進階資料安全性] 核取方塊。 使用此選項，只有當您有特定的需求，要接收不同的進階威脅防護通知或針對個別的資料庫，取代或是再加上收到的所有資料庫的結果與警示的弱點可能會評估結果資料庫伺服器或受管理的執行個體。
 
-一旦選取此核取方塊之後，您可以再設定此資料庫的相關設定。
+选中该复选框后，可以配置此数据库的相关设置。
  
-![資料庫和進階威脅防護設定](./media/sql-advanced-protection/database_threat_detection_settings.png) 
+![数据库和高级威胁防护设置](./media/sql-advanced-protection/database_threat_detection_settings.png) 
 
 從 ADS 資料庫窗格，也可以觸達資料庫伺服器或受控執行個體的進階資料安全性設定。 按一下主要 ADS 窗格中的 [設定]，然後按一下 [檢視進階資料安全性伺服器設定]。 
 
@@ -76,5 +76,5 @@ ADS 的定價與 Azure 資訊安全中心標準層相同，每個受保護的 SQ
 
 - 深入了解[資料探索與分類](sql-database-data-discovery-and-classification.md) 
 - 深入了解[弱點評估](sql-vulnerability-assessment.md) 
-- 深入了解[進階威脅防護](sql-database-threat-detection.md)
+- 详细了解[高级威胁防护](sql-database-threat-detection.md)
 - 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)

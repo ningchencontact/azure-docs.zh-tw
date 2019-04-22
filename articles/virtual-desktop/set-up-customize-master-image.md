@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505595"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698310"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>準備和自訂主要 VHD 映像
 
@@ -274,7 +274,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxId
 1. 在 Active Directory 伺服器上，開啟**群組原則管理主控台**。
 2. 展開您的網域和群組原則物件。
 3. 以滑鼠右鍵按一下**群組原則物件**您建立的群組原則設定，然後選取**編輯**。
-4. 在 **群組原則管理編輯器**，瀏覽至**電腦設定** > **原則** > **系統管理範本** > **Windows 元件** > **水平檢視 RDSH 服務** > **遠端桌面工作階段主機** > **裝置及資源重新導向**。
+4. 在 **群組原則管理編輯器**，瀏覽至**電腦設定** > **原則** > **系統管理範本** > **Windows 元件** > **遠端桌面服務** > **遠端桌面工作階段主機**  > **裝置及資源重新導向**。
 5. 啟用**允許時區重新導向**設定。
 
 您也可以在主要映像來重新導向時間區域上執行此命令：
@@ -367,8 +367,8 @@ remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\W
 
 有映像之後，您可以建立或更新主應用程式集區。 若要深入了解如何建立和更新主應用程式集區，請參閱下列文章：
 
-- [使用 Azure Resource Manager 範本建立主機集區](create-host-pools-arm-template.md)
-- [教學課程：透過 Azure Marketplace 建立主機集區](create-host-pools-azure-marketplace.md)
-- [使用 PowerShell 建立主機集區](create-host-pools-powershell.md)
-- [設定主機集區的使用者設定檔共用](create-host-pools-user-profile.md)
+- [使用 Azure Resource Manager 範本建立的主應用程式集區](create-host-pools-arm-template.md)
+- [教學課程：使用 Azure Marketplace 中建立主應用程式集區](create-host-pools-azure-marketplace.md)
+- [使用 PowerShell 建立主應用程式集區](create-host-pools-powershell.md)
+- [設定主應用程式集區的使用者設定檔共用](create-host-pools-user-profile.md)
 - [設定 Windows 虛擬桌面負載平衡方法](configure-host-pool-load-balancing.md)

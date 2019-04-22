@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493632"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683013"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -64,8 +64,8 @@ Application Insights 會定義分散遙測相互關聯的[資料模型](../../az
 
 我們正在進行[相互關聯 HTTP 通訊協定](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)的 RFC 提案。 此提案會定義兩個標頭︰
 
-- `Request-Id`：裝載呼叫的全域唯一識別碼。
-- `Correlation-Context`：裝載分散式追蹤屬性的名稱值組集合。
+- `Request-Id`:裝載呼叫的全域唯一識別碼。
+- `Correlation-Context`:裝載分散式追蹤屬性的名稱值組集合。
 
 標準也定義了兩個用於產生 `Request-Id` 的結構描述：平面和階層。 使用平面結構描述時，會為 `Correlation-Context` 集合定義已知的 `Id` 金鑰。
 
@@ -75,8 +75,8 @@ Application Insights 會定義相互關聯 HTTP 通訊協定的[延伸](https://
 
 我們即將轉換為 [W3C 分散式追蹤格式](https://w3c.github.io/trace-context/)。 其定義：
 
-- `traceparent`：裝載全域唯一的作業識別碼和唯一的呼叫識別碼。
-- `tracestate`：裝載追蹤系統特定的內容。
+- `traceparent`:裝載全域唯一的作業識別碼和唯一的呼叫識別碼。
+- `tracestate`:裝載追蹤系統特定的內容。
 
 #### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>啟用傳統 ASP.NET 應用程式的 W3C 分散式追蹤支援
 
@@ -102,7 +102,7 @@ public void ConfigureServices(IServiceCollection services)
 
 #### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>啟用 Java 應用程式的 W3C 分散式追蹤支援
 
-- **連入的組態**
+- **連入設定**
 
   - 針對 Java EE 應用程式，將下列內容新增至 ApplicationInsights.xml 內的 `<TelemetryModules>` 標記：
 
@@ -143,11 +143,11 @@ public void ConfigureServices(IServiceCollection services)
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`， `PageView`                 | `Span` 取代為 `span.kind = server`                  |
-| `Dependency`                          | `Span` 取代為 `span.kind = client`                  |
-| `Id` `Request`和 `Dependency`    | `SpanId`                                          |
+| `Request`、`PageView`                 | `span.kind = server` 的 `Span`                  |
+| `Dependency`                          | `span.kind = client` 的 `Span`                  |
+| `Request` 和 `Dependency` 的 `Id`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `Reference` 型別的`ChildOf`（父範圍）   |
+| `Operation_ParentId`                  | 類型 `ChildOf` 的 `Reference` (父代範圍)   |
 
 如需詳細資訊，請參閱 [Application Insights 遙測資料模型](../../azure-monitor/app/data-model.md)。 
 
@@ -157,18 +157,18 @@ public void ConfigureServices(IServiceCollection services)
 
 .NET 隨著時間的進展，定義了數種相互關聯遙測和診斷記錄的方式：
 
-- `System.Diagnostics.CorrelationManager` 可讓您追蹤[LogicalOperationStack 和 ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx)。 
-- `System.Diagnostics.Tracing.EventSource` 和事件追蹤的 Windows (ETW) 定義[SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx)方法。
+- `System.Diagnostics.CorrelationManager` 可讓您追蹤 [LogicalOperationStack 和 ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx)。 
+- `System.Diagnostics.Tracing.EventSource` 與 Windows 事件追蹤 (ETW) 會定義 [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) 方法。
 - `ILogger` 會使用[記錄範圍](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes)。 
 - Windows Communication Foundation (WCF) 與 HTTP 連接起了「目前」的內容傳播。
 
-不過，這些方法並未促成自動分散式追蹤支援。 `DiagnosticSource` 為支援自動跨電腦相互關聯的方法。 .NET 程式庫支援 'DiagnosticSource'，並允許透過傳輸 (例如 HTTP) 自動跨電腦傳播相互關聯內容。
+不過，這些方法並未促成自動分散式追蹤支援。 `DiagnosticSource` 是一種支援自動跨電腦相互關聯的方法。 .NET 程式庫支援 'DiagnosticSource'，並允許透過傳輸 (例如 HTTP) 自動跨電腦傳播相互關聯內容。
 
 `DiagnosticSource` 中的[活動指南](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)說明了追蹤活動的基本概念。
 
 ASP.NET Core 2.0 支援擷取 HTTP 標頭和啟動新的活動。
 
-`System.Net.HttpClient`從 4.1.0，支援自動插入相互關聯 HTTP 標頭和追蹤的項目，做為活動的 HTTP 呼叫。
+`System.Net.HttpClient` 從 4.1.0 版開始，可支援自動插入相互關聯 HTTP 標頭及追蹤 HTTP 呼叫作為活動。
 
 針對傳統 ASP.NET，有一個新的 HTTP 模組 [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/)。 此模組會使用 `DiagnosticSource` 來實作遙測相互關聯。 它會根據連入要求標頭來啟動活動。 它也會將來自不同要求處理階段的遙測相互關聯，即使每個 Internet Information Services (IIS) 處理階段是在不同受控執行緒上執行時也一樣。
 
@@ -217,7 +217,7 @@ Application Insights SDK 從 2.4.0-beta1 版開始，會使用 `DiagnosticSource
 ## <a name="next-steps"></a>後續步驟
 
 - 撰寫[自訂遙測](../../azure-monitor/app/api-custom-events-metrics.md)。
-- 深入了解為其他 SDK [設定 cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud_rolename)。
+- 深入了解為其他 SDK [設定 cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name)。
 - 在 Application Insights 上將微服務的所有元件上線。 查看[支援的平台](../../azure-monitor/app/platforms.md)。
 - 參閱[資料模型](../../azure-monitor/app/data-model.md)以了解 Application Insights 類型。
 - 了解如何[擴充和篩選遙測](../../azure-monitor/app/api-filtering-sampling.md)。

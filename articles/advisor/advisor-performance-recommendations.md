@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0b2d242519e7e8981a905d6adb1f3c0f091afe38
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491574"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698940"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>利用 Azure Advisor 改善 Azure 應用程式的效能
 
@@ -74,6 +74,25 @@ Advisor 會識別不是複寫資料表、但可因轉換而受益的資料表，
 
 > [!NOTE]
 > Azure 監視器中的傳統警示排定在 2019 年 6 月淘汰。 建議您將傳統儲存體帳戶升級為使用 Resource Manager，以在新平台上保留警示功能。 如需詳細資訊，請參閱[傳統警示洶汰](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)。
+
+## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>設計您的儲存體帳戶，以避免達到最大訂用帳戶限制
+
+Azure 區域可以支援最多 250 每訂用帳戶的儲存體帳戶。 一旦達到限制時，您將無法在該區域/訂用帳戶組合中建立任何更多的儲存體帳戶。 Advisor 會檢查您的訂用帳戶和介面的建議，讓您設計較少的儲存體帳戶，即將達到最大限制。
+
+## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>您的 Azure MySQL、 Azure PostgreSQL 和 Azure MariaDB 伺服器的效能最佳化 
+
+### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>修正您的 Azure MySQL、 Azure PostgreSQL 和 Azure MariaDB 伺服器的 CPU 壓力與 CPU 瓶頸
+非常高使用率的 CPU，經過一段長，可能會導致查詢效能緩慢工作負載。 增加 CPU 大小將會協助最佳化資料庫查詢的執行階段，並改善整體效能。 Azure Advisor 會識別伺服器，以高 CPU 使用率可能執行 CPU 限制的工作負載，建議您調整您的計算。
+
+### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>減少您的 Azure MySQL、 Azure PostgreSQL 和 Azure MariaDB 伺服器上的記憶體條件約束，或移至記憶體最佳化的 SKU
+的低的快取點擊的率可能會導致較慢的查詢效能和更高的 IOPS。 這可能是因為不正確的查詢計劃或執行記憶體密集工作負載。 修正查詢計劃或 [增加記憶體](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers)PostgreSQL 資料庫伺服器、 Azure MySQL 資料庫伺服器或 Azure MariaDB 的 Azure 資料庫伺服器有助於最佳化執行資料庫工作負載。 Azure Advisor 會識別由於此高緩衝區集區變換所影響的伺服器，並建議修正的查詢計劃中，移至 更多的記憶體，較高的 SKU，或增加以取得更多 IOPS 的儲存體大小。
+
+### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>使用 Azure MySQL 或 Azure PostgreSQL 讀取複本，來相應放大讀取的讀取密集的工作負載
+Azure Advisor 會利用工作負載為基礎啟發學習法例如讀取與寫入伺服器上識別為大量讀取工作負載在過去七天的比例。 您的資源用於 PostgreSQL 的 Azure 資料庫或具有極高的讀取/寫入比率的 MySQL 資源的 Azure 資料庫可能會導致 CPU 和/或記憶體爭用導致查詢效能變慢。 新增 [複本](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal)有助於您的相應放大到複本伺服器，以防止在主要伺服器上的 CPU 和/或記憶體條件約束的讀取。 Advisor 會識別這類高為大量讀取工作負載的伺服器，並建議您新增 [讀取複本](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) 來卸載部分讀取的工作負載。
+
+
+### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>調整您的 Azure MySQL、 Azure PostgreSQL 或 Azure MariaDB 伺服器，以較高的 SKU，以防止連接條件約束
+每個新連線到您的資料庫伺服器會佔一些記憶體。 如果因為無法連線到您的伺服器，就會降低資料庫伺服器的效能 [上限](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits)在記憶體中。 Azure Advisor 會識別伺服器執行具有許多連接失敗，並建議升級您的伺服器連線限制，藉由相應增加計算，或使用記憶體最佳化的 Sku，具有更多的運算，每個核心，提供更多記憶體到您的伺服器。
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>如何在建議程式中存取效能建議
 

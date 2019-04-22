@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
 ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895591"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis 常見問題集
@@ -80,7 +80,7 @@ ms.locfileid: "58895591"
 * [我的用戶端為什麼中斷與快取的連線？](#why-was-my-client-disconnected-from-the-cache)
 
 ## <a name="prior-cache-offering-faqs"></a>先前的快取供應項目常見問題集
-* [我適合使用哪個 Azure 快取供應項目？](#which-azure-cache-offering-is-right-for-me)
+* [我適合使用哪個 Azure 快取服務？](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>什麼是 Azure Redis 快取？
 Azure Cache for Redis 會以廣受使用的開放原始碼軟體 [Redis](https://redis.io/) 為基礎。 它可讓您從 Azure 內的任何應用程式，存取由 Microsoft 管理的安全、專用「Azure Redis 快取」。 如需更詳細的概觀，請參閱 Azure.com 上的 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)產品頁面。
@@ -135,7 +135,7 @@ Azure Cache for Redis 會以廣受使用的開放原始碼軟體 [Redis](https:/
 
 | 定價層 | 大小 | CPU 核心 | 可用带宽 | 1 KB 值大小 | 1 KB 值大小 |
 | --- | --- | --- | --- | --- | --- |
-| **標準快取大小** | | |**每秒 （Mb/秒） mb / Mb 每秒 （MB/秒）** |**每個第二個 (RPS) 非 SSL 要求** |**每個第二個 (RPS) SSL 要求** |
+| **標準快取大小** | | |**每秒 Mb (Mb/s) / 每秒 MB (MB/s)** |**每秒要求數目 (RPS) 非 SSL** |**每秒要求數目 (RPS) SSL** |
 | C0 |250 MB |共用 |100 / 12.5 |15,000 |7,500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2.5 GB |2 |500 / 62.5 |41,000 |37,000 |
@@ -143,7 +143,7 @@ Azure Cache for Redis 會以廣受使用的開放原始碼軟體 [Redis](https:/
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
 | C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
-| **高階快取大小** | |**每個分區的 CPU 核心** | **每秒 （Mb/秒） mb / Mb 每秒 （MB/秒）** |**每個第二個 (RPS) 非 SSL，每個分區的要求** |**每個第二個 (RPS) SSL，每個分區的要求** |
+| **高階快取大小** | |**每一分區的 CPU 核心數目** | **每秒 Mb (Mb/s) / 每秒 MB (MB/s)** |**每秒要求數目 (RPS) 非 SSL，每個分區** |**每秒要求數目 (RPS) SSL，每個分區** |
 | P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
 | P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
 | P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
@@ -173,9 +173,9 @@ Azure Cache for Redis 會以廣受使用的開放原始碼軟體 [Redis](https:/
 
 如需深入了解搭配其他雲端使用「Azure Redis 快取」的考量，請參閱下列連結。
 
-- [Azure Government 資料庫-Azure Redis 快取](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure 中國雲端-Azure Redis 快取](https://www.azure.cn/home/features/redis-cache/)
-- [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
+- [Azure Government 資料庫 - Azure Redis 快取](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Azure 中國雲端 - Azure Redis 快取](https://www.azure.cn/home/features/redis-cache/)
+- [Microsoft Azure (德國)](https://azure.microsoft.com/overview/clouds/germany/)
 
 如需有關在「Azure Government 雲端」、「Azure 中國雲端」及「Microsoft Azure 德國」中搭配 PowerShell 使用「Azure Redis 快取」的資訊，請參閱[如何連線到其他雲端 - Azure Redis 快取 PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)。
 
@@ -269,7 +269,7 @@ Redis 最大的好處是，有許多用戶端支援許多不同的開發語言�
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> 如果索引鍵不是 URL 編碼，您可能會收到類似訊息的例外狀況： `Failed to parse session.save_path`
+> 如果金鑰未進行 URL 編碼，您可能會收到類似此訊息的例外狀況︰`Failed to parse session.save_path`
 >
 >
 
@@ -307,7 +307,7 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 #### <a name="stackexchangeredis-best-practices"></a>StackExchange.Redis 最佳作法
 * 將 `AbortConnect` 設定為 false，然後讓 ConnectionMultiplexer 自動重新連線。 [參閱此處了解詳細資訊](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md)。
 * 重复使用 ConnectionMultiplexer - 不要为每个请求创建一个新的 ConnectionMultiplexe。 建議使用[此處顯示](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)的 `Lazy<ConnectionMultiplexer>` 模式。
-* Redis 在值越小時運作得最好，因此請考慮將較大的資料切分成多個金鑰。 在[此 Redis 討論](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)中，100kb 就算很大。 阅读 [](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) 了解较大值可能引起的问题示例。
+* Redis 在值越小時運作得最好，因此請考慮將較大的資料切分成多個金鑰。 在[此 Redis 討論](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)中，100kb 就算很大。 閱讀 [這篇文章](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) 以了解較大值所造成的範例問題。
 * 設定您的 [執行緒集區設定](#important-details-about-threadpool-growth) 以避免逾時。
 * 使用至少 5 秒的預設 connectTimeout。 此間隔可讓 StackExchange.Redis 在網路短暫發生中斷時，有足夠的時間重新建立連線。
 * 請注意您執行不同作業的相關效能成本。 例如， `KEYS` 命令是一種 O(n) 作業，應該盡量避免。 [redis.io](https://redis.io/commands/) 站点具有关于其支持的每个操作的时间复杂性的详细信息。 按一下每個命令，可查看每項作業的複雜度。
@@ -402,9 +402,9 @@ CLR 執行緒集區有兩種類型的執行緒：「背景工作」和「I/O 完
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>使用 StackExchange.Redis 時啟用伺服器 GC 在用戶端上取得更多輸送量
 啟用伺服器 GC 可以最佳化用戶端，並在使用 StackExchange.Redis 時提供較佳的效能和輸送量。 如需有關伺服器 GC，以及如何加以啟用的詳細資訊，請參閱下列文件：
 
-* [若要啟用伺服器 GC](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
-* [回收的基本概念](/dotnet/standard/garbage-collection/fundamentals)
-* [記憶體回收和效能](/dotnet/standard/garbage-collection/performance)
+* [啟用伺服器 GC](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+* [Fundamentals of Garbage Collection (記憶體回收的基本概念)](/dotnet/standard/garbage-collection/fundamentals)
+* [Garbage Collection and Performance (記憶體回收與效能)](/dotnet/standard/garbage-collection/performance)
 
 
 ### <a name="performance-considerations-around-connections"></a>連線相關的效能考量
@@ -467,12 +467,12 @@ Redis 成功的另一個重要層面是建置健全、有活力的開放原始�
 如需有關如何開始使用「Azure Redis 快取」的詳細資訊，請參閱[如何使用 Azure Redis 快取](cache-dotnet-how-to-use-azure-redis-cache.md)和 [Azure Redis 快取文件](index.md)。
 
 ### <a name="managed-cache-service"></a>受控快取服務
-[受控快取服務已於 2016 年 11 月 30 日淘汰。](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[受控快取服務已在 2016 年 11 月 30 日淘汰 (英文)。](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 若要檢視封存文件，請參閱[封存受控快取服務文件](/previous-versions/azure/azure-services/dn386094(v=azure.100))。
 
 ### <a name="in-role-cache"></a>角色中快取
-[角色中快取已淘汰的 2016 年 11 月 30 日。](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[In-Role Cache 已在 2016 年 11 月 30 日淘汰 (英文)。](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 若要檢視封存文件，請參閱[封存 In-Role Cache 文件](/previous-versions/azure/azure-services/dn386103(v=azure.100))。
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 24201cfd657d4f23eb962b7407ed20262d780cf7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407414"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684220"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>衝突類型和解決原則
 
@@ -37,11 +37,11 @@ Azure Cosmos DB 會提供彈性原則導向的機制來解決寫入衝突。 您
   > [!NOTE]
   > 「最後寫入為準」是預設的衝突解決原則。 它會提供下列 Api:SQL、 MongoDB、 Cassandra、 Gremlin 和資料表。
 
-  若要深入了解，請參閱[使用 LWW 衝突解決原則的範例](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)。
+  若要深入了解，請參閱[使用 LWW 衝突解決原則的範例](how-to-manage-conflicts.md)。
 
 - **自訂**：此解決原則適用於應用程式定義的衝突調整語意。 當您在您的 Azure Cosmos 容器上設定此原則時，您也必須註冊*合併預存程序*。 在資料庫交易在伺服器上偵測到衝突時，會自動叫用此程序。 系統只針對合併程序的執行提供一次保證 (為認可通訊協定的一部分)。  
 
-  如果您使用自訂的解析 選項，來設定您的容器，您無法註冊容器上的合併程序或合併程序在執行階段會發生例外狀況，會寫入衝突*衝突摘要*。 然後您的應用程式需要手動解決衝突摘要中的衝突。 若要深入了解，請參閱[如何使用自訂解決原則及如何使用衝突摘要的範例](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)。
+  如果您使用自訂的解析 選項，來設定您的容器，您無法註冊容器上的合併程序或合併程序在執行階段會發生例外狀況，會寫入衝突*衝突摘要*。 然後您的應用程式需要手動解決衝突摘要中的衝突。 若要深入了解，請參閱[如何使用自訂解決原則及如何使用衝突摘要的範例](how-to-manage-conflicts.md)。
 
   > [!NOTE]
   > 自訂衝突解決原則只適用於 SQL API 帳戶。
@@ -51,6 +51,5 @@ Azure Cosmos DB 會提供彈性原則導向的機制來解決寫入衝突。 您
 了解如何設定衝突解決原則：
 
 * [如何在應用程式中設定多重主機](how-to-multi-master.md)
-* [如何使用 LWW 衝突解決原則](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [如何使用自訂衝突解決原則](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [如何管理衝突解決原則](how-to-manage-conflicts.md)
 * [如何讀取衝突摘要](how-to-manage-conflicts.md#read-from-conflict-feed)

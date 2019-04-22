@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004597"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697884"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>什麼是適用於 VM 的 Azure 監視器 (預覽)？
 
-適用於 VM 的 Azure 監視器會大規模監視您的 Azure 虛擬機器 (VM) 和虛擬機器擴展集。 它會分析您的 Windows 和 Linux Vm 的健全狀況與效能，並監視其處理程序和其他資源和外部處理序的相依性。 
+適用於 VM 的 Azure 監視器會大規模監視您的 Azure 虛擬機器 (VM) 和虛擬機器擴展集。 此服務會分析您 Windows 和 Linux VM 的效能與健康情況，並且在其他資源和外部處理序上監視其處理序及相依性。 
 
 作為解決方案，適用於 VM 的 Azure 監視器包含針對在內部部署或其他雲端提供者中裝載的 VM，監視效能和應用程式相依性的支援。 有三個主要功能可提供深入解析：
 
@@ -39,7 +39,7 @@ ms.locfileid: "58004597"
 * 對應
 
 >[!NOTE]
->目前，僅針對 Azure 虛擬機器和虛擬機器擴展集提供健康情況功能。 效能和地圖功能支援 Azure Vm 和虛擬機器裝載在您的環境或其他雲端提供者。
+>目前，「 健全狀況 」 功能只適用於 Azure 虛擬機器。 效能和地圖功能支援的 Azure Vm、 Azure VM 擴展集和虛擬機器裝載在您的環境或其他雲端提供者。
 
 與 Azure 監視器記錄整合，可提供強大的彙總與篩選，而且它可以隨著時間執行趨勢分析。 單獨使用 Azure 監視器或服務對應，無法達到這類全面性工作負載監視。  
 

@@ -7,21 +7,23 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: absha
-ms.openlocfilehash: efb7b46919066beb1382d70b676a2115ea0fb8ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 20c484779e7ffe74ae01e33472b4cf8761d81b66
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544138"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682675"
 ---
-# <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>使用應用程式閘道來重寫 HTTP 標頭 (公開預覽)
+# <a name="rewrite-http-headers-with-application-gateway"></a>請重寫應用程式閘道的 HTTP 標頭
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。 重寫這些 HTTP 標頭可協助您完成數個重要的案例，例如新增安全性相關的標頭欄位，例如 HSTS/X XSS 保護，移除回應標頭欄位的可能會揭露機密資訊，從清除連接埠資訊X 轉送的標頭等等。應用程式閘道支援的功能可新增、 移除或更新 HTTP 要求和回應標頭時要求和回應封包用戶端與後端集區之間移動。 它也提供讓您將新增條件，以確保只有在符合特定條件時，才指定的標頭會重寫。
+HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。 重寫這些 HTTP 標頭可協助您完成數個重要的案例，例如新增安全性相關的標頭欄位，例如 HSTS/X XSS 保護，移除回應標頭欄位的可能會揭露機密資訊，移除連接埠資訊X 轉送的標頭等等。應用程式閘道支援的功能可新增、 移除或更新 HTTP 要求和回應標頭時要求和回應封包用戶端與後端集區之間移動。 它提供讓您將新增條件，以確保只有在符合特定條件時，才指定的標頭會重寫。 此功能也支援數個[伺服器變數](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables)協助儲存的要求和回應，藉此讓您進行功能強大的重寫規則的其他資訊。
 > [!NOTE]
 >
 > HTTP 標頭重寫支援僅適用於 [新 SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+
+![重寫的標頭](media/rewrite-http-headers/rewrite-headers.png)
 
 ## <a name="headers-supported-for-rewrite"></a>請重寫支援的標頭
 
@@ -35,7 +37,7 @@ HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。
 - 在回應中的 HTTP 標頭
 - 應用程式閘道伺服器變數
 
-可用來評估指定的變數是否存在，，或是否完全符合指定的變數的特定值，指定的變數會完全符合特定模式是否設定了條件。 [Perl 相容規則運算式 (PCRE) 程式庫](https://www.pcre.org/)用來實作規則運算式模式比對的條件。 若要深入了解的規則運算式語法，請參閱[Perl 規則運算式 man 頁面](http://perldoc.perl.org/perlre.html)。
+可用來評估指定的變數是否存在，，或是否完全符合指定的變數的特定值，指定的變數會完全符合特定模式是否設定了條件。 [Perl 相容規則運算式 (PCRE) 程式庫](https://www.pcre.org/)用來實作規則運算式模式比對的條件。 若要深入了解的規則運算式語法，請參閱[Perl 規則運算式 man 頁面](https://perldoc.perl.org/perlre.html)。
 
 ## <a name="rewrite-actions"></a>重寫動作
 
@@ -124,6 +126,18 @@ HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。
 可以藉由實作必要的標頭中的應用程式回應修正數個安全性弱點。 這些安全性標頭有些 X XSS 防護、 Strict 傳輸安全性、 內容安全性原則，等等。您可以使用應用程式閘道設定適用於所有回應這些標頭。
 
 ![安全性標頭](media/rewrite-http-headers/security-header.png)
+
+### <a name="delete-unwanted-headers"></a>刪除不必要的標頭
+
+若要移除這些標頭，例如後端伺服器名稱、 作業系統、 媒體櫃詳細資料等機密資訊會顯示 HTTP 回應中。您可以使用應用程式閘道來移除這些。
+
+![刪除標頭](media/rewrite-http-headers/remove-headers.png)
+
+### <a name="check-presence-of-a-header"></a>檢查標頭的存在
+
+您可以評估標頭或伺服器變數的目前狀態的 HTTP 要求或回應標頭。 當您想要在特定的標頭已存在時，才執行標頭重寫，這非常有用。
+
+![檢查標頭的存在](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>限制
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482941"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699008"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>設定 IoT Edge 裝置作為透明閘道
 
@@ -260,6 +260,18 @@ certificates:
    ```
 
 6. 在 [檢閱範本] 頁面中，選取 [提交]。
+
+## <a name="open-ports-on-gateway-device"></a>在 閘道裝置上開啟連接埠
+
+標準的 IoT Edge 裝置不需要任何輸入的連線能力函式，因為與 IoT 中樞的所有通訊都會都透過輸出連線。 不過，閘道裝置會不同，因為它們必須要能夠從其下游裝置接收訊息。
+
+閘道案例中運作，其中至少一個 IoT Edge 中樞支援的通訊協定必須開放給來自下游裝置的輸入流量。 支援的 portocols 是 MQTT、 AMQP 及 HTTPS。
+
+| Port | 通訊協定 |
+| ---- | -------- |
+| 8883 | MQTT |
+| 5671 | AMQP |
+| 443 | HTTPS <br> MQTT+WS <br> AMQP+WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>從下游裝置路由傳送訊息
 IoT Edge 執行階段可以路由傳送從下游裝置送來的訊息，就像路由傳送從模組送來的訊息一樣。 這可讓您在將任何資料傳送到雲端之前，在執行於閘道的模組中執行分析。 

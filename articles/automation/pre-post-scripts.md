@@ -1,22 +1,22 @@
 ---
-title: 在 Azure 的更新管理部署上設定前置和後置指令碼 (預覽)
+title: 設定更新管理部署在 Azure 中的前置和後置指令碼
 description: 本文將說明如何設定及管理更新部署的前置和後置指令碼
 services: automation
 ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263803"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698729"
 ---
-# <a name="manage-pre-and-post-scripts-preview"></a>管理前置和後置指令碼 (預覽)
+# <a name="manage-pre-and-post-scripts"></a>管理前置和後置指令碼
 
 透過前置和後置指令碼，您可以在更新部署的之前 (前置工作) 和之後 (後置工作)，於自動化帳戶中執行 PowerShell Runbook。 前置和後置指令碼會在 Azure 環境中執行，而不是在本機執行。 前置指令碼會執行更新部署的開頭。 後置指令碼會在部署結束時及在已設定的任何重新啟動之後執行。
 
@@ -26,7 +26,7 @@ ms.locfileid: "59263803"
 
 ## <a name="using-a-prepost-script"></a>使用前置/後置指令碼
 
-若要在「更新部署」中使用更新前和或更新後指令碼，請從建立「更新部署」開始著手。 選取 [前置指令碼 + 後置指令碼 (預覽)]。 此動作會開啟 [選取更新前 + 更新後指令碼] 頁面。  
+若要在「更新部署」中使用更新前和或更新後指令碼，請從建立「更新部署」開始著手。 選取 **前置指令碼 + 後置指令碼**。 此動作會開啟 [選取更新前 + 更新後指令碼] 頁面。  
 
 ![選取指令碼](./media/pre-post-scripts/select-scripts.png)
 
@@ -206,7 +206,20 @@ $variable = Get-AutomationVariable -Name $runId
 #>      
 ```
 
-## <a name="interacting-with-non-azure-machines"></a>與非 Azure 機器互動
+## <a name="interacting-with-machines"></a>與電腦互動
+
+做為 runbook 在自動化帳戶，並不直接在您的部署中的機器上執行前置和後置的工作。 前置和後置工作也會在 Azure 的內容中執行，而且沒有非 Azure 機器的存取權。 下列各節顯示如何互動，機器直接它們是 Azure VM 還是非 Azure 電腦：
+
+### <a name="interacting-with-azure-machines"></a>使用 Azure 機器互動
+
+前置和後置工作做為 runbook 執行且原本就不會在您的部署中的 Azure Vm 上執行。 若要互動的 Azure Vm，您必須具備下列項目：
+
+* 執行身分帳戶
+* 您想要執行 runbook
+
+若要與 Azure 機器互動時，您應該使用[Invoke-azurermvmruncommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet 與您的 Azure Vm 進行互動。 如需如何執行這項操作的範例，請參閱 runbook 範例[更新管理-具有執行的命令執行指令碼](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)。
+
+### <a name="interacting-with-non-azure-machines"></a>與非 Azure 機器互動
 
 更新前和更新後工作會在 Azure 環境中執行，且無法存取非 Azure 機器。 若要與非 Azure 機器互動，您必須具備下列項目：
 
@@ -215,38 +228,7 @@ $variable = Get-AutomationVariable -Name $runId
 * 您想要在本機上執行的 Runbook
 * 父代 Runbook
 
-若要與非 Azure 機器互動，父代 Runbook 需在 Azure 環境中執行。 此 Runbook 會使用 [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) Cmdlet 來呼叫子 Runbook。 您必須指定 `-RunOn` 參數，並提供混合式 Runbook 背景工作角色的名稱，好讓指令碼在其中執行。
-
-```powershell
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
-
-Add-AzureRmAccount `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
-
-$resourceGroup = "AzureAutomationResourceGroup"
-$aaName = "AzureAutomationAccountName"
-
-$output = Start-AzureRmAutomationRunbook -Name "StartService" -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName -RunOn "hybridWorker"
-
-$status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-while ($status.status -ne "Completed")
-{ 
-    Start-Sleep -Seconds 5
-    $status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-}
-
-$summary = Get-AzureRmAutomationJobOutput -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-
-if ($summary.Type -eq "Error")
-{
-    Write-Error -Message $summary.Summary
-}
-```
+若要與非 Azure 機器互動，父代 Runbook 需在 Azure 環境中執行。 此 Runbook 會使用 [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) Cmdlet 來呼叫子 Runbook。 您必須指定 `-RunOn` 參數，並提供混合式 Runbook 背景工作角色的名稱，好讓指令碼在其中執行。 如需如何執行這項操作的範例，請參閱 runbook 範例[更新管理-在本機執行指令碼](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44)。
 
 ## <a name="abort-patch-deployment"></a>中止修補部署
 

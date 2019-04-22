@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541021"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683948"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
@@ -29,13 +29,13 @@ ms.locfileid: "58541021"
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>擴展集的主要常見問題集
 
-**問：** 擴展集內可以有多少部 VM？
+### <a name="how-many-vms-can-i-have-in-a-scale-set"></a>擴展集內可以有多少部 VM？
 
-**答：** 擴展集可以有 0 到 1,000 部以平台映像為基礎的 VM，或 0 到 600 部以自訂映像為基礎的 VM。
+擴展集可以有 0 到 1,000 部以平台映像為基礎的 VM，或 0 到 600 部以自訂映像為基礎的 VM。
 
-**問：** 在擴展集內是否支援資料磁碟？
+### <a name="are-data-disks-supported-within-scale-sets"></a>在擴展集內是否支援資料磁碟？
 
-**答：** 是。 擴展集可以定義套用至集合中所有 VM 的連結資料磁碟組態。 如需詳細資訊，請參閱 [Azure 擴展集和連結的資料磁碟](virtual-machine-scale-sets-attached-disks.md)。 其他用於儲存資料的選項包括：
+是。 擴展集可以定義套用至集合中所有 VM 的連結資料磁碟組態。 如需詳細資訊，請參閱 [Azure 擴展集和連結的資料磁碟](virtual-machine-scale-sets-attached-disks.md)。 其他用於儲存資料的選項包括：
 
 * Azure 檔案 (SMB 共用磁碟機)
 * OS 磁碟機
@@ -43,33 +43,33 @@ ms.locfileid: "58541021"
 * Azure 資料服務 (例如 Azure 資料表、Azure Blob)
 * 外部資料服務 (例如遠端資料庫)
 
-**問：** 哪些 Azure 區域支援擴展集？
+### <a name="which-azure-regions-support-scale-sets"></a>哪些 Azure 區域支援擴展集？
 
-**答：** 所有區域都支援擴展集。
+所有區域都支援擴展集。
 
-**問：** 如何使用自訂映像建立擴展集？
+### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>如何使用自訂映像建立擴展集？
 
-**答：** 建立及擷取 VM 映像，然後使用該映像作為擴展集的來源。 如需有關如何建立及使用自訂 VM 映像的教學課程，您可以使用 [Azure CLI](tutorial-use-custom-image-cli.md) 或 [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+建立及擷取 VM 映像，然後使用該映像作為擴展集的來源。 如需有關如何建立及使用自訂 VM 映像的教學課程，您可以使用 [Azure CLI](tutorial-use-custom-image-cli.md) 或 [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
-**問：** 如果我將擴展集容量從 20 減少為 15，哪些 VM 會被移除？
+### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>如果我將擴展集容量從 20 減少為 15，哪些 VM 會被移除？
 
-**答：** 虛擬機器會跨更新網域和容錯網域從擴展集平均地移除，以達到最大的可用性。 系統會先移除具有最高識別碼的 VM。
+虛擬機器會跨更新網域和容錯網域從擴展集平均地移除，以達到最大的可用性。 系統會先移除具有最高識別碼的 VM。
 
-**问：** 如果我後續又將容量從 15 增加到 18 呢？
+### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>如果我後續又將容量從 15 增加到 18 呢？
 
-**答：** 如果您將容量增加到 18，則會建立 3 個新的 VM。 每次 VM 執行個體識別碼都會從上一個最高值遞增 (例如 20、21、22)。 VM 會平衡分散到容錯網域和更新網域。
+如果您將容量增加到 18，則會建立 3 個新的 VM。 每次 VM 執行個體識別碼都會從上一個最高值遞增 (例如 20、21、22)。 VM 會平衡分散到容錯網域和更新網域。
 
-**問：** 在擴展集內使用多個延伸模組時，是否可以強制執行「執行順序」？
+### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>在擴展集內使用多個延伸模組時，是否可以強制執行「執行順序」？
 
-**答：** 是，您可以使用擴展集[擴充功能排序](virtual-machine-scale-sets-extension-sequencing.md)。
+是，您可以使用擴展集[擴充功能排序](virtual-machine-scale-sets-extension-sequencing.md)。
 
-**問：** 擴展集是否可與 Azure 可用性設定組組搭配使用？
+### <a name="do-scale-sets-work-with-azure-availability-sets"></a>擴展集是否可與 Azure 可用性設定組組搭配使用？
 
-**答：** 區域 (非區域) 擴展集會使用「放置群組」，其可作為隱含的可用性設定組，並具有五個容錯網域和五個更新網域。 具有 100 部以上 VM 的擴展集會跨越多個放置群組。 如需放置群組的詳細資訊，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。 VM 的可用性設定組可以存在於與 VM 擴展集相同的虛擬網路中。 常見組態是在可用性設定組中放入控制節點 VM (其通常需要唯一組態)，以及在擴展集中放入資料節點。
+區域 (非區域) 擴展集會使用「放置群組」，其可作為隱含的可用性設定組，並具有五個容錯網域和五個更新網域。 具有 100 部以上 VM 的擴展集會跨越多個放置群組。 如需放置群組的詳細資訊，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。 VM 的可用性設定組可以存在於與 VM 擴展集相同的虛擬網路中。 常見組態是在可用性設定組中放入控制節點 VM (其通常需要唯一組態)，以及在擴展集中放入資料節點。
 
-**問：** 擴展集是否可與 Azure 可用性區域搭配使用？
+### <a name="do-scale-sets-work-with-azure-availability-zones"></a>擴展集是否可與 Azure 可用性區域搭配使用？
 
-**答：** 可以！ 如需詳細資訊，請參閱[擴展集區域文件](./virtual-machine-scale-sets-use-availability-zones.md)。
+可以！ 如需詳細資訊，請參閱[擴展集區域文件](./virtual-machine-scale-sets-use-availability-zones.md)。
 
 
 ## <a name="autoscale"></a>Autoscale
@@ -374,9 +374,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 您可以在 `$vmss` 中找到 extensionName 值。
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>是否有虛擬機器擴展集範本範例，可與 Azure 監視器記錄檔整合？
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>与 Azure Monitor 日志集成的虚拟机规模集模板是否有任何示例可供参考？
 
-針對虛擬機器擴展集範本範例，可與 Azure 監視器記錄檔整合，請參閱中的第二個範例[部署 Azure Service Fabric 叢集，並使用 Azure 監視器記錄檔來啟用監視](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)。
+有关与 Azure Monitor 日志集成的虚拟机规模集模板示例，请参阅[部署 Azure Service Fabric 群集，并通过使用 Azure Monitor 日志来启用监视](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)中的第二个示例。
 
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>擴充功能似乎會在虛擬機器擴展集上平行執行。 這會導致自訂指令碼擴充功能失敗。 可以做什麼來修正這個問題？
 
@@ -658,16 +658,16 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 如需詳細資訊，請參閱[管理虛擬機器擴展集中的所有 VM](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)。
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>是否可以整合 Azure 監視器記錄檔中的擴展集？
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>是否可以将规模集与 Azure Monitor 日志集成？
 
-是，您可以藉由在標尺上安裝的 Azure 監視擴充功能設定 Vm。 Azure CLI 的範例如下：
+可以，可在规模集 VM 上安装 Azure Monitor 扩展。 Azure CLI 的範例如下：
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 您可以在 Azure 入口網站的 Log Analytics 工作區中找到所需的 workspaceId 和 workspaceKey。 在 [概觀] 頁面中，按一下 [設定] 圖格。 按一下頂端的 [連接的來源] 索引標籤。
 
 > [!NOTE]
-> 如果您的擴展集_upgradePolicy_設為 Manual，您需要透過呼叫升級，擴充功能套用到集合中的所有 Vm。 在 CLI 中，這會是 _az vmss update-instances_。
+> 如果规模集 _upgradePolicy_ 设置为“手动”，则需要通过对 VM 调用升级将扩展应用到集中的所有 VM。 在 CLI 中，這會是 _az vmss update-instances_。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -722,8 +722,8 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
   - 關於這種情況，您可能已建立自己的自動調整引擎，並想要更快速的端對端擴展。
 - 您的虛擬機器擴展集並未平均分散於各容錯網域或更新網域。 這可能是因為您選擇性地刪除 VM，或是因為 VM 在過度佈建之後遭到刪除。 在虛擬機器擴展集上接續執行 `stop deallocate` 和 `start`，可讓 VM 平均分散於各容錯網域或更新網域。
 
-### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>我要如何建立 VMSS 執行個體的快照集？
-將 VMSS 執行個體中建立快照集。
+### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>如何创建 VMSS 实例的快照？
+从 VMSS 实例创建快照。
 
 ```azurepowershell-interactive
 $rgname = "myResourceGroup"
@@ -736,7 +736,7 @@ $snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard
 New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
 ``` 
  
-從快照集建立受控的磁碟。
+从快照创建托管磁盘。
 
 ```azurepowershell-interactive
 $snapshotName = "myShapshot"

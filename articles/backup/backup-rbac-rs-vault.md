@@ -3,17 +3,17 @@ title: 使用 Azure 角色型存取控制管理備份
 description: 使用角色型存取控制來管理復原服務保存庫中的備份管理作業存取權。
 services: backup
 author: trinadhk
-manager: shreeshd
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 04/17/2019
 ms.author: trinadhk
-ms.openlocfilehash: e86595ceb940ebcfa702823e9c9b8ad3ef50bb45
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674628"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682520"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>使用角色型存取控制來管理 Azure 備份復原點
 Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權管理。 RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需的存取權。
@@ -21,7 +21,7 @@ Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權�
 > [!IMPORTANT]
 > Azure 备份提供的角色仅限于执行可在 Azure 门户中执行的操作，或者通过 REST API 或恢复服务保管库 PowerShell 或 CLI cmdlet 执行的操作。 在 Azure 備份代理程式用戶端 UI、System Center Data Protection Manager UI 或 Azure 備份伺服器 UI 中執行的動作則非這些角色所能控制。
 
-Azure 備份提供 3 種用來控制備份管理作業的內建角色。 深入了解 [Azure RBAC 內建角色](../role-based-access-control/built-in-roles.md)
+Azure 備份提供三個內建的角色，以控制備份管理作業。 深入了解 [Azure RBAC 內建角色](../role-based-access-control/built-in-roles.md)
 
 * [備份參與者](../role-based-access-control/built-in-roles.md#backup-contributor) - 此角色具有所有用來建立和管理備份的權限，但用來建立復原服務保存庫和賦予他人存取權的權限除外。 您可以將此角色想做是管理備份的系統管理員，其可執行每一種備份管理作業。
 * [備份操作員](../role-based-access-control/built-in-roles.md#backup-operator) - 此角色擁有參與者的所有權限，但用來移除備份和管理備份原則的權限除外。 此角色相當於參與者，但無法執行破壞性作業，例如停止備份並刪除資料，或移除內部部署資源的註冊。
@@ -60,7 +60,24 @@ Azure 備份提供 3 種用來控制備份管理作業的內建角色。 深入�
 | 刪除已註冊的內部部署 Windows Server/用戶端/SCDPM 或 Azure 備份伺服器 | 備份參與者 | 復原保存庫資源 |
 
 > [!IMPORTANT]
-> 如果您指定 VM 資源範圍內的 VM 參與者，並按一下 VM 設定中的 [備份]，它就會開啟 [啟用備份] 畫面 (即使已在呼叫時將 VM 備份)，以確認備份狀態只能在訂用帳戶層級才能運作。 若要避免這個問題，請移至保存庫並開啟 VM 的備份項目檢視，或在訂用帳戶層級指定 VM 參與者角色。 
+> 如果您指定 VM 資源範圍內的 VM 參與者，並按一下 VM 設定中的 [備份]，它就會開啟 [啟用備份] 畫面 (即使已在呼叫時將 VM 備份)，以確認備份狀態只能在訂用帳戶層級才能運作。 若要避免這個問題，請移至保存庫並開啟 VM 的備份項目檢視，或在訂用帳戶層級指定 VM 參與者角色。
+
+## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Azure 檔案共用備份的最基本角色需求
+下表會擷取備份管理動作與對應來執行 Azure 檔案共用作業所需的角色。
+
+| 管理作業 | 所需的角色 | 資源 |
+| --- | --- | --- |
+| 啟用 Azure 檔案共用的備份 | 備份參與者 | 復原服務保存庫 |
+| | 儲存體帳戶 | 參與者儲存體帳戶資源 |
+| VM 的隨選備份 | 備份操作員 | 復原服務保存庫 |
+| 還原檔案共用 | 備份操作員 | 復原服務保存庫 |
+| | 儲存體帳戶參與者 | 還原來源和目標檔案共用皆存在其中的儲存體帳戶資源 |
+| 還原個別檔案 | 備份操作員 | 復原服務保存庫 |
+| | 儲存體帳戶參與者 |   還原來源和目標檔案共用皆存在其中的儲存體帳戶資源 |
+| 停止保護 | 備份參與者 | 復原服務保存庫 |      
+| 取消註冊保存庫中的儲存體帳戶 |   備份參與者 | 復原服務保存庫 |
+| | 儲存體帳戶參與者 | 儲存體帳戶資源|
+
 
 ## <a name="next-steps"></a>後續步驟
 * [基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)：開始在 Azure 入口網站中使用 RBAC。

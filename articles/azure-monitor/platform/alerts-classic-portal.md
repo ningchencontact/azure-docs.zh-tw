@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905439"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785313"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>使用 Azure 監視器建立、檢視及管理傳統計量警示
 
@@ -48,7 +48,7 @@ ms.locfileid: "58905439"
 建立警示之後，您可以選取此警示，然後進行下列其中一個工作：
 
 * 檢視圖表，其中顯示計量閾值與前一天的實際值。
-* 編輯或刪除警示。
+* 编辑或删除其。
 * 如果您想要暫時停止或恢復接收警示的通知，可以**停用**或**啟用**警示。
 
 ## <a name="with-azure-cli"></a>透過 Azure CLI

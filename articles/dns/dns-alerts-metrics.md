@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 0f50ecb086b45cffb4ff27135a26f962c92926bf
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434456"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683022"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS 計量與警示
 Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構來提供名稱解析。 本文說明 Azure DNS 服務的計量與警示。
 
 ## <a name="azure-dns-metrics"></a>Azure DNS 計量
 
-Azure DNS 為客戶提供了計量，讓客戶監視其在服務中所託管 DNS 的特定層面。 此外，使用 Azure DNS 計量，您可以設定依據感興趣的條件來接收警示。 計量是透過 [Azure 監視器服務](../azure-monitor/index.yml)提供的。 Azure DNS 透過 Azure 監視器為您的 DNS 區域提供下列計量：
+Azure DNS 提供讓客戶監視其裝載在服務中的 DNS 區域的特定層面的客戶的計量。 此外，使用 Azure DNS 計量，您可以設定依據感興趣的條件來接收警示。 計量是透過 [Azure 監視器服務](../azure-monitor/index.yml)提供的。 Azure DNS 透過 Azure 監視器為您的 DNS 區域提供下列計量：
 
 -   QueryVolume
 -   RecordSetCount
@@ -40,7 +40,9 @@ Azure DNS 為客戶提供了計量，讓客戶監視其在服務中所託管 DNS
 
 ### <a name="query-volume"></a>查詢磁碟區
 
-Azure DNS 中的「查詢磁碟區」計量會顯示 Azure DNS 收到 DNS 區域的 DNS 查詢 (查詢流量) 磁碟區。 度量單位是計數，彙總則是一段時間收到的所有查詢的總計。 若要檢視此計量，請從 Azure 入口網站中的 [監視器] 索引標籤選取 [計量] (預覽) 瀏覽器體驗。 從 [資源] 下拉式清單中選取您的 DNS 區域，選取 [查詢磁碟區] 計量，然後選取 [加總為彙總]。 其範例如下列螢幕擷取畫面所示。  如需計量瀏覽器體驗和圖表的詳細資訊，請參閱 [Azure 監視器計量瀏覽器](../azure-monitor/platform/metrics-charts.md)。
+Azure DNS 中的「查詢磁碟區」計量會顯示 Azure DNS 收到 DNS 區域的 DNS 查詢 (查詢流量) 磁碟區。 度量單位是計數，彙總則是一段時間收到的所有查詢的總計。 
+
+若要檢視此計量，請從 Azure 入口網站中的 [監視器] 索引標籤選取 [計量] (預覽) 瀏覽器體驗。 從 [資源] 下拉式清單中選取您的 DNS 區域，選取 [查詢磁碟區] 計量，然後選取 [加總為彙總]。 其範例如下列螢幕擷取畫面所示。  如需計量瀏覽器體驗和圖表的詳細資訊，請參閱 [Azure 監視器計量瀏覽器](../azure-monitor/platform/metrics-charts.md)。
 
 ![查詢磁碟區](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 
