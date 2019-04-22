@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278617"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>使用複合資源在 Azure Automation State Configuration (DSC) 中撰寫 DSC 設定
@@ -32,11 +32,11 @@ Azure 自動化能夠[匯入和編譯複合資源](automation-dsc-compile.md#com
 1. 在 [自動化帳戶] 頁面上，選取 [組態管理] 之下的 [State Configuration (DSC)]。
 1. 在 [State Configuration (DSC)] 頁面上，按一下 [設定] 或 [已編譯設定] 索引標籤，然後按一下頁面頂端功能表中的 [撰寫設定]。
 1. 在 [基本] 步驟中，提供新的設定名稱 (必要)，然後在您要納入新設定之每個複合資源列上的任意位置按一下，然後按一下 [下一步] 或按一下 [原始程式碼] 步驟。 針對後續步驟，我們選取了 **PSExecutionPolicy** 和 **RenameAndDomainJoin** 複合資源。
-   ![Basics 步驟的 [撰寫組態] 頁面的螢幕擷取畫面](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
+   ![撰寫設定頁面之基本步驟的螢幕擷取畫面](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
 1. **原始程式碼**步驟會顯示所選取之複合資源的已撰寫設定看起來會像怎樣。 您可以看到所有參數的合併，和它們如何傳遞給複合資源。 當您檢閱完新的原始程式碼之後，按一下 [下一步] 或按一下 [參數] 步驟。
-   ![來源的程式碼的步驟 [compose 組態] 頁面的螢幕擷取畫面](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
+   ![撰寫設定頁面之原始程式碼步驟的螢幕擷取畫面](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
 1. 在 [參數] 步驟中，每個複合資源具有的參數都已公開，如此才能提供參數。 如果參數具有描述，則會顯示在參數欄位旁邊。 如果欄位是 **PSCredential** 型別參數，設定的下拉式清單會提供目前自動化帳戶中的 **Credential** 物件清單。 另外也可使用 [+ 新增認證] 選項。 一旦已提供所有必要參數，按一下 [儲存並編譯]。
-   ![參數的步驟 [compose 組態] 頁面的螢幕擷取畫面](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
+   ![撰寫設定頁面之參數步驟的螢幕擷取畫面](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
 新的設定儲存之後，便會提交以進行編譯。 就像任何已匯入的設定，您可以檢視編譯作業狀態。 如需詳細資訊，請參閱[檢視編譯作業](automation-dsc-getting-started.md#viewing-a-compilation-job)。
 

@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
 ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010111"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
@@ -110,13 +110,13 @@ module.exports = async function (context, req) {
 
 ### <a name="inputs"></a>輸入
 在 Azure Functions 中輸入會分成兩個類別：一個是觸發程序輸入，另一個是額外的輸入。 函式可透過三種方式讀取觸發程序和其他輸入繫結 (`direction === "in"` 的繫結)：
- - **_[建議]_ 作為參數傳遞至函式。** 這些繫結會按照在 *function.json* 中定義的順序傳遞至函式。 *function.json* 中定义的 `name` 属性不需要与参数名称匹配，不过两者应该匹配。
+ - **_[建議]_ 作為參數傳至您的函式。** 這些繫結會按照在 *function.json* 中定義的順序傳遞至函式。 *function.json* 中定义的 `name` 属性不需要与参数名称匹配，不过两者应该匹配。
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **隸屬[ `context.bindings` ](#contextbindings-property)物件。** 每個成員都會由 *function.json* 中定義的 `name` 屬性命名。
+ - **作為 [`context.bindings`](#contextbindings-property) 物件的成員。** 每個成員都會由 *function.json* 中定義的 `name` 屬性命名。
  
    ```javascript
    module.exports = async function(context) { 
@@ -126,7 +126,7 @@ module.exports = async function (context, req) {
    };
    ```
    
- - **做為輸入使用 JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx)物件。** 這基本上相當於將輸入傳入作為參數，但可讓您以動態方式處理輸入。
+ - **使用 JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 物件作為輸入。** 這基本上相當於將輸入傳入作為參數，但可讓您以動態方式處理輸入。
  
    ```javascript
    module.exports = async function(context) { 
@@ -141,7 +141,7 @@ module.exports = async function (context, req) {
 
 可通过以下方式之一将数据分配到输出绑定（不要结合使用这些方法）：
 
-- **_[建議的多個輸出]_ 傳回的物件。** 如果您使用 async/承諾傳回函式，您可以傳回具有指定的輸出資料的物件。 在下列範例中，輸出繫結在 *function.json* 中會命名為 "httpResponse" 和 "queueOutput"。
+- **_[建議用於多個輸出]_ 傳回物件。** 如果您使用 async/承諾傳回函式，您可以傳回具有指定的輸出資料的物件。 在下列範例中，輸出繫結在 *function.json* 中會命名為 "httpResponse" 和 "queueOutput"。
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ module.exports = async function (context, req) {
   ```
 
   如果您使用同步函式，則可以使用 [`context.done`](#contextdone-method) 傳回此物件 (請參閱範例)。
-- **_[建議的單一輸出]_ 直接傳回值，並使用 $return 繫結名稱。** 這僅適用於非同步/Promise 傳回函式。 請參閱[匯出非同步函式](#exporting-an-async-function)中的範例。 
+- **_[建議用於單一輸出]_ 直接傳回值並使用 $return 繫結名稱。** 這僅適用於非同步/Promise 傳回函式。 請參閱[匯出非同步函式](#exporting-an-async-function)中的範例。 
 - **將值指派給 `context.bindings`** 您可以直接將值指派給 context.bindings。
 
   ```javascript
@@ -395,9 +395,9 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[僅回應]_ 藉由呼叫`context.res.send(body?: any)`。** HTTP 回應是以做為回應主體的輸入 `body` 所建立。 `context.done()` 隱含地呼叫。
++ **_[僅回應]_ 藉由呼叫 `context.res.send(body?: any)`。** HTTP 回應是以做為回應主體的輸入 `body` 所建立。 隱含地呼叫 `context.done()`。
 
-+ **_[僅回應]_ 藉由呼叫`context.done()`。** 特殊類型的 HTTP 繫結，會傳回傳遞到 `context.done()` 方法的回應。 下列 HTTP 輸出繫結定義 `$return` 輸出參數︰
++ **_[僅回應]_ 藉由呼叫 `context.done()`。** 特殊類型的 HTTP 繫結，會傳回傳遞到 `context.done()` 方法的回應。 下列 HTTP 輸出繫結定義 `$return` 輸出參數︰
 
     ```json
     {
@@ -494,7 +494,7 @@ function GetEnvironmentVariable(name)
 
 預設會從 `index.js` 執行 JavaScript 函式，這是與對應的 `function.json` 共用相同父目錄的檔案。
 
-`scriptFile` 可用來取得資料夾結構，如下列範例所示：
+`scriptFile` 可用來取得如下列範例所示的資料夾結構：
 
 ```
 FunctionApp
@@ -628,4 +628,4 @@ TypeScript 文件 (.ts) 转译为 `dist` 输出目录中的 JavaScript (.js) 文
 + [Azure Functions 開發人員參考](functions-reference.md)
 + [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
-[' func azure functionapp publish']: functions-run-local.md#project-file-deployment
+[`func azure functionapp publish`]: functions-run-local.md#project-file-deployment

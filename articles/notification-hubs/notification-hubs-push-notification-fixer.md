@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281636"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure 通知中樞-診斷已卸除通知
@@ -125,7 +125,7 @@ Azure 通知中樞客戶最常遇到的其中一項問題是，用戶端裝置�
 
 確認個別推播通知服務開發人員入口網站 (APNs、FCM、Windows 通知服務等等) 中的認證。 如需詳細資訊，請參閱[開始使用 Azure 通知中樞]。
 
-**Azure 入口網站**
+**Azure 门户**
 
 若要檢閱並比對您從推播通知服務開發人員入口網站取得的認證，請在 Azure 入口網站中，移至 [存取原則] 索引標籤。
 
@@ -166,7 +166,7 @@ Azure 通知中樞客戶最常遇到的其中一項問題是，用戶端裝置�
 
 ### <a name="verify-message-notifications"></a>驗證訊息通知
 
-**Azure 入口網站**
+**Azure 门户**
 
 若要將測試通知傳送到您的用戶端，而不需要運作後端服務，請在 [支援 + 疑難排解] 下，選取 [測試傳送]。
 
@@ -243,7 +243,7 @@ The Token obtained from the Token Provider is wrong
 
 ### <a name="review-telemetry"></a>檢閱遙測
 
-**Azure 入口網站**
+**Azure 门户**
 
 在入口網站中，您可以取得通知中樞上所有活動的簡要概觀。
 
@@ -259,7 +259,7 @@ The Token obtained from the Token Provider is wrong
 
 4. 如果您通知中樞的驗證設定不正確，會出現 **PNS 驗證錯誤**訊息。 它會檢查推播通知服務認證的徵兆。
 
-**以程式設計方式存取**
+**程式設計存取**
 
 如需有關以程式設計方式存取的詳細資訊，請參閱 <<c0> [ 程式設計遙測存取]。
 
@@ -292,4 +292,4 @@ The Token obtained from the Token Provider is wrong
 [深入探討：Visual Studio 2013 Update 2 RC 和 Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
 [宣佈發行 Visual Studio 2013 Update 3 和 Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[程式設計遙測存取]: https://msdn.microsoft.com/library/azure/dn458823.aspx
+[ 程式設計遙測存取]: https://msdn.microsoft.com/library/azure/dn458823.aspx

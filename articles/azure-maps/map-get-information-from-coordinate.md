@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256051"
 ---
 # <a name="get-information-from-a-coordinate"></a>從座標取得資訊
@@ -29,7 +29,7 @@ ms.locfileid: "59256051"
 
 在上述程式碼，程式碼的第一個區塊會建構對應物件，並設定的驗證機制，利用訂用帳戶金鑰。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-程式碼的第二個區塊建立`SubscriptionKeyCredentialPolicy`來驗證對 Azure 地圖服務的 HTTP 要求，與訂用帳戶金鑰。 然後`atlas.service.MapsURL.newPipeline()`會採用`SubscriptionKeyCredential`原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 `searchURL`表示 Azure 地圖服務的 URL[搜尋](https://docs.microsoft.com/rest/api/maps/search)作業。
+程式碼的第二個區塊建立`SubscriptionKeyCredentialPolicy`來驗證對 Azure 地圖服務的 HTTP 要求，與訂用帳戶金鑰。 然後`atlas.service.MapsURL.newPipeline()`會採用`SubscriptionKeyCredential`原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 `searchURL` 代表 Azure 地圖服務[搜尋](https://docs.microsoft.com/rest/api/maps/search)作業的 URL。
 
 程式碼的第三個區塊的指標會更新滑鼠資料指標的樣式，並建立[快顯](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open)物件。 如需相關指示，您可以查看[在地圖上新增快顯](./map-add-popup.md)。
 
@@ -59,10 +59,10 @@ ms.locfileid: "59256051"
 深入了解本文使用的類別和方法：
 
 > [!div class="nextstepaction"]
-> [對應](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [地圖](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [快顯視窗](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 請參閱下列文章中的完整程式碼範例：
 

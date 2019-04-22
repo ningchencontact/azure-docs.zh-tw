@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.openlocfilehash: 83d16071cbcac4199db9f3757121f9811db49727
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006329"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>針對適用於 PostgreSQL 的 Azure 資料庫使用虛擬網路服務端點和規則
@@ -92,7 +92,7 @@ ms.locfileid: "59006329"
 - **網路管理：**&nbsp;開啟端點。
 - **資料庫管理：**&nbsp;更新存取控制清單 (ACL)，將指定的子網路新增至適用於 PostgreSQL 伺服器的 Azure 資料庫。
 
-*RBAC 替代方案：*
+RBAC 替代方案：
 
 「網路管理員」和「資料庫管理員」角色的能力已超過管理虛擬網路規則所需。 只需要其中一部分能力。
 
@@ -107,7 +107,7 @@ ms.locfileid: "59006329"
 
 針對適用於 PostgreSQL 的 Azure 資料庫，虛擬網路規則功能具有下列限制：
 
-- Web 應用程式可以對應到 VNet/子網路中的私人 IP。 即使服務端點已從指定的 VNet/子網路上開啟，從 Web 應用程式至伺服器的連線仍具有 Azure 公用 IP 來源，而非 VNet/子網路來源。 若要啟用 Web 應用程式具有 VNet 防火牆規則的伺服器的連線，您必須允許 Azure 服務存取伺服器上的伺服器。
+- Web 應用程式可以對應到 VNet/子網路中的私人 IP。 即使服務端點已從指定的 VNet/子網路上開啟，從 Web 應用程式至伺服器的連線仍具有 Azure 公用 IP 來源，而非 VNet/子網路來源。 若要启用从 Web 应用到具有 VNet 防火墙规则的服务器的连接，必须在该服务器上允许 Azure 服务访问服务器。
 
 - 在針對適用於 PostgreSQL 的 Azure 資料庫防火牆中，每個虛擬網路規則都會參考一個子網路。 裝載所有這些參考子網路的地理區域，必須和裝載適用於 PostgreSQL 的 Azure 資料庫地理區域相同。
 
@@ -141,8 +141,8 @@ ms.locfileid: "59006329"
 
 ## <a name="next-steps"></a>後續步驟
 如需建立 VNet 規則的文章，請參閱：
-- [建立和管理 Azure Database for PostgreSQL VNet 規則使用 Azure 入口網站](howto-manage-vnet-using-portal.md)
-- [建立和管理 Azure Database for PostgreSQL VNet 規則使用 Azure CLI](howto-manage-vnet-using-cli.md)
+- [使用 Azure 入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫 VNet 規則](howto-manage-vnet-using-portal.md)
+- [使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫 VNet 規則](howto-manage-vnet-using-cli.md)
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->

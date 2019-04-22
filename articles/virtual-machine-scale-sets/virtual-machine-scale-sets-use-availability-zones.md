@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 24cff3a2ec4d0bed7a030ca430eaa698eb4a7325
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278763"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>建立使用可用性區域的虛擬機器擴展集
@@ -64,7 +64,7 @@ ms.locfileid: "59278763"
 
 若要使用可用性區域，您必須在[支援的 Azure 區域](../availability-zones/az-overview.md#regions-that-support-availability-zones)中建立擴展集。 您可以使用下列其中一個方法，來建立使用可用性區域的擴展集：
 
-- [Azure 入口網站](#use-the-azure-portal)
+- [Azure 门户](#use-the-azure-portal)
 - Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure 資源管理員範本](#use-azure-resource-manager-templates)

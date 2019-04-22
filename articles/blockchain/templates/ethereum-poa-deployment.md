@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274785"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>以太坊權威證明聯盟
@@ -220,7 +220,7 @@ SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰
 資源群組|要對其部署聯盟網路的資源群組。||NA
 位置|資源群組的 Azure 區域。||NA
 
-如下所示的範例部署：![基本] 刀鋒視窗](./media/ethereum-poa-deployment/basic-blade.png)
+範例部署如下所示：![基本刀鋒視窗](./media/ethereum-poa-deployment/basic-blade.png)
 
 #### <a name="deployment-regions"></a>部署區域
 
@@ -237,7 +237,7 @@ SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰
   第四個區域|要部署聯盟網路的第四個區域 (只有在選取 4 作為區域數目時才會顯示)|所有允許的 Azure 區域|NA
   第五個區域|要部署聯盟網路的第五個區域 (只有在選取 5 作為區域數目時才會顯示)|所有允許的 Azure 區域|NA
 
-如下所示的範例部署：![部署區域](./media/ethereum-poa-deployment/deployment-regions.png)
+範例部署如下所示：![部署區域](./media/ethereum-poa-deployment/deployment-regions.png)
 
 #### <a name="network-size-and-performance"></a>網路大小和效能
 
@@ -264,7 +264,7 @@ SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰
   D2_v3|標準 SSD|中|中|中
   F16s|進階 SSD|高|高|低
 
-如下所示的範例部署：![網路大小和效能](./media/ethereum-poa-deployment/network-size-and-performance.png)
+範例部署如下所示：![網路大小和效能](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
 #### <a name="ethereum-settings"></a>以太坊設定
 
@@ -283,7 +283,7 @@ SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰
 區塊重新封印期 (秒)|當網路上沒有任何交易時，將建立空白區塊的頻率。 頻率越高，越快有定局，但會增加儲存成本。|任何數值|15
 交易權限合約 (進階選項 = 啟用)|交易授權合約的位元組程式碼。 會限制智慧合約部署和執行以太坊帳戶到允許清單。|合約位元組程式碼|NA
 
-如下所示的範例部署：![以太坊設定](./media/ethereum-poa-deployment/ethereum-settings.png)
+範例部署如下所示：![以太坊設定](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>監視
 
@@ -300,7 +300,7 @@ SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰
 現有 log analytics 主索引鍵 (連接到現有的 Azure 監視器記錄檔 = 加入現有)|用來連接到現有的 Azure 監視器記錄檔執行個體的主要金鑰||NA
 
 
-如下所示的範例部署： ![azure 監視器](./media/ethereum-poa-deployment/azure-monitor.png)
+範例部署如下所示：![Azure 監視器](./media/ethereum-poa-deployment/azure-monitor.png)
 
 #### <a name="summary"></a>總結
 

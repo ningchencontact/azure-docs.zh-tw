@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357634"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
@@ -26,8 +26,8 @@ ms.locfileid: "59357634"
 
 接下來的內容分為兩個不同小節，以不同的語言和環境為目標。 您可了解如何在下列案例中建置測試：
 
-- [C#在 Visual Studio 中使用 xUnit](#c-in-visual-studio)
-- [在 VS Code 與 Jest 的 JavaScript](#javascript-in-vs-code)
+- [Visual Studio 中的 C# 搭配 xUnit](#c-in-visual-studio)
+- [VS Code 中的 JavaScript 搭配 Jest](#javascript-in-vs-code)
 
 範例存放庫可於 [GitHub](https://github.com/Azure-Samples/azure-functions-tests) 取得。
 
@@ -378,5 +378,5 @@ npm test
 
 現在既然您已經了解如何為您的函式撰寫自動化測試，請繼續使用這些資源：
 - [手動執行非 HTTP 觸發的函式](./functions-manually-run-non-http.md)
-- [Azure 函式錯誤處理](./functions-bindings-error-pages.md)
+- [Azure Functions 錯誤處理](./functions-bindings-error-pages.md)
 - [Azure Functions 事件方格觸發程序本機偵錯](./functions-debug-event-grid-trigger-local.md)

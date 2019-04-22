@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fbc542ea2ed76d99d551d668b00bad1fb3719a9f
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012931"
 ---
 # <a name="register-a-saas-application"></a>註冊的 SaaS 應用程式
@@ -77,13 +77,13 @@ HTTP 方法
 
 `GET`
 
-*要求 URL*
+*Request URL (要求 URL)*
 
 **https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
 
 *URI 參數*
 
-|  **參數名稱**  | **必要項**  | **描述**                               |
+|  **參數名稱**  | **必要**  | **說明**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
 | tenantId             | True          | 已註冊的 AAD 應用程式租用戶識別碼   |
 |  |  |  |
@@ -91,15 +91,15 @@ HTTP 方法
 
 *要求標頭*
 
-|  **標頭名稱**  | **必要項** |  **描述**                                   |
+|  **標頭名稱**  | **必要** |  **說明**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
 |  Content-Type     | True         | 與要求相關聯的內容類型。 預設值為 `application/x-www-form-urlencoded`。  |
 |  |  |  |
 
 
-*Request body*
+*要求本文*
 
-| **屬性名稱**   | **必要項** |  **描述**                                                          |
+| **屬性名稱**   | **必要** |  **說明**                                                          |
 | -----------------   | -----------  | ------------------------------------------------------------------------- |
 |  Grant_type         | True         | 授與類型。 預設值為 `client_credentials`。                    |
 |  Client_id          | True         |  與 Azure AD 應用程式相關聯的用戶端/應用程式識別碼。                  |
@@ -108,9 +108,9 @@ HTTP 方法
 |  |  |  |
 
 
-*Response*
+*回應*
 
-|  **名稱**  | **類型**       |  **描述**    |
+|  **名稱**  | **類型**       |  **說明**    |
 | ---------- | -------------  | ------------------- |
 | 200 確定    | TokenResponse  | 要求成功   |
 |  |  |  |

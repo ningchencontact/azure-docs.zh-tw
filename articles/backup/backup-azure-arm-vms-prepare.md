@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
 ms.openlocfilehash: 142ffdadf4adb1ee07f3592624cbdddfb310b580
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264551"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>備份復原服務保存庫中的 Azure VM
@@ -164,8 +164,8 @@ ms.locfileid: "59264551"
 
 **VM** | **詳細資料**
 --- | ---
-** Windows** | 1.[下載並安裝](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)代理程式 MSI 檔案。<br/><br/> 2.以機器的系統管理員權限安裝。<br/><br/> 3.驗證安裝。 在  *C:\WindowsAzure\Packages*的 VM 上，以滑鼠右鍵按一下**WaAppAgent.exe** > **屬性**。 在 **詳細資料**索引標籤上，**產品版本**應為 2.6.1198.718 或更高版本。<br/><br/> 如果您正在更新代理程式，請確定會執行任何備份作業，並[重新安裝代理程式](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。
-** Linux** | 從您的散發套件存放庫使用 RPM 或 DEB 封裝安裝。 這是安裝和升級 Azure Linux 代理程式的慣用的方法。 所有[認可的散發套件提供者](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)都會將 Azure Linux 代理程式套件整合於本身的映像和儲存機制中。 代理程式可從 [GitHub](https://github.com/Azure/WALinuxAgent) 取得，但不建議從該處安裝。<br/><br/> 如果您正在更新代理程式，請確定任何備份作業正在執行，以及更新二進位檔案。
+**Windows** | 1.[下載並安裝](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)代理程式 MSI 檔案。<br/><br/> 2.以機器的系統管理員權限安裝。<br/><br/> 3.驗證安裝。 在  *C:\WindowsAzure\Packages*的 VM 上，以滑鼠右鍵按一下**WaAppAgent.exe** > **屬性**。 在 **詳細資料**索引標籤上，**產品版本**應為 2.6.1198.718 或更高版本。<br/><br/> 如果您正在更新代理程式，請確定會執行任何備份作業，並[重新安裝代理程式](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。
+**Linux** | 從您的散發套件存放庫使用 RPM 或 DEB 封裝安裝。 這是安裝和升級 Azure Linux 代理程式的慣用的方法。 所有[認可的散發套件提供者](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)都會將 Azure Linux 代理程式套件整合於本身的映像和儲存機制中。 代理程式可從 [GitHub](https://github.com/Azure/WALinuxAgent) 取得，但不建議從該處安裝。<br/><br/> 如果您正在更新代理程式，請確定任何備份作業正在執行，以及更新二進位檔案。
 
 ### <a name="explicitly-allow-outbound-access"></a>明確允許輸出存取
 
@@ -175,10 +175,10 @@ ms.locfileid: "59264551"
 - 如果您遇到困難與 Vm 連線，或如果您看到錯誤**ExtensionSnapshotFailedNoNetwork**時嘗試連線，您應該明確地允許存取讓備份擴充功能可以與 Azure 公用 IP 進行通訊備份流量的的位址。 下表摘要說明存取方法。
 
 
-**選項** | ** 動作** | **詳細資料** 
+**選項** | **Action** | **詳細資料** 
 --- | --- | --- 
 **設定 NSG 規則** | 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。<br/><br/> 而不是允許和管理每個位址範圍，您可以新增規則，以允許存取 Azure 備份服務會使用[服務標籤](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)。 | [深入了解](../virtual-network/security-overview.md#service-tags)服務標記。<br/><br/> 服務標記簡化存取管理，並不會產生額外費用。
-**部署 proxy** | 部署 HTTP Proxy 伺服器來路由傳送流量。 | 提供整個 Azure 的存取權，而不只是儲存體的存取權。<br/><br/> 可精確控制儲存體 URL。<br/><br/> VM 具有單一網際網路存取點。<br/><br/> Proxy 需要額外成本。
+**部署 Proxy** | 部署 HTTP Proxy 伺服器來路由傳送流量。 | 提供整個 Azure 的存取權，而不只是儲存體的存取權。<br/><br/> 可精確控制儲存體 URL。<br/><br/> VM 具有單一網際網路存取點。<br/><br/> Proxy 需要額外成本。
 **設定 Azure 防火牆** | 使用 Azure 備份服務的 FQDN 標記，允許流量通過 VM 上的 Azure 防火牆 | 容易使用，如果您在 VNet 子網路中設定的 Azure 防火牆。<br/><br/> 您無法建立您自己的 FQDN 標籤，或修改在標記中的 Fqdn。<br/><br/> 如果您的 Azure Vm 具有受控磁碟，您可能需要開啟其他防火牆上連接埠 (8443)。
 
 #### <a name="establish-network-connectivity"></a>建立網路連線
@@ -229,7 +229,7 @@ ms.locfileid: "59264551"
      - 將以下這一行新增至 **/etc/environment** 檔案：
        - **http_proxy = http: \/ /proxy IP 位址： proxy 連接埠**
      - 將以下幾行新增至 **/etc/waagent.conf** 檔案：
-         - **HttpProxy.Host=proxy IP 位址**
+         - **HttpProxy.Host=proxy IP address**
          - **HttpProxy.Port=proxy port**
    - 在 Windows 機器上，在瀏覽器設定中指定應使用 Proxy。 如果您目前使用使用者帳戶上的 Proxy，您可以使用此指令碼，將此設定套用至系統帳戶層級。
        ```powershell

@@ -34,8 +34,8 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/azure-maps/tutorial-search-location">搜尋景點</a>
-          - html: <a href="/azure/azure-maps/tutorial-route-location">景點路線</a>
+          - html: <a href="/azure/azure-maps/tutorial-search-location">搜尋興趣點</a>
+          - html: <a href="/azure/azure-maps/tutorial-route-location">興趣點路線</a>
           - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">依旅遊方式區分的路線</a>
           - html: <a href="/azure/azure-maps/tutorial-create-store-locator">建立存放區定位器</a>
       - html: <b>REST API 教學課程</b>

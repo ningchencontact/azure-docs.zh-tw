@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045759"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>取得 Azure 資訊安全中心的全租用戶可見性
@@ -194,5 +194,5 @@ Azure Active Directory 租用戶管理員並沒有 Azure 訂用帳戶的直接�
 > [Azure 資訊安全中心的安全性健康情況監視](security-center-monitoring.md)
 
 > [!div class="nextstepaction"]
-> [管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)
+> [在 Azure 資訊安全中心管理和回應安全性警示](security-center-managing-and-responding-alerts.md)
 

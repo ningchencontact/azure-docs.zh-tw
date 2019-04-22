@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276094"
 ---
 # <a name="determine-causes-of-non-compliance"></a>判斷不符合的原因
@@ -19,8 +19,8 @@ ms.locfileid: "59276094"
 當 Azure 資源會判定為不符合規範的原則規則時，最好了解哪一部分的資源不符合規範的規則。 它也是有助於您了解哪些變更會改變先前符合規範的資源，以讓它不符合規範。 有兩種方式可找到這項資訊：
 
 > [!div class="checklist"]
-> - [相容性詳細資料](#compliance-details)
-> - [變更歷程記錄 (預覽)](#change-history-preview)
+> - [合規性詳細資料](#compliance-details)
+> - [變更歷程記錄 （預覽）](#change-history-preview)
 
 ## <a name="compliance-details"></a>相容性詳細資料
 

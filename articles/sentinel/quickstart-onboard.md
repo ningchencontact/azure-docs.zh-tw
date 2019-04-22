@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276638"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>內建的 Azure Sentinel 預覽
@@ -49,7 +49,7 @@ ms.locfileid: "59276638"
 1. 移至 Azure 入口網站。
 2. 請確定已選取 Azure Sentinel 建立所在的訂用帳戶。 
 3. Azure 的 Sentinel 搜尋。 
-   ![搜尋](./media/quickstart-onboard/search-product.png)
+   ![search](./media/quickstart-onboard/search-product.png)
 
 1. 按一下 [+新增]。
 1. 選取您想要使用或建立一個新的工作區。 您可以執行 Azure Sentinel 上多個工作區中，但資料完全隔離至單一工作區。

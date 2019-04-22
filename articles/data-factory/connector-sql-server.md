@@ -1,4 +1,4 @@
-﻿---
+---
 title: 使用 Azure Data Factory 將資料複製到 SQL Server 或從該處複製資料 | Microsoft Docs
 description: 了解如何使用 Azure Data Factory，從內部部署或 Azure VM 中的 SQL Server 資料庫來回移動資料。
 services: data-factory
@@ -515,9 +515,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
+| date |Datetime |
+| datetime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -531,7 +531,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
@@ -542,7 +542,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |Xml |
 
 >[!NOTE]
 > 針對對應至 Decimal 過渡期類型的資料類型，目前 ADF 支援的有效位數最多可達 28。 如果您有有效位數超過 28 的資料，請考慮在 SQL 查詢中將其轉換成字串。

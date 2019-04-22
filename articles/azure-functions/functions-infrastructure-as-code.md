@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
 ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270893"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions 中函數應用程式的自動化資源部署
@@ -27,8 +27,8 @@ ms.locfileid: "59270893"
 如需關於建立範本的詳細資訊，請參閱 [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。
 
 如需範例範本，請參閱：
-- [取用方案的函數應用程式]
-- [Azure App Service 方案的函數應用程式]
+- [採用取用方案的函數應用程式]
+- [採用 Azure App Service 方案的函數應用程式]
 
 > [!NOTE]
 > Azure Functions 裝載的進階方案目前為預覽狀態。 如需詳細資訊，請參閱 < [Azure Functions 的進階方案](functions-premium-plan.md)。
@@ -123,7 +123,7 @@ Application Insights 監視您的函式應用程式的建議。 Application Insi
 主控方案的定義會有所差異，並可以是下列其中一項：
 * [取用方案](#consumption)（預設值）
 * [進階方案](#premium)（處於預覽狀態）
-* [App Service 方案](#app-service-plan)
+* [App Service 計劃](#app-service-plan)
 
 ### <a name="function-app"></a>函式應用程式
 
@@ -216,7 +216,7 @@ Application Insights 監視您的函式應用程式的建議。 Application Insi
 
 ### <a name="create-a-function-app"></a>建立函數應用程式
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 在 Windows 中，取用方案需要在站台設定中的兩個其他設定：`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`和`WEBSITE_CONTENTSHARE`。 這些屬性能設定儲存函數應用程式程式碼和組態的儲存體帳戶和檔案路徑。
 
@@ -263,7 +263,7 @@ Application Insights 監視您的函式應用程式的建議。 Application Insi
 }
 ```
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 
 函式應用程式必須具有在 Linux 上，其`kind`設定為`functionapp,linux`，而且必須`reserved`屬性設定為`true`:
 
@@ -645,7 +645,7 @@ Linux 應用程式也應該包括`linuxFxVersion`屬性下的`siteConfig`。 如
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure 入口網站](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure 门户](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>部署至 Azure 按鈕
@@ -669,10 +669,10 @@ Linux 應用程式也應該包括`linuxFxVersion`屬性下的`siteConfig`。 如
 深入了解如何開發並設定 Azure Functions。
 
 * [Azure Functions 開發人員參考](functions-reference.md)
-* [如何設定 Azure 函式應用程式設定](functions-how-to-use-azure-function-app-settings.md)
-* [建立您第一個 Azure 函式](functions-create-first-azure-function.md)
+* [如何設定 Azure Functions 應用程式設定](functions-how-to-use-azure-function-app-settings.md)
+* [建立您的第一個 Azure 函式](functions-create-first-azure-function.md)
 
 <!-- LINKS -->
 
-[取用方案的函數應用程式]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Azure App Service 方案的函數應用程式]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[採用取用方案的函數應用程式]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[採用 Azure App Service 方案的函數應用程式]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json

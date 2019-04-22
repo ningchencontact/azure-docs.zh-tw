@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
 ms.openlocfilehash: 1c0c48efc7abf4b810e92b5cd04d1538577c71d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268275"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>流量管理員的計量與警示
@@ -33,13 +33,13 @@ ms.locfileid: "59268275"
   
 ![所有查詢的彙總檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*圖 1：所有的查詢與彙總檢視*
+*圖 1：所有查詢的彙總檢視*
   
 圖 2 顯示相同的資訊，但是依端點分割。 因此，您可以查看傳回特定端點的查詢回應量。
 
 ![流量管理員計量 - 每個端點的查詢量分割檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*圖 2：分割檢視，以顯示每個端點傳回的查詢磁碟區*
+*圖 2：顯示所傳回每個端點查詢量的分割檢視*
 
 ## <a name="endpoint-status-by-endpoint"></a>依端點的端點狀態
 使用[此計量](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles)來了解設定檔中端點的健全狀態。 它採用兩個值：
@@ -51,12 +51,12 @@ ms.locfileid: "59268275"
 
 ![流量管理員計量 - 端點狀態的複合檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*圖 3：端點狀態度量 – 選取的 「 平均 」 彙總的複合檢視*
+*圖 3：端點狀態計量的複合檢視 - 已選取 [平均] 彙總*
 
 
 ![流量管理員計量 - 端點狀態的分割檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*圖 4：分割檢視的端點狀態度量*
+*圖 4：端點狀態計量的分割檢視*
 
 您可以透過 [Azure 監視器服務](../azure-monitor/platform/metrics-supported.md)的入口網站、[REST API](https://docs.microsoft.com/rest/api/monitor/)、[Azure CLI](https://docs.microsoft.com/cli/azure/monitor)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)，或流量管理員的入口網站體驗來取用這些計量。
 

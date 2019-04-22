@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
 ms.openlocfilehash: 13eb800cd64e0de736b1fdea308a03d8a8d0f046
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358190"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>使用 Azure 備份還原已加密 VM 的金鑰保存庫金鑰與密碼
@@ -66,7 +66,7 @@ Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDes
 
 使用上面所產生的 JSON 檔案來取得秘密名稱和值，並將其饋送至設定祕密 Cmdlet，以將祕密 (BEK) 放回金鑰保存庫中。 如果**使用 BEK 和 KEK 加密您的 VM**，請使用這些 Cmdlet。
 
-**如果使用 BEK 和 KEK 加密您的 Windows VM，請使用下列 cmdlet。**
+**如果使用 BEK 和 KEK 加密您的 Windows VM，請使用這些 Cmdlet。**
 
 ```powershell
 $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
@@ -76,7 +76,7 @@ $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKey
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-**如果使用 BEK 和 KEK 加密您的 Linux VM，請使用下列 cmdlet。**
+**如果使用 BEK 和 KEK 加密您的 Linux VM，請使用這些 Cmdlet。**
 
 ```powershell
 $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData

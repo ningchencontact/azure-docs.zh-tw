@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267135"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>設定 Azure 雲端服務的自訂網域名稱
@@ -64,11 +64,11 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 
 1. 使用其中一種方法來尋找指派給雲端服務的 **.cloudapp.net** 網域名稱。
 
-   * 登入[Azure 入口網站]，選取您的雲端服務，查看**概觀**區段，然後尋找**站台 URL**項目。
+   * 登录到 [Azure 门户]，选择云服务，查看“概述”部分，然后找到“站点 URL”条目。
 
        ![快速瀏覽區段，其中顯示網站 URL][csurl]
 
-       **或**
+       **或者**
    * 安裝並設定 [Azure Powershell](/powershell/azure/overview)，然後使用下列命令：
 
        ```powershell
@@ -97,7 +97,7 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 
 1. 使用下列其中一種方法取得雲端服務的 IP 位址。
 
-   * 登入[Azure 入口網站]，選取您的雲端服務，查看**概觀**區段，然後尋找**公用 IP 位址**項目。
+   * 登录到 [Azure 门户]，选择云服务，查看“概述”部分，然后找到“公共 IP 地址”条目。
 
        ![快速瀏覽區段，其中顯示 VIP][vip]
 
@@ -130,17 +130,17 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 > 
 
 ## <a name="next-steps"></a>後續步驟
-* [如何管理雲端服務](cloud-services-how-to-manage-portal.md)
+* [如何管理云服务](cloud-services-how-to-manage-portal.md)
 * [如何將 CDN 內容對應至自訂網域](../cdn/cdn-map-content-to-custom-domain.md)
 * [雲端服務的一般設定](cloud-services-how-to-configure-portal.md)。
 * 了解如何 [部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。
-* 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
+* 配置 [SSL 证书](cloud-services-configure-ssl-certificate-portal.md)。
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure 入口網站]: https://portal.azure.com
+[Azure 门户]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png

@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010544"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
@@ -37,7 +37,7 @@ ms.locfileid: "59010544"
 
 針對系統指派的受控識別，您不需要手動建立該身分識別。 若要為您的邏輯應用程式設定系統指派的受控識別，您可以使用下列方式： 
 
-* [Azure 入口網站](#azure-portal) 
+* [Azure 门户](#azure-portal) 
 * [Azure 資源管理員範本](#template) 
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
 
@@ -113,8 +113,8 @@ ms.locfileid: "59010544"
 
 | 屬性 | 值 | 描述 | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | 全域唯一識別碼 (GUID)，表示邏輯應用程式在 Azure AD 租用戶中，有時會顯示為 [物件識別碼] 或 `objectID` | 
-| **tenantId** | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
+| **principalId** | <*principal-ID*> | 代表 Azure AD 租用戶中的邏輯應用程式，且有時會以「物件識別碼」或 `objectID` 之形式呈現的全域唯一識別碼 (GUID) | 
+| tenantId | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
 ||| 
 
 <a name="access-other-resources"></a>

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012946"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>自動使用 Azure 入口網站的大規模的 IoT 裝置管理
@@ -178,7 +178,7 @@ SELECT deviceId FROM devices
    * 目標條件 
    * 標籤 
    * 優先順序 
-   * 度量
+   * 指标
 
 4. 選取 [ **儲存**]。
 
@@ -209,7 +209,7 @@ SELECT deviceId FROM devices
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
 * [IoT 中樞開發人員指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 將 AI 部署到 edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)
 
 若要探索使用 IoT 中樞裝置佈建服務進行 Just-In-Time 自動佈建，請參閱： 
 

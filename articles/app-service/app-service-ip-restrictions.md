@@ -1,6 +1,6 @@
 ---
 title: 限制用戶端 IP - Azure App Service | Microsoft Docs
-description: 如何使用 Azure App Service 中的存取限制
+description: 如何将访问限制与 Azure 应用服务配合使用
 author: ccompy
 manager: stefsch
 editor: ''
@@ -16,59 +16,59 @@ ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bb6ab29f02282a394e3f93e41682ceaec5208b75
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357627"
 ---
-# <a name="azure-app-service-static-access-restrictions"></a>Azure App Service 靜態存取限制 #
+# <a name="azure-app-service-static-access-restrictions"></a>Azure 应用服务静态访问限制 #
 
-存取限制可讓您定義優先排序的允許存取您的應用程式的 IP 位址的允許/拒絕清單。 允許清單可以包含 IPv4 和 IPv6 位址。 有一個或多個項目時，清單結尾會有隱含的「拒絕全部」語句。
+使用访问限制可以定义允许访问应用的 IP 地址的允许/拒绝列表（按优先级排序）。 允許清單可以包含 IPv4 和 IPv6 位址。 有一個或多個項目時，清單結尾會有隱含的「拒絕全部」語句。
 
-存取限制功能適用於所有 App Service 裝載的工作負載，包括：web apps、 API 應用程式、 Linux 應用程式、 Linux 容器應用程式，以及函式。
+访问限制功能适用于所有应用服务托管工作负荷，包括 Web 应用、API 应用、Linux 应用、Linux 容器应用和 Functions。
 
-您的應用程式提出要求的來源 IP 位址會評估存取限制清單進行比對。 如果根據清單中的規則，不允許該位址進行存取，則服務會回覆 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 狀態碼。
+向应用发出请求时，将针对访问限制列表评估 FROM IP 地址。 如果根據清單中的規則，不允許該位址進行存取，則服務會回覆 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 狀態碼。
 
-App Service 前端角色，也就是上游的背景工作角色主機執行程式碼中實作的存取限制功能。 因此，存取限制實際上是網路 Acl。  
+访问限制功能是在应用服务前端角色（即代码运行所在的辅助角色主机中的上游）中实现的。 因此，访问限制是有效的网络 ACL。  
 
-![存取限制流程](media/app-service-ip-restrictions/ip-restrictions-flow.png)
+![访问限制流](media/app-service-ip-restrictions/ip-restrictions-flow.png)
 
-時間內，在入口網站的存取限制功能是在 IIS 中的 ipSecurity 功能之上的層級。 目前的存取限制功能會不同。 您仍然可以在您的應用程式 web.config 中設定 ipSecurity，但任何流量到達 IIS 之前，將會套用前端為基礎的存取限制的規則。
+门户中的访问限制功能曾经是 IIS 中的 ipSecurity 功能之上的一个层。 而现在的访问限制功能是不同的。 现在依然可以在应用程序 web.config 中配置 ipSecurity，但是会在任何流量到达 IIS 之前应用基于前端的访问限制规则。
 
-## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>新增和編輯在入口網站的存取限制規則 ##
+## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>在门户中添加并编辑访问限制规则 ##
 
-若要加入您的應用程式的存取限制的規則，請使用功能表來開啟**網路**>**存取限制**，然後按一下**設定存取限制**
+若要向应用添加访问限制规则，请使用菜单打开“网络”>“访问限制”，然后单击“配置访问限制”
 
 ![App Service 網路功能選項](media/app-service-ip-restrictions/ip-restrictions.png)  
 
-從存取限制 UI 中，您可以檢閱針對您的應用程式所定義的存取限制規則的清單。
+从访问限制 UI 可以查看为应用定义的访问限制规则列表。
 
-![清單的存取限制](media/app-service-ip-restrictions/ip-restrictions-browse.png)
+![列出访问限制](media/app-service-ip-restrictions/ip-restrictions-browse.png)
 
 如果您的規則設定與此圖片中的一樣，則應用程式只會接受來自 131.107.159.0/24 的流量，並且拒絕來自任何其他 IP 位址的流量。
 
-您可以按一下 **[+] 新增**來新增新的存取限制規則。 當您新增規則之後，該規則會立即生效。 規則會依據優先順序強制執行，從最小數字開始往上增加。 當您新增規則時 (即使只新增一個規則)，隱含的「拒絕所有」語句就會發生作用。
+可单击“[+] 添加”以添加新的访问限制规则。 當您新增規則之後，該規則會立即生效。 規則會依據優先順序強制執行，從最小數字開始往上增加。 當您新增規則時 (即使只新增一個規則)，隱含的「拒絕所有」語句就會發生作用。
 
-![新增存取限制規則](media/app-service-ip-restrictions/ip-restrictions-add.png)
+![添加访问限制规则](media/app-service-ip-restrictions/ip-restrictions-add.png)
 
 針對 IPv4 和 IPv6 位址，CIDR 標記法中必須指定 IP 位址標記法。 若要指定正確的位址，您可以使用類似 1.2.3.4/32 的位址，其中前四個八位元代表您的 IP 位址，而 /32 是遮罩。 適用於所有位址的 IPv4 CIDR 標記法是 0.0.0.0/0。 若要深入了解 CIDR 標記法，您可以參閱[無類別網域間路由](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)。  
 
-您可以按一下要編輯現有的存取限制規則的任何資料列。 編輯內容與優先順序的變更都會立即生效。
+单击任一行，可编辑现有访问限制规则。 編輯內容與優先順序的變更都會立即生效。
 
-![編輯存取權限制規則](media/app-service-ip-restrictions/ip-restrictions-edit.png)
+![编辑访问限制规则](media/app-service-ip-restrictions/ip-restrictions-edit.png)
 
 若要刪除規則，請按一下您規則上的 [...]，然後按一下 [移除]。
 
-![刪除存取權限制規則](media/app-service-ip-restrictions/ip-restrictions-delete.png)
+![删除访问限制规则](media/app-service-ip-restrictions/ip-restrictions-delete.png)
 
-您也可以限制部署的下一步 索引標籤中的存取權。新增/編輯/刪除每個規則，請遵循與上述相同的步驟。
+也可以在下一个选项卡中限制部署访问。若要添加/编辑/删除每个规则，请执行上述相同步骤。
 
-![清單的存取限制](media/app-service-ip-restrictions/ip-restrictions-scm-browse.png)
+![列出访问限制](media/app-service-ip-restrictions/ip-restrictions-scm-browse.png)
 
-## <a name="programmatic-manipulation-of-access-restriction-rules"></a>以程式設計方式管理存取限制規則 ##
+## <a name="programmatic-manipulation-of-access-restriction-rules"></a>访问限制规则的编程操作 ##
 
-目前沒有任何 PowerShell 或 CLI 適用於新的存取限制功能，但您可以手動設定值，與應用程式組態在 Resource Manager 上執行 PUT 作業。 例如，您可以使用 resources.azure.com，並編輯 ipSecurityRestrictions 區塊來新增必要的 JSON。
+新的访问限制功能目前没有适用的 CLI 或 PowerShell，但是可以通过 PUT 操作在资源管理器中的应用配置上手动设置值。 例如，您可以使用 resources.azure.com，並編輯 ipSecurityRestrictions 區塊來新增必要的 JSON。
 
 您可以在資源管理員中的以下位置找到此資訊：
 
@@ -90,4 +90,4 @@ management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource
 
 IP 限制可供這兩個函式使用應用程式與 App Service 方案相同的功能。 請注意，啟用 IP 限制會停用任何不允許的 Ip 入口網站的程式碼編輯器。
 
-[進一步了解](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+[在這裡深入了解](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)

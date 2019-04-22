@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: codepen
 ms.openlocfilehash: b8205383c25ba04212126e0e6ca1bd44e4efad1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264517"
 ---
 # <a name="show-directions-from-a-to-b"></a>顯示從甲地到乙地的指示
@@ -29,7 +29,7 @@ ms.locfileid: "59264517"
 
 在上述程式碼，程式碼的第一個區塊建構對應物件，並設定為使用的訂用帳戶金鑰的驗證機制。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-程式碼的第二個區塊建立`SubscriptionKeyCredentialPolicy`來驗證對 Azure 地圖服務的 HTTP 要求，與訂用帳戶金鑰。 `atlas.service.MapsURL.newPipeline()`會採用`SubscriptionKeyCredential`原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 `routeURL`表示 Azure 地圖服務的 URL[路由](https://docs.microsoft.com/rest/api/maps/route)作業。
+程式碼的第二個區塊建立`SubscriptionKeyCredentialPolicy`來驗證對 Azure 地圖服務的 HTTP 要求，與訂用帳戶金鑰。 `atlas.service.MapsURL.newPipeline()` 會採用 `SubscriptionKeyCredential` 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 `routeURL` 代表 Azure 地圖服務[路線規劃](https://docs.microsoft.com/rest/api/maps/route)作業的 URL。
 
 建立程式碼的第三個區塊，並將[DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)到對應的物件。
 
@@ -71,7 +71,7 @@ ms.locfileid: "59264517"
 深入了解本文使用的類別和方法：
 
 > [!div class="nextstepaction"]
-> [對應](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [地圖](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 請參閱下列文章中的完整程式碼範例：
 
@@ -79,4 +79,4 @@ ms.locfileid: "59264517"
 > [在地圖上顯示路況](./map-show-traffic.md)
 
 > [!div class="nextstepaction"]
-> [地圖-滑鼠事件互動](./map-events.md)
+> [與地圖互動 – 滑鼠事件](./map-events.md)

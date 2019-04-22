@@ -14,10 +14,10 @@ ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272373"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>使用 Azure DevTest Labs 的常見案例
@@ -82,7 +82,7 @@ ms.locfileid: "59272373"
 A**概念證明**部署著重於心力來自同一個小組以建立組織的值。 雖然很容易讓人聯想到經過調整的部署，但此方法往往比證明概念選項更容易失敗。 因此，我們建議從小規模開始、從第一個小組進行了解、透過二至三個其他小組重複使用相同方法，然後根據所獲得的知識來規劃經過調整的部署。 對於成功的概念證明，我們建議您挑選一或兩個小組，並識別他們的案例 (開發環境與測試環境)、記錄其目前的使用案例，以及部署 DevTest Labs。
 
 ## <a name="next-steps"></a>後續步驟
-閱讀下列文章：
+請閱讀下列文章：
 
 - [研發/測試實驗室概念](devtest-lab-concepts.md)
 - [DevTest Labs 常見問題集](devtest-lab-faq.md)

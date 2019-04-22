@@ -12,10 +12,10 @@ ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010408"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>監視 Azure 搜尋服務中的資源耗用量和查詢活動
@@ -96,7 +96,7 @@ Azure 監視器記錄檔和 Blob 儲存體是免費的共用服務的形式提�
 * insights-logs-operationlogs：適用於搜尋流量記錄
 * insights-metrics-pt1m：適用於計量
 
-**需要一小時的時間，容器才會出現在 Blob 儲存體中。 每個容器每小時會有一個 Blob。**
+**需要一個小時的時間才容器會出現在 Blob 儲存體。沒有一個 blob，每小時、 每個容器。**
 
 您可以使用 [Visual Studio Code](#download-and-open-in-visual-studio-code) 或另一個 JSON 編輯器還檢視檔案。 
 
@@ -111,7 +111,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 | 名稱 | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
-| 分析 |Datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
+| 分析 |datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
 | ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
 | operationName |字串 |"Query.Search" |作業的名稱 |
 | operationVersion |字串 |"2017-11-11" |使用的 api-version |
@@ -138,7 +138,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | --- | --- | --- | --- |
 | ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
 | metricName |字串 |"Latency" |度量的名稱 |
-| 分析 |Datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
+| 分析 |datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
 | average |int |64 |度量時間間隔中原始範例的平均值 |
 | minimum |int |37 |度量時間間隔中原始範例的最小值 |
 | maximum |int |78 |度量時間間隔中原始範例的最大值 |

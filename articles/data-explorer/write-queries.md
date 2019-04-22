@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: b1a7e64cf6b85b517bc027d6541d63c9be729734
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274618"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>撰寫 Azure 資料總管查詢
@@ -901,7 +901,7 @@ StormEvents
 
 [**funnel_sequence_completion plugin**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin)：計算在不同時段內已完成序列步驟的漏斗圖。
 
-下列查詢會檢查完成漏斗圖的序列： `Hail -> Tornado -> Thunderstorm -> Wind` 在 「 整體 」 的四個小時和一天的一小時 (`[1h, 4h, 1d]`)。
+下列查詢會檢查序列的完成漏斗圖：在一小時、四小時及一天 (`[1h, 4h, 1d]`) 的「整體」時間中的 `Hail -> Tornado -> Thunderstorm -> Wind` 。
 
 **\[**[**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -948,4 +948,4 @@ MyFunction ("Texas")
 
 ## <a name="next-steps"></a>後續步驟
 
-[Kusto 查詢語言參考](https://aka.ms/kustolangref)
+[Kusto 查詢語言參考](https://aka.ms/kustolangref) (英文)

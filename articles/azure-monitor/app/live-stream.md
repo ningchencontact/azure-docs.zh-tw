@@ -14,10 +14,10 @@ ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009960"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流：以 1 秒的延遲進行監視與診斷
@@ -34,7 +34,7 @@ ms.locfileid: "59009960"
 * 即時監看任何 Windows 效能計數器。
 * 輕鬆識別有問題的伺服器，並將所有 KPI/即時摘要篩選到只有該伺服器。
 
-[![L比爾蓋茲計量 Stream 的影片](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![即時計量資料流影片](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
 即時計量目前支援 ASP.NET、 ASP.NET Core、 Azure Functions、 Java 和 Node.js 應用程式。
 
@@ -60,7 +60,7 @@ ms.locfileid: "59009960"
 | |即時資料流 | 計量瀏覽器和分析 |
 |---|---|---|
 |延遲|在一秒內顯示資料|在幾分鐘後進行彙總|
-|沒有保留|資料在圖表上就會保存，之後便會捨棄該資料|[保留 90 天的資料](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|沒有保留|資料在圖表上就會保存，之後便會捨棄該資料|[資料會保留 90 天](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |隨選|當您開啟即時計量時會串流處理資料|每當安裝並啟用 SDK 時都會傳送資料|
 |免費|即時資料流資料免費|依[價格](../../azure-monitor/app/pricing.md)付費
 |取樣|傳輸所有選取的計量和計數器。 取樣失敗和堆疊追蹤。 不會套用 TelemetryProcessors。|可能[取樣](../../azure-monitor/app/api-filtering-sampling.md)事件|
@@ -207,7 +207,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 Application Insights 監視使用狀況](../../azure-monitor/app/usage-overview.md)
+* [使用 Application Insights 監視使用情況](../../azure-monitor/app/usage-overview.md)
 * [使用診斷搜尋](../../azure-monitor/app/diagnostic-search.md)
 * [分析工具](../../azure-monitor/app/profiler.md)
 * [快照集偵錯工具](../../azure-monitor/app/snapshot-debugger.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282095"
 ---
 # <a name="about-point-to-site-vpn"></a>關於點對站 VPN
@@ -47,7 +47,7 @@ ms.locfileid: "59282095"
 
 AD 網域驗證可讓使用者使用其組織網域認證來連線至 Azure。 它需要可與 AD 伺服器整合的 RADIUS 伺服器。 組織也可利用其現有的 RADIUS 部署。   
   
-RADIUS 伺服器可以部署在內部部署環境或 Azure VNET 中。 在驗證期間，Azure VPN 閘道可作為 RADIUS 伺服器與連線裝置之間的通道，雙向轉送驗證訊息。 所以閘道觸達 RADIUS 伺服器的能力很重要。 如果出現在內部部署 RADIUS 伺服器，從 Azure 到內部部署站台 VPN S2S 連線是才能觸達。  
+RADIUS 伺服器可以部署在內部部署環境或 Azure VNET 中。 在驗證期間，Azure VPN 閘道可作為 RADIUS 伺服器與連線裝置之間的通道，雙向轉送驗證訊息。 所以閘道觸達 RADIUS 伺服器的能力很重要。 如果 RADIUS 伺服器位於內部部署環境，則需要從 Azure 到內部部署網站的 VPN S2S 連線才能觸達。  
   
 RADIUS 伺服器也可以與 AD 憑證服務整合。 這可讓您對 P2S 憑證驗證使用 RADIUS 伺服器和企業憑證部署，來替代 Azure 憑證驗證。 優點是，您不需要將根憑證及撤銷的憑證上傳至 Azure。
 
@@ -90,9 +90,9 @@ Zip 檔案也會提供 Azure 端的某些重要設定值，以便用於為這些
 
 P2S 設定需要相當多的特定步驟。 下列文章包含的步驟可引導您進行 P2S 設定，然後連結以設定 VPN 用戶端裝置：
 
-* [設定 P2S 連線-RADIUS 驗證](point-to-site-how-to-radius-ps.md)
+* [設定 P2S 連線 - RADIUS 驗證](point-to-site-how-to-radius-ps.md)
 
-* [設定 P2S 連線-Azure 原生憑證驗證](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [設定 P2S 連線 - Azure 原生憑證驗證](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 * [設定 OpenVPN](vpn-gateway-howto-openvpn.md)
 
@@ -106,8 +106,8 @@ P2S 設定需要相當多的特定步驟。 下列文章包含的步驟可引導
 
 ## <a name="next-steps"></a>後續步驟
 
-* [設定 P2S 連線-RADIUS 驗證](point-to-site-how-to-radius-ps.md)
+* [設定 P2S 連線 - RADIUS 驗證](point-to-site-how-to-radius-ps.md)
 
-* [設定 P2S 連線-Azure 原生憑證驗證](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [設定 P2S 連線 - Azure 原生憑證驗證](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 **「 OpenVPN"是 OpenVPN Inc.的商標。**

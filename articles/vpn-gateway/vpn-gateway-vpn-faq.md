@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
 ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281044"
 ---
 # <a name="vpn-gateway-faq"></a>VPN 閘道常見問題集
@@ -72,10 +72,10 @@ VPN 閘道是一種虛擬網路閘道。 VPN 閘道可透過公用連線在您�
 沒有。 Azure Vnet 閘道類型無法從原則型變更為路由型或其他方式。 閘道必須刪除並重新建立，程序大約要 60 分鐘的時間。 閘道的 IP 位址不會保留，預先共用金鑰 (PSK) 也不會保留。
 1. 刪除與要刪除之閘道相關聯的任何連線。
 1. 刪除閘道：
-1. [Azure 入口網站](vpn-gateway-delete-vnet-gateway-portal.md)
+1. [Azure 门户](vpn-gateway-delete-vnet-gateway-portal.md)
 1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-1. [Azure Powershell-傳統](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [建立新的閘道的所需的類型，並完成 VPN 設定](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+1. [Azure Powershell - 傳統](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [建立所需類型的新閘道，並且完成 VPN 設定](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>是否需要 'GatewaySubnet'？
 
@@ -182,8 +182,8 @@ Azure 基礎結構通訊需要這些連接埠。 它們受到 Azure 憑證的保
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>是否可以使用 Azure VPN 閘道，在我的內部部署網站之間傳輸流量，或將流量傳輸到另一個虛擬網路？
 
-**資源管理員部署模型。**<br>
-是。 如需詳細資訊，請參閱 [BGP](#bgp) 一節。
+**Resource Manager 部署模型**<br>
+是。 有关详细信息，请参阅 [BGP](#bgp) 部分。
 
 **傳統部署模型**<br>
 使用傳統部署模型即可透過 Azure VPN 閘道傳輸流量，但其依賴網路組態檔中靜態定義的位址空間。 使用傳統部署模型的 Azure 虛擬網路和 VPN 閘道尚未支援 BGP。 若沒有 BGP，手動定義傳輸位址空間很容易出錯，因此並不建議。

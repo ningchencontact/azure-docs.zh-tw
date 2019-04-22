@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357400"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>將環境整合到您的 Azure DevOps 的 CI/CD 管線
@@ -62,7 +62,7 @@ ms.locfileid: "59357400"
 4. 針對**範本名稱**，選取 儲存到您來源的程式碼存放庫 * 環境的名稱。 
 5. **實驗室名稱**，**存放庫名稱**，並**範本名稱**是易記的 Azure 資源識別碼。 手動輸入的易記名稱將會導致失敗，請使用下拉式清單選取的資訊。
 6. 針對**環境名稱**，輸入名稱來唯一識別實驗室環境執行個體。  它必須是實驗室中的唯一項目。
-7. **參數檔案**並**參數**，允許自訂參數傳遞至環境。 其中之一或兩者，都可以用來設定參數值。 此範例中，將使用的參數區段。 請使用您在環境中定義的變數名稱，例如： `-administratorLogin “$(administratorLogin)” -administratorLoginPassword “$(administratorLoginPassword)” -databaseName “$(databaseName)” -cacheSKUCapacity 1`
+7. **參數檔案**並**參數**，允許自訂參數傳遞至環境。 其中之一或兩者，都可以用來設定參數值。 此範例中，將使用的參數區段。 使用您定義在環境中，例如變數名稱： `-administratorLogin “$(administratorLogin)” -administratorLoginPassword “$(administratorLoginPassword)” -databaseName “$(databaseName)” -cacheSKUCapacity 1`
 8. 範本的輸出區段中，可以透過傳遞環境範本內的資訊。 請檢查**建立根據環境範本輸出的輸出變數**讓其他工作可以使用的資料。 `$(Reference name.Output Name)` 是要遵循的模式。 比方說，如果參考名稱為 DTL 而範本中的輸出名稱為位置的變數會是`$(DTL.location)`。
 
 ## <a name="delete-the-environment"></a>刪除環境

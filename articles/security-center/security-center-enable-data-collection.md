@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: monhaber
 ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006747"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
@@ -77,7 +77,7 @@ ms.locfileid: "59006747"
 若要選取資訊安全中心所建立的工作區：
 
 1. 在 [預設工作區組態] 下，選取 [使用資訊安全中心建立的工作區]。
-   ![請選取定價層][10] 
+   ![選取定價層][10] 
 
 1. 按一下 [檔案] 。<br>
     資訊安全中心會在此地理位置建立新的資源群組和預設工作區，並將代理程式連線到該工作區。 工作區和資源群組的命名慣例如下：<br>
@@ -137,8 +137,8 @@ ms.locfileid: "59006747"
     a.  在 [資訊安全中心] 主功能表中，選取 [安全性原則]。
      
     b.  在清單中所需訂用帳戶的 [設定] 資料行中按一下 [編輯設定]，以選取您要在其中連線代理程式的所需工作區。
-        ![選取工作區][8]c。 設定定價層。
-        ![請選取定價層][9] 
+        ![選取工作區][8] c. 設定定價層。
+        ![選取定價層][9] 
    
    >[!NOTE]
    >如果工作區已經啟用 **Security** 或 **SecurityCenterFree** 解決方案，將會自動設定定價。 
@@ -256,7 +256,7 @@ ms.locfileid: "59006747"
    b.  選取您要在其中連線代理程式的工作區。 請確定工作區位於您在資訊安全中心使用的相同訂用帳戶中，而且您具備工作區的讀取/寫入權限。
        ![選取工作區][8]
 3. 設定定價層。
-   ![請選取定價層][9] 
+   ![選取定價層][9] 
    >[!NOTE]
    >如果工作區已經啟用 **Security** 或 **SecurityCenterFree** 解決方案，將會自動設定定價。 
    > 

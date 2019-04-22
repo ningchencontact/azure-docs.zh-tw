@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009762"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化已佈建的輸送量成本
@@ -39,13 +39,13 @@ Azure Cosmos DB 可藉由提供所佈建的輸送量模型，於任何規模提�
 
 4. 您不想對個別容器設定特定輸送量，而是想要跨資料庫內的一組容器取得彙總輸送量。
 
-**如果佈建個別的容器上的輸送量，請考慮：**
+**如果您有下列情況，請考慮對個別容器佈建輸送量：**
 
 1. 您有一些 Azure Cosmos 容器。 由於 Azure Cosmos DB 不限結構描述，所以容器所含的項目可具有異質結構描述，而且客戶不必建立多個容器類型 (每個實體一種)。 如果應該將個別容器 (假設有 10 到 20 個) 群組為單一容器，您永遠應該考慮此選項。 容器至少有 400 RU 時，將 10 到 20 個容器形成一個容器集區會更符合成本效益。 
 
 2. 您想要控制特定容器的輸送量，並根據 SLA 在指定容器上獲得保證的輸送量。
 
-**請考慮上述兩種策略的混合式：**
+**考慮混合使用上述兩種策略：**
 
 1. 如先前所述，Azure Cosmos DB 可讓您混合使用上述兩種策略，因此您現在可以在 Azure Cosmos 資料庫內有某些可能會共用資料庫上所佈建輸送量的容器，以及在相同資料庫內有某些可能會有專用佈建輸送量的容器。 
 

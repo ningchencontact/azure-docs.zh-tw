@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006734"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>了解 Azure 資源的拒絕指派
@@ -56,12 +56,12 @@ ms.locfileid: "59006734"
 
 ## <a name="system-defined-principal"></a>系統定義的主體
 
-為了支援拒絕指派，我們引進了**系統定義的主體**。 此主體代表 Azure AD 目錄中的所有使用者、群組、服務主體和受控識別。 若主體識別碼是零值 GUID `00000000-0000-0000-0000-000000000000` 且主體類型是 `SystemDefined`，則主體代表所有主體。 `SystemDefined` 可以結合`ExcludePrincipals`拒絕某些使用者以外，所有主體。 `SystemDefined` 有下列限制：
+為了支援拒絕指派，我們引進了**系統定義的主體**。 此主體代表 Azure AD 目錄中的所有使用者、群組、服務主體和受控識別。 若主體識別碼是零值 GUID `00000000-0000-0000-0000-000000000000` 且主體類型是 `SystemDefined`，則主體代表所有主體。 `SystemDefined` 可以結合 `ExcludePrincipals` 來拒絕某些使用者以外的所有主體。 `SystemDefined` 有下列限制：
 
 - 只能在 `Principals` 中使用，而無法在 `ExcludePrincipals` 中使用。
 - `Principals[i].Type` 必須設為 `SystemDefined`。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Azure 入口網站檢視 Azure 資源的拒絕指派](deny-assignments-portal.md)
-* [了解適用於 Azure 資源的角色定義](role-definitions.md)
+* [檢視拒絕適用於使用 Azure 入口網站的 Azure 資源的指派](deny-assignments-portal.md)
+* [了解 Azure 資源的角色定義](role-definitions.md)

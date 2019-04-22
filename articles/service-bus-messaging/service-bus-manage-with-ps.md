@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: 0d15aa4d7b8a922f7606b7c4d1b357a80b3cbfab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359118"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>使用 PowerShell 來管理服務匯流排資源
@@ -47,11 +47,11 @@ Microsoft Azure PowerShell 是一个脚本编写环境，可用于控制和自�
 
 這個範例會在指令碼中建立幾個區域變數：`$Namespace` 和 `$Location`。
 
-* `$Namespace` 是我們想要使用的服務匯流排命名空間名稱。
-* `$Location` 識別資料中心，我們佈建命名空間。
-* `$CurrentNamespace` 儲存我們擷取 （或建立） 的參考命名空間。
+* `$Namespace` 為我們想要使用之服務匯流排命名空間的名稱。
+* `$Location` 會識別我們在其中佈建命名空間的資料中心。
+* `$CurrentNamespace` 會儲存我們擷取 (或建立) 的參考命名空間。
 
-在實際的指令碼中，`$Namespace` 和 `$Location` 可以參數的方式傳遞。
+在实际脚本中，`$Namespace` 和 `$Location` 可作为参数传递。
 
 這部分的指令碼會執行下列作業：
 
@@ -170,9 +170,9 @@ Set-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -Queu
 
 管理服務匯流排實體有一些替代方式，如這些部落格文章中所述︰
 
-* [如何建立服務匯流排佇列、 主題和訂用帳戶使用 PowerShell 指令碼](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [如何建立服務匯流排命名空間和事件中樞使用的 PowerShell 指令碼](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
-* [服務匯流排 PowerShell 指令碼](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
+* [How to create Service Bus queues, topics and subscriptions using a PowerShell script（如何使用 PowerShell 脚本创建服务总线队列、主题和订阅）](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [如何使用 PowerShell 脚本创建 Service Bus 命名空间和事件中心](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [服务总线 PowerShell 脚本](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 

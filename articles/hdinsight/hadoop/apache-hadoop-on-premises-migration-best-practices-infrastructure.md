@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
 ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274684"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 基礎結構最佳做法
@@ -43,7 +43,7 @@ ms.locfileid: "59274684"
 
 邊緣節點上，或在與 HDInsight 叢集相同的 VNet 中 VM 上，可以新增應用程式或元件已在內部部署叢集中提供，但不是 HDInsight 叢集的一部分。 協力廠商 Hadoop 應用程式無法在 Azure HDInsight 上使用，但可以在 HDInsight 叢集中使用「應用程式」選項安裝。 自訂 Hadoop 應用程式可使用「指令碼動作」在 HDInsight 叢集上安裝。 下表列出一些常見應用程式及其 HDInsight 整合選項：
 
-|**Application**|**整合**
+|**應用程式**|**整合**
 |---|---|
 |氣流|IaaS 或 HDInsight 的邊緣節點
 |Alluxio|IaaS  
@@ -168,7 +168,7 @@ HDInsight 可以新增到新的或現有的 Azure 虛擬網路。 如果 HDInsig
 
 如需詳細資訊，請參閱下列文章：
 
-- [Azure 虛擬-網路-概觀](../../virtual-network/virtual-networks-overview.md)
+- [Azure 虛擬網路概觀](../../virtual-network/virtual-networks-overview.md)
 - [使用 Azure 虛擬網路延伸 Azure HDInsight](../hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>使用 Azure 虛擬網路服務端點安全地連線到 Azure 服務
@@ -178,7 +178,7 @@ HDInsight 支援[虛擬網路服務端點](../../virtual-network/virtual-network
 如需詳細資訊，請參閱下列文章：
 
 - [虛擬網路服務端點](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [HDInsight 透過強化安全性服務端點](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
+- [使用服務端點增強 HDInsight 安全性](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>將 HDInsight 連線至內部部署網路
 
@@ -194,4 +194,4 @@ HDInsight 可透過使用 Azure 虛擬網路和 VPN 閘道，連線到內部部�
 
 閱讀此系列中的下一篇文章：
 
-- [儲存體的內部部署至 Azure HDInsight Hadoop 移轉的最佳作法](apache-hadoop-on-premises-migration-best-practices-storage.md)
+- [從內部部署移轉至 Azure HDInsight Hadoop 的儲存體最佳做法](apache-hadoop-on-premises-migration-best-practices-storage.md)

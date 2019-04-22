@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/5/2019
 ms.author: banders
 ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281976"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>自助服務交換記錄和退費記錄 Azure 保留項目
@@ -87,9 +87,9 @@ Money 新增至財務承諾交換和退款如果原始的購買已使用其中�
 - 若要了解如何管理保留項目，請參閱[管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)。
 - 若要深入了解 Azure 保留項目，請參閱下列文章：
     - [什麼是 Azure 保留項目？](billing-save-compute-costs-reservations.md)
-    - [管理 Azure 中的保留項目](billing-manage-reserved-vm-instance.md)
-    - [了解如何套用保留折扣](billing-understand-vm-reservation-charges.md)
-    - [了解您的隨用隨付訂用帳戶的保留使用情況](billing-understand-reserved-instance-usage.md)
-    - [了解 Enterprise 註冊之保留項目使用方式](billing-understand-reserved-instance-usage-ea.md)
-    - [Windows 軟體成本不包括在保留項目](billing-reserved-instance-windows-software-costs.md)
-    - [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 azure 保留項目](/partner-center/azure-reservations)
+    - [管理 Azure 中的保留](billing-manage-reserved-vm-instance.md)
+    - [了解保留項目折扣的套用方式](billing-understand-vm-reservation-charges.md)
+    - [了解預付型方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+    - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
+    - [Windows 軟體的成本不包括在保留項目內](billing-reserved-instance-windows-software-costs.md)
+    - [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 Azure 保留項目](/partner-center/azure-reservations)

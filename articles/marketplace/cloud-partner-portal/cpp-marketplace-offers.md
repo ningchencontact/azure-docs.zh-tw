@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010567"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure 與 AppSource Marketplace 供應項目
@@ -29,7 +29,7 @@ ms.locfileid: "59010567"
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513/player]
 
-**建置應用程式和服務的 Azure Marketplace 和 AppSource-建置 2018**
+**建置適用於 Azure Marketplace 和 AppSource 的應用程式與服務 - 組建 2018**
 
 如需這些市集的詳細資訊，請參閱 [Azure Marketplace 和 AppSource 發佈指南](../marketplace-publishers-guide.md)。
 

@@ -8,10 +8,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358176"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>若要使用 Azure 地圖服務搜尋服務的最佳作法
@@ -136,7 +136,7 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
 
 在此範例查詢低於您所見"F"，便會查詢搜尋地址服務與`typehead`參數設定為 **，則為 true**。 如果您發現回應時，您可以看到搜尋服務會解譯為部分查詢的查詢，並回應包含自動建議查詢的結果。
 
-**範例查詢：**
+**範例查詢︰**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
@@ -318,7 +318,7 @@ url.QueryEscape(query)
 
 讓我們[POI 分類搜尋](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory)加油站附近 Microsoft 園區 (Redmond，WA) 的要求。 如果您發現回應時，您可以看到傳回的每個 POI 的商標資訊。
 
-**範例查詢：**
+**範例查詢︰**
 
 ```HTTP
 https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
@@ -497,7 +497,7 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
 
 讓我們將地址搜尋要求對 Azure Maps [search 服務](https://docs.microsoft.com/rest/api/maps/search)西雅圖地址。 如果您仔細看看下列的要求 URL，我們已設定`countrySet`參數來**美國**搜尋在美國地址。
 
-**範例查詢：**
+**範例查詢︰**
 
 ```HTTP
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282316"
 ---
 # <a name="create-and-clone-projects"></a>建立及複製專案
@@ -30,13 +30,13 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 
 `https://notebooks.azure.com/<userID>/projects` 所在的 [我的專案]儀表板是您檢視、管理和建立專案的位置：
 
-[![M用 Azure Notebook 中的 y 專案儀表板](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
+[![Azure Notebooks 中的 [我的專案] 儀表板](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 您在儀表板上可進行的操作，取決於您是否使用該帳戶所擁有的使用者識別碼登入而定：
 
 | 命令 | 可供 | 描述 |
 | --- | --- | --- |
-| **執行** | 擁有者 | 啟動 Project Server，並在 Jupyter 中開啟專案資料夾。 (更常見的是，您先巡覽到專案資料夾，然後從該處啟動 筆記本。) |
+| **Run** | 擁有者 | 啟動 Project Server，並在 Jupyter 中開啟專案資料夾。 (更常見的是，您先巡覽到專案資料夾，然後從該處啟動 筆記本。) |
 | **下載** | 任何人 | 將選取專案的複本下載為 ZIP 檔案。 |
 | **共用** | 任何人 | 顯示共用快顯，透過快顯您可以取得所選專案的 URL，分享到社交媒體、 傳送具有 URL 的電子郵件，並使用 URL 取得具有「 啟動筆記本」徽章的 HTML 或 Markdown 程式碼 (請參閱[取得啟動徽章](#obtain-a-launch-badge))。 |
 | **刪除** | 擁有者 | 刪除選取的專案。 此作業無法復原。 |
@@ -122,8 +122,8 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 
 - [探索範例筆記本](azure-notebooks-samples.md)
 - [作法：設定和管理專案](configure-manage-azure-notebooks-projects.md)
-- [作法：從 Notebook 內安裝套件](install-packages-jupyter-notebook.md)
-- [作法：顯示投影片放映](present-jupyter-notebooks-slideshow.md)
+- [操作說明：從 Notebook 內安裝套件](install-packages-jupyter-notebook.md)
+- [作法：放映投影片](present-jupyter-notebooks-slideshow.md)
 - [作法：使用資料檔案](work-with-project-data-files.md)
-- [作法：存取資料資源](access-data-resources-jupyter-notebooks.md)
-- [作法：使用 Azure 機器學習服務](use-machine-learning-services-jupyter-notebooks.md)
+- [操作說明：存取資料資源](access-data-resources-jupyter-notebooks.md)
+- [操作說明：使用 Azure Machine Learning 服務](use-machine-learning-services-jupyter-notebooks.md)

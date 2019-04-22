@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276485"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
@@ -94,13 +94,13 @@ ms.locfileid: "59276485"
 
    以您想要的資源群組名稱取代 _ContosoRG_。
 
-   **領域**上的參數`New-AzPolicyAssignment`適用於管理群組、 訂用帳戶、 資源群組，或是單一資源。 此參數會使用 `Get-AzResourceGroup` 上 **ResourceId** 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。
-   `{rType}` 將會取代**資源類型**的資源，例如`Microsoft.Compute/virtualMachines`vm。
+   `New-AzPolicyAssignment` 的 **scope** 参数适用于管理组、订阅、资源组或单个资源。 此參數會使用 `Get-AzResourceGroup` 上 **ResourceId** 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。
+   `{rType}` 會取代為資源的**資源類型**，例如，如果是 VM，則為 `Microsoft.Compute/virtualMachines`。
 
-   - 資源： `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - 資源群組- `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - 訂用帳戶- `/subscriptions/{subId}/`
-   - 管理群組 `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - 資源 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - 資源群組 - `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - 訂用帳戶 - `/subscriptions/{subId}/`
+   - 管理群組 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 如需使用 Azure Resource Manager PowerShell 模組來管理資源原則的詳細資訊，請參閱 [Az.Resources](/powershell/module/az.resources/#policies)。
 
@@ -223,12 +223,12 @@ ms.locfileid: "59276485"
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   `az policy assignment create` 上的 **--scope**參數可與管理群組、訂用帳戶、資源群組或單一資源搭配使用。 此參數使用完整資源路徑。 以下是每個容器的 **--scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。 `{rType}` 將會取代**資源類型**的資源，例如`Microsoft.Compute/virtualMachines`vm。
+   `az policy assignment create` 上的 **--scope**參數可與管理群組、訂用帳戶、資源群組或單一資源搭配使用。 此參數使用完整資源路徑。 以下是每個容器的 **--scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。 `{rType}` 會取代為資源的**資源類型**，例如，如果是 VM，則為 `Microsoft.Compute/virtualMachines`。
 
-   - 資源： `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - 資源群組- `/subscriptions/{subID}/resourceGroups/{rgName}`
-   - 訂用帳戶- `/subscriptions/{subID}`
-   - 管理群組 `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - 資源 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - 資源群組 - `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - 訂用帳戶 - `/subscriptions/{subID}`
+   - 管理群組 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 您可以使用 PowerShell 與下列命令取得原則定義識別碼：
 
@@ -251,5 +251,5 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 - [Azure REST API 資源](/rest/api/resources/)
 - [Azure PowerShell 模組](/powershell/module/az.resources/#policies)
 - [Azure CLI 原則命令](/cli/azure/policy?view=azure-cli-latest)
-- [原則深入解析資源提供者 REST API 參考](/rest/api/policy-insights)
+- [資源提供者 REST API 參考](/rest/api/policy-insights)
 - [使用 Azure 管理群組來組織資源](../../management-groups/overview.md)

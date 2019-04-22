@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
 ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266200"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
@@ -219,8 +219,8 @@ ms.locfileid: "59266200"
 
 您也可以使用下列一或多個[應用程式設定](web-sites-configure.md)來自訂準備行為：
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`：用來準備您網站的偵測路徑。 請指定開頭為斜線的自訂路徑作為值，以新增此應用程式設定。 例如： `/statuscheck`。 預設值為 `/`。 
-- `WEBSITE_SWAP_WARMUP_PING_STATUSES`：準備作業的有效 HTTP 回應碼。 請以 HTTP 代碼的逗號分隔清單方式新增此應用程式設定。 例如：`200,202`。 如果傳回的狀態碼不在清單中，準備和交換作業就會停止。 預設是所有回應碼都有效。
+- `WEBSITE_SWAP_WARMUP_PING_PATH`:用來準備您網站的偵測路徑。 請指定開頭為斜線的自訂路徑作為值，以新增此應用程式設定。 例如： `/statuscheck`。 預設值為 `/`。 
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`:準備作業的有效 HTTP 回應碼。 請以 HTTP 代碼的逗號分隔清單方式新增此應用程式設定。 例如：`200,202`。 如果傳回的狀態碼不在清單中，準備和交換作業就會停止。 預設是所有回應碼都有效。
 
 ## <a name="monitor-swap"></a>監視交換
 
@@ -339,4 +339,4 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 如需適用於部署位置的 [Azure CLI](https://github.com/Azure/azure-cli) 命令，請參閱 [az webapp deployment slot](/cli/azure/webapp/deployment/slot)。
 
 ## <a name="next-steps"></a>後續步驟
-[封鎖對非生產位置存取](app-service-ip-restrictions.md)
+[封鎖對非生產位置的存取](app-service-ip-restrictions.md)

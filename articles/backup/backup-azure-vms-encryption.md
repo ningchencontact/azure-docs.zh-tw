@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
 ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358226"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>備份及還原加密的 Azure VM
@@ -30,10 +30,10 @@ Azure 備份支援有加密其 OS/資料磁碟與 Azure 磁碟加密 (ADE) 的 A
 
 Azure 備份可以備份和還原使用 ADE，而 Azure AD 應用程式的 Azure Vm 下, 表摘要說明。
 
-**VM 磁碟類型** | **ADE (BEK/dm crypt 的)** | **ADE 和 kek 加密**
+**VM 磁碟類型** | **ADE (BEK/dm-crypt)** | **ADE 和 kek 加密**
 --- | --- | ---
-**非受控** | 是 | 是
-**受控**  | 是 | 是
+**未受管理** | 是 | 是
+**受管理**  | 是 | 是
 
 - 深入了解[ADE](../security/azure-security-disk-encryption-overview.md)， [Key Vault](../key-vault/key-vault-overview.md)，並[Kek](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/)。
 - 讀取[常見問題集](../security/azure-security-disk-encryption-faq.md)Azure VM 磁碟加密。
