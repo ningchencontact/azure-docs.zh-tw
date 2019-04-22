@@ -80,7 +80,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 | runbookType |指定 Runbook 的類型。 <br><br> Script - PowerShell 指令碼 <br>PowerShell - PowerShell 工作流程 <br> GraphPowerShell - 圖形化 PowerShell 指令碼 Runbook <br> GraphPowerShellWorkflow - 圖形化 PowerShell 工作流程 Runbook |
 | logProgress |指定是否應針對 Runbook 產生[進度記錄](../../automation/automation-runbook-output-and-messages.md)。 |
 | logVerbose |指定是否應針對 Runbook 產生[詳細資訊記錄](../../automation/automation-runbook-output-and-messages.md)。 |
-| 說明 |Runbook 的選擇性說明。 |
+| description |Runbook 的選擇性說明。 |
 | publishContentLink |指定 Runbook 的內容。 <br><br>uri - 指定 Runbook 的內容 Uri。  這會是 PowerShell 和 Script Runbook 的 .ps1 檔案，以及 Graph Runbook 的已匯出圖形化 Runbook 檔案。  <br> 版本 - 您自己追蹤的 Runbook 版本。 |
 
 
@@ -113,7 +113,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| Runbook |具有要啟動之 Runbook 名稱的單一名稱實體。 |
+| runbook |具有要啟動之 Runbook 名稱的單一名稱實體。 |
 | parameters |Runbook 所需之每個參數值的實體。 |
 
 作業包含 Runbook 名稱和任何要傳送至 Runbook 的參數值。  作業應該[相依於]( solutions-solution-file.md#resources)正在啟動的 Runbook，因為 Runbook 必須建立於作業之前。  如果您有多個應該啟動的 Runbook，您可以藉由讓作業相依於其他任何應該先執行的作業，以定義這些 Runbook 的順序。
@@ -199,7 +199,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 說明 |排程的選擇性說明。 |
+| description |排程的選擇性說明。 |
 | startTime |將排程的開始時間指定為 DateTime 物件。 如果可以轉換成有效的 DateTime，即可提供字串。 |
 | isEnabled |指定是否啟用排程。 |
 | interval |排程的間隔類型。<br><br>day<br>hour |
@@ -242,8 +242,8 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 排程名稱 |包含排程名稱的單一**名稱**實體。 |
-| Runbook 名稱  |包含 Runbook 名稱的單一**名稱**實體。  |
+| schedule name |包含排程名稱的單一**名稱**實體。 |
+| runbook name  |包含 Runbook 名稱的單一**名稱**實體。  |
 
 
 
@@ -269,7 +269,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 說明 | 變數的選擇性說明。 |
+| description | 變數的選擇性說明。 |
 | isEncrypted | 指定是否應加密變數。 |
 | type | 這個屬性目前沒有任何作用。  變數的資料類型將由初始值所決定。 |
 | value | 變數的值。 |
@@ -281,10 +281,10 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 | 資料類型 | 描述 | 範例 | 解析成 |
 |:--|:--|:--|:--|
-| 字串   | 以雙引號括住值。  | "\"Hello world\"" | "Hello world" |
+| string   | 以雙引號括住值。  | "\"Hello world\"" | "Hello world" |
 | numeric  | 以單引號括住數值。| "64" | 64 |
-| 布林值  | 以引號括住 **true** 或 **false**。  請注意，此值必須是小寫。 | "true" | true |
-| Datetime | 序列化的日期值。<br>您可以在 PowerShell 中使用 ConvertTo-Json Cmdlet，以針對特定日期產生這個值。<br>範例：get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| boolean  | 以引號括住 **true** 或 **false**。  請注意，此值必須是小寫。 | "true" | true |
+| datetime | 序列化的日期值。<br>您可以在 PowerShell 中使用 ConvertTo-Json Cmdlet，以針對特定日期產生這個值。<br>範例：get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>模組
 您的管理解決方案不需定義您的 Runbook 所用的[全域模組](../../automation/automation-integration-modules.md)，因為您永遠可以在自動化帳戶中使用這些模組。  對於 Runbook 所使用的其他任何模組，您不需要包含其資源。
