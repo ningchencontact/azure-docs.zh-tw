@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122870"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011234"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>如何呼叫文字分析 REST API
 
@@ -26,7 +26,7 @@ ms.locfileid: "58122870"
 文字分析是無狀態的，因此不會有資料資產需要管理。 系統會上傳您的文字、於接收到時便進行分析，並立即將結果傳回至呼叫應用程式。
 
 > [!Tip]
-> 若要進行單次呼叫以了解 API 的運作方式，您可以從內建的 **API 測試主控台** (可於任何 [API 文件頁面](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) \(英文\) 取得) 傳送 POST 要求。 不需任何設定，而唯一的需求便是將存取金鑰和 JSON 文件貼至要求內。 
+> 若要進行單次呼叫以了解 API 的運作方式，您可以從內建的 **API 測試主控台** (可於任何 [API 文件頁面](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) \(英文\) 取得) 傳送 POST 要求。 不需任何設定，而唯一的需求便是將存取金鑰和 JSON 文件貼至要求內。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -60,10 +60,10 @@ ms.locfileid: "58122870"
 
    資源端點如下 (您的區域可能有所不同)：
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 2. 設定三個要求標頭：
 
@@ -81,10 +81,10 @@ ms.locfileid: "58122870"
 
 5. 針對想要進行的分析，貼上一些具備有效格式的 JSON 文件。 如需特定分析的詳細資訊，請參閱下列主題：
 
-   + [語言偵測](text-analytics-how-to-language-detection.md)  
-   + [關鍵片語擷取](text-analytics-how-to-keyword-extraction.md)  
-   + [情感分析](text-analytics-how-to-sentiment-analysis.md)  
-   + [實體辨識 (預覽)](text-analytics-how-to-entity-linking.md)  
+  + [語言偵測](text-analytics-how-to-language-detection.md)  
+  + [關鍵片語擷取](text-analytics-how-to-keyword-extraction.md)  
+  + [情感分析](text-analytics-how-to-sentiment-analysis.md)  
+  + [實體辨識](text-analytics-how-to-entity-linking.md)  
 
 
 6. 按一下 [Send] \(傳送\) 以提交要求。 您每分鐘可以提交最多 100 個要求。 

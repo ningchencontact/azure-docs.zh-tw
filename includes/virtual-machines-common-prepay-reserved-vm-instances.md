@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/22/2019
-ms.openlocfilehash: 32d5d0d25c843be1cba1916e7679faa930e8e645
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.date: 04/13/2019
+ms.openlocfilehash: d9b9aae8bea323e5aac74a2e317b82d4cb43568f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671752"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118442"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>預付具有 Azure 保留 VM 執行個體的虛擬機器
 
@@ -35,6 +35,12 @@ ms.locfileid: "58671752"
 - Azure Advisor 提供個別的訂用帳戶的購買建議。  
 - 若要取得共用的範圍和單一訂用帳戶範圍購買建議，您可以使用 Api。 如需詳細資訊，請參閱 <<c0> [ 保留適用於企業客戶的執行個體購買建議 Api](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)。
 - EA 客戶的購買建議給共享與單一訂用帳戶範圍有[Azure 耗用量 Insights Power BI 內容套件](/power-bi/service-connect-to-azure-consumption-insights)。
+
+### <a name="classic-vms-and-cloud-services"></a>傳統的 Vm 和雲端服務
+
+保留的虛擬機器執行個體自動套用至這兩個傳統 Vm，並啟用執行個體大小彈性時，雲端服務。 目前沒有任何特殊的適用於傳統 Vm 或雲端服務的 Sku。 相同的 VM Sku 適用於它們。
+
+例如，您會將您的傳統 Vm 或雲端服務轉換為 Azure Resource Manager 為基礎的 Vm。 在此範例中，保留折扣會自動套用至對應的 Vm。 不需要*exchange*現有的保留執行個體-它會自動套用。
 
 ### <a name="analyze-your-usage-information"></a>分析您的使用方式資訊
 您應該分析您的使用量資訊以協助判斷您應該購買的保留項目。
@@ -66,7 +72,7 @@ ms.locfileid: "58671752"
 
     | 欄位      | 描述|
     |------------|--------------|
-    |名稱        |此保留項目的名稱。|
+    |Name        |此保留項目的名稱。|
     |訂用帳戶|用來支付保留項目的訂用帳戶。 保留項目的預付費用會透過訂用帳戶的付款方式收取。 訂用帳戶類型必須是 Enterprise 合約 (供應項目號碼：MS-AZR-0017P 或 MS-AZR-0148P) 或預付型方案 (供應項目號碼：MS-AZR-0003P 或 MS-AZR-0023P)。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 針對預付型方案訂用帳戶，費用是透過訂用帳戶的信用卡或發票付款方式收取。|    
     |影響範圍       |保留項目範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <ul><li>單一訂用帳戶 - 保留項目折扣會套用至此訂用帳戶中的 VM。 </li><li>共用 - 保留項目折扣會套用至計費內容內任何訂用帳戶中執行的 VM。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶。 針對預付型方案客戶，共用範圍是帳戶系統管理員所建立的所有預付型方案訂用帳戶。</li></ul>|
     |區域    |保留項目所涵蓋的 Azure 區域。|    
@@ -74,14 +80,8 @@ ms.locfileid: "58671752"
     |已針對下列項目最佳化     |VM 執行個體大小彈性會將保留項目折扣套用至同一個 [VM 大小群組](https://aka.ms/RIVMGroups)中的其他 VM。 容量優先順序會讓資料中心容量供您的部署優先使用。 這可讓您更加確信您能夠在需要時啟動 VM 執行個體。 保留項目範圍是單一訂用帳戶時，才可使用容量優先順序。 |
     |詞彙        |一年或三年。|
     |数量    |保留項目內所購買的執行個體數目。 數量是可以取得帳單折扣之執行中 VM 執行個體的數目。 例如，如果您在美國東部執行 10 個 Standard_D2 VM，那麼您會指定數量為 10，以最大化所有執行中機器的效益。 |
-5. 當您選取 [計算成本] 時，可以檢視保留項目的成本。
 
-    ![提交保留項目購買前的螢幕擷取畫面](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
-
-6. 選取 [購買]。
-7. 選取 [檢視此保留] 以查看您的購買狀態。
-
-    ![提交保留項目購買後的螢幕擷取畫面](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## <a name="change-a-reservation-after-purchase"></a>變更購買後的保留項目
 

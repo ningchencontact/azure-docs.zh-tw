@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848389"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009060"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
@@ -40,7 +40,7 @@ ms.locfileid: "58848389"
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>自動容錯移轉群組術語和功能
 
-- **容錯移轉群組**
+- **容錯移轉群組 （霧）**
 
   容錯移轉群組是由單一 SQL Database 伺服器，或單一受控執行個體所管理的一組資料庫，如果由於主要區域中斷而導致所有或某些主要資料庫無法使用，則可以將這些資料庫作為容錯移轉到另一個區域的一個單位。
 
@@ -77,11 +77,11 @@ ms.locfileid: "58848389"
 
   - **讀寫接聽程式的 SQL Database 伺服器 DNS CNAME 記錄**
 
-     在 SQL Database 伺服器上，指向目前的主要 URL 的容錯移轉群組的 DNS CNAME 記錄形成為 `failover-group-name.database.windows.net`。
+     在 SQL Database 伺服器上，指向目前的主要 URL 的容錯移轉群組的 DNS CNAME 記錄形成為 `<fog-name>.database.windows.net`。
 
   - **讀寫接聽程式的受控執行個體 DNS CNAME 記錄**
 
-     在受控執行個體上，指向目前的主要 URL 的容錯移轉群組的 DNS CNAME 記錄形成為 `failover-group-name.zone_id.database.windows.net`。
+     在受控執行個體上，指向目前的主要 URL 的容錯移轉群組的 DNS CNAME 記錄形成為 `<fog-name>.zone_id.database.windows.net`。
 
 - **容錯移轉群組唯讀接聽程式**
 
@@ -89,11 +89,11 @@ ms.locfileid: "58848389"
 
   - **唯讀接聽程式的 SQL Database 伺服器 DNS CNAME 記錄**
 
-     在 SQL Database 伺服器上，指向次要 URL 的唯讀接聽程式的 DNS CNAME 記錄形成為 `failover-group-name.secondary.database.windows.net`。
+     在 SQL Database 伺服器上，指向次要 URL 的唯讀接聽程式的 DNS CNAME 記錄形成為 `'.secondary.database.windows.net`。
 
   - **唯讀接聽程式的受控執行個體 DNS CNAME 記錄**
 
-     在受控執行個體上，指向次要 URL 的唯讀接聽程式的 DNS CNAME 記錄形成為 `failover-group-name.zone_id.database.windows.net`。
+     在受控執行個體上，指向次要 URL 的唯讀接聽程式的 DNS CNAME 記錄形成為 `<fog-name>.zone_id.database.windows.net`。
 
 - **自動容錯移轉原則**
 
@@ -156,11 +156,11 @@ ms.locfileid: "58848389"
 
 - **針對 OLTP 工作負載使用讀取寫入接聽程式**
 
-  在執行 OLTP 作業時使用 `failover-group-name.database.windows.net` 作為伺服器 URL，連線會自動導向至主要伺服器。 在容錯移轉之後，不會變更此 URL。 請注意，容錯移轉牽涉到更新 DNS 記錄，因此只有在重新整理用戶端 DNS 快取之後，才會將用戶端連線重新導向至新的主要伺服器。
+  在執行 OLTP 作業時使用 `<fog-name>.database.windows.net` 作為伺服器 URL，連線會自動導向至主要伺服器。 在容錯移轉之後，不會變更此 URL。 請注意，容錯移轉牽涉到更新 DNS 記錄，因此只有在重新整理用戶端 DNS 快取之後，才會將用戶端連線重新導向至新的主要伺服器。
 
 - **針對唯讀工作負載使用唯讀接聽程式**
 
-  如果您有容忍某些過時資料的邏輯隔離唯讀工作負載，則可以使用應用程式中的次要資料庫。 針對唯讀工作階段，請使用 `failover-group-name.secondary.database.windows.net` 作為伺服器 URL，連線會自動導向至次要伺服器。 也建議您使用 **ApplicationIntent=ReadOnly**，在連接字串中表示讀取意圖。
+  如果您有容忍某些過時資料的邏輯隔離唯讀工作負載，則可以使用應用程式中的次要資料庫。 針對唯讀工作階段，請使用 `<fog-name>.secondary.database.windows.net` 作為伺服器 URL，連線會自動導向至次要伺服器。 也建議您使用 **ApplicationIntent=ReadOnly**，在連接字串中表示讀取意圖。
 
 - **對效能降低做好心理準備**
 
@@ -206,7 +206,7 @@ ms.locfileid: "58848389"
 
 - **針對 OLTP 工作負載使用讀取寫入接聽程式**
 
-  在執行 OLTP 作業時使用 `failover-group-name.zone_id.database.windows.net` 作為伺服器 URL，連線會自動導向至主要伺服器。 在容錯移轉之後，不會變更此 URL。 容錯移轉牽涉到更新 DNS 記錄，因此只有在重新整理用戶端 DNS 快取之後，才會將用戶端連線重新導向至新的主要伺服器。 因為次要執行個體與主要執行個體共用 DNS 區域，因此用戶端應用程式將能夠使用相同的 SAN 憑證重新連線到該區域。
+  在執行 OLTP 作業時使用 `<fog-name>.zone_id.database.windows.net` 作為伺服器 URL，連線會自動導向至主要伺服器。 在容錯移轉之後，不會變更此 URL。 容錯移轉牽涉到更新 DNS 記錄，因此只有在重新整理用戶端 DNS 快取之後，才會將用戶端連線重新導向至新的主要伺服器。 因為次要執行個體與主要執行個體共用 DNS 區域，因此用戶端應用程式將能夠使用相同的 SAN 憑證重新連線到該區域。
 
 - **直接連接到異地複寫的次要執行個體以進行唯讀查詢**
 
@@ -214,8 +214,8 @@ ms.locfileid: "58848389"
 
   > [!NOTE]
   > 在特定的服務層次，Azure SQL Database 支援使用[唯讀複本](sql-database-read-scale-out.md)來使用一個唯讀複本的容量，並使用連接字串中的 `ApplicationIntent=ReadOnly` 參數，對唯讀查詢工作負載進行負載平衡。 當您已設定異地複寫的次要執行個體時，可以使用此功能連接至主要位置或異地複寫位置中的唯讀複本。
-  > - 若要連線至主要位置的唯讀複本，請使用 `failover-group-name.zone_id.database.windows.net`。
-  > - 若要連線至唯讀複本在次要位置中，使用`failover-group-name.secondary.zone_id.database.windows.net`。
+  > - 若要連線至主要位置的唯讀複本，請使用 `<fog-name>.zone_id.database.windows.net`。
+  > - 若要連線至唯讀複本在次要位置中，使用`<fog-name>.secondary.zone_id.database.windows.net`。
 
 - **對效能降低做好心理準備**
 

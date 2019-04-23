@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e37d9c0c242de1bd95a93f12171a2a4271b064d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680701"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008693"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ ms.locfileid: "59680701"
 - Salesforce Developer、Professional、Enterprise 或 Unlimited 版本。
 - 從 Salesforce 生產環境、沙箱、自訂網域複製資料，以及將資料複製到這些位置。
 
-Salesforce 連接器已內建在 Salesforce REST API 之上[v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm)複製資料並[v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm)複製資料。
+Salesforce 連接器已內建的 Salesforce REST/大量 API，之上[v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm)複製資料並[v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm)複製資料。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -316,10 +316,10 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | Salesforce 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | 自動編號 |字串 |
-| 核取方塊 |BOOLEAN |
+| 核取方塊 |Boolean |
 | 貨幣 |Decimal |
-| 日期 |DateTime |
-| 日期/時間 |DateTime |
+| date |Datetime |
+| 日期/時間 |Datetime |
 | 電子郵件 |字串 |
 | id |字串 |
 | 查閱關聯性 |字串 |
@@ -328,7 +328,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | 百分比 |Decimal |
 | 電話 |字串 |
 | 挑選清單 |字串 |
-| 文字 |字串 |
+| Text |字串 |
 | 文字區域 |字串 |
 | 文字區域 (完整) |字串 |
 | 文字區域 (豐富) |字串 |

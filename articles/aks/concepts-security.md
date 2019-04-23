@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 66fc5c92410118f4e0042738d2107b272d68f9bf
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240332"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008999"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式和叢集的安全性概念
 
@@ -34,7 +34,7 @@ ms.locfileid: "57240332"
 
 ## <a name="node-security"></a>節點安全性
 
-AKS 節點是您所管理和維護的 Azure 虛擬機器。 執行使用白鯨容器執行階段最佳化的 Ubuntu Linux 散發套件的節點。 當 AKS 叢集建立或相應增加時，節點將會自動以最新的 OS 安全性更新和設定進行部署。
+AKS 節點是您所管理和維護的 Azure 虛擬機器。 节点通过 Moby 容器运行时运行经过优化的 Ubuntu Linux 分发。 當 AKS 叢集建立或相應增加時，節點將會自動以最新的 OS 安全性更新和設定進行部署。
 
 Azure 平台會在夜間將 OS 安全性修補程式自動套用至節點。 如果 OS 安全性更新需要重新啟動主機，此重新啟動作業並不會自動執行。 您可以手動重新啟動節點，或者，常見的方法是使用 [Kured][kured]，此為 Kubernetes 的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet][aks-daemonsets] 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 系統會使用相同的 [cordon 和 drain 程序](#cordon-and-drain)作為叢集升級，跨叢集管理作業系統重新啟動。
 
@@ -65,7 +65,7 @@ Azure 平台會在夜間將 OS 安全性修補程式自動套用至節點。 如
 
 ### <a name="azure-network-security-groups"></a>Azure 網路安全性群組
 
-為了篩選虛擬網路中的流量，Azure 會使用網路安全性群組規則。 這些規則可定義允許或拒絕存取資源的來源和目的地 IP 範圍、連接埠和通訊協定。 若要允許 TLS Kubernetes API 伺服器的流量，會建立預設規則。 當您建立具有負載平衡器、連接埠對應或輸入路由的服務時，AKS 將會自動修改網路安全性群組，讓流量以適當方式傳輸。
+為了篩選虛擬網路中的流量，Azure 會使用網路安全性群組規則。 這些規則可定義允許或拒絕存取資源的來源和目的地 IP 範圍、連接埠和通訊協定。 会创建默认规则以允许 TLS 流量流向 Kubernetes API 服务器。 當您建立具有負載平衡器、連接埠對應或輸入路由的服務時，AKS 將會自動修改網路安全性群組，讓流量以適當方式傳輸。
 
 ## <a name="kubernetes-secrets"></a>Kubernetes 秘密
 
@@ -77,7 +77,7 @@ Kubernetes *祕密*可用來將敏感性資料插入 Pod 中，例如存取認�
 
 若要開始保護您的 AKS 叢集，請參閱[升級 AKS 叢集][aks-upgrade-cluster]。
 
-如需相關聯的最佳作法，請參閱[的叢集安全性與 AKS 中的升級最佳做法][operator-best-practices-cluster-security]。
+如需相关的最佳做法，请参阅 [AKS 中群集安全性和升级的最佳做法][operator-best-practices-cluster-security]。
 
 如需關於 Kubernetes 及 AKS 核心概念的詳細資訊，請參閱下列文章：
 
@@ -94,7 +94,7 @@ Kubernetes *祕密*可用來將敏感性資料插入 Pod 中，例如存取認�
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 6a0d84a2aaf4b52c7fb0163231574eaea63c18c3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 41f62d095c1a0cbdd0a888326b263a3294066637
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803556"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118441"
 ---
 ### <a name="what-is-expressroute-direct"></a>什麼是 ExpressRoute Direct？
 
@@ -32,7 +32,7 @@ ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對
 * 芝加哥
 * 華盛頓
 * 達拉斯 
-* 香港
+* 香港特別行政區
 * 洛杉磯
 * New York City
 * 巴黎

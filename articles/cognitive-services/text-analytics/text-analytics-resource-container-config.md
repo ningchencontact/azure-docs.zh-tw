@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3cb6f4563cf45b9ccd377dec3db4ebab095c8a09
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: 1333aefc145e95223624f42a28ec0bb31ab70065
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885429"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011753"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>設定文字分析 Docker 容器
 
@@ -31,11 +31,11 @@ ms.locfileid: "58885429"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 組態設定
 
-`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 的值，該值必須是有效金鑰，且適用於為 [`Billing`](#billing-configuration-setting) 組態設定而指定的_文字分析_資源。
+`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 值和值必須是有效的金鑰，如_認知服務_指定的資源[ `Billing` ](#billing-configuration-setting)組態設定。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：位於 [金鑰] 下方，**文字分析的**資源管理
+* Azure 入口網站：**認知服務**資源管理下**金鑰**
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 設定
 
@@ -43,15 +43,17 @@ ms.locfileid: "58885429"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-`Billing` 設定會指定 Azure 上_文字分析_資源的端點 URI，用來對容器計算帳單資訊。 您必須為此組態設定指定值，且該值必須是適用於 Azure 上_文字分析_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
+`Billing`設定會指定端點 URI 的_認知服務_来測量之容器的帳單資訊使用在 Azure 上的資源。 您必須指定此組態設定值，和值必須是有效的端點 URI __認知服務_在 Azure 上的資源。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：**文字分析**概觀，標示為 `Endpoint`
+* Azure 入口網站：**認知服務**概觀，標示為 `Endpoint`
 
-|必要項| 名稱 | 資料類型 | 描述 |
+您需要新增`text/analytics/v2.0`BILLING_ENDPOINT_URI 下例所示，路由傳送至端點 URI。
+
+|必要項| Name | 資料類型 | 描述 |
 |--|------|-----------|-------------|
-|是| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
+|是| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -77,7 +79,7 @@ ms.locfileid: "58885429"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選用| 名稱 | 資料類型 | 描述 |
+|選用| Name | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
 |不允許| `Input` | 字串 | 文字分析容器不會使用此項目。|
 |選用| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -89,20 +91,22 @@ ms.locfileid: "58885429"
 * **行接續字元**：以下幾節的 Docker 命令會使用反斜線 `\` 作為行接續字元。 請根據您主機作業系統的需求加以替換或移除。 
 * **引數順序**：若非十分熟悉 Docker 容器，請勿變更引數的順序。
 
+您需要新增`text/analytics/v2.0`BILLING_ENDPOINT_URI 下例所示，路由傳送至端點 URI。
+
 請將 {_argument_name_} 取代為您自己的值：
 
 | Placeholder | 值 | 格式或範例 |
 |-------------|-------|---|
-|{BILLING_KEY} | 可從 Azure 入口網站中 [文字分析金鑰] 頁面上取得的文字分析資源端點金鑰。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | 計費端點 值可在 Azure 入口網站的 [文字分析概觀] 頁面上取得。|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_KEY} | 端點索引鍵`Cognitive Services`可在 Azure 資源`Cognitive Services`金鑰 頁面。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | 計費的端點值是可在 Azure`Cognitive Services`概觀 頁面。|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](how-tos/text-analytics-how-to-install-containers.md#billing)。
-> ApiKey 值是 [Azure 文字分析資源金鑰] 頁面中的**金鑰**。 
+> ApiKey 值是**金鑰**從 Azure`Cognitive Services`資源 [金鑰] 頁面。 
 
-## <a name="keyphrase-extraction-container-docker-examples"></a>關鍵片語擷取容器的 Docker 範例
+## <a name="key-phrase-extraction-container-docker-examples"></a>關鍵片語擷取容器的 docker 範例
 
-下列是關鍵片語擷取容器的 Docker 範例。 
+下列 docker 範例是關鍵片語擷取容器。 
 
 ### <a name="basic-example"></a>基本範例 
 

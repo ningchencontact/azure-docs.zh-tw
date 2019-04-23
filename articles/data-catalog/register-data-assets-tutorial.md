@@ -1,17 +1,17 @@
 ---
 title: 註冊 Azure 資料目錄中的資料資產
 description: 如何在 Azure 資料目錄中註冊資料資產
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 04/08/2019
-ms.openlocfilehash: e89bd4806e2bb2369c100e948be51dcf32f2e123
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 91f7967915fd19ae47ca207913f979aa56fcd27f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59362647"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011699"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>教學課程：註冊 Azure 資料目錄中的資料資產
 

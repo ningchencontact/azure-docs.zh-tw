@@ -10,18 +10,21 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 5e997d9e9f38fee52cd9fc007fe12cac68e3aa5a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443040"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008676"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
 本文將協助您使用變更追蹤解決方案，輕鬆地找出您環境中的變更。 此解決方案會追蹤 Windows 與 Linux 軟體、Windows 和 Linux 檔案、Windows 登錄機碼、Windows 服務以及 Linux 精靈的變更。 識別組態變更可協助您找出操作問題。
 
-若要安裝的軟體、 Windows 服務、 Windows 登錄和檔案，以及 Linux 精靈在受監視伺服器上的變更會傳送至雲端中 Azure 監視器服務進行處理。 會將邏輯套用至接收的資料，且雲端服務會記錄資料。 使用 [變更追蹤] 儀表板上的資訊，您可以輕鬆地看到您的伺服器基礎結構中所做的變更。
+受監視伺服器上安裝的軟體、Windows 服務、Windows 登錄和檔案以及 Linux 精靈的變更，會傳送至雲端中的 Azure 監視器服務進行處理。 會將邏輯套用至接收的資料，且雲端服務會記錄資料。 使用 [變更追蹤] 儀表板上的資訊，您可以輕鬆地看到您的伺服器基礎結構中所做的變更。
+
+> [!NOTE]
+> Azure 自動化變更追蹤會追蹤虛擬機器中的變更。 若要追蹤 Azure 資源管理員屬性的變更，請參閱 Azure 資源圖形的[修訂歷程記錄](../governance/resource-graph/how-to/get-resource-changes.md)。
 
 ## <a name="supported-windows-operating-systems"></a>支援的 Windows 作業系統
 
@@ -76,7 +79,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 |屬性  |描述  |
 |---------|---------|
-|已啟用     | 判斷是否已套用設定。        |
+|Enabled     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之檔案的易記名稱。        |
 |群組     | 以邏輯方式分組檔案的群組名稱。        |
 |輸入路徑     | 要檢查檔案的路徑。 例如："/etc/*.conf"       |
@@ -99,7 +102,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 |屬性  |描述  |
 |---------|---------|
-|已啟用     | 判斷是否已套用設定。        |
+|Enabled     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之檔案的易記名稱。        |
 |群組     | 以邏輯方式分組檔案的群組名稱。        |
 |輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\\\*.txt"<br>您也可以使用環境變數，例如 "%winDir%\System32\\\*.*"       |
@@ -131,7 +134,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 |屬性  |描述  |
 |---------|---------|
-|已啟用     | 判斷是否已套用設定。        |
+|Enabled     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之登錄機碼的易記名稱。        |
 |群組     | 以邏輯方式分組登錄機碼的群組名稱。        |
 |Windows 登錄機碼   | 要檢查登錄機碼的路徑。 例如︰"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
@@ -164,11 +167,11 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 | **變更類型** | **頻率** |
 | --- | --- |
 | Windows 登錄 | 50 分鐘 |
-| Windows 檔案 | 30 分鐘 |
+| Windows 檔案 | 30 分钟 |
 | Linux 檔案 | 15 分鐘 |
-| Windows 服務 | 10 秒到 30 分鐘</br> 預設值：30 分鐘 |
+| Windows 服務 | 10 秒到 30 分鐘</br> 預設值：30 分钟 |
 | Linux 精靈 | 5 分鐘 |
-| Windows 軟體 | 30 分鐘 |
+| Windows 軟體 | 30 分钟 |
 | Linux 軟體軟體 | 5 分鐘 |
 
 下表顯示對於變更追蹤所追蹤的每個機器項目限制。

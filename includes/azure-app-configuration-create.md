@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: 0f066915046e363932652c104fabe96ed0a9d4c4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b86f2e05e2cb42470061bd6398b4200607f2418
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227179"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012280"
 ---
 1. 若要建立新的應用程式設定存放區，請登入 [Azure 入口網站](https://aka.ms/azconfig/portal)。 在頁面的左上角，選取 [+ 建立資源]。 在 [搜尋 Marketplace] 方塊中，輸入**應用程式設定**，然後按 Enter。
 
@@ -35,14 +35,3 @@ ms.locfileid: "58227179"
 4. 選取 [建立] 。 部署可能需要幾分鐘的時間才能完成。
 
 5. 完成部署之後，請選取 [設定]  >  [存取金鑰]。 記下主要唯讀或主要讀寫索引鍵連接字串。 稍後，您會使用此連接字串來設定您的應用程式，使其與您建立的應用程式設定存放區進行通訊。
-
-6. 選取 [索引鍵/值總管]  >  [+ 建立] 來新增下列索引鍵/值組：
-
-    | Key | 值 |
-    |---|---|
-    | TestApp:Settings:BackgroundColor | 白色 |
-    | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | 黑色 |
-    | TestApp:Settings:Message | Azure 應用程式設定的值 |
-
-    目前先讓 [標籤] 和 [內容類型] 保持空白。
