@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 9cd9adfd9d882f3781f519846ce22767123da36c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f5e75b30a7c196bb238c7bcb9c4704c1aec5e771
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652258"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999111"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web 搜尋 API 支援的語言和區域
 
@@ -40,7 +40,7 @@ Bing Web 搜尋 API 支援三十多個國家/地區，許多國家/地區具有�
 |芬蘭|FI|
 |法國|FR|
 |德國|DE|
-|香港|HK|
+|香港特別行政區|HK|
 |印度|IN|
 |印尼|ID|
 |義大利|IT|
@@ -83,7 +83,7 @@ Bing Web 搜尋 API 支援三十多個國家/地區，許多國家/地區具有�
 |芬蘭|芬蘭文|fi-FI|
 |法國|法文|fr-FR|
 |德國|德文|de-DE|
-|香港|繁體中文|zh-HK|
+|香港特別行政區|繁體中文|zh-HK|
 |印度|English|en-IN|
 |印尼|English|en-ID|
 |義大利|義大利文|it-IT|

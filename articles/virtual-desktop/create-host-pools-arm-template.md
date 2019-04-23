@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279222"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796421"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立主機集區
 
@@ -77,4 +77,4 @@ Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -Use
 在您完成這些步驟之後，新增至桌面應用程式群組的使用者可以透過支援的遠端桌面用戶端登入 Windows 虛擬桌面，並看到工作階段桌面的資源。
 
 >[!IMPORTANT]
->若要協助保護您的 Windows 虛擬桌面環境，在 Azure 中，我們建議您不要在您的 Vm 上開啟輸入連接埠 3389。 Windows 虛擬桌面並不需要開啟輸入連接埠 3389，讓使用者存取主應用程式集區的 Vm。 如果您必須開啟連接埠 3389 以進行疑難排解，我們建議您使用[在 just-in-time VM 存取](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)。
+>為了保護您在 Azure 中的 Windows 虛擬桌面環境，建議您不要在 VM 上開啟輸入連接埠 3389。 Windows 虛擬桌面不需要開啟輸入連接埠 3389 讓使用者存取主機集區的 VM。 如果您為了要進行疑難排解而必須開啟連接埠 3389，建議您使用 [Just-In-Time VM 存取](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)。

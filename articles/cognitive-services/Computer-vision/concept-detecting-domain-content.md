@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339006"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994481"
 ---
 # <a name="detect-domain-specific-content"></a>偵測特定領域內容
 
@@ -30,7 +30,7 @@ ms.locfileid: "57339006"
 
 以下是針對指定的影像由 **models/celebrities/analyze** API 傳回的 JSON 回應範例：
 
-![站著的 Satya Nadella](./images/satya.jpeg)
+![Satya Nadella 釐、 面帶笑容](./images/satya.jpeg)
 
 ```json
 {
@@ -100,7 +100,7 @@ ms.locfileid: "57339006"
 
 目前，電腦視覺支援下列特定領域模型：
 
-| 名稱 | 描述 |
+| Name | 描述 |
 |------|-------------|
 | 名人 | 支援 `people_` 類別中分類影像的名人辨識 |
 | 地標 | 支援 `outdoor_` 或 `building_` 類別中分類影像的地標辨識 |

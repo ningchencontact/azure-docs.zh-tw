@@ -13,11 +13,11 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 60839fa06d8436d3d2202d1d97735c42c5768e9e
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793750"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797204"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>適用於單一或集區資料庫的 Azure SQL Database 威脅偵測
 

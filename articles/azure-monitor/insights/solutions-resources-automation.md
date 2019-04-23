@@ -47,7 +47,7 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
     "name": "[concat(parameters('accountName'), '/MyRunbook'))]"
 
 
-## <a name="runbooks"></a>Runbook
+## <a name="runbooks"></a>runbook
 您應該在解決方案檔中包含解決方案所使用的任何 Runbook，以便系統會在安裝解決方案時建立這些 Runbook。  但您不能在範本中包含 Runbook 的主體，因此，您應該將 Runbook 發佈到公用位置，以供安裝了解決方案的使用者存取。
 
 [Azure 自動化 Runbook](../../automation/automation-runbook-types.md) 資源的類型為 **Microsoft.Automation/automationAccounts/runbooks**，且具有下列結構。 這包括一般變數和參數，因此您可以將此程式碼片段複製並貼到您的解決方案檔，然後變更參數名稱。 

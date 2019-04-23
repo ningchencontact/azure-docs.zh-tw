@@ -2,18 +2,18 @@
 title: Azure 資料目錄的常見問題集
 description: 與 Azure 資料目錄相關的常見問題集，包括資料來源探索、註解和管理功能。
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231459"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998444"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 資料目錄的常見問題集
 這篇文章提供與 Azure 資料目錄服務相關的常見問題集解答。
@@ -27,10 +27,10 @@ ms.locfileid: "51231459"
 ## <a name="what-are-its-target-audiences"></a>其目標對象為何？
 資料目錄的設計目標為技術性和非技術性使用者，包括：
 
-* 資料開發人員、BI 和分析專業人員：這些人負責產生資料和分析內容供他人使用。
-* 資料負責人：這些人了解資料、其意義和用法。
-* 資料取用者：這些人需要能夠透過他們所選擇的工具，輕鬆地探索、了解並連線至工作所需的資料。
-* 中央 IT：這些人需要提供數百個資料來源供商務使用者探索，也需要持續監督資料的使用情況和由誰使用。
+* 資料開發人員、 BI 和分析專業人員：負責產生資料和分析內容供他人使用的人員。
+* 資料負責人：了解的資料、 其意義，以及它要使用的方式的人員。
+* 資料取用者：人員需要能夠輕鬆地探索、 了解，並連接到使用自選的工具完成工作所需的資料。
+* 中央 IT:人需要提供數百種資料來源供商務使用者使用，而且需要持續監督資料的使用方式和由誰。
 
 ## <a name="what-is-its-availability-by-region"></a>其依區域的可用性為何？
 目前只有下列資料中心提供資料目錄服務：

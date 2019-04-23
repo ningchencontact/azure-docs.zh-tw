@@ -166,7 +166,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
     C:\myfolder\subfolder\a.txt
     C:\myfolder\subfolder\abcd.txt
 
-上传操作完成后，容器中将包括以下文件：
+上傳操作完成後，容器中將包括以下檔案：
 
     abc.txt
     abc1.txt
@@ -174,7 +174,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
     subfolder\a.txt
     subfolder\abcd.txt
 
-如果您未指定選項 `/S`，AzCopy 不會以遞迴方式上傳。 上传操作完成后，容器中将包括以下文件：
+如果您未指定選項 `/S`，AzCopy 不會以遞迴方式上傳。 上傳操作完成後，容器中將包括以下檔案：
 
     abc.txt
     abc1.txt
@@ -186,7 +186,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
 ```
 
-假定以下文件位于文件夹 `C:\myfolder` 中：
+假設下列檔案位於 `C:\myfolder` 資料夾中：
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
@@ -195,7 +195,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
     C:\myfolder\subfolder\a.txt
     C:\myfolder\subfolder\abcd.txt
 
-上传操作完成后，容器中将包括以下文件：
+上傳操作完成後，容器中將包括以下檔案：
 
     abc.txt
     abc1.txt
@@ -209,7 +209,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>指定目标 blob 的 MIME 内容类型
+### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>指定目標 Blob 的 MIME 內容類型
 
 根據預設，AzCopy 會將目的地 blob 的內容類型設定為 `application/octet-stream`。 從 3.1.0 版開始，您可以透過 `/SetContentType:[content-type]`選項明確指定內容類型。 此語法會在上傳作業中設定所有 Blob 的內容類型。
 
@@ -485,7 +485,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:https:/
 
 注意，當來源或目的地其中之一是資料表時，不支援此做法。
 
-### <a name="use-a-response-file-to-specify-command-line-parameters"></a>使用响应文件指定命令行参数
+### <a name="use-a-response-file-to-specify-command-line-parameters"></a>使用回應檔案指定命令列參數
 
 ```azcopy
 AzCopy /@:"C:\responsefiles\copyoperation.txt"
@@ -497,7 +497,7 @@ AzCopy /@:"C:\responsefiles\copyoperation.txt"
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
 
-每个 AzCopy 参数：
+或不同行：
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer
     /Dest:C:\myfolder
@@ -554,7 +554,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASTo
 
 ### <a name="journal-file-folder"></a>日誌檔案資料夾
 
-每次向 AzCopy 发出命令时，它都会检查默认文件夹中是否存在日志文件，或者通过此选项指定的文件夹中是否存在日志文件。 如果在這兩個地方都找不到日誌檔案，AzCopy 會將此作業視為新的作業，並產生新的日誌檔案。
+每次向 AzCopy 發出命令时，它都會檢查預設資料夾中是否存在日誌檔案，或您透過此選項指定的資料夾中是否存在日誌檔案。 如果在這兩個地方都找不到日誌檔案，AzCopy 會將此作業視為新的作業，並產生新的日誌檔案。
 
 如果找到日誌檔案，則 AzCopy 會檢查所輸入的命令列是否符合日誌檔案中的命令列。 如果這兩個命令列相符，AzCopy 便會繼續未完成的作業。 如果這兩個命令列不符，系統會提示您覆寫日誌檔案並開始新的作業，或取消目前作業。
 
@@ -758,7 +758,7 @@ AzCopy 會根據儲存副檔名對應內容類型的 JSON 檔案，以判斷 Blo
 
 ### <a name="parameter-file"></a>/@:"parameter-file"
 
-指定包含参数的文件。 AzCopy 處理檔案中的參數，就好像在命令列上指定這些參數一様。
+指定包含參數的檔案。 AzCopy 會處理檔案中的參數，就好像參數是在命令列上指定的一樣。
 
 在回應檔案中，您可以在單行中指定多個參數，或每一行各自指定一個參數。 請注意，各個參數無法橫跨多行。
 
@@ -851,7 +851,7 @@ AzCopy 會解譯使用這個選項為模擬不使用 /L 選項來執行此命令
 
 指出在 Blob 名稱中，用來分隔虛擬目錄的分隔符號字元。
 
-默认情况下，AzCopy 使用 / 作为分隔符字符。 不過，AzCopy 支援使用任何常見字元 (例如 @、# 或 %) 作為分隔符號。 如果您必須在命令列中包含其中一個特殊字元，請為檔案名稱加上雙引號。
+根據預設，AzCopy 使用 / 作為分隔符號字元。 不過，AzCopy 支援使用任何常見字元 (例如 @、# 或 %) 作為分隔符號。 如果您必須在命令列中包含這些特殊字元，請為檔案名稱加上雙引號。
 
 此選項僅適用於下載 Blob。
 

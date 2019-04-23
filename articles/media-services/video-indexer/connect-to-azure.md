@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
 ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894201"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796540"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>建立連線到 Azure 的影片索引器帳戶
 
@@ -140,7 +140,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 |---|---|
 |影片索引器帳戶區域|影片索引器帳戶區域的名稱。 為了達到較佳的效能和較低的成本，強烈建議您指定 Azure 媒體服務資源和 Azure 儲存體帳戶所在區域的名稱。 |
 |Azure Active Directory (AAD) 租用戶|Azure AD 租用戶的名稱，例如 "contoso.onmicrosoft.com"。 租用戶資訊可從 Azure 入口網站擷取。 將游標放在右上角登入的使用者名稱上方。 尋找**網域**右邊的名稱。|
-|訂用帳戶識別碼|用來建立此連線的 Azure 訂用帳戶。 訂用帳戶識別碼可從 Azure 入口網站擷取。 按一下左側面板中的 [所有服務]，然後搜尋「訂用帳戶」。 選取 [訂用帳戶]，並從訂用帳戶清單中選擇需要的識別碼。|
+|订阅 ID|用來建立此連線的 Azure 訂用帳戶。 訂用帳戶識別碼可從 Azure 入口網站擷取。 按一下左側面板中的 [所有服務]，然後搜尋「訂用帳戶」。 選取 [訂用帳戶]，並從訂用帳戶清單中選擇需要的識別碼。|
 |Azure 媒體服務資源群組名稱|您在其中建立媒體服務帳戶的資源群組名稱。|
 |媒體服務資源名稱|您在上一節中建立的 Azure 媒體服務帳戶名稱。|
 |應用程式識別碼|您在上一節中建立的 Azure AD 應用程式識別碼 (具有所指定媒體服務帳戶的權限)。|

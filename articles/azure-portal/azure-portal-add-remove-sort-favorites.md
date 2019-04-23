@@ -11,13 +11,13 @@ ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.openlocfilehash: ff3549ce77a2b691dcaaa94b6a59e9c011ff6e21
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59052998"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796098"
 ---
-# <a name="add-remove-and-sort-favorites"></a>新增、 移除及排序 [我的最愛]
+# <a name="add-remove-and-sort-favorites"></a>新增、移除及排序我的最愛
 
 新增或移除項目，從您**我的最愛**清單，以便您可以快速地移至您最常使用的服務。 我們已新增一些通用的服務，以您**我的最愛** 清單中，但您可能會想要加以自訂。 您是唯一會看到您對變更的人**我的最愛**。
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313070"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998612"
 ---
 # <a name="detect-color-schemes-in-images"></a>偵測影像中的色彩配置
 
@@ -30,7 +30,7 @@ ms.locfileid: "56313070"
 
 下列範例說明偵測範例影像的色彩配置時，電腦視覺所傳回的 JSON 回應。 在此情況下，本範例影像不是黑白影像，但主要前景和背景色彩為黑色，而且整體影像的主要色彩為黑色和白色。
 
-![戶外山景](./Images/mountain_vista.png)
+![在日落，與個人的黑色輪廓戶外 Mountain](./Images/mountain_vista.png)
 
 ```json
 {

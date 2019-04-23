@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
 ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879330"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799317"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>在 流量分析的結構描述和資料彙總
 
@@ -71,8 +71,8 @@ ms.locfileid: "58879330"
 | NSGRuleType_s | * 使用者定義 * 預設 |   NSG 規則流程所使用的型別 |
 | MACAddress_s | MAC 位址 | 在流程中所擷取的 nic 的 MAC 位址 |
 | Subscription_s | 訂用帳戶的 Azure 虛擬網路 / 網路介面 / 虛擬機器會填入此欄位 | 只適用於 FlowType = S2S，P2S、 AzurePublic、 ExternalPublic、 MaliciousFlow 和 UnknownPrivate 流程類型 （其中只有一個側邊是 azure 的流程類型） |
-| Subscription1_s | 訂用帳戶識別碼 | 訂用帳戶 ID 的虛擬網路 / 網路介面 / 流程中的來源 IP 所屬的虛擬機器 |
-| Subscription2_s | 訂用帳戶識別碼 | 訂用帳戶 ID 的虛擬網路 / 網路介面 / 目的地 ip 位址，在流程中的所屬的虛擬機器 |
+| Subscription1_s | 订阅 ID | 訂用帳戶 ID 的虛擬網路 / 網路介面 / 流程中的來源 IP 所屬的虛擬機器 |
+| Subscription2_s | 订阅 ID | 訂用帳戶 ID 的虛擬網路 / 網路介面 / 目的地 ip 位址，在流程中的所屬的虛擬機器 |
 | Region_s | Azure 區域的虛擬網路 / 網路介面 / 流程中的 IP 所屬的虛擬機器 | 只適用於 FlowType = S2S，P2S、 AzurePublic、 ExternalPublic、 MaliciousFlow 和 UnknownPrivate 流程類型 （其中只有一個側邊是 azure 的流程類型） |
 | Region1_s | Azure 區域 | Azure 區域的虛擬網路 / 網路介面 / 流程中的來源 IP 所屬的虛擬機器 |
 | Region2_s | Azure 區域 | 在流程中的目的地 ip 位址所屬的虛擬網路的 azure 區域 |

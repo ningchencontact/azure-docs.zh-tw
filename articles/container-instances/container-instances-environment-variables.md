@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606883"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994770"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>在容器執行個體中設定環境變數
 
@@ -143,18 +143,15 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Azure 入口網站範例
 
-若要在 Azure入口網站中啟動容器時設定環境變數，請在您建立容器時，於 [組態] 頁面上指定這些變數。
+若要設定環境變數，當您在 Azure 入口網站中啟動容器時，指定在**進階**頁面上，當您建立容器。
 
-當您以入口網站進行部署時，您目前僅限使用三個變數，並且必須以此格式來輸入變數：`"variableName":"value"`
-
-若要查看範例，請啟動[aci wordcount] [ aci-wordcount]容器*NumWords*並*MinLength*變數。
-
-1. 在 [組態] 中，將 [重新啟動原則] 設定為 [失敗時]
-2. 輸入 `"NumWords":"5"` 作為第一個變數，並在 [新增其他環境變數] 下方選取 [是]，然後輸入 `"MinLength":"8"` 作為第二個變數。 選取 [確定] 來加以確認並部署容器。
+1. 在 **進階**頁面上，將**重新啟動原則**到*失敗*
+2. 底下**環境變數**，輸入`NumWords`值是`5`之第一個變數，然後輸入`MinLength`值為`8`第二個變數。 
+1. 選取 **檢閱 + 建立**確認，然後再部署容器。
 
 ![顯示環境變數啟用按鈕和文字方塊的入口網站頁面][portal-env-vars-01]
 
-若要檢視容器的記錄，請在 [設定] 下選取 [容器]，然後選取 [記錄]。 類似於前面 CLI 和 PowerShell 區段中所示的輸出，您可以看到環境變數如何修改指令碼行為。 僅顯示五個字組，每個字組都至少有八個字元長。
+若要檢視容器的記錄檔，在**設定**選取**容器**，然後**記錄**。 類似於前面 CLI 和 PowerShell 區段中所示的輸出，您可以看到環境變數如何修改指令碼行為。 僅顯示五個字組，每個字組都至少有八個字元長。
 
 ![顯示容器記錄輸出的入口網站][portal-env-vars-02]
 

@@ -315,10 +315,10 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | SmallMoney | SmallMoney |
 | Binary | Binary |
 | Varbinary | Varbinary (最多 8000) |
-| Date | Date |
-| DateTime | DateTime |
+| date | date |
+| Datetime | Datetime |
 | DateTime2 | DateTime2 |
-| Time | Time |
+| 時間 | 時間 |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | Text | Varchar (最多 8000) |
@@ -349,14 +349,14 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
+| date |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| image |Byte[] |
+| Image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
@@ -365,7 +365,7 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object * |
@@ -376,7 +376,7 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |Xml |
 
 您也可以在複製活動定義中，將來自來源資料集的資料行與來自接收資料集的資料行對應。 如需詳細資料，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
 

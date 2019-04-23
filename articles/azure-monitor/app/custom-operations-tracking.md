@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 8e082f15cff616b9dc63fbf4ad51e94d078a04f3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811285"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995535"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 追蹤自訂作業
 
@@ -384,12 +384,13 @@ public async Task Process(MessagePayload message)
 每個訊息應該在自己的非同步控制流程中處理。 如需詳細資訊，請參閱[連出相依性追蹤](#outgoing-dependencies-tracking)一節。
 
 ## <a name="long-running-background-tasks"></a>長時間執行的背景工作
+
 有些應用程式可能會應使用者要求，啟動長時間執行的作業。 就追蹤/檢測觀點而言，這與要求或相依性檢測並無不同： 
 
 ```csharp
 async Task BackgroundTask()
 {
-    var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>(taskName);
     operation.Telemetry.Type = "Background";
     try
     {
@@ -414,9 +415,9 @@ async Task BackgroundTask()
 }
 ```
 
-在此範例中，`telemetryClient.StartOperation` 會建立 `RequestTelemetry` 並填滿相互關聯內容。 假設您有一項父代作業，由排程作業的連入要求所建立。 只要 `BackgroundTask` 在與連入要求相同的非同步控制流程中啟動，它就會與該父代作業相互關聯。 `BackgroundTask` 和所有巢狀遙測項目將會自動與造成它的要求相互關聯，即使在要求結束後亦然。
+在此範例中，`telemetryClient.StartOperation` 會建立 `DependencyTelemetry` 並填滿相互關聯內容。 假設您有一項父代作業，由排程作業的連入要求所建立。 只要 `BackgroundTask` 在與連入要求相同的非同步控制流程中啟動，它就會與該父代作業相互關聯。 `BackgroundTask` 和所有巢狀遙測項目將會自動與造成它的要求相互關聯，即使在要求結束後亦然。
 
-從沒有任何相關聯作業 (`Activity`) 的背景執行緒啟動工作時，`BackgroundTask` 沒有任何父代。 不過，它可以有巢狀作業。 工作回報的所有遙測項目會與在 `BackgroundTask` 中建立的 `RequestTelemetry` 相互關聯。
+從沒有任何相關聯作業 (`Activity`) 的背景執行緒啟動工作時，`BackgroundTask` 沒有任何父代。 不過，它可以有巢狀作業。 工作回報的所有遙測項目會與在 `BackgroundTask` 中建立的 `DependencyTelemetry` 相互關聯。
 
 ## <a name="outgoing-dependencies-tracking"></a>連出相依性追蹤
 您可以追蹤自己的相依性種類或 Application Insights 不支援的作業。

@@ -1,7 +1,6 @@
 ---
 title: 檢視 Azure 資源的保留 | Microsoft Docs
 description: 了解如何在 Azure 入口網站中檢視 Azure 保留。
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,31 +10,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650218"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995518"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>在 Azure 入口網站中檢視 Azure 保留的項目
 
 根據您的訂用帳戶類型和權限，有幾種方式來檢視適用於 Azure 的保留項目。
 
-## <a name="view-reservations-as-owner-or-reader"></a>以擁有者或讀取者身分檢視保留
+## <a name="view-purchased-reservations"></a>檢視購買的保留項目
 
-當您購買保留時，您和帳戶管理員預設可以檢視該保留。 您和帳戶管理員會自動取得該保留的「擁有者」角色。 若要允許其他人員檢視保留，您必須將他們新增為該保留的「擁有者」或「讀者」。 如需詳細資訊，請參閱[新增或變更可以管理保留的使用者](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)。
- 
+當您購買保留時，您和帳戶管理員預設可以檢視該保留。 您與帳戶管理員會自動取得保留訂單和保留項目擁有者角色。 若要允許其他人可以檢視此保留項目，您必須將其新增為**擁有者**或是**讀取器**保留順序或保留項目上。
+
+如需詳細資訊，請參閱[新增或變更可以管理保留的使用者](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)。
+
 若要以「擁有者」或「讀者」身分檢視保留，
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [保留] 進行搜尋。
-
-    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-view-reservation/portal-reservation-search.png)
-
-1. 您會看到您具備「擁有者」或「讀者」角色的保留清單。
+2. 針對 [保留] 進行搜尋。
+    ![螢幕擷取畫面顯示 Azure 入口網站搜尋](./media/billing-view-reservation/portal-reservation-search.png)  
+3. 此清單會顯示所有保留項目具有 「 擁有者 」 或 「 讀取者角色。 每個保留項目顯示的最後一個已知的使用率百分比。  
+    ![範例，顯示一份保留項目](./media/billing-view-reservation/view-reservations.png)
+4. 選取保留並查看過去五天的使用率趨勢。  
+    ![範例顯示保留的使用趨勢](./media/billing-view-reservation/reservation-utilization.png)
+5. 您也可以取得[保留使用率](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)使用保留的執行個體使用情況 API 與[Microsoft Azure 耗用量 Insights Power BI 內容套件](/power-bi/service-connect-to-azure-consumption-insights)。
 
 如果您需要變更保留的範圍、分割保留或變更可管理保留的人員，請參閱 [管理 Azure Reservations](billing-manage-reserved-vm-instance.md)。
 
