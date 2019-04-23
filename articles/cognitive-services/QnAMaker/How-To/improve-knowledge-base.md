@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522191"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678984"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>若要改善您的知識庫中使用 作用中學習
 
@@ -75,9 +75,9 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 ## <a name="add-active-learning-suggestion-to-knowledge-base"></a>將主動式學習的建議新增至知識庫
 
-1. 若要查看建議的問題，請在 [編輯知識庫] 頁面上選取 [顯示建議]。 
+1. 若要查看建議的問題，請在 **編輯知識庫** 頁面上選取 **顯示建議**。 
 
-    [![在入口網站的 [編輯] 區段中，選取 顯示的建議，若要查看作用中的學習新問題的替代方案。](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![在入口網站的 [編輯] 區段中，選取 [顯示的建議，若要查看作用中的學習新問題的替代方案。](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. 篩選問題和答案組，以顯示所選取的只有建議知識庫**篩選-依建議**。
 
@@ -156,7 +156,7 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 一旦使用者可以選取現有的問題之一，用戶端應用程式會以使用 QnA Maker 訓練 API 的意見反應傳送使用者的選擇。 此意見反應完成主動學習回饋迴圈。 
 
-使用[Azure BotC#範例](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)若要查看在端對端案例中的主動式學習。
+使用[Azure Bot 範例](https://aka.ms/activelearningsamplebot)以查看在端對端案例中的主動式學習。
 
 ## <a name="train-api"></a>訓練 API
 
@@ -169,12 +169,12 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 要求的屬性|名稱|類型|目的|
+|HTTP 要求的屬性|Name|類型|目的|
 |--|--|--|--|
 |URL 路由參數|知識庫識別碼|字串|測試您知識庫的 GUID。|
 |主機的子網域|QnAMaker 資源名稱|字串|您在您的 Azure 訂用帳戶中的 QnA Maker 的主機名稱。 在發行知識庫之後，這是可在 [設定] 頁面上取得。 |
 |頁首|Content-Type|字串|傳送至 API 的本文媒體類型。 預設值為： `application/json`|
-|頁首|Authorization|字串|您的端點金鑰 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。|
+|頁首|授權|字串|您的端點金鑰 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。|
 |張貼本文|JSON 物件|JSON|訓練意見反應|
 
 JSON 主體具有數個設定：

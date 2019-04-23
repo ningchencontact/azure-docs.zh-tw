@@ -391,7 +391,7 @@ AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfold
 AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
 ```
 
-AzCopy 會在分割資料檔案名稱中使用 *磁碟區索引* ，以區分多個檔案。 磁碟區索引由兩部分組成：資料分割索引鍵範圍索引和分割檔案索引。 兩個索引皆以零為基礎。
+AzCopy 會在分割資料檔案名稱中使用 *磁碟區索引* ，以區分多個檔案。 磁碟區索引由兩部分組成：分割區索引鍵範圍索引與分割檔案索引。 兩個索引都以零為基礎。
 
 如果使用者未指定 `/PKRS`選項，資料分割索引鍵範圍索引會是 0。
 
