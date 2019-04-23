@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2019
+ms.date: 04/18/2019
 ms.author: tomfitz
-ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492187"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004426"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 
@@ -129,7 +129,7 @@ ms.locfileid: "59492187"
 | maxValue |否 |int 類型參數的最大值，含此值。 |
 | minLength |否 |字串、securestring 及陣列類型參數長度的最小值，含此值。 |
 | maxLength |否 |字串、securestring 及陣列類型參數長度的最大值，含此值。 |
-| 說明 |否 |透過入口網站向使用者顯示的參數說明。 如需詳細資訊，請參閱[範本中的註解](#comments)。 |
+| description |否 |透過入口網站向使用者顯示的參數說明。 如需詳細資訊，請參閱[範本中的註解](#comments)。 |
 
 ### <a name="define-and-use-a-parameter"></a>定義及使用參數
 
@@ -495,8 +495,8 @@ ms.locfileid: "59492187"
 |:--- |:--- |:--- |
 | 条件 | 否 | 布林值，指出是否會在此部署期間佈建資源。 若為 `true`，就會在部署期間建立資源。 若為 `false`，則會略過此部署的資源。 請參閱[條件](#condition)。 |
 | apiVersion |是 |要用來建立資源的 REST API 版本。 若要确定可用值，请参阅[模板参考](/azure/templates/)。 |
-| type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 若要确定可用值，请参阅[模板参考](/azure/templates/)。 |
-| name |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定並非嘗試詐騙其他身分識別。 |
+| type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 若要确定可用值，请参阅[模板参考](/azure/templates/)。 子資源類型的格式取決於是否有巢狀於父資源或外部的父資源定義。 請參閱[子資源](#child-resources)。 |
+| name |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定並非嘗試詐騙其他身分識別。 子資源名稱的格式取決於是否有巢狀於父資源或外部的父資源定義。 請參閱[子資源](#child-resources)。 |
 | location |視情況而異 |所提供資源的支援地理位置。 您可以選取任何可用的位置，但通常選擇接近您的使用者的位置很合理。 通常，將彼此互動的資源放在相同區域也合乎常理。 大部分的資源類型都需要有位置，但某些類型 (例如角色指派) 不需要位置。 |
 | tags |否 |與資源相關聯的標記。 套用標籤，既可以邏輯方式組織訂用帳戶中的資源。 |
 | comments |否 |您在範本中記錄資源的註解。 如需詳細資訊，請參閱[範本中的註解](resource-group-authoring-templates.md#comments)。 |
@@ -506,11 +506,11 @@ ms.locfileid: "59492187"
 | sku | 否 | 某些資源允許以值定義要部署的 SKU。 例如，您可以指定儲存體帳戶的備援類型。 |
 | kind | 否 | 某些資源允許以值定義您所部署的資源類型。 例如，您可以指定要建立的 Cosmos DB 類型。 |
 | 計劃 | 否 | 某些資源允許以值定義要部署的計劃。 例如，您可以指定虛擬機器的 Marketplace 映像。 | 
-| resources |否 |依赖于所定义的资源的子资源。 只提供父資源的結構描述允許的資源類型。 子資源的完整類型包含父資源類型，例如 **Microsoft.Web/sites/extensions**。 沒有隱含父資源的相依性。 您必須明確定義該相依性。 |
+| resources |否 |依赖于所定义的资源的子资源。 只提供父資源的結構描述允許的資源類型。 沒有隱含父資源的相依性。 您必須明確定義該相依性。 請參閱[子資源](#child-resources)。 |
 
 ### <a name="condition"></a>條件
 
-當您必須在部署期間決定是否建立資源時，請使用 `condition` 項目。 此元素的值會解析為 true 或 false。 當此值為 true 時，會部署資源。 當此值為 false 時，則不會部署資源。 此值只能套用至整個資源。
+當您必須決定在部署期間建立的資源時，請使用`condition`項目。 此元素的值會解析為 true 或 false。 當此值為 true 時，會部署資源。 當此值為 false 時，則不會部署資源。 此值只能套用至整個資源。
 
 一般而言，當您想要建立新資源或使用現有資源時，就會使用此值。 例如，若要指定要部署新的儲存體帳戶或使用現有的儲存體帳戶，請使用：
 
@@ -652,45 +652,57 @@ ms.locfileid: "59492187"
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   ...
   "resources": [
     {
-      "name": "exampledatabase",
+      "apiVersion": "2017-10-01-preview",
       "type": "databases",
-      "apiVersion": "2014-04-01",
+      "name": "exampledatabase",
       ...
     }
   ]
 }
 ```
 
-形成巢狀後，類型會設為 `databases`，但是其完整資源類型為 `Microsoft.Sql/servers/databases`。 您未提供 `Microsoft.Sql/servers/`，因為它被認為是來自父資源類型。 子資源名稱會設為 `exampledatabase`，但是完整名稱包含父系名稱。 您未提供 `exampleserver`，因為它被認為是來自父資源。
-
-子資源類型的格式如下︰`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
-
-子資源名稱的格式如下︰`{parent-resource-name}/{child-resource-name}`
-
 但是，您不必在伺服器內定義資料庫。 您可以定義最上層的子資源。 如果父資源並未部署在相同範本中，或者想要使用 `copy` 來建立多個子資源，您可以使用此方法。 使用這個方法，您必須提供完整資源類型，並將父資源名稱納入子資源名稱中。
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   "resources": [ 
   ],
   ...
 },
 {
-  "name": "exampleserver/exampledatabase",
+  "apiVersion": "2017-10-01-preview",
   "type": "Microsoft.Sql/servers/databases",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver/exampledatabase",
   ...
 }
 ```
+
+您提供的型別和名稱的值根據子資源是否已定義於父資源，或外部的父資源而有所不同。
+
+當巢狀方式置於父資源，使用：
+
+```json
+"type": "{child-resource-type}",
+"name": "{child-resource-name}",
+```
+
+定義父代資源之外，使用：
+
+```json
+"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
+"name": "{parent-resource-name}/{child-resource-name}",
+```
+
+當巢狀型別會設定為`databases`仍在其完整資源類型，但`Microsoft.Sql/servers/databases`。 您未提供 `Microsoft.Sql/servers/`，因為它被認為是來自父資源類型。 子資源名稱會設為 `exampledatabase`，但是完整名稱包含父系名稱。 您未提供 `exampleserver`，因為它被認為是來自父資源。
 
 當建構資源的完整參考時，要從類型和名稱合併區段的順序並非只是將兩個串連。 相反地，在命名空間之後，使用從最特定到最不特定的一連串*類型/名稱*組：
 
@@ -724,7 +736,7 @@ ms.locfileid: "59492187"
 |:--- |:--- |:--- |
 | outputName |是 |輸出值的名稱。 必須是有效的 JavaScript 識別碼。 |
 | condition |否 | 布林值，指出是否傳回此輸出值。 當為 `true` 時，該值會包含在部署的輸出中。 若為 `false`，則會略過此部署的輸出值。 未指定時，預設值為 `true`。 |
-| type |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 |
+| type |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 如果您指定**securestring**輸出類型，值不會顯示在部署歷程記錄，而且無法擷取從另一個範本。 若要在多個範本中使用祕密的值，將密碼儲存在金鑰保存庫，並參考參數檔案中的密碼。 如需詳細資訊，請參閱 <<c0> [ 使用 Azure 金鑰保存庫，在部署期間傳遞安全的參數值](resource-manager-keyvault-parameter.md)。 |
 | value |是 |評估並傳回做為輸出值的範本語言運算式。 |
 
 ### <a name="define-and-use-output-values"></a>定義和使用輸出值

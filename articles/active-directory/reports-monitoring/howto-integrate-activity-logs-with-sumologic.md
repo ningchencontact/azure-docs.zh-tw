@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 監視器將 Azure Active Directory 記錄串流至 SumoLogic (預覽) | Microsoft Docs
-description: 了解如何使用 Azure 監視器將 Azure Active Directory 記錄與 SumoLogic 整合 (預覽)
+title: Stream Azure Active Directory 記錄檔，以使用 Azure 監視器的 SumoLogic |Microsoft Docs
+description: 了解如何使用 Azure 監視器的 SumoLogic 與整合 Azure Active Directory 記錄檔
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed1b96052117534f319bbf9570618e6481032f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 7ccf9cd550b3848be841f193f4ab8a6094cf671d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437203"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008933"
 ---
-# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>使用 Azure 監視器將 Azure Active Directory 記錄與 SumoLogic 整合 (預覽)
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>使用 Azure 監視器的 SumoLogic 與整合 Azure Active Directory 記錄檔
 
 在此文章中，您將了解如何使用 Azure 監視器將 Azure Active Directory (Azure AD) 記錄與 SumoLogic 整合。 您首先會將記錄路由傳送至 Azure 事件中樞，然後將事件中樞與 SumoLogic 整合。
 

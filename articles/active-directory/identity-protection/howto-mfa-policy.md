@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/17/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: abd1049551d7dbc4823636dfdc00f64afab72cdf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698957"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008591"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>作法：設定多重要素驗證註冊原則
 
-Azure AD Identity Protection 可協助您藉由設定要求 MFA 註冊原則管理導入的 multi-factor authentication (MFA) 註冊。 本文說明哪個原則可用於設定。
+Azure AD Identity Protection 可協助您藉由設定要求 MFA 註冊原則管理導入的 multi-factor authentication (MFA) 註冊。 這篇文章會說明哪些原則可用於和如何加以設定。
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>什麼是多重要素驗證註冊原則？
 

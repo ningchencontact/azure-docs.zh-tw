@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/08/2019
+ms.date: 04/18/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360530"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004766"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -111,7 +111,7 @@ Site Recovery 會將內部部署 VMware Vm 和實體伺服器複寫至 Azure 中
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>機器受到保護後可以變更受控的磁碟類型嗎？
 
-是，您可以輕鬆地[受控磁碟的類型變更](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)。 不過，如果您可以將受控的磁碟類型時，等候最新的復原點，如果您要執行測試容錯移轉或容錯移轉在變更後產生。
+是，您可以輕鬆地[受控磁碟的類型變更](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)。 在變更之前的型別，請確定您撤銷磁碟 SAS URL，方法是前往 Azure 入口網站中的 受控磁碟資源。 從 [概觀] 刀鋒視窗中，取消任何進行中的匯出。 一旦已撤銷該 SA URL，請接下來的幾分鐘內變更磁碟類型。 不過，如果您變更受控的磁碟類型時，等候要由 Azure Site Recovery 產生全新的復原點。 適用於任何測試容錯移轉或容錯移轉從現在開始使用新的復原點。
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>我可以切換至非受控磁碟的複寫從受控磁碟嗎？
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 24cff3a2ec4d0bed7a030ca430eaa698eb4a7325
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278763"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994702"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>建立使用可用性區域的虛擬機器擴展集
 
@@ -62,7 +62,7 @@ ms.locfileid: "59278763"
 
 當您在單一區域中建立擴展集時，您可以控制要在哪個區域執行所有 VM 執行個體，且擴展集只會在該區域內進行管理並自動調整。 區域備援擴展集可讓您建立跨多個區域的單一擴展集。 當您建立 VM 執行個體時，系統預設會將它們平均分散到各個區域。 若其中一個區域發生中斷，擴展集不會為了增加容量而自動相應放大。 最佳做法是設定以 CPU 或記憶體使用量為基礎的自動調整規則。 自動調整規則可讓擴展集在該區域遺失 VM 執行個體時，於其餘運作中的區域相應增加新的執行個體，來作為回應。
 
-若要使用可用性區域，您必須在[支援的 Azure 區域](../availability-zones/az-overview.md#regions-that-support-availability-zones)中建立擴展集。 您可以使用下列其中一個方法，來建立使用可用性區域的擴展集：
+若要使用可用性區域，您必須在[支援的 Azure 區域](../availability-zones/az-overview.md#services-support-by-region)中建立擴展集。 您可以使用下列其中一個方法，來建立使用可用性區域的擴展集：
 
 - [Azure 门户](#use-the-azure-portal)
 - Azure CLI
