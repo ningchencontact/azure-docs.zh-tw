@@ -16,7 +16,7 @@ ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: 55d59871ee72f755fcd881e4f89e56e6d6d1d84e
 ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59995314"

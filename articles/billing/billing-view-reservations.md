@@ -14,7 +14,7 @@ ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
 ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59995518"
