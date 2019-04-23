@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549366"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149269"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -130,12 +130,6 @@ Log Analytics 工作區必須存在於下列區域：
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>因為發生「找不到」錯誤而無法設定 NSG 進行流量分析，該怎麼辦？
 
 請選取支援的地區。 如果您選取不受支援的區域，就會收到「找不到」錯誤。 本文稍早已列出支援的地區。
-
-## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>為什麼我會收到錯誤 「 無法更新流程記錄檔設定...InternalServerError..."當啟用 NSG 的美國維吉尼亞州政府中？
-
-這是因為 bug，其中 'Microsoft.Network' 資源提供者不是美國維吉尼亞州政府的訂用帳戶重新註冊。 小組正在努力修正。 因應措施，您必須[手動重新註冊 'Microsoft.Network' RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors)。 
-
-請如果問題持續發生，連絡支援服務。 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>NSG 流量記錄頁面下方顯示「無法載入」狀態，該怎麼辦？
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cf1bb31614c04d6073bc40c510fc43b2f8e4e189
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796305"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148980"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中建立自訂映像處理站
-這篇文章會示範如何使用範例指令碼中可用設定的自訂映像處理站[Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory)。
+這篇文章會示範如何使用範例指令碼中可用設定的自訂映像處理站[Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory)。
 
 ## <a name="whats-an-image-factory"></a>映像處理站是什麼？
 映像處理站是設定即程式碼解決方案，建置並散佈映像會自動定期所有所需的組態。 映像處理站中的映像一律是最新狀態，而且持續維護幾乎零一旦整個程序自動化。 因為所有必要的組態已經在映像中，它會使用基礎作業系統建立 VM 之後，手動設定系統節省時間。
@@ -39,7 +39,7 @@ ms.locfileid: "59796305"
 
 ![解決方案的高階檢視](./media/create-image-factory/high-level-view-of-solution.png)
 
-沒有[VSTS 延伸模組，適用於 DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) ，可讓您執行這些個別的步驟： 
+沒有[VSTS 延伸模組，適用於 DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) ，可讓您執行這些個別的步驟：
 
 - 建立自訂影像
 - 建立 VM

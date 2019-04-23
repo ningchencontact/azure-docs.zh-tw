@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: f83ee40c97e49add539a44a6ba764024a8e47bfa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: fdffa3862f45b99c2c3f2ed41934e09247808ca7
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081486"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150039"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中建立和管理可認領 VM
 您可以從[自訂映像](devtest-lab-create-template.md)、[公式](devtest-lab-manage-formulas.md)或 [Marketplace 映像](devtest-lab-configure-marketplace-images.md)等「基底」，使用和[新增標準 VM](devtest-lab-add-vm.md) 相似的方法將可宣告 VM 新增至實驗室。 本教學課程會逐步引導您使用 Azure 入口網站，新增可認領 VM 至 DevTest Labs 中的實驗室，並為使用者示範認領與取消認領 VM 的流程。
@@ -29,27 +29,27 @@ ms.locfileid: "58081486"
 1. 選取 [所有服務]，然後選取 [DEVOPS] 區段中的 [DevTest Labs]。 如果您選取 [DEVOPS] 區段中 [DevTest Labs] 旁邊的 * (星號)， 此動作會將 [DevTest Labs] 新增到左側導覽功能表，以便您下次輕鬆存取。 然後，您便可以選取左側導覽功能表上的 [DevTest Labs]。
 
     ![所有服務 - 選取 DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
-1. 從實驗室清單中，選取您想要在其中建立 VM 的實驗室。  
-2. 在實驗室的 [概觀] 頁面上，選取 [+ 新增]。  
+1. 從實驗室清單中，選取您想要在其中建立 VM 的實驗室。
+2. 在實驗室的 [概觀] 頁面上，選取 [+ 新增]。
 
     ![加入 VM 按鈕](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 1. 在 [選擇基底] 頁面上，選取 VM 的 Marketplace 映像。
-1. 在 [虛擬機器] 頁面的 [基本設定] 索引標籤上，執行下列動作： 
+1. 在 [虛擬機器] 頁面的 [基本設定] 索引標籤上，執行下列動作：
     1. 在 [虛擬機器名稱] 文字方塊中，輸入 VM 的名稱。 此文字方塊中會為您預先填入一個自動產生的唯一名稱。 此名稱會對應至您電子郵件地址中的使用者名稱，並在其後方加上唯一的 3 位數數字。 這項功能可節省您思考機器名稱的時間，以及每次建立機器時輸入名稱的時間。 如果您想要的話，也可以使用您選擇的名稱來覆寫此自動填入的欄位。 若要覆寫自動填入的 VM 名稱，請在 [虛擬機器名稱] 文字方塊中輸入名稱。
     2. 輸入**使用者名稱**，此名稱會被授與虛擬機器上的系統管理員權限。 機器的**使用者名稱**會預先填入自動產生的唯一名稱。 此名稱會對應至您電子郵件地址中的使用者名稱。 這項功能可節省您每次建立新機器時，決定使用者名稱的時間。 同樣地，如果您想要的話，也可以使用您選擇的使用者名稱來覆寫此自動填入的欄位。 若要覆寫使用者名稱的自動填入值，請在 [使用者名稱] 文字方塊中輸入值。 此使用者會獲得虛擬機器上的**系統管理員**權限。
-    3. 如果是在實驗室中建立第一個 VM，請為使用者輸入**密碼**。 若要讓此密碼以預設密碼的形式，儲存在與實驗室相關聯的 Azure 金鑰保存庫中，請選取 [儲存為預設密碼]。 預設密碼會以下列名稱儲存在金鑰保存庫中：**VmPassword**。 當您嘗試在實驗室中建立後續的 VM 時，系統會自動選取 **VmPassword** 作為**密碼**。 若要覆寫此值，請清除 [使用儲存的祕密] 核取方塊，然後輸入密碼。 
+    3. 如果是在實驗室中建立第一個 VM，請為使用者輸入**密碼**。 若要讓此密碼以預設密碼的形式，儲存在與實驗室相關聯的 Azure 金鑰保存庫中，請選取 [儲存為預設密碼]。 預設密碼會以下列名稱儲存在金鑰保存庫中：**VmPassword**。 當您嘗試在實驗室中建立後續的 VM 時，系統會自動選取 **VmPassword** 作為**密碼**。 若要覆寫此值，請清除 [使用儲存的祕密] 核取方塊，然後輸入密碼。
 
         您可以也先將祕密儲存在金鑰保存庫中，然後在實驗室中建立 VM 時使用此祕密。 如需詳細資訊，請參閱[在金鑰保存庫中儲存祕密](devtest-lab-store-secrets-in-key-vault.md)。 若要使用儲存在金鑰保存庫中的密碼，請選取 [使用儲存的祕密]，並指定與祕密 (密碼) 對應的金鑰值。
     4. 在 [更多選項] 區段中，選取 [變更大小]。 選取其中一個預先定義的項目，以指定要建立之 VM 的處理器核心、RAM 大小及硬碟大小。
     5. 選取 [新增或移除成品]。 選取並設定您想要新增到基底映像中的成品。
     **附註：** 如果您對 DevTest Labs 或設定構件並不熟悉，請參閱[將現有的構件加入至 VM](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) 一節，完成該節之後再返回此處。
 2. 切換至頂端的 [進階設定] 索引標籤，然後執行下列動作：
-    1. 若要變更 VM 所在的虛擬網路，請選取 [變更 VNet]。 
-    2. 若要變更子網路，請選取 [變更子網路]。 
-    3. 指定 VM 的 IP 位址是 [公用]、[私人] 還是 [共用]。 
-    4. 若要自動刪除 VM，請指定**到期日和時間**。 
-    5. 若要將 VM 設為可供實驗室使用者認領，請針對 [允許宣告此機器] 選項選取 [是]。 
-    6. 指定要提供給實驗室使用者使用的 **VM 執行個體**數目。 
+    1. 若要變更 VM 所在的虛擬網路，請選取 [變更 VNet]。
+    2. 若要變更子網路，請選取 [變更子網路]。
+    3. 指定 VM 的 IP 位址是 [公用]、[私人] 還是 [共用]。
+    4. 若要自動刪除 VM，請指定**到期日和時間**。
+    5. 若要將 VM 設為可供實驗室使用者認領，請針對 [允許宣告此機器] 選項選取 [是]。
+    6. 指定要提供給實驗室使用者使用的 **VM 執行個體**數目。
 3. 選取 [建立]  ，將指定的 VM 加入實驗室。
 
    實驗室頁面會顯示 VM 的建立狀態 - 一開始會是 [正在建立]，然後在啟動該 VM 之後則是 [正在執行]。
@@ -99,4 +99,4 @@ ms.locfileid: "58081486"
 
 ## <a name="next-steps"></a>後續步驟
 * 建立完成後，您可選取其管理窗格上的 [連線] 來重新連線至 VM。
-* 瀏覽 [DevTest Labs Azure Resource Manager 快速入門範本資源庫](https://github.com/Azure/azure-devtestlab/tree/master/Samples)\(英文\)。
+* 瀏覽 [DevTest Labs Azure Resource Manager 快速入門範本資源庫](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)\(英文\)。

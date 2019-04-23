@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: a427910c598ce7a93dd1b74fb4297d9825ba14ca
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9cb6a40e6ce53a6d82d4129db876a1b24269f166
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887381"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997711"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>範例：如何使用文字分析來擷取關鍵片語
 
-[關鍵片語擷取 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) \(英文\) 會評估非結構化的文字，並針對每份 JSON 文件，傳回關鍵片語的清單。 
+[關鍵片語擷取 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) \(英文\) 會評估非結構化的文字，並針對每份 JSON 文件，傳回關鍵片語的清單。 
 
 此功能在您需要快速識別文件集合中的要點時相當有用。 例如，假設輸入文字為 "The food was delicious and there were wonderful staff"，服務即會傳回主要討論要點："food" 和 "wonderful staff"。
 
@@ -71,16 +71,16 @@ ms.locfileid: "56887381"
 
 關於要求定義的詳細資料可以在[如何呼叫文字分析 API](text-analytics-how-to-call-api.md) 中找到。 為了方便起見，我們將重申下列各點：
 
-+ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[關鍵片語 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[關鍵片語 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
 
-+ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來擷取關鍵片語的 HTTP 端點。 它必須包括 `/keyPhrases` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來擷取關鍵片語的 HTTP 端點。 它必須包括 `/keyPhrases` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
 
 + 設定要求標頭以包含適用於文字分析作業的存取金鑰。 如需詳細資訊，請參閱[如何尋找端點和存取金鑰](text-analytics-how-to-access-key.md)。
 
 + 在要求本文中，提供您準備用於此分析的 JSON 文件集合
 
 > [!Tip]
-> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
+> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
 
 ## <a name="step-2-post-the-request"></a>步驟 2：張貼要求
 
@@ -147,7 +147,7 @@ ms.locfileid: "56887381"
 
 在本文中，您已了解使用認知服務中的文字分析進行關鍵片語擷取的概念和工作流程。 摘要說明：
 
-+ [關鍵片語擷取 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) \(英文\) 僅針對特定語言提供。
++ [關鍵片語擷取 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) \(英文\) 僅針對特定語言提供。
 + 要求主體中的 JSON 文件包含識別碼、文字和語言代碼。
 + 使用對您訂用帳戶有效的個人化[存取金鑰和端點](text-analytics-how-to-access-key.md)，將要求 POST 到 `/keyphrases` 端點。
 + 回應輸出 (其包含針對每個文件識別碼的關鍵單字和片語) 可以串流處理到任何可接受 JSON 的應用程式，包括 Excel 和 Power BI 等。
@@ -161,4 +161,4 @@ ms.locfileid: "56887381"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [文字分析 API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [文字分析 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247036"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148912"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中將標記新增到實驗室
 
@@ -42,8 +42,8 @@ ms.locfileid: "51247036"
 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 視需要選取 [所有服務]，然後從清單中選取 [DevTest Labs]。 您的實驗室可能已顯示在 [所有資源] 下方的儀表板上。
-1. 從實驗室清單中，選取您想要新增或管理標記的實驗室。  
-1. 在實驗室的 [概觀] 區域中選取 [組態和原則]。  
+1. 從實驗室清單中，選取您想要新增或管理標記的實驗室。
+1. 在實驗室的 [概觀] 區域中選取 [組態和原則]。
 
     ![組態和原則按鈕](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
@@ -56,7 +56,7 @@ ms.locfileid: "51247036"
 
 標籤具有下列限制：
 
-* 每個資源或資源群組最多都可以有 15 個標記名稱/值組。 此限制只適用於直接套用至資源群組或資源的標記。 資源群組可以包含許多資源，其各自有 15 個標記名稱/值組。 
+* 每個資源或資源群組最多都可以有 15 個標記名稱/值組。 此限制只適用於直接套用至資源群組或資源的標記。 資源群組可以包含許多資源，其各自有 15 個標記名稱/值組。
 * 標記名稱上限為 512 個字元，且標記值上限為 256 字元。 儲存體帳戶的標記名稱上限為 128 個字元，且標記值上限為 256 個字元。
 * 資源群組中的資源不會繼承套用至該資源群組的標籤。
 
@@ -66,4 +66,4 @@ ms.locfileid: "51247036"
 
 ## <a name="next-steps"></a>後續步驟
 * 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。 您所定義的原則可能需要所有資源都具有特定標籤的值。 如需詳細資訊，請參閱[設定原則和排程](devtest-lab-set-lab-policy.md)。
-* 瀏覽 [DevTest Labs Azure Resource Manager 快速入門範本資源庫 (英文)](https://github.com/Azure/azure-devtestlab/tree/master/Samples)。
+* 瀏覽 [DevTest Labs Azure Resource Manager 快速入門範本資源庫 (英文)](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)。

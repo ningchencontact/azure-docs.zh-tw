@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: mialdridm
 ms.custom: seodec18
-ms.openlocfilehash: 095d637eac5478c65ca3f15cc845518a94aa5149
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 35cee297156cf64deeef8c9c6b514ec8176f9ca5
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080328"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149961"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 線路和對等互連
 
@@ -56,6 +56,10 @@ ExpressRoute 線路有多個相關聯的路由網域/對等互連：Azure 公用
 如需支援的服務、費用和組態的詳細資訊，請參閱 [常見問題集頁面](expressroute-faqs.md) 。 如需有關提供 Microsoft 對等支援的連線提供者清單的詳細資訊，請參閱 [ExpressRoute 位置](expressroute-locations.md) 頁面。
 
 ### <a name="publicpeering"></a>Azure 公用對等互連 (已被新的線路取代)
+
+> [!Note]
+> Azure 公用對等互連有 1 個 NAT IP 位址與每個 BGP 工作階段相關聯。 針對大於 2 的 NAT IP 位址，請移至[Microsoft 對等互連](https://docs.microsoft.com/en-us/azure/expressroute/how-to-move-peering)，其中您可以設定您自己的 NAT 配置，以及用於選擇性的前置詞公告的路由篩選。 
+>
 
 公用 IP 位址上提供如 Azure 儲存體、SQL Database 和網站等服務。 您可以透過公用對等互連路由網域，私人連線到在公用 IP 位址上託管的服務 (包括雲端服務的 VIP)。 您可以將公用對等網域連線到 DMZ，並從您的 WAN 連線到所有 Azure 服務的公用 IP 位址，而無需透過網際網路進行連線。
 

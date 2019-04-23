@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/22/2019
 ms.author: raynew
-ms.openlocfilehash: 94fd70dccf367d43b1caaa9f3a11ed934f9950ea
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: dc455b5256f9c04e1e0af2c1ff3fea04af54d90b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618051"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149441"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -74,11 +74,12 @@ Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 �
 
 **支援的版本** | **Azure Site Recovery 行動服務版本** | **核心版本** |
 --- | --- | --- |
+14.04 LTS | [9.24][9.24 UR] | 3.13.0-167-generic 的 3.13.0-24-generic<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-143-generic 的 4.4.0-21-generic<br/>若要 4.15.0-1040-azure 4.15.0-1023-azure |
 14.04 LTS | [9.23][9.23 UR] | 3.13.0-165-generic 的 3.13.0-24-generic<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-142-generic 的 4.4.0-21-generic<br/>若要 4.15.0-1037-azure 4.15.0-1023-azure |
 14.04 LTS | [9.22][9.22 UR] | 3.13.0-24-generic 至 3.13.0-164-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.15.0-1023-azure 至 4.15.0-1036-azure |
 14.04 LTS | [9.21][9.21 UR] | 3.13.0-24-generic 至 3.13.0-163-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.15.0-1023-azure 至 4.15.0-1035-azure |
-14.04 LTS | [9.20][9.20 UR] | 3.13.0-24-generic 至 3.13.0-153-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-138-generic、<br/>4.15.0-1023-azure 至 4.15.0-1025-azure |
 |||
+16.04 LTS | [9.23][9.24 UR] | 4.4.0-143-generic 的 4.4.0-21-generic<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>若要 4.15.0-46-generic 4.15.0-13-generic<br/>4.11.0-1018-azure 的 4.11.0-1009-azure<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>若要 4.15.0-1040-azure 4.15.0-1012-azure|
 16.04 LTS | [9.23][9.23 UR] | 4.4.0-142-generic 的 4.4.0-21-generic<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>若要 4.15.0-45-generic 4.15.0-13-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>若要 4.15.0-1037-azure 4.15.0-1012-azure|
 16.04 LTS | [9.22][9.22 UR] | 4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-43-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1036-azure|
 16.04 LTS | [9.21][9.21 UR] | 4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-42-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1035-azure|
@@ -89,19 +90,20 @@ Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 �
 
 **支援的版本** | **Azure Site Recovery 行動服務版本** | **核心版本** |
 --- | --- | --- |
-Debian 7 | [9.20][9.20 UR],[9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR]| 3.2.0-4-amd64 至 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.21][9.21 UR]， [9.22][9.22 UR]，[9.23][9.23 UR]，[9.24] [9.24 UR]| 3.2.0-4-amd64 至 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | 3.16.0-4-amd64 至 3.16.0-7-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.8-amd64 |
+Debian 8 | [9.21][9.21 UR]，[9.22][9.22 UR]，[9.23][9.23 UR]，[9.24] [9.24 UR] | 3.16.0-4-amd64 至 3.16.0-7-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.8-amd64 |
 
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 支援的核心版本
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | [9.23][9.23 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>若要 4.4.162-94.79-default SP3 4.4.73-5-default</br></br>若要 4.12.14-95.6-default SP4 4.12.14-94.41-default |
+SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | [9.24][9.24 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>若要 4.4.175-94.79-default SP3 4.4.73-5-default</br></br>若要 4.12.14-95.6-default SP4 4.12.14-94.41-default |
+SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | [9.23][9.23 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.69-default</br></br>若要 4.12.14-95.6-default SP4 4.12.14-94.41-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.22][9.22 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.21][9.21 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.156-94.72-default |
-SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.20][9.20 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.156-94.64-default |
+
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 檔案系統/客體儲存體
 
@@ -116,7 +118,7 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.20][9.20 UR] | SP1 3.12.4
 目錄 | [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)之前， <br/> 1.下列目錄 (若設為獨立磁碟分割/檔案系統) 必須都位於來源伺服器的同一個 OS 磁碟：/(root)、/boot、/usr、/usr/local、/var、/etc。</br>2. /boot 應該位於磁碟分割區，而不是 LVM 磁碟區。<br/><br/> 自 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)及更新版本起，即不適用上述限制。 不支援在跨多個磁碟的 LVM 磁碟區上執行 /boot。
 開機目錄 | 不支援在虛擬機器上有多個開機磁碟 <br/><br/> 無法保護不含開機磁碟的機器
 
-可用空間需求 | /root 分割區上為 2 GB <br/><br/> 安裝資料夾 XFSv5 上為 250 MB | 自行動服務 9.10 版開始，支援 XFS 檔案系統上的 XFSv5 功能，例如中繼資料總和檢查碼。 使用 xfs_info 公用程式來檢查磁碟分割的 XFS 超級區塊。 若 ftype 設為 1，則代表使用了 XFSv5 功能。
+可用空間需求 | /root 分割區上為 2 GB <br/><br/> 安裝資料夾 XFSv5 上為 250 MB | 自行動服務 9.10 版開始，支援 XFS 檔案系統上的 XFSv5 功能，例如中繼資料總和檢查碼。 使用 xfs_info 公用程式來檢查磁碟分割的 XFS 超級區塊。 如果`ftype`設為 1，則 XFSv5 功能正在使用中。
 
 ## <a name="vmdisk-management"></a>VM/磁碟管理
 
@@ -181,6 +183,14 @@ Docker 磁碟設定 | 否
 客體/伺服器 - 排除磁碟 | 是
 客體/伺服器多重路徑 (MPIO) | 否
 客體/伺服器 EFI/UEFI 開機 | 當移轉 VMware Vm 或實體伺服器執行 Windows Server 2012 或更新版本支援至 Azure。<br/><br/> 您只能複寫 Vm 移轉。 不支援容錯回復至內部部署。<br/><br/> 伺服器的 OS 磁碟上不應有超過 4 個磁碟分割。<br/><br/> 需要行動服務 9.13 版或更新版本。<br/><br/> 只支援 NTFS。
+
+## <a name="replication-channels"></a>複寫通道
+
+|**複寫類型**   |**支援**  |
+|---------|---------|
+|卸載的資料傳輸 (ODX)    |       否  |
+|離線植入        |   否      |
+| Azure 資料箱 | 否
 
 
 ## <a name="azure-storage"></a>Azure 儲存體

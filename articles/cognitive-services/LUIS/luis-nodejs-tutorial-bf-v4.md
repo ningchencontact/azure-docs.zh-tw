@@ -203,7 +203,7 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
     botFileSecret=
     ```
 
-    您在**[下載 Web 應用程式 Bot](#download-the-web-app-bot)** 一節的步驟 1 中，已從 Azure Bot 服務的 [應用程式設定] 中複製值，請將環境變數的值設為您複製的值。
+    您在 **[下載 Web 應用程式 Bot](#download-the-web-app-bot)** 一節的步驟 1 中，已從 Azure Bot 服務的 [應用程式設定] 中複製值，請將環境變數的值設為您複製的值。
 
 4. 在監看式模式中啟動 Bot。 在此啟動之後對程式碼所做的任何變更，都會使得應用程式自動重新啟動。
 
@@ -232,7 +232,7 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
 
     [![Bot 模擬器 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
-3. 輸入您在**[下載 Web 應用程式 Bot](#download-the-web-app-bot)** 一節的步驟 1 中，從 Azure Bot 服務 [應用程式設定] 中複製的 Bot 祕密。 這可讓模擬器存取 .bot 檔案中的任何加密欄位。
+3. 輸入您在 **[下載 Web 應用程式 Bot](#download-the-web-app-bot)** 一節的步驟 1 中，從 Azure Bot 服務 [應用程式設定] 中複製的 Bot 祕密。 這可讓模擬器存取 .bot 檔案中的任何加密欄位。
 
     ![Bot 模擬器祕密 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-secret.png)
 

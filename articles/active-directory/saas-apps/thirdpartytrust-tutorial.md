@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 63905a1130ffb972ff71ebcce232cd242961dcad
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdpartytrust"></a>教學課程：Azure Active Directory 與 ThirdPartyTrust 整合
@@ -109,7 +109,7 @@ ms.locfileid: "59278066"
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![映像](common/both-preintegrated-signon.png)
+    ![image](common/both-preintegrated-signon.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://api.thirdpartytrust.com/sai3/test`
 

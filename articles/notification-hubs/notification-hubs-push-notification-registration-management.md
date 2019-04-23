@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799468"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149124"
 ---
 # <a name="registration-management"></a>註冊管理
 
@@ -36,11 +36,11 @@ ms.locfileid: "59799468"
 註冊會將裝置的「平台通知服務」(PNS) 控制代碼與標記 (以及也可能與範本) 建立關聯。 PNS 控制代碼可能是 ChannelURI、裝置權杖或 FCM 註冊識別碼。標記是用來將通知路由至一組正確的裝置控制代碼。 如需詳細資訊，請參閱 [路由與標記運算式](notification-hubs-tags-segment-push-message.md)。 範本是用來實作每一註冊的轉換。 如需詳細資訊，請參閱 [範本](notification-hubs-templates-cross-platform-push-messages.md)。
 
 > [!NOTE]
-> Azure 通知中樞支援每註冊最多 60 個標籤。
+> Azure 通知中樞的每個裝置的 60 標籤最多可支援。
 
 ### <a name="installations"></a>安裝
 
-安裝是增強型的註冊，包含一組推播相關的屬性。 它是註冊您的裝置最新最好的方法。 不過，目前用戶端 .NET SDK([適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) 不支援此種安裝。  這表示如果您要從用戶端裝置本身註冊，您必須使用 [通知中樞 REST API](https://msdn.microsoft.com/library/mt621153.aspx) 方法來支援安裝。 如果您使用後端服務，您應該能夠使用 [適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
+安裝是增強型的註冊，包含一組推播相關的屬性。 它是註冊您的裝置最新最好的方法。 不過，目前用戶端 .NET SDK([適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) 不支援此種安裝。  這表示如果您要從用戶端裝置本身註冊，您必須使用 [通知中樞 REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) 方法來支援安裝。 如果您使用後端服務，您應該能夠使用 [適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 
 以下是使用安裝的一些主要優點：
 
@@ -48,7 +48,7 @@ ms.locfileid: "59799468"
 - 「 安裝 」 模型支援特殊的標記格式 (`$InstallationId:{INSTALLATION_ID}`)，可讓您直接將傳送通知到特定的裝置。 例如，如果應用程式的程式碼設定的安裝識別碼`joe93developer`針對這個特定的裝置，開發人員可以目標此裝置時傳送通知給`$InstallationId:{joe93developer}`標記。 這可讓您套用至特定的裝置，而不需要進行任何額外的程式碼。
 - 使用安裝也可讓您進行部分註冊更新。 要求部分安裝更新時，是使用 [JSON-Patch 標準](https://tools.ietf.org/html/rfc6902)以 PATCH 方法來要求。 當您想要更新註冊的相關標記時，這會特別有用。 您不需要移除整個註冊，然後再次重新傳送所有先前的標記。
 
-安裝可以包含下列屬性。 如需完整的安裝屬性清單，請參閱[使用 REST API 建立或覆寫安裝](https://msdn.microsoft.com/library/azure/mt621153.aspx)或[安裝屬性](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)。
+安裝可以包含下列屬性。 如需完整的安裝屬性清單，請參閱[使用 REST API 建立或覆寫安裝](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation)或[安裝屬性](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)。
 
 ```json
 // Example installation format to show some supported properties

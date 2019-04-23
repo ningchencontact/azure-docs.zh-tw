@@ -242,6 +242,9 @@
       href: /azure/templates/microsoft.media/allversions
 - name: 資源
   items:
+    - name: Azure 媒體服務社群
+      displayName: 'forums, twitter, feedback'
+      href: media-services-community.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
     - name: 價格

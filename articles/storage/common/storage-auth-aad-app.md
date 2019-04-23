@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8fdc4445e28a420b6b4f7935443d7d991d9e8a4d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: c4959d6abd1b33c81f731ad0479bd59d271c7797
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446067"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149158"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>向 Azure Active Directory 從應用程式存取 blob 和佇列
 
@@ -191,6 +191,6 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解 Azure 儲存體的 RBAC 角色，請參閱[儲存體的資料，使用 RBAC 管理存取權限](storage-auth-aad-rbac.md)。
-- 若要了解如何使用受管理的身分識別與 Azure 儲存體的 Azure 資源，請參閱[適用於 Azure 資源管理身分識別的驗證的存取權的 blob 和佇列與 Azure](storage-auth-aad-msi.md)。
-- 若要了解如何使用登入 Azure CLI 和 PowerShell 的 Azure AD 身分識別，請參閱[使用 Azure AD 身分識別存取 Azure 儲存體，使用 CLI 或 PowerShell](storage-auth-aad-script.md)。
+- 若要详细了解 Azure 存储中的 RBAC 角色，请参阅[使用 RBAC 管理存储数据的访问权限](storage-auth-aad-rbac.md)。
+- 若要了解如何使用受管理的身分識別與 Azure 儲存體的 Azure 資源，請參閱[驗證適用於 Azure 資源的存取權的 blob 和佇列與 Azure Active Directory 與受管理的身分識別](storage-auth-aad-msi.md)。
+- 若要了解如何以 Azure AD 認證來執行 Azure CLI 和 PowerShell 命令，請參閱[執行 Azure CLI 或 PowerShell 命令與 Azure AD 認證來存取 blob 或佇列資料](storage-auth-aad-script.md)。

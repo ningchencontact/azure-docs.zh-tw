@@ -8,19 +8,20 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ffd7207367d0bbdd670fb8402775b26952ae5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d9f83e0b6136a27c0cd519a345e085040f47cc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852588"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680123"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>教學課程：Azure Active Directory 與 Apex Portal
 
@@ -68,7 +69,7 @@ ms.locfileid: "57852588"
 
 4. 在搜尋方塊中，輸入 **Apex Portal**，從結果面板中選取 **Apex Portal**，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 Apex Portal](common/search-new-app.png)
+    ![結果清單中的 Apex Portal](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -106,21 +107,21 @@ ms.locfileid: "57852588"
 
     ![Apex Portal 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<customer name>.apexportal.net/saml/sso.aspx`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<customer name>.apexportal.net/saml/sso.aspx`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Apex Portal 客戶支援小組](mailto:support@apexanalytix.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. Apex Portal 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
     | Name | 來源屬性|
-    | ------------------- | -------------------- |
+    | -------- | --------- |
     | FIRSTNAME | user.givenname |
     | LASTNAME | user.surname |
     | MAIL | user.mail |
@@ -180,8 +181,7 @@ ms.locfileid: "57852588"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
-    例如， BrittaSimon@contoso.com
+    b. 在 [使用者名稱] 欄位中，輸入 `brittasimon\@yourcompanydomain.extension`。 例如： BrittaSimon@contoso.com。
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
@@ -233,4 +233,3 @@ ms.locfileid: "57852588"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

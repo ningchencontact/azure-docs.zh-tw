@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649878"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149728"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>常見問題：Azure 對 Azure 複寫
 
@@ -67,7 +67,7 @@ Azure Site Recovery (ASR) 團隊的運作方式與 Azure 的容量管理小組�
 
 否，Site Recovery 不需要網際網路連線能力。 但它確實需要能夠存取 Site Recovery URL 和 IP 範圍，如[這篇文章](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)所述。
 
-### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>是否可以複寫有個別層之個別資源群組的應用程式？ 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>是否可以複寫有個別層之個別資源群組的應用程式？
 是，您可以複寫應用程式，並保持災害復原設定也在個別資源群組。
 例如，如果您的應用程式的每層應用程式、DB 和 Web 都在個別資源群組中，則您需要按[複寫精靈](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication)三次來保護所有層。 ASR 將會在三個不同的資源群組中複寫這三個層。
 
@@ -89,11 +89,12 @@ Azure Site Recovery (ASR) 團隊的運作方式與 Azure 的容量管理小組�
 ### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>當機時保持一致復原點產生的頻率為何？
 Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。
 
-### <a name="what-is-an-application-consistent-recovery-point"></a>什麼是應用程式一致復原點？ 
-應用程式一致復原點是從應用程式一致快照集建立的。 應用程式一致快照集所擷取的資料與當機時保持一致復原點相同，但多了記憶體內的所有資料，以及所有進行中的交易。 由於有這些額外的內容，因此應用程式一致快照集包含最多內容，且需要最長的執行時間。 建議您針對資料庫作業系統和 SQL Server 之類的應用程式，使用應用程式一致復原點。
+### <a name="what-is-an-application-consistent-recovery-point"></a>什麼是應用程式一致復原點？
+應用程式一致復原點是從應用程式一致快照集建立的。 應用程式一致快照集所擷取的資料與當機時保持一致復原點相同，但多了記憶體內的所有資料，以及所有進行中的交易。
+由於有這些額外的內容，因此應用程式一致快照集包含最多內容，且需要最長的執行時間。 建議您針對資料庫作業系統和 SQL Server 之類的應用程式，使用應用程式一致復原點。
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>應用程式一致復原點對應用程式效能有何影響？
-請考慮到應用程式一致復原點為了靜止應用程式，它會擷取記憶體中和處理序中架構所需的所有資料。 如果工作負載已經非常忙碌，若非常頻繁地這麼做，可能會有效能影響。 針對應用程式一致復原點，對於非資料庫工作負載通常建議不要使用低頻率，甚至對於資料庫工作負載 1 小時就足夠了。 
+請考慮到應用程式一致復原點為了靜止應用程式，它會擷取記憶體中和處理序中架構所需的所有資料。 如果工作負載已經非常忙碌，若非常頻繁地這麼做，可能會有效能影響。 針對應用程式一致復原點，對於非資料庫工作負載通常建議不要使用低頻率，甚至對於資料庫工作負載 1 小時就足夠了。
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>應用程式一致復原點產生的最小頻率為何？
 Site Recovery 可以建立應用程式一致復原點最小頻率為 1 小時內。
@@ -215,8 +216,12 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>容錯回復需要花費多久時間？
 進行重新保護之後，容錯回復所需的時間通常與從主要區域容錯移轉至次要區域類似。
 
-## <a name="capacity"></a>Capacity
-### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery 運作與保留的執行個體嗎？
+## <a name="capacity"></a>容量
+
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>如何是容量保證目標區域中的 Azure Vm？
+Azure Site Recovery (ASR) 團隊的運作方式與 Azure 的容量管理小組合作，規劃足夠的基礎結構容量，以確保災害 asr 受保護的 Vm 嘗試復原已成功部署在災害復原 (DR) 區域中，每當起始 ASR 容錯移轉作業。
+
+### <a name="does-site-recovery-work-with-reserved-instances"></a>Site Recovery 運作與保留的執行個體嗎？
 是，您可以購買[保留執行個體](https://azure.microsoft.com/pricing/reserved-vm-instances/)在 DR 區域和 ASR 容錯移轉作業將會使用它們。 </br> 客戶需要額外的設定。
 
 

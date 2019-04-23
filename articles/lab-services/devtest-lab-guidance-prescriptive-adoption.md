@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 67bb81675dabd8aef28693a958a0ac39b1b441e7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: e1d119f3c7c5d6dbdb570d362c53b80dad7886bd
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549232"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148997"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>在企業中設定 Azure DevTest Labs 基礎結構
-企業快速採用雲端，因為其[優點](/architecture/cloud-adoption/business-strategy/cloud-migration-business-case)包含靈活度、 彈性與高經濟效益。 若要開始開發和測試工作負載是常見的第一個步驟，供客戶使用雲端。  DevTest Labs 提供[功能](devtest-lab-concepts.md)可獲益的企業和支援[主要 enterprise 開發/測試案例](devtest-lab-guidance-get-started.md)。
+企業快速採用雲端，因為其[優點](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case)包含靈活度、 彈性與高經濟效益。 若要開始開發和測試工作負載是常見的第一個步驟，供客戶使用雲端。  DevTest Labs 提供[功能](devtest-lab-concepts.md)可獲益的企業和支援[主要 enterprise 開發/測試案例](devtest-lab-guidance-get-started.md)。
 
 這些工作負載移轉至雲端時，還有一組常用的考量：
 
@@ -35,6 +35,10 @@ ms.locfileid: "59549232"
 
 ## <a name="intended-audience"></a>目標對象
 企業導向的專屬文件適用於 IT 規劃人員、 架構設計人員和管理員會負責建立及檢閱整體部署及監督作業做法。 如此一來，本文件會強調整個程序，並建議升級安全且穩定開發/測試環境中，其最終負責驅使組織內的 Azure DevTest Labs 採用的設計原則。
+
+## <a name="enterprise-customers"></a>企業客戶
+
+許多現有的 DevTest Labs 企業客戶成功使用 DevTest Labs 進行開發和測試其組織中的工作負載。 [深入了解](https://azure.microsoft.com/en-us/case-studies/?term=DevTest+labs)。
 
 ## <a name="next-steps"></a>後續步驟
 - [適用於企業的參考架構](devtest-lab-reference-architecture.md)

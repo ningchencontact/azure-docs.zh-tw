@@ -4,17 +4,17 @@ description: 了解如何針對「更新管理」代理程式的問題進行疑�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/14/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: d4331942526b3dbda376605db2618ceeaec3f60a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 864fe70d7702680f21234a1a15c02515b19f770b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165993"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149609"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>了解更新管理中的 Windows 代理程式檢查結果
 
@@ -25,6 +25,9 @@ ms.locfileid: "58165993"
 * **就緒**：更新代理程式已部署且上次出現時間不超過 1 小時。
 * **已中斷連線**：更新代理程式已部署且上次出現時間已超過 1 小時。
 * **未設定**：找不到更新代理程式或尚未完成上線。
+
+> [!NOTE]
+> 可能稍有延遲，與 Azure 入口網站的顯示電腦的目前狀態。
 
 ## <a name="start-the-troubleshooter"></a>啟動疑難排解員
 

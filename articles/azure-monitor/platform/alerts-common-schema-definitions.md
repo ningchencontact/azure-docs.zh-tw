@@ -1,6 +1,6 @@
 ---
-title: 常見的警示的結構描述定義 Webhook/邏輯應用程式/Azure functions
-description: 了解 Webhook/邏輯應用程式/Azure Functions 中常見的警示的結構描述定義
+title: 常見的警示的結構描述定義的 Webhook/邏輯應用程式/Azure 函式/自動化 Runbook
+description: 了解 Webhook/邏輯應用程式/Azure 函式/自動化 Runbook 中常見的警示的結構描述定義
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010391"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149405"
 ---
 # <a name="common-alert-schema-definitions"></a>常見的警示結構描述定義
 
-這篇文章說明[常見的警示的結構描述定義](https://aka.ms/commonAlertSchemaDocs)Webhook/邏輯應用程式/Azure functions。 
+這篇文章說明[常見的警示的結構描述定義](https://aka.ms/commonAlertSchemaDocs)的 Webhook/邏輯應用程式/Azure 函式/自動化 Runbook。 
 
 ## <a name="overview"></a>概觀
 
@@ -88,7 +88,7 @@ ms.locfileid: "59010391"
 | originAlertId | 為產生的監視服務所產生的警示執行個體的識別碼。 |
 | firedDateTime | 當引發警示的執行個體的 UTC 日期時間 |
 | resolvedDateTime | 當警示的執行個體的監視條件設定為 '' 已在中解決 UTC 日期時間。 目前僅適用於計量警示。|
-| 說明 | 警示規則中所定義的描述 |
+| description | 警示規則中所定義的描述 |
 |essentialsVersion| [Essentials] 區段的版本號碼。|
 |alertContextVersion | AlertContext 區段的版本號碼 |
 

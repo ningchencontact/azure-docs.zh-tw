@@ -195,7 +195,7 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
     }
     ```
 
-    您在**[下載 Web 應用程式 Bot](#download-the-web-app-bot)** 一節的步驟 1 中，已從 Azure Bot 服務的 [應用程式設定] 中複製值，請將變數的值設為您複製的值。
+    您在 **[下載 Web 應用程式 Bot](#download-the-web-app-bot)** 一節的步驟 1 中，已從 Azure Bot 服務的 [應用程式設定] 中複製值，請將變數的值設為您複製的值。
 
 3. 在 Visual Studio 中，啟動 Bot。 瀏覽器視窗會開啟 Web 應用程式 Bot 的網站，網址為 `http://localhost:3978/`。
 
@@ -207,7 +207,7 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
 
     [![Bot 模擬器 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
-3. 輸入您在**[下載 Web 應用程式 Bot](#download-the-web-app-bot)** 一節的步驟 1 中，從 Azure Bot 服務 [應用程式設定] 中複製的 Bot 祕密。 這可讓模擬器存取 `.bot` 檔案中的任何加密欄位。
+3. 輸入您在 **[下載 Web 應用程式 Bot](#download-the-web-app-bot)** 一節的步驟 1 中，從 Azure Bot 服務 [應用程式設定] 中複製的 Bot 祕密。 這可讓模擬器存取 `.bot` 檔案中的任何加密欄位。
 
     ![Bot 模擬器祕密 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-secret.png)
 

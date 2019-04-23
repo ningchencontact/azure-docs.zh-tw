@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 7fc0d3a2e29a2aaa06d88f25828ff676d615939d
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579150"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149558"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
@@ -23,12 +23,39 @@ ms.locfileid: "59579150"
 + Azure Machine Learning 的 [**主要 SDK for Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+## <a name="2019-04-17"></a>2019-04-17
+
+### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning 資料準備 SDK v1.1.2
+
+注意：資料準備 Python SDK 將不會再安裝`numpy`和`pandas`封裝。 請參閱[更新的安裝指示](https://aka.ms/aml-data-prep-installation)。
+
++ **新功能**
+  + 您現在可以使用樞紐轉換。
+    + 操作說明指南：[Pivot notebook](https://aka.ms/aml-data-prep-pivot-nb)
+  + 您現在可以在原生函式中使用規則運算式。
+    + 範例：
+      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+  + 您現在可以使用`to_upper` 並`to_lower` 運算式語言中的函式。
+  + 您現在可以看到每個資料行資料設定檔中的唯一值數目。
+  + 對於某些常用的讀取器的步驟，您現在可以傳入`infer_column_types`引數。 如果設定為`True`，資料準備會嘗試偵測並自動將資料行類型的轉換。
+    + `inference_arguments` 現在已被取代。
+  + 您現在可以呼叫`Dataflow.shape`。
+
++ **Bug 修正和增強功能**
+  + `keep_columns` 現在接受一個額外的選擇性引數`validate_column_exists`，它會檢查的結果`keep_columns`會包含任何資料行。
+  + 所有讀取器步驟 （從檔案讀取） 現在接受一個額外的選擇性引數`verify_exists`。
+  + 讀取 pandas 資料框架，以及資料設定檔的提升的效能。
+  + 修正的 bug，其中配量從資料流程的單一步驟失敗，單一索引。
+
 ## <a name="2019-04-15"></a>2019-04-15
 
 ### <a name="azure-portal"></a>Azure 入口網站
++ **新功能**
   + 您現在可以重新提交在現有的遠端計算叢集上執行的現有指令碼。 
   + 您現在可以使用新的參數執行發行的管線，在 [管線] 索引標籤上。 
   + 執行詳細資料現在支援新的快照集檔案檢視器。 當您送出特定的執行，您可以檢視快照集的目錄。 您也可以下載已提交給啟動執行的 notebook。
+   + 您現在可以取消父執行從 Azure 入口網站。
 
 ## <a name="2019-04-08"></a>2019-04-08
 

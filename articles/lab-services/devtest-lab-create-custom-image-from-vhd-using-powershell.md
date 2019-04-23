@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: dc6e218fe048e1781f53c53935308eb193fcd094
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 7720189c0eb7cee31fb43f8d3ff055e1d19ff142
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487153"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149107"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>使用 PowerShell 從 VHD 檔案建立自訂映像
 
@@ -35,31 +35,31 @@ ms.locfileid: "58487153"
 
 下列步驟將逐步引導您使用 PowerShell 從 VHD 檔案建立自訂映像：
 
-1. 在 PowerShell 提示字元中，登入您的 Azure 帳戶，使用下列呼叫來**Connect AzAccount** cmdlet。  
-    
+1. 在 PowerShell 提示字元中，登入您的 Azure 帳戶，使用下列呼叫來**Connect AzAccount** cmdlet。
+
     ```powershell
     Connect-AzAccount
     ```
 
-1.  選取所需的 Azure 訂用帳戶，藉由呼叫**選取 AzSubscription** cmdlet。 以有效的 Azure 訂用帳戶 ID 取代 **$subscriptionId** 變數的下列預留位置。 
+1.  選取所需的 Azure 訂用帳戶，藉由呼叫**選取 AzSubscription** cmdlet。 以有效的 Azure 訂用帳戶 ID 取代 **$subscriptionId** 變數的下列預留位置。
 
     ```powershell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzSubscription -SubscriptionId $subscriptionId
     ```
 
-1.  取得實驗室物件呼叫**Get AzResource** cmdlet。 以您環境的適當值取代 **$labRg** 和 **$labName** 變數的下列預留位置。 
+1.  取得實驗室物件呼叫**Get AzResource** cmdlet。 以您環境的適當值取代 **$labRg** 和 **$labName** 變數的下列預留位置。
 
     ```powershell
     $labRg = '<Specify your lab resource group name here>'
     $labName = '<Specify your lab name here>'
     $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
     ```
- 
-1.  從實驗室物件取得實驗室儲存體帳戶和實驗室儲存體帳戶金鑰值。 
+
+1.  從實驗室物件取得實驗室儲存體帳戶和實驗室儲存體帳戶金鑰值。
 
     ```powershell
-    $labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount 
+    $labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount
     $labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
     ```
 
@@ -77,18 +77,18 @@ ms.locfileid: "58487153"
 
     $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
 
-    New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/Samples/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
+    New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
     ```
 
 ## <a name="powershell-script-to-create-a-custom-image-from-a-vhd-file"></a>可從 VHD 檔案建立自訂映像的 PowerShell 指令碼
 
-您可以使用下列 PowerShell 指令碼從 VHD 檔案建立自訂映像。 以符合您需求的適當值取代預留位置 (開頭和結尾是角括弧)。 
+您可以使用下列 PowerShell 指令碼從 VHD 檔案建立自訂映像。 以符合您需求的適當值取代預留位置 (開頭和結尾是角括弧)。
 
 ```powershell
-# Log in to your Azure account.  
+# Log in to your Azure account.
 Connect-AzAccount
 
-# Select the desired Azure subscription. 
+# Select the desired Azure subscription.
 $subscriptionId = '<Specify your subscription ID here>'
 Select-AzSubscription -SubscriptionId $subscriptionId
 
@@ -98,10 +98,10 @@ $labName = '<Specify your lab name here>'
 $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
 
 # Get the lab storage account and lab storage account key values.
-$labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount 
+$labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount
 $labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
 
-# Set the URI of the VHD file.  
+# Set the URI of the VHD file.
 $vhdUri = '<Specify the VHD URI here>'
 
 # Set the custom image name and description values.
@@ -111,8 +111,8 @@ $customImageDescription = '<Specify the custom image description>'
 # Set up the parameters object.
 $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
 
-# Create the custom image. 
-New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/Samples/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
+# Create the custom image.
+New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
 ```
 
 ## <a name="related-blog-posts"></a>相關部落格文章

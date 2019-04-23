@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257904"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150025"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -442,7 +442,7 @@ ms.locfileid: "59257904"
 
 | Data Factory 過渡期資料類型 | Parquet 基本類型 | Parquet 原始類型 (還原序列化) | Parquet 原始類型 (序列化) |
 |:--- |:--- |:--- |:--- |
-| BOOLEAN | BOOLEAN | N/A | N/A |
+| Boolean | Boolean | N/A | N/A |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -455,7 +455,7 @@ ms.locfileid: "59257904"
 | Double | Double | N/A | N/A |
 | Decimal | Binary | Decimal | Decimal |
 | 字串 | Binary | Utf8 | Utf8 |
-| DateTime | Int96 | N/A | N/A |
+| Datetime | Int96 | N/A | N/A |
 | TimeSpan | Int96 | N/A | N/A |
 | DateTimeOffset | Int96 | N/A | N/A |
 | ByteArray | Binary | N/A | N/A |
@@ -478,7 +478,7 @@ ms.locfileid: "59257904"
 
 * 不支援複雜資料類型 (STRUCT、MAP、LIST、UNION)。
 * 不支援資料行名稱中的空白字元。
-* ORC 檔案有三種 [壓縮相關選項](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)︰NONE、ZLIB、SNAPPY。 Data Factory 支援以這些壓縮格式的任一項從 ORC 檔案讀取資料。 它會使用中繼資料裡的壓縮轉碼器來讀取資料。 不過，寫入 ORC 檔案時，Data Factory 會選擇 ZLIB，這是 ORC 的預設值。 目前沒有任何選項可覆寫這個行為。
+* ORC 檔案有三種 [壓縮相關選項](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)︰NONE、ZLIB、SNAPPY。 Data Factory 支援以這些壓縮格式的任一項從 ORC 檔案讀取資料。 它會使用中繼資料裡的壓縮轉碼器來讀取資料。 不過，寫入 ORC 檔案時，Data Factory 會選擇 ZLIB，這是 ORC 的預設值。 目前沒有任何選項可覆寫這個行為。
 
 > [!IMPORTANT]
 > 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 ORC 檔案，就需要在 IR 機器上安裝 **64 位元的 JRE 8 (Java Runtime Environment) 或 OpenJDK**。 如需更多詳細資料，請參閱接下來的段落。
@@ -492,7 +492,7 @@ ms.locfileid: "59257904"
 
 | Data Factory 過渡期資料類型 | ORC 類型 |
 |:--- |:--- |
-| BOOLEAN | BOOLEAN |
+| Boolean | Boolean |
 | SByte | Byte |
 | Byte | 簡短 |
 | Int16 | 簡短 |
@@ -505,7 +505,7 @@ ms.locfileid: "59257904"
 | Double | Double |
 | Decimal | Decimal |
 | 字串 | 字串 |
-| DateTime | Timestamp |
+| Datetime | Timestamp |
 | DateTimeOffset | Timestamp |
 | TimeSpan | Timestamp |
 | ByteArray | Binary |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fca78c86849ef8210bb3aaeb8ad96e1fba3d7c05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542483"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148963"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>將公告張貼到 Azure DevTest Labs 中的實驗室
 
@@ -37,8 +37,8 @@ ms.locfileid: "57542483"
 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 視需要選取 [所有服務]，然後從清單中選取 [DevTest Labs]。 (您的實驗室可能已顯示在 [所有資源] 下方的儀表板上)。
-1. 從實驗室清單中，選取您想要在其中張貼公告的實驗室。  
-1. 在實驗室的 [概觀] 區域中選取 [組態和原則]。  
+1. 從實驗室清單中，選取您想要在其中張貼公告的實驗室。
+1. 在實驗室的 [概觀] 區域中選取 [組態和原則]。
 
     ![組態和原則按鈕](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "57542483"
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
-您可以指定宣告作為 Azure Resource Manager 範本的一部分，如下列範例所示： 
+您可以指定宣告作為 Azure Resource Manager 範本的一部分，如下列範例所示：
 
 ```json
 {
@@ -119,7 +119,7 @@ ms.locfileid: "57542483"
                 "support": {
                     "markdown": "",
                     "enabled": "Enabled"
-                }                
+                }
             },
             "resources": [
                 {
@@ -160,11 +160,11 @@ ms.locfileid: "57542483"
 
 您可以使用下列其中一種方式，來部署 Azure Resource Manager 範本：
 
-- [Azure 入口網站](../azure-resource-manager/resource-group-template-deploy-portal.md)
+- [Azure 门户](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 - [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ## <a name="next-steps"></a>後續步驟
 * 如果您變更或設定實驗室原則，您可以張貼公告來通知使用者。 [設定原則和排程](devtest-lab-set-lab-policy.md)提供的資訊是關於如何使用自訂的原則，在訂用帳戶內套用限制和慣例。
-* 瀏覽 [DevTest Labs Azure Resource Manager 快速入門範本資源庫 (英文)](https://github.com/Azure/azure-devtestlab/tree/master/Samples)。
+* 瀏覽 [DevTest Labs Azure Resource Manager 快速入門範本資源庫 (英文)](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)。

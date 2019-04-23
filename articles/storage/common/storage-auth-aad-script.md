@@ -1,29 +1,29 @@
 ---
-title: 執行 Azure CLI 或 PowerShell 命令，在 Azure AD 身分識別來存取 blob 和佇列資料 |Microsoft Docs
-description: Azure CLI 和 PowerShell 支援登入 Azure AD 身分識別，在 Azure 儲存體 blob 和佇列資料上執行命令。 存取權杖是針對工作階段提供，用來授權呼叫作業。 權限取決於指派給 Azure AD 身分識別的 RBAC 角色。
+title: 使用 Azure AD 認證來存取 blob 或佇列的資料執行 Azure CLI 或 PowerShell 命令 |Microsoft Docs
+description: Azure CLI 和 PowerShell 支援使用 Azure AD 認證登入 Azure 儲存體 blob 和佇列資料上執行命令。 存取權杖是針對工作階段提供，用來授權呼叫作業。 權限取決於指派給 Azure AD 安全性主體的 RBAC 角色。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 96be1e600c8d5895cc0eb5b058ce17f7265fa0a9
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786993"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149643"
 ---
-# <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>使用 CLI 或 PowerShell 使用 Azure AD 身分識別來存取 blob 和佇列資料
+# <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>使用 Azure AD 認證來存取 blob 或佇列的資料執行 Azure CLI 或 PowerShell 命令
 
-Azure 存储为 Azure CLI 和 PowerShell 提供相应的扩展，使用户可登录并在 Azure Active Directory (Azure AD) 标识下运行脚本命令。 Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)。 您可以指派權限來存取 blob 和佇列資料至 Azure AD 身分識別，透過角色型存取控制 (RBAC)。 有关 Azure 存储中 RBAC 角色的详细信息，请参阅[通过 RBAC 管理 Azure 存储数据访问权限](storage-auth-aad-rbac.md)。
+Azure 儲存體提供 Azure CLI 和 PowerShell 可讓您登入，並以 Azure Active Directory (Azure AD) 認證來執行指令碼命令的擴充功能。 當您登入 Azure CLI 或 PowerShell 使用 Azure AD 認證時，則會傳回 OAuth 2.0 存取權杖。 該權杖會自動使用 CLI 或 PowerShell 來授權對 Blob 或佇列儲存體的後續的資料作業。 針對支援的作業，您不需要再使用命令傳遞帳戶金鑰或 SAS 權杖。
 
-使用 Azure AD 标识登录 Azure CLI 或 PowerShell 时，会返回一个用于访问该标识下 Azure 存储的访问令牌。 然後 CLI 或 PowerShell 會自動使用該權杖，針對 Azure 儲存體對作業進行授權。 針對支援的作業，您不需要再使用命令傳遞帳戶金鑰或 SAS 權杖。
+您可以將權限指派給 blob 和佇列資料至 Azure AD 安全性主體透過角色型存取控制 (RBAC)。 有关 Azure 存储中 RBAC 角色的详细信息，请参阅[通过 RBAC 管理 Azure 存储数据访问权限](storage-auth-aad-rbac.md)。
 
 ## <a name="supported-operations"></a>支援的作業
 
-扩展支持针对容器和队列的操作。 可调用的操作取决于向 Azure AD 标识授予的权限，此类权限用于登录 Azure CLI 或 PowerShell。 給予 Azure 儲存體容器或佇列的權限，是透過角色型存取控制 (RBAC) 指派的。 例如，如果將資料讀者角色指派給身分識別，則您可以執行讀取容器或佇列資料的指令碼命令。 如果將資料參與者角色指派給身分識別，則您可以執行讀取、寫入或刪除容器或佇列或其中所含資料的指令碼命令。 
+扩展支持针对容器和队列的操作。 您可以呼叫哪些作業取決於與您登入 Azure CLI 或 PowerShell 的 Azure AD 安全性主體授與的權限。 給予 Azure 儲存體容器或佇列的權限，是透過角色型存取控制 (RBAC) 指派的。 例如，如果您獲派**Blob 資料讀者**角色，則您可以執行從容器或佇列中讀取資料的指令碼命令。 如果您獲派**Blob 資料參與者**角色，則您可以執行讀取、 寫入或刪除容器或佇列或所包含之資料的指令碼命令。 
 
 如需容器或佇列上每個 Azure 儲存體作業所需權限的詳細資訊，請參閱[呼叫 REST 作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。  
 
@@ -129,5 +129,5 @@ Azure CLI 支援`--auth-mode`blob 和佇列資料作業的參數：
 ## <a name="next-steps"></a>後續步驟
 
 - 若要详细了解 Azure 存储中的 RBAC 角色，请参阅[使用 RBAC 管理存储数据的访问权限](storage-auth-aad-rbac.md)。
-- 若要了解如何使用受管理的身分識別與 Azure 儲存體的 Azure 資源，請參閱[適用於 Azure 資源管理身分識別的驗證的存取權的 blob 和佇列與 Azure](storage-auth-aad-msi.md)。
+- 若要了解如何使用受管理的身分識別與 Azure 儲存體的 Azure 資源，請參閱[驗證適用於 Azure 資源的存取權的 blob 和佇列與 Azure Active Directory 與受管理的身分識別](storage-auth-aad-msi.md)。
 - 若要深入了解如何從儲存體應用程式內授權容器和佇列的存取權，請參閱[使用 Azure AD 與儲存體應用程式](storage-auth-aad-app.md)。

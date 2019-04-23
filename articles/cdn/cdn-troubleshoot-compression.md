@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b885098ff0efeb4d723cbaaac46fbb57cb40f2ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790986"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149443"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN 檔案壓縮疑難排解
 這篇文章可協助您針對 [CDN 檔案壓縮](cdn-improve-performance.md)的問題進行疑難排解。
@@ -117,5 +117,5 @@ ms.locfileid: "59790986"
 **Via** HTTP 標頭會向 Web 伺服器指出正在由 Proxy 伺服器傳遞要求。  Microsoft IIS Web 伺服器預設不會在要求包含 **Via** 標頭時壓縮回應。  若要覆寫這個行為，請執行下列作業︰
 
 * **IIS 6**:[設定 HcNoCompressionForProxies ="FALSE"，在 IIS Metabase 屬性](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 和最多**:[同時設定**noCompressionForHttp10**並**noCompressionForProxies**設為 False，在 伺服器組態](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 7 和最多**:[同時設定**noCompressionForHttp10**並**noCompressionForProxies**設為 False，在 伺服器組態](https://www.iis.net/configreference/system.webserver/httpcompression)
 
