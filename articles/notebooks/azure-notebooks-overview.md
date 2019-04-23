@@ -14,17 +14,17 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
 ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280098"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure Notebooks 概觀
 
 Azure Notebooks 是免費的裝載服務，無需任何安裝程序，就能用來在雲端中開發和執行 Jupyter Notebooks。 [Jupyter](https://jupyter.org/) (前稱 IPython) 是開放原始碼專案，可輕鬆將 Markdown 文字、可執行程式碼、持續性資料、圖形以及視覺效果統整至名為「筆記本」(影像由 jupyter.org 提供) 的單一且可分享的畫布上：
 
-[![EJupyter Notebook 的範例](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Jupyter Notebook 的範例](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 因為程式碼、圖形和說明文字的強大組合，Jupyter 成為了許多用途的熱門選擇，這些用途包括資料科學教學、資料清除和轉換、數值模擬、統計模型和開發機器學習模型。
 
@@ -115,8 +115,8 @@ Azure Notebooks 已預先設定下列 Jupyter 擴充功能：
   
   - [建立及複製專案](create-clone-jupyter-notebooks.md)
   - [設定和管理專案](configure-manage-azure-notebooks-projects.md)
-  - [從 Notebook 內安裝套件](install-packages-jupyter-notebook.md)
-  - [顯示投影片放映](present-jupyter-notebooks-slideshow.md)
+  - [從筆記本內安裝套件](install-packages-jupyter-notebook.md)
+  - [放映投影片](present-jupyter-notebooks-slideshow.md)
   - [使用資料檔案](work-with-project-data-files.md)
   - [存取資料資源](access-data-resources-jupyter-notebooks.md)
   - [使用 Azure 機器學習服務](use-machine-learning-services-jupyter-notebooks.md)

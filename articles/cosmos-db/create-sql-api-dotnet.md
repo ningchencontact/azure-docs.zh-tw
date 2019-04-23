@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/05/2019
 ms.openlocfilehash: 7ecb2269243ae96b629a20a26956e6220a2e616c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280837"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>快速入門：在 Azure Cosmos DB 中使用 SQL API 帳戶建置 .NET Web 應用程式
@@ -64,8 +64,8 @@ Azure 訂用帳戶或免費的 Azure Cosmos DB 試用帳戶
     |---|---|---|
     |**資料庫識別碼**|ToDoList|輸入 *ToDoList* 作為新資料庫的名稱。 資料庫名稱必須包含從 1 到 255 個字元，且不能包含 `/, \\, #, ?` 或尾端空格。|
     |**集合識別碼**|項目|輸入 *Items* 作為新集合的名稱。 集合識別碼與資料庫名稱具有相同的字元需求。|
-    |**資料分割索引鍵**| /類別| 本文中所述的範例使用 */category* 作為分割區索引鍵。|
-    |**Throughput**|400|讓輸送量保持在每秒 400 個要求單位 (RU/秒)。 如果您想要降低延遲，稍後可以相應增加輸送量。| 
+    |**分割區索引鍵**| /類別| 本文中所述的範例使用 */category* 作為分割區索引鍵。|
+    |**輸送量**|400|讓輸送量保持在每秒 400 個要求單位 (RU/秒)。 如果您想要降低延遲，稍後可以相應增加輸送量。| 
     
     在此範例中，請勿新增**唯一索引鍵**。 唯一索引鍵可讓您藉由確保每個分割索引鍵有一或多個唯一值，來對資料庫新增一層資料完整性。 如需詳細資訊，請參閱 [Azure Cosmos DB 中的唯一索引鍵](unique-keys.md)。
     

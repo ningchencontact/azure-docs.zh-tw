@@ -16,10 +16,10 @@ ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049998"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>教學課程：將執行 Windows 的 Service Fabric 叢集部署到 Azure 虛擬網路
@@ -154,7 +154,7 @@ ms.locfileid: "59049998"
 
 [azuredeploy.parameters.json][parameters] 參數檔案會宣告多個用來部署叢集和相關聯資源的值。 以下為要針對您的部署進行修改的參數：
 
-**參數** | **範例值** | **注意** 
+**參數** | **範例值** | **注意事項** 
 |---|---|---|
 |adminUserName|vmadmin| 叢集 VM 的系統管理員使用者名稱。 [VM 的使用者名稱需求](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm)。 |
 |adminPassword|Password#1234| 叢集 VM 的系統管理員密碼。 [VM 的密碼需求](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)。|
@@ -276,7 +276,7 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 <a id="configurediagnostics" name="configurediagnostics_anchor"></a>
 
 ## <a name="configure-diagnostics-collection-on-the-cluster"></a>在叢集上設定診斷集合
-當您執行 Service Fabric 叢集時，最好在一個集中位置收集來自所有節點的記錄。 將記錄檔集中在中央位置，可協助您分析並針對叢集或該叢集中執行之應用程式與服務的問題進行疑難排解。
+當您執行 Service Fabric 叢集時，最好在一個集中位置收集來自所有節點的記錄。 將記錄集中在中央位置，可協助您分析並針對叢集或該叢集中執行之應用程式與服務的問題進行疑難排解。
 
 上傳和收集記錄的方式之一就是使用 Azure 診斷 (WAD) 擴充功能，此擴充功能可將記錄上傳到 Azure 儲存體，也提供選項來將記錄傳送至 Azure Application Insights 或事件中樞。 您也可以使用外部流程來讀取儲存體中的事件，然後將它們放置於 Azure 監視器記錄之類的分析平台產品或其他記錄剖析解決方案中。
 

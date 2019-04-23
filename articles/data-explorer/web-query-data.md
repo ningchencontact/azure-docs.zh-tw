@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050555"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>快速入門：在 Azure 資料總管中查詢資料
@@ -192,4 +192,4 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [撰寫 Azure 資料總管查詢](write-queries.md)
+> [撰寫 Azure 資料總管的查詢](write-queries.md)

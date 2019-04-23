@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268397"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中撰寫預存程序、觸發程序和使用者定義函式
@@ -324,4 +324,4 @@ function tax(income) {
 
 * [在 Azure Cosmos DB 中使用 Azure Cosmos DB 預存程序、觸發程序及使用者定義函式](stored-procedures-triggers-udfs.md)
 
-* [在 Azure Cosmos DB 中使用 JavaScript Language-integrated Query (LINQ) API](javascript-query-api.md)
+* [在 Azure Cosmos DB 中使用 JavaScript 語言整合式查詢 API](javascript-query-api.md)

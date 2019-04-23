@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 01/14/2019
 ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046405"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>快速入門：將資料從 Logstash 擷取至 Azure 資料總管
@@ -108,10 +108,10 @@ output {
 
 | 參數名稱 | 說明 |
 | --- | --- |
-| **path** | Logstash 外掛程式會先將事件寫入至暫存檔，再傳送至 Azure 資料總管。 此參數會包含應寫入檔案的路徑，以及檔案輪替在觸發上傳至 Azure 資料總管服務的動作時所使用的時間運算式。|
+| **路徑** | Logstash 外掛程式會先將事件寫入至暫存檔，再傳送至 Azure 資料總管。 此參數會包含應寫入檔案的路徑，以及檔案輪替在觸發上傳至 Azure 資料總管服務的動作時所使用的時間運算式。|
 | **ingest_url** | 擷取相關通訊的 Kusto 端點。|
 | **app_id**、**app_key** 和 **app_tenant**| 連線至 Azure 資料總管所需的認證。 請務必使用具有擷取權限的應用程式。 |
-| **資料庫**| 要放置事件的資料庫名稱。 |
+| **database**| 要放置事件的資料庫名稱。 |
 | **資料表** | 要放置事件的目標資料表名稱。 |
 | **對應** | 對應可用來將傳入事件 Json 字串對應至正確的資料列格式 (定義哪個屬性會進入哪個資料行)。 |
 

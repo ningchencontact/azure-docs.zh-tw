@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 09f452a0971e2a0e74e51edd2db44eecda39c204
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265758"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>教學課程：Azure Active Directory 與 Marketo 整合
@@ -104,9 +104,9 @@ Marketo 與 Azure AD 整合提供下列優點：
 
     ![Marketo 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://saml.marketo.com/sp`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://saml.marketo.com/sp`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://login.marketo.com/saml/assertion/\<munchkinid\>`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡[Marketo 用戶端支援小組](http://investors.marketo.com/contactus.cfm)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

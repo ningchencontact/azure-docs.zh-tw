@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 445e24732edc1bc7e4d1cfe3ff49a54115c7ea3a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283200"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shibumi"></a>教學課程：Azure Active Directory 與 Shibumi 整合
@@ -107,9 +107,9 @@ Shibumi 與 Azure AD 整合可提供下列優點：
 
     ![Shibumi 網域和 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<SUBDOMAIN>.shibumi.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<SUBDOMAIN>.shibumi.com`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<SUBDOMAIN>.shibumi.com/saml/SSO`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<SUBDOMAIN>.shibumi.com/saml/SSO`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
 ms.openlocfilehash: 4b546b91634e153fa0074adfb863596a1bf36242
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006445"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 Node.js 的裝置應用程式進行通訊 (預覽)
@@ -150,7 +150,7 @@ az extension add --name azure-cli-iot-ext
 
 在本快速入門中，您已設定 IoT 中樞、註冊裝置、在裝置和服務端建立應用程式之間的裝置串流，以及使用串流在應用程式之間來回傳送資料。
 
-使用以下連結深入了解裝置串流：
+使用下列連結深入了解裝置串流：
 
 > [!div class="nextstepaction"]
 > [裝置串流概觀](./iot-hub-device-streams-overview.md)

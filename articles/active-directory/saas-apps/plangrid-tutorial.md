@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: b922e048b2787eedfc0bfc40e553e79f433277dc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>教學課程：Azure Active Directory 與 PlanGrid 整合
@@ -109,7 +109,7 @@ PlanGrid 與 Azure AD 整合提供下列優點：
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![映像](common/both-preintegrated-signon.png)
+    ![image](common/both-preintegrated-signon.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://app.plangrid.com/login`
 

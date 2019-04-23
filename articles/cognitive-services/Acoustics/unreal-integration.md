@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006493"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>專案樂器 Unreal 和 Wwise 整合
@@ -80,7 +80,7 @@ ms.locfileid: "59006493"
 
     ![螢幕擷取畫面的 Windows 檔案總管視窗反白顯示所提供的指令碼，以修補程式 Wwise](media/patch-wwise-script.png)
 
-* 如果您沒有安裝 DirectX SDK，您將需要標記為註解包含 DXSDK_DIR 中的行 `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* 如果您沒有安裝 DirectX SDK，便需要將 `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`中包含 DXSDK_DIR 的程式碼行註解化
 
     ![顯示已註解排除 DXSDK 的程式碼編輯器螢幕擷取畫面](media/directx-sdk-comment.png)
 

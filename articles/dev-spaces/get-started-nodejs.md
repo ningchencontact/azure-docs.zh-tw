@@ -10,10 +10,10 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 ms.openlocfilehash: dc84844738e501a30f73104a76ff80bf00adff24
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425815"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>在使用 Node.js 的 Azure Dev Spaces 上開始使用
@@ -105,7 +105,7 @@ az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-key
     ```
 
 Azure CLI 的 `azds prep` 命令會產生具有預設設定的 Docker 和 Kubernetes 資產：
-* `./Dockerfile` 描述應用程式的容器映像，以及如何建置原始程式碼和在容器內執行。
+* `./Dockerfile` 描述了應用程式的容器映像，以及如何建置原始程式碼和在容器內執行。
 * `./charts/webfrontend` 底下的 [Helm 圖表](https://docs.helm.sh)會說明如何將容器部署至 Kubernetes。
 
 現在不需要了解這些檔案的完整內容。 但是依然很值得指出，**從開發環境到生產環境都可以使用相同的 Kubernetes 和 Docker 組態即程式碼資產，而為不同的環境之間提供更佳的一致性。**
@@ -160,7 +160,7 @@ Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可�
 在行動裝置上，使用 webfrontend 的公用 URL 開啟 Web 應用程式。 您可能想要從您的桌面複製 URL 並將它傳送到您的裝置，讓您免於輸入冗長的位址。 您在行動裝置中載入 Web 應用程式時，您會發現 UI 無法正確顯示在小型裝置上。
 
 為了修正此問題，您會新增 `viewport` 中繼標記：
-1. 開啟檔案 `./public/index.html`
+1. 開啟 `./public/index.html` 檔案
 1. 在現有的 `head` 元素中，新增 `viewport` 中繼標記：
 
     ```html

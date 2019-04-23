@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9130717f7846c81bee2bf4892a13fcf6042257c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>教學課程：Azure Active Directory 與 Ivanti Service Manager (ISM) 整合
@@ -114,7 +114,7 @@ Ivanti Service Manager (ISM) 與 Azure AD 整合提供下列優點：
     | `https://<customer>.saasiteu.com/` |
     | `https://<customer>.saasitau.com/` |
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

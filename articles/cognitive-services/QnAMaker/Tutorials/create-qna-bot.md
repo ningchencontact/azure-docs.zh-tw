@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263871"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>教學課程：建立與 Azure 的 QnA Bot Bot 服務 v4
 
 建立從 QnA 聊天機器人**發佈**現有知識庫為基礎的頁面。 此 bot 將會使用 Bot Framework SDK v4。 您不需要撰寫任何程式碼來建置機器人，為您提供的所有程式碼。
 
-**在本教學課程中，您了解如何：**
+**在本教學課程中，您將了解如何：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -41,7 +41,7 @@ ms.locfileid: "59263871"
 
 1. 在 QnA Maker 入口網站中，移至**發佈**頁面，然後發佈您的知識庫。 選取 **建立 Bot**。 
 
-    ![QnA Maker 入口網站中，移至 [發行] 頁面中，並發佈您的知識庫。 選取 建立 Bot。](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
+    ![在 QnA Maker 入口網站中，移至 [發佈] 頁面，並發佈您的知識庫。 選取 [建立 Bot]。](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
     Azure 入口網站會開啟與 bot 建立組態。
 
@@ -56,11 +56,11 @@ ms.locfileid: "59263871"
     |定價層|`F0`|Azure bot 服務免費層。|
     |應用程式名稱|`my-tutorial-kb-bot-app`|這是以支援您的機器人，只有 web 應用程式。 因為已使用 QnA Maker 服務，這不應該是相同的應用程式名稱。 不支援與任何其他資源共用 QnA Maker 的 web 應用程式。|
     |SDK 語言|C#|這是使用 bot framework SDK 的基礎程式設計語言。 您可以選擇C#或 Node.js。|
-    |QnA 驗證金鑰|**不要變更**|這個值會為您填入。|
-    |App Service 方案/位置|**不要變更**|本教學課程中，位置並不重要。|
-    |Azure 儲存體|**不要變更**|對話資料會儲存在 Azure 儲存體資料表。|
-    |Application Insights|**不要變更**|記錄會傳送至 Application Insights。|
-    |Microsoft 應用程式識別碼|**不要變更**|Active directory 使用者和密碼是必要項目。|
+    |QnA 驗證金鑰|**不會變更**|這個值會為您填入。|
+    |App Service 方案/位置|**不會變更**|本教學課程中，位置並不重要。|
+    |Azure 儲存體|**不會變更**|對話資料會儲存在 Azure 儲存體資料表。|
+    |Application Insights|**不會變更**|記錄會傳送至 Application Insights。|
+    |Microsoft 應用程式識別碼|**不會變更**|Active directory 使用者和密碼是必要項目。|
 
     ![使用這些設定建立知識庫 bot。](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
@@ -107,9 +107,9 @@ ms.locfileid: "59263871"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [概念： 知識庫](../concepts/knowledge-base.md)
+> [概念：知識庫](../concepts/knowledge-base.md)
 
 ## <a name="see-also"></a>請參閱
 
 - [管理您的知識庫](https://qnamaker.ai)
-- [啟用您的 bot 在不同的管道](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)
+- [在不同的頻道啟用您的 Bot](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

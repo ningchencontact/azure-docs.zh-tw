@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 845fc32d527158258304a92c6855017c9d8c0492
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049552"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>教學課程：使用 PowerShell 和主題/訂用帳戶來更新庫存
@@ -143,7 +143,7 @@ Remove-AzResourceGroup -Name my-resourcegroup
 
 ### <a name="get-connection-string-and-queue"></a>取得連接字串和佇列
 
-連接字串和佇列名稱會傳至 `Main()` 方法作為命令列引數。 `Main()` 宣告兩個字串變數來保存這些值：
+連接字串和佇列名稱會傳至 `Main()` 方法作為命令列引數。 `Main()` 會宣告兩個字串變數來保存這些值：
 
 ```csharp
 static void Main(string[] args)

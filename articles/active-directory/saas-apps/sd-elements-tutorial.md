@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: a18971125724e6e2fdc6b37de15894efb8b9071a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258941"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>教學課程：Azure Active Directory 與 SD Elements 整合
@@ -105,16 +105,16 @@ SD Elements 與 Azure AD 整合提供下列優點：
 
     ![SD Elements 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<tenantname>.sdelements.com/sso/saml2/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<tenantname>.sdelements.com/sso/saml2/acs/`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<tenantname>.sdelements.com/sso/saml2/acs/`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [SD Elements 用戶端支援小組](mailto:support@sdelements.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. SD Elements 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示，以開啟 [使用者屬性] **** 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 

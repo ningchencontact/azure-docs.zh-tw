@@ -11,10 +11,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/08/2019
 ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269039"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>快速入門：1 - 在 C# 中建立 Azure 搜尋服務索引
@@ -22,7 +22,7 @@ ms.locfileid: "59269039"
 > * [C#](search-create-index-dotnet.md)
 > * [入口網站](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 >*
 
 本文將逐步引導您完成使用 C# 和 [.NET SDK](https://aka.ms/search-sdk) 建立 [Azure 搜尋服務索引](search-what-is-an-index.md)的程序。 這是建立、載入和查詢索引的 3 部分練習中的第 1 課。 索引建立是透過執行這些工作來完成的：
@@ -78,7 +78,7 @@ ms.locfileid: "59269039"
 
 ## <a name="2---create-a-client"></a>2 - 建立用戶端
 
-若要開始使用 Azure 搜尋服務 .NET SDK，請建立 `SearchServiceClient` 類別的執行個體。 這個類別有數個建構函式。 您所需的建構函式會取得您的搜尋服務名稱和 `SearchCredentials` 物件作為參數。 `SearchCredentials` 包裝您的 API 金鑰。
+若要開始使用 Azure 搜尋服務 .NET SDK，請建立 `SearchServiceClient` 類別的執行個體。 這個類別有數個建構函式。 您所需的建構函式會取得您的搜尋服務名稱和 `SearchCredentials` 物件作為參數。 `SearchCredentials` 會包裝您的 API 金鑰。
 
 下列程式碼可在 Program.cs 檔案中找到。 它會使用搜尋服務名稱的值，以及儲存於應用程式組態檔 (appsettings.json) 中的 API 金鑰，來建立新的 `SearchServiceClient`。
 

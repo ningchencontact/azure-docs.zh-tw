@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 95a138a6dd499df18789e9b587e770a9b7bf7dab
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>教學課程：Azure Active Directory 與 Meta Networks Connector 整合
@@ -106,24 +106,24 @@ Meta Networks Connector 與 Azure AD 整合提供下列優點：
 
     ![Meta Networks Connector 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
     ![Meta Networks Connector 網域及 URL 單一登入資訊](common/both-advanced-urls.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰ `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
-    b. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL： `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
+    b. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
 
     > [!NOTE]
     > 這些都不是真正的值。 本教學課程稍後會說明如何使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。
 
 6. Meta Networks Connector 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示，以開啟 [使用者屬性] **** 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
     
 7. 除了以上屬性外，Meta Networks Connector 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
     

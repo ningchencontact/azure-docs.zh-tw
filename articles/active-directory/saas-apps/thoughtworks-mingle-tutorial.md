@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 5acf02c021fdfd9f85eeb2b6b1c697ce92c48a15
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>教學課程：Azure Active Directory 與 Thoughtworks Mingle 整合

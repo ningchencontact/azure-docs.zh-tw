@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d2d41af8fa04b03ab8d18277d377f3700575cd1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259794"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>教學課程：Azure Active Directory 與 Image Relay 整合
@@ -105,9 +105,9 @@ Image Relay 與 Azure AD 整合提供下列優點：
 
     ![Image Relay 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.imagerelay.com/`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.imagerelay.com/`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.imagerelay.com/sso/metadata`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.imagerelay.com/sso/metadata`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Image Relay 客戶支援小組](http://support.imagerelay.com/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -235,7 +235,7 @@ Image Relay 與 Azure AD 整合提供下列優點：
 
 本節目標是在 Image Relay 中建立名為 Britta Simon 的使用者。
 
-**若要在 Image Relay 中建立名為 Britta Simon 的使用者，請執行下列步驟：**
+**若要在 Image Relay 中建立名為 Britta Simon 的使用者，請執行以下步驟：**
 
 1. 以系統管理員身分登入您的 Image Relay 公司網站。
 

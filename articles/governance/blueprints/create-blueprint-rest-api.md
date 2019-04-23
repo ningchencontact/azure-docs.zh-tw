@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273153"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>使用 REST API 定義和指派 Azure 藍圖
@@ -71,7 +71,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
 
 - `{YourMG}` - 取代為您的管理群組識別碼
-- `{subscriptionId}` - 取代為您的訂用帳戶識別碼
+- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
 
 > [!NOTE]
 > 藍圖也可能在訂用帳戶層級建立。 若要查看範例，請參閱[在訂用帳戶建立藍圖範例](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint)。
@@ -336,9 +336,9 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
 
-- `{tenantId}` - 取代為您的租用戶識別碼
+- `{tenantId}` - 以您的租用戶識別碼取代
 - `{YourMG}` - 取代為您的管理群組識別碼
-- `{subscriptionId}` - 取代為您的訂用帳戶識別碼
+- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
 
 1. 在目標訂用帳戶上提供 Azure 藍圖服務主題**擁有者**角色。 AppId 是靜態的 (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`)，但服務主體識別碼則依租用戶而各為不同。 使用下列 REST API 可要求租用戶的詳細資料。 它使用具有不同授權的 [Azure Active Directory 圖形 API](../../active-directory/develop/active-directory-graph-api.md)。
 

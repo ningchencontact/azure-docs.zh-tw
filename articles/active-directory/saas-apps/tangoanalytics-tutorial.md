@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 7252fcd0ce3e12c411729002e9594d1a75a49885
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258517"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tango-analytics"></a>教學課程：Azure Active Directory 與 Tango Analytics 整合
@@ -105,9 +105,9 @@ Tango Analytics 與 Azure AD 整合提供下列優點：
 
     ![Tango Analytics 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，輸入值： `TACORE_SSO`
+    a. 在 [識別碼] 文字方塊中，輸入值：`TACORE_SSO`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://mts.tangoanalytics.com/saml2/sp/acs/post`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://mts.tangoanalytics.com/saml2/sp/acs/post`
 
     > [!NOTE]
     > [回覆 URL] 不是真實的值。 使用實際的 [回覆 URL] 來更新此值。 請連絡 [Tango Analytics 用戶端支援小組](mailto:support@tangoanalytics.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

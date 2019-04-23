@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
 ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009394"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>快速入門：使用適用於 Java 的語音 SDK 來辨識語音
@@ -31,7 +31,7 @@ ms.locfileid: "59009394"
 本快速入門需要：
 
 * 作業系統：Windows (64 位元)、Ubuntu Linux 16.04/18.04 (64 位元) 或 macOS 10.13 或更新版本
-* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
+* [Eclipse Java IDE](https://www.eclipse.org/downloads/) \(英文\)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) \(英文\) 或 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) \(英文\)
 * 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
@@ -80,7 +80,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 在 GitHub 上可取得其他範例，例如如何讀取音訊檔案中的語音。
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 Java 範例](https://aka.ms/csspeech/samples)
+> [瀏覽 GitHub 上的 Java 範例](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>另請參閱
 

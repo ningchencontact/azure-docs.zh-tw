@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008897"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>教學課程：實作裝置韌體更新程序
@@ -115,10 +115,10 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 此組態包含下列區段︰
 
-* `content` 指定傳送至所選裝置的韌體所需屬性。
-* `metrics` 指定要執行以報告韌體更新狀態的查詢。
-* `targetCondition` 選取要接收韌體更新的裝置。
-* `priorty` 設定此組態相對於其他組態的優先權。
+* `content` 會指定傳送至所選裝置的韌體所需屬性。
+* `metrics` 會指定要執行以報告韌體更新狀態的查詢。
+* `targetCondition` 會選取要接收韌體更新的裝置。
+* `priorty` 會設定此組態相對於其他組態的優先權。
 
 後端應用程式會使用下列程式碼來建立用以設定所需屬性的組態：
 

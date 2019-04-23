@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 4788b65201792292d79cd8c4d1b22f22c5e67eb6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>教學課程：Azure Active Directory 與 Nuclino 整合
@@ -106,9 +106,9 @@ Nuclino 與 Azure AD 的整合可提供下列優點：
 
     ![Nuclino 網域和 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用 [驗證] 區段中的實際識別碼和回覆 URL (稍後會在本教學課程中說明) 來更新這些值。
@@ -124,7 +124,7 @@ Nuclino 與 Azure AD 的整合可提供下列優點：
 
 6. Nuclino 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 SAML token 屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示，以開啟 [使用者屬性] **** 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. 除了以上屬性外，Nuclino 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
 

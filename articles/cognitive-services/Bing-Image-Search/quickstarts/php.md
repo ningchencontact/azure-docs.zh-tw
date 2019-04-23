@@ -13,10 +13,10 @@ ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: c1f67fe01708f110c121f1acc5baf6d6998fe463
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256952"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>快速入門：使用 Bing 影像搜尋 REST API 和 PHP 來搜尋影像
@@ -132,7 +132,7 @@ ms.locfileid: "59256952"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 影像搜尋單頁應用程式教學課程](../tutorial-bing-image-search-single-page-app.md)
+> [Bing 影像搜尋單頁應用程式教學課程](../tutorial-bing-image-search-single-page-app.md) (英文)
 
 ## <a name="see-also"></a>另請參閱
 

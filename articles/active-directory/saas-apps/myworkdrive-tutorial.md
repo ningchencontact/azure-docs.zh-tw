@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: d16aa8442f71845e7b46377c6c290212f9c400a3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280497"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>教學課程：Azure Active Directory 與 MyWorkDrive 整合
@@ -115,7 +115,7 @@ MyWorkDrive 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 輸入您自己公司的 MyWorkDrive 伺服器主機：例如
     > 
-    > 回覆 URL： `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
+    > 回覆 URL：`https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
     > 
     > 登入 URL：`https://yourserver.yourdomain.com/Account/Login-saml`
     > 

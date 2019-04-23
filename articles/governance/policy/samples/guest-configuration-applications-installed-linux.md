@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/18/2019
 ms.author: dacoulte
 ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256459"
 ---
 # <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>範例 - 稽核指定的應用程式是否未安裝於 Linux VM 內
@@ -33,9 +33,9 @@ ms.locfileid: "59256459"
 此[來賓設定](../concepts/guest-configuration.md)方案是由下列原則所組成的：
 
 - [audit](#audit-definition)：稽核應用程式已安裝於 Linux VM 內
-  - 識別碼： `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
+  - 識別碼：`/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
 - [deployIfNotExists](#deployIfNotExists-definition)：部署 VM 擴充功能，以稽核應用程式已安裝於 Linux VM 內
-  - 識別碼： `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
+  - 識別碼：`/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>計畫定義
 

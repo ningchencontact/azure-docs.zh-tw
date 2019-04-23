@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6304f4afa05850ced8b88bb81c0f94e4a31fb5be
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277254"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>教學課程：Azure Active Directory 與 Jostle 整合
@@ -105,11 +105,11 @@ Jostle 與 Azure AD 整合提供下列優點：
 
     ![Jostle 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，輸入 URL： `https://login-prod.jostle.us`
+    a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://login-prod.jostle.us`
 
-    b. 在 [識別碼] 方塊中，輸入 URL： `https://jostle.us`
+    b. 在 [識別碼] 方塊中，輸入 URL：`https://jostle.us`
 
-    c. 在 [回覆 URL] 文字方塊中，輸入 URL： `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
+    c. 在 [回覆 URL] 文字方塊中，輸入 URL：`https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 

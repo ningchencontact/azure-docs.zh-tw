@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: wolfma
 ms.openlocfilehash: be4c5d6187e6367ba04ce7debcc0701937e87ae9
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012481"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 macOS 上以 C++ 辨識語音
@@ -109,7 +109,7 @@ ms.locfileid: "59012481"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 C++ 範例](https://aka.ms/csspeech/samples)
+> [探索 GitHub 上的 C++ 範例](https://aka.ms/csspeech/samples) \(英文\)
 
 ## <a name="see-also"></a>另請參閱
 

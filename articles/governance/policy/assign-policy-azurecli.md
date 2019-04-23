@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: e30308ac2cda643cc0157f5e718157f6599751d6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283540"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>建立原則指派，以便使用 Azure CLI 識別不相容資源
@@ -56,7 +56,7 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 - **Name** - 指派的實際名稱。  例如，我們使用了 audit-vm-manageddisks。
 - **DisplayName** - 原則指派的顯示名稱。 在此案例中，您會使用*稽核沒有受控磁碟指派的虛擬機器*。
-- **原則** – 原則定義識別碼，這是您用來建立指派的根基。 在此案例中，即為原則定義*稽核沒有受控磁碟的虛擬機器*的 ID。 若要取得原則定義識別碼，請執行此命令： `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **原則** – 原則定義識別碼，這是您用來建立指派的根基。 在此案例中，即為原則定義*稽核沒有受控磁碟的虛擬機器*的 ID。 若要取得原則定義識別碼，請執行此命令：`az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **範圍** – 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。 請務必將 &lt;scope&gt; 取代為您的資源群組。
 
 ## <a name="identify-non-compliant-resources"></a>識別不相容的資源

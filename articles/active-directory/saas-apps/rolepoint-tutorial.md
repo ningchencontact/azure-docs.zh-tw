@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 96b33b8d7a52f836a5950a28b4f1f035619f185f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267611"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>教學課程：Azure Active Directory 與 RolePoint 整合
@@ -105,9 +105,9 @@ ms.locfileid: "59267611"
 
     ![RolePoint 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.rolepoint.com/login`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.rolepoint.com/login`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://app.rolepoint.com/<instancename>`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://app.rolepoint.com/<instancename>`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值。 請連絡 [RolePoint 用戶端支援小組](mailto:info@rolepoint.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

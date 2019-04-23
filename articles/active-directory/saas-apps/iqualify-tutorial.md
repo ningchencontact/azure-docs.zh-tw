@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 95c24f74e9af4443db994a6655a82108de18efdd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280140"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>教學課程：Azure Active Directory 與 iQualify LMS 整合
@@ -109,14 +109,14 @@ ms.locfileid: "59280140"
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
     | |
     |--|--|
-    | 生產環境： `https://<yourorg>.iqualify.com/`|
-    | 測試環境： `https://<yourorg>.iqualify.io`|
+    | 生產環境︰`https://<yourorg>.iqualify.com/`|
+    | 測試環境：`https://<yourorg>.iqualify.io`|
 
     b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：
     | |
     |--|--|
-    | 生產環境： `https://<yourorg>.iqualify.com/auth/saml2/callback` |
-    | 測試環境： `https://<yourorg>.iqualify.io/auth/saml2/callback` |
+    | 生產環境︰`https://<yourorg>.iqualify.com/auth/saml2/callback` |
+    | 測試環境：`https://<yourorg>.iqualify.io/auth/saml2/callback` |
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -125,15 +125,15 @@ ms.locfileid: "59280140"
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰
     | |
     |--|--|
-    | 生產環境： `https://<yourorg>.iqualify.com/login` |
-    | 測試環境： `https://<yourorg>.iqualify.io/login` |
+    | 生產環境︰`https://<yourorg>.iqualify.com/login` |
+    | 測試環境：`https://<yourorg>.iqualify.io/login` |
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 請連絡 [iQualify LMS 用戶端支援小組](https://www.iqualify.com/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 6. iQualify LMS 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示，以開啟 [使用者屬性] **** 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 

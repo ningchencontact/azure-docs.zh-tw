@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9bcb465f76e09675333e6e608249cba11f722e3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274650"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>教學課程：Azure Active Directory 與 iLMS 整合
@@ -107,17 +107,17 @@ iLMS 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別碼] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [識別碼] 值貼上。
 
-    b. 在 [回覆 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，並包含下列模式 `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    b. 在 [回覆 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，並包含下列模式：`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
     ![iLMS 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
-    在 [登入 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，如同 `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    在 [登入 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，如同：`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
 6. 若要啟用 JIT 佈建，iLMS 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > 您必須啟用 iLMS 中的 [建立無法辨識的使用者帳戶] 來對應這些屬性。 請依照[這裡](http://support.inspiredelearning.com/customer/portal/articles/2204526)的指示，了解屬性的設定。

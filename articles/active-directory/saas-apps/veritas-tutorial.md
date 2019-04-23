@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 59012bf32a4e1f0532b4d42e510d431180c35730
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264177"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>教學課程：Azure Active Directory 與 Veritas Enterprise Vault.cloud SSO 整合
@@ -105,7 +105,7 @@ Veritas Enterprise Vault.cloud SSO 與 Azure AD 整合提供下列優點：
 
     ![Veritas Enterprise Vault.cloud SSO 網域和 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰ `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
 
     b. 在 [識別碼] 方塊中，根據資料中心使用 URL：
 

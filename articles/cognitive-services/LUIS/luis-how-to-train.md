@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: diberry
 ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267050"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>訓練您 LUIS 應用程式的作用中版本 
@@ -64,5 +64,5 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 ## <a name="next-steps"></a>後續步驟
 
-* [標籤建議的表達方式有了 LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [使用功能來改善 LUIS 應用程式的效能](luis-how-to-add-features.md) 
+* [使用 LUIS 標示建議的語調](luis-how-to-review-endpoint-utterances.md) 
+* [使用功能來改善 LUIS 應用程式效能](luis-how-to-add-features.md) 

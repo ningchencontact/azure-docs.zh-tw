@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
 ms.openlocfilehash: 2066dc3e20ab9fc92b23fd071728ea6a920d3324
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012499"
 ---
 # <a name="stream-compressed-audio-with-the-speech-sdk"></a>Stream 壓縮音訊與 Speech SDK
@@ -58,5 +58,5 @@ var text = result.GetText();
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得語音試用版訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何辨識中的語音C#](quickstart-csharp-dotnet-windows.md)
+* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
+* [了解如何以 C# 辨識語音](quickstart-csharp-dotnet-windows.md) (英文)

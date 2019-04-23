@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265724"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>教學課程：Azure Active Directory 與 ExcelityGlobal 整合
@@ -106,19 +106,19 @@ ExcelityGlobal 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
 
-    **生產環境**： `https://ess.excelityglobal.com`
+    **生產環境**：`https://ess.excelityglobal.com`
 
-    **沙箱環境**： `https://s6.excelityglobal.com`
+    **沙箱環境**：`https://s6.excelityglobal.com`
 
     b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：
 
-    **生產環境**： `https://ess.excelityglobal.com/ACS`
+    **生產環境**：`https://ess.excelityglobal.com/ACS`
 
-    **沙箱環境**： `https://s6.excelityglobal.com/ACS`
+    **沙箱環境**：`https://s6.excelityglobal.com/ACS`
 
 5. ExcelityGlobal 應用程式需要特定格式的 SAML 判斷提示，要求您加入自訂屬性對應到您的 SAML 權杖屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 ExcelityGlobal 應用程式要求 **nameidentifier** 需與 **user.mail** 相對應，因此您必須按一下 [編輯] 圖示以編輯屬性對應，並變更屬性對應。
  
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [SAML 簽署憑證] 區段中，按一下 [編輯] 按鈕以開啟 [SAML 簽署憑證] 對話方塊。
 

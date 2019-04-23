@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 2f4a877974c21dd7aead00f0b6aa949c84e2b80f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>教學課程：Azure Active Directory 與 Predictix Ordering 整合
@@ -51,7 +51,7 @@ Predictix Ordering 與 Azure AD 整合提供下列優點：
 
 若要設定 Predictix Ordering 與 Azure AD 的整合作業，您需要從資源庫將 Predictix Ordering 加入受控 SaaS 應用程式清單中。
 
-**若要從資源庫新增 Predictix Ordering，請執行下列步驟：**
+**若要從資源庫加入 Predictix Ordering，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -105,7 +105,7 @@ Predictix Ordering 與 Azure AD 整合提供下列優點：
 
     ![Predictix Ordering 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<companyname-pricing>.ordering.predictix.com/sso/request`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname-pricing>.ordering.predictix.com/sso/request`
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
 

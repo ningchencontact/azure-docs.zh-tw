@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: b797c7d49495aac90abb31a9214bf2928784a866
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262392"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>教學課程：Azure Active Directory 與 Proxyclick 整合
@@ -105,9 +105,9 @@ ms.locfileid: "59262392"
 
     ![[Proxyclick 網域及 URL] 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://saml.proxyclick.com/init/<companyId>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://saml.proxyclick.com/init/<companyId>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://saml.proxyclick.com/consume/<companyId>`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://saml.proxyclick.com/consume/<companyId>`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

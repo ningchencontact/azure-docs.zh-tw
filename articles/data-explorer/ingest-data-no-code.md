@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 04/07/2019
 ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262902"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>教學課程：在 Azure 資料總管中內嵌資料，而不需任何一行程式碼
@@ -268,7 +268,7 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
 
 1. 在 Azure 入口網站中使用 Azure Resource Manager 範本建立事件中樞。 若要依照本文中的其餘步驟操作，請以滑鼠右鍵按一下 [部署至 Azure] 按鈕，然後選取 [在新視窗中開啟]。 [部署至 Azure] 按鈕可將您帶往 Azure 入口網站。
 
-    [![D部署至 Azure 按鈕](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![部署至 Azure 按鈕](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. 建立診斷記錄的事件中樞命名空間和事件中樞。
 
@@ -460,4 +460,4 @@ ActivityLogsRecords
 了解如何使用下列文件，對您從 Azure 資料總管擷取的資料撰寫更多查詢：
 
 > [!div class="nextstepaction"]
-> [撰寫 Azure 資料總管查詢](write-queries.md)
+> [撰寫 Azure 資料總管的查詢](write-queries.md)

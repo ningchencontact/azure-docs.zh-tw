@@ -16,10 +16,10 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35f9a8949f5b51f88b9297890fc5562e7b8dd591
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273374"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>教學課程：Azure Active Directory 與 Help Scout 整合
@@ -106,9 +106,9 @@ Help Scout 與 Azure AD 整合提供下列優點：
 
     ![Help Scout 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. **識別碼**是 Help Scout 的**對象 URI (服務提供者實體識別碼)**，其開頭是 `urn:`
+    a. **識別碼**是 Help Scout 的**對象 URI (服務提供者實體識別碼)**，以 `urn:` 開頭
 
-    b. **回覆 URL** 是 Help Scout 的**回傳 URL (判斷提示取用者服務 URL)**，其開頭是 `https://` 
+    b. **回覆 URL** 是 Help Scout 的**回傳 URL (判斷提示取用者服務 URL)**，以 `https://` 開頭 
 
     > [!NOTE]
     > 這些 URL 中的值僅供示範。 您必須從實際的「回覆 URL」和「識別碼」來更新這些值。 您可以從 [驗證] 區段下的 [單一登入] 索引標籤取得這些值，本教學課程稍後會說明。
@@ -117,7 +117,7 @@ Help Scout 與 Azure AD 整合提供下列優點：
 
     ![Help Scout 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
-    在 [登入 URL] 文字方塊中輸入 URL： `https://secure.helpscout.net/members/login/`
+    在 [登入 URL] 文字方塊中，將 URL 輸入為：`https://secure.helpscout.net/members/login/`
 
 6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 

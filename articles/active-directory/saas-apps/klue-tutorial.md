@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8e1199826601f8f2ddd82164dac1a20013d9b7bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269736"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>教學課程：Azure Active Directory 與 Klue 整合
@@ -106,9 +106,9 @@ Klue 與 Azure AD 整合提供下列優點：
 
     ![Klue 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `urn:klue:<Customer ID>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`urn:klue:<Customer ID>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -121,7 +121,7 @@ Klue 與 Azure AD 整合提供下列優點：
 
 6. Klue 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 30f431c1806c6a0697a6b74b43f1cc35660fc85e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261718"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>教學課程：Azure Active Directory 與 Pantheon 整合
@@ -105,16 +105,16 @@ Pantheon 與 Azure AD 整合提供下列優點：
 
     ![Pantheon 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `urn:auth0:pantheon:<orgname>-SSO`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`urn:auth0:pantheon:<orgname>-SSO`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://pantheon.auth0.com/login/callback?connection=<orgname>-SSO`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://pantheon.auth0.com/login/callback?connection=<orgname>-SSO`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Pantheon 用戶端支援小組](https://pantheon.io/docs/getting-support/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. Pantheon 應用程式需要特定格式的 SAML 判斷提示，而您需要將自訂屬性對應新增到 SAML 權杖屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 Pantheon 應用程式要求 **nameidentifier** 需與 **user.mail** 相對應，因此您必須按一下 [編輯] 圖示以編輯屬性對應，並變更屬性對應。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 

@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: 088dd8414c93b609326e7cd72828426dcb00fc28
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274564"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>範例 - 允許的儲存體帳戶和虛擬機器 SKU
@@ -28,7 +28,7 @@ ms.locfileid: "59274564"
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
-[![D將原則範例部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![將原則範例部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 

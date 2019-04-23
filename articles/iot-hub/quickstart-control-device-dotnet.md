@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.openlocfilehash: fc219d9e3e5b365f341b2997804586e67275c1b7
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046507"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>快速入門：控制連線到 IoT 中樞的裝置 (.NET)
@@ -174,4 +174,4 @@ az iot hub show-connection-string --name YourIoTHubName --output table
 若要了解如何將「裝置到雲端」訊息路由傳送至雲端中的不同目的地，請繼續下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [教學課程：將遙測路由至不同的端點以進行處理](tutorial-routing.md)
+> [教學課程：將遙測路由傳送至不同的端點以進行處理](tutorial-routing.md)

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: diberry
 ms.openlocfilehash: 96157511c0255774a64c0f64a333fe88a37f80d6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261411"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>在您 LUIS 模型中，每個文化特性的實體
@@ -26,15 +26,15 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 |--|--|--|
 |中文|[zh-CN](#chinese-entity-support)||
 |荷蘭文|[nl-NL](#dutch-entity-support)||
-|English|[EN-US （美式）](#english-american-entity-support)||
+|English|[en-US (美式)](#english-american-entity-support)||
 |法文|[fr-CA (加拿大)](#french-canadian-entity-support), [fr-FR (法國)](#french-france-entity-support), ||
 |德文|[de-DE](#german-entity-support)||
 |義大利文|[it-IT](#italian-entity-support)||
 |日文|[ja-JP](#japanese-entity-support)||
 |韓文|[ko-KR](#korean-entity-support)||
-|葡萄牙文|[（巴西） PT-BR](#portuguese-brazil-entity-support)||
+|葡萄牙文|[pt-BR (巴西)](#portuguese-brazil-entity-support)||
 |西班牙文|[es-ES (西班牙)](#spanish-spain-entity-support), [es-MX (墨西哥)](#spanish-mexico-entity-support)||
-|土耳其文|[土耳其文](#turkish-entity-support)|沒有預先建置的實體支援土耳其文|
+|土耳其文|[turkish](#turkish-entity-support)|沒有預先建置的實體支援土耳其文|
 
 ## <a name="chinese-entity-support"></a>中文實體支援
 
@@ -44,16 +44,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    ✔   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    ✔   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    ✔   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
-[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -65,16 +65,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    ✔   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    -   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    -   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    ✔   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -86,16 +86,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    ✔   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    ✔   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    ✔   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -107,16 +107,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    ✔   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    ✔   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    ✔   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |   -   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -128,16 +128,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    ✔   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    ✔   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    ✔   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -149,16 +149,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    ✔   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    ✔   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    ✔   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -170,16 +170,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    ✔   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    -   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    -   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    ✔   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -191,16 +191,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    ✔   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    -   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    -   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    ✔   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -212,16 +212,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    -   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    -   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    -   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    -   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[數字](luis-reference-prebuilt-number.md)   |    -   |  
+[Number](luis-reference-prebuilt-number.md)   |    -   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -233,16 +233,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    ✔   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    ✔   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    ✔   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -254,16 +254,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    ✔   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    ✔   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    ✔   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -275,16 +275,16 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 ------|:------:|
 [年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    -   |
 [貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    -   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>date<br>daterange<br>time<br>時間範圍   |    -   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    -   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 

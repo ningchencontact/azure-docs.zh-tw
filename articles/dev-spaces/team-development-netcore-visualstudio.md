@@ -12,10 +12,10 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s '
 ms.openlocfilehash: 58807aa5a540de6eaa9a337caa0c34fee9408296
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361442"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行小組開發
@@ -58,8 +58,8 @@ ms.locfileid: "59361442"
 ### <a name="set-up-your-baseline"></a>設定基準
 首先，我們必須部署服務基準。 此部署所代表的是「已知良好的最近配置」，因此您可以輕鬆地比較本機程式碼與所簽入版本的行為。 接著，我們會根據此基準建立子空間，以便在較大的應用程式內容中，測試我們對 mywebapi 所做的變更。
 
-1. 複製 [Dev Spaces 應用程式範例](https://github.com/Azure/dev-spaces)： `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
-1. 簽出遠端分支 azds_updates： `git checkout -b azds_updates origin/azds_updates`
+1. 複製 [Dev Spaces 應用程式範例](https://github.com/Azure/dev-spaces)：`git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
+1. 簽出遠端分支 azds_updates：`git checkout -b azds_updates origin/azds_updates`
 1. 關閉這兩項服務的任何 F5/偵錯工作階段，但讓專案在 Visual Studio 視窗中保持開啟。
 1. 切換至含有 mywebapi 專案的 Visual Studio 視窗。
 1. 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [屬性]。

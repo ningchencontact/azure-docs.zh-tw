@@ -16,10 +16,10 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260896"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>教學課程：Azure Active Directory 與 Appraisd
@@ -107,16 +107,16 @@ Appraisd 與 Azure AD 整合提供下列優點：
 
     a. 按一下 [設定額外的 URL]。
 
-    b. 在 [轉送狀態] 文字方塊中，輸入 URL： `<TENANTCODE>`
+    b. 在 [轉送狀態] 文字方塊中，鍵入 URL：`<TENANTCODE>`
 
-    c. 如果您想要以 **SP** 起始模式設定應用程式，請在 [登入 URL] 文字方塊中使用下列模式輸入 URL： `https://app.appraisd.com/saml/<TENANTCODE>`
+    c. 如果您想要以 **SP** 起始模式設定應用程式，請在 [登入 URL] 文字方塊中使用下列模式輸入 URL：`https://app.appraisd.com/saml/<TENANTCODE>`
 
     > [!NOTE]
     > 您可在 [Appraisd SSO 組態] 頁面上取得實際的 [登入 URL] 與 [轉送狀態] 值，稍後會在本教學課程中說明該頁面。
 
 5. Appraisd 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
@@ -163,15 +163,15 @@ Appraisd 與 Azure AD 整合提供下列優點：
 
 2. 按一下頁面右上方的 [設定] 圖示，然後導覽至 [組態]。
 
-    ![映像](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
+    ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
 3. 從功能表左側，按一下 [SAML 單一登入]。
 
-    ![映像](./media/appraisd-tutorial/tutorial_appraisd_single.png)
+    ![image](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
 4. 在 [SAML 2.0 單一登入組態] 頁面上，執行下列步驟：
 
-    ![映像](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
+    ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
     a. 複製 [預設轉送狀態] 值，並將它貼到 Azure 入口網站上 [基本 SAML 組態] 的 [轉送狀態] 文字方塊中。
 
@@ -179,7 +179,7 @@ Appraisd 與 Azure AD 整合提供下列優點：
 
 5. 在相同頁面向下捲動到 [識別使用者] 之下，執行下列步驟：
 
-    ![映像](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
+    ![image](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
     a. 在 [識別提供者單一登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] 值，然後按一下 [儲存]。
 
@@ -248,15 +248,15 @@ Appraisd 與 Azure AD 整合提供下列優點：
 
 2. 按一下頁面右上方的 [設定] 圖示，然後導覽至 [管理中心]。
 
-    ![映像](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
+    ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
 3. 在頁面頂端的工具列中，按一下 [人員]，然後巡覽至 [新增使用者]。
 
-    ![映像](./media/appraisd-tutorial/tutorial_appraisd_user.png)
+    ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
 4. 在 [新增使用者] 頁面上，執行下列步驟：
 
-    ![映像](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
+    ![image](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
 
     a. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。
 

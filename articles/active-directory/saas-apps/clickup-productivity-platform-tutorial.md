@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282639"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>教學課程：Azure Active Directory 與 ClickUp Productivity Platform 整合
@@ -104,9 +104,9 @@ ms.locfileid: "59282639"
 
     ![ClickUp Productivity Platform 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，輸入 URL： `https://app.clickup.com/login/sso`
+    a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://app.clickup.com/login/sso`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://api.clickup.com/v1/team/<team_id>/microsoft`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://api.clickup.com/v1/team/<team_id>/microsoft`
 
     > [!NOTE]
     > 識別碼值不是實際值。 使用實際的識別碼來更新此值，稍後會在本教學課程中說明。

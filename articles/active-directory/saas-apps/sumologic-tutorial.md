@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 4edd445fe526b9be5c421b21b25f9b095c734f43
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269889"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>教學課程：Azure Active Directory 與 SumoLogic 整合
@@ -105,7 +105,7 @@ SumoLogic 與 Azure AD 整合提供下列優點：
 
     ![SumoLogic 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<tenantname>.SumoLogic.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<tenantname>.SumoLogic.com`
 
    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
 

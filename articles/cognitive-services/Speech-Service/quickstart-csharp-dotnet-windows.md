@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
 ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008742"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>快速入門：使用適用於 .NET Framework (Windows) 的語音 SDK 來辨識語音
@@ -68,7 +68,7 @@ ms.locfileid: "59008742"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples)
+> [探索 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples) \(英文\)
 
 ## <a name="see-also"></a>另請參閱
 

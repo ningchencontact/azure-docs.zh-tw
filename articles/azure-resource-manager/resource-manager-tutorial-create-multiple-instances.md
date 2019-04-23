@@ -14,10 +14,10 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: ce882ecee25f9570082a978b72a76ca903bfc12f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279375"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>教學課程：使用 Resource Manager 範本建立多個資源執行個體
@@ -64,7 +64,7 @@ ms.locfileid: "59279375"
 ![Azure Resource Manager 建立多個執行個體](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. 新增 `copy` 元素到儲存體帳戶資源定義。 在複製元素中，您可以指定反覆運算次數以及此迴圈的變數。 計數值必須為不超過 800 的正整數。
-2. `copyIndex()` 函式會傳回迴圈中的目前反覆項目。 您可以使用索引作為名稱前置詞。 `copyIndex()` 是以零為基礎。 若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 例如，*copyIndex(1)*。
+2. `copyIndex()` 函式會傳回迴圈中的目前反覆項目。 您可以使用索引作為名稱前置詞。 `copyIndex()`是以零為基礎。 若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 例如，*copyIndex(1)*。
 3. 刪除 **variables** 元素，因為已不再使用它。
 4. 刪除 **outputs** 元素。 已不再需要此項目。
 
@@ -126,14 +126,14 @@ ms.locfileid: "59279375"
 
 若要列出全部三個儲存體帳戶，請省略 --name 參數：
 
-# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"

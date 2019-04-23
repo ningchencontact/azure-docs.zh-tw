@@ -16,10 +16,10 @@ ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f250a5ac5f6fefa099303b033a9687f1a219efd8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262307"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>教學課程：Azure Active Directory 與 Bersin 整合
@@ -104,11 +104,11 @@ ms.locfileid: "59262307"
 
     ![Bersin 網域及 URL 單一登入資訊](common/idp-identifier-relay.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://www.bersin.com/shibboleth`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://www.bersin.com/shibboleth`
 
     b. 按一下 [設定額外的 URL]。
 
-    c. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL： `https://www.bersin.com/secure/`
+    c. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://www.bersin.com/secure/`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

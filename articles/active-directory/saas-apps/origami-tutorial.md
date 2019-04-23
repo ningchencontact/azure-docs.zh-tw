@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 0d5c697f8c6c2365539ce5147ad5bafff1e6c396
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>教學課程：Azure Active Directory 與 Origami 整合
@@ -51,7 +51,7 @@ Origami 與 Azure AD 整合提供下列優點：
 
 若要設定將 Origami 整合到 Azure AD 中，您需要從資源庫將 Origami 加入到受控 SaaS 應用程式清單。
 
-**若要從資源庫新增 Origami，請執行下列步驟：**
+**若要從資源庫加入 Origami，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 

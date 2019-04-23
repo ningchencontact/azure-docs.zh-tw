@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: a98ec0d460e050f8158ffee1262dd85f0cd07d9a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>教學課程：Azure Active Directory 與 Peakon 整合
@@ -51,7 +51,7 @@ Peakon 與 Azure AD 整合提供下列優點：
 
 若要設定 Peakon 與 Azure AD 整合，您需要從資源庫將 Peakon 新增至受控 SaaS 應用程式清單。
 
-**若要從資源庫新增 Peakon，請執行下列步驟：**
+**若要從資源庫新增Peakon，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -105,9 +105,9 @@ Peakon 與 Azure AD 整合提供下列優點：
 
     ![Peakon 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://app.peakon.com/saml/<companyid>/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://app.peakon.com/saml/<companyid>/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://app.peakon.com/saml/<companyid>/assert`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://app.peakon.com/saml/<companyid>/assert`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

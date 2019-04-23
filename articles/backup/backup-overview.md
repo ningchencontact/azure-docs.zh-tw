@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361800"
 ---
 # <a name="what-is-azure-backup"></a>何謂 Azure 備份？
@@ -105,7 +105,7 @@ Azure 備份可備份內部部署機器和 Azure VM。
 
 ## <a name="which-backup-agent-should-i-use"></a>我應使用哪個備份代理程式？
 
-**Backup ** | **解決方法** | **限制**
+**備份** | **方案** | **限制**
 --- | --- | ---
 **我想要備份整個 Azure VM** | 啟用 VM 的備份。 備份擴充功能會在 Windows 或 Linux Azure VM 上自動設定。 | 整個 VM 都會備份 <br/><br/> Windows VM 的備份具應用程式一致性。 Linux 的備份則具檔案一致性。 如果需要 Linux VM 的應用程式感知能力，您必須使用自訂指令碼加以設定。
 **我想要備份 Azure VM 上的特定檔案/資料夾** | 在 VM 上部署 MARS 代理程式。

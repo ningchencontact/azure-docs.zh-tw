@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 91ba5de6a6e0a18d494a449acfdea330234bcc9b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>教學課程：Azure Active Directory 與 Nomadic 整合
@@ -104,7 +104,7 @@ ms.locfileid: "59258805"
 
     ![Nomadic 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<company name>.nomadic.fm/signin`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<company name>.nomadic.fm/signin`
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
     

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268631"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>教學課程：Azure Active Directory 與 Silverback 整合
@@ -105,11 +105,11 @@ Silverback 與 Azure AD 整合提供下列優點：
 
     ![Silverback 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰ `https://<YOURSILVERBACKURL>.com/ssp`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<YOURSILVERBACKURL>.com/ssp`
 
-    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL： `<YOURSILVERBACKURL>.com`
+    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：`<YOURSILVERBACKURL>.com`
 
-    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
+    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [Silverback 用戶端支援小組](mailto:helpdesk@matrix42.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

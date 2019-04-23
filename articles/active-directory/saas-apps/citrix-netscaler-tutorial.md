@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>教學課程：Azure Active Directory 與 Citrix Netscaler 整合
@@ -107,11 +107,11 @@ ms.locfileid: "59281670"
 
     ![Citrix Netscaler 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<<Your FQDN>>`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<<Your FQDN>>`
 
-    c. 在 [回覆 URL (判斷提示取用者服務 URL)] 文字方塊中，以下列模式輸入 URL： `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    c. 在 [回覆 URL (判斷提示取用者服務 URL)] 文字方塊中，以下列模式輸入 URL：`https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Citrix Netscaler 用戶端支援小組](https://www.citrix.com/contact/technical-support.html)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

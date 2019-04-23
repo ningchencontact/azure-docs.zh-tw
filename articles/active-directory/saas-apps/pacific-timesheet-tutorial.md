@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 8b145755f88c7a2be215ccfd78538298433331fd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>教學課程：Azure Active Directory 與 Pacific Timesheet 整合
@@ -51,7 +51,7 @@ Pacific Timesheet 與 Azure AD 整合提供下列優點：
 
 若要設定 Pacific Timesheet 與 Azure AD 整合，您需要從資源庫將 Pacific Timesheet 新增到受控 SaaS app 清單。
 
-**若要從資源庫新增 Pacific Timesheet，請執行下列步驟：**
+**若要從資源庫加入 Pacific Timesheet，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -105,9 +105,9 @@ Pacific Timesheet 與 Azure AD 整合提供下列優點：
 
     ![Pacific Timesheet 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Pacific Timesheet 用戶端支援小組](https://www.pacifictimesheet.com/support)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

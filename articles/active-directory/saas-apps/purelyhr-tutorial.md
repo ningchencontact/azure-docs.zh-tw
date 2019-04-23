@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: b6e004ea613d1a3dfd47a2798e0298f41eab2d3d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263718"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>教學課程：Azure Active Directory 與 PurelyHR 整合
@@ -53,7 +53,7 @@ PurelyHR 與 Azure AD 整合提供下列優點：
 
 若要設定將 PurelyHR 整合到 Azure AD 中，您需要從資源庫將 PurelyHR 新增到受控 SaaS app 清單。
 
-**若要從資源庫新增 PurelyHR，請執行下列步驟：**
+**如要從資源庫新增 PurelyHR，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 

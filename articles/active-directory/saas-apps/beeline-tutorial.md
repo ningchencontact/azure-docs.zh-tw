@@ -16,10 +16,10 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 62a4495667dc7c934883bfed0a8f07d7b2d653f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>教學課程：Azure Active Directory 與 BeeLine 整合
@@ -105,7 +105,7 @@ ms.locfileid: "59266540"
 
     ![BeeLine 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://projects.beeline.net/<instancename>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://projects.beeline.net/<instancename>`
 
     b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：
     
@@ -119,7 +119,7 @@ ms.locfileid: "59266540"
 
 5. Beeline 應用程式需要特定格式的 SAML 判斷提示。 請先與 [BeeLine 支援小組](https://www.beeline.com/contact-us/)合作，識別出將對應到應用程式中的正確使用者識別碼。 另外，關於 [BeeLine 支援小組](https://www.beeline.com/contact-us/)要用於此對應的屬性方面，也請接受小組提供的指引。 您可以從應用程式的 [使用者屬性] 索引標籤管理這個屬性的值。 以下螢幕擷取畫面顯示上述的範例。 在這裡，我們已將 [使用者識別碼] 宣告與 **userprincipalname** 屬性對應來提供唯一使用者識別碼，而在每個成功的「SAML 回應」中都會把此識別碼傳送給 Beeline 應用程式。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 

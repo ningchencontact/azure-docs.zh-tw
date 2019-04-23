@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 120be3ef7299391e611dc393e70af697c1daf2ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobicontrol"></a>教學課程：Azure Active Directory 與 MobiControl 整合
@@ -105,9 +105,9 @@ MobiControl 與 Azure AD 整合可提供下列優點：
 
     ![MobiControl 網域和 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<SUBDOMAIN>.corp.soti.net/mobicontrol`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.corp.soti.net/mobicontrol`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<SUBDOMAIN>.mobicontrolcloud.com/mobicontrol`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.mobicontrolcloud.com/mobicontrol`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [MobiControl 客戶支援小組](https://www.soti.net/about/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

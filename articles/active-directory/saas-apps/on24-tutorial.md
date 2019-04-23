@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: a0b5dd169d29dc392274ab5589931f37beb04e9b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273595"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>教學課程：Azure Active Directory 與 ON24 Virtual Environment SAML Connection 整合
@@ -51,7 +51,7 @@ ms.locfileid: "59273595"
 
 若要設定將 ON24 虛擬環境 SAML 連線整合至 Azure AD，您必須從資源庫將 ON24 虛擬環境 SAML 連線新增至受控 SaaS 應用程式的清單。
 
-**若要從資源庫新增 ON24 Virtual Environment SAML Connection，請執行下列步驟：**
+**若要從資源庫新增 ON24 虛擬環境 SAML 連線，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -147,7 +147,7 @@ ms.locfileid: "59273595"
 
     c. 按一下 [設定額外的 URL]。 
 
-    d. 在 [轉送狀態] 文字方塊中，輸入 URL： `https://vshow.on24.com/vshow/ms_azure_saml_test?r=<ID>`
+    d. 在 [轉送狀態] 文字方塊中，鍵入 URL：`https://vshow.on24.com/vshow/ms_azure_saml_test?r=<ID>`
 
 5.  如果您想要在 **SP** 起始模式中設定應用程式，請執行下列步驟：
 

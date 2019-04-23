@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: fc0ef38193bbd6e5044764a26a5793a4d115348d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>教學課程：Azure Active Directory 與 Grovo 整合
@@ -52,7 +52,7 @@ Grovo 與 Azure AD 整合提供下列優點：
 
 若要設定將 Grovo 整合到 Azure AD 中，您需要從資源庫將 Grovo 新增到受控 SaaS 應用程式清單。
 
-**若要從資源庫新增 Grovo，請執行下列步驟：**
+**若要從資源庫加入 Grovo，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -106,13 +106,13 @@ Grovo 與 Azure AD 整合提供下列優點：
 
     ![Grovo 網域與 URL 單一登入資訊](common/idp-relay.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.grovo.com/sso/saml2/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.grovo.com/sso/saml2/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     c. 按一下 [設定額外的 URL]。
 
-    d. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.grovo.com`
+    d. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.grovo.com`
 
 5. 如果您想要在 **SP** 起始模式中設定應用程式，請執行下列步驟：
 
@@ -125,7 +125,7 @@ Grovo 與 Azure AD 整合提供下列優點：
 
 6. Grovo 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 SAML token 屬性設定。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 Grovo 應用程式要求 **nameidentifier** 需與 **user.mail** 相對應，因此您必須按一下 [編輯] 圖示以編輯屬性對應，並變更屬性對應。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. 除了以上屬性外，Grovo 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
 

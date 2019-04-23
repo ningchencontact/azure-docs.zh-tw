@@ -16,10 +16,10 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261457"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>什麼是適用於 Azure 資源的受控識別？
@@ -73,7 +73,7 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
     1. 使用服務主體用戶端識別碼和憑證來更新 Azure Instance Metadata Service 身分識別端點。
     1. 佈建 VM 擴充功能 (已計劃在 2019 年 1 月淘汰)，並新增服務主體用戶端識別碼和憑證。 (此步驟已規劃要淘汰。)
 4. 在 VM 具有身分識別後，使用服務主體資訊對 VM 授與 Azure 資源的存取權。 若要呼叫 Azure Resource Manager，請在 Azure AD 中使用角色型存取控制 (RBAC)，將適當的角色指派給 VM 服務主體。 若要呼叫 Key Vault，請將 Key Vault 中特定祕密或金鑰的存取權授與您的程式碼。
-5. 您在 VM 上執行的程式碼可向能從 VM 內存取的 Azure Instance Metadata Service 端點要求權杖： `http://169.254.169.254/metadata/identity/oauth2/token`
+5. 您在 VM 上執行的程式碼可向能從 VM 內存取的 Azure Instance Metadata Service 端點要求權杖：`http://169.254.169.254/metadata/identity/oauth2/token`
     - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
     - API 版本參數會使用 api-version=2018-02-01 或更高版本來指定 IMDS 版本。
 
@@ -95,7 +95,7 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
    > [!Note]
    > 您也可以在步驟 3 之前執行這個步驟。
 
-5. 您在 VM 上執行的程式碼可向能從 VM 內存取的 Azure Instance Metadata Service 身分識別端點要求權杖： `http://169.254.169.254/metadata/identity/oauth2/token`
+5. 您在 VM 上執行的程式碼可向能從 VM 內存取的 Azure Instance Metadata Service 身分識別端點要求權杖：`http://169.254.169.254/metadata/identity/oauth2/token`
     - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
     - 用戶端識別碼參數會指定為其要求權杖的身分識別。 當單一 VM 上有多個使用者指派的身分識別時，需要此值才能釐清。
     - API 版本參數可指定 Azure 執行個體中繼資料服務版本。 使用 `api-version=2018-02-01` 或更高版本。
@@ -136,9 +136,9 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
 * [Azure Functions](/azure/app-service/overview-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure 服務匯流排](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Azure 事件中心](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Azure 事件中樞](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Azure API 管理](../../api-management/api-management-howto-use-managed-service-identity.md)
-* [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
+* [Azure 容器執行個體](../../container-instances/container-instances-managed-identity.md)
 
 ## 哪些 Azure 服務支援此功能？<a name="which-azure-services-support-managed-identity"></a>
 

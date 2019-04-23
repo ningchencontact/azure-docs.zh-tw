@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045828"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>教學課程：第 2 部分 - 檢視路由的訊息
@@ -274,7 +274,7 @@ ms.locfileid: "59045828"
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>使用 Azure CLI 來清除資源
 
-若要移除資源群組，請使用 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 命令。 `$resourceGroup` 在本教學課程剛開始時已設回 **ContosoResources**。
+若要移除資源群組，請使用 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 命令。 在本教學課程剛開始時，`$resourceGroup` 已設回 **ContosoResources**。
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -282,7 +282,7 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>使用 PowerShell 來清除資源
 
-若要移除資源群組，請使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 命令。 `$resourceGroup` 在本教學課程剛開始時已設回 **ContosoResources**。
+若要移除資源群組，請使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 命令。 在本教學課程剛開始時，`$resourceGroup` 已設回 **ContosoResources**。
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup

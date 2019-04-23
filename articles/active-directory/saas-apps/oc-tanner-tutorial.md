@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 21cbef1532928d51ba0c9f11e80304933df505b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261746"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>教學課程：Azure Active Directory 與 O.C. Tanner - AppreciateHub 的人員
@@ -51,7 +51,7 @@ ms.locfileid: "59261746"
 
 若要設定將 O.C. Tanner - AppreciateHub 整合到 Azure AD，您需要從組件庫將 O.C. Tanner - AppreciateHub 新增至受控 SaaS 應用程式清單。
 
-**若要從資源庫新增 O.C. Tanner - AppreciateHub，請執行下列步驟：**
+**若要從組建庫新增 O.C.Tanner - AppreciateHub，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -193,7 +193,7 @@ ms.locfileid: "59261746"
 
 本節目標是在 O.C. Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者。
 
-**若要在 O.C. Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者， 請執行下列步驟：**
+**若要在 O.C.Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者，請執行下列步驟：**
 
 要求您的 [O.C.Tanner - AppreciateHub 支援小組](mailto:sso@octanner.com)建立使用者，此使用者的 nameID 屬性與 Azure AD 中 Britta Simon 使用者名稱的值相同。
 

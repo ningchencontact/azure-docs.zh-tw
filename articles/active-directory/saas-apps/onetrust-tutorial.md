@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 490ef95e061da4a008bf50ef664aaa379d5b3062
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>教學課程：Azure Active Directory 與 OneTrust Privacy Management Software 整合
@@ -107,9 +107,9 @@ OneTrust Privacy Management Software 與 Azure AD 整合提供下列優點：
 
     ![OneTrust Privacy Management Software 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，鍵入 URL： `https://www.onetrust.com/saml2`
+    a. 在 [識別碼] 文字方塊中，鍵入 URL：`https://www.onetrust.com/saml2`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.onetrust.com/auth/consumerservice`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.onetrust.com/auth/consumerservice`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

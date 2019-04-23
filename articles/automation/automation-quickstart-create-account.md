@@ -10,10 +10,10 @@ ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
 ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009507"
 ---
 # <a name="create-an-azure-automation-account"></a>建立 Azure 自動化帳戶
@@ -32,7 +32,7 @@ ms.locfileid: "59009507"
 
 1. 選取 [管理工具]，然後選取 [自動化]。
 
-1. 輸入帳戶資訊。 針對 [建立 Azure 執行身分帳戶] 選擇 [是]，就會自動啟用簡化對 Azure 進行驗證的構件。 請務必注意，在建立自動化帳戶時，名稱在選擇後即不可變更。 *自動化帳戶名稱在每一區域和資源群組中是唯一的。 自動化帳戶已刪除後，其名稱並非立即可供使用。* 一個「自動化帳戶」可以管理所指定租用戶之所有區域和訂用帳戶的資源。 完成後，按一下 [建立] 可啟動自動化帳戶部署。
+1. 輸入帳戶資訊。 針對 [建立 Azure 執行身分帳戶] 選擇 [是]，就會自動啟用簡化對 Azure 進行驗證的構件。 請務必注意，在建立自動化帳戶時，名稱在選擇後即不可變更。 *「自動化帳戶」名稱在每一區域和資源群組中是唯一的。自動化帳戶已刪除後，其名稱並非立即可供使用。* 一個「自動化帳戶」可以管理所指定租用戶之所有區域和訂用帳戶的資源。 完成後，按一下 [建立] 可啟動自動化帳戶部署。
 
     ![在頁面中輸入您自動化帳戶的相關資訊](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358063"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
@@ -55,8 +55,8 @@ ms.locfileid: "59358063"
 
 Azure 客戶可以在 Azure 入口網站中建立和管理支援要求。
 
-* [Azure 入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [適用於美國政府的 azure 入口網站](https://portal.azure.us)
+* [Azure 门户](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [美國政府的 Azure 入口網站](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>在 Stack Overflow 張貼問題
 
@@ -75,7 +75,7 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 > [!TIP]
 > Stack Overflow 的下列貼文包含如何提出問題以及新增原始程式碼的提示。 遵循這些指導方針有助於增加社群成員快速評估並回應您問題的機會：  
 > * [要如何問一個好問題？](https://stackoverflow.com/help/how-to-ask)
-> * [如何建立最小、 完成且可驗證的範例](https://stackoverflow.com/help/mcve)
+> * [如何建立最小、完成且可驗證的範例](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>建立 GitHub 問題
 
@@ -86,11 +86,11 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 您可以建立 Bug 報告、功能要求，或詢問一般問題及分享最佳做法。 針對 Bug 報告，請依照所提供的範本進行操作：
 
-**描述錯誤**
+**描述 Bug**
 
 一個清楚且簡潔的 Bug 描述。
 
-**若要重現**
+**重現**
 
 重現行為的步驟：
 1. ...
@@ -104,13 +104,13 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 您目前使用哪個 SDK 版本。
 
-**平台、 作業系統和程式設計語言**
+**平台、作業系統及程式設計語言**
 
  - OS：[例如 Windows、Linux、Android、iOS...] - 請指明
  - 硬體 - x64、x86、ARM...
  - 瀏覽器 [例如 Chrome、Safari] (如果適用)- 請指明
 
-**其他內容**
+**額外內容**
 
  - 錯誤訊息、記錄資訊、堆疊追蹤...
  - 如果您報告錯誤的特定服務互動時，回報 SessionId 與報告事件的時間 （包括時區）。 在您收到的所有回呼/事件中都會回報 SessionId。

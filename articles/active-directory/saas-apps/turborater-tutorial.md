@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
 ms.openlocfilehash: d73bc9cc845f214eab490a542892aa67bf9d0216
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>教學課程：Azure Active Directory 與 TurboRater 整合
@@ -105,7 +105,7 @@ TurboRater 與 Azure AD 整合提供下列優點：
 
     ![TurboRater 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，鍵入 URL： `https://www.itcdataservices.com`
+    a. 在 [識別碼] 文字方塊中，鍵入 URL：`https://www.itcdataservices.com`
 
     b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：
 

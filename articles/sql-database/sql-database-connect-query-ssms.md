@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359976"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入門：使用 SQL Server Management Studio 連線和查詢 Azure SQL Database
@@ -58,7 +58,7 @@ ms.locfileid: "59359976"
 
 ## <a name="connect-to-your-database"></a>連接到您的資料庫
 
-在 SMSS 中，連線到您的 Azure SQL Database 資料庫。
+在 SMSS 中，連線到您的 Azure SQL Database 伺服器。
 
 > [!IMPORTANT]
 > Azure SQL Database 伺服器會接聽連接埠 1433。 若要連線到公司防火牆後方的 SQL Database 伺服器，該防火牆必須開啟此連接埠。
@@ -72,7 +72,7 @@ ms.locfileid: "59359976"
    | ------------ | ------------------ | ----------- |
    | **伺服器類型** | 資料庫引擎 | 必要值。 |
    | **伺服器名稱** | 完整伺服器名稱 | 應該類似這樣︰**mynewserver20170313.database.windows.net**。 |
-   | **Authentication** | SQL Server 驗證 | 本教學課程使用 SQL 驗證。 |
+   | **驗證** | SQL Server 驗證 | 本教學課程使用 SQL 驗證。 |
    | **登入** | 伺服器管理帳戶使用者識別碼 | 建立伺服器時所使用伺服器系統管理員帳戶的使用者識別碼。 |
    | **密碼** | 伺服器系統管理員帳戶密碼 | 建立伺服器時所使用伺服器系統管理員帳戶的密碼。 |
    ||||

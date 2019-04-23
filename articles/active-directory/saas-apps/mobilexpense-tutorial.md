@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: b86f62bf25801b5259af1c54b55836fca9cf1aed
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>教學課程：Azure Active Directory 與 Mobile Xpense 整合
@@ -104,9 +104,9 @@ ms.locfileid: "59271300"
 
     ![Mobile Xpense 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://mobilexpense.com/ServiceProvider`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://mobilexpense.com/ServiceProvider`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 0672d90a25bc4c879d28512ab212f98f29efbf3b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358210"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>快速入門：使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning
@@ -115,4 +115,4 @@ ms.locfileid: "59358210"
 如需深入的工作流程體驗，請按照 Machine Learning 教學課程來定型和部署模型：  
 
 > [!div class="nextstepaction"]
-> [教學課程：將映像分類模型定型](tutorial-train-models-with-aml.md)
+> [教學課程：將影像分類模型定型](tutorial-train-models-with-aml.md)

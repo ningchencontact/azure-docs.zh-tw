@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 8944e4533448f5787f5c85c12e4ab2747eb96e4e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278079"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>教學課程：Azure Active Directory 與 Mercer BenefitsCentral (MBC) 整合
@@ -104,9 +104,9 @@ ms.locfileid: "59278079"
 
     ![Mercer BenefitsCentral (MBC) 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，鍵入 URL： `stg.mercerhrs.com/saml2.0`
+    a. 在 [識別碼] 文字方塊中，鍵入 URL：`stg.mercerhrs.com/saml2.0`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
     > [!NOTE]
     > [回覆 URL] 不是真實的值。 請使用實際的「回覆 URL」來更新此值。 若要取得此值，請連絡 [Mercer BenefitsCentral (MBC) 用戶端支援小組](https://www.mercer.com/contact-us.html)。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

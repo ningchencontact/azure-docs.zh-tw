@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: ad6bf2576d7f033f8ae029338dc94635dbba0fe7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267424"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>教學課程：Azure Active Directory 與 IQNavigator VMS 整合
@@ -105,20 +105,20 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
     ![IQNavigator VMS 網域與 URL 單一登入資訊](common/idp-relay.png)
 
-    a. 在 [識別碼] 文字方塊中，鍵入 URL： `iqn.com`
+    a. 在 [識別碼] 文字方塊中，鍵入 URL：`iqn.com`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
 
     c. 按一下 [設定額外的 URL]。
 
-    d. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.iqnavigator.com`
+    d. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.iqnavigator.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「回覆 URL」和「轉送狀態」來更新這些值。 請連絡 [IQNavigator VMS 客戶支援小組](https://www.beeline.com/iqn-product-support/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. IQNavigator 應用程式需要 [名稱識別碼] 宣告中有唯一的使用者識別碼值。 客戶可以為 [名稱識別碼] 宣告對應正確的值。 在此案例中，為了示範，我們已對應 user.UserPrincipalName。 但是，您應該根據組織的設定，對應正確的值。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將其儲存在您的電腦上。
 

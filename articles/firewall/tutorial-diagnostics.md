@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044856"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>教學課程：監視 Azure 防火牆記錄和計量
@@ -99,7 +99,7 @@ ms.locfileid: "59044856"
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>檢視及分析網路和應用程式規則記錄
 
-[Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)會收集計數器和事件記錄檔。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
+[Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)會收集計數器和事件記錄。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
 
 關於 Azure 防火牆的記錄分析查詢範例，請參閱 [Azure 防火牆記錄分析範例](log-analytics-samples.md)。
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>教學課程：Azure Active Directory 與 Perception United States (非 UltiPro) 整合
@@ -105,9 +105,9 @@ Perception United States (非 UltiPro) 與 Azure AD 整合提供下列優點：
 
     ![Perception United States (非 UltiPro) 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，鍵入 URL： `https://perception.kanjoya.com/sp`
+    a. 在 [識別碼] 文字方塊中，鍵入 URL：`https://perception.kanjoya.com/sp`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://perception.kanjoya.com/sso?idp=<entity_id>`
 
     c. **Perception United States (非 UltiPro)** 應用程式要求 **Azure AD 識別碼**值 <entity_id> 必須進行 uri 編碼，您可從 [設定 Perception United States (非 UltiPro)] 區段中取得此值。 若要取得 uri 編碼值，請使用下列連結：**http://www.url-encode-decode.com/**。
 

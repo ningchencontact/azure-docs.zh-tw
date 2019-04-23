@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 570200a3befbe6205025a2410c4083d38dd11eb9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>教學課程：Azure Active Directory 與 OnTrack 整合
@@ -107,22 +107,22 @@ OnTrack 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別碼] 文字方塊中：
 
-    針對測試環境，輸入 URL： `https://staging.insigniagroup.com/sso`
+    針對測試環境，輸入 URL：`https://staging.insigniagroup.com/sso`
 
-    針對生產環境，輸入 URL： `https://oeaccessories.com/sso`
+    針對生產環境，輸入 URL：`https://oeaccessories.com/sso`
 
     b. 在 [回覆 URL] 文字方塊中：
 
-    針對測試環境，輸入 URL： `https://indie.staging.insigniagroup.com/sso/autonation.aspx`
+    針對測試環境，輸入 URL：`https://indie.staging.insigniagroup.com/sso/autonation.aspx`
 
-    針對生產環境，輸入 URL： `https://igaccessories.com/sso/autonation.aspx`
+    針對生產環境，輸入 URL：`https://igaccessories.com/sso/autonation.aspx`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [OnTrack 用戶端支援小組](mailto:CustomerService@insigniagroup.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. OnTrack 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示，以開啟 [使用者屬性] **** 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 除了以上屬性之外，OnTrack 應用程式還預期 SAML 回應中會再多傳回幾個屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
 

@@ -12,17 +12,17 @@ ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: yexu
 ms.openlocfilehash: a77041b063f043c065df9a2955e9d07b5692f592
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256255"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>快速入門：使用複製資料工具複製資料
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [目前版本](quickstart-create-data-factory-copy-data-tool.md)
+> * [目前的版本](quickstart-create-data-factory-copy-data-tool.md)
 
 在此快速入門中，您會使用 Azure 入口網站建立資料處理站。 接著，您會使用「複製資料」工具建立管線，將資料從 Azure Blob 儲存體的一個資料夾複製到另一個資料夾。 
 

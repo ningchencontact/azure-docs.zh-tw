@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 066847ff8428a5080e655712c1a6bbe504c5cdbc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257785"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>教學課程：Azure Active Directory 與 Optimizely 整合
@@ -105,16 +105,16 @@ Optimizely 與 Azure AD 整合提供下列優點：
 
     ![Optimizely 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://app.optimizely.net/<instance name>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://app.optimizely.net/<instance name>`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `urn:auth0:optimizely:contoso`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`urn:auth0:optimizely:contoso`。
 
     > [!NOTE]
     > 這些都不是真正的值。 您將會使用實際的「登入 URL」與「識別碼」來更新值，稍後會在本教學課程中說明。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. Optimizely 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示，以開啟 [使用者屬性] **** 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 除了以上屬性之外，Optimizely 應用程式還預期 SAML 回應中會再多傳回幾個屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
 

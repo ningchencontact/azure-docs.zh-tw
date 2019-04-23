@@ -16,10 +16,10 @@ ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 850f5e3f96439e1fea0a77b94f2ed733cc451bdf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267254"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>教學課程：Azure Active Directory 與 HeyBuddy 整合
@@ -106,16 +106,16 @@ ms.locfileid: "59267254"
 
     ![HeyBuddy 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://api.heybuddy.com/auth/<ENTITY ID>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://api.heybuddy.com/auth/<ENTITY ID>`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `YourCompanyInstanceofHeyBuddy`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`YourCompanyInstanceofHeyBuddy`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」(實體識別碼) 來更新這些值。 系統會為每個組織自動產生登入 URL 中的 `Entity ID`。 請連絡 [HeyBuddy 用戶端支援小組](mailto:support@heybuddy.com)以取得這些值。
 
 5. HeyBuddy 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > 請參閱此[連結](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)，以了解如何設定及安裝應用程式的角色。
