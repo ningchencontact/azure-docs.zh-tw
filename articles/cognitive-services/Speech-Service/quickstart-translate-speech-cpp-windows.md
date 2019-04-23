@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.openlocfilehash: f7120e80d079723ed8265320ba4b38d76a825a00
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59499813"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>快速入門：使用適用於 C++ 的語音 SDK 來翻譯語音
@@ -28,7 +28,7 @@ ms.locfileid: "59499813"
 本快速入門需要：
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* 語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 
@@ -65,7 +65,7 @@ ms.locfileid: "59499813"
 在 GitHub 上可取得其他範例，例如如何讀取音訊檔案中的語音，以及將翻譯的文字輸出為合成語音。
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 C++ 範例](https://aka.ms/csspeech/samples)
+> [探索 GitHub 上的 C++ 範例](https://aka.ms/csspeech/samples) \(英文\)
 
 ## <a name="see-also"></a>另請參閱
 

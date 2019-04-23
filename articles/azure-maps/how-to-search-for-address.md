@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277318"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785562"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務來尋找地址
 
@@ -50,7 +50,7 @@ ms.locfileid: "59277318"
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
-    | Authorization | 無授權 |
+    | 授權 | 無授權 |
 
     URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以在[地圖服務功能性 API 參考](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)的＜取得搜尋模糊＞定義中找到可用的回應格式。
 
@@ -102,7 +102,7 @@ ms.locfileid: "59277318"
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
-    | Authorization | 無授權 |
+    | 授權 | 無授權 |
 
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   
@@ -143,7 +143,7 @@ ms.locfileid: "59277318"
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
-    | Authorization | 無授權 |
+    | 授權 | 無授權 |
   
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   
@@ -203,7 +203,7 @@ ms.locfileid: "59277318"
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
-    | Authorization | 無授權 |
+    | 授權 | 無授權 |
   
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   

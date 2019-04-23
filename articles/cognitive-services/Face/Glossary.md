@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.openlocfilehash: bd4285a2d0f882b8c766563f2304031f1f6e2898
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904792"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787931"
 ---
 # <a name="glossary"></a>詞彙
 
@@ -329,7 +329,7 @@ PersonGroup 是[人員](#person)的集合，也是[識別](#identification)的�
 
 ## <a name="v"></a>V
 
-#### <a name="verification"></a>驗證
+#### <a name="verification"></a>验证
 
 此 API 可用來驗證兩張臉是否相同。 兩張臉在要求中都會由臉部識別碼代表。 驗證的結果會包含一個布林值欄位 (isIdentical)，如果為 true，即表示相同，還包含一個數字欄位 ([confidence](#confidence))，可指出信賴度等級。
 

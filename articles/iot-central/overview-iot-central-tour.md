@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 4908130cc0d59e42adb4f7ab2239e5b57dc08b89
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774297"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678644"
 ---
-# <a name="take-a-tour-of-the-azure-iot-central-ui-new-ui-design"></a>開始導覽 Azure IoT Central UI (新的 UI 設計)
+# <a name="take-a-tour-of-the-azure-iot-central-ui"></a>開始導覽 Azure IoT 中心 UI
 
 本文為您介紹 Microsoft Azure IoT 中心 UI。 您可以使用此 UI 來建立、管理和使用 Azure IoT 中心解決方案及其連線的裝置。
 

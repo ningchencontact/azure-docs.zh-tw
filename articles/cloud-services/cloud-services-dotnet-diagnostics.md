@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ba69a5aaffb39c26731ffd209587a8c8223b032a
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915352"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786236"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>在 Azure 雲端服務中啟用 Azure 診斷
 如需有關 Azure 診斷的背景資訊，請參閱 [Azure 診斷概觀](../azure-diagnostics.md) 。

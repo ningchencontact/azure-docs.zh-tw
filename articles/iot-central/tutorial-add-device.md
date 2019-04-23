@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425928"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>教學課程：將實際裝置新增至 Azure IoT Central 應用程式
@@ -353,7 +353,7 @@ ms.locfileid: "59425928"
 身為操作員，您可以了解如何：
 
 * [管理您的裝置](howto-manage-devices.md)
-* [使用裝置設定](howto-use-device-sets.md)
+* [使用裝置集合](howto-use-device-sets.md)
 * [建立自訂分析](howto-use-device-sets.md)
 
 身為裝置開發人員，您可以了解如何：

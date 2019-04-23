@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rosh
 ms.openlocfilehash: 39a95e877c766eb8f491c166edeb9d96f21db7dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493940"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>使用 ImageInsightsToken 尋找先前搜尋中的類似影像
@@ -144,4 +144,4 @@ if (visualSearchResults.Tags.Count > 0)
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [建立圖像式搜尋單頁 Web 應用程式](tutorial-bing-visual-search-single-page-app.md)
+> [建立圖像式搜尋單一頁面 web 應用程式](tutorial-bing-visual-search-single-page-app.md)

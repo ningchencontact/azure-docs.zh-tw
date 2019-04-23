@@ -17,11 +17,11 @@ ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: cd81eb3d62332bba67f0056a6f7b49279bc50c4f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879823"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59788807"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>將一般化 VHD 上傳至 Azure，以建立新的 VM。
 
@@ -41,7 +41,7 @@ ms.locfileid: "58879823"
   * 使用 Sysprep 一般化虛擬機器
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>使用 Sysprep 將 Windows 虛擬機器一般化
-本節說明如何將 Windows 虛擬機器一般化以做為映像。 Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電腦以做為映像。 如需 Sysprep 的詳細資訊，請參閱[如何使用 Sysprep：簡介](https://technet.microsoft.com/library/bb457073.aspx) \(英文\)。
+本部分说明如何通用化可用作映像的 Windows 虚拟机。 Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電腦以做為映像。 如需 Sysprep 的詳細資訊，請參閱[如何使用 Sysprep：簡介](https://technet.microsoft.com/library/bb457073.aspx) \(英文\)。
 
 請確定 Sysprep 支援電腦上執行的伺服器角色。 如需詳細資訊，請參閱 [Sysprep Support for Server Roles (伺服器角色的 Sysprep 支援)](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -72,7 +72,7 @@ ms.locfileid: "58879823"
 ### <a name="log-in-to-azure"></a>登入 Azure
 如果尚未安裝 Azure PowerShell 1.4 版或更高版本，請參閱 [How to install and configure Azure PowerShell (如何安裝和設定 Azure PowerShell)](/powershell/azure/overview)。
 
-1. 開啟 Azure PowerShell，並登入您的 Azure 帳戶。 這會開啟一個可供您輸入 Azure 帳戶認證的快顯視窗。
+1. 打开 Azure PowerShell 并登录到 Azure 帐户。 這會開啟一個可供您輸入 Azure 帳戶認證的快顯視窗。
    
     ```powershell
     Connect-AzAccount

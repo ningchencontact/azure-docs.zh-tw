@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: d80328943ae818b3bad9c0a275b74968ee33d4b7
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887191"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789052"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>啟動虛擬機器的實驗室中使用 Azure 自動化 runbook 的順序
 [Autostart](devtest-lab-set-lab-policy.md#set-autostart) DevTest Labs 功能可讓您設定為在指定時間自動啟動的 Vm。 不過，這項功能不支援以特定順序啟動機器。 有數個這類的自動化會很有用的案例。  其中一個案例是 Jumpbox VM 實驗室內需要的位置第一次，啟動之前其他 Vm，那麼 Jumpbox 作為其他 Vm 的存取點。  這篇文章會示範如何設定 Azure 自動化帳戶與執行指令碼的 PowerShell runbook。 指令碼在 Vm 上，在實驗室中，讓您控制的啟動順序，而不需要變更指令碼，使用標記。

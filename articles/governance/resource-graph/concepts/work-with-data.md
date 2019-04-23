@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262460"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59788233"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>使用大型 Azure 資源資料集
 

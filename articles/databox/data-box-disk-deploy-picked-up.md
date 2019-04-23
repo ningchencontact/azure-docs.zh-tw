@@ -10,10 +10,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425945"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>教學課程：退回 Azure 資料箱磁碟，並確認資料上傳至 Azure
@@ -156,8 +156,8 @@ Body:
 
 - 您的 Azure 儲存體帳戶。 當您將資料複製到資料箱時，資料會上傳到 Azure 儲存體帳戶中的下列其中一個路徑，視類型而定。
 
-  - 對於區塊 Blob 與分頁 Blob： `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-  - 對於 Azure 檔案儲存體： `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+  - 區塊 Blob 與分頁 Blob：`https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+  - Azure 檔案：`https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
     或者，您可以在 Azure 入口網站中移至您 Azure 儲存體帳戶，並從該處瀏覽。
 

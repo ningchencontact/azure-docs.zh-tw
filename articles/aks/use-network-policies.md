@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: iainfou
 ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494760"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785889"
 ---
 # <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>預覽-保護 Azure Kubernetes Service (AKS) 中使用網路原則的 pod 之間的流量
 
@@ -160,7 +160,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>拒絕流向 Pod 的所有輸入流量
 
-在您定義規則以允許特定網路流量之前，先建立網路原則以拒絕所有流量。 此原則可讓您只想要的流量開始允許清單的起點。 您可以也清楚地看到套用網路原則時會捨棄該流量。
+在您定義規則以允許特定網路流量之前，先建立網路原則以拒絕所有流量。 此原則可讓您只想要的流量開始白名單的起點。 您可以也清楚地看到套用網路原則時會捨棄該流量。
 
 在範例應用程式環境和流量規則，讓我們先建立命名空間稱為*開發*執行範例 pod:
 

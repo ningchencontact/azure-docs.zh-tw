@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: ce2d39f3941030059cef329aa60e804a44d73a98
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ad4b40d649d4e4cbc17d6aec5d8bc7308012b927
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263089"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677420"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>快速入門：使用 cURL 從知識庫取得答案
 
@@ -34,7 +34,7 @@ ms.locfileid: "59263089"
 
 發佈知識庫時，[發佈] 頁面會顯示用來產生答案的 HTTP 要求設定。 [CURL] 索引標籤會顯示從命令列工具 ([CURL](https://www.getpostman.com)) 產生答案所需的設定。
 
-[![Publish 結果](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
+[![發佈結果](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
 
 若要使用 CURL 產生答案，請完成下列步驟：
 
@@ -69,13 +69,15 @@ ms.locfileid: "59263089"
 
 ## <a name="use-staging-endpoint-with-curl"></a>搭配 cURL 使用暫存端點
 
-如果您想要從暫存端點取得答案，請使用值為 `true` 的 querystring 布林值參數 `isTest`。
+如果您想要獲得解答，從開發用的端點，使用`isTest`body 屬性。
 
-`isTest=true`
+```json
+isTest:true
+```
 
 ## <a name="next-steps"></a>後續步驟
 
 發佈頁面也會提供資訊，搭配 Postman 來[產生答案](get-answer-from-kb-using-postman.md)。 
 
 > [!div class="nextstepaction"]
-> [使用中繼資料產生回應時](../How-to/metadata-generateanswer-usage.md)
+> [產生答案時使用中繼資料](../How-to/metadata-generateanswer-usage.md)

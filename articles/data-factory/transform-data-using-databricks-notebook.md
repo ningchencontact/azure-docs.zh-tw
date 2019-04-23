@@ -13,11 +13,11 @@ ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
 ms.openlocfilehash: b8333ae7eb676fd38bf7d654cecdb4dd07ff7c03
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279681"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59788790"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Databricks Notebook 活動執行 Databricks Notebook
 

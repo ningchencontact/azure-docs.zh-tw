@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 958dc02ecc744f89badee851467f2e78190287cd
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501020"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786920"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何將服務匯流排佇列搭配 Java 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

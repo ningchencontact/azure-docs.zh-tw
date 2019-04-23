@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361881"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59788056"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>準備內部部署 Hyper-V 伺服器以進行至 Azure 的災害復原
 
@@ -31,11 +31,11 @@ ms.locfileid: "59361881"
 > * 準備 Vm，以便您可以在容錯移轉至 Azure 之後存取它們。
 
 > [!NOTE]
-> 教學課程會示範最簡單的部署路徑的案例。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，檢閱 [如何] 區段中的站台復原資料表的內容。
+> 這些教學課程示範案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱 Site Recovery 目錄的「操作說明」區段中的文章。
 
 ## <a name="before-you-start"></a>開始之前
 
-請確定您已備妥 Azure 中所述[在這一系列的第一個教學課程](tutorial-prepare-azure.md)。
+確定您已依照[這一系列中的第一個教學課程](tutorial-prepare-azure.md)所述備妥 Azure。
 
 ## <a name="review-requirements-and-prerequisites"></a>檢閱需求和必要條件
 
@@ -87,7 +87,7 @@ ms.locfileid: "59361881"
 
 1. 若要透過網際網路存取，請在內部部署 VM 上啟用 RDP，再進行容錯移轉。 確定已針對 [公用] 設定檔新增 TCP 和 UDP 規則，且在 [Windows 防火牆] > [允許的應用程式] 中已針對所有設定檔允許 RDP。
 2. 若要透過站對站 VPN 存取，請在內部部署機器上啟用 RDP。 您應該在 [Windows 防火牆] -> [允許的應用程式與功能] 中，針對 [網域] 和 [私人] 網路允許 RDP。
-   確認作業系統的 SAN 原則已設為 [OnlineAll]。 [深入了解](https://support.microsoft.com/kb/3031135)。 觸發容錯移轉時，VM 上不應該有任何擱置的 Windows 更新。 如果沒有，您無法在更新完成之前，登入虛擬機器。
+   確認作業系統的 SAN 原則已設為 [OnlineAll]。 [深入了解](https://support.microsoft.com/kb/3031135)。 觸發容錯移轉時，VM 上不應該有任何擱置的 Windows 更新。 如果有，在更新完成之前，您將無法登入虛擬機器。
 3. 在容錯移轉之後，於 Windows Azure VM 上，勾選 [開機診斷] 以檢視 VM 的螢幕擷取畫面。 如果您無法連線，請檢查 VM 是否正在執行，並檢閱這些[疑難排解祕訣](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。
 
 容錯移轉之後，您可以使用與複寫的內部部署 VM 相同的 IP 位址或不同 IP 位址來存取 Azure VM。 [深入了解](concepts-on-premises-to-azure-networking.md)如何設定 IP 位址以進行容錯移轉。

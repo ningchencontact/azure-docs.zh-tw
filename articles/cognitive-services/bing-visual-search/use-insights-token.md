@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 4/05/2019
 ms.author: scottwhi
 ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493870"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>使用深入解析權杖來取得深入資訊的影像
@@ -475,8 +475,8 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>後續步驟
 
-[建立圖像式搜尋單頁 Web 應用程式](tutorial-bing-visual-search-single-page-app.md)  
+[建立圖像式搜尋單一頁面 web 應用程式](tutorial-bing-visual-search-single-page-app.md)  
 [什麼是 Bing 圖像式搜尋 API？](overview.md)  
 [試用認知服務](https://aka.ms/bingvisualsearchtryforfree)  
-[取得免費的試用版存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[取得免費試用的存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [映像-圖像式搜尋](https://aka.ms/bingvisualsearchreferencedoc)

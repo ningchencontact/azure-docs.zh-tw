@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: dfe23baa67c87b04a65630611ef71758beda268d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754896"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678526"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>使用版本進行編輯和測試而不影響預備或生產應用程式
 
@@ -24,7 +24,7 @@ ms.locfileid: "58754896"
 
 若要使用版本，請在 [我的應用程式] 頁面上選取應用程式的名稱來開啟應用程式，接著選取頂端列中的 [管理]，然後選取左側導覽中的 [版本]。 
 
-版本清單會顯示已發佈哪些版本，其發佈位置，以及目前作用中的版本。 
+版本的清單會顯示哪一個版本都會發佈，發佈，而是目前使用哪個版本。 
 
 [![管理區段, 版本頁面](./media/luis-how-to-manage-versions/versions-import.png "管理區段, 版本頁面")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -67,5 +67,5 @@ ms.locfileid: "58754896"
 
 * 若要**刪除**版本，請從清單中選取版本，然後從工具列中選取 [刪除]。 選取 [確定]。 
 * 若要**重新命名**版本，請從清單中選取版本，然後從工具列中選取 [重新命名]。 輸入新的名稱，然後選取 [完成]。 
-* 若要**匯出**版本，請從清單中選取版本，然後從工具列中選取 [匯出應用程式]。 檔案會下載到您的本機電腦。 
+* 若要**匯出**版本，請從清單中選取版本，然後從工具列中選取 [匯出應用程式]。 選擇要匯出的備份，請選擇 JSON**匯出容器**要[使用 LUIS 容器中的此應用程式](luis-container-howto.md)。  
 

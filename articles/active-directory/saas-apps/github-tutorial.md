@@ -16,10 +16,10 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25540d1f26fa6021ef05108f9743e77a6184f3b3
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>教學課程：Azure Active Directory 與 GitHub 整合
@@ -107,16 +107,16 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     ![GitHub 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://github.com/orgs/<entity-id>/sso`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://github.com/orgs/<entity-id>/sso`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://github.com/orgs/<entity-id>`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://github.com/orgs/<entity-id>`
 
     > [!NOTE]
     > 請注意這些不是真正的值。 您必須使用實際的登入 URL 及識別碼來更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值。 移至 [GitHub 管理] 區段來擷取這些值。
 
 5. GitHub 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML Token 屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 GitHub 應用程式要求 **nameidentifier** 需與 **user.mail** 相對應，因此您必須按一下 [編輯] 圖示以編輯屬性對應，並變更屬性對應。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
@@ -156,7 +156,7 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     d. 按一下 [編輯] 圖示以編輯 [簽章方法] 和 [摘要方法]，將 **RSA-SHA1** 和 **SHA1** 改為 **RSA-SHA256** 和 **SHA256**，如下所示。
 
-    ![映像](./media/github-tutorial/tutorial_github_sha.png)
+    ![image](./media/github-tutorial/tutorial_github_sha.png)
 
 5. 按一下 [測試 SAML 組態]，確認 SSO 期間沒有驗證失敗或錯誤。
 

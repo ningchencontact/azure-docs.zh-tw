@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 73fc0d26612d32f2614899c62f680ff9e85d1609
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901520"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698386"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>將中樞工作區和專案移轉至自訂翻譯工具
 
@@ -119,6 +119,7 @@ ms.locfileid: "57901520"
 如果您希望專案、定型和文件有更詳細的相關移轉報告，您可以選擇將詳細資料匯出為 CSV。
 
 ## <a name="implementation-notes"></a>實作附註
+* 系統語言組不還提供自訂轉譯器僅可供存取資料，或透過自訂轉譯器解除部署。 這些專案將標示為 「 無法使用 」，在 [專案] 頁面上。 隨著我們啟用新的語言組和自訂轉譯器時，專案會變成作用來定型和部署。 
 * 將專案從 Hub 移轉至自訂翻譯工具，並不會對您的 Hub 訓練或專案造成任何影響。 在移轉期間，我們不會從 Hub 中刪除專案或文件，也不會將模型解除部署。
 * 您的每個專案只能移轉一次。 如果您需要重複移轉某個專案，請與我們連絡。
 * 自訂轉譯器支援從英文來回 NMT 語言組。 [檢視支援語言的完整清單](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)。 Hub 不需要基準模型，因此可支援數千種語言。 您可以移轉不受支援的語言組，但我們只會執行文件和專案定義的移轉。 我們無法為新模型定型。 此外，這些文件和專案將會顯示為非作用中，以指出它們目前無法使用。 如果新增了這些專案和 (或) 文件的支援，它們就會變成作用中狀態，且可以定型。

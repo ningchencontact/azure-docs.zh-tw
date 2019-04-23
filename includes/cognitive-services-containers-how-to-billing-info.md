@@ -3,13 +3,13 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2019
-ms.openlocfilehash: 200e2dfd2dd4f9aedd9256b307491a0b207ea124
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/16/2019
+ms.openlocfilehash: e92d1c65d9601c23e7e785f07e2de3e43ea6612b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57964089"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684645"
 ---
 用於 Azure 資源的定價層會計費至容器的查詢`<ApiKey>`。
 
@@ -26,7 +26,7 @@ ms.locfileid: "57964089"
 | 選項 | 描述 |
 |--------|-------------|
 | `ApiKey` | 用來追蹤帳單資訊之認知服務資源的 API 金鑰。<br/>此選項的值必須設定為已佈建 `Billing` 指定資源的 API 金鑰。 |
-| `Billing` | 用來追蹤帳單資訊之認知服務資源的端點。<br/>此選項的值必須設定為已佈建 LUIS Azure 資源的端點 URI。|
+| `Billing` | 用來追蹤帳單資訊之認知服務資源的端點。<br/>此選項的值必須設定端點的已佈建的 Azure 資源的 URI。|
 | `Eula` | 表示您已接受容器的授權。<br/>此選項的值必須設定為 `accept`。 |
 
 

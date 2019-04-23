@@ -1,26 +1,26 @@
 ---
 title: 將資料複製到您的 Microsoft Azure 資料箱磁碟 | Microsoft Docs
-description: 使用此教學課程以了解如何將資料複製到您的 Azure 資料箱磁碟
+description: 使用本教學課程以了解如何將資料複製到您的 Azure 資料箱磁碟
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 418b158b127a688314fb3a0a506d116cc27da98c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548741"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678491"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
-此教學課程說明如何從主機電腦複製資料，然後產生總和檢查碼來確認資料完整性。
+本教學課程說明如何從主機電腦複製資料，然後產生總和檢查碼來確認資料完整性。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 將資料複製到資料箱磁碟
@@ -52,7 +52,7 @@ ms.locfileid: "59548741"
 - 只能上傳固定的 VHD 來建立受控磁碟。 不支援動態 VHD、差異 VHD 或 VHDX 檔案。
 
 
-## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>執行下列步驟以從電腦連線到資料箱磁碟，並且複製資料。
+執行下列步驟以從電腦連線到資料箱磁碟，並且複製資料。
 
 1. 檢視已解除鎖定磁碟機的內容。 根據建立資料箱磁碟訂單時所選取的選項而定，磁碟中預先建立的資料夾和子資料夾清單會有所不同。
 
@@ -99,7 +99,7 @@ ms.locfileid: "59548741"
     |/FFT                | 假設 FAT 檔案時間 (兩秒精確度)。        |
     |/Log:\<記錄檔>     | 將狀態輸出寫入至記錄檔 (覆寫現有記錄檔)。         |
 
-    您可採平行方式使用多個磁碟，在每個磁碟上執行多個作業。
+    您可採平行方式使用多個磁碟，在每個磁碟上執行多項作業。
 
 6. 當作業正在進行中時，檢查複製狀態。 下列範例顯示將檔案複製到資料箱磁碟的 robocopy 命令輸出。
 
@@ -233,7 +233,7 @@ ms.locfileid: "59548741"
 
     ![分割複製資料](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
-10. 分割和複製資料集後，複製工作階段的分割複製工具摘要會隨即顯示。 下方顯示一個範例輸出。
+10. 分割和複製資料集後，複製工作階段的分割複製工具摘要會隨即顯示。 下方顯示一項範例輸出。
 
     ![分割複製資料](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
@@ -273,7 +273,7 @@ ms.locfileid: "59548741"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解 Azure 資料箱磁碟的相關主題，像是：
+在本教學課程中，您已了解 Azure 資料箱磁碟的相關主題，像是：
 
 > [!div class="checklist"]
 > * 將資料複製到資料箱磁碟

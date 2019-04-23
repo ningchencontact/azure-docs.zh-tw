@@ -18,11 +18,11 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dbc21922be66c793e76882cbd145f19681684252
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847437"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786868"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -206,7 +206,7 @@ ms.locfileid: "58847437"
 
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>在 Azure 上搭配 Windows Server 容錯移轉叢集和共用磁碟的 SAP ASCS/SCS 執行個體多重 SID 高可用性
 
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 
 Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負載平衡器][load-balancer-multivip-overview]管理多個虛擬 IP 位址。 這項功能已存在 Azure 外部負載平衡器。 

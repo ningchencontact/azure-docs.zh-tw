@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: dc3543af0a10c83d8ca212957a6345c8a70cd58b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7fc42b24090b5fc68176fea2c7b993643ea24200
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279936"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678219"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>教學課程：自訂 Azure IoT Central 操作員的檢視 (新的 UI 設計)
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>教學課程：自訂 Azure IoT Central 操作員的檢視
 
 本教學課程將為建置者說明如何自訂應用程式的操作員檢視。 當您以建置者的身分對應用程式進行變更時，您可以在 Microsoft Azure IoT Central 應用程式中預覽操作員的檢視。
 

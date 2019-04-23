@@ -14,13 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/28/2018
-ms.openlocfilehash: 570f0a825f679ec5f0cc4c62b0608ec517148161
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/20/2019
+ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893997"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682996"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什麼是 Azure Machine Learning Studio？
 Microsoft Azure Machine Learning Studio 是共同作業式的拖放工具，您可以用來依據您的資料建置、測試及部署預測分析解決方案。 Machine Learning Studio 會以 Web 服務方式發佈模型，讓自訂應用程式或 BI 工具 (例如 Excel) 都能夠很容易地使用。
@@ -108,7 +108,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 ## <a name="deploying-a-predictive-analytics-web-service"></a>部署預測性分析 Web 服務
 當您的預測性分析模型準備好時，可以從 Machine Learning Studio 將它部署為 Web 服務。 如需此程序的詳細資訊，請參閱 [部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
 
-
+<a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Machine Learning Studio 與 Azure Machine Learning 服務有何不同？
 
 [Azure Machine Learning 服務](../service/overview-what-is-azure-ml.md)提供 SDK 和服務，可快速準備資料、定型及部署機器學習服務模型。 透過自動調整運算與管線，提升產能及降低成本。 使用開放原始碼 Python 架構 (例如 PyTorch、TensorFlow 及 scikit-learn)，存取這些功能。 

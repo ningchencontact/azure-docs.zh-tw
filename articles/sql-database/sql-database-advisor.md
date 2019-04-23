@@ -13,11 +13,11 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903314"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787795"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database 的效能建議
 
@@ -88,7 +88,7 @@ SQL Database 會持續監視正在執行的查詢，並找出可改善效能的�
 
 ## <a name="custom-applications"></a>自訂應用程式
 
-開發人員可能會考慮開發自訂應用程式使用 Azure SQL database 的效能建議。 入口網站中的資料庫可以透過存取列出的所有建議[Get AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API。
+开发人员可以考虑使用针对 Azure SQL 数据库的性能建议来开发自定义应用程序。 可以通过 [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API 访问门户中列出的针对数据库的所有建议。
 
 ## <a name="next-steps"></a>後續步驟
 監視建議，並繼續套用建議以改善效能。 資料庫工作負載會動態地持續變更。 SQL Database 建議程式會繼續監視並提供可能改善資料庫效能的建議。 

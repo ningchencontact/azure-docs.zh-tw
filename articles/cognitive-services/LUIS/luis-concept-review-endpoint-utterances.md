@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
 ms.openlocfilehash: 2af11d7776a29288801e5db049262481ae27c102
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893685"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785338"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>檢閱端點語句以啟用主動式學習的概念
 主動式學習是改善預測精確度且最簡單實作的三種策略之一。 使用主動式學習，您可檢閱端點語句中正確的意圖和實體。 LUIS 會選擇不確定的端點語句。

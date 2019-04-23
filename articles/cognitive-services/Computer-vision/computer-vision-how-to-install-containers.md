@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 3/22/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b7e60b4fbdf076c50a7d9a29092de9ab1c32b210
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: aba8f9b2b4e62420ed5d318be40bbc4ada544866
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520644"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679596"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>安裝及執行辨識文字容器
 
@@ -34,7 +34,7 @@ ms.locfileid: "58520644"
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
-|辨識文字資源 |若要使用此容器，您必須具備：<br><br>[_辨識文字_](vision-api-how-to-topics/howtosubscribe.md) Azure 資源，用來取得相關聯的計費金鑰和計費端點 URI。 這兩個值可在 Azure 入口網站的 [辨識文字概觀和金鑰] 頁面上取得，需要這些值才能啟動容器。<br><br>**{BILLING_KEY}**：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}**：端點 URI 範例為：`https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|Azure`Cognitive Services`資源 |若要使用此容器，您必須具備：<br><br>A_認知服務_Azure 資源和相關聯的計費金鑰計費的端點 URI。 這兩個值都位於 概觀 和 索引鍵的頁面，資源，才能啟動容器。 您需要新增`vision/v2.0`BILLING_ENDPOINT_URI 下例所示，路由傳送至端點 URI。 <br><br>**{BILLING_KEY}**：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}**：端點 URI 範例為：`https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
 
 ## <a name="request-access-to-the-private-container-registry"></a>要求私人容器登錄的存取
@@ -50,12 +50,12 @@ ms.locfileid: "58520644"
 
 下表說明每個「辨識文字」容器的最低和建議的 CPU 核心與記憶體配置。
 
-| 容器 | 最小值 | 建議 |TPS<br>（最小值、 最大值）|
+| 容器 | 最小值 | 建議 |TPS<br>(最小值, 最大值)|
 |-----------|---------|-------------|--|
 |辨識文字|1 核心，8 GB 記憶體，0.5 TPS|2 核心，8 GB 記憶體，1 TPS|0.5, 1|
 
 * 每個核心必須至少 2.6 GHz 或更快。
-* TP-每秒交易數
+* TPS - 每秒事务数
 
 核心和記憶體會對應至 `--cpus` 和 `--memory` 設定，用來作為 `docker run` 命令的一部分。
 
@@ -91,8 +91,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 | Placeholder | 值 |
 |-------------|-------|
-|{BILLING_KEY} | 此金鑰用來啟動容器，您可以在 Azure 入口網站的 [辨識文字金鑰] 頁面上取得。  |
-|{BILLING_ENDPOINT_URI} | 計費端點 URI 值。|
+|{BILLING_KEY} | 此金鑰用來啟動容器時，且可在 Azure`Cognitive Services`金鑰 頁面。  |
+|{BILLING_ENDPOINT_URI} | 計費端點 URI 值。 以下是範例： `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+
+您需要新增`vision/v2.0`BILLING_ENDPOINT_URI 下例所示，路由傳送至端點 URI。
 
 請以您自己的值取代下列範例 `docker run` 命令中的參數。
 

@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
 ms.openlocfilehash: 1468268e407eeac6196c8e8e4db0fc5a52ca09c7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501564"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>快速入門：使用 C Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH/RDP 輸送 (預覽)
@@ -207,7 +207,7 @@ SSH 用戶端程式的主控台輸出 (SSH 用戶端藉由連線至服務本機 
 
 在本快速入門中，您已設定 IoT 中樞、註冊裝置、部署裝置和服務本機 Proxy 程式以透過 IoT 中樞建立裝置串流，並使用 Proxy 輸送 SSH 流量。
 
-使用以下連結深入了解裝置串流：
+使用下列連結深入了解裝置串流：
 
 > [!div class="nextstepaction"]
 > [裝置串流概觀](./iot-hub-device-streams-overview.md)

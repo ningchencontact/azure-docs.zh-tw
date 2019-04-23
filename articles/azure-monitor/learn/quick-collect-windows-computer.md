@@ -15,10 +15,10 @@ ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: d1403b35319df6ef9ec45c07dc56d6f2ca38fa60
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426625"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>為混合式環境中的 Windows 電腦設定 Log Analytics 代理程式
@@ -91,7 +91,7 @@ Log Analytics 可以從 Windows 事件記錄檔收集事件，以及收集您針
 
     ![Log Analytics 進階設定](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
  
-3. 選取 [資料]，然後選取 [Windows 事件記錄檔]。  
+3. 選取 [資料]，然後選取 [Windows 事件記錄]。  
 4. 您可以輸入記錄檔的名稱，來新增事件記錄檔。  輸入 **System**，然後按一下加號 **+**。  
 5. 在表格中，檢查 [錯誤] 和 [警告] 嚴重性。   
 6. 按一下頁面頂端的 [儲存] 來儲存設定。

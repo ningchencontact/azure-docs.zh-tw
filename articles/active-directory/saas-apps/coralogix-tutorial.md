@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26c25c57dec14a81e5bcfcfa044cf5d5302e1c88
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: d0095a825f5582dc795f5bebdcf08be07a92946e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578810"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>教學課程：Azure Active Directory 與 Coralogix 整合
 
@@ -120,7 +120,7 @@ Coralogix 與 Azure AD 整合提供下列優點：
 
 5. Coralogix 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上選取 [編輯] 按鈕，以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告。 您也可使用 [新增宣告] 來新增宣告，以設定 SAML 權杖屬性，如上圖所示。 然後採取下列步驟：
     
@@ -214,7 +214,7 @@ Coralogix 與 Azure AD 整合提供下列優點：
 
 ## <a name="additional-resources"></a>其他資源
 
-- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

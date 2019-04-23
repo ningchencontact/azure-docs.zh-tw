@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: aahi
 ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496551"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>建立圖像式搜尋單頁 Web 應用程式
@@ -123,4 +123,4 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [教學課程：使用適用於 C# 的 Bing 圖像式搜尋 SDK 裁剪影像](tutorial-visual-search-crop-area-results.md)
+> [教學課程：裁剪與 Bing 視覺化搜尋服務 SDK 的影像C#](tutorial-visual-search-crop-area-results.md)

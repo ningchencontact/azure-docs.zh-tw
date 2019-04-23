@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4acecb9d15f820ba092f36d8fa3ea204658d2dba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276774"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684016"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker 中的知識庫生命週期
 QnA Maker 在反覆的週期中學習模型變更、語句範例、發佈資料以及從端點查詢收集資料時，會有最佳學習成效。 
@@ -35,14 +35,23 @@ QnA Maker 知識庫 (KB) 端點會根據知識庫的內容對使用者查詢提�
 
 「測試-更新」的這個密封迴圈會持續執行，直到您得到滿意的結果為止。 了解如何[測試知識庫](../How-To/test-knowledge-base.md)。
 
-適用於大型的 Kb 以及使用自動化的測試[generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api)並`isTest=true`查詢字串參數的查詢`test`知識庫，而不是已發行的知識庫。 
+適用於大型的 Kb 以及使用自動化的測試[generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api)並`isTest`body 屬性哪些查詢`test`知識庫，而不是已發行的知識庫。 
+
+```json
+{
+  "question": "example question",
+  "top": 3,
+  "userId": "Default",
+  "isTest": true
+}
+```
 
 ## <a name="publish-the-knowledge-base"></a>發佈知識庫
 完成知識庫的測試後，您即可發佈知識庫。 在發佈時，會將經過測試的最新版知識庫推送至代表**已發佈**知識庫的專用 Azure 搜尋服務索引。 它也會建立可在您的應用程式或聊天機器人中呼叫的端點。
 
 如此，對測試版知識庫所做的任何變更，都不會對可能正在生產應用程式中執行的已發行版本造成影響。
 
-這些知識庫全都可以個別進行測試。 您可以使用 API，並在 generateAnswer 呼叫中加上 `isTest=true` 旗標，將測試版的知識庫設為目標。
+這些知識庫全都可以個別進行測試。 使用 Api，您可以測試的版本為目標知識庫`isTest`主體 generateAnswer 呼叫中的屬性。
 
 了解如何[發佈知識庫](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)。
 

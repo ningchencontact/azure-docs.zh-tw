@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6d794fb14b7f581c9e9b92dc581de97e0a236630
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793742"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786467"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>開始使用彈性資料庫工作
 
@@ -29,7 +29,7 @@ Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 下載並執行 [彈性資料庫工具範例入門](sql-database-elastic-scale-get-started.md)。
 
@@ -281,7 +281,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
 * 名稱：預設執行原則
 * 工作逾時：1 週
 * 初始重試間隔：100 毫秒
-* 最大重試間隔：30 分鐘
+* 最大重試間隔：30 分钟
 * 重試間隔係數：2
 * 嘗試次數上限：2,147,483,647
 
