@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679069"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149694"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -88,11 +88,11 @@ ms.locfileid: "59679069"
 
 ### <a name="client-requirements"></a>用戶端需求
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠存取 Microsoft Update。 您可以搭配 System Center Configuration Manager 使用「更新管理」。 若要深入了解整合案例，請參閱[整合 System Center Configuration Manager 與更新管理](oms-solution-updatemgmt-sccmintegration.md#configuration)。 需要 [Windows 代理程式](../azure-monitor/platform/agent-windows.md)。 此代理程式會在您讓 Azure 虛擬機器上線時自動安裝。
 
-#### <a name="linux"></a>Linux
+#### <a name="linux"></a> Linux
 
 針對 Linux，機器必須能夠存取更新存放庫。 更新存放庫可以是私人或公用。 必須使用 TLS 1.1 或 TLS 1.2，才能與更新管理互動。 此解決方案不支援已設定為向多個 Log Analytics 工作區回報的「適用於 Linux 的 Log Analytics 代理程式」。
 
@@ -143,14 +143,14 @@ Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠
 
 若要確認直接連線的機器會在幾分鐘的時間之後, 通訊與 Azure 監視器記錄檔，您可以執行其中一個下列的記錄搜尋。
 
-#### <a name="linux"></a>Linux
+#### <a name="linux"></a> Linux
 
 ```loganalytics
 Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 ```loganalytics
 Heartbeat
@@ -208,7 +208,7 @@ Heartbeat
 
 ## <a name="install-updates"></a>安裝更新
 
-工作區中的所有 Linux 和 Windows 電腦皆進行過更新評估之後，您可以建立「更新部署」來安裝必要的更新。 若要建立更新部署，您必須具有 「 自動化 」 帳戶的寫入權限且屬於任何 Azure Vm 的 「 寫入 」 權限設為目標的部署中。 更新部署是為一或多部電腦排定的必要更新安裝作業。 您應該指定部署的日期和時間，以及應該包含在部署範圍中的電腦或電腦群組。 若要深入了解電腦群組，請參閱[Azure 監視器記錄檔中的電腦群組](../azure-monitor/platform/computer-groups.md)。
+工作區中的所有 Linux 和 Windows 電腦皆進行過更新評估之後，您可以建立「更新部署」來安裝必要的更新。 若要建立更新部署，您必須擁有 「 自動化 」 帳戶的寫入權限和任何 Azure Vm 為目標的部署中的 「 寫入 」 權限。 更新部署是為一或多部電腦排定的必要更新安裝作業。 您應該指定部署的日期和時間，以及應該包含在部署範圍中的電腦或電腦群組。 若要深入了解電腦群組，請參閱[Azure 監視器記錄檔中的電腦群組](../azure-monitor/platform/computer-groups.md)。
 
 當您將電腦群組納入更新部署時，只會在建立排程時評估一次群組成員資格。 系統不會反映群組的後續變更。 若要解決這種使用問題[動態群組](#using-dynamic-groups)，這些群組在部署階段解決，而且針對 Azure Vm 或非 Azure Vm 的已儲存的搜尋查詢所定義。
 
@@ -223,7 +223,7 @@ Heartbeat
 
 | 屬性 | 描述 |
 | --- | --- |
-| 名稱 |用以識別更新部署的唯一名稱。 |
+| Name |用以識別更新部署的唯一名稱。 |
 |作業系統| Linux 或 Windows|
 | 若要更新的群組 |適用於 Azure 的機器，定義查詢的訂用帳戶、 資源群組、 位置和標記，來建立要包含在您的部署中的 Azure Vm 的動態群組結合。 </br></br>對於非 Azure 機器，選取現有的已儲存的搜尋，以選取要包含在部署中的非 Azure 機器群組。 </br></br>若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)|
 | 要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md) |
@@ -267,7 +267,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 下表列出「更新管理」中的更新分類清單，以及每個分類的定義。
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 |分類  |描述  |
 |---------|---------|
@@ -280,7 +280,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 |工具     | 有助於完成一或多個工作的公用程式或功能。        |
 |更新     | 目前安裝之應用程式或檔案的更新。        |
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
 
 |分類  |描述  |
 |---------|---------|
@@ -333,8 +333,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Windows上的協力廠商修補程式
 
-「更新管理」依賴 WSUS 或 Windows Update 來修補支援的 Windows 系統。 像 [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-) (Updates Publisher) 這樣的工具，允許您將自訂更新發佈至 WSUS。 此案例允許「更新管理」針對使用 WSUS 作為其更新存放庫的電腦，透過協力廠商軟體進行修補。 若要了解如何設定 Updates Publisher，請參閱[安裝Updates Publisher](/sccm/sum/tools/install-updates-publisher)。
+更新管理需要設定在本機更新存放庫更新支援的 Windows 系統上。 這是 WSUS 或 Windows Update。 像 [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) 這樣的工具，允許您將自訂更新發佈至 WSUS。 此案例可讓更新管理 System Center Configuration Manager 做為其更新存放庫，與協力廠商軟體的修補程式機器。 若要了解如何設定 Updates Publisher，請參閱[安裝Updates Publisher](/sccm/sum/tools/install-updates-publisher)。
 
 ## <a name="ports"></a>
 

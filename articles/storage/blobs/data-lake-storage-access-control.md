@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e8d7d77128acd4bdb81a99ac6756a5e28b4a408f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802945"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001587"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的存取控制
 
@@ -126,11 +126,11 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 
 ### <a name="the-owning-group"></a>擁有群組
 
-在 POSIX ACL 中，每個使用者都與*主要群組*相關聯。 例如，使用者 "alice" 可能屬於 "finance" 群組。 Alice 也可能屬於多個群組，但一定有一個群組指定為其主要群組。 在 POSIX 中，當 Alice 會建立檔案時，該檔案的擁有群組會設定為她的主要群組，在此案例中為 "finance"。 除此之外，擁有群組的作用類似於指派給其他使用者/群組的權限。
+在 POSIX ACL 中，每個使用者都與*主要群組*相關聯。 例如，使用者"Alice"可能屬於"finance"群組。 Alice 也可能屬於多個群組，但一定有一個群組指定為其主要群組。 在 POSIX 中，當 Alice 會建立檔案時，該檔案的擁有群組會設定為她的主要群組，在此案例中為 "finance"。 除此之外，擁有群組的作用類似於指派給其他使用者/群組的權限。
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>指派新檔案或目錄的擁有群組
 
-* **案例 1**：根目錄 "/"。 在建立 Data Lake Storage Gen2 檔案系統時，即會建立此目錄。 在此案例中，擁有群組會設定為建立檔案系統的使用者 (如果該系統是使用 OAuth 建立的)。 如果檔案系統是使用共用金鑰、帳戶 SAS 或服務 SAS 建立的，則擁有者和擁有群組會設定為 **$superuser**。
+* **案例 1**：根目錄 "/"。 在建立 Data Lake Storage Gen2 檔案系統時，即會建立此目錄。 在此案例中，擁有群組會設定為建立檔案系統的使用者 (如果該系統是使用 OAuth 建立的)。 如果檔案系統會建立使用共用金鑰、 帳戶 SAS 或服務 SAS，則擁有者和擁有群組會設定為 **$superuser**。
 * **案例 2** (其餘所有案例)：在建立新項目時，會從父目錄複製擁有群組。
 
 #### <a name="changing-the-owning-group"></a>變更擁有群組
@@ -285,7 +285,7 @@ def set_default_acls_for_new_child(parent, child):
 
 为服务主体定义 ACL 时，必须使用所创建应用注册的服务主体的对象 ID (OID)。 请务必注意，注册的应用在特定的 Azure AD 租户中具有独立的服务主体。 注册的应用会在 Azure 门户中显示一个 OID，但服务主体具有另一个（不同的）OID。
 
-若要取得對應至應用程式註冊的服務主體的 OID，您可以使用`az ad sp show`命令。 指定应用程序 ID 作为参数。 以下示例获取服务主体的 OID，该 OID 对应于应用 ID 为 18218b12-1895-43e9-ad80-6e8fc1ea88ce 的应用注册。 在 Azure CLI 中執行下列命令：
+若要取得對應至應用程式註冊的服務主體的 OID，您可以使用`az ad sp show`命令。 指定应用程序 ID 作为参数。 以下是範例取得對應至應用程式識別碼的應用程式註冊為服務主體的 OID = 18218b12-1895年-43e9-ad80-6e8fc1ea88ce。 在 Azure CLI 中執行下列命令：
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

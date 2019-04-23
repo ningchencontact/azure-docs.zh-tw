@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9cd2e5e211fcda7c59469d3b09e9c9e5bdefdbd6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546578"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148895"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>從 Azure DevTest Labs 中的另一個實驗匯入虛擬機器
-本文章提供有關如何從另一個實驗室的虛擬機器匯入到您的實驗室資訊。 
+本文章提供有關如何從另一個實驗室的虛擬機器匯入到您的實驗室資訊。
 
 ## <a name="scenarios"></a>案例
-以下是一些情況下，您需要從一個實驗室的 Vm 匯入到另一個實驗室： 
+以下是一些情況下，您需要從一個實驗室的 Vm 匯入到另一個實驗室：
 
 - 個別小組會移至企業內的另一個群組，並想要對新的小組 DevTest Labs 中採取開發人員的桌面。
 - 群組達到[訂用帳戶層級配額](../azure-subscription-service-limits.md)並想要分割成幾個訂用帳戶小組
@@ -34,8 +34,8 @@ ms.locfileid: "59546578"
 
 此程序會需要一些時間，並會受到下列因素：
 
-- （因為它是複製作業，而不是移動作業），會附加到來源機器的磁碟數目/大小 
-- 目的地 （例如，美國東部區域東南亞） 的距離。  
+- （因為它是複製作業，而不是移動作業），會附加到來源機器的磁碟數目/大小
+- 目的地 （例如，美國東部區域東南亞） 的距離。
 
 此程序完成之後，來源虛擬機器會維持關機及一個目的地實驗室中用來執行新。
 
@@ -47,12 +47,12 @@ ms.locfileid: "59546578"
 - 目前，只能透過 Powershell 和 REST API 支援此功能。
 
 ## <a name="use-powershell"></a>使用 PowerShell
-下載檔案 ImportVirtualMachines.ps1 [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines)。 您可以使用指令碼至單一 VM 或所有來源實驗室 Vm 匯入目的地實驗室。 
+下載檔案 ImportVirtualMachines.ps1 [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines)。 您可以使用指令碼至單一 VM 或所有來源實驗室 Vm 匯入目的地實驗室。
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>使用 PowerShell 匯入單一 VM
 執行這個 powershell 指令碼需要識別 VM 的來源和目的地實驗室中，並選擇性地提供要用於目的地電腦的新名稱：
 
-```powershell 
+```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
                             -SourceVirtualMachineName "<Name of the VM to be imported from the source lab> " `
@@ -63,7 +63,7 @@ ms.locfileid: "59546578"
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>使用 PowerShell 匯入所有來源實驗室 Vm
 如果未指定來源虛擬機器，則指令碼會自動匯入在 DevTest Labs 中的所有 Vm。  例如︰
- 
+
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
@@ -83,7 +83,7 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列文章： 
+請參閱下列文章：
 
 - [設定實驗室的原則](devtest-lab-get-started-with-lab-policies.md)
 - [常見問題集](devtest-lab-faq.md)

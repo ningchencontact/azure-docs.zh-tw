@@ -1,7 +1,6 @@
 ---
 title: 了解 Azure SQL Database 的保留折扣 |Microsoft Docs
 description: 了解如何將保留折扣套用至執行 Azure SQL Database。
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,22 +10,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 4b4c6b390e9b3a0cf764f998523fe3c1cdc66026
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649436"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997422"
 ---
-# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>了解如何將保留折扣套用至 Azure SQL Database
+# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>如何將保留折扣套用至 Azure SQL Database
 
 購買 Azure SQL Database 保留容量之後，保留折扣就會自動套用至符合保留屬性和數量的 SQL Database。 保留會涵蓋 SQL Database 的計算成本。 您必須依標準費率支付軟體、儲存體和網路的費用。 您可以利用 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) 來涵蓋 SQL Database 的授權成本。
 
 若要了解保留的虛擬機器執行個體，請參閱[了解 Azure 保留的 VM 執行個體折扣](billing-understand-vm-reservation-charges.md)。
 
-## <a name="reservation-discount-applied-to-sql-databases"></a>套用至 SQL Database 的保留折扣
+## <a name="how-reservation-discount-is-applied"></a>保留折扣如何套用
+
+保留折扣會 「*使用-it-或-遺失-it*"。 因此，如果您沒有任何相符的資源，然後您會遺失保留數量的那一小時。 您無法執行轉送未使用保留的時數。
+
+當您關閉資源時，保留折扣會自動套用至指定之範圍中的另一個相符的資源。 如果沒有相符的資源位於指定的範圍，則保留的時間為週間*遺失*。
+
+## <a name="discount-applied-to-sql-databases"></a>套用至 SQL Database 的折扣
 
  SQL Database 保留容量折扣會套用至執行中的 SQL Database (以小時計算)。 您所購買的保留會與對應到執行中 SQL Database 所發出的計算使用量進行比對。 對於未執行滿一個小時的 SQL Database，此保留會自動套用至其他與保留屬性相符的 SQL Database。 此折扣可以同時套用至各個執行中的 SQL Database。 如果沒有既符合保留屬性又執行滿一個小時的 SQL Database，您就無法獲得該小時的完整保留折扣權益。
 
@@ -40,7 +45,11 @@ ms.locfileid: "58649436"
 - 案例 3：您執行了一個 16 核心的 SQL Database，時間從下午 1 點到下午 1:30。 您執行了另一個 16 核心的 SQL Database，時間從下午 1:30 到下午 2 點。 兩者都在保留折扣的涵蓋範圍內。
 - 案例 4：您執行了一個 16 核心的 SQL Database，時間從下午 1 點到下午 1:45。 您執行了另一個 16 核心的 SQL Database，時間從下午 1:30 到下午 2 點。 您需要就 15 分鐘的重疊時間支付預付型方案價格的費用。 保留折扣會套用至其餘時間的計算使用量。
 
-若要在計費使用量報告中了解及檢視 Azure Reservations 的應用，請參閱[了解 Azure 保留使用量](https://go.microsoft.com/fwlink/?linkid=862757)。
+若要在計費使用量報告中了解及檢視 Azure Reservations 的應用，請參閱[了解 Azure 保留使用量](billing-understand-reserved-instance-usage-ea.md)。
+
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
+
+如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -52,8 +61,4 @@ ms.locfileid: "58649436"
 - [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
 - [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
-- [了解 CSP 訂用帳戶的保留使用量](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
-
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+- [了解 CSP 訂用帳戶的保留使用量](/partner-center/azure-reservations)

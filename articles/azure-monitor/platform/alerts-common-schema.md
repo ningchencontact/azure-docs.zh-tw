@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 8f8dcff0b72ea92e835c0702113a9cb6a7678e86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851694"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149371"
 ---
 # <a name="common-alert-schema"></a>一般警示結構描述
 
@@ -39,14 +39,14 @@ ms.locfileid: "58851694"
 |:---|:---|
 | sms | 所有警示類型一致 SMS 範本。 |
 | 電子郵件 | 一致且詳細的電子郵件範本，可讓您輕鬆地診斷問題。 內嵌在入口網站和受影響的資源上的警示執行個體的深層連結，請確定您可以快速跳至補救程序。 |
-| Webhook/邏輯應用程式/Azure 函式 | 一致 JSON 結構，對於所有的警示類型，可讓您輕鬆地建置在不同的警示類型之間的整合。 |
+| Webhook/邏輯應用程式/Azure 函式/自動化 Runbook | 一致 JSON 結構，對於所有的警示類型，可讓您輕鬆地建置在不同的警示類型之間的整合。 |
 
 新的結構描述也可讓更豐富的警示的使用體驗在 Azure 入口網站和 Azure 行動應用程式中未來。 
 
-[深入了解 Webhook/邏輯應用程式/Azure 函式的結構描述定義。](https://aka.ms/commonAlertSchemaDefinitions)
+[深入了解 Webhook/邏輯應用程式/Azure 函式/自動化 Runbook 的結構描述定義。](https://aka.ms/commonAlertSchemaDefinitions)
 
 > [!NOTE]
-> 下列動作不支援常見的警示結構描述：ITSM 連接器，自動化 Runbook。
+> 下列動作不支援常見的警示結構描述：ITSM 連接器。
 
 ## <a name="how-do-i-enable-the-common-alert-schema"></a>如何啟用常見的警示結構描述？
 
@@ -54,11 +54,10 @@ ms.locfileid: "58851694"
 
 > [!NOTE]
 > 1. 下列警示類型預設支援通用的結構描述 (沒有選擇在所需):
->     * 失敗異常警示
+>     * 智慧型偵測警示
 > 1. 下列警示類型目前不支援通用的結構描述：
->     * 服務健康情況警示
->     * 活動記錄-安全性警示
 >     * 所產生的警示[適用於 Vm 的 Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+>     * 所產生的警示[Azure 成本管理](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
 
 ### <a name="through-the-azure-portal"></a>透過 Azure 入口網站
 
@@ -69,7 +68,7 @@ ms.locfileid: "58851694"
 
 ### <a name="through-the-action-groups-rest-api"></a>透過動作群組 REST API
 
-您也可以使用[動作群組 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)選擇常見的警示結構描述。 同時透過[建立或更新](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate)REST API 呼叫時，您可以設定旗標 」 useCommonAlertSchema 」 為 'true' （若要選擇加入） 或 （若要退出） 的 ' false'，任何下列動作-也就是電子郵件/webhook/邏輯應用程式/Azure 函式。
+您也可以使用[動作群組 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)選擇常見的警示結構描述。 同時透過[建立或更新](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate)REST API 呼叫時，您可以設定旗標 」 useCommonAlertSchema 」 為 'true' （若要選擇加入） 或 （若要退出） 的 ' false'，任何下列動作-也就是電子郵件/webhook/邏輯應用程式/Azure 函式/自動化 runbook。
 
 例如，下列要求主體對[建立或更新](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate)REST API 將會執行下列動作：
 
@@ -125,7 +124,7 @@ ms.locfileid: "58851694"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Webhook/邏輯應用程式/Azure 函式的一般警示的結構描述定義。](https://aka.ms/commonAlertSchemaDefinitions)
+- [一般 Webhook/邏輯應用程式/Azure 函式/自動化 Runbook 的警示的結構描述定義。](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 

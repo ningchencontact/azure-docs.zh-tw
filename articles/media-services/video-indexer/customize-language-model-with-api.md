@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: c2c722331c95e72bae5605606564a2083e2802e3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075027"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002029"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>使用影片索引器 API 自訂語言模型
 
@@ -47,17 +47,17 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 --data-ascii "{body}" 
 ```
 
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-PersonModel?) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-|modelName|字串|是|語言模型的名稱|
-|語言|字串|是|語言模型的語言。 <br/>必須使用「語言標記-區域」的 BCP-47 格式 (例如 'en-US')，為語言提供 **language** 參數。 支援的語言有英文 (en-US)、德文 (de-DE)、西班牙文 (es-SP)、阿拉伯文 (ar-EG)、法文 (fr-FR)、印度文 (hi-HI)、義大利文 (it-IT)、日文 (ja-JP)、葡萄牙文 (pt-BR)、俄文 (ru-RU) 和中文 (zh-CN)。  |
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|modelName|string|是|語言模型的名稱|
+|語言|string|是|語言模型的語言。 <br/>必須使用「語言標記-區域」的 BCP-47 格式 (例如 'en-US')，為語言提供 **language** 參數。 支援的語言有英文 (en-US)、德文 (de-DE)、西班牙文 (es-SP)、阿拉伯文 (ar-EG)、法文 (fr-FR)、印度文 (hi-HI)、義大利文 (it-IT)、日文 (ja-JP)、葡萄牙文 (pt-BR)、俄文 (ru-RU) 和中文 (zh-CN)。  |
 
 ### <a name="request-body"></a>Request body
 
@@ -118,16 +118,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Train?accessToken={accessToken}"
 ```
  
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5bac3cf761779a6c2ab27?) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountID|字串|是|帳戶的全域唯一識別碼|
-|modelId|字串|是|語言模型識別碼 (建立語言模型時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountID|string|是|帳戶的全域唯一識別碼|
+|modelId|string|是|語言模型識別碼 (建立語言模型時產生)|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -183,16 +183,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5ba53782606e91f65be9d?) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數 
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountID|字串|是|帳戶的全域唯一識別碼|
-|modelId|字串|是|語言模型識別碼 (建立語言模型時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountID|string|是|帳戶的全域唯一識別碼|
+|modelId|string|是|語言模型識別碼 (建立語言模型時產生)|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -225,18 +225,18 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 --data-ascii "{body}" 
 ```
  
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b3ce85f4684240bdb78f?) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數 
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountID|字串|是|帳戶的全域唯一識別碼|
-|modelId|字串|是|語言模型識別碼 (建立語言模型時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-|modelName|字串|否|您可以提供給模型的新名稱|
-|enable|布林值|否|選擇要啟用 (true) 還是停用 (false) 此模型下的所有檔案|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountID|string|是|帳戶的全域唯一識別碼|
+|modelId|string|是|語言模型識別碼 (建立語言模型時產生)|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|modelName|string|否|您可以提供給模型的新名稱|
+|enable|boolean|否|選擇要啟用 (true) 還是停用 (false) 此模型下的所有檔案|
 
 ### <a name="request-body"></a>Request body
 
@@ -294,19 +294,19 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}?fileName={string}&enable={string}"
 ```
  
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b60547f33c1c2b2d1375?) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數 
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|modelId|字串|是|保留檔案之語言模型的識別碼 (建立語言模型時產生)|
-|fileId|字串|是|要更新之檔案的識別碼 (在建立或更新語言模型期間上傳檔案時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-|fileName|字串|否|更新檔案名稱所使用的名稱|
-|enable|布林值|否|更新要在語言模型中啟用 (true) 還是停用 (false) 此檔案|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
+|modelId|string|是|保留檔案之語言模型的識別碼 (建立語言模型時產生)|
+|fileId|string|是|要更新之檔案的識別碼 (在建立或更新語言模型期間上傳檔案時產生)|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|fileName|string|否|更新檔案名稱所使用的名稱|
+|enable|boolean|否|更新要在語言模型中啟用 (true) 還是停用 (false) 此檔案|
 
 ### <a name="request-body"></a>Request body
 
@@ -344,16 +344,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[查看所需的參數，並使用影片索引器開發人員入口網站測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4fcbd9b437d27d53f16)。
+[查看所需的參數，並使用影片索引器開發人員入口網站測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get)。
 
 ### <a name="request-parameters-and-request-body"></a>要求參數和要求本文
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountID|字串|是|帳戶的全域唯一識別碼|
-|modelId|字串|是|語言模型識別碼 (建立語言模型時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountID|string|是|帳戶的全域唯一識別碼|
+|modelId|string|是|語言模型識別碼 (建立語言模型時產生)|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -409,15 +409,15 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language?accessToken={accessToken}"
 ```
  
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4979e6ecbd30faa6f75?) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountID|字串|是|帳戶的全域唯一識別碼|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountID|string|是|帳戶的全域唯一識別碼|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -480,17 +480,17 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b57b5de51e64ee52242e) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數 
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountID|字串|是|帳戶的全域唯一識別碼|
-|modelId|字串|是|保留檔案之語言模型的識別碼 (建立語言模型時產生)|
-|fileId|字串|是|要更新之檔案的識別碼 (在建立或更新語言模型期間上傳檔案時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountID|string|是|帳戶的全域唯一識別碼|
+|modelId|string|是|保留檔案之語言模型的識別碼 (建立語言模型時產生)|
+|fileId|string|是|要更新之檔案的識別碼 (在建立或更新語言模型期間上傳檔案時產生)|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -517,17 +517,17 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Person
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b73f9e6416d7a9965b42) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數 
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountID|字串|是|帳戶的全域唯一識別碼|
-|modelId|字串|是|保留檔案之語言模型的識別碼 (建立語言模型時產生)|
-|fileId|字串|是|要更新之檔案的識別碼 (在建立或更新語言模型期間上傳檔案時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountID|string|是|帳戶的全域唯一識別碼|
+|modelId|string|是|保留檔案之語言模型的識別碼 (建立語言模型時產生)|
+|fileId|string|是|要更新之檔案的識別碼 (在建立或更新語言模型期間上傳檔案時產生)|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -566,17 +566,17 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}/download?accessToken={accessToken}"
 ```
  
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b99e522cb47bd9679122) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數 
 
 |**名稱**|**類型**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountID|字串|是|帳戶的全域唯一識別碼|
-|modelId|字串|是|保留檔案之語言模型的識別碼 (建立語言模型時產生)|
-|fileId|字串|是|要更新之檔案的識別碼 (在建立或更新語言模型期間上傳檔案時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountID|string|是|帳戶的全域唯一識別碼|
+|modelId|string|是|保留檔案之語言模型的識別碼 (建立語言模型時產生)|
+|fileId|string|是|要更新之檔案的識別碼 (在建立或更新語言模型期間上傳檔案時產生)|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body 
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 6be897cc1ae11b8d3032e3ffc669eac05dafe5b2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522310"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995994"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
@@ -67,30 +67,31 @@ ms.locfileid: "58522310"
 
 若要正確運作並保持可存取，您的整合服務環境 (ISE) 需要在您的虛擬網路上提供特定連接埠。 如果無法取得任何這些連接埠，您可能就無法存取您的 ISE，它可能會停止運作。 當您在虛擬網路中使用 ISE 時，常見的設定問題是有一或多個封鎖的連接埠。 對於您 ISE 與目的地系統之間的連線，您使用的連接器可能也有它自己的連接埠需求。 例如，如果您使用 FTP 連接器與 FTP 系統進行通訊，請確定可取得您在該 FTP 系統使用的連接埠 (如傳送命令的連接埠 21)。
 
-若要跨虛擬網路的子網路，您在其中部署您的 ISE 控制的流量，您可以設定[網路安全性群組](../virtual-network/security-overview.md)藉由這些子網路[篩選子網路間的網路流量](../virtual-network/tutorial-filter-network-traffic.md)。 這些表格描述您的 ISE 在您的虛擬網路中使用的連接埠及其用途。 [服務標籤](../virtual-network/security-overview.md#service-tags)表示一組 IP 位址前置詞，有助於降低建立安全性規則的複雜性。
+若要跨虛擬網路的子網路，您在其中部署您的 ISE 控制的流量，您可以設定[網路安全性群組](../virtual-network/security-overview.md)藉由這些子網路[篩選子網路間的網路流量](../virtual-network/tutorial-filter-network-traffic.md)。 這些表格描述您的 ISE 在您的虛擬網路中使用的連接埠及其用途。 [Resource Manager 服務標籤](../virtual-network/security-overview.md#service-tags)代表一組協助建立安全性規則時，將複雜性降至最低的 IP 位址首碼。
 
 > [!IMPORTANT]
 > 在您的子網路內的內部通訊，ISE 會需要您開啟這些子網路內的所有連接埠。
 
-| 目的 | 方向 | 連接埠 | 來源服務標籤 | 目的地服務標記 | 注意 |
+| 目的 | Direction | 連接埠 | 來源服務標籤 | 目的地服務標記 | 注意 |
 |---------|-----------|-------|--------------------|-------------------------|-------|
-| 來自 Azure Logic Apps 的通訊 | 輸出 | 80 和 443 | VIRTUAL_NETWORK | 網際網路 | 取決於外部的服務與 Logic Apps 服務通訊的連接埠 |
-| Azure Active Directory | 輸出 | 80 和 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
-| Azure 儲存體相依性 | 輸出 | 80 和 443 | VIRTUAL_NETWORK | 儲存體 | |
-| Intersubnet 通訊 | 輸入和輸出 | 80 和 443 | VIRTUAL_NETWORK | VIRTUAL_NETWORK | 子網路之間的通訊 |
-| 對 Azure Logic Apps 的通訊 | 輸入 | 443 | 網際網路  | VIRTUAL_NETWORK | 針對電腦或呼叫任何要求觸發程序或 webhook 存在於您的邏輯應用程式服務的 IP 位址。 關閉或封鎖此連接埠可避免使用要求觸發程序 logic apps 的 HTTP 呼叫。  |
-| 執行歷程記錄的邏輯應用程式 | 輸入 | 443 | 網際網路  | VIRTUAL_NETWORK | 您可以從此處檢視邏輯應用程式之電腦的 IP 位址的執行歷程記錄。 雖然關閉或封鎖此連接埠不會防止您檢視執行歷程記錄，您無法檢視輸入和輸出中的每個步驟的執行歷程記錄。 |
-| 連線管理 | 輸出 | 443 | VIRTUAL_NETWORK  | 網際網路 | |
-| 發佈診斷記錄和計量 | 輸出 | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
-| Logic Apps 設計工具 - 動態屬性 | 輸入 | 454 | 網際網路  | VIRTUAL_NETWORK | 要求來自 Logic Apps[存取端點 IP 位址，該區域中的輸入](../logic-apps/logic-apps-limits-and-config.md#inbound)。 |
-| App Service 管理相依性 | 輸入 | 454 和 455 | AppServiceManagement | VIRTUAL_NETWORK | |
-| 連接器部署 | 輸入 | 454 & 3443 | 網際網路  | VIRTUAL_NETWORK | 需要部署及更新連接器。 關閉或封鎖此連接埠會導致失敗的 ISE 部署，並避免連接器更新或修正。 |
-| Azure SQL 相依性 | 輸出 | 1433 | VIRTUAL_NETWORK | SQL |
-| Azure 資源健康狀態 | 輸出 | 1886 | VIRTUAL_NETWORK | 網際網路 | 用於發佈至資源健康狀態的 健全狀況狀態 |
-| API 管理 - 管理端點 | 輸入 | 3443 | APIManagement  | VIRTUAL_NETWORK | |
-| 「記錄到事件中樞」原則和監視代理程式的相依性 | 輸出 | 5672 | VIRTUAL_NETWORK  | EventHub | |
-| 針對角色執行個體之間的 Redis 執行個體存取 Azure 快取 | 輸入 <br>輸出 | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | 此外，ISE 中使用 Azure 快取，redis，您必須開啟這些[Redis 常見問題集的 Azure 快取中所述的輸出和輸入連接埠](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements)。 |
-| Azure Load Balancer | 輸入 | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
+| 來自 Azure Logic Apps 的通訊 | 輸出 | 80 和 443 | VirtualNetwork | Internet | 取決於外部的服務與 Logic Apps 服務通訊的連接埠 |
+| Azure Active Directory | 輸出 | 80 和 443 | VirtualNetwork | AzureActiveDirectory | |
+| Azure 儲存體相依性 | 輸出 | 80 和 443 | VirtualNetwork | 儲存體 | |
+| Intersubnet 通訊 | 輸入和輸出 | 80 和 443 | VirtualNetwork | VirtualNetwork | 子網路之間的通訊 |
+| 對 Azure Logic Apps 的通訊 | 輸入 | 443 | Internet  | VirtualNetwork | 針對電腦或呼叫任何要求觸發程序或 webhook 存在於您的邏輯應用程式服務的 IP 位址。 關閉或封鎖此連接埠可避免使用要求觸發程序 logic apps 的 HTTP 呼叫。  |
+| 執行歷程記錄的邏輯應用程式 | 輸入 | 443 | Internet  | VirtualNetwork | 您可以從此處檢視邏輯應用程式之電腦的 IP 位址的執行歷程記錄。 雖然關閉或封鎖此連接埠不會防止您檢視執行歷程記錄，您無法檢視輸入和輸出中的每個步驟的執行歷程記錄。 |
+| 連線管理 | 輸出 | 443 | VirtualNetwork  | Internet | |
+| 發佈診斷記錄和計量 | 輸出 | 443 | VirtualNetwork  | AzureMonitor | |
+| 從 Azure 流量管理員的通訊 | 輸入 | 443 | AzureTrafficManager | VirtualNetwork | |
+| Logic Apps 設計工具 - 動態屬性 | 輸入 | 454 | Internet  | VirtualNetwork | 要求來自 Logic Apps[存取端點 IP 位址，該區域中的輸入](../logic-apps/logic-apps-limits-and-config.md#inbound)。 |
+| App Service 管理相依性 | 輸入 | 454 和 455 | AppServiceManagement | VirtualNetwork | |
+| 連接器部署 | 輸入 | 454 & 3443 | Internet  | VirtualNetwork | 需要部署及更新連接器。 關閉或封鎖此連接埠會導致失敗的 ISE 部署，並避免連接器更新或修正。 |
+| Azure SQL 相依性 | 輸出 | 1433 | VirtualNetwork | SQL |
+| Azure 資源健康狀態 | 輸出 | 1886 | VirtualNetwork | Internet | 用於發佈至資源健康狀態的 健全狀況狀態 |
+| API 管理 - 管理端點 | 輸入 | 3443 | APIManagement  | VirtualNetwork | |
+| 「記錄到事件中樞」原則和監視代理程式的相依性 | 輸出 | 5672 | VirtualNetwork  | EventHub | |
+| 針對角色執行個體之間的 Redis 執行個體存取 Azure 快取 | 輸入 <br>輸出 | 6379-6383 | VirtualNetwork  | VirtualNetwork | 此外，ISE 中使用 Azure 快取，redis，您必須開啟這些[Redis 常見問題集的 Azure 快取中所述的輸出和輸入連接埠](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements)。 |
+| Azure Load Balancer | 輸入 | * | AzureLoadBalancer | VirtualNetwork |  |
 ||||||
 
 <a name="create-environment"></a>

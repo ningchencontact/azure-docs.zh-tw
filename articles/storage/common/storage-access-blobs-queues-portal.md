@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b56cbfbc9dfde8b1a7d43d55ee85c34fde385902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 5eba650ac2a052f264d82260e9fc07bf195235da
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846373"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148929"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>使用 Azure 入口網站來存取 blob 或佇列資料
 
@@ -41,13 +41,13 @@ ms.locfileid: "58846373"
 若要使用您的 Azure AD 帳戶在 Azure 入口網站中存取 blob 或佇列的資料，這兩個下列陳述式必須是適用於您程式碼：
 
 - 您已獲指派新的 Azure Resource Manager[讀取器](../../role-based-access-control/built-in-roles.md#reader)角色，且至少已設定領域的儲存體帳戶層級或更高版本。 **讀取器**角色會授與的限制最嚴格的權限，但另一個 Azure Resource Manager 角色，授與儲存體帳戶管理資源的存取權也可以接受。
-- 請提供對 blob 或佇列資料存取的內建或自訂角色，您已獲指派。
+- 請提供 blob 或佇列的資料存取的內建或自訂角色，您已獲指派。
 
 **讀取器**角色指派或另一個 Azure Resource Manager 角色指派是必要的使用者可以檢視並瀏覽 Azure 入口網站中的儲存體帳戶管理資源。 授與 blob 或佇列資料的存取權的 RBAC 角色不會授與儲存體帳戶管理資源的存取權。 若要存取入口網站中的 blob 或佇列資料，使用者必須瀏覽儲存體帳戶資源的權限。 如需有關這項需求的詳細資訊，請參閱 <<c0> [ 指派 「 讀者 」 角色存取入口網站](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access)。
 
 支援的 blob 或佇列資料存取的內建角色包括：
 
-- [儲存體 Blob 資料擁有者](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner):至於 POSIX 存取控制的 Azure Data Lake 儲存體 Gen2 （預覽）。
+- [儲存體 Blob 資料擁有者](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner):針對 Azure Data Lake 儲存體 Gen2 的 POSIX 存取控制。
 - [儲存體 Blob 資料參與者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor):Blob 的讀取/寫入/刪除權限。
 - [儲存體 Blob 資料讀者](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader):Blob 的唯讀權限。
 - [儲存體佇列資料參與者](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor):佇列的讀取/寫入/刪除權限。

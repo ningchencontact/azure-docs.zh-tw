@@ -2,17 +2,17 @@
 title: 如何檢視 Azure 資料目錄中的相關資料資產
 description: 本文說明如何檢視「Azure 資料目錄」中所選資料資產的相關資料資產。
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: e68dc22943b7a53693320528f91670d9229b806f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b01c328812113ad721b7632978ad28e54a6a3ef1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958327"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996470"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>如何檢視 Azure 資料目錄中的相關資料資產？
 「Azure 資料目錄」可讓您檢視與所選資料資產相關的資料資產，並檢視它們之間的關係。 

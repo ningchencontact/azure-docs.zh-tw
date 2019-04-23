@@ -1,64 +1,99 @@
 ---
 title: Azure Cosmos DB 中的編製索引
 description: 了解 Azure Cosmos DB 中編製索引的運作方式。
-author: rimman
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: ecf53251020ce1b639a5bf8da65f5d31ff699db9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265690"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996725"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>在 Azure Cosmos DB 中編製索引 - 概觀
+# <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB-概觀中編製索引
 
-Azure Cosmos DB 是一個無從驗證結構描述的資料庫，可讓您快速逐一查看應用程式，而不需處理結構描述或索引管理。 根據預設，Azure Cosmos DB 會為容器中的所有項目自動編製索引，而不需要開發人員設定結構描述或編製次要索引。
+Azure Cosmos DB 是無從驗證結構描述資料庫，可讓您逐一查看在您的應用程式，而不需要處理結構描述或索引管理。 根據預設，Azure Cosmos DB 自動編製索引的所有項目中的每個屬性您[容器](databases-containers-items.md#azure-cosmos-containers)而不需要定義任何結構描述，或設定次要索引。
 
-## <a name="items-as-trees"></a>顯示為樹狀結構的項目
+本文的目的在於說明 Azure Cosmos DB 資料的索引，以及如何使用索引來改善查詢效能。 建議您瀏覽這一節中，之後再探索如何自訂[編製索引原則](index-policy.md)。
 
-投影為 JSON 文件容器中的項目，並以樹狀結構代表它們，Azure Cosmos DB 會標準化的結構，以及執行個體值項目到統一的概念**動態編碼路徑結構**. 在此表示法，在 JSON 文件，其中包含屬性名稱和其值，每個標籤會變成樹狀結構的節點。 樹狀結構的分葉包含實際的值和中繼節點包含的結構描述資訊。 下圖代表兩個建立的樹狀結構中的項目 （1 和 2） 的 Azure Cosmos 容器：
+## <a name="from-items-to-trees"></a>從樹狀結構的項目
 
-![針對 Azure Cosmos 容器中兩個不同項目的樹狀結構表示法](./media/index-overview/indexing-as-tree.png)
+每次項目儲存在容器中，其內容將投射為 JSON 文件中，則轉換成樹狀結構表示法。 這意思是該項目的每個屬性，取得表示為節點樹狀結構中。 虛擬根節點會建立為父項目的所有第一層級屬性。 分葉節點包含實際的純量值，來擴充項目。
 
-虛擬根節點會建立為對應至標籤下方的 JSON 文件中的實際節點的父系。 巢狀資料結構會衍生樹狀目錄中的階層。 以數值 (例如，0、1、...) 標示的中繼人造節點可用來表示列舉和陣列索引。
+例如，請考慮此項目：
 
-## <a name="index-paths"></a>索引路徑
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
 
-Azure Cosmos DB 專案中的項目 Azure Cosmos 容器做為 JSON 文件和索引為樹狀結構。 然後，您可以微調的索引原則，此樹狀結構中的路徑。 您可以選擇要在編製索引中包含或排除路徑。 針對事前知道查詢模式的案例，這可改善寫入效能並降低索引儲存體。 若要進一步了解，請參閱[的索引路徑](index-paths.md)。
+它會表示下列樹狀結構為：
 
-## <a name="indexing-under-the-hood"></a>編製索引：幕後
+![以樹狀結構表示上一個項目](./media/index-overview/item-as-tree.png)
 
-適用於 azure Cosmos 資料庫*自動編製索引*資料，其中每個樹狀結構中的路徑會編製索引，除非您設定要排除特定路徑。
+請注意在樹狀目錄中陣列的編碼方式： 在陣列中的每個項目取得加上該陣列內的項目索引的中繼節點 (0、 1 等等。)。
 
-Azure Cosmos 資料庫採用反向索引資料結構來儲存每個項目的資訊，並促成適用於查詢的高效率表示法。 在索引樹狀結構是建構所有表示在容器中的個別項目樹狀結構的聯集的文件。 一段時間的索引樹狀結構的成長，因為會加入新項目，或在容器中更新現有的項目。 不同於關聯式資料庫編製索引，Azure Cosmos DB 不會重新啟動從從頭開始編製索引引入新的欄位。 新的項目會新增至現有的索引結構。 
+## <a name="from-trees-to-property-paths"></a>從樹狀結構以屬性路徑
 
-在索引樹狀結構的每個節點會包含標籤和位置的值，稱為索引項目*詞彙*，和項目，稱為識別碼*公佈*。 發佈在大括號中的文章 (例如{1,2}) 在反向的索引圖會對應至項目這類*文件 1*並*Document2*包含指定的標籤值。 一致的方式將結構描述標籤和執行個體值的一個重要含意是，所有項目封裝在大型的索引。 仍在分葉中的執行個體值不會重複出現，它可能會在項目間的不同角色中並具有不同的結構描述標籤，但它是同一個值。 下圖顯示兩個不同項目的反向索引：
+為什麼 Azure Cosmos DB 會將項目轉換成樹狀結構的原因是因為它可讓這些樹狀結構內的路徑所參考的屬性。 若要取得屬性的路徑，我們可以周遊樹狀結構從根節點，該屬性，並串連每個周遊節點的標籤。
 
-![編製索引的背後原理，反向索引](./media/index-overview/inverted-index.png)
+以下是來自上述範例中項目的每一個屬性的路徑：
 
-> [!NOTE]
-> 反向索引的顯示方式類似於在資訊擷取網域的搜尋引擎中使用的編製索引結構。 使用此方法，Azure Cosmos DB 可讓您針對任何項目搜尋資料庫，而不論其結構描述結構為何。
+    /locations/0/country: "Germany"
+    /locations/0/city: "Berlin"
+    /locations/1/country: "France"
+    /locations/1/city: "Paris"
+    /headquarters/country: "Belgium"
+    /headquarters/employees: 250
+    /exports/0/city: "Moscow"
+    /exports/1/city: "Athens"
 
-針對標準化的路徑，索引會針對一路從根索引到值的轉送路徑以及值的類型資訊進行編碼。 路徑和值會編碼為提供各種類型的範圍，空間至等編製索引。值編碼是設計來提供唯一值或一組路徑的組合。
+當寫入項目時，Azure Cosmos DB 有效率地編製索引每個屬性的路徑和其對應的值。
+
+## <a name="index-kinds"></a>索引類型
+
+Azure Cosmos DB 目前支援兩種類型的索引：
+
+**範圍**用於索引類型：
+
+- 等號比較查詢： `SELECT * FROM container c WHERE c.property = 'value'`
+- 範圍查詢： `SELECT * FROM container c WHERE c.property > 'value'` (適用於`>`， `<`， `>=`， `<=`， `!=`)
+- `ORDER BY` 查詢： `SELECT * FROM container c ORDER BY c.property`
+- `JOIN` 查詢： `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+
+範圍索引可以用於純量值 （字串或數字）。
+
+**空間**用於索引類型：
+
+- 地理空間距離的查詢： `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
+- 在查詢中的地理空間： `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+
+空間索引可正確地格式化[GeoJSON](geospatial.md)物件。 目前支援點、 Linestring 和多邊形。
 
 ## <a name="querying-with-indexes"></a>使用索引進行查詢
 
-反向索引可讓查詢快速識別符合查詢述詞的文件。 藉由將結構描述和路徑而言，統一的執行個體值，反向的索引也是樹狀結構。 因此，索引和結果均可序列化為有效的 JSON 文件，並且在樹狀結構表示法中傳回文件時，以文件本身的形式傳回。 這個方法能夠對結果進行遞迴以執行其他查詢。 下圖說明在點查詢中編製索引的範例：  
+擷取時資料編製索引的路徑可以輕鬆處理查詢時，查閱索引。 藉由比對`WHERE`子句的查詢中的索引路徑清單，就可以識別非常快速地符合查詢述詞的項目。
 
-![點查詢範例](./media/index-overview/index-point-query.png)
+例如，請考慮下列查詢： `SELECT location FROM location IN company.locations WHERE location.country = 'France'`。 查詢述詞 （篩選項目，其中的任何位置都有 「 法國 」 作為其國家/地區） 會比對的路徑下方的紅色反白顯示：
 
-範圍查詢，如*GermanTax*是[使用者定義函式](stored-procedures-triggers-udfs.md#udfs)當中執行的查詢處理。 使用者定義函式是可提供豐富的程式設計邏輯整合到查詢任何已註冊，JavaScript 函式。 下圖說明在範圍查詢中編製索引的範例：
+![比對樹狀結構內的特定路徑](./media/index-overview/matching-path.png)
 
-![範圍查詢範例](./media/index-overview/index-range-query.png)
+> [!NOTE]
+> `ORDER BY`子句*一律*需要範圍索引，而且如果它所參考的路徑不可以有一個將會失敗。
 
 ## <a name="next-steps"></a>後續步驟
 
 在下列文章中深入了解編製索引：
 
 - [編製索引原則](index-policy.md)
-- [索引類型](index-types.md)
-- [索引路徑](index-paths.md)
 - [如何管理編製索引原則](how-to-manage-indexing-policy.md)

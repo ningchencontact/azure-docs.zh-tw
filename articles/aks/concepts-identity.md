@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 64150438560d48575b4b65db4cdaf61aa0ada240
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243818"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000669"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的存取與身分識別選項
 
@@ -30,7 +30,7 @@ ms.locfileid: "57243818"
 
 Kubernetes 的其中一個主要使用者類型是「服務帳戶」。 服務帳戶存在 Kubernetes API 中，並受其管理。 服務帳戶的認證會儲存為 Kubernetes 祕密，如此便可讓已獲授權的 Pod 用這些認證與 API 伺服器進行通訊。 大部分的 API 要求會為服務帳戶或一般使用者帳戶提供驗證權杖。
 
-一般使用者帳戶會允許系統管理人員或開發人員適用的傳統存取，而不只是允許服務和程序的存取。 Kubernetes 本身不提供一般使用者帳戶和密碼的儲存位置的身分識別管理解決方案。 而是將外部身分識別解決方案整合到 Kubernetes。 對 AKS 叢集而言，此整合的身分識別解決方案就是 Azure Active Directory。
+一般使用者帳戶會允許系統管理人員或開發人員適用的傳統存取，而不只是允許服務和程序的存取。 Kubernetes 本身不提供存储常规用户帐户和密码的标识管理解决方案。 而是將外部身分識別解決方案整合到 Kubernetes。 對 AKS 叢集而言，此整合的身分識別解決方案就是 Azure Active Directory。
 
 如需有關 Kubernetes 中身分識別選項的詳細資訊，請參閱 [Kubernetes 驗證][kubernetes-authentication]。
 
@@ -75,7 +75,7 @@ ClusterRoleBinding 會以同樣方式將角色繫結到使用者，但這些角�
 
 若要開始使用 Azure AD 和 Kubernetes RBAC，請參閱[整合 Azure Active Directory 與 AKS][aks-aad]。
 
-如需相關聯的最佳作法，請參閱[AKS 中驗證和授權的最佳做法][operator-best-practices-identity]。
+有关相关的最佳做法，请参阅[在 AKS 中进行身份验证和授权的最佳做法][operator-best-practices-identity]。
 
 如需關於 Kubernetes 及 AKS 核心概念的詳細資訊，請參閱下列文章：
 
@@ -94,7 +94,7 @@ ClusterRoleBinding 會以同樣方式將角色繫結到使用者，但這些角�
 [openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

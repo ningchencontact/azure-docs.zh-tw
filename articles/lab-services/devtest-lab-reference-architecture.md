@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 61e76369a4d73bd171c9e5c2462b3f261681ba00
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: bcb154f7cffb92ef23fc2606e1f604bb12f8d1a3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551378"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996606"
 ---
 # <a name="azure-devtest-labs---reference-architecture-for-an-enterprise"></a>Azure DevTest Labs-適用於企業的參考架構
 這篇文章提供參考架構部署在企業中的 Azure DevTest Labs 為基礎的解決方案。 它包含透過 Express Route，若要從遠端登入虛擬機器的遠端桌面閘道、 連線到私用成品和其他 PaaS 服務，在實驗室中使用的成品存放庫的內部部署連線能力。
@@ -37,14 +37,14 @@ ms.locfileid: "59551378"
     - 強制所有網路流量流入和流出雲端環境透過內部部署防火牆，基於安全性/法務遵循方面的考量
 - **網路安全性群組**：雲端環境 （或在雲端環境中） 來限制流量的常見方式是根據來源和目的地 IP 位址是使用[網路安全性群組](../virtual-network/security-overview.md)。 例如，允許僅來自公司網路，到實驗室的網路的網路流量。
 - **遠端桌面閘道**:企業通常會封鎖在公司防火牆的連出遠端桌面連線。 若要啟用以雲端為基礎的環境，在 DevTest Labs 中的連線，有數個選項，例如使用[遠端桌面閘道](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)（白名單閘道負載平衡器的靜態 IP） 或[導向所有內送RDP 流量](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)透過 Express Route/站台-對站 VPN 連線。 規劃部署的企業中的研發/測試實驗室時，就是常見的考量。
-- **Azure 網路 （Vnet、 子網路）**:[Azure 網路](../networking/networking-overview.md)拓樸是整體的研發/測試實驗室架構中的另一個關鍵要素。 它可讓從實驗室中進行通訊 （或停用），在內部部署環境的存取 （或停用） 和 （或停用） 的網際網路存取的資源。 架構圖包含客戶使用 DevTest Labs 的最常見方式 (透過連線的所有實驗室[VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)使用[中樞支點模型](/architecture/reference-architectures/hybrid-networking/hub-spoke)Express 路由/站台間 VPN 連線為內部部署），但因為 DevTest Labs 會使用 Azure 網路直接沒有任何限制，有關如何設定網路基礎結構。
+- **Azure 網路 （Vnet、 子網路）**:[Azure 網路](../networking/networking-overview.md)拓樸是整體的研發/測試實驗室架構中的另一個關鍵要素。 它可讓從實驗室中進行通訊 （或停用），在內部部署環境的存取 （或停用） 和 （或停用） 的網際網路存取的資源。 架構圖包含客戶使用 DevTest Labs 的最常見方式 (透過連線的所有實驗室[VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)使用[中樞支點模型](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)Express 路由/站台間 VPN 連線為內部部署），但因為 DevTest Labs 會使用 Azure 網路直接沒有任何限制，有關如何設定網路基礎結構。
 - **DevTest Labs**:DevTest Labs 是整體架構的重要部分。 若要深入了解此服務，請參閱[解 DevTest Labs](devtest-lab-overview.md)。
 - **虛擬機器和其他資源 (SaaS、 PaaS、 IaaS)**:DevTest Labs 支援重要的工作負載的其中一個是虛擬機器，以及其他 Azure 資源。  研發/測試實驗室能夠以簡單且快速的企業提供存取權 （包括虛擬機器和其他 Azure 資源） 的 Azure 資源。  深入了解 Azure 的存取權[開發人員](devtest-lab-developer-lab.md)並[測試人員](devtest-lab-test-env.md)。
 
 ## <a name="scalability-considerations"></a>延展性考量
 雖然 DevTest Labs 沒有任何內建的配額或限制，但其他 Azure 資源會使用在一般操作的實驗室沒有[訂用帳戶層級配額](../azure-subscription-service-limits.md)。 如此一來，在典型的企業部署中，您必須以涵蓋 DevTest Labs 的大規模部署多個 Azure 訂用帳戶。 最常企業所達到的配額是：
 
-- **資源群組**:在預設組態中，DevTest Labs 會建立每個新的虛擬機器或使用者建立使用服務的環境的資源群組。 訂用帳戶可以包含[980 的資源群組的最大](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager)，因此這項限制是上限的虛擬機器和訂用帳戶中的環境。 有兩個您應該考慮的其他組態：
+- **資源群組**：在預設組態中，DevTest Labs 會建立每個新的虛擬機器或使用者建立使用服務的環境的資源群組。 訂用帳戶可以包含[980 的資源群組的最大](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager)，因此這項限制是上限的虛擬機器和訂用帳戶中的環境。 有兩個您應該考慮的其他組態：
     - **[所有虛擬機器都移至相同的資源群組](resource-group-control.md)**:雖然它可協助您使用的資源群組的限制，它會影響每個資源群組限制的資源類型。
     - **使用共用公用 Ip**:相同的大小和相同區域的所有 Vm 會都進入相同的資源群組。 如果虛擬機器都可以有公用 IP 位址，它就會是 '中庸' 之間的資源群組配額和每個資源群組配額的資源類型。 
 - **每個資源的資源群組，每個資源類型**:預設限制[每個資源群組，每個資源類型的資源為 800](../azure-subscription-service-limits.md#resource-group-limits)。  當使用的所有虛擬機器移到相同的資源群組設定時，使用者會叫用此訂用帳戶限制更快，尤其是如果 Vm 有多個額外的磁碟。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 733d27549542d3ebdd0cfba429aeaaab9f8be473
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370296"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000924"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure 地圖地理編碼涵蓋範圍
 
@@ -106,14 +106,14 @@ ms.locfileid: "58370296"
 | 斐濟                                                |                  |                |              |      ✓     |          ✓         |
 | 法屬玻里尼西亞                                    |                 |                |              |      ✓     |          ✓         |
 | 赫德島及麥唐納群島                   |                 |                |              |      ✓     |          ✓         |
-| 香港                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| 香港特別行政區                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 印尼                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 印度                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | 日本                                               |                 |                |              |      ✓     |          ✓         |
 | 吉里巴斯                                            |                 |                |              |      ✓     |          ✓         |
 | 南韓                                         |                 |                |              |      ✓     |          ✓         |
 | 寮國                                                |                 |                |              |      ✓     |          ✓         |
-| 澳門                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| 澳門特別行政區                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 馬來西亞                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 密克羅尼西亞                                          |                 |                |              |      ✓     |          ✓         |
 | 蒙古                                            |                 |                |              |      ✓     |          ✓         |
@@ -189,7 +189,7 @@ ms.locfileid: "58370296"
 | 列支敦斯登                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 立陶宛                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 盧森堡                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| 北馬其頓                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| 北馬其頓                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 馬爾他                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | 摩爾多瓦                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 摩納哥                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: cf90f7231362d147914e22419c9008d2628a483f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 81adf643541b5a4486694026acec49129ef8e5a6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861888"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000618"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 和 .NET 的效能祕訣
 
@@ -47,7 +47,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
      |連線模式  |支援的通訊協定  |支援的 SDK  |API/服務連接埠  |
      |---------|---------|---------|---------|
-     |閘道器  |   HTTPS    |  所有 SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
+     |閘道器  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)、Table(443)、Cassandra(10350)、Graph(443)    |
      |直接    |    HTTPS     |  .NET 和 Java SDK    |   10,000-20,000 範圍內的連接埠    |
      |直接    |     TCP    |  .NET SDK    | 10,000-20,000 範圍內的連接埠 |
 
@@ -85,6 +85,11 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 4. **增加執行緒/工作數目**
 
     由於對 Azure Cosmos DB 的呼叫要透過網路進行，因此您可能需要改變要求的平行處理原則程度，以便讓用戶端應用程式在不同要求之間只需等待很短的時間。 例如，如果您使用 .NET 的[工作平行程式庫](https://msdn.microsoft.com//library/dd460717.aspx)，請建立大約數百個讀取或寫入 Azure Cosmos DB 的工作。
+
+5. **啟用加速的網路**
+
+   為了減少延遲和 CPU 抖動，我們建議的用戶端虛擬機器已啟用加速網路。 請參閱[建立使用加速網路的 Windows 虛擬機器](../virtual-network/create-vm-accelerated-networking-powershell.md)或是[使用加速網路建立 Linux 虛擬機器](../virtual-network/create-vm-accelerated-networking-cli.md)文章，以啟用加速的網路。
+
 
 ## <a name="sdk-usage"></a>SDK 的使用方式
 1. **安裝最新的 SDK**

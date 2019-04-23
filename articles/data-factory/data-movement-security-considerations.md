@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099979"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996116"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>在 Azure Data Factory 中資料移動的安全性考量
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,9 +137,9 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 | 來源      | 目的地                              | 網路組態                    | 整合執行階段設定                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| 內部部署 | 部署在虛擬網路中的虛擬機器和雲端服務 | IPSec VPN (點對站或站台對站台) | 自我裝載整合執行階段可以安裝在內部部署環境或虛擬網路中的 Azure 虛擬機器上。 |
-| 內部部署 | 部署在虛擬網路中的虛擬機器和雲端服務 | ExpressRoute (私用對等互連)           | 自我裝載整合執行階段可以安裝在內部部署環境或虛擬網路中的 Azure 虛擬機器上。 |
-| 內部部署 | 具有公用端點的 Azure 型服務 | ExpressRoute (公用對等互連)            | 自我裝載整合執行階段必須安裝在內部部署中。 |
+| 內部部署 | 部署在虛擬網路中的虛擬機器和雲端服務 | IPSec VPN (點對站或站台對站台) | 應該在虛擬網路中的 Azure 虛擬機器上安裝自我裝載的整合執行階段。  |
+| 內部部署 | 部署在虛擬網路中的虛擬機器和雲端服務 | ExpressRoute (私用對等互連)           | 應該在虛擬網路中的 Azure 虛擬機器上安裝自我裝載的整合執行階段。  |
+| 內部部署 | 具有公用端點的 Azure 型服務 | ExpressRoute （Microsoft 對等互連）            | 自我裝載的整合執行階段可以安裝在內部部署或 Azure 虛擬機器上。 |
 
 下列各圖說明在使用自我裝載整合執行階段的情況下，利用 ExpressRoute 和 IPSec VPN (搭配 Azure 虛擬網路)，在內部部署資料庫與 Azure 服務之間移動資料：
 
@@ -174,7 +174,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 | 輸入連接埠 | 描述                              |
 | ------------- | ---------------------------------------- |
-| 8050 (TCP)    | PowerShell 加密 Cmdlet (如[在 Azure Data Factory 中加密內部部署資料存放區的認證](encrypt-credentials-self-hosted-integration-runtime.md)中所述) 和認證管理員應用程式皆需要此連接埠，以便為自我裝載整合執行階段的內部部署資料存放區安全地設定認證。 |
+| 8060 (TCP)    | PowerShell 加密 Cmdlet (如[在 Azure Data Factory 中加密內部部署資料存放區的認證](encrypt-credentials-self-hosted-integration-runtime.md)中所述) 和認證管理員應用程式皆需要此連接埠，以便為自我裝載整合執行階段的內部部署資料存放區安全地設定認證。 |
 
 ![閘道連接埠需求](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
@@ -193,7 +193,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 **是否可以跨不同的 Data Factory 共用自我裝載整合執行階段？**
 
-我們尚未支援這項功能。 我們正積極處理這個問題。
+是。 [這裡](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/)提供更多詳細資料。
 
 **自我裝載整合執行階段需要什麼連接埠才能運作？**
 

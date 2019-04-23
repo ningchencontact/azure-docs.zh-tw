@@ -1,6 +1,6 @@
 ---
-title: 如何使用 Azure 監視器將 Azure Active Directory 記錄與 ArcSight 整合 (預覽) | Microsoft Docs
-description: 了解如何使用 Azure 監視器將 Azure Active Directory 記錄與 ArcSight 整合 (預覽)
+title: 如何使用 Azure 監視器的 ArcSight 與整合 Azure Active Directory 記錄檔 |Microsoft Docs
+description: 了解如何使用 Azure 監視器的 ArcSight 與整合 Azure Active Directory 記錄檔
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2018
+ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd7101c641cf69112975cd0431a08ec74f99aac
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438099"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996301"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor-preview"></a>使用 Azure 監視器將 Azure Active Directory 記錄與 ArcSight 整合 (預覽)
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>使用 Azure 監視器的 ArcSight 與整合 Azure Active Directory 記錄檔
 
 [Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) 是安全性資訊及事件管理 (SIEM) 解決方案，可協助您偵測及回應您平台中的安全性威脅。 您現在可以使用 Azure 監視器與適用於 Azure AD 的 ArcSight 連接器，將 Azure Active Directory (Azure AD) 記錄路由傳送至 ArcSight。 這項功能可讓您使用 ArcSight 監視租用戶中是否有安全性危害。  
 
@@ -59,4 +59,4 @@ ms.locfileid: "58438099"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [適用於 Azure 監視器事件中樞的 ArcSight SmartConnector 設定指南](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[適用於 Azure 監視器事件中樞的 ArcSight SmartConnector 設定指南](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)

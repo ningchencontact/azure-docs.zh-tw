@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 60dbef0f0d6532c9cd30c59902236b7ae4e70b0e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524186"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998918"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集
 
@@ -54,20 +54,9 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 > [!NOTE]
 > 因為推播通知依存於第三方平台通知系統 (如 Apple APNS 和 Google FCM)，因此這些訊息的傳遞沒有 SLA 保證。 通知中樞將批次傳送至平台通知系統 (SLA 保證) 後，就由平台通知系統負責傳遞推播 (無 SLA 保證)。
 
-### <a name="which-customers-are-using-notification-hubs"></a>客戶如何使用通知中樞？
-
-許多客戶都使用通知中樞。 此處列出一些值得注意的︰
-
-* Sochi 2014：兩周內有數百個感興趣的群組、3 百萬個以上的裝置和 1.5 億個以上的通知需進行分派。 [案例研究：Sochi]
-* Skanska：[案例研究：Skanska]
-* Seattle Times：[案例研究：Seattle Times]
-* Mural.ly：[案例研究：Mural.ly]
-* 7Digital：[案例研究：7Digital]
-* Bing 應用程式：1 千萬部以上的裝置每日傳送 3 百萬則通知。
-
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>如何將中樞或命名空間升級或降級為不同層級？
 
-移至  **[Azure 入口網站]** > **通知中樞命名空間**或**通知中樞**。 選取您要更新的資源，並移至**定價層**。 請注意下列需求：
+移至  **[Azure 门户]** > **通知中樞命名空間**或**通知中樞**。 選取您要更新的資源，並移至**定價層**。 請注意下列需求：
 
 * 更新後的定價層會套用至您正在使用的命名空間中所有中樞。
 * 如果您要降級至某一層，而您的裝置數量超過該層的限制，則必須要先刪除裝置才能降級。
@@ -194,7 +183,7 @@ Azure 通知中樞使用[共用存取簽章](../storage/common/storage-dotnet-sh
 
 ### <a name="is-there-audit-log-capability"></a>是否有稽核記錄功能？
 
-是。 所有「通知中樞」管理作業都會更新在 [Azure 入口網站]中公開的「Azure 活動記錄」。 「Azure 活動記錄」可讓您深入了解在您訂用帳戶中資源上執行的作業。 藉由使用「活動記錄」，您可以判斷出為訂用帳戶中資源進行的任何寫入作業 (PUT、POST、DELETE) 的內容、對象及時間。 您也可以了解作業的狀態和其他相關屬性。 不過， 「活動記錄」不包含讀取 (GET) 作業。
+是。 所有「通知中樞」管理作業都會更新在 [Azure 门户]中公開的「Azure 活動記錄」。 「Azure 活動記錄」可讓您深入了解在您訂用帳戶中資源上執行的作業。 藉由使用「活動記錄」，您可以判斷出為訂用帳戶中資源進行的任何寫入作業 (PUT、POST、DELETE) 的內容、對象及時間。 您也可以了解作業的狀態和其他相關屬性。 不過， 「活動記錄」不包含讀取 (GET) 作業。
 
 ## <a name="monitoring-and-troubleshooting"></a>監視與疑難排解
 
@@ -204,7 +193,7 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 
 ### <a name="what-telemetry-features-are-available"></a>可用的遙測功能有哪些？
 
-您可透過 Azure 通知中樞，在 [Azure 入口網站]中檢視遙測資料。 您可以在[通知中樞計量]頁面上取得計量的詳細資料。
+您可透過 Azure 通知中樞，在 [Azure 门户]中檢視遙測資料。 您可以在[通知中樞計量]頁面上取得計量的詳細資料。
 
 您可以也以程式設計方式存取計量。 如需詳細資訊，請參閱下列文章：
 
@@ -216,14 +205,9 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 > [!NOTE]
 > 成功通知就是表示推播通知已傳送到外部 PNS (例如 Apple 的 APNS 或 Google 的 FCM)。 PNS 負責將通知傳送至目標裝置。 PNS 通常不會向第三方公開計量。  
 
-[Azure 入口網站]: https://portal.azure.com
+[Azure 门户]: https://portal.azure.com
 [通知中樞價格]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[案例研究：Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[案例研究：Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[案例研究：Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[案例研究：Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[案例研究：7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [通知中樞 REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [通知中樞入門教學課程]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Chrome 應用程式教學課程]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
@@ -235,7 +219,7 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 [通知中樞疑難排解]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [通知中樞計量]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [註冊匯出/匯入]: https://docs.microsoft.com/en-us/azure/notification-hubs/export-modify-registrations-bulk
-[Azure 入口網站]: https://portal.azure.com
+[Azure 门户]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
 [App Service 價格]: https://azure.microsoft.com/pricing/details/app-service/

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006354"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996742"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure 資料方塊邊緣的系統需求
 
@@ -82,7 +82,7 @@ Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定，進行從內部部�
 
 | URL 模式                      | 元件或功能                     |   
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft 容器登錄 (必要)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft 容器登錄 (必要)               |
 | https://\*.azurecr.io                     | 個人和協力廠商容器登錄 (選擇性) | 
 | https://\*.azure-devices.net              | IoT 中樞存取權 (必要)                             | 
 
@@ -94,7 +94,7 @@ Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定，進行從內部部�
 
 | URL 模式                      | 元件或功能                     |  
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft 容器登錄 (必要)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft 容器登錄 (必要)               |
 | https://\*.azure-devices.us              | IoT 中樞存取權 (必要)           |
 | https://\*.azurecr.us                    | 個人和協力廠商容器登錄 (選擇性) | 
 

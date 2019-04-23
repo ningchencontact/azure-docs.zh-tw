@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501632"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996013"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服務匯流排傳訊的效能改進最佳作法
 
@@ -95,7 +95,16 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 批次處理並不會影響可計費的傳訊作業數目，而且僅適用於使用 [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 程式庫的服務匯流排用戶端通訊協定。 HTTP 通訊協定不支援批次處理。
 
-## <a name="batching-store-access"></a>批处理存储访问
+> [!NOTE]
+> 設定 BatchFlushInterval 可確保批次處理隱含從應用程式的觀點來看。 也就是應用程式呼叫 sendasync （） 和 CompleteAsync() 呼叫，並不會進行特定的批次呼叫。
+>
+> 可以實作明確的用戶端端批次處理藉由使用方法呼叫-下方 
+> ```csharp
+> Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
+> ```
+> 這裡的訊息合併的大小必須小於一個定價層所支援的大小上限。
+
+## <a name="batching-store-access"></a>批次處理存放區存取
 
 為了提高佇列、主題或訂用帳戶的輸送量，服務匯流排會在寫入至其內部存放區時批次處理多個訊息。 如果在佇列或主題上啟用，將會批次處理訊息寫入至存放區。 如果在佇列或訂用帳戶上啟用，將會批次處理從存放區刪除訊息。 如果某個實體啟用批次處理的存放區存取，服務匯流排會延遲與該實體有關的存放區寫入作業，最多 20 毫秒。 
 

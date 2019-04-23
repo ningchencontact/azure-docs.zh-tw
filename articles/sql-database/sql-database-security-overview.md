@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523685"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001077"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -88,9 +88,9 @@ SQL Database 可藉由提供稽核和威脅偵測功能來保護客戶資料。
 
 SQL Database 稽核會將資料庫事件記錄到客戶自有 Azure 儲存體帳戶中的稽核記錄，藉此追蹤資料庫活動並協助維護安全性標準的合規性。 稽核可讓使用者監視進行中的資料庫活動，以及分析和調查歷史活動，以找出潛在威脅或可疑的濫用和安全性違規。 如需詳細資訊，請參閱[開始使用 Azure Database 稽核](sql-database-auditing.md)。  
 
-### <a name="threat-detection"></a>威脅偵測
+### <a name="advanced-threat-protection"></a>進階威脅防護
 
-威脅偵測會分析稽核記錄中的異常行為，以及可能有害的資料庫存取或入侵嘗試，藉此加強稽核。 系統會針對可疑活動或異常存取模式 (例如 SQL 插入式攻擊、潛在資料滲透，以及暴力密碼破解攻擊) 建立警示。 從 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)檢視威脅偵測警示，其中會提供可疑活動的詳細資料，並提供進一步調查的建議以及減輕威脅的動作。 每部伺服器的威脅偵測費用為每個月 $15 元。 前 60 天不收取任何費用。 如需詳細資訊，請參閱[開始使用 SQL Database 威脅偵測](sql-database-threat-detection.md)。
+進階的威脅防護正在分析您的 SQL Server 記錄檔，以偵測異常行為，並且可能會造成損害嘗試存取或攻擊資料庫。 可疑的活動會建立警示，例如 SQL 插入式攻擊、 潛在的資料滲透和暴力密碼破解強制攻擊，或在 access 中的異常模式，以攔截的權限提升和違反的認證使用。 從中檢視警示[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)，其中會提供可疑活動的詳細資料，而建議進一步指定動作以及為了減緩這個威脅的調查。 每一伺服器的額外的費用，您可以啟用進階的威脅防護。 如需詳細資訊，請參閱 <<c0> [ 開始使用 SQL Database 進階威脅防護](sql-database-threat-detection.md)。
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -100,16 +100,16 @@ SQL Database 稽核會將資料庫事件記錄到客戶自有 Azure 儲存體帳
 
 SQL Database 可藉由使用[傳輸層安全性](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)將移動中的資料加密來保護客戶資料。
 
-Sql Server 會強制執行加密 (SSL/TLS) 在所有時間的所有連線。 這可確保所有資料都會都加密 」 在 「 傳輸 」，用戶端與伺服器的設定無論之間**Encrypt**或是**TrustServerCertificate**連接字串中。
+SQL Server 始终对所有连接强制要求加密 (SSL/TLS)。 这样可以确保在客户端与服务器之间传输的所有数据经过加密，而不管连接字符串中的 **Encrypt** 或 **TrustServerCertificate** 设置如何。
 
-最佳做法，建議在您的應用程式連接字串會指定加密的連接並_**不**_ 信任伺服器憑證。 這會強制您的應用程式，來確認伺服器憑證，因此可避免應用程式遭受攔截式中間類型的攻擊。
+作为最佳做法，我们建议在应用程序的连接字符串中指定加密的连接，而不要信任服务器证书。__ 这会强制应用程序验证服务器证书，因此可以防止中间人攻击利用应用程序的漏洞。
 
-例如，使用 ADO.NET 驅動程式時這是透過**Encrypt = True**並**TrustServerCertificate = False**。如果您從 Azure 入口網站取得連接字串，它會有正確的設定。
+例如，使用 ADO.NET 驱动程序时，可以通过 **Encrypt=True** 和 **TrustServerCertificate=False** 实现此目的。如果从 Azure 门户获取连接字符串，其中会包含正确的设置。
 
 > [!IMPORTANT]
-> 請注意，有些非 Microsoft 驅動程式可能不預設使用 TLS 或依賴較舊版本的 TLS (< 1.2) 才能運作。 在此情況下 SQL Server 仍可讓您連接到您的資料庫。 不過，我們建議您評估安全性風險，特別是當您儲存的敏感性資料時，才允許這類驅動程式和應用程式連接到 SQL Database。 
+> 請注意，有些非 Microsoft 驅動程式可能不預設使用 TLS 或依賴較舊版本的 TLS (< 1.2) 才能運作。 在这种情况下，SQL Server 仍允许连接到数据库。 但是，我们建议评估允许此类驱动程序和应用程序连接到 SQL 数据库所带来的安全风险，尤其是存储敏感数据时。 
 >
-> 如需 TLS 和連線能力的進一步資訊，請參閱[TLS 考量](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> 有关 TLS 和连接的更多信息，请参阅 [TLS 注意事项](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)。
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>透明資料加密 (待用資料加密)
 

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 9b8418dba12748915666c6a91ee65b37c0f59ace
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 026717dff2b6883eb643497dec91226e4afe8133
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803550"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150212"
 ---
-Azure 提供以下内置的 RBAC 角色，用于访问存储数据：
+Azure 提供下列內建的 RBAC 角色來授權存取 blob 和佇列資料使用 Azure AD 和 OAuth:
 
 - [儲存體 Blob 資料擁有者](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner):用來設定擁有權和管理 Azure Data Lake Storage Gen2 的 POSIX 存取控制 (預覽)。 如需詳細資訊，請參閱 [Azure Data Lake Storage Gen2 中的存取控制](../articles/storage/blobs/data-lake-storage-access-control.md)。
 - [儲存體 Blob 資料參與者](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor):用來授與 Blob 儲存體資源的讀取/寫入/刪除權限。
@@ -25,7 +25,5 @@ Azure 提供以下内置的 RBAC 角色，用于访问存储数据：
 - [儲存體佇列資料訊息處理器](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor):用來授與查看、 擷取、 及 Azure 儲存體佇列中訊息的刪除權限。
 - [儲存體佇列資料訊息寄件者](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender):用來授與權限加入 Azure 儲存體佇列中的訊息。
 
-> [!IMPORTANT]
-> RBAC 角色指派可能需要五分鐘的時間傳播。
-
-如需有關如何為 Azure 儲存體定義內建角色的詳細資訊，請參閱[了解角色定義](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview)。 若要了解如何创建自定义 RBAC 角色，请参阅[针对 Azure 基于角色的访问控制创建自定义角色](../articles/role-based-access-control/custom-roles.md)。 
+> [!NOTE]
+> 請記住，RBAC 角色指派可能需要五分鐘的時間傳播。

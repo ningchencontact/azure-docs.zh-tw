@@ -2,18 +2,18 @@
 title: Azure 資料目錄的鍵盤快速鍵
 description: 本文章說明 Azure 資料目錄的鍵盤快速鍵。
 services: data-catalog
-author: spelluru
-ms.author: spelluru
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 06a93b23738aa7bc5899de8b8618d824fd24c1d1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ed101df5cd3d6e5754b88c5f66807f9fda846cf4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053112"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000771"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Azure 資料目錄的鍵盤快速鍵
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>資料目錄之資料來源註冊工具的鍵盤快速鍵

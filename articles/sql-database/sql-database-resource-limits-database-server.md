@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 03/01/2019
-ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093883"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998272"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 伺服器的 SQL Database 資源限制
 
@@ -74,33 +74,33 @@ ms.locfileid: "58093883"
 - 提高資料庫或彈性集區的服務層或計算大小。 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。
 - 如果背景工作角色的使用率增加是爭用計算資源所造成，則可將查詢最佳化，以減少每個查詢的資源使用率。 如需詳細資訊，請參閱[查詢微調/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
 
-## <a name="transaction-log-rate-governance"></a>交易記錄檔的速率控管 
-用來限制這類大量工作負載高的擷取速率的 Azure SQL Database 中的程序插入，SELECT INTO 和索引建立交易記錄檔的速率控管。 追蹤和記錄檔記錄產生率的子第二個層級強制執行這些限制，可能會對資料檔案發出限制的輸送量，不論多少 IOs。  交易記錄檔產生速率目前以線性方式調整最多有硬體相依的點，最大記錄檔與速率會允許正在 48 MB/秒的購買模型的 vCore。 
+## <a name="transaction-log-rate-governance"></a>事务日志速率调控 
+事务日志速率调控是 Azure SQL 数据库中的一个进程，用于限制批量插入、SELECT INTO 和索引生成等工作负荷的高引入速率。 无论针对数据文件发出多少 IO，系统都会对日志记录生成速率跟踪并实施这些限制，使其保持在亚秒级以下，并限制吞吐量。  交易記錄檔產生速率目前以線性方式調整最多有硬體相依的點，最大記錄檔與速率會允許正在 96 MB/秒的購買模型的 vCore。 
 
 > [!NOTE]
-> 交易記錄檔的實際實體 Io 不會控管或限制。 
+> 向事务日志文件发出的实际物理 IO 不会受到调控或限制。 
 
-設定記錄檔的速率的方式，可以達成並持續以各種不同的案例中，而整體系統可以維護其功能，且使用者負載的影響降到最低。 記錄檔的速率控管會確保備份維持在已發行的復原能力 Sla 內，交易記錄檔。  此控管也可避免在次要複本上的過多待處理項目。
+日志速率的设置应该做到可在各种场合下实现并保持该速率，同时，整个系统可以在尽量减轻对用户负载造成的影响的前提下保持其功能。 日志速率调控可确保事务日志备份保留在已发布的可恢复性 SLA 范围内。  这种调控还可以防止次要副本带来过多的积压工作。
 
-產生記錄檔記錄時，每個作業評估，並評估是否它應該會延遲，以維持所需的記錄檔最大速率 （MB/秒的秒）。 延遲不會加入記錄檔記錄已排清至儲存體，而不是在記錄檔的速率產生本身時套用記錄速率控管。
+生成日志记录后，将评估每个操作，以确定是否要将其延迟，从而保持最大所需日志速率（MB/秒）。 将日志记录刷新到存储时不会增大延迟，日志速率调控是在日志速率生成期间应用的。
 
-實際的記錄檔產生在執行階段加諸的速率可能也會受到意見反應機制，讓系統可以穩定，暫時降低允許的記錄檔的速率。 記錄檔空間管理，避免用盡到記錄檔空間的情況與可用性群組的複寫機制可能暫時降低整體系統限制。 
+在运行时实施的实际日志生成速率还可能受到反馈机制（暂时降低允许的日志速率，使系统保持稳定）的影响。 日志文件空间管理可避免遇到日志空间不间的情况，可用性组复制机制可以暂时降低总体系统限制。 
 
-記錄速率管理員的流量成形透過下列等候類型的方式來呈現 (中公開[sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+可通过以下 wait 类型（在 [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV 中公开）查看日志速率调控器流量的形状：
 
-| 等候類型 | 注意 |
+| Wait 类型 | 注意 |
 | :--- | :--- |
-| LOG_RATE_GOVERNOR | 資料庫限制 |
-| POOL_LOG_RATE_GOVERNOR | 集區限制 |
-| INSTANCE_LOG_RATE_GOVERNOR | 執行個體層級限制 |  
-| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | 意見反應控制項，Premium/業務關鍵 」 中無法配合可用性群組實體複寫 |  
-| HADR_THROTTLE_LOG_RATE_LOG_SIZE | 意見反應控制項，限制以避免記錄空間條件的費率 |
+| LOG_RATE_GOVERNOR | 数据库限制 |
+| POOL_LOG_RATE_GOVERNOR | 池限制 |
+| INSTANCE_LOG_RATE_GOVERNOR | 实例级限制 |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | 反馈控制。高级/业务关键型工作负荷中的可用性组物理复制不会保持 |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | 反馈控制。限制速率可以避免出现日志空间不足的情况 |
 |||
 
-當遇到會阻礙所需的延展性記錄速率限制，請考慮下列選項：
-- 若要取得最大的 48 MB/秒記錄速率相應增加較大的層。 
-- 如果正在載入的資料是暫時性的也就接移資料在 ETL 程序，它可以載入 tempdb （這最低限度記錄）。 
-- 分析的情況下，載入至涵蓋叢集資料行存放區資料表。 這會減少必要的記錄速率，因為壓縮的關係。 這項技術會增加 CPU 使用量，而且也只適用於受益於叢集資料行存放區索引的資料集。 
+当日志速率限制阻碍实现所需的可伸缩性时，请考虑以下选项：
+- 若要取得最大的 96 MB/秒記錄速率相應增加較大的層。 
+- 如果加载的数据是暂时性的（即 ETL 过程中的暂存数据），可将其载入 tempdb（记录最少量的数据）。 
+- 对于分析方案，可将数据载入聚集列存储涵盖的表中。 这样，可以通过压缩来降低所需的日志速率。 此方法确实会增大 CPU 利用率，并且仅适用于可从聚集列存储索引受益的数据集。 
 
 ## <a name="next-steps"></a>後續步驟
 

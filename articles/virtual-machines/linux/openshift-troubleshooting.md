@@ -4,7 +4,7 @@ description: 針對 Azure 中的 OpenShift 部署進行疑難排解
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: c65e76fb9453e93e856c76f397d187f9ee740fbd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540341"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001111"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>針對 Azure 中的 OpenShift 部署進行疑難排解
 
@@ -42,9 +42,9 @@ ms.locfileid: "58540341"
 
 ## <a name="log-files"></a>記錄檔
 
-主機準備指令碼的記錄檔 (stderr 和 stdout) 位於所有主機上的 /var/lib/waagent/custom-script/download/0 中。 如果在準備主機期間發生錯誤，請檢視這些記錄檔以判斷錯誤。
+記錄檔 （stderr 和 stdout） 供主機準備指令碼位於`/var/lib/waagent/custom-script/download/0`所有主機上。 如果在準備主機期間發生錯誤，請檢視這些記錄檔以判斷錯誤。
 
-如果準備指令碼執行成功，則必須檢查 Ansible 腳本主機的 /var/lib/waagent/custom-script/download/1 目錄中的記錄檔。 如果在 OpenShift 實際安裝期間發生錯誤，則 stdout 檔案會顯示錯誤。 使用此資訊來連絡支援人員，以尋求進一步的協助。
+如果準備指令碼已順利執行，然後在記錄檔中的檔案`/var/lib/waagent/custom-script/download/1`ansible 腳本主控件的目錄將會需要進行檢查。 如果在 OpenShift 實際安裝期間發生錯誤，則 stdout 檔案會顯示錯誤。 使用此資訊來連絡支援人員，以尋求進一步的協助。
 
 範例輸出
 
@@ -93,11 +93,11 @@ Failure summary:
 
 ### <a name="private-key-has-a-passphrase"></a>私密金鑰具有複雜密碼
 
-您會看到 SSH 權限被拒的錯誤。 透過 SSH 連線到 Ansible 腳本主機以檢查私密金鑰的複雜密碼。
+您會看到沒有權限的 ssh 錯誤。 ssh 私密金鑰複雜密碼檢查 ansible 腳本主機。
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>未正確建立具有私密金鑰的金鑰保存庫密碼
 
-私密金鑰會插入 Ansible 腳本主機 - ~/.ssh/id_rsa。 確認此檔案正確無誤。 從 Ansible 腳本主機，將 SSH 工作階段開啟至其中一個叢集節點進行測試。
+私密金鑰會複製到 ansible 腳本主機-~/.ssh/id_rsa。 確認此檔案正確無誤。 從 Ansible 腳本主機，將 SSH 工作階段開啟至其中一個叢集節點進行測試。
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>輸入的服務主體認證不正確
 

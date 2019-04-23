@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: e022a7661997d231e291a4d09611bb6e95bee262
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528301"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149473"
 ---
 # <a name="caching-with-azure-front-door-service"></a>使用 Azure Front Door Service 進行快取
 下列文件會利用已啟用快取的路由規則來指定 Front Door 的行為。
@@ -104,13 +104,13 @@ Front Door 上的快取清除是不區分大小寫的。 此外，它們是無�
 2. Cache-Control: maxage=\<seconds>
 3. 到期： \<http 日期 >
 
-系統會接受指出將不會快取回應的 Cache-Control 回應標頭 (例如，Cache-Control: private、Cache-Control: no-cache 與 Cache-Control: no-store)。 不過，如果 POP 中有多個針對相同 URL 的要求，它們可能共用回應。
+系統會接受指出將不會快取回應的 Cache-Control 回應標頭 (例如，Cache-Control: private、Cache-Control: no-cache 與 Cache-Control: no-store)。 不過，如果 POP 中有多個針對相同 URL 的要求，它們可能共用回應。 若沒有快取控制項，則預設行為是時間的 AFD 會快取的資源量 X X 隨機挑選介於 1 到 3 天之間。
 
 
 ## <a name="request-headers"></a>要求標頭
 
 使用快取時，不會將下列要求標頭轉送至後端。
-- Authorization
+- 授權
 - Content-Length
 - Transfer-Encoding
 

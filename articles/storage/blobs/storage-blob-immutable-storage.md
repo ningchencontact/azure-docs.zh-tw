@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/18/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 7fd9992db79b2517256d85ca3fd8f3bf409afa48
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445694"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996017"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>在 Azure Blob 儲存體中儲存業務關鍵資料
 
@@ -41,7 +41,7 @@ ms.locfileid: "58445694"
 
 - **容器層級設定**：使用者可以在容器層級設定以時間為基礎的保留原則和合法保存標記。 使用簡單的容器層級設定，使用者可以建立和鎖定時間為基礎的保留原則、 擴充保留間隔、 設定和清除法務保存措施，和更多功能。 這些原則會套用到現有和新容器中的所有 Blob。
 
-- **稽核記錄支援**：每個容器都包含一個稽核記錄。 其針對以時間為基礎的鎖定保留原則，最多顯示五個以時間為基礎的保留命令，而保留間隔延長最多三個記錄。 針對以時間為基礎的保留，此記錄包含使用者 ID、命令類型、時間戳記及保留間隔。 針對合法保存，此記錄包含使用者識別碼、命令類型、時間戳記及合法保存標記。 依據 SEC 17a-4(f) 法規指導方針，在容器的存留時間內會保留此記錄。 [Azure 活動記錄檔](../../azure-monitor/platform/activity-logs-overview.md)示範的更完整的記錄檔的所有控制平面活動，同時讓[Azure 診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)會保留，並顯示資料平面作業。 基於法規需求或其他目的，使用者有責任持續不斷地儲存那些記錄。
+- **稽核記錄支援**：每個容器包含原則稽核記錄檔。 它會顯示最多七個時間為基礎保留鎖定的時間為基礎的保留原則的命令，並包含使用者識別碼、 命令類型、 時間戳記，以及保留間隔。 針對合法保存，此記錄包含使用者識別碼、命令類型、時間戳記及合法保存標記。 此記錄檔會保留原則，根據秒 17a-4(f) 法規的指導方針的存留期。 [Azure 活動記錄檔](../../azure-monitor/platform/activity-logs-overview.md)示範的更完整的記錄檔的所有控制平面活動，同時讓[Azure 診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)會保留，並顯示資料平面作業。 基於法規需求或其他目的，使用者有責任持續不斷地儲存那些記錄。
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -82,6 +82,20 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 
 <sup>1</sup>應用程式可讓這些作業來一次建立新的 blob。 所有後續覆寫現有的 blob 路徑中的不可變的容器上的作業不允許。
 
+## <a name="supported-values"></a>支援的值
+
+### <a name="time-based-retention"></a>以時間為基礎的保留期
+- 儲存體帳戶、 容器與鎖定時間為基礎的不可變原則的最大數目為 1,000。
+- 最小保留間隔為 1 天。 最大值為 146,000 天 （400 年）。
+- 針對容器中，編輯擴充鎖定時間為基礎的不可變原則保留間隔的最大數目為 5。
+- 針對容器中，最多 7 以時間為基礎的保留原則稽核記錄檔會保留原則的持續時間。
+
+### <a name="legal-hold"></a>法務保存措施
+- 若為儲存體帳戶，具有合法保存設定的容器數目上限為 1,000。
+- 若為容器，合法保存標記數目上限為 10。
+- 適用法務保存措施標記的最小長度是 3 個的英數字元。 最大長度為 23 的英數字元。
+- 容器，合法的 10 個最多會保留原則稽核記錄檔會保留原則的持續時間。
+
 ## <a name="pricing"></a>價格
 
 使用這項功能不需額外付費。 固定資料的定價方式與一般可變動的資料相同。 如需 Azure Blob 儲存體定價的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)。
@@ -90,7 +104,6 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 不可變的儲存體是只適用於一般用途 v2 和 Blob 儲存體帳戶。 這些帳戶必須透過管理[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。 如需有關升級現有的一般用途 v1 儲存體帳戶，請參閱[儲存體帳戶升級](../common/storage-account-upgrade.md)。
 
 最新版本[Azure 入口網站](https://portal.azure.com)， [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)，並[Azure PowerShell](https://github.com/Azure/azure-powershell/releases)支援 Azure Blob 儲存體的不可變的儲存體。 [用戶端程式庫支援](#client-libraries)也會提供。
-
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -152,16 +165,6 @@ Az.Storage 預覽模組支援固定儲存體。  若要啟用此功能，請依�
 - [Python 用戶端程式庫 2.0.0 候選版 2 和更新版本](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
 - [Java 用戶端程式庫](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
-## <a name="supported-values"></a>支援的值
-
-- 最小保留間隔是一天。 最大值為 146,000 天 （400 年）。
-- 若為儲存體帳戶，已鎖定固定原則的容器數目上限為 1,000。
-- 若為儲存體帳戶，具有合法保存設定的容器數目上限為 1,000。
-- 若為容器，合法保存標記數目上限為 10。
-- 合法保存標記的最大長度為 23 個英數字元。 最小長度為三個字元。
-- 若為容器，鎖定固定原則的允許保留間隔延長的數目上限為 3。
-- 若為具有鎖定固定原則的容器，容器的持續期間內最多保留五個以時間為基礎的保留原則記錄和最多 10 個合法保存原則記錄。
-
 ## <a name="faq"></a>常見問題集
 
 **您可以提供蠕蟲合規性文的件嗎？**
@@ -178,7 +181,7 @@ Az.Storage 預覽模組支援固定儲存體。  若要啟用此功能，請依�
 
 **可以套用的適用法務保存措施和以時間為基礎的保留原則嗎？**
 
-一個容器可以同時具有合法保存和以時間為基礎的保留原則。 該容器中的所有 Blob 都會保持固定狀態，直到所有合法保存都遭到清除為止 (即使其有效保留期限已過期)。 相反地，Blob 會保持固定狀態，直到有效保留週期到期為止 (即使已清除所有合法保存)。
+是，容器可以在同一時間有適用法務保存措施和以時間為基礎的保留原則。 該容器中的所有 Blob 都會保持固定狀態，直到所有合法保存都遭到清除為止 (即使其有效保留期限已過期)。 相反地，Blob 會保持固定狀態，直到有效保留週期到期為止 (即使已清除所有合法保存)。
 
 **只有在法律訴訟時才適用法務保存措施原則，或是否有其他使用案例？**
 
@@ -202,13 +205,13 @@ Az.Storage 預覽模組支援固定儲存體。  若要啟用此功能，請依�
 
 **您是否提供試用此功能的試用版或寬限期？**
 
-是。 第一次建立以時間為基礎的保留原則時，它會處於「未鎖定」狀態。 在此狀態中，您可以對保留間隔進行任何所需的變更，例如增加或減少保留間隔，甚至刪除原則。 鎖定原則之後，會保持鎖定狀態，直到保留間隔到期為止。 此鎖定的原則可防止刪除和修改的保留間隔。 我們強烈建議僅將「未鎖定」狀態使用於試用目的，並且在 24 小時期間內鎖定原則。 這些做法可協助您符合 SEC 17a-4(f) 和其他法規。
+是。 第一次建立以時間為基礎的保留原則時，它是在*解除鎖定*狀態。 在此狀態中，您可以對保留間隔進行任何所需的變更，例如增加或減少保留間隔，甚至刪除原則。 鎖定原則之後，會保持鎖定狀態，直到保留間隔到期為止。 此鎖定的原則可防止刪除和修改的保留間隔。 我們強烈建議僅將「未鎖定」狀態使用於試用目的，並且在 24 小時期間內鎖定原則。 這些做法可協助您符合 SEC 17a-4(f) 和其他法規。
 
 **我可以使用虛刪除與不可變的 blob 原則嗎？**
 
 是。 [Azure Blob 儲存體的虛刪除](storage-blob-soft-delete.md)適用於儲存體帳戶，不論適用法務保存措施或以時間為基礎的保留原則內的所有容器。 我們建議先套用任何不可變的蠕蟲原則，並確認啟用虛刪除額外的保護。 
 
-**此功能是否適用於國家雲和政府雲？**
+**此功能可使用的？**
 
 Azure 公用、Azure 中國和 Azure Government 區域提供不可變的儲存體。 如果您的區域不提供不可變的儲存體，請連絡支援與電子郵件azurestoragefeedback@microsoft.com。
 

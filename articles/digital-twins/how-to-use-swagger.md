@@ -9,21 +9,18 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1746e1d53be01e6c40b5d1948c666960970b75a0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120949"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001978"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 參考文件
 
 每個已佈建的 Azure Digital Twins 執行個體都包含本身自動產生的 Swagger 參考文件。
 
 [Swagger](https://swagger.io/) \(英文\) (或 [OpenAPI](https://www.openapis.org/) \(英文\)) 會將複雜的 API 資訊結合至可互動且與語言無關的參考資源。 若要對 API 執行作業，Swagger 會針對要使用的 JSON 承載、HTTP 方法和特定端點提供重要的參考資料。
-
-> [!IMPORTANT]
-> 公開預覽期間會暫時停用對於 Swagger 驗證的支援。
 
 ## <a name="swagger-summary"></a>Swagger 摘要
 
@@ -98,7 +95,42 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 若要深入了解如何以互動方式測試由 OAuth 2.0 所保護的要求，請參閱[官方文件](https://swagger.io/docs/specification/authentication/oauth2/)。
 
 > [!NOTE]
-> 公開預覽期間會暫時停用對於 OAuth 2.0 驗證的支援。
+> 建立 Azure 的數位對應項資源的使用者主體會有空間系統管理員角色指派，並將能夠建立其他使用者的其他角色指派。
+
+1. 請依照下列中的步驟[本快速入門](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)建立 Azure AD 應用程式的型別***Web 應用程式 / API***。 或者，您可以重複使用現有的應用程式註冊。
+
+2. 應用程式註冊中加入下列回覆 url:
+
+    ```plaintext
+    https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
+    ```
+    | Name  | 更換為 | 範例 |
+    |---------|---------|---------|
+    | YOUR_SWAGGER_URL | 您在入口網站中找到的管理 REST API 文件 URL  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+
+3. 授與您的應用程式存取 Azure 的數位對應項的權限。 在 [必要權限] 底下，輸入 `Azure Digital Twins`，然後選取 [委派的權限]。 接著選取 [授與權限]。
+
+    ![Azure AD 應用程式註冊新增 API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+
+4. 設定為允許 OAuth 2.0 隱含流程的應用程式資訊清單。 按一下 [資訊清單]，以開啟應用程式的應用程式資訊清單。 將 *oauth2AllowImplicitFlow* 設定為 `true`。
+
+    ![Azure AD 隱含流程](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
+
+5. 複製您的 Azure AD 應用程式識別碼。
+
+6. 按一下您的 swagger 頁面上的 [授權] 按鈕。
+
+    ![Swagger 授權按鈕](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+
+7. 將應用程式識別碼貼到 client_id 欄位。
+
+    ![Swagger client_id 欄位](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+
+    ![Swagger 授與應用程式權限](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+
+8. 您現在應該會看到持有人驗證權杖傳遞在授權標頭和顯示在結果中的登入使用者的身分識別。
+
+    ![Swagger 語彙基元的結果](../../includes/media/digital-twins-permissions/swagger-token-example.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: fe8f9f271599d688878d61aee64273690d02c2b8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685721"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000703"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>規劃 Azure AD 應用程式 Proxy 部署
 
@@ -158,7 +158,7 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 是在內部部署應用程
 3. 然後新增您的應用程式的 SSO 方法，並再次測試來驗證存取。
 4. 套用條件式存取和所需的 MFA 原則。 測試並驗證存取。
 
-**疑難排解工具**:進行疑難排解時，一律啟動已發佈的應用程式中驗證存取，從連接器主機上的瀏覽器，並確認 應用程式的運作如預期般運作。 更簡單，請在您安裝程式，輕鬆以判斷根本原因，因此請考慮嘗試重現問題的最小的設定，例如使用單一連接器和任何 SSO。 在某些情況下，web 偵錯的 Telerik Fiddler 等工具可以證明在透過 proxy 存取應用程式中存取或內容的問題進行疑難排解不可或缺。 Fiddler 也可以做為 proxy，以協助追蹤和偵錯適用於 iOS 和 Android 等行動裝置平台的流量，而且幾乎任何項目，可以設定要透過 proxy 路由。 請參閱[疑難排解指南](/application-proxy-troubleshoot.md)如需詳細資訊。
+**疑難排解工具**:進行疑難排解時，一律啟動已發佈的應用程式中驗證存取，從連接器主機上的瀏覽器，並確認 應用程式的運作如預期般運作。 更簡單，請在您安裝程式，輕鬆以判斷根本原因，因此請考慮嘗試重現問題的最小的設定，例如使用單一連接器和任何 SSO。 在某些情況下，web 偵錯的 Telerik Fiddler 等工具可以證明在透過 proxy 存取應用程式中存取或內容的問題進行疑難排解不可或缺。 Fiddler 也可以做為 proxy，以協助追蹤和偵錯適用於 iOS 和 Android 等行動裝置平台的流量，而且幾乎任何項目，可以設定要透過 proxy 路由。 請參閱[疑難排解指南](application-proxy-troubleshoot.md)如需詳細資訊。
 
 ## <a name="implement-your-solution"></a>實作您的解決方案
 

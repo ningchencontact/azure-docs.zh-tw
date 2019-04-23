@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 0c93888af16ed7f7162f38c73be5f6330c886c65
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683152"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001570"
 ---
 # <a name="monitoring-and-performance-tuning"></a>監視和效能微調
 
@@ -85,9 +85,9 @@ Azure SQL Database 是有彈性的自動管理資料服務，您可以輕鬆監�
 > [!IMPORTANT]
 > 如需一組使用這些 DMV 進行 CPU 使用率問題疑難排解的 T-SQL 查詢，請參閱[識別 CPU 效能問題](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)。
 
-### <a name="troubleshoot-queries-with-parameter-sensitive-query-execution-plan-issues"></a>針對包含參數區分查詢執行計畫問題的查詢進行疑難排解
+### <a name="ParamSniffing"></a> 查詢參數區分查詢執行計劃問題進行疑難排解
 
-參數區分計畫 (PSP) 問題是指查詢最佳化工具產生僅適用於特定參數值 (或一組值) 的查詢執行計畫的情況，然後快取計畫不適用於連續執行中使用的參數值。 然後，非最佳計畫可能會導致查詢效能問題和整體工作負載輸送量降低。
+參數區分計畫 (PSP) 問題是指查詢最佳化工具產生僅適用於特定參數值 (或一組值) 的查詢執行計畫的情況，然後快取計畫不適用於連續執行中使用的參數值。 然後，非最佳計畫可能會導致查詢效能問題和整體工作負載輸送量降低。 如需有關參數探測和查詢處理的詳細資訊，請參閱 <<c0> [ 查詢處理架構指南](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide.md7#ParamSniffing)。
 
 有數個用來減輕問題的因應措施，每一種都有相關聯的取捨和缺點：
 
@@ -102,17 +102,17 @@ Azure SQL Database 是有彈性的自動管理資料服務，您可以輕鬆監�
 
 如需解決這類問題的詳細資訊，請參閱：
 
-- 此[參數的特徵](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/) \(英文\) 部落格文章
-- 此[大象與老鼠的參數探查](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) \(英文\) 部落格文章
-- 此[動態 sql 與參數化查詢的計畫品質](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) \(英文\) 部落格文章
+- 這[我嗅覺參數](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/)部落格文章
+- 此[動態 sql 與參數化查詢的計畫品質](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) \(英文\) 部落格文章
+- 這[SQL Server 中的 SQL 查詢最佳化技巧：參數 Sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)部落格文章
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>疑難排解由於不正確的參數化所導致的編譯活動失敗
 
 當查詢包含常值時，資料庫引擎會選擇自動參數化陳述式，或使用者可以明確地將它參數化以減少編譯數目。 使用相同模式但不同常值之查詢的大量編譯，可能會導致高 CPU 使用率。 同樣地，如果您僅部分參數化繼續使用常值的查詢，則資料庫引擎不會進一步參數化。  以下是部分參數化查詢的範例：
 
 ```sql
-select * from t1 join t2 on t1.c1=t2.c1
-where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+SELECT * FROM t1 JOIN t2 ON t1.c1 = t2.c1
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
 在先前的範例中，`t1.c1` 會採用 `@p1` 但 `t2.c2` 繼續接受 GUID 作為常值。 在這種情況下，如果變更 `c2` 的值，查詢將會被視為不同的查詢，並且將進行新的編譯。 若要減少先前範例中的編譯，解決方案也還是將 GUID 參數化。
@@ -120,24 +120,24 @@ where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
 下列查詢顯示依查詢雜湊的查詢計數，以確定查詢是否已正確參數化：
 
 ```sql
-   SELECT  TOP 10  
-      q.query_hash
-      , count (distinct p.query_id ) AS number_of_distinct_query_ids
-      , min(qt.query_sql_text) AS sampled_query_text
-   FROM sys.query_store_query_text AS qt
-      JOIN sys.query_store_query AS q
-         ON qt.query_text_id = q.query_text_id
-      JOIN sys.query_store_plan AS p 
-         ON q.query_id = p.query_id
-      JOIN sys.query_store_runtime_stats AS rs 
-         ON rs.plan_id = p.plan_id
-      JOIN sys.query_store_runtime_stats_interval AS rsi
-         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
-   WHERE
-      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
-      AND query_parameterization_type_desc IN ('User', 'None')
-   GROUP BY q.query_hash
-   ORDER BY count (distinct p.query_id) DESC
+SELECT  TOP 10  
+  q.query_hash
+  , count (distinct p.query_id ) AS number_of_distinct_query_ids
+  , min(qt.query_sql_text) AS sampled_query_text
+FROM sys.query_store_query_text AS qt
+  JOIN sys.query_store_query AS q
+     ON qt.query_text_id = q.query_text_id
+  JOIN sys.query_store_plan AS p 
+     ON q.query_id = p.query_id
+  JOIN sys.query_store_runtime_stats AS rs 
+     ON rs.plan_id = p.plan_id
+  JOIN sys.query_store_runtime_stats_interval AS rsi
+     ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+WHERE
+  rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+  AND query_parameterization_type_desc IN ('User', 'None')
+GROUP BY q.query_hash
+ORDER BY count (distinct p.query_id) DESC
 ```
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>解決問題查詢或提供更多資源
@@ -183,7 +183,7 @@ where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
 - 高 CPU 取用查詢可能仍在執行，而查詢尚未完成
 - 發生容錯移轉時，高 CPU 取用查詢正在執行
 
-查詢存放區和等候統計資料追蹤動態管理檢視僅顯示已完成和逾時查詢的結果，並且不會顯示目前正在執行之陳述式的資料 (直到它們完成)。  動態管理檢視 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 允許您追蹤目前正在執行的查詢和相關聯的背景工作時間。
+查詢存放區和等候統計資料追蹤動態管理檢視僅顯示已完成和逾時查詢的結果，並且不會顯示目前正在執行之陳述式的資料 (直到它們完成)。 動態管理檢視 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 允許您追蹤目前正在執行的查詢和相關聯的背景工作時間。
 
 如先前的圖表中所示，最常見的等候是：
 
@@ -198,6 +198,8 @@ where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
 > - [識別 I/O 效能問題](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [識別 `tempdb` 效能問題](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [識別記憶體授與等候](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
+> - [TigerToolbox-等候和閂鎖](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox-usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## <a name="improving-database-performance-with-more-resources"></a>使用更多資源提升資料庫效能
 

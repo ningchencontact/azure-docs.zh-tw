@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: f6693de861658c7174614e80906ee83633fcb313
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501087"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995620"
 ---
 # <a name="creating-and-using-resource-files"></a>建立和使用資源檔
 
@@ -72,7 +72,7 @@ ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 
 而不是設定和建立 SAS URL，您可以使用 Azure 儲存體容器的名稱來存取 blob 資料。 儲存體容器會使用必須連結到您的 Batch 帳戶，稱為 autostorage 帳戶的 Azure 儲存體帳戶中。 使用 autostorage 帳戶的儲存體容器名稱，可讓您略過設定，並建立用來存取儲存體容器的 SAS URL。
 
-在此範例中，我們假設要用於建立資源檔的資料已在連結至您的 Batch 帳戶的 Azure 儲存體帳戶。 如果您還沒有 autostorage 帳戶，請參閱中的步驟[建立 Batch 帳戶](/create-a-batch-account.md)如需有關如何建立並將帳戶連結。
+在此範例中，我們假設要用於建立資源檔的資料已在連結至您的 Batch 帳戶的 Azure 儲存體帳戶。 如果您還沒有 autostorage 帳戶，請參閱中的步驟[建立 Batch 帳戶](batch-account-create-portal.md)如需有關如何建立並將帳戶連結。
 
 藉由使用連結的儲存體帳戶，您不需要建立及設定儲存體容器的 SAS URL。 相反地，提供您連結的儲存體帳戶中的儲存體容器名稱。
 

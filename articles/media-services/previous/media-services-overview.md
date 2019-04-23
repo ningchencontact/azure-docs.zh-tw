@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a98d3acc3f45772f9e28c23a639f495b75bea0a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: efdc3f657712794325f8af6f1b0178915e7a8e6b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850055"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000285"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒體服務概觀 
 
@@ -75,12 +75,6 @@ Microsoft Azure 媒體服務 (AMS) 是一個可延伸的雲端式平台，供開
 如需詳細資訊，請參閱[跨資料中心的 AMS 功能和服務情節和可用性](scenarios-and-availability.md)。
 
 ## <a name="service-level-agreement-sla"></a>服務等級協定 (SLA)
-
-* 對於媒體服務編碼，我們保證 REST API 交易可用性高達 99.9%。
-* 對於串流，我們在購買一個標準或近界串流端點時，針對現有的媒體內容，可保證以 99.9% 的可用性成功服務要求。
-* 對於即時通道，我們保證執行中的通道至少 99.9% 的時間具有外部連線能力。
-* 對於內容保護，我們保證至少 99.9% 的時間將會成功滿足金鑰要求。
-* 對於索引子，我們將會在 99.9% 的時間成功服務編碼保留單元處理的索引子工作要求。
 
 如需詳細資訊，請參閱 [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/)。
 

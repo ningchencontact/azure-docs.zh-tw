@@ -6,20 +6,20 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: cc47ca07a843daf5cc35d23b838761166d39bdcc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351366"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000652"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>部署使用 GPU 資源的容器執行個體
 
 若要在 Azure 容器執行個體上執行某些計算密集型工作負載，請部署包含「GPU 資源」的[容器群組](container-instances-container-groups.md)。 群組中的容器執行個體可以存取一或多個 NVIDIA Tesla GPU，同時執行容器工作負載，例如 CUDA 和深度學習應用程式。
 
-如本文中所示，您可以使用 [YAML 檔案](container-instances-multi-container-yaml.md)或 [Resource Manager 範本](container-instances-multi-container-group.md)，在部署容器群組時，加入 GPU 資源。
+這篇文章示範如何加入 GPU 資源，當您使用部署容器群組[YAML 檔案](container-instances-multi-container-yaml.md)或是[Resource Manager 範本](container-instances-multi-container-group.md)。 當您部署容器執行個體使用 Azure 入口網站時，您也可以指定 GPU 資源。
 
 > [!IMPORTANT]
 > 此功能目前在預覽階段，但[有某些限制](#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]，即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
@@ -61,7 +61,7 @@ ms.locfileid: "58351366"
 
 * **定價** - 類似於沒有 GPU 資源的容器群組，Azure 是以含 GPU 資源的容器群組在其「持續時間」內所耗用的資源來計費。 持續時間是從提取您第一個容器的映像開始計算，直到容器群組終止。 不包含部署容器群組的時間。
 
-  含 GPU 資源之容器群組的定價比不含 GPU 資源的高。 請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/container-instances/)。
+  請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/container-instances/)。
 
 * **CUDA 驅動程式** - 含 GPU 資源的容器執行個體已預先佈建 NVIDIA CUDA 驅動程式和容器執行階段，因此您可以使用針對 CUDA 工作負載開發的容器映像。
 

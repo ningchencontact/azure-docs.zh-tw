@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 49000d4fd61e7cd061b415d50545a7f5ee56f3fb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579118"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002473"
 ---
 # <a name="call-a-function-from-powerapps"></a>從 PowerApps 呼叫函式
 [PowerApps](https://powerapps.microsoft.com) 平台的設計是為了讓商務專家不需要傳統應用程式程式碼，就能建置應用程式。 專業開發人員可以使用 Azure Functions 來擴充 PowerApps 的功能，同時透過技術詳細資料來防護 PowerApps 應用程式建立器。
@@ -38,6 +38,9 @@ ms.locfileid: "45579118"
 > * 新增控制項以檢視應用程式中的資料。
 > * 新增控制項以呼叫函式並顯示資料。
 > * 執行應用程式以判斷修復是否符合成本效益。
+
+> [!IMPORTANT]
+> OpenAPI 功能目前處於預覽狀態，並且僅適用於 1.x 版的 Azure Functions 執行階段。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -207,7 +210,7 @@ ms.locfileid: "45579118"
 ## <a name="run-the-app"></a>執行應用程式
 您有一個完整的應用程式！ 現在可以執行並查看函式呼叫的運作狀況。
 
-1. 在 PowerApps Studio 的右上角，按一下 [執行] 按鈕： ![執行應用程式按鈕](media/functions-powerapps-scenario/f5-arrow-sm.png).
+1. 在 PowerApps Studio 的右上角，按一下 [執行] 按鈕： ![執行應用程式按鈕](media/functions-powerapps-scenario/f5-arrow-sm.png)上也提供本文中使用的原始碼。
 
 1. 選取 [需要維修] 的值為 [`Yes`] 的渦輪機，然後按一下 [計算成本] 按鈕。 您應該會看到如下圖所示的結果。
 

@@ -5,22 +5,27 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c5e6a44409e082f10a532759e3403f6b5801fdca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 6c83298b102d6782647f3baebf6f98e43cb3ad7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551586"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011838"
 ---
 儲存體最佳化 VM 大小提供高磁碟輸送量和 IO，適用於巨量資料、SQL、NoSQL 資料庫、資料倉儲及大型交易資料庫。  範例包括 Cassandra、MongoDB、Cloudera 及 Redis。 本文提供有關每個最佳化大小的 vCPU、資料磁碟和 NIC 數量，以及本機儲存體輸送量和網路頻寬的資訊。
 
 Lsv2 系列以在全核心加速為 2.55GHz 且最大加速為 3.0GHz 之 [AMD EPYC &trade; 7551 處理器](https://www.amd.com/en/products/epyc-7000-series)上執行的高輸送量、低延遲、直接對應的本機 NVMe 儲存體為特色。 Lsv2 系列 VM 提供採用同時多執行緒設定且具有 8 到 80 個 vCPU 的大小。  每一 vCPU 有 8 GiB 記憶體，每 8 個 vCPU 有一個 1.92 TB NVMe SSD M.2 裝置，在 L80s v2 上最高可達 19.2 TB (10 x 1.92 TB)。
 
 > [!NOTE]
-> 若要使用本機的磁碟直接連接到 VM，而不是使用持久的資料磁碟的節點上最適合 Lsv2 系列 Vm。 這可提升您工作負載的 IOPS/輸送量。 Lsv2 系列不支援建立以增加長期的資料磁碟的 IOPS 可達成的本機快取。 高輸送量和 IOPS 的本機磁碟會讓 Lsv2 系列 Vm 適合用來將資料複寫到多個 Vm 來達到持續性的單一 VM 失敗時的 Apache Cassandra 等 MongoDB 的 NoSQL 存放區。
+> 若要使用本機的磁碟直接連接到 VM，而不是使用持久的資料磁碟的節點上最適合 Lsv2 系列 Vm。 這可提升您工作負載的 IOPS/輸送量。 Ls 系列與 Lsv2 不支援建立以增加長期的資料磁碟的 IOPs 可達成的本機快取。
+>
+> 高輸送量和 IOPs 的本機磁碟將 Lsv2 及 Ls 系列 Vm 適合用來將資料複寫到多個 Vm 來達到持續性的單一 VM 失敗時的 Apache Cassandra 等 MongoDB 的 NoSQL 存放區。
+>
+> 若要進一步了解，請參閱[Lsv2 系列虛擬機器上的效能最佳化](../articles/virtual-machines/linux/storage-performance.md)。  
+
 
 ## <a name="lsv2-series"></a>Lsv2 系列
 

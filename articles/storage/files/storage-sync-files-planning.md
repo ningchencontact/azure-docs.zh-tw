@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e5078176b14835938c190daa031c12055ba9ffc3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918632"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996351"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -113,7 +113,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 ### <a name="system-requirements"></a>系統需求
 - 執行 Windows Server 2012 R2、Windows Server 2016 或 Windows Server 2019 的伺服器：
 
-    | 版本 | 支援的 SKU | 支援的部署選項 |
+    | Version | 支援的 SKU | 支援的部署選項 |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
     | Windows Server 2016 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
@@ -242,7 +242,7 @@ Azure 檔案同步僅於下列區域提供：
 | 加拿大東部 | 魁北克市 |
 | 印度中部 | 浦那 |
 | 美國中部 | 愛荷華州 |
-| 東亞 | 香港 |
+| 東亞 | 香港特別行政區 |
 | 美國東部 | 維吉尼亞州 |
 | 美國東部 2 | 維吉尼亞州 |
 | 日本東部 | 東京，埼玉 |

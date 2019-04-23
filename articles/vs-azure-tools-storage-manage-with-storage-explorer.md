@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225088"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002675"
 ---
 # <a name="get-started-with-storage-explorer"></a>開始使用儲存體總管
 
@@ -61,7 +61,7 @@ Azure 儲存體總管是一個獨立應用程式，可讓您在 Windows、macOS 
 
 Azure 儲存體總管或許可以在其他發行版本上執行，但官方僅支援上面列出的發行版本。
 
-在 Linux 上安裝儲存體總管的詳細說明，請參閱[疑難排解指南](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies)。
+如需如何在 Linux 上安装存储资源管理器的更多帮助，请参阅[故障排除指南](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies)。
 
 Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)包含某些發行版本的特定步驟。
 
@@ -99,7 +99,7 @@ Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=8382
 
 2. 左窗格現在會顯示您已登入的所有 Azure 帳戶。 若要連線到另一個帳戶，請選取 [新增帳戶]
 
-3. 如果您要登入國家雲端或 Azure Stack，請按一下 [Azure 環境] 下拉式清單以選取您要使用的 Azure 雲端。 選擇您的環境後，按一下 [登入...] 按鈕。 如果您要登入 Azure Stack，請參閱[將儲存體總管連線到 Azure Stack 訂用帳戶](azure-stack/user/azure-stack-storage-connect-se.md)以取得詳細資訊。
+3. 如果您要登入國家雲端或 Azure Stack，請按一下 [Azure 環境] 下拉式清單以選取您要使用的 Azure 雲端。 選擇您的環境後，按一下 [登入...] 按鈕。 如果您要登入 Azure Stack，請參閱[將儲存體總管連線到 Azure Stack 訂用帳戶](/azure-stack/user/azure-stack-storage-connect-se)以取得詳細資訊。
 
     ![登入選項][2]
 

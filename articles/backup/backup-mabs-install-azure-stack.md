@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497922"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996504"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安裝 Azure 備份伺服器
 
@@ -61,7 +61,7 @@ Azure Stack 工作負載中使用的所有虛擬機器必須屬於同一個 Azur
 每個 Azure Stack 虛擬機器皆隨附暫存磁碟存放區，可供使用者作為磁碟區 `D:\`。 Azure 備份所需的本機暫存區域可設定成位在 `D:\` 中，快取位置可位於 `C:\`。 如此一來，便無須將存放區與連結到 Azure 備份伺服器虛擬機器的資料磁碟劃分開來。
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>將備份資料儲存在本機磁碟與 Azure 中
-Azure 備份伺服器會將備份資料儲存在連結至虛擬機器的 Azure 磁碟上，以復原作業。 在磁碟與儲存空間連結到虛擬機器後，Azure 備份伺服器便會為您管理存放區。 備份資料存放區的數量視連結到每個 [Azure Stack 虛擬機器](../azure-stack/user/azure-stack-storage-overview.md)的磁碟數目和大小而定。 每個 Azure Stack VM 的大小，均有可連結至虛擬機器的磁碟數目上限。 例如，A2 是四個磁碟。 A3 是八個磁碟。 A4 是 16 個磁碟。 同樣地，磁碟的大小和數目決定了總備份存放集區。
+Azure 備份伺服器會將備份資料儲存在連結至虛擬機器的 Azure 磁碟上，以復原作業。 在磁碟與儲存空間連結到虛擬機器後，Azure 備份伺服器便會為您管理存放區。 備份資料存放區的數量視連結到每個 [Azure Stack 虛擬機器](/azure-stack/user/azure-stack-storage-overview)的磁碟數目和大小而定。 每個 Azure Stack VM 的大小，均有可連結至虛擬機器的磁碟數目上限。 例如，A2 是四個磁碟。 A3 是八個磁碟。 A4 是 16 個磁碟。 同樣地，磁碟的大小和數目決定了總備份存放集區。
 
 > [!IMPORTANT]
 > 您**不應該**將作業復原 (備份) 資料保留在 Azure 備份伺服器連結的磁碟上超過五天。
@@ -73,7 +73,7 @@ Azure 備份伺服器會將備份資料儲存在連結至虛擬機器的 Azure �
  
 ### <a name="scaling-deployment"></a>調整部署
 如果您想要調整部署，您有以下幾種選擇：
-  - 縱向擴展：將 Azure 備份伺服器虛擬機器的大小從 A 系列增加到 D 系列，並[遵照 Azure Stack 虛擬機器指示](../azure-stack/user/azure-stack-manage-vm-disks.md)增加本機存放區。
+  - 縱向擴展：將 Azure 備份伺服器虛擬機器的大小從 A 系列增加到 D 系列，並[遵照 Azure Stack 虛擬機器指示](/azure-stack/user/azure-stack-manage-vm-disks)增加本機存放區。
   - 卸載資料：將較舊的資料傳送至 Azure，只將最新資料保留在與 Azure 備份伺服器連結的存放區。
   - 橫向擴展：新增更多的 Azure 備份伺服器來保護工作負載。
 
@@ -214,7 +214,7 @@ Azure 備份伺服器與 Data Protection Manager 共用程式碼。 您會在 Az
 
     ![Azure 備份伺服器 - 歡迎使用和必要條件檢查](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    如果您的環境具有所需的必要條件，就會看到訊息指出機器符合需求。 按 [下一步] 。  
+    如果您的環境具有所需的必要條件，就會看到訊息指出機器符合需求。 单击“下一步”。  
 
     ![Azure 備份伺服器 - 必要條件檢查通過](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
@@ -315,7 +315,7 @@ Azure 備份伺服器與 Data Protection Manager 共用程式碼。 您會在 Az
 
 ## <a name="network-connectivity"></a>網路連線
 
-Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運作。 若要驗證機器是否連接至 Azure，請在Azure 備份伺服器 PowerShell 主控台中使用 ```Get-DPMCloudConnection``` Cmdlet。 如果 Cmdlet 的輸出為 TRUE，表示連線存在，否則沒有連線。
+Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若要驗證機器是否連接至 Azure，請在Azure 備份伺服器 PowerShell 主控台中使用 ```Get-DPMCloudConnection``` Cmdlet。 如果 Cmdlet 的輸出為 TRUE，表示連線存在，否則沒有連線。
 
 同時，Azure 訂用帳戶也必須處於狀況良好狀態。 若您想了解訂用帳戶狀態並加以管理，請登入 [訂用帳戶入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
 
@@ -323,12 +323,12 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 | 連線狀態 | Azure 訂閱 | 備份至 Azure | 備份到磁碟 | 從 Azure 還原 | 從磁碟還原 |
 | --- | --- | --- | --- | --- | --- |
-| 連線 |Active |允許 |允許 |允許 |允許 |
+| 連線 |Active |允许 |允許 |允許 |允許 |
 | 連線 |已過期 |已停止 |已停止 |允許 |允許 |
 | 連線 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
 | 連線中斷 > 15 天 |Active |已停止 |已停止 |允許 |允許 |
-| 連線中斷 > 15 天 |已過期 |已停止 |已停止 |允許 |允許 |
-| 連線中斷 > 15 天 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
+| 連線中斷 > 15 天 |Expired |已停止 |已停止 |允許 |允許 |
+| 连接断开超过 15 天 |已取消佈建 |已停止 |已停止 |已停止且已刪除 Azure 復原點 |已停止 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>從連線中斷的情況復原
 

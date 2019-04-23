@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496874"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995654"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活動記錄監視訂用帳戶活動
 
@@ -65,6 +65,9 @@ ms.locfileid: "59496874"
 * 透過 PowerShell Cmdlet、CLI 或 REST API 查詢活動記錄。
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>在 Azure 入口網站中查詢活動記錄
+
+> [!NOTE] 
+> 活動記錄檔會儲存 90 天後端中的記錄檔。 如果您想要保留超過這資料，請設定**記錄檔設定檔**如下所述。 
 
 在 Azure 入口網站中，您可以從幾個地方檢視活動記錄：
 * [活動記錄]，您可以在左側瀏覽窗格的 [所有服務] 底下，搜尋活動記錄以進行存取。
@@ -143,9 +146,9 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 | Name |是 |記錄檔設定檔的名稱。 |
 | StorageAccountId |否 |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
 | serviceBusRuleId |否 |服务总线命名空间（需在其中创建事件中心）的服务总线规则 ID。 將會是此格式的字串︰`{service bus resource ID}/authorizationrules/{key name}`。 |
-| Location |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 |
+| 位置 |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 |
 | RetentionInDays |是 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄。 |
-| Category |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。 |
+| 類別 |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。 |
 
 #### <a name="remove-a-log-profile"></a>移除記錄檔設定檔
 

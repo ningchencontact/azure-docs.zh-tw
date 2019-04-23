@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: 840c2793928816c6346e2039a38678585f8e0bc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b1cae7dc553ce324349e66f1bcb8a281d7c7c7e0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273119"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995591"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure 資料表儲存體作業 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -101,7 +101,7 @@ New-AzStorageTable –Name $tableName –Context $ctx
 
 ## <a name="retrieve-a-list-of-tables-in-the-storage-account"></a>擷取儲存體帳戶中的資料表清單
 
-擷取一份資料表中使用您建立儲存體帳戶[Get AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable)。
+擷取一份資料表中使用您建立儲存體帳戶[Get AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable)。
 
 ```powershell
 Get-AzStorageTable –Context $ctx | select Name
@@ -109,7 +109,7 @@ Get-AzStorageTable –Context $ctx | select Name
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>擷取特定資料表的參考
 
-若要在資料表上執行作業，您需要針對那個特定資料表的參考。 取得參考，使用[Get AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable)。
+若要在資料表上執行作業，您需要針對那個特定資料表的參考。 取得參考，使用[Get AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable)。
 
 ```powershell
 $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx

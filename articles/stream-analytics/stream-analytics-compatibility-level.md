@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.openlocfilehash: b5c833798f8533e7c6fbe3595a726ac6ce56e2d2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: e4bbfdbcf7a295089570d4c8b77b07fd7270b3fd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682809"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998255"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 串流分析作業的相容性層級
 
@@ -75,7 +75,7 @@ Azure Stream Analytics 支援開放式地理空間的參考資料編製索引。
 
 **先前的層級：** 更新插入行為*插入或合併*。
 
-**1.2 的層級：** 使用 CosmosDB 輸出的原生大量 API 整合最大化輸送量，並可以有效率地處理節流的要求。
+**1.2 的層級：** 使用 CosmosDB 輸出的原生大量 API 整合最大化輸送量，並可以有效率地處理節流的要求。 如需詳細資訊，請參閱 < [Azure Stream Analytics 輸出至 Azure Cosmos DB 頁面](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12)。
 
 更新插入行為*插入或取代*。
 

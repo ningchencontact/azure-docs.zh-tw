@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf777917bc2e09f08cbfaac6334bf9bda198f01
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439377"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996164"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -174,9 +174,11 @@ ms.locfileid: "58439377"
 |81012|這不是錯誤狀況。 這表示嘗試登入 Azure AD 的使用者與登入裝置的使用者不同。 您可以放心地忽略記錄中此錯誤碼。|
 |90010|基於各種不同的原因而不支援該要求。 例如，該要求是使用不支援的要求方法 (僅支援 POST 方法)，或不支援所要求的權杖簽章演算法。 請連絡應用程式開發人員。|
 |90014| 遺漏通訊協定訊息的必要欄位，請連絡應用程式擁有者。 如果您是應用程式擁有者，請確定擁有登入要求的所有必要參數。 |
+|90051| 無效的委派權杖。 指定不正確的國家雲端識別碼 ({cloudId})。|
 |90072| 必須先在租用戶中將帳戶新增為外部使用者。 登出後再使用不同的 Azure AD 帳戶登入。|
 |90094| 進行授與需要系統管理員權限。 詢問您的租用戶系統管理員，以提供對此應用程式的同意。|
 |500133| Assert 陳述式不在其有效時間範圍內。 先確認存取權杖未過期，再將它用於使用者 Assert 陳述式，或要求新權杖。|
+|530021|應用程式不符合已核准的條件式存取應用程式需求。|
 
 ## <a name="next-steps"></a>後續步驟
 

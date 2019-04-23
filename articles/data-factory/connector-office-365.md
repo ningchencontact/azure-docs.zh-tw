@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 5d2d5948d817cbe80d00b74ef104ebaffcb511fb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297458"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995807"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>使用 Azure Data Factory 將資料從 Office 365 複製到 Azure (預覽) 
 
@@ -27,7 +27,7 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-現在，在單一複製活動內，您只能以 JSON 格式 (setOfObjects 類型) **將資料從 Office 365 複製到 [Azure Blob 儲存體](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)，和 [Azure Data Lake Storage Gen2 (預覽)](connector-azure-data-lake-storage.md)**。 如果您想要將 Office 365 載入其他類型的資料存放區，或以其他格式載入，可以將第一個複製活動與後續的複製活動鏈結，進一步將資料載入任何[支援的 ADF 目的地存放區](copy-activity-overview.md#supported-data-stores-and-formats) (請參閱「支援的資料存放區和格式」資料表中的「支援作為接收器」)。
+現在，在單一複製活動中只可**的資料複製到 Office 365 [Azure Blob 儲存體](connector-azure-blob-storage.md)， [Azure Data Lake 儲存體 Gen1](connector-azure-data-lake-store.md)，和[Azure Data Lake 儲存體 Gen2](connector-azure-data-lake-storage.md) JSON 格式**（輸入 setOfObjects）。 如果您想要將 Office 365 載入其他類型的資料存放區，或以其他格式載入，可以將第一個複製活動與後續的複製活動鏈結，進一步將資料載入任何[支援的 ADF 目的地存放區](copy-activity-overview.md#supported-data-stores-and-formats) (請參閱「支援的資料存放區和格式」資料表中的「支援作為接收器」)。
 
 >[!IMPORTANT]
 >- 包含資料處理站和接收資料存放區的 Azure 訂用帳戶必須與 Office 365 租用戶位於相同的 Azure Active Directory (Azure AD) 租用戶下。
@@ -64,7 +64,7 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 
 您可以使用下列其中一個工具或 SDK，以建立內含複製活動的管線。 選取連結以移至逐步指示教學課程，以建立內含複製活動的管線。 
 
-- [Azure 入口網站](quickstart-create-data-factory-portal.md)
+- [Azure 门户](quickstart-create-data-factory-portal.md)
 - [.NET SDK](quickstart-create-data-factory-dot-net.md)
 - [Python SDK](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
@@ -77,7 +77,7 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 
 以下是 Office 365 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Office365** | 是 |
 | office365TenantId | Office 365 帳戶所屬的 Azure 租用戶識別碼。 | 是 |
@@ -117,7 +117,7 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 
 若要從 Office 365 複製資料，以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**Office365Table** | 是 |
 | tableName | 擷取自 Office 365 的資料集名稱。 如需可供擷取的 Office 365 資料集清單，請參閱[這裡](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets)。 | 是 |

@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: d90f23f52ca4c0cce3d853114acf673aa085d3c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889774"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994993"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中樞和 Node.js 傳送推播通知
 
@@ -63,25 +63,24 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 > 您可以從官方 [NPM 部落格](https://blog.npmjs.org/post/85484771375/how-to-install-npm)進一步了解如何安裝 NPM。
 
 ### <a name="import-the-module"></a>匯入模組
-
 使用文字編輯器，將下列內容新增至應用程式的 `server.js` 檔案頂端：
 
-    ```javascript
-    var azure = require('azure');
-    ```
+```javascript
+var azure = require('azure-sb');
+```
 
 ### <a name="set-up-an-azure-notification-hub-connection"></a>設定 Azure 通知中樞連線
 
 `NotificationHubService` 物件可讓您使用通知中樞。 下列程式碼替名為 `hubname` 的通知中樞建立 `NotificationHubService` 物件。 請將程式碼新增至 `server.js` 檔案的頂端附近，放置在匯入 Azure 模型的陳述式後方：
 
-    ```javascript
-    var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
-    ```
+```javascript
+var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+```
 
 藉由執行下列步驟，從 [Azure 入口網站]取得連線 `connectionstring` 值：
 
 1. 在左導覽窗格中，按一下 [瀏覽] 。
-2. 選取 [通知中樞] ，然後尋找您要用於範例的中樞。 如果您需要建立新通知中樞的說明，您可以參考 [Windows 市集開始使用教學課程](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 。
+2. 選取 [通知中樞] ，然後尋找您要用於範例的中樞。 您可以參考[Windows 市集開始使用教學課程](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)如果您需要建立新的通知中樞的說明。
 3. 選取 [Settings] \(設定) 。
 4. 按一下 [存取原則] 。 您會看到兩個共用和完整存取連接字串。
 
@@ -111,18 +110,18 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 
 下列程式碼使用 `NotificationHubService` 所公開的 `GcmService` 執行個體，傳送推播通知至所有已註冊的用戶端。
 
-    ```javascript
-    var payload = {
-      data: {
-        message: 'Hello!'
-      }
-    };
-    notificationHubService.gcm.send(null, payload, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-    ```
+```javascript
+var payload = {
+  data: {
+    message: 'Hello!'
+  }
+};
+notificationHubService.gcm.send(null, payload, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-ios-applications"></a>作法：將推播通知傳送至 iOS 應用程式
 
@@ -136,16 +135,16 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 
 下列程式碼使用 `NotificationHubService` 所公開的 `ApnsService` 執行個體，傳送警示訊息至所有用戶端：
 
-    ```javascript
-    var payload={
-        alert: 'Hello!'
-      };
-    notificationHubService.apns.send(null, payload, function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload={
+    alert: 'Hello!'
+  };
+notificationHubService.apns.send(null, payload, function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>作法：將推播通知傳送至 Windows Phone 應用程式
 
@@ -162,14 +161,14 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 
 下列範例程式碼使用 `NotificationHubService` 所公開的 `MpnsService` 執行個體傳送快顯推播通知：
 
-    ```javascript
-    var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
-    notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
+notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>作法：將推播通知傳送至通用 Windows 平台 (UWP) 應用程式
 
@@ -185,14 +184,14 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 
 下列程式碼使用 `NotificationHubService` 所公開的 `WnsService` 執行個體傳送快顯推播通知至 UWP 應用程式：
 
-    ```javascript
-    var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
-    notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
+notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9d5b7f32cb298315a5816562f548bcdafbdeb5cf
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: cb4a3ec9be82957b4c0366ec232f1147c52d0251
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682303"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148767"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中從另一個實驗室匯入 VM
-Azure DevTest Labs 服務大幅改善開發和測試活動的虛擬機器 (VM) 管理。 它可讓您隨著小組或基礎結構需求的變更，將 VM 從一個實驗室移至另一個實驗室。 以下是一些您可能需要這麼做的常見案例： 
+Azure DevTest Labs 服務大幅改善開發和測試活動的虛擬機器 (VM) 管理。 它可讓您隨著小組或基礎結構需求的變更，將 VM 從一個實驗室移至另一個實驗室。 以下是一些您可能需要這麼做的常見案例：
 
 - 小組中的某個人員移至企業內的另一個群組，而想要將開發 VM 帶到新小組的實驗室。
 - 群組已觸達訂用帳戶層級配額，而想要將小組分割成多個訂用帳戶。
@@ -42,10 +42,10 @@ Azure DevTest Labs 可讓實驗室擁有者將來源實驗室中的 VM 匯入至
 目前，您只能使用 Azure PowerShell 和 REST API 將 VM 從一個實驗室匯入至另一個實驗室。
 
 ### <a name="use-powershell"></a>使用 PowerShell
-請從 [Azure DevTest Lab Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) 將 PowerShell 指令檔 ImportVirtualMachines.ps1 下載到您的本機磁碟機。 
+請從 [Azure DevTest Lab Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) 將 PowerShell 指令檔 ImportVirtualMachines.ps1 下載到您的本機磁碟機。
 
 #### <a name="import-a-single-vm"></a>匯入單一 VM
-請執行 ImportVirtualMachines.ps1 指令碼以將單一 VM 從來源實驗室匯入至目的地實驗室。 您可以使用 DestinationVirtualMachineName 參數為所要複製的 VM 指定新名稱。 
+請執行 ImportVirtualMachines.ps1 指令碼以將單一 VM 從來源實驗室匯入至目的地實驗室。 您可以使用 DestinationVirtualMachineName 參數為所要複製的 VM 指定新名稱。
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -58,7 +58,7 @@ Azure DevTest Labs 可讓實驗室擁有者將來源實驗室中的 VM 匯入至
 
 
 #### <a name="importing-all-vms"></a>匯入所有 VM
-執行 ImportVirtualMachines.ps1 指令碼時，如果您未指定來源實驗室中的 VM，指令碼就會將來源實驗室中的所有 VM 都匯入至目的地實驗室。 
+執行 ImportVirtualMachines.ps1 指令碼時，如果您未指定來源實驗室中的 VM，指令碼就會將來源實驗室中的所有 VM 都匯入至目的地實驗室。
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -68,7 +68,7 @@ Azure DevTest Labs 可讓實驗室擁有者將來源實驗室中的 VM 匯入至
 ```
 
 ### <a name="use-rest-api"></a>使用 REST API
-請針對目標/目的地實驗室叫用 REST API，然後以參數形式傳入來源實驗室、訂用帳戶及 VM 資訊，如以下範例所示： 
+請針對目標/目的地實驗室叫用 REST API，然後以參數形式傳入來源實驗室、訂用帳戶及 VM 資訊，如以下範例所示：
 
 ```json
 POST https://management.azure.com/subscriptions/<ID of the target/destination subscription>/resourceGroups/<Name of the resource group that contains the destination lab>/providers/Microsoft.DevTestLab/labs/<Name of the lab to which the VMs are copied>/ImportVirtualMachine?api-version=2017-04-26-preview
@@ -82,5 +82,3 @@ POST https://management.azure.com/subscriptions/<ID of the target/destination su
 
 - 如需有關調整 VM 大小的資訊，請參閱[調整 VM 的大小](devtest-lab-resize-vm.md)。
 - 如需有關重新部署 VM 的資訊，請參閱[重新部署 VM](devtest-lab-redeploy-vm.md)。
-
-

@@ -55,7 +55,7 @@ LUIS 應用程式包含領域特定自然語言模型。 您可以從預先建�
 ## <a name="build-the-luis-model"></a>建置 LUIS 模型
 使用[撰寫](https://aka.ms/luis-authoring-apis) API 或使用 LUIS 入口網站建置模型。
 
-LUIS 模型的首要組件是使用者意向的類別，名為**[意圖](luis-concept-intent.md)**。 每個意圖都需要使用者**[語句](luis-concept-utterance.md)** 的範例。 每個語句都提供各種不同需要以**[實體](luis-concept-entity-types.md)** 擷取的資料。 
+LUIS 模型的首要組件是使用者意向的類別，名為 **[意圖](luis-concept-intent.md)** 。 每個意圖都需要使用者 **[語句](luis-concept-utterance.md)** 的範例。 每個語句都提供各種不同需要以 **[實體](luis-concept-entity-types.md)** 擷取的資料。 
 
 |範例使用者語句|意圖|實體|
 |-----------|-----------|-----------|

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651538"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149309"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>關於 Azure 中進行 Azure 複寫的網路功能
 
@@ -48,7 +48,7 @@ ms.locfileid: "58651538"
 
 **URL** | **詳細資料**  
 --- | ---
-*.blob.core.windows.net | 需要此項目方可從 VM 將資料寫入來源地區的快取儲存體帳戶中。 如果您知道所有快取儲存體帳戶為您的 Vm，您可以加入允許清單的特定儲存體帳戶 Url (例如： cache1.blob.core.windows.net 和 cache2.blob.core.windows.net) 而不是 *.blob.core.windows.net
+*.blob.core.windows.net | 需要此項目方可從 VM 將資料寫入來源地區的快取儲存體帳戶中。 如果您知道所有快取儲存體帳戶為您的 Vm，您可以加入白名單的特定儲存體帳戶 Url (例如： cache1.blob.core.windows.net 和 cache2.blob.core.windows.net) 而不是 *.blob.core.windows.net
 login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL 的授權和驗證。
 *.hypervrecoverymanager.windowsazure.com | 需要此項目方可從 VM 進行 Site Recovery 服務通訊。 如果您的防火牆 proxy 支援 Ip，您可以使用對應 ' 站台復原 IP'。
 *.servicebus.windows.net | 需要此項目方可從 VM 寫入 Site Recovery 監視和診斷資料。 如果您的防火牆 proxy 支援 Ip，您可以使用對應 ' Site Recovery 監視 IP'。
@@ -96,13 +96,19 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
    英國南部 2 | 13.87.37.4| 13.87.34.139
    英國北部 | 51.142.209.167 | 13.87.102.68
    南韓中部 | 52.231.28.253 | 52.231.32.85
-   南韓南部 | 52.231.298.185 | 52.231.200.144
+   南韓南部 | 52.231.198.185 | 52.231.200.144
    法國中部 | 52.143.138.106 | 52.143.136.55
    法國南部 | 52.136.139.227 |52.136.136.62
    澳大利亞中部| 20.36.34.70 | 20.36.46.142
    澳大利亞中部 2| 20.36.69.62 | 20.36.74.130
    南非西部 | 102.133.72.51 | 102.133.26.128
    南非北部 | 102.133.160.44 | 102.133.154.128
+   美國政府維吉尼亞州 | 52.227.178.114 | 23.97.0.197
+   US Gov 愛荷華州 | 13.72.184.23 | 23.97.16.186
+   美國政府亞利桑那州 | 52.244.205.45 | 52.244.48.85
+   美國政府德克薩斯州 | 52.238.119.218 | 52.238.116.60
+   美國 DoD 東部 | 52.181.164.103 | 52.181.162.129
+   美國國防部中央 | 52.182.95.237 | 52.182.90.133
 ## <a name="example-nsg-configuration"></a>範例 NSG 設定
 
 這個範例示範如何針對要複寫的 VM 設定 NSG 規則。

@@ -9,113 +9,80 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/15/2019
-ms.openlocfilehash: 0f96ee3a24a811d7e3ab7e65ba4ff14050541638
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.date: 04/15/2019
+ms.openlocfilehash: 75a77843bd7634e8a3fe7a6b46177efe54878682
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443367"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148878"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 Apache Hadoop on HDInsight 與 SQL Database 之間匯入及匯出資料
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-了解如何使用 Apache Sqoop，在 Azure HDInsight 中的 Apache Hadoop 叢集與 Azure SQL Database 或 Microsoft SQL Server 資料庫之間進行匯入和匯出。 本文件中的步驟直接從 Hadoop 叢集的前端節點使用 `sqoop` 命令。 您可以使用 SSH 連接至前端節點，並執行本文件中的命令。
+了解如何使用 Apache Sqoop，在 Azure HDInsight 中的 Apache Hadoop 叢集與 Azure SQL Database 或 Microsoft SQL Server 資料庫之間進行匯入和匯出。 本文件中的步驟直接從 Hadoop 叢集的前端節點使用 `sqoop` 命令。 您可以使用 SSH 連接至前端節點，並執行本文件中的命令。 這篇文章是將延續[在 HDInsight 中搭配 Hadoop 使用 Apache Sqoop](./hdinsight-use-sqoop.md)。
 
-> [!IMPORTANT]  
-> 本文档中的步骤仅适用于使用 Linux 的 HDInsight 群集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+## <a name="prerequisites"></a>必要條件
 
-> [!WARNING]  
-> 本文件的步驟假設您已建立名為 `sqooptest` 的 Azure SQL Database。
->
-> 本文件提供了 T-SQL 陳述式，用於在 SQL Database 中建立和查詢資料表。 有許多用戶端可以搭配使用這些陳述式與 SQL Database。 建議使用下列用戶端：
->
-> * [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)
-> * [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)
-> * [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) 公用程式
+* 完成[設定測試環境](./hdinsight-use-sqoop.md#create-cluster-and-sql-database)從[在 HDInsight 中搭配 Hadoop 使用 Apache Sqoop](./hdinsight-use-sqoop.md)。
 
-## <a name="create-the-table-in-sql-database"></a>在 SQL Database 中建立資料表
+* 若要查詢 Azure SQL database 用戶端。 請考慮使用[SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)或是[Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)。
 
-> [!IMPORTANT]  
-> 如果您使用在[建立叢集與 SQL Database](hdinsight-use-sqoop.md) 中建立的 HDInsight 叢集和 SQL Database，請略過這一節的步驟。 在[建立叢集與 SQL database](hdinsight-use-sqoop.md) 文件的步驟中所建立的資料庫和資料表。
-
-使用 SQL 用戶端連線至 SQL Database 中的 `sqooptest` 資料庫。 然後使用下列 T-SQL 建立名為 `mobiledata` 的資料表：
-
-```sql
-CREATE TABLE [dbo].[mobiledata](
-[clientid] [nvarchar](50),
-[querytime] [nvarchar](50),
-[market] [nvarchar](50),
-[deviceplatform] [nvarchar](50),
-[devicemake] [nvarchar](50),
-[devicemodel] [nvarchar](50),
-[state] [nvarchar](50),
-[country] [nvarchar](50),
-[querydwelltime] [float],
-[sessionid] [bigint],
-[sessionpagevieworder] [bigint])
-GO
-CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
-GO
-```
+* SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="sqoop-export"></a>Sqoop export
 
-1. 使用 SSH 連接到 HDInsight 叢集。 例如，下列命令可連接至名為 `mycluster` 之叢集的主要前端節點：
+從 SQL server 的 Hive。
 
-    ```bash
-    ssh mycluster-ssh.azurehdinsight.net
+1. 使用 SSH 連接到 HDInsight 叢集。 取代`CLUSTERNAME`與叢集的名稱，然後輸入命令：
+
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
-
-2. 若要確認 Sqoop 是否看得見您的 SQL Database，請使用下列命令：
+2. 取代`MYSQLSERVER`您的 SQL Server 的名稱。 若要確認 sqoop 看得見您的 SQL Database，請開啟 SSH 連線中輸入下列命令。 SQL Server 登入出現提示時輸入的密碼。 此命令會傳回一份資料庫。
 
     ```bash
-    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> -P
+    sqoop list-databases --connect jdbc:sqlserver://MYSQLSERVER.database.windows.net:1433 --username sqluser -P
     ```
-    出現提示時，請輸入 SQL Database 的登入密碼。
 
-    此命令會傳回一份資料庫清單，其中包含稍早使用的 **sqooptest** 資料庫。
-
-3. 若要在 SQL Databse 中將資料從 Hive **hivesampletable** 資料表匯出至 **mobiledata** 資料表，請使用下列命令：
+3. 取代`MYSQLSERVER`您的 SQL Server 的名稱和`MYDATABASE`您 SQL 資料庫的名稱。 若要將資料從 Hive 匯出`hivesampletable`資料表`mobiledata`在 SQL Database 資料表中，輸入下列命令，在您開啟的 SSH 連線。 SQL Server 登入出現提示時輸入的密碼
 
     ```bash
-    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --hcatalog-table hivesampletable
+    sqoop export --connect 'jdbc:sqlserver://MYSQLSERVER.database.windows.net:1433;database=MYDATABASE' --username sqluser -P -table 'mobiledata' --hcatalog-table hivesampletable
     ```
 
-4. 若要確認是否已匯出資料，請從 SQL 用戶端使用下列查詢，以檢視匯出的資料：
+4. 若要確認資料已匯出，使用下列查詢從您的 SQL 用戶端若要檢視匯出的資料：
 
     ```sql
-    SET ROWCOUNT 50;
-    SELECT * FROM mobiledata;
+    SELECT COUNT(*) FROM [dbo].[mobiledata] WITH (NOLOCK);
+    SELECT TOP(25) * FROM [dbo].[mobiledata] WITH (NOLOCK);
     ```
-
-    此命令會列出 50 個匯入至資料表的資料列。
 
 ## <a name="sqoop-import"></a>Sqoop import
 
-1. 使用下列命令將資料從 SQL Database 中的 **mobiledata** 資料表匯入至 HDInsight 上的 **wasb:///tutorials/usesqoop/importeddata** 目錄：
+從 SQL Server 到 Azure 儲存體。
+
+1. 取代`MYSQLSERVER`您的 SQL Server 的名稱和`MYDATABASE`您 SQL 資料庫的名稱。 輸入下列命令在您開啟的 SSH 連線匯入資料`mobiledata`到資料表中的 SQL 資料庫，`wasb:///tutorials/usesqoop/importeddata`在 HDInsight 上的目錄。 SQL Server 登入出現提示時輸入的密碼。 資料中的欄位是以定位字元分隔，行是以換行字元終止。
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://MYSQLSERVER.database.windows.net:1433;database=MYDATABASE' --username sqluser -P --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
-    資料中的欄位是以定位字元分隔，行是以換行字元終止。
-
-    > [!IMPORTANT]  
-    > `wasb:///` 路徑會與叢集搭配運作，而叢集會使用 Azure 儲存體作為預設叢集存放區。 如果是使用 Azure Data Lake Storage Gen2 的叢集，請改為使用 `abfs:///`。 如果是使用 Azure Data Lake Storage Gen1 的叢集，請改為使用 `adl:///`。
-
-2. 匯入完成後，使用下列命令來列出新目錄中的資料：
+2. 匯入完成後，請開啟 SSH 連線中輸入下列命令來列出新的目錄中的資料：
 
     ```bash
     hdfs dfs -text /tutorials/usesqoop/importeddata/part-m-00000
     ```
 
-## <a name="using-sql-server"></a>使用 SQL Server
+## <a name="limitations"></a>限制
 
-您也可以使用 Sqoop 從 SQL Server 匯入和匯出資料。 使用 SQL Database 和 SQL Server 之間的差異如下：
+* 大量匯出 - 使用 Linux 型 HDInsight，Sqoop 連接器用來將資料匯出至 Microsoft SQL Server 或 Azure SQL Database，不支援大量插入。
+
+* 批次處理 - 使用 Linux 型 HDInsight，執行插入時若使用 `-batch` 參數，Sqoop 將會執行多個插入，而不是批次處理插入作業。
+
+## <a name="important-considerations"></a>重要考量︰
 
 * HDInsight 與 SQL Server 必須位於相同的 Azure 虛擬網路。
 
@@ -127,35 +94,6 @@ GO
 
 * 可能需要将 SQL Server 配置为接受远程连接。 如需詳細資訊，請參閱[如何疑難排解 SQL Server Database Engine 連線](https://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)文件 (英文)。
 
-* 使用下列 Transact-SQL 陳述式建立 **mobiledata** 資料表︰
-
-    ```sql
-    CREATE TABLE [dbo].[mobiledata](
-    [clientid] [nvarchar](50),
-    [querytime] [nvarchar](50),
-    [market] [nvarchar](50),
-    [deviceplatform] [nvarchar](50),
-    [devicemake] [nvarchar](50),
-    [devicemodel] [nvarchar](50),
-    [state] [nvarchar](50),
-    [country] [nvarchar](50),
-    [querydwelltime] [float],
-    [sessionid] [bigint],
-    [sessionpagevieworder] [bigint])
-    ```
-
-* 在从 HDInsight 连接到 SQL Server 时，可能需要使用 SQL Server 的 IP 地址。 例如︰
-
-    ```bash
-    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
-    ```
-
-## <a name="limitations"></a>限制
-
-* 大量匯出 - 使用 Linux 型 HDInsight，Sqoop 連接器用來將資料匯出至 Microsoft SQL Server 或 Azure SQL Database，不支援大量插入。
-
-* 批次處理 - 使用 Linux 型 HDInsight，執行插入時若使用 `-batch` 參數，Sqoop 將會執行多個插入，而不是批次處理插入作業。
-
 ## <a name="next-steps"></a>後續步驟
 
 現在，您已了解如何使用 Sqoop。 若要深入了解，請參閱：
@@ -163,16 +101,3 @@ GO
 * [使用 Apache Oozie 搭配 HDInsight](../hdinsight-use-oozie-linux-mac.md)：在 Oozie 工作流程中使用 Sqoop 動作。
 * [使用 HDInsight 分析航班延誤資料](../hdinsight-analyze-flight-delay-data-linux.md)：使用 Apache Hive 來分析航班誤點資料，然後使用 Sqoop 將資料匯出至 Azure SQL 資料庫。
 * [將資料上傳至 HDInsight](../hdinsight-upload-data.md)：尋找其他方法將資料上傳至 HDInsight/Azure Blob 儲存體。
-
-[hdinsight-versions]:  ../hdinsight-component-versioning.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[sqldatabase-get-started]: ../sql-database-get-started.md
-
-[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
-
-[sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

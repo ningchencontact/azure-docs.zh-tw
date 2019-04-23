@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788830"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997694"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>如何使用適用於容器的 Azure 監視器 (預覽) 即時檢視容器記錄
 此功能目前處於預覽狀態，可提供您 Azure Kubernetes Service (AKS) 容器記錄 (stdout/stderr) 的即時檢視，而不需執行 kubectl 命令。 選取此選項時，[容器] 檢視上容器效能資料的資料表下方會顯示新窗格。  它會顯示容器引擎產生的即時記錄，以進一步協助疑難排解問題。 **參與者**叢集資源的存取權是需要這項功能才能運作。
@@ -65,7 +65,7 @@ ms.locfileid: "59788830"
 2. 執行下列命令來建立叢集規則繫結：`kubectl create -f LogReaderRBAC.yaml`。 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>使用 Azure Active Directory 設定 AKS
-AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如果您第一次設定此項，請參閱[將 Azure Active Directory 與 Azure Kubernetes Service 整合](../../aks/aad-integration.md)。 在執行建立[用戶端應用程式](../../aks/aad-integration.md#create-client-application)並指定**重新導向 URI** 的步驟期間，您需要將另一個 URI 新增至清單 `https://ininprodeusuxbase.microsoft.com/*`。  
+AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如果您第一次設定此項，請參閱[將 Azure Active Directory 與 Azure Kubernetes Service 整合](../../aks/azure-ad-integration.md)。 在執行建立[用戶端應用程式](../../aks/azure-ad-integration.md#create-client-application)並指定**重新導向 URI** 的步驟期間，您需要將另一個 URI 新增至清單 `https://ininprodeusuxbase.microsoft.com/*`。  
 
 >[!NOTE]
 >使用 Azure Active Directory 設定驗證以進行單一登入，只能在新 AKS 叢集的初始部署期間完成。 您無法針對已經部署的 AKS 叢集設定單一登入。  
@@ -92,4 +92,5 @@ AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如�
 ![即時記錄窗格中的暫停即時檢視](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
 ## <a name="next-steps"></a>後續步驟
-若要繼續了解如何使用 Azure 監視器並監視您 AKS 叢集的其他層面，請參閱[檢視 Azure Kubernetes 服務健康情況](container-insights-analyze.md)。
+- 若要繼續了解如何使用 Azure 監視器並監視您 AKS 叢集的其他層面，請參閱[檢視 Azure Kubernetes 服務健康情況](container-insights-analyze.md)。
+- 檢視[記錄查詢範例](container-insights-log-search.md#search-logs-to-analyze-data)以查看預先定義的查詢和範例，以評估或自訂警示、 視覺化，或分析您的叢集。

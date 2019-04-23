@@ -2,18 +2,18 @@
 title: 在 Azure 資料目錄中儲存搜尋和釘選資料資產
 description: 強調 Azure 資料目錄中用於儲存資料來源和資料資產以供稍後使用之功能的操作說明文章。
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 6bd00a81-820d-4b7c-91fa-ab09e575474c
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 786d65eaf667ae8ae9dc2c91d3113f5057a98a27
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: df3220ddb80ebc329ed6b0024ca4eefd2bdfb321
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052959"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002012"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>在 Azure 資料目錄中儲存搜尋和釘選資料資產
 ## <a name="introduction"></a>簡介
