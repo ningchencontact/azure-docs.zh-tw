@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: 4d867a8befb9333ebf33b9ac7ba179e25f0b9f9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e3c2587fceed265c9768b6ea6f2ecf3b9a8b7b1a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698566"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011331"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 PowerShell 模組
 
@@ -50,20 +50,17 @@ PowerShell 傳統可以安裝與 Az 或是 AzureRM 涵蓋這兩種 「 新 」 �
 
 ## <a name="support-table"></a> PowerShell 支援表格
 
- **Studio 工作區** | **Az** |  **AzureRM** | **PowerShell 傳統** |
-| --- | --- | --- | --- |
-| 建立/刪除工作區 | [Resource Manager 範本](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Resource Manager 範本](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
-| 管理工作區使用者 |  |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
-| 管理承諾用量方案 | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | New-AzureRmMlCommitmentPlan |
-|||
-| **Web 服務** | **Az** | **AzureRM** | **PowerShell 傳統** |
-| 管理 Web 服務 | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br> (「 new 」 web 服務) | New-AzureRmMlWebService <br> (「 new 」 web 服務) |[New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br> (「 傳統 」 web 服務) |
-| 管理端點/金鑰 |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys) <br> (「 new 」 web 服務) | Get-AzureRmMlWebServiceKeys <br> (「 new 」 web 服務) | [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint) <br> (「 傳統 」 web 服務) |
-|||
-| **使用者資產** | **Az** | **AzureRM** | **PowerShell 傳統** |
-| 管理資料集/定型模型 |  |  | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
-| 管理實驗 |  |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
-| 管理自訂模組 |  |  | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
+
+| | **Az** |  **PowerShell 傳統** |
+| --- | --- | --- |
+| 建立/刪除工作區 | [Resource Manager 範本](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
+| 管理工作區的承諾用量方案 | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
+| 管理工作區使用者 |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
+| 管理 Web 服務 | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>(「 new 」 web 服務)|| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>(「 傳統 」 web 服務) |
+| 管理 web 服務端點/索引鍵 |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
+| 管理使用者的資料集/定型模型| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
+| 管理使用者實驗 |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
+| 管理自訂模組 | | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a5b4d9fac1d2fb3ec1a45f34784552b2d41f2cf1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679324"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003848"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>針對 Azure SQL 資料倉儲問題進行疑難排解
 本文列出常見的疑難排解問題。
@@ -33,7 +33,7 @@ ms.locfileid: "59679324"
 | 問題                                                        | 解决方法                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio 物件總管中遺漏 AAD 使用者           | 这是已知问题。  解決方法是在 [sys.database_principals][sys.database_principals] 中檢視使用者。  若要深入了解使用 Azure Active Directory 與 SQL 資料倉儲，請參閱[適用於 Azure SQL 資料倉儲的驗證][Authentication to Azure SQL Data Warehouse]。 |
-| 手動撰寫指令碼、使用指令碼精靈，或透過 SSMS 連線很緩慢、無回應或產生錯誤 | 請確定已在主要資料庫中建立使用者。 在指令碼選項中，也請確定引擎版本已設定為 [Microsoft Azure SQL 資料倉儲版本]，且引擎類型為 [Microsoft Azure SQL Database]。 |
+| 手動撰寫指令碼，使用指令碼精靈，或透過 SSMS 連線很慢，沒有回應，或產生錯誤 | 請確定已在主要資料庫中建立使用者。 在指令碼選項中，也請確定引擎版本已設定為 [Microsoft Azure SQL 資料倉儲版本]，且引擎類型為 [Microsoft Azure SQL Database]。 |
 | 無法在 SSMS 中產生指令碼                             | 如果 [產生相依物件的指令碼] 選項設定為 "True"，則無法產生 SQL 資料倉儲的指令碼。 因應措施是，使用者必須手動移至 [工具] -> [選項] -> [SQL Server 物件總管] -> [產生相依物件的指令碼] 選項，並設定為 false |
 
 ## <a name="performance"></a>效能

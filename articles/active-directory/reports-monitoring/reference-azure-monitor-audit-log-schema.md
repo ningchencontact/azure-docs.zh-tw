@@ -1,6 +1,6 @@
 ---
-title: 解譯 Azure 監視器中的 Azure Active Directory 稽核記錄結構描述 (預覽) | Microsoft Docs
-description: 描述在 Azure 監視器中使用的 Azure AD 稽核記錄結構描述 (預覽)
+title: 解譯 Azure 監視器中的 Azure Active Directory 稽核記錄檔結構描述 |Microsoft Docs
+description: 描述使用 Azure 監視器中的 Azure AD 稽核記錄檔結構描述
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/14/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4832776dee7c478996bcfc2a903a6d8e2a3c4426
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436960"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010223"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>解譯 Azure 監視器中的 Azure AD 稽核記錄結構描述 (預覽)
 
@@ -149,7 +149,7 @@ ms.locfileid: "58436960"
 
 | 欄位名稱 | 描述 |
 |------------|-------------|
-| 分析       | 日期和時間 (UTC)。 |
+| time       | 日期和時間 (UTC)。 |
 | operationName | 作業的名稱。 |
 | operationVersion | 用戶端要求的 REST API 版本。 |
 | category | 目前，*Audit* 是唯一支援的值。 |

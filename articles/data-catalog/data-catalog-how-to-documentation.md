@@ -2,18 +2,18 @@
 title: 如何記載 Azure 資料目錄中的資料來源
 description: 專門說明如何在 Azure 資料目錄中記載資料資產的操作說明文章。
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: a7379ffea173cdae3b10a751b0d83e06e679e3c5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9049e0b25db37f296e27476fbb93418d13c4dcc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406204"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005265"
 ---
 # <a name="document-data-sources"></a>記載資料來源
 ## <a name="introduction"></a>簡介
@@ -39,9 +39,9 @@ ms.locfileid: "47406204"
 
 說明文件層級的範圍可從描述資料資產容器的特性和值，到詳細描述容器內的資料表結構描述。 所提供的說明文件層級應以商務需求為準。 但一般來說，記載資料資產的優缺點如下︰
 
-* 只記載容器︰所有內容集中放置，但可能缺少可供使用者做出明智決策的必要詳細資料。
-* 只記載資料表︰內容專用於該物件，但使用者會將文件放在多個地方。
-* 記載容器和資料表︰最全面的方法，但可能需要花更多時間維護文件。
+* 只記載容器：所有內容集中一處，但可能缺少必要的詳細資料，讓使用者做出明智的決策。
+* 只記載資料表︰內容是專用於該物件，但您的使用者有多個位置的文件。
+* 文件容器和資料表：最全面的方法，但可能需要花更多時間維護文件。
 
 ## <a name="summary"></a>總結
 在 **Azure 資料目錄** 中記載資料來源可依所需詳細程度建立資料資產的相關敘述。  藉由使用連結，您可以連結至現有內容儲存機制中儲存的內容，以結合您現有的文件和資料資產。 一旦使用者找到合適的資料資產，就能取得一組完整的說明文件。

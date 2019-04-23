@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: bwren
-ms.openlocfilehash: eebf3709657382eb403041e6637e32e5f5d43b15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789717"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002862"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>在 Azure 監視器中的 Log Analytics 工作區中建立自訂欄位
 
@@ -81,7 +81,7 @@ ms.locfileid: "59789717"
 有兩種方式可移除自訂欄位。  第一個方式是在檢視如上所述的完整清單時，每個欄位所具有的 [移除]  選項。  另一個方式是擷取一筆記錄，然後按一下欄位左邊的按鈕。  功能表中會有可供移除自訂欄位的選項。
 
 ## <a name="sample-walkthrough"></a>範例逐步解說
-下面的章節會逐步解說建立自訂欄位的完整範例。  這個範例會擷取 Windows 事件中指出變更狀態之服務的服務名稱。  這會依賴系統登入 Windows 電腦中建立由服務控制管理員事件。  如果您想要跟隨此範例，您必須 [收集系統記錄檔的資訊事件](data-sources-windows-events.md)。
+下面的章節會逐步解說建立自訂欄位的完整範例。  這個範例會擷取 Windows 事件中指出變更狀態之服務的服務名稱。  這會依賴 Windows 電腦上的系統啟動時建立由服務控制管理員事件。  如果您想要跟隨此範例，您必須 [收集系統記錄檔的資訊事件](data-sources-windows-events.md)。
 
 我們輸入下列查詢，以從服務控制管理員傳回事件識別碼為 7036，且為指出服務正在啟動或停止之事件的所有事件。
 

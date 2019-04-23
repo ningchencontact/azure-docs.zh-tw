@@ -1,5 +1,5 @@
 ---
-title: 管理存取 Azure 資源使用 RBAC 和 REST API-Azure |Microsoft Docs
+title: 使用 RBAC 和 REST API 管理对 Azure 资源的访问 - Azure | Microsoft Docs
 description: 了解如何使用角色型存取控制 (RBAC) 和 REST API 來管理使用者、群組和應用程式對 Azure 資源的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a66969504dee5ba526cdccbbb39471ef5af971c0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439327"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006447"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理對 Azure 資源的存取
 
@@ -28,7 +28,7 @@ ms.locfileid: "57439327"
 
 ## <a name="list-access"></a>列出存取權
 
-在 RBAC 中，若要列出存取權，您可以列出角色指派。 若要列出角色指派，請使用其中一個[角色指派 - 列出](/rest/api/authorization/roleassignments/list) REST API。 若要精簡您的結果，請指定範圍和選擇性篩選條件。 若要呼叫此 API，您必須有權存取指定範圍內的 `Microsoft.Authorization/roleAssignments/read` 作業。 數個[適用於 Azure 資源的內建角色](built-in-roles.md)都已獲得此作業的存取權。
+在 RBAC 中，若要列出存取權，您可以列出角色指派。 若要列出角色指派，請使用其中一個[角色指派 - 列出](/rest/api/authorization/roleassignments/list) REST API。 若要精簡您的結果，請指定範圍和選擇性篩選條件。
 
 1. 從下列要求著手：
 

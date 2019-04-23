@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 617dbae67c71eac4bfc38de4e63c1ba05516ff61
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: MT
+ms.openlocfilehash: 42fb5d69a1f32d669ad5191e342b3f2f880b8c98
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984045"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006659"
 ---
 # <a name="network-monitoring-solutions"></a>網路監視解決方案 
 
@@ -86,7 +86,7 @@ Expressroute 的 NPM 提供對於 Azure 私用對等連線和 Microsoft 對等�
 
 如需詳細資訊，請參閱下列文章：
 
-* [設定網路效能監控來監視服務端點](https://aka.ms/applicationconnectivitymonitorguide)
+* [設定網路效能監控來監視服務端點](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [部落格文章](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>流量分析

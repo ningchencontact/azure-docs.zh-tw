@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 78508c1227c0b278041b86c3fdd698c6ad27c132
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 1e637f58b392b2de67a5ead9d57a6a87ab705b93
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608179"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007233"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>從 StorSimple 5000-7000 系列移轉資料的選項 
 
@@ -43,7 +43,7 @@ StorSimple 5000-7000 系列即將在 2019 年 7 月[終止支援](https://suppor
 
 這個全新的移轉選項可讓客戶將其組織的檔案共用儲存在 Azure 檔案服務中。 這些檔案共用隨後可集中管理，以便使用 Azure 檔案同步 (AFS) 進行內部部署存取。 AFS 可部署在 Windows Server 主機上。 其後，可以透過主機複本或使用移轉工具來執行實際資料移轉。
 
-如需如何將資料移轉至 Azure 檔案同步的詳細資訊，請移至[將資料從 StorSimple 5000-7000 系列移轉至 Azure 檔案同步](https://aka.ms/StorSimpleMigrationAFS)。
+如需如何將資料移轉至 Azure 檔案同步的詳細資訊，請移至[將資料從 StorSimple 5000-7000 系列移轉至 Azure 檔案同步](storsimple-5000-7000-afs-migration.md)。
 
 ### <a name="third-party-options"></a>第三方選項
 

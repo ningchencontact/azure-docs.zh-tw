@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879687"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007622"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中樞高可用性和災害復原
 
@@ -82,8 +82,6 @@ RTO 之所以偏高，是因為 Microsoft 必須代表該區域中所有受影�
 > - 測試演練不應對生產環境中正在使用的 IoT 中樞執行。
 >
 > - 手動容錯移轉不應作為在 Azure 地理配對區域之間永久遷移中樞的機制。 這麼做將會導致從位於舊有主要區域的裝置對中樞執行的作業出現更長的延遲。
->
-> - 手動容錯移轉目前為預覽狀態，且不適用於下列 Azure 區域。 美國東部、美國西部、北歐、西歐、巴西南部、美國中南部。
 
 ### <a name="failback"></a>容錯回復
 

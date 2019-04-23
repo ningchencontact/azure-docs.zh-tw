@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784887"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006483"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>將影片索引子小工具內嵌到應用程式中
 
@@ -28,7 +28,7 @@ ms.locfileid: "59784887"
 
 **認知深入解析**小工具包含從您的影片索引編製程序中擷取的所有視覺化深入解析。 深入解析小工具支援下列選擇性 URL 參數：
 
-|名稱|定義|描述|
+|Name|定義|描述|
 |---|---|---|
 |widgets|以逗號分隔的字串|可讓您控制您想要呈現的深入解析。 <br/>範例：`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只會呈現人員和品牌 UI 深入解析<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>使用 version=2 時無法透過 URL 支援<br/><br/>**附註：** 第 2 版中不支援小工具的 URL 參數。 |
 
@@ -36,7 +36,7 @@ ms.locfileid: "59784887"
 
 **播放器**小工具可讓您使用調適性位元速率來串流影片。 播放器小工具支援下列選擇性 URL 參數：
 
-|名稱|定義|描述|
+|Name|定義|描述|
 |---|---|---|
 |t|開始後的秒數|可讓播放器從指定的時間點開始播放。<br/>範例：t=60|
 |captions|語言代碼|在可於標題功能表中載入小工具期間，擷取指定語言的標題。<br/>範例：captions=en-US|
@@ -69,9 +69,9 @@ ms.locfileid: "59784887"
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-請使用[**取得深入解析小工具**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API 取得認知深入解析小工具內容，或使用[**取得影片存取權杖**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)，並將其新增為 URL 的查詢參數，如前所述。 請將此 URL 指定為 **iframe** 的 **src** 值。
+請使用[**取得深入解析小工具**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API 取得認知深入解析小工具內容，或使用[**取得影片存取權杖**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)，並將其新增為 URL 的查詢參數，如前所述。 請將此 URL 指定為 **iframe** 的 **src** 值。
 
-如果您想要在內嵌的小工具中提供編輯深入解析的功能 (如同我們在 Web 應用程式中使用的)，您必須傳入具有編輯權限的存取權杖。 請使用設定了 **&allowEdit=true** 的[**取得深入解析小工具**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?)或[**取得影片存取權杖**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)。 
+如果您想要在內嵌的小工具中提供編輯深入解析的功能 (如同我們在 Web 應用程式中使用的)，您必須傳入具有編輯權限的存取權杖。 請使用設定了 **&allowEdit=true** 的[**取得深入解析小工具**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget)或[**取得影片存取權杖**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)。 
 
 ## <a name="widgets-interaction"></a>小工具互動
 

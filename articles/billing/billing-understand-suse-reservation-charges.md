@@ -1,7 +1,6 @@
 ---
-title: 了解 SUSE 保留計劃折扣和使用量-Azure |Microsoft Docs
-description: 了解 SUSE 方案折扣如何套用至虛擬機器上的 SUSE 軟體。
-services: billing
+title: 軟體方案折扣-Azure |Microsoft Docs
+description: 了解軟體計劃折扣如何套用至虛擬機器上的軟體。
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,22 +10,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2018
+ms.date: 04/12/2019
 ms.author: banders
-ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917782"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002726"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>了解如何將 SUSE Linux Enterprise 軟體保留計劃折扣套用適用於 Azure
+# <a name="azure-software-plan-discount"></a>Azure 軟體計劃折扣
 
-在您購買 SUSE Linux 方案之後，折扣就會自動套用到符合保留的已部署 SUSE 虛擬機器 (VM)。 SUSE Linux 方案涵蓋在 Azure VM 上執行 SUSE 軟體的成本。
+Azure 的軟體方案的 SUSE 及 RedHat 會套用至已部署的虛擬機器的保留項目。 軟體方案折扣會套用至已部署的 Vm 符合保留的軟體使用方式。
 
-若要購買適當的 SUSE Linux 方案，您需要了解您執行哪些 SUSE VM，以及這些 VM 上的 vCPU 數目。 使用下列各節，可協助您從使用量 CSV 檔案中找出所要購買的方案。
+當您關閉 VM 時，折扣會自動套用至另一個相符的 VM，如果有的話。 軟體方案涵蓋在 VM 上執行軟體的成本。 其他費用，例如計算、 儲存體和網路功能是分開收費。
 
-## <a name="discount-applies-to-different-vm-sizes"></a>折扣適用於不同 VM 大小
+若要購買的適當的計劃，您需要了解您的 VM 使用量，以及那些 Vm 上的 Vcpu 數目。 使用下列各節來協助您識別哪些計劃購買，根據您的使用量資料。
+
+## <a name="how-reservation-discount-is-applied"></a>保留折扣如何套用
+
+保留折扣會 「*使用-it-或-遺失-it*"。 因此，如果您沒有任何相符的資源，然後您會遺失保留數量的那一小時。 您無法執行轉送未使用保留的時數。
+
+當您關閉資源時，保留折扣會自動套用至指定之範圍中的另一個相符的資源。 如果沒有相符的資源位於指定的範圍，則保留的時間為週間*遺失*。
+
+## <a name="review-redhat-vm-usage-before-you-buy"></a>您購買前先檢閱 RedHat VM 使用量
+
+從您的使用量資料中取得的產品名稱，並購買 RedHat 計劃使用相同的類型和大小。
+
+例如，如果您的使用量具有產品**Red Hat Enterprise Linux 1-4 個 vCPU VM 授權**，您應該購買**Red Hat Enterprise Linux** for **1-4 個 vCPU VM**。
+
+<!--ADD RHEL SCREENSHOT -->
+
+## <a name="review-suse-vm-usage-before-you-buy"></a>您購買前先檢閱 SUSE VM 使用量
+
+從您的使用量資料中取得的產品名稱，並購買 SUSE 計劃使用相同的類型和大小。
+
+比方說，如果您的使用量是產品**SUSE Linux Enterprise Server 優先權 2 至 4 個 vCPU VM 支援**，您應該購買**SUSE Linux Enterprise Server 優先權**如**2 至 4 個 vCPU**.
+
+![選取要購買之產品的範例](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
+
+## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>折扣適用於 SUSE 計劃的不同 VM 大小
 
 如同保留的 VM 執行個體，購買 SUSE 方案時具有執行個體大小彈性。 這表示您的折扣甚至適用於當您部署具有不同 vCPU 計數的 VM 時。 折扣適用於軟體方案內的各種 VM 大小。
 
@@ -38,9 +61,7 @@ ms.locfileid: "58917782"
 - 1 部已部署的 VM (具有 3 或 4 個 vCPU)、
 - 或 0.77 或大約 77% 的 VM (具有 5 個以上 vCPU)。
 
-5 個以上 vCPU 的比例為 2.6。 因此，SUSE 具有 5 個以上 Vcpu 的 vm 保留可涵蓋軟體成本，也就是大約 77%的唯一部分。
-
-## <a name="understand-suse-vm-usage-before-you-buy"></a>了解 SUSE VM 使用方式，在購買前
+5 個以上 vCPU 的比例為 2.6。 因此，對於具有 5 個以上 vCPU 的 VM，其 SUSE 保留只涵蓋軟體成本的一部分 (大約是 77%)。
 
 下表會顯示您可以購買保留的軟體方案、其相關聯的使用量計量，以及每個計量的比例。
 
@@ -122,6 +143,10 @@ Azure 入口網站市集名稱：
 |SLES 3-4 個核心 vCPU |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
 |SLES 5 個以上 vCPU |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
 
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
+
+如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解保留，請參閱下列文章：
@@ -132,7 +157,3 @@ Azure 入口網站市集名稱：
 - [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
 - [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
-
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
-
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。

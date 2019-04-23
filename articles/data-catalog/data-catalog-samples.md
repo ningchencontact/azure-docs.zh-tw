@@ -2,18 +2,18 @@
 title: Azure 資料目錄開發人員範例
 description: 本文提供資料目錄 REST API 可用之開發人員範例的概觀。
 services: data-catalog
-author: spelluru
-ms.author: spelluru
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 98d17e5fc8b2348887d6a9e361a455474d666db4
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 1f62a5583b7beef2dc535065a6c0d3bcb34fe7b4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053083"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009628"
 ---
 # <a name="data-catalog-developer-samples"></a>資料目錄開發人員範例
 開始使用資料目錄 REST API 開發資料目錄應用程式。 資料目錄 REST API 是REST 架構 API，能夠以程式設計方式存取資料目錄資源，藉此註冊、加上註解，及以程式設計方式搜尋資料資產。

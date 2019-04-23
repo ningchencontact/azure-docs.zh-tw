@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/21/2019
-ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: cc6c93420e939e90e12b989def491199fd2c6b15
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547943"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006993"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>建立 Azure 機器學習服務工作區
 
@@ -27,7 +27,9 @@ ms.locfileid: "59547943"
 * Azure Resource Manager 範本
 * [Azure Machine Learning CLI](#cli)
 
-您使用這裡中的步驟建立的工作區可用來當做其他教學課程和 how-to 文章的必要條件。 
+您使用這裡中的步驟建立的工作區可用來當做其他教學課程和 how-to 文章的必要條件。
+
+如果您想要使用指令碼設定自動化的機器學習服務中的本機 Python 環境，請參閱[Azure/MachineLearningNotebooks GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)如需相關指示。  
 
 當您建立工作區自動 （如果它們也出現些許可用），會加入下列的 Azure 資源：
  

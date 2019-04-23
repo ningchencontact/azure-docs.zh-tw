@@ -2,18 +2,18 @@
 title: 如何標註 Azure 資料目錄中的資料來源
 description: 此作法文章重點在於於如何在 Azure 資料目錄中註解資料資產 (包括易記名稱、標記、說明和專家)。
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: a6751a2cbb2a12d0d0ffe1eb0707ad4e8bc45ed8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052961"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011126"
 ---
 # <a name="how-to-annotate-data-sources"></a>如何註解資料來源
 ## <a name="introduction"></a>簡介
@@ -37,7 +37,7 @@ ms.locfileid: "43052961"
 | 註解 | 注意 |
 | --- | --- |
 | 易記名稱 |易記名稱可在資料資產層級提供，讓資料資產更易於了解。 當基礎物件的名稱難以理解、以縮寫表示或對使用者不具意義時，易記名稱會非常有幫助。 |
-| 說明 |說明可以在資料資產和屬性 / 資料行層級提供。 說明是自由格式的簡短文字註解，描述使用者對於資料資產的觀點或其用途。 |
+| 描述 |說明可以在資料資產和屬性 / 資料行層級提供。 說明是自由格式的簡短文字註解，描述使用者對於資料資產的觀點或其用途。 |
 | 標籤 (使用者標籤) |標記可以在資料資產和屬性 / 資料行層級提供。 使用者標籤是使用者定義的標籤，可用來分類資料資產或屬性。 |
 | 標籤 (詞彙標籤) |標記可以在資料資產和屬性 / 資料行層級提供。 詞彙標籤是集中定義的詞彙，可用於分類資料資產或使用通用的商務分類法的屬性。 如需詳細資訊，請參閱[如何設定控管標籤的商務詞彙](data-catalog-how-to-business-glossary.md) |
 | 專家 |專家可以在資料資產層級提供。 專家可識別對資料具備專業觀點的使用者或群組，探索已註冊之資料來源的使用者若有現有註解無法解答的問題，專家即可做為其連絡點。 |
@@ -60,5 +60,5 @@ ms.locfileid: "43052961"
 ## <a name="summary"></a>總結
 使用資料目錄註冊資料來源，即可藉由將資料來源的結構性和描述性中繼資料複製到「目錄」服務內，使其變成可探索的資料。 註冊資料來源之後，使用者就能加上註解，讓在資料目錄入口網站中探索和理解變得更加容易。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [開始使用 Azure 資料目錄](data-catalog-get-started.md) 教學課程，取得如何標註資料來源的逐步詳細資料。

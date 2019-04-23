@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616351"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005242"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>從 HANA 端進行監視和疑難排解
 
@@ -63,7 +63,7 @@ Load (負載) 圖表可能會顯示 CPU 耗用量過高，或過去耗用量過�
 
 ![Load (負載) 圖表可能會顯示 CPU 耗用量過高，或過去耗用量過高](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-因 CPU 使用率過高而觸發的警示可能由數個原因造成，包括但不限於：執行特定交易、載入資料、作業死當、長時間執行的 SQL 陳述式，以及查詢效能太差 (例如使用 BW on HANA Cube 時)。
+因 CPU 使用率過高而觸發的警示可能因多種原因造成，包括但不是限於： 執行特定交易、 載入資料、 沒有回應，長時間 （例如，執行的 SQL 陳述式和不正確的查詢效能的作業使用 BW on HANA cube)。
 
 請參閱[SAP HANA 疑難排解：CPU 相關的原因和解決方案](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false)站台的詳細疑難排解步驟。
 

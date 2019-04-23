@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 28f963ab807cbd679b7efe8b034ab91f2893198e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659451"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005344"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>啟用及使用 Azure 實驗室服務中的實驗室中的 Linux 虛擬機器的遠端桌面
 這篇文章會示範如何執行下列工作：
@@ -35,6 +35,7 @@ ms.locfileid: "58659451"
 > [!IMPORTANT] 
 > 啟用**遠端桌面連線**只會開啟**RDP** Linux 機器上的連接埠。 您身為老師，連線到第一次，使用 SSH 的 Linux 機器，並安裝 RDP 和 GUI 的套件，以便您可以連線到使用 RDP 的 Linux 機器。 然後，您要**發佈**映像，讓學生可以中的 RDP 至學生的 Linux Vm。 
 
+## <a name="supported-operating-systems"></a>受支援的作業系統
 目前，下列作業系統支援遠端桌面連線：
 
 - openSUSE Leap 42.3

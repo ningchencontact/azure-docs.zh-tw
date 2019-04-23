@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b25a47e929ef540ad3a74a86d431962d37cde434
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8777a7504c48b22d0e670dd9f0d28016ac8918db
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009425"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009458"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 簡介
 
@@ -43,7 +43,7 @@ Data Lake Storage Gen2 的基礎部分是新增至 Blob 儲存體的[階層命�
 
 -   **符合成本效益**：Data Lake Storage Gen2 提供低成本儲存體容量和異動功能。 隨著資料在整個生命週期中進行轉換，計費率會有所更改，透過 [Azure Blob 儲存體生命週期](storage-lifecycle-management-concepts.md)等內建功能將成本降到最低。
 
--   **已最佳化的驅動程式**：abfs 驅動程式已針對巨量資料分析完成[特別最佳化](data-lake-storage-abfs-driver.md)。 對應的 REST API 會透過 dfs 端點 dfs.core.windows.net 呈現。
+-   **最佳化的驅動程式**：ABFS 驅動程式[特別最佳化](data-lake-storage-abfs-driver.md)進行巨量資料分析。 顯示對應的 REST Api 端點`dfs.core.windows.net`。
 
 ### <a name="scalability"></a>延展性
 

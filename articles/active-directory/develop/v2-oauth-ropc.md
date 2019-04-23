@@ -1,5 +1,5 @@
 ---
-title: 使用 Microsoft 身分識別平台，讓使用者使用 ROPC 登入 |Azure
+title: 使用 Microsoft 身分識別平台，讓使用者使用資源擁有者密碼認證 (ROPC) 授與登入 |Azure
 description: 使用資源擁有者密碼認證授與支援無瀏覽器的驗證流程。
 services: active-directory
 documentationcenter: ''
@@ -12,23 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499932"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004936"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft 身分識別平台和 OAuth 2.0 資源擁有者密碼認證
 
-Microsoft 身分識別平台支援[資源擁有者密碼認證 (ROPC) 授與](https://tools.ietf.org/html/rfc6749#section-4.3)，可讓應用程式藉由直接處理其密碼登入使用者。 ROPC 流程需要高度的信任和使用者公開，因此，開發人員只應該在其他更安全的流程無法使用時，才使用此流程。
+Microsoft 身分識別平台支援[資源擁有者密碼認證 (ROPC) 授與](https://tools.ietf.org/html/rfc6749#section-4.3)，可讓應用程式藉由直接處理其密碼登入使用者。 ROPC 流程需要較高程度的信任和使用者風險和其他、 更安全的流程無法使用時，您應該只使用此流程。
 
 > [!IMPORTANT]
+>
 > * Microsoft 身分識別平台端點僅支援 ROPC，Azure AD 租用戶，而不是個人帳戶。 因此您必須使用租用戶特定端點 (`https://login.microsoftonline.com/{TenantId_or_Name}`) 或 `organizations` 端點。
 > * 受邀加入 Azure AD 租用戶的個人帳戶無法使用 ROPC。
 > * 沒有密碼的帳戶無法透過 ROPC 登入。 針對此案例，建議您改用不同的應用程式流程。
@@ -38,7 +39,7 @@ Microsoft 身分識別平台支援[資源擁有者密碼認證 (ROPC) 授與](ht
 
 下圖顯示 ROPC 流程。
 
-![ROPC 流程](media/v2-oauth2-ropc/v2-oauth-ropc.png)
+![ROPC 流程](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>授權要求
 
@@ -69,11 +70,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type` | 必要項 | 必須設為 `password`。 |
 | `username` | 必要項 | 使用者的電子郵件地址。 |
 | `password` | 必要項 | 使用者的密碼。 |
-| `scope` | 建議 | 以空格分隔的[範圍](v2-permissions-and-consent.md)清單或應用程式所需的權限。 系統管理員或使用者必須在互動式流程中事先同意這些範圍。 |
+| `scope` | 建議 | 以空格分隔的[範圍](v2-permissions-and-consent.md)清單或應用程式所需的權限。 在互動式流程中，系統管理員或使用者必須同意事先這些範圍。 |
 
 ### <a name="successful-authentication-response"></a>成功驗證回應
 
-以下顯示成功權杖回應的範例：
+下列範例顯示成功的權杖回應：
 
 ```json
 {
@@ -105,7 +106,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |------ | ----------- | -------------|
 | `invalid_grant` | 驗證失敗 | 認證不正確，或用戶端沒有同意所要求的範圍。 如果未授與的範圍，`consent_required`便會傳回錯誤。 如果發生這種情況，用戶端應使用 WebView 或瀏覽器將使用者傳送至互動式提示。 |
 | `invalid_request` | 要求未正確建構 | 不支援的授與類型`/common`或`/consumers`驗證內容。  請改用 `/organizations`。 |
-| `invalid_client` | 未正確設定應用程式 | 如果此情形`allowPublicClient`屬性未設定為在中，則為 true[應用程式資訊清單](reference-app-manifest.md)。 需要 `allowPublicClient` 屬性，因為 ROPC 授與沒有重新導向 URI。 除非設定此屬性，否則 Azure AD 無法判斷應用程式是公用用戶端應用程式還是機密用戶端應用程式。 請注意，ROPC 只支援用於公用用戶端應用程式。 |
+| `invalid_client` | 未正確設定應用程式 | 如果此情形`allowPublicClient`屬性未設定為在中，則為 true[應用程式資訊清單](reference-app-manifest.md)。 需要 `allowPublicClient` 屬性，因為 ROPC 授與沒有重新導向 URI。 除非設定此屬性，否則 Azure AD 無法判斷應用程式是公用用戶端應用程式還是機密用戶端應用程式。 ROPC 只有在公用用戶端應用程式上執行。 |
 
 ## <a name="learn-more"></a>深入了解
 

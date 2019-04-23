@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 29e64a02cd4af3e1679283ffddb4afab065f8747
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 5a07ea4d1d27dcc054d64cb4ce8893a13adc4aad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609127"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007656"
 ---
 # <a name="geographic-availability-and-currency-support"></a>各地區上市情況和貨幣的支援
 
@@ -42,7 +42,7 @@ Azure Marketplace 供應項目可以購買的 141 的地理位置，客戶的帳
 | 玻利維亞                             | BO        | 美元          |
 | 波士尼亞赫塞哥維納              | BA        | 美元          |
 | 波札那                            | BW        | 美元          |
-| 巴西                              | BR        | 巴西里耳          |
+| 巴西                              | BR        | BRL\*        |
 | 汶萊                              | BN        | 美元          |
 | 保加利亞                            | BG        | 歐元          |
 | 喀麥隆                            | CM        | 美元          |
@@ -164,3 +164,5 @@ Azure Marketplace 供應項目可以購買的 141 的地理位置，客戶的帳
 | 尚比亞                              | ZM        | 美元          |
 | 辛巴威                            | ZW        | 美元          |
 |   |   |   |
+
+\* 巴西的客戶，Marketplace 透過雲端解決方案提供者 (CSP) 會使用美元。

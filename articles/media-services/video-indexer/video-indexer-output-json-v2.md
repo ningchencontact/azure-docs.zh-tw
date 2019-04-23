@@ -1,5 +1,5 @@
 ---
-title: 檢查 v2 API 產生的影片索引子輸出
+title: 檢查 v2 API 所產生的 Azure 媒體服務影片索引器輸出
 titlesuffix: Azure Media Services
 description: 本主題將檢查 v2 API 所產生的影片索引子輸出。
 services: media-services
@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280208"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011312"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>檢查影片索引器輸出所產生的 API
 
@@ -32,12 +32,12 @@ ms.locfileid: "59280208"
 
 ## <a name="root-elements"></a>根元素
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |accountId|播放清單的 VI 帳戶識別碼。|
 |id|播放清單的識別碼。|
 |name|播放清單的名稱。|
-|說明|播放清單的描述。|
+|description|播放清單的描述。|
 |userName|建立播放清單的使用者名稱。|
 |created|播放清單的建立時間。|
 |privacyMode|播放清單的隱私模式 (私人/公用)。|
@@ -92,7 +92,7 @@ ms.locfileid: "59280208"
 
 ## <a name="videos"></a>videos
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |accountId|影片的 VI 帳戶識別碼。|
 |id|影片的識別碼。|
@@ -148,7 +148,7 @@ ms.locfileid: "59280208"
 
 臉部可以有識別碼、名稱、縮圖、其他中繼資料，以及其時態性執行個體的清單 (例如：00:00:05 – 00:00:10、00:01:00 - 00:02:30 和 00:41:21 – 00:41:49)。每個時態性執行個體都可以有額外的中繼資料。 例如，臉部的矩形座標 (20,230,60,60)。
 
-|版本|程式碼版本|
+|Version|程式碼版本|
 |---|---|
 |sourceLanguage|影片的來源語言 (採用一個主要語言)。 其格式為 [BCP-47](https://tools.ietf.org/html/bcp47) 字串。|
 |語言|深入解析語言 (從來源語言翻譯)。 其格式為 [BCP-47](https://tools.ietf.org/html/bcp47) 字串。|
@@ -197,7 +197,7 @@ id|區塊的識別碼。|
 
 #### <a name="transcript"></a>文字記錄
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|行識別碼。|
 |text|文字記錄本身。|
@@ -235,7 +235,7 @@ id|區塊的識別碼。|
 
 #### <a name="ocr"></a>ocr
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|OCR 行識別碼。|
 |text|OCR 文字。|
@@ -270,7 +270,7 @@ id|區塊的識別碼。|
 
 #### <a name="keywords"></a>關鍵字
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|關鍵字識別碼。|
 |text|關鍵字。|
@@ -279,50 +279,34 @@ id|區塊的識別碼。|
 |執行個體|此關鍵字曾出現的時間範圍清單 (同一個關鍵字可以出現多次)。|
 
 ```json
-"keywords": [
 {
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
+    id: 0,
+    text: "technology",
+    confidence: 1,
+    language: "en-US",
+    instances: [{
+            adjustedStart: "0:05:15.782",
+            adjustedEnd: "0:05:16.249",
+            start: "0:05:15.782",
+            end: "0:05:16.249"
     },
     {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
+            adjustedStart: "0:04:54.761",
+            adjustedEnd: "0:04:55.228",
+            start: "0:04:54.761",
+            end: "0:04:55.228"
+    }]
 }
-] 
 ```
 
 #### <a name="faces"></a>臉部
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|臉部識別碼。|
 |name|臉部的名稱。 這可以是 'Unknown #0、已識別的名人或客戶培訓人員。|
 |信賴度|臉部識別信賴。|
-|說明|名人的描述。 |
+|description|名人的描述。 |
 |thumbnailId|該臉部的縮圖識別碼。|
 |knownPersonId|如果是已知人物，則為其內部識別碼。|
 |referenceId|若為 Bing 名人，則為其 Bing 識別碼。|
@@ -362,7 +346,7 @@ id|區塊的識別碼。|
 
 #### <a name="labels"></a>標籤
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|標籤識別碼。|
 |name|標籤名稱 (例如，電腦、電視)。|
@@ -421,7 +405,7 @@ id|區塊的識別碼。|
 
 #### <a name="scenes"></a>場景
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|場景的識別碼。|
 |執行個體|時間範圍 （場景只能有 1 個執行個體） 此場景的清單。|
@@ -454,7 +438,7 @@ id|區塊的識別碼。|
 
 #### <a name="shots"></a>擷取畫面
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|擷取畫面識別碼。|
 |keyFrames|螢幕擷取 （每個具有識別碼和執行個體的時間範圍的清單） 內的主要畫面格的清單。 每個主要畫面格執行個體已保存的主要畫面格的縮圖的 thumbnailId 欄位識別碼。|
@@ -504,13 +488,13 @@ id|區塊的識別碼。|
 
 在語音轉換文字的文字記錄和/或影片 OCR 中偵測到的商務和產品品牌名稱。 這不包括品牌或標誌的影像辨識偵測。
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|品牌識別碼。|
 |name|品牌名稱。|
 |referenceId | 品牌 Wikipedia URL 的尾碼。 例如，"Target_Corporation" 是 [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) 的尾碼。
 |referenceUrl | 品牌的 Wikipedia URL (如果存在)。 例如：[https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation)。
-|說明|品牌描述。|
+|description|品牌描述。|
 |tags|與此品牌相關聯的預先定義標記清單。|
 |信賴度|影片索引子品牌偵測器的信賴值 (0-1)。|
 |執行個體|此品牌的時間範圍清單。 每個執行個體都有 brandType，用以指出此品牌會出現在文字記錄還是 OCR 中。|
@@ -563,7 +547,7 @@ id|區塊的識別碼。|
 
 #### <a name="statistics"></a>統計資料
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |CorrespondenceCount|影片中的對應數目。|
 |SpeakerWordCount|每個說話者的字數。|
@@ -573,7 +557,7 @@ id|區塊的識別碼。|
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|音訊效果識別碼。|
 |type|音訊效果類型 (例如，拍手聲、說話、無聲)。|
@@ -602,7 +586,7 @@ id|區塊的識別碼。|
 
 人氣會依據其 sentimentType 欄位 (Positive/Neutral/Negative) 加以彙總。 例如：0-0.1、0.1-0.2。
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|人氣識別碼。|
 |averageScore |所有該人氣類型執行個體的總分平均值 - Positive/Neutral/Negative|
@@ -641,7 +625,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 經發現含有成人或猥褻內容的影片，只能供私人檢視。 使用者可以要求人工審核影片內容，在此情況下，IsAdult 屬性將包含人工審核的結果。
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|視覺內容仲裁識別碼。|
 |adultScore|成人分數 (由內容仲裁提供)。|
@@ -677,7 +661,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|文字內容仲裁識別碼。|
 |bannedWordsCount |禁用文字數目。|
@@ -687,7 +671,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 影片索引子會根據語音和音訊提示來識別表情。可能的表情為：快樂、悲傷、憤怒或恐懼。
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|表情識別碼。|
 |type|系統會根據語音和音訊提示來識別感性時刻。表情包括：快樂、悲傷、憤怒或恐懼。|
@@ -777,7 +761,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 影片索引子會從文字記錄中推斷主要主題。 如果可能，會包含第 1 層級的 [IPTC](https://iptc.org/standards/media-topics/) 分類。 
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|主題識別碼。|
 |name|主題名稱，例如："Pharmaceuticals"。|

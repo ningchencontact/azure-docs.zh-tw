@@ -1,6 +1,6 @@
 ---
-title: 將 Azure Active Directory 記錄串流至 Azure 監視器 (預覽) | Microsoft Docs
-description: 了解如何將 Azure Active Directory 記錄與 Azure 監視器記錄整合 (預覽)
+title: Stream Azure 監視器記錄檔的 Azure Active Directory 記錄檔 |Microsoft Docs
+description: 了解如何整合 Azure 監視器記錄檔中的 Azure Active Directory 記錄檔
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 056a529101ffc39170ea057832bcd50b283505be
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436264"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010930"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>將 Azure AD 記錄與 Azure 監視器記錄整合 (預覽)
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>整合 Azure 監視器記錄檔中的 Azure AD 記錄檔
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Azure 監視器記錄可讓您查詢資料，以尋找特定事件、分析趨勢，以及執行各種資料來源之間的相互關聯。 藉由將 Azure AD 活動記錄整合到 Azure 監視器記錄中，您可以執行如下的工作：
 
@@ -38,13 +40,11 @@ Ignite 工作階段中的下列影片，會示範在特定使用者案例中針�
 
 在此文章中，您將了解如何將 Azure Active Directory (Azure AD) 記錄與 Azure 監視器整合。
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 ## <a name="supported-reports"></a>支援的報告
 
 您可以將稽核活動記錄和登入活動記錄路由到 Azure 監視器記錄，以進行深入分析。 
 
-* **稽核記錄檔**：[稽核記錄活動報告](concept-audit-logs.md)可讓您對每個在租用戶中執行的工作存取歷程記錄。
+* **稽核記錄**：[稽核記錄活動報告](concept-audit-logs.md)可讓您對每個在租用戶中執行的工作存取歷程記錄。
 * **登入記錄**：透過[登入活動報告](concept-sign-ins.md)，您可以判斷是誰執行了稽核記錄中所報告的工作。
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Ignite 工作階段中的下列影片，會示範在特定使用者案例中針�
 * 使用者，身分是該 Azure AD 租用戶的「全域管理員」或「安全性管理員」。
 * Azure 訂用帳戶中的 Log Analytics 工作區。 了解如何[建立 Log Analytics 工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)。
 
-## <a name="send-logs-to-azure-monitor-logs"></a>將記錄傳送至 Azure 監視器記錄
+## <a name="send-logs-to-azure-monitor"></a>將記錄傳送給 Azure 監視器
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
@@ -83,4 +83,4 @@ Ignite 工作階段中的下列影片，會示範在特定使用者案例中針�
 ## <a name="next-steps"></a>後續步驟
 
 * [使用 Azure 監視器記錄來分析 Azure AD 活動記錄](howto-analyze-activity-logs-log-analytics.md)
-* [安裝與使用適用於 Azure Active Directory 的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)
+* [安裝與使用適用於 Azure Active Directory 的記錄分析檢視](howto-install-use-log-analytics-views.md)

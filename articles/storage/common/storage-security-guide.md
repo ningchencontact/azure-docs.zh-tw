@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 74be21629a884313e74a824bb34fb5b66f5db61d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650116"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005981"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
@@ -147,7 +147,7 @@ ms.locfileid: "58650116"
 
 #### <a name="resources"></a>資源
 
-* [管理 Azure 入口網站中的儲存體帳戶設定](storage-account-manage.md)
+* [在 Azure 门户中管理存储帐户设置](storage-account-manage.md)
 * [Azure 儲存體資源提供者 REST API 參考](https://msdn.microsoft.com/library/mt163683.aspx)
 
 ## <a name="data-plane-security"></a>資料平面安全性
@@ -155,7 +155,7 @@ ms.locfileid: "58650116"
 
 有三個選項可供您授權 Azure 儲存體資料物件的存取權，包括：
 
-- 您可以使用 Azure AD 來授權存取容器和佇列。 Azure AD 在授權方面的優勢勝過其他方法，包括不需要在程式碼中儲存祕密。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。 
+- 使用 Azure AD 进行容器和队列的访问授权。 Azure AD 在授權方面的優勢勝過其他方法，包括不需要在程式碼中儲存祕密。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。 
 - 使用儲存體帳戶金鑰來透過共用金鑰授權存取權。 透過共用金鑰授權時，需要在應用程式中儲存儲存體帳戶金鑰，因此 Microsoft 建議盡可能改為使用 Azure AD。
 - 使用共用存取簽章，來授與一段特定時間對特定資料物件的受控權限。
 
@@ -302,7 +302,7 @@ SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Re
   本文說明用戶端加密，並提供使用儲存體用戶端程式庫，從四個儲存體服務加密和解密資源的範例。 它也會討論 Azure 金鑰保存庫。
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>使用 Azure 磁碟加密來加密虛擬機器所使用的磁碟
-「Azure 磁碟加密」是一個新功能。 此功能允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。 对于 Windows，驱动器是使用行业标准 BitLocker 加密技术加密的。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 這會與 Azure 金鑰保存庫整合，可讓您控制和管理磁碟加密金鑰。
+Azure 磁碟加密可讓您加密作業系統磁碟和 IaaS 虛擬機器所使用的資料磁碟。 對於 Windows，磁碟機是使用業界標準的 BitLocker 加密技術來加密。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 這會與 Azure 金鑰保存庫整合，可讓您控制和管理磁碟加密金鑰。
 
 在 Microsoft Azure 中啟用時，解決方案會對 IaaS VM 支援下列案例：
 
@@ -368,7 +368,7 @@ SSE 是由 Azure 儲存體所管理。 SSE 並不針對傳輸中資料提供安�
 
 如果您為 VM 中的磁碟啟用「Azure 磁碟加密」，則任何新寫入的資料都會同時受到 SSE 和「Azure 磁碟加密」加密。
 
-## <a name="storage-analytics"></a>儲存體分析
+## <a name="storage-analytics"></a>存储分析
 ### <a name="using-storage-analytics-to-monitor-authorization-type"></a>使用儲存體分析來監視授權類型
 對於每個儲存體帳戶，您可以啟用 Azure 儲存體分析，來執行記錄和儲存計量資料。 當您想要檢查儲存體帳戶的效能計量，或是因為發生效能問題而需要疑難排解儲存體帳戶時，這是一個絕佳的工具。
 

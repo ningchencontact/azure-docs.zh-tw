@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617813"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006177"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -24,7 +24,7 @@ ms.locfileid: "59617813"
 若要完成這篇文章中的步驟，您需要下列資源：
 
 1. Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
-1. DevKit 裝置。 若要購買 DevKit 裝置，請造訪 [MXChip IoT DevKit](http://mxchip.com/az3166)。
+1. DevKit 裝置。 若要購買 DevKit 裝置，請造訪 [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/)。
 
 ## <a name="sample-devkits-application"></a>範例 Devkits 應用程式
 
@@ -208,12 +208,12 @@ git clone https://github.com/Azure/iot-central-firmware
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>狀態 
-| 名稱          | 顯示名稱   | 正常 | 警告 | 危險 | 
+| Name          | 顯示名稱   | 正常 | 警告 | 危險 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
 
 #### <a name="events"></a>活動 
-| 名稱             | 顯示名稱      | 
+| Name             | 顯示名稱      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 按下按鈕 B  | 
 
@@ -239,7 +239,7 @@ git clone https://github.com/Azure/iot-central-firmware
 | --------------- | ------------ | ---------- | --------- |
 | 裝置屬性 | 模具編號   | dieNumber  | number    |
 | 裝置屬性 | 裝置位置   | location  | location    |
-| 文字            | 製造地     | 製造地   | N/A       |
+| Text            | 製造地     | 製造地   | N/A       |
 
 ### <a name="commands"></a>命令
 

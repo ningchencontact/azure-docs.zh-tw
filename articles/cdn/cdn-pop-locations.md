@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: magattus
-ms.openlocfilehash: 1370785f730fbbc9ceaea67e4f615de7d2041204
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 53002fba9883d4ae0276ee1d91e915587f89177b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990607"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007673"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>依 Metro 的 Azure CDN 涵蓋範圍 
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.locfileid: "56990607"
 | 非洲 | 南非開普敦<br />南非約翰尼斯堡 | 南非約翰尼斯堡 | 南非 |
 | 中東 | 杜拜, 阿拉伯聯合大公國 | 馬斯喀特，阿曼<br />富吉拉，阿拉伯聯合大公國 | 卡達<br />阿拉伯聯合大公國 |
 | 印度 | 辰內，印度<br />孟買，印度<br />新德里，印度 | 班加羅爾，印度<br />辰內，印度<br />孟買，印度<br />新德里，印度<br /> | 印度 |
-| 亞洲 | 香港<br />大阪，日本<br />東京，日本<br />馬來西亞吉隆坡<br />菲律賓馬尼拉<br />新加坡<br />釜山，南韓<br />首爾，南韓<br />台灣台北<br />泰國曼谷 | 香港<br />巴淡島，印尼<br />雅加達，印尼<br />大阪，日本<br />東京，日本<br />新加坡<br />釜山，南韓<br />首爾，南韓<br />高雄，台灣 | 香港<br />印尼<br />以色列<br />日本<br />澳門<br />馬來西亞<br />菲律賓<br />新加坡<br />南韓<br />台灣<br />泰國<br />土耳其<br />越南 |
+| 亞洲 | 香港特別行政區<br />大阪，日本<br />東京，日本<br />馬來西亞吉隆坡<br />菲律賓馬尼拉<br />新加坡<br />釜山，南韓<br />首爾，南韓<br />台灣台北<br />泰國曼谷 | 香港特別行政區<br />巴淡島，印尼<br />雅加達，印尼<br />大阪，日本<br />東京，日本<br />新加坡<br />釜山，南韓<br />首爾，南韓<br />高雄，台灣 | 香港特別行政區<br />印尼<br />以色列<br />日本<br />澳門特別行政區<br />馬來西亞<br />菲律賓<br />新加坡<br />南韓<br />台灣<br />泰國<br />土耳其<br />越南 |
 | 澳大利亞與紐西蘭 | 布里斯班，澳洲<br />墨爾本，澳大利亞<br />澳大利亞的伯斯省，<br />雪梨，澳大利亞<br />奧克蘭，紐西蘭 | 墨爾本，澳大利亞<br />雪梨，澳大利亞<br />奧克蘭，紐西蘭 | 澳大利亞<br />紐西蘭 |
 
 

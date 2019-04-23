@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/15/2019
-ms.openlocfilehash: 708df64802ace17fa77b4e0a695c9f1c3bd18a77
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 958a3249fd2e8af9faeb827f07efc21c8184a100
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610203"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006976"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>將 Azure HDInsight 3.6 Hive 工作負載移轉至 HDInsight 4.0
 
@@ -54,7 +54,31 @@ Hive 的其中一個優點是能夠將中繼資料匯出至外部資料庫 （�
 alter table myacidtable compact 'major';
 ```
 
-此壓縮是必要的因為 HDInsight 3.6 和 HDInsight 4.0 ACID 資料表了解不同的 ACID 差異。 壓縮會強制執行任何記錄，可保證資料表一致性。 壓縮完成後，中繼存放區和資料表移轉的前一個步驟將會不足以在 HDInsight 4.0 中使用 HDInsight 3.6 ACID 中的任何資料表。
+此壓縮是必要的因為 HDInsight 3.6 和 HDInsight 4.0 ACID 資料表以不同的方式了解 ACID 的差異。 壓縮會強制執行任何記錄，可保證一致性。 第 4 節[Hive 移轉文件](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-upgrade-major/content/prepare_hive_for_upgrade.html)包含大量壓縮 HDInsight 3.6 ACID 資料表的指引。
+
+完成的中繼存放區移轉和壓縮步驟後，您可以移轉在實際的倉儲。 Hive 倉儲移轉完成之後，HDInsight 4.0 倉儲將會有下列屬性：
+
+* 在 HDInsight 3.6 中的外部資料表將會是 HDInsight 4.0 中的外部資料表
+* 在 HDInsight 3.6 中的非交易式 managed 的資料表將會是 HDInsight 4.0 中的外部資料表
+* 交易式受管理的資料表，在 HDInsight 3.6 中將會是 HDInsight 4.0 中的受管理的資料表
+
+您可能需要調整倉儲的屬性，然後再執行移轉。 例如，如果您預期某些資料表，將存取由協力廠商 （例如 HDInsight 3.6 叢集），該資料表必須是外部一旦完成移轉。 在 HDInsight 4.0 中，受管理的所有資料表都是交易式。 因此，應該只存取 HDInsight 4.0 中受管理的資料表，HDInsight 4.0 叢集。
+
+資料表屬性設定正確之後, 執行 Hive 倉儲移轉工具從叢集前端節點使用 SSH 殼層的其中一個：
+
+1. 連接到您使用 SSH 的叢集前端節點。 如需指示，請參閱[連接到 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. 開啟 Hive 使用者身分登入殼層執行 `sudo su - hive`
+1. 判斷執行的 Hortonworks Data Platform 堆疊版本`ls /usr/hdp`。 這會顯示您應該使用的版本字串中的下一個命令。
+1. 從殼層執行下列命令。 取代`${{STACK_VERSION}}`版本字串，從上一個步驟：
+
+```bash
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+```
+
+移轉工具完成之後，HDInsight 4.0 就可以使用 Hive 倉儲。 
+
+> [!Important]
+> 受管理的資料表 （包括資料表移轉從 3.6） 的 HDInsight 4.0 中不應該存取其他服務或應用程式，包括 HDInsight 3.6 叢集。
 
 ## <a name="secure-hive-across-hdinsight-versions"></a>不同 HDInsight 版本之間的安全 Hive
 
@@ -74,9 +98,9 @@ alter table myacidtable compact 'major';
 
 在 HDInsight 3.6，與 Hive 伺服器互動的 GUI 用戶端會是 Ambari Hive 檢視。 HDInsight 4.0 會取代 Hive 檢視使用 Hortonworks Data Analytics Studio (DAS)。 DAS 不隨附於 HDInsight 叢集的現成的而且不正式支援的封裝。 不過，DAS 可以安裝在叢集上，如下所示：
 
-1. 下載[DAS 封裝安裝指令碼](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-mpack.sh)，這兩個叢集前端節點上加以執行。 不會執行此指令碼以指令碼動作。
-2. 下載[DAS 服務安裝指令碼](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-component.sh)並執行指令碼動作。 選取 **前端節點**為節點類型的選擇，從指令碼動作的介面。
-3. 指令碼動作完成之後，瀏覽至 Ambari，然後選取**Data Analytics Studio**從服務清單。 所有的 DAS 服務會停止。 選取右上角**動作**並**開始**。 您現在可以執行並偵錯查詢以及 DAS。
+為節點類型的執行啟動指令碼動作，對您的叢集，請使用 「 前端節點 」。 將下列 URI 貼到文字方塊中標示為 「 Bash 指令碼 URI 」 中： https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+
 
 DAS 安裝之後，如果您沒有看到您已在 查詢檢視器中執行的查詢，請執行下列步驟：
 

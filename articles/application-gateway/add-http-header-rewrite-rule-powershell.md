@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: bfafc74cbcb97f28cc085196a2cbaf4e9bf2e871
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 405bc9aed4605e9728e112595f33c879bf55ec7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548314"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005616"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>重新撰寫 HTTP 要求和回應標頭與 Azure 應用程式閘道-Azure PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "59548314"
 ## <a name="prerequisites"></a>必要條件
 
 - 進行本教學課程時，您必須在本機執行 Azure PowerShell。 您必須安裝 Az 模組 1.0.0 版或更新版本。 請執行 `Import-Module Az`，然後執行 `Get-Module Az` 來尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzAccount` 以建立與 Azure 的連線。
-- 您需要有 v1 SKU 不支援 SKU，因為標頭重寫功能的應用程式閘道 v2。 如果您還沒有 v2 SKU，建立[應用程式閘道 v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>)開始之前。
+- 您需要有 v1 SKU 不支援 SKU，因為標頭重寫功能的應用程式閘道 v2。 如果您還沒有 v2 SKU，建立[應用程式閘道 v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps)開始之前。
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>什麼是需要重寫的標頭
 

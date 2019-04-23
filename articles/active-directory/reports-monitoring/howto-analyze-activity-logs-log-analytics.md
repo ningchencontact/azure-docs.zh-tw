@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 監視器記錄分析 Azure Active Directory 活動記錄 (預覽) | Microsoft Docs
-description: 了解如何使用 Azure 監視器記錄來分析 Azure Active Directory 活動記錄 (預覽)
+title: 分析使用 Azure 監視器記錄檔的 Azure Active Directory 活動記錄 |Microsoft Docs
+description: 了解如何分析使用 Azure 監視器記錄檔的 Azure Active Directory 活動記錄
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
-ms.reviewer: dhanyahk
+ms.date: 04/18/2019
+ms.author: priyamo
+ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e195dd0e52b4938e829ea0aec1f4cc3ef7107c0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436799"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005531"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>使用 Azure 監視器記錄來分析 Azure AD 活動記錄 (預覽)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>分析 Azure AD 活動記錄與 Azure 監視器記錄檔
 
 在您[整合 Azure AD 活動記錄與 Azure 監視器記錄](howto-integrate-activity-logs-with-log-analytics.md)之後，可以使用 Azure 監視器記錄的強大功能來深入了解環境。 您也可以安裝[適用於 Azure AD 活動記錄的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)，以存取您環境中稽核和登入事件的預建報表。
 

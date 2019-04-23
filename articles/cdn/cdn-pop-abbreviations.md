@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: magattus
-ms.openlocfilehash: cc866691aac884def72030345bb4dfcbe87ea689
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: eac699a68558f0a8c9f94f0a8b75aabee561ebb3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092264"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005985"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>依縮寫排列的 Azure CDN POP 位置
 > [!div class="op_single_selector"]
@@ -77,9 +77,9 @@ FTY | 美國喬治亞州亞特蘭大 | 北美洲：美國東岸
 GIG | 里約熱內盧，巴西 | 拉丁美洲
 GRU | 聖保羅，巴西 | 拉丁美洲
 HEL | 赫爾辛基，芬蘭 | 歐洲
-HHP | 香港 | 亞洲
-HKC | 香港 | 亞洲
-HKG | 香港 | 亞洲
+HHP | 香港特別行政區 | 亞洲
+HKC | 香港特別行政區 | 亞洲
+HKG | 香港特別行政區 | 亞洲
 HND | 東京，日本 | 亞洲
 IAD | 美國維吉尼亞州阿什本 | 北美洲：美國東岸
 ICN | 南韓首爾 | 亞洲

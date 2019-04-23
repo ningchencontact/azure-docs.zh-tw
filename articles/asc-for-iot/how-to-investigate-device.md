@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 56378e94bf448da4c3047c30be3ae25887f113b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6182662cb0da7fa5bcd3f329ada9ca5851490724
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792212"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007877"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>調查可疑的 IoT 裝置
 
@@ -43,7 +43,7 @@ ms.locfileid: "59792212"
 若要找出用來儲存資料的 Log Analytics 工作區：
 
 1. 開啟 IoT 中樞， 
-1. 按一下 [安全性]，然後選取 [設定]。
+1. 底下**安全性**，按一下**概觀**，然後選取**設定**。
 1. 變更 Log Analytics 工作區的組態詳細資料。 
 1. 按一下 [檔案] 。 
 
@@ -94,7 +94,7 @@ ms.locfileid: "59792212"
 
 ### <a name="open-ports"></a>開啟連接埠
 
-若要尋找裝置中的哪些連接埠目前正在使用中或所使用的逾時，請使用下列 kql 查詢： 
+若要查明哪些裝置中的連接埠目前正在使用中或已使用，請使用下列 kql 查詢： 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -152,7 +152,7 @@ ms.locfileid: "59792212"
   
 ### <a name="process-list"></a>處理程序清單
 
-若要尋找處理程序清單是否為預期使用下列 kql 查詢： 
+若要找出處理序清單是否如預期般，使用下列 kql 查詢： 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -188,4 +188,5 @@ ms.locfileid: "59792212"
   3. 是否有任何命令列執行包含正確且預期中的引數？
 
 ## <a name="next-steps"></a>後續步驟
+
 在調查裝置並更加了解您的風險之後，請考慮[設定自訂警示](quickstart-create-custom-alerts.md)來改善您的 IoT 解決方案安全性態勢。 如果您還沒有裝置代理程式，請考慮[部署安全性代理程式](how-to-deploy-agent.md)或[變更現有裝置代理程式的組態](how-to-agent-configuration.md)，以改善您的結果。 

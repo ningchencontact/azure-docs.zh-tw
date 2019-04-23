@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ab8a231d4d44cfe2bfaf7c003ca57772a7a1814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896305"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010274"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自動化中的憑證資產
 
@@ -33,7 +33,7 @@ ms.locfileid: "58896305"
 |[New-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/new-azurermautomationcertificate)|建立新的憑證到 Azure 自動化。|
 [Remove-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|從 Azure 自動化中移除憑證。|
 |[Set-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/set-azurermautomationcertificate)|設定現有的憑證，包括上傳憑證檔案和設定 .pfx 的密碼屬性。|
-|[Add-AzureCertificate](/previous-versions/azure/dn495214)|上傳指定雲端服務的服務憑證。|
+|[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|上傳指定雲端服務的服務憑證。|
 
 ## <a name="activities"></a>活動
 

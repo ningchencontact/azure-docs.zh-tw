@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: db48db5ce9402267570ac9e41f9f4b5bec2781ad
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 532c1051522410c496fb3809c06c7e3a74340adb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527943"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006041"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -74,7 +74,8 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
      ![選取 VPN][api-management-setup-vpn-select]
 
-5. 按一下畫面頂端的 [儲存]。
+5. 按一下 **儲存**上方導覽列中。
+6. 按一下 **套用網路設定**上方導覽列中。
 
 > [!NOTE]
 > 「API 管理」執行個體的 VIP 位址在每次啟用或停用 VNET 時都會變更。
@@ -106,9 +107,9 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 * **APIM 所需的連接埠**︰使用[網路安全性群組][Network Security Group]可以控制到 APIM 部署於其中的子網路之輸入和輸出流量。 如果這些連接埠中有任何一個無法使用，「API 管理」可能就無法正常運作而可能變成無法存取。 搭配 VNET 使用 API 管理時，封鎖這其中一或多個連接埠是另一個常見的錯誤組態問題。
 
-<a name="required-ports"> </a> 當 「 API 管理服務執行個體裝載在 VNET 中時，會使用下表中的連接埠。
+<a name="required-ports"> </a>在 VNET 中托管 API 管理服务实例时，将使用下表中的端口。
 
-| 來源 / 目的地連接埠 | 方向          | 傳輸通訊協定 |   [服務標記](../virtual-network/security-overview.md#service-tags) <br> 來源 / 目的地   | 目的 (*)                                                 | 虛擬網路類型 |
+| 來源 / 目的地連接埠 | Direction          | 傳輸通訊協定 |   [服務標記](../virtual-network/security-overview.md#service-tags) <br> 來源 / 目的地   | 目的 (*)                                                 | 虛擬網路類型 |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | 輸入            | TCP                | INTERNET / VIRTUAL_NETWORK            | 與 API 管理的用戶端通訊                      | 外部             |
 | * / 3443                     | 輸入            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure 入口網站和 PowerShell 的管理端點         | 外部和內部  |
@@ -154,7 +155,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
     
     > 13.84.189.17/32、13.85.22.63/32、23.96.224.175/32、23.101.166.38/32、52.162.110.80/32、104.214.19.224/32、13.64.39.16/32、40.81.47.216/32、51.145.179.78/32、52.142.95.35/32、40.90.185.46/32、20.40.125.155/32
 
-  * 也就是強制通道傳送其他 API 管理服務相依性，應該用來解析主機名稱，並連線到端點。 其中包括：
+  * 对于进行强制隧道传输的其他 API 管理服务依赖项，应该可以通过某种方式解析主机名并访问终结点。 其中包括：
       - 指标和运行状况监视
       - Azure 门户诊断
       - SMTP 中继

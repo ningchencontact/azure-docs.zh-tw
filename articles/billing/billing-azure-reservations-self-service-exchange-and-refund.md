@@ -1,7 +1,6 @@
 ---
 title: 自助服務交換和 Azure 保留的退款 |Microsoft Docs
 description: 了解您可以交換或退還 Azure 保留項目。
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,20 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/5/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281976"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009305"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>自助服務交換記錄和退費記錄 Azure 保留項目
 
-Azure 保留的項目會提供彈性，幫助您滿足不斷成長的需求。 您可以交換相同類型的另一個保留的保留項目。 如果您不再需要您也可以退還保留，最多 50,000 美元每年。
+Azure 保留的項目會提供彈性，幫助您滿足不斷成長的需求。 您可以用保留來交換相同類型的其他保留。 您也可以退還不再需要的保留，每年最多 50,000 美元。
 
-自助 exchange 和 [取消] 功能不適用於美國政府的 Enterprise 合約客戶。 支援其他美國政府訂用帳戶類型，包括隨用隨付和 CSP。
+自助式交換和取消功能不適用於美國政府 Enterprise 合約客戶。 支援其他美國政府訂用帳戶類型，包括隨用隨付和 CSP。
+
+您必須擁有者存取權來交換或退款給現有的保留區的保留項目順序。
 
 ## <a name="exchange-an-existing-reserved-instance"></a>交換現有的保留執行個體
 
@@ -32,14 +33,14 @@ Azure 保留的項目會提供彈性，幫助您滿足不斷成長的需求。 �
 
 1. 選取您想要退款，然後按一下 保留**Exchange**。  
     ![範例影像中顯示傳回的保留項目](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
-2. 選取您想要購買，並輸入 quantity 的 VM 產品。 請確定新購買總數是多個傳回的總計。 [判斷正確的大小，在購買](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)。  
+2. 選取您要購買的 VM 產品，並輸入數量。 請確定新購買總數是多個傳回的總計。 [判斷正確的大小，在購買](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)。  
     ![顯示 VM 產品購買與 exchange 的範例影像](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. 檢閱並完成交易。  
     ![顯示 VM 產品購買跟 exchange 一樣，完成傳回的範例影像](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
 若要退還保留項目，請移至**保留詳細資料**然後按一下**退款**。
 
-## <a name="how-return-and-exchange-transactions-are-processed"></a>如何傳回，而且會處理交換的交易
+## <a name="how-transactions-are-processed"></a>交易的處理方式
 
 首先，Microsoft 會取消現有的保留區，並退款比例數量的保留項目。 交換時，會處理新的採購單。 Microsoft 會處理使用其中一種下列方法，根據您的帳戶類型和付款方法的退費記錄：
 
@@ -49,7 +50,7 @@ Money 新增至財務承諾交換和退款如果原始的購買已使用其中�
 
 如果以超額形式進行原始的購買，Microsoft 就會發出進貨折。
 
-### <a name="pay-as-you-go-invoice-payment-customers-and-cloud-solution-provider-program"></a>隨用隨付發票付款客戶與雲端解決方案提供者方案
+### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>隨用隨付的發票付款和 CSP 計劃
 
 取消將原始的保留購買發票，然後建立新的發票的退款。 新的發票交換，顯示退費和新的採購單。 退貨量會調整對購買程序。 如果您只會退還保留項目，然後按比例計算的量會與 Microsoft 一起，並調整針對未來的保留購買。
 
@@ -74,7 +75,7 @@ Money 新增至財務承諾交換和退款如果原始的購買已使用其中�
 - 只有保留項目擁有者可以處理退款。 [了解如何新增或變更的使用者可以管理保留](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)。
 - Microsoft 保留收取任何傳回 12%負面影響的權限，雖然目前不收費的負面影響。
 
-## <a name="exchange-a-non-premium-storage-vm-reservation-for-a-premium-storage-reservation"></a>交換非進階儲存體的進階儲存體保留的 VM 保留項目
+## <a name="exchange-non-premium-storage-for-premium-storage"></a>交換非進階儲存體，進階儲存體
 
 您可以交換購買不支援進階儲存體以相對應的 VM 大小的 VM 大小的保留項目。 例如， _F1_ for _F1s_。 進行交換，請移至保留詳細資料，並按一下**Exchange**。 Exchange 不重設保留的執行個體的詞彙，或建立新的交易。
 

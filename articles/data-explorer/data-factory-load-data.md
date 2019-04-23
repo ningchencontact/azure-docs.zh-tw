@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: c3c5484d865c73a6f478ffc9ad4c3fc86c2c8170
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618948"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005361"
 ---
-# <a name="copy-data-from-azure-data-factory-to-azure-data-explorer"></a>從 Azure Data Factory 複製資料到 Azure 資料總管
+# <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>將資料複製到使用 Azure Data Factory 的 Azure 資料總管 
 
 Azure 的資料總管是快速且受到完整管理的資料分析服務來執行即時分析大量資料流從許多來源，例如應用程式、 網站和 IoT 裝置上。 反覆地瀏覽資料並識別模式和異常，以改善產品、 加強客戶體驗，監視裝置，並提升作業。 探索新的問題並在幾分鐘內獲得解答。 Azure Data Factory 是完全受控的雲端式資料整合服務。 您可以在資料庫中填入 Azure 資料總管資料從您現有的系統，並節省時間使用服務時建置分析解決方案。
 
@@ -32,7 +32,7 @@ Azure Data Factory 資料載入 Azure 資料總管產生下列好處：
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 * [Azure Data Explorer 叢集和資料庫](create-cluster-database-portal.md)
-* Amazon S3.
+* 資料來源。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
@@ -147,10 +147,6 @@ Azure 資料總管新增連結的服務會建立以複製到 Azure 資料總管�
 
     ![ADX 目的地資料存放區](media/data-factory-load-data/destination-data-store.png)
 
-1. 在 [**選擇輸出檔案或資料夾**、 輸入輸出資料夾名稱，決定的設定，然後選取**下一步]**。
-
-    ![指定輸出資料夾](media/data-factory-load-data/specify-path.png)
-
 1. 在 [**資料表對應**，設定目的地資料表的名稱，然後選取**下一步]**。
 
     ![目的地資料集資料表對應](media/data-factory-load-data/destination-dataset-table-mapping.png)
@@ -186,6 +182,8 @@ Azure 資料總管新增連結的服務會建立以複製到 Azure 資料總管�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解編輯連結的服務、 資料集和管線中的[Data Factory 使用者介面](/azure/data-factory/quickstart-create-data-factory-portal)
+* 深入了解[Azure 資料總管連接器](/azure/data-factory/connector-azure-data-explorer)Azure Data Factory 中。
+
+* 深入了解編輯連結的服務、 資料集和中的管線[Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal)。
 
 * 深入了解[Azure 資料總管查詢](/azure/data-explorer/web-query-data)資料查詢。

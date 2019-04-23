@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1b4bd904a9936c401f6b0ea6ac9663c20bc92b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 3645945400bcc58cdf11721458bfab529d89f0b7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400035"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009985"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>適用於 Azure Active Directory B2C 中的 JavaScript 範例
 
@@ -140,7 +140,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-在程式碼中，請將 `terms-of-use-url` 取代為您使用規定合約的連結。 針對您的目錄，請建立稱為 **termsOfUse** 的新使用者屬性，然後將 **termsOfUse** 包含為您使用者流程的使用者屬性。
+在程式碼中，請將 `termsOfUseUrl` 取代為您使用規定合約的連結。 針對您的目錄，請建立稱為 **termsOfUse** 的新使用者屬性，然後將 **termsOfUse** 包含為您使用者流程的使用者屬性。
 
 ## <a name="next-steps"></a>後續步驟
 

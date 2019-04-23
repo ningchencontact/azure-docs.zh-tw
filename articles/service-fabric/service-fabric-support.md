@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: aa4fd391aef3acf8e72513d91b62c7f16a13062d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889432"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005038"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支援選項
 
@@ -33,6 +33,11 @@ ms.locfileid: "57889432"
  
 - [Microsoft 對於 Azure 的支援](https://azure.microsoft.com/support/plans/?b=16.44)。
 - [Microsoft 頂級支援](https://support.microsoft.com/en-us/premier)。
+
+> [!Note]
+> 青銅可靠性層級上執行的叢集可讓您執行只測試工作負載。 如果您使用銅牌可靠性上執行的叢集時遇到問題，Microsoft 支援小組將協助您減輕此問題，，但不是會執行根本原因分析。 請參閱[叢集的可靠性特性](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)如需詳細資訊。
+>
+> 如需有關什麼是必要的可進行生產叢集的詳細資訊，請參閱[生產環境的整備檢查清單](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)。
 
 <a id="getlivesitesupportonprem"></a>
 

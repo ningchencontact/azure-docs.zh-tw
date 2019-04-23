@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486313"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011361"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -74,7 +74,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 - [Windows 叢集技術](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server 容錯移轉叢集執行個體](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)。
 
-一個重要的差異是，在 Azure IaaS VM 客體容錯移轉叢集上，建議每個伺服器 （叢集節點） 和單一子網路的單一 NIC。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告會發出節點只能在單一網路上連線的警告，但您可以放心地在 Azure IaaS VM 客體容錯移轉叢集上忽略此警告。 
+一个重要的差别在于，在 Azure IaaS VM 来宾故障转移群集上，我们建议每个服务器（群集节点）使用一个 NIC 和一个子网。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告會發出節點只能在單一網路上連線的警告，但您可以放心地在 Azure IaaS VM 客體容錯移轉叢集上忽略此警告。 
 
 此外，您也應對下列技術有大概了解：
 
@@ -399,7 +399,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
    - **名稱**：健康情況探查的名稱。
    - **通訊協定**：TCP。
-   - **連接埠**：設為可用的 TCP 連接埠。 此連接埠需要開啟防火牆的連接埠。 使用與您在防火牆設定健全狀況探查[相同的連接埠](#ports)。
+   - **連接埠**：設定為您建立在防火牆中針對在健康情況探查連接埠[此步驟](#ports)。 在本文中，此範例會使用 TCP 連接埠`59999`。
    - **間隔**：5 秒。
    - **狀況不良閾值**：2 次連續失敗。
 
@@ -421,7 +421,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
    - **健康情況探查**：使用您稍早設定的健康情況探查。
    - **工作階段持續性**：無。
    - **閒置逾時 (分鐘)**：4.
-   - **浮動 IP (伺服器直接回傳)**：已啟用
+   - **浮動 IP (伺服器直接回傳)**：Enabled
 
 1. 按一下 [確定]。
 
