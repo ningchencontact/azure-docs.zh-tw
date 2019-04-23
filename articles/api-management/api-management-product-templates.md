@@ -80,9 +80,9 @@ ms.locfileid: "52443622"
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
-|分頁|[分頁](api-management-template-data-model-reference.md#Paging)實體。|產品集合的分頁資訊。|  
-|篩選|[篩選](api-management-template-data-model-reference.md#Filtering)實體。|產品清單頁面的篩選資訊。|  
-|產品|[產品](api-management-template-data-model-reference.md#Product)實體的集合。|目前使用者可看見的產品。|  
+|Paging|[分頁](api-management-template-data-model-reference.md#Paging)實體。|產品集合的分頁資訊。|  
+|Filtering|[篩選](api-management-template-data-model-reference.md#Filtering)實體。|產品清單頁面的篩選資訊。|  
+|Products|[產品](api-management-template-data-model-reference.md#Product)實體的集合。|目前使用者可看見的產品。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   
@@ -205,14 +205,14 @@ ms.locfileid: "52443622"
   
 |屬性|類型|說明|  
 |--------------|----------|-----------------|  
-|產品|[產品](api-management-template-data-model-reference.md#Product)|指定的產品。|  
+|Product|[產品](api-management-template-data-model-reference.md#Product)|指定的產品。|  
 |IsDeveloperSubscribed|布林值|目前的使用者是否已訂閱此產品。|  
 |SubscriptionState|number|訂用帳戶的狀態。 可能的狀態為：<br /><br /> -   `0 - suspended` – 訂用帳戶已遭封鎖，而且訂閱者無法呼叫產品的任何 API。<br />-   `1 - active` – 訂用帳戶是作用中狀態。<br />-   `2 - expired` – 訂用帳戶已達到期日，因此已停用。<br />-   `3 - submitted` – 開發人員已提出訂用帳戶要求，但尚未進行核准或拒絕。<br />-   `4 - rejected` – 系統管理員已拒絕訂用帳戶要求。<br />-   `5 - cancelled` – 開發人員或系統管理員已取消訂用帳戶。|  
-|限制|array|此屬性已被取代而不應該使用。|  
+|Limits|array|此屬性已被取代而不應該使用。|  
 |DelegatedSubscriptionEnabled|布林值|此訂用帳戶是否已啟用[委派](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/)。|  
 |DelegatedSubscriptionUrl|字串|如果已啟用委派，則是所委派的訂用帳戶 URL。|  
 |IsAgreed|布林值|如果產品有條款，目前的使用者是否已同意條款。|  
-|訂用帳戶|[訂用帳戶摘要](api-management-template-data-model-reference.md#SubscriptionSummary)實體的集合。|產品的訂用帳戶。|  
+|Subscriptions|[訂用帳戶摘要](api-management-template-data-model-reference.md#SubscriptionSummary)實體的集合。|產品的訂用帳戶。|  
 |Apis|[API](api-management-template-data-model-reference.md#API) 實體的集合。|此產品中的 API。|  
 |CannotAddBecauseSubscriptionNumberLimitReached|布林值|就訂用帳戶限制而言，目前的使用者是否有資格訂閱此產品。|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|布林值|就是否允許多個訂用帳戶而言，目前的使用者是否有資格訂閱此產品。|  
