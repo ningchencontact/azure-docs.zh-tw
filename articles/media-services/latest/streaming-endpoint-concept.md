@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881013"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999445"
 ---
 # <a name="streaming-endpoints"></a>串流端點
 
@@ -52,7 +52,6 @@ ms.locfileid: "58881013"
 ---|---|---
 前 15 天免費| 是 |否
 Throughput |未使用 Azure CDN 時最多 600 Mbps。 隨著 CDN 調整。|每個串流單位 (SU) 200 Mbps。 隨著 CDN 調整。
-SLA | 99.9|99.9 (每個 SU 200 Mbps)。
 CDN|Azure CDN、第三方 CDN 或没有 CDN。|Azure CDN、協力廠商 CDN 或沒有 CDN。
 按比例計費| 每日|每日
 動態加密|是|是
@@ -86,7 +85,7 @@ IP 篩選/G20/自訂主機<sup>1</sup>|是|是
 
     以下是預期的 DNS 區域，用於不同 Azure 區域的驗證記錄。
   
-  - 北美洲、歐洲、新加坡、香港特別行政區、日本：
+  - 北美洲、 歐洲、 新加坡、 香港特別行政區、 日本：
       
     - `media.azure.net`
     - `verifydns.media.azure.net`

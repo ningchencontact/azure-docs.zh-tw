@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
 ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188708"
 ---
 # <a name="traffic-manager-endpoints"></a>流量管理員端點
 Microsoft Azure 流量管理員可讓您控制如何將網路流量分散到在不同資料中心執行的應用程式部署。 您可以在流量管理員中將每個應用程式部署設定為「端點」。 當流量管理員收到 DNS 要求時，它會選擇可用的端點在 DNS 回應中傳回。 流量管理員會根據目前的端點狀態和流量路由方法來選擇。 如需詳細資訊，請參閱 [流量管理員的運作方式](traffic-manager-how-it-works.md)。
@@ -31,7 +31,7 @@ Microsoft Azure 流量管理員可讓您控制如何將網路流量分散到在�
 
 下列各節會更深入說明每個端點類型。
 
-## <a name="azure-endpoints"></a>Azure 端點
+## <a name="azure-endpoints"></a>Azure 终结点
 
 在流量管理員中，Azure 端點用於以 Azure 為基礎的服務。 支援下列的 Azure 資源類型︰
 
@@ -67,7 +67,7 @@ PublicIPAddress 資源是 Azure Resource Manager 資源。 它們不存在於傳
 2. 當端點收到 HTTP 要求時，它會使用要求中的 'host’ 標頭來決定哪個 Web 應用程式應該處理要求。 Host 標頭包含用來起始要求的 DNS 名稱，例如 'contosoapp.azurewebsites.net'。 若要讓 Web 應用程式使用不同的 DNS 名稱，此 DNS 名稱必須註冊為該應用程式的自訂網域名稱。 將 Web 應用程式端點新增為 Azure 端點時，將會自動為該應用程式註冊流量管理員設定檔 DNS 名稱。 刪除端點時，會自動移除此註冊。
 3. 每個流量管理員設定檔最多可以有來自每個 Azure 區域的一個 Web 應用程式端點。 若要克服此限制，您可以將 Web 應用程式設定為外部端點。 如需詳細資訊，請參閱[常見問題集](traffic-manager-faqs.md#traffic-manager-endpoints)。
 
-## <a name="enabling-and-disabling-endpoints"></a>啟用和停用端點
+## <a name="enabling-and-disabling-endpoints"></a>启用和禁用终结点
 
 在流量管理員中停用端點，有利於從處於維護模式或正在重新部署的端點中暫時移除流量。 一旦端點再次執行，即可重新啟用。
 
@@ -85,7 +85,7 @@ PublicIPAddress 資源是 Azure Resource Manager 資源。 它們不存在於傳
 如需詳細資訊，請參閱 [流量管理員端點監視](traffic-manager-monitoring.md#endpoint-and-profile-status)。
 
 > [!NOTE]
-> 由於流量管理員是在 DNS 層級上運作，所以無法影響任何端點的現有連線。 當端點無法使用時，流量管理員會將新連接導向另一個可用的端點。 不過，已停用或狀況不良端點背後的主機可透過現有的連接來繼續接收流量，直到這些工作階段終止為止。 應用程式應該限制工作階段持續時間，以排光現有連接的流量。
+> 由于流量管理器是在 DNS 级别工作的，因此不可能影响任何终结点的现有连接。 當端點無法使用時，流量管理員會將新連接導向另一個可用的端點。 不過，已停用或狀況不良端點背後的主機可透過現有的連接來繼續接收流量，直到這些工作階段終止為止。 應用程式應該限制工作階段持續時間，以排光現有連接的流量。
 
 如果設定檔中的所有端點都已停用，或設定檔本身已停用，流量管理員會傳送 'NXDOMAIN' 回應給新的 DNS 查詢。
 

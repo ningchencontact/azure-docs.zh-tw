@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 193250708b953b2bf2e2db84b3eef2dc4a09834b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451915"
 documentType: LandingData
 title: Team Data Science Process 文件
 metadata:
@@ -22,24 +16,24 @@ metadata:
 abstract:
   description: Team Data Science Process 是一種敏捷式反覆資料科學方法，可有效產出預測分析解決方案和智慧型應用程式。 TDSP 有助於改善團隊共同作業和學習。 其中包含 Microsoft 及業界其他公司的最佳做法和結構，有助於順利實作資料科學計劃。 目標是協助公司完全了解其分析程式的優點。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解 Team Data Science Process：
-  - type: list
-    style: unordered
+  - title: 5 分鐘快速入門
     items:
-    - html: <a href="overview">概觀</a>
-    - html: <a href="lifecycle">生命週期</a>
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何在各情況下使用 Team Data Science Process：
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 了解 Team Data Science Process：
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="overview">概觀</a>
+          - html: <a href="lifecycle">生命週期</a>
+  - title: 逐步教學課程
     items:
-    - html: <a href="walkthroughs-spark">Spark 與 PySpark 和 Scala</a>
-    - html: <a href="walkthroughs-hdinsight-hadoop">Hive 與 HDInsight Hadoop</a>
-    - html: <a href="walkthroughs-azure-data-lake">U-SQL 與 Azure Data Lake</a>
-    - html: <a href="walkthroughs-sql-server">R、Python 和 T-SQL 與 SQL Server</a>
-    - html: <a href="walkthroughs-sql-data-warehouse">T-SQL 和 Python 與 SQL DW</a>
+      - type: paragraph
+        text: 了解如何在各情況下使用 Team Data Science Process：
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="walkthroughs-spark">Spark 與 PySpark 和 Scala</a>
+          - html: <a href="walkthroughs-hdinsight-hadoop">Hive 與 HDInsight Hadoop</a>
+          - html: <a href="walkthroughs-azure-data-lake">U-SQL 與 Azure Data Lake</a>
+          - html: <a href="walkthroughs-sql-server">R、Python 和 T-SQL 與 SQL Server</a>
+          - html: <a href="walkthroughs-sql-data-warehouse">T-SQL 和 Python 與 SQL DW</a>

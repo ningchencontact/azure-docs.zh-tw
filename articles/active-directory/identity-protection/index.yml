@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4b98648325eaf434d675bfdc1cdd704870912bc3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517210"
 documentType: LandingData
 title: Azure AD Identity Protection
 metadata:
-  document_id: 
+  document_id: null
   title: Azure Active Directory Identity Protection 文件 - 快速入門、概念和參考 | Microsoft Docs
   description: 了解如何設定和測試 Azure Active Directory Identity Protection。
   services: active-directory
@@ -25,22 +19,22 @@ abstract:
   description: 了解如何偵測可能遭盜用的身分識別，以及如何實作自動化的回應以解決問題。 Azure Active Directory Identity Protection 是 Azure AD Premium P2 版本的一向功能，可讓您：<ul><li>偵測會影響組織的身分識別的潛在弱點</li><li>設定條件式存取原則，以自動回應與組織身分識別相關的可疑動作</li><li>調查可疑事件並採取適當動作以解決它們</li></ul><br> 下列資源可協助您快速開始使用。
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ./media/index/video.png
       width: 246
     title: Azure AD Identity Protection 簡介
-    href: https://www.youtube.com/watch?v=zI3jn_G0_Ns
+    href: 'https://www.youtube.com/watch?v=zI3jn_G0_Ns'
     width: 246
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何針對常見的存取案例，設定登入風險條件式存取原則。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        src: ./media/index/i_security-management.png
-      text: 偵測到工作階段風險時封鎖存取
-      href: quickstart-sign-in-risk-policy.md
+      - type: paragraph
+        text: 了解如何針對常見的存取案例，設定登入風險條件式存取原則。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_security-management.png
+            text: 偵測到工作階段風險時封鎖存取
+            href: quickstart-sign-in-risk-policy.md

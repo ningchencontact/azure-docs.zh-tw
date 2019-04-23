@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049416"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing 影像搜尋 API 的常見問題集 (FAQ)
@@ -61,7 +61,7 @@ ms.locfileid: "59049416"
 
 ## <a name="next-steps"></a>後續步驟
 
-您的問題是否與缺少特性或功能相關？ 請考慮在我們的 [User Voice 網站](https://cognitive.uservoice.com/forums/555907-bing-search)上要求或對它投票。
+您的問題是否與缺少特性或功能相關？ 請考慮在我們的 [User Voice 網站上要求或對它投票](https://cognitive.uservoice.com/forums/555907-bing-search)。
 
 ## <a name="see-also"></a>請參閱
 

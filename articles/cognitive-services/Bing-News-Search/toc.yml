@@ -1,118 +1,111 @@
-items:
 - name: Bing 新聞搜尋文件
   href: index.yml
 - name: 概觀
-  items:
-  - name: 什麼是 Bing 新聞搜尋 API？
-    href: search-the-web.md
-  - name: 比較 Bing 搜尋 API
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
   expanded: true
+  items:
+    - name: 什麼是 Bing 新聞搜尋 API？
+      href: search-the-web.md
+    - name: 比較 Bing 搜尋 API
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: 快速入門
   items:
-  - name: REST API
-    items:
-    - name: 使用 C#
-      href: csharp.md
-    - name: 使用 Java
-      href: java.md
-    - name: 使用 Node.js
-      href: nodejs.md
-    - name: 使用 PHP
-      href: php.md
-    - name: 使用 Python
-      href: python.md
-    - name: 使用 Ruby
-      href: ruby.md
-    - name: 使用 Go
-      href: go.md
-  - name: SDK
-    items:
-    - name: 使用 C#
-      href: news-search-sdk-quickstart.md
-    - name: 使用 Node.js
-      href: news-search-sdk-node-quickstart.md
-    - name: 使用 Python
-      href: news-sdk-python-quickstart.md
-    - name: 使用 Java
-      href: news-sdk-java-quickstart.md
+    - name: REST API
+      items:
+        - name: '使用 C#'
+          href: csharp.md
+        - name: 使用 Java
+          href: java.md
+        - name: 使用 Node.js
+          href: nodejs.md
+        - name: 使用 PHP
+          href: php.md
+        - name: 使用 Python
+          href: python.md
+        - name: 使用拼音
+          href: ruby.md
+        - name: 使用 Go
+          href: go.md
+    - name: SDK
+      items:
+        - name: '使用 C#'
+          href: news-search-sdk-quickstart.md
+        - name: 使用 Node.js
+          href: news-search-sdk-node-quickstart.md
+        - name: 使用 Python
+          href: news-sdk-python-quickstart.md
+        - name: 使用 Java
+          href: news-sdk-java-quickstart.md
 - name: 教學課程
   items:
-  - name: 建立單頁 Web 應用程式
-    href: tutorial-bing-news-search-single-page-app.md
+    - name: 建立單頁 Web 應用程式
+      href: tutorial-bing-news-search-single-page-app.md
 - name: 範例
   items:
-  - name: 程式碼範例
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search
+    - name: 程式碼範例
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search'
 - name: 使用說明指南
   items:
-  - name: 處理命中結果醒目提示
-    href: hit-highlighting.md
-  - name: 頁面最新消息
-    href: paging-news.md
-  - name: 調整大小和裁剪縮圖
-    href: resize-and-crop-thumbnails.md
-  - name: 從 API v5 升級到 v7
-    href: bing-news-upgrade-guide-v5-to-v7.md
-  - name: 使用 Visual Studio
-    items:
-    - name: 使用 Bing 新聞搜尋連線服務
-      href: vs-bing-news-search-connected-service.md
+    - name: 處理命中結果醒目提示
+      href: hit-highlighting.md
+    - name: 頁面最新消息
+      href: paging-news.md
+    - name: 調整大小和裁剪縮圖
+      href: resize-and-crop-thumbnails.md
+    - name: 從 API v5 升級到 v7
+      href: bing-news-upgrade-guide-v5-to-v7.md
+    - name: 使用 Visual Studio
+      items:
+        - name: 使用 Bing 新聞搜尋連線服務
+          href: vs-bing-news-search-connected-service.md
 - name: 概念
   items:
-  - name: 傳送搜尋查詢
-    href: concepts/send-search-queries.md
-  - name: 搜尋新聞
-    href: concepts/search-for-news.md
+    - name: 傳送搜尋查詢
+      href: concepts/send-search-queries.md
+    - name: 搜尋新聞
+      href: concepts/search-for-news.md
 - name: 參考
   items:
-  - name: Bing 新聞搜尋 API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
-  - name: Bing 新聞搜尋 API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference
-  - name: SDK
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch
-  - name: 使用和顯示需求
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: Bing 新聞搜尋 API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
+    - name: Bing 新聞搜尋 API v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+    - name: SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest'
+        - name: Go
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch'
+    - name: 使用和顯示需求
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: 資源
   items:
-  - name: 價格
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/911449-bing-news-search-api
-  - name: 堆疊溢位
-    href: https://stackoverflow.com/search?q=bing+news+search
-  - name: 區域可用性
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure 藍圖
-    href: https://azure.microsoft.com/roadmap/
-  - name: 知識庫
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: 取得 API 金鑰
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
-  - name: 試試看！
-    href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
-  - name: Bing 新聞搜尋端點
-    href: endpoint-news.md
-  - name: 語言與區域支援
-    href: language-support.md
-  - name: Bing 新聞搜尋 API 的分析
-    href: bing-news-stats.md
-ms.openlocfilehash: 2f560504a582de36ccd55c7755d9113e68a8bf4a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306709"
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/911449-bing-news-search-api'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/search?q=bing+news+search'
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 知識庫
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: 取得 API 金鑰
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api'
+    - name: 試試看！
+      href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
+    - name: Bing 新聞搜尋端點
+      href: endpoint-news.md
+    - name: 語言與區域支援
+      href: language-support.md
+    - name: Bing 新聞搜尋 API 的分析
+      href: bing-news-stats.md

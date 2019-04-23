@@ -1,104 +1,97 @@
-items:
 - name: Azure Resiliency
   items:
-  - name: Azure Resiliency 功能頁面
-    href: https://azure.microsoft.com/features/resiliency
-  - name: 為 Azure 設計具復原性的應用程式
-    href: https://docs.microsoft.com/azure/architecture/resiliency/
+    - name: Azure Resiliency 功能頁面
+      href: 'https://azure.microsoft.com/features/resiliency'
+    - name: 為 Azure 設計具復原性的應用程式
+      href: 'https://docs.microsoft.com/azure/architecture/resiliency/'
 - name: 高可用性
   items:
-  - name: Azure 應用程式的高可用性
-    href: https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications
-  - name: 可用性區域文件
-    items:
-    - name: 什麼是可用性區域？
-      href: az-overview.md
-    - name: 虛擬機器
+    - name: Azure 應用程式的高可用性
+      href: 'https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications'
+    - name: 可用性區域文件
       items:
-      - name: 使用 CLI 在可用性區域中建立 Linux VM
-        href: ../virtual-machines/linux/create-cli-availability-zone.md
-      - name: 使用 PowerShell 在可用性區域中建立 Windows VM
-        href: ../virtual-machines/windows/create-powershell-availability-zone.md
-      - name: 使用 Azure 入口網站在可用性區域中建立 Windows VM
-        href: ../virtual-machines/windows/create-portal-availability-zone.md
-    - name: 受控磁碟
-      items:
-      - name: 使用 CLI 在可用性區域中新增受控磁碟
-        href: ../virtual-machines/linux/add-disk.md#use-managed-disks
-      - name: 使用 PowerShell 在可用性區域中新增受控磁碟
-        href: ../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine
-    - name: 虛擬機器擴展集
-      items:
-      - name: 在可用性區域中建立擴展集
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
-    - name: 負載平衡器
-      items:
-      - name: 何謂負載平衡器？
-        href: ../load-balancer/load-balancer-standard-overview.md
-      - name: Load Balancer 標準和可用性區域
-        href: ../load-balancer/load-balancer-standard-availability-zones.md
-      - name: 建立區域備援公用標準 Load Balancer
-        href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
-        items:
-        - name: 建立區域備援公用標準 Load Balancer (PowerShell)
-          href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
-        - name: 建立區域備援公用標準 Load Balancer (CLI)
-          href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
-      - name: 建立區域公用標準 Load Balancer
-        href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
-        items:
-        - name: 建立區域公用標準 Load Balancer (PowerShell)
-          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
-        - name: 建立區域備援公用標準 Load Balancer (CLI)
-          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
-      - name: 跨越多個可用性區域為虛擬機器進行負載平衡
-        href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
-        items:
-        - name: 使用 Azure (CLI) 跨越多個可用性區域為 VM 進行負載平衡
-          href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
-    - name: 公用 IP 位址
-      href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
-    - name: SQL Database
-      items:
-      - name: 使用 SQL Database 的可用性區域
-        href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
-    - name: 儲存體
-      items:
-      - name: 區域備援儲存體
-        href: ../storage/common/storage-redundancy-zrs.md
-    - name: 事件中樞
-      items:
-      - name: 事件中樞異地災害復原
-        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones-preview
-    - name: 服務匯流排
-      items:
-      - name: 服務匯流排異地災害復原
-        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview
-    - name: VPN 閘道
-      items:
-      - name: 建立區域備援虛擬網路閘道
-        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
-    - name: ExpressRoute
-      items:
-      - name: 建立區域備援虛擬網路閘道
-        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+        - name: 什麼是可用性區域？
+          href: az-overview.md
+        - name: 虛擬機器
+          items:
+            - name: 使用 CLI 在可用性區域中建立 Linux VM
+              href: ../virtual-machines/linux/create-cli-availability-zone.md
+            - name: 使用 PowerShell 在可用性區域中建立 Windows VM
+              href: ../virtual-machines/windows/create-powershell-availability-zone.md
+            - name: 使用 Azure 入口網站在可用性區域中建立 Windows VM
+              href: ../virtual-machines/windows/create-portal-availability-zone.md
+        - name: 受控磁碟
+          items:
+            - name: 使用 CLI 在可用性區域中新增受控磁碟
+              href: '../virtual-machines/linux/add-disk.md#use-managed-disks'
+            - name: 使用 PowerShell 在可用性區域中新增受控磁碟
+              href: '../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine'
+        - name: 虛擬機器擴展集
+          items:
+            - name: 在可用性區域中建立擴展集
+              href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
+        - name: 負載平衡器
+          items:
+            - name: 何謂負載平衡器？
+              href: ../load-balancer/load-balancer-standard-overview.md
+            - name: Load Balancer 標準和可用性區域
+              href: ../load-balancer/load-balancer-standard-availability-zones.md
+            - name: 建立區域備援公用標準 Load Balancer
+              href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
+              items:
+                - name: 建立區域備援公用標準 Load Balancer (PowerShell)
+                  href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
+                - name: 建立區域備援公用標準 Load Balancer (CLI)
+                  href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
+            - name: 建立區域公用標準 Load Balancer
+              href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
+              items:
+                - name: 建立區域公用標準 Load Balancer (PowerShell)
+                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+                - name: 建立區域備援公用標準 Load Balancer (CLI)
+                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
+            - name: 跨越多個可用性區域為虛擬機器進行負載平衡
+              href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
+              items:
+                - name: 使用 Azure (CLI) 跨越多個可用性區域為 VM 進行負載平衡
+                  href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
+        - name: 公用 IP 位址
+          href: '../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address'
+        - name: SQL Database
+          items:
+            - name: 使用 SQL Database 的可用性區域
+              href: '../sql-database/sql-database-high-availability.md#zone-redundant-configuration'
+        - name: 儲存體
+          items:
+            - name: 區域備援儲存體
+              href: ../storage/common/storage-redundancy-zrs.md
+        - name: 事件中樞
+          items:
+            - name: 事件中樞異地災害復原
+              href: '../event-hubs/event-hubs-geo-dr.md#availability-zones-preview'
+        - name: 服務匯流排
+          items:
+            - name: 服務匯流排異地災害復原
+              href: '../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview'
+        - name: VPN 閘道
+          items:
+            - name: 建立區域備援虛擬網路閘道
+              href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+        - name: ExpressRoute
+          items:
+            - name: 建立區域備援虛擬網路閘道
+              href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
 - name: 災害復原
   items:
-  - name: 使用 Azure Site Recovery
-    href: https://docs.microsoft.com/azure/site-recovery/
+    - name: 使用 Azure Site Recovery
+      href: 'https://docs.microsoft.com/azure/site-recovery/'
 - name: Azure 備份
   items:
-  - name: 使用 Azure 備份
-    href: https://docs.microsoft.com/azure/backup/
+    - name: 使用 Azure 備份
+      href: 'https://docs.microsoft.com/azure/backup/'
 - name: 資源
   items:
-  - name: Azure 藍圖
-    href: https://azure.microsoft.com/roadmap/
-  - name: Azure 區域
-    href: https://azure.microsoft.com/regions/
-ms.openlocfilehash: 45a73ec4d5e3649be38133e5ce055f206ecf80ab
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340671"
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Azure 區域
+      href: 'https://azure.microsoft.com/regions/'

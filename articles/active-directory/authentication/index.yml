@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 31c211e6694eb0f02622b3a24d649fe6006df13e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082022"
 documentType: LandingData
 title: Azure AD 驗證文件
 metadata:
-  document_id: 
+  document_id: null
   title: Azure Active Directory 驗證文件
   description: 了解如何管理和部署 Azure Active Directory 自助式密碼重設、Multi-Factor Authentication、自訂的禁用密碼清單與智慧鎖定。
   services: active-directory
@@ -24,26 +18,26 @@ metadata:
 abstract:
   description: 了解如何部署和管理 Azure Active Directory 自助式密碼重設、Multi-Factor Authentication、自訂的禁用密碼清單與智慧鎖定。 這些功能會透過各種驗證方法提供強式驗證，同時提供簡單的組織登入程序。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何啟用自助式密碼重設，減少使用者詢問技術相關服務的來電。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        src: ./media/index/i_protect.png
-      text: 啟用自助式密碼重設
-      href: https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何為組織啟用簡單且安全的登入程序。
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 了解如何啟用自助式密碼重設，減少使用者詢問技術相關服務的來電。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_protect.png
+            text: 啟用自助式密碼重設
+            href: 'https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr'
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">啟用自助式密碼重設試驗</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Azure 入口網站需要使用 MFA</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">啟用自助式密碼重設內部部署整合</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">啟用 Windows 10 密碼重設</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">與 Azure Identity Protection 整合</a>
+      - type: paragraph
+        text: 了解如何為組織啟用簡單且安全的登入程序。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">啟用自助式密碼重設試驗</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Azure 入口網站需要使用 MFA</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">啟用自助式密碼重設內部部署整合</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">啟用 Windows 10 密碼重設</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">與 Azure Identity Protection 整合</a>

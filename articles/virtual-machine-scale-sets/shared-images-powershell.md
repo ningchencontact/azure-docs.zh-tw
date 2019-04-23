@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 7e67e7836b1d80e623a11e552c81750bc6133205
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 3e6baedc28805117962aa8dda8edc6ff3419280e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188317"
 ---
 # <a name="preview-create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>預覽：使用 Azure PowerShell 為虛擬機器擴展集建立及使用共用映像
 
@@ -33,7 +33,7 @@ ms.locfileid: "55981633"
 
 共用映像庫具有多個資源類型。 我們將在這篇文章中使用或建置這些資源類型：
 
-| 資源 | 說明|
+| 資源 | 描述|
 |----------|------------|
 | **受控映像** | 這是基本映像，既可單獨使用，也可用來在映像庫中建立個**映像版本**。 受控映像是從一般化 VM 建立的。 受控映像是一種特殊的 VHD 類型，可用來產生多個 VM，現在可以用來建立共用映像版本。 |
 | **映像庫** | 和 Azure Marketplace 一樣，**映像庫**是用於管理和共用映像的存放庫，但您可以控制哪些使用者能夠存取。 |
@@ -42,7 +42,7 @@ ms.locfileid: "55981633"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 

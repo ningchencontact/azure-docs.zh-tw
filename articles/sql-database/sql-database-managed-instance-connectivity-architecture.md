@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497061"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006126"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL 数据库中托管实例的连接体系结构
 
@@ -67,7 +67,7 @@ Microsoft 管理及部署服務執行的虛擬網路外部。 透過有公用 IP
 
 ![虚拟群集的连接体系结构](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-使用主機名稱的格式，用戶端連線到受管理的執行個體`<mi_name>.<dns_zone>.database.windows.net`。 此主機名稱解析的私人 IP 位址，雖然它會在公用網域名稱系統 (DNS) 區域中註冊，而且是可公開解析。 `zone-id`會自動產生，當您建立叢集。 如果新建立的叢集裝載的次要的 managed 執行個體，它會與主要叢集共用其區域識別碼。 如需詳細資訊，請參閱 <<c0> [ 使用自動容錯移轉群組來啟用多個資料庫的透明且協調容錯移轉](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)。
+客户端使用 `<mi_name>.<dns_zone>.database.windows.net` 格式的主机名连接到托管实例。 此主机名将解析为专用 IP 地址，不过，它将在公共域名系统 (DNS) 区域中注册，且可公开解析。 `zone-id` 是创建群集时自动生成的。 如果新建的群集托管辅助托管实例，它会将其区域 ID 与主群集共享。 如需詳細資訊，請參閱 <<c0> [ 使用自動容錯移轉群組來啟用多個資料庫的透明且協調容錯移轉](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)。
 
 此私人 IP 位址所屬的 managed 執行個體的內部負載平衡器。 負載平衡器會將導向至受管理的執行個體閘道的流量。 由於多個受管理的執行個體可以在相同叢集內執行，閘道會使用受管理的執行個體的主機名稱，將流量重新導向至正確的 SQL 引擎服務。
 
@@ -97,7 +97,7 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 此终结
 
 ### <a name="mandatory-inbound-security-rules"></a>必要輸入安全性規則
 
-| 名稱       |Port                        |通訊協定|來源           |目的地| 動作|
+| Name       |Port                        |通訊協定|來源           |目的地| 動作|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |管理  |9000、9003、1438、1440、1452|TCP     |任意              |MI SUBNET  |允許 |
 |mi_subnet   |任意                         |任意     |MI SUBNET        |MI SUBNET  |允許 |
@@ -105,13 +105,13 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 此终结
 
 ### <a name="mandatory-outbound-security-rules"></a>必要輸出安全性規則
 
-| 名稱       |Port          |通訊協定|來源           |目的地| 動作|
+| Name       |Port          |通訊協定|來源           |目的地| 動作|
 |------------|--------------|--------|-----------------|-----------|------|
 |管理  |80、443、12000|TCP     |MI SUBNET        |AzureCloud |允許 |
 |mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允許 |
 
 > [!IMPORTANT]
-> 請確定只有一個輸入的規則連接埠 9000，9003，1438年、 1440年、 1452年和一個輸出的規則，用於連接埠 80、 443、 12000。 受控執行個體佈建透過 Azure Resource Manager 部署將會失敗，如果輸入和輸出規則針對每個連接埠分別設定。 如果這些連接埠位在不同的規則，部署將會失敗，錯誤碼 `VnetSubnetConflictWithIntendedPolicy`
+> 确保端口 9000、9003、1438、1440、1452 只有一个入站规则，端口 80、443、12000 只有一个出站规则。 受控執行個體佈建透過 Azure Resource Manager 部署將會失敗，如果輸入和輸出規則針對每個連接埠分別設定。 如果这些端口在单独的规则中，则部署将会失败并出现错误代码 `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI SUBNET 是指子网的 IP 地址范围，采用 10.x.x.x/y 格式。 可以在 Azure 门户上的子网属性中找到此信息。
 
@@ -122,7 +122,7 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 此终结
 
 ### <a name="user-defined-routes"></a>使用者定義的路由
 
-|名稱|位址首碼|下一跃点|
+|Name|位址首碼|下一跃点|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|虛擬網路|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 296debefb5597af0c82202993443dc38f48f147a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519556"
 documentType: LandingData
 title: Azure AD 條件式存取文件
 metadata:
-  document_id: 
+  document_id: null
   title: Azure Active Directory 條件式存取文件 - 教學課程、快速入門、概念和參考 | Microsoft Docs
   description: 了解如何設定及測試 Azure Active Directory 條件式存取。
   services: active-directory
@@ -25,38 +19,38 @@ abstract:
   description: 了解如何設定 Azure AD 條件式存取，控制安全性與生產力之間的平衡。 透過條件式存取原則，您可以找出如何判斷雲端應用程式的存取因素。 例如，您可以在存取決策中解決以下問題：<ul><li>使用者的網路位置為何？</li><li>一開始是否從受控裝置嘗試存取？</li><li>從哪個用戶端應用程式開始嘗試連線？</li><li>是否曾經嘗試從有風險的登入進行存取？</li></ul>下列資源可協助您快速開始使用。
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ./media/index/video.png
       width: 246
     title: 條件式存取說明
-    href: https://www.youtube.com/watch?v=XruceejcCKQ
+    href: 'https://www.youtube.com/watch?v=XruceejcCKQ'
     width: 246
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何針對常見的存取案例，設定條件式存取原則。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        src: ./media/index/i_security-management.png
-      text: 特定應用程式需要 MFA
-      href: app-based-mfa.md
-    - image:
-        src: ./media/index/i_security-management.png
-      text: 偵測到工作階段風險時封鎖存取
-      href: app-sign-in-risk.md
-    - image:
-        src: ./media/index/i_security-management.png
-      text: 需要接受使用條款
-      href: require-tou.md
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何遷移傳統的條件式存取原則。
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 了解如何針對常見的存取案例，設定條件式存取原則。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_security-management.png
+            text: 特定應用程式需要 MFA
+            href: app-based-mfa.md
+          - image:
+              src: ./media/index/i_security-management.png
+            text: 偵測到工作階段風險時封鎖存取
+            href: app-sign-in-risk.md
+          - image:
+              src: ./media/index/i_security-management.png
+            text: 需要接受使用條款
+            href: require-tou.md
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">遷移要求多重要素驗證的傳統原則</a>
+      - type: paragraph
+        text: 了解如何遷移傳統的條件式存取原則。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">遷移要求多重要素驗證的傳統原則</a>

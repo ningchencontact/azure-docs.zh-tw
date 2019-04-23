@@ -17,18 +17,18 @@ ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: d5dd916f7e4434640db6dae6f8c5a73d1ff2d3e0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60187903"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>使用入口網站將資料磁碟附加至 Linux VM 
 本文示範如何透過 Azure 入口網站將新的及現有的磁碟連結到 Linux 虛擬機器。 您也可以[在 Azure 入口網站中將資料磁碟連結到 Windows VM](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
 
 將磁碟附加至 VM 之前，請檢閱下列提示︰
 
-* 虛擬機器的大小會控制您可以連接的資料磁碟數目。 如需詳細資訊，請參閱 [虛擬機器的大小](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+* 虚拟机的大小决定了可以附加多少个磁盘。 如需詳細資訊，請參閱 [虛擬機器的大小](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 * 附加至虛擬機器的磁碟實際上是 Azure 中儲存的 .vhd 檔案。 如需詳細資料，請參閱我們的[受控磁碟簡介](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 * 連接磁碟之後，您必須[連線到 Linux VM 才能掛接新的磁碟](#connect-to-the-linux-vm-to-mount-the-new-disk)。
 
@@ -57,7 +57,7 @@ ms.locfileid: "56327954"
 
    ![儲存新的 Azure 受控磁碟](./media/attach-disk-portal/confirm-create-new-md.png)
 
-5. 在 Azure 建立磁碟並將其連接至虛擬機器之後，該新磁碟就會列在虛擬機器之磁碟設定中的 [資料磁碟] 底下。 當受控磁碟是最上層資源時，磁碟會出現在資源群組的根目錄︰
+5. 在 Azure 创建磁盘并将磁盘附加到虚拟机之后，新磁盘出现在“数据磁盘” 下的虚拟机磁盘设置中。 當受控磁碟是最上層資源時，磁碟會出現在資源群組的根目錄︰
 
    ![資源群組中的 Azure 受控磁碟](./media/attach-disk-portal/view-md-resource-group.png)
 
@@ -224,7 +224,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 ```
 
 > [!NOTE]
-> 稍後移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。 大多數的發行版本會提供 nofail 和 (或) nobootwait fstab 選項。 即使磁碟在開機時無法掛接，這些選項也能讓系統開機。 請查閱散發套件的文件，以取得這些參數的相關資訊。
+> 稍後移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。 大多數的發行版本會提供 nofail 和 (或) nobootwait fstab 選項。 即使磁碟在開機時無法掛接，這些選項也能讓系統開機。 有关这些参数的详细信息，请查阅分发文档。
 > 
 > *Nofail* 選項可確保即使檔案系統已損毀或磁碟在開機時並不存在，仍然會啟動 VM。 若不使用此選項，您可能會遇到[因為 FSTAB 錯誤所以無法 SSH 到 Linux VM](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) 中所述的行為
 

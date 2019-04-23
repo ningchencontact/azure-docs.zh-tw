@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/8/2019
+ms.date: 4/18/2019
 ms.author: mayg
-ms.openlocfilehash: f8179f5e647039737a59afdd04d345bf465acfdf
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
-ms.translationtype: MT
+ms.openlocfilehash: bf4cce8a224db81b8db7fae6a69b8b578bb3d47a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726340"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004987"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute 搭配 Azure Site Recovery
 
@@ -39,6 +39,15 @@ ExpressRoute 線路有多個相關聯的路由網域：
 Azure Site Recovery 能夠針對內部部署的 [Hyper-V 虛擬機器](hyper-v-azure-architecture.md)、[VMware 虛擬機器](vmware-azure-architecture.md)和[實體伺服器](physical-azure-architecture.md)進行災害復原並移轉到 Azure。 針對所有內部部署到 Azure 的案例，會將複寫資料傳送到並儲存於 Azure 儲存體帳戶。 在複寫期間，您不需支付任何虛擬機器費用。 當您容錯移轉到 Azure 時，Site Recovery 會自動建立 Azure IaaS 虛擬機器。
 
 Site Recovery 會透過公用端點，將資料複寫到 Azure 儲存體帳戶。 若要使用 Site Recovery 複寫的 ExpressRoute，您可以利用[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)（新建立的已過時） 或[Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)。 Microsoft 對等互連是建議用於複寫的路由網域。 請確認也符合[網路需求](vmware-azure-configuration-server-requirements.md#network-requirements)以進行複寫。 將虛擬機器容錯移轉到 Azure 虛擬網路之後，您就可以使用[私用對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)存取它們。 私用對等互連不支援複寫。
+
+如果您在內部部署中使用 proxy，而想要針對複寫流量使用 ExpressRoute，您需要設定組態伺服器和處理序伺服器上的 Proxy 略過清單。 請依照下列步驟執行：
+
+- 下載 PsExec 工具，從[此處](https://aka.ms/PsExec)存取系統的使用者內容。
+- 開啟 Internet Explorer 在系統使用者內容中，執行下列命令列的 psexec-s-i"%programfiles%\Internet Explorer\iexplore.exe"
+- 在 IE 中新增 proxy 設定
+- 在略過清單中，新增 Azure 儲存體 URL *.blob.core.windows.net
+
+這可確保，只複寫流量流經 ExpressRoute 時的通訊可以通過 proxy。
 
 下圖顯示組合案例：![使用 ExpressRoute 進行內部部署到 Azure 複寫](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 

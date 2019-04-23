@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d7b9dff034aca6c7602ea72fadfcdc53b11fe15
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335873"
 documentType: LandingData
 title: 應用程式管理文件
 metadata:
@@ -14,7 +8,7 @@ metadata:
   author: barbkess
   manager: daveba
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: active-directory
   ms.topic: landing-page
   ms.date: 09/14/2018
@@ -23,35 +17,35 @@ abstract:
   description: Azure Active Directory 能針對雲端和內部部署應用程式提供安全且順暢的存取。 此外，不需要管理密碼。 您的使用者只需登入一次，即可存取 Office 365 和數千種其他應用程式。 了解如何使用快速入門、教學課程和指南來管理和部署應用程式。
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: 使用 Azure AD 安全存取您的應用程式 (1:47)
-    href: https://youtu.be/BSUuXXcJKCk/
+    title: '使用 Azure AD 安全存取您的應用程式 (1:47)'
+    href: 'https://youtu.be/BSUuXXcJKCk/'
     width: 250
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何為透過 Azure Active Directory 存取的使用者新增應用程式。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: 新增應用程式
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: 檢視您的應用程式
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何為應用程式啟用簡單且安全的登入程序。
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 了解如何為透過 Azure Active Directory 存取的使用者新增應用程式。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: 新增應用程式
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal'
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: 檢視您的應用程式
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal'
+  - title: 逐步教學課程
     items:
-    - html: <a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Saas 應用程式教學課程</a>
-    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">設定單一登入</a>
+      - type: paragraph
+        text: 了解如何為應用程式啟用簡單且安全的登入程序。
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Saas 應用程式教學課程</a>'
+          - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">設定單一登入</a>
