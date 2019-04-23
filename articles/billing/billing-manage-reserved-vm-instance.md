@@ -1,24 +1,23 @@
 ---
 title: 管理 Azure 保留 | Microsoft Docs
 description: 了解如何變更訂用帳戶範圍和管理 Azure 保留的存取權。
-services: billing
+ms.service: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
 editor: ''
-ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904436"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994941"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>管理 Azure 資源的保留
 
@@ -29,7 +28,19 @@ ms.locfileid: "58904436"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="change-the-scope-for-a-reservation"></a>變更保留範圍
+## <a name="reservation-order-and-reservation"></a>保留訂單和保留項目
+
+當您購買保留的時則會建立兩個物件：**保留訂單**並**保留**。
+
+在購買時，保留訂單中有一個保留其下的項目。 分割、 合併、 部分的退款或 exchange 等動作建立新的保留項目底下**保留訂單**。
+
+若要檢視保留順序，請前往**保留**> 選取 保留區，然後再按一下**保留訂單識別碼**。
+
+![保留訂單詳細資料顯示保留訂單識別碼的範例 ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+保留項目會繼承其保留訂單中的權限。
+
+## <a name="change-the-reservation-scope"></a>變更保留範圍
 
  您的保留折扣適用於虛擬機器、 SQL 資料庫、 Azure Cosmos DB 或符合保留且在保留範圍內執行的其他資源。 計費內容取決於購買此保留所用的訂用帳戶。
 
@@ -47,9 +58,12 @@ ms.locfileid: "58904436"
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>新增或變更可以管理保留的使用者
 
-您可以透過將人員新增到保留上的角色，來委派保留的管理。 依預設，購買保留的人和帳戶管理員就是保留上的「擁有者」角色。
+您可以透過將人員新增到保留順序或保留項目上的角色來委派保留項目管理。 根據預設，會保留訂單和帳戶管理員的人員具有保留訂單和保留的擁有者角色。
 
-您可以從取得保留折扣的訂用帳戶中，獨立管理保留的存取。 當您將管理保留的權限給其他人時，並不會給他們管理訂用帳戶的權限。 而當您將保留範圍內的訂用帳戶管理權限給其他人時，並不會給他們管理保留的權限。
+您可以管理存取權的保留訂單和保留項目分開取得保留折扣的訂用帳戶。 當您為某人提供管理保留訂單，或是保留的權限時，但不會授予他們管理訂用帳戶的權限。 同樣地，如果您賦予某人的保留範圍中的訂用帳戶的權限，但不會授予他們管理保留訂單，或是保留的權限。
+
+若要執行的 exchange 或退款，使用者必須存取保留訂單。 當授與其他人的權限，所以最好保留訂單，而不保留項目權限授與。
+
 
 委派保留的存取管理：
 

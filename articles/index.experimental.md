@@ -1433,7 +1433,7 @@ ms.locfileid: "54425675"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
+                                                    <p>可容納巨量資料分析工作負載的超大規模資料庫存放庫</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2180,7 +2180,7 @@ ms.locfileid: "54425675"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
+                                                    <p>可容納巨量資料分析工作負載的超大規模資料庫存放庫</p>
                                                 </div>
                                             </div>
                                         </div>

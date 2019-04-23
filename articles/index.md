@@ -2421,7 +2421,7 @@ Azure 服務和功能導覽 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen1</h3>
-                                                    <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
+                                                    <p>可容納巨量資料分析工作負載的超大規模資料庫存放庫</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3605,7 +3605,7 @@ Azure 服務和功能導覽 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen1</h3>
-                                                    <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
+                                                    <p>可容納巨量資料分析工作負載的超大規模資料庫存放庫</p>
                                                 </div>
                                             </div>
                                         </div>

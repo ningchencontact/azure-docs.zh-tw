@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505570"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997303"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>如何在文字分析 (預覽) 中使用具名實體辨識
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
-[實體辨識 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) \(英文\) 採用非結構化文字，並針對每個 JSON 文件傳回明確的實體清單，其中包含網路 (維基百科和 Bing) 上詳細資訊的連結。 
+[具名實體辨識 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)會採用非結構化的文字，並針對每個 JSON 文件中，會傳回一份變得更為明確連結的實體的詳細資訊 （維基百科和 Bing） 網站上。 
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>實體連結和具名實體辨識
 
@@ -28,12 +28,10 @@ ms.locfileid: "59505570"
 ### <a name="entity-linking"></a>實體連結
 連結實體可識別及區分文字中找到的實體身分識別 (例如，判斷 "Mars" 是用來指星體或指羅馬的戰神)。 此程序需具備可讓辨識項目與之連結的知識庫 - `entities` 端點文字分析即是使用維基百科作為知識庫。
 
-在文字分析 [2.0 版](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) \(英文\) 中，只有提供實體連結。
-
 ### <a name="named-entity-recognition-ner"></a>具名實體辨識 (NER)
 具名實體辨識 (NER) 是識別文字中各種不同的實體，並將它們分類至預先定義類別的能力。 下面列出所支援的實體類別。
 
-在文字分析 [2.1 版-預覽](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)中，同時提供實體連結和具名實體辨識 (NER)。
+在 文字分析[2.1 版](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)，實體連結和具名的實體辨識 (NER) 可供使用。
 
 ### <a name="language-support"></a>語言支援
 
@@ -71,7 +69,7 @@ ms.locfileid: "59505570"
 
 ## <a name="preparation"></a>準備工作
 
-您必須具有此格式的 JSON 文件：識別碼、文字、語言
+您必須具備 JSON 文件格式如下：識別碼、 文字、 語言
 
 如需目前支援的語言，請參閱[這份清單](../text-analytics-supported-languages.md)。
 
@@ -94,16 +92,16 @@ ms.locfileid: "59505570"
 
 關於要求定義的詳細資料可以在[如何呼叫文字分析 API](text-analytics-how-to-call-api.md) 中找到。 為了方便起見，我們將重申下列各點：
 
-+ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[實體連結 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[實體連結 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ 設定適用於實體擷取的 HTTP 端點。 它必須包含`/entities`資源： `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ 設定適用於實體擷取的 HTTP 端點。 它必須包括 `/entities` 資源：`https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 + 設定要求標頭以包含適用於文字分析作業的存取金鑰。 如需詳細資訊，請參閱[如何尋找端點和存取金鑰](text-analytics-how-to-access-key.md)。
 
 + 在要求本文中，提供您準備用於此分析的 JSON 文件集合
 
 > [!Tip]
-> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
+> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
 
 ## <a name="step-2-post-the-request"></a>步驟 2：張貼要求
 
@@ -280,18 +278,16 @@ ms.locfileid: "59505570"
 
 在本文中，您已了解在認知服務中使用文字分析的實體連結概念和工作流程。 摘要說明：
 
-+ [實體 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) \(英文\) 僅針對特定語言提供。
-+ 要求本文中的 JSON 文件包含識別碼、文字和語言代碼。
++ [實體 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) \(英文\) 僅針對特定語言提供。
++ 要求主體中的 JSON 文件包含 ID、 文字和語言的程式碼。
 + 使用對您訂用帳戶有效的個人化[存取金鑰和端點](text-analytics-how-to-access-key.md)，將要求 POST 到 `/entities` 端點。
 + 由連結實體 (包含每個文件識別碼的信賴分數、位移和網頁連結) 組成的回應輸出可用於任何應用程式
-
-## <a name="see-also"></a>請參閱 
-
- [文字分析概觀](../overview.md)  
- [常見問題集 (FAQ)](../text-analytics-resource-faq.md)</br>
- [文字分析產品頁面](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [文字分析 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [文字分析 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+* [文字分析概觀](../overview.md)  
+* [常見問題集 (FAQ)](../text-analytics-resource-faq.md)</br>
+* [文字分析產品頁面](//go.microsoft.com/fwlink/?LinkID=759712) 

@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 6e818da29b7ee0d17ebe4f8e523648146973fa63
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905353"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796611"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database 中的自動調整
 
@@ -50,7 +50,7 @@ Azure SQL Database 自動調整與 SQL Server 自動調整引擎共用其核心�
 
 ## <a name="use-automatic-tuning"></a>使用自動調整
 
-自動調整必須在您的訂用帳戶上啟用。 若要使用 Azure 入口網站來啟用自動調整，請參閱[啟用自動調整](sql-database-automatic-tuning-enable.md)。
+需要在订阅上启用自动优化。 若要使用 Azure 入口網站來啟用自動調整，請參閱[啟用自動調整](sql-database-automatic-tuning-enable.md)。
 
 自動調整可透過自動套用調整建議 (包括自動驗證效能提升) 來自主地運作。 
 
@@ -68,15 +68,15 @@ Azure SQL Database 中可用的自動調整選項有：
 
 | 自動調整選項 | 單一資料庫和集區資料庫支援 | 執行個體的資料庫支援 |
 | :----------------------------- | ----- | ----- |
-| **CREATE INDEX** -找出可能改善您的工作負載的效能、 建立索引，並自動確認已改善查詢效能的索引。 | 是 | 否 | 
-| **DROP INDEX** -除了唯一索引和索引長時間未使用的每日，可識別備援和重複的索引 (> 90 天)。 請注意，目前該選項與使用分割區切換和索引提示的應用程式並不相容。 | 是 | 否 |
-| **FORCE LAST GOOD PLAN** （自動計劃更正中）-使用執行計畫低於前一個良好計畫，並使用已知的良好計畫而不迴歸的計畫查詢識別的 SQL 查詢。 | 是 | 是 |
+| **创建索引** - 标识可提高工作负载性能的索引，创建索引，并自动验证查询性能是否有所提高。 | 是 | 否 | 
+| **删除索引** - 每日识别冗余和重复的索引，但不包括唯一索引和长时间（>90 天）未使用的索引。 請注意，目前該選項與使用分割區切換和索引提示的應用程式並不相容。 | 是 | 否 |
+| **强制执行上一卓越计划**（自动更正计划）- 标识使用执行计划的 SQL 查询（该执行计划速度慢于上一卓越计划），并标识使用上一已知卓越计划的查询而不是回归计划。 | 是 | 是 |
 
 自動調整可識別 **CREATE INDEX**、**DROP INDEX** 和 **FORCE LAST GOOD PLAN** 建議，可以最佳化您的資料庫效能，並在 [Azure 入口網站](sql-database-advisor-portal.md)中顯示它們，還可以透過 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 和 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) 來公開它們。 若要深入了解 FORCE LAST GOOD PLAN，並設定自動調整選項，透過 T-SQL，請參閱[自動調整引進了自動計劃更正](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)。
 
 您可以使用入口網站來手動套用調整建議，或是讓自動調整為您自動套用調整建議。 讓系統為您自動套用調整建議的好處，就是系統會自動驗證工作負載效能是否有正面的改善，或者如果未偵測到明顯的效能改善，系統會自動還原調整建議。 請注意，針對受到沒有經常執行之調整建議所影響的查詢，其驗證階段根據設計可能需要最多 72 小時才能完成。
 
-如果您手動套用調整建議，則無法使用自動效能驗證和反轉機制。 此外，手動套用建議事項會保持作用中和的建議清單中顯示 24-48 小時。 之前，系統會自動提領它們。 如果您想要移除的建議更快，您可以手動方式捨棄它。
+如果您手動套用調整建議，則無法使用自動效能驗證和反轉機制。 此外，手动应用的建议在系统自动撤消它们之前， 将在 24-48 小时内保持活动状态并显示在建议列表中。 如果你想要更快地删除建议，可以手动放弃它。
 
 自動微調選項可以針對每個資料庫個別地啟用或停用，或可以在 SQL Database 伺服器上設定，並在從伺服器繼承設定的每個資料庫上套用。 SQL Database 伺服器可以繼承 Azure 的自動調整設定預設值。 Azure 預設值此時會設為已啟用 FORCE_LAST_GOOD_PLAN 和 CREATE_INDEX，且已停用 DROP_INDEX。
 

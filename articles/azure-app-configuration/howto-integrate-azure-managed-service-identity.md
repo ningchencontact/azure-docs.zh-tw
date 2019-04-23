@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: c2afc96ca5f7e30d5474f66bdad0cfec88a89580
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59700193"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998986"
 ---
 # <a name="tutorial-integrate-with-azure-managed-identities"></a>教學課程：與 Azure 受控識別整合
 
@@ -75,7 +75,7 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
 
 ## <a name="use-a-managed-identity"></a>建立受控識別
 
-1. 開啟 *appsettings.json*，然後新增下列指令碼。 取代 *\<service_endpoint >*，包括括號，以您的應用程式組態存放區的 url:
+1. 開啟 *appsettings.json*，然後新增下列指令碼。 以您應用程式組態存放區的 URL 取代 *\<service_endpoint>* (包括括弧)：
 
     ```json
     "AppConfig": {
@@ -194,8 +194,6 @@ http://<app_name>.azurewebsites.net
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>後續步驟
-
-在本教學課程中，您已新增 Azure 受控服務識別來簡化應用程式設定的存取，以及改善您應用程式的認證管理。 若要深入了解「應用程式組態」的使用方式，請繼續進行 Azure CLI 範例。
 
 > [!div class="nextstepaction"]
 > [CLI 範例](./cli-samples.md)

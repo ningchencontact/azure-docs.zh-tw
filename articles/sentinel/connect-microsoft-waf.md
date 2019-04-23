@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 5316fa7e3aa4465349b762b99bec9171f821062f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491025"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798992"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>將資料連接，從 Microsoft web 應用程式防火牆
 

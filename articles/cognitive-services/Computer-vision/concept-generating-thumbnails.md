@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cea8522a9f3eb8fa98821c1cb08d92a9524d5ce4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8bbc86f5c6fe0f30968a1ba5bd5fa28160ef6963
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57876794"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002426"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>使用電腦視覺產生智慧裁剪的縮圖
 
@@ -38,15 +38,15 @@ ms.locfileid: "57876794"
 
 產生的縮圖可能大不相同，取決於您指定的高度、寬度及智慧裁剪方式，如下列影像所示。
 
-![縮圖](./Images/thumbnail-demo.png)
+![裁剪的各種設定旁邊 mountain 映像](./Images/thumbnail-demo.png)
 
 下表顯示的是電腦視覺針對範例影像所產生的典型縮圖。 這些是目標高度和寬度指定為 50 像素，並啟用智慧裁剪功能所產生的縮圖。
 
 | 映像 | 縮圖 |
 |-------|-----------|
-|![日落時站在山岩上的人](./Images/mountain_vista.png) | ![戶外山景縮圖](./Images/mountain_vista_thumbnail.png) |
+|![在日落，與個人的黑色輪廓戶外 Mountain](./Images/mountain_vista.png) | ![Outdoor Mountain 的日落，與個人的黑色輪廓的縮圖](./Images/mountain_vista_thumbnail.png) |
 |![具有綠色背景的白色花卉](./Images/flower.png) | ![視覺分析花朵縮圖](./Images/flower_thumbnail.png) |
-|![公寓大樓屋頂上的女人](./Images/woman_roof.png) | ![屋頂上的女人縮圖](./Images/woman_roof_thumbnail.png) |
+|![公寓大樓屋頂上的女人](./Images/woman_roof.png) | ![公寓大樓的屋頂上鬼女性的縮圖](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>後續步驟
 

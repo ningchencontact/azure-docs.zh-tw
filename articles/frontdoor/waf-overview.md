@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 17cf6629aca6c73bc96e4cf0c172a2e87a7aafb8
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58910071"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799162"
 ---
 # <a name="what-is-azure-web-application-firewall-for-azure-front-door-preview"></a>什麼是 Azure web 應用程式防火牆的 Azure 大門？ (預覽)
 
@@ -94,7 +94,7 @@ Azure 受管理的規則集提供簡單的方式部署一組常見的安全性�
 - 遠端命令執行
 - 遠端檔案引入
 - 工作階段 fixation
-- SQL 插入式攻擊保護
+- SQL 注入保护
 
 新的攻擊簽章新增至規則集時，預設規則集的版本號碼會遞增。
 在您的 WAF 原則中的偵測模式中的預設會啟用預設規則集。 您可以停用或啟用預設規則設定為符合您的應用程式內的個別規則。 您也可以設定每個規則的特定動作 （允許/封鎖/重新導向/記錄）。 預設動作是區塊。 此外，自訂規則會設定位於相同的 WAF 原則上，如果您想略過任何預先設定的規則，在 預設規則集。

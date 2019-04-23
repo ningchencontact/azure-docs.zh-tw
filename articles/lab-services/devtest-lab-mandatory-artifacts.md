@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905795"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795401"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>針對 Azure DevTest Labs 中的實驗室指定必要構件
 實驗室擁有者，您可以指定會套用至每個實驗室中建立的機器的必要成品。 假設您想讓實驗室中的每一部機器都連線至您的公司網路。 在此情況下，每位實驗室使用者都必須在虛擬機器建立期間，新增網域加入構件，以確保他們的機器可連線到公司網域。 換句話說，實驗室使用者基本上必須重新建立機器，以免他們忘記在機器上套用必要的構件。 身為實驗室擁有者，您可以讓網域加入構件成為實驗室中的必要構件。 此步驟可確保每部機器都會連線到公司網路，並且可為您的實驗室使用者節省時間和勞力。

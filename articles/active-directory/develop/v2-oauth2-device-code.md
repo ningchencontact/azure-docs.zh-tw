@@ -6,24 +6,23 @@ documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
-ms.assetid: 780eec4d-7ee1-48b7-b29f-cd0b8cb41ed3
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14291a6e8f9c4cde3c8777969047ebaa77e42b59
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500442"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999802"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 裝置程式碼流程
 
@@ -43,11 +42,11 @@ Microsoft 身分識別平台支援[裝置的程式碼授與](https://tools.ietf.
 
 整個用戶端認證流程與下圖相似。 我們會在本文稍後說明每個步驟。
 
-![裝置程式碼流程](media/v2-oauth2-device-flow/v2-oauth-device-flow.png)
+![裝置程式碼流程](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
 ## <a name="device-authorization-request"></a>裝置授權要求
 
-用戶端必須先向驗證伺服器查詢用於初始化驗證的裝置和使用者代碼。  用戶端從 `/devicecode` 端點收集此要求。 在此要求中，用戶端也應一併附上必須向使用者索取的權限。  自發出要求算起，使用者只有 15 分鐘可以登入 (`expires_in` 的一般值)，因此請在使用者已準備好登入的情況下，才發出要求。
+用戶端必須先檢查與驗證伺服器用來起始驗證的裝置和使用者程式碼。 用戶端從 `/devicecode` 端點收集此要求。 在此要求中，用戶端也應一併附上必須向使用者索取的權限。 自發出要求算起，使用者只有 15 分鐘可以登入 (`expires_in` 的一般值)，因此請在使用者已準備好登入的情況下，才發出要求。
 
 > [!TIP]
 > 嘗試在 Postman 中執行這項要求！
@@ -76,13 +75,13 @@ scope=user.read%20openid%20profile
 
 | 參數 | 格式 | 描述 |
 | ---              | --- | --- |
-|`device_code`     | 字串 | 長字串，可用於驗證用戶端與授權伺服器之間的工作階段。  用戶端可用於向授權伺服器要求存取權杖。 |
-|`user_code`       | 字串 | 向使用者顯示的短字串，用於識別輔助裝置上的工作階段。|
+|`device_code`     | 字串 | 長字串，可用於驗證用戶端與授權伺服器之間的工作階段。 用戶端會使用此參數，來向授權伺服器要求存取權杖。 |
+|`user_code`       | 字串 | 簡短的字串，用來顯示給使用者用來識別的次要裝置上的工作階段。|
 |`verification_uri`| URI | 為了執行登入程序，使用者應使用 `user_code` 查看的 URI。 |
-|`verification_uri_complete`|URI| 結合 `user_code` 和 `verification_uri` 的 URI，用於向使用者進行非文字傳輸 (例如透過藍牙傳輸到裝置，或透過 QR 代碼)。  |
-|`expires_in`      |  int| `device_code` 和 `user_code` 到期之前的秒數。 |
+|`verification_uri_complete`| URI | URI，結合`user_code`而`verification_uri`，用於非文字傳輸使用者 （例如，透過藍芽裝置，或透過 QR 代碼）。  |
+|`expires_in`      | int | `device_code` 和 `user_code` 到期之前的秒數。 |
 |`interval`        | int | 用戶端在輪詢要求之間應等待的秒數。 |
-| `message`        | 字串 | 人類看得懂的字串，包含使用者說明。  在 `?mkt=xx-XX` 形式的要求中加入  **查詢參數**、填寫適當的語言文化代碼，即可進行當地語系化。 |
+| `message`        | 字串 | 人類看得懂的字串，包含使用者說明。 在 `?mkt=xx-XX` 形式的要求中加入  **查詢參數**、填寫適當的語言文化代碼，即可進行當地語系化。 |
 
 ## <a name="authenticating-the-user"></a>驗證使用者
 
@@ -107,15 +106,14 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 ### <a name="expected-errors"></a>預期的錯誤
 
-由於裝置代碼流程是輪詢通訊協定，因此用戶端應在使用者完成驗證之前收到錯誤。  
+裝置程式碼流程是輪詢通訊協定，因此您的用戶端必須預期會收到錯誤，才能在使用者完成驗證。  
 
 | Error | 描述 | 用戶端動作 |
 | ------ | ----------- | -------------|
-| `authorization_pending` | 用戶尚未完成驗證，但也未取消流程。 | 經過至少 `interval` 秒後，重複要求流程。 |
+| `authorization_pending` | 使用者尚未完成驗證，但尚未取消流程。 | 經過至少 `interval` 秒後，重複要求流程。 |
 | `authorization_declined` | 終端使用者拒絕了授權要求。| 停止輪詢，並還原到未驗證的狀態。  |
-| `bad_verification_code`|無法識別傳送到 `/token` 端點的 `device_code`。 | 確認用戶端是否在要求中傳送正確的 `device_code`。 |
-| `expired_token` | 已經過了至少 `expires_in` 秒，`device_code` 也無法再進行驗證。 | 停止輪詢，並還原到未驗證的狀態。 |
-
+| `bad_verification_code`| `device_code`傳送至`/token`無法辨識端點。 | 確認用戶端是否在要求中傳送正確的 `device_code`。 |
+| `expired_token` | 已經過了至少 `expires_in` 秒，`device_code` 也無法再進行驗證。 | 停止輪詢，並會還原為未經驗證的狀態。 |
 
 ### <a name="successful-authentication-response"></a>成功驗證回應
 
@@ -141,4 +139,4 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 | `id_token`   | JWT | 原始 `scope` 參數包含 `openid` 範圍時發出。  |
 | `refresh_token` | 不透明字串 | 原始 `scope` 參數包含 `offline_access` 時發出。  |
 
-執行 [OAuth 代碼流程文件](v2-oauth2-auth-code-flow.md#refresh-the-access-token)詳述的同一個流程，可將重新整理權杖用於取得新的存取權杖和重新整理權杖。  
+您可以使用重新整理權杖來取得新存取權杖和重新整理權杖使用相同的流程中所述[OAuth 程式碼的非固定格式文件](v2-oauth2-auth-code-flow.md#refresh-the-access-token)。  

@@ -9,11 +9,11 @@ ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 9971b16da42cdf1de0464857291c74a947535735
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59286949"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59803568"
 ---
 您可以在 [資料總管] 中，使用查詢來擷取和篩選您的資料。
 

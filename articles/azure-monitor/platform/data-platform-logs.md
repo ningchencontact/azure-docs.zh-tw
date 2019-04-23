@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
 ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360622"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798941"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure 監視器中的記錄
 
@@ -87,7 +87,7 @@ Azure 監視器可以在 Azure 中及內部部署資源的各種來源收集資�
 |:---|:---|
 | 資源診斷 | 設定診斷設定寫入診斷資料，包括 Log Analytics 工作區的計量。 請參閱[Stream 至 Log Analytics 的 Azure 診斷記錄](diagnostic-logs-stream-log-store.md)。 |
 | 監視解決方案 | 監視解決方案將資料寫入至其 Log Analytics 工作區所收集。 請參閱[在 Azure 中的管理解決方案的資料收集詳細資料](../insights/solutions-inventory.md)取得一份解決方案。 請參閱[監視 Azure 監視器中的解決方案](../insights/solutions.md)如需有關安裝和使用的解決方案。 |
-| 度量 | Azure 監視器資源的平台計量傳送至 Log Analytics 工作區保留較長的記錄資料，並使用其他資料型別的執行複雜的分析[Kusto 查詢語言](/azure/kusto/query/)。 請參閱[Stream 至 Log Analytics 的 Azure 診斷記錄](diagnostic-logs-stream-log-store.md)。 |
+| 指标 | Azure 監視器資源的平台計量傳送至 Log Analytics 工作區保留較長的記錄資料，並使用其他資料型別的執行複雜的分析[Kusto 查詢語言](/azure/kusto/query/)。 請參閱[Stream 至 Log Analytics 的 Azure 診斷記錄](diagnostic-logs-stream-log-store.md)。 |
 | Azure 表格儲存體 | 收集的資料從 Azure 儲存體撰寫一些 Azure 資源的位置監視資料。 請參閱[具有 Log Analytics 之事件的 IIS 和 Azure 資料表儲存體使用 Azure blob 儲存體](azure-storage-iis-table.md)。 |
 
 ### <a name="virtual-machines"></a>虛擬機器
