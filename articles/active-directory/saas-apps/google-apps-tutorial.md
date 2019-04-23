@@ -87,7 +87,7 @@ G Suite 與 Azure AD 整合提供下列優點：
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * G Suite 支援 **SP** 起始的 SSO
-* G Suite 支援**[自動使用者佈建](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)**
+* G Suite 支援 **[自動使用者佈建](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)**
 
 ## <a name="adding-g-suite-from-the-gallery"></a>從資源庫新增 G Suite
 

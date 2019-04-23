@@ -58,7 +58,7 @@ ms.locfileid: "57900874"
 
 * Workplace by Facebook 支援 **SP** 起始的 SSO
 * Workplace by Facebook 支援 **Just-In-Time 佈建**
-* Workplace by Facebook 支援**[自動使用者佈建](workplacebyfacebook-provisioning-tutorial.md)**
+* Workplace by Facebook 支援 **[自動使用者佈建](workplacebyfacebook-provisioning-tutorial.md)**
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>從資源庫新增 Workplace by Facebook
 
