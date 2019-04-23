@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918224"
 ---
 # <a name="customize-your-text-translations"></a>自訂文字翻譯
@@ -47,7 +47,7 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 
 ## <a name="custom-translator-versus-hub"></a>自訂翻譯工具與中樞
 
-|   | **中樞** | **自訂翻譯工具**|
+|   | **中心** | **自訂翻譯工具**|
 |:-----|:----:|:----:|
 |自訂功能狀態   | 正式運作  | 正式運作 |
 | 文字 API 版本  | 僅限第 2 版   | 僅限第 3 版 |
@@ -66,4 +66,4 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [設定自訂的語言系統，使用自訂轉譯器](https://aka.ms/CustomTranslatorDocs)
+> [使用自訂翻譯工具設定自訂的語言系統](https://aka.ms/CustomTranslatorDocs)

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894452"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
@@ -240,7 +240,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 #### <a name="resolve-issue-in-luis"></a>解決 LUIS 中的問題
 從 [LUIS 端點](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) 傳遞相同的語句至 LUIS。 如果您收到錯誤，請解決 LUIS 中的問題，直到錯誤不再傳回。 常見錯誤包括：
 
-* `Out of call volume quota. Quota will be replenished in <time>.` -此問題表示您需要從撰寫的金鑰，來變更[端點索引鍵](luis-how-to-azure-subscription.md)或您需要變更[服務層](luis-how-to-azure-subscription.md#change-pricing-tier)。 
+* `Out of call volume quota. Quota will be replenished in <time>.` - 此問題表示您須從撰寫金鑰變更為[端點金鑰](luis-how-to-azure-subscription.md)，或者您必須變更[服務層](luis-how-to-azure-subscription.md#change-pricing-tier)。 
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>解決 Azure Bot Service 中的問題
 
@@ -296,10 +296,10 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 已包括其他撰寫 [API 路由](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md)。
 
 影片：
-* [Azure Friday 組建 2018:認知服務-語言 (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [組建 2018 AI 顯示-Language Understanding Service 與最新消息](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Build 2018 研討會-Bot 智慧、 語音功能，以及 NLU 最佳做法](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [組建 2018-LUIS 更新](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+* [Azure Friday 組建 2018：認知服務 - 語言 (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [組建 2018 AI 顯示 - Language Understanding 服務的最新消息](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
+* [組建 2018 工作階段 - Bot 智慧、語音功能和 NLU 最佳做法](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [組建 2018 - LUIS 更新](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 專案：
 * [Contoso Cafe Bot](https://github.com/botbuilderbuild2018/build2018demo) 示範 - GitHub 上的原始程式碼
@@ -307,5 +307,5 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 LUIS，請參閱下列資源：
-* [有了 LUIS 標記的 stack Overflow 問題](https://stackoverflow.com/questions/tagged/luis)
-* [MSDN Language Understanding Intelligent Services (LUIS) 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis) (使用 LUIS 加上標籤的 Stack Overflow 問題)
+* [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) (MSDN Language Understanding Intelligent Services (LUIS) 論壇)

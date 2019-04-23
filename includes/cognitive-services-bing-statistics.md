@@ -10,7 +10,7 @@ ms.author: scottwhi
 ms.custom: include file
 ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
 ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/10/2019
 ms.locfileid: "54193340"
@@ -27,7 +27,7 @@ Bing 會每隔 24 小時更新分析資料一次，並可維護長達 13 個月�
 
 ## <a name="accessing-your-analytics"></a>存取您的分析
 
-若要存取分析儀表板，請移至 https://bingapistatistics.com。 請確定您用來登入的 Microsoft 帳戶 (MSA) 是用來取得付費訂用帳戶的相同帳戶。
+若要存取分析儀表板，請移至 https://bingapistatistics.com 。 請確定您用來登入的 Microsoft 帳戶 (MSA) 是用來取得付費訂用帳戶的相同帳戶。
 
 ## <a name="filtering-the-data"></a>篩選資料
 

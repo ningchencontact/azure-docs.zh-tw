@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: 46eea21e1eafce1696ed1cf77a1f334798f0bc17
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58848408"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支援的 Apache Cassandra 功能 
@@ -46,7 +46,7 @@ Azure Cosmos DB Cassandra API 支援下列 CQL 資料類型：
 * blob  
 * 布林值  
 * counter  
-* 日期  
+* date  
 * decimal  
 * double  
 * float  
@@ -57,7 +57,7 @@ Azure Cosmos DB Cassandra API 支援下列 CQL 資料類型：
 * set  
 * smallint  
 * text  
-* 分析  
+* time  
 * timestamp  
 * timeuuid  
 * tinyint  

@@ -16,10 +16,10 @@ ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ba9f4df36f753a1caf619ad90015fa073a00de3
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>教學課程：Azure Active Directory 與 SharePoint 內部部署整合
@@ -106,11 +106,11 @@ ms.locfileid: "58883372"
 
     ![[SharePoint 內部部署網域及 URL] 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰ `https://<YourSharePointServerURL>/_trust/default.aspx`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<YourSharePointServerURL>/_trust/default.aspx`
 
-    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL： `urn:sharepoint:federation`
+    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：`urn:sharepoint:federation`
 
-    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<YourSharePointServerURL>/_trust/default.aspx`
+    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<YourSharePointServerURL>/_trust/default.aspx`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [SharePoint 內部部署用戶端支援小組](https://support.office.com/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -122,7 +122,7 @@ ms.locfileid: "58883372"
     > [!Note]
     > 請記下您已將憑證檔案下載到其中的檔案路徑，因為您稍後需要在 PowerShell 指令碼中使用它來進行設定。
 
-6. 在 [設定 SharePoint 內部部署] 區段上，依據您的需求複製適當的 URL。 針對**單一登入服務 URL**，請使用下列模式的值： `https://login.microsoftonline.com/_my_directory_id_/wsfed`
+6. 在 [設定 SharePoint 內部部署] 區段上，依據您的需求複製適當的 URL。 針對**單一登入服務 URL**，請使用下列模式的值：`https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
     > _my_directory_id_ 是 Azure AD 訂用帳戶的租用戶識別碼。

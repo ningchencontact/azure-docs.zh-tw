@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916711"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 到 V3 的移轉
@@ -44,13 +44,13 @@ Microsoft Translator 團隊已發行第 3 版 (V3) 的翻譯工具文字 API。 
 | V2 API 方法   | V3 API 相容性 |
 |:----------- |:-------------|
 | `Translate`     | [翻譯](reference/v3-0-translate.md)          |
-| `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Languages](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Languages](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Microsoft 语音服务](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Microsoft 语音服务](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| `Detect`     | [Detect](reference/v3-0-detect.md)         |
-| `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
+| `TranslateArray`      | [翻譯](reference/v3-0-translate.md)        |
+| `GetLanguageNames`      | [語言](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [語言](reference/v3-0-languages.md)       |
+| `GetLanguagesForSpeak`      | [Microsoft 語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| `Speak`     | [Microsoft 語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `Detect`     | [偵測](reference/v3-0-detect.md)         |
+| `DetectArray`     | [偵測](reference/v3-0-detect.md)         |
 | `AddTranslation`     | 不再支援功能       |
 | `AddTranslationArray`    | 不再支援功能          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
@@ -112,7 +112,7 @@ Microsoft Translator V3 的定價方式與 V2 相同，即依字元計價，包�
 > 
 > Microsoft Translator 中樞將於 2019 年 4 月 30 日淘汰。 [檢視重要的移轉資訊和日期](https://www.microsoft.com/translator/business/hub/)。   
 
-Microsoft Translator V3 依預設會使用類神經機器翻譯。 因此，無法搭配 Microsoft Translator Hub 使用。 Translator Hub 僅支援傳統統計機器翻譯。 類神經翻譯現在已可使用自訂翻譯工具進行自訂。 [深入了解自訂類神經機器翻譯](custom-translator/overview.md)
+Microsoft Translator V3 依預設會使用類神經機器翻譯。 因此，無法搭配 Microsoft Translator Hub 使用。 Translator Hub 僅支援傳統統計機器翻譯。 類神經翻譯現在已可使用自訂翻譯工具進行自訂。 [深入了解如何自訂類神經機器翻譯](custom-translator/overview.md)
 
 使用 V3 文字 API 的類神經翻譯不支援使用標準類別 (SMT、語音、技術、generalnn)。
 

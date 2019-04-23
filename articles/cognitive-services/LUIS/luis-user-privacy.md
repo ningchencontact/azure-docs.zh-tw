@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: eb125133138c6de173fdeb90024a9e5d961a929d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895151"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>在認知服務的 Language Understanding (LUIS) 中匯出和刪除客戶資料
@@ -37,7 +37,7 @@ Language Understanding Intelligent Service (LUIS) 可保存客戶內容以執行
 ## <a name="deleting-customer-data"></a>刪除客戶資料
 LUIS 使用者具有刪除內容，透過 LUIS web 入口網站或 LUIS 撰寫 （也稱為程式設計） Api 的任何使用者的完整控制權。 下表顯示這兩者的輔助連結：
 
-| | **使用者帳戶** | **Application** | **範例 Utterance(s)** | **使用者查詢** |
+| | **使用者帳戶** | **應用程式** | **範例 Utterance(s)** | **使用者查詢** |
 | --- | --- | --- | --- | --- |
 | **入口網站** | [連結](luis-concept-data-storage.md#delete-an-account) | [連結](luis-how-to-start-new-app.md#delete-app) | [連結](luis-concept-data-storage.md#utterances-in-an-intent) | [主動學習表達方式](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[記錄的表達方式](luis-concept-data-storage.md#disable-logging-utterances) |
 | **API** | [連結](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [連結](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [連結](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [連結](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
@@ -46,7 +46,7 @@ LUIS 使用者具有刪除內容，透過 LUIS web 入口網站或 LUIS 撰寫 �
 ## <a name="exporting-customer-data"></a>匯出客戶資料
 LUIS 使用者已經有在入口網站中，檢視資料的完整控制權，不過它必須匯出透過 LUIS 撰寫的 Api （也就是以程式設計方式）。 下表顯示可協助進行資料匯出，透過 LUIS 撰寫的 （也就是以程式設計方式） Api 的連結：
 
-| | **使用者帳戶** | **Application** | **Utterance(s)** | **使用者查詢** |
+| | **使用者帳戶** | **應用程式** | **語句** | **使用者查詢** |
 | --- | --- | --- | --- | --- |
 | **API** | [連結](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [連結](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [連結](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [連結](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
 ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895810"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>使用認知服務建置語言理解應用程式的最佳做法
@@ -36,14 +36,14 @@ ms.locfileid: "58895810"
 
 |建議事項|避免事項|
 |--|--|
-|[定義不同的對應方式](#do-define-distinct-intents) |[加入 「 意圖 」 中的許多範例談話](#dont-add-many-example-utterances-to-intents) |
-|[尋找每個項目的特定太過一般與一個甜蜜點](#do-find-sweet-spot-for-intents)|[LUIS 做訓練平台](#dont-use-luis-as-a-training-platform)|
-|[反覆地建置您的應用程式](#do-build-the-app-iteratively)|[新增相同的格式，忽略其他格式的許多範例表達方式](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
-|[在後期反覆項目中新增片語清單和模式](#do-add-phrase-lists-and-patterns-in-later-iterations)|[混合的意圖和實體的定義](#dont-mix-the-definition-of-intents-and-entities)|
-|[讓您的語句在所有意圖之間達到平衡](#balance-your-utterances-across-all-intents)，除了 None 意圖之外。<br>[將範例語句新增至 None 意圖](#do-add-example-utterances-to-none-intent)|[包含所有可能的值建立片語清單](#dont-create-phrase-lists-with-all-the-possible-values)|
-|[利用主動式學習的建議功能](#do-leverage-the-suggest-feature-for-active-learning)|[加入太多的模式](#dont-add-many-patterns)|
-|[監視您的應用程式的效能](#do-monitor-the-performance-of-your-app)|[定型和發佈與新增的每個單一範例 [utterance]](#dont-train-and-publish-with-every-single-example-utterance)|
-|[針對每個應用程式反覆項目使用的版本](#do-use-versions-for-each-app-iteration)||
+|[定義不同的意圖](#do-define-distinct-intents) |[將許多範例語句新增至意圖](#dont-add-many-example-utterances-to-intents) |
+|[找出每個意圖的太攏統與太特定之間的最佳點](#do-find-sweet-spot-for-intents)|[使用 LUIS 作為定型平台](#dont-use-luis-as-a-training-platform)|
+|[以反覆方式建置您的應用程式](#do-build-the-app-iteratively)|[新增許多相同格式的範例語句而忽略其他格式](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[在稍後的反覆項目中新增片語清單和模式](#do-add-phrase-lists-and-patterns-in-later-iterations)|[混合意圖和實體的定義](#dont-mix-the-definition-of-intents-and-entities)|
+|[讓您的語句在所有意圖之間達到平衡](#balance-your-utterances-across-all-intents)，除了 None 意圖之外。<br>[將範例語句新增至 None 意圖](#do-add-example-utterances-to-none-intent)|[建立含有所有可能值的片語清單](#dont-create-phrase-lists-with-all-the-possible-values)|
+|[利用主動式學習的建議功能](#do-leverage-the-suggest-feature-for-active-learning)|[新增太多模式](#dont-add-many-patterns)|
+|[監視您應用程式的效能](#do-monitor-the-performance-of-your-app)|[新增每一個範例語句都進行定型和發佈](#dont-train-and-publish-with-every-single-example-utterance)|
+|[針對每個應用程式反覆項目使用版本](#do-use-versions-for-each-app-iteration)||
 
 ## <a name="do-define-distinct-intents"></a>請務必定義不同的意圖
 請確定每個意圖的詞彙都僅適用於該意圖，而未與不同的意圖重疊。 例如，如果您想要有一個處理旅遊安排 (例如航班和飯店) 的應用程式，則可以選擇讓這些主體區域成為語句內具有特定資料實體的個別意圖或相同意圖。

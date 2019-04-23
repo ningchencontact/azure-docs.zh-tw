@@ -9,10 +9,10 @@ ms.date: 12/14/2017
 ms.author: rogarana
 ms.subservice: common
 ms.openlocfilehash: 40138a69baf9cd621b2f287b2fe035225bfd9bec
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877482"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>教學課程：使用 AzCopy 將內部部署資料移轉至雲端儲存體
@@ -59,7 +59,7 @@ AzCopy 是命令列工具，可使用簡單的命令從 Azure Blob 儲存體、A
 
 您可以在 [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) 或 [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download) 上使用 AzCopy，將資料夾中的所有檔案都上傳至 Blob 儲存體。 若要上傳資料夾中的所有 blob，請輸入下列 AzCopy 命令：
 
-# [<a name="linux"></a>Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
     azcopy \
         --source /mnt/myfolder \
@@ -67,7 +67,7 @@ AzCopy 是命令列工具，可使用簡單的命令從 Azure Blob 儲存體、A
         --dest-key <key> \
         --recursive
 
-# [<a name="windows"></a> Windows](#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
@@ -82,7 +82,7 @@ AzCopy 是命令列工具，可使用簡單的命令從 Azure Blob 儲存體、A
 
 如果您只想複製目的地中不存在的來源資源，請在 AzCopy 命令中同時指定 `--exclude-older` 和 `--exclude-newer` (Linux) 或 `/XO` 和 `/XN` (Windows) 參數。 AzCopy 只會上傳已更新的資料 (根據其時間戳記)。
 
-# [<a name="linux"></a>Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
     azcopy \
     --source /mnt/myfolder \
@@ -91,7 +91,7 @@ AzCopy 是命令列工具，可使用簡單的命令從 Azure Blob 儲存體、A
     --recursive \
     --exclude-older
 
-# [<a name="windows"></a> Windows](#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
@@ -102,11 +102,11 @@ AzCopy 是命令列工具，可使用簡單的命令從 Azure Blob 儲存體、A
 
 將 AzCopy 命令複製到文字編輯器。 將 AzCopy 命令的參數值更新為適當的值。 針對 AzCopy 將檔案另存為 `script.sh` (Linux) 或 `script.bat` (Windows)。
 
-# [<a name="linux"></a> Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
     azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
 
-# [<a name="windows"></a> Windows](#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
     AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
@@ -117,7 +117,7 @@ AzCopy 是以詳細資訊 `--verbose` (Linux) 或 `/V` (Windows) 選項執行。
 在本教學課程中，[Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) 會用來在 Windows 上建立排程工作。 [Crontab](http://crontab.org/) 命令會用來在 Linux 上建立 cron 作業。
  **Schtasks** 可讓系統管理員建立、刪除、查詢、變更、執行和結束本機或遠端電腦上的排程工作。 **Cron** 可讓 Linux 和 Unix 使用者在指定的日期和時間執行命令或指令碼，方法是使用 [cron 運算式](https://en.wikipedia.org/wiki/Cron#CRON_expression)。
 
-# [<a name="linux"></a> Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 若要在 Linux 上建立 cron 作業，請在終端機上輸入下列命令：
 
@@ -128,7 +128,7 @@ crontab -e
 
 在命令中指定 cron 運算式 `*/5 * * * *` 會指出殼層指令碼 `script.sh` 應該每隔五分鐘執行一次。 您可以排程指令碼在每日、每月或每年的指定時間執行。 若要深入了解針對作業執行設定日期和時間，請參閱 [cron 運算式](https://en.wikipedia.org/wiki/Cron#CRON_expression)。
 
-# [<a name="windows"></a> Windows](#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 若要在 Windows 上建立排程工作，請於命令提示字元或者 PowerShell 中輸入下列命令：
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917408"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>翻譯工具文字 API 如何計算字元
@@ -24,8 +24,8 @@ ms.locfileid: "58917408"
 會計算的項目包括：
 
 * 要求主體中傳遞至翻譯工具文字 API 的文字
-   * `Text` 當您使用平移、 Transliterate 和字典查閱方法
-   * `Text` 和`Translation`時使用字典範例方法
+   * 使用翻譯、音譯和字典查閱方法時，會計算 `Text`
+   * 使用字典範例方法時，會計算 `Text` 和 `Translation`
 * 所有標記：要求主體文字欄位內的 HTML、XML 標記等等。 用來建置要求的 JSON 表示法 (例如 "Text:") 則不會計入。
 * 個別字母
 * 標點符號

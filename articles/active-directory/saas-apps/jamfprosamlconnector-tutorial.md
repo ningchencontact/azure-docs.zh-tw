@@ -16,10 +16,10 @@ ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58906135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>教學課程：Azure Active Directory 與 Jamf Pro 整合
@@ -105,9 +105,9 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 
     ![Jamf Pro 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.jamfcloud.com/saml/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.jamfcloud.com/saml/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.jamfcloud.com/saml/SSO`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.jamfcloud.com/saml/SSO`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -126,11 +126,11 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 
 1. 若要自動執行 Jamf Pro 內的設定，您必須按一下 [安裝延伸模組] 來安裝「我的應用程式安全登入瀏覽器延伸模組」。
 
-    ![映像](./media/jamfprosamlconnector-tutorial/install_extension.png)
+    ![image](./media/jamfprosamlconnector-tutorial/install_extension.png)
 
 2. 將延伸模組新增至瀏覽器之後，按一下 [安裝 Jamf Pro] 便會將您導向到 Jamf Pro 應用程式。 請從該處提供用以登入 Jamf Pro 的管理員認證。 瀏覽器延伸模組將會自動為您設定應用程式，並自動執行步驟 3 到 7。
 
-    ![映像](./media/jamfprosamlconnector-tutorial/d1_saml.png)
+    ![image](./media/jamfprosamlconnector-tutorial/d1_saml.png)
 
 3. 如果您想要手動設定 Jamf Pro，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Jamf Pro 公司網站，然後執行下列步驟：
 

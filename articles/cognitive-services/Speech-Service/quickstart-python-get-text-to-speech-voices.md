@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: erhopf
 ms.openlocfilehash: 66bda68b1313a7c172e273671bc3a03503d08e0d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876575"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>快速入門：取得文字轉換語音的語音使用 Python 的清單
@@ -131,10 +131,10 @@ python get-voices.py
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [瀏覽 GitHub 上的 Python 範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
+> [探索 GitHub 上的 Python 範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python) \(英文\)
 
 ## <a name="see-also"></a>請參閱
 
 * [文字轉換語音 API 參考](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [建立客製化聲音音調](how-to-customize-voice-font.md)
+* [建立自訂語音調](how-to-customize-voice-font.md)
 * [錄製語音樣本來建立自訂語音](record-custom-voice-samples.md)

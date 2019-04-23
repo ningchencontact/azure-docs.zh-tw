@@ -9,10 +9,10 @@ ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876812"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>將您的資料移轉至 Azure Cosmos DB 資料表 API 帳戶
@@ -39,7 +39,7 @@ ms.locfileid: "58876812"
 若要執行資料表資料移轉，請完成下列工作：
 
 1. 請從 [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool) 下載移轉工具。
-2. 使用您案例的命令列引數執行 `dt.exe`。 `dt.exe` 採用下列格式的命令：
+2. 使用您案例的命令列引數執行 `dt.exe`。 `dt.exe` 會採用下列格式的命令：
 
    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 

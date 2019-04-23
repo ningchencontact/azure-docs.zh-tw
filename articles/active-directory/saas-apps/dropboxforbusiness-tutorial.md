@@ -16,10 +16,10 @@ ms.date: 12/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d55ae4077b3ec14cb8dc2226714b094574ed9522
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905642"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>教學課程：Azure Active Directory 與 Dropbox for Business 整合
@@ -107,9 +107,9 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
     ![商務用 Dropbox 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://www.dropbox.com/sso/<id>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://www.dropbox.com/sso/<id>`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入值： `Dropbox`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入值：`Dropbox`
 
     > [!NOTE]
     > 上述登入 URL 值並非真正的值。 您將會使用實際的登入 URL 來更新值，稍後會在本教學課程中說明。

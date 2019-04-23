@@ -15,10 +15,10 @@ ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 15b7c052d0e4d51cb033607c156a55c581f722b1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893957"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>為混合式環境中的 Linux 電腦設定 Log Analytics 代理程式
@@ -72,7 +72,7 @@ ms.locfileid: "58893957"
 
 如果您的 Linux 電腦需要透過 Proxy 伺服器與 Log Analytics 通訊，您可以在命令列中加上 `-p [protocol://][user:password@]proxyhost[:port]` 藉以指定 Proxy 組態。  *proxyhost* 屬性接受 Proxy 伺服器的完整網域名稱或 IP 位址。 
 
-例如︰ `https://user01:password@proxy01.contoso.com:30443`
+例如：`https://user01:password@proxy01.contoso.com:30443`
 
 1. 若要設定 Linux 電腦以連接到 Log Analytics，請執行下列命令，提供稍早複製的工作區識別碼和主索引鍵。 下列命令會下載代理程式、驗證其總和檢查碼，並加以安裝。 
     

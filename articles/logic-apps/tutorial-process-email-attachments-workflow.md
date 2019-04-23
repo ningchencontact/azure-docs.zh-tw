@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.openlocfilehash: 57d7fecfa9bf2b27a54387072b080ed95f4e87e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881206"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 自動處理電子郵件和附件
@@ -60,7 +60,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    | 設定 | 值 | 說明 | 
    |---------|-------|-------------| 
-   | **Name** | attachmentstorageacct | 儲存體帳戶的名稱 | 
+   | **名稱** | attachmentstorageacct | 儲存體帳戶的名稱 | 
    | **部署模型** | 資源管理員 | 管理資源部署的[部署模型](../azure-resource-manager/resource-manager-deployment-model.md) | 
    | **帳戶類型** | 一般用途 | [儲存體帳戶類型](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
    | **位置** | 美國西部 | 用來儲存您儲存體帳戶相關資訊的區域 | 
@@ -237,7 +237,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    | 設定 | 值 | 說明 | 
    | ------- | ----- | ----------- | 
-   | **Name** | LA-ProcessAttachment | 邏輯應用程式的名稱 | 
+   | **名稱** | LA-ProcessAttachment | 邏輯應用程式的名稱 | 
    | **訂用帳戶** | <your-Azure-subscription-name> | 您先前使用的相同 Azure 訂用帳戶 | 
    | **資源群組** | LA-Tutorial-RG | 您先前使用的相同 Azure 資源群組 |
    | **位置** | 美國西部 | 您先前使用的相同區域 | 
@@ -395,8 +395,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    ![選取您的 Azure 函式](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
-5. 以下列說明為函式圖形重新命名：
-```Call RemoveHTMLFunction to clean email body```
+5. 以下列說明為函式圖形重新命名：```Call RemoveHTMLFunction to clean email body```
 
 6. 現在，指定您的函式要處理的輸入。 
 
@@ -410,7 +409,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
       此外，當游標位於 [要求本文] 方塊內時，也會出現動態內容清單，讓您可從先前的動作選取可用的屬性值。 
       
-   2. 在動態內容清單中的 [新的電子郵件送達時] 下方，選取 [內文] 屬性。 在此屬性後面，請記得加上右大括號： ```}```
+   2. 在動態內容清單中的 [新的電子郵件送達時] 下方，選取 [內文] 屬性。 在此屬性後面，請記得加上右大括號：```}```
 
       ![指定要傳至函式的要求本文](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
 
@@ -436,12 +435,11 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    | 設定 | 值 | 說明 | 
    | ------- | ----- | ----------- | 
-   | **連線名稱** | AttachmentStorageConnection | 連線的描述性名稱 | 
+   | 連線名稱 | AttachmentStorageConnection | 連線的描述性名稱 | 
    | **儲存體帳戶** | attachmentstorageacct | 您先前建立用來儲存附件之儲存體帳戶的名稱 | 
    |||| 
 
-4. 以下列說明為 [建立 Blob] 動作重新命名：
-```Create blob for email body```
+4. 以下列說明為 [建立 Blob] 動作重新命名：```Create blob for email body```
 
 5. 在 [建立 Blob] 動作中提供此資訊並選取這些欄位，以建立 Blob，說明如下：
 
@@ -507,8 +505,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    ![新增 "for each" 迴圈](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
-2. 以下列說明為迴圈重新命名：
-```For each email attachment```
+2. 以下列說明為迴圈重新命名：```For each email attachment```
 
 3. 現在，指定要由迴圈處理的資料。 按一下 [選取先前步驟中的輸出] 方塊內部，讓動態內容清單開啟，然後選取 [附件]。 
 
@@ -531,8 +528,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    ![新增建立 Blob 的動作](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-3. 以下列說明為 [建立 Blob 2] 動作重新命名：
-```Create blob for each email attachment```
+3. 以下列說明為**建立 Blob 2** 動作重新命名：```Create blob for each email attachment```
 
 4. 在 [為每個電子郵件附件建立 Blob] 動作中提供此資訊，並為您要建立的每個 Blob 選取屬性，說明如下：
 
@@ -597,8 +593,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 3. 如果系統要求您提供認證，請登入您的電子郵件帳戶，讓 Logic Apps 能夠建立您電子郵件帳戶的連線。
 
-4. 以下列說明為 [傳送電子郵件] 動作重新命名：
-```Send email for review```
+4. 以下列說明為 [傳送電子郵件] 動作重新命名：```Send email for review```
 
 5. 提供此動作的資訊，然後選取要包含在電子郵件中的欄位，說明如下。 若要在編輯方塊中新增空白的行，請按 Shift + Enter。  
 
@@ -608,9 +603,9 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    | 設定 | 值 | 注意 | 
    | ------- | ----- | ----- | 
-   | **body** | ```Please review new applicant:``` <p>```Applicant name:``` **從** <p>```Application file location:``` **Path** <p>```Application email content:``` **body** | 電子郵件內文內容。 按一下此方塊內部，輸入範例文字，然後從動態內容清單中選取下列欄位： <p>- [新的電子郵件送達時] 下的 [寄件者] 欄位 </br>- [為電子郵件內文建立 Blob] 下的 [路徑] 欄位 </br>- [呼叫 RemoveHTMLFunction 以清除電子郵件內文] 下的 [內文] 欄位 | 
-   | **主體**  | ```ASAP - Review applicant for position:``` **主體** | 您要包含的電子郵件主旨。 按一下此方塊內部，輸入範例文字，然後選取 [新的電子郵件送達時] 下方的 [主旨] 欄位。 | 
-   | **至** | <*recipient-email-address*> | 為了測試用途，您可以使用自己的電子郵件地址。 | 
+   | **內文** | ```Please review new applicant:``` <p>```Applicant name:``` **寄件者** <p>```Application file location:``` **路徑** <p>```Application email content:``` **內文** | 電子郵件內文內容。 按一下此方塊內部，輸入範例文字，然後從動態內容清單中選取下列欄位： <p>- [新的電子郵件送達時] 下的 [寄件者] 欄位 </br>- [為電子郵件內文建立 Blob] 下的 [路徑] 欄位 </br>- [呼叫 RemoveHTMLFunction 以清除電子郵件內文] 下的 [內文] 欄位 | 
+   | **主旨**  | ```ASAP - Review applicant for position:``` **主旨** | 您要包含的電子郵件主旨。 按一下此方塊內部，輸入範例文字，然後選取 [新的電子郵件送達時] 下方的 [主旨] 欄位。 | 
+   | **To** | <*recipient-email-address*> | 為了測試用途，您可以使用自己的電子郵件地址。 | 
    |||| 
 
    > [!NOTE] 

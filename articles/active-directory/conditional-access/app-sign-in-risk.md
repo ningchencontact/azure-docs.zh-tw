@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5defdf2d33d32042775271fe01aba377687ae75
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891560"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>快速入門：針對 Azure Active Directory 條件式存取偵測到工作階段風險時封鎖存取  
@@ -64,7 +64,7 @@ ms.locfileid: "58891560"
 
 ![建立原則](./media/app-sign-in-risk/130.png)
 
-**若要設定條件式存取原則：**
+**設定條件式存取原則：**
 
 1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分，登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -156,7 +156,7 @@ ms.locfileid: "58891560"
 
 ![使用者](./media/app-sign-in-risk/117.png)
 
-**若要評估條件式存取原則：**
+**建立條件式存取原則：**
 
 1. 在 [條件式存取 - 原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 頁面頂端的功能表中，按一下 [What If]。  
 
