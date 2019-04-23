@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 7d024dd958e6b29b52f095a9a55a67154bf6cde6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59362954"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792075"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>設定 web 應用程式防火牆原則使用 Azure PowerShell
 Azure web 應用程式防火牆 (WAF) 原則定義要求抵達大門時所需的檢查。
@@ -48,7 +48,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 ### <a name="create-a-front-door-profile"></a>建立 Front Door 設定檔
-建立前端設定檔中所述的指示[快速入門：建立前端的設定檔](quickstart-create-front-door.md)
+請遵循[快速入門：建立前端的設定檔](quickstart-create-front-door.md)
 
 ## <a name="custom-rule-based-on-http-parameters"></a>Http 參數為基礎的自訂規則
 
@@ -93,7 +93,7 @@ $myWAFPolicy=New-AzFrontDoorFireWallPolicy -Name $policyName -ResourceGroupName 
 安全性原則物件連結至現有的大門前端的主機，並更新大門屬性。 首先，使用您建立大門物件來擷取[Get AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor)。
 接下來，設定 前端*WebApplicationFirewallPolicyLink*屬性設*resourceId* "$myWAFPolicy$"中先前的步驟使用建立的[組 AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor). 
 
-下列範例會使用的資源群組名稱*myResourceGroupFD1*假設您已建立的前端設定檔中使用提供的指示[快速入門：建立前端](quickstart-create-front-door.md)文章。 此外，在下列範例中，取代 $frontDoorName 大門設定檔名稱。 
+下列範例會使用資源群組名稱 myResourceGroupFD1，並假設您已使用[快速入門：建立 Front Door](quickstart-create-front-door.md) 一文中所提供的指示建立 Front Door 設定檔。 此外，在下列範例中，取代 $frontDoorName 大門設定檔名稱。 
 
 ```powershell-interactive
    $FrontDoorObjectExample = Get-AzFrontDoor `

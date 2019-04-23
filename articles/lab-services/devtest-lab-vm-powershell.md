@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 0e68958070e9c35e12dd9446b351f880dfea6f69
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009337"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793244"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>使用 DevTest Labs 使用 Azure PowerShell 建立虛擬機器
 這篇文章會示範如何使用 Azure PowerShell 建立 Azure DevTest Labs 中的虛擬機器。 若要自動建立在 Azure DevTest Labs 中對實驗室中的虛擬機器，您可以使用 PowerShell 指令碼。 

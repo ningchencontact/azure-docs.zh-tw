@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 6644b6ae3a9482a1bd3f840a814d3bb6361517fc
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006509"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790054"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>使用 Azure 入口網站建立及管理適用於 MariaDB 的 Azure 資料庫的 VNet 服務端點和 VNet 規則
 
@@ -24,7 +24,7 @@ ms.locfileid: "59006509"
 
 1. 在 [MariaDB 伺服器] 頁面的 [設定] 標題下，按一下 [連線安全性]，以開啟適用於 MariaDB 的 Azure 資料庫的 [連線安全性] 窗格。
 
-2. 請確定允許存取 Azure 服務的控制項設為**OFF**。
+2. 确保将“允许访问 Azure 服务”控件设置为“关闭”。
 
 > [!Important]
 > 如果您將它設定為 ON，您的 Azure MariaDB 資料庫伺服器會接受來自任何子網路通訊。 就安全性觀點而言，讓此控制項保持 [開啟] 可能使存取過多。 Microsoft Azure 虛擬網路服務端點功能搭配虛擬網路規則功能的 Azure 資料庫適用於 MariaDB，同時可以減少安全性曝露面。

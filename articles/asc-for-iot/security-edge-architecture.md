@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: c6ac3d9dbbb16caed51243fea852adea541b9f04
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862228"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790037"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT Edge 安全性模組
 
 > [!IMPORTANT]
-> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
+> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
 > 此預覽版的服務等級協定，不提供，且不建議用於生產環境 worklo§1ads。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/)提供功能強大的功能，可管理，以及執行在邊緣的商務工作流程。

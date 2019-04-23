@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 6624ded670ef506dfef225a8b595da2e5ea19427
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051609"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794394"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>診斷虛擬機器網路路由問題 - Azure PowerShell
 
@@ -63,7 +63,7 @@ $vM = New-AzVm `
 
 ## <a name="enable-network-watcher"></a>啟用網路監看員
 
-如果您已經在美國東部區域啟用網路監看員，請使用[Get AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher)擷取網路監看員。 下列範例會擷取名為 *NetworkWatcher_eastus* 的現有網路監看員，其位於 *NetworkWatcherRG* 資源群組中：
+如果您已經在美國東部區域啟用網路監看員，請使用 [New-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) 來擷取網路監看員。 下列範例會擷取名為 *NetworkWatcher_eastus* 的現有網路監看員，其位於 *NetworkWatcherRG* 資源群組中：
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzNetworkWatcher `
@@ -71,7 +71,7 @@ $networkWatcher = Get-AzNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-如果您還沒有在美國東部區域啟用網路監看員，使用[新增 AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher)美國東部區域中建立網路監看員：
+如果您尚未在美國東部區域啟用網路監看員，請使用 [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) 在美國東部區域建立網路監看員：
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzNetworkWatcher `
@@ -135,7 +135,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當不再需要您可以使用[移除 AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)來移除資源群組和所有其包含之資源：
+您可以使用 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 來移除不再需要的資源群組，以及其所包含的所有資源：
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

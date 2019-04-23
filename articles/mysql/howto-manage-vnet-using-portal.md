@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.openlocfilehash: 96404298b0c13fa3f8c4d9664cf4293aa6dafb22
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006452"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793771"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>使用 Azure 入口網站建立及管理適用於 MySQL 的 Azure 資料庫的 VNet 服務端點和 VNet 規則
 虛擬網路 (VNet) 服務端點和規則會將虛擬網路的私人位址空間延伸到您適用於 MySQL 的 Azure 資料庫伺服器。 如需適用於 MySQL 的 Azure 資料庫的 VNet 服務端點概觀 (包含限制)，請參閱[適用於 MySQL 的 Azure 資料庫伺服器的 VNet 服務端點](concepts-data-access-and-security-vnet.md)。 VNet 服務端點在「適用於 MySQL 的 Azure 資料庫」的所有支援區域皆可使用。
@@ -24,10 +24,10 @@ ms.locfileid: "59006452"
 
 1. 在 [MySQL 伺服器] 頁面的 [設定] 標題下，按一下 [連線安全性]，以開啟適用於 MySQL 的 Azure 資料庫的 [連線安全性] 窗格。 
 
-2. 請確定允許存取 Azure 服務的控制項設為**OFF**。
+2. 确保将“允许访问 Azure 服务”控件设置为“关闭”。
 
 > [!Important]
-> 如果您離開控制項設為 ON 時，您的 Azure MySQL 資料庫伺服器會接受來自任何子網路的通訊。 就安全性觀點而言，讓此控制項保持 [開啟] 可能使存取過多。 Microsoft Azure 虛擬網路服務端點功能搭配虛擬網路規則功能的 Azure Database for MySQL，同時可以減少安全性曝露面。
+> 如果将此控件设置为“启用”，则 Azure MySQL 数据库服务器接受来自任何子网的通信。 就安全性觀點而言，讓此控制項保持 [開啟] 可能使存取過多。 Microsoft Azure 虛擬網路服務端點功能搭配虛擬網路規則功能的 Azure Database for MySQL，同時可以減少安全性曝露面。
 
 3. 接下來，按一下 [+ 新增現有的虛擬網路]。 如果您沒有現有的 VNet，就可以按一下 [+ 建立新的虛擬網路] 來建立新的 VNet。 請參閱[快速入門：使用 Azure 入口網站建立虛擬網路](../virtual-network/quick-create-portal.md)
 
