@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 6edcb4501feb0ac2911fed075ed4866aa267a80e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 69eb3789586233b824da1ef6a9c338b07281f324
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893073"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001383"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Python 來呼叫文字分析認知服務 
 <a name="HOLTop"></a>
@@ -65,23 +65,22 @@ pip install requests
     接下來，新增這一行，然後確認 `text_analytics_base_url` 中的區域會對應到您在設定服務時所使用的區域。 如果您使用免費試用金鑰，則不需變更任何項目。
     
     ```python
-    text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/"
+    text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
     ```
 
 <a name="Detect"></a>
 
 ## <a name="detect-languages"></a>偵測語言
 
-語言偵測 API 會使用[偵測語言方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\) 來偵測文字文件的語言。 透過下列 URL 來取得適用於您所在區域的語言偵測 API 服務端點：
+語言偵測 API 會使用[偵測語言方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) \(英文\) 來偵測文字文件的語言。 透過下列 URL 來取得適用於您所在區域的語言偵測 API 服務端點：
 
 ```python
 language_api_url = text_analytics_base_url + "languages"
 print(language_api_url)
 ```
 
-```url
-https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
-```
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages
+
 
 對 API 的酬載會由 `documents` 清單所組成，其中的每份文件依序會包含 `id` 和 `text` 屬性。 `text` 屬性會儲存要分析的文字。 
 
@@ -137,7 +136,7 @@ HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table
 
 ## <a name="analyze-sentiment"></a>分析人氣
 
-情感分析 API 會使用 [Sentiment 方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)，偵測一組文字記錄中的情緒態度 (範圍介於正值和負值之間)。 下列範例會為兩份文件進行評分，一份是英文，另一份則是西班牙文。
+情感分析 API 會使用 [Sentiment 方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)，偵測一組文字記錄中的情緒態度 (範圍介於正值和負值之間)。 下列範例會為兩份文件進行評分，一份是英文，另一份則是西班牙文。
 
 適用於情感分析的服務端點可透過下列 URL 供您的區域使用：
 
@@ -145,7 +144,8 @@ HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table
 sentiment_api_url = text_analytics_base_url + "sentiment"
 print(sentiment_api_url)
 ```
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
+
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment
 
 如同使用語言偵測範例，服務會利用具有 `documents` 索引鍵的字典來提供，而該索引鍵是由文件清單所組成的。 每份文件都是一個由 `id`、要分析的 `text`，以及文字的 `language` 所組成的 Tuple。 您可以使用上一節的語言偵測 API 來填入此欄位。
 
@@ -182,7 +182,7 @@ pprint(sentiments)
 
 ## <a name="extract-key-phrases"></a>擷取關鍵片語
 
-關鍵片語擷取 API 會使用[關鍵片語方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)從文字文件擷取關鍵片語。 本逐步解說的這個小節會擷取英文和西班牙文文件的關鍵片語。
+關鍵片語擷取 API 會使用[關鍵片語方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)從文字文件擷取關鍵片語。 本逐步解說的這個小節會擷取英文和西班牙文文件的關鍵片語。
 
 透過下列 URL 來存取適用於關鍵片語擷取服務的服務端點：
 
@@ -190,7 +190,8 @@ pprint(sentiments)
 key_phrase_api_url = text_analytics_base_url + "keyPhrases"
 print(key_phrase_api_url)
 ```
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
+
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases
 
 文件的集合與用於情感分析的相同。
 
@@ -235,7 +236,7 @@ pprint(key_phrases)
 
 ## <a name="identify-entities"></a>識別實體
 
-實體 API 會使用[實體方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)來識別文字文件中的已知實體。 以下範例會識別英文文件的實體。
+實體 API 會使用[實體方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)來識別文字文件中的已知實體。 以下範例會識別英文文件的實體。
 
 透過下列 URL 來存取適用於實體連結服務的服務端點：
 
@@ -244,14 +245,13 @@ entity_linking_api_url = text_analytics_base_url + "entities"
 print(entity_linking_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities
 
 文件的集合如下：
 
 ```python
 documents = {'documents' : [
-  {'id': '1', 'text': 'Jeff bought three dozen eggs because there was a 50% discount.'},
-  {'id': '2', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.'}
+  {'id': '1', 'text': 'Microsoft is an It company.'}
 ]}
 ```
 現在，可以將文件傳送到文字分析 API 來接收回應。
@@ -264,158 +264,47 @@ entities = response.json()
 
 成功的 JSON 回應：
 ```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
+{  
+   "documents":[  
+      {  
+         "id":"1",
+         "entities":[  
+            {  
+               "name":"Microsoft",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.20872054383103444,
+                     "entityTypeScore":0.99996185302734375,
+                     "text":"Microsoft",
+                     "offset":0,
+                     "length":9
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Microsoft",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Microsoft",
+               "bingId":"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+               "type":"Organization"
+            },
+            {  
+               "name":"Technology company",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.82123868042800585,
+                     "text":"It company",
+                     "offset":16,
+                     "length":10
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Technology company",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Technology_company",
+               "bingId":"bc30426e-22ae-7a35-f24b-454722a47d8f"
+            }
+         ]
+      }
+   ],
+    "errors":[]
 }
 ```
 

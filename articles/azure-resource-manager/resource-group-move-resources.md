@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528232"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004052"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -49,7 +49,7 @@ ms.locfileid: "59528232"
 
 ## <a name="services-that-can-be-moved"></a>可以移動的服務
 
-下列清單提供可移至新資源群組和訂用帳戶之 Azure 服務的一般摘要。 如需哪一個資源類型支援移動的清單，請參閱[移動資源的作業支援](move-support-resources.md)。
+下列清單提供可移至新資源群組和訂用帳戶之 Azure 服務的一般摘要。 对于支持移动的资源类型列表，请参阅[支持移动操作的资源](move-support-resources.md)。
 
 * Analysis Services
 * API 管理
@@ -63,7 +63,7 @@ ms.locfileid: "59528232"
 * 適用於 MariaDB 的 Azure 資料庫
 * 適用於 MySQL 的 Azure 資料庫
 * 適用於 PostgreSQL 的 Azure 資料庫
-* Azure DevOps - 購買非 Microsoft 延伸模組的 Azure DevOps 組織必須先[取消其購買](https://go.microsoft.com/fwlink/?linkid=871160)，才能在訂用帳戶之間移動帳戶。
+* Azure DevOps-請遵循步驟來[變更用於計費的 Azure 訂用帳戶](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops)。
 * Azure 地圖服務
 * Azure 監視器記錄
 * Azure 轉送
@@ -74,7 +74,7 @@ ms.locfileid: "59528232"
 * CDN
 * 雲端服務 - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 認知服務
-* 容器登錄 - 異地複寫啟用時，容器登錄無法移動。
+* Container Registry
 * 內容仲裁
 * 成本管理
 * Customer Insights
@@ -129,7 +129,7 @@ ms.locfileid: "59528232"
 
 * AD Domain Services
 * AD 混合式健康狀態服務
-* 應用程式閘道
+* 应用程序网关
 * Azure 資料庫移轉
 * Azure Databricks
 * Azure 防火牆

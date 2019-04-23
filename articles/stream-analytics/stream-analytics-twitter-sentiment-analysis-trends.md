@@ -9,14 +9,17 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994935"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003695"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure 串流分析中的即時 Twitter 情感分析
+
+> [!IMPORTANT] 
+> 建立 twitter 應用程式已無法再使用透過[apps.twitter.com](https://apps.twitter.com/)。 本教學課程是正在進行更新以包含新的 Twitter API。
 
 本文將透過把即時的 Twitter 事件帶入 Azure 事件中樞，來讓您了解如何建立社交媒體分析的情感分析解決方案。 接著，您可以撰寫 Azure 串流分析查詢來分析資料，並儲存結果以供稍後使用，或使用儀表板和 [Power BI](https://powerbi.com/) 來即時提供深入解析。
 
@@ -282,7 +285,7 @@ ms.locfileid: "57994935"
 |話題 | 符合所指定關鍵字的話題|
 |SentimentScore | 來自 Sentiment140 的情感分數|
 |作者 | 傳送推文的 Twitter 控制代碼|
-|文字 | 推文的全文|
+|Text | 推文的全文|
 
 
 ## <a name="create-an-output-sink"></a>建立輸出接收器

@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: d0908e9edce8efb7a378ee04b6076b61cae2d2bf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518027"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998289"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>使用 Azure 資料箱來將資料從內部部署 HDFS 存放區移轉到 Azure 儲存體
 
@@ -133,4 +133,4 @@ ms.locfileid: "58518027"
 
 ## <a name="next-steps"></a>後續步驟
 
-了解 Data Lake 儲存體 Gen2 與 HDInsight 叢集的運作方式。 請參閱[搭配 Azure HDInsight 叢集使用 Azure Data Lake Storage Gen2](https://docs.microsoft.com/Azure/storage/blobs/data-lake-storage-use-hdi-cluster?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+了解 Data Lake 儲存體 Gen2 與 HDInsight 叢集的運作方式。 請參閱[搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)。

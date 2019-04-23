@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: c29d2e1df0979481c0c8a1e1f2cd4d22b013212a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227575"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003440"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>在您的虛擬網路 （預覽） 中部署 Azure Databricks
 
@@ -97,31 +97,31 @@ Azure Databricks 的預設部署為 Azure 上完全受控的服務： 所有的�
 
 全都放在其中建立虛擬網路、 網路安全性群組和 Azure Databricks 工作區，請使用[Databricks VNet 插入工作區-全方位範本](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/)。
 
-當您使用此範本時，您不需要執行任何手動加入允許清單的子網路流量。
+當您使用此範本時，您不需要執行任何手動加入白名單的子網路流量。
 
 ### <a name="network-security-groups"></a>網路安全性群組
 
 若要建立網路安全性群組與現有的虛擬網路的必要規則，請使用[Databricks VNet 資料隱碼攻擊的網路安全性群組範本](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection)。
 
-當您使用此範本時，您不需要執行任何手動加入允許清單的子網路流量。
+當您使用此範本時，您不需要執行任何手動加入白名單的子網路流量。
 
 ### <a name="virtual-network"></a>虛擬網路
 
 若要建立適當的公用和私人子網路的虛擬網路，使用[Databricks VNet 資料隱碼攻擊的虛擬網路範本](https://azure.microsoft.com/resources/templates/101-databricks-vnet-for-vnet-injection)。
 
-如果您使用此範本也不用網路安全群組範本時，您必須手動加入允許清單規則您使用與虛擬網路的網路安全性群組。
+如果您使用此範本也不用網路安全群組範本時，您必須手動加入白名單規則您使用與虛擬網路的網路安全性群組。
 
 ### <a name="azure-databricks-workspace"></a>Azure Databricks 工作區
 
 若要將 Azure Databricks 工作區部署到現有的虛擬網路具有公用和私人子網路和已設定的設定正確的網路安全性群組中，使用[Databricks VNet 資料隱碼的工作區範本](https://azure.microsoft.com/resources/templates/101-databricks-workspace-with-vnet-injection)。
 
-如果您使用此範本也不用網路安全群組範本時，您必須手動加入允許清單規則您使用與虛擬網路的網路安全性群組。
+如果您使用此範本也不用網路安全群組範本時，您必須手動加入白名單規則您使用與虛擬網路的網路安全性群組。
 
-## <a name="whitelisting-subnet-traffic"></a>加入允許清單的子網路流量
+## <a name="whitelisting-subnet-traffic"></a>加入白名單的子網路流量
 
-如果您不要使用[Azure 入口網站](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal)或是[Azure Resource Manager 範本](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced)若要建立您的網路安全性群組，您必須手動加入允許清單下列流量子網路上。
+如果您不要使用[Azure 入口網站](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal)或是[Azure Resource Manager 範本](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced)若要建立您的網路安全性群組，您必須手動加入白名單下列流量子網路上。
 
-|方向|通訊協定|來源|Source Port|目的地|目的地連接埠|
+|Direction|通訊協定|來源|Source Port|目的地|目的地連接埠|
 |---------|--------|------|-----------|-----------|----------------|
 |輸入|\*|VirtualNetwork|\*|\*|\*|
 |輸入|\*|控制平面 NAT IP|\*|\*|22|
@@ -131,7 +131,7 @@ Azure Databricks 的預設部署為 Azure 上完全受控的服務： 所有的�
 |輸出|\*|\*|\*|儲存體 （服務索引標籤）|\*|
 |輸出|\*|\*|\*|VirtualNetwork|\*|
 
-列入允許清單的子網路流量，使用下列的 IP 位址。 SQL （中繼存放區） 和儲存體 （成品和記錄儲存體），您應該使用 Sql 和儲存體[服務標籤](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)。
+列入白名單的子網路流量，使用下列的 IP 位址。 SQL （中繼存放區） 和儲存體 （成品和記錄儲存體），您應該使用 Sql 和儲存體[服務標籤](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)。
 
 |Azure Databricks 區域|服務|公用 IP|
 |-----------------------|-------|---------|
@@ -188,7 +188,7 @@ Azure Databricks 的預設部署為 Azure 上完全受控的服務： 所有的�
 
 ### <a name="notebook-command-errors"></a>Notebook 命令發生錯誤
 
-**命令會停止回應**
+**命令沒有回應**
 
 可能的原因： 背景工作-背景工作通訊遭到封鎖。 修正藉由確定輸入的安全性規則符合需求。
 

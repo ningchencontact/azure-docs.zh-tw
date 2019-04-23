@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 57630d1fa95c2133e592f691add8c515ca718afb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833426"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999462"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>針對從 Azure 至內部部署環境的容錯回復進行疑難排解
 
@@ -56,7 +56,7 @@ ms.locfileid: "52833426"
 
 若要解決此問題︰
 
-若要重新保護已容錯移轉的 VM，Azure VM 必須執行，如此一來，行動服務就會向組態伺服器內部部署進行註冊，並可與流程伺服器通訊，開始進行複寫。 如果電腦在不正確的網路上或未執行 (停止回應狀態或關機)，組態伺服器就無法聯繫 VM 上的行動服務以開始執行重新保護。
+若要重新保護已容錯移轉的 VM，Azure VM 必須執行，如此一來，行動服務就會向組態伺服器內部部署進行註冊，並可與流程伺服器通訊，開始進行複寫。 如果電腦位於不正確的網路，或未執行 （未回應或關閉），組態伺服器無法聯繫以開始重新保護 VM 上的行動服務。
 
 * 請重新啟動 VM，讓它能夠開始通訊回內部部署。
 * 啟動 Azure 虛擬機器之後，重新啟動重新保護作業。

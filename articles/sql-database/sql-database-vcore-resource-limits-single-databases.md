@@ -225,7 +225,7 @@ ms.locfileid: "59699350"
 |讀取向外延展|是|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-## <a name="hyperscale-service-tier-preview"></a>超大規模服務層 (預覽)
+## <a name="hyperscale-service-tier-preview"></a>超大規模資料庫服務層級 (預覽)
 
 ### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>第 4 代計算平台：儲存體大小與計算大小
 

@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: fa0edaaa3ee785f89faceb51419d360752bb9825
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4f59f68c1598f737ea7cb3a0e8046fc0779ed9d3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58052073"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118440"
 ---
 Azure 檔案同步代理程式會定期更新，以新增功能和解決問題。 建議您設定 Microsoft Update，以取得 Azure 檔案同步代理程式的最新更新。
 
@@ -25,11 +25,16 @@ Azure 檔案同步代理程式會定期更新，以新增功能和解決問題�
     AfsUpdater.exe 位於代理程式安裝目錄中。 按兩下可執行檔，即可下載並安裝代理程式的更新。 
 3. **使用 Microsoft Update 修補程式檔案或 .msp 可執行檔來修補現有的 Azure 檔案同步代理程式。您可以從 [Microsoft Update 目錄](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync)下載最新的 Azure 檔案同步更新套件。**  
     執行 .msp 可執行檔將會使用與 Microsoft Update 在先前升級路徑中自動使用的相同方法，來升級 Azure 檔案同步安裝。 套用 Microsoft Update 修補程式將會執行 Azure 檔案同步安裝的就地升級。
-4. **從 [Microsoft 下載中心](https://go.microsoft.com/fwlink/?linkid=858257)下載最新的 Azure 檔案同步代理程式安裝程式。安裝程式下載是 Microsoft Installer 套件，或是 .msi 可執行檔。**  
+4. **下載最新的 Azure 檔案同步代理程式安裝程式從[Microsoft 下載中心](https://go.microsoft.com/fwlink/?linkid=858257)。**  
     若要升級現有的 Azure 檔案同步代理程式安裝，請將舊版解除安裝，然後從所下載的安裝程式安裝最新版本。 Azure 檔案同步安裝程式會維護伺服器註冊、同步群組和任何其他設定。
 
+#### <a name="automatic-agent-lifecycle-management"></a>自動代理程式生命週期管理
+代理程式 」 第 6 版，檔案同步小組已引進了代理程式自動升級功能。 您可以選取其中一個模式，並指定伺服器上的維護期間，應嘗試升級。 這項功能可協助您藉由提供 guardrail，避免從過期的代理程式的代理程式的生命週期管理，或是以不費吹灰之力，保持目前設定。
+1. **預設設定**會嘗試避免從過期的代理程式。 內的代理程式的已發佈的到期日的 21 天，該代理程式會嘗試自行升級。 就會開始升級每週一次之前到期，並在選取的維護期間的 21 天內嘗試。 **此選項不會不需要採取一般的 Microsoft Update 修補程式。**
+2. 或者，您可以選取，代理程式將會自動升級本身為新的代理程式版本可用。 這也會發生在選取的維護時間窗口，並允許您的伺服器，才會受益於新的功能和增強功能，只要它們已公開上市。 這是主要代理程式版本，以及定期更新修補程式到您的伺服器會提供建議、 煩惱設定。
+
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>代理程式生命週期和變更管理保證
-Azure 檔案同步是一項雲端服務，能夠持續推出新的功能。 這表示特定的 Azure 檔案同步代理程式版本只會支援一段有限的時間。 為了簡化您的部署，下列規則保證您有足夠的時間和通知，可容納變更管理程序中的代理程式更新/升級：
+Azure 檔案同步處理是雲端服務，會持續介紹新功能和增強功能。 這表示特定的 Azure 檔案同步代理程式版本只會支援一段有限的時間。 若要簡化您的部署，下列規則保證您有足夠的時間和通知，可容納代理程式更新/升級您的變更管理程序：
 
 - 主要代理程式版本從初始發行日期算起會獲得至少六個月的支援。
 - 我們保證主要代理程式版本之間的支援至少有三個月的重疊。 

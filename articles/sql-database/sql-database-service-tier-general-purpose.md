@@ -28,7 +28,7 @@ Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引�
 
 - 一般用途
 - 業務關鍵
-- 超大規模
+- 超大規模資料庫
 
 一般用途架構模型是以計算和儲存體分隔為基礎。 此架構模型仰賴 Azure Blob 儲存體的高可用性和可靠性，可以透明的方式複寫資料庫檔案，並保證當基礎結構發生失敗時也不會遺失資料。
 
@@ -49,6 +49,6 @@ Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解[業務關鍵](sql-database-service-tier-business-critical.md)和[超大規模](sql-database-service-tier-hyperscale.md)層。
+- 了解[業務關鍵](sql-database-service-tier-business-critical.md)和[超大規模資料庫](sql-database-service-tier-hyperscale.md)層。
 - 了解 [Service Fabric](../service-fabric/service-fabric-overview.md)。
 - 如需其他高可用性和災害復原的選項，請參閱[商務持續性](sql-database-business-continuity.md)。

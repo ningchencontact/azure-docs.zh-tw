@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
 ms.openlocfilehash: e5d7e2bfe1ee4e3ca248f40701aa65e757fc4d74
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895083"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795497"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 應用程式的企業策略
 檢閱您企業應用程式的這些設計策略。

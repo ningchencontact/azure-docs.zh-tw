@@ -2,18 +2,18 @@
 title: 如何使用 Azure 資料目錄中的資料來分析資料來源
 description: 專門說明如何在 Azure 資料目錄中註冊資料來源時包含資料表和資料行層級的資料設定檔以及如何使用資料設定檔來了解資料來源的操作說明文章。
 services: data-catalog
-author: spelluru
-ms.author: spelluru
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 94a8274b-5c9c-4962-a4b1-2fed38a3d919
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 2f628367e2e5b0e6a4481a6212ff201b11a7105a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 64185a951b25b4e04ea5fc65aeede9b0e617d0c5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053188"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004307"
 ---
 # <a name="data-profile-data-sources"></a>對資料來源進行資料分析
 ## <a name="introduction"></a>簡介
@@ -83,6 +83,6 @@ ms.locfileid: "43053188"
 ## <a name="summary"></a>總結
 資料分析可提供關於註冊資料資產的統計資料和資訊，以協助您判斷資料是否適合用來解決商務問題。 加上註解和記載資料來源後，資料設定檔可以讓使用者更深入了解資料。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 * [如何註冊資料來源](data-catalog-how-to-register.md)
 * [開始使用 Azure 資料目錄](data-catalog-get-started.md)

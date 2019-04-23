@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 10e8a7dd256f796160b81b8ec1f566c5ed7e4cad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5abc2e673438a1ffa22e8d010bf2ee395cd521ae
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750200"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149923"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教學課程：使用 Azure Batch 轉譯場景 
 
@@ -33,7 +33,7 @@ Azure Batch 提供了按使用次數付費的雲端規模轉譯功能。 Azure B
 
 您需要預付型訂用帳戶或其他 Azure 購買選項，以按使用量付費的方式，在 Batch 中使用轉譯應用程式。 **如果您使用提供信用額度金額的免費 Azure 方案，則不支援按使用量付費授權。**
 
-此教學課程中的範例 3ds Max 場景 (連同範例 Bash 指令碼和 JSON 設定檔) 位於 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene) 上。 3ds Max 場景來自 [Autodesk 3ds Max 範例檔案](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)。 (在 Creative Commons Attribution-NonCommercial-Share Alike 授權之下可取得 Autodesk 3ds Max 範例檔案。 Copyright © Autodesk, Inc.)
+此教學課程中的範例 3ds Max 場景 (連同範例 Bash 指令碼和 JSON 設定檔) 位於 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene) 上。 3ds Max 場景來自 [Autodesk 3ds Max 範例檔案](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)。 (在 Creative Commons Attribution-NonCommercial-Share Alike 授權之下可取得 Autodesk 3ds Max 範例檔案。 Copyright © Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

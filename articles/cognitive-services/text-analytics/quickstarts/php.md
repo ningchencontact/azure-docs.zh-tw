@@ -1,21 +1,21 @@
 ---
 title: 快速入門：使用 PHP 來呼叫文字分析 API
 titleSuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，協助您在 Azure上快速開始使用 Microsoft 認知服務中的文字分析 API。
+description: 取得資訊和程式碼範例，協助您在 Azure 認知服務中快速開始使用文字分析 API。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 04/15/2019
 ms.author: aahi
-ms.openlocfilehash: 35c929d508f0a4f29b1c5038446d27e62ddbfbe2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2d3c5873c03023ceaf5b2cafa266ea627ea7df13
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535668"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002421"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 PHP 來呼叫文字分析認知服務
 <a name="HOLTop"></a>
@@ -34,7 +34,7 @@ ms.locfileid: "57535668"
 
 ## <a name="detect-language"></a>偵測語言種類
 
-語言偵測 API 會使用[偵測語言方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\) 來偵測文字文件的語言。
+語言偵測 API 會使用[偵測語言方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) \(英文\) 來偵測文字文件的語言。
 
 1. 在您最愛的 IDE 中建立新的 PHP 專案。
 2. 新增下方提供的程式碼。
@@ -64,7 +64,7 @@ $accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/languages';
+$path = '/text/analytics/v2.1/languages';
 
 function DetectLanguage ($host, $path, $key, $data) {
 
@@ -153,7 +153,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 ## <a name="analyze-sentiment"></a>分析人氣
 
-情感分析 API 會使用[情感分析方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)，擷取出一組文字記錄中的情緒態度。 下列範例會為兩份文件進行評分，一份是英文，另一份則是西班牙文。
+情感分析 API 會使用 [Sentiment 方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)，偵測一組文字記錄中的情緒態度。 下列範例會為兩份文件進行評分，一份是英文，另一份則是西班牙文。
 
 1. 在您最愛的 IDE 中建立新的 PHP 專案。
 2. 新增下方提供的程式碼。
@@ -183,7 +183,7 @@ $accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/sentiment';
+$path = '/text/analytics/v2.1/sentiment';
 
 function GetSentiment ($host, $path, $key, $data) {
 
@@ -245,7 +245,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 ## <a name="extract-key-phrases"></a>擷取關鍵片語
 
-關鍵片語擷取 API 會使用[關鍵片語方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)從文字文件擷取關鍵片語。 下列範例會擷取英文和西班牙文文件的關鍵片語。
+關鍵片語擷取 API 會使用[關鍵片語方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)從文字文件擷取關鍵片語。 下列範例會擷取英文和西班牙文文件的關鍵片語。
 
 1. 在您最愛的 IDE 中建立新的 PHP 專案。
 2. 新增下方提供的程式碼。
@@ -275,7 +275,7 @@ $accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/keyPhrases';
+$path = '/text/analytics/v2.1/keyPhrases';
 
 function GetKeyPhrases ($host, $path, $key, $data) {
 
@@ -357,9 +357,9 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 <a name="Entities"></a>
 
-## <a name="identify-entities"></a>識別實體
+## <a name="identify-entities"></a>識別實體 
 
-實體 API 會使用[實體方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)來識別文字文件中的已知實體。 以下範例會識別英文文件的實體。
+實體 API 會使用[實體方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)來識別文字文件中的已知實體。 以下範例會識別英文文件的實體。
 
 1. 在您最愛的 IDE 中建立新的 PHP 專案。
 2. 新增下方提供的程式碼。
@@ -389,7 +389,7 @@ $accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.1-preview/entities';
+$path = '/text/analytics/v2.1/entities';
 
 function GetEntities ($host, $path, $key, $data) {
 
@@ -414,8 +414,7 @@ function GetEntities ($host, $path, $key, $data) {
 
 $data = array (
     'documents' => array (
-        array ( 'id' => '1', 'language' => 'en', 'text' => 'Jeff bought three dozen eggs because there was a 50% discount.' ),
-        array ( 'id' => '2', 'language' => 'en', 'text' => 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.' )
+        array ( 'id' => '1', 'language' => 'en', 'text' => 'Microsoft is and It company.' ),
     )
 );
 
@@ -433,158 +432,47 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
 ```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
+{  
+   "documents":[  
+      {  
+         "id":"1",
+         "entities":[  
+            {  
+               "name":"Microsoft",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.20872054383103444,
+                     "entityTypeScore":0.99996185302734375,
+                     "text":"Microsoft",
+                     "offset":0,
+                     "length":9
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Microsoft",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Microsoft",
+               "bingId":"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+               "type":"Organization"
+            },
+            {  
+               "name":"Technology company",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.82123868042800585,
+                     "text":"It company",
+                     "offset":16,
+                     "length":10
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Technology company",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Technology_company",
+               "bingId":"bc30426e-22ae-7a35-f24b-454722a47d8f"
+            }
+         ]
+      }
+   ],
+    "errors":[]
 }
 ```
 
