@@ -34,8 +34,8 @@ Azure 地圖服務 [GET Geofence](https://docs.microsoft.com/rest/api/maps/spati
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | DateTime  | true | 有效時間期間的開始日期時間。 |
 | EndTime   | DateTime  | true |  有效時間期間的結束日期時間。 |
-| recurrenceType | 字串 | false |   期間的週期類型。 值可為 `Daily`、`Weekly`、`Monthly`，或 `Yearly`。 預設值為 `Daily`。|
-| businessDayOnly | BOOLEAN | false |  指出資料是否僅在工作日有效。 預設值為 `false`。|
+| recurrenceType | string | false |   期間的週期類型。 值可為 `Daily`、`Weekly`、`Monthly`，或 `Yearly`。 預設值為 `Daily`。|
+| businessDayOnly | Boolean | false |  指出資料是否僅在工作日有效。 預設值為 `false`。|
 
 
 * 所有座標值都會以 `WGS84` 中所定義的 [緯度, 經度] 代表。
