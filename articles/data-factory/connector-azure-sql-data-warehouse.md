@@ -14,7 +14,7 @@ ms.date: 04/16/2019
 ms.author: jingwang
 ms.openlocfilehash: e3fc5a3dc5dc40078ca3a4733f6a2ba11da450f1
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59681211"
@@ -231,7 +231,7 @@ ms.locfileid: "59681211"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的**類型**屬性必須設定為 **AzureSqlDWTable**。 | 是 |
+| type | 資料集的**type**屬性必須設定為 **AzureSqlDWTable**。 | 是 |
 | tableName | 「Azure SQL 資料倉儲」執行個體中連結服務所參考的資料表或檢視名稱。 | 否 (來源)；是 (接收) |
 
 #### <a name="dataset-properties-example"></a>資料集屬性範例
@@ -366,7 +366,7 @@ GO
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動接收端的**類型**屬性必須設定為 **SqlDWSink**。 | 是 |
+| type | 複製活動接收端的**type**屬性必須設定為 **SqlDWSink**。 | 是 |
 | allowPolyBase | 指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱[使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse)一節中的條件約束和詳細資料。<br/><br/>允許的值為 **True** 和 **False** (預設值)。  | 否 |
 | polyBaseSettings | 可以在 **allowPolybase** 屬性設定為 **true** 時指定的一組屬性。 | 否 |
 | rejectValue | 指定在查詢失敗前可以拒絕的資料列數目或百分比。<br/><br/>在 [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)的＜引數＞一節中，深入了解 PolyBase 的拒絕選項。 <br/><br/>允許的值為 0 (預設值)、1、2 等其他值。 |否 |
@@ -565,36 +565,36 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 |:--- |:--- |
 | bigint | Int64 |
 | binary | Byte[] |
-| bit | BOOLEAN |
-| char | String、Char[] |
-| 日期 | DateTime |
-| datetime | DateTime |
-| datetime2 | DateTime |
+| bit | Boolean |
+| char | String, Char[] |
+| date | Datetime |
+| datetime | Datetime |
+| datetime2 | Datetime |
 | Datetimeoffset | DateTimeOffset |
 | Decimal | Decimal |
-| FILESTREAM 屬性 (varbinary(max)) | Byte[] |
+| FILESTREAM attribute (varbinary(max)) | Byte[] |
 | Float | Double |
-| 映像 | Byte[] |
+| image | Byte[] |
 | int | Int32 |
 | money | Decimal |
-| nchar | String、Char[] |
-| ntext | String、Char[] |
+| nchar | String, Char[] |
+| ntext | String, Char[] |
 | numeric | Decimal |
-| nvarchar | String、Char[] |
+| nvarchar | String, Char[] |
 | real | Single |
 | rowversion | Byte[] |
-| smalldatetime | DateTime |
+| smalldatetime | Datetime |
 | smallint | Int16 |
 | smallmoney | Decimal |
 | sql_variant | Object |
-| text | String、Char[] |
-| 分析 | TimeSpan |
+| text | String, Char[] |
+| time | TimeSpan |
 | timestamp | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
 | varbinary | Byte[] |
-| varchar | String、Char[] |
-| xml | xml |
+| varchar | String, Char[] |
+| Xml | Xml |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收端的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md##supported-data-stores-and-formats)。

@@ -27,7 +27,7 @@ ms.locfileid: "59784051"
 Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個架構模型：
 - 一般目的/標準 
 - 業務關鍵/進階
-- 超大規模
+- 超大規模資料庫
 
 進階/業務關鍵服務層模型會以資料庫引擎程序的叢集作為基礎。 此架構模型依賴事實上一律有法定的可用資料庫引擎節點數，而且對您工作負載的效能影響最小 (即使在維護活動期間亦然)。
 
@@ -49,6 +49,6 @@ SQL 資料庫引擎程序和基礎 mdf/ldf 檔案都放在具有本機連接 SSD
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解[一般目的](sql-database-service-tier-general-purpose.md)和[超大規模](sql-database-service-tier-hyperscale.md)層。
+- 了解[一般目的](sql-database-service-tier-general-purpose.md)和[超大規模資料庫](sql-database-service-tier-hyperscale.md)層。
 - 了解 [Service Fabric](../service-fabric/service-fabric-overview.md)。
 - 如需其他高可用性和災害復原的選項，請參閱[商務持續性](sql-database-business-continuity.md)。
