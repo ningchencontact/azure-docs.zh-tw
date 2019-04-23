@@ -16,11 +16,11 @@ ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046388"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799451"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>整合 API 管理與 Azure 中的 Service Fabric
 
@@ -41,7 +41,7 @@ ms.locfileid: "59046388"
 開始之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* 安裝[Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps)或是[Azure CLI](/cli/azure/install-azure-cli)。
+* 安裝 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 或 [Azure CLI](/cli/azure/install-azure-cli)。
 * 在網路安全性群組中建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
 * 如果您部署 Windows 叢集，請設定 Windows 開發環境。 安裝 [Visual Studio 2017](https://www.visualstudio.com) 和 **Azure 開發**、**ASP.NET 和 Web 開發**以及 **.NET Core 跨平台開發**工作負載。  然後設定 [.NET 開發環境](service-fabric-get-started.md)。
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: d6c0d04966d3a713493485d52ca4e81ba25ab743
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: e0e8b9f767376db8028a3ac4a2d8659bab69268b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521477"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005862"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安裝並執行文字分析容器
 
@@ -26,7 +26,7 @@ ms.locfileid: "58521477"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要執行任一文字分析的容器，您必須使用主機電腦和容器環境。
+若要运行任何文本分析容器，必须具有主计算机和容器环境。
 
 ## <a name="preparation"></a>準備工作
 
@@ -36,7 +36,7 @@ ms.locfileid: "58521477"
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
-|文字分析資源 |若要使用此容器，您必須具備：<br><br>[_文字分析_](text-analytics-how-to-access-key.md) Azure 資源，用來取得相關聯的計費金鑰和計費端點 URI。 這兩個值可在 Azure 入口網站的 [文字分析概觀和金鑰] 頁面上取得，需要這些值才能啟動容器。<br><br>**{BILLING_KEY}**：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}**：端點 URI 範例為：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|`Cognitive Services` 資源 |若要使用此容器，您必須具備：<br><br>A [_認知服務_](text-analytics-how-to-access-key.md) Azure 資源，以取得相關聯的計費金鑰和計費的端點 URI。 這兩個值可在 Azure 入口網站的認知服務的概觀和 [金鑰] 頁面上，才能啟動容器。 您需要新增`text/analytics/v2.0`BILLING_ENDPOINT_URI 下例所示，路由傳送至端點 URI。<br><br>**{BILLING_KEY}**：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}**：端點 URI 範例為：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 ### <a name="the-host-computer"></a>主機電腦
 
@@ -46,14 +46,14 @@ ms.locfileid: "58521477"
 
 下表說明針對每個文字分析容器配置的最低和建議 CPU 核心 (至少 2.6 GHz 或更快的版本) 與記憶體 (以 GB 為單位)。
 
-| 容器 | 最小值 | 建議 | TPS<br>（最小值、 最大值）|
+| 容器 | 最小值 | 建議 | TPS<br>(最小值, 最大值)|
 |-----------|---------|-------------|--|
-|關鍵片語擷取 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |15, 30|
-|語言偵測 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |15, 30|
-|情感分析 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |15, 30|
+|關鍵片語擷取 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |15、30|
+|語言偵測 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |15、30|
+|情感分析 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |15、30|
 
 * 每個核心必須至少 2.6 GHz 或更快。
-* TP-每秒交易數
+* TPS - 每秒事务数
 
 核心和記憶體會對應至 `--cpus` 和 `--memory` 設定，用來作為 `docker run` 命令的一部分。
 
@@ -67,7 +67,7 @@ ms.locfileid: "58521477"
 |語言偵測 | `mcr.microsoft.com/azure-cognitive-services/language` |
 |情感分析 | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-使用[ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/)命令，以從 Microsoft Container Registry 中下載容器映像。
+使用 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 命令从 Microsoft 容器注册表下载容器映像。
 
 如需文字分析提供之標籤的完整說明，請參閱下列 Docker Hub 上的容器：
 
@@ -112,8 +112,10 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 
 | Placeholder | 值 |
 |-------------|-------|
-|{BILLING_KEY} | 此金鑰用來啟動容器，您可以在 Azure 入口網站的 [文字分析金鑰] 頁面上取得。  |
-|{BILLING_ENDPOINT_URI} | 計費端點 URI 值可在 Azure 入口網站的 [文字分析概觀] 頁面上取得。|
+|{BILLING_KEY} | 此金鑰用來啟動容器時，並可在 Azure 入口網站上取得`Cognitive Services`金鑰 頁面。  |
+|{BILLING_ENDPOINT_URI} | 計費的端點 URI 值是可在 Azure`Cognitive Services`概觀 頁面。 <br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+
+您需要新增`text/analytics/v2.0`BILLING_ENDPOINT_URI 前例中所示，路由傳送至端點 URI。
 
 請以您自己的值取代下列範例 `docker run` 命令中的參數。
 
@@ -159,7 +161,7 @@ ApiKey={BILLING_KEY}
 
 ## <a name="billing"></a>計費
 
-文字分析容器會使用您 Azure 帳戶上的_文字分析_資源傳送計費資訊至 Azure。 
+帳單寄送至 Azure 的資訊，請使用文字分析容器傳送_認知服務_上您的 Azure 帳戶的資源。 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

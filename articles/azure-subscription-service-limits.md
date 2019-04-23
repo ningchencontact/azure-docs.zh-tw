@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: a32ebb3fc2448b189aa5970446e2ceb29aed51e2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b09de67cddcec26a1083bb64d13b9bbc47c3d5e5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838777"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998476"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間，會展開並更新以涵蓋更多服務 清單。
@@ -23,7 +23,7 @@ ms.locfileid: "57838777"
 若要深入了解 Azure 定價，請參閱[Azure 定價概觀](https://azure.microsoft.com/pricing/)。 那里，預估成本，以及在使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)。 您也可以移至特定服務的定價詳細資料頁面，例如[Windows Vm](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)。 如需協助您管理成本的祕訣，請參閱[使用 Azure 計費與成本管理避免非預期的成本](billing/billing-getting-started.md)。
 
 > [!NOTE]
-> 如果您想要限制或配額超過預設限制，會引發[開啟線上客戶支援要求，不另外加收費用](azure-resource-manager/resource-manager-quota-errors.md)。 無法將限制提升到高於下表所示的最大限制值。 如果沒有最大限制的資料行，該資源不會有可調整的限制。
+> 如果您想要限制或配額超過預設限制，會引發[開啟線上客戶支援要求，不另外加收費用](azure-resource-manager/resource-manager-quota-errors.md)。 無法將限制提升到高於下表所示的最大限制值。 如果没有最大限制列，则资源没有可调整的限制。
 >
 > [免費試用版訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)不符合限制或配額增加的資格。 如果您有[免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)，則可以升級到[預付型方案](https://azure.microsoft.com/offers/ms-azr-0003p/)訂用帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用訂用帳戶升級為隨用隨付訂用帳戶](billing/billing-upgrade-azure-subscription.md)並[免費試用訂用帳戶常見問題集](https://azure.microsoft.com/free/free-account-faq)。
 >
@@ -36,7 +36,7 @@ ms.locfileid: "57838777"
 > [!NOTE]
 > 服務管理配額則是 Azure 資源群組中資源的配額是每個區域可以存取您的訂用帳戶中，而不每個訂用帳戶。 讓我們以 vCPU 配額為例。 若要要求增加配額以支援 Vcpu，您必須決定您想要在哪些區域中使用的多少 Vcpu。 然後，您要 Azure 資源群組 vCPU 配額的特定要求的數量和您想要的區域。 如果您需要使用 30 個 Vcpu 以在西歐該處執行您的應用程式，您特別要求 30 個 Vcpu 以在西歐區域。 僅西歐會有 30 個 vCPU 配額，不會在任何其他區域--增加 vCPU 配額。
 > <!-- -->
-> 如此一來，決定您的 Azure 資源群組配額必須是您在任何一個區域中的工作負載。 然後要求該數量，您要部署的每個區域中。 如需如何判斷您目前的配額，特定區域中的說明，請參閱[針對部署問題疑難排解](resource-manager-common-deployment-errors.md)。
+> 因此，请考虑针对任意区域中的工作负荷来确定所需的 Azure 资源组配额， 然后在需将内容部署到其中的每个区域中请求相应的量。 若要了解如何确定特定区域的当前配额，请参阅[排查部署问题](resource-manager-common-deployment-errors.md)。
 >
 >
 

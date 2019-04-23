@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: c6cf3f188309891b0456b034e3809a0f0209c124
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.openlocfilehash: 172774c90633c96c3a8e2c128df050fedeb8b52b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489428"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005956"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 
@@ -25,7 +25,7 @@ Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的�
 
 以下影片將示範如何使用認知服務容器。
 
-[![C認知服務的 ontainer 示範](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
+[![認知服務的容器示範](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
 [電腦視覺](Computer-vision/Home.md)、[臉部](Face/Overview.md)[文字分析](text-analytics/overview.md)和 [Language Understanding (LUIS)](LUIS/what-is-luis.md) 服務可在 [Microsoft Azure](https://azure.microsoft.com) 上取得。 請登入 [Azure 入口網站](https://portal.azure.com/)以建立並探索適用於這些服務的 Azure 資源。
 
@@ -33,7 +33,7 @@ Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的�
 
 - **對資料的控制**：讓客戶選擇這些認知服務在哪裡處理他們的資料。 這對於無法將資料傳送到雲端，但需要存取認知服務技術的客戶來說，這是不可或缺的。 支援混合式環境中的一致性，橫跨資料、管理、身分識別及安全性。
 - **對模型更新的控制**：為客戶針對部署於其解決方案中的模型，提供版本控制和更新上的彈性。
-- **可攜式架構**：能建立可攜式的應用程式架構，並將它部署至 Azure、內部部署及邊緣。 您可以將容器直接部署至 [Azure Kubernetes Service](../aks/index.yml)、[Azure 容器執行個體](../container-instances/index.yml)，或是已部署至 [Azure Stack](../azure-stack/index.yml) 的 [Kubernetes](https://kubernetes.io/) 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)。
+- **可攜式架構**：能建立可攜式的應用程式架構，並將它部署至 Azure、內部部署及邊緣。 您可以將容器直接部署至 [Azure Kubernetes Service](../aks/index.yml)、[Azure 容器執行個體](../container-instances/index.yml)，或是已部署至 [Azure Stack](/azure-stack/operator) 的 [Kubernetes](https://kubernetes.io/) 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
 - **高輸送量 / 低延遲**：透過讓認知服務在實體鄰近客戶應用程式邏輯和資料執行，為客戶提供針對高輸送量及低延遲需求進行調整的能力。 容器不會限制每秒交易 (TPS)，而且如果您提供必要的硬體資源，會相應增加和相應放大來處理要求。 
 
 
@@ -81,7 +81,7 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至
 
 安裝並探索由 Azure 認知服務中的容器所提供的功能：
 
-* [安裝和使用電腦視覺容器](Computer-vision/computer-vision-how-to-install-containers.md)
-* [安裝和使用臉部容器](Face/face-how-to-install-containers.md)
-* [安裝和使用 Text Analytics 容器](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
+* [安裝並使用電腦視覺容器](Computer-vision/computer-vision-how-to-install-containers.md)
+* [安裝並使用臉部容器](Face/face-how-to-install-containers.md)
+* [安裝並使用文字分析容器](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
 * [安裝和使用 Language Understanding (LUIS) 容器](LUIS/luis-container-howto.md)

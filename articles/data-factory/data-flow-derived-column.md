@@ -1,20 +1,19 @@
 ---
-title: Azure Data Factory 資料流程衍生的資料行轉換
-description: Azure Data Factory 資料流程衍生的資料行轉換
+title: Azure Data Factory 將資料流對應衍生資料行轉換
+description: 如何大規模轉換資料與 Azure Data Factory 對應資料流程衍生資料行轉換
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 1335b86431bcf345f452ead0c95926d295ae185f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: f53e122eb1b2a5b6dabb9a44aef42394d0c7edb6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728755"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999479"
 ---
-# <a name="azure-data-factory-data-flow-derived-column-transformation"></a>Azure Data Factory 資料流程衍生的資料行轉換
+# <a name="mapping-data-flow-derived-column-transformation"></a>對應資料流程衍生資料行轉換
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -27,3 +26,13 @@ ms.locfileid: "56728755"
 在 [資料行] 欄位中，選取要使用新的衍生值覆寫現有的資料行，或按一下 [建立新資料行] 以使用衍生的新值來產生新的資料行。
 
 [運算式] 文字方塊中將開啟運算式產生器，您可以使用運算式函式為衍生資料行建置運算式。
+
+## <a name="column-patterns"></a>資料行模式
+
+如果您的資料行名稱是從您的來源的變數，您可能想要建立衍生的資料行內的轉換使用而不使用名為資料行的資料行模式。 請參閱[結構描述漂移](concepts-data-flow-schema-drift.md)文章以取得詳細資料。
+
+![資料行模式](media/data-flow/columnpattern.png "資料行模式")
+
+## <a name="next-steps"></a>後續步驟
+
+深入了解[Data Factory 進行轉換的運算式語言](http://aka.ms/dataflowexpressions)而[運算式產生器](concepts-data-flow-expression-builder.md)

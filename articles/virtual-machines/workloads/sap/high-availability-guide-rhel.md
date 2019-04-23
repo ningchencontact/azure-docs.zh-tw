@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: b8f4fdb3ab3e1107a8753db14dcbb68c6d97a104
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b5dea8a64410e23f3b92feb8ce757646435697d3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652496"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003406"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>SAP NetWeaver on Red Hat Enterprise Linux 的 Azure 虛擬機器高可用性
 
@@ -59,7 +59,7 @@ ms.locfileid: "58652496"
 * SAP Note [2015553] 列出 Azure 中 SAP 支援的 SAP 軟體部署先決條件。
 * SAP Note [2002167] 建議適用於 Red Hat Enterprise Linux 的作業系統設定
 * SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP HANA 方針
-* SAP Note [2178632] 包含在 Azure 中針對 SAP 回報的所有監視計量詳細資訊。
+* SAP 说明 [2178632] 包含为 Azure 中的 SAP 报告的所有监控指标的详细信息。
 * SAP Note [2191498] 包含 Azure 中 Linux 所需的 SAP Host Agent 版本。
 * SAP Note [2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
 * SAP Note [1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
@@ -74,6 +74,7 @@ ms.locfileid: "58652496"
   * [高可用性附加元件管理](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [高可用性附加元件參考](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [在 RHEL 7.5 中使用獨立資源為 SAP Netweaver 設定 ASCS/ERS](https://access.redhat.com/articles/3569681)
+  * [使用在 RHEL 上的 Pacemaker 的獨立加入佇列伺服器 2 (ENSA2) 設定 SAP S/4HANA ASCS/ERS ](https://access.redhat.com/articles/3974941)
 * Azure 專用 RHEL 文件：
   * [RHEL 高可用性叢集的支援原則：以 Microsoft Azure 虛擬機器作為叢集成員](https://access.redhat.com/articles/3131341)
   * [在 Microsoft Azure 上安裝和設定 Red Hat Enterprise Linux 7.4 (和更新版本) 高可用性叢集](https://access.redhat.com/articles/3252491)
@@ -480,6 +481,8 @@ Azure Marketplace 包含 Red Hat Enterprise Linux 的映像，您可用來部署
 
 1. **[1]** 建立 SAP 叢集資源
 
+  如果使用加入佇列伺服器 1 架構 (ENSA1)，定義的資源，如下所示：
+
    <pre><code>sudo pcs property set maintenance-mode=true
    
    sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
@@ -495,12 +498,36 @@ Azure Marketplace 包含 Red Hat Enterprise Linux 的映像，您可用來部署
       
    sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
    sudo pcs constraint location rsc_sap_<b>NW1</b>_ASCS<b>00</b> rule score=2000 runs_ers_<b>NW1</b> eq 1
-   
    sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
    
    sudo pcs node unstandby <b>nw1-cl-0</b>
    sudo pcs property set maintenance-mode=false
    </code></pre>
+
+   SAP 加入佇列伺服器 2，包括複寫，從 SAP NW 7.52 開始導入的支援。 ABAP 平台 1809年從開始，預設會安裝加入佇列伺服器 2。 請參閱 SAP 附註[2630416](https://launchpad.support.sap.com/#/notes/2630416)加入佇列伺服器 2 支援。
+   如果使用加入佇列伺服器 2 架構 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html))、 安裝資源代理程式資源-代理程式-sap-4.1.1-12.el7.x86_64 或更新版本，和定義的資源，如下所示：
+
+<pre><code>sudo pcs property set maintenance-mode=true
+   
+   sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
+    InstanceName=<b>NW1</b>_ASCS00_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS00_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000 \
+    --group g-<b>NW1</b>_ASCS
+   
+   sudo pcs resource create rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    InstanceName=<b>NW1</b>_ERS02_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS02_<b>nw1-aers</b>" \
+    AUTOMATIC_RECOVER=false IS_ERS=true \
+    --group g-<b>NW1</b>_AERS
+      
+   sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
+   sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
+   
+   sudo pcs node unstandby <b>nw1-cl-0</b>
+   sudo pcs property set maintenance-mode=false
+   </code></pre>
+
+   如果您是從舊版升級，並切換至加入佇列伺服器 2，請參閱 sap 附註[2641322](https://launchpad.support.sap.com/#/notes/2641322)。 
 
    請確定叢集狀態正常，且所有資源皆已啟動。 資源在哪一個節點上執行並不重要。
 

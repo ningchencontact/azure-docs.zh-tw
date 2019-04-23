@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093730"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002896"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>教學課程：執行手動容錯移轉 IoT 中樞 (公開預覽)
 
@@ -49,9 +49,6 @@ ms.locfileid: "58093730"
 
     **區域**：選取您鄰近且屬於預覽的區域。 本教學課程會使用 `westus2`。 只能在 Azure 異地配對區域之間進行容錯移轉。 與 westus2 異地配對的區域是 WestCentralUS。
     
-   > [!NOTE]
-   > 手動容錯移轉目前為公開預覽狀態，且不適用於下列 Azure 區域：美國東部、美國西部、北歐、西歐、巴西南部和美國中南部。
-
    **IoT 中樞名稱**：指定 IoT 中樞的名稱。 中樞名稱必須是全域唯一的。 
 
    ![顯示建立 IoT 中樞 [基本] 窗格的螢幕擷取畫面](./media/tutorial-manual-failover/create-hub-02-basics.png)

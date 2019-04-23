@@ -1,17 +1,17 @@
 ---
 title: 啟用 VMware Vm 複寫至 Azure Site Recovery 與 Azure 的災害復原 |Microsoft Docs'
 description: 本文說明如何使用 Azure Site Recovery 將 VMware Vm 啟用複寫至 Azure 的災害復原。
-author: mayurigupta13
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 3/6/2019
+ms.date: 4/18/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 472ff7810852bd03ef322cd5eb647c3d61f09b01
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.author: ramamill
+ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418103"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004732"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 
@@ -89,7 +89,7 @@ ms.locfileid: "58418103"
     ![計算與網路的 [屬性] 視窗](./media/vmware-azure-enable-replication/vmproperties.png)
 
     * Azure VM 名稱：如有必要，請修改以符合 Azure 需求，名稱。
-    * 目標 VM 大小或 VM 類型：預設 VM 大小會根據來源 VM 大小選擇。 您可以選取不同的 VM 大小，根據您的需求，在容錯移轉之前的任何時間。 請注意，VM 磁碟大小也根據來源磁碟大小，而且只能在容錯移轉之後加以變更。 深入了解磁碟大小和 IOPS 比率[在 Windows 上的虛擬機器磁碟的延展性和效能目標](../virtual-machines/windows/disk-scalability-targets.md)。
+    * 目標 VM 大小或 VM 類型：預設 VM 大小會選擇根據目標 Azure 區域中包含的磁碟計數、 NIC 計數、 CPU 核心計數、 記憶體和可用的 VM 角色大小的幾個參數。 Azure Site Recovery 會挑選第一個可用 VM 大小能符合所有準則。 您可以選取不同的 VM 大小，根據您的需求，在容錯移轉之前的任何時間。 請注意，VM 磁碟大小也根據來源磁碟大小，而且只能在容錯移轉之後加以變更。 深入了解磁碟大小和 IOPS 比率[在 Windows 上的虛擬機器磁碟的延展性和效能目標](../virtual-machines/windows/disk-scalability-targets.md)。
 
     *  資源群組：您可以選取[資源群組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)，從虛擬電腦將成為其後置容錯移轉的一部分。 您可以變更此設定在容錯移轉之前的任何時間。 容錯移轉之後，如果您將虛擬機器移轉至不同的資源群組，該虛擬機器的保護設定會中斷。
     * 可用性設定組：您可以選取[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)如果您的虛擬機器需要容錯移轉後的一部分。 當您選取可用性設定組時，記住下列資訊：

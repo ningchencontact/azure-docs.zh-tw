@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791536"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998646"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>如何設定 Azure 監視器中適用於容器的效能問題的警示
 適用於容器的 azure 監視會監視部署至 Azure 容器執行個體，或受管理 Kubernetes 叢集，裝載在 Azure Kubernetes Service (AKS) 的容器工作負載的效能。
@@ -285,5 +285,5 @@ let endDateTime = now();
 
 ## <a name="next-steps"></a>後續步驟
 
-* 檢視[記錄查詢範例](container-insights-analyze.md#search-logs-to-analyze-data)若要了解預先定義的查詢和範例，以評估或自訂的其他警示的案例。
-* 若要深入了解 Azure 監視器，以及如何監視您的 AKS 叢集的其他層面，請參閱[檢視 Azure Kubernetes 服務健全狀況](container-insights-analyze.md)。
+- 檢視[記錄查詢範例](container-insights-log-search.md#search-logs-to-analyze-data)以查看預先定義的查詢和範例，以評估或自訂警示、 視覺化，或分析您的叢集。
+- 若要深入了解 Azure 監視器，以及如何監視您的 AKS 叢集的其他層面，請參閱[檢視 Azure Kubernetes 服務健全狀況](container-insights-analyze.md)。

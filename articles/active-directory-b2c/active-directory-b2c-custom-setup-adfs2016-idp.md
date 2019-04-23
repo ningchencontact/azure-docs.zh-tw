@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0462ae68194fa22d99339b2ef369e3bbe3deabb2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 85a339d2638e2223815a4ae539f37c439a4eac91
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077457"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000108"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則將 ADFS 新增為 SAML 識別提供者
 
@@ -33,7 +33,7 @@ ms.locfileid: "58077457"
 您需要將憑證儲存至 Azure AD B2C 租用戶中。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+2. 請確定您使用包含 Azure AD B2C 租用戶的目錄。 選取 **目錄和訂用帳戶篩選**上方功能表中，然後選擇包含您的租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 4. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]。
 5. 選取 [原則金鑰]，然後選取 [新增]。
@@ -71,7 +71,7 @@ ms.locfileid: "58077457"
             <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userPrincipalName" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="userPrincipalName" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
@@ -128,13 +128,13 @@ ms.locfileid: "58077457"
 現在已備妥按鈕，您需要將它連結至動作。 在此案例中，動作是讓 Azure AD B2C 與 ADFS 帳戶通訊以接收權杖。
 
 1. 在使用者旅程圖中，尋找包含 `Order="2"` 的 **OrchestrationStep**。
-2. 新增下列 **ClaimsExchange** 元素，請確定用於 **Id** 的值與用於 **TargetClaimsExchangeId** 的值相同：
+2. 新增下列 **ClaimsExchange** 元素，請確定用於 ID 的值與用於 **TargetClaimsExchangeId** 的值相同：
 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
     
-    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如： `Contoso-SAML2`。
+    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的識別碼。 例如： `Contoso-SAML2`。
 
 3. 儲存 TrustFrameworkExtensions.xml 檔案，並再次上傳它以供驗證。
 
@@ -151,7 +151,7 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
 
 - 將 **your-tenant** 取代為您的租用戶名稱，例如 your-tenant.onmicrosoft.com。
 - 將 **your-policy** 取代為您的原則名稱。 例如，B2C_1A_signup_signin_adfs。
-- 將 **your-technical-profile** 取代為 SAML 識別提供者技術設定檔的名稱。 例如，Contoso-SAML2。
+- **您技術-設定檔**SAML 身分識別提供者技術設定檔的名稱。 例如，Contoso-SAML2。
  
 開啟瀏覽器並瀏覽至此 URL。 請確定您輸入正確的 URL，而且您可以存取 XML 中繼資料檔案。 若要使用 ADFS 管理嵌入式管理單元來新增新的信賴憑證者信任並手動進行設定，請在同盟伺服器上執行下列程序。 必須至少具有本機電腦上的**管理員**或同等成員資格，才能完成此程序。
 

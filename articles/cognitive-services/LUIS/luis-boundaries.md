@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897502"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006823"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 模型和金鑰的界限
 LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)，其控制 LUIS 中的意圖、實體和功能。 第二個領域是以金鑰類型為基礎的[配額限制](#key-limits)。 第三個界線領域是用來控制 LUIS 網站的[鍵盤組合](#keyboard-controls)。 第四個領域是 LUIS 撰寫網站和 LUIS [端點](luis-glossary.md#endpoint) API 之間的[世界區域對應](luis-reference-regions.md)。 
@@ -47,16 +47,16 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 
 *預設字元上限為 50 個字元。 
 
-## <a name="intent-and-entity-naming"></a>意圖和實體命名
-請不要在意圖和實體名稱中使用下列字元：
+<a name="intent-and-entity-naming"></a>
 
-|Character|名稱|
+## <a name="object-naming"></a>物件命名
+
+請勿在下列名稱使用下列的字元。
+
+|Object|排除的字元|
 |--|--|
-|`{`|左大括號|
-|`}`|右大括號|
-|`[`|左方括號|
-|`]`|右方括號|
-|`\`|反斜線|
+|意圖、 實體和角色的名稱|`:`<br>`$`|
+|版本名稱|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>金鑰使用量
 

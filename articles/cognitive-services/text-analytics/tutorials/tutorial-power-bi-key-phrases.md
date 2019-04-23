@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 24767f73e3e1409f81262ad57f3fd5152a4ec319
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889472"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003459"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>教學課程：將 Power BI 與文字分析認知服務整合
 
@@ -89,7 +89,7 @@ Microsoft Power BI Desktop 是免費的應用程式，可讓您將您的資料�
 ## <a name="understand-the-api"></a>了解 API
 <a name="UnderstandingAPI"></a>
 
-文字分析服務的[關鍵片語 API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) 可針對每個 HTTP 要求處理多達一千個文字文件。 Power BI 偏好一次處理一個記錄，所以在此教學課程中，您對 API 的呼叫每次只會包含單一文件。 關鍵片語 API 要求所處理的每個文件都必須具有下列欄位。
+文字分析服務的[關鍵片語 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) 可針對每個 HTTP 要求處理多達一千個文字文件。 Power BI 偏好一次處理一個記錄，所以在此教學課程中，您對 API 的呼叫每次只會包含單一文件。 關鍵片語 API 要求所處理的每個文件都必須具有下列欄位。
 
 | | |
 | - | - |
@@ -120,7 +120,7 @@ Microsoft Power BI Desktop 是免費的應用程式，可讓您將您的資料�
 // Returns key phrases from the text in a comma-separated list
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases",
+    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -223,7 +223,7 @@ Power BI Desktop 需要一點時間來提出必要的 HTTP 要求。 在資料�
 // Returns the sentiment score of the text, from 0.0 (least favorable) to 1.0 (most favorable)
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment",
+    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -240,7 +240,7 @@ in  sentiment
 // Returns the two-letter language code (for example, 'en' for English) of the text
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages",
+    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -254,7 +254,7 @@ in  language
 // Returns the name (for example, 'English') of the language in which the text is written
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages",
+    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -274,7 +274,7 @@ in  language
 // Returns key phrases from the text as a list object
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases",
+    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -291,10 +291,10 @@ in  keyphrases
 深入了解文字分析服務、Power Query M 公式語言或 Power BI。
 
 > [!div class="nextstepaction"]
-> [文字分析 API 參考](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [文字分析 API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [Power Query M 參考](//msdn.microsoft.com/library/mt211003.aspx)
+> [Power Query M 參考](https://msdn.microsoft.com/library/mt211003.aspx)
 
 > [!div class="nextstepaction"]
-> [Power BI 文件](//powerbi.microsoft.com/documentation/powerbi-landing-page/)
+> [Power BI 文件](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

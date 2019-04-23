@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: aeaf8fb5112fe9f6d8f2ca77ed9c1fd244fd9603
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877066"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000040"
 ---
 # <a name="azure-media-services-community"></a>Azure 媒體服務社群  
 
@@ -37,10 +37,13 @@ Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更新的不同�
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>討論區
+
 ### <a name="twitter"></a>Twitter
+
 使用 [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) twitter 控制代碼，在 Twitter 上與我們連絡或追蹤更新。 您可以使用 [@AzureSupport](https://twitter.com/azuresupport) twitter 控制代碼，以在 Twitter 上要求支援。  
 
 ### <a name="online-forums"></a>在线论坛
+
 下列其中一個論壇可以用於詢問有關目前的產品和功能的問題。
 
 目前，MSDN 是媒體服務小組的主要社群論壇。
@@ -48,9 +51,11 @@ Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更新的不同�
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 小組也會監視 Stack Overflow 上標記 'azure-media-services' 的問題。
+
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>連絡小組
+
 主要支援電子郵件的 azure 媒體服務： **amshelp\@microsoft.com**。
 
 下表列出功能子小組的電子郵件：

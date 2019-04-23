@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 1f8bec6fbf0bce9a3ac272231058a96a5d9e84cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762492"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004749"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>在容器和資料庫中佈建輸送量
 
@@ -88,7 +88,7 @@ Azure Cosmos 資料庫上的設定輸送量保證，您會收到佈建的輸送�
 
 使用.NET SDK 中，當[DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet)方法可讓您擷取的容器或資料庫的最小輸送量。 
 
-您可以隨時調整的容器或資料庫佈建的輸送量。 您可以執行為 4 小時的閒置時間之後相應減少作業。 閒置的時間會定義為時間週期時有任何供應項目對容器或資料庫 （其中包含相應增加和相應減少） 取代作業。 
+您可以隨時調整的容器或資料庫佈建的輸送量。 
 
 ## <a name="comparison-of-models"></a>模型的比較
 

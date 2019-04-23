@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 95ba3c905541d2168dcbbc1bb2c1bc1d05468cb5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526484"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006415"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>將語言偵測容器部署到 Azure Kubernetes 服務
 
@@ -325,7 +325,7 @@ ms.locfileid: "59526484"
     |行 78<br> `image` 屬性|容器登錄中的語言映像所在的映像位置<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |行 95<br> `name` 屬性|上一個區段之中映像的容器登錄密碼，稱為 `<client-secret>`。|
     |行 91<br> `apiKey` 屬性|您的文字分析資源索引鍵|
-    |行 92<br> `billing` 屬性|文字分析資源的計費端點。<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |行 92<br> `billing` 屬性|文字分析資源的計費端點。<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     因為 **apiKey** 和**計費端點**會設定為 Kubernetes 協調流程定義的一部分，因此網站容器不需要知道這些，也不需要傳遞這些成為要求的一部分。 網站容器是指其協調器名稱為 `language` 的語言偵測容器。 
 

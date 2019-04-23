@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 2e04d86e7067db98c8399cfc3e202457b8f253d6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 579a47e70f292222914723606d032737b98822bc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351944"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004868"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>電腦視覺 API 常見問題集
 
@@ -37,28 +37,9 @@ ms.locfileid: "58351944"
 
 -----
 
-**問題**：*電腦視覺支援哪些語言？*
-
-**答**：支援的語言包括：
-
-| | | 支援的語言 | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| 丹麥文 (da-DK)  | 荷蘭文 (nl-NL)     | English           | 芬蘭文 (fi-FI)            |法文 (fr-FR)
-| 德文 (de-DE)  | 希臘文 (el-GR)     | 匈牙利文 (hu-HU) | 義大利文 (it-IT)            | 日文 (ja-JP)
-| 韓文 (ko-KR)  | 挪威文 (nb-NO) | 波蘭文 (pl-PL)    | 葡萄牙文 (pt-BR) (pt-PT) | 俄文 (ru-RU)
-| 西班牙文 (es-ES)   | 瑞典文 (sv-SV)     | 土耳其文 (tr-TR)   |                            |
-
------
-
 **問題**：*電腦視覺可用來讀取車牌嗎？*
 
 **答**：視覺 API 提供採用 OCR 的良好文字偵測功能，但目前並未針對車牌進行最佳化。 我們持續不斷地嘗試改善我們的服務，並已將適用於自動車牌辨識的 OCR 新增至我們的功能要求清單。
-
------
-
-**問題**：*手寫辨識支援哪些語言？*
-
-**答**：目前僅支援英文。
 
 -----
 

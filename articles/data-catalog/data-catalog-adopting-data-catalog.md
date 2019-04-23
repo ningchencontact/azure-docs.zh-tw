@@ -1,17 +1,17 @@
 ---
 title: 採用 Azure 資料目錄的方法和程序
 description: 本文將為考慮採用 Azure 資料目錄的組織介紹一種方法和程序，包括定義願景、找出重要的商業使用案例，以及選擇試驗專案。
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 86b8e4a6d2e976c706acea6eab608504ad31a5b9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 62eb51e48ab688abcf39ba3c8d57aaccf6f47cb6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263259"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003423"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>採用 Azure 資料目錄的方法和程序
 

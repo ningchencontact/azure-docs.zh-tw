@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426387"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004035"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用適用於容器的 Azure 監視器來了解 AKS 叢集效能 
 使用適用於容器的 Azure 監視器，您可以使用效能圖和健全狀態，從下列兩個檢視方塊中監視 Azure Kubernetes Service (AKS) 叢集的工作負載：直接從 AKS 叢集，或者從 Azure 監視器監視訂用帳戶中的所有 AKS 叢集。 當您監視特定的 AKS 叢集時，也可以檢視 Azure 容器執行個體 (ACI)。
@@ -40,8 +40,9 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 在 [受監視的叢集] 索引標籤上，您可以了解下列內容：
 
 1. 有多少個叢集處於重大或狀況不良狀態，以及有多少個叢集的狀況良好或未報告 (稱為未知狀態)？
-1. 我的 [Azure Kubernetes 引擎 (AKS-engine)](https://github.com/Azure/aks-engine) 部署全部都狀況良好嗎？
-1. 每個叢集中可部署多少個節點、使用者和系統 Pod。  
+2. 我的 [Azure Kubernetes 引擎 (AKS-engine)](https://github.com/Azure/aks-engine) 部署全部都狀況良好嗎？
+3. 每個叢集中部署節點、 使用者和系統的 pod 數目？
+4. 磁碟空間可用，並有容量問題嗎？
 
 內含的健全狀態如下： 
 
@@ -55,7 +56,7 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 * **設定錯誤**：未在指定的工作區中正確設定適用於容器的 Azure 監視器。
 * **沒有資料**：過去 30 分鐘內並未向工作區回報任何資料。
 
-健康狀態會將整體叢集狀態計算為這三個狀態中「最差」的狀態，但有一個例外狀況：如果這三個狀態中有任一個為「未知」，則整體叢集狀態將會顯示**未知**。  
+健全狀況狀態計算整體的叢集狀態為*最差*任何三種狀態時，這三個狀態有一個例外狀況 –*未知*，整體叢集狀態將會顯示**未知**.  
 
 下表提供計算明細，其會在多叢集檢視上控制受監視叢集的健康狀態。
 
@@ -131,9 +132,9 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 
 ![範例 Kubernetes 觀點屬性窗格](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-當您展開階層中的物件時，屬性窗格會根據所選的物件更新。 在此窗格中，您也可以按一下窗格頂端的 [檢視 Kubernetes 事件記錄] 連結，使用已預先定義的記錄搜尋來檢視 Kubernetes 事件。 如需檢視 Kubernetes 記錄資料的詳細資訊，請參閱[搜尋記錄來分析資料](#search-logs-to-analyze-data)。 當您在 [容器] 檢視中檢視容器時，可即時查看容器記錄。 如需此功能以及授與和控制存取權所需設定的詳細資訊，請參閱[如何使用適用於容器的 Azure 監視器即時檢視容器記錄](container-insights-live-logs.md)。 
+當您展開階層中的物件時，屬性窗格會根據所選的物件更新。 在此窗格中，您也可以按一下窗格頂端的 [檢視 Kubernetes 事件記錄] 連結，使用已預先定義的記錄搜尋來檢視 Kubernetes 事件。 如需檢視 Kubernetes 記錄資料的詳細資訊，請參閱[搜尋記錄來分析資料](container-insights-log-search.md)。 當您在 [容器] 檢視中檢視容器時，可即時查看容器記錄。 如需此功能以及授與和控制存取權所需設定的詳細資訊，請參閱[如何使用適用於容器的 Azure 監視器即時檢視容器記錄](container-insights-live-logs.md)。 
 
-使用頁面頂端的 [+ 新增篩選器] 選項，依**服務**、**節點**或**命名空間**來篩選檢視的結果，當您選取篩選範圍之後，接著可選取 [選取值] 欄位中所示的其中一個值。  設定篩選器之後，就會在檢視 AKS 叢集的任一個檢視方塊時全域套用。  此公式僅支援等號。  您可以在第一個篩選器上方新增其他篩選器，進一步縮小您的結果。  例如，如果您依**節點**指定篩選器，則您的第二個篩選器只允許您選取 [服務] 或 [命名空間]。  
+使用 **+ 新增篩選條件**從頁面頂端的選項來篩選所檢視的結果**服務**，**節點**，**命名空間**，或是**節點集區**選取的篩選範圍之後, 您再從選取其中一個值所示**選定值**欄位。  設定篩選器之後，就會在檢視 AKS 叢集的任一個檢視方塊時全域套用。  此公式僅支援等號。  您可以在第一個篩選器上方新增其他篩選器，進一步縮小您的結果。  例如，如果您依**節點**指定篩選器，則您的第二個篩選器只允許您選取 [服務] 或 [命名空間]。  
 
 ![使用篩選器來縮小結果的範例](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -172,7 +173,7 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 
 | 欄 | 描述 | 
 |--------|-------------|
-| 名稱 | 主機的名稱。 |
+| Name | 主機的名稱。 |
 | 狀態 | 節點狀態的 Kubernetes 檢視。 |
 | Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 根據選取期間內百分位數的平均節點百分比。 |
 | Avg、Min、Max、50th、90th | 根據所選取時間的期間內百分位數的平均節點實際值。 從為節點設定的 CPU/記憶體限制測量所得的平均值；對於 Pod 與容器而言，則是主機所報告的平均值。 |
@@ -201,7 +202,7 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 
 | 欄 | 描述 | 
 |--------|-------------|
-| 名稱 | 控制器的名稱。|
+| Name | 控制器的名稱。|
 | 狀態 | 容器的彙總狀態，就是當其完成執行後的狀態，例如「確定」、「終止」、「失敗」、「停止」或「暫停」。 如果容器在執行中，但狀態卻未正確呈現或未由代理程式擷取，而且超過 30 分鐘都沒有回應時，則狀態為 [未知]。 下表中提供狀態圖示的其他詳細資料。|
 | Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 彙總平均每個實體已選定的度量和百分位數的平均百分比。 |
 | Avg、Min、Max、50th、90th  | 彙總容器所選百分位數的平均 CPU millicore 或記憶體效能。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
@@ -238,7 +239,7 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 
 | 欄 | 描述 | 
 |--------|-------------|
-| 名稱 | 控制器的名稱。|
+| Name | 控制器的名稱。|
 | 狀態 | 容器的狀態，若有的話。 下一個表格會提供狀態圖示的其他詳細資料。|
 | Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 針對所選取計量和百分位數之每個實體的平均百分比彙總。 |
 | Avg、Min、Max、50th、90th  | 容器針對所選取百分位數的平均 CPU millicore 或記憶體效能彙總。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
@@ -258,49 +259,6 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 | ![終止的狀態圖示](./media/container-insights-analyze/containers-terminated-icon.png) | 已成功停止或無法停止|  
 | ![失敗狀態圖示](./media/container-insights-analyze/containers-failed-icon.png) | 失敗狀態 |  
 
-
-## <a name="container-data-collection-details"></a>容器資料收集詳細資料
-容器深入解析會從容器主機和容器收集各種效能計量和記錄資料。 每隔三分鐘會收集一次資料。
-
-### <a name="container-records"></a>容器資料列
-
-下表顯示適用於容器的 Azure 監視器所收集的記錄範例，以及記錄搜尋結果中所顯示的資料類型：
-
-| 資料類型 | 記錄檔搜尋中的資料類型 | 欄位 |
-| --- | --- | --- |
-| 主機和容器的效能 | `Perf` | Computer、ObjectName、CounterName &#40;%Processor Time、Disk Reads MB、Disk Writes MB、Memory Usage MB、Network Receive Bytes、Network Send Bytes、Processor Usage sec、Network&#41;、CounterValue、TimeGenerated、CounterPath、SourceSystem |
-| 容器清查 | `ContainerInventory` | TimeGenerated、Computer、container name、ContainerHostname、Image、ImageTag、ContainerState、ExitCode、EnvironmentVar、Command、CreatedTime、StartedTime、FinishedTime、SourceSystem、ContainerID、ImageID |
-| 容器映像清查 | `ContainerImageInventory` | TimeGenerated、Computer、Image、ImageTag、ImageSize、VirtualSize、Running、Paused、Stopped、Failed、SourceSystem、ImageID、TotalContainer |
-| 容器記錄檔 | `ContainerLog` | TimeGenerated、Computer、image ID、container name、LogEntrySource、LogEntry、SourceSystem、ContainerID |
-| 容器服務記錄檔 | `ContainerServiceLog`  | TimeGenerated、Computer、TimeOfCommand、Image、Command、SourceSystem、ContainerID |
-| 容器節點清查 | `ContainerNodeInventory_CL`| TimeGenerated、Computer、ClassName_s、DockerVersion_s、OperatingSystem_s、Volume_s、Network_s、NodeRole_s、OrchestratorType_s、InstanceID_g、SourceSystem|
-| 容器流程 | `ContainerProcess_CL` | TimeGenerated、Computer、Pod_s、Namespace_s、ClassName_s、InstanceID_s、Uid_s、PID_s、PPID_s、C_s、STIME_s、Tty_s、TIME_s、Cmd_s、Id_s、Name_s、SourceSystem |
-| 清查 Kubernetes 叢集中的 Pod | `KubePodInventory` | TimeGenerated、Computer、ClusterId、ContainerCreationTimeStamp、PodUid、PodCreationTimeStamp、ContainerRestartCount、PodRestartCount、PodStartTime、ContainerStartTime、ServiceName、ControllerKind、ControllerName、ContainerStatus、ContainerID、ContainerName、Name、PodLabel、Namespace、PodStatus、ClusterName、PodIp、SourceSystem |
-| 清查 Kubernetes 叢集中的節點部分 | `KubeNodeInventory` | TimeGenerated、Computer、ClusterName、ClusterId、LastTransitionTimeReady、Labels、Status、KubeletVersion、KubeProxyVersion、CreationTimeStamp、SourceSystem | 
-| Kubernetes 事件 | `KubeEvents_CL` | TimeGenerated、Computer、ClusterId_s、FirstSeen_t、LastSeen_t、Count_d、ObjectKind_s、Namespace_s、Name_s、Reason_s、Type_s、TimeGenerated_s、SourceComponent_s、ClusterName_s、Message、SourceSystem | 
-| Kubernetes 叢集中的服務 | `KubeServices_CL` | TimeGenerated、ServiceName_s、Namespace_s、SelectorLabels_s、ClusterId_s、ClusterName_s、ClusterIP_s、ServiceType_s、SourceSystem | 
-| Kubernetes 叢集節點部分的效能計量 | Perf &#124; where ObjectName == “K8SNode” | Computer、ObjectName、CounterName &#40;cpuUsageNanoCores、memoryWorkingSetBytes、memoryRssBytes、networkRxBytes、networkTxBytes、restartTimeEpoch、networkRxBytesPerSec、networkTxBytesPerSec、cpuAllocatableNanoCores、memoryAllocatableBytes、cpuCapacityNanoCores、memoryCapacityBytes&#41;、CounterValue、TimeGenerated、CounterPath、SourceSystem | 
-| Kubernetes 叢集容器部分的效能計量 | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40;cpuUsageNanoCores、memoryWorkingSetBytes、memoryRssBytes、restartTimeEpoch、cpuRequestNanoCores、memoryRequestBytes、cpuLimitNanoCores、memoryLimitBytes&#41;、CounterValue、TimeGenerated、CounterPath、SourceSystem | 
-
-## <a name="search-logs-to-analyze-data"></a>搜尋記錄來分析資料
-Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相互關聯，協助您判斷目前叢集設定是否以最佳方式運作。 已為您提供可立即開始使用，或自訂以您想要的方式傳回資訊的預先定義記錄搜尋。 
-
-您可以在預覽窗格中選取 [檢視 Kubernetes 事件記錄] 或 [檢視容器記錄] 選項，以在工作區中對資料執行互動式分析。 [記錄搜尋] 頁面會出現在您所在 Azure 入口網站頁面的右邊。
-
-![在 Log Analytics 中分析資料](./media/container-insights-analyze/container-health-log-search-example.png)   
-
-轉送至 Log Analytics 的容器記錄輸出為 STDOUT 與 STDERR。 因為 Azure 監視器會監視 Azure 受控 Kubernetes (AKS)，所以，由於所產生的資料量很大，因此今天不會收集 Kube 系統。 
-
-### <a name="example-log-search-queries"></a>範例記錄檔搜尋查詢
-從一或兩個範例開始建置查詢，然後加以修改以滿足您的需求，通常很實用。 若要取得建置更進階查詢的協助，您可以試驗下列範例查詢：
-
-| 查詢 | 描述 | 
-|-------|-------------|
-| ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | 列出所有容器的生命週期資訊| 
-| KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Kubernetes 事件|
-| ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | 映像清查 | 
-| **選取折線圖顯示選項**：<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器 CPU | 
-| **選取折線圖顯示選項**：<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 容器記憶體 |
-
 ## <a name="next-steps"></a>後續步驟
-適用於容器的「Azure 監視器」未包含一組可根據支援的處理序和程序來進行複製和修改的預先定義警示。 若要了解如何為高 CPU 和記憶體使用率建立建議的警示，請檢閱[使用適用於容器的 Azure 監視器來建立效能警示](container-insights-alerts.md)。  
+- 檢閱[建立容器與 Azure 監視器的效能警示](container-insights-alerts.md)以了解如何建立警示，以支援您的 DevOps 或作業程序和程序的高 CPU 和記憶體使用率。 
+- 檢視[記錄查詢範例](container-insights-log-search.md#search-logs-to-analyze-data)以查看預先定義的查詢和範例，以評估或自訂警示、 視覺化，或分析您的叢集。

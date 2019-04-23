@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: 942e61b0ee69402d516982c66a852d5e26304809
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e395fc96c560c6c6c1671e472840ba0f2a316d98
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859432"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006772"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing 自訂搜尋 API 支援的語言和區域
 
@@ -42,7 +42,7 @@ Bing 自訂搜尋 API 支援三十多個國家/地區，許多國家/地區具�
 |芬蘭|FI|
 |法國|FR|
 |德國|DE|
-|香港|HK|
+|香港特別行政區|HK|
 |印度|IN|
 |印尼|ID|
 |義大利|IT|
@@ -86,7 +86,7 @@ Bing 自訂搜尋 API 支援三十多個國家/地區，許多國家/地區具�
 |芬蘭|芬蘭文|fi-FI|
 |法國|法文|fr-FR|
 |德國|德文|de-DE|
-|香港|繁體中文|zh-HK|
+|中國香港特別行政區|繁體中文|zh-HK|
 |印度|English|en-IN|
 |印尼|English|en-ID|
 |義大利|義大利文|it-IT|

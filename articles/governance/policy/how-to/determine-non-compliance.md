@@ -3,16 +3,16 @@ title: 判斷不符合的原因
 description: 不符合規範的資源時，有許多可能的原因。 了解如何找出造成不符合規範的原因。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 03/30/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276094"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994996"
 ---
 # <a name="determine-causes-of-non-compliance"></a>判斷不符合的原因
 
@@ -124,6 +124,8 @@ ms.locfileid: "59276094"
    ![在 [變更歷程記錄] 頁面上的原則變更歷程記錄視覺差異](../media/determine-non-compliance/change-history-visual-diff.png)
 
 _視覺化差異_有助於識別資源的變更。 偵測到的變更可能不相關的資源目前的合規性狀態。
+
+變更歷程記錄資料由提供[Azure 資源 Graph](../../resource-graph/overview.md)。 若要查詢 Azure 入口網站外部的這項資訊，請參閱[取得資源變更](../../resource-graph/how-to/get-resource-changes.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

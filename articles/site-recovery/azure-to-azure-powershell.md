@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 997b358a6daf2f5450c38fcbe484a584d06bf5c4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d11ebad3eaa629a1b03d22c6548f3b7ad591cf5b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787069"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003798"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 來設定 Azure 虛擬機器的災害復原
 
@@ -44,7 +44,7 @@ ms.locfileid: "59787069"
 開始之前：
 - 請確定您了解[情節架構和元件](azure-to-azure-architecture.md)。
 - 檢閱所有元件的[支援需求](azure-to-azure-support-matrix.md)。
-- 您有 Azure PowerShell`Az`模組。 如果您需要安裝或升級 Azure PowerShell，請按照此[安裝和設定 Azure PowerShell 指南](/powershell/install-az-ps)的說明。
+- 您有 Azure PowerShell`Az`模組。 如果您需要安裝或升級 Azure PowerShell，請按照此[安裝和設定 Azure PowerShell 指南](/powershell/azure/install-az-ps)的說明。
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>登入您的 Microsoft Azure 訂用帳戶
 
