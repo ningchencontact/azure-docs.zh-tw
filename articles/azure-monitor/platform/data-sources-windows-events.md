@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522705"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236934"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure 監視器中的 Windows 事件記錄檔資料來源
 Windows 事件記錄是使用 Windows 代理程式收集資料的常見[資料來源](agent-data-sources.md)之一，因為許多應用程式會寫入 Windows 事件記錄。  除了指定您要監視之應用程式所建立的任何自訂記錄之外，您也可以透過標準記錄 (例如系統和應用程式) 來收集事件。

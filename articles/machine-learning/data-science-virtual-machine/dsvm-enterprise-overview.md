@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
 ms.openlocfilehash: 2e17ab5cfe51f3772148cc730c982671d602a79a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502142"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>以資料科學虛擬機器為基礎的團隊分析和 AI 環境 
 [資料科學虛擬機器](overview.md) (DSVM) 在 Azure 平台中提供豐富的環境，其中包含了適用於人工智慧 (AI) 和資料分析的預先建立軟體。 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: spelluru
-ms.openlocfilehash: d93818cd875c4050b1b35f21ce580933776c5bc5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
-ms.translationtype: HT
+ms.openlocfilehash: 2cd6998c7ac11638ead67fde384bdf4599692781
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234686"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201747"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中設定及使用公用環境
 Azure DevTest Labs 有 [Azure Resource Manager 範本的公用存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Environments)，您可以用來建立環境，而不需要自行連線到外部 GitHub 來源。 此存放庫包括常用範本，例如 Azure Web Apps、Service Fabric 叢集與開發 SharePoint 伺服器陣列環境。 此功能類似您建立之每個實驗室包含之成品的公用存放庫。 環境存放庫可讓您使用預先製作的環境範本在輸入參數最少的情況下開始，以在實驗室內為您提供順暢的 PaaS 資源開始使用體驗。 

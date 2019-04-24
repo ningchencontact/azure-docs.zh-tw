@@ -13,11 +13,11 @@ ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 8b9cc112f51840a6bf2cf659863f61ab5962f6e6
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306844"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -151,7 +151,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 [設定](#trigger---configuration)章節會說明這些屬性。
 
 > [!NOTE]
-> 名稱參數會在 JavaScript 程式碼中反映為包含佇列項目承載的 `context.bindings.<name>`。 此承載也會當作第二個參數傳遞給函式。
+> name 参数在 JavaScript 代码中反映为 `context.bindings.<name>`，其中包含队列项有效负载。 此有效负载也作为第二个参数传递给函数。
 
 以下是 JavaScript 程式碼：
 
@@ -252,7 +252,7 @@ module.exports = async function (context, message) {
 |---------|---------|----------------------|
 |**type** | n/a| 必須設為 `queueTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction**| n/a | 僅限在 *function.json* 檔案中。 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
-|**name** | n/a |在函式程式碼中包含佇列項目承載的變數名稱。  |
+|**name** | n/a |函数代码中包含队列项有效负载的变量的名称。  |
 |**queueName** | **QueueName**| 要輪詢的佇列名稱。 |
 |**連接** | **連接** |應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。|
 
@@ -305,7 +305,7 @@ module.exports = async function (context, message) {
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 
-[host.json](functions-host-json.md#queues) 檔案包含控制佇列觸發程序行為的設定。 請參閱[host.json 設定](#hostjson-settings)一節以取得有關可用設定的詳細資訊。
+[host.json](functions-host-json.md#queues) 檔案包含控制佇列觸發程序行為的設定。 有关可用设置的详细信息，请参阅 [host.json 设置](#hostjson-settings)部分。
 
 ## <a name="output"></a>輸出
 

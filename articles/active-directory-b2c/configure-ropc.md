@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: ca3fd76cfeb09fe4e18a04bff38e166928ef38b2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313339"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中設定資源擁有者密碼認證流程
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) B2C 支援下列選項：
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 Azure 入口網站。
 2. 若要切換為您的 Azure AD B2C 租用戶，請選取入口網站右上角的 B2C 租用戶。
 3. 按一下 [使用者流程]，然後選取 [新增使用者流程]。
-4. 按一下 **所有**索引標籤，然後選取**登入使用 ROPC**。
+4. 单击“全部”选项卡，然后选择“使用 ROPC 登录”。
 5. 提供使用者流程的名稱，例如 *ROPC_Auth*。
 6. 在 [應用程式宣告] 底下，按一下 [顯示更多]。
 7. 選取您的應用程式所需的應用程式宣告，例如 [顯示名稱]、[電子郵件地址] 和 [身分識別提供者]。
@@ -68,7 +68,7 @@ Azure Active Directory (Azure AD) B2C 支援下列選項：
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Key | 值 |
+| Key | Value |
 | --- | ----- |
 | username | leadiocl@outlook.com |
 | password | Passxword1 |
@@ -108,7 +108,7 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Key | 值 |
+| Key | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

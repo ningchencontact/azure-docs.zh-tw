@@ -2,17 +2,18 @@
 title: 操作員最佳做法 - Azure Kubernetes Services (AKS) 中的網路連線
 description: 了解叢集操作員在 Azure Kubernetes Service (AKS) 中使用虛擬網路資源和進行連線時的最佳做法
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/10/2018
-ms.author: iainfou
+origin.date: 12/10/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60463972"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的網路連線和安全性最佳做法
 
@@ -116,7 +117,7 @@ spec:
 
 ![Azure 應用程式閘道等 Web 應用程式防火牆 (WAF) 可以保護並分散您 AKS 叢集的流量](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Web 應用程式防火牆 (WAF) 會藉由篩選傳入流量來提供額外一層安全性。 Open Web Application Security Project (OWASP) 會提供一組規則來監看是否有跨網站指令碼或 Cookie 篡改等攻擊。 [Azure 應用程式閘道][ app-gateway] （目前為預覽狀態在 AKS 中的） 是可以與 AKS 叢集，以提供這些安全性功能，才能將流量到達您的 AKS 叢集與應用程式整合 WAF。 其他第三方解決方案也會執行這些功能，因此您可以在指定產品中繼續使用現有的投資或專業技術。
+Web 應用程式防火牆 (WAF) 會藉由篩選傳入流量來提供額外一層安全性。 Open Web Application Security Project (OWASP) 會提供一組規則來監看是否有跨網站指令碼或 Cookie 篡改等攻擊。 [Azure 应用程序网关][app-gateway]（目前在 AKS 中预览）是一种 WAF，可在流量到达 AKS 群集和应用程序之前与 AKS 群集集成以提供这些安全功能。 其他第三方解決方案也會執行這些功能，因此您可以在指定產品中繼續使用現有的投資或專業技術。
 
 負載平衡器或輸入資源會繼續在您的 AKS 叢集執行，以進一步精簡流量分配。 您可以使用資源定義，將應用程式閘道當作輸入控制器來集中管理。 若要開始使用，[請建立應用程式閘道輸入控制器][app-gateway-ingress]。
 
@@ -124,7 +125,7 @@ Web 應用程式防火牆 (WAF) 會藉由篩選傳入流量來提供額外一層
 
 **最佳作法指引** - 使用網路原則允許或拒絕 Pod 的流量。 根據預設，叢集中的 Pod 之間允許所有流量。 為了提升安全性，請定義限制 Pod 通訊的規則。
 
-（目前在 AKS 中的預覽） 的網路原則是一種 Kubernetes 的功能，可讓您控制 pod 之間的流量。 您可以根據指派的標籤、命名空間或流量連接埠等設定，選擇允許或拒絕流量。 使用網路原則提供了一種雲端原生方法來控制流量的流程。 由於在 AKS 叢集中動態建立 Pod，因此可以自動套用所需的網路原則。 請勿使用 Azure 網路安全性群組來控制 pod-to-pod 流量，請使用網路原則。
+网络策略（目前在 AKS 中预览）是一项 Kubernetes 功能，可用于控制 Pod 之间的流量流。 您可以根據指派的標籤、命名空間或流量連接埠等設定，選擇允許或拒絕流量。 使用網路原則提供了一種雲端原生方法來控制流量的流程。 由於在 AKS 叢集中動態建立 Pod，因此可以自動套用所需的網路原則。 請勿使用 Azure 網路安全性群組來控制 pod-to-pod 流量，請使用網路原則。
 
 若要使用網路原則，必須在建立 AKS 叢集時啟用該功能。 您無法在現有的 AKS 叢集上啟用網路原則。 事先規劃以確保在叢集上啟用網路原則，並可以視需要使用它們。
 

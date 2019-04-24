@@ -9,11 +9,11 @@ ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 8afaeaea3c8ceb0de33147e70e00f3f57c857ca7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344152"
 ---
 建立虛擬機器 (VM)、重新啟動已停止 (已解除配置) 的 VM 或調整 VM 大小時，Microsoft Azure 會配置計算資源給您的訂用帳戶。 我們正持續投資額外的基礎結構和功能，以確保始終擁有所有 VM 類型可供支援客戶需求。 不過，您可能偶爾會遇到因特定區域中對 Azure 服務的空前需求成長，而導致資源配置失敗的情況。 當您嘗試在 VM 顯示下列錯誤碼和訊息的區域中建立或啟動 VM，便可能發生此問題：
 

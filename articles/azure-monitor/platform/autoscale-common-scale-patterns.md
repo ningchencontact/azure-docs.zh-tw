@@ -9,11 +9,11 @@ ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 8356a8c8c31a043197485b4913b4a67d7d719778
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997251"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534189"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>常見的自動調整規模模式概觀
 本文說明一些在 Azure 中調整資源規模的常見模式。

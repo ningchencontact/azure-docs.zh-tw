@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82139178d4c1db4774d539180e41e49699d8ee12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60382375"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步所執行的物件同步處理進行疑難排解
 本文提供使用疑難排解工作，針對物件同步處理問題進行疑難排解的步驟。 若要查看疑難排解如何在 Azure Active Directory (Azure AD) Connect 中運作，請觀賞[這段短片](https://aka.ms/AADCTSVideo)。

@@ -9,11 +9,11 @@ ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60234749"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>如何透過「Azure 監視器」警示觸發複雜動作
 
@@ -281,11 +281,11 @@ Azure 監視器警示會在觸發時呼叫[動作群組](../../azure-monitor/pla
        
        ![「計量警示承載條件」](media/action-groups-logic-app/metric-alert-payload-condition.png "計量警示承載條件")
 
-  1. 在 [若為 true] 條件中，新增 **For each** 迴圈和 Microsoft Teams 動作。 使用 HTML 與動態內容的組合來定義訊息。
+  2. 在 [若為 true] 條件中，新增 **For each** 迴圈和 Microsoft Teams 動作。 使用 HTML 與動態內容的組合來定義訊息。
 
       ![「計量警示的 True 條件張貼動作」](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "計量警示的 True 條件張貼動作")
 
-  1. 在 [若為 false] 條件中，定義 Microsoft Teams 動作，以傳達計量警示不符合邏輯應用程式預期的訊息。 請包含自訂 JSON 承載。 請注意如何在 `json()` 運算式中參考 `triggerBody` 動態內容。
+  3. 在 [若為 false] 條件中，定義 Microsoft Teams 動作，以傳達計量警示不符合邏輯應用程式預期的訊息。 請包含自訂 JSON 承載。 請注意如何在 `json()` 運算式中參考 `triggerBody` 動態內容。
 
       ![「計量警示的 False 條件張貼動作」](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "計量警示的 False 條件張貼動作")
 
@@ -298,4 +298,3 @@ Logic Apps 有許多不同的連接器，可讓您在各種應用程式和資料
 * 取得 [Azure 活動記錄警示的概觀](../../azure-monitor/platform/alerts-overview.md)，並了解如何接收警示。  
 * 了解如何[設定 Azure 服務健康狀態通知公佈時的警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
 * 深入了解[動作群組](../../azure-monitor/platform/action-groups.md)。
-

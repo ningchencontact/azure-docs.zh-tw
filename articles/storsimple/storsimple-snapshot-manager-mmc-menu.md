@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 48f439a566a8067e153aab4fb789937d2f91268d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be761f0a2e59878139ae54dba62634a53b172711
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302970"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>在 StorSimple Snapshot Manager 使用 MMC 功能表動作
 

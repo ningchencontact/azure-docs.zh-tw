@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 854d0e8f6927c9ce4855435a02b4819055111ceb
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306014"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>監視和管理憑證建立
 適用於：Azure
@@ -417,7 +417,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|元素名稱|必要項|類型|版本|描述|
+|元素名稱|必要項|類型|Version|描述|
 |------------------|--------------|----------|-------------|-----------------|
 |x5c|是|array|\<簡介版本 >|作為 base64 字串陣列的 X509 憑證鏈結。|
 

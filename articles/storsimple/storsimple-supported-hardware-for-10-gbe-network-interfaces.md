@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8303195f0f3228ee145cbba9e322ea4e5e4c1264
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302529"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>10 GbE 網路介面在 StorSimple 裝置上支援的硬體
 ## <a name="overview"></a>概觀
@@ -34,7 +34,7 @@ Microsoft 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>纜線
-| S. 編號 | 請確定 | 模型 |
+| S. 沒有。 | 請確定 | 模型 |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -42,7 +42,7 @@ Microsoft 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>交換器
-| 序 編號 | 請確定 | 模型 |
+| 序 沒有。 | 請確定 | 模型 |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -51,16 +51,16 @@ Microsoft 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以
 ## <a name="list-of-devices-tested-in-the-field"></a>已經過實際測試的裝置清單
 本節包含已由 StorSimple 客戶實際部署成功的裝置清單。 這些項目尚未經過 Microsoft 測試，但可能適用您的 StorSimple 裝置。
 
-| 參數 | 值 |
+| 參數 | Value |
 | --- | --- |
 | 交換器樣式 |Juniper |
 | 交換器型號 |ex4550-32F |
 | 交換器作業系統版本 |JunOS 12.3R9.4 |
 | 刀鋒視窗型號 |Ports onboard (PIC 0) |
 | 收發器樣式 |Juniper |
-| 收發器型號 |零件編號 740-021308  <br></br> 零件編號 740-030658 |
+| 收發器型號 |零件編號 740-021308  <br></br>  零件編號 740-030658 |
 | 收發器韌體版本 |Rev 01 Version 0.0 (已回報) |
-| 纜線型號 |Duplex jumper LC/LC 50/125µ, OM3, LSZH |
+| 纜線型號 |雙工跳 LC/LC 50/125µ，OM3，LSZH |
 | StorSimple 型號 |8600 |
 | StorSimple 軟體版本 |6.3.9600.17491 |
 
@@ -70,7 +70,7 @@ Mellanox 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以�
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Mellanox 所支援的纜線及模組
 下表列出 Mellanox 所支援的纜線及模組。 這些項目尚未經過 Microsoft 測試，但可能使用您的 StorSimple 裝置。
 
-| S. 號 | 速度 | 模型 | 說明 | 請確定 |
+| S. 號 | 速度 | 模型 | 描述 | 請確定 |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |被動銅纜線 SFP + 10 Gb/s 1m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2M |被動銅纜線 SFP + 10 Gb/s 2m |Arista |
@@ -111,7 +111,7 @@ Mellanox 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以�
 ### <a name="switches-supported-by-mellanox"></a>Mellanox 所支援的切換器
 下表列出 Mellanox 所支援的切換器。 這些項目尚未經過 Microsoft 測試，但可能適用您的 StorSimple 裝置。
 
-| S. 號 | 速度 | 模型 | 說明 | 請確定 |
+| S. 號 | 速度 | 模型 | 描述 | 請確定 |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |516733-B21 |HP ProCurve 6120XG 10GbE 乙太網路刀鋒視窗切換器 |HP |
 | 2. |10GbE |538113-B21 |HP 10GbE 傳遞模組 (PTM) |HP |

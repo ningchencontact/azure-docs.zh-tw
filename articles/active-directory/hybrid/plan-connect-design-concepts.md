@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60382204"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：設計概念
 本文件旨在說明 Azure AD Connect 實作設計期間必須考量的領域。 本文件是特定領域的深入探討，而在其他文件中也會簡短描述這些概念。
@@ -157,7 +157,7 @@ Azure AD Connect (1.1.524.0 版和更新版本) 現在可協助您使用 ms-DS-C
 
 ![啟用現有部署的 ConsistencyGuid - 錯誤](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- 如果您確定屬性不供其他現有的應用程式，您可以重新啟動 Azure AD Connect 精靈 來隱藏錯誤 **/SkipLdapSearch**指定的參數。 若要這樣做，在命令提示字元中執行下列命令：
+ 如果确定其他现有应用程序不使用该属性，则可以通过在指定“/SkipLdapSearch”开关的情况下重启 Azure AD Connect 向导来取消显示该错误。 若要這樣做，在命令提示字元中執行下列命令：
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -171,7 +171,7 @@ Azure AD Connect (1.1.524.0 版和更新版本) 現在可協助您使用 ms-DS-C
 ![第三方同盟設定](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>在現有部署中新增目錄
-假設您已部署 Azure AD Connect 並啟用 ConsistencyGuid 功能，而現在您想要在部署中新增另一個目錄。 當您嘗試新增目錄時，Azure AD Connect 精靈會檢查目錄中 ms-DS-ConsistencyGuid 屬性的狀態。 如果目錄中有一或多個物件設定了此屬性，則精靈會認為其他應用程式正在使用此屬性，並傳回如下圖所示的錯誤。 如果您確定現有的應用程式未使用的屬性，您可以重新啟動 Azure AD Connect 精靈 來隱藏錯誤 **/SkipLdapSearch**指定如上面所述的交換器，或您需要連絡如需詳細資訊的支援。
+假設您已部署 Azure AD Connect 並啟用 ConsistencyGuid 功能，而現在您想要在部署中新增另一個目錄。 當您嘗試新增目錄時，Azure AD Connect 精靈會檢查目錄中 ms-DS-ConsistencyGuid 屬性的狀態。 如果目錄中有一或多個物件設定了此屬性，則精靈會認為其他應用程式正在使用此屬性，並傳回如下圖所示的錯誤。 如果确定现有应用程序不使用该属性，则可以通过使用前文所述的指定 /SkipLdapSearch 开关的情况下重启 Azure AD Connect 向导来取消显示该错误或者需要联系支持人员以获得更多信息。
 
 ![在現有部署中新增目錄](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

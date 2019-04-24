@@ -2,17 +2,18 @@
 title: 概念 - 在 Azure Kubernetes Service (AKS) 中調整應用程式
 description: 了解 Azure Kubernetes Service (AKS) 中的調整功能，包括水平 Pod 自動調整程式、叢集自動調整程式，以及 Azure 容器執行個體連接器。
 services: container-service
-author: zr-msft
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.author: zarhoads
+origin.date: 02/28/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755967"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466923"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中調整應用程式的選項
 
@@ -51,7 +52,7 @@ Kubernetes 會使用水平 Pod 自動調整程式 (HPA) 來監視資源需求，
 
 ## <a name="cluster-autoscaler"></a>叢集自動調整程式
 
-若要回應變更 pod 的需求，Kubernetes 會有叢集中自動調整程式 （目前在 AKS 中的預覽） 會根據要求的計算節點集區中資源的節點數目進行調整。 根據預設，叢集自動調整程式每隔 10 秒會檢查 API 伺服器，找出節點計數中任何必要的變更。 如果叢集自動調整判斷需要變更，則您 AKS 叢集中的節點數目會據以增加或減少。 叢集自動調整程式會使用已啟用 RBAC 功能且執行 Kubernetes 1.10.x 或更高版本的 AKS 叢集。
+为响应不断变化的 Pod 需求，Kubernetes 有一个群集自动缩放程序（目前在 AKS 中预览），可根据节点池中请求的计算资源调整节点数。 根據預設，叢集自動調整程式每隔 10 秒會檢查 API 伺服器，找出節點計數中任何必要的變更。 如果叢集自動調整判斷需要變更，則您 AKS 叢集中的節點數目會據以增加或減少。 叢集自動調整程式會使用已啟用 RBAC 功能且執行 Kubernetes 1.10.x 或更高版本的 AKS 叢集。
 
 ![Kubernetes 叢集自動調整程式](media/concepts-scale/cluster-autoscaler.png)
 
@@ -81,7 +82,7 @@ Kubernetes 會使用水平 Pod 自動調整程式 (HPA) 來監視資源需求，
 
 ![Kubernetes 高載調整至 ACI](media/concepts-scale/burst-scaling.png)
 
-ACI 可讓您快速部署容器執行個體，不需要額外的基礎結構成本。 當您與 AKS 連線時，ACI 會變成您 AKS 叢集的安全邏輯擴充功能。 Virtual Kubelet 元件會安裝在您的 AKS 叢集，使 ACI 作為虛擬的 Kubernetes 節點。 接著，Kubernetes 可以排程透過虛擬節點以 ACI 執行個體身分執行的 Pod，而非直接在 AKS 叢集中，以 VM 節點上的 Pod 身分執行。 虛擬節點目前處於預覽狀態，在 AKS 中。
+ACI 可讓您快速部署容器執行個體，不需要額外的基礎結構成本。 當您與 AKS 連線時，ACI 會變成您 AKS 叢集的安全邏輯擴充功能。 Virtual Kubelet 元件會安裝在您的 AKS 叢集，使 ACI 作為虛擬的 Kubernetes 節點。 接著，Kubernetes 可以排程透過虛擬節點以 ACI 執行個體身分執行的 Pod，而非直接在 AKS 叢集中，以 VM 節點上的 Pod 身分執行。 虚拟节点目前在 AKS 中预览。
 
 您的應用程式不需要進行任何修改即可使用虛擬節點。 部署可以跨 AKS 和 ACI 調整，且當叢集自動調整程式在 AKS 叢集中部署新的節點時沒有延遲。
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236687"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>使用命令列工具來啟動和停止 Azure DevTest Labs 虛擬機器
 本文說明如何使用 Azure PowerShell 或 Azure CLI 來啟動或停止在 Azure DevTest Labs 中對實驗室中的虛擬機器。 您可以建立 PowerShell/CLI 指令碼來自動化這些作業。 
@@ -34,7 +34,7 @@ Azure DevTest Labs 是建立快速、 簡易且高效的開發/測試環境的�
 - 使用它作為 CI/CD 工作流程內的工作流程的開頭開始，使用 Vm 當做組建電腦，測試機器或基礎結構，然後完成程序時停止的 Vm。 這個範例會使用 Azure DevTest Labs 自訂映像處理站。  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-下列 PowerShell 指令碼會在實驗室中啟動 VM。 [叫用 AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-6.13.0)是此指令碼的主要焦點。 **ResourceId**參數是在實驗室中 VM 的完整的資源識別碼。 **動作**參數是要在哪裡**開始**或是**停止**選項都設為視需要的項目。
+下列 PowerShell 指令碼會在實驗室中啟動 VM。 [叫用 AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0)是此指令碼的主要焦點。 **ResourceId**參數是在實驗室中 VM 的完整的資源識別碼。 **動作**參數是要在哪裡**開始**或是**停止**選項都設為視需要的項目。
 
 ```powershell
 # The id of the subscription

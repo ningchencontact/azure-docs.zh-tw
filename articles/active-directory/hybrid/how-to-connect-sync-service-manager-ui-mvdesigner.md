@@ -1,28 +1,28 @@
 ---
 title: Azure AD Connect MV 設計工具 |Microsoft Docs'
-description: 了解 Azure AD Connect 的 Synchronization Service Manager 中的 [Metaverse 設計工具] 索引標籤。
+description: 了解用于 Azure AD Connect 的 Synchronization Service Manager 中的“Metaverse 设计器”选项卡。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: abaa9eb2-f105-42d1-b00a-2a63129a8ffb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.subservice: hybrid
-ms.author: billmath
+ms.topic: article
+origin.date: 07/13/2017
+ms.date: 11/12/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: d08454a0ad87adb97037517579f11ab976280425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194575"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381302"
 ---
 # <a name="sync-service-manager-metaverse-designer"></a>Sync Service Manager Metaverse 設計工具
 
@@ -31,6 +31,7 @@ ms.locfileid: "56194575"
 對於大多數的客戶，不需要在此處進行任何設定。
 
 ## <a name="next-steps"></a>後續步驟
-深入了解 [Azure AD Connect 同步](how-to-connect-sync-whatis.md) 組態。
+了解有关 [Azure AD Connect 同步](how-to-connect-sync-whatis.md)配置的详细信息。
 
-深入了解 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。
+了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
+

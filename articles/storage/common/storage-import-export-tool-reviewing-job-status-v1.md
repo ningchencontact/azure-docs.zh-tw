@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 306e3ccf19ba8db2de01e4b20a52707215a4a040
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470360"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320701"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>使用複製記錄檔來檢閱 Azure 匯入/匯出作業狀態
 當 Microsoft Azure 匯入/匯出服務處理與匯入或匯出作業相關聯的磁碟機時，它會將複製記錄檔寫入到您匯入或匯出 blob 的儲存體帳戶。 記錄檔包含每個已匯入或匯出檔案的詳細狀態。 查詢已完成作業的狀態時會傳回每個複製記錄檔的 URL；如需詳細資訊，請參閱[取得作業](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get)。  

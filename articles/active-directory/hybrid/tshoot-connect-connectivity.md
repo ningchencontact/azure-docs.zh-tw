@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436649"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386537"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的連線問題進行疑難排解
 這篇文章說明 Azure AD Connect 與 Azure AD 之間的連線的運作方式，以及如何疑難排解連線問題。 這些問題最有可能出現在具有 Proxy 伺服器的環境中。
@@ -76,7 +76,7 @@ Proxy 伺服器也必須開啟必要的 URL。 如需官方清單，請參閱 [O
 
 ### <a name="the-password-cannot-be-verified"></a>无法验证密码
 如果安裝精靈成功連線到 Azure AD，但密碼本身無法獲得驗證，您就會看到此錯誤：  
-![不正確的密碼。](./media/tshoot-connect-connectivity/badpassword.png)
+![密码不正确。](./media/tshoot-connect-connectivity/badpassword.png)
 
 * 密碼是暫時密碼，而且必須變更嗎？ 實際上是正確的密碼嗎？ 请尝试登录到 https://login.microsoftonline.com （在 Azure AD Connect 服务器以外的另一台计算机上），并验证该帐户是否可用。
 

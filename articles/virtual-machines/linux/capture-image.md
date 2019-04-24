@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542860"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何建立虛擬機器或 VHD 的映像
 
@@ -59,7 +59,7 @@ ms.locfileid: "55731932"
 4. 在命令完成之後，請輸入**exit** 關閉 SSH 用戶端。
 
 ## <a name="step-2-create-vm-image"></a>步驟 2：建立 VM 映像
-使用 Azure CLI 將 VM 標記為一般化，並擷取映像。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myVnet* 和 *myVM*。
+使用 Azure CLI 將 VM 標記為一般化，並擷取映像。 在下列範例中，請以您自己的值取代範例參數名稱。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
 
 1. 使用 [az vm deallocate](/cli/azure/vm) 解除配置已取消佈建的 VM。 下列範例會解除配置名為 myResourceGroup 資源群組中名為 myVM 的 VM。
    

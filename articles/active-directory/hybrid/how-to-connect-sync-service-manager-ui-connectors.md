@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431167"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384109"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>使用連接器搭配 Auzre AD Connect Sync Service Manager
 
@@ -45,7 +45,7 @@ ms.locfileid: "57431167"
 | 重新整理結構描述 |重新整理快取的結構描述。 最好是改為在安裝精靈中使用此選項，因為其也會更新同步處理規則。 |
 | [搜索连接器空间](#search-connector-space) |用來尋找物件，以及在整個系統中追隨物件及其資料。 |
 
-### <a name="delete"></a>刪除
+### <a name="delete"></a>Delete
 刪除動作適用於兩個不同的用途。  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
@@ -86,7 +86,7 @@ ms.locfileid: "57431167"
 3. 選取設定為使用 AD DS 帳戶的 AD 連接器。
 4. 選取 [動作] 下方的 [屬性]。
 5. 在快顯對話方塊中，選取 [連線至 Active Directory 樹系]：
-6. 樹系名稱表示對應的內部部署 AD。
+6. 林名称指示相应的本地 AD。
 7. 使用者名稱會指出用於同步處理服務的 AD DS 帳戶。
 8. 在 [密碼] 文字方塊中輸入新的 AD DS 帳戶密碼 ![Azure AD Connect 同步處理加密金鑰公用程式](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. 按一下 [確定] 以儲存新密碼，然後重新啟動同步處理服務，以從記憶體快取中移除舊密碼。

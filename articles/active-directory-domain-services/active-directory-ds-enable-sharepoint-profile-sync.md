@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: deef9b317f394213eabb5ce0ce31dd294bc0dfd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359524"
 ---
 # <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>設定受控網域以支援 SharePoint Server 的設定檔同步處理
 SharePoint Server 包含用來同步處理使用者設定檔的 User Profile Service。 若要設定 User Profile Service，必須在 Active Directory 網域授與適當的權限。 如需詳細資訊，請參閱[授與 Active Directory Domain Services 權限以供 SharePoint Server 2013 中的設定檔同步處理使用](https://technet.microsoft.com/library/hh296982.aspx)。

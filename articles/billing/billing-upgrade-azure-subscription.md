@@ -18,11 +18,11 @@ ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d6af7106e991f0306ae2fef69129888219a9c0e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369546"
 ---
 # <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>升級您的免費試用版或 Azure 學生入門版訂用帳戶，以隨用隨付
 

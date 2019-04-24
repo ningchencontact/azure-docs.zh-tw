@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337420"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -311,7 +311,7 @@ Azure 不會將任何內容寫入 %approot% 磁碟機。 一旦從 .cspkg 建立
     
 如[這裡](https://technet.microsoft.com/library/ee790567.aspx)所述，$sslFlags 可能是如下所示其中一個值：
 
-|值|意義|
+|Value|意義|
 ------|------
 |0|沒有 SNI|
 |1|已啟用 SNI |

@@ -1,7 +1,6 @@
 ---
 title: 在具有企業安全性套件的 HDInsight 中設定 Hive 原則 - Azure
 description: 了解如何在具有企業安全性套件的 Azure HDInsight 服務中設定 Hive 的 Apache Ranger 原則。
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 8effa84c9d7adc14060fb00fae9915a04c1d04cc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536468"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight 中設定 Apache Hive 原則
 了解如何針對 Apache Hive 設定 Apache Ranger 原則。 在本文中，您會建立兩個 Ranger 原則來限制 hivesampletable 的存取權。 HDInsight 叢集隨附 hivesampletable。 設定原則之後，您可以使用 Excel 和 ODBC 驅動程式連接到 HDInsight 中的 Hive 資料表。
@@ -75,7 +74,7 @@ ms.locfileid: "55821213"
 ## <a name="create-hive-odbc-data-source"></a>建立 Hive ODBC 資料來源
 在[建立 Hive ODBC 資料來源](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)中可找到相關指示。  
 
- | 屬性  |說明 |
+ | 屬性  |描述 |
  | --- | --- |
  | 資料來源名稱 | 為資料來源指定名稱 |
  | Host | 輸入 &lt;HDInsightClusterName>.azurehdinsight.net。 例如，myHDICluster.azurehdinsight.net |
@@ -83,7 +82,7 @@ ms.locfileid: "55821213"
  | 資料庫 | 使用**預設值** |
  | Hive 伺服器類型 | 選取 [Hive Server 2] |
  | 機制 | 選取 [Azure HDInsight 服務] |
- | HTTP 路徑 | 保留為空白。 |
+ | HTTP 路径 | 保留為空白。 |
  | 使用者名稱 | 輸入 hiveuser1@contoso158.onmicrosoft.com。 更新網域名稱 (如果不同的話)。 |
  | 密碼 | 輸入 hiveuser1 的密碼。 |
 

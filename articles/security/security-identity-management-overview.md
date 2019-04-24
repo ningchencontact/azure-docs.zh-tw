@@ -16,11 +16,11 @@ ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: 29c04fc04b5d277e982a37402a128b2dbe787e2c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444226"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 身分識別管理安全性概觀
 
@@ -105,7 +105,7 @@ RBAC 是建置於 Azure Resource Manager 上的授權系統，可提供更細緻
 * **整合式應用程式報告**：可供深入了解雲端應用程式在組織中的使用方式。 Azure AD 提供與數千個雲端應用程式的整合。
 * **錯誤報告**：指出將帳戶佈建至外部應用程式時可能發生的錯誤。
 * **使用者特定報告**：顯示特定使用者的裝置登入活動資料。
-* **活動記錄檔**：包含過去 24 小時、過去 7 天或過去 30 天內所有稽核事件的記錄，以及群組活動變更、密碼重設和登錄活動。
+* **活動記錄**：包含過去 24 小時、過去 7 天或過去 30 天內所有稽核事件的記錄，以及群組活動變更、密碼重設和登錄活動。
 
 深入了解：
 

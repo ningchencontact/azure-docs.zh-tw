@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840260"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444738"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>如何在 Azure 上使用 SendGrid 傳送電子郵件
 ## <a name="overview"></a>概觀
@@ -74,7 +74,7 @@ SendGrid 的 .NET 類別庫稱為 **SendGrid**。 其中包含下列命名空間
 ## <a name="how-to-create-an-email"></a>作法：建立電子郵件
 使用 **SendGridMessage** 物件來建立電子郵件訊息。 建立訊息物件後，即可設定屬性和方法，包括電子郵件寄件者、電子郵件收件者以及電子郵件的主旨和本文。
 
-下列範例示範如何建立完全填入的電子郵件物件：
+以下示例演示如何创建完全填充的电子邮件对象：
 
     var msg = new SendGridMessage();
 

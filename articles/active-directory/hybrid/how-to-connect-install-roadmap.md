@@ -14,11 +14,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60243704"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 和 Azure AD Connect Health 安裝藍圖
 
@@ -46,7 +46,7 @@ ms.locfileid: "57193141"
 |使用快速設定進行安裝 | [Azure AD Connect 的快速安装](./how-to-connect-install-express.md)|
 |使用自定义设置安装 | [自訂 Azure AD Connect 安裝](./how-to-connect-install-custom.md)|
 |從 DirSync 升級 | [从 Azure AD 同步工具 (DirSync) 升级](./how-to-dirsync-upgrade-get-started.md)|
-|安裝後 | [驗證安裝和指派授權](how-to-connect-post-installation.md)|
+|安裝後 | [验证安装并分配许可证](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>深入了解安裝 Azure AD Connect
 您也想要準備 [操作](how-to-connect-sync-operations.md) 考量。 您可以準備一個待命伺服器，以便在[災害](how-to-connect-sync-staging-server.md#disaster-recovery)發生時輕鬆地進行容錯移轉。 如果您打算進行頻繁的組態變更，則應該規劃 [預備模式](how-to-connect-sync-staging-server.md) 伺服器。

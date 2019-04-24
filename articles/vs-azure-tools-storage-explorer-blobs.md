@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60458299"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>使用儲存體總管來管理 Azure Blob 儲存體資源
 ## <a name="overview"></a>概觀

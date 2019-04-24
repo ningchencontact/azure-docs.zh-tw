@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ec7fc3a7877cf0bffac0043a74c34d6f0f04826b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362368"
 ---
 <a name="seller-insights-faq"></a>Seller Insights 常見問題集
 ===================
@@ -36,7 +36,7 @@ ms.locfileid: "48806673"
 <a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>查看已付費交易的客戶詳細資料
 -------------------------------------------------------------
 
-從「付款」模組下載您的交易之後，找出標示為 [付款狀態] 的資料行並套用篩選，就只會顯示「已付款」值。 下列資料行將會出現，其中包含客戶的詳細資料：[公司名稱]、[客戶電子郵件]、[客戶國家/地區]、[客戶狀態]，以及 [客戶郵遞區號]。
+從「付款」模組下載您的交易之後，找出標示為 [付款狀態] 的資料行並套用篩選，就只會顯示「已付款」值。 下列資料行，會出現包含客戶的詳細資料：**公司名稱**，**客戶電子郵件**，**客戶國家/地區**，**客戶狀態**，並**客戶郵遞區號**。
 
 
 <a name="calculate-my-open-accounts-receivable"></a>計算我開立的應收帳款
@@ -48,7 +48,7 @@ ms.locfileid: "48806673"
 <a name="calculate-revenue-by-customer-usage-period"></a>計算客戶使用期間的營收
 ------------------------------------------
 
-從「付款」模組下載您的交易之後，找出標示為 [交易狀態] 的資料行，並篩選「已付款」值。   針對列出的每一筆交易，標示為 [付款金額 (PC)] 的資料行代表您已支付的金額。  若要估計與交易相關聯的使用期間，請使用 [收費日期] 資料行，也就是交易適用期間最後一天使用的近似值。
+之後從支出模組下載您的交易，找出資料行均標示 **交易狀態**，並篩選 「 已付 」 的值。   針對每一筆交易所列出的資料行均標示 **支出金額 (PC)** 代表您已支付的金額。  若要估計交易相關聯的使用量期間，使用 資料行 **收費日期**，也就是最後一天的使用量期間要套用交易的最接近的近似值。
 
 
 <a name="calculate-your-bad-debt"></a>計算您的呆帳
@@ -104,5 +104,5 @@ ms.locfileid: "48806673"
 
 - [Seller Insights 定義](./si-insights-definitions-v4.md) - 尋找計量和資料的定義
 
-- [開始使用 Seller Insights](./si-getting-started.md) - Seller Insights 功能的簡介。
+- [開始使用賣方見解](./si-getting-started.md) - 賣方見解功能的簡介。
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
 ms.openlocfilehash: 54050c4c20b6ebb35f198775448f51ee8cdc533b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117637"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60425399"
 ---
 # <a name="check-resource-usage-against-limits"></a>根據限制檢查資源使用量
 
@@ -41,7 +41,7 @@ ms.locfileid: "58117637"
 
      下圖中的範例所顯示的所有網路資源，至少有一個是部署在美國東部：
 
-       ![檢視使用量資料](./media/check-usage-against-limits/view-usage.png)
+       ![查看使用情况数据](./media/check-usage-against-limits/view-usage.png)
 
      您可以選取資料行標題來排序資料行。 顯示的限制是訂用帳戶的限制。 如果您要增加預設限制，請選取 [要求增加]，然後填寫並提交支援要求。 所有資源都有一個最大限制，分別列示在 Azure [限制](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)中。 如果您目前的限制已經是最大值，則無法提高限制。
 

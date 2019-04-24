@@ -2,18 +2,18 @@
 title: 了解 Azure 檔案同步雲端階層處理 | Microsoft Docs
 description: 了解 Azure 檔案同步的雲端階層處理功能
 services: storage
-author: sikoo
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: sikoo
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 871eb1663d6cba550f1403215b1d3ce5fe8278d3
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444922"
 ---
 # <a name="cloud-tiering-overview"></a>雲端階層處理概觀
 雲端階層處理是 Azure 檔案同步的一個選用功能，其中經常存取的檔案會快取到伺服器本機上，而其他的檔案會依原則設定分層處理至 Azure 檔案服務。 當檔案被分層之後，Azure 檔案同步檔案系統篩選器 (StorageSync.sys) 會將本機檔案取代為指標或重新分析點。 重新分析點代表的是針對 Azure 檔案服務中檔案的 URL。 階層式檔案在 NTFS 中具有「離線」屬性和 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 屬性集，因此協力廠商應用程式可以安全地識別階層式檔案。

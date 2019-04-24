@@ -8,22 +8,22 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
-ms.openlocfilehash: 171593483fc94c1c67013ab520b0085ca98f3a82
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 685c978ff206e75d770918f2528a826ad522b706
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427087"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>檢視 Azure 入口網站中的容器登錄存放庫
 
 Azure Container Registry 可讓您將 Docker 容器映像儲存在存放庫中。 透過將映像儲存在存放庫中，您可以在隔離的環境中儲存映像的群組 (或映像的版本)。 當您將映像推送到登錄時，可以指定這些存放庫，然後在 Azure 入口網站中檢視其內容。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* **容器登錄**：在 Azure 訂用帳戶中建立容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
-* **Docker CLI**：在本機電腦安裝 [Docker][docker-install]，可提供您 Docker 命令列介面。
-* **容器映像**：將映像推送至容器登錄。 如需如何發送和提取映像的指引，請參閱[發送和提取映像](container-registry-get-started-docker-cli.md)。
+* **容器登錄庫**:在您的 Azure 訂用帳戶中建立容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
+* **Docker CLI**:安裝[Docker] [ docker-install]在本機電腦，可提供您 Docker 命令列介面。
+* **容器映像**:將映像推送至容器登錄。 如需如何發送和提取映像的指引，請參閱[發送和提取映像](container-registry-get-started-docker-cli.md)。
 
 ## <a name="view-repositories-in-azure-portal"></a>在 Azure 入口網站中檢視存放庫
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/03/2019
 ms.author: aschhab
 ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58910041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402780"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Azure 服務匯流排中 AMQP 錯誤
 本文章提供一些與 Azure 服務匯流排使用 AMQP 時，您會收到的錯誤。 也就是服務的所有標準的行為。 您可以避免它們藉由傳送/接收呼叫連線/連結，這會自動重新建立連線/連結。

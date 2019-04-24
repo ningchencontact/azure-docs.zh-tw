@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 9a96361d3fb155ea5b400990690e3c2b1f65f819
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422367"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則
 伺服器層級防火牆規則可用來管理存取 Azure Database for PostgreSQL 伺服器從特定的 IP 位址或 IP 位址範圍。 透過方便的 Azure CLI 命令，您可以建立、更新、刪除、列出及顯示防火牆規則，以管理您的伺服器。 PostgreSQL 防火牆規則的 Azure 資料庫概觀，請參閱[Azure Database for PostgreSQL 伺服器的防火牆規則](concepts-firewall-rules.md)。

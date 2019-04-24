@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b83b08c442a7f10d6b29122fe7959bedf8f3cff0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177524"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441062"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>針對應用程式 Proxy 的 Kerberos 限制委派設定進行疑難排解
 
@@ -91,7 +91,7 @@ Azure AD 應用程式 Proxy 可以部署到許多類型的基礎結構或環境�
 
    ![不正確的 KCD 組態錯誤](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-在事件記錄檔中看到的對應項目會顯示為事件 13019 或 12027。 您可以在 [應用程式及服務記錄檔] &gt; [Microsoft] &gt; [AadApplicationProxy] &gt; [連接器] &gt; [管理] 中，找到連接器事件記錄檔。
+在事件記錄檔中看到的對應項目會顯示為事件 13019 或 12027。 您可以在 [應用程式及服務記錄]&gt; [Microsoft]&gt; [AadApplicationProxy]&gt; [連接器]&gt; [管理] 中，找到連接器事件記錄。
 
    ![應用程式 Proxy 事件記錄檔中的事件 13019](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 

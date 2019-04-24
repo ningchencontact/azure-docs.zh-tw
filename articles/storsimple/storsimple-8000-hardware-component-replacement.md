@@ -16,11 +16,11 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433649"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321678"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>更換 StorSimple 8000 系列裝置上的硬體元件
 
@@ -34,7 +34,7 @@ ms.locfileid: "57433649"
 ### <a name="safety-icon-conventions"></a>安全性圖示慣例
 下表說明本教學課程中使用的安全性圖示。 當您瀏覽取下並更換裝置元件的步驟時，請密切注意這些安全性圖示。
 
-| 圖示 | 文字 | 其他資訊 |
+| 圖示 | Text | 其他資訊 |
 |:--- |:--- |:--- |
 | ![警告圖示](./media/storsimple-hardware-component-replacement/Warning.png) |**危險！** |指出危險的情況，如果無法避免，將會導致死亡或嚴重傷害。 此訊號文字僅限用於最極端的情況。 |
 | ![警告圖示](./media/storsimple-hardware-component-replacement/Warning.png) |**警告！** |指出危險的情況，如果無法避免，可能會導致死亡或嚴重傷害。 |

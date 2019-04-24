@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
 ms.openlocfilehash: a0099fa085e21c381b74dc2690ffcf0870345f21
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401240"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>適用於 C 的 Azure IoT 裝置 SDK
 
@@ -351,7 +351,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 您已在先前的範例中看過上述大多數的套件，但 **Microsoft.Azure.IoTHub.Serializer** 是新的。 當您使用 **serializer** 程式庫時必須使用此套件。
 
-您可以找到範例應用程式中實作**iothub_client\_樣本\_iothub_convenience_sample**檔案。
+可以在 **iothub_client\_samples\_iothub_convenience_sample** 文件中找到示例应用程序的实现。
 
 下列各節將逐步解說此範例的重要部分。
 

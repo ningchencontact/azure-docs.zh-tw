@@ -9,11 +9,11 @@ ms.date: 12/07/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: dfa2bbc735a79555da0421f64ca644adbd7a1701
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135911"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363818"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型
 本文提供將 Azure ExpressRoute 線路從傳統部署模型移至 Azure Resource Manager 部署模型的概觀。
@@ -64,7 +64,7 @@ ms.locfileid: "53135911"
 * 刪除 ExpressRoute 線路
 
 ## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>傳統與 Resource Manager 部署模型之間的通訊
-ExpressRoute 線路的作用就像是傳統與 Resource Manager 部署模型之間的橋樑。 如果傳統部署模型的虛擬網路中的虛擬機器與 Resource Manager deployment 部署模型的虛擬網路中的虛擬機器連結至相同的 ExpressRoute 線路，這兩種虛擬機器之間的流量會流經 ExpressRoute。
+ExpressRoute 线路相当于经典部署模型与 Resource Manager 部署模型之间的桥梁。 如果傳統部署模型的虛擬網路中的虛擬機器與 Resource Manager deployment 部署模型的虛擬網路中的虛擬機器連結至相同的 ExpressRoute 線路，這兩種虛擬機器之間的流量會流經 ExpressRoute。
 
 彙總輸送量受限於虛擬網路閘道的輸送量容量。 在這類情況下，流量不會進入連線提供者的網路或您的網路。 虛擬網路之間的流量將會完全包含在 Microsoft 網路內。
 
@@ -93,10 +93,10 @@ ExpressRoute 線路的作用就像是傳統與 Resource Manager 部署模型之�
 
 ## <a name="next-steps"></a>後續步驟
 * [將已連結至 ExpressRoute 線路的虛擬網路從傳統模型移轉至 Azure Resource Manager 模型](expressroute-migration-classic-resource-manager.md)
-* 如需工作流程資訊，請參閱 [ExpressRoute 線路佈建工作流程和線路狀態](expressroute-workflows.md)。
+* 有关工作流信息，请参阅[ExpressRoute 线路预配工作流和线路状态](expressroute-workflows.md)。
 * 若要設定 ExpressRoute 連線：
   
-  * [建立 ExpressRoute 線路](expressroute-howto-circuit-arm.md)
+  * [创建 ExpressRoute 线路](expressroute-howto-circuit-arm.md)
   * [設定路由](expressroute-howto-routing-arm.md)
   * [將虛擬網路連結到 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)
 

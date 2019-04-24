@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421259"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure SQL 資料庫進階威脅防護
 

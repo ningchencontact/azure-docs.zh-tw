@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 7e058b7cebb9c2cdc3fb8b97bf99554b2f26dd8c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121570"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427877"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>使用 Azure Logic Apps 對合作對象批次傳送 EDI 訊息
 
@@ -59,13 +59,13 @@ ms.locfileid: "43121570"
 
 2. [將邏輯應用程式連結至整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)。
 
-3. 在 Logic Apps 設計工具中，新增**次**觸發程序，它會啟動您的邏輯應用程式工作流程。 在搜尋方塊中，輸入 "batch" 作為篩選條件。 選取此觸發程序：**批次訊息**
+3. 在 Logic Apps 設計工具中，新增**次**觸發程序，它會啟動您的邏輯應用程式工作流程。 在搜尋方塊中，輸入 "batch" 作為篩選條件。 选择此触发器：**批次訊息**
 
    ![新增批次觸發程序](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
 4. 設定批次接收者屬性： 
 
-   | 屬性 | 值 | 注意 | 
+   | 屬性 | Value | 注意 | 
    |----------|-------|-------|
    | **批次模式** | 內嵌 |  |  
    | **批次名稱** | TestBatch | 僅適用於**內嵌**批次模式 | 
@@ -84,7 +84,7 @@ ms.locfileid: "43121570"
 
    1. 在批次觸發程序下方，選擇 [新增步驟]。
 
-   2. 在搜尋方塊中，輸入 "X12 batch" 作為篩選條件，然後選取這個動作 (任何版本)：**批次編碼 <版本> - X12** 
+   2. 在 [搜尋] 方塊中，輸入"X x12 batch"作為篩選條件，然後選取此動作 （任何版本）：**批次編碼 <*版本*>-X12** 
 
       ![選取「X12 批次編碼」動作](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "43121570"
 
    4. 為批次編碼器動作設定這些屬性：
 
-      | 屬性 | 說明 |
+      | 屬性 | 描述 |
       |----------|-------------|
       | **X12 協議的名稱** | 開啟清單，然後選取現有的協議。 <p>如果清單是空的，請務必[將邏輯應用程式連結至整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) (具有所需協議)。 | 
       | **BatchName** | 按一下此方塊內部，然後在動態內容清單出現後，選取 [批次名稱] 權杖。 | 
@@ -118,13 +118,13 @@ ms.locfileid: "43121570"
 
 1. 在 [X12 編碼] 動作下，選擇 [新增步驟]。 
 
-2. 在搜尋方塊中輸入 "http" 作為篩選條件。 選取此動作：**HTTP - HTTP**
+2. 在搜尋方塊中輸入 "http" 作為篩選條件。 選取此動作：[HTTP - HTTP]
     
    ![選取 HTTP 動作](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
 
 3. 設定 HTTP 動作的屬性：
 
-   | 屬性 | 說明 | 
+   | 屬性 | 描述 | 
    |----------|-------------|
    | **方法** | 從這個清單中選取 [POST]。 | 
    | **Uri** | 為要求 Bin 產生 URI，然後在這個方塊中輸入該 URI。 | 
@@ -149,9 +149,9 @@ ms.locfileid: "43121570"
 
 * 請務必讓批次接收者和批次傳送者共用相同的 Azure 區域和 Azure 訂用帳戶。 如果未共用，您就無法在建立批次傳送者時選取批次接收者，原因是兩者並無法看到彼此。
 
-1. 使用下列名稱來建立另一個邏輯應用程式："SendX12MessagesToBatch" 
+1. 建立具有此名稱的另一個邏輯應用程式："SendX12MessagesToBatch" 
 
-2. 在搜尋方塊中，輸入「當 http 要求」作為篩選條件。 選取此觸發程序：[收到 HTTP 要求時] 
+2. 在搜尋方塊中，輸入「當 http 要求」作為篩選條件。 選取此觸發程序：**收到 HTTP 请求时** 
    
    ![新增「要求」觸發程序](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
@@ -160,7 +160,7 @@ ms.locfileid: "43121570"
    1. 在 [HTTP 要求] 動作下，選擇 [新增步驟]。
 
    2. 在搜尋方塊中，輸入 "batch" 作為篩選條件。 
-   選取 [動作] 清單，然後選取此動作：**選擇包含批次觸發程序的 Logic Apps 工作流程 - 將訊息傳送給批次**
+   選取 [動作] 清單，然後選取這個動作：**選擇包含批次觸發程序的 Logic Apps 工作流程 - 將訊息傳送給批次**
 
       ![選取 [選擇包含批次觸發程序的 Logic Apps 工作流程]](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
@@ -174,9 +174,9 @@ ms.locfileid: "43121570"
 
 4. 設定批次傳送者的屬性。
 
-   | 屬性 | 說明 | 
+   | 屬性 | 描述 | 
    |----------|-------------| 
-   | **批次名稱** | 接收者邏輯應用程式所定義的批次名稱，在本例中為 "TestBatch" <p>**重要**：批次名稱會在執行階段驗證，而且必須符合接收者邏輯應用程式所指定的名稱。 變更批次名稱會導致批次傳送者失敗。 | 
+   | **批次名稱** | 接收者邏輯應用程式所定義的批次名稱，在本例中為 "TestBatch" <p>**重要说明**：批次名稱會在執行階段驗證，而且必須符合接收者邏輯應用程式所指定的名稱。 變更批次名稱會導致批次傳送者失敗。 | 
    | **訊息內容** | 您想要傳送的訊息內容，在本例中為**主體**權杖 | 
    ||| 
    

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/01/2019
 tags: connectors
 ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60312534"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>上傳及管理使用 Azure Logic Apps 的 Dropbox 中的檔案
 
@@ -27,7 +27,7 @@ ms.locfileid: "58314411"
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
-* A [Dropbox 帳戶](https://www.dropbox.com/)，其中您可以免費註冊。 您的帳戶認證所需的邏輯應用程式與您的 Dropbox 帳戶之間建立連接。
+* 一个 [Dropbox 帐户](https://www.dropbox.com/)，可以在注册后免费获取。 帐户凭据是在逻辑应用和 Dropbox 帐户之间创建连接所必需的。
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識。 針對此範例，您需要空白的邏輯應用程式。
 

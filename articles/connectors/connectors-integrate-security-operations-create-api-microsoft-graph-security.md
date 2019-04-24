@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
 ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448041"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>使用 Microsoft Graph 安全性和 Azure Logic Apps 整合安全性作業，改善威脅防護功能
 
@@ -36,7 +36,7 @@ ms.locfileid: "56673677"
 
 * 若要使用 Microsoft Graph 安全性連接器，您必須擁有*明確提供*的 Azure Active Directory (AD) 租用戶系統管理員同意，這是 [Microsoft Graph 安全性驗證需求](https://aka.ms/graphsecurityauth)的一部分。 這項同意需要 Microsoft Graph 安全性連接器的應用程式識別碼和名稱，您也可以在 [Azure 入口網站](https://portal.azure.com)中找到：
 
-   | 屬性 | 值 |
+   | 屬性 | Value |
    |----------|-------|
    | **應用程式名稱** | `MicrosoftGraphSecurityConnector` |
    | **應用程式識別碼** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |

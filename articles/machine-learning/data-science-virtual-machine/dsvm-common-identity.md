@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
 ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502365"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>在資料科學虛擬機器上設定通用身分識別
 
@@ -59,7 +59,7 @@ Azure AD DS 可透過在 Azure 上提供完全受控的服務，讓您輕鬆地�
     
    g. 在 [使用者] 中，選取 [建立]。
     
-   h. 將產生的密碼安全地散發給新使用者，以便讓使用者可以登入。
+   h.如果该值不存在，请单击“添加行”。 將產生的密碼安全地散發給新使用者，以便讓使用者可以登入。
 
 1. 建立 Azure AD DS 執行個體。 請依照[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)一文 (工作 1 到 5) 中的指示進行操作。 請務必更新 Active Directory 中現有的使用者密碼，以便同步 Azure AD DS 中的密碼。 也請務必將 DNS 新增至 Azure AD DS，如上文的工作 4 所述。 
 

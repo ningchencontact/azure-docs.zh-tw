@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+origin.date: 10/09/2018
+ms.date: 03/15/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60350485"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 和联合身份验证
 Azure Active Directory (Azure AD) Connect 可讓您使用內部部署 Active Directory 同盟服務 (AD FS) 與 Azure AD 來設定同盟。 使用同盟登入，您可以讓使用者使用他們的內部部署密碼登入 Azure AD 服務，並且在使用公司網路時，無須再次輸入密碼就可登入服務。 您可以藉由使用具備 AD FS 的同盟選項來部署新安裝的 AD FS，或者您可以在 Windows Server 2012 R2 伺服器陣列中指定現有的安裝。
@@ -36,7 +37,7 @@ Azure Active Directory (Azure AD) Connect 可讓您使用內部部署 Active Dir
 | **使用 Azure AD Connect 安裝 AD FS** | |
 | [先決條件](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |請查看透過 Azure AD Connect 成功安裝 AD FS 安裝的必要條件。 |
 | [設定 AD FS 伺服器陣列](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |使用 Azure AD Connect 安裝新的 AD FS 伺服器陣列。 |
-| [使用替代登入識別碼與 Azure AD 建立同盟](how-to-connect-fed-management.md#alternateid) | 使用替代登入識別碼設定同盟  |
+| [使用备用登录 ID 与 Azure AD 联合](how-to-connect-fed-management.md#alternateid) | 使用替代登入識別碼設定同盟  |
 | **修改 AD FS 組態** | |
 | [修复信任](how-to-connect-fed-management.md#repairthetrust) |修復內部部署 AD FS 和 Office 365/Azure 之間目前的信任。 |
 | [新增 AD FS 伺服器](how-to-connect-fed-management.md#addadfsserver) |在初始安裝之後，增加 AD FS 伺服器來擴充 AD FS 伺服器陣列。 |
@@ -55,3 +56,5 @@ Azure Active Directory (Azure AD) Connect 可讓您使用內部部署 Active Dir
 * [將兩個 Azure AD 和單一 AD FS 建立同盟關係](how-to-connect-fed-single-adfs-multitenant-federation.md)
 * [Azure 中的 AD FS 部署](how-to-connect-fed-azure-adfs.md)
 * [使用 Azure 流量管理員在 Azure 中部署高可用性跨地區 AD FS](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+
+<!-- Update_Description: update metedata properties -->

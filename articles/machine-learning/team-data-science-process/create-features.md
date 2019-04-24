@@ -12,11 +12,11 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8b0973007a78b492cff1c5ffc2ce1e43116a0847
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398593"
 ---
 # <a name="feature-engineering-in-data-science"></a>資料科學特徵工程設計
 本文說明特徵工程設計的目的，並透過提供的範例，顯示它在機器學習服務的資料增強程序中扮演的角色。 用來說明此程序的範例是取自 Azure Machine Learning Studio。 

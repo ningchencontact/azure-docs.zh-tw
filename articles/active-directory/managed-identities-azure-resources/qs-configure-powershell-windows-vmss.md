@@ -16,11 +16,11 @@ ms.date: 11/27/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4917720af2396b68ccd36cc0410c9acbbba2d9b2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448590"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304561"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>使用 PowerShell 在虛擬機器擴展集上設定 Azure 資源的受控識別
 
@@ -90,7 +90,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 1. 使用 `Connect-AzAccount` 登入 Azure。 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。 此外，也請確定您的帳戶屬於在虛擬機器擴展集上具有寫入權限的角色，例如「虛擬機器參與者」：
 
-2. 執行下列 Cmdlet：
+2. 运行以下 cmdlet：
 
    ```powershell
    Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"

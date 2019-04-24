@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323819"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN 規則引擎比對條件 
 本文會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用比對條件的詳細描述。
@@ -35,7 +35,7 @@ ms.locfileid: "59283472"
 
 「一律」比對條件可將一組預設功能套用至所有要求。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [一律](#always) | 將一組預設功能套用至所有要求。
 
@@ -43,7 +43,7 @@ ms.locfileid: "59283472"
 
 「裝置」比對條件可識別從行動裝置根據其屬性所提出的要求。  
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [裝置](#device) | 識別從行動裝置根據其屬性所提出的要求。
 
@@ -51,7 +51,7 @@ ms.locfileid: "59283472"
 
 「位置」比對條件可根據要求者的位置識別要求。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [AS 號碼](#as-number) | 識別源自特定網路的要求。
 [國家/地區](#country) | 識別源自特定國家/地區的要求。
@@ -60,7 +60,7 @@ ms.locfileid: "59283472"
 
 「原點」比對條件可識別指向內容傳遞網路儲存體或客戶原始伺服器的要求。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [CDN 原點](#cdn-origin) | 識別儲存在內容傳遞網路儲存體中的內容要求。
 [客戶原點](#customer-origin) | 識別對儲存於特定客戶原始伺服器上之內容的要求。
@@ -69,7 +69,7 @@ ms.locfileid: "59283472"
 
 「要求」比對條件可根據要求的屬性識別它們。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [用戶端 IP 位址](#client-ip-address) | 識別源自特定 IP 位址的要求。
 [Cookie 參數](#cookie-parameter) | 檢查與每個適用於指定值之要求相關聯的 Cookie。
@@ -86,7 +86,7 @@ ms.locfileid: "59283472"
 
 「URL」比對條件可根據要求的 URL 識別它們。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [URL 路徑目錄](#url-path-directory) | 依其相對路徑來識別要求。
 [URL 路徑副檔名](#url-path-extension) | 依其副檔名來識別要求。
@@ -752,7 +752,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 
 下表中的範例設定會假設當要求符合指定的 URL 模式時，就符合比對條件：
 
-值                   | 相對於    | 結果 
+Value                   | 相對於    | 結果 
 ------------------------|----------------|-------
 \*/test.html \*/test.php  | 根或原點 | 要求此模式比對任何資料夾中名為 "test.html" 或 "test.php" 的資產。
 /80ABCD/origin/text/*   | 根           | 要求的資產符合下列準則時，會比對此模式： <br />- 必須位於名為 "origin" 的客戶原點。 <br />- 相對路徑必須以名為 "text" 的資料夾為開頭。 也就是所要求的資產可以位於 "text" 資料夾中，或是位於該資料夾的其中一個遞迴子資料夾中。
@@ -868,7 +868,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 #### <a name="sample-scenarios"></a>範例案例
 下列範例會示範這個選項在特定情況中的運作方式：
 
-名稱  | 值 |  結果
+Name  | Value |  結果
 ------|-------|--------
 使用者  | Joe   | 當所要求 URL 的查詢字串為 "?user=joe" 時，會比對此模式。
 使用者  | *     | 當所要求 URL 的查詢字串包含 User 參數時，會比對此模式。
@@ -895,7 +895,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
     
 - 某些字元需要 URL 編碼。 使用百分比符號以 URL 編碼下列字元：
 
-   Character | URL 編碼 | 值
+   Character | URL 編碼 | Value
    ----------|--------------|------
    空白字元     | %20          | \%20
    &         | %25          | \%25
@@ -906,7 +906,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 
    例如︰
 
-   值 | 解譯為 
+   Value | 解譯為 
    ------|---------------
    \\+    | +
    \\\\+   | \\+
@@ -960,7 +960,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 #### <a name="sample-scenarios"></a>範例案例
 下列範例會示範這個選項在特定情況中的運作方式：
 
- 名稱                 | 描述
+ Name                 | 描述
  ---------------------|------------
 user=joe              | 當所要求 URL 的查詢字串為 "?user=joe" 時，會比對此模式。
 \*user=\* \*optout=\* | 當 CDN URL 查詢包含 user 或 optout 參數時，會比對此模式。

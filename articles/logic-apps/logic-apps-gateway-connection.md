@@ -10,11 +10,11 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064061"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304012"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
@@ -63,7 +63,7 @@ ms.locfileid: "54064061"
 
 3. 在 [建立連線閘道] 頁面上，為閘道資源提供這項資訊：
 
-   | 屬性 | 說明 | 
+   | 屬性 | 描述 | 
    |----------|-------------|
    | **名稱** | 您的閘道資源名稱 | 
    | **訂用帳戶** | 您的 Azure 訂用帳戶名稱，該名稱必須是與邏輯應用程式相同的訂用帳戶。 預設的訂用帳戶會由您用來登入的 Azure 帳戶決定。 | 

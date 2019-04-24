@@ -10,11 +10,11 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497078"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60238060"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 診斷 1.3 版和更新版本的組態結構描述
 > [!NOTE]
@@ -644,12 +644,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
-|**name**|字串|識別 sinkname 的字串。|  
+|**name**|string|識別 sinkname 的字串。|  
 
 |元素|類型|描述|  
 |-------------|----------|-----------------|  
-|**Application Insights**|字串|僅會在將資料傳送至 Application Insights 時使用。 包含您有權存取之使用中 Application Insights 帳戶的檢測金鑰。|  
-|**Channels**|字串|每個可額外篩選該資料流的其中一個|  
+|**Application Insights**|string|僅會在將資料傳送至 Application Insights 時使用。 包含您有權存取之使用中 Application Insights 帳戶的檢測金鑰。|  
+|**Channels**|string|每個可額外篩選該資料流的其中一個|  
 
 ## <a name="channels-element"></a>Channels 元素  
  *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -660,7 +660,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素|類型|描述|  
 |-------------|----------|-----------------|  
-|**Channel**|字串|請參閱本頁面上其他部分的說明。|  
+|**Channel**|string|請參閱本頁面上其他部分的說明。|  
 
 ## <a name="channel-element"></a>Channel 元素
  *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*

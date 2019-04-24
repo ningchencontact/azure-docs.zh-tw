@@ -17,11 +17,11 @@ ms.date: 09/19/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
 ms.openlocfilehash: 08c7e84a27a4c8e9527083360dbd08296bd86775
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190043"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542458"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-the-azure-cli"></a>預覽：使用 Azure CLI 建立共用映像資源庫
 
@@ -33,7 +33,7 @@ ms.locfileid: "54190043"
 
 共用映像庫具有多個資源類型。 我們將在這篇文章中使用或建置這些資源類型：
 
-| 資源 | 說明|
+| 資源 | 描述|
 |----------|------------|
 | **受控映像** | 這是基本映像，既可單獨使用，也可用來在映像庫中建立個**映像版本**。 受控映像是從一般化 VM 建立的。 受控映像是一種特殊的 VHD 類型，可用來產生多個 VM，現在可以用來建立共用映像版本。 |
 | **映像庫** | 和 Azure Marketplace 一樣，**映像庫**是用於管理和共用映像的存放庫，但您可以控制哪些使用者能夠存取。 |

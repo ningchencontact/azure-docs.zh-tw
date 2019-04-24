@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990423"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60453100"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Log Analytics 使用者從 OMS 入口網站轉換到 Azure 入口網站的常見問題
 Log Analytics 一開始會使用其本身的入口網站 (稱為 OMS 入口網站) 來管理其設定和分析收集到的資料。  這個入口網站中的所有功能都已移至 Azure 入口網站，並將繼續進行開發。
@@ -89,7 +89,7 @@ OMS 入口網站之 [設定] 區段中的許多設定，都位於 Azure 入口�
 
 | OMS 入口網站中的設定 | Azure 入口網站中的對等項目 |
 |:---|:---|
-| Windows 事件記錄           | 工作區的 [進階設定] 功能表。 |
+| Windows 事件記錄檔           | 工作區的 [進階設定] 功能表。 |
 | Windows 效能計數器 | 工作區的 [進階設定] 功能表。 |
 | Linux 效能計數器   | 工作區的 [進階設定] 功能表。 |
 | IIS 記錄                     | 工作區的 [進階設定] 功能表。 |

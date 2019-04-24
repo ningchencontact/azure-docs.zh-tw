@@ -13,11 +13,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311660"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>執行 Databricks Notebook 來轉換資料
 
@@ -60,7 +60,7 @@ ms.locfileid: "57576815"
 |屬性|描述|必要項|
 |---|---|---|
 |name|管線中的活動名稱。|是|
-|說明|說明活動用途的文字。|否|
+|description|說明活動用途的文字。|否|
 |type|若是 Databricks Notebook 活動，則活動類型是 DatabricksNotebook。|是|
 |預設容器|Databricks Notebook 執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
 |notebookPath|要在 Databricks 工作區中執行之 Notebook 的絕對路徑。 此路徑必須以斜線開頭。|是|

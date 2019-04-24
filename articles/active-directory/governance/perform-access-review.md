@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384614"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>檢閱群組的存取權或在 Azure AD 中的應用程式存取權檢閱
 

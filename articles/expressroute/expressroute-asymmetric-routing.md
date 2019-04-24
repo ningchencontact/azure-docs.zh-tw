@@ -10,11 +10,11 @@ ms.date: 10/10/2016
 ms.author: osamam
 ms.custom: seodec18
 ms.openlocfilehash: 6ece48d892f46a4f8bbeb66d3ebda9f532b621b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367748"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>非對稱式路由與多個網路路徑
 本文說明如何在網路來源與目的地之間有多個路徑時，向前和回傳網路流量如何採取不同的路由。
@@ -38,7 +38,7 @@ ms.locfileid: "53076646"
 
 防火牆是具狀態裝置的常見範例。 防火牆會根據各種欄位 (例如通訊協定、TCP/UDP 連接埠、URL 標頭)，允許或拒絕封包通過其介面。 這個層級的封包審查會對裝置造成沈重的處理負載。 為了改善效能，防火牆會檢查流程的第一個封包。 如果允許封包繼續進行，它會將流程資訊保留在其狀態資料表中。 根據最初的判斷會允許與此流程相關的所有後續封包。 屬於現有流程一部分的封包可到達防火牆。 如果防火牆沒有其先前的狀態資訊，則防火牆會捨棄封包。
 
-## <a name="asymmetric-routing-with-expressroute"></a>非對稱式路由與 ExpressRoute
+## <a name="asymmetric-routing-with-expressroute"></a>通过 ExpressRoute 非对称路由
 當您透過 Azure ExpressRoute 連接到 Microsoft 時，您的網路會發生下列變更：
 
 * 您有 Microsoft 的多個連結。 一個連結是您現有的網際網路連線，而另一個則是透過 ExpressRoute。 Microsoft 一些流量可能會通過網際網路，但透過 ExpressRoute 返回，反之亦然。

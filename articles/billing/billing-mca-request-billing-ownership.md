@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371879"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>取得帳單其他使用者的 Azure 訂用帳戶的擁有的權
 
@@ -39,12 +39,12 @@ ms.locfileid: "57890928"
 
    ![螢幕擷取畫面顯示 Azure 入口網站的搜尋，成本管理 + 計費](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. 請移至 [發票] 區段。 根據您的存取權，您可能需要選取 帳單帳戶或計費的設定檔。 從計費的帳戶或設定檔上，選取**發票區段**，然後發票 > 一節。
+3. 移至 [發票] 區段。 根據您的存取權，您可能需要選取 帳單帳戶或計費的設定檔。 從計費的帳戶或設定檔上，選取**發票區段**，然後發票 > 一節。
    <!-- Todo - Add a screenshot -->
 
 4. 選取 **轉移要求**從左下方。
 
-5. 從頁面頂端，選取**新增**。
+5. 從頁面頂端選取 [新增]。
 
 6. 輸入您正在要求從的帳單擁有權的使用者電子郵件地址。 使用者必須是 Microsoft 線上服務方案的計費帳戶的帳戶系統管理員 」 或 「 Enterprise 合約的帳戶擁有者。 如需詳細資訊，請參閱 < [Azure 入口網站中檢視您的帳單帳戶](billing-view-all-accounts.md)。
 
@@ -68,7 +68,7 @@ ms.locfileid: "57890928"
 
    ![螢幕擷取畫面顯示 Azure 入口網站的搜尋，成本管理 + 計費](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. 請移至 [發票] 區段。 根據您的存取權，您可能需要選取 帳單帳戶或計費的設定檔。 從計費的帳戶或設定檔上，選取**發票區段**，然後發票 > 一節。
+3. 移至 [發票] 區段。 根據您的存取權，您可能需要選取 帳單帳戶或計費的設定檔。 從計費的帳戶或設定檔上，選取**發票區段**，然後發票 > 一節。
    <!-- Todo - Add a screenshot -->
 
 4. 選取 **轉移要求**從左下方。

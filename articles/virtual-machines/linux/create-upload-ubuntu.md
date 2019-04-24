@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
 ms.openlocfilehash: 7776e0005facb57d223a1ba1e73d1efa30edec49
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327944"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>準備適用於 Azure 的 Ubuntu 虛擬機器
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -125,9 +125,9 @@ Ubuntu 現在發佈官方 Azure VHD 提供下載，位於：[https://cloud-image
    > [!Note]
    >  若已安裝 `NetworkManager` 和 `NetworkManager-gnome` 套件，則 `walinuxagent` 套件可能會將它們移除。
 
-針對 Ubuntu 18.04/18.10 更新 Azure 資料來源，請編輯這個檔案： /etc/cloud/cloud.cfg.d/90-azure.cfg，將此程式碼新增至檔案結尾：
+对于 Ubuntu 18.04/18.10，更新 Azure 数据源，编辑 /etc/cloud/cloud.cfg.d/90-azure.cfg，将此代码添加到该文件末尾：
 
-**重要： 程式碼必須完全按照所示，包括空格新增。**
+**重要提示：必须严格按照所示添加代码，包括空格。**
 
 ```bash
 datasource:

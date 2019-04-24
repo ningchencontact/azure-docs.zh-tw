@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343761"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP HANA 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ ms.locfileid: "54022966"
 
 以下是針對 SAP HANA 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SapHana** | 是 |
 | 伺服器 | SAP Hana 執行個體所在之伺服器的名稱。 如果您的伺服器使用自訂連接埠，指定 `server:port`。 | 是 |
@@ -119,7 +119,7 @@ ms.locfileid: "54022966"
 
 若要從 SAP HANA 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
 | query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | 是 |
@@ -162,23 +162,23 @@ ms.locfileid: "54022966"
 
 | SAP HANA 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| ALPHANUM | 字串 |
+| ALPHANUM | String |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
 | BOOLEAN | Byte |
 | CLOB | Byte[] |
 | 日期 | Datetime |
-| DECIMAL | 十進位 |
-| DOUBLE | 單一 |
+| DECIMAL | Decimal |
+| DOUBLE | Single |
 | INT | Int32 |
-| NVARCHAR | 字串 |
-| REAL | 單一 |
+| NVARCHAR | String |
+| REAL | Single |
 | SECONDDATE | Datetime |
 | SMALLINT | Int16 |
-| TIME | 時間範圍 |
-| 時間戳記 | Datetime |
+| TIME | TimeSpan |
+| TIMESTAMP | Datetime |
 | TINYINT | Byte |
-| VARCHAR | 字串 |
+| VARCHAR | String |
 
 ## <a name="known-limitations"></a>已知限制
 

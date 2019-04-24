@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371442"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 客戶合約開始使用您的帳單帳戶
 
@@ -30,7 +30,7 @@ ms.locfileid: "57337408"
 
 您的 Microsoft 客戶合約的帳單帳戶包含一或多個計費的設定檔，讓您管理您的發票和付款方法。 每個計費的設定檔包含一或多個發票區段可讓您組織的帳單設定檔的發票上的成本。
 
-下圖顯示的帳單帳戶、 計費的設定檔和發票區段之間的關聯性。
+下圖顯示帳單帳戶、帳單設定檔和發票區段之間的關聯性。
 
 ![此圖顯示 Microsoft 客戶合約計費階層](./media/billing-mca-overview/mca-billing-hierarchy.png)
 

@@ -6,19 +6,25 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370742"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>了解保留折扣如何套用至 Azure Cosmos DB
 
 購買 Azure Cosmos DB 保留容量之後，保留折扣會自動套用至符合保留屬性和數量的 Azure Cosmos DB 資源。 保留可涵蓋針對 Azure Cosmos DB 資源所佈建的輸送量。 其未涵蓋軟體、網路、儲存體或預先定義的容器費用。
+
+## <a name="how-reservation-discount-is-applied"></a>保留折扣如何套用
+
+保留折扣會 「*使用-it-或-遺失-it*"。 因此，如果您沒有任何相符的資源，然後您會遺失保留數量的那一小時。 您無法執行轉送未使用保留的時數。
+
+當您關閉資源時，保留折扣會自動套用至指定之範圍中的另一個相符的資源。 如果沒有相符的資源位於指定的範圍，則保留的時間為週間*遺失*。
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>套用至 Azure Cosmos DB 帳戶的保留折扣
 

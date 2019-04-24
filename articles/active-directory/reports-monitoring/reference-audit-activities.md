@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285478"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 稽核活動參考
 
@@ -140,112 +140,112 @@ Azure AD 中的報告架構包含下列元件：
 |Authentication|建立 V1 應用程式|
 |Authentication|建立 V2 應用程式|
 |Authentication|在租用戶中建立自訂網域|
-|Authorization|建立新的 AdminUserJourney|
-|Authorization|建立當地語系化資源 json|
-|Authorization|建立新的自訂 IDP|
-|Authorization|建立新的 IDP|
-|Authorization|建立或更新 B2C 目錄資源|
-|Authorization|建立原則|
-|Authorization|建立 trustFramework 原則|
-|Authorization|使用可設定的首碼建立 trustFramework 原則|
-|Authorization|建立使用者屬性|
-|Authorization|CreateTrustFrameworkPolicy|
-|Authorization|建立或更新新的 AdminUserJourney|
-|Authorization|刪除 IDP|
-|Authorization|建立 IdentityProvider|
-|Authorization|刪除 V1 應用程式|
-|Authorization|刪除 V2 應用程式|
-|Authorization|刪除 V2 應用程式授權|
-|Authorization|刪除 B2C 目錄資源|
-|Authorization|刪除 CPIM 金鑰容器|
-|Authorization|刪除 trustFramework 原則|
-|Authorization|刪除使用者屬性|
-|Authorization|啟用 B2C 功能|
-|Authorization|取得訂用帳戶中的 B2C 目錄資源|
-|Authorization|取得自訂 IDP|
-|Authorization|取得 IDP|
-|Authorization|取得 V1 和 V2 應用程式|
-|Authorization|取得 V1 應用程式|
-|Authorization|取得 V1 應用程式|
-|Authorization|取得 V2 應用程式|
-|Authorization|取得 V2 應用程式|
-|Authorization|取得 B2C 目錄資源|
-|Authorization|取得租用戶中的自訂網域清單|
-|Authorization|取得使用者旅程圖|
-|Authorization|取得使用者旅程圖的允許應用程式宣告|
-|Authorization|取得使用者旅程圖的允許自我判斷宣告|
-|Authorization|取得原則的允許自我判斷宣告|
-|Authorization|取得可用的輸出宣告清單|
-|Authorization|取得使用者旅程圖的內容定義|
-|Authorization|取得特定管理流程的 IDP|
-|Authorization|取得 JWK 中的金鑰容器作用中金鑰中繼資料|
-|Authorization|取得所有管理流程的清單|
-|Authorization|取得所有使用者的所有管理流程的標記清單|
-|Authorization|取得使用者的租用戶清單|
-|Authorization|取得本機帳戶的自我判斷宣告|
-|Authorization|取得當地語系化資源 json|
-|Authorization|取得 Microsoft.AzureActiveDirectory 資源提供者的作業|
-|Authorization|取得原則|
-|Authorization|取得原則|
-|Authorization|取得租用戶的資源屬性|
-|Authorization|取得支援的 IDP 清單|
-|Authorization|取得使用者旅程圖的支援 IDP 清單|
-|Authorization|取得租用戶資訊|
-|Authorization|取得租用戶允許的功能|
-|Authorization|取得租用戶定義的自訂 IDP 清單|
-|Authorization|取得租用戶定義的 IDP 清單|
-|Authorization|取得租用戶定義的本機 IDP 清單|
-|Authorization|取得使用者的租用戶詳細資料以便建立資源|
-|Authorization|取得租用戶清單|
-|Authorization|取得 tenantDomains|
-|Authorization|取得 CPIM 的預設支援文化特性|
-|Authorization|取得管理流程的詳細資料|
-|Authorization|取得此租用戶的 UserJourneys 清單|
-|Authorization|取得 CPIM 可用的支援文化特性集合|
-|Authorization|取得 trustFramework 原則|
-|Authorization|取得 xml 格式的 trustFramework 原則|
-|Authorization|取得使用者屬性|
-|Authorization|取得使用者屬性|
-|Authorization|取得使用者旅程圖清單|
-|Authorization|GetIEFPolicies|
-|Authorization|GetIdentityProviders|
-|Authorization|GetTrustFrameworkPolicy|
-|Authorization|取得 jwk 格式的 CPIM 金鑰容器|
-|Authorization|取得租用戶中的金鑰容器清單|
-|Authorization|取得租用戶的類型|
-|Authorization|MigrateTenantMetadata|
-|Authorization|修補程式 IdentityProvider|
-|Authorization|PutTrustFrameworkPolicy|
-|Authorization|PutTrustFrameworkpolicy|
-|Authorization|移除使用者旅程圖|
-|Authorization|還原 CPIM 金鑰容器備份|
-|Authorization|擷取 V2 應用程式授權|
-|Authorization|擷取目前租用戶中的 V2 應用程式服務主體|
-|Authorization|更新自訂 IDP|
-|Authorization|更新 IDP|
-|Authorization|更新本機 IDP|
-|Authorization|更新 V1 應用程式|
-|Authorization|更新 V2 應用程式|
-|Authorization|更新 V2 應用程式授權|
-|Authorization|更新原則|
-|Authorization|更新使用者屬性|
-|Authorization|上傳 CPIM 加密的金鑰|
-|Authorization|使用者授權：已停用租用戶功能集的 API|
-|Authorization|使用者授權：使用者以「租用戶管理員」身分授與存取權|
-|Authorization|使用者授權：使用者獲取「已驗證的使用者」存取權限|
-|Authorization|驗證是否已啟用 B2C 功能|
-|Authorization|驗證是否已啟用功能|
-|Authorization|建立程式|
-|Authorization|刪除程式|
-|Authorization|連結程式控制項|
-|Authorization|列於 Azure AD 存取權檢閱上|
-|Authorization|取消連結程式控制項|
-|Authorization|更新程式|
-|Authorization|停用桌面 Sso|
-|Authorization|停用特定網域的桌面 Sso|
-|Authorization|停用應用程式 Proxy|
-|Authorization|停用傳遞驗證|
-|Authorization|啟用桌面 Sso|
+|授權|建立新的 AdminUserJourney|
+|授權|建立當地語系化資源 json|
+|授權|建立新的自訂 IDP|
+|授權|建立新的 IDP|
+|授權|建立或更新 B2C 目錄資源|
+|授權|建立原則|
+|授權|建立 trustFramework 原則|
+|授權|使用可設定的首碼建立 trustFramework 原則|
+|授權|建立使用者屬性|
+|授權|CreateTrustFrameworkPolicy|
+|授權|建立或更新新的 AdminUserJourney|
+|授權|刪除 IDP|
+|授權|建立 IdentityProvider|
+|授權|刪除 V1 應用程式|
+|授權|刪除 V2 應用程式|
+|授權|刪除 V2 應用程式授權|
+|授權|刪除 B2C 目錄資源|
+|授權|刪除 CPIM 金鑰容器|
+|授權|刪除 trustFramework 原則|
+|授權|刪除使用者屬性|
+|授權|啟用 B2C 功能|
+|授權|取得訂用帳戶中的 B2C 目錄資源|
+|授權|取得自訂 IDP|
+|授權|取得 IDP|
+|授權|取得 V1 和 V2 應用程式|
+|授權|取得 V1 應用程式|
+|授權|取得 V1 應用程式|
+|授權|取得 V2 應用程式|
+|授權|取得 V2 應用程式|
+|授權|取得 B2C 目錄資源|
+|授權|取得租用戶中的自訂網域清單|
+|授權|取得使用者旅程圖|
+|授權|取得使用者旅程圖的允許應用程式宣告|
+|授權|取得使用者旅程圖的允許自我判斷宣告|
+|授權|取得原則的允許自我判斷宣告|
+|授權|取得可用的輸出宣告清單|
+|授權|取得使用者旅程圖的內容定義|
+|授權|取得特定管理流程的 IDP|
+|授權|取得 JWK 中的金鑰容器作用中金鑰中繼資料|
+|授權|取得所有管理流程的清單|
+|授權|取得所有使用者的所有管理流程的標記清單|
+|授權|取得使用者的租用戶清單|
+|授權|取得本機帳戶的自我判斷宣告|
+|授權|取得當地語系化資源 json|
+|授權|取得 Microsoft.AzureActiveDirectory 資源提供者的作業|
+|授權|取得原則|
+|授權|取得原則|
+|授權|取得租用戶的資源屬性|
+|授權|取得支援的 IDP 清單|
+|授權|取得使用者旅程圖的支援 IDP 清單|
+|授權|取得租用戶資訊|
+|授權|取得租用戶允許的功能|
+|授權|取得租用戶定義的自訂 IDP 清單|
+|授權|取得租用戶定義的 IDP 清單|
+|授權|取得租用戶定義的本機 IDP 清單|
+|授權|取得使用者的租用戶詳細資料以便建立資源|
+|授權|取得租用戶清單|
+|授權|取得 tenantDomains|
+|授權|取得 CPIM 的預設支援文化特性|
+|授權|取得管理流程的詳細資料|
+|授權|取得此租用戶的 UserJourneys 清單|
+|授權|取得 CPIM 可用的支援文化特性集合|
+|授權|取得 trustFramework 原則|
+|授權|取得 xml 格式的 trustFramework 原則|
+|授權|取得使用者屬性|
+|授權|取得使用者屬性|
+|授權|取得使用者旅程圖清單|
+|授權|GetIEFPolicies|
+|授權|GetIdentityProviders|
+|授權|GetTrustFrameworkPolicy|
+|授權|取得 jwk 格式的 CPIM 金鑰容器|
+|授權|取得租用戶中的金鑰容器清單|
+|授權|取得租用戶的類型|
+|授權|MigrateTenantMetadata|
+|授權|修補程式 IdentityProvider|
+|授權|PutTrustFrameworkPolicy|
+|授權|PutTrustFrameworkpolicy|
+|授權|移除使用者旅程圖|
+|授權|還原 CPIM 金鑰容器備份|
+|授權|擷取 V2 應用程式授權|
+|授權|擷取目前租用戶中的 V2 應用程式服務主體|
+|授權|更新自訂 IDP|
+|授權|更新 IDP|
+|授權|更新本機 IDP|
+|授權|更新 V1 應用程式|
+|授權|更新 V2 應用程式|
+|授權|更新 V2 應用程式授權|
+|授權|更新原則|
+|授權|更新使用者屬性|
+|授權|上傳 CPIM 加密的金鑰|
+|授權|使用者授權：已停用租用戶功能集的 API|
+|授權|使用者授權：使用者以「租用戶管理員」身分授與存取權|
+|授權|使用者授權：使用者獲取「已驗證的使用者」存取權限|
+|授權|驗證是否已啟用 B2C 功能|
+|授權|驗證是否已啟用功能|
+|授權|建立程式|
+|授權|刪除程式|
+|授權|連結程式控制項|
+|授權|列於 Azure AD 存取權檢閱上|
+|授權|取消連結程式控制項|
+|授權|更新程式|
+|授權|停用桌面 Sso|
+|授權|停用特定網域的桌面 Sso|
+|授權|停用應用程式 Proxy|
+|授權|停用傳遞驗證|
+|授權|啟用桌面 Sso|
 |目錄管理|啟用特定網域的桌面 Sso|
 |目錄管理|啟用應用程式 Proxy|
 |目錄管理|啟用傳遞驗證|

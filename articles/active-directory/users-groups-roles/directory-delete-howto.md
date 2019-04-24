@@ -15,11 +15,11 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91ac6b4530414850c52605bac8cb701aa2b877d4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473061"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>刪除 Azure Active Directory 中的目錄
 
@@ -42,11 +42,11 @@ ms.locfileid: "59607291"
 
 3. 切換至您想要刪除的目錄。
   
-   ![確認刪除之前的組織](./media/directory-delete-howto/delete-directory-command.png)
+   ![在删除之前确认组织](./media/directory-delete-howto/delete-directory-command.png)
 
 4. 選取 [刪除目錄]。
   
-   ![選取要刪除的組織的命令](./media/directory-delete-howto/delete-directory-list.png)
+   ![选择用于删除组织的命令](./media/directory-delete-howto/delete-directory-list.png)
 
 5. 如果您的目錄未通過一或多個檢查，系統會提供您有關如何將傳遞的詳細資訊的連結。 在您通過所有檢查之後，選取 [刪除] 即可完成流程。
 
@@ -111,23 +111,23 @@ Deleted | 刪除的資料 | 使用者無法存取自助註冊的產品、 檔案
 
 2. 選取 **授權**，然後選取 **自助式註冊產品**。 您可以看到所有的自助式註冊產品分開以基座為基礎的訂用帳戶。 選擇您想要永久刪除此的產品。 以下是 Microsoft Power BI 中的範例：
 
-    ![使用者名稱輸入錯誤，或是找不到](./media/directory-delete-howto/licenses-page.png)
+    ![键入错误的用户名，或者找不到该用户名](./media/directory-delete-howto/licenses-page.png)
 
 3. 選取  **刪除** 刪除產品，並接受條款立即且無法變更，會刪除該資料。 此刪除動作會移除所有使用者，並都移除對產品的組織存取權。 按一下 [是] 繼續進行刪除。  
 
-    ![使用者名稱輸入錯誤，或是找不到](./media/directory-delete-howto/delete-product.png)
+    ![键入错误的用户名，或者找不到该用户名](./media/directory-delete-howto/delete-product.png)
 
 4. 當您選取**是**，便會起始自助式產品刪除。 沒有通知，告訴您刪除作業的進行中。  
 
-    ![使用者名稱輸入錯誤，或是找不到](./media/directory-delete-howto/progress-message.png)
+    ![键入错误的用户名，或者找不到该用户名](./media/directory-delete-howto/progress-message.png)
 
 5. 現在的自助式註冊的產品狀態已變更為**Deleted**。 當您重新整理頁面時，應該從移除產品**自助式註冊產品**頁面。  
 
-    ![使用者名稱輸入錯誤，或是找不到](./media/directory-delete-howto/product-deleted.png)
+    ![键入错误的用户名，或者找不到该用户名](./media/directory-delete-howto/product-deleted.png)
 
 6. 一旦您已刪除的所有產品，您可以再次簽署回 Azure AD 系統管理中心，並應具有所需的動作及封鎖您的目錄刪除任何產品。 您應該能夠成功地刪除您的 Azure AD 目錄。
 
-    ![使用者名稱輸入錯誤，或是找不到](./media/directory-delete-howto/delete-organization.png)
+    ![键入错误的用户名，或者找不到该用户名](./media/directory-delete-howto/delete-organization.png)
 
 ## <a name="next-steps"></a>後續步驟
 

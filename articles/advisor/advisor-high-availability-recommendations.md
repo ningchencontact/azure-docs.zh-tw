@@ -9,11 +9,11 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467722"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>利用 Azure Advisor 改善應用程式的可用性
 

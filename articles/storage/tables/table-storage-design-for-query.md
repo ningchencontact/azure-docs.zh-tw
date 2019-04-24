@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470734"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325862"
 ---
 # <a name="design-for-querying"></a>查詢的設計
 資料表服務方案可以是讀取密集、寫入密集或兩者混合的方案。 本文主要說明您在設計表格服務以有效地支援讀取作業時應謹記在心的事項。 一般而言，支援有效讀取作業的設計，也可兼顧寫入作業的效率。 不過，設計支援寫入作業時還有其他考量必須牢記在心，這將在[資料修改的設計](table-storage-design-for-modification.md)一文中說明這些考量。
@@ -37,12 +37,12 @@ ms.locfileid: "55470734"
 
 | *資料行名稱* | *資料類型* |
 | --- | --- |
-| **PartitionKey** (部門名稱) |字串 |
-| **RowKey** (員工識別碼) |字串 |
-| **名字** |字串 |
-| **姓氏** |字串 |
+| **PartitionKey** (部門名稱) |String |
+| **RowKey** (員工識別碼) |String |
+| **名字** |String |
+| **姓氏** |String |
 | **年齡** |整數  |
-| **EmailAddress** |字串 |
+| **EmailAddress** |String |
 
 ＜[Azure 表格儲存體概觀](table-storage-overview.md) ＞一文將說明某些對查詢設計有直接影響的重要 Azure 表格服務功能。 這些功能產生了設計資料表服務查詢的一般指導方針。 請注意，下列範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱 [查詢實體](https://docs.microsoft.com/rest/api/storageservices/Query-Entities)。  
 
@@ -52,7 +52,7 @@ ms.locfileid: "55470734"
 * ***資料表掃描***不包含 **PartitionKey**，且效率極差，因為它會依序在所有組成資料表的分割中搜尋是否有任何相符的實體。 無論您的篩選是否使用 **RowKey**，它都會執行資料表掃描。 例如：$filter=LastName eq 'Jones'  
 * 傳回多個實體的查詢，在傳回時會以 **PartitionKey** 和 **RowKey** 順序排序。 若要避免重新排序用戶端中的實體，請選擇定義最常見的排序次序的 **RowKey** 。  
 
-請注意，使用 "**or**" 指定以 **RowKey** 值為基礎的篩選條件，會產生資料分割掃描且不被當作範圍查詢。 因此，您應該避免會使用下列篩選條件的搜尋：例如 $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
+請注意，使用 "**or**" 指定以 **RowKey** 值為基礎的篩選條件，會產生資料分割掃描且不被當作範圍查詢。 因此，应避免使用筛选器 （如查询：$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
 
 如需使用儲存體用戶端程式庫執行有效率查詢的用戶端程式碼範例，請參閱：  
 

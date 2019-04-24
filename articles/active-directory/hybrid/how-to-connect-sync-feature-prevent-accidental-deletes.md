@@ -4,24 +4,24 @@ description: 本主題說明 Azure AD Connect 中的防止意外刪除 (可防�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+origin.date: 07/12/2017
+ms.date: 11/09/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: b1244dd460196e5882caab0d4b526850da48d084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188540"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383344"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 同步：防止意外刪除
 本主題說明 Azure AD Connect 中的防止意外刪除 (可防止意外刪除) 功能。
@@ -31,9 +31,9 @@ ms.locfileid: "56188540"
 ## <a name="what-is-prevent-accidental-deletes"></a>防止意外刪除是什麼
 會看到多項刪除的常見案例包括：
 
-* 變更未選取整個 [OU](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) 或[網域](how-to-connect-sync-configure-filtering.md#domain-based-filtering)的[篩選](how-to-connect-sync-configure-filtering.md)。
-* OU 中的所有物件遭到刪除。
-* 重新命名 OU，結果使得其中的所有物件被視為不在同步處理範圍內。
+- 變更未選取整個 [OU](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) 或[網域](how-to-connect-sync-configure-filtering.md#domain-based-filtering)的[篩選](how-to-connect-sync-configure-filtering.md)。
+- 删除了 OU 中的所有对象。
+- 重新命名 OU，結果使得其中的所有物件被視為不在同步處理範圍內。
 
 您可以使用 PowerShell 的 `Enable-ADSyncExportDeletionThreshold` (這屬於隨 Azure Active Directory Connect 一起安裝的 AD Sync 模組) 進行變更的預設值是 500 個物件。 您應該將此值設定為符合您組織的大小。 由於同步排程器會每隔 30 分鐘執行一次，因此該值是 30 分鐘內看到的刪除數目。
 
@@ -61,13 +61,14 @@ ms.locfileid: "56188540"
 如果想要刪除所有項目，請執行下列作業：
 
 1. 若要擷取目前的刪除閾值，請執行 PowerShell Cmdlet `Get-ADSyncExportDeletionThreshold`。 提供 Azure AD 全域系統管理員帳戶與密碼。 預設值為 500。
-2. 若要暫時停用此保護功能並刪除這些項目，請執行 PowerShell Cmdlet： `Disable-ADSyncExportDeletionThreshold`。 提供 Azure AD 全域系統管理員帳戶與密碼。
+2. 若要暂时禁用此保护并允许删除这些项，请运行 PowerShell cmdlet： `Disable-ADSyncExportDeletionThreshold`。 提供 Azure AD 全域系統管理員帳戶與密碼。
    ![認證](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
 3. 如果 Azure Active Directory Connector 仍處於選取狀態，請選取 [執行] 動作，再選取 [匯出]。
-4. 若要重新啟用此保護功能，請執行 PowerShell Cmdlet： `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`。 使用您在擷取目前刪除閾值時記下的值來取代 500。 提供 Azure AD 全域系統管理員帳戶與密碼。
+4. 若要重新启用保护，请运行 PowerShell cmdlet： `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`。 使用您在擷取目前刪除閾值時記下的值來取代 500。 提供 Azure AD 全局管理员帐户和密码。
 
 ## <a name="next-steps"></a>後續步驟
 **概觀主題**
 
-* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
-* [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
+- [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
+- [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
+

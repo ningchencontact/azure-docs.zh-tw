@@ -17,18 +17,18 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345216"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>使用 RBAC 來管理外部使用者的 Azure 資源存取權
 
 不論是大型組織，還是與需要存取您環境中特定資源，但不一定需要存取整個基礎結構或任何計費相關範圍的外部共同作業者、廠商或自由工作者合作的 SMB，角色型存取控制 (RBAC) 都可為其提供更好的安全性管理。 RBAC 能提供彈性，可擁有一個系統管理員帳戶 (訂用帳戶等級中的服務系統管理員角色) 所管理的 Azure 訂用帳戶，並邀請多個使用者在相同的訂用帳戶下運作，而無需任何系統管理權限。
 
 > [!NOTE]
-> Office 365 訂用帳戶或 Azure Active Directory 授權 (例如：從 Microsoft 365 系統管理中心沒有資格使用 RBAC，佈建至 Azure Active Directory 的存取）。
+> 从 Microsoft 365 管理中心预配的 Office 365 订阅或 Azure Active Directory 许可证（例如：Azure Active Directory 访问权限）不符合 RBAC 的使用条件。
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>指派訂用帳戶範圍內的 RBAC 角色
 

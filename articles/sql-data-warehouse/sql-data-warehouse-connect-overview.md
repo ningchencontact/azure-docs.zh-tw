@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: 85bce59563cf0424816661c97406060bcbb423ec
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402800"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>連接到 Azure SQL 資料倉儲
 連線到 Azure SQL 資料倉儲。
@@ -28,9 +28,9 @@ ms.locfileid: "55460442"
 3. 按一下您想連線的資料倉儲。
 4. 找出完整的伺服器名稱。
    
-    ![完整伺服器名稱][1]
+    ![完整服务器名称][1]
 
-## <a name="supported-drivers-and-connection-strings"></a>支援的驅動程式和連接字串
+## <a name="supported-drivers-and-connection-strings"></a>支持的驱动程序和连接字符串
 Azure SQL 資料倉儲支援 [ADO.NET][ADO.NET]、[ODBC][ODBC]、[PHP][PHP] 和 [JDBC][JDBC]。 若要尋找最新版本和文件，請按一下前述的其中一個驅動程式。 若要從 Azure 入口網站自動為您使用的驅動程式產生連接字串，按一下前述範例中的 [顯示資料庫連接字串]。 下列一些範例顯示每個驅動程式的連接字串。
 
 > [!NOTE]
@@ -58,10 +58,10 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
-## <a name="connection-settings"></a>連線設定
+## <a name="connection-settings"></a>连接设置
 SQL 資料倉儲會在連線和物件建立期間將一些設定標準化。 這些設定不能覆寫，其中包括︰
 
-| 資料庫設定 | 值 |
+| 数据库设置 | Value |
 |:--- |:--- |
 | [ANSI_NULLS][ANSI_NULLS] |開啟 |
 | [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |開啟 |

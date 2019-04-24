@@ -17,11 +17,11 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97759ae992ebe38aa85e9b4724edeebb5285db4b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565694"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443074"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中從企業應用程式移除使用者或群組指派
 它很容易就能移除使用者或群組指派存取權，您的企業應用程式，Azure Active Directory (Azure AD) 中的其中一個。 您需要適當的權限，才能管理企業應用程式。 而且，您必須是目錄全域管理員。

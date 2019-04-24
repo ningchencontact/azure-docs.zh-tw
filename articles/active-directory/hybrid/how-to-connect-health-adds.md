@@ -16,11 +16,11 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73f30f4f16ad879468a424d6e5cbe81e68b7c33d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217576"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60350602"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>在 AD DS 使用 Azure AD Connect Health
 下列文件適用於使用 Azure AD Connect Health 來監視 Active Directory 網域服務。 支援的 AD DS 版本是：Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2 及 Windows Server 2016。
@@ -62,5 +62,5 @@ ms.locfileid: "56217576"
 * [使用 Azure AD Connect Health 來搭配 AD FS](how-to-connect-health-adfs.md)
 * [使用 Azure AD Connect Health 進行同步處理](how-to-connect-health-sync.md)
 * [Azure AD Connect Health 常見問題集](reference-connect-health-faq.md)
-* [Azure AD Connect Health 版本歷程記錄](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 版本历史记录](reference-connect-health-version-history.md)
 

@@ -18,19 +18,19 @@ ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47233d593e9539e5755daf331ce9dbff73207942
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300422"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 圖形 API
 
 > [!IMPORTANT]
 >
-> 截至年 2 月 2019年為止，我們會開始取代一些舊版的 Azure Active Directory 圖形 API，以支援 Microsoft Graph API 的程序。 
+> 从 2019 年 2 月开始，我们开始弃用某些旧版 Azure Active Directory Graph API，改为使用 Microsoft Graph API。 
 >
-> 如需詳細資訊、 更新和時間範圍，請參閱[Microsoft Graph 或 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) Office 開發人員中心。
+> 有关详细信息、更新和期限，请参阅 Office 开发人员中心的 [Microsoft Graph 或 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)。
 >
 > 應用程式於未來皆應該使用 Microsoft Graph API。 
 

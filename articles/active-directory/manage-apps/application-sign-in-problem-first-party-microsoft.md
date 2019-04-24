@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0522311c12da8416504a6d502e1e2247ff8ce15b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292192"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>登入 Microsoft 應用程式的問題
 
@@ -31,7 +31,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 -   對於 Office 365 或其他付費套件中的應用程式，會透過**指派授權**直接指派至使用者帳戶，或使用我們的群組授權指派功能來透過群組，將存取權授與使用者。
 
--   對於 Microsoft 或第三方免費發佈給任何人使用的應用程式，會透過**使用者同意**將存取權授與使用者。 這表示使用者透過其 Azure AD 工作或學校帳戶登入應用程式，並允許應用程式能夠存取其帳戶的某些受限制資料集。
+-   對於 Microsoft 或第三方免費發佈給任何人使用的應用程式，會透過**使用者同意**將存取權授與使用者。 这意味着他们使用其 Azure AD 工作或学校帐户登录到应用程序，并允许它访问其帐户上一些受限制的数据集。
 
 -   應用程式的 Microsoft 或第 3 方發佈免費供任何人使用，使用者可能也會授與存取透過**系統管理員的同意**。 這表示系統管理員已決定組織中的每個人都能使用該應用程式，因此系統管理員使用全域管理員帳戶身分登入應用程式，並將存取權授與組織中的每個人。
 

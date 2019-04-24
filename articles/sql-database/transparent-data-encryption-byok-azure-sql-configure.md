@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: c42c6175512105de38a29be260c370851e152137
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330868"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 和 CLI：從 Azure Key Vault 使用客戶管理的金鑰啟用透明資料加密
 
@@ -27,11 +27,11 @@ ms.locfileid: "57871632"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 - 您必須具有 Azure 訂用帳戶，並且是該訂用帳戶的系統管理員。
 - [建議執行的選擇性作業] 備妥硬體安全性模組 (HSM) 或本機金鑰存放區，用來建立 TDE 保護裝置金鑰內容的本機複本。
-- 您必須安裝並執行 Azure PowerShell。 
+- 必须安装并运行 Azure PowerShell。 
 - 建立要用於 TDE 的 Azure Key Vault 和金鑰。
   - [從 Key Vault 使用 PowerShell 的指示](../key-vault/key-vault-overview.md)
   - [使用硬體安全性模組 (HSM) 與 Key Vault 的指示](../key-vault/key-vault-hsm-protected-keys.md)
@@ -54,7 +54,7 @@ ms.locfileid: "57871632"
    -AssignIdentity
    ```
 
-如果您要建立伺服器，使用[新增 AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet 搭配標記位在伺服器建立期間新增 Azure AD 身分識別的身分識別：
+如果正在创建服务器，请在创建服务器期间，结合 -Identity 标记使用 [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet 来添加 Azure AD 标识：
 
    ```powershell
    $server = New-AzSqlServer `
@@ -68,7 +68,7 @@ ms.locfileid: "57871632"
 
 ## <a name="step-2-grant-key-vault-permissions-to-your-server"></a>步驟 2. 為您的伺服器授與 Key Vault 權限
 
-使用[組 AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet 可授與您伺服器的存取金鑰保存庫之前將它的金鑰用於 TDE。
+将 Key Vault 中的密钥用于 TDE 之前，请使用 [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet 向服务器授权 Key Vault 的访问权限。
 
    ```powershell
    Set-AzKeyVaultAccessPolicy  `
@@ -79,9 +79,9 @@ ms.locfileid: "57871632"
 
 ## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>步驟 3. 將 Key Vault 金鑰新增至伺服器，並設定 TDE 保護裝置
 
-- 使用[新增 AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet 將金鑰從 Key Vault 新增至伺服器。
-- 使用[組 AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet 來設定所有伺服器資源的 TDE 保護裝置的金鑰。
-- 使用[Get AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet，確認已設定的 TDE 保護裝置，如預期般。
+- 使用 [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet 将 Key Vault 中的密钥添加到服务器。
+- 使用 [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet 将密钥设置为所有服务器资源的 TDE 保护器。
+- 使用 [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet 确认已按预期配置了 TDE 保护器。
 
 > [!Note]
 > 金鑰保存庫名稱和金鑰名稱的合併長度不可超過 94 個字元。
@@ -113,7 +113,7 @@ ms.locfileid: "57871632"
 
 ## <a name="step-4-turn-on-tde"></a>步驟 4. 開啟 TDE 
 
-使用[組 AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet 來開啟 tde。
+使用 [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet 来启用 TDE。
 
    ```powershell
    Set-AzSqlDatabaseTransparentDataEncryption `
@@ -127,7 +127,7 @@ ms.locfileid: "57871632"
 
 ## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>步驟 5。 檢查加密狀態和加密活動
 
-使用[Get AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption)若要取得加密狀態並[Get AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity)來檢查資料庫的加密進度或資料倉儲。
+使用 [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) 获取加密状态，使用 [Get- AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) 检查数据库或数据仓库的加密进度。
 
    ```powershell
    # Get the encryption state
@@ -145,7 +145,7 @@ ms.locfileid: "57871632"
 
 ## <a name="other-useful-powershell-cmdlets"></a>其他實用的 PowerShell Cmdlet
 
-- 使用[組 AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet 來關閉 TDE。
+- 使用 [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet 来禁用 TDE。
 
    ```powershell
    Set-AzSqlDatabaseTransparentDataEncryption `
@@ -155,7 +155,7 @@ ms.locfileid: "57871632"
    -State "Disabled”
    ```
  
-- 使用[Get AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey)指令程式可傳回清單中的 Key Vault 金鑰新增至伺服器。
+- 使用 [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet 可返回已添加到服务器的 Key Vault 密钥列表。
 
    ```powershell
    <# KeyId is an optional parameter, to return a specific key version #>
@@ -164,7 +164,7 @@ ms.locfileid: "57871632"
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
  
-- 使用[移除 AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey)從伺服器移除 Key Vault 金鑰。
+- 使用 [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) 可从服务器中删除 Key Vault 密钥。
 
    ```powershell
    <# The key set as the TDE Protector cannot be removed. #>
@@ -177,7 +177,7 @@ ms.locfileid: "57871632"
 ## <a name="troubleshooting"></a>疑難排解
 
 如果發生問題，請進行下列檢查：
-- 如果找不到金鑰保存庫，請確定您在使用正確的訂用帳戶[Get AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet。
+- 如果找不到 Key Vault，请使用 [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet 来确认是否在正确的订阅中操作。
 
    ```powershell
    Get-AzSubscription `

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: jowargo
 ms.openlocfilehash: 99ea21b3eb01a674a89c70a1b923f02e600cc3c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60234497"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>變更 Azure 通知中樞命名空間的定價層
 通知中樞以三個層級提供：**免費**、**基本**和**標準**。 本文說明如何變更 Azure 通知中樞命名空間的定價層。 

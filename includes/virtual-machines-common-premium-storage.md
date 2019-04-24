@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
 ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232767"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM 高效能進階儲存體與受控磁碟
 
@@ -229,7 +229,7 @@ DS4 VM 連接了兩個 P30 磁碟。 每個 P30 磁碟都有 200 MB/秒的輸送
 
 進階儲存體 Blob 快照集有下列限制︰
 
-| 進階儲存體限制 | 值 |
+| 進階儲存體限制 | Value |
 | --- | --- |
 | 每個 Blob 的快照數目上限 | 100 |
 | 快照集的儲存體帳戶容量<br>(僅包含快照集中的資料。 不包含基本 Blob 中的資料)。 | 10 TB |
@@ -259,7 +259,7 @@ DS4 VM 連接了兩個 P30 磁碟。 每個 P30 磁碟都有 200 MB/秒的輸送
 
 下列 Linux 散發套件經過驗證，可使用 Azure 進階儲存體。 為獲得進階儲存體的最佳效能和穩定性，我們建議至少將您的 VM 升級到以下其中一個版本 (或更新版本)。 部分版本需要適用於 Azure 的最新 Linux Integration Services 4.0 版。 若要下載並安裝散發套件，請遵循下表所列的連結。 完成驗證時，我們會將映像新增至清單中。 請注意，我們的驗證顯示每個映像的效能各有所不同。 效能取決於工作負載特性和映像上的設定。 不同的映像已針對不同種類的工作負載進行調整。
 
-| 分发 | 版本 | 支援的核心 | 詳細資料 |
+| 分发 | Version | 支援的核心 | 詳細資料 |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: bf8038b7171053b75eeb9aed88bff4246e65a8a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506092"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>使用 StorSimple 裝置管理員服務來檢視和管理作業 (Update 3 和更新版本)
 
@@ -32,7 +32,7 @@ ms.locfileid: "23108186"
 
 * **狀態** – 作業可能在進行中、成功、已取消、失敗、取消中，或是成功但發生錯誤。
 * **時間範圍** – 您可以根據日期和時間範圍來篩選作業。 範圍可以是過去 1 小時、過去 24 小時、過去 7 天、過去 30 天、過去一年，或自訂日期。
-* **類型** – 作業類型可以是排程備份、手動備份、還原備份、複製磁碟區、容錯移轉磁碟區容器、建立固定在本機的磁碟區、修改磁碟區、安裝更新、收集支援記錄檔，以及建立雲端設備。
+* **類型** – 作業類型可以是排程備份、手動備份、還原備份、複製磁碟區、容錯移轉磁碟區容器、建立固定在本機的磁碟區、修改磁碟區、安裝更新、收集支援記錄，以及建立雲端設備。
 * **裝置** – 工作會在連接到服務的特定裝置上進行初始化。
   
 篩選的工作接著會根據下列屬性製成表格：

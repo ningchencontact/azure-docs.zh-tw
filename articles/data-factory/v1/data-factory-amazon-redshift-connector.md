@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335417"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -336,12 +336,12 @@ Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UN
 | DECIMAL |Decimal |
 | REAL |單一 |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |字串 |
-| CHAR |字串 |
-| VARCHAR |字串 |
-| 日期 |DateTime |
-| 時間戳記 |DateTime |
-| TEXT |字串 |
+| BOOLEAN |String |
+| CHAR |String |
+| VARCHAR |String |
+| 日期 |Datetime |
+| TIMESTAMP |Datetime |
+| TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
 若要了解如何將來源資料集內的資料行與接收資料集內的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。

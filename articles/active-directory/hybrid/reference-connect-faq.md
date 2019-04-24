@@ -16,17 +16,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381433"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常見問題集
 
 ## <a name="general-installation"></a>一般安裝
 
-**問：如何強化我的 Azure AD Connect 伺服器，來減少安全性攻擊？**
+**问：如何強化我的 Azure AD Connect 伺服器，來減少安全性攻擊？**
 
 Microsoft 建議強化您的 Azure AD Connect 伺服器，可減少安全性攻擊面，您的 IT 環境的這個重要元件。  遵循下列建議將會降低您的組織的安全性風險。
 
@@ -42,7 +42,7 @@ Microsoft 建議強化您的 Azure AD Connect 伺服器，可減少安全性攻�
 
 * [減少 Active Directory 攻擊面](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
-**問：如果 Azure Active Directory (Azure AD) 全域管理員已啟用雙重要素驗證 (2FA)，安裝是否可以運作？**  
+**问：如果 Azure Active Directory (Azure AD) 全域管理員已啟用雙重要素驗證 (2FA)，安裝是否可以運作？**  
 從 2016 年 2 月的組建開始，系統已可支援此情況。
 
 **问：是否有方法可自動安裝 Azure AD Connect？**  
@@ -51,12 +51,12 @@ Microsoft 建議強化您的 Azure AD Connect 伺服器，可減少安全性攻�
 **问：我有一個樹系，但無法連線到其中一個網域。如何安裝 Azure AD Connect？**  
 從 2016 年 2 月的組建開始，系統已可支援此情況。
 
-**問：Azure Active Directory Domain Services (Azure AD DS) 的健康情況代理程式是否可以在伺服器核心上運作？**  
+**问：Azure Active Directory Domain Services (Azure AD DS) 的健康情況代理程式是否可以在伺服器核心上運作？**  
 是。 安裝代理程式之後，您可以使用下列 PowerShell Cmdlet 來完成註冊程序︰ 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-**問：Azure AD Connect 是否支援從兩個網域同步至 Azure AD？**  
+**问：Azure AD Connect 是否支援從兩個網域同步至 Azure AD？**  
 是，支援這種情況。 請參閱[多個網域](how-to-connect-install-multiple-domains.md)。
  
 **问：Azure AD Connect 中的同一個 Active Directory 網域是否可以有多個連接器？**  
@@ -193,13 +193,13 @@ Office 小組正在處理 Office 入口網站更新，以反映目前的產品�
 **问：如果自動升級失敗，我是否會收到電子郵件？如何知道它是否成功？**  
 您不會收到升級結果的通知。 我們正在針對未來版本評估此功能。
 
-**問：您是否會發佈有關何時打算推出自動升級的時間表？**  
+**问：您是否會發佈有關何時打算推出自動升級的時間表？**  
 在較新版本的發行程序中，自動升級是第一個步驟。 每當有新版本時，升級就會自動推出。 [Azure AD 藍圖](../fundamentals/whats-new.md)會預先宣布較新的 Azure AD connect 版本。
 
-**問：自動升級是否也會升級 Azure AD Connect Health？**  
+**问：自動升級是否也會升級 Azure AD Connect Health？**  
 是，自動升級也會升級 Azure AD Connect Health。
 
-**問：您是否也會自動升級處於預備模式的 Azure AD Connect 伺服器？**  
+**问：您是否也會自動升級處於預備模式的 Azure AD Connect 伺服器？**  
 是，您可以自動升級處於預備模式的 Azure AD Connect 伺服器。
 
 **问：如果自動升級失敗，而我的 Azure AD Connect 伺服器並未啟動，該怎麼辦？**  

@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c080173af8ddd31b077bb820ea19d82eb2b29300
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440779"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>檢視稽核記錄的 Azure AD PIM 中的角色
 若要查看所有特殊權限的角色在指定的期間內的所有使用者指派與啟用，您可以使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 稽核歷程記錄。 如果您想要查看租用戶活動 (包括系統管理員、使用者和同步處理活動) 的完整稽核歷程記錄，您可以使用 [Azure Active Directory 存取和使用情況報告](../reports-monitoring/overview-reports.md)

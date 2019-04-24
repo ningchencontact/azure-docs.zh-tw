@@ -16,11 +16,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60468312"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中依管理工作區分的系統管理員角色
 
@@ -150,8 +150,8 @@ Task | 最低特殊權限角色 | 其他角色
 管理群組到期日 | 使用者管理員 | 
 管理群組設定 | 全域管理員 | 
 讀取所有設定 (隱藏的成員資格除外) | 目錄讀取器 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-讀取隱藏的成員資格 | 群組成員 | 群組擁有者、 密碼管理員、 Exchange 系統管理員、 SharePoint 系統管理員、 小組系統管理員、 使用者管理員
-讀取具有隱藏成員資格之群組的成員資格 | 服務台系統管理員 | 小組系統管理員使用者管理員
+讀取隱藏的成員資格 | 群組成員 | 组所有者、密码管理员、Exchange 管理员、SharePoint 管理员、Teams 管理员、用户管理员
+讀取具有隱藏成員資格之群組的成員資格 | 服務台系統管理員 | 用户管理员、Teams 管理员
 撤銷授權 | 授權管理員 | 使用者管理員
 更新群組成員資格 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
 更新群組擁有者 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員

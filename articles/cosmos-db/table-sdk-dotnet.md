@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 506f623fe928cf122a16630844996c981cc20e9e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791723"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330341"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 資料表 .NET API：下載和版本資訊
 
@@ -82,7 +82,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 服務會拒絕使用已停用 SDK 的任何 Azure Cosmos DB 要求。
 <br/>
 
-| 版本 | 發行日期 | 停用日期 |
+| Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
 | [2.1.0](#2.1.0) |2019 年 1 月 22 日|--- |
 | [2.0.0](#2.0.0) |2018 年 9 月 26 日|--- |

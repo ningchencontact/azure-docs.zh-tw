@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483160"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>在發佈入口網站中設定您的應用程式
 
@@ -59,7 +59,7 @@ ms.locfileid: "58310012"
 
 此下拉式表單，可讓您選擇您想要在什麼發行者設定檔之下發佈此供應項目。 供應項目上架後，此欄位便會鎖住。
 
-### <a name="name"></a>名稱
+### <a name="name"></a>Name
 
 您供應項目的顯示名稱。 此為會出現在 [AppSource](https://appsource.microsoft.com/) 中的名稱。 它最多不能超過 50 個字元。
 
@@ -106,7 +106,7 @@ ms.locfileid: "58310012"
 
 請選取您應用程式最適用的產業。 若您的應用程式適用於多個產業，可將此保留空白。
 
-### <a name="categories"></a>類別
+### <a name="categories"></a>Categories
 
 選取與您應用程式相相關的類別。 最多可選取 3 個。
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 3a9d3364f9e55611c94797b71b058128ce7c6696
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 8ae9062a5e154f457f86dd7f3fbed7bda8580c88
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306909"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>使用適用於 SysRq 和 NMI 呼叫的序列主控台
 
 ## <a name="system-request-sysrq"></a>系統要求 (SysRq)
-SysRq 是可讓 Linux 作業系統核心理解的按鍵序列，可觸發一組預先定義的動作。 這些命令通常會用在虛擬機器的疑難排解上，或用在無法透過傳統系統管理執行的復原上 (例如，VM 終止時)。 使用 Azure 序列主控台的 SysRq 功能，就像按下 SysRq 鍵及在實體鍵盤上輸入的字元。
+SysRq 是可讓 Linux 作業系統核心理解的按鍵序列，可觸發一組預先定義的動作。 疑難排解虛擬機器或復原無法透過傳統的系統管理 （例如，如果 VM 未回應） 時，會經常會使用這些命令。 使用 Azure 序列主控台的 SysRq 功能，就像按下 SysRq 鍵及在實體鍵盤上輸入的字元。
 
 SysRq 序列傳遞出去後，核心組態將會控制系統的回應方式。 如需啟用和停用 SysRq 的資訊，請參閱＜SysRq 系統管理指南＞ [文字](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq)。  
 
@@ -99,9 +99,9 @@ echo "1" >/proc/sys/kernel/sysrq
 - [收集損毀記錄](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>非遮罩式插斷 (NMI) 
-非遮罩式插斷 (NMI) 旨在建立虛擬機器上軟體不會忽略的訊號。 在過去，NMI 已用來監視系統上需要特定回應時間的硬體問題。  現在，程式設計人員和系統管理員通常會使用 NMI 作為對無回應系統進行偵錯和疑難排解的機制。
+非遮罩式插斷 (NMI) 旨在建立虛擬機器上軟體不會忽略的訊號。 在過去，NMI 已用來監視系統上需要特定回應時間的硬體問題。  今天，程式設計人員和系統管理員通常會使用做為機制 NMI 偵錯或疑難排解都沒有回應的系統。
 
-使用命令列中的鍵盤圖示，即可使用序列主控台將 NMI 傳送至 Azure 虛擬機器，如下所示。 NMI 序列傳遞出去後，虛擬機器組態將會控制系統的回應方式。  Linux 作業系統可以設定為損毀，並在作業系統收到 NMI 時，建立記憶體傾印。
+使用序列主控台命令列中的鍵盤圖示，即可將 NMI 傳送至 Azure 虛擬機器，如下所示。 NMI 序列傳遞出去後，虛擬機器組態將會控制系統的回應方式。  Linux 作業系統可以設定為損毀，並在作業系統收到 NMI 時，建立記憶體傾印。
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 

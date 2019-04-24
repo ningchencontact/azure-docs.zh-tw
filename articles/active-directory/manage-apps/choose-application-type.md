@@ -16,11 +16,11 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13b0c03f03012058616dba21536cfc3f292fff4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441255"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>在 Azure Active Directory 中新增應用程式時，選擇應用程式類型
 了解您可以對 Azure Active Directory (Azure AD) 新增的 4 個應用程式類型。 當您在 Azure Active Directory 中新增應用程式時，系統會提示您選擇四個應用程式類型中的其中一個。 

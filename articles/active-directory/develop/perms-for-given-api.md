@@ -16,13 +16,13 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8af7206b94342a4844cf272784aff4e4dc5a35f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443529"
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>如何為指定的 API 選取權限 
+# <a name="how-to-select-permissions-for-a-given-api"></a>如何为给定 API 选择权限 
 
 ## <a name="recommended-documents"></a>建議的文件
 

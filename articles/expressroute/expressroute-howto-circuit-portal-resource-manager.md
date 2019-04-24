@@ -9,16 +9,16 @@ ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60366479"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>建立和修改 ExpressRoute 線路
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure 门户](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
@@ -84,19 +84,19 @@ ms.locfileid: "58103021"
 當您建立新的 ExpressRoute 線路時，線路會是下列狀態：
 
 提供者狀態：未佈建<BR>
-線路狀態：已啟用
+線路狀態：Enabled
 
 ![起始佈建程序](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 當連線提供者正在為您啟用線路時，線路會變更為下列狀態：
 
 提供者狀態：佈建<BR>
-線路狀態：已啟用
+線路狀態：Enabled
 
 若要能夠使用 ExpressRoute 線路，它必須處於下列狀態：
 
 提供者狀態：已佈建<BR>
-線路狀態：已啟用
+線路狀態：Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5.定期檢查線路金鑰的狀態與狀況
 

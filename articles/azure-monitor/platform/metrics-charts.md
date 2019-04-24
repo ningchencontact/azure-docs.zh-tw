@@ -1,19 +1,19 @@
 ---
 title: Azure 計量瀏覽器的進階的功能
 description: 深入了解 Azure 監視器計量瀏覽器進階功能
-author: vgorbenko
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.author: vitalyg
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271674"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60256871"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 計量瀏覽器的進階的功能
 
@@ -77,7 +77,7 @@ ms.locfileid: "59271674"
 
 您可以依維度來分割計量，以視覺化方式顯示維度的各區段與彼此之間的差異，並識別維度中與其他區段差異較大的區段。
 
-### <a name="apply-splitting"></a>適用於分割
+### <a name="apply-splitting"></a>套用分割
 
 1. 按一下圖表上方的 [套用分割]。
  
@@ -149,4 +149,3 @@ ms.locfileid: "59271674"
 ## <a name="next-steps"></a>後續步驟
 
   閱讀[建立自訂 KPI 儀表板](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards)以了解使用計量建立可採取動作之儀表板的最佳做法。
-

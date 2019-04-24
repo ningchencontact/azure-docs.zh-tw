@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
 ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790871"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60235992"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure 監視器中資料的來源
 本文描述 Azure 監視器所收集的資料來源，這些資料可用來監視資源 (以及在資源上執行的應用程式) 健康情況和效能。 這些資源可能在 Azure、另一個雲端或內部部署中。  請參閱 [Azure 監視器所收集的資料](data-platform.md)，以取得這項資料儲存方式以及如何檢視它的詳細資訊。

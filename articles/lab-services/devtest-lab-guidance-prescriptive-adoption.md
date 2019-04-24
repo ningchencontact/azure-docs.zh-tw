@@ -14,11 +14,11 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e1d119f3c7c5d6dbdb570d362c53b80dad7886bd
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198032"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>在企業中設定 Azure DevTest Labs 基礎結構
 企業快速採用雲端，因為其[優點](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case)包含靈活度、 彈性與高經濟效益。 若要開始開發和測試工作負載是常見的第一個步驟，供客戶使用雲端。  DevTest Labs 提供[功能](devtest-lab-concepts.md)可獲益的企業和支援[主要 enterprise 開發/測試案例](devtest-lab-guidance-get-started.md)。

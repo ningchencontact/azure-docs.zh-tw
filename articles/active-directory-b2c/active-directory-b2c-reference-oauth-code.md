@@ -11,11 +11,11 @@ ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 4ee67f07965036a71151d7b6a5092b9a76d94999
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317151"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的 OAuth 2.0 授權碼流程
 
@@ -72,15 +72,15 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| 參數 | 必要？ | 說明 |
+| 參數 | 必要？ | 描述 |
 | --- | --- | --- |
-| client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
-| response_type |必要 |回應類型，必須針對授權碼流程來加入 `code`。 |
-| redirect_uri |必要 |應用程式的重新導向 URI，您的應用程式會在此處傳送及接收驗證回應。 除了必須是 URL 編碼，它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符。 |
-| scope |必要 |範圍的空格分隔清單。 單一範圍值向 Azure Active Directory (Azure AD) 指出正在要求的兩個權限。 使用用戶端識別碼作為範圍時，表示您的應用程式需要可針對您自己的服務或 Web API 使用的存取權杖 (以相同的用戶端識別碼表示)。  `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。 您也可以使用 `openid` 範圍從 Azure AD B2C 要求識別碼權杖。 |
+| client_id |必要項 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
+| response_type |必要項 |回應類型，必須針對授權碼流程來加入 `code`。 |
+| redirect_uri |必要項 |應用程式的重新導向 URI，您的應用程式會在此處傳送及接收驗證回應。 除了必須是 URL 編碼，它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符。 |
+| scope |必要項 |範圍的空格分隔清單。 單一範圍值向 Azure Active Directory (Azure AD) 指出正在要求的兩個權限。 使用用戶端識別碼作為範圍時，表示您的應用程式需要可針對您自己的服務或 Web API 使用的存取權杖 (以相同的用戶端識別碼表示)。  `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。 您也可以使用 `openid` 範圍從 Azure AD B2C 要求識別碼權杖。 |
 | response_mode |建議 |用來將產生的授權碼傳回至應用程式的方法。 可以是 `query`、`form_post` 或 `fragment`。 |
 | state |建議 |包含在要求中的值，可以是您想要使用的任何內容字串。 通常會使用隨機產生的唯一值，以防止跨網站偽造要求攻擊。 在驗證要求出現之前，也會使用此狀態將應用程式中使用者狀態的相關資訊編碼。 例如，使用者所在的頁面，或正在執行的使用者流程。 |
-| p |必要 |執行的使用者流程。 這是在您的 Azure AD B2C 目錄中建立的使用者流程名稱。 使用者流程名稱值的開頭應該為 **b2c\_1\_**。 若要深入了解使用者流程，請參閱 [Azure AD B2C 使用者流程](active-directory-b2c-reference-policies.md)。 |
+| p |必要項 |執行的使用者流程。 這是在您的 Azure AD B2C 目錄中建立的使用者流程名稱。 使用者流程名稱值的開頭應該為 **b2c\_1\_**。 若要深入了解使用者流程，請參閱 [Azure AD B2C 使用者流程](active-directory-b2c-reference-policies.md)。 |
 | prompt |選用 |需要的使用者互動類型。 目前，唯一有效的值是 `login`，可強制使用者針對該要求輸入其認證。 單一登入將沒有作用。 |
 
 此時會要求使用者完成使用者流程的工作流程。 這可能會牽涉到讓使用者輸入自己的使用者名稱及密碼、以社交身分識別登入、註冊目錄，或是其他任何數目的步驟。 使用者動作取決於使用者流程的定義方式。
@@ -95,7 +95,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 &state=arbitrary_data_you_can_receive_in_the_response                // the value provided in the request
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | code |應用程式所要求的授權碼。 應用程式可以使用授權碼來要求目標資源的存取權杖。 授權碼的存留期很短。 通常會在大約 10 分鐘後過期。 |
 | state |如需完整說明，請參閱上一節的表格。 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該驗證要求和回應中的 `state` 值完全相同。 |
@@ -109,7 +109,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | 錯誤 |可用於將發生的錯誤類型分類的錯誤碼字串。 您也可以使用此字串對錯誤做出反應。 |
 | error_description |可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -127,14 +127,14 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| 參數 | 必要？ | 說明 |
+| 參數 | 必要？ | 描述 |
 | --- | --- | --- |
-| p |必要 |用來取得授權碼的使用者流程。 您無法在此要求中使用不同的使用者流程。 請注意，您要把這個參數新增到「查詢字串」 ，而不是 POST 主體中。 |
-| client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
-| grant_type |必要 |授與類型。 在授權碼流程中，授與類型必須的 `authorization_code`。 |
+| p |必要項 |用來取得授權碼的使用者流程。 您無法在此要求中使用不同的使用者流程。 請注意，您要把這個參數新增到「查詢字串」 ，而不是 POST 主體中。 |
+| client_id |必要項 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
+| grant_type |必要項 |授與類型。 在授權碼流程中，授與類型必須的 `authorization_code`。 |
 | scope |建議 |範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 使用用戶端識別碼作為範圍時，表示您的應用程式需要可針對您自己的服務或 Web API 使用的存取權杖 (以相同的用戶端識別碼表示)。  `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。  您也可以使用 `openid` 範圍從 Azure AD B2C 要求識別碼權杖。 |
-| code |必要 |您在流程的第一個階段中取得的授權碼。 |
-| redirect_uri |必要 |應用程式的重新導向 URI，您已在此處收到授權碼。 |
+| code |必要項 |您在流程的第一個階段中取得的授權碼。 |
+| redirect_uri |必要項 |應用程式的重新導向 URI，您已在此處收到授權碼。 |
 
 成功的權杖回應如下所示：
 
@@ -148,7 +148,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | not_before |權杖生效的時間 (以新紀元 (Epoch) 時間表示)。 |
 | token_type |權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 |
@@ -166,7 +166,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 }
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | 錯誤 |可用於將發生的錯誤類型分類的錯誤碼字串。 您也可以使用此字串對錯誤做出反應。 |
 | error_description |可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -191,15 +191,15 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| 參數 | 必要？ | 說明 |
+| 參數 | 必要？ | 描述 |
 | --- | --- | --- |
-| p |必要 |用來取得原始重新整理權杖的使用者流程。 您無法在此要求中使用不同的使用者流程。 請注意，您要把這個參數新增到「查詢字串」 ，而不是 POST 主體中。 |
-| client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
-| client_secret |必要 |在 [Azure 入口網站](https://portal.azure.com)中與 client_id 相關聯的 client_secret。 |
-| grant_type |必要 |授與類型。 在授權碼流程的這個階段中，授與類型必須是 `refresh_token`。 |
+| p |必要項 |用來取得原始重新整理權杖的使用者流程。 您無法在此要求中使用不同的使用者流程。 請注意，您要把這個參數新增到「查詢字串」 ，而不是 POST 主體中。 |
+| client_id |必要項 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
+| client_secret |必要項 |在 [Azure 入口網站](https://portal.azure.com)中與 client_id 相關聯的 client_secret。 |
+| grant_type |必要項 |授與類型。 在授權碼流程的這個階段中，授與類型必須是 `refresh_token`。 |
 | scope |建議 |範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 使用用戶端識別碼作為範圍時，表示您的應用程式需要可針對您自己的服務或 Web API 使用的存取權杖 (以相同的用戶端識別碼表示)。  `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。  您也可以使用 `openid` 範圍從 Azure AD B2C 要求識別碼權杖。 |
 | redirect_uri |選用 |應用程式的重新導向 URI，您已在此處收到授權碼。 |
-| refresh_token |必要 |您在流程的第二個階段中取得的原始重新整理權杖。 |
+| refresh_token |必要項 |您在流程的第二個階段中取得的原始重新整理權杖。 |
 
 成功的權杖回應如下所示：
 
@@ -213,7 +213,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | not_before |權杖生效的時間 (以新紀元 (Epoch) 時間表示)。 |
 | token_type |權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 |
@@ -231,7 +231,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 }
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | 錯誤 |可用於將發生的錯誤類型分類的錯誤碼字串。 您也可以使用此字串對錯誤做出反應。 |
 | error_description |可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |

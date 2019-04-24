@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
 ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516685"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>使用 Azure CLI 建立採用 IPv6 的公用負載平衡器
 
@@ -299,5 +299,5 @@ Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 負載平衡器
 ## <a name="next-steps"></a>後續步驟
 
 [開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-cli.md)  
-[設定負載平衡器分配模式](load-balancer-distribution-mode.md)  
+[配置负载均衡器分发模式](load-balancer-distribution-mode.md)  
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 4ca26c7b8fbfebbce8cfcb9915a7db12e5ad2352
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337403"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 雲端服務的憑證概觀
 在 Azure 中，憑證用於雲端服務 ([服務憑證](#what-are-service-certificates)) 與驗證管理 API ([管理憑證](#what-are-management-certificates))。 本主題提供兩種憑證類型、如何[建立](#create)這些憑證類型，以及如何將其部署到 Azure 的一般概觀。
@@ -91,7 +91,7 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ### <a name="internet-information-services-iis"></a>網際網路資訊服務 (IIS)
 在網際網路上有許多涵蓋如何使用 IIS 執行這項操作的網頁。 [這裡](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) 是我找到的其中一個我認為說明得很好的網頁。 
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
 [本文](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)說明如何使用 SSH 建立憑證。
 
 ## <a name="next-steps"></a>後續步驟

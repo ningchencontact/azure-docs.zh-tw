@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: 358ee07b8fd32edded084d406e490cae9f557fdd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397136"
 ---
 # <a name="integer-claims-transformations"></a>整數宣告轉換
 
@@ -27,10 +28,10 @@ ms.locfileid: "55159500"
 
 將 Lng 資料類型轉換為字串資料類型。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | long | 要轉換為字串的 ClaimType。 |
-| OutputClaim | outputClaim | 字串 | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
+| OutputClaim | outputClaim | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
 
 在此範例中，值類型為 Long 的 `numericUserId` 宣告會轉換為值類型為 String (字串) 的 `UserId` 宣告。
 
@@ -51,4 +52,5 @@ ms.locfileid: "55159500"
     - **inputClaim**：12334 (長整數)
 - 輸出宣告： 
     - **outputClaim**："12334" (字串)
+
 

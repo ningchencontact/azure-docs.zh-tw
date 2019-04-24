@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 2b32c97f636cc6b918a883ea3e2a2b540890084f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 7594261fc8af4e7b392e2f229b28cfee36a52115
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409847"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60366312"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 建立和修改 ExpressRoute 線路
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure 门户](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
@@ -44,7 +44,7 @@ ms.locfileid: "57409847"
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2.取得支援的提供者、位置和頻寬清單
 建立 ExpressRoute 線路之前，您需要有支援的連線提供者、位置和頻寬選項的清單。
 
-PowerShell cmdlet **Get AzExpressRouteServiceProvider**會傳回此資訊，您將在稍後步驟中使用：
+PowerShell cmdlet **Get-AzExpressRouteServiceProvider** 会返回此信息，将在后续步骤中使用此信息：
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -52,7 +52,7 @@ Get-AzExpressRouteServiceProvider
 
 請檢查是否列出您的連線服務提供者。 記下下列資訊，稍後當您建立線路時將會用到：
 
-* 名稱
+* Name
 * PeeringLocations
 * BandwidthsOffered
 
@@ -89,7 +89,7 @@ get-help New-AzExpressRouteCircuit -detailed
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4.列出所有 ExpressRoute 循環
-若要取得您所建立之所有 ExpressRoute 線路的清單，請執行**Get AzExpressRouteCircuit**命令：
+若要获取已创建的所有 ExpressRoute 线路的列表，请运行 **Get-AzExpressRouteCircuit** 命令：
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -215,7 +215,7 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 接下來，將虛擬網路連結到 ExpressRoute 線路。 當使用 Resource Manager 部署模型時，使用[將虛擬網路連結到 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)文章。
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>取得 ExpressRoute 線路的狀態
-您可以使用，以擷取這項資訊在任何時候**Get AzExpressRouteCircuit** cmdlet。 執行呼叫時，若未指定任何參數，將會列出所有線路。
+可以随时使用 **Get-AzExpressRouteCircuit** cmdlet 检索此信息。 執行呼叫時，若未指定任何參數，將會列出所有線路。
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit

@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
 ms.openlocfilehash: df7e7b426a8c85c8051d7f588c706a6f8811e183
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085740"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518910"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>使用 IoT DevKit AZ3166 搭配 Azure Functions 和認知服務製作語言翻譯工具
 
@@ -38,9 +38,9 @@ ms.locfileid: "58085740"
 
 ## <a name="open-sample-project"></a>開啟範例專案
 
-1. 確定 IoT DevKit **未**連線至您的電腦。 先啟動 VS Code，然後將 DevKit 連線至您的電腦。
+1. 確定 IoT DevKit **未**連線至您的電腦。 先启动 VS Code，然后将 DevKit 连接到计算机。
 
-1. 按一下 `F1` 以開啟命令選擇區，輸入並選取 [Azure IoT Device Workbench：**開啟範例...]**。然後選取 [IoT DevKit] 作為面板。
+1. 按一下 `F1` 以開啟命令選擇區，輸入並選取 [Azure IoT Device Workbench：**開啟範例...]**。然后选择“IoT DevKit”作为开发板。
 
 1. 在 [IoT Workbench 範例] 頁面上找出 [DevKit 翻譯工具]，然後按一下 [開啟範例]。 然後選取預設路徑來下載範例程式碼。
   ![開啟範例](media/iot-hub-arduino-iot-devkit-az3166-translator/open-sample.png)
@@ -54,7 +54,7 @@ ms.locfileid: "58085740"
 
    記下您所建立的 Azure IoT 中樞裝置名稱。
 
-1. 開啟`Functions\DevKitTranslatorFunction.cs`和使用裝置名稱及您記下的語音服務金鑰來更新下列程式碼行。
+1. 打开 `Functions\DevKitTranslatorFunction.cs` 并使用记录的设备名称和语音服务密钥更新以下代码行。
    ```csharp
    // Subscription Key of Speech Service
    const string speechSubscriptionKey = "";

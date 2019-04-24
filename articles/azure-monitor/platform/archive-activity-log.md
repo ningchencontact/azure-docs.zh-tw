@@ -9,11 +9,11 @@ ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
 ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345808"
 ---
 # <a name="archive-the-azure-activity-log"></a>封存 Azure 活動記錄檔
 在本文中，我們示範如何使用 Azure 入口網站、PowerShell Cmdlet 或跨平台 CLI 封存儲存體帳戶中的 [**Azure 活動記錄檔**](../../azure-monitor/platform/activity-logs-overview.md)。 如果您想要保留活動記錄檔超過 90 天 (而且對保留原則有完全的控制)，以便稽核、靜態分析或備份，這個選項非常有用。 如果您只需要保留事件 90 天或更短，則不需要設定封存至儲存體帳戶，因為在不啟用封存的情況下，活動記錄檔就會在 Azure 平台保留 90 天。
@@ -154,8 +154,8 @@ insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0
 
 | 元素名稱 | 描述 |
 | --- | --- |
-| 分析 |处理与事件对应的请求的 Azure 服务生成事件时的时间戳。 |
-| ResourceId |受影響資源的資源識別碼。 |
+| time |处理与事件对应的请求的 Azure 服务生成事件时的时间戳。 |
+| resourceId |受影響資源的資源識別碼。 |
 | operationName |操作的名称。 |
 | category |事件的類別，例如 寫入、讀取、動作。 |
 | resultType |結果的類型，例如 成功、失敗、開始 |

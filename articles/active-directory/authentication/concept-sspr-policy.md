@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359019"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -46,11 +46,11 @@ ms.locfileid: "58360498"
   * 應用程式管理員
   * 安全性系統管理員
   * 特殊權限角色管理員
-  * Intune 系統管理員
+  * Intune 管理員
   * 應用程式 Proxy 服務管理員
-  * Dynamics 365 系統管理員
+  * Dynamics 365 管理員
   * Power BI 服務管理員
-  * 驗證系統管理員
+  * 驗證管理員
   * 特殊權限的驗證管理員
 
 * 如果試用版訂用帳戶已經過 30 天；或
@@ -77,12 +77,12 @@ ms.locfileid: "58360498"
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>僅適用於雲端使用者帳戶的密碼原則
 
-下表描述套用至所建立及管理 Azure AD 中的使用者帳戶的密碼原則設定：
+下表描述了适用于在 Azure AD 中创建和管理的用户帐户的密码策略设置：
 
 | 屬性 | 需求 |
 | --- | --- |
 | 允許的字元 |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
-| 不允許的字元 |<ul><li>Unicode 字元。</li><li>空格。</li><li> 不能包含點字元 」。 「 前 」\@ \"符號 」。</li></ul> |
+| 不允許的字元 |<ul><li>Unicode 字元。</li><li>空格。</li><li> 不能紧靠在“\@\"”符号前面添加句点字符“.”。</li></ul> |
 | 密碼限制 |<ul><li>最少 8 個字元和最多 16 個字元。</li><li>需要下列四種字元中的三種：<ul><li>小寫字元。</li><li>大寫字元。</li><li>數字 (0-9)。</li><li>符號 (請參閱先前的密碼限制)。</li></ul></li></ul> |
 | 密碼到期時間 |<ul><li>預設值：**90** 天。</li><li>可透過適用於 Windows PowerShell 的 Azure Active Directory 模組使用 `Set-MsolPasswordPolicy` Cmdlet 設定該值。</li></ul> |
 | 密碼到期通知 |<ul><li>預設值：**14** 天 (密碼到期之前)。</li><li>可使用 `Set-MsolPasswordPolicy` Cmdlet 設定此值。</li></ul> |

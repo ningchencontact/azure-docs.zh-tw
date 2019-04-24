@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308220"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>在 Azure 搜尋服務中建立基本索引
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369619"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>了解您 Microsoft Azure 詳細使用量費用的相關字詞 
 
@@ -57,7 +57,7 @@ ms.locfileid: "57897141"
 |超額部分 |顯示超過您的 6 或 12 個月供應項目相關認可用量的計量費用 |
 |承諾用量費率 |以您的 6 或 12 個月供應項目相關聯總認可用量作為基礎所顯示的認可用量費率 |
 |費率 |每個計費單位向您收取的費率 |
-|值 |顯示 [超額數量] 資料行和 [費率] 資料行兩者相乘的結果。 如果已耗用数量未超过已包含数量，则此列中没有费用。 |
+|Value |顯示 [超額數量] 資料行和 [費率] 資料行兩者相乘的結果。 如果已耗用数量未超过已包含数量，则此列中没有费用。 |
 
 ### <a name="daily-usage"></a>每日使用量
 

@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: ed0d65a0f00bd5ebc3227a249beec6bafd791347
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532556"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>使用 Azure PowerShell 將 SQL Server 內部部署移轉至 Azure SQL Database 受控執行個體
 在本文中，您會使用 Microsoft Azure PowerShell，將已還原至內部部署 SQL Server 2005 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database 受控執行個體。 您可以使用 Microsoft Azure PowerShell 中的 `Az.DataMigration` 模組，將資料庫從內部部署 SQL Server 執行個體移轉至 Azure SQL Database 受控執行個體。

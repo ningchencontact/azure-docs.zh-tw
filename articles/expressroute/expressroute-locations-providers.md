@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2019
+ms.date: 04/19/2019
 ms.author: pareshmu
-ms.openlocfilehash: 01e48a7f78be16d51878b5458174a35253841539
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9dfa0c620162ba2f0f1bfa8897dc2f34a226ed93
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60364034"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -44,8 +44,8 @@ ms.locfileid: "59006523"
 | --- | --- | --- | --- |
 | **澳洲政府** | 1 | 澳大利亞中部、澳大利亞中部 2 |坎培拉、坎培拉 2 |
 | **歐洲** | 1 |法國中部、法國南部、北歐、西歐、英國西部、英國南部 |Amsterdam, Amsterdam2, Dublin, London, London2, Marseille, Newport(Wales), Paris, Zurich |
-| **北美洲** | 1 |美國東部、美國西部、美國東部 2、美國西部 2、美國中部、美國中南部、美國中北部、美國中西部、加拿大中部、加拿大東部 |亞特蘭大、芝加哥、達拉斯、丹佛、拉斯維加斯、洛杉磯、邁阿密、紐約、聖安東尼奧、西雅圖、矽谷、華盛頓特區、華盛頓特區2、蒙特婁、魁北克市、多倫多 |
-| **亞洲** | 2 |東亞、東南亞 |香港特別行政區、吉隆坡、新加坡、新加坡2、台北 |
+| **北美洲** | 1 |美國東部、美國西部、美國東部 2、美國西部 2、美國中部、美國中南部、美國中北部、美國中西部、加拿大中部、加拿大東部 |亞特蘭大、 芝加哥、 達拉斯、 丹佛、 內華達州拉斯維加斯、 洛杉磯、 邁阿密、 紐約、 聖安東尼奧、 西雅圖、 矽谷、 矽 Valley2、 Washington DC，華盛頓州 DC2、 蒙特婁、 魁北克市、 多倫多 |
+| **亞洲** | 2 |東亞、東南亞 |香港特別行政區，吉隆坡，新加坡、 新加坡 2、 台北 |
 | **澳大利亞** | 2 |澳洲東南部、澳洲東部 |墨爾本、伯斯、雪梨 | 
 | **印度** | 2 |印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
 | **日本** | 2 |日本西部、日本東部 |大阪、東京 |
@@ -88,7 +88,7 @@ ms.locfileid: "59006523"
 | **丹佛** | CoreSite | CoreSite、 Megaport、 Zayo |
 | **Dubai** | Etisalat 阿拉伯聯合大公國 | Etisalat 阿拉伯聯合大公國 |
 | **都柏林** | Equinix | Colt、eir、Equinix、Interxion、Megaport |
-| **香港** | Equinix | Aryaka Networks、British Telecom、China Telecom Global、Equinix、Megaport、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Verizon |
+| **中國香港特別行政區** | Equinix | Aryaka Networks、British Telecom、China Telecom Global、Equinix、Megaport、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Verizon |
 | **約翰尼斯堡** | Teraco | Internet Solutions - Cloud Connect、Liquid Telecom、Teraco |
 | **吉隆坡** | TIME dotCom | TIME dotCom |
 | **拉斯維加斯** | Switch | CenturyLink Cloud Connect、Megaport |
@@ -112,6 +112,7 @@ ms.locfileid: "59006523"
 | **Seattle** | Equinix | Aryaka Networks、Equinix、Level 3 Communications、Megaport、Zayo |
 | **首爾** | KINX | KINX、LG CNS、Sejong Telecom |
 | **矽谷** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink Cloud Connect、Comcast、Coresite、Equinix、InterCloud、IX Reach、PacketFabric、Level 3 Communications、Megaport、Orange、Sprint、Tata Communications、Verizon、Zayo |
+| **矽 Valley2** | Coresite | Coresite | 
 | **新加坡** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、Epsilon Global Communications、Equinix、InterCloud、Level 3 Communications、Megaport、NTT Communications、Orange、SingTel、Tata Communications、Telstra Corporation、Verizon、Vodafone |
 | **新加坡 2** | 全域切換 | Colt、 Epsilon Global Communications、 Megaport、 SingTel |
 | **雪梨** | Equinix | AARNet、 AT & T NetBond，British Telecom，Equinix，Kordia 的 Megaport、 NEXTDC、 NTT Communications，Optus，橙色，Telstra Corporation、 Verizon |
@@ -136,9 +137,9 @@ ms.locfileid: "59006523"
 | **聖安東尼奧** | Megaport |
 | **矽谷** | Equinix、LLevel 3 Communications、Verizon |
 | **Seattle** | Equinix、Megaport |
-| **華盛頓** |AT&T NetBond、Equinix、Level 3 Communications、Verizon |
+| **華盛頓** |At&t NetBond、 Equinix、 Level 3 Communications、 Megaport、 Verizon |
 
-### <a name="china"></a>中国
+### <a name="china"></a>中國
 | **位置** | **服務提供者** |
 | --- | --- |
 | **北京** |China Telecom |
@@ -180,7 +181,7 @@ ms.locfileid: "59006523"
 | **達拉斯** | Equinix、Megaport | Axtel、C3ntro Telecom、Cox Business、Data Foundry、Transtelco |
 | **法蘭克福** | Telecity | BICS、Cinia、Nianet、QSC AG |
 | **漢堡** | Equinix | Cinia |
-| **香港** | Equinix | Chief、Macroview Telecom |
+| **中國香港特別行政區** | Equinix | Chief、Macroview Telecom |
 | **約翰尼斯堡** | Teraco | MTN |
 | **倫敦** | BICS、Equinix、euNetworks、Telecity | Bezeq International Ltd.、 CoreAzure Telecommunications Limited、 Exponential E、 HSO、 NexGen Networks、 Proximus、 Tamares Telecom、 Zain |
 | **洛杉磯** | Equinix |Transtelco |

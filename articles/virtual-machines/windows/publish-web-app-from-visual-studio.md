@@ -13,12 +13,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304075"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204281"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>從 Visual Studio 將 ASP.NET Web 應用程式發行到 Azure VM
 
@@ -106,7 +106,7 @@ ms.locfileid: "44304075"
 
 - 如果您想要確保每次上傳後 Web 伺服器都會有乾淨的 Web 應用程式副本 (且不會有先前部署所留下的其他檔案)，可以勾選 [設定] 索引標籤中的 [移除目的地的其他檔案] 核取方塊。
 
-- 警告：以這項設定發行會刪除位於 Web 伺服器 (wwwroot 目錄) 上的所有檔案。 請確定您知道啟用這個選項下，發行前的電腦狀態。 
+- 警告:發行使用此設定會刪除存在於 web 伺服器 （wwwroot 目錄） 的所有檔案。 請確定您知道啟用這個選項下，發行前的電腦狀態。 
 
 ![發行設定 - 設定頁面]
 

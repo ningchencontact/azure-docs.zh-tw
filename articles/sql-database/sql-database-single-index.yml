@@ -134,7 +134,7 @@ sections:
   - title: 範例
     items:
       - type: paragraph
-        text: 尋找指令碼來管理常見工作。
+        text: 查找脚本来管理常见任务。
       - type: list
         style: unordered
         className: spaced noBullet

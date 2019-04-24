@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3fe839de8cbaa0b321b0b0602b000b7575224dde
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361093"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 自訂原則中定義 OAuth1 技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C 可提供 [OAuth 1.0 通訊協定](https://tools.ietf.org/html/rfc5849)識別提供者的支援。 本文說明技術設定檔的詳細規格，可用來與支援此標準化通訊協定的宣告提供者互動。 使用 OAuth1 技術設定檔時，您可以與 OAuth1 式識別提供者 (例如 Twitter) 同盟，讓您的使用者夠使用其現有的社交或企業識別來登入。
+Azure Active Directory (Azure AD) B2C 可提供 [OAuth 1.0 通訊協定](https://tools.ietf.org/html/rfc5849)識別提供者的支援。 本文會說明技術設定檔的詳細規格，其可和支援此標準化通訊協定的宣告提供者互動。 OAuth1 的技術設定檔，您可以與 Twitter 等 OAuth1 型的識別提供者同盟。 同盟身分識別提供者，可讓使用者使用其現有的社交登入或企業身分識別。
 
 ## <a name="protocol"></a>通訊協定
 
@@ -46,7 +46,7 @@ Azure Active Directory (Azure AD) B2C 可提供 [OAuth 1.0 通訊協定](https:/
 
 下列範例顯示 Twitter 識別提供者傳回的宣告：
 
-- 對應至 **socialIdpUserId** 宣告的 **user_id** 宣告。
+- **User_id**宣告對應至**issuerUserId**宣告。
 - 對應至 **displayName** 宣告的 **screen_name** 宣告。
 - **email** 宣告沒有名稱對應。
 
@@ -57,7 +57,7 @@ Azure Active Directory (Azure AD) B2C 可提供 [OAuth 1.0 通訊協定](https:/
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
   <OutputClaim ClaimTypeReferenceId="email" />
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />
@@ -87,7 +87,7 @@ Azure Active Directory (Azure AD) B2C 可提供 [OAuth 1.0 通訊協定](https:/
 
 ## <a name="redirect-uri"></a>重新導向 URI
 
-當您設定識別提供者的重新導向 URL 時，請輸入 `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`。 請務必將 **tenant** 取代為您的租用戶名稱 (例如 contosob2c.onmicrosoft.com)，並將 **policyId** 取代為原則的識別碼 (例如 b2c_1a_policy)。 重新導向 URL 必須全部是小寫。 您應該為所有使用識別提供者登入的原則新增重新導向 URL。 
+當您設定識別提供者的重新導向 URL 時，請輸入 `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`。 請務必將 **tenant** 取代為您的租用戶名稱 (例如 contosob2c.onmicrosoft.com)，並將 **policyId** 取代為原則的識別碼 (例如 b2c_1a_policy)。 重新導向 URI 必須全部小寫。 新增使用身分識別提供者登入的所有原則的重新導向 URL。 
 
 如果使用的是 **b2clogin.com** 網域，而非使用 **login.microsoftonline.com**，請務必使用 b2clogin.com，而非使用 login.microsoftonline.com。
 

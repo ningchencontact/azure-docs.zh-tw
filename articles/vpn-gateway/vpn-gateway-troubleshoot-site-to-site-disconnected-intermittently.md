@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 2fdd82c2f0c96b3bd20231911bb88cf54c172931
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457744"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>疑難排解：Azure 站對站 VPN 間歇性中斷
 
@@ -29,7 +29,7 @@ ms.locfileid: "52958009"
 
 ## <a name="troubleshooting-steps"></a>疑難排解步驟
 
-### <a name="prerequisite-step"></a>必要步驟
+### <a name="prerequisite-step"></a>先决条件步骤
 
 檢查 Azure 虛擬網路閘道的類型：
 
@@ -40,8 +40,8 @@ ms.locfileid: "52958009"
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>步驟 1：檢查內部部署 VPN 裝置是否經過驗證
 
-1. 檢查您是否使用[經過驗證的 VPN 裝置和作業系統版本](vpn-gateway-about-vpn-devices.md#devicetable)。 如果 VPN 裝置未經驗證，您可能需要連絡裝置製造商，以了解是否有任何相容性問題。
-2. 確定已正確設定 VPN 裝置。 如需詳細資訊，請參閱[編輯裝置組態範例](vpn-gateway-about-vpn-devices.md#editing)。
+1. 检查是否使用的是[已验证的 VPN 设备和操作系统版本](vpn-gateway-about-vpn-devices.md#devicetable)。 如果 VPN 裝置未經驗證，您可能需要連絡裝置製造商，以了解是否有任何相容性問題。
+2. 确保已正确配置 VPN 设备。 有关详细信息，请参阅[编辑设备配置示例](vpn-gateway-about-vpn-devices.md#editing)。
 
 ### <a name="step-2-check-the-security-association-settingsfor-policy-based-azure-virtual-network-gateways"></a>步驟 2：檢查安全性關聯設定 (適用於原則式 Azure 虛擬網路閘道)
 
@@ -64,7 +64,7 @@ ms.locfileid: "52958009"
 
 - 如果 Azure 的「區域網路閘道」定義中包含 VPN 裝置對網際網路的 IP 位址，則您可能會遇到偶爾連線中斷的情況。
 - 裝置的外部介面必須直接位在網際網路上。 網際網路與裝置之間不應該有網路位址轉譯 (NAT) 或防火牆。
--  如果您將防火牆叢集設定為具有虛擬 IP，則您必須解散叢集，並直接將 VPN 設備公開給閘道可介接的公用介面。
+-  如果将防火墙群集配置为具有虚拟 IP，则必须中断群集并直接向可以与网关连接的公共接口公开 VPN 设备。
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>步驟 7：檢查內部部署 VPN 裝置是否已啟用「完整轉寄密碼」
 

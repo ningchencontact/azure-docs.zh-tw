@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 1c30e679b250c2d6c6b03a1fe5d70dbd06acf052
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535649"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>使用 Azure 網路監看員進行封包檢查
 

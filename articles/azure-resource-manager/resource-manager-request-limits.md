@@ -3,22 +3,23 @@ title: 要求限制和節流設定 - Azure Resource Manager
 description: 描述如何在到達訂用帳戶限制時，對 Azure Resource Manager 要求使用節流。
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
-ms.author: tomfitz
+origin.date: 03/05/2019
+ms.date: 03/18/2019
+ms.author: v-yeche
 ms.custom: seodec18
 ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389724"
 ---
 # <a name="throttling-resource-manager-requests"></a>對 Resource Manager 要求進行節流
 
@@ -28,14 +29,14 @@ ms.locfileid: "57550615"
 
 這些限制適用於每個 Azure Resource Manager 執行個體。 每個 Azure 區域中都有多個執行個體，且 Azure Resource Manager 會部署到所有 Azure 區域。  因此，實際上的限制比這些限制還要高，因為通常是由多個不同的執行個體來服務使用者要求。
 
-如果應用程式或指令碼到達這些限制，便需要對要求進行節流。 這篇文章說明如何判斷剩餘的要求，您必須先達到限制，以及您已達到限制時如何回應。
+如果應用程式或指令碼到達這些限制，便需要對要求進行節流。 本文说明如何在达到限制之前确定剩余的请求数，以及达到限制时如何做出响应。
 
 當您到達限制時，您會收到 HTTP 狀態碼 **429 太多要求**。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>剩餘的要求
-您可以藉由檢查回應標頭來判斷剩餘的要求數。 讀取要求會傳回其餘的讀取要求數之標頭中的值。 寫入要求包含其餘的寫入要求數目的值。 下表描述可供檢查這些值的回應標頭︰
+您可以藉由檢查回應標頭來判斷剩餘的要求數。 读取请求在标头中返回一个值，表示剩余读取请求的数目。 写入请求包含的值表示剩余写入请求的数目。 下表描述可供檢查這些值的回應標頭︰
 
 | 回應標頭 | 描述 |
 | --- | --- |
@@ -60,7 +61,7 @@ response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetVal
 在 **PowerShell** 中，您可以從 Invoke-WebRequest 作業擷取標頭值。
 
 ```powershell
-$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r = Invoke-WebRequest -Uri https://management.chinacloudapi.cn/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
@@ -88,7 +89,7 @@ x-ms-ratelimit-remaining-subscription-reads: 11999
 若要取得寫入限制，請使用寫入作業： 
 
 ```powershell
-New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location chinanorth -Debug
 ```
 
 這會傳回許多值，包括下列值︰
@@ -127,7 +128,7 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 若要取得寫入限制，請使用寫入作業： 
 
 ```azurecli
-az group create -n myresourcegroup --location westus --verbose --debug
+az group create -n myresourcegroup --location chinanorth --verbose --debug
 ```
 
 這會傳回許多值，包括下列值︰
@@ -151,3 +152,5 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 * 如需完整的 PowerShell 範例，請參閱 [Check Resource Manager Limits for a Subscription](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI) (檢查訂用帳戶的 Resource Manager 限制)。
 * 如需有關限制和配額的詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 * 若要了解如何處理非同步 REST 要求，請參閱[追蹤非同步 Azure 作業 (英文)](resource-manager-async-operations.md)。
+
+<!--Update_Description: update meta properties, update cmdlet -->

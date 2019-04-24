@@ -19,11 +19,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353457"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自訂 Active Directory Federation Services
 本文說明如何使用 Azure Active Directory (Azure AD) Connect 管理及自訂 Active Directory Federation Services (AD FS)。 它也包含您可能需要進行以完整設定 AD FS 伺服器陣列的其他常見 AD FS 工作。
@@ -32,7 +32,7 @@ ms.locfileid: "56870936"
 |:--- |:--- |
 | **管理 AD FS** | |
 | [修復信任](#repairthetrust) |如何修復與 Office 365 的同盟信任。 |
-| [使用替代登入識別碼與 Azure AD 建立同盟](#alternateid) | 使用替代登入識別碼設定同盟  |
+| [使用备用登录 ID 与 Azure AD 联合](#alternateid) | 使用替代登入識別碼設定同盟  |
 | [添加 AD FS 服务器](#addadfsserver) |如何使用額外的 AD FS 伺服器擴充 AD FS 伺服器陣列。 |
 | [新增 AD FS Web 應用程式 Proxy 伺服器](#addwapserver) |如何使用其他 Web 應用程式 Proxy (WAP) 伺服器展開 AD FS 陣列。 |
 | [新增同盟網域](#addfeddomain) |如何新增同盟網域。 |

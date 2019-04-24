@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 17c0213d63879687e9c6d5f8dca06b9113c44af8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "58116103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456897"
 ---
 如果您只想在您的應用程式中啟用註冊功能，您可使用**註冊**使用者流程。 此使用者流程描述客戶在註冊期間將會經歷的體驗，以及應用程式在成功註冊時會收到的權杖內容。
 
@@ -44,3 +45,4 @@ ms.locfileid: "58116103"
 > [!NOTE]
 > 建立和更新使用者流程後，需要經過一分鐘才會生效。
 >
+

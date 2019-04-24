@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: e27be86a7a14a38c5083949a1a7255574d2d0dc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3996f22db2f5dc597939995a2699c4fe228821e3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956076"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392549"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>管理對容器與 Blob 的匿名讀取權限。
 您可以對 Azure Blob 儲存體中的容器及其 Blob 啟用匿名與公用讀取權限。 如此您就可以將這些資源的唯讀存取權限授與他人，而無須共用您的帳戶金鑰，也無須要求共用存取簽章 (SAS)。
@@ -20,17 +20,17 @@ ms.locfileid: "46956076"
 公用讀取權限適用於您想要某些 Blob 永遠可供匿名讀取存取的狀況。 對於更深入的控管需求，您可以建立共用存取簽章。 共用存取簽章可讓您針對一段特定時間提供不同權限的限制存取。 如需建立共用存取簽章的詳細資訊，請參閱[在 Azure 儲存體中使用共用存取簽章 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>授與容器和 Blob 的匿名使用者權限
-根據預設，可能只有儲存體帳戶的擁有者能存取容器及其內部的任何 Blob。 若要為匿名使用者授與容器及其 Blob 的讀取權限，您可以設定容器權限以允許公用存取。 匿名使用者可以讀取可公開存取之容器內的 Blob，而不需驗證要求。
+默认情况下，仅存储帐户的所有者能够访问容器以及其中的所有 Blob。 若要為匿名使用者授與容器及其 Blob 的讀取權限，您可以設定容器權限以允許公用存取。 匿名使用者可以讀取可公開存取之容器內的 Blob，而不需驗證要求。
 
 您可以為容器設定下列權限︰
 
-* **無公用讀取權限︰** 只有儲存體帳戶擁有者可以存取容器和其 Blob。 這是所有新建容器的預設值。
-* **僅對 Blob 有公用讀取權限：** 您可以透過匿名要求讀取容器內的 Blob，但您無法使用容器資料。 匿名用戶端無法列舉容器內的 Blob。
-* **完整的公用讀取權限：** 可以透過匿名要求讀取所有容器和 Blob 資料。 用戶端可以透過匿名要求列舉容器內的 Blob，但無法列舉儲存體帳戶內的容器。
+* **沒有公開讀取權限：** 可以存取容器和其 blob，只能由儲存體帳戶擁有者。 這是所有新建容器的預設值。
+* **僅限 blob 的公用讀取權限：** 可以讀取容器內的 blob，透過匿名要求，但不是使用容器資料。 匿名用戶端無法列舉容器內的 Blob。
+* **完整公開讀取的權限：** 可以透過匿名要求讀取所有容器和 blob 資料。 用戶端可以透過匿名要求列舉容器內的 Blob，但無法列舉儲存體帳戶內的容器。
 
 您可以使用下列方式設定容器權限：
 
-* [Azure 入口網站](https://portal.azure.com)
+* [Azure 门户](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Azure CLI](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * 使用其中一個儲存體用戶端程式庫或 REST API 以程式設計方式設定
@@ -119,7 +119,7 @@ public static void DownloadBlobAnonymously()
 | 建立容器 |只有擁有者 |只有擁有者 |
 | 取得容器屬性 |全部 |只有擁有者 |
 | 取得容器中繼資料 |全部 |只有擁有者 |
-| 設定容器中繼資料 |只有擁有者 |只有擁有者 |
+| 设置容器元数据 |只有擁有者 |只有擁有者 |
 | 取得容器 ACL |只有擁有者 |只有擁有者 |
 | 設定容器 ACL |只有擁有者 |只有擁有者 |
 | 刪除容器 |只有擁有者 |只有擁有者 |
@@ -130,20 +130,20 @@ public static void DownloadBlobAnonymously()
 | 設定 Blob 屬性 |只有擁有者 |只有擁有者 |
 | 取得 Blob 中繼資料 |全部 |全部 |
 | 設定 Blob 中繼資料 |只有擁有者 |只有擁有者 |
-| 放置區塊 |只有擁有者 |只有擁有者 |
+| 放置块 |只有擁有者 |只有擁有者 |
 | 取得區塊清單 (僅限認可區塊) |全部 |全部 |
 | 取得區塊清單 (僅限未認可的區塊或所有區塊) |只有擁有者 |只有擁有者 |
-| 放置區塊清單 |只有擁有者 |只有擁有者 |
+| 放置块列表 |只有擁有者 |只有擁有者 |
 | 刪除 Blob |只有擁有者 |只有擁有者 |
-| 複製 Blob |只有擁有者 |只有擁有者 |
+| 复制 Blob |只有擁有者 |只有擁有者 |
 | 快照 Blob |只有擁有者 |只有擁有者 |
 | 租用 Blob |只有擁有者 |只有擁有者 |
-| 放置頁面 |只有擁有者 |只有擁有者 |
+| 放置頁面 |仅所有者 |只有擁有者 |
 | 取得頁面範圍 |全部 |全部 |
 | 附加 Blob |只有擁有者 |只有擁有者 |
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Azure 儲存體服務的驗證](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+* [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)（Azure 存储服务的身份验证）
 * [使用共用存取簽章 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [使用共用存取簽章來委派存取權](https://msdn.microsoft.com/library/azure/ee395415.aspx)

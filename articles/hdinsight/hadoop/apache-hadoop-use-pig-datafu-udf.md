@@ -1,7 +1,6 @@
 ---
 title: 在 HDInsight 上搭配使用 Apache DataFu 與 Apache Pig - Azure
 description: Apache DataFu Pig 是可與 Apache Hadoop 上的 Apache Pig 搭配使用的程式庫集合。 了解如何在 HDInsight 叢集上搭配使用 DataFu 與 Pig。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
 ms.openlocfilehash: d67c3e452da05c626721d4c3144e612e6f9e0af4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445106"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>搭配使用 Apache DataFu Pig 與 HDInsight 上的 Apache Pig
 
@@ -27,7 +26,7 @@ Apache DataFu Pig 是可與 Apache Hadoop 上的 Apache Pig 搭配使用的開�
 
 * Azure 訂用帳戶。
 
-* Azure HDInsight 叢集 (以 Linux 或 Windows 為基礎)
+* Azure HDInsight 群集（基于 Linux 或 Windows）
 
   > [!IMPORTANT]  
   > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。

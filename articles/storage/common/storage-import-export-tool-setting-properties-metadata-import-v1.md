@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 66ae7045cfb94ec70f3b14046af736f784b88ea6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320545"
 ---
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>在匯入程序期間設定屬性和中繼資料
 當您執行 Microsoft Azure 匯入/匯出工具準備磁碟機時，可以指定要在目的地 blob 上設定的屬性和中繼資料。 請遵循下列步驟：  

@@ -2,17 +2,18 @@
 title: 概念 - Azure Kubernetes Service (AKS) 中的儲存體
 description: 了解 Azure Kubernetes Service (AKS) 中的儲存體，包括磁碟區、永續性磁碟區、儲存體類別和宣告
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.author: iainfou
+origin.date: 03/01/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243766"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466785"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式適用的儲存體選項
 
@@ -121,7 +122,7 @@ spec:
 
 ## <a name="next-steps"></a>後續步驟
 
-如需相關聯的最佳作法，請參閱[儲存體和 AKS 中的備份的最佳做法][operator-best-practices-storage]。
+如需相关的最佳做法，请参阅[在 AKS 中存储和备份的最佳做法][operator-best-practices-storage]。
 
 若要了解如何建立使用 Azure 磁碟或 Azure 檔案的動態和靜態磁碟區，請參閱下列操作說明文章：
 

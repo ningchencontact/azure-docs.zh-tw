@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 11/13/2018
 ms.author: v-jamebr
 ms.openlocfilehash: 7f1b6f955dd3f59f6c17403b536cf99d666aab08
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392949"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>安裝及設定 Azure Service Fabric 中的反向 Proxy
 反向 Proxy 是選用的 Azure Service Fabric 服務，可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 HTTP 端點的服務通訊。 如需詳細資訊，請參閱 [Azure Service Fabric 中的反向 Proxy](service-fabric-reverseproxy.md)。 這篇文章會示範如何在叢集中安裝及設定反向 Proxy。 

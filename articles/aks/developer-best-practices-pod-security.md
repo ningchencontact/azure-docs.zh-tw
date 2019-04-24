@@ -2,17 +2,18 @@
 title: 開發人員最佳做法 - Azure Kubernetes Services (AKS) 中的 Pod 安全性
 description: 了解如何在 Azure Kubernetes Services (AKS) 中保護 Pod 的開發人員最佳做法
 services: container-service
-author: zr-msft
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: zarhoads
+origin.date: 12/06/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: 1c2c5cbee91ddaee5f1f6af8ec17c48326f68e84
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755064"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466852"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中的 Pod 安全性最佳做法
 
@@ -53,7 +54,7 @@ metadata:
 spec:
   containers:
     - name: security-context-demo
-      image: nginx:1.15.5
+      image: dockerhub.azk8s.cn/nginx:1.15.5
     securityContext:
       runAsUser: 1000
       fsGroup: 2000
@@ -75,7 +76,7 @@ spec:
 * Azure 資源的受控身分識別，以及
 * Azure Key Vault FlexVol 驅動程式
 
-相關聯的 AKS 開放原始碼專案不會受到 Azure 技術支援。 它們可供收集從我們的社群的意見及 bug。 這些專案不建議用於生產環境。
+Azure 技术支持不为关联的 AKS 开放源代码项目提供支持。 提供这些项目是为了从我们的社区收集反馈和 bug。 建议不要将这些项目用于生产。
 
 ### <a name="use-pod-managed-identities"></a>使用 Pod 受控身分識別
 

@@ -12,11 +12,11 @@ ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21c197dace3088ceb89270b7e3e8a1b91e9c8ebc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292804"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>使用 Microsoft Cloud App Security 與 Azure Active Directory 設定即時應用程式存取監視
 設定 Azure Active Directory (Azure AD) 中的內部部署應用程式，以使用 Microsoft Cloud App Security (MCAS) 進行即時監視。 MCAS 會使用條件式存取應用程式控制，根據條件式存取原則即時監視和控制工作階段。 您可以將這些原則套用至內部部署應用程式，以在 Azure Active Directory (Azure AD) 中使用應用程式 Proxy。

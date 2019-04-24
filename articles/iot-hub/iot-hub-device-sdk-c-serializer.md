@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
 ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024852"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399191"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>適用於 C 的 Azure IoT 裝置 SDK - 深入了解序列化程式
 
@@ -60,21 +60,21 @@ END_NAMESPACE(WeatherStation);
 > 
 > 
 
-## <a name="supported-data-types"></a>支援的資料類型
+## <a name="supported-data-types"></a>支持的数据类型
 
 利用 **序列化程式** 程式庫建立的模型支援下列資料類型：
 
-| 類型 | 說明 |
+| 類型 | 描述 |
 | --- | --- |
 | double |雙精確度浮點數 |
 | int |32 位元整數 |
 | float |單精確度浮點數 |
 | long |長整數 |
 | int8\_t |8 位元整數 |
-| int16\_t |16 位元整數 |
+| int16\_t |16 位整数 |
 | int32\_t |32 位元整數 |
-| int64\_t |64 位元整數 |
-| 布林 |布林值 |
+| int64\_t |64 位整数 |
+| bool |布尔值 |
 | ascii\_char\_ptr |ASCII 字串 |
 | EDM\_DATE\_TIME\_OFFSET |日期時間位移 |
 | EDM\_GUID |GUID |
@@ -194,7 +194,7 @@ EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-請注意，序列化屬於 JSON 格式，這是由**序列化程式**庫所產生的格式。 另請注意，序列化 JSON 物件的每個成員皆與在我們模型中定義的 **TestType** 成員相符。 值也與程式碼中使用的值完全相符。 不過，請注意，二進位資料是採用 base64 編碼："AQID" 是 {0x01, 0x02, 0x03} 的 base64 編碼。
+請注意，序列化屬於 JSON 格式，這是由**序列化程式**庫所產生的格式。 另請注意，序列化 JSON 物件的每個成員皆與在我們模型中定義的 **TestType** 成員相符。 值也與程式碼中使用的值完全相符。 不過請注意，二進位資料是 base64 編碼："AQID"是 base64 編碼方式 {0x01，0x02，0x03}。
 
 這個範例示範使用 **序列化程式** 程式庫的優點 -- 它可讓我們將 JSON 傳送至雲端，而不需要在我們的應用程式中明確處理序列化。 我們所需操心的只有要在模型中設定資料事件的值，然後呼叫簡單的 API 將這些事件傳送至雲端。
 
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-請注意，此模型包含兩個資料事件：**Temperature** 和 **Humidity**。 與先前的範例不同，這裡每個事件的類型都是使用 **DECLARE\_STRUCT** 來定義的結構。 **TemperatureEvent** 包含溫度測量和時間戳記；**HumidityEvent** 包含溼度測量和時間戳記。 此模型可讓我們以自然的方式模型化上述案例的資料。 當我們將事件傳送至雲端時，我們將會傳送溫度/時間戳記組或溼度/時間戳記組。
+請注意，此模型包含兩個資料事件：**溫度**並**溼度**。 與先前的範例不同，這裡每個事件的類型都是使用 **DECLARE\_STRUCT** 來定義的結構。 **TemperatureEvent** 包含溫度測量和時間戳記；**HumidityEvent** 包含溼度測量和時間戳記。 此模型可讓我們以自然的方式模型化上述案例的資料。 當我們將事件傳送至雲端時，我們將會傳送溫度/時間戳記組或溼度/時間戳記組。
 
 我們可以使用類似以下的程式碼將溫度事件傳送至雲端：
 
@@ -305,7 +305,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Humidity) == IOT_AGENT
 
 ### <a name="model-2"></a>模型 2
 
-請考慮上述模型的替代模型：
+请考虑上述模型的替代模型：
 
 ```C
 DECLARE_MODEL(Thermostat,
@@ -408,7 +408,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-請以物件導向的觀點思考此模型。 在此案例中，我們要模型化的是一個實體裝置 (控溫器)，而該裝置包含 **Temperature** 和 **Humidity** 之類的屬性。
+请以对象定向的观点思考此模型。 在此案例中，我們要模型化的是一個實體裝置 (控溫器)，而該裝置包含 **Temperature** 和 **Humidity** 之類的屬性。
 
 我們可以利用類似以下的程式碼來傳送模型的整個狀態：
 
@@ -514,7 +514,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 {"Name" : "", "Parameters" : "" }
 ```
 
-您將使用兩個屬性來傳送序列化的 JSON 物件：**Name** 是動作 (訊息) 的名稱，而 **Parameters** 則包含該動作的參數。
+您要傳送序列化的 JSON 物件，具有兩個屬性：**名稱**是動作 （訊息） 的名稱和**參數**包含該動作的參數。
 
 例如，若要叫用 **SetAirResistance** ，您可以將下列訊息傳送給裝置：
 
@@ -522,7 +522,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 {"Name" : "SetAirResistance", "Parameters" : { "Position" : 5 }}
 ```
 
-動作名稱必須完全符合您的模型中所定義的動作。 參數名稱也必須相符。 也請注意區分大小寫。 **Name** 和 **Parameters** 一律是大寫。 請務必符合您模型中動作名稱和參數的大小寫。 在此範例中，動作名稱是 "SetAirResistance"，而不是 "setairresistance"。
+動作名稱必須完全符合您的模型中所定義的動作。 參數名稱也必須相符。 另请注意大小写。 **Name** 和 **Parameters** 一律是大寫。 请务必与模型中操作名称和参数的大小写匹配。 在此範例中，動作名稱是 "SetAirResistance"，而不是 "setairresistance"。
 
 您可以透過將下列訊息傳送到裝置，以叫用兩個其他動作 **TurnFanOn** 與 **TurnFanOff**：
 
@@ -543,7 +543,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 .\\c-utility
 ```
 
-如果您尚未複製程式庫，可以在 [這裡](https://github.com/Azure/azure-c-shared-utility)找到。
+如果没有克隆此库，则可以在 [此处](https://github.com/Azure/azure-c-shared-utility)找到它。
 
 在共用公用程式庫中，可以找到下列資料夾：
 
@@ -619,7 +619,7 @@ WITH_DATA(int, MyData)
 
 **simplesample\_amqp** 中會示範這些 API。
 
-此外，也有一組類似的較低層級 API。
+还有一组类似但级别更低的 API。
 
 * IoTHubClient\_LL\_CreateFromConnectionString
 * IoTHubClient\_LL\_SendEventAsync
@@ -630,7 +630,7 @@ WITH_DATA(int, MyData)
 
 如需有關如何將較低層級 API 與「序列化程式」程式庫搭配使用的範例，請參閱 **simplesample\_http** 應用程式。
 
-## <a name="additional-topics"></a>其他主題
+## <a name="additional-topics"></a>其他主题
 幾個其他值得再次一提的主題包括屬性處理、使用替代裝置認證及組態選項。 這些都是 [先前的文章](iot-hub-device-sdk-c-iothubclient.md)中所涵蓋的主題。 重點在於，所有這些功能不論是與「序列化程式」程式庫搭配，還是與 **IoTHubClient** 程式庫搭配，其運作方式均相同。 例如，如果您想要將屬性附加到來自您模型的事件，您需透過前述的相同方式，使用 **IoTHubMessage\_Properties** 和 **Map**\_**AddorUpdate**：
 
 ```C

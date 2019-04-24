@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/03/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: afa064232c10d3e84e9c301d44b82faae4904253
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152972"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383944"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -29,9 +30,9 @@ ms.locfileid: "55152972"
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
-  TenantId="mytenant.onmicrosoft.com"
+  TenantId="mytenant.partner.onmschina.cn"
   PolicyId="B2C_1A_TrustFrameworkBase"
-  PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+  PublicPolicyUri="http://mytenant.partner.onmschina.cn/B2C_1A_TrustFrameworkBase">
 
   <BuildingBlocks>
     <ClaimsSchema>
@@ -71,5 +72,6 @@ ms.locfileid: "55152972"
 - [ContentDefinitions](contentdefinitions.md)：包含要在使用者旅程圖中使用之 HTML5 範本的 URL。 在自訂原則中，內容定義會定義要在使用者旅程圖中針對指定步驟使用的 HTML5 頁面 URI。 例如，登入或註冊、密碼重設或錯誤網頁。 您可以透過覆寫該 HTML5 檔案的 LoadUri 來修改外觀及操作。 或者，可以根據您的需求來建立新的內容定義。 這個元素可能會使用當地語系化識別碼來包含當地語系化的資源參考。
 
 - [Localization](localization.md)：可讓您支援多種語言。 原則中的當地語系化支援可讓您在原則中設定支援的語言清單，並挑選預設語言。 同時也支援特定語言的字串和集合。
+
 
 

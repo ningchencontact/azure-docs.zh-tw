@@ -15,11 +15,11 @@ ms.date: 02/26/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ffd783ec41b1b0c4a11ee426648c1e36fbbbf75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60349884"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>健康情況服務的資料並非最新警示
 

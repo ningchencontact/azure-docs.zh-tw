@@ -1,7 +1,6 @@
 ---
 title: 使用 Spark 分析 Application Insights 記錄 - Azure HDInsight
 description: 了解如何將 Application Insights 記錄匯出至 blob 儲存體，並接著使用 HDInsight 上的 Spark 分析記錄。
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.openlocfilehash: 806e5b6f764797d2e038cc7ed58ec1d04f678e2b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326624"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>使用 HDInsight 上的 Apache Spark 分析 Application Insights 遙測記錄
 
@@ -35,17 +34,17 @@ ms.locfileid: "54120371"
 
 開發和測試本文件時使用了以下資源：
 
-* Application Insights 遙測資料，由 [設定為使用 Application Insights 的 Node.js Web 應用程式](../../azure-monitor/app/nodejs.md)產生。
+* [配置为使用 Application Insights 的 Node.js Web 应用](../../azure-monitor/app/nodejs.md)，用于生成 Application Insights 遥测数据。
 
 * 在 Linux 上使用 HDInsight 叢集版本 3.5 上的 Spark 分析資料。
 
-## <a name="architecture-and-planning"></a>架構與規劃
+## <a name="architecture-and-planning"></a>架构与规划
 
 下圖說明此範例的服務架構：
 
 ![顯示資料從 Application Insights 傳輸至 blob 儲存體，然後由 HDInsight 上的 Spark 處理的圖](./media/apache-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
-### <a name="azure-storage"></a>Azure 儲存體
+### <a name="azure-storage"></a>Azure 存储
 
 Application Insights 可以設定為持續將遙測資訊匯出到 blob。 HDInsight 接著便可讀取儲存在 blob 中的資料。 不過，有一些您必須遵守的需求︰
 
@@ -364,7 +363,7 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
 
 如需在 Azure 中使用 Apache Spark 處理資料和服務的範例，請參閱下列文件：
 
-* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
 * [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)

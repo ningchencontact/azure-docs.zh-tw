@@ -14,15 +14,15 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60488413"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>資料管理閘道 - 高可用性和延展性 (預覽)
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
 
 
 本文可協助您使用資料管理閘道/整合來設定高可用性和延展性解決方案。    
@@ -186,9 +186,9 @@ ms.locfileid: "58092186"
 
 監視屬性 | 描述
 :------------------ | :---------- 
-名稱 | 邏輯閘道和閘道相關聯節點的名稱。  
+Name | 邏輯閘道和閘道相關聯節點的名稱。  
 狀態 | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/受限制/等等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。 
-版本 | 顯示邏輯閘道和每個閘道節點的版本。 邏輯閘道的版本取決於群組中大多數節點的版本。 如果邏輯閘道設定中有不同版本的節點，則只有版本號碼和邏輯閘道相同的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。 
+Version | 顯示邏輯閘道和每個閘道節點的版本。 邏輯閘道的版本取決於群組中大多數節點的版本。 如果邏輯閘道設定中有不同版本的節點，則只有版本號碼和邏輯閘道相同的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。 
 可用的記憶體 | 閘道節點上可用的記憶體。 這個值是近乎即時的快照集。 
 CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快照集。 
 網路功能 (輸入/輸出) | 閘道節點的網路使用率。 這個值是近乎即時的快照集。 

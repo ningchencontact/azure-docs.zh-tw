@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 版本和耗用量計劃-Azure Active Directory
+title: Azure MFA 版本和使用计划 - Azure Active Directory
 description: Multi-Factor Authentication 用戶端、不同的方法及可用版本的詳細資訊。
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415674"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 
@@ -30,7 +30,7 @@ ms.locfileid: "58309995"
 
 下表說明三種 Multi-Factor Authentication 版本之間的差異︰
 
-| 版本 | 描述 |
+| Version | 描述 |
 | --- | --- |
 | Multi-Factor Authentication for Office 365 <br> Microsoft 365 商務版 |這個版本專門搭配 Office 365 應用程式運作，並且可從 Office 365 或 Microsoft 365 入口網站管理。 系統管理員可以[使用雙步驟驗證來保護 Office 365 資源的安全](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本是 Office 365 或 Microsoft 365 商務版訂用帳戶的一部分。 |
 | 適用於 Azure AD 系統管理員的 Multi-Factor Authentication | Azure AD 租用戶中指派為 Azure AD 全域管理員角色的使用者，可以啟用雙步驟驗證，而不需要額外收費。|

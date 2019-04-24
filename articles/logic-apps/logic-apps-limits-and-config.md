@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
 ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303667"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -26,7 +26,7 @@ ms.locfileid: "59565898"
 
 以下是單一邏輯應用程式定義的限制：
 
-| 名稱 | 限制 | 注意 |
+| Name | 限制 | 注意 |
 | ---- | ----- | ----- |
 | 每個工作流程的動作數目 | 500 | 若要延伸此限制，您可以視需要新增巢狀工作流程。 |
 | 允許的動作巢狀深度 | 8 | 若要延伸此限制，您可以視需要新增巢狀工作流程。 |
@@ -48,7 +48,7 @@ ms.locfileid: "59565898"
 
 以下是單一邏輯應用程式執行的限制：
 
-| 名稱 | 限制 | 注意 |
+| Name | 限制 | 注意 |
 |------|-------|-------|
 | 執行持續時間 | 90 天 | 若要變更此限制，請參閱[變更執行持續時間](#change-duration)。 |
 | 最小循環間隔 | 1 秒 | |
@@ -75,7 +75,7 @@ ms.locfileid: "59565898"
 
 以下是單一邏輯應用程式執行的限制：
 
-| 名稱 | 限制 | 注意 |
+| Name | 限制 | 注意 |
 | ---- | ----- | ----- |
 | 觸發程序並行 | * 並行控制關閉時無限制 <p><p>* 並行控制開啟時的預設限制為 25，在開啟此控制之後便無法復原此限制。 您可以將預設值變更為介於 1 到 50 之間的值 (含 1 與 50)。 | 此限制描述可以同時 (或稱「平行」) 執行的邏輯應用程式執行個體數目上限。 <p><p>若要將預設限制變更為介於 1 到 50 個之間 (含 1 與 50)，請參閱[變更觸發程序並行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)或[循序觸發執行個體](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)。 |
 | 最大等候執行數 | 當並行控制開啟時，等候執行數目下限為 10，加上並行執行數目 (觸發程序並行)。 您可以將數目上限變更為 100 (含)。 | 此限制描述當您的邏輯應用程式準備執行並行執行個體數目上限時，可以等候執行的邏輯應用程式執行個體數目上限。 <p><p>若要變更預設限制，請參閱[變更等候執行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)。 |
@@ -91,11 +91,11 @@ ms.locfileid: "59565898"
 
 以下是單一邏輯應用程式執行的限制：
 
-### <a name="global-logic-apps-service"></a>全域的 Logic Apps 服務
+### <a name="global-logic-apps-service"></a>全局逻辑应用服务
 
-| 名稱 | 限制 | 注意 |
+| Name | 限制 | 注意 |
 | ---- | ----- | ----- |
-| 動作：每 5 分鐘執行次數 | 100,000 是預設限制，但 300,000 的最大限制。 | 若要變更預設限制，請參閱[以「輸送量」模式執行您的邏輯應用程式](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (此為預覽版)。 或者，您可以視需要將工作負載分散到多個邏輯應用程式。 |
+| 動作：每 5 分鐘執行次數 | 默认限制为 100,000，最大限制为 300,000。 | 若要變更預設限制，請參閱[以「輸送量」模式執行您的邏輯應用程式](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (此為預覽版)。 或者，您可以視需要將工作負載分散到多個邏輯應用程式。 |
 | 動作：並行連出呼叫數目 | ~2,500 | 您可以視需要減少並行要求數目或縮短持續時間。 |
 | 執行階段端點：並行連入呼叫數目 | ~1,000 | 您可以視需要減少並行要求數目或縮短持續時間。 |
 | 執行階段端點：每 5 分鐘讀取呼叫數目  | 60,000 | 您可以視需要將工作負載分散到多個應用程式。 |
@@ -105,7 +105,7 @@ ms.locfileid: "59565898"
 
 ### <a name="integration-service-environment-ise"></a>整合服務環境 (ISE)
 
-| 名稱 | 限制 | 注意 |
+| Name | 限制 | 注意 |
 |------|-------|-------|
 | 基礎單位執行限制 | 每 5 分鐘，10000 的動作執行 <br>這是每月 ~ 80 百萬次動作執行 | |
 | 縮放單位執行限制 | 5,000 每 5 分鐘的動作執行 <br>這是每月 ~ 40 萬個動作執行次數 | |
@@ -124,7 +124,7 @@ ms.locfileid: "59565898"
 
 某些連接器作業會進行非同步呼叫或接聽 Webhook 要求，因此這些作業的逾時可能會超過這些限制。 如需詳細資訊，請參閱特定連接器的技術詳細資料以及[工作流程觸發程序和動作](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)。
 
-| 名稱 | 限制 | 注意 |
+| Name | 限制 | 注意 |
 | ---- | ----- | ----- |
 | 傳出的要求 | 120 秒 | 對於執行時間較久的作業，請使用[非同步輪詢模式](../logic-apps/logic-apps-create-api-app.md#async-pattern)或 [until 迴圈](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)。 |
 | 同步回應 | 120 秒 | 為了讓原始要求取得回應，除非您以巢狀工作流程的形式呼叫另一個邏輯應用程式，否則回應中的所有步驟都必須在限制時間內完成。 如需詳細資訊，請參閱[呼叫、觸發或巢狀邏輯應用程式](../logic-apps/logic-apps-http-endpoint.md)。 |
@@ -141,7 +141,7 @@ ms.locfileid: "59565898"
 
 #### <a name="retry-policy"></a>重試原則
 
-| 名稱 | 限制 | 注意 |
+| Name | 限制 | 注意 |
 | ---- | ----- | ----- |
 | 重試次數 | 90 | 預設值為 4。 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 | 重試延遲上限 | 1 天 | 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
@@ -154,7 +154,7 @@ ms.locfileid: "59565898"
 
 以下限制適用於可透過 Web API 來建立的自訂連接器。
 
-| 名稱 | 限制 |
+| Name | 限制 |
 | ---- | ----- |
 | 自訂連接器的數目 | 每個 Azure 訂用帳戶 1,000 個 |
 | 自訂連接器所建立之每個連線的每分鐘要求數目 | 每個連線 500 個要求 |
@@ -164,7 +164,7 @@ ms.locfileid: "59565898"
 
 ## <a name="managed-identities"></a>受控身分識別
 
-| 名稱 | 限制 |
+| Name | 限制 |
 | ---- | ----- |
 | 每個 Azure 訂用帳戶都有系統指派受控識別的邏輯應用程式數目。 | 10 |
 |||
@@ -245,7 +245,7 @@ ms.locfileid: "59565898"
 
 以下是適用於 B2B 通訊協定的限制：
 
-| 名稱 | 限制 | 注意 |
+| Name | 限制 | 注意 |
 | ---- | ----- | ----- |
 | AS2 | 50 MB | 適用於解碼和編碼 |
 | X12 | 50 MB | 適用於解碼和編碼 |
@@ -256,7 +256,7 @@ ms.locfileid: "59565898"
 
 ## <a name="disabling-or-deleting-logic-apps"></a>停用或刪除邏輯應用程式
 
-當您停用邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行會繼續直到它們完成時，這可能需要時間來完成。
+當您停用邏輯應用程式後，就不會具現化新的執行。 所有正在进行的和挂起的运行将继续进行，直到完成，这可能要花费一些时间才能完成。
 
 當您刪除邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行都會取消。 如果您有數千個執行，加以取消可能需要很長的時間。
 

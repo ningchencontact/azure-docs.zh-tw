@@ -16,11 +16,11 @@ ms.date: 04/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64edf2aa47211c1d2a598417a7b2edc00f260075
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>教學課程：Azure Active Directory 與 ScaleX Enterprise 整合
 
@@ -181,7 +181,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
     
     g. 請勾選下列核取方塊：請勾選下列核取方塊︰[已啟用]、[加密 NameID] 和 [簽署 AuthnRequests]。
 
-    h. 按一下 [更新 SSO 設定] 將設定儲存。
+    h.如果该值不存在，请单击“添加行”。 按一下 [更新 SSO 設定] 將設定儲存。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f93152ae3db926fb989c219d1e515abaf0281bf4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372096"
 ---
 # <a name="understand-the-charges-on-your-microsoft-customer-agreements-invoice"></a>了解您的 Microsoft 客戶協議的發票費用
 
@@ -46,7 +46,7 @@ Microsoft 客戶合約的帳單帳戶，請在產生每個計費的設定檔中�
 
     |欄  |定義  |
     |---------|---------|
-    |日期     | 交易日期  |
+    |date     | 交易日期  |
     |發票識別碼     | 交易有以計費發票識別碼。 如果您提交支援要求，則將識別碼分享 Azure 的支援，以加速您的支援要求 |
     |交易類型     |  購買、 cancel 和使用量的費用等交易的類型  |
     |產品系列     | 虛擬機器的計算或 Azure SQL database 的資料庫之類的產品類別目錄|

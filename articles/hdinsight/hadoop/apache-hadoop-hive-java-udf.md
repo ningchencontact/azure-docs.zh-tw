@@ -2,19 +2,26 @@
 title: 在 HDInsight 中搭配使用 Java 使用者定義函式 (UDF) 和 Apache Hive - Azure
 description: 了解如何建立能配合 Apache Hive 使用的以 Java 為基礎的使用者定義函式 (UDF)。 此範例 UDF 會將文字字串的資料表轉換成小寫。
 services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
+ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 03/21/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: b8417fe4c15259a7fd485254cf9edd2c8c082e92
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537627"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>在 HDInsight 中搭配使用 Java UDF 和 Apache Hive
 
@@ -24,18 +31,18 @@ ms.locfileid: "58629704"
 
 * 在 HDInsight 上 Hadoop 叢集。 请参阅 [Linux 上的 HDInsight 入门](./apache-hadoop-linux-tutorial-get-started.md)。
 * [Java Developer Kit (JDK) 第 8 版](https://aka.ms/azure-jdks)
-* [Apache Maven](https://maven.apache.org/download.cgi)正確[安裝](https://maven.apache.org/install.html)根據 Apache。  Maven 是適用於 Java 專案的專案建置系統。
-* [URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)您叢集的主要儲存體。 這會是 wasb: / / Azure 儲存體，abfs: / / Azure Data Lake 儲存體 Gen2 或 adl: / / Azure Data Lake 儲存體 Gen1。 如果 Azure 儲存體或 Data Lake 儲存體 Gen2 啟用安全傳輸，則 URI 會是 wasbs: / / 或 abfss: / / 分別另請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
+* 根據 Apache 正確[安裝](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是適用於 Java 專案的專案建置系統。
+* 群集主存储的 [URI 方案](../hdinsight-hadoop-linux-information.md#URI-and-scheme)。 对于 Azure 存储，此值为 wasb://；对于Azure Data Lake Storage Gen2，此值为 abfs://；对于 Azure Data Lake Storage Gen1，此值为 adl://。 如果为 Azure 存储或 Data Lake Storage Gen2 启用了安全传输，则 URI 分别是 wasbs:// 或 abfss://。另请参阅[安全传输](../../storage/common/storage-require-secure-transfer.md)。
 
 * 文字編輯器或 Java IDE
 
     > [!IMPORTANT]  
     > 如果您是在 Windows 用戶端上建立 Python 檔案，就必須使用以 LF 做為行尾結束符號的編輯器。 如果您不確定編輯器是使用 LF 或 CRLF，請參閱[疑難排解](#troubleshooting)一節，以了解有關移除 CR 字元的步驟。
 
-## <a name="test-environment"></a>測試環境
-本文所使用的環境是執行 Windows 10 的電腦。  在命令提示字元中執行命令，各種檔案已使用 「 記事本 」 編輯。 據此修改為您的環境。
+## <a name="test-environment"></a>测试环境
+本文使用的环境是一台运行 Windows 10 的计算机。  命令在命令提示符下执行，各种文件使用记事本进行编辑。 據此修改為您的環境。
 
-在命令提示字元中，輸入下列命令，以建立工作的環境：
+在命令提示符下，输入以下命令以创建工作环境：
 
 ```cmd
 IF NOT EXIST C:\HDI MKDIR C:\HDI
@@ -59,7 +66,7 @@ cd C:\HDI
     rmdir /S /Q "src/test"
     ```
 
-3. 開啟`pom.xml`藉由輸入下列命令：
+3. 输入以下命令打开 `pom.xml`：
 
     ```cmd
     notepad pom.xml
@@ -144,13 +151,13 @@ cd C:\HDI
 
     完成變更後，儲存檔案。
 
-4. 輸入下面的命令來建立並開啟新的檔案`ExampleUDF.java`:
+4. 输入以下命令，以创建并打开新文件 `ExampleUDF.java`：
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
     ```
 
-    然後複製並貼到新檔案的資訊，請參閱下列 java 程式碼。 然後關閉檔案。
+    将以下 Java 代码复制并粘贴到新文件中。 然后关闭该文件。
 
     ```java
     package com.microsoft.examples;
@@ -181,7 +188,7 @@ cd C:\HDI
 
 ## <a name="build-and-install-the-udf"></a>建置及安裝 UDF
 
-在下列命令取代`sshuser`與實際的使用者名稱，如果不同。 取代`mycluster`與實際叢集名稱。
+在以下命令中，请将 `sshuser` 替换为实际用户名（如果两者不同）。 将 `mycluster` 替换为实际群集名称。
 
 1. 編譯及封裝 UDF 中輸入下列命令：
 
@@ -194,13 +201,13 @@ cd C:\HDI
 2. 使用`scp`命令，以將檔案複製到 HDInsight 叢集，藉由輸入下列命令：
 
     ```cmd
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight
     ```
 
 3. 連接到輸入下列命令來使用 SSH 的叢集：
 
     ```cmd
-    ssh sshuser@mycluster-ssh.azurehdinsight.net
+    ssh sshuser@mycluster-ssh.azurehdinsight.cn
     ```
 
 4. 從開啟的 SSH 工作階段，將 jar 檔案複製到 HDInsight 儲存體。

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41741249e9b1a142d75392025236a4d333b67666
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60295121"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory 混合式身分識別設計考量 - 後續步驟
 現在您已經完成定義需求以及檢查行動裝置管理解決方案的所有選項，您已準備好採取後續步驟，來部署最適合您和您的組織的支援基礎結構。
@@ -49,6 +49,6 @@ ms.locfileid: "56201477"
 * [Microsoft System Center Configuration Manager 部落格](https://blogs.technet.com/b/configurationmgr/)
 * [Microsoft System Center Configuration Manager Team 部落格](https://blogs.technet.com/b/configmgrteam/)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

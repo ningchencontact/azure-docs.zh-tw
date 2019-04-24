@@ -18,11 +18,11 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516889"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>在 Azure 上搭配 Linux 資料科學虛擬機器來運用資料科學
 本逐步解說示範如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。 Linux 資料科學虛擬機器 (DSVM) 是 Azure 提供的虛擬機器映像，其中預先安裝了一組常用於執行資料分析和機器學習服務的工具。 重要的軟體元件可在 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md) 主題中找到明細。 VM 映像可讓使用者輕鬆地在幾分鐘內開始執行資料科學，而不需要個別安裝和設定每個工具。 您可以在需要時輕鬆地相應增加 VM，並在不使用時加以停止。 因此，這項資源既有彈性，又符合成本效益。

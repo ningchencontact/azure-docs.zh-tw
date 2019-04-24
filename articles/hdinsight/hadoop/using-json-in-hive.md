@@ -1,7 +1,6 @@
 ---
 title: 利用 Apache Hive 分析和處理 JSON 文件 - Azure HDInsight
 description: 了解如何使用 JSON 文件，以及使用 Azure HDInsight 中的 Apache Hive 分析
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: hrasheed
 ms.openlocfilehash: 89902da9668d32c28e5cc88b7e4468c0dbd0b861
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253801"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>使用 Azure HDInsight 中的 Apache Hive 處理並分析 JSON 文件
 
@@ -59,7 +58,7 @@ ms.locfileid: "58335907"
 
 檔案位於**wasb://processjson\@hditutorialdata.blob.core.windows.net/**。 如需關於搭配 HDInsight 使用 Azure Blob 儲存體的詳細資訊，請參閱[在 HDInsight 中使用 HDFS 相容的 Azure Blob 儲存體搭配 Apache Hadoop](../hdinsight-hadoop-use-blob-storage.md)。 您可以將檔案複製到叢集的預設容器。
 
-在本教學課程中，您會使用 Apache Hive 主控台。 如需有關如何開啟 Hive 主控台的指示，請參閱 <<c0> [ 使用 Apache Ambari Hive 檢視與 HDInsight 中的 Apache Hadoop](apache-hadoop-use-hive-ambari-view.md)。
+在本教學課程中，您會使用 Apache Hive 主控台。 有关如何打开 Hive 控制台的说明，请参阅[在 HDInsight 中将 Apache Ambari Hive 视图与 Apache Hadoop 配合使用](apache-hadoop-use-hive-ambari-view.md)。
 
 ## <a name="flatten-json-documents"></a>簡維 JSON 文件
 下一節所列的方法需要於單一資料列中撰寫 JSON 文件。 因此，您必須將 JSON 文件壓平合併成一個字串。 如果已壓平合併 JSON 文件，您就可以略過此步驟，直接進入與分析 JSON 資料相關的下一節。 若要壓平合併 JSON 文件，執行下列指令碼：

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387463"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Azure 資料箱磁碟系統需求
 
@@ -62,15 +62,15 @@ ms.locfileid: "57407617"
 | --- | --- |
 | 傳統 | 標準 |
 | 一般用途  |標準；同時支援 V1 和 V2。 同時支援經常性儲存層和非經常性儲存層。 |
-| Blob 儲存體帳戶 | |
+| Blob 存储帐户 | |
 
 >[!NOTE]
 > 不支援 Azure Data Lake Storage Gen 2 帳戶。
 
 
-## <a name="supported-storage-types-for-upload"></a>上傳的支援的存放裝置類型
+## <a name="supported-storage-types-for-upload"></a>支持的用于上传的存储类型
 
-以下是上傳至 Azure 中使用資料箱磁碟支援的儲存體類型的清單。
+下面是一个列表，其中的存储类型可以使用 Data Box Disk 上传到 Azure。
 
 | **檔案格式** | **注意事項** |
 | --- | --- |

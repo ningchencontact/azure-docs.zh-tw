@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-factor Authentication 使用者狀態-Azure Active Directory
+title: Azure 多重身份验证用户状态 - Azure Active Directory
 description: 了解 Azure Multi-Factor Authentication 中的使用者狀態。
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d5a196af8ee6a7d41833185136a76255be4082a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60358946"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求使用者使用雙步驟驗證
 
@@ -44,7 +44,7 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 | 狀態 | 描述 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式 | 受影響的新式驗證 |
 |:---:|:---:|:---:|:--:|:--:|
 | 已停用 |未註冊 Azure MFA 之新使用者的預設狀態。 |否 |否 |否 |
-| 已啟用 |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |沒有。  它們會繼續運作，直到註冊程序完成為止。 | 是。 工作階段到期之後，必須進行 Azure MFA 註冊。| 是。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
+| Enabled |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |沒有。  它們會繼續運作，直到註冊程序完成為止。 | 是。 工作階段到期之後，必須進行 Azure MFA 註冊。| 是。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
 | 已強制 |已註冊使用者，而且使用者已完成 Azure MFA 的註冊程序。 |是。 應用程式需要應用程式密碼。 |是。 在登入時需要使用 Azure MFA。 | 是。 在登入時需要使用 Azure MFA。 |
 
 使用者的狀態會反映系統管理員是否已在 Azure MFA 中註冊他們，以及他們是否已完成註冊程序。
@@ -82,7 +82,7 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 
 若要使用 [Azure AD PowerShell](/powershell/azure/overview) 來變更使用者狀態，請變更 `$st.State`。 有三個可能的狀態︰
 
-* 已啟用
+* Enabled
 * 已強制
 * 已停用  
 

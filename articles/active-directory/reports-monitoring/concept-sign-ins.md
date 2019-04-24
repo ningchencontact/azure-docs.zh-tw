@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0826614c22809eba7a86f683aa970a664ed9825
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60287887"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -100,7 +100,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 - Application
 - 登入狀態
 - 條件式存取
-- 日期
+- date
 
 ![登入活動](./media/concept-sign-ins/04.png "登入活動")
 
@@ -191,7 +191,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 - 用戶端
 - 位置
 - IP 位址
-- 日期
+- date
 - 需要 MFA
 - 登入狀態
 
@@ -230,7 +230,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ## <a name="office-365-activity-logs"></a>Office 365 活動記錄
 
-您可以檢視從 Office 365 活動記錄[Microsoft 365 系統管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)。 即使 Office 365 活動和 Azure AD 活動記錄共用許多目錄資源，只在 Microsoft 365 系統管理中心會提供 Office 365 活動記錄檔的完整檢視。 
+可以从 [Microsoft 365 管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)查看 Office 365 活动日志。 尽管 Office 365 活动和 Azure AD 活动日志共享大量的目录资源，但只有 Microsoft 365 管理中心提供 Office 365 活动日志的完整视图。 
 
 您也可以透過使用 [Office 365 管理 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)，以程式設計的方式存取 Office 365 活動記錄。
 

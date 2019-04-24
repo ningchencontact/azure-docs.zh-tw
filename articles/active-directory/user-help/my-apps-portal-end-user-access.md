@@ -14,19 +14,19 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eaed7357221f5b766bfb8b9e1a9031c08854ac9a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477234"
 ---
 # <a name="access-and-use-apps-on-the-my-apps-portal"></a>存取和使用 My Apps 入口網站上的應用程式
-您可以使用工作或學校帳戶，透過以 web 為基礎**我的應用程式**入口網站中，檢視和啟動許多組織的雲端式應用程式，以更新您的設定檔和帳戶資訊，以查看您**群組**的詳細資訊，並執行**存取權檢閱**為您的應用程式及群組。 如果您沒有存取權**My Apps**入口網站中，您必須連絡技術服務人員以權限。
+您可以透過 [我的應用程式] Web 入口網站使用工作或學校帳戶，來檢視和啟動貴組織的許多雲端式應用程式、更新您的設定檔和帳戶資訊、查看您的**群組**資訊，以及執行您應用程式和群組的**存取權檢閱**。 如果您沒有 [我的應用程式] 入口網站的存取權，則必須連絡技術服務人員以取得權限。
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->本內容適用於使用者。 如果您是系統管理員，您可以找到有關如何設定和管理雲端中的應用程式的詳細資訊[應用程式管理文件](https://docs.microsoft.com/azure/active-directory/manage-apps)。
+>本內容適用於使用者。 如果您是系統管理員，可以在[應用程式管理文件](https://docs.microsoft.com/azure/active-directory/manage-apps)中找到更多關於如何設定和管理雲端式應用程式的資訊。
 
 ## <a name="supported-browsers"></a>支援的瀏覽器
 您可以前往**My Apps**入口網站從任何下列的網頁瀏覽器：

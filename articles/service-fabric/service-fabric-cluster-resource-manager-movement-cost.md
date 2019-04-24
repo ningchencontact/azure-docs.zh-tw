@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1bd049e6f929b6c3247ca1842412d5527605e643
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516581"
 ---
 # <a name="service-movement-cost"></a>服務移動成本
 「Service Fabric 叢集資源管理員」在嘗試判斷要對叢集進行哪些變更時會考量一個因素，就是這些變更的成本。 「成本」的概念是針對叢集可以改善多少來做取捨。 成本在移動服務進行平衡、重組和其他需求時納入考量因素。 目標是以最沒有干擾、最便宜的方式符合需求。 
@@ -80,7 +80,7 @@ MoveCost 有四个级别：零、低、中和高。 除了零之外，MoveCosts 
 
 <center>
 
-![移動成本作為選取複本進行移動的因素][Image1]
+![选择要移动的副本时考虑到移动成本因素][Image1]
 </center>
 
 MoveCost 可協助您在達成對等的平衡時，尋找整體導致最少中斷且最容易達成的解決方案。 服務的成本概念可相對於許多事項。 計算您的移動成本時最常見的因素為：

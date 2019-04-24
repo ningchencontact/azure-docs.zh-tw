@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
 ms.openlocfilehash: eed630038169deb9a161d320ff1521bfade2b113
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533968"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到檔案系統或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,7 +63,7 @@ ms.locfileid: "57409256"
 | 案例 | 已連結服務定義中的 "host" | 資料集定義中的 "folderPath" |
 |:--- |:--- |:--- |
 | Integration Runtime 電腦上的本機資料夾： <br/><br/>範例：D:\\\* 或 D:\folder\subfolder\\* |JSON 中：`D:\\`<br/>UI 上：`D:\` |JSON 中：`.\\` 或 `folder\\subfolder`<br>UI 上：`.\` 或 `folder\subfolder` |
-| 遠端共用資料夾︰ <br/><br/>範例︰\\\\myserver\\share\\\* 或 \\\\myserver\\share\\folder\\subfolder\\\* |JSON 中：`\\\\myserver\\share`<br/>UI 上：`\\myserver\share` |JSON 中：`.\\` 或 `folder\\subfolder`<br/>UI 上：`.\` 或 `folder\subfolder` |
+| 遠端共用資料夾︰ <br/><br/>範例︰\\\\myserver\\share\\\* 或 \\\\myserver\\share\\folder\\subfolder\\* |JSON 中：`\\\\myserver\\share`<br/>UI 上：`\\myserver\share` |JSON 中：`.\\` 或 `folder\\subfolder`<br/>UI 上：`.\` 或 `folder\subfolder` |
 
 >[!NOTE]
 >透過 UI 撰寫時，您不需要像透過 JSON 那樣輸入雙反斜線 (`\\`) 來逸出，只需指定單一反斜線。

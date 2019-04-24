@@ -15,11 +15,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 706a826d1b256e95e459d2a44cdb13ee56c70599
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499126"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60352186"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](how-to-connect-install-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
@@ -39,7 +39,7 @@ ms.locfileid: "58499126"
 
 | 選用組態 | 描述 |
 | --- | --- |
-| 使用現有的 SQL Server |可讓您指定 SQL Server 名稱和執行個體名稱。 如果您已經有想要使用的 ad 資料庫伺服器，請選擇這個選項。 如果您的 SQL Server 未啟用瀏覽，請在 [執行個體名稱]  中輸入執行個體名稱加上逗號及連接埠號碼。  然後指定 Azure AD Connect 資料庫的名稱。  您的 SQL 權限會決定是否將建立一個新的資料庫或 SQL 系統管理員必須事先建立資料庫。  如果您有 SQL SA 權限，請參閱[如何使用現有的資料庫安裝](how-to-connect-install-existing-database.md)。  如果您已經被委派的權限 (DBO) 看到[使用 SQL 委派的系統管理員權限安裝 Azure AD Connect](how-to-connect-install-sql-delegation.md)。 |
+| 使用現有的 SQL Server |可讓您指定 SQL Server 名稱和執行個體名稱。 如果您已經有想要使用的 ad 資料庫伺服器，請選擇這個選項。 如果您的 SQL Server 未啟用瀏覽，請在 [執行個體名稱]  中輸入執行個體名稱加上逗號及連接埠號碼。  然后指定 Azure AD Connect 数据库的名称。  你的 SQL 权限决定了将创建新数据库还是 SQL 管理员必须提前创建数据库。  如果你有 SQL SA 权限，请参阅[如何使用现有数据库进行安装](how-to-connect-install-existing-database.md)。  如果为你委派了权限 (DBO)，请参阅[使用 SQL 委派的管理员权限安装 Azure AD Connect](how-to-connect-install-sql-delegation.md)。 |
 | 使用現有的服務帳戶 |Azure AD Connect 預設會使用虛擬服務帳戶，以供同步處理服務使用。 如果您是使用遠端 SQL Server 或需要驗證的 Proxy，則需要使用**受控服務帳戶**，或使用網域中知道密碼的服務帳戶。 在這類情況下，請輸入要使用的帳戶。 請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。  請參閱 [Azure AD Connect 帳戶與權限](reference-connect-accounts-permissions.md#adsync-service-account)。 </br></br>使用最新的組建，SQL 管理員即可執行頻外資料庫佈建，然後由具有資料庫擁有者權限的 Azure AD Connect 管理員進行安裝。  如需詳細資訊，請參閱[使用 SQL 委派的管理員權限安裝 Azure AD Connect](how-to-connect-install-sql-delegation.md)。|
 | 指定自訂同步群組 |Azure AD Connect 預設會在安裝同步處理服務時，建立四個伺服器的本機群組。 這些群組如下：系統管理員群組、操作員群組、瀏覽群組和密碼重設群組。 您可以在此指定自己的群組。 群組必須位於伺服器本機上，不能位於網域中。 |
 

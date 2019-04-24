@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 284e404c44505a98d9e0ed5abe87cd945415af56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c05bddaeb3c34400db1ec75c624ef00a85d9444
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337885"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>在連接至 Microsoft Azure StorSimple Virtual Array 的 StorSimple 裝置管理員中使用服務摘要刀鋒視窗
 ## <a name="overview"></a>概觀
@@ -40,10 +40,10 @@ ms.locfileid: "23109736"
 * 在 [使用量] 圖表中，您可以查看虛擬裝置的相關度量。 您可以檢視所有虛擬裝置已使用的主要儲存空間，以及虛擬裝置在過去 7 天 (預設期間) 耗用的雲端儲存空間。 使用圖表右上角的 [編輯] 選項來選擇不同的時間範圍。
 * [裝置] 圖格提供 StorSimple 裝置管理員中的虛擬陣列數目摘要 (依裝置狀態分組)。 按一下此圖格以開啟 [裝置] 清單刀鋒視窗，然後按一下個別裝置來深入該裝置的裝置摘要。 您也可以從指定的裝置摘要刀鋒視窗執行裝置的特定動作。 如需裝置摘要刀鋒視窗的詳細資訊，請參閱[裝置摘要刀鋒視窗](storsimple-virtual-array-device-summary.md)。
 
-## <a name="view-the-activity-logs"></a>檢視活動記錄檔
-若要檢視 StorSimple 裝置管理員中執行的各種作業，請按一下 StorSimple 服務摘要刀鋒視窗左側的 [活動記錄檔] 連結。 這會帶您前往 [活動記錄檔] 刀鋒視窗，您可以在其中看到最近執行的作業摘要。
+## <a name="view-the-activity-logs"></a>檢視活動記錄
+若要檢視 StorSimple 裝置管理員中執行的各種作業，請按一下 StorSimple 服務摘要刀鋒視窗左側的 [活動記錄] 連結。 這會帶您前往 [活動記錄] 刀鋒視窗，您可以在其中看到最近執行的作業摘要。
 
-![活動記錄檔](./media/storsimple-virtual-array-service-summary/activity-log.png)
+![活動記錄](./media/storsimple-virtual-array-service-summary/activity-log.png)
 
 ## <a name="next-steps"></a>後續步驟
 了解如何 [使用本機 Web UI 來管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。

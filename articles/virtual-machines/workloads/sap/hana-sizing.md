@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0d72a9ef592579b21d082111ab8ad00f8995de2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 7d403c284eefc1351aabb632977832f2bf11757a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477117"
 ---
 # <a name="sizing"></a>調整大小
 
@@ -27,7 +27,7 @@ ms.locfileid: "44030561"
 
 - [SAP 附註 #1793345 - SAP Suite on HANA 的大小調整 (英文)](https://launchpad.support.sap.com/#/notes/1793345)
 - [SAP 附註 #1872170 - Suite on HANA 與 S/4 HANA 大小調整報告 (英文)](https://launchpad.support.sap.com/#/notes/1872170)
-- [SAP 附註 #2121330 - 常見問題集：SAP BW on HANA 大小調整報告](https://launchpad.support.sap.com/#/notes/2121330)
+- [SAP 附註 #2121330-常見問題集：SAP BW on HANA 大小調整報告](https://launchpad.support.sap.com/#/notes/2121330)
 - [SAP 附註 #1736976 - BW on HANA 的大小調整報告](https://launchpad.support.sap.com/#/notes/1736976)
 - [SAP 附註 #2296290 - 新的 BW on HANA 大小調整報告](https://launchpad.support.sap.com/#/notes/2296290)
 

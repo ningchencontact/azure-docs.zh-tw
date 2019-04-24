@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370649"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>了解 Enterprise 註冊的 Azure 保留使用量
 
@@ -31,7 +31,7 @@ ms.locfileid: "58648294"
 
 針對下列幾個區段，假設您在美國東部區域執行 Standard_D1_v2 Windows VM，且保留資訊看起來會類似下表：
 
-| 欄位 | 值 |
+| 欄位 | Value |
 |---| --- |
 |ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
 |數量 |1|
@@ -57,7 +57,7 @@ ms.locfileid: "58648294"
 
 假設您目前在美國東部區域執行 SQL Database Gen 4，且保留資訊看起來類似下表：
 
-| 欄位 | 值 |
+| 欄位 | Value |
 |---| --- |
 |ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |數量 |2|

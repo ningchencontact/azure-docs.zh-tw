@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419763"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>使用 Azure 轉送將內部部署 WCF 服務公開至雲端中的 Web 應用程式 
 本文示範如何使用 Microsoft Azure 和 Visual Studio 建置混合式雲端應用程式。 您將建立一個使用多個 Azure 資源，於雲端上啟動並執行的應用程式。
@@ -185,7 +185,7 @@ ms.locfileid: "57838403"
         }
     }
     ```
-12. 在 [方案總管] 中，按兩下 **App.config** 檔案，以在 Visual Studio 編輯器中開啟它。 在底部`<system.ServiceModel>`項目 (但仍在`<system.ServiceModel>`)，新增下列 XML 程式碼：請務必以您的命名空間名稱取代 yourServiceNamespace ，並以您先前從入口網站擷取到的 SAS 金鑰取代 yourKey：
+12. 在 [方案總管] 中，按兩下 **App.config** 檔案，以在 Visual Studio 編輯器中開啟它。 在 `<system.ServiceModel>` 元素的底部（仍在 `<system.ServiceModel>` 中）添加以下 XML 代码：請務必以您的命名空間名稱取代 yourServiceNamespace ，並以您先前從入口網站擷取到的 SAS 金鑰取代 yourKey：
 
     ```xml
     <system.serviceModel>
@@ -350,7 +350,7 @@ ms.locfileid: "57838403"
 
    ![新增為連結][24]
 
-6. 現在，請開啟**HomeController.cs**檔案在 Visual Studio 編輯器中，並取代為下列程式碼中的命名空間定義：請務必以服務命名空間名稱取代 *yourServiceNamespace*，並以 SAS 金鑰取代 *yourKey*。 這可讓用戶端呼叫內部部署服務，並傳回呼叫結果。
+6. 现在，在 Visual Studio 编辑器中打开 **HomeController.cs** 文件，并将命名空间定义替换为以下代码：請務必以服務命名空間名稱取代 *yourServiceNamespace*，並以 SAS 金鑰取代 *yourKey*。 這可讓用戶端呼叫內部部署服務，並傳回呼叫結果。
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -448,7 +448,7 @@ ms.locfileid: "57838403"
 
 ## <a name="run-the-application"></a>執行應用程式
 
-1. 按 F5 以建置並執行應用程式。 在內部部署伺服器 ( **ProductsServer**主控台應用程式) 應該會先啟動，則**ProductsPortal**應用程式應該啟動瀏覽器視窗中，如下列螢幕擷取畫面所示：再次注意，產品庫存清單會列出從產品服務內部部署系統擷取的資料，並在 Web 應用程式中顯示該資訊。 檢查 URL，確定 **ProductsPortal** 正在雲端中以 Azure Web 應用程式的形式執行。
+1. 按 F5 以建置並執行應用程式。 本地服务器（**ProductsServer** 控制台应用程序）应该会先启动，然后 **ProductsPortal** 应用程序应该会在浏览器窗口中启动，如以下屏幕截图所示：再次注意，產品庫存清單會列出從產品服務內部部署系統擷取的資料，並在 Web 應用程式中顯示該資訊。 檢查 URL，確定 **ProductsPortal** 正在雲端中以 Azure Web 應用程式的形式執行。
 
    ![在 Azure 上執行 Web 應用程式][1]
 

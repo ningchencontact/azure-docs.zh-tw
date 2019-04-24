@@ -9,11 +9,11 @@ ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395062"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>在 Azure 儲存體中儲存和檢視診斷資料
 除非您將診斷資料傳輸至 Microsoft Azure 儲存體模擬器或 Azure 儲存體，否則不會永久儲存診斷資料。 一旦位於儲存體，即可利用其中一個可用的工具進行檢視。
@@ -27,7 +27,7 @@ ms.locfileid: "54468517"
     </ConfigurationSettings>
 ```
 
-您可以變更此連接字串，以提供 Azure 儲存體帳戶的帳戶資訊。
+可以更改此连接字符串，为 Azure 存储帐户提供帐户信息。
 
 視所收集的診斷資料類型而定，Azure 診斷會使用 Blob 服務或資料表服務。 下表顯示保存的資料來源以及其格式。
 
@@ -35,12 +35,12 @@ ms.locfileid: "54468517"
 | --- | --- |
 | Azure 記錄 |資料表 |
 | IIS 7.0 記錄 |Blob |
-| Azure 診斷基礎結構記錄 |資料表 |
+| Azure 诊断基础结构日志 |資料表 |
 | 失敗要求追蹤記錄 |Blob |
 | Windows 事件記錄 |資料表 |
 | 效能計數器 |資料表 |
 | 損毀傾印 |Blob |
-| 自訂錯誤記錄 |Blob |
+| 自定义错误日志 |Blob |
 
 ## <a name="transfer-diagnostic-data"></a>傳輸診斷資料
 若為 SDK 2.5 和更新版本，可以透過組態檔進行傳輸診斷資料的要求。 您可以依照組態中指定的排程間隔來傳輸診斷資料。
@@ -57,17 +57,17 @@ ms.locfileid: "54468517"
 
 **資料表 (英文)**
 
-* **WadLogsTable** - 使用追蹤接聽程式在程式碼中寫入的記錄檔。
+* **WadLogsTable** - 使用追蹤接聽程式在程式碼中寫入的記錄。
 * **WADDiagnosticInfrastructureLogsTable** - 診斷監視器和組態變更。
 * **WADDirectoriesTable** – 診斷監視器所監視的目錄。  這包括 IIS 記錄、IIS 失敗要求記錄和自訂目錄。  Blob 記錄檔的位置是在 [容器] 欄位中指定，而 Blob 的名稱則是在 RelativePath 欄位中指定。  AbsolutePath 欄位會指出檔案存在於 Azure 虛擬機器上的位置和名稱。
 * **WADPerformanceCountersTable** - 效能計數器。
-* **WADWindowsEventLogsTable** – Windows 事件記錄檔。
+* **WADWindowsEventLogsTable** – Windows 事件記錄。
 
 **Blobs (英文)**
 
 * **wad-control-container** – (僅適用於 SDK 2.4 和前一版) 包含可控制 Azure 診斷的 XML 組態檔。
-* **wad-iis-failedreqlogfiles** – 包含 IIS 失敗要求記錄檔中的資訊。
-* **wad-iis-logfiles** – 包含 IIS 記錄檔的相關資訊。
+* **wad-iis-failedreqlogfiles** – 包含 IIS 失敗要求記錄中的資訊。
+* **wad-iis-logfiles** – 包含 IIS 記錄的相關資訊。
 * **"custom"** – 自訂容器，該容器是以設定診斷監視器所監視的目錄為基礎。  將會在 WADDirectoriesTable 中指定此 Blob 容器的名稱。
 
 ## <a name="tools-to-view-diagnostic-data"></a>用來檢視診斷資料的工具

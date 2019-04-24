@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58164454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335468"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>使用更新資源活動更新 Azure Machine Learning 模型
 本文用來補充說明主要的 Azure Data Factory - Azure Machine Learning 整合文章：[使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線](transform-data-using-machine-learning.md)。 如果您尚未檢閱主要文件，請在閱讀這篇文章之前先這麼做。
@@ -60,7 +60,7 @@ ms.locfileid: "58164454"
 | 屬性                      | 描述                              | 必要項 |
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | 管線中的活動名稱     | 是      |
-| 說明                   | 說明活動用途的文字。  | 否       |
+| description                   | 說明活動用途的文字。  | 否       |
 | type                          | 對於 Azure Machine Learning 更新資源活動，活動類型為 **AzureMLUpdateResource**。 | 是      |
 | 預設容器             | 包含 updateResourceEndpoint 屬性的 Azure Machine Learning 連結服務。 | 是      |
 | trainedModelName              | 要更新之 Web 服務實驗中的「定型模型」模組名稱 | 是      |

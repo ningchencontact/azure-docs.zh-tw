@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: kumud
 ms.openlocfilehash: 6fb6b3e4476efec87b15d175d354afab777e6830
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54228821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330183"
 ---
 # <a name="nested-traffic-manager-profiles"></a>巢狀流量管理員設定檔
 
@@ -48,11 +48,11 @@ ms.locfileid: "54228821"
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>範例 2：巢狀設定檔中的端點監視
 
-「流量管理員」會主動監控每個服務端點的健康情況。 如果端點的狀況不良，流量管理員會將使用者導向替代端點，以維持服務的可用性。 這項端點監視及容錯移轉行為適用於所有流量路由方法。 如需詳細資訊，請參閱 [流量管理員端點監視](traffic-manager-monitoring.md)。 巢狀設定檔的端點監視有不同的運作方式。 使用巢狀設定檔時，父設定檔不會直接對子系執行健康狀態檢查， 子設定檔端點的健康狀態會用來計算子設定檔的整體健康狀態。 此健康狀態資訊會在巢狀設定檔階層中往上傳播。 父設定檔會使用這個彙總的健康狀態，來決定是否要將流量導向子設定檔。 如需巢狀設定檔健康狀態監視的完整詳細資料，請參閱[常見問題集](traffic-manager-FAQs.md#traffic-manager-nested-profiles)。
+「流量管理員」會主動監控每個服務端點的健康情況。 如果端點的狀況不良，流量管理員會將使用者導向替代端點，以維持服務的可用性。 這項端點監視及容錯移轉行為適用於所有流量路由方法。 如需詳細資訊，請參閱 [流量管理員端點監視](traffic-manager-monitoring.md)。 巢狀設定檔的端點監視有不同的運作方式。 使用巢狀設定檔時，父設定檔不會直接對子系執行健康狀態檢查， 子設定檔端點的健康狀態會用來計算子設定檔的整體健康狀態。 此健康狀態資訊會在巢狀設定檔階層中往上傳播。 父配置文件使用聚合运行状况信息确定是否将流量定向到子配置文件。 如需巢狀設定檔健康狀態監視的完整詳細資料，請參閱[常見問題集](traffic-manager-FAQs.md#traffic-manager-nested-profiles)。
 
 回到前一個範例，假設西歐的生產環境部署失敗。 根據預設，「子」設定檔會將所有流量都導向測試部署。 如果測試部署也失敗，父設定檔會決定子設定檔不應該接收流量，因為所有子端點都狀況不良。 接著，父設定檔會將流量分散至其他區域。
 
-![巢狀設定檔容錯移轉 (預設行為)][3]
+![嵌套式配置文件故障转移（默认行为）][3]
 
 您可能喜歡這種做法。 您也可能擔心現在西歐的所有流量都流向測試部署，而不是一小部分的流量。 不論測試部署的健康狀態如何，當西歐的生產環境部署失敗時，您想要容錯移轉至其他區域。 若要啟用此容錯移轉，在將子設定檔設定為父設定檔中的端點時，您可以指定 'MinChildEndpoints' 參數。 此參數決定子設定檔中可用的最少端點。 預設值為 '1'。 在此案例中，您將 MinChildEndpoints 值設為 2。 低於此閾值時，父設定檔會將整個子設定檔視為無法使用，並將流量導向其他端點。
 
@@ -75,7 +75,7 @@ ms.locfileid: "54228821"
 
 您可以對所有區域重複此模式。 將父設定檔中的三個端點全部取代為三個子設定檔，每個都提供容錯移轉優先順序。
 
-## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>範例 4：控制相同區域中多個端點之間的「效能」流量路由
+## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>示例 4：控制相同區域中多個端點之間的「效能」流量路由
 
 假設在設定檔中使用「效能」流量路由方法，而此設定檔在特定區域有多個端點。 根據預設，導向該區域的流量會平均分散至該區域中所有可用的端點。
 
@@ -99,7 +99,7 @@ ms.locfileid: "54228821"
 
 深入了解[流量管理員設定檔](traffic-manager-overview.md)
 
-了解如何 [建立流量管理員設定檔](traffic-manager-create-profile.md)
+了解如何[创建流量管理器配置文件](traffic-manager-create-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png

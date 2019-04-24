@@ -8,11 +8,11 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 3c47404826d5055d4a82d4842523f790fb11f000
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632029"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346867"
 ---
 # <a name="prepare-your-logic-apps-and-run-books-for-classic-alert-rules-migration"></a>準備您的 logic apps，並執行傳統的警示規則移轉的書籍
 
@@ -54,7 +54,7 @@ ms.locfileid: "58632029"
 | 運算子 （如何彙總的度量值比較根據臨界值） | context.condition.operator | data.context.condition.operator|
 | 閾值 | context.condition.threshold| data.context.condition.allOf[0].threshold|
 | 度量值 | context.condition.metricValue | data.context.condition.allOf[0].metricValue|
-| 訂用帳戶識別碼 | context.subscriptionId | data.context.subscriptionId|
+| 订阅 ID | context.subscriptionId | data.context.subscriptionId|
 | 受影響資源的資源群組 | context.resourceGroup | data.context.resourceGroup|
 | 受影響資源的名稱 | context.resourceName | data.context.resourceName |
 | 受影響的資源類型 | context.resourceType | data.context.resourceType |

@@ -16,11 +16,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7209f468f493e226fae22ccd260e8ceb2e570494
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286682"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>補救 Azure Active Directory 入口網站中標幟為有風險的使用者
 
@@ -77,7 +77,7 @@ Microsoft 致力於協助保護您的環境。 為此承諾，Microsoft 會持�
 
     g. 啟用信箱稽核。
 
-    h. 產生稽核記錄，以供系統管理員檢閱。
+    h.如果该值不存在，请单击“添加行”。 產生稽核記錄，以供系統管理員檢閱。
 
 4. 調查您的 Office 365 租用戶和其他 IT 基礎結構是否可能修改，包括檢閱所有租用戶設定、使用者帳戶，以及每個使用者的組態設定。 檢查持續性方法的指標，以及入侵者可能已利用初始據點來取得 VPN 認證，或存取其他組織資源的指標。 
 

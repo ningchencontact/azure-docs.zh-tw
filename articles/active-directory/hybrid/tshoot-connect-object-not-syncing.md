@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455006"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>針對未與 Azure Active Directory 同步的物件進行疑難排解
 
@@ -76,7 +76,7 @@ Synchronization Service Manager 中的 [作業] 索引標籤是您應該開始�
 | 狀態 | 註解 |
 | --- | --- |
 | stopped-* |執行無法完成。 這可能會發生，例如，如果遠端系統已關閉且無法聯繫。 |
-| stopped-error-limit |有 5,000 個以上的錯誤。 執行因錯誤數量過多而自動停止。 |
+| stopped-error-limit |有 5,000 個以上的錯誤。 运行因错误数量过多而自动停止。 |
 | completed-\*-errors |執行完成，但發生應調查的錯誤 (數量少於 5,000 個)。 |
 | completed-\*-warnings |執行完成，但某些資料並未處於預期的狀態。 如果您遇到錯誤，此訊息通常只是一個徵狀。 在解決錯誤之前，請勿調查警告。 |
 | 成功 |沒有問題。 |

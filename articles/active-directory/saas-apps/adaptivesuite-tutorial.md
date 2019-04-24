@@ -16,11 +16,11 @@ ms.date: 10/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d42c86ec262cd9d3d3db3035d252429e44c1208f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>教學課程：Azure Active Directory 與 Adaptive Insights 整合
 
@@ -62,19 +62,19 @@ ms.locfileid: "57884875"
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
-    ![映像](./media/adaptivesuite-tutorial/selectazuread.png)
+    ![Image](./media/adaptivesuite-tutorial/selectazuread.png)
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![映像](./media/adaptivesuite-tutorial/a_select_app.png)
+    ![Image](./media/adaptivesuite-tutorial/a_select_app.png)
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![映像](./media/adaptivesuite-tutorial/a_new_app.png)
+    ![Image](./media/adaptivesuite-tutorial/a_new_app.png)
 
 4. 在搜尋方塊中，輸入 **Adaptive Insights**，從結果面板中選取 [Adaptive Insights]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![映像](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
+     ![Image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -98,19 +98,19 @@ ms.locfileid: "57884875"
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Adaptive Insights] 應用程式整合頁面上，選取 [單一登入]。
 
-    ![映像](./media/adaptivesuite-tutorial/B1_B2_Select_SSO.png)
+    ![Image](./media/adaptivesuite-tutorial/B1_B2_Select_SSO.png)
 
 2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML] 模式以啟用單一登入。
 
-    ![映像](./media/adaptivesuite-tutorial/b1_b2_saml_sso.png)
+    ![Image](./media/adaptivesuite-tutorial/b1_b2_saml_sso.png)
 
 3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
 
-    ![映像](./media/adaptivesuite-tutorial/b1-domains_and_urlsedit.png)
+    ![Image](./media/adaptivesuite-tutorial/b1-domains_and_urlsedit.png)
 
 4. 若您想要在 [IDP] 起始模式中設定應用程式，請在 [基本 SAML 設定] 區段上執行下列步驟：
 
-    ![映像](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
+    ![Image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
     a. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
@@ -121,7 +121,7 @@ ms.locfileid: "57884875"
  
 5. 在 [以 SAML 設定單一登入] 頁面上的 [SAML 簽署憑證] 區段中，按一下 [下載] 以下載**憑證 (Base64)** 並將其儲存在電腦上。
 
-    ![映像](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certficate.png) 
+    ![Image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certficate.png) 
 
 6. 在 [安裝 Adaptive Insights] 區段上，依據您的需求複製適當的 URL。
 
@@ -133,7 +133,7 @@ ms.locfileid: "57884875"
 
     c. 登出 URL
 
-    ![映像](./media/adaptivesuite-tutorial/d1_samlsonfigure.png) 
+    ![Image](./media/adaptivesuite-tutorial/d1_samlsonfigure.png) 
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Adaptive Insights 公司網站。
 
@@ -171,7 +171,7 @@ ms.locfileid: "57884875"
 
     g. 複製 [Adaptive Insights SSO URL]，並貼到 Azure 入口網站之 [Adaptive Insights 網域及 URL] 區段中的 [識別碼 (實體識別碼)] 和 [回覆 URL] 文字方塊。
 
-    h. 按一下 [檔案] 。
+    h.如果该值不存在，请单击“添加行”。 按一下 [檔案] 。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -179,19 +179,19 @@ ms.locfileid: "57884875"
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
-    ![映像](./media/adaptivesuite-tutorial/d_users_and_groups.png)
+    ![Image](./media/adaptivesuite-tutorial/d_users_and_groups.png)
 
 2. 在畫面頂端選取 [新增使用者]。
 
-    ![映像](./media/adaptivesuite-tutorial/d_adduser.png)
+    ![Image](./media/adaptivesuite-tutorial/d_adduser.png)
 
 3. 在 [使用者] 屬性中，執行下列步驟。
 
-    ![映像](./media/adaptivesuite-tutorial/d_userproperties.png)
+    ![Image](./media/adaptivesuite-tutorial/d_userproperties.png)
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 **使用者名**欄位中輸入**brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -233,19 +233,19 @@ ms.locfileid: "57884875"
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式] 和 [所有應用程式]。
 
-    ![映像](./media/adaptivesuite-tutorial/d_all_applications.png)
+    ![Image](./media/adaptivesuite-tutorial/d_all_applications.png)
 
 2. 在應用程式清單中，選取 [Adaptive Insights]。
 
-    ![映像](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_app.png)
+    ![Image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_app.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
-    ![映像](./media/adaptivesuite-tutorial/d_leftpaneusers.png)
+    ![Image](./media/adaptivesuite-tutorial/d_leftpaneusers.png)
 
 4. 選取 [新增] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
 
-    ![映像](./media/adaptivesuite-tutorial/d_assign_user.png)
+    ![Image](./media/adaptivesuite-tutorial/d_assign_user.png)
 
 4. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
 

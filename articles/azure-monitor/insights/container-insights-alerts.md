@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494621"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>如何設定 Azure 監視器中適用於容器的效能問題的警示
 適用於容器的 azure 監視會監視部署至 Azure 容器執行個體，或受管理 Kubernetes 叢集，裝載在 Azure Kubernetes Service (AKS) 的容器工作負載的效能。

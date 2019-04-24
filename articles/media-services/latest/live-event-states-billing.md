@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
 ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322313"
 ---
 # <a name="live-event-states-and-billing"></a>實況活動狀態和計費
 
@@ -30,7 +30,7 @@ ms.locfileid: "55158004"
 
 「實況活動」的狀態可以是下列其中之一。
 
-|狀態|說明|
+|State|描述|
 |---|---|
 |**已停止**| 這是「實況活動」建立後的初始狀態 (除非已將自動啟動設定為 true)。此狀態中不會計費。 在此狀態下，可以更新「實況活動」屬性，但是不允許進行串流。|
 |**啟動中**| 正在啟動「實況活動」並配置資源。 此狀態中不會計費。 在此狀態期間，不允許任何更新或串流。 如果發生錯誤，「實況活動」會回到 [已停止] 狀態。|

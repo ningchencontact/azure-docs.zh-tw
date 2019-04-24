@@ -1,7 +1,6 @@
 ---
 title: 透過一次性事件處理來建立 Spark 串流作業 - Azure HDInsight
 description: 如何設定 Spark 串流來一次處理一個事件，且只處理一次。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,11 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535891"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>透過一次性事件處理來建立 Apache Spark 串流作業
 

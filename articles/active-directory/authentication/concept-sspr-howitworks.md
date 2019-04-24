@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369992"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415600"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>運作方式：Azure AD 自助式密碼重設
 
@@ -59,7 +59,7 @@ ms.locfileid: "58369992"
 
 ## <a name="authentication-methods"></a>驗證方法
 
-如果已啟用 SSPR，您必須針對驗證方法至少選取下面其中一個選項。 有時這些選項會被稱為「閘道」。 強烈建議您**選擇兩個或多個驗證方法**，以便使用者在需要卻無法存取時，能擁有更大的彈性。 其他詳細資料如下所列的方法可在發行項[什麼是驗證方法？](concept-authentication-methods.md)。
+如果已啟用 SSPR，您必須針對驗證方法至少選取下面其中一個選項。 有時這些選項會被稱為「閘道」。 強烈建議您**選擇兩個或多個驗證方法**，以便使用者在需要卻無法存取時，能擁有更大的彈性。 若要更详细地了解下面列出的方法，可参阅[有哪些身份验证方法？](concept-authentication-methods.md)一文。
 
 * 行動應用程式通知 (預覽)
 * 行動應用程式代碼 (預覽)

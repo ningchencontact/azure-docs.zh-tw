@@ -17,11 +17,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fc90d62f889bfd9f439a7e8955f049c6c979746
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437034"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>關於 Azure Active Directory 報告的常見問題集
 
@@ -29,13 +29,13 @@ ms.locfileid: "58437436"
 
 ## <a name="getting-started"></a>開始使用 
 
-**問：我目前使用`https://graph.windows.net/<tenant-name>/reports/`提取 Azure AD 稽核及整合式應用程式使用情況 Api 以程式設計的方式報告到我們的報告系統的端點。我該切換至什麼項目？**
+**问：我目前使用`https://graph.windows.net/<tenant-name>/reports/`提取 Azure AD 稽核及整合式應用程式使用情況 Api 以程式設計的方式報告到我們的報告系統的端點。我該切換至什麼項目？**
 
 **答：** 請查閱 [API 參考](https://developer.microsoft.com/graph/)，查看您可以如何使用 API 來存取[活動報告](concept-reporting-api.md)。 此端點有兩個報告 (**稽核**和**登入**)，提供您在舊有 API 端點中取得的所有資料。 這個新端點也有 Azure AD Premium 授權的登入報告，您可以用它來取得應用程式使用方式、裝置使用方式，以及使用者登入資訊。
 
 ---
 
-**問：我目前使用`https://graph.windows.net/<tenant-name>/reports/`端點 Api 以程式設計方式提取至我們的報告系統的 Azure AD 安全性報告 （特定類型的偵測，例如認證外洩或從匿名 IP 位址登入）。我該切換至什麼項目？**
+**问：我目前使用`https://graph.windows.net/<tenant-name>/reports/`端點 Api 以程式設計方式提取至我們的報告系統的 Azure AD 安全性報告 （特定類型的偵測，例如認證外洩或從匿名 IP 位址登入）。我該切換至什麼項目？**
 
 **答：** 您可以使用  [Identity Protection 風險事件 API](../identity-protection/graph-get-started.md)  來透過 Microsoft Graph 存取安全性偵測。 這個新的格式包含進階篩選和欄位選取等功能，讓您可以更靈活地查詢資料，並且將風險事件標準化為一種類型，以便更輕易地整合至 SIEM 和其他資料收集工具。 由於資料的格式不同，您無法以新查詢替換舊查詢。 不過，[新 API 會使用 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)，這是 O365 或 Azure AD 這類 API 的 Microsoft 標準格式。 因此該要求工作可以擴充您目前的 MS Graph 投資，或協助您開始轉換至新的標準平台。
 
@@ -93,7 +93,7 @@ ms.locfileid: "58437436"
 
 ---
 
-**問：我應該使用哪些 API 來取得 Office 365 活動記錄的相關資訊？**
+**问：我應該使用哪些 API 來取得 Office 365 活動記錄的相關資訊？**
 
 **答：** 請使用「Office 365 管理 API」來存取 [Office 365 活動記錄 (透過 API)](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)。
 

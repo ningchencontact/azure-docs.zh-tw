@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
 ms.openlocfilehash: ce949caa2b80c08f1015ee21c00197d6a95103c2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "58116003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531093"
 ---
 如果您想要一個網域，您可以在 [Azure 管理入口網站](https://portal.azure.com)直接購買網域。 使用下列步驟購買網域名稱，並將其指派給您的 Web 應用程式。
 

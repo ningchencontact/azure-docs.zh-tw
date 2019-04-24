@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324228"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 規則引擎功能
 本本會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用功能的詳細說明。
@@ -30,7 +30,7 @@ ms.locfileid: "57996935"
 
 這些功能是設計來控制內容的存取權。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [拒絕存取 (403)](#deny-access-403) | 判斷所有要求是否已遭拒絕且含有 [403 禁止] 回應。
 [權杖驗證](#token-auth) | 判斷是否將權杖型驗證套用到要求。
@@ -43,7 +43,7 @@ ms.locfileid: "57996935"
 
 這些功能是設計來自訂快取內容的時機和方法。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [頻寬參數](#bandwidth-parameters) | 判斷是否使用頻寬節流設定參數 (例如 ec_rate 和 ec_prebuf)。
 [頻寬節流設定](#bandwidth-throttling) | 針對存在點 (POP) 所提供的回應進行頻寬節流。
@@ -73,7 +73,7 @@ ms.locfileid: "57996935"
 
 這項功能設計用來提供規則內的其他資訊。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [Comment](#comment) | 能夠在規則中新增附註。
  
@@ -81,7 +81,7 @@ ms.locfileid: "57996935"
 
 這些功能是設計來新增、修改或刪除要求或回應的標頭。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [Age 回應標頭](#age-response-header) | 判斷 Age 回應標頭是否包含於傳送給要求者的回應中。
 [偵錯快取回應標頭](#debug-cache-response-headers) | 判斷回應是否會包含於 X-EC-Debug 回應標頭中，其會在快取原則上提供要求資產的相關資訊。
@@ -94,7 +94,7 @@ ms.locfileid: "57996935"
 
 這些功能是設計來自訂儲存於原始記錄檔中的資料。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [自訂記錄欄位 1](#custom-log-field-1) | 判斷要指派給原始記錄檔中自訂記錄欄位的格式和內容。
 [記錄查詢字串](#log-query-string) | 判斷查詢字串以及 URL 是否會一起儲存於存取記錄中。
@@ -148,7 +148,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 這些功能是設計來控制 CDN 與原始伺服器通訊的方式。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [最大 Keep-Alive 要求數目](#maximum-keep-alive-requests) | 判斷在關閉 Keep-Alive 連線之前，適用於該連線的最大要求數目。
 [Proxy 特殊標頭](#proxy-special-headers) | 定義從 POP 轉送到原始伺服器的一組 CDN 特定要求標頭。
@@ -158,7 +158,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 這些功能可為進階使用者提供進階功能。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [可快取的 HTTP 方法](#cacheable-http-methods) | 判斷可在網路上快取的其他 HTTP 方法組。
 [可快取的要求主體大小](#cacheable-request-body-size) | 定義用以判斷是否可快取 POST 回應的臨界值。
@@ -169,7 +169,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 這些功能可讓要求重新導向至不同的 URL 或重寫為不同的 URL。
 
-名稱 | 目的
+Name | 目的
 -----|--------
 [遵循重新導向](#follow-redirects) | 判斷要求是否可以重新導向至定義於客戶原始伺服器所傳回之位置標頭中的主機名稱。
 [URL 重新導向](#url-redirect) | 透過位置標頭將要求重新導向。
@@ -183,9 +183,9 @@ If the desired site does not appear in the list, then you should edit its config
 ### <a name="age-response-header"></a>Age 回應標頭
 **目的**:判斷 Age 回應標頭是否包含於傳送給要求者的回應中。
 
-值|結果
+Value|結果
 --|--
-已啟用 | Age 回應標頭會包含於傳送給要求者的回應中。
+Enabled | Age 回應標頭會包含於傳送給要求者的回應中。
 已停用 | Age 回應標頭會從傳送給要求者的回應中排除。
 
 **預設行為**:已停用。
@@ -200,9 +200,9 @@ If the desired site does not appear in the list, then you should edit its config
 
 頻寬節流參數會判斷是否要將用戶端要求的資料傳輸速率限制為自訂的速率。
 
-值|結果
+Value|結果
 --|--
-已啟用|允許 POP 接受頻寬節流設定要求。
+Enabled|允許 POP 接受頻寬節流設定要求。
 已停用|導致 POP 忽略頻寬節流設定參數。 通常會提供要求的內容 (亦即，不需頻寬節流)。
 
 **預設行為：** 啟用。
@@ -232,9 +232,9 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 ### <a name="bypass-cache"></a>略過快取
 **用途：** 判斷是否要求應略過快取。
 
-值|結果
+Value|結果
 --|--
-已啟用|導致將所有要求都直接導向至原始伺服器，即使先前已將內容快取在 POP 上也一樣。
+Enabled|導致將所有要求都直接導向至原始伺服器，即使先前已將內容快取在 POP 上也一樣。
 已停用|導致 POP 根據其回應標頭中所定義的快取原則來快取資產。
 
 **預設行為：**
@@ -294,7 +294,7 @@ Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數�
 
 完成這類型組態的最簡單方式是將 [外部最大壽命] 和 [Cache-Control 標頭處理] 功能放在同一個陳述式中。
 
-值|結果
+Value|結果
 --|--
 覆寫|確保會進行下列動作：<br/> -覆寫 `Cache-Control` 原始伺服器所產生的標頭。 <br/>-新增 `Cache-Control` 至回應的 [外部最大壽命] 功能所產生的標頭。
 傳遞|可確保 `Cache-Control` 外部最大壽命 功能所產生的標頭永遠不會新增至回應。 <br/> 如果原始伺服器會產生 `Cache-Control` 標頭，它會通過給使用者。 <br/> 如果原始伺服器未產生 `Cache-Control` 標頭，則此選項可能會導致不會包含回應標頭 `Cache-Control` 標頭。
@@ -431,9 +431,9 @@ This feature is not available for the ADN platform. The typical traffic on this
 
 針對 HTTP 大型平台保留預設組態，因為它可減少客戶原始伺服器上的負載，並提高客戶下載內容的速度。
 
-值|結果
+Value|結果
 --|--
-已啟用|還原預設行為。 預設行為是強制 POP 在背景從原始伺服器起始資產擷取。 之後，資產就會在 POP 的本機快取中。
+Enabled|還原預設行為。 預設行為是強制 POP 在背景從原始伺服器起始資產擷取。 之後，資產就會在 POP 的本機快取中。
 已停用|防止 POP 在背景執行資產擷取。 結果是從該區域對該資產發出下一個要求時，會導致 POP 向客戶原始伺服器要求該資產。
 
 **預設行為：** 啟用。
@@ -534,9 +534,9 @@ application/javascript|Javascript
 
 X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
-值|結果
+Value|結果
 -|-
-已啟用|偵錯快取的回應標頭的要求會傳回包含 X-EC-偵錯標頭的回應。
+Enabled|偵錯快取的回應標頭的要求會傳回包含 X-EC-偵錯標頭的回應。
 已停用|X-EC-偵錯的回應標頭將會從回應中排除。
 
 **預設行為：** 已停用。
@@ -591,9 +591,9 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 ### <a name="deny-access-403"></a>拒絕存取 (403)
 **目的**:判斷所有要求是否已遭拒絕且含有 [403 禁止] 回應。
 
-值 | 結果
+Value | 結果
 ------|-------
-已啟用| 導致所有滿足比對準則的要求遭拒，且具有 [403 禁止] 回應。
+Enabled| 導致所有滿足比對準則的要求遭拒，且具有 [403 禁止] 回應。
 已停用| 還原預設行為。 預設行為是讓原始伺服器能夠判斷將傳回的回應類型。
 
 **預設行為**:已停用
@@ -611,7 +611,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 完成這類型組態的最簡單方式是將 [外部最大壽命] 和 [Expires 標頭處理] 功能放在同一個陳述式中。
 
-值|結果
+Value|結果
 --|--
 覆寫|確保將會進行下列動作：<br/>-覆寫 `Expires` 原始伺服器所產生的標頭。<br/>-新增 `Expires` 至回應的 [外部最大壽命] 功能所產生的標頭。
 傳遞|可確保 `Expires` 外部最大壽命 功能所產生的標頭永遠不會新增至回應。 <br/> 如果原始伺服器會產生 `Expires` 標頭，它將會傳遞給使用者。 <br/>如果原始伺服器未產生 `Expires` 標頭，則此選項可能會導致不會包含回應標頭 `Expires` 標頭。
@@ -651,9 +651,9 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 - 您只能將要求重新導向至對應到相同平台的 Edge CNAME。
 
-值|結果
+Value|結果
 -|-
-已啟用|要求可重新導向。
+Enabled|要求可重新導向。
 已停用|要求將不會重新導向。
 
 **預設行為：** 已停用。
@@ -724,9 +724,9 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 當 HTTP 用戶端傳送時，就會發生 no-cache 要求 `Cache-Control: no-cache` 及/或 `Pragma: no-cache` HTTP 要求標頭。
 
-值|結果
+Value|結果
 --|--
-已啟用|允許將 HTTP 用戶端的 no-cache 要求轉送給原始伺服器，而原始伺服器則會透過 POP 將回應標頭和主體傳回給 HTTP 用戶端。
+Enabled|允許將 HTTP 用戶端的 no-cache 要求轉送給原始伺服器，而原始伺服器則會透過 POP 將回應標頭和主體傳回給 HTTP 用戶端。
 已停用|還原預設行為。 預設行為是防止將 no-cache 要求轉送到原始伺服器。
 
 針對所有生產環境的流量，強烈建議將此功能保留為其預設的停用狀態。 否則，將無法為原始伺服器提供防護，來防範可能在重新整理網頁時不小心觸發許多 no-cache 要求的使用者，或防範許多已編碼成要隨著每個視訊要求傳送 no-cache 標題的熱門媒體播放器。 不過，此功能非常適合用來套用至特定的非生產環境暫存或測試目錄，以便隨時從原始伺服器提取隨最新內容。
@@ -786,9 +786,9 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 根據預設，當 POP 無法滿足指定的位元組範圍要求，且未指定 If-range 要求標頭欄位時，會傳回此狀態碼。
 
-值|結果
+Value|結果
 -|-
-已啟用|防止 Pop 使用 416 無法滿足的要求範圍 」 狀態碼無效的位元組範圍要求的回應。 而是伺服器會傳遞要求的資產，並傳回 「 200 確定用戶端。
+Enabled|防止 Pop 使用 416 無法滿足的要求範圍 」 狀態碼無效的位元組範圍要求的回應。 而是伺服器會傳遞要求的資產，並傳回 「 200 確定用戶端。
 已停用|還原預設行為。 預設行為是接受 416 無法滿足的要求範圍 」 狀態碼。
 
 **預設行為：** 已停用。
@@ -847,9 +847,9 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 ### <a name="log-query-string"></a>記錄查詢字串
 **用途：** 判斷查詢字串是否會儲存及存取記錄檔中的 URL。
 
-值|結果
+Value|結果
 -|-
-已啟用|在存取記錄中記錄 URL 時，允許儲存查詢字串。 如果 URL 未包含查詢字串，則此選項將不會有任何作用。
+Enabled|在存取記錄中記錄 URL 時，允許儲存查詢字串。 如果 URL 未包含查詢字串，則此選項將不會有任何作用。
 已停用|還原預設行為。 預設行為是在存取記錄中記錄 URL 時忽略查詢字串。
 
 **預設行為：** 已停用。
@@ -890,7 +890,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 -|-|-
 Append|指定的值會新增至現有要求標頭值的結尾。|**要求標頭值 (用戶端)：**<br/>Value1<br/>**要求標頭值 (規則引擎)：**<br/>Value2 <br/>**新的要求標頭值：** <br/>Value1Value2
 覆寫|要求標頭值將會設定為指定的值。|**要求標頭值 (用戶端)：**<br/>Value1<br/>**要求標頭值 (規則引擎)：**<br/>Value2<br/>**新的要求標頭值：**<br/> Value2 <br/>
-刪除|刪除指定的要求標頭。|**要求標頭值 (用戶端)：**<br/>Value1<br/>**修改用戶端要求標頭設定：**<br/>刪除指定的要求標頭。<br/>**結果︰**<br/>指定的要求標頭將不會轉送到原始伺服器。
+Delete|刪除指定的要求標頭。|**要求標頭值 (用戶端)：**<br/>Value1<br/>**修改用戶端要求標頭設定：**<br/>刪除指定的要求標頭。<br/>**結果︰**<br/>指定的要求標頭將不會轉送到原始伺服器。
 
 重要資訊：
 
@@ -928,7 +928,7 @@ Append|指定的值會新增至現有要求標頭值的結尾。|**要求標頭�
 -|-|-
 Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭值 (用戶端)：**<br />Value1<br/>**回應標頭值 (規則引擎)：**<br/>Value2<br/>**新的回應標頭值：**<br/>Value1Value2
 覆寫|回應標頭值將會設定為指定的值。|**回應標頭值 (用戶端)：**<br/>Value1<br/>**回應標頭值 (規則引擎)：**<br/>Value2 <br/>**新的回應標頭值：**<br/>Value2 <br/>
-刪除|刪除指定的回應標頭。|**回應標頭值 (用戶端)：**<br/>Value1<br/>**修改用戶端回應標頭設定：**<br/>刪除指定的回應標頭。<br/>**結果︰**<br/>指定的回應標頭將不會轉送給要求者。
+Delete|刪除指定的回應標頭。|**回應標頭值 (用戶端)：**<br/>Value1<br/>**修改用戶端回應標頭設定：**<br/>刪除指定的回應標頭。<br/>**結果︰**<br/>指定的回應標頭將不會轉送給要求者。
 
 重要資訊：
 
@@ -945,7 +945,7 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
     - content-encoding
     - content-length
     - content-range
-    - 日期
+    - date
     - 伺服器
     - trailer
     - transfer-encoding
@@ -965,9 +965,9 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 接著可能會使用這個部分快取來滿足該內容的新要求，直到完全快取要求的內容為止。
 
-值|結果
+Value|結果
 -|-
-已啟用|要求可以產生部分快取的內容。
+Enabled|要求可以產生部分快取的內容。
 已停用|要求只能產生所要求內容的完整快取版本。
 
 **預設行為：** 已停用。
@@ -1023,9 +1023,9 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 有效值為：
 
-值|結果
+Value|結果
 --|--
-已啟用|導致 POP 從原始伺服器重新擷取資產。
+Enabled|導致 POP 從原始伺服器重新擷取資產。
 已停用|還原預設行為。 預設行為是根據要求提供有效的快取資產。
 
 不需要此功能即可進行正確的快取和內容傳遞，但此功能可能有助於解決這個問題。 例如，原始伺服器上的動態內容產生器可能會不小心導致將 0 位元組回應傳送給 POP。 POP 通常會快取這些類型的回應。 如果您知道對於這類內容而言，0 位元組的回應絕對不是有效的回應， 
@@ -1086,9 +1086,9 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 ### <a name="stale-content-delivery-on-error"></a>發生錯誤時傳遞過時的內容
 **用途：** 判斷發生錯誤時在快取重新驗證期間，或從客戶原始伺服器擷取要求的內容時，是否要傳遞到期的快取的內容。
 
-值|結果
+Value|結果
 -|-
-已啟用|與原始伺服器連接期間發生錯誤時，即會將過時的內容提供給要求者。
+Enabled|與原始伺服器連接期間發生錯誤時，即會將過時的內容提供給要求者。
 已停用|系統會將原始伺服器的錯誤轉送給要求者。
 
 **預設行為：** 已停用
@@ -1126,9 +1126,9 @@ Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭�
 
 這項功能的優先順序高於大部分功能 (URL 重寫功能除外)。
 
-值 | 結果
+Value | 結果
 ------|---------
-已啟用 | 使用權杖型驗證保護要求的內容。 只接受來自用戶端且可提供有效權杖並符合其需求的要求。 FTP 交易會從權杖型驗證中排除。
+Enabled | 使用權杖型驗證保護要求的內容。 只接受來自用戶端且可提供有效權杖並符合其需求的要求。 FTP 交易會從權杖型驗證中排除。
 已停用| 還原預設行為。 預設行為是讓您的權杖型驗證組態能夠判斷要求是否將會受到保護。
 
 #### <a name="compatibility"></a>相容性
@@ -1198,9 +1198,9 @@ Www-authenticate 標頭只適用於 401 回應碼。
 
 有效值為：
 
-值|結果
+Value|結果
 ---|----
-已啟用|導致 POP 在比較「權杖型驗證」參數的 URL 時忽略大小寫。
+Enabled|導致 POP 在比較「權杖型驗證」參數的 URL 時忽略大小寫。
 已停用|還原預設行為。 預設行為是在進行權杖型驗證的 URL 比較時會區分大小寫。
 
 **預設行為：** 已停用。
@@ -1219,9 +1219,9 @@ Www-authenticate 標頭只適用於 401 回應碼。
 - 值 選項無法設定為"ec_token。
 - 確認 [值] 選項中定義的名稱包含唯一有效的 URL 字元。
 
-值|結果
+Value|結果
 ----|----
-已啟用|[值] 選項會定義應該要定義語彙基元的查詢字串參數名稱。
+Enabled|[值] 選項會定義應該要定義語彙基元的查詢字串參數名稱。
 已停用|您可以指定權杖做為要求 URL 中未定義的查詢字串參數。
 
 **預設行為：** 已停用。 您可以指定權杖做為要求 URL 中未定義的查詢字串參數。

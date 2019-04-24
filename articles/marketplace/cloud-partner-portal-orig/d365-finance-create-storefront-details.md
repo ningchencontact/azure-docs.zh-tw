@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397896"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>如何填寫店面詳細資料表單
 ===========================================
@@ -36,19 +36,19 @@ ms.locfileid: "49389359"
 
 ### <a name="offer-description"></a>供應項目描述
 
-此描述會在 AppSource 上顯示於 [供應項目摘要] 的正下方。 在說明您的解決方案時，請勿將重點放在基礎技術或操作功能上。 潛在客戶可稍後再了解相關細節。 催化才是您的主要目標，也就是驅使潛在客戶付諸實際行動。 理想的方法是讓他們回想可能經歷過的困境，然後談談他們若使用您的解決方案將會有哪些好處。 請清楚表達吸引人的成果和結果。 建議您在描述的結尾處加上您應用程式登陸頁面的連結。 長度上限為 1300 個字元
+此描述會在 AppSource 上顯示於 [供應項目摘要] 的正下方。 在說明您的解決方案時，請勿將重點放在基礎技術或操作功能上。 潛在客戶可稍後再了解相關細節。 催化才是您的主要目標，也就是驅使潛在客戶付諸實際行動。 理想的方法是讓他們回想可能經歷過的困境，然後談談他們若使用您的解決方案將會有哪些好處。 請清楚表達吸引人的成果和結果。 建議您在描述的結尾處加上您應用程式登陸頁面的連結。 上限為 1300 個字元
 
 ### <a name="industries"></a>產業
 
-選取您應用程式最適合產業。 若您的應用程式與多個產業相關聯，您可以保留空白
+請選取您應用程式最適用的產業。 若您的應用程式與多個產業相關聯，您可以保留空白
 
-### <a name="categories"></a>類別
+### <a name="categories"></a>Categories
 
-選取與應用程式相關的類別。 選取至少一個類別，最多三個。 請謹慎選擇，因為客戶可能會根據類別搜尋 AppSource
+選取與您應用程式相相關的類別。 選取至少一個類別，最多三個。 請謹慎選擇，因為客戶可能會根據類別搜尋 AppSource
 
 ### <a name="app-type"></a>應用程式類型
 
-選取應用程式將在 AppSource 上支援的試用類型。
+選取您應用程式在 AppSource 上提供的試用類型。
 **免費**表示您的應用程式免費。 **試用**表示客戶能夠在 AppSource 上短期試用您的應用程式。 **試用要求**表示客戶可以從 AppSource 要求試用版應用程式。
 
 ### <a name="help-link-for-your-app"></a>應用程式的說明連結
@@ -64,11 +64,11 @@ ms.locfileid: "49389359"
 
 ### <a name="supported-languages"></a>支援的語言
 
-選取應用程式支援的語言。 若您應用程式支援清單上以外的語言，請發佈您的供應項目，並將電子郵件傳送到 <appsource@microsoft.com> 讓我們知道。
+選取您應用程式支援的語言。 若您應用程式支援清單上以外的語言，請發佈您的供應項目，並將電子郵件傳送到 <appsource@microsoft.com> 讓我們知道。
 
 ### <a name="app-version"></a>應用程式版本
 
-輸入應用程式的版本號碼
+輸入您應用程式的版本號碼
 
 ### <a name="products-your-app-works-with-max-3"></a>與您的應用程式一起運作的產品 (最多 3 個)
 
@@ -119,7 +119,7 @@ ms.locfileid: "49389359"
 
 ### <a name="lead-destination"></a>潛在客戶目的地
 
-選取將儲存您潛在客戶的 CRM 系統。 如果您使用下列其中一個 CRM 系統，請在此選取 [Azure 資料表]\"\"： Salesforce、Marketo、Microsoft Dynamics CRM。 針對在 AppSource 上嘗試您應用程式的使用者 (潛在客戶)，我們會將其詳細資料寫入至您在此所選取的 CRM 系統。 請根據您所選取的 CRM 系統，按一下下面相對應的 URL 來取得完成下一組欄位的資訊
+選取將儲存您潛在客戶的 CRM 系統。 選取  \"Azure 表格\"這裡，如果您有下列的 CRM 系統的其中一個：Salesforce、Marketo、Microsoft Dynamics CRM。 我們會於您於此處所選的 CRM 系統上，寫入在 AppSource (潛在客戶) 上試用您應用程式的終端使用者詳細資料。 請根據您所選取的 CRM 系統，按一下下面相對應的 URL 來取得完成下一組欄位的資訊
 
 -   [Azure 資料表](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

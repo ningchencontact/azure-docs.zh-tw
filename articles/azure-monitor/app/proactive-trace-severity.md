@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: mbullwin
 ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306389"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>追蹤嚴重性比率降低 (預覽)
 

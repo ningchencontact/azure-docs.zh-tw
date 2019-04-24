@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 04/17/2019
 ms.openlocfilehash: d5ada9b992afe98241162749b1c45723b89a6b77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699350"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331106"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>適用於單一資料庫的 Azure SQL Database 以虛擬核心為基礎的購買模型限制
 

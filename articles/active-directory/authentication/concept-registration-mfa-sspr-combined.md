@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415739"
 ---
 # <a name="combined-security-information-registration-preview"></a>合併的安全性資訊註冊 （預覽）
 
@@ -44,7 +44,7 @@ Azure AD 結合註冊目前不提供如 Azure 美國政府、 Azure Germany 或 
 
 結合註冊支援下列驗證方法和動作：
 
-|   | 註冊 | 變更 | 刪除 |
+|   | 註冊 | 變更 | Delete |
 | --- | --- | --- | --- |
 | Microsoft 驗證器 | 是 （最多 5 個） | 否 | 是 |
 | 其他驗證器應用程式 | 是 （最多 5 個） | 否 | 是 |

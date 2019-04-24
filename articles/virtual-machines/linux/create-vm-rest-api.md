@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391356"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>透過 REST API 建立使用 SSH 驗證的 Linux 虛擬機器
 
@@ -63,10 +63,10 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 以下是用來建立要求本文的常用定義：
 
-| 名稱                       | 必要項 | 類型                                                                                | 描述  |
+| Name                       | 必要項 | 類型                                                                                | 描述  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | 字串                                                                              | 資源位置。 |
-| name                       |          | 字串                                                                              | 虛擬機器的名稱。 |
+| location                   | True     | string                                                                              | 資源位置。 |
+| name                       |          | string                                                                              | 虛擬機器的名稱。 |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | 指定虛擬機器的硬體設定。 |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | 指定虛擬機器磁碟的儲存體設定。 |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | 指定虛擬機器的作業系統設定。 |
@@ -127,7 +127,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 }
 ```
 
-如需要求主體中可用的定義的完整清單，請參閱[虛擬機器建立或更新要求主體定義](/rest/api/compute/virtualmachines/createorupdate#definitions)。
+有关请求正文中的变量定义的完整列表，请参阅[虚拟机创建或更新请求正文定义](/rest/api/compute/virtualmachines/createorupdate#definitions)。
 
 ## <a name="sending-the-request"></a>傳送要求
 
@@ -137,7 +137,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 建立或更新虛擬機器的作業會有兩個成功的回應：
 
-| 名稱        | 類型                                                                              | 描述 |
+| Name        | 類型                                                                              | 描述 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 確定      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Created | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 建立時間     |

@@ -11,11 +11,11 @@ ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ebbcbcc3d0934800980b7d8e00895b11ff2747b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310396"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>還原 Azure SQL 資料倉儲 
 在本文中，您將了解如何在 Azure 入口網站和 PowerShell 中執行下列作業：
@@ -35,10 +35,10 @@ ms.locfileid: "57838930"
 ## <a name="restore-through-powershell"></a>透過 PowerShell 還原
 
 ## <a name="install-powershell"></a>安裝 PowerShell
-若要使用 Azure PowerShell 與 SQL 資料倉儲，您必須安裝 Azure PowerShell。  您可以執行，以檢查您的版本**Get-module-ListAvailable-名稱 Az**。 如需安裝最新版本的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][How to install and configure Azure PowerShell]。
+若要对 SQL 数据仓库使用 Azure PowerShell，需要安装 Azure PowerShell。  可以通过运行 **Get-Module -ListAvailable -Name Az** 来检查版本。 如需安裝最新版本的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][How to install and configure Azure PowerShell]。
 
 ## <a name="restore-an-active-or-paused-database-using-powershell"></a>使用 PowerShell 還原作用中或已暫停的資料庫
-若要從還原點使用還原資料庫[還原 AzSqlDatabase] [ Restore-AzSqlDatabase] PowerShell cmdlet。
+若要从还原点还原数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell cmdlet。
 
 1. 開啟 Windows PowerShell。
 
@@ -94,7 +94,7 @@ $RestoredDatabase.status
 >
 
 ## <a name="copy-your-data-warehouse-with-user-defined-restore-points-using-powershell"></a>使用 PowerShell 透過使用者定義的還原點來複製資料倉儲
-若要從使用者定義的還原點使用還原資料庫[還原 AzSqlDatabase] [ Restore-AzSqlDatabase] PowerShell cmdlet。
+若要从用户定义的还原点还原数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell cmdlet。
 
 1. 開啟 Windows PowerShell。
 2. 連接到您的 Azure 帳戶，然後列出與您帳戶關聯的所有訂用帳戶。
@@ -142,7 +142,7 @@ $RestoredDatabase.status
 ```
 
 ## <a name="restore-a-deleted-database-using-powershell"></a>使用 PowerShell 還原已刪除的資料庫
-若要還原已刪除的資料庫，請使用[還原 AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet。
+若要还原已删除的数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet。
 
 1. 開啟 Windows PowerShell。
 2. 连接到 Azure 帐户，并列出与帐户关联的所有订阅。
@@ -177,7 +177,7 @@ $RestoredDatabase.status
 >
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>使用 PowerShell 從 Azure 地理區域還原
-若要復原的資料庫，使用[還原 AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet。
+若要恢复数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet。
 
 > [!NOTE]
 > 您可以執行異地還原來還原至 Gen2！ 若要這麼做，請指定 Gen2 ServiceObjectiveName (例如 DW1000**c**) 作為選擇性參數。

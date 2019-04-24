@@ -1,7 +1,6 @@
 ---
 title: 使用企業安全性套件維護 Apache Hadoop 安全性的簡介
 description: 了解企業安全性套件如何支援企業安全性的四大要件。
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.openlocfilehash: 8a568302b2fd8ed0140c2ad084495d41cc09ed8f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536846"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>使用企業安全性套件維護 Apache Hadoop 安全性的簡介
 

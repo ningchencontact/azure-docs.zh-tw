@@ -17,11 +17,11 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 62578fe037dc1c9672bd0a4cf28500c658344c53
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440351"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中變更企業應用程式的名稱或標誌
 在 Azure Active Directory (Azure AD) 中，您可以輕鬆變更自訂企業應用程式的名稱或標誌。 您必須具備適當的權限，才能進行這些變更，而且必須是自訂應用程式的建立者。
@@ -46,4 +46,4 @@ ms.locfileid: "56182913"
 * [查看我的所有群組](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [將使用者或群組指派給企業應用程式](assign-user-or-group-access-portal.md)
 * [從企業應用程式中移除使用者或群組指派](remove-user-or-group-access-portal.md)
-* [停用企業應用程式的使用者登入](disable-user-sign-in-portal.md)
+* [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)

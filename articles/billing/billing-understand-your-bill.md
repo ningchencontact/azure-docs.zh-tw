@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 9ba52951565c910138a5a49ecc97ad5748411e6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4303b79a7ee69d029504bf6ca2359f6e6070e5b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370110"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>了解 Microsoft Azure 帳單
 若要了解您的 Azure 帳單，請比較您包含詳細每日使用量檔案的發票，與 Azure 入口網站中的成本管理報告。
@@ -46,7 +46,7 @@ ms.locfileid: "57842306"
  | 發票 (PDF) | 詳細使用量 (CSV)|
  | --- | --- |
 |計費週期 | 計費期間 |
- |名稱 |計量類別 |
+ |Name |計量類別 |
  |類型 |計量子類別 |
  |資源 |計量名稱 |
  |區域 |計量區域 |

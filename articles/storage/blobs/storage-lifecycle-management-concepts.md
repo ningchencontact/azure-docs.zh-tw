@@ -9,11 +9,11 @@ ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
 ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681721"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392461"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 儲存體生命週期
 
@@ -115,8 +115,8 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 | 參數名稱 | 參數類型 | 注意 | 必要項 |
 |----------------|----------------|-------|----------|
-| name           | 字串 |規則名稱可包含最多 256 個的英數字元。 規則名稱會區分大小寫。  它在原則內必須是唯一的。 | True |
-| 已啟用 | BOOLEAN | 選擇性的布林值，以允許規則，以暫時停用。 預設值為 true，如果未設定。 | False | 
+| name           | String |規則名稱可包含最多 256 個的英數字元。 規則名稱會區分大小寫。  它在原則內必須是唯一的。 | True |
+| 已啟用 | Boolean | 選擇性的布林值，以允許規則，以暫時停用。 預設值為 true，如果未設定。 | False | 
 | type           | 列舉值 | 目前有效的型別是`Lifecycle`。 | True |
 | 定義     | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 | True |
 

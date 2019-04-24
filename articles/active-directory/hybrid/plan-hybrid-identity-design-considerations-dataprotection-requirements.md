@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60454858"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>透過強式識別解決方案規劃更高的資料安全性
 保護資料的第一個步驟是識別可以存取該資料的人員。 此外，您需要可與系統整合的身分識別解決方案，以提供驗證和授權功能。 驗證和授權常被混淆，兩者角色也常被誤解。 這兩者其實是不同的，如下圖所示：
@@ -87,6 +87,6 @@ ms.locfileid: "56189884"
 ## <a name="next-steps"></a>後續步驟
  [判斷內容管理需求](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

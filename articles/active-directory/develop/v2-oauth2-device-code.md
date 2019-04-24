@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299394"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 裝置程式碼流程
 
@@ -75,13 +75,13 @@ scope=user.read%20openid%20profile
 
 | 參數 | 格式 | 描述 |
 | ---              | --- | --- |
-|`device_code`     | 字串 | 長字串，可用於驗證用戶端與授權伺服器之間的工作階段。 用戶端會使用此參數，來向授權伺服器要求存取權杖。 |
-|`user_code`       | 字串 | 簡短的字串，用來顯示給使用者用來識別的次要裝置上的工作階段。|
+|`device_code`     | String | 長字串，可用於驗證用戶端與授權伺服器之間的工作階段。 用戶端會使用此參數，來向授權伺服器要求存取權杖。 |
+|`user_code`       | String | 簡短的字串，用來顯示給使用者用來識別的次要裝置上的工作階段。|
 |`verification_uri`| URI | 為了執行登入程序，使用者應使用 `user_code` 查看的 URI。 |
 |`verification_uri_complete`| URI | URI，結合`user_code`而`verification_uri`，用於非文字傳輸使用者 （例如，透過藍芽裝置，或透過 QR 代碼）。  |
 |`expires_in`      | int | `device_code` 和 `user_code` 到期之前的秒數。 |
 |`interval`        | int | 用戶端在輪詢要求之間應等待的秒數。 |
-| `message`        | 字串 | 人類看得懂的字串，包含使用者說明。 在 `?mkt=xx-XX` 形式的要求中加入  **查詢參數**、填寫適當的語言文化代碼，即可進行當地語系化。 |
+| `message`        | String | 人類看得懂的字串，包含使用者說明。 在 `?mkt=xx-XX` 形式的要求中加入  **查詢參數**、填寫適當的語言文化代碼，即可進行當地語系化。 |
 
 ## <a name="authenticating-the-user"></a>驗證使用者
 
@@ -132,7 +132,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 | 參數 | 格式 | 描述 |
 | --------- | ------ | ----------- |
-| `token_type` | 字串| 一律是「Bearer」。 |
+| `token_type` | String| 一律是「Bearer」。 |
 | `scope` | 空格分隔的字串 | 如果傳回了存取權杖，則會列出存取權杖的有效範圍。 |
 | `expires_in`| int | 包含的存取權杖須經過多久 (秒數) 才會生效。 |
 | `access_token`| 不透明字串 | 針對已要求的[範圍](v2-permissions-and-consent.md)發出。  |

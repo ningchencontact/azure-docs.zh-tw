@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+origin.date: 07/13/2017
+ms.date: 04/09/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384695"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 同步處理服務陰影屬性
 大部分屬性是以它們在內部部署 Active Directory 中的相同方式，在 Azure AD 中表示。 但是某些屬性有一些特殊處理，而且在 Azure AD 中的屬性值可能不同於 Azure AD Connect 同步處理。
@@ -38,11 +39,11 @@ ms.locfileid: "57839163"
 ### <a name="userprincipalname"></a>userPrincipalName
 使用者在未驗證網域中具有下列屬性值︰
 
-| 屬性 | 值 |
+| 屬性 | Value |
 | --- | --- |
 | 內部部署 userPrincipalName | lee.sperry@fabrikam.com |
 | Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
-| Azure AD userPrincipalName | lee.sperry@fabrikam.onmicrosoft.com |
+| Azure AD userPrincipalName | lee.sperry@fabrikam.partner.onmschina.cn |
 
 userPrincipalName 屬性是您使用 PowerShell 時看到的值。
 
@@ -53,12 +54,12 @@ userPrincipalName 屬性是您使用 PowerShell 時看到的值。
 
 對於信箱使用者，內部部署或 Exchange Online，只會顯示已驗證網域的值。 它看起來如下所示：
 
-| 屬性 | 值 |
+| 屬性 | Value |
 | --- | --- |
 | 內部部署 proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-在此情況下**smtp:abbie.spencer\@fabrikam.com**已移除，因為該網域尚未驗證。 但是 Exchange 也會新增**SIP:abbie.spencer\@fabrikamonline.com**。 Fabrikam 不曾使用 Lync/Skype 內部部署，但是 Azure AD 和 Exchange Online 為它進行準備。
+在本例中，**smtp:abbie.spencer\@fabrikam.com** 已删除，因为该域尚未验证。 但是，Exchange 还添加了 **SIP:abbie.spencer\@fabrikamonline.com**。 Fabrikam 不曾使用 Lync/Skype 內部部署，但是 Azure AD 和 Exchange Online 為它進行準備。
 
 proxyAddresses 的此邏輯稱為 **ProxyCalc**。 ProxyCalc 在使用者每次變更時叫用，其時機為︰
 
@@ -77,3 +78,5 @@ ProxyCalc 可能需要一些時間來處理使用者的變更，並且與 Azure 
 ## <a name="see-also"></a>請參閱
 * [Azure AD Connect 同步](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。
+
+<!-- Update_Description: wording update -->

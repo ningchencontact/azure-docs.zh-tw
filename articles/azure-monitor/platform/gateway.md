@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396246"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Azure 監視器中使用 Log Analytics 閘道沒有網際網路存取的電腦連接
 
@@ -364,7 +364,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 | **Cmdlet** | **參數** | **說明** | **範例** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Key |取得服務的組態 |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |索引鍵 (必要) <br> 值 |變更服務的組態 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Set-OMSGatewayConfig` |索引鍵 (必要) <br> Value |變更服務的組態 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |取得轉送 (上游) Proxy 的位址 |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |位址<br> 使用者名稱<br> 密碼 |設定轉送 (上游) Proxy 的位址 (與認證) |1.設定回覆 Proxy 和認證：<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2.設定不需要驗證的回覆 Proxy：`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3.清除轉送 Proxy 設定︰<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |取得目前允許的主機 （僅限本機設定允許的主機，不會自動下載的允許主機） |`Get-OMSGatewayAllowedHost` | 

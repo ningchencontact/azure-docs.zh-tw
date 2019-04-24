@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
 ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416919"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>受控網域上的密碼和帳戶鎖定原則
 此文章說明受控網域上的預設密碼原則。 它也涵蓋如何設定這些原則。
@@ -60,7 +60,7 @@ ms.locfileid: "58085998"
 在受控網域上，預設會設定下列帳戶鎖定原則：
 * 帳戶鎖定期間：30
 * 允許的失敗登入嘗試次數：5
-* 經過下列時間後重設失敗的登入嘗試計數：30 分鐘
+* 經過下列時間後重設失敗的登入嘗試計數：30 分钟
 
 實際上，如果在 2 分鐘內使用 5 個無效的密碼，使用者帳戶就會被鎖定 30 分鐘。 30 分鐘後，帳戶會自動解除鎖定。
 

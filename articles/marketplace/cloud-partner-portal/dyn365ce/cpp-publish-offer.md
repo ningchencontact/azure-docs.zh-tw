@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: pbutlerm
 ms.openlocfilehash: eeb0fa84e8cd5ac6a499e02edd5879c5bbdd8ead
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081734"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308771"
 ---
 # <a name="publish-a-dynamics-365-for-customer-engagement-offer"></a>發佈 Dynamics 365 for Customer Engagement 供應項目
 
@@ -36,7 +36,7 @@ ms.locfileid: "54081734"
 下表說明每個發佈步驟。 也會提供完成每個步驟的預估時間。
 
 
-|    發行步驟             |   時間      |   說明                                                              |
+|    發行步驟             |   時間      |   描述                                                              |
 |  -------------------           | --------    | ---------------                                                            |
 | 檢查必要條件         | 15 分鐘   | 檢查供應項目資訊和供應項目設定。                        |
 | 認證                  | 1 週 | Azure 認證團隊會分析供應項目。 掃描供應項目中是否有病毒、惡意程式碼、安全合規性和安全性問題。 檢查供應項目以查看它是否符合所有資格條件。 如需詳細資訊，請參閱[必要條件](./cpp-prerequisites.md)。 若發現問題，將提供意見反應。 |

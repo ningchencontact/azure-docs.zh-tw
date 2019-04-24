@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70befad3208f34fe62fbb0a59cea4bf6ea01ce16
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60284819"
 ---
 # <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor"></a>使用 Azure 監視器的 Splunk 與整合 Azure AD 記錄檔
 

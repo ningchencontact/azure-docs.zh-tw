@@ -12,11 +12,11 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: dd0467479960df30b1d44aeaef7ed0ed0d6c2a87
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253154"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>實作 Spark 建置機器學習模型
 
@@ -104,7 +104,7 @@ datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>預設 Spark 內容及 PySpark magic
-Jupyter Notebook 所提供的 PySpark 核心有預設的內容。 因此您不必明確設定 Spark 或 Hive 內容，就能開始使用您所開發的應用程式。 依預設會將這些內容提供給您使用。 這些內容包括：
+Jupyter Notebook 所提供的 PySpark 核心有預設的內容。 因此您不必明確設定 Spark 或 Hive 內容，就能開始使用您所開發的應用程式。 依預設會將這些內容提供給您使用。 这些上下文包括：
 
 * sc - 代表 Spark 
 * sqlContext - 代表 Hive
@@ -113,7 +113,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 
 * **%%local** 指定後續行所列的程式碼要在本機執行。 程式碼必須是有效的 Python 程式碼。
 * **%%sql -o \<variable name>** 
-* 針對 sqlContext 執行 Hive 查詢。 如果傳遞 -o 參數，則查詢的結果會當做 Pandas 資料框架，保存在 %%local Python 內容中。
+* 针对 sqlContext 执行 Hive 查询。 如果傳遞 -o 參數，則查詢的結果會當做 Pandas 資料框架，保存在 %%local Python 內容中。
 
 如需關於 Jupyter Notebook 核心，以及其所提供的預先定義 "magics" 的詳細資訊，請參閱 [HDInsight 上的 HDInsight Spark Linux 叢集可供 Jupyter Notebook 使用的核心](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)。
 

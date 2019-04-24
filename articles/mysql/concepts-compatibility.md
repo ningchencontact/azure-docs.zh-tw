@@ -1,5 +1,5 @@
 ---
-title: Azure Database for MySQL 驅動程式和管理工具相容性
+title: Azure Database for MySQL 驱动程序和管理工具兼容性
 description: 本文說明 MySQL 驅動程式和管理工具與適用於 MySQL 的 Azure 資料庫之相容性。
 author: ajlam
 ms.author: andrela
@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.openlocfilehash: 05f48145973777052590f8d10e1a2ce1fd22ec7a
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525378"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL 驅動程式和管理工具與適用於 MySQL 的 Azure 資料庫的相容性
 本文說明驅動程式和管理工具與適用於 MySQL 的 Azure 資料庫之相容性。
@@ -25,7 +25,7 @@ ms.locfileid: "58258100"
 | .NET | [ GitHub 上的 MySqlConnector](https://github.com/mysql-net/MySqlConnector) \(英文\) <br> [來自 Nuget 的安裝套件](https://www.nuget.org/packages/MySqlConnector/) \(英文\) | 0.27 及更新版本 | 0.26.5 及更舊版本 | |
 | MySQL Connector/NET | [MySQL Connector/NET](https://github.com/mysql/mysql-connector-net) | 8.0、7.0、6.10 |  | 編碼錯誤 (bug) 可能會導致在某些非 UTF8 Windows 系統上的連線失敗。 |
 | Nodejs |  [GitHub 上的 MySQLjs](https://github.com/mysqljs/mysql/) \(英文\) <br> 來自 NPM 的安裝套件：<br> 從 NPM 執行 `npm install mysql` | 2.15 | 2.14.1 及更舊版本 | |
-| GO | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 及更舊版本 | 使用`allowNativePasswords=true`1.3 版的連接字串中。 1.4 版包含的修正和`allowNativePasswords=true`已不再需要。 |
+| GO | https://github.com/go-sql-driver/mysql/releases | 1.3、1.4 | 1.2 及更舊版本 | 在版本 1.3 的连接字符串中使用 `allowNativePasswords=true`。 版本 1.4 包含修补程序，不再需要 `allowNativePasswords=true`。 |
 | Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3、2.0、2.1、2.2 | 1.2.2 及更舊版本 | |
 | Java | https://downloads.mariadb.org/connector-java/ | 2.1、2.0、1.6 | 1.5.5 及更舊版本 | |
 

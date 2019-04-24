@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894541"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371722"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>設定您的帳單帳戶，Microsoft 客戶協議
 
@@ -209,7 +209,7 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. 選取計費的設定檔。 根據您的存取權，您可能需要選取 計費帳戶。 從計費的帳戶中，選取**帳單設定檔**，然後計費的設定檔。
+3. 選取計費的設定檔。 您可能需要根據存取權來選取帳單帳戶。 從計費的帳戶中，選取**帳單設定檔**，然後計費的設定檔。
 
 4. 選取  **Azure 訂用帳戶**從左邊算起。
 
@@ -225,7 +225,7 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. 選取 [發票] 區段。 根據您的存取權，您可能需要選取 帳單帳戶或帳單的設定檔。  從計費的帳戶或計費的設定檔中，選取**發票區段**，然後發票 > 一節。
+3. 選取 [發票] 區段。 您可能需要根據存取權來選取帳單帳戶或帳單設定檔。  從計費的帳戶或計費的設定檔中，選取**發票區段**，然後發票 > 一節。
 
     ![顯示的發票區段 post 轉換清單的螢幕擷取畫面](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
 
@@ -245,7 +245,7 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. 選取的計費的設定檔，建立您的註冊。 根據您的存取權，您可能需要選取 計費帳戶。  從計費的帳戶中，選取**帳單設定檔**，然後計費的設定檔。
+3. 選取的計費的設定檔，建立您的註冊。 您可能需要根據存取權來選取帳單帳戶。  從計費的帳戶中，選取**帳單設定檔**，然後計費的設定檔。
 
 4. 選取 **存取控制 (IAM)** 從左邊算起。
 

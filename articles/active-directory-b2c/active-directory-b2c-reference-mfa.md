@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: davidmu
+origin.date: 11/30/2018
+ms.date: 04/02/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: 931fd0714977fb4c5f79aa32691881f9794a44cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198311"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317205"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中啟用多重要素驗證 | Microsoft Docs
 
@@ -47,5 +48,6 @@ Azure Active Directory (Azure AD) B2C 直接整合 [Azure Multi-Factor Authentic
 1. 選取使用者流程，然後選取 [屬性]。 
 2. 選取 [多重要素驗證] 旁邊的 [已啟用]。
 3. 按一下頁面頂端的 [儲存]。
+
 
 

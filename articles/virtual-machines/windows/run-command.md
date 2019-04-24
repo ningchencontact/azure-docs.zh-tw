@@ -8,18 +8,18 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ecf19da59e91edd08953296d96ca68ca62f008e1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: d199a9db879263bbca49298df190c5a127444c42
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195348"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251258"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>使用執行命令在 Windows 虛擬機器中執行 PowerShell 指令碼
 
 執行命令會使用 VM 代理程式在 Azure Windows VM 中執行 PowerShell 指令碼。 這些指令碼可用於一般機器或應用程式管理，且可用來快速診斷和修復虛擬機器存取和網路問題，並使虛擬機器恢復正常狀態。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="benefits"></a>優點
 

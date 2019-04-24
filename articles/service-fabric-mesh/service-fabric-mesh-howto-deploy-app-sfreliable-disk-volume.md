@@ -16,11 +16,11 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419215"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>在 Service Fabric Mesh 應用程式中裝載以 Service Fabric 可靠磁碟為基礎的高可用性磁碟區 
 保存容器應用程式狀態的常見方法是使用遠端儲存體 (例如 Azure 檔案儲存體) 或資料庫 (例如 Azure Cosmos DB)。 這會對遠端存放區產生大量的讀取和寫入網路延遲。

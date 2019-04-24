@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2746775c72976159cdcdb6bdd86e39a5dbe3a4fc
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683662"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348819"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的必要條件
 本主題描述 Azure AD Connect 的必要條件和硬體需求。
@@ -51,7 +51,7 @@ ms.locfileid: "59683662"
 * Azure AD Connect 無法安裝至 2019 以前的 Small Business Server 或 Windows Server Essentials (支援 Windows Server Essentials 2019)。 伺服器必須使用 Windows Server Standard 或以上版本。
 * 因為安全性作法與更嚴格的設定可以防止 Azure AD Connect 安裝正確，不建議在網域控制站上安裝 Azure AD Connect
 * Azure AD Connect 伺服器必須已安裝完整的 GUI。 **不**支援在伺服器核心上安裝。
-* Azure AD Connect 必須安裝於 Windows Server 2008 R2 或更新版本上。 此伺服器必須是網域，而且可能是網域控制站或成員伺服器。
+* Azure AD Connect 必須安裝於 Windows Server 2008 R2 或更新版本上。 此服务器必须加入域，并且可以是域控制器或成员服务器。
 * 如果您要在 Windows Server 2008 R2 上安裝 Azure AD Connect，請務必套用來自 Windows Update 的最新 Hotfix。 無法在未修補的伺服器上開始進行安裝。
 * 如果打算使用 **密码同步**功能，则必须在 Windows Server 2008 R2 SP1 或更高版本上安装 Azure AD Connect 服务器。
 * 如果您計畫使用「群組受控服務帳戶」，則 Azure AD Connect 伺服器必須位於 Windows Server 2012 或更新版本上。
@@ -78,7 +78,7 @@ ms.locfileid: "59683662"
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect 使用的 SQL Server
 * Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 預設會安裝 SQL Server 2012 Express LocalDB (SQL Server Express 的精簡版)。 SQL Server Express 有 10GB 的大小限制，允许管理大约 100,000 个对象。 如果您需要管理更多數量的目錄物件，則必須將安裝精靈指向不同的 SQL Server 安裝。
 * 如果您使用個別的 SQL Server，這些需求適用於：
-  * Azure AD Connect 支援所有版本的 Microsoft SQL Server 2008 R2 （含最新的 Service Pack) 到 SQL Server 2019。 **不支援** 使用 Microsoft Azure SQL Database 作為資料庫。
+  * Azure AD Connect 支持从 2008 R2（包含最新的 Service Pack）到 SQL Server 2019 的所有 Microsoft SQL Server 版本。 **不支援** 使用 Microsoft Azure SQL Database 作為資料庫。
   * 您必須使用不區分大小寫的 SQL 定序。 這些定序是在其名稱中使用 \_CI_ 來識別。 **不支援**使用區分大小寫的定序 (在其名稱中以 \_CS_ 來識別)。
   * 您在每個 SQL 執行個體中只能有一個同步引擎。 **不支援** 使用 FIM/MIM Sync、DirSync 或 Azure AD Sync 來共用 SQL 執行個體。
 
@@ -131,7 +131,7 @@ ms.locfileid: "59683662"
 * 選用：測試使用者帳戶來驗證同步處理。
 
 ## <a name="component-prerequisites"></a>元件的必要條件
-### <a name="powershell-and-net-framework"></a>PowerShell 和.NET Framework
+### <a name="powershell-and-net-framework"></a>PowerShell 和 .NET Framework
 Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。 您需要在伺服器上安裝此版本或更新版本。 依您的 Windows Server 版本來執行下列作業：
 
 * Windows Server 2012R2
@@ -143,9 +143,9 @@ Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。 您需�
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>啟用 Azure AD Connect 的 TLS 1.2
-在 1.1.614.0 版之前的版本中，Azure AD Connect 預設會使用 TLS 1.0 來加密同步引擎伺服器與 Azure AD 之間的通訊。 您可以將它變更為使用 TLS 1.2，預設會在伺服器上的.NET 應用程式設定。 您可以在 [Microsoft 資訊安全摘要報告 2960358](https://technet.microsoft.com/security/advisory/2960358) 中找到 TLS 1.2 的相關詳細資訊。
+在 1.1.614.0 版之前的版本中，Azure AD Connect 預設會使用 TLS 1.0 來加密同步引擎伺服器與 Azure AD 之間的通訊。 可以通过配置 .NET 应用程序在服务器上默认使用 TLS 1.2 来更改此项。 您可以在 [Microsoft 資訊安全摘要報告 2960358](https://technet.microsoft.com/security/advisory/2960358) 中找到 TLS 1.2 的相關詳細資訊。
 
-1. Windows Server 2008 R2 或更新版本之前無法啟用 TLS 1.2。 請確定您有.NET 4.5.1 hotfix 安裝適用於您的作業系統，請參閱[Microsoft 資訊安全摘要報告 2960358](https://technet.microsoft.com/security/advisory/2960358)。 您的伺服器上可能已經安裝此 Hotfix 或更新版本。
+1. Windows Server 2008 R2 或更新版本之前無法啟用 TLS 1.2。 请确保已为操作系统安装了 .NET 4.5.1 修补程序，请参阅 [Microsoft 安全通报 2960358](https://technet.microsoft.com/security/advisory/2960358)。 您的伺服器上可能已經安裝此 Hotfix 或更新版本。
 2. 如果您使用 Windows Server 2008 R2，請確定已啟用 TLS 1.2。 在 Windows Server 2012 伺服器和更新版本上，TLS 1.2 應該已經啟用。
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]

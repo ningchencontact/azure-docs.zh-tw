@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387820"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,7 +63,7 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 Spark 活動會在
 | 屬性              | 描述                              | 必要項 |
 | --------------------- | ---------------------------------------- | -------- |
 | name                  | 管線中的活動名稱。    | 是      |
-| 說明           | 說明活動用途的文字。  | 否       |
+| description           | 說明活動用途的文字。  | 否       |
 | type                  | 對於 Spark 活動，活動類型為 HDInsightSpark。 | 是      |
 | 預設容器     | Spark 程式執行所在的 HDInsight Spark 連結服務名稱。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
 | SparkJobLinkedService | 存放 Spark 作業檔案、相依性和記錄的 Azure 儲存體連結服務。  如果您未指定此屬性的值，則會使用與 HDInsight 叢集相關聯的儲存體。 這個屬性的值只能是 Azure 儲存體連結服務。 | 否       |

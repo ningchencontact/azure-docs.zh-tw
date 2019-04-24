@@ -1,5 +1,5 @@
 ---
-title: 系統管理員管理使用者和裝置-Azure MFA-Azure Active Directory
+title: 管理员管理用户和设备 - Azure MFA - Azure Active Directory
 description: 說明如何變更使用者設定，如強迫使用者重複 proof-up 程序。
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c78d6d901c050f6d1df8b53b34f0088d3ad8b0f8
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415060"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>管理雲端中 Azure Multi-Factor Authentication 的使用者設定
 

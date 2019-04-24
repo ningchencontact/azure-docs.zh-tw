@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 21fbfe22901de677209b55639cd8871ab408375b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406410"
 ---
 # <a name="sizes-for-cloud-services"></a>雲端服務的大小
 本主題描述雲端服務角色執行個體 (Web 角色和背景工作角色)的可用大小和選項。 同時也提供計劃使用這些資源時，需注意的部署考量。 每種大小都有一個識別碼，可讓您放入[服務定義檔](cloud-services-model-and-package.md#csdef)。 每種大小的價格可以在[雲端服務價格](https://azure.microsoft.com/pricing/details/cloud-services/)頁面上取得。
@@ -68,6 +68,7 @@ ms.locfileid: "59358247"
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
+| [F](#f-series) |210 - 250*|
 | [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
@@ -165,6 +166,17 @@ ms.locfileid: "59358247"
 | Standard_E16_v3 | 16        | 128           | 400                  | 8 / 極高 |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8 / 極高 |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8 / 極高 |
+
+## <a name="f-series"></a>F 系列
+
+
+| 大小            | CPU 核心 | 内存：GiB   | 暫存儲存體 (SSD)：GiB       | 最大 NIC / 網路頻寬 |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_F1     | 1         | 2             | 16                   | 2 / 750  |
+| Standard_F2     | 2         | 4             | 32                   | 2 / 1500 |
+| Standard_F4     | 4         | 8             | 64                   | 4 / 3000 |
+| Standard_F8     | 8         | 16            | 128                  | 8 / 6000 |
+| Standard_F16    | 16        | 32            | 256                  | 8 / 12000|
 
 
 ## <a name="g-series"></a>G 系列

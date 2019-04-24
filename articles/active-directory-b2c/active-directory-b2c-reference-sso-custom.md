@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: d1d76e3ac995d4ee63e36ac3560d20f473d3ea2d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187211"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316964"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的單一登入工作階段管理
 
@@ -89,7 +89,7 @@ SSO 管理類別是使用技術設定檔的 `<UseTechnicalProfileForSessionManag
 
 技術設定檔中有兩個中繼資料項目：
 
-| Item | 預設值 | 可能的值 | 說明
+| Item | 預設值 | 可能的值 | 描述
 | --- | --- | --- | --- |
 | IncludeSessionIndex | true | true/false | 指出應該儲存工作階段索引的提供者。 |
 | RegisterServiceProviders | true | true/false | 指出提供者應該註冊所有已發行判斷提示的 SAML 服務提供者。 |

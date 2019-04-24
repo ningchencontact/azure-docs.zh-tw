@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344342"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Azure 排程器的連出驗證
 
@@ -44,7 +44,7 @@ Azure 排程器作業可能必須呼叫要求驗證的服務，例如其他 Azur
 
 使用 `ClientCertificate` 模型新增驗證時，請在要求主體中指定這些額外元素。  
 
-| 元素 | 必要 | 說明 |
+| 元素 | 必要項 | 描述 |
 |---------|----------|-------------|
 | **authentication** (父元素) | 要用於使用 SSL 用戶端憑證的驗證物件 |
 | **type** | 是 | 驗證類型。 若為 SSL 用戶端憑證，值為 `ClientCertificate`。 |
@@ -56,7 +56,7 @@ Azure 排程器作業可能必須呼叫要求驗證的服務，例如其他 Azur
 
 當傳送具有驗證資訊的要求時，回應包含下列驗證元素。
 
-| 元素 | 說明 | 
+| 元素 | 描述 | 
 |---------|-------------| 
 | **authentication** (父元素) | 要用於使用 SSL 用戶端憑證的驗證物件 |
 | **type** | 驗證類型。 若為 SSL 用戶端憑證，值為 `ClientCertificate`。 |
@@ -164,7 +164,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 使用 `Basic` 模型新增驗證時，請在要求主體中指定這些額外元素。
 
-| 元素 | 必要 | 說明 |
+| 元素 | 必要項 | 描述 |
 |---------|----------|-------------|
 | **authentication** (父元素) | 用於使用基本驗證的驗證物件 | 
 | **type** | 是 | 驗證類型。 若為基本驗證，值為 `Basic`。 | 
@@ -176,7 +176,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 當傳送具有驗證資訊的要求時，回應包含下列驗證元素。
 
-| 元素 | 說明 | 
+| 元素 | 描述 | 
 |---------|-------------|
 | **authentication** (父元素) | 用於使用基本驗證的驗證物件 |
 | **type** | 驗證類型。 針對基本驗證，值為 `Basic`。 |
@@ -282,7 +282,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 使用 `ActiveDirectoryOAuth` 模型新增驗證時，請在要求主體中指定這些額外元素。
 
-| 元素 | 必要 | 說明 |
+| 元素 | 必要項 | 描述 |
 |---------|----------|-------------|
 | **authentication** (父元素) | 是 | 用於使用 ActiveDirectoryOAuth 驗證的驗證物件 |
 | **type** | 是 | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 |
@@ -296,7 +296,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 當傳送具有驗證資訊的要求時，回應包含下列驗證元素。
 
-| 元素 | 說明 |
+| 元素 | 描述 |
 |---------|-------------|
 | **authentication** (父元素) | 用於使用 ActiveDirectoryOAuth 驗證的驗證物件 |
 | **type** | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
@@ -403,9 +403,9 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-* [Azure 排程器是什麼？](scheduler-intro.md)
+* [什麼是 Azure 排程器？](scheduler-intro.md)
 * [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)
 * [Azure 排程器限制、預設值和錯誤碼](scheduler-limits-defaults-errors.md)
 * [Azure 排程器 REST API](https://msdn.microsoft.com/library/mt629143)

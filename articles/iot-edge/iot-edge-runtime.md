@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: bb2df9c32d5adc8160da82148e4a66a4ab68d182
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363638"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 執行階段和架構
 
@@ -24,15 +24,15 @@ IoT Edge 執行階段會在 IoT Edge 裝置上執行下列功能：
 
 * 在裝置上安裝和更新工作負載。
 * 在裝置上維護 Azure IoT Edge 安全性標準。
-* 請確認[IoT Edge 模組](iot-edge-modules.md)一律執行。
+* 确保 [IoT Edge 模块](iot-edge-modules.md)始终处于运行状态。
 * 將模組健康情況報告至雲端，以便進行遠端監控。
-* 促進下游分葉裝置與 IoT Edge 裝置之間的通訊。
-* 促進 IoT Edge 裝置上的模組之間的通訊。
-* 促進 IoT Edge 裝置與雲端之間的通訊。
+* 促进下游叶设备与 IoT Edge 设备之间的通信。
+* 促进 IoT Edge 设备上的模块间的通信。
+* 促进 IoT Edge 设备和云之间的通信。
 
 ![執行階段會將深入見解和模組健康情況傳達到 IoT 中樞](./media/iot-edge-runtime/Pipeline.png)
 
-IoT Edge 執行階段的責任分為兩類：通訊和模組管理。 這兩個角色都是透過組成 IoT Edge 執行階段的兩個元件來執行。 *IoT Edge 中樞*負責通訊，雖然*IoT Edge 代理程式*部署及監視模組。 
+IoT Edge 執行階段的責任分為兩類：通訊和模組管理。 這兩個角色都是透過組成 IoT Edge 執行階段的兩個元件來執行。 IoT Edge 中心负责通信，而 IoT Edge 代理则负责部署和监视模块。 
 
 IoT Edge 中樞和 IoT Edge 代理程式都是模組，就像 IoT Edge 裝置上執行的任何其他模組。 
 

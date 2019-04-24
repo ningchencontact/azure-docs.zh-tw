@@ -19,11 +19,11 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 562b45f30bf057feba38a716e040ab2efc15da90
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297081"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft 身分識別平台的應用程式類型
 

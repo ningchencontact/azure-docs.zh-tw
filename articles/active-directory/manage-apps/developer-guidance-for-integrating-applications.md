@@ -14,11 +14,11 @@ ms.author: celested
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 341d7667f039a7272a7ad3fec80a445aa95b619d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440227"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>開發適用於 Azure Active Directory 的企業營運應用程式
 本指南提供開發適用於 Azure Active Directory (AD) 的企業營運 (LoB) 應用程式的概觀。適用對象為 Active Directory/Office 365 全域系統管理員。
@@ -38,7 +38,7 @@ ms.locfileid: "56202684"
 * 將 Azure AD 授權功能套用至其應用程式，包括：
 
   * 角色型存取控制 (RBAC)
-  * 以 Azure Active Directory 做為 oAuth 授權伺服器 (保護應用程式公開的 API)
+  * 使用 Azure Active Directory 作为 oAuth 授权服务器（保护应用程序公开的 API）
 * 宣告讓應用程式如預期般運作所需的必要權限，包括：
 
      - 應用程式權限 (僅限全域系統管理員)。 例如︰另一個 Azure AD 應用程式中的角色成員資格，或與「Azure 資源」、「資源群組」或「訂用帳戶」相關的角色成員資格

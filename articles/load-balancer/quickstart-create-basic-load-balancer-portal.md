@@ -16,11 +16,11 @@ ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57869807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60507876"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立基本負載平衡器
 
@@ -37,11 +37,11 @@ ms.locfileid: "57869807"
 1. 在畫面的左上方，按一下 [建立資源] > [網路] > [負載平衡器]。
 2. 在 [建立負載平衡器] 頁面的 [基本資料] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [檢閱 + 建立]：
 
-    | 設定                 | 值                                              |
+    | 設定                 | Value                                              |
     | ---                     | ---                                                |
     | 訂用帳戶               | 選取您的訂用帳戶。    |    
     | 資源群組         | 選取 [新建]，並在文字方塊中輸入 *MyResourceGroupLB*。|
-    | 名稱                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | 區域         | 選取 [西歐]。                                        |
     | 類型          | 選取 [公用]。                                        |
     | SKU           | 選取 [基本]。                          |

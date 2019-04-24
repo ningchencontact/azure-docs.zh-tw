@@ -11,11 +11,11 @@ ms.date: 04/10/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 928c6316ea964472faadc82213c4c1ff81c3e038
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608235"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317080"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C：區域可用性與資料落地
 區域可用性和資料存留處是兩個非常不同的概念，這些概念套用到 Azure AD B2C 的方式與套用到其餘 Azure 的方式不同。 本文將說明這兩個概念之間的差異，並比較它們如何套用在 Azure 與 Azure AD B2C。

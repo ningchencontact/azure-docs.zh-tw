@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369917"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>了解您 Microsoft Azure 發票上的字詞
 
@@ -99,7 +99,7 @@ ms.locfileid: "57897447"
 
 | 詞彙 |描述 |
 | --- | --- |
-| 名稱 |識別使用量的最上層服務 |
+| Name |識別使用量的最上層服務 |
 | 類型 |定義可能會影響費率的 Azure 服務類型 |
 | 資源 |識別耗用計量的量值單位 |
 | 區域 |針對以資料中心位置作為基礎所定價的某些服務，識別資料中心的位置 |
@@ -107,7 +107,7 @@ ms.locfileid: "57897447"
 | 已包括 |目前計費期間免費提供之計量的數量 |
 | 可計費 |顯示「已耗用的數量」和「已包括的數量」之間的差額。 我們會針對此數量向您收費。 對於不提供供應項目所含數量的隨收隨付供應項目，這個總數會與「已耗用的數量」相同 |
 | 費率 |每個計費單位向您收取的費率 |
-| 值 |顯示 [超額數量] 資料行和 [費率] 資料行兩者相乘的結果。 如果「已耗用的數量」沒有超過「已包括的數量」，則此資料行中沒有任何費用。 |
+| Value |顯示 [超額數量] 資料行和 [費率] 資料行兩者相乘的結果。 如果「已耗用的數量」沒有超過「已包括的數量」，則此資料行中沒有任何費用。 |
 | 小計 |此計費期間所有費用稅前的總和 |
 | 總計 |此計費期間所有費用稅後的總和 |
 

@@ -3,7 +3,6 @@ title: 了解使用 Apache Hadoop 沙箱-模擬器-Azure HDInsight
 description: '若要開始了解 Apache Hadoop 生態系統，您可以在 Azure 虛擬機器上從 Hortonworks 設定 Hadoop 沙箱。 '
 keywords: hadoop 模擬器, hadoop 沙箱
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -11,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
 ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536218"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>開始使用 Apache Hadoop 沙箱，虛擬機器上的模擬器
 

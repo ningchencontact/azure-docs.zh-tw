@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: aschhab
 ms.openlocfilehash: 0f9365b72da1cec81eed82756097d32b1d72ca71
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307473"
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 語法
 
@@ -92,7 +92,7 @@ ms.locfileid: "54847725"
   
  這表示任何以字母為開頭且後面跟著一或多個底線/字母/數字的字串。  
   
- `[:IsLetter:]` 表示分類為 Unicode 字母的任何 Unicode 字元。 如果 `c` 為 Unicode 字母，`System.Char.IsLetter(c)` 會傳回 `true`。  
+ `[:IsLetter:]` 是指分类为 Unicode 字母的任何 Unicode 字符。 如果 `c` 為 Unicode 字母，`System.Char.IsLetter(c)` 會傳回 `true`。  
   
  `[:IsDigit:]` 表示分類為十進位數字的任何 Unicode 字元。 如果 `c` 為 Unicode 數字，`System.Char.IsDigit(c)` 會傳回 `true`。  
   
@@ -123,9 +123,9 @@ ms.locfileid: "54847725"
   
  `<pattern>` 必須是評估為字串的運算式。 它會用來做為 LIKE 運算子的模式。      它可以包含下列萬用字元︰  
   
--   `%`：任何零或多個字元的字串。  
+-   `%`:任何零或多個字元的字串。  
   
--   `_`：任何單一字元。  
+-   `_`:任何單一字元。  
   
 ## <a name="escapechar"></a>escape_char  
   
@@ -158,7 +158,7 @@ ms.locfileid: "54847725"
     2  
     ```  
   
--   `<decimal_constant>` 是數字的字串，不會以引號括住，且包含小數點。 值會在內部儲存為 `System.Double`，並遵循相同的範圍/精確度。  
+-   `<decimal_constant>` 是數字的字串，不會以引號括住，且包含小數點。 这些值作为 `System.Double` 在内部存储，并具有相同的作用域/精度。  
   
      在未來版本中，這個數字可能會以不同的資料類型儲存，以支援實際數字的語意，因此您不應依賴 `<decimal_constant>` 的基本資料型別是 `System.Double`。  
   

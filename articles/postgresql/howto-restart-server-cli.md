@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 3/28/2019
 ms.openlocfilehash: 51b3011c040db8576c13868f9fac26cb1e431515
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623284"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420286"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-the-azure-cli"></a>重新啟動使用 Azure CLI 適用於 PostgreSQL 的 Azure 資料庫
 本主題說明如何重新啟動適用於 PostgreSQL 的 Azure 資料庫伺服器。 您可能會為了進行維護而需要重新啟動伺服器，進而在伺服器執行作業時導致短暫中斷。
@@ -32,7 +32,7 @@ ms.locfileid: "58623284"
 
 ## <a name="restart-the-server"></a>重新啟動伺服器
 
-重新啟動伺服器，使用下列命令：
+使用以下命令重启服务器：
 
 ```azurecli-interactive
 az postgres server restart --name mydemoserver --resource-group myresourcegroup
@@ -40,4 +40,4 @@ az postgres server restart --name mydemoserver --resource-group myresourcegroup
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解[如何設定 Azure 資料庫中的參數，適用於 PostgreSQL](howto-configure-server-parameters-using-cli.md)
+了解[如何在 Azure Database for PostgreSQL 中设置参数](howto-configure-server-parameters-using-cli.md)

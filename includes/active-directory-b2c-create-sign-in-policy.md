@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 0ab34d6234db9c13ffe82ccd0e8580217085f631
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "58114933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456022"
 ---
 如果您只想在您的應用程式中啟用登入功能，您可以使用**登入**使用者流程。 此使用者流程描述客戶在登入期間將經歷的體驗，以及成功登入時，應用程式將收到的權杖內容。
 
@@ -39,3 +40,4 @@ ms.locfileid: "58114933"
 > [!NOTE]
 > 建立和更新使用者流程後，需要經過一分鐘才會生效。
 >
+

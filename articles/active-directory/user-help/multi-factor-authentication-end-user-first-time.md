@@ -2,7 +2,7 @@
 title: 設定雙步驟驗證 - Azure Active Directory | Microsoft Docs
 description: 當您的公司設定 Azure Multi-Factor Authentication 時，系統會提示您註冊雙步驟驗證。 了解如何進行設定。
 services: active-directory
-keywords: 如何使用 Azure Directory, 雲端中的 Active Directory, Active Directory 教學課程
+keywords: 如何使用 azure 目录, 云中的 active directory, active directory 教程
 author: eross-msft
 manager: daveba
 ms.reviewer: richagi
@@ -15,11 +15,11 @@ ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0749e1acba9f13f9e0e95dfc66f9cf818c752cff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60334711"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>對我的帳戶進行雙步驟驗證設定
 雙步驟驗證是額外的安全性步驟，可協助保護您的帳戶使其他人更難以破解。 如果您正在閱讀這篇文章，可能會收到一封來自您工作或學校的系統管理員關於 Multi-Factor Authentication 的電子郵件。 或者也許您嘗試登入並收到訊息，要求您設定其他安全性驗證。 如果是這個情況，**則您在完成自動註冊程序之前將無法登入**。
@@ -40,7 +40,7 @@ ms.locfileid: "56165615"
 
 註冊程序中的第一個問題是您要我們連絡您的方式。 看看資料表中的選項，並使用連結移至每個方法的設定步驟。
 
-| 連絡方法 | 說明 |
+| 連絡方法 | 描述 |
 | --- | --- |
 | [行動應用程式](#use-a-mobile-app-as-the-contact-method) |- **收到驗證的通知。** 這個選項會將通知推送至您智慧型手機或平板電腦上的驗證器應用程式。 檢視通知，如果合法則選取應用程式中的 [驗證]。 您的工作或學校可能會要求您輸入 PIN 後才能進行驗證。<br>- **驗證碼。** 在此模式中，驗證器應用程式會產生每 30 秒更新一次的驗證碼。 在登入介面中輸入最新的驗證碼。<br>Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com/fwlink/?linkid=866594) 和 [iOS](https://go.microsoft.com/fwlink/?linkid=866594)。|
 | [行動電話通話或文字](#use-your-mobile-phone-as-the-contact-method) |- **撥打電話**撥打自動語音電話給您所提供的電話號碼。 接聽電話並按電話鍵盤上的 # 進行驗證。<br>- **簡訊**傳送包含驗證碼的簡訊。 遵循文字中的提示，回覆簡訊或將所提供的驗證碼輸入登入介面。 |
@@ -81,7 +81,7 @@ ms.locfileid: "56165615"
 2. 輸入顯示條碼的同一頁所提供的代碼和 URL。 此資料會填入行動裝置應用程式上的 [代碼] 和 [URL] 方塊中。
 
     ![設定](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
-3. 當啟用完成時，請選取 [連絡我] 。 此步驟會將通知或驗證碼傳送到您的手機。 選取 [驗證] 。
+3. 當啟用完成時，請選取 [連絡我] 。 此步驟會將通知或驗證碼傳送到您的手機。 选择“验证” 。
 
 ## <a name="use-your-mobile-phone-as-the-contact-method"></a>使用行動電話做為連絡方式
 1. 從下拉式清單中選取**驗證電話**。  
@@ -101,8 +101,8 @@ ms.locfileid: "56165615"
 2. 會自動將您的公司連絡人資訊填入電話號碼方塊。 如果號碼錯誤或遺失，請要求系統管理員進行變更。
 3. 選取 [與我連絡] 以確認您的電話號碼，我們會撥打您的號碼。 遵循螢幕上提供的指示，然後選取 [確認]。
 4. 此時，系統會提示您設定非瀏覽器應用程式的應用程式密碼，例如 Outlook 2010 或更舊版本，或是 Apple 裝置上的原生電子郵件應用程式。 這是因為某些應用程式不支援雙步驟驗證。 如果您不使用這些應用程式，按一下 [完成]，並略過其餘的步驟。
-5. 如果您正在使用這類應用程式，複製提供的應用程式密碼並將此密碼而非一般密碼貼到應用程式。 您可以對多個應用程式使用相同的應用程式密碼。 如需詳細資訊，請參閱 [什麼是應用程式密碼](multi-factor-authentication-end-user-app-passwords.md)。
-6. 按一下 [完成] 。
+5. 如果您正在使用這類應用程式，複製提供的應用程式密碼並將此密碼而非一般密碼貼到應用程式。 对于多个应用，可以使用相同的应用密码。 如需詳細資訊，請參閱 [什麼是應用程式密碼](multi-factor-authentication-end-user-app-passwords.md)。
+6. 单击“Done”（完成） 。
 
 ## <a name="next-steps"></a>後續步驟
 * 變更您慣用的選項並[管理您雙步驟驗證的設定](multi-factor-authentication-end-user-manage-settings.md)

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: cbdbedf32e8a3dad85262f287b27a03df780d95a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393056"
 ---
 # <a name="monitoring-the-cluster"></a>監視叢集
 
@@ -83,7 +83,7 @@ Service Fabric 有自己的健全狀況模型，詳述於下列文件：
 
 ## <a name="measuring-performance"></a>測量效能
 
-叢集的測量效能將協助您了解如何處理負載，以及進行調整叢集的決策 (請深入查看調整 [Azure 上](service-fabric-cluster-scale-up-down.md)或[內部部署](service-fabric-cluster-windows-server-add-remove-nodes.md)上的叢集)。 以后分析日志时，性能数据还可用于比较你或你的应用程序和服务可能执行的操作。 
+叢集的測量效能將協助您了解如何處理負載，以及進行調整叢集的決策 (請深入查看調整 [Azure 上](service-fabric-cluster-scale-up-down.md)或[內部部署](service-fabric-cluster-windows-server-add-remove-nodes.md)上的叢集)。 将来分析日志时，性能数据还可用于比较你或你的应用程序和服务可能执行的操作。 
 
 如需使用 Service Fabric 時要收集的效能計數器清單，請參閱 [Service Fabric 中的效能計數器](service-fabric-diagnostics-event-generation-perf.md)。
 

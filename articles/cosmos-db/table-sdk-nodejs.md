@@ -9,11 +9,11 @@ ms.date: 11/20/2017
 author: wmengmsft
 ms.author: wmeng
 ms.openlocfilehash: 1cf72069d545fc1f4c337a1b67f5fd4aa2ef143c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406016"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>適用於 Node.js 的 Azure Cosmos DB 資料表 API：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -44,13 +44,13 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 新的功能與最佳化項目只會新增至目前的 SDK，因此建議您一律盡早升級至最新的 SDK 版本。 
 
-| 版本 | 發行日期 | 停用日期 |
+| Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |2017 年 11 月 15 日 |--- |
 
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。 
 

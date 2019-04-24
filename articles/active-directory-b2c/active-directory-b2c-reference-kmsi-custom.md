@@ -11,11 +11,11 @@ ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: a8ad5c3091c3c78aa31dbf38eb6b3032e4dc7662
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317290"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中啟用「讓我保持登入 (KMSI)」
 
@@ -27,7 +27,7 @@ ms.locfileid: "55870957"
 
 ![啟用讓我保持登入](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 已設定為允許本機帳戶註冊和登入的 Azure AD B2C 租用戶。 如果您還沒有租用戶，可以使用以下文件中的步驟來建立一個：[教學課程：建立 Azure Active Directory B2C 租用戶](tutorial-create-tenant.md)。
 

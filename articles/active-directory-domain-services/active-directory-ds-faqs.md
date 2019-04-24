@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
 ms.openlocfilehash: a91c015561ca173412e4d6710d5531a7d084bfd0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359087"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
 此頁面會回答有關 Azure Active Directory Domain Services 的常見問題。 請隨時回來查看最新消息。

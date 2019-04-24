@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311244"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 for Customer Engagement 店面詳細資料索引標籤
 
@@ -52,7 +52,7 @@ ms.locfileid: "57997941"
 |    **欄位**          |  **說明**               |
 |  ---------------      |  ---------------               |
 |  產業           | 選取最適用應用程式的產業 (最多兩個)。 如果沒有適用的產業，您可以選取零個選項。  |
-|  類別           | 選取與應用程式相相關的類別。 請選取一到三個選項。  |
+|  Categories           | 選取與應用程式相相關的類別。 請選取一到三個選項。  |
 |  應用程式類型             | 選取在 AppSource 上為應用程式提供的試用類型。 **免費**表示您的應用程式可免費使用；**試用版**表示客戶可以在短期間內免費試用您的應用程式；**與我連絡**表示客戶可以在 AppSource 上要求應用程式的試用版。  |
 | 應用程式的說明連結 | 應用程式的線上文件或其他說明資源的 URL。  |
 | 支援的國家/區域 | 快顯對話方塊可供選取有提供應用程式的地理區域。  預設值為全球發佈。 |

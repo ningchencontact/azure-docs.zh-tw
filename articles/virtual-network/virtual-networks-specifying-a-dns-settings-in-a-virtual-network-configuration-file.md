@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
 ms.openlocfilehash: 36f7ed9b02b66718327c1a05a6cf29eedf39e7a5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248380"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232847"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>指定虛擬網路組態檔中的 DNS 設定
-網路組態檔有兩種您可以用來指定網域名稱系統 (DNS) 設定的項目：**DnsServers** 和 **DnsServerRef**。 您可以藉由指定其 IP 位址並參考 **DnsServers** 項目的名稱，新增 DNS 伺服器的清單。 然後您可以使用 **DnsServerRef** 項目，來針對您虛擬網路內的不同網站，指定要使用 DnsServers 項目中哪些 DNS 伺服器項目。
+网络配置文件有两个可用于指定域名系统 (DNS) 设置的元素：**DnsServers** 和 **DnsServerRef**。 您可以藉由指定其 IP 位址並參考 **DnsServers** 項目的名稱，新增 DNS 伺服器的清單。 然後您可以使用 **DnsServerRef** 項目，來針對您虛擬網路內的不同網站，指定要使用 DnsServers 項目中哪些 DNS 伺服器項目。
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
 本文涵蓋之內容包括傳統部署模型。
 
-網路組態檔可能包含下列項目。 每個項目的標題會連結至提供項目值設定之其他相關資訊的網頁。
+网络配置文件可能包含以下元素。 每個項目的標題會連結至提供項目值設定之其他相關資訊的網頁。
 
 > [!IMPORTANT]
 > 如需如何設定網路組態檔的相關資訊，請參閱 [使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)。 如需網路組態檔中所包含之各個項目的相關資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。

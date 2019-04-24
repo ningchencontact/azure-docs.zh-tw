@@ -17,11 +17,11 @@ ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348986"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>教學課程：Azure Active Directory 與 Riskware 整合
 
@@ -170,7 +170,7 @@ ms.locfileid: "57842527"
 
     g. 在 [XML Identity Tag Name] \(XML 身分識別標記名稱\) 文字方塊中，輸入 SAML 回應中包含唯一識別碼的屬性，例如 NameID。
 
-    h. 在記事本中開啟從 Azure 入口網站下載的  **Metadata Xml** ，複製中繼資料檔中的憑證，然後將其貼到 [憑證] 文字方塊中
+    h.如果该值不存在，请单击“添加行”。 在記事本中開啟從 Azure 入口網站下載的  **Metadata Xml** ，複製中繼資料檔中的憑證，然後將其貼到 [憑證] 文字方塊中
 
     i. 在 [Consumer URL]\(取用者 URL\) 文字方塊中，貼上您向支援小組取得的**回覆 URL** 值。
 

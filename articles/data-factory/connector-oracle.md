@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405920"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -281,25 +281,25 @@ ms.locfileid: "57441435"
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(僅 Oracle 10g 及更高版本可支援) |
-| CHAR |字串 |
-| CLOB |字串 |
-| 日期 |DateTime |
+| CHAR |String |
+| CLOB |String |
+| 日期 |Datetime |
 | FLOAT |Decimal，字串 (如果精確度 > 28) |
 | INTEGER |Decimal，字串 (如果精確度 > 28) |
-| 長 |字串 |
+| 長 |String |
 | 長 RAW |Byte[] |
-| NCHAR |字串 |
-| NCLOB |字串 |
+| NCHAR |String |
+| NCLOB |String |
 | 數字 |Decimal，字串 (如果精確度 > 28) |
-| NVARCHAR2 |字串 |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |字串 |
-| 時間戳記 |DateTime |
-| 本地時區的時間戳記 |字串 |
-| 時區的時間戳記 |字串 |
+| ROWID |String |
+| 時間戳記 |Datetime |
+| 本地時區的時間戳記 |String |
+| 時區的時間戳記 |String |
 | 不帶正負號的整數 |數字 |
-| VARCHAR2 |字串 |
-| XML |字串 |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > 不支援 INTERVAL YEAR TO MONTH 和 INTERVAL DAY TO SECOND 資料類型。

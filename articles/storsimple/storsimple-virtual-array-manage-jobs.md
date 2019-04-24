@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302475"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員服務來檢視 StorSimple Virtual Array 的作業
 ## <a name="overview"></a>概觀
@@ -59,7 +59,7 @@ ms.locfileid: "52333559"
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>虛擬機器在 hypervisor 中暫停時，作業失敗
 當 StorSimple Virtual Array 上正在執行作業且裝置 (Hypervisor 中佈建的虛擬機器) 暫停超過 15 分鐘時，作業會失敗。 這是因為您的 StorSimple Virtual Array 時間未與 Microsoft Azure 時間同步處理。 
 
-您會看到下列錯誤：「您的裝置時間與 Microsoft Azure 不同步超過 15 分鐘。 請確定 Hypervisor 和裝置時間與 NTP 伺服器同步。 請確定沒有連線問題。 若要針對連線問題進行疑難排解，請從虛擬裝置的本機 Web UI 執行診斷測試。」
+您會看到下列錯誤︰「 您的裝置時間會與 Microsoft Azure 時間超過 15 分鐘同步處理。 請確定 Hypervisor 和裝置時間與 NTP 伺服器同步。 請確定沒有連線問題。 若要針對連線問題進行疑難排解，請從虛擬裝置的本機 Web UI 執行診斷測試。」
 
 備份、還原、更新和容錯移轉作業都可能發生這些失敗。 如果您的虛擬機器佈建到 Hyper-V，電腦與您的 Hypervisor 時間最終會同步。 一旦發生這種情況，您可以重新啟動您的作業。
 

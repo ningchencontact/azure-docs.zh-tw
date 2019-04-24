@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: d5aea441f15cbf7a2a444439c06cd5f74a559d3f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386418"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Service Fabric 服務的放置原則
 放置原則是在一些較罕見的特定情況下可用來掌管服務放置的額外規則。 這些情況的一些例子如下︰
@@ -45,7 +45,7 @@ ms.locfileid: "58670331"
 
 <center>
 
-![無效的網域範例][Image1]
+![无效域示例][Image1]
 </center>
 
 程式碼：
@@ -66,7 +66,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![必要的網域範例][Image2]
+![所需域示例][Image2]
 </center>
 
 程式碼：
@@ -88,7 +88,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![慣用的主要網域和容錯移轉][Image3]
+![首选主域和故障转移][Image3]
 </center>
 
 ```csharp

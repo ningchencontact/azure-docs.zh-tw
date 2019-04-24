@@ -13,20 +13,20 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af86ad12eed4901e577149b9f20216d5004663b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483279"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>更新您的群組資訊從 My Apps 入口網站
-您可以使用工作或學校帳戶，透過以 web 為基礎**我的應用程式**入口網站中，檢視和啟動許多組織的雲端式應用程式，以更新您的設定檔和帳戶資訊，以查看您**群組**的詳細資訊，並執行**存取權檢閱**為您的應用程式及群組。 如果您沒有存取權**My Apps**入口網站中，您必須連絡技術服務人員以權限。
+您可以透過 [我的應用程式] Web 入口網站使用工作或學校帳戶，來檢視和啟動貴組織的許多雲端式應用程式、更新您的設定檔和帳戶資訊、查看您的**群組**資訊，以及執行您應用程式和群組的**存取權檢閱**。 如果您沒有 [我的應用程式] 入口網站的存取權，則必須連絡技術服務人員以取得權限。
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->本內容適用於使用者。 如果您是系統管理員，您可以找到有關如何設定和管理雲端中的應用程式的詳細資訊[應用程式管理文件](https://docs.microsoft.com/azure/active-directory/manage-apps)。
+>本內容適用於使用者。 如果您是系統管理員，可以在[應用程式管理文件](https://docs.microsoft.com/azure/active-directory/manage-apps)中找到更多關於如何設定和管理雲端式應用程式的資訊。
 
 ## <a name="view-your-groups-information"></a>檢視群組資訊
 如果您的系統管理員提供了檢視的權限**群組** 圖格，您可以：
@@ -58,6 +58,8 @@ ms.locfileid: "58340457"
     - **編輯現有的群組。** 編輯任何您自己的群組詳細資料。 如需特定步驟，請參閱[編輯現有的群組](#edit-an-existing-group)一節。
 
     - **新增或移除成員。** 新增或移除您所擁有的群組的成員。 如需特定步驟，請參閱[新增或移除成員](#add-or-remove-a-member)一節。
+
+    - **更新 Office 365 群組。** 如果您的組織允許，您可以更新您的 Office 365 群組。 如需特定步驟，請參閱[更新 Office 365 群組](#renew-an-office-365-group)一節。 
 
     - **刪除群組。** 刪除任何您所擁有的群組。 如需特定步驟，請參閱[刪除群組](#delete-a-group)一節。
 
@@ -117,6 +119,18 @@ ms.locfileid: "58340457"
 3. 如果您不小心，新增一個成員，或如果成員已離開組織，您可以選取來移除成員**移除成員**上的成員名稱旁邊*&lt;group_name&gt;* 頁面。
 
     ![移除成員，以反白顯示的 [移除] 連結](media/my-apps-portal/my-apps-portal-remove-member-link.png)
+
+## <a name="renew-an-office-365-group"></a>更新 Office 365 群組
+如果您的組織允許，您可以更新 Office 365 群組，擴充您的到期日。
+
+### <a name="to-renew-a-group"></a>若要更新的群組
+1. 選取您想要更新，然後選取 Office 365 群組**續約群組**。
+
+    ![更新 Office 365 群組，擴充的到期日](media/my-apps-portal/my-apps-portal-renew-group-link.png)
+
+2. 按一下 **確定**關閉確認訊息。
+
+    重新整理頁面之後，您會看到您已更新**上次更新**並**群組到期**日期。
 
 ## <a name="delete-a-group"></a>刪除群組
 您可以隨時刪除任何您自己的群組。 不過，如果您不小心刪除一組您必須建立它並再次新增成員。

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
 ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60200001"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>使用資料收集器 API 建立資料管線
 
@@ -63,7 +63,7 @@ ms.locfileid: "56003851"
 儲存邏輯應用程式，並繼續進行測試。
 
 ## <a name="ingesting-xml-csv-or-other-formats-of-data"></a>內嵌 XML、CSV 或其他格式的資料
-Logic Apps 目前並沒有可輕鬆地將 XML、CSV 或其他類型轉換成 JSON 格式的內建功能。 因此，我們需要使用另一個方法來完成此轉換。 在本文章中，我們使用 Azure Functions 的無伺服器計算功能來完成此作業，此方式非常輕便且符合成本效益。 
+Logic Apps 目前並沒有可輕鬆地將 XML、CSV 或其他類型轉換成 JSON 格式的內建功能。 因此，我們需要使用另一個方法來完成這項轉換。 在本文章中，我們使用 Azure Functions 的無伺服器計算功能來完成此作業，此方式非常輕便且符合成本效益。 
 
 在此範例中，我們會剖析 CSV 檔案，但您可以使用類似的方式處理任何其他檔案類型。 只需修改 Azure Function 的還原序列化部分，即可反映特定資料類型的正確邏輯。
 

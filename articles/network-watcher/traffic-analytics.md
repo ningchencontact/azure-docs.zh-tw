@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
 ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60429715"
 ---
 # <a name="traffic-analytics"></a>流量分析
 

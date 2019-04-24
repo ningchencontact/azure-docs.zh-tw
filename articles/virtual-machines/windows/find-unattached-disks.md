@@ -3,7 +3,7 @@ title: 尋找及刪除未連結的 Azure 受控和非受控磁碟 | Microsoft Do
 description: 如何使用 Azure PowerShell 尋找及刪除未連接的 Azure 受控和非受控 (VHD/分頁 Blob) 磁碟。
 services: virtual-machines-windows
 documentationcenter: ''
-author: ramankumarlive
+author: roygara
 manager: twooley
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
-ms.author: ramankum
+ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: cb52956afe085c076f0a9a7c2d6810f3def32e3f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325777"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>尋找及刪除未連結的 Azure 受控和非受控磁碟
 

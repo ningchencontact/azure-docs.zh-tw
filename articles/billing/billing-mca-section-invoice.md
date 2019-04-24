@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371567"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>若要組織您的成本您發票上建立區段
 
@@ -38,7 +38,7 @@ ms.locfileid: "57551614"
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-section-invoice/billing-mca-list-invoice-sections.png)
 
-4. 從頁面頂端，選取**新增**。
+4. 從頁面頂端選取 [新增]。
 
 5. 輸入 [invoice] 區段的名稱。
 

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803148"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387208"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -39,54 +39,54 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 下載 | [下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)。
 
 >[!NOTE]
->發行新版本的 Azure AD Connect 是需要數個品質控制的步驟，以確保服務的作業功能的程序，而我們將完成此程序將會更新新的版本，以及發行狀態的版本號碼以反映最新狀態。
-我們完成此程序，而發行的版本號碼會顯示有"x"的次要版本號碼位置，如同"1.3.X.0 」-這表示此文件中的版本資訊適用於所有版本的開頭為"1.3"。 一旦我們完成發行程序的發行版本號碼將會更新為最新發行的版本和發行狀態將會更新為 「 發行進行下載並自動升級 」。
+>发布新版 Azure AD Connect 的过程要求采取多种质量控制措施来确保服务的功能正常运行，遵循此过程时，我们会更新新发行版的版本号以及发布状态，以反映最近的状态。
+遵循此过程时，发行版的版本号将以“X”形式显示在次要版本号位置，例如“1.3.X.0”- 这表示此文档中的发行说明适用于以“1.3”开头的所有版本。 完成发布过程后，我们会立即将发行版本号更新为最近发布的版本，并将发布状态更新为“已发布供下载和自动升级”。
 並非所有版本的 Azure AD Connect 都可自動升級。 發行狀態會指出版本是否可自動升級或僅供下載。 如果您的 Azure AD Connect 伺服器上已啟用自動升級，則該伺服器將會自動升級為可自動升級的最新版 Azure AD Connect。 請注意，並非所有 Azure AD Connect 組態都符合自動升級的資格。 請遵循下列連結來深入了解[自動升級](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="13x0"></a>1.3.X.0 
 
 ### <a name="release-status"></a>發行狀態 
 
-3/25/2019:Pending
+3/25/2019：Pending
  
 ### <a name="new-features-and-improvements"></a>新功能和改進 
 
-- 加入網域的重新整理的支援 
-- Exchange 郵件公用資料夾功能正式。 
-- 改善精靈 」 的錯誤處理服務失敗 
-- 新增的連接器 [內容] 頁面上的舊版 UI 的警告連結。 
-- 「 統一群組回寫 」 功能現在已 GA 
-- 改善的 SSPR 時出現錯誤訊息遺漏 LDAP 控制項的 DC。 
-- 安裝已加入的診斷 DCOM 登錄期間發生的錯誤  
-- 改善追蹤 PHS RPC 錯誤 
-- 允許來自子網域的 EA 認證 
-- 允許 （預設名稱 ADSync） 在安裝期間輸入的資料庫名稱
-- 升級至 ADAL 3.19.8 挑選 1.1、WS-Trust 修正的 Ping，並新增新的 Azure 執行個體的支援 
-- 修改群組同步處理規則來流動 samAccountName、 DomainNetbios 和 DomainFQDN 到雲端-所需的宣告 
+- 添加了对域刷新的支持 
+- “Exchange 邮件公用文件夹”功能已推出正式版 
+- 改进了发生服务故障时在向导中处理错误的方法 
+- 在连接器属性页上添加了旧 UI 的警告链接。 
+- “统一组写回”功能现已推出正式版 
+- 改进了当 DC 缺少 LDAP 控制措施时显示的 SSPR 错误消息 
+- 添加了在安装期间出现的 DCOM 注册表错误的诊断方法  
+- 改进了 PHS RPC 错误跟踪 
+- 允许从子域添加 EA 凭据 
+- 允许在安装期间输入数据库名称（默认名称为 ADSync）
+- 升级到了 ADAL 3.19.8 以便对 Ping 执行 WS-Trust 修复，并添加了对新 Azure 实例的支持 
+- 修改了组同步规则，以便将声明所需的 samAccountName、DomainNetbios 和 DomainFQDN 传送到云中 
 - 修改預設同步處理規則處理 – 深入了解[此處](how-to-connect-fix-default-rules.md)。
-- 加入新的代理程式做為 windows 服務執行。 此代理程式，名為 「 管理代理程式 」，可讓您更深入的 Azure AD Connect 伺服器，以協助疑難排解當您開啟支援案例的 Microsoft 工程師的遠端診斷。 深入了解 「 管理代理程式 」[此處](whatis-aadc-admin-agent.md)。 
-- 更新使用者授權合約 (EULA) 
-- 新增 AD FS 做為其登入類型的部署的自動升級支援。  這也會移除在升級程序來更新 AD FS 的 Azure AD 信賴憑證者信任的需求。 
-- 新增 Azure AD 信任管理的工作，提供兩個選項： 分析/更新信任和重設信任。 
-- 變更 AD FS 的 Azure AD 信賴憑證者信任行為，因此它一律會使用-SupportMultipleDomain 參數 (包括信任和 Azure AD 網域更新)。 
-- 藉由移除使用預先安裝的憑證選項需要.pfx 憑證，請變更安裝新的 AD FS 伺服器陣列的行為。
-- 更新安裝新的 AD FS 伺服器陣列工作流程，使其只允許 1年個 AD FS 和 1 個 WAP 伺服器部署。  所有其他伺服器時，必須在初始安裝之後。 
+- 添加了一个作为 Windows 服务运行的新代理。 此代理名为“管理代理”，可用于对 Azure AD Connect 服务器进行更深入的远程诊断，以帮助 Microsoft 工程师在收到支持案例时进行故障排除。 在[此处](whatis-aadc-admin-agent.md)详细了解管理代理。 
+- 更新了最终用户许可协议 (EULA) 
+- 为使用 AD FS 作为登录类型的部署添加了自动升级支持。  借助此新增功能，在升级过程中不再需要更新 AD FS Azure AD 信赖方信任。 
+- 添加了一个 Azure AD 信任管理任务，该任务提供两个选项：分析/更新信任和重置信任。 
+- 更改了 AD FS Azure AD 信赖方信任行为，使其始终使用 -SupportMultipleDomain 开关（包括信任和 Azure AD 域更新）。 
+- 更改了“安装新 AD FS 场”的行为：删除了使用预装证书的选项，使该操作要求提供 .pfx 证书。
+- 更新了“安装新 AD FS 场”工作流，使其只允许部署 1 个 AD FS 和 1 个 WAP 服务器。  完成初始安装后，将配置所有附加服务器。 
 
 ### <a name="fixed-issues"></a>已修正的問題 
 
 
-- 修正 SQL 重新連線 ADSync service 的邏輯 
-- 修正，以允許使用空白的 SQL AOA DB 的全新安裝 
-- 修正 PS 權限指令碼，來精簡 GWB 權限 
-- 修正使用 LocalDB 的 VSS 錯誤  
-- 修正物件型別不在範圍內時的誤導錯誤訊息 
-- 已更正其中的伺服器上安裝的 Azure AD PowerShell 可能會導致發生組件衝突與 Azure AD Connect 的問題。 
-- 修正的 PHS 連接器認證更新中將舊版 UI 時，預備伺服器上的錯誤。 
-- 已修正一些記憶體流失 
-- 其他 c e Autoupgrade 修正 
-- 其他修正程式，以匯出和匯入處理多未確認 
-- 已修正的 bug，以處理網域和 OU 中的反斜線篩選 
-- 已修正 ADSync 服務需要超過 2 分鐘的時間停止，且在升級時，會發生問題的問題。 
+- 修复了 SQL 重新连接 ADSync 服务逻辑的问题 
+- 修复后允许使用空的 SQL AOA DB 执行全新安装 
+- 修复了 PS 权限脚本，以细化 GWB 权限 
+- 修复了 LocalDB 出现的 VSS 错误  
+- 修复了当对象类型不在范围内时出现的误导性错误消息 
+- 更正了以下问题：在服务器上安装 Azure AD PowerShell 可能会导致某个程序集与 Azure AD Connect 相冲突。 
+- 修复了在旧 UI 中更新连接器凭据时，暂存服务器上出现的 PHS bug。 
+- 修复了一些内存泄漏问题 
+- 其他自动升级修复 
+- 对导出和未确认的导入处理进行了其他修复 
+- 修复了处理域和 OU 筛选中的反斜杠时存在的 bug 
+- 修复了以下问题：ADSync 服务需要 2 分钟以上才能停止，导致升级时出现问题。 
 
 
 

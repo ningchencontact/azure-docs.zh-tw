@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 81a1ab0ee411f05b353317b0d781e0cb292c7d6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455837"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的內容管理需求
 了解適合您企業的內容管理需求，可能會直接影響您決定要使用哪一個混合式身分識別解決方案。 由於裝置數目激增，而且可讓使用者攜帶自己的裝置 ([BYOD](https://aka.ms/byodcg))，所以公司必須保護它自己的資料，但它也必須完整保持使用者的隱私權。 通常當使用者擁有自己的裝置時，可能也會有多個認證，將根據其使用的應用程式來替換。 請務必區分使用個人認證建立的內容以及使用公司認證建立的內容。 您的身分識別解決方案應該能夠與雲端服務互動，為終端使用者提供順暢的體驗，同時確保其隱私權並提高保護來防止資料外洩。 
@@ -67,6 +67,6 @@ ms.locfileid: "56166618"
 ## <a name="next-steps"></a>後續步驟
 [判斷存取控制需求](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

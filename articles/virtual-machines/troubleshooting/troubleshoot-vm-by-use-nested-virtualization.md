@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444292"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>在 Azure 中使用巢狀虛擬化來疑難排解問題 Azure VM
 
@@ -35,13 +35,13 @@ ms.locfileid: "51005593"
 
 -   「救援 VM」必須使用與問題 VM 相同類型的儲存體帳戶 (標準或進階)。
 
-## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>步驟 1：建立救援 VM 並安裝 Hyper-V 角色
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>步驟 1：建立 「 救援 VM 並安裝 HYPER-V 角色
 
 1.  建立新的救援 VM：
 
-    -  作業系統：Windows Server 2016 資料中心
+    -  作業系統：Windows Server 2016 Datacenter
 
-    -  大小：支援巢狀虛擬化的任何 V3 系列 (至少具有兩個核心)。 如需詳細資訊，請參閱[新 Dv3 和 Ev3 VM 大小簡介](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)。
+    -  大小：具有至少兩個核心支援巢狀虛擬化的任何 V3 系列。 如需詳細資訊，請參閱[新 Dv3 和 Ev3 VM 大小簡介](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)。
 
     -  與問題 VM 相同的位置、儲存體帳戶，以及資源群組。
 
@@ -71,7 +71,7 @@ ms.locfileid: "51005593"
 
 13. 允許伺服器安裝 Hyper-V 角色。 這需要幾分鐘，而且伺服器會自動重新開機。
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>步驟 2：在「救援 VM」的 Hyper-V 伺服器上建立問題 VM
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>步驟 2：「 救援 VM 的 HYPER-V 伺服器上建立問題 VM
 
 1.  在問題 VM 中記錄磁碟名稱，然後刪除問題 VM。 請確定您保留所有連接的磁碟。 
 
@@ -87,7 +87,7 @@ ms.locfileid: "51005593"
 
 4.  開啟「磁碟管理」(diskmgmt.msc)。 請確定問題 VM 的磁碟已設定為 [離線]。
 
-5.  開啟 [Hyper-V 管理員]：在 [伺服器管理員] 中，選取 [Hyper-V 角色]。 以滑鼠右鍵按一下伺服器，然後選取 [Hyper-V 管理員]。
+5.  開啟 HYPER-V 管理員:在 **伺服器管理員**，選取**HYPER-V 角色**。 以滑鼠右鍵按一下伺服器，然後選取 [Hyper-V 管理員]。
 
 6.  在 [Hyper-V 管理員] 中，以滑鼠右鍵按一下「救援 VM」，然後選取 [新增] > [虛擬機器] > [下一步]。
 
@@ -122,7 +122,7 @@ ms.locfileid: "51005593"
 
 19. 現在，您可以將 VM 作為內部部署 VM 進行運作。 可以按照任何您所需要的疑難排解步驟進行。
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>步驟 3：在 Azure 中重新建立您的 Azure VM
+## <a name="step-3-re-create-your-azure-vm-in-azure"></a>步驟 3：重新建立您在 Azure 中的 Azure VM
 
 1.  讓 VM 恢復上線之後，在 Hyper-V 管理員中關閉 VM。
 
