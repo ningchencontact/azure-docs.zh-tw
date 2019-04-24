@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 90d1d752481ada33c038ab563f6bd0d3bf5fad08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251081"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>從儲存體帳戶中的特製化 VHD 建立 VM
 
@@ -31,7 +31,7 @@ ms.locfileid: "58086797"
 * [上傳 VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [複製現有 Azure VM 的 VHD？](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>選項 1：上傳特製化 VHD
@@ -271,7 +271,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. 新增 OS 磁碟。 在此範例中，建立 OS 磁碟時，"osDisk"一詞會附加至 VM 名稱改為建立 OS 磁碟名稱。 這個範例也指定這個以 Windows 為基礎的 VHD，應該附加至 VM 作為 OS 磁碟。
+2. 新增 OS 磁碟。 在此示例中，创建 OS 磁盘时，“osDisk”一词将追加到用于创建 OS 磁盘名称的 VM 名称后。 這個範例也指定這個以 Windows 為基礎的 VHD，應該附加至 VM 作為 OS 磁碟。
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

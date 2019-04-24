@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 8699585a7f8e5cdfc81a40b94fbe10fa677a0030
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417294"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>在 Azure 中將 Ubuntu 虛擬機器加入受控網域
 本文說明如何將 Ubuntu Linux 虛擬機器加入 Azure AD Domain Services 受控網域。
@@ -38,7 +38,7 @@ ms.locfileid: "58120987"
 
 ## <a name="provision-an-ubuntu-linux-virtual-machine"></a>佈建 Ubuntu Linux 虛擬機器
 使用下列其中一個方法，在 Azure 中佈建 Ubuntu Linux 虛擬機器：
-* [Azure 入口網站](../virtual-machines/linux/quick-create-portal.md)
+* [Azure 门户](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

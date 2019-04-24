@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5d85d1f211a4cc0307cca6d631a4bf286d3e576
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 16f684674e69113a869346d5de9ef1d50734f01b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351922"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -552,7 +552,7 @@ Azure AD 系統管理員現在可以使用 Microsoft Authenticator 應用程式�
 **服務類別：** 裝置註冊與管理  
 **產品功能：** 裝置生命週期管理
 
-我們了解，您必須隨著時間在 Azure AD 中重新整理和淘汰組織的裝置，以避免裝置在您的環境中閒置。 為了協助進行此程序，Azure AD 現在會使用新的活動時間戳記更新您的裝置，協助您管理您的裝置生命週期。
+我們了解一段時間您必須重新整理，並在 Azure AD 中，以避免過時的裝置在您的環境中淘汰您組織的裝置。 為了協助進行此程序，Azure AD 現在會使用新的活動時間戳記更新您的裝置，協助您管理您的裝置生命週期。
 
 如需如何取得及使用此時間戳記的詳細資訊，請參閱[作法：管理 Azure AD 中的過時裝置](https://docs.microsoft.com/azure/active-directory/devices/manage-stale-devices)
 

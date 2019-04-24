@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: 81ef669b62c822e10d8bf5c45e58dd769c5dbeb9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232979"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>如何管理 Azure Cache for Redis
 本主題說明如何執行管理工作，例如為 Azure Cache for Redis 執行個體進行[重新啟動](#reboot)和[排程更新](#schedule-updates)。
@@ -72,7 +72,7 @@ ms.locfileid: "56888384"
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>如果我重新啟動，將會遺失快取中的資料嗎？
-如果您重新啟動**母片**並**從屬**節點，快取中 （或如果您使用已啟用叢集的進階快取該分區中） 的所有資料可能都會遺失，但這不保證是。 如果您已設定[資料持續性](cache-how-to-premium-persistence.md)，則當快取恢復連線時，將會還原最近一次備份，但在此備份後發生的任何快取寫入將會遺失。
+如果同时重新启动**主**节点和**从属**节点，则缓存中或该分片中（如果用户使用的是已启用群集的高级缓存）的所有数据都可能会丢失，但这种情况也不一定会发生。 如果您已設定[資料持續性](cache-how-to-premium-persistence.md)，則當快取恢復連線時，將會還原最近一次備份，但在此備份後發生的任何快取寫入將會遺失。
 
 如果只重新启动其中一个节点，数据通常不会丢失，但仍然存在丢失的可能。 例如，如果重新啟動主要節點且快取寫入正在進行中，則來自快取寫入的資料即會遺失。 如果您重新啟動一個節點，而另一個節點剛好同時因為失敗而當機，也有可能造成資料遺失。 如需深入了解資料遺失的可能原因，請參閱[我在 Redis 中的資料怎麼了？](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 

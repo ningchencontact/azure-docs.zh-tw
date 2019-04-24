@@ -9,14 +9,14 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 52475a3976ef8897ffed07c499eb06e7476c0156
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136288"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310973"
 ---
 # <a name="use-firewall-rules"></a>使用防火牆規則
 
@@ -110,8 +110,8 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
         "type": "Microsoft.ServiceBus/namespaces",
         "location": "[parameters('location')]",
         "sku": {
-          "name": "Standard",
-          "tier": "Standard"
+          "name": "Premium",
+          "tier": "Premium"
         },
         "properties": { }
       },

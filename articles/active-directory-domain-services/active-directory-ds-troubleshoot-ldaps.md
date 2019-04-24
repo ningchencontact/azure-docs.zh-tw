@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: ergreenl
 ms.openlocfilehash: be07579d8273ab19101aa6c475ae5d23375517ca
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416444"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - 針對安全 LDAP 設定進行疑難排解
 
@@ -28,7 +28,7 @@ ms.locfileid: "55177180"
 
 ## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101：安全 LDAP 網路安全性群組組態
 
-**警示訊息：**
+**警示訊息：** 
 
 *受控網域已啟用透過網際網路的安全 LDAP。不過，卻未使用網路安全性群組鎖定連接埠 636 的存取。這可能會使受控網域上的使用者帳戶暴露於暴力密碼破解攻擊的威脅之下。*
 
@@ -56,7 +56,7 @@ ms.locfileid: "55177180"
 
 ## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502：安全 LDAP 憑證即將到期
 
-**警示訊息：**
+**警示訊息：** 
 
 *受控網域的安全 LDAP 憑證將於 [date] 到期。*
 

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: c8ac14f11d7f2eeed050997de42da4f512b46bc5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254750"
 ---
 # <a name="manage-volumes-by-using-azure-netapp-files"></a>使用 Azure NetApp Files 管理磁碟區
 您可以藉由檢視、更新或刪除磁碟區來管理磁碟區。 

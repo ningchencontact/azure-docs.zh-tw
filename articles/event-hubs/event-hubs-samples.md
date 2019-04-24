@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 1c1198733fb56303d328ee97152442d25dbe945a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343472"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>具有 Azure 事件中樞範例的 Git 存放庫 
 您可以在 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples) 上尋找事件中樞範例。 這些範例示範 [Azure 事件中樞](/azure/event-hubs/)中的主要功能。 本主題分類及描述可用的範例與每個範例的連結。

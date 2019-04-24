@@ -11,11 +11,11 @@ ms.date: 12/06/2016
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: c40c1357b74b05f54bb2c2837554d9375e06f246
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384886"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C：檔案支援要求
 您可使用下列步驟，在 Azure 入口網站上提出 Azure Active Directory (Azure AD) B2C 的支援要求：

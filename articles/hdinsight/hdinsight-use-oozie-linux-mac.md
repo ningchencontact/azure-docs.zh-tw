@@ -1,7 +1,6 @@
 ---
 title: 在 Linux 型 Azure HDInsight 上使用 Hadoop Oozie 工作流程
 description: 在 Linux 型 HDInsight 上使用 Hadoop Oozie。 了解如何定義 Oozie 工作流程，以及提交 Oozie 作業。
-services: hdinsight
 ms.service: hdinsight
 ms.custom: hdinsightactive
 author: omidm1
@@ -10,11 +9,11 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: daee7ddd0a09d43132bbcf0f4553601846d31433
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448229"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486658"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在 Linux 型 Azure HDInsight 上搭配 Apache Hadoop 使用 Apache Oozie 來定義並執行工作流程
 
@@ -33,19 +32,19 @@ ms.locfileid: "58448229"
 
 ## <a name="prerequisites"></a>必要條件
 
-* **在 HDInsight 上的 Hadoop 叢集**。 請參閱[開始使用 Linux 上的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
+* **HDInsight 上的 Hadoop 群集**。 请参阅 [Linux 上的 HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 
-* **SSH 用戶端**。 請參閱[連接到 HDInsight (Apache Hadoop) 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+* **SSH 用戶端**。 请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-* **Azure SQL Database**。  請參閱[在 Azure 入口網站中建立 Azure SQL database](../sql-database/sql-database-get-started.md)。  本文使用名為資料庫`oozietest`。
+* **Azure SQL 数据库**。  请参阅[在 Azure 门户中创建 Azure SQL 数据库](../sql-database/sql-database-get-started.md)。  本文使用名为 `oozietest` 的数据库。
 
-* **儲存體設定的可能變更。**  請參閱[儲存體組態](#storage-configuration)如果使用儲存體帳戶種類`BlobStorage`。
+* **对存储配置所做的可能更改。**  如果使用 `BlobStorage` 类型的存储帐户，请参阅[存储配置](#storage-configuration)。
 
 ## <a name="storage-configuration"></a>儲存體組態
-如果使用的儲存體帳戶的類型，不需要任何動作`Storage (general purpose v1)`或`StorageV2 (general purpose v2)`。  本文中的程序會產生輸出到至少`/mapreducestaging`。  預設 hadoop 組態將會包含`/mapreducestaging`中`fs.azure.page.blob.dir`中的組態變數`core-site.xml`服務`HDFS`。  此設定會導致輸出的目錄是分頁 blob，不支援的儲存體帳戶種類`BlobStorage`。  若要使用`BlobStorage`對於本文中，移除`/mapreducestaging`從`fs.azure.page.blob.dir`組態變數。  設定可從[Ambari UI](hdinsight-hadoop-manage-ambari.md)。  否則，您會收到錯誤訊息： `Page blob is not supported for this account type.`
+如果使用 `Storage (general purpose v1)` 或 `StorageV2 (general purpose v2)` 类型的存储帐户，则不需要执行任何操作。  本文中的过程至少向 `/mapreducestaging` 生成输出。  默认的 Hadoop 配置将在 `core-site.xml` 中的 `fs.azure.page.blob.dir` 配置变量内包含服务 `HDFS` 的 `/mapreducestaging`。  此配置会导致将页 Blob 输出到目录，而 `BlobStorage` 类型的存储帐户不支持页 Blob。  若要在本文中使用 `BlobStorage`，请删除 `fs.azure.page.blob.dir` 配置变量中的 `/mapreducestaging`。  可以通过 [Ambari UI](hdinsight-hadoop-manage-ambari.md) 访问配置。  否则，会收到错误消息：`Page blob is not supported for this account type.`
 
 > [!NOTE]  
-> 這篇文章中所使用的儲存體帳戶[安全傳輸](../storage/common/storage-require-secure-transfer.md)啟用，因此`wasbs`而非`wasb`使用整篇文章。
+> 本文中使用的存储帐户已启用[安全传输](../storage/common/storage-require-secure-transfer.md)，因此，本文通篇使用 `wasbs` 而不是 `wasb`。
 
 ## <a name="example-workflow"></a>範例工作流程
 
@@ -53,7 +52,7 @@ ms.locfileid: "58448229"
 
 ![Workflow diagram][img-workflow-diagram]
 
-1. Hive 動作會執行 HiveQL 指令碼，擷取記錄從`hivesampletable`隨附 HDInsight。 每個資料列均代表來自特定行動裝置的瀏覽。 顯示的記錄格式類似下列文字：
+1. Hive 操作运行 HiveQL 脚本，以从 HDInsight 随附的 `hivesampletable` 中提取记录。 每個資料列均代表來自特定行動裝置的瀏覽。 顯示的記錄格式類似下列文字：
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
@@ -70,9 +69,9 @@ ms.locfileid: "58448229"
 
 ## <a name="create-the-working-directory"></a>建立工作目錄
 
-Oozie 預計您會將作業所需的所有資源儲存在同一個目錄中。 這個範例會使用`wasbs:///tutorials/useoozie`。 若要建立此目錄，請完成下列步驟：
+Oozie 預計您會將作業所需的所有資源儲存在同一個目錄中。 本示例使用 `wasbs:///tutorials/useoozie`。 若要建立此目錄，請完成下列步驟：
 
-1. 編輯下列程式碼以取代`sshuser`使用 SSH 使用者名稱的叢集，並取代`clustername`利用叢集的名稱。  然後輸入要連接到 HDInsight 叢集的程式碼[使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。  
+1. 编辑以下代码，将 `sshuser` 替换为群集的 SSH 用户名，将 `clustername` 替换为群集名称。  然后输入相应的代码，以[使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 连接到 HDInsight 群集。  
 
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
@@ -85,9 +84,9 @@ Oozie 預計您會將作業所需的所有資源儲存在同一個目錄中。 �
     ```
 
     > [!NOTE]  
-    > `-p` 參數會使系統建立路徑中的所有目錄。 `data`目錄用來保存所使用的資料`useooziewf.hql`指令碼。
+    > `-p` 參數會使系統建立路徑中的所有目錄。 `data` 目录用于保存 `useooziewf.hql` 脚本使用的数据。
 
-3. 編輯下列程式碼以取代`username`與您的 SSH 使用者名稱。  為了確保 Oozie 可以模擬您的使用者帳戶，請使用下列命令：
+3. 编辑以下代码，将 `username` 替换为你的 SSH 用户名。  為了確保 Oozie 可以模擬您的使用者帳戶，請使用下列命令：
 
     ```bash
     sudo adduser username users
@@ -105,7 +104,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozi
 ```
 
 > [!IMPORTANT]  
-> 確認實際存在的 JDBC 驅動程式`/usr/share/java/`。
+> 验证 `/usr/share/java/` 中是否实际存在 JDBC 驱动程序。
 
 如果工作流程已使用其他資源，例如含有 MapReduce 應用程式的 jar，則您也必須新增這些資源。
 
@@ -138,7 +137,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozi
 
 4. 若要儲存檔案，請選取 Ctrl+X、輸入 `Y`，然後選取 **Enter**。  
 
-5. 使用下列命令來複製`useooziewf.hql`至`wasbs:///tutorials/useoozie/useooziewf.hql`:
+5. 使用以下命令将 `useooziewf.hql` 复制到 `wasbs:///tutorials/useoozie/useooziewf.hql`：
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -240,7 +239,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. 編輯下列程式碼以取代`<serverName>`與您的 Azure SQL 伺服器名稱，和`<sqlLogin>`與 Azure SQL server 登入。  輸入命令以連接到 SQL 資料庫的必要條件。  輸入在提示字元的密碼。
+2. 编辑以下代码，将 `<serverName>` 替换为 Azure SQL 服务器名称，将 `<sqlLogin>` 替换为 Azure SQL 服务器登录名。  输入相应的命令以连接到必备的 SQL 数据库。  在提示符下输入密码。
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -279,7 +278,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
         oozietest       dbo             mobiledata      BASE TABLE
 
-4. 輸入結束 tsql 公用程式`exit`在`1>`提示字元。
+4. 在 `1>` 提示符下输入 `exit` 以退出 tsql 实用工具。
 
 ## <a name="create-the-job-definition"></a>建立工作定義
 
@@ -303,15 +302,15 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
 
     儲存 `<value>` 元素的內容，因為在後續步驟將會用到它。
 
-2. 請編輯下列 xml，如下所示：
+2. 按如下所示编辑以下 xml：
 
-    |預留位置的值| 已取代的值|
+    |占位符值| 替换的值|
     |---|---|
-    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| 步驟 1 中接收到的值。|
-    |admin| 您的登入名稱的 HDInsight 叢集，如果沒有系統管理員。|
-    |serverName| Azure SQL database 伺服器名稱。|
-    |sqlLogin| Azure 的 SQL database 伺服器登入。|
-    |sqlPassword| Azure SQL database 伺服器登入密碼。|
+    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| 从步骤 1 获取的值。|
+    |admin| HDInsight 群集的登录名（如果不是 admin）。|
+    |serverName| Azure SQL 数据库服务器名称。|
+    |sqlLogin| Azure SQL 数据库服务器登录名。|
+    |sqlPassword| Azure SQL 数据库服务器登录密码。|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -382,7 +381,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
     nano job.xml
     ```
 
-4. 開啟 nano 編輯器後，貼上已編輯的 XML 做為檔案的內容。
+4. 打开 nano 编辑器后，粘贴编辑后的 XML 作为文件内容。
 
 5. 若要儲存檔案，請選取 Ctrl+X、輸入 `Y`，然後選取 **Enter**。
 
@@ -408,7 +407,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
 
     `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` 部分是要搭配 Oozie 命令使用的 URL。
 
-2. 編輯程式碼以取代的成您之前收到的 URL。 若要建立 URL 的環境變數，請使用下列命令，這樣您就不必為每個命令輸入該 URL：
+2. 编辑代码，将 URL 替换为前面收到的 URL。 若要建立 URL 的環境變數，請使用下列命令，這樣您就不必為每個命令輸入該 URL：
 
     ```bash
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
@@ -424,7 +423,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
 
     在命令完成後，系統應該會傳回作業的識別碼，例如 `0000005-150622124850154-oozie-oozi-W`。 此 ID 將用來管理工作。
 
-4. 編輯下列程式碼以取代`<JOBID>`與上一個步驟中所傳回的識別碼。  若要檢視作業的狀態，請使用下列命令：
+4. 编辑以下代码，将 `<JOBID>` 替换为上一步骤返回的 ID。  若要檢視作業的狀態，請使用下列命令：
 
     ```bash
     oozie job -info <JOBID>
@@ -449,15 +448,15 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
 
     這項工作的狀態為 `PREP`。 這個狀態表示作業雖已建立但未啟動。
 
-5. 編輯下列程式碼以取代`<JOBID>`先前傳回的 id。  若要啟動作業，請使用下列命令：
+5. 编辑以下代码，将 `<JOBID>` 替换为前面返回的 ID。  若要啟動作業，請使用下列命令：
 
     ```bash
     oozie job -start JOBID
     ```
 
-    如果您在使用此命令後檢查狀態，會發現作業為執行中狀態，並傳回作業內的動作資訊。  作業需要幾分鐘才能完成。
+    如果您在使用此命令後檢查狀態，會發現作業為執行中狀態，並傳回作業內的動作資訊。  该作业可能需要几分钟时间才能完成。
 
-6. 編輯下列程式碼以取代`<serverName>`與您的 Azure SQL 伺服器名稱，和`<sqlLogin>`與 Azure SQL server 登入。  在工作順利完成之後，您可以確認資料已產生並匯出至 SQL database 資料表中，使用下列命令。  輸入在提示字元的密碼。
+6. 编辑以下代码，将 `<serverName>` 替换为 Azure SQL 服务器名称，将 `<sqlLogin>` 替换为 Azure SQL 服务器登录名。  任务成功完成后，可使用以下命令验证是否已生成数据并且已将导出到 SQL 数据库表。  在提示符下输入密码。
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -513,7 +512,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 1. 建立 HDInsight 叢集的 SSH 通道。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)。
 
-2. 建立通道之後，使用 URI 將網頁瀏覽器中開啟 Ambari web UI `http://headnodehost:8080`。
+2. 创建隧道后，在 Web 浏览器中使用 URI `http://headnodehost:8080` 打开 Ambari Web UI。
 
 3. 在頁面左邊選取 [Oozie] > [快速連結] > [Oozie Web UI]。
 
@@ -582,7 +581,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. 若要修改`job.xml`您稍早建立的檔案使用下列命令：
+4. 若要修改前面创建的 `job.xml` 文件，请使用以下命令：
 
     ```bash
     nano job.xml
@@ -627,11 +626,11 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
         </property>
         ```
 
-       這些值設定至 2018 年 5 月 10 日下午 12:00 開始時間] 和 [2018 5 月 12 日將結束時間。 用來執行此作業的間隔會設為每日。 頻率的單位是分鐘，因此 24 小時 x 60 分鐘 = 1440 分鐘。 最後，時區會設為 UTC。
+       这些值将开始时间设置为 2018 年 5 月 10 日中午 12:00，将结束时间设置为 2018 年 5 月 12 日。 用來執行此作業的間隔會設為每日。 頻率的單位是分鐘，因此 24 小時 x 60 分鐘 = 1440 分鐘。 最後，時區會設為 UTC。
 
 5. 若要儲存檔案，請選取 Ctrl+X、輸入 `Y`，然後選取 **Enter**。
 
-6. 若要提交並啟動作業，使用下列命令：
+6. 若要提交并启动该作业，请使用以下命令：
 
     ```bash
     oozie job -config job.xml -run
@@ -674,7 +673,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 **解決方案**：變更作業所使用的 Blob 儲存體位址。
 
-### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002：不允許 Oozie 模擬&lt;使用者&gt;
+### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002：不允许 Oozie 模拟 &lt;USER&gt;
 
 **徵兆**：作業狀態會變更為 **SUSPENDED**。 作業的詳細資料會將 `RunHiveScript` 狀態顯示為 **START_MANUAL**。 如果您選取該動作，它將會顯示下列錯誤訊息：
 

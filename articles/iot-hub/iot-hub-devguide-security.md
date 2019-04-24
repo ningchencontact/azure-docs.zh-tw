@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400590"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -134,7 +134,7 @@ IoT 中樞也允許裝置使用 [X.509 憑證](iot-hub-devguide-security.md#supp
 
 以下是預期的值：
 
-| 值 | 描述 |
+| Value | 描述 |
 | --- | --- |
 | {signature} |HMAC-SHA256 簽章字串，格式為： `{URL-encoded-resourceURI} + "\n" + expiry`。 **重要事項**：金鑰是從 base64 解碼而來，並且會做為用來執行 HMAC-SHA256 計算的金鑰。 |
 | {resourceURI} |可使用此權杖存取之端點的 URI 前置詞 (依區段)，開頭為 IoT 中樞的主機名稱 (無通訊協定)。 例如 `myHub.azure-devices.net/devices/device1` |

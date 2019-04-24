@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58114206"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232800"
 ---
 ## <a name="multi-and-single-instance-vms"></a>多重和單一執行個體 VM
 對於在 Azure 上執行的許多客戶而言，在 VM 進行計劃性維護時可以排程是非常重要的，因為維護期間會發生大約 15 分鐘的停機。 您可以在佈建的 VM 接受計劃性維護時，使用可用性設定組協助控制。

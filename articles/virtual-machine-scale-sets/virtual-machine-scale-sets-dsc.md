@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 04/05/2017
 ms.author: zachal
-ms.openlocfilehash: a68a5f31952d636c054b66dc0bb6ec0579cd7192
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.openlocfilehash: 24a37d352413ff9ac55ce8e189691988383950f3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30908998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203987"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>搭配 Azure DSC 擴充功能使用虛擬機器擴展集
 [虛擬機器擴展集](virtual-machine-scale-sets-overview.md)可以搭配 [Azure 期望狀態設定 (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 擴充功能處理常式來使用。 虛擬機器擴展集提供一個部署及管理大量虛擬機器的方式，可以因應負載情況來彈性地相應縮小和放大。 當 VM 上線時，可使用 DSC 來設定它們，因為它們正在執行生產環境的軟體。
 
 ## <a name="differences-between-deploying-to-virtual-machines-and-virtual-machine-scale-sets"></a>部署至虛擬機器與部署至虛擬機器擴展集之間的差異
-適用於虛擬機器擴展集的基礎範本結構與單一 VM 有些微不同。 具體來說，單一 VM 會在 "virtualMachines" 節點下部署擴充功能。 有一個類型為 "extensions" 且已將 DSC 加入範本的項目
+適用於虛擬機器擴展集的基礎範本結構與單一 VM 有些微不同。 具体而言，单一 VM 扩展部署在“virtualMachines”节点下面。 有一個類型為 "extensions" 且已將 DSC 加入範本的項目
 
 ```
 "resources": [

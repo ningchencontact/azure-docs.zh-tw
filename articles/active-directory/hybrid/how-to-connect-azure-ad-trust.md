@@ -19,11 +19,11 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446634"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245730"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>使用 Azure AD Connect 管理與 Azure AD 的 AD FS 信任
 
@@ -105,7 +105,7 @@ Azure AD Connect 確保一律會使用一組正確的建議宣告規則來設定
 
 每次更新 Azure AD 信任設定時，Azure AD Connect 1.1.873.0 版或更新版本就會建立 Azure AD 信任設定的備份。 在 **%ProgramData%\AADConnect\ADFS** 上備份 Azure AD 信任設定。 檔案名稱格式如下：AadTrust-&lt;date&gt;-&lt;time&gt;.txt，例如，AadTrust-20180710-150216.txt
 
-![範例的螢幕擷取畫面備份的 Azure AD 信任](./media/how-to-connect-azure-ad-trust/backup.png)
+![Azure AD 信任示例备份的快照](./media/how-to-connect-azure-ad-trust/backup.png)
 
 您可以使用下列建議步驟來還原發行轉換規則
 

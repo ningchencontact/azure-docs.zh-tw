@@ -16,11 +16,11 @@ ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ebc6c1e8a264c5570f3100885c4fca7d0d0d90d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442843"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>含範圍篩選器的屬性型應用程式佈建
 本文的目標在於說明如何使用範圍篩選條件來定義以屬性為基礎的規則，以決定將哪些使用者佈建到應用程式。
@@ -93,7 +93,7 @@ Azure AD 佈建服務所處理的每個使用者或群組，一律會根據每�
 
    g. **REGEX MATCH**。 如果評估的屬性符合規則運算式模式，子句會傳回 "true"。 例如：\([1-9][0-9]\) 符合介於 10 到 99 之間的任何數字。
 
-   h. **NOT REGEX MATCH**。 如果評估的屬性不符合規則運算式模式，子句會傳回 "true"。
+   h.如果该值不存在，请单击“添加行”。 **NOT REGEX MATCH**。 如果評估的屬性不符合規則運算式模式，子句會傳回 "true"。
 
 8. 選取 [新增新範圍子句]。
 

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533207"
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -82,7 +82,7 @@ ms.locfileid: "58652632"
 
 ### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>CPU、 記憶體和磁碟的效能資料顯示為零
 
-Azure Migrate 會持續分析內部部署環境，以收集效能資料的內部部署 Vm。 如果您剛開始探索您的環境，您需要等待至少一天進行效能資料集合。 建立評量時，而不需等待一天，如果效能度量資訊會顯示為零。 等候一天之後, 您可以建立新的評估，或利用評定報表中的 'Recalculate' 選項來更新現有的評估。
+Azure Migrate 會持續分析內部部署環境，以收集內部部署 VM 的效能資料。 如果您剛開始探索您的環境，則必須等候至少一天進行效能資料收集。 建立評估時，若未等候一天，則效能計量資訊會顯示為零。 等候一天之後，您可以使用評估報告中的 [重新計算] 選項，建立新的評估或更新現有評估。
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>我在建立移轉專案時指定了某個 Azure 地理位置，要如何找出將儲存所探索到中繼資料的確切 Azure 區域？
 

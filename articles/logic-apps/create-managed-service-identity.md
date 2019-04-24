@@ -10,11 +10,11 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428062"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
 
@@ -59,7 +59,7 @@ ms.locfileid: "59010544"
 
    ![適用於物件識別碼的 GUID](./media/create-managed-service-identity/object-id.png)
 
-   | 屬性 | 值 | 描述 | 
+   | 屬性 | Value | 描述 | 
    |----------|-------|-------------| 
    | **物件識別碼** | <*identity-resource-ID*> | 代表 Azure AD 租用戶中邏輯應用程式之系統指派受控識別的全域唯一識別碼 (GUID) | 
    ||| 
@@ -111,7 +111,7 @@ ms.locfileid: "59010544"
 }
 ```
 
-| 屬性 | 值 | 描述 | 
+| 屬性 | Value | 描述 | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | 代表 Azure AD 租用戶中的邏輯應用程式，且有時會以「物件識別碼」或 `objectID` 之形式呈現的全域唯一識別碼 (GUID) | 
 | tenantId | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 

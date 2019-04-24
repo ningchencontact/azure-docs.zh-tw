@@ -14,11 +14,11 @@ ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
 ms.openlocfilehash: 0779ca2083691949821999322a3d732aed7b2694
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310038"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -50,7 +50,7 @@ ms.locfileid: "57760762"
 
 ### <a name="c-example"></a>C# 範例
 
-下列範例所示[C#函式](functions-dotnet-class-library.md)分鐘有整除的值每次執行的五個 (例如如果函式開始 18:57:00 下, 一步 的效能會變 19:00:00)。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
+以下示例显示了一个 [C# 函数](functions-dotnet-class-library.md)，每当分钟的值可被 5 整除时，就执行该函数（例如，如果函数起始于 18:57:00，则下一次执行函数的时间为 19:00:00）。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 对象将传递到函数中。
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -66,7 +66,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>C# 指令碼範例
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 对象将传递到函数中。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -94,7 +94,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>F# 範例
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 对象将传递到函数中。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -119,7 +119,7 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
 
 ### <a name="javascript-example"></a>JavaScript 範例
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 A[計時器物件](#usage)傳遞至函式。
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [计时器对象](#usage)将传递到函数中。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -201,7 +201,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ## <a name="usage"></a>使用量
 
-叫用計時器觸發程序函式時，計時器物件會傳遞至函式。 下列 JSON 是計時器物件的範例表示法。
+调用计时器触发器函数时，计时器对象将传递到函数中。 下列 JSON 是計時器物件的範例表示法。
 
 ```json
 {

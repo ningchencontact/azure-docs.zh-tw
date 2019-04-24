@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 218c89e403673c16c72da95aa2c1d685bbed5a86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303192"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>使用 StorSimple Snapshot Manager 來建立和管理備份原則
 ## <a name="overview"></a>概觀
@@ -58,7 +58,7 @@ ms.locfileid: "23109276"
    2. 在 [設定] 之下，選取 [一次]、[每日]、[每週] 或 [每月]。
    3. 在 [ **開始** ] 文字方塊中，按一下日曆圖示，然後選取開始日期。
    4. 在 [ **進階設定**] 之下，您可以設定選用的重複排程和結束日期。
-   5. 按一下 [SERVICEPRINCIPAL] 。
+   5. 按一下 [確定]。
 
 建立備份原則之後，下列資訊會出現在 [ **結果** ] 窗格中：
 
@@ -67,7 +67,7 @@ ms.locfileid: "23109276"
 * **Volume Group**  – 與原則相關聯的磁碟區群組。
 * **保留**  – 保留的快照數目；上限為 64。
 * **建立時間**  – 此原則的建立日期。
-* [已啟用] – 原則目前是否生效：**True** 表示生效；**False** 表示未生效。
+* **啟用**– 原則目前是否作用中：**True**指出它是作用中;**False**表示不在作用中。
 
 ## <a name="edit-a-backup-policy"></a>編輯備份原則
 請使用下列程序來編輯現有的備份原則。

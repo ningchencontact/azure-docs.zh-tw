@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 735be71faecb9882b13f6f536d43715139d0f4db
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342015"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467488"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中以動態方式建立和使用 Azure 磁碟的永續性磁碟區
 
@@ -21,13 +21,13 @@ ms.locfileid: "57342015"
 > [!NOTE]
 > 您只能使用*存取模式*類型 *ReadWriteOnce* 來掛接 Azure 磁碟，以讓它僅供 AKS 中單一 Pod 使用。 如果您需要在多個 Pod 之間共用永續性磁碟區，請使用 [Azure 檔案服務][azure-files-pvc]。
 
-如需有關 Kubernetes 磁碟區的詳細資訊，請參閱 < [AKS 中的應用程式的儲存體選項][concepts-storage]。
+有关 Kubernetes 卷的详细信息，请参阅 [AKS 中应用程序的存储选项][concepts-storage]。
 
 ## <a name="before-you-begin"></a>開始之前
 
 此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
 
-您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="built-in-storage-classes"></a>內建儲存體類別
 
@@ -251,7 +251,7 @@ Volumes:
 
 ## <a name="next-steps"></a>後續步驟
 
-如需相關聯的最佳作法，請參閱[儲存體和 AKS 中的備份的最佳做法][operator-best-practices-storage]。
+如需相关的最佳做法，请参阅[在 AKS 中存储和备份的最佳做法][operator-best-practices-storage]。
 
 深入了解使用 Azure 磁碟的 Kubernetes 永續性磁碟區。
 

@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d2bb3b7385467d2606a2a4fa0afb43b9440ab79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293693"
 ---
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>查明特定使用者何時將能存取應用程式
 透過應用程式使用自動使用者佈建時，Azure AD 會根據像是[使用者和群組指派](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)等事項，在定期排定的時間間隔內 (通常是每隔 10 分鐘)，自動佈建並更新應用程式中的使用者帳戶。

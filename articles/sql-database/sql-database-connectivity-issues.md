@@ -14,11 +14,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
 ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202103"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>處理 SQL Database 連線問題和暫時性錯誤
 
@@ -91,7 +91,7 @@ ms.locfileid: "58007457"
 您可以測試重試邏輯的方法，就是在程式執行時中斷用戶端電腦與網路的連接。 錯誤是：
 
 - **SqlException.Number** = 11001
-- 訊息：「 已知主機 」
+- 訊息：“此主机不存在”
 
 第一次重試時，您的程式可以更正拼字錯誤，然後嘗試連線。
 
@@ -109,7 +109,7 @@ ms.locfileid: "58007457"
 在第一次連接嘗試之前，您的程式可以故意拼錯使用者名稱。 錯誤是：
 
 - **SqlException.Number** = 18456
-- 訊息：「 登入失敗的使用者 'WRONG_MyUserName' 」。
+- 訊息：“用户 'WRONG_MyUserName' 的登录失败。”
 
 第一次重試時，您的程式可以更正拼字錯誤，然後嘗試連線。
 
@@ -139,7 +139,7 @@ ms.locfileid: "58007457"
 
 具體來說，您選擇的值應該會讓下列等式成立：Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
-例如，如果計數等於 3，且間隔等於 10 秒，僅只 29 秒的逾時無法讓系統有足夠的時間，其第三個也是最後一次重試連線：29 < 3 * 10.
+例如，如果计数等于 3 且间隔等于 10 秒，超时值仅为 29 秒未给系统足够的时间进行其第三次也是最后一次连接重试，因为 29 < 3 * 10。
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -196,7 +196,7 @@ ms.locfileid: "58007457"
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-462-or-later"></a>連線：ADO.NET 4.6.2 或更新版本
+### <a name="connection-adonet-462-or-later"></a>連線：ADO.NET 4.6.2 或更高版本
 
 如果您的程式使用 **System.Data.SqlClient.SqlConnection** 之類的 ADO.NET 類別來連線到 SQL Database，建議您使用 .NET Framework 4.6.2 版或更新版本。
 
@@ -219,7 +219,7 @@ ms.locfileid: "58007457"
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>診斷：測試是否可連線的公用程式
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>诊断：测试实用程序是否可以连接
 
 如果您的程式無法連線到 SQL Database，有一個診斷選項可嘗試透過公用程式連線。 在理想的情況下，此公用程式會使用您的程式使用的同一程式庫進行連線。
 
@@ -232,7 +232,7 @@ ms.locfileid: "58007457"
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>診斷：檢查開啟的連接埠
+### <a name="diagnostics-check-the-open-ports"></a>诊断：检查打开的端口
 
 如果您懷疑連線嘗試因為連接埠問題而失敗，您可以在報告連接埠組態的電腦上執行公用程式。
 
@@ -261,17 +261,17 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-### <a name="diagnostics-log-your-errors"></a>診斷：記錄您的錯誤
+### <a name="diagnostics-log-your-errors"></a>诊断：记录错误
 
 有時診斷間歇問題的最好方式，就是數天或數週偵測一般模式。
 
 您的用戶端可以記錄其遇到的所有錯誤來協助診斷。 您可以使記錄項目與 SQL Database 本身內部記錄的錯誤資料相互關聯。
 
-Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如需詳細資訊，請參閱[5-簡單，只要將關閉記錄檔：使用 Logging Application Block](https://msdn.microsoft.com/library/dn440731.aspx)。
+Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 有关详细信息，请参阅：[5 - 与写入日志一样简单：使用日志记录应用程序块](https://msdn.microsoft.com/library/dn440731.aspx)。
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>診斷：檢查系統記錄中的錯誤
+### <a name="diagnostics-examine-system-logs-for-errors"></a>诊断：在系统日志中检查错误
 
 以下是一些可查詢錯誤記錄和其他資訊的 Transact-SQL SELECT 陳述式。
 
@@ -282,7 +282,7 @@ Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如�
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>診斷：搜尋 SQL Database 記錄中的問題事件
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>诊断：在 SQL 数据库日志中搜索问题事件
 
 您可以在 SQL Database 記錄中搜尋有關問題事件的項目。 在 *master* 資料庫中嘗試下列 Transact-SQL SELECT 陳述式：
 
@@ -327,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 SQL Database 服務。 若要找出 EntLib60 所能協助之每個領域的專用主題，請參閱 [Enterprise Library 6 - 2013 年 4 月](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)。
 
-在 EntLib60 可以協助的一個領域中用於處理暫時性錯誤的重試邏輯。 如需詳細資訊，請參閱[4-堅持是所有成功的秘方的祕密：使用暫時性錯誤處理應用程式區塊](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)。
+在 EntLib60 可以協助的一個領域中用於處理暫時性錯誤的重試邏輯。 有关详细信息，请参阅 [4 - 锲而不舍是一切成功的秘密：使用暂时性故障处理应用程序块](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)。
 
 > [!NOTE]
 > EntLib60 的原始程式碼可從[下載中心](https://go.microsoft.com/fwlink/p/?LinkID=290898)公開下載。 Microsoft 沒有計劃進一步更新或維護 EntLib 的功能。
@@ -354,13 +354,13 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 以下是 EntLib60 相關資訊的一些連結：
 
-- 免費書籍下載：[Microsoft Enterprise library 第 2 版的開發人員指南](https://www.microsoft.com/download/details.aspx?id=41145)。
+- 免费书籍下载：[Microsoft Enterprise Library 版本 2 开发人员指南](https://www.microsoft.com/download/details.aspx?id=41145)
 - 最佳做法：[重試一般指引](../best-practices-retry-general.md)有深入探討重試邏輯。
-- NuGet 下載：[Enterprise Library-暫時性錯誤處理應用程式區塊 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
+- NuGet 下载：[Enterprise Library - 暂时性故障处理应用程序块 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
-### <a name="entlib60-the-logging-block"></a>EntLib60:記錄區塊
+### <a name="entlib60-the-logging-block"></a>EntLib60：日志记录块
 
 - 記錄區塊是高度彈性且可設定的解決方案，您可用於：
   - 建立記錄訊息，並儲存在各種不同的位置中。
@@ -368,7 +368,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
   - 收集有助於偵錯和追蹤的內容資訊，以及用於稽核和一般記錄需求的內容資訊。
 - 記錄區塊可彙總來自記錄目的地的記錄功能，使應用程式程式碼能夠一致，而不必理會目標記錄存放區的的位置和類型。
 
-如需詳細資訊，請參閱[5-簡單，只要將關閉記錄檔：使用 Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)。
+有关详细信息，请参阅：[5 - 与写入日志一样简单：使用日志记录应用程序块](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)。
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876883"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446579"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>使用 MongoDB 的延伸模組命令來管理適用於 MongoDB 的 Azure Cosmos DB 的 API 中所儲存資料 
 
@@ -45,7 +45,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 |**欄位**|**類型** |**說明** |
 |---------|---------|---------|
-| customAction   |  字串  |   名稱的自訂命令，它必須是"CreateDatabase 」。      |
+| customAction   |  string  |   名稱的自訂命令，它必須是"CreateDatabase 」。      |
 | offerThroughput | int  | 您在資料庫設定的佈建的輸送量。 這是選擇性參數。 |
 
 ### <a name="output"></a>輸出
@@ -87,7 +87,7 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 
 |**欄位**|**類型** |**說明** |
 |---------|---------|---------|
-| customAction    |    字串     |   自訂命令名稱。 必須是"UpdateDatabase 」。      |
+| customAction    |    string     |   自訂命令名稱。 必須是"UpdateDatabase 」。      |
 |  offerThroughput   |  int       |     您想要在資料庫上設定的新佈建的輸送量。    |
 
 ### <a name="output"></a>輸出
@@ -120,7 +120,7 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 
 |**欄位**|**類型** |**說明** |
 |---------|---------|---------|
-|  customAction   |   字串      |   自訂命令名稱。 必須是 「 GetDatabase"|
+|  customAction   |   string      |   自訂命令名稱。 必須是 「 GetDatabase"|
         
 ### <a name="output"></a>輸出
 
@@ -162,10 +162,10 @@ db.runCommand({customAction: "GetDatabase"});
 
 |**欄位**|**類型** |**說明** |
 |---------|---------|---------|
-| customAction    | 字串 | 自訂命令名稱。 必須是 「 CreateDatabase"     |
-| collection      | 字串 | 集合的名稱                                   |
+| customAction    | string | 自訂命令名稱。 必須是 「 CreateDatabase"     |
+| collection      | string | 集合的名稱                                   |
 | offerThroughput | int    | 若要在資料庫上設定的佈建的輸送量。 這是選擇性參數 |
-| shardKey        | 字串 | 分區金鑰路徑，以建立分區化集合。 這是選擇性參數 |
+| shardKey        | string | 分區金鑰路徑，以建立分區化集合。 這是選擇性參數 |
 
 ### <a name="output"></a>輸出
 
@@ -207,8 +207,8 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 |**欄位**|**類型** |**說明** |
 |---------|---------|---------|
-|  customAction   |   字串      |   自訂命令名稱。 必須是"UpdateCollection 」。      |
-|  collection   |   字串      |   集合的名稱。       |
+|  customAction   |   string      |   自訂命令名稱。 必須是"UpdateCollection 」。      |
+|  collection   |   string      |   集合的名稱。       |
 | offerThroughput   |int|   若要設定的集合上佈建的輸送量。|
 
 ## <a name="output"></a>輸出
@@ -242,8 +242,8 @@ db.runCommand({customAction: "UpdateCollection", collection: "testCollection", o
 
 |**欄位**|**類型** |**說明** |
 |---------|---------|---------|
-| customAction    |   字串      |   自訂命令名稱。 必須是"GetCollection 」。      |
-| collection    |    字串     |    集合的名稱。     |
+| customAction    |   string      |   自訂命令名稱。 必須是"GetCollection 」。      |
+| collection    |    string     |    集合的名稱。     |
 
 ### <a name="output"></a>輸出
 

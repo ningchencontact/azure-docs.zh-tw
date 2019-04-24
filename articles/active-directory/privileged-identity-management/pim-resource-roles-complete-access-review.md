@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 837be3ccdbd133f6bf372779dadff4d3c574a2e8
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578232"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60288210"
 ---
 # <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>在 PIM 中完成 Azure 資源角色的存取權檢閱
 在[開始存取權檢閱](pim-resource-roles-start-access-review.md)之後，特殊權限角色管理員就可以檢閱特殊權限存取權。 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 會自動傳送電子郵件，提示使用者檢閱其存取權。 如果使用者未收到電子郵件，您可以將[如何執行存取權檢閱](pim-resource-roles-perform-access-review.md)中的指示傳送給他們。
@@ -50,7 +50,7 @@ ms.locfileid: "58578232"
 ### <a name="apply"></a>套用
 完成存取權檢閱後，請使用 [套用] 按鈕來實作檢閱的結果。 如果使用者的存取權在檢閱中遭拒，則此步驟就會將其角色指派移除。  
 
-### <a name="delete"></a>刪除
+### <a name="delete"></a>Delete
 如果對檢閱不再有任何興趣，請將其刪除。 [刪除]  按鈕會將檢閱從 PIM 應用程式中移除。
 
 ## <a name="results"></a>結果

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244865"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>更新 Office 365 和 Azure Active Directory 的同盟憑證
 ## <a name="overview"></a>概觀
@@ -36,7 +36,7 @@ ms.locfileid: "58883440"
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>權杖簽署憑證的預設 AD FS 設定
 權杖簽署和權杖解密憑證通常是自我簽署的憑證，有效期為一年。 根據預設，AD FS 包含名為 **AutoCertificateRollover**的自動更新程序。 如果您使用 AD FS 2.0 或更新版本，Office 365 和 Azure AD 在您的憑證到期之前會自動進行更新。
 
-### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>從 Microsoft 365 系統管理中心或電子郵件更新通知
+### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>来自 Microsoft 365 管理中心或电子邮件的续订通知
 > [!NOTE]
 > 如果您收到電子郵件或入口網站通知，要求您更新 Office 憑證，請參閱 [管理權杖簽署憑證的變更](#managecerts) ，檢查您是否需要採取任何動作。 Microsoft 已知可能會有在不需要採取任何動作的情況下仍送出憑證更新通知的問題。
 >
@@ -44,8 +44,8 @@ ms.locfileid: "58883440"
 
 Azure AD 會嘗試監視同盟中繼資料，並依照此中繼資料的指示更新權杖簽署憑證。 在權杖簽署憑證到期前 30 天，Azure AD 會藉由輪詢同盟中繼資料，檢查是否已有新的憑證可供使用。
 
-* 如果它可以成功輪詢同盟中繼資料，並擷取新的憑證，使用者會發出任何電子郵件通知或 Microsoft 365 系統管理中心 中的警告。
-* 如果它無法擷取新的權杖簽署憑證，可能是因為找不到 同盟中繼資料，或未啟用自動憑證變換，Azure AD 發出的電子郵件通知和 Microsoft 365 系統管理中心中的警告。
+* 如果它能成功轮询联合元数据并检索到新证书，则不会向用户发送电子邮件通知，或者在 Microsoft 365 管理中心内显示警告。
+* 如果由于无法访问联合元数据或者未启用自动证书滚动更新而无法检索新的令牌签名证书，Azure AD 会发出电子邮件通知，并在 Microsoft 365 管理中心内显示警告。
 
 ![Office 365 入口網站通知](./media/how-to-connect-fed-o365-certs/notification.png)
 
@@ -118,7 +118,7 @@ Azure AD 會嘗試監視同盟中繼資料，並依照此中繼資料的指示�
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-其中`(your_FS_name)`會取代為您的組織使用，例如 fs.contoso.com 同盟服務主機名稱。  如果您能夠成功確認上述兩個設定，您就不必執行任何動作。  
+其中，`(your_FS_name)` 将替换为你的组织使用的联合身份验证服务主机名，例如 fs.contoso.com。  如果您能夠成功確認上述兩個設定，您就不必執行任何動作。  
 
 範例： https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## 手動更新權杖簽署憑證 <a name="manualrenew"></a>

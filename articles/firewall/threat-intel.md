@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194026"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Azure 防火牆威脅情報為基礎篩選-公開預覽
 
-您的防火牆來發出警示，並拒絕自/至已知惡意 IP 位址和網域的流量可以啟用威脅情報為基礎的篩選。 IP 位址和網域被來自 Microsoft 威脅情報摘要。 [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence)提供 Microsoft 威脅情報，並由多個服務，包括 Azure 資訊安全中心。
+您可為防火牆啟用威脅情報型篩選，以警示並拒絕來自/傳向已知惡意 IP 位址和網域的流量。 IP 位址和網域來自 Microsoft 威脅情報摘要。 [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence)提供 Microsoft 威脅情報，並由多個服務，包括 Azure 資訊安全中心。
 
 ![防火牆威脅情報](media/threat-intel/firewall-threat.png)
 

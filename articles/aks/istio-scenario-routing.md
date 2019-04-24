@@ -2,17 +2,18 @@
 title: 透過 Istio 在 Azure Kubernetes Service (AKS) 中使用智慧型路由和 Canary 版本
 description: 了解如何使用 Istio 在 Azure Kubernetes Service (AKS) 叢集中提供智慧型路由及部署 Canary 版本
 services: container-service
-author: paulbouwer
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 12/3/2018
-ms.author: pabouwer
+origin.date: 12/03/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 0a4e5e7e310a9949ee59291c2032eafda46955a9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465827"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>透過 Istio 在 Azure Kubernetes Service (AKS) 中使用智慧型路由和 Canary 版本
 
@@ -254,7 +255,7 @@ Created config virtual-service/voting/voting-storage at revision 142123
 
 您可以呈現出您目前僅路由至 *1.1* 版的 *voting-analytics* 元件，如下所示。 請務必使用您個人 Istio 輸入閘道的 IP 位址：
 
-```azurecli-interactive
+```azurecli
 INGRESS_IP=52.187.250.239
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
 ```
@@ -340,7 +341,7 @@ deployment.apps/voting-app-2-0 created
 
 等待所有的 *2.0* 版 Pod 執行完成。 使用 [kubectl get pods][kubectl-get] 命令檢視*投票*命名空間中的所有 Pod：
 
-```azurecli-interactive
+```azurecli
 kubectl get pods --namespace voting
 ```
 

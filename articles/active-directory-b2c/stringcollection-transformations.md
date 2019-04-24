@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123499"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360345"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection 宣告轉換
 
@@ -27,9 +28,9 @@ ms.locfileid: "58123499"
 
 將字串宣告新增至新的 stringCollection 宣告。 
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | 字串 | 要新增至輸出宣告的 ClaimType。 |
+| InputClaim | item | string | 要新增至輸出宣告的 ClaimType。 |
 | InputClaim | collection | stringCollection | [選擇性] 如果指定，宣告轉換就會複製此集合中的項目，並將項目新增至輸出集合宣告的結尾。 |
 | OutputClaim | collection | stringCollection | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
 
@@ -61,10 +62,10 @@ ms.locfileid: "58123499"
 
 將字串參數新增至新的 stringCollection 宣告。 
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [選擇性] 如果指定，宣告轉換就會複製此集合中的項目，並將項目新增至輸出集合宣告的結尾。 |
-| InputParameter | item | 字串 | 要新增至輸出宣告的值。 |
+| InputParameter | item | string | 要新增至輸出宣告的值。 |
 | OutputClaim | collection | stringCollection | 叫用此 ClaimsTransformation 之後將產生的 ClaimType。 |
 
 使用此宣告轉換來將字串值新增至新的或現有的 stringCollection。 下列範例會將常數的電子郵件地址 (admin@contoso.com) 新增至 **otherMails** 宣告。 
@@ -96,10 +97,10 @@ ms.locfileid: "58123499"
 
 從提供的字串集合中取得第一個項目。 
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | 宣告轉換用來取得項目的 ClaimType。 |
-| OutputClaim | extractedItem | 字串 | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 集合中的第一個項目。 |
+| OutputClaim | extractedItem | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 集合中的第一個項目。 |
 
 下列範例會讀取 **otherMails** 宣告，並將第一個項目傳回到 **email** 宣告。 
 
@@ -120,4 +121,5 @@ ms.locfileid: "58123499"
   - **collection**["someone@outlook.com", "someone@contoso.com"]
 - 輸出宣告： 
   - **extractedItem**："someone@outlook.com"
+
 

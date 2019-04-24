@@ -11,12 +11,12 @@ ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6510105af8c019b1aca5333f516a10667edaadb5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245547"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect： 設定 AD DS 連接器帳戶權限 
 
@@ -69,13 +69,19 @@ Get-Command -Module AdSyncConfig
 
 每個 Cmdlet 都有會輸入 AD DS 連接器帳戶的相同參數，以及 AdminSDHolder 參數。 若要指定您的 AD DS 連接器帳戶，您可以提供帳戶名稱和網域，或僅提供帳戶辨別名稱 (DN)，
 
-例如： 
+例如：
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName ADaccount -ADConnectorAccountDomain Contoso`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <ADAccountName> -ADConnectorAccountDomain <ADDomainName>
+```
 
-或 
+或
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADaccount,OU=AADconnect,DC=Contoso,DC=com'`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
+```
+
+請務必取代`<ADAccountName>`，`<ADDomainName>`和`<ADAccountDN>`搭配適當的值，為您的環境。
 
 如果您不想修改 AdminSDHolder 容器的權限，請使用參數 `-SkipAdminSdHolders`。 
 

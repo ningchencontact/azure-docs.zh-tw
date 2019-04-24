@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: adb8917605a00208b328e7fd15f96d28c7838988
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201642"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>適用於 Azure SQL Data Sync 的 Data Sync Agent
 
@@ -326,7 +326,7 @@ SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -da
         -  [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   最佳做法 - [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
--   監視-[使用 Azure 監視器監視 SQL 資料同步記錄](sql-database-sync-monitor-oms.md)
+-   監視 - [使用 Azure 監視器記錄監視 SQL 資料同步](sql-database-sync-monitor-oms.md)
 -   疑難排解 - [為 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 -   更新同步結構描述
     -   使用 Transact-SQL - [在 Azure SQL 資料同步中自動執行結構描述變更複寫](sql-database-update-sync-schema.md)

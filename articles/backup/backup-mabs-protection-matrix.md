@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094638"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237607"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure 備份伺服器保護矩陣
 
@@ -22,7 +22,7 @@ ms.locfileid: "58094638"
 
 ## <a name="protection-support-matrix"></a>保護支援矩陣
 
-|工作負載|版本|Azure 備份伺服器</br> installation|Azure 備份</br> 伺服器 V3|Azure 備份</br> 伺服器 V2|保護和復原|
+|工作負載|Version|Azure 備份伺服器</br> installation|Azure 備份</br> 伺服器 V3|Azure 備份</br> 伺服器 V2|保護和復原|
 |------------|-----------|---------------|--------------|---------------|-----------------|
 |用戶端電腦 (64 位元和 32 位元)|Windows 10|實體伺服器<br /><br />Hyper-V 虛擬機器<br /><br />VMware 虛擬機器|Y|Y|磁碟區、共用、資料夾、檔案、已啟用重複資料刪除功能的磁碟區<br /><br />受保護的磁碟區必須是 NTFS。 不支援 FAT 和 FAT32。<br /><br />磁碟區至少必須是 1 GB。 DPM 使用磁碟區陰影複製服務 (VSS) 建立資料快照集，而且此快照集僅適用於磁碟區至少為 1 GB 時。|
 |用戶端電腦 (64 位元和 32 位元)|Windows 8.1|物理服务器<br /><br />Hyper-V 虚拟机|Y|Y|檔案<br /><br />受保護的磁碟區必須是 NTFS。 不支援 FAT 和 FAT32。<br /><br />磁碟區至少必須是 1 GB。 DPM 使用磁碟區陰影複製服務 (VSS) 建立資料快照集，而且此快照集僅適用於磁碟區至少為 1 GB 時。|

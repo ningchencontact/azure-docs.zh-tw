@@ -5,24 +5,24 @@ services: active-directory
 keywords: AADSTS70002, AADSTS50054, 如何重設 Azure AD Connect 同步處理連接器服務帳戶的密碼
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 07/12/2017
+ms.date: 11/08/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196345"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60350998"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect 同步：如何管理 Azure AD 服務帳戶
 Azure AD 連接器所使用的服務帳戶應該是免費的服務。 如果您需要重設其認證，則這個主題適合您。 例如，如果全域管理員不小心使用 PowerShell 重設了服務帳戶的密碼。
@@ -53,6 +53,7 @@ AADSTS70002：驗證認證時發生錯誤。 AADSTS50054：使用舊密碼進行
 ## <a name="next-steps"></a>後續步驟
 **概觀主題**
 
-* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
-* [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
+- [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
+- [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
+
 

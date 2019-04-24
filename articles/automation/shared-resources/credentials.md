@@ -10,11 +10,11 @@ ms.date: 04/12/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6465fd069e73a571e0671d528f5d0b4da4602dc7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499384"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自動化中的認證資產
 
@@ -155,5 +155,5 @@ print cred["password"]
 * 若要深入了解圖形化編寫中的連結，請參閱 [圖形化編寫中的連結](../automation-graphical-authoring-intro.md#links-and-workflow)
 * 若要了解使用自動化的不同驗證方法，請參閱 [Azure 自動化安全性](../automation-security-overview.md)
 * 若要开始使用图形 Runbook，请参阅 [My first graphical runbook](../automation-first-runbook-graphical.md)
-* 若要開始使用 PowerShell 工作流程 Runbook，請參閱 [我的第一個 PowerShell 工作流程 Runbook](../automation-first-runbook-textual.md)
+* 若要开始使用 PowerShell 工作流 Runbook，请参阅 [我的第一个 PowerShell 工作流 Runbook](../automation-first-runbook-textual.md)
 * 若要開始使用 Python2 Runbook，請參閱[我的第一個 Python2 Runbook](../automation-first-runbook-textual-python2.md) 

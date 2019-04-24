@@ -2,18 +2,19 @@
 title: 以無訊息方式安裝 Azure 備份伺服器 V2
 description: 使用 PowerShell 指令碼來以無訊息方式安裝 Azure 備份伺服器 V2。 這種安裝也稱為自動安裝。
 services: backup
-author: rayne-wiselman
-manager: carmonm
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: raynew
+origin.date: 11/13/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253845"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>執行 Azure 備份伺服器 2018 年 9 月2 的自動安裝
 
@@ -67,3 +68,5 @@ ms.locfileid: "58109843"
 - [使用備份伺服器來備份 VMware 伺服器](backup-azure-backup-server-vmware.md)
 - [使用备份服务器备份 SQL Server](backup-azure-sql-mabs.md)
 - [在備份伺服器中新增新式備份儲存體](backup-mabs-add-storage.md)
+
+<!-- Update_Description: link update -->

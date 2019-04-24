@@ -14,26 +14,26 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
 ms.openlocfilehash: dd1d2af174f93cceabccd62a78d45a0e4fbed502
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60305436"
 ---
-# <a name="azure-key-vault-availability-and-redundancy"></a>Azure 金鑰保存庫的可用性與備援
+# <a name="azure-key-vault-availability-and-redundancy"></a>Azure 密钥保管库可用性和冗余
 
-Azure 金鑰保存庫具備多層備援功能，以確保您的金鑰和密碼會保持可供應用程式使用，甚至在服務的個別元件失敗時也是如此。
+Azure 密钥保管库具有多层冗余功能，确保密钥和机密持续可供应用程序使用，即使服务的单个组件发生故障也是如此。
 
 金鑰保存庫的內容會在區域內複寫，以及複寫到至少距離 150 英哩但位於相同地理位置內的次要區域。 這可維持您金鑰和密碼的高持久性。 請參閱 [Azure 配對的區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)文件，以取得特定區域配對的詳細資料。
 
-如果金鑰保存庫服務內的個別元件失敗，則區域內的替代元件會接替來處理您的要求，以確保不會導致功能的效能降低。 您不需要採取任何動作以觸發這項功能。 它會以您無法察覺的方式自動發生。
+如果金鑰保存庫服務內的個別元件失敗，則區域內的替代元件會接替來處理您的要求，以確保不會導致功能的效能降低。 不需要采取任何措施即可触发此功能。 它會以您無法察覺的方式自動發生。
 
 在整個 Azure 區域都無法供使用的罕見情況下，您在該區域中所發出的「Azure 金鑰保存庫」要求會自動路由傳送 (容錯移轉) 到次要地區。 當主要區域再次可用時，要求就會路由傳送回 (容錯回復) 主要區域。 同樣地，您不需要採取任何動作，因為這會自動發生。
 
 有一些要注意的警告事項：
 
 * 發生區域容錯移轉時，可能需要幾分鐘讓服務進行容錯移轉。 在這段時間直到容錯移轉完成之前所發出的要求可能會失敗。
-* 容錯移轉完成之後，您的金鑰保存庫會處於唯讀模式。 在此模式中支援的要求是：
+* 容錯移轉完成之後，您的金鑰保存庫會處於唯讀模式。 在此模式下支持的请求包括：
   * 列出金鑰保存庫
   * 取得金鑰保存庫的屬性
   * 列出密碼

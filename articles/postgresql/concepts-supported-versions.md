@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: 5b06128979bf448a0b85084d5178d9291beb7691
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542780"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422060"
 ---
 # <a name="supported-postgresql-database-versions"></a>支援的 PostgreSQL 資料庫版本
 Microsoft 計劃在適用於 PostgreSQL 的 Azure 資料庫服務中支援 n-2 版本的 PostgreSQL 引擎。 版本會是 Azure 上目前的主要版本 (n) 和兩個先前的主要版本 (-2)。

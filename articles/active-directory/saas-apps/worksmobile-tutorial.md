@@ -17,11 +17,11 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c70df45f448502978254a60747eb168ea33dd86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60521467"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>教學課程：Azure Active Directory 與 LINE WORKS 整合
 
@@ -156,7 +156,7 @@ ms.locfileid: "57886298"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 **使用者名**欄位中，輸入**brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

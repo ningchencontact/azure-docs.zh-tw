@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251637"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 授權存取 Web 應用程式
 
@@ -97,7 +97,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_type |必要 |必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含其他 response_types，例如 `code` 或 `token`。 |
 | scope | 建議使用 | OpenID Connect 规范要求范围 `openid`，该范围在许可 UI 中会转换为“将你登录”权限。 在 v1.0 终结点上，此范围和其他 OIDC 范围会被忽略，但对符合标准的客户端而言仍是最佳做法。 |
 | nonce |必要 |包含在要求中的值 (由應用程式所產生)，將會包含在所得的 `id_token` 中來做為宣告。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是随机的唯一字符串或 GUID，可用以识别请求的来源。 |
-| redirect_uri | 建議使用 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 如果缺失，则会将用户代理随机发送回某个为应用注册的重定向 URI。 最大長度是 255 個位元組 |
+| redirect_uri | 建議使用 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 如果缺失，则会将用户代理随机发送回某个为应用注册的重定向 URI。 最大长度为 255 字节 |
 | response_mode |選用 |指定將產生的 authorization_code 傳回到應用程式所應該使用的方法。 支援的值為 `form_post` (*HTTP 表單張貼*) 和 `fragment` (*URL 片段*)。 針對 Web 應用程式，建議使用 `response_mode=form_post`，確保會以最安全的方式將權杖傳輸至您的應用程式。 包括 id_token 在內的任何流程預設值皆為 `fragment`。|
 | state |建議使用 |随令牌响应返回的请求中所包含的值。 可以是想要的任何内容的字符串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 该 state 也用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的网页或视图。 |
 | prompt |選用 |表示需要的用户交互类型。 目前只有 'login'、'none'、'consent' 是有效值。 `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。 `prompt=none` 則相反 - 它會確保不會對使用者顯示任何互動式提示。 如果無法透過單一登入以無訊息方式完成要求，端點就會傳回錯誤。 `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |

@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.subservice: develop
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: celested
+origin.date: 09/24/2018
+ms.date: 11/07/2018
+ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0ced89ce97d5f22270d9968fdeb0ddb3fad1e4e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194983"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252052"
 ---
 # <a name="service-to-service-apps"></a>服務對服務應用程式
 
@@ -63,8 +63,8 @@ ms.locfileid: "56194983"
 
 ## <a name="app-registration"></a>應用程式註冊
 
-* 單一租用戶 - 無論是應用程式識別或委派的使用者識別的情況，精靈或伺服器應用程式都必須註冊在 Azure AD 的相同目錄中。 Web API 可以設定為公開一組權限，用以限制精靈或伺服器應用程式對其資源的存取權。 如果使用委派的使用者識別類型，伺服器應用程式需要從 Azure 入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。 如果使用應用程式識別類型，則不需要此步驟。
-* 多租用戶 - 首先，設定精靈或伺服器應用程式來指出它運作所需的權限。 當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。 有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可以同意應用程式。 其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。 只有目錄管理員才能對需要此權限層級的應用程式表示同意。 當使用者或系統管理員同意時，這兩個 Web API 都會註冊在他們的目錄中。
+- 單一租用戶 - 無論是應用程式識別或委派的使用者識別的情況，精靈或伺服器應用程式都必須註冊在 Azure AD 的相同目錄中。 Web API 可以設定為公開一組權限，用以限制精靈或伺服器應用程式對其資源的存取權。 如果使用委派的使用者識別類型，伺服器應用程式需要從 Azure 入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。 如果使用應用程式識別類型，則不需要此步驟。
+- 多租用戶 - 首先，設定精靈或伺服器應用程式來指出它運作所需的權限。 當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。 有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可以同意應用程式。 其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。 只有目录管理员可以对需要此级别的权限的应用程序表示许可。 當使用者或系統管理員同意時，這兩個 Web API 都會註冊在他們的目錄中。
 
 ## <a name="token-expiration"></a>權杖到期
 
@@ -74,3 +74,4 @@ ms.locfileid: "56194983"
 
 - 深入了解其他[應用程式類型和案例](app-types.md)
 - 了解 Azure AD [驗證基本概念](authentication-scenarios.md)
+

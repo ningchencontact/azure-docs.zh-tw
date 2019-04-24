@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 2e168867ed342fb0b0545b5fdc330ba790f78de0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304383"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中將資料磁碟連結至虛擬機器或中斷連結
 [Azure 受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)會管理與虛擬機器資料磁碟相關聯的儲存體帳戶。 使用者將新的資料磁碟連結至 VM、指定所需的磁碟類型和大小，Azure 就會自動建立和管理磁碟。 之後資料磁碟可以從 VM 中斷連結，稍後再重新連結至相同的 VM，或連結至屬於相同使用者的不同 VM。

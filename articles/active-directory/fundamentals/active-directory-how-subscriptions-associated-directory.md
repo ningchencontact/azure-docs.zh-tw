@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248715"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>將 Azure 訂用帳戶關聯或新增至您的 Azure Active Directory 租用戶
 
@@ -76,7 +76,7 @@ Azure 訂用帳戶已與 Azure Active Directory (Azure AD)，這表示訂用帳�
 
 1. 如果您有任何金鑰保存庫，您必須變更金鑰保存庫租用戶識別碼。 如需詳細資訊，請參閱 <<c0> [ 訂用帳戶移動之後變更金鑰保存庫租用戶識別碼](../../key-vault/key-vault-subscription-move-fix.md)。
 
-2. 如果您已註冊 Azure Stack 中使用此訂用帳戶，您必須重新註冊。 如需詳細資訊，請參閱 <<c0> [ 向 Azure 註冊 Azure Stack](../../azure-stack/azure-stack-registration.md)。
+2. 如果您已註冊 Azure Stack 中使用此訂用帳戶，您必須重新註冊。 如需詳細資訊，請參閱 <<c0> [ 向 Azure 註冊 Azure Stack](/azure-stack/operator/azure-stack-registration)。
 
 
 

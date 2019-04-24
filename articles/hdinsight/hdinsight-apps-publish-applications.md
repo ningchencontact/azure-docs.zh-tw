@@ -1,7 +1,6 @@
 ---
 title: 發佈 Azure HDInsight 應用程式
 description: 了解如何建立 HDInsight 應用程式，然後將其發佈到 Azure Marketplace。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: fd6d47d8300872f5bcdf36aec492289f93858504
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253498"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>將 HDInsight 應用程式發佈到 Azure Marketplace
 您可以在以 Linux 為基礎的 HDInsight 叢集上安裝 Azure HDInsight 應用程式。 在此文章中，您會學習如何將 HDInsight 應用程式發佈到 Azure Marketplace。 如需發佈到 Azure Marketplace 的一般資訊，請參閱[將供應項目發佈到 Azure Marketplace](../marketplace/marketplace-publishers-guide.md)。
@@ -45,7 +44,7 @@ HDInsight 應用程式會使用「自備授權 (BYOL)」模型。 在 BYOL 案�
 }
 ```
 
-| 欄位 | 說明 | 可能的值 |
+| 欄位 | 描述 | 可能的值 |
 | --- | --- | --- |
 | types |與應用程式相容的叢集類型。 |Hadoop、HBase、Storm、Spark (或這些類型的任意組合) |
 | versions |與應用程式相容的 HDInsight 叢集類型。 |3.4 |

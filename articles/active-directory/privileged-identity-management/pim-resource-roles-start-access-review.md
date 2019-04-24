@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46903967b375d882dc3c7a62cd0b7f8b6059f8b3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286989"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>在 PIM 中起始 Azure 資源角色的存取權檢閱
 當使用者擁有不再需要的特殊存取權時，角色指派就會變成「過時」。 若要降低與這些過時角色指派相關聯的風險，特殊權限角色管理員應該定期檢閱角色。 本文件涵蓋在 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 開始存取權檢閱的步驟。

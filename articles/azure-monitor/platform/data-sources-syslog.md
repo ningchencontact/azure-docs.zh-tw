@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240820"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure 監視器中的 Syslog 資料來源
 Syslog 是通用於 Linux 的事件記錄通訊協定。 應用程式將傳送的訊息可能會儲存在本機電腦上，或傳遞到 Syslog 收集器。 安裝 Log Analytics Linux 代理程式時，它會設定本機 Syslog 精靈來將訊息轉送到代理程式。 然後，代理程式會將訊息傳送至 Azure 監視器 (建立相對應記錄的位置)。  
@@ -203,7 +203,7 @@ Syslog 記錄具有 **Syslog** 類型，以及下表中的屬性。
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 電腦 |收集事件的來源電腦。 |
+| Computer |收集事件的來源電腦。 |
 | Facility |定義產生訊息之系統的一部分。 |
 | HostIP |傳送訊息之系統的 IP 位址。 |
 | HostName |傳送訊息之系統的名稱。 |

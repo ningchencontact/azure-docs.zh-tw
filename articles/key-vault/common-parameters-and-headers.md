@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cc6c937e37ebb7919ca271e765ad6460c104e43b
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b420999dad6f34e4868013e2d466d8bacb60b2c6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405040"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306031"
 ---
 # <a name="common-parameters-and-headers"></a>通用參數和標頭
 
@@ -45,8 +45,8 @@ ms.locfileid: "57405040"
 
 |元素名稱 | 類型 | 描述 |
 |---|---|---|
-| code | 字串 | 所發生錯誤的類型。|
-| Message | 字串 | 造成錯誤之原因的描述。 |
+| code | string | 所發生錯誤的類型。|
+| Message | string | 造成錯誤之原因的描述。 |
 
 
 

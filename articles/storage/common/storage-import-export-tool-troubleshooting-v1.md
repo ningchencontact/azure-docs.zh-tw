@@ -9,11 +9,11 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 9a4e47143515c7f9c21d701809c35d61853d91ec
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320443"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>針對 Azure 匯入/匯出工具進行疑難排解
 如果發生問題，Microsoft Azure 匯入/匯出工具會傳回錯誤訊息。 本主題列出使用者可能會遇到的一些常見問題。  
@@ -35,6 +35,6 @@ ms.locfileid: "55471907"
  
 * [設定 Azure 匯入/匯出工具](../storage-import-export-tool-setup-v1.md)   
 * [針對匯入作業準備硬碟](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [利用複製記錄檔檢閱作業狀態](../storage-import-export-tool-reviewing-job-status-v1.md)   
+* [使用复制日志文件查看作业状态](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [修復匯入作業](../storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [修復匯出作業](../storage-import-export-tool-repairing-an-export-job-v1.md)

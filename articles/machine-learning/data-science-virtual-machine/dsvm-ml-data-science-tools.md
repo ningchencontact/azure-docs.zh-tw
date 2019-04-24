@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847360"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502078"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>機器學習與資料科學工具
 「Azure 資料科學虛擬機器」具有一組以各種熱門語言提供 (例如 Python、R 及 Julia)、適用於機器學習 (ML) 的豐富工具和程式庫。 

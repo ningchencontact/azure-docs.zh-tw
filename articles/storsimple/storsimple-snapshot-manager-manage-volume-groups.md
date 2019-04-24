@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23109846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303073"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>使用 StorSimple Snapshot Manager 來建立和管理磁碟區群組
 ## <a name="overview"></a>概觀
@@ -48,7 +48,7 @@ ms.locfileid: "23109846"
 ## <a name="view-volume-groups"></a>檢視磁碟區群組
 如果您按一下 [磁碟區群組] 節點，[結果] 窗格會顯示每個磁碟區群組的下列相關資訊，視您選擇的資料行而定。 您可以設定 [結果] 窗格中的資料行。 (以滑鼠右鍵按一下 [磁碟區] 節點，選取 [檢視]，然後選取 [新增/移除資料行]。)
 
-| 結果資料行 | 說明 |
+| 結果資料行 | 描述 |
 |:--- |:--- |
 | Name |[名稱]  資料行包含磁碟區群組的名稱。 |
 | Application |[應用程式]  資料行會顯示 Windows 主機上目前已安裝且正在執行的 VSS 寫入器數目。 |

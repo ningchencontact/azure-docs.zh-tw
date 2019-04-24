@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311112"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>為 DevTest Labs 虛擬機器建立自訂構件
 
@@ -57,7 +57,7 @@ ms.locfileid: "58116821"
 | --- | --- | --- |
 | $schema |否 |JSON 結構描述檔案的位置。 JSON 結構描述檔案可協助您測試定義檔是否有效。 |
 | title |是 |實驗室中顯示的構件名稱。 |
-| 說明 |是 |實驗室中顯示的構件說明。 |
+| description |是 |實驗室中顯示的構件說明。 |
 | iconUri |否 |實驗室中顯示的圖示 URI。 |
 | targetOsType |是 |構件安裝所在之 VM 的作業系統。 支援的選項為 Windows 和 Linux。 |
 | parameters |否 |在電腦上執行構件安裝命令時所提供的值。 這可協助您自訂構件。 |
@@ -80,7 +80,7 @@ ms.locfileid: "58116821"
 | --- | --- | --- |
 | type |是 |參數值類型。 請參閱下列清單以了解允許的類型。 |
 | displayName |是 |為實驗室中的使用者顯示的參數名稱。 |
-| 說明 |是 |在實驗室中顯示的參數說明。 |
+| description |是 |在實驗室中顯示的參數說明。 |
 
 允許的類型為：
 

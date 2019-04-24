@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 1102a8c80b0040c7044d64c674d956d339238623
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417345"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>將 Red Hat Enterprise Linux 7 虛擬機器加入受控網域
 本文說明如何將 Red Hat Enterprise Linux (RHEL) 7 虛擬機器加入 Azure AD 網域服務受控網域。
@@ -38,7 +38,7 @@ ms.locfileid: "58086644"
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>佈建 Red Hat Enterprise Linux 虛擬機器
 使用下列其中一個方法，在 Azure 中佈建 RHEL 7 虛擬機器：
-* [Azure 入口網站](../virtual-machines/linux/quick-create-portal.md)
+* [Azure 门户](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

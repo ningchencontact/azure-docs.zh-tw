@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 6324eb11b334fd6a00e30d6f2fc6d1bec3f7a82c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310005"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>還原 Azure SQL 資料倉儲 (PowerShell)
 > [!div class="op_single_selector"]
@@ -35,10 +35,10 @@ ms.locfileid: "57870818"
 **請驗證您的 DTU 容量。**  每個 SQL 資料倉儲均由具有預設 DTU 配額的 SQL 伺服器裝載 (例如 myserver.database.windows.net)。  在您還原 SQL 資料倉儲之前，請確認您的 SQL 伺服器有足夠的剩餘 DTU 配額供要還原的資料庫使用。 若要了解如何計算所需 DTU 或要求更多 DTU，請參閱[要求 DTU 配額變更][Request a DTU quota change]。
 
 ### <a name="install-powershell"></a>安裝 PowerShell
-若要使用 Azure PowerShell 與 SQL 資料倉儲，您必須安裝 Azure PowerShell。  您可以執行，以檢查您的版本**Get-module-ListAvailable-名稱 Az**。  如需安裝最新版本的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][How to install and configure Azure PowerShell]。
+若要对 SQL 数据仓库使用 Azure PowerShell，需要安装 Azure PowerShell。  可以通过运行 **Get-Module -ListAvailable -Name Az** 来检查版本。  如需安裝最新版本的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][How to install and configure Azure PowerShell]。
 
 ## <a name="restore-an-active-or-paused-database"></a>還原作用中或已暫停的資料庫
-若要從快照集使用還原資料庫[還原 AzSqlDatabase] [ Restore-AzSqlDatabase] PowerShell cmdlet。
+若要从快照还原数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell cmdlet。
 
 1. 開啟 Windows PowerShell。
 2. 連接到您的 Azure 帳戶，然後列出與您帳戶關聯的所有訂用帳戶。
@@ -86,7 +86,7 @@ $RestoredDatabase.status
 > 
 
 ## <a name="restore-a-deleted-database"></a>還原已刪除的資料庫
-若要還原已刪除的資料庫，請使用[還原 AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet。
+若要还原已删除的数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet。
 
 1. 開啟 Windows PowerShell。
 2. 连接到 Azure 帐户，并列出与帐户关联的所有订阅。
@@ -122,7 +122,7 @@ $RestoredDatabase.status
 > 
 
 ## <a name="restore-from-an-azure-geographical-region"></a>從 Azure 地理區域還原
-若要復原的資料庫，使用[還原 AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet。
+若要恢复数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet。
 
 > [!NOTE]
 > 您可以執行異地還原來還原至「針對計算最佳化」效能層級！ 若要這麼做，請指定一個「針對計算最佳化」ServiceObjectiveName 作為選擇性參數。 

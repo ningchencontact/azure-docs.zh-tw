@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254071"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure 監視器中的自訂計量
 
@@ -38,7 +38,7 @@ ms.locfileid: "58287259"
 > [!NOTE]  
 > 當您要求 Azure AD 權杖以發出自訂計量時，請確定所要求權杖的受眾或資源為 https://monitoring.azure.com/。 請務必包含尾端的斜線 '/'。
 
-### <a name="subject"></a>主體
+### <a name="subject"></a>Subject
 這個屬性會擷取所報告自訂計量的 Azure 資源識別碼。 此資訊會編碼在所進行 API 呼叫的 URL 中。 每個 API 都只能為單一的 Azure 資源提交計量值。
 
 > [!NOTE]  
@@ -60,7 +60,7 @@ ms.locfileid: "58287259"
 ### <a name="namespace"></a>命名空間
 命名空間是將類似計量分類或分組的方法。 您可以使用命名空間，將收集不同見解或效能指標的計量群組隔離。 比方說，您可能有稱為 **ContosoMemoryMetrics** 的命名空間，可追蹤用來分析應用程式的記憶體使用計量。 另一個稱為 **ContosoAppTransaction** 的命名空間可能會追蹤應用程式中有關使用者交易的所有計量。
 
-### <a name="name"></a>名稱
+### <a name="name"></a>Name
 **名稱**是要報告的計量名稱。 通常名稱的描述就足以協助識別所測量的項目。 舉例來說，可測量指定 VM 上所用記憶體位元組數目的計量。 其計量名稱可能為「使用中的記憶體位元組」。
 
 ### <a name="dimension-keys"></a>維度索引鍵

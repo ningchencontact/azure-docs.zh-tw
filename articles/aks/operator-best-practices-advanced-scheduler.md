@@ -2,17 +2,18 @@
 title: 運算子最佳做法 - Azure Kubernetes Services (AKS) 中的進階排程器功能
 description: 了解叢集運算子在 Azure Kubernetes Service (AKS) 中使用進階排程器功能 (如污點和容差、節點選取器和親和性，或 Inter-pod 親和性和反親和性) 的最佳作法
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.author: iainfou
+origin.date: 11/26/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464963"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中進階排程器功能的最佳做法
 
@@ -52,7 +53,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
   resources:
     requests:
       cpu: 0.5
@@ -95,7 +96,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -125,7 +126,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -151,7 +152,7 @@ spec:
 
 Kubernetes 排程器以邏輯方式隔離工作負載的最後一種方法，是使用 inter-pod 親和性或反親和性。 這些設定定義「不應該」在具有現有相符 pod 的節點上排程 pod，或者「應該」排程。 根據預設，Kubernetes 排程器會嘗試跨節點在複本集中排程多個 pod。 您可以圍繞此行為定義更特定的規則。
 
-也會使用 Azure Cache for Redis 的 Web 應用程式是一個很好的例子。 您可以使用 pod 反親和性的規則來要求 Kubernetes 排程器跨節點散發複本。 親和性規則接著可用來確定每個 web 應用程式元件排定在與對應的快取相同的主機上。 跨節點的 pod 散發如下例所示：
+也會使用 Azure Cache for Redis 的 Web 應用程式是一個很好的例子。 您可以使用 pod 反親和性的規則來要求 Kubernetes 排程器跨節點散發複本。 然后，可以使用关联规则来确保在相应缓存所在的同一主机上计划每个 Web 应用组件。 跨節點的 pod 散發如下例所示：
 
 | **節點 1** | **節點 2** | **節點 3** |
 |------------|------------|------------|

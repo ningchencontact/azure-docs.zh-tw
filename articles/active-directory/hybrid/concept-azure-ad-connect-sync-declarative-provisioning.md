@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60246448"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 同步：了解宣告式佈建
 本主題說明 Azure AD Connect 中的組態模型。 此模型稱為宣告式佈建，它可讓您輕鬆地進行組態變更。 本主題中所述的許多項目都是進階的，而且在大部分客戶案例中並非必要。
@@ -53,14 +53,14 @@ ms.locfileid: "56171820"
 
 範圍模組支援下列作業。
 
-| 作業 | 說明 |
+| 作業 | 描述 |
 | --- | --- |
-| EQUAL、NOTEQUAL |評估此值是否等於屬性值的字串比較。 若為多重值屬性，請參閱 ISIN 和 ISNOTIN。 |
+| EQUAL、NOTEQUAL |評估此值是否等於屬性值的字串比較。 对于多值属性，请参阅 ISIN 和 ISNOTIN。 |
 | LESSTHAN、LESSTHAN_OR_EQUAL |評估此值是否小於屬性值的字串比較。 |
 | CONTAINS、NOTCONTAINS |評估是否可在屬性值中找到此值的字串比較。 |
 | STARTSWITH、NOTSTARTSWITH |評估此值是否在屬性值開頭的字串比較。 |
 | ENDSWITH、NOTENDSWITH |評估此值是否在屬性值結尾的字串比較。 |
-| GREATERTHAN、GREATERTHAN_OR_EQUAL |評估此值是否大於屬性值的字串比較。 |
+| GREATERTHAN、GREATERTHAN_OR_EQUAL |计算某个值是否大于属性值的字符串比较。 |
 | ISNULL、ISNOTNULL |評估物件是否不存在此屬性。 如果屬性不存在，因而為 null，規則便在範圍中。 |
 | ISIN、ISNOTIN |判斷此值是否存在於定義的屬性中。 此作業是 EQUAL 和 NOTEQUAL 的多重值變化。 屬性應該是多重值的屬性，而如果可以在任何屬性值中找到此值，規則便在範圍中。 |
 | ISBITSET、ISNOTBITSET |評估是否已設定特定的位元。 例如，可用來評估 userAccountControl 中的位元，以查看使用者已啟用或停用。 |
@@ -73,9 +73,9 @@ ms.locfileid: "56171820"
 
 聯結大多數使用於輸入規則，以將連接器空間物件與相同的 Metaverse 物件聯結在一起。
 
-聯結會定義為一或多個群組。 在群組中，您有一些子句。 邏輯 AND 使用於群組中的所有子句之間。 邏輯 OR 使用於群組之間。 群組的處理順序為從上而下。 當一個群組在目標中恰巧找到一個相符的物件，則不會評估任何其他聯結規則。 如果找到零個或多個物件，則處理會繼續下一個規則群組。 基於這個理由，應該最先建立最明確的規則，而最後建立比較模糊的規則。  
+聯結會定義為一或多個群組。 在群組中，您有一些子句。 逻辑 AND 用于组中的所有子句之间。 邏輯 OR 使用於群組之間。 群組的處理順序為從上而下。 當一個群組在目標中恰巧找到一個相符的物件，則不會評估任何其他聯結規則。 如果找到零個或多個物件，則處理會繼續下一個規則群組。 基於這個理由，應該最先建立最明確的規則，而最後建立比較模糊的規則。  
 ![聯結定義](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
- 此圖中的聯結會從上而下處理。 首先，同步處理管線會查看是否有相符的 employeeID。 如果沒有，第二個規則會查看帳戶名稱是否可用來將物件聯結在一起。 如果也不相符，則第三個 (最後一個) 規則會使用使用者名稱尋找更模糊的相符項目。
+ 此圖中的聯結會從上而下處理。 首先，同步處理管線會查看是否有相符的 employeeID。 如果沒有，第二個規則會查看帳戶名稱是否可用來將物件聯結在一起。 如果也不是匹配项，则第三个（最后一个）规则会使用用户名查找更模糊的匹配项。
 
 如果所有聯結規則經評估後沒有完全相符的項目，則會使用 [說明] 頁面上的 [連結類型]。 如果此選項設定為 [佈建] ，則目標中會建立新的物件。  
 ![佈建或聯結](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
@@ -103,9 +103,9 @@ ms.locfileid: "56171820"
 
 ![合併類型](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
-另外還有 **Merge** 和 **MergeCaseInsensitive**。 這些選項可讓您合併來自不同來源的值。 例如，它可用於合併來自數個不同樹系的成員或 proxyAddresses 屬性。 當您使用此選項時，物件範圍中的所有同步處理規則必須使用相同的合併類型。 您不能定義從一個連接器 **Update** 和從另一個連接器 **Merge**。 如果您嘗試，您會收到錯誤。
+另外還有 **Merge** 和 **MergeCaseInsensitive**。 這些選項可讓您合併來自不同來源的值。 例如，它可用於合併來自數個不同樹系的成員或 proxyAddresses 屬性。 使用此选项时，对象范围内的所有同步规则都必须使用相同的合并类型。 您不能定義從一個連接器 **Update** 和從另一個連接器 **Merge**。 如果您嘗試，您會收到錯誤。
 
-**Merge** 和 **MergeCaseInsensitive** 之間的差異在於處理重複屬性值的方式。 同步處理引擎可確保不會將重複的值插入目標屬性中。 使用 [MergeCaseInsensitive] ，就不會出現只有大小寫差異的重複值。 例如，您不應該在目標屬性中同時看到 SMTP:bob@contoso.com 和 smtp:bob@contoso.com。  只會查看只可能出現大小寫差異的確切值和多個值。
+**Merge** 和 **MergeCaseInsensitive** 之間的差異在於處理重複屬性值的方式。 同步引擎可确保不会将重复的值插入目标属性。 使用“MergeCaseInsensitive” 可防止出现只有大小写差异的重复值。 例如，目标属性中无法同时看到 SMTP:bob@contoso.com 和 smtp:bob@contoso.com。  只会查看仅可能存在大小写差异的确切值和多个值。
 
 **Replace** 選項與 **Update** 相同，但未使用。
 
@@ -124,7 +124,7 @@ ms.locfileid: "56171820"
 
 在 *Out to AD - User Exchange hybrid* 可以找到下列流程：  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
- 此運算式的意思是︰如果使用者信箱位於 Azure AD 中，則將屬性從 Azure AD 傳送至 AD。 如果並非如此，請勿將任何項目送回 Active Directory。 在此情況下，它會在 AD 中保留現有的值。
+此表达式的意思是：如果用户邮箱位于 Azure AD 中，则将属性从 Azure AD 传递到 AD。 如果並非如此，請勿將任何項目送回 Active Directory。 在此情況下，它會在 AD 中保留現有的值。
 
 ### <a name="importedvalue"></a>ImportedValue
 函式 ImportedValue 與其他所有函式都不同，其屬性名稱必須以引號 (而非方括號) 括住：  
@@ -138,7 +138,7 @@ ms.locfileid: "56171820"
 ## <a name="precedence"></a>優先順序
 當數個同步處理規則嘗試將相同的屬性貢獻給目標時，則會使用優先順序值來決定獲得採用的規則。 具有最高優先順序 (最小數值) 的規則將會在衝突中貢獻此屬性。
 
-![合併類型](./media/concept-azure-ad-connect-sync-declarative-provisioning/precedence1.png)  
+![合并类型](./media/concept-azure-ad-connect-sync-declarative-provisioning/precedence1.png)  
 
 此排序方式可針對一小部分的物件，用來定義更精確的屬性流程。 例如，現成可用的規則會確定已啟用帳戶 (**User AccountEnabled**) 的屬性優先於其他帳戶的屬性。
 

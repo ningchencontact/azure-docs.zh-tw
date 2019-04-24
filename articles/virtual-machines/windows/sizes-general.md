@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 10/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: 972bee67c0b6ab7918557d37b054f98eb438ccbd
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: HT
+ms.openlocfilehash: 543629e8b14039ce6e9a229d7bd5be05ade4d3ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37903422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252174"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>一般用途的虛擬機器大小
 

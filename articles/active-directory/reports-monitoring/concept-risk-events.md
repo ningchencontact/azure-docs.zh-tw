@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fc505c8f14f4cc0e486502060a16af47c68bbc
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286827"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 風險事件
 
@@ -52,7 +52,7 @@ Azure Active Directory 目前會偵測六種風險事件類型：
 您針對偵測到風險事件所獲得的深入解析會與您的 Azure AD 訂用帳戶息息相關。 
 
 * 使用 **Azure AD Premium P2 版本**時，您會獲得有關所有基礎偵測的最詳細資訊。 
-* 使用 **Azure AD Premium P1 版本**時，您授權未涵蓋的偵測會顯示為偵測到**有額外風險的登入**風險事件。
+* 具有**Azure AD Premium P1 版本時**進階偵測 （例如不熟悉的登入內容） 未涵蓋在您的授權，而且會出現在 名稱**登入偵測到其他風險**. 此外，要隱藏的風險層級和風險詳細資料欄位。
 
 儘管偵測風險事件已經代表保護您身分識別的重要層面，但您還是可以選擇手動處理它們，或可藉由設定條件式存取原則來實作自動化回應。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)。
 

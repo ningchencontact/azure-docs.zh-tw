@@ -14,11 +14,11 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268348"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472954"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>使用雙步驟驗證或安全性資訊登入
 設定雙步驟驗證或安全性資訊之後，您將能夠使用您指定的驗證方法來登入帳戶。

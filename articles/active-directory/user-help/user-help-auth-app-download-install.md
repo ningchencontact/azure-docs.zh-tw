@@ -14,11 +14,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473816"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>下載並安裝 Microsoft Authenticator 應用程式
 >[!Important]
@@ -32,10 +32,10 @@ ms.locfileid: "58079799"
 
 - **手機登入。** 雙因素驗證的其中一個版本，可讓您以使用者名稱和行動裝置加上指紋、臉部或 PIN 來進行登入，而不必輸入密碼。
 
-- **產生的程式碼。** 為支援的驗證器應用程式的任何其他帳戶的程式碼產生器。
+- **產生的程式碼。** 為任何支援驗證器應用程式的其他帳戶產生程式碼。
 
 > [!Important]
-> Microsoft Authenticator 應用程式搭配使用雙因素驗證，並支援以時間為基礎的單次密碼 (TOTP) 標準的任何帳戶。
+> Microsoft Authenticator 應用程式適用於任何使用雙因素驗證且支援限時單次密碼 (TOTP) 標準的帳戶。
 > 
 > 貴組織可能要求您使用驗證器應用程式來登入和存取貴組織資料與文件。 雖然您的使用者名稱可能會出現在應用程式中，但直到您完成註冊程序，才會實際地設定此帳戶作為驗證方法。 如需詳細資訊，請參閱[新增您的公司或學校帳戶](user-help-auth-app-add-work-school-account.md)。
 > 

@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326056"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中設定 Always On 可用性群組的負載平衡器
 本文說明如何在使用 Azure Resource Manager 執行的 Azure 虛擬機器中建立 SQL Server AlwaysOn 可用性群組的負載平衡器。 當 SQL Server 執行個體位於 Azure 虛擬機器時，可用性群組需要負載平衡器。 负载均衡器存储可用性组侦听器的 IP 地址。 如果可用性群組跨越多個區域，則每個區域都需要負載平衡器。
@@ -63,7 +63,7 @@ ms.locfileid: "58107877"
 
 5. 在 [建立負載平衡器] 對話方塊中，依下列方式設定負載平衡器︰
 
-   | 設定 | 值 |
+   | 設定 | Value |
    | --- | --- |
    | **名稱** |代表負載平衡器的文字名稱。 例如 **sqlLB**。 |
    | **類型** |**內部**：大部分的實作都會使用內部負載平衡器，這可讓相同虛擬網路內的應用程式連線到可用性群組。  </br> **外部**：可讓應用程式透過公用網際網路連線來連線到可用性群組。 |
@@ -109,7 +109,7 @@ Azure 更新後端位址集區的設定。 您的可用性設定組現在有包�
 
 3. 在“添加探测”边栏选项卡上配置探测。 使用下列值來設定探查：
 
-   | 設定 | 值 |
+   | 設定 | Value |
    | --- | --- |
    | **名稱** |代表探查的文字名稱。 例如 **SQLAlwaysOnEndPointProbe**。 |
    | **通訊協定** |**TCP** |
@@ -135,7 +135,7 @@ Azure 會建立探查，然後使用它來測試那一個 SQL Server 執行個�
 
 3. 在 [新增負載平衡規則] 刀鋒視窗上，設定負載平衡規則。 使用以下设置： 
 
-   | 設定 | 值 |
+   | 設定 | Value |
    | --- | --- |
    | **名稱** |代表負載平衡規則的文字名稱。 例如 **SQLAlwaysOnEndPointListener**。 |
    | **通訊協定** |**TCP** |
@@ -221,7 +221,7 @@ SQLCMD 連線會自動連線到裝載主要複本的 SQL Server 執行個體。
 
 7. 使用下列設定來新增健康狀態探查︰
 
-   |設定 |值
+   |設定 |Value
    |:-----|:----
    |**名稱** |用於識別探查的名稱。
    |**通訊協定** |TCP
@@ -235,7 +235,7 @@ SQLCMD 連線會自動連線到裝載主要複本的 SQL Server 執行個體。
 
 10. 使用下列設定來設定新的負載平衡規則：
 
-    |設定 |值
+    |設定 |Value
     |:-----|:----
     |**名稱** |用於識別負載平衡規則的名稱。 
     |**前端 IP 位址** |選取您所建立的 IP 位址。 
@@ -246,7 +246,7 @@ SQLCMD 連線會自動連線到裝載主要複本的 SQL Server 執行個體。
     |运行状况探测 |選擇您所建立的探查。
     |**会话持久性** |None
     |**空闲超时(分钟)** |預設值 (4)
-    |**浮动 IP (直接服务器返回)** | 已啟用
+    |**浮动 IP (直接服务器返回)** | Enabled
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>設定可用性群組以使用新的 IP 位址
 
@@ -284,7 +284,7 @@ SQLCMD 連線會自動連線到裝載主要複本的 SQL Server 執行個體。
 
 1. 使用下列設定來建立負載平衡規則：
 
-   |設定 |值
+   |設定 |Value
    |:-----|:----
    |**名稱** |用來識別分散式可用性群組之負載平衡規則的名稱。 
    |**前端 IP 位址** |使用和可用性群組相同的前端 IP 位址。
@@ -295,7 +295,7 @@ SQLCMD 連線會自動連線到裝載主要複本的 SQL Server 執行個體。
    |运行状况探测 |選擇您所建立的探查。
    |**会话持久性** |None
    |**空闲超时(分钟)** |預設值 (4)
-   |**浮动 IP (直接服务器返回)** | 已啟用
+   |**浮动 IP (直接服务器返回)** | Enabled
 
 針對其他加入分散式可用性群組之可用性群組上的負載平衡器重複這些步驟。
 

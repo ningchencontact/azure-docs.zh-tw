@@ -3,8 +3,8 @@ title: 針對 VPN 閘道設定和連線進行疑難排解 | Microsoft Docs
 description: 本文可協助您連結至針對 VPN 閘道設定和連線進行疑難排解及驗證輸送量的文章。
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
-ms.author: cherylmc
-ms.openlocfilehash: bb1074e361610cf3a8810aaeeb83717f791eb8bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+origin.date: 01/31/2018
+ms.date: 04/01/2018
+ms.author: v-jay
+ms.openlocfilehash: 263c1010ec6cf5f6140c4dc9323dd9bd149b2368
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28934650"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456387"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>針對 VPN 閘道進行疑難排解
 

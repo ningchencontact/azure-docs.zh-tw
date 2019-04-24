@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
 ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240217"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -213,7 +213,7 @@ $ mount [RAID Disk Path] [/mountpath]
 
 指令碼也需要 Python 和 Bash 元件，才能夠執行並安全地連線至復原點。
 
-|元件 | 版本  |
+|元件 | Version  |
 | --------------- | ---- |
 | Bash | 4 和更新版本 |
 | Python | 2.6.6 和更新版本  |

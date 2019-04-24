@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245484"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 同步：了解使用者、群組和連絡人
 您可能有幾種不同的原因，而擁有多個 Active Directory 樹系並且具有幾種不同的部署拓撲。 常見的模型包括合併與收購之後的帳戶-資源部署與 GAL 同步處理的樹系。 雖然有單純的模型，但混合模型也同樣常見。 Azure AD Connect 同步處理中的預設組態不會採用任何特定的模型，但是根據在安裝指南中選取使用者比對的方式，可以觀察到不同的行為。
@@ -51,9 +51,9 @@ ms.locfileid: "57993378"
     
       * proxyAddress 屬性值為 *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* 的 Active Directory 群組在 Azure AD 中不會擁有郵件功能。 該群組沒有 SMTP 位址。
       
-      * ProxyAddress 屬性有值的 Active Directory 群組 *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe\@contoso.com"}* 會在 Azure AD 中擁有郵件功能。
+      * 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe\@contoso.com"}* 的 Active Directory 组在 Azure AD 中会启用邮件。
       
-      * ProxyAddress 屬性有值的 Active Directory 群組 *{"X500:/0=contoso.com/ou=users/cn=testgroup"，"smtp:johndoe\@contoso.com"}* 也會在 Azure AD 中擁有郵件功能。
+      * 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"}* 的 Active Directory 组在 Azure AD 中也会启用邮件。
 
 ## <a name="contacts"></a>連絡人
 在合併與收購時使用 GALSync 解決方案橋接兩個或多個 Exchange 樹系之後，常會有多個連絡人代表不同樹系中的某個使用者。 連絡人物件一律從連接器空間使用 mail 屬性加入 Metaverse。 如果已經有具相同郵件地址的連絡人物件或使用者物件，則物件會一起加入。 這設定在規則 **In from AD – Contact Join**中。 另外還有一個名為 **In from AD - Contact Common** 的規則，其屬性流程是使用常數 **Contact** 提供給 Metaverse 屬性 **sourceObjectType**。 此規則的優先順序非常低，因此，如果已將任何使用者物件聯結到同一個 Metaverse 物件，則規則 **In from AD – User Common** 會提供 User 值給這個屬性。 有了這項規則，如果沒有使用者加入，此屬性的值就會是 Contact，如果至少找到了一個使用者，則屬性的值就會是 User。

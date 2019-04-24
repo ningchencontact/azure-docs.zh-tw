@@ -17,11 +17,11 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 660d05146e82ab85136cac715b56cb1ee89b002f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292915"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>透過 Microsoft Teams 存取內部部署應用程式
 

@@ -14,11 +14,11 @@ ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c2bffad4254815d2ed51d9bbc14b32a521b5537
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248466"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>使用 Azure Active Directory 群組來管理應用程式和資源的存取權
 Azure Active Directory (Azure AD) 可協助您使用貴組織的群組來管理雲端式應用程式、內部部署應用程式以及資源。 資源既可以是目錄的一部分 (例如，透過目錄中的角色來管理物件的權限)，也可以在目錄外部 (例如，用於軟體即服務 (SaaS) 應用程式、Azure 服務、SharePoint 網站以及內部部署資源)。

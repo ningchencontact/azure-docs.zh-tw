@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
 ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303766"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>在 Azure Logic Apps 中利用區塊化處理大型訊息
 
@@ -117,18 +117,18 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
 1. 您的邏輯應用程式送包含空白訊息本文的起始 HTTP POST 或 PUT 要求。 要求標頭會包含此資訊，提其您邏輯應用程式想要以區塊上傳的內容：
 
-   | Logic Apps 要求標頭欄位 | 值 | 類型 | 說明 |
+   | Logic Apps 要求標頭欄位 | Value | 類型 | 描述 |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | chunked | 字串 | 指出內容以區塊上傳 |
+   | **x-ms-transfer-mode** | chunked | String | 指出內容以區塊上傳 |
    | **x-ms-content-length** | <*content-length*> | 整數  | 進行區塊化前的所有內容大小 (位元組) |
    ||||
 
 2. 端點回應 "200" 成功狀態碼和此選擇性資訊：
 
-   | 端點回應標頭欄位 | 類型 | 必要 | 說明 |
+   | 端點回應標頭欄位 | 類型 | 必要項 | 描述 |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | 整數  | 否 | 建議的區塊大小 (位元組) |
-   | **位置** | 字串 | 否 | 傳送 HTTP PATCH 訊息的 URL 位置 |
+   | **位置** | String | 否 | 傳送 HTTP PATCH 訊息的 URL 位置 |
    ||||
 
 3. 您的邏輯應用程式建立並傳送後續 HTTP PATCH 訊息，每項訊息都帶有此資訊：
@@ -137,11 +137,11 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
    * 這些與內容區塊相關的標題詳細資料會在各個 PATCH 訊息中傳出：
 
-     | Logic Apps 要求標頭欄位 | 值 | 類型 | 說明 |
+     | Logic Apps 要求標頭欄位 | Value | 類型 | 描述 |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | 字串 | 目前內容區塊的位元組範圍，包含開始值、結束值和內容大小總計，例如："bytes=0-1023/10100" |
-     | **Content-Type** | <*content-type*> | 字串 | 分塊內容的類型 |
-     | **Content-Length** | <*content-length*> | 字串 | 目前區塊的大小長度 (位元組) |
+     | **Content-Range** | <*range*> | String | 目前內容區塊的位元組範圍，包含開始值、結束值和內容大小總計，例如："bytes=0-1023/10100" |
+     | **Content-Type** | <*content-type*> | String | 分塊內容的類型 |
+     | **Content-Length** | <*content-length*> | String | 目前區塊的大小長度 (位元組) |
      |||||
 
 4. 端點會在收到每項 PATCH 要求之後回應 "200" 狀態碼，來確認各區塊的接收狀況。

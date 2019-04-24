@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236412"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>從 Excel、Python 或 R 連線到 Azure Databricks
 
@@ -54,7 +54,7 @@ ms.locfileid: "52995625"
 
     下表說明要在對話方塊中提供的值。
     
-    |欄位  | 值  |
+    |欄位  | Value  |
     |---------|---------|
     |**資料來源名稱**     | 提供資料來源的名稱。        |
     |**主機**     | 提供您在 Databricks 工作區複製的「伺服器主機名稱」值。        |

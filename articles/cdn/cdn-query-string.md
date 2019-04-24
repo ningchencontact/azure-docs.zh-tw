@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: f0dab3dc81c626e3e7f8c79b4142e5eb4f2a1276
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324738"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>使用查詢字串來控制 Azure CDN 快取行為 - 標準層
 > [!div class="op_single_selector"]
@@ -37,9 +37,9 @@ ms.locfileid: "49093794"
 
 - **忽略查詢字串**：預設模式。 在此模式中，CDN 存在點 (POP) 節點會在發生第一次要求時，將來自要求者的查詢字串傳遞給原始伺服器並快取資產。 所有後續對該資產提出並由 POP 提供服務的要求則會忽略查詢字串，直到所快取的資產到期為止。
 
-- **略過查詢字串快取**：在此模式中，不會在 CDN POP 節點快取包含查詢字串的要求。 POP 節點會直接從原始伺服器擷取資產，然後隨著每個要求將其傳遞給要求者。
+- **略過查詢字串快取**:在此模式中，包含查詢字串的要求不會在 CDN POP 節點快取。 POP 節點會直接從原始伺服器擷取資產，然後隨著每個要求將其傳遞給要求者。
 
-- **快取所有不重複的 URL**：在此模式中，每個要求都有一個唯一的 URL (包含查詢字串)，會被視為具有專屬快取的唯一資產。 例如，系統會將原始伺服器對 example.ashx?q=test1 要求做出的回應快取在 POP 節點，然後針對後續具有相同查詢字串的快取傳回此回應。 針對 example.ashx?q=test2 的要求，系統會將其快取為具有專屬存留時間設定的個別資產。
+- **快取所有不重複的 URL**：在此模式下，每個具有唯一 URL (包含查詢字串) 的要求都會被視為具有專屬快取的唯一資產。 例如，系統會將原始伺服器對 example.ashx?q=test1 要求做出的回應快取在 POP 節點，然後針對後續具有相同查詢字串的快取傳回此回應。 針對 example.ashx?q=test2 的要求，系統會將其快取為具有專屬存留時間設定的個別資產。
    
     >[!IMPORTANT] 
     > 當查詢字串包含會隨著每個要求變更的參數 (例如工作階段識別碼或使用者名稱) 時，請勿使用此模式，因為這會造成快取命中率偏低。
