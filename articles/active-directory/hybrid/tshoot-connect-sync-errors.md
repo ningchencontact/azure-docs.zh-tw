@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2ba74961eb549afd2fcf7c10f2d8b981e389a2c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381626"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>針對同步處理期間的錯誤進行疑難排解
 將身分識別資料從 Windows Server Active Directory (AD DS) 同步處理至 Azure Active Directory (Azure AD) 時，可能會發生錯誤。 本文提供不同類型的同步處理錯誤概觀、某些可能導致這些錯誤的案例，以及修正錯誤的可能方式。 本文包含常見的錯誤類型，不一定涵蓋所有可能的錯誤。
@@ -72,14 +72,14 @@ Azure Active Directory 架构不允许两个或更多个对象的以下属性使
 
 #### <a name="example-case"></a>案例：
 1. **Bob Smith** 是 Azure Active Directory 中已從 *contoso.com* 的內部部署 Active Directory 同步處理的使用者
-2. Bob Smith **UserPrincipalName**設定為**bobs\@contoso.com**。
+2. Bob Smith 的 **UserPrincipalName** 设置为 **bobs\@contoso.com**。
 3. **"abcdefghijklmnopqrstuv=="** 是 Azure AD Connect 使用 Bob Smith 的 **objectGUID** 從內部部署 Active Directory 計算的 **SourceAnchor**，這是 Azure Active Directory 中 Bob Smith 的 **immutableId**。
 4. Bob 也具有 **proxyAddresses** 屬性的下列值︰
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
    * **smtp: bob\@contoso.com**
 5. 新使用者 **Bob Taylor** 已新增至內部部署 Active Directory。
-6. Bob Taylor **UserPrincipalName**設定為**bobt\@contoso.com**。
+6. Bob Taylor 的 **UserPrincipalName** 设置为 **bobt\@contoso.com**。
 7. **"abcdefghijkl0123456789==""** 是 Azure AD Connect 使用 Bob Taylor 的 **objectGUID** 從內部部署 Active Directory 計算的 **sourceAnchor**。 Bob Taylor 的物件尚未同步處理至 Azure Active Directory。
 8. Bob Taylor 具有 proxyAddresses 屬性的下列值︰
    * smtp: bobt@contoso.com
@@ -116,8 +116,8 @@ Azure AD Connect Health 進行同步處理的同步處理錯誤報告每隔 30 �
 * 在 Office 365 中建立擁有郵件功能的安全性群組。 系統管理員會使用與 Office 365 群組相同的 ProxyAddresses 屬性值，在內部部署 AD (尚未同步處理至 Azure AD) 中新增使用者或連絡人。
 
 #### <a name="example-case"></a>案例
-1. 系統管理員在 Office 365 中針對稅務部門建立擁有郵件功能的新安全性群組，並為其提供電子郵件地址 tax@contoso.com。 此群組指派的 ProxyAddresses 屬性值**smtp： 稅務\@contoso.com**
-2. 新的使用者加入 Contoso.com，並在內部部署環境與 proxyAddress 為使用者建立帳戶**smtp： 稅務\@contoso.com**
+1. 系統管理員在 Office 365 中針對稅務部門建立擁有郵件功能的新安全性群組，並為其提供電子郵件地址 tax@contoso.com。 为此组分配的 ProxyAddresses 属性值为 **smtp: tax\@contoso.com**
+2. 有一个新用户加入了 Contoso.com，管理员在本地为该用户创建了 proxyAddress 为 **smtp: tax\@contoso.com** 的帐户
 3. 當 Azure AD Connect 將同步處理新的使用者帳戶時，它會收到 "ObjectTypeMismatch" 錯誤。
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>如何修正 ObjectTypeMismatch 錯誤
@@ -143,13 +143,13 @@ Azure Active Directory 結構描述不允許兩個或多個物件的下列屬性
 
 #### <a name="example-case"></a>範例案例︰
 1. **Bob Smith** 是 Azure Active Directory 中已從 contoso.com 的內部部署 Active Directory 同步處理的使用者
-2. Bob Smith **UserPrincipalName**在內部部署環境設定為**bobs\@contoso.com**。
+2. Bob Smith 在本地的 **UserPrincipalName** 设置为 **bobs\@contoso.com**。
 3. Bob 也具有 **proxyAddresses** 屬性的下列值︰
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
    * **smtp: bob\@contoso.com**
 4. 新使用者 **Bob Taylor** 已新增至內部部署 Active Directory。
-5. Bob Taylor **UserPrincipalName**設定為**bobt\@contoso.com**。
+5. Bob Taylor 的 **UserPrincipalName** 设置为 **bobt\@contoso.com**。
 6. **Bob Taylor** 具有 **ProxyAddresses** 屬性的下列值。i. smtp: bobt@contoso.com ii. smtp: bob.taylor@contoso.com
 7. Bob Taylor 物件已成功與 Azure AD 同步處理。
 8. 系統管理員決定使用下列的值更新 Bob Taylor 的 **ProxyAddresses** 屬性︰i. **smtp: bob\@contoso.com**
@@ -186,7 +186,7 @@ a. 確定 userPrincipalName 屬性具有支援的字元和所需的格式。
 這種情況會在使用者的 UserPrincipalName 尾碼從一個同盟網域變更為另一個同盟網域時，導致發生 **"FederatedDomainChangeError"** 同步處理錯誤。
 
 #### <a name="scenarios"></a>案例
-對於已同步處理的使用者，UserPrincipalName 尾碼從一個同盟網域變更為另一個內部部署的同盟網域。 例如， *UserPrincipalName = bob\@contoso.com*已變更為*UserPrincipalName = bob\@fabrikam.com*。
+對於已同步處理的使用者，UserPrincipalName 尾碼從一個同盟網域變更為另一個內部部署的同盟網域。 例如，*UserPrincipalName = bob\@contoso.com* 已更改为 *UserPrincipalName = bob\@fabrikam.com*。
 
 #### <a name="example"></a>範例
 1. Bob Smith (contoso.com 的帳戶) 新增為 Active Directory 中具有 UserPrincipalName bob@contoso.com 的新使用者
@@ -195,7 +195,7 @@ a. 確定 userPrincipalName 屬性具有支援的字元和所需的格式。
 4. Bob 的 userPrincipalName 並不會更新，而導致發生 "FederatedDomainChangeError" 同步處理錯誤。
 
 #### <a name="how-to-fix"></a>修正方式
-如果更新使用者的 Principalname suffix 尾碼從 bob @**contoso.com**到 bob\@**fabrikam.com**，其中兩者**contoso.com**和**fabrikam.com**都**同盟網域**，然後遵循下列步驟來修正同步錯誤
+如果用户的 UserPrincipalName 后缀已从 bob@**contoso.com** 更新为 bob\@**fabrikam.com**，并且 **contoso.com** 和 **fabrikam.com** 都是**联合域**，则执行以下步骤可以解决同步错误
 
 1. 將 Azure AD 中使用者的 UserPrincipalName 從 bob@contoso.com 更新為 bob@contoso.onmicrosoft.com。 您可以使用以下 PowerShell 命令搭配 Azure AD PowerShell 模組：`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. 允许下一个同步周期尝试同步。 这一次，同步会成功，并且会按预期将 Bob 的 UserPrincipalName 更新为 bob@fabrikam.com 。

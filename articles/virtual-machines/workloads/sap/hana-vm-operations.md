@@ -17,11 +17,11 @@ ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: acccc553c5b63b2acd0f9793b0397b25145449dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477371"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>SAP HANA 在 Azure 上的基礎結構設定和作業
 本文章提供有關如何設定 Azure 基礎結構和操作 Azure 的原生虛擬機器 (Vm) 部署的 SAP HANA 系統的指引。 這篇文章也包含 SAP HANA 相應放大 M128s VM sku 的組態資訊。 這篇文章不旨在取代標準 SAP 文件，其中包含下列內容：

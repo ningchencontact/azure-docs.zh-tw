@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: 8f252b536c80ad997f3c0eb10b10d5cb8c330fc6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401743"
 ---
 # <a name="localization"></a>當地語系化
 
@@ -39,13 +40,13 @@ ms.locfileid: "55187550"
 
 **Localization** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| 已啟用 | 否 | 可能的值：`true` 或 `false`。 |
+| Enabled | 否 | 可能的值：`true` 或 `false`。 |
 
 **Localization** 元素包含下列 XML 元素
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | SupportedLanguages | 1:n | 支援語言清單。 | 
 | LocalizedResources | 0:n | 當地語系化資源的清單。 |
@@ -54,7 +55,7 @@ ms.locfileid: "55187550"
 
 **SupportedLanguages** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | DefaultLanguage | 是 | 用來做為當地語系化資源的預設語言。 |
 | MergeBehavior | 否 | 列舉值，這些值是與具有相同識別碼之父代原則中存在的 ClaimType 合併的值。 在覆寫基本原則中指定的宣告時，請使用這個屬性。 可能的值：`Append`、`Prepend` 或 `ReplaceAll`。 `Append` 值指定應該在父代原則中指定的集合結尾後，附加上存在的資料集合。 `Prepend` 值指定應該在父代原則中指定的集合之前，新增存在的資料集合。 `ReplaceAll` 值指定應該忽略父代原則中定義的資料集合，而改用目前原則中定義的資料。 |
@@ -63,7 +64,7 @@ ms.locfileid: "55187550"
 
 **SupportedLanguages** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | SupportedLanguage | 1:n | 根據 RFC 5646 顯示符合語言標記的內容 - 識別語言的標記。 | 
 
@@ -71,13 +72,13 @@ ms.locfileid: "55187550"
 
 **LocalizedResources** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | id | 是 | 用來唯一識別當地語系化資源的識別碼。 |
 
 **LocalizedResources** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | LocalizedCollections | 0:n | 定義不同文化中的整個集合。 對於不同的文化特性，集合可以有不同數量的項目和不同的字串。 集合範例會包含宣告類型中出現的列舉。 例如在下拉式清單中，會向使用者顯示國家/地區清單。 |
 | LocalizedStrings | 0:n | 定義各種文化特性中的所有字串，出現在集合中的字串除外。 |
@@ -86,7 +87,7 @@ ms.locfileid: "55187550"
 
 **LocalizedCollections** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | LocalizedCollection | 1:n | 支援語言清單。 |
 
@@ -94,7 +95,7 @@ ms.locfileid: "55187550"
 
 **LocalizedCollection** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | ElementType | 是 | 參考原則檔中的 ClaimType 元素或使用者介面元素。 |
 | ElementId | 是 | 此字串包含對 ClaimsSchema 區段中已定義的宣告類型，如果 **ElementType** 設為 ClaimType，則會使用該字串。 |
@@ -102,16 +103,16 @@ ms.locfileid: "55187550"
 
 **LocalizedCollection** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | Item | 0:n | 定義在使用者介面中可供使用者選取的某個宣告選項，例如下拉式清單中的值。 |
 
 **Item** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| 文字 | 是 | 此選項應會在使用者介面中向使用者顯示的易記顯示字串。 |
-| 值 | 是 | 與選取此選項相關聯的字串宣告值。 |
+| Text | 是 | 此選項應會在使用者介面中向使用者顯示的易記顯示字串。 |
+| Value | 是 | 與選取此選項相關聯的字串宣告值。 |
 
 下列範例顯示 **LocalizedCollections** 元素的用法。 其包含兩個 **LocalizedCollection** 元素，一個適用於英文，另一個適用於西班牙文。 兩者皆會使用英文和西班牙文的項目清單，設定宣告 `Gender` 的**限制**集合。
 
@@ -138,13 +139,13 @@ ms.locfileid: "55187550"
 
 **LocalizedStrings** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | LocalizedString | 1:n | 當地語系化的字串。 |
 
 **LocalizedString** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | ElementType | 是 | 參考原則中的宣告類型元素或使用者介面元素。 可能的值：`ClaimType`、`UxElement`、`ErrorMessage`、`Predicate` 或  。 `ClaimType` 值用於將其中一個宣告屬性當地語系化，如 StringId 中所指定。 `UxElement` 值用於將其中一個使用者介面元素當地語系化，如 StringId 中所指定。 `ErrorMessage` 值用於將其中一個系統錯誤訊息當地語系化，如 StringId 中所指定。 `Predicate` 值用於將其中一個 [Predicate](predicates.md) 錯誤訊息當地語系化，如 StringId 中所指定。 `InputValidation` 值用於將其中一個 [PredicateValidation](predicates.md) 群組錯誤訊息當地語系化，如 StringId 中所指定。 |
 | ElementId | 是 | 如果 **ElementType** 設為 `ClaimType``Predicate` 或 `InputValidation`，則此元素會包含對 ClaimsSchema 區段中已定義之宣告類型的參考。 | 
@@ -363,6 +364,7 @@ ms.locfileid: "55187550"
   </Localization>
 </BuildingBlocks>
 ```
+
 
 
 

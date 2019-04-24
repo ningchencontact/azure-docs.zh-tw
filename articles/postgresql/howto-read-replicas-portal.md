@@ -1,17 +1,18 @@
 ---
 title: 從 Azure 入口網站管理適用於 PostgreSQL 的 Azure 資料庫讀取複本
 description: 了解如何從 Azure 入口網站管理適用於 PostgreSQL 的 Azure 資料庫讀取複本。
-author: rachel-msft
-ms.author: raagyema
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
+origin.date: 04/01/2019
+ms.date: 04/22/2019
 ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787658"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420666"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>從 Azure 入口網站建立及管理讀取複本
 

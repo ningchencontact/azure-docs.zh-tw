@@ -10,11 +10,11 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019
 ms.openlocfilehash: f7e5881b5b046379b4c79252489a4b3dd8eb1cad
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502080"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio"></a>取得 Azure Machine Learning Studio 的支援和訓練
 
@@ -39,6 +39,6 @@ ms.locfileid: "55453241"
 
 + **使用者論壇**：在 [MSDN 上的 Azure Machine Learning Studio 支援論壇](https://aka.ms/aml-forum-studio)中提出問題、回答問題，以及與其他使用者交流。
 
-+ **Stack Overflow**：造訪 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) 上標籤為 "Azure-Machine-Learning" 的 Azure Machine Learning 社群。
++ **Stack Overflow** \(英文\)：造訪 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) 上標籤為 "Azure-Machine-Learning" 的 Azure Machine Learning 社群。
 
 + 在我們的 [Azure Machine Learning 意見反應通道](https://feedback.azure.com/forums/257792-machine-learning) \(英文\) 中**分享產品建議**和功能要求。 若要分享您想法，請選取每篇文章底部的 [產品意見反應] 按鈕。

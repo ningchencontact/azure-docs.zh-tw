@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f5127342f97a90103ef56efbd7465832440ec0f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381777"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>快速入門：針對 Azure Active Directory Identity Protection 偵測到工作階段風險時封鎖存取  
 
@@ -67,7 +67,7 @@ ms.locfileid: "58521800"
 
 此節說明如何建立必要的登入風險條件式存取原則。 為您的原則進行下列設定：
 
-|設定 |值|
+|設定 |Value|
 |---     | --- |
 | 使用者  | Alain Charon  |
 | 條件 | 登入風險，中 (含) 以上 |

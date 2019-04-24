@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506532"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>為 StorSimple 8000 系列裝置部署 StorSimple 裝置管理員服務
 
@@ -124,7 +124,7 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 變更服務資料加密金鑰分成 3 個步驟：
 
 1. 使用 Azure Resource Manager 的 Windows PowerShell 指令碼，授權裝置以變更服務資料加密金鑰。
-2. 使用適用於 StorSimple 的 Windows PowerShell，起始服務資料加密金鑰變更。
+2. 使用 Windows PowerShell for StorSimple，起始服務資料加密金鑰變更。
 3. 如果您有一個以上的 StorSimple 裝置，請在其他裝置上更新服務資料加密金鑰。
 
 ### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>步驟 1：使用 Windows PowerShell 指令碼，授權裝置以變更服務資料加密金鑰
@@ -144,7 +144,7 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 * 如果有些已向服務註冊的裝置已變換加密，而某些裝置還沒有，則您可以授權裝置。 
 
 ### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>步驟 2：使用適用於 StorSimple 的 Windows PowerShell 起始服務資料加密金鑰變更
-這個步驟是在適用於 StorSimple 的 Windows PowerShell 介面中，對已獲授權的 StorSimple 裝置執行。
+這個步驟是在 Windows PowerShell for StorSimple 介面中，對已獲授權的 StorSimple 裝置執行。
 
 > [!NOTE]
 > 除非金鑰變換完成，否則無法在 Azure 入口網站對 StorSimple Manager 服務執行任何作業。
@@ -174,7 +174,7 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 請執行下列步驟，在您的裝置上更新服務資料加密。
 
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>若要在實體裝置上更新服務資料加密金鑰
-1. 使用適用於 StorSimple 的 Windows PowerShell 連線到主控台。 選取選項 1 以使用完整存取權登入。
+1. 使用 Windows PowerShell for StorSimple 連線到主控台。 選取選項 1 以使用完整存取權登入。
 2. 在命令提示字元中，輸入：`Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. 提供您在[步驟 2：使用適用於 StorSimple 的 Windows PowerShell 起始服務資料加密金鑰變更](#to-initiate-the-service-data-encryption-key-change)中取得的服務資料加密金鑰。
 

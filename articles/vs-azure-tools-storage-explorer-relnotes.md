@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fc05c5c5917667d4bd9c869c9370ac952893ab26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456202"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
@@ -30,37 +30,37 @@ ms.locfileid: "58088038"
 ## <a name="version-170"></a>1.7.0 版
 3/5/2019
 
-### <a name="download-azure-storage-explorer-170"></a>下載 Azure 儲存體總管 1.7.0
-- [適用於 Windows azure 儲存體總管 1.7.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac 的 azure 儲存體總管 1.7.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 azure 儲存體總管 1.7.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-170"></a>下载 Azure 存储资源管理器 1.7.0
+- [适用于 Windows 的 Azure 存储资源管理器 1.7.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [适用于 Mac 的 Azure 存储资源管理器 1.7.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [适用于 Linux 的 Azure 存储资源管理器 1.7.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>新增
 
-* 您現在可以變更擁有者和管理 ADLS Gen2 容器、 檔案或資料夾的存取權時，擁有群組。
-* 在 Windows 中，更新儲存體總管從產品內現在是累加的安裝。 這應該會導致更快的更新經驗。 如果您偏好的全新安裝，則您可以下載[installer](https://azure.microsoft.com/en-us/features/storage-explorer/)自行然後再手動安裝。 #1089
+* 现在，在管理 ADLS Gen2 容器、文件或文件夹的访问权限时，可以更改所有者和拥有组。
+* 在 Windows 上，从产品内部更新存储资源管理器现在属于增量安装操作。 这样应该可以加快更新的速度。 如果你偏向于全新安装，可以自行下载[安装程序](https://azure.microsoft.com/en-us/features/storage-explorer/)并手动安装。 #1089
 
-### <a name="preview-features"></a>預覽功能
+### <a name="preview-features"></a>预览功能
 
-* 裝置程式碼流程登入現可供預覽。 若要啟用它，請移至 預覽 → 「 使用裝置程式碼流程登入 」。 我們鼓勵任何有空白登入 windows 嘗試這項功能，問題，因為它可能會產生成為更可靠的表單的 登入的使用者。 #938
-* 使用 AzCopy 整合的儲存體總管是目前可供預覽。 若要啟用它，請移至 [預覽] → [使用 AzCopy 的改善 Blob 上傳和下載]。 使用 AzCopy 完成 blob 傳輸應會更快和更好的效能。
+* 设备代码流登录现在可供预览。 若要启用此功能，请转到“预览”→“使用设备代码流登录”。 我们鼓励所有在空白登录窗口中遇到问题的用户试用此功能，因为经过证实，它是一种更可靠的登录方式。 #938
+* 与 AzCopy 集成的存储资源管理器目前可供预览。 若要启用此功能，请转到“预览”→“使用 AzCopy 来改善 Blob 上传和下载”。 使用 AzCopy 应该可以更快且更有效地完成 Blob 传输。
 
 ### <a name="fixes"></a>修正
 
-* 您現在可以選擇您想要啟用 AzCopy 時，做為上傳的 blob 類型。 #1111
-* 先前，如果您啟用 ADLS Gen2 儲存體帳戶的靜態網站，然後將它附加名稱和金鑰，儲存體總管會不偵測到已啟用該階層的命名空間。 已修正此問題。 #1081
-* 在 blob 編輯器中，依剩餘的保留期天數或狀態排序已中斷。 已修正此問題。 #1106
-* 在 1.5.0 之後, 儲存體總管不會再等候伺服器端複製完成後，再回報成功期間重新命名或複製並貼上。 已修正此問題。 #976
-* 使用實驗性的 AzCopy 功能時，複製之後按一下 複製到剪貼簿 的命令 命令不是一律可自行執行。 現在，將會複製以手動方式執行傳輸所需的所有命令。 #1079
-* 先前，ADLS Gen2 blob 無法存取，如果您有使用 proxy。 這是因為儲存體 SDK 所使用的新網路程式庫中的 bug。 在 1.7.0 已嘗試解決這個問題，但有些人可能會繼續看到問題。 完整的修正將會發行在未來的更新。 #1090
-* 1.7.0 儲存在檔案對話方塊現在正確會記住您儲存檔案的最後一個位置。 #16
-* 在 [屬性] 面板中，已為帳戶的類型顯示的儲存體帳戶 SKU 層。 已修正此問題。 #654
-* 某些情況下，不可能中斷租用的 blob，即使您已正確輸入 blob 的名稱。 已修正此問題。 #1070
+* 现在，在启用 AzCopy 后，可以选择要上传的 Blob 类型。 #1111
+* 以前，如果为 ADLS Gen2 存储帐户启用了静态网站，然后在该帐户中附加名称和密钥，则存储资源管理器将检测不到已启用该分层命名空间。 已修正此問題。 #1081
+* 在 Blob 编辑器中，不再能够按剩余保留天数或状态进行排序。 已修正此問題。 #1106
+* 在版本 1.5.0 之后，存储资源管理器不再会先等待服务器端复制完成，然后在重命名或复制/粘贴操作期间报告成功结果。 已修正此問題。 #976
+* 使用试验性的 AzCopy 功能时，单击“将命令复制到剪贴板”后复制的命令本身不一定始终可运行。 现在，将会复制手动运行传输所需的所有命令。 #1079
+* 以前，如果在代理后面操作，则无法访问 ADLS Gen2 Blob。 这是因为存储 SDK 使用的新网络库中存在一个 bug。 1.7.0 会尝试缓解此问题，但有些人仍可能会遇到问题。 在将来的更新中会发布完整修复措施。 #1090
+* 在 1.7.0 中，“保存文件”对话框现在会正确记住文件的上次保存位置。 #16
+* 在“属性”窗格中，存储帐户的 SKU 层显示为帐户类型。 已修正此問題。 #654
+* 有时，即使正确输入 Blob 的名称，也无法中断该 Blob 的租约。 已修正此問題。 #1070
 
 ### <a name="known-issues"></a>已知問題
 
-* 使用 RBAC 時，儲存體總管會需要一些的管理層級權限，才能存取您的儲存體資源。 請參閱[疑難排解指南](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting)如需詳細資訊。
-* 嘗試存取 proxy 後方的 ADLS Gen2 Blob 可能會失敗。
+* 使用 RBAC 时，存储资源管理器需要一些管理层权限才能访问存储资源。 有关详细信息，请参阅[故障排除指南](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting)。
+* 在代理后面尝试访问 ADLS Gen2 Blob 可能会失败。
 * 中斷連結透過 SAS URI 連結的資源 (例如 Blob 容器) 可能會導致錯誤，使得其他附件無法正確顯示。 若要解決此問題，只需重新整理群組節點。 如需詳細資訊，請參閱 #537。
 * 中斷連結透過 SAS URI 連結的資源 (例如 Blob 容器) 可能會導致錯誤，使得其他附件無法正確顯示。 若要解決此問題，只需重新整理群組節點。 如需詳細資訊，請參閱 #537。
 * 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請在此問題加上註解。

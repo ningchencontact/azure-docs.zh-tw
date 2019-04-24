@@ -13,11 +13,11 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: 72fbdbcfcd94dd41a67bb81314802dd7314ae463
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316621"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505791"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>在 Azure 中建立、重新啟動或調整 VM 大小時，對配置失敗進行疑難排解
 
@@ -25,7 +25,7 @@ ms.locfileid: "58316621"
 
 **錯誤碼**：AllocationFailed 或 ZonalAllocationFailed
 
-**錯誤訊息**：「配置失敗。 我們在此區域沒有足夠的容量可供要求的 VM 大小使用。 深入了解提高的配置成功率，請參閱 https:\//aka.ms/allocation-guidance"
+**錯誤訊息**：「配置失敗。 我們在此區域沒有足夠的容量可供要求的 VM 大小使用。 在 https:\//aka.ms/allocation-guidance 阅读有关提高分配成功可能性的详细信息”
 
 本文說明一些常見的配置失敗原因，並建議可能的補救方法。
 

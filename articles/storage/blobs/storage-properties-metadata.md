@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916575"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392393"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>設定並擷取屬性和中繼資料
 
@@ -27,7 +27,7 @@ ms.locfileid: "58916575"
 > [!IMPORTANT]
 > 如果您發現尚未擴展儲存體資源的屬性或中繼資料值，請檢查您的程式碼是否呼叫 **FetchAttributes** 或 **FetchAttributesAsync** 方法。
 >
-> 中繼資料名稱/值組是有效的 HTTP 標頭，因此應該遵守控管 HTTP 標頭的所有限制。 中繼資料名稱必須是有效的 HTTP 標頭名稱，可能會包含唯一的 ASCII 字元，並應該視為區分大小寫。 包含非 ASCII 字元的中繼資料值應為 Base64 編碼或 URL 編碼。
+> 中繼資料名稱/值組是有效的 HTTP 標頭，因此應該遵守控管 HTTP 標頭的所有限制。 中繼資料名稱必須是有效的 HTTP 標頭名稱和有效C#識別項，只能包含 ASCII 字元，並應視為區分大小寫。 包含非 ASCII 字元的中繼資料值應為 Base64 編碼或 URL 編碼。
 
 ## <a name="setting-and-retrieving-properties"></a>設定與擷取屬性
 若要擷取屬性值，請呼叫 Blob 或容器上的 **FetchAttributesAsync** 方法，以填入屬性，然後讀取這些值。

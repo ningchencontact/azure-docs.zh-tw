@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404190"
 ---
 # <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 有了服務對應，您就可將伺服器視為您心目中提供重要服務的互連式系統。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序、輸入和輸出連線的延遲，和連接埠之間的連線。
@@ -299,35 +299,35 @@ Linux：
 
 | 屬性 | 描述 |
 |:--|:--|
-|方向 |連線的方向，值為 *inbound* 或 *outbound* |
-|機器 |電腦 FQDN |
-|Process |處理序或處理序群組的身分識別，會起始/接受連線 |
-|SourceIp |來源的 IP 位址 |
-|DestinationIp |目的地的 IP 位址 |
-|DestinationPort |目的地的連接埠號碼 |
-|通訊協定 |用於連線的通訊協定。  值為 *tcp*。 |
+| `Direction` |連線的方向，值為 *inbound* 或 *outbound* |
+| `Machine` |電腦 FQDN |
+| `Process` |處理序或處理序群組的身分識別，會起始/接受連線 |
+| `SourceIp` |來源的 IP 位址 |
+| `DestinationIp` |目的地的 IP 位址 |
+| `DestinationPort` |目的地的連接埠號碼 |
+| `Protocol` |用於連線的通訊協定。  值為 *tcp*。 |
 
 為了說明群組的影響，會在記錄的下列屬性中提供群組實體連線數目的相關資訊：
 
 | 屬性 | 描述 |
 |:--|:--|
-|LinksEstablished |已在報告時間範圍內建立的實體網路連線數目 |
-|LinksTerminated |已在報告時間範圍內終止的實體網路連線數目 |
-|LinksFailed |在報告時間範圍內失敗的實體網路連線數目。 此資訊目前僅適用於輸出連線。 |
-|LinksLive |已在報告時間範圍結束時開啟的實體網路連線數目|
+| `LinksEstablished` |已在報告時間範圍內建立的實體網路連線數目 |
+| `LinksTerminated` |已在報告時間範圍內終止的實體網路連線數目 |
+| `LinksFailed` |在報告時間範圍內失敗的實體網路連線數目。 此資訊目前僅適用於輸出連線。 |
+| `LinksLive` |已在報告時間範圍結束時開啟的實體網路連線數目|
 
-#### <a name="metrics"></a>度量
+#### <a name="metrics"></a>指标
 
 除了連線計數計量，在指定邏輯連線或網路連接埠上傳送與接收的資料量相關資訊也會包含於記錄的下列屬性中：
 
 | 屬性 | 描述 |
 |:--|:--|
-|BytesSent |已在報告時間範圍內傳送的位元組總數 |
-|BytesReceived |已在報告時間範圍內接收的位元組總數 |
-|回應 |已在報告時間範圍內觀測到的回應數目。 
-|ResponseTimeMax |已在報告時間範圍內觀測到的最大回應時間 (毫秒)。  如果沒有值，則此屬性為空白。|
-|ResponseTimeMin |已在報告時間範圍內觀測到的最小回應時間 (毫秒)。  如果沒有值，則此屬性為空白。|
-|ResponseTimeSum |已在報告時間範圍內觀測到的所有回應時間總和 (毫秒)。  如果沒有值，則此屬性為空白|
+| `BytesSent` |已在報告時間範圍內傳送的位元組總數 |
+| `BytesReceived` |已在報告時間範圍內接收的位元組總數 |
+| `Responses` |已在報告時間範圍內觀測到的回應數目。 
+| `ResponseTimeMax` |已在報告時間範圍內觀測到的最大回應時間 (毫秒)。  如果沒有值，則此屬性為空白。|
+| `ResponseTimeMin` |已在報告時間範圍內觀測到的最小回應時間 (毫秒)。  如果沒有值，則此屬性為空白。|
+| `ResponseTimeSum` |已在報告時間範圍內觀測到的所有回應時間總和 (毫秒)。  如果沒有值，則此屬性為空白|
 
 所報告的第三個資料類型是回應時間：呼叫端需要花費多久時間來等候透過連線傳送的要求，此要求會由遠端端點來處理及回應。 所報告的回應時間是基礎應用程式通訊協定的真正回應時間估計值。 它會使用啟發學習法，根據實體網路連線來源和目的端之間資料流程的觀測計算而來的。 概念上，它是要求的最後一個位元組離開傳送端的時間，以及回應的最後一個位元組傳回給它的到達時間之間的差異。 這兩個時間戳記可用來描述指定實體連線上的要求和回應事件。 它們之間的差異代表單一要求的回應時間。 
 
@@ -348,26 +348,26 @@ Linux：
 
 | 屬性 | 描述 |
 |:--|:--|
-|RemoteCountry |裝載 RemoteIp 的國家/地區名稱。  例如，*United States* |
-|RemoteLatitude |地理位置緯度。  例如，*47.68* |
-|RemoteLongitude |地理位置經度。  例如：*-122.12* |
+| `RemoteCountry` |裝載 RemoteIp 的國家/地區名稱。  例如，*United States* |
+| `RemoteLatitude` |地理位置緯度。  例如，*47.68* |
+| `RemoteLongitude` |地理位置經度。  例如：*-122.12* |
 
 #### <a name="malicious-ip"></a>惡意 IP
 *VMConnection* 資料表中的每個 RemoteIp 屬性均會根據一組具有已知惡意活動的 IP 進行檢查。 如果 RemoteIp 被識別為惡意的，將在記錄的下列屬性中填入下列屬性 (如果 IP 被視為不是惡意的，則它們是空的)：
 
 | 屬性 | 描述 |
 |:--|:--|
-|MaliciousIP |RemoteIp 位址 |
-|IndicatorThreadType |偵測到的威脅指標是下列值之一：*殭屍網路*、*C2*、*CryptoMining*、*Darknet*、*DDos*、*MaliciousUrl*、*惡意程式碼*、*網路釣魚*、*Proxy*、*PUA*、*關注清單*。   |
-|描述 |觀察到的威脅的說明。 |
-|TLPLevel |號誌燈通訊協定 (TLP) 層級是已定義的值 (*白色*、*綠色*、*琥珀色*、*紅色*) 之一。 |
-|信賴度 |值為 *0 – 100*。 |
-|嚴重性 |值為 *0 – 5*，其中 *5* 為最嚴重，*0* 為根本不嚴重。 預設值為 *3*。  |
-|FirstReportedDateTime |提供者第一次回報指標。 |
-|LastReportedDateTime |Interflow 最後一次看到指標。 |
-|IsActive |使用 *True* 或 *False* 值表示指標停用。 |
-|ReportReferenceLink |與指定的可預見值相關之報告的連結。 |
-|AdditionalInformation |提供有關觀察到的威脅的其他資訊 (如果適用的話)。 |
+| `MaliciousIp` |RemoteIp 位址 |
+| `IndicatorThreadType` |偵測到的威脅指標是下列值之一：*殭屍網路*、*C2*、*CryptoMining*、*Darknet*、*DDos*、*MaliciousUrl*、*惡意程式碼*、*網路釣魚*、*Proxy*、*PUA*、*關注清單*。   |
+| `Description` |觀察到的威脅的說明。 |
+| `TLPLevel` |號誌燈通訊協定 (TLP) 層級是已定義的值 (*白色*、*綠色*、*琥珀色*、*紅色*) 之一。 |
+| `Confidence` |值為 *0 – 100*。 |
+| `Severity` |值為 *0 – 5*，其中 *5* 為最嚴重，*0* 為根本不嚴重。 預設值為 *3*。  |
+| `FirstReportedDateTime` |提供者第一次回報指標。 |
+| `LastReportedDateTime` |Interflow 最後一次看到指標。 |
+| `IsActive` |使用 *True* 或 *False* 值表示指標停用。 |
+| `ReportReferenceLink` |與指定的可預見值相關之報告的連結。 |
+| `AdditionalInformation` |提供有關觀察到的威脅的其他資訊 (如果適用的話)。 |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 記錄
 類型為 *ServiceMapComputer_CL* 的記錄會有伺服器 (具有服務對應代理程式) 的清查資料。 這些記錄具有下表中的屬性：
@@ -399,7 +399,7 @@ Linux：
 
 | 屬性 | 描述 |
 |:--|:--|
-| `Type | *ServiceMapProcess_CL* |
+| `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
 | `ResourceId` | 工作區中處理序的唯一識別碼 |
 | `ResourceName_s` | 在執行處理序的機器上，處理序的唯一識別碼|

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: lyrana
 ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533821"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>連線至 API 並進行驗證
 
@@ -25,11 +25,11 @@ Azure Digital Twins 會使用 Azure Active Directory (Azure AD) 來驗證使用�
 
 Azure AD 支援[五個主要應用程式案例](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types)：
 
-* 單頁應用程式 (SPA)：使用者必須登入 Azure AD 所保護的單頁應用程式。
-* 網頁瀏覽器到 Web 應用程式：使用者必須登入 Azure AD 所保護的 Web 應用程式。
-* 原生應用程式到 Web API：在手機、平板電腦或電腦上執行的原生應用程式必須驗證使用者，才能從 Azure AD 所保護的 Web API 取得資源。
-* Web 應用程式到 Web API：Web 應用程式必須從 Azure AD 所保護的 Web API 取得資源。
-* 精靈或伺服器應用程式到 Web API：無 Web UI 的精靈應用程式或伺服器應用程式必須從 Azure AD 所保護的 Web API 取得資源。
+* 單一頁面應用程式 (SPA):使用者需要登入 Azure AD 所保護的單一頁面應用程式。
+* 網頁瀏覽器到 web 應用程式：使用者需要登入 Azure AD 所保護的 web 應用程式。
+* Web API 的原生應用程式：在手機、 平板電腦或電腦執行的原生應用程式必須驗證由 Azure AD 保護的使用者從 web API 取得資源。
+* Web 應用程式到 web API:Web 應用程式必須從 Azure AD 所保護的 Web API 取得資源。
+* 精靈或伺服器應用程式到 web API:精靈應用程式或任何 web 伺服器應用程式 UI，就必須從 Azure AD 所保護的 web API 取得資源。
 
 Windows Azure 驗證程式庫提供許多方式來取得 Active Directory 權杖。 如需有關程式庫的詳細資料及程式碼範例，請參閱[這篇文章](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki) \(英文\)。
 

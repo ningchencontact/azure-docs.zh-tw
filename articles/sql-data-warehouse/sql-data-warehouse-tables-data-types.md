@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: aab51c3dc66a1486e8ad7ced55425a2b49c7dea1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401760"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的資料表資料類型
 在 Azure SQL 資料倉儲中定義資料表資料類型的建議。 

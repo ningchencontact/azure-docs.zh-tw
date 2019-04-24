@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: a68e40b7b1caf184fabb5df62d8b461fa2fa11e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539197"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>在 Azure 入口網站中建立 Log Analytics 工作區
 使用 [Log Analytics 工作區] 功能表，以使用 Azure 入口網站建立 Log Analytics 工作區。 Log Analytics 工作區是 Azure 監視器記錄資料的唯一環境。 每個工作區都有自己的資料存放庫與設定，而且資料來源和解決方案會設定為將其資料儲存在特定的工作區中。 如果您想從下列來源收集資料，就必須要有 Log Analytics 工作區：
@@ -52,7 +52,7 @@ ms.locfileid: "57834467"
    * 選取可用的**位置**。  如需詳細資訊，請參閱這[Log Analytics 的可用區域](https://azure.microsoft.com/regions/services/)並搜尋從 Azure 監視器**搜尋產品**欄位。  
    * 如果您要在 2018 年 4 月 2 之後建立的新訂用帳戶中建立工作區，系統會自動使用「每 GB」定價方案和選項來選取將無法使用的定價層。  如果您要為在 4 月 2 日之前建立的現有訂用帳戶，或已繫結至現有 Enterprise 合約 (EA) 註冊的訂用帳戶建立工作區，請選取您偏好的定價層。  如需特定層的詳細資訊，請參閱 [Log Analytics 價格詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。
 
-        ![建立 Log Analytics 資源刀鋒視窗](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
+        ![[建立 Log Analytics] 資源刀鋒視窗](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
 
 3. 在 [Log Analytics 工作區] 頁面上提供必要資訊之後，按一下 [確定]。  
 

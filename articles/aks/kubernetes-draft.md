@@ -2,17 +2,18 @@
 title: 使用 Draft 搭配 AKS 和 Azure Container Registry
 description: 使用 Draft 搭配 AKS 和 Azure Container Registry
 services: container-service
-author: zr-msft
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 08/15/2018
-ms.author: zarhoads
+origin.date: 08/15/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: 462cfd6ec0a6b25f85dda0245dd4f5feed7cb712
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465136"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>使用 Draft 搭配 Azure Kubernetes Service (AKS)
 
@@ -76,7 +77,7 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 1. 設定 Draft 設定的「登錄」值。 在下列命令中，將 `<acrName>` 更換為 ACR 登錄的名稱：
 
     ```console
-    draft config set registry <acrName>.azurecr.io
+    draft config set registry <acrName>.azurecr.cn
     ```
 
 1. 使用 [az acr login][az-acr-login] 登入 ACR 登錄：
@@ -144,7 +145,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-若要存取您的應用程式，開啟 web 瀏覽器的位址和連接埠中指定`draft connect`輸出，例如`http://localhost:49804`。 
+若要访问应用程序，请打开 Web 浏览器并访问 `draft connect` 输出中指定的地址和端口，例如 `http://localhost:49804`。 
 
 ![使用 Draft 執行的 Java 應用程式範例](media/kubernetes-draft/sample-app.png)
 
@@ -270,4 +271,4 @@ Hello World, I'm Java in AKS!
 [aks-helm]: ./kubernetes-helm.md
 [kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login

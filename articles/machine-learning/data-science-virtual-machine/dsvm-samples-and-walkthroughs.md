@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: e61f0f4ba30b29fea1b2fd5f2a2ab253d3a6710c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502725"
 ---
 # <a name="samples-on-data-science-virtual-machines"></a>資料科學虛擬機器上的範例
 
@@ -30,7 +30,7 @@ ms.locfileid: "55475749"
 > 如需有關如何在資料科學虛擬機器上執行 Jupyter Notebook 的詳細資訊，請參閱[存取 Jupyter](#access-jupyter) 一節。
 
 ## <a name="quick-reference-of-samples"></a>範例的快速參考
-| 範例類別 | 說明 | 位置 |
+| 範例類別 | 描述 | 位置 |
 | ------------- | ------------- | ------------- |
 | R 語言  | 以 R 撰寫的範例會說明如何與 Azure 雲端資料存放區連線之類的案例。 它們也說明如何比較開放原始碼 R 與 Microsoft R，以及說明如何在「Microsoft R 伺服器」或 SQL Server 上讓模型能夠運作。 <br/> [R 語言](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Python 語言  | 以 Python 撰寫的範例會說明如何與 Azure 雲端資料存放區連線並使用 Azure Machine Learning 之類的案例。  <br/> [Python 語言](#python-language) | <br/>`~notebooks` <br/><br/>|

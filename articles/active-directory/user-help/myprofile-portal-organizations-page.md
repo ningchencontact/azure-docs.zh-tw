@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475450"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>從我的設定檔 (預覽) 入口網站管理組織
 您可以從**我的設定檔**入口網站的**組織**頁面管理組織。

@@ -3,22 +3,23 @@ title: 了解模組如何在您的裝置上執行邏輯 - Azure IoT Edge | Micro
 description: Azure IoT Edge 模組是邏輯的容器化單位，可從遠端部署及管理，讓您能夠在 IoT Edge 裝置上執行商務邏輯
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 03/21/2019
+ms.author: v-yiso
+origin.date: 03/21/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445010"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模組
 
-Azure IoT Edge 可讓您在模組表單的邊緣上部署和管理商務邏輯。 Azure IoT Edge 模組是 IoT Edge 管理的最小計算單位，可以包含 Azure 服務 (例如 Azure 串流分析) 或您自己的解決方案特定程式碼。 若要了解如何開發、 部署和維護，最好先將四個概念的項目，在模組的模組：
+Azure IoT Edge 可讓您在模組表單的邊緣上部署和管理商務邏輯。 Azure IoT Edge 模組是 IoT Edge 管理的最小計算單位，可以包含 Azure 服務 (例如 Azure 串流分析) 或您自己的解決方案特定程式碼。 若要了解如何开发、部署和维护模块，有必要考虑模块的四个概念元素：
 
 * **模組映像**是套件，其中包含定義模組的軟體。
 * **模組執行個體**是在 IoT Edge 裝置上執行模組映像的計算單位。 模組執行個體是由 IoT Edge 執行階段啟動。
@@ -43,7 +44,6 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## <a name="module-identities"></a>模組身分識別
 
 當 IoT Edge 執行階段建立新模組執行個體時，執行個體與對應的模組身分識別相關聯。 模組身分識別會儲存在 IoT 中樞，作為該特定模組執行個體之所有本機和雲端通訊的定址和安全性範圍。
-
 與模組執行個體相關聯的身分識別取決於在其上執行執行個體的裝置身分識別，以及您提供給解決方案中該模組的名稱。 例如，如果您將使用 Azure 串流分析的模組稱為 `insight`，並且在稱為 `Hannover01` 的裝置上部署，IoT Edge 執行階段會建立稱為 `/devices/Hannover01/modules/insight` 的對應模組身分識別。
 
 很明顯地，在案例中當您需要在相同裝置上部署一個模組映像多次時，您可以使用不同名稱部署相同映像多次。
@@ -83,3 +83,12 @@ Azure IoT Edge 支援 IoT Edge 裝置的離線作業。 這些功能目前會受
  - [了解開發 IoT Edge 模組的需求和工具](module-development.md)
  - [了解 Azure IoT Edge 執行階段和架構](iot-edge-runtime.md)
 
+<!-- Images -->
+[1]: ./media/iot-edge-modules/image_instance.png
+[2]: ./media/iot-edge-modules/identity.png
+
+<!-- Links -->
+[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-runtime]: iot-edge-runtime.md
+[lnk-mod-dev]: module-development.md

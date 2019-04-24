@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8e75a6344e517fb0343343f557cb7211f49cfed8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344558"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>使用 RBAC 與 Azure CLI 管理對 Azure 資源的存取
 
@@ -111,7 +111,7 @@ az role definition list --name "Contributor"
       "/"
     ],
     "description": "Lets you manage everything except access to resources.",
-    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
     "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
     "permissions": [
       {
@@ -204,12 +204,12 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Backup Operator",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Virtual Machine Contributor",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 ```
 
@@ -221,20 +221,20 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 az role assignment list --resource-group <resource_group>
 ```
 
-下列範例會列出 pharma-sales-projectforecast 資源群組的角色指派：
+下列範例會列出的角色指派 *「 銷售*資源群組：
 
 ```azurecli
-az role assignment list --resource-group pharma-sales-projectforecast --output json | jq '.[] | {"roleDefinitionName":.roleDefinitionName, "scope":.scope}'
+az role assignment list --resource-group pharma-sales --output json | jq '.[] | {"roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
 ```Output
 {
   "roleDefinitionName": "Backup Operator",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 {
   "roleDefinitionName": "Virtual Machine Contributor",
-  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+  "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 }
 
 ...
@@ -249,13 +249,38 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 若要為資源群組範圍中的使用者建立角色指派，請使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)：
 
 ```azurecli
-az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
+az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
 ```
 
-下列範例會將指派*虛擬機器參與者*角色，才能*patlong\@contoso.com*使用者 *「 pharma-sales-projectforecast*資源群組範圍：
+下列範例會將指派*虛擬機器參與者*角色，才能*patlong\@contoso.com*使用者 *「 銷售*資源群組範圍：
 
 ```azurecli
-az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
+az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales
+```
+
+### <a name="create-a-role-assignment-using-the-unique-role-id"></a>建立使用的唯一角色識別碼的角色指派
+
+有好幾次，當角色名稱可能會變更，例如：
+
+- 您使用您自己自訂的角色，而且您決定要變更名稱。
+- 您使用的預覽角色 **（預覽）** 名稱中。 當發行角色時，會重新命名角色。
+
+> [!IMPORTANT]
+> 預覽版本不提供服務等級協定，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
+> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
+即使某個角色重新命名，則不會變更的角色識別碼。 如果您使用指令碼或自動化來建立角色指派，最好使用的唯一角色識別碼，而不是角色名稱。 因此，如果重新命名角色，您的指令碼會更容易就能運作。
+
+若要建立角色指派，而不角色名稱使用的唯一角色識別碼，請使用[az 角色指派建立](/cli/azure/role/assignment#az-role-assignment-create)。
+
+```azurecli
+az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
+```
+
+下列範例會將指派[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)角色，才能*patlong\@contoso.com*使用者 *「 銷售*資源群組範圍。 若要取得的唯一角色識別碼，您可以使用[az 角色定義清單](/cli/azure/role/definition#az-role-definition-list)，或參閱[適用於 Azure 資源的內建角色](built-in-roles.md)。
+
+```azurecli
+az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
 ```
 
 ### <a name="create-a-role-assignment-for-a-group"></a>建立群組的角色指派
@@ -263,19 +288,19 @@ az role assignment create --role "Virtual Machine Contributor" --assignee patlon
 若要為群組建立角色指派，請使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)：
 
 ```azurecli
-az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
 下列範例會將「讀者」角色指派給訂用帳戶範圍中識別碼為 22222222-2222-2222-2222-222222222222 的「Ann Mack 小組」群組。 若要取得群組的識別碼，您可以使用 [az ad group list](/cli/azure/ad/group#az-ad-group-list) 或 [az ad group show](/cli/azure/ad/group#az-ad-group-show)。
 
 ```azurecli
-az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
+az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
 下列範例會將「虛擬機器參與者」角色指派給識別碼為 22222222-2222-2222-2222-222222222222 且在虛擬網路 (名為 pharma-sales-project-network) 資源範圍中的「Ann Mack 小組」群組：
 
 ```azurecli
-az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourcegroups/pharma-sales-projectforecast/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
 ```
 
 ### <a name="create-a-role-assignment-for-an-application"></a>建立應用程式的角色指派
@@ -283,13 +308,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 若要為應用程式建立角色，請使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)：
 
 ```azurecli
-az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-下列範例會將「虛擬機器參與者」角色指派給 pharma-sales-projectforecast 資源群組範圍中物件識別碼為 44444444-4444-4444-4444-444444444444 的應用程式。 若要取得應用程式的物件識別碼，您可以使用 [az ad app list](/cli/azure/ad/app#az-ad-app-list) 或 [az ad app show](/cli/azure/ad/app#az-ad-app-show)。
+下列範例會將指派*虛擬機器參與者*角色，才能在物件識別碼 44444444-4444-4444-4444-444444444444 的應用程式 *「 銷售*資源群組範圍。 若要取得應用程式的物件識別碼，您可以使用 [az ad app list](/cli/azure/ad/app#az-ad-app-list) 或 [az ad app show](/cli/azure/ad/app#az-ad-app-show)。
 
 ```azurecli
-az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales
 ```
 
 ## <a name="remove-access"></a>移除存取
@@ -297,19 +322,19 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 在 RBAC 中，若要移除存取權，您可以使用 [az 角色指派刪除](/cli/azure/role/assignment#az-role-assignment-delete)來移除角色指派:
 
 ```azurecli
-az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
+az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
 ```
 
-下列範例會移除*虛擬機器參與者*從角色分派*patlong\@contoso.com*上的使用者 *「 pharma-sales-projectforecast*資源群組：
+下列範例會移除*虛擬機器參與者*從角色分派*patlong\@contoso.com*上的使用者 *「 銷售*資源群組：
 
 ```azurecli
-az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
+az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales
 ```
 
 下列範例會將「讀者」角色從訂用帳戶範圍中識別碼為 22222222-2222-2222-2222-222222222222 的「Ann Mack 小組」群組中移除。 若要取得群組的識別碼，您可以使用 [az ad group list](/cli/azure/ad/group#az-ad-group-list) 或 [az ad group show](/cli/azure/ad/group#az-ad-group-show)。
 
 ```azurecli
-az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
+az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="next-steps"></a>後續步驟

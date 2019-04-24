@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437878"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250524"
 ---
 # <a name="single-sign-on-saml-protocol"></a>單一登入 SAML 通訊協定
 
@@ -50,7 +50,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | 參數 |  | 描述 |
 | --- | --- | --- |
 | ID | 必要項 | Azure AD 使用這個屬性來填入所傳回回應的 `InResponseTo` 屬性。 識別碼的開頭不能是數字，因此常見的策略是在 GUID 的字串表示法前面加上 "id" 等字串。 例如， `id6c1c178c166d486687be4aaf5e482730` 便是有效的識別碼。 |
-| 版本 | 必要項 | 此參數應該設定為 **2.0**。 |
+| Version | 必要項 | 此參數應該設定為 **2.0**。 |
 | IssueInstant | 必要項 | 這是具有 UTC 值和 [來回行程格式 ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)的日期時間字串。 Azure AD 必須要有這種類型的日期時間值，但不會評估或使用此值。 |
 | AssertionConsumerServiceUrl | 選用 | 如果提供，此參數必須符合 Azure AD 中雲端服務的 `RedirectUri`。 |
 | ForceAuthn | 選用 | 這是布林值。 如果為 true，表示即使使用者在 Azure AD 中具有有效的工作階段，也會強制使用者重新驗證。 |
@@ -100,7 +100,7 @@ Azure AD 會忽略 `AllowCreate` 屬性。
 ### <a name="signature"></a>簽章
 請勿在 `AuthnRequest` 元素中包含 `Signature` 元素，因為 Azure AD 不支援簽署的驗證要求。
 
-### <a name="subject"></a>主體
+### <a name="subject"></a>Subject
 Azure AD 會忽略 `AuthnRequest` 元素中的 `Subject` 元素。
 
 ## <a name="response"></a>Response
@@ -211,7 +211,7 @@ Azure AD 會簽署判斷提示以回應成功的登入。 `Signature` 元素包�
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>主體
+#### <a name="subject"></a>Subject
 
 這會指定判斷提示中陳述式主旨的主體。 它包含 `NameID` 元素，其代表已驗證的使用者。 `NameID` 值為目標識別碼，其只會導向身為權杖對象的服務提供者。 它是持續性的 - 可撤銷，但絕對不會重新指派。 它也是不透明的，因為它不會揭露使用者的相關資訊，也不能當做屬性查詢的識別碼。
 

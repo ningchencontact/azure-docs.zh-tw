@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472109"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>建立動態群組並檢查狀態
 
@@ -50,7 +50,7 @@ ms.locfileid: "58199676"
 
 ## <a name="turn-on-or-off-welcome-email"></a>開啟或關閉歡迎電子郵件
 
-建立新的 Office 365 群組時，會新增至群組的使用者頁面時，會傳送歡迎畫面的通知。 稍後，如果使用者或裝置的任何屬性變更時，組織中的所有動態群組規則處理成員資格變更。 新增使用者時，然後也收到歡迎的通知。 您可以關閉此行為[Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps)。 
+建立新的 Office 365 群組時，會新增至群組的使用者頁面時，會傳送歡迎畫面的通知。 稍後，如果使用者或裝置的任何屬性變更時，組織中的所有動態群組規則處理成員資格變更。 新增的使用者隨後也會收到歡迎通知。 您可以關閉此行為[Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps)。 
 
 ## <a name="check-processing-status-for-a-rule"></a>檢查規則的處理狀態
 

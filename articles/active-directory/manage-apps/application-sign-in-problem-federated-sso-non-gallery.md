@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7cb0139227012be610977df3240f74a03f53be7e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009066"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440193"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>登入針對同盟單一登入設定之非資源庫應用程式的問題
 
@@ -164,7 +164,7 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 
 ## <a name="misconfigured-application"></a>設定不正確的應用程式
 
-*錯誤 AADSTS650056:設定不正確的應用程式。這可能是下列其中一個原因所造成：用戶端具有未列出任何 ' AAD Graph' 要求的權限，在用戶端應用程式註冊中的權限。或者，系統管理員尚未同意的租用戶中。或者，您也可以檢查應用程式中的識別項的要求，以確保其符合設定的用戶端應用程式識別碼。請連絡您的系統管理員修正組態，或代表租用戶的同意。*.
+*錯誤 AADSTS650056:設定不正確的應用程式。這可能是下列其中一個原因所造成：用戶端具有未列出任何 ' AAD Graph' 要求的權限，在用戶端應用程式註冊中的權限。或者，系統管理員尚未同意的租用戶中。或者，您也可以檢查應用程式中的識別項的要求，以確保其符合設定的用戶端應用程式識別碼。請連絡您的系統管理員修正組態，或代表租用戶的同意。*
 
 **可能的原因**
 

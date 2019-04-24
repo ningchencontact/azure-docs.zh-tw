@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440591"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>部署 Azure AD Privileged Identity Management (PIM)
 
@@ -99,7 +99,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>專案關係人：適用於 Azure AD 角色的 PIM
 
-| 名稱 | 角色 |  動作 |
+| Name | 角色 |  動作 |
 | --- | --- | --- |
 | 名稱和電子郵件 | **身分識別架構設計師或 Azure 全域系統管理員**<br/>身分識別管理小組所推派的代表人員，負責定義這項變更要如何與組織的核心身分識別管理基礎結構相配合。 | SO/R/I |
 | 名稱和電子郵件 | **服務擁有者/部門經理**<br/>單一或一組服務的 IT 擁有者所推派的代表人員。 這些人員是為其團隊做出決策並協助推廣 PIM 的關鍵人物。 | SO/R/I |
@@ -109,7 +109,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>專案關係人：Azure 資源角色的 PIM
 
-| 名稱 | 角色 |  動作 |
+| Name | 角色 |  動作 |
 | --- | --- | --- |
 | 名稱和電子郵件 | **訂用帳戶/資源擁有者**<br/>要為其部署 PIM 的每個訂用帳戶或資源，其 IT 擁有者所推派的代表人員 | SO/R/I |
 | 名稱和電子郵件 | **安全性擁有者**<br/>安全性團隊所推派的代表人員，可簽字同意該規劃符合組織的安全性需求。 | SO/R |
@@ -182,7 +182,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 1. 使用者管理員
 1. Exchange 系統管理員
 1. SharePoint 管理員
-1. Intune 系統管理員
+1. Intune 管理員
 1. 安全性讀取者
 1. 服務管理員
 1. 計費管理員

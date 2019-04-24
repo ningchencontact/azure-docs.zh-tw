@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370311"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>了解隨用隨付型方案訂用帳戶的 Azure 保留使用量
 
@@ -33,7 +33,7 @@ ms.locfileid: "58652530"
 
 針對下列幾個區段，假設您在美國東部區域執行 Standard_DS1_v2 Windows VM，且保留的 VM 執行個體資訊看起來會類似下表：
 
-| 欄位 | 值 |
+| 欄位 | Value |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |數量 |1|
@@ -68,7 +68,7 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 
 假設您目前在美國東部區域執行 SQL Database Gen 4，且保留資訊看起來類似下表：
 
-| 欄位 | 值 |
+| 欄位 | Value |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |數量 |2|

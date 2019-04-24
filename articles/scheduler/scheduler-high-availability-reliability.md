@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 50ab6cfefe4a7df9d671e7fd1287aa16b803f260
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533351"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Azure 排程器的高可用性和可靠性
 
@@ -70,7 +70,7 @@ Azure 排程器可讓您設定重試原則。 如果作業失敗，則根據預�
 
 若要了解如何設定替代端點，請參閱 [errorAction](scheduler-concepts-terms.md#error-action)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [什麼是 Azure 排程器？](scheduler-intro.md)
 * [概念、術語及實體階層](scheduler-concepts-terms.md)

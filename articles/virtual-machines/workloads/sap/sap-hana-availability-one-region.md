@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f2defd60ec6b835ec856c9253a92f1d6817e861
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
-ms.translationtype: HT
+ms.openlocfilehash: 687012e73b4b0c869b491ac1c9ea128662b23510
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391436"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>單一 Azure 區域中的 SAP HANA 可用性
 本文說明單一 Azure 區域中的幾種可用性案例。 Azure 有許多分散在世界各地的區域。 如需 Azure 區域的清單，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 為了讓您能夠在單一 Azure 區域內的 VM 上部署 SAP HANA，Microsoft 提供了含一個 HANA 執行個體的單一 VM 部署。 如需提升可用性，您可以在 [Azure 可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)中部署含兩個 HANA 執行個體的兩個 VM，以便使用 HANA 系統複寫來獲得可用性。 
