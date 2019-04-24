@@ -69,6 +69,12 @@
           href: sql-database-connect-query-ruby.md
         - name: R
           href: sql-database-connect-query-r.md
+    - name: 機器學習服務
+      items:
+        - name: 建立 R 指令碼
+          href: sql-database-quickstart-r-create-script.md
+        - name: 定型和評分模型
+          href: sql-database-quickstart-r-train-score-model.md
 - name: 教學課程
   items:
     - name: 在 SQL Database 中設計資料庫
@@ -102,7 +108,7 @@
     - name: Azure PowerShell
       href: sql-database-powershell-samples.md
     - name: Azure Resource Manager
-      displayName: ARM template
+      displayName: Resource Manager template
       href: sql-database-resource-manager-samples.md
 - name: 概念
   items:
@@ -186,6 +192,8 @@
           href: sql-database-managed-instance-transact-sql-information.md
         - name: 受控執行個體中的資料庫區域
           href: sql-database-managed-instance-timezone.md
+        - name: 受控執行個體中的安全公用端點
+          href: sql-database-managed-instance-public-endpoint-securely.md
     - name: 平台即服務
       items:
         - name: 平台即服務概觀
@@ -643,6 +651,12 @@
                   href: saas-multitenantdb-schema-management.md
                 - name: 供分析的 ETL
                   href: saas-multitenantdb-tenant-analytics.md
+    - name: 機器學習服務
+      items:
+        - name: 撰寫進階的 R 函式
+          href: sql-database-machine-learning-services-functions.md
+        - name: 使用 R 和 SQL 資料
+          href: sql-database-machine-learning-services-data-issues.md
 - name: 參考
   items:
     - name: Azure PowerShell

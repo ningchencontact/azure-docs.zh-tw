@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure API for FHIR 預覽文件
+metadata:
+  title: Azure API for FHIR 預覽文件
+  meta.description: Learn how Azure API for FHIR can power healthcare iteroperability in Azure.
+  services: healthcare-apis
+  author: hansenms
+  manager: dougseven
+  ms.author: mihansen
+  ms.service: healthcare-apis
+  ms.topic: landing-page
+  ms.date: 02/07/2019
+abstract:
+  description: Azure API for FHIR® 預覽專為處理臨床健康情況資料而設計，是完全受控且符合規範的標準 API，可讓您建立新的業務開發系統，用來分析、進行機器學習並針對健康情況資料採取可付諸行動的智慧行為。
+sections:
+  - title: null
+    items:
+      - type: paragraph
+        text: FHIR&reg; 是 HL7 的註冊商標，必須搭配 HL7 權限方可使用。
+  - title: 5 分鐘快速入門
+    items:
+      - type: paragraph
+        text: 選取箭號連結，了解 Azure API for FHIR 預覽如何在 Azure 中強化醫療保健的協同工作能力 <img src="media/index/link.jpg" height="15" width="15"></img>上也提供本文中使用的原始碼。
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/portal.svg
+            title: Azure 入口網站
+          - image:
+              src: media/index/powershell.svg
+            title: Azure PowerShell
+          - image:
+              src: media/index/cli.svg
+            title: Azure CLI
+        rows:
+          - title: 部署 Azure API for FHIR
+            values:
+              - href: fhir-paas-portal-quickstart.md
+              - href: fhir-paas-powershell-quickstart.md
+              - href: fhir-paas-cli-quickstart.md
+          - title: 部署 Open Source FHIR 伺服器
+            values:
+              - href: fhir-oss-portal-quickstart.md
+              - href: fhir-oss-powershell-quickstart.md
+              - href: fhir-oss-cli-quickstart.md

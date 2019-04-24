@@ -138,15 +138,11 @@
         - name: 編製索引
           items:
             - name: 概觀
+              displayName: 'range, spatial'
               href: index-overview.md
-            - name: 索引原則
+            - name: 編製索引原則
               displayName: 'consistent, none'
               href: index-policy.md
-            - name: 索引類型
-              displayName: 'hash, range, spatial'
-              href: index-types.md
-            - name: 索引路徑
-              href: index-paths.md
         - name: 變更摘要
           items:
             - name: 概觀
@@ -165,6 +161,17 @@
           href: unique-keys.md
         - name: 交易和開放式並行存取控制
           href: database-transactions-optimistic-concurrency.md
+    - name: 變更摘要
+      items:
+        - name: 概觀
+          href: change-feed.md
+        - name: 讀取變更摘要
+          href: read-change-feed.md
+        - name: 變更摘要處理器
+          href: change-feed-processor.md
+        - name: 觸發 Azure Functions
+          displayName: change feed
+          href: change-feed-functions.md
     - name: 伺服器端程式設計
       items:
         - name: 預存程序、觸發程序和 UDF
@@ -216,7 +223,61 @@
 - name: Cassandra、MongoDB 及其他 API
   expanded: true
   items:
-    - name: 適用於 MongoDB 的 Azure Cosmos DB API
+    - name: Cassandra API
+      items:
+        - name: 簡介
+          href: cassandra-introduction.md
+        - name: 連線通訊協定支援
+          href: cassandra-support.md
+        - name: 快速入門
+          items:
+            - name: .NET
+              href: create-cassandra-dotnet.md
+            - name: Java
+              href: create-cassandra-java.md
+            - name: Node.js
+              href: create-cassandra-nodejs.md
+            - name: Python
+              href: create-cassandra-python.md
+        - name: 教學課程
+          items:
+            - name: 1 - 建立及管理資料
+              href: create-cassandra-api-account-java.md
+            - name: 2 - 載入資料
+              href: cassandra-api-load-data.md
+            - name: 3 - 查詢資料
+              href: cassandra-api-query-data.md
+            - name: 4 - 遷移資料
+              displayName: import
+              href: cassandra-import-data.md
+        - name: 使用說明指南
+          items:
+            - name: 儲存和管理 Spring 資料
+              href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
+              maintainContext: true
+            - name: Cassandra 與 Spark
+              items:
+                - name: 簡介
+                  href: cassandra-spark-generic.md
+                - name: 使用 Databrickss 連線
+                  href: cassandra-spark-databricks.md
+                - name: 使用 HDInsight 連線
+                  href: cassandra-spark-hdinsight.md
+                - name: 建立 keyspace 和資料表
+                  href: cassandra-spark-ddl-ops.md
+                - name: 插入資料
+                  href: cassandra-spark-create-ops.md
+                - name: 讀取資料
+                  href: cassandra-spark-read-ops.md
+                - name: 更新插入資料
+                  href: cassandra-spark-upsert-ops.md
+                - name: 刪除資料
+                  href: cassandra-spark-delete-ops.md
+                - name: 彙總作業
+                  href: cassandra-spark-aggregation-ops.md
+                - name: 複製資料表資料
+                  href: cassandra-spark-table-copy-ops.md
+    - name: MongoDB API
       items:
         - name: 簡介
           href: mongodb-introduction.md
@@ -260,13 +321,18 @@
                   href: tutorial-develop-mongodb-react.md
             - name: 2 - 遷移資料
               displayName: import
-              href: 'https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json'
+              href: /azure/dms/tutorial-mongodb-cosmos-db
+              maintainContext: true
             - name: 3 - 查詢資料
               href: tutorial-query-mongodb.md
             - name: 4 - 全域散發資料
               href: tutorial-global-distribution-mongodb.md
         - name: 使用說明指南
           items:
+            - name: 預先移轉指南
+              href: mongodb-pre-migration.md
+            - name: 後續移轉指南
+              href: mongodb-post-migration.md
             - name: 取得連接字串
               href: connect-mongodb-account.md
             - name: 使用 Studio 3T 連線
@@ -324,60 +390,6 @@
             - name: 儲存和管理 Spring 資料
               href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
               maintainContext: true
-    - name: Cassandra API
-      items:
-        - name: 簡介
-          href: cassandra-introduction.md
-        - name: 連線通訊協定支援
-          href: cassandra-support.md
-        - name: 快速入門
-          items:
-            - name: .NET
-              href: create-cassandra-dotnet.md
-            - name: Java
-              href: create-cassandra-java.md
-            - name: Node.js
-              href: create-cassandra-nodejs.md
-            - name: Python
-              href: create-cassandra-python.md
-        - name: 教學課程
-          items:
-            - name: 1 - 建立及管理資料
-              href: create-cassandra-api-account-java.md
-            - name: 2 - 載入資料
-              href: cassandra-api-load-data.md
-            - name: 3 - 查詢資料
-              href: cassandra-api-query-data.md
-            - name: 4 - 遷移資料
-              displayName: import
-              href: cassandra-import-data.md
-        - name: 使用說明指南
-          items:
-            - name: 儲存和管理 Spring 資料
-              href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
-              maintainContext: true
-            - name: Cassandra 與 Spark
-              items:
-                - name: 簡介
-                  href: cassandra-spark-generic.md
-                - name: 使用 Databrickss 連線
-                  href: cassandra-spark-databricks.md
-                - name: 使用 HDInsight 連線
-                  href: cassandra-spark-hdinsight.md
-                - name: 建立 keyspace 和資料表
-                  href: cassandra-spark-ddl-ops.md
-                - name: 插入資料
-                  href: cassandra-spark-create-ops.md
-                - name: 讀取資料
-                  href: cassandra-spark-read-ops.md
-                - name: 更新插入資料
-                  href: cassandra-spark-upsert-ops.md
-                - name: 刪除資料
-                  href: cassandra-spark-delete-ops.md
-                - name: 彙總作業
-                  href: cassandra-spark-aggregation-ops.md
-                - name: 複製資料表資料
-                  href: cassandra-spark-table-copy-ops.md
     - name: 資料表 API
       items:
         - name: 簡介
@@ -420,7 +432,8 @@
             - name: Ruby
               href: table-storage-how-to-use-ruby.md
             - name: 'F#'
-              href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
+              href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+              maintainContext: true
         - name: 使用說明指南
           items:
             - name: 使用表格 API 建置應用程式
@@ -483,10 +496,8 @@
           href: storage-explorer.md
         - name: 使用 Azure Cosmos 總管處理資料
           href: data-explorer.md
-        - name: 編製索引
-          items:
-            - name: 管理索引編製
-              href: how-to-manage-indexing-policy.md
+        - name: 管理編製索引原則
+          href: how-to-manage-indexing-policy.md
     - name: 變更摘要
       items:
         - name: 多個 Azure Cosmos DB 觸發程序
@@ -526,7 +537,8 @@
         - name: 診斷記錄
           href: logging.md
         - name: 使用 Logic Apps 進行應用程式記錄
-          href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
+          href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
+          maintainContext: true
     - name: 監視
       items:
         - name: 透過計量監視
@@ -545,7 +557,7 @@
       href: tutorial-setup-ci-cd.md
     - name: 資料類型
       items:
-        - name: DateTime
+        - name: Datetime
           href: working-with-dates.md
         - name: 地理空間
           href: geospatial.md
@@ -578,17 +590,21 @@
         - name: Azure App Service
           href: create-website.md
         - name: Azure 搜尋服務索引子
-          href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
+          href: /azure/search/search-howto-index-cosmosdb
+          maintainContext: true
         - name: Azure Functions
           items:
             - name: 無伺服器運算
               href: serverless-computing-database.md
             - name: Azure Functions 繫結
-              href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
+              href: /azure/azure-functions/functions-bindings-cosmosdb
+              maintainContext: true
         - name: Azure Data Factory
-          href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
+          href: /azure/data-factory/connector-azure-cosmos-db
+          maintainContext: true
         - name: Azure 串流分析
-          href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
+          href: '/azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db'
+          maintainContext: true
         - name: Logic Apps 與服務匯流排
           href: change-feed-hl7-fhir-logic-apps.md
         - name: Azure 事件中樞與 Azure 儲存體
@@ -601,7 +617,8 @@
         - name: Azure Databricks (Spark 連接器)
           href: spark-connector.md
         - name: Spark 與 Kafka
-          href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
+          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
+          maintainContext: true
         - name: ODBC 驅動程式
           href: odbc-driver.md
     - name: 大量執行程式文件庫

@@ -17,18 +17,18 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7ed2830b704d379e2ecc5a5e548f831800af56d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: d9d2e9aa5e5e805b302763f5417110cdd078eb3b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526379"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997592"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入門：自通用 Windows 平台 (UWP) 應用程式呼叫 Microsoft Graph API
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-此快速入門包含程式碼範例，用以示範通用 Windows 平台 (UWP) 應用程式如何登入個人或公司與學校帳戶的使用者、取得存取權杖，以及呼叫 Microsoft Graph API。
+此快速入門包含程式碼範例，用以示範通用 Windows 平台 (UWP) 應用程式如何登入個人帳戶或公司與學校帳戶的使用者、取得存取權杖，以及呼叫 Microsoft Graph API。
 
 ![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-uwp/uwp-intro.svg)
 
@@ -72,7 +72,7 @@ ms.locfileid: "59526379"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>步驟 2：下載您的 Visual Studio 專案
 
- - [下載 Visual Studio 2017 專案](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+ - [下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>步驟 3：設定您的 Visual Studio 專案
 
@@ -89,7 +89,7 @@ ms.locfileid: "59526379"
 > - `Enter_the_Application_Id_here` - 是您註冊的應用程式所具備的應用程式識別碼。
 >
 > > [!TIP]
-> > 若要尋找「應用程式識別碼」的值，請前往 [概觀] 頁面
+> > 若要尋找「應用程式識別碼」的值，請移至入口網站中的 [概觀] 區段
 
 #### <a name="step-4-run-your-application"></a>步驟 4：執行您的應用程式
 
@@ -119,7 +119,7 @@ Install-Package Microsoft.Identity.Client -IncludePrerelease
 using Microsoft.Identity.Client;
 ```
 
-接著，使用下列程式碼將 MSAL 初始化：
+接著，系統便會使用下列程式碼將 MSAL 初始化：
 
 ```csharp
 public static IPublicClientApplication PublicClientApp;
@@ -133,7 +133,7 @@ PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
 
 ### <a name="requesting-tokens"></a>要求權杖
 
-MSAL 有兩個以互動方式取得權杖的方法：`AcquireTokenInteractive` 和 `AcquireTokenSilent`。
+MSAL 有兩種方法可取得 UWP 應用程式中的權杖：`AcquireTokenInteractive` 與 `AcquireTokenSilent`。
 
 #### <a name="get-a-user-token-interactively"></a>以互動方式取得使用者權杖
 
@@ -155,7 +155,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>以無訊息方式取得使用者權杖
 
-您不應該在每次使用者需要存取資源時都要求使用者驗證其認證。 在大部分時間，您會希望權杖取得和更新作業不需要與使用者進行任何互動。 在初始 `AcquireTokenAsync` 方法之後，您可以使用 `AcquireTokenSilent` 方法取得權杖以存取受保護的資源：
+在初始的 `AcquireTokenAsync` 方法之後，使用 `AcquireTokenSilent` 方法來取得權杖以存取受保護的資源。 您不應該在每次使用者需要存取資源時都要求使用者驗證其認證。 在大部分情況下，您應該以不需要與使用者進行任何互動的方式處理權杖取得和更新作業
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

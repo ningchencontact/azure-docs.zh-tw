@@ -8,12 +8,12 @@ ms.service: mysql
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: a1d5458a2b815591fc7126d429bd16a718910b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ff389f52da0db4e394e8f6a6c37955a5f0c3861
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475747"
 ---
 # <a name="azure-database-for-mysql-documentation"></a>適用於 MySQL 的 Azure 資料庫文件
 
@@ -23,7 +23,7 @@ ms.locfileid: "23073889"
 
 如何使用下列方式建立 Azure 上的 MySQL 資料庫：
 
-- [HttpTrigger Nodejs 函數](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
+- [Azure 入口網站](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
 - [Azure CLI](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>逐步教學課程
