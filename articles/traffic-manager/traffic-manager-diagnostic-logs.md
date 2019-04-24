@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204041"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>在 Azure流量管理員中啟用診斷記錄
 
@@ -72,8 +72,8 @@ Azure 流量管理員診斷記錄可提供流量管理員設定檔資源行為�
 |||||
 |----|----|---|---|
 |**欄位名稱**|**欄位類型**|**定義**|**範例**|
-|EndpointName|字串|正在記錄其健全狀況狀態的流量管理員端點的名稱。|*myPrimaryEndpoint*|
-|狀態|字串|所探查流量管理員端點的健全狀況狀態。 狀態可以是 **Up** 或 **down**。|**Up**|
+|EndpointName|String|正在記錄其健全狀況狀態的流量管理員端點的名稱。|*myPrimaryEndpoint*|
+|狀態|String|所探查流量管理員端點的健全狀況狀態。 狀態可以是 **Up** 或 **down**。|**Up**|
 |||||
 
 ## <a name="next-steps"></a>後續步驟

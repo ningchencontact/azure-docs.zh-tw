@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+origin.date: 02/26/2018
+ms.date: 04/09/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60243524"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>使用 SQL 委派的管理員權限安裝 Azure AD Connect
 最新的 Azure AD Connect 組建之前的版本在部署需要 SQL 的設定時不支援管理委派。  想要安裝 Azure AD Connect 的使用者必須在 SQL 伺服器上擁有伺服器管理員 (SA) 權限。
@@ -54,16 +55,18 @@ Azure AD Connect 系統管理員|安裝 Azure AD Connect，並在自訂安裝期
    ![權限](./media/how-to-connect-install-sql-delegation/sql3a.png)
 
    >[!NOTE]
-   >Azure AD Connect 不支援具有巢狀成員資格的登入。  這表示您的 Azure AD Connect 系統管理員帳戶和網域服務帳戶必須被授與 dbo 權限的登入連結。  它只是不能指派給 dbo 權限的登入群組的成員。
+   >Azure AD Connect 不支持使用嵌套成员身份登录。  这意味着你的 Azure AD Connect 管理员帐户和域服务帐户必须关联到一个被授予了 dbo 权限的登录名。  它不能仅仅是被分配给某个登录名（具有 dbo 权限）的组的成员。
 
 3. 傳送電子郵件給 Azure AD Connect 系統管理員，內容中要指出在安裝 Azure AD Connect 時需使用 SQL 伺服器和執行個體名稱。
 
 ## <a name="additional-information"></a>其他資訊
 資料庫佈建好之後，Azure AD Connect 系統管理員就可以在他們方便的時候安裝及設定內部部署同步處理。
 
-如果 SQL 系統管理員已從先前的 Azure AD Connect 備份還原的 ADSync 資料庫，您必須使用現有的資料庫，以安裝新的 Azure AD Connect 伺服器。 如需有關如何與現有的資料庫安裝 Azure AD Connect 的詳細資訊，請參閱[使用現有的 ADSync 資料庫安裝 Azure AD Connect](how-to-connect-install-existing-database.md)。
+如果 SQL 管理员从以前的 Azure AD Connect 备份还原了 ADSync 数据库，你需要使用现有的数据库安装新的 Azure AD Connect 服务器。 若要详细了解如何通过现有数据库来安装 Azure AD Connect，请参阅[使用现有 ADSync 数据库安装 Azure AD Connect](how-to-connect-install-existing-database.md)。
 
 ## <a name="next-steps"></a>後續步驟
 - [使用快速設定開始使用 Azure AD Connect](how-to-connect-install-express.md)
 - [自訂 Azure AD Connect 安裝](how-to-connect-install-custom.md)
 - [使用現有的 ADSync 資料庫安裝 Azure AD Connect](how-to-connect-install-existing-database.md)  
+
+<!-- Update_Description: wording update -->

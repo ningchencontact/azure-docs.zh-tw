@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
 ms.openlocfilehash: 36b431d07ad517d495316963fd6710dafab6c297
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60305419"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>在防火牆後存取 Azure 金鑰保存庫
 
@@ -32,7 +32,7 @@ ms.locfileid: "56108631"
 
 視您的組態和環境而定，會有一些變化。
 
-## <a name="ports"></a>連接埠
+## <a name="ports"></a>端口
 
 三項功能 (驗證、管理和資料平面存取) 的所有金鑰保存庫流量都會透過 HTTPS︰連接埠 443 傳送。 不過，偶爾會有 CRL 的 HTTP (連接埠 80) 流量。 支援 OCSP 的用戶端不應該觸達 CRL，但可能偶爾會觸達 [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl)。  
 
@@ -42,9 +42,9 @@ ms.locfileid: "56108631"
 
 | 主體類型 | 端點:連接埠 |
 | --- | --- |
-| 使用 Microsoft 帳戶的使用者<br> (例如，user@hotmail.com) |**全域：**<br> login.microsoftonline.com:443<br><br> **Azure 中國︰**<br> login.chinacloudapi.cn:443<br><br>**Azure 美國政府︰**<br> login.microsoftonline.us:443<br><br>**Azure 德國︰**<br>  login.microsoftonline.de:443<br><br> 和 <br>login.live.com:443 |
-| 搭配使用公司帳戶或學校帳戶與 Azure AD 的使用者或服務主體 (例如，user@contoso.com) |**全域：**<br> login.microsoftonline.com:443<br><br> **Azure 中國︰**<br> login.chinacloudapi.cn:443<br><br>**Azure 美國政府︰**<br> login.microsoftonline.us:443<br><br>**Azure 德國︰**<br>  login.microsoftonline.de:443 |
-| 使用公司帳戶或學校帳戶加上 Active Directory 同盟服務 (AD FS) 或其他同盟端點的使用者或服務主體 (例如，user@contoso.com) |公司帳戶或學校帳戶的所有端點，加上 AD FS 或其他同盟端點 |
+| 使用 Microsoft 帳戶的使用者<br> （例如：user@hotmail.com） |**全域：**<br> login.microsoftonline.com:443<br><br> **Azure 中國︰**<br> login.chinacloudapi.cn:443<br><br>**Azure 美國政府︰**<br> login.microsoftonline.us:443<br><br>**Azure 德國︰**<br> login.microsoftonline.de:443<br><br> 和 <br>login.live.com:443 |
+| 使用 Azure AD 的工作或学校帐户的用户或服务主体（如 user@contoso.com） |**全球：**<br> login.microsoftonline.com:443<br><br> **Azure 中國︰**<br> login.chinacloudapi.cn:443<br><br>**Azure 美國政府︰**<br> login.microsoftonline.us:443<br><br>**Azure 德國︰**<br>  login.microsoftonline.de:443 |
+| 使用工作或学校帐户，以及 Active Directory 联合身份验证服务 (AD FS) 或其他联合终结点的用户或服务主体（如 user@contoso.com） |公司帳戶或學校帳戶的所有端點，加上 AD FS 或其他同盟端點 |
 
 還有其他可能的複雜案例。 如需其他資訊，請參閱 [Azure Active Directory 驗證流程](../active-directory/develop/authentication-scenarios.md)、[整合應用程式與 Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md) 及 [Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)。  
 

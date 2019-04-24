@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60287807"
 ---
 # <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>在 PIM 中執行我的 Azure AD 角色的存取權檢閱
 Azure Active Directory (AD) Privileged Identity Management (PIM) 簡化了企業管理特殊權限的存取，在 Azure AD 中的資源和 Office 365 或 Microsoft Intune 等其他 Microsoft online services。  
