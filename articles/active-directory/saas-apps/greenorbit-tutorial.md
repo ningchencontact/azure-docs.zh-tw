@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df6720d888aae313a2e6ad2ce4df458adba8742f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: b05c91138f3140abe6a08964fa06caef988e5f49
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565354"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenorbit"></a>教學課程：Azure Active Directory 與 GreenOrbit 整合
 
@@ -56,7 +56,7 @@ GreenOrbit 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 GreenOrbit，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽面板中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
@@ -64,7 +64,7 @@ GreenOrbit 與 Azure AD 整合提供下列優點：
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
@@ -108,9 +108,9 @@ GreenOrbit 與 Azure AD 整合提供下列優點：
 
     ![GreenOrbit 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.GreenOrbit.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.yourcompanydomain.extension`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`http://<SUBDOMAIN>.trial.GreenOrbit.com`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.yourcompanydomain.extension`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [GreenOrbit 用戶端支援小組](mailto:support@greenorbit.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

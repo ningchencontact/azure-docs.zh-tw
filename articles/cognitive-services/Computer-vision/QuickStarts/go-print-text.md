@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1efbb963deb71f9fa35660ecb6111413e2553e4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d679bf95855232fd64403873e0aea2f24c0af19
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904315"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000941"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Go 擷取印刷文字 (OCR)
 
@@ -27,7 +27,7 @@ ms.locfileid: "57904315"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須安裝 [Go](https://golang.org/dl/)。
-- 您必須具有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="create-and-run-the-sample"></a>建立並執行範例
 

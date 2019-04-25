@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/20/2019
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 447c5b1e94b848e9e560db1188a767f2040740c0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 91e94c70444430725ffec836d1663aef99eb5496
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546845"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003355"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -51,7 +51,7 @@ Azure 應用程式閘道包含下列功能︰
 
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Azure Kubernetes Service (AKS) 輸入控制器預覽 
 
-應用程式閘道輸入控制器會以 Pod 的形式在 AKS 叢集中運作，並允許應用程式閘道作為 AKS 叢集的輸入。 
+應用程式閘道輸入控制器會以 Pod 的形式在 AKS 叢集中運作，並允許應用程式閘道作為 AKS 叢集的輸入。 這僅限搭配應用程式閘道 v2 使用。
 
 如需詳細資訊，請參閱 [Azure 應用程式閘道輸入控制器](https://azure.github.io/application-gateway-kubernetes-ingress/)。
 

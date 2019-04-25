@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 376f2bd792cb1b3190507f5571a8b7a33daf2542
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439104"
 documentType: LandingData
 title: Azure 資料箱文件 - 線上傳輸
 metadata:
@@ -21,25 +15,25 @@ metadata:
 abstract:
   description: Azure 資料箱系列可讓您以快速、實惠和可靠的方式，將數百 TB 的資料轉送到 Azure 中。 使用資料箱裝置，透過網路進行高效能資料轉送。<p>選擇 Data Box Gateway 來傳送資料，以便雲端封存、災害復原，或以雲端規模處理資料。  當您的資料移至 Azure 時，使用 Data Box Edge 來篩選、分析及轉換資料。</p><p>透過我們的教學課程，了解如何運用資料箱閘道和 Data Box Edge 進行網路式傳輸。</p>
 sections:
-- title: 教學課程
-  items:
-  - type: paragraph
-    text: <b>使用資料箱閘道</b>
-  - type: list
-    style: ordered
+  - title: 教學課程
     items:
-    - html: <a href="data-box-gateway-deploy-prep">準備部署 Azure 資料箱閘道</a>
-    - html: <a href="data-box-gateway-deploy-provision-hyperv">在 Hyper-V 中佈建 Azure 資料箱閘道</a>
-    - html: <a href="data-box-gateway-deploy-provision-vmware">在 VMware 中佈建 Azure 資料箱閘道</a>
-    - html: <a href="data-box-gateway-deploy-connect-setup-activate">連線、設定、啟用 Azure 資料箱閘道</a>
-    - html: <a href="data-box-gateway-deploy-add-shares">使用 Azure 資料箱閘道傳輸資料</a>
-  - type: paragraph
-    text: <b>使用 Data Box Edge</b>
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="data-box-edge-deploy-prep">準備部署 Azure Data Box Edge</a>
-    - html: <a href="data-box-edge-deploy-install">安裝 Azure Data Box Edge</a>
-    - html: <a href="data-box-edge-deploy-connect-setup-activate">連線、設定、啟用 Azure Data Box Edge</a>
-    - html: <a href="data-box-edge-deploy-add-shares">使用 Azure Data Box Edge 傳輸資料</a>
-    - html: <a href="data-box-edge-deploy-configure-compute">使用 Azure Data Box Edge 轉換資料</a>
+      - type: paragraph
+        text: <b>使用資料箱閘道</b>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="data-box-gateway-deploy-prep">準備部署 Azure 資料箱閘道</a>
+          - html: <a href="data-box-gateway-deploy-provision-hyperv">在 Hyper-V 中佈建 Azure 資料箱閘道</a>
+          - html: <a href="data-box-gateway-deploy-provision-vmware">在 VMware 中佈建 Azure 資料箱閘道</a>
+          - html: <a href="data-box-gateway-deploy-connect-setup-activate">連線、設定、啟用 Azure 資料箱閘道</a>
+          - html: <a href="data-box-gateway-deploy-add-shares">使用 Azure 資料箱閘道傳輸資料</a>
+      - type: paragraph
+        text: <b>使用 Data Box Edge</b>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="data-box-edge-deploy-prep">準備部署 Azure Data Box Edge</a>
+          - html: <a href="data-box-edge-deploy-install">安裝 Azure Data Box Edge</a>
+          - html: <a href="data-box-edge-deploy-connect-setup-activate">連線、設定、啟用 Azure Data Box Edge</a>
+          - html: <a href="data-box-edge-deploy-add-shares">使用 Azure Data Box Edge 傳輸資料</a>
+          - html: <a href="data-box-edge-deploy-configure-compute">使用 Azure Data Box Edge 轉換資料</a>

@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e86ae61a6aec6c546b36c52f3f3875cbebdc838e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b46135366c76abf8da5387ff0698b4dc7634d79c
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861922"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698537"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>教學課程：Azure Active Directory 與 Absorb LMS
 
@@ -38,7 +39,7 @@ ms.locfileid: "57861922"
 
 若要設定與 Absorb LMS 的 Azure AD 整合，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
+* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以申請[免費帳戶](https://azure.microsoft.com/free/)
 * 已啟用 Absorb LMS 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
@@ -120,11 +121,15 @@ ms.locfileid: "57861922"
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Absorb LMS 用戶端支援小組](https://support.absorblms.com/hc/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以依據您的需求從指定選項下載 [中繼資料 XML]，並儲存在您的電腦上。
+5. 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。
+
+    ![image](common/edit-attribute.png)
+
+6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [設定 Absorb LMS] 區段上，依據您的需求複製適當的 URL。
+7. 在 [設定 Absorb LMS] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -162,7 +167,7 @@ ms.locfileid: "57861922"
 
     d. 在 [模式] 方塊中，選取 [識別提供者起始]。
 
-    e. 在 [ID 屬性] 方塊中，選取您在 Azure AD 中設定為使用者識別碼的屬性。 例如，如果已在 Azure AD 中選取 *userPrincipalName*，請選取 [使用者名稱]。
+    e. 在 [ID 屬性] 方塊中，選取您在 Azure AD 中設定為使用者識別碼的屬性。 例如，如果已在 Azure AD 中選取 nameidentifier，請選取 [使用者名稱]。
 
     f. 選取 [Sha256] 作為 [簽章類型]。
 
@@ -194,7 +199,7 @@ ms.locfileid: "57861922"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 `brittasimon\@yourcompanydomain.extension`  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

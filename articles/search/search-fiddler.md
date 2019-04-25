@@ -11,15 +11,15 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269107"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>快速入門：使用 Postman 探索 Azure 搜尋服務 REST API
 > [!div class="op_single_selector"]
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
 > * [入口網站](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
@@ -228,7 +228,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 
 ## <a name="get-index-properties"></a>取得索引屬性
-您也可以查詢系統資訊以取得文件計數和儲存體用量： `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
+您也可以查詢系統資訊以取得文件計數和儲存體用量：`https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 在 Postman 中，您的要求看起來應該與下方項目類似，回應會包括文件計數和使用的空格 (以位元組表示)。
 
@@ -247,7 +247,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 制訂如下列螢幕擷取畫面所示的要求。 選擇 **GET** 作為動詞。 Fiddler 會新增 `User-Agent=Fiddler`。 您可以在其下的新行上貼上兩個額外的要求標頭。 使用服務的管理員存取金鑰，包含服務的內容類型和 API 金鑰。
 
-複製此 URL 的修改版本作為目標： `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
+複製此 URL 的修改版本作為目標：`https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
 
 ![Fiddler 要求標頭][1]
 
@@ -270,11 +270,11 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 下列範例查詢來自[搜尋索引作業 (Azure 搜尋服務 API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 一文。 本文中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。 因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
 
-**取代空格之前 (lastRenovationDate desc)：**
+**前面的空格會被取代 (in lastRenovationDate desc)：**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
-**以 + 取代空格之後 (lastRenovationDate+desc)：**
+**後面的空格會以 + 取代 (in lastRenovationDate+desc)：**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 

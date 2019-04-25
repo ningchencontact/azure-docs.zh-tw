@@ -1,61 +1,284 @@
 ---
-title: 了解如何在 Azure Cosmos DB 中管理資料庫帳戶
-description: 了解如何在 Azure Cosmos DB 中管理資料庫帳戶
-author: markjbrown
+title: 管理 Azure Cosmos DB 中的索引編製原則
+description: 了解如何管理 Azure Cosmos DB 中的索引編製原則
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/10/2018
-ms.author: mjbrown
-ms.openlocfilehash: c27cee4842c0e65e1737f100a215cff82a0fd439
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 04/08/2019
+ms.author: thweiss
+ms.openlocfilehash: 76275420e1e6ed7fdec8309da9e11a272f08fee0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033089"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005583"
 ---
-# <a name="manage-indexing-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引編製
+# <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引編製原則
 
-在 Azure Cosmos DB 中，您可以選擇是否要讓容器自動編製所有項目的索引。 根據預設，Azure Cosmos 容器中的所有項目都會自動編制索引，但您可以關閉自動編制索引的功能。 當編制索引的功能關閉時，您只能透過項目自己的連結或透過使用項目識別碼 (例如文件識別碼) 進行查詢來存取項目。您可以明確要求提供沒有索引的結果，方法是在 REST API 中傳入 **x-ms-documentdb-enable-scan**  標頭，或是使用 .NET SDK 傳入 **EnableScanInQuery** 要求選項。
+Azure Cosmos DB 會遵循針對每個容器所定義的[索引編製原則](index-policy.md)來為資料編製索引。 新建立的容器所套用的預設索引編製原則，會對任何字串或數字強制執行範圍索引，而對 Point 類型的 GeoJSON 物件強制執行空間索引。 此原則可透過下列方式加以覆寫：
 
-當自動編制索引的功能關閉時，您仍可選擇將特定項目新增到索引中。 相反地，您也可以讓自動編製索引的功能保持開啟，並選擇排除特定項目。 當您需要查詢項目的子集時，索引編製功能開/關組態相當有用。  
+- 從 Azure 入口網站
+- 使用 Azure CLI
+- 使用其中一個 SDK
 
-寫入輸送量與要求單位會與需要編製索引的值數目成正比，此數目則由索引編製原則中所包含的集合來指定。 如果您非常了解查詢模式，則可明確地選擇路徑的包含/排除子集，以改善寫入輸送量。
+[更新索引編製原則](index-policy.md#modifying-the-indexing-policy)將會觸發索引的轉換。 您也可以從 SDK 追蹤此轉換的進度。
 
-## <a name="manage-indexing-using-azure-portal"></a>使用 Azure 入口網站管理索引編製
+## <a name="use-the-azure-portal"></a>使用 Azure 入口網站
+
+Azure Cosmos 容器會將其索引編製原則儲存為 JSON 文件，並可從 Azure 入口網站直接進行編輯。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 建立新的 Azure Cosmos 帳戶，或選取現有帳戶。
+1. 建立新的 Azure Cosmos 帳戶，或選取現有帳戶。
 
-3. 開啟 [資料總管] 窗格。
+1. 開啟 [資料總管] 窗格，然後選取您要處理的容器。
 
-4. 選取現有容器，加以展開並修改下列值：
+1. 按一下 [規模與設定]。
 
-   * 開啟 [規模與設定] 視窗。
-   * 將 **indexingMode** 從 *consistent* 變更為 *none*，或在索引編製中包含/排除特定路徑。
-   * 按一下 [確定]  儲存變更。
+1. 修改索引編製原則 JSON 文件 (請參閱[下面](#indexing-policy-examples)範例)
 
-   ![使用 Azure 入口網站管理索引編製](./media/how-to-manage-indexing/how-to-manage-indexing-portal.png)
+1. 當您完成時，按一下 [儲存]。
 
-## <a name="manage-indexing-using-azure-sdks"></a>使用 Azure SDK 管理索引編製
+![使用 Azure 入口網站管理索引編製](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
 
-### <a id="dotnet"></a>.NET SDK
+## <a name="use-the-azure-cli"></a>使用 Azure CLI
 
-下列範例示範如何使用 [SQL API .NET SDK](sql-api-sdk-dotnet.md) 和 [RequestOptions.IndexingDirective](/dotnet/api/microsoft.azure.documents.client.requestoptions.indexingdirective) 屬性來明確地包含項目。
+從 Azure CLI 執行 [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) 命令可讓您取代容器索引編製原則的 JSON 定義：
+
+```azurecli-interactive
+az cosmosdb collection update \
+    --resource-group-name $resourceGroupName \
+    --name $accountName \
+    --db-name $databaseName \
+    --collection-name $containerName \
+    --indexing-policy "{\"indexingMode\": \"consistent\", \"includedPaths\": [{ \"path\": \"/*\", \"indexes\": [{ \"dataType\": \"String\", \"kind\": \"Range\" }] }], \"excludedPaths\": [{ \"path\": \"/headquarters/employees/?\" } ]}"
+```
+
+## <a name="use-the-net-sdk-v2"></a>使用 .NET SDK V2
+
+[.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 中的 `DocumentCollection` 物件 (請參閱關於其使用方式的[這個快速入門](create-sql-api-dotnet.md)) 會公開 `IndexingPolicy` 屬性，以供您變更 `IndexingMode` 以及新增或移除 `IncludedPaths` 和 `ExcludedPaths`。
 
 ```csharp
-// To override the default behavior to exclude (or include) a document in indexing,
-// use the RequestOptions.IndexingDirective property.
-client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("myDatabaseName", "myCollectionName"),
-    new { id = "myDocumentId", isRegistered = true },
-    new RequestOptions { IndexingDirective = IndexingDirective.Include });
+// retrieve the container's details
+ResourceResponse<DocumentCollection> containerResponse = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"));
+// set the indexing mode to Consistent
+containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+// add an excluded path
+containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/headquarters/employees/?" });
+// update the container with our changes
+await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
+
+若要追蹤索引的轉換進度，請傳遞 `RequestOptions` 物件並將其 `PopulateQuotaInfo` 屬性設定為 `true`。
+
+```csharp
+// retrieve the container's details
+ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"), new RequestOptions { PopulateQuotaInfo = true });
+// retrieve the index transformation progress from the result
+long indexTransformationProgress = container.IndexTransformationProgress;
+```
+
+## <a name="use-the-java-sdk"></a>使用 Java SDK
+
+[Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 中的 `DocumentCollection` 物件 (請參閱關於其使用方式的[這個快速入門](create-sql-api-java.md)) 會公開 `getIndexingPolicy()` 和 `setIndexingPolicy()` 方法。 這些方法所管理的 `IndexingPolicy` 物件可讓您變更索引編製模式，以及新增或移除已納入和排除的路徑。
+
+```java
+// retrieve the container's details
+Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), null);
+containerResponse.subscribe(result -> {
+    DocumentCollection container = result.getResource();
+    IndexingPolicy indexingPolicy = container.getIndexingPolicy();
+    // set the indexing mode to Consistent
+    indexingPolicy.setIndexingMode(IndexingMode.Consistent);
+    Collection<ExcludedPath> excludedPaths = new ArrayList<>();
+    ExcludedPath excludedPath = new ExcludedPath();
+    excludedPath.setPath("/*");
+    // add an excluded path
+    excludedPaths.add(excludedPath);
+    indexingPolicy.setExcludedPaths(excludedPaths);
+    // update the container with our changes
+    client.replaceCollection(container, null);
+});
+```
+
+若要在容器上追蹤索引轉換進度，請傳遞會要求填入配額資訊的 `RequestOptions` 物件，然後從 `x-ms-documentdb-collection-index-transformation-progress` 回應標頭中擷取值。
+
+```java
+// set the RequestOptions object
+RequestOptions requestOptions = new RequestOptions();
+requestOptions.setPopulateQuotaInfo(true);
+// retrieve the container's details
+Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), requestOptions);
+containerResponse.subscribe(result -> {
+    // retrieve the index transformation progress from the response headers
+    String indexTransformationProgress = result.getResponseHeaders().get("x-ms-documentdb-collection-index-transformation-progress");
+});
+```
+
+## <a name="use-the-nodejs-sdk"></a>使用 Node.js SDK
+
+[Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) 中的 `ContainerDefinition` 介面 (請參閱關於其使用方式的[這個快速入門](create-sql-api-nodejs.md)) 會公開 `indexingPolicy` 屬性，以供您變更 `indexingMode` 以及新增或移除 `includedPaths` 和 `excludedPaths`。
+
+```javascript
+// retrieve the container's details
+const containerResponse = await client.database('database').container('container').read();
+// set the indexing mode to Consistent
+containerResponse.body.indexingPolicy.indexingMode = "consistent";
+// add an excluded path
+containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/headquarters/employees/?' });
+// update the container with our changes
+const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
+```
+
+若要在容器上追蹤索引轉換進度，請傳遞會將 `populateQuotaInfo` 屬性設定為 `true` 的 `RequestOptions` 物件，然後從 `x-ms-documentdb-collection-index-transformation-progress` 回應標頭中擷取值。
+
+```javascript
+// retrieve the container's details
+const containerResponse = await client.database('database').container('container').read({
+    populateQuotaInfo: true
+});
+// retrieve the index transformation progress from the response headers
+const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
+```
+
+## <a name="use-the-python-sdk"></a>使用 Python SDK
+
+使用 [Python SDK](https://pypi.org/project/azure-cosmos/) 時 (請參閱關於其使用方式的[這個快速入門](create-sql-api-python.md))，系統會以字典的形式來管理容器設定。 您可以從這個字典存取索引編製原則和其所有屬性。
+
+```python
+containerPath = 'dbs/database/colls/collection'
+# retrieve the container's details
+container = client.ReadContainer(containerPath)
+# set the indexing mode to Consistent
+container['indexingPolicy']['indexingMode'] = 'consistent'
+# add an excluded path
+container['indexingPolicy']['excludedPaths'] = [{"path" : "/headquarters/employees/?"}]
+# update the container with our changes
+response = client.ReplaceContainer(containerPath, container)
+```
+
+## <a name="indexing-policy-examples"></a>索引編製原則範例
+
+下面有一些以其 JSON 格式顯示的索引編製原則範例，這就是其在 Azure 入口網站上公開的方式。 透過 Azure CLI 或任何 SDK 也可以設定相同的參數。
+
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>可選擇性地排除一些屬性路徑的退出原則
+
+    {
+        "indexingPolicy": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    },
+                    {
+                        "kind": "Spatial",
+                        "dataType": "Point"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/path/to/single/excluded/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/excluded/properties/*"
+            }
+        ]
+    }
+
+### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>可選擇性地納入一些屬性路徑的加入原則
+
+    {
+        "indexingPolicy": "consistent",
+        "includedPaths": [
+            {
+                "path": "/path/to/included/property/?",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    }
+                ]
+            },
+            {
+                "path": "/path/to/root/of/multiple/included/properties/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/*"
+            }
+        ]
+    }
+
+注意：一般會建議您使用**退出**索引編製原則來讓 Azure Cosmos DB 主動地對可能會新增至模型的新屬性編製索引。
+
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>僅對特定屬性路徑使用空間索引
+
+    {
+        "indexingPolicy": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    }
+                ]
+            },
+            {
+                "path": "/path/to/geojson/property/?",
+                "indexes": [
+                    {
+                        "kind": "Spatial",
+                        "dataType": "Point"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": []
+    }
+
+### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>排除所有屬性路徑但讓索引編製保持作用狀態
+
+此原則可用於[存留時間 (TTL) 功能](time-to-live.md)有作用但不需要 (即可使用 Azure Cosmos DB 作為純粹的索引鍵-值存放區) 次要索引的情況。
+
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [],
+        "excludedPaths": [{
+            "path": "/*"
+        }]
+    }
+
+### <a name="no-indexing"></a>無索引編製
+
+    {
+        "indexingPolicy": "none"
+    }
 
 ## <a name="next-steps"></a>後續步驟
 
 在下列文章中深入了解編製索引：
 
-* [索引編製概觀](index-overview.md)
-* [索引編製原則](index-policy.md)
-* [索引類型](index-types.md)
-* [索引路徑](index-paths.md)
+- [索引編製概觀](index-overview.md)
+- [編製索引原則](index-policy.md)

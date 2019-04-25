@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450937"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995059"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>使用 Visual Studio 中已連線的服務來連線到電腦視覺 API
 
@@ -38,15 +38,15 @@ ms.locfileid: "57450937"
 1. 在 [方案總管] 中，選擇 [新增] > [連線服務]。
    [連線服務] 頁面隨即出現，並顯示您可新增至專案的服務。
 
-   ![Visual Studio 專案上滑鼠右鍵功能表的螢幕擷取畫面：新增 > 已連線的服務](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Visual Studio 專案上的滑鼠右鍵功能表：新增 > 已連線的服務](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. 在可用服務的功能表中，選擇 [認知服務電腦視覺 API]。
 
-   ![[已連線的服務] 功能表，使用電腦視覺反白顯示分析影像](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![連線服務功能表：概述分析影像](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    如果您已登入 Visual Studio，並具有與您帳戶相關聯的 Azure 訂用帳戶，則會出現一個頁面，其中顯示含有您訂用帳戶的下拉式清單。
 
-   ![「電腦視覺 API」的 Visual Studio 視窗，其中反白顯示 [訂用帳戶] 下拉式清單](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![已醒目提示 [訂用帳戶] 下拉式清單的電腦視覺 API 視窗](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. 選取您想要使用的訂用帳戶，然後選擇電腦視覺 API 的名稱，或選擇 [編輯] 連結來修改自動產生的名稱，選擇資源群組及定價層。
 

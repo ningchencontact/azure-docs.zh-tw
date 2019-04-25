@@ -1,5 +1,5 @@
 ---
-title: 快速入門：網域專屬的影像內容 - REST、Python
+title: 快速入門：網域專屬的內容 - REST、Python
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用電腦視覺 API 與 Python，使用領域模型來識別影像中的名人和地標。
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: bdbff3777949298fbefec80ecb6608d6af10037b
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e4ba3ee0b2138cb83796be50efe129a993d07a8a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651646"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996487"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>快速入門：在電腦視覺中利用 REST API 和 Python 來使用領域模型
 
@@ -31,7 +31,7 @@ ms.locfileid: "56651646"
 ## <a name="prerequisites"></a>必要條件
 
 - 如果您想要在本機執行此範例，就必須安裝 [Python](https://www.python.org/downloads/)。
-- 您必須擁有適用於電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="create-and-run-the-landmarks-sample"></a>建立並執行地標範例
 

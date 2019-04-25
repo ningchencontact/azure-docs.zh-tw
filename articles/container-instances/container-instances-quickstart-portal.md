@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 008d6d2a9a4a20e9fd083e9e2f009396a7f14df2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369440"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995909"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署容器執行個體
 
@@ -35,31 +35,29 @@ ms.locfileid: "58369440"
 
 ![開始在 Azure 入口網站中建立新的容器執行個體][aci-portal-01]
 
-在 [容器名稱]、[容器映像] 和 [資源群組] 文字方塊中輸入下列值。 將其他的值保留預設值，然後選取 [確定]。
+在 [基本資料] 頁面上，於 [資源群組]、[容器名稱] 和 [容器映像] 文字方塊中輸入下列值。 將其他的值保留預設值，然後選取 [確定]。
 
+* 資源群組：**新建** > `myresourcegroup`
 * 容器名稱：`mycontainer`
 * 容器映像：`mcr.microsoft.com/azuredocs/aci-helloworld`
-* 資源群組：**新建** > `myResourceGroup`
 
 ![在 Azure 入口網站中設定新容器執行個體的基本設定][aci-portal-03]
 
-在本快速入門中，保留 [公用] 預設設定，以部署公用 Microsoft `aci-helloworld` 映像。 此映像會封裝以 Node.js 撰寫並提供靜態 HTML 網頁的小型 Web 應用程式。
+在本快速入門中，使用預設的 [公用] [映像類型] 設定來部署公用 Microsoft `aci-helloworld` 映像。 此 Linux 映像會封裝以 Node.js 撰寫並提供靜態 HTML 網頁的小型 Web 應用程式。
 
-在 [組態] 下，為您的容器指定 [DNS 名稱標籤]。 這在您建立容器執行個體所在的 Azure 區域中，必須是唯一的名稱。 您的容器將可在 `<dns-name-label>.<region>.azurecontainer.io` 讓他人公開存取。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
-
-將 [設定] 中的其他設定保留預設值，然後選取 [確定] 以驗證設定。
+在 [網路] 頁面上，為您的容器指定 [DNS 名稱標籤]。 這在您建立容器執行個體所在的 Azure 區域中，必須是唯一的名稱。 您的容器將可在 `<dns-name-label>.<region>.azurecontainer.io` 讓他人公開存取。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
 
 ![在 Azure 入口網站中設定新的容器執行個體][aci-portal-04]
 
-當驗證完成時，系統會向您顯示容器設定的摘要。 選取 [確定] 以提交容器部署要求。
+將其他設定保留預設值，然後選取 [檢閱 + 建立]。
+
+當驗證完成時，系統會向您顯示容器設定的摘要。 選取 [建立] 以提交容器部署要求。
 
 ![Azure 入口網站中新容器執行個體的設定摘要][aci-portal-05]
 
 部署開始時會出現通知，指出部署正在進行中。 容器群組部署完成時，會顯示另一個通知。
 
-![Azure 入口網站中新容器執行個體的建立進度][aci-portal-08]
-
-瀏覽至 [資源群組] > [myResourceGroup] > [mycontainer]，開啟容器群組的概觀。 請記下容器執行個體的 [FQDN] (完整網域名稱)，以及其 [狀態]。
+瀏覽至 [資源群組] > [myresourcegroup] > [mycontainer]，開啟容器群組的概觀。 請記下容器執行個體的 [FQDN] (完整網域名稱)，以及其 [狀態]。
 
 ![Azure 入口網站中的容器群組概觀][aci-portal-06]
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fb684a59362e0f7b6ccdc2ca05fda1b89def2835
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351842"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001553"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>如何即時分析影片
 
@@ -216,7 +216,7 @@ VideoFrameAnalyzer 的影像、語音、影片或文字理解功能會使用「A
 
 ## <a name="summary"></a>總結
 
-在本指南中，您已了解如何使用「臉部」、「電腦視覺」和「表情」API，在即時視訊資料流上執行近乎即時的分析，以及如何使用我們的範例程式碼來開始設計程式。 您可以使用 [Microsoft 認知服務註冊頁面](https://azure.microsoft.com/try/cognitive-services/)的免費 API 金鑰來開始建置應用程式。 
+在本指南中，您已了解如何使用「臉部」、「電腦視覺」和「表情」API，在即時視訊資料流上執行近乎即時的分析，以及如何使用我們的範例程式碼來開始設計程式。 您可以使用 [Azure 認知服務註冊頁面](https://azure.microsoft.com/try/cognitive-services/)的免費 API 金鑰來開始建置應用程式。 
 
 歡迎您在 [GitHub 存放庫](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) 中提供意見反應和建議。若要提供更廣泛的 API 意見反應，請到我們的  [UserVoice 網站](https://cognitive.uservoice.com/)。
 

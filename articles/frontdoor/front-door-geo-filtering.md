@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: a7b4975a81c0966e5cbff0c8b940c9231e66f32b
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 1d6343705e8d27fb2d22827cf792de332861456e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407635"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007962"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>什麼是 Azure Front Door 的網域地區篩選？
 
@@ -97,7 +97,7 @@ WAF 原則通常包含一組自訂規則。 規則會由比對條件、動作及
 | GR | 希臘|
 | GT | 瓜地馬拉|
 | GY | 蓋亞那|
-| HK | 香港|
+| HK | 香港特別行政區|
 | HN | 宏都拉斯|
 | HR | 克羅埃西亞|
 | HT | 海地|
@@ -132,7 +132,7 @@ WAF 原則通常包含一組自訂規則。 規則會由比對條件、動作及
 | LT | 立陶宛|
 | LU | 盧森堡|
 | LV | 拉脫維亞|
-| LY | 利比亞阿拉伯人民社會主義群眾國|
+| LY | 利比亞 |
 | MA | 摩洛哥|
 | MD | 摩爾多瓦共和國|
 | MG | 馬達加斯加|
@@ -140,7 +140,7 @@ WAF 原則通常包含一組自訂規則。 規則會由比對條件、動作及
 | ML | 馬利|
 | MM | 緬甸|
 | MN | 蒙古|
-| MO | 澳門|
+| MO | 澳門特別行政區|
 | MQ | 馬丁尼克|
 | MR | 茅利塔尼亞|
 | MT | 馬爾他|

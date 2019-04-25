@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 353616141e37e8024695fad81a16c9c2f3b82625
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107339"
 documentType: LandingData
 title: Azure 受控應用程式文件
 metadata:
@@ -22,35 +16,35 @@ metadata:
 abstract:
   description: Azure 受控應用程式可讓您向內部及外部客戶提供雲端解決方案。 您可以定義解決方案的基礎結構，以及該解決方案目前的管理條款。 解決方案的帳單則是透過 Azure 計費處理。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何發佈和部署受控應用程式。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        src: /azure/managed-applications/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/managed-applications/managed-apps-quickstart-cli
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何開發受控應用程式，並透過 Azure Marketplace 提供服務。
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 了解如何發佈和部署受控應用程式。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/managed-applications/media/index/cli.svg
+            text: Azure CLI
+            href: /azure/managed-applications/managed-apps-quickstart-cli
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/managed-applications/publish-service-catalog-app">發佈受控應用程式，以供內部使用</a>
-    - html: <a href="/azure/managed-applications/publish-marketplace-app">發佈受控應用程式，以供外部使用</a>
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 了解如何開發受控應用程式，並透過 Azure Marketplace 提供服務。
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/managed-applications/publish-service-catalog-app">發佈受控應用程式，以供內部使用</a>
+          - html: <a href="/azure/managed-applications/publish-marketplace-app">發佈受控應用程式，以供外部使用</a>
+  - title: 參考
     items:
-    - title: 命令列
-      html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
-    - title: REST API
-      html: <p><a href="/rest/api/resources/">REST</a></p>
-    - title: 使用者介面
-      html: <p><a href="/azure/managed-applications/create-uidefinition-elements">UI 元素</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">UI 功能</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
+          - title: REST API
+            html: <p><a href="/rest/api/resources/">REST</a></p>
+          - title: 使用者介面
+            html: <p><a href="/azure/managed-applications/create-uidefinition-elements">UI 元素</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">UI 功能</a></p>

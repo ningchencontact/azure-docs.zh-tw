@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887415"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011294"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>範例：如何使用文字分析來偵測情感
 
-[情感分析 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) \(英文\) 會評估文字輸入，並傳回每份文件的情感分數，範圍從 0 (負面) 到 1 (正面)。
+[情感分析 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) \(英文\) 會評估文字輸入，並傳回每份文件的情感分數，範圍從 0 (負面) 到 1 (正面)。
 
 此功能在偵測社交媒體、客戶評價及討論論壇中的正面和負面情感上非常實用。 內容是由您提供，模型和定型資料則由服務提供。
 
@@ -77,16 +77,16 @@ ms.locfileid: "56887415"
 
 關於要求定義的詳細資料可以在[如何呼叫文字分析 API](text-analytics-how-to-call-api.md) 中找到。 為了方便起見，我們將重申下列各點：
 
-+ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[情感分析 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[情感分析 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來分析情感的 HTTP 端點。 它必須包括 `/sentiment` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來分析情感的 HTTP 端點。 它必須包括 `/sentiment` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
 
 + 設定要求標頭以包含適用於文字分析作業的存取金鑰。 如需詳細資訊，請參閱[如何尋找端點和存取金鑰](text-analytics-how-to-access-key.md)。
 
 + 在要求主體中，提供您準備用於此分析的 JSON 文件集合。
 
 > [!Tip]
-> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
+> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
 
 ## <a name="step-2-post-the-request"></a>步驟 2：張貼要求
 
@@ -135,8 +135,8 @@ ms.locfileid: "56887415"
 
 在本文中，您已了解使用認知服務中的文字分析進行情感分析的概念和工作流程。 摘要說明：
 
-+ [情感分析 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) \(英文\) 僅針對特定語言提供。
-+ 要求主體中的 JSON 文件包含識別碼、文字和語言代碼。
++ [情感分析 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) \(英文\) 僅針對特定語言提供。
++ 要求本文中的 JSON 文件包含識別碼、文字和語言代碼。
 + 使用對您訂用帳戶有效的個人化[存取金鑰和端點](text-analytics-how-to-access-key.md)，將要求 POST 到 `/sentiment` 端點。
 + 回應輸出 (其包含針對每個文件識別碼的情感分數) 可以串流處理到任何可接受 JSON 的應用程式，包括 Excel 和 Power BI 等。
 

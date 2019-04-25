@@ -1,22 +1,22 @@
 ---
 title: 範例：在 C# 中探索影像處理應用程式
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: 探索使用「Microsoft 認知服務」中「電腦視覺 API」的基本 Windows 應用程式。 在影像中執行 OCR、建立縮圖，以及處理視覺特徵。
+titleSuffix: Azure Cognitive Services
+description: 探索使用「Azure 認知服務」中「電腦視覺 API」的基本 Windows 應用程式。 在影像中執行 OCR、建立縮圖，以及處理視覺特徵。
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 02/08/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310935"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004018"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>範例：使用 C# 探索影像處理應用程式
 
@@ -33,7 +33,7 @@ ms.locfileid: "56310935"
 探索範例應用程式之前，請確認您已符合下列必要條件：
 
 * 您必須有 [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 或更新版本。
-* 您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+* 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="get-the-sample-app"></a>取得範例應用程式
 

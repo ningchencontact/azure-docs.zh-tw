@@ -15,21 +15,19 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0562d222bce07f74ef5355ad0e3d6b8844c33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096617"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007350"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中建立第一個 Java Web 應用程式
 
 [Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 本快速入門示範如何使用 [Eclipse IDE for Java EE Developers](https://www.eclipse.org/) 將 Java Web 應用程式部署到 App Service。
 
-> [!NOTE]
->
-> 本快速入門中的步驟示範如何使用 Eclipse IDE，來將 Java Web 應用程式發佈至 App Service，但是您也可以使用 IntelliJ IDEA Ultimate Edition 或 Community Edition。 如需詳細資訊，請參閱[使用 IntelliJ 建立 Azure Hello World Web 應用程式](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)。
->
+> [!IMPORTANT]
+> 您也可以選擇使用 Linux 上的 Azure App Service，在使用受控 Tomcat、Java SE 和 WildFly 供應項目的 Linux 上以原生方式裝載 Java Web 應用程式。 如果您想要開始使用 Linux 上的 App Service，請參閱[快速入門：在 Linux 上的 App Service 中建立 Java 應用程式](containers/quickstart-java.md)。
 
 當您完成本快速入門，在網頁瀏覽器中檢視您的應用程式時，看起來會如下圖所示：
 
@@ -37,7 +35,12 @@ ms.locfileid: "58096617"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+> [!NOTE]
+>
+> 本快速入門中的步驟示範如何使用 Eclipse IDE，來將 Java Web 應用程式發佈至 App Service，但是您也可以使用 IntelliJ IDEA Ultimate Edition 或 Community Edition。 如需詳細資訊，請參閱[使用 IntelliJ 建立 Azure Hello World Web 應用程式](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)。
+>
+
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門，請安裝：
 

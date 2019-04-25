@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>教學課程：Azure Active Directory 與 Vodeclic 整合
@@ -105,9 +105,9 @@ ms.locfileid: "59267067"
 
     ![Vodeclic 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<companyname>.lms.vodeclic.net/auth/saml`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<companyname>.lms.vodeclic.net/auth/saml`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

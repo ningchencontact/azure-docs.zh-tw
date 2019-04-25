@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 6df44531e8879783bba6b49a0db44f87af71fb5f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: d023c6ec9c3d24400fd2b7b9fcce9568aa851214
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050504"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000012"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>快速入門：使用應用程式設定建立 Java Spring 應用程式
 
@@ -35,26 +35,7 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 ## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
 
-1. 若要建立新的應用程式設定存放區，請登入 [Azure 入口網站](https://aka.ms/azconfig/portal)。 在頁面的左上角，選取 [+ 建立資源]。 在 [搜尋 Marketplace] 方塊中，輸入**應用程式設定**，然後按 Enter。
-
-    ![搜尋應用程式設定](./media/quickstarts/azure-app-configuration-new.png)
-
-2. 從搜尋結果中選取 [應用程式設定]，然後選取 [建立]。
-
-3. 在 [應用程式設定]  >  [建立] 頁面上，輸入下列設定。
-
-    | 設定 | 建議的值 | 說明 |
-    |---|---|---|
-    | **資源名稱** | 全域唯一的名稱 | 輸入要對應用程式設定存放區資源使用的唯一資源名稱。 名稱必須是介於 1 到 63 個字元的字串，而且只能包含數字、字母和 `-` 字元。 名稱的開頭或結尾不能是 `-` 字元，且連續的 `-` 字元無效。  |
-    | **訂用帳戶** | 您的訂用帳戶 | 選取您要用來測試應用程式設定的 Azure 訂用帳戶。 如果您的帳戶僅有一個訂用帳戶，則會自動加以選取，而且不會顯示 [訂用帳戶] 下拉式清單。 |
-    | **資源群組** | *AppConfigTestResources* | 為應用程式設定存放區資源選取或建立資源群組。 此群組可用於組織多個資源，以便能夠藉由刪除資源群組來同時刪除多個資源。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。 |
-    | **位置** | *美國中部* | 使用 [位置] 來指定 SignalR 資源的裝載所在地理位置。 為獲得最佳效能，請在與應用程式其他元件相同的區域中建立資源。 |
-
-    ![建立應用程式設定存放區](./media/quickstarts/azure-app-configuration-create.png)
-
-4. 選取 [建立] 。 部署可能需要幾分鐘的時間才能完成。
-
-5. 完成部署之後，請選取 [設定]  >  [存取金鑰]。 記下主要唯讀或主要讀寫索引鍵連接字串。 稍後，您會使用此連接字串來設定您的應用程式，使其與您建立的應用程式設定存放區進行通訊。
+[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
 6. 選取 [索引鍵/值總管]  >  [+ 建立] 來新增下列索引鍵/值組：
 
@@ -172,4 +153,4 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 若要深入了解如何使用應用程式設定，請繼續進行下一個示範驗證的教學課程。
 
 > [!div class="nextstepaction"]
-> [適用於 Azure 資源整合的受控識別](./integrate-azure-managed-service-identity.md)
+> [受控識別整合](./howto-integrate-azure-managed-service-identity.md)

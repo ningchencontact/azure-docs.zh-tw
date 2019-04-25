@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886762"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002267"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>範例：如何使用文字分析來偵測語言
 
-[語言偵測 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\) 會針對每份文件評估文字輸入，並傳回語言識別項，其中含有指出分析強度的分數。 文字分析最多可辨識 120 種語言。
+[語言偵測 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) \(英文\) 會針對每份文件評估文字輸入，並傳回語言識別項，其中含有指出分析強度的分數。 文字分析最多可辨識 120 種語言。
 
 此功能對於收集任意文字且語言為未知的內容存放區而言非常實用。 您可以剖析此分析的結果，以判斷輸入文件中使用的是哪一種語言。 回應也會傳回分數來反映對模型的信賴度 (介於 0 和 1 之間的值)。
 
@@ -62,16 +62,16 @@ ms.locfileid: "56886762"
 
 關於要求定義的詳細資料可以在[如何呼叫文字分析 API](text-analytics-how-to-call-api.md) 中找到。 為了方便起見，我們將重申下列各點：
 
-+ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[語言偵測 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\)
++ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[語言偵測 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) \(英文\)
 
-+ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來偵測語言的 HTTP 端點。 它必須包括 `/languages` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來偵測語言的 HTTP 端點。 它必須包括 `/languages` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
 
 + 設定要求標頭以包含適用於文字分析作業的存取金鑰。 如需詳細資訊，請參閱[如何尋找端點和存取金鑰](text-analytics-how-to-access-key.md)。
 
 + 在要求本文中，提供您準備用於此分析的 JSON 文件集合
 
 > [!Tip]
-> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
+> 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
 
 ## <a name="step-2-post-the-request"></a>步驟 2：張貼要求
 
@@ -206,7 +206,7 @@ ms.locfileid: "56886762"
 
 在本文中，您已了解使用認知服務中的文字分析進行語言偵測的概念和工作流程。 以下是先前所說明和示範之重點的快速提醒：
 
-+ [語言偵測 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 可供 120 種語言使用。
++ [語言偵測 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) 可供 120 種語言使用。
 + 要求主體中的 JSON 文件包含識別碼和文字。
 + 使用對您訂用帳戶有效的個人化[存取金鑰和端點](text-analytics-how-to-access-key.md)，將要求 POST 到 `/languages` 端點。
 + 回應輸出 (其包含針對每個文件識別碼的語言識別項) 可以串流處理到任何可接受 JSON 的應用程式，包括 Excel 和 Power BI 等。

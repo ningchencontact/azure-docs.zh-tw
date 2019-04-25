@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496789"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678134"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>教學課程：建立和管理匯出的資料
 
@@ -45,7 +45,13 @@ ms.locfileid: "59496789"
 
 ## <a name="create-a-daily-export"></a>建立每日匯出
 
-若要建立或檢視資料匯出，或是排程匯出，請在 Azure 入口網站開啟所需的範圍，然後在功能表中選取 [成本分析]。 例如，瀏覽至 [訂用帳戶]、從清單中選取訂用帳戶，然後在功能表中選取 [成本分析]。 在 [成本分析] 頁面頂端，按一下 [匯出]，然後選擇匯出選項。 例如，按一下 [排程匯出]。 如需有關範圍的詳細資訊，請參閱[了解並使用範圍](understand-work-scopes.md)。
+若要建立或檢視資料匯出，或是排程匯出，請在 Azure 入口網站開啟所需的範圍，然後在功能表中選取 [成本分析]。 例如，瀏覽至 [訂用帳戶]、從清單中選取訂用帳戶，然後在功能表中選取 [成本分析]。 在 [成本分析] 頁面頂端，按一下 [匯出]，然後選擇匯出選項。 例如，按一下 [排程匯出]。  
+
+> [!NOTE]
+> 除了訂用帳戶，您也可以在資源群組、帳戶、部門和註冊上建立匯出。 如需有關範圍的詳細資訊，請參閱[了解並使用範圍](understand-work-scopes.md)。
+> 
+> 
+
 
 按一下 [新增]、輸入匯出的名稱，然後選取 [當月費用的每日匯出] 選項。 按 [下一步] 。
 

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c5647aa20f444d5efd36f03d813ee87ef199cc41
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bce71db594d2bbd869dcc5a1ff5cb494a7a6f1c2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621867"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994927"
 ---
 # <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>快速入門：使用 Azure Spatial Anchors 建立 Android Unity 應用程式
 
@@ -39,7 +39,7 @@ ms.locfileid: "58621867"
   - 如果在 Windows 上執行，您也需要 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>。
   - 如果在 macOS 上執行，請透過 HomeBrew 安裝 Git。 在終端機的單一行輸入以下命令：`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`。 然後執行 `brew install git`。
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">由開發人員啟用</a>且<a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">具備 ARCore 功能</a>的 Android 裝置。
-- 您的應用程式必須使用 **1.5** 版的 ARCore SDK for Unity (日後會支援 ARCore 1.6+)。
+- 您的應用程式必須使用 **1.7** 版的 ARCore SDK for Unity。
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

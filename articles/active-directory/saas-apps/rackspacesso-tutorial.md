@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 61466f3574ba7a88665a8d78818d0a4c12716bbf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269787"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>教學課程：Azure Active Directory 與 Rackspace SSO 整合
 
@@ -38,7 +38,7 @@ Rackspace SSO 與 Azure AD 整合提供下列優點：
 
 若要設定 Rackspace SSO 與 Azure AD 的整合，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
+* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以申請[免費帳戶](https://azure.microsoft.com/free/)
 * 已啟用 Rackspace SSO 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
@@ -72,7 +72,7 @@ Rackspace SSO 與 Azure AD 整合提供下列優點：
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
 在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Rackspace SSO 設定及測試 Azure AD 單一登入。
-若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Rackspace SSO 中相關使用者之間的連結關聯性。
+使用 Rackspace 單一登入時，系統會在 Rackspace 使用者第一次登入 Rackspace 入口網站時自動為其建立帳戶。 
 
 若要設定及測試與 Rackspace SSO 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
@@ -80,8 +80,8 @@ Rackspace SSO 與 Azure AD 整合提供下列優點：
 2. **[設定 Rackspace SSO 單一登入](#configure-rackspace-sso-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Rackspace SSO 測試使用者](#create-rackspace-sso-test-user)** - 讓 Rackspace SSO 中對應的 Britta Simon 連結到使用者在 Azure AD 中的代表項目。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+1. **[在 Rackspace 控制台中設定屬性對應](#set-up-attribute-mapping-in-the-rackspace-control-panel)** - 將 Rackspace 角色指派給 Azure AD 使用者。
+1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -101,31 +101,41 @@ Rackspace SSO 與 Azure AD 整合提供下列優點：
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
+4. 在 [基本 SAML 組態] 區段上，上傳可從 [URL](https://login.rackspace.com/federate/sp.xml) 下載的**服務提供者中繼資料檔案**，然後執行下列步驟：
 
-    ![Rackspace SSO 網域與 URL 單一登入資訊](common/sp-signonurl.png)
+    a. 按一下 [上傳中繼資料檔案]。
 
-    在 [登入 URL] 文字方塊中，輸入 URL：`https://login.rackspace.com/federate/`
+    ![image](common/upload-metadata.png)
+
+    b. 按一下**資料夾圖示**以選取中繼資料檔案，然後按一下 [上傳]。
+
+    ![image](common/browse-upload-metadata.png)
+
+    c. 成功上傳中繼資料檔案後，就會自動填入所需的 URL。
+
+    d. 在 [登入 URL] 文字方塊中，輸入 URL：`https://login.rackspace.com/federate/`
+
+    ![Rackspace SSO 網域與 URL 單一登入資訊](common/sp-signonurl.png)   
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [設定 Rackspace SSO] 區段上，依據您的需求複製適當的 URL。
-
-    ![複製組態 URL](common/copy-configuration-urls.png)
-
-    a. 登入 URL
-
-    b. Azure AD 識別碼
-
-    c. 登出 URL
+此檔案會上傳至 Rackspace 來填入所需的身分識別同盟組態設定。
 
 ### <a name="configure-rackspace-sso-single-sign-on"></a>設定 Rackspace SSO 單一登入
 
-若要在 **Rackspace SSO** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [Rackspace SSO 支援小組](https://support.rackspace.com/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Rackspace SSO** 端設定單一登入：
 
-### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
+1. 請參閱[在控制台新增識別提供者](https://developer.rackspace.com/docs/rackspace-federation/gettingstarted/add-idp-cp/)上的文件
+1. 其會引導您完成下列相關步驟：
+    1. 建立新的識別提供者
+    1. 指定使用者將會在登入時用來識別貴公司的電子郵件網域。
+    1. 上傳先前從 Azure 控制台下載的**同盟中繼資料 XML**。
+
+這會正確地設定要讓 Azure 和 Rackspace 能夠連線所需的基本 SSO 設定。
+
+### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
@@ -143,7 +153,7 @@ Rackspace SSO 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 brittasimon@yourcompanydomain.extension。 例如， BrittaSimon@contoso.com
+    b. 在 [使用者名稱] 欄位中，輸入 `brittasimon@yourcompanydomain.extension`。 例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
@@ -175,15 +185,58 @@ Rackspace SSO 與 Azure AD 整合提供下列優點：
 
 7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
 
-### <a name="create-rackspace-sso-test-user"></a>建立 Rackspace SSO 測試使用者
+### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>在 Rackspace 控制台中設定屬性對應
 
-在本節中，您會在 Rackspace SSO 中建立名為 Britta Simon 的使用者。 請與  [Rackspace SSO 支援小組](https://support.rackspace.com/)合作，在 Rackspace SSO 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+Rackspace 使用**屬性對應原則**來將 Rackspace 角色和群組指派給單一登入使用者。 **屬性對應原則**會將 Azure AD SAML 宣告轉譯成 Rackspace 所需的使用者設定欄位。 您可以在 Rackspace 的[屬性對應基本概念文件](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/)中找到更多文件。 一些考量事項如下：
 
-### <a name="test-single-sign-on"></a>測試單一登入 
+* 如果您想要使用 Azure AD 群組來指派各種 Rackspace 存取層級，則必須在 Azure 的 **Rackspace SSO** 單一登入設定中啟用群組宣告。 然後，系統就會使用**屬性對應原則**來比對這些群組與所需的 Rackspace 角色和群組：
+
+    ![群組宣告設定](common/sso-groups-claim.png)
+
+* 根據預設，Azure AD 會在 SAML 宣告中傳送 Azure AD 群組的 UID 而非群組的名稱。 不過，如果您要將內部部署 Active Directory 同步至 Azure AD，則可以選擇傳送群組的實際名稱：
+
+    ![群組宣告名稱設定](common/sso-groups-claims-names.png)
+
+下例**屬性對應原則**範例會示範：
+1. 將 Rackspace 使用者的名稱設定為 `user.name` SAML 宣告。 可使用任何宣告，但最常會將此宣告設定為包含使用者電子郵件地址的欄位。
+1. 藉由比對 Azure AD 群組 (根據群組名稱或群組 UID)，來對使用者設定 Rackspace 角色 `admin` 和 `billing:admin`。 `roles` 欄位中的 `"{0}"` 會使用「替代字元」，並由 `remote` 規則運算式的結果加以取代。
+1. 使用 `"{D}"`「預設替代字元」讓 Rackspace 藉由尋找 SAML 交換中的標準與已知 SAML 宣告來擷取其他 SAML 欄位。
+
+```yaml
+---
+mapping:
+    rules:
+    - local:
+        user:
+          domain: "{D}"
+          name: "{At(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)}"
+          email: "{D}"
+          roles:
+              - "{0}"
+          expire: "{D}"
+      remote:
+          - path: |
+              (
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='7269f9a2-aabb-9393-8e6d-282e0f945985') then ('admin', 'billing:admin') else (),
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='MyAzureGroup') then ('admin', 'billing:admin') else ()
+              )
+            multiValue: true
+  version: RAX-1
+```
+> [!TIP]
+> 在編輯原則檔時，請務必使用會驗證 YAML 語法的文字編輯器。
+
+如需更多範例，請參閱 Rackspace 的[屬性對應基本概念文件](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/)。
+
+### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Rackspace SSO] 圖格時，應該會自動登入您已設定 SSO 的 Rackspace SSO。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+
+您也可以使用 **Rackspace SSO** 單一登入設定中的 [驗證] 按鈕：
+
+   ![SSO 驗證按鈕](common/sso-validate-sign-on.png)
 
 ## <a name="additional-resources"></a>其他資源
 

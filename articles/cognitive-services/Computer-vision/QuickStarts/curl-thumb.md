@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 20a438f4eb932596647002bf9d3072c651ac969c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: af303544be7b4e7686105b7d57a71c33c0a6a314
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630645"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009031"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 cURL 來產生縮圖
 
@@ -27,7 +27,7 @@ ms.locfileid: "58630645"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須擁有 [cURL](https://curl.haxx.se/windows)。
-- 您必須具有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="get-thumbnail-request"></a>Get Thumbnail 要求
 

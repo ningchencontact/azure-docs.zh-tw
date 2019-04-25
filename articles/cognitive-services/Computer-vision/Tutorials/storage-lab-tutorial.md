@@ -1,5 +1,5 @@
 ---
-title: 教學課程：產生 Azure 儲存體影像的中繼資料
+title: 教學課程：產生 Azure 映像的中繼資料
 titleSuffix: Azure Cognitive Services
 description: 在本教學課程中，您將了解如何將 Azure 電腦視覺服務整合到 Web 應用程式中，以產生影像的中繼資料。
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447994"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005976"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>教學課程：使用電腦視覺在 Azure 儲存體中產生影像中繼資料
 
@@ -52,11 +52,11 @@ ms.locfileid: "57447994"
 
 1. 返回您資源群組的功能表，然後按一下您剛才建立的電腦視覺 API 訂用帳戶。 將 [端點] 下方的 URL 複製到您可輕鬆快速加以擷取之處。 然後，按一下 [顯示存取金鑰]。
 
-    ![檢視存取金鑰](../Images/copy-vision-endpoint.png)
+    ![Azure 入口網站頁面：已框出端點 URL 和存取金鑰連結](../Images/copy-vision-endpoint.png)
 
 1. 在下一個視窗中，將 [金鑰 1] 的值複製到剪貼簿。
 
-    ![複製存取金鑰](../Images/copy-vision-key.png)
+    ![[管理金鑰] 對話方塊：已框出 [複製] 按鈕](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>新增電腦視覺認證
 
@@ -136,7 +136,7 @@ ms.locfileid: "57447994"
 
 若要檢視所有連結的中繼資料，請使用 Azure 儲存體總管檢視您為影像使用的儲存體容器。 以滑鼠右鍵按一下容器中的任何 Blob，然後選取 [屬性]。 在對話方塊中，您會看到索引鍵/值組清單。 電腦產生的影像描述會儲存在「標題」項目中，而搜尋關鍵字會儲存於 "Tag0"、"Tag1"，依此類推。 完成作業後，請按一下 [取消] 以關閉對話方塊。
 
-![Blob 中繼資料](../Images/blob-metadata.png)
+![影像屬性對話方塊視窗：已列出中繼資料標記](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 

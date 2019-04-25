@@ -14,18 +14,20 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 7c84a5c39b1a3b4a52505c053fdcfc92030237c3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 34eafe8a13d126ebdbb08084d8820646ca43534a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575756"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998085"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>快速入門：使用應用程式設定建立 .NET Core 應用程式
 
 Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆地在與程式碼分開的單一位置，儲存和管理您所有的應用程式設定。 本快速入門會示範如何將該服務納入 .NET Core 主控台應用程式中。
 
-您可以使用任何程式碼編輯器來進行本快速入門中的步驟。 於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
+您可以使用任何程式碼編輯器來進行本快速入門中的步驟。 Windows、macOS 及 Linux 平台上都有提供的 [Visual Studio Code](https://code.visualstudio.com/) 是一個絕佳的選項。
+
+![快速入門應用程式執行](./media/quickstarts/dotnet-core-app-run.png)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,6 +38,14 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 ## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. 選取 [索引鍵/值總管]  >  [+ 建立] 來新增下列索引鍵/值組：
+
+    | Key | 值 |
+    |---|---|
+    | TestApp:Settings:Message | Azure 應用程式設定的值 |
+
+    目前先讓 [標籤] 和 [內容類型] 保持空白。
 
 ## <a name="create-a-net-core-console-app"></a>建立 .NET Core 主控台應用程式
 
@@ -99,8 +109,6 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
         dotnet run
 
-    ![快速入門應用程式執行](./media/quickstarts/dotnet-core-app-run.png)
-
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
@@ -110,4 +118,4 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 在本快速入門中，您已建立新的應用程式設定存放區，並透過[應用程式設定提供者](https://go.microsoft.com/fwlink/?linkid=2074664)將其與 .NET Corek 主控台應用程式搭配使用。 若要深入了解如何使用應用程式設定，請繼續進行下一個示範驗證的教學課程。
 
 > [!div class="nextstepaction"]
-> [適用於 Azure 資源整合的受控識別](./integrate-azure-managed-service-identity.md)
+> [受控識別整合](./howto-integrate-azure-managed-service-identity.md)

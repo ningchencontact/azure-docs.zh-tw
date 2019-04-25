@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>教學課程：Azure Active Directory 與 OrgChart Now 整合
@@ -109,12 +109,12 @@ OrgChart Now 與 Azure AD 整合提供下列優點：
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![映像](common/both-preintegrated-signon.png)
+    ![image](common/both-preintegrated-signon.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
 
     > [!NOTE]
-    > `<YourEntityID>` 是從＜設定 OrgChart Now＞一節複製的 **Azure AD 識別碼**，稍後會在教學課程中說明。
+    > `<YourEntityID>` 是從＜設定 OrgChart Now＞一節複製的 [Azure AD 識別碼]，稍後會在教學課程中說明。
 
 6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 

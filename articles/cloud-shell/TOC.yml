@@ -1,59 +1,52 @@
-items:
 - name: 概觀
   href: overview.md
 - name: 快速入門
   items:
-  - name: Bash - 快速入門
-    href: quickstart.md
-  - name: PowerShell - 快速入門
-    href: quickstart-powershell.md
+    - name: Bash - 快速入門
+      href: quickstart.md
+    - name: PowerShell - 快速入門
+      href: quickstart-powershell.md
 - name: 功能和工具
   items:
-  - name: 功能和工具
-    href: features.md
+    - name: 功能和工具
+      href: features.md
 - name: 教學課程
   items:
-  - name: Ansible
-    items:
-    - name: 執行 Ansible 劇本
-      href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
-    - name: 管理 Azure 動態清查
-      href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
-  - name: Terraform
-    items:
-    - name: 建立執行計畫
-      href: example-terraform-bash.md
+    - name: Ansible
+      items:
+        - name: 執行 Ansible 劇本
+          href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+        - name: 管理 Azure 動態清查
+          href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+    - name: Terraform
+      items:
+        - name: 建立執行計畫
+          href: example-terraform-bash.md
 - name: 使用說明指南
   items:
-  - name: Windows 使用者適用的 PowerShell Cloud Shell
-    href: cloud-shell-windows-users.md
-  - name: 在儲存體中保存檔案
-    href: persisting-shell-storage.md
-  - name: 使用視窗
-    href: using-the-shell-window.md
-  - name: 在 Cloud Shell 中使用 MSI
-    href: msi-authorization.md
-  - name: 內嵌 Cloud Shell
-    href: embed-cloud-shell.md
+    - name: Windows 使用者適用的 PowerShell Cloud Shell
+      href: cloud-shell-windows-users.md
+    - name: 在儲存體中保存檔案
+      href: persisting-shell-storage.md
+    - name: 使用視窗
+      href: using-the-shell-window.md
+    - name: 在 Cloud Shell 中使用 MSI
+      href: msi-authorization.md
+    - name: 內嵌 Cloud Shell
+      href: embed-cloud-shell.md
 - name: 使用 Cloud Shell 編輯器
   href: using-cloud-shell-editor.md
 - name: 疑難排解和限制
   href: troubleshooting.md
 - name: 參考
   items:
-  - name: Azure CLI
-    href: /cli/azure
-  - name: Azure PowerShell
-    href: /powershell/azure
+    - name: Azure CLI
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
 - name: 資源
   items:
-  - name: Azure 藍圖
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
-  - name: 定價計算機
-    href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 873308d775fd7451d89bd05771d3a1c5f5e22995
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341300"
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: 定價計算機
+      href: 'https://azure.microsoft.com/pricing/calculator/'

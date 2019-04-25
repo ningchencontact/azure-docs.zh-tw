@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b22a7a86862f02c3320b7c14cc1ed878a57bd23d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d1c10d9df85b04cf7b8ea7e0020bc8e802a0d5d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901945"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>教學課程：Azure Active Directory 與 BlueJeans 整合
 
@@ -38,14 +39,14 @@ ms.locfileid: "57901945"
 
 若要設定 Azure AD 與 BlueJeans 的整合，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
+* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以申請[免費帳戶](https://azure.microsoft.com/free/)
 * 已啟用 BlueJeans 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* BlueJeans 支援由 **SP** 起始的 SSO
+* BlueJeans 支援 **SP** 起始的 SSO
 
 * BlueJeans 支援[**自動**使用者佈建](bluejeans-provisioning-tutorial.md)
 
@@ -105,14 +106,16 @@ ms.locfileid: "57901945"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![BlueJeans 網域及 URL 單一登入資訊](common/sp-signonurl.png)
+    ![BlueJeans 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<companyname>.BlueJeans.com`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<companyname>.BlueJeans.com`
+
+    b. 在 [識別碼] 文字方塊中，鍵入 URL：`http://samlsp.bluejeans.com`
 
     > [!NOTE]
-    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [BlueJeans 用戶端支援小組](https://support.bluejeans.com/contact)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [BlueJeans 用戶端支援小組](https://support.bluejeans.com/contact)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
@@ -132,11 +135,11 @@ ms.locfileid: "57901945"
 
 2. 移至 [管理] \> [群組設定] \> [安全性]。
 
-    ![管理](./media/bluejeans-tutorial/IC785868.png "管理")
+    ![管理](./media/bluejeans-tutorial/ic785868.png "管理")
 
 3. 在 [安全性] 區段中，執行下列步驟：
 
-    ![SAML 單一登入](./media/bluejeans-tutorial/IC785869.png "SAML 單一登入")
+    ![SAML 單一登入](./media/bluejeans-tutorial/ic785869.png "SAML 單一登入")
 
     a. 選取 [SAML 單一登入] 。
 
@@ -144,7 +147,7 @@ ms.locfileid: "57901945"
 
 4. 繼續執行下列步驟：
 
-    ![憑證路徑](./media/bluejeans-tutorial/IC785870.png "憑證路徑")
+    ![憑證路徑](./media/bluejeans-tutorial/ic785870.png "憑證路徑")
 
     a. 按一下 [選擇檔案]，以上傳您從 Azure 入口網站下載的 base-64 編碼憑證。
 
@@ -156,7 +159,7 @@ ms.locfileid: "57901945"
 
 5. 繼續執行下列步驟：
 
-    ![儲存變更](./media/bluejeans-tutorial/IC785874.png "儲存變更")
+    ![儲存變更](./media/bluejeans-tutorial/ic785874.png "儲存變更")
 
     a. 在 [使用者識別碼] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
 
@@ -182,8 +185,7 @@ ms.locfileid: "57901945"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
-    例如， BrittaSimon@contoso.com
+    b. 在 [使用者名稱] 欄位中，輸入 `brittasimon\@yourcompanydomain.extension`。 例如： BrittaSimon@contoso.com。
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
@@ -199,7 +201,7 @@ ms.locfileid: "57901945"
 
 2. 在應用程式清單中，選取 [BlueJeans]。
 
-    ![應用程式清單中的 [BlueJeans] 連結](common/all-applications.png)
+    ![應用程式清單中的 BlueJeans 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -217,7 +219,7 @@ ms.locfileid: "57901945"
 
 ### <a name="create-bluejeans-test-user"></a>建立 BlueJeans 測試使用者
 
-本節的目標是要在 BlueJeans 中建立一個名為 Britta Simon 的使用者。 BlueJeans 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](bluejeans-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
+本節的目標是在 BlueJeans 中建立名為 Britta Simon 的使用者。 BlueJeans 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](bluejeans-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
 
 **如果您需要手動建立使用者，請執行下列步驟：**
 
@@ -225,14 +227,14 @@ ms.locfileid: "57901945"
 
 2. 移至 [管理] \> [管理使用者] \> [新增使用者]。
 
-    ![管理](./media/bluejeans-tutorial/IC785877.png "管理")
+    ![管理](./media/bluejeans-tutorial/ic785877.png "管理")
 
-    >[!IMPORTANT]
-    >只有在未核取 [安全性] 索引標籤中的 [啟用自動佈建] 時，才能使用 [新增使用者] 索引標籤。 
+    > [!IMPORTANT]
+    > 只有在未核取 [安全性] 索引標籤中的 [啟用自動佈建] 時，才能使用 [新增使用者] 索引標籤。
 
 3. 在 [新增使用者] 區段中，執行下列步驟：
 
-    ![新增使用者](./media/bluejeans-tutorial/IC785886.png "新增使用者")
+    ![新增使用者](./media/bluejeans-tutorial/ic785886.png "新增使用者")
 
     a. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。
 
@@ -244,7 +246,7 @@ ms.locfileid: "57901945"
 
     e. 在 [公司] 文字中，輸入您的公司。
 
-    f. 在 [Email Address] \(電子郵件地址\) 文字方塊中，輸入使用者的電子郵件地址，例如 **brittasimon\@contoso.com**。
+    f. 在 [電子郵件地址] 文字方塊中，輸入使用者的電子郵件，例如 `brittasimon\@contoso.com`。
 
     g. 在 [建立 BlueJeans 會議識別碼] 文字方塊中，輸入您的會議識別碼。
 
@@ -252,7 +254,7 @@ ms.locfileid: "57901945"
 
     i. 按一下 [繼續]。
 
-    ![新增使用者](./media/bluejeans-tutorial/IC785887.png "新增使用者")
+    ![新增使用者](./media/bluejeans-tutorial/ic785887.png "新增使用者")
 
     J. 按一下 [新增使用者]。
 
@@ -272,4 +274,3 @@ ms.locfileid: "57901945"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

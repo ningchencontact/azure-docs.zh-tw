@@ -1,6 +1,6 @@
 ---
 title: 使用 Windows VM 系統指派的受控識別來存取 Azure AD Graph API
-description: 此教學課程會逐步引導您使用 Windows VM 系統指派的受控識別，以存取 Azure AD Graph API。
+description: 本教學課程會逐步引導您使用 Windows VM 系統指派的受控識別，以存取 Azure AD Graph API。
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523353"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997779"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure AD Graph API
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-此教學課程說明如何將系統指派的受控識別用於 Windows 虛擬機器 (VM)，以存取 Microsoft Graph API 來擷取其群組成員資格。 適用於 Azure 資源的受控識別會自動由 Azure 管理，可讓您向支援 Azure AD 驗證的服務進行驗證，而不需要將認證插入程式碼中。  在此教學課程中，您會查詢 VM 身分識別在 Azure AD 群組中的成員資格。 舉例來說，群組資訊通常會用於決定授權。 在 Azure AD 中，VM 的受控識別實際上會以**服務主體**來表示。 在執行群組查詢前，請在 Azure AD 的群組中新增代表 VM 身分識別的服務主體。 您可以使用 Azure PowerShell、Azure AD PowerShell 或 Azure CLI 來執行這項工作。
+本教學課程說明如何將系統指派的受控識別用於 Windows 虛擬機器 (VM)，以存取 Azure AD Graph API 來擷取其群組成員資格。 適用於 Azure 資源的受控識別會自動由 Azure 管理，可讓您向支援 Azure AD 驗證的服務進行驗證，而不需要將認證插入程式碼中。  在本教學課程中，您會查詢 VM 身分識別在 Azure AD 群組中的成員資格。 舉例來說，群組資訊通常會用於決定授權。 在 Azure AD 中，VM 的受控識別實際上會以**服務主體**來表示。 在執行群組查詢前，請在 Azure AD 的群組中新增代表 VM 身分識別的服務主體。 您可以使用 Azure PowerShell、Azure AD PowerShell 或 Azure CLI 來執行這項工作。
 
 > [!div class="checklist"]
 > * 連接至 Azure AD
@@ -67,7 +67,7 @@ Add-AzureADGroupMember -ObjectId $AzureADGroup.ObjectID -RefObjectId $ManagedIde
 
 您的程式碼可以使用適用於 Azure 資源的受控識別來取得存取權杖，以向支援 Azure AD 驗證的資源進行驗證。 Microsoft Azure AD Graph API 支援 Azure AD 驗證。 在此步驟中，您會對 VM 身分識別的服務主體授與 Azure AD Graph 的存取權，以供其查詢群組成員資格。 透過**應用程式權限**，可對服務主體授與 Microsoft 或 Azure AD Graph 的存取權。 所需授與的應用程式權限類型，取決於您要在 MS 或 Azure AD Graph 中存取的實體。
 
-在此教學課程中，您會授與能力給 VM 身分識別，使其能夠使用 ```Directory.Read.All``` 應用程式權限來查詢群組成員資格。 若要授與此權限，您需要有獲得 Azure AD 中全域管理員角色的使用者帳戶。 一般來說，您可藉由瀏覽應用程式在 Azure 入口網站中的註冊，並於該處新增權限，來對應用程式授與權限。 不過，Azure 資源的受控識別不會在 Azure AD 中註冊應用程式物件，而只會註冊服務主體。 若要註冊應用程式權限，您要使用 Azure AD PowerShell 命令列工具。 
+在本教學課程中，您會授與能力給 VM 身分識別，使其能夠使用 ```Directory.Read.All``` 應用程式權限來查詢群組成員資格。 若要授與此權限，您需要有獲得 Azure AD 中全域管理員角色的使用者帳戶。 一般來說，您可藉由瀏覽應用程式在 Azure 入口網站中的註冊，並於該處新增權限，來對應用程式授與權限。 不過，Azure 資源的受控識別不會在 Azure AD 中註冊應用程式物件，而只會註冊服務主體。 若要註冊應用程式權限，您要使用 Azure AD PowerShell 命令列工具。 
 
 Azure AD Graph：
 - 服務主體 appId (會在對應用程式授與權限時用到)：00000002-0000-0000-c000-000000000000
@@ -181,7 +181,7 @@ Azure AD Graph：
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何使用 Windows VM 系統指派的受控識別，來存取 Azure AD Graph。  若要深入了解 Azure AD Graph，請參閱：
+在本教學課程中，您已了解如何使用 Windows VM 系統指派的受控識別，來存取 Azure AD Graph。  若要深入了解 Azure AD Graph，請參閱：
 
 >[!div class="nextstepaction"]
 >[Azure AD Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)

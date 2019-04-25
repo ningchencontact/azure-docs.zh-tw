@@ -1,39 +1,39 @@
 ---
 title: 在 Azure Cosmos DB 中佈建容器輸送量
 description: 了解如何在 Azure Cosmos DB 中佈建資料庫層級的輸送量
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/06/2018
-ms.author: mjbrown
-ms.openlocfilehash: 28060637db47b42db66f706815066d498032ec11
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: d092844fbd75fc2307cc13ec9b7779ae9237535d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258705"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679699"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>在 Azure Cosmos 容器上佈建輸送量
 
-本文說明如何在 Azure Cosmos DB 中佈建容器 (集合、圖表或資料表) 的輸送量。 您可以佈建單一容器的輸送量，或[為資料庫佈建](how-to-provision-database-throughput.md)輸送量，並在資料庫內的容器之間共用。 您可以使用 Azure 入口網站、Azure CLI 或 Azure CosmosDB SDK 來佈建容器的輸送量。
+本文說明如何在 Azure Cosmos DB 中佈建容器 (集合、圖表或資料表) 的輸送量。 您可以佈建單一容器的輸送量，或[佈建資料庫的輸送量](how-to-provision-database-throughput.md)，並在資料庫內的容器之間共用。 您可以使用 Azure 入口網站、Azure CLI 或 Azure CosmosDB SDK 來佈建容器的輸送量。
 
-## <a name="provision-throughput-by-using-azure-portal"></a>使用 Azure 入口網站佈建輸送量
+## <a name="provision-throughput-using-azure-portal"></a>使用 Azure 入口網站佈建輸送量
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. [建立新的 Azure Cosmos DB 帳戶](create-sql-api-dotnet.md#create-account)，或選取現有的帳戶。
+1. [建立新的 Azure Cosmos 帳戶](create-sql-api-dotnet.md#create-account)，或選取現有 Azure Cosmos 帳戶。
 
 1. 開啟 [資料總管] 窗格，然後選取 [新增集合]。 接下來，提供下列詳細資料：
 
    * 指出您正在建立新的資料庫，還是使用現有的帳戶。
-   * 輸入集合識別碼 (或資料表或圖形)。
+   * 輸入容器 (或資料表或圖形) 識別碼。
    * 輸入分割區索引鍵值，(例如 `/userid`)。
-   * 輸入輸送量 (例如 1000 RU)。
+   * 輸入您要佈建的輸送量 (例如 1000 RU)。
    * 選取 [確定] 。
 
 ![醒目提示 [新增集合] 的資料總管螢幕擷取畫面](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-by-using-azure-cli"></a>使用 Azure CLI 佈建輸送量
+## <a name="provision-throughput-using-azure-cli"></a>使用 Azure CLI 佈建輸送量
 
 ```azurecli-interactive
 # Create a container with a partition key and provision throughput of 1000 RU/s
@@ -46,12 +46,12 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-如果您要針對使用適用於 MongoDB 的 Azure Cosmos DB API 設定的 Azure Cosmos DB 帳戶佈建輸送量，請使用分割區索引鍵路徑的 `/myShardKey`。 如果您要針對為 Cassandra API 設定的 Azure Cosmos DB 帳戶佈建輸送量，請使用分割區索引鍵路徑的 `/myPrimaryKey`。
+如果您要在使用適用於 MongoDB 的 Azure Cosmos DB API 設定的 Azure Cosmos 帳戶中佈建容器的輸送量，請使用分割區索引鍵路徑的 `/myShardKey`。 如果您要在使用 Cassandra API 設定的 Azure Cosmos 帳戶中佈建容器的輸送量，請使用分割區索引鍵路徑的 `/myPrimaryKey`。
 
 ## <a name="provision-throughput-by-using-net-sdk"></a>使用 .NET SDK 佈建輸送量
 
 > [!Note]
-> 使用 SQL API 為 Cassandra API 以外的所有 API 佈建輸送量。
+> 使用適用於 SQL API 的 Cosmos SDK 來為 Cassandra API 以外的所有 Cosmos DB API 佈建輸送量。
 
 ### <a id="dotnet-most"></a>SQL、MongoDB、Gremlin 和資料表 API
 

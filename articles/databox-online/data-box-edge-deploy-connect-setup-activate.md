@@ -5,18 +5,18 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: b97334ae60715f021cce387f9d73b5ea69eea7fc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629146"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998102"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>教學課程：連接、 設定和啟動 Azure 資料方塊邊緣 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>教學課程：連線、設定及啟動 Azure Data Box Edge 
 
 本教學課程說明如何使用本機 Web UI 來連線、設定及啟用 Azure Data Box Edge 裝置。
 
@@ -37,9 +37,9 @@ ms.locfileid: "58629146"
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>連線至本機 Web UI 設定 
 
-1. 在您的電腦連線至具有靜態 IP 位址 192.168.100.5 和子網路 255.255.255.0 的資料方塊的邊緣裝置上設定乙太網路介面卡。
+1. 使用靜態 IP 位址 192.168.100.5 和子網路 255.255.255.0，在電腦上設定要連線到 Data Box Edge 裝置的乙太網路介面卡。
 
-2. 將電腦連線到裝置上的連接埠 1。 請使用下圖以識別您裝置上的連接埠 1。
+2. 將電腦連線到裝置上的連接埠 1。 請使用下圖來識別您裝置上的連接埠 1。
 
     ![已連接纜線的裝置後擋板](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
@@ -59,7 +59,7 @@ ms.locfileid: "58629146"
     ![Data Box Edge 裝置登入頁面](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
 
 6. 出現提示時，變更裝置系統管理員密碼。  
-    新的密碼必須包含 8 到 16 個字元之間。 此密碼必須包含下列其中 3 種字元：大寫、小寫、數字及特殊字元。
+    新密碼必須包含 8 到 16 個字元。 此密碼必須包含下列其中 3 種字元：大寫、小寫、數字及特殊字元。
 
 您現在位於裝置的儀表板上。
 
@@ -67,17 +67,17 @@ ms.locfileid: "58629146"
  
 您的儀表板會顯示向 Data Box Edge 服務設定及註冊實體裝置所需的各種設定。 [裝置名稱]、[網路設定]、[Web Proxy 設定] 及 [時間設定] 是可省略的。 只有 [雲端設定] 是必要的設定。
    
-![本機 web UI 」 儀表板 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
+![本機 Web UI 的 [儀表板] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
 1. 在左側窗格中，選取 [裝置名稱]，然後為您的裝置輸入一個易記的名稱。  
-    易記名稱必須包含 1 到 15 個字元，且包含字母、 數字和連字號。
+    易記名稱必須包含 1 到 15 個字元，且包含字母、數字及連字號。
 
-    ![本機 web UI 的 [裝置名稱] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
+    ![本機 Web UI 的 [裝置名稱] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (選擇性) 在左側窗格中，選取 [網路設定]，然後進行設定。  
-    在您的實體裝置，有六個網路介面。 連接埠 1 和連接埠 2 是 1 Gbps 的網路介面。 連接埠 3 連接埠 4、 5 連接埠和連接埠 6 是也可以做為 10 Gbps 網路介面的所有 25 Gbps 網路介面。 連接埠 1 會自動設定為管理專用連接埠，連接埠 2 到連接埠 6 則都是資料連接埠。 **網路設定**頁面是如下所示。
+    您的實體裝置上有六個網路介面。 連接埠 1 和連接埠 2 是 1 Gbps 的網路介面。 連接埠 3、連接埠 4、連接埠 5 和連接埠 6 都是 25 Gbps 的網路介面，但也可作為 10 Gbps 網路介面。 連接埠 1 會自動設定為管理專用連接埠，連接埠 2 到連接埠 6 則都是資料連接埠。 [網路設定] 頁面如下所示。
     
-    ![本機 web UI 的 [網路設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
+    ![本機 Web UI 的 [網路設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
     進行網路設定時，請牢記下列事項：
 
@@ -90,7 +90,7 @@ ms.locfileid: "58629146"
 
 3. (選擇性) 在左側窗格中，選取 [Web Proxy 設定]，然後設定 Web Proxy 伺服器。 雖然 Web Proxy 設定是選用的，但如果您使用 Web Proxy，便只能在此頁面上設定它。
    
-   ![本機 web UI 的 [Web proxy 設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
+   ![本機 Web UI 的 [Web Proxy 設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
    在 [Web Proxy 設定] 頁面上，執行下列動作：
    
@@ -115,33 +115,33 @@ ms.locfileid: "58629146"
 
     3. (選擇性) 在 [次要 NTP 伺服器]  方塊中，輸入您裝置的次要伺服器。
 
-    4. 若要驗證及套用設定的時間設定，請選取**套用設定**。
+    4. 若要驗證並套用所設定的時間設定，請選取 [套用設定]。
 
-        ![本機 web UI 的 [時間設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
+        ![本機 Web UI 的 [時間設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. （選擇性）在左窗格中，選取**儲存設定**您裝置上設定儲存體恢復功能。 此功能目前為預覽狀態。 根據預設，不適合在裝置上的儲存體，並在裝置上的資料磁碟時，不會遺失資料。 當您啟用恢復功能選項時，將重新設定存放裝置，裝置可以承受的失敗，未遺失資料的一個資料磁碟。 設定為具有恢復功能的存放裝置，將會減少可用的容量，您的裝置。
+5. (選擇性) 在左側窗格中選取 [儲存體設定]，即可在您裝置上設定儲存體恢復功能。 此功能目前為預覽狀態。 根據預設，裝置上的儲存體並無復原功能，一旦裝置上的資料磁碟故障，資料就會遺失。 當您啟用復原選項時，裝置上的儲存體將會重新設定，而裝置將可承受一個資料磁碟上的失敗，並且不會遺失資料。 將儲存體設定為具有復原性，將會減少您裝置的可用容量。
 
     > [!IMPORTANT] 
-    > 啟用裝置之前，就只能設定恢復功能。 
+    > 復原功能只能在啟動裝置之前設定。 
 
-    ![本機 web UI 的 [儲存體設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+    ![本機 Web UI 的 [儲存體設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
 
 6. 在左側窗格中，選取 [雲端設定]，然後向 Azure 入口網站中的 Data Box Edge 服務啟用您的裝置。
     
     1. 在 [啟用金鑰] 方塊中，輸入您在[取得啟用金鑰](data-box-edge-deploy-prep.md#get-the-activation-key)中為 Data Box Edge 取得的啟用金鑰。
     2. 選取 [套用] 。
        
-        ![本機 web UI 的 [雲端設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
+        ![本機 Web UI 的 [雲端設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 
-    3. 第一次啟用該裝置。 裝置接著會掃描任何重大更新，如果有的話，會自動套用更新。 您會看到該項影響的通知。
+    3. 首先，該裝置會啟動。 接著系統會掃描裝置，檢查是否有任何重大更新，如果有的話，系統會自動套用更新。 您會看到該效果的通知。
 
-        對話方塊也有修復金鑰，您應該用來複製，並將它儲存在安全的位置。 此金鑰用來復原資料，萬一裝置無法開機。
+        對話方塊中也有復原金鑰，您應複製該金鑰並儲存在安全的位置。 萬一裝置無法開機時，此金鑰可用來復原資料。
 
-        ![本機 web UI 的 [雲端設定] 頁面更新](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
+        ![本機 Web UI 的 [雲端設定] 頁面更新](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. 您可能需要稍等幾分鐘之後更新已成功完成。 此頁面會更新以指出裝置已成功啟動。
+    4. 成功完成更新後，您可能需要稍等幾分鐘。 此頁面會更新並指出裝置已成功啟動。
 
-        ![本機 web UI 的 [雲端設定] 頁面更新](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![本機 Web UI 的 [雲端設定] 頁面更新](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 裝置設定完成。 您現在可以在裝置上新增共用。
 

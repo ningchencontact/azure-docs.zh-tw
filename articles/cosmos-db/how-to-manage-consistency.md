@@ -1,17 +1,17 @@
 ---
 title: 了解如何在 Azure Cosmos DB 中管理一致性
 description: 了解如何在 Azure Cosmos DB 中管理一致性
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: 7dfc299c32b25ddf939aa3efcb927697307887a2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.date: 04/17/2019
+ms.author: rimman
+ms.openlocfilehash: a93bf9a9f43a0929aeb5f3d3121092739396c6a8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904316"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678440"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的一致性層級
 
@@ -21,7 +21,7 @@ ms.locfileid: "58904316"
 
 ## <a name="configure-the-default-consistency-level"></a>設定預設一致性層級
 
-預設一致性層級是用戶端依預設使用的一致性層級。 用戶端可加以覆寫。
+[預設一致性層級](consistency-levels.md)是用戶端依預設使用的一致性層級。 用戶端一律可將其覆寫。
 
 ### <a name="cli"></a>CLI
 
@@ -35,7 +35,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-這個範例會建立新的 Azure Cosmos DB 帳戶，並在主美國東部和美國西部區域中啟用多重主機。 預設一致性原則會設定為 [工作階段]。
+這個範例會建立新的 Azure Cosmos 帳戶，並在主美國東部和美國西部區域中啟用多個寫入區域。 預設一致性層級會設定為「工作階段」一致性。
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -59,15 +59,15 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -Properties $CosmosDBProperties
 ```
 
-### <a name="portal"></a>入口網站
+### <a name="azure-portal"></a>Azure 入口網站
 
-若要檢視或修改預設一致性層級，請登入 Azure 入口網站。 尋找您的 Azure Cosmos DB 帳戶，然後開啟 [預設一致性] 窗格。 選取要作為新預設值的一致性層級，然後選取 [儲存]。
+若要檢視或修改預設一致性層級，請登入 Azure 入口網站。 尋找您的 Azure Cosmos 帳戶，然後開啟 [預設一致性] 窗格。 選取要作為新預設值的一致性層級，然後選取 [儲存]。
 
 ![Azure 入口網站中的一致性功能表](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>覆寫預設一致性層級
 
-用戶端可以覆寫服務所設定的預設一致性層級。 此選項可對整個用戶端或就個別要求進行設定。
+用戶端可以覆寫服務所設定的預設一致性層級。 一致性層級可以根據每個要求來設定，而這會覆寫帳戶層級上設定的預設一致性層級。
 
 ### <a id="override-default-consistency-dotnet"></a>.NET SDK
 
@@ -131,6 +131,8 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 ```
 
 ## <a name="utilize-session-tokens"></a>使用工作階段權杖
+
+Azure Cosmos DB 中的其中一個一致性層級是「工作階段」一致性。 這是預設套用至 Cosmos 帳戶的預設層級。 使用「工作階段」一致性時，用戶端會搭配每個讀取/查詢要求在內部使用工作階段權杖，以確保維持已設定的一致性層級。
 
 若要手動管理工作階段權杖，請從回應中取得工作階段權杖，並就個別要求加以設定。 如果不需要手動管理工作階段權杖，則不需要使用下列範例。 SDK 會自動持續追蹤工作階段權杖。 如果未手動設定工作階段權杖，則 SDK 預設會使用最新的工作階段權杖。
 
@@ -209,15 +211,18 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>監視機率限定過期 (PBS) 計量
 
-若要檢視 PBS 計量，請在 Azure 入口網站中移至您的 Azure Cosmos DB 帳戶。 開啟 [計量] 窗格，然後選取 [一致性] 索引標籤。查看名為「依據您的工作負載，強式一致讀取的可能性 (請參閱 PBS)」的圖形。
+最終一致性的界定標準為何？ 針對平均案例，我們可根據版本記錄和時間來提供過期界限。 [**機率限定過期 (PBS)**](http://pbs.cs.berkeley.edu/) 計量會嘗試量化過期的機率，並將其顯示為計量。 若要檢視 PBS 計量，請在 Azure 入口網站中移至您的 Azure Cosmos 帳戶。 開啟 [計量] 窗格，然後選取 [一致性] 索引標籤。查看名為「依據您的工作負載，強式一致讀取的可能性 (請參閱 PBS)」的圖形。
 
 ![Azure 入口網站中的 PBS 圖形](./media/how-to-manage-consistency/pbs-metric.png)
 
-請使用 Azure Cosmos DB 計量功能表來查看此計量。 它不會顯示在 Azure 監視計量體驗中。
 
 ## <a name="next-steps"></a>後續步驟
 
 深入了解如何管理資料衝突，或繼續 Azure Cosmos DB 中的下一個重要概念。 請參閱下列文章：
 
+* [Azure Cosmos DB 中的一致性層級](consistency-levels.md)
 * [管理區域之間的衝突](how-to-manage-conflicts.md)
 * [資料分割和散佈](partition-data.md)
+* [新式分散式資料庫系統設計的一致性權衡取捨](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) \(英文\)
+* [高可用性](high-availability.md)
+* [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

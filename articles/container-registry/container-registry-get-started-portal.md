@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 93c22475a4043d1cbf5cb0ad7f9b134e8ac717cc
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f41d51981c4da9ee089282da8b8d4cc5f37a4aed
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298410"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682979"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立私人容器登錄
 
@@ -61,7 +61,7 @@ az acr login --name <acrName>
 
 若要列出您登錄中的映像，請瀏覽至入口網站中的登錄，然後選取 [存放庫]，以及選取您使用 `docker push` 建立的存放庫。
 
-在此範例中，我們選取 **busybox** 存放庫，且可以在 **TAGS** 下方看到加上 `v1` 標記的映像。
+在此範例中，我們選取 **hello-world** 存放庫，且可以在 **TAGS**之下看到 `v1` 標記的映像。
 
 ![列出 Azure 入口網站中的容器映像][qs-portal-09]
 

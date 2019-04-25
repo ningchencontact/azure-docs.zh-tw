@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aba6e57c9e6d51024390d629ebc088326dc4c64e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 9f911f70360c645f8077928a66978bd631e37160
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652343"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006398"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Python 擷取印刷文字 (OCR)
 
@@ -31,7 +31,7 @@ ms.locfileid: "56652343"
 ## <a name="prerequisites"></a>必要條件
 
 - 如果您想要在本機執行此範例，就必須安裝 [Python](https://www.python.org/downloads/)。
-- 您必須擁有適用於電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="create-and-run-the-sample"></a>建立並執行範例
 

@@ -1,45 +1,38 @@
 ---
-title: 教學課程-使用 web 應用程式防火牆-Azure 入口網站中建立的應用程式閘道 |Microsoft Docs
-description: 了解如何使用 Azure 入口網站建立具有 Web 應用程式防火牆的應用程式閘道。
+title: 教學課程 - 建立包含 Web 應用程式防火牆的應用程式閘道 - Azure 入口網站 | Microsoft Docs
+description: 在本教學課程中，您將了解如何使用 Azure 入口網站建立具有 Web 應用程式防火牆的應用程式閘道。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 03/25/2019
+ms.topic: tutorial
+ms.date: 4/16/2019
 ms.author: victorh
-ms.openlocfilehash: 1284ddec4cd9cea3ea53c20d437550405dd614d9
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: 206895768ea48e352e4f7fe90ab597f3756586dd
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905863"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682843"
 ---
-# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 Web 應用程式防火牆的應用程式閘道
+# <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建立包含 Web 應用程式防火牆的應用程式閘道
 
-> [!div class="op_single_selector"]
->
-> - [Azure 入口網站](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
->
-> 
+本教學課程說明如何使用 Azure 入口網站建立包含 [Web 應用程式防火牆](application-gateway-web-application-firewall-overview.md) (WAF) 的[應用程式閘道](application-gateway-introduction.md)。 WAF 會使用 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 規則來保護您的應用程式。 這些規則包括防禦諸如 SQL 插入攻擊、跨網站指令碼攻擊，以及工作階段劫持等攻擊。 建立應用程式閘道之後，您要加以測試，確定它可正常運作。 您會使用 Azure 應用程式閘道，將接聽程式指派給連接埠、建立規則，以及將資源新增至後端集區，來將應用程式網路流量導向至特定資源。 為了簡單起見，本教學課程使用簡單的設定，包括公用前端 IP、在此應用程式閘道上裝載單一網站的基本接聽程式、用於後端集區的兩部虛擬機器，以及基本的要求路由規則。
 
-本教學課程會示範如何使用 Azure 入口網站來建立[應用程式閘道](application-gateway-introduction.md)具有[web 應用程式防火牆](application-gateway-web-application-firewall-overview.md)(WAF)。 WAF 會使用 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 規則來保護您的應用程式。 這些規則包括防禦諸如 SQL 插入攻擊、跨網站指令碼攻擊，以及工作階段劫持等攻擊。 建立應用程式閘道之後，您要加以測試，確定它可正常運作。 您會使用 Azure 應用程式閘道，將接聽程式指派給連接埠、建立規則，以及將資源新增至後端集區，來將應用程式網路流量導向至特定資源。 為了簡單起見，本文使用簡單的設定，包括公用前端 IP、在此應用程式閘道上裝載單一網站的基本接聽程式、用於後端集區的兩部虛擬機器，以及基本的要求路由規則。
-
-在本文中，您將了解：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立已啟用 WAF 的應用程式閘道
 > * 建立用來作為後端伺服器的虛擬機器
-> * 建立儲存體帳戶和設定診斷
+> * 建立儲存體帳戶並設定診斷
+> * 測試應用程式閘道
 
 ![Web 應用程式防火牆範例](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+您可以依偏好使用 [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) 或 [Azure CLI](tutorial-restrict-web-traffic-cli.md) 來完成本教學課程。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -47,7 +40,7 @@ ms.locfileid: "58905863"
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您可以建立新的虛擬網路，或使用現有的虛擬網路。 在此範例中，我們會建立新的虛擬網路。 您建立應用程式閘道時，可以同時建立虛擬網路。 在不同的子網路中，建立應用程式閘道執行個體。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。
+Azure 需要虛擬網路才能在資源之間進行通訊。 您可以建立新的虛擬網路，或使用現有的虛擬網路。 在此範例中，您會建立新的虛擬網路。 您建立應用程式閘道時，可以同時建立虛擬網路。 在不同的子網路中，建立應用程式閘道執行個體。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。
 
 在 Azure 入口網站的左側功能表上選取 [建立資源]。 [新增] 視窗隨即出現。
 
@@ -57,8 +50,8 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您�
 
 1. 在 [基本] 頁面上，為下列應用程式閘道設定輸入這些值：
    - **名稱**：輸入 myAppGateway 作為應用程式閘道的名稱。
-   - **资源组**：選取 **myResourceGroupAG** 作為資源群組。 如果資源群組不存在，請選取 [新建] 加以建立。
-   - 選取  *WAF*層次的應用程式閘道。![建立新的應用程式閘道](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+   - **資源群組**：選取 **myResourceGroupAG** 作為資源群組。 如果資源群組不存在，請選取 [新建] 加以建立。
+   - 選取 [WAF] 作為應用程式閘道層。![建立新的應用程式閘道](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
 接受其他設定的預設值，然後按一下 [確定]。
 
@@ -69,11 +62,11 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您�
    - **名稱**：輸入 myVNet 作為虛擬網路的名稱。
    - **位址空間**：輸入 10.0.0.0/16 作為虛擬網路位址空間。
    - **子網路名稱**：輸入 myAGSubnet 作為子網路名稱。<br>應用程式閘道子網路只能包含應用程式閘道。 不允許任何其他資源。
-   - **子網路位址範圍**︰請輸入*10.0.0.0/24*子網路位址範圍。![建立虛擬網路](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+   - **子網路位址範圍**︰輸入 10.0.0.0/24 作為子網路位址範圍。![建立虛擬網路](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 3. 按一下 [確定] 以建立虛擬網路和子網路。
-4. 選擇 [前端 IP 設定]。 在 [前端 IP 組態] 下方，確認 [IP 位址類型] 設為 [公用]。 在 [公用 IP 位址] 下方，確認已選取 [新建]。 <br>您可以根據自己的使用案例，設定為公用或私人前端 IP。 在此範例中，我們會選擇公用前端 IP。 
-5. 輸入 myAGPublicIPAddress 作為公用 IP 位址名稱。 
-6. 接受其他設定的預設值，然後選取 [確定]。<br>為求簡化，我們在本文將選擇預設值，但您可以根據自己的使用案例，設定其他設定的自訂值 
+4. 選擇 [前端 IP 設定]。 在 [前端 IP 組態] 下方，確認 [IP 位址類型] 設為 [公用]。 在 [公用 IP 位址] 下方，確認已選取 [新建]。 <br>您可以根據自己的使用案例，設定為公用或私人前端 IP。 在此，您會選擇公用前端 IP。
+5. 輸入 myAGPublicIPAddress 作為公用 IP 位址名稱。
+6. 接受其他設定的預設值，然後選取 [確定]。<br>為求簡化，您會在本教學課程中選擇預設值，但可根據自己的使用案例，設定其他設定的自訂值。
 
 ### <a name="summary-page"></a>摘要頁面
 
@@ -81,9 +74,9 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您�
 
 ## <a name="add-backend-pool"></a>新增後端集區
 
-後端集區可用來將要求路由至能為要求提供服務的後端伺服器。 後端集區可以包含 NIC、虛擬機器擴展集、公用 IP、內部 IP、完整的網域名稱 (FQDN)，以及如 Azure App Service 的多租用戶後端。 您需要將自己的後端目標新增至後端集區。
+後端集區可用來將要求路由傳送至能為要求提供服務的後端伺服器。 後端集區可以包含 NIC、虛擬機器擴展集、公用 IP、內部 IP、完整的網域名稱 (FQDN)，以及 Azure App Service 等多租用戶後端。 將您的後端目標新增至後端集區。
 
-在此範例中，我們會將虛擬機器作為目標後端。 我們可以使用現有的虛擬機器，或建立新的虛擬機器。 在此範例中，我們會建立兩個虛擬機器，供 Azure 作為應用程式閘道的後端伺服器。 若要這麼做：
+在此範例中，您會使用虛擬機器作為目標後端。 您可以使用現有的虛擬機器，或建立新的虛擬機器。 再此，您會建立兩個虛擬機器，供 Azure 作為應用程式閘道的後端伺服器。 若要這樣做，請：
 
 1. 建立新的子網路 (*myBackendSubnet*)，以在其中建立新的 VM。 
 2. 建立 2 個新的 VM (*myVM* 與 *myVM2*)，以作為後端伺服器。
@@ -107,20 +100,20 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您�
 1. 在 Azure 入口網站上，選取 [建立資源]。 [新增] 視窗隨即出現。
 2. 選取 [計算]，然後選取 [精選] 清單中的 [Windows Server 2016 Datacenter]。 [建立虛擬機器] 頁面隨即出現。<br>應用程式閘道可將流量路由至其後端集區中所用任何類型的虛擬機器。 在此範例中，您會使用 Windows Server 2016 Datacenter。
 3. 在 [基本] 索引標籤中，為下列虛擬機器設定輸入這些值：
-   - **资源组**：選取 **myResourceGroupAG** 作為資源群組名稱。
+   - **資源群組**：選取 **myResourceGroupAG** 作為資源群組名稱。
    - **虛擬機器名稱**：輸入 myVM 作為虛擬機器的名稱。
    - **使用者名稱**：輸入 azureuser 作為系統管理員使用者名稱。
    - **密碼**：輸入Azure123456! 作為系統管理員密碼。
 4. 接受其他預設值，然後選取 [下一步：**磁碟]**。  
 5. 接受 [磁碟] 索引標籤的預設值，然後選取 [下一步：網路功能]。
-6. 在 [網路] 索引標籤上，確認已選取 [myVNet] 作為[虛擬網路]，且 [子網路] 設為 [myBackendSubnet]。 接受其他預設值，然後選取 [下一步：**管理]**。<br>「應用程式閘道」可與其虛擬網路外的執行個體進行通訊，但我們需要確保具有 IP 連線能力。 
+6. 在 [網路] 索引標籤上，確認已選取 [myVNet] 作為[虛擬網路]，且 [子網路] 設為 [myBackendSubnet]。 接受其他預設值，然後選取 [下一步：**管理]**。<br>「應用程式閘道」可與其虛擬網路外的執行個體進行通訊，但您需要確保具有 IP 連線能力。
 7. 在 [管理] 索引標籤上，將 [開機診斷] 設為 [關閉]。 接受其他預設值，然後選取 [檢閱 + 建立]。
 8. 在 [檢閱 + 建立] 索引標籤上檢閱設定，並更正任何驗證錯誤，然後選取 [建立]。
 9. 請等候虛擬機器建立完成，再繼續操作。
 
 ### <a name="install-iis-for-testing"></a>安裝 IIS 進行測試
 
-在此範例中，我們在虛擬機器上安裝 IIS，只是為了驗證 Azure 已成功建立應用程式閘道。 
+在此範例中，您會在虛擬機器上安裝 IIS，只是為了驗證 Azure 已成功建立應用程式閘道。 
 
 1. 開啟 [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell)。 若要這樣做，請從 Azure 入口網站的頂端導覽列中選取 [Cloud Shell]，然後從下拉式清單中選取 [PowerShell]。 
 
@@ -140,7 +133,7 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您�
      -Location EastUS
    ```
 
-3. 建立第二個虛擬機器，並使用您先前完成的步驟來安裝 IIS。 使用*myVM2*的虛擬機器名稱，並針對**VMName**設定**組 AzVMExtension** cmdlet。
+3. 建立第二個虛擬機器，並使用您先前完成的步驟來安裝 IIS。 請使用 myVM2 作為虛擬機器名稱，並作為 **Set-AzVMExtension** Cmdlet 的 **VMName** 設定。
 
 ### <a name="add-backend-servers-to-backend-pool"></a>將後端伺服器新增至後端集區
 
@@ -188,7 +181,7 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您�
 
 1. 在 [概觀] 頁面上尋找應用程式閘道的公用 IP 位址。![記錄應用程式閘道公用 IP 位址](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)或者，您可以選取 [所有資源]，並在搜尋方塊中輸入 *myAGPublicIPAddress*，然後在搜尋結果中加以選取。 Azure 會在 [概觀] 頁面上顯示公用 IP 位址。
 2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。
-3. 檢查回應。 有效的回應會確認應用程式閘道已成功建立，並能與後端順利連線。![測試應用程式閘道](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+3. 檢查回應。 有效的回應會確認應用程式閘道已成功建立，並可與後端順利連線。![測試應用程式閘道](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -203,11 +196,5 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何：
-
-> [!div class="checklist"]
-> * 已啟用建立包含 WAF 的應用程式閘道
-> * 建立用來作為後端伺服器的虛擬機器
-> * 建立儲存體帳戶和設定診斷
-
-若要深入了解應用程式閘道和其相關聯的資源，請繼續進行操作說明文章。
+> [!div class="nextstepaction"]
+> [深入了解 Azure 應用程式閘道的用途](application-gateway-introduction.md)

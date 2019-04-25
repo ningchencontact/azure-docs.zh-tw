@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8f2a5fdaf2222de7a802e8ff2a1f6fdb37dae4c3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 003e9beb3a319802754397efae3b636f51de9e52
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880030"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995892"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>快速入門：使用 Azure Spatial Anchors 建立 Android 應用程式
 
@@ -37,7 +37,7 @@ ms.locfileid: "57880030"
   - 如果在 macOS 上執行，請透過 HomeBrew 安裝 Git。 在終端機的單一行輸入以下命令：`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`。 然後執行 `brew install git`。
   - 若要建置 NDK 範例，您也必須在 Android Studio 中安裝 NDK 和 CMake 3.6 SDK Tools。
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">由開發人員啟用</a>且<a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">具備 ARCore 功能</a>的 Android 裝置。
-- 您的應用程式必須以 ARCore 1.5 為目標 (ARCore 1.6+ 即將推出)
+- 您的應用程式必須以 ARCore 1.7 作為目標。
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -45,7 +45,7 @@ ms.locfileid: "57880030"
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-如果您要建置 Android NDK 範例，則必須從[這裡](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.5.0/libraries/include/arcore_c_api.h)下載 `arcore_c_api.h`，並將其置於 `Android\NDK\libraries\include` 中。
+如果您要建置 Android NDK 範例，則必須從[這裡](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.7.0/libraries/include/arcore_c_api.h)下載 `arcore_c_api.h`，並將其置於 `Android\NDK\libraries\include` 中。
 
 開啟 Android Studio。
 

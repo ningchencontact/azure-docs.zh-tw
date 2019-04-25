@@ -1,24 +1,24 @@
 ---
-title: 建立裝載多個網站的應用程式閘道 - Azure 入口網站
-description: 了解如何使用 Azure 入口網站建立裝載多個網站的應用程式閘道。
+title: 教學課程 - 使用 Azure 入口網站建立裝載多個網站的應用程式閘道
+description: 在本教學課程中，您將了解如何使用 Azure 入口網站建立裝載多個網站的應用程式閘道。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 2/20/2019
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080162"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999020"
 ---
-# <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>使用 Azure 入口網站建立和設定應用程式閘道以裝載多個網站
+# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建立和設定應用程式閘道以裝載多個網站
 
-您可以使用 Azure 入口網站，在建立[應用程式閘道](overview.md)時[設定裝載多個站台](multiple-site-overview.md)。 在本文中，您可以使用虛擬機器定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本文假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.fabrikam.com* 的範例。
+您可以使用 Azure 入口網站，在建立[應用程式閘道](overview.md)時[設定裝載多個站台](multiple-site-overview.md)。 在本教學課程中，您可以使用虛擬機器定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.fabrikam.com* 的範例。
 
-在本文中，您將了解：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立應用程式閘道
@@ -115,7 +115,7 @@ ms.locfileid: "58080162"
       -Settings $publicSettings
     ```
 
-3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入的名稱*fabrikamVM*的名稱，然後設定 AzVMExtension 中的 VMName 值。
+3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 fabrikamVM 作為名稱，並作為 Set-AzVMExtension 中的 VMName 值。
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>建立包含虛擬機器的後端集區
 
@@ -146,7 +146,7 @@ ms.locfileid: "58080162"
 
 會以規則列出的順序進行處理，而且不論精確性為何，都會使用相符的第一個規則將流量進行導向。 例如，如果您在相同的連接埠上同時使用基本接聽程式的規則和多站台接聽程式的規則，則必須將多站台接聽程式的規則列於基本接聽程式的規則之前，多站台規則才能如預期般運作。 
 
-在此範例中，您會建立兩個新規則，並刪除您在建立應用程式閘道時所建立的預設規則。 
+在此範例中，您會建立兩個新規則，並刪除您在建立應用程式閘道時所建立的預設規則。
 
 1. 按一下 [規則]，然後按一下 [基本]。
 2. 輸入 *contosoRule* 作為名稱。
@@ -179,6 +179,18 @@ ms.locfileid: "58080162"
 
     ![測試應用程式閘道中的 fabrikam 網站](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
+## <a name="clean-up-resources"></a>清除資源
+
+當您不再需要先前為應用程式閘道建立的資源時，請移除資源群組。 藉由移除資源群組，您也可以移除應用程式閘道及其所有相關資源。
+
+若要移除資源群組：
+
+1. 在 Azure 入口網站的左側功能表上，選取 [資源群組]。
+2. 在 [資源群組] 頁面上，在清單中搜尋 **myResourceGroupAG** 並加以選取。
+3. 在 [資源群組] 頁面上，選取 [刪除資源群組]。
+4. 針對 [輸入資源群組名稱] 輸入 myResourceGroupAG，然後選取 [刪除]
+
 ## <a name="next-steps"></a>後續步驟
 
-[透過應用程式閘道設定 App Service](create-web-app.md)
+> [!div class="nextstepaction"]
+> [深入了解 Azure 應用程式閘道的用途](application-gateway-introduction.md)

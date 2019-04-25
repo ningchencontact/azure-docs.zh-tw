@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.openlocfilehash: fd49cc6810f4a3a479748180ddb0c44aedf04e89
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275550"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin graph 支援
@@ -158,9 +158,9 @@ GraphSON 用於頂點的屬性說明如下︰
 | `addV` | 將頂點新增至圖表 | [addV 步驟](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
 | `and` | 確保所有周遊都會傳回值 | [and 步驟](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
 | `as` | 將變數指派給步驟輸出的步驟調變器 | [as 步驟](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | 步驟調變器，搭配使用 `group` 和 `order` | [by 步驟](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `by` | 搭配 `group` 和 `order` 一起使用的步驟調變器 | [by 步驟](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
 | `coalesce` | 傳回第一次有傳回結果的周遊 | [coalesce 步驟](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | 傳回常數值。 搭配使用 `coalesce`| [constant 步驟](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `constant` | 傳回常數值。 搭配 `coalesce` 使用| [constant 步驟](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
 | `count` | 從周遊傳回計數 | [count 步驟](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
 | `dedup` | 傳回已移除重複項的值 | [dedup 步驟](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
 | `drop` | 捨棄值 (頂點/邊緣) | [drop 步驟](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |

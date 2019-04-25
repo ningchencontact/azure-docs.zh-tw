@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: a013189e45b1c1c8eeb88d62a718d495c0c415a2
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012489"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>快速入門：使用適用於 .NET Framework (Windows) 的語音 SDK 來合成語音
@@ -66,7 +66,7 @@ ms.locfileid: "59012489"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples)
+> [探索 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples) \(英文\)
 
 ## <a name="see-also"></a>另請參閱
 

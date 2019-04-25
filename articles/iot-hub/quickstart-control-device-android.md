@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: e3b0c0703cb46087db38121055117b50f97ad03f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4f9f4ccb53f9530122f0a2463f8f45b596856282
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006567"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149677"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>快速入門：控制連線到 IoT 中樞的裝置 (Android)
 
@@ -125,15 +125,13 @@ az iot hub show-connection-string --name YourIoTHubName --output table
    > * 對您的 Android Studio 版本而言，專案中參考的 Android Gradle 外掛程式和 Gradle 的版本已過時。 請依照[這些指示](https://developer.android.com/studio/releases/gradle-plugin)，針對您的安裝參考及安裝正確版本的外掛程式和 Gradle。
    > * Android SDK 的授權合約尚未簽署。 請依照建置輸出中的指示，簽署授權合約並下載 SDK。
 
-
 4. 完成建置後，按一下 [執行] > [執行「應用程式」]。 設定應用程式，以在實體 Android 裝置或 Android 模擬器上執行。 如需有關如何在實體裝置或模擬器上執行 Android 應用程式的詳細資訊，請參閱[執行應用程式](https://developer.android.com/training/basics/firstapp/running-app)。
 
 5. 載入應用程式後，按一下 [啟動] 按鈕，以開始將遙測傳送至 IoT 中樞：
 
-    ![Application](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![用戶端裝置 android 應用程式的範例螢幕擷取畫面](media/quickstart-control-device-android/sample-screenshot.png)
 
 當您執行服務 SDK 範例時，此應用程式必須持續在實體裝置或模擬器上執行，以更新執行間段期間的遙測間隔。
-
 
 ## <a name="read-the-telemetry-from-your-hub"></a>從您的中樞讀取遙測
 
@@ -146,12 +144,12 @@ az iot hub show-connection-string --name YourIoTHubName --output table
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     下列螢幕擷取畫面顯示 IoT 中樞從 Android 裝置接收所傳送遙測時的輸出：
 
-      ![使用 Azure CLI 來閱讀裝置訊息](media/quickstart-send-telemetry-android/read-data.png)
+      ![使用 Azure CLI 來閱讀裝置訊息](media/quickstart-control-device-android/read-data.png)
 
 依預設，遙測應用程式每隔 5 秒就會從 Android 裝置送出遙測。 在下一節中，您將使用直接方法呼叫來更新 Android IoT 裝置的遙測間隔。
-
 
 ## <a name="call-the-direct-method"></a>呼叫直接方法
 
@@ -180,7 +178,6 @@ IoT 中樞後端服務應用程式通常會在雲端中執行，如此可較簡�
    > * 對您的 Android Studio 版本而言，專案中參考的 Android Gradle 外掛程式和 Gradle 的版本已過時。 請依照[這些指示](https://developer.android.com/studio/releases/gradle-plugin)，針對您的安裝參考及安裝正確版本的外掛程式和 Gradle。
    > * Android SDK 的授權合約尚未簽署。 請依照建置輸出中的指示，簽署授權合約並下載 SDK。
 
-
 4. 完成建置後，按一下 [執行] > [執行「應用程式」]。 設定應用程式，以在不同的實體 Android 裝置或 Android 模擬器上執行。 如需有關如何在實體裝置或模擬器上執行 Android 應用程式的詳細資訊，請參閱[執行應用程式](https://developer.android.com/training/basics/firstapp/running-app)。
 
 5. 載入應用程式之後，將 [設定傳訊間隔] 的值設為 [1000]，然後按一下 [叫用]。
@@ -192,8 +189,6 @@ IoT 中樞後端服務應用程式通常會在雲端中執行，如此可較簡�
 6. 應用程式會收到通知，指出方法是否成功執行。
 
     ![直接方法通知](media/quickstart-control-device-android/direct-method-ack.png)
-
-
 
 ## <a name="clean-up-resources"></a>清除資源
 

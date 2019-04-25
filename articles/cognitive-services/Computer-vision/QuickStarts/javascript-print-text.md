@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fc755c888d2f5affd755ea8de8febcdf0a49663f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31196f967deeeec3fe298d17ff387d854a115e13
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892688"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010971"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 與 JavaScript 擷取印刷文字 (OCR)
 
@@ -26,7 +26,7 @@ ms.locfileid: "57892688"
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="create-and-run-the-sample"></a>建立並執行範例
 

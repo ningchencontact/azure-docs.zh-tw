@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e0f131c7363a608962910f2cf0e5794972bf6208
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 9962874600e259a639c70b7b180e5fc2a940461f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648926"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999547"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 Python 來產生縮圖
 
@@ -26,7 +26,7 @@ ms.locfileid: "56648926"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 - 程式碼編輯器，例如 [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="create-and-run-the-sample"></a>建立並執行範例

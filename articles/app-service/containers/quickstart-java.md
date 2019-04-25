@@ -1,6 +1,7 @@
 ---
 title: 在 Linux 上建立 Java Web 應用程式 - Azure App Service
 description: 在本快速入門中，您將在短短幾分鐘內在 Linux 上的 Azure App Service 中部署第一個 Java Hello World。
+keywords: Azure, App Service, Web 應用程式, Linux, Java, Maven, 快速入門
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,17 +16,20 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: af1256b4432e42f91209b622239ca55901929a1b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: c97d4a373970514b920581aa258b61c1b1cb978c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544733"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683999"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>快速入門：在 Linux 上的 App Service 中建立 Java 應用程式
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門說明如何使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 搭配[適用於 Azure Web Apps 的 Maven 外掛程式 (預覽)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，部署 Java Web 封存 (WAR) 檔案。
-
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門說明如何使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 搭配[適用於 Azure App Service 的 Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，部署 Java Web 封存 (WAR) 檔案。
+> [!NOTE]
+>
+> 使用 IntelliJ 和 Eclipse 等熱門 IDE 也可以執行相同的動作。 請參閱 [Azure Toolkit for IntelliJ 快速入門](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)或 [Azure Toolkit for Eclipse 快速入門](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)中的類似文件。
+>
 ![在 Azure 中執行的範例應用程式](media/quickstart-java/java-hello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -58,15 +62,32 @@ code pom.xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.3</version>
+        <version>1.5.4</version>
         <configuration>
+            <!-- Specify v2 schema -->
+            <schemaVersion>v2</schemaVersion>
             <!-- App information -->
+            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
             <!-- Java Runtime Stack for App on Linux-->
-            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime> 
+            <runtime>
+                <os>linux</os>
+                <javaVersion>jre8</javaVersion>
+                <webContainer>tomcat 8.5</webContainer>
+            </runtime> 
+            <deployment>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </deployment>
         </configuration>
     </plugin>
 </plugins>
@@ -81,6 +102,7 @@ code pom.xml
 
 | Placeholder | 說明 |
 | ----------- | ----------- |
+| `SUBSCRIPTION_ID` | 您要作為應用程式部署目的地的唯一訂用帳戶識別碼。 使用 `az account show` 命令，可以從 Cloud Shell 或 CLI 取得預設訂用帳戶的 ID。 如需所有可用的訂用帳戶，請使用 `az account list` 命令。|
 | `RESOURCEGROUP_NAME` | 容納新建立應用程式的新資源群組名稱。 將應用程式的所有資源放在群組中，藉此同時管理。 例如，刪除資源群組會刪除所有與應用程式相關聯的資源。 使用唯一的新資源群組名稱來更新此值，例如 TestResources。 您在下一節中會使用此資源群組名稱來清除所有的 Azure 資源。 |
 | `WEBAPP_NAME` | 應用程式名稱會成為應用程式在部署至 Azure 時的部分主機名稱 (WEBAPP_NAME.azurewebsites.net)。 將此值更新為新 App Service 應用程式的唯一名稱 (例如 contoso)，它將會主控您的 Java 應用程式。 |
 | `REGION` | 託管應用程式的 Azure 區域，例如 `westus2`。 您可以使用 `az account list-locations` 命令，從 Cloud Shell 或 CLI 取得區域清單。 |
@@ -111,3 +133,6 @@ mvn package azure-webapp:deploy
 
 > [!div class="nextstepaction"]
 > [使用 Jenkins 的 CI/CD](/azure/jenkins/deploy-jenkins-app-service-plugin)
+
+> [!div class="nextstepaction"]
+> [適用於 Java 開發人員的其他 Azure 資源](/java/azure/)

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 14732b02e56d56baa032b8a3728ca892f4ad7d2f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563572"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999752"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>教學課程：Azure Active Directory 與 ForeSee CX Suite 整合
 
-在此教學課程中，您會了解如何整合 ForeSee CX Suite 與 Azure Active Directory (Azure AD)。
+在本教學課程中，您會了解如何整合 ForeSee CX Suite 與 Azure Active Directory (Azure AD)。
 將 ForeSee CX Suite 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 ForeSee CX Suite 的人員。
@@ -43,7 +43,7 @@ ms.locfileid: "59563572"
 
 ## <a name="scenario-description"></a>案例描述
 
-在此教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * ForeSee CX Suite 支援 **SP** 起始的 SSO
 
@@ -87,7 +87,7 @@ ms.locfileid: "59563572"
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在此節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
+在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
 若要搭配 ForeSee CX Suite 設定 Azure AD 單一登入，請執行下列步驟：
 
@@ -119,7 +119,7 @@ ms.locfileid: "59563572"
 
     a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://cxsuite.foresee.com/`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： https://www.okta.com/saml2/service-provider/<UniqueID>
+    b. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：https:\//www.okta.com/saml2/service-provider/<UniqueID>
 
     > [!Note]
     > 如果 [識別碼] 值未自動填入，請根據上述模式手動填入這些值。 識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 請連絡 [ForeSee CX Suite 用戶端支援小組](mailto:support@foresee.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -144,7 +144,7 @@ ms.locfileid: "59563572"
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
-此節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
@@ -168,7 +168,7 @@ ms.locfileid: "59563572"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在此節中，您會將 ForeSee CX Suite 的存取權授與 Britta Simon，讓該使用者能使用 Azure 單一登入。
+在本節中，您會將 ForeSee CX Suite 的存取權授與 Britta Simon，讓該使用者能使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [ForeSee CX Suite]。
 
@@ -194,11 +194,11 @@ ms.locfileid: "59563572"
 
 ### <a name="create-foresee-cx-suite-test-user"></a>建立 ForeSee CX Suite 測試使用者
 
-在此節中，您會在 ForeSee CX Suite 中建立名為 Britta Simon 的使用者。 請與 [ForeSee CX Suite 支援小組](mailto:support@foresee.com)合作，以新增需要在 ForeSee CX Suite 平台中列入白名單的使用者或網域。 如果是由小組新增網域，將會自動將使用者佈建到 ForeSee CX Suite 平台。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 ForeSee CX Suite 中建立名為 Britta Simon 的使用者。 請與 [ForeSee CX Suite 支援小組](mailto:support@foresee.com)合作，以新增需要在 ForeSee CX Suite 平台中列入白名單的使用者或網域。 如果是由小組新增網域，將會自動將使用者佈建到 ForeSee CX Suite 平台。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
-在此節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [ForeSee CX Suite] 圖格時，應該會自動登入您已設定 SSO 的 ForeSee CX Suite。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 

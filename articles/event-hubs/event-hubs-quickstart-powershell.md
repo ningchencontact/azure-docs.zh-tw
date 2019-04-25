@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: f16dde524e20863f5fe20d98f5c62f18e835f8c5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: fba0d3ac5a20bd4f10b815450f6ce08e50f88ea0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234114"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681296"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立事件中樞
 
@@ -69,10 +69,17 @@ New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name 
 
 ## <a name="next-steps"></a>後續步驟
 
-在此文章中，您已建立事件中樞命名空間，並使用範例應用程式來傳送事件到事件中樞，或從事件中樞接收事件。 如需將事件傳送至事件中樞或從事件樞接收事件的逐步指示，請參閱下列教學課程： 
+在此文章中，您已建立事件中樞命名空間，並使用範例應用程式來傳送事件到事件中樞，或從事件中樞接收事件。 如需將事件傳送至事件中樞或從事件中樞接收事件的逐步指示，請參閱**傳送及接收事件**教學課程： 
 
-- **將事件傳送至事件中樞**：[.NET Core](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
-- **從事件中樞接收事件**：[.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C (僅傳送)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (僅接收)](event-hubs-storm-getstarted-receive.md)
+
 
 [建立免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-az-ps

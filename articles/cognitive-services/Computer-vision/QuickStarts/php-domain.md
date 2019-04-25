@@ -1,5 +1,5 @@
 ---
-title: 快速入門：網域專屬的影像內容 - REST、PHP
+title: 快速入門：網域專屬的內容 - REST、PHP
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用電腦視覺 API 與 PHP，使用領域模型來識別影像中的地標。
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2c1801296247ace081a34a137fe3f3bea7a55974
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 902894ccce28ee1ba05430c7e697c3ca47887795
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877015"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011107"
 ---
 # <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>快速入門：使用 REST API 和 PHP 搭配電腦視覺，辨識網域專屬的內容
 
@@ -28,7 +28,7 @@ ms.locfileid: "57877015"
 
 - 您必須安裝 [PHP](https://secure.php.net/downloads.php)。
 - 您必須安裝 [Pear](https://pear.php.net)。
-- 您必須具有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="create-and-run-the-sample"></a>建立並執行範例
 

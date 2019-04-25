@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: a8d144b2cb8ee18c69dc4c4768b09422d44bade2
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617307"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680375"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 帳戶中的資料
 
@@ -29,7 +29,7 @@ ms.locfileid: "59617307"
 
 歡迎使用 Azure Cosmos DB SQL API 入門教學課程。 完成此教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
 
-此教學課程說明如何：
+本教學課程說明如何：
 
 > [!div class="checklist"]
 >
@@ -91,7 +91,10 @@ Azure 訂用帳戶或免費的 Cosmos DB 試用帳戶：
 1. 尋找並選取 [Microsoft.Azure.DocumentDB]，如果尚未安裝，請選取 [安裝]。
    
    「Azure Cosmos DB SQL API 用戶端程式庫」的套件識別碼是 [Microsoft Azure Cosmos DB 用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) \(英文\)。
-   
+
+   > [!NOTE]
+   > 如果您使用 .NET Core，請參閱 [.NET Core 文件](./sql-api-dotnetcore-get-started.md)。
+
    ![用於尋找 Azure Cosmos DB 用戶端 SDK 的 NuGet 功能表螢幕擷取畫面](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
    
    如果您收到關於檢閱方案變更的訊息，請選取 [確定]。 如果您收到關於接受授權的訊息，請選取 [我接受]。

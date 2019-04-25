@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2eb57268aece081423b6b0beaa314a244b6fdd8f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 50cd039395b477a93d050458c2a014e768fc5f0a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456001"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995671"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶
 
-Azure Data Lake Storage Gen2 [支援階層命名空間服務](data-lake-storage-introduction.md)，其提供專門打造的原生目錄型檔案系統，可與 Hadoop 分散式檔案系統 (HDFS) 搭配運作。 透過 [ABFS 驅動程式](data-lake-storage-abfs-driver.md)即可從 HDFS 存取 Data Lake Storage Gen2 資料。
+Azure Data Lake Storage Gen2 [支援階層命名空間](data-lake-storage-introduction.md)，其提供專門打造的原生目錄型檔案系統，可與 Hadoop 分散式檔案系統 (HDFS) 搭配運作。 透過 [ABFS 驅動程式](data-lake-storage-abfs-driver.md)即可從 HDFS 存取 Data Lake Storage Gen2 資料。
 
 本快速入門會示範如何使用 [Azure 入口網站](https://portal.azure.com/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或透過 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 建立帳戶。
 
@@ -128,7 +128,7 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="log-in-to-your-azure-subscription"></a>登入 Azure 訂用帳戶
+### <a name="sign-in-to-your-azure-subscription"></a>登入您的 Azure 訂用帳戶
 
 請使用 `Login-AzAccount` 命令並遵循畫面上的指示進行驗證。
 

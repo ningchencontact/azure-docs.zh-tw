@@ -1,424 +1,417 @@
-items:
 - name: LUIS 文件
   href: index.yml
 - name: 概觀
-  items:
-  - name: 何謂 Language Understanding？
-    href: what-is-luis.md
   expanded: true
+  items:
+    - name: 何謂 Language Understanding？
+      href: what-is-luis.md
 - name: 快速入門
   items:
-  - name: 建置預先建置的網域應用程式
-    href: luis-get-started-create-app.md
-  - name: 使用 LUIS 入口網站
-    items:
-    - name: 1. 建立應用程式
-      displayName: intent, entity, create app, test, example utterance
-      href: get-started-portal-build-app.md
-    - name: 2. 部署應用程式
-      displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
-      href: get-started-portal-deploy-app.md
-  - name: 使用 .NET SDK
-    items:
-    - name: 查詢預測端點
-      href: sdk-csharp-quickstart-query-prediction-endpoint.md
-  - name: 使用 REST API
-    items:
-    - name: 取得意圖
+    - name: 建置預先建置的網域應用程式
+      href: luis-get-started-create-app.md
+    - name: 使用 LUIS 入口網站
       items:
-      - name: C#
-        href: luis-get-started-cs-get-intent.md
-      - name: Go
-        href: luis-get-started-go-get-intent.md
-      - name: Java
-        href: luis-get-started-java-get-intent.md
-      - name: Node.js
-        href: luis-get-started-node-get-intent.md
-      - name: Python
-        href: luis-get-started-python-get-intent.md
-    - name: 變更模式
+        - name: 1. 建立應用程式
+          href: get-started-portal-build-app.md
+          displayName: 'intent, entity, create app, test, example utterance'
+        - name: 2. 部署應用程式
+          href: get-started-portal-deploy-app.md
+          displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
+    - name: 使用 .NET SDK
       items:
-      - name: C#
-        href: luis-get-started-cs-add-utterance.md
-      - name: Go
-        href: luis-get-started-go-add-utterance.md
-      - name: Java
-        href: luis-get-started-java-add-utterance.md
-      - name: Node.js
-        href: luis-get-started-node-add-utterance.md
-      - name: Python
-        href: luis-get-started-python-add-utterance.md
-- name: 教學課程
-  items:
-  - name: 建置應用程式
-    items:
-    - name: 判斷使用者意圖
-      href: luis-quickstart-intents-only.md
-    - name: 使用預先建置的模型識別一般使用者資料
-      href: luis-tutorial-prebuilt-intents-entities.md
-    - name: 從使用者的語句中取得情感分析
-      href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: 使用規則運算式取得格式化的資料
-      href: luis-quickstart-intents-regex-entity.md
-    - name: 取得完全符合清單的文字
-      href: luis-quickstart-intent-and-list-entity.md
-    - name: 取得實體角色的相關資料
-      displayName: roles, geographyV2, context
-      href: tutorial-entity-roles.md
-    - name: 使用複合實體將相關資料分組並加以擷取
-      displayName: roles
-      href: luis-tutorial-composite-entity.md
-    - name: 使用簡單實體取得姓名
-      displayName: roles
-      href: luis-quickstart-primary-and-secondary-data.md
-  - name: 改善應用程式
-    items:
-    - name: 修正不確定的預測
-      href: luis-tutorial-review-endpoint-utterances.md
-    - name: 批次測試資料集
-      href: luis-tutorial-batch-testing.md
-    - name: 新增通用的語句格式
-      href: luis-tutorial-pattern.md
-    - name: 擷取內容相關的模式
-      displayName: roles
-      href: luis-tutorial-pattern-roles.md
-    - name: 擷取自由格式的資料
-      href: luis-tutorial-pattern-any.md
-  - name: 使用 Bot
-    items:
-    - name: 搭配 C#
-      href: luis-csharp-tutorial-bf-v4.md
-    - name: 搭配 Node.js
-      href: luis-nodejs-tutorial-bf-v4.md
-- name: 範例
-  items:
-  - name: 程式碼範例
-    href: https://github.com/Azure-Samples/cognitive-services-language-understanding
-- name: 概念
-  items:
-  - name: 最佳作法
-    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
-    href: luis-concept-best-practices.md
-  - name: 規劃您的應用程式
-    displayName: simple, hierarchical, composite, prebuilt, list, regex, regular expression
-    href: luis-how-plan-your-app.md
-  - name: 編寫應用程式
-    items:
-    - name: 撰寫循環
-      href: luis-concept-app-iteration.md
-    - name: 共同作業
-      displayName: shared, transfer, ownership, author, access, import
-      href: luis-concept-collaborator.md
-    - name: 版本控制
-      displayName: import
-      href: luis-concept-version.md
-  - name: 設計模型
-    items:
-    - name: 對應方式
-      href: luis-concept-intent.md
-    - name: 實體
-      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed, roles
-      href: luis-concept-entity-types.md
-    - name: 表達方式
-      href: luis-concept-utterance.md
-    - name: 角色
-      href: luis-concept-roles.md
-    - name: 預先建置的模型
-      href: luis-concept-prebuilt-model.md
-  - name: 提升應用程式效能
-    items:
-    - name: 預測分數
-      href: luis-concept-prediction-score.md
-    - name: 檢閱端點表達方式
-      href: luis-concept-review-endpoint-utterances.md
-    - name: 片語清單
-      href: luis-concept-feature.md
-    - name: 模式
-      displayName: roles
-      href: luis-concept-patterns.md
-  - name: 資料管理
-    items:
-    - name: 更改資料
-      href: luis-concept-data-alteration.md
-    - name: 轉換資料
-      href: luis-concept-data-conversion.md
-    - name: 擷取資料
-      displayName: roles
-      href: luis-concept-data-extraction.md
-    - name: 資料儲存體
-      href: luis-concept-data-storage.md
-  - name: 測試
-    items:
-    - name: 互動式測試
-      href: luis-concept-test.md
-    - name: 批次測試
-      href: luis-concept-batch-test.md
-  - name: Enterprise
-    items:
-    - name: 設計策略
-      displayName: import
-      href: luis-concept-enterprise.md
-  - name: 安全性
-    items:
-    - name: 應用程式存取
-      displayName: public, public app, AAD, compliance, ISO, certification, trust center, import
-      href: luis-concept-security.md
-    - name: 編寫和端點索引鍵
-      href: luis-concept-keys.md
-- name: 使用說明指南
-  items:
-  - name: 啟動新的應用程式
-    displayName: import, export, container
-    href: luis-how-to-start-new-app.md
-  - name: 建置模型
-    items:
-    - name: 新增意圖
-      href: luis-how-to-add-intents.md
-    - name: 將實體新增至語句
-      href: luis-how-to-add-example-utterances.md
-    - name: 在沒有語句的情況下新增實體
-      displayName: roles, import
-      href: luis-how-to-add-entities.md
-    - name: 使用預先建置的模型
-      items:
-      - name: 使用網域
-        href: luis-prebuilt-domains.md
-      - name: 使用意圖
-        href: luis-prebuilt-intent.md
-      - name: 使用實體
-        href: luis-prebuilt-entities.md
+        - name: 查詢預測端點
+          href: sdk-csharp-quickstart-query-prediction-endpoint.md
     - name: 使用 REST API
       items:
-      - name: 使用 Node.js 以程式設計方式建置應用程式
-        href: luis-tutorial-node-import-utterances-csv.md
-      - name: 使用清單實體比對使用 Node.js 的確切文字
-        href: luis-tutorial-list-entity.md
-  - name: 整合
-    items:
-    - name: 使用 Bing 拼字檢查 v7
-      href: luis-tutorial-bing-spellcheck.md
-    - name: 具有語音服務
-      href: luis-tutorial-speech-to-intent.md
-    - name: 具有 Bot
+        - name: 取得意圖
+          items:
+            - name: 'C#'
+              href: luis-get-started-cs-get-intent.md
+            - name: Go
+              href: luis-get-started-go-get-intent.md
+            - name: Java
+              href: luis-get-started-java-get-intent.md
+            - name: Node.js
+              href: luis-get-started-node-get-intent.md
+            - name: Python
+              href: luis-get-started-python-get-intent.md
+        - name: 變更模式
+          items:
+            - name: 'C#'
+              href: luis-get-started-cs-add-utterance.md
+            - name: Go
+              href: luis-get-started-go-add-utterance.md
+            - name: Java
+              href: luis-get-started-java-add-utterance.md
+            - name: Node.js
+              href: luis-get-started-node-add-utterance.md
+            - name: Python
+              href: luis-get-started-python-add-utterance.md
+- name: 教學課程
+  items:
+    - name: 建置應用程式
       items:
-      - name: Web 應用程式 Bot
-        items:
-        - name: Node.js
-          displayName: ABS, azure bot, service
-          href: luis-nodejs-tutorial-build-bot-framework-sample.md
-        - name: C#
-          displayName: ABS, azure bot, service
-          href: luis-csharp-tutorial-build-bot-framework-sample.md
-      - name: Application Insights
-        items:
-        - name: Node.js
-          displayName: Application insight, kusto
-          href: luis-tutorial-function-appinsights.md
-        - name: C#
-          displayName: Application insight, kusto
-          href: luis-tutorial-bot-csharp-appinsights.md
-  - name: 改善預測精確度
-    items:
-    - name: 檢閱端點表達方式
-      displayName: active learning
-      href: luis-how-to-review-endpoint-utterances.md
-    - name: 新增片語清單
-      displayName: synonym, interchange
-      href: luis-how-to-add-features.md
-    - name: 新增模式
-      displayName: syntax, template, roles
-      href: luis-how-to-model-intent-pattern.md
-  - name: 定型
-    href: luis-how-to-train.md
-  - name: 測試
-    items:
-    - name: 互動式測試
-      href: luis-interactive-test.md
-    - name: 批次測試
-      displayName: import
-      href: luis-how-to-batch-test.md
-  - name: 發佈
-    href: luis-how-to-publish-app.md
-  - name: 管理應用程式
-    items:
-    - name: 使用儀表板
-      displayName: analytics, usage
-      href: luis-how-to-use-dashboard.md
-    - name: 使用您的訂用帳戶金鑰搭配 LUIS 應用程式
-      displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription
-      href: luis-how-to-azure-subscription.md
-    - name: 管理版本
-      href: luis-how-to-manage-versions.md
-      diplayName: import, export, container
-    - name: 管理建立者及共同作業者
-      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
-      href: luis-how-to-collaborate.md
-    - name: 管理撰寫金鑰
-      href: luis-how-to-account-settings.md
-    - name: 使用流量管理員在各索引鍵中分散端點配額
-      href: luis-traffic-manager.md
-  - name: 遷移至 V2 REST API
-    href: luis-migration-api-v1-to-v2.md
-  - name: 使用容器
-    items:
-    - name: 安裝及執行容器
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
-      href: luis-container-howto.md
-    - name: 設定容器
-      href: luis-container-configuration.md
+        - name: 判斷使用者意圖
+          href: luis-quickstart-intents-only.md
+        - name: 使用預先建置的模型識別一般使用者資料
+          href: luis-tutorial-prebuilt-intents-entities.md
+        - name: 從使用者的語句中取得情感分析
+          href: luis-quickstart-intent-and-sentiment-analysis.md
+        - name: 使用規則運算式取得格式化的資料
+          href: luis-quickstart-intents-regex-entity.md
+        - name: 取得完全符合清單的文字
+          href: luis-quickstart-intent-and-list-entity.md
+        - name: 取得實體角色的相關資料
+          href: tutorial-entity-roles.md
+          displayName: 'roles, geographyV2, context'
+        - name: 使用複合實體將相關資料分組並加以擷取
+          href: luis-tutorial-composite-entity.md
+          displayName: roles
+        - name: 使用簡單實體取得姓名
+          href: luis-quickstart-primary-and-secondary-data.md
+          displayName: roles
+    - name: 改善應用程式
+      items:
+        - name: 修正不確定的預測
+          href: luis-tutorial-review-endpoint-utterances.md
+        - name: 批次測試資料集
+          href: luis-tutorial-batch-testing.md
+        - name: 新增通用的語句格式
+          href: luis-tutorial-pattern.md
+        - name: 擷取內容相關的模式
+          href: luis-tutorial-pattern-roles.md
+          displayName: roles
+        - name: 擷取自由格式的資料
+          href: luis-tutorial-pattern-any.md
+    - name: 使用 Bot
+      items:
+        - name: '搭配 C#'
+          href: luis-csharp-tutorial-bf-v4.md
+        - name: 搭配 Node.js
+          href: luis-nodejs-tutorial-bf-v4.md
+- name: 範例
+  items:
+    - name: 程式碼範例
+      href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
+- name: 概念
+  items:
+    - name: 最佳作法
+      href: luis-concept-best-practices.md
+      displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
+    - name: 規劃您的應用程式
+      displayName: 'simple, hierarchical, composite, prebuilt, list, regex, regular expression'
+      href: luis-how-plan-your-app.md
+    - name: 編寫應用程式
+      items:
+        - name: 撰寫循環
+          href: luis-concept-app-iteration.md
+        - name: 共同作業
+          displayName: 'shared, transfer, ownership, author, access, import'
+          href: luis-concept-collaborator.md
+        - name: 版本控制
+          href: luis-concept-version.md
+          displayName: import
+    - name: 設計模型
+      items:
+        - name: 對應方式
+          href: luis-concept-intent.md
+        - name: 實體
+          displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed, roles'
+          href: luis-concept-entity-types.md
+        - name: 表達方式
+          href: luis-concept-utterance.md
+        - name: 角色
+          href: luis-concept-roles.md
+        - name: 預先建置的模型
+          href: luis-concept-prebuilt-model.md
+    - name: 提升應用程式效能
+      items:
+        - name: 預測分數
+          href: luis-concept-prediction-score.md
+        - name: 檢閱端點表達方式
+          href: luis-concept-review-endpoint-utterances.md
+        - name: 片語清單
+          href: luis-concept-feature.md
+        - name: 模式
+          href: luis-concept-patterns.md
+          displayName: roles
+    - name: 資料管理
+      items:
+        - name: 更改資料
+          href: luis-concept-data-alteration.md
+        - name: 轉換資料
+          href: luis-concept-data-conversion.md
+        - name: 擷取資料
+          href: luis-concept-data-extraction.md
+          displayName: roles
+        - name: 資料儲存體
+          href: luis-concept-data-storage.md
+    - name: 測試
+      items:
+        - name: 互動式測試
+          href: luis-concept-test.md
+        - name: 批次測試
+          href: luis-concept-batch-test.md
+    - name: Enterprise
+      items:
+        - name: 設計策略
+          href: luis-concept-enterprise.md
+          displayName: import
+    - name: 安全性
+      items:
+        - name: 應用程式存取
+          displayName: 'public, public app, AAD, compliance, ISO, certification, trust center, import'
+          href: luis-concept-security.md
+        - name: 編寫和端點索引鍵
+          href: luis-concept-keys.md
+- name: 使用說明指南
+  items:
+    - name: 啟動新的應用程式
+      href: luis-how-to-start-new-app.md
+      displayName: 'import, export, container'
+    - name: 建置模型
+      items:
+        - name: 新增意圖
+          href: luis-how-to-add-intents.md
+        - name: 將實體新增至語句
+          href: luis-how-to-add-example-utterances.md
+        - name: 在沒有語句的情況下新增實體
+          href: luis-how-to-add-entities.md
+          displayName: 'roles, import'
+        - name: 使用預先建置的模型
+          items:
+            - name: 使用網域
+              href: luis-prebuilt-domains.md
+            - name: 使用意圖
+              href: luis-prebuilt-intent.md
+            - name: 使用實體
+              href: luis-prebuilt-entities.md
+        - name: 使用 REST API
+          items:
+            - name: 使用 Node.js 以程式設計方式建置應用程式
+              href: luis-tutorial-node-import-utterances-csv.md
+            - name: 使用清單實體比對使用 Node.js 的確切文字
+              href: luis-tutorial-list-entity.md
+    - name: 整合
+      items:
+        - name: 使用 Bing 拼字檢查 v7
+          href: luis-tutorial-bing-spellcheck.md
+        - name: 具有語音服務
+          href: luis-tutorial-speech-to-intent.md
+        - name: 具有 Bot
+          items:
+            - name: Web 應用程式 Bot
+              items:
+                - name: Node.js
+                  displayName: 'ABS, azure bot, service'
+                  href: luis-nodejs-tutorial-build-bot-framework-sample.md
+                - name: 'C#'
+                  displayName: 'ABS, azure bot, service'
+                  href: luis-csharp-tutorial-build-bot-framework-sample.md
+            - name: Application Insights
+              items:
+                - name: Node.js
+                  displayName: 'Application insight, kusto'
+                  href: luis-tutorial-function-appinsights.md
+                - name: 'C#'
+                  displayName: 'Application insight, kusto'
+                  href: luis-tutorial-bot-csharp-appinsights.md
+    - name: 改善預測精確度
+      items:
+        - name: 檢閱端點表達方式
+          displayName: active learning
+          href: luis-how-to-review-endpoint-utterances.md
+        - name: 新增片語清單
+          displayName: 'synonym, interchange'
+          href: luis-how-to-add-features.md
+        - name: 新增模式
+          displayName: 'syntax, template, roles'
+          href: luis-how-to-model-intent-pattern.md
+    - name: 定型
+      href: luis-how-to-train.md
+    - name: 測試
+      items:
+        - name: 互動式測試
+          href: luis-interactive-test.md
+        - name: 批次測試
+          href: luis-how-to-batch-test.md
+          displayName: import
+    - name: 發佈
+      href: luis-how-to-publish-app.md
+    - name: 管理應用程式
+      items:
+        - name: 使用儀表板
+          displayName: 'analytics, usage'
+          href: luis-how-to-use-dashboard.md
+        - name: 使用您的訂用帳戶金鑰搭配 LUIS 應用程式
+          displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription'
+          href: luis-how-to-azure-subscription.md
+        - name: 管理版本
+          href: luis-how-to-manage-versions.md
+          diplayName: 'import, export, container'
+        - name: 管理建立者及共同作業者
+          displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
+          href: luis-how-to-collaborate.md
+        - name: 管理撰寫金鑰
+          href: luis-how-to-account-settings.md
+        - name: 使用流量管理員在各索引鍵中分散端點配額
+          href: luis-traffic-manager.md
+    - name: 遷移至 V2 REST API
+      href: luis-migration-api-v1-to-v2.md
+    - name: 使用容器
+      items:
+        - name: 安裝及執行容器
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: luis-container-howto.md
+        - name: 設定容器
+          href: luis-container-configuration.md
 - name: 參考
   items:
-  - name: 使用者隱私權
-    href: luis-user-privacy.md
-  - name: 製作及發佈區域
-    displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
-    href: luis-reference-regions.md
-  - name: 界線
-    href: luis-boundaries.md
-  - name: 預先建置的實體參考
-    items:
-    - name: 根據文化特性的實體
-      href: luis-reference-prebuilt-entities.md
-    - name: 年齡實體
-      href: luis-reference-prebuilt-age.md
-    - name: 貨幣實體
-      href: luis-reference-prebuilt-currency.md
-    - name: DatetimeV2 實體
-      href: luis-reference-prebuilt-datetimev2.md
-    - name: 維度實體
-      href: luis-reference-prebuilt-dimension.md
-    - name: 取代實體
-      href: luis-reference-prebuilt-deprecated.md
-    - name: Email 實體
-      href: luis-reference-prebuilt-email.md
-    - name: GeographyV2 實體
-      href: luis-reference-prebuilt-geographyV2.md
-    - name: KeyPhrase 實體
-      href: luis-reference-prebuilt-keyphrase.md
-    - name: Number 實體
-      href: luis-reference-prebuilt-number.md
-    - name: 序數實體
-      href: luis-reference-prebuilt-ordinal.md
-    - name: 百分比實體
-      href: luis-reference-prebuilt-percentage.md
-    - name: PersonName 實體
-      href: luis-reference-prebuilt-person.md
-    - name: Phonenumber 實體
-      href: luis-reference-prebuilt-phonenumber.md
-    - name: 溫度實體
-      href: luis-reference-prebuilt-temperature.md
-    - name: URL 實體
-      href: luis-reference-prebuilt-url.md
-  - name: 預先建置的網域參考
-    href: luis-reference-prebuilt-domains.md
-  - name: Azure CLI
-    href: https://aka.ms/az-cli-cognitiveservices
-  - name: Azure RM PowerShell
-    href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: REST API
-    items:
-    - name: 製作 V2 REST API
-      href: https://aka.ms/luis-authoring-apis
-    - name: 端點 V2 REST API
-      href: https://aka.ms/luis-endpoint-apis
-    - name: HTTP 代碼
-      displayName: 400, 401, 403, 409, 410, 414, 429
-      href: luis-reference-response-codes.md
-  - name: SDK
-    items:
-    - name: C#
+    - name: 使用者隱私權
+      href: luis-user-privacy.md
+    - name: 製作及發佈區域
+      href: luis-reference-regions.md
+      displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
+    - name: 界線
+      href: luis-boundaries.md
+    - name: 預先建置的實體參考
       items:
-      - name: NuGet - 製作
-        href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/
-      - name: NuGet - 執行階段
-        href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/
-      - name: 參考
-        href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet
-      - name: 範例
-        href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS
-    - name: Go
+        - name: 根據文化特性的實體
+          href: luis-reference-prebuilt-entities.md
+        - name: 年齡實體
+          href: luis-reference-prebuilt-age.md
+        - name: 貨幣實體
+          href: luis-reference-prebuilt-currency.md
+        - name: DatetimeV2 實體
+          href: luis-reference-prebuilt-datetimev2.md
+        - name: 維度實體
+          href: luis-reference-prebuilt-dimension.md
+        - name: 取代實體
+          href: luis-reference-prebuilt-deprecated.md
+        - name: Email 實體
+          href: luis-reference-prebuilt-email.md
+        - name: GeographyV2 實體
+          href: luis-reference-prebuilt-geographyV2.md
+        - name: KeyPhrase 實體
+          href: luis-reference-prebuilt-keyphrase.md
+        - name: Number 實體
+          href: luis-reference-prebuilt-number.md
+        - name: 序數實體
+          href: luis-reference-prebuilt-ordinal.md
+        - name: 百分比實體
+          href: luis-reference-prebuilt-percentage.md
+        - name: PersonName 實體
+          href: luis-reference-prebuilt-person.md
+        - name: Phonenumber 實體
+          href: luis-reference-prebuilt-phonenumber.md
+        - name: 溫度實體
+          href: luis-reference-prebuilt-temperature.md
+        - name: URL 實體
+          href: luis-reference-prebuilt-url.md
+    - name: 預先建置的網域參考
+      href: luis-reference-prebuilt-domains.md
+    - name: Azure CLI
+      href: 'https://aka.ms/az-cli-cognitiveservices'
+    - name: Azure RM PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: REST API
       items:
-      - name: SDK - 製作
-        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/authoring
-      - name: SDK - 執行階段
-        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime
-      - name: 參考
-        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/
-    - name: Java
+        - name: 製作 V2 REST API
+          href: 'https://aka.ms/luis-authoring-apis'
+        - name: 端點 V2 REST API
+          href: 'https://aka.ms/luis-endpoint-apis'
+        - name: HTTP 代碼
+          displayName: '400, 401, 403, 409, 410, 414, 429'
+          href: luis-reference-response-codes.md
+    - name: SDK
       items:
-      - name: Maven - 製作
-        href: https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring
-      - name: Maven - 執行階段
-        href: https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime
-      - name: 參考
-        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable
-      - name: 範例
-        href: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding
-    - name: Node.js
-      items:
-      - name: NPM - 製作
-        href: https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring
-      - name: NPM - 執行階段
-        href: https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime
-      - name: 範例
-        href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis
-    - name: Python
-      items:
-      - name: Pip SDK
-        href: https://pypi.org/project/azure-cognitiveservices-language-luis/
-      - name: 參考
-        href: https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python
-      - name: 範例
-        href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis
+        - name: 'C#'
+          items:
+            - name: NuGet - 製作
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'
+            - name: NuGet - 執行階段
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/'
+            - name: 參考
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet'
+            - name: 範例
+              href: 'https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS'
+        - name: Go
+          items:
+            - name: SDK - 製作
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/authoring'
+            - name: SDK - 執行階段
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime'
+            - name: 參考
+              href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/'
+        - name: Java
+          items:
+            - name: Maven - 製作
+              href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring'
+            - name: Maven - 執行階段
+              href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime'
+            - name: 參考
+              href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable'
+            - name: 範例
+              href: 'https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding'
+        - name: Node.js
+          items:
+            - name: NPM - 製作
+              href: 'https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring'
+            - name: NPM - 執行階段
+              href: 'https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime'
+            - name: 範例
+              href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis'
+        - name: Python
+          items:
+            - name: Pip SDK
+              href: 'https://pypi.org/project/azure-cognitiveservices-language-luis/'
+            - name: 參考
+              href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python'
+            - name: 範例
+              href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis'
 - name: 相關參考
   items:
-  - name: Azure Bot 服務
-    href: https://dev.botframework.com/
-  - name: Bot 建立器 3.x SDK C#
-    href: https://github.com/Microsoft/BotBuilder
-  - name: Bot 建立器 4.x SDK C#
-    href: https://github.com/Microsoft/botbuilder-dotnet
-  - name: QnA Maker
-    href: https://qnamaker.ai/
-  - name: Bing 語音 API
-    href: https://azure.microsoft.com/services/cognitive-services/speech/
-  - name: Bing 拼字檢查 API
-    href: https://azure.microsoft.com/services/cognitive-services/spell-check/
-  - name: 文字分析
-    href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
-  - name: 辨識器 - 文字
-    href: https://github.com/Microsoft/Recognizers-Text
-  - name: 智慧型資訊站
-    href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
+    - name: Azure Bot 服務
+      href: 'https://dev.botframework.com/'
+    - name: 'Bot 建立器 3.x SDK C#'
+      href: 'https://github.com/Microsoft/BotBuilder'
+    - name: 'Bot 建立器 4.x SDK C#'
+      href: 'https://github.com/Microsoft/botbuilder-dotnet'
+    - name: QnA Maker
+      href: 'https://qnamaker.ai/'
+    - name: Bing 語音 API
+      href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
+    - name: Bing 拼字檢查 API
+      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: 文字分析
+      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+    - name: 辨識器 - 文字
+      href: 'https://github.com/Microsoft/Recognizers-Text'
+    - name: 智慧型資訊站
+      href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: 資源
   items:
-  - name: 區域可用性
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: 語言與區域支援
-    displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
-    href: luis-language-support.md
-  - name: Azure 藍圖
-    href: https://aka.ms/luis-roadmap
-  - name: 詞彙
-    href: luis-glossary.md
-  - name: 疑難排解
-    displayName: FAQ, import
-    href: troubleshooting.md
-  - name: 價格和限制
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
-  - name: 堆疊溢位
-    href: https://stackoverflow.com/questions/tagged/LUIS
-  - name: UserVoice
-    href: https://aka.ms/luis-uservoice-forum
-  - name: Search
-    href: https://docs.microsoft.com/search/index?search=LUIS
-  - name: 部落格
-    href: https://blog.botframework.com/category/luis/
-  - name: 知識庫
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 7ab39cc6ff0badeb784e38e47cae4cbeb36556e5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678834"
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: 語言與區域支援
+      href: luis-language-support.md
+      displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+    - name: Azure 藍圖
+      href: 'https://aka.ms/luis-roadmap'
+    - name: 詞彙
+      href: luis-glossary.md
+    - name: 疑難排解
+      href: troubleshooting.md
+      displayName: 'FAQ, import'
+    - name: 價格和限制
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/questions/tagged/LUIS'
+    - name: UserVoice
+      href: 'https://aka.ms/luis-uservoice-forum'
+    - name: Search
+      href: 'https://docs.microsoft.com/search/index?search=LUIS'
+    - name: 部落格
+      href: 'https://blog.botframework.com/category/luis/'
+    - name: 知識庫
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service'

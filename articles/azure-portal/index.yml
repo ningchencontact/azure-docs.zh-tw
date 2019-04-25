@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1ed169d248fce28a668c1c93fe2d9796b59547bd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619215"
 documentType: LandingData
 title: Azure 入口網站文件
 metadata:
@@ -25,27 +19,27 @@ metadata:
 abstract:
   description: Azure 入口網站是網頁型的統一主控台，可讓您建置、管理及監控所有項目，從簡單 Web 應用程式到複雜的雲端應用程式皆包含在內。 它也包含了自訂的儀表板各種協助工具選項。
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/azure-preview-portal-supported-browsers-devices
-      html: <p>在所有新式的桌上型電腦、平板電腦裝置和瀏覽器上執行 Azure 入口網站。</p>
-      title: 支援的瀏覽器和裝置
-    - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-      html: <p>在 Azure 入口網站中變更高對比或色彩配置。</p>
-      title: 開啟高對比
-    - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-      html: <p>深入了解在 Azure 入口網站中運作的鍵盤快速鍵。</p>
-      title: 鍵盤快速鍵
-    - href: /azure/azure-portal/azure-portal-dashboards
-      html: <p>建立多個儀表板，並與可存取您 Azure 訂用帳戶的其他人共用。</p>
-      title: 建立和共用 Azure 儀表板
-    - href: /azure/azure-portal/azure-portal-dashboard-share-access
-      html: <p>發佈儀表板並與組織中其他使用者共用。</p>
-      title: 透過 RBAC 共用儀表板
-    - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-      html: <p>以程式設計方式為組織建立和發佈儀表板</p>
-      title: 以程式設計方式建立 Azure 儀表板
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/azure-preview-portal-supported-browsers-devices
+            html: <p>在所有新式的桌上型電腦、平板電腦裝置和瀏覽器上執行 Azure 入口網站。</p>
+            title: 支援的瀏覽器和裝置
+          - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+            html: <p>在 Azure 入口網站中變更高對比或色彩配置。</p>
+            title: 開啟高對比
+          - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+            html: <p>深入了解在 Azure 入口網站中運作的鍵盤快速鍵。</p>
+            title: 鍵盤快速鍵
+          - href: /azure/azure-portal/azure-portal-dashboards
+            html: <p>建立多個儀表板，並與可存取您 Azure 訂用帳戶的其他人共用。</p>
+            title: 建立和共用 Azure 儀表板
+          - href: /azure/azure-portal/azure-portal-dashboard-share-access
+            html: <p>發佈儀表板並與組織中其他使用者共用。</p>
+            title: 透過 RBAC 共用儀表板
+          - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
+            html: <p>以程式設計方式為組織建立和發佈儀表板</p>
+            title: 以程式設計方式建立 Azure 儀表板

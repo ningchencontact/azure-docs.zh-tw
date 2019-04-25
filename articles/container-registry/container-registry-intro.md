@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ce870bfb8d29f7a808962e4d273388ab31186f10
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270518"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997394"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的私人 Docker 容器登錄的簡介
 
@@ -48,7 +48,7 @@ Azure 會提供工具 (例如 Azure 命令列介面、Azure 入口網站和 API 
   * `myregistry.azurecr.io/warrantydept/dotnet-build` 表示用來建立 .NET 應用程式的映像，在保固部門之間共用
   * `myregistry.azurecr.io/warrantydept/customersubmissions/web` 表示 Web 映像，其屬於保固部門所擁有的客戶提交應用程式群組
 
-* **映像** - 儲存在存放庫中，每個映像是 Docker 相容容器的唯讀快照集。 Azure 容器登錄庫可以包含 Windows 和 Linux 映像。 您可以控制您的所有容器部署的映像名稱。 使用標準 [Docker 命令](https://docs.docker.com/engine/reference/commandline/) 將映像推送到儲存機制，或從儲存機制提取映像。 除了容器映像外，Azure Container Registry 還會儲存[相關的內容格式](container-registry-image-formats.md)，例如 [Helm 圖表](container-registry-helm-repos.md)，以用來將應用程式部署至 Kubernetes。
+* **映像** - 儲存在存放庫中，每個映像是 Docker 相容容器的唯讀快照集。 Azure 容器登錄庫可以包含 Windows 和 Linux 映像。 您可以控制您的所有容器部署的映像名稱。 使用標準 [Docker 命令](https://docs.docker.com/engine/reference/commandline/) 將映像推送到儲存機制，或從儲存機制提取映像。 除了 Docker 容器映像外，Azure Container Registry 還會將[相關的內容格式](container-registry-image-formats.md) (例如所建置的 [Helm 圖表](container-registry-helm-repos.md)和映像) 儲存到 [Open Container Initiative (OCI) 映像格式規格](https://github.com/opencontainers/image-spec/blob/master/spec.md)。
 
 * **容器** - 容器定義軟體應用程式及其相依性，包裹在完整的檔案系統中，包括程式碼、執行階段、系統工具和程式庫。 根據您從容器登錄庫提取的 Windows 或 Linux 映像，執行 Docker 容器。 在單一電腦上執行的容器共用作業系統核心。 Docker 容器可完全移植到所有主要 Linux 散發版本、macOS 和 Windows。
 
@@ -62,4 +62,4 @@ Azure 會提供工具 (例如 Azure 命令列介面、Azure 入口網站和 API 
 
 * [使用 Azure 入口網站建立容器登錄庫](container-registry-get-started-portal.md)
 * [使用 Azure CLI 建立容器登錄庫](container-registry-get-started-azure-cli.md)
-* [使用 ACR 工作來自動執行 OS 和架構修補](container-registry-tasks-overview.md)
+* [使用 ACR 工作自動進行 OS 與架構修補](container-registry-tasks-overview.md)

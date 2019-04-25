@@ -1,97 +1,90 @@
-items:
 - name: 影片索引器文件
   href: ./index.yml
 - name: 概觀
   items:
-  - name: 什麼是影片索引子？
-    href: video-indexer-overview.md
+    - name: 什麼是影片索引子？
+      href: video-indexer-overview.md
 - name: 快速入門
-  items:
-  - name: 開始使用
-    href: video-indexer-get-started.md
   expanded: true
+  items:
+    - name: 開始使用
+      href: video-indexer-get-started.md
 - name: 教學課程
   items:
-  - name: 使用影片索引器 API
-    href: video-indexer-use-apis.md
+    - name: 使用影片索引器 API
+      href: video-indexer-use-apis.md
 - name: 概念
   href: video-indexer-concepts.md
   items:
-  - name: 比較影片索引器和媒體服務預設值
-    href: compare-video-indexer-with-media-services-presets.md
-  - name: 管理多個租用戶
-    href: manage-multiple-tenants.md
-  - name: 自訂內容模型
-    items:
-    - name: 品牌
-      href: customize-brands-model-overview.md
-    - name: 語言
-      href: customize-language-model-overview.md
-    - name: Person
-      href: customize-person-model-overview.md
+    - name: 比較影片索引器和媒體服務預設值
+      href: compare-video-indexer-with-media-services-presets.md
+    - name: 管理多個租用戶
+      href: manage-multiple-tenants.md
+    - name: 自訂內容模型
+      items:
+        - name: 品牌
+          href: customize-brands-model-overview.md
+        - name: 語言
+          href: customize-language-model-overview.md
+        - name: Person
+          href: customize-person-model-overview.md
 - name: 使用說明指南
   items:
-  - name: 連接到 Azure
-    href: connect-to-azure.md
-  - name: 管理與 Azure 連線的帳戶
-    href: manage-account-connected-to-azure.md
-  - name: 使用 API 上傳並為影片製作索引
-    href: upload-index-videos.md
-  - name: 檢查影片索引器輸出
-    href: video-indexer-output-json-v2.md
-  - name: 尋找影片中的確切時間
-    href: video-indexer-search.md
-  - name: 場景、擷取畫面和主要畫面格
-    href: scenes-shots-keyframes.md
-  - name: 檢視及編輯影片索引器深入解析
-    href: video-indexer-view-edit.md
-  - name: 使用編輯器來建立專案
-    href: use-editor-create-project.md
-  - name: 從現有影片建立影片深入解析
-    href: video-indexer-create-new.md
-  - name: 將小工具內嵌至您的應用程式
-    href: video-indexer-embed-widgets.md
-  - name: 自訂內容模型
-    items:
-    - name: Person
+    - name: 連接到 Azure
+      href: connect-to-azure.md
+    - name: 管理與 Azure 連線的帳戶
+      href: manage-account-connected-to-azure.md
+    - name: 使用 API 上傳並為影片製作索引
+      href: upload-index-videos.md
+    - name: 檢查影片索引器輸出
+      href: video-indexer-output-json-v2.md
+    - name: 尋找影片中的確切時間
+      href: video-indexer-search.md
+    - name: 場景、擷取畫面和主要畫面格
+      href: scenes-shots-keyframes.md
+    - name: 檢視及編輯影片索引器深入解析
+      href: video-indexer-view-edit.md
+    - name: 使用編輯器來建立專案
+      href: use-editor-create-project.md
+    - name: 從現有影片建立影片深入解析
+      href: video-indexer-create-new.md
+    - name: 將小工具內嵌至您的應用程式
+      href: video-indexer-embed-widgets.md
+    - name: 自訂內容模型
       items:
-      - name: 使用影片索引器網站
-        href: customize-person-model-with-website.md
-      - name: 使用影片索引器 API
-        href: customize-person-model-with-api.md
-    - name: 品牌
-      items:
-      - name: 使用影片索引器網站
-        href: customize-brands-model-with-website.md
-      - name: 使用影片索引器 API
-        href: customize-brands-model-with-api.md
-    - name: 語言
-      items:
-      - name: 使用影片索引器網站
-        href: customize-language-model-with-website.md
-      - name: 使用影片索引器 API
-        href: customize-language-model-with-api.md
+        - name: Person
+          items:
+            - name: 使用影片索引器網站
+              href: customize-person-model-with-website.md
+            - name: 使用影片索引器 API
+              href: customize-person-model-with-api.md
+        - name: 品牌
+          items:
+            - name: 使用影片索引器網站
+              href: customize-brands-model-with-website.md
+            - name: 使用影片索引器 API
+              href: customize-brands-model-with-api.md
+        - name: 語言
+          items:
+            - name: 使用影片索引器網站
+              href: customize-language-model-with-website.md
+            - name: 使用影片索引器 API
+              href: customize-language-model-with-api.md
 - name: 參考
   items:
-  - name: 影片索引器 API
-    href: https://api-portal.videoindexer.ai/
+    - name: 影片索引器 API
+      href: 'https://api-portal.videoindexer.ai/'
 - name: 資源
   items:
-  - name: Azure 藍圖
-    href: https://azure.microsoft.com/roadmap/?category=web-mobile
-  - name: 價格
-    href: https://azure.microsoft.com/pricing/details/media-services/
-  - name: 區域可用性
-    href: https://azure.microsoft.com/regions/services/
-  - name: 區域
-    href: regions.md
-  - name: 常見問題集
-    href: faq.md
-  - name: 法規遵循
-    href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
-ms.openlocfilehash: f6caade807d37dfbf38e3f0dd47ab7f801c36a9a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793331"
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 區域
+      href: regions.md
+    - name: 常見問題集
+      href: faq.md
+    - name: 法規遵循
+      href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'

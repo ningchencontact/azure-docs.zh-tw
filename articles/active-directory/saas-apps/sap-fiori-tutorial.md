@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
 ms.openlocfilehash: e94fe3156677a507eab91eee339ed29bf7b4ad2e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>教學課程：Azure Active Directory 與 SAP Fiori 整合
@@ -175,8 +175,7 @@ SAP Fiori 與 Azure AD 整合可提供下列優點：
 
     ![SAP Fiori 網域和 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    d. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰
-    `https://<your company instance of SAP Fiori>`
+    d. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<your company instance of SAP Fiori>`
 
     > [!NOTE]
     > 我們注意到有少數客戶回報錯誤，指出我們為其執行個體設定的回覆 URL 不正確。 如果您收到任何這類錯誤，則可以使用下列 PowerShell 指令碼來加以解決，以便為您的執行個體設定正確的回覆 URL：
@@ -193,7 +192,7 @@ SAP Fiori 與 Azure AD 整合可提供下列優點：
 
     a. 按一下 [編輯] 圖示以開啟 [管理使用者宣告] 對話方塊。
 
-    ![映像](./media/sapfiori-tutorial/nameidattribute.png)
+    ![image](./media/sapfiori-tutorial/nameidattribute.png)
 
     ![映像](./media/sapfiori-tutorial/nameidattribute1.png)
 

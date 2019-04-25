@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.openlocfilehash: ac21071b958942d7d689f1e9c2c49f02a3599ac4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>教學課程：Azure Active Directory 與 Trakstar 整合
@@ -53,7 +53,7 @@ Trakstar 與 Azure AD 整合提供下列優點：
 
 如要設定將 Trakstar 整合到 Azure AD 中，您需要從資源庫把 Trakstar 新增到受控 SaaS 應用程式清單。
 
-**若要從資源庫新增 Trakstar，請執行下列步驟：**
+**如要從資源庫新增 Trakstar，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -107,9 +107,9 @@ Trakstar 與 Azure AD 整合提供下列優點：
 
     ![Trakstar 網域和 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，複製在 Trakstar 內的 [ACS (取用者) URL] 中找到的值 (設定 > 驗證及 SSO)，格式為： `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
+    a. 在 [登入 URL] 文字方塊中，複製在 Trakstar 內的 [ACS (取用者) URL] 中找到的值 (設定 > 驗證及 SSO)，格式為：`https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，保留預設值： `https://app.trakstar.com`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，保留預設值：`https://app.trakstar.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 以系統管理員身分登入 Trakstar 以取得這些值。

@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199864"
 documentType: LandingData
 title: Azure 搜尋服務文件
 metadata:
-  document_id: 
+  document_id: null
   title: Azure 搜尋服務文件 - 教學課程、快速入門和 API 參考
   description: 了解如何使用 Azure 搜尋服務，在私人和異質性內容中建立企業搜尋解決方案。 教學課程、API 參考和其他文件會說明如何使用簡單及進階語法並搭配各種案例，將可搜尋的內容合併到可供查詢的單一快速索引。
   services: search
@@ -23,52 +17,52 @@ abstract:
   description: 了解如何使用 Azure 搜尋服務，在私人和異質性內容中建立企業搜尋解決方案。 教學課程、API 參考和其他文件會說明如何使用簡單及進階語法並搭配各種案例，將可搜尋的內容合併到可供查詢的單一快速索引。 <p/><a href="/azure/search/cognitive-search-concept-intro"><b>新的認知搜尋預覽。</b></a> 使用預先發行的 REST API，將由 AI 驅動的演算法繫結至索引管線。 擷取資料，並且叫用自然語言和映像處理，將未經處理的非結構化內容轉換成可在 Azure 搜尋服務索引中搜尋的內容。 <p/>使用<a href="/azure/search/cognitive-search-quickstart-blob">資源與範例資料探索認知搜尋，</a>或在<a href="/azure/search/cognitive-search-concept-intro">概念</a>中深入了解。
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png
+      src: 'https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png'
       width: 250
-    title: 何謂 Azure 搜尋服務 (1:27)
-    href: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
+    title: '何謂 Azure 搜尋服務 (1:27)'
+    href: 'https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player'
     width: 250
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 從入口網站中的搜尋服務開始，再以 C# 或 REST 來定義、載入和查詢索引。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        src: /azure/search/media/index/portal.svg
-      text: Azure 入口網站
-      href: https://docs.microsoft.com/azure/search/search-create-service-portal
-    - image:
-        src: /azure/search/media/index/logo_Csharp.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
-    - image:
-        src: /azure/search/media/index/rest.svg
-      text: REST
-      href: https://docs.microsoft.com/azure/search/search-fiddler
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 以 .NET 或 REST 撰寫程式碼，或嘗試在入口網站中進行快速證明測試。
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: '從入口網站中的搜尋服務開始，再以 C# 或 REST 來定義、載入和查詢索引。'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/search/media/index/portal.svg
+            text: Azure 入口網站
+            href: 'https://docs.microsoft.com/azure/search/search-create-service-portal'
+          - image:
+              src: /azure/search/media/index/logo_Csharp.svg
+            text: .NET
+            href: 'https://docs.microsoft.com/azure/search/search-create-index-dotnet'
+          - image:
+              src: /azure/search/media/index/rest.svg
+            text: REST
+            href: 'https://docs.microsoft.com/azure/search/search-fiddler'
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">使用 AI (認知服務) 編製索引</a>
-    - html: <a href="/azure/search/search-howto-dotnet-sdk">如何以 .NET 使用 Azure 搜尋服務</a>
-    - html: <a href="/azure/search/search-indexer-tutorial">使用 .NET 為 Azure SQL Database 編製索引</a>
-    - html: <a href="/azure/search/search-semi-structured-data">使用 REST 為 Azure Blob 中的半結構資料編製索引</a>
-    - html: <a href="/azure/search/search-get-started-portal">使用入口網站編製索引並進行查詢測試</a>
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 以 .NET 或 REST 撰寫程式碼，或嘗試在入口網站中進行快速證明測試。
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">使用 AI (認知服務) 編製索引</a>
+          - html: <a href="/azure/search/search-howto-dotnet-sdk">如何以 .NET 使用 Azure 搜尋服務</a>
+          - html: <a href="/azure/search/search-indexer-tutorial">使用 .NET 為 Azure SQL Database 編製索引</a>
+          - html: <a href="/azure/search/search-semi-structured-data">使用 REST 為 Azure Blob 中的半結構資料編製索引</a>
+          - html: <a href="/azure/search/search-get-started-portal">使用入口網站編製索引並進行查詢測試</a>
+  - title: 參考
     items:
-    - title: Languages
-      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (管理)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (管理)</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/searchservice">服務 API 參考</a></p><p><a href="/rest/api/searchmanagement">管理 API 參考</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Languages
+            html: '<p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (管理)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (管理)</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/searchservice">服務 API 參考</a></p><p><a href="/rest/api/searchmanagement">管理 API 參考</a></p>

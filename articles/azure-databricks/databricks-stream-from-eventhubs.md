@@ -10,14 +10,17 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: bc712885169730aa9cbbd8de35b96e645ff1cea2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1265a97b8902d69dd260d8e9e0191180f2eb4379
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087120"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004834"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>教學課程：使用事件中樞將資料串流至 Azure Databricks
+
+> [!IMPORTANT]
+> 現已無法再透過 [apps.twitter.com](https://apps.twitter.com/) 建立 Twitter 應用程式。 本教學課程正在進行更新，以納入新的 Twitter API。
 
 在本教學課程中，您會連線資料擷取系統與 Azure Databricks，以近乎即時地將資料串流到 Apache Spark 叢集。 您會使用 Azure 事件中樞設定資料擷取系統，並將其連線到 Azure Databricks 以處理流經此處的訊息。 為了存取資料流，您會使用 Twitter API 將推文擷取至事件中樞。 在 Azure Databricks 中擁有資料後，您就可以執行分析作業以進一步分析資料。 
 

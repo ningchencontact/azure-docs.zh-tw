@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: 0f324d39db38b17d436583277d60d87b2878d131
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2f207b62522ceef9fe72d47026f4c2f8ed02e3b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880784"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149592"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>透過 .NET SDK 開始使用 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體
 
@@ -170,7 +170,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 使用衍生自 [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx)的自訂類別，將實體對應至 C# 物件。 若要將實體新增至資料表，請建立一個類別來定義實體的屬性。
 
-以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]、[新增資料夾]，然後將其命名為 **Model**。 在 [Model] 資料夾內新增一個名為 **CustimerEntity.cs** 的類別，然後將下列程式碼新增至其中。
+以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]、[新增資料夾]，然後將其命名為 **Model**。 在 [Model] 資料夾內新增一個名為 **CustomerEntity.cs** 的類別，然後將下列程式碼新增至其中。
 
 ```csharp
 namespace CosmosTableSamples.Model

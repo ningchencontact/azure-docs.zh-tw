@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: 732816ce10836d5828e7f325a3eb3fe31627d4f4
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012487"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 上以 C++ 合成語音
@@ -64,7 +64,7 @@ ms.locfileid: "59012487"
 在 GitHub 上可取得其他範例，例如如何將語音儲存至音訊檔案。
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 C++ 範例](https://aka.ms/csspeech/samples)
+> [探索 GitHub 上的 C++ 範例](https://aka.ms/csspeech/samples) \(英文\)
 
 ## <a name="see-also"></a>另請參閱
 

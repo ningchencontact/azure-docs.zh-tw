@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267764"
 ---
 # <a name="starter-resource-graph-queries"></a>入門 Resource Graph 查詢
@@ -22,7 +22,7 @@ ms.locfileid: "59267764"
 我們將逐步解說下列入門查詢︰
 
 > [!div class="checklist"]
-> - [計算 Azure 資源](#count-resources)
+> - [計算的 Azure 資源計數](#count-resources)
 > - [列出依名稱排序的資源](#list-resources)
 > - [依名稱遞減順序顯示所有虛擬機器](#show-vms)
 > - [依名稱顯示前五個虛擬機器及其作業系統類型](#show-sorted)
@@ -94,7 +94,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"></a>依名稱顯示前五個虛擬機器及其作業系統類型
 
-此查詢會使用 `limit`，僅擷取按名稱排序的五個相符記錄。 Azure 資源類型為 `Microsoft.Compute/virtualMachines`。 `project` 告訴 Azure Resource Graph 要包含哪些屬性。
+此查詢會使用 `limit`，僅擷取按名稱排序的五個相符記錄。 Azure 資源類型為 `Microsoft.Compute/virtualMachines`。 `project` 會告訴 Azure Resource Graph 要包含哪些屬性。
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -167,7 +167,7 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 
 與上述查詢類似，尋找類型具有字組 **publicIPAddresses** 的所有項目。
 此查詢將該模式擴展為僅包含 **properties.ipAddress**
-`isnotempty` 的結果，因此會僅傳回 **properties.ipAddress**，並將結果 `limit` 在前
+`isnotempty` 的結果、只傳回 **properties.ipAddress**，以及將結果 `limit` 在前
 100. 您可能需要逸出的引號，根據您所選擇的殼層而定。
 
 ```Query

@@ -16,10 +16,10 @@ ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886364"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>快速入門：建立 ASP.NET Web 應用程式 
@@ -115,8 +115,8 @@ ms.locfileid: "58886364"
 
 2. 在 *web.config* 檔案中，尋找 `<appSetting>` 元素。 然後，新增下列 `file` 屬性。 如果您使用不同檔案名稱或位置，請以這些值取代範例中顯示的值。
 
-* 之前： `<appSettings>`
-* 之後︰  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* 取代前： `<appSettings>`
+* 取代後：`<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 ASP.NET 執行階段會將外部檔案的內容與 `<appSettings>` 元素的標記合併。 如果找不到指定的檔案，則執行階段會略過檔案屬性。 您的密碼 (您的快取的連接字串) 不會包含在應用程式的原始程式碼中。 將 Web 應用程式部署至 Azure 時，不會部署 CacheSecrets.config 檔案。
 
@@ -279,7 +279,7 @@ ASP.NET 執行階段會將外部檔案的內容與 `<appSettings>` 元素的標�
     | **應用程式名稱** | 使用預設值。 | 應用程式名稱會是應用程式部署至 Azure 時的主機名稱。 如有必要，該名稱中會新增時間戳記尾碼，以成為唯一名稱。 |
     | **訂用帳戶** | 選擇 Azure 訂用帳戶。 | 系統會就任何相關的裝載費用，對此訂用帳戶收費。 如果您有多個 Azure 訂用帳戶，請確認您已選取所需的訂用帳戶。|
     | **資源群組** | 使用您用來建立快取的相同資源群組 (例如 *TestResourceGroup*)。 | 資源群組可協助您以群組管理所有資源。 其後當您想要刪除應用程式時，請直接刪除該群組即可。 |
-    | **App Service 方案** | 選取 [新增]，然後建立名為 TestingPlan 的新 App Service 方案。 <br />使用您在建立快取時所使用的相同**位置**。 <br />選擇**免費**大小。 | App Service 方案會針對要搭配執行的 Web 應用程式定義一組計算資源。 |
+    | **App Service 計劃** | 選取 [新增]，然後建立名為 TestingPlan 的新 App Service 方案。 <br />使用您在建立快取時所使用的相同**位置**。 <br />選擇**免費**大小。 | App Service 方案會針對要搭配執行的 Web 應用程式定義一組計算資源。 |
 
     ![App Service 對話方塊](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 

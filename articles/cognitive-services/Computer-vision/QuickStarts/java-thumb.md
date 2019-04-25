@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7287dc176f230f2d5440abdf1c4a3e364dcf96e7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b732f65227c7449b45f2e656abcc90a42411ad5e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890979"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010614"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 Java 來產生縮圖
 
@@ -27,7 +27,7 @@ ms.locfileid: "57890979"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須已安裝 [Java&trade; Platform, Standard Edition Development Kit 7 或 8](https://aka.ms/azure-jdks) (JDK 7 或 8)。
-- 您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="create-and-run-the-sample-application"></a>建立並執行範例應用程式
 

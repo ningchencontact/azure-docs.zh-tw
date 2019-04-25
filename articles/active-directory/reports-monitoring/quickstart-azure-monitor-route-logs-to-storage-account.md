@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 將 Azure Active Directory 記錄封存到儲存體帳戶 (預覽) | Microsoft Docs
-description: 深入了解如何設定 Azure 診斷以將 Azure Active Directory 記錄推送到儲存體帳戶 (預覽)
+title: 教學課程 - 將 Azure Active Directory 記錄封存到儲存體帳戶 | Microsoft Docs
+description: 深入了解如何設定 Azure 診斷以將 Azure Active Directory 記錄推送到儲存體帳戶
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d34b41e780466d9ab734b9dbd0e58016dba7b10
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 0198fe1ce61c8f78e315d1166a7ea03aae20d592
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434716"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999496"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>教學課程：將 Azure AD 記錄封存到 Azure 儲存體帳戶 (預覽)
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>教學課程：將 Azure AD 記錄封存到 Azure 儲存體帳戶
 
 在本教學課程中，您會了解如何設定 Azure 監視器診斷設定，以將 Azure Active Directory (Azure AD) 記錄路由傳送到 Azure 儲存體帳戶。
 

@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 64f78b04d433c81302499addf15c3d19621bbf9f
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 9838add4f83434848d61f3ae86db71765efdc59a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919871"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995722"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>教學課程：使用 Azure Spatial Anchors 新建 Android 應用程式的逐步指示
 
@@ -57,12 +57,12 @@ ms.locfileid: "58919871"
 </application>
 ```
 
-請修改 `Gradle Scripts\build.gradle (Module: app)` 以包含下列項目。 此程式碼會確保您的應用程式將以 ARCore 1.5 版目標 (Azure Spatial Anchors 上的 ARCore 1.6+ 支援將於近期推出)。 進行此變更後，您可能會收到 Gradle 詢問是否要同步的通知：按一下 [立即同步]。
+請修改 `Gradle Scripts\build.gradle (Module: app)` 以包含下列項目。 此程式碼會確保您的應用程式將以 ARCore 1.7 版作為目標。 進行此變更後，您可能會收到 Gradle 詢問是否要同步的通知：按一下 [立即同步]。
 
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.5.0'
+    implementation 'com.google.ar:core:1.7.0'
     ...
 }
 ```
@@ -71,7 +71,7 @@ dependencies {
 
 <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> 可讓您輕鬆地在擴增實境應用程式中呈現逼真的 3D 場景，而不需要學習 OpenGL。
 
-請修改 `Gradle Scripts\build.gradle (Module: app)` 以包含下列項目。 此程式碼可讓您的應用程式使用 Java 8 的語言建構，這是 `Sceneform` 不可或缺的。 它也會確保您的應用程式將以 `Sceneform` 1.5 版為目標，因為其版本必須符合您的應用程式所使用的 ARCore 版本。 進行此變更後，您可能會收到 Gradle 詢問是否要同步的通知：按一下 [立即同步]。
+請修改 `Gradle Scripts\build.gradle (Module: app)` 以包含下列項目。 此程式碼可讓您的應用程式使用 Java 8 的語言建構，這是 `Sceneform` 不可或缺的。 它也會確保您的應用程式將以 `Sceneform` 1.7 版為目標，因為其版本必須符合您的應用程式所使用的 ARCore 版本。 進行此變更後，您可能會收到 Gradle 詢問是否要同步的通知：按一下 [立即同步]。
 
 ```
 android {
@@ -85,7 +85,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.7.0'
     ...
 }
 ```

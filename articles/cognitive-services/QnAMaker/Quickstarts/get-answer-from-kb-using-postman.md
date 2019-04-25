@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: d12051821faa60940bf2acc569c6552561b4b3ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 24bd6731faa9788dc336db199aa9776813e7348f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267935"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683438"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>快速入門：使用 Postman 從知識庫取得答案
 
@@ -36,44 +36,42 @@ ms.locfileid: "59267935"
 
 下圖中的黃色數字表示將在下列步驟中使用的名稱/值配對。
 
-[![P發佈結果(../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
+[![發佈結果](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
 
 若要使用 Postman 產生答案，請完成下列步驟：
 
 1. 開啟 Postman。 如果系統要求您選擇建置組塊，請選取 [基本要求] 建置組塊。 將**要求名稱**設定為 `Generate QnA Maker answer`，並將**集合**設定為 `Generate QnA Maker answers`。 如果您不想儲存至集合，請選取 [取消] 按鈕。
 1. 在工作區中，針對 HTTP 方法選取 **POST**。
 
-    [![I在 Postman 中，設定 POST 方法(../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
+    [![在 Postman 中，設定 POST 方法](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
 
 1. 針對 URL，串連主機值 (影像中的 #2) 和 Post 值 (影像中的 #1) 以建立完整的 URL。 完整的範例 URL 顯示如下： 
 
     `https://qnamaker-f0.azurewebsites.net/qnamaker/knowledgebases/e1115f8c-d01b-4698-a2ed-85b0dbf3348c/generateAnswer`
 
-    [![I在 Postman 中，設定完整 URL(../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
+    [![在 Postman 中，設定完整 URL](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
 
 1. 選取 URL 下方的 [Headers] \(標頭\) 索引標籤，然後選取 [Bulk Edit] \(大量編輯\)。 
 
 1. 將標頭 (影像中的 #3 和 #4) 複製到文字區域中。
 
-    [![I在 Postman 中，設定標頭(../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
+    [![在 Postman 中，設定標頭](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
 
 1. 選取 [Body] \(本文\) 索引標籤。
 1. 選取 [原始] 格式，然後輸入表示問題的 JSON (影像中的 #5)。
 
     `{"question":"How do I programmatically update my Knowledge Base?"}`
 
-    [![I在 Postman 中，設定本文 JSON 值(../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
+    [![在 Postman 中，設定本文 JSON 值](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
 
 1. 選取 [Send] \(傳送\) 按鈕。
 1. 回應會包含答案以及可能對用戶端應用程式而言很重要的其他資訊。 
 
-    [![I在 Postman 中，設定本文 JSON 值(../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
+    [![在 Postman 中，設定本文 JSON 值](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
 
 ## <a name="use-staging-endpoint"></a>使用暫存端點
 
-如果您想要從暫存端點取得解答，請為 URL 附加值為 `true` 的 querystring 布林值參數 `isTest`。
-
-`?isTest=true`
+如果您想要從暫存端點取得解答，請為 URL 附加 `isTest` 本文屬性。
 
 ## <a name="next-steps"></a>後續步驟
 

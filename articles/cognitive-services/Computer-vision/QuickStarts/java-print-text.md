@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0c2b53eb35754f1d402a63c14e5381d4903acdb5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 96d6a1281abfd8307ea997d30c92e39dcc8f0b77
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313240"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999139"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Java 擷取印刷文字 (OCR)
 
@@ -27,7 +27,7 @@ ms.locfileid: "56313240"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須已安裝 [Java&trade; Platform, Standard Edition Development Kit 7 或 8](https://aka.ms/azure-jdks) (JDK 7 或 8)。
-- 您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="create-and-run-the-sample-application"></a>建立並執行範例應用程式
 

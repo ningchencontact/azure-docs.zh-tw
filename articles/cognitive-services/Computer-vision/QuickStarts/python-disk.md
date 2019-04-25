@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4d7ec6ddeb48a9a24cdd8bd9bc2c28b6cbe70b3e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 9227685dc99a4fe84cdefa0953e51aff29df5c06
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630055"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003219"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Python 分析本機影像
 
@@ -31,9 +31,9 @@ ms.locfileid: "58630055"
 ## <a name="prerequisites"></a>必要條件
 
 - 如果您想要在本機執行此範例，就必須安裝 [Python](https://www.python.org/downloads/)。
-- 您必須擁有適用於電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 - 您必須已安裝下列 Python 套件。 您可以使用 [pip](https://packaging.python.org/tutorials/installing-packages/) 來安裝 Python 套件。
-    - [requests](http://docs.python-requests.org/en/master/)
+    - requests
     - [matplotlib](https://matplotlib.org/)
     - [pillow](https://python-pillow.org/)
 

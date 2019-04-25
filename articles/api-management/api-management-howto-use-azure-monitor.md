@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622190"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680227"
 ---
 # <a name="monitor-published-apis"></a>監視發佈的 API
 
@@ -98,7 +98,7 @@ API 管理會每分鐘發出計量，讓您近乎即時地了解 API 的狀態�
 
 8. 提供警示規則的名稱和描述，並選擇嚴重性層級。 
 9. 按 [建立警示規則]。
-10. 現在，嘗試呼叫沒有 API 金鑰的會議 API。 系統會觸發警示，並傳送電子郵件送給系統管理員。 
+10. 現在，嘗試呼叫沒有 API 金鑰的會議 API。 系統會觸發警示並傳送電子郵件送給系統管理員。 
 
 ## <a name="activity-logs"></a>活動記錄
 
@@ -183,7 +183,7 @@ API 管理目前提供關於個別 API 要求的診斷記錄 (每小時提供一
 | 屬性  | 類型 | 說明 |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | 布林值 | 如果已完成 HTTP 要求，但回應狀態碼在 2xx 或 3xx 範圍內，則為 true |
-| 分析 | date-time | 閘道接收 HTTP 要求的時間戳記 |
+| time | date-time | 閘道接收 HTTP 要求的時間戳記 |
 | operationName | 字串 | 常數值 'Microsoft.ApiManagement/GatewayLogs' |
 | category | 字串 | 常數值 'GatewayLogs' |
 | durationMs | integer | 從閘道收到要求直到傳入完整回應時的毫秒數 |

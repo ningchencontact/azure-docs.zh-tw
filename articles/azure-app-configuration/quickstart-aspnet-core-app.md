@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 6c9b257ab88b3564253b0f48d953094f84a1d71d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 29cea7e72d6bd7f64f6cf2a68b7620090ea4eef3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051434"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995926"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 ASP.NET Core 應用程式
 
@@ -38,6 +38,17 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 ## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. 選取 [索引鍵/值總管]  >  [+ 建立] 來新增下列索引鍵/值組：
+
+    | Key | 值 |
+    |---|---|
+    | TestApp:Settings:BackgroundColor | 白色 |
+    | TestApp:Settings:FontSize | 24 |
+    | TestApp:Settings:FontColor | 黑色 |
+    | TestApp:Settings:Message | Azure 應用程式設定的值 |
+
+    目前先讓 [標籤] 和 [內容類型] 保持空白。
 
 ## <a name="create-an-aspnet-core-web-app"></a>建立 ASP.NET Core Web 應用程式
 
@@ -191,4 +202,4 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 在本快速入門中，您已建立新的應用程式設定存放區，並透過[應用程式設定提供者](https://go.microsoft.com/fwlink/?linkid=2074664)將其與 ASP.NET Core Web 應用程式搭配使用。 若要深入了解如何使用應用程式設定，請繼續進行下一個示範驗證的教學課程。
 
 > [!div class="nextstepaction"]
-> [適用於 Azure 資源整合的受控識別](./integrate-azure-managed-service-identity.md)
+> [受控識別整合](./howto-integrate-azure-managed-service-identity.md)

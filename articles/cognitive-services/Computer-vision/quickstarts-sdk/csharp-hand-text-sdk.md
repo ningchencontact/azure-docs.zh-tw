@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2ae5cd0fd177f64bed5ed0705207c6a3e81a1b24
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 539d80310f07031f7a92bb5c1d6155e5948c2653
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878191"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997439"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>快速入門：使用電腦視覺 C# SDK 擷取手寫文字
 
@@ -24,7 +24,7 @@ ms.locfileid: "58878191"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 若要使用「電腦視覺」，您需要訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+* 電腦視覺訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 * 任何 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 版本。
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) (英文) 用戶端程式庫 NuGet 套件。 您不必下載此套件。 下面會提供安裝指示。
 
@@ -205,4 +205,4 @@ Pack my box with five dozen liquor jugs
 探索用來分析影像、偵測名人和地標、建立縮圖及擷取印刷和手寫文字的「電腦視覺 API」。
 
 > [!div class="nextstepaction"]
-> [探索電腦視覺 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [探索電腦視覺 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44) (英文)

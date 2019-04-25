@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247897"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682792"
 ---
 # <a name="add-an-api-manually"></a>手動新增 API
 
@@ -26,7 +26,7 @@ ms.locfileid: "43247897"
 
 如果您想要匯入現有的 API，請參閱[相關主題](#related-topics)一節。
 
-在本文中，我們會建立空白的 API，並指定 [httpbin.org](http://httpbin.org) (公用測試服務) 作為後端 API。
+在本文中，我們會建立空白的 API，並指定 [httpbin.org](https://httpbin.org) (公用測試服務) 作為後端 API。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -48,10 +48,10 @@ ms.locfileid: "43247897"
     |**名稱**|**值**|**說明**|
     |---|---|---|
     |**顯示名稱**|「*空白 API*」 |此名稱會顯示於開發人員入口網站中。|
-    |**Web 服務 URL** (選擇性)| 「 http://httpbin.org」| 如果您想要模擬 API，您可以不輸入任何項目。 <br/>在此案例中，我們會輸入 [http://httpbin.org](http://httpbin.org)。這是公用的測試服務。 <br/>如果您想要匯入會自動對應至後端的 API，請參閱[相關主題](#related-topics)一節中的其中一個主題。|
+    |**Web 服務 URL** (選擇性)| 「 https://httpbin.org」| 如果您想要模擬 API，您可以不輸入任何項目。 <br/>在此案例中，我們會輸入 [https://httpbin.org](https://httpbin.org)。這是公用的測試服務。 <br/>如果您想要匯入會自動對應至後端的 API，請參閱[相關主題](#related-topics)一節中的其中一個主題。|
     |**URL 配置**|"*HTTPS*"|在此案例中，即使後端有不安全的 HTTP 存取，我們還是會指定安全的 HTTPS APIM 存取給後端。 <br/>這種狀況 (HTTPS 至 HTTP) 稱為 HTTPS 終止。 如果您的 API 存在於虛擬網路中 (而您知道存取是安全的，即使不使用 HTTPS)，您就可以這麼做。 <br/>您可以使用「HTTPS 終止」來減少一些 CPU 循環。|
     |**URL 尾碼**|"*hbin*"| 此尾碼是用來在這個 APIM 執行個體中識別此特定 API 的名稱。 它在這個 APIM 執行個體中必須是唯一的。|
-    |**產品**|"*無限制*" |透過將 API 關聯至某個產品來發佈 API。 如果您想要發佈 API 以供開發人員使用，請將它新增至產品。 您可以在 API 建立期間執行此動作，或稍後設定它。<br/><br/>產品是一或多個 API 的關聯。 您可以包括數個 API，並透過開發人員入口網站將它們提供給開發人員。 <br/>開發人員必須先訂閱產品，才能取得 API 的存取權。 當他們訂閱時，就能取得適用於該產品中任何 API 的中訂用帳戶金鑰。 如果您建立了 APIM 執行個體，您就已經是系統管理員，因此根據預設，您已訂閱每一個產品。<br/><br/> 根據預設，每個「API 管理」執行個體都隨附兩個範例產品：**入門**與**無限制**。| 
+    |**產品**|"*無限制*" |透過將 API 關聯至某個產品來發佈 API。 如果您想要發佈 API 以供開發人員使用，請將它新增至產品。 您可以在 API 建立期間執行此動作，或稍後設定它。<br/><br/>產品是一或多個 API 的關聯。 您可以包括數個 API，並透過開發人員入口網站將它們提供給開發人員。 <br/>開發人員必須先訂閱產品，才能取得 API 的存取權。 當他們訂閱時，就能取得適用於該產品中任何 API 的中訂用帳戶金鑰。 如果您建立了 APIM 執行個體，您就已經是系統管理員，因此根據預設，您已訂閱每一個產品。<br/><br/> 依預設，每個 API 管理執行個體會隨附兩個範例產品：[入門] 和 [無限制]。| 
 5. 選取 [建立] 。
 
 此時，APIM 中沒有對應至後端 API 中任何作業的作業。 如果您呼叫透過後端公開的作業，而不是呼叫透過 APIM 公開的作業，您會收到 **404**。

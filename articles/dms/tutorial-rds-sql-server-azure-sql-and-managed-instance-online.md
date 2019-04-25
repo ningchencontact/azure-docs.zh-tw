@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/20/2019
+ms.openlocfilehash: 7294236a7b79ad093480e9063d886dd30ccf7fc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886398"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998969"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>教學課程：使用 DMS 將 RDS SQL Server 線上移轉至 Azure SQL Database 或 Azure SQL Database 受控執行個體
 您可以使用 Azure 資料庫移轉服務，以最短停機時間將資料庫從 RDS SQL Server 執行個體移轉至 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 或 [Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)。 在本教學課程中，您會使用 Azure 資料庫移轉服務，將已還原至 SQL Server 2012 (或更新版本) RDS SQL Server 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database 或 Azure SQL Database 受控執行個體。
@@ -187,7 +187,14 @@ ms.locfileid: "58886398"
  
 3. 選取 [+ 新增移轉專案]。
 4. 在 [新增移轉專案] 畫面上指定專案名稱，並在 [來源伺服器類型] 文字方塊中中選取 [AWS RDS for SQL Server]，然後在 [目標伺服器類型] 文字方塊中選取 [Azure SQL Database]。
+
+    > [!NOTE]
+    > 針對目標伺服器類型，請選取 [Azure SQL Database]，以遷移至 Azure SQL Database 單一資料庫及 Azure SQL Database 受控執行個體。
+
 5. 在 [選擇活動類型] 區段中，選取 [線上資料移轉]。
+
+    > [!IMPORTANT]
+    > 請務必選取 [線上資料移轉]；此案例不支援離線移轉。
 
     ![建立資料庫移轉服務專案](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-create-project4.png)
 

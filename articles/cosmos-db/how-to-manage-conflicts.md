@@ -1,21 +1,244 @@
 ---
 title: 了解如何在 Azure Cosmos DB 中管理區域之間的衝突
 description: 了解如何在 Azure Cosmos DB 中管理衝突
-author: christopheranderson
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: c7edc9bd20b42725903201fae6349a37a8c0d9eb
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.date: 04/16/2019
+ms.author: mjbrown
+ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548812"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997014"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理衝突解決原則
 
-採用多重區域寫入，若發生資料衝突，您可使用不同的衝突解決原則來解決衝突。 本文說明如何使用不同的語言平台來管理衝突解決原則。
+使用多重區域寫入時，如果有多個用戶端寫入至同一個項目，便可能會發生衝突。 發生衝突時，您可使用不同的衝突解決原則來解決衝突。 本文說明如何管理衝突解決原則。
+
+## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>建立最後寫入為準衝突解決原則
+
+這些範例示範如何設定最後寫入為準衝突解決原則的容器。 最後寫入為準的預設路徑是時間戳記欄位或 `_ts` 屬性。 此路徑也可設定為數值類型的使用者定義路徑。 在衝突之中，會以最大值為準。 如果未設定路徑或路徑無效，便會預設為 `_ts`。 已使用此原則解決的衝突將不會出現在衝突摘要中。 此原則可供所有 API 使用。
+
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
+
+```csharp
+DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
+  UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
+  {
+      Id = this.lwwCollectionName,
+      ConflictResolutionPolicy = new ConflictResolutionPolicy
+      {
+          Mode = ConflictResolutionMode.LastWriterWins,
+          ConflictResolutionPath = "/myCustomId",
+      },
+  });
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Java Async SDK
+
+```java
+DocumentCollection collection = new DocumentCollection();
+collection.setId(id);
+ConflictResolutionPolicy policy = ConflictResolutionPolicy.createLastWriterWinsPolicy("/myCustomId");
+collection.setConflictResolutionPolicy(policy);
+DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-java-sync"></a>Java Sync SDK
+
+```java
+DocumentCollection lwwCollection = new DocumentCollection();
+lwwCollection.setId(this.lwwCollectionName);
+ConflictResolutionPolicy lwwPolicy = ConflictResolutionPolicy.createLastWriterWinsPolicy("/myCustomId");
+lwwCollection.setConflictResolutionPolicy(lwwPolicy);
+DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, lwwCollection);
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-javascript"></a>Node.js/JavaScript/TypeScript SDK
+
+```javascript
+const database = client.database(this.databaseName);
+const { container: lwwContainer } = await database.containers.createIfNotExists(
+  {
+    id: this.lwwContainerName,
+    conflictResolutionPolicy: {
+      mode: "LastWriterWins",
+      conflictResolutionPath: "/myCustomId"
+    }
+  }
+);
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
+
+```python
+udp_collection = {
+                'id': self.udp_collection_name,
+                'conflictResolutionPolicy': {
+                    'mode': 'LastWriterWins',
+                    'conflictResolutionPath': '/myCustomId'
+                    }
+                }
+udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+```
+
+## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>使用預存程序建立自訂衝突解決原則
+
+這些範例示範如何使用預存程序來設定自訂衝突解決原則的容器，以解決衝突。 除非預存程序有錯誤，否則以下衝突不會顯示在衝突摘要中。 使用容器建立原則之後，您必須建立預存程序。 下方的 .NET SDK 範例會顯示相關範例。 只有 Core (SQL) API 會支援這個原則。
+
+### <a name="sample-custom-conflict-resolution-stored-procedure"></a>自訂衝突解決預存程序範例
+
+您必須使用如下所示的函式簽章來實作自訂衝突解決預存程序。 函式名稱不需要符合向容器註冊預存程序時所使用的名稱，但符合的話可簡化命名程序。 下面會說明必須為此預存程序實作的參數。
+
+- **incomingItem**：在產生衝突的認可中，所要插入或更新的項目。 若為刪除作業，此參數為 null。
+- **existingItem**：目前已認可的項目。 在更新中，此值為非 null，若為插入或刪除作業，則為 null。
+- **isTombstone**：布林值，會指出 incomingItem 是否與先前刪除的項目衝突。 若為 true，則 existingItem 也是 null。
+- **conflictingItems**：容器中所有項目的認可版本所構成的陣列，這些項目與 incomingItem 的識別碼或任何其他唯一的索引屬性有所衝突。
+
+> [!IMPORTANT]
+> 和任何預存程序一樣，自訂衝突解決程序可以存取任何具有相同分割索引鍵的資料，並可執行任何插入、更新或刪除作業來解決衝突。
+
+
+這個預存程序範例會藉由從 `/myCustomId` 路徑選取最低值來解決衝突。
+
+```javascript
+function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
+  var collection = getContext().getCollection();
+
+  if (!incomingItem) {
+      if (existingItem) {
+
+          collection.deleteDocument(existingItem._self, {}, function (err, responseOptions) {
+              if (err) throw err;
+          });
+      }
+  } else if (isTombstone) {
+      // delete always wins.
+  } else {
+      if (existingItem) {
+          if (incomingItem.myCustomId > existingItem.myCustomId) {
+              return; // existing item wins
+          }
+      }
+
+      var i;
+      for (i = 0; i < conflictingItems.length; i++) {
+          if (incomingItem.myCustomId > conflictingItems[i].myCustomId) {
+              return; // existing conflict item wins
+          }
+      }
+
+      // incoming item wins - clear conflicts and replace existing with incoming.
+      tryDelete(conflictingItems, incomingItem, existingItem);
+  }
+
+  function tryDelete(documents, incoming, existing) {
+      if (documents.length > 0) {
+          collection.deleteDocument(documents[0]._self, {}, function (err, responseOptions) {
+              if (err) throw err;
+
+              documents.shift();
+              tryDelete(documents, incoming, existing);
+          });
+      } else if (existing) {
+          collection.replaceDocument(existing._self, incoming,
+              function (err, documentCreated) {
+                  if (err) throw err;
+              });
+      } else {
+          collection.createDocument(collection.getSelfLink(), incoming,
+              function (err, documentCreated) {
+                  if (err) throw err;
+              });
+      }
+  }
+}
+```
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
+
+```csharp
+DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
+  UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
+  {
+      Id = this.udpCollectionName,
+      ConflictResolutionPolicy = new ConflictResolutionPolicy
+      {
+          Mode = ConflictResolutionMode.Custom,
+          ConflictResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver"),
+      },
+  });
+
+//Create the stored procedure
+await clients[0].CreateStoredProcedureAsync(
+UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "resolver"), new StoredProcedure
+{
+    Id = "resolver",
+    Body = File.ReadAllText(@"resolver.js")
+});
+```
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
+
+```java
+DocumentCollection collection = new DocumentCollection();
+collection.setId(id);
+ConflictResolutionPolicy policy = ConflictResolutionPolicy.createCustomPolicy("resolver");
+collection.setConflictResolutionPolicy(policy);
+DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
+```
+
+建立容器之後，您必須建立 `resolver` 預存程序。
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
+
+```java
+DocumentCollection udpCollection = new DocumentCollection();
+udpCollection.setId(this.udpCollectionName);
+ConflictResolutionPolicy udpPolicy = ConflictResolutionPolicy.createCustomPolicy(
+        String.format("dbs/%s/colls/%s/sprocs/%s", this.databaseName, this.udpCollectionName, "resolver"));
+udpCollection.setConflictResolutionPolicy(udpPolicy);
+DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
+```
+
+建立容器之後，您必須建立 `resolver` 預存程序。
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript SDK
+
+```javascript
+const database = client.database(this.databaseName);
+const { container: udpContainer } = await database.containers.createIfNotExists(
+  {
+    id: this.udpContainerName,
+    conflictResolutionPolicy: {
+      mode: "Custom",
+      conflictResolutionProcedure: `dbs/${this.databaseName}/colls/${
+        this.udpContainerName
+      }/sprocs/resolver`
+    }
+  }
+);
+```
+
+建立容器之後，您必須建立 `resolver` 預存程序。
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
+
+```python
+udp_collection = {
+  'id': self.udp_collection_name,
+  'conflictResolutionPolicy': {
+      'mode': 'Custom',
+      'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+      }
+  }
+udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+```
+
+建立容器之後，您必須建立 `resolver` 預存程序。
+
 
 ## <a name="create-a-custom-conflict-resolution-policy"></a>建立自訂衝突解決原則
 
@@ -82,158 +305,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>使用預存程序建立自訂衝突解決原則
-
-這些範例示範如何使用預存程序來設定自訂衝突解決原則的容器，以解決衝突。 除非預存程序有錯誤，否則以下衝突不會顯示在衝突摘要中。
-
-### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
-
-```csharp
-DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
-  UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
-  {
-      Id = this.udpCollectionName,
-      ConflictResolutionPolicy = new ConflictResolutionPolicy
-      {
-          Mode = ConflictResolutionMode.Custom,
-          ConflictResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver"),
-      },
-  });
-```
-
-建立容器之後，您必須建立 `resolver` 預存程序。
-
-### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
-
-```java
-DocumentCollection collection = new DocumentCollection();
-collection.setId(id);
-ConflictResolutionPolicy policy = ConflictResolutionPolicy.createCustomPolicy("resolver");
-collection.setConflictResolutionPolicy(policy);
-DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
-```
-
-建立容器之後，您必須建立 `resolver` 預存程序。
-
-### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
-
-```java
-DocumentCollection udpCollection = new DocumentCollection();
-udpCollection.setId(this.udpCollectionName);
-ConflictResolutionPolicy udpPolicy = ConflictResolutionPolicy.createCustomPolicy(
-        String.format("dbs/%s/colls/%s/sprocs/%s", this.databaseName, this.udpCollectionName, "resolver"));
-udpCollection.setConflictResolutionPolicy(udpPolicy);
-DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
-```
-
-建立容器之後，您必須建立 `resolver` 預存程序。
-
-### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript SDK
-
-```javascript
-const database = client.database(this.databaseName);
-const { container: udpContainer } = await database.containers.createIfNotExists(
-  {
-    id: this.udpContainerName,
-    conflictResolutionPolicy: {
-      mode: "Custom",
-      conflictResolutionProcedure: `dbs/${this.databaseName}/colls/${
-        this.udpContainerName
-      }/sprocs/resolver`
-    }
-  }
-);
-```
-
-建立容器之後，您必須建立 `resolver` 預存程序。
-
-### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
-
-```python
-udp_collection = {
-  'id': self.udp_collection_name,
-  'conflictResolutionPolicy': {
-    'mode': 'Custom',
-    'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-    }
-}
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
-```
-
-建立容器之後，您必須建立 `resolver` 預存程序。
-
-## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>建立最後寫入為準衝突解決原則
-
-這些範例示範如何設定最後寫入為準衝突解決原則的容器。 如果未設定路徑或者無效，它就會預設為 `_ts` 屬性。 這個屬性是時間戳記欄位。 以下衝突不會顯示在衝突摘要中。
-
-### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
-
-```csharp
-DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
-  UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
-  {
-      Id = this.lwwCollectionName,
-      ConflictResolutionPolicy = new ConflictResolutionPolicy
-      {
-          Mode = ConflictResolutionMode.LastWriterWins,
-          ConflictResolutionPath = "/regionId",
-      },
-  });
-```
-
-### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Java Async SDK
-
-```java
-DocumentCollection collection = new DocumentCollection();
-collection.setId(id);
-ConflictResolutionPolicy policy = ConflictResolutionPolicy.createLastWriterWinsPolicy(conflictResolutionPath);
-collection.setConflictResolutionPolicy(policy);
-DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
-```
-
-### <a id="create-custom-conflict-resolution-policy-lww-java-sync"></a>Java Sync SDK
-
-```java
-DocumentCollection lwwCollection = new DocumentCollection();
-lwwCollection.setId(this.lwwCollectionName);
-ConflictResolutionPolicy lwwPolicy = ConflictResolutionPolicy.createLastWriterWinsPolicy("/regionId");
-lwwCollection.setConflictResolutionPolicy(lwwPolicy);
-DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, lwwCollection);
-```
-
-### <a id="create-custom-conflict-resolution-policy-lww-javascript"></a>Node.js/JavaScript/TypeScript SDK
-
-```javascript
-const database = client.database(this.databaseName);
-const { container: lwwContainer } = await database.containers.createIfNotExists(
-  {
-    id: this.lwwContainerName,
-    conflictResolutionPolicy: {
-      mode: "LastWriterWins",
-      conflictResolutionPath: "/regionId"
-    }
-  }
-);
-```
-
-如果您省略 `conflictResolutionPath` 屬性，它就會預設為 `_ts` 屬性。
-
-### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
-
-```python
-udp_collection = {
-                'id': self.udp_collection_name,
-                'conflictResolutionPolicy': {
-                    'mode': 'Custom',
-                    'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-                    }
-                }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
-```
-
 ## <a name="read-from-conflict-feed"></a>從衝突摘要讀取
 
-這些範例示範如何從容器的衝突摘要讀取。 唯有未自動解決的衝突才會顯示在衝突摘要中。
+這些範例示範如何從容器的衝突摘要讀取。 唯有未自動解決或使用自訂衝突原則的衝突才會顯示在衝突摘要中。
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 
@@ -285,6 +359,10 @@ while conflict:
 
 深入了解下列 Azure Cosmos DB 概念：
 
+* [全域散發 - 運作原理](global-dist-under-the-hood.md)
+* [如何在應用程式中設定多重主機](how-to-multi-master.md)
+* [設定多路連接的用戶端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [從您的 Azure Cosmos 帳戶新增或移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [如何在應用程式中設定多重主機](how-to-multi-master.md)。
 * [資料分割和散佈](partition-data.md)
 * [Azure Cosmos DB 中的編製索引](indexing-policies.md)

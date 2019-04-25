@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2769384957b6cf6484163c4d9e54d042877794ec
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c1ad38b6dbf4914d3126f2c9166813c286762079
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451649"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009611"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 與 C# 擷取手寫文字
 
@@ -30,7 +30,7 @@ ms.locfileid: "57451649"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須有 [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 或更新版本。
-- 您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="create-and-run-the-sample-application"></a>建立並執行範例應用程式
 

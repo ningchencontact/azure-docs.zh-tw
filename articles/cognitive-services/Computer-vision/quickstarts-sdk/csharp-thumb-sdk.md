@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/12/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fc6657af66adffbf4c702f50a7934efc56fb7acf
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ea03aa8242358833d32029918ce2e381182f6ba2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309383"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998323"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>快速入門：使用電腦視覺 SDK 和 C# 來產生縮圖
 
@@ -24,7 +24,7 @@ ms.locfileid: "56309383"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 若要使用「電腦視覺」，您需要訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+* 電腦視覺訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 * 任何 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 版本。
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) (英文) 用戶端程式庫 NuGet 套件。 您不必下載此套件。 下面會提供安裝指示。
 
