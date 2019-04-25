@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: sttramer
 ms.openlocfilehash: ebdfadcb70cc9788a3d18fa99261412506889764
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54899321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821472"
 ---
 若要執行此範例，確定您已安裝最新版的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 若要啟動，請執行 `az login` 來建立與 Azure 的連線。
 

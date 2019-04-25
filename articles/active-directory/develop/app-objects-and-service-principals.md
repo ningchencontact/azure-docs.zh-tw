@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9cee05b1ff6c63aae07b9c04435e4ff3ae4d07ee
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411128"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory 中的應用程式和服務主體物件
 
@@ -96,7 +96,7 @@ Azure AD 應用程式是由其唯一一個應用程式物件所定義，該物�
 ## <a name="next-steps"></a>後續步驟
 
 - 您可以使用[Microsoft Graph 總管](https://developer.microsoft.com/graph/graph-explorer)查詢應用程式和服務主體物件。
-- 您可以使用 Microsoft Graph API 的應用程式的應用程式物件[Azure 入口網站][ AZURE-Portal]應用程式資訊清單編輯器] 中，或[Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)表示其 OData 的[應用程式實體][MS-Graph-App-Entity]。
+- 您可以使用 Microsoft Graph API 的應用程式的應用程式物件[Azure 入口網站][AZURE-Portal]應用程式資訊清單編輯器 中，或[Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)表示其 OData 的[應用程式實體][MS-Graph-App-Entity]。
 - 您可以透過 Microsoft Graph API 來存取應用程式的服務主體物件或[Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)，如其 OData 所代表[ServicePrincipal 實體][ MS-Graph-Sp-Entity].
 
 <!--Image references-->

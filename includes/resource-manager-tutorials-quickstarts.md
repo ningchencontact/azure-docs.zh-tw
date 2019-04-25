@@ -15,11 +15,11 @@ ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
 ms.openlocfilehash: 8c5347b412475b86222acabb76b88baaceb7645a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59291795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589420"
 ---
 ## <a name="quickstarts-and-tutorials"></a>快速入門與教學課程
 
@@ -27,7 +27,7 @@ ms.locfileid: "59291795"
 
 - 快速入門
 
-    |標題|描述|
+    |標題|說明|
     |------|-----|
     |[使用 Azure 入口網站](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)|使用入口網站來產生範本，並了解編輯和部署範本的程序。|
     |[使用 Visual Studio Code](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md)|使用 Visual Studio Code 來建立和編輯範本，以及如何使用 Azure Cloud shell 來部署範本。|
@@ -35,7 +35,7 @@ ms.locfileid: "59291795"
 
 - 教學課程
 
-    |標題|描述|
+    |標題|說明|
     |------|-----|
     |[利用範本參考](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|利用範本參考文件來開發範本。 在本教學課程中，您會找到儲存體帳戶結構描述，並使用該資訊來建立已加密的儲存體帳戶。|
     |[建立多個執行個體](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|建立多個 Azure 資源執行個體。 在本教學課程中，您會建立多個儲存體帳戶執行個體。|

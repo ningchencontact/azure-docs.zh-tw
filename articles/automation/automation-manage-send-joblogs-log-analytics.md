@@ -97,9 +97,9 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | JobId_g |Runbook 作業之識別碼的 GUID。 |
 | ResultType |Runbook 作業的狀態。 可能的值包括：<br>- New (新增)<br>- Started (已啟動)<br>- Stopped (已停止)<br>- Suspended (暫止)<br>- Failed (失敗)<br>- Completed (已完成) |
-| 類別 | 数据类型的分类。 對自動化來說，該值是 JobLogs。 |
+| Category | 数据类型的分类。 對自動化來說，該值是 JobLogs。 |
 | OperationName | 指定在 Azure 中執行的作業類型。 對自動化來說，該值是 Job。 |
-| 資源 | 自動化帳戶的名稱 |
+| Resource | 自動化帳戶的名稱 |
 | SourceSystem | Azure Monitor 日志收集数据的方式。 針對 Azure 診斷，一律為 Azure 。 |
 | ResultDescription |說明 Runbook 作業的結果狀態。 可能的值包括：<br>- Job is started (工作已啟動)<br>- Job Failed (工作失敗)<br>- Job Completed |
 | CorrelationId |Runbook 作業之相互關聯識別碼的 GUID。 |
@@ -120,9 +120,9 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | JobId_g |Runbook 作業之識別碼的 GUID。 |
 | ResultType |Runbook 作業的狀態。 可能的值包括：<br>- In Progress |
-| 類別 | 資料類型的分類。 對自動化來說，該值是 JobStreams。 |
+| Category | 資料類型的分類。 對自動化來說，該值是 JobStreams。 |
 | OperationName | 指定在 Azure 中執行的作業類型。 對自動化來說，該值是 Job。 |
-| 資源 | 自動化帳戶的名稱 |
+| Resource | 自動化帳戶的名稱 |
 | SourceSystem | Azure Monitor 日志收集数据的方式。 針對 Azure 診斷，一律為 Azure 。 |
 | ResultDescription |包含來自 Runbook 的輸出串流。 |
 | CorrelationId |Runbook 作業之相互關聯識別碼的 GUID。 |

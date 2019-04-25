@@ -1,6 +1,6 @@
 ---
 title: 應用程式發行步驟 | Microsoft Docs
-description: .
+description: 上也提供本文中使用的原始碼。
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: v-miclar
@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0fc82229e158ed35b97203b11d08841c683c45ce
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398012"
 ---
 <a name="app-publishing-steps"></a>應用程式發行步驟
 ====================
@@ -102,6 +102,6 @@ ms.locfileid: "48805698"
 <a name="canceling-the-publishing-request"></a>取消發佈要求
 --------------------------------
 
-您可以啟動發佈程序，並且需要取消您的要求。 您只能在發佈要求觸達「發行者登出」步驟時取消發佈要求。 若要取消，請按一下 [取消發行]。 發佈狀態會重設為步驟 1，若要重新發行，您應該按一下 [發佈] 並依照狀態中的步驟執行。
+您可以啟動發佈程序，並且需要取消您的要求。 您只能在發佈要求觸達「發行者登出」步驟時取消發佈要求。 若要取消，請按一下 [取消發行]。 發佈狀態會重設為步驟 1，若要重新發行，您應該按一下 [發佈] 並遵循狀態中的步驟。
 
 ![取消發行按鈕](./media/d365-financials/image013.png)
