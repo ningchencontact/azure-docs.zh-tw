@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: bf0173f9c9802be689f7f3a893d381a251a2b16a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421602"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>轉送混合式連線 Node API 概觀
 
@@ -75,7 +75,7 @@ var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 建立指定命名空間和路徑的有效 Azure 轉送混合式連線傳送 URI。 這個 URI 可以搭配使用任何 WebSocket 用戶端。
 
 - `namespaceName` (必要) - 要使用的 Azure 轉送命名空間之網域限定名稱。
-- `path` (必要) - 該命名空間中現有的 Azure 轉送混合式連線名稱。
+- `path`（必需）- 该命名空间中现有 Azure 中继混合连接的名称。
 - `token` (選用) - 內嵌在傳送 URI 的先前發行轉送存取權杖 (請參閱下列範例)。
 - `id` (選用) - 可啟用端對端診斷追蹤要求的追蹤識別碼。
 
@@ -209,6 +209,6 @@ WebSocket.relayedConnect(
 ```
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解 Azure 轉送，請造訪下列連結：
+若要了解有关 Azure 中继的详细信息，请访问以下链接：
 * [什麼是 Azure 轉送？](relay-what-is-it.md)
 * [可用的轉送 API](relay-api-overview.md)

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60521367"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
@@ -391,7 +391,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 8. 繼續在 [ **ContosoAdsWorker [Role]** ] 屬性視窗中，加入另一個連接字串：
 
    * 名稱：ContosoAdsDbConnectionString
-   * 輸入：字串
+   * 輸入：String
    * 值：貼上用於 Web 角色專案的相同連接字串。 (下列範例適用於 Visual Studio 2013。 如果您複製此範例且您是使用 Visual Studio 2015 或更新版本，請記得變更資料來源。)
 
        ```

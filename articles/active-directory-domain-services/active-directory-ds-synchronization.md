@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
 ms.openlocfilehash: b5544be37015368173f3f8eb39288b7a97ae11c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084992"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416566"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 受控網域中的同步處理
 下圖說明同步處理在 Azure AD Domain Services 受控網域中的運作方式。

@@ -1,6 +1,6 @@
 ---
 title: 發佈應用程式的要求 | Microsoft Docs
-description: .
+description: 上也提供本文中使用的原始碼。
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a3243310e1639591b19c1f426285d8ee6d8dddaa
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483446"
 ---
 # <a name="request-to-publish-the-app"></a>發佈應用程式的要求
 

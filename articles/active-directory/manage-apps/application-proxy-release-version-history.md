@@ -17,11 +17,11 @@ ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441656"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 應用程式 Proxy：版本發行歷程記錄
 本文列出的版本和 Azure Active Directory (Azure AD) 應用程式 Proxy 的已發行的功能。 Azure AD 小組會定期以新特性和功能更新應用程式 Proxy。 發行新版本時，會自動更新應用程式 Proxy 連接器。

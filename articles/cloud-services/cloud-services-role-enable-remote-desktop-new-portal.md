@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.openlocfilehash: 2169fd95f51b468770a2e1e4c185d493babf220f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
-ms.translationtype: HT
+ms.openlocfilehash: e9e5308f63034efefc0616997301bfc1b383fd84
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29877359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60527378"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>啟用 Azure 雲端服務中角色的遠端桌面連線
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure 门户](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 

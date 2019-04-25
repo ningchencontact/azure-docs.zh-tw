@@ -3,7 +3,7 @@ title: 設定註冊，並以 GitHub 帳戶登入 - Azure Active Directory B2C | 
 description: 使用 Azure Active Directory B2C，讓具有 GitHub 帳戶的客戶得以註冊和登入您的應用程式。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/07/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: f1c1ac91c08fe27445f4b9631500543d1d0287bd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316420"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 GitHub 帳戶登入
 

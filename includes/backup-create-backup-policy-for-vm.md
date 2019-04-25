@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: raynew
 ms.openlocfilehash: 3631d2e9beaa7c0d9ee018a32981a278381a7d86
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58115158"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406823"
 ---
 ## <a name="defining-a-backup-policy"></a>定義備份原則
 備份原則會定義由資料快照擷取時間和這些快照的保留時間長度所構成的矩陣。 在定義 VM 的備份原則時，您可以「一天一次」 地觸發備份作業。 當您建立新原則時，該原則將會套用至保存庫。 備份原則介面的外觀如下︰

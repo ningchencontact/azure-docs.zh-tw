@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e87ae0a8adf28176d9a97cbf1b78943179884a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340105"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475022"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>針對使用 My Apps 入口網站的問題進行疑難排解
 如果您遇到問題，登入，或使用**My Apps**入口網站中，請嘗試下列疑難排解秘訣之前您可以連絡服務台或系統管理員尋求協助。

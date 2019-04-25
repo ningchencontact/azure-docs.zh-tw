@@ -13,11 +13,11 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993054"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306627"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions 的 Twilio 繫結
 
@@ -399,7 +399,7 @@ public static CreateMessageOptions Run(
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `TwilioSms` 屬性。
 
-| v1 function.json 屬性 | v2 function.json 屬性 | 屬性內容 |說明|
+| v1 function.json 屬性 | v2 function.json 屬性 | 屬性內容 |描述|
 |---------|---------|---------|----------------------|
 |**type**|**type**| 必須設為 `twilioSms`。|
 |**direction**|**direction**| 必須設為 `out`。|

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452648"
 ---
 # <a name="azure-monitor-for-service-providers"></a>Azure 監視器服務提供者
 受管理的服務提供者 (Msp)、 大型企業、 獨立軟體廠商 (Isv) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器，可協助 Azure 監視器中的 log Analytics 工作區。 

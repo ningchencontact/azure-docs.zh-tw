@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516023"
 ---
 # <a name="configure-storage"></a>設定儲存體
 
@@ -118,7 +118,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
 
 1. 填入下列資訊來為雲端核心檔案管理工具建立認證： 
 
-   | 欄位 | 值 |
+   | 欄位 | Value |
    | --- | --- |
    | Credential name (認證名稱) | 任何描述性的名稱 |
    | 服務類型 | (選取 [Azure Storage Access Key] \(Azure 儲存體存取金鑰\)) |

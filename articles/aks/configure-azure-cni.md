@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
 ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466512"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中設定 Azure CNI 網路
 
@@ -143,7 +143,7 @@ az aks create \
 
 * 是否可以針對個別 Pod 設定網路原則？
 
-  目前可供預覽功能在 AKS 中 Kubernetes 網路原則。 若要開始，請參閱[保護在 AKS 中使用網路原則的 pod 之間的流量][network-policy]。
+  Kubernetes 网络策略目前在 AKS 中作为预览功能提供。 若要开始使用，请参阅[在 AKS 中使用网络策略保护 Pod 之间的流量][network-policy]。
 
 * 是否可以設定可部署到節點的 Pod 數目上限？
 

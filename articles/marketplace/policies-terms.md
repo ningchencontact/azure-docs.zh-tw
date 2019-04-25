@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: v-qiwe
 ms.openlocfilehash: 9dc4bfa1f2435488f7d6513f9c14e82da33a4d64
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322748"
 ---
-# <a name="azure-marketplace-policies-and-terms"></a>Azure Marketplace 的原則和詞彙
+# <a name="azure-marketplace-policies-and-terms"></a>Azure Marketplace 原則和條款
 
 >[!Note]
 >「 Marketplace 」 或 「 Azure Marketplace 」 是指 Microsoft 所擁有或操作的平台，不過名為，透過此供應項目可能會呈現給或由客戶所取得。 除非另有指定，Marketplace 會包含在 Azure Marketplace、 AppSource 和 Azure 入口網站 Marketplace。

@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5416c576e6392b7c5714ef83f152453aeff8d964
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685724"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404684"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>診斷和 Azure Functions 中使用 Azure Cosmos DB 觸發程序時，針對問題進行疑難排解
 
@@ -31,7 +31,7 @@ Azure Cosmos DB 觸發程序和繫結取決於延伸模組套件的基底的 Azu
 
 延伸模組套件的主要功能是提供 Azure Cosmos DB 觸發程序和繫結支援。 它也包含[Azure Cosmos DB.NET SDK](sql-api-sdk-dotnet-core.md)，這有幫助，如果您想要以程式設計的方式互動使用 Azure Cosmos DB 未使用的觸發程序和繫結。
 
-如果為想要使用 Azure Cosmos DB SDK，請確定您未新增至您的專案其他的 NuGet 套件參考。 相反地，**可讓透過 Azure Functions 的延伸模組套件所解析的 SDK 參考**。
+如果想要使用 Azure Cosmos DB SDK，請確定您未新增至您的專案其他的 NuGet 套件參考。 相反地，**可讓透過 Azure Functions 的延伸模組套件所解析的 SDK 參考**。
 
 此外，如果您要以手動方式建立您自己的執行個體[Azure Cosmos DB SDK 用戶端](./sql-api-sdk-dotnet-core.md)，您應該遵循的模式只有一個執行個體的用戶端[使用單一模式方法](../azure-functions/manage-connections.md#documentclient-code-example-c). 此程序可避免潛在的通訊端問題，在您的作業。
 

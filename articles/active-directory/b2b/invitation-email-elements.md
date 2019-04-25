@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412739"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B 共同作業邀請電子郵件的元素 - Azure Active Directory
 
@@ -28,7 +28,7 @@ ms.locfileid: "58295618"
 ## <a name="explaining-the-email"></a>說明電子郵件
 讓我們看看一些電子郵件項目，以便了解如何充分利用這些功能。
 
-### <a name="subject"></a>主體
+### <a name="subject"></a>Subject
 電子郵件的主旨依循以下模式：誠摯地邀請您加入 &lt;tenantname&gt; 組織
 
 ### <a name="from-address"></a>寄件者地址

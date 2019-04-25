@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: zarhoads
 ms.openlocfilehash: 150eaa6a4df558ed0c737d99cbcc8010baf63e96
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466387"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 上使用 GPU 處理計算密集型工作負載
 
@@ -26,11 +26,11 @@ ms.locfileid: "58758237"
 
 本文假設您的現有 AKS 叢集具有支援 GPU 的節點。 您的 AKS 叢集必須執行 Kubernetes 1.10 或更新版本。 如果您需要符合這些需求的 AKS 叢集，請參閱本文的第一節：[建立 AKS 叢集](#create-an-aks-cluster)。
 
-您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
-如果您需要符合最低需求的 AKS 叢集 (已啟用 GPU 的節點和使用 Kubernetes 1.10 或更新版本)，請完成下列步驟。 如果您已經有符合這些需求，AKS 叢集[跳至下一節](#confirm-that-gpus-are-schedulable)。
+如果您需要符合最低需求的 AKS 叢集 (已啟用 GPU 的節點和使用 Kubernetes 1.10 或更新版本)，請完成下列步驟。 如果已拥有满足这些要求的 AKS 群集，请[跳至下一部分](#confirm-that-gpus-are-schedulable)。
 
 首先，使用 [az group create][az-group-create] 命令來建立 叢集的資源群組。 下列範例會在 eastus 地區建立名為 myResourceGroup 的資源群組：
 
@@ -38,7 +38,7 @@ ms.locfileid: "58758237"
 az group create --name myResourceGroup --location eastus
 ```
 
-現在，使用 [az aks create][az-aks-create] 命令來建立 AKS 叢集。 下列範例會建立大小的單一節點叢集`Standard_NC6`，並執行 Kubernetes 版本 1.11.7:
+現在，使用 [az aks create][az-aks-create] 命令來建立 AKS 叢集。 以下示例会创建具有一个节点（大小为 `Standard_NC6`）的群集，并运行 Kubernetes 版本 1.11.7：
 
 ```azurecli
 az aks create \
@@ -272,7 +272,7 @@ kubectl delete jobs samples-tf-mnist-demo
 kubectl create namespace gpu-resources
 ```
 
-建立名為 nvidia-device-plugin-ds.yaml 的檔案，並貼上下列 YAML 資訊清單。 更新資訊清單中間的 `image: nvidia/k8s-device-plugin:1.11`，以符合您的 Kubernetes 版本。 例如，如果您的 AKS 叢集中執行 Kubernetes 1.12 版，更新的標記`image: nvidia/k8s-device-plugin:1.12`。
+建立名為 nvidia-device-plugin-ds.yaml 的檔案，並貼上下列 YAML 資訊清單。 更新資訊清單中間的 `image: nvidia/k8s-device-plugin:1.11`，以符合您的 Kubernetes 版本。 例如，如果 AKS 群集运行的是 Kubernetes 版本 1.12，请将标记更新为 `image: nvidia/k8s-device-plugin:1.12`。
 
 ```yaml
 apiVersion: extensions/v1beta1

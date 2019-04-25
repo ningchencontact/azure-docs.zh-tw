@@ -17,11 +17,11 @@ ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412132"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對企業應用程式，設定 SAML 權杖中發出的角色宣告
 
@@ -99,7 +99,7 @@ ms.locfileid: "56990505"
       > [!Note]
       > 如果您使用自訂應用程式 (而非 Azure Marketplace 應用程式)，您會看到兩個預設角色：使用者和 msiam_access。 如果是 Marketplace 應用程式，則 msiam_access 會是唯一的預設角色。 您不需要在預設角色中進行任何變更。
 
-    h. 為應用程式產生新角色。
+    h.如果该值不存在，请单击“添加行”。 為應用程式產生新角色。
 
       下列 JSON 是 **appRoles** 物件的範例。 請建立類似的物件，以新增應用程式所需的角色。
 

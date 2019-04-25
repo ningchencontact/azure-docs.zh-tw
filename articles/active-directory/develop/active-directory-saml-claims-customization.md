@@ -19,11 +19,11 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411301"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 
@@ -73,7 +73,7 @@ ms.locfileid: "58878565"
 
 選取 `NameIdentifier` (或 NameID) 宣告的所需來源。 您可以從下列選項選取。
 
-| 名稱 | 描述 |
+| Name | 描述 |
 |------|-------------|
 | 電子郵件 | 使用者的電子郵件地址 |
 | userprincipalName | 使用者主體名稱 (UPN)，使用者的 |

@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
 ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428190"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Functions 事件方格觸發程序本機偵錯
 
@@ -42,7 +42,7 @@ ms.locfileid: "56736493"
 
 然後，在以 `log.LogInformation` 開頭的這行上設定中斷點。
 
-![設定中斷點](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-set-breakpoint.png)
+![设置断点](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-set-breakpoint.png)
 
 
 接下來，**按 F5** 啟動偵錯工作階段。

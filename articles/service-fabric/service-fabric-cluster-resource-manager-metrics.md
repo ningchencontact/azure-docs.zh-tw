@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516731"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>在 Service Fabric 中使用度量管理資源耗用量和負載
 *計量*是您的服務所關切的資源，且是由叢集中的節點提供。 計量就是任何您想要管理，以便改善或監視服務效能的項目。 例如，您可能會監看記憶體耗用量以得知您的服務是否為多載。 另一個用法是，了解服務是否能夠移至記憶體限制較小的其他位置，以取得更佳的效能。
@@ -46,7 +46,7 @@ ms.locfileid: "58661695"
 
 <center>
 
-![使用預設計量的叢集配置][Image1]
+![包含默认指标的群集布局][Image1]
 </center>
 
 注意事項：
@@ -217,7 +217,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![使用預設和自訂度量平衡的叢集][Image2]
+![使用默认和自定义指标均衡的群集][Image2]
 </center>
 
 有幾件事值得一提：
@@ -242,7 +242,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![計量權數範例，及其對平衡解決方案的影響][Image3]
+![指标权重示例及其对均衡解决方案的影响][Image3]
 </center>
 
 在此範例中，有四個不同的服務，它們都針對兩個不同計量 (MetricA 和 MetricB) 報告不同值。 在其中一個案例中，所有定義 MetricA 的服務是最重要的 (權數 = 高)，MetricB 則是較不重要的 (權數 = 低)。 因此，我們看到「叢集資源管理員」是以讓 MetricA 比 MetricB 更加平衡的方式來設置服務。 「更加平衡」表示 MetricA 具有比 MetricB 較低的標準差。 在第二個案例中，我們將計量權數反轉。 結果就是「叢集資源管理員」會交換服務 A 與 B，以便產生 MetricB 比 MetricA 更加平衡的配置。
@@ -260,7 +260,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![全域唯一解決方案的影響][Image4]
+![全局唯一解决方案的影响][Image4]
 </center>
 
 在上半部的範例中，只考量了全域平衡，叢集整體上的確達到平衡。 所有節點的主要複本計數和複本總數都相同。 不過，如果您查看此配置的實際影響，就不是那麼理想︰遺失任何節點都會對特定工作負載帶來不成比例的影響，因為這會取出其所有主要複本。 例如，如果第一個節點發生失敗，圓形服務之三個不同資料分割的三個主要複本將會全部遺失。 相反地，「三角形」和「六邊形」服務的資料分割遺失複本。 這樣不會造成中斷，只是必須復原關閉的複本。

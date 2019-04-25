@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119720"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469123"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中指派應用程式系統管理員角色
 
@@ -58,7 +58,7 @@ ms.locfileid: "58119720"
 
 ## <a name="delegate-app-ownership"></a>委派應用程式擁有權
 
-應用程式擁有者和應用程式註冊擁有者分別只能管理他們所擁有的應用程式或應用程式註冊。 例如，當您新增 Salesforce 應用程式的擁有者時，而該擁有者將可管理 Salesforce 的存取和設定，但無法管理任何其他應用程式。 一個應用程式可以有許多擁有者，而一個使用者也可以是許多應用程式的擁有者。
+应用所有者和应用注册所有者只能分别管理他们拥有的应用程序或应用注册。 例如，當您新增 Salesforce 應用程式的擁有者時，而該擁有者將可管理 Salesforce 的存取和設定，但無法管理任何其他應用程式。 一個應用程式可以有許多擁有者，而一個使用者也可以是許多應用程式的擁有者。
 
 應用程式擁有者可以：
 

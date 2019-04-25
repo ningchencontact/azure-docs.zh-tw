@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387713"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -182,9 +182,9 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 | rowsSkipped | 略過的不相容資料列數目。 您可以將 enableSkipIncompatibleRow 設為 true 以開啟此功能。 | Int64 值 (未指定單位) |
 | throughput | 傳送資料的比例 | 浮點數 (以 **KB/s** 為單位) |
 | copyDuration | 複製的持續時間 | Int32 值 (以秒為單位) |
-| sqlDwPolyBase | 如果將資料複製到 SQL 資料倉儲時使用 PolyBase。 | BOOLEAN |
-| redshiftUnload | 如果從 Redshift 複製資料時使用 UNLOAD。 | BOOLEAN |
-| hdfsDistcp | 如果從 HDFS 複製資料時使用 DistCp。 | BOOLEAN |
+| sqlDwPolyBase | 如果將資料複製到 SQL 資料倉儲時使用 PolyBase。 | Boolean |
+| redshiftUnload | 如果從 Redshift 複製資料時使用 UNLOAD。 | Boolean |
+| hdfsDistcp | 如果從 HDFS 複製資料時使用 DistCp。 | Boolean |
 | effectiveIntegrationRuntime | 以 `<IR name> (<region if it's Azure IR>)` 的格式，來顯示是使用哪個 Integration Runtime 來讓活動執行。 | 文字 (字串) |
 | usedDataIntegrationUnits | 複製期間的有效資料整合單位。 | Int32 值 |
 | usedParallelCopies | 複製期間有效的 parallelCopies。 | Int32 值|

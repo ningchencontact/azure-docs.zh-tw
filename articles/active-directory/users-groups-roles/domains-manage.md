@@ -15,11 +15,11 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472299"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自訂網域名稱
 
@@ -33,11 +33,11 @@ ms.locfileid: "58201837"
 2. 選取 **Azure Active Directory**。
 3. 選取 [自訂網域名稱]。
   
-   ![開啟 [使用者管理] 頁面](./media/domains-manage/add-custom-domain.png)
+   ![打开用户管理页面](./media/domains-manage/add-custom-domain.png)
 4. 選取您想要設為主要網域的網域名稱。
 5. 選取 [設為主要] 命令。 出現提示時，請確認您的選擇。
   
-   ![讓網域命名主要](./media/domains-manage/make-primary-domain.png)
+   ![将域名设为主域名](./media/domains-manage/make-primary-domain.png)
 
 您可以將目錄的主要網域名稱變更為任何已驗證的非同盟自訂網域。 變更目錄的主要網域時，並不會變更任何現有使用者的使用者名稱。
 
@@ -87,13 +87,13 @@ ms.locfileid: "58201837"
 
 ### <a name="frequently-asked-questions"></a>常見問題集
 
-**問：為什麼網域刪除失敗時，會收到錯誤訊息，表示我在這個網域名稱中擁有由 Exchange 主控的群組？** <br>
+**问：為什麼網域刪除失敗時，會收到錯誤訊息，表示我在這個網域名稱中擁有由 Exchange 主控的群組？** <br>
 **答：** 目前，已啟用郵件安全性群組和分散式清單等特定群組由 Exchange 佈建，且需在 [Exchange 管理中心 (EAC)](https://outlook.office365.com/ecp/) 手動清除。 可能會有停留的 ProxyAddresses 仰賴自訂網域名稱，且需要手動更新為其他網域名稱。 
 
-**問：我已經以系統管理員身分登入\@contoso.com，但我無法刪除網域名稱"contoso.com"嗎？**<br>
+**问：我已經以系統管理員身分登入\@contoso.com，但我無法刪除網域名稱"contoso.com"嗎？**<br>
 **答：** 您不能參考您在使用者帳戶名稱中嘗試刪除的自訂網域名稱。 請確認全域管理員帳戶使用初始預設網域名稱 (.onmicrosoft.com)，例如 admin@contoso.onmicrosoft.com。 使用不同的全域管理員帳戶 (例如 admin@contoso.onmicrosoft.com) 或其他帳戶是 admin@fabrikam.com 的自訂網域名稱 (例如「fabrikam.com」) 登入。
 
-**問：我已按下 [刪除網域] 按鈕，並看到刪除作業的`In Progress`狀態。需要多久的時間？如果失敗，會發生什麼事？**<br>
+**问：我已按下 [刪除網域] 按鈕，並看到刪除作業的`In Progress`狀態。需要多久的時間？如果失敗，會發生什麼事？**<br>
 **答：** 刪除網域作業是非同步的背景工作，會將所有操考重新命名為網域名稱。 此作業應會在數分鐘內完成。 如果網域刪除失敗，請確定您不擁有：
 
 * 使用 appIdentifierURI 設定網域名稱的應用程式

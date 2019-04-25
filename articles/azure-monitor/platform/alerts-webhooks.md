@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.subservice: alerts
+ms.component: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465661"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345768"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>設定傳統計量警示使用 Webhook 通知非 Azure 系統
 您可以使用 Webhook 將 Azure 警示通知路由到其他系統以進行後處理或自訂動作。 您可以針對警示使用 Webhook，以將警示路由到會傳送簡訊、記錄錯誤、透過聊天或傳訊服務通知小組，或進行其他許多動作的服務。 
@@ -76,7 +76,7 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 | timestamp |Y | |警示觸發的時間。 |
 | id |Y | |每個警示規則都有唯一的識別碼。 |
 | name |Y | |警示名稱。 |
-| 說明 |Y | |警示的描述。 |
+| description |Y | |警示的描述。 |
 | conditionType |Y |Metric、Event |支援兩種類型的警示：計量和事件。 以計量條件為基礎的計量警示。 以活動記錄中的事件為基礎的事件警示。 使用此值來檢查警示是以計量或事件為基礎。 |
 | condition |Y | |要以 **conditionType** 值為基礎來檢查的特定欄位。 |
 | metricName |用於計量警示 | |定義規則所監視的計量名稱。 |
@@ -90,7 +90,7 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 | resourceGroupName |Y | |受影響資源的資源群組名稱。 |
 | resourceName |Y | |受影響資源的資源名稱。 |
 | resourceType |Y | |受影響資源的資源類型。 |
-| ResourceId |Y | |受影響資源的資源識別碼。 |
+| resourceId |Y | |受影響資源的資源識別碼。 |
 | resourceRegion |Y | |受影響資源的區域或位置。 |
 | portalLink |Y | |入口網站資源摘要頁面的直接連結。 |
 | properties |N |選用 |一組索引鍵/值組，具有事件的詳細資料。 例如： `Dictionary<String, String>`。 properties 欄位是選擇性的。 在自訂 UI 或邏輯應用程式的工作流程中，使用者可以輸入可透過承載傳遞的索引鍵/值。 另一種將自訂屬性傳回給 Webhook 的替代方式是透過 Webhook URI 本身 (做為查詢參數)。 |
@@ -106,4 +106,3 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 * 深入了解如何[使用邏輯應用程式透過 Twilio 從 Azure 警示傳送簡訊](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) \(英文\)。
 * 深入了解如何[使用邏輯應用程式從 Azure 警示傳送 Slack 訊息](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app) \(英文\)。
 * 深入了解如何[使用邏輯應用程式從 Azure 警示將訊息傳送到 Azure 佇列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app) \(英文\)。
-

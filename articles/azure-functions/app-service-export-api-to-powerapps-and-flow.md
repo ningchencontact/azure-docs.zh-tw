@@ -12,11 +12,11 @@ ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.openlocfilehash: 9f4bbf91b09abeb917fd9f49482881e33bf788ec
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499481"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>將 Azure 裝載 API 匯出至 PowerApps 和 Microsoft Flow
 
@@ -66,7 +66,7 @@ ms.locfileid: "54413929"
 
 2. 使用表格中所指定的設定。
 
-    |設定|說明|
+    |設定|描述|
     |--------|------------|
     |**環境**|選取應該儲存自訂連接器的目標環境。 如需詳細資訊，請參閱[環境概觀](https://powerapps.microsoft.com/tutorials/environments-overview/)。|
     |**自訂 API 名稱**|輸入名稱，也就是 PowerApps 和 Microsoft Flow 建置者在連接器清單中看到的名稱。|

@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a90cd381dbe3feaad110c7f10ae328915c051d0a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517720"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411883"
 ---
 # <a name="how-to-set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>作法：設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取 
 

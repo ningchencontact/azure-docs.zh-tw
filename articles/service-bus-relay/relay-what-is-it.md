@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776303"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420297"
 ---
 # <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？
 Azure 轉送服務可讓您在公用雲端中安全地公開公司網路中所執行的服務。 您不需要開啟防火牆上的連線，也不需要對公司網路基礎結構進行侵入式變更，就能做到這一點。 
@@ -82,7 +82,7 @@ WCF 轉送適用於完整的 .NET Framework 和 WCF。 您可以在內部部署�
 5. 閘道會將連線要求轉送給閘道存放區中提及的正確閘道。 
 6. 閘道會將要求傳送給接聽方用戶端，讓它對最接近傳送方用戶端的閘道節點建立暫時通道。 
 7. 接聽方用戶端會建立暫時通道，並傳送回應給最接近傳送方用戶端的閘道。 現在，用戶端之間已透過閘道建立連線，用戶端可以開始互相交換訊息。 
-8. 閘道會接聽用戶端從任何訊息轉送傳送用戶端。 
+8. 网关将来自侦听客户端的任何消息转发到发送客户端。 
 9. 閘道會將來自傳送方用戶端的任何訊息轉送至接聽方用戶端。  
 
 ## <a name="next-steps"></a>後續步驟

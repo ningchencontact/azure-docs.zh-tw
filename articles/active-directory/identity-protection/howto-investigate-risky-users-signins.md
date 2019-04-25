@@ -18,11 +18,11 @@ ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60295843"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>作法：調查有風險的使用者和登入記錄 
 
@@ -46,7 +46,7 @@ ms.locfileid: "59547051"
 
 具風險的使用者報告有預設檢視，顯示：
 
-- 名稱
+- Name
 
 - 風險狀態
 
@@ -105,7 +105,7 @@ ms.locfileid: "59547051"
 
 若要將報告的資料縮小至您適用的層級，您可以使用下列預設欄位篩選具風險的使用者資料︰
 
-- 名稱
+- Name
 
 - 使用者名稱
 
@@ -185,7 +185,7 @@ ms.locfileid: "59547051"
 
 具風險的登入報告有預設檢視，顯示：
 
-- 日期
+- date
 
 - 使用者
 
@@ -258,7 +258,7 @@ ms.locfileid: "59547051"
 - 風險層級 (彙總)
 - 風險層級 (即時)
 - 條件式存取
-- 日期
+- date
 - 風險層級類型
 
 ![有風險的登入報告](./media/howto-investigate-risky-users-signins/14.png)

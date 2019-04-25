@@ -4,18 +4,18 @@ description: 在採用 Enterprise Integration Pack 的 Azure Logic Apps 中，�
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: e3d2a458c2cece5e3f01fdb9e3d403b3fb78dd2b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a952685353214e116219fc63c4acbeac188765ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427348"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 將 Azure Logic Apps 中的 X12 訊息解碼
 
@@ -89,13 +89,13 @@ X12 解碼連接器會執行下列工作︰
   * 針對交換中的其他群組控制編號檢查群組控制編號。
   * 針對該群組中其他交易集控制編號檢查交易集控制編號。
 * 將交換分割為交易集，或保留整個交換︰
-  * 將交換分割為交易集 - 暫止發生錯誤的交易集︰將交換分割為交易集，並剖析每個交易集。 
+  * 將交換分割為交易集-暫止交易集發生錯誤：將交換分割交易集，並剖析每個交易集。 
   X12 Decode 動作只會輸出未通過 `badMessages` 驗證的交易集，並將剩餘的交易輸出到 `goodMessages`。
-  * 將交換分割為交易集 - 暫止發生錯誤的交換︰將交換分割為交易集，並剖析每個交易集。 
+  * 將交換分割為交易集-發生錯誤時暫停交換：將交換分割交易集，並剖析每個交易集。 
   如果交換中有一或多個交易集無法通過驗證，X12 Decode 動作會將該交換中的所有交易集輸出到 `badMessages`。
-  * 保留交換 - 暫止發生錯誤的交易集︰保留交換並處理整個批次交換。 
+  * 保留交換-發生錯誤時暫停交易集：保留交換並處理整個批次的交換。 
   X12 Decode 動作只會輸出未通過 `badMessages` 驗證的交易集，並將剩餘的交易輸出到 `goodMessages`。
-  * 保留交換 - 暫止發生錯誤的交換︰保留交換並處理整個批次交換。 
+  * 保留交換-發生錯誤時暫停交換：保留交換並處理整個批次的交換。 
   如果交換中有一或多個交易集無法通過驗證，X12 Decode 動作會將該交換中的所有交易集輸出到 `badMessages`。 
 * 產生技術和/或功能確認 (若已設定)。
   * 標頭驗證後會產生技術確認。 技術確認會報告位址接收者處理交換標頭和結尾的狀態。

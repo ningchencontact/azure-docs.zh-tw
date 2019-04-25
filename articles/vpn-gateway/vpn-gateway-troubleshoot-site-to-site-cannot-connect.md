@@ -15,27 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 01729971169011002fa4231f043f82f105f81cdc
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60458157"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>疑難排解：Azure 站對站 VPN 連線無法連線並停止運作
 
-當您在內部部署網路與 Azure 虛擬網路之間設定站對站 VPN 連線之後，該 VPN 連線突然停止運作且無法重新連線。 本文提供可協助您解決此問題的疑難排解步驟。 
+當您在內部部署網路與 Azure 虛擬網路之間設定站對站 VPN 連線之後，該 VPN 連線突然停止運作且無法重新連線。 本文提供解决此问题的故障排除步骤。 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-steps"></a>疑難排解步驟
 
-若要解決此問題，請先嘗試[重設 Azure VPN 閘道](vpn-gateway-resetgw-classic.md)，並從內部部署 VPN 裝置重設通道。 如果問題持續發生，請依照下列步驟執行以找出問題的原因。
+若要解決此問題，請先嘗試[重設 Azure VPN 閘道](vpn-gateway-resetgw-classic.md)，並從內部部署 VPN 裝置重設通道。 如果问题仍然存在，请遵循以下步骤确定问题的原因。
 
 ### <a name="prerequisite-step"></a>必要步驟
 
 檢查 Azure VPN 閘道的類型。
 
-1. 移至 [Azure 入口網站](https://portal.azure.com)。
+1. 转到 [Azure 门户](https://portal.azure.com)。
 
 2. 檢查 VPN 閘道的 [概觀] 頁面來取得類型資訊。
     
@@ -53,7 +53,7 @@ ms.locfileid: "56414421"
 
 若要檢視 Azure VPN 連線的共用金鑰，請使用下列其中一個方法：
 
-**Azure 入口網站**
+**Azure 门户**
 
 1. 移至您建立的 VPN 閘道站對站連線。
 

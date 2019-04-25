@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433428"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487246"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data Factory 中的資料集
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -316,7 +316,7 @@ Data Factory 會在將資料從來源資料存放區移到接收資料存放區�
 
 除非資料集是由 Data Factory 所產生，否則應該標示為「外部」。 除非會使用活動或管線鏈結，否則此設定通常會套用到管線中第一個活動的輸入。
 
-| 名稱 | 描述 | 必要項 | 預設值 |
+| Name | 描述 | 必要項 | 預設值 |
 | --- | --- | --- | --- |
 | dataDelay |要延遲所指定配量之外部資料可用性檢查的時間。 例如，您可以使用此設定來延遲每小時檢查。<br/><br/>此設定僅適用於當前的時間。 例如，如果現在時間是下午 1:00，且此值是 10 分鐘，驗證就會在下午 1:10 開始。<br/><br/>請注意，此設定不會影響過去的配量。 針對**配量結束時間** + **dataDelay** < **現在**的配量，處理時將不會有任何延遲。<br/><br/>時間如果大於 23:59 小時，應該使用 `day.hours:minutes:seconds` 格式來指定。 例如，若要指定 24 小時，不要使用 24:00:00。 請改用 1.00:00:00。 如果您使用 24:00:00，這會視同 24 天 (24.00:00:00)。 如為 1 天又 4 小時，請指定 1:04:00:00。 |否 |0 |
 | retryInterval |失敗與下一次嘗試之間的等待時間。 此設定適用於當前的時間。 如果上一次嘗試失敗，則下一次嘗試將會在 **retryInterval** 期間之後。 <br/><br/>如果現在是下午 1:00，我們會開始第一次嘗試。 如果完成第一次驗證檢查的持續時間是 1 分鐘且作業失敗，則下一次重試會在 1:00 + 1 分鐘 (持續時間) + 1 分鐘 (重試間隔) = 下午 1:02。 <br/><br/>若是過去的配量，則不會有任何延遲。 重試會立即發生。 |否 |00:01:00 (1 分鐘) |

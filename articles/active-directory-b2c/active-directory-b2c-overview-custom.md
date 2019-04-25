@@ -3,7 +3,7 @@ title: Azure Active Directory B2C 自訂原則 | Microsoft Docs
 description: 了解 Azure Active Directory B2C 自訂原則。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 03/20/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 7921454cc9269278db58fcc50bc63ca49b41b1e0
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317423"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的自訂原則
 

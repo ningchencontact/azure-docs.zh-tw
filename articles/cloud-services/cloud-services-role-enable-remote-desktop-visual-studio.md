@@ -4,25 +4,27 @@ description: 如何設定 Azure 雲端服務應用程式以允許遠端桌面連
 services: cloud-services
 author: ghogen
 manager: douge
+editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.service: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+origin.date: 03/06/2018
+ms.date: 10/22/2018
+ms.author: v-yiso
+ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406441"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>使用 Visual Studio 啟用 Azure 雲端服務中角色的遠端桌面連線
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure 门户](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -46,6 +48,8 @@ Visual Studio 針對雲端服務所提供的發佈精靈包含一個選項，可
 
    > [!Note]
    > 遠端桌面連線所需的憑證不同於用於其他 Azure 作業的憑證。 遠端存取憑證必須具有私密金鑰。
+   >
+   >
 
 5. 從清單中選取憑證，或選擇 [&lt;建立...&gt;]。 如果您要建立新的憑證，請在出現提示時為新的憑證提供易記名稱，然後選取 [確定]。 新的憑證會出現在下拉式清單方塊中。
 
@@ -95,7 +99,7 @@ Certificate with thumbprint [thumbprint] doesn't exist.
 
 1. 在建置步驟完成後，請新增 **Azure 雲端服務部署**步驟，並設定其屬性。
 
-1. 在部署步驟完成後，請新增 **Azure Powershell** 步驟，將其 [顯示名稱] 屬性設定為 [Azure 部署：啟用 RDP 擴充功能] (或另一個適合的名稱)，並選取適當的 Azure 訂用帳戶。
+1. 部署步驟之後，新增**Azure Powershell**步驟中，設定其**顯示名稱**屬性，以 「 Azure 部署：啟用 RDP 擴充功能 」 （或另一個適合的名稱），然後選取您適當的 Azure 訂用帳戶。
 
 1. 將 [指令碼類型] 設定為 [內嵌]，並將下列程式碼貼到 [內嵌指令碼] 欄位中  (您也可以在您的專案中使用此指令碼建立 `.ps1` 檔案，將 [指令碼類型] 設定為 [指令碼檔案路徑]，並將 [指令碼路徑] 設定為指向該檔案)。
 

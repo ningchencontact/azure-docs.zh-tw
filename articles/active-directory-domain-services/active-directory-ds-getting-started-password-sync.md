@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6778df746a64f944b51570f8774c0e84c7d88658
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ad905f93a8c4b03fd6ccc9edb93b52f23bcb2c58
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417425"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>啟用 Azure Active Directory Domain Services 的密碼雜湊同步
 在先前工作中，您已啟用 Azure Active Directory (Azure AD) 租用戶的 Azure Active Directory Domain Services。 下一項工作是啟用 NT LAN Manager (NTLM) 和 Kerberos 驗證所需的密碼雜湊與 Azure AD Domain Services 的同步。 設定密碼雜湊同步後，使用者即可使用他們的公司認證來登入受控網域。
@@ -28,6 +28,7 @@ ms.locfileid: "55194690"
 僅限雲端使用者帳戶，與使用 Azure AD Connect 從內部部署目錄同步的使用者帳戶，其所含的步驟不同。 
 
 <br>
+
 | **使用者帳戶類型** | **要執行的步驟** |
 | --- |---|
 | **已在 Azure AD 中建立雲端使用者帳戶** |**&#x2713;** [依照本文的指示](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |

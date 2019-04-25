@@ -3,7 +3,7 @@ title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C 的識別體驗架構結構描述中 ClaimsTransformations 元素的定義。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: bc6cc7b07d3dce43a666b3e5b0a958b41cdd3131
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313812"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -33,7 +33,7 @@ ms.locfileid: "58651503"
 </ClaimsTransformations>
 ```
 
-**ClaimsTransformation**項目包含下列屬性：
+ClaimsTransformation 元素包含以下属性：
 
 | 屬性 |必要項 | 描述 |
 | --------- |-------- | ----------- |
@@ -96,7 +96,7 @@ ms.locfileid: "58651503"
 | --------- | ----------- |----------- |
 | id | 是 | 識別碼，其為對宣告轉換方法之參數的參考。 每個宣告轉換方法都有自己的值。 如需可用值的完整清單，請參閱宣告轉換表。 |
 | DataType | 是 | 參數的資料類型，例如字串、布林值、整數或日期時間，其會以自訂原則 XML 結構描述中的每個 DataType 列舉為依據。 此類型可用來正確地執行算術運算。 每個宣告轉換都有自己的值。 如需可用值的完整清單，請參閱[宣告轉換參考](#claims-transformations-reference)。 |
-| 值 | 是 | 要逐字傳遞到轉換的值。 某些值是任意的，它們其中有一些是您從宣告轉換方法中選取的。 |
+| Value | 是 | 要逐字傳遞到轉換的值。 某些值是任意的，它們其中有一些是您從宣告轉換方法中選取的。 |
 
 ### <a name="outputclaims"></a>OutputClaims
 

@@ -18,11 +18,11 @@ ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298303"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>驗證與授權錯誤碼
 
@@ -31,7 +31,7 @@ ms.locfileid: "59271793"
 > [!NOTE]
 > 此資訊為初步資訊，隨時可能變更。 有任何疑問或找不到您要尋找的內容嗎？ 建立 GitHub 問題，或參閱[適用於開發人員的支援和協助選項](active-directory-develop-help-support.md)，了解您可以取得協助和支援的其他方法。
 >
-> 這份文件會提供開發人員和系統管理員指南，但永遠不應由用戶端本身。 錯誤代碼會有可能隨時變更，以提供更細微的錯誤訊息，為了協助開發人員建置其應用程式時。 依存於文字或錯誤代碼的應用程式將會中斷一段時間。  
+> 本文档是为开发者和管理员提供的指导，但决不应当被客户自己使用。 错误代码可能会随时更改，以便提供更详细的错误消息，以在开发者构建应用程序时为其提供帮助。 依赖于文本或错误代码的应用程序随着时间的推移将会损坏。  
 
 ## <a name="aadsts-error-codes"></a>AADSTS 錯誤碼
 
@@ -58,7 +58,7 @@ ms.locfileid: "59271793"
 | AADSTS50007 | PartnerEncryptionCertificateMissing - 找不到此應用程式的夥伴加密憑證。 請向 Microsoft [開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)以修正此問題。 |
 | AADSTS50008 | InvalidSamlToken - 權杖中的 SAML 判斷提示遺漏或設定不正確。 請連絡同盟提供者。 |
 | AADSTS50010 | AudienceUriValidationFailed - 應用程式的對象 URI 驗證失敗，因為未設定權杖對象。 |
-| AADSTS50011 | InvalidReplyTo - 回覆地址遺漏、設定不正確或不符合針對應用程式所設定的回覆地址。  做為解析度務必將此遺漏的回覆地址新增至 Azure Active Directory 應用程式，或讓其他人的權限來管理您的應用程式，在 Active Directory 中為您執行這項操作。|
+| AADSTS50011 | InvalidReplyTo - 回覆地址遺漏、設定不正確或不符合針對應用程式所設定的回覆地址。  作为一种解决方法，请确保将此缺失的回复地址添加到 Azure Active Directory 应用程序，或者让有权在 Active Directory 中管理你的应用程序的人为你执行此操作。|
 | AADSTS50012 | AuthenticationFailed - 驗證因為下列其中一個原因而失敗：<ul><li>簽署憑證的主旨名稱未獲授權</li><li>已授權的主體名稱找不到相符的受信任授權原則</li><li>憑證鏈結無效</li><li>簽署憑證無效</li><li>未在租用戶上設定原則</li><li>簽署憑證的指紋未獲授權</li><li>用戶端判斷提示包含無效的簽章</li></ul> |
 | AADSTS50013 | InvalidAssertion - 判斷提示因為各種原因而無效：權杖簽發者不符合其有效時間範圍內的 API 版本；過期；格式不正確；判斷提示中的重新整理權杖不是主要的重新整理權杖。 |
 | AADSTS50014 | GuestUserInPendingState - 使用者的兌換處於擱置狀態。 來賓使用者帳戶建立尚未完成。 |
