@@ -183,7 +183,7 @@ API 管理目前提供關於個別 API 要求的診斷記錄 (每小時提供一
 | 屬性  | 類型 | 說明 |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | 布林值 | 如果已完成 HTTP 要求，但回應狀態碼在 2xx 或 3xx 範圍內，則為 true |
-| 分析 | date-time | 閘道接收 HTTP 要求的時間戳記 |
+| time | date-time | 閘道接收 HTTP 要求的時間戳記 |
 | operationName | 字串 | 常數值 'Microsoft.ApiManagement/GatewayLogs' |
 | category | 字串 | 常數值 'GatewayLogs' |
 | durationMs | integer | 從閘道收到要求直到傳入完整回應時的毫秒數 |
@@ -191,7 +191,7 @@ API 管理目前提供關於個別 API 要求的診斷記錄 (每小時提供一
 | correlationId | 字串 | API 管理所指派的唯一 http 要求識別碼 |
 | location | 字串 | 處理要求的閘道所在的 Azure 區域名稱 |
 | httpStatusCodeCategory | 字串 | HTTP 回應狀態碼的類別：成功 (301 或更小或 304 或 307)、未經授權 (401、403、429)、錯誤 (400，介於 500 與 600 之間)、其他 |
-| ResourceId | 字串 | API 管理資源的識別碼 /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| resourceId | 字串 | API 管理資源的識別碼 /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | 物件 | 目前要求的屬性 |
 | method | 字串 | 連入要求的 HTTP 方法 |
 | url | 字串 | 連入要求的 URL |
@@ -215,11 +215,11 @@ API 管理目前提供關於個別 API 要求的診斷記錄 (每小時提供一
 | backendId | 字串 | 目前要求的後端實體識別碼 | 
 | LastError | 物件 | 上次要求處理錯誤 | 
 | elapsed | integer | 從閘道收到要求直到發生錯誤時所經過的毫秒數 | 
-| 來源 | 字串 | 導致錯誤的原則或處理內部處理常式名稱 | 
+| source | 字串 | 導致錯誤的原則或處理內部處理常式名稱 | 
 | scope | 字串 | 包含導致錯誤之原則的原則文件範圍 | 
 | section | 字串 | 包含導致錯誤之原則的原則文件區段 | 
-| 原因 | 字串 | 錯誤原因 | 
-| Message | 字串 | 錯誤訊息 | 
+| reason | 字串 | 錯誤原因 | 
+| message | 字串 | 錯誤訊息 | 
 
 ## <a name="next-steps"></a>後續步驟
 
