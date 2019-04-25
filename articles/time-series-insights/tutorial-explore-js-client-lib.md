@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5e3005eb8f548e562e037431ae5fd89f82ec2100
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812067"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150076"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>教學課程：探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫
 
@@ -28,6 +28,9 @@ ms.locfileid: "55812067"
 > * TSI 範例應用程式。
 > * TSI JavaScript 用戶端程式庫。
 > * 應用程式範例如何使用程式庫來將 TSI 資料視覺化。
+
+> [!NOTE]
+> 在所提供的 [GitHub 範例存放庫](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)中可找到時間序列深入解析範例應用程式來源檔案。
 
 ## <a name="video"></a>視訊： 
 
@@ -57,7 +60,7 @@ ms.locfileid: "55812067"
 
 ### <a name="page-source-and-structure"></a>網頁原始碼和結構
 
-首先，我們將檢視瀏覽器所轉譯網頁背後的 HTML 和 JavaScript 原始程式碼。 我們不會帶您看過所有元素，但您會了解各主要區段，以便對網頁的運作方式有所概念：
+首先，我們將檢視瀏覽器所轉譯網頁背後的 [HTML 和 JavaScript 原始程式碼](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html)。 我們不會帶您看過所有元素，但您會了解各主要區段，以便對網頁的運作方式有所概念：
 
 1. 在您的瀏覽器中開啟 [開發人員工具]。 檢查組成目前網頁的 HTML 元素 (又稱為 HTML 或 DOM 樹狀結構)。
 
@@ -109,7 +112,7 @@ ms.locfileid: "55812067"
 
 2. 之後，應用程式會從 Azure AD 要求「存取權杖」。 系統會對特定服務/API 識別碼發出一組有限權限的存取權杖 (https://api.timeseries.azure.com)。 此服務/API 識別碼也稱為權杖「對象」。 這些權杖權限是由系統代表所登入的使用者來發出。 服務/API 的識別碼仍是應用程式的 Azure AD 註冊中所包含的另一個屬性。 ADAL 將存取權杖傳回給應用程式後，系統在存取 TSI 服務 API 時就會以「持有人權杖」的形式來傳遞存取權杖。
 
-   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
+   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=4-9,36-39)]
 
 ### <a name="control-identification"></a>控制項識別
 
@@ -191,7 +194,7 @@ TSI 用戶端程式庫目前公開了八個唯一分析控制項：折線圖、�
 
 回想一下[網頁原始碼和結構一節](#page-source-and-structure)中的步驟 3，圖表控制項會在網頁上成列排列，每個控制項各有一個敘述性標題資料列。 在此範例中，所填入的三個圖表皆位於「來自相同資料的多個圖表類型」標題 `<div>` 元素底下，並且繫結至該標題下的三個 `<div>` 元素：
 
-[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
+[!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
 接下來的 JavaScript 程式碼區段會使用稍早說明的模式：建置 TSI 彙總運算式，使用這些運算式來查詢 TSI 資料，然後轉譯三個圖表。 請留意從 `tsiClient.ux` 命名空間 `LineChart`、`BarChart`、`PieChart` 用來建立及轉譯個別圖表的三種類型。 也請注意這三個圖表全都能使用相同的彙總運算式資料 `transformedResult`：
 
@@ -283,9 +286,12 @@ TSI 用戶端程式庫也會公開一些選擇性的進階功能以供您利用�
 > * 使用 TSI JavaScript 用戶端程式庫中的 API。
 > * 使用 JavaScript 來以 TSI 資料建立和填入圖表控制項。
 
-如前所述，TSI 應用程式範例會使用示範資料集。 若要了解如何建立自己的 TSI 環境和資料集，請繼續參閱下列文章：
+如上所示，TSI 範例應用程式會使用示範資料集。 若要了解如何建立自己的 TSI 環境和資料集，請繼續參閱下列文章：
 
 > [!div class="nextstepaction"]
 > [教學課程：建立 Azure 時間序列深入解析環境](tutorial-create-populate-tsi-environment.md)
 
+或檢視 TSI 範例應用程式來源檔案：
 
+> [!div class="nextstepaction"]
+> [TSI 範例應用程式存放庫](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)

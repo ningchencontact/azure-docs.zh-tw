@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 37b1c8516268611a1174edfe20fef36dfb6b36c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 24bdd52673c65d039166dc28f9f0a0a784569a1a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295826"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678695"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立私人容器登錄
 
@@ -95,13 +95,13 @@ az acr repository list --name <acrName> --output table
 ```
 Result
 ----------------
-busybox
+hello-world
 ```
 
-下列範例會列出 **busybox** 存放庫上的標記。
+下列範例會列出在 **hello-world** 存放庫上的標籤。
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository busybox --output table
+az acr repository show-tags --name <acrName> --repository hello-world --output table
 ```
 
 輸出：

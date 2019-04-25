@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 8c2c31b4d87ac2db123c0cae63679e3773734b4f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a76eab5d51dd73fb6b38ebebaa8421e789274f84
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226278"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994787"
 ---
 # <a name="what-is-azure-app-configuration"></a>什麼是 Azure 應用程式設定？
 
@@ -68,4 +68,5 @@ Azure 應用程式設定提供集中管理應用程式設定的服務。 最新�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [快速入門：建立 ASP.NET Web 應用程式](quickstart-aspnet-core-app.md) 
+> [!div class="nextstepaction"]
+> [建立 ASP.NET Core Web 應用程式](./quickstart-aspnet-core-app.md)  

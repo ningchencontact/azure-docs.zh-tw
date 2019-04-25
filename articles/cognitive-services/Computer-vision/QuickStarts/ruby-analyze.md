@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8ae2cd5f3a866b2d026ad4f3babc89bc9af68dc4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 92793a583fc8681d610db3549891dff13529806d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904485"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995093"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Ruby 分析遠端影像
 
@@ -27,7 +27,7 @@ ms.locfileid: "57904485"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須安裝 [Ruby](https://www.ruby-lang.org/en/downloads/) 2.4.x 或更新版本。
-- 您必須具有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="create-and-run-the-sample"></a>建立並執行範例
 

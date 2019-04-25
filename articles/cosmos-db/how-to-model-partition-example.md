@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 3/27/2019
 ms.author: thweiss
 ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919891"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>如何使用實際範例在 Azure Cosmos DB 上建立資料的模型及加以分割
@@ -124,7 +124,7 @@ ms.locfileid: "58919891"
 
 ![將單一項目寫入使用者容器](./media/how-to-model-partition-example/V1-C1.png)
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 7 毫秒 | 5.71 RU | ✅ |
 
@@ -134,7 +134,7 @@ ms.locfileid: "58919891"
 
 ![從使用者容器中擷取單一項目](./media/how-to-model-partition-example/V1-Q1.png)
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 2 毫秒 | 1 RU | ✅ |
 
@@ -144,7 +144,7 @@ ms.locfileid: "58919891"
 
 ![將單一項目寫入貼文容器](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 9 毫秒 | 8.76 RU | ✅ |
 
@@ -156,7 +156,7 @@ ms.locfileid: "58919891"
 
 這些額外的查詢分別會依其各自容器的分割區索引鍵進行篩選，而這正是我們想盡可能提高效能和延展性所需要的。 但我們終究還是需要執行四項作業才能傳回單一貼文，因此我們將下次反覆執行時加以改善。
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 9 毫秒 | 19.54 RU | ⚠ |
 
@@ -171,7 +171,7 @@ ms.locfileid: "58919891"
 - 必須針對第一個查詢所傳回的每篇貼文發出會彙總留言數和按讚數的查詢，
 - 主要查詢不會依 `posts` 容器的分割區索引鍵進行篩選，而導致整個容器的展開傳送和分割區掃描。
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 130 毫秒 | 619.41 RU | ⚠ |
 
@@ -181,7 +181,7 @@ ms.locfileid: "58919891"
 
 ![將單一項目寫入貼文容器](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 7 毫秒 | 8.57 RU | ✅ |
 
@@ -193,7 +193,7 @@ ms.locfileid: "58919891"
 
 雖然主要查詢會依容器的分割區索引鍵進行篩選，但個別彙總使用者仍會導致整體效能下降。 我們將在稍後加以改善。
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 23 毫秒 | 27.72 RU | ⚠ |
 
@@ -203,7 +203,7 @@ ms.locfileid: "58919891"
 
 ![將單一項目寫入貼文容器](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 6 毫秒 | 7.05 RU | ✅ |
 
@@ -213,7 +213,7 @@ ms.locfileid: "58919891"
 
 ![擷取某篇貼文所有的讚並彙總其他資料](./media/how-to-model-partition-example/V1-Q5.png)
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 59 毫秒 | 58.92 RU | ⚠ |
 
@@ -225,7 +225,7 @@ ms.locfileid: "58919891"
 
 同樣地，我們的初始查詢並未依 `posts` 容器的分割區索引鍵進行篩選，這會觸發高成本的展開傳送。但這次情況更糟，因為我們以更大的結果集作為目標，並且以 `ORDER BY` 子句排序結果，因而導致要求單位的成本更加昂貴。
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 306 毫秒 | 2063.54 RU | ⚠ |
 
@@ -370,7 +370,7 @@ function updateUsernames(userId, username) {
 
 ![從貼文容器中擷取單一項目](./media/how-to-model-partition-example/V2-Q2.png)
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 2 毫秒 | 1 RU | ✅ |
 
@@ -380,7 +380,7 @@ function updateUsernames(userId, username) {
 
 ![擷取某貼文的所有留言](./media/how-to-model-partition-example/V2-Q4.png)
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 4 毫秒 | 7.72 RU | ✅ |
 
@@ -390,7 +390,7 @@ function updateUsernames(userId, username) {
 
 ![擷取某貼文所有的讚](./media/how-to-model-partition-example/V2-Q5.png)
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 4 毫秒 | 8.92 RU | ✅ |
 
@@ -410,7 +410,7 @@ function updateUsernames(userId, username) {
 
 1. 此要求*必須*依 `userId` 進行篩選，因為我們想要擷取特定使用者的所有貼文
 1. 其執行效果不佳，因為執行依據為 `posts` 容器，但其分割依據並非 `userId`
-1. 顯而易見，我們將對分割依據如下的容器執行此要求，以解決效能問題： `userId`
+1. 顯而易見，我們會對分割依據為 `userId` 的容器執行此要求，以解決效能問題
 1. 而其實我們已有這樣的容器：`users` 容器！
 
 因此，我們藉由將所有貼文複製到 `users` 容器，來導入第二層反正規化。 藉由這麼做，我們有效地取得以不同維度分割的貼文複本，使其能更有效地依 `userId` 擷取。
@@ -450,7 +450,7 @@ function updateUsernames(userId, username) {
 
 ![擷取某使用者的所有貼文](./media/how-to-model-partition-example/V3-Q3.png)
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 4 毫秒 | 6.46 RU | ✅ |
 
@@ -534,7 +534,7 @@ function truncateFeed() {
 
 ![擷取最新的貼文](./media/how-to-model-partition-example/V3-Q6.png)
 
-| **Latency** | **RU 費用** | **效能** |
+| **延遲** | **RU 費用** | **效能** |
 | --- | --- | --- |
 | 9 毫秒 | 16.97 RU | ✅ |
 

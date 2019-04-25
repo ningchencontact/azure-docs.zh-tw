@@ -4,20 +4,20 @@ description: 了解如何尋找對 Azure Cosmos 容器執行的任何作業所�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: e3175ee136057c695ceef3cd1976b447a529c803
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053038"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683829"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中尋找要求單位 (RU) 費用
 
 本文將介紹不同的方法，供您尋找對 Azure Cosmos 容器執行的任何作業所產生的[要求單位](request-units.md)耗用量。 此耗用量目前可使用 Azure 入口網站來測量，或藉由查看 Azure Cosmos DB 透過其中一個 SDK 傳回的回應來測量。
 
-## <a name="core-api"></a>Core API
+## <a name="sql-core-api"></a>SQL (Core) API
 
 ### <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 
@@ -25,7 +25,7 @@ ms.locfileid: "59053038"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. [建立新的 Azure Cosmos DB 帳戶](create-sql-api-dotnet.md#create-account)並為其提供資料，或選取已包含資料的現有帳戶。
+1. [建立新的 Azure Cosmos 帳戶](create-sql-api-dotnet.md#create-account)並為其提供資料，或選取已包含資料的現有 Azure Cosmos 帳戶。
 
 1. 開啟 [資料總管] 窗格，然後選取您要處理的容器。
 
@@ -147,7 +147,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 ## <a name="azure-cosmos-dbs-api-for-mongodb"></a>適用於 MongoDB 的 Azure Cosmos DB API
 
-要求單位費用可用名為 `getLastRequestStatistics` 的自訂[資料庫命令](https://docs.mongodb.com/manual/reference/command/)公開。 此命令會傳回一份文件，其中包含最後執行的作業名稱，及其要求費用和持續時間。
+要求單位費用是由名為 `getLastRequestStatistics.` 的自訂[資料庫命令](https://docs.mongodb.com/manual/reference/command/)所公開。此命令會傳回一份文件，其中包含最後執行的作業名稱，及其要求費用和持續時間。
 
 ### <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 
@@ -155,7 +155,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. [建立新的 Azure Cosmos DB 帳戶](create-mongodb-dotnet.md#create-a-database-account)並為其提供資料，或選取已包含資料的現有帳戶。
+1. [建立新的 Azure Cosmos 帳戶](create-mongodb-dotnet.md#create-a-database-account)並為其提供資料，或選取已包含資料的現有帳戶。
 
 1. 開啟 [資料總管] 窗格，然後選取您要處理的集合。
 
@@ -195,7 +195,7 @@ Double requestCharge = stats.getDouble("RequestCharge");
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>使用 MongoDB Node.js 驅動程式
 
-使用[官方 MongoDB Node.js 驅動程式](https://mongodb.github.io/node-mongodb-native/)時 (請參閱[本快速入門](create-mongodb-nodejs.md)中有關於其使用方式的資訊)，可藉由對 `Db` 物件呼叫 `command` 方法來執行命令。
+使用[官方 MongoDB Node.js 驅動程式](https://mongodb.github.io/node-mongodb-native/)時 (請參閱[本快速入門](create-mongodb-nodejs.md)中有關於其使用方式的資訊)，可藉由對 `db` 物件呼叫 `command` 方法來執行命令。
 
 ```javascript
 db.command({ getLastRequestStatistics: 1 }, function(err, result) {
@@ -267,5 +267,9 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 請參閱下列文章，以深入了解如何最佳化您的要求單位耗用量：
 
+* [Azure Cosmos DB 中的要求單位和輸送量](request-units.md)
 * [在 Azure Cosmos DB 中最佳化已佈建的輸送量成本](optimize-cost-throughput.md)
 * [在 Azure Cosmos DB 中最佳化查詢成本](optimize-cost-queries.md)
+* [全域調整佈建的輸送量](scaling-throughput.md)
+* [在容器和資料庫中佈建輸送量](set-throughput.md)
+* [如何佈建容器的輸送量](how-to-provision-container-throughput.md)

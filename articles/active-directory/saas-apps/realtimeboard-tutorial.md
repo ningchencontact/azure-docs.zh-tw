@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fb7302497d4331a9e39c8a3c50393646b663f7d8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 81aa38c1c7783c7e0357f8f69f4d4484d26873e9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283132"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006943"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>教學課程：Azure Active Directory 與 RealtimeBoard 整合
 
@@ -111,7 +111,7 @@ RealtimeBoard 與 Azure AD 整合提供下列優點：
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![映像](common/both-preintegrated-signon.png)
+    ![image](common/both-preintegrated-signon.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://realtimeboard.com/sso/saml`
 
@@ -131,7 +131,7 @@ RealtimeBoard 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-realtimeboard-single-sign-on"></a>設定 RealtimeBoard 單一登入
 
-若要在 **RealtimeBoard** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和複製的適當 URL 傳送給 [RealtimeBoard 支援小組]()。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **RealtimeBoard** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和複製的適當 URL 傳送給 RealtimeBoard 支援小組。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 

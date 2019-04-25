@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 42437130d30a405af47289ae16d9851fb506a598
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: dc3d4f0b2658c82a50f58d976a47607dead1abce
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756275"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149524"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>教學課程：執行 Azure Kubernetes Service (AKS) 中的應用程式
 
@@ -52,7 +52,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-將 *microsoft* 取代為您的 ACR 登入伺服器名稱。 您可以在資訊清單檔的第 47 行找到映像名稱。 下列範例顯示預設映像名稱：
+將 *microsoft* 取代為您的 ACR 登入伺服器名稱。 您可以在資訊清單檔的第 51 行找到映像名稱。 下列範例顯示預設映像名稱：
 
 ```yaml
 containers:

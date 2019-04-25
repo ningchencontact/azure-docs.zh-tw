@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式 | Microsoft Docs
-description: 在本教學課程中，您將了解如何使用 Azure 通知中樞，將通知推播至 Windows 通用平台應用程式。
+description: 了解如何使用 Azure 通知中樞，將通知推播至 Windows 通用平台應用程式。
 services: notification-hubs
 documentationcenter: windows
 author: jwargo
@@ -15,23 +15,23 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 093528dff09c71b999d58f0285044340fa0ec360
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403199"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006925"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-在本教學課程中，您會使用 Azure 通知中樞將推播通知傳送至通用 Windows 平台 (UWP) 應用程式。 您會使用 Windows 推播通知服務 (WNS)，建立可接收推播通知的空白 Windows 市集應用程式。 接著，您即可使用通知中樞，將推播通知廣播到所有執行您的應用程式的裝置。
+在本教學課程中，您會使用 Azure 通知中樞將推播通知傳送至通用 Windows 平台 (UWP) 應用程式。 您會使用 Windows 推播通知服務 (WNS)，建立可接收推播通知的空白 Windows 市集應用程式。 接著，使用通知中樞將推播通知廣播到所有執行您應用程式的裝置。
 
 > [!NOTE]
 > 您可以在 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal) 上找到本教學課程的完整程式碼。
 
-在本教學課程中，您會執行下列步驟：
+請執行下列步驟：
 
 > [!div class="checklist"]
 > * 在 Windows 市集中建立應用程式
@@ -45,6 +45,11 @@ ms.locfileid: "58403199"
 - [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) 或更新版本。
 - [已安裝 UWP 應用程式開發工具](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - 有效的 Windows 市集帳戶
+- 確認已啟用 [從應用程式和其他傳送者取得通知] 設定。 
+    - 在電腦上啟動 [設定] 視窗。
+    - 選取 [系統] 圖格。
+    - 從左側功能表中選取 [通知與動作]。 
+    - 確認已啟用 [從應用程式和其他傳送者取得通知] 設定。 如果未啟用，請加以啟用。 
 
 完成本教學課程是參加 UWP 應用程式所有其他通知中樞教學課程的先決條件。
 
@@ -170,8 +175,7 @@ ms.locfileid: "58403199"
     ![通知訊息](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 
 ## <a name="next-steps"></a>後續步驟
-
-在本教學課程中，您已使用入口網站或主控台應用程式，將廣播通知傳送至您的所有 Windows 裝置。 若想了解如何將通知推送至特定裝置，請繼續進行下列教學課程：
+您已使用入口網站或主控台應用程式，將廣播通知傳送至您的所有 Windows 裝置。 若想了解如何將通知推送至特定裝置，請繼續進行下列教學課程：
 
 > [!div class="nextstepaction"]
 >[將通知推送至特定裝置](

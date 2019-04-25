@@ -1,21 +1,21 @@
 ---
 title: 如何在 Azure Cosmos DB 中設定多重主機
 description: 了解如何在 Azure Cosmos DB 中對應用程式設定多重主機
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 2/12/2019
-ms.author: mjbrown
-ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: b862c59002369662d37b6d6a9de28370b0000497
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312135"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682265"
 ---
 # <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>如何在使用 Azure Cosmos DB 的應用程式中設定多重主機
 
-若要在應用程式中使用多重主機功能，您必須啟用多區域寫入，並設定多路連接功能。 多路連接可藉由設定應用程式目前部署所在的區域來加以設定。
+若要在應用程式中使用多重主機功能，您必須在 Azure Cosmos DB 中啟用多區域寫入並設定多路連接功能。 多路連接可藉由設定應用程式部署所在的區域來加以設定。
 
 ## <a id="netv2"></a>.NET SDK v2
 
@@ -43,7 +43,7 @@ CosmosClient client = new CosmosClient(config);
 
 ## <a id="java"></a>Java Async SDK
 
-若要在應用程式中啟用多重主機，請將 `policy.setUsingMultipleWriteLocations(true)` 設定為 true，並將 `policy.setPreferredLocations` 設定為要在其中部署應用程式和複寫 Cosmos DB 的區域。
+若要在應用程式中啟用多重主機，請設定 `policy.setUsingMultipleWriteLocations(true)`，並將 `policy.setPreferredLocations` 設定為要在其中部署應用程式和複寫 Cosmos DB 的區域。
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -89,14 +89,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解 Azure Cosmos DB 中的多重主機、全域散發和一致性。 請參閱下列文章：
+接下來，您可以閱讀下列文章：
 
 * [利用工作階段權杖來管理 Azure Cosmos DB 中的一致性](how-to-manage-consistency.md#utilize-session-tokens)
-
 * [Azure Cosmos DB 中的衝突類型和解決原則](conflict-resolution-policies.md)
-
 * [Azure Cosmos DB 中的高可用性](high-availability.md)
-
+* [Azure Cosmos DB 中的一致性層級](consistency-levels.md)
 * [在 Azure Cosmos DB 中選擇正確的一致性層級](consistency-levels-choosing.md)
-
 * [Azure Cosmos DB 中一致性、可用性和效能的取捨](consistency-levels-tradeoffs.md)
+* [各種一致性層級的可用性和效能權衡取捨](consistency-levels-tradeoffs.md)
+* [全域調整佈建的輸送量](scaling-throughput.md)
+* [全域散發 - 運作原理](global-dist-under-the-hood.md)

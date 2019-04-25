@@ -8,11 +8,11 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 78f608aedd53aa1071eaf88864f5a63f8f9e6072
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281194"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791006"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>部署 ISO 27001 App Service 環境/SQL Database 工作負載藍圖範例
 
@@ -35,7 +35,7 @@ ms.locfileid: "59281194"
 
 ## <a name="create-blueprint-from-sample"></a>從範例建立藍圖
 
-首先，使用範例作為起點，在您的環境中建立新藍圖，藉此實作藍圖範例。
+首先，若要實作藍圖範例，請使用範例作為起點，在您的環境中建立新藍圖。
 
 1. 在左窗格中選取 [所有服務]，然後搜尋並選取 [原則]。 在 [原則] 頁面上，選取 [藍圖]。
 
@@ -123,7 +123,7 @@ ms.locfileid: "59281194"
 |網路資源群組|資源群組|Name|**已鎖定** - 串連**組織名稱**與 `-workload-net-rg` 來形成唯一的資源群組。|
 |網路資源群組|資源群組|位置|**已鎖定** - 使用藍圖參數。|
 |網路安全性群組範本|Resource Manager 範本|記錄保留天數|資料保留天數。 預設值為「365」。|
-|虛擬網路與路由表範本|Resource Manager 範本|Azure 防火牆私人 IP|設定 [Azure 防火牆](../../../../firewall/overview.md)的私人 IP。 應該是「ISO 27001：共用服務」成品參數 **Azure 防火牆子網路位址首碼**中所定義 CIDR 標記法的一部分。 預設值為「10.0.4.4」。|
+|虛擬網路與路由表範本|Resource Manager 範本|Azure 防火牆私人 IP|設定 [Azure 防火牆](../../../../firewall/overview.md)的私人 IP。 應是 CIDR 標記法的一部份，定義於 _ISO 27001：共用服務_成品參數 **Azure 防火牆子網路位址首碼**。 預設值為 10.0.4.4。|
 |虛擬網路與路由表範本|Resource Manager 範本|共用服務訂用帳戶識別碼|用來啟用工作負載和共用服務間 VNET 對等互連的值。|
 |虛擬網路與路由表範本|Resource Manager 範本|虛擬網路位址首碼|虛擬網路的 CIDR 標記法。 預設值為 10.1.0.0/16。|
 |虛擬網路與路由表範本|Resource Manager 範本|預設子網路位址首碼|虛擬網路預設子網路的 CIDR 標記法。 預設值為 10.1.0.0/16。|

@@ -1,6 +1,6 @@
 ---
-title: 教學課程 - 將 Azure Active Directory 記錄串流到 Azure 事件中樞 (預覽) | Microsoft Docs
-description: 深入了解如何設定 Azure 診斷以將 Azure Active Directory 記錄推送到事件中樞 (預覽)
+title: 教學課程 - 將 Azure Active Directory 記錄串流到 Azure 事件中樞 | Microsoft Docs
+description: 深入了解如何設定 Azure 診斷以將 Azure Active Directory 記錄推送到事件中樞
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85a3c43054aeb758eb1e0da9ce1086bfa653180
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436926"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995588"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>教學課程：將 Azure Active Directory 記錄串流到 Azure 事件中樞 (預覽)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>教學課程：將 Azure Active Directory 記錄串流到 Azure 事件中樞
 
 在本教學課程中，您會了解如何設定 Azure 監視器診斷設定，以將 Azure Active Directory (Azure AD) 記錄串流到 Azure 事件中樞。 使用這個機制將記錄與 Splunk 和 QRadar 等第三方安全性資訊與事件管理 (SIEM) 工具整合在一起。
 

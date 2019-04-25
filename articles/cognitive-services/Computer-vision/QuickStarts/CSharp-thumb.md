@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 05d48c67876b02c1909243eaa86a57fd4ab8d5c1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 5915aa522fe06b432ca036553c7dd7da63836c9e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312832"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995110"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 C# 來產生縮圖
 
@@ -27,7 +27,7 @@ ms.locfileid: "56312832"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須有 [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 或更新版本。
-- 您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 您必須有電腦視覺的訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 ## <a name="create-and-run-the-sample-application"></a>建立並執行範例應用程式
 

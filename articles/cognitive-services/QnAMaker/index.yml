@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8eb7d6e920f09d6ad230813503a7cf942427ea80
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227840"
 documentType: LandingData
 title: QnA Maker 文件
 metadata:
@@ -24,76 +18,76 @@ abstract:
   description: QnA Maker 是一項雲端式 API 服務，可對您的資料建立交談式的問答層。 QnA Maker 可讓您加強常見問題集文件或 URL 及產品手冊等半結構化內容中的問題與解答服務。 QnA Maker 服務會將使用者的自然語言問題與知識庫中各個 QnA 可能包含的最佳解答比對，以回答這些問題。
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ../media/index/qnamaker-landing-page-video.png
       width: 250
-    title: 使用 QnA Maker 快速建置 Bot (8:54)
-    href: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+    title: '使用 QnA Maker 快速建置 Bot (8:54)'
+    href: 'https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker'
     width: 250
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/qnamaker/overview/overview
+            html: <p>深入了解 QnA Maker。</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 什麼是 QnA Maker？
+          - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
+            html: <p>了解如何建立、訓練及發佈知識庫。</p>
+            image:
+              src: ../media/index/i_tasks.svg
+            title: 建立、訓練及發佈知識庫
+          - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
+            html: <p>了解如何發佈知識庫。</p>
+            image:
+              src: ../media/index/i_tasks.svg
+            title: 了解資料來源
+  - title: 5 分鐘快速入門
     items:
-    - href: /azure/cognitive-services/qnamaker/overview/overview
-      html: <p>深入了解 QnA Maker。</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: 什麼是 QnA Maker？
-    - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
-      html: <p>了解如何建立、訓練及發佈知識庫。</p>
-      image:
-        src: ../media/index/i_tasks.svg
-      title: 建立、訓練及發佈知識庫
-    - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
-      html: <p>了解如何發佈知識庫。</p>
-      image:
-        src: ../media/index/i_tasks.svg
-      title: 了解資料來源
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 建立問題和解答的知識庫：
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 建立問題和解答的知識庫：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_Csharp.svg
+            text: 'C&#35;'
+            href: Quickstarts/create-new-kb-csharp
+          - image:
+              src: media/index/Go-Logo_Blue.svg
+            text: Go
+            href: Quickstarts/create-new-kb-go
+          - image:
+              src: media/index/logo_java.svg
+            text: Java
+            href: Quickstarts/create-new-kb-java
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Node.js
+            href: Quickstarts/create-new-kb-nodejs
+          - image:
+              src: media/index/logo_python.svg
+            text: Python
+            href: Quickstarts/create-new-kb-python
+  - title: 逐步教學課程
     items:
-    - image:
-        src: media/index/logo_Csharp.svg
-      text: C&#35;
-      href: Quickstarts/create-new-kb-csharp
-    - image:
-        src: media/index/Go-Logo_Blue.svg
-      text: Go
-      href: Quickstarts/create-new-kb-go
-    - image:
-        src: media/index/logo_java.svg
-      text: Java
-      href: Quickstarts/create-new-kb-java
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node.js
-      href: Quickstarts/create-new-kb-nodejs
-    - image:
-        src: media/index/logo_python.svg
-      text: Python
-      href: Quickstarts/create-new-kb-python
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何使用 QnA Maker 開發應用程式：
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 了解如何使用 QnA Maker 開發應用程式：
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-publish-query-in-portal">建立知識庫並回答問題</a></li>
+          - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-qna-bot">建立 QnA Maker Bot</a></li>
+  - title: 參考
     items:
-    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-publish-query-in-portal">建立知識庫並回答問題</a></li>
-    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-qna-bot">建立 QnA Maker Bot</a></li>
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: API
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff">QnA Maker API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API
+            html: '<p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff">QnA Maker API</a></p>'

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563365"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011230"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>範例：如何呼叫電腦視覺 API
 
@@ -47,8 +47,7 @@ ms.locfileid: "59563365"
 
 每次呼叫電腦視覺 API 時，都需要訂用帳戶金鑰。 這個金鑰必須透過查詢字串參數傳遞，或是在要求標頭中指定。
 
-若要取得訂用帳戶金鑰，請參閱[如何取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md
-)。
+若要取得免費試用金鑰，請參閱[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 1. 透過查詢字串傳遞訂用帳戶金鑰，請參閱下面的電腦視覺 API 範例：
 

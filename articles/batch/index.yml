@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cc30c4552cfa672121a5e7fc520fb4412237b7e9
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591684"
 documentType: LandingData
 title: Batch 文件
 metadata:
@@ -22,56 +16,56 @@ metadata:
 abstract:
   description: 使用 Batch 在雲端有效率地執行大規模的平行和高效能運算 (HPC) 應用程式。 定義 Azure 計算資源，進而以平行方式或大規模執行應用程式，而不需要手動設定或管理基礎結構。 排程需要大量計算的工作，並依需求動態新增或移除計算資源。 了解如何透過快速入門、教學課程和範例使用 Azure Batch。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何在 Azure 中執行您的第一個 Batch 作業。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
-      text: Azure CLI
-      href: quick-create-cli
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure 入口網站
-      href: quick-create-portal
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_NET.svg
-      text: .NET
-      href: quick-run-dotnet
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_python.svg
-      text: Python
-      href: quick-run-python
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何在 Batch 中執行需要進行大量計算的工作負載。
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 了解如何在 Azure 中執行您的第一個 Batch 作業。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Azure CLI
+            href: quick-create-cli
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure 入口網站
+            href: quick-create-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_NET.svg'
+            text: .NET
+            href: quick-run-dotnet
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_python.svg'
+            text: Python
+            href: quick-run-python
+  - title: 逐步教學課程
     items:
-    - html: <a href="tutorial-parallel-dotnet">使用 .NET SDK 進行檔案平行處理</a>
-    - html: <a href="tutorial-parallel-python">使用 Python SDK 進行檔案平行處理</a>
-    - html: <a href="tutorial-rendering-cli">使用 Arnold 進行場景轉譯</a>
-    - html: <a href="tutorial-r-doazureparallel">平行 R 模擬</a>
-- title: 範例
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 了解如何在 Batch 中執行需要進行大量計算的工作負載。
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-parallel-dotnet">使用 .NET SDK 進行檔案平行處理</a>
+          - html: <a href="tutorial-parallel-python">使用 Python SDK 進行檔案平行處理</a>
+          - html: <a href="tutorial-rendering-cli">使用 Arnold 進行場景轉譯</a>
+          - html: <a href="tutorial-r-doazureparallel">平行 R 模擬</a>
+  - title: 範例
     items:
-    - html: <a href="cli-samples">Azure CLI</a>
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="cli-samples">Azure CLI</a>
+  - title: 參考
     items:
-    - title: 命令列
-      html: <p><a href="/cli/azure/batch">Azure CLI</a></p><p><a href="/powershell/module/az.batch">Azure PowerShell</a></p>
-    - title: 語言
-      html: <p><a href="/dotnet/api/overview/azure/batch">.NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/batchservice">Batch 服務 REST API</a></p><p><a href="/rest/api/batchmanagement/">Batch 管理 REST API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: <p><a href="/cli/azure/batch">Azure CLI</a></p><p><a href="/powershell/module/az.batch">Azure PowerShell</a></p>
+          - title: 語言
+            html: <p><a href="/dotnet/api/overview/azure/batch">.NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/batchservice">Batch 服務 REST API</a></p><p><a href="/rest/api/batchmanagement/">Batch 管理 REST API</a></p>

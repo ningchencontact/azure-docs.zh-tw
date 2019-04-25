@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 68cf4561d24a84c5aacefbe5fbd11bcd7e0576aa
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 01a64345285149a50c226ebb344982425a813156
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878548"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995076"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>教學課程：使用 DMS 在離線狀態下將 MongoDB 遷移至 Azure Cosmos DB 的 Mongo 版 API
 您可以使用 Azure 資料庫移轉服務，在離線狀態下將資料庫從內部部署或雲端的 MongoDB 執行個體 (單次) 移轉至 Azure Cosmos DB 的 Mongo 版 API。
@@ -32,6 +32,7 @@ ms.locfileid: "58878548"
 
 ## <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您需要：
+- [完成移轉前](../cosmos-db/mongodb-pre-migration.md)步驟，例如估計輸送量、選擇分割索引鍵和索引編製原則。
 - [建立 Azure Cosmos DB 的 Mongo 版 API 帳戶](https://ms.portal.azure.com/#create/Microsoft.DocumentDB)。
 - 使用 Azure Resource Manager 部署模型建立 Azure 資料庫移轉服務的 Azure 虛擬網路 (VNET)，以使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 為您的內部部署來源伺服器提供站對站連線能力。
 
@@ -175,6 +176,10 @@ ms.locfileid: "58878548"
 - 在移轉完成之後，您可以檢查 Azure Cosmos DB 帳戶，以確認所有集合都已成功移轉。
 
     ![活動狀態已完成](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
+
+## <a name="post-migration-optimization"></a>移轉後最佳化
+
+將 MongoDB 資料庫中儲存的資料遷移至 Azure Cosmos DB 的 MongoDB 版 API 之後，您就可以連線到 Azure Cosmos DB 並管理這些資料。 您也可以執行其他的移轉後最佳化步驟，例如將索引編製原則最佳化、更新預設的一致性層級或設定 Azure Cosmos DB 帳戶的全域散發。 如需詳細資訊，請參閱[移轉後最佳化](../cosmos-db/mongodb-post-migration.md)一文。 
 
 ## <a name="additional-resources"></a>其他資源
 
