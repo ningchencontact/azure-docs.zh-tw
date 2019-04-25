@@ -3,7 +3,7 @@ title: 關於 Azure Active Directory B2C 自訂原則中的宣告解析程式 | 
 description: 了解宣告解析程式在 Azure Active Directory B2C 自訂原則中的使用方式。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 44ac4a5fd14d262fdbd1f6fcd36bb2351d08f754
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313829"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>關於 Azure Active Directory B2C 自訂原則中的宣告解析程式
 
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) B2C[自訂原則](active-directory-b2c-overvie
 
 ### <a name="culture"></a>文化特性
 
-| 宣告 | 說明 | 範例 |
+| 宣告 | 描述 | 範例 |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | 語言的雙字母 ISO 代碼。 | en |
 | {Culture:LCID}   | 語言代碼的 LCID。 | 1033 |
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) B2C[自訂原則](active-directory-b2c-overvie
 
 ### <a name="policy"></a>原則
 
-| 宣告 | 說明 | 範例 |
+| 宣告 | 描述 | 範例 |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | 信賴憑證者原則名稱。 | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | 信賴憑證者原則的租用戶識別碼。 | your-tenant.onmicrosoft.com |
@@ -63,7 +63,7 @@ Azure Active Directory (Azure AD) B2C[自訂原則](active-directory-b2c-overvie
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| 宣告 | 說明 | 範例 |
+| 宣告 | 描述 | 範例 |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |`acr_values` 查詢字串參數。 | N/A |
 | {OIDC:ClientId} |`client_id` 查詢字串參數。 | 00000000-0000-0000-0000-000000000000 |
@@ -77,7 +77,7 @@ Azure Active Directory (Azure AD) B2C[自訂原則](active-directory-b2c-overvie
 
 ### <a name="context"></a>Context
 
-| 宣告 | 說明 | 範例 |
+| 宣告 | 描述 | 範例 |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | 身分識別體驗架構版本 (組建編號)。  | 1.0.507.0 |
 | {Context:CorrelationId} | 相互關連識別碼。  | 00000000-0000-0000-0000-000000000000 |
@@ -90,7 +90,7 @@ Azure Active Directory (Azure AD) B2C[自訂原則](active-directory-b2c-overvie
 
 OIDC 或 OAuth2 要求中所包含的任何參數名稱均可對應至使用者旅程圖中的宣告。 例如，來自應用程式的要求可能包含名稱為 `app_session`、`loyalty_number` 或任何自訂查詢字串的查詢字串參數。
 
-| 宣告 | 說明 | 範例 |
+| 宣告 | 描述 | 範例 |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | 查詢字串參數。 | hawaii |
 | {OAUTH-KV:app_session} | 查詢字串參數。 | A3C5R |
@@ -99,7 +99,7 @@ OIDC 或 OAuth2 要求中所包含的任何參數名稱均可對應至使用者�
 
 ### <a name="oauth2"></a>OAuth2
 
-| 宣告 | 說明 | 範例 |
+| 宣告 | 描述 | 範例 |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | 存取權杖。 | N/A |
 

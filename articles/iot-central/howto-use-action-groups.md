@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
 ms.openlocfilehash: 857d747fa691d1ec2b386d5931a7edea08b7e609
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60517256"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>若要從一或多個規則執行的多個動作群組
 

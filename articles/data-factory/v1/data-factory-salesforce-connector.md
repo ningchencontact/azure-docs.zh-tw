@@ -14,11 +14,11 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309143"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -286,25 +286,25 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | Salesforce 類型 | 以 .NET 為基礎的類型 |
 | --- | --- |
-| 自動編號 |字串 |
-| 核取方塊 |BOOLEAN |
+| 自動編號 |String |
+| 核取方塊 |Boolean |
 | 貨幣 |Decimal |
-| 日期 |DateTime |
-| 日期/時間 |DateTime |
-| 電子郵件 |字串 |
-| id |字串 |
-| 查閱關聯性 |字串 |
-| 複選挑選清單 |字串 |
+| date |Datetime |
+| 日期/時間 |Datetime |
+| 電子郵件 |String |
+| id |String |
+| 查閱關聯性 |String |
+| 複選挑選清單 |String |
 | 數字 |Decimal |
 | 百分比 |Decimal |
-| 電話 |字串 |
-| 挑選清單 |字串 |
-| 文字 |字串 |
-| 文字區域 |字串 |
-| 文字區域 (完整) |字串 |
-| 文字區域 (豐富) |字串 |
-| 文字 (加密) |字串 |
-| URL |字串 |
+| 電話 |String |
+| 挑選清單 |String |
+| Text |String |
+| 文字區域 |String |
+| 文字區域 (完整) |String |
+| 文字區域 (豐富) |String |
+| 文字 (加密) |String |
+| URL |String |
 
 > [!NOTE]
 > 若要將來源資料集中的資料行對應至接收資料集中的資料行，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。

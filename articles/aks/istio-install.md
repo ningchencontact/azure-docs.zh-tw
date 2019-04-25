@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
 ms.openlocfilehash: d85b830b63e2d52f3eeb5df8645edccfccf43c76
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465337"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中安裝和使用 Istio
 
@@ -38,7 +38,7 @@ ms.locfileid: "58138145"
 
 ## <a name="download-istio"></a>下載 Istio
 
-首先，下載並解壓縮最新的 Istio 版本。 步驟適用於 MacOS、 Linux 或適用於 Linux，和 PowerShell 殼層的 Windows 子系統上的 bash 殼層稍有不同。 請選擇下列其中一個適用於您慣用環境的安裝步驟：
+首先，下載並解壓縮最新的 Istio 版本。 MacOS、Linux 或适用于 Linux 的 Windows 子系统上的 bash shell 的步骤和 PowerShell shell 的步骤稍有不同。 請選擇下列其中一個適用於您慣用環境的安裝步驟：
 
 * [MacOS、Linux 或適用於 Linux 的 Windows 子系統上的 Bash](#bash)
 * [PowerShell](#powershell)
@@ -82,7 +82,7 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 `istioctl` 用戶端二進位檔會在用戶端電腦上執行，並可讓您管理 Istio 路由規則和原則。 同樣地，各個用戶端作業系統之間的安裝步驟稍有不同。 請選擇下列其中一個適用於您慣用環境的安裝步驟。
 
 > [!IMPORTANT]
-> 請確定在此區段中，執行步驟，從您下載並解壓縮的 Istio 版次的最上層資料夾。
+> 确保从已经下载并提取的 Istio 版本的顶层文件夹运行此部分的步骤。
 
 ### <a name="macos"></a>MacOS
 
@@ -147,10 +147,10 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 ## <a name="install-the-istio-kubernetes-components"></a>安裝 Istio Kubernetes 元件
 
 > [!IMPORTANT]
-> 請確定在此區段中，執行步驟，從您下載並解壓縮的 Istio 版次的最上層資料夾。
+> 确保从已经下载并提取的 Istio 版本的顶层文件夹运行此部分的步骤。
 
 > [!NOTE]
-> 版本`1.0.6`和較新的 Istio Helm 圖表有重大變更。 如果您選取要安裝此版本中，您現在必須手動建立 Kiali 祕密。 您也必須以手動方式建立祕密的 Grafana，如果您已將`grafana.security.enabled=true`。 請參閱 Istio Helm 圖表[README.md](https://github.com/istio/istio/tree/master/install/kubernetes/helm/istio#installing-the-chart)如需有關如何建立這些機密資料的詳細資訊。
+> Istio Helm 图表的 `1.0.6` 及更新版本存在中断性变更。 如果选择安装此版本，则需手动创建 Kiali 的机密。 如果已设置 `grafana.security.enabled=true`，则还需手动创建 Grafana 的机密。 请参阅 Istio Helm 图表 [README.md](https://github.com/istio/istio/tree/master/install/kubernetes/helm/istio#installing-the-chart)，更详细地了解如何创建这些机密。
 
 若要將 Istio 元件安裝到 AKS 叢集，請使用 Helm。 將 Istio 資源安裝到 `istio-system` 命名空間，然後啟用關於安全性和監視的其他選項，如下所示：
 

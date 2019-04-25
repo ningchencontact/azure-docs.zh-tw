@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: f1e3272bd8f0d353a7bf817d7f79d2d596277caa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361190"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>管理 Azure Active Directory Domain Services 受控網域
 本文說明如何管理 Azure Active Directory (AD) 網域服務受控網域。

@@ -3,7 +3,7 @@ title: UserJourneys | Microsoft Docs
 description: 指定 Azure Active Directory B2C 中自訂原則的 UserJourneys 元素。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: ccc1f94b9411a158b5c60509e09bd3edc0a61640
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795148"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359869"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -99,7 +99,7 @@ ms.locfileid: "59795148"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| 值 | 1:n | 要查詢的 ClaimTypeReferenceId。 另一個值元素包含要檢查的值。</li></ul>|
+| Value | 1:n | 要查詢的 ClaimTypeReferenceId。 另一個值元素包含要檢查的值。</li></ul>|
 |  動作 | 1:1 | 當協調流程步驟內的先決條件檢查為 True 時應執行的動作。 如果將 `Action` 的值設定為 `SkipThisOrchestrationStep`，就不應執行相關聯的 `OrchestrationStep`。 | 
 
 #### <a name="preconditions-examples"></a>先決條件範例

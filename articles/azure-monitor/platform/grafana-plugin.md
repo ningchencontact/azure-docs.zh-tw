@@ -3,18 +3,18 @@ title: 使用 Grafana 監視 Azure 服務與應用程式
 description: 路由 Azure 監視器與 Application Insights 資料，以便使用 Grafana 檢視它們。
 services: azure-monitor
 keywords: ''
-author: rboucher
-ms.author: robb
-ms.date: 11/06/2017
+author: lingliw
+ms.author: v-lingwu
+ms.date: 04/12/19
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
 ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395938"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>在 Grafana 中監視 Azure 服務
 您現在可以從使用 [Azure 監視器資料來源外掛程式](https://grafana.com/plugins/grafana-azure-monitor-datasource)的 [Grafana](https://grafana.com/)，監視 Azure 服務和應用程式。 外掛程式會蒐集 Azure 監視器所收集的應用程式效能資料，包括各種記錄和計量。 然後，您就可以在 Grafana 儀表板上顯示此資料。
@@ -168,4 +168,3 @@ Grafana 有許多實用功能，儀表板播放清單就是其中之一。 您�
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure 監視器計量概觀](data-platform.md)
-

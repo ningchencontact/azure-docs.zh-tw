@@ -13,11 +13,11 @@ ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
 ms.openlocfilehash: 622a3ce0f80bd09bd09fa7ff097f68155318142d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080351"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351177"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>設定應用程式的群組宣告與 Azure Active Directory （公開預覽）
 
@@ -152,7 +152,7 @@ Azure Active Directory 所提供的應用程式中使用的權杖中的使用者
    }
    ```
 
-   | 選擇性宣告結構描述 | 值 |
+   | 選擇性宣告結構描述 | Value |
    |----------|-------------|
    | **名稱：** | 必須是 「 群組 」 |
    | **來源：** | 不使用。 省略或指定 null |

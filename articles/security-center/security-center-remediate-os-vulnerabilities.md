@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332903"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>在 Azure 資訊安全中心修復安全性設定
 Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易遭受攻擊的設定，每天分析虛擬機器和電腦的作業系統。 當您的 OS 設定不符合建議的安全性設定規則時，資訊安全中心會建議您解決這些弱點，並建議變更設定以解決這些弱點。

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
 ms.openlocfilehash: 2ce2e2b35d731c3edfed931d158b420e66ed5620
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329763"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>使用 PowerShell 管理流量管理員
 
@@ -61,7 +61,7 @@ $profile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -
 
 | 參數 | 描述 |
 | --- | --- |
-| 名稱 |流量管理員設定檔資源的資源名稱。 同一资源组中的配置文件必须具有唯一的名称。 這個名稱是從用於 DNS 查詢的 DNS 名稱分割而來。 |
+| Name |流量管理員設定檔資源的資源名稱。 同一资源组中的配置文件必须具有唯一的名称。 這個名稱是從用於 DNS 查詢的 DNS 名稱分割而來。 |
 | ResourceGroupName |包含設定檔資源的資源群組名稱。 |
 | TrafficRoutingMethod |指定流量路由方法，用來決定回應 DNS 查詢時傳回哪一個端點。 可能的值為 'Performance'、'Weighted' 或 'Priority'。 |
 | RelativeDnsName |指定此流量管理員設定檔所提供之 DNS 名稱的主機名稱部分。 這個值會與由 Azure 流量管理員使用的 DNS 網域名稱結合，形成設定檔的完整網域名稱 (FQDN)。 例如，值設為 'contoso' 會變成 'contoso.trafficmanager.net'。 |

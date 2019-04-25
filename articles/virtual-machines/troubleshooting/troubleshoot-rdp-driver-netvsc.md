@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362249"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>因為 netvsc.sys 而無法從遠端連線到 Azure 中的 Windows 10 或 Windows Server 2016 VM
 
@@ -26,7 +26,7 @@ ms.locfileid: "57994617"
 
 ## <a name="symptoms"></a>徵兆
 
-您無法使用遠端桌面通訊協定 (RDP) 連線到 Azure 的 Windows 10 或 Windows Server 2016 VM。 在 [開機診斷](boot-diagnostics.md) 中，畫面中的網路介面卡 (NIC) 上方顯示紅色打叉符號。 這表示 VM 在作業系統完全載入之後沒有連線。
+无法使用远程桌面协议 (RDP) 连接到 Azure Windows 10 或 Windows Server 2016 VM。 在 [開機診斷](boot-diagnostics.md) 中，畫面中的網路介面卡 (NIC) 上方顯示紅色打叉符號。 這表示 VM 在作業系統完全載入之後沒有連線。
 
 一般而言，此問題發生在 Windows [組建 14393](https://support.microsoft.com/help/4093120/) 與[組建 15063](https://support.microsoft.com/help/4015583/) 中。 若您的作業系統版本比這些版本新，此文章不適用於您的案例。 若要檢查系統版本，請在[序列存取主控台](serial-console-windows.md) 中開啟 CMD 工作階段，然後執行 **Ver**。
 

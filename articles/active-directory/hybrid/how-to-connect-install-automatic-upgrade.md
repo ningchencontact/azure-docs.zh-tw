@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60349811"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自動升級
 此功能已隨組建 [1.1.105.0 (於 2016 年 2 月發行)](reference-connect-version-history.md#111050) 一起推出。  這項功能已在[組建 1.1.561](reference-connect-version-history.md#115610) 中更新，且現在支援先前未支援的其他案例。
@@ -43,7 +43,7 @@ ms.locfileid: "58003909"
 | 已挂起 |只有系統才能設定。 系統**目前沒有**資格再接收自動升級。 |
 | 已停用 |已停用自動升級。 |
 
-您可以使用 `Set-ADSyncAutoUpgrade` 在 [已啟用] 與 [已停用] 之間進行變更。 應該只有系統才能設定 [已暫止] 狀態。  之前 1.1.750.0 Set-adsyncautoupgrade cmdlet 會封鎖如果自動升級狀態設為 已暫停。 這項功能現在已變更，因此它不會封鎖。
+您可以使用 `Set-ADSyncAutoUpgrade` 在 [已啟用] 與 [已停用] 之間進行變更。 應該只有系統才能設定 [已暫止] 狀態。  在 1.1.750.0 之前，如果自动升级状态设置为“已暂停”，则 Set-ADSyncAutoUpgrade cmdlet 会阻止自动升级。 此功能现已更改，不阻止自动升级。
 
 自動升級使用 Azure AD Connect Health 做為升級基礎結構。 為了讓自動升級能夠運作，請確定您已依照 **Office 365 URL 與 IP 位址範圍** 中的記載，在您 Proxy 伺服器中開啟 [Azure AD Connect Health](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)的 URL。
 

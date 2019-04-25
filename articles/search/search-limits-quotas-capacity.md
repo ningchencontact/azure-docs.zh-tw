@@ -11,11 +11,11 @@ ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699161"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193094"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 最大值限制儲存體、 工作負載和數量的索引、 文件，和其他物件相依於是否您[佈建 Azure 搜尋服務](search-create-service-portal.md)在**免費**，**基本**， **標準**，或**儲存體最佳化**定價層。

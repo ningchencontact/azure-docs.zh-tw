@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: helohr
 ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328845"
 ---
 # <a name="connect-with-windows-7-and-windows-10"></a>與 Windows 7 和 Windows 10 連線
 
-> 適用於Windows 7 和 Windows 10。
+> 適用於：Windows 7 和 Windows 10。
 
 可下載的用戶端可存取 Windows 虛擬桌面預覽資源從執行 Windows 7 和 Windows 10 的裝置。
 

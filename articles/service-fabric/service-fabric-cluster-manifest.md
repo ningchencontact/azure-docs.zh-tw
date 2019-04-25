@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386715"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>獨立 Windows 叢集的組態設定
 本文說明如何在 ClusterConfig.json 檔案中設定獨立 Azure Service Fabric 叢集的組態設定。 您將會使用此檔案來指定叢集節點、安全性設定，以及容錯和升級網域方面之網路拓撲的相關資訊。  變更或新增組態設定之後，您可以[建立獨立叢集](service-fabric-cluster-creation-for-windows-server.md)或[升級獨立叢集的組態](service-fabric-cluster-config-upgrade-windows-server.md)。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 37fe208f5087f318e665e76825127854b4a11c98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ad4bf7ae97a08f89b9d82e1d4e025a5bd5d47fc1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997923"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324670"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>監視 Azure CDN 資源的健康狀態
   
@@ -51,7 +51,7 @@ Azure CDN 資源健康狀態是 [Azure 資源健康狀態](../resource-health/re
 
 以下提供與 Azure CDN 資源健康狀態相關的狀態。
 
-|訊息 | 建議的動作 |
+|訊息 | 建議的動作 |
 |---|---|
 |您可能已停止、移除或錯誤設定一或多個 CDN 端點 | 您可能已停止、移除或錯誤設定一或多個 CDN 端點。|
 |很抱歉，目前無法使用 CDN 管理服務 | 請返回這裡以查看狀態更新。如果您的問題在預期解決時間之後持續發生，請連絡支援人員。|

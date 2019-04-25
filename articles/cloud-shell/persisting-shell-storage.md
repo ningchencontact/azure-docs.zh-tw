@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
 ms.openlocfilehash: 0aa00af543a3d21db9b8ad0ed808a8bff0b534e1
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60200136"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -62,7 +62,7 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 ### <a name="unmount-clouddrive"></a>卸載 clouddrive
 您可以隨時將掛接至 Cloud Shell 的檔案共用卸載。 因為 Cloud Shell 需要使用掛接的檔案共用，所以系統會在下一個工作階段提示您建立和掛接另一個檔案共用。
 
-1. 執行 `clouddrive unmount`。
+1. 运行 `clouddrive unmount`。
 2. 了解並確認提示。
 
 除非手動刪除，否則您的檔案共用將會繼續存在。 Cloud Shell 在後續的工作階段中將不再搜尋此檔案共用。 若要檢視更多詳細資料，請執行 `clouddrive unmount -h`，如下所示：

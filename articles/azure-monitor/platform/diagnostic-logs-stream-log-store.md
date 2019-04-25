@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60238032"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Azure 監視器中的 Log Analytics 工作區 Stream Azure 診斷記錄
 
@@ -124,7 +124,7 @@ Azure Data Factory 中，由於一組非常詳細的記錄檔，是特別會受�
 - *針對您的管線中的任何活動所定義的使用者參數*： 會為每個唯一命名的使用者參數，針對任何活動建立新的資料行。 
 - *活動的輸入和輸出*： 這些而有所不同，活動間產生大量的資料行，因為其詳細資訊的性質。 
  
-為更廣泛的因應措施提案，建議將 ADF 記錄檔隔離至其自己的工作區，以影響您工作區中收集其他記錄類型的這些記錄檔的機會降到最低。 我們希望能彙總了記錄檔可用的 Azure Data factory 所 2019 年 4 月。
+為更廣泛的因應措施提案，建議將 ADF 記錄檔隔離至其自己的工作區，以影響您工作區中收集其他記錄類型的這些記錄檔的機會降到最低。 我們希望能彙總了記錄檔可用的 Azure Data Factory 的推出。
  
 #### <a name="workarounds"></a>因應措施
 短期內，直到重新定義 500 資料行限制，建議分成不同的工作區，以減少可能會達到限制的詳細資訊的資料類型。

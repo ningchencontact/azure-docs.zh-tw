@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318201"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>了解單一裝置或大規模的 IoT Edge 自動部署
 
@@ -51,7 +51,7 @@ IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 
 
 每個模組的設定中繼資料都會包括： 
 
-* 版本 
+* Version 
 * 類型 
 * 狀態 (例如執行中或已停止) 
 * 重新啟動原則 

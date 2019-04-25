@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337508"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Azure 雲端服務概觀
 Azure 雲端服務是[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 的一個範例。 這項技術如同 [Azure App Service](../app-service/overview.md)，是專為支援可調整、穩定可靠且操作成本低的應用程式而設計。 如同 App Service 是裝載於虛擬機器 (VM) 上，Azure 雲端服務也是如此。 不過，您可更充分地掌控 VM。 您可以使用 Azure 雲端服務在 VM 上安裝您自己的軟體，並從遠端加以存取。

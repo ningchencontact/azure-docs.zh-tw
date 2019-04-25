@@ -16,11 +16,11 @@ ms.date: 07/05/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4bc5121f6604fae9a28b52db1bfb308d7cdb968d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60264283"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>教學課程：Azure Active Directory 與 LockPath Keylight 整合
 
@@ -168,7 +168,7 @@ LockPath Keylight 與 Azure AD 整合提供下列優點：
     
     g. 將 [自動佈建使用者] 設定為 [作用中]。
 
-    h. 將 [自動佈建帳戶類型] 設定為 [完整使用者]。
+    h.如果该值不存在，请单击“添加行”。 將 [自動佈建帳戶類型] 設定為 [完整使用者]。
 
     i. 設定 [自動佈建安全性角色]，選取 [具備 SAML 的標準使用者]。
     

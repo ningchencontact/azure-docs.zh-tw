@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
 ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243885"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322279"
 ---
 # <a name="live-event-types-comparison"></a>實況活動類型比較
 
@@ -57,7 +57,7 @@ ms.locfileid: "57243885"
 
 ## <a name="system-presets"></a>系統預設值
 
-使用即時編碼時 (即時事件設定為**標準**)，編碼預設值可讓您定義如何將內送資料流編碼成多個位元速率或圖層。 目前，唯一允許值的預設值*Default720p* （預設值）。
+使用即時編碼時 ([即時事件] 設定為 [標準])，編碼預設值會定義傳入的資料流如何編碼為多重位元速率或圖層。 目前，唯一允許值的預設值*Default720p* （預設值）。
 
 **Default720p** 會將視訊編碼成下列 6 層。
 
@@ -73,7 +73,7 @@ ms.locfileid: "57243885"
 | 200 |340 |192 |30 |高 |Video_340x192_200kbps |
 
 > [!NOTE]
-> 如果您需要使用自訂的即時編碼預設值，請連絡amshelp@microsoft.com。 您應該指定解析度和位元速率的所需的資料表。 ，請確認只有一個圖層中的 720p，和最多 6 個圖層。
+> 如果您需要使用自訂的即時編碼預設值，請連絡 amshelp@microsoft.com。 您應指定解析度和位元速率的所需資料表。 請確認只有一個圖層為 720p，且最多只有 6 個圖層。
 
 ### <a name="output-audio-stream"></a>輸出音訊串流
 

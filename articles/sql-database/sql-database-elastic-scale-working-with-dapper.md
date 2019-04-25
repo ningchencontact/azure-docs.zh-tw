@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002288"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335281"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>搭配使用彈性資料庫用戶端程式庫與 Dapper
 本文件適用於下列開發人員︰依賴 Dapper 建置應用程式，但也想利用[彈性資料庫工具](sql-database-elastic-scale-introduction.md)建立應用程式，經由實作分區化來相應放大資料層。  這份文件說明為了與彈性資料庫工具整合，Dapper 應用程式中需要做的變更。 重點在於使用 Dapper 撰寫彈性資料庫分區管理和資料相依路由。 

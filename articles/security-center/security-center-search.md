@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
 ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332557"
 ---
 # <a name="azure-security-center-search"></a>Azure 資訊安全中心搜尋
 Azure 資訊安全中心會使用[Azure 監視器記錄檔搜尋](../log-analytics/log-analytics-log-searches.md)來擷取和分析安全性資料。 Azure 監視器記錄檔包含可快速擷取及彙總資料的查詢語言。 從資訊安全中心，您可以利用 Azure 監視器記錄檔搜尋來建構查詢及分析所收集的資料。

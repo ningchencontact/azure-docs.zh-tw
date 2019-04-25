@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
 ms.openlocfilehash: 3163b33f69f4cc2d6cd4127253c7b6fadfddd6b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994242"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324026"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Azure CDN 規則引擎參考
 本文會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用比對條件和功能的詳細描述。

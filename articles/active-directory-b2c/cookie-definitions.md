@@ -3,7 +3,7 @@ title: Cookie 定義-Azure Active Directory B2C |Microsoft Docs
 description: 提供在 Azure Active Directory B2C 中使用的 cookie 的定義。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,17 +11,17 @@ ms.date: 03/18/2019
 ms.author: davidmu
 ms.component: B2C
 ms.openlocfilehash: ac422a00a919903063c96ac096882036b99a63e3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786739"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384981"
 ---
 # <a name="cookies-definitions-for-azure-active-directory-b2c"></a>Azure Active Directory B2C 的 cookie 定義
 
 下表列出 Azure Active Directory B2C 中使用的 cookie。
 
-| 名稱 | 網域 | 到期 | 目的 |
+| Name | 網域 | 到期 | 目的 |
 | ----------- | ------ | -------------------------- | --------- |
 | x-ms-cpim-admin | main.b2cadmin.ext.azure.com | 結束的[瀏覽器工作階段](active-directory-b2c-token-session-sso.md) | 跨租用戶會保留使用者成員資格資料。 使用者的租用戶是成員和層級的成員資格 （系統管理員或使用者）。 |
 | x-ms-cpim-slice | login.microsoftonline.com、 b2clogin.com、 加上品牌的網域 | 結束的[瀏覽器工作階段](active-directory-b2c-token-session-sso.md) | 用來將要求路由至適當的生產執行個體。 |

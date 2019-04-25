@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: adbe101455bc200bc6be439920736b756f08b695
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667985"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394371"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  Service Fabric 有相當大的介面區，不過，要了解的方面很多。  本文提供 Service Fabric 的概述，並描述核心概念、程式設計模型、應用程式生命週期、測試、叢集及健康情況監視。 如需相關簡介及了解如何使用 Service Fabric 來建立微服務，請參閱[概觀](service-fabric-overview.md)和[什麼是微服務？](service-fabric-overview-microservices.md)。 本文並未包含完整的內容清單，但有連結到 Service Fabric 每個領域的概觀與入門文章。 
@@ -165,7 +165,7 @@ Service Fabric 報告程式可監控感興趣的已識別條件。 它們會依�
 * 在 Service Fabric 節點上執行，但未以 Service Fabric 服務實作的內部看門狗監視程式。
 * 從 Service Fabric 叢集外探查資源的外部看門狗監視程式 (例如，監視 Gomez 等服務)。
 
-Service Fabric 元件會針對叢集中的所有實體，提供現成的報告。 [系統健康狀態報告](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)可讓您全盤掌握叢集和應用程式功能，並透過健康狀態標記問題。 系統健康狀態報告會針對應用程式和服務來確認實體是否已實作，並從 Service Fabric 執行階段的角度來確認其是行為是否正確。 報告並不會監控任何服務商務邏輯的健康狀態，也不會偵測是否有無回應的處理程序。 若要將特定的健康狀態資訊新增至服務的邏輯，請在服務中[實作自訂健康狀態報告](service-fabric-report-health.md)。
+Service Fabric 元件會針對叢集中的所有實體，提供現成的報告。 [系統健康狀態報告](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)可讓您全盤掌握叢集和應用程式功能，並透過健康狀態標記問題。 系統健康狀態報告會針對應用程式和服務來確認實體是否已實作，並從 Service Fabric 執行階段的角度來確認其是行為是否正確。 報告請勿提供任何健全狀況監視服務的商務邏輯或偵測已停止回應的處理程序。 若要將特定的健康狀態資訊新增至服務的邏輯，請在服務中[實作自訂健康狀態報告](service-fabric-report-health.md)。
 
 Service Fabric 提供多種[健康狀態報告檢視](service-fabric-view-entities-aggregated-health.md)方式，且會將此報告彙總於健康狀態資料存放區：
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 或其他視覺效果工具。

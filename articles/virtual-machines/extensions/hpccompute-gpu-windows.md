@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
 ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619920"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388670"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>適用於 Windows 的 NVIDIA GPU 驅動程式擴充功能
 
@@ -35,7 +35,7 @@ ms.locfileid: "58619920"
 
 此擴充功能支援下列作業系統：
 
-| 配送映像 | 版本 |
+| 配送映像 | Version |
 |---|---|
 | Windows 10 (最高 1803 版)| 核心 |
 | Windows Server 2016 | 核心 |
@@ -71,11 +71,11 @@ ms.locfileid: "58619920"
 
 ### <a name="properties"></a>properties
 
-| 名稱 | 值 / 範例 | 資料類型 |
+| Name | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 日期 |
-| publisher | Microsoft.HpcCompute | 字串 |
-| type | NvidiaGpuDriverWindows | 字串 |
+| apiVersion | 2015-06-15 | date |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 

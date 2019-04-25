@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345590"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>啟用 Azure Machine Learning Studio Web 服務的記錄功能
 本文件提供 Machine Learning Studio Web 服務記錄功能的相關資訊。 記錄會提供其他資訊，而不只是錯誤碼和訊息而已，可協助您針對 Machine Learning Studio API 的呼叫進行疑難排解。  

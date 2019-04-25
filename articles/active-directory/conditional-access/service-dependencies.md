@@ -19,11 +19,11 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f727fc7133ebc9ee124e63253e8a266862b0d908
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522025"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60354347"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的服務相依性？ 
 

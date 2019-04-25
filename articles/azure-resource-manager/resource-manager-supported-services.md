@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: tomfitz
 ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389646"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 資源提供者和類型
 
@@ -30,7 +30,7 @@ ms.locfileid: "58445449"
 * 檢視資源類型的有效位置
 * 檢視資源類型的有效 API 版本
 
-您可以執行下列步驟，透過 Azure 入口網站、 Azure PowerShell 或 Azure CLI。
+可以通过 Azure 门户、Azure PowerShell 或 Azure CLI 执行这些步骤。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
@@ -46,9 +46,9 @@ ms.locfileid: "58445449"
 
     ![顯示資源提供者](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. 註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須擁有執行權限`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。 若要註冊資源提供者，請選取 [註冊]。 在前一個螢幕擷取畫面中，已針對 **Microsoft.Blueprint** 醒目提示 [註冊] 連結。
+6. 註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 這項作業包含在「參與者」和「擁有者」角色中。 若要註冊資源提供者，請選取 [註冊]。 在前一個螢幕擷取畫面中，已針對 **Microsoft.Blueprint** 醒目提示 [註冊] 連結。
 
-    當您的訂用帳戶仍有該資源提供者的資源類型時，您無法取消註冊資源提供者。
+    当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 
 若要查看特定資源提供者的資訊：
 
@@ -96,7 +96,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須擁有執行權限`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。
+註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 這項作業包含在「參與者」和「擁有者」角色中。
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -111,7 +111,7 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-當您的訂用帳戶仍有該資源提供者的資源類型時，您無法取消註冊資源提供者。
+当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 
 若要查看特定資源提供者的資訊，請使用：
 
@@ -136,7 +136,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 (Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
-它會傳回：
+返回：
 
 ```powershell
 batchAccounts
@@ -153,7 +153,7 @@ API 版本會對應至資源提供者所發行的 REST API 作業版本。 當�
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
-它會傳回：
+返回：
 
 ```powershell
 2017-05-01
@@ -171,7 +171,7 @@ API 版本會對應至資源提供者所發行的 REST API 作業版本。 當�
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-它會傳回：
+返回：
 
 ```powershell
 West Europe
@@ -201,7 +201,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須擁有執行權限`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。
+註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 這項作業包含在「參與者」和「擁有者」角色中。
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -209,7 +209,7 @@ az provider register --namespace Microsoft.Batch
 
 它會傳回一則訊息說明註冊持續進行中。
 
-當您的訂用帳戶仍有該資源提供者的資源類型時，您無法取消註冊資源提供者。
+当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 
 若要查看特定資源提供者的資訊，請使用：
 
@@ -236,7 +236,7 @@ az provider show --namespace Microsoft.Batch
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
-它會傳回：
+返回：
 
 ```azurecli
 Result
@@ -255,7 +255,7 @@ API 版本會對應至資源提供者所發行的 REST API 作業版本。 當�
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
-它會傳回：
+返回：
 
 ```azurecli
 Result
@@ -275,7 +275,7 @@ Result
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 
-它會傳回：
+返回：
 
 ```azurecli
 Result

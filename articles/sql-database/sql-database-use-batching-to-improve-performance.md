@@ -13,11 +13,11 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331123"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批次處理來改善 SQL Database 應用程式效能
 
@@ -168,7 +168,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-在上述範例中， **SqlCommand**是資料表值參數，將資料列物件插入 **\@TestTvp**。 先前建立的 **DataTable** 物件透過 **SqlCommand.Parameters.Add** 方法指派給此參數。 在一個呼叫中批次處理插入的效能明顯高於循序插入。
+在前一示例中，**SqlCommand** 对象从表值参数 **\@TestTvp** 插入行。 先前建立的 **DataTable** 物件透過 **SqlCommand.Parameters.Add** 方法指派給此參數。 在一個呼叫中批次處理插入的效能明顯高於循序插入。
 
 若要進一步改善上述範例，請使用預存程序代替文字式命令。 下列 Transact-SQL 命令會建立一個接受 **SimpleTestTableType** 資料表值參數的預存程序。
 
@@ -192,7 +192,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 在大部分情況下，資料表值參數的效能同於或高於其他批次處理技術。 資料表值參數通常較適合，因為比其他選項更有彈性。 例如，其他技術 (例如 SQL 大量複製) 只允許插入新資料列。 但使用資料表值參數時，您可以在預存程序中使用邏輯，判斷哪些資料列是更新和哪些是插入。 也可以修改資料表類型來包含「作業」資料行，指出是否應該插入、更新或刪除指定的資料列。
 
-下表顯示使用資料表值參數的臨機操作測試結果，以毫秒為單位。
+下表显示使用表值参数的即席测试结果（毫秒）。
 
 | 作業 | 內部部署至 Azure (亳秒) | Azure 相同資料中心 (毫秒) |
 | --- | --- | --- |
@@ -232,7 +232,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 在某些情況下，大量複製比資料表值參數更適合。 請參閱[資料表值參數](https://msdn.microsoft.com/library/bb510489.aspx)一文中的資料表值參數與 BULK INSERT 作業的比較表。
 
-下列臨機操作測試結果顯示的批次處理效能**SqlBulkCopy**以毫秒為單位。
+以下即席测试结果显示具有 **SqlBulkCopy** 的批处理性能（毫秒）。
 
 | 作業 | 內部部署至 Azure (亳秒) | Azure 相同資料中心 (毫秒) |
 | --- | --- | --- |
@@ -277,7 +277,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 此範例主要是示範基本概念。 在更實際的案例中會循環查看需要的實體，以同時建構查詢字串和命令參數。 總計以 2100 個查詢參數為限，此方法可處理的資料列總數受限於此。
 
-下列臨機操作測試結果會顯示這種類型的 insert 陳述式的效能，以毫秒為單位。
+以下即席测试结果显示此类插入语句的性能（毫秒）。
 
 | 作業 | 資料表值參數 (毫秒) | 單一陳述式 INSERT (毫秒) |
 | --- | --- | --- |

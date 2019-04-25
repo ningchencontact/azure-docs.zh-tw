@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122972"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244340"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步：如何變更預設組態
 本文的目的在於逐步解說如何對 Azure Active Directory (Azure AD) Connect 同步處理中的預設組態進行變更。其中提供一些常見案例的步驟。 具備此知識，您應該能夠根據自己的商務規則對自己的組態進行簡單的變更。
@@ -266,9 +266,9 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 3. 按一下 [新增規則] 按鈕以建立新的輸入規則。
 4. 在 [描述] 索引標籤下，提供下列設定︰
 
-    | 屬性 | 值 | 詳細資料 |
+    | 屬性 | Value | 詳細資料 |
     | --- | --- | --- |
-    | 名稱 | 提供名稱 | 例如，*In from AD – User UserType* |
+    | Name | 提供名稱 | 例如，*In from AD – User UserType* |
     | 描述 | 提供描述 |  |
     | 连接的系统 | 選取內部部署 AD 連接器 |  |
     | 连接的系统对象类型 | **使用者** |  |
@@ -278,7 +278,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 5. 移至 [範圍篩選器] 索引標籤，並**使用下列子句來新增單一範圍篩選器群組**：
 
-    | 屬性 | 运算符 | 值 |
+    | 屬性 | 运算符 | Value |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | 使用者\_ |
 
@@ -308,9 +308,9 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 3. 按一下 [新增規則] 按鈕。
 4. 在 [描述] 索引標籤下，提供下列設定︰
 
-    | 屬性 | 值 | 詳細資料 |
+    | 屬性 | Value | 詳細資料 |
     | ----- | ------ | --- |
-    | 名稱 | 提供名稱 | 例如，*Out to AAD – User UserType* |
+    | Name | 提供名稱 | 例如，*Out to AAD – User UserType* |
     | 描述 | 提供描述 ||
     | 連線系統 | 選取 AAD 連接器 ||
     | 連線系統物件類型 | **使用者** ||
@@ -320,7 +320,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 5. 移至 [範圍篩選器] 索引標籤，並使用兩個子句來新增**單一範圍篩選器群組**：
 
-    | 屬性 | 运算符 | 值 |
+    | 屬性 | 运算符 | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |

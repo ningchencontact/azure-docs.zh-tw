@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
 ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506001"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>使用傳統部署模型設定強制通道
 
@@ -28,7 +28,7 @@ ms.locfileid: "58008322"
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-本文會引導您為使用傳統部署模型建立的虛擬網路設定強制通道。 強制通道可使用 PowerShell 設定，而非透過入口網站。 如果您想要的 Resource Manager 部署模型設定強制通道，請從下列下拉式清單中選取 Resource Manager 文章：
+本文會引導您為使用傳統部署模型建立的虛擬網路設定強制通道。 強制通道可使用 PowerShell 設定，而非透過入口網站。 如果想要配置用于资源管理器部署模型的强制隧道，请从下面的下拉列表中选择与资源管理器模型相关的文章：
 
 > [!div class="op_single_selector"]
 > * [PowerShell - 傳統](vpn-gateway-about-forced-tunneling.md)

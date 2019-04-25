@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371303"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>了解 Microsoft 的客戶合約條款，在您的 Azure 使用量和費用 CSV
 
@@ -38,10 +38,10 @@ Azure 使用量和費用 CSV 檔案包含目前計費週期的每日及計量層
 
 | EA Azure 使用情況 CSV | Microsoft 客戶合約的 Azure 使用量和費用 CSV |
 | --- | --- |
-| 日期 | 日期 |
-| 月| 日期 |
-| 天 | 日期 |
-| Year | 日期 |
+| date | date |
+| 月| date |
+| 天 | date |
+| Year | date |
 | 產品 | product |
 | 計量識別碼 | meterID |
 | 計量類別目錄 | meterCategory |
@@ -86,7 +86,7 @@ billingPeriodStartDate | 為其產生發票計費週期開始日期
 billingPeriodEndDate | 為其產生發票的計費期間結束日期
 servicePeriodStartDate | 分級期間的開始日期已定義以及鎖定已使用或購買服務的定價
 servicePeriodEndDate | 分級期間的結束日期已定義以及鎖定已使用或購買服務的定價
-日期 | 針對 Azure 與 Marketplace 基於使用方式的費用，這是評等的日期。 一次購買項目 （Marketplace 中的 保留項目） 或固定週期性費用 （支援供應項目），這是在購買日期。
+date | 針對 Azure 與 Marketplace 基於使用方式的費用，這是評等的日期。 一次購買項目 （Marketplace 中的 保留項目） 或固定週期性費用 （支援供應項目），這是在購買日期。
 serviceFamily | 服務所屬的服務系列
 productOrderId | 產品順序的唯一識別碼
 productOrderName | 產品順序的唯一名稱
@@ -107,7 +107,7 @@ publisherType | 「 發行者 」 的型別 (值： firstParty thirdPartyReselle
 publisherName | 「 發行者 」 的 Marketplace 服務
 resourceGroupId | 與資源相關聯的資源群組的唯一識別碼
 resourceGroupName | 與資源相關聯的資源群組名稱
-ResourceId | 資源執行個體的唯一識別碼
+resourceId | 資源執行個體的唯一識別碼
 resourceType | 資源執行個體的類型
 resourceLocation | 識別正在執行資源的資料中心位置。
 location | 如果針對相同的區域設定不同的資源位置的資源標準化的位置

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 4dc68127f2d19426c372be027634bb2563dbfa6c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: dfaeff5e8f90e72645293d15c454f78f17b08fb0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387327"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure 原則來限制 Windows VM 上的延伸模組安裝
 
@@ -26,7 +26,7 @@ ms.locfileid: "56341652"
 
 本教學課程會使用 Cloud Shell 內的 Azure PowerShell，這會不斷更新至最新版本。 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-rules-file"></a>建立規則檔
 

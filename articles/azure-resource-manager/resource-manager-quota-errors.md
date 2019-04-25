@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7938f2c47e4af8d8804191fbb9e55b379f9554ef
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390147"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解決資源配額的錯誤
 
@@ -60,7 +60,7 @@ please delete some resources of this type before creating a new one.
 az vm list-usage --location "South Central US"
 ```
 
-它會傳回：
+返回：
 
 ```azurecli
 [
@@ -84,7 +84,7 @@ az vm list-usage --location "South Central US"
 Get-AzVMUsage -Location "South Central US"
 ```
 
-它會傳回：
+返回：
 
 ```powershell
 Name                             Current Value Limit  Unit

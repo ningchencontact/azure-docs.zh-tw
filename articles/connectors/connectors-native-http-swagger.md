@@ -12,11 +12,11 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448615"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>透過 Azure Logic Apps 中的 HTTP + Swagger 連接器呼叫 REST 端點
 
@@ -113,7 +113,7 @@ HTTP 回應
 ### <a name="http-responses"></a>HTTP 回應
 呼叫不同動作時，您可能會收到特定回應。 下表概述對應的回應及說明。
 
-| 名稱 | 描述 |
+| Name | 描述 |
 | --- | --- |
 | 200 |OK |
 | 202 |已接受 |

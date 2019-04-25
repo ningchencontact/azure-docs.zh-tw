@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301214"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -93,7 +93,7 @@ ms.locfileid: "59358989"
 - Android
 - iOS
 - Windows Phone
-- Windows
+-  Windows
 - macOS
 
 ![將存取原則繫結至用戶端作業系統](./media/technical-reference/41.png)
@@ -142,7 +142,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| 名稱 | 1 |
+| Name | 1 |
 | 類型 | REG_SZ (字串) |
 | 資料 | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
@@ -151,7 +151,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| 名稱 | 1 |
+| Name | 1 |
 | 類型 | REG_SZ (字串) |
 | 資料 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 

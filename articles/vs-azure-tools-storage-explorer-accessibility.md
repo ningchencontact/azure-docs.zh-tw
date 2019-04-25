@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457245"
 ---
 # <a name="storage-explorer-accessibility"></a>儲存體總管協助工具
 
@@ -29,9 +29,9 @@ ms.locfileid: "59698088"
 
 平台 | 螢幕助讀程式
 ---------|--------------
-Windows  | NVDA
+ Windows  | NVDA
 Mac      | 旁白
-Linux    | （在 Linux 上不會支援螢幕助讀程式）
+ Linux    | （在 Linux 上不會支援螢幕助讀程式）
 
 使用儲存體總管時，如果遇到涉及身障求助方面的問題，請[在 GitHub 回報您的問題](https://github.com/Microsoft/AzureStorageExplorer/issues)。
 

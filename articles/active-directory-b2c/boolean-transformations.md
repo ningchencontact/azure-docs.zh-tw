@@ -3,7 +3,7 @@ title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的布
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的布林值宣告轉換範例。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: fea0f8c2c2bcab94202916594e66514f2ec87396
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314614"
 ---
 # <a name="boolean-claims-transformations"></a>布林值宣告轉換
 
@@ -27,11 +27,11 @@ ms.locfileid: "55180121"
 
 執行兩個布林值 inputClaim 的 And 運算，並使用運算的結果來設定 outputClaim。
 
-| Item  | TransformationClaimType  | 資料類型  | 注意 |
+| Item  | TransformationClaimType  | 数据类型  | 注意 |
 |-------| ------------------------ | ---------- | ----- |
-| InputClaim | inputClaim1 | 布林值 | 要評估的第一個 ClaimType。 |
-| InputClaim | inputClaim2  | 布林值 | 要評估的第二個 ClaimType。 |
-|OutputClaim | outputClaim | 布林值 | 叫用此宣告轉換之後將產生的 ClaimType (True 或 False)。 |
+| InputClaim | inputClaim1 | boolean | 要評估的第一個 ClaimType。 |
+| InputClaim | inputClaim2  | boolean | 要評估的第二個 ClaimType。 |
+|OutputClaim | outputClaim | boolean | 叫用此宣告轉換之後將產生的 ClaimType (True 或 False)。 |
 
 下列宣告轉換示範如何 And 兩個布林值 ClaimType：`isEmailNotExist` 和 `isSocialAccount`。 如果這兩個輸入宣告的值均為 `true`，就會將輸出宣告 `presentEmailSelfAsserted` 設定為 `true`。 在協調流程步驟中，只有在社交帳戶電子郵件為空白時，才能使用先決條件來預設自我判斷頁面。
 
@@ -60,10 +60,10 @@ ms.locfileid: "55180121"
 
 檢查兩個宣告的布林值相等，如果不相等，則會擲回例外狀況。
 
-| Item | TransformationClaimType  | 資料類型  | 注意 |
+| Item | TransformationClaimType  | 数据类型  | 注意 |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | 布林值 | 要進行判斷的 ClaimType。 |
-| InputParameter |valueToCompareTo | 布林值 | 要比較的值 (True 或 False)。 |
+| inputClaim | inputClaim | boolean | 要進行判斷的 ClaimType。 |
+| InputParameter |valueToCompareTo | boolean | 要比較的值 (True 或 False)。 |
 
 **AssertBooleanClaimIsEqualToValue** 宣告轉換一律會從[驗證技術設定檔](validation-technical-profile.md)執行，其會透過[自我判斷技術設定檔](self-asserted-technical-profile.md)來呼叫。 **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** 自我判斷技術設定檔中繼資料會控制技術設定檔要呈現給使用者的錯誤訊息。
 
@@ -117,10 +117,10 @@ ms.locfileid: "55180121"
 
 執行布林值 inputClaim 的 Not 運算，並使用運算的結果來設定 outputClaim。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | 布林值 | 要運算的宣告。 |
-| OutputClaim | outputClaim | 布林值 | 叫用此 ClaimsTransformation 之後所產生的 ClaimType (True 或 False)。 |
+| InputClaim | inputClaim | boolean | 要運算的宣告。 |
+| OutputClaim | outputClaim | boolean | 叫用此 ClaimsTransformation 之後所產生的 ClaimType (True 或 False)。 |
 
 使用此宣告轉換來執行宣告上的邏輯否定。
 
@@ -145,11 +145,11 @@ ms.locfileid: "55180121"
 
 執行兩個布林值 inputClaim 的 Or 運算，並使用運算的結果來設定 outputClaim。
 
-| Item | TransformationClaimType | 資料類型 | 注意 |
+| Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | 布林值 | 要評估的第一個 ClaimType。 |
-| InputClaim | inputClaim2 | 布林值 | 要評估的第二個 ClaimType。 |
-| OutputClaim | outputClaim | 布林值 | 叫用此 ClaimsTransformation 之後將產生的 ClaimType (True 或 False)。 |
+| InputClaim | inputClaim1 | boolean | 要評估的第一個 ClaimType。 |
+| InputClaim | inputClaim2 | boolean | 要評估的第二個 ClaimType。 |
+| OutputClaim | outputClaim | boolean | 叫用此 ClaimsTransformation 之後將產生的 ClaimType (True 或 False)。 |
 
 下列宣告轉換示範如何 `Or` 兩個布林值 ClaimType。 在協調流程步驟中，只有在其中一個宣告的值為 `true` 時，才能使用先決條件來預設自我判斷頁面。
 

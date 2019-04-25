@@ -13,11 +13,11 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248124"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>使用 Azure Active Directory 新增或更新使用者的設定檔資訊
 使用 Azure Active Directory (Azure AD) 新增使用者設定檔資訊，包括個人資料圖片、工作特定資訊，以及一些設定。 如需新增使用者的詳細資訊，請參閱[如何在 Azure Active Directory 中新增或刪除使用者](add-users-azure-active-directory.md)。
@@ -26,7 +26,7 @@ ms.locfileid: "59548030"
 如您所見，使用者設定檔中所提供資訊比您在使用者建立期間可以新增的資訊還多。 所有這些額外資訊都是選擇性，可以依據您的組織需求新增。
 
 ## <a name="to-add-or-change-profile-information"></a>新增或變更設定檔資訊
-1. 登入[Azure 入口網站](https://portal.azure.com/)組織的使用者系統管理員身分。
+1. 以组织的用户管理员身份登录到 [Azure 门户](https://portal.azure.com/)。
 
 2. 選取 [Azure Active Directory] 並選取 [使用者]，然後選取一位使用者。 例如 _Alain Charon_。
 

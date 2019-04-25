@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: cherylmc
 ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457185"
 ---
 # <a name="reset-a-vpn-gateway"></a>重置 VPN 网关
 
@@ -56,7 +56,7 @@ VPN 閘道是由兩個在「作用中-待命」設定中執行的 VM 執行個�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Reset-AzVirtualNetworkGateway** 是可用來重設閘道的 Cmdlet。 之前執行重設，請確定您有最新版[PowerShell Az cmdlet](https://docs.microsoft.com/powershell/module/az.network)。 下列範例會重設 TestRG1 資源群組中名為 VNet1GW 的虛擬網路閘道：
+**Reset-AzVirtualNetworkGateway** 是可用來重設閘道的 Cmdlet。 进行重置前，请确保拥有最新版本的 [PowerShell Az cmdlet](https://docs.microsoft.com/powershell/module/az.network)。 下列範例會重設 TestRG1 資源群組中名為 VNet1GW 的虛擬網路閘道：
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1

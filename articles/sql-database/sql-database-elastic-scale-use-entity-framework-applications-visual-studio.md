@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
 ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331908"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>搭配使用彈性資料庫用戶端程式庫與 Entity Framework
 
@@ -209,7 +209,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 這會形成一種方法，使得透過 EF 移轉的結構描述部署，與新的資料庫在應用程式的分區對應中註冊為分區緊密相關。 這依賴下列必要條件： 
 
-* 已建立資料庫。 
+* 该数据库已创建。 
 * 資料庫是空的 - 不含任何使用者結構描述與任何使用者資料。
 * 還不能透過資料相依路由的彈性資料庫用戶端 API 存取資料庫。 
 

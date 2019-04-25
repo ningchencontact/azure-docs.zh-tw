@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ee34c91787ede0431c71b0fd96d2c040717dbca2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487357"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory 中的管線及活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,7 +97,7 @@ Data Factory 中的複製活動會將資料從來源資料存放區複製到接�
 | Tag | 描述 | 必要項 |
 | --- | --- | --- |
 | name |管線的名稱。 指定代表管線所執行之動作的名稱。 <br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許下列字元:"。"，"+"，"？"、"/"，"<"、">"，"\*"，"%"、"&"、":"，"\\」</li></ul> |是 |
-| 說明 | 指定說明管線用途的文字。 |是 |
+| description | 指定說明管線用途的文字。 |是 |
 | 活動 | [ **活動** ] 區段內可以有一或多個已定義的活動。 如需有關活動 JSON 元素的詳細資料，請參閱下一節。 | 是 |
 | start | 管線的開始日期時間。 必須使用 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如： `2016-10-14T16:32:41Z` 。 <br/><br/>您可以指定本地時間，如 EST 時間。 範例如下︰`2016-02-27T06:00:00-05:00`，這是美加東部標準時間上午 6 點。<br/><br/>管線的 start 和 end 屬性共同指定管線的作用中期間。 輸出配量只會在作用中期間內產生。 |否<br/><br/>如果您指定 end 屬性的值，也必須指定 start 屬性的值。<br/><br/>開始和結束時間都可以是空白來建立管線。 必須指定兩個值，才能設定執行管線的作用中時間。 如果您未指定開始和結束時間時建立管線，您可以設定它們使用組 AzDataFactoryPipelineActivePeriod cmdlet。 |
 | end | 管線的結束日期時間。 如果已指定，則必須使用 ISO 格式。 例如：`2016-10-14T17:32:41Z` <br/><br/>您可以指定本地時間，如 EST 時間。 範例如下︰`2016-02-27T06:00:00-05:00`，這是美加東部標準時間上午 6 點。<br/><br/>若要無限期地執行管線，請指定 9999-09-09 做為 end 屬性的值。 <br/><br/> 管線僅在其開始時間與結束時間之間有作用。 在開始時間之前或結束時間之後就不會執行。 如果管線已暫停，不論其開始和結束時間為何，都不會執行。 若要執行管線，則不該將它暫停。 請參閱 [排程和執行](data-factory-scheduling-and-execution.md) ，以了解如何在 Azure Data Factory 中排程和執行。 |否 <br/><br/>如果您指定 start 屬性的值，也必須指定 end 屬性的值。<br/><br/>請參閱 **start** 屬性的註釋。 |
@@ -135,7 +135,7 @@ Data Factory 中的複製活動會將資料從來源資料存放區複製到接�
 | Tag | 描述 | 必要項 |
 | --- | --- | --- |
 | name | 活動的名稱。 指定代表活動所執行之動作的名稱。 <br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> |是 |
-| 說明 | 說明活動用途的文字 |是 |
+| description | 說明活動用途的文字 |是 |
 | type | 活動的類型。 如需了解不同類型的活動，請參閱[資料移動活動](#data-movement-activities)和[資料轉換活動](#data-transformation-activities)小節。 |是 |
 | 輸入 |活動所使用的輸入資料表<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |是 |
 | 輸出 |活動所使用的輸出資料表。<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |是 |

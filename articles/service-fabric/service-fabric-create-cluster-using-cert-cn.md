@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
 ms.openlocfilehash: bf28ddf7facbc742a107f67f3d7e81eca5a5c950
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394263"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>部署使用憑證通用名稱 (而非指紋) 的 Service Fabric 叢集
 由於憑證的指紋皆不相同，導致叢集憑證變換或管理變成艱難的任務。 然而，不同的憑證卻能擁有相同的通用名稱或主體。  使用憑證通用名稱的叢集能大幅簡化憑證管理工作的難度。 本文章描述如何部署 Service Fabric 叢集才能使用憑證通用名稱，而非憑證指紋。

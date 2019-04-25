@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a6d8326afa3bcf13234ab072a2cd2909a864738b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c089d54544217cf72f81a2535ceede50d25b9b61
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362181"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>在 Azure VM 中使用 PowerShell 設定 Always On 可用性群組
 > [!div class="op_single_selector"]
@@ -239,7 +239,7 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員降低高可用性 SQL Server
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    上面指定的 GUID 是计算机对象类型的 GUID。 **CORP\Install** 帳戶需要**讀取全部內容**和**建立電腦物件**權限，才能建立容錯移轉叢集的 Active Directory 物件。 根據預設，系統已將**讀取所有內容**權限授與 CORP\Install，因此，您不需要明確地授與該權限。 如需有關建立容錯移轉叢集所需的權限的詳細資訊，請參閱[容錯移轉叢集逐步指南：設定 Active Directory 中帳戶](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)。
+    上面指定的 GUID 是计算机对象类型的 GUID。 **CORP\Install** 帳戶需要**讀取全部內容**和**建立電腦物件**權限，才能建立容錯移轉叢集的 Active Directory 物件。 根據預設，系統已將**讀取所有內容**權限授與 CORP\Install，因此，您不需要明確地授與該權限。 有关创建故障转移群集所需权限的详细信息，请参阅 [Failover Cluster Step-by-Step Guide:Configuring Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)（故障转移群集分步指南：在 Active Directory 中配置帐户）。
 
     現在 Active Directory 和使用者物件便已設定完畢，請建立兩個 SQL Server VM，並將這些 VM 加入此網域。
 
@@ -380,15 +380,15 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員降低高可用性 SQL Server
 ## <a name="initialize-the-failover-cluster-vms"></a>初始化容錯移轉叢集 VM
 在本節中，您必須修改將用於容錯移轉叢集和 SQL Server 安裝中的三部伺服器。 具體而言：
 
-* 所有伺服器：您必須安裝**容錯移轉叢集**功能。
-* 所有伺服器：您需要新增**CORP\Install**做為機器**管理員**。
-* 僅 ContosoSQL1 和 ContosoSQL2:您需要新增**CORP\Install**作為**sysadmin**預設資料庫中的角色。
-* 僅 ContosoSQL1 和 ContosoSQL2:您需要新增**NT AUTHORITY\System**作為登入與下列權限：
+* 所有服务器：需要安装**故障转移群集**功能。
+* 所有服务器：需要添加 **CORP\Install** 作为计算机**管理员**。
+* 仅限 ContosoSQL1 和 ContosoSQL2：需要将 **CORP\Install** 添加为默认数据库中的 **sysadmin** 角色。
+* 仅限 ContosoSQL1 和 ContosoSQL2：需要将 **NT AUTHORITY\System** 添加为具有以下权限的登录名：
 
   * 更改所有可用性群組
   * 連接 SQL
   * 檢視伺服器狀態
-* 僅 ContosoSQL1 和 ContosoSQL2:**TCP**通訊協定已啟用 SQL Server VM 上。 但是，還是必須開啟防火牆以供 SQL Server 進行遠端存取。
+* 仅限 ContosoSQL1 和 ContosoSQL2：在 SQL Server VM 上已启用了 **TCP** 协议。 但是，還是必須開啟防火牆以供 SQL Server 進行遠端存取。
 
 您現在即可準備開始。 先從 **ContosoQuorum**開始，依照下列步驟執行：
 

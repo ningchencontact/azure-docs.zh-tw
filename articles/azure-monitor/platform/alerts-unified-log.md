@@ -9,11 +9,11 @@ ms.date: 2/20/2019
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345870"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure 監視器中的記錄警示
 
@@ -68,7 +68,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 請考慮一個情境，您想要知道您的 Web 架構應用程式何時向使用者回應程式碼 500 (亦即) 內部伺服器錯誤。 您可以建立詳細資料如下的警示規則：  
 
 - **查詢：** 要求 | 其中 resultCode =="500"<br>
-- **時間週期：** 30 分鐘<br>
+- **時間週期：** 30 分钟<br>
 - **警示頻率：** 5 分鐘<br>
 - **閾值：** 大於 0<br>
 
@@ -99,16 +99,16 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 假設您想要在任何電腦於過去 30 分鐘內發生三次處理器使用率超過 90% 時收到警示。  您可以建立詳細資料如下的警示規則：  
 
 - **查詢：** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
-- **時間週期：** 30 分鐘<br>
+- **時間週期：** 30 分钟<br>
 - **警示頻率：** 5 分鐘<br>
 - **警示邏輯 - 條件和閾值：** 大於 90<br>
-- **群組欄位 (開啟彙總)：** 電腦
+- **群組欄位 (開啟彙總)：** Computer
 - **觸發警示的依據：** 違規數總計大於 2<br>
 
 查詢會以 5 分鐘為間隔為每部電腦建立平均值。  此查詢會每隔 5 分鐘針對在先前 30 分鐘內所收集的資料來執行。 由於所選的「群組欄位 (開啟彙總)」是單欄式的「電腦」，AggregatedValue 會分割為「電腦」的各種值，而每部電腦的平均處理器使用率是以 5 分鐘的時間間隔判斷。  3 部電腦 (假設) 的範例查詢結果會如下所示。
 
 
-|TimeGenerated [UTC] |電腦  |AggregatedValue  |
+|TimeGenerated [UTC] |Computer  |AggregatedValue  |
 |---------|---------|---------|
 |20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
 |20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |

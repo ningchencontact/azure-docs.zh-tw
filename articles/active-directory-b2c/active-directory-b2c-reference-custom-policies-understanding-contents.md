@@ -3,7 +3,7 @@ title: 了解 Azure Active Directory B2C 中入門套件的自訂原則 | Micros
 description: Azure Active Directory B2C 自訂原則的主題。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: dbd57e53fbaec4368e3c8ce9600bce1d37bcab8f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173202"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317321"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>了解 Azure AD B2C 自訂原則入門套件的自訂原則
 
@@ -47,7 +47,7 @@ B2C_1A_base 原則的核心元素是宣告類型、宣告轉換及內容定義�
 
 需要有下列宣告才能讓使用者旅程正常運作︰
 
-| 宣告類型 | 說明 |
+| 宣告類型 | 描述 |
 |-------------|-------------|
 | UserId | 使用者名稱 |
 | signInName | 登入名稱 |
@@ -78,7 +78,7 @@ B2C_1A_base 原則的核心元素是宣告類型、宣告轉換及內容定義�
 
 必須有下列宣告才能將特殊參數 (包括某些查詢字串參數) 傳遞給其他宣告提供者︰
 
-| 宣告類型 | 說明 |
+| 宣告類型 | 描述 |
 |-------------|-------------|
 | nux | 傳遞給本機帳戶以向 login.microsoftonline.com 進行驗證的特殊參數 |
 | nca | 傳遞給本機帳戶以向 login.microsoftonline.com 進行驗證的特殊參數 |
@@ -95,7 +95,7 @@ B2C_1A_base 原則的核心元素是宣告類型、宣告轉換及內容定義�
 
 下列宣告是可以從使用者收集而來、儲存在目錄中，以及在權杖中傳送的其他宣告。 如先前所述，您可以將其他宣告新增至此清單。
 
-| 宣告類型 | 說明 |
+| 宣告類型 | 描述 |
 |-------------|-------------|
 | givenName | 使用者的名字 (也就是第一個名字) |
 | surname | 使用者的姓氏 |
@@ -105,7 +105,7 @@ B2C_1A_base 原則的核心元素是宣告類型、宣告轉換及內容定義�
 
 以下列出可用的宣告轉換。
 
-| 宣告轉換 | 說明 |
+| 宣告轉換 | 描述 |
 |----------------------|-------------|
 | CreateOtherMailsFromEmail | |
 | CreateRandomUPNUserName | |
@@ -118,7 +118,7 @@ B2C_1A_base 原則的核心元素是宣告類型、宣告轉換及內容定義�
 
 本節說明 B2C_1A_base 原則中已經宣告的內容定義。 您可以視需要輕易地在您自己的原則和 B2C_1A_base_extensions 原則中，參考、覆寫和/或擴充這些內容定義。
 
-| 宣告提供者 | 說明 |
+| 宣告提供者 | 描述 |
 |-----------------|-------------|
 | *Facebook* | |
 | 本機帳戶登入 | |
@@ -137,19 +137,19 @@ B2C_1A_base 原則的核心元素是宣告類型、宣告轉換及內容定義�
 
 ### <a name="technical-profiles-for-facebook"></a>Facebook 的技術設定檔
 
-| 技術設定檔 | 說明 |
+| 技術設定檔 | 描述 |
 |-------------------|-------------|
 | Facebook-OAUTH | |
 
 ### <a name="technical-profiles-for-local-account-signin"></a>本機帳戶登入的技術設定檔
 
-| 技術設定檔 | 說明 |
+| 技術設定檔 | 描述 |
 |-------------------|-------------|
 | Login-NonInteractive | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>PhoneFactor 的技術設定檔
 
-| 技術設定檔 | 說明 |
+| 技術設定檔 | 描述 |
 |-------------------|-------------|
 | PhoneFactor-Input | |
 | PhoneFactor-InputOrVerify | |
@@ -157,7 +157,7 @@ B2C_1A_base 原則的核心元素是宣告類型、宣告轉換及內容定義�
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Azure Active Directory 的技術設定檔
 
-| 技術設定檔 | 說明 |
+| 技術設定檔 | 描述 |
 |-------------------|-------------|
 | AAD-Common | 其他 AAD-xxx 技術設定檔所包含的技術設定檔 |
 | AAD-UserWriteUsingAlternativeSecurityId | 社交登入的技術設定檔 |
@@ -172,20 +172,20 @@ B2C_1A_base 原則的核心元素是宣告類型、宣告轉換及內容定義�
 
 ### <a name="technical-profiles-for-self-asserted"></a>自我判斷提示的技術設定檔
 
-| 技術設定檔 | 說明 |
+| 技術設定檔 | 描述 |
 |-------------------|-------------|
 | SelfAsserted-Social | |
 | SelfAsserted-ProfileUpdate | |
 
 ### <a name="technical-profiles-for-local-account"></a>本機帳戶的技術設定檔
 
-| 技術設定檔 | 說明 |
+| 技術設定檔 | 描述 |
 |-------------------|-------------|
 | LocalAccountSignUpWithLogonEmail | |
 
 ### <a name="technical-profiles-for-session-management"></a>工作階段管理的技術設定檔
 
-| 技術設定檔 | 說明 |
+| 技術設定檔 | 描述 |
 |-------------------|-------------|
 | SM-Noop | |
 | SM-AAD | |
@@ -199,7 +199,7 @@ B2C_1A_base 原則的核心元素是宣告類型、宣告轉換及內容定義�
 
 ### <a name="technical-profiles-for-token-issuer"></a>權杖簽發者的技術設定檔
 
-| 技術設定檔 | 說明 |
+| 技術設定檔 | 描述 |
 |-------------------|-------------|
 | JwtIssuer | |
 
@@ -207,7 +207,7 @@ B2C_1A_base 原則的核心元素是宣告類型、宣告轉換及內容定義�
 
 本節說明 B2C_1A_base 原則中已經宣告的使用者旅程。 您可以視需要輕易地在您自己的原則和 B2C_1A_base_extensions 原則中，進一步參考、覆寫和/或擴充這些使用者旅程。
 
-| 使用者旅程 | 說明 |
+| 使用者旅程 | 描述 |
 |--------------|-------------|
 | SignUp | |
 | SignIn | |

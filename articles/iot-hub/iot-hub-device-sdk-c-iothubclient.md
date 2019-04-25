@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
 ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400689"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>適用於 C 的 Azure IoT 裝置 SDK - 深入了解 IoTHubClient
 
@@ -25,13 +25,13 @@ ms.locfileid: "50024749"
 
 本文以涵蓋幾個其他主題 (包括更多有關裝置認證及如何透過組態選項變更 **IoTHubClient** 行為的資訊) 做總結。
 
-我們將使用 **IoTHubClient** SDK 範例來說明這些主題。 如果您想要依照這些內容，請參閱「適用於 C 的 Azure IoT 裝置 SDK」中隨附的 **iothub\_client\_sample\_http** 和 **iothub\_client\_sample\_amqp** 應用程式。這些範例會示範下列各節中所述的所有內容。
+我們將使用 **IoTHubClient** SDK 範例來說明這些主題。 如果想要继续，请参阅适用于 C 的 Azure IoT 设备 SDK 中随附的 **iothub\_client\_sample\_http** and **iothub\_client\_sample\_amqp** 应用程序。以下部分所述的所有内容都将通过这些示例来演示。
 
 您可以尋找[**適用於 C 的 Azure IoT 裝置 SDK**](https://github.com/Azure/azure-iot-sdk-c) GitHub 儲存機制，然後在 [C API 參考資料](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)中檢視 API 的詳細資料。
 
 ## <a name="the-lower-level-apis"></a>較低層級的 API
 
-前一篇文章描述了 **iothub\_client\_sample\_amqp** 應用程式內容中 **IotHubClient** 的基本作業。 比方說，該文說明如何使用下列程式碼初始化程式庫。
+前一篇文章描述了 **iothub\_client\_sample\_amqp** 應用程式內容中 **IotHubClient** 的基本作業。 例如，该文章说明了如何使用此代码来初始化库。
 
 ```C
 IOTHUB_CLIENT_HANDLE iotHubClientHandle;
@@ -196,7 +196,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 
 ## <a name="message-handling"></a>訊息處理
 
-如先前所述，當訊息從 IoT 中樞送達時， **IoTHubClient** 程式庫會叫用註冊的回呼函式來回應。 此函式有一個傳回參數值得額外說明。 以下是 **iothub\_client\_sample\_http** 範例應用程式中回呼函式的摘錄：
+如先前所述，當訊息從 IoT 中樞送達時， **IoTHubClient** 程式庫會叫用註冊的回呼函式來回應。 有必要进一步了解此函数的一个返回参数。 以下是 **iothub\_client\_sample\_http** 範例應用程式中回呼函式的摘錄：
 
 ```C
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -206,7 +206,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 }
 ```
 
-請注意，傳回類型為 **IOTHUBMESSAGE\_DISPOSITION\_RESULT**，而在此特殊案例中，我們會傳回 **IOTHUBMESSAGE\_ACCEPTED**。 我們還有其他的值可從此函式傳回，這些值會變更 **IoTHubClient** 程式庫回應訊息回呼的方式。 選項如下。
+請注意，傳回類型為 **IOTHUBMESSAGE\_DISPOSITION\_RESULT**，而在此特殊案例中，我們會傳回 **IOTHUBMESSAGE\_ACCEPTED**。 我們還有其他的值可從此函式傳回，這些值會變更 **IoTHubClient** 程式庫回應訊息回呼的方式。 选项如下。
 
 * **IOTHUBMESSAGE\_ACCEPTED** – 已成功處理訊息。 **IoTHubClient** 程式庫將不會以相同的訊息再次叫用回呼函式。
 
@@ -222,7 +222,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 
 ## <a name="alternate-device-credentials"></a>替代裝置認證
 
-如先前所述，使用 **IoTHubClient** 程式庫時，必須先使用如以下的呼叫來取得 **IOTHUB\_CLIENT\_HANDLE**：
+如前所述，使用 **IoTHubClient** 库时，首先必须使用如下所示的调用来获取 **IOTHUB\_CLIENT\_HANDLE**：
 
 ```C
 IOTHUB_CLIENT_HANDLE iotHubClientHandle;
@@ -235,7 +235,7 @@ iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, A
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-這個字串中包含四項資訊：IoT 中樞名稱、IoT 中樞尾碼、裝置識別碼和共用存取金鑰。 當您在 Azure 入口網站中建立 IoT 中樞執行個體時，可以取得 IoT 中樞的完整網域名稱 (FQDN) - 這可為您提供 IoT 中樞名稱 (FQDN 的第一個部分) 和 IoT 中樞尾碼 (FQDN 的其餘部分)。 您會在使用 IoT 中樞註冊裝置時，取得裝置識別碼和共用存取金鑰 (如[前一篇文章](iot-hub-device-sdk-c-intro.md)所述)。
+有四個部分，這個字串中的資訊：IoT 中樞名稱、 IoT 中樞尾碼、 裝置識別碼和共用的存取金鑰。 當您在 Azure 入口網站中建立 IoT 中樞執行個體時，可以取得 IoT 中樞的完整網域名稱 (FQDN) - 這可為您提供 IoT 中樞名稱 (FQDN 的第一個部分) 和 IoT 中樞尾碼 (FQDN 的其餘部分)。 您會在使用 IoT 中樞註冊裝置時，取得裝置識別碼和共用存取金鑰 (如[前一篇文章](iot-hub-device-sdk-c-intro.md)所述)。
 
 **IoTHubClient\_CreateFromConnectionString** 提供您一個方法來初始化程式庫。 喜歡的話，您也可以使用這些個別的參數 (而不是裝置連接字串) 建立新的 **IOTHUB\_CLIENT\_HANDLE**。 使用下列程式碼即可達成：
 
@@ -253,9 +253,9 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientCo
 
 顯而易見，您會想要使用 **IoTHubClient\_CreateFromConnectionString**，而不是這個較冗長的初始化方法。 但請記住，當您在 IoT 中樞註冊裝置時，您得到的是裝置識別碼和裝置金鑰 (不是連接字串)。 [前一篇文章](iot-hub-device-sdk-c-intro.md)介紹的「裝置總管」SDK 工具會使用 **Azure IoT 服務 SDK** 中的程式庫，從裝置識別碼、裝置金鑰及 IoT 中樞主機名稱建立裝置連接字串。 因此，呼叫 **IoTHubClient\_LL\_Create** 可能是較慣用的做法，因為它可以為您省下產生連接字串的步驟。 使用任何方法都很方便。
 
-## <a name="configuration-options"></a>組態選項
+## <a name="configuration-options"></a>配置选项
 
-到目前為止，有關 **IoTHubClient** 程式庫運作方式的所有描述內容都反映其預設行為。 不過，您可以設定幾個選項來變更程式庫的運作方式。 這可以藉由運用 **IoTHubClient\_LL\_SetOption** API 來完成。 請思考此範例：
+到目前為止，有關 **IoTHubClient** 程式庫運作方式的所有描述內容都反映其預設行為。 不過，您可以設定幾個選項來變更程式庫的運作方式。 這可以藉由運用 **IoTHubClient\_LL\_SetOption** API 來完成。 请看以下示例：
 
 ```C
 unsigned int timeout = 30000;

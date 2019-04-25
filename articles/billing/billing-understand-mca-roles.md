@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834892"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370890"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>了解在 Azure 中的 Microsoft 客戶合約系統管理角色
 
@@ -163,7 +163,7 @@ ms.locfileid: "57834892"
 |管理計費發票區段中跟取消的產品，請關閉自動續約，和更多功能|✔|✔|✘|✘|✘|✘|✘|
 |產品變更發票區段|✔|✔|✘|✘|✘|✘|✘|
 
-### <a name="manage-subscriptions-for-invoice-section"></a>管理訂用帳戶發票區段
+### <a name="manage-subscriptions-for-invoice-section"></a>管理訂用帳戶的發票區段
 
 |工作|發票區段擁有者|發票區段參與者|發票區段讀者|Azure 訂用帳戶建立者|帳單帳戶擁有者|帳單帳戶參與者|帳單帳戶讀者
 |---|---|---|---|---|---|---|---|

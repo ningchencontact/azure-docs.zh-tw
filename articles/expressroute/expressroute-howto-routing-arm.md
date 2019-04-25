@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: bb1e71c4a665a25fa9b936c8777cf8fa0d5cd3e6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 288264b5386b670e90c3545ffcc1e697a0f67e38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091914"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60366278"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 建立和修改 ExpressRoute 線路的對等互連
 
 本文將協助您使用 PowerShell，在 Resource Manager 部署模型中建立和管理 ExpressRoute 線路的路由設定。 还可以检查 ExpressRoute 线路的状态，更新、删除和取消预配其对等互连。 如果您想要對線路使用不同的方法，可選取下列清單中的文章：
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure 门户](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [視訊 - 私用對等互連](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -177,7 +177,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    Install-Module Az
    ```
 
-   匯入所有 Az.\*已知語意版本範圍內的模組。
+   导入已知语义版本范围内的所有 Az.\* 模块。
 
    ```azurepowershell-interactive
    Import-Module Az
@@ -312,7 +312,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    Install-Module Az
    ```
 
-   匯入所有 Az.\*已知語意版本範圍內的模組。
+   导入已知语义版本范围内的所有 Az.\* 模块。
 
    ```azurepowershell-interactive
    Import-Module Az

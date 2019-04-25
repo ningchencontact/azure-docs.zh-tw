@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662154"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393408"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>事件分析和視覺效果，與 Azure 監視器記錄檔
  Azure 監視器記錄會從裝載於雲端的應用程式和服務收集和分析遙測，並提供分析工具來協助您將其可用性和效能最大化。 本文概述如何在 Azure 監視器來深入了解及疑難排解在叢集中的事情的記錄檔中執行查詢。 我們將討論下列常見的問題：

@@ -9,11 +9,11 @@ ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: e6423f2ce3659fd3dd738dcc8a990261bc7bf60c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60334294"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>開始在 Azure 中依自訂計量自動調整規模
 本文說明如何在 Azure 入口網站中依自訂計量調整您資源的規模。

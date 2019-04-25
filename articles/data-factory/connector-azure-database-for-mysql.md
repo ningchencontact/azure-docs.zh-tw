@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 99a29536ccf9d4ad87bcd0aa29659306c3553972
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4c388f012cd52f0adea93ae62cc31832488fca74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387905"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從適用於 MySQL 的 Azure 資料庫複製資料
 
@@ -143,6 +143,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**AzureMySqlSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| queryCommandTimeout | 查詢要求逾時之前的等待時間。預設值為 120 分鐘 (02: 00:00) | 否 |
 
 **範例：**
 

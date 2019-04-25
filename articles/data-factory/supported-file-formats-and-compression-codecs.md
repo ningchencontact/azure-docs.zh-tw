@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150025"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394419"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -454,7 +454,7 @@ ms.locfileid: "60150025"
 | Single | Float | N/A | N/A |
 | Double | Double | N/A | N/A |
 | Decimal | Binary | Decimal | Decimal |
-| 字串 | Binary | Utf8 | Utf8 |
+| String | Binary | Utf8 | Utf8 |
 | Datetime | Int96 | N/A | N/A |
 | TimeSpan | Int96 | N/A | N/A |
 | DateTimeOffset | Int96 | N/A | N/A |
@@ -500,16 +500,16 @@ ms.locfileid: "60150025"
 | Int32 | Int |
 | UInt32 | long |
 | Int64 | long |
-| UInt64 | 字串 |
+| UInt64 | String |
 | Single | Float |
 | Double | Double |
 | Decimal | Decimal |
-| 字串 | 字串 |
+| String | String |
 | Datetime | Timestamp |
 | DateTimeOffset | Timestamp |
 | TimeSpan | Timestamp |
 | ByteArray | Binary |
-| Guid | 字串 |
+| Guid | String |
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>AVRO 格式

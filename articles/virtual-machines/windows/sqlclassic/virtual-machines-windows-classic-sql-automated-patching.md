@@ -17,11 +17,11 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331311"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362130"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Azure 虛擬機器中的 SQL Server 自動修補 (傳統)
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "54331311"
 > 
 > 
 
-自動修補會針對執行 SQL Server 的 Azure 虛擬機器建立維護時間範圍。 自動更新只能在此維護時間範圍內安裝。 對於 SQL Server，這可以確保系統更新和任何相關聯的重新啟動會在對資料庫最好的時間發生。 
+自動修補會針對執行 SQL Server 的 Azure 虛擬機器建立維護時間範圍。 只能在此维护时段内安装自动更新。 對於 SQL Server，這可以確保系統更新和任何相關聯的重新啟動會在對資料庫最好的時間發生。 
 
 > [!IMPORTANT]
 > 只會安裝標示為 [重要] 的 Windows 更新。 其他 SQL Server 更新 (例如累計更新) 必須以手動方式安裝。 
@@ -66,7 +66,7 @@ ms.locfileid: "54331311"
 ## <a name="settings"></a>設定
 下表說明可以為自動修補設定的選項。 針對傳統 VM，您必須使用 PowerShell 來設定這些設定。
 
-| 設定 | 可能的值 | 說明 |
+| 設定 | 可能的值 | 描述 |
 | --- | --- | --- |
 | **自動修補** |啟用/停用 (已停用) |啟用或停用 Azure 虛擬機器的自動修補。 |
 | **維護排程** |每天、星期一、星期二、星期三、星期四、星期五、星期六、星期日 |虛擬機器的 Windows、SQL Server 和 Microsoft 更新的下載及安裝排程。 |
@@ -81,7 +81,7 @@ ms.locfileid: "54331311"
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoPatchingSettings $aps | Update-AzureVM
 
-下表會根據此範例來描述對目標 Azure VM 的實際效果：
+下表根据此示例描述了对目标 Azure VM 产生的实际效果：
 
 | 參數 | 效果 |
 | --- | --- |
@@ -92,7 +92,7 @@ ms.locfileid: "54331311"
 
 可能需要幾分鐘的時間來安裝及設定 SQL Server IaaS 代理程式。
 
-若要停用自動修補，請執行相同的指令碼，但不要對 New-AzureVMSqlServerAutoPatchingConfig 使用 -Enable 參數。 和安裝一樣，可能需要幾分鐘的時間來停用自動修補。
+若要停用自動修補，請執行相同的指令碼，但不要對 New-AzureVMSqlServerAutoPatchingConfig 使用 -Enable 參數。 与安装一样，可能需要花费几分钟时间来禁用自动修补。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關其他可用之自動化工作的資訊，請參閱 [SQL Server IaaS 代理程式擴充功能](../classic/sql-server-agent-extension.md)。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7bd554896d739a567d04e7b978fba72960762805
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 11a84d4ced3232102d262352b84abe1f813e2406
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60365174"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型
 
@@ -23,7 +23,7 @@ ms.locfileid: "58111356"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* 請確認您已安裝傳統和 Az Azure PowerShell 模組在本機電腦上。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。
+* 验证是否已在本地计算机上安装经典模块和 Az Azure PowerShell 模块。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。
 * 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)、[路由需求](expressroute-routing.md)和[工作流程](expressroute-workflows.md)。
 * 請檢閱[將 ExpressRoute 電路從傳統移至 Resource Manager](expressroute-move.md) 下提供的資訊。 請確定您已完整了解各項限制。
 * 請確認電路在傳統部署模型中的運作完全正常。
@@ -92,7 +92,7 @@ ms.locfileid: "58111356"
 Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-在傳統模式中，ExpressRoute 電路沒有繫結至區域的概念。 不過，在 Resource Manager 中，每個資源都必須對應至 Azure 區域。 移動 AzExpressRouteCircuit cmdlet 中指定的區域就技術上而言可以是任何區域。 基於組織目的，您可能想要選擇最能代表您對等互連位置的區域。
+在傳統模式中，ExpressRoute 電路沒有繫結至區域的概念。 不過，在 Resource Manager 中，每個資源都必須對應至 Azure 區域。 从技术上来讲，Move-AzExpressRouteCircuit cmdlet 中指定的区域可以是任何区域。 基於組織目的，您可能想要選擇最能代表您對等互連位置的區域。
 
 > [!NOTE]
 > 移動完成之後，列在前一個 Cmdlet 中的新名稱會用來處理資源。 電路基本上會重新命名。

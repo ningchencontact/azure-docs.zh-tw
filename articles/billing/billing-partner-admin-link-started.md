@@ -5,18 +5,18 @@ services: billing
 author: dhirajgandhi
 manager: dhgandhi
 ms.author: banders
-ms.date: 03/12/2018
+ms.date: 03/12/2019
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371258"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結到您的 Azure 帳戶
 
@@ -57,29 +57,29 @@ ms.locfileid: "59270178"
 1. 安裝 [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell 模組。
 
 2. 以使用者帳戶或服務主體登入客戶的租用戶。 如需詳細資訊，請參閱[使用 PowerShell 登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps) \(英文\)。
- 
+
    ```azurepowershell-interactive
-    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
 3. 連結到新的合作夥伴識別碼。 合作夥伴識別碼是您組織的 [Microsoft 合作夥伴網路](https://partner.microsoft.com/)識別碼。
 
     ```azurepowershell-interactive
-    C:\> new-AzureRmManagementPartner -PartnerId 12345 
+    C:\> new-AzManagementPartner -PartnerId 12345
     ```
 
 #### <a name="get-the-linked-partner-id"></a>取得已連結的合作夥伴識別碼
 ```azurepowershell-interactive
-C:\> get-AzureRmManagementPartner 
+C:\> get-AzManagementPartner
 ```
 
 #### <a name="update-the-linked-partner-id"></a>更新已連結的合作夥伴識別碼
 ```azurepowershell-interactive
-C:\> Update-AzureRmManagementPartner -PartnerId 12345 
+C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### <a name="delete-the-linked-partner-id"></a>刪除已連結的合作夥伴識別碼
 ```azurepowershell-interactive
-C:\> remove-AzureRmManagementPartner -PartnerId 12345 
+C:\> remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### <a name="use-the-azure-cli-to-link-to-a-new-partner-id"></a>使用 Azure CLI 連結到新的合作夥伴識別碼
@@ -87,13 +87,13 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 
     ```azurecli-interactive
     C:\ az extension add --name managementpartner
-    ``` 
+    ```
 
 2. 以使用者帳戶或服務主體登入客戶的租用戶。 如需詳細資訊，請參閱[使用 Azure CLI 登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)。
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
-    ``` 
+    ```
 
 3. 連結到新的合作夥伴識別碼。 合作夥伴識別碼是您組織的 [Microsoft 合作夥伴網路](https://partner.microsoft.com/)識別碼。
 
@@ -104,17 +104,17 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 #### <a name="get-the-linked-partner-id"></a>取得已連結的合作夥伴識別碼
 ```azurecli-interactive
 C:\ az managementpartner show
-``` 
+```
 
 #### <a name="update-the-linked-partner-id"></a>更新已連結的合作夥伴識別碼
 ```azurecli-interactive
 C:\ az managementpartner update --partner-id 12345
-``` 
+```
 
 #### <a name="delete-the-linked-partner-id"></a>刪除已連結的合作夥伴識別碼
 ```azurecli-interactive
 C:\ az managementpartner delete --partner-id 12345
-``` 
+```
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -136,12 +136,12 @@ C:\ az managementpartner delete --partner-id 12345
 
 **其他合作夥伴或客戶是否可編輯或移除合作夥伴識別碼的連結？**
 
-連結會在使用者帳戶層級產生關聯。 只有您才可編輯或移除合作夥伴識別碼的連結。 客戶和其他合作夥伴無法變更合作夥伴識別碼的連結。 
+連結會在使用者帳戶層級產生關聯。 只有您才可編輯或移除合作夥伴識別碼的連結。 客戶和其他合作夥伴無法變更合作夥伴識別碼的連結。
 
 
 **如果我的公司有多個，應使用哪個 MPN 識別碼？**
 
-您可以使用任何有效的 MPN 識別碼除了虛擬 orgnization(v-org) MPN 識別碼。 大部分的合作夥伴選擇 MPN 識別碼用於的地理位置以客戶為基礎，或提供服務。
+您可以使用任何有效的 MPN 識別碼除了虛擬 organization(v-org) MPN 識別碼。 大部分的合作夥伴選擇 MPN 識別碼用於的地理位置以客戶為基礎，或提供服務。
 
 **哪裡可以找到受影響的收入報告的已連結的合作夥伴識別碼？**
 
@@ -158,4 +158,3 @@ C:\ az managementpartner delete --partner-id 12345
 **沒有連結的合作夥伴識別碼適用於 Azure Stack？**
 
 是，您可以連結合作夥伴識別碼適用於 Azure Stack。
-

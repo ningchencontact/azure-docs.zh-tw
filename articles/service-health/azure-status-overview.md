@@ -15,11 +15,11 @@ ms.workload: Supportability
 ms.date: 02/11/2019
 ms.author: stbaron
 ms.openlocfilehash: 6054b33e4068d36c5bfbb80120086a92a03525c8
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506763"
 ---
 # <a name="azure-status"></a>Azure 狀態
 [Azure 狀態](https://azure.microsoft.com/status/)提供您 Azure 服務健康情況和區域的全域檢視。 您可以使用 Azure 狀態取得服務可用性的最新資訊。 每個人都可以使用 Azure 狀態來查看回報服務健康情況的所有服務，以及具有廣泛影響的事件。 但是，如果您目前是 Azure 使用者，強力推薦您使用 [Azure 服務健康狀態](https://aka.ms/azureservicehealth)中的個人化體驗。 Azure 服務健康狀態包含了所有的中斷情況、近期計劃性維護活動和服務建議。

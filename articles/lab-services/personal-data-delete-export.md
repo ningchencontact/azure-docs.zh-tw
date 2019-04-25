@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51637084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394903"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>從 Azure DevTest Labs 匯出或刪除個人資料
 本文提供從 Azure DevTest Labs 服務刪除及匯出個人資料的步驟。 

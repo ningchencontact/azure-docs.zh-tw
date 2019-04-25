@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 9a9db9f05895569b050e56cdeec1ee2ee25af0df
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237818"
 ---
 # <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>在 Azure 入口網站中設定通知中樞的 Apple Push Notification Service (APNS) 設定
 這篇文章會示範如何使用 Azure 入口網站設定 Azure 通知中樞的 Apple Push Notification Service (APNS) 設定。 
 
 ## <a name="prerequisites"></a>必要條件
-如果你尚未创建通知中心，现在请创建一个。 有关详细信息，请参阅[在 Azure 门户中创建 Azure 通知中心](create-notification-hub-portal.md)。 
+如果您尚未建立通知中樞，立即建立一個。 如需詳細資訊，請參閱[在 Azure 入口網站中建立 Azure 通知中樞](create-notification-hub-portal.md)。 
 
 ## <a name="configure-apple-push-notification-service"></a>設定 Apple 推播通知服務
 
@@ -29,21 +29,21 @@ ms.locfileid: "58488214"
 
 1. 在 Azure 入口網站中，在**通知中樞**頁面上，選取**Apple (APNS)** 左側功能表上。
 
-1. 对于“身份验证模式”，请选择“证书”或“令牌”。
+1. 針對 [驗證模式]，選取 [憑證] 或 [權杖]。
 
-   a. 如果选择“证书”：
-   * 选择“文件”图标，然后选择要上传的“.p12”文件。
+   a. 如果您選取 [憑證]：
+   * 選取檔案圖示，然後選取您要上傳的 [.p12] 檔案。
    * 輸入密碼。
-   * 選取 [沙箱] 模式。 或者，若要将推送通知发送给从应用商店中购买了你的应用的用户，请选择“生产”模式。
+   * 選取 [沙箱] 模式。 或者，若要傳送推播通知給從市集購買應用程式的使用者，請選取 [生產] 模式。
 
-     ![Azure 门户中 APNS 证书配置的屏幕截图](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+     ![Azure 入口網站中的 APNS 憑證設定螢幕擷取畫面](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
-   b. 如果选择“令牌”：
+   b. 如果您選取 [權杖]：
 
-   * 輸入的值**金鑰識別碼**，**套件組合識別碼**，**小組識別碼**，以及**語彙基元**。
-   * 選取 [沙箱] 模式。 或者，若要将推送通知发送给从应用商店中购买了你的应用的用户，请选择“生产”模式。
+   * 輸入 [金鑰識別碼]、[搭售方案識別碼]、[小組識別碼] 和 [權杖] 的值。
+   * 選取 [沙箱] 模式。 或者，若要傳送推播通知給從市集購買應用程式的使用者，請選取 [生產] 模式。
 
-     ![Azure 门户中 APNS 令牌配置的屏幕截图](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Azure 入口網站中的 APNS 權杖設定螢幕擷取畫面](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
 ## <a name="next-steps"></a>後續步驟
-如需教學課程逐步解說將通知推送到 iOS 裝置，請參閱下列文章：[使用通知中心和 APNS 将通知推送到 iOS 设备](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+如需教學課程逐步解說將通知推送到 iOS 裝置，請參閱下列文章：[使用通知中樞和 APNS 將通知推播至 iOS 裝置](notification-hubs-ios-apple-push-notification-apns-get-started.md)

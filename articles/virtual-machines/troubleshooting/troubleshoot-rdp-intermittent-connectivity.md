@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
 ms.openlocfilehash: 7fecf8c5fdafb64f7922054dd2bb9755b0dec031
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881336"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386171"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Azure VM 中的遠端桌面時常斷線
 
 本文將說明如何透過遠端桌面通訊協定 (RDP) 對 Azure 虛擬機器 (VM) 的時常斷線情況進行疑難排解。
 
 > [!NOTE] 
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋內容包括如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不要使用傳統部署模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋內容包括如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不要使用傳統部署模型。
 
 ## <a name="symptom"></a>徵狀
 
@@ -167,7 +167,7 @@ ms.locfileid: "55881336"
 18. 重新啟動 VM，並使用 RDP 再次嘗試連線。
 
 ## <a name="need-help"></a>需要協助嗎？ 
-請連絡支援人員。 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+请联系支持人员。 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
 
 
 

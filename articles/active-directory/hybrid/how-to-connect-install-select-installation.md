@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90a624a6b3b4696899af0d8606f653df260cc201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348275"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>選取要用於 Azure AD Connect 的安裝類型
 Azure AD Connect 針對新安裝提供兩種安裝類型：快速和自訂。 本主題將協助您決定安裝時要使用的選項。
@@ -47,7 +47,7 @@ Azure AD Connect 針對新安裝提供兩種安裝類型：快速和自訂。 �
 - 如果您不想要同步處理所有 OU，您仍然可以使用 [快速]，然後在最後一頁取消選取 [開始同步處理程序]。 接著，再次執行安裝精靈並變更[組態選項](how-to-connect-installation-wizard.md#customize-synchronization-options)中的 OU，然後啟用排定的同步處理。
 - 您想要啟用 Azure AD Premium 的其中一個功能，例如密碼回寫。 請先透過快速安裝來完成初始安裝。 接著，再次執行安裝精靈並變更[組態選項](how-to-connect-installation-wizard.md#customize-synchronization-options)。
 
-## <a name="custom"></a>自訂
+## <a name="custom"></a>“自定义”
 自訂路徑所允許的選項比快速安裝多更多。 在上一節所述的快速組態無法代表您組織情況的所有案例中，都應該使用自訂路徑。
 
 使用時機：

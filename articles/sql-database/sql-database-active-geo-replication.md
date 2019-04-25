@@ -13,13 +13,13 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/26/2019
 ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387418"
 ---
-# <a name="creating-and-using-active-geo-replication"></a>建立和使用主動式異地複寫
+# <a name="creating-and-using-active-geo-replication"></a>创建并使用活动异地复制
 
 作用中異地複寫是 Azure SQL Database 的功能，可讓您在相同或不同資料中心 (區域) 中的 SQL Database 伺服器上建立個別資料庫的可讀取次要資料庫。
 
@@ -78,7 +78,7 @@ ms.locfileid: "58498480"
 > [!NOTE]
 > 如果主要資料庫上有結構描述更新，次要資料庫上的記錄重播會延遲， 因為後者需要次要資料庫上的結構描述鎖定。
 > [!IMPORTANT]
-> 若要建立次要資料庫與主要資料庫相同的區域中，您可以使用異地複寫。 您可以使用 負載平衡唯讀工作負載的這個次要相同區域中。 不過，相同的區域中的次要資料庫不會提供額外的錯誤復原，因此不適合的容錯移轉目標的災害復原。 它也不保證會 avaialability 區域隔離。 使用商務關鍵性或使用 Premium 服務層[區域備援設定](sql-database-high-availability.md#zone-redundant-configuration)以達到 avaialability 區域隔離。   
+> 可以使用异地复制在与主数据库相同的区域中创建辅助数据库。 可以使用此辅助数据库对同一区域中的只读工作负荷进行负载均衡。 但是，同一区域中的辅助数据库不能提供额外的故障恢复能力，因此不适合用作灾难恢复的故障转移目标。 它也不保證會 avaialability 區域隔離。 使用商務關鍵性或使用 Premium 服務層[區域備援設定](sql-database-high-availability.md#zone-redundant-configuration)以達到 avaialability 區域隔離。   
 >
 
 - **計劃性容錯移轉**
@@ -110,7 +110,7 @@ ms.locfileid: "58498480"
 
 - **保持認證和防火牆規則同步**
 
-我們建議您使用[資料庫層級 IP 防火牆規則](sql-database-firewall-configure.md)異地複寫資料庫，所以這些規則可以使用資料庫，以確保所有的次要資料庫都有相同的 IP 防火牆規則，與主要資料庫複寫。 此方法不需要客戶手動設定及維護同時裝載主要和次要資料庫之伺服器上的防火牆規則。 同樣地，針對資料存取使用 [自主資料庫使用者](sql-database-manage-logins.md) ，確保主要與次要資料庫永遠具有相同的使用者認證，在容錯移轉時不會因為登入和密碼不相符而有任何中斷。 使用額外的 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)，客戶可以管理主要和次要資料庫的使用者存取，並且排除在資料庫中管理認證的需求。
+建议对异地复制数据库使用[数据库级 IP 防火墙规则](sql-database-firewall-configure.md)，以便这些规则可与数据库一起复制，确保所有辅助数据库具有与主数据库相同的 IP 防火墙规则。 此方法不需要客戶手動設定及維護同時裝載主要和次要資料庫之伺服器上的防火牆規則。 同樣地，針對資料存取使用 [自主資料庫使用者](sql-database-manage-logins.md) ，確保主要與次要資料庫永遠具有相同的使用者認證，在容錯移轉時不會因為登入和密碼不相符而有任何中斷。 使用額外的 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)，客戶可以管理主要和次要資料庫的使用者存取，並且排除在資料庫中管理認證的需求。
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>升級或降級主要資料庫
 
@@ -120,7 +120,7 @@ ms.locfileid: "58498480"
 > 如果您已在容錯移轉群組設定中建立次要資料庫，則不建議降級次要資料庫。 這是為了確保您的資料層在容錯移轉啟動之後有足夠的容量來處理一般工作負載。
 
 > [!IMPORTANT]
-> 容錯移轉群組中的主要資料庫無法調整到較高層級，除非次要資料庫第一次調整為較高的層。 如果您嘗試調整主要資料庫，次要資料庫會調整之前，您可能會收到下列錯誤：
+> 不能将故障转移组中的主数据库扩展到更高的层，除非已先将辅助数据库扩展到该层。 如果尝试在扩展辅助数据库之前扩展主数据库，可能会收到以下错误：
 >
 > `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
 >
@@ -132,14 +132,14 @@ ms.locfileid: "58498480"
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** 可避免在容錯移轉之後資料遺失，但是不保證讀取權限會完整同步。 **sp_wait_for_database_copy_sync** 程序呼叫所造成的延遲可能會相當明顯，且取決於呼叫時的交易記錄大小。
 
-## <a name="monitoring-geo-replication-lag"></a>監視異地複寫延遲
+## <a name="monitoring-geo-replication-lag"></a>监视异地复制延迟
 
-若要監視延隔時間方面的 RPO，請使用*replication_lag_sec*資料行[sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database)主要資料庫上。 它會在主要複本上認可並保存在次要複本上的交易之間的秒數顯示延隔時間。 例如 如果延隔時間的值為 1 秒，這表示如果主要受中斷影響目前和容錯移轉會起始，將不會儲存的最新的 transtions 1 秒。 
+若要监视与 RPO 相关的延迟，请使用主数据库中 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 的 *replication_lag_sec* 列。 它显示在主数据库上提交的事务与在辅助数据库上保留的事务之间的延迟（以秒为单位）。 例如 如果延迟值为 1 秒，则意味着如果主数据库现在受到某个中断的影响并启动了故障转移，则不会保存最近 1 秒执行的事务。 
 
-若要測量延隔時間相對於主要資料庫上的變更已套用在次要複本，也就是可讀取次要複本時，從比較*last_commit*次要資料庫上以在主要伺服器上相同的值時間資料庫。
+若要以在主数据库上所做的更改应用到辅助数据库（即可以从辅助数据库读取）所需的时间来衡量延迟，请将辅助数据库上的 *last_commit* 时间与主数据库上的同一值进行比较。
 
 > [!NOTE]
-> 有時候*replication_lag_sec*主要資料庫上具有 NULL 值，這表示，主要不目前知道伸展多遠的次要資料庫。   這通常發生之後重新啟動處理程序，且應該是暫時性的狀況。 如果警示應用程式，請考慮*replication_lag_sec*長的時間，則傳回 NULL。 它會指出次要資料庫不能與永久性連線失敗的主要通訊。 另外還有狀況可能導致之間的差異*last_commit*時間變得很大的主要資料庫和次要資料庫上。 例如 如果認可在主要伺服器上很長一段任何變更之後，差異會快速地傳回至 0 之前跳最大值。 將它視為錯誤狀況這兩個值之間的差異很長的時間保持大型。
+> 有时候，主数据库上的 *replication_lag_sec* 的值为 NULL，这意味着主数据库目前不知道辅助数据库辅助数据库有多远。   这通常发生在进程重启之后，应该是一个暂时情况。 如果 *replication_lag_sec* 在长时间内一直返回 NULL，考虑向应用程序报警。 这表示辅助数据库因永久连接故障而无法与主数据库通信。 此外还有情况可能会导致辅助数据库上的 *last_commit* 时间与主数据库上的该时间的差异变得很大。 例如 如果在长期没有进行更改的情况下进行提交，则该差异会突然变成一个很大的值，然后快速回到 0。 如果这两个值之间的差异长时间保持很大，可将其视为一种错误情况。
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>以程式設計方式管理主動式異地複寫
@@ -166,7 +166,7 @@ ms.locfileid: "58498480"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 | Cmdlet | 描述 |
 | --- | --- |

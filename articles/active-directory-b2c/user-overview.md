@@ -3,7 +3,7 @@ title: Azure Active Directory B2C 中的使用者帳戶概觀 | Microsoft Docs
 description: 了解 Azure Active Directory B2C 中的使用者帳戶。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419079"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的使用者帳戶概觀
 
@@ -46,21 +46,21 @@ ms.locfileid: "56100120"
 
 您可以使用下列資訊來建立新的公司帳戶：
 
-- [Azure 入口網站](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Azure 门户](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>更新使用者設定檔
 
 您可以使用下列資訊來更新使用者的設定檔：
 
-- [Azure 入口網站](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Azure 门户](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>重設使用者的密碼
 
 您可以使用下列資訊來重設使用者的密碼： 
 
-- [Azure 入口網站](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Azure 门户](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>來賓使用者

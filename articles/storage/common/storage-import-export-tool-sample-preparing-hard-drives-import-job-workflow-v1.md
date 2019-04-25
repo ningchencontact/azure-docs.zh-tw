@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320579"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>針對匯入作業準備硬碟的範例工作流程
 本主題會引導您完成為匯入作業準備硬碟的完整程序。  

@@ -16,11 +16,11 @@ ms.date: 07/06/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b367befb90ec28ece963d67b479749e1c8ad363
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60339644"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>教學課程：Azure Active Directory 與 SecureW2 JoinNow Connector 整合
 
@@ -34,7 +34,7 @@ SecureW2 JoinNow Connector 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 SecureW2 JoinNow Connector 整合，您需要下列項目：
 

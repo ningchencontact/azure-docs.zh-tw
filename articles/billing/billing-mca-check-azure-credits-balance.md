@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544591"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372213"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>追蹤 Microsoft 客戶合約的 Azure 信用額度餘額
 
@@ -37,7 +37,7 @@ ms.locfileid: "57544591"
 
    ![成本管理 + 計費入口網站中顯示搜尋螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. 請移至帳單的設定檔。 根據您的存取權，您可能需要選取 計費帳戶。 從計費的帳戶中，選取**帳單設定檔**，然後計費的設定檔。
+3. 移至 [帳單設定檔]。 您可能需要根據存取權來選取帳單帳戶。 從計費的帳戶中，選取**帳單設定檔**，然後計費的設定檔。
 
 4. 選取  **Azure 信用額度**。
 

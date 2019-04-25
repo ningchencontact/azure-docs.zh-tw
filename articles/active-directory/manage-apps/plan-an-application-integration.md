@@ -1,6 +1,6 @@
 ---
 title: 開始將 Azure AD 與應用程式整合 | Microsoft Docs
-description: 本文章是整合 Azure Active Directory (AD) 與在內部部署應用程式和雲端應用程式的入門指南。
+description: 本文是一篇入门指南，介绍如何将 Azure Active Directory (AD) 与本地应用程序和云应用程序集成。
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -16,11 +16,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1223c96bffdf125da0c47fc932d46cfa84fa45c8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291257"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>整合 Azure Active Directory 與應用程式入門指南
 
@@ -50,7 +50,7 @@ ms.locfileid: "56187775"
 * 是否已經在您的內部部署 Active Directory 中建立群組？
   * 您的群組的組織方式？
   * 有哪些群組成員？
-  * 群組目前有哪些權限/角色指派？
+  * 组当前有哪些权限/角色分配？
 * 您是否需要在整合之前清除使用者/群組資料庫？  (這是很重要的問題。 垃圾進，垃圾出 - 應當避免無用資料。)
 
 ### <a name="access-management-inventory"></a>存取管理清查

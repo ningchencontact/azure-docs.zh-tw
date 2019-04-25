@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359300"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>規劃雲端架構的 Azure Multi-factor Authentication
 
@@ -237,7 +237,7 @@ NPS 擴充功能作為 RADIUS 與雲端 Azure MFA 提供第二因素驗證來保
 
 選擇未註冊 mfa 的使用者嘗試驗證時，會發生什麼事。 使用登錄設定`REQUIRE_USER_MATCH`登錄路徑中`HKLM\Software\Microsoft\AzureMFA`來控制功能的行為。 此設定具有單一組態選項。
 
-| Key | 值 | 預設值 |
+| Key | Value | 預設值 |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | 未設定 (相當於 TRUE) |
 

@@ -3,25 +3,25 @@ title: 在 Azure Active Directory B2C 自訂原則中定義的 OAuth2 的技術�
 description: 在 Azure Active Directory B2C 自訂原則中定義的 OAuth2 的技術設定檔。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fde556c60f823f4bd287ca5672503158c7292f51
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e92378cca445191f42708bd6348b1c75b29da1a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361059"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 自訂原則中定義的 OAuth2 的技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供者的支援。 這是用於授權和委派驗證的主要通訊協定。 如需詳細資訊，請參閱 [RFC 6749 The OAuth 2.0 授權架構](https://tools.ietf.org/html/rfc6749)。 使用 OAuth2 技術設定檔時，您可以與 OAuth2 式識別提供者 (例如 Facebook 和 Live.com) 同盟，讓您的使用者夠使用其現有的社交或企業識別來登入。
+Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供者的支援。 OAuth2 是主要的通訊協定進行授權和委派的驗證。 如需詳細資訊，請參閱 [RFC 6749 The OAuth 2.0 授權架構](https://tools.ietf.org/html/rfc6749)。 使用 OAuth2 的技術設定檔，您可以與 OAuth2 型的識別提供者，例如 Facebook 同盟。 同盟身分識別提供者，可讓使用者使用其現有的社交登入或企業身分識別。
 
 ## <a name="protocol"></a>通訊協定
 
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供�
 
 - **first_name** 宣告對應至 **givenName** 宣告。
 - **last_name** 宣告對應至 **surname** 宣告。
-- **displayName** 宣告沒有名稱對應。
+- **DisplayName**宣告無名稱對應。
 - **email** 宣告沒有名稱對應。
 
 技術設定檔也會傳回識別提供者未傳回的宣告： 
@@ -64,7 +64,7 @@ Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供�
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
   <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
   <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
@@ -90,7 +90,7 @@ Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供�
 | ClaimsEndpointFormat | 否 | 格式查詢字串參數的值。 例如，您可以在 LinkedIn 宣告端點 `https://api.linkedin.com/v1/people/~?format=json` 中將值設定為 `json`。 | 
 | ProviderName | 否 | 識別提供者的名稱。 |
 | response_mode | 否 | 識別提供者用來將結果傳送回 Azure AD B2C 的方法。 可能的值：`query`、`form_post` (預設值) 或 `fragment`。 |
-| scope | 否 | 根據 OAuth2 識別提供者規格而定義的存取要求範圍。 例如，`openid`、`profile` 和 `email`。 |
+| scope | 否 | 根據 OAuth2 識別提供者規格會定義要求的範圍。 例如，`openid`、`profile` 和 `email`。 |
 | HttpBinding | 否 | 繫結至存取權杖和宣告權杖端點的預期 HTTP。 可能的值：`GET` 或 `POST`。  |
 | ResponseErrorCodeParamName | 否 | 包含透過 HTTP 200 (Ok) 傳回之錯誤訊息的參數名稱。 |
 | ExtraParamsInAccessTokenEndpointResponse | 否 | 包含可在某些識別提供者的 **AccessTokenEndpoint** 回應中傳回的額外參數。 例如，**AccessTokenEndpoint** 的回應中包含 `openid` 之類的額外參數，這是 **ClaimsEndpoint** 要求查詢字串中除了 access_token 以外的必要參數。 多個參數名稱應逸出，並以逗號 ',' 分隔。 |
@@ -102,7 +102,7 @@ Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供�
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| client_secret | 是 | 識別提供者應用程式的用戶端密碼。 只有在 **response_types** 中繼資料設為 `code` 時，才需要密碼編譯金鑰。 在此情況下，Azure AD B2C 會進行另一次呼叫，以交換存取權杖的授權碼。 如果中繼資料設為 `id_token`，則可以省略密碼編譯金鑰。  |  
+| client_secret | 是 | 識別提供者應用程式的用戶端密碼。 只有在 **response_types** 中繼資料設為 `code` 時，才需要密碼編譯金鑰。 在此情況下，Azure AD B2C 會進行另一次呼叫，以交換存取權杖的授權碼。 如果中繼資料設為`id_token`，您可以略過的密碼編譯金鑰。 |  
 
 ## <a name="redirect-uri"></a>重新導向 URI
 

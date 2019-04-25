@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2ac43b472758f3403bc87bf3d64321eb97109f53
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335517"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>使用 Azure CDN 規則引擎覆寫 HTTP 行為
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -96,10 +96,10 @@ Azure CDN 規則引擎可讓您自訂 HTTP 要求的處理方式。 例如，封
    > 
    > 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [Azure CDN 概觀](cdn-overview.md)
 * [規則引擎參考](cdn-rules-engine-reference.md)
 * [規則引擎比對條件](cdn-rules-engine-reference-match-conditions.md)
 * [規則引擎條件運算式](cdn-rules-engine-reference-conditional-expressions.md)
 * [規則引擎功能](cdn-rules-engine-reference-features.md)
-* [Azure Fridays: Azure CDN's powerful new Premium Features (影片：Azure 星期五：Azure CDN 強大的新高階功能)](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/)
+* [Azure Fridays:Azure CDN 強大的新高階功能](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/)（影片）

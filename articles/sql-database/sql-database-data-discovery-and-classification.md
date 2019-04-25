@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 和 SQL 資料倉儲的資料探索與分類 |Microsoft Docs
-description: Azure SQL Database 和資料探索與分類
+title: Azure SQL 数据库和 SQL 数据仓库数据发现和分类 | Microsoft Docs
+description: Azure SQL 数据库数据发现和分类
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,13 +13,13 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/22/2019
 ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58495981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403278"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database 和 SQL 資料倉儲的資料探索與分類
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL 数据库和 SQL 数据仓库数据发现和分类
 
 資料探索與分類 (目前處於預覽階段) 提供內建於 Azure SQL Database 的進階功能，可用於**探索**、**分類**、**標記** & **保護**資料庫中的敏感性資料。
 對於最具敏感性的資料 (商業、財務、醫療保健與個人識別資料 (PII) 等) 進行探索與分類，在組織的資訊保護方面扮演著關鍵角色。 它可以作為以下的基礎結構：
@@ -28,10 +28,10 @@ ms.locfileid: "58495981"
 - 各種安全性案例，例如針對敏感性資料異常存取的監視 (稽核) 及警示。
 - 控制對包含高度敏感性資料之資料庫的存取，並強化安全性。
 
-資料探索與分類是一部分[進階的資料安全性](sql-database-advanced-data-security.md)(ADS) 供應項目，也就是 SQL 的進階安全性功能的整合的套件。 資料探索與分類可以透過中央 SQL ADS 入口網站存取及管理。
+数据发现和分类包含在[高级数据安全](sql-database-advanced-data-security.md) (ADS) 产品/服务中，该产品是高级 SQL 安全功能统一软件包。 資料探索與分類可以透過中央 SQL ADS 入口網站存取及管理。
 
 > [!NOTE]
-> 這份文件與 Azure SQL Database 和 Azure SQL 資料倉儲相關。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 SQL Server （內部部署），請參閱 < [SQL 資料探索和分類](https://go.microsoft.com/fwlink/?linkid=866999)。
+> 本文档是关于 Azure SQL 数据库和 Azure SQL 数据仓库的。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 对于 SQL Server（本地），请参阅 [SQL 数据发现和分类](https://go.microsoft.com/fwlink/?linkid=866999)。
 
 ## <a id="subheading-1"></a>什麼是資料探索與分類
 
@@ -147,11 +147,11 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - [按数据库列出建议项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - 获取给定数据库的建议敏感度标签
 
 ## <a name="permissions"></a>權限
-下列的內建角色可以讀取 Azure SQL database 的資料分類： `Owner`， `Reader`， `Contributor`，`SQL Security Manager`和`User Access Administrator`。
+以下内置角色可以读取 Azure SQL 数据库的数据分类：`Owner`、`Reader`、`Contributor`、`SQL Security Manager`、`User Access Administrator`。
 
-下列的內建角色可以修改 Azure SQL database 的資料分類： `Owner`， `Contributor`， `SQL Security Manager`。
+以下内置角色可以修改 Azure SQL 数据库的数据分类：`Owner`、`Contributor`、`SQL Security Manager`。
 
-深入了解[適用於 Azure 資源的 RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+详细了解 [Azure 资源的 RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>接續步驟
 

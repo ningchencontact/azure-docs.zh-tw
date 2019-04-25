@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 9446bbd4783aaf20f1bc9079ec43f7050274bf11
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: a0581ef43e8a3c02126612a21122db559a941370
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095603"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311159"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure 服務匯流排地理災害復原
 
@@ -129,7 +129,7 @@ Azure 服務匯流排的地理災害復原功能就是一個災害復原解決�
 服務匯流排進階 SKU 也支援[可用性區域](../availability-zones/az-overview.md)，在 Azure 區域內提供錯誤隔離位置。
 
 > [!NOTE]
-> 「Azure 服務匯流排進階層」的「可用性區域」支援僅適用於有可用性區域存在的 [Azure 區域](../availability-zones/az-overview.md#regions-that-support-availability-zones)。
+> 「Azure 服務匯流排進階層」的「可用性區域」支援僅適用於有可用性區域存在的 [Azure 區域](../availability-zones/az-overview.md#services-support-by-region)。
 
 使用 Azure 入口網站時，只能在新的命名空間上啟用可用性區域。 服務匯流排不支援移轉現有的命名空間。 在命名空間上啟用區域備援之後，便無法停用。
 

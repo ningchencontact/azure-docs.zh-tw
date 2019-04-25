@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: bb0e146ef32ba24c3911bae86806c84768c005ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405948"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Oracle Eloqua 複製資料 (預覽)
 
@@ -42,7 +42,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Oracle Eloqua 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Eloqua** | 是 |
 | endpoint | Eloqua 伺服器的端點。 Eloqua 支援多個資料中心，若要決定您的端點，請使用您的認證登入 https://login.eloqua.com，然後從模式為 `xxx.xxx.eloqua.com` 的重新導向 URL 中複製**基底 URL** 部分。 | 是 |
@@ -77,7 +77,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Oracle Eloqua 複製資料，請將資料集的類型屬性設定為 **EloquaObject**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**EloquaObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -106,7 +106,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Oracle Eloqua複製資料，請將複製活動中的來源類型設定為 **EloquaSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**EloquaSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Accounts"` 。 | 否 (如果已指定資料集中的 "tableName") |

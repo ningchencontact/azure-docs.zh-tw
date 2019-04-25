@@ -3,7 +3,7 @@ title: 定義 Azure Active Directory B2C 自訂原則中的驗證技術設定檔
 description: 定義 Azure Active Directory B2C 自訂原則中的 Azure Active Directory 技術設定檔。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 466ed4c2bd353e4a5ec3bec5535b70a90446ee0b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418267"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的驗證技術設定檔
 
@@ -52,7 +52,7 @@ ms.locfileid: "58483891"
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | ReferenceId | 是 | 已在原則或父原則中定義之技術設定檔的識別碼。 |
-|ContinueOnError|否| 表示驗證的任何後續的驗證技術設定檔是否應該繼續如果這個驗證技術設定檔就會引發錯誤。 可能的值：`true` 或 `false` (預設值，進一步驗證設定檔的處理將停止，並傳回錯誤)。 |
+|ContinueOnError|否| 指示在此验证技术配置文件引发错误时，任何后续验证技术配置文件是否应继续进行验证。 可能的值：`true` 或 `false` (預設值，進一步驗證設定檔的處理將停止，並傳回錯誤)。 |
 |ContinueOnSuccess | 否 | 表示如果此驗證設定檔成功，任何後續驗證技術設定檔的驗證是否應該繼續。 可能的值：`true` 或 `false`。 預設值是 `true`，表示進一步驗證設定檔的處理會繼續。 |
 
 **ValidationTechnicalProfile** 元素包含下列元素：
@@ -72,7 +72,7 @@ ms.locfileid: "58483891"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| 值 | 1:n | 檢查所用的資料。 如果這項檢查的型別是 `ClaimsExist`，此欄位會指定要查詢的 ClaimTypeReferenceId。 如果檢查的型別是 `ClaimEquals`，此欄位會指定要查詢的 ClaimTypeReferenceId。 而另一個值元素包含要檢查的值。|
+| Value | 1:n | 檢查所用的資料。 如果這項檢查的型別是 `ClaimsExist`，此欄位會指定要查詢的 ClaimTypeReferenceId。 如果檢查的型別是 `ClaimEquals`，此欄位會指定要查詢的 ClaimTypeReferenceId。 而另一個值元素包含要檢查的值。|
 |  動作 | 1:1 | 當協調流程步驟內的先決條件檢查為 True 時應採取的動作。 **動作**的值是設定為 `SkipThisValidationTechnicalProfile`。 指定應該不執行相關聯的驗證技術設定檔。 |
 
 ### <a name="example"></a>範例

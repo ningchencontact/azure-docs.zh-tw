@@ -3,7 +3,7 @@ title: 在 Azure Active Directory B2C 中啟用年齡管制 | Microsoft Docs
 description: 了解如何使用應用程式識別未成年人。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383927"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中啟用年齡管制
 
