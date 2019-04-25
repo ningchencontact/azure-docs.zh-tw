@@ -1,77 +1,70 @@
-items:
 - name: 適用於 IoT 的 Azure 資訊安全中心 (ASC) 預覽文件
   href: index.yml
 - name: 概觀
   href: overview.md
   items:
-  - name: 方案架構
-    href: architecture.md
-  - name: 安全性代理程式
-    href: security-agent-architecture.md
-  - name: Edge 安全性模組
-    href: security-edge-architecture.md
-  - name: 服務必要條件
-    href: service-prerequisites.md
-  - name: 開始使用適用於 IoT 的 ASC
-    href: getting-started.md
+    - name: 方案架構
+      href: architecture.md
+    - name: 安全性代理程式
+      href: security-agent-architecture.md
+    - name: Edge 安全性模組
+      href: security-edge-architecture.md
+    - name: 服務必要條件
+      href: service-prerequisites.md
+    - name: 開始使用適用於 IoT 的 ASC
+      href: getting-started.md
 - name: 快速入門
-  items:
-  - name: 在 IoT 中樞中啟用適用於 IoT 的 ASC
-    href: quickstart-onboard-iot-hub.md
-  - name: 設定您的解決方案
-    href: quickstart-configure-your-solution.md
-  - name: 為 IoT 模組對應項建立適用於 IoT 的 ASC
-    href: quickstart-create-security-twin.md
-  - name: 建立自訂的安全性警訊
-    href: quickstart-create-custom-alerts.md
   expanded: true
+  items:
+    - name: 在 IoT 中樞中啟用適用於 IoT 的 ASC
+      href: quickstart-onboard-iot-hub.md
+    - name: 設定您的解決方案
+      href: quickstart-configure-your-solution.md
+    - name: 為 IoT 模組對應項建立適用於 IoT 的 ASC
+      href: quickstart-create-security-twin.md
+    - name: 建立自訂的安全性警訊
+      href: quickstart-create-custom-alerts.md
 - name: 概念
   items:
-  - name: 安全性代理程式驗證
-    href: concept-security-agent-authentication-methods.md
-  - name: 安全性模組
-    href: concept-security-module.md
-  - name: 安全性警示
-    href: concept-security-alerts.md
-  - name: 安全性建議
-    href: concept-recommendations.md
-  - name: 定價和相關成本
-    href: concept-pricing.md
+    - name: 安全性代理程式驗證
+      href: concept-security-agent-authentication-methods.md
+    - name: 安全性模組
+      href: concept-security-module.md
+    - name: 安全性警示
+      href: concept-security-alerts.md
+    - name: 安全性建議
+      href: concept-recommendations.md
+    - name: 定價和相關成本
+      href: concept-pricing.md
 - name: 使用說明指南
   items:
-  - name: 我應該部署哪個代理程式？
-    items:
-    - name: 選取要部署的代理程式
-      href: how-to-deploy-agent.md
-    - name: 在 Windows 裝置上部署以 C# 為基礎的安全性代理程式
-      href: how-to-deploy-windows-cs.md
-    - name: 在 Linux 裝置上部署以 C# 為基礎的安全性代理程式
-      href: how-to-deploy-linux-cs.md
-    - name: 在 Linux 裝置上部署以 C 為基礎的安全性代理程式
-      href: how-to-deploy-linux-c.md
-  - name: 部署 Edge 安全性模組
-    href: how-to-deploy-edge.md
-  - name: 設定安全性代理程式
-    href: how-to-agent-configuration.md
-  - name: 傳送您的安全性訊息
-    href: how-to-send-security-messages.md
-  - name: 存取未經處理的安全性資料
-    href: how-to-security-data-access.md
-  - name: 調查裝置
-    href: how-to-investigate-device.md
+    - name: 我應該部署哪個代理程式？
+      items:
+        - name: 選取要部署的代理程式
+          href: how-to-deploy-agent.md
+        - name: '在 Windows 裝置上部署以 C# 為基礎的安全性代理程式'
+          href: how-to-deploy-windows-cs.md
+        - name: '在 Linux 裝置上部署以 C# 為基礎的安全性代理程式'
+          href: how-to-deploy-linux-cs.md
+        - name: 在 Linux 裝置上部署以 C 為基礎的安全性代理程式
+          href: how-to-deploy-linux-c.md
+    - name: 部署 Edge 安全性模組
+      href: how-to-deploy-edge.md
+    - name: 設定安全性代理程式
+      href: how-to-agent-configuration.md
+    - name: 傳送您的安全性訊息
+      href: how-to-send-security-messages.md
+    - name: 存取未經處理的安全性資料
+      href: how-to-security-data-access.md
+    - name: 調查裝置
+      href: how-to-investigate-device.md
 - name: 資源
   items:
-  - name: 常見問題集
-    href: resources-frequently-asked-questions.md
-  - name: Azure 藍圖
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Azure 安全性、隱私權和相容性部落格
-    href: http://blogs.msdn.com/b/azuresecurity/
-  - name: 區域可用性
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 1d9d2b51fb1a07081c4ac2f4b115363c74cca6d0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754586"
+    - name: 常見問題集
+      href: resources-frequently-asked-questions.md
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Azure 安全性、隱私權和相容性部落格
+      href: 'http://blogs.msdn.com/b/azuresecurity/'
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/regions/services/'

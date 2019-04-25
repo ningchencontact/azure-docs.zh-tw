@@ -1,20 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6acffc5056f916f2e05c7a0fd3eb325fd89a9e4b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117046"
 documentType: LandingData
 title: Azure 專用 HSM 文件
 metadata:
   title: Azure 專用 HSM 文件 - 教學課程和 API 參考 | Microsoft Docs
-  meta.description: Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  meta.description: 'Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.'
   services: dedicated-hsm
   author: barclayn
   manager: barbkess
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: dedicated-hsm
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -24,42 +18,42 @@ metadata:
 abstract:
   description: 了解有關專用 HSM 功能，以及是否適用於您的環境。
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/dedicated-hsm/overview
+            html: <p>了解 Azure 專用 HSM 相關資訊。</p>
+            image:
+              src: media/index/hsm.svg
+            title: Azure 專用 HSM 概觀
+          - href: /azure/dedicated-hsm/faq
+            html: <p>使用專用 HSM 的設計考量</p>
+            image:
+              src: media/index/guide.svg
+            title: 決定部署架構
+  - title: 逐步教學課程
     items:
-    - href: /azure/dedicated-hsm/overview
-      html: <p>了解 Azure 專用 HSM 相關資訊。</p>
-      image:
-        src: media/index/hsm.svg
-      title: Azure 專用 HSM 概觀
-    - href: /azure/dedicated-hsm/faq
-      html: <p>使用專用 HSM 的設計考量</p>
-      image:
-        src: media/index/guide.svg
-      title: 決定部署架構
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: ''
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: ''
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/cli.svg
+            text: Azure CLI
+            href: /azure/dedicated-hsm/tutorial-deploy-hsm-cli
+          - image:
+              src: media/index/logo_powershell.svg
+            text: PowerShell
+            href: /azure/dedicated-hsm/tutorial-deploy-hsm-powershell
+  - title: 參考
     items:
-    - image:
-        src: media/index/cli.svg
-      text: Azure CLI
-      href: /azure/dedicated-hsm/tutorial-deploy-hsm-cli
-    - image:
-        src: media/index/logo_powershell.svg
-      text: PowerShell
-      href: /azure/dedicated-hsm/tutorial-deploy-hsm-powershell
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: 常見問題集
-      html: <p><a href="/azure/dedicated-hsm/faq/">常見問題集</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 常見問題集
+            html: <p><a href="/azure/dedicated-hsm/faq/">常見問題集</a></p>

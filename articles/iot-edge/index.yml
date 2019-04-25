@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f0d4a689e783f8c460ee54b3613ac0fe432b59ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862782"
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
@@ -21,43 +15,43 @@ abstract:
   description: Azure IoT Edge 是一個物聯網 (IoT) 服務，建置在 IoT 中樞之外。 這項服務提供客戶在裝置上分析資料的服務，也稱為 「在 Edge 上分析」，而不是在雲端進行分析。 將部份工作負載移至 Edge，您的裝置就能以較少的時間將訊息傳送至雲端，並更快速地變更狀態。
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ./media/index/iot-edge-thumbnail.png
       width: 250
-    title: 使用 Azure IoT Edge 來解鎖智慧型 Edge (6:59)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Creating-the-intelligent-edge-with-Azure-IoT-Edge
+    title: '使用 Azure IoT Edge 來解鎖智慧型 Edge (6:59)'
+    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Creating-the-intelligent-edge-with-Azure-IoT-Edge'
     width: 250
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 建立 Azure 虛擬機器、將其設定為以 IoT Edge 裝置的形式執行，並對其部署程式碼：
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
-      text: Windows
-      href: /azure/iot-edge/quickstart
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_linux-color.svg
-      text: Linux
-      href: /azure/iot-edge/quickstart-linux
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何安裝和設定 IoT Edge、部署模組，以及在 Edge 利用類似串流分析和自訂視覺的 Azure 服務。
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 建立 Azure 虛擬機器、將其設定為以 IoT Edge 裝置的形式執行，並對其部署程式碼：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
+            text: Windows
+            href: /azure/iot-edge/quickstart
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux-color.svg'
+            text: Linux
+            href: /azure/iot-edge/quickstart-linux
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/iot-edge/tutorial-deploy-function">使用 Azure Functions 篩選訊息</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">使用 Azure 串流分析作為模組來尋找平均值</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">使用 Azure Machine Learning 作為模組來為資料評分</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">使用自訂視覺服務將影像歸類為一個模組</a>
-    - html: <a href="/azure/iot-edge/tutorial-csharp-module">使用 C# 模組來篩選資料</a>
-    - html: <a href="/azure/iot-edge/tutorial-python-module">使用 Python 模組來篩選資料</a>
-    - html: <a href="/azure/iot-edge/tutorial-node-module">使用 Node.js 模組來篩選資料</a>
-    - html: <a href="/azure/iot-edge/tutorial-java-module">使用 Java 模組篩選資料</a>
-    - html: <a href="/azure/iot-edge/tutorial-c-module">使用 C# 模組來篩選資料</a>
-    - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">使用 SQL Server 在邊緣儲存資料</a>
+      - type: paragraph
+        text: 了解如何安裝和設定 IoT Edge、部署模組，以及在 Edge 利用類似串流分析和自訂視覺的 Azure 服務。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/iot-edge/tutorial-deploy-function">使用 Azure Functions 篩選訊息</a>
+          - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">使用 Azure 串流分析作為模組來尋找平均值</a>
+          - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">使用 Azure Machine Learning 作為模組來為資料評分</a>
+          - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">使用自訂視覺服務將影像歸類為一個模組</a>
+          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">使用 C# 模組來篩選資料</a>'
+          - html: <a href="/azure/iot-edge/tutorial-python-module">使用 Python 模組來篩選資料</a>
+          - html: <a href="/azure/iot-edge/tutorial-node-module">使用 Node.js 模組來篩選資料</a>
+          - html: <a href="/azure/iot-edge/tutorial-java-module">使用 Java 模組篩選資料</a>
+          - html: '<a href="/azure/iot-edge/tutorial-c-module">使用 C# 模組來篩選資料</a>'
+          - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">使用 SQL Server 在邊緣儲存資料</a>

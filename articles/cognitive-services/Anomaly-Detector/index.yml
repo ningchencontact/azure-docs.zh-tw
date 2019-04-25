@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7b7305a84ac8600629ce27551c0243c427082e5e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473361"
 documentType: LandingData
 title: 異常偵測器 API 文件
 metadata:
@@ -23,43 +17,43 @@ metadata:
 abstract:
   description: 異常偵測器 API 可協助您輕鬆在應用程式中內嵌異常偵測功能，讓您的使用者可以快速找出問題，盡可能減少損失及對客戶的影響。 不具機器學習背景亦可使用。 您可以透過單一 API 呼叫來啟動此預先定型的 AI 模型，此模型內嵌所有類型和磁碟區的時間序列資料。選取最適合您資料的異常偵測器模型以確保高準確性，並在事件發生時能自動偵測。 您可以自訂服務，以偵測各種規模的異常情況。  使用異常偵測器來識別商務事件、監視 IoT 裝置流量、管理詐騙行為，並因應不斷變遷的市場做出適當的判斷。
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/anomaly-detector/overview
+            html: <p>深入了解異常偵測器 API</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 什麼是異常偵測器 API？
+          - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
+            html: <p>使用最佳做法搭配 API，將您的異常偵測結果最佳化</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: 使用異常偵測器 API 的最佳做法
+          - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
+            html: <p>調整異常偵測的敏感度、使用不同的偵測模式等等。</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: 使用異常偵測 API
+  - title: 5 分鐘快速入門
     items:
-    - href: /azure/cognitive-services/anomaly-detector/overview
-      html: <p>深入了解異常偵測器 API</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: 什麼是異常偵測器 API？
-    - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
-      html: <p>使用最佳做法搭配 API，將您的異常偵測結果最佳化</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: 使用異常偵測器 API 的最佳做法
-    - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
-      html: <p>調整異常偵測的敏感度、使用不同的偵測模式等等。</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: 使用異常偵測 API
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 使用以下程式語言，在您的時間序列資料偵測異常情況：
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/logo_Csharp.svg
-      href: quickstarts/detect-data-anomalies-csharp
-      text: C#
-    - image:
-        src: media/logo_Java.svg
-      href: quickstarts/detect-data-anomalies-java
-      text: Java
-    - image:
-        src: media/logo_python.svg
-      href: quickstarts/detect-data-anomalies-python
-      text: Python
+      - type: paragraph
+        text: 使用以下程式語言，在您的時間序列資料偵測異常情況：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/logo_Csharp.svg
+            href: quickstarts/detect-data-anomalies-csharp
+            text: 'C#'
+          - image:
+              src: media/logo_Java.svg
+            href: quickstarts/detect-data-anomalies-java
+            text: Java
+          - image:
+              src: media/logo_python.svg
+            href: quickstarts/detect-data-anomalies-python
+            text: Python

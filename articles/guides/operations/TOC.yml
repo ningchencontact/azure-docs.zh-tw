@@ -21,7 +21,7 @@
         - name: Azure Stack
           items:
             - name: Azure Stack 部署概觀
-              href: /azure-stack/asdk/asdk-download
+              href: ../../azure-stack/azure-stack-deploy-overview.md
         - name: Azure 備份
           items:
             - name: 在 Azure 入口網站中備份虛擬機器

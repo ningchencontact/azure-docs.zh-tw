@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5191d259c24a30b6e435fdb2adb93a4345f6ae77
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159089"
 documentType: LandingData
 title: Azure 資料箱文件 - 離線傳輸
 metadata:
@@ -21,30 +15,30 @@ metadata:
 abstract:
   description: Azure 資料箱系列可讓您以快速、實惠和可靠的方式，將數百 TB 的資料轉送到 Azure 中。 當您受限於時間、網路或成本時，請使用適用於離線資料轉送的資料箱裝置。<p>根據您的資料大小，選擇資料箱磁碟、資料箱，或 Data Box Heavy <SUP>預覽</SUP>。 針對每個裝置，以 4 個簡單步驟將資料轉送到 Azure – 訂購、接收、將資料複製到裝置，以及將裝置退回給 Azure。 資料會在 Azure 資料中心上傳，而後清除。</p><p>了解如何透過我們的快速入門及教學課程，使用資料箱進行離線資料轉送。</p>
 sections:
-- title: 快速入門
-  items:
-  - type: list
-    style: icon48
+  - title: 快速入門
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: 在 Azure 入口網站中設定資料箱
-      href: /azure/databox/data-box-quickstart-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: 在 Azure 入口網站中設定資料箱磁碟
-      href: /azure/databox/data-box-disk-quickstart-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: 註冊 Data Box Heavy <SUP>預覽</SUP>
-      href: /azure/databox/data-box-heavy-overview#sign-up
-- title: 教學課程
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
+            text: 在 Azure 入口網站中設定資料箱
+            href: /azure/databox/data-box-quickstart-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
+            text: 在 Azure 入口網站中設定資料箱磁碟
+            href: /azure/databox/data-box-disk-quickstart-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
+            text: 註冊 Data Box Heavy <SUP>預覽</SUP>
+            href: '/azure/databox/data-box-heavy-overview#sign-up'
+  - title: 教學課程
     items:
-    - title: 適用於資料箱
-      html: <p><a href="/azure/databox/data-box-deploy-ordered">訂購 Azure 資料箱</a></p><p><a href="/azure/databox/data-box-deploy-set-up">連接 Azure 資料箱的纜線並且連線</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">將資料複製到 Azure 資料箱</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">退回 Azure 資料箱並確認上傳</a></p>
-    - title: 若為資料箱磁碟
-      html: <p><a href="/azure/databox/data-box-disk-deploy-ordered">訂購 Azure 資料箱磁碟</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">針對 Azure 資料箱磁碟打開包裝、連線、解除鎖定</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">將資料複製到 Azure 資料箱磁碟</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">退回 Azure 資料箱磁碟並確認上傳</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 適用於資料箱
+            html: <p><a href="/azure/databox/data-box-deploy-ordered">訂購 Azure 資料箱</a></p><p><a href="/azure/databox/data-box-deploy-set-up">連接 Azure 資料箱的纜線並且連線</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">將資料複製到 Azure 資料箱</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">退回 Azure 資料箱並確認上傳</a></p>
+          - title: 若為資料箱磁碟
+            html: <p><a href="/azure/databox/data-box-disk-deploy-ordered">訂購 Azure 資料箱磁碟</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">針對 Azure 資料箱磁碟打開包裝、連線、解除鎖定</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">將資料複製到 Azure 資料箱磁碟</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">退回 Azure 資料箱磁碟並確認上傳</a></p>

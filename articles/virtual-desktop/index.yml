@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b9f4cd78288d1b9868a823c5e0ccd0b68b324229
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400253"
 documentType: LandingData
 title: Windows 虛擬桌面預覽文件
 metadata:
@@ -20,28 +14,28 @@ metadata:
 abstract:
   description: 將虛擬桌面體驗和遠端應用程式傳遞至任何裝置。 結合 Microsoft 365 和 Azure 以提供使用者唯一的多重工作階段 Windows 10 體驗，並享有卓越的規模與更好的 IT 成本效益。
 sections:
-- title: 概觀
-  items:
-  - type: paragraph
-    text: 深入了解 Windows 虛擬桌面預覽及其使用方式。 教學課程、操作說明、參考內容以及其他資訊，示範如何設定主機集區和租用戶，並將角色指派給 Windows 虛擬桌面環境的使用者。
-  - type: list
-    style: unordered
+  - title: 概觀
     items:
-    - html: <a href="/azure/virtual-desktop/overview">什麼是 Windows 虛擬桌面預覽？</a>
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何安裝和設定 Windows 虛擬桌面，以及如何在準備就緒時連線到用戶端。
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 深入了解 Windows 虛擬桌面預覽及其使用方式。 教學課程、操作說明、參考內容以及其他資訊，示範如何設定主機集區和租用戶，並將角色指派給 Windows 虛擬桌面環境的使用者。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/virtual-desktop/overview">什麼是 Windows 虛擬桌面預覽？</a>
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">在 Windows 虛擬桌面中建立租用戶</a>
-    - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">透過 Azure Marketplace 建立主機集區</a>
-    - html: <a href="/azure/virtual-desktop/manage-app-groups">管理 Windows 虛擬桌面的應用程式群組</a>
-    - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">使用 PowerShell 建立服務主體和角色指派</a>
-- title: 參考
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 了解如何安裝和設定 Windows 虛擬桌面，以及如何在準備就緒時連線到用戶端。
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">在 Windows 虛擬桌面中建立租用戶</a>
+          - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">透過 Azure Marketplace 建立主機集區</a>
+          - html: <a href="/azure/virtual-desktop/manage-app-groups">管理 Windows 虛擬桌面的應用程式群組</a>
+          - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">使用 PowerShell 建立服務主體和角色指派</a>
+  - title: 參考
     items:
-    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>

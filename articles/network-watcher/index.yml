@@ -6,14 +6,14 @@ metadata:
   title: 網路監看員文件 - 教學課程、快速入門和 API 參考 | Microsoft Docs
   meta.description: 'Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.'
   services: network-watcher
-  author: jdial
-  manager: jeconnoc
+  author: KumudD
+  manager: twolley
   ms.service: network-watcher
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/24/2018
-  ms.author: jdial
+  ms.author: kumud
 abstract:
   description: 了解如何使用 Azure 網路監看員。 快速入門、教學課程等等資源會示範如何使用像是封包擷取和 NSG 流程記錄的工具，取得 Azure 虛擬網路的見解，以診斷流量篩選和路由傳送的問題，以及監視連線。
 sections:

@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 43740118c4379c3b30843575840a000e89cd820b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294989"
 documentType: LandingData
 title: Azure Cosmos DB 文件
 metadata:
@@ -20,173 +14,173 @@ abstract:
   description: Azure Cosmos DB 是全域散發、多模型資料庫服務，支援文件、索引鍵/值組、寬列資料行及圖形資料庫。 了解如何透過我們的快速入門、教學課程和範例使用 Azure Cosmos DB。
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: 以分鐘為單位 (16:17) 建置全球性的行動裝置應用程式
-    href: https://azure.microsoft.com/resources/videos/build-2017-azure-cosmos-db-build-planet-scale-mobile-apps-in-minutes/
+    title: '以分鐘為單位 (16:17) 建置全球性的行動裝置應用程式'
+    href: 'https://azure.microsoft.com/resources/videos/build-2017-azure-cosmos-db-build-planet-scale-mobile-apps-in-minutes/'
     width: 250
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cosmos-db/distribute-data-globally/
+            html: <p>了解適用於所有 Azure Cosmos DB API 的全域散發、分割、已佈建輸送量、索引編製和其他概念。</p>
+            image:
+              src: media/index/azure-cosmos-db-icon.png
+            title: 概念
+          - href: /azure/cosmos-db/sql-api-query-reference/
+            html: <p>如果您正在建置新的非關聯式文件資料庫，而且想要使用熟悉的 SQL 語法進行查詢，請使用 SQL API。</p>
+            image:
+              src: media/index/sql-api.svg
+            title: SQL API
+          - href: /azure/cosmos-db/graph-introduction/
+            html: <p>如果您正在建置圖形資料庫，目的在於為實體之間的關聯性建立模型以及周遊其間，請使用 Gremlin API。</p>
+            image:
+              src: media/index/graph-api.svg
+            title: Gremlin API
+          - href: /azure/cosmos-db/mongodb-introduction/
+            html: <p>如果您要將資料從 MongoDB 資料庫遷移到 Azure Cosmos DB 的完全受控服務，請使用適用於 MongoDB 的 Azure Cosmos DB API。</p>
+            image:
+              src: media/index/mongodb-api.svg
+            title: 適用於 MongoDB 的 Azure Cosmos DB API
+          - href: /azure/cosmos-db/table-introduction/
+            html: <p>如果您要將資料從 Azure 資料表儲存體移轉到 Azure Cosmos DB 的進階資料表供應項目，請使用表格 API。</p>
+            image:
+              src: media/index/table-api.svg
+            title: 資料表 API
+          - href: /azure/cosmos-db/cassandra-introduction/
+            html: <p>如果您要將資料從 Cassandra 移轉到 Azure Cosmos DB 的完全受控服務，請使用 Cassandra API。</p>
+            image:
+              src: media/index/cassandra-api.png
+            title: Cassandra API
+  - title: 5 分鐘快速入門
     items:
-    - href: /azure/cosmos-db/distribute-data-globally/
-      html: <p>了解適用於所有 Azure Cosmos DB API 的全域散發、分割、已佈建輸送量、索引編製和其他概念。</p>
-      image:
-        src: media/index/azure-cosmos-db-icon.png
-      title: 概念
-    - href: /azure/cosmos-db/sql-api-query-reference/
-      html: <p>如果您正在建置新的非關聯式文件資料庫，而且想要使用熟悉的 SQL 語法進行查詢，請使用 SQL API。</p>
-      image:
-        src: media/index/sql-api.svg
-      title: SQL API
-    - href: /azure/cosmos-db/graph-introduction/
-      html: <p>如果您正在建置圖形資料庫，目的在於為實體之間的關聯性建立模型以及周遊其間，請使用 Gremlin API。</p>
-      image:
-        src: media/index/graph-api.svg
-      title: Gremlin API
-    - href: /azure/cosmos-db/mongodb-introduction/
-      html: <p>如果您要將資料從 MongoDB 資料庫遷移到 Azure Cosmos DB 的完全受控服務，請使用適用於 MongoDB 的 Azure Cosmos DB API。</p>
-      image:
-        src: media/index/mongodb-api.svg
-      title: 適用於 MongoDB 的 Azure Cosmos DB API
-    - href: /azure/cosmos-db/table-introduction/
-      html: <p>如果您要將資料從 Azure 資料表儲存體移轉到 Azure Cosmos DB 的進階資料表供應項目，請使用表格 API。</p>
-      image:
-        src: media/index/table-api.svg
-      title: 資料表 API
-    - href: /azure/cosmos-db/cassandra-introduction/
-      html: <p>如果您要將資料從 Cassandra 移轉到 Azure Cosmos DB 的完全受控服務，請使用 Cassandra API。</p>
-      image:
-        src: media/index/cassandra-api.png
-      title: Cassandra API
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何使用 Azure Cosmos DB，使用以下多模型 API 的其中一個快速入門來建立全域分散式資料庫：
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/logo_java.svg
-      title: Java
-    - image:
-        src: media/index/logo_net.svg
-      title: .NET
-    - image:
-        src: media/index/logo_nodejs.svg
-      title: Node.js
-    - image:
-        src: media/index/logo_python.svg
-      title: Python
-    - image:
-        src: media/index/logo_gremlin.svg
-      title: Gremlin
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_gopher.svg
-      title: Go
-    - image:
-        src: media/index/logo_xamarin.svg
-      title: Xamarin
-    rows:
-    - title: SQL API
-      values:
-      - href: /azure/cosmos-db/create-sql-api-java
-      - href: /azure/cosmos-db/create-sql-api-dotnet
-      - href: /azure/cosmos-db/create-sql-api-nodejs
-      - href: /azure/cosmos-db/create-sql-api-python
-      - href: 
-      - href: 
-      - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet
-    - title: 適用於 MongoDB 的 API
-      values:
-      - href: /azure/cosmos-db/create-mongodb-java
-      - href: /azure/cosmos-db/create-mongodb-dotnet
-      - href: /azure/cosmos-db/create-mongodb-nodejs
-      - href: /azure/cosmos-db/create-mongodb-flask
-      - href: 
-      - href: /azure/cosmos-db/create-mongodb-golang
-      - href: /azure/cosmos-db/create-mongodb-xamarin
-    - title: Gremlin API
-      values:
-      - href: /azure/cosmos-db/create-graph-java
-      - href: /azure/cosmos-db/create-graph-dotnet
-      - href: /azure/cosmos-db/create-graph-nodejs
-      - href: /azure/cosmos-db/create-graph-python
-      - href: /azure/cosmos-db/create-graph-gremlin-console
-      - href: 
-      - href: 
-    - title: 資料表 API
-      values:
-      - href: /azure/cosmos-db/create-table-java
-      - href: /azure/cosmos-db/create-table-dotnet
-      - href: /azure/cosmos-db/create-table-nodejs
-      - href: /azure/cosmos-db/create-table-python
-      - href: 
-      - href: 
-      - href: 
-    - title: Cassandra API
-      values:
-      - href: /azure/cosmos-db/create-cassandra-java
-      - href: /azure/cosmos-db/create-cassandra-dotnet
-      - href: /azure/cosmos-db/create-cassandra-nodejs
-      - href: /azure/cosmos-db/create-cassandra-python
-      - href: 
-      - href: 
-      - href: 
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何使用 Azure Cosmos DB 開發應用程式：
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 了解如何使用 Azure Cosmos DB，使用以下多模型 API 的其中一個快速入門來建立全域分散式資料庫：
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo_java.svg
+            title: Java
+          - image:
+              src: media/index/logo_net.svg
+            title: .NET
+          - image:
+              src: media/index/logo_nodejs.svg
+            title: Node.js
+          - image:
+              src: media/index/logo_python.svg
+            title: Python
+          - image:
+              src: media/index/logo_gremlin.svg
+            title: Gremlin
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_gopher.svg'
+            title: Go
+          - image:
+              src: media/index/logo_xamarin.svg
+            title: Xamarin
+        rows:
+          - title: SQL API
+            values:
+              - href: /azure/cosmos-db/create-sql-api-java
+              - href: /azure/cosmos-db/create-sql-api-dotnet
+              - href: /azure/cosmos-db/create-sql-api-nodejs
+              - href: /azure/cosmos-db/create-sql-api-python
+              - href: null
+              - href: null
+              - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet
+          - title: 適用於 MongoDB 的 API
+            values:
+              - href: /azure/cosmos-db/create-mongodb-java
+              - href: /azure/cosmos-db/create-mongodb-dotnet
+              - href: /azure/cosmos-db/create-mongodb-nodejs
+              - href: /azure/cosmos-db/create-mongodb-flask
+              - href: null
+              - href: /azure/cosmos-db/create-mongodb-golang
+              - href: /azure/cosmos-db/create-mongodb-xamarin
+          - title: Gremlin API
+            values:
+              - href: /azure/cosmos-db/create-graph-java
+              - href: /azure/cosmos-db/create-graph-dotnet
+              - href: /azure/cosmos-db/create-graph-nodejs
+              - href: /azure/cosmos-db/create-graph-python
+              - href: /azure/cosmos-db/create-graph-gremlin-console
+              - href: null
+              - href: null
+          - title: 資料表 API
+            values:
+              - href: /azure/cosmos-db/create-table-java
+              - href: /azure/cosmos-db/create-table-dotnet
+              - href: /azure/cosmos-db/create-table-nodejs
+              - href: /azure/cosmos-db/create-table-python
+              - href: null
+              - href: null
+              - href: null
+          - title: Cassandra API
+            values:
+              - href: /azure/cosmos-db/create-cassandra-java
+              - href: /azure/cosmos-db/create-cassandra-dotnet
+              - href: /azure/cosmos-db/create-cassandra-nodejs
+              - href: /azure/cosmos-db/create-cassandra-python
+              - href: null
+              - href: null
+              - href: null
+  - title: 逐步教學課程
     items:
-    - html: 透過 Azure Cosmos DB 開發應用程式：<a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb-nodejs">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Gremlin</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>
-    - html: 資料遷移至 Azure Cosmos DB：<a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Table</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>
-    - html: 透過 Azure Cosmos DB 查詢資料：<a href="/azure/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Gremlin</a>
-    - html: 透過 Azure Cosmos DB 複寫全域資料庫：<a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a>
-    - html: <a href="local-emulator">使用模擬器在本機開發應用程式</a>
-    - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">使用 Azure Cosmos DB 輸入繫結建立 HTTP 觸發程序</a>
-- title: 透過 Microsoft Learn 增進您的技巧
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 了解如何使用 Azure Cosmos DB 開發應用程式：
+      - type: list
+        style: ordered
+        items:
+          - html: '透過 Azure Cosmos DB 開發應用程式：<a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb-nodejs">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Gremlin</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>'
+          - html: '資料遷移至 Azure Cosmos DB：<a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Table</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>'
+          - html: 透過 Azure Cosmos DB 查詢資料：<a href="/azure/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Gremlin</a>
+          - html: 透過 Azure Cosmos DB 複寫全域資料庫：<a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a>
+          - html: <a href="local-emulator">使用模擬器在本機開發應用程式</a>
+          - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">使用 Azure Cosmos DB 輸入繫結建立 HTTP 觸發程序</a>
+  - title: 透過 Microsoft Learn 增進您的技巧
     items:
-    - title: " 建立可縮放的 Azure Cosmos 資料庫"
-      href: /learn/modules/create-cosmos-db-for-scale/
-      image:
-        src: /learn/achievements/create-cosmos-db-for-scale.svg
-        href: /learn/modules/create-cosmos-db-for-scale/
-    - title: 在 Azure Cosmos 資料庫中插入和查詢資料
-      href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
-      image:
-        src: /learn/achievements/access-data-with-cosmos-db-and-sql-api.svg
-        href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
-    - title: 在 Visual Studio Code 中建置適用於 Azure Cosmos DB 的 .NET Core 應用程式
-      href: /learn/modules/build-cosmos-db-app-with-vscode
-      image:
-        src: /learn/achievements/build-cosmos-db-app-with-vscode.svg
-        href: /learn/modules/build-cosmos-db-app-with-vscode
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure-cosmos-db">更多互動式學習...</a>
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: "\_建立可縮放的 Azure Cosmos 資料庫"
+            href: /learn/modules/create-cosmos-db-for-scale/
+            image:
+              src: /learn/achievements/create-cosmos-db-for-scale.svg
+              href: /learn/modules/create-cosmos-db-for-scale/
+          - title: 在 Azure Cosmos 資料庫中插入和查詢資料
+            href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+            image:
+              src: /learn/achievements/access-data-with-cosmos-db-and-sql-api.svg
+              href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+          - title: 在 Visual Studio Code 中建置適用於 Azure Cosmos DB 的 .NET Core 應用程式
+            href: /learn/modules/build-cosmos-db-app-with-vscode
+            image:
+              src: /learn/achievements/build-cosmos-db-app-with-vscode.svg
+              href: /learn/modules/build-cosmos-db-app-with-vscode
+      - type: paragraph
+        text: <a href="/learn/browse/?products=azure-cosmos-db">更多互動式學習...</a>
+  - title: 參考
     items:
-    - title: SQL API
-      html: <p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">.NET 變更摘要</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">REST 資源提供者</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
-    - title: 適用於 MongoDB 的 Azure Cosmos DB API
-      html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">有線通訊協定</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
-    - title: 資料表 API
-      html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
-    - title: Gremlin API
-      html: <p><a href="https://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="https://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>
-    - title: Cassandra API
-      html: <p><a href="https://github.com/datastax/nodejs-driver">Node.js</a></p><p><a href="https://github.com/datastax/python-driver">Python</a></p><p><a href="https://github.com/datastax/java-driver">Java</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: SQL API
+            html: '<p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">.NET 變更摘要</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">REST 資源提供者</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>'
+          - title: 適用於 MongoDB 的 Azure Cosmos DB API
+            html: '<p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">有線通訊協定</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>'
+          - title: 資料表 API
+            html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
+          - title: Gremlin API
+            html: '<p><a href="https://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="https://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>'
+          - title: Cassandra API
+            html: '<p><a href="https://github.com/datastax/nodejs-driver">Node.js</a></p><p><a href="https://github.com/datastax/python-driver">Python</a></p><p><a href="https://github.com/datastax/java-driver">Java</a></p>'

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 79854c71410c7e796961f23c8c31a4d0809cd69c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 2a4c4c7431752ade60161af84b4cc15f010af656
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527977"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995739"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>教學課程：透過 REST API 將資料複製到 Azure 資料箱 Blob 儲存體  
 
@@ -39,9 +39,14 @@ ms.locfileid: "59527977"
 5. 在您的主機電腦上[下載 AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417)。 您將會使用 AzCopy，將資料從主機電腦複製到 Azure 資料箱 Blob 儲存體。
 
 
-## <a name="connect-to-data-box-blob-storage"></a>連線到資料箱 Blob 儲存體
+## <a name="connect-via-http-or-https"></a>透過 http 或 https 來連線
 
-您可以透過 *http* 或 *https* 連線到資料箱 Blob 儲存體。 一般而言，*https* 是連線到資料箱 Blob 儲存體的安全建議方式。 透過受信任的網路連線時，會使用 *http*。 根據您是否要透過 *http* 或 *https* 連線到資料箱 Blob 儲存體而定，步驟可能不同。
+您可以透過 *http* 或 *https* 連線到資料箱 Blob 儲存體。
+
+- https 是連線到資料箱 Blob 儲存體的安全建議方式。
+- 透過受信任的網路連線時，會使用 *http*。
+
+當您透過 http 或 https 連線到資料箱 Blob 儲存體時，所使用的連線步驟會不同。
 
 ## <a name="connect-via-http"></a>透過 HTTP 連線
 
@@ -52,11 +57,11 @@ ms.locfileid: "59527977"
 
 下列各節將說明這其中每個步驟。
 
-#### <a name="add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>將裝置 IP 位址和 Blob 服務端點新增到遠端主機
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>新增裝置 IP 位址和 Blob 服務端點
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
-#### <a name="configure-partner-software-and-verify-connection"></a>設定合作夥伴軟體並驗證連線
+### <a name="configure-partner-software-and-verify-connection"></a>設定合作夥伴軟體並驗證連線
 
 [!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
@@ -67,8 +72,8 @@ ms.locfileid: "59527977"
 透過 https 連線到 Azure Blob 儲存體 REST API 需要下列步驟：
 
 - 從 Azure 入口網站下載憑證
-- 準備適用於遠端管理的主機電腦
-- 將裝置 IP 和 Blob 服務端點新增到遠端主機
+- 匯入用戶端或遠端主機上的憑證
+- 將裝置 IP 和 Blob 服務端點新增到用戶端或遠端主機
 - 設定協力廠商軟體並驗證連線
 
 下列各節將說明這其中每個步驟。
@@ -83,20 +88,15 @@ ms.locfileid: "59527977"
 
     ![在 Azure 入口網站下載憑證](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
-### <a name="prepare-the-host-for-remote-management"></a>準備遠端管理的主機
+### <a name="import-certificate"></a>匯入憑證 
 
-遵循下列步驟，針對使用 *https* 工作階段的遠端連線來準備 Windows 用戶端：
+必須有裝置的 SSL 憑證，才能透過 HTTPS 存取資料箱 Blob 儲存體。 讓用戶端應用程式可以使用此憑證的方式，會隨著應用程式和作業系統與散發套件而有所不同。 某些應用程式可以存取已匯入到系統憑證存放區中的憑證，某些應用程式則無法利用該機制。
 
-- 將 .cer 檔案匯入至用戶端或遠端主機的根存放區。
-- 將裝置 IP 位址和 Blob 服務端點新增到您 Windows 用戶端上的主機檔案。
+本節會說明某些應用程式的特定資訊。 如需其他應用程式的詳細資訊，請參閱所使用應用程式和作業系統的文件。
 
-以下說明上述各程序。
+請遵循下列步驟來將 `.cer` 檔案匯入到 Windows 或 Linux 用戶端的根存放區。 在 Windows 系統上，您可以使用 Windows PowerShell 或 Windows Server UI 在系統上匯入並安裝憑證。
 
-#### <a name="import-the-certificate-on-the-remote-host"></a>匯入遠端主機上的憑證
-
-您可以使用 Windows PowerShell 或 Windows Server UI，在您的主機系統上匯入並安裝憑證。
-
-**使用 PowerShell**
+#### <a name="use-windows-powershell"></a>使用 Windows PowerShell
 
 1. 以系統管理員的身分開啟 Windows PowerShell工作階段。
 2. 在命令提示字元中，輸入：
@@ -105,9 +105,9 @@ ms.locfileid: "59527977"
     Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
     ```
 
-**使用 Windows Server UI**
+#### <a name="use-windows-server-ui"></a>使用 Windows Server UI
 
-1.  以滑鼠右鍵按一下.cer 檔案，選取 [ **安裝憑證**]。 這會啟動 [憑證匯入精靈]。
+1.  以滑鼠右鍵按一下 `.cer` 檔案，然後選取 [安裝憑證]。 這個動作會啟動 [憑證匯入精靈]。
 2.  [存放區位置] 請選取 [本機電腦]，然後按一下 [下一步]。
 
     ![使用 PowerShell 匯入憑證](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
@@ -120,13 +120,29 @@ ms.locfileid: "59527977"
 
     ![使用 PowerShell 匯入憑證](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
-### <a name="to-add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>將裝置 IP 位址和 Blob 服務端點新增到遠端主機
+#### <a name="use-a-linux-system"></a>使用 Linux 系統
 
-要遵循的步驟與透過 *http* 連線時所使用的步驟完全相同。
+用來匯入憑證的方法隨散發套件而異。
 
-### <a name="configure-partner-software-to-establish-connection"></a>設定合作夥伴軟體以建立連線
+Ubuntu 和 Debian 等數個散發套件使用 `update-ca-certificates` 命令。  
 
-要遵循的步驟與透過 *http* 連線時所使用的步驟完全相同。 唯一的差別是您應該使 [使用 http 選項] 保持未核取狀態。
+- 重新命名 Base64 編碼的憑證檔案，使其具有 `.crt` 副檔名，然後將其複製到 `/usr/local/share/ca-certificates directory`。
+- 執行命令 `update-ca-certificates`。
+
+RHEL、Fedora 及 CentOS 的新近版本則使用 `update-ca-trust` 命令。
+
+- 將憑證檔案複製到 `/etc/pki/ca-trust/source/anchors` 目錄。
+- 執行 `update-ca-trust`。
+
+如需詳細資訊，請參閱散發套件的專屬文件。
+
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>新增裝置 IP 位址和 Blob 服務端點 
+
+請遵循相同的步驟，以[在透過 http 連線時新增裝置的 IP 位址和 Blob 服務端點](#add-device-ip-address-and-blob-service-endpoint)。
+
+### <a name="configure-partner-software-and-verify-connection"></a>設定合作夥伴軟體並驗證連線
+
+請遵循相關步驟，以[在透過 http 連線時設定所使用的合作夥伴軟體](#configure-partner-software-and-verify-connection)。 唯一的差別是您應該使 [使用 http 選項] 保持未核取狀態。
 
 ## <a name="copy-data-to-data-box"></a>將資料複製到資料箱
 
@@ -199,7 +215,6 @@ ms.locfileid: "59527977"
 #### <a name="windows"></a> Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
-
 
 下一個步驟是準備寄送裝置。
 

@@ -1,25 +1,18 @@
-items:
 - name: Azure 物聯網
   href: index.md
 - name: 概觀
   items:
-  - name: 簡介
-    href: iot-introduction.md
-  - name: Azure IoT 服務與技術
-    href: iot-services-and-technologies.md
+    - name: 簡介
+      href: iot-introduction.md
+    - name: Azure IoT 服務與技術
+      href: iot-services-and-technologies.md
 - name: 安全性
   items:
-  - name: 安全性架構
-    href: iot-security-architecture.md
-  - name: 安全性最佳作法
-    href: iot-security-best-practices.md
-  - name: 安全部署
-    href: iot-security-deployment.md
-  - name: 從頭建立安全性
-    href: iot-security-ground-up.md
-ms.openlocfilehash: dc5c08ea2a3376b4213e83495ff1dce697338d82
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336711"
+    - name: 安全性架構
+      href: iot-security-architecture.md
+    - name: 安全性最佳作法
+      href: iot-security-best-practices.md
+    - name: 安全部署
+      href: iot-security-deployment.md
+    - name: 從頭建立安全性
+      href: iot-security-ground-up.md
