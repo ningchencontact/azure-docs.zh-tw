@@ -20,11 +20,11 @@ ms.reviewer: sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dfbf920a0e1fc002f3bcbe90164e1fd13a0b978
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411485"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>作法：使用 Azure AD Graph API
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) Graph API 是透過 OData REST API 端點，�
 本文適用於 Azure AD Graph API。 如需與 Microsoft Graph API 相關的類似資訊，請參閱[使用 Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/use_the_api)。
 
 > [!IMPORTANT]
-> 強烈建議您使用 [Microsoft Graph](https://developer.microsoft.com/graph) 取代 Azure AD Graph API 來存取 Azure Active Directory 資源。 我們的開發工作現在是針對 Microsoft Graph，並沒有針對 Azure AD Graph API 規劃的進一步增強功能 。 有極少數的案例可能仍適用 Azure AD Graph API；如需詳細資訊，請參閱 Office 開發人員中心的 [Microsoft Graph 或 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 部落格文章。
+> 強烈建議您使用 [Microsoft Graph](https://developer.microsoft.com/graph) 取代 Azure AD Graph API 來存取 Azure Active Directory 資源。 我們的開發工作現在是針對 Microsoft Graph，並沒有針對 Azure AD Graph API 規劃的進一步增強功能 。 Azure AD Graph API 仍可能适用的方案非常有限；有关详细信息，请参阅 Office 开发人员中心的 [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)（Microsoft Graph 或 Azure AD Graph）博客文章。
 
 ## <a name="how-to-construct-a-graph-api-url"></a>如何建構 Graph API URL
 

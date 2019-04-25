@@ -16,11 +16,11 @@ ms.date: 06/23/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70d4e507087e645c9bfd41e7ef6b90098079ab1d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60259027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>教學課程：Azure Active Directory 與 LearnUpon 整合
 
@@ -160,7 +160,7 @@ LearnUpon 與 Azure AD 整合提供下列優點：
   
     g. 在 [登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登出 URL**。
     
-    h. 按一下 [管理指紋]，然後上傳所下載憑證的指紋。
+    h.如果该值不存在，请单击“添加行”。 按一下 [管理指紋]，然後上傳所下載憑證的指紋。
 
 1. 按一下 [使用者設定] ，然後執行下列步驟：
    

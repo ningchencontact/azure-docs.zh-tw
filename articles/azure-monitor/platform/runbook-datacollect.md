@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
 ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60453922"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>使用 Azure 自動化 Runbook 在 Log Analytics 中收集資料
 
@@ -65,9 +65,9 @@ PowerShell 資源庫提供快速選項讓您將模組直接部署至自動化帳
 
 | 屬性 | 工作區識別碼值 | 工作區索引鍵值 |
 |:--|:--|:--|
-| 名稱 | WorkspaceId | WorkspaceKey |
-| 類型 | 字串 | 字串 |
-| 值 | 貼入 Log Analytics 工作區的工作區識別碼。 | 貼入 Log Analytics 工作區的主要或次要索引鍵。 |
+| Name | WorkspaceId | WorkspaceKey |
+| 類型 | String | String |
+| Value | 貼入 Log Analytics 工作區的工作區識別碼。 | 貼入 Log Analytics 工作區的主要或次要索引鍵。 |
 | 已加密 | 否 | 是 |
 
 ## <a name="3-create-runbook"></a>3.建立 Runbook
@@ -179,9 +179,9 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../../automation/automat
 2. 按一下 [新增排程] > [將排程連結至您的 Runbook] > [建立新的排程]。
 5. 鍵入排程的下列值，然後按一下 [建立]。
 
-| 屬性 | 值 |
+| 屬性 | Value |
 |:--|:--|
-| 名稱 | AutomationJobs-Hourly |
+| Name | AutomationJobs-Hourly |
 | 啟動 | 選取至少超過目前時間 5 分鐘的任何時間。 |
 | 週期性 | 週期性 |
 | 重複頻率 | 1 小時 |

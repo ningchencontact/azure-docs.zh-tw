@@ -3,7 +3,7 @@ title: Azure Active Directory B2C 中的稽核記錄範例和定義 | Microsoft 
 description: 存取 Azure AD B2C 稽核記錄的指南和範例。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
@@ -11,11 +11,11 @@ ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317643"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
@@ -29,7 +29,7 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 
 |活動類型 |描述  |
 |---------|---------|
-|Authorization |有關授權使用者存取 B2C 資源的活動 (例如，系統管理員存取 B2C 原則清單)         |
+|授權 |有關授權使用者存取 B2C 資源的活動 (例如，系統管理員存取 B2C 原則清單)         |
 |目錄 |當系統管理員使用 Azure 入口網站登入時，所擷取目錄屬性的相關活動 |
 |Application | B2C 應用程式上的 CRUD 作業 |
 |Key |B2C 金鑰容器所儲存金鑰上的 CRUD 作業 |

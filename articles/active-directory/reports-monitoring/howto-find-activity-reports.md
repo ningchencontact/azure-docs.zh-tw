@@ -15,11 +15,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d47072713c57576abe780134792c3a5cbc27127c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439034"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60438266"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>在 Azure 入口網站中尋找活動報告
 
@@ -76,8 +76,8 @@ ms.locfileid: "58439034"
 - 全部
 - 存取權檢閱
 - 帳戶佈建 
-- 應用程式 SSO
-- 驗證方法
+- 应用程序 SSO
+- 身份验证方法
 - B2C
 - 條件式存取
 - 核心目錄

@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307850"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>適用於 Windows 的 Azure 效能診斷 VM 擴充功能
 
@@ -81,7 +81,7 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 |storPortTrace|s|啟用 StorPort 追蹤的選項。 有效值為 **s** 或空值。 如果您不想要擷取此追蹤，請將值保持空白即可。
 |srNumber|123452016365929|支援票證號碼 (若可用)。 如果您沒有此值，請保持空白。
 |requestTimeUtc|2017-09-28T22:08:53.736Z|目前的日期時間 (UTC)。 如果您使用入口網站來安裝此擴充功能，就不需提供此值。
-|ResourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|VM 的唯一識別碼。
+|resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|VM 的唯一識別碼。
 |storageAccountName|mystorageaccount|要儲存診斷記錄和結果的儲存體帳戶名稱。
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|儲存體帳戶的金鑰。
 

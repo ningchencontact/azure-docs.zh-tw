@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: d4a80358535429f53b582abe8560757028159070
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557779"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197774"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>新增事件中樞事件來源到您的時間序列深入解析環境
 
@@ -72,7 +72,7 @@ ms.locfileid: "53557779"
 
    ![訂用帳戶與事件中樞詳細資料](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
 
-   | 屬性 | 說明 |
+   | 屬性 | 描述 |
    | --- | --- |
    | 訂用帳戶識別碼 | 選取建立此事件中樞的訂用帳戶。
    | 服務匯流排命名空間 | 選取包含事件中樞的 Azure 服務匯流排命名空間。
@@ -85,7 +85,7 @@ ms.locfileid: "53557779"
 
 1. 下表說明 [手動提供事件中樞設定] 選項的必要屬性：
 
-   | 屬性 | 說明 |
+   | 屬性 | 描述 |
    | --- | --- |
    | 訂用帳戶識別碼 | 建立此事件中樞的訂用帳戶。
    | 資源群組 | 建立此事件中樞所在的資源群組。
@@ -108,5 +108,7 @@ ms.locfileid: "53557779"
 ## <a name="next-steps"></a>後續步驟
 
 * [定義資料存取原則](time-series-insights-data-access.md)來保護資料。
+
 * [將事件傳送](time-series-insights-send-events.md)到事件來源。
+
 * 在[時間序列深入解析總管](https://insights.timeseries.azure.com)中存取您的環境。

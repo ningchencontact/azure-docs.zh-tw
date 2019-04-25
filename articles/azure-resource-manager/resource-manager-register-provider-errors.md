@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389875"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解決資源提供者註冊的錯誤
 
@@ -95,7 +95,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
 az provider list
 ```
 
-若要註冊資源提供者，請使用 `az provider register` 命令，然後指定要註冊的*命名空間*。
+若要注册资源提供程序，请使用 `az provider register` 命令，并指定要注册的 *命名空间* 。
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Cdn

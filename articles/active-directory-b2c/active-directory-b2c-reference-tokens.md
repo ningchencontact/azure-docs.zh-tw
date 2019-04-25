@@ -3,7 +3,7 @@ title: 權杖-Azure Active Directory B2C 概觀 |Microsoft Docs
 description: 深入了解 Azure Active Directory B2C 中使用 token。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 11361bc6ab75e873e1b4081dcfc6492abc093b54
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316930"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的語彙基元的概觀
 
@@ -50,18 +50,18 @@ A[註冊應用程式](tutorial-register-applications.md)接收權杖，並會將
 
 下表列出您可以預期在 ID 權杖和存取 Azure AD B2C 所簽發的權杖的宣告。
 
-| 名稱 | 宣告 | 範例值 | 描述 |
+| Name | 宣告 | 範例值 | 描述 |
 | ---- | ----- | ------------- | ----------- |
 | 對象 | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | 識別權杖的預定接收者。 Azure AD B2C 中，對象是應用程式識別碼。 您的應用程式應該驗證此值，並拒絕權杖，如果它不符合。 對象是資源的同義詞。 |
 | 簽發者 | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | 識別負責建構並傳回權杖的 Security Token Service (STS)。 它也會識別在其中驗證使用者的目錄。 您的應用程式應該驗證簽發者宣告，以確保權杖來自適當的端點。 |
 | 發出時間 | `iat` | `1438535543` | 簽發權杖的時間 (以新紀元 (Epoch) 時間表示)。 |
 | 到期時間 | `exp` | `1438539443` | 權杖失效的時間 (以新紀元 (Epoch) 時間表示)。 您的應用程式應該使用此宣告來驗證權杖的存留期的有效性。 |
 | 生效時間 | `nbf` | `1438535543` | 權杖生效的時間 (以新紀元 (Epoch) 時間表示)。 此時間通常是簽發權杖的時間相同。 您的應用程式應該使用此宣告來驗證權杖的存留期的有效性。 |
-| 版本 | `ver` | `1.0` | 識別碼權杖，Azure AD B2C 所定義的版本。 |
+| Version | `ver` | `1.0` | 識別碼權杖，Azure AD B2C 所定義的版本。 |
 | 代碼雜湊 | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | ID 權杖與 OAuth 2.0 授權碼一起簽發權杖時，才包含代碼雜湊。 代碼雜湊可用來驗證授權碼的真實性。 如需如何執行這項驗證的詳細資訊，請參閱[OpenID Connect 規格](https://openid.net/specs/openid-connect-core-1_0.html)。  |
 | 存取權杖雜湊 | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | ID 權杖與 OAuth 2.0 存取權杖一起簽發權杖時，才包含存取權杖雜湊。 存取權杖雜湊可用來驗證存取權杖的真實性。 如需如何執行這項驗證的詳細資訊，請參閱[OpenID Connect 規格](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce | `nonce` | `12345` | Nonce 是用來緩和權杖重新執行攻擊的策略。 您的應用程式可以使用授權要求中指定 nonce`nonce`查詢參數。 您在要求中提供的值，就會發出在未經修改`nonce`只有識別碼權杖的宣告。 這個宣告可讓您的應用程式根據在要求上指定的值驗證此值。 您的應用程式應該執行這項驗證識別碼權杖驗證程序期間。 |
-| 主體 | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | 權杖判斷提示的相關資訊，例如應用程式的使用者主體。 這個值不可變，而且無法重新指派或重複使用。 它可用來安全地執行授權檢查，例如當權杖用於存取資源時。 根據預設，主體宣告會填入目錄中使用者的物件識別碼。 |
+| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | 權杖判斷提示的相關資訊，例如應用程式的使用者主體。 這個值不可變，而且無法重新指派或重複使用。 它可用來安全地執行授權檢查，例如當權杖用於存取資源時。 根據預設，主體宣告會填入目錄中使用者的物件識別碼。 |
 | 驗證內容類別參考 | `acr` | 不適用 | 只搭配使用較舊的原則。 |
 | 信任架構原則 | `tfp` | `b2c_1_signupsignin1` | 用來取得識別碼權杖的原則名稱。 |
 | 驗證期間 | `auth_time` | `1438535543` | 時間的使用者上次輸入認證，以新紀元時間表示。 |

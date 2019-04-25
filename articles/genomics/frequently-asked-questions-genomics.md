@@ -1,5 +1,5 @@
 ---
-title: Microsoft Genomics：常見問題 - 常見問題集 | Microsoft Docs
+title: Microsoft Genomics:常見的問題-常見問題集 |Microsoft Docs
 titleSuffix: Azure
 description: 有關 Microsoft Genomics 之客戶常見問題的解答。
 services: genomics
@@ -9,14 +9,14 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: HT
+ms.openlocfilehash: 7198e64a11a3aa23643cc2bfb5ecff884c6a1b48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445544"
 ---
-# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics：常見問題
+# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics:常見問題
 
 本文會列出關於 Microsoft Genomics 的最常見疑問。 如需有關 Microsoft Genomics 服務的詳細資訊，請參閱[什麼是 Microsoft Genomics？](overview-what-is-genomics.md)。 如需有關疑難排解的詳細資訊，請參閱[疑難排解指南](troubleshooting-guide-genomics.md)。 
 
@@ -73,6 +73,7 @@ Microsoft Genomics 是根據每個工作流程所處理的 Gb 數來計費。 �
 ## <a name="what-genome-references-can-i-use"></a>我可以使用哪些基因組參考？
 
 支援以下參考：
+
  |參考              | `-pa/--process-args` 的值 |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
@@ -84,15 +85,15 @@ Microsoft Genomics 是根據每個工作流程所處理的 Gb 數來計費。 �
 
 msgen 了解以下列格式的組態檔：
 * 所有選項都是以金鑰/值組的形式提供 (以冒號分隔其值與金鑰)。
-空白字元會被忽略。
+  空白字元會被忽略。
 * 以 `#` 開頭的程式碼行會被忽略。
 * 任何長格式的命令列引數都可以轉換成金鑰，方法是移除其前置連字號並以底線取代文字之間的連字號。 以下是一些轉換範例：
 
- |命令列引數            | 組態檔程式行 |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:KEY*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |命令列引數            | 組態檔程式行 |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:KEY*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>後續步驟
 

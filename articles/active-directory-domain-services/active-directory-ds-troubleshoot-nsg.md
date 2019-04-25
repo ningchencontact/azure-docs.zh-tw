@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
 ms.openlocfilehash: 503e52266c1c6be71e60a751c40ef0a54f0d9b12
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416413"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>針對受控網域的無效網路設定進行移難排解
 本文將協助您針對導致下列警示訊息的網路相關設定錯誤進行疑難排解：

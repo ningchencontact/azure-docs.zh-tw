@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
-ms.openlocfilehash: 9173e34f889ce1c082b20bb382cb6ca9a03dd797
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: ade7da25d2307a382c17e7a3cbb26b601c34ef78
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321490"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>使用 StorSimple Manager 服務管理存取控制記錄
 
@@ -129,5 +129,5 @@ ms.locfileid: "38597492"
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [管理 StorSimple 磁碟區](storsimple-8000-manage-volumes-u2.md)。
-* 深入了解 [使用 StorSimple Manager 服務來管理您的 StorSimple 裝置](storsimple-8000-manager-service-administration.md)。
+* 深入了解 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-8000-manager-service-administration.md)。
 

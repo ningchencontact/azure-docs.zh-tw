@@ -3,7 +3,7 @@ title: Azure Active Directory B2C 中的使用者流程版本 | Microsoft Docs
 description: 了解 Azure Active Directory B2C 中可用的使用者流程版本。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/09/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b3750768eb7346938faec7e3c1ead232923a68bd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359750"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的使用者流程版本
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) B2C 中的使用者流程可協助您設定完
 
 ## <a name="v1"></a>V1
 
-| 使用者流程 | 建議 | 說明 |
+| 使用者流程 | 建議 | 描述 |
 | --------- | ----------- | ----------- |
 | 密碼重設 | 是 | 讓使用者能夠在驗證電子郵件後選擇新密碼。 使用此使用者流程，您可以設定： <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>權杖相容性設定</li><li>[密碼複雜度需求](active-directory-b2c-reference-password-complexity.md)</li></ul> |
 | 設定檔編輯 | 是 | 讓使用者能夠設定其使用者屬性。 使用此使用者流程，您可以設定： <ul><li>[權杖存留期](active-directory-b2c-reference-tokens.md)</li><li>權杖相容性設定</li><li>工作階段行為</li></ul> |
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) B2C 中的使用者流程可協助您設定完
 
 ## <a name="v2"></a>V2
 
-| 使用者流程 | 建議 | 說明 |
+| 使用者流程 | 建議 | 描述 |
 | --------- | ----------- | ----------- |
 | 密碼重設 v2 | 否 | 讓使用者能夠在驗證電子郵件後選擇新密碼。 使用此使用者流程，您可以設定： <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>權杖相容性設定</li><li>[年齡管制](basic-age-gating.md)</li><li>[密碼複雜度需求](active-directory-b2c-reference-password-complexity.md)</li></ul> |
 | 登入 v2 | 否 | 讓使用者帳戶能夠登入其帳戶。 使用此使用者流程，您可以設定： <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[權杖存留期](active-directory-b2c-reference-tokens.md)</li><li>權杖相容性設定</li><li>工作階段行為</li><li>[年齡管制](basic-age-gating.md)</li><li>登入頁面自訂</li></ul> |

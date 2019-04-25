@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 0c4702dada17e759d89c33be99b3155f4b15ad9e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399849"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328879"
 ---
 # <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>設定 Windows 虛擬桌面預覽負載平衡方法
 
@@ -25,7 +25,7 @@ ms.locfileid: "58399849"
 
 廣度優先的負載平衡是新的非持續性的主應用程式集區的預設組態。 廣度優先的負載平衡分散在主應用程式集區中的所有可用的工作階段主機的新使用者工作階段。 當設定廣度優先的負載平衡，您可以設定最大的工作階段限制每個工作階段主機，主應用程式集區中。
 
-首先，[下載並匯入的 Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)來使用您的 PowerShell 工作階段中，如果您還沒有這麼做。
+首先，[下載並匯入 Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)，以在您的 PowerShell 工作階段中使用 (如果您還沒這麼做的話)。
 
 若要設定的主應用程式集區，來執行廣度優先的負載平衡，而不必調整最大的工作階段限制，請執行下列 PowerShell cmdlet:
 

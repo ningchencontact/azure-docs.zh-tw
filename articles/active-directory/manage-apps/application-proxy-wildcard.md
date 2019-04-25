@@ -17,11 +17,11 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fb57052cc550a659dcd8a514fbb71ad0f7d8df5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442329"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 應用程式 Proxy 中的萬用字元應用程式 
 
@@ -169,7 +169,7 @@ ms.locfileid: "56192399"
 
 ![AppId](./media/application-proxy-wildcard/05.png)
 
-| 色彩 | 說明 |
+| 色彩 | 描述 |
 | ---   | ---         |
 | 藍色  | 明確發行並顯示在 Azure 入口網站的應用程式。 |
 | 灰色  | 可以透過父代應用程式存取的應用程式。 |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60458708"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>使用 Azure 資源群組部署專案在 Azure DevOps Services 中進行持續整合
 若要部署 Azure 範本，您可以執行工作中各個階段：組建、 測試、 複製到 Azure （也稱為 「 暫存 」） 及部署範本。 有兩種不同的方式，可將範本部署到 Azure DevOps Services。 兩種方法所產生的結果都相同，因此請選擇最符合您工作流程的方法。

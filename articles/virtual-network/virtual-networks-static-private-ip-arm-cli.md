@@ -17,11 +17,11 @@ ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 06016cf7a8ba10a9a8f49f90da99a26aaa072441
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516489"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 設定虛擬機器的私人 IP 位址
 
@@ -71,11 +71,11 @@ ms.locfileid: "55695502"
     }
     ```
 
-   * `--resource-group`：要在其中建立公用 IP 之資源群組的名稱。
-   * `--name`：公用 IP 的名稱。
-   * `--location`：要在其中建立公用 IP 的 Azure 區域。
+   * `--resource-group`:要在其中建立公用 IP 之資源群組的名稱。
+   * `--name`:公用 IP 的名稱。
+   * `--location`:要在其中建立公用 IP 的 Azure 區域。
 
-3. 執行 [az network nic create](/cli/azure/network/nic) 命令以建立具有靜態私人 IP 的 NIC。 輸出後顯示的清單可說明所使用的參數。 
+3. 執行 [az network nic create](/cli/azure/network/nic) 命令以建立具有靜態私人 IP 的 NIC。 在输出后显示的列表说明了所用的参数。 
    
     ```azurecli
     az network nic create \
@@ -123,9 +123,9 @@ ms.locfileid: "55695502"
     
     參數：
 
-    * `--private-ip-address`：NIC 的靜態私人 IP 位址
-    * `--vnet-name`：要在其中建立 NIC 之 VNet 的名稱。
-    * `--subnet`：要在其中建立 NIC 之子網路的名稱。
+    * `--private-ip-address`:NIC 的靜態私人 IP 位址
+    * `--vnet-name`:要在其中建立 NIC 之 VNet 的名稱。
+    * `--subnet`:要在其中建立 NIC 之子網路的名稱。
 
 4. 執行 [azure vm create](/cli/azure/vm/nic) 命令以使用之前建立的公用 IP 和 NIC 來建立 VM。 輸出後顯示的清單可說明所使用的參數。
    
@@ -157,7 +157,7 @@ ms.locfileid: "55695502"
    
    基本 [az vm create](/cli/azure/vm) 參數以外的參數。
 
-   * `--nics`：VM 所連接至之 NIC 的名稱。
+   * `--nics`:VM 所連接至之 NIC 的名稱。
    
 建議您不要靜態指派在 VM 作業系統內已指派給 Azure 虛擬機器的私人 IP，除非必要，例如[將多個 IP 位址指派給 Windows VM](virtual-network-multiple-ip-addresses-cli.md) 時。 如果您確實手動設定作業系統內的私人 IP 位址，請確保它的位址與指派給 Azure [網路介面](virtual-network-network-interface-addresses.md#change-ip-address-settings)的私人 IP 位址相同，否則您可能會失去與虛擬機器的連線。 深入了解[私人 IP 位址](virtual-network-network-interface-addresses.md#private)設定。
 

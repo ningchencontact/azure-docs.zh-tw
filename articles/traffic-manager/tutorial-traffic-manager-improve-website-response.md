@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
 ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329806"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>教學課程：使用流量管理員來改善網站回應
 
@@ -57,7 +57,7 @@ ms.locfileid: "57998008"
 
     |設定|值|
     |---|---|
-    |名稱|myIISVMEastUS|
+    |Name|myIISVMEastUS|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |資源群組| 選取 [新增]，然後輸入 myResourceGroupTM1。|
@@ -67,7 +67,7 @@ ms.locfileid: "57998008"
 4. 在 [選擇大小] 底下選取虛擬機器大小。
 5. 針對 [設定] 選取下列值，然後選取 [確定]：
     
-    |設定|值|
+    |設定|Value|
     |---|---|
     |虛擬網路| 選取 [虛擬網路]，在 [建立虛擬網路] 中，針對 [名稱] 輸入 *myVNet1*，針對子網路輸入 *mySubnet*。|
     |網路安全性群組|選取 [基本]，然後在 [選取公用輸入連接埠] 下拉式清單中，選取 **HTTP** 和 **RDP** |
@@ -78,7 +78,7 @@ ms.locfileid: "57998008"
 
 7. 以下列變更再次完成步驟 1-6：
 
-    |設定|值|
+    |設定|Value|
     |---|---|
     |資源群組 | 選取 [新增]，然後輸入「myResourceGroupTM2」|
     |位置|西歐|
@@ -134,7 +134,7 @@ ms.locfileid: "57998008"
 
     |設定|值|
     |---|---|
-    |名稱|myVMEastUS|
+    |Name|myVMEastUS|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |資源群組| 選取 [現有]，然後選取 [myResourceGroupTM1]。|
@@ -143,7 +143,7 @@ ms.locfileid: "57998008"
 4. 在 [選擇大小] 底下選取虛擬機器大小。
 5. 針對 [設定] 選取下列值，然後選取 [確定]：
 
-    |設定|值|
+    |設定|Value|
     |---|---|
     |虛擬網路| 選取 [虛擬網路]，在 [建立虛擬網路] 中，針對 [名稱] 輸入 *myVNet3*，針對子網路輸入 *mySubnet*。|
     |網路安全性群組|選取 [基本]，然後在 [選取公用輸入連接埠] 下拉式清單中，選取 **HTTP** 和 **RDP** |
@@ -154,7 +154,7 @@ ms.locfileid: "57998008"
 
 7. 以下列變更再次完成步驟 1-5：
 
-    |設定|值|
+    |設定|Value|
     |---|---|
     |虛擬機器名稱 | *myVMWEurope*|
     |資源群組 | 選取 [現有]，然後輸入 *myResourceGroupTM2*|
@@ -171,7 +171,7 @@ ms.locfileid: "57998008"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | 名稱                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
+    | Name                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
     | 路由方法          | 選取 [效能] 路由方法。                                       |
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [新建]，然後輸入 *myResourceGroupTM1*。 |
@@ -191,7 +191,7 @@ ms.locfileid: "57998008"
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
     | 類型                    | Azure 端點                                   |
-    | 名稱           | myEastUSEndpoint                                        |
+    | Name           | myEastUSEndpoint                                        |
     | 目標資源類型           | 公用 IP 位址                          |
     | 目標資源          | **選擇公用 IP 位址**以顯示具有相同訂用帳戶下公用 IP 位址的資源清單。 在 [資源] 中，選取名為 *myIISVMEastUS-ip* 的公用 IP 位址。 這是美國東部 IIS 伺服器 VM 的公用 IP 位址。|
     |        |           |

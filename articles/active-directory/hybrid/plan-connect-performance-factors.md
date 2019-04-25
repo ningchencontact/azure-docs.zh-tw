@@ -13,11 +13,11 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192569"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60295362"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>影響 Azure AD Connect 效能的因素
 
@@ -104,7 +104,7 @@ Azure AD Connect 會使用下列臨時區域、規則和程序，來允許從 Ac
 * 匯出也是線性的。
 * 根據參考其他物件的物件數目，同步處理會以指數方式增加。 群組成員資格和巢狀群組會有主要的效能影響，因為其成員會參考使用者物件或其他群組。 必須找到這些參考，且必須參考到 MV 中的實際物件，才能完成同步處理週期。
 
-### <a name="filtering"></a>篩選
+### <a name="filtering"></a>Filtering
 
 您想要匯入的 Active Directory 拓撲大小，是會影響效能和佈建引擎內部元件所需整體時間的首要因素。
 

@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: ee714cd87676c519c1bbfca2c08b62287299114e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: cdd9910bfef96f56cfa8c8e81363ff9bdb40f444
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328726"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>使用 Azure CLI 在可用性區域中建立 Linux 虛擬機器
 
 本文逐步引導您使用 Azure CLI 在可用性區域中建立 Linux VM。 [可用性區域](../../availability-zones/az-overview.md)是指 Azure 區域內實際上分隔的區域。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
 
-若要使用可用性區域，請在[支援的 Azure 區域](../../availability-zones/az-overview.md#regions-that-support-availability-zones)中建立虛擬機器。
+若要使用可用性區域，請在[支援的 Azure 區域](../../availability-zones/az-overview.md#services-support-by-region)中建立虛擬機器。
 
 請確定您已安裝最新的 [Azure CLI](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/reference-index) 登入 Azure 帳戶。
 
@@ -102,7 +102,7 @@ az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 -
 
 在可用性區域中部署 VM 時，會在相同的可用性區域中部署 VM 的受控磁碟。 根據預設，也會在該區域中建立公用 IP 位址。 在下列範例中會取得這些資源的相關資訊。
 
-若要確認 VM 的受控磁碟位於可用性區域，請使用 [az vm show](/cli/azure/vm) 命令來傳回磁碟識別碼。在此範例中，磁碟會儲存在變數中並使用於稍後的步驟。 
+若要確認 VM 的受控的磁碟的可用性區域中，使用[az vm show](/cli/azure/vm)命令傳回磁碟識別碼。 在此範例中，磁碟識別碼會儲存在變數中，可在稍後的步驟。 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

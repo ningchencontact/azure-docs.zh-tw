@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
 ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498343"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure 監視器中的 azure Key Vault 分析解決方案
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
 ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386817"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -128,13 +128,13 @@ ms.locfileid: "59526532"
 |AppDiagnosticStoreAccessRequiresImpersonation |布林值，預設值為 true | 動態 |在代表應用程式存取診斷存放區時是否需要模擬。 |
 |AppEtwTraceDeletionAgeInDays |整數，預設值為 3 | 動態 |天數，在此時間過後便會刪除含有應用程式 ETW 追蹤的舊有 ETL 檔案。 |
 |ApplicationLogsFormatVersion |整數，預設值為 0 | 動態 |應用程式記錄格式的版本。 支援的值為 0 和 1。 版本 1 所包含的 ETW 事件記錄欄位比版本 0 多。 |
-|ClusterId |字串 | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
-|ConsumerInstances |字串 | 動態 |DCA 取用者執行個體的清單。 |
+|ClusterId |String | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
+|ConsumerInstances |String | 動態 |DCA 取用者執行個體的清單。 |
 |DiskFullSafetySpaceInMB |整數，預設值為 1024 | 動態 |要防止 DCA 使用的剩餘磁碟空間 (MB)。 |
 |EnableCircularTraceSession |布林值，預設值為 false | 靜態 |旗標會指出是否應使用循環追蹤工作階段。 |
 |EnableTelemetry |布林值，預設值為 true | 動態 |這會用來啟用或停用遙測。 |
 |MaxDiskQuotaInMB |整數，預設值為 65536 | 動態 |Windows Fabric 記錄檔的磁碟配額 (MB)。 |
-|ProducerInstances |字串 | 動態 |DCA 產生者執行個體的清單。 |
+|ProducerInstances |String | 動態 |DCA 產生者執行個體的清單。 |
 
 ## <a name="dnsservice"></a>DnsService
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
@@ -378,7 +378,7 @@ ms.locfileid: "59526532"
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|已啟用 |布林值，預設值為 false |靜態|ImageStoreService 的「啟用」旗標。 預設值：false |
+|Enabled |布林值，預設值為 false |靜態|ImageStoreService 的「啟用」旗標。 預設值：false |
 |MinReplicaSetSize | 整數，預設值為 3 |靜態|ImageStoreService 的 MinReplicaSetSize。 |
 |PlacementConstraints | 字串，預設值為 "" |靜態| ImageStoreService 的 PlacementConstraints。 |
 |QuorumLossWaitDuration | 時間 (秒)，預設值為 MaxValue |靜態| 以秒為單位指定時間範圍。 ImageStoreService 的 QuorumLossWaitDuration。 |
@@ -484,7 +484,7 @@ ms.locfileid: "59526532"
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|Counters |字串 | 動態 |要收集之效能計數器的逗號分隔清單。 |
+|Counters |String | 動態 |要收集之效能計數器的逗號分隔清單。 |
 |IsEnabled |布林值，預設值為 true | 動態 |旗標會指出是否啟用本機節點的效能計數器收集。 |
 |MaxCounterBinaryFileSizeInMB |整數，預設值為 1 | 動態 |每個效能計數器之二進位檔案的大小上限 (MB)。 |
 |NewCounterBinaryFileCreationIntervalInMinutes |整數，預設值為 10 | 動態 |間隔上限 (秒)，在此時間過後便會建立新的效能計數器二進位檔案。 |
@@ -677,7 +677,7 @@ ms.locfileid: "59526532"
 |CreateVolume|字串，預設值為 "Admin"|動態|建立磁碟區 |
 |DeactivateNode |字串，預設值為 "Admin" |動態| 用於停用節點的安全性組態。 |
 |DeactivateNodesBatch |字串，預設值為 "Admin" |動態| 用於停用多個節點的安全性組態。 |
-|刪除 |字串，預設值為 "Admin" |動態| 映像存放區用戶端刪除作業的安全性組態。 |
+|Delete |字串，預設值為 "Admin" |動態| 映像存放區用戶端刪除作業的安全性組態。 |
 |DeleteApplication |字串，預設值為 "Admin" |動態| 應用程式刪除的安全性組態。 |
 |DeleteComposeDeployment|字串，預設值為 "Admin"| 動態|刪除撰寫部署 |
 |DeleteGatewayResource|字串，預設值為 "Admin"| 動態|刪除閘道資源 |
@@ -804,10 +804,10 @@ ms.locfileid: "59526532"
 | --- | --- | --- | --- |
 |ContainerNetworkName|字串，預設值為 ""| 靜態 |要在設定容器網路時使用的網路名稱。|
 |ContainerNetworkSetup|布林值，預設值為 FALSE| 靜態 |是否要設定容器網路。|
-|FabricDataRoot |字串 | 不允許 |Service Fabric 資料的根目錄。 預設為 Azure d:\svcfab |
-|FabricLogRoot |字串 | 不允許 |Service Fabric 記錄的根目錄。 這是放置 SF 記錄和追蹤的位置。 |
+|FabricDataRoot |String | 不允許 |Service Fabric 資料的根目錄。 預設為 Azure d:\svcfab |
+|FabricLogRoot |String | 不允許 |Service Fabric 記錄的根目錄。 這是放置 SF 記錄和追蹤的位置。 |
 |NodesToBeRemoved|字串，預設值為 ""| 動態 |應在設定升級過程中移除的節點。 (僅適用於獨立部署)|
-|ServiceRunAsAccountName |字串 | 不允許 |用來執行網狀架構主機服務的帳戶名稱。 |
+|ServiceRunAsAccountName |String | 不允許 |用來執行網狀架構主機服務的帳戶名稱。 |
 |SkipContainerNetworkResetOnReboot|布林值，預設值為 FALSE|NotAllowed|是否在重新開機時跳過重設容器網路。|
 |SkipFirewallConfiguration |布林值，預設值為 false | 不允許 |指定是否需要由系統設定防火牆設定。 這只有當您使用 Windows 防火牆時才適用。 如果您使用協力廠商防火牆，則您必須開啟要供系統和應用程式使用的連接埠 |
 

@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 74f13628b62d53a84b4d19255a30a6bc4a7367ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974284"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344303"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Azure 排程器的方案與計費
 
@@ -80,7 +80,7 @@ P20 進階作業集合提供與 P10 進階作業集合相同的功能，但也�
 
   排程器服務會根據標準或進階的作用中作業集合數目，加以計費。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [什麼是 Azure 排程器？](scheduler-intro.md)
 * [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)

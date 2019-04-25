@@ -13,11 +13,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474060"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>新增您的個人 Microsoft 帳戶
 將個人 Microsoft 帳戶 (例如 Outlook.com 和 Xbox LIVE 的帳戶) 新增至 Microsoft Authenticator 應用程式，供標準雙因素驗證程序和無密碼手機登入方法使用。

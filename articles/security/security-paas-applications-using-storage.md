@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: TomShinder
 ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108920"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445412"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>使用 Azure 儲存體保護 PaaS Web 與行動應用程式的最佳做法
 在此文章中，我們將討論用來保護平台即服務 (PaaS) Web 與行動應用程式的 Azure 儲存體安全性最佳做法。 這些最佳做法衍生自我們的 Azure 經驗和客戶 (例如您自己) 的經驗。
@@ -75,7 +75,7 @@ SAS 可讓您以您想要的方式來共用內容，而不必交出儲存體帳�
 用戶端加密會內建在 Java 和 .NET 儲存體用戶端程式庫中。 如需有關將用戶端應用程式內資料加密並產生及管理自有加密金鑰的資訊，請參閱 [Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault](../storage/storage-client-side-encryption.md)。
 
 ## <a name="enable-storage-service-encryption-for-data-at-rest"></a>啟用待用資料的儲存體服務加密
-當檔案儲存體的[儲存體服務加密](../storage/storage-service-encryption.md)啟用時，系統會自動使用 AES-256 加密來將資料加密。 Microsoft 會處理所有的加密、解密和金鑰管理工作。 此功能適用於 LRS 及 GRS 備援類型。
+當檔案儲存體的[儲存體服務加密](../storage/storage-service-encryption.md)啟用時，系統會自動使用 AES-256 加密來將資料加密。 Microsoft 會處理所有的加密、解密和金鑰管理工作。 這項功能適用於 LRS 及 GRS 備援類型。
 
 ## <a name="next-steps"></a>後續步驟
 

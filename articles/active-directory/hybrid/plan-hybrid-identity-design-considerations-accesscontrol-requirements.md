@@ -18,18 +18,18 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197380"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60295138"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的存取控制需求
 當組織正在設計他們的混合式身分識別解決方案時，也可以利用這個機會，針對他們正規劃來讓使用者使用的資源檢閱存取需求。 您可以橫跨下列這四種身分識別要件來存取資料：
 
 * 系統管理
 * Authentication
-* Authorization
+* 授權
 * 稽核
 
 後續小節將更詳細說明驗證與授權，系統管理和稽核則是混合式身分識別生命週期的一部分。 如需這些功能的詳細資訊，請參閱 [判斷混合式身分識別管理工作](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) 。
@@ -81,6 +81,6 @@ ms.locfileid: "56197380"
 ## <a name="next-steps"></a>後續步驟
 [判斷事件因應需求](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

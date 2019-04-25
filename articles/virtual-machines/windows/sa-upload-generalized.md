@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cd81eb3d62332bba67f0056a6f7b49279bc50c4f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5b38d022d372e7d35ba2dbeaef90660ce95f73fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250742"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>將一般化 VHD 上傳至 Azure，以建立新的 VM。
 
@@ -31,7 +31,7 @@ ms.locfileid: "59788807"
 
 本主題涵蓋使用儲存體帳戶的內容，但我們建議客戶改用受控磁碟。 如需如何使用受控磁碟來準備、上傳及建立新 VM 的完整逐步解說，請參閱[使用受控磁碟從上傳至 Azure 的一般化 VHD 建立新的 VM](upload-generalized-managed.md)。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-vm"></a>準備 VM
 

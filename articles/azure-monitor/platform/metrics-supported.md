@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b49c6733fd148fc6fb8b9fe535ac839f5b7402f9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851174"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255844"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 
@@ -506,10 +506,10 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |---|---|---|---|---|---|
 |JobEndedSuccess|成功的作業|計數|總計|成功作業計數。|無維度|
 |JobEndedFailure|失敗的作業|計數|總計|失敗作業計數。|無維度|
-|JobEndedCancelled|取消的作業|計數|總計|取消作業計數。|無維度|
+|JobEndedCanceled|已取消的作業|計數|總計|已取消的作業計數。|無維度|
 |JobAUEndedSuccess|成功 AU 時間|秒|總計|成功作業的 AU 時間總計。|無維度|
 |JobAUEndedFailure|失敗 AU 時間|秒|總計|失敗作業的 AU 時間總計。|無維度|
-|JobAUEndedCancelled|取消的 AU 時間|秒|總計|取消作業的 AU 時間總計。|無維度|
+|JobAUEndedCanceled|已取消的 AU 時間|秒|總計|已取消作業的 AU 時間總計。|無維度|
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
@@ -876,7 +876,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |RunsCompleted|完成的執行|計數|總計|已完成的工作流程執行數目。|無維度|
 |RunsSucceeded|已成功的執行|計數|總計|已成功的工作流程執行數目。|無維度|
 |RunsFailed|失敗的執行|計數|總計|已失敗的工作流程執行數目。|無維度|
-|RunsCancelled|取消的執行|計數|總計|已取消的工作流程執行數目。|無維度|
+|RunsCanceled|取消執行|計數|總計|已取消時，執行工作流程數目。|無維度|
 |RunLatency|執行延遲|秒|平均值|已完成的工作流程執行延遲。|無維度|
 |RunSuccessLatency|執行成功的延遲|秒|平均值|已成功的工作流程執行延遲。|無維度|
 |RunThrottledEvents|執行節流的事件|計數|總計|工作流程動作或觸發節流的事件數目。|無維度|
@@ -1513,7 +1513,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |Http5xx|Http 服务器错误|計數|總計|Http 伺服器錯誤|執行個體|
 |MemoryWorkingSet|記憶體工作集|位元組|平均值|記憶體工作集|執行個體|
 |AverageMemoryWorkingSet|平均記憶體工作集|位元組|平均值|平均記憶體工作集|執行個體|
-|FunctionExecutionUnits|函数执行单位数|計數|總計|函式執行單位|執行個體|
+|FunctionExecutionUnits|函式執行單位|MB / 毫秒|總計|[函式執行單位](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|執行個體|
 |FunctionExecutionCount|函数执行计数|計數|總計|函式執行計數|執行個體|
 |PrivateBytes|私用位元組|位元組|平均值|私用位元組|執行個體|
 |IoReadBytesPerSecond|每秒的 IO 讀取位元組數|每秒位元組|總計|每秒的 IO 讀取位元組數|執行個體|

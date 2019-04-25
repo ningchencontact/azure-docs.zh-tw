@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348176"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 同步：設定 Office 365 資源的慣用資料位置
 本主題的目的在於逐步解說如何在 Azure Active Directory (Azure AD) Connect 同步處理中設定慣用資料位置的屬性。當某人在 Office 365 中使用多地理位置功能時，您可使用這個屬性來指定使用者 Office 365 資料的地理位置。 (「區域」與「地區」這兩個詞可交換使用。)
@@ -124,9 +124,9 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 3. 若要建立新的輸入規則，請選取 [新增規則]。
 4. 在 [描述] 索引標籤下，提供下列設定︰
 
-    | 屬性 | 值 | 詳細資料 |
+    | 屬性 | Value | 詳細資料 |
     | --- | --- | --- |
-    | 名稱 | 提供名稱 | 例如，“In from AD – User preferredDataLocation” |
+    | Name | 提供名稱 | 例如，“In from AD – User preferredDataLocation” |
     | 描述 | *提供自訂描述* |  |
     | 連線系統 | 挑選內部部署 Active Directory 連接器 |  |
     | 連線系統物件類型 | **使用者** |  |
@@ -153,9 +153,9 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 3. 選取 [新增規則]。
 4. 在 [描述] 索引標籤下，提供下列設定︰
 
-    | 屬性 | 值 | 詳細資料 |
+    | 屬性 | Value | 詳細資料 |
     | ----- | ------ | --- |
-    | 名稱 | 提供名稱 | 例如，“Out to Azure AD – User preferredDataLocation” |
+    | Name | 提供名稱 | 例如，“Out to Azure AD – User preferredDataLocation” |
     | 描述 | 提供描述 ||
     | 連線系統 | 選取 Azure AD 連接器 ||
     | 連線系統物件類型 | **使用者** ||
@@ -165,7 +165,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 5. 移至 [範圍篩選器] 索引標籤，並使用兩個子句來新增單一範圍篩選器群組：
 
-    | 屬性 | 运算符 | 值 |
+    | 屬性 | 运算符 | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |

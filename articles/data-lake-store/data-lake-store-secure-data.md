@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198170"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>保護儲存在 Azure Data Lake Storage Gen1 中的資料
 保護儲存在 Azure Data Lake Storage Gen1 中的資料，其方法有三步驟。  必須設定角色型存取控制 (RBAC) 和存取控制清單 (ACL) 都，才能完整啟用使用者和安全性群組之資料的存取權。

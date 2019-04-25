@@ -17,11 +17,11 @@ ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa597c8b458305946aa298631726df3da317534
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244410"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>變更 Office 365 信賴憑證者信任的簽章雜湊演算法
 ## <a name="overview"></a>概觀

@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: df189e405dcd5277c1ccbd94e9d5d302660be79b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171417"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359782"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>為 Azure AD Domain Services 受控網域啟用安全 LDAP (LDAPS)
 
@@ -33,7 +33,7 @@ ms.locfileid: "55171417"
 
 1. 瀏覽至 **[Azure 入口網站](https://portal.azure.com)**。
 
-2. 在 [搜尋資源] 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 [Azure AD Domain Services]。 [Azure AD Domain Services] 頁面會列出受控網域。
+2. 在 **搜尋資源** 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 **Azure AD Domain Services**。 **Azure AD Domain Services** 頁面會列出受控網域。
 
     ![找出正在佈建的受控網域](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 

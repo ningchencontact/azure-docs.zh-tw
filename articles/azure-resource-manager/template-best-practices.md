@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389571"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 範本最佳做法
 
@@ -42,9 +42,9 @@ ms.locfileid: "57440467"
 
 ## <a name="resource-group"></a>資源群組
 
-當您將資源部署至資源群組時，資源群組會儲存有關之資源的中繼資料。 中繼資料會儲存在資源群組的位置。
+将资源部署到资源组时，资源组会存储与资源有关的元数据。 元数据存储在资源组的位置中。
 
-如果資源群組的區域是暫時無法使用，您就無法更新資源群組中的資源，因為中繼資料無法使用。 在其他區域的資源將仍可運作如預期般運作，但無法更新它們。 若要風險降至最低，找出您的資源群組和資源位於相同的區域。
+如果资源组的区域临时不可用，则不能更新资源组中的资源，因为元数据不可用。 其他區域中的資源仍可如預期般運作，但您無法更新這些資源。 若要將風險降至最低，請將資源群組和資源放在相同區域。
 
 ## <a name="parameters"></a>參數
 本節資訊對您在使用[參數](resource-group-authoring-templates.md#parameters)時會有幫助。

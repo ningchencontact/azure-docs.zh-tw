@@ -16,16 +16,16 @@ ms.date: 03/22/2019
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf17971bde840743d17dd0b66078630c2d4e7c1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: af10596fb1ddf4a4f9eba2b8265eb77221a19f4c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353120"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
-###<a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>問：我最近註冊了裝置。 為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？ 或是為何要將裝置擁有者標示為不適用於混合式 Azure Active Directory (Azure AD) 已加入裝置嗎？
+### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>問：我最近註冊了裝置。 為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？ 或是為何要將裝置擁有者標示為不適用於混合式 Azure Active Directory (Azure AD) 已加入裝置嗎？
 
 **答：** 已加入混合式 Azure AD 的 Windows 10 裝置不會顯示在 [使用者裝置] 底下。
 請使用 Azure 入口網站中的 [所有裝置] 檢視。 您也可以使用 PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet。
@@ -95,7 +95,7 @@ ms.locfileid: "58518783"
 
 ---
 
-**問：為什麼使用者仍然能夠從我已在 Azure 入口網站中停用的裝置存取資源？**
+**问：為什麼使用者仍然能夠從我已在 Azure 入口網站中停用的裝置存取資源？**
 
 **答：** 套用撤銷最多需要一小時的時間才能完成。
 

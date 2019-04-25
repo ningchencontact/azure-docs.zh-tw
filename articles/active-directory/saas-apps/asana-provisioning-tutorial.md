@@ -18,11 +18,11 @@ ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a763b2516f88e8c92efc321db50dc15881f54c9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437471"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>教學課程：設定 Asana 來自動佈建使用者
 

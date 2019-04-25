@@ -1,19 +1,19 @@
 ---
 title: 使用 REST API 將 Azure 資源的自訂計量傳送至 Azure 監視器計量的存放區
 description: 使用 REST API 將 Azure 資源的自訂計量傳送至 Azure 監視器計量的存放區
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: aa842979bf86410e9dab97d6209f336eb6b02bd3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253898"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>使用 REST API 將 Azure 資源的自訂計量傳送至 Azure 監視器計量的存放區
 
@@ -39,7 +39,7 @@ ms.locfileid: "58621901"
 開啟命令提示字元並執行下列命令：
 
 ```shell
-curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step>" -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
+curl -X POST https://login.partner.microsoftonline.cn/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
 ```
 儲存回應中的存取權杖。
 
@@ -77,7 +77,7 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
     } 
     ``` 
 
-1. 在命令提示字元視窗中，發佈計量資料： 
+2. 在命令提示字元視窗中，發佈計量資料： 
    - **azureRegion**。 必須符合您要發出其計量的資源的部署資源。 
    - **resourceID**。  您要針對其追蹤計量的 Azure 資源的資源識別碼。  
    - **AccessToken**。 貼上您先前取得的權杖。
@@ -85,8 +85,8 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
      ```Shell 
      curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
      ```
-1. 變更 JSON 檔案中的時間戳記和值。 
-1. 重複前兩個步驟執行數次，讓您擁有數分鐘的資料。
+3. 變更 JSON 檔案中的時間戳記和值。 
+4. 重複前兩個步驟執行數次，讓您擁有數分鐘的資料。
 
 ## <a name="troubleshooting"></a>疑難排解 
 如果您在流程的某些部分收到錯誤訊息，請考慮下列疑難排解資訊：
@@ -119,4 +119,3 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
  
 ## <a name="next-steps"></a>後續步驟
 - 深入了解[自訂計量](../../azure-monitor/platform/metrics-custom-overview.md)。
-

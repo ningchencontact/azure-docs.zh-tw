@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
 ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370980"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>使用 REST API 檢閱 Azure 資源使用量
 
@@ -43,7 +43,7 @@ Authorization: Bearer
 
 以下是必要標頭： 
 
-|要求標頭|說明|  
+|要求標頭|描述|  
 |--------------------|-----------------|  
 |*Content-Type:*| 必要。 設定為 `application/json`。 |  
 |*Authorization:*| 必要。 設定為有效的 `Bearer` 權杖。 |

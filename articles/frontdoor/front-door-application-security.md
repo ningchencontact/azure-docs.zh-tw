@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193912"
 ---
 # <a name="application-layer-security-with-front-door"></a>Front Door 的應用程式層安全性
 Azure Front Door Service 提供的 Web 應用程式保護功能可保護 Web 應用程式免於受到網路攻擊與常見網路弱點惡意探索，例如 SQL 插入或跨網站指令碼 (XSS)。 針對 http(s) 前端啟用，Front Door 的應用程式層安全性散布全球各地且永遠開啟，可在遠離您後端的 Azure 網路邊緣遏止惡意攻擊。 Front Door 可提高安全性並將效能最佳化，向您的終端使用者提供快速又安全的 Web 體驗。

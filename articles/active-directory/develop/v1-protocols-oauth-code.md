@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2598bb4deef0c7dae9f5df558ec1054ad02fb2f7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297035"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式
 
@@ -145,7 +145,7 @@ grant_type=authorization_code
 | client_id |必要 |向 Azure AD 註冊應用程式時，指派給您的應用程式的識別碼。 您可以在 Azure 入口網站中找到這個值。 應用程式識別碼會顯示在應用程式註冊的設定中。 |
 | grant_type |必要 |必須是授權碼流程的 `authorization_code` 。 |
 | code |必要 |您在上一節中取得的 `authorization_code` |
-| redirect_uri |必要 | A`redirect_uri`上用戶端應用程式註冊。 |
+| redirect_uri |必要 | 一个在客户端应用程序上注册的 `redirect_uri`。 |
 | client_secret |Web 應用程式必備，公用用戶端不允許 |您在 Azure 入口網站的 [金鑰] 中，為應用程式建立的應用程式秘密。 無法在原生應用程式 (公用用戶端) 中使用，因為 client_secret 無法妥善地儲存在裝置中。 Web 應用程式和 Web API (所有機密用戶端) 都需要應用程式秘密，其能夠將 `client_secret` 安全地儲存在伺服器端。 client_secret 應該在傳送之前先進行 URL 編碼。 |
 | resource | 建議使用 |目標 Web API (受保護的資源) 應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 入口網站中，按一下 [Azure Active Directory]，再按一下 [應用程式註冊]，開啟應用程式的 [設定] 頁面，再按一下 [屬性]。 其也可能是外部的資源，例如 `https://graph.microsoft.com`。 授權或權杖要求會需要此 URI。 為盡量減少授權提示次數，請將之放置於授權要求內，以確保收到使用者的同意。 若授權要求和權杖要求均有，則資源的參數一定要相符。 | 
 | code_verifier | 選用 | 用來取得 authorization_code 的相同 code_verifier。 如果在授權碼授與要求中已使用 PKCE，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636) \(英文\)   |

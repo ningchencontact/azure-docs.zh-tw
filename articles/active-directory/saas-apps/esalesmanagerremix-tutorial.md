@@ -17,11 +17,11 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428865"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>整合 Azure Active Directory 與 E Sales Manager Remix
 
@@ -168,7 +168,7 @@ ms.locfileid: "56164144"
 
     g. 在 [識別提供者登出 URL] 方塊中，貼上您之前從 Azure 入口網站複製的登出 URL 值。
 
-    h. 選取 [設定完成]。
+    h.如果该值不存在，请单击“添加行”。 選取 [設定完成]。
 
 > [!TIP]
 > 當您設定此應用程式時，可以在 [Azure 入口網站](https://portal.azure.com)中閱讀先前那些指示的簡要版本。 在 [Active Directory]  >  [企業應用程式] 區段中新增應用程式之後，請選取 [單一登入] 索引標籤，然後在底部的 [組態] 區段中存取內嵌的文件。 如需內嵌文件功能的詳細資訊，請參閱 [Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)。

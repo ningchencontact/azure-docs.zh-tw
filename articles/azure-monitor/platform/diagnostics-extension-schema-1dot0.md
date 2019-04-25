@@ -10,11 +10,11 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237849"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure 診斷 1.0 組態結構描述
 > [!NOTE]
@@ -116,7 +116,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |屬性|類型|描述|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|選用。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferLogLevelFilter**|字串|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**scheduledTransferLogLevelFilter**|string|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
 |**scheduledTransferPeriod**|duration|選用。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="logs-element"></a>Logs 元素  
@@ -129,7 +129,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|選用。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferLogLevelFilter**|字串|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**scheduledTransferLogLevelFilter**|string|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
 |**scheduledTransferPeriod**|duration|選用。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="directories-element"></a>Directories 元素  
@@ -154,7 +154,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
-|**container**|字串|要傳輸目錄內容的容器名稱。|  
+|**container**|string|要傳輸目錄內容的容器名稱。|  
 |**directoryQuotaInMB**|unsignedInt|選用。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
 
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs 元素  
@@ -166,7 +166,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
-|**container**|字串|要傳輸目錄內容的容器名稱。|  
+|**container**|string|要傳輸目錄內容的容器名稱。|  
 |**directoryQuotaInMB**|unsignedInt|選用。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
 
 ##  <a name="iislogs-element"></a>IISLogs 元素  
@@ -178,7 +178,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
-|**container**|字串|要傳輸目錄內容的容器名稱。|  
+|**container**|string|要傳輸目錄內容的容器名稱。|  
 |**directoryQuotaInMB**|unsignedInt|選用。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
 
 ## <a name="datasources-element"></a>DataSources 元素  
@@ -195,7 +195,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
-|**container**|字串|要傳輸目錄內容的容器名稱。|  
+|**container**|string|要傳輸目錄內容的容器名稱。|  
 |**directoryQuotaInMB**|unsignedInt|選用。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
 
 ## <a name="absolute-element"></a>Absolute 元素  
@@ -207,8 +207,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
-|**路徑**|字串|必要。 要監視之目錄的絕對路徑。|  
-|**expandEnvironment**|布林值|必要。 如果設定為 **true**，就會展開路徑中的環境變數。|  
+|**路徑**|string|必要。 要監視之目錄的絕對路徑。|  
+|**expandEnvironment**|boolean|必要。 如果設定為 **true**，就會展開路徑中的環境變數。|  
 
 ## <a name="localresource-element"></a>LocalResource 元素  
  定義相對於服務定義中所定義之本機資源的路徑。
@@ -219,8 +219,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
-|**name**|字串|必要。 包含要監視之目錄的本機資源名稱。|  
-|**relativePath**|字串|必要。 相對於要監視之本機資源的路徑。|  
+|**name**|string|必要。 包含要監視之目錄的本機資源名稱。|  
+|**relativePath**|string|必要。 相對於要監視之本機資源的路徑。|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 元素  
  定義要收集之效能計數器的路徑。
@@ -244,7 +244,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|字串|必要。 要收集之效能計數器的路徑。|  
+|**counterSpecifier**|string|必要。 要收集之效能計數器的路徑。|  
 |**sampleRate**|duration|必要。 應收集效能計數器的頻率。|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 元素  
@@ -257,7 +257,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|選用。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferLogLevelFilter**|字串|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**scheduledTransferLogLevelFilter**|string|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
 |**scheduledTransferPeriod**|duration|選用。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="datasource-element"></a>DataSource 元素  
@@ -269,5 +269,5 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
-|**name**|字串|必要。 指定要收集之記錄的 XPath 運算式。|  
+|**name**|string|必要。 指定要收集之記錄的 XPath 運算式。|  
 

@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: 4e2808378834a0270586ce674e1043ca443320c5
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539627"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331191"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>針對 SQL 資料同步的問題進行疑難排解
 
@@ -40,7 +40,7 @@ ms.locfileid: "58539627"
 
 - [我看到效能顯著降低](#sync-perf)
 
-- [我看到下列錯誤訊息：「 無法將 NULL 值插入資料行\<資料行 >。資料行不允許 Null。」這是什麼意思，該如何修正？](#sync-nulls)
+- [我看到下列錯誤訊息：“无法在列 \<column> 中插入 NULL 值。資料行不允許 Null。」這是什麼意思，該如何修正？](#sync-nulls)
 
 - [資料同步如何處理循環參考？也就是，相同的資料已在多個同步群組中同步，且因此持續變更？](#sync-circ)
 
@@ -105,7 +105,7 @@ SQL 資料同步中的同步群組已處於處理中狀態一段時間。 它不
 
 - **解決方案**。 最佳的修正方式就是預防。 確保您的同步群組中沒有循環參考。 由某個同步群組同步的任何資料列不能同步至另一個同步群組。
 
-### <a name="sync-nulls"></a> 我看到下列錯誤訊息：「 無法將 NULL 值插入資料行\<資料行 >。 資料行不允許 Null。」 這是什麼意思，該如何修正？ 
+### <a name="sync-nulls"></a> 我看到下列錯誤訊息：“无法在列 \<column> 中插入 NULL 值。 資料行不允許 Null。」 這是什麼意思，該如何修正？ 
 此錯誤訊息表示發生了下列兩種問題的其中之一：
 -  資料表沒有主索引鍵。 若要修正此問題，請將主索引鍵新增至要同步的所有資料表。
 -  在 CREATE INDEX 陳述式中可能有 WHERE 子句。 資料同步不會處理這個狀況。 若要修正此問題，請移除 WHERE 子句或手動變更所有資料庫。 

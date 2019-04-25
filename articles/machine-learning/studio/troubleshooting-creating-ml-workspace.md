@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 7cc825daa29a0398793f3c6fc5ce8ee426ad79e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193808"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>疑難排解指南：建立及連線至 Azure Machine Learning Studio 工作區
 本指南針對一些在設定 Azure Machine Learning Studio 工作區時常發生的問題，提供解決方案。

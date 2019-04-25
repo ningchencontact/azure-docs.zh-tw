@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: ca2523a1101a21740a318a304f9bec491d4de2f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106231"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307031"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>使用序列主控台來存取 GRUB 與單一使用者模式
 GRUB 是 GRand Unified Bootloader 的縮寫，這可能是您在啟動 VM 時首先會見到的項目。 由於它會在作業系統啟動之前顯示，因此無法透過 SSH 存取它。 從 GRUB，您可以修改開機設定，以開機到單一使用者模式。

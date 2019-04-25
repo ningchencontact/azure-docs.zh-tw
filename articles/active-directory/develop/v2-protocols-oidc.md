@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523455"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250059"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft 身分識別平台和 OpenID Connect 通訊協定
 
@@ -52,7 +52,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 `{tenant}` 可以接受下列四個值的其中一個：
 
-| 值 | 描述 |
+| Value | 描述 |
 | --- | --- |
 | `common` |使用個人 Microsoft 帳戶和工作或學校帳戶從 Azure AD 使用者可以登入應用程式。 |
 | `organizations` |只有具有來自 Azure AD 之工作或學校帳戶的使用者可以登入應用程式。 |

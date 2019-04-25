@@ -16,11 +16,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660251"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471919"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>為 Office 365 群組設定到期原則
 
@@ -81,7 +81,7 @@ ms.locfileid: "58660251"
 
 ![群組刪除電子郵件通知](./media/groups-lifecycle/deletion-notification.png)
 
-在刪除群組後的 30 天內，您可以選取 [還原群組] 或使用 PowerShell Cmdlet 來還原群組，如[在 Azure Active Directory 中還原已刪除的 Office 365 群組](groups-restore-deleted.md)所述。 請注意，在 30 天群組還原作業期間不是可自訂。
+在刪除群組後的 30 天內，您可以選取 [還原群組] 或使用 PowerShell Cmdlet 來還原群組，如[在 Azure Active Directory 中還原已刪除的 Office 365 群組](groups-restore-deleted.md)所述。 請注意，您無法自訂 30 天的群組還原期間。
     
 如果您要還原的群組包含文件、SharePoint 網站或其他持續物件，則可能需要 24 小時，才能完全還原群組及其內容。
 

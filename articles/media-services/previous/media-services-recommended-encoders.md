@@ -10,14 +10,14 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295363"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332647"
 ---
 # <a name="recommended-on-premises-encoders"></a>建議的內部部署編碼器
-使用 Azure 媒體服務進行即時串流時，您可以指定想讓通道接收輸入資料流的方式。 如果您選擇使用搭配即時編碼通道在內部部署編碼器，您的編碼器應該會推送高品質單一位元速率資料流作為輸出。 如果您選擇使用搭配傳遞通道在內部部署編碼器，您的編碼器應該會推送多位元速率資料流作為輸出所有所需的輸出品質。 如需詳細資訊，請參閱 <<c0> [ 上使用的即時串流的內部部署編碼器](media-services-live-streaming-with-onprem-encoders.md)。
+使用 Azure 媒體服務進行即時串流時，您可以指定想讓通道接收輸入資料流的方式。 如果选择将本地编码器与实时编码通道结合使用，则编码器应推送高质量单比特率流作为输出。 如果选择将本地编码器与直通通道结合使用，则编码器应推送具备所有所需输出质量的多比特率流作为输出。 有关详细信息，请参阅[使用本地编码器实时传送视频流](media-services-live-streaming-with-onprem-encoders.md)。
 
 Azure 媒體服務建議使用下列其中一種具有 RTMP 作為輸出的即時編碼器：
 - Adobe Flash Media Live Encoder 3.2
@@ -44,8 +44,8 @@ Azure 媒體服務建議使用下列其中一種具有多位元速率分散式 M
 > [!NOTE]
 > 即時編碼器可傳送單一位元速率資料流至傳遞通道，但不建議使用此設定，因為它不允序針對用戶端使用彈性位元速率串流。
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>如何成為在內部部署編碼器合作夥伴
-為 Azure 媒體服務在內部部署編碼器合作夥伴，媒體服務會藉由向企業客戶，建議您的編碼器，升級您的產品。 若要成為在內部部署編碼器合作夥伴，您必須確認與媒體服務上的內部部署編碼器的相容性。 若要這樣做，請完成下列驗證：
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>如何成为本地编码器合作伙伴
+作为 Azure 媒体服务本地编码器合作伙伴，媒体服务通过向企业客户推荐编码器来推广你的产品。 若要成为本地编码器合作伙伴，必须验证本地编码器与媒体服务的兼容性。 若要這樣做，請完成下列驗證：
 
 傳遞通道驗證
 1. 建立或造訪您的 Azure 媒體服務帳戶

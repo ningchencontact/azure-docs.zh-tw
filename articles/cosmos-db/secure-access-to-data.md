@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rimman
 ms.openlocfilehash: 133181fcc76d759a57725df1ff965966f3797399
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446469"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>安全存取 Azure Cosmos DB 中的資料
 
@@ -19,7 +19,7 @@ ms.locfileid: "56245706"
 
 Azure Cosmos DB 會使用兩種類型的金鑰來驗證使用者，以允許存取其資料和資源。 
 
-|金鑰類型|資源|
+|密钥类型|資源|
 |---|---|
 |[主要金鑰](#master-keys) |用於系統管理資源︰資料庫帳戶、資料庫、使用者和權限|
 |[資源權杖](#resource-tokens)|用於應用程式資源︰容器、文件、附件、預存程序、觸發程序和 UDF|
@@ -34,7 +34,7 @@ Azure Cosmos DB 會使用兩種類型的金鑰來驗證使用者，以允許存�
 - 在帳戶建立期間建立。
 - 可隨時重新產生。
 
-每個帳戶包含兩個主要金鑰︰主要金鑰和次要金鑰。 雙重金鑰的目的是讓您可以重新產生或輸替金鑰，以持續存取您的帳戶和資料。 
+每個帳戶包含兩個主要金鑰︰主要金鑰和次要金鑰。 使用两个密钥的目的是为了能够重新生成或轮换密钥，从而可以持续访问帐户和数据。 
 
 除了 Cosmos DB 帳戶的兩個主要金鑰，還有兩個唯讀金鑰。 這些唯讀金鑰只允許帳戶上的讀取作業。 唯讀金鑰不提供存取權來讀取權限資源。
 
@@ -70,14 +70,14 @@ Database database = await client.CreateDatabaseAsync(
 
 <a id="resource-tokens"></a>
 
-## <a name="resource-tokens"></a>資源權杖
+## <a name="resource-tokens"></a>资源令牌
 
 資源權杖允許存取資料庫內的應用程式資源。 資源權杖：
 - 允許存取特定的容器、分割索引鍵、文件、附件、預存程序、觸發程序和 UDF。
 - 在[使用者](#users)被授與特定資源的[權限](#permissions)時建立。
 - 使用 POST、GET 或 PUT 呼叫處理權限資源時重新建立。
 - 使用特別為使用者、資源和權限建構的雜湊資源權杖。
-- 是與可自訂的有效期間繫結的時間。 預設有效時間範圍是一小時。 但可以明確指定權杖存留期，最多五小時。
+- 生存期受到可自定义的有效期的约束。 預設有效時間範圍是一小時。 但可以明確指定權杖存留期，最多五小時。
 - 提供安全的替代方式來分發主要金鑰。 
 - 可讓用戶端根據所授與的權限，讀取、寫入和刪除 Cosmos DB 帳戶中的資源。
 
@@ -87,9 +87,9 @@ Cosmos DB 資源權杖提供一個安全的替代方式，無需主要或唯讀�
 
 以下是典型的設計模式，其中資源權杖可能會被要求、產生和傳遞給用戶端：
 
-1. 設定中間層服務，以協助行動應用程式分享使用者相片。 
+1. 设置中间层服务，以用于移动应用程序共享用户照片。 
 2. 中間層服務擁有 Cosmos DB 帳戶的主要金鑰。
-3. 使用者的行動裝置上安裝相片應用程式。 
+3. 照片应用安装在最终用户移动设备上。 
 4. 登入時，相片應用程式會建立中間層服務的使用者身分識別。 這項身分識別建立的機制完全取決於應用程式。
 5. 建立身分識別後，中間層服務會根據身分識別要求權限。
 6. 中間層服務會將資源權杖送回電話應用程式。
@@ -155,7 +155,7 @@ Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 
 如果您已指定集合的分割索引鍵，則集合的權限、文件和附件資源也必須包含 ResourceLink 以外的 ResourcePartitionKey。
 
-### <a name="code-sample-to-read-permissions-for-user"></a>讀取使用者權限的程式碼範例
+### <a name="code-sample-to-read-permissions-for-user"></a>有关读取用户权限的代码示例
 
 為了輕鬆取得所有與特定使用者相關聯的權限資源，Cosmos DB 會為每個使用者物件提供權限摘要。  下列程式碼片段示範如何擷取與先前所建立的使用者相關聯的權限、建構權限清單，並代表使用者具現化新的 DocumentClient。
 

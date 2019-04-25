@@ -15,11 +15,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60247525"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 入口網站指派或移除授權
 許多 Azure Active Directory (Azure AD) 服務會要求您啟用 Azure AD 產品，以及授權該產品的每個使用者或群組 (和相關聯的成員)。 只有擁有有效授權的使用者才能存取和使用授權 Azure AD 服務。

@@ -3,7 +3,7 @@ title: 新增原生用戶端應用程式 - Azure Active Directory B2C | Microsof
 description: 了解如何將原生用戶端應用程式新增至您的 Active Directory B2C 租用戶。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 3f988e61c152be820e7e490e13908fb4ab54e6c5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314594"
 ---
 # <a name="add-a-native-client-application-to-your-azure-active-directory-b2c-tenant"></a>將原生用戶端應用程式新增至您的 Azure Active Directory B2C 租用戶
 

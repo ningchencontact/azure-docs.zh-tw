@@ -2,7 +2,6 @@
 title: 什麼是 Apache Hive 和 HiveQL - Azure HDInsight
 description: Apache Hive 是適用於 Apache Hadoop 的資料倉儲系統。 您可以使用 HiveQL (這類似於 TRANSACT-SQL) 查詢 Hive 中儲存的資料。 在本文件中，您將了解如何使用 Hive 和 HiveQL 搭配 Azure HDInsight。
 keywords: hiveql,什麼是 hive,hadoop hiveql,如何使用 hive,了解 hive,什麼是s hive
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -11,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.openlocfilehash: 1f0746436fa980b6becfa7a88560734aa07a54e2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60342826"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
 
@@ -40,11 +39,11 @@ HDInsight 提供數種已針對特定工作負載進行微調的叢集類型。 
 | **使用此方法**，如果您想要... | ...**互動式**查詢 | ...**批次** 處理 | ...從此 **用戶端作業系統** |
 |:--- |:---:|:---:|:--- |:--- |
 | [適用於 Visual Studio Code 的 HDInsight 工具](../hdinsight-for-vscode.md) |✔ |✔ | Linux、Unix、Mac OS X 或 Windows |
-| [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
+| [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ | Windows |
 | [Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |任何 (以瀏覽器為基礎) |
 | [Beeline 用戶端](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux、Unix、Mac OS X 或 Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux、Unix、Mac OS X 或 Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ | Windows |
 
 
 ## <a name="hiveql-language-reference"></a>HiveQL 語言參考

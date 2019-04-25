@@ -1,7 +1,6 @@
 ---
 title: 以 Linux 為基礎的 HDInsight 叢集設定作業系統修補排程 - Azure
 description: 了解如何為以 Linux 為基礎的 HDInsight 叢集設定作業系統修補排程。
-services: hdinsight
 author: omidm1
 ms.author: omidm
 ms.service: hdinsight
@@ -9,11 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694613"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333684"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight 的作業系統修補 
 
@@ -41,7 +40,7 @@ HDInsight 叢集中的虛擬機器有時候需要重新開機，以便系統可�
 
 3.  參數：此指令碼接受三個數值參數︰
 
-    | 參數 | 定義 |
+    | 參數 | 定义 |
     | --- | --- |
     | 啟用/停用自動重新開機 |0 或 1。 值為 0 會停用自動重新開機，1 則會啟用自動重新開機。 |
     | 頻率 |7 到 90 (含)。 需要重新開機的修補程式在將虛擬機器重新開機之前所要等候的天數。 |

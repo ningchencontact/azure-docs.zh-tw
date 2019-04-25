@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367935"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>關於 ExpressRoute 的虛擬網路閘道
 虛擬網路閘道可用來傳送 Azure 虛擬網路和內部部署位置之間的網路流量。 您可以將虛擬網路閘道使用於 ExpressRoute 流量或 VPN 流量。 本文著重於 ExpressRoute 虛擬網路閘道，且包含 SKU、依 SKU 估計的效能和閘道類型的相關資訊。
@@ -33,7 +33,7 @@ ms.locfileid: "57404327"
 ## <a name="gwsku"></a>閘道 SKU
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-如果您想要升級您的閘道更強大的閘道 SKU，在大部分情況下您可以使用 ' 調整 AzVirtualNetworkGateway' PowerShell cmdlet。 這適用於升級至 Standard 和 HighPerformance SKU。 不過，若要升級至 UltraPerformance SKU，您必須重新建立閘道器。 重新建立閘道時會導致停機。
+如果想要将网关升级为功能更强大的网关 SKU，在大多数情况下，可以使用“Resize-AzVirtualNetworkGateway”PowerShell cmdlet。 這適用於升級至 Standard 和 HighPerformance SKU。 不過，若要升級至 UltraPerformance SKU，您必須重新建立閘道器。 重新建立閘道時會導致停機。
 
 ### <a name="aggthroughput"></a>閘道 SKU 預估的效能
 下表顯示閘道類型和預估的效能。 此資料表適用於資源管理員與傳統部署模型。

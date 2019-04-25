@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311928"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Enterprise 合約從遷移到 Microsoft 的客戶合約 Api
 
@@ -180,12 +180,12 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 | 已使用的服務 | consumedService | 確切的字串值可能會不同。 |
 | 已使用的服務識別碼 | None | &nbsp; |
 | CostCenter | costCenter | &nbsp; |
-| 日期和 usageStartDate | 日期 | &nbsp;  |
+| 日期和 usageStartDate | date | &nbsp;  |
 | 天 | None | 剖析日期的日期。 |
 | 部門識別碼 | invoiceSectionId | 確切的值不同。 |
 | DepartmentName | invoiceSectionName | 確切的字串值可能會不同。 如有需要請設定發票區段，以符合部門。 |
 | ExtendedCost 和成本 | costInBillingCurrency | &nbsp;  |
-| InstanceId | ResourceId | &nbsp;  |
+| InstanceId | resourceId | &nbsp;  |
 | 是定期計費 | None | &nbsp;  |
 | 位置 | location | &nbsp;  |
 | 計量類別目錄 | meterCategory | 確切的字串值可能會不同。 |
@@ -199,7 +199,7 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 | 訂單編號 | None | &nbsp;  |
 | PartNumber | None | 使用 meterId 和 productOrderName 來唯一識別價格。 |
 | 方案名稱 | productOrderName | &nbsp;  |
-| 產品 | 產品 |   |
+| Products | Products |   |
 | ProductId | productId | 確切的字串值不同。 |
 | 發行者名稱 | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
@@ -218,7 +218,7 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 | SubscriptionName | subscriptionName | &nbsp;  |
 | 標記 | tags | Tags 屬性適用於根物件，而不要巢狀的屬性的屬性。 |
 | 測量單位 | unitOfMeasure | 確切的字串值不同。 |
-| usageEndDate | 日期 | &nbsp;  |
+| usageEndDate | date | &nbsp;  |
 | Year | None | 剖析日期的年份。 |
 | (新) | billingCurrency | 使用費用的貨幣。 |
 | (新) | billingProfileId | 帳單的設定檔 （與註冊相同） 的唯一識別碼。 |

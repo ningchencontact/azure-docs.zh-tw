@@ -12,11 +12,11 @@ ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: b67028562a2c377e1dd99635bdf04cad14782341
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793130"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326556"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 異常偵測 API
 
@@ -169,7 +169,7 @@ ScoreWithSeasonality API 可用來對具有季節性模式的時間序列執行�
 | negtrenddetector.sensitivity |負向趨勢偵測器的敏感度。 |3.25 |double |None |3.25-5 (值愈低代表敏感度越高) |
 | tspikedetector.sensitivity |TSpike 偵測器的敏感度 |3 |integer |1 - 10 |3-5 (值愈低代表敏感度越高) |
 | zspikedetector.sensitivity |ZSpike 偵測器的敏感度 |3 |integer |1 - 10 |3-5 (值愈低代表敏感度越高) |
-| seasonality.enable |是否要執行季節性分析 |true |布林值 |true、false |取決於時間序列 |
+| seasonality.enable |是否要執行季節性分析 |true |boolean |true、false |取決於時間序列 |
 | seasonality.numSeasonality |要偵測的定期循環數目上限 |1 |integer |1、2 |1 - 2 |
 | seasonality.transform |在套用異常偵測之前，是否應該移除季節性 (和) 趨勢元件 |deseason |列舉 |無、deseason、deseasontrend |N/A |
 | postprocess.tailRows |輸出結果中要保留的最新資料點數目 |0 |integer |0 (保留所有資料點)，或指定要在結果中保留的資料點數目 |N/A |

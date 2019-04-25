@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897093"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371975"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Microsoft 客戶協議建立額外的 Azure 訂用帳戶
 
@@ -63,11 +63,11 @@ ms.locfileid: "57897093"
 
    ![在訂用帳戶的入口網站中顯示搜尋螢幕擷取畫面](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
-3. 請移至 [發票] 區段。 根據您的存取權，您可能需要選取 帳單帳戶或計費的設定檔。 從計費的帳戶或設定檔上，選取**發票區段**，然後發票 > 一節。
+3. 移至 [發票] 區段。 根據您的存取權，您可能需要選取 帳單帳戶或計費的設定檔。 從計費的帳戶或設定檔上，選取**發票區段**，然後發票 > 一節。
 
 4. 選取 **存取管理 (IAM)** 從左上方。
 
-5. 從頁面頂端，選取**新增**。
+5. 從頁面頂端選取 [新增]。
 
 6. 選取  **Azure 訂用帳戶的建立者**角色。
 

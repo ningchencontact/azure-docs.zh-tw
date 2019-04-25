@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471637"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -40,7 +40,7 @@ ms.locfileid: "57450663"
 
 * 屬性
 * 運算子
-* 值
+* Value
 
 運算式內的部分順序很重要，可避免發生語法錯誤。
 
@@ -60,8 +60,8 @@ user.department -eq "Sales"
 
 有三種類型的屬性可用來建構成員資格規則。
 
-* BOOLEAN
-* 字串
+* Boolean
+* String
 * 字串集合
 
 以下是您可用來建立單一運算式的使用者屬性。

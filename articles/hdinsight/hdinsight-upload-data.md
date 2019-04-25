@@ -2,7 +2,6 @@
 title: 在 HDInsight 中上傳 Apache Hadoop 作業的資料
 description: 了解如何使用 Azure 傳統 CLI、Azure 儲存體總管、Azure PowerShell、Hadoop 命令列或 Sqoop 在 HDInsight 中上傳及存取 Apache Hadoop 作業的資料。
 keywords: etl hadoop、將資料上傳到 hadoop、hadoop 載入資料
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
@@ -11,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.openlocfilehash: a56f2546eec12d04dcc64665e60a9874b8e991b6
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684135"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486309"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上傳 Apache Hadoop 作業的資料
 
@@ -37,7 +36,7 @@ Azure HDInsight 在 Azure 儲存體和 Azure Data Lake Storage (Gen1 和 Gen2) �
 ## <a name="utilities"></a>公用事業
 Microsoft 提供下列公用程式來使用 Azure 儲存體：
 
-| 工具 | Linux | OS X | Windows |
+| 工具 |  Linux | OS X |  Windows |
 | --- |:---:|:---:|:---:|
 | [Azure 门户](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
@@ -79,7 +78,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 ## <a name="graphical-clients"></a>圖形化用戶端
 其他還有數個應用程式也會提供可搭配 Azure 儲存體使用的圖形化介面。 以下資料表提供數個這類應用程式的清單：
 
-| 用戶端 | Linux | OS X | Windows |
+| 用戶端 |  Linux | OS X |  Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio Tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure 儲存體總管](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |

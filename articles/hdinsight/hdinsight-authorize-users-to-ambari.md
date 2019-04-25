@@ -1,7 +1,6 @@
 ---
 title: 授權 Ambari 檢視的使用者 - Azure HDInsight
 description: 如何在啟用 ESP 的情況下，管理 HDInsight 叢集的 Ambari 使用者和群組權限。
-services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
 ms.openlocfilehash: cf001d86356f4dd5fd3735803f0e329aa1e0940d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255056"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>授權 Apache Ambari 檢視的使用者
 

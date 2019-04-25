@@ -17,11 +17,11 @@ ms.date: 03/28/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb9ac9974be94195f6ed0315aece7dfea749ce33
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60430878"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>教學課程：設定 ThousandEyes 來自動佈建使用者
 

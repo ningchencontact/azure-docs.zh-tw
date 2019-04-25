@@ -3,7 +3,7 @@ title: 使用 OpenID Connect 設定註冊並登入 - Azure Active Directory B2C 
 description: 使用 Azure Active Directory B2C 透過 OpenID Connect 設定註冊和登入。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: de0c866889f15f096bea26915f58cd4e268dfed3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316318"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 透過 OpenID Connect 設定註冊和登入
 
@@ -46,22 +46,22 @@ ms.locfileid: "56428750"
 
 回應類型會說明要在對自訂識別提供者進行的 `authorization_endpoint` 初始呼叫中傳回哪種資訊。 您可以使用下列回應類型：
 
-- `code`：依照[授權碼流程](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)，將授權碼傳回至 Azure AD B2C。 Azure AD B2C 會繼續呼叫 `token_endpoint` 來交換權杖的授權碼。
-- `token`：存取權杖會從自訂識別提供者傳回到 Azure AD B2C。
-- `id_token`：識別碼權杖會從自訂識別提供者傳回到 Azure AD B2C。
+- `code`:依照[授權碼流程](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)，將授權碼傳回至 Azure AD B2C。 Azure AD B2C 會繼續呼叫 `token_endpoint` 來交換權杖的授權碼。
+- `token`:存取權杖會從自訂識別提供者傳回到 Azure AD B2C。
+- `id_token`:識別碼權杖會從自訂識別提供者傳回到 Azure AD B2C。
 
 回應模式可定義應用於將資料從自訂識別提供者傳送回 Azure AD B2C 的方法。 您可以使用下列回應模式：
 
-- `form_post`：建議使用此回應模式，以獲得最佳安全性。 回應會透過 HTTP `POST` 方法傳輸，並使用 `application/x-www-form-urlencoded` 格式在主體中將程式碼或權杖編碼。
-- `query`：傳回授權碼或權杖作為查詢參數。
+- `form_post`:建議使用此回應模式，以獲得最佳安全性。 回應會透過 HTTP `POST` 方法傳輸，並使用 `application/x-www-form-urlencoded` 格式在主體中將程式碼或權杖編碼。
+- `query`:傳回授權碼或權杖作為查詢參數。
 
 網域提示可用於直接跳到指定識別提供者的登入頁面，使用者不需在可用的識別提供者清單中進行選取。 若要允許這種行為，請輸入網域提示的值。 若要跳至自訂識別提供者，請在呼叫 Azure AD B2C 進行登入時，將參數 `domain_hint=<domain hint value>` 附加至您的要求結尾。
 
 在自訂識別提供者將識別碼權杖傳送回 Azure AD B2C 之後，Azure AD B2C 必須能夠將來自所接收權杖的宣告對應至 Azure AD B2C 可辨識及使用的宣告。 針對下列每個對應，請參閱自訂識別提供者的文件，以了解在識別提供者的權杖中傳回的宣告：
 
-- `User ID`：輸入可為已登入使用者提供唯一識別碼的宣告。
-- `Display Name`：輸入可為使用者提供顯示名稱或完整名稱的宣告。
-- `Given Name`：輸入可提供使用者名字的宣告。
-- `Surname`：輸入可提供使用者姓氏的宣告。
-- `Email`：輸入可提供使用者電子郵件地址的宣告。
+- `User ID`:輸入可為已登入使用者提供唯一識別碼的宣告。
+- `Display Name`:輸入可為使用者提供顯示名稱或完整名稱的宣告。
+- `Given Name`:輸入可提供使用者名字的宣告。
+- `Surname`:輸入可提供使用者姓氏的宣告。
+- `Email`:輸入可提供使用者電子郵件地址的宣告。
 

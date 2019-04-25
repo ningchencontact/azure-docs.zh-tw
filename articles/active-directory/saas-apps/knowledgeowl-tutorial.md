@@ -17,11 +17,11 @@ ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60262580"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>教學課程：Azure Active Directory 與 KnowledgeOwl 整合
 
@@ -208,7 +208,7 @@ KnowledgeOwl 與 Azure AD 整合提供下列優點：
 
      g. 按一下 [上傳 IdP 憑證]，以上傳從 Azure 入口網站下載的憑證。
 
-     h. 按一下 [對應 SAML 屬性] 以對應屬性，然後執行下列步驟：
+     h.如果该值不存在，请单击“添加行”。 按一下 [對應 SAML 屬性] 以對應屬性，然後執行下列步驟：
     
      ![KnowledgeOwl 設定](./media/knowledgeowl-tutorial/configure3.png)
 

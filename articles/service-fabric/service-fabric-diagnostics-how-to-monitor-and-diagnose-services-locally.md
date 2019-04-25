@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 31c559c1ab314b7e1f29bd96f74d6d82cfcc0420
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392821"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>監視和診斷本機開發設定中的服務
 > [!div class="op_single_selector"]
@@ -65,6 +65,6 @@ Service Fabric Visual Studio 專案範本包含範例程式碼。 程式碼示�
 ## <a name="next-steps"></a>後續步驟
 在 Azure 叢集上執行應用程式時，您針對本機診斷在上方應用程式所新增的相同追蹤程式碼，將會使用可以用來檢視這些事件的工具。 请查看以下文章，其中介绍了各种工具选项，以及如何设置这些选项。
 
-* [如何利用 Azure 診斷收集記錄檔](service-fabric-diagnostics-how-to-setup-wad.md)
+* [如何利用 Azure 診斷收集記錄](service-fabric-diagnostics-how-to-setup-wad.md)
 * [使用 EventFlow 的事件彙總與集合](service-fabric-diagnostics-event-aggregation-eventflow.md)
 

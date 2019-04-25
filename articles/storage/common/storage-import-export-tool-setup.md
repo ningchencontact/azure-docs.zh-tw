@@ -9,11 +9,11 @@ ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: d2ce6c409ae9cbf99589d11dfc850e2324d1b0c9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320460"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>設定 Azure 匯入/匯出工具
 
@@ -21,14 +21,14 @@ Microsoft Azure 匯入/匯出工具是磁碟機準備及修復工具，可搭配
 
 * 在建立匯入工作之前，您可以使用此工具，將資料複製到要寄送至 Azure 資料中心的硬碟。
 * 匯入工作完成後，您可以使用此工具來修復損毀、遺漏或與其他 Blob 衝突的任何 Blob。
-* 當您收到已完成的匯出工作中的磁碟機後，您可以使用此工具來修復磁碟機上損毀或遺漏的任何檔案。
+* 通过某个已完成的导出作业收到驱动器后，可以使用此工具修复这些驱动器上已损坏或丢失的任何文件。
 
 ## <a name="prerequisites"></a>必要條件
 
 如果您正針對匯入作業**準備磁碟機**，就必須符合下列必要條件：
 
 * 您必須擁有有效的 Azure 訂用帳戶。
-* 您的訂用帳戶必須包含可用空間足夠儲存您要匯入之檔案的儲存體帳戶。
+* 该订阅必须包含一个存储帐户，其中有足够的可用空间可存储所要导入的文件。
 * 您至少需要一個儲存體帳戶存取金鑰。
 * 您需要安裝 Windows 7、Windows Server 2008 R2 或更新版本 Windows 作業系統的電腦 (「複製電腦」)。
 * 複製電腦上必須安裝 .NET Framework 4。
@@ -68,7 +68,7 @@ Azure 匯入/匯出工具包含下列檔案：
 * WAImportExportRepair.dll
 * WAImportExportRepair.pdb
 
-接下來，在**系統管理員模式**中開啟 [命令提示字元] 視窗，並變更為包含解壓縮檔案的目錄。
+接下来，以**管理员模式**打开命令提示窗口，并将目录切换到包含解压缩文件的目录。
 
 若要輸出命令的說明，請執行此工具(`WAImportExport.exe`) 而不包含參數：
 
@@ -205,7 +205,7 @@ Examples:
 
 * [針對匯入作業準備硬碟](../storage-import-export-tool-preparing-hard-drives-import.md)
 * [預覽匯出作業的磁碟機使用量](../storage-import-export-tool-previewing-drive-usage-export-v1.md)
-* [利用複製記錄檔檢閱作業狀態](../storage-import-export-tool-reviewing-job-status-v1.md)
+* [使用复制日志文件查看作业状态](../storage-import-export-tool-reviewing-job-status-v1.md)
 * [修復匯入作業](../storage-import-export-tool-repairing-an-import-job-v1.md)
 * [修復匯出作業](../storage-import-export-tool-repairing-an-export-job-v1.md)
 * [針對 Azure 匯入/匯出工具進行疑難排解](storage-import-export-tool-troubleshooting-v1.md)

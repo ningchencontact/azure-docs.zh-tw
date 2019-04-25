@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
 ms.openlocfilehash: 3c0decaa89b4ecc503157a32fcb1e5b4d249ccfb
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254621"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>使用 PowerShell 為 Azure Web 應用程式設定 Application Insights
 
@@ -120,7 +120,7 @@ ms.locfileid: "57317776"
 ```
 
 
-## <a name="remove-diagnostics-extension"></a>移除診斷延伸模組
+## <a name="remove-diagnostics-extension"></a>删除诊断扩展
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"

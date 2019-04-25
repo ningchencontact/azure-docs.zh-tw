@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 29ebcfcaf1bae3586eb5141e3a379cd5201be301
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308958"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Dynamics 365 for Customer Engagement 供應項目設定索引標籤
 
@@ -35,7 +35,7 @@ ms.locfileid: "54081875"
 
 下表說明此索引標籤中的欄位。 
 
-|    欄位         |       說明                                                            |
+|    欄位         |       描述                                                            |
 |  ---------       |     ---------------                                                          |
 | **供應項目識別碼**       | 供應項目的唯一識別碼 (位於發行設定檔中)。 此識別碼會顯示在產品的 URL 與深入解析報告中。 識別碼長度上限為 50 個字元，可使用小寫英數字元和連字號 (-)。 (識別碼結尾不能使用連字號。)**附註：** 供應項目上線後即無法變更，因為它會繫結至供應項目的 Marketplace 基底 URL。  |
 | **發行者識別碼**     | 您的組織在 Microsoft Azure Marketplace 中的唯一識別碼。 您的所有供應項目都需要連結到您的發行者識別碼。 儲存供應項目後，就無法再變更此值。 |

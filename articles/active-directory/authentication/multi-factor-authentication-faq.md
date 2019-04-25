@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707e0aecdaf2a579d086e012519182078c1a6303
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313221"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60357472"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
@@ -142,9 +142,9 @@ MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租
 > [!NOTE]
 > 適用於 Office 2013 用戶端的新式驗證
 >
-> 只有不支援最新驗證方式的應用程式需要應用程式密碼。 Office 2013 用戶端支援最新的驗證通訊協定，但需要設定。 新的 Office 用戶端會自動支援最新的驗證通訊協定。 如需詳細資訊，請參閱 [發表 Office 2013 新式驗證公開預覽](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)。
+> 只有不支援最新驗證方式的應用程式需要應用程式密碼。 Office 2013 用戶端支援最新的驗證通訊協定，但需要設定。 現在新式驗證可執行適用於 Office 2013 年 3 月 2015年或更新版本更新任何客戶。 如需詳細資訊，請參閱 <<c0> [ 宣布 Office 2013 現代化驗證公用預覽](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)。
 
-**問：我的使用者說他們有時會沒收到簡訊，或回覆雙向簡訊時，驗證逾時。**
+**问：我的使用者說他們有時會沒收到簡訊，或回覆雙向簡訊時，驗證逾時。**
 
 因為有些無法控制的因素可能會影響服務可靠性，所以不保證會傳遞簡訊，以及在雙向簡訊中收到回覆。 這些因素包含目的地國家/地區、行動電信業者和訊號強度。
 

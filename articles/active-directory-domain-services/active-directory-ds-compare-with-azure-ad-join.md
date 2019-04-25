@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: ergreenl
 ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178931"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359427"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Azure Active Directory 聯結和 Azure Active Directory Domain Services 之間的選擇
 本文將說明 Azure Active Directory (AD) 聯結和 Azure AD Domain Services 之間的差異，並協助您根據您的使用案例進行選擇。
@@ -58,7 +58,7 @@ Azure AD Domain Services 在 Azure 虛擬網路中提供受控 AD 網域。 您�
 |:---| --- | --- |
 | 控制裝置的機制 | Azure AD | Azure AD Domain Services 的受控網域 |
 | 在目錄中的表示法 | Azure AD 目錄中的裝置物件。 | AAD DS 受控網域中的電腦物件。 |
-| 驗證 | 以 OAuth/OpenID Connect 為基礎的通訊協定 | Kerberos、NTLM 通訊協定 |
+| Authentication | 以 OAuth/OpenID Connect 為基礎的通訊協定 | Kerberos、NTLM 通訊協定 |
 | 管理性 | Intune 等行動裝置管理 (MDM) 軟體 | 群組原則 |
 | 網路功能 | 透過網際網路運作 | 機器需要在與受控網域相同的虛擬網路上。|
 | 適用於... | 使用者行動裝置或桌面裝置 | 已部署在 Azure 中的伺服器虛擬機器 |

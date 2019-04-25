@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 772c0a4b6cf57aa428f722fb90a0673f9e703627
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 58c520ecbaf764140748167e458c301ab56de375
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232870"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>適用於 Windows VM 的 Azure 診斷延伸模組
 
@@ -61,7 +61,7 @@ az vm extension set \
 
 `Set-AzVMDiagnosticsExtension` 命令可用來將「Azure 診斷」延伸模組新增到現有的虛擬機器。 另請參閱[使用 PowerShell 在執行 Windows 的虛擬機器中啟用 Azure 診斷](ps-extensions-diagnostics.md)。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ```powershell

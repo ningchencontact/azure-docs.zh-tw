@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318947"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>當您連線到 Azure VM 時無法使用遠端桌面授權伺服器
 
@@ -73,7 +73,7 @@ mstsc /v:<Server>[:<Port>] /admin
        ch -si 1
        ```
 
-    4. 再次選取 **Enter** 鍵，然後輸入 VM 的有效使用者名稱和密碼 (本機或網域識別碼)。
+    4. 再次選取 **Enter**，然後輸入 VM 的有效使用者名稱和密碼 (本機或網域識別碼)。
 
 2. 檢查 VM 是否已啟用遠端桌面工作階段主機角色。 如果已啟用此角色，請確定它能正確運作。 開啟提升權限的 CMD 執行個體，並遵循下列步驟：
 

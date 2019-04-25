@@ -16,11 +16,11 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 210d69256f2e7f4727ee866af71dd72e765fb0b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60266538"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>教學課程：Azure Active Directory 與 Kantega SSO for Confluence 整合
 
@@ -182,7 +182,7 @@ Kantega SSO for Confluence 與 Azure AD 整合提供下列優點：
 
     a. 複製 [應用程式識別碼 URI] 值，然後在 Azure 入口網站的 [Kantega SSO for Confluence 網域及 URL] 區段上，使用此 URI 作為 [識別碼]、[回覆 URL] 和 [登入 URL]。
 
-    b. 按 [下一步] 。
+    b. 单击“下一步”。
 
 1. 在 [中繼資料匯入] 區段中，執行下列步驟： 
 
@@ -190,7 +190,7 @@ Kantega SSO for Confluence 與 Azure AD 整合提供下列優點：
 
     a. 選取 [我的電腦上的中繼資料檔案]，上傳您從 Azure 入口網站下載的中繼資料檔案。
 
-    b. 按 [下一步] 。
+    b. 单击“下一步”。
 
 1. 在 [名稱和 SSO 位置] 區段中，執行下列步驟：
 
@@ -198,7 +198,7 @@ Kantega SSO for Confluence 與 Azure AD 整合提供下列優點：
     
     a. 在 [識別提供者名稱] 文字方塊中，新增識別提供者的名稱 (例如 Azure AD)。
 
-    b. 按 [下一步] 。
+    b. 单击“下一步”。
 
 1. 確認簽署憑證，然後按 [下一步]。
 
@@ -210,7 +210,7 @@ Kantega SSO for Confluence 與 Azure AD 整合提供下列優點：
 
     a. 選取 [如果需要，在 Confluence 的內部目錄中建立使用者]，然後輸入使用者群組的適當名稱 (可以是多個 群組，以逗號分隔)。
 
-    b. 按 [下一步] 。
+    b. 单击“下一步”。
 
 1. 按一下 [完成] 。    
 

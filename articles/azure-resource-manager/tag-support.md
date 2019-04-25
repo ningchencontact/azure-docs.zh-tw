@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270380"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388058"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 資源的標記支援
 本文將說明資源類型是否支援[標記](resource-group-using-tags.md)。
@@ -21,7 +21,7 @@ ms.locfileid: "56270380"
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| DomainServices | yes | 
+| DomainServices | 是 | 
 | DomainServices/oucontainer | 否 | 
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
@@ -70,13 +70,13 @@ ms.locfileid: "56270380"
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| servers | yes | 
+| servers | 是 | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
 | reportFeedback | 否 | 
-| service | yes | 
+| service | 是 | 
 | validateServiceName | 否 | 
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
@@ -102,10 +102,10 @@ ms.locfileid: "56270380"
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| automationAccounts | yes | 
-| automationAccounts/configurations | yes | 
+| automationAccounts | 是 | 
+| automationAccounts/configurations | 是 | 
 | automationAccounts/jobs | 否 | 
-| automationAccounts/runbooks | yes | 
+| automationAccounts/runbooks | 是 | 
 | automationAccounts/softwareUpdateConfigurations | 否 | 
 | automationAccounts/webhooks | 否 | 
 
@@ -120,19 +120,19 @@ ms.locfileid: "56270380"
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| b2cDirectories | yes | 
+| b2cDirectories | 是 | 
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| registrations | yes | 
+| registrations | 是 | 
 | registrations/customerSubscriptions | 否 | 
 | registrations/products | 否 | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| batchAccounts | yes | 
+| batchAccounts | 是 | 
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 | 資源類型 | 支援標記 |
@@ -191,13 +191,13 @@ ms.locfileid: "56270380"
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| mapApis | yes | 
+| mapApis | 是 | 
 | updateCommunicationPreference | 否 | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| BizTalk | yes | 
+| BizTalk | 是 | 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | 資源類型 | 支援標記 |
@@ -213,14 +213,14 @@ ms.locfileid: "56270380"
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| botServices | yes | 
+| botServices | 是 | 
 | botServices/channels | 否 | 
 | botServices/connections | 否 | 
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| Redis | yes | 
+| Redis | 是 | 
 | RedisConfigDefinition | 否 | 
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
@@ -246,8 +246,8 @@ ms.locfileid: "56270380"
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
 | edgenodes | 否 | 
-| 設定檔 | yes | 
-| profiles/endpoints | yes | 
+| 設定檔 | 是 | 
+| profiles/endpoints | 是 | 
 | profiles/endpoints/customdomains | 否 | 
 | profiles/endpoints/origins | 否 | 
 | validateProbe | 否 | 
@@ -255,7 +255,7 @@ ms.locfileid: "56270380"
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| certificateOrders | yes | 
+| certificateOrders | 是 | 
 | certificateOrders/certificates | 否 | 
 | validateCertificateRegistrationInformation | 否 | 
 
@@ -316,7 +316,7 @@ ms.locfileid: "56270380"
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| accounts | yes | 
+| accounts | 是 | 
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 | 資源類型 | 支援標記 |
@@ -327,18 +327,18 @@ ms.locfileid: "56270380"
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| availabilitySets | yes | 
-| disks | yes | 
-| images | yes | 
-| restorePointCollections | yes | 
+| availabilitySets | 是 | 
+| disks | 是 | 
+| images | 是 | 
+| restorePointCollections | 是 | 
 | restorePointCollections/restorePoints | 否 | 
-| sharedVMImages | yes | 
-| sharedVMImages/versions | yes | 
-| snapshots | yes | 
-| virtualMachines | yes | 
+| sharedVMImages | 是 | 
+| sharedVMImages/versions | 是 | 
+| snapshots | 是 | 
+| virtualMachines | 是 | 
 | virtualMachines/diagnosticSettings | 否 | 
-| virtualMachines/extensions | yes | 
-| virtualMachineScaleSets | yes | 
+| virtualMachines/extensions | 是 | 
+| virtualMachineScaleSets | 是 | 
 | virtualMachineScaleSets/extensions | 否 | 
 | virtualMachineScaleSets/networkInterfaces | 否 | 
 | virtualMachineScaleSets/publicIPAddresses | 否 | 
@@ -371,17 +371,17 @@ ms.locfileid: "56270380"
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| containerGroups | yes | 
+| containerGroups | 是 | 
 | serviceAssociationLinks | 否 | 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| registries | yes | 
+| registries | 是 | 
 | registries/builds | 否 | 
 | registries/builds/cancel | 否 | 
 | registries/builds/getLogLink | 否 | 
-| registries/buildTasks | yes | 
+| registries/buildTasks | 是 | 
 | registries/buildTasks/steps | 否 | 
 | registries/eventGridFilters | 否 | 
 | registries/getBuildSourceUploadUrl | 否 | 
@@ -390,39 +390,39 @@ ms.locfileid: "56270380"
 | registries/queueBuild | 否 | 
 | registries/regenerateCredential | 否 | 
 | registries/regenerateCredentials | 否 | 
-| registries/replications | yes | 
+| registries/replications | 是 | 
 | registries/runs | 否 | 
 | registries/runs/cancel | 否 | 
 | registries/scheduleRun | 否 | 
-| registries/tasks | yes | 
+| registries/tasks | 是 | 
 | registries/updatePolicies | 否 | 
-| registries/webhooks | yes | 
+| registries/webhooks | 是 | 
 | registries/webhooks/getCallbackConfig | 否 | 
 | registries/webhooks/ping | 否 | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| containerServices | yes | 
-| managedClusters | yes | 
+| containerServices | 是 | 
+| managedClusters | 是 | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| 應用程式所需 | yes | 
+| 應用程式所需 | 是 | 
 | updateCommunicationPreference | 否 | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| accounts | yes | 
+| accounts | 是 | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
 | 警示 | 否 | 
 | BillingAccounts | 否 | 
-| 連接器 | yes | 
+| 連接器 | 是 | 
 | 部門 | 否 | 
 | 維度 | 否 | 
 | EnrollmentAccounts | 否 | 
@@ -434,7 +434,7 @@ ms.locfileid: "56270380"
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| hubs | yes | 
+| hubs | 是 | 
 | hubs/authorizationPolicies | 否 | 
 | hubs/connectors | 否 | 
 | hubs/connectors/mappings | 否 | 
@@ -451,42 +451,42 @@ ms.locfileid: "56270380"
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| jobs | yes | 
+| jobs | 是 | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| DataBoxEdgeDevices | yes | 
+| DataBoxEdgeDevices | 是 | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| workspaces | yes | 
+| workspaces | 是 | 
 | workspaces/virtualNetworkPeerings | 否 | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| catalogs | yes | 
+| catalogs | 是 | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| connectionManagers | yes | 
+| connectionManagers | 是 | 
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| dataFactories | yes | 
+| dataFactories | 是 | 
 | dataFactories/diagnosticSettings | 否 | 
 | dataFactorySchema | 否 | 
-| factories | yes | 
+| factories | 是 | 
 | factories/integrationRuntimes | 否 | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| accounts | yes | 
+| accounts | 是 | 
 | accounts/dataLakeStoreAccounts | 否 | 
 | accounts/storageAccounts | 否 | 
 | accounts/storageAccounts/containers | 否 | 
@@ -494,34 +494,34 @@ ms.locfileid: "56270380"
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| accounts | yes | 
+| accounts | 是 | 
 | accounts/eventGridFilters | 否 | 
 | accounts/firewallRules | 否 | 
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| 服務 | yes | 
-| services/projects | yes | 
+| 服務 | 是 | 
+| services/projects | 是 | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| servers | yes | 
+| servers | 是 | 
 | servers/recoverableServers | 否 | 
 | servers/virtualNetworkRules | 否 | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| servers | yes | 
+| servers | 是 | 
 | servers/recoverableServers | 否 | 
 | servers/virtualNetworkRules | 否 | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| servers | yes | 
+| servers | 是 | 
 | servers/advisors | 否 | 
 | servers/queryTexts | 否 | 
 | servers/recoverableServers | 否 | 
@@ -532,34 +532,34 @@ ms.locfileid: "56270380"
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| IotHubs | yes | 
+| IotHubs | 是 | 
 | IotHubs/eventGridFilters | 否 | 
-| ProvisioningServices | yes | 
+| ProvisioningServices | 是 | 
 | usages | 否 | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| controllers | yes | 
+| controllers | 是 | 
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| labs | yes | 
-| labs/serviceRunners | yes | 
-| labs/virtualMachines | yes | 
-| schedules | yes | 
+| labs | 是 | 
+| labs/serviceRunners | 是 | 
+| labs/virtualMachines | 是 | 
+| schedules | 是 | 
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
 | databaseAccountNames | 否 | 
-| databaseAccounts | yes | 
+| databaseAccounts | 是 | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| domains | yes | 
+| domains | 是 | 
 | domains/domainOwnershipIdentifiers | 否 | 
 | generateSsoRequest | 否 | 
 | topLevelDomains | 否 | 
@@ -575,18 +575,18 @@ ms.locfileid: "56270380"
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| domains | yes | 
+| domains | 是 | 
 | domains/topics | 否 | 
 | eventSubscriptions | 否 | 
 | extensionTopics | 否 | 
-| topics | yes | 
+| topics | 是 | 
 | topicTypes | 否 | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| clusters | yes | 
-| namespaces | yes | 
+| clusters | 是 | 
+| namespaces | 是 | 
 | namespaces/authorizationrules | 否 | 
 | namespaces/disasterrecoveryconfigs | 否 | 
 | namespaces/eventhubs | 否 | 
@@ -624,18 +624,18 @@ ms.locfileid: "56270380"
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| hanaInstances | yes | 
+| hanaInstances | 是 | 
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| clusters | yes | 
+| clusters | 是 | 
 | clusters/applications | 否 | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| jobs | yes | 
+| jobs | 是 | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | 資源類型 | 支援標記 |
@@ -649,14 +649,14 @@ ms.locfileid: "56270380"
 ## <a name="microsoftinsights"></a>microsoft.insights
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| actiongroups | yes | 
-| activityLogAlerts | yes | 
-| alertrules | yes | 
+| actiongroups | 是 | 
+| activityLogAlerts | 是 | 
+| alertrules | 是 | 
 | automatedExportSettings | 否 | 
-| autoscalesettings | yes | 
+| autoscalesettings | 是 | 
 | baseline | 否 | 
 | calculatebaseline | 否 | 
-| components | yes | 
+| components | 是 | 
 | components/events | 否 | 
 | components/pricingPlans | 否 | 
 | components/query | 否 | 
@@ -668,15 +668,15 @@ ms.locfileid: "56270380"
 | logDefinitions | 否 | 
 | logprofiles | 否 | 
 | 記錄 | 否 | 
-| metricAlerts | yes |
+| metricAlerts | 是 |
 | migrateToNewPricingModel | 否 | 
 | myWorkbooks | 否 | 
 | 查詢 | 否 | 
 | rollbackToLegacyPricingModel | 否 | 
-| scheduledqueryrules | yes | 
+| scheduledqueryrules | 是 | 
 | vmInsightsOnboardingStatuses | 否 | 
-| webtests | yes | 
-| workbooks | yes | 
+| webtests | 是 | 
+| workbooks | 是 | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 | 資源類型 | 支援標記 |
@@ -687,25 +687,25 @@ ms.locfileid: "56270380"
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| IoTApps | yes | 
+| IoTApps | 是 | 
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| 圖形 | yes | 
+| 圖形 | 是 | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
 | deletedVaults | 否 | 
-| vaults | yes | 
+| vaults | 是 | 
 | vaults/accessPolicies | 否 | 
 | vaults/secrets | 否 | 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| clusters | yes | 
+| clusters | 是 | 
 | clusters/databases | 否 | 
 | clusters/databases/dataconnections | 否 | 
 | clusters/databases/eventhubconnections | 否 | 
@@ -713,18 +713,18 @@ ms.locfileid: "56270380"
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| labaccounts | yes | 
+| labaccounts | 是 | 
 | users | 否 | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| accounts | yes | 
+| accounts | 是 | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| accounts | yes | 
+| accounts | 是 | 
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | 資源類型 | 支援標記 |
@@ -734,42 +734,42 @@ ms.locfileid: "56270380"
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| integrationAccounts | yes | 
-| workflows | yes | 
+| integrationAccounts | 是 | 
+| workflows | 是 | 
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| commitmentPlans | yes | 
-| webServices | yes | 
-| 工作區 | yes | 
+| commitmentPlans | 是 | 
+| webServices | 是 | 
+| 工作區 | 是 | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| accounts | yes | 
-| accounts/workspaces | yes | 
-| accounts/workspaces/projects | yes | 
-| teamAccounts | yes | 
-| teamAccounts/workspaces | yes | 
-| teamAccounts/workspaces/projects | yes | 
+| accounts | 是 | 
+| accounts/workspaces | 是 | 
+| accounts/workspaces/projects | 是 | 
+| teamAccounts | 是 | 
+| teamAccounts/workspaces | 是 | 
+| teamAccounts/workspaces/projects | 是 | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| accounts | yes | 
+| accounts | 是 | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| workspaces | yes | 
+| workspaces | 是 | 
 | workspaces/computes | 否 | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
 | Identities | 否 | 
-| userAssignedIdentities | yes | 
+| userAssignedIdentities | 是 | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 | 資源類型 | 支援標記 |
@@ -783,7 +783,7 @@ ms.locfileid: "56270380"
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| accounts | yes | 
+| accounts | 是 | 
 | accounts/eventGridFilters | 否 | 
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -803,7 +803,7 @@ ms.locfileid: "56270380"
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| classicDevServices | yes | 
+| classicDevServices | 是 | 
 | updateCommunicationPreference | 否 | 
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
@@ -815,18 +815,18 @@ ms.locfileid: "56270380"
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| mediaservices | yes | 
+| mediaservices | 是 | 
 | mediaservices/accountFilters | 否 | 
 | mediaservices/assets | 否 | 
 | mediaservices/assets/assetFilters | 否 | 
 | mediaservices/contentKeyPolicies | 否 | 
 | mediaservices/eventGridFilters | 否 | 
 | mediaservices/liveEventOperations | 否 | 
-| mediaservices/liveEvents | yes | 
+| mediaservices/liveEvents | 是 | 
 | mediaservices/liveEvents/liveOutputs | 否 | 
 | mediaservices/liveOutputOperations | 否 | 
 | mediaservices/streamingEndpointOperations | 否 | 
-| mediaservices/streamingEndpoints | yes | 
+| mediaservices/streamingEndpoints | 是 | 
 | mediaservices/streamingLocators | 否 | 
 | mediaservices/streamingPolicies | 否 | 
 | mediaservices/transforms | 否 | 
@@ -835,21 +835,21 @@ ms.locfileid: "56270380"
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| projects | yes | 
+| projects | 是 | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| applicationGateways | yes | 
-| applicationSecurityGroups | yes | 
+| applicationGateways | 是 | 
+| applicationSecurityGroups | 是 | 
 | azureFirewallFqdnTags | 否 | 
-| azureFirewalls | yes | 
+| azureFirewalls | 是 | 
 | bgpServiceCommunities | 否 | 
-| connections | yes | 
-| ddosCustomPolicies | yes | 
-| ddosProtectionPlans | yes | 
+| connections | 是 | 
+| ddosCustomPolicies | 是 | 
+| ddosProtectionPlans | 是 | 
 | dnsOperationStatuses | 否 | 
-| dnszones | yes | 
+| dnszones | 是 | 
 | dnszones/A | 否 | 
 | dnszones/AAAA | 否 | 
 | dnszones/all | 否 | 
@@ -862,47 +862,47 @@ ms.locfileid: "56270380"
 | dnszones/SOA | 否 | 
 | dnszones/SRV | 否 | 
 | dnszones/TXT | 否 | 
-| expressRouteCircuits | yes | 
+| expressRouteCircuits | 是 | 
 | expressRouteServiceProviders | 否 | 
-| frontdoors | yes | 
-| frontdoorWebApplicationFirewallPolicies | yes | 
+| frontdoors | 是 | 
+| frontdoorWebApplicationFirewallPolicies | 是 | 
 | getDnsResourceReference | 否 | 
-| interfaceEndpoints | yes | 
+| interfaceEndpoints | 是 | 
 | internalNotify | 否 | 
-| loadBalancers | yes | 
-| localNetworkGateways | yes | 
-| natGateways | yes | 
-| networkIntentPolicies | yes | 
-| networkInterfaces | yes | 
-| networkProfiles | yes | 
-| networkSecurityGroups | yes | 
-| networkWatchers | yes | 
-| networkWatchers/connectionMonitors | yes | 
-| networkWatchers/lenses | yes | 
-| networkWatchers/pingMeshes | yes | 
-| privateLinkServices | yes | 
-| publicIPAddresses | yes | 
-| publicIPPrefixes | yes | 
-| routeFilters | yes | 
-| routeTables | yes | 
-| serviceEndpointPolicies | yes | 
+| loadBalancers | 是 | 
+| localNetworkGateways | 是 | 
+| natGateways | 是 | 
+| networkIntentPolicies | 是 | 
+| networkInterfaces | 是 | 
+| networkProfiles | 是 | 
+| networkSecurityGroups | 是 | 
+| networkWatchers | 是 | 
+| networkWatchers/connectionMonitors | 是 | 
+| networkWatchers/lenses | 是 | 
+| networkWatchers/pingMeshes | 是 | 
+| privateLinkServices | 是 | 
+| publicIPAddresses | 是 | 
+| publicIPPrefixes | 是 | 
+| routeFilters | 是 | 
+| routeTables | 是 | 
+| serviceEndpointPolicies | 是 | 
 | trafficManagerGeographicHierarchies | 否 | 
-| trafficmanagerprofiles | yes | 
+| trafficmanagerprofiles | 是 | 
 | trafficmanagerprofiles/heatMaps | 否 | 
-| virtualHubs | yes | 
-| virtualNetworkGateways | yes | 
-| virtualNetworks | yes | 
-| virtualNetworkTaps | yes | 
-| virtualWans | yes | 
-| vpnGateways | yes | 
-| vpnSites | yes | 
-| webApplicationFirewallPolicies | yes | 
+| virtualHubs | 是 | 
+| virtualNetworkGateways | 是 | 
+| virtualNetworks | 是 | 
+| virtualNetworkTaps | 是 | 
+| virtualWans | 是 | 
+| vpnGateways | 是 | 
+| vpnSites | 是 | 
+| webApplicationFirewallPolicies | 是 | 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| namespaces | yes | 
-| namespaces/notificationHubs | yes | 
+| namespaces | 是 | 
+| namespaces/notificationHubs | 是 | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | 資源類型 | 支援標記 |
@@ -910,7 +910,7 @@ ms.locfileid: "56270380"
 | devices | 否 | 
 | linkTargets | 否 | 
 | storageInsightConfigs | 否 | 
-| workspaces | yes | 
+| workspaces | 是 | 
 | workspaces/dataSources | 否 | 
 | workspaces/linkedServices | 否 | 
 | workspaces/query | 否 | 
@@ -919,9 +919,9 @@ ms.locfileid: "56270380"
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
 | managementassociations | 否 | 
-| managementconfigurations | yes | 
-| solutions | yes | 
-| 檢視 | yes | 
+| managementconfigurations | 是 | 
+| solutions | 是 | 
+| 檢視 | 是 | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | 資源類型 | 支援標記 |
@@ -935,34 +935,34 @@ ms.locfileid: "56270380"
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
 | consoles | 否 | 
-| dashboards | yes | 
+| dashboards | 是 | 
 | userSettings | 否 | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| workspaceCollections | yes | 
+| workspaceCollections | 是 | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| capacities | yes | 
+| capacities | 是 | 
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| accounts | yes | 
+| accounts | 是 | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
 | backupProtectedItems | 否 | 
-| vaults | yes | 
+| vaults | 是 | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| namespaces | yes | 
+| namespaces | 是 | 
 | namespaces/authorizationrules | 否 | 
 | namespaces/hybridconnections | 否 | 
 | namespaces/hybridconnections/authorizationrules | 否 | 
@@ -1007,20 +1007,20 @@ ms.locfileid: "56270380"
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| 應用程式所需 | yes | 
+| 應用程式所需 | 是 | 
 | saasresources | 否 | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| flows | yes | 
-| jobcollections | yes | 
+| flows | 是 | 
+| jobcollections | 是 | 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
 | resourceHealthMetadata | 否 | 
-| searchServices | yes | 
+| searchServices | 是 | 
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | 資源類型 | 支援標記 |
@@ -1066,7 +1066,7 @@ ms.locfileid: "56270380"
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| namespaces | yes | 
+| namespaces | 是 | 
 | namespaces/authorizationrules | 否 | 
 | namespaces/disasterrecoveryconfigs | 否 | 
 | namespaces/eventgridfilters | 否 | 
@@ -1081,36 +1081,36 @@ ms.locfileid: "56270380"
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| clusters | yes | 
+| clusters | 是 | 
 | clusters/applications | 否 | 
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| 應用程式所需 | yes | 
-| gateways | yes | 
-| networks | yes | 
-| 密碼 | yes | 
-| 磁碟區 | yes | 
+| 應用程式所需 | 是 | 
+| gateways | 是 | 
+| networks | 是 | 
+| 密碼 | 是 | 
+| 磁碟區 | 是 | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| SignalR | yes | 
+| SignalR | 是 | 
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| applianceDefinitions | yes | 
-| appliances | yes | 
-| applicationDefinitions | yes | 
-| 應用程式所需 | yes | 
-| jitRequests | yes | 
+| applianceDefinitions | 是 | 
+| appliances | 是 | 
+| applicationDefinitions | 是 | 
+| 應用程式所需 | 是 | 
+| jitRequests | 是 | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| managedInstances | yes |
+| managedInstances | 是 |
 | managedInstances/databases | 是 (請參閱下方注意事項) |
 | managedInstances/databases/backupShortTermRetentionPolicies | 否 |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | 否 |
@@ -1120,7 +1120,7 @@ ms.locfileid: "56270380"
 | managedInstances/keys | 否 |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | 否 |
 | managedInstances/vulnerabilityAssessments | 否 |
-| servers | yes | 
+| servers | 是 | 
 | servers/administrators | 否 | 
 | servers/communicationLinks | 否 | 
 | servers/databases | 是 (請參閱下方注意事項) | 
@@ -1138,14 +1138,14 @@ ms.locfileid: "56270380"
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| SqlVirtualMachineGroups | yes | 
+| SqlVirtualMachineGroups | 是 | 
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | 否 | 
-| SqlVirtualMachines | yes | 
+| SqlVirtualMachines | 是 | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| storageAccounts | yes | 
+| storageAccounts | 是 | 
 | storageAccounts/blobServices | 否 | 
 | storageAccounts/fileServices | 否 | 
 | storageAccounts/queueServices | 否 | 
@@ -1156,7 +1156,7 @@ ms.locfileid: "56270380"
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| storageSyncServices | yes | 
+| storageSyncServices | 是 | 
 | storageSyncServices/registeredServers | 否 | 
 | storageSyncServices/syncGroups | 否 | 
 | storageSyncServices/syncGroups/cloudEndpoints | 否 | 
@@ -1166,7 +1166,7 @@ ms.locfileid: "56270380"
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| managers | yes | 
+| managers | 是 | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | 資源類型 | 支援標記 |
@@ -1192,23 +1192,23 @@ ms.locfileid: "56270380"
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| providerRegistrations | yes | 
-| resources | yes | 
+| providerRegistrations | 是 | 
+| resources | 是 | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| environments | yes | 
+| environments | 是 | 
 | environments/accessPolicies | 否 | 
-| environments/eventsources | yes | 
-| environments/referenceDataSets | yes | 
+| environments/eventsources | 是 | 
+| environments/referenceDataSets | 是 | 
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| 帳戶 | yes | 
-| account/extension | yes | 
-| account/project | yes | 
+| 帳戶 | 是 | 
+| account/extension | 是 | 
+| account/project | 是 | 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | 資源類型 | 支援標記 |
@@ -1224,13 +1224,13 @@ ms.locfileid: "56270380"
 | apiManagementAccounts/connectionAcls | 否 | 
 | apiManagementAccounts/connections | 否 | 
 | billingMeters | 否 | 
-| certificates | yes | 
-| connectionGateways | yes | 
-| connections | yes | 
-| customApis | yes | 
+| certificates | 是 | 
+| connectionGateways | 是 | 
+| connections | 是 | 
+| customApis | 是 | 
 | deletedSites | 否 | 
 | functions | 否 | 
-| hostingEnvironments | yes | 
+| hostingEnvironments | 是 | 
 | hostingEnvironments/multiRolePools | 否 | 
 | hostingEnvironments/multiRolePools/instances | 否 | 
 | hostingEnvironments/workerPools | 否 | 
@@ -1239,17 +1239,17 @@ ms.locfileid: "56270380"
 | Mahout | 否 | 
 | resourceHealthMetadata | 否 | 
 | runtimes | 否 | 
-| serverFarms | yes | 
+| serverFarms | 是 | 
 | serverFarms/workers | 否 | 
-| sites | yes | 
+| sites | 是 | 
 | sites/domainOwnershipIdentifiers | 否 | 
 | sites/hostNameBindings | 否 | 
 | sites/instances | 否 | 
 | sites/instances/extensions | 否 | 
-| sites/premieraddons | yes | 
+| sites/premieraddons | 是 | 
 | sites/recommendations | 否 | 
 | sites/resourceHealthMetadata | 否 | 
-| sites/slots | yes | 
+| sites/slots | 是 | 
 | sites/slots/hostNameBindings | 否 | 
 | sites/slots/instances | 否 | 
 | sites/slots/instances/extensions | 否 | 
@@ -1266,7 +1266,7 @@ ms.locfileid: "56270380"
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| DeviceServices | yes | 
+| DeviceServices | 是 | 
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 | 資源類型 | 支援標記 |

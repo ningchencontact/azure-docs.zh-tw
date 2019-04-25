@@ -1,7 +1,6 @@
 ---
 title: 使用 Apache Spark 對 Azure SQL 資料庫讀取及寫入資料
 description: 了解如何設定 HDInsight Spark 叢集與 Azure SQL 資料庫之間的連線，以對 SQL 資料庫讀取資料、寫入資料和串流資料
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/15/2018
 ms.openlocfilehash: 2b818350c19d1d9ff34bcdac0e438def0f859e40
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326957"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 叢集對 Azure SQL 資料庫讀取及寫入資料
 
@@ -36,7 +35,7 @@ ms.locfileid: "54381893"
 
 首先請建立與 Spark 叢集相關聯的 [Jupyter Notebook](https://jupyter.org/)。 您可以使用此 Notebook 執行本文中使用的程式碼片段。 
 
-1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟您的叢集。
+1. 从 [Azure 门户网站](https://portal.azure.com/)打开群集。
 1. 在右側選取 [叢集儀表板] 下方的 **Jupyter Notebook**。  如果您沒有看見 [叢集儀表板]，請按一下刀鋒視窗上左側功能表中的 [概觀]。 出現提示時，輸入叢集的系統管理員認證。
 
     ![Spark 上的 Jupyter Notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark 上的 Jupyter Notebook")

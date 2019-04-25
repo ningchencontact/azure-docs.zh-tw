@@ -12,11 +12,11 @@ ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 56c45bf6db79ded64574a44399712951e82c1c3e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303582"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>將資料載入至儲存體環境以便進行分析
 

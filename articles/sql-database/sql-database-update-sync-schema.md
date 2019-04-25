@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
 ms.openlocfilehash: 712ccfa71c85629111428a4e0c7acaea050942b8
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483738"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331330"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>在 Azure SQL 資料同步中自動執行結構描述變更複寫
 
@@ -230,7 +230,7 @@ END
         -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Data Sync Agent - [適用於 Azure SQL Data Sync 的 Data Sync Agent](sql-database-data-sync-agent.md)
 -   最佳做法 - [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
--   監視-[使用 Azure 監視器監視 SQL 資料同步記錄](sql-database-sync-monitor-oms.md)
+-   監視 - [使用 Azure 監視器記錄監視 SQL 資料同步](sql-database-sync-monitor-oms.md)
 -   疑難排解 - [為 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
 -   更新同步結構描述
     -   使用 PowerShell - [使用 PowerShell 更新現有同步群組中的同步結構描述](scripts/sql-database-sync-update-schema.md)

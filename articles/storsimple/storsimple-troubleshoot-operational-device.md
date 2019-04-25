@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: cf037f7f1c1384b654a7144485d38f569eb7c167
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 8ad3f09bf46caf426b2008b583ebd2ff78522462
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187329"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302512"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>可運作的 StorSimple 裝置疑難排解
 > [!NOTE]
-> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將遭到淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將遭到淘汰。 關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
 
 ## <a name="overview"></a>概觀
 本文提供實用的疑難排解指導方針，可用來解決在部署 StorSimple 裝置且可運作之後您可能遇到的問題。 文中將描述常見問題、可能原因和建議的步驟，可協助您解決在執行 Microsoft Azure StorSimple 時可能遇到的問題。 此資訊適用於 StorSimple 內部部署實體裝置和 StorSimple 虛擬裝置。
@@ -45,12 +45,12 @@ ms.locfileid: "32187329"
 ## <a name="errors-that-occur-during-subsequent-runs-of-the-setup-wizard"></a>在安裝精靈後續執行期間發生的錯誤
 下表說明當您在可運作的裝置上執行安裝精靈時可能遇到的錯誤、產生錯誤的可能原因，以及建議用來解決這些錯誤的動作。 
 
-| 編號 | 錯誤訊息或情況 | 可能的原因 | 建議的動作 |
+| 沒有。 | 錯誤訊息或情況 | 可能的原因 | 建議的動作 |
 |:--- |:--- |:--- |:--- |
-| 1 |錯誤 350032：此裝置已經停用。 |如果您在已停用的裝置上執行安裝精靈，就會看到這個錯誤。 |[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md) 以進行後續步驟。 已停用的裝置無法處於執行狀態。 您可能需要進行原廠重設，裝置才能再次啟用。 |
-| 2 |Invoke-HcsSetupWizard：ERROR_INVALID_FUNCTION (發生例外狀況於 HRESULT：0x80070001) |DNS 伺服器更新失敗。 DNS 設定是全域設定，並會在所有已啟用的網路介面上加以套用。 |啟用介面並重新套用 DNS 設定。 因為這些設定是全域的，所以這樣做可能會中斷其他已啟用介面的網路。 |
+| 1 |Error 350032:已停用此裝置。 |如果您在已停用的裝置上執行安裝精靈，就會看到這個錯誤。 |[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md) 以進行後續步驟。 已停用的裝置無法處於執行狀態。 您可能需要進行原廠重設，裝置才能再次啟用。 |
+| 2 |Invoke-hcssetupwizard:ERROR_INVALID_FUNCTION (來自 HRESULT 的例外狀況：0x80070001) |DNS 伺服器更新失敗。 DNS 設定是全域設定，並會在所有已啟用的網路介面上加以套用。 |啟用介面並重新套用 DNS 設定。 因為這些設定是全域的，所以這樣做可能會中斷其他已啟用介面的網路。 |
 | 3 |裝置會在 StorSimple Manager 服務入口網站中顯示為線上，但是當您嘗試完成最小安裝並儲存設定時，操作失敗。 |在初始安裝期間，並未設定 Web Proxy，即使已有實際的 Proxy 伺服器存在也一樣。 |使用 [Test-HcsmConnection cmdlet][2] 找出錯誤。 [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md) 。 |
-| 4 |Invoke-HcsSetupWizard：值未落在預期的範圍內。 |這個錯誤是因為不正確的子網路遮罩而引發。 可能的原因： <ul><li> 子網路遮罩遺失或空白。</li><li>Ipv6 首碼格式不正確。</li><li>介面具備雲端功能，但閘道遺失或不正確。</li></ul>請注意，如果透過安裝精靈設定，DATA 0 自動具備雲端功能。 |若要判斷問題所在，請使用子網路 0.0.0.0 或 256.256.256.256，然後查看輸出。 視需要針對子網路遮罩、閘道器及 Ipv6 首碼輸入正確的值。 |
+| 4 |Invoke-HcsSetupWizard:值不在預期的範圍內。 |這個錯誤是因為不正確的子網路遮罩而引發。 可能的原因： <ul><li> 子網路遮罩遺失或空白。</li><li>Ipv6 首碼格式不正確。</li><li>介面具備雲端功能，但閘道遺失或不正確。</li></ul>請注意，如果透過安裝精靈設定，DATA 0 自動具備雲端功能。 |若要判斷問題所在，請使用子網路 0.0.0.0 或 256.256.256.256，然後查看輸出。 視需要針對子網路遮罩、閘道器及 Ipv6 首碼輸入正確的值。 |
 
 ## <a name="error-codes"></a>錯誤碼
 錯誤以數字順序列出。

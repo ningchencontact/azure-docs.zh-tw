@@ -1,17 +1,18 @@
 ---
 title: 在適用於 PostgreSQL 的 Azure 資料庫伺服器中最佳化查詢統計資料集合
 description: 本文說明如在「適用於 PostgreSQL 的 Azure 資料庫」伺服器上最佳化查詢統計資料集合。
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2018
+origin.date: 10/25/2018
+ms.date: 02/18/2019
 ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814362"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422693"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>在適用於 PostgreSQL 的 Azure 資料庫伺服器中最佳化查詢統計資料集合 
 本文說明如何在「適用於 PostgreSQL 的 Azure 資料庫」伺服器中最佳化查詢統計資料集合。

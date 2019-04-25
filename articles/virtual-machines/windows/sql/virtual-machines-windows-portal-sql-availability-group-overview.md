@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.openlocfilehash: b9977965dc076ec36aa90680a1732b6640b1e41a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325797"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure 虛擬機器上的 SQL Server Always On 可用性群組簡介 #
 
@@ -34,9 +34,9 @@ ms.locfileid: "57861837"
 
 「Azure 虛擬機器」中「可用性群組」的主要差異在於 Azure 虛擬機器需要[負載平衡器](../../../load-balancer/load-balancer-overview.md)。 負載平衡器會保有可用性群組接聽程式的 IP 位址。 如果您有多個可用性群組，則每個群組都需要一個接聽程式。 一個負載平衡器可以支援多個接聽程式。
 
-此外，在 Azure IaaS VM 客體容錯移轉叢集上，我們建議每個伺服器 （叢集節點） 的單一 NIC 和單一子網路。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告會發出節點只能在單一網路上連線的警告，但您可以放心地在 Azure IaaS VM 客體容錯移轉叢集上忽略此警告。 
+此外，在 Azure IaaS VM 来宾故障转移群集上，我们建议每个服务器（群集节点）使用一个 NIC 和一个子网。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告會發出節點只能在單一網路上連線的警告，但您可以放心地在 Azure IaaS VM 客體容錯移轉叢集上忽略此警告。 
 
-|  | Windows Server 版本 | SQL Server 版本 | SQL Server 版本 | WSFC 仲裁組態 | 使用多個區域的 DR | 多重子網路支援 | 支援現有的 AD | 使用多區域相同區域的 DR | Dist AG 支援，並沒有 AD 網域 | Dist AG 支援與任何叢集 |  
+|  | Windows Server 版本 | SQL Server 版本 | SQL Server 版本 | WSFC 仲裁配置 | 使用多区域进行灾难恢复 | 多子网支持 | 支持现有 AD | 使用具有多个区域的相同区域进行灾难恢复 | Dist-AG 支持，没有 AD 域 | Dist-AG 支持，没有群集 |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
 | [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | 雲端見證 | 否 | yes | 是 | 是 | 否 | 否 |
 | [快速入門範本](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | 雲端見證 | 否 | yes | 是 | 是 | 否 | 否 |
@@ -62,7 +62,7 @@ Azure 快速入門範本會利用 SQL VM 資源的部署 Windows 容錯移轉叢
 [在 Azure VM 中自動設定 Always On 可用性群組 - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 
 
-## <a name="manually-in-azure-portal"></a>在 Azure 入口網站中手動操作
+## <a name="manually-in-azure-portal"></a>在 Azure 门户中手动操作
 
 您也可以自行建立虛擬機器，而不使用範本。 首先，請完成必要條件，然後再建立可用性群組。 請參閱下列主題： 
 

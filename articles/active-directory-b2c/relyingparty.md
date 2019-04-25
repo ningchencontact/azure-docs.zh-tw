@@ -3,7 +3,7 @@ title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
 description: 指定 Azure Active Directory B2C 中自訂原則的 RelyingParty 元素。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360396"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -74,7 +74,7 @@ ms.locfileid: "55176007"
 
 選擇性的 **RelyingParty** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | RP 應用程式的預設使用者旅程圖。 |
 | UserJourneyBehaviors | 0:1 | 使用者旅程圖行為的範圍。 |
@@ -102,7 +102,7 @@ ms.locfileid: "55176007"
 
 **DefaultUserJourney** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | ReferenceId | 是 | 原則中使用者旅程圖的識別碼。 如需詳細資訊，請參閱[使用者旅程圖](userjourneys.md) |
 
@@ -110,7 +110,7 @@ ms.locfileid: "55176007"
 
 **UserJourneyBehaviors** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | 使用者旅程圖之單一登入 (SSO) 工作階段行為的範圍。 |
 | SessionExpiryType |0:1 | 工作階段的驗證行為。 可能的值：`Rolling` 或 `Absolute`。 `Rolling` 值 (預設) 表示，只要使用者在應用程式中持續為作用中狀態，該使用者就會保持登入。 `Absolute` 值表示在經過應用程式工作階段存留期所指定的期間之後，就會強制使用者進行重新驗證。 |
@@ -122,7 +122,7 @@ ms.locfileid: "55176007"
 
 **SingleSignOn** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | 影響範圍 | 是 | 單一登入行為的範圍。 可能的值：`Suppressed`、`Tenant`、`Application` 或 `Policy`。 `Suppressed` 值表示會抑制行為。 例如，在單一登入工作階段的情況下，不會為使用者保留任何工作階段，而且一律會提示使用者選取識別提供者。 `TrustFramework` 值表示會針對信任架構中的所有原則套用行為。 例如，如果使用者瀏覽信任架構的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Tenant` 值表示會將行為套用到租用戶中的所有原則。 例如，如果使用者瀏覽租用戶的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Application` 值表示會將行為套用到適用於提出要求之應用程式的所有原則。 例如，如果使用者瀏覽應用程式的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Policy` 值表示只會將行為套用到某個原則。 例如，如果使用者瀏覽信任架構的兩個原則旅程圖，系統會在該使用者於原則之間進行切換時提示其選取識別提供者。 |
 | KeepAliveInDays | 是 | 會控制使用者保持登入的時間長度。 將值設為 0 會關閉 KMSI 功能。 如需詳細資訊，請參閱[讓我保持登入](active-directory-b2c-reference-kmsi-custom.md)。 |
@@ -131,7 +131,7 @@ ms.locfileid: "55176007"
 
 **JourneyInsights** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | TelemetryEngine | 是 | 值必須是 `ApplicationInsights`。 | 
 | InstrumentationKey | 是 | 字串，其中包含 Application Insights 元素的檢測金鑰。 |
@@ -152,13 +152,13 @@ ms.locfileid: "55176007"
 
 **ContentDefinitionParameters** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0:n | 字串，其中包含附加至內容定義負載 URI 查詢字串的金鑰值組。 |
 
 **ContentDefinitionParameter** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | Name | 是 | 金鑰值組的名稱。 |
 
@@ -168,16 +168,16 @@ ms.locfileid: "55176007"
 
 **TechnicalProfile** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- | 
 | id | 是 | 值必須是 `PolicyProfile`。 |
 
 **TechnicalProfile** 包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | 字串，其中包含要向使用者顯示的技術設定檔名稱。 |
-| 說明 | 0:1 | 字串，其中包含要向使用者顯示的技術設定檔說明。 |
+| 描述 | 0:1 | 字串，其中包含要向使用者顯示的技術設定檔說明。 |
 | 通訊協定 | 1:1 | 用於同盟的通訊協定。 |
 | 中繼資料 | 0:1 | 金鑰/值組的 *Item* 集合，通訊協定會在交易過程中利用它來與端點進行通訊，以設定信賴憑證者與其他社群參與者之間的互動。 |
 | OutputClaims | 0:1 | 宣告類型清單，可取得來作為技術設定檔中的輸出。 這些元素中的每一個均會參考已經定義於 **ClaimsSchema** 區段中或此原則檔所繼承之原則中的 **ClaimType**。 |
@@ -185,7 +185,7 @@ ms.locfileid: "55176007"
 
 **Protocol** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | Name | 是 | Azure AD B2C 所支援的有效通訊協定名稱，可用來作為技術設定檔的一部分。 可能的值：`OpenIdConnect` 或 `SAML2`。 `OpenIdConnect` 值代表以每個 OpenID 基礎規格為依據的 OpenID Connect 1.0 通訊協定標準。 `SAML2` 代表以每個 OASIS 規格為依據的 SAML 2.0 通訊協定標準。 請勿在生產環境中使用 SAML 權杖。 |
 
@@ -193,13 +193,13 @@ ms.locfileid: "55176007"
 
 **OutputClaims** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | 信賴憑證者所訂閱之原則支援清單中預期的宣告類型名稱。 此宣告會用來做為技術設定檔的輸出。 |
 
 **OutputClaim** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 是 | 對已經定義於原則檔 **ClaimsSchema** 區段中之 **ClaimType** 的參考。 |
 | DefaultValue | 否 | 如果宣告值是空的時可以使用的預設值。 |
@@ -213,7 +213,7 @@ ms.locfileid: "55176007"
 
 **SubjectNamingInfo** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | ClaimType | 是 | 對輸出宣告之 **PartnerClaimType** 的參考。 輸出宣告必須定義於信賴憑證者原則 **OutputClaims** 集合中。 |
 

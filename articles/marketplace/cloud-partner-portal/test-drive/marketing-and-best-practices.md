@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 81fc5e9ca93178f7c2d7f56563b4cf9253c8f326
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322765"
 ---
 <a name="test-drive-marketing-and-best-practices"></a>試用產品行銷與最佳做法
 =======================================

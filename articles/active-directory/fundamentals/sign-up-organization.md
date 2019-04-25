@@ -1,5 +1,5 @@
 ---
-title: 您的組織-Azure Active Directory 註冊 |Microsoft Docs
+title: 注册组织 - Azure Active Directory | Microsoft Docs
 description: 如何註冊您的組織以使用 Azure 和 Azure Active Directory 的相關指示。
 services: active-directory
 author: eross-msft
@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101358"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60246908"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>註冊您的組織以使用 Azure Active Directory
 請使用下列其中一種選擇，註冊 Azure Active Directory (Azure AD) 或新的 Microsoft Azure 訂用帳戶：

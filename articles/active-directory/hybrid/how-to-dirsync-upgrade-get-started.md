@@ -17,18 +17,18 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348525"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect：從 DirSync 升級
 Azure AD Connect 是 DirSync 的後續產品。 您會在本主題中了解可從 DirSync 升級的方式。 這些步驟不適用於從另一個版本的 Azure AD Connect 或從 Azure AD Sync 升級。
 
 在開始安裝 Azure AD Connect 之前，請務必要[下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) 並完成 [Azure AD Connect：硬體和必要條件](how-to-connect-install-prerequisites.md)中的必要條件步驟。 特別是，您會想要閱讀下列各項，因為這些領域與 DirSync 有所不同︰
 
-* 必要的.NET 和 PowerShell 版本。 較新的版本必須位於與 DirSync 所需不同的伺服器上。
+* 必需的 .NET 和 PowerShell 版本。 較新的版本必須位於與 DirSync 所需不同的伺服器上。
 * Proxy 伺服器設定。 如果您使用 Proxy 伺服器連到網際網路，此設定必須在升級之前設定。 DirSync 一律使用為使用者設定的 Proxy 伺服器進行安裝，但 Azure AD Connect 使用電腦設定。
 * 需要在 Proxy 伺服器中開啟的 URL。 基本的情況下，這些案例也支援這些 URL，需求都相同。 如果要使用 Azure AD Connect 的一些新功能，则必须打开一些新 URL。
 
