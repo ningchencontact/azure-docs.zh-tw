@@ -136,8 +136,8 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | ConfigurationMode | 設定如何套用至節點。 可能的值為 __"ApplyOnly"__、__"ApplyandMonitior"__ 和 __"ApplyandAutoCorrect"__。 <ul><li>__ApplyOnly__：DSC 會套用設定但不執行任何進一步的動作，除非有新的設定發送到目標節點，或從伺服器提取新的設定時。 初始套用新的設定之後，DSC 不會檢查先前設定的狀態是否漂移。 DSC 在 __ApplyOnly__ 生效之前會一直嘗試套用設定，直到成功為止。 </li><li> __ApplyAndMonitor__：這是預設值。 LCM 會套用任何新的設定。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄中報告差異。 DSC 在 __ApplyAndMonitor__ 生效之前會一直嘗試套用設定，直到成功為止。</li><li>__ApplyAndAutoCorrect__：DSC 會套用任何新的組態。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄中報告差異，然後重新套用目前的設定。</li></ul> |
 | HostName_s | 受控節點名稱。 |
 | IPAddress | 受控節點的 IPv4 位址。 |
-| 類別 | DscNodeStatus |
-| 資源 | Azure 自動化帳戶的名稱。 |
+| Category | DscNodeStatus |
+| Resource | Azure 自動化帳戶的名稱。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | NodeId_g |識別受控節點的 GUID。 |
 | DscReportId_g |識別報表的 GUID。 |
@@ -162,8 +162,8 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | OperationName |DscResourceStatusData|
 | ResultType |資源是否符合規範。 |
 | NodeName_s |受控節點名稱。 |
-| 類別 | DscNodeStatus |
-| 資源 | Azure 自動化帳戶的名稱。 |
+| Category | DscNodeStatus |
+| Resource | Azure 自動化帳戶的名稱。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | NodeId_g |識別受控節點的 GUID。 |
 | DscReportId_g |識別報表的 GUID。 |
