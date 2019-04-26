@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8f511eafda70fca997a08b5907e606e572b8e219
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973711"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128903"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>從 Azure 入口網站複製您的認證
 

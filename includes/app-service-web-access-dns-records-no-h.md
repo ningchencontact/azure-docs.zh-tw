@@ -1,15 +1,10 @@
 ---
-author: cephalin
-ms.service: app-service-web
-ms.topic: include
-ms.date: 11/03/2016
-ms.author: cephalin
 ms.openlocfilehash: d001d76bca5b9a0837349b6e05b3b0a271ea3a73
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128511"
 ---
 > [!NOTE]
 > 您可以使用 Azure DNS 來設定 Azure Web Apps 的自訂 DNS 名稱。 如需詳細資訊，請參閱[使用 Azure DNS 為 Azure 服務提供自訂網域設定](../articles/dns/dns-custom-domain.md#app-service-web-apps)。

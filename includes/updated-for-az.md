@@ -9,7 +9,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188311"
+ms.locfileid: "62087972"
 ---
 > [!NOTE]
 > 本文已更新為使用新的 Azure PowerShell Az 模組。 AzureRM 模組在至少 2020 年 12 月之前都還會持續收到錯誤 (Bug) 修正，因此您仍然可以持續使用。

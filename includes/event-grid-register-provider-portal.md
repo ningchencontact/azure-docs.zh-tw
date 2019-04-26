@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/05/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 108bf3f50b863428a63e745c1dac470d4caaf623
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: c3677e7897498aa06d7bd547988ad4dc0326f39b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62087985"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>啟用事件格線資源提供者
 
@@ -21,7 +21,7 @@ ms.locfileid: "37869809"
 
 在 Azure 入口網站中：
 
-1. 選取 [訂用帳戶]。
+1. 選取 **訂用帳戶** 。
 1. 選取您用於事件方格的訂用帳戶。
 1. 在 [設定] 下，選取 [資源提供者]。
 1. 尋找 **Microsoft.EventGrid**。
