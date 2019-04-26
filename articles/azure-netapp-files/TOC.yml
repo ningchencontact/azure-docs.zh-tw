@@ -1,60 +1,55 @@
-items:
 - name: Azure NetApp 檔案文件
   href: index.yml
 - name: 概觀
   items:
-  - name: Azure NetApp Files 簡介
-    href: azure-netapp-files-introduction.md
-  - name: 了解儲存體階層
-    href: azure-netapp-files-understand-storage-hierarchy.md
+    - name: Azure NetApp Files 簡介
+      href: azure-netapp-files-introduction.md
+    - name: 了解儲存體階層
+      href: azure-netapp-files-understand-storage-hierarchy.md
 - name: 快速入門
-  items:
-  - name: 設定 Azure NetApp Files 並建立磁碟區
-    href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
   expanded: true
+  items:
+    - name: 設定 Azure NetApp Files 並建立磁碟區
+      href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: 概念
   items:
-  - name: Azure NetApp Files 的服務等級
-    href: azure-netapp-files-service-levels.md
-  - name: Azure NetApp Files 的資源限制
-    href: azure-netapp-files-resource-limits.md
-  - name: Azure NetApp Files 的計量
-    href: azure-netapp-files-metrics.md
+    - name: Azure NetApp Files 的服務等級
+      href: azure-netapp-files-service-levels.md
+    - name: Azure NetApp Files 的資源限制
+      href: azure-netapp-files-resource-limits.md
+    - name: Azure NetApp Files 的計量
+      href: azure-netapp-files-metrics.md
+    - name: 針對 Azure NetApp Files 資源提供者錯誤進行疑難排解
+      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: 使用說明指南
   items:
-  - name: 註冊 Azure NetApp Files
-    href: azure-netapp-files-register.md
-  - name: 建立 NetApp 帳戶
-    href: azure-netapp-files-create-netapp-account.md
-  - name: 設定容量集區
-    href: azure-netapp-files-set-up-capacity-pool.md
-  - name: 將子網路委派至 Azure NetApp Files
-    href: azure-netapp-files-delegate-subnet.md
-  - name: 建立適用於 Azure NetApp Files 的磁碟區
-    href: azure-netapp-files-create-volumes.md
-  - name: 設定 NFS 磁碟區的匯出原則
-    href: azure-netapp-files-configure-export-policy.md
-  - name: 管理磁碟區
-    href: azure-netapp-files-manage-volumes.md
-  - name: 對 Windows 或 Linux 虛擬機器掛接或取消掛接磁碟區
-    href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
-  - name: 管理快照集
-    href: azure-netapp-files-manage-snapshots.md
-  - name: 調整容量集區或磁碟區的大小
-    href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-  - name: 開發
-    items:
-    - name: REST
-      href: azure-netapp-files-develop-with-rest-api.md
+    - name: 註冊 Azure NetApp Files
+      href: azure-netapp-files-register.md
+    - name: 建立 NetApp 帳戶
+      href: azure-netapp-files-create-netapp-account.md
+    - name: 設定容量集區
+      href: azure-netapp-files-set-up-capacity-pool.md
+    - name: 將子網路委派至 Azure NetApp Files
+      href: azure-netapp-files-delegate-subnet.md
+    - name: 建立適用於 Azure NetApp Files 的磁碟區
+      href: azure-netapp-files-create-volumes.md
+    - name: 設定 NFS 磁碟區的匯出原則
+      href: azure-netapp-files-configure-export-policy.md
+    - name: 管理磁碟區
+      href: azure-netapp-files-manage-volumes.md
+    - name: 對 Windows 或 Linux 虛擬機器掛接或取消掛接磁碟區
+      href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+    - name: 管理快照集
+      href: azure-netapp-files-manage-snapshots.md
+    - name: 調整容量集區或磁碟區的大小
+      href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: 開發
+      items:
+        - name: REST
+          href: azure-netapp-files-develop-with-rest-api.md
 - name: 參考
   items:
-  - name: REST
-    href: https://docs.microsoft.com/rest/api/netapp/
-  - name: Resource Manager 範本
-    href: /azure/templates/microsoft.netapp/allversions
-ms.openlocfilehash: 1380aa56161e7c1f0f3d72aae36c834a087e1040
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545922"
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/netapp/'
+    - name: Resource Manager 範本
+      href: /azure/templates/microsoft.netapp/allversions

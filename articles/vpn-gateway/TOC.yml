@@ -176,6 +176,12 @@
           href: vpn-gateway-download-vpndevicescript.md
         - name: 範例：Cisco ASA 裝置 (IKEv2/無 BGP)
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+    - name: 監視和警示
+      items:
+        - name: 依計量設定警示
+          href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
+        - name: 依診斷日誌建立警示
+          href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: 疑難排解
       href: vpn-gateway-troubleshoot.md
       items:

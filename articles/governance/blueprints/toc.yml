@@ -97,6 +97,8 @@
       href: 'https://www.powershellgallery.com/packages/Az.Blueprint'
     - name: PSGallery (社群模組)
       href: 'https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint'
+    - name: 藍圖函式
+      href: ./reference/blueprint-functions.md
 - name: 資源
   items:
     - name: GitHub - Azure 藍圖範例

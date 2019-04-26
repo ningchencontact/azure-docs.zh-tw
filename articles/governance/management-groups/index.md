@@ -4,15 +4,15 @@ description: 了解管理群組及權限如何運作，以及如何使用。
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 04/17/2019
+ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ceb606f2243ef723866e485c6580a6323c1c92ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60874321"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源
 
@@ -47,9 +47,8 @@ ms.locfileid: "59699370"
 
 ### <a name="important-facts-about-the-root-management-group"></a>關於根管理群組的重要事實
 
-- 依預設會提供根管理群組的名稱和識別碼。 顯示名稱可隨時更新，而在 Azure 入口網站中呈現為不同名稱。 若要[變更名稱](manage.md#change-the-name-of-a-management-group)，您必須在根管理群組中指派帳戶擁有者或參與者角色。
-  - 名稱會是 "Tenant root group" (租用戶根群組)。
-  - 識別碼則是 Azure Active Directory 識別碼。
+- 依預設，根管理群組的顯示名稱為**租用戶根群組**。 識別碼則是 Azure Active Directory 識別碼。
+- 若要變更顯示名稱，必須在根管理群組中指派帳戶擁有者或參與者角色。 如需變更名稱的步驟，請參閱[變更管理群組名稱](manage.md#change-the-name-of-a-management-group)。
 - 根管理群組不同於其他管理群組，無法移動或刪除。  
 - 所有的訂用帳戶和管理群組可摺疊到目錄內的一個根管理群組中。
   - 目錄中的所有資源可摺疊到根管理群組，以便進行全域管理。
