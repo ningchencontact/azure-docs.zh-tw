@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: 66fc55d8c3dbb8487d1e796d5f30b08a94f717f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013423"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494760"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>如何查詢 Azure 監視器中適用於容器的記錄檔
 適用於容器的 azure 監視器會從容器主機和容器，收集效能計量、 清查資料，以及健全狀況狀態資訊，並將它轉送至 Log Analytics 工作區，在 Azure 監視器中。 每隔三分鐘會收集一次資料。 這項資料可供[查詢](../../azure-monitor/log-query/log-query-overview.md)Azure 監視器中。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。

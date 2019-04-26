@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: 53bed2131e81ee5ed0f46bde389262ee8349339a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542419"
 ---
 # <a name="openshift-in-azure"></a>Azure 中的 OpenShift
 

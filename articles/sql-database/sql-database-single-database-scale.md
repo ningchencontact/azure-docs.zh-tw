@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/18/2019
 ms.openlocfilehash: 471ded9cd94623929630155f1a3c613bf00576a8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006245"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331809"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>在 Azure SQL Database 中調整單一資料庫資源
 

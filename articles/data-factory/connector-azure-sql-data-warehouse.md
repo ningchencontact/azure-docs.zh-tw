@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: e3fc5a3dc5dc40078ca3a4733f6a2ba11da450f1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b97d21503e8dcd75906581faf1851533bcd69fa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681211"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009339"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -399,22 +399,29 @@ GO
 
 使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 是以高輸送量將大量資料載入 Azure SQL 資料倉儲的有效方法。 使用 PolyBase 而不是預設的 BULKINSERT 機制，將可看到輸送量大幅提升。 如需詳細的比較，請參閱[效能參考](copy-activity-performance.md#performance-reference)。 如需使用案例的逐步解說，請參閱[將 1 TB 載入至 Azure SQL 資料倉儲](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse)。
 
-* 如果您的來源資料位在 Azure Blob 儲存體或 Azure Data Lake Store，且其格式與 PolyBase 相容，即可使用 PolyBase 直接複製到 Azure SQL 資料倉儲。 如需詳細資料，請參閱**[使用 PolyBase 直接複製](#direct-copy-by-using-polybase)**。
+* 如果您的來源資料位於**Azure Blob、 Azure Data Lake 儲存體 Gen1 或 Azure Data Lake 儲存體 Gen2**，而**格式不相容的 PolyBase**，您可以使用複製活動，直接叫用 PolyBase 讓 AzureSQL 資料倉儲會從來源提取資料。 如需詳細資料，請參閱**[使用 PolyBase 直接複製](#direct-copy-by-using-polybase)**。
 * 如果您的來源資料存放區與格式不受 PolyBase 支援，您可以改用**[使用 PolyBase 分段複製](#staged-copy-by-using-polybase)** 功能。 分段複製功能也能提供更好的輸送量。 它會自動將資料轉換成與 PolyBase 相容的格式。 並會將資料儲存在 Azure Blob 儲存體中。 然後，它會將資料載入 SQL 資料倉儲。
 
 ### <a name="direct-copy-by-using-polybase"></a>使用 PolyBase 直接複製
 
-SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store。 它會使用服務主體作為來源，並具有特定的檔案格式需求。 如果您的來源資料符合本節所述準則，即可使用 PolyBase 從來源資料存放區直接複製到 Azure SQL 資料倉儲。 否則，請利用[使用 PolyBase 分段複製](#staged-copy-by-using-polybase)。
+SQL 資料倉儲 PolyBase 直接支援 Azure Blob、 Azure Data Lake 儲存體 Gen1 和 Azure Data Lake 儲存體 Gen2。 如果您的來源資料符合本節所述的準則，請直接從來源資料存放區複製到 Azure SQL 資料倉儲使用 PolyBase。 否則，請利用[使用 PolyBase 分段複製](#staged-copy-by-using-polybase)。
 
 > [!TIP]
-> 若要有效率地將資料從 Data Lake Store 複製到 SQL 資料倉儲，深入了解[使用 Data Lake Store 與 SQL 資料倉儲時，Azure Data Factory 能讓您更輕鬆容易發現資料中的重要資訊](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/)。
+> 若要有效率地將資料複製到 SQL 資料倉儲，進一步了解[Azure Data Factory 會使它甚至更方便且更方便使用 Data Lake Store 與 SQL 資料倉儲時揭露資料的深入](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/)。
 
 如果不符合需求，Azure Data Factory 會檢查設定，並自動切換回適用於資料移動的 BULKINSERT 機制。
 
-1. **來源連結服務**型別是 Azure Blob 儲存體 (**Azureblobstorage-client-master.zip**/**AzureStorage**) 與**帳戶金鑰驗證**或 Azure Data Lake 儲存體 Gen1 (**AzureDataLakeStore**) 與**服務主體驗證**。
-2. **輸入資料集**類型為 **AzureBlob** 或 **AzureDataLakeStoreFile**。 `type` 屬性下方的格式類型為 **OrcFormat**、**ParquetFormat** 或 **TextFormat**，並且具備下列組態：
+1. **來源連結服務**是具有下列類型，以及驗證方法：
 
-   1. `fileName` 不包含萬用字元篩選條件。
+    | 支援的來源資料存放區類型 | 支援的來源驗證類型 |
+    |:--- |:--- |
+    | [Azure Blob](connector-azure-blob-storage.md) | 帳戶金鑰驗證 |
+    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | 服務主體驗證 |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | 帳戶金鑰驗證 |
+
+2. **來源資料集格式**屬於**ParquetFormat**， **OrcFormat**，或**TextFormat**，具備下列組態：
+
+   1. `folderPath` 和`fileName`不包含萬用字元篩選條件。
    2. `rowDelimiter` 必須為 **\n**。
    3. `nullValue` 會設定為**空字串** ("") 或保留預設值，而 `treatEmptyAsNull` 則保留預設值或設定為 true。
    4. `encodingName` 會設定為 **utf-8**，也就是預設值。
@@ -423,7 +430,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store。 �
 
       ```json
       "typeProperties": {
-        "folderPath": "<blobpath>",
+        "folderPath": "<path>",
         "format": {
             "type": "TextFormat",
             "columnDelimiter": "<any delimiter>",
@@ -431,10 +438,6 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store。 �
             "nullValue": "",
             "encodingName": "utf-8",
             "firstRowAsHeader": <any>
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
         }
       },
       ```
@@ -568,7 +571,7 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 | bit | Boolean |
 | char | String, Char[] |
 | date | Datetime |
-| datetime | Datetime |
+| Datetime | Datetime |
 | datetime2 | Datetime |
 | Datetimeoffset | DateTimeOffset |
 | Decimal | Decimal |

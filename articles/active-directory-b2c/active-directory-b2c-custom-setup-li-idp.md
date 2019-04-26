@@ -11,11 +11,11 @@ ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 5bf1126a7015e668f3770835535b81c93d01cbda
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387072"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶進行登入
 

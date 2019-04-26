@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
 ms.openlocfilehash: e974c47d1dfb04f66b622c64a7143d00de87c4cb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013455"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467539"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>在 Azure Kubernetes Service 中使用角色型存取控制與 Azure Active Directory 身分識別的叢集資源的控制存取
 

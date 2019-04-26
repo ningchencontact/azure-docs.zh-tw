@@ -3,7 +3,7 @@ title: 在 Azure Active Directory B2C 的自訂原則中定義 SAML 技術設定
 description: 在 Azure Active Directory B2C 的自訂原則中定義 SAML 技術設定檔。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b0d1722df2bfe5116de2676dfc930d6050731bbd
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418215"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 SAML 技術設定檔
 

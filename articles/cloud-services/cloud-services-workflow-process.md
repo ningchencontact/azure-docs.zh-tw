@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
 ms.openlocfilehash: 7c8459a6694663a49203b6ec21a760d3e6bd60c3
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60480737"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Windows Azure 傳統 VM 架構的工作流程 
 這篇文章提供您部署或更新的 Azure 資源，例如虛擬機器時所發生的工作流程處理程序的概觀。 

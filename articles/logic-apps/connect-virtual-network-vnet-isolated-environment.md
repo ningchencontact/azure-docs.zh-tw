@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60511084"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 

@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.openlocfilehash: 0f11894e939f589134720f22deb99390e14db9fb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421628"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>使用 Azure 入口網站建立及管理適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點和 VNet 規則
 虛擬網路 (VNet) 服務端點和規則會將虛擬網路的私人位址空間延伸到您適用於 PostgreSQL 伺服器的 Azure 資料庫。 如需適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點概觀 (包含限制)，請參閱[適用於 PostgreSQL 伺服器的 Azure 資料庫的 VNet 服務端點](concepts-data-access-and-security-vnet.md)。 VNet 服務端點在「適用於 PostgreSQL 的 Azure 資料庫」的所有支援區域皆可使用。
