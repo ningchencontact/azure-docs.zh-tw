@@ -19,7 +19,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357940"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>V 核心服務層、Azure Hybrid Benefit 及移轉
+# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>虛擬核心服務層級、Azure Hybrid Benefit 及移轉
 
 以虛擬核心為基礎的購買模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。 它也可讓您選擇硬體世代：
 
@@ -29,7 +29,7 @@ ms.locfileid: "59357940"
 在 Gen4 硬體中，每個虛擬核心的記憶體會高出許多。 不過，Gen5 硬體可讓您大幅相應增加計算資源。
 
 > [!NOTE]
-> 如需 DTU 形式的服務層相關資訊，請參閱 [DTU 形式的服務層](sql-database-service-tiers-dtu.md)。 如需如何區分 DTU 形式服務層及 V 核心形式服務層的相關資訊，請參閱 [Azure SQL Database 購買模型](sql-database-purchase-models.md)。
+> 如需以 DTU 為基礎的服務層級相關資訊，請參閱[以 DTU 為基礎的服務層級](sql-database-service-tiers-dtu.md)。 如需如何區分以 DTU 為基礎及以虛擬核心為基礎之服務層的相關資訊，請參閱 [Azure SQL Database 購買模型](sql-database-purchase-models.md)。
 
 ## <a name="service-tier-characteristics"></a>服務層的特性
 
@@ -53,7 +53,7 @@ ms.locfileid: "59357940"
 > 您可以取得免費的 Azure SQL database 搭配使用 Azure 免費帳戶探索 Azure 的基本服務層。 如需相關資訊，請參閱[使用您的免費 Azure 免費帳戶，建立受管理的雲端資料庫](https://azure.microsoft.com/free/services/sql-database/)。
 
 - 如需詳細資訊，請參閱[單一資料庫中的虛擬核心資源限制](sql-database-vcore-resource-limits-single-databases.md)和[受控執行個體中的虛擬核心資源限制](sql-database-managed-instance.md#vcore-based-purchasing-model)。
-- 如需一般用途與商務關鍵性服務層的詳細資訊，請參閱[一般用途與商務關鍵性服務層](sql-database-service-tiers-general-purpose-business-critical.md)。
+- 如需一般用途與商務關鍵性服務層級的詳細資訊，請參閱[一般用途與商務關鍵性服務層級](sql-database-service-tiers-general-purpose-business-critical.md)。
 - 如需以虛擬核心為基礎的購買模型中超大規模服務層的詳細資訊，請參閱[超大規模服務層](sql-database-service-tier-hyperscale.md)。  
 
 > [!IMPORTANT]
@@ -102,7 +102,7 @@ ms.locfileid: "59357940"
 
 下表提供特定遷移案例的指引：
 
-|目前的服務層|目標服務層|遷移類型|使用者動作|
+|目前的服務層級|目標服務層級|遷移類型|使用者動作|
 |---|---|---|---|
 |標準|一般用途|橫向|可依任何順序遷移，但必須確保適當的虛擬核心大小調整*|
 |進階|業務關鍵|橫向|可依任何順序遷移，但必須確保適當的虛擬核心大小調整*|
@@ -122,7 +122,7 @@ ms.locfileid: "59357940"
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>建立異地複寫次要資料庫
 
-您只能使用和主要資料庫相同的服務層來建立異地次要資料庫。 對於記錄產生率較高的資料庫，建議您使用和主要資料庫相同的計算大小來建立次要資料庫。 如果您要在彈性集區中為單一主要資料庫建立異地次要資料庫，建議您讓集區具有符合主要資料庫計算大小的 `maxVCore` 設定。 如果您要在彈性集區中為另一個彈性集區中的主要資料庫建立異地次要資料庫，建議您讓集區具有相同的 `maxVCore` 設定
+您只能使用和主要資料庫相同的服務層級來建立異地次要資料庫。 對於記錄產生率較高的資料庫，建議您使用和主要資料庫相同的計算大小來建立次要資料庫。 如果您要在彈性集區中為單一主要資料庫建立異地次要資料庫，建議您讓集區具有符合主要資料庫計算大小的 `maxVCore` 設定。 如果您要在彈性集區中為另一個彈性集區中的主要資料庫建立異地次要資料庫，建議您讓集區具有相同的 `maxVCore` 設定
 
 ### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>使用資料庫複製，將 DTU 形式的資料庫轉換為 V 核心形式的資料庫
 

@@ -53,7 +53,7 @@ az group delete --name myResourceGroup
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | 建立裝載單一資料庫和彈性集區的 SQL Database 伺服器。 |
 | [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | 顯示單一或集區資料庫的大小使用量資訊。 |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | 更新資料庫屬性 (例如服務層或計算大小)，或將資料庫移入、移出彈性集區或在彈性集區之間移動資料庫。 |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | 更新資料庫屬性 (例如服務層級或計算大小)，或將資料庫移入、移出彈性集區或在彈性集區之間移動資料庫。 |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 刪除資源群組，包括所有的巢狀資源。 |
 |||
 

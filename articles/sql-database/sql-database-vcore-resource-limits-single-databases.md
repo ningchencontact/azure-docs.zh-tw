@@ -33,9 +33,9 @@ ms.locfileid: "60331106"
 > [!IMPORTANT]
 > 有关缩放指南和注意事项，请参阅[缩放单一数据库](sql-database-single-database-scale.md)。
 
-## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層：儲存體大小與計算大小
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層級：儲存體大小與計算大小
 
-### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>一般目的服務層：第 4 代計算平台 (第 1 部分)
+### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>一般目的服務層級：第 4 代計算平台 (第 1 部分)
 
 |計算大小|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -58,7 +58,7 @@ ms.locfileid: "60331106"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>一般目的服務層：第 4 代計算平台 (第 2 部分)
+### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>一般目的服務層級：第 4 代計算平台 (第 2 部分)
 
 |計算大小|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -81,7 +81,7 @@ ms.locfileid: "60331106"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>一般目的服務層：第 5 代計算平台 (第 1 部分)
+### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>一般目的服務層級：第 5 代計算平台 (第 1 部分)
 
 |計算大小|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -104,7 +104,7 @@ ms.locfileid: "60331106"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>一般目的服務層：第 5 代計算平台 (第 2 部分)
+### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>一般目的服務層級：第 5 代計算平台 (第 2 部分)
 
 |計算大小|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -127,9 +127,9 @@ ms.locfileid: "60331106"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>業務關鍵服務層：儲存體大小與計算大小
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>業務關鍵服務層級：儲存體大小與計算大小
 
-### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>業務關鍵服務層：第 4 代計算平台 (第 1 部分)
+### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>業務關鍵服務層級：第 4 代計算平台 (第 1 部分)
 
 |計算大小|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -153,7 +153,7 @@ ms.locfileid: "60331106"
 |讀取向外延展|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>業務關鍵服務層：第 4 代計算平台 (第 2 部分)
+### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>業務關鍵服務層級：第 4 代計算平台 (第 2 部分)
 
 |計算大小|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -177,7 +177,7 @@ ms.locfileid: "60331106"
 |讀取向外延展|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>業務關鍵服務層：第 5 代計算平台 (第 1 部分)
+### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>業務關鍵服務層級：第 5 代計算平台 (第 1 部分)
 
 |計算大小|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -201,7 +201,7 @@ ms.locfileid: "60331106"
 |讀取向外延展|是|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>業務關鍵服務層：第 5 代計算平台 (第 2 部分)
+### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>業務關鍵服務層級：第 5 代計算平台 (第 2 部分)
 
 |計算大小|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |

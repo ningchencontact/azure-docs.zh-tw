@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/12/2019
 ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59678593"
@@ -57,9 +57,9 @@ SQL Database 會自動建立資料庫備份保留 7 到 35 天之間，並使用
 
 使用以 DTU 為基礎的購買模型所建立之資料庫的預設保留週期取決於服務層：
 
-- 基本服務層為 1 週。
-- 標準服務層為 5 週。
-- 進階服務層為 5 週。
+- 基本服務層級為 1 週。
+- 標準服務層級為 5 週。
+- 進階服務層級為 5 週。
 
 #### <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
 
@@ -101,7 +101,7 @@ Azure SQL Database 工程小組會持續自動地對服務上所有資料庫，�
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>自動化備份對合規性的影響為何
 
-當您將資料庫從預設 PITR 保留 35 天的 DTU 型服務層遷移至 vCore 型服務層時，會保留 PITR 保留，確保不會危害您應用程式的資料復原原則。 如果預設保留週期不符合合規性需求，您可以使用 PowerShell 或 REST API 變更 PITR 保留週期。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-the-pitr-backup-retention-period)。
+當您將資料庫從預設 PITR 保留 35 天的以 DTU 為基礎的服務層級遷移至以虛擬核心為基礎的服務層級時，會保留 PITR 保留，確保不會危害您應用程式的資料復原原則。 如果預設保留週期不符合合規性需求，您可以使用 PowerShell 或 REST API 變更 PITR 保留週期。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-the-pitr-backup-retention-period)。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

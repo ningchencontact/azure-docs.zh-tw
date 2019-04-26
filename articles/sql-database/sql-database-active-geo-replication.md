@@ -102,7 +102,7 @@ ms.locfileid: "60387418"
 
 - **次要資料庫的可設定計算大小**
 
-  主要和次要資料庫必須有相同的服務層。 此外也強烈建議您使用與主要資料庫相同的計算大小 (DTU 或虛擬核心) 來建立次要資料庫。 計算大小較低的次要資料庫可能會有複寫延遲增加和無法使用的風險，進而有在容錯移轉之後遺失重要資料的風險。 因此，將無法保證已發佈的 RPO = 5 秒。 另一個風險是，在容錯移轉之後，應用程式的效能會因為新主要資料庫的計算容量不足而受到影響，除非該資料庫升級至較高的計算大小。 升級所需時間視資料庫大小而定。 此外，目前此類升級要求主要與次要資料庫都必須在線上，因此在中斷情況趨緩之前無法完成。 如果您決定建立具有較低計算大小的次要資料庫，您可以利用 Azure 入口網站上的記錄 IO 百分比圖表，來預估次要資料庫承受複寫負載所需的最低計算大小。 例如，如果您的主要資料庫是 P6 (1000 DTU) 和其記錄 IO 百分比為 50%，則次要資料庫必須至少是 P4 (500 DTU)。 您也可以使用 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 或 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 資料庫檢視來擷取記錄 IO 資料。  如需 SQL Database 計算大小的詳細資訊，請參閱 [SQL Database 服務層是什麼](sql-database-purchase-models.md)。
+  主要和次要資料庫必須有相同的服務層級。 此外也強烈建議您使用與主要資料庫相同的計算大小 (DTU 或虛擬核心) 來建立次要資料庫。 計算大小較低的次要資料庫可能會有複寫延遲增加和無法使用的風險，進而有在容錯移轉之後遺失重要資料的風險。 因此，將無法保證已發佈的 RPO = 5 秒。 另一個風險是，在容錯移轉之後，應用程式的效能會因為新主要資料庫的計算容量不足而受到影響，除非該資料庫升級至較高的計算大小。 升級所需時間視資料庫大小而定。 此外，目前此類升級要求主要與次要資料庫都必須在線上，因此在中斷情況趨緩之前無法完成。 如果您決定建立具有較低計算大小的次要資料庫，您可以利用 Azure 入口網站上的記錄 IO 百分比圖表，來預估次要資料庫承受複寫負載所需的最低計算大小。 例如，如果您的主要資料庫是 P6 (1000 DTU) 和其記錄 IO 百分比為 50%，則次要資料庫必須至少是 P4 (500 DTU)。 您也可以使用 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 或 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 資料庫檢視來擷取記錄 IO 資料。  如需 SQL Database 計算大小的詳細資訊，請參閱 [SQL Database 服務層是什麼](sql-database-purchase-models.md)。
 
 - **使用者控制的容錯移轉和容錯回復**
 
@@ -114,7 +114,7 @@ ms.locfileid: "60387418"
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>升級或降級主要資料庫
 
-您可以將主要資料庫升級或降級至不同的計算大小 (在相同的服務層內，而不是一般用途和業務關鍵之間)，而不需要將任何次要資料庫中斷連線。 升級時，我們建議您先升級次要資料庫，然後再升級主要資料庫。 降級時，順序相反︰先降級主要資料庫，然後再降級次要資料庫。 當您將資料庫升級或降級到不同的服務層時，會強制執行這項建議。
+您可以將主要資料庫升級或降級至不同的計算大小 (在相同的服務層級內，而不是一般用途和業務關鍵之間)，而不需要將任何次要資料庫中斷連線。 升級時，我們建議您先升級次要資料庫，然後再升級主要資料庫。 降級時，順序相反︰先降級主要資料庫，然後再降級次要資料庫。 當您將資料庫升級或降級到不同的服務層級時，會強制執行這項建議。
 
 > [!NOTE]
 > 如果您已在容錯移轉群組設定中建立次要資料庫，則不建議降級次要資料庫。 這是為了確保您的資料層在容錯移轉啟動之後有足夠的容量來處理一般工作負載。

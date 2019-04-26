@@ -50,7 +50,7 @@ ms.locfileid: "60370495"
 3. 在 [訂用帳戶] 刀鋒視窗中，選取您想要檢視的訂用帳戶，然後選取 [外部服務]。
    
     ![在計費刀鋒視窗中選取訂用帳戶](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
-4. 您應該會看到每項外部服務的訂單、發行者名稱、購買的服務層、資源的命名及目前的訂單狀態。 若要查看過去的帳單，請選取外部服務。
+4. 您應該會看到每項外部服務的訂單、發行者名稱、購買的服務層級、資源的命名及目前的訂單狀態。 若要查看過去的帳單，請選取外部服務。
    
     ![選取外部服務](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
 5. 在這裡，您可以檢視過去的帳單金額，包括稅額細目。

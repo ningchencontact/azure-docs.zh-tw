@@ -6,16 +6,15 @@ metadata:
   title: Azure SQL Database 文件 - 教學課程和 API 參考
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: jovanpop-msft
-  manager: craigg
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.subservice: single-database
-  ms.tgt_pltfrm: na
-  ms.devlang: null
   ms.topic: overview
-  ms.date: 01/25/2019
+  author: jovanpop-msft
   ms.author: jovanpop-msft
+  ms.reviewer: carlrab
+  manager: craigg
+  ms.date: 05/06/2019
 abstract:
   description: Azure SQL Database 是關聯式資料庫即服務 (DBaaS)，它是根據最新穩定版本的 Microsoft SQL Server 資料庫引擎而建置。 SQL Database 是高效能、簡單易用、可靠且安全的資料庫，您可以使用選定的程式設計語言來建置新應用程式、網站及微服務，而不需要管理基礎結構。 了解如何透過我們的快速入門、教學課程和範例使用 SQL Database。
   aside:
@@ -44,7 +43,7 @@ sections:
             html: <p>SQL Database 伺服器是中央管理點，可以在伺服器內的一組單一或集區資料庫上設定安全性、微調、備份原則和其他設定屬性。</p>
             image:
               src: media/index/i_mi.svg
-          - title: 價格和服務層
+          - title: 價格和服務層級
             href: /azure/sql-database/sql-database-service-tiers
             html: <p>透過彈性的服務層級 (從經濟實惠的 $5 美元/月到強大的 80 核心資料庫)，為您量身打造符合需求的性價比。</p>
             image:

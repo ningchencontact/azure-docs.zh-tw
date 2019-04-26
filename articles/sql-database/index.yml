@@ -42,7 +42,7 @@ sections:
             html: <p>透過彈性的服務層級 (從經濟實惠的 $5 美元/月到強大的 80 核心資料庫)，為您量身打造符合需求的性價比。</p>
             image:
               src: media/index/i_perftier.svg
-            title: 價格/服務層
+            title: 價格/服務層級
           - href: /azure/sql-database/sql-database-scalability-index
             html: <p>簡單地相應增加或相應放大，或根據需求將您的資料庫分區以提高應用程式的效能。</p>
             image:

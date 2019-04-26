@@ -160,7 +160,7 @@ chmod +x ./svcat
 ./svcat get classes
 ```
 
-最後，列出所有可用的服務方案。 服務方案是 Azure 受控服務的服務層。 例如，適用於 MySQL 的 Azure 資料庫計劃的範圍是從包含 50 個資料庫交易單位 (DTU) 之基本層的 `basic50` 到包含 800 個 DTU 之標準層的 `standard800`。
+最後，列出所有可用的服務方案。 服務方案是 Azure 受控服務的服務層級。 例如，適用於 MySQL 的 Azure 資料庫計劃的範圍是從包含 50 個資料庫交易單位 (DTU) 之基本層的 `basic50` 到包含 800 個 DTU 之標準層的 `standard800`。
 
 ```azurecli-interactive
 ./svcat get plans

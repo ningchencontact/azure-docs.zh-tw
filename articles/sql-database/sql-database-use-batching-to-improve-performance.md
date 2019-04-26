@@ -42,7 +42,7 @@ ms.locfileid: "60331123"
 ### <a name="note-about-timing-results-in-this-article"></a>有關本文中計時結果的注意事項
 
 > [!NOTE]
-> 結果並不是基準，主要是示範 **相對效能**。 計時至少根據 10 個測試回合的平均值。 作業插入至空的資料表。 這些測試是在 V12 以前的版本中測量，不見得符合您在 V12 資料庫中使用新的 [DTU 服務層](sql-database-service-tiers-dtu.md)或[虛擬核心服務層](sql-database-service-tiers-vcore.md)時可能遇過的輸送量。 批次處理技術的相對優點應該類似。
+> 結果並不是基準，主要是示範 **相對效能**。 計時至少根據 10 個測試回合的平均值。 作業插入至空的資料表。 這些測試是在 V12 以前的版本中測量，不見得符合您在 V12 資料庫中使用新的 [DTU 服務層級](sql-database-service-tiers-dtu.md)或[虛擬核心服務層級](sql-database-service-tiers-vcore.md)時可能遇過的輸送量。 批次處理技術的相對優點應該類似。
 
 ### <a name="transactions"></a>交易
 

@@ -43,4 +43,4 @@ Bug 修正版本：5.7.24
 
 ## <a name="next-steps"></a>後續步驟
 
-如需以您**服務層**為依據之特定資源配額和限制的相關資訊，請參閱[服務層](./concepts-pricing-tiers.md)
+如需以您**服務層級**為依據之特定資源配額和限制的相關資訊，請參閱[服務層級](./concepts-pricing-tiers.md)

@@ -64,6 +64,6 @@ PostgreSQL 伺服器參數會判斷伺服器的設定。 在適用於 PostgreSQL
 
 ## <a name="next-steps"></a>後續步驟
 - 如需服務的概觀，請參閱 [適用於 PostgreSQL 的 Azure 資料庫概觀](overview.md)。
-- 如需有關以您 **服務層**為依據之特定資源配額與限制的資訊，請參閱 [服務層](concepts-pricing-tiers.md)。
+- 如需有關以您 **服務層級**為依據之特定資源配額與限制的資訊，請參閱 [服務層級](concepts-pricing-tiers.md)。
 - 如需有關連線到服務的資訊，請參閱 [適用於 PostgreSQL 的 Azure 資料庫的連線庫](concepts-connection-libraries.md)。
 - 透過 [Azure 入口網站](howto-configure-server-parameters-using-portal.md)或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 檢視和編輯伺服器參數。

@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/17/2019
 ms.openlocfilehash: 255f118d6dc6873364c2f8d4569e23c3e54ea83e
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59680514"
@@ -32,7 +32,7 @@ ms.locfileid: "59680514"
 
 ### <a name="configure-long-term-retention-policies"></a>設定長期保留原則
 
-您可以將 Azure SQL Database 設定為[保留自動備份](sql-database-long-term-retention.md)的期間比您服務層的保留期限還要長。 
+您可以將 Azure SQL Database 設定為[保留自動備份](sql-database-long-term-retention.md)的期間比您服務層級的保留期限還要長。 
 
 1. 在 Azure 入口網站中，選取您的 SQL Server，然後按一下 [管理備份]。 在 [設定原則] 索引標籤上，針對您要設定或修改長期備份保留原則的資料庫選取其核取方塊。 如果未選取資料庫旁的核取方塊，則原則的變更不會套用到該資料庫。  
 

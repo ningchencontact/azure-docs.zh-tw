@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: ca54ae11390b388c3158bd220ee5c7829172a5c3
 ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58620473"
@@ -33,7 +33,7 @@ ms.locfileid: "58620473"
 > [!IMPORTANT]
 > 在還原期間，您無法覆寫現有的資料庫。
 
-使用標準或進階服務層時，還原的資料庫會在下列情況產生額外的儲存體成本：
+使用標準或進階服務層級時，還原的資料庫會在下列情況產生額外的儲存體成本：
 
 - 如果資料庫大小上限大於 500 GB，會將 P11–P15 還原至 S4-S12 或 P1–P6。
 - 如果資料庫大小上限大於 250 GB，會將 P1–P6 還原至 S4-S12。
@@ -71,13 +71,13 @@ ms.locfileid: "58620473"
 
 ## <a name="point-in-time-restore"></a>還原時間點
 
-您可以使用 Azure 入口網站、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases)，將獨立、集區或執行個體資料庫還原到先前的時間點，以作為相同伺服器上的新資料庫。 資料庫可以還原至任何服務層或計算大小。 請確定在您要還原資料庫的目標伺服器上具有足夠的資源。 完成之後，還原的資料庫會是一般、完全可供存取的線上資料庫。 還原的資料庫會根據其服務層和計算大小依一般費率計費。 在完成資料庫還原之前，不會產生任何費用。
+您可以使用 Azure 入口網站、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases)，將獨立、集區或執行個體資料庫還原到先前的時間點，以作為相同伺服器上的新資料庫。 資料庫可以還原至任何服務層級或計算大小。 請確定在您要還原資料庫的目標伺服器上具有足夠的資源。 完成之後，還原的資料庫會是一般、完全可供存取的線上資料庫。 還原的資料庫會根據其服務層級和計算大小依一般費率計費。 在完成資料庫還原之前，不會產生任何費用。
 
 基於復原目的，您通常會將資料庫還原到較早的時間點。 當您執行此動作時，可以將還原的資料庫視為原始資料庫的替代品，或用它來從原始資料庫擷取資料並將其更新。
 
 - **資料庫取代**
 
-  如果要使用已還原的資料庫作為原始資料庫的替代品，您應該確認計算大小和/或服務層是適當的，並在必要時調整資料庫大小。 您可以重新命名原始資料庫，然後使用 T-SQL 中的 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) 命令提供原始名稱給還原的資料庫。
+  如果要使用已還原的資料庫作為原始資料庫的替代品，您應該確認計算大小和/或服務層級是適當的，並在必要時調整資料庫大小。 您可以重新命名原始資料庫，然後使用 T-SQL 中的 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) 命令提供原始名稱給還原的資料庫。
 
 - **資料復原**
 
@@ -124,7 +124,7 @@ ms.locfileid: "58620473"
 目前不支援異地次要資料庫上的時間點復原。 只有在主要資料庫上才可進行時間點復原。 如需使用異地還原來從中斷復原的詳細資訊，請參閱[從中斷復原](sql-database-disaster-recovery.md)。
 
 > [!IMPORTANT]
-> 從備份復原是 SQL Database 中最基本的災害復原解決方案，具備最長的復原點目標 (RPO) 和預估復原時間 (ERT)。 對於使用小型資料庫 (例如，基本服務層或彈性集區中的小型租用戶資料庫) 的解決方案，異地還原是常見且合理的 DR 解決方案，且其 ERT 最多為 12 小時 (通常少於 12 小時)。 針對使用大型資料庫且需要較短復原時間的解決方案，您應該考慮使用[主動式異地複寫](sql-database-active-geo-replication.md)或[自動容錯移轉群組](sql-database-auto-failover-group.md)。 主動式異地複寫提供明顯較低的 RPO 和 ERT，因為它只需要您起始對連續複寫次要資料庫的容錯移轉。 自動容錯移轉群組為一組資料庫啟用自動故障轉移。 如需商務持續性選項的詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
+> 從備份復原是 SQL Database 中最基本的災害復原解決方案，具備最長的復原點目標 (RPO) 和預估復原時間 (ERT)。 對於使用小型資料庫 (例如，基本服務層級或彈性集區中的小型租用戶資料庫) 的解決方案，異地還原是常見且合理的 DR 解決方案，且其 ERT 最多為 12 小時 (通常少於 12 小時)。 針對使用大型資料庫且需要較短復原時間的解決方案，您應該考慮使用[主動式異地複寫](sql-database-active-geo-replication.md)或[自動容錯移轉群組](sql-database-auto-failover-group.md)。 主動式異地複寫提供明顯較低的 RPO 和 ERT，因為它只需要您起始對連續複寫次要資料庫的容錯移轉。 自動容錯移轉群組為一組資料庫啟用自動故障轉移。 如需商務持續性選項的詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 
 ### <a name="geo-restore-using-the-azure-portal"></a>使用 Azure 入口網站進行異地還原
 
@@ -179,7 +179,7 @@ ms.locfileid: "58620473"
 
 ## <a name="summary"></a>總結
 
-自動備份可在發生使用者和應用程式錯誤、意外刪除資料庫和長時間中斷時保護您的資料庫。 所有服務層和計算大小都可以取得此內建功能。
+自動備份可在發生使用者和應用程式錯誤、意外刪除資料庫和長時間中斷時保護您的資料庫。 所有服務層級和計算大小都可以取得此內建功能。
 
 ## <a name="next-steps"></a>後續步驟
 

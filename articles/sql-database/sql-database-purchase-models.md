@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360184"
@@ -46,7 +46,7 @@ Azure SQL Database 部署模型提供不同的購買模型：
 
 ## <a name="compute-costs"></a>計算成本
 
-計算成本會反映已為應用程式佈建的總計算容量。 在業務關鍵服務層中，我們會自動配置至少 3 個複本。 為了反映此電腦資源的額外配置，以虛擬核心為基礎的購買模型中的價格，比一般用途服務層中的業務關鍵服務層的價格高約 2.7 倍。 基於相同原因，業務關鍵服務層中較高的每一 GB 儲存體價格，則是反映 SSD 儲存體的高 IO 和低延遲性。 同時，這兩個服務層的備份儲存體成本之間沒有差別，因為兩種情況下都是使用標準儲存體類別。
+計算成本會反映已為應用程式佈建的總計算容量。 在業務關鍵服務層級中，我們會自動配置至少 3 個複本。 為了反映此電腦資源的額外配置，以虛擬核心為基礎的購買模型中的價格，比一般用途服務層中的業務關鍵服務層的價格高約 2.7 倍。 基於相同原因，業務關鍵服務層級中較高的每一 GB 儲存體價格，則是反映 SSD 儲存體的高 IO 和低延遲性。 同時，這兩個服務層級的備份儲存體成本之間沒有差別，因為兩種情況下都是使用標準儲存體類別。
 
 ## <a name="storage-costs"></a>儲存成本
 
@@ -58,11 +58,11 @@ Azure SQL Database 部署模型提供不同的購買模型：
 
 ## <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
 
-虛擬核心代表可在硬體世代與硬體實體特性 (例如，核心數目、記憶體、儲存體大小) 之間作選擇的邏輯 CPU。 以虛擬核心為基礎的購買模型可讓您以彈性、可控制且透明的方式耗用個別資源，並讓您直接將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，選擇計算、記憶體和儲存體。 在以虛擬核心為基礎的購買模型中，您可以就[單一資料庫](sql-database-single-database-scale.md)、[彈性集區](sql-database-elastic-pool.md)及[受控執行個體](sql-database-managed-instance.md)選擇[一般用途](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)和[業務關鍵](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)服務層。 若為單一資料庫，您也可以選擇[超大規模服務層 (預覽)](sql-database-service-tier-hyperscale.md)。
+虛擬核心代表可在硬體世代與硬體實體特性 (例如，核心數目、記憶體、儲存體大小) 之間作選擇的邏輯 CPU。 以虛擬核心為基礎的購買模型可讓您以彈性、可控制且透明的方式耗用個別資源，並讓您直接將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，選擇計算、記憶體和儲存體。 在以虛擬核心為基礎的購買模型中，您可以就[單一資料庫](sql-database-single-database-scale.md)、[彈性集區](sql-database-elastic-pool.md)及[受控執行個體](sql-database-managed-instance.md)選擇[一般用途](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)和[業務關鍵](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)服務層。 若為單一資料庫，您也可以選擇[超大規模資料庫服務層級 (預覽)](sql-database-service-tier-hyperscale.md)。
 
 以虛擬核心為基礎的購買模型可讓您獨立地選擇計算和儲存體資源，並符合內部部署效能需求，以及獲得最佳價格。 在以虛擬核心為基礎的購買模型中，客戶需支付下列費用：
 
-- 計算 (服務層 + 虛擬核心數目和記憶體數量 + 硬體世代)
+- 計算 (服務層級 + 虛擬核心數目和記憶體數量 + 硬體世代)
 - 資料和記錄儲存體的類型和數量
 - 備份儲存體 (RA-GRS)
 
@@ -82,15 +82,15 @@ Azure SQL Database 部署模型提供不同的購買模型：
 
 ### <a name="database-transaction-units-dtus"></a>資料庫交易單位 (DTU)
 
-針對[服務層](sql-database-single-database-scale.md)中特定計算大小的單一資料庫，Microsoft 保證該資料庫具備特定的資源層級 (與 Azure 雲端的其他任何資料庫無關)，並提供可預測的效能等級。 資源數量會計算為資料庫交易單位 (DTU) 數量，且為計算、儲存體和 I/O 資源的配套測量。 這些資源的比率，原本是由專為一般實際 OLTP 工作負載所設計的 [OLTP 基準測試工作負載](sql-database-benchmark-overview.md)來判定。 若您的工作負載超過這些任一資源的數量，系統即會節流處理輸送量，因而導致效能變慢和逾時。 您工作負載使用的資源，不會影響到 Azure 雲端中其他 SQL Database 的可用資源，且其他工作負載所用的資源亦不會影響到您 SQL Database 的可用資源。
+針對[服務層級](sql-database-single-database-scale.md)中特定計算大小的單一資料庫，Microsoft 保證該資料庫具備特定的資源層級 (與 Azure 雲端的其他任何資料庫無關)，並提供可預測的效能等級。 資源數量會計算為資料庫交易單位 (DTU) 數量，且為計算、儲存體和 I/O 資源的配套測量。 這些資源的比率，原本是由專為一般實際 OLTP 工作負載所設計的 [OLTP 基準測試工作負載](sql-database-benchmark-overview.md)來判定。 若您的工作負載超過這些任一資源的數量，系統即會節流處理輸送量，因而導致效能變慢和逾時。 您工作負載使用的資源，不會影響到 Azure 雲端中其他 SQL Database 的可用資源，且其他工作負載所用的資源亦不會影響到您 SQL Database 的可用資源。
 
 ![週框方塊](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-DTU 最適合用於了解處於不同計算大小與服務層之各 Azure SQL Database 間的相對量。 例如，藉由提升資料庫的計算大小來使 DTU 加倍，等於讓該資料庫可用的資源集合加倍。 例如，相較於具有 5 個 DTU 的 Basic 資料庫，具有 1750 個 DTU 的 Premium P11 資料庫可提供 350 倍的 DTU 計算能力。  
+DTU 最適合用於了解處於不同計算大小與服務層級之各 Azure SQL Database 間的相對量。 例如，藉由提升資料庫的計算大小來使 DTU 加倍，等於讓該資料庫可用的資源集合加倍。 例如，相較於具有 5 個 DTU 的 Basic 資料庫，具有 1750 個 DTU 的 Premium P11 資料庫可提供 350 倍的 DTU 計算能力。  
 
 若要工作負載的資源 (DTU) 使用量的深入見解，請使用[查詢效能見解](sql-database-query-performance.md)執行以下動作：
 
-- 依 CPU/持續時間/執行計數識別排名最前面的查詢，對其進行微調可能有助於改善效能。 例如，IO 密集使用的查詢可能會因使用[記憶體內最佳化技術](sql-database-in-memory.md)獲得助益，可更加妥善地運用處於特定服務層和計算大小的可用記憶體。
+- 依 CPU/持續時間/執行計數識別排名最前面的查詢，對其進行微調可能有助於改善效能。 例如，IO 密集使用的查詢可能會因使用[記憶體內最佳化技術](sql-database-in-memory.md)獲得助益，可更加妥善地運用處於特定服務層級和計算大小的可用記憶體。
 - 向下鑽研查詢的詳細資料，以檢視其文字和資源使用量的歷程記錄。
 - 存取效能微調建議，其會顯示 [SQL Database Advisor](sql-database-advisor.md) 執行的動作。
 
@@ -112,9 +112,9 @@ DTU 最適合用於了解處於不同計算大小與服務層之各 Azure SQL Da
 
 ## <a name="purchase-model-frequently-asked-questions-faq"></a>購買模型的常見問題集 (FAQ)
 
-### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>是否需要先讓應用程式離線，才能從以 DTU 為基礎的資料庫轉換為以 vCore 為基礎的服務層
+### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>是否需要先讓應用程式離線，才能從以 DTU 為基礎的資料庫轉換為以虛擬核心為基礎的服務層級
 
-新的服務層提供簡單的線上轉換方法，類似現在將資料庫從標準版升級為進階版服務層的程序，反之亦然。 這項轉換可使用 Azure 入口網站、PowerShell、Azure CLI、T-SQL 或 REST API 來起始。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
+新的服務層級提供簡單的線上轉換方法，類似現在將資料庫從標準版升級為進階版服務層級的程序，反之亦然。 這項轉換可使用 Azure 入口網站、PowerShell、Azure CLI、T-SQL 或 REST API 來起始。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
 
 ### <a name="can-i-convert-a-database-from-a-service-tier-using-the-vcore-based-purchase-to-a-service-tier-using-the-dtu-based-purchasing-model"></a>是否可以將以虛擬核心為基礎的購買之服務層的資料庫，轉換成以 DTU 為基礎的購買模型之服務層的資料庫
 

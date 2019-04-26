@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57901928"
@@ -248,7 +248,7 @@ ms.locfileid: "57901928"
 
 ## <a name="performance"></a>效能
 
-一般而言，Azure SQL Database 中越高階、越有效能的服務層，預期會有較佳的效能。 越高的服務層使用越高的 IO、CPU 和記憶體配置，有利於分割合併服務使用的大量複製和刪除作業。 基於這個理由，請只針對這些資料庫，在一段已定義的有限期間內增加服務層。
+一般而言，Azure SQL Database 中越高階、越有效能的服務層級，預期會有較佳的效能。 越高的服務層級使用越高的 IO、CPU 和記憶體配置，有利於分割合併服務使用的大量複製和刪除作業。 基於這個理由，請只針對這些資料庫，在一段已定義的有限期間內增加服務層級。
 
 服務在其正常作業中也會執行驗證查詢。 這些驗證查詢會檢查目標範圍中是否存在非預期的資料，並確保任何分割/合併/移動作業是從一致的狀態開始。 這些查詢全部都會檢查作業領域所定義的分區化索引鍵範圍，以及要求定義中所提供的批次大小。 當索引存在且以分區化索引鍵做為開頭資料行時，這些查詢的表現最好。
 

@@ -12,7 +12,7 @@ ms.date: 04/19/2019
 ms.author: byvinyal
 ms.openlocfilehash: b09de67cddcec26a1083bb64d13b9bbc47c3d5e5
 ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59998476"
@@ -129,7 +129,7 @@ ms.locfileid: "59998476"
 [!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
 ### <a name="container-registry-limits"></a>Container Registry 登入
-下表詳述「基本」、「標準」和「進階」[服務層](./container-registry/container-registry-skus.md)的功能和限制。
+下表詳述「基本」、「標準」和「進階」[服務層級](./container-registry/container-registry-skus.md)的功能和限制。
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 

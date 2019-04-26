@@ -67,9 +67,9 @@ Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
     ![建立資料庫伺服器](./media/sql-database-design-first-database/create-database-server.png)
 
 5. 按一下 [選取] 。
-6. 按一下 [定價層] 可指定服務層、DTU 或 vCore 的數目，以及儲存體數量。 您可以瀏覽 DTU/vCore 數目的選項，以及可供您每個服務層使用的儲存體。
+6. 按一下 [定價層] 可指定服務層、DTU 或虛擬核心的數目，以及儲存體數量。 您可以瀏覽 DTU/虛擬核心數目的選項，以及可供您每個服務層級使用的儲存體。
 
-    在選取服務層、DTU 或 vCore 數目和儲存體數量之後，按一下 [套用]。
+    在選取服務層、DTU 或虛擬核心數目和儲存體數量之後，按一下 [套用]。
 
 7. 為空白資料庫輸入 [定序] (在此教學課程中使用預設值)。 如需定序的詳細資訊，請參閱[定序](/sql/t-sql/statements/collations)。
 

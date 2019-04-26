@@ -32,7 +32,7 @@ Azure SQL Database 中的高可用性架構的目標是時間的確保您的資�
 
 Azure SQL Database 上執行最新的穩定版本的 SQL Server Database Engine 和 Windows OS，而大部分的使用者就不會注意到，持續執行升級。
 
-## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>基本、標準和一般目的服務層可用性
+## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>基本、標準和一般目的服務層級可用性
 
 這些服務層會運用標準可用性架構。 下圖顯示四個不同的節點，以分隔的計算和儲存層。
 
@@ -45,7 +45,7 @@ Azure SQL Database 上執行最新的穩定版本的 SQL Server Database Engine 
 
 每當資料庫引擎或作業系統升級，或在偵測到失敗時，Azure Service Fabric 會移動無狀態的 SQL Server 處理序到另一個無狀態的計算節點具有足夠的可用容量。 Azure Blob 儲存體中的資料不會受到移動，而且資料/記錄檔會附加到新初始化的 SQL Server 處理序。 此程序可保證 99.99%可用性，但繁重的工作負載可能會遇到效能降低情況在轉換期間，因為新的 SQL Server 執行個體開頭冷快取。
 
-## <a name="premium-and-business-critical-service-tier-availability"></a>進階與商務關鍵性服務層可用性
+## <a name="premium-and-business-critical-service-tier-availability"></a>進階與商務關鍵性服務層級可用性
 
 進階和業務關鍵服務層運用進階可用性模型，整合了計算資源 （SQL Server 資料庫引擎處理序） 和單一節點上的儲存體 (本機連接的 SSD)。 將計算和儲存體複寫至其他節點，建立三到四個-節點叢集來達成高可用性。 
 

@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359735"
@@ -55,7 +55,7 @@ ms.locfileid: "59359735"
     |影響範圍       |虛擬核心保留容量範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <br/><br/>**單一訂用帳戶**：虛擬核心保留折扣會套用至此訂用帳戶中的 SQL Database 執行個體。 <br/><br/>**共用訂用帳戶**：虛擬核心保留折扣會套用至您帳單內容內任何訂用帳戶中所執行的 SQL Database 執行個體。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶。 針對預付型方案客戶，共用範圍是帳戶系統管理員所建立的所有預付型方案訂用帳戶。|
     |區域      |SQL Database 保留容量所涵蓋的 Azure 區域。|
     |部署類型|您要為其購買保留容量的 SQL 資源類型。|
-    |效能層級|SQL Database 執行個體的服務層。
+    |效能層級|SQL Database 執行個體的服務層級。
     |詞彙        |一年或三年。|
     |數量    |SQL Database 保留容量內所購買的執行個體數目。 數量是可以取得帳單折扣的執行中 SQL Database 執行個體數目。 例如，如果您在美國東部執行 10 個 SQL Database 執行個體，那麼您會指定數量為 10，以最大化所有執行中機器的效益。 |
     |||

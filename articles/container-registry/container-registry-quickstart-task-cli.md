@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
 ```
 
-此範例會建立「基本」登錄，這是正在學習 Azure Container Registry 的開發人員所適用的成本最佳化選項。 如需可用服務層的詳細資訊，請參閱[容器登錄 SKU][container-registry-skus]。
+此範例會建立「基本」登錄，這是正在學習 Azure Container Registry 的開發人員所適用的成本最佳化選項。 如需可用服務層級的詳細資訊，請參閱[容器登錄 SKU][container-registry-skus]。
 
 ## <a name="build-an-image-from-a-dockerfile"></a>從 Dockerfile 建置映像
 

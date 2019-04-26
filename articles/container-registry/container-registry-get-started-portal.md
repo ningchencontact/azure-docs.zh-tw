@@ -37,7 +37,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
 ![在 Azure 入口網站中建立容器登錄][qs-portal-03]
 
-您在本快速入門中會建立「基本」登錄，這是正在學習 Azure Container Registry 的開發人員所適用的成本最佳化選項。 如需可用服務層的詳細資訊，請參閱[容器登錄 SKU][container-registry-skus]。
+您在本快速入門中會建立「基本」登錄，這是正在學習 Azure Container Registry 的開發人員所適用的成本最佳化選項。 如需可用服務層級的詳細資訊，請參閱[容器登錄 SKU][container-registry-skus]。
 
 當 [部署成功] 訊息出現時，請在入口網站中選取容器登錄。 
 

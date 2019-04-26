@@ -21,7 +21,7 @@ ms.locfileid: "60331531"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>什麼是 Azure SQL Database 中的單一資料庫
 
-單一資料庫部署選項會使用其本身的資源集在 Azure SQL Database 中建立資料庫，並透過 SQL Database 伺服器進行管理。 使用單一資料庫時，每個資料庫會彼此隔離並且可攜，且各自在[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)或[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)內有其本身的服務層和保證的計算大小。
+單一資料庫部署選項會使用其本身的資源集在 Azure SQL Database 中建立資料庫，並透過 SQL Database 伺服器進行管理。 使用單一資料庫時，每個資料庫會彼此隔離並且可攜，且各自在[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)或[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)內有其本身的服務層級和保證的計算大小。
 
 > [!IMPORTANT]
 > 單一資料庫是 Azure SQL Database 的三個部署選項之一。 另外兩個選項是[彈性集區](sql-database-elastic-pool.md)和[受控執行個體](sql-database-managed-instance.md)。
@@ -30,7 +30,7 @@ ms.locfileid: "60331531"
 
 ## <a name="dynamic-scalability"></a>動態延展性
 
-您可以每個月在低性價比服務層支付少量費用，在小型單一資料庫中建置第一個應用程式，然後，隨時以手動或程式設計方式將[服務層變更為](sql-database-single-database-scale.md)較高性價比的服務層，以符合您的解決方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
+您可以每個月在低性價比服務層級支付少量費用，在小型單一資料庫中建置第一個應用程式，然後，隨時以手動或程式設計方式將[服務層級變更為](sql-database-single-database-scale.md)較高性價比的服務層級，以符合您的解決方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
 
 ## <a name="single-databases-and-elastic-pools"></a>單一資料庫和彈性集區
 

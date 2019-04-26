@@ -118,19 +118,20 @@
           href: sql-database-purchase-models.md
         - name: 以虛擬核心為基礎的模型
           href: sql-database-service-tiers-vcore.md
-        - name: DTU 服務層
+        - name: DTU 服務層級
           href: sql-database-service-tiers-dtu.md
         - name: 預付保留容量
           href: sql-database-reserved-capacity.md
-        - name: 從進階 RS 服務層遷移
+        - name: 從進階 RS 服務層級遷移
           href: sql-database-service-tiers-prs.md
     - name: 計算和儲存體
       items:
         - name: 概觀
           href: sql-database-service-tiers-general-purpose-business-critical.md
-        - name: 一般目的 / 標準服務層
+          displayName: provisioned compute tier
+        - name: 一般目的 / 標準服務層級
           href: sql-database-service-tier-general-purpose.md
-        - name: 商務關鍵 / 進階服務層
+        - name: 商務關鍵 / 進階服務層級
           href: sql-database-service-tier-business-critical.md
         - name: 超大規模資料庫服務層級
           href: sql-database-service-tier-hyperscale.md
