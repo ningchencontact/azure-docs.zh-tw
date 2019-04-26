@@ -236,7 +236,7 @@ ms.locfileid: "57434788"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type 屬性必須設定為 **AzureTableSource**。 |是 |
-| AzureTableSourceQuery |使用自訂的資料表儲存體查詢來讀取資料。 請參閱下一節中的範例。 |否 |
+| azureTableSourceQuery |使用自訂的資料表儲存體查詢來讀取資料。 請參閱下一節中的範例。 |否 |
 | azureTableSourceIgnoreTableNotFound |指出是否讓資料表例外狀況不存在。<br/>允許的值為 **True** 和 **False** (預設值)。 |否 |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 範例
