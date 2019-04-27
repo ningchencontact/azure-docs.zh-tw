@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60921909"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>比較與 Azure HDInsight 叢集搭配使用的儲存體選項
 
@@ -240,4 +240,4 @@ Data Lake Storage Gen1 與 Hadoop 生態系統中的大部分開放原始碼元�
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Data Lake Storage Gen2 簡介](../storage/blobs/data-lake-storage-introduction.md)
-* [Azure 儲存體簡介](../storage/common/storage-introduction.md)
+* [Azure 存储简介](../storage/common/storage-introduction.md)

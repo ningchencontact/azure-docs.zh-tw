@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
 ms.openlocfilehash: e27dee213baf8365c3ad4efc69602f66e2081abe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61036002"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery 中的服務更新
 作為一個組織，您必須了解如何維持資料安全，以及發生計劃性和非計劃性中斷時，如何讓應用程式/工作負載持續執行。 Azure Site Recovery 可在網站關閉時，讓您的應用程式持續在可用的 VM 和實體伺服器上執行，藉此參與您的 BCDR 策略。 Site Recovery 會複寫在 VM 和實體伺服器上執行的工作負載，因此如果主要網站無法使用，仍可在次要位置中使用工作負載。 當主要網站再次開始運作及執行時，它會將工作負載復原至其中。
