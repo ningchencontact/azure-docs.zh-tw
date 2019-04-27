@@ -3,7 +3,7 @@ title: 混合式連線與兩層式應用程式 | Microsoft Docs
 description: 了解如何部署虛擬設備和 UDR 以在 Azure 中建立多層式的應用程式環境
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: carmonm
 editor: tysonn
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
-ms.author: jdial
-ms.openlocfilehash: 544ba6484b23da425d53594622122b1e18b92359
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: kumud
+ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2017
-ms.locfileid: "23643862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61034118"
 ---
 # <a name="virtual-appliance-scenario"></a>虛擬設備的案例
 在較大的 Azure 客戶中，常見的案例是需要對網際網路公開兩層式的應用程式，同時允許從內部部署資料中心存取後層。 本文件會逐步引導您完成案例，使用使用者定義路由 (UDR)、VPN 閘道和網路虛擬裝置來部署符合下列需求的兩層式環境︰
@@ -32,7 +32,7 @@ ms.locfileid: "23643862"
 
 這是標準的 DMZ 和受保護網路的 DMZ 案例。 您可利用 NSG、防火牆虛擬設備或兩者的組合，在 Azure 中建構這類案例。 下表會顯示 NSG 和防火牆虛擬設備之間的優缺點。
 
-|  | 優點 | 缺點 |
+|  | 优点 | 缺點 |
 | --- | --- | --- |
 | NSG |無成本。 <br/>整合到 Azure RBAC。 <br/>可在 ARM 範本中建立規則。 |大型環境中的複雜性各有不同。 |
 | 防火牆 |完全掌控資料面。 <br/>透過防火牆主控台集中管理。 |防火牆設備的成本。 <br/>不與 Azure RBAC 相整合。 |
@@ -57,7 +57,7 @@ ms.locfileid: "23643862"
   * **AZURERG**。 包含 Azure 虛擬網路環境所需要的所有資源。 
 * 名為 **onpremvnet** 的 VNet，用於模仿內部部署資料中心分段，如下所示。
   * **onpremsn1**。 子網路，內含執行 Ubuntu 以模擬內部部署伺服器的虛擬機器 (VM)。
-  * **onpremsn2**。 子網路，內含執行 Ubuntu 以模擬系統管理員所用之內部部署電腦的 VM。
+  * **onpremsn2**。 包含一个 VM 的子网，该 VM 运行 Ubuntu，用于模拟管理员使用的本地计算机。
 * **onpremvnet** 上有一個防火牆虛擬設備名為 **OPFW**，用來維護 **azurevnet** 的通道。
 * 名為 **azurevnet** 的 VNet 分段，如下所示。
   * **azsn1**。 專門用於外部防火牆的外部防火牆子網路。 所有的網際網路流量都會從這個子網路進入。 這個子網路只包含連結至外部防火牆的 NIC。
@@ -78,36 +78,36 @@ Azure 中的每個子網路都可以連結至 UDR 資料表，這份資料表用
 ### <a name="azgwudr"></a>azgwudr
 在這個案例中，會透過連接到 **AZF3**，使用唯一從內部部署流至 Azure 的流量來管理防火牆，且流量必須通過內部防火牆 **AZF2**。 因此， **GatewaySubnet** 中只有一個必要路由，如下所示。
 
-| 目的地 | 下一個躍點 | 說明 |
+| 目的地 | 下一跃点 | 說明 |
 | --- | --- | --- |
 | 10.0.4.0/24 |10.0.3.11 |允許內部部署流量觸達管理防火牆 **AZF3** |
 
 ### <a name="azsn2udr"></a>azsn2udr
-| 目的地 | 下一個躍點 | 說明 |
+| 目标 | 下一跃点 | 说明 |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |允許流量透過 **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |允許透過 **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
-| 目的地 | 下一個躍點 | 說明 |
+| 目的地 | 下一跃点 | 說明 |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |允許 **azsn2** 的流量透過 **AZF2** 從應用程式伺服器流向 Web 伺服器 |
 
 您也必須為 **onpremvnet** 中的子網路建立路由表，以模擬內部部署資料中心。
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
-| 目的地 | 下一個躍點 | 說明 |
+| 目的地 | 下一跃点 | 說明 |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |允許 **onpremsn2** 的流量通過 **OPFW** |
 
 ### <a name="onpremsn2udr"></a>onpremsn2udr
-| 目的地 | 下一個躍點 | 說明 |
+| 目的地 | 下一跃点 | 说明 |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |允許流量透過 **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |允許 **onpremsn1** 的流量通過 **OPFW** |
 
 ## <a name="ip-forwarding"></a>IP 轉送
-UDR 和 IP 轉送兩種功能可以組合使用，以使用虛擬設備來控制 Azure VNet 中的流量流程。  虛擬應用裝置無非就是一個 VM，可執行用來以某種方式處理網路流量的應用程式，例如防火牆或 NAT 裝置。
+UDR 和 IP 轉送兩種功能可以組合使用，以使用虛擬設備來控制 Azure VNet 中的流量流程。  虚拟设备只是一个 VM，该 VM 所运行的应用程序用于通过某种方式（例如防火墙或 NAT 设备）处理网络流量。
 
 此虛擬應用裝置 VM 必須能夠接收未定址到本身的連入流量。 若要讓 VM 接收定址到其他目的地的流量，您必須針對 VM 啟用 IP 轉送。 這是 Azure 設定，不是客體作業系統中的設定。 虛擬設備仍然需要執行某些類型的應用程式，以處理連入流量並正確予以路由。
 
@@ -134,19 +134,19 @@ UDR 和 IP 轉送兩種功能可以組合使用，以使用虛擬設備來控制
 ### <a name="opfw"></a>OPFW
 OPFW 代表包含下列規則的內部部署裝置︰
 
-* **路由**：10.0.0.0/16 (**azurevnet**) 的所有流量都必須通過通道 **ONPREMAZURE** 傳送。
-* **原則**︰允許 **port2** 和 **ONPREMAZURE** 之間所有的雙向流量。
+* **路由**:所有流量 10.0.0.0/16 (**azurevnet**) 必須透過通道傳送**ONPREMAZURE**。
+* **原則**：允許所有的雙向流量之間**port2**並**ONPREMAZURE**。
 
 ### <a name="azf1"></a>AZF1
 AZF1 代表包含下列規則的 Azure 虛擬設備︰
 
-* **原則**︰允許 **port1** 和 **port2** 之間所有的雙向流量。
+* **原則**：允許所有的雙向流量之間**port1**並**port2**。
 
 ### <a name="azf2"></a>AZF2
 AZF2 代表包含下列規則的 Azure 虛擬設備︰
 
-* **路由**：10.0.0.0/16 (**onpremvnet**) 的所有流量都必須通過 **port1** 傳送至 Azure 閘道 IP 位址 (即 10.0.0.1)。
-* **原則**︰允許 **port1** 和 **port2** 之間所有的雙向流量。
+* **路由**:所有流量 10.0.0.0/16 (**onpremvnet**) 必須傳送至 Azure 的閘道 IP 位址 (亦即 10.0.0.1) 透過**port1**。
+* **原則**：允許所有的雙向流量之間**port1**並**port2**。
 
 ## <a name="network-security-groups-nsgs"></a>網路安全性群組 (NSG)
 這個案例中不會使用 NSG。 不過，您可以將 NSG 套用到每個子網路來限制流量的出入。 例如，您可以將下列 NSG 規則套用至外部 FW 子網路。
