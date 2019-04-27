@@ -16,11 +16,11 @@ ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531835"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理對 Azure 資源的存取
 
@@ -42,7 +42,7 @@ ms.locfileid: "60006447"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 將 *{filter}* 取代為您要針對角色指派清單篩選套用的條件。
 
@@ -81,7 +81,7 @@ ms.locfileid: "60006447"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 將 *{roleAssignmentName}* 取代為角色指派的 GUID 識別碼。
 
@@ -109,7 +109,7 @@ ms.locfileid: "60006447"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 將 *{roleAssignmentName}* 取代為角色指派的 GUID 識別碼。
 
