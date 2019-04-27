@@ -3,8 +3,8 @@ title: 使用 Azure 網路監看員管理網路安全性群組流量記錄 - Pow
 description: 此頁面說明如何使用 PowerShell 在 Azure 網路監看員中管理網路安全性群組流量記錄
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: ebeebfa4490797493a781bf462d363d1cbcf2d55
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857975"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60680364"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>使用 PowerShell 設定網路安全性群組流量記錄
 
 > [!div class="op_single_selector"]
-> - [Azure 入口網站](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure 门户](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)

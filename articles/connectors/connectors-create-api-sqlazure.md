@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38544018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540785"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SQL Server 或 Azure SQL Database
 
@@ -24,9 +24,9 @@ ms.locfileid: "38544018"
 
 您可以建立會由 SQL 資料庫或其他系統 (例如，Dynamics CRM Online) 中的事件所觸發而執行的邏輯應用程式。 邏輯應用程式也可以取得、插入及刪除資料，還可執行 SQL 查詢或已儲存的程序。 例如，您可以建置邏輯應用程式，以自動檢查 Dynamics CRM Online 中是否有新記錄、將新記錄的項目新增至 SQL 資料庫，然後傳送電子郵件警示。
 
-如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 如需連接器專屬的技術資訊，請參閱 <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server 連接器參考</a>。
+如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 如需連接器專屬的技術資訊，請參閱 <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server 連接器參考</a>。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 需要存取 SQL 資料庫的邏輯應用程式。 若要使用 SQL 觸發程序啟動邏輯應用程式，您需要[空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 
 
@@ -56,7 +56,7 @@ ms.locfileid: "38544018"
 
 2. 在搜尋方塊中，輸入「sql 伺服器」作為篩選條件。 從觸發程序清單中，選取您想要的 SQL 觸發程序。 
 
-   在此範例中請選取此觸發程序：**SQL Server - 建立項目時**
+   此範例中，選取此觸發程序：**SQL Server-建立項目時**
 
    ![選取「SQL Server - 建立項目時」觸發程序](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "38544018"
 
 2. 在搜尋方塊中，輸入「sql 伺服器」作為篩選條件。 從動作清單中，選取您想要的任何 SQL 動作。 
 
-   在此範例中選取此動作，以取得一筆記錄：**SQL Server - 取得資料列**
+   此範例中，選取此動作，就會取得單一記錄：**SQL Server-取得資料列**
 
    ![輸入「sql 伺服器」，選取 [SQL Server - 取得資料列]](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 

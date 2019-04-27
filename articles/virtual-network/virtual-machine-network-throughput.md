@@ -3,8 +3,8 @@ title: Azure 虛擬機器網路輸送量 | Microsoft Docs
 description: 了解 Azure 虛擬機器網路輸送量。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
-ms.author: jdial
-ms.openlocfilehash: f22b6f361f0c5bea547721309bb0f75b62f18d92
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.author: kumud
+ms.openlocfilehash: 29c4926f56070874fe17622170e697986df0fbc3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27778950"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743070"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>虛擬機器網路頻寬
 
@@ -39,10 +39,10 @@ Azure 虛擬機器必須連結一個 (但可以有數個) 網路介面。 配置
 預期的輸出輸送量和每個虛擬機器大小支援的網路介面數目，皆詳細列在 Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 和 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器大小中。 選取類型，例如一般用途，然後在產生的頁面上選取大小的系列，例如 Dv2 系列。 每個數列都有資料表，且最後一個資料行包含網路規格，標題為**最大 NIC 數 / 預期的網路效能 (Mbps)**。 
 
 輸送量限制會套用至虛擬機器。 輸送量不會受到下列因素影響：
-- **網路介面數目**：頻寬限制是虛擬機器所有輸出流量的累計。
-- **加速網路**：雖然此功能有助於達到已發佈的限制，但不會變更限制。
-- **流量目的地**：所有目的地都會計入輸出限制。
-- **通訊協定**：通過所有通訊協定的所有輸出流量都會計入限制。
+- **網路介面數目**:頻寬限制，都會累積所有的輸出流量從虛擬機器。
+- **加速網路**:此功能，能幫助您達到已發佈的限制，但它不會變更限制。
+- **流量目的地**:所有目的地都會計入輸出限制。
+- **通訊協定**：透過所有通訊協定的所有輸出流量都會計入限制。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -3,8 +3,8 @@ title: 使用 Azure 網路監看員和開放原始碼工具將網路流量模式
 description: 此頁面描述如何使用網路監看員封包擷取並搭配 Capanalysis，將往返於 VM 的流量模式視覺化。
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 7b1e1383e8e244a7cdb30be1e08514a6a4dd7b14
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: kumud
+ms.openlocfilehash: 7c239bbf577645ddb8ab12c525d1b3a8832421df
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302228"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60680488"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>使用開放原始碼工具將往返於 VM 的網路流量模式視覺化
 
@@ -37,7 +37,7 @@ Azure 的網路監看員可讓您在網路上執行封包擷取，以便擷取�
 
 ### <a name="install-capanalysis"></a>安裝 CapAnalysis
 
-若要在虛擬機器上安裝 CapAnalysis，您可以參考此處的官方指示：https://www.capanalysis.net/ca/how-to-install-capanalysis。
+若要在虛擬機器上安裝 CapAnalysis，您可以參考此處的官方指示： https://www.capanalysis.net/ca/how-to-install-capanalysis。
 若要從遠端存取 CapAnalysis，您必須在 VM 上新增輸入安全性規則，以開啟連接埠 9877。 如需有關在網路安全性群組中建立規則的詳細資訊，請參閱[在現有 NSG 中建立規則](../virtual-network/manage-network-security-group.md#create-a-security-rule)。 成功新增規則之後，您應該能夠從 `http://<PublicIP>:9877` 存取CapAnalysis
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>使用 Azure 網路監看員啟動封包擷取工作階段
@@ -49,7 +49,7 @@ Azure 的網路監看員可讓您在網路上執行封包擷取，以便擷取�
 
 提供 CapAnalysis 的連結時，請務必將 SAS 權杖附加至儲存體 blob URL。  若要這樣做，請從儲存體帳戶瀏覽至共用存取簽章，指定允許的權限，然後按下 [產生 SAS] 按鈕以建立權杖。 接著，您可以將 SAS 權杖附加至封包擷取儲存體 blob URL。
 
-產生的 URL 看起來如以下的 URL：http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+產生的 URL 看起來如以下的 URL： http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
 
 
 ### <a name="analyzing-packet-captures"></a>分析封包擷取

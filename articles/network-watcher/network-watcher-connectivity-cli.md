@@ -3,8 +3,8 @@ title: 使用 Azure 網路監看員進行連線疑難排解 - Azure CLI | Micros
 description: 了解如何使用 Azure CLI，來使用 Azure 網路監看員的連線疑難排解功能。
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: a44f46a01bd0c0530ce57ad65464c10a4d2617f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624066"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>使用 Azure CLI 利用 Azure 網路監看員進行連線疑難排解
 
