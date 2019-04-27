@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: 了解 Azure 中的公用和私人 IP 位址。
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: jdial
-ms.openlocfilehash: 929c8808721140d5275cba4bcf3fbaa567f961e0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 69fd70fc45f734f8267db6d770d09b14f3a071f5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108139"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
 
@@ -78,6 +79,9 @@ ms.locfileid: "58652020"
  
 > [!NOTE]
 > 在建立和關聯[網路安全性群組](security-overview.md#network-security-groups)並明確地允許所要輸入流量前，與標準 SKU 資源進行的輸入通訊會失敗。
+
+> [!NOTE]
+> 只有基本 SKU 公用 IP 位址可使用時[執行個體中繼資料服務 IMDS](../virtual-machines/windows/instance-metadata-service.md)。 不支援標準 SKU。
 
 ### <a name="allocation-method"></a>配置方法
 
