@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407562"
 ---
 1. 瀏覽至虛擬網路閘道的頁面並加以開啟。 瀏覽的方法有好幾種。 您可以藉由移至 [TestVNet1] -> [概觀]- > [已連線的裝置] -> [VNet1GW]，瀏覽至 'VNet1GW' 閘道。
 2. 在 VNet1GW 的頁面上，按一下 [連線]。 在 [連線] 頁面的頂部，按一下 [+新增] 以開啟 [新增連線] 頁面。
