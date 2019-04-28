@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557135"
 ---
 >[!NOTE]
 >如需不固定的資源，開啟支援票證以要求增加配額。 請勿建立其他的 Azure 媒體服務帳戶在嘗試取得較高的限制。
 
-| 資源 | 預設限制 | 
+| Resource | 預設限制 | 
 | --- | --- | 
 | 單一訂用帳戶中的 azure 媒體服務帳戶 | 25 (固定) |
 | 媒體保留單元，每個媒體服務帳戶 |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 

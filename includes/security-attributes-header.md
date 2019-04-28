@@ -1,17 +1,18 @@
 ---
-author: msmbaldwin
+author: WenJason
 ms.service: security
 ms.topic: include
-ms.date: 04/17/2019
-ms.author: mbaldwin
+origin.date: 03/15/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: cd0ab47a46e452701307986d3fbfc7cdfe040c58
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461396"
 ---
-品質或功能的一項 Azure 服務，可藉此服務能夠防止、 偵測及回應安全性弱點，安全性屬性。
+安全属性是促使 Azure 服务能够防范、检测和响应安全漏洞的一种服务质量或功能。
 
 安全性屬性可分類為︰
 * 預防
@@ -22,4 +23,4 @@ ms.locfileid: "59684577"
 * 存取控制 (如有使用)
 * 組態管理 (如有使用)
 
-我們可在每個類別中確認是否使用了某個屬性 (是/否)。 某些服務中，屬性可能不適用，而且會顯示為 n/A。 此外也可提供關於屬性的注意事項或詳細資訊連結。
+我們可在每個類別中確認是否使用了某個屬性 (是/否)。 对于一些服务，某个属性可能不适用并显示为 N/A。 此外也可提供關於屬性的注意事項或詳細資訊連結。

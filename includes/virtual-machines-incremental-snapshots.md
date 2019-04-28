@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543757"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>以遞增快照集備份 Azure 非受控 VM 磁碟
 ## <a name="overview"></a>概觀
@@ -58,7 +58,7 @@ Blob 快照是在某個時間點擷取的 Blob 唯讀版本。 一旦建立快�
 * Blob 是在 2016 年 1 月 1 日或之後建立。
 * 在兩個快照集之間，Blob 不會覆寫為 [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 或[複製 Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)。
 
-**注意**︰此功能適用於進階和標準 Azure 分頁 Blob。
+**注意**：這項功能是適用於進階和標準 Azure 分頁 Blob。
 
 當您有使用快照集的自訂備份策略時，將快照集從一個儲存體帳戶複製到另一個儲存體帳戶可能會很慢，而且會耗用大量的儲存空間。 您可以將連續快照集之間的差異寫入備份分頁 Blob，而不是將整個快照集複製到備份儲存體帳戶。 如此一來，將大量減少複製的時間和儲存備份的空間。
 

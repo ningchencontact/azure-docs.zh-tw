@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
-ms.openlocfilehash: 4ffda692da0ab7b63f7376c36dfab0bec914e334
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37138060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540782"
 ---
 * 如果您是使用 Azure SQL Database，請遵循[連線到 Azure SQL Database](#connect-azure-sql-db) 下的步驟。 
 
@@ -45,7 +45,7 @@ ms.locfileid: "37138060"
    <br>
    星號 (*) 表示必要值。
 
-   | 屬性 | 值 | 詳細資料 | 
+   | 屬性 | Value | 詳細資料 | 
    |----------|-------|---------| 
    | 連線名稱 | <*my-sql-connection*> | 您連線的名稱 | 
    | SQL Server 名稱 | <*my-sql-server*> | 您 SQL 伺服器的名稱 |
@@ -96,7 +96,7 @@ ms.locfileid: "37138060"
    <br>
    星號 (*) 表示必要值。
 
-   | 屬性 | 值 | 詳細資料 | 
+   | 屬性 | Value | 詳細資料 | 
    |----------|-------|---------| 
    | 透過內部部署閘道連線 | 請先針對 SQL Server 設定選取此選項。 | | 
    | 連線名稱 | <*my-sql-connection*> | 您連線的名稱 | 
@@ -104,7 +104,7 @@ ms.locfileid: "37138060"
    | SQL Database 名稱 | <*my-sql-database*>  | 您 SQL 資料庫的名稱 |
    | 使用者名稱 | <*my-sql-username*> | 用以存取您資料庫的使用者名稱 |
    | 密碼 | <*my-sql-password*> | 用以存取您資料庫的密碼 | 
-   | 驗證類型 | Windows 或基本 | 選用：您 SQL 伺服器所使用的驗證類型 | 
+   | 驗證類型 | Windows 或基本 | 選用：使用您的 SQL server 的驗證類型 | 
    | 閘道 | <*my-data-gateway*> | 您內部部署資料閘道的名稱 | 
    |||| 
 

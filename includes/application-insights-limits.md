@@ -9,15 +9,15 @@ ms.date: 06/21/2018
 ms.author: mbullwin
 ms.custom: include file
 ms.openlocfilehash: 31ff6ae66b13eb5e5abcde94e8d3df7f6e32f63c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60794454"
 ---
 有一些限制數目的度量和事件，每個應用程式，也就是每個檢測金鑰。 限制取決於您選擇的[定價方案](https://azure.microsoft.com/pricing/details/application-insights/)。
 
-| 資源 | 預設限制 | 附註
+| Resource | 預設限制 | 附註
 | --- | --- | --- |
 | 每日資料總量 | 100 GB | 您可以設定上限來減少資料。 如果您需要更多資料，可以從入口網站將限制增加到最多 1,000 GB。 容量大於 1,000 GB，傳送電子郵件至AIDataCap@microsoft.com。
 | 節流 | 32,000 個事件/秒 | 此限制會測量超過一分鐘。

@@ -9,11 +9,11 @@ ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: b6cafcfe6c892cd43f056458fe3586da834c2fd1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59497335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403571"
 ---
 函式可讓您輕鬆地從 [Azure 入口網站]中，將 Application Insights 整合新增至函式應用程式。
 
@@ -27,7 +27,7 @@ ms.locfileid: "59497335"
 
     | 設定      | 建議的值  | 說明                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | 唯一的應用程式名稱 | 最簡單的方式是使用與您函式應用程式一樣的名稱，而這必須是您訂用帳戶中唯一的名稱。 | 
+    | **名稱** | 唯一的應用程式名稱 | 最簡單的方式是使用與您函式應用程式一樣的名稱，而這必須是您訂用帳戶中唯一的名稱。 | 
     | **位置** | 西歐 | 可能的話，請使用與函式應用程式相同的[地區](https://azure.microsoft.com/regions/)，或其附近的地區。 |
 
 1. 選擇 [確定]。 Application Insights 資源會建立在函式應用程式所在的資源群組和訂用帳戶。 建立完成之後，請關閉 Application Insights 視窗。

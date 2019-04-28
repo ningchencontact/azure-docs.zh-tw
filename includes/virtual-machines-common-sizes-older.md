@@ -9,11 +9,11 @@ ms.date: 04/11/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: d89a9c4c4498e249dbfbd453ef9772d18ffd213f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59550135"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541592"
 ---
 本節提供在較舊層代的虛擬機器大小上的資訊。 這些大小仍然受到支援，但不是會收到額外的容量。 有較新或替代已正式運作的大小。 請參閱[大小的 Windows Azure 中的虛擬機器](../articles/virtual-machines/windows/sizes.md)或是[在 Azure 中 Linux 虛擬機器的大小](../articles/virtual-machines/linux/sizes.md)選擇 VM 大小會最符合您的需求。  
 

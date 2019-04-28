@@ -1,15 +1,10 @@
 ---
-author: clemensv
-ms.service: service-bus-relay
-ms.topic: include
-ms.date: 11/09/2018
-ms.author: clemensv
 ms.openlocfilehash: 9d4f7faa18ee7fae158afb42b8c42287e61dd103
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553809"
 ---
 ### <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 
@@ -20,7 +15,6 @@ ms.locfileid: "51571863"
 在您的專案資料夾中從 Node 命令提示字元執行 `npm install hyco-ws`。
 
 ### <a name="write-some-code-to-send-messages"></a>撰寫一些程式碼來傳送訊息
-
 1. 將下列 `constants` 新增至 `sender.js` 檔案開頭處。
    
     ```js
@@ -38,7 +32,7 @@ ms.locfileid: "51571863"
    3. `const keyrule` - SAS 金鑰的名稱。
    4. `const key` - SAS 金鑰值。
 
-3. 將下列程式碼新增至 `sender.js` 檔案：
+3. 将以下代码添加到 `sender.js` 文件：
    
     ```js
     WebSocket.relayedConnect(

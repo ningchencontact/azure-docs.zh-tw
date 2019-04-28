@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482680"
 ---
 #### <a name="to-cable-for-power"></a>連接電源線
 1. 請確定每個電源和冷卻模組 (PCM) 上的電源開關都在 OFF 的位置。
@@ -25,7 +25,7 @@ ms.locfileid: "55889644"
    
     **8100 裝置上的電源佈線**
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |控制器 1 |
