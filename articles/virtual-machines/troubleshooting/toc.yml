@@ -76,7 +76,7 @@
   href: install-vm-agent-offline.md
 - name: 重新部署 VM
   items:
-    - name: ' Linux'
+    - name: Linux
       href: redeploy-to-new-node-linux.md
     - name: Windows
       href: redeploy-to-new-node-windows.md
@@ -84,7 +84,7 @@
   items:
     - name: Windows
       href: reset-local-password-without-agent.md
-    - name: ' Linux'
+    - name: Linux
       href: reset-password.md
 - name: 重設 NIC
   href: reset-network-interface.md
@@ -118,7 +118,7 @@
   href: troubleshoot-app-connection.md
 - name: 新的 VM 部署
   items:
-    - name: ' Linux'
+    - name: Linux
       href: troubleshoot-deployment-new-vm-linux.md
     - name: Windows
       href: troubleshoot-deployment-new-vm-windows.md
@@ -138,7 +138,7 @@
           href: troubleshoot-recovery-disks-windows.md
         - name: Azure 入口網站
           href: troubleshoot-recovery-disks-portal-windows.md
-    - name: ' Linux'
+    - name: Linux
       items:
         - name: CLI
           href: troubleshoot-recovery-disks-linux.md

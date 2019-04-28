@@ -3,8 +3,8 @@ title: 設定 VM 的私人 IP 位址 - Azure 入口網站 | Microsoft Docs
 description: 了解如何使用 Azure 入口網站設定虛擬機器的私人 IP 位址。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
@@ -14,19 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
-ms.author: jdial
-ms.custom: H1Hack27Feb2017
+ms.author: kumud
 ms.openlocfilehash: e5efe0516d1b2dd387532d31a0a6654e6651fe41
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596430"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>使用 Azure 入口網站設定虛擬機器的私人 IP 位址
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](virtual-networks-static-private-ip-arm-pportal.md)
+> * [Azure 门户](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 > * [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
 > * [Azure 入口網站 (傳統)](virtual-networks-static-private-ip-classic-pportal.md)

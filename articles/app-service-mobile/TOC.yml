@@ -14,7 +14,7 @@
       href: app-service-mobile-cordova-get-started.md
     - name: iOS
       href: app-service-mobile-ios-get-started.md
-    - name: ' Windows'
+    - name: Windows
       href: app-service-mobile-windows-store-dotnet-get-started.md
     - name: Xamarin.Android
       href: app-service-mobile-xamarin-android-get-started.md
@@ -74,7 +74,7 @@
               href: app-service-mobile-ios-get-started-push.md
             - name: 使用用戶端 SDK
               href: app-service-mobile-ios-how-to-use-client-library.md
-        - name: ' Windows'
+        - name: Windows
           items:
             - name: 啟用離線同步
               href: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
@@ -309,7 +309,7 @@
               href: 'https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/'
             - name: Node.js 後端
               href: 'https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/'
-            - name: ' Windows'
+            - name: Windows
               href: 'https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/'
             - name: Xamarin.Android
               href: 'https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/'

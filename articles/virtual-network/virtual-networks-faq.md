@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Microsoft Azure 虛擬網路的常見問題解答。
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713602"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -370,7 +371,7 @@ Azure 服務帳戶的刪除是獨立的作業，即使已在網路端啟用服�
 當虛擬網路服務端點啟用時，您虛擬網路中的資源用來傳送流量至 Azure 服務的來源 IP 位址，會從使用公用 IPV4 位址切換為使用 Azure 虛擬網路的私人位址。 請注意，這可能會造成之前在 Azure 服務上對公用 IPV4 位址設定的特定 IP 防火牆失敗。 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>服務端點路由是否一律優先？
-服務端點會新增優先於 BGP 路由的系統路由，並為服務端點流量提供最佳路由傳送。 服務端點接受的服務流量，一律都是直接從您的虛擬網路到 Microsoft Azure 骨幹網路上的服務。 如需有關 Azure 如何選取路由的詳細資訊，請參閱 < [Azure 虛擬網路流量路由](virtual-networks-udr-overview.md)。
+服務端點會新增優先於 BGP 路由的系統路由，並為服務端點流量提供最佳路由傳送。 服務端點接受的服務流量，一律都是直接從您的虛擬網路到 Microsoft Azure 骨幹網路上的服務。 有关 Azure 如何选择路由的详细信息，请参阅 [Azure 虚拟网络流量路由](virtual-networks-udr-overview.md)。
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>子網路上的 NSG 如何搭配服務端點運作？
 為了與 Azure 服務建立連線，NSG 需要允許輸出連線。 如果您的 NSG 對所有網際網路輸出流量都是開放的，服務端點流量應該就能運作。 您也可以使用「服務」標籤，限制輸出流量只有流向服務 IP 的流量。  
