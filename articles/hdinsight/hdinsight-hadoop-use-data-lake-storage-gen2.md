@@ -1,19 +1,18 @@
 ---
 title: 搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2
 description: 了解如何将 Azure Data Lake Storage Gen2 与 Azure HDInsight 群集配合使用。
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43f335bdd8b918fa717d9084d3c9c30d97920c10
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004953"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766935"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2
 
@@ -69,7 +68,7 @@ Data Lake Storage Gen2 能够以默认存储和附加存储帐户的形式用作
         ![搭配 Azure HDInsight 使用 Data Lake Storage Gen2 的身分識別設定](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
-> 可将一个或多个 Data Lake Storage Gen2 帐户添加为同一个群集上的辅助存储。 只需在要添加的每个 Data Lake Storage Gen2 帐户中，使用相同的托管标识重复上述步骤。
+> 若要新增次要 Data Lake 儲存體 Gen2 帳戶，儲存體帳戶層級，只要指派新的 Data Lake 儲存體 Gen2 儲存體帳戶，您想要新增至稍早建立的受管理身分識別。請注意，不支援在 HDInsight 上加入次要 Data Lake 儲存體 Gen2 帳戶透過 [額外的儲存體帳戶] 刀鋒視窗。 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>通过 Azure CLI 创建使用 Data Lake Storage Gen2 的群集
 

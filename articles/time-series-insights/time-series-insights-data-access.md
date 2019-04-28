@@ -11,24 +11,27 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558511"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759559"
 ---
 # <a name="grant-data-access-to-an-environment"></a>授與環境的資料存取權
 
 本文討論兩種 Azure 時間序列深入解析預覽存取原則。
 
-## <a name="grant-data-access"></a>授與資料存取
-
-依照下列步驟來授與使用者主體的資料存取權。
+## <a name="sign-in-to-tsi"></a>登入至 TSI
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 1. 找到您的時間序列深入解析環境。 在 [搜尋] 方塊中，輸入 `Time Series`。 選取搜尋結果中的 [時間序列環境]。
 1. 從清單中選取 Time Series Insights 環境。
+
+## <a name="grant-data-access"></a>授與資料存取
+
+依照下列步驟來授與使用者主體的資料存取權。
+
 1. 選取 [資料存取原則]，然後選取 [+新增]。
 
     ![資料存取一][1]
@@ -55,15 +58,12 @@ ms.locfileid: "53558511"
 
     ![資料存取四][5]
 
-## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>提供來賓存取權給來自另一個 Azure Active Directory 租用戶的使用者
+## <a name="provide-guest-access-from-another-aad-tenant"></a>提供從另一個 AAD 租用戶的來賓存取
 
 `Guest` 不是管理角色。 這個詞彙指的是從一個租用戶邀請到另一個租用戶的帳戶。 在邀請來賓帳戶至租用戶目錄後，就可以套用與任何其他帳戶一樣的存取控制。 您可以使用存取控制 (IAM) 刀鋒視窗，授與時間序列深入解析環境管理存取權。 或者，您可以透過 [資料存取原則] 刀鋒視窗授與環境中資料的存取權。 如需有關 Azure Active Directory (Azure AD) 租用戶來賓存取權的詳細資訊，請參閱[在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator)。
 
 依照這些步驟將對「時間序列深入解析」環境的存取權授與來自另一個租用戶的 Azure AD 使用者。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 找到您的時間序列深入解析環境。 在 [搜尋] 方塊中輸入**時間序列**。 選取搜尋結果中的 [時間序列環境]。
-1. 從清單中選取 Time Series Insights 環境。
 1. 選取 [資料存取原則]，然後選取 [+ 邀請]。
 
     ![資料存取六][6]
@@ -112,12 +112,14 @@ ms.locfileid: "53558511"
 
     ![資料存取十五][15]
 
-當來賓使用者選取您的租用戶之後，他們會看到您為其提供存取權的時間序列深入解析環境。 他們現在擁有與您在步驟 8 中提供之角色關聯的所有能力。
+當來賓使用者選取您的租用戶之後，他們會看到您為其提供存取權的時間序列深入解析環境。 他們現在有您提供它們與角色相關聯的所有功能**步驟 5**。
 
 ## <a name="next-steps"></a>後續步驟
 
 * 了解[如何將 Azure 事件中樞的事件來源新增](./time-series-insights-how-to-add-an-event-source-eventhub.md)至時間序列深入解析環境。
+
 * [將事件傳送到事件來源](./time-series-insights-send-events.md)。
+
 * [在時間序列深入解析預覽總管中檢視您的環境](./time-series-insights-update-explorer.md)。
 
 <!-- Images -->

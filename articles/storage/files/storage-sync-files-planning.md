@@ -2,18 +2,18 @@
 title: 規劃 Azure 檔案同步部署 | Microsoft Docs
 description: 了解規劃 Azure 檔案服務部署時的考量事項。
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e5078176b14835938c190daa031c12055ba9ffc3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996351"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766856"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -245,6 +245,8 @@ Azure 檔案同步僅於下列區域提供：
 | 東亞 | 香港特別行政區 |
 | 美國東部 | 維吉尼亞州 |
 | 美國東部 2 | 維吉尼亞州 |
+| 南韓中部| 首爾 |
+| 南韓南部| 斧山 |
 | 日本東部 | 東京，埼玉 |
 | 日本西部 | 大阪 |
 | 美國中北部 | 伊利諾州 |

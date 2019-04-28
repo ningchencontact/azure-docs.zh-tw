@@ -2,18 +2,18 @@
 title: Azure 檔案服務的常見問題集 (FAQ) | Microsoft Docs
 description: 尋找關於 Azure 檔案服務之常見問題集的解答。
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.date: 01/02/2019
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 561c8c9d942210a9bbdc70feff9bc468fa69967e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 77f07394eb895c08ef3e366bd486b4270714c2fc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995860"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766257"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
 [Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
@@ -247,9 +247,9 @@ ms.locfileid: "57995860"
 ## <a name="on-premises-access"></a>內部部署存取
 
 * <a id="port-445-blocked"></a>
-**我的 ISP 或 IT 封鎖連接埠 445 失敗的 Azure 檔案掛接。我該怎麼辦？**
+**我的 ISP 或 IT 部门阻止了端口 445，导致 Azure 文件装载失败。我該怎麼辦？**
 
-    您可以了解[各種因應措施，封鎖連接埠 445 這裡](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。 Azure 檔案只允許從使用 SMB 3.0 （含加密支援） 的連線之外的地區或資料中心。 SMB 3.0 通訊協定引進了許多安全性功能，包括這是要透過網際網路使用非常安全通道加密。 不過，它有可能的連接埠 445 已被封鎖在較低的 SMB 版本中發現的安全性弱點的歷史原因。 在理想的情況下，應該只針對 SMB 1.0 流量的封鎖連接埠，而且 SMB 1.0 應該關閉所有用戶端上。
+    可以在此处了解[如何通过各种方式来解决端口 445 被阻止的问题](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。 Azure 文件存储只允许使用 SMB 3.0（带加密支持）从区域或数据中心外部进行连接。 SMB 3.0 协议引入了许多安全功能，其中包括通道加密，可以通过 Internet 很安全地使用。 不过，有可能端口 445 因为历史原因（在较低的 SMB 版本中发现了漏洞）已被阻止。 理想情况下，只应阻止端口传输 SMB 1.0 流量，在所有客户端上都应关闭 SMB 1.0。
 
 * <a id="expressroute-not-required"></a>
 **我必須使用 Azure ExpressRoute 來連線到 Azure 檔案服務，還是必須在內部部署中使用 Azure 檔案同步？**  

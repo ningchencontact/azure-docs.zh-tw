@@ -1,7 +1,6 @@
 ---
 title: 在 Linux 架構的 HDInsight 上使用 Hadoop 的秘訣 - Azure
 description: 取得在 Azure 雲端中執行的熟悉 Linux 環境上使用 Linux 架構的 HDInsight (Hadoop) 叢集的實作秘訣。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: c149c6466f7d86f5cb22c840d4353c3939768768
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 2a7af59495966c76a47ea84311ab073eb594f82e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518978"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765721"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
@@ -28,7 +27,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 本文件中的許多步驟都使用下列公用程式，可能需要安裝在您的系統上。
 
 * [cURL](https://curl.haxx.se/) - 用來與 Web 型服務通訊。
-* **jq**，命令列的 JSON 處理器。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
+* 命令行 JSON 处理程序 **jq**。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) - 用來從遠端管理 Azure 服務。
 * **SSH 用戶端**。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -116,7 +115,7 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 在 HDInsight 中，資料儲存體資源 (Azure Blob 儲存體和 Azure Data Lake Storage) 會與計算資源分離。 因此，您可以在必要時建立 HDInsight 叢集以執行計算，並在後續完成工作後刪除該叢集，同時將您的資料檔案安全地保存在雲端儲存體中，沒有時間限制。
 
 
-### <a name="URI-and-scheme"></a>URI 和配置
+### <a name="URI-and-scheme"></a>URI 和方案
 
 有些命令可能需要您在存取檔案時於 URI 中指定配置。 例如，Storm-HDFS 元件就需要您指定配置。 在使用非預設儲存體 (新增為叢集「其他」儲存體的儲存體) 時，您一律必須在 URI 中使用配置。
 

@@ -1,19 +1,18 @@
 ---
 title: 搭配 Azure HDInsight 使用 ScaleR 與 SparkR
 description: 在 HDInsight 上使用 ScaleR 與 SparkR 搭配 ML 服務
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 78ea29b9b37c55a588a44f8d4b69486b89ee2fee
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974840"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761357"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中結合 ScaleR 與 SparkR
 
@@ -331,7 +330,7 @@ joinedDF5 <- rename(joinedDF4,
 
 ## <a name="save-results-to-csv-for-exchange-with-scaler"></a>將結果儲存為 CSV 以便與 ScaleR 交換
 
-SparkR 需要進行的聯結便已完成。 我們會將最終 Spark DataFrame "joinedDF5" 中的資料儲存為 CSV，以便輸入至 ScaleR，然後關閉 SparkR 工作階段。 我們明確告訴 SparkR 在 80 個不同的資料分割中儲存結果產生的 CSV，以在 ScaleR 處理中啟用足夠的平行處理原則：
+至此，我们已完成了需要通过 SparkR 执行的联接。 将数据从最终的 Spark DataFrame“joinedDF5”保存到 CSV 以便输入到 ScaleR，并关闭 SparkR 会话。 需要明确告知 SparkR 要在 80 个不同的分区中保存生成的 CSV，以便在 ScaleR 处理过程中实现足够的并行度：
 
 ```
 logmsg('output the joined data from Spark to CSV') 
@@ -457,7 +456,7 @@ rxGetInfo(trainDS)
 rxGetInfo(testDS)
 ```
 
-## <a name="train-and-test-a-logistic-regression-model"></a>訓練和測試羅吉斯迴歸模型
+## <a name="train-and-test-a-logistic-regression-model"></a>训练并测试逻辑回归模型
 
 現在我們已準備好要建置模型。 為了解天氣對抵達時間延誤的影響，我們使用 ScaleR 的羅吉斯迴歸常式。 我們使用它來說明超過 15 分鐘的抵達延誤是否受起飛和抵達機場的天氣影響：
 

@@ -2,8 +2,8 @@
 title: 在 Azure 中建立 VHD 的快照集 | Microsoft Docs
 description: 了解如何在 Azure 中建立 VHD 的複本，以作為備份，或用來針對問題進行疑難排解。
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 37b77847fc55d2aa90b313d6746d82b402f42ae6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9f2f3ac3668f0e48716fc30fb69cd1782dbd4e56
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460738"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765678"
 ---
 # <a name="create-a-snapshot"></a>建立快照集 
 

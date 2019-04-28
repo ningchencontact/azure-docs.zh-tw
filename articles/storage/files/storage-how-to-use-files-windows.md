@@ -2,18 +2,18 @@
 title: 搭配 Windows 使用 Azure 檔案共用 | Microsoft Docs
 description: 了解如何搭配 Windows 和 Windows Server 使用 Azure 檔案共用。
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/07/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ae097cb1c778c0ad60512753ae6ef28da04e8004
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048838"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764385"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>搭配 Windows 使用 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中順暢地使用。 本文討論搭配 Windows 和 Windows Server 使用 Azure 檔案共用的考量。
@@ -237,13 +237,13 @@ Remove-PSDrive -Name <desired-drive-letter>
 | Windows Server 2019 (預覽)             | 已停用             | 利用 Windows 功能移除 |
 | Windows Server 版本 1709+            | 已停用             | 利用 Windows 功能移除 |
 | Windows 10 版本 1709+                | 已停用             | 利用 Windows 功能移除 |
-| Windows Server 2016                       | 已啟用              | 利用 Windows 功能移除 |
-| Windows 10 版本 1507、1607 和 1703 | 已啟用              | 利用 Windows 功能移除 |
-| Windows Server 2012 R2                    | 已啟用              | 利用 Windows 功能移除 | 
-| Windows 8.1                               | 已啟用              | 利用 Windows 功能移除 | 
-| Windows Server 2012                       | 已啟用              | 利用登錄停用       | 
-| Windows Server 2008 R2                    | 已啟用              | 利用登錄停用       |
-| Windows 7                                 | 已啟用              | 利用登錄停用       | 
+| Windows Server 2016                       | Enabled              | 利用 Windows 功能移除 |
+| Windows 10 版本 1507、1607 和 1703 | Enabled              | 利用 Windows 功能移除 |
+| Windows Server 2012 R2                    | Enabled              | 利用 Windows 功能移除 | 
+| Windows 8.1                               | Enabled              | 利用 Windows 功能移除 | 
+| Windows Server 2012                       | Enabled              | 利用登錄停用       | 
+| Windows Server 2008 R2                    | Enabled              | 利用登錄停用       |
+| Windows 7                                 | Enabled              | 利用登錄停用       | 
 
 ### <a name="auditing-smb-1-usage"></a>稽核 SMB 1 使用量
 > 套用至 Windows Server 2019 (預覽)、Windows Server 半年度通道 (版本 1709 和 1803)、Windows Server 2016、Windows 10 (版本 1507、1607、1703、1709 和 1803)、Windows Server 2012 R2 和 Windows 8.1

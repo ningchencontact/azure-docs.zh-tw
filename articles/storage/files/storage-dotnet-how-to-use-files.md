@@ -2,19 +2,19 @@
 title: 使用 .NET 開發 Azure 檔案服務 | Microsoft Docs
 description: 了解如何開發使用 Azure 檔案服務來儲存檔案資料的 .NET 應用程式和服務。
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/22/2017
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9238b1dfc697f9efae723aba787982ae1493a608
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 2b615bbe7ffdf2f709cd7d7b0add4f956bec6a84
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762257"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763466"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 開發 Azure 檔案服務
 

@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 221bcbfb2517efae41005641321a651dfdf8e39f
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895878"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759437"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的連接器
 
@@ -117,7 +117,7 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API 圖示][as2-icon]<br/>**AS2</br> 解碼**][as2-decode-doc] | [![API 圖示][as2-icon]<br/>**AS2</br>編碼**][as2-encode-doc] | [![API 圖示][edifact-icon]<br/>**EDIFACT</br>解碼**][edifact-decode-doc] | [![API 圖示][edifact-icon]<br/>**EDIFACT</br>編碼**][edifact-encode-doc] | 
+| [![API 圖示][as2-icon]<br/>**AS2</br> 解碼**][as2-doc] | [![API 圖示][as2-icon]<br/>**AS2</br>編碼**][as2-doc] | [![API 圖示][edifact-icon]<br/>**EDIFACT</br>解碼**][edifact-decode-doc] | [![API 圖示][edifact-icon]<br/>**EDIFACT</br>編碼**][edifact-encode-doc] | 
 | [![API 圖示][flat-file-decode-icon]<br/>**一般檔案</br>解碼**][flat-file-decode-doc] | [![API 圖示][flat-file-encode-icon]<br/>**一般檔案</br>編碼**][flat-file-encode-doc] | [![API 圖示][integration-account-icon]<br/>**整合<br/>帳戶**][integration-account-doc] | [![API 解碼][liquid-icon]<br/>**Liquid**</br>**轉換**][json-liquid-transform-doc] | 
 | [![API 圖示][x12-icon]<br/>**X12</br>解碼**][x12-decode-doc] | [![API 圖示][x12-icon]<br/>**X12</br>編碼**][x12-encode-doc] | [![API 圖示][xml-transform-icon]<br/>**XML**</br>**轉換**][xml-transform-doc] | [![API 圖示][xml-validate-icon]<br/>**XML<br/>驗證**][xml-validate-doc] |  
 ||||| 
@@ -257,8 +257,6 @@ Azure Logic Apps 的觸發程序引發之後，建立邏輯應用程式的執行
 
 <!--Enterprise Intregation Pack doc links-->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "深入了解企業整合 AS2。"
-[as2-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "深入了解企業整合 AS2 解碼"
-[as2-encode-doc]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "深入了解企業整合 AS2 編碼"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "深入了解企業整合 EDIFACT 解碼"
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "深入了解企業整合 EDIFACT 編碼"
 [flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "深入了解企業整合一般檔案。"

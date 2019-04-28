@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 6a798d0f33ba4d1960f07e670e6e71916f68eff1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.openlocfilehash: 304ecda320e1fdd9573bc961fde74efe03400aa3
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258265"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764182"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>使用 Azure Media Indexer 2 Preview 編製媒體檔案索引
 ## <a name="overview"></a>概觀
@@ -87,7 +87,7 @@ Azure Media Indexer 2 Preview 支援下列語言的語音轉文字 (在工作設
 * 日文 [JaJp]
 * 俄文 [RuRu]
 * 英式英文 [EnGb]
-* 墨西哥西班牙文 [EsMx] 
+* 西班牙文 （墨西哥） [EsMx] 
 
 ## <a name="supported-file-types"></a>支援的檔案類型
 

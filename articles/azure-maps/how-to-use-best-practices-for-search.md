@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e60b202a32745062d2078d9721dfeba7aba69bda
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358176"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763898"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>若要使用 Azure 地圖服務搜尋服務的最佳作法
 
@@ -132,9 +132,9 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
 
 ### <a name="predictive-mode-auto-suggest"></a>預測的模式 （自動建議）
 
-若要尋找更多符合項目部分的查詢，`typeHead`參數應該設定為 'true'。 查詢會視為部分輸入，並搜尋會在輸入預測的模式。 否則，服務會假設傳入的所有相關資訊。
+若要尋找更多符合項目部分的查詢，`typeahead`參數應該設定為 'true'。 查詢會視為部分輸入，並搜尋會在輸入預測的模式。 否則，服務會假設傳入的所有相關資訊。
 
-在此範例查詢低於您所見"F"，便會查詢搜尋地址服務與`typehead`參數設定為 **，則為 true**。 如果您發現回應時，您可以看到搜尋服務會解譯為部分查詢的查詢，並回應包含自動建議查詢的結果。
+在此範例查詢低於您所見"F"，便會查詢搜尋地址服務與`typeahead`參數設定為 **，則為 true**。 如果您發現回應時，您可以看到搜尋服務會解譯為部分查詢的查詢，並回應包含自動建議查詢的結果。
 
 **範例查詢︰**
 

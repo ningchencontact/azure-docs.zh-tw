@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842129"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766558"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中交換適用於 B2B 企業整合的 X12 訊息
 
@@ -53,11 +53,11 @@ ms.locfileid: "57842129"
 4. 選取 [概觀]，然後選取 [合約] 圖格。 
    如果您沒有 [合約] 圖格，請先新增圖格。 
 
-   ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![選擇 [合約] 圖格](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
 
 5. 在 [合約] 之下，選擇 [新增]。
 
-   ![選擇 [新增]](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![選擇 [新增]](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
 
 6. 在 [新增] 之下，輸入合約的 [名稱]。 
    針對 [合約類型]，選取 **X12**。 
@@ -122,7 +122,7 @@ ms.locfileid: "57842129"
 
 | 屬性 | 描述 |
 | --- | --- |
-| 版本 |選取 X12 版本 |
+| Version |選取 X12 版本 |
 | 交易類型 (ST01) |選取交易類型 |
 | 傳送者應用程式 (GS02) |選取傳送者應用程式 |
 | 結構描述 |選取您要使用的結構描述檔案。 結構描述已新增到您的整合帳戶。 |
@@ -216,7 +216,7 @@ ms.locfileid: "57842129"
 
 | 屬性 | 描述 |
 | --- | --- |
-| 版本 |選取 X12 版本 |
+| Version |選取 X12 版本 |
 | 交易類型 (ST01) |選取交易類型 |
 | 結構描述 |選取要使用的結構描述。 結構描述位於您的整合帳戶中。 若先選取結構描述，它會自動設定版本與交易類型  |
 

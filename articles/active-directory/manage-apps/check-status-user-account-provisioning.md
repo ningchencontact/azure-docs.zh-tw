@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e293eb555269a1f8beeeccd74000358abe1ef5c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441983"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759757"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>教學課程：關於使用者帳戶自動佈建的報告
 
@@ -43,7 +43,7 @@ Azure Active Directory 含有[使用者帳戶佈建服務](user-provisioning.md)
 
 * **來源系統** - Azure AD 佈建服務用來進行同步處理的來源端使用者存放庫。 已預先整合的佈建連接器大多使用 Azure Active Directory 作為來源系統，但有一些例外 (範例︰Workday 的輸入同步處理)。
 
-* **目標系統** - Azure AD 佈建服務用來進行同步處理的目標端使用者存放庫。 這通常是 SaaS 應用程式 (範例：Salesforce、ServiceNow、Google Apps、Dropbox for Business)，但在某些情況下，也可以是 Active Directory 之類的內部部署系統 (範例︰Workday 對 Active Directory 的輸入同步處理)。
+* **目標系統** - Azure AD 佈建服務用來進行同步處理的目標端使用者存放庫。 這通常是 SaaS 應用程式 (範例：Salesforce、 ServiceNow、 G Suite、 Dropbox for Business），但在某些情況下可以是內部部署系統，例如 Active Directory (範例：Workday 對 Active Directory 的輸入同步處理)。
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>從 Azure 管理入口網站取得佈建報告

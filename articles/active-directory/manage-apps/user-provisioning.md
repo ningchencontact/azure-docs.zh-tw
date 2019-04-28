@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291136"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759799"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 
@@ -143,7 +143,7 @@ Azure Active Directory (Azure AD) 可讓您自動化建立、 維護和移除在
 6. 如果屬性對應包含 「 參考 」 屬性，服務會在目標系統，才能建立並連結參考的物件上的其他更新。 例如，使用者可能在目標系統中有 "Manager" 屬性，而此屬性連結至在目標系統中建立的另一個使用者。
 7. 保存浮水印結尾的初始同步處理，如稍後增量同步處理提供起點。
 
-有些應用程式 (例如 ServiceNow、Google Apps 及 Box) 不僅支援佈建使用者，也支援佈建群組及其成員。 在這些情況下，如果已啟用群組佈建[對應](customize-application-attributes.md)、 佈建服務進行同步處理使用者和群組，並稍後同步的群組成員資格。 
+例如不只佈建使用者，但也佈建群組和其成員的 ServiceNow、 G Suite、 和中支援某些應用程式。 在這些情況下，如果已啟用群組佈建[對應](customize-application-attributes.md)、 佈建服務進行同步處理使用者和群組，並稍後同步的群組成員資格。 
 
 ### <a name="incremental-syncs"></a>增量同步處理
 
@@ -196,7 +196,7 @@ Azure Active Directory (Azure AD) 可讓您自動化建立、 維護和移除在
 
 **增量同步處理**的作業時間取決於在該同步處理週期偵測到的變更數量。 如果少於 5,000 個使用者或群組成員發生變更，則作業可以在單一增量同步處理週期內完成。 
 
-下表摘要說明常見佈建案例的同步處理時間。 在這些案例中，來源系統是 Azure AD，而目標系統是 SaaS 應用程式。 同步處理時間衍生自 SaaS 應用程式 ServiceNow、工作場所、Salesforce 和 Google Apps 的同步作業統計分析。
+下表摘要說明常見佈建案例的同步處理時間。 在這些案例中，來源系統是 Azure AD，而目標系統是 SaaS 應用程式。 同步處理時間被衍生自 ServiceNow、 工作場所、 Salesforce 和 G Suite 的 SaaS 應用程式的同步處理作業的統計分析。
 
 
 | 範圍設定 | 範圍中的使用者、群組和成員 | 初始同步處理時間 | 增量同步處理時間 |

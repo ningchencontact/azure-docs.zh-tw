@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/23/2019
 ms.author: carlrab
-ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495100"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759445"
 ---
 # <a name="sql-database-release-notes"></a>SQL 数据库发行说明
 
@@ -45,6 +45,22 @@ ms.locfileid: "59495100"
 |SQL Analytics|如需資訊，請參閱[Azure SQL 分析](../azure-monitor/insights/azure-sql.md)|
 | 受管理的執行個體的時區支援|如需詳細資訊，請參閱[Azure SQL Database 受控執行個體的時區](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="april-2019"></a>2019 年 4 月
+
+### <a name="service-improvements"></a>服務改進功能
+
+| 服務改進功能 | 詳細資料 |
+| --- | --- |
+| 受控執行個體的公用端點 | 如需詳細資訊，請參閱[使用 Azure SQL Database 受控執行個體，安全地使用公用端點](sql-database-managed-instance-public-endpoint-securely.md)
+| 受控執行個體的時區支援 | 如需詳細資訊，請參閱[Azure SQL Database 受控執行個體 （預覽） 的時區](sql-database-managed-instance-timezone.md)
+
+### <a name="documentation-improvements"></a>文件改進
+
+| 文件改進 | 詳細資料 |
+| --- | --- |
+| 受控執行個體的公用端點 | 如需詳細資訊，請參閱[使用 Azure SQL Database 受控執行個體，安全地使用公用端點](sql-database-managed-instance-public-endpoint-securely.md)
+| 受控執行個體的時區支援 | 如需詳細資訊，請參閱[Azure SQL Database 受控執行個體 （預覽） 的時區](sql-database-managed-instance-timezone.md)
 
 ## <a name="march-2019"></a>2019 年 3 月
 

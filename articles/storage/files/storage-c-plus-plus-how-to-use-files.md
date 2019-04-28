@@ -2,18 +2,18 @@
 title: 使用 C++ 開發 Azure 檔案服務 | Microsoft Docs
 description: 了解如何開發 C++ 應用程式和服務，以使用 Azure 檔案服務來儲存檔案資料。
 services: storage
-author: renashahmsft
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: renashahmsft
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3432794c6b6d2323392f0b56b364400d05b10afc
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 424db4435c569475f9463894b5364fc22190689a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649692"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766404"
 ---
 # <a name="develop-for-azure-files-with-c"></a>使用 C++ 開發 Azure 檔案服務
 

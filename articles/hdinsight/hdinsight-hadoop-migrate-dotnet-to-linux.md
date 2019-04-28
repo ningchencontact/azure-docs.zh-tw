@@ -1,7 +1,6 @@
 ---
 title: 在以 Linux 為基礎的 HDInsight - Azure 上搭配 Hadoop MapReduce 使用 .NET
 description: 了解如何在以 Linux 為基礎的 HDInsight 上使用 .NET 應用程式串流處理 MapReduce。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: adab50b7325be96830ee937153d110754cc0b552
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: a1d1488840ca2b17c83f380af4fa24105bb36202
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549792"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761170"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>將以 Windows 為基礎的 HDInsight 適用的 .NET 方案移轉至以 Linux 為基礎的 HDInsight
 
@@ -64,7 +63,7 @@ ms.locfileid: "59549792"
 
 如需存取記錄的詳細資訊，請參閱下列文件：
 
-* [在以 Linux 為基礎的 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [在以 Linux 為基礎的 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>後續步驟
 

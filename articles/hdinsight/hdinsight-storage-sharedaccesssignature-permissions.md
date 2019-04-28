@@ -1,7 +1,6 @@
 ---
 title: 使用共用存取簽章限制存取 - Azure HDInsight
 description: 深入了解使用共用存取簽章限制 HDInsight 對儲存在 Azure 儲存體 blob 中的資料的存取。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d248db787db1e3945fb632c6770d45e4bf9a8f02
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 7fa46e3a5f0ed6504e4bc927caa0378d75fcc4a7
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360991"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763384"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取
 
@@ -165,7 +164,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
     Connect-AzAccount
     ```
 
-    出現提示時，使用帳戶登入您的 Azure 訂用帳戶。
+    出现提示时，请使用 Azure 订阅帐户登录。
 
     如果您的帳戶會與多個 Azure 訂用帳戶相關聯，您可能需要使用 `Select-AzSubscription` 來選取您想要使用的訂用帳戶。
 
@@ -177,7 +176,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
     當指令碼執行時，它會在建立資源群組和儲存體帳戶時，將輸出記錄到 PowerShell 命令提示字元。 系統會提示您輸入 HDInsight 叢集的 HTTP 使用者。 這是用來保護叢集的 HTTP/s 存取的帳戶。
 
-    如果您是建立以 Linux 為基礎的叢集，系統會提示您輸入 SSH 使用者帳戶名稱和密碼。 此帳戶用來從遠端登入叢集。
+    如果您是建立以 Linux 為基礎的叢集，系統會提示您輸入 SSH 使用者帳戶名稱和密碼。 此帐户用于远程登录到群集。
 
    > [!IMPORTANT]  
    > 出現 HTTP/s 或 SSH 使用者名稱和密碼提示時，您必須提供符合下列準則的密碼：
@@ -221,7 +220,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 ## <a name="test-restricted-access"></a>測試限制的存取
 
-若要確認您已限制存取，請使用 SSH 連線到叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+若要验证是否已限制访问，请通过 SSH 连接到群集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 連接到叢集後，使用下列步驟確認您在 SAS 儲存體帳戶僅能讀取和列出項目：
 

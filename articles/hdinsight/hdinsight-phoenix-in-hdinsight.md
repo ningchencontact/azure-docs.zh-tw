@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 7d9aafeb920eab7f6a87061a135bf2e464add436
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744324"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763652"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>HDInsight 中的 Apache Phoenix
 
@@ -94,7 +94,7 @@ CREATE TABLE my_table (k BIGINT PRIMARY KEY, v VARCHAR) TRANSACTIONAL=true;
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]  
+> [!NOTE]
 > 您無法將交易式資料表切換回非交易式。
 
 ### <a name="salted-tables"></a>以 Salt 處理的資料表
@@ -136,6 +136,6 @@ HDInsight HBase 叢集包括 [Ambari UI](hdinsight-hadoop-manage-ambari.md)，�
 
     ![Ambari Phoenix SQL 設定區段](./media/hdinsight-phoenix-in-hdinsight/ambari-phoenix.png)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [在 HDInsight 中搭配 Linux 型 HBase 叢集使用 Apache Phoenix](hbase/apache-hbase-phoenix-squirrel-linux.md)

@@ -1,7 +1,6 @@
 ---
 title: 將 Azure HDInsight 中的 Hive 查詢最佳化
 description: 本文說明如何在 HDInsight 中最佳化 Hadoop 的 Apache Hive 查詢。
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 63def1464c3c219b5181a31bf19cc80a1e487025
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 1610678b0ae1d94c3f3b8f91913beceb211d08d6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521732"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761181"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>將 Azure HDInsight 中的 Apache Hive 查詢最佳化
 

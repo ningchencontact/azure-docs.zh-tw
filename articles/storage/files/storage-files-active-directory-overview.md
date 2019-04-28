@@ -2,17 +2,17 @@
 title: 針對 Azure 檔案透過 SMB 進行 Azure Active Directory 驗證 (預覽) 的概觀 - Azure 儲存體
 description: Azure 檔案支援透過 Azure Active Directory (Azure AD) Domain Services 在 SMB (伺服器訊息區) 上進行以身分識別為基礎的驗證 (預覽)。 然後，您加入網域的 Windows 虛擬機器 (VM) 可以使用 Azure AD 認證存取 Azure 檔案共用。
 services: storage
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
-ms.author: tamram
-ms.openlocfilehash: 1962a3237fb54409d17fefa314605bafa91c3e9c
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.author: rogarana
+ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427632"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766494"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>針對 Azure 檔案透過 SMB 進行 Azure Active Directory 驗證 (預覽) 的概觀
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]

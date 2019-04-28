@@ -1,5 +1,5 @@
 ---
-title: 取得資源的變更
+title: 取得資源變更
 description: 了解如何尋找資源已變更時，並取得一份變更的屬性。
 services: resource-graph
 author: DCtheGeek
@@ -8,20 +8,20 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f4618e945db443e8d7cf9fdcc49e20e5a09ebd39
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013669"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760804"
 ---
-# <a name="get-resource-changes"></a>取得資源的變更
+# <a name="get-resource-changes"></a>取得資源變更
 
 取得變更過程的每日使用情況、 重新設定和甚至是重新部署的資源。
 變更可能來自個別或透過自動化程序。 大部分的變更是根據設計，但有時不。 過去 14 天的變更歷程記錄，使用 Azure 資源的圖表可讓您：
 
-- 在 Azure Resource Manager 屬性上偵測到變更時，發現。
-- 請參閱 < 屬性變更為該變更事件的一部分。
+- 了解何時在 Azure Resource Manager 屬性上偵測到變更。
+- 查看該變更事件中有哪些屬性變更。
 
 變更偵測和詳細資料會有價值的下列範例案例：
 
@@ -39,7 +39,7 @@ ms.locfileid: "60013669"
 
 ## <a name="find-when-changes-were-detected"></a>尋找當偵測到變更
 
-查看變更內容的資源上的第一個步驟是尋找與該時段內的資源相關的變更事件。 這個步驟透過[resourceChanges](/rest/api/azureresourcegraph/resourceChanges) REST 端點。
+查看變更內容的資源上的第一個步驟是尋找與該時段內的資源相關的變更事件。 這個步驟透過**resourceChanges** REST 端點。
 
 **ResourceChanges**端點需要要求主體中的兩個參數：
 
@@ -95,7 +95,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 
 ## <a name="see-what-properties-changed"></a>請參閱變更的屬性
 
-具有**changeId**從**resourceChanges**端點[resourceChangeDetails](/rest/api/azureresourcegraph/resourceChangeDetails) REST 端點，然後用來取得變更事件的細節。
+具有**changeId**從**resourceChanges**端點**resourceChangeDetails** REST 端點，然後用來取得變更事件的細節。
 
 **ResourceChangeDetails**端點需要要求主體中的兩個參數：
 
@@ -108,7 +108,6 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
     "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
-    }
 }
 ```
 

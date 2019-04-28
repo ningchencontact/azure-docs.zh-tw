@@ -1,7 +1,6 @@
 ---
 title: 使用資料分析管線進行作業 - Azure
 description: 設定及執行範例資料管線，其是由新資料所觸發並可產生精確的結果。
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: b5e7864eae56a6f066590191373d35cb57693f37
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 524386c046534b0ef0050e15d326118b84822822
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311674"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760428"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>使用資料分析管線進行作業
 
@@ -176,7 +175,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 此範例資料目前可供使用。 不過，管線需要兩個 Hive 資料表以供處理使用，一個用於內送資料 (`rawFlights`)，另一個用於彙總資料 (`flights`)。 如下所示，在 Ambari 中建立這些資料表。
 
-1. 瀏覽至 http 登入 Ambari:\//headnodehost:8080。
+1. 通过导航到 http:\//headnodehost:8080 登录 Ambari。
 2. 從服務清單中，選取 [Hive]。
 
     ![在 Ambari 中選取 Hive](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

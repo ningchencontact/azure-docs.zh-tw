@@ -4,21 +4,21 @@ description: 使用 Azure IoT Edge 裝置作為可處理來自下游裝置之資
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/29/2018
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 722ee6197b467454818026c960e1ce0e5b39efb4
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699008"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766315"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>設定 IoT Edge 裝置作為透明閘道
 
-本文提供詳細的指示來設定 IoT Edge 裝置作為透明閘道，讓其他裝置與 IoT 中樞進行通訊。 在本文中，*IoT Edge 閘道*一詞是指當作透明閘道使用的 IoT Edge 裝置。 如需詳細資訊，請參閱[如何使用 IoT Edge 裝置作為閘道](./iot-edge-as-gateway.md)，其中提供概念性的概觀。
+本文提供詳細的指示來設定 IoT Edge 裝置作為透明閘道，讓其他裝置與 IoT 中樞進行通訊。 在本文中，*IoT Edge 閘道*一詞是指當作透明閘道使用的 IoT Edge 裝置。 如需詳細資訊，請參閱 <<c0> [ 如何使用 IoT Edge 裝置可以作為閘道](./iot-edge-as-gateway.md)。
 
 >[!NOTE]
 >目前狀況：
@@ -26,21 +26,21 @@ ms.locfileid: "59699008"
 > * 已啟用 Edge 的裝置無法連線到 IoT Edge 閘道。 
 > * 下游裝置無法使用檔案上傳。
 
-對於要當作閘道運作的裝置，它必須能夠安全地連線到下游裝置。 Azure IoT Edge 可讓您使用公開金鑰基礎結構 (PKI)，設定這些裝置之間的安全連線。 在此案例中，我們將允許下游裝置連線至作為透明閘道的 IoT Edge 裝置。 為了維護適當的安全性，下游裝置應確認 Edge 裝置的身分識別，因為您應該只希望讓裝置連線至自己的閘道，而不是可能的惡意閘道。
+對於要當作閘道運作的裝置，它必須能夠安全地連線到下游裝置。 Azure IoT Edge 可讓您使用公開金鑰基礎結構 (PKI)，設定這些裝置之間的安全連線。 在此案例中，我們將允許下游裝置連線至作為透明閘道的 IoT Edge 裝置。 若要維持合理的安全性，下游裝置應該確認 IoT Edge 裝置的身分識別。 您想要連接到只有您的閘道，不含任何可能是惡意的閘道裝置。
 
 下游裝置可以是使用 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub)雲端服務建立身分識別的任何應用程式或平台。 在許多情況下，這些應用程式都會使用 [Azure IoT 裝置 SDK](../iot-hub/iot-hub-devguide-sdks.md)。 就所有實際用途而言，下游裝置甚至可以是在 IoT Edge 閘道裝置本身執行的應用程式。 
 
-您可以建立任何憑證基礎結構，來啟用裝置閘道拓撲所需的信任。 在本文中，我們假設您會使用在 IoT 中樞內用來啟用 [X.509 CA 安全性](../iot-hub/iot-hub-x509ca-overview.md)的相同憑證安裝程式，其中包含與特定 IoT 中樞相關聯的 X.509 CA 憑證 (IoT 中樞擁有者 CA)，以及使用此 CA 和 Edge 裝置的 CA 簽署的一系列憑證。
+您可以建立任何憑證基礎結構，來啟用裝置閘道拓撲所需的信任。 在本文中，我們假設的是相同的憑證安裝程式，您會使用它來啟用[X.509 CA 安全性](../iot-hub/iot-hub-x509ca-overview.md)在 IoT 中樞中，這牽涉到特定的 IoT 中樞 （IoT 中樞擁有者 CA），和一系列憑證相關聯的 X.509 CA 憑證，使用此 CA 和 CA 簽署的 IoT Edge 裝置。
 
 ![閘道憑證設定](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-閘道在連線起始期間，會向下游裝置出具其 Edge 裝置 CA 憑證。 下游裝置會檢查以確認 Edge 裝置 CA 憑證是由擁有者 CA 憑證所簽署。 此程序可讓下游裝置確認閘道是來自信任的來源。
+閘道提供其 IoT Edge 裝置 CA 憑證，以在下游裝置期間初始化的連線。 下游裝置會檢查以確定 IoT Edge 裝置 CA 憑證由擁有者 CA 憑證簽署。 此程序可讓下游裝置確認閘道是來自信任的來源。
 
 下列步驟會逐步引導您在正確的位置建立憑證並且加以安裝。
 
 ## <a name="prerequisites"></a>必要條件
 
-設定為閘道的 Azure IoT Edge 裝置。 您可以透過下列作業系統的步驟，使用開發電腦或虛擬機器作為 IoT Edge 裝置：
+設定為閘道的 Azure IoT Edge 裝置。 使用 IoT Edge 的安裝步驟適用於下列作業系統：
 * [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
@@ -52,7 +52,7 @@ ms.locfileid: "59699008"
 
 ## <a name="generate-certificates-with-windows"></a>使用 Windows 產生憑證
 
-使用本節中的步驟，在 Windows 裝置上產生測試憑證。 您可以在 IoT Edge 裝置本身產生憑證，或使用不同的電腦，並將最終的憑證複製到執行任何支援的作業系統的任何 IoT Edge 裝置。 
+使用本節中的步驟，在 Windows 裝置上產生測試憑證。 您可以使用下列步驟以產生在 Windows IoT Edge 裝置上的憑證。 或者，您可以在您的 Windows 開發電腦上產生的憑證，並再將它們複製到任何 IoT Edge 裝置。 
 
 本節中所產生的憑證是僅供測試用途。 
 
@@ -133,13 +133,13 @@ ms.locfileid: "59699008"
       New-CACertsCertChain rsa
       ```
 
-2. 使用下列命令建立 Edge 裝置 CA 憑證和私密金鑰。 提供閘道裝置的名稱，這將在憑證產生期間，用於命名檔案。 
+2. 使用下列命令建立 IoT Edge 裝置 CA 憑證和私密金鑰。 提供閘道裝置的名稱，這將在憑證產生期間，用於命名檔案。 
 
    ```powershell
    New-CACertsEdgeDevice "<gateway name>"
    ```
 
-3. 使用下列命令，從擁有者 CA 憑證、中繼憑證和 Edge 裝置 CA 憑證建立憑證鏈結。 
+3. 從擁有者 CA 憑證、 中繼憑證和 IoT Edge 裝置 CA 憑證，使用下列命令建立的憑證鏈結。 
 
    ```powershell
    Write-CACertsCertificatesForEdgeDevice "<gateway name>"
@@ -193,7 +193,7 @@ ms.locfileid: "59699008"
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2. 使用下列命令建立 Edge 裝置 CA 憑證和私密金鑰。 提供閘道裝置的名稱，這將在憑證產生期間，用於命名檔案。 
+2. 使用下列命令建立 IoT Edge 裝置 CA 憑證和私密金鑰。 提供閘道裝置的名稱，這將在憑證產生期間，用於命名檔案。 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"
@@ -203,7 +203,7 @@ ms.locfileid: "59699008"
    * `<WRKDIR>/certs/new-edge-device.*`
    * `<WRKDIR>/private/new-edge-device.key.pem`
 
-3. 從擁有者 CA 憑證、中繼憑證和 Edge 裝置 CA 憑證建立稱為 **new-edge-device-full-chain.cert.pem** 的憑證鏈結。
+3. 建立呼叫的憑證鏈結**新-edge-裝置-全文-chain.cert.pem**從擁有者 CA 憑證、 中繼憑證和 IoT Edge 裝置 CA 憑證。
 
    ```bash
    cat ./certs/new-edge-device.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/new-edge-device-full-chain.cert.pem
@@ -215,7 +215,7 @@ ms.locfileid: "59699008"
 
 1. 從 *\<WRKDIR>* 複製下列檔案。 將其儲存在您 IoT Edge 裝置上的任何位置。 我們將您 IoT Edge 裝置上的目的地目錄稱之為 *\<CERTDIR>*。 
 
-   如果您在 Edge 裝置本身產生憑證，可以略過此步驟，並使用工作目錄的路徑。
+   如果您產生本身的 IoT Edge 裝置上的憑證，您可以略過此步驟，並使用工作目錄的路徑。
 
    * 裝置 CA 憑證 -  `<WRKDIR>\certs\new-edge-device-full-chain.cert.pem`
    * 裝置 CA 私密金鑰 - `<WRKDIR>\private\new-edge-device.key.pem`
@@ -228,16 +228,28 @@ ms.locfileid: "59699008"
 
 3. 將 config.yaml 檔案中的**憑證**屬性設定為您在 IoT Edge 裝置上放置憑證和金鑰檔案所在的路徑。
 
-```yaml
-certificates:
-  device_ca_cert: "<CERTDIR>\\certs\\new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "<CERTDIR>\\private\\new-edge-device.key.pem"
-  trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
-```
+   * Windows:
+
+      ```yaml
+      certificates:
+        device_ca_cert: "<CERTDIR>\\certs\\new-edge-device-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>\\private\\new-edge-device.key.pem"
+        trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
+      ```
+   
+   * Linux： 
+      ```yaml
+      certificates:
+        device_ca_cert: "<CERTDIR>/certs/new-edge-device-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>/private/new-edge-device.key.pem"
+        trusted_ca_certs: "<CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem"
+      ```
+
+4. 在 Linux 裝置，請確定使用者**iotedge**具有讀取權限持有憑證的目錄。 
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>將 Edge 中樞部署至閘道
 
-當您第一次在裝置上安裝 IoT Edge 時，只有一個系統模組會自動啟動：Edge 代理程式。 若要讓您的裝置當作閘道運作，您需要兩個系統模組。 如果您之前還未將任何模組部署至您的閘道裝置，請建立您裝置的部署來啟動第二個系統模組，也就是 Edge 中樞。 部署看起來是空的，因為您沒有在精靈中新增任何模組，但它將會部署兩個系統模組。 
+當您第一次會安裝在裝置上的 IoT Edge 時，只能有一個系統模組會自動啟動： IoT Edge 代理程式。 若要讓您的裝置當作閘道運作，您需要兩個系統模組。 如果您尚未部署任何模組至您的閘道裝置之前，建立您的裝置，若要啟動第二個系統模組，IoT Edge 中樞的部署。 部署看起來是空的，因為您沒有在精靈中新增任何模組，但它將會部署兩個系統模組。 
 
 您可以使用 `iotedge list` 命令，檢查哪些模組是在裝置上執行。
 
@@ -265,7 +277,7 @@ certificates:
 
 標準的 IoT Edge 裝置不需要任何輸入的連線能力函式，因為與 IoT 中樞的所有通訊都會都透過輸出連線。 不過，閘道裝置會不同，因為它們必須要能夠從其下游裝置接收訊息。
 
-閘道案例中運作，其中至少一個 IoT Edge 中樞支援的通訊協定必須開放給來自下游裝置的輸入流量。 支援的 portocols 是 MQTT、 AMQP 及 HTTPS。
+閘道案例中運作，其中至少一個 IoT Edge 中樞支援的通訊協定必須開放給來自下游裝置的輸入流量。 支援的通訊協定是 MQTT、 AMQP 及 HTTPS。
 
 | Port | 通訊協定 |
 | ---- | -------- |
@@ -274,7 +286,7 @@ certificates:
 | 443 | HTTPS <br> MQTT+WS <br> AMQP+WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>從下游裝置路由傳送訊息
-IoT Edge 執行階段可以路由傳送從下游裝置送來的訊息，就像路由傳送從模組送來的訊息一樣。 這可讓您在將任何資料傳送到雲端之前，在執行於閘道的模組中執行分析。 
+IoT Edge 執行階段可以路由傳送從下游裝置送來的訊息，就像路由傳送從模組送來的訊息一樣。 這項功能可讓您在閘道上的任何資料傳送至雲端之前，先執行模組中執行分析。 
 
 目前，針對下游裝置所傳送的訊息，您進行路由傳送的方式是將它們與模組所傳送的訊息做區分。 模組所傳送的訊息全都包含名為 **connectionModuleId** 系統屬性，但下游裝置所傳送的訊息則無此屬性。 您可以使用路由的 WHERE 子句來排除任何包含該系統屬性的訊息。 
 

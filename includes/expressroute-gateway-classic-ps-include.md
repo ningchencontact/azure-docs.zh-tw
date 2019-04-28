@@ -9,11 +9,11 @@ ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116105"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60365115"
 ---
 > [!NOTE]
 > 這些範例不會套用到 S2S/ExpressRoute 並存組態。

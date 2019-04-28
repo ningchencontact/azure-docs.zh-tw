@@ -11,18 +11,82 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/30/2018
+ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: de27d5c4fd65515e25319f9e7ac3eafc4110b137
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481558"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764082"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>管理和維護適用於 Windows 和 Linux 的 Log Analytics 代理程式
 
-初始部署後的 Log Analytics 的 Windows 或 Linux 代理程式在 Azure 監視器中的，您可能需要重新設定代理程式，或從電腦中，如果已達到其生命週期的淘汰階段中移除它。 您可以手動或自動的方式輕鬆地管理這些例行維護工作，後者可以降低操作錯誤和費用。
+初始部署後的 Log Analytics 的 Windows 或 Linux 代理程式在 Azure 監視器中的，您可能需要重新設定代理程式、 升級，或從電腦中，如果已達到其生命週期的淘汰階段中移除它。 您可以手動或自動的方式輕鬆地管理這些例行維護工作，後者可以降低操作錯誤和費用。
+
+## <a name="upgrading-agent"></a>將代理程式升級
+
+適用於 Windows 和 Linux 的 Log Analytics 代理程式可以升級至最新的版本手動或自動方式視部署案例和 VM 執行所在的環境而定。 下列方法可用來升級代理程式。
+
+| 環境 | 安裝方法 | 升級方法 |
+|--------|----------|-------------|
+| Azure VM | 適用於 Windows/Linux 記錄分析代理程式 VM 擴充功能 | 除非您已設定您的 Azure Resource Manager 範本，以退出藉由設定屬性，預設會自動升級代理程式*autoUpgradeMinorVersion*要**false**。 |
+| 自訂 Azure VM 映像 | 手動安裝適用於 Windows/Linux 的 Log Analytics 代理程式 | 更新至最新版的代理程式的 Vm 必須從執行 Windows installer 套件或 Linux 自動解壓縮，並可安裝的殼層指令碼套件組合的命令列執行。|
+| 非 Azure Vm | 手動安裝適用於 Windows/Linux 的 Log Analytics 代理程式 | 更新至最新版的代理程式的 Vm 必須從執行 Windows installer 套件或 Linux 自動解壓縮，並可安裝的殼層指令碼套件組合的命令列執行。 |
+
+### <a name="upgrade-windows-agent"></a>升級 Windows 代理程式 
+
+若要更新 Windows VM 上的代理程式不使用 Log Analytics VM 延伸模組來安裝最新版本，您執行從命令提示字元中，指令碼或其他自動化解決方案，或使用 MMASetup-\<平台\>.msi 安裝程式精靈。  
+
+您可以執行下列步驟，從您 Log Analytics 工作區中，下載最新版的 Windows 代理程式。
+
+1. 登入 Azure 入口網站。
+
+2. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics 工作區]。
+
+3. 在 Log Analytics 工作區清單中，選取工作區。
+
+4. 在您的 Log Analytics 工作區，選取**進階設定**，然後選取**連接的來源**，最後**Windows 伺服器**。
+
+5. 從**Windows 伺服器**頁面上，選取適當**下載 Windows 代理程式**根據 Windows 作業系統的處理器架構所下載的版本。
+
+>[!NOTE]
+>在升級期間 Windows 的 Log Analytics 代理程式，它不支援設定或重新設定要報告的工作區。 若要設定代理程式，您需要遵循下列其中一個支援的方法，底下所列[新增或移除工作區](#adding-or-removing-a-workspace)。
+>
+
+#### <a name="to-upgrade-using-the-setup-wizard"></a>若要使用安裝精靈來升級
+
+1. 以具有系統管理權限的帳戶登入電腦。
+
+2. 執行**MMASetup-\<平台\>.exe**以啟動安裝精靈。
+
+3. 在安裝精靈的第一個頁面上，按一下**下一步**。
+
+4. 在 [ **Microsoft Monitoring Agent 安裝程式**] 對話方塊中，按一下**我同意**接受授權合約。
+
+5. 在 [ **Microsoft Monitoring Agent 安裝程式**] 對話方塊中，按一下**升級**。 [狀態] 頁面會顯示升級進度。
+
+6. 當**Microsoft Monitoring Agent 組態已順利完成。** 頁面出現時，按一下**完成**。
+
+#### <a name="to-upgrade-from-the-command-line"></a>若要從命令列升級
+
+1. 以具有系統管理權限的帳戶登入電腦。
+
+2. 若要解壓縮代理程式安裝檔案，請從提升權限的命令提示字元執行 `MMASetup-<platform>.exe /c`，它會提示檔案解壓縮的路徑。 或者，您可以傳遞 `MMASetup-<platform>.exe /c /t:<Full Path>` 引數來指定路徑。
+
+3. 執行下列命令，其中 D:\是升級記錄檔的位置。
+
+    ```dos
+    setup.exe /qn /l*v D:\logs\AgentUpgrade.log AcceptEndUserLicenseAgreement=1
+    ```
+
+### <a name="upgrade-linux-agent"></a>升級 Linux 代理程式 
+
+從舊版升級 (> 1.0.0-47) 支援。 使用 `--upgrade` 命令執行安裝，會將代理程式的所有元件升級為最新版本。
+
+執行下列命令來升級代理程式。
+
+`sudo sh ./omsagent-*.universal.x64.sh --upgrade`
 
 ## <a name="adding-or-removing-a-workspace"></a>新增或移除工作區
 
@@ -31,10 +95,15 @@ ms.locfileid: "58481558"
 #### <a name="update-settings-from-control-panel"></a>從控制台更新設定
 
 1. 以具有系統管理權限的帳戶登入電腦。
+
 2. 開啟 [ **控制台**]。
+
 3. 選取 [Microsoft Monitoring Agent]，然後按一下 [Azure Log Analytics] 索引標籤。
+
 4. 若要移除工作區，請選取工作區，然後按一下 [移除]。 針對您希望代理程式停止向其報告的任何其他工作區，重複此步驟。
+
 5. 若要新增工作區，請按一下 [新增]，然後在 [新增 Log Analytics 工作區] 對話方塊中，貼上工作區識別碼和工作區索引鍵 (主索引鍵)。 如果電腦應該向 Azure Government 雲端中的 Log Analytics 工作區報告，請從 Azure 雲端下拉式清單中選取 [Azure US Government]。
+
 6. 按一下 [確定]  以儲存變更。
 
 #### <a name="remove-a-workspace-using-powershell"></a>使用 PowerShell 移除工作區
@@ -109,8 +178,11 @@ $mma.ReloadConfiguration()
 #### <a name="update-settings-using-control-panel"></a>使用控制台更新設定
 
 1. 以具有系統管理權限的帳戶登入電腦。
+
 2. 開啟 [ **控制台**]。
+
 3. 選取 [Microsoft Monitoring Agent]，然後按一下 [Proxy 設定] 索引標籤。
+
 4. 按一下 [使用 Proxy 伺服器]，並提供 Proxy 伺服器或閘道的 URL 和連接埠號碼。 如果您的 Proxy 伺服器或 Log Analytics 閘道要求驗證，請輸入要驗證的使用者名稱和密碼，然後按一下 [確定]。
 
 #### <a name="update-settings-using-powershell"></a>使用 PowerShell 更新設定
@@ -165,7 +237,9 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 #### <a name="uninstall-from-control-panel"></a>從控制台解除安裝
 1. 以具有系統管理權限的帳戶登入電腦。
+
 2. 在 [控制台] 中按一下 [程式和功能]。
+
 3. 在 [程式和功能] 中，依序按一下 [Microsoft Monitoring Agent]、[解除安裝] 和 [是]。
 
 >[!NOTE]
@@ -175,7 +249,9 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 為代理程式下載的檔案是使用 IExpress 建立的獨立安裝套件。 套件中包含代理程式的安裝程式和支援檔案，這些檔案需要先解壓縮，才能使用命令列正確解除安裝，如下列範例所示。
 
 1. 以具有系統管理權限的帳戶登入電腦。
+
 2. 若要解壓縮代理程式安裝檔案，請從提升權限的命令提示字元執行 `extract MMASetup-<platform>.exe`，它會提示檔案解壓縮的路徑。 或者，您可以傳遞 `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>` 引數來指定路徑。 如需 IExpress 支援的命令列參數詳細資訊，請參閱 [IExpress 的命令列參數](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages)，然後更新範例以符合您的需求。
+
 3. 在出現提示時輸入 `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`。
 
 ### <a name="linux-agent"></a>Linux 代理程式
@@ -191,14 +267,23 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 1. 以具有系統管理權限的帳戶登入電腦。
+
 2. 開啟 [ **控制台**]。
+
 3. 按一下 [Microsoft Monitoring Agent]，然後按一下 [Operations Manager] 索引標籤。
+
 4. 如果 Operations Manager 伺服器已與 Active Directory 整合，請按一下 [自動更新來自 AD DS 的管理群組指派] 。
+
 5. 按一下 [新增] 以開啟 [新增管理群組] 對話方塊。
+
 6. 在 [管理群組名稱] 欄位中，輸入您的管理群組名稱。
+
 7. 在 [主要管理伺服器] 欄位中，輸入主要管理伺服器的電腦名稱。
+
 8. 在 [管理伺服器連接埠]  欄位中，輸入 TCP 連接埠號碼。
+
 9. 在 [代理程式動作帳戶] 頁面下，選擇本機系統帳戶或本機網域帳戶。
+
 10. 按一下 [確定] 關閉 [新增管理群組] 對話方塊，然後按一下 [確定] 關閉 [Microsoft 監視代理程式內容] 對話方塊。
 
 ### <a name="linux-agent"></a>Linux 代理程式
@@ -207,7 +292,9 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 1. 編輯 `/etc/opt/omi/conf/omiserver.conf`
+
 2. 確認以 `httpsport=` 開頭的這一行會定義連接埠 1270。 例如：`httpsport=1270`
+
 3. 重新啟動 OMI 伺服器：`sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>後續步驟

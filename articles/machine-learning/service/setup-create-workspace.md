@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 04/19/2019
-ms.openlocfilehash: cc6c93420e939e90e12b989def491199fd2c6b15
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ca43a6cff6a32a30d93e42f6a6624439b2fe83a7
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006993"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766792"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>建立 Azure 機器學習服務工作區
 
@@ -73,7 +73,7 @@ ms.locfileid: "60006993"
 
 ### <a name="create-an-isolated-python-environment"></a>建立獨立的 Python 環境
 
-1. 開啟命令列視窗，然後建立名為 *myenv* 的新 Conda 環境，並安裝 Python 3.6.5。 Azure Machine Learning SDK 會使用 Python 3.5.2 或更新版本，但自動化機器學習元件在 Python 3.7 上無法完整運作。  建立環境可能需要幾分鐘的時間，因為需要下載元件和套件。
+1. 開啟 Anaconda 提示字元，然後建立名為新的 conda 環境*myenv*並安裝 Python 3.6.5。 Azure Machine Learning SDK 會使用 Python 3.5.2 或更新版本，但自動化機器學習元件在 Python 3.7 上無法完整運作。  建立環境可能需要幾分鐘的時間，因為需要下載元件和套件。 
 
     ```shell
     conda create -n myenv python=3.6.5

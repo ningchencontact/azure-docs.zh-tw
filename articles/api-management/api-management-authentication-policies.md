@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 9ee4a9fb5c63061eed32389b5672652aad01208a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: MT
+ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994929"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764353"
 ---
 # <a name="api-management-authentication-policies"></a>API 管理驗證原則
 本主題提供下列「API 管理」原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -49,13 +49,13 @@ ms.locfileid: "59994929"
   
 ### <a name="elements"></a>元素  
   
-|Name|描述|必要項|  
+|名稱|描述|必要項|  
 |----------|-----------------|--------------|  
 |authentication-basic|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|描述|必要項|預設值|  
+|名稱|描述|必要項|預設值|  
 |----------|-----------------|--------------|-------------|  
 |username|指定「基本驗證」認證的使用者名稱。|是|N/A|  
 |password|指定「基本驗證」認證的密碼。|是|N/A|  
@@ -73,26 +73,32 @@ ms.locfileid: "59994929"
 ### <a name="policy-statement"></a>原則陳述式  
   
 ```xml  
-<authentication-certificate thumbprint="thumbprint" />  
+<authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>  
 ```  
   
-### <a name="example"></a>範例  
+### <a name="examples"></a>範例  
   
+在此範例用戶端憑證是由其指紋識別。
 ```xml  
-<authentication-certificate thumbprint="....." />  
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />  
+``` 
+在此範例中用戶端憑證識別的資源名稱。
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ```  
-  
+
 ### <a name="elements"></a>元素  
   
-|Name|描述|必要項|  
+|名稱|描述|必要項|  
 |----------|-----------------|--------------|  
 |authentication-certificate|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|描述|必要項|預設值|  
+|名稱|描述|必要項|預設值|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|用戶端憑證的指紋。|是|N/A|  
+|thumbprint|用戶端憑證的指紋。|請`thumbprint`或`certificate-id`必須存在。|N/A|  
+|certificate-id|憑證資源名稱。|請`thumbprint`或`certificate-id`必須存在。|N/A|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -118,13 +124,13 @@ ms.locfileid: "59994929"
   
 ### <a name="elements"></a>元素  
   
-|Name|描述|必要項|  
+|名稱|描述|必要項|  
 |----------|-----------------|--------------|  
 |authentication-managed-identity |根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|描述|必要項|預設值|  
+|名稱|描述|必要項|預設值|  
 |----------|-----------------|--------------|-------------|  
 |resource|字串。 目標中的 web API （受保護的資源） Azure Active Directory 應用程式識別碼 URI。|是|N/A|  
 |output-token-variable-name|字串。 將會收到權杖的值，做為物件類型的內容變數名稱`string`。|否|N/A|  

@@ -4,7 +4,7 @@ description: 如何在 Resource Manager 部署模型中使用 Azure CLI 將 Linu
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 39a42891a73bd64731dd19aa22214a62d913d975
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d1783890ba1b304ab658e827bfd24091e208fda4
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700820"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765712"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>將 Linux 虛擬機器從非受控磁碟轉換成受控磁碟
 
@@ -36,31 +36,31 @@ ms.locfileid: "55700820"
 
 
 ## <a name="convert-single-instance-vms"></a>轉換單一執行個體 VM
-本節說明如何將單一執行個體 Azure VM 從非受控磁碟轉換為受控磁碟。 (如果您的 VM 位於可用性設定組中，請參閱下一節)。您可以使用此程序將 VM 從進階 (SSD) 非受控磁碟轉換成進階受控磁碟，或從標準 (HDD) 非受控磁碟轉換成標準受控磁碟。
+本节介绍如何将单实例 Azure VM 从非托管磁盘转换为托管磁盘。 (如果您的 VM 位於可用性設定組中，請參閱下一節)。您可以使用此程序將 VM 從進階 (SSD) 非受控磁碟轉換成進階受控磁碟，或從標準 (HDD) 非受控磁碟轉換成標準受控磁碟。
 
-1. 使用 [az vm deallocate](/cli/azure/vm) 將 VM 解除配置。 下列範例會解除配置 `myResourceGroup` 資源群組中名為 `myVM` 的 VM：
+1. 使用 [az vm deallocate](/cli/azure/vm) 將 VM 解除配置。 以下示例在名为 `myResourceGroup` 的资源组中解除分配名为 `myVM` 的 VM：
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. 使用 [az vm convert](/cli/azure/vm) 將 VM 轉換成受控磁碟。 下列程序會轉換名為 `myVM` 的 VM，包括 OS 磁碟和任何資料磁碟︰
+2. 使用 [az vm convert](/cli/azure/vm) 將 VM 轉換成受控磁碟。 以下过程转换名为 `myVM` 的 VM，包括 OS 磁盘和任何数据磁盘：
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. 轉換成受控磁碟之後，使用 [az vm start](/cli/azure/vm) 來啟動 VM。 下列範例會啟動 `myResourceGroup` 資源群組中名為 `myVM` 的 VM。
+3. 轉換成受控磁碟之後，使用 [az vm start](/cli/azure/vm) 來啟動 VM。 以下示例启动名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM。
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-## <a name="convert-vms-in-an-availability-set"></a>轉換可用性設定組中的 VM
+## <a name="convert-vms-in-an-availability-set"></a>转换可用性集中的 VM
 
 如果您想要轉換為受控磁碟的 VM 位於可用性設定組中，您必須先將此可用性設定組轉換為受控可用性設定組。
 
-轉換可用性設定組之前，必須先解除配置可用性設定組中的所有 VM。 在可用性設定組本身轉換成受控可用性設定組之後，請規劃將所有 VM 轉換成受控磁碟。 然後，啟動所有 VM 並繼續像平常一樣運作。
+可用性集中的所有 VM 都必须在转换可用性集之前解除分配。 在可用性設定組本身轉換成受控可用性設定組之後，請規劃將所有 VM 轉換成受控磁碟。 然后，启动所有 VM，并继续照常操作。
 
 1. 使用 [az vm availability-set list](/cli/azure/vm/availability-set) 來列出可用性設定組中的所有 VM。 下列範例會列出 `myResourceGroup` 資源群組中名為 `myAvailabilitySet` 的可用性設定組中的所有 VM：
 

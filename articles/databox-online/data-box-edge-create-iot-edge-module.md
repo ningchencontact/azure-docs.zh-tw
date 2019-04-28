@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401719"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760000"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>開發C#IoT Edge 模組，來移動資料方塊的邊緣上的檔案
 
@@ -36,7 +36,7 @@ ms.locfileid: "58401719"
 2. 檔案事件產生器會針對寫入到本機共用的每個檔案建立檔案事件。 當有檔案遭到修改時，也會產生檔案的事件。 接著將檔案事件傳送到 IoT Edge 中樞 (位於 IoT Edge 執行階段)。
 3. IoT Edge 自訂模組會處理檔案事件以建立檔案事件物件，此物件也包含該檔案的相對路徑。 此模組會使用相對的檔案路徑來產生絕對路徑，並將檔案從本機共用複製到雲端共用。 模組接著會從本機共用中刪除該檔案。
 
-![Azure IoT Edge 模組在 Data Box Edge 上的運作方式](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
+![Azure IoT Edge 模組在 Data Box Edge 上的運作方式](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 一旦檔案位於雲端共用之後，它就會自動上傳至您的 Azure 儲存體帳戶。
 

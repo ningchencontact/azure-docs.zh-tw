@@ -1,7 +1,6 @@
 ---
 title: 搭配 Hortonworks 沙箱使用 Data Lake tools for Visual Studio - Azure HDInsight
 description: 了解如何搭配在本機 VM 中執行的 Hortonworks 沙箱使用 Azure Data Lake tools for Visual Studio。 您可以使用這些工具，在沙箱上建立和執行 Hive 和 Pig 作業，以及檢視作業輸出和歷程記錄。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7c2a1c586b4d6f5f9f6e34a091702a35f994544f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8172da3f573f78365cbe76f435a4817e64bc136c
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726624"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762756"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>搭配 Hortonworks 沙箱使用 Azure Data Lake tools for Visual Studio
 
@@ -54,7 +53,7 @@ Azure Data Lake 包含使用於一般 Apache Hadoop 叢集的工具。 針對在
 
     ![對話方塊的螢幕擷取畫面，其中密碼文字方塊已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
-    選取 [下一步] 以繼續操作。
+    选择“下一步”继续。
 
 5. 等候服務的驗證完成。 在某些情況下，驗證可能會失敗並提示您更新設定。 如果驗證失敗，請選取 [更新] 並等候服務的設定和驗證完成。
 
@@ -67,7 +66,7 @@ Azure Data Lake 包含使用於一般 Apache Hadoop 叢集的工具。 針對在
     ![對話方塊的螢幕擷取畫面，其中 [完成] 按鈕已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
      >[!NOTE]  
-     > 視您的開發環境的速度，以及配置給虛擬機器的記憶體數量而定，可能需要幾分鐘的時間來設定及驗證服務。
+     > 根据开发环境的速度以及分配给虚拟机的内存量，可能需要几分钟时间才能完成服务的配置和验证。
 
 完成這些步驟後，您會發現 [伺服器總管] 的 [HDInsight] 區段下出現 [HDInsight 本機叢集] 項目。
 
@@ -102,7 +101,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
     > [!NOTE]  
     > Apache Tez 也是當您使用 Linux 型 HDInsight 叢集時的預設值。 它不是 Windows 型 HDInsight 的預設值。 若要在該處使用它，您必須將 `set hive.execution.engine = tez;` 行新增到 Hive 查詢的開頭。
 
-    使用 [作業輸出] 連結來檢視輸出。 在此案例中，它是 823，亦即 sample_08 資料表中的資料列數目。 您可以使用 [作業記錄] 和 [下載 YARN 記錄] 連結，檢視作業的相關診斷資訊。
+    使用“作业输出”链接查看输出。 在此案例中，它是 823，亦即 sample_08 資料表中的資料列數目。 您可以使用 [作業記錄] 和 [下載 YARN 記錄] 連結，檢視作業的相關診斷資訊。
 
 4. 您也可以將 [批次] 欄位變更為 [互動式]，以互動方式執行 Hive 作業。 接著，選取 [執行]。
 
@@ -121,7 +120,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
 1. 在 Visual Studio 中，選取 [檔案]、[新增]，然後選取 [專案]。
 
-2. 從專案清單，展開 [範本]，展開 [Azure Data Lake]，然後選取 [HIVE (HDInsight)]。 從範本清單中，選取 [Hive 範例]。 輸入名稱和位置，然後選取 [確定]。
+2. 從專案清單，展開 [範本]，展開 [Azure Data Lake]，然後選取 [HIVE (HDInsight)]。 在模板列表中，选择“Hive 示例”。 輸入名稱和位置，然後選取 [確定]。
 
     ![[新增專案] 視窗的螢幕擷取畫面，其中 [Azure Data Lake]、[HIVE]、[Hive 範例] 與 [確定] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
@@ -164,7 +163,7 @@ Data Lake 工具也可讓您輕鬆地檢視已在 Hadoop 上執行之作業的�
 
     ![[伺服器總管] 的螢幕擷取畫面，其中 [檢視作業] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
 
-2. 選取作業清單中的作業，以檢視作業詳細資料。
+2. 在作业列表中，选择一个作业查看其详细信息。
 
     ![[作業瀏覽器] 的螢幕擷取畫面，其中一個作業已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/view-job-details.png)
 
@@ -174,7 +173,7 @@ Data Lake 工具也可讓您輕鬆地檢視已在 Hadoop 上執行之作業的�
 
 ## <a name="view-hive-databases"></a>檢視 Hive 資料庫
 
-1. 在 [伺服器總管] 中，展開 [HDInsight 本機叢集] 項目，然後展開 [Hive 資料庫]。 本機叢集上的 [預設] 和 [xademo] 資料庫隨即顯示。 展開資料庫即可顯示資料庫內的資料表。
+1. 在“服务器资源管理器”中，展开“HDInsight 本地群集”项，然后展开“Hive 数据库”。 此时将显示本地群集上的“默认”和“xademo”数据库。 展開資料庫即可顯示資料庫內的資料表。
 
     ![[伺服器總管] 的螢幕擷取畫面，其中資料庫已展開](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
 

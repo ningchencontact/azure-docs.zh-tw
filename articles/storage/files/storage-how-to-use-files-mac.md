@@ -2,18 +2,18 @@
 title: 透過 macOS 的 SMB 掛接 Azure 檔案共用 | Microsoft Docs
 description: 了解如何透過 macOS 的 SMB 掛接 Azure 檔案共用。
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/19/2017
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 198e9102561af9ebec7a337a7b5e01f59453c8be
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 7f2abbb355513c175329d01b9d5ed8884f2c27ef
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760728"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763547"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>透過 macOS 的 SMB 掛接 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 您可以使用 macOS El Capitan 10.11+ 所推出的業界標準 SMB 3 通訊協定來掛接 Azure 檔案共用。 本文說明兩種在 macOS 上掛接 Azure 檔案共用的不同方式：使用 Finder UI 和使用終端機。

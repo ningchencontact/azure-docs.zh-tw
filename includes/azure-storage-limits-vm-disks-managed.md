@@ -9,11 +9,11 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386292"
 ---
 **標準的 HDD 受控磁碟**
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "58395676"
 
 **進階 SSD 受控磁碟：每個 VM 限制**
 
-| 資源 | 預設限制 |
+| Resource | 預設限制 |
 | --- | --- |
 | 每個 VM 的最大 IOPS |80,000 IOPS (使用 GS5 虛擬機器) |
 | 每個 VM 的最大輸送量 |2,000 MB/秒 (使用 GS5 虛擬機器) |

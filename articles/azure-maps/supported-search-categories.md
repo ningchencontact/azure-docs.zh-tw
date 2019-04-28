@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437338"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763564"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure 地圖服務支援的類別
 
@@ -105,7 +105,7 @@ ms.locfileid: "57437338"
 | REPAIR\_FACILITY | 車身車間、輪胎服務、修車廠、汽車玻璃更換商店、一般汽車維修服務、汽車配件銷售安裝、摩托車維修、卡車維修服務、維修設施 |
 | RESEARCH\_FACILITY | 研究設施 |
 | RESIDENTIAL\_ACCOMMODATION | 退休社區、多棟聯建住宅社區、公寓/公寓型社區、連棟公寓、住宅地產、居所 |
-| RESTAURANT | 德國、克里奧爾、荷蘭、宴會廳、小酒館、以色列、斯洛伐克、牙買加、素食、海鮮、越南、馬爾他、四川、威爾斯、中國、日本、本阿爾及利亞、加州、融合、山東、沙拉吧、薩沃伊、西班牙、衣索比亞、臺灣、甜甜圈、伊朗、加拿大、美國、挪威、法國、湖南、波利尼西亞、阿富汗、路邊、東方、瑞士、色情、crêperie、蘇里南、埃及、匈牙利、尼泊爾、拉丁美洲、小吃、英國、墨西哥、廣東、亞洲 (其他)、自助餐、壽司、蒙古、國際、淡菜、泰國、委內瑞拉、羅馬尼亞、雞肉、湯、猶太、牛排屋、優格/果汁吧、義大利、韓國、賽普勒斯、波士尼亞、玻利維亞、多明尼加、比利時、突尼西亞、蘇格蘭、英格蘭、巴基斯坦、捷克、夏威夷、馬格里布、西藏、阿拉伯、中東、智利、上海、波蘭、菲律賓、蘇丹、亞美尼亞、緬甸、巴西、斯堪的納維亞、保加利亞、靈性食品、哥倫比亞、猶太、比薩、西西里、有機、希臘、巴斯克、烏拉圭、咖啡廳、芬蘭、非洲、科西嘉、敘利亞、加勒比、東北、俄羅斯、燒烤、帶走、快餐、澳大利亞、愛爾蘭、酒吧食品、火鍋、黎巴嫩、印度尼西亞、丹麥、普羅旺斯、鐵板燒、印度、毛里求斯、西部大陸、秘魯、柬埔寨、小吃、瑞典、長壽、冰淇淋店、斯拉夫、土耳其、阿根廷、奧地利、異國情調、葡萄牙、盧森堡、摩洛哥、三明治、古巴、餐廳 |
+| RESTAURANT | 德文，克利奧爾文印地安、 荷蘭文，宴會室，土、 以色列、 斯洛伐克文、 牙買加、 蔬菜、 seafood，越南文、 馬爾他文、 Sichuan，威爾斯文、 中文、 日文、 阿爾及利亞、 Californian，fusion Shandong，薩伏依沙拉區列，西班牙文、 衣、 台語，doughnuts、 伊朗、 加拿大、 American、 挪威文、 法文、 Hunan、 Polynesian、 afghan、 roadside、 亞洲、 瑞士、 erotic、 crêperie，Surinamese、 埃及、 匈牙利文、 尼泊爾、 烤肉、 經常性存取層 pot、 漢堡，地中海、 拉丁美洲、 tapas，英國，墨西哥、 廣東、 亞洲 （其他）、 buffet，壽司，蒙古文，國際電話 mussels、 泰文、 委內瑞拉、 Rumanian、 chicken soup kosher steak 房子、 yogurt/汁列義大利文、 韓文、 Cypriot、 波士尼亞文、 玻利維亞、 多明尼加、 比利時、 突尼西亞、 蘇格蘭，英文、 巴基斯坦、 捷克文、 夏威夷、 Maghrib、 藏文、 阿拉伯，中間美國東部、 智利、 上海，unicode 資料採用 polish、 菲律賓文、 蘇丹文、 亞美尼亞文、 緬甸文、 巴西、 北歐、 保加利亞文、 靈魂食物、 哥倫比亞、 猶太，披薩 Sicilian、 有機、 希臘文、 巴斯克文，烏拉圭，call-to-action，芬蘭文、 非、 科西嘉文、 敘利亞、 加勒比海、 Dongbei，俄文燒烤，會消失，速食，澳洲，愛爾蘭，pub 食物，fondue、 黎巴嫩、 印尼文、 丹麥文、 Provençal、 teppanyaki、 印度、 模里西斯、 西歐本土魯、 柬埔寨、 點心、 瑞典文、 macrobiotic，冰淇淋 parlor，斯拉夫文、 土耳其文、 阿根廷、 奧地利、 外來、 葡萄牙文、 盧森堡、 摩洛哥、 三明治，古巴，餐廳 |
 | RESTAURANT\_AREA | 餐廳區 |
 | REST\_AREA | 休息區、野餐場所 |
 | SCENIC\_PANORAMIC\_VIEW | 風景/全景、觀測點 |

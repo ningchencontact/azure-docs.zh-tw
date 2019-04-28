@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: 4617e878f2af446608ede4e0aed644848564a074
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 044e997703f5b274215fb05c7152186948b331b4
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609070"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761413"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -296,7 +296,7 @@ Container image build failed
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev Spaces Proxy 可能會干擾在開發空間中執行的其他 Pod
 
 ### <a name="reason"></a>原因
-當您在 AKS 叢集中的命名空間上啟用 Dev Spaces 時，即會在每個於該命名空間內執行的 Pod 中額外安裝名為 _mindaro proxy_ 的容器。 此容器會攔截對 Pod 中之服務的呼叫，這對 Dev Spaces 小組開發功能而言是不可或缺的；不過，其可能會干擾在這些 Pod 中執行的特定服務。 其已知會干擾執行「Azure Redis 快取」的 Pod，導致在主要/從屬通訊中發生連線錯誤和失敗。
+當您在 AKS 叢集中的命名空間上啟用 Dev Spaces 時，即會在每個於該命名空間內執行的 Pod 中額外安裝名為 _mindaro proxy_ 的容器。 此容器會攔截對 Pod 中之服務的呼叫，這對 Dev Spaces 小組開發功能而言是不可或缺的；不過，其可能會干擾在這些 Pod 中執行的特定服務。 它稱為適用於 Redis 執行 Azure 快取，這將導致連線錯誤和失敗的主要/次要通訊的 pod 會干擾。
 
 ### <a name="try"></a>請嘗試︰
 您可以將受影響的 Pod 移至未啟用 Dev Spaces 的叢集內所含的命名空間。 應用程式的其餘部分則可繼續在已啟用 Dev Spaces 的命名空間內執行。 Dev Spaces 將不會在啟用非 Dev Spaces 的命名空間內安裝 _mindaro-proxy_ 容器。

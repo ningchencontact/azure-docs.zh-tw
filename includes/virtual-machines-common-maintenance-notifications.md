@@ -9,11 +9,11 @@ ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: 50a215175d7305834a64b7e0cfbc153431b10b7c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739196"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301738"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>在入口網站中檢視排定維護的 VM
 
@@ -31,7 +31,7 @@ ms.locfileid: "56739196"
 
    **維護**：顯示 VM 的維護狀態。 以下是可能值：
       
-      | 值 | 說明 |
+      | Value | 描述 |
       |-------|-------------|
       | 立即開始 | VM 處於自助式維護期間，可讓您在這裡自行起始維護。 請參閱下述，以了解如何在您的 VM 上開始維護。 | 
       | 已排程 | 已排定 VM 進行維護，沒有選項供您起始維護。 您可以在此檢視中選取 [維護 - 排程] 期間或按一下虛擬機器，來了解維護維護期間。 | 

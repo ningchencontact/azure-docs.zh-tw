@@ -15,15 +15,15 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291626"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759768"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應
-Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等等的協力廠商 SaaS 應用程式。 如果您啟用使用者佈建的第三方 SaaS 應用程式，Azure 入口網站會控制其屬性值，透過 屬性對應。
+Microsoft Azure AD 使用者佈建到例如 Salesforce、 G Suite 等協力廠商 SaaS 應用程式提供支援。 如果您啟用使用者佈建的第三方 SaaS 應用程式，Azure 入口網站會控制其屬性值，透過 屬性對應。
 
 沒有一組預先設定的屬性和 Azure AD 使用者物件和每個 SaaS 應用程式的使用者物件之間的屬性對應。 某些應用程式管理物件，例如群組的使用者，以及其他的類型。
 
@@ -84,7 +84,7 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
 
 ## <a name="editing-group-attribute-mappings"></a>編輯群組屬性對應
 
-選取的數字的應用程式，例如 ServiceNow、 Box 和 Google Apps 支援佈建群組物件和使用者物件的能力。 群組物件可以包含群組的屬性，例如顯示名稱和電子郵件別名，以及群組成員。
+選取的數字的應用程式，例如 ServiceNow、 Box 和 G Suite 支援佈建群組物件和使用者物件的能力。 群組物件可以包含群組的屬性，例如顯示名稱和電子郵件別名，以及群組成員。
 
 ![ServiceNow](./media/customize-application-attributes/24.png)
 

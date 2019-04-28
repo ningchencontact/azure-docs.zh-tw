@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b05a7ce260e8cc1da4ac8a0c186694ae097a3b1e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266183"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766347"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>了解 Azure 藍圖中的部署順序
 
@@ -41,6 +41,9 @@ Azure 藍圖會使用**排序順序**處理指派藍圖定義時，決定資源�
 - 資源群組子**角色指派**成品，依成品名稱排序
 - 資源群組子**原則指派**成品，依成品名稱排序
 - 資源群組子 **Azure Resource Manager 範本**成品，依成品名稱排序
+
+> [!NOTE]
+> 利用[artifacts()](../reference/blueprint-functions.md#artifacts)會建立隱含的相依性所參考的成品。
 
 ## <a name="customizing-the-sequencing-order"></a>自訂排序順序
 

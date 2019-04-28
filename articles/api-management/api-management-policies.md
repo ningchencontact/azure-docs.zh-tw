@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f1352b018fe9ea46b0f0824ba53ee0204c7dc7c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 711f6395959b3718ca0a094a03c07c4381892104
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005514"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762852"
 ---
 # <a name="api-management-policies"></a>API 管理原則
 本節提供下列「API 管理」原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](api-management-howto-policies.md)。  
@@ -53,7 +53,7 @@ ms.locfileid: "60005514"
 -   [驗證原則](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [使用基本驗證進行驗證](api-management-authentication-policies.md#Basic) - 使用基本驗證來驗證後端服務。  
     -   [使用用戶端憑證進行驗證](api-management-authentication-policies.md#ClientCertificate) - 使用用戶端憑證來驗證後端服務。  
-    -   [使用受控身分識別進行驗證](api-management-authentication-policies.md#ManagedIdentity)-後端服務，使用用戶端憑證進行驗證。  
+    -   [使用受控身分識別進行驗證](api-management-authentication-policies.md#ManagedIdentity)-向後端服務，使用[受控身分識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。  
 -   [快取原則](api-management-caching-policies.md#CachingPolicies)  
     -   [從快取中取得](api-management-caching-policies.md#GetFromCache) - 執行快取查閱並傳回有效的快取回應 (如果有的話)。  
     -   [儲存至快取](api-management-caching-policies.md#StoreToCache) - 根據指定的快取控制組態來快取回應。  

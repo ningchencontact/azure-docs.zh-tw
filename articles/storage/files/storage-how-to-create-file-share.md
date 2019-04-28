@@ -2,18 +2,18 @@
 title: 如何建立 Azure 檔案共用 | Microsoft Docs
 description: 如何使用 Azure 入口網站、PowerShell 和 Azure CLI，在 Azure 檔案服務中建立 Azure 檔案共用。
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/19/2017
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1620683f4bc02d607afd8e0371e8d4a5461612b3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 6440e5c2cf534ea431387bcdfed8b218919bf627
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772325"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766274"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 檔案服務中建立檔案共用
 您可以使用  [Azure 入口網站](https://portal.azure.com/)、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。 在本教學課程中，您將了解：

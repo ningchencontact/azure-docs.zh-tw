@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434767"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763303"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>將子網路委派至 Azure NetApp Files 
 
@@ -30,7 +30,7 @@ ms.locfileid: "58434767"
 * 在每個 Azure 虛擬網路 (Vnet) 中，都只有一個子網路可委派給 Azure NetApp Files。
 * 您無法在已委派的子網路中指定網路安全性群組或服務端點。 這樣做會導致子網路委派失敗。
 * 目前不支援全域對等互連的虛擬網路中的磁碟區的存取。
-* 建立[使用者定義的自訂路由](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)位址的 VM 子網路上要委派給 Azure NetApp 檔案的子網路的前置詞 （目的地） 不支援選項，會影響 VM 連線。
+* 建立[使用者定義的自訂路由](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)位址的 VM 子網路上不支援要委派給 Azure NetApp 檔案的子網路的前置詞 （目的地）。 如此一來，會影響 VM 連線。
 
 ## <a name="steps"></a>步驟 
 1.  從 Azure 入口網站移至 [虛擬網路] 刀鋒視窗，並選取要用於 Azure NetApp Files 的虛擬網路。    

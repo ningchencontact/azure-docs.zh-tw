@@ -1,7 +1,6 @@
 ---
 title: HDInsight 上 Hadoop 服務所使用的連接埠 - Azure
 description: 在 HDInsight 上執行的 Hadoop 服務所使用的連接埠清單。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715455"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761245"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight 上 Apache Hadoop 服務所使用的連接埠
 
 本文件提供在 Linux 型 HDInsight 叢集上執行之 Apache Hadoop 服務所使用的連接埠清單。 此外，也提供用來連線到使用 SSH 之叢集的連接埠相關資訊。
 
-## <a name="public-ports-vs-non-public-ports"></a>公用連接埠與非公用連接埠
+## <a name="public-ports-vs-non-public-ports"></a>公共端口与非公共端口
 
 以 Linux 為基礎的 HDInsight 叢集只會在網際網路上公開三個公開連接埠：22、23 和 443。 這些連接埠用來使用 SSH 以及透過安全 HTTPS 通訊協定公開的服務安全地存取叢集。
 
@@ -36,7 +35,7 @@ ms.locfileid: "53715455"
 
 HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接從網際網路存取。 公用閘道提供下列連接埠 (常見於所有的 HDInsight 叢集類型) 的網際網路存取。
 
-| 服務 | Port | 通訊協定 | 說明 |
+| 服務 | Port | 通訊協定 | 描述 |
 | --- | --- | --- | --- |
 | sshd |22 |SSH |將用戶端連接到主要前端節點上的 sshd。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
 | sshd |22 |SSH |將用戶端連接至邊緣節點上的 sshd。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
@@ -49,14 +48,14 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 
 下列各項適用於特定叢集類型︰
 
-| 服務 | Port | 通訊協定 | 叢集類型 | 說明 |
+| 服務 | Port | 通訊協定 | 叢集類型 | 描述 |
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |hbase |HBase REST API。 請參閱[開始使用 Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |Spark REST API。 請參閱[使用 Apache Livy 從遠端提交 Apache Spark 作業](spark/apache-spark-livy-rest-interface.md) |
 | Spark Thrift 伺服器 |443 |HTTPS |Spark |用來提交 Hive 查詢的 Spark Thrift 伺服器。 請參閱[使用 Beeline 搭配 HDInsight 上的 Apache Hive](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Storm Web UI。 請參閱[部署和管理 HDInsight 上的 Apache Storm 拓撲](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 
 在網際網路上公開的所有服務都必須經過驗證︰
 
@@ -86,20 +85,20 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 
 ### <a name="hdfs-ports"></a>HDFS 連接埠
 
-| 服務 | 節點 | Port | 通訊協定 | 說明 |
+| 服務 | 節點 | Port | 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
 | NameNode Web UI |前端節點 |30070 |HTTPS |用以檢視狀態的 Web UI |
-| NameNode 中繼資料服務 |前端節點 |8020 |IPC |檔案系統中繼資料 |
+| NameNode 中繼資料服務 |头节点 |8020 |IPC |檔案系統中繼資料 |
 | DataNode |所有背景工作節點 |30075 |HTTPS |用以檢視狀態、記錄等的 Web UI |
 | DataNode |所有背景工作節點 |30010 |&nbsp; |資料傳輸 |
-| DataNode |所有背景工作節點 |30020 |IPC |中繼資料作業 |
+| DataNode |所有辅助角色节点 |30020 |IPC |中繼資料作業 |
 | 次要 NameNode |前端節點 |50090 |HTTP |NameNode 中繼資料的檢查點 |
 
 ### <a name="yarn-ports"></a>YARN 連接埠
 
-| 服務 | 節點 | Port | 通訊協定 | 說明 |
+| 服務 | 節點 | Port | 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
-| Resource Manager |前端節點 |8088 |HTTP |適用於 Resource Manager 的 Web UI |
+| Resource Manager Web UI |前端節點 |8088 |HTTP |Resource Manager 的 Web UI |
 | Resource Manager |前端節點 |8090 |HTTPS |適用於 Resource Manager 的 Web UI |
 | Resource Manager 系統管理介面 |前端節點 |8141 |IPC |適用於應用程式提交 (Hive、Hive 伺服器、Pig 等) |
 | Resource Manager 排程器 |前端節點 |8030 |HTTP |系統管理介面 |
@@ -111,42 +110,42 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 
 ### <a name="hive-ports"></a>Hive 連接埠
 
-| 服務 | 節點 | Port | 通訊協定 | 說明 |
+| 服務 | 節點 | Port | 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |前端節點 |10001 |Thrift |要連接到 Hive 的服務 (Thrift/JDBC) |
 | Hive 中繼存放區 |前端節點 |9083 |Thrift |要連接到 Hive 中繼資料的服務 (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>WebHCat 連接埠
 
-| 服務 | 節點 | Port | 通訊協定 | 說明 |
+| 服務 | 節點 | Port | 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
 | WebHCat 伺服器 |前端節點 |30111 |HTTP |以 HCatalog 和其他 Hadoop 服務為基礎的 Web API |
 
 ### <a name="mapreduce-ports"></a>MapReduce 連接埠
 
-| 服務 | 節點 | Port | 通訊協定 | 說明 |
+| 服務 | 節點 | Port | 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
 | JobHistory |前端節點 |19888 |HTTP |MapReduce JobHistory Web UI |
-| JobHistory |前端節點 |10020 |&nbsp; |MapReduce JobHistory 伺服器 |
+| JobHistory |头节点 |10020 |&nbsp; |MapReduce JobHistory 伺服器 |
 | ShuffleHandler |&nbsp; |13562 |&nbsp; |將中繼對應輸出傳輸至要求的歸納器 |
 
 ### <a name="oozie"></a>Oozie
 
-| 服務 | 節點 | Port | 通訊協定 | 說明 |
+| 服務 | 節點 | Port | 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
 | Oozie 伺服器 |前端節點 |11000 |HTTP |Oozie 服務的 URL |
 | Oozie 伺服器 |前端節點 |11001 |HTTP |Oozie 系統管理的連接埠 |
 
 ### <a name="ambari-metrics"></a>Ambari 度量
 
-| 服務 | 節點 | Port | 通訊協定 | 說明 |
+| 服務 | 節點 | Port | 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
 | TimeLine (應用程式歷程記錄) |前端節點 |6188 |HTTP |Timeline 服務 Web UI |
 | TimeLine (應用程式歷程記錄) |前端節點 |30200 |RPC |Timeline 服務 Web UI |
 
 ### <a name="hbase-ports"></a>HBase 連接埠
 
-| 服務 | 節點 | Port | 通訊協定 | 說明 |
+| 服務 | 節點 | Port | 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
 | HMaster |前端節點 |16000 |&nbsp; |&nbsp; |
 | HMaster 資訊 Web UI |前端節點 |16010 |HTTP |HBase 主要 Web UI 的連接埠 |
@@ -155,14 +154,14 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 
 ### <a name="kafka-ports"></a>Kafka 連接埠
 
-| 服務 | 節點 | Port | 通訊協定 | 說明 |
+| 服務 | 節點 | Port | 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
 | Broker |背景工作節點 |9092 |[Kafka Wire Protocol (Kafka 有線通訊協定)](https://kafka.apache.org/protocol.html) |用於用戶端通訊 |
 | &nbsp; |Zookeeper 節點 |2181 |&nbsp; |用戶端用於連接至 ZooKeeper 的連接埠 |
 
 ### <a name="spark-ports"></a>Spark 連接埠
 
-| 服務 | 節點 | Port | 通訊協定 | URL 路徑 | 說明 |
+| 服務 | 節點 | Port | 通訊協定 | URL 路徑 | 描述 |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift 伺服器 |前端節點 |10002 |Thrift | &nbsp; | 要連接到 Spark SQL 的服務 (Thrift/JDBC) |
 | Livy 伺服器 | 前端節點 | 8998 | HTTP | &nbsp; | 要執行陳述式、作業和應用程式的服務 |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 36879ad070848f1779804d4eb3958058b9b86689
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 5b6efce033efe99ed4463d6b04b24503de57407c
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996572"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762791"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure 地圖轉譯涵蓋範圍
 
@@ -76,7 +76,7 @@ Azure 地圖會同時使用點陣圖格和向量圖格來建立地圖。 在其�
 | 留尼旺                          | ✓ | ✓ |
 | 盧安達                           | ✓ | ✓ |
 | 聖赫勒拿、亞森欣、特里斯坦達庫尼亞群島 | ✓ | Ø |
-| 聖多美普林西比            | ✓ | Ø |
+| 聖多美和普林西比            | ✓ | Ø |
 | 塞內加爾                          | ✓ | ✓ |
 | 獅子山                     | ✓ | ✓ |
 | 索馬利亞                          | ✓ | ✓ |

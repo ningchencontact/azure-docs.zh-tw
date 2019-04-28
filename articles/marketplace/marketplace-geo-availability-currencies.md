@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 5a07ea4d1d27dcc054d64cb4ce8893a13adc4aad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 394ec230b836d55e4ce29a444566221c14efe296
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007656"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762808"
 ---
 # <a name="geographic-availability-and-currency-support"></a>各地區上市情況和貨幣的支援
 
@@ -117,7 +117,7 @@ Azure Marketplace 供應項目可以購買的 141 的地理位置，客戶的帳
 | 挪威                              | 否        | 挪威克朗          |
 | 阿曼                                | OM        | 美元          |
 | 巴基斯坦                            | PK        | 美元          |
-| 巴勒斯坦                           | PS        | 美元          |
+| 巴勒斯坦民族權力機構               | PS        | 美元          |
 | 巴拿馬                              | PA        | 美元          |
 | 巴拉圭                            | PY        | 美元          |
 | 祕魯                                | PE        | 美元          |

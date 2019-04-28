@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
-ms.openlocfilehash: c45061db77c21b82744f69f00265870d5e1a8d00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883836"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766189"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>管理 Microsoft Azure 儲存體中的並行存取
 ## <a name="overview"></a>概觀
 現代以網際網路為基礎的應用程式通常會有多個使用者同時檢視及更新資料。 這使得應用程式開發人員不得不認真思考如何為其使用者提供可預測的使用經驗，尤其是有多個使用者可更新相同資料的案例。 開發人員通常會考量三個主要的資料並行存取策略：  
 
 1. 開放式並行存取 – 執行更新的應用程式將在其更新的過程中，驗證在應用程式上次讀取資料後，該資料是否有所變更。 例如，如果兩個檢視 wiki 頁面的使用者對相同的頁面進行更新，則 wiki 平台必須確定第二個更新並未覆寫第一個更新，並確定兩個使用者都了解其更新是否成功。 此策略最常用在 Web 應用程式中。
-2. 封閉式並行存取 – 要執行更新的應用程式會鎖定物件以防止其他使用者更新資料，直到鎖定解除為止。 例如，在只有 master 會執行更新的主從式資料複寫案例中，master 通常會長時間保有資料的獨佔鎖定，以確保他人無法更新該資料。
+2. 封閉式並行存取 – 要執行更新的應用程式會鎖定物件以防止其他使用者更新資料，直到鎖定解除為止。 比方說，在其中只有 master 會執行更新的主要/下層的資料複寫案例中主要會通常保留獨佔鎖定一段時間，以確保沒有其他人也可以將其更新資料。
 3. 最後寫入為準 – 此方法會直接允許任何更新作業的執行，而不會先驗證在應用程式第一次讀取資料後，是否有任何其他應用程式更新過該資料。 此策略 (或非正式策略) 通常用在因資料分割的方式而不可能有多個使用者存取相同資料的情況中。 在處理暫時性資料串流的情況中，也可以利用此策略。  
 
 本文將概略說明 Azure 儲存體平台如何為這三種並行存取策略提供絕佳支援，以簡化開發工作。  
@@ -282,7 +282,7 @@ Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式�
 如需 Azure 儲存體的詳細資訊，請參閱：  
 
 * [Microsoft Azure 儲存體首頁](https://azure.microsoft.com/services/storage/)
-* [Azure 儲存體簡介](storage-introduction.md)
+* [Azure 存储简介](storage-introduction.md)
 * [Blob](../blobs/storage-dotnet-how-to-use-blobs.md)、[資料表](../../cosmos-db/table-storage-how-to-use-dotnet.md)、[佇列](../storage-dotnet-how-to-use-queues.md)及[檔案](../storage-dotnet-how-to-use-files.md)的儲存體入門
 * 儲存體架構 – [Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

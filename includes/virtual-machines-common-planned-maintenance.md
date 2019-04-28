@@ -9,11 +9,11 @@ ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301694"
 ---
 Azure 會定期更新平台來提升虛擬機器之主機基礎結構的可靠性、效能及安全性。 這些更新的範圍涵蓋修補主控環境中的軟體元件、升級網路元件，以及硬體解除委任。 這些更新大多數都不影響所裝載的虛擬機器。 不過，在某些情況下，更新的確會造成影響，而 Azure 會選擇影響最小的更新方法：
 

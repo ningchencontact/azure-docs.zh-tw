@@ -6,14 +6,14 @@ author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752121"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764274"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>使用自訂映像來建立虛擬機器的集區 
 
@@ -48,9 +48,9 @@ ms.locfileid: "55752121"
 
 在 Azure 中，您可以從 Azure VM 之 OS 和資料磁碟的快照集、從含有受控磁碟的一般化 Azure VM，或從您所上傳的一般化內部部署 VHD，準備受控映像。 若要使用自訂映像來可靠地調整 Batch 集區，建議您「只」使用第一個方法：使用 VM 磁碟的快照集。 請參閱下列步驟來準備 VM、建立快照集，然後從快照集建立映像。 
 
-### <a name="prepare-a-vm"></a>準備 VM 
+### <a name="prepare-a-vm"></a>準備 VM
 
-如果您要為映像建立新 VM，請使用 Batch 所支援的 Azure Marketplace 映像作為受控映像的基底映像，然後自訂它。  若要取得 Azure Batch 所支援的 Azure Marketplace 映像參考清單，請參閱[列出節點代理程式 SKU](/rest/api/batchservice/account/listnodeagentskus) 作業。 
+如果您要建立新的 VM 映像，請使用 批次所支援作為您的受控映像基底映像的第一個合作對象 Azure Marketplace 映像。 只有第一方映像可用來當做基底映像。 若要取得 Azure Batch 支援的 Azure Marketplace 映像參考的完整清單，請參閱[清單節點代理程式 Sku](/rest/api/batchservice/account/listnodeagentskus)作業。
 
 > [!NOTE]
 > 您無法使用具有額外授權和購買條款的第三方映像作為您的基礎映像。 如需這些 Marketplace 映像的相關資訊，請參閱 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -78,6 +78,7 @@ ms.locfileid: "55752121"
 > [!NOTE]
 > 如果您要使用其中一個 Batch API 建立集區，請確定您用於 AAD 驗證的身分識別具備映像資源的權限。 請參閱[使用 Active Directory 驗證 Batch 服務解決方案](batch-aad-auth.md)。
 >
+> 受管理的映像的資源集區的存留期必須存在。 如果基礎的資源遭到刪除，無法調整集區。 
 
 1. 在 Azure 入口網站中瀏覽至您的 Batch 帳戶。 此帳戶必須與包含自訂映像的資源群組位於相同的訂用帳戶和區域中。 
 2. 在左側的 [設定] 視窗中，選取 [集區] 功能表項目。
@@ -109,6 +110,16 @@ ms.locfileid: "55752121"
 - **調整逾時** - 如果您的集區包含固定數目的節點 (不自動調整規模)，請將集區的 resizeTimeout 屬性值提高到 20-30 分鐘之類的值。 如果您的集區在逾時期間內未達到其目標大小，請執行另一個[調整大小作業](/rest/api/batchservice/pool/resize)。
 
   如果您規劃的集區含有超過 300 個計算節點，您可能需要多次調整集區大小，才能達到目標大小。
+
+## <a name="considerations-for-using-packer"></a>使用 Packer 的考量
+
+直接使用 Packer 建立受控映像資源才會使用使用者訂用帳戶模式的 Batch 帳戶。 針對 Batch 服務模式的帳戶，您必須先建立 VHD，然後將 VHD 匯入至受管理的映像資源。 根據集區配置模式 （使用者訂用帳戶或批次服務），您的步驟來建立受控映像資源而異。
+
+請確定用來建立受控映像的資源存在的任何參考的自訂映像的集區的存留期。 若要這樣做的失敗可以會造成集區配置失敗及/或調整大小失敗。 
+
+如果已移除映像或基礎資源，您可能會收到錯誤類似於： `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`。 如果發生這種情況，請確定尚未移除基礎的資源。
+
+如需有關使用 Packer 來建立 VM 的詳細資訊，請參閱 <<c0> [ 建立 Linux 映像使用 Packer](../virtual-machines/linux/build-image-with-packer.md)或是[建置 Windows 映像使用 Packer](../virtual-machines/windows/build-image-with-packer.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

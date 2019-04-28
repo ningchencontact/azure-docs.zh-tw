@@ -1,6 +1,6 @@
 ---
-title: B2B 通訊的合約 - Azure Logic Apps | Microsoft Docs
-description: 建立使用 Azure Logic Apps 與 Enterprise Integration Pack 的 B2B 交易夥伴通訊合約
+title: 建立和管理交易夥伴協議-Azure Logic Apps
+description: 建立和管理 Azure Logic Apps 與企業整合套件的使用中交易夥伴之間的協議
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,67 +9,100 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 06/29/2016
-ms.openlocfilehash: 09bee10649e2bc0d745e42b8aa13ae9c21df35aa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 04/05/2019
+ms.openlocfilehash: 26d653b873e959f0804e0456ed87ee68c39413e5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128822"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761305"
 ---
-# <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>具有 Azure Logic Apps 與企業整合套件的 B2B 的合作夥伴合約
+# <a name="create-and-manage-trading-partner-agreements-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>建立和使用 Azure Logic Apps 與企業整合套件來管理交易夥伴協議
 
-合約可讓企業實體使用業界標準通訊協定順利地進行溝通，而且是企業對企業 (B2B) 通訊的基石。 使用企業整合套件針對邏輯應用程式啟用 B2B 案例時，合約是 B2B 交易合作夥伴之間的通訊協議。 此合約是以合作夥伴想要達成的通訊為基礎，而且是通訊協定或傳輸特定的。
+A[交易夥伴](../logic-apps/logic-apps-enterprise-integration-partners.md) 
+*協議*可協助組織和企業，順暢地彼此通訊所定義的交換時所要使用特定的業界標準通訊協定企業對企業 (B2B) 訊息。 合約會提供常見的優點，例如：
 
-企業整合支援下列三種通訊協定或傳輸標準：
+* 讓組織能夠利用已知格式交換資訊。
+* 進行 B2B 交易時，請提高效率。
+* 可輕鬆地建立、 管理及使用來建置企業整合解決方案。
 
-* [AS2](logic-apps-enterprise-integration-as2.md)
-* [X12](logic-apps-enterprise-integration-x12.md)
-* [EDIFACT](logic-apps-enterprise-integration-edifact.md)
+這篇文章示範如何建立 AS2、 EDIFACT 或 X12 建置使用企業整合解決方案，適用於 B2B 案例時，您可以使用的協議[企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md)和[Azure Logic Apps](../logic-apps/logic-apps-overview.md). 建立協議之後，您可以接著使用 AS2、 EDIFACT 或 X12 交換 B2B 訊息的連接器。
 
-## <a name="why-use-agreements"></a>為什麼要使用合約
+## <a name="prerequisites"></a>必要條件
 
-使用合約有下列常見優點：
+* Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-* 可讓不同的組織和企業能夠利用已知格式來交換資訊。
-* 進行 B2B 交易時，可以提升效率
-* 在建立企業整合應用程式時輕鬆地建立、管理及使用它們
+* [整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)來儲存您的合約及其他 B2B 成品。 此整合帳戶必須與您 Azure 訂用帳戶相關聯。
 
-## <a name="how-to-create-agreements"></a>如何建立合約
+* 至少兩個[交易夥伴](../logic-apps/logic-apps-enterprise-integration-partners.md)您已建立整合帳戶中。 合約需要主機合作夥伴和來賓合作夥伴。 這兩個夥伴伺服器必須使用相同的 「 商務身分識別 」 辨識符號，為您想要建立，例如 AS2、 x12，或 EDIFACT 協議。
 
-* [建立 AS2 合約](logic-apps-enterprise-integration-as2.md)
-* [建立 X12 合約](logic-apps-enterprise-integration-x12.md)
-* [建立 EDIFACT 合約](logic-apps-enterprise-integration-edifact.md)
+* 選用：您要使用您的合約和啟動邏輯應用程式的工作流程的觸發程序的邏輯應用程式。 若要只建立您的整合帳戶和 B2B 成品，您不需要在邏輯應用程式。 不過，邏輯應用程式可以使用整合帳戶中的 B2B 成品之前，您必須將您的整合帳戶連結到邏輯應用程式。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-## <a name="how-to-use-an-agreement"></a>如何使用合約
+## <a name="create-agreements"></a>建立協議
 
-您可以使用您建立的合約來建立具有 B2B 功能的[邏輯應用程式](logic-apps-overview.md "了解邏輯應用程式")。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+在主要 Azure 功能表上，選取 [所有服務]。 在 [搜尋] 方塊中，輸入 「 整合 」 作為篩選條件。 從結果中，選取 此資源：**整合帳戶**
 
-## <a name="how-to-edit-an-agreement"></a>如何編輯合約
+   ![尋找您的整合帳戶](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
 
-您可以依照下列步驟來編輯任何合約：
+1. 底下**整合帳戶**，選取您要建立協議的整合帳戶。
 
-1. 選取包含您要更新之合約的整合帳戶。
+   ![選取您要在其中建立合約的整合帳戶](./media/logic-apps-enterprise-integration-agreements/select-integration-account.png)
 
-2. 選擇 [合約] 圖格。
+1. 在右窗格中，在**元件**，選擇**協議**圖格。
 
-3. 在 [合約] 刀鋒視窗上，選取合約。
+   ![選擇 [合約]](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
-4. 選擇 [編輯]。 進行變更。
+1. 在 [合約] 之下，選擇 [新增]。 在 [**新增**] 窗格中，提供您的合約的相關資訊，例如：
 
-5. 若要儲存變更，請選擇 [確定]。
+   ![選擇 [新增]](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-## <a name="how-to-delete-an-agreement"></a>如何刪除合約
+   | 屬性 | 必要項 | Value | 描述 |
+   |----------|----------|-------|-------------|
+   | **名稱** | 是 | <*agreement-name*> | 合約名稱 |
+   | **合約類型** | 是 | **AS2**， **X12**，或**EDIFACT** | 針對您的協議通訊協定類型。 當您建立協議檔案時，該檔案中的內容必須符合的合約型別。 | |  
+   | **主機合作夥伴** | 是 | <*host-partner-name*> | 主機合作夥伴代表組織指定協議 |
+   | **主機識別** | 是 | <*host-partner-identifier*> | 主控夥伴的識別項 |
+   | **來賓合作夥伴** | 是 | <*guest-partner-name*> | 來賓合作夥伴代表與主機合作夥伴有生意往來的組織 |
+   | **來賓身分識別** | 是 | <*guest-partner-identifier*> | 來賓夥伴的識別項 |
+   | **接收設定** | 視情況而異 | 視情況而異 | 這些屬性會指定如何處理收到的協議的所有內送訊息。 如需詳細資訊，請參閱個別的合約類型： <p>- [AS2 訊息設定](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 訊息設定](logic-apps-enterprise-integration-edifact.md) <br>- [X12 訊息設定](logic-apps-enterprise-integration-x12.md) |
+   | **傳送設定** | 視情況而異 | 視情況而異 | 這些屬性會指定如何處理 「 合約 」 所傳送的所有外寄訊息。 如需詳細資訊，請參閱個別的合約類型： <p>- [AS2 訊息設定](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 訊息設定](logic-apps-enterprise-integration-edifact.md) <br>- [X12 訊息設定](logic-apps-enterprise-integration-x12.md) |
+   |||||
 
-您可以依照下列步驟來刪除任何合約：
+1. 當您完成上建立您的合約**新增**頁面上，選擇**確定**，並回到整合帳戶。
 
-1. 選取包含您要刪除之合約的整合帳戶。
-2. 選擇 [合約] 圖格。
-3. 在 [合約] 刀鋒視窗上，選取合約。
-4. 選擇 [刪除]。
-5. 確認您要刪除選取的合約。
+   **協議**清單現在會顯示您新增的協議。
 
-    [合約] 刀鋒視窗不會再顯示已刪除的合約。
+## <a name="edit-agreements"></a>編輯合約
+
+1. 在  [Azure 入口網站](https://portal.azure.com)，在主要 Azure 功能表中，選取**所有服務**。
+
+1. 在 [搜尋] 方塊中，輸入 「 整合 」 作為篩選條件。 從結果中，選取 此資源：**整合帳戶**
+
+1. 底下**整合帳戶**，選取包含您想要編輯之的合約的整合帳戶。
+
+1. 在右窗格中，在**元件**，選擇**協議**圖格。
+
+1. 底下**協議**，選取您的合約，然後選擇**編輯**。
+
+1. 進行，然後儲存變更。
+
+## <a name="delete-agreements"></a>刪除合約
+
+1. 在  [Azure 入口網站](https://portal.azure.com)，在主要 Azure 功能表中，選取**所有服務**。
+
+1. 在 [搜尋] 方塊中，輸入 「 整合 」 作為篩選條件。 從結果中，選取 此資源：**整合帳戶**
+
+1. 底下**整合帳戶**，選取包含您想要刪除之的合約的整合帳戶。
+
+1. 在右窗格中，在**元件**，選擇**協議**圖格。
+
+1. 底下**協議**，選取您的合約，然後選擇**刪除**。
+
+1. 確認您要刪除選取的合約。
 
 ## <a name="next-steps"></a>後續步驟
-* [建立 AS2 合約](logic-apps-enterprise-integration-as2.md)
+
+* [交換 AS2 訊息](logic-apps-enterprise-integration-as2.md)
+* [交換 EDIFACT 訊息](logic-apps-enterprise-integration-edifact.md)
+* [交換的 X12 訊息](logic-apps-enterprise-integration-x12.md)

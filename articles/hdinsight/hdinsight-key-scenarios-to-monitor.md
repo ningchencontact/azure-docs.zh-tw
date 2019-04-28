@@ -1,7 +1,6 @@
 ---
 title: 監視叢集效能 - Azure HDInsight
 description: 如何監視 HDInsight 叢集的容量和效能。
-services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 83cbb2a54ed712f8aa5084408ab852432470b73c
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 22484885663a4f9a908ae988882b87612129251a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742468"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763789"
 ---
 # <a name="monitor-cluster-performance"></a>監視叢集效能
 
@@ -28,7 +27,7 @@ ms.locfileid: "53742468"
 
 若要查看您叢集的節點及其負載概況，請登入 [Ambari Web UI](hdinsight-hadoop-manage-ambari.md)，然後選取 [主機]。會依主機的完整網域名稱加以列出。 每個主機的操作狀態是依彩色的健康情況指示器來顯示：
 
-| 色彩 | 說明 |
+| 色彩 | 描述 |
 | --- | --- |
 | 紅色 | 主機上至少有一個主要元件已關閉。 暫留以查看列出受影響元件的工具提示。 |
 | 橙色 | 主機上至少有一個從屬元件已關閉。 暫留以查看列出受影響元件的工具提示。 |
@@ -87,6 +86,6 @@ YARN 可讓我們將資源配置給這些佇列，並顯示是否已指派所有
 
 請造訪下列連結以取得關於疑難排解和監視您叢集的詳細資訊：
 
-* [分析 HDInsight 記錄檔](hdinsight-debug-jobs.md)
+* [分析 HDInsight 記錄](hdinsight-debug-jobs.md)
 * [利用 Apache Hadoop YARN 記錄為應用程式偵錯](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

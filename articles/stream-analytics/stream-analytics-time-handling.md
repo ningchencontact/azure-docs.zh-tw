@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543282"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760852"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>了解 Azure 串流分析中的時間處理
 
@@ -26,7 +26,7 @@ ms.locfileid: "57543282"
 
 - **處理時間**：事件到達處理系統且被發現的時間。 例如，當收費站感應器發現車輛，且電腦系統以所需時間處理資料時。
 
-- **浮水印**：一個事件時間標記，可指出所有事件已輸入至串流處理器的程度。 浮水印讓系統明確指出擷取事件的進度。 依據資料流的特質，內送事件資料永遠不會停止，因此浮水印可指出資料流中某個時間點的進度。
+- **浮水印**：事件時間標記，指出哪些點事件已經輸入串流處理器。 浮水印讓系統明確指出擷取事件的進度。 依據資料流的特質，內送事件資料永遠不會停止，因此浮水印可指出資料流中某個時間點的進度。
 
    浮水印是重要的概念。 浮水印可讓串流分析判斷系統何時可產生完整、正確、可重複且不需撤回的結果。 此處理可透過可預測且可重複的既定方式完成。 例如，若因某些錯誤處理情況而需要重新計數，浮水印將是安全的起始點和結束點。
 

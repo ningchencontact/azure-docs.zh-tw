@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279970"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766994"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>透過參數建立動態藍圖
 
@@ -169,7 +169,7 @@ ms.locfileid: "59279970"
 
 ### <a name="dynamic-parameters"></a>動態參數
 
-靜態參數的相反是**動態參數**。 此參數並未定義於藍圖上，而是改為在藍圖的每個指派期間內定義。 在資源群組範例中，**動態參數**適合用於資源群組名稱。 它可為藍圖的每個指派提供不同的名稱。
+靜態參數的相反是**動態參數**。 此參數並未定義於藍圖上，而是改為在藍圖的每個指派期間內定義。 在資源群組範例中，**動態參數**適合用於資源群組名稱。 它可為藍圖的每個指派提供不同的名稱。 如需藍圖函式的清單，請參閱 <<c0> [ 藍圖函式](../reference/blueprint-functions.md)參考。
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>在入口網站中設定動態參數
 
@@ -185,9 +185,7 @@ ms.locfileid: "59279970"
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>從 REST API 設定動態參數
 
-在指派期間設定**動態參數**，可透過直接輸入值來完成。
-不使用函式 (例如 `parameters()`)，而是改為提供適當字串的值。
-資源群組的成品是使用「範本名稱」與**名稱**和**位置**屬性來定義。 內含成品的所有其他參數都定義在 **parameters** 之下，並具備 **\<name\>** 和 **value** 金鑰組。 如果已針對指派期間未提供的動態參數設定藍圖，指派將會失敗。
+在指派期間設定**動態參數**，可透過直接輸入值來完成。 而不是使用函式，例如[parameters()](../reference/blueprint-functions.md#parameters)，提供的值是適當的字串。 資源群組的成品是使用「範本名稱」與**名稱**和**位置**屬性來定義。 內含成品的所有其他參數都定義在 **parameters** 之下，並具備 **\<name\>** 和 **value** 金鑰組。 如果已針對指派期間未提供的動態參數設定藍圖，指派將會失敗。
 
 - REST API URI
 
@@ -240,6 +238,7 @@ ms.locfileid: "59279970"
 
 ## <a name="next-steps"></a>後續步驟
 
+- 請參閱清單[藍圖函式](../reference/blueprint-functions.md)。
 - 了解[藍圖生命週期](lifecycle.md)。
 - 了解如何自訂[藍圖排序順序](sequencing-order.md)。
 - 了解如何使用[藍圖資源鎖定](resource-locking.md)。

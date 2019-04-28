@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
+origin.date: 04/30/2018
+ms.date: 02/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 03c86aa069300f88b61752ebd3223e424f6e9c96
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0361539cefbacb8fc0473a1f863cf2ae4638b444
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382617"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766749"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>使用 SSH 通道來存取 Apache Ambari Web UI、JobHistory、NameNode、Apache Oozie 及其他 Web UI
 
@@ -34,7 +35,7 @@ Ambari 中的數個功能表只有透過 SSH 通道才能運作。 這些功能�
 
 如果您使用指令碼動作來自訂叢集，則您安裝的任何服務或公用程式，都會需要 SSH 通道才能公開 Web 服務。 例如，如果您使用指令碼動作安裝 Hue，就必須使用 SSH 通道來存取 Hue Web UI。
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > 如果您透過虛擬網路直接存取 HDInsight，便不需要使用 SSH 通道。 如需透過虛擬網路直接存取 HDInsight 的範例，請參閱[將 HDInsight 連線至內部部署網](connect-on-premises-network.md)文件。
 
 ## <a name="what-is-an-ssh-tunnel"></a>什麼是 SSH 通道
@@ -47,7 +48,7 @@ Ambari 中的數個功能表只有透過 SSH 通道才能運作。 這些功能�
 
 * 可以設定為使用 SOCKS5 Proxy 的網頁瀏覽器。
 
-    > [!WARNING]  
+    > [!WARNING]
     > Windows 網際網路設定中的內建 SOCKS Proxy 支援不支援 SOCKS5，並且不適用此文件中的步驟。 下列瀏覽器會仰賴 Windows Proxy 設定，而且目前不適用本文件中的步驟︰
     >
     > * Microsoft Edge
@@ -55,7 +56,7 @@ Ambari 中的數個功能表只有透過 SSH 通道才能運作。 這些功能�
     >
     > Google Chrome 也會依賴 Windows Proxy 設定。 不過，您可以安裝支援 SOCKS5 的延伸模組。 我們建議使用 [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp)。
 
-## <a name="usessh"></a>使用 SSH 命令建立通道
+## <a name="usessh"></a>使用 SSH 命令创建隧道
 
 使用下列命令，利用 `ssh` 命令建立 SSH 通道。 以您 HDInsight 叢集的 SSH 使用者取代 **sshuser**，並以您 HDInsight 叢集的名稱取代 **clustername**：
 
@@ -66,7 +67,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 此命令會建立透過 SSH 將流量由本機連接埠 9876 路由傳送至叢集的連線。 可用選項包括：
 
 * **D 9876** - 會透過通道路由傳送流量的本機連接埠。
-* **C** - 壓縮所有資料，因為網路流量大多是文字。
+* **C** - 压缩所有数据，因为 Web 流量大多为文本。
 * **2** - 強制 SSH 僅嘗試通訊協定第 2 版。
 * **q** - 無訊息模式。
 * **T** - 停用虛擬 tty 配置，因為您只是轉送連接埠。
@@ -76,7 +77,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 在命令完成後，會將傳送至本機電腦上連接埠 9876 的流量路由傳送至叢集前端節點。
 
-## <a name="useputty"></a>使用 PuTTY 建立通道
+## <a name="useputty"></a>使用 PuTTY 创建隧道
 
 [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) 是適用於 Windows 的圖形化 SSH 用戶端。 如果您不熟悉 PuTTY，請參閱 [PuTTY 文件](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)。 使用下列步驟，利用 PuTTY 建立 SSH 通道：
 
@@ -110,14 +111,14 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 ## <a name="use-the-tunnel-from-your-browser"></a>從瀏覽器使用通道
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > 本節中的步驟使用 Mozilla FireFox 瀏覽器，因為它在所有平台上提供相同的 Proxy 設定。 其他現代瀏覽器 (例如 Google Chrome) 可能需要延伸模組 (例如 FoxyProxy) 才能使用通道。
 
 1. 將瀏覽器設定為使用建立通道時所使用的 **localhost** 和連接埠做為 **SOCKS v5** Proxy。 Firefox 的設定如下所示。 如果您使用與 9876 不同的連接埠，請將連接埠變更為您所用的連接埠：
    
     ![Firefox 設定的影像](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
-   > [!NOTE]  
+   > [!NOTE]
    > 選取 [遠端 DNS] 會使用 HDInsight 叢集解析網域名稱系統 (DNS) 要求。 這項設定會使用叢集的前端節點來解析 DNS。
 
 2. 請瀏覽 [https://www.whatismyip.com/](https://www.whatismyip.com/) 這類網站，驗證通道可以運作。 傳回的 IP 應該是 Microsoft Azure 資料中心使用的 IP。
@@ -135,11 +136,11 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
     ![選取 HDFS 的影像](./media/hdinsight-linux-ambari-ssh-tunnel/hdfsservice.png)
 
-3. 顯示 HDFS 服務資訊時，請選取 [快速連結] 。 叢集前端節點的清單隨即出現。 選取其中一個前端節點，然後選取 [NameNode UI] 。
+3. 显示 HDFS 服务信息时，请选择“快速链接”。 叢集前端節點的清單隨即出現。 選取其中一個前端節點，然後選取 [NameNode UI] 。
 
     ![展開 [快速連結] 功能表的影像](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]  
+   > [!NOTE]
    > 當您選取 [快速連結] 時，可能會出現等候指示器。 如果您的網際網路連線速度較慢，可能會發生這種情況。 請等候一兩分鐘，讓系統從伺服器接收資料，然後再次嘗試列出作業。
    >
    > 螢幕右側可能會切掉 [快速連結] 功能表中的部分項目。 若是如此，請使用滑鼠展開功能表，然後使用向右鍵將畫面捲動到右邊，以查看功能表的其餘部分。

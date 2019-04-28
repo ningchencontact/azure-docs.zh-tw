@@ -1,18 +1,17 @@
 ---
 title: 在 Azure HDInsight 中對 YARN 進行疑難排解
 description: 取得有關使用 Apache Hadoop YARN 和 Azure HDInsight 的常見問題解答。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4ca3dddb2b5ea4897ff82f1d91e88dc656305453
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408825"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764296"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 針對 Apache Hadoop YARN 問題進行疑難排解
 
@@ -25,8 +24,9 @@ ms.locfileid: "53408825"
 在 Ambari 使用下列步驟建立新的 YARN 佇列，然後平衡所有佇列之間的容量配置。 
 
 在本例中，兩個現有的佇列 (**預設**和 **thriftsvr**) 都從 50% 的容量變更為 25% 的容量，讓新的佇列 (spark) 有 50% 的容量。
-| 佇列 | Capacity | 最大容量 |
-| --- | --- | --- | --- |
+
+| 佇列 | 容量 | 最大容量 |
+| --- | --- | --- |
 | 預設值 | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
@@ -135,5 +135,5 @@ ms.locfileid: "53408825"
 - [Apache Hadoop YARN 概念與應用程式](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 
-### <a name="see-also"></a>另請參閱
+### <a name="see-also"></a>另请参阅
 [使用 Azure HDInsight 進行疑難排解](hdinsight-troubleshoot-guide.md)

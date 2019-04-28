@@ -2,19 +2,19 @@
 title: 使用 Python 開發 Azure 檔案服務 | Microsoft Docs
 description: 了解如何開發使用 Azure 檔案服務的 Python 應用程式和服務來儲存檔案資料。
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 12/14/2018
-ms.author: tamram
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 06c0256043ef27e6298cc4e30dc3f372e6bd3959
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ecb3ef82196c3b6febd44850b47f467ba37facc2
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456590"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763514"
 ---
 # <a name="develop-for-azure-files-with-python"></a>使用 Python 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -82,7 +82,7 @@ file_service.create_directory('myshare', 'sampledir')
 ```
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>列舉 Azure 檔案共用的檔案和目錄
-若要列出共用中的檔案和目錄，請使用 **list\_directories\_and\_files** 方法。 這個方法會傳回產生器。 下列程式碼會將共用中每個檔案和目錄的 **name** 輸出到主控台。
+若要列出共用中的檔案和目錄，請使用 **list\_directories\_and\_files** 方法。 這個方法會傳回產生器。 以下代码将共享中每个文件和目录的**名称**输出到控制台。
 
 ```python
 generator = file_service.list_directories_and_files('myshare')
