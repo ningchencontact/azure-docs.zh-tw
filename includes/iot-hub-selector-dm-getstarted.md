@@ -1,15 +1,10 @@
 ---
-author: wesmc7777
-ms.author: wesmc
-ms.service: iot-hub
-ms.topic: include
-ms.date: 10/26/2018
 ms.openlocfilehash: 19331f35ea2fa773325ec61e728677e37767ab54
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346130"
 ---
 > [!div class="op_single_selector"]
 > * [裝置：Node.js 服務︰Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
@@ -20,7 +15,6 @@ ms.locfileid: "57011810"
 後端應用程式可以使用 Azure IoT 中樞基元 (例如[裝置對應項][lnk-devtwin]和[直接方法][lnk-c2dmethod])，從遠端啟動並監視裝置上的裝置管理動作。 本教學課程會示範後端應用程式和裝置應用程式如何共同運作，以使用 IoT 中樞初始化和監視遠端裝置重新啟動。
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
-
 使用直接方法從雲端中的後端應用程式起始裝置管理動作 (例如重新啟動、恢復出廠預設值，以及韌體更新)。 該裝置將負責：
 
 * 處理從 IoT 中樞傳送的方法要求。

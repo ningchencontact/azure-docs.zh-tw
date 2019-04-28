@@ -2,18 +2,19 @@
 title: 包含檔案
 description: 包含檔案
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/19/2018
-ms.author: cherylmc
+origin.date: 12/19/2018
+ms.date: 01/14/2019
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 03a4005da7794a989166f914e4ba4d03f93ae8b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58114417"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407561"
 ---
 1. 在入口網站中，按一下 [+建立資源]。
 2. 在搜尋方塊中輸入**區域網路閘道**，然後按 **Enter** 鍵進行搜尋。 這將會傳回結果清單。 按一下 [區域網路閘道]，然後按一下 [建立] 按鈕以開啟 [建立區域網路閘道] 頁面。

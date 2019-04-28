@@ -2,18 +2,19 @@
 title: 包含檔案
 description: 包含檔案
 services: virtual-machines-linux
-author: RicksterCDN
+author: rockboyfor
 ms.service: virtual-machines-linux
 ms.topic: include file
-ms.date: 04/20/2018
-ms.author: rclaus
+origin.date: 04/20/2018
+ms.date: 06/04/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: ebf03a0fe1f274e3a3bb67dfa2defd623735faf9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: HT
+ms.openlocfilehash: ed68d9d2a0e983fbe753360d9f539f5d89a2187f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33953729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387926"
 ---
 > [!IMPORTANT]
-> 此延伸模組已被取代，並僅記載於此處供參考之用。 我們不建議您繼續在部署內使用此延伸模組。 
+> 此延伸模組已被取代，並僅記載於此處供參考之用。 我們不建議您繼續在部署內使用此延伸模組。

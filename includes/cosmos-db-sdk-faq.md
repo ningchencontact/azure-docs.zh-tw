@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: sngun
 ms.openlocfilehash: 99dddd86c9348c9791d3012b382298bb020e63c9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326850"
 ---
 **1.SDK 將要停用時，將如何通知客戶？**
 
-Microsoft 會在停用 SDK 支援結束的 12 個月前事先通知，以利順暢轉換至支援的 SDK。 此外，客戶會透過多種通訊管道收到通知，包括 Azure 管理入口網站、開發人員中心、部落格文章，以及直接連絡指派的服務管理員。
+Microsoft 会在即将停用的 SDK 的支持结束之前提前 12 个月进行通知，以便协助平稳地转换到支持的 SDK。 此外，客戶會透過多種通訊管道收到通知，包括 Azure 管理入口網站、開發人員中心、部落格文章，以及直接連絡指派的服務管理員。
 
 **2.在 12 個月的期間內，客戶是否可以使用「即將」停用的 Azure Cosmos DB SDK 來撰寫應用程式？** 
 
@@ -33,5 +33,5 @@ SDK 在 12 個月的通知期後將會停用， 屆時 Azure Cosmos DB 平台將
 
 **6.如果我在截止日前無法更新應用程式，該怎麼辦？**
 
-我們建議您盡早升級至最新的 SDK。 在 SDK 標記為停用之後，您有 12 個月的時間可以更新應用程式。 如果您基於任何理由，而無法在此期間內完成應用程式更新，請在截止日前連絡 [Cosmos DB 團隊](mailto:askcosmosdb@microsoft.com) 並要求協助。
+我們建議您盡早升級至最新的 SDK。 SDK 标记为要停用之后，会有 12 个月来更新应用程序。 如果您基於任何理由，而無法在此期間內完成應用程式更新，請在截止日前連絡 [Cosmos DB 團隊](mailto:askcosmosdb@microsoft.com) 並要求協助。
 
