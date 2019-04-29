@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 674ca630aa41d930ad7d7cfebccbe9b44351b68c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58431386"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754568"
 ---
 以下是支援的作業系統清單，這些系統適用於連線至您裝置的用戶端或主機。 內部測試這些作業系統版本。
 

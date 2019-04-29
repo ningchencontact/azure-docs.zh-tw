@@ -9,11 +9,11 @@ ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56246750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456416"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>所有的 Azure VPN 閘道 SKU 上是否都支援 BGP？
 否，Azure **VpnGw1****VpnGw2****VpnGw3****Standard** 和 **HighPerformance** VPN 閘道支援 BGP。 **基本** SKU。
@@ -41,7 +41,7 @@ ms.locfileid: "56246750"
 23456、64496-64511、65535-65551 和 429496729
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>內部部署 VPN 網路和 Azure VNet 可以使用相同的 ASN 嗎？
-否，如果您要將內部部署網路和 Azure VNet 與 BGP 連接，必須在內部部署網路與 Azure VNet 之間指派不同 ASN。 Azure VPN 閘道已將預設 ASN 指派為 65515 (無論跨單位連線是否啟用 BGP)。 您可以在建立 VPN 閘道時指派不同的 ASN 來覆寫這個預設值，或在建立閘道之後變更 ASN。 您必須將內部部署 ASN 指派給對應 Azure 區域網路閘道。
+否，如果您要將內部部署網路和 Azure VNet 與 BGP 連接，必須在內部部署網路與 Azure VNet 之間指派不同 ASN。 Azure VPN 閘道已將預設 ASN 指派為 65515 (無論跨單位連線是否啟用 BGP)。 可以通过在创建 VPN 网关时分配不同 ASN，或者在创建网关后更改 ASN 来覆盖此默认值。 您必須將內部部署 ASN 指派給對應 Azure 區域網路閘道。
 
 ### <a name="what-address-prefixes-will-azure-vpn-gateways-advertise-to-me"></a>Azure VPN 閘道會通告我哪些位址首碼？
 Azure VPN 閘道會通告下列路由至您的內部部署 BGP 裝置︰
@@ -60,7 +60,7 @@ Azure VPN 閘道會通告下列路由至您的內部部署 BGP 裝置︰
 
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>可以公告確切的前置詞做為我的虛擬網路前置詞嗎？
 
-是，公告相同的前置詞做為任何一個虛擬網路位址前置詞，將由 Azure 平台進行封鎖或篩選。 不過，您可以公告一個前置詞，也就是您在虛擬網路內已有的超集。 
+是，公告相同的前置詞做為任何一個虛擬網路位址前置詞，將由 Azure 平台進行封鎖或篩選。 但是，可播发属于虚拟网络内所拥有内容超集的前缀。 
 
 例如，您的虛擬網路使用了位址空間 10.0.0.0/16，而您可以公告 10.0.0.0/8。 但您無法公告 10.0.0.0/16 或 10.0.0.0/24。
 
@@ -78,14 +78,14 @@ Azure VPN 閘道會通告下列路由至您的內部部署 BGP 裝置︰
 
 例如，如果您在 Azure VPN 閘道與其中一個內部部署網路之間有兩個備援通道，它們會在您的 Azure VPN 閘道的總配額 (標準為 10，HighPerformance 為 30) 中耗用 2 個通道。
 
-### <a name="can-i-have-multiple-tunnels-between-two-azure-vnets-with-bgp"></a>可以在兩個具有 BGP 的 Azure VNet 之間擁有多個通道嗎？
+### <a name="can-i-have-multiple-tunnels-between-two-azure-vnets-with-bgp"></a>在两个使用 BGP 的 Azure VNet 之间能否有多个隧道？
 是，但是主動-主動組態中必須有至少一個虛擬網路閘道。
 
-### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>我可以在 ExpressRoute/S2S VPN 共存組態中使用適用於 S2S VPN 的 BGP 嗎？
+### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>能否在 ExpressRoute/S2S VPN 共存配置中对 S2S VPN 使用 BGP？
 是。 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Azure VPN 閘道會對 BGP 對等互連 IP 使用什麼位址？
-Azure VPN 閘道會配置針對虛擬網路定義的 GatewaySubnet 範圍的單一 IP 位址。 根據預設，它是範圍的最後第二個位址。 例如，如果您的 GatewaySubnet 是 10.12.255.0/27，範圍從 10.12.255.0 到 10.12.255.31，則 Azure VPN 閘道上的 BGP 對等互連 IP 位址會是 10.12.255.30。 當您列出 Azure VPN 閘道器資訊時，可以找到此資訊。
+Azure VPN 閘道會配置針對虛擬網路定義的 GatewaySubnet 範圍的單一 IP 位址。 默认情况下，它是该范围的倒数第二个地址。 例如，如果您的 GatewaySubnet 是 10.12.255.0/27，範圍從 10.12.255.0 到 10.12.255.31，則 Azure VPN 閘道上的 BGP 對等互連 IP 位址會是 10.12.255.30。 当列出 Azure VPN 网关信息时，可以找到此信息。
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>我的 VPN 裝置上的 BGP 對等互連 IP 位址有哪些需求？
 您內部部署 BGP 對等互連位址 **不得** 與您的 VPN 裝置的公用 IP 位址相同。 在 VPN 裝置上針對 BGP 對等互連 IP 使用不同的 IP 位址。 它可以是指派給裝置上的回送介面的位址，但請注意，它不能是 APIPA (169.254.x.x) 位址。 在代表位置的對應本機網路閘道中指定這個位址。

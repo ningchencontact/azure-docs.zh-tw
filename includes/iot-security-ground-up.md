@@ -9,11 +9,11 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626458"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>徹底保護物聯網 (IoT) 安全性
 
@@ -67,11 +67,11 @@ Microsoft 的系統能提供持續的入侵偵測與防護、阻斷服務攻擊�
 
 * 系統層級的授權和驗證會使用每一裝置的身分識別，讓存取認證和權限能近乎即時撤銷。
 
-### <a name="secure-connectivity"></a>安全的連線
+### <a name="secure-connectivity"></a>安全的连接
 
 訊息傳遞的持久性是所有 IoT 解決方案的重要功能。 永久傳遞命令和/或從裝置接收資料的需求，可透過下列事實強調說明：IoT 裝置是透過網際網路、或其他類似的不可靠網路來連線。 Azure IoT 中樞透過通知系統來提供雲端與裝置之間訊息傳遞的持久性，以回應訊息。 訊息傳遞的額外持久性可透過在 IoT 中樞快取訊息來達成，針對遙測最多七天，針對命令最多兩天。
 
-為確保可在資源受限的環境中節省資源和作業，效率非常重要。 IoT 中樞支援 HTTPS (HTTP Secure) (熱門 http 通訊協定的業界標準安全版本)，能夠進行有效率的通訊。 Azure IoT 中樞支援的進階訊息佇列通訊協定 (AMQP) 和訊息佇列遙測傳輸 (MQTT)，不只是根據資源使用的效率而設計，同時也可進行可靠的訊息傳遞。 
+为确保可在资源受限的环境中节省资源和操作，效率非常重要。 IoT 中樞支援 HTTPS (HTTP Secure) (熱門 http 通訊協定的業界標準安全版本)，能夠進行有效率的通訊。 Azure IoT 中樞支援的進階訊息佇列通訊協定 (AMQP) 和訊息佇列遙測傳輸 (MQTT)，不只是根據資源使用的效率而設計，同時也可進行可靠的訊息傳遞。 
 
 延展性需要能夠與各式各樣裝置安全地交互操作的能力。 Azure IoT 中樞能夠安全連接至已啟用 IP 和未啟用 IP 的裝置。 已啟用 IP 的裝置能夠直接連接，並透過安全連接與 IoT 中樞進行通訊。 未啟用 IP 的裝置是資源受限的，只能透過短距離通訊協定 (例如 Zwave、ZigBee 和藍芽) 來連接。 現場閘道可用來彙總這些裝置，並執行通訊協定轉換，以便與雲端進行安全的雙向通訊。
 
@@ -91,7 +91,7 @@ Microsoft 的系統能提供持續的入侵偵測與防護、阻斷服務攻擊�
 
 一旦資料位於雲端之後，它就能進行處理並儲存於任何使用者定義的工作流程中。 存取資料的每個部分是根據所用的儲存體服務，透過 Azure Active Directory 來控制。
 
-IoT 基礎結構所使用的所有金鑰都會儲存於雲端的安全儲存體中，並具備變換能力，以因應金鑰需要重新佈建的情況。 資料可以儲存在 [Azure Cosmos DB](../articles/cosmos-db/introduction.md) 或 [SQL Database](../articles/sql-database/sql-database-faq.md) 中，讓您能夠定義所需的安全性層級。 此外，Azure 提供一種方式來監視和稽核資料的所有存取，以提醒您有任何入侵或未經授權的存取。
+IoT 基礎結構所使用的所有金鑰都會儲存於雲端的安全儲存體中，並具備變換能力，以因應金鑰需要重新佈建的情況。 資料可以儲存在 [Azure Cosmos DB](../articles/cosmos-db/introduction.md) 或 [SQL Database](../articles/sql-database/sql-database-faq.md) 中，讓您能夠定義所需的安全性層級。 此外，Azure 提供一种方式用于监视和审核对数据的所有访问权限，以提醒有任何入侵或未经授权的访问。
 
 ## <a name="conclusion"></a>結論
 
@@ -103,14 +103,14 @@ IoT 基礎結構所使用的所有金鑰都會儲存於雲端的安全儲存體�
 
 每個解決方案加速器都會建立 Azure 服務的執行個體，例如：
 
-* [**Azure IoT 中樞**](https://azure.microsoft.com/services/iot-hub/)：將雲端連線到裝置的閘道。 您可以調整為每個中樞有百萬個連接，並利用每一裝置驗證支援來處理大量資料，以協助保護您的解決方案。
+* [**Azure IoT 中心**](https://azure.microsoft.com/services/iot-hub/)：将云连接到设备的网关。 您可以調整為每個中樞有百萬個連接，並利用每一裝置驗證支援來處理大量資料，以協助保護您的解決方案。
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/)：一個適用於半結構化資料的可調整、已完全編製索引的資料庫服務，可管理您所佈建裝置的中繼資料，例如屬性、組態及安全性屬性。 Azure Cosmos DB 提供高效能且高輸送量的處理、無從驗證結構描述的資料索引編製，以及豐富的 SQL 查詢介面。
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/)：适用于半结构化数据的可缩放且已完全编制索引的数据库服务，可管理预配的设备的元数据，例如，属性、配置和安全属性。 Azure Cosmos DB 提供高效能且高輸送量的處理、無從驗證結構描述的資料索引編製，以及豐富的 SQL 查詢介面。
 
-* [**Azure 串流分析**](https://azure.microsoft.com/services/stream-analytics/)：雲端中處理的即時串流讓您能夠快速開發並部署低成本的分析方案，以在第一時間提供裝置、感應器、基礎結構與應用程式的深入剖析資料。 來自這個完全受控服務的資料可調整為任何數量，但仍可達到高輸送量、低遲性和恢復功能。
+* [Azure 流分析](https://azure.microsoft.com/services/stream-analytics/)：通过云中处理的实时流可以快速开发和部署低成本分析解决方案，以便从设备、传感器、基础结构和应用程序实时获取深入了解。 來自這個完全受控服務的資料可調整為任何數量，但仍可達到高輸送量、低遲性和恢復功能。
 
-* [**Azure App Service**](https://azure.microsoft.com/services/app-service/)：一個雲端平台，可供建置功能強大的 Web 和行動應用程式來連接各地的資料；不論是在雲端還是內部部署環境內。 建置吸引客戶參與的 iOS、Android 和 Windows 版行動應用程式。 與軟體即服務 (SaaS) 和企業應用程式整合，讓您能夠立即連線到數十種雲端服務和企業應用程式。 使用您愛用的語言 (.NET、Node.JS、PHP、Python 或 Java) 和整合式開發環境 (IDE) 撰寫程式碼，以前所未有的速度建置 Web 應用程式和 API。
+* [**Azure 应用程序服务**](https://azure.microsoft.com/services/app-service/)：一个云平台，用以构建能够连接到任何地方（在云中或本地）的数据的强大 Web 和移动应用。 建置吸引客戶參與的 iOS、Android 和 Windows 版行動應用程式。 與軟體即服務 (SaaS) 和企業應用程式整合，讓您能夠立即連線到數十種雲端服務和企業應用程式。 使用您愛用的語言 (.NET、Node.JS、PHP、Python 或 Java) 和整合式開發環境 (IDE) 撰寫程式碼，以前所未有的速度建置 Web 應用程式和 API。
 
-* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/)：Azure App Service 的 Logic Apps 功能可協助您將 IoT 解決方案整合到現有的企業營運系統並自動化工作流程處理。 Logic Apps 可讓開發人員設計從觸發程序開始，然後執行一系列步驟的工作流程 — 使用功能強大的連接器來與您的商務程序整合的規則和動作。 Logic Apps 提供與 SaaS、雲端架構及內部部署應用程式的廣大生態系統的即時連接。
+* [**逻辑应用**](https://azure.microsoft.com/services/app-service/logic/)：Azure 应用服务的逻辑应用功能可帮助用户将 IoT 解决方案集成到现有业务线系统并自动执行工作流程。 Logic Apps 可讓開發人員設計從觸發程序開始，然後執行一系列步驟的工作流程 — 使用功能強大的連接器來與您的商務程序整合的規則和動作。 Logic Apps 提供與 SaaS、雲端架構及內部部署應用程式的廣大生態系統的即時連接。
 
-* [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/)：可靠且符合經濟效益的雲端儲存體，適用於裝置要傳送到雲端的資料。
+* [**Azure Blob 儲存體**](https://azure.microsoft.com/services/storage/):可靠且符合经济效益的云存储，适用于设备要发送到云的数据。

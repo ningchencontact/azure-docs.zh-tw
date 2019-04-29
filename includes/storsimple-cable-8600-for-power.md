@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9b9922602218280d58331a755ed0dfed7df96f40
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889043"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482674"
 ---
 #### <a name="to-cable-your-device-for-power"></a>將您的裝置接上纜線，以取得電源
 > [!NOTE]
@@ -37,7 +37,7 @@ ms.locfileid: "55889043"
     
     **電源佈線**
     
-    | 標籤 | 說明 |
+    | 標籤 | 描述 |
     |:--- |:--- |
     | 1 |主要機箱 |
     | 2 |PCM 0 |

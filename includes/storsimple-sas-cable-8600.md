@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482675"
 ---
 #### <a name="to-attach-the-sas-cables"></a>連接 SAS 纜線
 1. 識別主要機箱與 EBOD 機箱。 可以藉由查看個別後擋板來識別兩個機箱。 如需指引，請參閱下圖。 
@@ -18,7 +18,7 @@ ms.locfileid: "55889547"
    
     **主要機箱與 EBOD 機箱的背面檢視**
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |主要機箱 |
    | 2 |EBOD 機箱 |
@@ -28,7 +28,7 @@ ms.locfileid: "55889547"
    
     **序號貼紙的位置**
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |機箱耳 |
 3. 接下來，使用提供的 SAS 纜線以連接主要機箱與 EBOD 機箱，如下所示：
@@ -41,7 +41,7 @@ ms.locfileid: "55889547"
       
       **SAS 佈線**
       
-      | 標籤 | 說明 |
+      | 標籤 | 描述 |
       |:--- |:--- |
       | A |主要機箱 |
       | b |EBOD 機箱 |

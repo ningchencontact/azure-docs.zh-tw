@@ -1,3 +1,20 @@
+---
+title: 包含檔案
+description: 包含檔案
+services: service-bus-relay
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 08/16/2018
+ms.author: clemensv
+ms.custom: include file
+ms.openlocfilehash: 2684f89088854ecf05c547c77852155168baa38d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749685"
+---
 ### <a name="create-a-console-application"></a>建立主控台應用程式
 
 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案。
@@ -5,8 +22,10 @@
 ### <a name="add-the-relay-nuget-package"></a>新增轉送 NuGet 封裝
 
 1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]。
-2. 選取 [瀏覽]，然後搜尋 **Microsoft.Azure.Relay**。 在搜尋結果中，選取 [Microsoft Azure 轉送]。 
-3. 選取 [安裝] 以完成安裝。 關閉對話方塊。
+2. 選取 [包括搶鮮版] 選項。 
+3. 選取 [瀏覽]，然後搜尋 **Microsoft.Azure.Relay**。 在搜尋結果中，選取 [Microsoft Azure 轉送]。
+4. 針對版本，選取 [2.0.0-preview1-20180523]。 
+5. 選取 [安裝] 以完成安裝。 關閉對話方塊。
 
 ### <a name="write-code-to-receive-messages"></a>撰寫程式碼來接收訊息
 
@@ -17,6 +36,7 @@
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net;
     using Microsoft.Azure.Relay;
     ```
 2. 將常數新增至 `Program` 類別以取得混合式連線詳細資料。 將方括號中的預留位置取代為您在建立混合式連線時所取得的值。 務必使用完整命名空間名稱。
