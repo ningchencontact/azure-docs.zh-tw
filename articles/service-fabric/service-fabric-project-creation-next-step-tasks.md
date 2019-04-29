@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/07/2017
 ms.author: atsenthi
 ms.openlocfilehash: e5371cd3ea9de1993f0f824325f6cbf1e25343d4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773038"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>您的 Service Fabric 應用程式和後續步驟
 您的 Azure Service Fabric 應用程式已經建立。 本文說明一些可嘗試的教學課程、專案的組成、您感興趣的一些其他資訊，以及潛在後續步驟。

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610532"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
 ## <a name="overview"></a>概觀
@@ -175,7 +175,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 -   [Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。
 
-### <a name="storage-analytics"></a>儲存體分析
+### <a name="storage-analytics"></a>存储分析
 [Azure 儲存體分析](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)會執行記錄，並提供儲存體帳戶的計量資料。 您可以使用此資料來追蹤要求、分析使用量趨勢，以及診斷儲存體帳戶的問題。 儲存體分析會記錄對儲存體服務之成功和失敗要求的詳細資訊。 這項資訊可用來監視個別要求，並診斷儲存體服務的問題。 系統會以最佳方式來記錄要求。 系統將記錄下列類型的驗證要求：
 -   成功的要求。
 
@@ -239,10 +239,10 @@ Microsoft Azure [ExpressRoute](https://docs.microsoft.com/azure/expressroute/exp
 ExpressRoute 連接不會經過公用網際網路，因此可視為比 VPN 型解決方案更安全。 相較於一般網際網路連線，這可讓 ExpressRoute 連線提供更可靠、更快速、延遲更短和更安全的連線。
 
 
-### <a name="application-gateway"></a>應用程式閘道
+### <a name="application-gateway"></a>应用程序网关
 Microsoft [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)會以服務形式提供[應用程式傳遞控制器 (ADC) (英文)](https://en.wikipedia.org/wiki/Application_delivery_controller)，為您的應用程式提供各種第 7 層負載平衡功能。
 
-![應用程式閘道](./media/azure-security/azure-security-fig2.png)
+![应用程序网关](./media/azure-security/azure-security-fig2.png)
 
 它會將 CPU 密集 SSL 終止卸載至應用程式閘道 (亦稱為「SSL 卸載」或「SSL 橋接」)，讓您能夠將 Web 伺服陣列的產能最佳化。 它也提供其他第 7 層路由功能，包括循環配置傳入流量、以 Cookie 為基礎的工作階段同質性、URL 路徑型路由，以及在單一應用程式閘道背後代管多個網站的能力。 Azure 應用程式閘道是第 7 層負載平衡器。
 
@@ -255,7 +255,7 @@ Web 應用程式防火牆是 [Azure 應用程式閘道](https://docs.microsoft.c
 
 ![Web 應用程式防火牆](./media/azure-security/azure-security-fig1.png)
 
--   SQL 插入式攻擊保護
+-   SQL 注入保护
 
 -   常見 Web 攻擊保護，例如命令插入式攻擊、HTTP 要求走私、HTTP 回應分割和遠端檔案包含攻擊
 

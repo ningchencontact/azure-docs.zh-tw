@@ -1,7 +1,6 @@
 ---
 title: 建立適用於 Apache Hadoop 的 Java MapReduce - Azure HDInsight
 description: 了解如何使用 Apache Maven 來建立以 Java 為基礎的 MapReduce 應用程式，然後在 Azure HDInsight 上使用 Hadoop 來加以執行。
-services: hdinsight
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e1b4681bc8e42294be6b47a04a24e28f81703e6f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e4f567fe727a2ec308cef6f48e33728f7f31c217
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436852"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121991"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>開發適用於 HDInsight 上 Apache Hadoop 的 Java MapReduce 程式
 
@@ -32,9 +31,9 @@ ms.locfileid: "53436852"
 
 * [Apache Maven](https://maven.apache.org/)
 
-## <a name="configure-development-environment"></a>設定開發環境
+## <a name="configure-development-environment"></a>配置开发环境
 
-當您安裝 Java 和 JDK 時可能會設定下列環境變數。 不過，您應該檢查它們是否存在，以及它們是否包含您系統的正確值。
+可以在安装 Java 和 JDK 时设置以下环境变量。 不過，您應該檢查它們是否存在，以及它們是否包含您系統的正確值。
 
 * `JAVA_HOME` - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。 例如，在 OS X、Unix 或 Linux 系統上，它的值應該類似 `/usr/lib/jvm/java-7-oracle`。 在 Windows 中，它的值應該類似 `c:\Program Files (x86)\Java\jre1.7`
 
@@ -69,7 +68,7 @@ ms.locfileid: "53436852"
 
 3. 刪除 `src/test/java/org/apache/hadoop/examples/apptest.java` 檔案。 此範例不會使用此方法。
 
-## <a name="add-dependencies"></a>新增相依性
+## <a name="add-dependencies"></a>添加依赖项
 
 1. 編輯 `pom.xml` 檔案，並在 `<dependencies>` 區段內新增下列文字：
    
@@ -94,7 +93,7 @@ ms.locfileid: "53436852"
     </dependency>
    ```
 
-    這會定義含有特定版本 (列於&lt;version\> 內) 的必要程式庫 (列於 &lt;artifactId\> 內)。 在編譯期間，會從預設的 Maven 儲存機制下載這些相依性。 您可以使用 [Maven 儲存機制搜尋](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) (英文) 檢視詳細資訊。
+    這會定義含有特定版本 (列於&lt;version\> 內) 的必要程式庫 (列於 &lt;artifactId\> 內)。 在編譯期間，會從預設的 Maven 儲存機制下載這些相依性。 可以使用 [Maven 存储库搜索](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) 来查看详细信息。
    
     `<scope>provided</scope>` 會告訴 Maven 這些相依性不應該和應用程式一起封裝，因為 HDInsight 叢集會在執行階段提供這些相依性。
 

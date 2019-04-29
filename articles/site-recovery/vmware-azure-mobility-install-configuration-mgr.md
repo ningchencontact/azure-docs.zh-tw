@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598275"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自動進行行動服務安裝
 
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
    | **參數名稱** | **值** |
    |--|--|
-   | Name | 安裝 Microsoft Azure 行動服務 (Windows) |
+   | 名稱 | 安裝 Microsoft Azure 行動服務 (Windows) |
    | 命令列 | install.bat |
    | 程式可以執行 | 使用者是否登入 |
 
@@ -397,7 +397,7 @@ cd /tmp
 
     | **參數名稱** | **值** |
    |--|--|
-   | Name | 安裝 Microsoft Azure 行動服務 (Linux) |
+   | 名稱 | 安裝 Microsoft Azure 行動服務 (Linux) |
    | 命令列 | ./install_linux.sh |
    | 程式可以執行 | 使用者是否登入 |
 

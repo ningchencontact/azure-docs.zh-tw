@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61036605"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>規劃 Hyper-V VM 災害復原的容量 
 
@@ -104,7 +104,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
 
    g. 在 [每日資料變更率 (%)] 中，指定來源伺服器的每日資料變更率。
 
-   h. 在 [對應 Azure VM 大小] 中，輸入您想要對應的 Azure VM 大小。 如果您不想要手動執行此動作，則選取 [計算 IaaS VM]。 如果您輸入手動設定，然後選取 [計算 IaaS VM]，則手動設定可能會遭到覆寫。 計算程序會自動識別最符合的 Azure VM 大小。
+   h.如果该值不存在，请单击“添加行”。 在 [對應 Azure VM 大小] 中，輸入您想要對應的 Azure VM 大小。 如果您不想要手動執行此動作，則選取 [計算 IaaS VM]。 如果您輸入手動設定，然後選取 [計算 IaaS VM]，則手動設定可能會遭到覆寫。 計算程序會自動識別最符合的 Azure VM 大小。
 
    ![工作負載限定性條件工作表](./media/site-recovery-capacity-planner/workload-qualification.png)
 

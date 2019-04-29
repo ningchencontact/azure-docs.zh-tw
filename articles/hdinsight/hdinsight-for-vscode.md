@@ -1,8 +1,7 @@
 ---
 title: Azure HDInsight 工具 - 使用適用於 Hive、LLAP 或 PySpark 的 Visual Studio Code | Microsoft Docs
 description: 了解如何使用適用於 Visual Studio Code 的 Azure HDInsight 工具來建立及提交查詢和指令碼。
-Keywords: Visual Studio 程式碼、 Azure HDInsight 工具、 Hive、 Python、 PySpark、 Spark、 HDInsight、 Hadoop，LLAP，互動式 Hive、 互動式查詢
-services: HDInsight
+Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,交互式 Hive,交互式查询
 documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 71e12e661c704af028ac4dc48f255bdee980619c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098332"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -307,35 +306,35 @@ Spark 2.2 叢集和 Spark2.3 叢集已不再支援 PySpark3，只有 Python 支�
     **POST /batches**   
     要求本文
 
-    | name | 說明 | type | 
+    | name | description | type | 
     | :- | :- | :- | 
     | file | 要執行的應用程式所在的檔案 | 路徑 (必要) | 
-    | proxyUser | 要在執行作業時模擬的使用者 | 字串 | 
-    | className | 應用程式 Java/Spark 主要類別 | 字串 |
+    | proxyUser | 要在執行作業時模擬的使用者 | string | 
+    | className | 應用程式 Java/Spark 主要類別 | string |
     | args | 應用程式的命令列引數 | 字串的清單 | 
     | jars | 要在此工作階段中使用的 jar | 字串清單 | 
     | pyFiles | 要在此工作階段中使用的 Python 檔案 | 字串清單 |
     | 檔案 | 要在此工作階段中使用的檔案 | 字串清單 |
-    | driverMemory | 要用於驅動程式處理序的記憶體數量 | 字串 |
+    | driverMemory | 要用於驅動程式處理序的記憶體數量 | string |
     | driverCores | 要用於驅動程式處理序的核心數量 | int |
-    | executorMemory | 每一個執行程式處理序所要使用的記憶體數量 | 字串 |
+    | executorMemory | 每一個執行程式處理序所要使用的記憶體數量 | string |
     | executorCores | 每個執行程式所要使用的核心數量 | int |
     | numExecutors | 要為此工作階段啟動的執行程式數量 | int |
     | archives | 要在此工作階段中使用的封存 | 字串清單 |
-    | 佇列 | 所提交到的 YARN 佇列名稱 | 字串 |
-    | name | 此工作階段的名稱 | 字串 |
+    | 佇列 | 所提交到的 YARN 佇列名稱 | string |
+    | name | 此工作階段的名稱 | string |
     | conf | Spark 組態屬性 | key=val 的對應 |
 
     回應本文   
     所建立的 Batch 物件。
 
-    | name | 說明 | type | 
+    | name | description | type | 
     | :- | :- | :- | 
     | id | 工作階段識別碼 | int | 
     | appId | 此工作階段的應用程式識別碼 |  字串 |
     | appInfo | 詳細的應用程式資訊 | key=val 的對應 |
     | log | 記錄行 | 字串的清單 |
-    | state |   批次狀態 | 字串 |
+    | state |   批次狀態 | string |
 
 >[!NOTE]
 >指派的 Livy 組態會在提交指令碼執行時顯示於輸出窗格中。

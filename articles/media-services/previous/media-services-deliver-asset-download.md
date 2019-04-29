@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465655"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>作法：透過下載來傳遞資產  
 本文將討論有哪些選項可傳遞已上傳至媒體服務的媒體資產。 您可以透過多種應用程式案例來傳遞媒體服務內容。 編碼之後，下載所產生的媒體資產，或使用串流定位器來存取它們。 若要改善效能和延展性，您也可以使用內容傳遞網路 (CDN) 傳遞內容。

@@ -1,7 +1,6 @@
 ---
 title: 設定 Azure 虛擬網路中的 HBase 叢集複寫 - Azure HDInsight
 description: 了解如何針對負載平衡、高可用性、零停機時間移轉和更新，以及災害復原來設定 HDInsight 版本之間的 HBase 複寫。
-services: hdinsight,virtual-network
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112529"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123073"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 
@@ -67,7 +66,7 @@ ms.locfileid: "58112529"
 
 **VNet 1**
 
-| 屬性 | 值 |
+| 屬性 | Value |
 |----------|-------|
 | 位置 | 美國西部 |
 | VNet 名稱 | &lt;ClusterNamePrevix>-vnet1 |
@@ -84,7 +83,7 @@ ms.locfileid: "58112529"
 
 **VNet 2**
 
-| 屬性 | 值 |
+| 屬性 | Value |
 |----------|-------|
 | 位置 | 美國東部 |
 | VNet 名稱 | &lt;ClusterNamePrevix>-vnet2 |
@@ -136,7 +135,7 @@ ms.locfileid: "58112529"
     sudo apt-get install bind9 -y
     ```
 
-3. 設定繫結，將名稱解析要求轉送到您內部部署 DNS 伺服器。 若要這樣做，請使用下列文字作為 `/etc/bind/named.conf.options` 檔案的內容：
+3. 配置 Bind 以将名称解析请求转发到本地 DNS 服务器。 若要這樣做，請使用下列文字作為 `/etc/bind/named.conf.options` 檔案的內容：
 
     ```
     acl goodclients {

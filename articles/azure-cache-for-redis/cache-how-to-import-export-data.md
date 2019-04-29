@@ -12,14 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
-ms.author: yegu
+origin.date: 07/31/2017
+ms.date: 02/27/2019
+ms.author: v-junlch
 ms.openlocfilehash: dfa8b47ced70386efa1daa44af318f1da55f49e1
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235728"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542179"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>在 Azure Cache for Redis 中匯入與匯出資料
 「匯入/匯出」是 Azure Cache for Redis 的資料管理作業，可讓您從進階快取將「Azure Cache for Redis 資料庫」(RDB) 快照集匯入和匯出至 Azure 儲存體帳戶中的 Blob，以將資料匯入 Azure Cache for Redis 或從 Azure Cache for Redis 匯出資料。 
@@ -37,7 +38,7 @@ ms.locfileid: "56235728"
 >
 
 ## <a name="import"></a>Import
-匯入可以用來從任何雲端或環境中執行的 Redis 伺服器 (包含在 Linux、Windows 上執行的 Redis，或任何雲端提供者，例如 Amazon Web Services 等) 引入 Redis 相容 RDB 檔案。 匯入資料是使用預先填入資料建立快取的輕鬆方式。 在進行匯入程序的期間，Azure Cache for Redis 會從 Azure 儲存體將 RDB 檔案載入記憶體，然後將金鑰插入快取中。
+导入可用于从任何云或环境中运行的任何 Redis 服务器引入与 Redis 兼容的 RDB 文件，包括在 Linux、Windows 上运行的 Redis 或任何云提供程序（如 Amazon Web Services 等）。 匯入資料是使用預先填入資料建立快取的輕鬆方式。 在進行匯入程序的期間，Azure Cache for Redis 會從 Azure 儲存體將 RDB 檔案載入記憶體，然後將金鑰插入快取中。
 
 > [!NOTE]
 > 開始匯入作業之前，請確定您的 Redis 資料庫 (RDB) 檔案已上傳到 Azure 儲存體中的分頁或區塊 blob，位於和 Azure Cache for Redis 執行個體相同的區域和訂用帳戶。 如需詳細資訊，請參閱 [開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 如果您使用 [Azure Cache for Redis 匯出](#export) 功能匯出 RDB 檔案，表示 RDB 檔案已儲存在分頁 blob，並且可供匯入。
@@ -86,29 +87,29 @@ ms.locfileid: "56235728"
 3. 選擇所需的 blob 容器，然後按一下 [選取] 。 若要使用新的容器，請按一下 [新增容器]  先加以新增，然後從清單中選取它。
 
     ![選擇儲存體容器][cache-export-data-container]
-4. 輸入 [Blob 名稱前置詞]，然後按一下 [匯出] 以啟動匯出程序。 Blob 名稱前置詞可用來做為此匯出作業所產生之檔案名稱的前置詞。
+4. 輸入 [Blob 名稱前置詞]，然後按一下 [匯出] 以啟動匯出程序。 blob 名称前缀用于作为此导出操作生成的文件名称的前缀。
 
-    ![匯出][cache-export-data]
+    ![导出][cache-export-data]
 
     您可以遵循 Azure 入口網站的通知，或檢視[稽核記錄檔](../azure-resource-manager/resource-group-audit.md)中的事件來監視匯出作業的進度。
 
     ![匯出資料完成][cache-export-data-export-complete]
 
-    在匯出程序期間快取隨時可供使用。
+    在导出过程中，缓存仍可供使用。
 
 ## <a name="importexport-faq"></a>匯入/匯出常見問題集
 本節包含匯入/匯出功能的常見問題集。
 
-* [哪些定價層可以使用匯入/匯出？](#what-pricing-tiers-can-use-importexport)
-* [我是否可以從任何 Redis 伺服器匯入資料？](#can-i-import-data-from-any-redis-server)
-* [我可以匯入哪些 RDB 版本？](#what-rdb-versions-can-i-import)
-* [在匯入/匯出作業期間，是否可以使用我的快取？](#is-my-cache-available-during-an-importexport-operation)
-* [我可以使用匯入/匯出搭配 Redis 叢集嗎？](#can-i-use-importexport-with-redis-cluster)
-* [匯入/匯出如何對自訂資料庫設定運作？](#how-does-importexport-work-with-a-custom-databases-setting)
-* [匯入/匯出和 Redis 永續性有何不同？](#how-is-importexport-different-from-redis-persistence)
-* [我可以使用 PowerShell、CLI 或其他管理用戶端自動化匯入/匯出嗎？](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
-* [我在匯入/匯出作業期間收到逾時錯誤。這代表什麼意思？](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
-* [我將資料匯出至 Azure Blob 儲存體時收到錯誤。發生什麼情形？](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
+- [哪些定價層可以使用匯入/匯出？](#what-pricing-tiers-can-use-importexport)
+- [能否从任何 Redis 服务器导入数据？](#can-i-import-data-from-any-redis-server)
+- [我可以匯入哪些 RDB 版本？](#what-rdb-versions-can-i-import)
+- [在匯入/匯出作業期間，是否可以使用我的快取？](#is-my-cache-available-during-an-importexport-operation)
+- [我可以使用匯入/匯出搭配 Redis 叢集嗎？](#can-i-use-importexport-with-redis-cluster)
+- [匯入/匯出如何對自訂資料庫設定運作？](#how-does-importexport-work-with-a-custom-databases-setting)
+- [匯入/匯出和 Redis 永續性有何不同？](#how-is-importexport-different-from-redis-persistence)
+- [我可以使用 PowerShell、CLI 或其他管理用戶端自動化匯入/匯出嗎？](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
+- [我在匯入/匯出作業期間收到逾時錯誤。這代表什麼意思？](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
+- [我將資料匯出至 Azure Blob 儲存體時收到錯誤。發生什麼情形？](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 
 ### <a name="what-pricing-tiers-can-use-importexport"></a>哪些定價層可以使用匯入/匯出？
 匯入/匯出僅適用於進階定價層。
@@ -126,19 +127,19 @@ ms.locfileid: "56235728"
 Azure Cache for Redis 最多可支援到 RDB 第 7 版的 RDB 匯入。
 
 ### <a name="is-my-cache-available-during-an-importexport-operation"></a>在匯入/匯出作業期間，是否可以使用我的快取？
-* **匯出** - 快取持續可供使用，而且您可以繼續在匯出作業期間使用快取。
-* **匯入** - 匯入作業啟動時會無法使用快取，當匯入作業完成時，快取即可供使用。
+- **匯出** - 快取持續可供使用，而且您可以繼續在匯出作業期間使用快取。
+- **匯入** - 匯入作業啟動時會無法使用快取，當匯入作業完成時，快取即可供使用。
 
 ### <a name="can-i-use-importexport-with-redis-cluster"></a>我可以使用匯入/匯出搭配 Redis 叢集嗎？
 可以，您可以在叢集快取和非叢集快取之間匯入/匯出。 由於 Redis 叢集[僅支援資料庫 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)，因此不會匯入資料庫中 0 以外的任何資料。 匯入叢集快取資料時，金鑰會在叢集的分區之間重新分配。
 
-### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>匯入/匯出如何對自訂資料庫設定運作？
+### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>导入/导出如何使用自定义数据库设置？
 某些定價層具有不同的[資料庫限制](cache-configure.md#databases)，因此，在匯入時，如果您在快取建立期間為 `databases` 設定設定了自訂值，則有一些考量。
 
-* 匯入到與您從中匯出的階層具有較低 `databases` 限制的定價層時：
-  * 如果您使用預設數字 `databases`，即所有定價層為 16，則不會遺失資料。
-  * 如果您要使用的自訂數字 `databases` ，落在您要匯入之階層限制範圍內，則不會遺失資料。
-  * 如果您的匯出資料包含位於超出新階層限制之資料庫中的資料，則不會匯入來自這些較高階層資料庫中的資料。
+- 当导入到的定价层的 `databases` 限制低于导出层的相应限制时：
+  - 如果您使用預設數字 `databases`，即所有定價層為 16，則不會遺失資料。
+  - 如果您要使用的自訂數字 `databases` ，落在您要匯入之階層限制範圍內，則不會遺失資料。
+  - 如果您的匯出資料包含位於超出新階層限制之資料庫中的資料，則不會匯入來自這些較高階層資料庫中的資料。
 
 ### <a name="how-is-importexport-different-from-redis-persistence"></a>匯入/匯出和 Redis 永續性有何不同？
 Azure Cache for Redis 持續性讓您將儲存在 Redis 快取中的資料存留至 Azure 儲存體。 設定持續性後，Azure Cache for Redis 會依據可設定的備份頻率，在磁碟中保存一份 Redis 二進位格式的 Azure Cache for Redis 快照集。 如果發生同時停用主要和複本快取的災難性事件，即可使用最新的快照自動還原快取資料。 如需詳細資訊，請參閱[如何設定進階 Azure Cache for Redis 的資料持續性](cache-how-to-premium-persistence.md)。
@@ -155,13 +156,13 @@ Azure Cache for Redis 持續性讓您將儲存在 Redis 快取中的資料存留
 
 若要解決此問題，請在經過 15 分鐘之前起始匯入或匯出作業。
 
-### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>我將資料匯出至 Azure Blob 儲存體時收到錯誤。 發生什麼情形？
+### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>我將資料匯出至 Azure Blob 儲存體時收到錯誤。 发生了什么情况？
 匯出只能使用儲存為分頁 blob 的 RDB 檔案。 目前不支援其他的 Blob 類型，包括經常性存取及非經常性存取層的 Blob 儲存體帳戶。 如需詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../storage/common/storage-account-overview.md)。
 
 ## <a name="next-steps"></a>後續步驟
 了解如何使用更多進階快取功能。
 
-* [Azure Cache for Redis 進階層簡介](cache-premium-tier-intro.md)    
+- [Azure Cache for Redis 進階層簡介](cache-premium-tier-intro.md)    
 
 <!-- IMAGES -->
 [cache-settings-import-export-menu]: ./media/cache-how-to-import-export-data/cache-settings-import-export-menu.png
@@ -176,3 +177,6 @@ Azure Cache for Redis 持續性讓您將儲存在 Redis 快取中的資料存留
 [cache-import-choose-blobs]: ./media/cache-how-to-import-export-data/cache-import-choose-blobs.png
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
+
+
+<!-- Update_Description: update metedata properties -->

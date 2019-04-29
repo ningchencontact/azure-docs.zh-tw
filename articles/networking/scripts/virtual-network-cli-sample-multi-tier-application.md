@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
 ms.openlocfilehash: 685896cdbd74788f138b8b9dc09efbcd68a5b565
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694545"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624440"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>為多層式應用程式建立網路
 
@@ -38,7 +38,7 @@ ms.locfileid: "55694545"
 
 ## <a name="clean-up-deployment"></a>清除部署 
 
-執行下列命令來移除資源群組、VM 和所有相關資源。
+运行以下命令来删除资源组、VM 和所有相关资源。
 
 ```azurecli
 az group delete --name MyResourceGroup --yes

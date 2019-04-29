@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704508"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure 資訊安全中心和 Azure SQL Database 服務
 [Azure 資訊安全中心](https://azure.microsoft.com/documentation/services/security-center/)可協助您保護、偵測威脅並採取相應的措施。 它提供您 Azure 訂用帳戶之間的整合式安全性監視和原則管理，協助您偵測可能會忽略的威脅，且適用於廣泛的安全性解決方案生態系統。
@@ -67,7 +67,7 @@ ms.locfileid: "56114082"
 
 設定安全性原則之後，資訊安全中心會分析您資源的安全性狀態，以識別潛在的弱點。 系統會以表格格式顯示建議，其中每一行代表一個特定的建議。 使用下表做為參考，協助您了解 Azure SQL Database 的可用建議，以及如果套用建議，每一個建議將產生的作用。 選取某項建議，就會出現說明如何在資訊安全中心實作建議的文章。
 
-| 建議 | 說明 |
+| 建議 | 描述 |
 | --- | --- |
 | [在 SQL Server 上啟用稽核與威脅偵測](security-center-enable-auditing-on-sql-servers.md) |建議您針對 SQL Database 伺服器開啟稽核和威脅偵測功能。 (僅限 SQL Database 服務。 不包含在虛擬機器上執行的 Microsoft SQL Server。) |
 | [在 SQL Database 上啟用稽核與威脅偵測](security-center-enable-auditing-on-sql-databases.md) |針對 SQL Database 資料庫開啟稽核和威脅偵測的建議。 (僅限 SQL Database 服務。 不包含在虛擬機器上執行的 Microsoft SQL Server。) |
@@ -104,7 +104,7 @@ ms.locfileid: "56114082"
 ## <a name="next-steps"></a>後續步驟
 * [資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
 * [資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md) - 遵循一組步驟和工作，以根據您組織的安全性需求和雲端管理模型，將您的資訊安全中心使用最佳化。
-* [資訊安全中心資料安全性](security-center-data-security.md) – 了解資訊安全中心如何收集和處理 Azure 資源的相關資料，包括組態資訊、中繼資料、事件記錄檔、損毀傾印檔等等。
+* [資訊安全中心資料安全性](security-center-data-security.md) – 了解資訊安全中心如何收集和處理 Azure 資源的相關資料，包括組態資訊、中繼資料、事件記錄、損毀傾印檔等等。
 * [處理安全性事件](security-center-incident.md) - 了解如何使用資訊安全中心的安全性警示功能，協助您處理安全性事件。
 
 <!--Image references-->

@@ -1,28 +1,29 @@
 ---
 title: 在遠端監視解決方案 UI 中新增方格 - Azure | Microsoft Docs
-description: 此文章說明如何在遠端監視解決方案加速器 Web UI 中的頁面上，新增方格。
+description: 本文說明如何在遠端監視解決方案加速器 Web UI 中的頁面上，新增方格。
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/04/2018
+origin.date: 10/04/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496432"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447092"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>在遠端監視解決方案加速器 Web UI 中新增自訂格線
 
-此文章說明如何在遠端監視解決方案加速器 Web UI 中的頁面上，新增方格。 此文章說明：
+本文說明如何在遠端監視解決方案加速器 Web UI 中的頁面上，新增方格。 本文章說明：
 
 - 如何準備本機開發環境。
 - 如何在 Web UI 中的頁面上新增方格。
 
-此文章中的方格範例會顯示來自服務的資料，而[在遠端監視解決方案加速器 Web UI 中新增自訂服務](iot-accelerators-remote-monitoring-customize-service.md)操作說明文章會說明新增方式。
+本文中的方格範例會顯示來自服務的資料，而[在遠端監視解決方案加速器 Web UI 中新增自訂服務](iot-accelerators-remote-monitoring-customize-service.md)操作說明文章會說明新增方式。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -48,11 +49,11 @@ ms.locfileid: "52496432"
 
 **exampleGrid.js**
 
-[!code-javascript[Example grid](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGrid.js?name=grid "Example grid")]
+
 
 **exampleGridConfig.js**
 
-[!code-javascript[Example grid configuration](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGridConfig.js?name=gridconfig "Example grid configuration")]
+
 
 將 **src/walkthrough/components/pages/pageWithGrid/exampleGrid** 資料夾複製到 **src/components/pages/example** 資料夾。
 
@@ -239,7 +240,7 @@ npm start
     ```js
     doSomething = () => {
       //Just for demo purposes. Don't console log in a real grid.
-      console.log('Hard selected rows', this.gridApi.getSelectedRows());
+      console.log('hard selected rows', this.gridApi.getSelectedRows());
     };
     ```
 
@@ -263,23 +264,23 @@ npm start
 1. 按一下軟式選取連結後，它會觸發 **onSoftSelectChange** 事件。 對該資料列執行任何所需的動作，例如開啟詳細資料飛出視窗。 此範例只會寫入至主控台：
 
     ```js
-    onSoftSelectChange = (rowId, rowData) => {
-      //Note: only the Id is reliable, rowData may be out of date
+    onSoftSelectChange = (rowId, rowEvent) => {
       const { onSoftSelectChange } = this.props;
-      if (rowId) {
+      const obj = (this.gridApi.getDisplayedRowAtIndex(rowId) || {}).data;
+      if (obj) {
         //Just for demo purposes. Don't console log a real grid.
-        console.log('Soft selected', rowId);
-        this.setState({ softSelectedId: rowId });
+        console.log('Soft selected', obj);
+        this.setState({ softSelectedObj: obj });
       }
       if (isFunc(onSoftSelectChange)) {
-        onSoftSelectChange(rowId, rowData);
+        onSoftSelectChange(obj, rowEvent);
       }
     }
     ```
 
 ## <a name="next-steps"></a>後續步驟
 
-在此文章中，您已了解可用來協助您在遠端監視解決方案加速器 Web UI 中新增或自訂頁面的資源。
+在本文中，您已了解可用來協助您在遠端監視解決方案加速器 Web UI 中新增或自訂頁面的資源。
 
 您現在已定義了一個方格，下一個步驟是[將自訂飛出視窗新增至遠端監視解決方案加速器 Web UI](iot-accelerators-remote-monitoring-customize-flyout.md) (其顯示在範例頁面上)。
 

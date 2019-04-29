@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: v-sharos
-ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: d973a16c121a1e8ebee10826d135bcbb33ef748c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61409909"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>更新您的 StorSimple 8000 系列裝置
 > [!NOTE]
-> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將遭到淘汰。 若有關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
+> StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將遭到淘汰。 關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
 
 ## <a name="overview"></a>概觀
 StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀態。 根據更新類型而定，您可以透過 Azure 傳統入口網站或透過 Windows PowerShell 介面，將更新套用到裝置。 本教學課程說明更新類型，以及如何安裝每一種更新類型。
@@ -49,7 +49,7 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 * 您也可以透過 Windows PowerShell for StorSimple 安裝一般更新。 如需詳細資訊，請參閱 [透過 Windows PowerShell for StorSimple 安裝一般更新](#install-regular-updates-via-windows-powershell-for-storsimple)。
 
 ### <a name="maintenance-mode-updates"></a>維護模式更新
-維護模式更新是干擾性更新，例如磁碟韌體升級。 這些更新需要使裝置進入維護模式。 如需詳細資訊，請參閱 [步驟 2：進入維護模式](#step2)。 您無法使用 Azure 傳統入口網站來安裝維護模式更新。 您必須改用 Windows PowerShell for StorSimple。 
+維護模式更新是干擾性更新，例如磁碟韌體升級。 這些更新需要使裝置進入維護模式。 如需詳細資訊，請參閱[步驟 2:進入維護模式](#step2)。 您無法使用 Azure 傳統入口網站來安裝維護模式更新。 您必須改用 Windows PowerShell for StorSimple。 
 
 如需如何安裝維護模式更新的詳細資訊，請參閱 [透過 Windows PowerShell for StorSimple 安裝維護模式更新](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple)。
 
@@ -76,7 +76,7 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 ## <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>透過 Windows PowerShell for StorSimple 安裝維護模式更新
 您使用 Windows PowerShell for StorSimple，將維護模式更新套用到 StorSimple 裝置。 在此模式中，所有的 I/O 要求都會暫停。 靜態隨機存取記憶體 (NVRAM) 之類的服務或叢集服務也會停止。 這兩個控制站會在您進入或結束此模式時重新啟動。 當您結束此模式時，所有的服務都將繼續執行，而且應該是健康情況良好的 (這可能需要數分鐘的時間)。
 
-如果您需要套用維護模式更新，將會透過 Azure 傳統入口網站收到警示，指出您有必須安裝的更新。 這個警示將包含使用 Windows PowerShell for StorSimple 安裝更新的相關指示。 更新裝置之後，請使用相同的程序來將裝置變更為一般模式。 如需逐步指示，請參閱 [步驟 4：結束維護模式](#step4)。
+如果您需要套用維護模式更新，將會透過 Azure 傳統入口網站收到警示，指出您有必須安裝的更新。 這個警示將包含使用 Windows PowerShell for StorSimple 安裝更新的相關指示。 更新裝置之後，請使用相同的程序來將裝置變更為一般模式。 如需逐步指示，請參閱[步驟 4:結束維護模式](#step4)。
 
 > [!IMPORTANT]
 > * 進入維護模式之前，請檢查 Azure 傳統入口網站中 [維護]頁面上的**硬體狀態**，以確認兩個裝置控制器的健康情況良好。 如果控制站的健康情況不好，請連絡 Microsoft 支援服務以進行後續步驟。 如需詳細資訊，請參閱＜連絡 Microsoft 支援服務＞。 
@@ -84,7 +84,7 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 > 
 > 
 
-### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>步驟 1：連線到序列主控台 <a name="step1">
+### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>步驟 1：連接到序列主控台 <a name="step1">
 首先，使用 PuTTY 之類的應用程式來存取序列主控台。 下列程序說明如何使用 PuTTY 來連接到序列主控台。
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]

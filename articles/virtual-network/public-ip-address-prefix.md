@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 5496be93a5241621cd4dc5e873e4386f8ed6c992
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 3cc4933ae70ad1d661835749dd23e7e634ab54f0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474431"
 ---
 # <a name="public-ip-address-prefix"></a>公用 IP 位址首碼
 
@@ -49,7 +49,7 @@ ms.locfileid: "57195212"
 ## <a name="scenarios"></a>案例
 您可以將下列資源與首碼中的靜態公用 IP 位址產生關聯：
 
-|資源|案例|步驟|
+|Resource|案例|步驟|
 |---|---|---|
 |虛擬機器| 將公用 IP 從首碼與您在 Azure 中的虛擬機器產生關聯，可以減少在防火牆中建立 IP 允許清單的管理負荷。 您可以使用單一防火牆規則，將整個首碼列入允許清單。 當您在調整 Azure 中的虛擬機器規模時，可以關聯來自相同首碼的 IP，進而節省成本、時間與管理額外負荷。| 將首碼中的 IP 與您的虛擬機器產生關聯：1. [建立首碼](manage-public-ip-address-prefix.md)。 2. [從首碼建立 IP](manage-public-ip-address-prefix.md)。 3. [將 IP 與您的虛擬機器網路介面產生關聯](virtual-network-network-interface-addresses.md#add-ip-addresses)。
 | 負載平衡器 | 將首碼中的公用 IP 與您的前端 IP 設定或負載平衡器的連出規則產生關聯，以確保簡化您的 Azure 公用 IP 位址空間。 您可以透過清理連出連線，使其源自公用 IP 首碼定義的連續 IP 位址範圍，來簡化您的案例。 | 將首碼中的 IP 與您的負載平衡器產生關聯：1. [建立首碼](manage-public-ip-address-prefix.md)。 2. [從首碼建立 IP](manage-public-ip-address-prefix.md)。 3. 建立負載平衡器時，選取或更新上面步驟 2 中建立的 IP 作為您負載平衡器的前端 IP。 |

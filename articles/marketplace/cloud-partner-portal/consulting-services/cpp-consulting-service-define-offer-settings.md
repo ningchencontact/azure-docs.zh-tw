@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749632"
 ---
 # <a name="offer-settings-tab"></a>供應項目設定索引標籤
 
@@ -40,7 +40,7 @@ ms.locfileid: "54231932"
 
 此識別碼與您的帳戶相關。 您登入您的組織帳戶後，您的**發行者識別碼**會顯示在下拉式功能表中。
 
-### <a name="name"></a>Name
+### <a name="name"></a>名稱
 
 此字串將在 AppSource 上或在 Azure Marketplace 中顯示為供應項目名稱。 [名稱] 方塊上限為 50 個字元。 檢閱者可能需要編輯您的標題，才能將持續時間和供應項目類型附加到供應項目名稱。
 

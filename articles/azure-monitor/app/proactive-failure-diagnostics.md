@@ -14,11 +14,11 @@ ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117651"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61299030"
 ---
 # <a name="smart-detection---failure-anomalies"></a>智慧型偵測 - 失敗異常
 當 Web 應用程式的失敗要求比率異常增加時，[Application Insights](../../azure-monitor/app/app-insights-overview.md) 會以幾乎即時的方式自動通知您。 它偵測到回報為失敗的 HTTP 要求率異常提高或相依性呼叫。 對於要求，失敗的要求通常是回應碼為 400 或更高的要求。 為了協助您分級並診斷問題，通知中會提供失敗的特性分析與相關遙測。 其中也有 Application Insights 入口網站的連結，以供進一步診斷。 不需要設定該功能，因為它是使用機器學習演算法來預測一般失敗率。

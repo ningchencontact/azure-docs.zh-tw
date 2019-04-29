@@ -10,11 +10,11 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
 ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58292881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61467449"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的 Liquid 範本執行進階的 JSON 轉換
 
@@ -68,7 +68,7 @@ ms.locfileid: "58292881"
 
 4. 選擇 [新增]，並提供該對應的以下詳細資料：
 
-   | 屬性 | 值 | 描述 | 
+   | 屬性 | Value | 描述 | 
    |----------|-------|-------------|
    | **名稱** | JsonToJsonTemplate | 對應的名稱，在此範例中是 "JsonToJsonTemplate" | 
    | **對應類型** | **liquid** | 對應的類型。 對於 JSON 到 JSON 的轉換，請選取 [Liquid]。 | 

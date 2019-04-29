@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553686"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -160,7 +160,7 @@ Azure 媒體服務的 SLA 涵蓋影片索引器，並可以在 [SLA](https://azu
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>何時我的付費使用影片索引器？
 
-傳送時要編製索引的影片，使用者會定義為音訊分析或兩者的影片分析編製索引。 這會決定其 Sku 會收費。 如果在處理期間沒有嚴重層級錯誤，則會傳回錯誤碼，做為回應。 在此情況下，不會計費。  我們的程式碼中的錯誤可能因嚴重的錯誤或內部的相依性服務中的嚴重失敗。 錯誤的識別碼或深入解析擷取之類的錯誤不會視為嚴重，並將回應傳回。 在任何情況下會傳回有效 （非錯誤代碼） 回應，其中會計費。
+使用者在傳送影片編製索引時，必須定義影片的索引是視訊分析、音訊分析或這兩者。 這決定要收費的 SKU。 處理期間若發生嚴重等級的錯誤，將會傳回錯誤碼作為回應。 當發生此狀況時，將不收取任何費用。  嚴重錯誤可能是我們的程式碼包含的 Bug 所致，也可能是服務內部相依性失敗所引起。 諸如識別錯誤或見解擷取等情況，將不會視為嚴重錯誤，而且會傳回回應。 只要傳回了有效的回應 (不是錯誤碼)，就會收費。
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>影片索引器是否提供免費試用版？
 

@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
 ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005824"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60690492"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric 聯盟網路
 

@@ -1,28 +1,30 @@
 ---
-title: 使用 Azure Site Recovery 在 Azure 中設定要在 VMware VM 和實體伺服器的災害復原期間容錯回復的處理序伺服器 | Microsoft Docs
-description: 本文說明如何在 Azure 中設定要在 VMware VM 和實體伺服器的災害復原期間，從 Azure 容錯回復至內部部署環境的處理序伺服器。
+title: 使用 Azure Site Recovery 部署 VMware Vm 和實體伺服器的災害復原期間設定向外延展處理序伺服器 |Microsoft Docs'
+description: 本文說明如何在 VMware Vm 和實體伺服器災害復原期間設定向外延展處理序伺服器。
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362165"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101892"
 ---
-# <a name="scale-for-failback-with-additional-process-servers"></a>進行調整以使用額外處理序伺服器進行容錯回復
+# <a name="scale-with-additional-process-servers"></a>調整的額外處理序伺服器
 
-依預設，使用 [Site Recovery](site-recovery-overview.md) 複製 VMware VM 或實體伺服器至 Azure 時，處理序伺服器會安裝在設定伺服器電腦上，並且用於協調 Site Recovery 與內部部署基礎結構之間的資料轉送。 若要增加容量和相應放大您的複寫部署，您可以加入其他獨立處理序伺服器。 本文說明如何執行此操作。
+依預設，使用 [Site Recovery](site-recovery-overview.md) 複製 VMware VM 或實體伺服器至 Azure 時，處理序伺服器會安裝在設定伺服器電腦上，並且用於協調 Site Recovery 與內部部署基礎結構之間的資料轉送。 若要增加容量和相應放大您的複寫部署，您可以加入其他獨立處理序伺服器。 本文說明如何設定向外延展處理序伺服器。
 
 ## <a name="before-you-start"></a>開始之前
 
 ### <a name="capacity-planning"></a>容量規劃
 
 請確定您已執行 VMware 複寫的[容量規劃](site-recovery-plan-capacity-vmware.md)。 這有助於您識別如何及何時應該部署額外的處理序伺服器。
+
+從 9.24 版本中，選取新的複寫的處理序伺服器的期間會加入指引。 狀況良好、 警告和重大根據特定準則，將會標示處理序伺服器。 若要了解不同的案例，可能會影響處理序伺服器的狀態，請造訪[流程伺服器選取項目指引](vmware-azure-manage-process-server.md#process-server-selection-guidance)。
 
 > [!NOTE]
 > 不支援使用複製的處理序伺服器元件。 請遵循本文中的步驟進行每個 PS 相應放大作業。
@@ -44,8 +46,6 @@ ms.locfileid: "59362165"
 下表為額外處理序伺服器的必要條件摘要。
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-
 
 ## <a name="download-installation-file"></a>下載安裝檔
 

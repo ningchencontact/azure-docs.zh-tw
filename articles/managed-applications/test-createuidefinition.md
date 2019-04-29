@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
-ms.translationtype: HT
+ms.openlocfilehash: b1392c29881a9077e26baafc8972148800d03d3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746088"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>測試您受控應用程式的 Azure 入口網站介面
 為您的 Azure 受控應用程式[建立 createUiDefinition.json 檔案](create-uidefinition-overview.md)後，您必須測試使用者體驗。 若要簡化測試，請使用可在入口網站中載入檔案的指令碼。 您不需要實際部署受控應用程式。

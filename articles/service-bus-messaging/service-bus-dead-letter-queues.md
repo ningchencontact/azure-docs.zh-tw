@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713957"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服務匯流排寄不出的信件佇列的概觀
 
@@ -50,7 +50,7 @@ Azure 服務匯流排佇列和主題訂用帳戶提供次要的子佇列，稱�
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |訊息已過期，且已停止傳送。 |
 | SubscriptionDescription.RequiresSession |工作階段識別碼為 null。 |啟用工作階段的實體不允許工作階段識別項為 null 的訊息。 |
 | ！寄不出的信件佇列 |MaxTransferHopCountExceeded |Null |
-| 應用程式明確停止傳送 |應用程式所指定 |應用程式所指定 |
+| 應用程式明確停止傳送 |應用程式所指定 |由应用程序指定 |
 
 ## <a name="exceeding-maxdeliverycount"></a>超過 MaxDeliveryCount
 
@@ -80,7 +80,7 @@ Azure 服務匯流排佇列和主題訂用帳戶提供次要的子佇列，稱�
 - 目的地佇列或主題已停用或刪除。
 - 目的地佇列或主題超過最大實體大小。
 
-若要擷取這些寄不出的信件訊息，您可以使用 [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) 公用程式方法來建立接收者。
+若要检索这些死信消息，可以使用 [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) 实用方法创建接收器。
 
 ## <a name="example"></a>範例
 
@@ -107,6 +107,6 @@ while(true)
 
 如需服務匯流排佇列的詳細資訊，請參閱下列文章。
 
-* [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
+* [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [比較 Azure 佇列和服務匯流排佇列](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

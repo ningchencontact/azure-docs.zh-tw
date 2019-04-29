@@ -2,18 +2,18 @@
 title: 使用 AzCopy on Linux 複製或移動資料到 Azure 儲存體 | Microsoft Docs
 description: 使用 AzCopy on Linux 公用程式來從 Blob 和檔案內容移動或來回複製資料。 從本機檔案複製資料到 Azure 儲存體，或在儲存體帳戶內或之間複製資料。 輕鬆地將資料移轉至 Azure 儲存體。
 services: storage
-author: seguler
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/26/2018
-ms.author: seguler
+ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730050"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 AzCopy on Linux 傳送資料
 
@@ -590,7 +590,7 @@ azcopy \
 ```
 
 ### <a name="journal-file-folder"></a>日誌檔案資料夾
-每次向 AzCopy 发出命令时，它都会检查默认文件夹中是否存在日志文件，或者通过此选项指定的文件夹中是否存在日志文件。 如果在這兩個地方都找不到日誌檔案，AzCopy 會將此作業視為新的作業，並產生新的日誌檔案。
+每次向 AzCopy 發出命令时，它都會檢查預設資料夾中是否存在日誌檔案，或您透過此選項指定的資料夾中是否存在日誌檔案。 如果在這兩個地方都找不到日誌檔案，AzCopy 會將此作業視為新的作業，並產生新的日誌檔案。
 
 如果找到日誌檔案，則 AzCopy 會檢查所輸入的命令列是否符合日誌檔案中的命令列。 如果這兩個命令列相符，AzCopy 便會繼續未完成的作業。 如果這兩個命令列不符，AzCopy 會提示使用者覆寫日誌檔案並開始新的作業，或取消目前作業。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630263"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>使用 Web UI 來管理 StorSimple Virtual Array
 ![安裝程序流程](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -58,13 +58,13 @@ ms.locfileid: "23109956"
     ![執行診斷 2](./media/storsimple-ova-web-ui-admin/image30.png)
 
 ## <a name="generate-a-log-package"></a>產生記錄檔封裝
-記錄檔封裝包含有助於 Microsoft 支援小組疑難排解任何裝置問題的所有相關記錄檔。 在此版本中，可透過本機 Web UI 產生記錄檔封裝。
+記錄封裝包含有助於 Microsoft 支援小組疑難排解任何裝置問題的所有相關記錄。 在此版本中，可透過本機 Web UI 產生記錄檔封裝。
 
 #### <a name="to-generate-the-log-package"></a>產生記錄檔封裝
-1. 在本機 Web UI 中，移至 [疑難排解]  >  [系統記錄檔]。
+1. 在本機 Web UI 中，移至 [疑難排解] >  [系統記錄]。
    
     ![產生記錄檔封裝 1](./media/storsimple-ova-web-ui-admin/image31.png)
-2. 按一下頁面底部的 [建立記錄檔封裝] 。 將建立系統記錄檔的封裝。 這需要幾分鐘的時間。
+2. 按一下頁面底部的 [建立記錄檔封裝] 。 將建立系統記錄的封裝。 這需要幾分鐘的時間。
    
     ![產生記錄檔封裝 2](./media/storsimple-ova-web-ui-admin/image32.png)
    
@@ -84,7 +84,7 @@ ms.locfileid: "23109956"
 2. 按一下頁面底部的 [關閉] 。
    
     ![裝置關閉 1](./media/storsimple-ova-web-ui-admin/image36.png)
-3. 會出現警告，指出關閉裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示  ![核取圖示](./media/storsimple-ova-web-ui-admin/image3.png).
+3. 會出現警告，指出關閉裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示  ![勾号图标](./media/storsimple-ova-web-ui-admin/image3.png)上也提供本文中使用的原始碼。
    
     ![裝置關閉警告](./media/storsimple-ova-web-ui-admin/image37.png)
    
@@ -99,7 +99,7 @@ ms.locfileid: "23109956"
 2. 按一下頁面底部的 [重新啟動] 。
    
     ![裝置重新啟動](./media/storsimple-ova-web-ui-admin/image36.png)
-3. 會出現警告，指出重新啟動裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示  ![核取圖示](./media/storsimple-ova-web-ui-admin/image3.png).
+3. 會出現警告，指出重新啟動裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示  ![勾号图标](./media/storsimple-ova-web-ui-admin/image3.png)上也提供本文中使用的原始碼。
    
     ![重新啟動警告](./media/storsimple-ova-web-ui-admin/image37.png)
    

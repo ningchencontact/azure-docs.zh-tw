@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 93f47529e3be44ff1db4e089bdcdca3eb1b4dea3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728338"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363299"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure 監視器中的 Windows 和 Linux 效能資料來源
 Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業系統及應用程式的效能。  Azure 監視器可收集效能計數器，以頻繁間隔進行接近即時 (NRT) 的分析，並彙總較長期分析和報告所需的效能資料。
@@ -189,7 +189,7 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 電腦 |收集事件的來源電腦。 |
+| Computer |收集事件的來源電腦。 |
 | CounterName |效能計數器的名稱 |
 | CounterPath |計數器的完整路徑，格式為 \\\\\<電腦>\\object(instance)\\counter。 |
 | CounterValue |計數器的數值。 |

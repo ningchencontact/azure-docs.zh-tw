@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733962"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)備份內部部署機器和工作負載和 Azure 虛擬機器 (Vm)。 本文摘要說明支援設定和限制，當您使用 Azure 備份的 Azure Vm 備份。
@@ -168,7 +168,7 @@ Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。 <br/><
 共用存放裝置| 不建議備份使用叢集共用磁碟區 (CSV) 或向外延展檔案伺服器的 Vm。 CSV 寫入器都可能會在備份期間失敗項目。 [還原]，包含 CSV 磁碟區的磁碟可能會不來增加。
 
 > [!NOTE]
-> Azure 備份不支援等量的磁碟。 Azure 備份，建議您不調整大小的磁碟。
+> Azure 备份不建议重设磁盘大小。
 
 
 ## <a name="vm-network-support"></a>VM 網路支援

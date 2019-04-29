@@ -9,11 +9,11 @@ ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 3459ef4caa99a2147144354165bef7d2852e87cc
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433338"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777809"
 ---
 # <a name="alerts-on-activity-log"></a>活動記錄警示 
 
@@ -65,5 +65,4 @@ ms.locfileid: "54433338"
 - 深入了解[建立和修改活動記錄警示](../../azure-monitor/platform/alerts-activity-log.md)。
 - 檢閱[活動記錄警示 Webhook 結構描述](activity-log-alerts-webhook.md)。
 - 深入了解[服務健康狀態通知](../../azure-monitor/platform/service-notifications.md)。
-
 

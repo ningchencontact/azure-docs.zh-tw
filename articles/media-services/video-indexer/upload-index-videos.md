@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 89903d3f65c74da6903e53284f168d2d6a12168a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559897"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
 
@@ -32,7 +32,7 @@ ms.locfileid: "58893447"
 
 - 若根據 URL 上傳影片 (首選)，則必須使用 TLS 1.2 (或更高版本) 來保護端點
 - 使用 URL 選項的上傳大小會限制為 30 GB
-- 在大部分的瀏覽器 URL 長度會限制為 2000年個字元
+- 要求 URL 的長度是限制為 2048年個字元
 - 具有位元組陣列選項的上傳大小限制為 2 GB
 - 位元組陣列選項會在 30 分鐘後逾時
 - 在 `videoURL` 參數中提供的 URL 需要進行編碼

@@ -1,7 +1,6 @@
 ---
 title: 對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯
 description: 使用 YARN UI、Spark UI 和 Spark 歷程記錄伺服器，追蹤和偵錯在 Azure HDInsight 中的 Spark 叢集上執行的作業
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1601663266f59668918e6799b5c4a7ff606431c4
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: MT
+ms.openlocfilehash: 5e384520c1b8d6cf5e3b182bbddf41a5f4f7f8f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124283"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯
 
 在本文中，您將了解如何使用 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI、Spark UI 和 Spark 歷程記錄伺服器，對 HDInsight 叢集上執行的 [Apache Spark](https://spark.apache.org/) 作業進行追蹤和偵錯。 我們會使用 Spark 叢集中可用的 Notebook 啟動 Spark 作業，**機器學習服務︰使用 MLLib 對食物檢查資料進行預測分析**。 您可以使用下列步驟來追蹤您使用任何其他方法提交的應用程式，例如，**spark-submit**。
 
 ## <a name="prerequisites"></a>必要條件
-您必須滿足以下條件：
+必须满足以下条件：
 
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
@@ -59,7 +58,7 @@ ms.locfileid: "53600007"
    
     每個階段可以有多個工作，您可以檢視其執行統計資料，如下所示。
    
-    ![檢視 Spark 階段](./media/apache-spark-job-debugging/view-spark-stages-details.png) 
+    ![查看 Spark 阶段](./media/apache-spark-job-debugging/view-spark-stages-details.png) 
 4. 從階段詳細資料頁面上，您可以啟動 DAG 視覺效果。 展開頁面頂端的 [DAG 視覺效果]  連結，如下所示。
    
     ![檢視 Spark 階段 DAG 視覺效果](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
@@ -74,7 +73,7 @@ ms.locfileid: "53600007"
    > [!TIP]  
    > 如果您選取 [啟用縮放功能] 核取方塊，您可以跨時間軸檢視左右捲動。
 
-6. Spark UI 中的其他索引標籤也提供 Spark 執行個體的實用資訊。
+6. Spark UI 中的其他选项卡也提供了有关 Spark 实例的有用信息。
    
    * [儲存體] 索引標籤 - 如果您的應用程式建立 RDD，您可以在 [儲存體] 索引標籤中找到相關資訊。
    * [環境]索引標籤 - 這個標籤提供關於您的 Spark 執行個體的實用資訊，例如 
@@ -97,8 +96,8 @@ ms.locfileid: "53600007"
    
     ![啟動 Spark 歷程記錄伺服器](./media/apache-spark-job-debugging/view-completed-applications.png)
 
-## <a name="see-also"></a>另請參閱
-*  [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+## <a name="see-also"></a>請參閱
+*  [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
 *  [使用擴充的 Spark 歷程記錄伺服器進行 Apache Spark 作業偵錯](apache-azure-spark-history-server.md)
 
 ### <a name="for-data-analysts"></a>針對資料分析師

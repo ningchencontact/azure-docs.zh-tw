@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
 ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636797"
 ---
 # <a name="how-caching-works"></a>快取的運作方式
 
@@ -76,9 +76,9 @@ Azure CDN 支援下列 HTTP 快取指示詞標頭，這些標頭會定義快取�
 - 使用於來自用戶端對 CDN POP 的 HTTP 回應時：
      - **來自 Verizon 的標準/進階 Azure CDN** 和**來自 Microsoft 的標準 Azure CDN** 支援所有 `Cache-Control` 指示詞。
      - **來自 Akamai 的標準 Azure CDN** 僅支援下列 `Cache-Control` 指示詞；會忽略所有其他指示詞：
-         - `max-age`：快取可以儲存所指定秒數的內容。 例如： `Cache-Control: max-age=5`。 這個指示詞會指定內容被視為是全新的最大時間量。
-         - `no-cache`：快取內容，但每次從快取傳遞內容之前，都要加以驗證。 相當於 `Cache-Control: max-age=0`。
-         - `no-store`：一律不會快取內容。 如果先前已儲存內容，請加以移除。
+         - `max-age`:快取可以儲存所指定秒數的內容。 例如： `Cache-Control: max-age=5`。 這個指示詞會指定內容被視為是全新的最大時間量。
+         - `no-cache`:快取內容，但每次從快取傳遞內容之前，都要加以驗證。 相當於 `Cache-Control: max-age=0`。
+         - `no-store`:一律不會快取內容。 如果先前已儲存內容，請加以移除。
 
 **Expires：**
 - 在 HTTP 1.0 中導入舊版的標頭；支援回溯相容性。
@@ -126,7 +126,7 @@ Azure CDN 支援下列 HTTP 快取指示詞標頭，這些標頭會定義快取�
 
 |    | Microsoft：一般 Web 傳遞 | Verizon：一般 Web 傳遞 | Verizon：DSA | Akamai：一般 Web 傳遞 | Akamai：DSA | Akamai：大型檔案下載 | Akamai：一般或 VOD 媒體串流處理 |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **接受來源**       | yes    | 是   | 否   | yes    | 否   | yes   | yes    |
+| **接受來源**       | 是    | 是   | 否   | 是    | 否   | yes   | 是    |
 | **CDN 快取持續時間** | 2 天 |7 天 | None | 7 天 | None | 1 天 | 1 年 |
 
 **接受來源**：指定如果支援的快取指示詞標頭存在於原始伺服器的 HTTP 回應中，是否要加以接受。

@@ -1,5 +1,5 @@
 ---
-title: Azure 通知中樞範例
+title: Azure 通知中心示例
 description: 可用 Azure 通知中樞 SDK 的清單
 services: notification-hubs
 documentationcenter: ''
@@ -9,16 +9,17 @@ editor: spelluru
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.author: jowargo
-ms.date: 03/28/2019
+ms.author: v-biyu
+origin.date: 03/28/2019
+ms.date: 05/06/2019
 ms.openlocfilehash: 1d035513418147b8fae1d8e2f217d20d19f02f2e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559920"
 ---
-# <a name="azure-notification-hubs-samples"></a>Azure 通知中樞範例
+# <a name="azure-notification-hubs-samples"></a>Azure 通知中心示例
 本文提供範例，示範 Azure 通知中樞中的主要功能的連結。
 
 ## <a name="samples"></a>範例
@@ -30,4 +31,4 @@ ms.locfileid: "59524835"
 - [iOS](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)
 
 ## <a name="next-steps"></a>後續步驟
-請參閱中的教學課程**教學課程**目錄 (TOC) 一節。
+在目录 (TOC) 的“教程”部分查看教程。

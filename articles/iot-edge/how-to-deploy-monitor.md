@@ -11,11 +11,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428772"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126354"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>使用 Azure 入口網站大規模部署和監視 IoT Edge 模組
 
@@ -132,7 +132,7 @@ SELECT deviceId FROM devices
 
 ## <a name="deploy-modules-from-azure-marketplace"></a>從 Azure Marketplace 部署模組
 
-Azure Marketplace 是集合了應用程式和服務的線上市集，您可在其中瀏覽各式各樣的企業應用程式和解決方案，這些資源皆已通過認證而可在 Azure 上執行並獲得最佳效能，包括 [IoT Edge 模組](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules)在內。 您也可以透過 Azure 入口網站，於 [建立資源] 底下存取 Azure Marketplace。
+Azure Marketplace 是集合了應用程式和服務的線上市集，您可以在其中瀏覽各式各樣的企業應用程式和解決方案，這些項目皆已通過認證而可在 Azure 上執行並獲得最佳效能，包括 [IoT Edge 模組](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules)。 您也可以透過 Azure 入口網站，在 [建立資源] 底下存取 Azure Marketplace。
 
 您可以從 Azure Marketplace 或 Azure 入口網站安裝 IoT Edge 模組：
 

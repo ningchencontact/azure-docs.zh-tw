@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124329"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998798"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Azure Logic Apps 的 B2B 錯誤與解決方案
 
@@ -34,7 +34,7 @@ ms.locfileid: "43124329"
 
 |   |   | 
 |---|---|
-| 錯誤說明 | 找不到具有識別身分的合約：'AS2Identity'::'Partner1' 和 'AS2Identity'::'Partner3' | 
+| 錯誤說明 | 找到具有身分識別沒有協議：'AS2Identity':: 'Partner1' 和 'AS2Identity':: 'Partner3' | 
 | 使用者動作 | 為合約設定的無效 AS2-From 或 AS2-To。 </br>以合約組態更正 AS2 訊息 "AS2-From" 或 "AS2-To" 標題或合約，以符合 AS2 訊息標題中的 AS2 識別碼。 |
 |   |   |     
 
@@ -145,7 +145,7 @@ ms.locfileid: "43124329"
 
 |   |   | 
 |---|---|
-| 錯誤說明 | InvalidTemplate。 無法在行 '1' 與欄 '1902' 的動作 'Flat_File_Decoding' 輸入中處理範本語言運算式：'必要屬性「內容」需有值但收到 null。 路徑 ''.'。 |
+| 錯誤說明 | InvalidTemplate。 無法處理範本語言運算式中的動作 'Flat_File_Decoding' 輸入位於行 '1' 與欄 '1902':' 必要屬性 'content' 需要值但收到 null。 路徑 ''.'。 |
 | 使用者動作 | 此錯誤表示輸入訊息未包含本文。 |
 |   |   | 
 

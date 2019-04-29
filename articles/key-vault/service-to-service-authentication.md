@@ -9,13 +9,12 @@ ms.author: mbaldwin
 ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 ms.openlocfilehash: 642c30c4df233476a8f649f7b5f30d0538b0e83f
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60635596"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 進行 Azure Key Vault 的服務對服務驗證
 
@@ -212,7 +211,7 @@ az account list
 | `RunAs=Developer; DeveloperTool=VisualStudio` | 本機開發 | AzureServiceTokenProvider 會使用 Visual Studio 來取得權杖。 |
 | `RunAs=CurrentUser` | 本機開發 | AzureServiceTokenProvider 會使用 Azure AD 整合式驗證來取得權杖。 |
 | `RunAs=App` | [適用於 Azure 資源的受控識別](../active-directory/managed-identities-azure-resources/index.yml) | AzureServiceTokenProvider 會使用受控識別取得權杖。 |
-| `RunAs=App;AppId={ClientId of user-assigned identity}` | [適用於 Azure 資源的使用者指派身分識別](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | Azureservicetokenprovider 會使用指派給使用者的身分識別來取得權杖。 |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [適用於 Azure 資源的使用者指派身分識別](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | AzureServiceTokenProvider 使用用户分配标识来获取令牌。 |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`   | 服務主體 | `AzureServiceTokenProvider` 會使用憑證從 Azure AD 取得權杖。 |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | 服務主體 | `AzureServiceTokenProvider` 會使用憑證從 Azure AD 取得權杖|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | 服務主體 |`AzureServiceTokenProvider` 會使用密碼從 Azure AD 取得權杖。 |

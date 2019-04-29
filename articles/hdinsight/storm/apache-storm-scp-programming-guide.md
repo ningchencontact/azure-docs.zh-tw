@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight 中的 Storm 適用的 SCP.NET 程式設計指南
 description: 了解如何使用 SCP.NET 建立以 .NET 為基礎的 Storm 拓撲，用於在 Azure HDInsight 中執行的 Storm。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 1ad9661d85c7ec91f361cdc4d126e0a91e376b66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: c85074a2b26a79dbf5e464972e7f82b5955d15f1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853285"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126880"
 ---
 # <a name="scp-programming-guide"></a>SCP 程式設計指南
 SCP 是一個用來建置即時、可靠、一致和高效能資料處理應用程式的平台。 建置在由 OSS 社群所設計的串流處理系統 [Apache Storm](https://storm.incubator.apache.org/) 之上。 Storm 由 Nathan Marz 所設計，由 Twitter 公開原始碼。 它採用 [Apache ZooKeeper](https://zookeeper.apache.org/)，這是另一個可發揮極可靠的分散式協調和狀態管理的 Apache 專案。 
@@ -71,7 +70,7 @@ ISCPSpout 為非交易式 spout 的介面。
 
 呼叫 `NextTuple()` 時，C\# 使用者程式碼可能發出一或多個 Tuple。 如果沒有資料可發出，此方法應該返回而不發出任何資料。 請注意，`NextTuple()`、`Ack()` 和 `Fail()` 都是在 C\# 程序的單一執行緒中放在密封迴圈內呼叫。 沒有 Tuple 可發出時，建議讓 NextTuple 短暫休息 (例如 10 毫秒)，不致於浪費太多 CPU。
 
-只有當規格檔中啟用認可機制時，才會呼叫 `Ack()` 和 `Fail()`。 `seqId`用來識別已認可或失敗的 tuple。 因此，如果非交易式拓撲中啟用認可，則 Spout 中應該使用下列 emit 函數：
+只有當規格檔中啟用認可機制時，才會呼叫 `Ack()` 和 `Fail()`。 `seqId` 用于识别已确认或失败的元组。 因此，如果非交易式拓撲中啟用認可，則 Spout 中應該使用下列 emit 函數：
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -431,7 +430,7 @@ SCP.NET Context 物件中已增加兩個方法。 这些方法用于发送一个
 發出給不存在的串流會造成執行階段例外狀況。
 
 ### <a name="fields-grouping"></a>欄位分組
-在 Storm 中內建的欄位群組不會在 SCP.NET 中正常運作。 在 Java Proxy 端，所有欄位資料類型實際上為 byte[]，而欄位群組會使用 byte[] 物件雜湊碼來執行群組。 byte[] 物件雜湊碼是此物件在記憶體中的位址。 因此，共用相同內容但不是相同位址的兩個 byte[] 物件，分組會錯誤。
+Storm 中内置的字段分组在 SCP.NET 中无法正常使用。 在 Java Proxy 端，所有欄位資料類型實際上為 byte[]，而欄位群組會使用 byte[] 物件雜湊碼來執行群組。 byte[] 物件雜湊碼是此物件在記憶體中的位址。 因此，共用相同內容但不是相同位址的兩個 byte[] 物件，分組會錯誤。
 
 SCP.NET 增加一個自訂的分組方法，它會使用 byte[] 的內容來執行分組。 在 **SPEC** 檔案中，語法如下：
 
@@ -573,7 +572,7 @@ SCP 元件包含 Java 和 C\# 端。 為了與原生 Java Spout/Bolt 互動，�
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-在 spout 中，如果啟用通知，則會使用字典來快取尚未認可的 tuple。 如果呼叫 Fail()，則會重播失敗的 Tuple：
+在 Spout 中，如果启用了确认功能，会使用字典将未确认的元组存储在缓存中。 如果呼叫 Fail()，則會重播失敗的 Tuple：
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: 564a30767f650e4ead025acb22e518eb0da55bd4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476351"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>使用 Visual Studio 和 SSDT 連接到 SQL 資料倉儲
 > [!div class="op_single_selector"]
@@ -32,12 +32,12 @@ ms.locfileid: "55463577"
 ## <a name="prerequisites"></a>必要條件
 若要使用本教學課程，您需要：
 
-* 現有的 SQL 資料倉儲。 若要建立資料倉儲，請參閱 [建立 SQL 資料倉儲][Create a SQL Data Warehouse]。
+* 现有 SQL 数据仓库。 若要建立資料倉儲，請參閱 [建立 SQL 資料倉儲][Create a SQL Data Warehouse]。
 * 適用於 Visual Studio 的 SSDT。 如果您有 Visual Studio，您可能已經有此 SSDT。 如需安裝指示和選項，請參閱 [安裝 Visual Studio 和 SSDT][Installing Visual Studio and SSDT]。
 * 完整的 SQL 伺服器名稱。 若要找到此名稱，請參閱 [連線至 SQL 資料倉儲][Connect to SQL Data Warehouse]。
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1.連接到您的 SQL 資料倉儲
-1. 開啟 Visual Studio 2013 或 2015。
+1. 打开 Visual Studio 2013 或 2015。
 2. 開啟 [SQL Server 物件總管]。 若要這麼做，請選取 [檢視] > [SQL Server 物件總管]。
    
     ![SQL Server 物件總管][1]
@@ -56,7 +56,7 @@ ms.locfileid: "55463577"
    
     ![探索 AdventureWorksDW][4]
 
-## <a name="2-run-a-sample-query"></a>2.執行範例查詢
+## <a name="2-run-a-sample-query"></a>2.运行示例查询
 現已建立對您的資料庫的連線，接著繼續撰寫查詢。
 
 1. 在 [SQL Server 物件總管] 中您的資料庫上按一下滑鼠右鍵。
@@ -68,12 +68,12 @@ ms.locfileid: "55463577"
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. 執行查詢。 若要這麼做，請按一下綠色箭頭，或使用下列快速鍵： `CTRL`+`SHIFT`+`E`。
+4. 运行该查询。 若要這麼做，請按一下綠色箭頭，或使用下列快速鍵： `CTRL`+`SHIFT`+`E`。
    
-    ![執行查詢][6]
+    ![运行查询][6]
 5. 查看查詢結果。 在此範例中，FactInternetSales 資料表有 60398 個資料列。
    
-    ![查詢結果][7]
+    ![查询结果][7]
 
 ## <a name="next-steps"></a>後續步驟
 您現在可以連線並查詢，請嘗試[使用 PowerBI 將資料視覺化][visualizing the data with PowerBI]。

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/14/2018
 ms.author: mbullwin
 ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995601"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60899494"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Application Insights for Java 的疑難排解和問答集
 [Java 中的 Azure Application Insights][java] 疑問或問題？ 以下是一些秘訣。

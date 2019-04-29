@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 849eccff114c2fd6d952e44d095d0cc89a238675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109126"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482789"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>更換 StorSimple 裝置上的控制器模組
 ## <a name="overview"></a>概觀
@@ -90,7 +90,7 @@ ms.locfileid: "23109126"
    
     **圖 1** StorSimple 裝置的背面
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -231,7 +231,7 @@ ms.locfileid: "23109126"
 
 **圖 8** 具有資料連接埠和監視 LED 的主要機箱背面
 
-| 標籤 | 說明 |
+| 標籤 | 描述 |
 |:--- |:--- |
 | 1-6 |DATA 0 – 5 個網路連接埠 |
 | 7 |藍色 LED |

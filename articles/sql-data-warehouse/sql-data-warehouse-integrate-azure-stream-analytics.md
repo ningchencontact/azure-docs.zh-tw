@@ -2,20 +2,21 @@
 title: 搭配使用 Azure 串流分析與 SQL 資料倉儲 | Microsoft Docs
 description: 搭配使用 Azure 串流分析與 SQL 資料倉儲以便開發解決方案的秘訣。
 services: sql-data-warehouse
-author: KavithaJonnakuti
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 03/22/2019
-ms.author: kavithaj
+origin.date: 03/22/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474301"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>搭配使用 Azure 串流分析與 SQL 資料倉儲
 Azure 流分析是一种完全托管的服务，可以在云中通过流式数据进行低延迟、高度可用、可缩放且复杂的事件处理。 如需基本概念，請參閱 [Azure 串流分析簡介][Introduction to Azure Stream Analytics]。 您可以接著依照[開始使用 Azure 串流分析][Get started using Azure Stream Analytics]教學課程，了解如何使用串流分析建立端對端解決方案。
@@ -34,10 +35,10 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>指定工作輸出：Azure SQL 資料倉儲資料庫
 ### <a name="step-1"></a>步驟 1
-在您的 Stream Analytics 作業中按一下**輸出**從上方的頁面上，然後按一下**新增**。
+在流分析作业中，单击页面顶部的“输出”，然后单击“添加”。
 
 ### <a name="step-2"></a>步驟 2
-選取 SQL Database。
+选择 SQL 数据库。
 
 ### <a name="step-3"></a>步驟 3
 在下一頁輸入下列值：
@@ -60,7 +61,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 ### <a name="step-4"></a>步驟 4
 按一下核取按鈕以新增此工作輸出，並確認串流分析可成功連接到資料庫。
 
-當資料庫的連接成功時，您會看到入口網站中的通知。 您可以按一下測試，以測試資料庫的連接。
+成功连接到数据库后，门户中会显示通知。 可以单击“测试”以测试与数据库的连接。
 
 ## <a name="next-steps"></a>後續步驟
 如需整合概觀，請參閱 [SQL 資料倉儲整合概觀][SQL Data Warehouse integration overview]。
@@ -84,4 +85,6 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Stream Analytics documentation]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[Azure Stream Analytics documentation]: /stream-analytics/
+
+<!-- Update_Description: update meta properties, wording update -->

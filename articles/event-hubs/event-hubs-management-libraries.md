@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 431fe04461f422274697d1e91c4b56e914ce2d4e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102705"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746653"
 ---
 # <a name="event-hubs-management-libraries"></a>事件中樞管理程式庫
 
@@ -23,13 +23,13 @@ ms.locfileid: "53102705"
 
 ## <a name="supported-functionality"></a>支援的功能
 
-* 建立、更新、刪除命名空間
+* 创建、更新、删除命名空间
 * 建立、更新、刪除事件中樞
 * 建立、更新、刪除取用者群組
 
 ## <a name="prerequisites"></a>必要條件
 
-若要開始使用事件中樞管理程式庫，您必須使用 Azure Active Directory (AAD) 來驗證。 AAD 會要求您以提供 Azure 資源存取權的服務主體來進行驗證。 如需建立服務主體的詳細資訊，請參閱以下其中一篇文章：  
+若要開始使用事件中樞管理程式庫，您必須使用 Azure Active Directory (AAD) 來驗證。 AAD 要求以提供 Azure 资源访问权限的服务主体身份进行身份验证。 如需建立服務主體的詳細資訊，請參閱以下其中一篇文章：  
 
 * [使用 Azure 入口網站來建立可存取資源的 Active Directory 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md)
 * [使用 Azure PowerShell 建立用來存取資源的服務主體](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
@@ -74,5 +74,5 @@ ms.locfileid: "53102705"
     ```
 
 ## <a name="next-steps"></a>後續步驟
-* [.NET 管理範例](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
+* [.NET 管理示例](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Microsoft.Azure.Management.EventHub 參考](/dotnet/api/Microsoft.Azure.Management.EventHub) 

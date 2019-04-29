@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
 ms.openlocfilehash: da850b8ff9174fa310c5247cd7e99af69db28a8b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477375"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的儲存體組態
 
@@ -109,7 +109,7 @@ Azure 會根據您的規格建立新的磁碟機。 在此案例中，Azure 會�
 
 ![延伸 SQL VM 的磁碟機](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
-## <a name="storage-configuration"></a>儲存體組態
+## <a name="storage-configuration"></a>存储配置
 
 本節提供參考，佈建的 SQL VM 或 Azure 入口網站中的組態期間會自動執行 Azure 的儲存體組態變更。
 
@@ -123,14 +123,14 @@ Azure 會根據您的規格建立新的磁碟機。 在此案例中，Azure 會�
 
 Azure 會使用下列設定在 SQL Server VM 上建立存放集區。
 
-| 設定 | 值 |
+| 設定 | Value |
 | --- | --- |
 | 等量大小 |256 KB (資料倉儲)；64 KB (交易式) |
 | 磁碟大小 |每個磁碟 1 TB |
-| 快取 |讀取 |
+| 快取 |读取 |
 | 配置大小 |64 KB NTFS 配置單位大小 |
-| 立即檔案初始化 |已啟用 |
-| 在記憶體中鎖定頁面 |已啟用 |
+| 立即檔案初始化 |Enabled |
+| 在記憶體中鎖定頁面 |Enabled |
 | 復原 |簡單復原 (無恢復功能) |
 | 資料行數目 |資料磁碟數量<sup>1</sup> |
 | TempDB 位置 |儲存在資料磁碟上<sup>2</sup> |
@@ -139,13 +139,13 @@ Azure 會使用下列設定在 SQL Server VM 上建立存放集區。
 
 <sup>2</sup> 這項設定只適用於您使用儲存體組態功能所建立的第一個磁碟機。
 
-## <a name="workload-optimization-settings"></a>工作負載最佳化設定
+## <a name="workload-optimization-settings"></a>工作负荷优化设置
 
 下表描述三個可用的工作負載類型選項以及其對應的最佳化︰
 
-| 工作負載類型 | 說明 | 最佳化 |
+| 工作負載類型 | 描述 | 优化 |
 | --- | --- | --- |
-| **一般** |支援大多數工作負載的預設設定 |None |
+| **常规** |支援大多數工作負載的預設設定 |None |
 | **交易式處理** |可將儲存體最佳化來處理傳統資料庫 OLTP 工作負載。 |追蹤旗標 1117<br/>追蹤旗標 1118 |
 | **資料倉儲** |可將儲存體最佳化來處理分析和報告工作負載。 |追蹤旗標 610<br/>追蹤旗標 1117 |
 

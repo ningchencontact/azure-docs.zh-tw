@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
 ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61215834"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 客體作業系統可支援性和淘汰原則
 本頁面中的資訊涉及雲端服務背景工作和 Web 角色 (PaaS) 適用的 Azure 客體作業系統 ([客體 OS](cloud-services-guestos-update-matrix.md))。 這些資訊不適用於虛擬機器 (IaaS)。
@@ -55,9 +55,9 @@ Microsoft 會在每個月發行客體作業系統。 由于常规发布的速率
 
 到了週期的第 60 天，版本即會遭到「停用」。 「停用」表示會從入口網站移除該版本。 您也無法再從 CSCFG 組態檔設定該版本。 現有部署仍可繼續執行。 但新部署和現有部署的程式碼與設定更新將遭到禁止。
 
-一段時間之後成為 「 停用 」，客體 OS 版本 「 過期 」，而所有仍執行該過期的版本安裝會公開至安全性與漏洞問題。 一般而言，到期日會執行批次，因此從停用到期的期間可能會不同。
+在“停用”后的某个时间，来宾 OS 版本“过期”，仍在运行该过期版本的任何安装都会面临安全和漏洞问题。 通常情况下，过期是分批过期的，因此从停用到过期的时间段可能各不相同。
 
-設定其服務，以手動更新客體 OS 的客戶應該確定其服務正在執行支援的客體作業系統上。 如果服務設定為自動更新客體 OS，基礎平台可確保合規性，並會升級至最新的客體 OS。
+客户如何将其服务配置为手动更新来宾 OS，则应确保其服务在受支持的来宾 OS 上运行。 如果将某项服务配置为自动更新来宾 OS，则基础平台会确保符合性，并会升级到最新的来宾 OS。
 
 Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不便。 所有的更新資訊都會發佈於「 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)」。
 

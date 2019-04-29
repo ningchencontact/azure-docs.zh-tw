@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9ea9cc116a13aac2dca9edf8ba86c933310b5198
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479477"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure 串流分析中的異常偵測
 
@@ -109,6 +109,6 @@ FROM AnomalyDetectionStep
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.ASpx)
+* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.ASpx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

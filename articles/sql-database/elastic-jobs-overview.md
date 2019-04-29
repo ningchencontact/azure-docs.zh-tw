@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482925"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>建立、設定及管理彈性作業
 
@@ -76,7 +76,7 @@ ms.locfileid: "59264415"
 
 若要確保在對 SQL 彈性集區中的資料庫執行作業時，資源不會負擔過重，則可以設定作業來限制作業可以同時執行的資料庫數目。
 
-設定並行作業的設定執行的資料庫數目`sp_add_jobstep`預存程序的`@max_parallelism`在 T-SQL 中的參數或`Add-AzSqlElasticJobStep -MaxParallelism`在 PowerShell 中。
+通过在 T-SQL 中设置 `sp_add_jobstep` 存储过程的 `@max_parallelism` 参数，或者通过在 PowerShell 中设置 `Add-AzSqlElasticJobStep -MaxParallelism`，来设置作业运行的并发数据库数。
 
 ## <a name="best-practices-for-creating-jobs"></a>建立作業的最佳做法
 

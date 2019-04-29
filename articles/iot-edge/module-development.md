@@ -3,18 +3,18 @@ title: 開發適用於 Azure IoT Edge 的模組 | Microsoft Docs
 description: 開發可與執行階段和 IoT 中樞通訊的 Azure IoT Edge 自訂模組
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 02/25/2019
+ms.author: v-yiso
+origin.date: 02/25/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882734"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61322413"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>開發您自己的 IoT Edge 模組
 
@@ -65,9 +65,9 @@ IoT Edge 中樞會根據[模組資訊清單](module-composition.md)中所述的�
 
 ## <a name="next-steps"></a>後續步驟
 
-[準備 IoT Edge 開發和測試環境](development-environment.md)
+[为 IoT Edge 准备开发和测试环境](development-environment.md)
 
-[使用 Visual Studio 2017 來開發C#適用於 IoT Edge 模組](how-to-visual-studio-develop-csharp-module.md)
+[使用 Visual Studio 2017 开发适用于 IoT Edge 的 C# 模块](how-to-visual-studio-develop-csharp-module.md)
 
-[使用 Visual Studio Code 開發 IoT Edge 模組](how-to-vs-code-develop-module.md)
+[使用 Visual Studio Code 开发适用于 IoT Edge 的模块](how-to-vs-code-develop-module.md)
 

@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098486"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456218"
 ---
 # <a name="monitor-and-tune"></a>監視與微調
 監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 「適用於 PostgreSQL 的 Azure 資料庫」提供各種監視選項，可讓您深入了解伺服器的行為。
@@ -40,7 +40,7 @@ ms.locfileid: "58098486"
 |backup_storage_used|已使用的備份儲存體|位元組|已使用的備份儲存體數量。|
 
 ## <a name="server-logs"></a>伺服器記錄
-您可以在伺服器上啟用記錄功能。 這些記錄檔也都可透過 Azure 中的診斷記錄[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)，事件中樞和儲存體帳戶。 若要深入了解記錄，請造訪[伺服器記錄](concepts-server-logs.md)頁面。
+您可以在伺服器上啟用記錄功能。 这些日志也可通过 [Azure Monitor 日志](../azure-monitor/log-query/log-query-overview.md)、事件中心和存储帐户中的 Azure 诊断日志获得。 若要深入了解記錄，請造訪[伺服器記錄](concepts-server-logs.md)頁面。
 
 ## <a name="query-store"></a>查詢存放區
 [查詢存放區](concepts-query-store.md)是公開預覽功能，可追蹤一段時間的查詢效能，包括查詢執行階段統計資料和等待事件。 此功能會將查詢執行階段效能資訊保留在名稱為 **azure_sys** 的系統資料庫之中的 query_store 結構描述下。 您可以透過各種設定旋鈕控制資料的收集和儲存。

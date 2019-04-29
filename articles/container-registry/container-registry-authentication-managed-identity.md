@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
 ms.openlocfilehash: 728a2f8cf61bbe0691350b9de45a5fab6b90cadb
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563064"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>使用 Azure 受控識別向 Azure 容器登錄進行驗證 
 
@@ -126,7 +126,7 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-因為您需要在稍後步驟中的身分識別的識別碼，當您登入 CLI 從您的虛擬機器時，會顯示值：
+当你从虚拟机登录 CLI 时，需要在稍后的步骤中使用标识的 ID，因此请显示以下值：
 
 ```bash
 echo $userID
@@ -164,13 +164,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 透過 SSH 連線到使用身分識別設定的 Docker 虛擬機器。 使用 VM 上安裝的 Azure CLI 執行下列 Azure CLI 命令。
 
-首先，向使用 Azure CLI [az login][az-login]，使用您在 VM 設定的身分識別。 對於 `<userID>`，請取代為您在上一個步驟中擷取的身分識別的識別碼。 
+首先，使用在 VM 上配置的标识，通过 [az login][az-login] 在 Azure CLI 中进行身份验证。 對於 `<userID>`，請取代為您在上一個步驟中擷取的身分識別的識別碼。 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-然後，向登錄中以[az acr login][az-acr-login]。 使用此命令時，CLI 會使用您執行 `az login` 時建立的 Active Directory 權杖順暢地向容器登錄驗證您的工作階段。 (根據 VM 設定，您可能需要使用 `sudo` 執行此命令與 docker 命令。)
+然后，使用 [az acr login][az-acr-login] 在注册表中进行身份验证。 使用此命令時，CLI 會使用您執行 `az login` 時建立的 Active Directory 權杖順暢地向容器登錄驗證您的工作階段。 (根據 VM 設定，您可能需要使用 `sudo` 執行此命令與 docker 命令。)
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -216,13 +216,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 透過 SSH 連線到使用身分識別設定的 Docker 虛擬機器。 使用 VM 上安裝的 Azure CLI 執行下列 Azure CLI 命令。
 
-首先，驗證使用 Azure CLI [az login][az-login]，使用在 VM 上的系統指派的識別。
+首先，使用 VM 上的系统分配标识通过 [az login][az-login] 在 Azure CLI 中进行身份验证。
 
 ```azurecli
 az login --identity
 ```
 
-然後，向登錄中以[az acr login][az-acr-login]。 使用此命令時，CLI 會使用您執行 `az login` 時建立的 Active Directory 權杖順暢地向容器登錄驗證您的工作階段。 (根據 VM 設定，您可能需要使用 `sudo` 執行此命令與 docker 命令。)
+然后，使用 [az acr login][az-acr-login] 在注册表中进行身份验证。 使用此命令時，CLI 會使用您執行 `az login` 時建立的 Active Directory 權杖順暢地向容器登錄驗證您的工作階段。 (根據 VM 設定，您可能需要使用 `sudo` 執行此命令與 docker 命令。)
 
 ```azurecli
 az acr login --name myContainerRegistry

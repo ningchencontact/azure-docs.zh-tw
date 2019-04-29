@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 26041bbf392f9b2afaaf5af38f758deb7708b651
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734978"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>發行適用於 Azure Marketplace 的檢查清單    
 在啟動發行程序之前，請檢閱必要的元件。  
@@ -38,7 +38,7 @@ ms.locfileid: "56728041"
 | 交易 | 虛擬機器 | <table> <tr><th>店面</th></tr> <tr><td>標題 (50 個字元)</td></tr> <tr><td>摘要 (200 個字元)</td></tr> <tr><td>長摘要 (256 個字元)</td></tr> <tr><td>HTML 型描述 (3,000 個字元)</td></tr> <tr><td>公司標誌 (40x40、90x90、115x115、255x115、815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>作業系統詳細資料</td></tr> <tr><td>使用中的連接埠</td></tr> <tr><td>使用中的通訊協定</td></tr> <tr><td>每個使用中 VHD 的磁碟版本</td></tr> <tr><td>每個使用中 VHD 的 SAS URL</td></tr> </table> |  
 | 交易 | Azure 應用程式：解決方案範本 | <table> <tr><th>店面</th></tr> <tr><td>標題 (50 個字元)</td></tr> <tr><td>摘要 (200 個字元)</td></tr> <tr><td>長摘要 (256 個字元)</td></tr> <tr><td>HTML 型描述 (3,000 個字元)</td></tr> <tr><td>公司標誌 (40x40、90x90、115x115、255x115、815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>版本號碼</td></tr> <tr><td>所包含的套件檔案<ul> <li>所有範本檔案</li> <li>createUIDefinition 檔案</li> </ul> </td></tr> </table> |  
 | 交易 | Azure 應用程式：受控應用程式 | <table> <tr><th>店面</th></tr> <tr><td>標題 (50 個字元)</td></tr> <tr><td>摘要 (200 個字元)</td></tr> <tr><td>長摘要 (256 個字元)</td></tr> <tr><td>HTML 型描述 (3,000 個字元)</td></tr> <tr><td>公司標誌 (40x40、90x90、115x115、255x115、815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>版本號碼</td></tr> <tr><td>所包含的套件檔案<ul> <li>所有範本檔案</li> <li>createUIDefinition 檔案</li> </ul> </td></tr> </table> |  
-| 交易 | 容器 | <table> <tr><th>店面</th></tr> <tr><td>標題 (50 個字元)</td></tr> <tr><td>摘要 (200 個字元)</td></tr> <tr><td>長摘要 (256 個字元)</td></tr> <tr><td>HTML 型描述 (3,000 個字元)</td></tr> <tr><td>公司標誌 (40x40、90x90、115x115、255x115、815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Azure Container Registry (ACR) 映像儲存機制詳細資料：訂用帳戶識別碼</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：資源群組名稱</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：登錄名稱</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：儲存機制名稱</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：使用者名稱</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：密碼</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：（選擇性） 的映像標記</td></tr> </table> |  
+| 交易 | 容器 | <table> <tr><th>店面</th></tr> <tr><td>標題 (50 個字元)</td></tr> <tr><td>摘要 (200 個字元)</td></tr> <tr><td>長摘要 (256 個字元)</td></tr> <tr><td>HTML 型描述 (3,000 個字元)</td></tr> <tr><td>公司標誌 (40x40、90x90、115x115、255x115、815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Azure Container Registry (ACR) 映像儲存機制詳細資料：订阅 ID</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：資源群組名稱</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：登錄名稱</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：儲存機制名稱</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：使用者名稱</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：密碼</td></tr> <tr><td>ACR 映像儲存機制的詳細資料：（選擇性） 的映像標記</td></tr> </table> |  
 | 交易 | SaaS 應用程式 | <table> <tr><th>店面</th></tr> <tr><td>標題 (50 個字元)</td></tr> <tr><td>摘要 (200 個字元)</td></tr> <tr><td>長摘要 (256 個字元)</td></tr> <tr><td>HTML 型描述 (3,000 個字元)</td></tr> <tr><td>公司標誌 (40x40、90x90、115x115、255x115、815x290)</td></tr> </table> |  
 
 ## <a name="next-steps"></a>後續步驟

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: db701a239aedb312c7671e403cdfde7135130c6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089602"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558335"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>如何在 Azure API 管理中使用 Azure Active Directory B2C 授權開發人員帳戶
 
@@ -69,29 +69,20 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
    ![應用程式識別碼 1][api-management-howto-aad-b2c-app-id]
 
 9. 切換回 API 管理的 [新增識別提供者] 窗格，然後將識別碼貼到 [用戶端識別碼] 文字方塊。
-
-   ![應用程式識別碼 2][api-management-howto-aad-b2c-client-id]
-
+    
 10. 切換回 B2C 應用程式註冊，按一下 [金鑰] 按鈕，然後按一下 [產生金鑰]。 按一下 [儲存] 以儲存組態並顯示**應用程式金鑰**。 複製金鑰至剪貼簿。
 
     ![應用程式金鑰 1][api-management-howto-aad-b2c-app-key]
 
 11. 切換回 API 管理的 [新增識別提供者] 窗格，然後將金鑰貼到 [用戶端密碼] 文字方塊。
+    
+12. 指定 Azure Active Directory B2C 租用戶的網域名稱**登入租用戶**。
 
-    ![應用程式金鑰 2][api-management-howto-aad-b2c-client-secret]
+13. **授權單位**欄位可讓您控制要使用的 Azure AD B2C 登入 URL。 將值設為 **< your_b2c_tenant_name >。 b2clogin.com**。
 
-12. 在 [允許的租用戶] 中，指定 Azure Active Directory B2C 租用戶的網域名稱。
+14. 指定 B2C 租用戶原則中的 [註冊原則] 和 [登入原則]。 (選擇性) 您也可以提供 [設定檔編輯原則] 和 [密碼重設原則]。
 
-    ![允許的租用戶][api-management-howto-aad-b2c-allowed-tenant]
-
-13. 指定 B2C 租用戶原則中的 [註冊原則] 和 [登入原則]。 (選擇性) 您也可以提供 [設定檔編輯原則] 和 [密碼重設原則]。
-
-    ![原則][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > 如需詳細資訊，請參閱 [Azure Active Directory B2C：可延伸原則架構]。
-
-14. 指定需要的組態之後，按一下 [儲存]。
+15. 指定需要的組態之後，按一下 [儲存]。
 
     儲存變更後，開發人員就可以使用 Azure Active Directory B2C 建立新帳戶和登入開發人員入口網站。
 

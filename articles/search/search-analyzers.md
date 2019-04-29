@@ -10,11 +10,11 @@ manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
 ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61316824"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Azure 搜尋服務中用於文字處理的分析器
 
@@ -40,7 +40,7 @@ Azure 搜尋服務會使用 [Apache Lucene 標準分析器 (標準 Lucene)](http
 
 下列清單說明 Azure 搜尋服務中可用的分析器。
 
-| 類別 | 描述 |
+| Category | 描述 |
 |----------|-------------|
 | [標準 Lucene 分析器](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 預設值。 不需要任何規格或設定。 這個一般用途的分析器對於大部分的語言和情節都能順利執行。|
 | 預先定義的分析器 | 作為預計要依現狀使用的成品提供。 <br/>共有兩種類型：特製化和語言。 使它們成為「預先定義」的條件是依名稱參考，無須設定或自訂。 <br/><br/>[特製化 (語言無從驗證) 分析器](index-add-custom-analyzers.md#AnalyzerTable)適用於文字輸入需要特殊處理或最少處理時。 非語言預先定義的分析器包含 **Asciifolding**、**金鑰**、**模式**、**簡單**、**停止**、**空白**。<br/><br/>[語言分析器](index-add-language-analyzers.md)適用於當您需要為個別語言提供豐富的語言支援時。 Azure 搜尋服務支援 35 個 Lucene 語言分析器和 50 個 Microsoft 自然語言處理分析器。 |

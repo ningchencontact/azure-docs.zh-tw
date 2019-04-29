@@ -9,17 +9,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.openlocfilehash: 28e0e69d3a6a4d3a38146cbf2c49426b3b16c784
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60789445"
 ---
 # <a name="azure-stream-analytics-job-states"></a>Azure 串流分析工作狀態
 
 串流分析工作在任何指定的時間可能處於四個狀態之一。 您可以在 Azure 入口網站中串流分析工作的 [概觀] 頁面上找到工作狀態。 
 
-| State | 說明 | 建議動作 |
+| State | 描述 | 建議動作 |
 | --- | --- | --- |
 | **執行中** | 您的工作正在 Azure 上執行，讀取來自定義之輸入來源的事件、處理它們，並將結果寫入至設定的輸出接收器。 | 監視[關鍵計量](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor)是追蹤工作效能的最佳做法。 |
 | **已停止** | 您的工作已停止且不會處理事件。 | NA | 

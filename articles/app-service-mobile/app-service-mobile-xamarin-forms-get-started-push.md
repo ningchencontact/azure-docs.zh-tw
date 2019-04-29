@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000204"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098691"
 ---
-# <a name="add-push-notifications-to-your-xamarinforms-app"></a>將推播通知新增至 Xamarin.Forms 應用程式
+# <a name="add-push-notifications-to-your-xamarinforms-app"></a>向 Xamarin.Forms 应用添加推送通知
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
@@ -55,7 +55,7 @@ ms.locfileid: "53000204"
 
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
-### <a name="add-push-notifications-to-the-android-project"></a>將推播通知新增至 Android 專案
+### <a name="add-push-notifications-to-the-android-project"></a>向 Android 项目添加推送通知
 
 為後端設定了 FCM 後，您就可以在用戶端中新增元件和程式碼，以向 FCM 註冊。 您也可以透過 Mobile Apps 後端向 Azure 通知中樞註冊推播通知，並接收通知。
 
@@ -224,7 +224,7 @@ ms.locfileid: "53000204"
 
 現在，您已經準備好在 Android 裝置或模擬器上執行的應用程式中測試推播通知。
 
-### <a name="test-push-notifications-in-your-android-app"></a>在 Android 應用程式中測試推播通知
+### <a name="test-push-notifications-in-your-android-app"></a>在 Android 应用中测试推送通知
 
 只有要在模擬器上測試時，才需要前兩個步驟。
 
@@ -237,7 +237,7 @@ ms.locfileid: "53000204"
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>設定和執行 iOS 專案 (選擇性)
 
-這一節適用於對 iOS 裝置執行 Xamarin iOS 專案。 如果未使用 iOS 裝置，可以略過這一節。
+這一節適用於對 iOS 裝置執行 Xamarin iOS 專案。 如果不使用 iOS 设备，可以跳过本部分。
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -318,13 +318,13 @@ ms.locfileid: "53000204"
 
 您的應用程式現在已更新為支援推播通知。
 
-#### <a name="test-push-notifications-in-your-ios-app"></a>在 iOS 應用程式中測試推播通知
+#### <a name="test-push-notifications-in-your-ios-app"></a>在 iOS 应用中测试推送通知
 
 1. 以滑鼠右鍵按一下 iOS 專案，然後按一下 [設為起始專案]。
 2. 在 Visual Studio 中按下 [執行] 按鈕或 **F5** 以建置專案，並在 iOS 裝置上啟動應用程式。 然後，按一下 [確定] 以接收推撥通知。
 
    > [!NOTE]
-   > 您必須明確地接受來自應用程式的推播通知。 只有在應用程式第一次執行時，才會發生此要求。
+   > 您必須明確地接受來自應用程式的推播通知。 此请求只会在首次运行应用程序时出现。
 
 3. 在應用程式中輸入一項工作，然後按一下加號 (**+**) 圖示。
 4. 確認您已接收到通知，然後按一下 [確定] 以關閉通知。
@@ -341,7 +341,7 @@ ms.locfileid: "53000204"
 
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-#### <a name="add-push-notifications-to-your-windows-app"></a>將推播通知加入至 Windows 應用程式
+#### <a name="add-push-notifications-to-your-windows-app"></a>向 Windows 应用添加推送通知
 
 1. 在 Visual Studio 中，開啟 Windows 專案中的 **App.xaml.cs**，並新增下列陳述式。
 
@@ -394,7 +394,7 @@ ms.locfileid: "53000204"
 4. 在 Visual Studio 的 [方案總管] 中，開啟 **Package.appxmanifest** 檔案，然後把 [通知] 下方的 [支援快顯通知] 設為 [是]。
 5. 建置應用程式並確認沒有錯誤。 您用戶端應用程式現在應該註冊 Mobile Apps 後端的範本通知。 針對方案中每個 Windows 專案重複操作這一節。
 
-#### <a name="test-push-notifications-in-your-windows-app"></a>在 Windows 應用程式中測試推播通知
+#### <a name="test-push-notifications-in-your-windows-app"></a>在 Windows 应用中测试推送通知
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下 Windows 專案，然後按一下 [設定為啟始專案]。
 2. 按 [執行] 按鈕，以建立專案並啟動應用程式。

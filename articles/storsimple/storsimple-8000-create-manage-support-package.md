@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481823"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>建立及管理 StorSimple 8000 系列的支援封裝
 
@@ -72,10 +72,10 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
 
 您可以使用下列參數搭配 Export-HcsSupportPackage cmdlet。
 
-| 參數 | 必要/選用 | 說明 |
+| 參數 | 必要/選用 | 描述 |
 | --- | --- | --- |
-| `-Path` |必要 |用來提供存放支援封裝的網路共用資料夾位置。 |
-| `-EncryptionPassphrase` |必要 |用來提供複雜密碼，以協助加密支援封裝。 |
+| `-Path` |必要項 |用來提供存放支援封裝的網路共用資料夾位置。 |
+| `-EncryptionPassphrase` |必要項 |用來提供複雜密碼，以協助加密支援封裝。 |
 | `-Credential` |選用 |用來提供網路共用資料夾的存取認證。 |
 | `-Force` |選用 |用來略過加密複雜密碼確認步驟。 |
 | `-PackageTag` |選用 |用來指定 *Path* 下存放支援封裝的目錄。 預設值是 [裝置名稱]-[目前日期和時間：yyyy-MM-dd-HH-mm-ss]。 |
@@ -121,7 +121,7 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
         Supply values for the following parameters:EncryptionPassphrase: ****
 9. 記下新的複雜密碼，當接到要求時就能提供給 Microsoft 支援服務。
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>範例：在受密碼保護的共用中編輯支援封裝中的檔案
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>範例：編輯支援封裝中受密碼保護共用上的檔案
 
 下列範例將示範如何解密、編輯和重新加密支援封裝。
 

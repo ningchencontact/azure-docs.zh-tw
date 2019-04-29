@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.openlocfilehash: f25d87c7c557404071d777f4efcf22e53886d96d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456184"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>連接 Azure Kubernetes Service 與適用於 PostgreSQL 的 Azure 資料庫
 

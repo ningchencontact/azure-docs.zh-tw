@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: dc9b4db37e811d8bac6df2d532fd3629d98c9650
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586541"
 ---
 # <a name="azure-infrastructure-security"></a>Azure 基礎結構安全性
 Microsoft Azure 是在 Microsoft 管理並操作的資料中心執行。 這些分散各地的資料中心在安全性與可靠性方面皆符合主要的業界標準，例如 ISO/IEC 27001:2013 和 NIST SP 800-53。 這些資料中心是由 Microsoft 作業人員管理、監視及進行系統管理。 這些作業人員在全天候持續提供世界上最大型線上服務方面擁有多年的經驗。

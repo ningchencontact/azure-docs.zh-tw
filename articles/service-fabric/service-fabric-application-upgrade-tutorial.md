@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615200"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>使用 Visual Studio 進行 Service Fabric 應用程式升級的教學課程
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "58663667"
 
 Azure Service Fabric 藉由確保只升級已變更的服務，並且在整個升級程序中監視應用程式健康狀態，簡化雲端應用程式的升級程序。 它也會在應用程式發生問題時自動回復到舊版。 Service Fabric 應用程式升級並「不需要停機」 ，因為可以在不停機的情況下升級應用程式。 本教學課程涵蓋如何從 Visual Studio 完成輪流升級。
 
-## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>步驟 1：建置和發佈視覺物件範例
+## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>步驟 1：构建和发布视觉对象示例
 首先從 GitHub 下載 [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) 應用程式。 然後在應用程式專案 **VisualObjects** 上按一下滑鼠右鍵，選取 Service Fabric 功能表項目中的 [發佈] 命令來建置和發佈應用程式。
 
 ![Service Fabric 應用程式的操作功能表][image1]

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58861837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736630"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>在 Azure 前端服務中的 HTTP 標頭的通訊協定支援
 本文概述前端服務的呼叫路徑的組件所支援的通訊協定 （請見圖）。 下列各節提供前端服務所支援的 HTTP 標頭的詳細資訊。

@@ -11,11 +11,11 @@ ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61283766"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>如何在 Azure 搜尋服務中使用搜尋結果
 本文會講解如何實作搜尋結果頁面的標準項目，例如次數總計、擷取文件、排序次序和導覽。 發表資料或資訊到您的搜尋結果的頁面相關選項，會由傳送到 Azure 搜尋服務的[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)要求所指定。 

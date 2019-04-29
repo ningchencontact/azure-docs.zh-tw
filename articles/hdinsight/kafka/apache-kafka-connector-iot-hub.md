@@ -1,7 +1,6 @@
 ---
 title: 搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞
 description: 了解如何搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞。 Kafka Connect Azure IoT 中樞專案提供 Kafka 的來源和接收連接器。 來源連接器可從 IoT 中樞讀取資料，接收連接器則可寫入 IoT 中樞。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e64490517603687684617ce915e0d3f3e35298e9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115311"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞
 
@@ -272,10 +271,10 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 
     在編輯器中找出下列項目，並加以變更：
 
-   * `topics=PLACEHOLDER`：將 `PLACEHOLDER` 取代為 `iotout`。 寫入 `iotout` 主題的訊息會轉送至 IoT 中樞。
-   * `IotHub.ConnectionString=PLACEHOLDER`：將 `PLACEHOLDER` 取代為 `service` 原則的連接字串。
+   * `topics=PLACEHOLDER`:將 `PLACEHOLDER` 取代為 `iotout`。 寫入 `iotout` 主題的訊息會轉送至 IoT 中樞。
+   * `IotHub.ConnectionString=PLACEHOLDER`:將 `PLACEHOLDER` 取代為 `service` 原則的連接字串。
 
-     如需範例組態，請參閱 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)。
+     如需範例組態， [請參閱 https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)。
 
 3. 若要儲存變更，請使用 __Ctrl + X__、__Y__ 和 __Enter__ 鍵。
 

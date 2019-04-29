@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 949d6b00b4e04921ea745dd4efa1b8a58c49f534
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995618"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure 新支援要求檔案上傳公用程式指導方針
 [建立支援要求](https://portal.azure.com/#create/Microsoft.Support)時，「檔案上傳」公用程式可協助您輕鬆上傳診斷檔案或您認為與事件相關的任何其他檔案。  
@@ -30,7 +30,7 @@ ms.locfileid: "56108427"
 >
 >
 
-使用檔案上傳公用程式時，請遵循下列方針：
+使用“文件上传”实用工具时，请遵循以下指导原则：
 
 * 所有檔案必須有副檔名，例如 .docx 或 .xlsx。 請參閱表格以取得允許的檔案名稱副檔名清單。
 * 檔案名稱的長度不得超過 110 個字元。

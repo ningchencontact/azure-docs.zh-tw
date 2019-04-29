@@ -9,11 +9,11 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 03b504524b2f489f1ee042c6e825ccffe0a60bb3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478465"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>針對匯入作業準備硬碟
 若要準備匯入工作的一個或多個硬碟，請依照下列步驟執行︰
@@ -69,7 +69,7 @@ ms.locfileid: "58315057"
 > [!NOTE]
 >  如果您有多部機器符合[設定 Azure 匯入/匯出工具](storage-import-export-tool-setup-v1.md)中所描述的需求，您可以在每部機器上執行此工具的執行個體，以將資料平行複製到多個硬碟。
 
- 針對您使用 Azure 匯入/匯出工具準備的每個硬碟，工具將會建立單一日誌檔案。 所有磁碟機都將需要日誌檔案，才能建立匯入工作。 如果工具中斷，日誌檔案也可用來繼續磁碟機準備。
+ 針對您使用 Azure 匯入/匯出工具準備的每個硬碟，工具將會建立單一日誌檔案。 所有磁碟機都將需要日誌檔案，才能建立匯入工作。 在工具中断的情况下，还可使用日记文件来恢复驱动器准备操作。
 
 ### <a name="azure-importexport-tool-syntax-for-an-import-job"></a>適用於匯入作業的 Azure 匯入/匯出工具語法
  如果要準備匯入作業的磁碟機，請使用 **PrepImport** 命令呼叫 Azure 匯入/匯出工具。 您包含的參數取決於這是第一個複製工作階段或後續複製工作階段。
@@ -108,10 +108,10 @@ ms.locfileid: "58315057"
 |/csas:<ContainerSas\>|`Optional` 。 用於將資料匯入儲存體帳戶的容器 SAS。 必须在命令中包含 /sk:<StorageAccountKey\> 或 /csas:<ContainerSas\>。<br /><br /> 這個參數的值開頭必須是容器名稱，後面加上問號 (?) 和 SAS Token。 例如︰<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> 權限 (無論是在 URL 或預存存取原則中指定) 必須包含讀取、寫入和刪除匯入工作，以及讀取、寫入和列出匯出工作。<br /><br /> 指定這個參數時，要匯入或匯出的所有 Blob 必須位於共用存取簽章中指定的容器內。|
 |**/t:**<TargetDriveLetter\>|`Required.`目前複製工作階段中目標硬碟的磁碟機代號，不包含結尾的冒號。|
 |**/format**|`Optional.`當磁碟機需要進行格式化時請指定此參數；否則請省略。 此工具格式化磁碟機之前，會提示您從主控台進行確認。 若不希望显示该确认，请指定 /silentmode 参数。|
-|**/silentmode**|`Optional.` 指定此參數可隱藏格式化目標磁碟機的確認。|
+|**/silentmode**|`Optional.` 指定此参数不会显示对目标驱动器进行格式化的确认。|
 |**/encrypt**|`Optional.`當磁碟機尚未使用 BitLocker 加密，且需要透過工具加密時，請指定此參數。 若已使用 BitLocker 加密磁碟機，則省略此參數並指定 `/bk`參數，以提供現有的 BitLocker 金鑰。<br /><br /> 若您指定 `/format` 參數，則您也必須指定 `/encrypt` 參數。|
 |**/bk:**<BitLockerKey\>|`Optional.`若指定 `/encrypt`，請省略這個參數。 若省略 `/encrypt`，您必須已使用 BitLocker 加密磁碟機。 使用此參數可指定 BitLocker 金鑰。 匯入工作的所有硬碟都需要 BitLocker 加密。|
-|/logdir:<LogDirectory\>|`Optional.`記錄檔目錄指定要用來儲存詳細資訊記錄檔和暫存資訊清單檔案的目錄。 如未指定，將使用目前的目錄做為記錄檔目錄。|
+|/logdir:<LogDirectory\>|`Optional.`記錄目錄指定要用來儲存詳細資訊記錄和暫存資訊清單檔案的目錄。 如未指定，將使用目前的目錄做為記錄檔目錄。|
 
 ### <a name="parameters-required-for-all-copy-sessions"></a>所有複製工作階段需要的參數
  日誌檔案包含硬碟的所有複製工作階段的狀態。 它也包含建立匯入工作所需的資訊。 執行 Azure 匯入/匯出工具時，一律必須指定日誌檔案及複製工作階段識別碼：
@@ -131,7 +131,7 @@ ms.locfileid: "58315057"
 |**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.`Microsoft Azure 儲存體帳戶中的目的地虛擬目錄路徑。 虛擬目錄可能已存在或可能不存在。<br /><br /> 您可以指定容器或 Blob 前置詞，如 `music/70s/`。 目的地目錄必須以容器名稱開頭，後面接著正斜線 "/"，並可選擇性地包含結尾是 "/" 的虛擬 Blob 目錄。<br /><br /> 目的地容器為根容器時，您必須明確指定根容器 (包括正斜線)，例如 `$root/`。 由於根容器下的 Blob 名稱中不能包含 "/"，當目的地目錄是根容器時，將不會複製來源目錄中的任何子目錄。<br /><br /> 在指定目标虚拟目录或 blob 时，请确保使用有效的容器名称。 請記住容器名稱必須是小寫。 關於容器命名規則，請參閱[命名和參考容器、Blob 及中繼資料](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。|
 |**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.`指定具有指定位址的 Blob 已存在時的行為。 這個參數的有效值為︰`rename`、`no-overwrite`及 `overwrite`。 請注意，這些值區分大小寫。 如果未指定任何值，預設值為 `rename`。<br /><br /> 為此參數指定的值會影響 `/srcdir` 參數指定的目錄中的所有檔案。|
 |**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.`指定目的地 Blob 的 Blob 類型。 有效值為：`BlockBlob`和 `PageBlob`。 请注意，这些值区分大小写。 如果未指定任何值，預設值為 `BlockBlob`。<br /><br /> 在大部分情況下，建議使用 `BlockBlob`。 如果您指定 `PageBlob`，目錄中每個檔案的長度必須是 512 (分頁 Blob 的分頁大小) 的倍數。|
-|**/PropertyFile:**<PropertyFile\>|`Optional.`目的地 Blob 的屬性檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。|
+|**/PropertyFile:**<PropertyFile\>|`Optional.`目的地 Blob 的屬性檔案路徑。 有关详细信息，请参阅[导入/导出服务元数据和属性文件格式](../storage-import-export-file-format-metadata-and-properties.md)。|
 |**/MetadataFile:**<MetadataFile\>|`Optional.`目的地 Blob 的中繼資料檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。|
 
 ### <a name="parameters-for-copying-a-single-file"></a>用以複製單一檔案的參數
@@ -143,8 +143,8 @@ ms.locfileid: "58315057"
 |**/dstblob:**<DestinationBlobPath\>|`Required.`Microsoft Azure 儲存體帳戶中目的地 Blob 的路徑。 Blob 可能已存在或可能不存在。<br /><br /> 指定開頭為容器名稱的 Blob 名稱。 Blob 名稱不得以 "/" 或儲存體帳戶名稱開頭。 關於 Blob 命名規則，請參閱[命名和參考容器、Blob 及中繼資料](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。<br /><br /> 目的地容器為根容器時，您必須明確指定 `$root` 做為容器，例如 `$root/sample.txt`。 請注意，根容器下的 Blob 名稱不能包含 "/"。|
 |**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.`指定具有指定位址的 Blob 已存在時的行為。 這個參數的有效值為︰`rename`、`no-overwrite`及 `overwrite`。 請注意，這些值區分大小寫。 如果未指定任何值，預設值為 `rename`。|
 |/BlobType:<BlockBlob&#124;PageBlob>|`Optional.`指定目的地 Blob 的 Blob 類型。 有效值為：`BlockBlob`和 `PageBlob`。 请注意，这些值区分大小写。 如果未指定任何值，預設值為 `BlockBlob`。<br /><br /> 在大部分情況下，建議使用 `BlockBlob`。 如果您指定 `PageBlob`，目錄中每個檔案的長度必須是 512 (分頁 Blob 的分頁大小) 的倍數。|
-|**/PropertyFile:**<PropertyFile\>|`Optional.`目的地 Blob 的屬性檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。|
-|**/MetadataFile:**<MetadataFile\>|`Optional.`目的地 Blob 的中繼資料檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。|
+|**/PropertyFile:**<PropertyFile\>|`Optional.`目的地 Blob 的屬性檔案路徑。 有关详细信息，请参阅[导入/导出服务元数据和属性文件格式](../storage-import-export-file-format-metadata-and-properties.md)。|
+|**/MetadataFile:**<MetadataFile\>|`Optional.`目的地 Blob 的中繼資料檔案路徑。 有关详细信息，请参阅[导入/导出服务元数据和属性文件格式](../storage-import-export-file-format-metadata-and-properties.md)。|
 
 ### <a name="resuming-an-interrupted-copy-session"></a>繼續中斷的複製工作階段
  如果複製工作階段因任何原因中斷，只要指定日誌檔案，就可以執行工具來繼續︰
@@ -156,7 +156,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /ResumeSession
  如果是異常中止，只能繼續最近的複製工作階段。
 
 > [!IMPORTANT]
->  當您繼續複製工作階段時，請勿以加入或移除檔案的方式修改來源資料檔案和目錄。
+>  恢复复制会话时，请不要通过添加或删除文件来修改源数据文件和目录。
 
 ### <a name="aborting-an-interrupted-copy-session"></a>中止中斷的複製工作階段
  如果複製工作階段中斷且無法繼續 (例如來源目錄已證實無法存取)，您必須中止目前的工作階段，使其可以回復並開始新的複製工作階段︰

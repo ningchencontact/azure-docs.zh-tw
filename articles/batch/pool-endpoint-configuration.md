@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
 ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616852"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>設定或停用 Azure Batch 集區內計算節點的遠端存取權
 

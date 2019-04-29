@@ -17,11 +17,11 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477199"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
@@ -112,7 +112,7 @@ ms.locfileid: "54330784"
 
 若要搭配 SQL Server VM 使用 BYOL，您必須具備 SQL Server Standard 或 Enterprise 的授權及[軟體保證](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1)，這是透過某些大量授權方案時的必要選項，也是搭配其他方案時的選購項目。 根據合約的類型及數量和 (或) 對 SQL Server 之承諾的不同，透過「大量授權」方案提供的定價層級也會不同。 但根據經驗法則，自備授權可為持續性生產環境工作負載提供下列優點：
 
-| BYOL 優點 | 說明 |
+| BYOL 優點 | 描述 |
 |-----|-----|
 | **節省成本** | 如果工作負載將持續執行 SQL Server Standard 或 Enterprise 長達 *10 個月以上*的時間，則與依使用量付費相比，自備 SQL Server 授權較符合經濟效益。 |
 | **長期節省** | 平均而言，前 3 年購買或更新 SQL Server 授權可「每年節省 30% 的費用」。 此外，3 年之後，您就不再需要更新授權，只要支付「軟體保證」費用即可。 屆時，將可「節省 200% 的費用」。 |
@@ -153,7 +153,7 @@ SQL Server 的授權成本與 vCPU 數目直接相關。 選擇符合預期的 C
 
 ### <a name="shut-down-your-vm-when-possible"></a>若可能則關閉 VM
 
-如果您要使用任何不會持續執行的工作負載，請考慮在非使用中的期間關閉虛擬機器。 您只需依據使用量付費。
+如果您要使用任何不會持續執行的工作負載，請考慮在非使用中的期間關閉虛擬機器。 仅为所用的部分付费。
 
 例如，如果您只是要在 Azure VM 上試用 SQL Server，您就不會希望不小心讓它持續執行數週而產生費用。 其中一個解決方案就是使用[自動關閉功能](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/)。
 

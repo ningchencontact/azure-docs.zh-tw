@@ -11,11 +11,11 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: eddbb41f346661e86c64b1dd703321f434c5bbb6
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342600"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>內容擴充的預先定義技能 (Azure 搜尋服務)
 
@@ -30,7 +30,7 @@ ms.locfileid: "55770413"
 
 有數種技能所取用或產生的內容都很具彈性。 一般而言，大部分的技能乃是依據預先定型的模型，這表示您無法使用自己的定型資料來定型模型。 下表列舉並說明 Microsoft 所提供的技能。 
 
-| 技能 | 說明 |
+| 技能 | 描述 |
 |-------|-------------|
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | 這項技能使用預先定型的模型，根據字詞位置、語言規則、與其他字詞的鄰近程度，以及字詞在來源資料中是否尋常來偵測重要詞彙。 |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | 這項技能使用預先定型的模型，偵測所使用的語言 (每個文件一個語言識別碼)。 當相同的文字區段內使用多種語言時，輸出是主要使用語言的 LCID。|
@@ -46,7 +46,7 @@ ms.locfileid: "55770413"
 
 如需建立[自訂技能](cognitive-search-custom-skill-web-api.md)的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)和[範例：建立自訂技能](cognitive-search-create-custom-skill-example.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [自訂技能介面定義](cognitive-search-custom-skill-interface.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: jegeib
 ms.openlocfilehash: 4e08491ae898fef16af1e199a76a4c07a6c226b9
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610485"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 威脅模型化工具
 
@@ -44,7 +44,7 @@ ms.locfileid: "54358655"
 
 下表包含重要的連結，可以協助您開始使用威脅模型化工具：
 
-| 步驟  | 說明                                                                                   |
+| 步驟  | 描述                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [下載威脅模型化工具](https://aka.ms/threatmodelingtool)                                |
 | **2** | [參閱使用者入門指南](./azure-security-threat-modeling-tool-getting-started.md)    |

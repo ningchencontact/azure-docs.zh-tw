@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-ms.openlocfilehash: 2c0b211bced99d272a73a7b018a22f99d8d58aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 260dfdd4b8fe7c277358fa5773029ea9a532740a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61077438"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>使用 StorSimple Snapshot Manager 來檢視和管理磁碟區
 ## <a name="overview"></a>概觀
@@ -91,9 +91,9 @@ ms.locfileid: "23111716"
    
     ![設定資料行](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
-   | 結果資料行 | 說明 |
+   | 結果資料行 | 描述 |
    |:--- |:--- |
-   |  Name |[名稱]  資料行包含已指派至每個已探索到之磁碟區的磁碟機代號。 |
+   |  名稱 |[名稱]  資料行包含已指派至每個已探索到之磁碟區的磁碟機代號。 |
    |  裝置 |[裝置]  資料行包含已連接到主機電腦之裝置的 IP 位址。 |
    |  裝置磁碟區名稱 |[裝置磁碟區名稱]  資料行包含所選磁碟區所屬之裝置磁碟區的名稱。 這是 Azure 入口網站中針對該特定磁碟區定義的磁碟區名稱。 |
    |  存取路徑 |[存取路徑]  資料行會顯示磁碟區的存取路徑。 這是可在主機電腦上存取磁碟區的磁碟機代號或掛接點。 |
@@ -130,7 +130,7 @@ ms.locfileid: "23111716"
 ## <a name="configure-and-back-up-a-basic-volume"></a>設定和備份基本磁碟區
 請使用下列程序，來設定基本磁碟區的備份，然後立即啟動備份，或建立一個原則進行排程的備份。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 開始之前：
 
 * 確定已正確設定 StorSimple 裝置和主機電腦。 如需詳細資訊，請移至 [部署內部部署 StorSimple 裝置](storsimple-deployment-walkthrough-u2.md)。
@@ -158,14 +158,14 @@ ms.locfileid: "23111716"
 * 步驟 1：使用 [磁碟管理] 來建立動態鏡像磁碟區。 
 * 步驟 2：使用 StorSimple Snapshot Manager 來設定備份。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 開始之前：
 
 * 確定已正確設定 StorSimple 裝置和主機電腦。 如需詳細資訊，請移至 [部署內部部署 StorSimple 裝置](storsimple-8000-deployment-walkthrough-u2.md)。
 * 安裝和設定 StorSimple Snapshot Manager。 如需詳細資訊，請移至 [部署 StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)。
 * 在 StorSimple 裝置上設定兩個磁碟區。 (在這些範例中，可用的磁碟區為 [磁碟 1] 和 [磁碟 2]。) 
 
-### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>步驟 1：使用 [磁碟管理] 來建立動態鏡像磁碟區
+### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>步驟 1：使用磁碟管理來建立動態鏡像磁碟區
 [磁碟管理] 是一種系統公用程式，用於管理硬碟及其包含的磁碟區或磁碟分割。 如需 [磁碟管理] 的詳細資訊，請移至 Microsoft TechNet 網站上的 [磁碟管理](https://technet.microsoft.com/library/cc770943.aspx) 。
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>若要建立動態鏡像磁碟區

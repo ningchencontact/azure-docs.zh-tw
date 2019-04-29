@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: kfollis
 ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552526"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>在 Azure 入口網站中建立和共用儀表板
 您可以建立多個儀表板，並與可存取您 Azure 訂用帳戶的其他人共用。  本文說明建立/編輯、發佈和管理儀表板存取權的基本概念。
@@ -93,6 +93,6 @@ ms.locfileid: "56818573"
 ![管理存取控制](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 若要管理資源，請參閱[使用 Azure 入口網站管理 Azure 資源](../azure-resource-manager/manage-resources-portal.md)。
+* 若要管理资源，请参阅[使用 Azure 门户管理 Azure 资源](../azure-resource-manager/manage-resources-portal.md)。
 * 若要部署資源，請參閱 [使用 Resource Manager 範本與 Azure 入口網站來部署資源](../azure-resource-manager/resource-group-template-deploy-portal.md)。
 

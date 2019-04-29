@@ -13,11 +13,11 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 8e519e5a5e5fe6b893fa5663e1426630f46f885f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900845"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>事件遙測：Application Insights 資料模型
 
@@ -25,7 +25,7 @@ ms.locfileid: "54118399"
 
 事件在語意上不一定會與要求相互關聯。 不過，如果使用得當，事件遙測比要求或追蹤更重要。 事件代表商務遙測，且應該會受到個別、較不積極[取樣](../../azure-monitor/app/api-filtering-sampling.md)所影響。
 
-## <a name="name"></a>Name
+## <a name="name"></a>名稱
 
 事件名稱。 若要有適當的分組與實用的計量，請限制應用程式，使其產生少量的個別事件名稱。 例如，針對每個產生的事件執行個體，不要使用不同的名稱。
 

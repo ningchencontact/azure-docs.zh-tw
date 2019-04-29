@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 2bb1a9c3922f435b6be78614aacff6e85bf475ff
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130733"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service 環境 v1 簡介
 
@@ -33,12 +33,12 @@ App Service 環境是 [Azure App Service](../overview.md) 的[進階][PremiumTie
 
 適合應用程式工作負載的 App Service 環境需要：
 
-* 非常高的延展性
-* 隔離和安全的網路存取
+* 极高的缩放性
+* 隔离和安全的网络访问
 
 客戶可以在單一 Azure 區域，以及跨多個 Azure 區域中建立多個 App Service 環境。  這使得 App Service 環境很適合用來水平調整無狀態應用程式層的規模，以支援高 RPS 工作負載。
 
-App Service 環境已經過隔離，可執行只有單一客戶的應用程式，且一律會部署到虛擬網路。  客戶對於輸入和輸出的應用程式網路流量都有更細微的控制，且應用程式可以透過虛擬網路建立與內部部署公司資源的高速安全連線。
+应用服务环境可在隔离后只运行单个客户的应用程序，并可始终部署到虚拟网络中。  客戶對於輸入和輸出的應用程式網路流量都有更細微的控制，且應用程式可以透過虛擬網路建立與內部部署公司資源的高速安全連線。
 
 如需 App Service Environment 如何提供高延展性和安全的網路存取的概觀，請參閱關於 App Service Environment 的 [AzureCon 深入探討][AzureConDeepDive]！
 
@@ -58,7 +58,7 @@ App Service Environment 是由前端計算資源集區，以及一到三個背�
 
 前端集區包含負責處理 SSL 終止以及 App Service Environment 中應用程式要求的自動負載平衡的計算資源。
 
-每個背景工作集區都含有配置給 [App Service 方案][AppServicePlan]的計算資源，其中又包含一或多個 Azure App Service 應用程式。  因為 App Service Environment 中可有多達三個不同的背景工作集區，所以您有彈性可為每個背景工作集區選擇不同的計算資源。  
+每個背景工作集區都含有配置給 [App Service 方案][AppServicePlan]的計算資源，其中又包含一或多個 Azure App Service 應用程式。  由于应用服务环境中可能有多达三个不同的工作线程池，因此可以灵活地为每个工作线程池选择不同的计算资源。  
 
 比方說，您可以針對主要用於開發或測試應用程式的 App Service 方案，建立一個計算資源較不強大的背景工作集區。  第二個 (或甚至第三個) 背景工作集區可以使用比較強大的運算資源，以供 App Service 方案執行生產應用程式。
 

@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c0b4117f6e7b48dce1746ad6eb3dbe29c0d16af
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723207"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130614"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>設定 App Service 環境 v1
 
@@ -82,12 +82,12 @@ Azure App Service Environment 是由數個主要元件所組成：
 ### <a name="network"></a>網路
 與 ASE 搭配使用的 VNet，可以是您在建立 ASE 時所設定的虛擬網路，或是您既有的虛擬網路。 當您在 ASE 建立期間建立子網路，它會強制 ASE 位於和虛擬網路相同的資源群組中。 如果您需要 ASE 所使用的資源群組與 VNet 使用的不同，則需要使用 Resource Manager 範本來建立 ASE。
 
-用於 ASE 的虛擬網路有一些限制：
+用于 ASE 的虚拟网络有一些限制：
 
 * 虛擬網路必須是區域虛擬網路。
 * 需要有包含 8 個或更多位址且為 ASE 部署所在的子網路。
 * 將子網路用於裝載 ASE 後，就無法變更子網路的位址範圍。 因此，建議子網路至少包含 64 個位置以適應未來 ASE 成長。
-* 除了 ASE 以外，子網路中可能沒有其他項目。
+* 除了 ASE 以外，子网中不能有其他项目。
 
 不同於包含 ASE 的託管服務，[虛擬網路][virtualnetwork]和子網路全都在使用者的控制之下。  您可以透過虛擬網路 UI 或 Powershell 管理您的虛擬網路。  ASE 可以部署在傳統或 Resource Manager VNet 中。  傳統和 Resource Manager Vnet 之間的入口網站和 API 經驗會稍有不同，但 ASE 經驗相同。
 
@@ -99,7 +99,7 @@ Azure App Service Environment 是由數個主要元件所組成：
 
 如果您的虛擬網路設定了 ExpressRoute VPN，則應留意 ASE 的某些路由需求。 某些使用者定義的路由 (UDR) 組態與 ASE 不相容。 如需關於在具有 ExpressRoute 的虛擬網路中執行 ASE 的詳細資訊，請參閱[在具有 ExpressRoute 的虛擬網路中執行 App Service 環境][ExpressRoute]。
 
-#### <a name="securing-inbound-traffic"></a>保護輸入流量
+#### <a name="securing-inbound-traffic"></a>保护入站流量
 有兩種主要方法可控制您的 ASE 的輸入流量。  您可以使用網路安全性 (NSG) 來控制哪些 IP 位址可以存取 ASE (請參閱 [如何在 App Service 環境中控制輸入流量](app-service-app-service-environment-control-inbound-traffic.md) )，您也可以使用內部負載平衡器 (ILB) 設定您的 ASE。  如果您要將使用 USG 的存取權限制為您的 ILB ASE，這些功能也可以一起使用。
 
 當您建立 ASE 時，它會在您的 VNet 中建立 VIP。  VIP 類型有兩種：外部和內部。  當您使用外部 VIP 建立 ASE 時，可以透過網際網路可路由 IP 位址存取 ASE 中的應用程式。 如果您選取內部，您的 ASE 會使用 ILB 進行設定，將無法透過網際網路直接存取。  ILB ASE 仍需要外部 VIP，但它只用來進行 Azure 管理和維護。  
@@ -167,7 +167,7 @@ ASE 刀鋒視窗中有一個包含幾項重要功能的 [設定]  區段：
 ![調整設定 UI][7]
 
 ## <a name="fault-tolerance-considerations"></a>容錯注意事項
-您可以將 App Service 環境可設定為最多總計使用 55 個計算資源。 在這 55 個計算資源中，只有 50 個可用來裝載工作負載。 其原因有兩個。 前端計算資源的下限為 2 個。  上限可高達 53 個，以支援背景工作集區配置。 為了提供容錯功能，您需要根據下列規則配置額外的計算資源：
+您可以將 App Service 環境可設定為最多總計使用 55 個計算資源。 在这 55 个计算资源中，只有 50 个可用于承载工作负荷。 其原因有兩個。 前端計算資源的下限為 2 個。  上限可高達 53 個，以支援背景工作集區配置。 為了提供容錯功能，您需要根據下列規則配置額外的計算資源：
 
 * 每個背景工作角色集區至少需要 1 個無法被指派工作負載的額外計算資源。
 * 當背景工作角色集區中的計算資源數量超出特定值時，則需要另一個計算資源以進行容錯。 在前端集區中並非如此。

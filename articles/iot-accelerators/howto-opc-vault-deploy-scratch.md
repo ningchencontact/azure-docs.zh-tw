@@ -9,15 +9,15 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450324"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>從頭開始部署 OPC 保存庫
 
-OPC 保存庫是微服務，可以設定、 註冊和管理憑證生命週期的 OPC UA 伺服器和雲端中的用戶端應用程式。 這篇文章會示範如何從頭部署 OPC 保存庫。
+OPC 保存庫是一項微服務，可以設定、註冊和管理雲端中的 OPC UA 伺服器和用戶端應用程式的憑證生命週期。 這篇文章會示範如何從頭部署 OPC 保存庫。
 
 ## <a name="configuration-and-environment-variables"></a>組態和環境變數
 

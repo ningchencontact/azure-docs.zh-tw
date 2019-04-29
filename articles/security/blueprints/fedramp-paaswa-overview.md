@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
 ms.openlocfilehash: 46c72191ee17f63311b041d798cccec279e4b000
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585949"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure 安全性與合規性藍圖：適用於 FedRAMP 的 PaaS Web 應用程式
 
@@ -35,7 +35,7 @@ ms.locfileid: "57244684"
 - Azure Active Directory
 - Azure 金鑰保存庫
 - 連接字串
-- 應用程式閘道
+- 应用程序网关
     - (1) Web 應用程式防火牆
         - 防火牆模式：防止
         - 規則集：OWASP 3.0
@@ -143,7 +143,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 
 ### <a name="logging-and-auditing"></a>記錄與稽核
 Azure 監視器可提供系統、使用者活動及系統健康情況的廣泛記錄。 它可收集及分析 Azure 和內部部署環境中資源所產生的資料。
-- **活動記錄檔**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
+- **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
 - **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。
 - **記錄封存**：所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。 這些記錄檔連接到 Azure 監視器記錄檔處理、 儲存和儀表板報表。
 

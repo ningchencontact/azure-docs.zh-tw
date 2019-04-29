@@ -9,11 +9,11 @@ ms.date: 03/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295193"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883230"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 必要條件和檢查清單
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須確認是否符合以下各節中所列的下列需求。
@@ -30,8 +30,8 @@ ms.locfileid: "58295193"
 * 如果您的提供者不是 ExpressRoute 連線合作夥伴，您仍可透過 [雲端交換服務提供者](expressroute-locations.md#connectivity-through-exchange-providers)連線到 Microsoft Cloud。
 
 ## <a name="network-requirements"></a>網路需求
-* **在每個對等互連位置的備援**:Microsoft 會要求 Microsoft 路由器和每個 ExpressRoute 線路的對等互連路由器之間設定備援 BGP 工作階段 (即使您有只[與雲端交換的一個實體連線](expressroute-faqs.md#onep2plink))。
-* **災害復原的備援**:Microsoft 強烈建議您設定至少兩個 ExpressRoute 線路位於不同的對等互連位置以避免單一失敗點。
+* **每个对等互连位置的冗余性**：Microsoft 要求在 Microsoft 的路由器和每个 ExpressRoute 线路上的对等互连路由器之间建立冗余的 BGP 会话（即使只有[一个到云交换的物理连接](expressroute-faqs.md#onep2plink)）。
+* **灾难恢复的冗余**：Microsoft 强烈建议你在不同的对等互连位置设置至少两条 ExpressRoute 线路，避免单点故障。
 * **路由**︰根據您連線到 Microsoft Cloud 的方式，您或您的提供者需要設定及管理用於[路由網域](expressroute-circuit-peerings.md)的 BGP 工作階段。 某些乙太網路連線服務提供者或雲端交換服務提供者可能會提供 BGP 管理功能做為附加價值服務。
 * **NAT**：Microsoft 只接受透過 Microsoft 對等互連的公用 IP 位址。 如果您在內部部署網路中使用私人 IP 位址，您或您的提供者必須[使用 NAT](expressroute-nat.md) 將私人 IP 位址轉譯成公用 IP 位址。
 * **QoS**：「商務用 Skype」具有各種服務 (例如語音、視訊、文字)，其所要求的 QoS 處理方式各有差異。 您和您的提供者應該遵循 [QoS 需求](expressroute-qos.md)。

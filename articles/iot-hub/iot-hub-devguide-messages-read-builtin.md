@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363957"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>從內建端點讀取裝置對雲端訊息
 
@@ -50,7 +50,7 @@ IoT 中樞會公開您後端服務的 **messages/events** 內建端點，以讀�
 
 在门户中，“与事件中心兼容的终结点”字段包含完整的事件中心连接字符串，如下所示：**Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. 如果所用 SDK 需求其他值，则这些值将会是：
 
-| 名稱 | 值 |
+| 名稱 | Value |
 | ---- | ----- |
 | 端點 | sb://abcd1234namespace.servicebus.windows.net/ |
 | 主機名稱 | abcd1234namespace.servicebus.windows.net |

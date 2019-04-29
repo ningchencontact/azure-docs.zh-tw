@@ -16,11 +16,11 @@ ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583599"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>建立 Service Fabric Mesh 應用程式的自動調整原則
 將應用程式部署到 Service Fabric Mesh 的其中一個主要優點是可讓您輕鬆相應縮小或放大服務。這應用於處理您服務上不同數量的負載，或是改善可用性。 您可以手動相應縮小或相應放大您的服務，或設定自動調整原則。

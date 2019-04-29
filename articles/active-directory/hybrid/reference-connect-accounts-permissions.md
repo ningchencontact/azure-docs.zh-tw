@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096161"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶和權限
 
@@ -249,7 +249,7 @@ Azure AD 中有 20 個同步服務帳戶的限制。 若要取得 Azure AD 中�
 |使用快速設定進行安裝 | [Azure AD Connect 的快速安装](how-to-connect-install-express.md)|
 |使用自定义设置安装 | [自訂 Azure AD Connect 安裝](./how-to-connect-install-custom.md)|
 |從 DirSync 升級 | [从 Azure AD 同步工具 (DirSync) 升级](how-to-dirsync-upgrade-get-started.md)|
-|安裝後 | [驗證安裝和指派授權](how-to-connect-post-installation.md)|
+|安裝後 | [验证安装并分配许可证](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。

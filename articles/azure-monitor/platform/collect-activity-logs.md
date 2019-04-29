@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: magoedte
 ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59505629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741216"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>收集並分析 Azure 活動記錄中 Azure 監視器中的 Log Analytics 工作區
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>收集和分析 Azure Monitor 的 Log Analytics 工作区中的 Azure 活动日志
 
 ![Azure 活動記錄符號](./media/collect-activity-logs/activity-log-analytics.png)
 
@@ -28,10 +28,10 @@ ms.locfileid: "59505629"
 
 您可以使用活動記錄檔來判斷訂用帳戶中的資源上任何寫入作業 (PUT、POST、DELETE) 的「*內容*」、「對象」和「時間」。 您也可以了解作業的狀態和其他相關屬性。 活動記錄不包含讀取 (GET) 作業，或使用傳統部署模型的資源有關的作業。
 
-當您將 Azure 活動記錄連線到 Log Analytics 工作區時，您可以：
+将 Azure 活动日志连接到 Log Analytics 工作区时，可以：
 
 - 使用預先定義檢視分析活動記錄
-- 分析和搜尋多個 Azure 訂用帳戶的活動記錄
+- 分析和搜索多个 Azure 订阅中的活动日志
 - 保留活動記錄超過 90 天<sup>1</sup>
 - 使活動記錄與其他 Azure 平台和應用程式資料產生關聯
 - 請參閱依狀態彙總的作業活動
@@ -40,15 +40,15 @@ ms.locfileid: "59505629"
 - 找出影響資源的中斷或服務健全狀況問題
 - 使用記錄搜尋使使用者活動、 自動調整作業、授權變更和服務健全狀況與您環境的其他記錄或度量資訊產生關聯
 
-<sup>1</sup>根據預設，Azure 監視器會保留您的 Azure 活動記錄檔 Log Analytics 工作區中 90 天，即使您在免費層。 或者，如果您有少於 90 天的工作區中保留期設定。 如果工作區的保留期超過 90 天，即會根據工作區的保留期間來保留活動記錄。
+<sup>1</sup>默认情况下，Azure Monitor 将 Log Analytics 工作区中的 Azure 活动日志保留 90 天，即使在免费层也是如此。 或者，如果您有少於 90 天的工作區中保留期設定。 如果工作區的保留期超過 90 天，即會根據工作區的保留期間來保留活動記錄。
 
-Log Analytics 工作區會收集活動記錄免費的並將記錄檔儲存 90 天免費。 如果儲存記錄超過 90 天，對於儲存超過 90 天的資料將產生資料保留期費用。
+Log Analytics 工作区免费收集活动日志，并将日志免费存储 90 天。 如果儲存記錄超過 90 天，對於儲存超過 90 天的資料將產生資料保留期費用。
 
 您在免費定價層時，活動記錄不適用於每日資料耗用量。
 
 ## <a name="connected-sources"></a>連接的來源
 
-不同於大部分其他的 Azure 監視解決方案中，資料不會收集活動記錄檔的代理程式。 解決方案使用的所有資料直接來自於 Azure。
+与大多数其他 Azure Monitor 解决方案不同，代理不会为活动日志收集数据。 解決方案使用的所有資料直接來自於 Azure。
 
 | 連接的來源 | 支援 | 描述 |
 | --- | --- | --- |

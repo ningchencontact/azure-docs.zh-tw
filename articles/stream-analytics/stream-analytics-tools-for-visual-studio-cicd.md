@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
 ms.openlocfilehash: 641254be37ac0019ee6a256fc99f96fc3bfb75a2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761500"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>使用串流分析工具持續進行整合及開發
 本文說明如何使用適用於 Visual Studio 的 Azure 串流分析工具來設定持續整合及部署程序。

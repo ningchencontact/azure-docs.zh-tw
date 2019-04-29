@@ -15,11 +15,11 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709484"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 傳統訂用帳戶管理員
 
@@ -91,7 +91,7 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-1. 請確定您的案例支援藉由檢查變更服務管理員的限制。
+1. 请查看服务管理员变更限制，确保自己的方案受支持。
 
 1. 以帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -109,7 +109,7 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 ### <a name="account-center"></a>帳戶中心
 
-1. 請確定您的案例支援藉由檢查變更服務管理員的限制。
+1. 请查看服务管理员变更限制，确保自己的方案受支持。
 
 1. 以帳戶管理員身分登入[帳戶中心](https://account.windowsazure.com/subscriptions)。
 

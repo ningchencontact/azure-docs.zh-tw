@@ -1,5 +1,5 @@
 ---
-title: Azure 備份︰使用 REST API 建立備份原則
+title: Azure 備份：建立備份原則，使用 REST API
 description: 使用 REST API 管理備份原則 (排程和保留期)
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648800"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>使用 REST API 建立 Azure 復原服務備份原則
 
@@ -31,7 +31,7 @@ ms.locfileid: "51289645"
 - 您可以將一個原則指派給多項資源。 Azure VM 備份原則可用來保護許多 Azure VM。
 - 原則是由兩個元件所組成
   - 排程：製作備份的時間
-  - 保留期：每個備份應保留的時間長度。
+  - 保留：每個備份應該能保留多久。
 - 排程可以定義為「每日」或「每週」的特定時間點。
 - 您可以定義「每日」、「每週」、「每月」、「每年」備份點的保留期。
 - 「每週」是指於當週的特定一天備份，「每月」代表於當月的特定一天備份，而「每年」是指於當年的特定一天備份。
@@ -50,7 +50,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 例如，若要建立 Azure VM 備份的原則，以下是要求本文的元件。
 
-|名稱  |必要  |類型  |說明  |
+|名稱  |必要項  |類型  |描述  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy：[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 屬性        |
 |tags     |         | Object        |  資源標籤       |
@@ -156,9 +156,9 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 備份原則的建立/更新為[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 這表示此作業會建立另一項需要個別追蹤的作業。
 
-它會傳回兩個回應：建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
+它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |說明  |
+|名稱  |類型  |描述  |
 |---------|---------|---------|
 |200 確定     |    [保護 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 已接受     |         |     已接受    |

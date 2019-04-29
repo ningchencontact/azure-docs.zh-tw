@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998980"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474147"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>安裝和設定 Azure 上的 PostgreSQL
 PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它包含企業用功能，例如完整的 ACID 的相容性、可靠的交易式程序，以及多版本的並行控制。 它也支援標準，例如 ANSI SQL 和 SQL/MED (包括 Oracle、MySQL、MongoDB 和許多其他項目的外部資料包裝函式)。 其高度可擴充性支援超過 12 種程序性語言、GIN 和 GiST 索引、空間資料支援和多個類似 NoSQL 的功能，適用於 JSON 或以索引鍵-值為基礎的應用程式。
@@ -126,7 +126,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
    
     您應該會收到下列輸出：
 
-![映像](./media/postgresql-install/no1.png)
+![image](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>設定 PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -143,7 +143,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![映像](./media/postgresql-install/no2.png)
+![image](./media/postgresql-install/no2.png)
 
 變更檔案，使其可執行：
 
@@ -159,7 +159,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
 你应该会看到以下输出：
 
-![映像](./media/postgresql-install/no3.png)
+![image](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>連接到 Postgres 資料庫
 再一次切換到 postgres 使用者：
@@ -190,11 +190,11 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
 如果您成功建立資料表，您會看到下列內容：
 
-![映像](./media/postgresql-install/no4.png)
+![image](./media/postgresql-install/no4.png)
 
 您也可以利用下列命令檢查資料表結構：
 
-![映像](./media/postgresql-install/no5.png)
+![image](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>將資料新增至資料表
 首先，將資料插入資料列：
@@ -220,7 +220,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
 輸出如下：
 
-![映像](./media/postgresql-install/no7.png)
+![image](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>刪除資料表中的資料
 使用下列命令刪除資料表中的資料：
@@ -229,7 +229,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
 這會刪除 "John" 資料列中的所有資訊。 輸出如下：
 
-![映像](./media/postgresql-install/no8.png)
+![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>更新資料表中的資料
 使用下列命令更新資料表中的資料。 對於此項目，Sandy 已確認她會參加，所以我們要將她的 RSVP 從 "N" 變更為 "Y"：

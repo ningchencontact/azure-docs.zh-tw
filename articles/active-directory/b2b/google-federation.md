@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d61f233b2eb901bcf1e6b5b4ff147893f918e8f
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104847"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>將 Google 新增為 B2B 來賓使用者的識別提供者
 
@@ -109,7 +109,7 @@ ms.locfileid: "58293306"
 
 ### <a name="to-delete-google-federation-by-using-powershell"></a>使用 PowerShell 刪除 Google 同盟： 
 1. 安裝最新版的 Azure AD PowerShell for Graph 模組 ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview))。
-2. 執行 `Connect-AzureAD`。  
+2. 运行 `Connect-AzureAD`。  
 4. 在登入提示中，使用受控的全域系統管理員帳戶來登入。  
 5. 輸入下列命令：
 

@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612288"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -363,7 +363,7 @@ Azure IoT Edge 允许使用支持的 IoT 中心协议从本地服务器来与 Az
 
 | 平台 | 位置 |
 | --------- | -------- |
-| Linux | `/etc/docker` |
+|  Linux | `/etc/docker` |
 | 包含 Windows 容器的 Windows 主机 | `C:\ProgramData\iotedge-moby-data\config` |
 
 如果该位置已包含 `daemon.json` 文件，请在其中添加 **dns** 密钥，然后保存该文件。
@@ -372,7 +372,7 @@ Azure IoT Edge 允许使用支持的 IoT 中心协议从本地服务器来与 Az
 
 | 平台 | 命令 |
 | --------- | -------- |
-| Linux | `sudo systemctl restart docker` |
+|  Linux | `sudo systemctl restart docker` |
 | Windows（管理 Powershell） | `Restart-Service iotedge-moby -Force` |
 
 **選項 2：在每个模块的 IoT Edge 部署中设置 DNS 服务器**

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: jowargo
 ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457760"
 ---
 # <a name="routing-and-tag-expressions"></a>路由與標記運算式
 
@@ -37,7 +37,7 @@ ms.locfileid: "54828157"
 
 ## <a name="tags"></a>標記
 
-標記可以是任何字串，包括英數字元及下列非英數字元，且長度不得超過 120 個字元：‘_’、‘@’、‘#’、‘.’、‘:’、‘-’。 下列範例示範的應用程式可以讓您從中接收有關特定音樂群組的快顯通知。 在此案例中，一個簡單路由通知的方法是為註冊加上標記，以指出不同的樂團，如下列圖片所示：
+标记可以是任意字符串，最多 120 个字符，可以包含字母数字和以下非字母数字字符：“_”、“@”、“#”、“.”、“:”、“-”。 下列範例示範的應用程式可以讓您從中接收有關特定音樂群組的快顯通知。 在此案例中，一個簡單路由通知的方法是為註冊加上標記，以指出不同的樂團，如下列圖片所示：
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 

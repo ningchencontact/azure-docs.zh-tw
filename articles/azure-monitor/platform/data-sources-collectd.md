@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764936"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>在 Azure 監視器中，從 Linux 代理程式上的 CollectD 收集資料
 [CollectD](https://collectd.org/) 是開放原始碼 Linux 精靈，可定期收集來自應用程式的效能計量和系統等級資訊。 範例應用程式包括 Java 虛擬機器 (JVM)、MySQL 伺服器和 Nginx。 本文提供如何在 Azure 監視器中從 CollectD 收集效能資料的相關資訊。
@@ -112,7 +112,7 @@ Log Analytics Linux 代理程式也會在連接埠 26000 接聽 CollectD 計量�
 
 | CollectD 計量欄位 | [Azure 監視器] 欄位 |
 |:--|:--|
-| `host` | 電腦 |
+| `host` | Computer |
 | `plugin` | None |
 | `plugin_instance` | 執行個體名稱<br>If **plugin_instance** is *null* then InstanceName="*_Total*" |
 | `type` | ObjectName |

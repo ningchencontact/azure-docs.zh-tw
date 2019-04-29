@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
 ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61276132"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
 
@@ -30,7 +30,7 @@ Site Recovery 整合了 Microsoft 應用程式，包括 SharePoint、Exchange、
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>為何要使用 Site Recovery 進行應用程式複寫？
 
-Site Recovery 可協助您實作應用程式層級的保護和復原，如下所示：
+Site Recovery 可帮助实现应用程序级的保护和恢复，如下所示：
 
 * 應用程式無從驗證，針對在受支援電腦上執行的任何工作負載提供複寫。
 * 僅需 30 秒即可完成 PRO 近同步複寫，能滿足大多數重要商務應用程式的需求。
@@ -52,13 +52,13 @@ Site Recovery 可複寫在支援的機器上執行的任何應用程式。 此�
 | SAP<br/><br/>將 SAP 網站複寫至非叢集的 Azure |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試)|
 | Exchange (非 DAG) |Y |Y |Y |Y |Y|
 | 遠端桌面/VDI |Y |Y |Y |Y |Y|
-| Linux (作業系統和應用程式) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試)|
+| Linux (作業系統和應用程式) |Y（Microsoft 已测试） |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試)|
 | Dynamics AX |Y |Y |Y |Y |Y|
 | Windows 檔案伺服器 |Y |Y |Y |Y |Y|
 | Citrix XenApp 和 XenDesktop |Y|N/A |Y |N/A |Y |
 
 ## <a name="replicate-active-directory-and-dns"></a>複寫 Active Directory 和 DNS
-Active Directory 和 DNS 基礎結構是大多數企業應用程式的必要項目。 在災害復原期間，您必須在復原工作負載和應用程式之前，先保護與復原這些基礎結構元件。
+Active Directory 和 DNS 基础结构对于大多数企业应用而言至关重要。 在災害復原期間，您必須在復原工作負載和應用程式之前，先保護與復原這些基礎結構元件。
 
 您可以使用 Site Recovery，對 Active Directory 和 DNS 建立一個完整的自動化災害復原方案。 例如，如果您想要將 SharePoint 和 SAP 從主要網站容錯移轉至次要網站，您可以先設定可容錯移轉 Active Directory 的復原方案，然後再設定額外的應用程式專屬方案，以便容錯移轉依賴 Active Directory 的其他應用程式。
 
@@ -75,10 +75,10 @@ SQL Server 針對內部部署資料中心內許多商務應用程式，提供資
 
 [深入了解](site-recovery-sql.md) 如何保護 SQL Server。
 
-## <a name="protect-sharepoint"></a>保護 SharePoint
+## <a name="protect-sharepoint"></a>保护 SharePoint
 Azure Site Recovery 可協助保護 SharePoint 部署，如下所示：
 
-* 排除對災害復原之待命伺服器陣列的需要和相關聯的基礎結構成本。 使用 Site Recovery，將整個伺服器陣列 (Web、應用程式和資料庫層) 複寫至 Azure 或次要網站。
+* 消除对用于灾难恢复的备用场的需要以及相关的基础结构成本。 使用 Site Recovery，將整個伺服器陣列 (Web、應用程式和資料庫層) 複寫至 Azure 或次要網站。
 * 簡化應用程式部署和管理作業。 部署至主要網站的更新會自動複寫，因此可在伺服器陣列於次要網站中容錯移轉和復原之後使用。 此外，還可降低讓待命伺服器陣列保持最新狀態的管理複雜度和相關成本。
 * 藉由建立類似生產的複本隨選複本環境進行測試和偵錯，以簡化 SharePoint 應用程式開發和測試。
 * 藉由使用 Site Recovery 將 SharePoint 部署移轉至 Azure，來簡化雲端轉換。
@@ -89,13 +89,13 @@ Azure Site Recovery 可協助保護 SharePoint 部署，如下所示：
 Azure Site Recovery 可協助保護您的 Dynamics AX ERP 解決方案，方法如下：
 
 * 協調將整個 Dynamics AX 環境 (Web 和 AOS 層、資料庫層、SharePoint) 複寫到 Azure，或是次要網站。
-* 簡化 Dynamics AX 部署到雲端 (Azure) 的移轉。
+* 简化 Dynamics AX 部署到云 (Azure) 的迁移。
 * 藉由建立類似生產的複本隨選進行測試和偵錯，以簡化 Dynamics AX 應用程式開發和測試。
 
 [深入了解](site-recovery-dynamicsax.md) 如何保護動態 Dynamic AX。
 
 ## <a name="protect-rds"></a>保護 RDS
-遠端桌面服務 (RDS) 可啟用虛擬桌面基礎結構 (VDI)、以工作階段為基礎的桌面和應用程式，讓使用者可在任何地方工作。 使用 Azure Site Recovery，您可以：
+遠端桌面服務 (RDS) 可啟用虛擬桌面基礎結構 (VDI)、以工作階段為基礎的桌面和應用程式，讓使用者可在任何地方工作。 使用 Azure Site Recovery 可以：
 
 * 將受控或非受控集區化虛擬桌面複寫至次要網站，以及將遠端應用程式和工作階段複寫至次要網站或 Azure。
 
@@ -111,12 +111,12 @@ Azure Site Recovery 可協助保護您的 Dynamics AX ERP 解決方案，方法�
 
 [深入了解](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) 如何保護 RDS。
 
-## <a name="protect-exchange"></a>保護 Exchange
+## <a name="protect-exchange"></a>保护 Exchange
 Site Recovery 協助保護 Exchange 的方式如下所示：
 
 * 對於小型 Exchange 部署 (例如單一或獨立式伺服器)，Site Recovery 可以複寫並容錯移轉至 Azure 或次要網站。
 * 對於大型部署，Site Recovery 會與 Exchange DAG 整合。
-* Exchange DAG 是企業中 Exchange 災害復原的建議解決方案。  Site Recovery 復原方案可以包含 DAG，以協調網站之間的 DAG 容錯移轉。
+* 在企业中进行 Exchange 灾难恢复时，Exchange DAG 是建议的解决方案。  Site Recovery 復原方案可以包含 DAG，以協調網站之間的 DAG 容錯移轉。
 
 [深入了解](https://gallery.technet.microsoft.com/Exchange-DR-Solution-using-11a7dcb6) 如何保護 Exchange。
 
@@ -141,7 +141,7 @@ Azure Site Recovery 提供災害復原，方法為將環境中的重要元件複
 -   能夠在 web 伺服器上一鍵容錯多個 web 應用程式，因此在災害發生時排除造成混淆的範圍。
 -   能夠在 DR 鑽研的隔離環境中測試復原計劃。
 
-[深入了解](https://aka.ms/asr-iis) 如何保護 IIS web 伺服陣列。
+[详细了解](https://aka.ms/asr-iis)如何保护 IIS Web 场。
 
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>保護 Citrix XenApp 和 XenDesktop
 使用 Site Recovery 保護您的 Citrix XenApp 和 XenDesktop 部署，如下所示：

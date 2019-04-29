@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808844"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>在 Azure Data Factory 中執行管線活動
 執行管線活動可允許資料處理站管線叫用另一個管線。
@@ -66,7 +66,7 @@ name | 執行管線活動的名稱。 | 字串 | 是
 type | 必須設定為：**ExecutePipeline**。 | 字串 | 是
 管線 | 此管線叫用之相依管線的管線參考。 管線參考物件有兩個屬性：**referenceName** 和 **type**。 referenceName 屬性指定參考管線的名稱。 type 屬性必須設為 PipelineReference。 | PipelineReference | 是
 parameters | 要傳遞至叫用之管線的參數 | 將參數名稱對應到引數值的 JSON 物件 | 否
-waitOnCompletion | 定義活動執行是否等待相依的管線執行完成。 預設值為 false。 | BOOLEAN | 否
+waitOnCompletion | 定義活動執行是否等待相依的管線執行完成。 預設值為 false。 | Boolean | 否
 
 ## <a name="sample"></a>範例
 此案例有兩個管線：

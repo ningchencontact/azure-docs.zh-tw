@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 837235e04ce190a4481e1f19789d8e9ff9cb7578
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61131540"
 ---
 # <a name="media-encoder-standard-schema"></a>媒體編碼器標準結構描述
 本文描述[媒體編碼器標準預設值](media-services-mes-presets-overview.md)所根據之 XML 結構描述的一些元素和類型。 本文提供元素和其有效值的說明。  

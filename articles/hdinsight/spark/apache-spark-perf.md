@@ -1,7 +1,6 @@
 ---
 title: 最佳化 Spark 作業的效能 - Azure HDInsight
 description: 顯示為了達到 Spark 叢集最佳效能的一般策略。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283064"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098874"
 ---
 # <a name="optimize-apache-spark-jobs"></a>最佳化 Apache Spark 作業
 

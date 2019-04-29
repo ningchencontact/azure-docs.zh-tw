@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557880"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API 管理中的範本資源
 Azure API 管理提供下列類型的資源，用於開發人員入口網站的範本。  
@@ -112,13 +112,13 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |PageTitleApis|API|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|應用程式預覽|  
 |WebApplicationsRequirementsHeader|需求|  
@@ -127,12 +127,12 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|確定要移除應用程式嗎?|  
 |WebDevelopersAppNotPublished|未發佈|  
 |WebDevelopersAppNotSubmitted|未提交|  
-|WebDevelopersAppTableCategoryHeader|類別|  
+|WebDevelopersAppTableCategoryHeader|Category|  
 |WebDevelopersAppTableNameHeader|名稱|  
 |WebDevelopersAppTableStateHeader|狀況|  
 |WebDevelopersEditLink|Edit|  
@@ -143,13 +143,13 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |WebApplicationsHeader|[應用程式]|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |NoItemsToDisplay|找不到結果。|  
 |GeneralExceptionMessage|某些項目不正確。 可能是暫時性的問題或有錯誤。 請再試一次。|  
@@ -160,7 +160,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |ButtonLabelCancel|取消|  
 |ButtonLabelSave|儲存|  
@@ -184,7 +184,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="Documentation"></a> Documentation  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|無效的標頭 '{0}'|  
 |WebDocumentationInvalidRequestErrorMessage|無效的要求 URL|  
@@ -332,7 +332,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |LinkLabelBack|上一步|  
 |LinkLabelHomePage|首頁|  
@@ -350,7 +350,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |WebIssuesIndexTitle|問題|  
 |WebIssuesNoActiveSubscriptions|您沒有作用中的訂用帳戶。 您必須訂閱產品才會回報問題。|  
@@ -361,7 +361,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |LinkLabelHomePage|首頁|  
 |LinkLabelSendUsEmail|傳送電子郵件|  
@@ -376,7 +376,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |WebProductsAgreement|訂閱 {0} 產品即表示我同意 `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`。|  
 |WebProductsLegalTermsLink|使用條款|  
@@ -398,13 +398,13 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
-|PageTitleProducts|產品|  
+|PageTitleProducts|Products|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|目前系統管理員已停用登入。|  
 |TextboxExternalIdentitiesSigninInvitation|或者，以此登入|  
@@ -412,7 +412,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |PrincipalNotFound|找不到主體或簽章無效|  
 |ErrorSsoAuthenticationFailed|SSO 驗證失敗|  
@@ -482,7 +482,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
 |WebAuthenticationUserIsNotConfirm|嘗試登入之前，請確認您的註冊。|  
 |WebAuthenticationInvalidEmailFormated|電子郵件無效：{0}|  
 |WebAuthenticationUserNotFound|找不到使用者|  
-|WebAuthenticationTenantNotRegistered|您的帳戶屬於無權存取此入口網站的 Azure Active Directory 租用戶。|  
+|WebAuthenticationTenantNotRegistered|你的帐户所属的 Azure Active Directory 租户无权访问此门户。|  
 |WebAuthenticationAuthenticationFailed|驗證失敗。|  
 |WebAuthenticationGooglePlusNotEnabled|驗證失敗。 如果您已授權應用程式，請連絡系統管理員以確定 Google 驗證的設定正確。|  
 |ValidationErrorAllowedTenantIsRequired|允許的租用戶為必填欄位|  
@@ -508,7 +508,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|忘記密碼了嗎?|  
 |WebAuthenticationIfAdministrator|如果您是系統管理員，您必須登入 `<a href="{0}"\>here</a\>`。|  
@@ -520,7 +520,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |PageTitleSignup|注册|  
 |WebAuthenticationAlreadyAMember|已經是會員嗎?|  
@@ -530,7 +530,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|確定要取消輸入這個訂用帳戶嗎?|  
 |SubscriptionRenewConfirmation|確定要續訂這個訂用帳戶嗎?|  
@@ -553,7 +553,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |SectionHeadingCloseAccount|想要關閉您的帳戶嗎?|  
 |PageTitleDeveloperProfile|設定檔|  
@@ -564,14 +564,14 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|更新設定檔|  
 |PageTitleUpdateProfile|變更帳戶資訊|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|名稱|文字|  
+|名稱|Text|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|變更帳戶資訊|  
 |ButtonLabelChangePassword|變更密碼|  

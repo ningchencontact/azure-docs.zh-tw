@@ -10,11 +10,11 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740544"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自動化中的圖形化編寫
 
@@ -47,7 +47,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。 �
 | 區段 | 描述 |
 |:--- |:--- |
 | Cmdlet |包含可以在 Runbook 中使用的所有 Cmdlet。 Cmdlet 是依模組組織。 已在您自動化帳戶中安裝的所有模組皆可供使用。 |
-| Runbook |包含自動化帳戶中的 Runbook。 這些 Runbook 可以加入至畫布以做為子 Runbook。 只會顯示與所編輯之 Runbook 相同核心類型的 Runbook。針對圖形化 Runbook，只會顯示以 PowerShell 為基礎的 Runbook，而針對圖形化 PowerShell 工作流程 Runbook，只會顯示以 PowerShell 工作流程為基礎的 Runbook。 |
+| runbook |包含自動化帳戶中的 Runbook。 這些 Runbook 可以加入至畫布以做為子 Runbook。 只會顯示與所編輯之 Runbook 相同核心類型的 Runbook。針對圖形化 Runbook，只會顯示以 PowerShell 為基礎的 Runbook，而針對圖形化 PowerShell 工作流程 Runbook，只會顯示以 PowerShell 工作流程為基礎的 Runbook。 |
 | Assets |包含您的自動化帳戶中可以在 Runbook 中使用的 [自動化資產](/previous-versions/azure/dn939988(v=azure.100)) 。 當您將資產加入 Runbook，它會新增工作流程活動，取得所選資產。 如果是變數資產，您可以選取是否要加入活動以取得變數或設定變數。 |
 | Runbook 控制項 |包含可在目前的 Runbook 中使用的 Runbook 控制項活動。 「接合」  會接受多個輸入，並等待所有項目完成，然後再繼續工作流程。 「程式碼」  活動會根據圖形化 Runbook 類型而定，執行一或多行 PowerShell 或 PowerShell 工作流程程式碼。 您可以對很難利用其他活動來達成的自訂程式碼或功能使用此活動。 |
 

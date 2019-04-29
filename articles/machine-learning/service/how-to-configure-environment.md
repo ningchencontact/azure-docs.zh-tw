@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60820021"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -66,7 +66,7 @@ ms.locfileid: "59548881"
 
 使用[Azure 入口網站](https://portal.azure.com)若要開始使用 Azure Notebook。  開啟您的工作區往返**概觀**區段中，選取**開始使用 Azure Notebooks**。
 
-根據預設，Azure Notebooks 使用免費服務層，其限制為 4 GB 記憶體和 1GB 資料。 不過，您可以將資料科學虛擬機器執行個體附加到 Azure Notebooks 專案來移除這些限制。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。    
+根據預設，Azure Notebooks 使用免費服務層級，其限制為 4 GB 記憶體和 1GB 資料。 不過，您可以將資料科學虛擬機器執行個體附加到 Azure Notebooks 專案來移除這些限制。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。    
 
 
 ## <a id="dsvm"></a>資料科學虛擬機器
@@ -284,7 +284,7 @@ Azure Databricks 的運作方式與 Azure Machine Learning 服務：
 
 使用這些設定：
 
-| 設定 |適用於| 值 |
+| 設定 |適用於| Value |
 |----|---|---|
 | 叢集名稱 |永遠| yourclustername |
 | Databricks 執行階段 |永遠| 任何非 ML 執行階段 (非 ML 4.x、5.x) |

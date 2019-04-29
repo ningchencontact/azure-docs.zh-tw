@@ -1,19 +1,18 @@
 ---
 title: 使用虛擬網路延伸 HDInsight - Azure
 description: 了解如何使用 Azure 虛擬網路將 HDInsight 連接到其他雲端資源或您的資料中心內的資源
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
-ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f97c07c522dfb22818aca84d41d30c023f564d84
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097332"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -259,7 +258,7 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 1. 您必須一律允許來自下列 IP 位址的流量：
 
-    | 來源 IP 位址 | 目的地連接埠 | 方向 |
+    | 來源 IP 位址 | 目的地連接埠 | Direction |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | 輸入 |
     | 23.99.5.239 | 443 | 輸入 |
@@ -271,7 +270,7 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
     > [!IMPORTANT]  
     > 如果未列出您使用的 Azure 區域，就只能使用步驟 1 中的四個 IP 位址。
 
-    | 國家 (地區) | 區域 | 允許的來源 IP 位址 | 允許的目的地連接埠 | 方向 |
+    | 國家 (地區) | 區域 | 允許的來源 IP 位址 | 允許的目的地連接埠 | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | 亞洲 | 東亞 | 23.102.235.122</br>52.175.38.134 | 443 | 輸入 |
     | &nbsp; | 東南亞 | 13.76.245.160</br>13.76.136.249 | 443 | 輸入 |

@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61313646"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>搭配 Azure SQL Database 中單一、集區和執行個體資料庫使用的異動複寫
 
@@ -79,8 +79,8 @@ ms.locfileid: "57852749"
   > - 嘗試使用舊版設定複寫可能會導致錯誤號碼 MSSQL_REPL20084 (處理序無法連線到訂閱者。) 和 MSSQ_REPL40532 (無法開啟登入所要求的公開伺服器 \<名稱>。 登入失敗。)。
   > - 若要使用 Azure SQL Database 的所有功能，您必須使用最新版的 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。
   
-  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>執行個體的資料庫和內部部署系統的 Supportabilty 矩陣
-  資料庫執行個體是相同的 SQL Server 內部部署複寫可支援性對照表。 
+  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>实例数据库和本地系统的可支持性矩阵
+  实例数据库的复制可支持性矩阵与本地 SQL Server 的相同。 
   
   | **發行者**   | **散發者** | **訂閱者** |
 | :------------   | :-------------- | :------------- |
@@ -95,11 +95,11 @@ ms.locfileid: "57852749"
 
 - 連線會在複寫參與者之間使用 SQL 驗證。 
 - 與工作目錄共用且用於複寫的 Azure 儲存體帳戶。 
-- 必須在存取 Azure 檔案共用的受控執行個體子網路的安全性規則中開啟連接埠 445 (TCP 輸出)。 
+- 需要在托管实例子网的安全规则中打开端口 445（TCP 出站）才能访问 Azure 文件共享。 
 - 如果發行者/散發者是在受控執行個體上且訂閱者在內部部署中，則需要開啟連接埠 1433 (TCP 輸出)。
 
   >[!NOTE]
-  > 連接到 Azure 儲存體檔案，輸出網路安全性 (nsg) 連接埠 445 遭到封鎖時散發者是執行個體的資料庫和訂閱者是在內部部署環境時，您可能會遇到錯誤 53。 [更新 vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)若要解決此問題。 
+  > 当分发服务器为实例数据库且订阅服务器位于本地时，如果阻止出站网络安全组 (NSG) 端口 445，则会在连接到 Azure 存储文件时遇到错误 53。 [更新 vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) 以解决此问题。 
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>比較資料同步與異動複寫
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: mayg
 ms.openlocfilehash: 1aaf13f01c7e7197001f3099fabd4b8be8545f0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565027"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>針對 VMware VM 和實體伺服器的複寫問題進行疑難排解
 

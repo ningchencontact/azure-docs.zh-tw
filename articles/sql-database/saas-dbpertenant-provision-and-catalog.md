@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61388296"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>了解如何佈建新的租用戶並在目錄中註冊它們
 
@@ -58,7 +58,7 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。 在 Wingtip Ticke
 
 ## <a name="introduction-to-the-saas-provisioning-pattern"></a>SaaS 佈建模式簡介
 
-當您在使用單一租用戶資料庫模型的 SaaS 應用程式中新增租用戶時，必須佈建新的租用戶資料庫。 必須在適當的位置和服務層建立資料庫。 此外，也必須以適當的結構描述和參考資料將其初始化。 必須在目錄中適當的租用戶金鑰下註冊此資料庫。 
+當您在使用單一租用戶資料庫模型的 SaaS 應用程式中新增租用戶時，必須佈建新的租用戶資料庫。 必須在適當的位置和服務層級建立資料庫。 此外，也必須以適當的結構描述和參考資料將其初始化。 必須在目錄中適當的租用戶金鑰下註冊此資料庫。 
 
 您可以使用不同的資料庫佈建方法。 您可以執行 SQL 指令碼、部署 bacpac 或複製範本資料庫。 
 

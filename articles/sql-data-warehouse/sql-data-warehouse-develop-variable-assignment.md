@@ -2,20 +2,21 @@
 title: 在 Azure SQL 資料倉儲中指派變數 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中指派 T-SQL 變數以便開發解決方案的秘訣。
 services: sql-data-warehouse
-author: ckarst
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+origin.date: 04/17/2017
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: ee97f7e5cda8b954fb697f73746e416d88d38c2d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401700"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61480828"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中指派變數
 
@@ -63,7 +64,7 @@ SET     @v +=1;
 
 ## <a name="limitations"></a>限制
 
-您無法使用 UPDATE 進行變數指派。
+不能使用 UPDATE 来分配变量。
 
 ## <a name="next-steps"></a>後續步驟
 

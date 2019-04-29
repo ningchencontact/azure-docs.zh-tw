@@ -9,11 +9,11 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5c46d4e4d23744cf07ccf7857a33990bf405a6a1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61023243"
 ---
 # <a name="connect-with-excel"></a>使用 Excel 進行連接
 
@@ -36,12 +36,12 @@ ms.locfileid: "54189009"
 
     ![從 Excel 登入來進行連接](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
-3. 在 [選取資料庫和資料表] 中，選取資料庫和模型或檢視方塊，然後按一下 [完成]。
+3. 在“选择数据库和表”中，选择数据库和模型或透视，并单击“完成”。
    
     ![從 Excel 選取模型來進行連接](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [用戶端程式庫](analysis-services-data-providers.md)   
 [管理您的伺服器](analysis-services-manage.md)     

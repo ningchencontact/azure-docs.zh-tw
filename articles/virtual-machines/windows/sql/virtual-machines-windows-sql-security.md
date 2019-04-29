@@ -17,11 +17,11 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731711"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477505"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 安全性考量
 
@@ -56,7 +56,7 @@ Azure 符合多種業界規範及標準，可讓您使用在虛擬機器中執�
 
 使用您使用端點搭配傳統部署模型，如果虛擬機器上有任何不使用的端點，請將它們全部移除。 如需有關在端點中使用 ACL 的指示，請參閱 [在端點上管理 ACL](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)。 使用 Resource Manager 的 VM 不需要這麼做。
 
-最後，請考慮對 Azure 虛擬機器中的 SQL Server Database Engine 執行個體啟用已加密的連線。 使用簽署的憑證設定 SQL Server 執行個體。 如需詳細資訊，請參閱[啟用 Database Engine 的加密連接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)和[連接字串語法](https://msdn.microsoft.com/library/ms254500.aspx)。
+最後，請考慮對 Azure 虛擬機器中的 SQL Server Database Engine 執行個體啟用已加密的連線。 使用簽署的憑證設定 SQL Server 執行個體。 有关详细信息，请参阅[启用到数据库引擎的加密连接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)和[连接字符串语法](https://msdn.microsoft.com/library/ms254500.aspx)。
 
 ## <a name="use-a-non-default-port"></a>使用非預設連接埠
 
@@ -75,20 +75,20 @@ Azure 符合多種業界規範及標準，可讓您使用在虛擬機器中執�
 
 當 SQL Server 在非預設連接埠上接聽時，您必須在連線時指定連接埠。 例如，考量伺服器 IP 位址為 13.55.255.255，且 SQL Server 在連接埠 1401 上接聽的案例。 若要連線到 SQL Server，您會在連接字串中指定 `13.55.255.255,1401`。
 
-## <a name="manage-accounts"></a>管理帳戶
+## <a name="manage-accounts"></a>管理帐户
 
 您不希望攻擊者容易猜到帳戶名稱或密碼。 使用下列秘訣來協助：
 
-- 建立不是名為 **Administrator**的唯一本機系統管理員帳戶。
+- 创建一个唯一的本地管理员帐户，不要命名为 **Administrator**。
 
 - 為您的所有帳戶使用複雜的強式密碼。 如需如何建立強式密碼的詳細資訊，請參閱 [建立強式密碼](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password)一文。
 
-- 根據預設，Azure 會在 SQL Server 虛擬機器安裝期間選取 Windows 驗證。 因此，系統會停用 **SA** 登入，並由安裝程式指派密碼。 我們建議不要使用或啟用 **SA** 登入。 如果您必須具有 SQL 登入，請使用下列其中一個策略：
+- 默认情况下，Azure 在 SQL Server 虚拟机安装期间会选择 Windows 身份验证。 因此，会禁用 **SA** 登录名，并由安装程序分配密码。 我們建議不要使用或啟用 **SA** 登入。 如果您必須具有 SQL 登入，請使用下列其中一個策略：
 
   - 使用具有 **sysadmin** 成員資格的唯一名稱建立 SQL 帳戶。 在佈建期間啟用 **SQL 驗證**，即可從入口網站執行此作業。
 
     > [!TIP] 
-    > 如果您未在佈建期間啟用 SQL 驗證，您必須將驗證模式手動變更為 **SQL Server 和 Windows 驗證模式**。 如需詳細資訊，請參閱 [變更伺服器驗證模式](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode)。
+    > 如果您未在佈建期間啟用 SQL 驗證，您必須將驗證模式手動變更為 **SQL Server 和 Windows 驗證模式**。 有关详细信息，请参阅 [更改服务器身份验证模式](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode)。
 
   - 如果您必須使用 **SA** 登入，請在佈建後啟用此登入，然後指派新的強式密碼。
 

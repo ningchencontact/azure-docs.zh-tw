@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60581232"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>備份 StorSimple Virtual Array 上的共用或磁碟區
 
@@ -90,7 +90,7 @@ StorSimple Virtual Array 有預設的備份原則會在每日特定時間 (22:30
    
     ![已完成的備份](./media/storsimple-virtual-array-backup/takebackup19m.png) 
 
-## <a name="view-existing-backups"></a>檢視現有備份
+## <a name="view-existing-backups"></a>檢視現有的備份
 若要檢視現有備份，請在 Azure 入口網站中執行下列步驟。
 
 #### <a name="to-view-existing-backups"></a>檢視現有備份

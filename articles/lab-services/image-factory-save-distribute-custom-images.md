@@ -13,13 +13,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: feabd055833e5f0d850138af528cce1da82cae49
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622596"
 ---
-# <a name="save-custom-images-and-distribute-to-multiple-labs"></a>儲存自訂映像，並散發的多個實驗室
+# <a name="save-custom-images-and-distribute-to-multiple-labs"></a>儲存自訂映像並散發至多個實驗室
 這篇文章涵蓋了可讓您以儲存從已建立的虛擬機器 (Vm) 的自訂映像的步驟。 其中也涵蓋如何散發組織中其他 DevTest Labs 自訂映像。
 
 ## <a name="prerequisites"></a>必要條件

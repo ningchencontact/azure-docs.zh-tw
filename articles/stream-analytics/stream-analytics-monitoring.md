@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: ce6fc0a90ad093a6bba5a4720777e409202c73ea
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479324"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解串流分析工作監視功能，以及如何監視查詢
 
@@ -43,7 +43,7 @@ Azure 入口網站會顯示關鍵效能計量，可供您用來監視查詢和�
 | 延遲輸入事件      | 晚於已設定延遲傳入容錯時間抵達的事件。 深入了解 [Azure 串流分析事件的順序考量](stream-analytics-out-of-order-and-late-events.md)。 |
 | 順序錯亂事件    | 所收到順序錯亂的事件數目，這些事件會根據事件順序原則，予以捨棄或指定調整後的時間戳記。 順序錯亂容錯視窗設定的組態可能會造成影響。 |
 | 輸出事件          | 「串流分析」工作所傳送的資料量 (以事件數為單位)。 |
-| 執行階段錯誤         | （不含內嵌事件或輸出結果時發現錯誤） 的查詢處理相關的錯誤數總計 |
+| 執行階段錯誤         | 与查询处理相关的错误总数（不包括引入事件或输出结果时发现的错误） |
 | SU % 使用率       | 從工作的 [調整] 索引標籤指派給工作的串流處理單元使用率。 若此指標達到 80% 以上，則代表事件處理作業極有可能延遲或暫停。 |
 | 浮水印延遲秒數       | 作業中所有輸出分割區的延遲秒數上限。 |
 

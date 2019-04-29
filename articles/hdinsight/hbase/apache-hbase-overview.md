@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
 ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114423"
 ---
 # <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>什麼是 HDInsight 中的 Apache HBase：為 Apache Hadoop 提供類似 BigTable 功能的 NoSQL 資料庫
 [Apache HBase](https://hbase.apache.org/) 是開放原始碼的 NoSQL 資料庫，以 [Apache Hadoop](https://hadoop.apache.org/) 作為建置基礎，並仿照 [Google BigTable](https://cloud.google.com/bigtable/) 建立模型。 HBase 可針對依資料行系列組織的無結構描述資料庫中的大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。

@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095484"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 同步：處理 userCertificate 屬性所造成的 LargeObject 錯誤 | Microsoft Docs
 
@@ -90,9 +90,9 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 
 2. 使用下列值來設定搜尋篩選條件：
 
-    | 屬性 | 值 |
+    | 屬性 | Value |
     | --- | --- |
-    | 方向 |**輸出** |
+    | Direction |**輸出** |
     | MV 物件類型 |**人員** |
     | 連接器 |Azure AD 連接器的名稱 |
     | 連接器物件類型 |**user** |
@@ -105,7 +105,7 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 7. 在編輯畫面中，選取 [範圍設定篩選] 索引標籤。
 8. 記下的範圍設定篩選組態。 如果您使用 OOB 同步規則，應該只有**一個範圍設定篩選群組，含有兩個子句**，包括︰
 
-    | 屬性 | 运算符 | 值 |
+    | 屬性 | 运算符 | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |
@@ -115,7 +115,7 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 1. 在 [同步處理規則編輯器] 中，按一下 [新增規則] 按鈕。
 2. 在 [描述] 索引標籤下，提供下列設定︰
 
-    | 屬性 | 值 | 詳細資料 |
+    | 屬性 | Value | 詳細資料 |
     | --- | --- | --- |
     | 名稱 | 提供名稱 | 例如，「輸出至 AAD – userCertificate 的自訂覆寫」 |
     | 描述 | *提供说明* | 例如，「如果 userCertificate 屬性有 15 個以上的值，匯出 NULL」。 |
@@ -129,7 +129,7 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 4. 略過 [聯結規則] 索引標籤。
 5. 移至 [轉換] 索引標籤，使用下列設定新增轉換︰
 
-    | 屬性 | 值 |
+    | 屬性 | Value |
     | --- | --- |
     | 流程類型 |**運算式** |
     | 目標屬性 |**userCertificate** |

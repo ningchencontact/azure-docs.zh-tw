@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477139"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>使用 Azure 儲存體進行 SQL Server 備份與還原
 ## <a name="overview"></a>概觀
@@ -47,7 +47,7 @@ SQL Server 2016 導入了新功能；您可以使用 [檔案快照集備份](htt
 ## <a name="azure-blob-storage-service-components"></a>Azure Blob 儲存體服務元件
 備份到 Azure Blob 儲存體服務時，會使用下列 Azure 元件。
 
-| 元件 | 說明 |
+| 元件 | 描述 |
 | --- | --- |
 | **儲存體帳戶** |儲存體帳戶是所有儲存體服務的起點。 若要存取 Azure Blob 儲存體服務，請先建立 Azure 儲存體帳戶。 如需 Azure Blob 儲存體服務的詳細資訊，請參閱 [如何使用 Azure Blob 儲存體服務](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **容器** |容器可提供一組 Blob 的分組，並可存放不限數目的 Blob。 若要將 SQL Server 備份寫入 Azure Blob 服務，您必須至少建立根容器。 |
@@ -56,7 +56,7 @@ SQL Server 2016 導入了新功能；您可以使用 [檔案快照集備份](htt
 ## <a name="sql-server-components"></a>SQL Server 元件
 備份到 Azure Blob 儲存體服務時，會使用下列 SQL Server 元件。
 
-| 元件 | 說明 |
+| 元件 | 描述 |
 | --- | --- |
 | **URL** |URL 指定唯一備份檔的統一資源識別元 (URI)。 URL 用來提供 SQL Server 備份檔的位置和名稱。 URL 必須指向實際的 Blob，而不只是指向容器。 如果 Blob 不存在，便會建立它。 如果指定現有的 Blob，則 BACKUP 會失敗，除非指定了 > WITH FORMAT 選項。 以下是您會在 BACKUP 命令中指定的 URL 範例： **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**。 建議使用 HTTPS，但並非必要。 |
 | **認證** |連接 Azure Blob 儲存體服務及向其進行驗證所需的資訊會存放為認證。  為了讓 SQL Server 將備份寫入 Azure Blob 或從 Azure Blob 還原，必須建立 SQL Server 認證。 如需詳細資訊，請參閱 [SQL Server 認證](https://msdn.microsoft.com/library/ms189522.aspx)。 |

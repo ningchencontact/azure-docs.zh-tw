@@ -1,5 +1,5 @@
 ---
-title: Azure 備份：使用 REST API 備份 Azure VM
+title: Azure 備份：使用 REST API 的 Azure Vm 備份
 description: 使用 REST API 管理 Azure VM 備份的備份作業
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289575"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646759"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>透過 REST API 使用 Azure 備份來備份 Azure VM
 
@@ -47,7 +47,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |說明  |
+|名稱  |類型  |描述  |
 |---------|---------|---------|
 |204 沒有內容     |         |  確定，但不會傳回任何內容      |
 |202 已接受     |         |     已接受    |
@@ -110,7 +110,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses"></a>回應
 
-|名稱  |類型  |說明  |
+|名稱  |類型  |描述  |
 |---------|---------|---------|
 |200 確定     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -186,7 +186,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 若要建立受保護的項目，以下是要求本文的元件。
 
-|名稱  |類型  |說明  |
+|名稱  |類型  |描述  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 資源屬性         |
 
@@ -214,7 +214,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |說明  |
+|名稱  |類型  |描述  |
 |---------|---------|---------|
 |200 確定     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 已接受     |         |     已接受    |
@@ -300,7 +300,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 若要觸發隨選備份，以下是要求本文的元件。
 
-|名稱  |類型  |說明  |
+|名稱  |類型  |描述  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 屬性         |
 
@@ -325,7 +325,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |說明  |
+|名稱  |類型  |描述  |
 |---------|---------|---------|
 |202 已接受     |         |     已接受    |
 
@@ -393,7 +393,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="changing-the-policy-of-protection"></a>變更保護原則
 
-若要變更用來保護 VM 的原則，您可以使用與[啟用保護](#enabling-protection-for-the-azure-vm)相同的格式。 只在[要求本文](#example-request-body)中提供新的原則識別碼並提交要求。 例如：若要將 testVM 的原則從 'DefaultPolicy' 變更為 'ProdPolicy'，請在要求本文中提供 'ProdPolicy' 識別碼。
+若要變更用來保護 VM 的原則，您可以使用與[啟用保護](#enabling-protection-for-the-azure-vm)相同的格式。 只在[要求本文](#example-request-body)中提供新的原則識別碼並提交要求。 針對例如：若要變更至 'ProdPolicy' 從 'DefaultPolicy' testVM 的原則，提供要求主體中的 'ProdPolicy' 識別碼。
 
 ```http
 {
@@ -443,9 +443,9 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 *DELETE* 作業為[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 這表示此作業會建立另一項需要個別追蹤的作業。
 
-它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 204 (NoContent)。
+它會傳回兩個回應：202 （已接受） 建立另一項作業時，然後 204 (NoContent) 該作業完成時。
 
-|名稱  |類型  |說明  |
+|名稱  |類型  |描述  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 已接受     |         |     已接受    |

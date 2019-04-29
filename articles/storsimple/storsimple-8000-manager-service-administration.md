@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.openlocfilehash: 0e7d7f44a70278a7777ba6c32c8e546074953fdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723301"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>使用 StorSimple 裝置管理員服務管理 StorSimple 裝置
 
@@ -53,8 +53,8 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 | 如果您想要執行此動作... | 使用此程序。 |
 | --- | --- |
 | 建立服務</br>刪除服務</br>取得服務註冊金鑰</br>重新產生服務註冊金鑰 |[部署 StorSimple 裝置管理員服務](storsimple-8000-manage-service.md) |
-| 檢視活動記錄檔 |[使用 StorSimple 裝置管理員服務摘要](storsimple-8000-service-dashboard.md) |
-| 變更服務資料加密金鑰</br>檢視作業記錄檔 |[使用 StorSimple 裝置管理員服務儀表板](storsimple-8000-service-dashboard.md) |
+| 檢視活動記錄 |[使用 StorSimple 裝置管理員服務摘要](storsimple-8000-service-dashboard.md) |
+| 變更服務資料加密金鑰</br>檢視作業記錄 |[使用 StorSimple 裝置管理員服務儀表板](storsimple-8000-service-dashboard.md) |
 | 停用裝置</br>刪除裝置 |[停用或刪除裝置](storsimple-8000-deactivate-and-delete-device.md) |
 | 了解災害復原和裝置容錯移轉</br>容錯移轉至實體裝置</br>容錯移轉至虛擬裝置</br>業務持續性災害復原 (BCDR) |[StorSimple 裝置的容錯移轉與災害復原](storsimple-8000-device-failover-disaster-recovery.md) |
 | 列出磁碟區備份</br>選取備份組</br>刪除備份組 |[管理備份](storsimple-8000-manage-backup-catalog.md) |
@@ -63,7 +63,7 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 | 有關儲存體帳戶</br>新增儲存體帳戶</br>編輯儲存體帳戶</br>刪除儲存體帳戶</br>替換儲存體帳戶的金鑰 |[管理儲存體帳戶](storsimple-8000-manage-storage-accounts.md) |
 | 關於頻寬範本</br>新增頻寬範本</br>編輯頻寬範本</br>刪除頻寬範本</br>使用預設頻寬範本</br>建立在指定時間啟動的全天頻寬範本 |[管理頻寬範本](storsimple-8000-manage-bandwidth-templates.md) |
 | 關於存取控制記錄</br>建立存取控制記錄</br>編輯存取控制記錄</br>刪除存取控制記錄 |[管理存取控制記錄](storsimple-8000-manage-acrs.md) |
-| 檢視工作詳細資料</br>取消工作 |[管理工作](storsimple-8000-manage-jobs-u2.md) |
+| 檢視工作詳細資料</br>取消作业 |[管理工作](storsimple-8000-manage-jobs-u2.md) |
 | 接收警示通知</br>管理警示</br>檢閱警示 |[檢視和管理 StorSimple 警示](storsimple-8000-manage-alerts.md) |
 | 建立監視圖表 |[監視您的 StorSimple 裝置](storsimple-monitor-device.md) |
 | 新增磁碟區容器</br>修改磁碟區容器</br>刪除磁碟區容器 |[管理磁碟區容器](storsimple-8000-manage-volume-containers.md) |

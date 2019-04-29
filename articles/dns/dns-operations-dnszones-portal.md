@@ -1,6 +1,6 @@
 ---
 title: 管理 Azure DNS 中的 DNS 區域 - Azure 入口網站 | Microsoft Docs
-description: 您可以使用 Azure 入口網站管理 DNS 區域。 此文章說明如何在 Azure DNS 上更新、刪除及建立 DNS 區域
+description: 您可以使用 Azure 入口網站管理 DNS 區域。 本文說明如何在 Azure DNS 上更新、刪除及建立 DNS 區域
 services: dns
 documentationcenter: na
 author: vhorne
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
 ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926292"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>如何在 Azure 入口網站中管理 DNS 區域
 
@@ -27,7 +27,7 @@ ms.locfileid: "48829677"
 > * [Azure 傳統 CLI](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
-此文章說明如何使用 Azure 入口網站管理 DNS 區域。 您也可以使用跨平台的 [Azure CLI](dns-operations-dnszones-cli.md) 或 Azure [PowerShell](dns-operations-dnszones.md) 來管理 DNS 區域。
+本文說明如何使用 Azure 入口網站管理 DNS 區域。 您也可以使用跨平台的 [Azure CLI](dns-operations-dnszones-cli.md) 或 Azure [PowerShell](dns-operations-dnszones.md) 來管理 DNS 區域。
 
 ## <a name="create-a-dns-zone"></a>建立 DNS 區域
 

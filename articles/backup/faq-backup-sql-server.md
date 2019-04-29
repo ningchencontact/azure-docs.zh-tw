@@ -6,18 +6,22 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733543"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>在 Azure VM 備份執行的 SQL Server 資料庫的相關常見問題集
 
 這篇文章回答有關 SQL Server 資料庫備份 Azure 虛擬機器 (Vm) 上的執行，並且使用[Azure 備份](backup-overview.md)服務。
+
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>是否可用於 Azure 備份 IaaS VM，以及 SQL Server 在同一部電腦上？
+是，您可以在相同的 VM 上有 VM 備份和 SQL 備份。 在此情況下，我們在內部觸發程序不會截斷記錄檔的 VM 上的只複製完整備份。
+
 
 ## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>重試或自動修復備份解決方案？
 
@@ -45,7 +49,8 @@ ms.locfileid: "59791888"
   `{"DefaultBackupTasksThreshold": 5}`
 
 3. 儲存變更並關閉檔案。
-4. 在 SQL Server 執行個體上，開啟 [工作管理員]。 重新啟動 **AzureWLBackupCoordinatorSvc** 服務。
+4. 在 SQL Server 執行個體上，開啟 [工作管理員]。 重新啟動 **AzureWLBackupCoordinatorSvc** 服務。<br/> <br/>
+ 雖然備份應用程式會耗用大量資源，SQL Server，此方法可協助[Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017)是泛型的方法來指定所需的 CPU、 實體 IO 和記憶體可以連入的應用程式要求的限制使用。
 
 > [!NOTE]
 > 在 UX，您仍然可以繼續並在任何指定時間排程的備份，不過他們會說，5，上述範例所示的滑動視窗中處理。

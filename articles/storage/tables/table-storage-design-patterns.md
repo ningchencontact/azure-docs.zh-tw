@@ -2,18 +2,19 @@
 title: Azure 儲存體資料表設計模式 | Microsoft Docs
 description: 使用適用於 Azure 表格服務解決方案的模式。
 services: storage
-author: tamram
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
-ms.author: tamram
+origin.date: 04/08/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101418"
 ---
 # <a name="table-design-patterns"></a>資料表設計模式
 本文將說明一些適用於表格服務方案的模式。 此外，您會了解如何有效處理其他表格儲存體設計文章中討論的一些問題和取捨。 下圖摘要說明不同模式之間的關聯性：  
@@ -348,7 +349,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 資料表查詢如下所示：  
 
-`https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
+`https://myaccount.table.core.chinacloudapi.cn/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 ### <a name="issues-and-considerations"></a>問題和考量
 當您決定如何實作此模式時，請考慮下列幾點：  

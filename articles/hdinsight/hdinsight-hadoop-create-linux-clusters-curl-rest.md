@@ -1,7 +1,6 @@
 ---
 title: 使用 Azure REST API 建立 Apache Hadoop 叢集 - Azure
 description: 了解如何將 Azure Resource Manager 範本提交至 Azure REST API 來建立 HDInsight 叢集。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: fec87bf3af7f215b69a891c2d75cdd979a7b5a52
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: acf121c2954b3f324682578dd3ab2b4d8b1f63f2
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789206"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124900"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>使用 Azure REST API 建立 Apache Hadoop 叢集
 
@@ -22,7 +21,7 @@ ms.locfileid: "53789206"
 
 了解如何使用 Azure Resource Manager 範本和 Azure REST API 來建立 HDInsight 叢集。
 
-Azure REST API 可讓您對裝載於 Azure 平台的服務執行管理作業，包括建立新的資源，例如 HDInsight 叢集。
+使用 Azure REST API，可以对托管在 Azure 平台中的服务执行管理操作，包括创建新资源（例如 HDInsight 群集）。
 
 > [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -32,7 +31,7 @@ Azure REST API 可讓您對裝載於 Azure 平台的服務執行管理作業，�
 
 ## <a name="create-a-template"></a>建立範本
 
-Azure Resource Manager 範本是描述**資源群組**與其中所有資源 (例如 HDInsight) 的 JSON 文件。此範本型方法可讓您在一個範本中定義 HDInsight 所需的資源。
+Azure Resource Manager 模板是描述**资源组**及其包含的所有资源（例如 HDInsight）的 JSON 文档。此範本型方法可讓您在一個範本中定義 HDInsight 所需的資源。
 
 以下 JSON 文件是 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password) 提供的範本和參數檔合併工具，它會使用密碼來建立以 Linux 為基礎的叢集，以保護 SSH 使用者帳戶。
 
@@ -239,12 +238,12 @@ Azure Resource Manager 範本是描述**資源群組**與其中所有資源 (例
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
-    將 `--display-name`、`--homepage`、`--identifier-uris` 的值取代為您自己的值。 為新的 Active Directory 項目提供密碼。
+    将 `--display-name`、`--homepage` 和 `--identifier-uris` 的值替换为自己的值。 為新的 Active Directory 項目提供密碼。
 
    > [!NOTE]  
    > `--home-page` 和 `--identifier-uris` 值不需參考裝載於網際網路上的實際網頁。 它們必須是唯一的 URI。
 
-   此命令傳回的值是新應用程式的 __App ID__。 儲存這個值。
+   此命令返回的值是新应用程序的 __应用 ID__ 。 儲存這個值。
 
 3. 使用下列命令以 **App ID** 建立服務主體。
 
@@ -260,7 +259,7 @@ Azure Resource Manager 範本是描述**資源群組**與其中所有資源 (例
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 
-## <a name="get-an-authentication-token"></a>取得驗證權杖
+## <a name="get-an-authentication-token"></a>获取身份验证令牌
 
 使用下列命令來擷取驗證權杖︰
 
@@ -292,7 +291,7 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用下列命令來建立資源群組。
+使用以下命令创建资源组。
 
 * 將 `$SUBSCRIPTIONID` 設定為建立服務主體時所收到的訂用帳戶識別碼。
 * 將 `$ACCESSTOKEN` 設定為上一個步驟中所收到的存取權杖。
@@ -333,7 +332,7 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 > [!IMPORTANT]  
 > 部署已送出，但尚未完成。 部署通常需要大約 15 分鐘才會完成。
 
-## <a name="check-the-status-of-a-deployment"></a>檢查部署的狀態
+## <a name="check-the-status-of-a-deployment"></a>检查部署状态
 
 若要檢查部署的狀態，請使用下列命令：
 

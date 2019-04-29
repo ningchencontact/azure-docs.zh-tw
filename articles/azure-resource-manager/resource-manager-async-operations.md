@@ -14,11 +14,11 @@ ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 1b05ed50f08ddbf2eb5da8e08f5bf623596e1f9b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135452"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61061365"
 ---
 # <a name="track-asynchronous-azure-operations"></a>追蹤非同步 Azure 作業
 某些 Azure REST 作業因為無法快速完成，而以非同步方式執行。 本文說明如何透過回應中傳回的值，以追蹤非同步作業的狀態。  
@@ -83,7 +83,7 @@ response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 
 * Succeeded
 * Failed
-* Canceled
+* 已取消
 
 其他所有值表示作業仍在執行中。 資源提供者可以傳回自訂值來指出其狀態。 例如，當要求已收到且正在執行時，您可能會收到 **Accepted**。
 
@@ -122,7 +122,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 ### <a name="deploy-resources-201-with-azure-asyncoperation"></a>部署資源 (201 與 Azure-AsyncOperation)
 
-這個範例示範將資源部署至 Azure 時，如何判斷**部署**作業的狀態。 初始要求是下列格式︰
+這個範例示範將資源部署至 Azure 時，如何判斷**部署**作業的狀態。 初始请求采用以下格式：
 
 ```HTTP
 PUT

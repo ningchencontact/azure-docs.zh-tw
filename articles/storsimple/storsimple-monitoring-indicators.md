@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 9ae0caec211dc1199f0abd2ce9bc0c7ad11c02ec
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2017
-ms.locfileid: "24030352"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630563"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>使用 StorSimple 監視指示器來管理您的裝置
 
@@ -136,7 +136,7 @@ StorSimple 裝置包含主要控制器的 LED 與 EBOD 控制器模組的 LED。
 使用下表來判斷控制器模組是否運作正常。  
 
 ### <a name="controller-indicator-leds"></a>控制器 LED 指示燈
-| LED | 說明 |
+| LED | 描述 |
 | --- | --- |
 | ID LED (藍色) |指出已找到此模組。 如果主動控制器上閃爍著藍色 LED，即表示該控制器處於作用中，而另一控制器則處於待命中。 如需詳細資訊，請參閱 [識別裝置上的作用中控制器](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)。 |
 | 錯誤 LED (琥珀色) |指出控制器中發生錯誤。 |
@@ -200,10 +200,10 @@ StorSimple 裝置包含和主要機箱與 EBOD 機箱相關聯的有聲警報器
 下表說明各種警報器狀態。  
 
 ### <a name="alarm-states"></a>警報器狀態
-| 警報器狀態 | 動作 | 已按靜音按鈕時的動作 |
+| 警報器狀態 |  動作 | 已按靜音按鈕時的動作 |
 | --- | --- | --- |
 | S0 |標準模式：靜音 |嗶兩聲 |
-| S1 |錯誤模式：每 2 秒嗶 1 聲 |轉換至 S2 或 S3 (請參閱注意事項) |
+| S1 |錯誤模式：第二個關閉 1 秒嗶 1 |轉換至 S2 或 S3 (請參閱注意事項) |
 | S2 |提醒模式：間歇嗶聲 |None |
 | S3 |靜音模式：靜音 |None |
 | S4 |重大錯誤模式：連續警示 |無法使用：未啟用靜音 |
@@ -219,7 +219,7 @@ StorSimple 裝置包含和主要機箱與 EBOD 機箱相關聯的有聲警報器
 下表說明各種警示狀況。
 
 ### <a name="alarm-conditions"></a>警示狀況
-| 狀態 | 嚴重性 | 警示 | 操作面板 LED |
+| 狀態 | 严重性 | 警示 | 操作面板 LED |
 | --- | --- | --- | --- |
 | PCM 警示 – 失去單一 PCM 提供的 DC 電源 |錯誤 – 未失去備援 |S1 |模組錯誤 |
 | PCM 警示 – 失去單一 PCM 提供的 DC 電源 |錯誤 – 失去備援 |S1 |模組錯誤 |

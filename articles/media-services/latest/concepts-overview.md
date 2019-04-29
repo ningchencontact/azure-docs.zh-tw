@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103827"
 ---
 # <a name="media-services-concepts"></a>媒體服務概念
 
 本主題提供 Azure 媒體服務概念的簡短概觀，並提供深入的媒體服務 v3 概念和功能說明中的文章連結。 請先檢閱這些主題所述的基本概念再開始進行開發。
 
 > [!NOTE]
-> 目前您無法使用 Azure 入口網站管理 v3 資源。 使用[REST API](https://aka.ms/ams-v3-rest-ref)， [CLI](https://aka.ms/ams-v3-cli-ref)，或其中一個支援[Sdk](developers-guide.md)。
+> 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](developers-guide.md)。
 
 ## <a name="cloud-upload-and-storage"></a>雲端上傳和儲存體
 
@@ -116,11 +116,15 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 - [Azure 媒體播放器概觀](use-azure-media-player.md)
 
+## <a name="provide-feedback"></a>提供意見反應
+
+請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
+
 ## <a name="next-steps"></a>後續步驟
 
-* [編碼遠端檔案和資料流影片-REST](stream-files-tutorial-with-rest.md)
-* [編碼上傳的檔案和資料流視訊-.NET](stream-files-tutorial-with-api.md)
-* [Stream live-.NET](stream-live-tutorial-with-api.md)
-* [分析您的影片-.NET](analyze-videos-tutorial-with-api.md)
-* [AES-128 動態加密-.NET](protect-with-aes128.md)
-* [動態加密與多重 DRM-.NET](protect-with-drm.md) 
+* [遠端檔案編碼和串流影片 - REST](stream-files-tutorial-with-rest.md)
+* [已上傳檔案編碼和串流影片 - .NET](stream-files-tutorial-with-api.md)
+* [即時串流 - .NET](stream-live-tutorial-with-api.md)
+* [分析影片 - .NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 動態加密 - .NET](protect-with-aes128.md)
+* [透過多重 DRM 進行動態加密 - .NET](protect-with-drm.md) 

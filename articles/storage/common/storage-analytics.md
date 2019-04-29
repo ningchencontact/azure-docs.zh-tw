@@ -10,17 +10,17 @@ ms.date: 03/03/2017
 ms.author: rogarana
 ms.subservice: common
 ms.openlocfilehash: eb85f8c756e7373a8dedabbce362cfa534e56fd8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849171"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483531"
 ---
 # <a name="storage-analytics"></a>存储分析
 
 Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料。 可以使用此数据为存储帐户跟踪请求、分析使用趋势和诊断问题。
 
-若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。 您可以從[Azure 入口網站](https://portal.azure.com)。 如需詳細資訊，請參閱 <<c0> [ 監視儲存體帳戶在 Azure 入口網站中的](storage-monitor-storage-account.md)。 您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。 使用[設定 Blob 服務屬性](/rest/api/storageservices/set-blob-service-properties)，[設定佇列服務屬性](/rest/api/storageservices/set-queue-service-properties)，[設定表格服務屬性](/rest/api/storageservices/set-table-service-properties)，和[設定檔案服務屬性](/rest/api/storageservices/Get-File-Service-Properties)每個服務啟用儲存體分析的作業。
+若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。 可以从 [Azure 门户](https://portal.azure.com)中启用它。 有关详细信息，请参阅[在 Azure 门户中监视存储帐户](storage-monitor-storage-account.md)。 您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。 使用[设置 Blob 服务属性](/rest/api/storageservices/set-blob-service-properties)、[设置队列服务属性](/rest/api/storageservices/set-queue-service-properties)、[设置表服务属性](/rest/api/storageservices/set-table-service-properties)和[设置文件服务属性](/rest/api/storageservices/Get-File-Service-Properties)操作，为每个服务启用存储分析。
 
 彙總的資料會儲存於已知的 Blob (用於記錄) 和已知的資料表 (用於度量) 中，您可以使用 Blob 服務和資料表服務 API 來存取。
 

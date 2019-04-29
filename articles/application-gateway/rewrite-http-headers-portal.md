@@ -9,11 +9,11 @@ ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 6afc07f98905469b06622e7829ec4a215b94845e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994600"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60716147"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>重新撰寫 HTTP 要求和回應標頭與 Azure 應用程式閘道-Azure 入口網站
 

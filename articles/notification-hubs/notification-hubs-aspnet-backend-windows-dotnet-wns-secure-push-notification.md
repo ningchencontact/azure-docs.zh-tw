@@ -1,5 +1,5 @@
 ---
-title: Azure 通知中心安全推播
+title: Azure 通知中心安全推送
 description: 了解如何在 Azure 中傳送安全的推播通知。 程式碼範例是以 C# 撰寫並使用 .NET API。
 documentationcenter: windows
 author: jwargo
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475674"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459155"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>從 Azure 通知中樞安全地推播通知
 
@@ -34,7 +34,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 基於法規或安全性限制，應用程式有時會想要在通知中加入無法透過標準推播通知基礎結構傳送的內容。 本教學課程說明如何透過用戶端裝置和應用程式後端之間的安全、已驗證連線來傳送敏感資訊，以達到相同體驗。
 
-概括而言，流程如下所示：
+在高级别中，此流程如下所示：
 
 1. 應用程式後端：
    * 在後端資料庫中儲存安全裝載。
@@ -83,7 +83,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
-4. 從 Visual Studio 的 [檔案] 功能表中，按一下 [全部儲存]。
+4. 从 Visual Studio 的“文件”菜单中，单击“全部保存”。
 
 ## <a name="create-the-push-background-component"></a>建立推播背景元件
 
@@ -143,7 +143,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 5. 在 [方案總管] 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，然後按一下 [管理 NuGet 套件]。
 6. 在左側，按一下 [線上] 。
 7. 在 [搜尋] 方塊中，輸入 **Http Client**。
-8. 按一下結果清單中的 **Microsoft HTTP Client Libraries**，然後按一下 [安裝]。 完成安裝。
+8. 按一下結果清單中的 **Microsoft HTTP Client Libraries**，然後按一下 [安裝]。 完成安装。
 9. 回到 NuGet [搜尋] 方塊，輸入 **Json.net**。 安裝 **Json.NET** 套件，然後關閉 [NuGet Package Manager] 視窗。
 10. 在 `PushBackgroundTask.cs` 檔案頂端新增下列 `using` 陳述式：
 

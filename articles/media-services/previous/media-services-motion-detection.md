@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: e0b083cba575f4d1c0eb19afb76fca29431ae75e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463526"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒體分析偵測動作
 ## <a name="overview"></a>概觀
@@ -94,14 +94,14 @@ ms.locfileid: "58259088"
 
 | 元素 | 描述 |
 | --- | --- |
-| 版本 |這是指影片 API 的版本。 目前版本為 2。 |
+| Version |這是指影片 API 的版本。 目前版本為 2。 |
 | 時幅 |影片每秒的「刻度」數目。 |
 | Offset |時間戳記的時間位移 (以「刻度」為單位)。 在版本 1.0 的影片 API 中，這永遠會是 0。 在我們於未來將支援的案例中，此值可能會變更。 |
 | 畫面播放速率 |影片的每秒畫面格數。 |
 | 寬度，高度 |指的是影片的寬度和高度 (以像素為單位)。 |
 | Start |開始的時間戳記 (以「刻度」為單位)。 |
 | Duration |事件的長度 (以「刻度」為單位)。 |
-| 間隔 |事件中每個項目的間隔 (以「刻度」為單位)。 |
+| Interval |事件中每個項目的間隔 (以「刻度」為單位)。 |
 | 活動 |每個事件片段皆包含在該持續期間內所偵測到的動作。 |
 | 類型 |在目前的版本中，針對一般動作，這永遠會是「2」。 此標籤可讓影片 API 在未來的版本中能夠彈性地為動作進行分類。 |
 | RegionID |如前文所述，這在此版本中將永遠會是 0。 此標籤可讓影片 API 在未來的版本中能夠彈性地在各個區域中尋找動作。 |

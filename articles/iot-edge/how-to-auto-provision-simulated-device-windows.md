@@ -3,18 +3,19 @@ title: 使用 DPS 來自動佈建 Windows 裝置 - Azure IoT Edge | Microsoft Do
 description: 在您的 Windows 機器上使用模擬裝置，以透過裝置佈建服務測試 Azure IoT Edge 的自動裝置佈建
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 01/09/2019
+ms.author: v-yiso
+origin.date: 01/09/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: aa5e5fba3758fa3983924660b9b5f714d02613c6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61247539"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>在 Windows 上建立及佈建模擬 TPM Edge 裝置
 

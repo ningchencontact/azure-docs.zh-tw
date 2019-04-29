@@ -13,11 +13,11 @@ ms.date: 03/19/2018
 ms.author: markscu
 ms.custom: seodec18
 ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776116"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>使用低優先順序的 VM 搭配 Batch
 
@@ -168,9 +168,9 @@ VM 可能偶爾會被優先佔用；當發生優先佔用時，Batch 會執行�
 
 [Azure 入口網站](https://portal.azure.com)中有針對低優先順序節點提供的新計量。 這些計量包括：
 
-- 低優先順序節點計數
+- 低优先级节点计数
 - 低優先順序核心計數 
-- 先占節點計數
+- 已占用节点计数
 
 若要檢視 Azure 入口網站中的計量：
 

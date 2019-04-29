@@ -15,11 +15,11 @@ ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
 ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149124"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457703"
 ---
 # <a name="registration-management"></a>註冊管理
 
@@ -45,7 +45,7 @@ ms.locfileid: "60149124"
 以下是使用安裝的一些主要優點：
 
 - 建立或更新安裝是完全等冪的。 因此您可以重試它，而不需顧慮重複註冊的情況。
-- 「 安裝 」 模型支援特殊的標記格式 (`$InstallationId:{INSTALLATION_ID}`)，可讓您直接將傳送通知到特定的裝置。 例如，如果應用程式的程式碼設定的安裝識別碼`joe93developer`針對這個特定的裝置，開發人員可以目標此裝置時傳送通知給`$InstallationId:{joe93developer}`標記。 這可讓您套用至特定的裝置，而不需要進行任何額外的程式碼。
+- 此安装模型支持特殊的标记格式 (`$InstallationId:{INSTALLATION_ID}`)，该格式允许将通知直接发送到特定的设备。 例如，如果应用的代码为此特定设备设置了安装 ID `joe93developer`，则开发人员在向 `$InstallationId:{joe93developer}` 标记发送通知时，可以将此设备作为目标。 这样，无需编写任何额外的代码，就能将特定设备作为目标。
 - 使用安裝也可讓您進行部分註冊更新。 要求部分安裝更新時，是使用 [JSON-Patch 標準](https://tools.ietf.org/html/rfc6902)以 PATCH 方法來要求。 當您想要更新註冊的相關標記時，這會特別有用。 您不需要移除整個註冊，然後再次重新傳送所有先前的標記。
 
 安裝可以包含下列屬性。 如需完整的安裝屬性清單，請參閱[使用 REST API 建立或覆寫安裝](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation)或[安裝屬性](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)。

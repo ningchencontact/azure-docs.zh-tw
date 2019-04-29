@@ -1,6 +1,6 @@
 ---
 title: 建立檢視以分析在 Azure 監視器中的記錄檔資料 |Microsoft Docs
-description: 透過 Azure 監視器中檢視表設計工具，您可以建立自訂的檢視會顯示在 Azure 入口網站，並包含各種不同的 Log Analytics 工作區中的資料視覺效果。 本文包含檢視設計工具的概觀，並提供建立和編輯自訂檢視的程序。
+description: 可以通过 Azure Monitor 中的视图设计器创建自定义视图，此类视图在 Azure 门户中显示，包含 Log Analytics 工作区中的多种基于数据的可视化效果。 本文包含檢視設計工具的概觀，並提供建立和編輯自訂檢視的程序。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341951"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>使用 Azure 監視器中的檢視表設計工具建立自訂檢視
-透過 Azure 監視器中檢視表設計工具，您可以建立各種不同的自訂檢視，在 Azure 入口網站中，可協助您以視覺化方式檢視您的 Log Analytics 工作區中的資料。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
+在 Azure Monitor 中使用视图设计器即可在 Azure 门户中创建各种自定义视图，使 Log Analytics 工作区中的数据可视化。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

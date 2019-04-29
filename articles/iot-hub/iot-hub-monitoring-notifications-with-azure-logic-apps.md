@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/11/2018
+ms.date: 04/19/2019
 ms.author: robinsh
-ms.openlocfilehash: 5a277ac18bcbcb7e7acc6faf52f7bc72759c82a7
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 26637468f44e12f7ad66f907e0f6be3d907e578f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126021"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>搭配連接 IoT 中樞和信箱的 Azure Logic Apps 進行 IoT 遠端監視和通知
 
@@ -22,107 +22,119 @@ ms.locfileid: "59677998"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-Azure Logic Apps 可用來以一連串的步驟使程序自動進行。 邏輯應用程式可以連接多種服務和通訊協定。 一開始會有觸發程序，例如「新增帳戶時」，後面接著一連串動作，例如「傳送推播通知」。 此功能可讓 Logic Apps 成為 IoT 監視的絕佳 IoT 解決方案，例如注意異常行為，以及其他使用情況。
+[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/)可協助您協調工作流程，跨內部部署和雲端服務，一個或多個企業中，並跨各種通訊協定。 邏輯應用程式會開始觸發程序，然後再接著可以使用條件和迭代器等的內建控制項進行排序的一或多個動作。 這種彈性可讓 Logic Apps 是理想的 IoT 解決方案，IoT 監視案例。 比方說，到達的遙測資料的裝置會在 IoT 中樞端點可以起始邏輯應用程式工作流程，倉儲的 Azure 儲存體 blob 中的資料，請傳送電子郵件警示，警告的資料異常、 排程技術人員，如果裝置會回報失敗依此類推。
 
 ## <a name="what-you-learn"></a>您學到什麼
 
-您學會如何建立連接 IoT 中樞和信箱的邏輯應用程式用於溫度監視和通知。 溫度超過 30°C 時，用戶端應用程式會在傳送到 IoT 中樞的訊息中標示 `temperatureAlert = "true"`。 該訊息會觸發邏輯應用程式傳送電子郵件通知給您。
+您學會如何建立連接 IoT 中樞和信箱的邏輯應用程式用於溫度監視和通知。
+
+在您的裝置上執行的用戶端程式碼會設定應用程式屬性，`temperatureAlert`上每個遙測訊息，則傳送至 IoT 中樞。 當用戶端程式碼偵測溫度超過 30°c 時，它會設定這個屬性`true`; 否則它會將屬性設定為`false`。
+
+在本主題中，您將設定您的 IoT 中樞上的路由來傳送訊息所在`temperatureAlert = true`至服務匯流排端點，以及您設定訊息抵達服務匯流排端點上觸發，並傳送電子郵件通知給您的邏輯應用程式。
 
 ## <a name="what-you-do"></a>您要做什麼
 
-* 建立服務匯流排命名空間，並將佇列加入到服務匯流排命名空間。
-* 將端點和路由規則加入到 IoT 中樞。
-* 建立、設定和測試邏輯應用程式。
+* 建立服務匯流排命名空間，並將它的服務匯流排佇列。
+* 將自訂端點和路由規則新增至 IoT 中樞訊息包含服務匯流排佇列的溫度警示的路由。
+* 建立、 設定及測試邏輯應用程式取用來自服務匯流排佇列的訊息，並將通知電子郵件傳送至所需的收件者。
 
 ## <a name="what-you-need"></a>您需要什麼
 
 * 完成[Raspberry Pi 線上模擬器](iot-hub-raspberry-pi-web-simulator-get-started.md)教學課程中，或其中一個裝置教學課程中，例如[搭配 node.js 的 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)。 這些會涵蓋下列需求：
 
   * 有效的 Azure 訂用帳戶。
-  * 已在订阅中创建一个 Azure IoT 中心。
-  * 將訊息傳送到您 Azure IoT 中樞的用戶端應用程式。
+  * 位於您訂用帳戶中的 Azure IoT 中樞。
+  * 在您將遙測訊息傳送至 Azure IoT 中樞的裝置上執行用戶端應用程式。
 
-## <a name="create-service-bus-namespace-and-add-a-queue-to-it"></a>建立服務匯流排命名空間，並將佇列加入到服務匯流排命名空間
+## <a name="create-service-bus-namespace-and-queue"></a>建立服務匯流排命名空間和佇列
+
+建立服務匯流排命名空間與佇列。 稍後在本主題中中,，您可以建立路由規則中 IoT 中樞，以便直接包含服務匯流排佇列，其中會收取的邏輯應用程式和以傳送通知電子郵件觸發溫度警示的訊息。
 
 ### <a name="create-a-service-bus-namespace"></a>建立服務匯流排命名空間
 
-1. 在  [Azure 入口網站](https://portal.azure.com/)，選取**建立資源** > **企業整合** > **服務匯流排**。
+1. 在  [Azure 入口網站](https://portal.azure.com/)，選取 **+ 建立資源** > **整合** > **服務匯流排**。
 
-2. 請提供下列資訊：
+1. 在 [**建立命名空間**] 窗格中，提供下列資訊：
 
-   **名稱**：服務匯流排的名稱。
+   **名稱**：服務匯流排命名空間名稱。 命名空間必須是唯一的 Azure。
 
-   **定價層**：選取 **基本** > **選取**。 「基本」層足供本教學課程之用。
+   **定價層**：選取 **基本**從下拉式清單。 「基本」層足供本教學課程之用。
 
    **资源组**：使用 IoT 中樞所用的相同資源群組。
 
    **位置**：使用 IoT 中樞所用的相同位置。
 
-3. 選取 [建立] 。
+   ![在 Azure 入口網站中建立服務匯流排命名空間](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-   ![在 Azure 入口網站中建立服務匯流排命名空間](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1_create-service-bus-namespace-azure-portal.png)
+1. 選取 [建立] 。 等待部署完成再繼續進行下一個步驟。
 
-### <a name="add-a-service-bus-queue"></a>新增服務匯流排佇列
+### <a name="add-a-service-bus-queue-to-the-namespace"></a>命名空間中新增服務匯流排佇列
 
-1. 開啟 服務匯流排命名空間，然後選取 **+ 佇列**。
+1. 開啟 服務匯流排命名空間。 移至服務匯流排命名空間的最簡單方式是選取**資源群組**資源窗格中，選取您的資源群組，然後從資源清單中選取服務匯流排命名空間。
 
-1. 輸入佇列的名稱，然後選取**建立**。
+1. 在 **服務匯流排命名空間**窗格中，選取 **+ 佇列**。
 
-1. 開啟 服務匯流排佇列，然後選取**共用存取原則** > **+ 新增**。
+1. 輸入佇列的名稱，然後選取**建立**。 已成功建立佇列，當**Create queue**窗格便會關閉。
+
+   ![在 Azure 入口網站中新增服務匯流排佇列](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
+
+1. 回到**服務匯流排命名空間**窗格下方**實體**，選取**佇列**。 從清單中，開啟 服務匯流排佇列，然後選取**共用存取原則** > **+ 新增**。
 
 1. 輸入原則名稱，檢查**管理**，然後選取**建立**。
 
-   ![在 Azure 入口網站中新增服務匯流排佇列](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2_add-service-bus-queue-azure-portal.png)
+   ![在 Azure 入口網站中新增服務匯流排佇列原則](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
 
-## <a name="add-an-endpoint-and-a-routing-query-to-your-iot-hub"></a>將端點和路由的查詢新增至您的 IoT 中樞
+## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>將自訂端點和路由規則新增至您的 IoT 中樞
 
-現在加入您的 Iot 中樞端點和路由的查詢。
+將服務匯流排佇列的自訂端點新增至您的 IoT 中樞，並建立訊息路由規則，以直接包含該端點，溫度警示的訊息，它們會挑選對應的邏輯應用程式。 路由規則會使用路由查詢時， `temperatureAlert = "true"`，以根據值的訊息轉送`temperatureAlert`裝置上執行的用戶端程式碼所設定的應用程式屬性。 若要進一步了解，請參閱[訊息根據訊息屬性的路由查詢](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties)。
 
-### <a name="add-an-endpoint"></a>新增端點。
+### <a name="add-a-custom-endpoint"></a>新增自訂端點
 
-1. 開啟您的 IoT 中樞，並選取**端點** > **+ 新增**。
+1. 開啟 IoT 中樞。 取得 IoT 中樞的最簡單方式是選取**資源群組**資源窗格中，選取您的資源群組，然後從資源清單中選取您的 IoT 中樞。
 
-1. 輸入以下資訊：
+1. 底下**Messaging**，選取**訊息路由**。 在 **訊息路由**窗格中，選取**自訂端點**索引標籤，然後選取 **+ 新增**。 從下拉式清單中，選取**服務匯流排佇列**。
 
-   **名稱**：端點的名稱。
+   ![將端點新增至 Azure 入口網站的 IoT 中樞](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
-   **端點類型**:選取 [服務匯流排佇列]。
+1. 在 [**新增服務匯流排端點**] 窗格中，輸入下列資訊：
 
-   **服務匯流排命名空間**:選取您所建立的命名空間。
+   **端點名稱**:端點的名稱。
 
-   **服務匯流排佇列**：選取您建立的佇列。
+   **服務匯流排命名空間**：選取您所建立的命名空間。
 
-3. 選取 [確定] 。
+   **服務匯流排佇列**:選取您建立的佇列。
 
-   ![將端點新增至 Azure 入口網站的 IoT 中樞](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3_add-iot-hub-endpoint-azure-portal.png)
+   ![將端點新增至 Azure 入口網站的 IoT 中樞](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
+
+1. 選取 [建立] 。 已成功建立端點之後，請繼續下一個步驟。
 
 ### <a name="add-a-routing-rule"></a>新增路由規則
 
-1. 在您的 IoT 中樞，選取**路由** > **+ 新增**。
+1. 回到**訊息路由**窗格中，選取**路由**索引標籤，然後選取 **+ 新增**。
 
-2. 輸入以下資訊：
+1. 在 [**新增路由**] 窗格中，輸入下列資訊：
 
    **名稱**：路由規則的名稱。
 
-   **資料來源**：選取 **裝置訊息**。
-
    **端點**：選取您建立的端點。
 
-   **查詢字串**：輸入 `temperatureAlert = "true"` 。
+   **資料來源**：選取 **裝置的遙測訊息**。
 
-3. 選取 [ **儲存**]。
+   **路由查詢**：輸入 `temperatureAlert = "true"` 。
 
-   ![在 Azure 入口網站中新增路由規格](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4_add-routing-rule-azure-portal.png)
+   ![在 Azure 入口網站中新增路由規格](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
-## <a name="create-and-configure-a-logic-app"></a>建立並設定邏輯應用程式
+1. 選取 [ **儲存**]。 您可以關閉**訊息路由**窗格。
 
-接下來，您會建立並設定邏輯應用程式。
+## <a name="create-and-configure-a-logic-app"></a>建立和設定邏輯應用程式
+
+在上一節中，您設定您的 IoT 中樞將訊息路由包含至您的服務匯流排佇列的溫度警示。 現在，您設定邏輯應用程式來監視服務匯流排佇列，並傳送電子郵件通知，每當訊息新增至佇列。
 
 ### <a name="create-a-logic-app"></a>建立邏輯應用程式
 
-1. 在  [Azure 入口網站](https://portal.azure.com/)，選取**建立資源** > **企業整合** > **邏輯應用程式**。
+1. 選取 **建立資源** > **整合** > **邏輯應用程式**。
 
-2. 輸入以下資訊：
+1. 輸入以下資訊：
 
    **名稱**：邏輯應用程式的名稱。
 
@@ -130,65 +142,91 @@ Azure Logic Apps 可用來以一連串的步驟使程序自動進行。 邏輯�
 
    **位置**：使用 IoT 中樞所用的相同位置。
 
-3. 選取 [建立] 。
+   ![在 Azure 入口網站中建立邏輯應用程式](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
-### <a name="configure-the-logic-app"></a>設定邏輯應用程式
+1. 選取 [建立] 。
 
-1. 開啟在邏輯應用程式設計工具中開啟的邏輯應用程式。
+### <a name="configure-the-logic-app-trigger"></a>設定邏輯應用程式觸發程序
 
-2. 在 Logic Apps 設計工具中，選取**空白邏輯應用程式**。
+1. 開啟邏輯應用程式。 若要取得邏輯應用程式的最簡單方式是選取**資源群組**資源窗格中，選取您的資源群組，然後從資源清單中選取您的邏輯應用程式。 當您選取的邏輯應用程式時，Logic Apps 設計工具隨即開啟。
 
-   ![在 Azure 入口網站中，從空白的邏輯應用程式開始。](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5_start-with-blank-logic-app-azure-portal.png)
+1. 在 Logic Apps 設計工具中，向下捲動至**範本**，然後選取**空白邏輯應用程式**。
 
-3. 選取 [服務匯流排]。
+   ![在 Azure 入口網站中，從空白的邏輯應用程式開始。](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5-start-with-blank-logic-app-azure-portal.png)
 
-   ![選取服務匯流排，開始在 Azure 入口網站中建立邏輯應用程式](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6_select-service-bus-when-creating-blank-logic-app-azure-portal.png)
+1. 選取 **所有**索引標籤，然後選取**Service Bus**。
 
-4. 選取 **服務匯流排 – 一或多個訊息到達佇列 （自動完成） 中**。
+   ![選取服務匯流排，開始在 Azure 入口網站中建立邏輯應用程式](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-5. 建立服務匯流排連接。
+1. 底下**觸發程序**，選取 **（自動完成） 佇列中的一個或多個訊息送達時**。
 
-   1. 輸入連線名稱。
+   ![在 Azure 入口網站中選取您的邏輯應用程式的觸發程序](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
 
-   2. 選取服務匯流排命名空間 > 服務匯流排原則 >**建立**。
+1. 建立服務匯流排連接。
+   1. 輸入連線名稱，然後從清單中選取您的服務匯流排命名空間。 下一個畫面隨即開啟。
 
-      ![在 Azure 入口網站中建立邏輯應用程式的服務匯流排連接](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7_create-service-bus-connection-in-logic-app-azure-portal.png)
+      ![在 Azure 入口網站中建立邏輯應用程式的服務匯流排連接](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
-   3. 選取 **繼續**建立服務匯流排連線之後。
+   1. 選取服務匯流排原則 (RootManageSharedAccessKey)。 然後選取**建立**。
 
-   4. 選取您所建立的佇列，並輸入`175`for**最大訊息計數**。
+      ![在 Azure 入口網站中建立邏輯應用程式的服務匯流排連接](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 
-      ![對於邏輯應用程式中的服務匯流排連接指定最大訊息計數](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
+   1. 最後一個畫面中，如**佇列名稱**，選取您從下拉式清單建立的佇列。 請輸入`175`for**最大訊息計數**。
 
-   5. 選取 [儲存] 按鈕以儲存變更。
+      ![對於邏輯應用程式中的服務匯流排連接指定最大訊息計數](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8-specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
 
-6. 建立 SMTP 服務連接。
+   1. 選取 [**儲存**] 功能表頂端的 Logic Apps 設計工具，以儲存變更。
 
-   1. 選取 [新增步驟] > [新增動作]。
+### <a name="configure-the-logic-app-action"></a>設定邏輯應用程式動作
 
-   2. 型別`SMTP`，選取**SMTP**在搜尋結果中，服務，然後選取**SMTP-傳送電子郵件**。
+1. 建立 SMTP 服務連接。
 
-      ![在 Azure 入口網站的邏輯應用程式中建立 SMTP 連接](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9_create-smtp-connection-logic-app-azure-portal.png)
+   1. 選取 [新增步驟]。 在 [**選擇動作**，選取**所有**] 索引標籤。
 
-   3. 輸入您的信箱的 SMTP 資訊，然後選取**建立**。
+   1. 型別`smtp`在 [搜尋] 方塊中，選取**SMTP**在搜尋結果中，服務，然後選取**傳送電子郵件**。
 
-      ![在 Azure 入口網站的邏輯應用程式中輸入 SMTP 連接資訊](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10_enter-smtp-connection-info-logic-app-azure-portal.png)
+      ![在 Azure 入口網站的邏輯應用程式中建立 SMTP 連接](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9-create-smtp-connection-logic-app-azure-portal.png)
+
+   1. 輸入您的信箱的 SMTP 資訊，然後選取**建立**。
+
+      ![在 Azure 入口網站的邏輯應用程式中輸入 SMTP 連接資訊](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10-enter-smtp-connection-info-logic-app-azure-portal.png)
 
       取得 [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970)、[Gmail](https://support.google.com/a/answer/176600?hl=en) 和 [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html) 的 SMTP 資訊。
 
-   4. 輸入**寄件者**和**收件者**的電子郵件地址，並對於**主旨**和**內文**輸入 `High temperature detected`。
+      > [!NOTE]
+      > 您可能需要停用 SSL，以建立連線。 如果此情況下，您想要在建立連線之後，重新啟用 SSL，請參閱本節結尾處的選擇性步驟。
 
-   5. 選取 [ **儲存**]。
+   1. 從**加入新的參數**下拉式清單**傳送電子郵件**步驟中，選取**從**，**至**，**主旨**並**主體**。 按一下或點選畫面關閉選取方塊上的任何位置。
 
-邏輯應用程式隨即在您儲存時開始運作。
+      ![選擇 SMTP 連線電子郵件欄位](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
+
+   1. 輸入**寄件者**和**收件者**的電子郵件地址，並對於**主旨**和**內文**輸入 `High temperature detected`。 如果**之應用程式及使用此流程中的連接器新增動態內容** 對話方塊隨即開啟，請選取**隱藏**來關閉它。 您不在本教學課程使用動態內容。
+
+      ![填入的 SMTP 連線電子郵件欄位](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
+
+   1. 選取 **儲存**儲存 SMTP 連線。
+
+1. （選擇性）如果您已停用 SSL 來與您的電子郵件提供者建立連接，並且想要重新啟用它，請遵循下列步驟：
+
+   1. 在上**邏輯應用程式**窗格下方**開發工具**，選取**API 連線**。
+
+   1. 從 API 連線清單中，選取 SMTP 連接。
+
+   1. 在上**smtp API 連線**窗格下方**一般**，選取**編輯 API 連線**。
+
+   1. 在 **編輯 API 連線**窗格中，選取**啟用 SSL？**，重新輸入您的電子郵件帳戶的密碼，然後選取**儲存**。
+
+      ![編輯邏輯應用程式在 Azure 入口網站中的 SMTP API 連線](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
+
+邏輯應用程式現在就來處理從服務匯流排佇列的溫度警示，並將通知傳送至您的電子郵件帳戶。
 
 ## <a name="test-the-logic-app"></a>測試邏輯應用程式
 
-1. 在 [將 ESP8266 連接到 Azure IoT 中樞](iot-hub-arduino-huzzah-esp8266-get-started.md) 中，啟動您部署至裝置的用戶端應用程式。
+1. 啟動您的裝置上的用戶端應用程式。
 
-2. 將 SensorTag 周圍的環境溫度增加到 30°C 以上。例如，在 SensorTag 周圍點蠟燭。
+1. 如果您使用實體裝置，仔細顯示熱度圖感應器附近的熱度圖來源直到溫度超過 30°c 度如果您使用線上模擬器，用戶端程式碼會隨機輸出超過 30 C.的遙測訊息
 
-3. 您應該會收到邏輯應用程式傳送的電子郵件通知。
+1. 您應該開始接收邏輯應用程式所傳送的電子郵件通知。
 
    > [!NOTE]
    > 您的電子郵件服務提供者可能需要驗證寄件者身分，確定是您傳送電子郵件。

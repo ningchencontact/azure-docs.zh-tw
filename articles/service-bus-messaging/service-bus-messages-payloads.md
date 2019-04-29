@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
 ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61315634"
 ---
 # <a name="messages-payloads-and-serialization"></a>訊息、承載和序列化
 
@@ -32,7 +32,7 @@ Microsoft Azure 服務匯流排的功能就是處理訊息。 訊息會以索引
  
 括弧中列出 AMQP 通訊協定層級所使用的對等名稱。 
 
-| 屬性名稱                         | 說明                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| 屬性名稱                         | 描述                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (content-type)           | 選擇性地說明訊息的承載，並提供遵循 RFC2045 第 5 節格式的描述項；例如 `application/json`。                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (correlation-id)       | 讓應用程式能夠指定訊息的內容以供相互關聯之用；例如，反映正要回覆之訊息的 **MessageId**。                                                                                                                                                                                                                                                                  |

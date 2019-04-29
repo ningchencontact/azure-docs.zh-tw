@@ -9,11 +9,11 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 347ae6dbdbab866b6d82d64bec4e668689078429
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791234"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729557"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 儲存體備援
 
@@ -59,9 +59,9 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>變更我帳戶的複寫策略是否會產生任何費用？
 這取決於您的轉換途徑。 從費用最低到費用最高的備援供應項目依序為 LRS、ZRS、GRS 及 RA-GRS。 例如，「從」LRS 傳換成任何方案都會產生額外費用，因為是移至更複雜的備援層級。 移「至」GRS 或 RA-GRS 會產生輸出頻寬費用，因為您的資料 (在您的主要區域中) 會複寫至遠端次要區域。 這是在初始設定時所收取的一次性費用。 在複製資料之後，即沒有任何進一步的轉換費用。 您將只有在複寫任何新資料或對現有資料的更新時，才需支付費用。 如需有關頻寬費用的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)找到。
 
-如果您將從 GRS 的儲存體帳戶轉換成 LRS 時，就不需要額外的成本，但將複寫的資料會從次要位置刪除。
+如果将存储帐户从 GRS 转换为 LRS，则不会产生额外的费用，但从次要位置复制的数据将被删除。
 
-如果您將從 RA-GRS 的儲存體帳戶轉換為 GRS 或 LRS 時，該帳戶會計為 RA-GRS 上額外的 30 天內，它會被轉換的日期。
+如果将存储帐户从 RA-GRS 转换为 GRS 或 LRS，则会在完成转换 30 天后以 RA-GRS 方式对该帐户计费。
 
 ## <a name="see-also"></a>請參閱
 

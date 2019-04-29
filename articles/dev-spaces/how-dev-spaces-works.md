@@ -11,11 +11,11 @@ ms.topic: conceptual
 description: 該 power Azure 開發人員空格和 azds.yaml 組態檔中的設定方式說明的程序
 keywords: azds.yaml，Azure 開發人員空格、 開發空格、 Docker、 Kubernetes、 Azure，AKS，Azure Kubernetes Service，容器
 ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544918"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60687146"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 開發空間的運作方式，並已設定
 

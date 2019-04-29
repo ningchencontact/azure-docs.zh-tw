@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
 ms.openlocfilehash: 8af6998c8e9fbfb230c00597600b3aa4f3991f03
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241996"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112573"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-uk-nhs"></a>Azure 安全性與合規性藍圖：適用於英國 NHS 的 PaaS Web 應用程式
 
@@ -37,7 +37,7 @@ ms.locfileid: "57241996"
 
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 
-- 應用程式閘道
+- 应用程序网关
     - Web 應用程式防火牆
         - 防火牆模式：防止
         - 規則集：OWASP

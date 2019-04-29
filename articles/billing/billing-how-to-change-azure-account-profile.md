@@ -17,11 +17,11 @@ ms.date: 05/11/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ecf39623c70441e4b726221b4e92e2492370a9bc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918349"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>變更連絡人電子郵件、地址和電話號碼等 Azure 帳戶的設定檔資訊
 

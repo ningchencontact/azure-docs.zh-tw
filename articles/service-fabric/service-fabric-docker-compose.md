@@ -3,8 +3,8 @@ title: Azure Service Fabric Docker Compose 部署預覽
 description: Azure Service Fabric 接受 Docker Compose 格式，可讓您更輕鬆地使用 Service Fabric 來協調現有容器。 這項支援目前只能預覽。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
+author: rockboyfor
+manager: digimobile
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
-ms.author: aljo, subramar
+origin.date: 02/23/2018
+ms.date: 04/29/2019
+ms.author: v-yeche
 ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60948829"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Azure Service Fabric 中 Docker Compose 的部署支援 (預覽)
 
@@ -165,3 +166,5 @@ docker-compose.yml 檔案描述一組可部署的容器，包括其屬性與組�
 
 * 參閱 [Service Fabric 應用程式模型](service-fabric-application-model.md)
 * [開始使用 Service Fabric CLI](service-fabric-cli.md)
+
+<!-- Update_Description: wording update -->

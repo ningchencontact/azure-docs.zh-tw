@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
 ms.openlocfilehash: bdec2d699e8448c8e2303dfbabcb4d176a9ca389
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729736"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>檢視 Azure Marketplace 和 AppSource 供應項目的發佈狀態
 
 當您建立供應項目之後 (尤其是在發佈程序期間)，您可以在 Cloud Partner 入口網站中檢視您供應項目的狀態。  整體發佈狀態可於入口網站的[**所有供應項目**](../portal-tour/cpp-all-offers-page.md)和[**核准**](../portal-tour/cpp-approvals-page.md)頁面取得。  每個供應項目應該都會顯示下列狀態指標的其中一個。  
 
-|            狀態              |   說明                                                           |
+|            狀態              |   描述                                                           |
 |            ------              |   -----------                                                           |
 | **-**                          | 已經建立供應項目，但發佈程序尚未開始。            |
 | **正在發行**        | 供應項目正在進行發佈程序的步驟。   |

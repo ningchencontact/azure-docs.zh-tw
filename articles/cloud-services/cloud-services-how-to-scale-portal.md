@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 29ee71e7946145e50cc875df96b674abec3e12df
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: f5597773b3127852481d5e14844bed889c4d6f83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435236"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>如何在入口網站中設定雲端服務的自動調整
 
@@ -29,7 +29,7 @@ ms.locfileid: "39004331"
 > 本文著重於雲端服務 web 和背景工作角色。 當您直接建立虛擬機器 (傳統) 時，它會裝載於雲端服務中。 如果要調整標準虛擬機器，您可以將它與[可用性設定組](../virtual-machines/windows/classic/configure-availability-classic.md)產生關聯，還可以手動開啟或關閉它們。
 
 ## <a name="considerations"></a>考量
-在設定應用程式的調整之前，您應該先考量下列資訊：
+在配置应用程序的缩放之前，应考虑以下信息：
 
 * 調整受到核心使用量影響。
 
@@ -41,14 +41,14 @@ ms.locfileid: "39004331"
 
 * 若要對應用程式啟用高可用性，您應該確定應用程式是以兩個以上的角色執行個體來部署。 如需詳細資訊，請參閱 [服務等級協定](https://azure.microsoft.com/support/legal/sla/)。
 
-* 所有角色都處於**就緒**狀態時，才會出現自動調整。  
+* 所有角色都處於**就緒**狀態時，才會出現自動調整。  
 
 
 ## <a name="where-scale-is-located"></a>調整所在之處
 當您選取雲端服務之後，應該會看見雲端服務刀鋒視窗。
 
 1. 在 [雲端服務] 刀鋒視窗的 [角色和執行個體] 圖格上，選取雲端服務的名稱。   
-   **重要**︰請務必按一下雲端服務角色，而不是角色底下的角色執行個體。
+   **重要事項**：請務必按一下雲端服務角色，而不是下列角色的角色執行個體。
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. 選取 [調整]  磚。
@@ -56,7 +56,7 @@ ms.locfileid: "39004331"
     ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>自動調整
-您可以使用下列任一種模式來設定角色的調整規模設定：**手動**或**自動**。 「手動」是您預期的模式，您會設定執行個體的絕對計數。 但是，「自動」讓您能夠設定規則來控制您應該調整的方式和程度。
+您可以使用下列任一種模式來設定角色的調整規模設定：**手動**或**自動**。 顾名思义，“手动”模式可以设置实例的绝对计数。 但是，「自動」讓您能夠設定規則來控制您應該調整的方式和程度。
 
 將 [調整規模依據] 選項設定為 [排程及效能規則]。
 
@@ -94,16 +94,16 @@ ms.locfileid: "39004331"
 #### <a name="rule"></a>規則
 規則會新增至設定檔，並顯示將觸發調整規模的條件。
 
-規則觸發程序是以雲端服務的計量 (CPU 使用量、磁碟活動或網路活動) 為依據，您可以在其中新增條件值。 此外，您可以根據訊息佇列或一些與您訂用帳戶相關聯的其他 Azure 資源的計量來設定觸發程序。
+规则触发器基于云服务的指标（CPU 使用量、磁盘活动或网络活动），可以在其中添加条件值。 此外，您可以根據訊息佇列或一些與您訂用帳戶相關聯的其他 Azure 資源的計量來設定觸發程序。
 
 ![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
 當您設定規則之後，請選取規則刀鋒視窗底部的 [確定]  按鈕。
 
-## <a name="back-to-manual-scale"></a>回到手動調整
+## <a name="back-to-manual-scale"></a>返回到手动缩放
 瀏覽至[調整規模設定](#where-scale-is-located)，並將 [調整規模依據] 選項設定為 [手動輸入的執行個體計數]。
 
-![具有設定檔與規則的雲端服務調整規模設定](./media/cloud-services-how-to-scale-portal/manual-basics.png)
+![包含配置文件和规则的云服务缩放设置](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
 這個設定會移除該角色的自動調整，然後您可以直接設定執行個體計數。
 

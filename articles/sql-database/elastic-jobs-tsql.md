@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475808"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 建立及管理彈性資料庫作業
 
@@ -351,7 +351,7 @@ ORDER BY start_time DESC
 ```
 
 
-## <a name="cancel-a-job"></a>取消工作
+## <a name="cancel-a-job"></a>取消作业
 
 下列範例說明如何取消作業。  
 連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：

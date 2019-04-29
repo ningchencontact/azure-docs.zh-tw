@@ -12,11 +12,11 @@ author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7aa0e11ed47219829830369d17b300270d3fbffb
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819450"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務在 FPGA 上將模型部署為 Web 服務
 

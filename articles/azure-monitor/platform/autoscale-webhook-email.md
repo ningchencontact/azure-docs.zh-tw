@@ -9,11 +9,11 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787289"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>使用自動調整動作在 Azure 監視器中傳送電子郵件和 Webhook 警示通知
 本文將告訴您如何設定觸發程序，讓您可以根據 Azure 中的自動調整動作呼叫特定的 Web URl 或傳送電子郵件。  
@@ -116,7 +116,7 @@ Webhook 可以使用權杖型驗證來驗證，您會在其中儲存 Webhook URI
 | resourceGroupName |是 |正在調整的目標資源的資源群組 |
 | resourceName |是 |正在調整的目標資源的名稱 |
 | resourceType |是 |支援三個值：microsoft.classiccompute/domainnames/slots/roles" (雲端服務角色)、"microsoft.compute/virtualmachinescalesets" (虛擬機器擴展集) 以及 "Microsoft.Web/serverfarms" - (Web 應用程式) |
-| ResourceId |是 |正在調整的目標資源的 Resource Manager 識別碼 |
+| resourceId |是 |正在調整的目標資源的 Resource Manager 識別碼 |
 | portalLink |是 |連到目標資源摘要頁面的 Azure 入口網站連結 |
 | oldCapacity |是 |自動調整進行調整動作時的當前 (舊) 執行個體計數 |
 | newCapacity |是 |自動調整要將資源調整為此數目的新執行個體計數 |

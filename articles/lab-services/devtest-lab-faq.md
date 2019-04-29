@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: c26418d36271b4d2d39a43eda7e8b23585d69f4a
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127390"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。
@@ -350,7 +350,7 @@ foreach($labVM in $labVMs)
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>何時應該針對 DevTest Labs 環境建立新的虛擬網路，而何時該使用現有的虛擬網路？
 如果您的 Vm 必須與現有的基礎結構互動，請考慮使用研發/測試實驗室環境內的現有虛擬網路。 如果您使用 ExpressRoute，您可能要降到最低的 Vnet / 子網路，以便您 don't fragment 您取得指派給訂用帳戶中使用的 IP 位址空間。 
 
-請考慮使用 VNet 對等互連模式這裡 ([中樞支點模型](/architecture/reference-architectures/hybrid-networking/hub-spoke)) 太。 這種方法可啟用跨訂用帳戶的 vnet/子網路通訊。 否則，每個 DevTest Labs 環境都可能有它自己的虛擬網路。 
+請考慮使用 VNet 對等互連模式這裡 ([中樞支點模型](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) 太。 這種方法可啟用跨訂用帳戶的 vnet/子網路通訊。 否則，每個 DevTest Labs 環境都可能有它自己的虛擬網路。 
 
 有[限制](../azure-subscription-service-limits.md)上的每個訂用帳戶的虛擬網路數目。 雖然可將此限制提升到 100，但預設數目是 50。
 

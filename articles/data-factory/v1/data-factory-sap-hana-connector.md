@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020943"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61258431"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Hana 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ ms.locfileid: "54020943"
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 SAP Hana 連結服務專屬 JSON 元素的描述。
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
 伺服器 | SAP Hana 執行個體所在之伺服器的名稱。 如果您的伺服器使用自訂連接埠，指定 `server:port`。 | 字串 | 是
 authenticationType | 驗證類型。 | 字串。 "Basic" 或 "Windows" | 是 
@@ -80,7 +80,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 當複製活動中的來源類型為 **RelationalSource** (包括 SAP Hana) 時，typeProperties 區段中可使用下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | SQL 查詢。 | 是 |
 
@@ -288,19 +288,19 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-REAL | 單一
-DOUBLE | 單一
-DECIMAL | 十進位
+REAL | Single
+DOUBLE | Single
+DECIMAL | Decimal
 BOOLEAN | Byte
 VARCHAR | 字串
 NVARCHAR | 字串
 CLOB | Byte[]
 ALPHANUM | 字串
 BLOB | Byte[]
-日期 | Datetime
-TIME | 時間範圍
-時間戳記 | Datetime
-SECONDDATE | Datetime
+日期 | DateTime
+TIME | TimeSpan
+TIMESTAMP | DateTime
+SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>已知限制
 從 SAP HANA 複製資料時，有幾個已知的限制︰

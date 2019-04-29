@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: c7aed97c442c414e86c9531f9b0a8431e22b8b44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624984"
 ---
 <a name="create-or-modify-an-offer"></a>建立或修改供應項目
 =========================
@@ -36,7 +36,7 @@ ms.locfileid: "48805477"
 |  --------         |  ----------------                     |  -------------  |
 | publisherId       |  發行者識別碼，例如 `contoso` |   字串 |
 | offerId           |  供應項目識別碼                     |   字串        |
-| api-version       |  最新版的 API            |   日期           |
+| api-version       |  API 的最新版本            |   date           |
 |  |  |  |
 
 <a name="header"></a>頁首
@@ -45,7 +45,7 @@ ms.locfileid: "48805477"
 |  **名稱**        |  **值**               |
 |  ---------       |  ----------              | 
 | Content-Type     | `application/json`       |
-| Authorization    | `Bearer YOUR_TOKEN`      |
+| 授權    | `Bearer YOUR_TOKEN`      |
 |  |  |
 
 
@@ -251,7 +251,7 @@ ms.locfileid: "48805477"
 
 ### <a name="response-status-codes"></a>回應狀態碼
 
-| **程式碼**  |  **說明**                                                                            |
+| **代碼**  |  **說明**                                                                            |
 | --------  |  ---------------                                                                            |
 |  200      | `OK` 。 已成功處理要求，並已成功修改供應項目。           |
 |  201      | `Created` 。 已成功處理要求，並已成功建立供應項目。   |

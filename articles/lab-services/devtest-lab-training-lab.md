@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 85eddaaf101c3e85eca7514b04660163d23c1c80
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0a7ce1640636c6fba246584d098043a91990b9a0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622828"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>使用 Azure DevTest Labs 進行訓練
 除了進行開發/測試，Azure DevTest Labs 還可用來實作許多重要案例。 這些案例的其中之一便是設置訓練實驗室。 Azure DevTest Labs 可讓您建立實驗室，在其中提供自訂範本供每位受訓者建立相同且隔離的訓練環境。 您可以新增原則，以確保訓練環境只會在受訓者需要時才提供給他們使用，且包含足夠的訓練所需資源，例如虛擬機器。 最後，您可以輕易地與受訓者共用實驗室，讓他們只要按一下就能存取。

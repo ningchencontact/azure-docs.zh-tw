@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 6265a7f9f60b60d7b79e15a04feb0ec76dc59f6d
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
-ms.translationtype: HT
+ms.openlocfilehash: 3a7155380a51273d376226c6be7a004f386181ce
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61035238"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>什麼是端點存取控制清單？
 
 > [!IMPORTANT]
-> Azure 有兩種不同的[部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來建立和使用資源：Resource Manager 和傳統。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署都使用 Resource Manager 部署模型。 
+> Azure 有兩種不同[部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來建立和使用資源：资源管理器部署模型和经典部署模型。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署都使用 Resource Manager 部署模型。 
 
 端點存取控制清單 (ACL) 是可供您的 Azure 部署使用的安全性增強功能。 ACL 提供針對虛擬機器端點選擇性允許或拒絕流量的功能。 此封包篩選功能提供了一層額外的安全性。 您可以僅針對端點指定網路 ACL。 您無法針對虛擬網路或是包含在虛擬網路中的特定子網路指定 ACL。 建議您儘可能使用網路安全性群組 (NSG) 來取代 ACL。 使用 NSG 時，端點存取控制清單會遭到取代，且不必再強制使用。 若要深入了解 NSG，請參閱[網路安全性群組概觀](security-overview.md)
 
@@ -76,16 +76,16 @@ ACL 是包含規則清單的物件。 當您建立 ACL 並將它套用到虛擬�
 | 200 |159.0.0.0/8 |3389 |允許 |
 
 ### <a name="rule-order"></a>規則順序
-因為端點可以指定多個規則，故必須依靠一種方式組織規則，以判斷規則的優先順序。 規則順序會指定優先順序。 網路 ACL 遵循 *最低優先* 的規則順序。 在下方範例中，連接埠 80 上的端點會選擇性僅針對某些特定 IP 位址範圍授與存取權。 若要進行此設定，我們可以針對 175.1.0.1/24 空間中的位址使用拒絕規則 (規則\# 100)。 接著指定第二個規則的優先順序為 200，以便允許 175.0.0.0/8 下所有其他位址的存取。
+因為端點可以指定多個規則，故必須依靠一種方式組織規則，以判斷規則的優先順序。 規則順序會指定優先順序。 網路 ACL 遵循 *最低優先* 的規則順序。 在以下示例中，选择性地为端口 80 上的终结点授予了对某些 IP 地址范围的访问权限。 若要進行此設定，我們可以針對 175.1.0.1/24 空間中的位址使用拒絕規則 (規則\# 100)。 接著指定第二個規則的優先順序為 200，以便允許 175.0.0.0/8 下所有其他位址的存取。
 
 **範例 – 規則優先順序**
 
 | **規則編號** | **遠端子網路** | **端點** | **允許/拒絕** |
 | --- | --- | --- | --- |
-| 100 |175.1.0.1/24 |80 |拒絕 |
+| 100 |175.1.0.1/24 |80 |拒绝 |
 | 200 |175.0.0.0/8 |80 |允許 |
 
-## <a name="network-acls-and-load-balanced-sets"></a>網路 ACL 和負載平衡集合
+## <a name="network-acls-and-load-balanced-sets"></a>网络 ACL 和负载均衡的集
 您可以在負載平衡集端點上指定網路 ACL。 如果已為負載平衡集指定 ACL，系統就會將網路 ACL 套用至該負載平衡集內的所有虛擬機器。 例如，如果建立一個使用「連接埠 80」的負載平衡集，而該負載平衡集包含 3 個 VM，則在其中一個 VM 的端點「連接埠 80」上建立的網路 ACL 會自動套用至其他 VM。
 
 ![網路 ACL 和負載平衡集合](./media/virtual-networks-acl/IC674733.png)

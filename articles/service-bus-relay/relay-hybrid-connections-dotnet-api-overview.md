@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: a6a1706c8d1e849fd1bb4309c46063dd3f9439c1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: 78ad3ab49db162af060b4273deea717cd3472668
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700135"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749014"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure 轉送混合式連線 .NET Standard API 概觀
 
@@ -44,7 +44,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 };
 ```
 
-您也可以直接將連接字串傳遞到 `RelayConnectionStringBuilder` 方法。 這項作業可讓您確認連接字串格式有效。 如果有任何參數無效，建構函式會產生 `ArgumentException`。
+还可以将连接字符串直接传递给 `RelayConnectionStringBuilder` 方法。 這項作業可讓您確認連接字串格式有效。 如果有任何參數無效，建構函式會產生 `ArgumentException`。
 
 ```csharp
 var myConnectionString = "[RelayConnectionString]";
@@ -140,7 +140,7 @@ await textWriter.WriteLineAsync("hello");
 若要深入了解 Azure 轉送，請造訪下列連結：
 
 * [Microsoft.Azure.Relay reference](/dotnet/api/microsoft.azure.relay)
-* [什麼是 Azure 轉送？](relay-what-is-it.md)
+* [什么是 Azure 中继？](relay-what-is-it.md)
 * [可用的轉送 API](relay-api-overview.md)
 
 [RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder

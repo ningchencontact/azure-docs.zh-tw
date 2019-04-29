@@ -9,12 +9,12 @@ ms.author: jonfan
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: f27e82e780917e00625ef6a14ab8317d1f5b8ae8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: f813cb5d8d5c442fc17f126c3a2ff6de7b0bdde1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61321140"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>從 BizTalk 服務遷移至 Azure Logic Apps
 
@@ -106,7 +106,7 @@ Logic Apps 提供複雜的邏輯功能，以及具有[條件式陳述式](../log
 
 BizTalk 服務讓您能夠在自己的組件中[執行上傳的自訂程式碼](https://msdn.microsoft.com/library/azure/dn232389.aspx)。 此功能會由 [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) 介面來實作。 橋接器中的每個階段包含兩個屬性 (On Enter Inspector 和 On Exit Inspector)，提供您建立來實作此介面的 .NET 類型。 自訂程式碼可讓您對資料執行更複雜的處理，以及在執行通用商務邏輯的組件中重複使用現有的程式碼。 
 
-Logic Apps 提供兩個執行自訂程式碼的主要方法：Azure Functions 和 API Apps。 您可以建立 Azure Functions，並從 Logic Apps 呼叫。 請參閱[透過 Azure Functions 新增並執行適用於 Logic Apps 的自訂程式碼](../logic-apps/logic-apps-azure-functions.md)。 使用 Azure App Service 一部分的 API Apps，可建立您自己的觸發程序和動作。 深入了解[建立自訂 API 來與 Logic Apps 搭配使用](../logic-apps/logic-apps-create-api-app.md)。 
+Logic Apps 提供兩種主要的方式來執行自訂程式碼：Azure 函式和 API 應用程式。 您可以建立 Azure Functions，並從 Logic Apps 呼叫。 請參閱[透過 Azure Functions 新增並執行適用於 Logic Apps 的自訂程式碼](../logic-apps/logic-apps-azure-functions.md)。 使用 Azure App Service 一部分的 API Apps，可建立您自己的觸發程序和動作。 深入了解[建立自訂 API 來與 Logic Apps 搭配使用](../logic-apps/logic-apps-create-api-app.md)。 
 
 如果您的組件中有從 BizTalk 服務呼叫的自訂程式碼，您可以將此程式碼移至 Azure Functions，或使用 API Apps 建立自訂 API，視您實作的項目而定。 例如，如果您有包裝其他服務的程式碼，且 Logic Apps 沒有該服務的連接器，請建立 API 應用程式，並使用 API 應用程式在邏輯應用程式內提供的動作。 如果您有 Helper 函式或程式庫，則 Azure Functions 可能是最好的選擇。
 

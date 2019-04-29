@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: tamram
 ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484234"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>管理在 Azure 入口網站中的儲存體帳戶設定
 
@@ -20,9 +20,9 @@ ms.locfileid: "58370383"
 
 ## <a name="access-control"></a>存取控制
 
-Azure 儲存體的 Blob 儲存體和佇列儲存體透過角色型存取控制 (RBAC) 支援使用 Azure Active Directory 進行驗證。 如需有關使用 Azure AD 進行驗證的詳細資訊，請參閱 <<c0> [ 驗證存取 Azure blob 和佇列使用 Azure Active Directory](storage-auth-aad.md)。
+Azure 存储支持通过基于角色的访问控制 (RBAC)，针对 Blob 存储和队列存储使用 Azure Active Directory 进行身份验证。 有关使用 Azure AD 进行身份验证的详细信息，请参阅[使用 Azure Active Directory验证对 Azure blob 和队列的访问权限](storage-auth-aad.md)。
 
-對於使用者、群組、服務主體和受管理的身分識別，Azure 入口網站中的**存取控制**設定提供簡易的方式來指派 RBAC 角色。 如需有關指派 RBAC 角色的詳細資訊，請參閱[blob 和佇列資料，使用 RBAC 管理存取權限](storage-auth-aad-rbac.md)。
+對於使用者、群組、服務主體和受管理的身分識別，Azure 入口網站中的**存取控制**設定提供簡易的方式來指派 RBAC 角色。 有关分配 RBAC 角色的详细信息，请参阅[使用 RBAC 管理 blob 和队列数据的访问权限](storage-auth-aad-rbac.md)。
 
 > [!NOTE]
 > 使用 Azure AD 認證來驗證使用者或應用程式，可提供比其他授權方法更高的安全性，也更容易使用。 雖然您可以繼續使用共用金鑰授權於應用程式，但使用 Azure AD 就不需要將帳戶存取金鑰和程式碼一起儲存。 您也可以繼續使用共用存取簽章 (SAS) 將細部存取權授與儲存體帳戶中的資源，但 Azure AD 提供類似功能，卻不必管理 SAS 權杖或擔心需要撤銷遭盜用的 SAS。 
@@ -51,7 +51,7 @@ Azure 儲存體支援 Azure Resource Manager 標記，可自訂分類並組合�
 4. 尋找 [金鑰 1] 下方的 [金鑰] 值，然後按一下 [複製] 按鈕以複製帳戶金鑰。
 5. 或者，您也可以複製整個連接字串。 尋找 [金鑰1] 下方的 [連接字串] 值，然後按一下 [複製] 按鈕來複製連接字串。
 
-    ![說明如何在 Azure 入口網站中檢視存取金鑰的螢幕擷取畫面](media/storage-manage-account/portal-connection-string.png)
+    ![显示如何在 Azure 门户中查看访问密钥的屏幕截图](media/storage-manage-account/portal-connection-string.png)
 
 ### <a name="regenerate-access-keys"></a>重新產生存取金鑰
 

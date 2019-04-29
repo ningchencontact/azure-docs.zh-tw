@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 220084dd0a3c61205a2cf53c29cf49291000efdb
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472955"
 ---
 # <a name="container-marketplace-tab"></a>容器 Marketplace 索引標籤
 
@@ -40,7 +40,7 @@ ms.locfileid: "50980152"
 | **完整摘要**          | 供應項目的完整摘要 (雖然可能與**摘要**相同)。  長度上限是 256 個字元。 |
 | **說明**           | 供應項目的說明。  長度上限是 3000 個字元，支援簡單的 HTML 格式。
 | **行銷識別碼**  | 與本供應項目相關聯的唯一 URL，通常會包含您的組織與解決方案名稱。 長度上限是 50 個字元。   |
-| **預覽訂用帳戶識別碼** | 可新增 1 到 100 個預覽使用者的訂閱帳戶識別碼。 這些列入白名單的訂閱帳戶，待供應項目一發佈，即能在供應項目上線前先行存取。 |
+| **預覽訂用帳戶識別碼** | 可新增 1 到 100 個預覽使用者的訂閱帳戶識別碼。 這些列入允許清單的訂閱帳戶，待供應項目一發佈，即能在供應項目上線前先行存取。 |
 
 ## <a name="next-steps"></a>後續步驟
 

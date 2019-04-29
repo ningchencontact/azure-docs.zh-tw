@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f57a83fb83152055692e6f614b7958d099b6c70d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808926"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Concur 複製資料 (預覽)
 
@@ -45,12 +45,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Concur 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Concur** | yes |
-| clientId | Concur 應用程式管理所提供的應用程式 client_id。  | yes |
-| username | 您用來存取 Concur 服務的使用者名稱。  | yes |
-| password | 對應至您在 [使用者名稱] 欄位中提供之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| type | 類型屬性必須設定為：**Concur** | 是 |
+| clientId | Concur 應用程式管理所提供的應用程式 client_id。  | 是 |
+| username | 您用來存取 Concur 服務的使用者名稱。  | 是 |
+| password | 對應至您在 [使用者名稱] 欄位中提供之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -80,9 +80,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Concur 複製資料，請將資料集的 type 屬性設定為 **ConcurObject**。 在此類型的資料集中，沒有任何其他類型特定的屬性。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**ConcurObject** | yes |
+| type | 資料集的類型屬性必須設定為：**ConcurObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 
@@ -110,9 +110,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Concur 複製資料，請將複製活動中的來源類型設定為 **ConcurSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**ConcurSource** | yes |
+| type | 複製活動來源的類型屬性必須設定為：**ConcurSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Opportunities where Id = xxx "` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**

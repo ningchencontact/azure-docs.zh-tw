@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: b97753e6f1b67e3c8d247281c5e5208033a56eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127171"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>使用 StorSimple Snapshot Manager 來管理備份目錄
 
@@ -56,7 +56,7 @@ StorSimple Snapshot Manager 的主要功能是可讓您以快照集的形式建�
 ## <a name="restore-a-volume"></a>還原磁碟區
 使用下列程序從備份還原磁碟區。
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 如果您尚未這樣做，請建立磁碟區和磁碟區群組，然後再刪除磁碟區。 根據預設，StorSimple Snapshot Manager 會先備份磁碟區，才允許將它刪除。 如果不小心刪除磁碟區，或資料需要因為任何原因復原，這個預防措施就可以防止資料遺失。 
 
 StorSimple Snapshot Manager 在建立預防措施備份時，會顯示下列訊息。
@@ -112,7 +112,7 @@ StorSimple Snapshot Manager 在建立預防措施備份時，會顯示下列訊�
 ## <a name="recover-a-file"></a>復原檔案
 如果不小心從磁碟區刪除檔案，您可以擷取刪除日以前的快照集、使用快照集建立磁碟區的複製，並從複製的磁碟區將檔案複製到原始磁碟區，即可復原檔案。
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 在您開始之前，請確定您有磁碟區群組的最新備份。 接著，刪除儲存在該磁碟區群組中磁碟區上的其中一個檔案。 最後，使用下列步驟從您的備份還原已刪除的檔案。 
 
 #### <a name="to-recover-a-deleted-file"></a>復原已刪除的檔案

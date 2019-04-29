@@ -16,11 +16,11 @@ ms.date: 10/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97f375c6f48d3dc497eb59e76f19fc64cf906b56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>教學課程：Azure Active Directory 與 Workspot Control 整合
 
@@ -62,19 +62,19 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
-    ![映像](./media/workspotcontrol-tutorial/selectazuread.png)
+    ![image](./media/workspotcontrol-tutorial/selectazuread.png)
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![映像](./media/workspotcontrol-tutorial/a_select_app.png)
+    ![image](./media/workspotcontrol-tutorial/a_select_app.png)
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![映像](./media/workspotcontrol-tutorial/a_new_app.png)
+    ![image](./media/workspotcontrol-tutorial/a_new_app.png)
 
 4. 在搜尋方塊中輸入 **Workspot Control**，從結果面板中選取 [Workspot Control]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addfromgallery.png)
+     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -98,19 +98,19 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Workspot Control] 應用程式整合頁面上，選取 [單一登入]。
 
-    ![映像](./media/workspotcontrol-tutorial/B1_B2_Select_SSO.png)
+    ![image](./media/workspotcontrol-tutorial/B1_B2_Select_SSO.png)
 
 2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML] 模式以啟用單一登入。
 
-    ![映像](./media/workspotcontrol-tutorial/b1_b2_saml_sso.png)
+    ![image](./media/workspotcontrol-tutorial/b1_b2_saml_sso.png)
 
 3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
 
-    ![映像](./media/workspotcontrol-tutorial/b1-domains_and_urlsedit.png)
+    ![image](./media/workspotcontrol-tutorial/b1-domains_and_urlsedit.png)
 
 4. 若您想要在 [IDP] 起始模式中設定應用程式，請在 [基本 SAML 設定] 區段上執行下列步驟：
 
-    ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
 
@@ -118,7 +118,7 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 
     c. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-     ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url1.png)
+     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url1.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<INSTANCENAME>-saml.workspot.com/`
 
@@ -127,7 +127,7 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 
 5. 在 [以 SAML 設定單一登入] 頁面上的 [SAML 簽署憑證] 區段中，按一下 [下載] 以下載**憑證 (Base64)** 並將其儲存在電腦上。
 
-    ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_certficate.png) 
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_certficate.png) 
 
 6. 在 [安裝 Workspot Control] 區段上，依據您的需求複製適當的 URL。
 
@@ -139,17 +139,17 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 
     c. 登出 URL
 
-    ![映像](./media/workspotcontrol-tutorial/d1_samlsonfigure.png) 
+    ![image](./media/workspotcontrol-tutorial/d1_samlsonfigure.png) 
 
 7. 在不同的網頁瀏覽器視窗中，以安全性系統管理員身分登入 Workspot Control。
 
 8. 在頁面頂端的工具列中按一下 [Setup] \(設定\) ****，然後瀏覽至 [SAML] ****。
 
-    ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
 9. 在 [安全性聲明標記語言組態] 頁面上，執行下列步驟：
  
-    ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
     a. 在 [實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼] 值。   
 
@@ -167,19 +167,19 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
-    ![映像](./media/workspotcontrol-tutorial/d_users_and_groups.png)
+    ![image](./media/workspotcontrol-tutorial/d_users_and_groups.png)
 
 2. 在畫面頂端選取 [新增使用者]。
 
-    ![映像](./media/workspotcontrol-tutorial/d_adduser.png)
+    ![image](./media/workspotcontrol-tutorial/d_adduser.png)
 
 3. 在 [使用者] 屬性中，執行下列步驟。
 
-    ![映像](./media/workspotcontrol-tutorial/d_userproperties.png)
+    ![image](./media/workspotcontrol-tutorial/d_userproperties.png)
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 **使用者名**欄位中輸入**brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -196,17 +196,17 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 
 2. 在頁面頂端的工具列中按一下 [Users] \(使用者\) ****，然後瀏覽至 [Add User] \(新增使用者\) ****。
 
-    ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 
 3. 在 [新增使用者] 頁面上，執行下列步驟：
 
-    ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
 
     a. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。
 
     b. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
 
-    c. 在 **電子郵件**文字中，輸入使用者電子郵件，例如**Brittasimon\@contoso.com**。
+    c. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件地址，例如 **Brittasimon\@contoso.com**。
 
     d. 從 [角色] 下拉式清單中選取適當的使用者角色。
 
@@ -220,19 +220,19 @@ Workspot Control 與 Azure AD 整合可提供下列優點：
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式] 和 [所有應用程式]。
 
-    ![映像](./media/workspotcontrol-tutorial/d_all_applications.png)
+    ![image](./media/workspotcontrol-tutorial/d_all_applications.png)
 
 2. 在應用程式清單中，選取 [Workspot Control]。
 
-    ![映像](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_app.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_app.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
-    ![映像](./media/workspotcontrol-tutorial/d_leftpaneusers.png)
+    ![image](./media/workspotcontrol-tutorial/d_leftpaneusers.png)
 
 4. 選取 [新增] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
 
-    ![映像](./media/workspotcontrol-tutorial/d_assign_user.png)
+    ![image](./media/workspotcontrol-tutorial/d_assign_user.png)
 
 4. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
 

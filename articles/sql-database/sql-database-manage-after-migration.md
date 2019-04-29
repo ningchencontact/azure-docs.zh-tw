@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703268"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的單一和集區資料庫
 
@@ -43,7 +43,7 @@ ms.locfileid: "59358426"
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>如何建立及管理 SQL Database 上的備份
 
-您未在 Azure SQL DB 上建立備份，而這是因為您不需要。 SQL Database 會自動為您備份資料庫，因此您不再需要擔心排程、取得及管理備份。 該平台會每週進行完整備份，每幾小時進行差異備份，以及每隔 5 分鐘進行記錄備份，以確保災害復原有效率並且資料遺失最少。 在您建立資料庫時，就會開始進行第一個完整備份。 這些備份可供您使用一段時間 (稱為「保留期限」)，而且可能因您選擇的服務層而異。 SQL Database 使用[時間點復原 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore)，讓您能夠還原為此保留期間內的任何時間點。
+您未在 Azure SQL DB 上建立備份，而這是因為您不需要。 SQL Database 會自動為您備份資料庫，因此您不再需要擔心排程、取得及管理備份。 該平台會每週進行完整備份，每幾小時進行差異備份，以及每隔 5 分鐘進行記錄備份，以確保災害復原有效率並且資料遺失最少。 在您建立資料庫時，就會開始進行第一個完整備份。 這些備份可供您使用一段時間 (稱為「保留期限」)，而且可能因您選擇的服務層級而異。 SQL Database 使用[時間點復原 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore)，讓您能夠還原為此保留期間內的任何時間點。
 
 |服務層|保留期間 (天)|
 |---|:---:|
@@ -273,13 +273,13 @@ SQL Azure 平台會分析伺服器中不同資料庫的使用量歷程記錄，�
 
 對效能進行疑難排解時，請務必找出影響應用程式效能的是否只是應用程式或是後端資料庫。 往往效能問題會出在應用程式層。 可能是架構或資料存取模式。 例如，假設您有對網路延遲敏感的交談應用程式。 在此情況下，因為在應用程式與伺服器之間有許多往返傳送的簡短要求 (「交談」)，而在網路壅塞時，這些來回會快速增加，使得您的應用程式遭遇困境。 若要改善此情況下的效能，您可以使用[批次查詢](sql-database-performance-guidance.md#batch-queries)。 使用批次對您大有幫助，因為現在系統會以批次處理您的要求，因此可協助您減少來回延遲，並改善您的應用程式效能。
 
-此外，如果您發現資料庫整體效能降低，您可以監視 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 動態管理檢視，以便了解 CPU、IO 和記憶體耗用量。 您的效能可能受到影響，因為您的資料庫極需要資源。 您可能需要根據成長和縮減的工作負載需求來變更計算大小和/或服務層。
+此外，如果您發現資料庫整體效能降低，您可以監視 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 動態管理檢視，以便了解 CPU、IO 和記憶體耗用量。 您的效能可能受到影響，因為您的資料庫極需要資源。 您可能需要根據成長和縮減的工作負載需求來變更計算大小和/或服務層級。
 
 如需一組完整的調整效能問題相關建議，請參閱：[微調資料庫](sql-database-performance-guidance.md#tune-your-database)。
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>如何確保我使用適當的服務層和計算大小
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>如何確保我使用適當的服務層級和計算大小
 
-SQL Database 提供三個服務層：基本、標準和進階。 在每個服務層，您會獲得與該服務層保證連結的可預測效能。 根據您的工作負載，您的活動可能會激增，此時的資源使用量可能到達目前所在計算大小上限。 在這種情況下，先從評估進行任何調整 (例如，新增或改變索引等) 是否有幫助很有用。 如果您仍然遇到限制問題，請考慮移到較高的服務層或計算大小。
+SQL Database 提供三個服務層級：基本、標準和進階。 在每個服務層級，您會獲得與該服務層級保證連結的可預測效能。 根據您的工作負載，您的活動可能會激增，此時的資源使用量可能到達目前所在計算大小上限。 在這種情況下，先從評估進行任何調整 (例如，新增或改變索引等) 是否有幫助很有用。 如果您仍然遇到限制問題，請考慮移到較高的服務層級或計算大小。
 
 |**服務層**|**常見的使用案例**|
 |---|---|

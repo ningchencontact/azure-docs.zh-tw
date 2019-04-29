@@ -11,11 +11,11 @@ ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435023"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的記憶體和並行存取限制
 檢視在 Azure SQL 資料倉儲 中配置給不同效能等級與資源類別的記憶體和並行存取限制。 如需詳細資訊，並將這些功能套用到工作負載管理計劃，請參閱[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。 

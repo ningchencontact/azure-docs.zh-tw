@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: 6753b3a76ff5d3e0266f238d8e354943dec694a8
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60788903"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>與 DMZ 搭配使用的範例應用程式
 [返回 [安全性界限最佳作法] 頁面][HOME]

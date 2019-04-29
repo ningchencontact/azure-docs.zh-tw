@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
 ms.openlocfilehash: 4082847e1871fc03713471b0c043dddb80f91b0d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769228"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110339"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Azure 監視器中的目標監視解決方案 (預覽版)
 當您將監視解決方案新增至訂用帳戶時，預設會將該解決方案自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。  您可能會想要管理您的成本，並透過將解決方案限制在一組特定的代理程式，來限制針對該解決方案所收集的資料量。  本文說明如何使用**設定解決方案目標**，此功能可讓您將範圍套用至解決方案。

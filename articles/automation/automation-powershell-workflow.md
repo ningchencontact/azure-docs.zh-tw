@@ -4,17 +4,18 @@ description: 本文旨在做為熟悉 PowerShell 的作者的快速課程，以�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 12/14/2018
+author: WenJason
+ms.author: v-jay
+origin.date: 12/14/2018
+ms.date: 04/01/2019
 ms.topic: conceptual
-manager: carmonm
+manager: digimobile
 ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60738327"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解適用於自動化 Runbook 的重要 Windows PowerShell 工作流程概念
 
@@ -55,7 +56,7 @@ PowerShell 工作流程程式碼看起來幾乎類似於 PowerShell 指令碼，
 
 例如，請考慮會取得所有執行中服務的下列程式碼。
 
-```azurepowershell-interactive
+```powershell
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
@@ -72,7 +73,7 @@ Workflow Get-RunningServices
 
 工作流程中的物件會還原序列化。  這表示其屬性都仍然可用，而不是它們的方法。  例如，請考慮下列 PowerShell 程式碼，它會使用 Service 物件的 Stop 方法來停止服務。
 
-```azurepowershell-interactive
+```powershell
 $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
@@ -171,7 +172,7 @@ Parallel
 
 例如，考慮下列 PowerShell 命令，它會將多個檔案複製到網路目的地。  這些命令會循序執行，因此一個檔案必須完成複製才能開始複製下一個。
 
-```azurepowershell-interactive
+```powershell
 Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
 Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
 Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
@@ -226,7 +227,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>檢查點
 
-*檢查點* 是包含變數的目前值和在該點產生的任何輸出的工作流程的目前狀態的快照。 如果工作流程結束時發生錯誤或是擱置，下次執行時，就會從其最後一個檢查點開始，而不是從工作流程的開頭開始。  您可以使用 **Checkpoint-Workflow** 活動來設定工作流程中的檢查點。 Azure 自動化的功能，稱為[公平共用](automation-runbook-execution.md#fair-share)，其中卸載執行 3 小時內的任何 runbook，以允許其他 runbook 來執行。 最後，卸載的 runbook 將會重新載入，並時，它會繼續執行，從 runbook 中採取的最後一個檢查點。 為了確保將最後完成的 runbook，請您必須在執行少於 3 小時的時間間隔加入檢查點。 如果在每次執行期間加入新的檢查點，而且之後 3 小時內，因錯誤而取得收回的 runbook，然後 runbook 將會繼續無限期。
+*檢查點* 是包含變數的目前值和在該點產生的任何輸出的工作流程的目前狀態的快照。 如果工作流程結束時發生錯誤或是擱置，下次執行時，就會從其最後一個檢查點開始，而不是從工作流程的開頭開始。  您可以使用 **Checkpoint-Workflow** 活動來設定工作流程中的檢查點。 Azure 自动化有一项名叫[公平共享](automation-runbook-execution.md#fair-share)的功能，即系统会卸载任何已运行 3 小时的 runbook，让其他 runbook 有机会运行。 最终，卸载的 runbook 会重新加载，并从上一个检查点处继续执行原来的操作。 为了确保 runbook 最终能够完成，必须按时间间隔（不到 3 小时）添加检查点。 如果在每次运行过程中添加了新的检查点，则当 runbook 在 3 小时后因错误而被系统逐出时，系统会恢复该 runbook，没有限期。
 
 在下列範例程式碼中，Activity2 之後發生的例外狀況造成工作流程結束。 工作流程再次執行時，它會先執行 Activity2，因為這是緊接在設定的最後一個檢查點之後。
 
@@ -275,13 +276,13 @@ workflow CreateTestVms
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
+        New-AzureRmVm -VM $Vm -Location "ChinaNorth" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
         $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -Credential $Cred
+        $null = Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
         }
 }
 ```

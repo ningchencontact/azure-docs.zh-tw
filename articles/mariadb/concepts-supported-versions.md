@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 69330e9d5a05fbcc892889f70a04f5eb4a4a2fb9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935546"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>支援的適用於 MariaDB 的 Azure 資料庫伺服器版本
 適用於 MariaDB 的 Azure 資料庫已使用 InnoDB 引擎從開放式原始碼 [MariaDB Server](https://downloads.mariadb.org/) 來開發。 適用於 MariaDB 的 Azure 資料庫目前支援下列版本：
@@ -26,4 +26,4 @@ ms.locfileid: "53541416"
 服務會自動管理對於次要版本更新的修補。
 
 ## <a name="next-steps"></a>後續步驟
-如需以您**服務層**為依據之特定資源配額和限制的相關資訊，請參閱[服務層](./concepts-pricing-tiers.md)
+如需以您**服務層級**為依據之特定資源配額和限制的相關資訊，請參閱[服務層級](./concepts-pricing-tiers.md)

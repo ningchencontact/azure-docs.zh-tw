@@ -12,11 +12,11 @@ ms.reviewer: jmartens
 ms.date: 1/10/2019
 ms.custom: seodec18
 ms.openlocfilehash: 716de6d491be753c5c32c0a2774404140010f72c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821223"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>什麼是 FPGA 和 Project Brainwave？
 
@@ -83,7 +83,7 @@ Project Brainwave 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 
 
 請參閱這些影片與部落格：
 
-+ [超大規模的硬體：Azure + FPGA 上大規模的 ML：組建 2018 (影片)](https://www.youtube.com/watch?v=BMgQAHIx2eY) \(英文\)
++ [超大規模資料庫的硬體：Azure + FPGA 上大規模的 ML：組建 2018 (影片)](https://www.youtube.com/watch?v=BMgQAHIx2eY) \(英文\)
 
 + [深入了解 Microsoft FPGA 架構的可設定雲端 (英文影片)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

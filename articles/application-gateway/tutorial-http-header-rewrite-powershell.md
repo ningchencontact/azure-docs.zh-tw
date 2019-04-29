@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
 ms.openlocfilehash: 4747d824dcf531ed883d476a0daad182ea081c39
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715091"
 ---
 # <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>教學課程：建立應用程式閘道及重寫 HTTP 標題
 
@@ -162,7 +162,7 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 -Resource
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-您可以使用 Get AzPublicIPAddress 來取得應用程式閘道的公用 IP 位址。 將公用 IP 位址或 DNS 名稱複製並貼到您瀏覽器的網址列。
+使用 Get-AzPublicIPAddress 取得應用程式閘道的公用 IP 位址。 將公用 IP 位址或 DNS 名稱複製並貼到您瀏覽器的網址列。
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP

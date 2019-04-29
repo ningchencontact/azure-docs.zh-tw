@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61451594"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>部署適用於本機開發的相依性
 
@@ -32,7 +32,7 @@ ms.locfileid: "59491981"
    deploy -type local
    ```
 
-2. 遵循提示來指派名稱給您的部署的資源群組。  指令碼會將相依性部署到您 Azure 訂用帳戶，但不是微服務中的資源群組。  指令碼也會在 Azure Active Directory 中註冊應用程式。  這樣才能支援 OAUTH 型驗證。  部署可能需要幾分鐘的時間。
+2. 遵循提示來指派名稱給您的部署的資源群組。  指令碼會將相依性部署到您 Azure 訂用帳戶，但不是微服務中的資源群組。  指令碼也會在 Azure Active Directory 中註冊應用程式。  這樣才能支援 OAUTH 型驗證。  部署可能需要數分鐘的時間。
 
 3. 指令碼完成之後，您可以選取儲存.env 檔案。  .Env 環境檔案是組態檔的所有服務和您想要在您的開發電腦上執行的工具。  
 

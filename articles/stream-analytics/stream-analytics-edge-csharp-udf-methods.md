@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61480902"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>針對 Azure 串流分析 Edge 作業開發 .NET Standard 使用者定義的函式 (預覽)
 
@@ -40,7 +40,7 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 |---------|---------|
 |long  |  bigint   |
 |double  |  double   |
-|字串  |  nvarchar(max)   |
+|string  |  nvarchar(max)   |
 |dateTime  |  dateTime   |
 |struct  |  IRecord   |
 |物件  |  IRecord   |
@@ -114,7 +114,7 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
  |**設定**  |**建議的值**  |
  |---------|---------|
  |組件來源  | 來自雲端的現有組件套件    |
- |資源  |  選擇目前帳戶中的資料   |
+ |Resource  |  選擇目前帳戶中的資料   |
  |訂用帳戶  |  選擇您的訂用帳戶。   |
  |儲存體帳戶  |  選擇儲存體帳戶   |
  |容器  |  選擇在您的儲存體帳戶中建立的容器。   |

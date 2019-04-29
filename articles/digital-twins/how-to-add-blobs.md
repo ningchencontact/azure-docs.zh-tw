@@ -10,11 +10,11 @@ ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263062"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926370"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>在 Azure Digital Twins 中將 Blob 新增到物件
 
@@ -51,13 +51,13 @@ JSON blob 中繼資料符合下列模型：
   }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | **parentId** | 字串 | 與 blob 相關聯的父實體 (空間、裝置或使用者) |
 | **name** |字串 | blob 的人類易記名稱 |
-| **type** | 字串 | blob 的類型 - 不能使用 *type* 與 *typeId*  |
-| **typeId** | 整數  | blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
-| **subtype** | 字串 | blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
+| **type** | 字串 | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
+| **typeId** | 整數  | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
+| **subtype** | 字串 | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
 | **subtypeId** | 整數  | blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
 | **description** | 字串 | 自訂的 blob 描述 |
 | **sharing** | 字串 | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
@@ -108,7 +108,7 @@ Swagger 文件會完整詳細說明這些模型結構描述。
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | **id** | 字串 | Blob 的專屬識別碼 |
 | **name** |字串 | Blob 的人類易記名稱 |
@@ -159,7 +159,7 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | 多部分內容界限名稱 |
 
@@ -195,7 +195,7 @@ curl
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_TOKEN | 有效的 OAuth 2.0 權杖 |
 | YOUR_SPACE_ID | 要與 Blob 產生關聯的空間其識別碼 |

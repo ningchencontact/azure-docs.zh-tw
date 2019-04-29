@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4fc4175c03baa4ddb81507dd4001fcdbe7c7058b
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149541"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61458641"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>診斷 Azure 通知中樞卸除的通知
 
@@ -101,7 +101,7 @@ Azure 通知中樞相關常見的問題是如何針對從應用程式的通知�
 
 在此情況下，從資料庫移除失敗的註冊。 然後，我們會針對該批次中的其餘裝置，重試通知傳遞。
 
-若要获取有关针对注册的失败传递尝试的更多错误信息，可以使用通知中心 REST API [按消息遥测：取得通知訊息遙測](https://msdn.microsoft.com/library/azure/mt608135.aspx)並[PNS 的意見反應](https://msdn.microsoft.com/library/azure/mt705560.aspx)。 如需範例程式碼，請參閱[傳送 REST 範例](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/)。
+若要获取有关针对注册的失败传递尝试的更多错误信息，可以使用通知中心 REST API [按消息遥测：获取通知消息遥测数据](https://msdn.microsoft.com/library/azure/mt608135.aspx)和 [PNS 反馈](https://msdn.microsoft.com/library/azure/mt705560.aspx)。 如需範例程式碼，請參閱[傳送 REST 範例](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/)。
 
 ## <a name="push-notification-service-issues"></a>推播通知服務問題
 
@@ -117,7 +117,7 @@ Azure 通知中樞相關常見的問題是如何針對從應用程式的通知�
 
 ## <a name="self-diagnosis-tips"></a>自我診斷秘訣
 
-以下是診斷通知中樞卸除的通知的根本原因的路徑。
+下面介绍了诊断通知中心已删除通知的根本原因的各种途径。
 
 ### <a name="verify-credentials"></a>驗證認證 ###
 
@@ -139,21 +139,21 @@ Azure 通知中樞相關常見的問題是如何針對從應用程式的通知�
 
 ![Visual Studio 伺服器總管][9]
 
-您可以檢視和管理您的中樞內的所有註冊。 註冊可以分類的平台、 原生或範本註冊、 標記、 推播通知服務識別碼，註冊識別碼和到期日。 您也可以在此頁面上編輯註冊。 它是特別適合編輯標記。
+您可以檢視和管理您的中樞內的所有註冊。 註冊可以分類的平台、 原生或範本註冊、 標記、 推播通知服務識別碼，註冊識別碼和到期日。 您也可以在此頁面上編輯註冊。 它对于编辑标记特别有用。
 
 以滑鼠右鍵按一下您的通知中樞，在**伺服器總管**，然後選取**診斷**。 
 
 ![Visual Studio 伺服器總管：診斷 功能表](./media/notification-hubs-diagnosing/diagnose-menu.png)
 
-您會看到下列頁面：
+会看到以下页面：
 
 ![Visual Studio：診斷頁面](./media/notification-hubs-diagnosing/diagnose-page.png)
 
-若要切換**裝置註冊**頁面：
+切换到“设备注册”页：
 
 ![Visual Studio：裝置註冊](./media/notification-hubs-diagnosing/VSRegistrations.png)
 
-您可以使用**測試傳送**頁面，以傳送測試通知訊息：
+若要发送测试通知消息，可以使用“测试性发送”页：
 
 ![Visual Studio：測試傳送](./media/notification-hubs-diagnosing/test-send-vs.png)
 
@@ -257,14 +257,14 @@ The Token obtained from the Token Provider is wrong
 
 3. 首先，檢閱**內送郵件**、**註冊作業**，以及**成功通知**。 然後，移至每個平台的索引標籤，以檢閱特定於推播通知服務的錯誤。
 
-4. 如果您通知中樞的驗證設定不正確，會出現 **PNS 驗證錯誤**訊息。 它會檢查推播通知服務認證的徵兆。
+4. 如果您通知中樞的驗證設定不正確，會出現 **PNS 驗證錯誤**訊息。 它表示要检查推送通知服务凭据。
 
 #### <a name="programmatic-access"></a>以程式設計方式存取 ####
 
 如需有關以程式設計方式存取的詳細資訊，請參閱 <<c0> [ 以程式設計方式存取](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100))。
 
 > [!NOTE]
-> 幾個與遙測有關的功能，例如匯出和匯入註冊，以及透過 API 進行遙測存取，只能在標準服務層上使用。 如果您嘗試使用這些功能，從免費或基本服務層時，如果您使用 SDK，您會收到例外狀況訊息。 如果您使用直接從 REST Api 的功能，您會收到 HTTP 403 （禁止） 錯誤。
+> 幾個與遙測有關的功能，例如匯出和匯入註冊，以及透過 API 進行遙測存取，只能在標準服務層級上使用。 如果您嘗試使用這些功能，從免費或基本服務層時，如果您使用 SDK，您會收到例外狀況訊息。 如果您使用直接從 REST Api 的功能，您會收到 HTTP 403 （禁止） 錯誤。
 >
 > 若要使用遙測相關功能，請先確定在 Azure 入口網站中，您使用標準服務層。  
 

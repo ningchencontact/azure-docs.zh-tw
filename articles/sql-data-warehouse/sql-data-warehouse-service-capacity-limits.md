@@ -11,17 +11,17 @@ ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.openlocfilehash: 3ed1f251c8c09a52def517f4c94ed2ca1420eda8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60778281"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 資料倉儲容量限制
 Azure SQL 資料倉儲各種元件的最大允許值。
 
 ## <a name="workload-management"></a>工作負載管理
-| 類別 | 描述 | 最大值 |
+| Category | 描述 | 最大值 |
 |:--- |:--- |:--- |
 | [資料倉儲單位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |單一 SQL 資料倉儲的最大 DWU | Gen1：DW6000<br></br>Gen2：DW30000c |
 | [資料倉儲單位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |每一部伺服器的預設 DTU |54,000<br></br>每個 SQL Server (例如 myserver.database.windows.net) 的 DTU 配額為 54,000，最多允許 DW6000c。 此配額僅是安全限制。 您可以藉由[建立支援票證](sql-data-warehouse-get-started-create-support-ticket.md)，並選取「配額」 做為要求類型來增加配額。  若要計算 DTU 需求，將所需的總 DWU 乘以 7.5，或將所需的總 cDWU 乘以 9.0。 例如︰<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW6000c x 9.0 = 54,000 DTU。<br></br>您可以在入口網站的 [SQL Server] 選項中檢視目前的 DTU 耗用量。 已暫停和未暫停的資料庫都會計入 DTU 配額。 |
@@ -31,7 +31,7 @@ Azure SQL 資料倉儲各種元件的最大允許值。
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB 上限 |每一 DW100 399 GB。 因此在 DWU1000，tempdb 大小為 3.99 TB。 |
 
 ## <a name="database-objects"></a>資料庫物件
-| 類別 | 描述 | 最大值 |
+| Category | 描述 | 最大值 |
 |:--- |:--- |:--- |
 | 資料庫 |大小上限 | Gen1：在磁碟上壓縮後 240 TB。 此空間與 tempdb 或記錄檔空間無關，因此此空間為供永久資料表專用。  叢集資料行存放區壓縮估計為 5 X。  當所有資料表都是叢集資料行存放區 (預設的資料表類型) 時，這個壓縮可讓資料庫成長約 1 PB。 <br/><br/> Gen2：資料列存放區的限制為 240 TB，資料行存放區資料表的儲存體則沒有限制 |
 | 資料表 |大小上限 |磁碟上壓縮後 60 TB |
@@ -52,7 +52,7 @@ Azure SQL 資料倉儲各種元件的最大允許值。
 | 檢視 |每個檢視表的資料行 |1,024 |
 
 ## <a name="loads"></a>載入
-| 類別 | 描述 | 最大值 |
+| Category | 描述 | 最大值 |
 |:--- |:--- |:--- |
 | Polybase 加载 |每列 MB 數 |1<br/><br/>PolyBase 載入只能載入小於 1 MB 的資料列，且不能載入至 VARCHAR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX) 的資料列。<br/><br/> |
 

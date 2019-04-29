@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475791"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>移轉至新的彈性資料庫作業
 
@@ -34,7 +34,7 @@ ms.locfileid: "57844121"
 
 如果您還沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-安裝**Az.Sql** 1.1.1-preview 模組，以取得最新的彈性工作 cmdlet。 在 PowerShell 中以系統管理存取權執行下列命令。
+安裝 **Az.Sql** 1.1.1 預覽模組，以取得最新的彈性作業 Cmdlet。 在 PowerShell 中以系統管理存取權執行下列命令。
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowerShellGet v1.6.5 is dependent on

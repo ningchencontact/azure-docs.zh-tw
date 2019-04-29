@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 946f7011c51b7c6844e023d03e01e4c2043d2578
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544458"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615643"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫的應用程式開發概觀 
 本文討論開發人員在撰寫應用程式程式碼以連接到適用於 MySQL 的 Azure 資料庫時所應遵循的設計考量。 
@@ -20,7 +20,7 @@ ms.locfileid: "53544458"
 > 如需示範如何建立伺服器、建立伺服器型防火牆、檢視伺服器屬性、建立資料庫，以及使用 Workbench 和 mysql.exe 進行連接和查詢的教學課程，請參閱[設計您第一個適用於 MySQL 資料庫的 Azure 資料庫](tutorial-design-database-using-portal.md)
 
 ## <a name="language-and-platform"></a>語言和平台
-有一些程式碼範例可供各種程式設計語言和平台使用。 您可以在下列位置找到程式碼範例的連結：[用來連線到適用於 MySQL 的 Azure 資料庫的連線庫](concepts-connection-libraries.md)
+为各种编程语言和平台提供了代码示例。 您可以在下列位置找到程式碼範例的連結：[用來連線到適用於 MySQL 的 Azure 資料庫的連線庫](concepts-connection-libraries.md)
 
 ## <a name="tools"></a>工具
 適用於 MySQL 的 Azure 資料庫會使用 MySQL 社群版本，此版本可與 MySQL 一般管理工具相容，例如 Workbench 或 MySQL 公用程式 (例如 mysql.exe、[phpMyAdmin](https://www.phpmyadmin.net/)、[Navicat](https://www.navicat.com/products/navicat-for-mysql) 等)。 您也可以使用 Azure 入口網站、Azure CLI 和 REST API，來與資料庫服務互動。
@@ -33,7 +33,7 @@ ms.locfileid: "53544458"
 ## <a name="security"></a>安全性
 適用於 MySQL 的 Azure 資料庫提供資源，以便在 MySQL 資料庫上限制存取、保護資料、設定使用者和角色，以及監視活動。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 適用於 MySQL 的 Azure 資料庫支援使用者與登入的伺服器驗證。
 
 ## <a name="resiliency"></a>災害復原

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1a9d26736a444efb83f9040b51676202b1ea4450
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006109"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107868"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>將您的巨量資料分析解決方案從 Azure Data Lake Storage Gen1 升級為 Azure Data Lake Storage Gen2
 
@@ -249,7 +249,7 @@ Data Lake Storage Gen1 會將特定資訊和資料推送給其他可協助您運
 
 Data Lake Storage Gen1 的 URI 配置會在[這裡](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store)詳述，但大致上說，其為 *adl://mydatalakestore.azuredatalakestore.net/\<file_path\>。*
 
-存取 Data Lake 儲存體 Gen2 檔案的 URI 配置會說明[此處](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster)在詳細資料，但更廣泛地說，它是`abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`。
+存取 Data Lake 儲存體 Gen2 檔案的 URI 配置會說明[此處](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)在詳細資料，但更廣泛地說，它是`abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`。
 
 您必須瀏覽現有的應用程式，並確保已將 URI 適度變更為指向 Data Lake Storage Gen2 URI。 此外，您必須新增適當的認證。 最後，您淘汰原始應用程式並取代為新應用程式的方式必須密切符合您的整體升級策略。
 

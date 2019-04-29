@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fa5280fd834d6defaf2816167a73bf72dc3d0a1c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729863"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>管理 Azure 與 AppSource Marketplace 供應項目
 
@@ -30,7 +30,7 @@ ms.locfileid: "54355137"
 
 Cloud Partner 入口網站可讓發行者對供應項目執行下列基本作業。
 
-|     作業      |  說明                                           |
+|     作業      |  描述                                           |
 |     ---------      |  -----------                                           |
 | [建立供應項目](./cpp-create-offer.md)   | 在上架存放庫中建立擱置的供應項目，但不會自動將其發佈到 Microsoft 市集 | 
 | [檢視供應項目狀態](./cpp-view-status-offer.md)   | 提供供應項目的發佈狀態。  入口網站中的多個位置都會顯示狀態資訊。 |

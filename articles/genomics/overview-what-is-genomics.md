@@ -10,11 +10,11 @@ ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
 ms.openlocfilehash: 1b52f47d692cf2fb2925ebb2a9882b9c79c29a87
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60780890"
 ---
 # <a name="what-is-microsoft-genomics"></a>什麼是 Microsoft Genomics？
 Microsoft Genomics 提供 Burrows-Wheeler Aligner (BWA) 和 Genome Analysis Toolkit (GATK) 的雲端實作，以進行次級分析。 此服務已通過 ISO 認證並符合 HIPAA 法規，可針對您的基因組定序需求提供價格預測能力。 藉由閱讀我們的快速入門、教學課程和說明文件，了解如何使用 Microsoft Genomics 服務並與我們的 API 整合。

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
 ms.openlocfilehash: 02089d69ec8e049b2d0d0daf1c76875a9ebab403
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708799"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>所有 Azure SQL Server Stretch Database 服務的主題
 本主題會列出每一個直接適用於 Azure 的 **SQL Server Stretch Database** 服務的主題。 您可以使用 **Ctrl+F**，利用關鍵字搜尋本網頁，以尋找目前感興趣的主題。

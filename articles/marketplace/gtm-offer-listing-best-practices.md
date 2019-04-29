@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
 ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120985"
 ---
 # <a name="offer-listing-best-practices"></a>陳列供應項目的最佳做法
 
@@ -35,7 +35,7 @@ ms.locfileid: "57863928"
 | 店面設定 | 最佳做法 |
 |:--- |:--- |  
 | 產業：僅 AppSource 應用程式與諮詢服務 | 如果您的供應項目可解決特定產業需求，請選取產業： <ul><li> 在您的供應項目描述中凸顯這些特定產業需求。</li> </ul> **注意**：選項數目上限會隨供應項目類型而有所不同，並會在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#insights)中指出。 |
-| 類別 | 選取最符合您供應項目的類別：<br> <ul> <li> 請謹慎選擇這些類別，因為客戶會以類別搜尋相關應用程式。 </li> <li> 務必在供應項目描述中凸顯您的供應項目如何支援特定類別需求。 </li> </ul> **注意**：選項數目上限會隨供應項目類型而有所不同，並會在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#insights)中指出。 |
+| Categories | 選取最符合您供應項目的類別：<br> <ul> <li> 請謹慎選擇這些類別，因為客戶會以類別搜尋相關應用程式。 </li> <li> 務必在供應項目描述中凸顯您的供應項目如何支援特定類別需求。 </li> </ul> **注意**：選項數目上限會隨供應項目類型而有所不同，並會在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#insights)中指出。 |
 | 可搭配您應用程式的產品 (最多 3 個)：僅 AppSource 應用程式 | 列出您解決方案使用或延伸的其他產品和技術。 例如，Azure IoT 中樞或 Azure Machine Learning。 |
 | 搜尋關鍵字 (最多 3 個) | 搜尋關鍵字可協助商務使用者在下列位置中進行搜尋時，可找到您的供應項目 <ul> <li> Azure Marketplace </li> <li> AppSource </li> <li> 使用搜尋引擎 </li> </ul> 為了讓您的清單出現在這些搜尋結果中，您需要： <ul> <li> 找出您供應項目的前三名搜尋關鍵字； </li> <li> 將搜尋關鍵字併入您的供應項目摘要和描述； </li> <li> 在此列出搜尋關鍵字。 </li> </ul> |
 

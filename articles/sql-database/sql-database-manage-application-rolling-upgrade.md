@@ -13,11 +13,11 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 47fd6c1e2bb342bc1a31fb16a45a5ebc749dca69
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702570"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>使用 SQL Database 主動式異地複寫管理雲端應用程式的輪流升級
 
@@ -110,7 +110,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. 中斷連接次要複本 (11) 來終止異地複寫。 此動作會建立獨立但完全同步的生產資料庫複本。 此資料庫將會升級。 下列範例使用 Transact SQL，但[PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0)也會提供。 
+2. 通过断开辅助数据库的连接来终止异地复制 (11)。 此動作會建立獨立但完全同步的生產資料庫複本。 此資料庫將會升級。 以下示例使用了 Transact-SQL，但是也可以使用 [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0)。 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -147,7 +147,7 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 ## <a name="summary"></a>總結
 
-本文中所描述的兩種升級方法有不同的複雜度與金額成本，但它們都著重於將使用者受限為唯讀作業的時間降到最低。 該時間由升級指令碼的期間直接定義。 時間不會取決於資料庫大小、您選擇的服務層、網站設定，或其他您無法輕鬆控制的因素。 所有準備步驟會與升級步驟分離，且不會影響生產應用程式。 升級指令的效率是決定升級期間使用者的體驗的重要因素。 因此改進該體驗的最佳方式，舊是將工作焦點放在盡可能提高升級指令碼的效率。
+本文中所描述的兩種升級方法有不同的複雜度與金額成本，但它們都著重於將使用者受限為唯讀作業的時間降到最低。 該時間由升級指令碼的期間直接定義。 時間不會取決於資料庫大小、您選擇的服務層級、網站設定，或其他您無法輕鬆控制的因素。 所有準備步驟會與升級步驟分離，且不會影響生產應用程式。 升級指令的效率是決定升級期間使用者的體驗的重要因素。 因此改進該體驗的最佳方式，舊是將工作焦點放在盡可能提高升級指令碼的效率。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,5 +1,5 @@
 ---
-title: 在遠端監視解決方案 UI 中新增頁面 - Azure | Microsoft Docs
+title: 向远程监视解决方案 UI 添加页 - Azure | Microsoft Docs
 description: 本文說明如何在遠端監視解決方案加速器 Web UI 中新增頁面。
 author: dominicbetts
 manager: timlt
@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447075"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>在遠端監視解決方案加速器 Web UI 中新增自訂頁面
 

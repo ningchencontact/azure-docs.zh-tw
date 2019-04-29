@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: e9fd818990c8a985a77c2e7eeea19bf63c440e4e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61347644"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>使用 Azure Data Factory 從 Teradata 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ ms.locfileid: "54018988"
 
 以下是針對 Teradata 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Teradata** | 是 |
 | 伺服器 | Teradata 伺服器的名稱。 | 是 |
@@ -91,7 +91,7 @@ ms.locfileid: "54018988"
 
 若要從 Teradata 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
 | tableName | Teradata 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -120,7 +120,7 @@ ms.locfileid: "54018988"
 
 若要從 Teradata 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
@@ -169,39 +169,39 @@ ms.locfileid: "54018988"
 | ByteInt |Int16 |
 | Char |字串 |
 | Clob |字串 |
-| 日期 |Datetime |
-| 十進位 |十進位 |
-| 兩倍 |兩倍 |
+| date |DateTime |
+| Decimal |Decimal |
+| Double |Double |
 | 圖形 |字串 |
 | 整數  |Int32 |
-| 間隔日 |時間範圍 |
-| 間隔日至小時 |時間範圍 |
-| 間隔日至分鐘 |時間範圍 |
-| 間隔日至秒鐘 |時間範圍 |
-| 間隔小時 |時間範圍 |
-| 間隔小時至分鐘 |時間範圍 |
-| 間隔小時至秒鐘 |時間範圍 |
-| 間隔分鐘 |時間範圍 |
-| 間隔分鐘至秒鐘 |時間範圍 |
+| 間隔日 |TimeSpan |
+| 間隔日至小時 |TimeSpan |
+| 間隔日至分鐘 |TimeSpan |
+| 間隔日至秒鐘 |TimeSpan |
+| 間隔小時 |TimeSpan |
+| 間隔小時至分鐘 |TimeSpan |
+| 間隔小時至秒鐘 |TimeSpan |
+| 間隔分鐘 |TimeSpan |
+| 間隔分鐘至秒鐘 |TimeSpan |
 | 間隔月 |字串 |
-| 間隔第二 |時間範圍 |
+| 間隔第二 |TimeSpan |
 | 間隔年 |字串 |
 | 間隔年至月 |字串 |
-| 數字 |兩倍 |
+| 數字 |Double |
 | Period(Date) |字串 |
 | Period(Time) |字串 |
 | Period(Time With Time Zone) |字串 |
 | Period(Timestamp) |字串 |
 | Period(Timestamp With Time Zone) |字串 |
 | SmallInt |Int16 |
-| 時間 |時間範圍 |
+| 時間 |TimeSpan |
 | 時區的時間 |字串 |
-| Timestamp |Datetime |
+| Timestamp |DateTime |
 | 時區的時間戳記 |DateTimeOffset |
 | VarByte |Byte[] |
 | VarChar |字串 |
 | VarGraphic |字串 |
-| xml |字串 |
+| Xml |字串 |
 
 
 ## <a name="next-steps"></a>後續步驟

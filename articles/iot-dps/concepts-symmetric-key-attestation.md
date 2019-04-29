@@ -3,17 +3,17 @@ title: Azure IoT 中樞裝置佈建服務 - 對稱金鑰證明
 description: 本文將在概念上略述使用 IoT 中樞裝置佈建服務時的對稱金鑰證明。
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 08/18/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
+manager: timlt
 ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746060"
 ---
 # <a name="symmetric-key-attestation"></a>對稱金鑰證明
 
@@ -46,7 +46,7 @@ SAS 權杖具有下列格式：
 
 下列為每個權杖的元件：
 
-| 值 | 描述 |
+| Value | 描述 |
 | --- | --- |
 | {signature} |HMAC-SHA256 簽章字串。 對於個別註冊，此簽章是使用對稱金鑰（主要或次要）來執行雜湊所產生的。 對於註冊群組，衍生自註冊群組索引鍵的索引鍵會用來執行雜湊。 雜湊是在表單的訊息上執行：`URL-encoded-resourceURI + "\n" + expiry`。 **重要**：必须先从 base64 解码密钥，然后才能将其用于执行 HMAC-SHA256 计算。 此外，簽章結果必須以 URL 編碼。 |
 | {resourceURI} |可以使用此權杖存取的註冊端點 URI，開頭為裝置佈建服務執行個體的範圍 ID。 例如， `{Scope ID}/registrations/{Registration ID}` |

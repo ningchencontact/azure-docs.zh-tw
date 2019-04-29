@@ -6,17 +6,18 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: danimir
-ms.author: danil
+author: WenJason
+ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
-manager: craigg
-ms.date: 01/25/2019
+manager: digimobile
+origin.date: 01/25/2019
+ms.date: 02/25/2019
 ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584767"
 ---
 # <a name="monitor-and-improve-performance"></a>監視並改善效能
 
@@ -41,11 +42,11 @@ Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧�
 ![效能](./media/sql-database-performance/performance.png)
 
 * [建議] 圖格會提供適用於資料庫的微調建議分解 (如果有多個建議，則會顯示前三個)。 按一下此圖格，即會帶您前往 [[效能建議](#performance-recommendations)]。 
-* [微調活動]  圖格會提供資料庫進行中和已完成微調動作的摘要，讓您快速檢視調整活動的歷程記錄。 按一下此圖格會帶您前往您的資料庫的完整微調記錄檢視。
+* [微調活動]  圖格會提供資料庫進行中和已完成微調動作的摘要，讓您快速檢視調整活動的歷程記錄。 单击此磁贴可转到数据库的完整优化历史记录视图。
 * [自動調整] 圖格會顯示資料庫的[自動調整設定](sql-database-automatic-tuning-enable.md) (自動套用至資料庫的微調選項)。 按一下此圖格會開啟 [自動化組態] 對話方塊。
-* [資料庫查詢] 圖格會顯示資料庫的查詢效能摘要 (整體 DTU 使用量和排名最前面的資源取用查詢)。 按一下此圖格，即會帶您前往 [[查詢效能深入解析](#query-performance-insight)]。
+* “数据库查询”磁贴显示数据库的查询性能摘要（DTU 整体使用情况和排名靠前的资源消耗查询）。 按一下此圖格，即會帶您前往 [[查詢效能深入解析](#query-performance-insight)]。
 
-## <a name="performance-recommendations"></a>效能建議
+## <a name="performance-recommendations"></a>性能建议
 
 此頁面提供可改善資料庫效能的智慧型[微調建議](sql-database-advisor.md)。 此頁面上顯示的建議類型如下：
 
@@ -69,7 +70,7 @@ Azure SQL 資料庫能透過套用[效能建議](sql-database-advisor.md)來自�
 
 * 更深入的資料庫資源 (DTU) 取用分析。 
 * 排名最前面的 CPU 取用查詢，進行微調有可能會改善效能。 
-* 向下鑽研查詢詳細資料的功能。 
+* 可以向下钻取查询的详细信息。 
 
   ![效能儀表板](./media/sql-database-query-performance/performance.png)
 

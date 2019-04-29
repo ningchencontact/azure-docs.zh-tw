@@ -3,17 +3,17 @@ title: Azure IoT 中樞裝置佈建服務的概念 | Microsoft Docs
 description: 針對具有裝置佈建服務和 IoT 中樞的服務說明其特有的服務佈建概念
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60745803"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT 中樞裝置佈建服務服務概念
 

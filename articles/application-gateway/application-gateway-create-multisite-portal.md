@@ -11,15 +11,15 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
 ms.openlocfilehash: 85113a5007a171459b831684f584773ba4328b94
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122401"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>使用 Azure 入口網站，建立有多站台裝載的應用程式閘道
 
-您可以使用 Azure 入口網站，在建立[應用程式閘道](application-gateway-introduction.md)時設定[裝載多個站台](application-gateway-multi-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集建立後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有的多個網域，並使用範例*www\.contoso.com*並*www\.fabrikam.com*。
+您可以使用 Azure 入口網站，在建立[應用程式閘道](application-gateway-introduction.md)時設定[裝載多個站台](application-gateway-multi-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集建立後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www\.contoso.com* 和 *www\.fabrikam.com* 範例。
 
 在本文中，您將了解：
 
@@ -117,7 +117,7 @@ ms.locfileid: "58079941"
       -Settings $publicSettings
     ```
 
-3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入的名稱*fabrikamVM*的名稱，然後設定 AzVMExtension 中的 VMName 值。
+3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 fabrikamVM 作為名稱，並作為 Set-AzVMExtension 中的 VMName 值。
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>建立包含虛擬機器的後端集區
 
@@ -137,10 +137,10 @@ ms.locfileid: "58079941"
 2. 為接聽程式輸入這些值：
     
    - contosoListener - 作為接聽程式的名稱。
-   - *www\.contoso.com* -以您的網域名稱取代此主機名稱範例。
+   - *www\.contoso.com* - 将此主机名示例替换为自己的域名。
 
 3. 按一下 [確定]。
-4. 使用 fabrikamListener 的名稱建立第二個接聽程式，然後使用您的第二個網域名稱。 在此範例中， *www\.fabrikam.com*用。
+4. 使用 fabrikamListener 的名稱建立第二個接聽程式，然後使用您的第二個網域名稱。 在此示例中，使用 *www\.fabrikam.com*。
 
 會以規則列出的順序進行處理，而且不論精確性為何，都會使用相符的第一個規則將流量進行導向。 例如，如果您在相同的連接埠上同時使用基本接聽程式的規則和多站台接聽程式的規則，則必須將多站台接聽程式的規則列於基本接聽程式的規則之前，多站台規則才能如預期般運作。 
 

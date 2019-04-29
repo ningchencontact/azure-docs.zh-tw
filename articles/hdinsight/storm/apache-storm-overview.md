@@ -1,7 +1,6 @@
 ---
 title: 什麼是 Apache Storm - Azure HDInsight
 description: Apache Storm 可讓您即時處理資料流。 Azure HDInsight 可讓您在 Azure 雲端上輕鬆建立 Storm 叢集。 使用 Visual Studio，您可以使用 C# 建立 Storm 解決方案，然後再部署到 HDInsight Storm 叢集。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm 使用案例,storm 叢集,什麼是 apache storm
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: b9c66216411f42e46cc7c7be486f6103db9c7208
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 5688056bc0d371c780bce02254769792e9a95696
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116527"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什麼是 Apache Storm on Azure HDInsight？
 
@@ -48,7 +47,7 @@ Storm on HDInsight 提供下列功能︰
 
 如需使用 Apache Storm 作為即時分析解決方案的公司清單，請參閱[使用 Apache Storm 的公司](https://storm.apache.org/documentation/Powered-By.html)。
 
-若要開始使用 Storm，請參閱[開始使用 Apache Storm on HDInsight][gettingstarted]。
+若要开始使用 Storm，请参阅 [Apache Storm on HDInsight 入门][gettingstarted]。
 
 ## <a name="how-does-apache-storm-work"></a>Apache Storm 的運作方式
 
@@ -142,7 +141,7 @@ Apache Storm 可以提供不同程度的訊息處理保證。 例如，基本的
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-讀取輸入的 tuple、 發出零個或多個 tuple，和然後認可輸入的 tuple，在執行方法結束時立即模式很常見。 Storm 提供 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 介面將此模式自動化。
+读取输入元组，发出零个或多个元组，并在执行方法结束时立即确认输入元组，这种模式非常普通。 Storm 提供 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 介面將此模式自動化。
 
 ### <a name="joins"></a>联接
 

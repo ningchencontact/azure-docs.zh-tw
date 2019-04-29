@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/13/2018
 ms.author: barclayn
 ms.openlocfilehash: 8835c4534b6dab1e8dbfb3546257ae4bc3b9d7af
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588647"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610935"
 ---
 # <a name="penetration-testing"></a>滲透測試
 使用 Azure 進行應用程式測試和部署的其中一個優點是您可以快速建立環境。 您無需購置、取得和組裝自己的內部部署硬體。

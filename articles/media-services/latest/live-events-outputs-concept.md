@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 00dab8381c26a6331dd325eacd4a550892bd3411
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a36ca880387ee1a3c5f749dbd6b9d7dcb9e6d79d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325828"
+ms.locfileid: "62103779"
 ---
 # <a name="live-events-and-live-outputs"></a>即時事件與即時輸出
 
@@ -143,6 +143,10 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 如果您已使用**串流定位器**來發佈**實況輸出**的**資產**，**實況活動** (最長可達 DVR 時段長度) 將繼續可供檢視，直到「串流定位器」到期或被刪除 (以先到者為準) 為止。
 
 如需詳細資訊，請參閱[使用雲端 DVR](live-event-cloud-dvr.md)。
+
+## <a name="provide-feedback"></a>提供意見反應
+
+請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 
 ## <a name="next-steps"></a>後續步驟
 

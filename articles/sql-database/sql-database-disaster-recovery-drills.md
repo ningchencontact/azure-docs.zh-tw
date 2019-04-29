@@ -13,11 +13,11 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 5d754ae558d485036a9a55f573a3f40162ed9f84
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725426"
 ---
 # <a name="performing-disaster-recovery-drill"></a>執行災害復原演練
 
@@ -27,7 +27,7 @@ ms.locfileid: "55561122"
 
 * 模擬資料層中斷情況
 * 復原
-* 驗證復原後的應用程式完整性
+* 验证恢复后的应用程序完整性
 
 執行演練的工作流程會因您 [設計商務持續性之應用程式](sql-database-business-continuity.md)的方式而異。 本文說明在 Azure SQL Database 的內容中進行災害復原演練的最佳做法。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098587"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>使用自動轉寄鏈結服務匯流排實體
 
@@ -46,6 +46,10 @@ namespaceManager.CreateSubscription(srcSubscription));
 ![自動轉寄案例][1]
 
 如果 Alice 去渡假，她的個人佇列 (而不是 ERP 主題) 會填滿。 在此案例中，因為銷售代表未收到任何訊息，所以沒有任何 ERP 主題達到配額。
+
+> [!NOTE]
+> 安裝程式自動轉送時，AutoDeleteOnIdle 目的地上的值會自動設定為資料類型的最大值。
+> 這是為了確保總是將訊息轉送至目的地。
 
 ## <a name="autoforwarding-considerations"></a>自動轉寄考量
 

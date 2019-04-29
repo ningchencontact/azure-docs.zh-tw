@@ -2,28 +2,29 @@
 title: 適用於工作負載管理的資源類別 - Azure SQL 資料倉儲 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中，使用資源類別來管理並行和適用於查詢之計算資源的指引。
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/15/2019
-ms.author: rortloff
+origin.date: 03/15/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.reviewer: jrasnick
 ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475077"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中搭配使用工作負載管理與資源類別
 
 指引如何在 Azure SQL 資料倉儲中，使用資源類別來管理查詢的記憶體與並行存取。  
 
-## <a name="what-is-workload-management"></a>什麼是工作負載管理
+## <a name="what-is-workload-management"></a>什么是工作负荷管理
 
-工作負載管理會提供所有查詢的整體效能最佳化的能力。 精心調整的工作負載執行查詢和有效率地載入作業，無論是計算密集型或 IO 密集型。 SQL 資料倉儲會針對多使用者環境提供工作負載管理功能。 資料倉儲不適用於多租用戶工作負載。
+工作负荷管理提供优化所有查询的整体性能的功能。 适当优化的工作负荷能够有效地运行查询和负载操作，而不管这些查询和操作是计算密集型还是 IO 密集型。 SQL 資料倉儲會針對多使用者環境提供工作負載管理功能。 資料倉儲不適用於多租用戶工作負載。
 
 資料倉儲的效能處理能力取決於[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)。
 
@@ -32,17 +33,17 @@ ms.locfileid: "58520049"
 
 查詢的效能處理能力取決於查詢的資源類別。 本文其餘部分說明什麼是資源類別，以及要如何調整它們。
 
-## <a name="what-are-resource-classes"></a>資源類別有哪些？
+## <a name="what-are-resource-classes"></a>什么是资源类
 
-查詢的效能處理能力取決於使用者的資源類別。  資源類別是 Azure SQL 資料倉儲中預先決定的資源限制，掌管查詢執行時的計算資源與並行存取。 資源類別可協助您藉由設定限制，同時執行的查詢數目和指派給每個查詢的計算資源上管理您的工作負載。  沒有記憶體和並行存取之間的取捨。
+查詢的效能處理能力取決於使用者的資源類別。  資源類別是 Azure SQL 資料倉儲中預先決定的資源限制，掌管查詢執行時的計算資源與並行存取。 资源类可以针对并发运行的查询数以及分配给每个查询的计算资源量设置限制，从而帮助管理工作负荷。  我们需要在内存和并发性之间进行权衡。
 
 - 較小型的資源類別會減少每個查詢的記憶體上限，但會增加並行存取數。
-- 較大資源類別增加每一個查詢的最大記憶體，但是減少並行。
+- 较大的资源类可以增加每个查询的最大内存量，但同时会降低并发性。
 
 有兩種類型的資源類別：
 
 - 靜態資源類別：適合在大小固定的資料集上增加並行存取作業數目。
-- 動態資源類別，也就是適合用來在增長的大小，而需要更高的效能，因為服務層級進行相應增加的資料集。
+- 动态资源类：非常适用于大小和性能随着服务级别的扩展而增加和提升的数据集。
 
 資源類別會使用並行位置來測量資源耗用量。  [並行位置](#concurrency-slots)稍後會在本文中加以說明。
 
@@ -160,7 +161,7 @@ Removed as these two are not confirmed / supported under SQL DW
 - 比起以 2 個並行位置執行的查詢，以 10 個並行位置執行的查詢可以存取 5 倍以上的計算資源。
 - 如果每個查詢需要 10 個並行位置且有 40 個並行位置，則只能同時執行 4 個查詢。
 
-只有資源控管的查詢可取用並行位置。 系統查詢和一些簡單式查詢不會取用任何位置。 取用的並行位置確切數目取決於查詢的資源類別。
+只有資源控管的查詢可取用並行位置。 系统查询和一些不重要的查询不消耗任何槽位。 消耗的确切并发槽位数由查询的资源类决定。
 
 ## <a name="view-the-resource-classes"></a>檢視資源類別
 
@@ -174,15 +175,15 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 ## <a name="change-a-users-resource-class"></a>變更使用者的資源類別
 
-資源類別會藉由將使用者指派給資料庫角色來實作。 當使用者執行查詢時，查詢會利用使用者的資源類別來執行。 例如，如果使用者是 staticrc10 資料庫角色的成員，他們的查詢執行使用少量記憶體。 如果資料庫使用者為 xlargerc 或 staticrc80 資料庫角色的成員，他們的查詢執行使用大量的記憶體。
+資源類別會藉由將使用者指派給資料庫角色來實作。 當使用者執行查詢時，查詢會利用使用者的資源類別來執行。 例如，如果某个用户是 staticrc10 数据库角色的成员，则其查询将使用较小的内存量来运行。 如果某个数据库用户是 xlargerc 或 staticrc80 数据库角色的成员，则其查询将使用较大的内存量来运行。
 
-若要增加使用者的資源類別，使用[sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)將使用者新增至資料庫角色的大型資源類別。  下列程式碼會將使用者加入 largerc 資料庫角色。  每個要求會取得 22%的系統記憶體。
+若要提高用户的资源类，请使用 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) 将用户添加到大型资源类的数据库角色。  以下代码将用户添加到 largerc 数据库角色。  每个请求获取 22% 的系统内存。
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-若要減少資源類別，使用 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) \(英文\)。  如果 'loaduser' 不是成員或任何其他的資源類別，它們會進入 3%的記憶體授與的預設 smallrc 資源類別。  
+若要減少資源類別，使用 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) \(英文\)。  如果“loaduser”不是成员或任何其他资源类，则会转到具有 3% 内存授予的默认 smallrc 资源类。  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -197,33 +198,33 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 ## <a name="recommendations"></a>建議
 
-我們建議您建立的使用者，專門用來執行特定類型的查詢或載入作業。 永久性資源類別，而不是變更頻繁地的資源類別，為該使用者。 靜態資源類別會承受更好的整體控制，於工作負載，因此我們建議您考慮動態資源類別之前，先使用靜態資源類別。
+我们建议创建一个专门用于运行特定类型的查询或负载操作的用户。 为该用户提供永久性的资源类，而不是频繁更改资源类。 静态资源类对工作负荷提供的整体控制度更高，因此，我们建议先使用静态资源类，然后再考虑动态资源类。
 
 ### <a name="resource-classes-for-load-users"></a>載入使用者適用的資源類別
 
-`CREATE TABLE` 預設會使用叢集的資料行存放區索引。 將資料壓縮到資料行存放區索引是記憶體密集型作業，而記憶體壓力會降低索引品質。 若要載入資料時，需要較高的資源類別，可能會導致記憶體不足的壓力。 若要確保載入具有足夠的記憶體，您可以建立要指定來執行載入的使用者，並將該使用者指派給較高的資源類別。
+`CREATE TABLE` 預設會使用叢集的資料行存放區索引。 將資料壓縮到資料行存放區索引是記憶體密集型作業，而記憶體壓力會降低索引品質。 加载数据时，内存压力可能导致需要更高的资源类。 若要確保載入具有足夠的記憶體，您可以建立要指定來執行載入的使用者，並將該使用者指派給較高的資源類別。
 
 若要有效率地處理載入，所需的記憶體取決於所載入之資料表的性質和資料大小。 如需有關記憶體需求的詳細資訊，請參閱[將資料列群組品質最大化](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)。
 
 一旦您決定記憶體需求之後，請選擇是否要將載入使用者指派給靜態或動態資源類別。
 
 - 當資料表記憶體需求落在特定範圍內時，請使用靜態資源類別。 載入會使用適當的記憶體來執行。 當您調整資料倉儲時，載入不需要更多記憶體。 記憶體配置藉由使用靜態資源類別來維持一致。 這種一致性可節省記憶體，並允許同時執行多個查詢。 我們建議新的解決方案先使用靜態資源類別，因為這些提供更好的控制。
-- 當資料表記憶體需求相當廣泛時，請使用動態資源類別。 載入所需的記憶體可能比目前的 DWU 或 cDWU 層級提供的更多。 調整資料倉儲將更多的記憶體載入作業，讓載入能夠執行得更快。
+- 當資料表記憶體需求相當廣泛時，請使用動態資源類別。 載入所需的記憶體可能比目前的 DWU 或 cDWU 層級提供的更多。 扩展数据仓库可为负载操作添加更多的内存，从而使负载的执行速度加快。
 
 ### <a name="resource-classes-for-queries"></a>查詢適用的資源類別
 
-某些查詢需要大量計算的而且某些不。  
+有些查询是计算密集型的，有些则不是。  
 
-- 當查詢很複雜，但不需要高並行存取，請選擇動態資源類別。  例如，產生每日或每週報表，偶爾需要使用資源。 如果報表正在處理大量資料，則調整資料倉儲會為使用者現有的資源類別提供更多記憶體。
-- 若對資源的預期一整天都不一樣，請選擇靜態資源類別。 例如，當許多人查詢資料倉儲時，靜態資源類別會運作得很好。 當調整資料倉儲，配置給使用者的記憶體數量不會變更。 因此，可以在系統上平行執行更多查詢。
+- 当查询较为复杂但不需要高并发性时，可以选择动态资源类。  例如，產生每日或每週報表，偶爾需要使用資源。 如果報表正在處理大量資料，則調整資料倉儲會為使用者現有的資源類別提供更多記憶體。
+- 若對資源的預期一整天都不一樣，請選擇靜態資源類別。 例如，當許多人查詢資料倉儲時，靜態資源類別會運作得很好。 缩放数据仓库时，分配给用户的内存量不会变化。 因此，可以在系統上平行執行更多查詢。
 
-授與的適當記憶體取決於許多因素，例如查詢的資料量，資料表結構描述的性質，以及各種聯結、 選取和群組述詞。 一般來說，配置更多的記憶體讓查詢能夠更快完成，但會減少整體並行能力。 如果您不在意並行能力，則超額配置記憶體不會損害輸送量。
+适当的内存授予取决于许多因素，例如，查询的数据量、表架构的性质，以及各种联接、选择和组合谓词。 一般來說，配置更多的記憶體讓查詢能夠更快完成，但會減少整體並行能力。 如果您不在意並行能力，則超額配置記憶體不會損害輸送量。
 
 若要調整效能，請使用不同的資源類別。 下一節提供可協助您找出最佳資源類別的預存程序。
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>尋找最佳資源類別的範例程式碼
 
-您可以使用下列指定預存程序[Gen1](#stored-procedure-definition-for-gen1)或是[Gen2](#stored-procedure-definition-for-gen2)-若要了解並行存取和記憶體授與每個資源類別，在給定 SLO 和記憶體的最佳資源類別密集 CCI在給定的資源類別的非分割 CCI 資料表上的作業：
+可以使用下面指定的存储过程（仅适用于 [Gen1](#stored-procedure-definition-for-gen1) 或 [Gen2](#stored-procedure-definition-for-gen2)），根据给定的 SLO 推算每个资源类的并发性和内存授予，以及根据给定的资源类推算对非分区 CCI 表执行内存密集型 CCI 操作时可用的最佳资源类：
 
 以下是此預存程序的用途：
 
@@ -268,7 +269,7 @@ EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;
 下列陳述式會建立要在前述範例中使用的 Table1。
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
-### <a name="stored-procedure-definition-for-gen1"></a>Gen1 的預存程序定義
+### <a name="stored-procedure-definition-for-gen1"></a>Gen1 的存储过程定义
 
 ```sql  
 -------------------------------------------------------------------------------
@@ -583,7 +584,7 @@ SELECT  CASE
 GO
 ```
 
-### <a name="stored-procedure-definition-for-gen2"></a>Gen2 的預存程序定義
+### <a name="stored-procedure-definition-for-gen2"></a>Gen2 的存储过程定义
 
 ```sql
 -------------------------------------------------------------------------------
@@ -941,6 +942,7 @@ GO
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
 
 <!--Other Web references-->
+<!-- Update_Description: update link, wording update-->

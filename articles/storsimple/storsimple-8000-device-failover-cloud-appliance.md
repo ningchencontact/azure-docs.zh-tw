@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ec8bebf2854e84a37e84b45564e80fc20b63d8d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 45c521fd044fa258b8052a3f0de48784cf4160e8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584327"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>容錯移轉至您的 StorSimple 雲端設備
 
@@ -31,7 +31,7 @@ ms.locfileid: "23108326"
 
 若要將 StorSimple 實體裝置容錯移轉至另一個實體裝置，請移至[容錯移轉至 StorSimple 實體裝置](storsimple-8000-device-failover-physical-device.md)。 若要將裝置容錯移轉至本身的裝置，請移至[容錯移轉至相同的 StorSimple 實體裝置](storsimple-8000-device-failover-same-device.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 請確定您已檢閱裝置容錯移轉的注意事項。 如需詳細資訊，請移至[裝置容錯移轉的一般注意事項](storsimple-8000-device-failover-disaster-recovery.md)。
 

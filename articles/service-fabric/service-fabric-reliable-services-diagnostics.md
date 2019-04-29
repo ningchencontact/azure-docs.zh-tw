@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772953"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>具狀態 Reliable Services 診斷功能
 Azure Service Fabric 具狀態可靠服務 StatefulServiceBase 類別會發出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件，可用於偵錯服務、提供執行階段運作情形的深入了解，以及協助疑難排解。
@@ -50,7 +50,7 @@ StatefulRunAsyncInvocation、StatefulRunAsyncCompletion，和 StatefulRunAsyncCa
 ## <a name="performance-counters"></a>效能計數器
 Reliable Services 執行階段定義下列效能計數器類別：
 
-| 類別 | 描述 |
+| Category | 描述 |
 | --- | --- |
 | Service Fabric 異動複寫器 |Azure Service Fabric 異動複寫器特有的計數器 |
 | Service Fabric TStore |Azure Service Fabric TStore 特有的計數器 |

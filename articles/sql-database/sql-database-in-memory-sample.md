@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005734"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61035709"
 ---
 # <a name="in-memory-sample"></a>記憶體內部範例
 
@@ -74,7 +74,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
 
-結果為 **0** 表示不支援 In-Memory，而 **1** 表示提供支援。 若要診斷問題，請確定資料庫位於「進階」服務層。
+結果為 **0** 表示不支援 In-Memory，而 **1** 表示提供支援。 若要診斷問題，請確定資料庫位於「進階」服務層級。
 
 
 #### <a name="about-the-created-memory-optimized-items"></a>關於已建立的記憶體最佳化項目
@@ -278,7 +278,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 1. 使用 Azure 入口網站，從範例建立全新的 AdventureWorksLT 資料庫。
    - 使用相同的名稱。
-   - 选择任一高级服务层。
+   - 选择任一“高级”服务层级。
 
 2. 將 [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) 複製到剪貼簿。
    - T-SQL 指令碼會在步驟 1 建立的 AdventureWorksLT 範例資料庫中建立所需的 In-Memory 物件。

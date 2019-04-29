@@ -1,6 +1,6 @@
 ---
 title: Azure 儲存體總管疑難排解指南 | Microsoft Docs
-description: Azure 儲存體總管偵錯技術的概觀
+description: Azure 存储资源管理器调试方法概述
 services: virtual-machines
 author: Deland-Han
 ms.service: virtual-machines
@@ -8,58 +8,58 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483336"
 ---
-# <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
+# <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
 Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。 應用程式可以連線至裝載於 Azure、National Clouds 和 Azure Stack 上的儲存體帳戶。
 
 本指南摘要說明儲存體總管中常見的問題解決方案。
 
-## <a name="role-based-access-control-permission-issues"></a>角色型存取控制的權限問題
+## <a name="role-based-access-control-permission-issues"></a>基于角色的访问控制权限问题
 
-[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)藉由結合到權限集合提供更細緻的存取管理 Azure 資源_角色_。 以下是一些您可以遵循以取得使用儲存體總管中的 RBAC 的建議。
+[基于角色的访问控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) 是通过将权限集组合成“角色”，来提供对 Azure 资源的精细访问管理。 可遵循以下建议在存储资源管理器中正常运行 RBAC。
 
-### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>我要請參閱我在儲存體總管 中的資源？
+### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>需要满足哪些条件才能在存储资源管理器中查看我的资源？
 
-如果您遇到存取使用 RBAC 的儲存體資源的問題，可能是因為您沒有被指派適當的角色。 下列各節說明儲存體總管目前需要存取您的儲存體資源的權限。
+如果在使用 RBAC 访问存储资源时遇到问题，原因可能是你尚未获得相应的角色。 以下部分介绍了存储资源管理器目前要求提供哪些权限来访问存储资源。
 
-如果您不確定您有適當的角色或權限，請連絡您的 Azure 帳戶系統管理員。
+如果你不确定自己是否拥有相应的角色或权限，请联系 Azure 帐户管理员。
 
-#### <a name="read-listget-storage-accounts"></a>讀取：列出/取得儲存體帳戶
+#### <a name="read-listget-storage-accounts"></a>讀取：列出/获取存储帐户
 
-您必須列出儲存體帳戶的權限。 您可以指派 「 讀者 」 角色，以取得此權限。
+必须有权列出存储帐户。 可以请求分配“读取者”角色来获取此权限。
 
-#### <a name="list-storage-account-keys"></a>清單儲存體帳戶金鑰
+#### <a name="list-storage-account-keys"></a>列出存储帐户密钥
 
-儲存體總管也可以使用帳戶金鑰來驗證要求。 您可以取得存取金鑰與更強大的角色，例如 「 參與者 」 角色。
+存储资源管理器还可以使用帐户密钥对请求进行身份验证。 可以使用权限更高的角色（例如“参与者”角色）来获取密钥的访问权限。
 
 > [!NOTE]
-> 存取金鑰授與不受限制的權限會保留它們的任何人。 因此，通常不建議他們交給帳戶使用者。 如果您需要撤銷存取金鑰，您可以重新產生它們[Azure 入口網站](https://portal.azure.com/)。
+> 访问密钥向其任何持有者授予不受限制的权限。 因此，通常不建议将其分发给帐户用户。 如果需要撤消访问密钥，可以通过 [Azure 门户](https://portal.azure.com/)重新生成访问密钥。
 
-#### <a name="data-roles"></a>資料角色
+#### <a name="data-roles"></a>数据角色
 
-您必須指派至少一個角色，授與存取權從資源讀取資料。 例如，如果您要列出或下載 blob，您將至少需要 「 儲存體 Blob 資料讀者 」 角色。
+必须至少拥有一个可以授予对资源中数据的读取访问权限的角色。 例如，如果需要列出或下载 Blob，则至少需要拥有“存储 Blob 数据读取者”角色。
 
-### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>為什麼需要管理層級角色，即可查看我的資源在儲存體總管？
+### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>为何需要管理层角色才能在存储资源管理器中查看我的资源？
 
-Azure 儲存體有兩個層級的存取權限：_管理_並_資料_。 透過管理層存取的訂用帳戶和儲存體帳戶。 透過資料層存取的容器、 blob 和其他資料資源。 例如，如果您想要從 Azure 取得的儲存體帳戶清單，請管理端點傳送要求。 如果您想在帳戶中的 blob 容器的清單，您會將要求傳送至適當的服務端點。
+Azure 存储提供两个访问层：“管理”和“数据”。 订阅和存储帐户是通过管理层访问的。 容器、Blob 和其他数据资源是通过数据层访问的。 例如，若要从 Azure 获取存储帐户的列表，应向管理终结点发送请求。 若要列出帐户中的 Blob 容器，应向相应的服务终结点发送请求。
 
-RBAC 角色可能會包含管理] 或 [資料層存取的權限。 「 讀者 」 角色，例如，授與您唯讀存取權管理層資源。
+RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读取者”角色授予对管理层资源的只读访问权限。
 
-嚴格來說，「 讀者 」 角色會不提供任何資料層級權限，並不需要存取資料層。
+严格地讲，“读取者”角色不提供数据层的权限，并非一定要有该角色才能访问数据层。
 
-儲存體總管可讓您更輕鬆地存取您的資源所收集其連線到您的 Azure 資源中，為您所需的資訊。 例如，若要顯示 blob 容器，儲存體總管會傳送至 blob 服務端點清單容器要求。 若要取得該端點，儲存體總管會搜尋訂用帳戶清單，並儲存體帳戶有存取權。 但是，若要尋找您的訂用帳戶和儲存體帳戶，儲存體總管也需要存取管理層。
+在存储资源管理器中，可以通过收集连接到 Azure 资源所需的信息，来轻松访问资源。 例如，若要显示 Blob 容器，存储资源管理器会向 Blob 服务终结点发送“列出容器”请求。 若要获取该终结点，存储资源管理器会搜索你有权访问的订阅和存储帐户列表。 但是，若要查找订阅和存储帐户，存储资源管理器还需要有权访问管理层。
 
 如果您還沒有授與任何管理層級權限的角色，儲存體總管無法取得所需連接到資料層的資訊。
 
-### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>如果我不能管理層級權限需要系統管理員身分從嗎？
+### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>如果我无法从管理员获取管理层权限，该怎么办？
 
-我們目前還沒有 RBAC 相關的解決方案。 因應措施，您可以要求 SAS URI[附加至您的資源](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas)。
+目前，我们尚未制定 RBAC 相关的解决方法。 一种解决方法是请求一个 SAS URI 并将其[附加到资源](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas)。
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error:憑證鏈結中的自我簽署憑證 (和類似錯誤)
 
@@ -84,7 +84,7 @@ RBAC 角色可能會包含管理] 或 [資料層存取的權限。 「 讀者 �
     * Windows：開啟安裝目錄，按一下 **/bin/**，再按兩下 **openssl.exe**。
     * Mac 和 Linux：從終端機執行 **openssl**。
 3. 執行 `s_client -showcerts -connect microsoft.com:443`
-4. 尋找自我簽署憑證。 如果您不確定哪一個憑證是自我簽署，請尋找任何位置主旨`("s:")`和 簽發者`("i:")`都相同。
+4. 尋找自我簽署憑證。 如果不确定哪些证书是自签名证书，请查看使用者 `("s:")` 和证书颁发者 `("i:")` 相同的任意位置。
 5. 發現任何自我簽署的憑證時，請將每個憑證從 **-----BEGIN CERTIFICATE-----** 到 **-----END CERTIFICATE-----** (含) 的所有內容，複製並貼到新的 .cer 檔案。
 6. 開啟儲存體總管，按一下 [編輯] > [SSL 憑證] > [匯入憑證]，然後使用檔案選擇器來尋找、選取及開啟您所建立的 .cer 檔案。
 
@@ -92,17 +92,17 @@ RBAC 角色可能會包含管理] 或 [資料層存取的權限。 「 讀者 �
 
 ## <a name="sign-in-issues"></a>登入問題
 
-### <a name="blank-sign-in-dialog"></a>空白的 [登入] 對話方塊
+### <a name="blank-sign-in-dialog"></a>空白登录对话框
 
-空白的登入對話方塊的原因通常 ADFS 所要求儲存體總管來執行支援的 Electron 的重新導向。 若要解決此問題，您可以嘗試使用裝置程式碼流程來登入。 若要進行，請執行下列步驟：
+出现空白登录对话框的原因往往是 ADFS 要求存储资源管理器执行 Electron 不支持的重定向。 若要解決此問題，您可以嘗試使用裝置程式碼流程來登入。 若要進行，請執行下列步驟：
 
-1. 移至 預覽-> 使用裝置程式碼登入。
+1. “转到预览”->“使用设备代码登录”。
 2. 開啟 [連線] 對話方塊 (透過左側垂直列上的插頭圖示，或透過在 [帳戶] 面板上的 [新增帳戶])。
-3. 選擇您想要登入哪些的環境。
+3. 选择要登录到的环境。
 4. 按一下 [登入] 按鈕。
 5. 遵循下一個面板上的指示。
 
-如果您發現自己到您想要使用，因為預設瀏覽器已登入不同的帳戶的帳戶登入時發生問題，您可以：
+如果在登录到要使用的帐户时，由于默认浏览器已登录到其他帐户而遇到问题，可通过以下方法解决：
 
 1. 手動將連結和程式碼複製到您瀏覽器的隱私工作階段。
 2. 手動將連結和程式碼複製到其他瀏覽器。
@@ -121,14 +121,14 @@ RBAC 角色可能會包含管理] 或 [資料層存取的權限。 「 讀者 �
 
 ## <a name="mac-keychain-errors"></a>Mac Keychain 錯誤
 
-macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生問題的狀態。 若要發揮這種狀態中的金鑰鏈，請嘗試下列步驟：
+macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生問題的狀態。 若要使密钥链摆脱此状态，请尝试以下步骤：
 
 1. 關閉 [儲存體總管]。
 2. 開啟鑰匙圈 (**cmd + 空格鍵**，鍵入 keychain，按 Enter)。
 3. 選取 [登入] 鑰匙圈。
 4. 按一下掛鎖圖示以鎖定鑰匙圈 (完成時，掛鎖會以動畫方式顯示到鎖定的位置，視您所開啟的應用程式而定，它可能需要幾秒鐘的時間)。
 
-    ![映像](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. 啟動儲存體總管。
 6. 快顯視窗應該會隨即出現，並包含類似「服務中樞想要存取 keychain」的訊息。 若有出現此快顯視窗，請輸入您的 Mac 系統管理員帳戶密碼，並按一下 [一律允許] (或是，如果沒有 [一律允許]，則按一下 [允許])。
@@ -136,11 +136,11 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>一般登入疑難排解步驟
 
-* 如果您是在 macOS 上，而且透過 「 正在等候驗證...」 永遠不會出現 [登入] 視窗對話方塊中，然後再次嘗試[這些步驟](#mac-keychain-errors)
+* 在 macOS 上操作时，如果登录窗口永远不会出现，而是一直显示“正在等待身份验证...”对话框，请尝试[这些步骤](#mac-keychain-errors)
 * 重新啟動儲存體總管
 * 如果驗證視窗空白，請在關閉驗證對話方塊之前先等待至少一分鐘。
 * 確認您的機器和儲存體總管都已正確設定 Proxy 和憑證設定。
-* 如果您在 Windows 上和在相同電腦上存取 Visual Studio 2017 並登入，請嘗試登入 Visual Studio 2017。 成功登入 Visual Studio 2017 之後，您應該能夠開啟 [儲存體總管]，並在 [帳戶] 面板中查看您的帳戶。
+* 如果在 Windows 上操作，并且有权访问同一台计算机上的 Visual Studio 2017 且可以登录，请尝试登录到 Visual Studio 2017。 成功登入 Visual Studio 2017 之後，您應該能夠開啟 [儲存體總管]，並在 [帳戶] 面板中查看您的帳戶。
 
 如果這些方法都沒有用，請[在 GitHub 上開立問題](https://github.com/Microsoft/AzureStorageExplorer/issues)。
 
@@ -148,7 +148,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 如果成功登入後無法擷取您的訂用帳戶，請嘗試下列疑難排解方法：
 
-* 確認您的帳戶可存取預期的訂用帳戶。 您可以登入入口網站中，您嘗試使用的 Azure 環境，以確認您的存取權。
+* 確認您的帳戶可存取預期的訂用帳戶。 可以通过登录到尝试使用的 Azure 环境的门户，来验证是否能够访问这些订阅。
 * 確定已使用正確的 Azure 環境 (Azure、Azure 中國 21Vianet、Azure 德國、Azure 美國政府或自訂環境) 來登入。
 * 如果您是在 proxy 背景，請確定已正確設定儲存體總管的 proxy。
 * 嘗試移除再重新新增帳戶。
@@ -176,7 +176,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 * 使用者名稱和密碼 (如果 proxy 要求)
 
 > [!NOTE]
-> 儲存體總管不支援 proxy 自動設定檔來設定 proxy 設定。
+> 存储资源管理器不支持使用代理 auto-config 文件来配置代理设置。
 
 ### <a name="common-solutions"></a>常見的解決方案
 
@@ -207,13 +207,13 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 ## <a name="unable-to-retrieve-children-error-message"></a>「無法擷取子系」錯誤訊息
 
-如果透過 proxy 連線至 Azure，請確認您的 proxy 設定正確無誤。 如果您授與存取資源的訂用帳戶或帳戶擁有者，請確認您已閱讀或列出該資源的權限。
+如果透過 proxy 連線至 Azure，請確認您的 proxy 設定正確無誤。 如果已获取以订阅或帐户所有者身份访问资源的权限，请验证是否对该资源拥有读取或列出权限。
 
 ## <a name="connection-string-does-not-have-complete-configuration-settings"></a>連接字串沒有完整的組態設定
 
-如果您收到此錯誤訊息，很可能您沒有取得儲存體帳戶金鑰所需的權限。 若要確認是否為此情形，請移至入口網站並找到您的儲存體帳戶。 您可以快速地執行這項操作您的儲存體帳戶的節點上按一下滑鼠右鍵，然後按一下 [開啟在入口網站]。 這麼做之後，會移至 [存取金鑰] 刀鋒視窗。 如果您沒有權限可檢視索引鍵，您會看到 「 您不具存取 」 訊息的頁面。 若要解決此問題，您可以從其他人取得帳戶金鑰，並附加具有名稱和金鑰，或儲存體帳戶之 sas 要求的人並用它來附加儲存體帳戶。
+如果您收到此錯誤訊息，很可能您沒有取得儲存體帳戶金鑰所需的權限。 若要確認是否為此情形，請移至入口網站並找到您的儲存體帳戶。 可以通过右键单击存储帐户的节点并单击“在门户中打开”来快速执行此操作。 這麼做之後，會移至 [存取金鑰] 刀鋒視窗。 如果你无权查看密钥，则会看到其中显示了消息“你没有访问权限”的页面。 若要解决此问题，可以从其他某人获取帐户密钥并结合名称和密钥附加存储帐户，或者，向某人索要存储帐户的 SAS 并使用它来附加存储帐户。
 
-如果您看到的帳戶金鑰，提出問題在 GitHub 上讓我們協助您解決問題。
+如果看到了帐户密钥，请在 GitHub 上提出问题，使我们能够帮助你解决问题。
 
 ## <a name="issues-with-sas-url"></a>SAS URL 問題
 
@@ -233,50 +233,50 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 ## <a name="linux-dependencies"></a>Linux 相依項目
 
-一般情況下，需要下列封裝在 Linux 上執行儲存體總管：
+一般情况下，需要安装以下包才能在 Linux 上运行存储资源管理器：
 
 * [.NET core 2.0 執行階段](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgnome-keyring-common`和`libgnome-keyring-dev`
 * `libgconf-2-4`
 
-根據您的散發套件而定，可能會有不同，或您需要安裝其他套件。
+根据所用的分发版，可能还需要安装不同的包或其他包。
 
-第 18.04 Ubuntu 16.04 和 14.04 正式支援儲存體總管。 安裝全新的機器的步驟如下所示：
+Ubuntu 18.04、16.04 和 14.04 正式支持存储资源管理器。 全新计算机上的安装步骤如下：
 
 # <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. 下載儲存體總管
-2. 安裝.NET Core 執行階段、 已驗證的最新版本是：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) （如果您已安裝較新版本，您可能需要修補儲存體總管，請見下文）
+1. 下载存储资源管理器
+2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）
 3. 執行 `sudo apt-get install libgconf-2-4`
 4. 執行 `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
-1. 下載儲存體總管
-2. 安裝.NET Core 執行階段、 已驗證的最新版本是：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) （如果您已安裝較新版本，您可能需要修補儲存體總管，請見下文）
+1. 下载存储资源管理器
+2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）
 3. 執行 `sudo apt install libgnome-keyring-dev`
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
-1. 下載儲存體總管
-2. 安裝.NET Core 執行階段、 已驗證的最新版本是：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) （如果您已安裝較新版本，您可能需要修補儲存體總管，請見下文）
+1. 下载存储资源管理器
+2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）
 3. 執行 `sudo apt install libgnome-keyring-dev`
 
 ---
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>較新版本的.NET Core 的修補，儲存體總管 
-如果您有大於安裝並執行儲存體總管版本 1.7.0 2.0 或更舊版本的.NET Core 的版本，您很可能要修補儲存體總管，藉由完成下列步驟：
-1. 下載新版 1.5.43 StreamJsonRpc[從 nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43)。 尋找頁面的右手邊的 [下載套件] 連結。
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>修补适用于 .NET Core 更高版本的存储资源管理器 
+如果安装的 .NET Core 版本高于 2.0，而运行的存储资源管理器版本为 1.7.0 或更低，则很有可能需要通过完成以下步骤来修补存储资源管理器：
+1. [从 Nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43) 中下载 StreamJsonRpc 版本 1.5.43。 在页面的右侧找到“下载包”链接。
 2. 下載封裝之後, 變更其副檔名從`.nupkg`至 `.zip`
-3. 將封裝解壓縮
+3. 将包解压缩
 4. 移至 `streamjsonrpc.1.5.43/lib/netstandard1.1/`。
-5. 複製`StreamJsonRpc.dll`到儲存體總管資料夾內的下列位置：
+5. 将 `StreamJsonRpc.dll` 复制到存储资源管理器文件夹中的以下位置：
     1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
     2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
-## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>開啟在 檔案總管從 Azure 入口網站無法運作
+## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Azure 门户中的“在资源管理器中打开”不起作用
 
-如果在 Azure 入口網站的 開啟在 總管 按鈕不適合您，請確定您使用相容的瀏覽器。 下列瀏覽器的相容性測試。
+如果在 Azure 门户上单击“在资源管理器中打开”按钮不起作用，请确保使用兼容的浏览器。 以下浏览器已通过兼容性测试。
 * Microsoft Edge
 * Mozilla Firefox
 * Google Chrome

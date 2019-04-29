@@ -8,15 +8,15 @@ ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115532"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>了解您的 Azure Cosmos DB 帳單
 
-Azure Cosmos DB 是一個完全受控的雲端原生資料庫服務，透過只針對已佈建輸送量與已取用儲存體收費以簡化計費流程。 沒有任何額外的授權費用、 硬體、 公用程式的成本或相較於內部部署或 IaaS 主控的替代方案的設施成本。 當您考慮多重區域 Azure Cosmos DB 功能時，資料庫服務會提供相較於現有內部部署或 IaaS 解決方案的成本大幅降低。
+Azure Cosmos DB 是一個完全受控的雲端原生資料庫服務，透過只針對已佈建輸送量與已取用儲存體收費以簡化計費流程。 与本地或 IaaS 托管的替代方案相比，无需额外的许可费、硬件、使用成本或设施成本。 若想使用 Azure Cosmos DB 的多区域功能，与现有本地或 IaaS 解决方案相比，数据库服务可显着降低成本。
 
 採用 Azure Cosmos DB 之後，系統會依時數向您收取已佈建輸送量與已取用儲存體的費用。 針對已佈建的輸送量，計費單位為每小時 100 RU/秒，每小時收費 $0.008，假設標準的公開定價，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。 針對已取用的儲存體，計費單位為每 1 GB 儲存體 $0.25，採月結方式每個月向您收取費用，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。 
 

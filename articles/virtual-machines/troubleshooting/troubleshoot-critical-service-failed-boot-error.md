@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593228"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>將 Azure VM 重新開機時，Windows 會在藍色畫面上顯示 "CRITICAL SERVICE FAILED"
 本文說明當您在 Microsoft Azure 中將 Windows 虛擬機器 (VM) 開機時可能發生的 "CRITICAL SERVICE FAILED" 錯誤。 文中會提供疑難排解步驟，以協助解決問題。 
@@ -106,7 +106,7 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>選用：分析傾印損毀模式中的傾印記錄
 
-若要自行分析傾印記錄檔，請遵循下列步驟：
+若要自己分析转储日志，请执行以下步骤：
 
 1. 將 OS 磁碟連結至還原 VM。
 2. 在您連結的 OS 磁碟上，瀏覽至 **\windows\system32\config**。需要將所有檔案複製為備份以便復原。

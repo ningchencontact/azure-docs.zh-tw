@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450018"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>設定連線的處理站解決方案加速器
 
@@ -264,9 +264,9 @@ ms.locfileid: "53602268"
 
 此分類中的屬性會定義連線處理站儀表板的視覺外觀。 範例包括：
 
-* Name
-* 說明
-* 映像
+* 名稱
+* 描述
+* Image
 * 位置
 * Units
 * 可見

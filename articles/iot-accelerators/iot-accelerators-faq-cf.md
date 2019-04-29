@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447925"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>連線處理站解決方案加速器的常見問題集
 
@@ -82,7 +82,7 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 
-    * 執行 `./startsimulation`。
+    * 运行 `./startsimulation`。
 
 ### <a name="how-do-i-update-the-simulation-in-the-vm"></a>如何更新虛擬機器中的模擬？
 

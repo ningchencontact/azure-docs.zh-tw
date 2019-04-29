@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f84cb59e7d4fd7d8301d22348ca066a7f9d9e94e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813421"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>使用原則來管理 Azure Data Lake Analytics
 
@@ -68,7 +68,7 @@ ms.locfileid: "43048813"
 
 您可以在作業層級設定兩個 Data Lake Analytics 原則：
 
-* **每個作業的 AU 限制**：使用者只能提交擁有的 AU 不超過此數目的作業。 根據預設，此限制與帳戶的 AU 上限相同。
+* **每個作業的 AU 限制**:使用者只能提交擁有的 Au 這個數字的作業。 根據預設，此限制與帳戶的 AU 上限相同。
 * **優先順序**：使用者只能提交優先順序低於或等於此值的作業。 數字較高表示優先順序較低。 根據預設，這個限制會設定為 1，這是最高的可能優先順序。
 
 每個帳戶都已設定預設原則。 預設原則會套用到帳戶的所有使用者。 您可以針對特定使用者和群組設定其他原則。 
@@ -82,12 +82,12 @@ ms.locfileid: "43048813"
 1. 在 Azure 入口網站中，移至您的 Data Lake Analytics 帳戶。
 2. 按一下 [內容] 。
 3. 在 [作業提交限制] 之下，按一下 [新增原則] 按鈕。 然後，選取或輸入下列設定：
-    1. **計算原則名稱**：輸入原則名稱，藉此提醒您原則的用途。
-    2. **選取使用者或群組**：選取適用此原則的使用者或群組。
-    3. **設定作業 AU 限制**：設定會套用到所選使用者或群組的 AU 限制。
-    4. **設定優先順序限制**：設定會套用所選使用者或群組的優先順序限制。
+    1. **計算原則名稱**:輸入原則名稱，以提醒您多多用途的原則。
+    2. **選取使用者或群組**:選取此原則會套用至群組的使用者。
+    3. **設定作業 AU 限制**:設定會套用到選取的使用者或群組的 AU 限制。
+    4. **設定優先順序限制**:設定會套用到選取的使用者或群組的優先順序限制。
 
-4. 按一下 [ **確定**]。
+4. 按一下 [確定] 。
 
 5. 新原則會列在 [預設] 原則資料表的 [作業提交限制] 之下。 
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 2f3a8237fff052779afee718837e2b72fc33d9a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/23/2019
+ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532153"
+ms.locfileid: "62097754"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>線上移轉到適用於 PostgreSQL 的 Azure DB 的已知問題/移轉限制
 
@@ -25,6 +25,10 @@ ms.locfileid: "60532153"
 ## <a name="online-migration-configuration"></a>線上移轉組態
 - 來源 PostgreSQL 伺服器必須執行 9.5.11、9.6.7 或 10.3 版或更新版本。 如需詳細資訊，請參閱[支援的 PostgreSQL 資料庫版本](../postgresql/concepts-supported-versions.md)一文。
 - 僅支援相同版本之間的移轉。 例如，不支援將 PostgreSQL 9.5.11 移轉至適用於 PostgreSQL 9.6.7 的 Azure 資料庫。
+
+    > [!NOTE]
+    > 適用於 PostgreSQL 第 10 版中，目前 DMS 僅支援適用於 PostgreSQL 的 Azure 資料庫的第 10.3 移轉。 我們打算在近期內支援較新版本的 PostgreSQL。
+
 - 若要在**來源 PostgreSQL postgresql.conf** 檔案中啟用邏輯複寫，請設定下列參數：
     - **wal_level** = logical
     - **max_replication_slots** = [要移轉之資料庫的最大數目]；如果您要移轉 4 個資料庫，請將值設定為 4

@@ -1,5 +1,5 @@
 ---
-title: Azure Databricks：常見問題與說明
+title: Azure Databricks:常見問題與說明
 description: 取得有關 Azure Databricks 的常見問題解答和疑難排解資訊。
 services: azure-databricks
 author: mamccrea
@@ -10,11 +10,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60784702"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>關於 Azure Databricks 的常見問題
 
@@ -40,11 +40,11 @@ ms.locfileid: "50138356"
 
 以下是您使用 Databricks 時可能遇到的一些問題。
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>問題︰此訂用帳戶未註冊為使用命名空間 'Microsoft.Databricks'
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>問題：此訂用帳戶未註冊為可以使用命名空間 ‘Microsoft.Databricks’
 
 #### <a name="error-message"></a>錯誤訊息
 
-「此訂用帳戶未註冊為可以使用命名空間 'Microsoft.Databricks'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。 (錯誤碼：MissingSubscriptionRegistration)」
+「此訂用帳戶未註冊為可以使用命名空間 'Microsoft.Databricks'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。 (程式碼:MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>解決方法
 
@@ -78,28 +78,28 @@ ms.locfileid: "50138356"
     e. 以此使用者的身分啟動 Databricks 工作區。
 
 
-### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>問題：您的帳戶 {email} 未在 Databricks 中登錄 
+### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>問題：您的帳戶 {email} 並未在 Databricks 中註冊 
 
 #### <a name="solution"></a>解決方法
 
 如果您並未建立工作區，但已新增為使用者，請連絡建立該工作區的人員。 請該人員使用 Azure Databricks 管理主控台來將您新增。 如需指示，請參閱[新增和管理使用者](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html)。 如果您建立了工作區，但仍然收到此錯誤，請再次嘗試從 Azure 入口網站選取 [初始化工作區]。
 
-### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>問題：設定叢集時雲端提供者啟動失敗 (PublicIPCountLimitReached)
+### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>問題：雲端提供者啟動失敗 (PublicIPCountLimitReached) 的叢集設定時
 
 #### <a name="error-message"></a>錯誤訊息
 
-「雲端提供者啟動失敗：設定叢集時發生雲端提供者錯誤。 如需詳細資訊，請參閱 Databricks 指南。 Azure 錯誤碼：PublicIPCountLimitReached。 Azure 錯誤訊息：無法為此區域的此訂用帳戶建立超過 60 個以上的公用 IP 位址。」
+「 雲端提供者啟動失敗：設定叢集時發生雲端提供者錯誤。 如需詳細資訊，請參閱 Databricks 指南。 Azure 錯誤碼：PublicIPCountLimitReached。 Azure 錯誤訊息：無法建立 60 個以上的公用 IP 位址，此訂用帳戶在此區域。 」
 
 #### <a name="solution"></a>解決方法
 
-Databricks 叢集會在每個節點上使用一個公用 IP 位址。 如果您的訂用帳戶已經使用其所有公用 IP，您應該[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 選擇 [配額] 作為 [問題類型]，並選擇 [網路：ARM] 作為 [配額類型]。 在 [詳細資料] 中，申請提高公用 IP 位址配額。 例如，如果您目前的限制是 60，而您想要建立具有 100 個節點的叢集，請申請將限制提高到 160。
+Databricks 叢集會在每個節點上使用一個公用 IP 位址。 如果您的訂用帳戶已經使用其所有公用 IP，您應該[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 選擇**配額**作為**問題類型**，和**網路：ARM**作為**配額類型**。 在 [詳細資料] 中，申請提高公用 IP 位址配額。 例如，如果您目前的限制是 60，而您想要建立具有 100 個節點的叢集，請申請將限制提高到 160。
 
-### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>問題：設定叢集時發生第二種類型的雲端提供者啟動失敗 (MissingSubscriptionRegistration)
+### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>問題：第二種雲端提供者啟動失敗 (MissingSubscriptionRegistration) 的叢集設定時
 
 #### <a name="error-message"></a>錯誤訊息
 
-「雲端提供者啟動失敗：設定叢集時發生雲端提供者錯誤。 如需詳細資訊，請參閱 Databricks 指南。
-Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳戶未註冊為使用命名空間 'Microsoft.Compute'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。」
+「 雲端提供者啟動失敗：設定叢集時發生雲端提供者錯誤。 如需詳細資訊，請參閱 Databricks 指南。
+Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：未註冊訂用帳戶，無法使用命名空間 'Microsoft.Compute'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。」
 
 #### <a name="solution"></a>解決方法
 
@@ -109,7 +109,7 @@ Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳
 
 如需更多詳細指示，請參閱[資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)。
 
-### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>問題：Azure Databricks 需要只有管理員才能授與的權限來存取您組織中的資源。
+### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>問題：Azure Databricks 需要只有管理員可以授與您組織中的資源的存取權限。
 
 #### <a name="background"></a>背景
 

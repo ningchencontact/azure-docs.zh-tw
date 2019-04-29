@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.openlocfilehash: 2852cab05fab8e15b7e60a22f54cc866d2f0f178
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61226202"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>什麼是 Azure Database for MySQL？
 
@@ -39,7 +39,7 @@ ms.locfileid: "58295397"
 - [Azure Database for MySQL 的 Azuer CLI 範例](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>在幾秒之內即可調整效能和規模
-「適用於 MySQL 的 Azure 資料庫」服務提供了多個服務層：“基本”、“常规用途”和“内存优化”。 每個服務層提供不同的效能和功能，以支援輕量到重量級的資料庫工作負載。 您可以在小型資料庫中建置第一個應用程式，一個月只需少許花費，然後調整規模以滿足解決方案的需求。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求。 您只需支付您所需的資源費用。 如需詳細資訊，請參閱 [定價層](concepts-service-tiers.md)。
+「適用於 MySQL 的 Azure 資料庫」服務提供了多個服務層級：“基本”、“常规用途”和“内存优化”。 每個服務層提供不同的效能和功能，以支援輕量到重量級的資料庫工作負載。 您可以在小型資料庫中建置第一個應用程式，一個月只需少許花費，然後調整規模以滿足解決方案的需求。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求。 您只需支付您所需的資源費用。 如需詳細資訊，請參閱 [定價層](concepts-service-tiers.md)。
 
 ## <a name="monitoring-and-alerting"></a>監視和警示
 如何決定何時應增加或減少？ 您可以使用內建的效能監視和警示功能，加上以虛擬核心為基礎的效能分級。 透過這些工具，您可以根據目前或計畫中的效能需求，快速評估相應增加或減少虛擬核心的影響。 如需詳細資訊，請參閱[警示](howto-alert-on-metric.md)。

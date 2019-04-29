@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: c14b3006184f7bd6dcd1eb67be11bd0214957d72
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662953"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725480"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Reliable Actors 架構中的多型
 Reliable Actors 架構可讓您使用許多您會在物件導向設計中使用的相同技巧來建置動作項目。 這些技巧的其中之一就是多型，此技巧允許從更一般化的父系繼承類型和介面。 Reliable Actors 架構中的繼承通常會遵循 .NET 模型，但有幾個額外的條件約束。 針對 Java/Linux，它會遵循 Java 模型。

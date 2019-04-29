@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: cd2ad16f910f5d2b3b801c8d54e9df7660751462
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103943"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121651"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database 安全性功能    
 Azure SQL Database 在 Azure 中提供關聯式資料庫服務。 為了保護客戶資料，並提供強大的安全性功能，以滿足提供客戶對於關聯式資料庫服務的期待，SQL Database 有一套自己的安全性功能。 這些功能都是根據從 Azure 繼承的控制項為基礎而建置。

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: b2179f9d81a2dad877c8ae58471f7440eb9edbe7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 0a49cbdb4caf474d0628fea3679ce712d37886e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813410"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 中使用 Python 程式碼擴充 U-SQL 指令碼
 
@@ -100,7 +100,7 @@ U-SQL 的 Python 擴充可讓開發人員進行大量的 Python 程式碼平行�
 ### <a name="input-and-output-size-limitations"></a>輸入和輸出的大小限制
 指派給每個頂點的記憶體數量皆有上限。 目前，該限制為 6 GB 用於 AU。 因為輸入和輸出資料框架必須存在於Python 程式碼的記憶體中，輸入和輸出的大小總和不能超過 6 GB。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)
 * [使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
 * [針對 Azure 資料湖分析工作使用 U-SQL 視窗函式](data-lake-analytics-use-window-functions.md)

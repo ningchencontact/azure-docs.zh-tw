@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f09391bf18910bf9151c99b8df91f92b2582e823
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463817"
 ---
-# <a name="implement-failover-streaming-with-media-services"></a>實作容錯移轉串流媒體服務 
+# <a name="implement-failover-streaming-with-media-services"></a>使用媒体服务实现故障转移流式处理 
 
 本逐步解說示範如何將內容 (Blob) 從一個資產複製到另一個資產，以便處理隨選資料流處理的備援。 如果您想要設定 Azure 內容傳遞網路，以便在某個資料中心發生中斷時在兩個資料中心之間進行容錯移轉，這個案例會很有用。 本逐步解說使用 Azure 媒體服務 SDK、Azure 媒體服務 REST API 和 Azure 儲存體 SDK 來示範下列工作：
 

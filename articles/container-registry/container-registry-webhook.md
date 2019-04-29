@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: danlep
 ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787247"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure Container Registry Webhook
 
@@ -22,33 +22,33 @@ Azure Container Registry 會儲存和管理私人 Docker 容器映像，其方�
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 容器登錄 - 在 Azure 訂用帳戶中建立容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。 [Azure Container Registry Sku](container-registry-skus.md)有不同的 webhook 配額。
+* Azure 容器登錄 - 在 Azure 訂用帳戶中建立容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。 [Azure 容器注册表 SKU](container-registry-skus.md) 具有不同的 Webhook 配额。
 * Docker CLI - 若要將您的本機電腦設定為 Docker 主機並存取 Docker CLI 命令，請安裝 [Docker 引擎](https://docs.docker.com/engine/installation/)。
 
-## <a name="create-webhook---azure-portal"></a>建立 webhook-Azure 入口網站
+## <a name="create-webhook---azure-portal"></a>创建 Webhook - Azure 门户
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 瀏覽至您要在其中建立 Webhook 的容器登錄。
-1. 底下**Services**，選取**Webhook**。
+1. 在“服务”下，选择“Webhook”。
 1. 選取 [Webhook] 工具列中的 [新增]。
 1. 填入下列資訊以完成 [建立 Webhook] 表單：
 
-| 值 | 描述 |
+| Value | 描述 |
 |---|---|
-| 名稱 | 您想要提供給 Webhook 的名稱。 它只能包含字母和數字必須是長度為 5 到 50 個字元。 |
+| 名稱 | 您想要提供給 Webhook 的名稱。 它只能包含字母和数字，且长度必须为 5-50 个字符。 |
 | 服務 URI | Webhook 需在當中傳送 POST 通知的 URI。 |
 | 自訂標頭 | 您想要與 POST 要求一起傳遞的標頭。 它們應該為「金鑰：值」的格式。 |
-| 觸發程序動作 | 觸發 Webhook 的動作。 動作包括映像推送、 映像刪除、 Helm 圖表推播、 Helm 圖表 delete 和映像的隔離。 您可以選擇一或多個動作來觸發 webhook。 |
+| 觸發程序動作 | 觸發 Webhook 的動作。 操作包括映像推送、映像删除、Helm 图表推送、Helm 图表删除以及映像隔离。 你可以选择一个或多个操作来触发 Webhook。 |
 | 狀態 | Webhook 建立之後的狀態。 此選項預設為啟用狀態。 |
-| 影響範圍 | Webhook 的運作範圍。 如果未指定，範圍是在登錄中的所有事件。 可以針對存放庫或標記中指定使用 「 存放庫： 標記 」 的格式或 「 儲存機制: *"儲存機制下所有標籤。 |
+| 影響範圍 | Webhook 的運作範圍。 如果未指定，则作用域应用于注册表中的所有事件。 可以使用“存储库:标记”格式针对存储库或标记进行指定，或者使用“存储库:*”针对某个存储库下的所有标记进行指定。 |
 
 範例 Webhook 表單：
 
 ![在 Azure 入口網站中建立 ACR Webhook](./media/container-registry-webhook/webhook.png)
 
-## <a name="create-webhook---azure-cli"></a>建立 webhook-Azure CLI
+## <a name="create-webhook---azure-cli"></a>创建 Webhook - Azure CLI
 
-若要使用 Azure CLI 建立 Webhook，請使用 [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) 命令。 下列命令會針對所有影像在登錄中的刪除事件，會建立 webhook *mycontainerregistry*:
+若要使用 Azure CLI 建立 Webhook，請使用 [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) 命令。 下面的命令创建适用于注册表 *mycontainerregistry* 中的所有映像删除事件的 Webhook：
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -58,7 +58,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-之前使用 webhook，您可以測試它與**Ping**  按鈕。 Ping 會將泛型 POST 要求傳送至指定的端點，並記錄回應。 使用 Ping 功能可協助您確認您已正確設定 Webhook。
+在使用 Webhook 之前，可以使用 **Ping** 按钮对其进行测试。 Ping 會將泛型 POST 要求傳送至指定的端點，並記錄回應。 使用 Ping 功能可協助您確認您已正確設定 Webhook。
 
 1. 選取您想要測試的 Webhook。
 2. 在頂端工具列中，選取 [Ping]。
