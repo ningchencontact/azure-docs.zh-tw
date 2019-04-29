@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
 ms.openlocfilehash: 44bc5a245d1bcbc8ff53991af4193ef86f7cd704
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107069"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>適用於 Azure Functions 1.x 的 host.json 參考
 
@@ -30,7 +30,7 @@ ms.locfileid: "58436314"
 
 其他函數應用程式設定選項的管理是在[應用程式設定](functions-app-settings.md)中進行。
 
-有些 host.json 設定只有在本機執行時，才會在 [local.settings.json](functions-run-local.md#local-settings-file) 檔案中使用。
+[local.settings.json](functions-run-local.md#local-settings-file) 文件中的某些 host.json 设置仅在本地运行时才使用。
 
 ## <a name="sample-hostjson-file"></a>範例 host.json 檔案
 
@@ -129,7 +129,7 @@ ms.locfileid: "58436314"
 
 ## <a name="functions"></a>functions
 
-工作主機所執行的函式清單。 空陣列表示已執行所有函式。 預定只能在[本機執行](functions-run-local.md)時使用。 在 Azure 的函數應用程式中，您應該改為依照[如何停用 Azure Functions 中的函式](disable-function.md)中的步驟來停用特定函式，而不是使用此設定。
+作业主机运行的函数列表。 空陣列表示已執行所有函式。 預定只能在[本機執行](functions-run-local.md)時使用。 在 Azure 的函数应用中，应改为按照[如何在 Azure Functions 中禁用函数](disable-function.md)中的步骤禁用特定函数，而不是使用此设置。
 
 ```json
 {
@@ -165,7 +165,7 @@ ms.locfileid: "58436314"
 
 |屬性  |預設值 | 描述 |
 |---------|---------|---------| 
-|enabled|true|指定是否已啟用此功能。 | 
+|已啟用|true|指定是否已启用该功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
 |healthCheckWindow|2 分鐘|與 `healthCheckThreshold` 設定搭配使用的滑動時間範圍。| 
 |healthCheckThreshold|6|在主機回收起始之前，健康情況檢查可以失敗的最大次數。| 
@@ -179,9 +179,9 @@ ms.locfileid: "58436314"
 
 ## <a name="id"></a>id
 
-*僅限 1.x 版。*
+*仅限版本 1.x*。
 
-作業主機的唯一識別碼。 可以是已移除虛線的小寫 GUID。 在本機執行時為必要項目。 在 Azure 中執行時，建議您不要設定識別碼值。 當省略 `id` 時，在 Azure 中會自動產生識別碼。 
+作業主機的唯一識別碼。 可以是已移除虛線的小寫 GUID。 在本機執行時為必要項目。 在 Azure 中运行时，我们建议你不要设置 ID 值。 當省略 `id` 時，在 Azure 中會自動產生識別碼。 
 
 如果您在多個函數應用程式中共用儲存體帳戶，請確定每個函數應用程式具有不同的 `id`。 您可以省略 `id` 屬性或將每個函數應用程式的 `id` 手動設定為不同的值。 計時器觸發程序會使用儲存體鎖定，以確保當函數應用程式相應放大至多個執行個體時，只會有一個計時器執行個體。 如果兩個函數應用程式共用相同的 `id`，且每一個都是使用計時器觸發程序，則只有一個計時器會執行。
 
@@ -286,7 +286,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 
 ## <a name="tracing"></a>tracing
 
-*1.x 版*
+版本 1.x
 
 使用 `TraceWriter` 物件所建立記錄的組態設定。 請參閱 [C# 記錄](functions-reference-csharp.md#logging)和 [Node.js 記錄](functions-reference-node.md#writing-trace-output-to-the-console)。
 

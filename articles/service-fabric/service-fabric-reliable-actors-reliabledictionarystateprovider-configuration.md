@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: 4e39357a765ec85aa64055b1aa422d8d7a01c116
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727126"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>設定 Reliable Actors - ReliableDictionaryActorStateProvider
 您可以在指定之動作項目的 Config 資料夾下，變更 Visual Studio 封裝根中所產生的 settings.xml，來修改 ReliableDictionaryActorStateProvider 的預設組態。
@@ -66,7 +66,7 @@ SharedLogId 和 SharedLogPath 設定永遠會一起使用，以便為叢集中�
 SharedLogSizeInMB 會指定要預先配置給所有節點上之預設共用記錄檔的磁碟空間數量。  若要指定SharedLogSizeInMB，不需要指定 SharedLogId 和 SharedLogPath。
 
 ## <a name="replicator-security-configuration"></a>複寫器安全性組態
-複寫器安全性組態用來保護在複寫期間使用的通訊通道。 這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。
+复制器安全配置用于保护在复制过程中使用的通信通道的安全。 這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。
 依預設，空白的安全性組態區段會妨礙複寫安全性。
 
 > [!IMPORTANT]
@@ -76,9 +76,9 @@ SharedLogSizeInMB 會指定要預先配置給所有節點上之預設共用記�
 ### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## <a name="replicator-configuration"></a>複寫器組態
+## <a name="replicator-configuration"></a>复制器配置
 複寫器組態用來設定負責將狀態複寫和保存至本機，讓動作項目狀態提供者變得高度可靠的複寫器。
-預設組態由 Visual Studio 範本所產生，且應該已經足夠。 本部分介绍了可用于调整复制器的其他配置。
+默认配置由 Visual Studio 模板生成，并应已足够。 本部分介绍了可用于调整复制器的其他配置。
 
 ### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceReplicatorConfig

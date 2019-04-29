@@ -1,7 +1,6 @@
 ---
 title: 使用網頁瀏覽器來建立 Apache Hadoop 叢集 - Azure HDInsight
 description: 了解如何使用網頁瀏覽器和 Azure Preview 入口網站，在 Linux 上為 HDInsight 建立 Apache Hadoop、Apache HBase、Apache Storm 或 Apache Spark 叢集。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 13d053c14b083390bfdd28fdad616caf13e7e4e0
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 9da9c6c438aac2c160a9ec7bc658e5d7b4ea207e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911552"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124793"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站在 HDInsight 中建立 Linux 型叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -81,9 +80,9 @@ Azure 入口網站會公開大部分的叢集屬性。 藉由使用 Azure Resour
 
      ![設定儲存體設定](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "在 Azure 入口網站中建立新的叢集")
 
-     | 儲存體                                      | 說明 |
+     | 儲存體                                      | 描述 |
      |----------------------------------------------|-------------|
-     | **Azure 儲存體 Blob 作為預設儲存體**   | <ul><li>針對 [主要儲存體類型]，選取 [Azure 儲存體]。 針對 [選取方法]，如果想要指定屬於您 Azure 訂用帳戶的儲存體帳戶，請選擇 [我的訂用帳戶]。 然後選取該儲存體帳戶。 否則，請選取 [存取金鑰]。 然後提供您想要從您 Azure 訂用帳戶外選擇之儲存體帳戶的資訊。</li><li>針對 [預設容器]，選擇入口網站建議的預設容器名稱，或者自行指定名稱。</li><li>如果 Azure Blob 儲存體是您的預設儲存體，您也可以選取 [其他儲存體帳戶]，以指定要與該叢集建立關聯的其他儲存體帳戶。 針對 [Azure 儲存體金鑰]，選取 [新增儲存體金鑰]。 然後您可以從您的 Azure 訂用帳戶或其他訂用帳戶提供儲存體帳戶。 請提供儲存體帳戶存取金鑰。</li><li>如果 Blob 儲存體是您的預設儲存體，您也可以選取 [Data Lake Storage 存取]，以指定 Azure Data Lake Storage 作為額外的儲存體。 如需詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。</li></ul> |
+     | **Azure 儲存體 Blob 作為預設儲存體**   | <ul><li>對於 [主要儲存體類型]，請選取 [Azure 儲存體]。 針對 [選取方法]，如果想要指定屬於您 Azure 訂用帳戶的儲存體帳戶，請選擇 [我的訂用帳戶]。 然後選取該儲存體帳戶。 否則，請選取 [存取金鑰]。 然後提供您想要從您 Azure 訂用帳戶外選擇之儲存體帳戶的資訊。</li><li>針對 [預設容器]，選擇入口網站建議的預設容器名稱，或者自行指定名稱。</li><li>如果 Azure Blob 儲存體是您的預設儲存體，您也可以選取 [其他儲存體帳戶]，以指定要與該叢集建立關聯的其他儲存體帳戶。 針對 [Azure 儲存體金鑰]，選取 [新增儲存體金鑰]。 然後您可以從您的 Azure 訂用帳戶或其他訂用帳戶提供儲存體帳戶。 請提供儲存體帳戶存取金鑰。</li><li>如果 Blob 儲存體是您的預設儲存體，您也可以選取 [Data Lake Storage 存取]，以指定 Azure Data Lake Storage 作為額外的儲存體。 如需詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。</li></ul> |
      | **Azure Data Lake Store 作為預設儲存體** | 針對 [主要儲存體類型]，選取 [Azure Data Lake Storage Gen1] 或 [Azure Data Lake Storage Gen2]。 然後參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)一文，以取得相關指示。 |
      | **外部中繼存放區**                      | 您可以選擇指定 SQL 資料庫，以儲存與叢集相關的 Apache Hive 和 Apache Oozie 中繼資料。 針對 [為 Hive 選取 SQL 資料庫]，選取一個 SQL 資料庫。 然後提供該資料庫的使用者名稱和密碼。 對 Oozie 中繼資料重複這些步驟。<br><br>以下是將 Azure SQL 資料庫用於中繼存放區時的一些考量： <ul><li>用於中繼存放區的 Azure SQL 資料庫必須允許連線至其他 Azure 服務 (包括 Azure HDInsight)。 在 Azure SQL 資料庫儀表板的右側，選取伺服器名稱。 這是執行 SQL 資料庫執行個體的伺服器。 在您位於伺服器檢視中之後，請選取 [設定]。 然後針對 [Azure 服務]，選取 [是]。 然後選取 [儲存]。</li><li>當您建立中繼存放區時，請勿使用包含破折號或連字號的資料庫名稱。 這些字元可能會導致叢集建立程序失敗。</li></ul> |
 
@@ -164,6 +163,6 @@ Azure 入口網站會公開大部分的叢集屬性。 藉由使用 Azure Resour
 ### <a name="apache-spark-clusters"></a>Apache Spark 叢集
 * [使用 Scala 來建立獨立應用程式](spark/apache-spark-create-standalone-application.md)
 * [使用 Apache Livy 在 Apache Spark 叢集上從遠端執行作業](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
 

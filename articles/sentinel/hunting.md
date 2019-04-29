@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: adedc8bc1f574ae089f2a11033fab4f390c57a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714788"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>搜尋具有 Azure Sentinel 預覽版中的威脅
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 如果您想要積極主動地尋找是否有安全性威脅，Azure Sentinel 強大追捕搜尋和查詢工具，來搜尋是否有安全性威脅，跨組織的資料來源的調查。 但您的系統和安全性設備產生山脈的可能很難剖析，並篩選成有意義的事件的資料。 若要協助安全性分析師尋找主動新的異常狀況未偵測到的安全性應用程式，Azure Sentinel' 內建追捕查詢引導您詢問適當的問題，您已經在您的網路的資料中發現的問題。 

@@ -10,15 +10,16 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/16/2017
-ms.author: glenga
+origin.date: 10/16/2017
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104660"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
@@ -84,7 +85,7 @@ ms.locfileid: "57848944"
 
 對於在實際執行函式應用程式中載入的項目，請務必小心。 記憶體會在應用程式中的每個函式間平均分配。
 
-如果您有多個.NET 函式中參考某個共用組件，請將它置於通用的共用資料夾中。 如果使用 C# 指令碼 (.csx)，請使用類似下列的範例陳述式來參考組件︰ 
+如果在多个 .NET 函数中引用共享程序集，请将其放在常用的共享文件夹中。 如果使用 C# 指令碼 (.csx)，請使用類似下列的範例陳述式來參考組件︰ 
 
     #r "..\Shared\MyAssembly.dll". 
 
@@ -122,3 +123,5 @@ ms.locfileid: "57848944"
 
 * [如何管理 Azure Functions 中的連線](manage-connections.md)
 * [Azure App Service 最佳做法](../app-service/app-service-best-practices.md)
+
+<!-- Update_Description: wording update -->

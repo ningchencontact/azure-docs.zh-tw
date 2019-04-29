@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
 ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098138"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>設定內部部署實體伺服器至 Azure 的災害復原
 
@@ -109,8 +109,8 @@ ms.locfileid: "56329212"
 1. 按一下 [Site Recovery] > [準備基礎結構] > [來源]。
 2. 如果您沒有設定伺服器，請按一下 [+設定伺服器]。
 3. 在 [新增伺服器] 中，檢查 [設定伺服器] 是否出現在 [伺服器類型] 中。
-4. 下載 Site Recovery 統一安裝的安裝檔案。
-5. 下載保存庫註冊金鑰。 您會在執行統一安裝時用到此金鑰。 該金鑰在產生後會維持 5 天有效。
+4. 下载站点恢复统一安装程序安装文件。
+5. 下載保存庫註冊金鑰。 运行统一安装程序时需要用到此密钥。 該金鑰在產生後會維持 5 天有效。
 
    ![設定來源](./media/physical-azure-disaster-recovery/source-environment.png)
 
@@ -156,7 +156,7 @@ ms.locfileid: "56329212"
 2. 在 [建立複寫原則]中，指定原則名稱。
 3. 在 [RPO 閾值] 中，指定復原點目標 (RPO) 限制。 這個值指定資料復原點的建立頻率。 連續複寫超過此限制時會產生警示。
 4. 在 [復原點保留] 中，指定每個復原點的保留週期長度 (以小時為單位)。 複寫的 VM 可以還原至一個週期內的任何時間點。 複寫至進階儲存體的電腦支援最長保留 24 小時，標準儲存體則是 72 小時。
-5. 在 [應用程式一致快照頻率] 中，指定建立包含應用程式一致快照之復原點的頻率 (以分鐘為單位)。 按一下 [確定]  以建立原則。
+5. 在“应用一致性快照频率”中，指定创建包含应用程序一致性快照的恢复点的频率（以分钟为单位）。 单击“确定”创建该策略。
 
     ![複寫原則](./media/physical-azure-disaster-recovery/replication-policy.png)
 

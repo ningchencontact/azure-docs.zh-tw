@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742111"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 位址類型及配置方法 (傳統)
 您可以將 IP 位址指派給 Azure 資源，來與其他 Azure 資源、內部部署網路和網際網路進行通訊。 您可以在 Azure 中使用兩種類型的 IP 位址：公用和私人。
@@ -87,7 +87,7 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 ### <a name="at-a-glance"></a>速覽
 下表顯示每個資源類型與可能的配置方法 (動態/靜態)，以及指派多個公用 IP 位址的能力。
 
-| 資源 | 動態 | 静态 | 多個 IP 位址 |
+| Resource | 動態 | 静态 | 多個 IP 位址 |
 | --- | --- | --- | --- |
 | 雲端服務 |是 |是 |是 |
 | IaaS VM 或 PaaS 角色執行個體 |是 |否 |否 |
@@ -137,7 +137,7 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 ### <a name="at-a-glance"></a>速覽
 下表顯示每個資源類型與可能的配置方法 (動態/靜態)，以及指派多個私人 IP 位址的能力。
 
-| 資源 | 動態 | 静态 | 多個 IP 位址 |
+| Resource | 動態 | 静态 | 多個 IP 位址 |
 | --- | --- | --- | --- |
 | VM (位於獨立雲端服務或 VNet 中) |是 |是 |是 |
 | PaaS 角色執行個體 (位於獨立雲端服務或 VNet 中) |是 |否 |否 |
@@ -162,7 +162,7 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Resource Manager 與傳統部署之間的差異
 以下是 Resource Manager 與傳統部署模型中 IP 定址功能的比較。
 
-|  | 資源 | 傳統 | Resource Manager |
+|  | Resource | 傳統 | Resource Manager |
 | --- | --- | --- | --- |
 | **公用 IP 位址** |***VM*** |稱為 ILPIP (僅動態) |称为公共 IP（动态或静态） |
 |  ||指派給 IaaS VM 或 PaaS 角色執行個體 |關連到 VM 的 NIC |

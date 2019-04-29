@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58114613"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485310"
 ---
 可用性集可帮助虚拟机在停机期间（例如维护期间）保持可用。 在可用性設定組中置入二或多個類似設定的虛擬機器，將可針對虛擬機器所執行的應用程式或服務，建立維護其可用性所需的備援。 如需其運作方式的詳細資訊，請參閱[管理虛擬機器的可用性][Manage the availability of virtual machines]。
 

@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770541"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>教學課程：查詢的 SQL Server Linux Docker 容器中的虛擬網路，從 Azure Databricks notebook
 
@@ -195,11 +195,11 @@ ms.locfileid: "59288947"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當不再需要刪除資源群組、 Azure Databricks 工作區中和所有相關的資源。 刪除作業可避免不必要的計費。 如果您打算在未來使用 Azure Databricks 工作區，您可以停止叢集，並稍後重新啟動。 如果您不繼續使用此 Azure Databricks 工作區，刪除您在本教學課程中使用下列步驟建立的所有資源：
+若不再需要，可刪除資源群組、Azure Databricks 工作區和所有相關資源。 刪除作業可避免不必要的計費。 如果您計劃在未來使用 Azure Databricks 工作區，您可以停止叢集且稍後重新啟動。 如果您不再繼續使用此 Azure Databricks 工作區，請使用下列步驟，刪除本教學課程所建立的所有資源：
 
-1. 從 Azure 入口網站的左側功能表，按一下**資源群組**，然後按一下您所建立的資源群組名稱。
+1. 從 Azure 入口網站的左側功能表，按一下 [資源群組]，然後按一下您所建立的資源群組名稱。
 
-2. 在 資源群組頁面上，選取 **刪除**，輸入要在文字方塊中，刪除，然後選取 資源名稱**刪除**一次。
+2. 在資源群組頁面上，選取 [刪除]，在文字方塊中輸入要刪除的資源名稱，然後再次選取 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: e284a0492774e02cab79db6d9006c1718a7fcfc9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809166"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>如何調整 SignalR 服務多個執行個體？
 最新的 SignalR 服務 SDK 支援 SignalR 服務執行個體的多個端點。 您可以調整的並行連線，使用這項功能，或將它用於跨區域訊息。

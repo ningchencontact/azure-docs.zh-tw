@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 787d9ef509bcafeb6a21d4b0ec952ea1eb4fd52b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776806"
 ---
 # <a name="upgrading-code-to-the-latest-platform"></a>將程式碼升級至最新的平台
 
@@ -35,6 +35,6 @@ Dynamics 365 for Operations 平台二進位檔，例如應用程式物件伺服�
 2. 應用程式基礎
 3. 測試基本資訊
 
-**重要**：若要移至最新的 Dynamics 365 for Operations平台，，您的 Dynamics 365 for Operations 實作不能有任何屬於該平台之 AOT 套件的自訂項目 (overlayering)。 此限制是在平台更新 3 引進的，因此可以對平台進行無縫式的持續更新。 如果您在早於平台更新 3 的平台上執行，請參閱此文章末的＜從舊版組建升級到平台更新 3＞一節。
+**重要**：若要移至最新的 Dynamics 365 作業平台，作業實作您 Dynamics 365 不能有任何自訂項目 (overlayering) 的任何屬於平台的 AOT 封裝。 此限制是在平台更新 3 引進的，因此可以對平台進行無縫式的持續更新。 如果您在早於平台更新 3 的平台上執行，請參閱此文章末的＜從舊版組建升級到平台更新 3＞一節。
 
 如需程式碼升級的詳細資訊，請參閱[此處](https://docs.microsoft.com/dynamics365/operations/dev-itpro/migration-upgrade/upgrade-latest-platform-update)。

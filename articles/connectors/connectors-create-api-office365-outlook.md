@@ -3,20 +3,21 @@ title: 連線到 Office 365 Outlook - Azure Logic Apps | Microsoft Docs
 description: 使用 Office 365 REST API 和 Azure Logic Apps 管理電子郵件、連絡人和行事曆
 author: ecfan
 manager: jeconnoc
-ms.author: estfan
-ms.date: 10/18/2016
+ms.author: v-yiso
+origin.date: 10/18/2016
+ms.date: 09/03/2018
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 0355f121a09e1ba89f98a8af5037eb1371db2242
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: HT
+ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105049"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>開始使用 Office 365 Outlook 連接器
 Office 365 Outlook 連接器能夠與 Office 365 中的 Outlook 互動。 使用此連接器來建立、編輯和更新連絡人和行事曆項目，也可取得、傳送及回覆電子郵件。
@@ -68,7 +69,7 @@ Office 365 Outlook 連接器能夠與 Office 365 中的 Outlook 互動。 使用
 ## <a name="use-an-action"></a>使用動作
 動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
 
-1. 選取加號。 您會看到幾個選擇︰[新增動作]、[新增條件] 或其中一個 [其他] 選項。
+1. 選取加號。 您會看到幾個選擇：**新增動作**，**新增條件**，或其中一個**詳細**選項。
    
     ![](./media/connectors-create-api-office365-outlook/add-action.png)
 2. 選擇 [新增動作] 。

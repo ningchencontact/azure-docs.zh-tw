@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6f76eea365311cd6c10dd39054187bf3a07bd595
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130206"
 ---
 # <a name="geofencing-geojson-data"></a>地理柵欄 GeoJSON 資料
 
-Azure 地圖服務 [GET Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) 和 [POST Geofence](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) API 可讓您擷取與所提供地理柵欄或柵欄集合相對之座標的範圍。 本文會說明如何準備可用於 Azure 地圖服務 GET 和 POST API 中的地理柵欄資料。
+Azure 地圖服務 [GET Geofence](/rest/api/maps/spatial/getgeofence) 和 [POST Geofence](/rest/api/maps/spatial/postgeofence) API 可讓您擷取與所提供地理柵欄或柵欄集合相對之座標的範圍。 本文會說明如何準備可用於 Azure 地圖服務 GET 和 POST API 中的地理柵欄資料。
 
 地理柵欄或地理柵欄集合的資料，是以 `GeoJSON` 格式的 `Feature` 物件和 `FeatureCollection` 物件來代表，該格式已定義於 [rfc7946](https://tools.ietf.org/html/rfc7946) \(英文\)中。 此外：
 

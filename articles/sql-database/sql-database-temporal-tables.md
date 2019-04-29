@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
 ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614129"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>開始使用 Azure SQL Database 中的時態表
 
@@ -123,7 +123,7 @@ WHERE [UserID] = 1;
 ## <a name="step-3-perform-historical-data-analysis"></a>步驟 3：執行歷史資料分析
 現在當時態系統設定版本功能啟用時，您只需要一個查詢，就可以進行歷史資料分析。 在本文中，我們將提供一些解決常見分析案例的範例。若要了解所有詳細資料，請瀏覽使用 [FOR SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) 子句所導入的各種選項。
 
-若要查看依瀏覽網頁次數排序的前 10 名使用者，請執行以下查詢︰
+若要查看按访问网页次数排序的前 10 个用户，请运行以下查询：
 
 ```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());

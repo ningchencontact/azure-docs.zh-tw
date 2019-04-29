@@ -10,14 +10,14 @@ ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646893"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>將您的長期儲存空間從磁帶移至 Azure 雲端
-使用 Azure 備份和 System Center Data Protection Manager 的客戶可以進行下列操作：
+Azure 备份和 System Center Data Protection Manager 客户可以：
 
 * 依照最適合組織需求的排程備份資料。
 * 長期保留備份資料
@@ -44,10 +44,10 @@ ms.locfileid: "51259594"
 ## <a name="example--putting-both-together"></a>範例 – 將兩者綜合比較
 ![範例畫面](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **每日的保留原則**：每日所進行的備份會儲存 7 天。
-2. **每週的保留原則**：每天午夜和星期六下午 6 點所進行的備份會保留 4 週
-3. **每月的保留原則**：每月最後一個星期六午夜和下午 6 點所進行的備份會保留 12 個月
-4. **每年的保留原則**：每年三月最後一個星期六午夜所進行的備份會保留 10 年
+1. **每日保留策略**：每日创建的备份存储 7 天。
+2. **每周保留策略**：每天午夜和星期六下午 6 点创建的备份保留 4 周
+3. **每月保留策略**：每个月最后一个星期六午夜和下午 6 点创建的备份保留 12 个月
+4. **每年保留策略**：每年三月最后一个星期六午夜执行的备份保留 10 年
 
 上圖中計算「保留點」總數 (客戶可從該保留點還原資料) 的方式如下：
 

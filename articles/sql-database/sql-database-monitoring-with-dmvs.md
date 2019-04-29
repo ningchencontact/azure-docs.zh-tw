@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 371632a28d22583f8b206e4d8b9d2b6b4e510ab0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103758"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>使用動態管理檢視監視 Azure SQL Database 的效能
 
@@ -121,7 +121,7 @@ ORDER BY total_cpu_millisec DESC;
 
 #### <a name="identify-data-and-log-io-usage"></a>識別資料及記錄 IO 使用量
 
-使用下列查詢識別資料及記錄 IO 使用量。 如果資料或記錄 IO 高於 80%，表示使用者已經將可用 IO 用於 SQL DB 服務層。
+使用下列查詢識別資料及記錄 IO 使用量。 如果資料或記錄 IO 高於 80%，表示使用者已經將可用 IO 用於 SQL DB 服務層級。
 
 ```sql
 SELECT end_time, avg_data_io_percent, avg_log_write_percent
@@ -131,7 +131,7 @@ ORDER BY end_time DESC;
 
 如果已達到 IO 限制，您會有兩個選項：
 
-- 選項 1：升級計算大小或服務層
+- 選項 1：升級計算大小或服務層級
 - 選項 2：識別並調整耗用最多 IO 的查詢。
 
 #### <a name="view-buffer-related-io-using-the-query-store"></a>使用「查詢存放區」檢視與緩衝區相關的 IO
@@ -515,9 +515,9 @@ WHERE c.session_id = @@SPID;
 
 ### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
 
-您可以在每一個 SQL Database 中使用 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)檢視。 **sys.dm_db_resource_stats** 檢視可顯示相對於服務層的最新資源使用量資料。 每隔 15 秒鐘就會記錄一次 CPU、資料 IO、記錄檔寫入和記憶體的平均百分比，並且會維持 1 小時。
+您可以在每一個 SQL Database 中使用 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)檢視。 **sys.dm_db_resource_stats** 檢視可顯示相對於服務層級的最新資源使用量資料。 每隔 15 秒鐘就會記錄一次 CPU、資料 IO、記錄檔寫入和記憶體的平均百分比，並且會維持 1 小時。
 
-因為此檢視會提供更細微的資源使用量資訊，請先使用 **sys.dm_db_resource_stats** 來進行任何現狀分析或疑難排解。 例如，下列查詢會顯示目前的資料庫在過去一小時的平均和最大資源使用量：
+因為此檢視會提供更細微的資源使用量資訊，請先使用 **sys.dm_db_resource_stats** 來進行任何現狀分析或疑難排解。 例如，此查询显示过去一小时的当前数据库平均和最大资源使用情况：
 
 ```sql
 SELECT  
@@ -536,7 +536,7 @@ FROM sys.dm_db_resource_stats;
 
 ### <a name="sysresourcestats"></a>sys.resource_stats
 
-**master** 資料庫中的 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 檢視有其他資訊可協助您監視 SQL Database 在其特定服務層和計算大小的效能。 這項資料每隔 5 分鐘就會收集一次，並且會維持大約 14 天。 這個檢視適合用於進行 SQL Database 如何使用資源的長期歷史分析。
+**master** 資料庫中的 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 檢視有其他資訊可協助您監視 SQL Database 在其特定服務層級和計算大小的效能。 這項資料每隔 5 分鐘就會收集一次，並且會維持大約 14 天。 這個檢視適合用於進行 SQL Database 如何使用資源的長期歷史分析。
 
 下圖顯示在一週中 P2 計算大小之高階資料庫每小時的 CPU 資源使用量。 此圖從星期一開始，顯示 5 個工作天，然後顯示較少發生在應用程式的週末。
 
@@ -546,7 +546,7 @@ FROM sys.dm_db_resource_stats;
 
 其他應用程式類型可能會以不同方式解譯相同的圖形。 例如，如果應用程式嘗試每天處理薪資資料而且具有同一張圖表，這種「批次作業」模型可能會在 P1 計算大小中正常執行。 P1 計算大小有 100 個 DTU，相較之下，P2 計算大小則有 200 個 DTU。 P1 計算大小提供的效能是 P2 計算大小的一半。 因此，P2 中 50% 的 CPU 使用量等於 P1 中 100% 的 CPU 使用量。 如果應用程式沒有逾時，就算作業花了 2 個小時或 2.5 個小時才能完成也沒關係，只要它在今天內完成即可。 這個類別中的應用程式或許可以使用 P1 計算大小。 一天中有好幾個時段的資源使用量較低，您可以善用這個事實，讓任何「巨量尖峰」可以溢出到當天稍後的一個低谷。 只要作業可以每天及時完成，P1 計算大小可能就很適合這類應用程式 (並節省經費)。
 
-Azure SQL Database 會在每個伺服器 **master** 資料庫的 **sys.resource_stats** 檢視中公開每個作用中資料庫的耗用資源資訊。 資料表中的資料會以 5 分鐘的間隔彙總。 利用基本、標準和進階服務層，資料可能要花 5 分鐘以上的時間才會出現在資料表中，因此這項資料比較適合進行歷程記錄分析而不是近乎即時的分析。 查詢 **sys.resource_stats** 檢視可查看資料庫的近期歷程記錄，並驗證所選的保留是否會在必要時提供所需的效能。
+Azure SQL Database 會在每個伺服器 **master** 資料庫的 **sys.resource_stats** 檢視中公開每個作用中資料庫的耗用資源資訊。 表中的数据以 5 分钟为间隔收集而得。 对于“基本”、“标准”和“高级”服务层级，数据可能需要再耗费 5 分钟才会出现在表中，以使此数据更有利于历史分析而非接近实时的分析。 查詢 **sys.resource_stats** 檢視可查看資料庫的近期歷程記錄，並驗證所選的保留是否會在必要時提供所需的效能。
 
 > [!NOTE]
 > 您必須連接到 SQL Database 伺服器的 **master** 資料庫，才能在下列範例中查詢 **sys.resource_stats**。
@@ -592,7 +592,7 @@ ORDER BY start_time DESC
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. 利用這項有關各資源度量平均值和最大值的資訊，您可以評估您的工作負載與您所選之計算大小的符合程度。 通常，來自 **sys.resource_stats** 的平均值可提供您對目標大小所使用的理想基準。 它應該是您主要的量尺。 例如，您可能使用標準服務層搭配 S2 計算大小。 CPU 以及 IO 讀取和寫入的平均使用量百分比低於 40%，背景工作角色平均數目低於 50，而且工作階段平均數目低於 200。 您的工作負載可能符合 S1 計算大小。 要看到您的資料庫是否符合背景工作和工作階段限制範圍內非常容易。 若要查看資料庫在 CPU、讀取和寫入方面是否符合較低的計算大小，請將較低計算大小的 DTU 數目除以目前計算大小的 DTU 數目，然後將結果乘以 100：
+3. 利用這項有關各資源度量平均值和最大值的資訊，您可以評估您的工作負載與您所選之計算大小的符合程度。 通常，來自 **sys.resource_stats** 的平均值可提供您對目標大小所使用的理想基準。 它應該是您主要的量尺。 例如，您可能使用標準服務層級搭配 S2 計算大小。 CPU 以及 IO 讀取和寫入的平均使用量百分比低於 40%，背景工作角色平均數目低於 50，而且工作階段平均數目低於 200。 您的工作負載可能符合 S1 計算大小。 要看到您的資料庫是否符合背景工作和工作階段限制範圍內非常容易。 若要查看資料庫在 CPU、讀取和寫入方面是否符合較低的計算大小，請將較低計算大小的 DTU 數目除以目前計算大小的 DTU 數目，然後將結果乘以 100：
 
     ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
 
@@ -607,7 +607,7 @@ ORDER BY start_time DESC
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    根據資料庫服務層，您可以決定工作負載是否符合較低的計算大小。 如果資料庫工作負載目標是 99.9%，且上述查詢針對三個資源維度傳回的值都大於 99.9，則工作負載可能會符合較低的計算大小。
+    根據資料庫服務層級，您可以決定工作負載是否符合較低的計算大小。 如果資料庫工作負載目標是 99.9%，且上述查詢針對三個資源維度傳回的值都大於 99.9，則工作負載可能會符合較低的計算大小。
 
     查看相符百分比也可讓您深入了解是否必須移到下一個較高的計算大小來滿足目標。 例如，userdb1 會顯示過去一週的下列 CPU 使用量：
 
@@ -733,6 +733,6 @@ ORDER BY start_time DESC
     ORDER BY highest_cpu_queries.total_worker_time DESC;
     ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-[SQL Database 簡介](sql-database-technical-overview.md)
+[SQL 数据库简介](sql-database-technical-overview.md)

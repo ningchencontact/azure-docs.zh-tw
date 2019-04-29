@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
 ms.openlocfilehash: 02db9f2b8cb2ec71d23ad077b90eeacb905d2a16
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565791"
 ---
 # <a name="azure-networking"></a>Azure 網路
 
@@ -107,7 +107,7 @@ Azure 應用程式閘道服務提供應用程式傳遞控制站 (ADC) 服務。 
 
 下圖顯示以 URL 路徑為基礎的路由與應用程式閘道︰
 
-![應用程式閘道](./media/networking-overview/application-gateway.png)
+![应用程序网关](./media/networking-overview/application-gateway.png)
 
 **網路負載平衡**
 

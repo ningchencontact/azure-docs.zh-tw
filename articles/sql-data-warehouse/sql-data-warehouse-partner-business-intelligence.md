@@ -11,11 +11,11 @@ ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678661"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476925"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL 資料倉儲商業智慧合作夥伴
 若要建立端對端資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。  這篇文章特別介紹 Microsoft 夥伴公司官方的商務智慧 (BI) 解決方案支援 Azure SQL 資料倉儲。

@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230330"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684735"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>建立條件陳述式以控制 Azure Logic Apps 中的工作流程動作
 
@@ -45,7 +45,7 @@ ms.locfileid: "50230330"
 
    如果想要在工作流程結尾新增條件，請在邏輯應用程式底部，選擇 [新增步驟] > [新增動作]。
 
-1. 在搜尋方塊中，輸入「條件」作為篩選條件。 選取此動作：**條件 - 控制**
+1. 在搜尋方塊中，輸入「條件」作為篩選條件。 選取此動作：**条件 - 控制**
 
    ![新增條件](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
@@ -62,7 +62,7 @@ ms.locfileid: "50230330"
    在此範例中，請選取 "**contains**"。 
 
    1. 在右邊的方塊中，指定作為準則的值或欄位。 
-   在此範例中，指定此字串：**Microsoft**
+   对于此示例，请指定此字符串：**Microsoft**
 
    以下是完整的條件：
 

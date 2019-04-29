@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104981"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視及管理 Twitter
 
@@ -70,13 +70,13 @@ ms.locfileid: "50230653"
 
 ## <a name="examples"></a>範例
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter 觸發程序：有新推文張貼時
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter 觸發程序：當有新推文張貼時
 
 此觸發程序會在偵測到新推文時 (例如，具有主題標籤 #Seattle 時)，啟動邏輯應用程式工作流程。 所以舉例來說，當找到這些推文時，您可以將具有推文內容的檔案新增至儲存體，例如藉由使用 Dropbox 連接器新增到 Dropbox 帳戶。 
 
 您可以選擇性地包含條件，要求合格的推文必須來自至少具有指定跟隨者數目的使用者。
 
-**企業範例**：您可以使用此觸發程序來監視與貴公司有關的推文，以及將推文內容上傳至 SQL 資料庫。
+**企業範例**：您可以使用此觸發程序來監視公司相關的推文，並將推文的內容上傳到 SQL database。
 
 ### <a name="twitter-action-post-a-tweet"></a>Twitter 動作：張貼推文
 

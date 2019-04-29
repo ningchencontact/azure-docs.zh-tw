@@ -15,11 +15,11 @@ ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128410"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本文件說明 Azure App Service 虛擬網路整合功能，以及示範如何使用 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式來設定此功能。 [Azure 虛擬網路][VNETOverview] (VNet) 可讓您將許多 Azure 資源，放在非網際網路可路由網路中。 然後，可以使用 VPN 技術，將這些網路連線到您的內部部署網路。 

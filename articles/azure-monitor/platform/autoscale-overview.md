@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085638"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787556"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure 虛擬機器、雲端服務和 Web Apps 的自動調整概觀
 本文說明何謂 Microsoft Azure 自動調整、其優點，以及如何開始使用它。  
@@ -102,6 +102,7 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 * [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>支持进行自动缩放的服务
+
 | 服務 | 結構描述與文件 |
 | --- | --- |
 | Web Apps |[調整 Web Apps](../../azure-monitor/platform/autoscale-get-started.md) |
@@ -120,4 +121,3 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 * [使用自動調整動作傳送電子郵件和 Webhook 警示通知](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [自动缩放 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 * [排解虛擬機器擴展集自動調整的問題](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 93fbd5bbba91b45e1afd123a2466b249302e2354
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
-ms.translationtype: HT
+ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60566679"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虛擬機器上備份及復原 Oracle Database 12c 資料庫
 
@@ -37,7 +37,7 @@ ms.locfileid: "39492835"
     若要了解如何建立 Oracle 資料庫，請參閱 [Oracle 建立資料庫快速入門](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create)。
 
 
-### <a name="step-2-connect-to-the-vm"></a>步驟 2：連線至 VM
+### <a name="step-2-connect-to-the-vm"></a>步驟 2：連接至 VM
 
 *   若要對 VM 建立安全殼層 (SSH) 工作階段，請使用下列命令。 將 IP 位址和主機名稱組合取代為 VM 的 `publicIpAddress` 值。
 
@@ -45,7 +45,7 @@ ms.locfileid: "39492835"
     ssh <publicIpAddress>
     ```
 
-### <a name="step-3-prepare-the-database"></a>步驟 3︰準備資料庫
+### <a name="step-3-prepare-the-database"></a>步驟 3：準備資料庫
 
 1.  這個步驟假設您具有在 VM 上執行的 Oracle 執行個體 (cdb1)，稱為 myVM。
 
@@ -133,7 +133,7 @@ ms.locfileid: "39492835"
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>步驟 4：Linux VM 的應用程式一致備份
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>步驟 4：適用於 Linux Vm 的應用程式一致備份
 
 應用程式一致備份是 Azure 備份中的新功能。 您可以建立並選取要在 VM 快照集之前和之後執行的指令碼 (前快照集和後快照集)。
 
@@ -307,7 +307,7 @@ ms.locfileid: "39492835"
 
     ![復原服務保存庫立即備份命令](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. 按一下 [備份] 按鈕。 等候備份程序完成。 然後，移至[步驟 6：移除資料庫檔案](#step-6-remove-the-database-files)。
+10. 按一下 [備份] 按鈕。 等候備份程序完成。 然後，移至[步驟 6:將資料庫檔案移除](#step-6-remove-the-database-files)。
 
     若要檢視備份工作的狀態，請按一下 [工作]。
 
@@ -519,7 +519,7 @@ ms.locfileid: "39492835"
 
     ![IP 位址值](./media/oracle-backup-recovery/create_ip_04.png)
 
-### <a name="step-4-connect-to-the-vm"></a>步驟 4：連線至 VM
+### <a name="step-4-connect-to-the-vm"></a>步驟 4：連接至 VM
 
 *   若要連線至 VM，請使用下列指令碼︰
 
@@ -537,9 +537,9 @@ ms.locfileid: "39492835"
     ```
 
     > [!IMPORTANT]
-    > 如果資料庫 **startup** 命令產生錯誤，若要復原資料庫，請參閱[步驟 6：使用 RMAN 復原資料庫](#step-6-optional-use-rman-to-recover-the-database)。
+    > 如果資料庫**啟始**命令會產生錯誤，若要復原資料庫，請參閱[步驟 6:使用 RMAN 來復原資料庫](#step-6-optional-use-rman-to-recover-the-database)。
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>步驟 6：(選擇性) 使用 RMAN 復原資料庫
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>步驟 6：（選擇性）使用 RMAN 來復原資料庫
 *   若要復原資料庫，請使用下列指令碼：
 
     ```bash
@@ -564,7 +564,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-[教學課程︰建立高可用性 VM](../../linux/create-cli-complete.md)
+[教學課程：建立高可用性 VM](../../linux/create-cli-complete.md)
 
 [瀏覽 VM 部署 Azure CLI 範例](../../linux/cli-samples.md)
 

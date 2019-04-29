@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 7d181e6e434c998573dbea4b541cfacf7a28ee66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632414"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>更換 StorSimple 裝置上的電源和冷卻模組
 ## <a name="overview"></a>概觀
@@ -61,7 +61,7 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
    
      **圖 1** 裝置的正面面板  
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |靜音按鈕 |
    | 2 |系統電源 |
@@ -74,7 +74,7 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
    
      **圖 2** PCM 背面和 LED 指示燈
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |AC 電源故障 |
    | 2 |風扇故障 |
@@ -88,7 +88,7 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
    
      **圖 3** 裝置背面和外掛程式模組 
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |

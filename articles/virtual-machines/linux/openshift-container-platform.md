@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 39eea84cc9301263381533e03e8f783e0a73ea19
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999955"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126999"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>在 Azure 中部署 OpenShift 容器平台
 
@@ -251,7 +251,7 @@ ms.locfileid: "59999955"
 
 | 屬性 | 描述 | 有效的選項 | 預設值 |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | 成品 （json、 指令碼等等） 的 URL |  |  https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
+| `_artifactsLocation`  | 成品 （json、 指令碼等等） 的 URL |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | 要部署資源的 azure 區域 |  |  |
 | `masterVmSize` | 在主要 VM 的大小。 選取其中一個允許的 azuredeploy.json 檔案中列出的 VM 大小 |  | Standard_E2s_v3 |
 | `infraVmSize` | 大小基礎結構 VM。 選取其中一個允許的 azuredeploy.json 檔案中列出的 VM 大小 |  | Standard_D4s_v3 |

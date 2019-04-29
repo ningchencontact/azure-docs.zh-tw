@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
 ms.openlocfilehash: e4c698dc5aa8a07d09835adeac39db6ee35f720c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123173"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting 的診斷和效能監視
 Reliable ServiceRemoting 執行階段會發出[效能計數器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)。 這些項目提供深入了解 ServiceRemoting 的運作方式，並有助於疑難排解及效能監視。
@@ -28,7 +28,7 @@ Reliable ServiceRemoting 執行階段會發出[效能計數器](https://msdn.mic
 ## <a name="performance-counters"></a>效能計數器
 Reliable ServiceRemoting 執行階段定義下列效能計數器類別：
 
-| 類別 | 描述 |
+| Category | 描述 |
 | --- | --- |
 | Service Fabric Service |Azure Service Fabric Service Remoting 的特定計數器，例如處理要求所花費的平均時間 |
 | Service Fabric Service Method |Service Fabric Remoting Service 所實作方法特定的計數器，例如叫用服務方法的頻率 |

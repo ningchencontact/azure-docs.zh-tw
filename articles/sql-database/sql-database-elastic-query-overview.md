@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/19/2019
 ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567446"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585649"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 彈性查詢概觀 (預覽)
 
@@ -31,7 +31,7 @@ ms.locfileid: "55567446"
 
 ### <a name="available-on-standard-tier"></a>適用於標準層
 
-標準和進階服務層上都支援彈性查詢。 請參閱下面＜預覽限制＞一節中較低服務層的效能限制。
+標準和進階服務層級上都支援彈性查詢。 請參閱下面＜預覽限制＞一節中較低服務層級的效能限制。
 
 ### <a name="push-parameters-to-remote-databases"></a>將參數推送到遠端資料庫
 
@@ -104,7 +104,7 @@ ms.locfileid: "55567446"
 
 > [!NOTE]
 > 彈性查詢資料庫 (前端節點) 可以是個別的資料庫，或是裝載分區對應的相同資料庫。
-> 無論您選擇哪一個設定，都應該確定該資料庫的服務層和計算大小夠高，可處理預期的登入/查詢要求數量。
+> 無論您選擇哪一個設定，都應該確定該資料庫的服務層級和計算大小夠高，可處理預期的登入/查詢要求數量。
 
 下列步驟會針對水平資料分割案例設定彈性資料庫查詢，這些案例需要存取 (通常) 位於數個遠端 SQL Database 上的一組資料表：
 
@@ -119,7 +119,7 @@ ms.locfileid: "55567446"
 
 若要開始撰寫程式碼，請參閱[開始使用彈性查詢進行水平資料分割 (分區化)](sql-database-elastic-query-getting-started.md)。
 
-## <a name="t-sql-querying"></a>T-SQL 查詢
+## <a name="t-sql-querying"></a>T-SQL 查询
 
 一旦您已定義外部資料來源和外部資料表，您可以使用一般 SQL Server 連接字串來連接到您定義外部資料表的資料庫。 您可以接著對該連線上的外部資料表執行 T-SQL 陳述式，其限制如下所述。 您可以[水平資料分割](sql-database-elastic-query-horizontal-partitioning.md)和[垂直資料分割](sql-database-elastic-query-vertical-partitioning.md)文件主題中找到 T-SQL 查詢範例的詳細資訊。
 
@@ -136,7 +136,7 @@ ms.locfileid: "55567446"
 
 ## <a name="preview-limitations"></a>預覽限制
 
-* 在標準服務層上執行第一個彈性查詢最多可能需要幾分鐘的時間。 需要這些時間才能載入彈性查詢功能；較高的服務層和計算大小可改善載入效能。
+* 在標準服務層級上執行第一個彈性查詢最多可能需要幾分鐘的時間。 需要這些時間才能載入彈性查詢功能；較高的服務層級和計算大小可改善載入效能。
 * 尚未支援來自 SSMS 或 SSDT 的外部資料來源或外部資料表的指令碼。
 * SQL DB 匯入/匯出還不支援外部資料來源和外部資料表。 如果您需要使用匯入/匯出，請在匯出前卸除這些物件，然後在匯入後予以重新建立。
 * 彈性查詢目前僅支援以唯讀方式存取外部資料表。 不過，您可以在定義外部資料表的資料庫上使用完整的 T-SQL 功能。 例如，在使用 SELECT <column_list> INTO <local_table> (舉例而言) 保存暫存結果時，或在彈性查詢資料庫上定義預存程序來參考外部資料表時，這可能有其效用。
@@ -152,7 +152,7 @@ ms.locfileid: "55567446"
 
 * 若要開始撰寫程式碼，請參閱 [開始使用跨資料庫查詢 (垂直資料分割)](sql-database-elastic-query-getting-started-vertical.md)。
 * 如需垂直資料分割之資料的語法和範例查詢，請參閱[查詢垂直資料分割的資料](sql-database-elastic-query-vertical-partitioning.md)
-* 如需水平資料分割 (分區化) 教學課程，請參閱[開始使用彈性查詢進行水平資料分割 (分區化)](sql-database-elastic-query-getting-started.md)。
+* 有关水平分区（分片）的教程，请参阅[弹性查询入门 - 水平分区（分片）](sql-database-elastic-query-getting-started.md)。
 * 如需水平資料分割之資料的語法和範例查詢，請參閱[查詢水平資料分割的資料](sql-database-elastic-query-horizontal-partitioning.md)
 * 如需會在單一遠端 Azure SQL Database 或一組在水平資料分割配置中作為分區之資料庫上執行 Transact-SQL 陳述式的預存程序，請參閱 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)。
 

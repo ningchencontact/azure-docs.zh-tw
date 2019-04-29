@@ -16,11 +16,11 @@ ms.date: 05/16/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: ce136a341809b1a485e86337f428b4685eba22f7
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093539"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681503"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>在中國使用 Azure CDN 所傳遞的內容
 
@@ -38,7 +38,7 @@ ms.locfileid: "49093539"
 
      - 執行中國以外的內容傳遞
 
-     - 四個定價層：Microsoft 標準、Verizon 標準、Verizon 進階和 Akamai 標準
+     - 四個定價層：Microsoft 標準、 Verizon 標準、 Verizon 和 Akamai 標準
 
      - [Documentation](https://docs.microsoft.com/azure/cdn/)
 
@@ -48,7 +48,7 @@ ms.locfileid: "49093539"
 
      - 執行中國內部的內容傳遞
 
-     - 兩個定價層：標準和進階
+     - 兩個定價層：Standard 和 premium
 
      - [Documentation](https://docs.azure.cn/en-us/cdn/)
  

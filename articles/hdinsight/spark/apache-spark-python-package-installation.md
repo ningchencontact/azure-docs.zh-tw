@@ -1,7 +1,6 @@
 ---
 title: 指令碼動作 - 在 Azure HDInsight 上搭配 Jupyter 安裝 Python 套件
 description: 說明如何使用指令碼動作以設定讓 HDInsight Spark 叢集隨附之 Jupyter Notebook 使用外部 Python 套件的逐步指示。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8bc44949d804349de37796a2695edbdc64693edf
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 876037e0e8e795ca98ddd3adf74dd0a304192a35
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097907"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>使用指令碼動作在 HDInsight Linux 上的 Apache Spark 叢集中安裝 Jupyter Notebook 的外部 Python 封裝
 > [!div class="op_single_selector"]
@@ -65,7 +64,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 4. 輸入下列值**送出指令碼動作**視窗：  
 
 
-    |參數 | 值 |
+    |參數 | Value |
     |---|---|
     |指令碼類型 | 從下拉式清單中選取 [- 自訂]。|
     |名稱 |在文字方塊中輸入 `tensorflow`。|

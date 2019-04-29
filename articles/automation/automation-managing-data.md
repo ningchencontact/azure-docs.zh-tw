@@ -10,11 +10,11 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60738470"
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自动化数据
 本文章包含用於管理 Azure 自動化環境的多個主題。
@@ -31,7 +31,7 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 | 帳戶 |刪除使用者帳戶 90 天後永久移除。 |
 | Assets |使用者刪除資產後 90 天，或使用者刪除持有資產的帳戶 90 天後永久移除。 |
 | 模块 |使用者刪除模組後 90 天，或使用者刪除持有模組的帳戶 90 天後永久移除。 |
-| Runbook |使用者刪除資源後 90 天，或使用者刪除持有資源的帳戶 90 天後永久移除。 |
+| runbook |使用者刪除資源後 90 天，或使用者刪除持有資源的帳戶 90 天後永久移除。 |
 | 工作 |在上次修改日期的 90 天後刪除並永久移除。 這可以是在工作完成、停止或暫止之後。 |
 | 節點組態/MOF 檔案 |舊的節點組態會在新的節點組態產生之後的 90 天永久移除。 |
 | DSC 節點 |使用 Azure 入口網站或在 Windows PowerShell Cmdlet 中使用 [Unregister-AzureRMAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) 在節點從自動化帳戶取消註冊之後的 90 天永久移除。 節點也會在擁有節點的帳戶被使用者刪除之後的 90 天永久移除。 |
@@ -44,7 +44,7 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 ## <a name="backing-up-azure-automation"></a>備份 Azure 自動化
 在 Microsoft Azure 中刪除自動化帳戶時，會刪除帳戶中的所有物件，包括 Runbook、模組、組態、設定、工作和資產。 刪除帳戶之後，就無法復原物件。  您可以使用下列資訊，在刪除之前備份您的自動化帳戶的內容。 
 
-### <a name="runbooks"></a>Runbook
+### <a name="runbooks"></a>runbook
 您可以使用 Azure 入口網站或 Windows PowerShell 中的 [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition)Cmdlet，將您的 Runbook 匯出為指令碼檔案。  可以將這些指令碼檔案匯入到另一個自動化帳戶，如 [建立或匯入 Runbook](/previous-versions/azure/dn643637(v=azure.100))中所述。
 
 ### <a name="integration-modules"></a>整合模組

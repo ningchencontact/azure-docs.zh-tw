@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632296"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>使用.NET SDK 起始資料轉換
 
@@ -63,7 +63,7 @@ ms.locfileid: "57885045"
     * 用戶端識別碼
     * 租用戶識別碼
     * Active Directory 金鑰 (與上面輸入的金鑰相同)
-    * 訂用帳戶識別碼
+    * 订阅 ID
 
         ![設定參數指令碼輸出](media/storsimple-data-manager-dotnet-jobs/get-config-parameters.png)
 

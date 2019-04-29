@@ -12,11 +12,11 @@ ms.date: 05/22/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ms.openlocfilehash: d99149f8112c19a07208523a1ee26ba1c36e5362
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103533"
 ---
 # <a name="creating-continuous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>使用 Docker、Kubernetes 及 Python Flask 應用程式在 Azure 上建立持續整合管線
 就 AI 應用程式而言，有兩個經常性的工作資料流：資料科學家建置機器學習模型，而應用程式開發人員則建置應用程式並將其公開給使用者取用。 在本文中，我們將示範如何實作 AI 應用程式的持續整合 (CI)/持續部署 (CD) 管線。 AI 應用程式是內嵌了預先定型機器學習 (ML) 模型的應用程式碼組合。 針對本文，我們會從私用的 Azure Blob 儲存體帳戶 (也可以是 AWS S3 帳戶) 中擷取一個預先定型的模型。 我們將針對本文使用一個簡單的 Python Flask Web 應用程式。

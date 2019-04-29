@@ -1,7 +1,6 @@
 ---
 title: '教學課程：使用 Azure HDInsight 中的 Apache Spark 處理來自 Azure 事件中樞的資料 '
 description: 將 Azure HDInsight 中的 Apache Spark 連線至 Azure 事件中樞，並處理串流資料。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
 ms.date: 12/28/2018
-ms.openlocfilehash: 81104c7b206d4fe158df1ae9d329084ad88c3bdd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 02f7bbca127ba33fcfdd15d6f00d1660bf72970c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124351"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>教學課程：使用 Azure 事件中樞與 HDInsight 中的 Apache Spark 處理推文
 
@@ -80,7 +79,7 @@ ms.locfileid: "53976625"
 
     - 訂用帳戶：選取適當的訂用帳戶。
 
-    - **資源群組**：從下拉式清單中選取現有的資源群組，或選取 [新建] 來建立新的資源群組。
+    - **资源组**：從下拉式清單中選取現有的資源群組，或選取 [新建] 來建立新的資源群組。
 
     - **位置**：選取與 HDInsight 中 Apache Spark 叢集相同的**位置**，以降低延遲和成本。
 

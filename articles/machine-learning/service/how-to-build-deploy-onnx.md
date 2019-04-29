@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 33a93aa01499beb978f616f633588ba75e4b62a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 716286fdfb684a277c7147936f162089a2cdefd8
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118461"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 與 Azure Machine Learning：建立與部署互通的 AI 模型
 
@@ -57,7 +57,7 @@ Microsoft 會讓其產品 (包括 Azure 和 Windows) 支援 ONNX，以協助您�
 |TensorFlow|[tensorflow-onnx 轉換器](https://github.com/onnx/tensorflow-onnx)|
 |Chainer|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
 |MXNet|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
-|Keras、ScitKit-Learn、CoreML<br/>XGBoost 和 libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
+|Keras、ScitKit-Learn、CoreML<br/>XGBoost 和 libSVM|[WinMLTools](/windows/ai/windows-ml/convert-model-winmltools)|
 |Microsoft&nbsp;Cognitive&nbsp;Toolkit|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 您可以在 [ONNX 教學課程網站](https://github.com/onnx/tutorials)找到支援架構和轉換器的最新清單。

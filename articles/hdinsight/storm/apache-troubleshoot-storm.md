@@ -2,7 +2,6 @@
 title: 使用 Azure HDInsight 為 Storm 進行疑難排解
 description: 取得有關使用 Apache Storm 和 Azure HDInsight 的常見問題解答。
 keywords: Azure HDInsight, Storm, 常見問題集, 疑難排解指南, 常見問題
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5634d812b3fbd4e904516767b008f63104b3d7b7
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3866e25cc3c87f569e84b2d5639d25aa9386cc78
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116443"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Apache Storm 進行疑難排解
 
@@ -148,5 +147,5 @@ Storm 背景工作節點執行下列服務：
  
 範例：/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
-### <a name="see-also"></a>另請參閱
+### <a name="see-also"></a>另请参阅
 [使用 Azure HDInsight 進行疑難排解](../../hdinsight/hdinsight-troubleshoot-guide.md)

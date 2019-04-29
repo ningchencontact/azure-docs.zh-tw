@@ -15,11 +15,11 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475502"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC 延伸模組
 
@@ -37,7 +37,7 @@ Windows Server 2019、 Windows Server 2016、 Windows Server 2012 r2，Windows S
 
 ### <a name="internet-connectivity"></a>網際網路連線
 
-Windows 的 DSC 擴充功能會要求目標虛擬機器都必須能夠使用 Azure 和組態封裝 （.zip 檔案） 的位置進行通訊，如果它儲存在 Azure 外部的位置。 
+适用于 Windows 的 DSC 扩展要求目标虚拟机能够与 Azure 以及配置文件包（.zip 文件）的位置（如果它存储在 Azure 之外的位置）通信。 
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
@@ -116,7 +116,7 @@ Windows 的 DSC 擴充功能會要求目標虛擬機器都必須能夠使用 Azu
 | settings.configurationArguments | 集合 | 定義任何您想要傳遞至 DSC 組態的參數。 此屬性將不會經過加密。
 | settings.configurationData.url | 字串 | 指定 URL，從中下載您的組態資料 (.pds1) 檔案以做為 DSC 組態的輸入。 如果提供的 URL 需要 SAS 權杖才能存取，您必須將 protectedSettings.configurationDataUrlSasToken 屬性設定為 SAS 權杖的值。
 | settings.privacy.dataEnabled | 字串 | 啟用或停用遙測收集。 此屬性只有下列可能值：‘Enable’、‘Disable’ 或 $null。 將此屬性保留空白或 null 將會啟用遙測
-| settings.advancedOptions.forcePullAndApply | Bool | 此設定可加強節點向 Azure 自動化 DSC 延伸模組所使用的體驗。  如果值為`$true`，擴充功能將會等到傳回成功/失敗之前，從服務提取組態的第一次執行。  如果值設定為 $false，延伸模組所傳回的狀態只會參考是否節點與 Azure 自動化狀態設定已成功註冊，並將不會在註冊期間執行的節點組態。
+| settings.advancedOptions.forcePullAndApply | Bool | 此设置旨在增强使用扩展将节点注册到 Azure Automation DSC 的体验。  如果值为 `$true`，则扩展会等待从服务拉取的配置完成第一次运行，然后返回成功/失败。  如果值设置为 $false，则扩展返回的状态仅指节点是否已成功注册到 Azure Automation State Configuration，而在注册过程中不会运行节点配置。
 | settings.advancedOptions.downloadMappings | 集合 | 定義下載相依性 (例如 WMF 和 .NET) 的替代位置
 
 ### <a name="protected-settings-property-values"></a>受保護的設定屬性值
@@ -132,7 +132,7 @@ Windows 的 DSC 擴充功能會要求目標虛擬機器都必須能夠使用 Azu
 
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。
 部署一或多部需要部署後設定的虛擬機器時，很適合使用範本。
-包含 Windows 的 DSC 延伸模組的範例 Resource Manager 範本可於[Azure 快速入門資源庫](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91)。
+包含 Windows 的 DSC 扩展的示例资源管理器模板可以在 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91)中找到。
 
 ## <a name="troubleshoot-and-support"></a>疑難排解與支援
 
@@ -149,7 +149,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-延伸模組狀態檔案包含的子狀態和狀態成功/錯誤代碼，以及詳細的錯誤和執行每個擴充功能的描述。
+扩展状态文件包含子状态和状态成功/错误代码以及每个扩展运行的详细错误和说明。
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```

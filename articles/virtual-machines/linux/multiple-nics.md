@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
 ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732833"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772428"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>如何在 Azure 中建立有多個網路介面卡的 Linux 虛擬機器
 
@@ -66,7 +66,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-## <a name="create-and-configure-multiple-nics"></a>建立及設定多個 NIC
+## <a name="create-and-configure-multiple-nics"></a>创建和配置多个 NIC
 使用 [az network nic create](/cli/azure/network/nic) 建立兩個 NIC。 下列範例會建立兩個連接網路安全性群組的 NIC (名為 myNic1 和 myNic2)，以及一個連接到各個子網路的 NIC：
 
 ```azurecli
@@ -85,7 +85,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>建立 VM 並附加 NIC
-當您建立 VM 時，指定您使用 `--nics` 建立的 NIC。 當您選取 VM 大小時也需多加注意。 您可以新增至 VM 的 NIC 總數是有限制的。 深入了解 [Linux VM 大小](sizes.md)。
+當您建立 VM 時，指定您使用 `--nics` 建立的 NIC。 还需要谨慎选择 VM 的大小。 您可以新增至 VM 的 NIC 總數是有限制的。 深入了解 [Linux VM 大小](sizes.md)。
 
 使用 [az vm create](/cli/azure/vm) 建立 VM。 下列範例會建立名為 myVM 的 VM。
 

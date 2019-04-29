@@ -10,11 +10,11 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739161"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>讓更新管理、變更追蹤和清查解決方案上線
 
@@ -32,7 +32,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ![讓清查解決方案上線](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-當啟用解決方案，只有特定區域支援連結的 Log Analytics 工作區和自動化帳戶。
+啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
 
 下表顯示支援的對應：
 
@@ -82,7 +82,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 瀏覽至您的自動化帳戶，然後選取 [一般] 下的 [已儲存搜尋]。 下表顯示這些解決方案所使用的兩個已儲存搜尋：
 
-|名稱     |類別  |Alias  |
+|名稱     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 更新        | Updates__MicrosoftDefaultComputerGroup         |

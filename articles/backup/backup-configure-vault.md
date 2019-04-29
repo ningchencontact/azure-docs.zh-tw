@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: 7a1bd6da68b49481429709c7e4fd37dd5c07ae2c
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60810372"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>備份 Azure 備份的 MARS 代理程式的 Windows 機器
 
@@ -86,7 +86,7 @@ MARS 代理程式會使用 Azure 備份將備份檔案、 資料夾和系統狀�
    - 它可以包含 2 到 50 個字元。
    - 該名稱必須以字母開頭，而且只可以包含字母、數字和連字號。
 
-5. 選取 Azure 訂用帳戶、 資源群組，以及應該在其中建立保存庫的地理區域。 備份資料會傳送至保存庫。 接著，按一下 [建立]。
+5. 选择要在其中创建保管库的 Azure 订阅、资源组和地理区域。 備份資料會傳送至保存庫。 接著，按一下 [建立]。
 
     ![建立復原服務保存庫的步驟 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
@@ -100,9 +100,9 @@ MARS 代理程式會使用 Azure 備份將備份檔案、 資料夾和系統狀�
 Azure 備份會自動處理保存庫的儲存體。 您必須指定該儲存體的複寫方式。
 
 1. 從 [復原服務保存庫] 刀鋒視窗，按一下 [新增保存庫]。 底下**設定**區段中，按一下**屬性**。
-2. 在 **屬性**下方**備份設定**，按一下**更新**。
+2. 在“属性”中的“备份配置”下，单击“更新”。
 
-3. 選取儲存體複寫類型，然後按一下**儲存**。
+3. 选择存储复制类型，然后单击“保存”。
 
       ![為新保存庫設定儲存體組態](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 

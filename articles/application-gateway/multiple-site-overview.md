@@ -4,15 +4,16 @@ description: 本文提供「Azure 應用程式閘道」多站台支援的概觀�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 1/17/2019
-ms.author: amsriva
+origin.date: 01/17/2019
+ms.date: 04/16/2019
+ms.author: v-junlch
 ms.topic: conceptual
 ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715835"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>應用程式閘道多站台裝載
 
@@ -124,3 +125,5 @@ ms.locfileid: "57790607"
 
 了解多站台裝載之後，請移至 [使用多站台裝載建立應用程式閘道](tutorial-multiple-sites-powershell.md) ，以建立能夠支援多個 Web 應用程式的應用程式閘道。
 
+
+<!-- Update_Description: update metedata properties -->

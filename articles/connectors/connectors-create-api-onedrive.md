@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 50bd9ecdd665cf72c146c63ae25efa6773934a3e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 840a010f8606387a250552d884621a96d0031f90
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106222"
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>開始使用 OneDrive 連接器
 連線到 OneDrive 來管理您的檔案，包括上傳檔案、取得、刪除檔案等等。 
@@ -62,7 +62,7 @@ ms.locfileid: "35295375"
 ## <a name="use-an-action"></a>使用動作
 動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
 
-1. 選取加號。 您會看到幾個選擇︰[新增動作]、[新增條件] 或其中一個 [其他] 選項。
+1. 選取加號。 您會看到幾個選擇：**新增動作**，**新增條件**，或其中一個**詳細**選項。
    
     ![](./media/connectors-create-api-onedrive/add-action.png)
 2. 選擇 [新增動作] 。

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809426"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>平衡 Service Fabric 叢集
 「Service Fabric 叢集資源管理員」支援動態負載變更、因應節點或服務的新增或移除。 它也會自動修正條件約束違規，以及主動重新平衡叢集。 但是這些動作執行的頻率，以及觸發它們的項目是什麼？
@@ -123,7 +123,7 @@ ClusterManifest.xml
 
 <center>
 
-![平衡臨界值範例][Image1]
+![均衡阈值示例][Image1]
 </center>
 
 在此範例中，每個服務皆取用一單位的某個計量。 在上半部的範例中，節點的負載上限為 5，而下限為 2。 假設此計量的平衡臨界值為 3。 由於叢集中的比率是 5/2 = 2.5，小於指定的平衡臨界值 3，因此叢集處於平衡狀態。 當「叢集資源管理員」進行檢查時，不會觸發任何平衡作業。
@@ -132,7 +132,7 @@ ClusterManifest.xml
 
 <center>
 
-![平衡臨界值範例動作][Image2]
+![均衡阈值示例操作][Image2]
 </center>
 
 > [!NOTE]
@@ -148,7 +148,7 @@ ClusterManifest.xml
 
 <center>
 
-![活動臨界值範例][Image3]
+![活动阈值示例][Image3]
 </center>
 
 如同平衡臨界值，活動臨界值會透過叢集定義根據每個度量進行定義︰
@@ -198,7 +198,7 @@ ClusterManifest.xml
 
 <center>
 
-![一起平衡服務][Image4]
+![一起均衡服务][Image4]
 </center>
 
 因為這個鏈結，所以計量 1-4 若發生不平衡，可能會導致屬於服務 1-3 的複本或執行個體四處移動。 我們也知道計量 1、2 或 3 若發生不平衡，並不會導致 Service4 中發生移動。 這麼做並沒有必要，因為將屬於 Service4 的複本或執行個體四處移動完全不會影響計量 1-3 的平衡。
@@ -207,7 +207,7 @@ ClusterManifest.xml
 
 <center>
 
-![一起平衡服務][Image5]
+![一起均衡服务][Image5]
 </center>
 
 ## <a name="next-steps"></a>後續步驟

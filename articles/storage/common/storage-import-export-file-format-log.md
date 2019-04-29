@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478601"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure 匯入/匯出服務記錄檔格式
 當 Microsoft Azure 匯入/匯出服務於匯入工作或匯出工作期間在磁碟機上執行動作時，記錄會寫入至與該工作相關聯的儲存體帳戶中的區塊 Blob。  
@@ -33,7 +33,7 @@ ms.locfileid: "55697827"
   
 |驗證方法|`ImportExportStatesPath` 元素的值|記錄檔 Blob 的位置|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|儲存體帳戶金鑰|預設值|名為 `waimportexport` 的容器，這是預設容器。 例如︰<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|存储帐户密钥|預設值|名為 `waimportexport` 的容器，這是預設容器。 例如︰<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
 |儲存體帳戶金鑰|使用者指定值|使用者命名的容器。 例如︰<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
 |容器 SAS|預設值|名為 `waimportexport` 的虛擬目錄，這是預設名稱，位於 SAS 中指定的容器底下。<br /><br /> 例如，如果為工作指定的 SAS 是 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`，記錄檔位置會是 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |容器 SAS|使用者指定值|使用者命名的虛擬目錄，位於 SAS 中指定的容器底下。<br /><br /> 例如，如果為工作指定的 SAS 是 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`，且指定的虛擬目錄名為 `mylogblobs`，記錄檔位置會是 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`。|  
@@ -101,7 +101,7 @@ properties-status ::=
 
 下表說明記錄檔的元素：  
   
-|XML 元素|類型|說明|  
+|XML 元素|類型|描述|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML 元素|代表磁碟機記錄檔。|  
 |`Version`|屬性、字串|記錄檔格式的版本。|  
@@ -145,7 +145,7 @@ properties-status ::=
 ## <a name="drive-status-codes"></a>磁碟機狀態碼  
 下表列出磁碟機處理的狀態碼。  
   
-|狀態碼|說明|  
+|狀態碼|描述|  
 |-----------------|-----------------|  
 |`Completed`|磁碟機已完成處理，沒有任何錯誤。|  
 |`CompletedWithWarnings`|磁碟機已完成處理，並根據為 Blob 指定的匯入配置在一或多個 Blob 中發出警告。|  
@@ -174,7 +174,7 @@ properties-status ::=
 ## <a name="blob-status-codes"></a>Blob 狀態碼  
 下表列出 Blob 處理的狀態碼。  
   
-|狀態碼|說明|  
+|狀態碼|描述|  
 |-----------------|-----------------|  
 |`Completed`|Blob 已完成處理，沒有任何錯誤。|  
 |`CompletedWithErrors`|Blob 已完成處理，一或多個頁面範圍或區塊、 中繼資料或屬性中發生錯誤。|  
@@ -193,7 +193,7 @@ properties-status ::=
 ## <a name="import-disposition-status-codes"></a>匯入配置狀態碼  
 下表列出解決匯入配置的狀態碼。  
   
-|狀態碼|說明|  
+|狀態碼|描述|  
 |-----------------|-----------------|  
 |`Created`|Blob 已建立。|  
 |`Renamed`|Blob 已依照重新命名匯入配置重新命名。 `Blob/BlobPath` 元素包含已重新命名的 Blob 的 URI。|  
@@ -204,7 +204,7 @@ properties-status ::=
 ## <a name="page-rangeblock-status-codes"></a>頁面範圍/區塊狀態碼  
 下表列出頁面範圍或區塊處理的狀態碼。  
   
-|狀態碼|說明|  
+|状态代码|描述|  
 |-----------------|-----------------|  
 |`Completed`|頁面範圍或區塊已完成處理，沒有任何錯誤。|  
 |`Committed`|區塊已認可，但不在完整區塊清單中，因為其他區塊失敗，或是放置完整區塊清單本身失敗。|  
@@ -220,7 +220,7 @@ properties-status ::=
 ## <a name="metadata-status-codes"></a>中繼資料狀態碼  
 下表列出 Blob 中繼資料處理的狀態碼。  
   
-|狀態碼|說明|  
+|狀態碼|描述|  
 |-----------------|-----------------|  
 |`Completed`|中繼資料已完成處理，沒有任何錯誤。|  
 |`FileNameInvalid`|中繼資料檔案名稱無效。|  
@@ -238,7 +238,7 @@ properties-status ::=
 ## <a name="properties-status-codes"></a>屬性狀態碼  
 下表列出 Blob 屬性處理的狀態碼。  
   
-|狀態碼|說明|  
+|狀態碼|描述|  
 |-----------------|-----------------|  
 |`Completed`|屬性已完成處理，沒有任何錯誤。|  
 |`FileNameInvalid`|屬性檔案名稱無效。|  

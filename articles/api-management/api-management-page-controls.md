@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
 ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656879"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API 管理的頁面控制項
 Azure API 管理提供下列可在開發人員入口網站範本中使用的控制項。  
@@ -59,7 +59,7 @@ Azure API 管理提供下列可在開發人員入口網站範本中使用的控�
   
 ### <a name="parameters"></a>參數  
   
-|參數|說明|  
+|參數|描述|  
 |---------------|-----------------|  
 |appId|應用程式的識別碼。|  
   
@@ -203,7 +203,7 @@ Azure API 管理提供下列可在開發人員入口網站範本中使用的控�
   
 ### <a name="parameters"></a>參數  
   
-|參數|說明|  
+|參數|描述|  
 |---------------|-----------------|  
 |subscriptionId|要取消之訂用帳戶的識別碼。|  
 |cancelUrl|訂用帳戶取消了 URL。|  

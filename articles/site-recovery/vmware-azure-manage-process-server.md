@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: ramamill
-ms.openlocfilehash: ba80c8ce57495eaa46e915cb0c472eb4aabcee57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a0b6c83f800c0a479ba7a16c91b497d1a11da9e
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318530"
+ms.locfileid: "62732480"
 ---
 # <a name="manage-process-servers"></a>管理處理序伺服器
 
@@ -68,6 +68,19 @@ ms.locfileid: "60318530"
 2. 您可以在 [復原服務保存庫] > [監視] > [Site Recovery 作業] 之下監視作業進度。
 3. 在此作業成功完成之後，其變更需要 15 分鐘的時間才會反映出來。您也可以[重新整理組態伺服器](vmware-azure-manage-configuration-server.md#refresh-configuration-server)來使變更立即生效。
 
+## <a name="process-server-selection-guidance"></a>處理序伺服器選取項目指引
+
+Azure Site Recovery 會自動識別如果處理序伺服器已接近其使用量限制。 當您設定向外延展處理伺服器時，會提供指引。
+
+|健全狀況狀態  |說明  | 資源可用性  | 建議|
+|---------|---------|---------|---------|
+| 狀況良好 （綠色）    |   處理序伺服器已連線，且狀況良好      |CPU 和記憶體使用率低於 80%;高於 30%的可用空間可用性| 此處理序伺服器可用來保護額外的伺服器。 請確認新的工作負載內[定義處理序伺服器限制](vmware-azure-set-up-process-server-scale.md#sizing-requirements)。
+|警告 （橘色）    |   處理序伺服器已連線，但特定資源即將達到最大的限制  |   CPU 和記憶體使用率為之間 80%-95%;是介於 25%-30%的可用空間可用性       | 處理序伺服器的使用量很接近臨界值。 將新的伺服器新增至相同的處理序伺服器時，會導致超出臨界值，而且可能會影響現有的受保護項目。 建議您[設定向外延展處理伺服器](vmware-azure-set-up-process-server-scale.md#before-you-start)針對新的複寫。
+|警告 （橘色）   |   處理序伺服器已連線，但未上傳資料至 Azure 中過去 30 分鐘  |   資源使用率是臨界值的限制範圍內       | 疑難排解[資料上傳失敗](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)之前加入新的工作負載**或是**[設定向外延展處理伺服器](vmware-azure-set-up-process-server-scale.md#before-you-start)針對新的複寫。
+|重大 （紅色）    |     處理序伺服器可能已中斷連線  |  資源使用率是臨界值的限制範圍內      | 針對進行疑難排解[處理伺服器連線問題](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)或是[設定向外延展處理伺服器](vmware-azure-set-up-process-server-scale.md#before-you-start)針對新的複寫。
+|重大 （紅色）    |     資源使用率已超過閾值限制 |  CPU 和記憶體使用率已超過 95%;可用空間的可用性是小於 25%。   | 將新的工作負載新增至相同的處理序伺服器已停用，做為資源限制已符合的臨界值。 因此，[設定向外延展處理伺服器](vmware-azure-set-up-process-server-scale.md#before-you-start)針對新的複寫。
+重大 （紅色）    |     資料未在過去 45 分鐘上傳從 Azure 至 Azure。 |  資源使用率是臨界值的限制範圍內      | 針對進行疑難排解[資料上傳失敗](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)再將新的工作負載新增至相同的處理序伺服器或[設定向外延展處理伺服器](vmware-azure-set-up-process-server-scale.md#before-you-start)
+
 ## <a name="reregister-a-process-server"></a>重新註冊處理序伺服器
 
 如果您需要重新註冊在內部部署環境或在 Azure 中執行的處理序伺服器，請使用組態伺服器執行下列動作：
@@ -109,7 +122,6 @@ ms.locfileid: "60318530"
    exit
    ```
 
-
 ## <a name="remove-a-process-server"></a>移除處理序伺服器
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
@@ -126,4 +138,3 @@ ms.locfileid: "60318530"
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
 - 處理序伺服器安裝目錄，範例：C:\Program Files (x86)\Microsoft Azure Site Recovery
-
