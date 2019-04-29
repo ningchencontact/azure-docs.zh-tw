@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
 ms.openlocfilehash: 7679bbc450e5fa0761860aedbb37ed02b27ec828
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58114616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742229"
 ---
 ## <a name="os-config"></a>將 IP 位址新增至 VM 作業系統
 
@@ -23,15 +23,15 @@ ms.locfileid: "58114616"
 
 1. 從命令提示字元輸入 *ipconfig /all*。  您只會看到 *Primary* 私人 IP 位址 (透過 DHCP)。
 2. 在命令提示字元中輸入 ncpa.cpl，以開啟 [網路連線]。
-3. 開啟適當的配接器的屬性：**區域連線**。
+3. 打开相应适配器的属性：**本地区域连接**。
 4. 按兩下 [網際網路通訊協定第 4 版 (IPv4)]。
 5. 選取 [使用下列 IP 位址]  並輸入下列值︰
 
-    * **IP 位址**：請輸入*主要*私人 IP 位址
-    * **子網路遮罩**:根據您的子網路集。 例如，如果子網路為 /24 子網路，則子網路遮罩為 255.255.255.0。
-    * **預設閘道**:子網路中的第一個 IP 位址。 如果您的子網路為 10.0.0.0/24，則閘道 IP 位址為 10.0.0.1。
+    * **IP 位址**：输入 *Primary* 专用 IP 地址
+    * **子网掩码**：根据子网设置此值。 例如，如果子網路為 /24 子網路，則子網路遮罩為 255.255.255.0。
+    * **默认网关**：子网中的第一个 IP 地址。 如果您的子網路為 10.0.0.0/24，則閘道 IP 位址為 10.0.0.1。
     * 選取 [使用下列 DNS 伺服器位址]  並輸入下列值︰
-        * **慣用的 DNS 伺服器**:如果您不會使用您自己的 DNS 伺服器，請輸入 168.63.129.16。  如果您是使用自己的 DNS 伺服器，請輸入您的伺服器 IP 位址。
+        * **首选 DNS 服务器**：如果不使用自己的 DNS 服务器，请输入 168.63.129.16。  如果您是使用自己的 DNS 伺服器，請輸入您的伺服器 IP 位址。
     * 選取 [進階] 按鈕，然後新增其他 IP 位址。 將您在上一個步驟中新增至 Azure 網路介面的每個次要私人 IP 位址新增至 Windows 網路介面，而該 Windows 網路介面已獲取指派給 Azure 網路介面的主要 IP 位址。
 
         您絕對不能手動指派在虛擬機器的作業系統內已指派給 Azure 虛擬機器的公用 IP 位址。 當您手動設定作業系統內的 IP 位址時，請確保它的位址與指派給 Azure [網路介面](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings)的私人 IP 位址相同，否則您可能會失去與虛擬機器的連線。 深入了解[私人 IP 位址](../articles/virtual-network/virtual-network-network-interface-addresses.md#private)設定。 您絕對不能指派作業系統內的 Azure 公用 IP 位址。

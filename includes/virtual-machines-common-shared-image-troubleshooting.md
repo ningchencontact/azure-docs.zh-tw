@@ -13,7 +13,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60187667"
+ms.locfileid: "60418640"
 ---
 如果您在共用映像資源庫、映像定義及映像版本上執行任何作業時遇到問題，請再次以偵錯模式執行失敗的命令。 透過 CLI 傳遞 **-debug** 參數以及透過 PowerShell 傳遞 **-Debug** 參數，可啟動偵錯模式。 一旦您找到錯誤，請遵循本文件來針對錯誤進行疑難排解。
 

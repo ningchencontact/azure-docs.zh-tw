@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: d1a6ff8dbd17d2792709a1ce065bcf793154e585
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37780667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542915"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>平台支援的 IaaS 資源移轉 (從傳統移轉至 Azure Resource Manager)
 本文會說明如何將 IaaS 資源從傳統部署模型遷移至 Resource Manager 部署模型，並詳述如何使用虛擬網路站對站閘道，從並存於訂用帳戶中的兩個部署模型連線到資源。 您可以進一步了解 [Azure Resource Manager 功能和優點](../articles/azure-resource-manager/resource-group-overview.md)。 
@@ -46,7 +46,7 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 * [移轉未連結的資源](#migration-of-unattached-resources)
 
 ### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>移轉 (不在虛擬網路中的) 虛擬機器
-在 Resource Manager 部署模型中，預設會針對應用程式強制執行安全性。 在 Resource Manager 模型中，所有 VM 都必須在虛擬網路內。 Azure 平台會在移轉過程中將 VM 重新啟動 (`Stop`、`Deallocate` 及 `Start`)。 您有兩個選項可將虛擬機器將移轉至虛擬網路︰
+在 Resource Manager 部署模型中，預設會針對應用程式強制執行安全性。 在 Resource Manager 模型中，所有 VM 都必須在虛擬網路內。 Azure 平台会在迁移过程中重新启动（`Stop`、`Deallocate`、`Start`）VM。 您有兩個選項可將虛擬機器將移轉至虛擬網路︰
 
 * 您可以要求平台建立新的虛擬網路，然後將虛擬機器移轉到新的虛擬網路。
 * 您也可以將虛擬機器移轉到 Resource Manager 中的現有虛擬網路。
@@ -55,7 +55,7 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 > 在此移轉範圍內，移轉期間可能會有一段時間不允許進行管理平面和資料平面作業。
 >
 
-### <a name="migration-of-virtual-machines-in-a-virtual-network"></a>移轉 (虛擬網路中的) 虛擬機器
+### <a name="migration-of-virtual-machines-in-a-virtual-network"></a>迁移（虚拟网络中的）虚拟机
 就大多數 VM 組態而言，只有中繼資料會在「傳統」部署模型與 Resource Manager 部署模型之間移轉。 基礎 VM 會在相同硬體、相同網路上，使用相同的儲存體來執行。 進行移轉時，可能會有某一段時間不允許進行管理平面作業。 不過，資料平面會繼續運作。 也就是說，在 VM (傳統) 上執行的應用程式不會在移轉期間造成停機時間。
 
 目前不支援下列組態。 如果未來新增支援，則此組態中的某些 VM 可能會造成停機時間 (將會經歷停止、解除配置及重新啟動 VM 的作業)。
@@ -93,14 +93,14 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 | --- | --- | --- |
 | 計算 | 未關聯的虛擬機器磁碟。 | 移轉儲存體帳戶時，將會移轉這些磁碟背後的 VHD blob |
 | 計算 | 虛擬機器映像。 | 移轉儲存體帳戶時，將會移轉這些磁碟背後的 VHD blob |
-| 網路 | 端點 ACL。 | 移除端點 ACL，然後重試移轉。 |
-| 網路 | 應用程式閘道 | 在開始移轉前移除應用程式閘道，然後在移轉完成後重新建立應用程式閘道。 |
+| 網路 | 终结点 ACL。 | 移除端點 ACL，然後重試移轉。 |
+| 網路 | 应用程序网关 | 在開始移轉前移除應用程式閘道，然後在移轉完成後重新建立應用程式閘道。 |
 | 網路 | 使用 VNet 對等互連的虛擬網路。 | 將虛擬網路移轉至 Resource Manager，然後對等互連。 深入了解 [VNet 對等互連](../articles/virtual-network/virtual-network-peering-overview.md)。 |
 
-### <a name="unsupported-configurations"></a>不支援的組態
+### <a name="unsupported-configurations"></a>不支持的配置
 目前不支援下列組態。
 
-| 服務 | 組態 | 建議 |
+| 服務 | 組態 | 建议 |
 | --- | --- | --- |
 | Resource Manager |傳統資源的「角色型存取控制」(RBAC) |由於資源的 URI 在移轉後會經過修改，因此建議您規劃需要在移轉後進行的 RBAC 原則更新。 |
 | 計算 |與 VM 關聯的多個子網路 |將子網路組態更新為只參考一個子網路。 這可能要求您從 VM 移除次要 NIC (其參考另一個子網路)，並在移轉完成後重新連結它。 |
@@ -114,9 +114,9 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 | 計算 | 具備份或快照集擴充功能的 VM | 這些擴充功能都安裝在使用 Azure 備份功能設定的虛擬機器上。 雖然不支援這些 VM 的移轉，但是可依照[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault)的指引，保留在移轉之前所執行的備份。  |
 | 網路 |包含虛擬機器和 Web 角色/背景工作角色的虛擬網路 |目前不支援。 請先將 Web/背景工作角色移至他們自己的虛擬網路，然後再移轉。 在移轉傳統虛擬網路之後，移轉的 Azure Resource Manager 虛擬網路可以和傳統虛擬網路對等互連，達到類似之前的組態。|
 | 網路 | 傳統 ExpressRoute 線路 |目前不支援。 在開始 IaaS 移轉之前，需要將這些線路移轉至 Azure Resource Manager。 若要深入了解，請參閱[將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型](../articles/expressroute/expressroute-move.md)。|
-| Azure App Service |包含 App Service 環境的虛擬網路 |目前不支援。 |
+| Azure App Service |包含 App Service 環境的虛擬網路 |目前不支持。 |
 | Azure HDInsight |包含 HDInsight 服務的虛擬網路 |目前不支援。 |
 | Microsoft Dynamics 週期服務 |包含「Dynamics 週期服務」所管理之虛擬機器的虛擬網路 |目前不支援。 |
-| Azure AD 網域服務 |包含 Azure AD 網域服務的虛擬網路 |目前不支援。 |
+| Azure AD 域服务 |包含 Azure AD 網域服務的虛擬網路 |目前不支援。 |
 | Azure RemoteApp |包含 Azure RemoteApp 部署的虛擬網路 |目前不支援。 |
 | Azure API 管理 |包含 Azure API 管理部署的虛擬網路 |目前不支援。 若要移轉 IaaS VNET，請變更屬於無停機作業的 API 管理部署的 VNET。 |

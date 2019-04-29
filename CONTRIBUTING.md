@@ -1,14 +1,12 @@
 ---
-ms.openlocfilehash: a1a57cbcd9284489e00bf36b25baf7e04fbea9e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55adc512447160b409af0002a72ec2473409d796
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306795"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759500"
 ---
 # <a name="contributing-to-microsoft-azure-documentation"></a>提供給 Microsoft Azure 文件
-
-> 在 2019 年 3 月 5 日到 3 月 9 日之間， MicrosoftDocs/azure-docs 存放庫會進行一項移轉，從目前的 Markdown 引擎遷移到 [Markdig](https://github.com/lunet-io/markdig) Markdown 引擎。 在此期間，我們會關閉暫止合併公用提取要求的功能，以完成移轉。
 
 感謝您寶貴的時間來參與 Microsoft Azure 文件。
 

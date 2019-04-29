@@ -1,15 +1,16 @@
 ---
-author: vhorne
+author: WenJason
 ms.service: dns
 ms.topic: include
-ms.date: 11/25/2018
+origin.date: 11/25/2018
+ms.date: 12/24/2018
 ms.author: victorh
 ms.openlocfilehash: 74031a8dbc9b64d6a09533789eed1296ff334d47
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330825"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563329"
 ---
 DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載到 Azure DNS 中，您必須建立該網域名稱的 DNS 區域。 接著在此 DNS 區域內，建立網域的每筆 DNS 記錄。
 

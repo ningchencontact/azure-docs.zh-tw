@@ -2,18 +2,18 @@
 title: 如何部署 Azure 檔案服務 | Microsoft Docs
 description: 了解如何從頭到尾部署 Azure 檔案服務。
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f0b6ed366f35368c70f3d2224f430f400ee9656c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 6afe54d269d273c6a93e6431e9f1c1af7b18cc0e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481173"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766381"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 檔案服務
 [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 本文將說明如何在組織中實際部署 Azure 檔案服務。
