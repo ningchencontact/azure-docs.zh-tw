@@ -2,19 +2,20 @@
 title: 將 Cisco ASA 裝置連線到 Azure VPN 閘道的範例設定 | Microsoft Docs
 description: 本文提供將 Cisco ASA 裝置連線到 Azure VPN 閘道的範例設定。
 services: vpn-gateway
-author: yushwang
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: yushwang
+origin.date: 10/19/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817235"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648735"
 ---
-# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>範例組態：Cisco ASA 裝置 (IKEv2/無 BGP)
+# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>範例組態：Cisco ASA 设备（IKEv2/无 BGP）
 本文提供將 Cisco Adaptive Security Appliance (ASA) 裝置連線到 Azure VPN 閘道的範例設定。 此範例適用於執行 IKEv2 且不含邊界閘道協定 (BGP) 的 Cisco ASA 裝置。 
 
 ## <a name="device-at-a-glance"></a>裝置速覽
@@ -74,13 +75,13 @@ Azure VPN 閘道會使用標準的 IPsec/IKE 通訊協定組合來建立站對�
 | ---              | ---                                  |
 | IKEv2 加密 | AES256                               |
 | IKEv2 完整性  | SHA384                               |
-| DH 群組         | DHGroup24                            |
+| DH 组         | DHGroup24                            |
 | * IPsec 加密 | AES256                               |
 | * IPsec 完整性  | SHA1                                 |
 | PFS 群組        | PFS24                                |
 | QM SA 存留期   | 7,200 秒                         |
 | 流量選取器 | UsePolicyBasedTrafficSelectors $True |
-| 預先共用金鑰   | PreSharedKey                         |
+| 预共享密钥   | PreSharedKey                         |
 |                  |                                      |
 
 \* 在某些裝置上，當 IPsec 加密演算法為 AES-GCM 時，IPsec 完整性必須是 null 值。
@@ -302,3 +303,4 @@ sysopt connection tcpmss 1350
 
 ## <a name="next-steps"></a>後續步驟
 若要設定主動-主動跨單位和 VNet 對 VNet 連線，請參閱[設定主動-主動 VPN 閘道](vpn-gateway-activeactive-rm-powershell.md)。
+<!--Update_Description: wording update -->

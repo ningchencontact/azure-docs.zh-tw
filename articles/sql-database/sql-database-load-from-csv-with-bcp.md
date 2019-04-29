@@ -7,17 +7,18 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: WenJason
+ms.author: v-jay
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
+manager: digimobile
+origin.date: 01/25/2019
+ms.date: 03/04/2019
 ms.openlocfilehash: 8d0d81d9c140c15f2e60d3f6e3033a8b0b629228
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100894"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702464"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>將資料從 CSV 載入 Azure SQL Database (一般檔案)
 
@@ -31,15 +32,15 @@ ms.locfileid: "56100894"
 
 * Azure SQL Database 伺服器和資料庫
 * 已安裝的 bcp 命令列公用程式
-* 已安裝的 sqlcmd 命令列公用程式
+* 已安装 sqlcmd 命令行实用工具
 
 您可以從 [Microsoft 下載中心][Microsoft Download Center]下載 bcp 和 sqlcmd 公用程式。
 
-### <a name="data-in-ascii-or-utf-16-format"></a>ASCII 或 UTF-16 格式的資料
+### <a name="data-in-ascii-or-utf-16-format"></a>采用 ASCII 或 UTF-16 格式的数据
 
 如果您使用您自己的資料嘗試本教學課程，您的資料必須使用 ASCII 或 UTF-16 編碼，因為 bcp 不支援 UFT-8。 
 
-## <a name="1-create-a-destination-table"></a>1.建立目的資料表
+## <a name="1-create-a-destination-table"></a>1.创建目标表
 
 在 SQL Database 中定義做為目的地資料表的資料表。 資料表中的資料行必須對應到資料檔的每一個資料列中的資料。
 
@@ -116,7 +117,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 ## <a name="next-steps"></a>後續步驟
 
-若要移轉 SQL Server 資料庫，請參閱 [SQL Server 資料庫移轉](sql-database-single-database-migrate.md)。
+若要迁移 SQL Server 数据库，请参阅 [SQL Server 数据库迁移](sql-database-single-database-migrate.md)。
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -124,3 +125,4 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
+<!--Update_Description: update metadata-->

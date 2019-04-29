@@ -2,24 +2,25 @@
 title: 改善資料行存放區索引效能 - Azure SQL 資料倉儲 | Microsoft Docs
 description: 減少記憶體需求或增加可用的記憶體，以最大化壓縮到每個資料列群組之資料行存放區索引的資料列數目。
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/22/2019
-ms.author: rortloff
+origin.date: 03/22/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748774"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化資料行存放區的資料列群組品質
 
-資料列群組品質取決於資料列群組中的資料列數目。 增加可用的記憶體可以最大化壓縮到每個資料列群組的資料行存放區索引的資料列數目。  使用這些方法來改善壓縮率和查詢資料行存放區索引的效能。
+資料列群組品質取決於資料列群組中的資料列數目。 增加可用内存可以使列存储索引压缩到每个行组中的行数最大化。  使用這些方法來改善壓縮率和查詢資料行存放區索引的效能。
 
 ## <a name="why-the-rowgroup-size-matters"></a>為什麼資料列群組很重要
 因為資料行存放區索引會藉由掃描個別資料列群組的資料行區段來掃描資料表，最大化每個資料列群組的資料列數目可以提升查詢效能。 當資料列群組會有大量的資料列時，可改善資料壓縮，這表示從磁碟讀取的資料比較少。
@@ -39,7 +40,7 @@ ms.locfileid: "58368956"
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>如何監視資料列群組品質
 
-DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)包含檢視定義比對到 SQL 資料倉儲的 SQL DB)，公開一些實用資訊例如在資料列群組] 和 [如果那里已修剪原因中的資料列數目。 您可以建立下列檢視，並將其作為查詢這個 DMV 以取得有關資料列群組修剪資訊的便利方法。
+DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats（[sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) 包含可以将 SQL DB 与 SQL 数据仓库匹配的视图定义），用于公开一些有用信息，例如行组中的行数，以及修整原因（如果有修整）。 您可以建立下列檢視，並將其作為查詢這個 DMV 以取得有關資料列群組修剪資訊的便利方法。
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -67,7 +68,7 @@ from cte;
 ```
 
 trim_reason_desc 會告知是否已修剪資料列群組 (trim_reason_desc = NO_TRIM 表示沒有修剪，且資料列群組屬於最佳品質)。 下列修剪原因表示過早修剪了資料列群組：
-- 大量載入：當傳入的負載資料列批次具有少於 1 百萬個的資料列時，會使用這個修剪原因。 如果插入了多於 100,000 個資料列 (而不是插入到差異存放區)，則引擎會建立壓縮的資料列群組，但是會將修剪原因設定為大量載入。 在此案例中，請考慮增加您的批次載入包含多個資料列。 此外，重新評估您的資料分割配置，確保它不會太過細微，因為資料列群組不能跨越資料分割界限。
+- 大量載入：當傳入的負載資料列批次具有少於 1 百萬個的資料列時，會使用這個修剪原因。 如果插入了多於 100,000 個資料列 (而不是插入到差異存放區)，則引擎會建立壓縮的資料列群組，但是會將修剪原因設定為大量載入。 在此方案中，请考虑增加批负荷，使之包含更多的行。 此外，重新評估您的資料分割配置，確保它不會太過細微，因為資料列群組不能跨越資料分割界限。
 - MEMORY_LIMITATION：若要建立包含 1 百萬個資料列的資料列群組，引擎會需要特定數量的工作記憶體。 當載入工作階段的可用記憶體小於所需的工作記憶體時，會提前修剪資料列群組。 下列各節說明如何評估所需記憶體及配置更多記憶體。
 - DICTIONARY_SIZE：這個修剪原因表示因為至少有一個字串資料行具有寬/或高基數字串而發生資料列群組修剪。 記憶體中的字典大小限制為 16 MB，且一旦達到此限制，便會壓縮資料列群組。 如果您遇到這種情況，請考慮將問題資料行隔離到單獨的資料表中。
 

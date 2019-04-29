@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60958555"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>使用 Azure Logic Apps 在 Azure Blob 儲存體中建立和管理 Blob
 
@@ -90,7 +90,7 @@ ms.locfileid: "58310365"
 
 3. 在搜尋方塊中，輸入「azure blob」作為篩選條件。 從 [動作] 清單中，選取您想要的動作。
 
-   此範例會使用這項動作：**Azure Blob 儲存體-取得 blob 內容**
+   此示例使用以下操作：**Azure Blob 儲存體-取得 blob 內容**
 
    ![選取動作](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
 

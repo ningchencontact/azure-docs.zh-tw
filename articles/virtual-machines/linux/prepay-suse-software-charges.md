@@ -13,13 +13,13 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771238"
 ---
-# <a name="prepay-for-azure-software-plans"></a>預付的 Azure 軟體計劃
+# <a name="prepay-for-azure-software-plans"></a>預付 Azure 軟體方案
 
 當您預先支付 Azure 中您 SUSE 及 RedHat 軟體使用情況時，您可以隨用隨付成本節省金錢。 折扣僅適用於 SUSE 及 RedHat 的計量，而不是在虛擬機器使用情況。 您可以購買保留項目分開，進一步節省空間的虛擬機器。
 

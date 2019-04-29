@@ -17,11 +17,11 @@ ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60582949"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 
@@ -140,7 +140,7 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "We
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-1. 記下 DiskName 和 LUN。
+1. 记下 DiskName 和 LUN。
 
     ![DisknameAndLUN][2]
 1. 從遠端桌面連接到 VM。 然後移至 [電腦管理]  |  [裝置管理員]  |  [磁碟機]。 查看每一個「Microsoft 虛擬磁碟」的屬性
@@ -1223,7 +1223,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #### <a name="step-23-test-failover"></a>步驟 23：測試容錯移轉
 
-等候所移轉的節點同步處理至內部部署 Always On 節點。 讓節點進入同步複寫模式，並等待它同步處理完成。 然後從容錯移轉在內部部署的第一個節點移轉，其為 AFP。 一旦該節點開始運作之後，請將最後一個移轉的節點變更為 AFP。
+等候所移轉的節點同步處理至內部部署 Always On 節點。 讓節點進入同步複寫模式，並等待它同步處理完成。 然后从本地故障转移到第一个已迁移的节点（即 AFP）。 一旦該節點開始運作之後，請將最後一個移轉的節點變更為 AFP。
 
 您應該在所有節點之間測試容錯移轉，並且完整執行混亂測試，以確保容錯移轉會如預期般及時執行。
 

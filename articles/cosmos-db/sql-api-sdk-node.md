@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
 ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033582"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626735"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Node.js SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "54033582"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-|資源  |連結  |
+|Resource  |連結  |
 |---------|---------|
 |下載 SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |API 文件  |  [JavaScript SDK 參考文件](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
@@ -130,10 +130,10 @@ ms.locfileid: "54033582"
 
 ### <a name="1.10.0"/>1.10.0</a>
 * 新增對跨資料分割平行查詢的支援。
-* 新增對已分割集合的 TOP/ORDER BY 查詢支援。
+* 添加了对分区集合的 TOP/ORDER BY 查询支持。
 
 ### <a name="1.9.0"/>1.9.0</a>
-* 新加入已節流處理要求的重試原則支援。 (已節流處理的要求會收到要求率太大的例外狀況，即錯誤碼 429。)根據預設，發生錯誤碼 429 時，Azure Cosmos DB 會遵守回應標頭中的 retryAfter 時間，並針對每個要求重試九次。 如果您想要忽略伺服器在多次重試之間傳回的 retryAfter 時間，現在可以在 ConnectionPolicy 物件上的 RetryOptions 屬性中設定固定的重試間隔時間。 Azure Cosmos DB 現在會針對每個要進行節流處理的要求等候最多 30 秒 (不論重試計數為何)，並傳回包含錯誤碼 429 的回應。 您也可以在 ConnectionPolicy 物件上的 RetryOptions 屬性中覆寫該時間。
+* 添加了对限制请求的重试策略支持。 (已節流處理的要求會收到要求率太大的例外狀況，即錯誤碼 429。)根據預設，發生錯誤碼 429 時，Azure Cosmos DB 會遵守回應標頭中的 retryAfter 時間，並針對每個要求重試九次。 如果您想要忽略伺服器在多次重試之間傳回的 retryAfter 時間，現在可以在 ConnectionPolicy 物件上的 RetryOptions 屬性中設定固定的重試間隔時間。 Azure Cosmos DB 現在會針對每個要進行節流處理的要求等候最多 30 秒 (不論重試計數為何)，並傳回包含錯誤碼 429 的回應。 您也可以在 ConnectionPolicy 物件上的 RetryOptions 屬性中覆寫該時間。
 * Cosmos DB 現在會傳回 x-ms-throttle-retry-count 和 x-ms-throttle-retry-wait-time-ms 做為每個要求的回應標頭，其代表節流重試計數和要求歷經多次重試的累積時間。
 * 新增 RetryOptions 類別，以及公開 ConnectionPolicy 類別上的 RetryOptions 屬性，使其能用來覆寫某些預設的重試選項。
 
@@ -171,11 +171,11 @@ ms.locfileid: "54033582"
 * 實作 Upsert。 documentClient 上新的 upsertXXX 方法。
 
 ### <a name="1.3.0"/>1.3.0</a>
-* 已略過以配合其他 SDK 的版本號碼。
+* 跳过以使版本号与其他 SDK 相符。
 
 ### <a name="1.2.2"/>1.2.2</a>
 * 將 Q Pomise 包裝函式分割至新的儲存機制。
-* 更新至 npm 登錄的封裝檔案。
+* 更新到 npm 注册表的程序包文件。
 
 ### <a name="1.2.1"/>1.2.1</a>
 * 實作以識別碼為基礎的路由。
@@ -183,11 +183,11 @@ ms.locfileid: "54033582"
 
 ### <a name="1.2.0"/>1.2.0</a>
 * 新增對地理空間索引的支援。
-* 驗證所有資源的識別碼屬性。 資源的識別碼不能包含 ?、/、#、&#47;&#47; 等字元，或在結尾處使用空格。
+* 验证所有资源的 ID 属性。 資源的識別碼不能包含 ?、/、#、&#47;&#47; 等字元，或在結尾處使用空格。
 * 將新標頭「索引轉換進度」加至 ResourceResponse。
 
 ### <a name="1.1.0"/>1.1.0</a>
-* 實作 V2 索引原則。
+* 实现 V2 索引策略。
 
 ### <a name="1.0.3"/>1.0.3</a>
 * 問題 [#40](https://github.com/Azure/azure-documentdb-node/issues/40) - 核心與 Promise SDK 中實作的 eslint 和 grunt 組態。
@@ -212,7 +212,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 <br/>
 
-| 版本 | 發行日期 | 停用日期 |
+| Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
 | [2.0.0-3 (RC)](#2.0.0-3) |2018 年 8 月 2 日 |--- |
 | [1.14.4](#1.14.4) |2018 年 5 月 3 日 |--- |
@@ -253,6 +253,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。
 

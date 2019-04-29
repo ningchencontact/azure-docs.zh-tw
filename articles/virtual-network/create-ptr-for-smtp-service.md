@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 203c3c5f371af7de891f0949a35378294bb50a0e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713634"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>設定反向對應區域用於 SMTP Banner 檢查
 

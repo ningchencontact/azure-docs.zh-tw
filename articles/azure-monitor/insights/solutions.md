@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
 ms.openlocfilehash: b66d9cf15aaeaca975b60f24601b8ad7f555f458
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110152"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure 監視器中的監視解決方案
 監視解決方案會運用 Azure 中的服務，提供特定應用程式或服務的額外作業見解。 本文提供 Azure 中監視解決方案的簡短概觀，以及使用和安裝它們的詳細資料。

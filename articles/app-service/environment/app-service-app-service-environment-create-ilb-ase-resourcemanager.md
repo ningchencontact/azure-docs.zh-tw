@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130750"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 範本建立 ILB ASE範本建立 ILB ASE
 
@@ -65,11 +65,11 @@ ms.locfileid: "56107373"
 * *主體*：此屬性必須設定為 **.your-root-domain-here.com*
 * *主體別名*：此屬性必須同時包含 **.your-root-domain-here.com* 和 **.scm.your-root-domain-here.com*。  第二個項目的原因是將使用 *your-app-name.scm.your-root-domain-here.com*  形式的位址，進行與每個應用程式相關聯的 SCM/Kudu 網站的 SSL 連線。
 
-備妥有效的 SSL 憑證，還需要兩個額外的準備步驟。  SSL 憑證必須能夠轉換/另存為 .pfx 檔案。  請記住，.pfx 檔案必須包含所有中繼和根憑證，而且也必須使用密碼保護。
+备妥有效的 SSL 证书还需要两个额外的准备步骤。  SSL 憑證必須能夠轉換/另存為 .pfx 檔案。  记住，.pfx 文件必须包含所有中间证书和根证书，还必须使用密码保护。
 
 然後必須將結果產生的.pfx 檔案轉換成 base64 字串，因為會使用 Azure Resource Manager 範本上載 SSL 憑證。  因為 Azure Resource Manager 範本是文字檔案，所以必須將 .pfx 檔案轉換成 base64 字串，才能納入為範本的參數。
 
-下列 Powershell 程式碼片段顯示產生自我簽署憑證、將憑證匯出為 .pfx 檔案、將 .pfx 檔案轉換成 base64 編碼的字串，然後將 base64 編碼字串儲存至個別檔案的範例。  Base64 編碼的 Powershell 程式碼改寫自 [Powershell 指令碼部落格][examplebase64encoding]。
+以下 Powershell 代码片段显示生成自签名证书、将证书导出为 .pfx 文件、将 .pfx 文件转换为 base64 编码字符串，并将 base64 编码字符串保存到一个单独文件的示例。  Base64 編碼的 Powershell 程式碼改寫自 [Powershell 指令碼部落格][examplebase64encoding]。
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 

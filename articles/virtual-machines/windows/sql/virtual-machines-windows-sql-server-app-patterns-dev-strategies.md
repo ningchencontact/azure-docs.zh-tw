@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.openlocfilehash: 988acec8d7044afe87523637e46c9a4deb92b55e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719705"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477658"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "53719705"
 
 典型的 *多層式架構* 應用程式包含展示層、商務層和資料層：
 
-| 層 | 說明 |
+| 層 | 描述 |
 | --- | --- |
 | **展示** |*展示層* (Web 層、前端層) 是使用者與應用程式互動的層。 |
 | **商務** |*商務層* (中間層) 是讓展示層和資料層彼此通訊的層，並含有系統的核心功能。 |
@@ -63,7 +63,7 @@ ms.locfileid: "53719705"
   * **執行個體層級功能**：目前 SQL Database 不支援存在於資料庫外的功能 (例如連結的伺服器、代理程式作業、FileStream、Service Broker 等等)。 如需詳細資訊，請參閱 [Azure SQL Database 方針和限制](https://msdn.microsoft.com/library/azure/ff394102.aspx)。
 
 ## <a name="1-tier-simple-single-virtual-machine"></a>1 層 (簡單)：單一虛擬機器
-在此應用程式模式中，您會將 SQL Server 應用程式和資料庫部署到 Azure 中的獨立虛擬機器。 同一個虛擬機器會包含您的用戶端/Web 應用程式、商務元件、資料存取層和資料庫伺服器。 展示、商務及資料存取程式碼會以邏輯方式分隔，但實際上位於同一部伺服器機器中。 大部分客戶會從此應用程式模式開始，然後將更多 Web 角色或虛擬機器加入系統，以向外延展。
+在此應用程式模式中，您會將 SQL Server 應用程式和資料庫部署到 Azure 中的獨立虛擬機器。 同一个虚拟机还包含客户端/Web 应用程序、业务组件、数据访问层级和数据库服务器。 展示、商務及資料存取程式碼會以邏輯方式分隔，但實際上位於同一部伺服器機器中。 大部分客戶會從此應用程式模式開始，然後將更多 Web 角色或虛擬機器加入系統，以向外延展。
 
 若有下列情況，此應用程式模式會很適用：
 
@@ -88,14 +88,14 @@ ms.locfileid: "53719705"
 * 您想要將複雜的資料庫應用程式移轉至 Azure 虛擬機器。
 * 您想要在不同的區域裝載不同的應用程式層。 例如，您可能會為了報告用途，而有部署到多個區域的共用資料庫。
 * 您想要將企業應用程式，從內部部署虛擬化平台移動到 Azure 虛擬機器。 如需企業應用程式的詳細討論，請參閱 [企業應用程式是什麼](https://msdn.microsoft.com/library/aa267045.aspx)。
-* 您想要在短時間內快速佈建開發和測試環境。
+* 希望快速预配短期的开发和测试环境。
 * 您想要針對各種工作負載層級執行壓力測試，但同時又不想一直擁有及維護許多實體機器。
 
 下圖說明如何將每個應用程式層放在不同的虛擬機器中，以在 Azure 內設置簡單的 3 層應用程式。
 
 ![3 層應用程式模式](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728009.png)
 
-在此應用程式模式中，每一層只有一個虛擬機器 (VM)。 如果您在 Azure 中有多個 VM，我們建議您設定虛擬網路。 [Azure 虛擬網路](../../../virtual-network/virtual-networks-overview.md) 會建立信任的安全性界限，並讓 VM 透過私人 IP 位址彼此通訊。 此外，請務必確認所有網際網路連線只會進入展示層。 遵循此應用程式模式時，請管理網路安全性群組規則以控制存取。 如需詳細資訊，請參閱 [允許使用 Azure 入口網站從外部存取您的 VM](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+在此應用程式模式中，每一層只有一個虛擬機器 (VM)。 如果您在 Azure 中有多個 VM，我們建議您設定虛擬網路。 [Azure 虛擬網路](../../../virtual-network/virtual-networks-overview.md) 會建立信任的安全性界限，並讓 VM 透過私人 IP 位址彼此通訊。 此外，請務必確認所有網際網路連線只會進入展示層。 遵循此應用程式模式時，請管理網路安全性群組規則以控制存取。 有关详细信息，请参阅[允许通过 Azure 门户对 VM 进行外部访问](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 在圖表中，網際網路通訊協定可以是 TCP、UDP、HTTP 或 HTTPS。
 
@@ -135,14 +135,14 @@ ms.locfileid: "53719705"
 
 若有下列情況，此應用程式模式會很適用：
 
-* 您想要將企業應用程式，從內部部署虛擬化平台移動到 Azure 虛擬機器。
+* 希望将企业应用程序从本地虚拟化平台迁移到 Azure 虚拟机。
 * 您因為應用程式的複雜性，而想要將應用程式伺服器元件分配到多個虛擬機器。
 * 您想要將商務邏輯大型內部部署 LOB (企業營運) 應用程式移動到 Azure 虛擬機器。 LOB 應用程式是一套對企業營運而言十分重要的電腦應用程式，例如會計、人力資源 (HR)、薪資、供應鏈管理和資源規劃應用。
 * 您想要在短時間內快速佈建開發和測試環境。
 * 您想要針對各種工作負載層級執行壓力測試，但同時又不想一直擁有及維護許多實體機器。
 * 您想要擁有可依需求相應增加和降低規模的基礎結構環境。
 
-下圖說明某個內部部署案例以及其啟用雲端功能的解決方案。 在此案例中，您會藉由向外延展商務層 (其中包含商務邏輯層和資料存取元件)，在 Azure 的多個虛擬機器中放置應用程式層。 如圖所示，Azure Load Balancer 會負責將流量分配到多個虛擬機器，也會決定要連接到哪部 Web 伺服器。 在負載平衡器後方有多個應用程式伺服器執行個體，可確保商務層的高可用性。 如需詳細資訊，請參閱 [一層內有多個虛擬機器之 2 層、3 層或多層式架構模式的最佳作法](#best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier)。
+下圖說明某個內部部署案例以及其啟用雲端功能的解決方案。 在此案例中，您會藉由向外延展商務層 (其中包含商務邏輯層和資料存取元件)，在 Azure 的多個虛擬機器中放置應用程式層。 正如图中所示，Azure 负载均衡器负责将流量分布到多个虚拟机，并确定要连接到哪个 Web 服务器。 在負載平衡器後方有多個應用程式伺服器執行個體，可確保商務層的高可用性。 如需詳細資訊，請參閱 [一層內有多個虛擬機器之 2 層、3 層或多層式架構模式的最佳作法](#best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier)。
 
 ![商務層向外延展的應用程式模式](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728011.png)
 
@@ -157,9 +157,9 @@ ms.locfileid: "53719705"
 * 您想要針對各種工作負載層級執行壓力測試，但同時又不想一直擁有及維護許多實體機器。
 * 您想要擁有可依需求相應增加和降低規模的基礎結構環境。
 
-下圖說明某個內部部署案例以及其啟用雲端功能的解決方案。 在此案例中，您會在 Azure 的多個虛擬機器中，向外延展展示層和商務層元件。 此外，您會針對 Azure 中的 SQL Server 資料庫，實作高可用性和災害復原 (HADR) 技術。
+下图演示本地方案及其云解决方案。 在此案例中，您會在 Azure 的多個虛擬機器中，向外延展展示層和商務層元件。 此外，您會針對 Azure 中的 SQL Server 資料庫，實作高可用性和災害復原 (HADR) 技術。
 
-請在不同的 VM 中執行應用程式的多個複本，確認可以負載平衡它們的要求。 當您有多個虛擬機器時，必須確定可以存取所有 VM，且 VM 均能在某個時間點同時執行。 如果設定負載平衡，Azure Load Balancer 就會追蹤 VM 的健全狀況，然後將傳入的呼叫正確引導至運作狀況良好的 VM 節點。 如需如何設定虛擬機器負載平衡的資訊，請參閱 [Azure 基礎結構服務的負載平衡](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 在負載平衡器後方有多個 Web 和應用程式伺服器執行個體，可確保展示層和商務層的高可用性。
+請在不同的 VM 中執行應用程式的多個複本，確認可以負載平衡它們的要求。 當您有多個虛擬機器時，必須確定可以存取所有 VM，且 VM 均能在某個時間點同時執行。 如果設定負載平衡，Azure Load Balancer 就會追蹤 VM 的健全狀況，然後將傳入的呼叫正確引導至運作狀況良好的 VM 節點。 如需如何設定虛擬機器負載平衡的資訊，請參閱 [Azure 基礎結構服務的負載平衡](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 负载均衡器之后有多个 Web 服务器和应用程序服务器实例，可以确保呈现层和业务层的高可用性。
 
 ![向外延展和高可用性](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728012.png)
 
@@ -171,7 +171,7 @@ ms.locfileid: "53719705"
 如需高可用性和災害復原技術的完整資訊及教學課程，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和嚴重損壞修復](virtual-machines-windows-sql-high-availability-dr.md)。
 
 ## <a name="2-tier-and-3-tier-using-azure-vms-and-cloud-services"></a>使用 Azure VM 和雲端服務的 2 層和 3 層
-在此應用程式模式中，您會使用 [Azure 雲端服務 ](../../../cloud-services/cloud-services-choose-me.md)(Web 和背景工作角色 - 平台即服務 (PaaS)) 和 [Azure 虛擬機器](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (基礎結構即服務 (IaaS))，將 2 層或 3 層應用程式部署至 Azure。 針對展示層/商務層使用 [Azure 雲端服務](https://azure.microsoft.com/documentation/services/cloud-services/)，以及針對資料層使用 [Azure 虛擬機器](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的 SQL Server，對於大多數在 Azure 上執行的應用程式會較有幫助。 原因是在雲端服務上執行的計算執行個體，可讓您輕鬆管理、部署、監視和向外延展。
+在此應用程式模式中，您會使用 [Azure 雲端服務 ](../../../cloud-services/cloud-services-choose-me.md)(Web 和背景工作角色 - 平台即服務 (PaaS)) 和 [Azure 虛擬機器](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (基礎結構即服務 (IaaS))，將 2 層或 3 層應用程式部署至 Azure。 針對展示層/商務層使用 [Azure 雲端服務](https://azure.microsoft.com/documentation/services/cloud-services/)，以及針對資料層使用 [Azure 虛擬機器](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的 SQL Server，對於大多數在 Azure 上執行的應用程式會較有幫助。 原因是，在云服务上运行一个计算实例可以简化管理、部署、监控和扩展操作。
 
 有了雲端服務，Azure 就能為您維護基礎結構、執行例行性維護、修補作業系統，以及嘗試從服務和硬體故障中復原。 當您的應用程式需要向外延展時，有自動和手動向外延展選項可供您的雲端服務專案使用，方法是增加或減少應用程式所使用的執行個體或虛擬機器數目。 此外，您還可以使用內部部署 Visual Studio，將應用程式部署至 Azure 中的雲端服務專案。
 
@@ -181,7 +181,7 @@ ms.locfileid: "53719705"
 
 若有下列情況，此應用程式模式會很適用：
 
-* 您想要藉由實作 SQL Server 高可用性和災害復原功能，將企業應用程式從虛擬化平台的內部部署移至 Azure。
+* 希望将企业应用程序从本地虚拟化平台迁移到 Azure，实现 SQL Server 高可用性和灾难恢复功能。
 * 您想要擁有可依需求相應增加和降低規模的基礎結構環境。
 * Azure SQL Database 不支援您應用程式或資料庫所需的所有功能。
 * 您想要針對各種工作負載層級執行壓力測試，但同時又不想一直擁有及維護許多實體機器。
@@ -247,7 +247,7 @@ ms.locfileid: "53719705"
       * 您可以透過安全的點對站連線，在 Azure 虛擬網路與在任何一處執行的電腦之間，建立網路連線。 此方法多半建議用於開發和測試。
       
       如需如何連接至 Azure 中 SQL Server 的資訊，請參閱 [連接 Azure 上的 SQL Server 虛擬機器](virtual-machines-windows-sql-connect.md)。
-4. 設定排定的工作和警示，以在 Azure 的虛擬機器磁碟中備份內部部署資料。 如需詳細資訊，請參閱 [SQL Server 備份及還原與 Azure Blob 儲存體服務](https://msdn.microsoft.com/library/jj919148.aspx)和 [Azure 虛擬機器中的 SQL Server 備份和還原](virtual-machines-windows-sql-backup-recovery.md)。
+4. 设置计划的作业和警报，将本地数据备份到 Azure 中的虚拟机磁盘上。 如需詳細資訊，請參閱 [SQL Server 備份及還原與 Azure Blob 儲存體服務](https://msdn.microsoft.com/library/jj919148.aspx)和 [Azure 虛擬機器中的 SQL Server 備份和還原](virtual-machines-windows-sql-backup-recovery.md)。
 5. 您可以依據應用程式的需求，實作下列三種常見案例之一：
    
    1. 您可以在 Azure 中保留 Web 伺服器、應用程式伺服器及資料庫伺服器內的非機密資料，然後將機密資料保留在內部部署。

@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426779"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61077692"
 ---
 # <a name="my-first-graphical-runbook"></a>我的第一個圖形化 Runbook
 
@@ -68,7 +68,7 @@ ms.locfileid: "54426779"
    您可以使用來自這類來源的輸出，例如另一個活動、自動化資產或 PowerShell 運算式。 在此情況下，輸出就是 Hello World。 您可以使用 PowerShell 運算式，並指定字串。<br>
 
 1. 在 [運算式] 方塊中，輸入 "Hello World"，然後按一下 [確定] 兩次以返回畫布。
-1. 按一下 [儲存] 來儲存 Runbook。
+1. 通过单击“保存” 保存 Runbook。
 
 ## <a name="test-the-runbook"></a>測試 Runbook
 
@@ -174,7 +174,7 @@ ms.locfileid: "54426779"
 1. 關閉 [測試] 窗格。
 1. 按一下 [發佈]  來發行新版本的 Runbook。
 1. 停止您在上一個步驟中啟動的虛擬機器。
-1. 按一下 [開始]  以啟動 Runbook。 輸入您要啟動之虛擬機器的 [VMName] 和 [ResourceGroupName]。
+1. 单击“启动”以启动 Runbook **ResourceGroupName** 。 键入要启动的虚拟机的 **VMName** 和 **ResourceGroupName**。
 1. Runbook 完成時，請檢查虛擬機器已啟動。
 
 ## <a name="create-a-conditional-link"></a>建立條件式連結
@@ -228,6 +228,6 @@ ms.locfileid: "54426779"
 
 * 若要深入了解圖形化編寫，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
 * 若要開始使用 PowerShell Runbook，請參閱 [我的第一個 PowerShell Runbook](automation-first-runbook-textual-powershell.md)
-* 若要開始使用 PowerShell 工作流程 Runbook，請參閱 [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)
+* 若要开始使用 PowerShell 工作流 Runbook，请参阅 [我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
 
 

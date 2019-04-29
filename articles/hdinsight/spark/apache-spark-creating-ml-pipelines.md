@@ -1,7 +1,6 @@
 ---
 title: 建立 Apache Spark 機器學習服務管線 - Azure HDInsight
 description: 使用 Apache Spark 機器學習服務程式庫以建立資料管線。
-services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: dbda20554b119bfb72b939cbeb7f19e0b9093b31
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: c539460177a0a85938b886d161803e1fdf0e9e68
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53597472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124453"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>建立 Apache Spark 機器學習服務管線
 
@@ -129,6 +128,6 @@ only showing top 20 rows
 
 `model` 物件現在可以用來進行預測。 如需此機器學習服務應用程式的完整範例，以及執行的逐步指示，請參閱[在 Azure HDInsight 上建立 Apache Spark 機器學習服務應用程式](apache-spark-ipython-notebook-machine-learning.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [在 Azure 上使用 Scala 與 Apache Spark 的資料科學](../../machine-learning/team-data-science-process/scala-walkthrough.md)

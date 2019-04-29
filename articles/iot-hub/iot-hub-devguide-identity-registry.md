@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363144"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中樞的身分識別登錄
 
@@ -105,7 +105,7 @@ IoT 中樞在身分識別建立或刪除時，可透過傳送生命週期通知�
 
 裝置的通知訊息：
 
-| 名稱 | 值 |
+| 名稱 | Value |
 | --- | --- |
 |$content-type | application/json |
 |$iothub-enqueuedtime |  傳送通知的時間 |
@@ -141,7 +141,7 @@ IoT 中樞在身分識別建立或刪除時，可透過傳送生命週期通知�
 ```
 模組的通知訊息：
 
-| 名稱 | 值 |
+| 名稱 | Value |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  傳送通知的時間 |

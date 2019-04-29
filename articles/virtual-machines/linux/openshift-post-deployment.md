@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: fba29cd55f2d765faa107de3a8961032ef44deec
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771321"
 ---
 # <a name="post-deployment-tasks"></a>部署後工作
 
@@ -163,7 +163,7 @@ sudo /usr/local/bin/master-restart controllers
 有三種方式可將 Log Analytics 代理程式新增至 OpenShift。
 - 直接在每個 OpenShift 節點上安裝適用於 Linux 的 Log Analytics 代理程式
 - 每個 OpenShift 節點上啟用 Azure 監視 VM 擴充功能
-- 安裝 Log Analytics 代理程式作為 OpenShift 精靈集
+- 安装 Log Analytics 代理作为 OpenShift daemon-set
 
 閱讀完整[指示](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift)如需詳細資訊。
 

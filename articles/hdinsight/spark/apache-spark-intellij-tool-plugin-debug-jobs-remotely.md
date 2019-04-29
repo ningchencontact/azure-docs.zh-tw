@@ -1,7 +1,6 @@
 ---
 title: 'Azure Toolkit for IntelliJ：在 HDInsight Spark 中遠端偵錯應用程式 '
 description: 了解如何使用適用於 IntelliJ 的 Azure 工具組中的 HDInsight 工具，透過 VPN 對 HDInsight 叢集上執行的 Spark 應用程式進行遠端偵錯。
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: e57257c6965f0da8c2d6ce990d2425847b73884f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 30d52f1ac6a68a3202de59a0b4cab8edfb7ed042
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124319"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>使用 Azure Toolkit for IntelliJ 來在 HDInsight 中透過 VPN 遠端偵錯 Apache Spark 應用程式
 
@@ -37,17 +36,17 @@ ms.locfileid: "53605784"
 * **從 IntelliJ IDEA 登入您的 Azure 訂用帳戶**。 請依照[使用 Azure Toolkit for IntelliJ 為 HDInsight 叢集建立 Apache Spark 應用程式](apache-spark-intellij-tool-plugin.md)中的指示進行。
 * **例外狀況的因應措施**。 在 Windows 電腦上執行 Spark Scala 應用程式以進行遠端偵錯時，可能會發生例外狀況。 這個例外狀況會在 [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) 中說明，並會因 Windows 中的 WinUtils.exe 檔案遺失而發生。 若要解決這個錯誤，您必須[下載可執行檔](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)，並將其放至如 **C:\WinUtils\bin** 的位置。 新增環境變數 **HADOOP_HOME**，然後將變數的值設為 **C\WinUtils**。
 
-## <a name="step-1-create-an-azure-virtual-network"></a>步驟 1：建立 Azure 虛擬網路
+## <a name="step-1-create-an-azure-virtual-network"></a>步骤 1：建立 Azure 虛擬網路
 請遵循下列連結的指示來建立 Azure 虛擬網路，然後確認桌上型電腦和虛擬網路之間的連線能力：
 
 * [使用 Azure 入口網站建立具有站對站 VPN 連線的 VNet](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [使用 PowerShell 建立具有站對站 VPN 連線的 VNet](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [使用 PowerShell 設定虛擬網路的點對站連線](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-## <a name="step-2-create-an-hdinsight-spark-cluster"></a>步驟 2：建立 HDInsight Spark 叢集
+## <a name="step-2-create-an-hdinsight-spark-cluster"></a>步骤 2：建立 HDInsight Spark 叢集
 建議您也要在 Azure HDInsight 上建立 Apache Spark 叢集，這是您所建立之 Azure 虛擬網路的一部分。 使用[在 HDInsight 中建立以 Linux 作為基礎的叢集](../hdinsight-hadoop-provision-linux-clusters.md)中可取得的資訊。 作為選擇性組態的一部分，選取您在上一個步驟中建立的 Azure 虛擬網路。
 
-## <a name="step-3-verify-the-connectivity-between-the-cluster-head-node-and-your-desktop"></a>步驟 3：確認叢集前端節點與您桌上型電腦之間的連線能力
+## <a name="step-3-verify-the-connectivity-between-the-cluster-head-node-and-your-desktop"></a>步骤 3：確認叢集前端節點與您桌上型電腦之間的連線能力
 1. 取得前端節點的 IP 位址。 開啟叢集的 Ambari UI。 從叢集刀鋒視窗中，選取 [儀表板]。
 
     ![在 Ambari 中選取儀表板](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-ambari-ui.png)
@@ -232,7 +231,7 @@ ms.locfileid: "53605784"
 
     ![[遠端執行] 下拉式清單](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/config-run.png)
 
-## <a name="step-5-run-the-application-in-debug-mode"></a>步驟 5：在偵錯模式中執行應用程式
+## <a name="step-5-run-the-application-in-debug-mode"></a>步骤 5：在偵錯模式中執行應用程式
 1. 在您的 IntelliJ IDEA 專案中，開啟 `SparkSample.scala`，並在 `val rdd1` 旁邊建立中斷點。 在快顯功能表的 [建立中斷點] 中，選取 **executeJob 函式中的一行**。
 
     ![新增中斷點](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-breakpoint.png)
@@ -259,11 +258,11 @@ ms.locfileid: "53605784"
     ![主控台輸出](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
 
 ## <a name="seealso"></a>接續步驟
-* [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
+* [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>示範
-* 建立 Scala 專案 (影片)：[Create Apache Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (建立 Apache Spark Scala 應用程式)
-* 遠端偵錯 (影片)：[Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely on an HDInsight cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (使用 Azure Toolkit for IntelliJ 遠端偵錯 HDInsight 叢集上的 Apache Spark 應用程式)
+* 建立 Scala 專案 (影片)：[建立 Apache Spark Scala 應用程式](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) \(英文\)
+* 遠端偵錯 (影片)：[使用 Azure Toolkit for IntelliJ 對 HDInsight 叢集上的 Apache Spark 應用程式進行遠端偵錯](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) \(英文\)
 
 ### <a name="scenarios"></a>案例
 * [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
@@ -286,5 +285,5 @@ ms.locfileid: "53605784"
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理資源
-* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)

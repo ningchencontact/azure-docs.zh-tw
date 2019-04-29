@@ -4,18 +4,19 @@ description: Azure Logic Apps 中資料作業動作定義的程式碼範例
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
-ms.author: estfan
+ms.author: v-yiso
 manager: jeconnoc
 ms.topic: reference
-ms.date: 07/25/2018
+origin.date: 07/25/2018
+ms.date: 12/10/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 8de70e8df50b79f27c19c74307d9321ff8cd1eb5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128544"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的資料作業程式碼範例
 
@@ -326,7 +327,7 @@ ms.locfileid: "50229958"
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>選取
+## <a name="select"></a>选择
 
 若要嘗試[**選取**動作範例](../logic-apps/logic-apps-perform-data-operations.md#select-action)，以下是您可以使用的動作定義：
 

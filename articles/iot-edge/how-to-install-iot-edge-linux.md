@@ -11,11 +11,11 @@ ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
 ms.openlocfilehash: 5829606f3ad226507c49f18dcc8ac4831d573b17
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126304"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux (x64) 上安裝 Azure IoT Edge 執行階段
 
@@ -23,7 +23,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 若要了解详细信息，请参阅[了解 Azure IoT Edge 运行时及其体系结构](iot-edge-runtime.md)。
 
-本文列出您在 Ubuntu Linux x64 (Intel/AMD) 上安裝 Azure IoT Edge 執行階段的步驟 IoT Edge 裝置。 有关支持的 AMD64 操作系统的列表，请参阅 [Azure IoT Edge 支持](support.md#operating-systems)。
+本文列出了在 Ubuntu Linux x64 (Intel/AMD) IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 有关支持的 AMD64 操作系统的列表，请参阅 [Azure IoT Edge 支持](support.md#operating-systems)。
 
 > [!NOTE]
 > Linux 軟體存放庫中的套件受限於每個套件中的授權條款 (/usr/share/doc/package-name)。 在使用套件之前，請先閱讀授權條款。 安裝及使用套件即表示接受這些授權條款。 如果您不同意授權條款，請勿使用套件。
@@ -33,17 +33,17 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 准备设备，以便安装 IoT Edge 运行时。
 
 
-安装存储库配置。 選擇  **16.04**或是**18.04**視您的 Ubuntu 版本的程式碼片段：
+安装存储库配置。 根据你的 Ubuntu 版本选择合适的 **16.04** 或 **18.04** 代码片段：
 
 > [!NOTE]
-> 請確定您的程式碼片段從方塊中選擇正確的程式碼針對您的 Ubuntu 版本。
+> 确保根据你的 Ubuntu 版本从正确的代码框中选择代码片段。
 
-* 針對**Ubuntu 16.04**:
+* 对于 **Ubuntu 16.04**：
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
    ```
 
-* 針對**Ubuntu 18.04**:
+* 对于 **Ubuntu 18.04**：
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
    ```

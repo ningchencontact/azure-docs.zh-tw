@@ -10,17 +10,17 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61074109"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>編譯 Azure Automation State Configuration 中的 DSC 組態
 
 使用 Azure Automation State Configuration 時有兩種方式可以編譯 Desired State Configuration (DSC) 組態：在 Azure 入口網站中，以及使用 Windows PowerShell。 下表可協助您根據方法的特性判斷何時應使用哪種方法：
 
-**Azure 入口網站**
+**Azure 门户**
 
 - 互動式使用者介面的最簡單方法
 - 提供簡單參數值的表單

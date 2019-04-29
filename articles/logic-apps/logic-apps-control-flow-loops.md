@@ -11,11 +11,11 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522996"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683867"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立會重複工作流程動作或處理陣列的迴圈
 
@@ -154,7 +154,7 @@ ms.locfileid: "59522996"
 
 ## <a name="until-loop"></a>"Until" 迴圈
   
-若要執行並重複動作直到符合條件，取得或狀態變更，置於"Until"迴圈中的這些動作。 邏輯應用程式首先會執行所有動作在迴圈中，並接著會檢查的條件或狀態。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。
+若要运行并重复操作直到满足条件或状态发生变化，请将这些操作放在“Until”循环中。 你的逻辑应用将首先运行循环内的所有操作，然后检查条件或状态。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。
 
 以下是可以使用 "Until" 迴圈的一些常見案例：
 
@@ -177,7 +177,7 @@ ms.locfileid: "59522996"
 
    ![設定週期排程](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | 屬性 | 值 |
+   | 屬性 | Value |
    | -------- | ----- |
    | **間隔** | 1 | 
    | **頻率** | 天 |
@@ -193,7 +193,7 @@ ms.locfileid: "59522996"
 
    ![設定變數屬性](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | 屬性 | 值 | 描述 |
+   | 屬性 | Value | 描述 |
    | -------- | ----- | ----------- |
    | **名稱** | 限制 | 變數的名稱 | 
    | **類型** | 整數  | 變數的資料類型 | 
@@ -234,7 +234,7 @@ ms.locfileid: "59522996"
 
       ![設定電子郵件內容](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | 屬性 | 值 | 描述 |
+      | 屬性 | Value | 描述 |
       | -------- | ----- | ----------- | 
       | **To** | *\<email-address\@domain>* | 收件者的電子郵件地址。 若要進行測試，請使用自己的電子郵件地址。 | 
       | **主旨** | [限制] 目前的值是**限制** | 指定電子郵件主旨。 在此範例中，請確定您已包含**限制**變數。 | 

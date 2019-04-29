@@ -2,19 +2,20 @@
 title: 在 Azure 串流分析中處理可設定閾值型規則
 description: 本文說明如何使用參考資料在 Azure 串流分析中達成具有可設定閾值型規則的警示解決方案。
 services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
+author: rockboyfor
+ms.author: v-yeche
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/30/2018
+origin.date: 04/30/2018
+ms.date: 08/20/2018
 ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761721"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>在 Azure 串流分析中處理可設定閾值型規則
 本文說明如何使用參考資料在 Azure 串流分析中達成使用可設定閾值型規則的警示解決方案。
@@ -46,7 +47,6 @@ ms.locfileid: "56731186"
 - 請注意，規則有 **operator** 欄位，這會在查詢語法後段以動態方式解譯 `AVGGREATEROREQUAL`。 
 - 規則會針對具有值 `C1` 的特定維度索引鍵 `2` 篩選資料。 其他的欄位是空白字串，表示不會透過那些事件欄位篩選輸入串流。 您可以設定額外的 CPU 規則，來視需要篩選其他相符的欄位。
 - 並非所有的資料行都包含在輸出警示事件中。 在本案例中，`includedDim` 索引鍵的 `2` 號被開啟為 `TRUE`，表示串流當中的事件資料 2 號欄位將會包含在合格的輸出事件中。 其他欄位則不會包含在警示輸出中，但您可以調整欄位清單。
-
 
 ```json
 {
@@ -292,3 +292,4 @@ HAVING
 "alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
 "dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
+<!--Update_Description: updat meta properties, wording update-->

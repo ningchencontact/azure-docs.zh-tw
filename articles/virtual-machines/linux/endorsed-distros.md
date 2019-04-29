@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
 ms.openlocfilehash: c0124d133fe2db9acb16251bc21ffb19f1b1268f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743439"
 ---
 # <a name="linux-distributions-endorsed-on-azure"></a>Azure 背書的散發套件
 合作夥伴會在 Azure Marketplace 中提供 Linux 映像。 我們與各個 Linux 社群合作，以便為經背書的發佈清單新增更多版本選項。 在此同時，針對 Marketplace 未提供的發佈，您一律可以將自己的 Linux 帶入，方法是遵循[建立和上傳包含 Linux 作業系統的虛擬硬碟](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)中的指導方針。
@@ -33,7 +33,7 @@ ms.locfileid: "57992208"
 Azure Linux 代理程式已預先安裝於 Azure Marketplace 映像上，而且通常可透過發佈的套件存放庫來取得。 源代码可在 [GitHub](https://github.com/azure/walinuxagent)上找到。
 
   
-| 配送映像 | 版本 | 驅動程式 | 代理程式 |
+| 配送映像 | Version | 驅動程式 | 代理程式 |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3+、7.0+ |CentOS 6.3：[LIS 下載](https://www.microsoft.com/en-us/download/details.aspx?id=55106)<p>CentOS 6.4+：在核心中 |套件：在 "WALinuxAgent" 下的[存放庫](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/)中 <br/>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |在核心中 |原始程式碼：[GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |

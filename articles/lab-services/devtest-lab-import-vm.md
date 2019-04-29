@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: cb4a3ec9be82957b4c0366ec232f1147c52d0251
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125894"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中從另一個實驗室匯入 VM
 Azure DevTest Labs 服務大幅改善開發和測試活動的虛擬機器 (VM) 管理。 它可讓您隨著小組或基礎結構需求的變更，將 VM 從一個實驗室移至另一個實驗室。 以下是一些您可能需要這麼做的常見案例：

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 33d8e18dcec98710443623c03651aa568aa37009
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819939"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>設定自動化機器學習實驗
 
@@ -134,7 +134,7 @@ cv_splits_indices   | 一連串整數 ||  _選擇性_ 用來分割交叉驗證�
 >* 加入使用運算式的資料行
 >* 插補遺漏值
 >* 依範例衍生資料行
->* 篩選
+>* Filtering
 >* 自訂 Python 轉換
 
 若要深入了解 data prep sdk，請參閱[如何準備資料以進行模型化文件](how-to-load-data.md)。

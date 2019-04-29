@@ -7,17 +7,18 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: bonova
-ms.author: bonova
+author: WenJason
+ms.author: v-jay
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 09/25/2018
+manager: digimobile
+origin.date: 09/25/2018
+ms.date: 02/25/2019
 ms.openlocfilehash: 62e88d912c55015f87cc00f21527010ad01ee00c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560850"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615693"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>使用保留原則管理時態表中的歷史資料
 
@@ -42,7 +43,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-根據預設，資料庫旗標 **is_temporal_history_retention_enabled** 會設為 ON，但使用者可以利用 ALTER DATABASE 陳述式變更它。 它也會在[還原時間點](sql-database-recovery-using-backups.md)作業之後自動設為 OFF。 若要對資料庫啟用時態記錄保留清除，請執行下列陳述式︰
+根據預設，資料庫旗標 **is_temporal_history_retention_enabled** 會設為 ON，但使用者可以利用 ALTER DATABASE 陳述式變更它。 它也會在[還原時間點](sql-database-recovery-using-backups.md)作業之後自動設為 OFF。 若要为数据库启用临时历史记录保留策略清理，请执行以下语句：
 
 ```sql
 ALTER DATABASE <myDB>
@@ -165,9 +166,9 @@ SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 
 ![在不使用保留篩選的情況下查詢記錄](./media/sql-database-temporal-tables-retention-policy/queryexecplanhistorytable.png)
 
-請勿依賴商務邏輯來讀取超出保留期限的記錄資料表，否則可能會得到不一致或非預期的結果。 建議以 FOR SYSTEM_TIME 子句來使用暫時查詢，以分析時態表中的資料。
+不要依赖于业务逻辑来读取超过保留期的历史记录表，否则可能会收到不一致或意外的结果。 建議以 FOR SYSTEM_TIME 子句來使用暫時查詢，以分析時態表中的資料。
 
-## <a name="point-in-time-restore-considerations"></a>還原時間點考量
+## <a name="point-in-time-restore-considerations"></a>时间点还原注意事项
 
 當您[將現有資料庫還原到特定時間點](sql-database-recovery-using-backups.md)來建立新的資料庫時，資料庫層級上會停用時態保留  (**is_temporal_history_retention_enabled** 旗標設為 OFF)。 這項功能可讓您在還原時檢查所有歷史資料列，而不必擔心過時資料列在您開始查詢之前就被移除。 這可用來「檢查超出設定保留期限的歷史資料」。
 
@@ -184,6 +185,6 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 
 若要了解如何在應用程式中使用時態表，請參閱[開始使用 Azure SQL Database 中的時態表](sql-database-temporal-tables.md)。
 
-瀏覽 Channel 9，聽聽[真實客戶的時態表實作成功案例](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)，並觀看[時態表的即時示範](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)。
+访问第 9 频道收听[客户实施临时表的真实成功案例](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)，观看[临时表现场演示](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)。
 
 如需有關時態表的詳細資訊，請檢閱 [MSDN 文件](https://msdn.microsoft.com/library/dn935015.aspx)。

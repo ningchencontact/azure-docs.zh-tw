@@ -15,11 +15,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61257497"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
@@ -267,7 +267,8 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
     ![Jupyter 查詢結果](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->如需詳細指示，請參閱[執行 Spark SQL 查詢](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)一節。 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
+如需詳細指示，請參閱[執行 Spark SQL 查詢](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)一節。 
 
 ### <a name="troubleshooting"></a>疑難排解
 由於您將 getDebugInfo 設定為 **Always**，因此您會在 Blob 容器的 [pyFiles] 資料夾中看到一個 [log] 子資料夾。 [log] 資料夾中的記錄檔會提供額外的資訊。 發生錯誤時，此記錄檔特別有用。 在生產環境中，您可以將它設定為 **Failure**。
@@ -326,10 +327,10 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
 下表說明 JSON 定義中所使用的 JSON 屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | -------- | ----------- | -------- |
 | name | 管線中的活動名稱。 | 是 |
-| 說明 | 說明活動用途的文字。 | 否 |
+| description | 說明活動用途的文字。 | 否 |
 | type | 這個屬性必須設為 HDInsightSpark。 | 是 |
 | 預設容器 | Spark 程式執行所在的 HDInsight 連結服務名稱。 | 是 |
 | rootPath | 包含 Spark 檔案的 Blob 容器和資料夾。 檔案名稱有區分大小寫。 | 是 |
@@ -346,9 +347,9 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
 請在 HDInsight 已連結服務所參考的 Blob 儲存體中，建立下列資料夾結構。 然後，將相依檔案上傳至根資料夾中 **entryFilePath** 所代表的適當子資料夾。 例如，將 Python 檔案上傳至根資料夾的 [pyFiles] 子資料夾，將 jar 檔案上傳至 [jars] 子資料夾。 在執行階段，Data Factory 服務會預期 Blob 儲存體中有下列資料夾結構︰ 
 
-| Path | 說明 | 必要 | 類型 |
+| Path | 描述 | 必要項 | 類型 |
 | ---- | ----------- | -------- | ---- |
-| . | Spark 作業在儲存體已連結服務中的根路徑。 | 是 | 資料夾 |
+| 上也提供本文中使用的原始碼。 | Spark 作業在儲存體已連結服務中的根路徑。 | 是 | 資料夾 |
 | &lt;使用者定義&gt; | 指向 Spark 作業之輸入檔案的路徑。 | 是 | 檔案 |
 | ./jars | 此資料夾下的所有檔案都會上傳並放在叢集的 Java 類別路徑中。 | 否 | 資料夾 |
 | ./pyFiles | 此資料夾下的所有檔案都會上傳並放在叢集的 PYTHONPATH 中。 | 否 | 資料夾 |

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618075"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772358"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>整合 Azure ExpressRoute 與 Azure VM 的災害復原
 
@@ -106,10 +106,10 @@ ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部�
 
 **Direction** | **設定** | **State**
 --- | --- | ---
-輪輻至中樞 | 允許虛擬網路位址 | 已啟用
-輪輻至中樞 | 允許轉送的流量 | 已啟用
+輪輻至中樞 | 允許虛擬網路位址 | Enabled
+輪輻至中樞 | 允許轉送的流量 | Enabled
 輪輻至中樞 | 允許閘道傳輸 | 已停用
-輪輻至中樞 | 使用移除閘道 | 已啟用
+輪輻至中樞 | 使用移除閘道 | Enabled
 
  ![輪輻到中樞對等互連設定](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部�
 
 **Direction** | **設定** | **State**
 --- | --- | ---
-中樞至輪輻 | 允許虛擬網路位址 | 已啟用
-中樞至輪輻 | 允許轉送的流量 | 已啟用
-中樞至輪輻 | 允許閘道傳輸 | 已啟用
+中樞至輪輻 | 允許虛擬網路位址 | Enabled
+中樞至輪輻 | 允許轉送的流量 | Enabled
+中樞至輪輻 | 允許閘道傳輸 | Enabled
 中樞至輪輻 | 使用移除閘道 | 已停用
 
  ![中樞到輪輻對等互連設定](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

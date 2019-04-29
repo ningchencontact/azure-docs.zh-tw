@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 6c4c8f0ee6aa12c58e02f71b42312cd6872076aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60719145"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services 應用程式和服務資訊清單範例
 以下舉例說明 Service Fabric 應用程式 (具有 ASP.NET Core Web 前端和具狀態後端) 的應用程式和服務資訊清單。 這些範例的目的是要說明有哪些設定可供使用以及要如何使用。 這些應用程式和服務資訊清單是以 [Service Fabric .NET 快速入門](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)的資訊清單作為基礎。

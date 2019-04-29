@@ -16,11 +16,11 @@ ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121531"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61272403"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>針對 Azure App Service 購買自訂網域名稱
 
@@ -126,7 +126,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 按一下 [法律條款] 來檢閱條款與費用，然後按一下 [購買]。
 
 > [!NOTE]
-> App Service 網域使用 GoDaddy 網域註冊，將 Azure DNS 來裝載網域。 除了網域註冊費之外，您也必須支付 Azure DNS 的使用費用。 如需相關資訊，請參閱 [Azure DNS 定價](https://azure.microsoft.com/pricing/details/dns/)。
+> 应用服务域使用 GoDaddy 进行域注册，使用 Azure DNS 来托管域。 除了網域註冊費之外，您也必須支付 Azure DNS 的使用費用。 如需相關資訊，請參閱 [Azure DNS 定價](https://azure.microsoft.com/pricing/details/dns/)。
 >
 >
 

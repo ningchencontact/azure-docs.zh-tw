@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: tamram
 ms.openlocfilehash: 182315c705360d254c3bf342cd9c64ffafa0c021
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121533"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>如何使用適用於 Node.js v2 的用戶端程式庫上傳、下載及列出 Blob
 

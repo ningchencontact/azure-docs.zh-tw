@@ -13,13 +13,13 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776502"
 ---
-# <a name="pool-create-event"></a>集區建立事件
+# <a name="pool-create-event"></a>池创建事件
 
  一旦集區建立完成，就會發出此事件。 記錄檔內容將公開集區的一 般資訊。 請注意，如果集區的目標大小大於 0 個計算節點，則集區調整開始事件將緊接在此事件之後。
 
@@ -91,7 +91,7 @@ ms.locfileid: "55470583"
 
 |元素名稱|類型|注意|
 |------------------|----------|-----------|
-|enableAutomaticUpdates|BOOLEAN|指出是否已針對自動更新啟用虛擬機器。 如果未指定此屬性，則預設值為 true。|
+|enableAutomaticUpdates|Boolean|指出是否已針對自動更新啟用虛擬機器。 如果未指定此屬性，則預設值為 true。|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 

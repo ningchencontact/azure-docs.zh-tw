@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
 ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735156"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>標準 Load Balancer 的計量和健康情況診斷
 
@@ -35,7 +35,7 @@ Azure Load Balancer 透過 Azure 入口網站中的新 Azure 計量 (預覽) 提
 
 各種標準 Load Balancer 組態提供下列計量：
 
-| 計量 | 資源類型 | 說明 | 建議的彙總 |
+| 計量 | 資源類型 | 描述 | 建議的彙總 |
 | --- | --- | --- | --- |
 | VIP 可用性 (資料路徑可用性) | 公用 Load Balancer | 標準 Load Balancer 會在資料路徑上持續運用，從區域內到 Load Balancer 前端，再一路到支援 VM 的 SDN 堆疊。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。| 平均值 |
 | DIP 可用性 (健康情況探查狀態) |  公用和內部負載平衡器 | 標準 Load Balancer 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供負載平衡器集區中每個執行個體端點的彙總檢視，或各端點篩選過的檢視。 您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。 |  平均值 |
@@ -187,7 +187,7 @@ VIP 可用性目前僅適用於公用前端。
 >目前只有標準 Load Balancer 的公用組態能夠使用 Load Balancer 的資源健康狀態。 內部負載平衡器資源或 Load Balancer 資源的基本 SKU 不會公開資源健康狀態。
 
 若要檢視公用標準 Load Balancer 資源的健康情況：
-1. 選取 [監視器] > [服務健康狀態]。
+1. 選取 視器 > 服務健康狀態。
 
    ![監視器頁面](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
@@ -207,7 +207,7 @@ VIP 可用性目前僅適用於公用前端。
  
 下表列出各種資源健康狀態及其說明： 
 
-| 資源健康情況狀態 | 說明 |
+| 資源健康情況狀態 | 描述 |
 | --- | --- |
 | 可用 | 您的公用標準 Load Balancer 資源狀況良好並可使用。 |
 | 無法使用 | 您的公用標準 Load Balancer 資源狀況不良。 請藉由選取 [Azure 監視器] > [計量] 來診斷健康狀態。<br>([無法使用] 狀態也可能表示資源並未與公用標準 Load Balancer 連線。) |

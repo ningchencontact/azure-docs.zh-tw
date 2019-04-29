@@ -1,8 +1,8 @@
 ---
 title: H264 單一位元速率 1080p 音訊 5.1 | Microsoft Docs
 description: 本主題提供 **H264 單一位元速率 1080p 音訊 5.1** 工作預設的概觀。
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+origin.date: 03/19/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.openlocfilehash: 83d1c279552a75b959c19fb37e859806571f48eb
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463611"
 ---
 # <a name="h264-single-bitrate-1080p-audio-51"></a>H264 單一位元速率 1080p 音訊 5.1
 

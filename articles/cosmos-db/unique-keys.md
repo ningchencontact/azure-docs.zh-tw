@@ -1,41 +1,42 @@
 ---
 title: 使用 Azure Cosmos DB 中的唯一索引鍵
 description: 了解如何在 Azure Cosmos 資料庫中使用唯一索引鍵
-author: rimman
-ms.author: rimman
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+origin.date: 04/08/2019
+ms.date: 04/15/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 3c5e8a2c85898175772dc353258e77fc8e0a74f2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115718"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一索引鍵限制式
 
 唯一索引鍵為 Azure Cosmos 容器加入一層資料完整性。 您會在建立 Cosmos 容器時建立唯一索引鍵原則。 利用唯一索引鍵，您就能確保邏輯分割區內一或多個值是唯一的。 您也可以確保每[分割區索引鍵](partition-data.md)的唯一性。 
 
-使用唯一的索引鍵原則建立容器之後，就無法建立新的或現有的項目，導致重複的邏輯磁碟分割內的更新，唯一的索引鍵條件約束所指定。 與唯一索引鍵結合的分割區索引鍵可保證項目在容器範圍內的唯一性。
+使用唯一键策略创建容器后，该策略会根据唯一键约束的指定，阻止在逻辑分区中执行会导致重复的创建新项或更新现有项的操作。 與唯一索引鍵結合的分割區索引鍵可保證項目在容器範圍內的唯一性。
 
 例如，假設 Azure Cosmos 容器的唯一索引鍵限制式為電子郵件地址且分割區索引鍵為 `CompanyID`。 當您使用唯一索引鍵設定使用者的電子郵件位址時，每個項目在指定的 `CompanyID` 內就具有唯一的電子郵件地址。 您無法使用重複的電子郵件地址和相同的分割區索引鍵值來建立兩個項目。 
 
-若要使用相同的電子郵件地址建立項目，但名字、姓氏和電子郵件地址不同，請將其他路徑新增至唯一索引鍵原則。 而不是建立電子郵件地址只為基礎的唯一索引鍵，您也可以建立唯一索引鍵的第一個名稱的組合，最後一個名稱，然後使用電子郵件地址。 這個金鑰也稱為複合式唯一索引鍵。 在此情況下，在指定的 `CompanyID` 內允許這三個值的每個唯一組合。 
+若要使用相同的電子郵件地址建立項目，但名字、姓氏和電子郵件地址不同，請將其他路徑新增至唯一索引鍵原則。 还可以使用名字、姓氏和电子邮件的组合创建唯一键，而不是仅根据电子邮件地址创建唯一键。 這個金鑰也稱為複合式唯一索引鍵。 在此情況下，在指定的 `CompanyID` 內允許這三個值的每個唯一組合。 
 
 例如，容器可以包含具有下列值的項目，其中每個項目都會遵守唯一索引鍵限制式。
 
-|CompanyID|名字|姓氏|電子郵件地址|
-|---|---|---|---|
-|Contoso|Gaby|Duperre|gaby@contoso.com |
-|Contoso|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
-|Fabrkam|   |Duperre|gaby@fabraikam.com|
-|Fabrkam|   |   |gaby@fabraikam.com|
+| CompanyID | 名字 | 姓氏 |   電子郵件地址    |
+|-----------|------------|-----------|--------------------|
+|  Contoso  |    Gaby    |  Duperre  |  gaby@contoso.com  |
+|  Contoso  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Ivan    |  Duperre  | gaby@fabrikam.com  |
+|  Fabrkam  |            |  Duperre  | gaby@fabraikam.com |
+|  Fabrkam  |            |           | gaby@fabraikam.com |
 
-如果您嘗試使用上表中列出的組合插入另一個項目，則會收到錯誤。 此錯誤表示不符合唯一索引鍵限制式。 您會收到可能`Resource with specified ID or name already exists`或`Resource with specified ID, name, or unique index already exists`做為傳回的訊息。 
+如果您嘗試使用上表中列出的組合插入另一個項目，則會收到錯誤。 此錯誤表示不符合唯一索引鍵限制式。 你会收到作为返回消息的 `Resource with specified ID or name already exists` 或 `Resource with specified ID, name, or unique index already exists`。 
 
 ## <a name="define-a-unique-key"></a>定義唯一索引鍵
 
@@ -45,14 +46,16 @@ ms.locfileid: "59799111"
 
 * 若要為現有容器設定唯一索引鍵，請使用唯一索引鍵限制式建立新的容器。 使用適當的資料移轉工具，將資料從現有的容器移至新的容器。 針對 SQL 容器，使用[資料移轉工具](import-data.md)來移動資料。 對於 MongoDB 容器，使用 [mongoimport.exe 或 mongorestore.exe](mongodb-migrate.md) 來移動資料。
 
-* 唯一索引鍵原則最多可包含 16 個路徑值。 例如，值可以是`/firstName`， `/lastName`，和`/address/zipCode`。 每個唯一索引鍵原則最多可以有 10 個唯一索引鍵條件約束或組合。 每個唯一索引限制式的組合路徑不得超過 60 個位元組。 在前一個範例中，名字、姓氏和電子郵件地址合起來是一個限制式。 此限制式會使用 16 個可能路徑中的 3 個。
+* 唯一索引鍵原則最多可包含 16 個路徑值。 例如，值可以是 `/firstName`、`/lastName` 和 `/address/zipCode`。 每個唯一索引鍵原則最多可以有 10 個唯一索引鍵條件約束或組合。 每個唯一索引限制式的組合路徑不得超過 60 個位元組。 在前一個範例中，名字、姓氏和電子郵件地址合起來是一個限制式。 此限制式會使用 16 個可能路徑中的 3 個。
 
-* 當容器具有唯一的索引鍵原則，[要求單位 (RU)](request-units.md)費用來建立、 更新和刪除項目會稍微更高版本。
+* 如果容器具有唯一键策略，则创建、更新和删除项时产生的[请求单位 (RU)](request-units.md) 费用要略高一些。
 
 * 不支援疏鬆的唯一索引鍵。 如果遺漏了部分唯一路徑值，則會將它們視為 Null 值，並將其納入唯一性限制式。 因此，只有具 Null 值的單一項目能夠滿足此限制式。
 
-* 唯一索引鍵名稱會區分大小寫。 例如，假設與設為唯一索引鍵條件約束的容器`/address/zipcode`。 如果您的資料具有名為的欄位`ZipCode`，Azure Cosmos DB 會插入 「 null 」 做為唯一的索引鍵因為`zipcode`不相同`ZipCode`。 由於這個區分大小寫的緣故，因此，無法插入包含 ZipCode 的所有其他記錄，因為重複的 "null" 違反唯一索引鍵限制式。
+* 唯一索引鍵名稱會區分大小寫。 例如，假设某个容器的唯一键约束设置为 `/address/zipcode`。 如果数据包含名为 `ZipCode` 的字段，则 Azure Cosmos DB 会插入“null”作为唯一键，因为 `zipcode` 与 `ZipCode` 不同。 由於這個區分大小寫的緣故，因此，無法插入包含 ZipCode 的所有其他記錄，因為重複的 "null" 違反唯一索引鍵限制式。
 
 ## <a name="next-steps"></a>後續步驟
 
 * 深入了解[邏輯分割區](partition-data.md)。
+
+<!-- Update_Description: update meta propreties, wording update -->

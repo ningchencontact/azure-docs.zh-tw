@@ -1,7 +1,6 @@
 ---
 title: 使用 .NET SDK for Hadoop 執行 Apache Pig 工作 - Azure HDInsight
 description: 了解如何使用 .NET SDK for Hadoop 將 Pig 工作提交至 HDInsight 上的 Hadoop。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 721bb93dc259bd2b4cc9f51d8d0d665c9b921128
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ebf1f2806a6606294c61860a24fb2f02033a4bf4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110951"
 ---
 # <a name="run-apache-pig-jobs-using-the-net-sdk-for-apache-hadoop-in-hdinsight"></a>在 HDInsight 中使用 .NET SDK for Apache Hadoop 執行 Apache Pig 作業
 
@@ -35,7 +34,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 * Visual Studio 2012、2013、2015 或 2017。
 
-## <a name="create-the-application"></a>建立應用程式
+## <a name="create-the-application"></a>创建应用程序
 
 HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使用 HDInsight 叢集。
 
@@ -43,11 +42,11 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 2. 對於新的專案，輸入或選取下列值：
 
-   | 屬性 | 值 |
+   | 屬性 | Value |
    | ------ | ------ |
-   | 類別 | 範本/Visual C#/Windows |
+   | Category | 範本/Visual C#/Windows |
    | 範本 | 主控台應用程式 |
-   | Name | SubmitPigJob |
+   | 名稱 | SubmitPigJob |
 
 3. 按一下 [確定]  以建立專案。
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615626"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>複製活動中的結構描述對應
 本文說明 Azure Data Factory 複製活動在執行資料複製時，如何將來源資料中的結構描述和資料類型對應到接收資料。
@@ -229,8 +229,8 @@ ms.locfileid: "59267118"
 Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-datasets-linked-services.md#dataset-structure)組態中設定類型資訊時，您可以指定下列值：
 
 * Byte[]
-* BOOLEAN
-* datetime
+* Boolean
+* DateTime
 * Datetimeoffset
 * Decimal
 * Double

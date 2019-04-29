@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817156"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>連線至 Azure SQL Database 並使用 Azure 搜尋服務索引子為內容編製索引
 
@@ -305,7 +305,7 @@ SQL 索引子公開數個組態設定︰
 
 | 設定 | 資料類型 | 目的 | 預設值 |
 | --- | --- | --- | --- |
-| queryTimeout |字串 |設定 SQL 查詢執行的逾時 |5 分鐘 ("00:05:00") |
+| queryTimeout |string |設定 SQL 查詢執行的逾時 |5 分鐘 ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |布林 |導致上限標準原則所使用的 SQL 查詢省略 ORDER BY 子句。 請參閱[上限標準原則](#HighWaterMarkPolicy) |false |
 
 這些設定會用於索引子定義中的 `parameters.configuration` 物件。 例如，若要將查詢逾時設定為 10 分鐘，請使用下列組態建立或更新索引子︰

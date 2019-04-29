@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
 ms.openlocfilehash: 1b55a2b053b86d3260fdca201357445d2556c444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60793969"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>在 Application Insights SDK 中篩選及前置處理遙測
 
@@ -365,11 +365,11 @@ void initialize(Telemetry telemetry); }
 * [ASP.NET 參考](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## <a name="sdk-code"></a>SDK 程式碼
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET 核心 SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>接續步驟
-* [搜尋事件和記錄檔](../../azure-monitor/app/diagnostic-search.md)
+* [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)
 * [取樣](../../azure-monitor/app/sampling.md)
 * [疑難排解](../../azure-monitor/app/troubleshoot-faq.md)

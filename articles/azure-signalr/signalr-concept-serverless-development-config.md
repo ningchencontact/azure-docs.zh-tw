@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.openlocfilehash: 9b68b9d0bbac984c29759cf4b7b026a559a9d819
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809022"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure Functions 開發和使用 Azure SignalR 服務的組態
 
@@ -25,7 +25,7 @@ Azure SignalR 服務可以設定在不同的模式。 Azure Functions 搭配使�
 
 在 Azure 入口網站中，找出*設定*SignalR 服務資源頁面。 設定*服務模式*要*無伺服器*。
 
-![SignalR 服務模式](media/signalr-concept-azure-functions/signalr-service-mode.png)
+![SignalR Service 模式](media/signalr-concept-azure-functions/signalr-service-mode.png)
 
 ## <a name="azure-functions-development"></a>Azure Functions 開發
 

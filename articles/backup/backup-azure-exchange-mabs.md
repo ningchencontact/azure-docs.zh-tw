@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: kasinh
 ms.openlocfilehash: 40541596b4da9e0590d497785afd7d6d7f4cbcb4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641432"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>使用 Azure 備份伺服器將 Exchange Server 備份至 Azure
 本文說明如何設定 Microsoft Azure 備份伺服器 (MABS)，以將 Microsoft Exchange Server 備份至 Azure。  
@@ -47,7 +47,7 @@ ms.locfileid: "55495389"
 
    * 我想要使用磁碟進行短期保護。
    * 我想要線上保護。
-6. 按 [下一步] 。
+6. 单机“下一步”
 7. 如果您想要檢查 Exchange Server 資料庫的完整性，請選取 [執行 Eseutil 以檢查資料完整性]  選項。
 
     選取此選項之後，將會在 MABS 上執行備份一致性檢查，以避免在 Exchange Server 上執行 **eseutil** 命令所產生的 I/O 流量。
@@ -57,23 +57,23 @@ ms.locfileid: "55495389"
    > ![eseutil 錯誤](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. 按 [下一步] 。
+8. 单击“下一步”。
 9. 選取用於 [複製備份] 的資料庫，然後按 [下一步]。
 
    > [!NOTE]
-   > 如果您未對資料庫的至少一個 DAG 複本選取「完整備份」，則不會截斷記錄。
+   > 如果未针对数据库的至少一个 DAG 副本选择“完全备份”，则不会截断日志。
    >
    >
 10. 設定 [短期備份] 的目標，然後按 [下一步]。
 11. 檢閱可用的磁碟空間，然後按 [下一步] 。
 12. 選取 MAB 伺服器將建立初始複寫的時間，然後按 [下一步]。
-13. 選取一致性檢查選項，然後按 [下一步] 。
+13. 选择一致性检查选项，并单击“**下一步**”。
 14. 選擇您要備份至 Azure 資料庫，然後按 [下一步] 。 例如︰
 
     ![指定線上保護資料](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
 15. 定義 [Azure 備份] 的排程，然後按 [下一步]。 例如︰
 
-    ![指定線上備份排程](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
+    ![指定联机备份计划](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
     > [!NOTE]
     > 請注意，線上復原點是以快速完整復原點為基礎。 因此，您必須將線上復原點排程在針對快速完整復原點指定的時間之後。
@@ -84,9 +84,9 @@ ms.locfileid: "55495389"
 
     如果您有大型資料庫，則透過網路建立初始備份所需的時間很長。 若要避免這個問題，您可以建立離線備份。  
 
-    ![指定線上保留期原則](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
+    ![指定联机保留策略](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 18. 確認設定，然後按一下 [建立群組] 。
-19. 按一下 [關閉] 。
+19. 单击“**关闭**”。
 
 ## <a name="recover-the-exchange-database"></a>復原 Exchange 資料庫
 1. 若要復原 Exchange 資料庫，請按一下 MABS 系統管理員主控台中的 [復原] 。

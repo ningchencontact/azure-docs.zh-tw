@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
-ms.subservice: ''
+ms.component: ''
 ms.openlocfilehash: fa3293346fee6f6666db01dab5587dd760df84b2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740878"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Azure 監視器 CLI 快速入門範例
 本文說明可協助您存取 Azure 監視器 功能的命令列介面 (CLI) 命令範例。 Azure 監視器可讓您根據設定的遙測資料值、自動調整雲端服務、虛擬機器和 Web Apps，以及傳送警示通知，或呼叫 Web URL。
@@ -115,7 +115,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 在此區段中運用資訊來使用記錄檔的設定檔。
 
-### <a name="get-a-log-profile"></a>取得記錄檔設定檔
+### <a name="get-a-log-profile"></a>获取日志配置文件
 
 ```azurecli
 az monitor log-profiles list
@@ -208,4 +208,3 @@ az monitor autoscale create --name <settings name> --resource-group <group name>
     --count <# instances> \
     --resource <target resource ID>
 ```
-

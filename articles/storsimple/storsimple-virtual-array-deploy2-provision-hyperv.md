@@ -16,11 +16,11 @@ ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5104d630e2b4e97b80a6fedfb6d863061c2722fb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61415944"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>部署 StorSimple Virtual Array：在 Hyper-V 中佈建
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
@@ -94,7 +94,7 @@ ms.locfileid: "55810536"
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
 4. 在「新增虛擬機器精靈」的 [開始之前] 頁面上，按一下 [下一步]。
-5. 在 [指定名稱和位置] 頁面上，提供虛擬陣列的 [名稱]。 按 [下一步] 。
+5. 在 [指定名稱和位置] 頁面上，提供虛擬陣列的 [名稱]。 单击“下一步”。
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
 6. 在 [指定世代] 頁面上，選擇裝置映像類型，然後按一下 [下一步]。 如果您使用的是 Windows Server 2008 R2，則不會出現此頁面。
@@ -131,16 +131,16 @@ ms.locfileid: "55810536"
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image13.png)
 15. 在「新增虛擬硬碟精靈」的 [開始之前] 頁面上，按一下 [下一步]。
-16. 在 [選擇磁碟格式] 頁面上，接受 [VHDX] 格式預設選項。 按 [下一步] 。 如果您執行的是 Windows Server 2008 R2，則不會出現此畫面。
+16. 在 [選擇磁碟格式] 頁面上，接受 [VHDX] 格式預設選項。 单击“下一步”。 如果您執行的是 Windows Server 2008 R2，則不會出現此畫面。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image15.png)
-17. 在 [選擇磁碟類型] 頁面上，將虛擬硬碟類型設定為 [動態擴充] \(建議選項)。 [固定大小] 磁碟可以運作，但您可能需要等待很長一段時間。 建議您不要使用 [差異]  選項。 按 [下一步] 。 在 Windows Server 2012 R2 和 Windows Server 2012 中，[動態擴充] 是預設選項，而在 Windows Server 2008 R2 中，預設值是 [固定大小]。
+17. 在 [選擇磁碟類型] 頁面上，將虛擬硬碟類型設定為 [動態擴充] \(建議選項)。 [固定大小] 磁碟可以運作，但您可能需要等待很長一段時間。 建議您不要使用 [差異]  選項。 单击“下一步”。 在 Windows Server 2012 R2 和 Windows Server 2012 中，[動態擴充] 是預設選項，而在 Windows Server 2008 R2 中，預設值是 [固定大小]。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image16.png)
-18. 在 [指定名稱和位置] 頁面上，提供資料磁碟的「名稱」和「位置」(您可以瀏覽至該位置)。 按 [下一步] 。
+18. 在 [指定名稱和位置] 頁面上，提供資料磁碟的「名稱」和「位置」(您可以瀏覽至該位置)。 单击“下一步”。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. 在「設定磁碟」頁面上，選取 [建立新的空白虛擬硬碟] 選項，然後將大小指定為 **500 GB** (或更多)。 500 GB 是最低需求，您永遠可以佈建更大的磁碟。 請注意，佈建之後您無法擴充或縮小磁碟。 如需有關要佈建之磁碟大小的詳細資訊，請檢閱[最佳作法文件](storsimple-ova-best-practices.md)中的＜調整大小＞一節。 按 [下一步] 。
+19. 在「設定磁碟」頁面上，選取 [建立新的空白虛擬硬碟] 選項，然後將大小指定為 **500 GB** (或更多)。 500 GB 是最低需求，您永遠可以佈建更大的磁碟。 請注意，佈建之後您無法擴充或縮小磁碟。 如需有關要佈建之磁碟大小的詳細資訊，請檢閱[最佳作法文件](storsimple-ova-best-practices.md)中的＜調整大小＞一節。 单击“下一步”。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. 在 [摘要] 頁面上，檢閱虛擬資料磁碟的詳細資料，如果您對這些資料感到滿意，請按一下 [完成] 來建立磁碟。 精靈會關閉，虛擬硬碟會新增至您的電腦。

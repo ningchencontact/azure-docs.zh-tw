@@ -1,7 +1,6 @@
 ---
 title: Phoenix Query Server REST SDK - Azure HDInsight
 description: 在 Azure HDInsight 中安裝和使用 Phoenix Query Server 的 REST SDK。
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
-ms.openlocfilehash: b7c94fd2372f1d995c50439b2bd5eaefb237e175
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 1f468cac29579d8748f61a47b548a67d36ff8279
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123054"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
@@ -72,7 +71,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 以下是一些相關的屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | -- | -- |
 | AutoCommit | 布林值，用來表示是否為 Phoenix 交易啟用 `autoCommit`。 |
 | 唯讀 | 布林值，用來表示連線是否為唯讀連線。 |
@@ -83,7 +82,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 以下是 `TransactionIsolation` 值：
 
-| 隔離值 | 說明 |
+| 隔離值 | 描述 |
 | -- | -- |
 | 0 | 不支援交易。 |
 | 1 | 允許進行中途讀取、不可重複的讀取，以及虛設項目讀取。 |

@@ -16,13 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129548"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>在 Azure 虛擬機器中自動設定 Always On 可用性群組：Resource Manager
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>自動設定 Always On 可用性群組在 Azure 虛擬機器：Resource Manager
 
 本教學課程示範如何使用 Azure Resource Manager 虛擬機器來建立 SQL Server 可用性群組。 本教學課程使用 Azure 刀鋒視窗來設定範本。 逐步執行本教學課程時，您可以在入口網站中檢閱預設設定、輸入必要的設定，以及更新刀鋒視窗。
 

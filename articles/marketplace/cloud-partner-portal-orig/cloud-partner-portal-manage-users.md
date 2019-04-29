@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 56c646c2ab1f733c37a20cf6e6a5945b223beec4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777075"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>在 Cloud Partner 入口網站上管理使用者
 ======================================

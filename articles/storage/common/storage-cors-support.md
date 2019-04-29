@@ -10,11 +10,11 @@ ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483480"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Azure 儲存體服務的跨原始資源共用 (CORS) 支援
 從 2013-08-15 版本開始，Azure 儲存體服務就針對 Blob、資料表、佇列及檔案服務提供跨原始資源共用 (CORS) 的支援。 CORS 是一項 HTTP 功能，可讓 Web 應用程式在某個網域下執行，以存取其他網域中的資源。 網頁瀏覽器會實作稱為 [相同原始原則](https://www.w3.org/Security/wiki/Same_Origin_Policy) 的安全性限制，它可防止網頁呼叫不同網域中的 API；CORS 則提供了一個安全的方式，可讓一個網域 (原始網域) 能夠呼叫其他網域中的 API。 如需 CORS 的詳細資訊，請參閱 [CORS 規格](https://www.w3.org/TR/cors/) 。
@@ -67,7 +67,7 @@ CORS 規則是設定於服務層級，因此您需要針對每個服務 (Blob、
 
 CORS 規則中包含的每個項目敘述如下：
 
-* **AllowedOrigins**：允許透過 CORS 對儲存體服務發出要求的原始網域。 原始網域是要求的來源網域。 請注意，原始網域的大小寫必須與使用者代理程式傳送至服務的原始網域完全相符。 您也可以使用萬用字元 '*'，允許所有原始網域透過 CORS 提出要求。 在範例中，網域 http:\//www.contoso.com 和 http: \/ /www.fabrikam.com 可以提出針對服務使用 CORS 要求。
+* **AllowedOrigins**：允許透過 CORS 對儲存體服務發出要求的原始網域。 原始網域是要求的來源網域。 請注意，原始網域的大小寫必須與使用者代理程式傳送至服務的原始網域完全相符。 您也可以使用萬用字元 '*'，允許所有原始網域透過 CORS 提出要求。 在上面的示例中，域 http:\//www.contoso.com 和 http:\//www.fabrikam.com 可以使用 CORS 发出服务请求。
 * **AllowedMethods**：原始網域可能針對 CORS 要求使用的方法 (HTTP 要求動詞命令)。 在上述範例中，只允許 PUT 和 GET 要求。
 * **AllowedHeaders**：原始網域可在 CORS 要求上指定的要求標頭。 在上述範例中，允許以 x-ms-meta-data、x-ms-meta-target 及 x-ms-meta-abc 開始的所有中繼資料標頭。 請注意，萬用字元 '*' 表示允許任何以指定前置詞開頭的標頭。
 * **ExposedHeaders**：可能包含在對 CORS 要求的回應中傳送，而且由瀏覽器對要求簽發者公開的回應標頭。 在上述範例中，會指示瀏覽器公開任何以 x-ms-meta 開頭的標頭。

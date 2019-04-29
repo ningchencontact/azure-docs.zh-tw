@@ -9,11 +9,11 @@ ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
 ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477282"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure 儲存體效能與延展性檢查清單
 ## <a name="overview"></a>概觀
@@ -29,7 +29,7 @@ ms.locfileid: "58793963"
 * 資料表
 * 佇列  
 
-| 完成 | 領域 | 類別 | 问题 |
+| 完成 | 領域 | Category | 问题 |
 | --- | --- | --- | --- |
 | &nbsp; | 所有服務 |延展性目標 |[您的應用程式是否旨在避免達到延展性目標？](#subheading1) |
 | &nbsp; | 所有服務 |延展性目標 |[您的命名慣例設計能因應更好的負載平衡嗎？](#subheading47) |

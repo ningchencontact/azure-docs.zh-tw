@@ -10,11 +10,11 @@ ms.topic: article
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60738971"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>在多個 VM 上啟用更新管理、變更追蹤和清查解決方案
 
@@ -59,7 +59,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ![沒有工作區](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-當啟用解決方案，只有特定區域支援連結的 Log Analytics 工作區和自動化帳戶。
+啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
 
 下表顯示支援的對應：
 

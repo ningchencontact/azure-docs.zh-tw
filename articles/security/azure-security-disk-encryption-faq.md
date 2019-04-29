@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611305"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM 適用的 Azure 磁碟加密常見問題集
 
@@ -43,7 +43,7 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 
 不由 Azure 背書的 Linux 伺服器散發套件不支援 Azure 磁碟加密，而且這些所背書的只有下列散發套件和版本支援 Azure 磁碟加密：
 
-| Linux 散發套件 | 版本 | 支援加密的磁碟區類型|
+| Linux 散發套件 | Version | 支援加密的磁碟區類型|
 | --- | --- |--- |
 | Ubuntu | 18.04| 作業系統和資料磁碟 |
 | Ubuntu | 16.04| 作業系統和資料磁碟 |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
 ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241386"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610896"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric 安全性概觀
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 可解決開發與管理雲端應用程式時遭遇的挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，全心實作可調整、可信賴的關鍵性高需求工作負載。

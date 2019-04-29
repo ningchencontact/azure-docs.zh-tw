@@ -3,21 +3,22 @@ title: 使用 Azure Data Factory 從 Google BigQuery 複製資料 | Microsoft Do
 description: 了解如何使用資料處理站管線中的複製活動，將資料從 Google BigQuery 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: jingwang
+origin.date: 12/07/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: c9320c8d0cf512bc9145accc07ab4c79630a7c84
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301351"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808880"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Google BigQuery 複製資料
 
@@ -42,7 +43,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 以下是針對 Google BigQuery 連結服務所支援的屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | type 屬性必須設定為 **GoogleBigQuery**。 | 是 |
 | project | 要據以查詢之預設 BigQuery 專案的專案識別碼。  | 是 |
@@ -54,7 +55,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 將 "authenticationType" 屬性設定為 [UserAuthentication]，並連同上一節所述的一般屬性指定下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | clientId | 用來產生重新整理權杖之應用程式的識別碼。 | 否 |
 | clientSecret | 用來產生重新整理權杖之應用程式的祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
@@ -90,7 +91,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 將 "authenticationType" 屬性設定為 [ServiceAuthentication]，並連同上一節所述的一般屬性指定下列屬性。 此驗證類型只能在自我裝載的 Integration Runtime 上使用。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | 電子郵件 | 用於 ServiceAuthentication 的服務帳戶電子郵件識別碼。 它只能在自我裝載 Integration Runtime 上使用。  | 否 |
 | keyFilePath | .p12 金鑰檔的完整路徑，用來驗證服務帳戶電子郵件地址。 | 否 |
@@ -125,7 +126,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 若要從 Google BigQuery 複製資料，請將資料集的 type 屬性設定為 **GoogleBigQueryObject**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**GoogleBigQueryObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -154,7 +155,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 若要從 Google BigQuery 複製資料，請將複製活動中的來源類型設定為 **GoogleBigQuerySource**。 複製活動的 [來源] 區段支援下列屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type 屬性必須設定為 **GoogleBigQuerySource**。 | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |

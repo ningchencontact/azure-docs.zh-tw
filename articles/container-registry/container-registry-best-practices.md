@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
 ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810757"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787340"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry 的最佳做法
 
@@ -50,7 +50,7 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 雖然您可以對特定主機類型 (例如「Azure 容器執行個體」) 進行實驗，但完成後，您可能會想要刪除該容器執行個體。 不過，您也可能會想要保留已推送到 Azure Container Registry 的映像集合。 藉由將登錄放在它自己的資源群組中，即可將刪除容器執行個體資源群組時意外刪除該登錄中映像集合的風險降到最低。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 向 Azure Container Registry 進行驗證時，有兩種主要的案例：個人驗證和服務 (或「遠端控制」) 驗證。 下表提供這些案例的簡要概觀，以及各個案例的建議驗證方法。
 

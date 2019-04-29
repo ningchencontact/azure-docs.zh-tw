@@ -9,11 +9,11 @@ ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622207"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777384"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
 透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](./diagnostic-logs-schema.md)的對應。
@@ -117,18 +117,18 @@ ms.locfileid: "58622207"
 | 通道 |下列其中一個值：“Admin”、“Operation” |
 | claims |Active Directory 用來驗證使用者或應用程式，以便在 Resource Manager 中執行此作業的 JWT 權杖。 |
 | correlationId |通常是字串格式的 GUID。 共享 correlationId 的事件属于同一 uber 操作。 |
-| 說明 |事件的靜態文字描述。 |
+| description |事件的靜態文字描述。 |
 | eventDataId |事件的唯一識別碼。 |
-| eventName | 管理事件的易記名稱。 |
-| category | 一律 「 系統管理 」 |
+| eventName | 管理事件的易记名称。 |
+| category | 始终为“Administrative” |
 | httpRequest |描述 HTTP 要求的 blob。 通常包括 “clientRequestId”、“clientIpAddress”和 “method” (HTTP 方法。 例如，PUT)。 |
 | 级别 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
 | resourceGroupName |受影响资源的资源组的名称。 |
 | resourceProviderName |受影響資源的資源提供者的名稱。 |
-| resourceType | 系統管理的事件受影響資源的類型。 |
-| ResourceId |受影響資源的資源識別碼。 |
+| resourceType | 受“管理”事件影响的资源类型。 |
+| resourceId |受影響資源的資源識別碼。 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
-| operationName |作業名稱。 |
+| operationName |操作的名称。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 |
 | 状态 |字串，描述作業的狀態。 以下為一些值：「已啟動」、「進行中」、「成功」、「失敗」、「使用中」、「已解決」。 |
 | 子狀態 |通常是對應 REST 呼叫的 HTTP 狀態碼，但也可以包含其他描述子狀態的字串，例如以下常見的值：正常 (HTTP 狀態碼:200)、已建立 (HTTP 狀態碼:201)、已接受 (HTTP 狀態碼:202)、無內容 (HTTP 狀態碼:204)、錯誤的要求 (HTTP 狀態碼:400)、找不到 (HTTP 狀態碼:404)、衝突 (HTTP 狀態碼:409)、內部伺服器錯誤 (HTTP 狀態碼:500)、無法使用服務 (HTTP 狀態碼:503)、閘道逾時 (HTTP 狀態碼:504)。 |
@@ -261,17 +261,17 @@ ms.locfileid: "58622207"
 | --- | --- |
 | 通道 | 一律是 “Admin, Operation” |
 | correlationId | 字串格式的 GUID。 |
-| 說明 |警示事件的靜態文字描述。 |
+| description |警示事件的靜態文字描述。 |
 | eventDataId |警示事件的唯一識別碼。 |
 | category | 一律為 "ResourceHealth" |
-| eventTimestamp |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
+| eventTimestamp |处理与事件对应的请求的 Azure 服务生成事件时的时间戳。 |
 | 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」、「告知性」與「詳細資訊」 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
-| operationName |作業名稱。 |
+| operationName |操作的名称。 |
 | resourceGroupName |包含資源的資源群組名稱。 |
 | resourceProviderName |一律為 "Microsoft.Resourcehealth/healthevent/action"。 |
 | resourceType | 受資源健康情況事件影響的資源類型。 |
-| ResourceId | 受影響資源之資源識別碼的名稱。 |
+| resourceId | 受影響資源之資源識別碼的名稱。 |
 | status |描述健康情況事件狀態的字串。 值可以是：「作用中」、「已解決」、「進行中」、「已更新」。 |
 | 子狀態 | 針對警示通常為 null。 |
 | submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
@@ -356,15 +356,15 @@ ms.locfileid: "58622207"
 | 通道 | 一律是 “Admin, Operation” |
 | claims | 具有警示引擎的 SPN (服務主體名稱) 或資源類型的 JSON Blob。 |
 | correlationId | 字串格式的 GUID。 |
-| 說明 |警示事件的靜態文字描述。 |
+| description |警示事件的靜態文字描述。 |
 | eventDataId |警示事件的唯一識別碼。 |
-| category | Alwayson [警示] |
+| category | 始终为“Alert” |
 | 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
 | resourceGroupName |如果為計量警示，這是受影響資源的資源群組名稱。 針對其他警示類型，這是包含警示本身的資源群組名稱。 |
 | resourceProviderName |如果為計量警示，這是受影響資源的資源提供者名稱。 針對其他警示類型，這是警示本身的資源提供者名稱。 |
-| ResourceId | 如果為計量警示，這是受影響資源的資源識別碼名稱。 針對其他警示類型，這是警示資源本身的資源識別碼。 |
+| resourceId | 如果為計量警示，這是受影響資源的資源識別碼名稱。 針對其他警示類型，這是警示資源本身的資源識別碼。 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
-| operationName |作業名稱。 |
+| operationName |操作的名称。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 |
 | 状态 |字串，描述作業的狀態。 以下為一些值：「已啟動」、「進行中」、「成功」、「失敗」、「使用中」、「已解決」。 |
 | 子狀態 | 針對警示通常為 null。 |
@@ -466,14 +466,14 @@ ms.locfileid: "58622207"
 | 通道 | 一律是 “Admin, Operation” |
 | claims | 具有自動調整引擎的 SPN (服務主體名稱) 或資源類型的 JSON Blob。 |
 | correlationId | 字串格式的 GUID。 |
-| 說明 |自動調整事件的靜態文字描述。 |
+| description |自動調整事件的靜態文字描述。 |
 | eventDataId |自動調整事件的唯一識別碼。 |
 | 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
 | resourceGroupName |自動調整設定的資源群組名稱。 |
 | resourceProviderName |自動調整設定的資源提供者名稱。 |
-| ResourceId |自動調整設定的資源識別碼。 |
+| resourceId |自動調整設定的資源識別碼。 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
-| operationName |作業名稱。 |
+| operationName |操作的名称。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 |
 | properties.Description | 自動調整引擎所執行之作業的詳細描述。 |
 | properties.ResourceName | 受影響資源 (執行調整動作的資源) 的資源識別碼 |
@@ -554,18 +554,18 @@ ms.locfileid: "58622207"
 | --- | --- |
 | 通道 | 一律為 “Operation” |
 | correlationId | 字串格式的 GUID。 |
-| 說明 |安全性事件的靜態文字描述。 |
+| description |安全性事件的靜態文字描述。 |
 | eventDataId |安全性事件的唯一識別碼。 |
 | eventName |安全性事件的易記名稱。 |
-| category | 一律是 「 安全性 」 |
+| category | 始终为“Security” |
 | id |安全性事件的唯一資源識別碼。 |
 | 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」或「告知性」 |
 | resourceGroupName |資源的資源群組名稱。 |
 | resourceProviderName |「Azure 資訊安全中心」的資源提供者名稱。 一律為 "Microsoft.Security"。 |
 | resourceType |產生安全性事件的資源類型，例如˙ "Microsoft.Security/locations/alerts" |
-| ResourceId |安全性警示的資源識別碼。 |
+| resourceId |安全性警示的資源識別碼。 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
-| operationName |作業名稱。 |
+| operationName |操作的名称。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 這些屬性會依安全性警示類型的不同而有所不同。 如需來自「資訊安全中心」之警示類型的描述，請參閱[這個頁面](../../security-center/security-center-alerts-type.md)。 |
 | properties.Severity |嚴重性層級。 可能的值為："High"、"Medium" 或 "Low"。 |
 | status |字串，描述作業的狀態。 以下為一些值：「已啟動」、「進行中」、「成功」、「失敗」、「使用中」、「已解決」。 |
@@ -635,16 +635,16 @@ ms.locfileid: "58622207"
 | --- | --- |
 | 通道 | 一律為 “Operation” |
 | correlationId | 字串格式的 GUID。 |
-| 說明 |建議事件的靜態文字描述 |
+| description |建議事件的靜態文字描述 |
 | eventDataId | 建議事件的唯一識別碼。 |
 | category | 一律為 "Recommendation" |
 | id |建議事件的唯一資源識別碼。 |
 | 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」或「告知性」 |
-| operationName |作業名稱。  一律為 "Microsoft.Advisor/generateRecommendations/action"|
+| operationName |操作的名称。  一律為 "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |資源的資源群組名稱。 |
 | resourceProviderName |此建議適用之資源的資源提供者名稱，例如 "MICROSOFT.COMPUTE" |
 | resourceType |此建議適用之資源的資源類型名稱，例如 "MICROSOFT.COMPUTE/virtualmachines" |
-| ResourceId |建議適用之資源的資源識別碼 |
+| resourceId |建議適用之資源的資源識別碼 |
 | status | 一律為 "Active" |
 | submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
 | subscriptionId |Azure 訂用帳戶識別碼。 |
@@ -748,11 +748,11 @@ ms.locfileid: "58622207"
 | 通道 | 原則事件僅使用「作業」通道。 |
 | claims | Active Directory 用來驗證使用者或應用程式，以便在 Resource Manager 中執行此作業的 JWT 權杖。 |
 | correlationId | 通常是字串格式的 GUID。 共享 correlationId 的事件属于同一 uber 操作。 |
-| 說明 | 原則事件的這個欄位是空白的。 |
+| description | 原則事件的這個欄位是空白的。 |
 | eventDataId | 事件的唯一識別碼。 |
 | eventName | 「BeginRequest」或「EndRequest」。 「BeginRequest」用於延遲的 auditIfNotExists 和 deployIfNotExists 評估，以及當 deployIfNotExists 效果開始範本部署時。 所有其他的作業都會傳回「EndRequest」。 |
 | category | 將活動記錄事件宣告為屬於「Policy」。 |
-| eventTimestamp | 處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
+| eventTimestamp | 处理与事件对应的请求的 Azure 服务生成事件时的时间戳。 |
 | id | 特定資源上事件的唯一識別碼。 |
 | 層級 | 事件的層級。 Audit 會使用「Warning」，Deny 會使用「Error」。 auditIfNotExists 或 deployIfNotExists 錯誤會根據嚴重性產生「Warning」或「Error」。 所有其他的原則事件會使用「Informational」。 |
 | operationId | 對應至單一作業的事件共用的 GUID。 |
@@ -760,7 +760,7 @@ ms.locfileid: "58622207"
 | resourceGroupName | 所評估資源的資源群組名稱。 |
 | resourceProviderName | 所評估資源的資源提供者名稱。 |
 | resourceType | 針對新的資源，這是正在評估的類型。 針對現有的資源，會傳回「Microsoft.Resources/checkPolicyCompliance」。 |
-| ResourceId | 所評估資源的資源識別碼。 |
+| resourceId | 所評估資源的資源識別碼。 |
 | status | 描述「原則」評估結果狀態的字串。 大部分的「原則」評估會傳回「Succeeded」，但 Deny 效果會傳回「Failed」。 auditIfNotExists 或 deployIfNotExists 中的錯誤也會傳回「Failed」。 |
 | 子狀態 | 「原則」事件的這個欄位是空白的。 |
 | submissionTimestamp | 當事件變成可供查詢時的時間戳記。 |
@@ -777,13 +777,13 @@ ms.locfileid: "58622207"
 
 | 診斷記錄結構描述屬性 | 活動記錄 REST API 結構描述屬性 | 注意 |
 | --- | --- | --- |
-| 分析 | eventTimestamp |  |
-| ResourceId | ResourceId | subscriptionId、resourceType、resourceGroupName 全都推斷自 resourceId。 |
+| time | eventTimestamp |  |
+| resourceId | resourceId | subscriptionId、resourceType、resourceGroupName 全都推斷自 resourceId。 |
 | operationName | operationName.value |  |
 | category | 作業名稱部分 | 作業類型分類："Write"/"Delete"/"Action" |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
-| resultDescription | 說明 |  |
+| resultDescription | description |  |
 | durationMs | N/A | 一律為 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
@@ -798,6 +798,6 @@ ms.locfileid: "58622207"
 
 
 ## <a name="next-steps"></a>後續步驟
-* [深入了解活動記錄檔 (之前的稽核記錄檔)](../../azure-monitor/platform/activity-logs-overview.md)
+* [深入了解活動記錄 (之前的稽核記錄)](../../azure-monitor/platform/activity-logs-overview.md)
 * [將 Azure 活動記錄檔串流至事件中樞](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 

@@ -15,11 +15,11 @@ ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7fe75dabe098cf98f0c3c04d592a32d6a44cebf8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775302"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>在 Batch 中使用多重執行個體工作來執行訊息傳遞介面 (MPI) 應用程式
 
@@ -286,7 +286,7 @@ GitHub 上的 [MultiInstanceTasks][github_mpi] 程式碼範例示範如何使用
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. 在 **Microsoft.Azure.Batch.Samples.Common** 專案的 `AccountSettings.settings` 中輸入 Batch 和儲存體帳戶的認證。
 4. **建置並執行** MultiInstanceTasks 方案，以在 Batch 集區的計算節點上執行 MPI 範例應用程式。
-5. *選擇性*：請先使用 [Azure 入口網站][portal] 或 [Batch Explorer][batch_labs] 檢查範例集區、作業和工作 ("MultiInstanceSamplePool"、"MultiInstanceSampleJob"、"MultiInstanceSampleTask")，然後才刪除資源。
+5. *選用*：請先使用 [Azure 入口網站][portal] 或 [Batch Explorer][batch_labs] 檢查範例集區、作業和工作 ("MultiInstanceSamplePool"、"MultiInstanceSampleJob"、"MultiInstanceSampleTask")，然後才刪除資源。
 
 > [!TIP]
 > 如果您沒有 Visual Studio，您可以免費下載 [Visual Studio Community][visual_studio]。

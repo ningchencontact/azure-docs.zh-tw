@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0138ea8dcbd780ca8aa87178dad41bdca1a72267
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472751"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>建立 Dynamics 365 for Customer Engagement 應用程式供應項目
 

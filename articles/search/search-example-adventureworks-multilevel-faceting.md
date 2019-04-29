@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 7fa17528931be40109d81edac0f15a6a6822ec01
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61291737"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>範例：Azure 搜尋服務中的多層級 Facet
 
@@ -97,6 +97,6 @@ categories.count = sum;
 > [!TIP]
 > 傳回的 Facet 數目會影響到查詢速度。 若要支援非常大型的分類集，請考慮新增可 Facet 的 **Edm.String** 欄位來存放每份文件的最上層分類值。 然後，運用前述的相同技巧，但僅在使用者展開最上層節點時執行集合 Facet 查詢 (依根分類欄位篩選)。 或者，如果不需要 100% 回收，請將 Facet 計數縮減至合理的數目，並確定 Facet 項目依計數排序。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [範例：針對 Azure 搜尋服務將 AdventureWorks 詳細目錄資料庫模型化](search-example-adventureworks-modeling.md)

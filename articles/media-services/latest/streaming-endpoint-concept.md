@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999445"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125418"
 ---
 # <a name="streaming-endpoints"></a>串流端點
 
@@ -149,6 +149,10 @@ IP 篩選/G20/自訂主機<sup>1</sup>|是|是
 ### <a name="determine-if-dns-change-has-been-made"></a>決定是否已進行 DNS 變更
 
 您可以判斷是否 DNS 變更後 （流量會被導向到 Azure CDN） 的串流端點上使用 https://www.digwebinterface.com。 如果結果有 azureedge.net 網域名稱，在結果中，將流量現在正在指向 CDN。
+
+## <a name="provide-feedback"></a>提供意見反應
+
+請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 
 ## <a name="next-steps"></a>後續步驟
 

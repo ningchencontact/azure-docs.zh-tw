@@ -10,11 +10,11 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60738121"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -52,7 +52,7 @@ Azure 自動化中的 Runbook 可以在 Azure 中的沙箱或[混合式 Runbook 
 
 Runbook 會根據定義於其內部的邏輯來執行。 如果 Runbook 中斷，該 Runbook 會從頭重新啟動。 需要將 Runbook 撰寫為支援在發生暫時性問題時可重新啟動，才能有此行為。
 
-啟動 runbook 的 PowerShell 工作已在 Azure 中執行完整的語言模式中，可能無法執行沙箱。 若要深入了解 PowerShell 語言模式，請參閱[PowerShell 語言模式](/powershell/module/microsoft.powershell.core/about/about_language_modes)。 如需有關如何在 Azure 自動化中的作業與互動的詳細資訊，請參閱[擷取使用 PowerShell 的作業狀態](#retrieving-job-status-using-powershell)
+从在 Azure 沙盒中运行的 Runbook 启动的 PowerShell 作业在完整语言模式下可能无法运行。 若要了解有关 PowerShell 语言模式的详细信息，请参阅 [PowerShell 语言模式](/powershell/module/microsoft.powershell.core/about/about_language_modes)。 有关如何与 Azure 自动化中的作业进行交互的更多详细信息，请参阅[使用 PowerShell 检索作业状态](#retrieving-job-status-using-powershell)
 
 ### <a name="creating-resources"></a>建立資源
 
@@ -248,9 +248,9 @@ function Get-ContosoFiles
 3. 在已選取 Runbook 的頁面上，按一下 [作業] 圖格。
 4. 按一下清單中的其中一個作業，然後可以在 [Runbook 作業詳細資料] 頁面上檢視其詳細資料和輸出。
 
-## <a name="retrieving-job-status-using-powershell"></a>使用 PowerShell 擷取作業狀態
+## <a name="retrieving-job-status-using-powershell"></a>使用 PowerShell 检索作业状态
 
-您可以使用 [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob)，來擷取針對 Runbook 建立的作業以及特定作業的詳細資料。 如果您使用 PowerShell 啟動 runbook [Start-azurermautomationrunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)，則它會傳回產生的作業。 使用 [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) 來取得作業的輸出。
+您可以使用 [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob)，來擷取針對 Runbook 建立的作業以及特定作業的詳細資料。 如果在 PowerShell 中使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) 启动 Runbook，则会返回生成的作业。 使用 [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) 來取得作業的輸出。
 
 下列範例命令會針對範例 Runbook 擷取最後一個作業並顯示其狀態、提供給 Runbook 參數的值，以及來自作業的輸出。
 

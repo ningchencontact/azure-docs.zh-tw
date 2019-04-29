@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: edbd7000001ae6927078e2f1bb9e348cc78f9efa
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962106"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61299643"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights 中的智慧型偵測
  「智慧型偵測」會自動警告您 Web 應用程式中的可能效能問題。 它會針對您應用程式傳送給 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 的遙測執行主動式分析。 如果失敗率急遽上升或是用戶端或伺服器效能出現異常模式，您就會收到警示。 這項功能不需要進行任何設定。 只要您的應用程式傳送的遙測足夠，它就能發揮作用。

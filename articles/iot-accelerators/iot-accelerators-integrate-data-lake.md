@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61449262"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>整合遠端監視解決方案與 Azure Data Lake Store
 

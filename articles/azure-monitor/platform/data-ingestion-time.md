@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093959"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure 監視器中的記錄資料擷取時間
 Azure 監視器是一種大規模的資料服務，服務對象為每月需傳送數 TB 資料 (且不斷成長) 的上千名客戶。 而在收集記錄資料後，資料需要多久時間方能轉為可用狀態，是經常受到詢問的問題。 本文會說明影響這種延遲的不同因素。
@@ -48,7 +48,7 @@ Azure 監視器是一種大規模的資料服務，服務對象為每月需傳�
 ### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Azure 活動記錄、診斷記錄及計量
 為了在 Log Analytics 內嵌點變成可供處理，Azure 資料會多花費一些時間：
 
-- 視 Azure 服務而定，來自診斷記錄的資料需要 2-15 分鐘的時間。 若要檢查您環境中的此延遲，請參閱[下方的查詢](#checking-ingestion-time)
+- 視 Azure 服務而定，來自診斷記錄的資料需要 2-15 分鐘的時間。 若要檢查您環境中的這項延遲，請參閱[下方的查詢](#checking-ingestion-time)
 - Azure 平台計量需要 3 分鐘的時間，才能傳送到 Log Analytics 內嵌點。
 - Azure 記錄資料將需要 10-15 分鐘的時間，才能傳送到 Log Analytics 內嵌點。
 
@@ -82,7 +82,7 @@ Azure 監視器的首要任務是確保不會遺失客戶資料，因此系統�
 對於不同的資源，在不同的情況下，擷取時間可能不盡相同。 您可以使用記錄查詢來識別您環境的特定行為。
 
 ### <a name="ingestion-latency-delays"></a>擷取延遲
-您可以比較 [ingestion_time()](/azure/kusto/query/ingestiontimefunction) 函式與 _TimeGenerated_ 欄位的結果來測量特定記錄的延遲。 此資料可以搭配各種彙總，用來了解延遲的運作方式。 檢查擷取時間的一些百分位數，取得大量資料的深入解析。 
+您可以比較 [ingestion_time()](/azure/kusto/query/ingestiontimefunction) 函式與 _TimeGenerated_ 欄位的結果來測量特定記錄的延遲。 這項資料可以搭配各種彙總，用來了解延遲的運作方式。 檢查擷取時間的一些百分位數，取得大量資料的深入解析。 
 
 例如，下列查詢會顯示當天有最高擷取時間的電腦： 
 

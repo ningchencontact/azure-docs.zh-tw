@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232438"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683085"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>建立 Switch 陳述式，以根據 Azure Logic Apps 中的特定值執行工作流程動作
 
@@ -32,7 +32,7 @@ ms.locfileid: "50232438"
 
 * 若要依循本文中的範例，請使用 Outlook.com 或 Office 365 Outlook 帳戶來[建立此範例邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-  1. 當您新增要傳送電子郵件的動作時，請改為尋找並選取下列動作：**傳送核准電子郵件**
+  1. 添加用于发送电子邮件的操作时，请改为查找并选择此操作：**发送审批电子邮件**
 
      ![選取 [傳送核准電子郵件]](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "50232438"
 
    如果您要在步驟之間新增 Switch 陳述式，請將指標移您要新增 Switch 陳述式的箭號上。 選擇顯示的**加號** (**+**)，然後選擇 [新增動作]。
 
-1. 在搜尋方塊中，輸入 "switch" 作為篩選條件。 選取此動作：**Switch - 控制項**
+1. 在搜尋方塊中，輸入 "switch" 作為篩選條件。 選取此動作：**Switch - 控制**
 
    ![新增 Switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "50232438"
 
 1. 將這些動作新增至對應的案例：
 
-   | 案例 | **SelectedOption** | 動作 |
+   | 案例 | **SelectedOption** |  動作 |
    |--------|--------------------|--------|
    | 案例 1 | **核准** | 新增 Outlook **傳送電子郵件**動作，只在核准者選取**核准**時傳送 RSS 項目的詳細資料。 |
    | 案例 2 | **拒絕** | 新增 Outlook **傳送電子郵件**動作，通知其他核准者 RSS 項目遭到拒絕。 |
@@ -113,7 +113,7 @@ ms.locfileid: "50232438"
 }
 ```
 
-| 標籤 | 說明 |
+| 標籤 | 描述 |
 |-------|-------------|
 | `"Switch"`         | Switch 陳述式的名稱，您可以將它重新命名以增加可讀性 |
 | `"type": "Switch"` | 指出動作是 Switch 陳述式 |

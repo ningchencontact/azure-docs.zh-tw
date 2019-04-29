@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 6dd1dd0ce2395e2b06d80385ffd299835a280526
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002025"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614035"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的 Cloud-init 支援
 本文說明針對 [cloud-init](https://cloudinit.readthedocs.io) 存在的支援，以便在 Azure 中佈建時，設定虛擬機器 (VM) 或虛擬機器擴展集 (VMSS)。 一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。  
@@ -32,7 +32,7 @@ Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install**
 
  我們一直積極地與背書的 Linux 發行版本合作夥伴合作，以便在 Azure Marketplace 中提供支援 Cloud-init 的映像。 這些映像會讓您的 Cloud-init 部署和設定順暢地與 VM 和 VM 擴展集 (VMSS) 運作。 下表概述目前支援 cloud-init 的映像在 Azure 平台上的可用性：
 
-| 發行者 | 产品/服务 | SKU | 版本 | cloud-init 就緒 |
+| 發行者 | 产品/服务 | SKU | Version | cloud-init 就緒 |
 |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |18.04-LTS |最新 |是 | 
 |Canonical |UbuntuServer |17.10 |最新 |是 | 

@@ -16,11 +16,11 @@ ms.date: 11/26/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: b0e1047c5bbd7d8caaf2afd8b002be1c46837852
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60811008"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Service Fabric Mesh 應用程式中的網路功能簡介
 本文會說明不同類型的負載平衡器、閘道如何將具有您應用程式的網路連線至其他網路，以及流量如何在您應用程式的服務之間路由。

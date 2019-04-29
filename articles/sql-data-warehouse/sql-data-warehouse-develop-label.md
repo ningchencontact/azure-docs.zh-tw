@@ -2,20 +2,20 @@
 title: 在 SQL 資料倉儲中使用標籤來檢測查詢 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中使用標籤來檢測查詢以開發解決方案的秘訣。
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: rortloff
-ms.reviewer: igorstan
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.openlocfilehash: 5c60a7dc44471599834c4b1225b397c8e6eabbd5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61439769"
 ---
 # <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中使用標籤來檢測查詢
 在 Azure SQL 資料倉儲中使用標籤來檢測查詢以開發解決方案的秘訣。

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
 ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704713"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>在 Azure 資訊安全中心調查事件和警示 (預覽)
 這份文件可協助您使用 Azure 資訊安全中心的調查功能，以調查安全性事件和警示。

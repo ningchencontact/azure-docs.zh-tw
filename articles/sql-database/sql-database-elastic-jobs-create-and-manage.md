@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: a95b62ab8f639ad38ee3ac9ace4f30b62bd852bf
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475942"
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>使用彈性工作建立和管理相應放大的 Azure SQL 資料庫 (預覽)
 
@@ -96,7 +96,7 @@ ms.locfileid: "55565049"
 ## <a name="checking-failed-jobs"></a>檢查失敗的工作
 如果工作失敗，您可以找到其執行記錄檔。 按一下失敗工作的名稱，以查看其詳細資料。
 
-![查看失敗的工作][4]
+![检查失败的作业][4]
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

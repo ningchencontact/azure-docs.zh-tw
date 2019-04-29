@@ -16,11 +16,11 @@ ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550257"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用於診斷評估和監視的 Batch 計量、警示和記錄
 
@@ -101,7 +101,7 @@ ms.locfileid: "58850314"
 
 1. 在入口網站中，按一下 [所有服務] > [Batch 帳戶]，然後按一下您的 Batch 帳戶名稱。
 2. 在 [監視] 下方，按一下 [診斷記錄] > [開啟診斷]。
-3. 在 **診斷設定**，輸入設定名稱，然後選擇記錄目的地 （現有的儲存體帳戶、 事件中樞或 Azure 監視器記錄檔）。 選取 **ServiceLog** 或/和 **AllMetrics**。
+3. 在“诊断设置”中，输入设置的名称，并选择日志目标（现有存储帐户、事件中心或 Azure Monitor 日志）。 選取 **ServiceLog** 或/和 **AllMetrics**。
 
     當您選取儲存體帳戶時，可選擇性地設定保留原則。 如果您未指定保留天數，資料的保留期限會是儲存體帳戶的存留期間。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 7762f8499c67672f0a2ffed99e98baea4c940fa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ab874bbdcd47a4bfa9abfba721afa46d0f23a338
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60637964"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>使用 StorSimple 裝置管理員服務變更您的 StorSimple 密碼
 
@@ -27,7 +27,7 @@ ms.locfileid: "23108166"
 Azure 入口網站的 [裝置設定] 選項包含所有裝置參數，可讓您重新設定 StorSimple 裝置管理員服務所管理的 StorSimple 裝置。 本教學課程說明如何使用 [裝置設定] 下的 [安全性] 選項，變更您的裝置系統管理員或 StorSimple Snapshot Manager 密碼。
 
 ## <a name="change-the-device-administrator-password"></a>變更裝置系統管理員密碼
-當您使用 Windows PowerShell 介面來存取 StorSimple 裝置時，需要輸入裝置系統管理員密碼。 向服務註冊第一個 StorSimple 裝置時，此介面的預設密碼為 *Password1*。 為了確保資料的安全性，您必須在註冊程序結束時變更此密碼。 若未變更此密碼，您就無法結束註冊程序。 如需詳細資訊，請參閱 [步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)。
+當您使用 Windows PowerShell 介面來存取 StorSimple 裝置時，需要輸入裝置系統管理員密碼。 向服務註冊第一個 StorSimple 裝置時，此介面的預設密碼為 *Password1*。 為了確保資料的安全性，您必須在註冊程序結束時變更此密碼。 若未變更此密碼，您就無法結束註冊程序。 如需詳細資訊，請參閱[步驟 3：透過適用於 StorSimple 的 Windows PowerShell 設定和註冊裝置](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)。
 
 之後可以透過 Azure 入口網站，變更在註冊期間先透過 Windows PowerShell 介面設定的密碼。 執行下列步驟來變更裝置系統管理員密碼。
 

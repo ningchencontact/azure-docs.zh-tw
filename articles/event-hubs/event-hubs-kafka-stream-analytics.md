@@ -14,11 +14,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747991"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>使用串流分析處理適用於事件中樞的 Apache Kafka 
 本文說明如何將資料串流至啟用的 Kafka 事件中樞，以及使用 Azure 串流分析處理該資料。 本文將逐步引導您完成下列步驟： 

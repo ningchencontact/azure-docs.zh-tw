@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
 ms.openlocfilehash: 173963470a77932186b3c51f17ccb406b32a13f3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61448446"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>裝置模擬解決方案加速器概觀
 

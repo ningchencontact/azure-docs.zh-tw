@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
 ms.openlocfilehash: 4d3f27d48819a4bd997cbb62177f5aae4afc85eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615406"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>解決移轉至 SQL Database 期間的 Transact-SQL 差異
 
@@ -56,7 +56,7 @@ Microsoft SQL Server 和 Azure SQL Database 都支援應用程式使用的大部
 - 高可用性：與透過 Microsoft Azure 帳戶管理的高可用性相關的語法。 這包括備份、還原、永遠開啟、資料庫鏡像、記錄傳送、修復模式的語法。
 - 記錄讀取器：依賴記錄讀取器 ( SQL Database 上不適用) 的語法：發送複寫、異動資料擷取。 SQL Database 可以是推送複寫文章的訂閱者。
 - 函式：`fn_get_sql`、`fn_virtualfilestats`、`fn_virtualservernodes`
-- 硬體：與硬體相關伺服器設定相關的語法：例如記憶體、背景工作執行緒、CPU 親和性、追蹤旗標。 改為使用服務層和計算大小。
+- 硬體：與硬體相關伺服器設定相關的語法：例如記憶體、背景工作執行緒、CPU 親和性、追蹤旗標。 改為使用服務層級和計算大小。
 - `KILL STATS JOB`
 - `OPENQUERY`、`OPENROWSET`、`OPENDATASOURCE` 和四部分的名稱
 - .NET Framework：與 SQL Server 整合的 CLR

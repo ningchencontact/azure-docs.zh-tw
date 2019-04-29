@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257275"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479103"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>使用 Azure Machine Learning 函式調整串流分析作業
 設定串流分析作業並透過它執行一些範例資料很簡單。 當我們需要以較高的資料量來執行相同的作業時，我們該怎麼辦？ 我們必須了解如何設定串流分析作業，以便進行調整。 本文件的重點在於使用 Machine Learning 函數調整串流分析作業的特殊層面。 如需有關如何調整串流分析作業的一般資訊，請參閱 [調整作業](stream-analytics-scale-jobs.md)文章。

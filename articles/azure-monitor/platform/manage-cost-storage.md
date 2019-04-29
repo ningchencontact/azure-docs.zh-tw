@@ -15,20 +15,20 @@ ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
 ms.openlocfilehash: a2f90c52823664df5fdc71c55220cc660c2f68e3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782829"
 ---
-# <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Azure 監視器中的 Log analytics 管理使用量和成本
+# <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>管理 Azure Monitor 中的 Log Analytics 的使用情况和成本
 
 > [!NOTE]
 > 本文說明如何藉由設定資料保留期間來控制 Log Analytics 的成本。  請參閱下列文章以了解相關資訊。
 > - [分析 Log Analytics 中的資料使用量](manage-cost-storage.md)說明如何分析資料使用量及提出警示。
 > - [監視使用量和估計成本](usage-estimated-costs.md)說明如何針對不同的定價模型，檢視多項 Azure 監視功能的使用量和估計成本。 其中也會說明如何變更定價模型。
 
-Azure 監視器中的 log Analytics 是設計來調整和支援收集、 編製索引，及儲存您企業中的每日的資料從任何來源的大量，或在 Azure 中部署。  雖然這可能是您組織的主要推動力，但成本效率終究是最基本的推動力。 為此，務必了解 Log Analytics 工作區的成本不只是以收集的資料量為基礎，也取決於選取的方案，以及您為連線來源所產生的資料選擇了多長的儲存時間。  
+Azure Monitor 中的 Log Analytics 用于调整和支持来自任何源的巨量数据的每日收集、索引和存储，这些源部署在企业或 Azure 中。  雖然這可能是您組織的主要推動力，但成本效率終究是最基本的推動力。 為此，務必了解 Log Analytics 工作區的成本不只是以收集的資料量為基礎，也取決於選取的方案，以及您為連線來源所產生的資料選擇了多長的儲存時間。  
 
 在本文中，我們會探討您可以如何積極地監視資料量和儲存體成長狀況，並定義限制來控制這些相關成本。 
 
@@ -139,9 +139,9 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 - 比預期更多的節點將資料傳送到 Log Analytics
 - 傳送到 Log Analytics 的資料比預期更多
 
-下一步 的區段總管
+后续部分介绍
 
-## <a name="understanding-nodes-sending-data"></a>了解節點傳送資料
+## <a name="understanding-nodes-sending-data"></a>了解发送数据的节点
 
 若要了解在上個月每一天回報資料的電腦 (節點) 數目，請使用
 
@@ -157,9 +157,9 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-請謹慎使用這些 `union withsource = tt *` 查詢，因為執行跨資料類型掃描的費用相當高昂。 此查詢會取代舊有的查詢使用資料類型的每個電腦資訊的方式。  
+請謹慎使用這些 `union withsource = tt *` 查詢，因為執行跨資料類型掃描的費用相當高昂。 此查询将使用 Usage 数据类型替换旧的查询单个计算机信息的方式。  
 
-這可以延伸到傳回的每小時傳送的電腦計數計費資料類型 （這是 Log Analytics 如何計算可計費的節點舊版每節點定價層）：
+这可以扩展为返回每小时发送计费数据类型的计算机数量（这是 Log Analytics 为旧版“按节点”定价层计算可计费节点的方式）：
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -167,7 +167,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 | where computerName != ""
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
-## <a name="understanding-ingested-data-volume"></a>了解內嵌的資料量 
+## <a name="understanding-ingested-data-volume"></a>了解引入的数据量 
 
 在 [使用量和估計成本] 頁面上，[每個解決方案的資料擷取] 圖表會顯示所傳送的資料總量，以及每個解決方案所傳送的資料量。 這可讓您判斷各種趨勢，例如整體資料使用量 (或特定解決方案的使用量) 是否正在增長、穩定不變或正在減少。 用來產生此內容的查詢為：
 
@@ -184,7 +184,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 
 ### <a name="data-volume-by-computer"></a>資料量 (依電腦)
 
-若要查看**大小**的可計費的事件，擷取每一部電腦，使用`_BilledSize`屬性 ([記錄檔-標準-屬性 #_billedsize.md](learn more)) 提供以位元組為單位的大小：
+若要查看每台计算机引入的可计费事件的**大小**，请使用 `_BilledSize` 属性 ([log-standard-properties#_billedsize.md](learn more))（以字节为单位提供大小）：
 
 ```
 union withsource = tt * 
@@ -192,7 +192,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
 ```
 
-`_IsBillable`屬性會指定是否將內嵌的資料將會產生費用 ([記錄檔-標準-properties.md #_isbillable](Learn more)。)
+`_IsBillable` 属性指定引入的数据是否会收费（[log-standard-properties.md#_isbillable](Learn more)。）
 
 若要查看每部電腦所擷取的事件**計數**，請使用：
 
@@ -214,9 +214,9 @@ union withsource = tt *
 | summarize count() by tt | sort by count_ nulls last
 ```
 
-### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 資源、 資源群組或訂用帳戶的資料量
+### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>按 Azure 资源、资源组或订阅计算的数据量
 
-對於裝載在 Azure 中的節點中的資料，您可以取得**大小**內嵌的可計費事件的__每部電腦__，使用`_ResourceId`屬性可提供資源的完整路徑 ([記錄檔-標準-properties.md #_resourceid](learn more)):
+对于托管在 Azure 中的节点中的数据，可以__按计算机__获取引入的可计费事件的**大小**，以及使用 `_ResourceId` 属性，该属性提供资源的完整路径 ([log-standard-properties.md#_resourceid](learn more))：
 
 ```
 union withsource = tt * 
@@ -224,7 +224,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-對於裝載在 Azure 中的節點中的資料，您可以取得**大小**的可計費的事件內嵌__每個 Azure 訂用帳戶__，剖析`_ResourceId`屬性設為：
+对于托管在 Azure 中的节点中的数据，可以__按 Azure 订阅__获取引入的可计费事件的**大小**，并可将 `_ResourceId` 属性解析为：
 
 ```
 union withsource = tt * 
@@ -234,13 +234,13 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
-變更`subscriptionId`至`resourceGroup`會顯示依 Azure resouurce 群組的可計費的內嵌的資料磁碟區。 
+将 `subscriptionId` 更改为 `resourceGroup` 后，就会显示可计费的已引入数据量（按 Azure 资源组计算）。 
 
 
 > [!NOTE]
 > [使用量] 資料類型的部分欄位雖然仍位於結構描述中，但皆已過時，且系統將不再填入其值。 這包括 [Computer]，以及其他與擷取相關的欄位 ([TotalBatches]、[BatchesWithinSla]、[BatchesOutsideSla]、[BatchesCapped]，以及 [AverageProcessingTimeMs])。
 
-### <a name="querying-for-common-data-types"></a>常見的資料類型的查詢
+### <a name="querying-for-common-data-types"></a>查询常见的数据类型
 
 若要更深入挖掘特定資料類型的資料來源，以下是一些實用的範例查詢：
 
@@ -273,7 +273,7 @@ union withsource = tt *
 | AzureDiagnostics           | 變更資源記錄集合： <br> - 減少會將記錄傳送至 Log Analytics 的資源數目 <br> - 只收集必要的記錄 |
 | 電腦中不需要解決方案的方案資料 | 使用[方案目標](../insights/solution-targeting.md)，只從必要的電腦群組收集資料。 |
 
-### <a name="getting-security-and-automation-node-counts"></a>取得安全性和自動化的節點計數 
+### <a name="getting-security-and-automation-node-counts"></a>获取安全性和自动化节点计数 
 
 如果您是處於「每節點 (OMS)」定價層，則系統會根據您使用的節點和解決方案數目來向您收取費用，您需支付費用的見解與分析節點數目將會顯示在 [使用量和估計成本] 頁面上的資料表中。  
 

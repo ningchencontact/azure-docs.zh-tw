@@ -11,11 +11,11 @@ ms.date: 01/24/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: d7684aa79ac9f58c2a047b01a6d9f5263795221d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61291702"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>升級至 Azure 搜尋服務 .NET SDK 第 5 版
 如果您使用 4.0 預覽版或更舊版本的 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)，本文會協助您將應用程式升級為使用第 5 版。
@@ -66,10 +66,10 @@ Azure 搜尋服務 .NET SDK 第 5 版以最新推出的 Azure 搜尋服務 REST 
 
 第 5 版最重要的中斷性變更是 `Microsoft.Azure.Search` 組件及其內容已分成四個不同的組件，現在會以四個個別的 NuGet 套件來散發：
 
- - `Microsoft.Azure.Search`：這是包含所有其他 Azure 搜尋服務相依套件的中繼套件。 如果您要從舊版 SDK 升級，只要升級此套件並重建，應該就能開始使用新版本。
- - `Microsoft.Azure.Search.Data`：如果您正在開發使用 Azure 搜尋服務的 .NET 應用程式，而且只需要查詢或更新索引中的文件，則請使用此套件。 如果您也需要建立或更新索引、同義字地圖或其他服務層級資源，請改用 `Microsoft.Azure.Search` 套件。
- - `Microsoft.Azure.Search.Service`：如果您正在開發 .NET 自動化來管理 Azure 搜尋服務的索引、同義字地圖、索引子、資料來源或其他服務層級資源，請使用此套件。 如果您只需要查詢或更新索引中的文件，請改用 `Microsoft.Azure.Search.Data` 套件。 如果您需要 Azure 搜尋服務的所有功能，請改用 `Microsoft.Azure.Search` 套件。
- - `Microsoft.Azure.Search.Common`：Azure 搜尋服務 .NET 程式庫所需的常用類型。 您不需要在應用程式中直接使用此套件；此套件乃是做為相依性之用。
+ - `Microsoft.Azure.Search`:這是包含所有其他 Azure 搜尋服務相依套件的中繼套件。 如果您要從舊版 SDK 升級，只要升級此套件並重建，應該就能開始使用新版本。
+ - `Microsoft.Azure.Search.Data`:如果您正在開發使用 Azure 搜尋服務的 .NET 應用程式，而且只需要查詢或更新索引中的文件，則請使用此套件。 如果您也需要建立或更新索引、同義字地圖或其他服務層級資源，請改用 `Microsoft.Azure.Search` 套件。
+ - `Microsoft.Azure.Search.Service`:如果您正在開發 .NET 自動化來管理 Azure 搜尋服務的索引、同義字地圖、索引子、資料來源或其他服務層級資源，請使用此套件。 如果您只需要查詢或更新索引中的文件，請改用 `Microsoft.Azure.Search.Data` 套件。 如果您需要 Azure 搜尋服務的所有功能，請改用 `Microsoft.Azure.Search` 套件。
+ - `Microsoft.Azure.Search.Common`:Azure 搜尋服務 .NET 程式庫所需的常用類型。 您不需要在應用程式中直接使用此套件；此套件乃是做為相依性之用。
  
 這項變更在技術上造成中斷，因為在組件之間移動了許多類型。 這也是必須重建您的應用程式才能升級至第 5 版 SDK 的原因。
 

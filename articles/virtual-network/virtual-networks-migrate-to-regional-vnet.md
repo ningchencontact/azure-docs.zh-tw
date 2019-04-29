@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 1fca7f6165998b95254f841638cf8bcbc1fb352d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: d3bb93d12a217e6d9066d037ff92f071b6139ab3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648630"
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>將虛擬網路 (傳統) 從同質群組移轉至區域
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署都使用 Resource Manager 部署模型。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署都使用 Resource Manager 部署模型。
 
 同質群組確保在相同同質群組內建立的資源均由伺服器所實際主控，這些伺服器彼此鄰近，可讓這些資源進行更快速的通訊。 在過去，建立虛擬網路 (傳統) 需要同質群組。 當時，管理虛擬網路 (傳統) 的網路管理員服務僅能在一組實體伺服器或縮放單位內工作。 架構改進則增加區域的網路管理範圍。
 
@@ -52,7 +52,7 @@ ms.locfileid: "31792149"
    
     **舊值：**\<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
    
-    **新值：**\<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+    **新的值：**\<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 3. 儲存您的變更並網路組態 [匯入](virtual-networks-using-network-configuration-file.md#import) 至 Azure。
 
 > [!NOTE]

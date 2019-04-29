@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 48f714a505bc79f0556a829206821aef986ad5d0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240252"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60818052"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務為您的模型微調超參數
 
@@ -149,8 +149,8 @@ param_sampling = BayesianParameterSampling( {
 
 指定要讓超參數微調實驗最佳化的主要計量。 每個定型執行會針對此主要計量進行評估。 效能不佳的執行 (其主要計量不符合提早終止原則所設定的準則) 將會終止。 除了主要計量名稱，您也會指定最佳化的目標 (要最大化或最小化主要計量)。
 
-* `primary_metric_name`：要最佳化的主要計量名稱。 主要計量名稱必須與定型指令碼所記錄的計量名稱完全相符。 請參閱[記錄用於超參數微調的計量](#log-metrics-for-hyperparameter-tuning)。
-* `primary_metric_goal`：它可以是 `PrimaryMetricGoal.MAXIMIZE` 或 `PrimaryMetricGoal.MINIMIZE`，而且會在評估執行時，決定要將主要計量最大化或最小化。 
+* `primary_metric_name`:要最佳化的主要計量名稱。 主要計量名稱必須與定型指令碼所記錄的計量名稱完全相符。 請參閱[記錄用於超參數微調的計量](#log-metrics-for-hyperparameter-tuning)。
+* `primary_metric_goal`:它可以是 `PrimaryMetricGoal.MAXIMIZE` 或 `PrimaryMetricGoal.MINIMIZE`，而且會在評估執行時，決定要將主要計量最大化或最小化。 
 
 ```Python
 primary_metric_name="accuracy",
@@ -255,15 +255,15 @@ policy=None
 
 指定定型執行數目的上限，可控制您超參數微調實驗的資源預算。  選擇性地指定超參數微調實驗的持續時間上限。
 
-* `max_total_runs`：要建立的定型回合總數上限。 上限 - 如果超參數空間有限並具有較少的樣本，可能會有較少的執行。 必須是介於 1 到 1000 的數字。
-* `max_duration_minutes`：超參數微調實驗的持續時間上限 (以分鐘為單位)。 這是選擇性參數，如果存在，在此持續時間之後執行的任何執行都會自動取消。
+* `max_total_runs`:要建立的定型回合總數上限。 上限 - 如果超參數空間有限並具有較少的樣本，可能會有較少的執行。 必須是介於 1 到 1000 的數字。
+* `max_duration_minutes`:超參數微調實驗的持續時間上限 (以分鐘為單位)。 這是選擇性參數，如果存在，在此持續時間之後執行的任何執行都會自動取消。
 
 >[!NOTE] 
 >如果同時指定 `max_total_runs` 和 `max_duration_minutes`，在達到這兩個閾值的第一個時，就會終止超參數微調實驗。
 
 此外，也可指定要在超參數微調搜尋期間同時執行的定型執行數目上限。
 
-* `max_concurrent_runs`：可在任何指定時間同時執行的執行數目上限。 如果未指定，則會同時啟動所有 `max_total_runs`。 如果指定，必須是介於 1 到 100 的數字。
+* `max_concurrent_runs`:可在任何指定時間同時執行的執行數目上限。 如果未指定，則會同時啟動所有 `max_total_runs`。 如果指定，必須是介於 1 到 100 的數字。
 
 >[!NOTE] 
 >同時執行之數目會受限於指定計算目標中的可用資源。 因此，您必須確保計算目標有資源可用於所需的並行作業。

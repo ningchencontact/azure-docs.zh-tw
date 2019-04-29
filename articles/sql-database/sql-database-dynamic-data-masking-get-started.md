@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/04/2019
 ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876539"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075534"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database 動態資料遮罩
 
@@ -55,7 +55,7 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 DDM 建議引擎會將您資料庫中的特定欄位標示為潛在敏感性欄位，而這類欄位可能適合進行遮罩處理。 在入口網站的 [動態資料遮罩] 刀鋒視窗中，您會看到您的資料庫的建議資料行。 您只需要對一或多個資料行按一下 [新增遮罩]，然後按一下 [儲存]，以對這些欄位套用遮罩。
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>設定動態資料遮罩您的資料庫使用 PowerShell cmdlet
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>使用 PowerShell cmdlet 为数据库设置动态数据掩码
 
 請參閱 [Azure SQL Database Cmdlet](https://docs.microsoft.com/powershell/module/az.sql)。
 

@@ -1,17 +1,18 @@
 ---
 title: 適用於 PostgreSQL 的 Azure 資料庫中的讀取複本
 description: 本文將說明如何在適用於 PostgreSQL 的 Azure 資料庫中使用讀取複本功能。
-author: rachel-msft
-ms.author: raagyema
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
+origin.date: 04/01/2019
+ms.date: 04/22/2019
 ms.openlocfilehash: f340f1e42b6993a1f834ab05570c669d4241222b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789969"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564352"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的讀取複本
 
@@ -50,7 +51,7 @@ ms.locfileid: "59789969"
 您可以使用複本的主機名稱和有效的使用者帳戶來連線到該複本，如同連線到一般適用於 PostgreSQL 的 Azure 資料庫伺服器一樣。 若伺服器名稱為 **myreplica**，且統管理員使用者名稱為 **myadmin**，則您可以使用 psql 來連線到複本：
 
 ```
-psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
+psql -h myreplica.postgres.database.chinacloudapi.cn -U myadmin@myreplica -d postgres
 ```
 
 在出現提示時，請輸入使用者帳戶的密碼。

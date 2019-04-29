@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58863197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61420301"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 
@@ -111,11 +111,11 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 
 選取所需的組態後，按一下 [套用]。
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>手動套用建議透過 T-SQL
+### <a name="manually-apply-recommendations-through-t-sql"></a>通过 T-SQL 手动应用建议
 
 選取任何建議，然後按一下 [檢視指令碼] 。 對資料庫執行這個指令碼，以手動套用建議。
 
- ，因此建議您在建立這些索引之後監視索引，以確認它們能夠提高效能，且於必要時調整或刪除它們。 如需有關建立索引的詳細資訊，請參閱 [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)。 此外，手動套用建議事項會保持作用中和的建議清單中顯示 24-48 小時。 之前，系統會自動提領它們。 如果您想要移除的建議更快，您可以手動方式捨棄它。
+ ，因此建議您在建立這些索引之後監視索引，以確認它們能夠提高效能，且於必要時調整或刪除它們。 如需有關建立索引的詳細資訊，請參閱 [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)。 此外，手动应用的建议在系统自动撤消它们之前， 将在 24-48 小时内保持活动状态并显示在建议列表中。 如果你想要更快地删除建议，可以手动放弃它。
 
 ### <a name="canceling-recommendations"></a>取消建議
 

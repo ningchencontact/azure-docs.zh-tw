@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
 ms.openlocfilehash: bae180e2ceae6fe0768a5f7951c18dc5147870fa
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626820"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -235,7 +235,7 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 
 ## <a name="release--retirement-dates"></a>發行和停用日期
 
-| 版本 | 發行日期 | 停用日期 |
+| Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
 | [2.2.3](#2.2.3) |2019 年 3 月 11日日 |--- |
 | [2.2.2](#2.2.2) |2019 年 2 月 6日日 |--- |

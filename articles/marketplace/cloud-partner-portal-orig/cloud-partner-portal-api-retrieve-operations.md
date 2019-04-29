@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974462"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094198"
 ---
 <a name="retrieve-operations"></a>擷取作業
 ===================
@@ -44,7 +44,7 @@ ms.locfileid: "51974462"
 |  offerId           |  供應項目識別碼                                                                                              |  字串       |
 |  operationId       |  可唯一識別供應項目作業的 GUID。 您可以使用此 API 擷取 operationId，並針對任何長時間執行的作業 (例如[發佈供應項目](./cloud-partner-portal-api-publish-offer.md) API)，在回應的 HTTP 標頭中傳回。  |   Guid   |
 |  filteredStatus    | 選用的查詢參數，用來依狀態 (例如 `running`) 篩選此 API 所傳回的集合。  |   字串 |
-|  api-version       | API 的最新版本                                                                                           |    日期      |
+|  api-version       | API 的最新版本                                                                                           |    date      |
 |  |  |  |
 
 
@@ -54,7 +54,7 @@ ms.locfileid: "51974462"
 |  **名稱**          |  **值**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
-|  Authorization     | `Bearer YOUR_TOKEN`  |
+|  授權     | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521814"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096229"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 為 Azure 服務提供自訂網域設定
 
@@ -38,7 +38,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
-|屬性  |值  |描述  |
+|屬性  |Value  |描述  |
 |---------|---------|---------|
 |名稱     | myFunctionApp        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。        |
@@ -63,7 +63,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |值  |描述  |
+|屬性  |Value  |描述  |
 |---------|---------|---------|
 |名稱     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | 具有使用         | 使用 A 記錄，因為該資源是 IP 位址。        |
@@ -90,7 +90,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |值  |描述  |
+|屬性  |Value  |描述  |
 |---------|---------|---------|
 |名稱     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。 如果資源使用 IP 位址，就會使用 A 記錄。        |
@@ -124,7 +124,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
 
-|屬性  |值  |描述  |
+|屬性  |Value  |描述  |
 |---------|---------|---------|
 |名稱     | asverify.mystorageaccount        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。        |
@@ -152,7 +152,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 瀏覽至您的 DNS 區域，按一下 [+ 記錄集]。 填寫 [新增記錄集] 刀鋒視窗中的資訊，然後按一下 [確定] 加以建立。
 
-|屬性  |值  |描述  |
+|屬性  |Value  |描述  |
 |---------|---------|---------|
 |名稱     | cdnverify.mycdnendpoint        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
 |類型     | CNAME        | 使用 CNAME 記錄會使用別名。        |

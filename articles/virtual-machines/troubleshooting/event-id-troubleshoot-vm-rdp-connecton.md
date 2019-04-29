@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485342"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>依事件識別碼對 Azure VM 的 RDP 連線問題進行疑難排解 
 

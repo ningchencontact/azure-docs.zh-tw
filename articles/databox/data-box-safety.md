@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905132"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747667"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>安全地安裝和操作您的 Azure 資料箱
 ![警告圖示](./media/data-box-safety/warning_icon.png)

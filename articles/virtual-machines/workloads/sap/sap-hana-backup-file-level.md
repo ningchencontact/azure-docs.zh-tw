@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: d3d1769766053b513a98df153cb635ae148f26b1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
-ms.translationtype: HT
+ms.openlocfilehash: fc35077e00bc6322a815a52ca6ab3571a4e06d3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60937439"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>檔案層級的 SAP HANA Azure 備份
 
@@ -36,7 +36,7 @@ Azure 中的不同 VM 類型允許連接不同數目的 VHD。 確切的詳細�
 
 雖然這項選擇聽起來簡單又直接，但仍有一些事要考量。 之前有提到，Azure 虛擬機器可連結的資料磁碟數目有限制。 可能無法在 VM 的檔案系統上儲存 SAP HANA 備份檔案，取決於資料庫的大小和磁碟輸送量需求，其中可能牽涉跨多個資料磁碟的軟體等量。 在本文稍後提供多種選項，可用於在處理數 TB 資料時，移動這些備份檔案以及管理檔案大小限制和效能。
 
-另一個可以不計總容量提供更多自由的選項是 Azure Blob 儲存體。 雖然單一 blob 也有 1 TB 的限制，單一 blob 容器的總容量目前為 500 TB。 此外，它讓客戶可以選擇較具成本效益的「非經常性」&quot;&quot;blob 儲存體。 如需非經常性 blob 儲存體的詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取與非經常性存取儲存層](../../../storage/blobs/storage-blob-storage-tiers.md)。
+另一個可以不計總容量提供更多自由的選項是 Azure Blob 儲存體。 雖然單一 blob 也有 1 TB 的限制，單一 blob 容器的總容量目前為 500 TB。 此外，它讓客戶可以選擇較具成本效益的「非經常性」&quot;&quot;blob 儲存體。 請參閱[Azure Blob 儲存體：經常性存取與非經常性存取儲存層](../../../storage/blobs/storage-blob-storage-tiers.md)非經常性 blob 儲存體的詳細資料。
 
 如果想要更安全，使用異地複寫儲存體帳戶來存放 SAP HANA 備份。 如需儲存體帳戶複寫相關的詳細資料，請參閱 [Azure 儲存體複寫](../../../storage/common/storage-redundancy.md)。
 
@@ -70,7 +70,7 @@ Azure 備份提供的選項不僅可備份完整的 VM，但可透過備份代�
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>將 SAP HANA 備份檔案複製到 Azure Blob 儲存體
 
-快速儲存 SAP HANA 備份檔案的另一個選項是 Azure Blob 儲存體。 使用 M32ts、M32ls、M64ls 和 GS5 VM 類型的 Azure，單一 Blob 容器的上限為 500 TB，對於一些較小的 SAP HANA 系統來說就已經足夠，可保留充足的 SAP HANA 備份。 客戶可在「經常性存取」&quot;&quot;和「非經常性存取」&quot;&quot;儲存體之間選擇 (請參閱 [Azure Blob 儲存體︰經常性存取與非經常性存取儲存層](../../../storage/blobs/storage-blob-storage-tiers.md)。
+快速儲存 SAP HANA 備份檔案的另一個選項是 Azure Blob 儲存體。 使用 M32ts、M32ls、M64ls 和 GS5 VM 類型的 Azure，單一 Blob 容器的上限為 500 TB，對於一些較小的 SAP HANA 系統來說就已經足夠，可保留充足的 SAP HANA 備份。 客戶可以選擇&quot;熱&quot;並&quot;冷&quot;blob 儲存體 (請參閱[Azure Blob 儲存體：經常性存取與非經常性存取儲存層](../../../storage/blobs/storage-blob-storage-tiers.md))。
 
 使用 blobxfer 工具，將 SAP HANA 備份檔案直接複製到 Azure Blob 儲存體很容易。
 

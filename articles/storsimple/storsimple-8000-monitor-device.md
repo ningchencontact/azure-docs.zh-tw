@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 679c1fc8775ad4481bc99c9aea79fe16e9bcac8f
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 602514df69977891167f341db0ab20913bcacc9f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/21/2017
-ms.locfileid: "23479264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60634470"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>使用 StorSimple 裝置管理員服務監視 StorSimple 裝置
 
@@ -28,7 +28,7 @@ ms.locfileid: "23479264"
 
 若要檢視特定裝置的監視資訊，請在 Azure 入口網站中，選取 [StorSimple 裝置管理員服務]。 從裝置清單中選取您的裝置，然後移至 [監視]。 然後您會看見所選裝置的 [容量]、[使用量] 和 [效能] 圖表。
 
-## <a name="capacity"></a>Capacity
+## <a name="capacity"></a>容量
 **容量**追蹤裝置上佈建的空間與剩餘的空間。 然後剩餘的容量會顯示為固定在本機或階層式。
 
 佈建的容量和剩餘的容量會進一步細分為階層式磁碟區和固定在本機的磁碟區。 針對每個磁碟區，會顯示裝置上佈建的容量和剩餘的容量。

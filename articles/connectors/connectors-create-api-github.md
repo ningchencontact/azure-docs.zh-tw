@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: ce567dc631c3a147b795eb2355a4961faa8881d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 0d2ff9368bc244a5afd6fafc40cf476b90a80a52
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462521"
 ---
 # <a name="connect-to-github"></a>連線至 GitHub
 
@@ -28,9 +28,9 @@ GitHub 是網頁式 Git 存放庫主機服務，它提供 Git 中所有分散式
 
 若要在邏輯應用程式中使用 GitHub 連接器，您必須先建立「連線」，然後提供這些屬性的詳細資料： 
 
-| 屬性 | 必要 | 說明 | 
+| 屬性 | 必要項 | 描述 | 
 | -------- | -------- | ----------- | 
-| token | yes | 提供您的 GitHub 認證。 |
+| token | 是 | 提供您的 GitHub 認證。 |
 
 建立連線後，您就可以執行動作，並接聽本文所述的觸發程序。
 

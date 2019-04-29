@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 116eb48330381c7560c55ea9535b3c1b7c6a6a70
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805678"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094384"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Cloud Partner 入口網站 API 參考
 ==================================
@@ -35,8 +35,8 @@ Cloud Partner 入口網站 REST API 允許對工作負載、供應項目及發�
 在使用 API 之前，您應該檢閱：
 
 - [先決條件](./cloud-partner-portal-api-prerequisites.md)文章以了解如何將服務主體新增至您的帳戶，並取得 Azure Active Directory (Azure AD) 存取權杖以用於驗證。 
-- 可用來呼叫這些 API 的兩個[並行控制](./cloud-partner-portal-api-concurrency-control.md)
-策略。
+- 這兩個[並行存取控制](./cloud-partner-portal-api-concurrency-control.md)。
+可用來呼叫這些 Api 的策略。
 - 其他 API [考量](./cloud-partner-portal-api-considerations.md)，例如版本控制和錯誤處理。
 
 

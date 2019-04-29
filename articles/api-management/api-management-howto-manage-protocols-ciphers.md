@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 91b6cd64a42319b2a5307919c2efe6bc8e5dcd64
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657765"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>在 Azure API 管理中管理通訊協定和加密
 
@@ -39,7 +39,7 @@ Azure API 管理支援適用於用戶端和後端的多個 TLS 通訊協定版�
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>如何管理 TLS 通訊協定和 3DES 加密
 
 1. 在 Azure 入口網站中瀏覽至您的 **API 管理執行個體**。
-2. 選取 **通訊協定設定**從功能表。  
+2. 从菜单中选择“协议设置”。  
 3. 啟用或停用所需的通訊協定或加密。
 4. 按一下 [檔案] 。 變更將在一小時內套用。  
 

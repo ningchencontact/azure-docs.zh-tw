@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
 ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541701"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589217"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>在 Azure Databricks 中執行 Python 活動來轉換資料
 
@@ -65,7 +65,7 @@ ms.locfileid: "57541701"
 |屬性|描述|必要項|
 |---|---|---|
 |name|管線中的活動名稱。|是|
-|說明|說明活動用途的文字。|否|
+|description|說明活動用途的文字。|否|
 |type|若是 Databricks Python 活動，則活動類型是 DatabricksSparkPython。|是|
 |預設容器|Python 活動執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
 |pythonFile|要執行之 Python 檔案的 URI。 只支援 DBFS 路徑。|是|

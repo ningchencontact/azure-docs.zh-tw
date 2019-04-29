@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761738"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>對 Azure 串流分析輸出進行疑難排解
 
@@ -38,11 +38,11 @@ ms.locfileid: "53164903"
       - 若要找出錯誤，請前往[稽核記錄](../azure-resource-manager/resource-group-audit.md)，並篩選*失敗*狀態。
       
     - 如果 InputEvents > 0 且 OutputEvents = 0，則表示符合下列其中一個情況︰
-      - 查詢處理產生了零個輸出事件。
+      - 查询处理导致生成零个输出事件。
       - 事件或其欄位可能格式錯誤，因此在查詢處理後導致零個輸出。
       - 由於連線或驗證問題，作業無法將推送資料至輸出接收端。
       
-    - 在所有前述錯誤案例中，作業記錄訊息說明了其他詳細資料 (包括目前所發生的事)，僅有查詢邏輯篩選掉所有事件的案例除外。 如果多事件處理產生錯誤，串流分析會在 10 分鐘內將同類型的前三個錯誤記錄到作業記錄中。 接著會隱藏其他完全相同的錯誤並顯示錯誤訊息，內容為「錯誤發生次數太頻繁，因此隱藏這些錯誤」。
+    - 在所有前述錯誤案例中，作業記錄訊息說明了其他詳細資料 (包括目前所發生的事)，僅有查詢邏輯篩選掉所有事件的案例除外。 如果处理多个事件时出现错误，流分析会将 10 分钟内类型相同的前 3 个错误消息记录在操作日志中。 接著會隱藏其他完全相同的錯誤並顯示錯誤訊息，內容為「錯誤發生次數太頻繁，因此隱藏這些錯誤」。
     
 ## <a name="job-output-is-delayed"></a>作業輸出延遲
 
@@ -93,12 +93,12 @@ ms.locfileid: "53164903"
 
 ## <a name="get-help"></a>取得說明
 
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

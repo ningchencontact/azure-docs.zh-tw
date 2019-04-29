@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 5b41af83122d74fc766e6c5179d98803979269f7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704635"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>在 Azure 資訊安全中心的 SQL Server 上啟用稽核與威脅偵測
 如果尚未啟用稽核，Azure 資訊安全中心將建議您針對 Azure SQL Server 上的所有資料庫開啟稽核與威脅偵測。 稽核與威脅偵測可協助您保持符合法規、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
@@ -45,7 +45,7 @@ ms.locfileid: "56108903"
 4. 遵循 [Azure 入口網站中的 SQL Database 稽核](../sql-database/sql-database-auditing-portal.md)的步驟，來設定將儲存稽核記錄的儲存體。 適用於資料收集的訂用帳戶儲存體帳戶是預設儲存體帳戶。
 5. 遵循 [開始使用 SQL Database 威脅偵測](../sql-database/sql-database-threat-detection.md) ，開啟並設定威脅偵測，以及設定將在偵測到異常活動時接收到安全性警示的電子郵件清單。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 本文說明了如何實作資訊安全中心建議的「在 SQL Server 上啟用稽核與威脅偵測」。 若要深入了解如何保護您的 SQL Database，請參閱下列主題：
 
 * [保護您的 SQL Database](../sql-database/sql-database-security-overview.md)

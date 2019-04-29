@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d14cfb82ae74f85425dbd3e8a365e8b99969641d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58115916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485167"
 ---
 ## <a name="using-vm-extensions"></a>使用 VM 擴充功能
 Azure VM 延伸模組會實作行為或功能，以協助其他程式在 Azure VM 上運作 (例如， **WebDeployForVSDevTest** 延伸模組可讓 Visual Studio 在您的 Azure VM 上進行 Web 部署解決方案)，或是讓您能夠與 VM 互動以支援一些其他行為 (例如，您可以使用 PowerShell 的 VM 存取延伸模組、Azure CLI 和 REST 用戶端，來重設或修改 Azure VM 上的遠端存取值)。

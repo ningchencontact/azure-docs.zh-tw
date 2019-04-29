@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: f5d1c66cb049ab9ec52db619d55a4bb3e485e4b2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60588353"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 ##  <a name="introduction"></a>簡介
@@ -272,11 +272,11 @@ Windows 的磁碟加密解決方案是建基於 [Microsoft BitLocker 磁碟機�
 
 -   在使用儲存空間設定的 Windows VM 上啟用加密
 
--   所有 Azure 公用區域皆受到支援
+-   支持所有 Azure 公共区域
 
 解決方案不支援此版本中的下列案例、功能和技術：
 
--   基本層 IaaS VM
+-   基本层 IaaS VM
 
 -   在 Linux IaaS VM 的 OS 磁碟機上停用加密
 

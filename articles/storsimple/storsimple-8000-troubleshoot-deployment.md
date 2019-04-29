@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 61719d482a4db1c737bbe38277f2ac3b2d684b63
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 6bb587de2f0f3ef9c4e8c4a856ee4b7430e9b9cf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631543"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 裝置部署問題的疑難排解
 ## <a name="overview"></a>概觀
@@ -39,7 +39,7 @@ ms.locfileid: "37342420"
 * 檢查部署的先決條件。 請確定您已備妥 [部署檢查清單](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist)中描述的所有資訊。
 * 檢閱 StorSimple 版本資訊，以查看是否提及該問題。 版本資訊會包含已知安裝問題的因應措施。 
 
-在裝置部署期間，使用者最常面臨的問題通常是在執行安裝精靈，以及透過 Windows PowerShell for StorSimple 註冊裝置時發生。 (您會使用 Windows PowerShell for StorSimple 來註冊並設定 StorSimple 裝置。 如需裝置註冊的詳細資訊，請參閱 [步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple))。
+在裝置部署期間，使用者最常面臨的問題通常是在執行安裝精靈，以及透過 Windows PowerShell for StorSimple 註冊裝置時發生。 (您會使用 Windows PowerShell for StorSimple 來註冊並設定 StorSimple 裝置。 如需有關裝置註冊的詳細資訊，請參閱[步驟 3:設定和註冊您的裝置，透過 Windows PowerShell for StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple))。
 
 下列各節可協助您解決在第一次設定 StorSimple 裝置時遇到的問題。
 
@@ -69,24 +69,24 @@ ms.locfileid: "37342420"
 * 註冊裝置。
 
 ## <a name="errors-during-the-required-network-settings"></a>所需的網路設定期間發生錯誤
-| 否。 | 錯誤訊息 | 可能的原因 | 建議的動作 |
+| 沒有。 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard：這個命令只能在主動控制器上執行。 |設定是在被動控制站上執行。 |從主動控制器執行這個命令。 如需詳細資訊，請參閱 [識別裝置上的主動控制器](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)。 |
-| 2 |Invoke-HcsSetupWizard：裝置尚未就緒。 |在 DATA 0 上發生網路連線問題。 |檢查 DATA 0 上的實體網路連線。 |
-| 3 |Invoke-HcsSetupWizard：有一個 IP 位址與網路上的另一個系統發生衝突 (例外狀況發生於 HRESULT：0x80070263)。 |提供給 DATA 0 的 IP 已經由另一個系統使用中。 |提供未使用的新 IP。 |
-| 4 |Invoke-HcsSetupWizard：某個叢集資源失敗了 (例外狀況發生於 HRESULT：0x800713AE)。 |重複的 VIP。 提供的 IP 已經在使用中。 |提供未使用的新 IP。 |
-| 5 |Invoke-HcsSetupWizard: 無效的 IPv4 位址。 |提供的 IP 位址格式不正確。 |檢查格式，然後再次提供您的 IP 位址。 如需詳細資訊，請參閱 [Ipv4 定址][1]。 |
-| 6 |Invoke-HcsSetupWizard：無效的 IPv6 位址。 |提供的 IP 位址格式不正確。 |檢查格式，然後再次提供您的 IP 位址。 如需詳細資訊，請參閱 [Ipv6 定址][2]。 |
-| 7 |Invoke-HcsSetupWizard：端點對應器中無更多可用的端點。 (例外狀況發生於 HRESULT：0x800706D9) |叢集功能無法運作。 |[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以進行後續步驟。 |
+| 1 |Invoke-HcsSetupWizard:此命令只能在樹系中執行作用中控制器上。 |設定是在被動控制站上執行。 |從主動控制器執行這個命令。 如需詳細資訊，請參閱 [識別裝置上的主動控制器](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)。 |
+| 2 |Invoke-HcsSetupWizard:裝置未就緒。 |在 DATA 0 上發生網路連線問題。 |檢查 DATA 0 上的實體網路連線。 |
+| 3 |Invoke-HcsSetupWizard:沒有與網路上的另一個系統發生 IP 位址衝突 (來自 HRESULT 的例外狀況：發生於 hresult:0x80070263)。 |提供給 DATA 0 的 IP 已經由另一個系統使用中。 |提供未使用的新 IP。 |
+| 4 |Invoke-HcsSetupWizard:叢集資源失敗。 (來自 HRESULT 的例外狀況：發生於 hresult:0x800713ae)。 |重複的 VIP。 提供的 IP 已經在使用中。 |提供未使用的新 IP。 |
+| 5 |Invoke-HcsSetupWizard:無效的 IPv4 位址。 |提供的 IP 位址格式不正確。 |檢查格式，然後再次提供您的 IP 位址。 如需詳細資訊，請參閱 [Ipv4 定址][1]。 |
+| 6 |Invoke-HcsSetupWizard:無效的 IPv6 位址。 |提供的 IP 位址格式不正確。 |檢查格式，然後再次提供您的 IP 位址。 如需詳細資訊，請參閱 [Ipv6 定址][2]。 |
+| 7 |Invoke-HcsSetupWizard:沒有可用的終點的多個端點。 (來自 HRESULT 的例外狀況：0x800706D9) |叢集功能無法運作。 |[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以進行後續步驟。 |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>選用的 Web Proxy 設定期間發生錯誤
 | 編號 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard：無效的參數 (例外狀況發生於 HRESULT：0x80070057) |針對 Proxy 設定提供的其中一個參數無效。 |未使用正確格式提供 URI。 請使用下列格式：//*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
-| 2 |Invoke-HcsSetupWizard：RPC 伺服器無法使用 (例外狀況發生於 HRESULT：0x800706ba) |根本原因是下列其中一項︰<ol><li>叢集未啟動。</li><li>被動控制器無法與主動控制器通訊，而命令是從被動控制器執行。</li></ol> |依據根本原因︰<ol><li>[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以確定叢集已啟動。</li><li>從主動控制器執行這個命令。 如果您想要從被動控制器執行命令，就必須確保被動控制器能與主動控制器通訊。 如果此連線已中斷，您必須[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。</li></ol> |
-| 3 |Invoke-HcsSetupWizard：RPC 呼叫失敗 (例外狀況發生於 HRESULT：0x800706be) |叢集已關閉。 |[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以確定叢集已啟動。 |
-| 4 |Invoke-HcsSetupWizard：找不到叢集資源 (例外狀況發生於 HRESULT：0x8007138f) |找不到叢集資源。 若未正確安裝，即會發生此情況。 |您可能需要將裝置重設為出廠預設設定。 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以建立叢集資源。 |
-| 5 |Invoke-HcsSetupWizard：叢集資源不在線上 (例外狀況發生於 HRESULT：0x8007138c) |叢集資源不在線上。 |[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以進行後續步驟。 |
+| 1 |Invoke-HcsSetupWizard:無效的參數 (來自 HRESULT 的例外狀況：0x80070057) |針對 Proxy 設定提供的其中一個參數無效。 |未使用正確格式提供 URI。 請使用下列格式：//*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
+| 2 |Invoke-HcsSetupWizard:RPC 伺服器無法使用 (來自 HRESULT 的例外狀況：0x800706ba) |根本原因是下列其中一項︰<ol><li>叢集未啟動。</li><li>被動控制器無法與主動控制器通訊，而命令是從被動控制器執行。</li></ol> |依據根本原因︰<ol><li>[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以確定叢集已啟動。</li><li>從主動控制器執行這個命令。 如果您想要從被動控制器執行命令，就必須確保被動控制器能與主動控制器通訊。 如果此連線已中斷，您必須[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。</li></ol> |
+| 3 |Invoke-HcsSetupWizard:RPC 呼叫失敗 (來自 HRESULT 的例外狀況：0x800706be) |叢集已關閉。 |[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以確定叢集已啟動。 |
+| 4 |Invoke-HcsSetupWizard:找不到叢集資源 (來自 HRESULT 的例外狀況：發生於 hresult:0x8007138f) |找不到叢集資源。 若未正確安裝，即會發生此情況。 |您可能需要將裝置重設為出廠預設設定。 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以建立叢集資源。 |
+| 5 |Invoke-HcsSetupWizard:叢集資源不在線上 (來自 HRESULT 的例外狀況：0x8007138c) |叢集資源不在線上。 |[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以進行後續步驟。 |
 
 ## <a name="errors-related-to-device-administrator-password"></a>與裝置系統管理員密碼相關的錯誤
 預設裝置系統管理員密碼是 **Password1**。 此密碼會在第一次登入之後過期；因此，您將需要使用安裝精靈來變更它。 當您第一次註冊裝置時，必須提供新的裝置系統管理員密碼。 
@@ -103,7 +103,7 @@ ms.locfileid: "37342420"
 
 在設定裝置系統管理員和 StorSimple Snapshot Manager 密碼時，可能會遇到下列一或多個錯誤。
 
-| 否。 | 錯誤訊息 | 建議的動作 |
+| 沒有。 | 錯誤訊息 | 建議的動作 |
 | --- | --- | --- |
 | 1 |密碼超過最大長度。 |您的裝置系統管理員密碼長度必須介於 8 到 15 個字元。 |
 | 2 |密碼不符合所需的長度。 |您的裝置系統管理員密碼長度必須介於 8 到 15 個字元。|
@@ -126,17 +126,17 @@ ms.locfileid: "37342420"
 ## <a name="errors-during-device-registration"></a>裝置註冊期間發生錯誤
 您使用在 Microsoft Azure 中執行的 StorSimple 裝置管理員服務來註冊裝置。 您可能會在裝置註冊期間遇到下列一或多個問題。
 
-| 否。 | 錯誤訊息 | 可能的原因 | 建議的動作 |
+| 沒有。 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 | --- | --- | --- | --- |
-| 1 |錯誤 350027：無法向 StorSimple 裝置管理員註冊裝置。 | |等候幾分鐘的時間，然後再次嘗試操作。 如果問題持續發生， 請 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。 |
-| 2 |錯誤 350013：註冊裝置時發生錯誤。 這可能是因為服務註冊金鑰不正確而引發。 | |請使用正確的服務註冊金鑰再次註冊裝置。 如需詳細資訊，請參閱 [取得服務註冊金鑰](storsimple-8000-manage-service.md#get-the-service-registration-key) |
-| 3 |錯誤 350063：StorSimple 裝置管理員服務通過驗證，但註冊失敗。 請在一段時間之後重試此操作。 |此錯誤表示已通過 ACS 驗證，但對服務所做的註冊呼叫失敗。 這可能是零星網路問題的結果。 |如果問題持續發生，請 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。 |
-| 4 |錯誤 350049：無法在註冊期間連線服務。 |對服務進行呼叫時，收到 Web 例外狀況。 在某些情況下，稍後重試此操作或許可以修正此錯誤。 |請檢查您的 IP 位址和 DNS 名稱，然後重試此操作。 如果問題持續發生，請 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) |
-| 5 |錯誤 350031：裝置已經註冊。 | |不需採取任何動作。 |
-| 6 |錯誤 350016：裝置註冊失敗。 | |請確定註冊金鑰正確。 |
-| 7 |Invoke-HcsSetupWizard：註冊裝置時發生錯誤。這可能是因為 IP 位址或 DNS 名稱不正確所引發。 請檢查您的網路設定，然後再試一次。 如果問題持續發生，請 [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md)。 (錯誤 350050) |確定裝置可以 Ping 外部網路。 如果您沒有外部網路的連線能力，註冊可能會失敗並產生這個錯誤。 這個錯誤可能是下列一或多個項目的組合：<ul><li>不正確的 IP</li><li>不正確的子網路</li><li>不正確的閘道</li><li>不正確的 DNS 設定</li></ul> |請參閱 [逐步疑難排解範例](#step-by-step-storsimple-troubleshooting-example)中的步驟。 |
-| 8 |Invoke-HcsSetupWizard：由於發生內部服務錯誤 [0x1FBE2]，導致目前的作業失敗。 請稍後再重試操作。 如果問題持續發生， 請連絡 Microsoft 支援服務。 |這是從服務或代理程式針對所有使用者看不見的錯誤所擲回的一般錯誤。 最常見的原因可能是 ACS 驗證失敗。 失敗的原因可能是發生 NTP 伺服器設定問題，而且未正確設定裝置上的時間。 |更正時間 (如果有問題)，然後重試註冊操作。 如果您使用 Set-HcsSystem -Timezone 命令來調整時區，請將時區中的每個字大寫 (例如 "Pacific Standard Time")。  如果問題持續發生，請 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以進行後續步驟。 |
-| 9 |警告：無法啟動裝置。 您的設定裝置系統管理員和 StorSimple Snapshot Manager 密碼尚未變更。 |如果註冊失敗，裝置系統管理員和 StorSimple Snapshot Manager 密碼就不會變更。 | |
+| 1 |錯誤 350027:無法註冊裝置的 StorSimple 裝置管理員。 | |等候幾分鐘的時間，然後再次嘗試操作。 如果問題持續發生， 請 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。 |
+| 2 |錯誤 350013:註冊裝置發生錯誤。 這可能是因為服務註冊金鑰不正確而引發。 | |請使用正確的服務註冊金鑰再次註冊裝置。 如需詳細資訊，請參閱 [取得服務註冊金鑰](storsimple-8000-manage-service.md#get-the-service-registration-key) |
+| 3 |錯誤 350063:驗證傳遞的 StorSimple 裝置管理員服務，但註冊失敗。 請在一段時間之後重試此操作。 |此錯誤表示已通過 ACS 驗證，但對服務所做的註冊呼叫失敗。 這可能是零星網路問題的結果。 |如果問題持續發生，請 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。 |
+| 4 |錯誤 350049:登錄時無法連線到服務。 |對服務進行呼叫時，收到 Web 例外狀況。 在某些情況下，稍後重試此操作或許可以修正此錯誤。 |請檢查您的 IP 位址和 DNS 名稱，然後重試此操作。 如果問題持續發生，請 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) |
+| 5 |錯誤 350031:已註冊裝置。 | |不需採取任何動作。 |
+| 6 |錯誤 350016:裝置登錄失敗。 | |請確定註冊金鑰正確。 |
+| 7 |Invoke-HcsSetupWizard:註冊您的裝置; 時發生錯誤這可能是因為不正確的 IP 位址或 DNS 名稱。 請檢查您的網路設定，然後再試一次。 如果問題持續發生，請 [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md)。 (錯誤 350050) |確定裝置可以 Ping 外部網路。 如果您沒有外部網路的連線能力，註冊可能會失敗並產生這個錯誤。 這個錯誤可能是下列一或多個項目的組合：<ul><li>不正確的 IP</li><li>不正確的子網路</li><li>不正確的閘道</li><li>不正確的 DNS 設定</li></ul> |請參閱 [逐步疑難排解範例](#step-by-step-storsimple-troubleshooting-example)中的步驟。 |
+| 8 |Invoke-HcsSetupWizard:目前的操作失敗，因為發生內部服務錯誤 [0x1FBE2]。 請稍後再重試操作。 如果問題持續發生， 請連絡 Microsoft 支援服務。 |這是從服務或代理程式針對所有使用者看不見的錯誤所擲回的一般錯誤。 最常見的原因可能是 ACS 驗證失敗。 失敗的原因可能是發生 NTP 伺服器設定問題，而且未正確設定裝置上的時間。 |更正時間 (如果有問題)，然後重試註冊操作。 如果您使用 Set-HcsSystem -Timezone 命令來調整時區，請將時區中的每個字大寫 (例如 "Pacific Standard Time")。  如果問題持續發生，請 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md) 以進行後續步驟。 |
+| 9 |警告:無法啟動裝置。 您的設定裝置系統管理員和 StorSimple Snapshot Manager 密碼尚未變更。 |如果註冊失敗，裝置系統管理員和 StorSimple Snapshot Manager 密碼就不會變更。 | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>適用於疑難排解 StorSimple 部署的工具
 StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。 其中包含：
@@ -169,13 +169,13 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 ## <a name="cmdlets-available-for-troubleshooting"></a>可用於疑難排解的 Cmdlet
 請使用下列 Windows PowerShell Cmdlet 來偵測連線錯誤。
 
-* `Get-NetAdapter`：使用這個 Cmdlet 來偵測網路介面的健康情況。
-* `Test-Connection`：使用這個 Cmdlet 來檢查網路內部和外部的網路連線。
-* `Test-HcsmConnection`：使用這個 Cmdlet 來檢查已成功註冊裝置的連線。
-* `Sync-HcsTime`：執行此 Cmdlet 可顯示裝置的時間，並強制與 NTP 伺服器同步時間。
-* `Enable-HcsPing` 與 `Disable-HcsPing`：這兩個 Cmdlet 可讓主機傳送 Ping 給您 StorSimple 裝置上的網路介面。 StorSimple 網路介面依預設不會回應 Ping 要求。
-* `Trace-HcsRoute`：此 Cmdlet 可做為路由追蹤工具。 每過一段時間，它就會在前往最終目的地時將封包傳送到每個路由器，然後根據每個躍點傳回的封包計算結果。 由於 `Trace-HcsRoute` 會顯示封包在任何指定的路由器或連結中遺失的程度，因此您可以找出導致網路發生問題的路由器或連結。
-* `Get-HcsRoutingTable`：此 Cmdlet 可顯示本機 IP 的路由表。
+* `Get-NetAdapter`:使用這個指令程式來偵測網路介面的健全狀況。
+* `Test-Connection`:您可以使用這個指令程式，請檢查內部和外部網路的網路連線。
+* `Test-HcsmConnection`:您可以使用這個指令程式，請檢查已成功註冊裝置的連線。
+* `Sync-HcsTime`:使用此 cmdlet 來顯示裝置時間，並強制讓時間與 NTP 伺服器同步。
+* `Enable-HcsPing` 和 `Disable-HcsPing`：使用這些 cmdlet 可讓主機來 ping 您的 StorSimple 裝置上的網路介面。 StorSimple 網路介面依預設不會回應 Ping 要求。
+* `Trace-HcsRoute`:此 Cmdlet 可做為路由追蹤工具。 每過一段時間，它就會在前往最終目的地時將封包傳送到每個路由器，然後根據每個躍點傳回的封包計算結果。 由於 `Trace-HcsRoute` 會顯示封包在任何指定的路由器或連結中遺失的程度，因此您可以找出導致網路發生問題的路由器或連結。
+* `Get-HcsRoutingTable`:您可以使用這個指令程式，顯示本機 IP 路由表。
 
 ## <a name="troubleshoot-with-the-get-netadapter-cmdlet"></a>Get-NetAdapter Cmdlet 的疑難排解
 當您在第一次裝置部署期間設定網路介面時，無法在 StorSimple 裝置管理員服務 UI 中取得硬體狀態，因為裝置尚未向該服務註冊。 此外，[硬體健康狀態] 刀鋒視窗不一定能夠正確反映裝置狀態，尤其是發生了會影響服務同步處理的問題。 在這些情況下，您可以使用 `Get-NetAdapter` Cmdlet，來判斷網路介面的健康情況和狀態。

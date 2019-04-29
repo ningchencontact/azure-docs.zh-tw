@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630133"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array 的最佳作法
 ## <a name="overview"></a>概觀
@@ -75,9 +75,9 @@ StorSimple Virtual Array 是佈建在主機伺服器 Hypervisor (Hyper-V 或 VMw
 * 120 GB 的本機保留空間 (針對 1 TB 的分層式磁碟區/共用)
 * 330 GB 的本機固定磁碟區或共用 (新增 10% 的本機保留空間至 300 GB 佈建大小)
 
-到目前為止，本機層所需的總空間是︰240 GB + 120 GB + 330 GB = 690 GB。
+到目前為止在本機層所需的總空間是：240 GB + 120 GB + 330 GB = 690 GB。
 
-其次，本機層所需的空間至少要和最大的單一保留空間一樣大。 萬一您需要從雲端快照還原，就會使用這個額外的空間量。 在此範例中，最大的本機保留空間是 330 GB (包括檔案系統的保留空間)，因此，您要為 690 GB 加上該空間量：690 GB + 330 GB = 1020 GB。
+其次，本機層所需的空間至少要和最大的單一保留空間一樣大。 萬一您需要從雲端快照還原，就會使用這個額外的空間量。 在此範例中，最大本機保留空間是 330 GB （包括檔案系統的保留空間），因此您可以把它新增為 690 GB:690 GB + 330 GB = 1020 GB。
 我們在執行其他後續還原作業時，一律可以釋放先前還原作業的空間。
 
 第三，到目前為止，我們需要本機總空間的 15% 來儲存本機快照，因此只剩 85% 的空間可以使用。 在此範例中，這大約是 1020 GB，而這等於 85% 的已佈建資料磁碟 TB。&ast; 因此，已佈建的資料磁碟會是 (1020&ast;(1/0.85)) = 1200 GB = 1.20 TB ~ 1.25 TB (四捨五入至最接近的四分位數)
@@ -99,7 +99,7 @@ StorSimple Virtual Array 是佈建在主機伺服器 Hypervisor (Hyper-V 或 VMw
 * 240 GB 的本機保留空間 (針對 2 TB 的分層式磁碟區/共用)
 * 330 GB 的本機固定磁碟區或共用 (新增 10% 的本機保留空間至 300 GB 佈建空間)
 
-本機層所需的總空間是︰240 GB + 330 GB = 570 GB
+在本機層所需的總空間是：240 GB + 330 GB = 570 GB
 
 還原所需的最小本機空間是 330 GB。
 
@@ -283,6 +283,6 @@ StorSimple Virtual Array 可以自動將資料從本機層提升到 Microsoft Az
 * 從負載平衡的觀點來看，如果部署多個虛擬陣列，建議您將這些陣列分散到不同的 Hypervisor 主機。
 * 分散式檔案系統命名空間中可以部署多個虛擬陣列 (設定為檔案伺服器或 iSCSI 伺服器時)。 如需詳細步驟，請移至 [使用混合式雲端儲存體的分散式檔案系統命名空間解決方案部署指南](https://www.microsoft.com/download/details.aspx?id=45507)。 分散式檔案系統複寫目前不建議用於虛擬陣列。 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 了解如何透過 StorSimple Manager 服務 [管理 StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) 。
 

@@ -9,19 +9,19 @@ ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 0c7189f1d43a114532b30b0c1aabe6f7cd4402d8
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775923"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>針對 Azure 監視器中的記錄警示進行疑難排解  
 
 ## <a name="overview"></a>概觀
 
-這篇文章會示範如何解決設定 Azure 監視器中的記錄警示時常見的問題。 並提供有關記錄警示功能或設定常見問題集的解決方案。 
+本文介绍如何解决在 Azure Monitor 中设置日志警报时出现的常见问题， 並提供有關記錄警示功能或設定常見問題集的解決方案。 
 
-詞彙**記錄警示**告訴您火災根據記錄檔查詢中的警示[Log Analytics 工作區](../learn/tutorial-viewdata.md)或是[Application Insights](../../azure-monitor/app/analytics.md)。 閱讀[記錄警示 - 概觀](../platform/alerts-unified-log.md)以深入了解其功能、術語和類型。
+术语“日志警报”描述基于 [Log Analytics 工作区](../learn/tutorial-viewdata.md) 或 [Application Insights](../../azure-monitor/app/analytics.md) 中的日志查询激发的警报。 閱讀[記錄警示 - 概觀](../platform/alerts-unified-log.md)以深入了解其功能、術語和類型。
 
 > [!NOTE]
 > 本文並不考慮以下情況：Azure 入口網站顯示所觸發的警示規則，以及由相關聯「動作群組」所執行的通知。 針對這類情況，請參考[動作群組](../platform/action-groups.md)一文中的詳細資料。
@@ -32,7 +32,7 @@ ms.locfileid: "59578708"
 
 ### <a name="data-ingestion-time-for-logs"></a>記錄的資料擷取時間
 
-記錄警示會根據 [Log Analytics](../learn/tutorial-viewdata.md) 或 [Application Insights](../../azure-monitor/app/analytics.md) 定期執行您的查詢。 因為 Azure 監視器處理世界各地的多個 tb 的資料從數千個客戶從不同來源，所以服務就會很容易在不同的時間延遲。 如需詳細資訊，請參閱 <<c0> [ 在 Azure 監視器記錄檔中的資料擷取時間](../platform/data-ingestion-time.md)。
+記錄警示會根據 [Log Analytics](../learn/tutorial-viewdata.md) 或 [Application Insights](../../azure-monitor/app/analytics.md) 定期執行您的查詢。 由于 Azure Monitor 需要处理来自数千个客户以及全球各种源的若干 TB 的数据，因此，该服务很容易发生不同的时间延迟。 有关详细信息，请参阅 [Azure Monitor 日志中的数据引入时间](../platform/data-ingestion-time.md)
 
 為了減少資料擷取延遲，如果系統發現尚未擷取所需的資料，則會等候並多次重試警示查詢。 系統已設定以指數方式增加等候時間。 記錄警示只會在取得資料之後觸發，所以延遲可能是因為慢速記錄資料擷取而造成。 
 
@@ -83,7 +83,7 @@ ms.locfileid: "59578708"
 
 ### <a name="alert-triggered-by-partial-data"></a>警示被部分資料觸發
 
-由 Analytics 提供技術支援的 Log Analytics 和 Application Insights 會受到擷取延遲和處理限制；因此，在執行所提供的記錄警示查詢時，可能會有沒有資料可用或只有部分資料可用的情況。 如需詳細資訊，請參閱 < [Azure 監視器中的記錄資料擷取時間](../platform/data-ingestion-time.md)。
+由 Analytics 提供技術支援的 Log Analytics 和 Application Insights 會受到擷取延遲和處理限制；因此，在執行所提供的記錄警示查詢時，可能會有沒有資料可用或只有部分資料可用的情況。 有关详细信息，请参阅 [Azure Monitor 中的日志数据引入时间](../platform/data-ingestion-time.md)。
 
 視警示規則的設定方式而定，在警示執行時，如果記錄中沒有資料或只有部分資料，可能會導致錯誤地引發警示。 在此種情況下，我們建議您變更警示查詢或組態。 
 
@@ -184,4 +184,4 @@ Azure 活動記錄檔中其持續失敗，因為停用的警示規則的取樣�
 
 - 了解 [Azure 警示中的記錄警示](../platform/alerts-unified-log.md)
 - 深入了解 [Application Insights](../../azure-monitor/app/analytics.md)
-- 深入了解[記錄查詢](../log-query/log-query-overview.md)
+- 了解有关[日志查询](../log-query/log-query-overview.md)的详细信息

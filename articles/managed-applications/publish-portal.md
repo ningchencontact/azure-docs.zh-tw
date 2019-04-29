@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: e52acd8587203c4729ac2bcd6e4bbc09620ead86
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
-ms.translationtype: HT
+ms.openlocfilehash: f27d30d4709fbf373c8458629d0c8c5af4333acf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35766700"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61296934"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>透過 Azure 入口網站發佈服務類別目錄應用程式
 

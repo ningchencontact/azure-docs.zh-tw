@@ -2,18 +2,17 @@
 title: 在 Azure 容器執行個體的執行中容器內執行命令
 description: 了解如何在目前正在 Azure 容器執行個體中執行的容器內執行命令
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: marsma
-ms.openlocfilehash: 43211f620efb16cbcd722d3d386b1bb862fc6280
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 577e2386c352798bc21a2c78b22726128ac7cf0a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165641"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60579741"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>在執行中的 Azure 容器執行個體內執行命令
 

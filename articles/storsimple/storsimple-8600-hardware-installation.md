@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630834"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>打開包裝、掛接機架和佈線 StorSimple 8600 裝置
 ## <a name="overview"></a>概觀
@@ -46,7 +46,7 @@ ms.locfileid: "38719000"
    
     **儲存體裝置打開包裝的樣子**
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    | --- | --- |
    |   1 |包裝箱 |
    |   2 |SAS 纜線 (在附件和纜線匣) |
@@ -67,7 +67,7 @@ ms.locfileid: "38719000"
    * 2 個機架掛接套件 (4 個側軌掛接硬體，主要機箱與 EBOD 機箱各 2 個)，每個箱子中各 1 個
    * 開始使用文件
      
-     如果您未收到任何上述項目，請[連絡 Microsoft 支援](storsimple-8000-contact-microsoft-support.md)。  
+     如果您未收到任何上述項目， [請連絡 Microsoft 支援](storsimple-8000-contact-microsoft-support.md)。  
 
 下一步是利用機架掛接裝置。
 
@@ -110,7 +110,7 @@ ms.locfileid: "38719000"
    
     **將滑軌連接至機箱側邊**
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    | --- | --- |
    |  1 |M 3x4 圓頭螺釘 |
    |  2 |底座滑軌 |
@@ -123,7 +123,7 @@ ms.locfileid: "38719000"
    
     **將滑軌組件連接至機架**
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    | --- | --- |
    |   1 |固定螺絲 |
    |   2 |方孔前端機架柱螺絲 |
@@ -149,7 +149,7 @@ ms.locfileid: "38719000"
    
     **安裝輪緣蓋**
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    | --- | --- |
    |   1 |機箱鎖固螺絲 |
 
@@ -168,7 +168,7 @@ ms.locfileid: "38719000"
 ## <a name="cable-your-storsimple-8600-device"></a>佈線您的 StorSimple 8600 裝置
 下列程序說明如何針對 StorSimple 8600 裝置的電源、網路和序列連線進行佈線。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 開始您的裝置佈線之前，您需要：
 
 * 完全打開您的主要機箱與 EBOD 機箱的包裝
@@ -202,7 +202,7 @@ ms.locfileid: "38719000"
    
     **裝置後方的資料連接埠**
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    | --- | --- |
    |   0,1,4,5 |1 GbE 網路介面 |
    |   2,3 |10 GbE 網路介面 |
@@ -213,7 +213,7 @@ ms.locfileid: "38719000"
 
 **您裝置的網路纜線**
 
-| 標籤 | 說明 |
+| 標籤 | 描述 |
 | --- | --- |
 | 具有使用  |具有網際網路存取的 LAN |
 | B |控制器 0 |
@@ -260,7 +260,7 @@ ms.locfileid: "38719000"
 6. 藉由在主控台上按下 Enter 鍵，驗證連線是否正在運作。 序列主控台功能表應該會出現。
 
 > [!NOTE]
-> **熄燈管理** ：當裝置安裝在遠端資料中心或在具有限制存取的電腦室時，請確定兩個控制器的序列連接一律會連線至序列主控台交換器或類似的設備。 如此可以在網路中斷或非預期失敗時允許頻外遠端控制和支援作業。
+> **熄燈管理：** 當裝置已安裝在遠端資料中心或具有有限的存取權的電腦室時，請確定這兩個控制器的序列連接一律會連接至序列主控台開關或類似的設備。 如此可以在網路中斷或非預期失敗時允許頻外遠端控制和支援作業。
 > 
 > 
 

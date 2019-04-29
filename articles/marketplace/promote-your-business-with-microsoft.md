@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
 ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738142"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735879"
 ---
 # <a name="promote-your-business-with-microsoft"></a>透過 Microsoft 推廣您的業務  
 Microsoft 的目標是支援合作夥伴 (您)，以及簡化您應用程式或供應項目在市集店面中的銷售。 透過在市集上陳列，您便可以存取市集上的程式和資源。 

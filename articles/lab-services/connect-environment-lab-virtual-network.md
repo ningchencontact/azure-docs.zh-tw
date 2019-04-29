@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: bb8b5f7d6578390fd0f48c3de154cfdb034ac6c1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777163"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>在 Azure DevTest Labs 的實驗室的虛擬網路連線的環境
 Azure DevTest Labs 可讓您輕鬆地在實驗室中建立 Vm[內建網路](devtest-lab-configure-vnet.md)。 它有大量的能力的彈性[建立多個 VM 環境](devtest-lab-test-env.md)。 這篇文章會示範如何連接到實驗室的虛擬網路的環境中的 Vm。 使用這項功能的其中一個案例設定連接到實驗室 VNet 允許測試 Vm 在實驗室中，若要存取它的 SQL Server 資料層的多層式架構應用程式。  

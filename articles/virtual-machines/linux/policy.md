@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
 ms.openlocfilehash: 8ad1bf371c5d5dbcbf3657ad69eace2003a8dda9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473853"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>使用 Azure Resource Manager 將原則套用至 Linux VM
-藉由使用原則，組織可以強制執行整個企業的各種慣例和規則。 強制執行所要的行為有助於降低風險，同時促進組織的成功。 我們會在本文中說明如何使用 Azure Resource Manager 原則來為您組織的虛擬機器定義所要的行為。
+藉由使用原則，組織可以強制執行整個企業的各種慣例和規則。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。 我們會在本文中說明如何使用 Azure Resource Manager 原則來為您組織的虛擬機器定義所要的行為。
 
 如需原則簡介，請參閱[什麼是 Azure 原則？](../../governance/policy/overview.md)。
 

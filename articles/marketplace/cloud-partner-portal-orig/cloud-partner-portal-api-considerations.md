@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: c6cfb41cb6254145821ab3fef662e9a5e54f6298
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625052"
 ---
 <a name="api-considerations"></a>API 考量
 =================
@@ -42,7 +42,7 @@ ms.locfileid: "48806439"
     }
 ```            
 
-<a name="errors"></a>錯誤
+<a name="errors"></a>Errors
 ------
 
 API 會以對應的 HTTP 狀態碼與選擇性的額外資訊 (在回應中序列化為 JSON) 回應錯誤。

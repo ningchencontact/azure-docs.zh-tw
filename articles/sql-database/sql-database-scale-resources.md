@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 49743130966589cceedb7756540c723a6f3276ff
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471662"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709185"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>在最短停機時間的情況下動態調整資料庫資源
 
@@ -35,10 +35,10 @@ Azure SQL Database 可讓您在最短停機時間的情況下，動態將更多�
 
 Azure SQL Database 提供[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 
-- [DTU 購買模型](sql-database-service-tiers-dtu.md)提供在下列三個服務層中混用的計算、記憶體和 IO 資源，以支援各種資料庫工作負載 (輕量型到重量型)：基本、標準和進階。 在各層內的效能層級分別提供這些資源的不同混用方式，而且您可以為其新增額外的儲存體資源。
+- [以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)提供在下列三個服務層中混用的計算、記憶體和 IO 資源，以支援各種資料庫工作負載 (輕量型到重量型)：基本、標準和進階。 在各層內的效能層級分別提供這些資源的不同混用方式，而且您可以為其新增額外的儲存體資源。
 - [虛擬核心形式的購買模式](sql-database-service-tiers-vcore.md)可讓您選擇虛擬核心的數目、記憶體數量，以及儲存體的數量和速度。 此購買模型提供三個服務層：一般用途、業務關鍵和超大規模資料庫 (預覽)。
 
-您可以透過基本、標準或一般用途服務層，以較低的每月成本在小型的單一資料庫上建置您的第一個應用程式，並在日後隨時以手動或程式設計方式將服務層變更為進階或業務關鍵服務層，以符合您的解決方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
+您可以透過基本、標準或一般用途服務層級，以較低的每月成本在小型的單一資料庫上建置您的第一個應用程式，並在日後隨時以手動或程式設計方式將服務層級變更為進階或業務關鍵服務層級，以符合您的解決方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
 
 > [!IMPORTANT]
 > 超大規模資料庫服務層級目前為公開預覽版本，且僅在有限的 Azure 區域中提供。 您無法將超大規模資料庫更新為其他服務層級。 基於測試目的，我們建議您建立目前資料庫的複本，並將該複本更新至超大規模資料庫服務層級。
@@ -48,7 +48,7 @@ Azure SQL Database 提供[以 DTU 為基礎的購買模型](sql-database-service
 單一 Azure SQL Database 支援手動的動態延展性，但不支援自動調整規模。 如需「自動」體驗，請考慮使用彈性集區，以根據個別資料庫的需求讓資料庫共用集區中的資源。
 不過，有一些指令碼可協助您對單一 Azure SQL Database 自動調整延展性。 如需範例，請參閱[使用 PowerShell 來監視和調整單一 SQL 資料庫的規模](scripts/sql-database-monitor-and-scale-database-powershell.md)。
 
-您可以在應用程式停機時間最短 (通常平均少於四秒) 的情況下，隨時變更 [DTU 服務層](sql-database-service-tiers-dtu.md)或 [vCore 特性](sql-database-vcore-resource-limits-single-databases.md)。 對於許多企業和應用程式而言，只要能夠建立資料庫，並依需求調高或調低的效能即可，尤其是當使用模式相當容易預測時更是如此。 但如果您有無法預測的使用模式，則管理成本和商務模式就會變得相當困難。 針對此案例您可使用彈性集區，以在集區中的多個資料庫之間共用特定數量的 eDTU。
+您可以在應用程式停機時間最短 (通常平均少於四秒) 的情況下，隨時變更 [DTU 服務層級](sql-database-service-tiers-dtu.md)或[虛擬核心特性](sql-database-vcore-resource-limits-single-databases.md)。 對於許多企業和應用程式而言，只要能夠建立資料庫，並依需求調高或調低的效能即可，尤其是當使用模式相當容易預測時更是如此。 但如果您有無法預測的使用模式，則管理成本和商務模式就會變得相當困難。 針對此案例您可使用彈性集區，以在集區中的多個資料庫之間共用特定數量的 eDTU。
 
 ![SQL Database 簡介：不同層級和等級的單一資料庫 DTU](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
@@ -60,7 +60,7 @@ Azure SQL Database 的三個特性全部都提供某種動態調整資料庫的�
 
 ## <a name="alternative-scale-methods"></a>替代調整方法
 
-調整資源是最簡單且最有效的方式，可改善資料庫效能，而不需要變更資料庫或應用程式碼。 在某些情況下，即使是最高服務層、計算大小和效能最佳化可能也無法以成功且具成本效益的方式來處理工作負載。 在該情況下，您有其他選項可調整資料庫：
+調整資源是最簡單且最有效的方式，可改善資料庫效能，而不需要變更資料庫或應用程式碼。 在某些情況下，即使是最高服務層級、計算大小和效能最佳化可能也無法以成功且具成本效益的方式來處理工作負載。 在該情況下，您有其他選項可調整資料庫：
 
 - [讀取縮放](sql-database-read-scale-out.md)是您收到資料之一個唯讀複本的可用功能，您可以在其中執行要求唯讀查詢 (例如報告)。 唯讀複本會處理您的唯讀工作負載，而不影響您主要資料庫上的資源使用狀況。
 - [資料庫分區](sql-database-elastic-scale-introduction.md)是一組技術，可讓您將資料分割成數個資料庫，並分別調整它們。

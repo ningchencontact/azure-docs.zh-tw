@@ -2,19 +2,25 @@
 title: Azure 自動化之圖形化 Runbook 中的錯誤處理
 description: 本文說明如何在 Azure 自動化的圖形化 Runbook 中實作錯誤處理邏輯。
 services: automation
+documentationcenter: ''
+author: yunan2016
+manager: digimobile
+editor: tysonn
+ms.assetid: ''
 ms.service: automation
-ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 03/16/2018
-ms.topic: conceptual
-manager: carmonm
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 03/16/2018
+ms.date: 05/14/2018
+ms.author: v-nany
 ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61233032"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure 自動化之圖形化 Runbook 中的錯誤處理
 
@@ -69,4 +75,3 @@ Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可�
 * 若要深入了解圖形化 Runbook 中的連結和連結類型，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md#links-and-workflow)。
 
 * 若要深入了解 Runbook 執行方式、如何監視 Runbook 作業，以及其他技術性詳細資料，請參閱[追蹤 Runbook 作業](automation-runbook-execution.md)。
-

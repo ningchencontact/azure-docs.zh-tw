@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: b5cce832ae7ae83552c2a5ded2f5f5bda0ac76bf
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: HT
+ms.openlocfilehash: 23b5967782cf237ed5af2b802aabbbf9c2f781e7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27591941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114205"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>新增驗證至您的 Apache Cordova 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -47,7 +47,7 @@ ms.locfileid: "27591941"
 1. 在 **Visual Studio** 中開啟您的專案，然後開啟 `www/index.html` 檔案進行編輯。
 2. 找出 head 區段中的 `Content-Security-Policy` 中繼標籤。  將 OAuth 主機新增至允許的來源清單。
 
-   | 提供者 | SDK 提供者名稱 | OAuth 主機 |
+   | 提供程序 | SDK 提供者名稱 | OAuth 主機 |
    |:--- |:--- |:--- |
    | Azure Active Directory | aad | https://login.microsoftonline.com |
    | Facebook | Facebook | https://www.facebook.com |
@@ -91,7 +91,7 @@ ms.locfileid: "27591941"
     login () 方法會開始向提供者驗證。 login() 方法是會傳回 JavaScript Promise 的非同步函式。  初始化作業的其餘部分會置於承諾回應中，如此就不會在 login() 方法完成之前執行。
 
 4. 在您剛才加入的程式碼中，使用您的登入提供者名稱取代 `SDK_Provider_Name` 。 例如，針對 Azure Active Directory，請使用 `client.login('aad')`。
-5. 執行專案。  當專案完成初始化時，您的應用程式會針對選擇的驗證提供者顯示 OAuth 登入頁面。
+5. 运行项目。  當專案完成初始化時，您的應用程式會針對選擇的驗證提供者顯示 OAuth 登入頁面。
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 Azure App Service [驗證相關資訊] 。

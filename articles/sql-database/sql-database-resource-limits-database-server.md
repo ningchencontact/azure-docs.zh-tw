@@ -13,11 +13,11 @@ ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
 ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482035"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 伺服器的 SQL Database 資源限制
 
@@ -28,7 +28,7 @@ ms.locfileid: "59998272"
 
 ## <a name="maximum-resource-limits"></a>資源限制上限
 
-| 資源 | 限制 |
+| Resource | 限制 |
 | :--- | :--- |
 | 每一伺服器的資料庫 | 5000 |
 | 任何區域中每個訂用帳戶的伺服器預設數目 | 20 |
@@ -67,11 +67,11 @@ ms.locfileid: "59998272"
 
 ### <a name="sessions-and-workers-requests"></a>工作階段和背景工作角色 (要求)
 
-工作階段與背景工作角色的數量上限取決於服務層和計算大小 (DTU 與 eDTU)。 達到工作階段或背景工作角色的限制時，會拒絕新要求，而且用戶端會收到錯誤訊息。 雖然應用程式能控制可用的連線數目，但並行背景工作角色的數目通常難以預估及控制。 特別是在尖峰負載期間，資料庫資源達到上限，背景工作角色也因為長時間執行查詢而不斷累積。
+工作階段與背景工作角色的數量上限取決於服務層級和計算大小 (DTU 與 eDTU)。 達到工作階段或背景工作角色的限制時，會拒絕新要求，而且用戶端會收到錯誤訊息。 雖然應用程式能控制可用的連線數目，但並行背景工作角色的數目通常難以預估及控制。 特別是在尖峰負載期間，資料庫資源達到上限，背景工作角色也因為長時間執行查詢而不斷累積。
 
 當工作階段或背景工作角色出現高使用率時，緩和選項包括：
 
-- 提高資料庫或彈性集區的服務層或計算大小。 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。
+- 提高資料庫或彈性集區的服務層級或計算大小。 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。
 - 如果背景工作角色的使用率增加是爭用計算資源所造成，則可將查詢最佳化，以減少每個查詢的資源使用率。 如需詳細資訊，請參閱[查詢微調/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
 
 ## <a name="transaction-log-rate-governance"></a>事务日志速率调控 

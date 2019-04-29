@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
 ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715164"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service"></a>針對搭配 App Service 應用程式閘道進行疑難排解
+# <a name="troubleshoot-application-gateway-with-app-service"></a>排查包含应用服务的应用程序网关的问题
 
-了解如何診斷和解決應用程式閘道與後端伺服器的應用程式服務發生問題。
+了解如何诊断和解决充当后端服务器的应用程序网关和应用服务遇到的问题。
 
 ## <a name="overview"></a>概觀
 
-在本文中，您將學習如何疑難排解下列問題：
+本文介绍如何排查以下问题：
 
 > [!div class="checklist"]
-> * App Service 的 URL 重新導向時，取得公開在瀏覽器
+> * 有重定向时，应用服务的 URL 公开在浏览器中
 > * App Service 的 ARRAffinity Cookie 的網域設為應用程式服務主機名稱 (example.azurewebsites.net) 而不是原始主機
 
 在应用程序网关后端池中配置面向公众的应用服务时，如果在应用程序代码中配置了重定向，访问应用程序网关时你可能会看到，浏览器会直接将你重定向到应用服务 URL。
@@ -35,7 +35,7 @@ ms.locfileid: "59797784"
 - 在应用程序网关的 HTTP 设置中启用了“从后端地址中选取主机名”开关。
 - 未将自定义域注册到应用服务。
 
-此外，當您使用應用程式閘道背後的應用程式服務，而且您用來存取應用程式閘道的自訂網域，可能會看到由 App Service 設定 ARRAffinity cookie 的網域值將會執行"example.azurewebsites.net 」 網域名稱。 如果您想要在 cookie 網域您原始主機名稱，請遵循這篇文章中的解決方案。
+此外，當您使用應用程式閘道背後的應用程式服務，而且您用來存取應用程式閘道的自訂網域，可能會看到由 App Service 設定 ARRAffinity cookie 的網域值將會執行"example.azurewebsites.net 」 網域名稱。 如果希望原始主机名也是 Cookie 域，则请按本文中解决方案的要求操作。
 
 ## <a name="sample-configuration"></a>範例組態
 
@@ -103,7 +103,7 @@ X-Powered-By: ASP.NET
 
 - 这样做后，应用程序网关应会将相同的主机名“www.contoso.com”转发到应用服务，并且同一个主机名上会发生重定向。 可以查看下面的示例请求和响应标头。
 
-若要實作現有的安裝程式中使用 PowerShell 先前所述的步驟，請遵循下列範例 PowerShell 指令碼。 請注意我們如何不使用-PickHostname 參數探查和 HTTP 設定組態中。
+若要针对现有设置使用 PowerShell 来实施上述步骤，请按下面的示例 PowerShell 脚本操作。 请注意，我们没有在探测和 HTTP 设置配置中使用 -PickHostname 开关。
 
 ```azurepowershell-interactive
 $gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG

@@ -1,7 +1,6 @@
 ---
 title: 使用 Azure 傳統 CLI 建立 Apache Hadoop 叢集 - Azure HDInsight
 description: 了解如何使用跨平台 Azure 傳統 CLI 建立 HDInsight 叢集。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: c9b1f3570ae3f9b945c87c2ce316c3f72e32b4ad
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 21985b009694dc5a21c65d4c9dc9536cf6c01a0e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128714"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 建立 HDInsight 叢集
 
@@ -60,7 +59,7 @@ ms.locfileid: "53792045"
 
        如需有效位置的清單，請使用 `azure location list` 命令，然後使用 [`Name`] \(名稱\) 欄中的其中一個位置。
 
-4. 建立儲存體帳戶。 此儲存體帳戶會用來作為 HDInsight 叢集的預設儲存體。
+4. 创建存储帐户。 此儲存體帳戶會用來作為 HDInsight 叢集的預設儲存體。
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
 
@@ -77,7 +76,7 @@ ms.locfileid: "53792045"
 
         azure storage account keys list -g groupname storagename
 
-    * 以資源群組名稱取代 `groupname`。
+    * 将 `groupname` 替换为资源组名称。
     * 使用儲存體帳戶名稱取代 `storagename`。
 
       在傳回的資料中，儲存 `key1` 的 `key` 值。
@@ -110,7 +109,7 @@ ms.locfileid: "53792045"
       >
       > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
       
-      可能需要數分鐘的時間，才能完成叢集建立程序。 通常大約 15 分鐘。
+      可能需要几分钟时间才能完成群集创建过程。 通常大约为 15 分钟。
 
 ## <a name="troubleshoot"></a>疑難排解
 

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
 ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61322833"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>從 Azure DevTest Labs 中的另一個實驗匯入虛擬機器
 本文章提供有關如何從另一個實驗室的虛擬機器匯入到您的實驗室資訊。

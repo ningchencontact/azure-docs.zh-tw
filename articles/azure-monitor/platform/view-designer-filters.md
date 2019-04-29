@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551689"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Azure 監視器檢視中的篩選
 A**篩選條件**中[Azure 監視器檢視](view-designer.md)可讓使用者依特定屬性的值篩選檢視中的資料，而不需修改檢視本身。  例如，您可以允許檢視的使用者篩選檢視，只顯示來自某個特定電腦或一組電腦的資料。  您可以在單一檢視上建立多個篩選，以允許使用者依多個屬性進行篩選。  本文說明如何使用篩選，以及如何在自訂檢視中新增篩選。
@@ -56,9 +56,9 @@ A**篩選條件**中[Azure 監視器檢視](view-designer.md)可讓使用者依�
 
 | 欄位名稱 | 查詢值 | Tag |
 |:--|:--|:--|
-| 電腦   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | 電腦 |
-| EventLevelName | Event &#124; distinct EventLevelName | 嚴重性 |
-| SeverityLevel | Syslog &#124; distinct SeverityLevel | 嚴重性 |
+| Computer   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | 電腦 |
+| EventLevelName | Event &#124; distinct EventLevelName | 严重性 |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | 严重性 |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 

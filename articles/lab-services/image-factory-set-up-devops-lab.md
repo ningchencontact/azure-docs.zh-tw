@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: abb85d568e26e4b6f85b960a2560aae570daf201
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320310"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>從 Azure DevOps 執行映像處理站
 本文章涵蓋 Azure DevOps (前身為 Visual Studio Team Services) 從執行映像處理站所需的所有準備工作。

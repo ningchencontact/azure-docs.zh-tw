@@ -9,11 +9,11 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122671"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure 儲存體中的靜態網站代管
 Azure 儲存體 GPv2 帳戶可讓您直接從名為 *$web* 的儲存體容器提供靜態內容 (HTML、CSS、JavaScript 和影像檔)。 利用 Azure 儲存體中的代管，讓您能夠使用無伺服器架構，包括 [Azure Functions](/azure/azure-functions/functions-overview) 和其他 PaaS 服務。
@@ -118,7 +118,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_N
 
 在所有情況下，都要確定您會將檔案複製到 *$web* 容器。
 
-## <a name="metrics"></a>度量
+## <a name="metrics"></a>指标
 
 若要在您的靜態網站頁面上啟用計量，請按一下 [設定] > [監視] > [計量]。
 

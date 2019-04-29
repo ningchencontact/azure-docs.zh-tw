@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61424133"
 ---
 # <a name="useful-operators-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的有用運算子
 
@@ -26,7 +26,7 @@ ms.locfileid: "56000143"
 
 ## <a name="useful-operators"></a>實用運算子
 
-類別                                |相關分析函式
+Category                                |相關分析函式
 ----------------------------------------|----------------------------------------
 選取項目和資料行別名            |`project`、`project-away`, `extend`
 暫存資料表和常數          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 

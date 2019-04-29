@@ -10,11 +10,11 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61468144"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(已淘汰) 透過 Marathon Web UI 管理 Azure Container Service DC/OS 叢集
 
@@ -48,11 +48,11 @@ DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 ## <a name="deploy-a-docker-formatted-container"></a>部署 Docker 格式化容器
 若要使用 Marathon 部署新容器，請按一下 [建立應用程式]，並在表單索引標籤中輸入下列資訊：
 
-| 欄位 | 值 |
+| 欄位 | Value |
 | --- | --- |
 | ID |nginx |
 | 記憶體 | 32 |
-| 映像 |nginx |
+| Image |nginx |
 | 網路 |橋接 |
 | 主機連接埠 |80 |
 | 通訊協定 |TCP |

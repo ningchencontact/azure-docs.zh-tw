@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: HT
+ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056458"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631884"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>適用於 StorSimple 裝置的技術規格和相容性
 
@@ -37,7 +37,7 @@ EBOD 機箱使用 580 W PCM，而主要機箱會使用 764 W PCM。 下表列出
 | --- | --- | --- |
 | 最大輸出電力 |580 W |764 |
 | 頻率 |50/60 Hz |50/60 Hz |
-| 選取電壓範圍 |自動設定範圍：90 - 264 V AC、47/63 Hz |自動設定範圍：90 - 264 V AC、47/63 Hz |
+| 選取電壓範圍 |自動設定範圍：90 – 264 V AC，ac、47/63 Hz |自動設定範圍：90-264 V AC，ac、47/63 Hz |
 | 最大瞬間電流 |20 A |20 A |
 | 功率因素校正 |> 95% 額定輸入電壓 |> 95% 額定輸入電壓 |
 | 諧波 |符合 EN61000-3-2 |符合 EN61000-3-2 |
@@ -149,8 +149,8 @@ StorSimple 裝置混合搭載 8100 及 8600 的硬碟與固態磁碟機。 8100 
 
 您的 Microsoft Azure StorSimple 裝置符合下列安全分級：
 
-* 系統產品類型核可：UL、cUL、CE
-* 安全法規遵循：UL 60950、IEC 60950、EN 60950
+* 系統產品類型核可：UL、 cUL、 CE
+* 安全合規性：UL 60950 60950、IEC EN 60950
 
 ## <a name="emc-compliance"></a>EMC 法規遵循
 
@@ -160,8 +160,8 @@ StorSimple 裝置混合搭載 8100 及 8600 的硬碟與固態磁碟機。 8100 
 
 此裝置符合傳導和輻射放射性層級的 EMC 標準。
 
-* 傳導放射性限制層級：CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
-* 輻射放射性限制層級：CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
+* 進行放射性限制層級：CFR 47 Part 15B 類別 A EN55022 類別 A CISPR 類別 A
+* 輻射放射性限制層級：CFR 47 Part 15B 類別 A EN55022 類別 A CISPR 類別 A
 
 ### <a name="harmonics-and-flicker"></a>諧波和變動
 

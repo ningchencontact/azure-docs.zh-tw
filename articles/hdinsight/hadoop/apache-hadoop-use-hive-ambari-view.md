@@ -1,7 +1,6 @@
 ---
 title: 使用 Apache Ambari 檢視與 HDInsight (Apache Hadoop) 上的 Hive 搭配作業 - Azure
 description: 了解如何從網頁瀏覽器使用 Hive 檢視來提交 Hive 查詢。 Hive 檢視是以 Linux 為基礎的 HDInsight 叢集隨附的 Ambari 檢視的一部分。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 55f8f453faf35d52c5c292e6b309194443980466
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095314"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Apache Hadoop 使用 Apache Ambari Hive 檢視
 
@@ -24,7 +23,7 @@ ms.locfileid: "58517295"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 在 HDInsight 上 Hadoop 叢集。 請參閱[開始使用 Linux 上的 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
+* 在 HDInsight 上 Hadoop 叢集。 请参阅 [Linux 上的 HDInsight 入门](./apache-hadoop-linux-tutorial-get-started.md)。
 * 網頁瀏覽器
 
 ## <a name="run-a-hive-query"></a>執行 HIVE 查詢

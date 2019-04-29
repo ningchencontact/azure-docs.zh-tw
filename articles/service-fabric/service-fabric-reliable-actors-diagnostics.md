@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: 5f573db887b3acc2c4a668a8c19c7f8e3cb25019
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670739"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726565"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors 的診斷和效能監視
 Reliable Actors 執行階段會發出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件與[效能計數器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)。 這些項目提供深入了解執行階段的運作方式，並有助於疑難排解及效能監視。
@@ -42,7 +42,7 @@ Reliable Actors 运行时的 EventSource 提供程序名称为“Microsoft-Servi
 ## <a name="performance-counters"></a>效能計數器
 Reliable Actor 執行階段定義下列效能計數器類別。
 
-| 類別 | 描述 |
+| Category | 描述 |
 | --- | --- |
 | Service Fabric 動作項目 |Azure Service Fabric 動作項目特定的計數器，例如儲存動作項目狀態花費的時間 |
 | Service Fabric 動作項目方法 |Service Fabric 動作項目所實作方法特定的計數器，例如叫用動作項目方法的頻率 |

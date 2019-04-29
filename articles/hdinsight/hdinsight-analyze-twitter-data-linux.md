@@ -1,7 +1,6 @@
 ---
 title: 使用 Apache Hive 分析 Twitter 資料 - Azure HDInsight
 description: 了解如何使用 HDInsight 上的 Apache Hive 與 Apache Hadoop，將原始 Twitter 資料轉換成可搜尋的 Hive 資料表。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 600b18997ced80a63b7e86f66bc447ddd7932687
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: e10717b0fe14d2ed6ee720a2414e753bdd2474f1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310739"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095926"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>在 HDInsight 上使用 Apache Hive 與 Apache Hadoop 分析 Twitter 資料
 
@@ -37,7 +36,7 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
 
 3. 輸入 [名稱]、[說明]、[網站]。 您可以在 [網站] 欄位中自行設定 URL。 下表列出部分要使用的範例值：
 
-   | 欄位 | 值 |
+   | 欄位 | Value |
    |:--- |:--- |
    | 名稱 |MyHDInsightApp |
    | 描述 |MyHDInsightApp |

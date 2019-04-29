@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
 ms.openlocfilehash: 9590728cec663b36c889dc26a6216c3d474244e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735342"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>使用內部部署 SQL Server 資料庫，利用 Azure Machine Learning Studio 執行分析
 
@@ -111,7 +111,7 @@ Data Factory 自我裝載整合執行階段的必要條件如下：
 12. 在 [Microsoft 資料管理閘道組態管理員] 中，切換到 [憑證]  索引標籤。此索引標籤上指定的憑證可用來加密/解密您在入口網站指定之內部部署資料存放區的認證。 此憑證是預設的憑證。 Microsoft 建議將此憑證變更為您自己在憑證管理系統中備份的憑證。 按一下 [變更]  改為使用您自己的憑證。
 
     ![變更閘道憑證](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-certificate.png)
-13. (選擇性) 如果您想啟用詳細資訊記錄功能來為閘道問題進行疑難排解，請在 [Microsoft 資料管理閘道組態管理員] 中切換到 [診斷] 索引標籤，然後選取 [啟用詳細資訊記錄以進行疑難排解] 選項。 您可以在 Windows 事件檢視器中，於 [應用程式及服務記錄檔] -&gt; [資料管理閘道] 節點下方找到記錄資訊。 您也可以使用 [診斷]  索引標籤，使用閘道來測試與內部部署資料來源的連線。
+13. (選擇性) 如果您想啟用詳細資訊記錄功能來為閘道問題進行疑難排解，請在 [Microsoft 資料管理閘道組態管理員] 中切換到 [診斷] 索引標籤，然後選取 [啟用詳細資訊記錄以進行疑難排解] 選項。 您可以在 Windows 事件檢視器中，於 [應用程式及服務記錄] -&gt; [資料管理閘道] 節點下方找到記錄資訊。 您也可以使用 [診斷]  索引標籤，使用閘道來測試與內部部署資料來源的連線。
 
     ![啟用詳細資訊記錄](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 

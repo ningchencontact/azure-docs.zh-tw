@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
 ms.openlocfilehash: 6b3357ec06c89645b9c41e9efdb582a18af40672
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074670"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614648"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>教學課程：調查 Azure Sentinel 預覽版的案例
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 本教學課程可協助您偵測與 Azure Sentinel 的威脅。

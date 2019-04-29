@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
 ms.openlocfilehash: 8cd76909c9ce15a97de4ea5af3b21ac120058dd3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60705841"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure 資訊安全中心的偵測功能
 本文件討論 Azure 資訊安全中心的進階偵測功能，協助您識別以您的 Microsoft Azure 資源 (Windows 與 Linux) 為目標的作用中威脅，並提供您快速回應所需的深入見解。
@@ -78,7 +78,7 @@ Azure 資訊安全中心設有資訊安全研究和資料科學小組，負責�
 
 結合上述努力終於獲得全新及改善的偵測功能，您因而立即受惠 – 不需採取任何的動作。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 在本文件中，您已了解如何使用 Azure 資訊安全中心的偵測功能。 如要深入了解資訊安全中心，請參閱下列主題：
 
 * [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md)

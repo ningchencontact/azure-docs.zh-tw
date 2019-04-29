@@ -1,6 +1,6 @@
 ---
 title: 對 Azure 串流分析查詢進行疑難排解
-description: 此文章說明對 Azure 串流分析作業中的查詢進行疑難排解的技術。
+description: 本文說明對 Azure 串流分析作業中的查詢進行疑難排解的技術。
 services: stream-analytics
 author: sidram
 ms.author: sidram
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53161979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60762338"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>對 Azure 串流分析查詢進行疑難排解
 
-此文章說明開發串流分析查詢的常見問題，以及對其進行疑難排解的方式。
+本文說明開發串流分析查詢的常見問題，以及對其進行疑難排解的方式。
 
 ## <a name="query-is-not-producing-expected-output"></a>查詢未產生預期的輸出 
 1.  在本機執行測試以檢查錯誤：
@@ -56,7 +56,7 @@ ms.locfileid: "53161979"
  
 在此情況下，您可以新增一些額外的 SELECT INTO 陳述式以「記錄」中繼「聯結」結果及從輸入中讀取的資料。
 
-在此範例中，我們新增了兩個新的「暫存輸出」。 這些暫存輸出可以是您喜歡的任何接收體。 在這裡我們使用 Azure 儲存體作為範例︰
+此示例中添加了两个新的“临时输出”。 可任意选择你喜欢的接收器。 在這裡我們使用 Azure 儲存體作為範例︰
 
 ![新增額外的 SELECT INTO 陳述式到串流分析查詢](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 
@@ -92,12 +92,12 @@ ms.locfileid: "53161979"
 
 ## <a name="get-help"></a>取得說明
 
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

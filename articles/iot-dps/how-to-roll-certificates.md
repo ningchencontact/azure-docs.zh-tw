@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626910"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>如何輪替 X.509 裝置憑證
 
@@ -200,7 +200,7 @@ ms.locfileid: "51247716"
 
 ## <a name="blacklist-certificates"></a>將憑證列入黑名單
 
-為了回應安全性缺口，您可能需要將裝置憑證列入黑名單。 若要將裝置憑證列入黑名單，請停用目標裝置/憑證的註冊項目。 如需詳細資訊，請參閱[管理取消註冊](how-to-revoke-device-access-portal.md)一文中如何將裝置列入黑名單。
+為了回應安全性缺口，您可能需要將裝置憑證列入封鎖清單。 若要將裝置憑證列入封鎖清單，請停用目標裝置/憑證的註冊項目。 如需詳細資訊，請參閱[管理取消註冊](how-to-revoke-device-access-portal.md)一文中如何將裝置列入黑名單。
 
 一旦將憑證納入已停用的註冊項目中，任何使用該憑證向 IoT 中樞註冊的嘗試都會失敗，即使該憑證已作為其他註冊項目的一部分啟用亦然。
  

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
 ms.openlocfilehash: df0e53736c08fd2c26c467def7328e85f2989f26
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60718133"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>以節點轉換 API 取代啟動節點和停止節點 API
 
@@ -59,7 +59,7 @@ ms.locfileid: "55752937"
 > 在相同節點上無法平行呼叫多個節點轉換 API。  在這種情況下，節點轉換 API 將   > 擲回 FabricException，其 ErrorCode 屬性的值為 NodeTransitionInProgress。  一旦特定節點的節點轉換  > 已經開始，您應該等到作業到達終止狀態 (Completed、Faulted 或 ForceCancelled)，才開始  > 對同一節點進行新的轉換。  允許在不同節點上平行呼叫節點轉換。
 
 
-#### <a name="sample-usage"></a>範例用法
+#### <a name="sample-usage"></a>示例用法
 
 
 **範例 1** - 下列範例會使用節點轉換 API 來停止節點。

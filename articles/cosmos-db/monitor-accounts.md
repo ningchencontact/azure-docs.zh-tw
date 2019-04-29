@@ -8,11 +8,11 @@ ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: a12e0f567747b67c67f7bc825df1079d852e2f16
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448233"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61330922"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>監視 Azure Cosmos DB 中的效能和儲存體計量
 
@@ -27,7 +27,7 @@ ms.locfileid: "57448233"
 
    Azure 入口網站會顯示可用集合度量的套件。 請注意，輸送量、儲存體、可用性、延遲和一致性度量會提供個別索引標籤上。 若要取得所提供度量的其他詳細資料，請按一下每個度量窗格右上角的雙箭頭。
 
-   ![顯示度量套件 [監視] 功能濾鏡的螢幕擷取畫面](./media/monitor-accounts/metrics-suite.png)
+   ![显示指标套件的“监视”可重用功能区的屏幕截图](./media/monitor-accounts/metrics-suite.png)
 
 ## <a name="view-performance-metrics-by-using-azure-monitoring"></a>使用 Azure 監視器檢視效能度量
 1. 在 [Azure 入口網站](https://portal.azure.com/)，按一下左側列中的 [監視器]。
@@ -43,14 +43,14 @@ ms.locfileid: "57448233"
    * 當日的要求總數。
    * 已使用儲存體。
    
-   ![顯示要求和儲存體使用量 [監視] 功能濾鏡的螢幕擷取畫面](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
+   ![“监视”可重用功能区的屏幕截图，其中显示请求数和存储使用情况](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
 3. 按一下 [要求] 磚右上方的雙箭號上會開啟詳細的 [度量] 頁面。
 4. [度量] 頁面會顯示要求總數的相關詳細資料。 
 
 ## <a name="set-up-alerts-in-the-portal"></a>在入口網站中設定警示
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [所有服務]，按一下 [Azure Cosmos DB]，然後按一下您想要設定其效能計量警示的 Azure Cosmos DB 帳戶名稱。
 2. 在資源功能表中，按一下 [警示規則] 以開啟 [警示規則] 頁面。  
-   ![選取 警示規則組件的螢幕擷取畫面](./media/monitor-accounts/madocdb10.5.png)
+   ![所选的警报规则部件的屏幕截图](./media/monitor-accounts/madocdb10.5.png)
 3. 在 [警示規則] 頁面中，按一下 [新增警示]。  
    ![包含反白顯示 [新增警示] 按鈕的 [警示規則] 頁面螢幕擷取畫面](./media/monitor-accounts/madocdb11.png)
 4. 在 [新增警示規則] 頁面中，指定：
@@ -61,7 +61,7 @@ ms.locfileid: "57448233"
    * 決定警示何時啟動的條件、臨界值和期間。 例如，過去 15 分鐘伺服器錯誤計算大於 5。
    * 警示引發時是否傳送電子郵件給服務管理員和共同管理員。
    * 警示通知的其他電子郵件地址。  
-     ![[新增警示規則] 頁面的螢幕擷取畫面](./media/monitor-accounts/madocdb12.png)
+     ![“添加警报规则”页的屏幕截图](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>以程式設計方式監視 Azure Cosmos DB
 可在入口網站中取得的帳戶層級計量 (例如，帳戶儲存體使用量和要求總數) 無法透過 SQL API 取得。 不過，您可以使用 SQL API 來擷取集合層級的使用量資料。 若要擷取集合層級的資料，請執行下列動作：

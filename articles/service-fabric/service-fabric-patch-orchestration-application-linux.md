@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
 ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266132"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60647115"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Linux 作業系統
 

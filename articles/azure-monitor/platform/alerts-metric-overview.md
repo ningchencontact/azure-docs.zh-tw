@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
 ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712860"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解計量警示在 Azure 監視器中的運作方式
 
@@ -145,34 +145,34 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 |傳統計量警示支援的資源類型 | 受計量警示支援 |
 |-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | yes |
-| Microsoft.Batch/batchAccounts| yes|
-|Microsoft.Cache/redis| yes |
+| Microsoft.ApiManagement/service | 是 |
+| Microsoft.Batch/batchAccounts| 是|
+|Microsoft.Cache/redis| 是 |
 |Microsoft.ClassicCompute/virtualMachines | 否 |
 |Microsoft.ClassicCompute/domainNames/slots/roles | 否|
 |Microsoft.CognitiveServices/accounts | 否 |
-|Microsoft.Compute/virtualMachines | yes|
-|Microsoft.Compute/virtualMachineScaleSets| yes|
+|Microsoft.Compute/virtualMachines | 是|
+|Microsoft.Compute/virtualMachineScaleSets| 是|
 |Microsoft.ClassicStorage/storageAccounts| 否 |
-|Microsoft.DataFactory/datafactories | yes|
-|Microsoft.DBforMySQL/servers| yes|
-|Microsoft.DBforPostgreSQL/servers| yes|
+|Microsoft.DataFactory/datafactories | 是|
+|Microsoft.DBforMySQL/servers| 是|
+|Microsoft.DBforPostgreSQL/servers| 是|
 |Microsoft.Devices/IotHubs | 否|
-|Microsoft.DocumentDB/databaseAccounts| yes|
-|Microsoft.EventHub/namespaces | yes|
-|Microsoft.Logic/workflows | yes|
-|Microsoft.Network/loadBalancers |yes|
-|Microsoft.Network/publicIPAddresses| yes|
-|Microsoft.Network/applicationGateways| yes|
-|Microsoft.Network/expressRouteCircuits| yes|
-|Microsoft.Network/trafficManagerProfiles | yes|
-|Microsoft.Search/searchServices | yes|
-|Microsoft.ServiceBus/namespaces| yes |
-|Microsoft.Storage/storageAccounts | yes|
-|Microsoft.StreamAnalytics/streamingjobs| yes|
-|Microsoft.TimeSeriesInsights/environments | yes|
-|Microsoft. Web/serverfarms | yes |
-|Microsoft. Web/sites (不包括函式) | yes|
+|Microsoft.DocumentDB/databaseAccounts| 是|
+|Microsoft.EventHub/namespaces | 是|
+|Microsoft.Logic/workflows | 是|
+|Microsoft.Network/loadBalancers |是|
+|Microsoft.Network/publicIPAddresses| 是|
+|Microsoft.Network/applicationGateways| 是|
+|Microsoft.Network/expressRouteCircuits| 是|
+|Microsoft.Network/trafficManagerProfiles | 是|
+|Microsoft.Search/searchServices | 是|
+|Microsoft.ServiceBus/namespaces| 是 |
+|Microsoft.Storage/storageAccounts | 是|
+|Microsoft.StreamAnalytics/streamingjobs| 是|
+|Microsoft.TimeSeriesInsights/environments | 是|
+|Microsoft. Web/serverfarms | 是 |
+|Microsoft. Web/sites (不包括函式) | 是|
 |Microsoft. Web/hostingEnvironments/multiRolePools | 否|
 |Microsoft. Web/hostingEnvironments/workerPools| 否 |
 |Microsoft.SQL/Servers | 否 |

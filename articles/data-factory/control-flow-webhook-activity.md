@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764300"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Webhook 活動
 若要透過自訂程式碼控制的管線執行，您可以使用 web 勾點活動。 使用 webhook 的活動，客戶可呼叫端點，並傳遞回呼 URL。 管線執行等候後再繼續下一個活動會叫用的回呼。

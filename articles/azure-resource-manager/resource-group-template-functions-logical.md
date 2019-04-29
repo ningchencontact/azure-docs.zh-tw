@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782985"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的邏輯函式
 
@@ -39,9 +39,9 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |布林值 |要檢查是否為 ture 的第一個值。 |
-| arg2 |是 |布林值 |要檢查是否為 true 的第二個值。 |
-| 其他引數 |否 |布林值 |要檢查是否為 true 的其他引數。 |
+| arg1 |是 |boolean |要檢查是否為 ture 的第一個值。 |
+| arg2 |是 |boolean |要檢查是否為 true 的第二個值。 |
+| 其他引數 |否 |boolean |要檢查是否為 true 的其他引數。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -75,7 +75,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -128,7 +128,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | False |
@@ -145,7 +145,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| condition |是 |布林值 |要檢查是否為 true 或 false 的值。 |
+| condition |是 |boolean |要檢查是否為 true 或 false 的值。 |
 | trueValue |是 | 字串、int、物件或陣列 |條件為 true 時，傳回的值。 |
 | falseValue |是 | 字串、int、物件或陣列 |條件為 false 時，傳回的值。 |
 
@@ -186,7 +186,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | yesOutput | 字串 | 是 |
 | noOutput | 字串 | no |
@@ -250,7 +250,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |布林值 |要轉換的值。 |
+| arg1 |是 |boolean |要轉換的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -284,7 +284,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -308,7 +308,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -322,9 +322,9 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |布林值 |要檢查是否為 ture 的第一個值。 |
-| arg2 |是 |布林值 |要檢查是否為 true 的第二個值。 |
-| 其他引數 |否 |布林值 |要檢查是否為 true 的其他引數。 |
+| arg1 |是 |boolean |要檢查是否為 ture 的第一個值。 |
+| arg2 |是 |boolean |要檢查是否為 true 的第二個值。 |
+| 其他引數 |否 |boolean |要檢查是否為 true 的其他引數。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -358,7 +358,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |

@@ -1,7 +1,6 @@
 ---
 title: 在 HDInsight 叢集上搭配使用 Apache Pig 與 SSH - Azure
 description: 學習如何使用 SSH 連線到以 Linux 為基礎的 Apache Hadoop 叢集，然後使用 Pig 命令以互動方式或批次工作形式執行 Pig Latin 陳述式。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: a674ee52ae5e8f8f800d4584a53c808ceae70156
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 503449e36b2b11e5663449dd732fdaf785417570
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110743"
 ---
 # <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在以 Linux 為基礎的叢集上執行 Apache Pig 作業
 
@@ -23,7 +22,7 @@ ms.locfileid: "53435050"
 了解如何透過與 HDInsight 叢集的 SSH 連線以互動方式執行 Apache Pig 作業。 Pig Latin 程式設計語言可讓您描述套用至輸入資料來產生想要輸出的轉換。
 
 > [!IMPORTANT]  
-> 此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 本文档中的步骤要求使用基于 Linux 的 HDInsight 群集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a id="ssh"></a>使用 SSH 連線
 
@@ -63,7 +62,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
     LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
     ```
 
-    轉換之後，您可以使用 **DUMP** 來檢視資料。 在此案例中，請使用 `DUMP LEVELS;`。
+    转换后，可以使用 **DUMP** 来查看数据。 在此案例中，請使用 `DUMP LEVELS;`。
 
 4. 使用下列表格中的陳述式繼續套用轉換：
 
@@ -77,7 +76,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
     > [!TIP]  
     > 使用 `DUMP` 檢視每個步驟後的轉換結果。
 
-5. 您也可以使用 `STORE` 陳述式儲存轉換結果。 例如，下列陳述式會將 `RESULT` 儲存到叢集之預設儲存體上的 `/example/data/pigout` 目錄：
+5. 也可以使用 `STORE` 语句保存转换结果。 例如，下列陳述式會將 `RESULT` 儲存到叢集之預設儲存體上的 `/example/data/pigout` 目錄：
 
     ```piglatin
     STORE RESULT into '/example/data/pigout';

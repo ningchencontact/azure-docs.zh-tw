@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636383"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中管理實驗室的所有原則
 
@@ -91,7 +91,7 @@ Azure DevTest Labs 讓您管理每個實驗室的原則 (設定)，以控制實�
 
 1. 在實驗室首頁上，選取 [設定與原則]。
 2. 左側功能表的 [排程] 區段中選取 [自動關機原則]。
-3. 選取其中一個選項。 下列各節提供有關這些選項的更多詳細資訊：所設定的原則只適用於實驗室中建立的新 VM，而不適用於現有的 VM。 
+3. 選取其中一個選項。 下列各節提供有關這些選項的詳細資料：設定原則只適用於實驗室中建立新的 Vm 和不到現有的 Vm。 
 
     ![自動關機原則選項](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 

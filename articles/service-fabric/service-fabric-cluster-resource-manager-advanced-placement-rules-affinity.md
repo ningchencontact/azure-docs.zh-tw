@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 29377492b90f366227ca7bedf85890b7734ea25f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118410"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>在 Service Fabric 中設定並使用服務同質性
 同質性是一個控制項，主要提供來協助簡化將較大型的單體式應用程式轉換到雲端和微服務世界的程序。 同質性也可作為最佳化手段來提升服務的效能，不過，這麼做會帶來一些副作用。
@@ -60,7 +60,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 <center>
 
-![同質性模式和其效果][Image1]
+![相关性模式及其影响][Image1]
 </center>
 
 ### <a name="best-effort-desired-state"></a>盡力而為的期望狀態
@@ -71,7 +71,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 <center>
 
-![鏈結與星形的比較][Image2]
+![相关性关系上下文中的链形与星形的比較][Image2]
 </center>
 
 目前關於同質關聯性的另一個注意事項是它們預設是雙向的。 這表示同質性規則只會強制讓子系跟隨父系來放置。 它無法確保父系會與子系位於相同位置。 因此，如果有同質性違規發生，且基於某種原因要修正違規，將子系移至父系節點是不可行的，即使將父系移至子系節點會修正違規，父系節點也不會移至子系節點。 將 [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) 設為 True 會移除方向。 也請務必注意，同質關聯性不可能完美無缺或立即強制執行，因為不同的服務會有不同的生命週期，因此可以單獨地失敗和移動。 例如，假設父系因為當機而突然容錯移轉至另一個節點。 叢集資源管理員和容錯移轉管理員會先處理容錯移轉，因為其首要任務就是讓服務保持運作、一致性和可用性。 在容錯移轉完成之後，同質關聯性已中斷，但叢集資源管理員會認為一切正常，直到它發現子系並未與父系放在一起。 系統會定期執行這類檢查。 您可以在[這篇文章](service-fabric-cluster-resource-manager-management-integration.md#constraint-types)中找到更多關於叢集資源管理員如何評估條件約束的資訊，[這篇文章](service-fabric-cluster-resource-manager-balancing.md)則會深入說明如何設定這些條件約束的評估頻率。   

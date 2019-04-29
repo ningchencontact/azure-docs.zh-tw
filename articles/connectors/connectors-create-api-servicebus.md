@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105575"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>使用 Azure 服務匯流排與 Azure Logic Apps 在雲端中交換訊息
 
@@ -72,9 +72,9 @@ ms.locfileid: "50232710"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 若要將「觸發程序」新增至空白邏輯應用程式，請在搜尋方塊中，輸入 "Azure Service Bus" 作為篩選條件。 請在觸發程序清單底下，選取您想要的觸發程序。 
+1. 若要將「觸發程序」新增至空白邏輯應用程式，請在搜尋方塊中，輸入 "Azure Service Bus" 作為篩選條件。 在觸發程序清單底下，選取您想要的觸發程序。 
 
-   例如，若要在新項目傳送至「服務匯流排」佇列時，觸發邏輯應用程式，則選取此觸發程序：**在佇列中收到訊息時 (自動完成)**
+   比方說，若要觸發邏輯應用程式，當新的項目傳送至服務匯流排佇列時，請選取此觸發程序：**（自動完成） 佇列中收到訊息時**
 
    ![選取服務匯流排觸發程序](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
@@ -93,9 +93,9 @@ ms.locfileid: "50232710"
       選擇顯示的加號 (**+**)，然後選取 [新增動作]。
 
    1. 在搜尋方塊中，輸入 "Azure Service Bus" 作為篩選條件。 
-   請在動作清單底下，選取您想要的動作。 
+   在動作清單底下，選取您想要的動作。 
  
-      例如，選取此動作：**傳送訊息**
+      例如，選取下列動作：**傳送訊息**
 
       ![選取服務匯流排動作](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
@@ -118,14 +118,14 @@ ms.locfileid: "50232710"
 
 1. 為您的觸發程序或動作提供必要的詳細資料。 針對這個範例，請遵循觸發程序或動作的相關步驟： 
 
-   * **針對範例觸發程序**：設定輪詢間隔和檢查佇列的頻率。
+   * **範例觸發程序**:設定的輪詢間隔和頻率檢查佇列一次。
 
      ![設定輪詢間隔](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
      當您完成時，藉由新增您想要的動作，可繼續建置邏輯應用程式的工作流程。 例如，您可以新增在新訊息送達時，會傳送電子郵件的動作。
      當觸發程序檢查您的佇列並且發現新訊息時，您的邏輯應用程式會針對找到的訊息，執行已選取的動作。
 
-   * **針對範例動作**：輸入訊息內容和任何其他詳細資料。 
+   * **範例動作**:輸入訊息內容和任何其他詳細資料。 
 
      ![提供訊息內容和詳細資料](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 

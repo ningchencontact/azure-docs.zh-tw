@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: b6eb0c5b0d52bba3d34c9853a73b1f3e07b112a7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61322696"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>IoT Edge 代理程式和 IoT Edge 中樞模組對應項的屬性
 
@@ -26,7 +26,7 @@ IoT Edge 代理程式和 IoT Edge 中樞是構成 IoT Edge 執行階段的兩個
 
 IoT Edge 代理程式的模組對應項稱為 `$edgeAgent`，並且會協調裝置與 IoT 中樞上執行之 IoT Edge 代理程式之間的通訊。 在單一裝置或規模部署時，在特定裝置上套用部署資訊清單時，會設定預期屬性。 
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | -------- | ----------- | -------- |
 | schemaVersion | 必須為「1.0」 | 是 |
 | runtime.type | 必須為「docker」 | 是 |
@@ -68,7 +68,7 @@ IoT Edge 代理程式報告屬性包含三個主要部分資訊：
 
 下表不包含從預期屬性複製的資訊。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | -------- | ----------- |
 | lastDesiredVersion | 此整數代表 IoT Edge 代理程式處理之所需屬性的最後版本。 |
 | lastDesiredStatus.code | 這是狀態代碼，代表 IoT Edge 代理程式看到的最後預期屬性。 允許的值：`200` 成功、`400` 無效的設定、`412` 無效的結構描述版本、`417` 預期屬性是空的、`500` 失敗 |
@@ -98,7 +98,7 @@ IoT Edge 代理程式報告屬性包含三個主要部分資訊：
 
 IoT Edge 中樞的模組對應項稱為 `$edgeHub`，並且會協調裝置與 IoT 中樞上執行之 IoT Edge 中樞之間的通訊。 在單一裝置或規模部署時，在特定裝置上套用部署資訊清單時，會設定預期屬性。 
 
-| 屬性 | 說明 | 部署資訊清單中的必要項目 |
+| 屬性 | 描述 | 部署資訊清單中的必要項目 |
 | -------- | ----------- | -------- |
 | schemaVersion | 必須為「1.0」 | 是 |
 | routes.{routeName} | 字串，表示 IoT Edge 中樞路由。 | `routes` 元素可以存在但為空白。 |
@@ -106,7 +106,7 @@ IoT Edge 中樞的模組對應項稱為 `$edgeHub`，並且會協調裝置與 Io
 
 ## <a name="edgehub-reported-properties"></a>EdgeHub 的報告屬性
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | -------- | ----------- |
 | lastDesiredVersion | 此整數代表 IoT Edge 中樞處理之所需屬性的最後版本。 |
 | lastDesiredStatus.code | 這是狀態代碼，代表 IoT Edge 中樞看到的最後預期屬性。 允許的值：`200` 成功、`400` 無效的設定、`500` 失敗 |

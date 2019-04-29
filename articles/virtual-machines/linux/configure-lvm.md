@@ -17,11 +17,11 @@ ms.date: 09/27/2018
 ms.author: szark
 ms.subservice: disks
 ms.openlocfilehash: 08f98775360b8c0a82f68f322053cb71f0e79af3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739075"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>設定 Azure 中 Linux VM 的 LVM
 本文將討論如何在 Azure 虛擬機器中設定邏輯磁碟區管理員 (LVM)。 LVM 可能會根據 OS 磁碟或 Azure VM 中的資料磁碟來使用，不過，根據預設，大部分的雲端映像將不會在 OS 磁碟上設定 LVM。 下列步驟將著重於如何針對您的資料磁碟設定 LVM。
@@ -158,7 +158,7 @@ LVM 可以用來將數個實體磁碟的結合成單一存放磁碟區。 根據
 
 有兩種方式可在 Linux VM 中啟用 TRIM 支援。 像往常一樣，請參閱您的散發套件以了解建議的方法︰
 
-- 在 `/etc/fstab` 中使用 `discard` 掛接選項，例如：
+- 在 `/etc/fstab` 中使用 `discard` 装载选项，例如：
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2

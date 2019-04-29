@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60759906"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure 監視器記錄查詢範例
 本文包含多個使用 [Kusto 查詢語言](/azure/kusto/query/)的[查詢](log-query-overview.md)範例，以從 Azure 監視器擷取不同的記錄資料類型。 您可以透過方法來合併和分析資料，以使用這些範例識別用於您的要求的不同策略。  

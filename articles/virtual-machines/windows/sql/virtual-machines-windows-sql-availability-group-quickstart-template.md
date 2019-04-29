@@ -16,11 +16,11 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591335"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>使用 Azure 快速入門範本來設定 Azure VM 上的 SQL Server Always On 可用性群組
 本文說明如何使用 Azure 快速入門範本，以半自動化的方式為 Azure 中的 SQL Server 虛擬機器部署 Always On 可用性群組設定。 此程序中會使用兩個 Azure 快速入門範本。 
@@ -56,7 +56,7 @@ ms.locfileid: "58487527"
 
     下表顯示範本所需的值： 
 
-   | **欄位** | 值 |
+   | **欄位** | Value |
    | --- | --- |
    | **訂用帳戶** |  您的 SQL Server VM 所在的訂用帳戶。 |
    |**資源群組** | 您的 SQL Server VM 所屬的資源群組。 | 
@@ -95,7 +95,7 @@ Always On 可用性群組 (AG) 接聽程式需要內部 Azure 負載平衡器 (I
 4. 在 [負載平衡器] 刀鋒視窗上，按一下 [建立]。
 5. 在 [建立負載平衡器] 對話方塊中，依下列方式設定負載平衡器︰
 
-   | 設定 | 值 |
+   | 設定 | Value |
    | --- | --- |
    | **名稱** |代表負載平衡器的文字名稱。 例如 **sqlLB**。 |
    | **類型** |**內部**：大部分的實作都會使用內部負載平衡器，這可讓相同虛擬網路內的應用程式連線到可用性群組。  </br> **外部**：可讓應用程式透過公用網際網路連線來連線到可用性群組。 |
@@ -133,7 +133,7 @@ Always On 可用性群組 (AG) 接聽程式需要內部 Azure 負載平衡器 (I
 
     下表顯示範本所需的值： 
 
-   | **欄位** | 值 |
+   | **欄位** | Value |
    | --- | --- |
    |**資源群組** | 您的 SQL Server VM 和可用性群組所屬的資源群組。 | 
    |**現有容錯移轉叢集名稱** | 您的 SQL Server VM 加入的叢集名稱。 |

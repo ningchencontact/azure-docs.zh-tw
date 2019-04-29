@@ -9,11 +9,11 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 701be795ca217c4a2dc5a7dbaa3a3717d16c85bc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730217"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61024595"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>將服務主體新增至伺服器管理員角色 
 
@@ -42,7 +42,7 @@ ms.locfileid: "56730217"
 
 
 > [!NOTE]
-> 使用 Azure PowerShell cmdlet 的伺服器作業，服務主體的執行排程器也必須屬於**擁有者**中的資源角色[azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md)。 
+> 对于使用 Azure PowerShell cmdlet 进行的服务器操作，运行计划程序的服务主体还必须属于 [Azure 基于角色的访问控制 (RBAC)](../role-based-access-control/overview.md) 中资源的“所有者”角色。 
 
 ## <a name="related-information"></a>相關資訊
 

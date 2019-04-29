@@ -8,11 +8,11 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118682"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 轉譯功能
 
@@ -30,7 +30,7 @@ ms.locfileid: "57791795"
 
 如需範例集區設定，請參閱 [Azure CLI 轉譯教學課程](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)。  Azure 入口網站和 Batch Explorer 提供 GUI 工具，讓您在建立集區時選取轉譯 VM 映像。  如果使用 Batch API，則在建立集區時指定 [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) 的下列屬性值：
 
-| 發行者 | 供應項目 | SKU | 版本 |
+| 發行者 | 供應項目 | SKU | Version |
 |---------|---------|---------|--------|
 | 批次 | rendering-centos73 | 轉譯 | 最新 |
 | 批次 | rendering-windows2016 | 轉譯 | 最新 |

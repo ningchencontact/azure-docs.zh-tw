@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
 ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885871"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646722"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。
@@ -101,7 +101,7 @@ Windows 8.1 64 位元 | Enterprise、Pro | 機器應該執行最新的服務套�
 Windows 8 64 位元 | Enterprise、Pro | 機器應該執行最新的服務套件和更新。
 Windows 7 64 位元 | Ultimate、Enterprise、Professional、Home Premium、Home Basic、Starter | 機器應該執行最新的服務套件和更新。
 伺服器 | |
-Windows Server 2019 64 bit | Standard、Datacenter、Essentials | 含最新的服務套件/更新。
+Windows Server 2019 64 位 | Standard、Datacenter、Essentials | 含最新的服務套件/更新。
 Windows Server 2016 64 位元 | Standard、Datacenter、Essentials | 含最新的服務套件/更新。
 Windows Server 2012 R2 64 位元 | Standard、Datacenter、Foundation | 含最新的服務套件/更新。
 Windows Server 2012 64 位元 | Datacenter、Foundation、Standard | 含最新的服務套件/更新。

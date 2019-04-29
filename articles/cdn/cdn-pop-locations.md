@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: magattus
 ms.openlocfilehash: 53002fba9883d4ae0276ee1d91e915587f89177b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627576"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>依 Metro 的 Azure CDN 涵蓋範圍 
 > [!div class="op_single_selector"]

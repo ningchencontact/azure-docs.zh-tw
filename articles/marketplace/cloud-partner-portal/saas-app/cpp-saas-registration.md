@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fbc542ea2ed76d99d551d668b00bad1fb3719a9f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012931"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101586"
 ---
 # <a name="register-a-saas-application"></a>註冊的 SaaS 應用程式
 
@@ -104,7 +104,7 @@ HTTP 方法
 |  Grant_type         | True         | 授與類型。 預設值為 `client_credentials`。                    |
 |  Client_id          | True         |  與 Azure AD 應用程式相關聯的用戶端/應用程式識別碼。                  |
 |  client_secret      | True         |  與 Azure AD 應用程式相關聯的密碼。                               |
-|  資源           | True         |  要求權杖的目標資源。 預設值為 `62d94f6c-d599-489b-a797-3e10e42fbe22`。 |
+|  Resource           | True         |  要求權杖的目標資源。 預設值為 `62d94f6c-d599-489b-a797-3e10e42fbe22`。 |
 |  |  |  |
 
 

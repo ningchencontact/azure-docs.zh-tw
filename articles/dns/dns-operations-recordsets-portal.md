@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 10/6/2018
 ms.author: victorh
 ms.openlocfilehash: 891adfacde6e46b1d8fe8e2f6b5fb39c90ce27a0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853703"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61296270"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 DNS 記錄和記錄集
 
-此文章說明如何使用 Azure 入口網站管理 DNS 區域的記錄集和記錄。
+本文說明如何使用 Azure 入口網站管理 DNS 區域的記錄集和記錄。
 
 請務必了解 DNS 記錄集和個別 DNS 記錄之間的差別。 記錄集是指一個區域中有相同名稱和相同類型的記錄集合。 如需詳細資訊，請參閱 [使用 Azure 入口網站建立 DNS 記錄集和記錄](dns-getstarted-create-recordset-portal.md)。
 
@@ -27,7 +27,7 @@ ms.locfileid: "48853703"
 ## <a name="view-a-record-set"></a>檢視記錄集
 
 1. 在 Azure 入口網站中，移至 [DNS 區域]  刀鋒視窗。
-2. 搜尋記錄集並選取它。 這會開啟記錄集屬性。
+2. 搜尋記錄集並加以選取。 這會開啟記錄集屬性。
 
     ![搜尋資料錄集](./media/dns-operations-recordsets-portal/searchset500.png)
 

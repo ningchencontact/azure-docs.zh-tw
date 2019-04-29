@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: fda1d3d626c91ba984f08b96c79ab6a2fd2ec74b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477581"
 ---
 # <a name="repairing-an-import-job"></a>修復匯入作業
 Microsoft Azure 匯入/匯出服務可能無法將某些檔案或某個檔案的部分複製到 Windows Azure Blob 服務。 部分的失敗原因包括︰  
@@ -32,13 +32,13 @@ Microsoft Azure 匯入/匯出服務可能無法將某些檔案或某個檔案的
   
 |||  
 |-|-|  
-|**/r:**<RepairFile\>|**必要。** 修復檔案的路徑，可追蹤修復進度，並可讓您繼續中斷的修復。 每個磁碟機需要一個修復檔案，而且只能有一個。 當您啟動指定磁碟機的修復時，請傳入尚不存在之修復檔的路徑。 若要恢復中斷的修復，您應傳入現有修復檔案名稱。 一律必須指定對應於目標磁碟機的修復檔。|  
-|**/logdir:**<LogDirectory\>|**選用。** 記錄檔目錄。 詳細資訊記錄檔會寫入至這個目錄。 如未指定記錄檔目錄，則會使用目前的目錄作為記錄檔目錄。|  
+|**/r:**<RepairFile\>|**必要。** 修复文件的路径。该文件用于跟踪修复进度，以及恢复已中断的修复。 每個磁碟機需要一個修復檔案，而且只能有一個。 當您啟動指定磁碟機的修復時，請傳入尚不存在之修復檔的路徑。 若要恢復中斷的修復，您應傳入現有修復檔案名稱。 始终必须指定与目标驱动器对应的修复文件。|  
+|**/logdir:**<LogDirectory\>|**選用。** 日志目录。 詳細資訊記錄檔會寫入至這個目錄。 如未指定記錄檔目錄，則會使用目前的目錄作為記錄檔目錄。|  
 |**/d:**<TargetDirectories\>|**必要。** 一或多個以分號分隔的目錄，其中包含所匯入的原始檔。 也可以使用匯入磁碟機，但如果有原始檔的替代位置可用，則非必要。|  
-|**/bk:**<BitLockerKey\>|**選用。** 如果您希望該工具解除鎖定原始檔案所在的加密磁碟機，您應指定 BitLocker 金鑰。|  
+|**/bk:**<BitLockerKey\>|**可选。** 如果您希望該工具解除鎖定原始檔案所在的加密磁碟機，您應指定 BitLocker 金鑰。|  
 |**/sn:**<StorageAccountName\>|**必要。** 匯入作業的儲存體帳戶名稱。|  
-|**/sk:**<StorageAccountKey\>|如果未指定 (且只有在未指定) 容器 SAS 時，才是**必要**參數。 匯入作業之儲存體帳戶的帳戶金鑰。|  
-|**/csas:**<ContainerSas\>|如果未指定 (且只有在未指定) 儲存體帳戶金鑰時，才是**必要**參數。 存取與匯入作業相關聯的 Blob 所用的容器 SAS。|  
+|/sk:<StorageAccountKey\>|如果未指定 (且只有在未指定) 容器 SAS 時，才是**必要**參數。 匯入作業之儲存體帳戶的帳戶金鑰。|  
+|**/csas:**<ContainerSas\>|**必需** 的。 存取與匯入作業相關聯的 Blob 所用的容器 SAS。|  
 |**/CopyLogFile:**<DriveCopyLogFile\>|**必要。** 磁碟機複製記錄檔 (詳細資訊記錄檔或錯誤記錄檔) 的路徑。 此檔案是由 Windows Azure 匯入/匯出服務所產生，您可以從與作業相關聯的 blob 儲存體下載。 複製記錄檔包含所要修復之失敗 blob 或檔案的相關資訊。|  
 |**/PathMapFile:**<DrivePathMapFile\>|**選用。** 如果您在相同作業中匯入多個同名的檔案，則為可用來解決模稜兩可情形之文字檔的路徑。 第一次執行此工具時，它可以在此檔案中填入所有模稜兩可的名稱。 後續執行此工具時，會使用此檔案來解決模稜兩可情形。|  
   

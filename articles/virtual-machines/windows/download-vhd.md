@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 3d44a4a723c39bf9780475a2ac3088da94285f6e
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61076299"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>從 Azure 下載 Windows VHD
 
@@ -32,7 +32,7 @@ ms.locfileid: "56329365"
 
 若要使用 VHD 作為映像來建立其他 VM，請完成下列步驟：
 
-1.  如果您尚未登入 [Azure 入口網站](https://portal.azure.com/)，請先登入。
+1.  登录到 [Azure 门户](https://portal.azure.com/)（如果未登录）。
 2.  [連接至 VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
 3.  在 VM 上，以系統管理員身分開啟 [命令提示字元] 視窗。
 4.  切換至 *%windir%\system32\sysprep* 目錄並執行 sysprep.exe。
@@ -63,7 +63,7 @@ ms.locfileid: "56329365"
 > 
 > 
 
-## <a name="download-vhd"></a>下載 VHD
+## <a name="download-vhd"></a>下载 VHD
 
 1.  在產生的 URL 之下，按一下 [下載 VHD 檔案]。
 

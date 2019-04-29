@@ -14,11 +14,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814345"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61250467"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 Web 資料表的資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,11 +71,11 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 Web 連結服務專屬 JSON 元素的說明。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| type |類型屬性必須設定為：**Web** |yes |
-| Url |Web 來源的 URL |yes |
-| authenticationType |匿名。 |yes |
+| type |類型屬性必須設定為：**Web** |是 |
+| Url |Web 來源的 URL |是 |
+| authenticationType |匿名。 |是 |
 
 ### <a name="using-anonymous-authentication"></a>使用匿名驗證
 
@@ -99,11 +99,11 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 
 每個資料集類型的 **typeProperties** 區段都不同，可提供資料存放區中的資料位置資訊。 **WebTable** 類型資料集的 typeProperties 區段有下列屬性
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type |資料集的類型。 必須設定為 **WebTable** |yes |
+| type |資料集的類型。 必須設定為 **WebTable** |是 |
 | path |包含資料表之資源的相對 URL。 |沒有。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
-| index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |yes |
+| index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |是 |
 
 **範例：**
 

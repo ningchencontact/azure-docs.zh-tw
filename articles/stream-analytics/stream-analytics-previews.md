@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.openlocfilehash: 08430f3eee858cdb6c9a7fbdfe11bd4c00ef148d
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485670"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 串流分析預覽功能
 
@@ -25,7 +25,7 @@ ms.locfileid: "58630395"
 
 ### <a name="anomaly-detection"></a>異常偵測
 
-Azure 串流分析導入了新的機器學習模型，其可支援「尖峰」和「下降」偵測，以及雙向、緩慢正向趨勢和緩慢負向趨勢偵測。 如需詳細資訊，請瀏覽[在 Azure Stream Analytics 中的異常偵測](stream-analytics-machine-learning-anomaly-detection.md)。
+Azure 串流分析導入了新的機器學習模型，其可支援「尖峰」和「下降」偵測，以及雙向、緩慢正向趨勢和緩慢負向趨勢偵測。 有关详细信息，请访问 [Azure 流分析中的异常情况检测](stream-analytics-machine-learning-anomaly-detection.md)。
 
 ### <a name="sql-database-reference-data"></a>SQL Database 參考資料
 

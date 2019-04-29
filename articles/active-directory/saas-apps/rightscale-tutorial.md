@@ -16,11 +16,11 @@ ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 416a98c5f9c5a2ec813206ea9ea7f311b23e86cb
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61079762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>教學課程：Azure Active Directory 與 Rightscale 整合
 
@@ -163,7 +163,7 @@ Rightscale 與 Azure AD 整合提供下列優點：
    
     ![設定單一登入](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
-    h. 按一下 [檔案] 。
+    h.如果该值不存在，请单击“添加行”。 按一下 [檔案] 。
 
    > [!TIP]
    > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

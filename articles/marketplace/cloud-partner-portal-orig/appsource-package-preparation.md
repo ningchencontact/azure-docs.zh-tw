@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625406"
 ---
 # <a name="appsource-package-preparation"></a>AppSource 套件準備
 
@@ -86,7 +86,7 @@ AppSource 套件需要一些額外的檔案。
 1. jpg (32x32 解析度)
 2. html (HTML 格式的檔案)
 3. **Content_Types.xml** (同上)
-4. xml
+4. Xml
 
 以下是 input.xml 的範例程式碼。 請參閱下表中的定義。
 
@@ -133,7 +133,7 @@ AppSource 套件需要一些額外的檔案。
 
 1. zip (稍早建立)
 2. **Content_Types.xml**
-3. xml
+3. Xml
 4. png
 5. html
 

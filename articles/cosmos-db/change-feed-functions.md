@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 35639dac0eacd5eae04b7848bdbbc1bc30fbf214
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 18780deba1910b3ea77f7313bfb6d204dacabd82
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680769"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112016"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>使用 Azure Cosmos DB 與 Azure Functions 的無伺服器事件型架構
 
-Azure Functions 提供最簡單的方式來連接到[變更摘要]()。 您可以建立小型反應式 Azure 函式，將會自動觸發在您的 Azure Cosmos 容器的變更摘要中的每個新事件。
+Azure Functions 提供最簡單的方式來連接到[變更摘要](change-feed.md)。 您可以建立小型反應式 Azure 函式，將會自動觸發在您的 Azure Cosmos 容器的變更摘要中的每個新事件。
 
 ![使用 Azure Cosmos DB 觸發程序無伺服器與事件為基礎的函數](./media/change-feed-functions/functions.png)
 

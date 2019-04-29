@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61448979"
 ---
 # <a name="create-an-advanced-device-model"></a>建立進階裝置型號
 
@@ -161,8 +161,8 @@ IoT 裝置可以使用不同的通訊協定來連線。 模擬可讓您使用 **
 
 * 物件 - 使用 JSON 序列化
 * 二進位 - 使用 base64 序列化
-* 文字
-* BOOLEAN
+* Text
+* Boolean
 * 整數 
 * Double
 * DateTime

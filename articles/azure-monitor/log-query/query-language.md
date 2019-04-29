@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
 ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61425957"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure 監視器記錄查詢
 Azure 監視器記錄以 Azure 資料總管為基礎建置，且 Azure 監視器記錄查詢使用相同的 Kusto 查詢語言版本。 [Kusto 查詢語言文件](/azure/kusto/query)涵蓋語言的所有詳細資料，而且應該是您用來撰寫 Azure 監視器記錄查詢的主要資源。 此頁面所提供的其他資源連結可用來了解如何撰寫查詢，以及對語言進行 Azure 監視器實作的差異。

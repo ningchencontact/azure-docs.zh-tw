@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
 ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740907"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure 監視器的記錄檔查詢中的電腦群組
 Azure 監視器中的電腦群組可讓您將[記錄查詢](../log-query/log-query-overview.md)範圍限於一組特定的電腦。  使用您所定義的查詢，或從不同來源匯入群組，將電腦填入每個群組中。  當記錄查詢包含群組時，結果就僅限於與群組中的電腦相符的記錄。
@@ -57,7 +57,7 @@ Azure 監視器中的電腦群組可讓您將[記錄查詢](../log-query/log-que
 |:---|:---|
 | 名稱   | 要在入口網站中顯示的查詢名稱。 |
 | 函式別名 | 用來識別查詢中電腦群組的唯一別名。 |
-| 類別       | 用來在入口網站中組織查詢的類別。 |
+| Category       | 用來在入口網站中組織查詢的類別。 |
 
 
 ### <a name="active-directory"></a>Active Directory

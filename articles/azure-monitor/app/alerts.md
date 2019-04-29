@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60692943"
 ---
 # <a name="set-alerts-in-application-insights"></a>在 Application Insights 中設定警示
 [Azure Application Insights][start] 可在 Web 應用程式中發生效能或使用量計量變更時對您發出警示。 

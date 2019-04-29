@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60619819"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>搭配虛擬機器擴展集使用應用程式健康狀態延伸模組
 監視應用程式健康狀態是用於管理及升級部署的重要訊號。 Azure 虛擬機器擴展集支援包括[自動 OS 映像升級](virtual-machine-scale-sets-automatic-upgrade.md)的[輪流升級](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)，這些升級仰賴個別執行個體的健康狀態監視來升級您的部署。
@@ -65,18 +65,18 @@ ms.locfileid: "58084390"
 
 | 名稱 | 值 / 範例 | 資料類型
 | ---- | ---- | ---- 
-| apiVersion | `2018-10-01` | 日期 |
-| publisher | `Microsoft.ManagedServices` | 字串 |
-| type | `ApplicationHealthLinux` (Linux)，`ApplicationHealthWindows` (Windows) | 字串 |
+| apiVersion | `2018-10-01` | date |
+| publisher | `Microsoft.ManagedServices` | string |
+| type | `ApplicationHealthLinux` (Linux)，`ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>設定
 
-| 名稱 | 值 / 範例 | 資料類型
+| 名稱 | 值 / 範例 | 数据类型
 | ---- | ---- | ----
-| protocol | `http` 或 `tcp` | 字串 |
+| protocol | `http` 或 `tcp` | string |
 | 連接埠 | 通訊協定是 `http` 時為選擇性項目；通訊協定是 `tcp` 時則為必要項目 | int |
-| requestPath | 通訊協定是 `http` 時為必要項目；通訊協定是 `tcp` 時則不允許使用 | 字串 |
+| requestPath | 通訊協定是 `http` 時為必要項目；通訊協定是 `tcp` 時則不允許使用 | string |
 
 ## <a name="deploy-the-application-health-extension"></a>部署應用程式健康狀態延伸模組
 有多種方法可以將應用程式健康狀態延伸模組部署至您的擴展集，如下面的範例所詳述。

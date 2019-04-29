@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624967"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -35,7 +35,7 @@ ms.locfileid: "56594673"
 |  --------      |   ---------------                                                           | ------------- |
 | publisherId    | 要擷取之供應項目的發行者識別碼，例如 `contoso`       |  字串       |
 | offerId        | 要擷取之供應項目的供應項目識別碼                                   |  字串       |
-| api-version    | API 的最新版本                                                   |  日期         |
+| api-version    | API 的最新版本                                                   |  date         |
 |  |  |  |
 
 
@@ -45,7 +45,7 @@ ms.locfileid: "56594673"
 |  **名稱**       |     **值**       |
 |  ---------      |     ----------      |
 | Content-Type    | `application/json`  |
-| Authorization   | `Bearer YOUR_TOKEN` |
+| 授權   | `Bearer YOUR_TOKEN` |
 |  |  |
 
 

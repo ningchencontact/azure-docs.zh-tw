@@ -2,18 +2,17 @@
 title: 在 Azure 容器執行個體中更新容器
 description: 了解如何在 Azure 容器執行個體的容器群組中更新執行中的容器。
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
-ms.author: marsma
-ms.openlocfilehash: 5a42b0983b0f754b119fa304317e758a976fb4f6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432611"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686886"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>在 Azure 容器執行個體中更新容器
 
@@ -23,7 +22,7 @@ ms.locfileid: "39432611"
 
 使用至少一個已修改的屬性來重新部署現有的群組，以更新容器群組中的容器。 當您更新容器群組時，群組中的所有執行中容器會就地重新啟動。
 
-發出 create 命令 (或使用 Azure 入口網站) 來重新部署現有的容器群組，並指定現有群組的名稱。 當您在發出 create 命令來觸發重新部署時，請修改群組的至少一個有效屬性。 並非所有的容器群組屬性都適用於重新部署。 請參閱[需要刪除的屬性](#properties-that-require-delete)，以取得不支援的屬性清單。
+發出 create 命令 (或使用 Azure 入口網站) 來重新部署現有的容器群組，並指定現有群組的名稱。 當您在發出 create 命令來觸發重新部署時，請修改群組的至少一個有效屬性。 並非所有的容器群組屬性都適用於重新部署。 請參閱[需要刪除的屬性](#properties-that-require-container-delete)，以取得不支援的屬性清單。
 
 下列 Azure CLI 範例會使用新的 DNS 名稱標籤建立一個容器群組。 因為修改了群組的 DNS 名稱標籤屬性，所以會重新部署容器群組，而且其容器會重新啟動。
 

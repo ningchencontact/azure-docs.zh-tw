@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664721"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725392"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>存取、儲存、移除 Reliable Actors 狀態
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 是可封裝邏輯和狀態並穩定維持狀態的單一執行緒物件。 每個動作項目執行個體都有自己的[狀態管理員](service-fabric-reliable-actors-state-management.md)︰以可靠方式儲存索引鍵/值組的字典式資料結構。 狀態管理員是包住狀態供應器的包裝函式。 可以用來儲存資料，無論所用的是何種[持續性設定](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication)。

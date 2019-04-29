@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
 ms.openlocfilehash: b066296ca52d3067f8985245161eb4fa7b484a07
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720122"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>建立具狀態服務的單元測試
 對 Service Fabric 具狀態服務進行單元測試，可找出傳統應用程式或特定領域單元測試不一定能找到的常見錯誤。 為具狀態服務開發單元測試時，必須留意某些特殊考量。

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: raynew
 ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116170"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>使用 Azure 備份伺服器來備份系統狀態及還原為裸機
 
@@ -37,9 +37,9 @@ Azure 備份伺服器可備份系統狀態及提供裸機復原 (BMR) 保護。
 |**檔案資料**<br /><br />Azure 備份伺服器的檔案資料備份<br /><br />BMR/系統狀態備份|遺失伺服器 (資料磁碟區也遺失)|Y|否|是 (先進行 BMR，接著進行所備份之檔案資料的一般復原)|
 |**SharePoint 資料**：<br /><br />Azure 備份伺服器的伺服器陣列資料備份<br /><br />BMR/系統狀態備份|遺失網站、清單、清單項目、文件|Y|N|N|
 |**SharePoint 資料**：<br /><br />Azure 備份伺服器的伺服器陣列資料備份<br /><br />BMR/系統狀態備份|作業系統遺失或損毀|N|Y|Y|
-|**SharePoint 資料**：<br /><br />Azure 備份伺服器的伺服器陣列資料備份<br /><br />BMR/系統狀態備份|災害復原|N|N|N|
-|Windows Server 2012 R2 Hyper-V<br /><br />Azure 備份伺服器的 Hyper-V 主機或客體備份<br /><br />主機的 BMR/系統狀態備份|遺失 VM|Y|N|N|
-|Hyper-V<br /><br />Azure 備份伺服器的 Hyper-V 主機或客體備份<br /><br />主機的 BMR/系統狀態備份|作業系統遺失或損毀|N|Y|Y|
+|SharePoint 数据：<br /><br />Azure 備份伺服器的伺服器陣列資料備份<br /><br />BMR/系统状态备份|災害復原|N|N|N|
+|Windows Server 2012 R2 Hyper-V<br /><br />对 Hyper-V 主机或来宾进行 Azure 备份服务器备份<br /><br />主機的 BMR/系統狀態備份|遺失 VM|Y|N|N|
+|Hyper-V<br /><br />Azure 備份伺服器的 Hyper-V 主機或客體備份<br /><br />主機的 BMR/系統狀態備份|丢失或损坏操作系统|N|Y|Y|
 |Hyper-V<br /><br />Azure 備份伺服器的 Hyper-V 主機或客體備份<br /><br />主機的 BMR/系統狀態備份|遺失 Hyper-V 主機 (VM 未受損)|N|N|Y|
 |Hyper-V<br /><br />Azure 備份伺服器的 Hyper-V 主機或客體備份<br /><br />主機的 BMR/系統狀態備份|遺失 Hyper-V 主機 (VM 也遺失)|N|N|Y<br /><br />先進行 BMR，接著進行 Azure 備份伺服器一般復原|
 |SQL Server/Exchange<br /><br />Azure 備份伺服器應用程式備份<br /><br />BMR/系統狀態備份|遺失應用程式資料|Y|N|N|
@@ -68,7 +68,7 @@ Azure 備份伺服器可備份系統狀態及提供裸機復原 (BMR) 保護。
 
 備份完成時，系統會將檔案傳輸到備份伺服器電腦。 記錄會儲存在 C:\Windows\Logs\WindowsServerBackup 中。
 
-## <a name="prerequisites-and-limitations"></a>必要條件和限制
+## <a name="prerequisites-and-limitations"></a>先决条件和限制
 
 -   執行 Windows Server 2003 的電腦或執行用戶端作業系統的電腦皆不支援 BMR。
 
@@ -164,9 +164,9 @@ Azure 備份伺服器可備份系統狀態及提供裸機復原 (BMR) 保護。
 
 4.  在 [指定目的地] 頁面上，選取資料的複製目的地。 請記住，所選取的目的地必須有足夠的空間。 我們建議您建立新的資料夾。
 
-5.  在 [指定復原選項] 頁面上，選取要套用的安全性設定。 然後，選取是否要使用存放區域網路 (SAN) 型硬體快照集，以便進行更快速的復原。 (當您擁有可使用這項功能的 SAN，而且您能夠建立複製品並將其分割以便可供寫入時，系統才會提供這個選項。 此外，受保護的電腦和備份伺服器電腦必須連線到相同的網路。)
+5.  在“指定恢复选项”页上，选择要应用的安全设置。 然後，選取是否要使用存放區域網路 (SAN) 型硬體快照集，以便進行更快速的復原。 (當您擁有可使用這項功能的 SAN，而且您能夠建立複製品並將其分割以便可供寫入時，系統才會提供這個選項。 此外，受保護的電腦和備份伺服器電腦必須連線到相同的網路。)
 
-6.  設定通知選項。 在 [確認] 頁面上，選取 [復原]。
+6.  设置通知选项。 在“确认”页上，选择“恢复”。
 
 設定共用位置：
 

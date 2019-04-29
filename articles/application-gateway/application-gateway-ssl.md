@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: victorh
 ms.openlocfilehash: 89a88d79b6b93a233dbd4f335d0eb449e49d5289
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122195"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>使用傳統部署模型設定適用於 SSL 卸載的應用程式閘道
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](application-gateway-ssl-portal.md)
+> * [Azure 门户](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [Azure 傳統 PowerShell](application-gateway-ssl.md)
 > * [Azure CLI](application-gateway-ssl-cli.md)
@@ -34,7 +34,7 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 ## <a name="before-you-begin"></a>開始之前
 
 1. 使用 Web Platform Installer 安裝最新版的 Azure PowerShell Cmdlet。 您可以從 **下載頁面** 的 [Windows PowerShell](https://azure.microsoft.com/downloads/)區段下載並安裝最新版本。
-2. 請確認您的運作中虛擬網路具有有效子網路。 請確定沒有虛擬機器或是雲端部署正在使用子網路。 應用程式閘道必須單獨位於虛擬網路子網路中。
+2. 請確認您的運作中虛擬網路具有有效子網路。 请确保没有虚拟机或云部署正在使用子网。 應用程式閘道必須單獨位於虛擬網路子網路中。
 3. 您要設定來使用應用程式閘道的伺服器必須存在，或是在虛擬網路中建立其端點，或是已指派公用 IP 位址或虛擬 IP 位址 (VIP)。
 
 若要在應用程式閘道上設定 SSL 卸載，請依列出的順序完成下列步驟：

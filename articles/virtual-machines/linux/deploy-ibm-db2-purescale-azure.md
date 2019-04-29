@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
 ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60716042"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>在 Azure 上部署 IBM DB2 pureScale
 
@@ -78,7 +78,7 @@ GitHub 存放庫包括 DB2server.rsp 回應檔 (.rsp)，此檔案可讓您產生
 > [!NOTE]
 > GitHub 上的 [DB2onAzure](https://aka.ms/db2onazure) 存放庫中包含一個範例回應檔 DB2server.rsp。 若您使用此檔案，您必須先編輯它，才能在您的環境中使用。
 
-| 畫面名稱               | 欄位                                        | 值                                                                                                 |
+| 畫面名稱               | 欄位                                        | Value                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | 歡迎使用                   |                                              | 新安裝                                                                                           |
 | 選擇產品          |                                              | DB2 版本 11.1.3.3。 具有 DB2 pureScale 的伺服器版本                                              |

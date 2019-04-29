@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61369800"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -55,13 +55,13 @@ ms.locfileid: "55811047"
 
 6. 隨即顯示類似 function app: function app name: xxx 的項目。 請記下函式應用程式名稱，後續步驟將會使用該名稱。
 
-7. 等候 Azure Resource Manager 範本部署完成，也就是「Resource Manager 範本部署：完成」訊息顯示時。
+7. 等候 Azure Resource Manager 範本部署完成，也就是指出當訊息*Resource Manager 範本部署：完成*隨即出現。
 
 ## <a name="deploy-function-app"></a>部署函式應用程式
 
 1. 按一下 Visual Studio Code 中的 [工作] 下拉式功能表，然後選取 [執行工作...]  - [cloud-deploy]。
 
-2. 等候函式應用程式程式碼上傳程序完成；「函式應用程式部署：完成」訊息隨即顯示。
+2. 等候函式應用程式程式碼上傳程序完成;訊息*函式應用程式部署：完成*隨即出現。
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>在 DevKit 中設定 IoT 中樞裝置連接字串
 

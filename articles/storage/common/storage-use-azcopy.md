@@ -2,18 +2,18 @@
 title: 使用 AzCopy on Windows 複製或移動資料到 Azure 儲存體 | Microsoft Docs
 description: 使用 AzCopy on Windows 公用程式來從 Blob、資料表和檔案內容移動或來回複製資料。 從本機檔案複製資料到 Azure 儲存體，或在儲存體帳戶內或之間複製資料。 輕鬆地將資料移轉至 Azure 儲存體。
 services: storage
-author: seguler
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: seguler
+ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881727"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60728979"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 AzCopy on Windows 傳送資料
 AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的簡單命令來將資料複製到/複製出 Microsoft Azure Blob、檔案和表格儲存體所設計。 您可以在檔案系統和儲存體帳戶之間，或者儲存體帳戶之間複製資料。  
@@ -475,7 +475,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:https:/
 
 ### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>只複製目的地中沒有的資料
 
-`/XO` 和 `/XN` 參數分別可讓您在複製作業中排除較舊或較新的來源資源。 如果只想复制目标中不存在的源资源，可以在 AzCopy 命令中指定这两个参数：
+`/XO` 和 `/XN` 參數分別可讓您在複製作業中排除較舊或較新的來源資源。 如果只想複製目的地中不存在的來源資源，您可以在 AzCopy 命令中指定這兩個參數：
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
@@ -989,7 +989,7 @@ AzCopy 預設會將 blob 或檔案的內容類型設定為 application/octet-str
 
 ### <a name="azure-storage-documentation"></a>Azure 儲存體文件：
 * [Azure 存储简介](../storage-introduction.md)
-* [如何通过 .NET 使用 Blob 存储](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [如何從 .NET 使用 Blob 儲存體](../blobs/storage-dotnet-how-to-use-blobs.md)
 * [如何使用 .NET 的檔案儲存體](../storage-dotnet-how-to-use-files.md)
 * [如何使用 .NET 的資料表儲存體](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [如何创建、管理或删除存储帐户](../storage-create-storage-account.md)

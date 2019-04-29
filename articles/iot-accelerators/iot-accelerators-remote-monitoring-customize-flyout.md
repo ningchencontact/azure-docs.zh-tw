@@ -1,19 +1,20 @@
 ---
-title: 在遠端監視解決方案 UI 中新增飛出視窗 - Azure | Microsoft Docs
+title: 将浮出控件添加到远程监视解决方案 UI - Azure | Microsoft Docs
 description: 本文說明如何在遠端監視解決方案加速器 Web UI 中的頁面上，新增飛出視窗。
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/05/2018
+origin.date: 10/05/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447109"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>在遠端監視解決方案加速器 Web UI 中新增自訂飛出視窗
 
@@ -49,11 +50,11 @@ ms.locfileid: "49167421"
 
 **exampleFlyout.container.js**
 
-[!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
+
 
 **exampleFlyout.js**
 
-[!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
+
 
 將 **src/walkthrough/components/pages/pageWithFlyout/flyouts** 資料夾複製到 **src/components/pages/example** 資料夾。
 

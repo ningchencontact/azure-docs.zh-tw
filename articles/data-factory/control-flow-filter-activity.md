@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
 ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554842"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data Factory 中的篩選活動
 您可以在管線中使用篩選活動，將篩選運算式套用至輸入陣列。 
@@ -37,12 +37,12 @@ ms.locfileid: "54021827"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
 name | `Filter` 活動的名稱。 | 字串 | 是
 type | 必須設定為**篩選**。 | 字串 | 是
 condition | 要用來篩選輸入的條件。 | 運算是 | 是
-items | 應套用篩選條件的輸入陣列。 | 運算是 | 是
+項目 | 應套用篩選條件的輸入陣列。 | 運算是 | 是
 
 ## <a name="example"></a>範例
 

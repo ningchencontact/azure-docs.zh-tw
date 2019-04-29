@@ -1,27 +1,22 @@
 ---
-title: 使用以 Linux 為基礎的 HDInsight 開發指令碼動作 - Azure
-description: 深入了解如何使用 Bash 指令碼自訂以 Linux 為基礎的 HDInsight 叢集。 HDInsight 的指令碼動作功能可讓您在建立叢集期間或之後執行指令碼。 指令碼可用於變更叢集組態設定或安裝其他軟體。
-services: hdinsight
+title: 開發指令碼動作來自訂 Azure HDInsight 叢集
+description: 了解如何使用 Bash 指令碼來自訂 HDInsight 叢集。 指令碼動作可讓您變更叢集組態設定或安裝其他軟體的叢集建立期間或之後執行指令碼。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: 0d56d901ca932f044ef71ef2bc24933bcf18c24a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544580"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60590787"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 
 了解如何使用 Bash 指令碼來自訂 HDInsight 叢集。 指令碼動作是在建立叢集期間或之後自訂 HDInsight 的一種方法。
-
-> [!IMPORTANT]  
-> 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="what-are-script-actions"></a>什麼是指令碼動作
 
@@ -61,13 +56,28 @@ ms.locfileid: "59544580"
 
 不同版本的 HDInsight 有不同版本的 Hadoop 服務和已安裝的元件。 如果您的指令碼預期特定版本的服務或元件，您應該只在包含必要元件的 HDInsight 版本中使用指令碼。 您可以使用 [HDInsight 元件版本設定](hdinsight-component-versioning.md) 文件，找到有關 HDInsight 隨附的元件版本資訊。
 
-### <a name="bps10"></a>鎖定 OS 版本
+### <a name="checking-the-operating-system-version"></a>檢查作業系統版本
+
+不同 HDInsight 版本各仰賴特定的 Ubuntu 版本。 您在指令碼中必須檢查的 OS 版本之間可能會有差異。 例如，您可能必須安裝繫結至 Ubuntu 版本的二進位檔。
+
+若要检查 OS 版本，请使用 `lsb_release`。 例如，下列指令碼示範如何根據 OS 版本來參考特定的 tar 檔案︰
+
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+```
+
+### <a name="bps10"></a> 目標的作業系統版本
 
 以 Linux 為基礎的 HDInsight 所根據的是 Ubuntu Linux 散發套件。 不同 HDInsight 版本仰賴不同的 Ubuntu 版本，這可能會改變指令碼的運作方式。 例如，HDInsight 3.4 及更早版本所根據的是使用 Upstart 的 Ubuntu 版本。 3.5 版和更高版本根據的是 Ubuntu 16.04，其使用的是 Systemd。 Systemd 和 Upstart 仰賴不同的命令，因此應將指令碼撰寫為適用兩者。
 
-HDInsight 3.4 和 3.5 之間的另一個重要差異在於，`JAVA_HOME` 現在指向 Java 8。
-
-您可以使用 `lsb_release` 檢查 OS 版本。 下列程式碼示範如何判斷指令碼是在 Ubuntu 14 或 16 上執行：
+HDInsight 3.4 和 3.5 之間的另一個重要差異在於，`JAVA_HOME` 現在指向 Java 8。 下列程式碼示範如何判斷指令碼是在 Ubuntu 14 或 16 上執行：
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -136,10 +146,10 @@ fi
 
 您安裝在叢集上的元件可能預設設定是使用 Apache Hadoop 分散式檔案系統 (HDFS) 儲存體。 HDInsight 使用 Azure 儲存體或 Data Lake Storage 作為預設儲存體。 兩者都提供 HDFS 相容的檔案系統，即使刪除叢集，也能保存資料。 您可能需要將您所安裝的元件設定為使用 WASB 或 ADL，而非 HDFS。
 
-對於大部分作業，您不需要指定檔案系統。 例如，以下會將 giraph-examples.jar 檔案從本機檔案系統複製到叢集儲存體：
+對於大部分作業，您不需要指定檔案系統。 例如，以下會將複製 hadoop common.jar 檔案從本機檔案系統叢集儲存體：
 
 ```bash
-hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 ```
 
 在此範例中，`hdfs` 命令會自動使用預設叢集儲存體。 對於某些作業，您可能需要指定 URI。 例如，`adl:///example/jars` 適用於 Azure Data Lake Storage Gen1，`abfs:///example/jars` Azure Data Lake Storage Gen2 或 `wasb:///example/jars` 適用於 Azure 儲存體。
@@ -289,23 +299,6 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 > [!NOTE]  
 > 用來參考指令碼的 URI 格式會隨所使用的服務而有所不同。 若為與 HDInsight 叢集相關聯的儲存體帳戶，請使用 `wasb://` 或 `wasbs://`。 若為可公開讀取的 URI，請使用 `http://` 或 `https://` 。 若為 Data Lake Storage，請使用 `adl://`。
-
-### <a name="checking-the-operating-system-version"></a>檢查作業系統版本
-
-不同 HDInsight 版本各仰賴特定的 Ubuntu 版本。 您在指令碼中必須檢查的 OS 版本之間可能會有差異。 例如，您可能必須安裝繫結至 Ubuntu 版本的二進位檔。
-
-若要检查 OS 版本，请使用 `lsb_release`。 例如，下列指令碼示範如何根據 OS 版本來參考特定的 tar 檔案︰
-
-```bash
-OS_VERSION=$(lsb_release -sr)
-if [[ $OS_VERSION == 14* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
-    HUE_TARFILE=hue-binaries-14-04.tgz
-elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
-    HUE_TARFILE=hue-binaries-16-04.tgz
-fi
-```
 
 ## <a name="deployScript"></a>指令碼動作的部署檢查清單
 

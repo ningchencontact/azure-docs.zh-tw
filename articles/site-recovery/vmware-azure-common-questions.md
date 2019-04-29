@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/18/2019
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: MT
+ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004766"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125554"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -245,11 +245,15 @@ Site Recovery 會遵循到 N-4 支援模型。 [了解更多](https://aka.ms/asr
 
 在 復原服務保存庫中，按一下**組態伺服器**中**Site Recovery 基礎結構** > **管理**。 然後在**伺服器**，選取**下載註冊金鑰**下載保存庫認證檔。
 
+## <a name="process-server"></a>處理序伺服器
 
+### <a name="unable-to-select-process-server-during-enable-replication"></a>無法啟用複寫期間選取處理序伺服器
 
+從 9.24 版本，增強功能會提供[產品中的指引](vmware-azure-manage-process-server.md#process-server-selection-guidance)上設定向外延展處理序伺服器的時機。 這是為了避免處理序伺服器節流並避免的狀況不良的處理序伺服器的使用方式。
 
+### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>我該怎麼取得精確的健全狀況狀態的處理序伺服器？
 
-
+升級至 Site Recovery 元件[最新版本](service-updates-how-to.md#links-to-currently-supported-update-rollups)(至少 9.24 或更新版本)。
 
 ## <a name="failover-and-failback"></a>容錯移轉和容錯回復
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>是否可用於處理序伺服器在內部部署容錯回復？

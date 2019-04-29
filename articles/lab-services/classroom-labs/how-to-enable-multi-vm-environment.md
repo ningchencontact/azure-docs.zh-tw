@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
 ms.openlocfilehash: 6faf32232c42f863bff52fdfb3c0714aee8e9b88
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190529"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702394"
 ---
 # <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>建立教室實驗室 VM 的範本內的多個 Vm 環境
 目前 Azure 實驗室服務可讓您將在實驗室中的其中一個範本虛擬機器設定，並將一份複本提供給每個使用者。 但是，如果您是教授，教導如何設定防火牆或伺服器上的 IT 類別時，您可能需要在其中多部虛擬機器可以彼此通訊透過網路環境提供每位學生。

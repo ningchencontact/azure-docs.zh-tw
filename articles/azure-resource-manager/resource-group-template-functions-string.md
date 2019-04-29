@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278780"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782917"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的字串函式
 
@@ -67,7 +67,7 @@ ms.locfileid: "59278780"
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| inputString |是 |字串 |要以 base64 表示法傳回的值。 |
+| inputString |是 |string |要以 base64 表示法傳回的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -116,7 +116,7 @@ ms.locfileid: "59278780"
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | base64Output | 字串 | b25lLCB0d28sIHRocmVl |
 | toStringOutput | 字串 | one, two, three |
@@ -132,7 +132,7 @@ ms.locfileid: "59278780"
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| base64Value |是 |字串 |要转换为 JSON 对象的 base64 表示形式。 |
+| base64Value |是 |string |要转换为 JSON 对象的 base64 表示形式。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -181,7 +181,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | base64Output | 字串 | b25lLCB0d28sIHRocmVl |
 | toStringOutput | 字串 | one, two, three |
@@ -197,7 +197,7 @@ JSON 物件。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| base64Value |是 |字串 |要轉換為字串的 base64 表示法。 |
+| base64Value |是 |string |要轉換為字串的 base64 表示法。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -246,7 +246,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | base64Output | 字串 | b25lLCB0d28sIHRocmVl |
 | toStringOutput | 字串 | one, two, three |
@@ -263,7 +263,7 @@ JSON 物件。
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |字串或陣列 |串連的第一個值。 |
-| 其他引數 |否 |字串 |串連的其他值 (循序順序)。 |
+| 其他引數 |否 |string |串連的其他值 (循序順序)。 |
 
 ### <a name="return-value"></a>傳回值
 串連值的字串或陣列。
@@ -294,7 +294,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | concatOutput | 字串 | prefix-5yj4yjf5mbg72 |
 
@@ -335,7 +335,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | return | 陣列 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -411,7 +411,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -430,7 +430,7 @@ JSON 物件。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |是 |字串 |要轉換為資料 URI 的值。 |
+| stringToConvert |是 |string |要轉換為資料 URI 的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -470,7 +470,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | dataUriOutput | 字串 | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | 字串 | Hello, World! |
@@ -485,7 +485,7 @@ JSON 物件。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |是 |字串 |要轉換的資料 URI 值。 |
+| dataUriToConvert |是 |string |要轉換的資料 URI 值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -525,7 +525,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | dataUriOutput | 字串 | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | 字串 | Hello, World! |
@@ -540,7 +540,7 @@ JSON 物件。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| itemToTest |是 |陣列、物件或字串 |要檢查其是否空白的值。 |
+| itemToTest |是 |陣列、物件或字串 |要检查是否为空的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -589,7 +589,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -605,8 +605,8 @@ JSON 物件。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |是 |字串 |其中包含要尋找之項目的值。 |
-| stringToFind |是 |字串 |要尋找的值。 |
+| stringToSearch |是 |string |其中包含要尋找之項目的值。 |
+| stringToFind |是 |string |要尋找的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -652,7 +652,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -708,7 +708,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | 字串 | one |
 | stringOutput | 字串 | O |
@@ -717,23 +717,23 @@ JSON 物件。
 
 `format(formatString, arg1, arg2, ...)`
 
-從輸入值來建立格式化的字串。
+基于输入值创建带格式的字符串。
 
 ### <a name="parameters"></a>參數
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| formatString | 是 | 字串 | 複合格式字串中。 |
-| arg1 | 是 | 字串、 整數或布林值 | 要在格式化字串中包含的值。 |
-| 其他引數 | 否 | 字串、 整數或布林值 | 要包含在格式化字串中的其他值。 |
+| formatString | 是 | string | 复合格式字符串。 |
+| arg1 | 是 | 字符串、整数或布尔值 | 要包含在带格式字符串中的值。 |
+| 其他引數 | 否 | 字符串、整数或布尔值 | 要包含在带格式字符串中的附加值。 |
 
 ### <a name="remarks"></a>備註
 
-使用此函式來格式化您的範本中的字串。 它會使用與相同的格式設定選項[System.String.Format](/dotnet/api/system.string.format)在.NET 中的方法。
+使用此函数来为模板中的字符串设置格式。 此函数使用的格式设置选项与 .NET 中的 [System.String.Format](/dotnet/api/system.string.format) 方法相同。
 
 ### <a name="examples"></a>範例
 
-下列範本範例會示範如何使用 format 函數。
+以下示例模板演示如何使用 format 函数。
 
 ```json
 {
@@ -766,9 +766,9 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
-| formatTest | 字串 | Hello，使用者。 格式化數字：8,175,133 |
+| formatTest | 字串 | Hello, User。 带格式的数字：8,175,133 |
 
 ## <a name="guid"></a>GUID
 
@@ -780,14 +780,14 @@ JSON 物件。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| baseString |是 |字串 |雜湊函式中用來建立 GUID 的值。 |
-| 視需要，也會使用其他參數 |否 |字串 |您可以視需要新增多個字串，來建立指定唯一性層級的值。 |
+| baseString |是 |string |雜湊函式中用來建立 GUID 的值。 |
+| 視需要，也會使用其他參數 |否 |string |您可以視需要新增多個字串，來建立指定唯一性層級的值。 |
 
 ### <a name="remarks"></a>備註
 
 當您需要建立格式為全域唯一識別碼的值時，此函式很有幫助。 您提供限制結果唯一性範圍的參數值。 您可以指定名稱對於訂用帳戶、資源群組或部署是否唯一。
 
-傳回的值不是隨機字串，但而雜湊函式的參數上的結果。 傳回的值為 36 個字元長。 它不是全域唯一的。 若要建立新的 GUID，不會根據參數的該雜湊值，請使用[newGuid](#newguid)函式。
+返回的值不是随机字符串，而是参数中哈希函数的结果。 傳回的值為 36 個字元長。 此值并非全局唯一。 若要创建不是基于该参数哈希值的新 GUID，请使用 [newGuid](#newguid) 函数。
 
 下列範例顯示如何使用 guid 來建立常用層級的唯一值。
 
@@ -851,12 +851,12 @@ JSON 物件。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |是 |字串 |其中包含要尋找之項目的值。 |
-| stringToFind |是 |字串 |要尋找的值。 |
+| stringToSearch |是 |string |其中包含要尋找之項目的值。 |
+| stringToFind |是 |string |要尋找的值。 |
 
 ### <a name="return-value"></a>傳回值
 
-整數，代表要尋找之項目的位置。 此值是以零為起始。 如果找不到項目，則傳回-1。
+整數，代表要尋找之項目的位置。 此值是以零為起始。 如果未找到该项，则返回 -1。
 
 ### <a name="examples"></a>範例
 
@@ -894,7 +894,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | int | 3 |
@@ -949,7 +949,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | 字串 | three |
 | stringOutput | 字串 | e |
@@ -964,12 +964,12 @@ JSON 物件。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |是 |字串 |其中包含要尋找之項目的值。 |
-| stringToFind |是 |字串 |要尋找的值。 |
+| stringToSearch |是 |string |其中包含要尋找之項目的值。 |
+| stringToFind |是 |string |要尋找的值。 |
 
 ### <a name="return-value"></a>傳回值
 
-整數，代表要尋找之項目的最後一個位置。 此值是以零為起始。 如果找不到項目，則傳回-1。
+整數，代表要尋找之項目的最後一個位置。 此值是以零為起始。 如果未找到该项，则返回 -1。
 
 ### <a name="examples"></a>範例
 
@@ -1007,7 +1007,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | int | 3 |
@@ -1069,7 +1069,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1123,9 +1123,9 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述示例的输出根据每个部署的不同而异，但类似于：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
-| guidOutput | 字串 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 以下示例使用 newGuid 函数创建存储帐户的唯一名称。 此模板可能适用于其中的存储帐户生存期较短且未重新部署的测试环境。
 
@@ -1166,9 +1166,9 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述示例的输出根据每个部署的不同而异，但类似于：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
-| nameOutput | 字串 | storagenziwvyru7uxie |
+| nameOutput | string | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1217,7 +1217,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -1231,9 +1231,9 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| originalString |是 |字串 |具備由另一個字串取代的一個字串之所有執行個體的值。 |
-| oldString |是 |字串 |要從原始字串中移除的字串。 |
-| newString |是 |字串 |要添加以替代已删除字符串的字符串。 |
+| originalString |是 |string |具備由另一個字串取代的一個字串之所有執行個體的值。 |
+| oldString |是 |string |要從原始字串中移除的字串。 |
+| newString |是 |string |要添加以替代已删除字符串的字符串。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1269,7 +1269,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | firstOutput | 字串 | 1231231234 |
 | secodeOutput | 字串 | 123-123-xxxx |
@@ -1285,7 +1285,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
 | originalValue |是 |陣列或字串 |要用於略過的陣列或字串。 |
-| numberToSkip |是 |int |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果其值大於陣列或字串的長度，會傳回空陣列或字串。 |
+| numberToSkip |是 |int |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果此值大于数组或字符串的长度，则返回空数组或字符串。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1337,7 +1337,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["three"] |
 | stringOutput | 字串 | two three |
@@ -1352,7 +1352,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| inputString |是 |字串 |要分割的字串。 |
+| inputString |是 |string |要分割的字串。 |
 | 分隔符號 |是 |字串或字串陣列 |用於分割字串的分隔符號。 |
 
 ### <a name="return-value"></a>傳回值
@@ -1396,7 +1396,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | firstOutput | 陣列 | ["one", "two", "three"] |
 | secondOutput | 陣列 | ["one", "two", "three"] |
@@ -1411,8 +1411,8 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |是 |字串 |其中包含要尋找之項目的值。 |
-| stringToFind |是 |字串 |要尋找的值。 |
+| stringToSearch |是 |string |其中包含要尋找之項目的值。 |
+| stringToFind |是 |string |要尋找的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1458,7 +1458,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -1467,7 +1467,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
-## <a name="string"></a>字串
+## <a name="string"></a>string
 
 `string(valueToConvert)`
 
@@ -1532,7 +1532,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | objectOutput | 字串 | {"valueA":10,"valueB":"Example Text"} |
 | arrayOutput | 字串 | ["a","b","c"] |
@@ -1548,7 +1548,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| stringToParse |是 |字串 |要用來擷取子字串的原始字串。 |
+| stringToParse |是 |string |要用來擷取子字串的原始字串。 |
 | startIndex |否 |int |起始字元位置為零的子字串。 |
 | length |否 |int |子字串的字元數。 必須參考字串內的位置。 必須是零或更大的值。 |
 
@@ -1595,7 +1595,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | substringOutput | 字串 | two |
 
@@ -1610,7 +1610,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
 | originalValue |是 |陣列或字串 |要從其中擷取元素的陣列或字串。 |
-| numberToTake |是 |int |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果其值大於給定的陣列或字串的長度，則會傳回陣列或字串中的所有項目。 |
+| numberToTake |是 |int |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果此值大于给定数组或字符串的长度，则返回数组或字符串中的所有元素。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1662,7 +1662,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["one", "two"] |
 | stringOutput | 字串 | on |
@@ -1677,7 +1677,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| stringToChange |是 |字串 |要轉換成小寫字母的值。 |
+| stringToChange |是 |string |要轉換成小寫字母的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1713,7 +1713,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | toLowerOutput | 字串 | one two three |
 | toUpperOutput | 字串 | ONE TWO THREE |
@@ -1728,7 +1728,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| stringToChange |是 |字串 |要轉換成大寫字母的值。 |
+| stringToChange |是 |string |要轉換成大寫字母的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1764,7 +1764,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | toLowerOutput | 字串 | one two three |
 | toUpperOutput | 字串 | ONE TWO THREE |
@@ -1779,7 +1779,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |是 |字串 |要修剪的值。 |
+| stringToTrim |是 |string |要修剪的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1811,7 +1811,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | 傳回 | 字串 | one two three |
 
@@ -1825,14 +1825,14 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| baseString |是 |字串 |哈希函数中用于创建唯一字符串的值。 |
-| 視需要，也會使用其他參數 |否 |字串 |您可以視需要新增多個字串，來建立指定唯一性層級的值。 |
+| baseString |是 |string |哈希函数中用于创建唯一字符串的值。 |
+| 視需要，也會使用其他參數 |否 |string |您可以視需要新增多個字串，來建立指定唯一性層級的值。 |
 
 ### <a name="remarks"></a>備註
 
 當您需要建立資源的唯一名稱時，這個函式很有幫助。 您提供限制結果唯一性範圍的參數值。 您可以指定名稱對於訂用帳戶、資源群組或部署是否唯一。 
 
-傳回的值不是隨機字串，但而雜湊函式的結果。 傳回的值為 13 個字元長。 它不是全域唯一的。 建議您將值與來自命名慣例的前置詞結合，建立有意義的名稱。 以下示例显示了返回值的格式。 依提供的參數而改變的實際值。
+返回的值不是随机字符串，而是哈希函数的结果。 傳回的值為 13 個字元長。 此值并非全局唯一。 建議您將值與來自命名慣例的前置詞結合，建立有意義的名稱。 以下示例显示了返回值的格式。 依提供的參數而改變的實際值。
 
     tcvhiyu5h2o5o
 
@@ -1856,7 +1856,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-下列範例顯示如何根據您的資源群組建立儲存體帳戶的唯一名稱。 在資源群組內，名稱不是唯一的如果相同的方式建構。
+下列範例顯示如何根據您的資源群組建立儲存體帳戶的唯一名稱。 在资源组中，如果构造方式相同，则名称不唯一。
 
 ```json
 "resources": [{ 
@@ -1865,7 +1865,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
     ...
 ```
 
-如果您需要建立新的唯一名稱，每次您部署範本時，且不想要更新資源，您可以使用[utcNow](#utcnow) uniqueString 函式。 可以在测试环境中使用此方法。 有关示例，请参阅 [utcNow](#utcnow)。
+如果每次部署模板都需要创建新的唯一名称并且不希望更新资源，可以结合 uniqueString 使用 [utcNow](#utcnow) 函数。 可以在测试环境中使用此方法。 有关示例，请参阅 [utcNow](#utcnow)。
 
 ### <a name="return-value"></a>傳回值
 
@@ -1903,8 +1903,8 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| baseUri |是 |字串 |基本 uri 字符串。 |
-| relativeUri |是 |字串 |要加入至基底 uri 字串的相對 uri 字串。 |
+| baseUri |是 |string |基本 uri 字符串。 |
+| relativeUri |是 |string |要加入至基底 uri 字串的相對 uri 字串。 |
 
 **baseUri** 參數的值可包含特定檔案，但在建構 URI 時只會使用基底路徑。 例如，將 `http://contoso.com/resources/azuredeploy.json` 作為 baseUri 參數傳遞時，會產生 `http://contoso.com/resources/` 的基底 URI。
 
@@ -1951,7 +1951,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | uriOutput | 字串 | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | 字串 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -1967,7 +1967,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |是 |字串 |要編碼的值。 |
+| stringToEncode |是 |string |要編碼的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -2006,7 +2006,7 @@ URI 編碼值的字串。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | uriOutput | 字串 | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | 字串 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2022,7 +2022,7 @@ URI 編碼值的字串。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |是 |字串 |要轉換為字串的 URI 編碼值。 |
+| uriEncodedString |是 |string |要轉換為字串的 URI 編碼值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -2061,7 +2061,7 @@ URI 編碼值的解碼字串。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | uriOutput | 字串 | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | 字串 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2077,7 +2077,7 @@ URI 編碼值的解碼字串。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| format |否 |字串 |要轉換為字串的 URI 編碼值。 使用[标准格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 |
+| format |否 |string |要轉換為字串的 URI 編碼值。 使用[标准格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 |
 
 ### <a name="remarks"></a>備註
 
@@ -2134,11 +2134,11 @@ URI 編碼值的解碼字串。
 
 上述示例的输出根据每个部署的不同而异，但类似于：
 
-| 名稱 | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
-| utcOutput | 字串 | 20190305T175318Z |
-| utcShortOutput | 字串 | 03/05/2019 |
-| utcCustomOutput | 字串 | 3 5 |
+| utcOutput | string | 20190305T175318Z |
+| utcShortOutput | string | 03/05/2019 |
+| utcCustomOutput | string | 3 5 |
 
 以下示例演示在设置标记值时如何使用函数中的值。
 

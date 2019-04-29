@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490701"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61024663"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>教學課程：建立和管理 Azure 預算
 
@@ -65,7 +65,7 @@ ms.locfileid: "59490701"
 
 在 [建立預算] 視窗中，輸入預算名稱和預算金額。 然後選擇每月、每季或每年持續期間。 接下來，選取結束日期。 預算需要至少一個成本閾值 (預算的百分比) 與對應的電子郵件地址。 您可以選擇性地在單一預算中最多包含五個閾值與五個電子郵件地址。 當達到預算閾值時，通常會在 8 小時內收到電子郵件通知。 如需有關通知的詳細資訊，請參閱[使用成本警示](cost-mgt-alerts-monitor-usage-spending.md)。
 
-如果您有隨用隨付、 MSDN 或 Visual Studio 訂用帳戶，則您發票的計費期間可能會不一致日曆月份中。 對於這些類型的訂用帳戶和資源群組中中,，您可以建立對齊預算發票期間或行事曆月。 若要建立符合您的發票期間的預算，選取 重設時間計費月份、 計費季或年計費。 若要建立日曆月份調整預算，選取的重設期間的每月、 每季或每年。
+如果您有預付型方案、MSDN 或 Visual Studio 訂用帳戶，則您發票的計費期間可能與行事曆月份不同。 對於這些類型的訂用帳戶和資源群組中中,，您可以建立對齊預算發票期間或行事曆月。 若要建立符合您的發票期間的預算，選取 重設時間計費月份、 計費季或年計費。 若要建立日曆月份調整預算，選取的重設期間的每月、 每季或每年。
 
 以下是建立每月美金 $4,500 的預算範例。 達到預算的 90% 時，就會產生電子郵件警示。
 

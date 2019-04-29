@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: TomSh
-ms.openlocfilehash: 86246d3d580737837ec07ccdc89ed82914cde209
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b644a175814fb28563a2524e27f52d0285415d66
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118406"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610968"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 網路安全性最佳作法
 您可以透過將 [Azure 虛擬機器 (VM)](https://azure.microsoft.com/services/virtual-machines/) 和設備置於 [Azure 虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)上，來將它們連線到其他網路裝置。 也就是說，您可以將虛擬網路介面卡連線到虛擬網路，讓有網路功能的裝置之間可進行 TCP/IP 型通訊。 連線到 Azure 虛擬網路的虛擬機器能夠連線到在相同虛擬網路、其他虛擬網路、網際網路或甚至您自己的內部部署網路上的裝置。
@@ -44,10 +44,10 @@ Azure 虛擬網路類似於內部部署網路上的 LAN。 Azure 虛擬網路背
 以邏輯方式分割子網路的最佳做法包括：
 
 **最佳做法**：將較大的位址空間分割成子網路。   
-**詳細資料**：您可以使用 [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 型子網路原則來建立子網路。
+**详细信息**：您可以使用 [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 型子網路原則來建立子網路。
 
 **最佳做法**：建立子網路之間的網路存取控制。 子網路之間的路由傳送會自動發生，您不需手動設定路由表。 根據預設，您在 Azure 虛擬網路上建立的子網路之間沒有網路存取控制。   
-**詳細資料**：使用[網路安全性群組](../virtual-network/virtual-networks-nsg.md) (NSG)。 NSG 是簡單且具狀態的封包檢查裝置，它使用 5 個 Tuple (來源 IP、來源連接埠、目的地 IP、目的地連接埠和第 4 層通訊協定) 的方法來建立網路流量的允許/拒絕規則。 您可以允許或拒絕單一 IP 位址、多個 IP 位址或整個子網路的輸入或輸出流量。
+**详细信息**：使用[網路安全性群組](../virtual-network/virtual-networks-nsg.md) (NSG)。 NSG 是簡單且具狀態的封包檢查裝置，它使用 5 個 Tuple (來源 IP、來源連接埠、目的地 IP、目的地連接埠和第 4 層通訊協定) 的方法來建立網路流量的允許/拒絕規則。 您可以允許或拒絕單一 IP 位址、多個 IP 位址或整個子網路的輸入或輸出流量。
 
 將 NSG 用於子網路之間的網路存取控制，可讓您將屬於相同安全性區域或角色的資源置於其本身的子網路中。
 
@@ -168,12 +168,12 @@ Azure 網路安全性設備可提供比網路層級控制更佳的安全性。 �
 
 服務端點可提供下列優點：
 
-- **改善 Azure 服務資源的安全性**：透過服務端點，可以將 Azure 服務資源放到虛擬網路保護。 將服務資源放到虛擬網路保護可透過完全移除資源的公用網際網路存取，而且只允許來自您虛擬網路的流量，藉此改善安全性。
-- **來自虛擬網路之 Azure 服務流量的最佳路由**：虛擬網路中強制網際網路流量通過內部部署和 (或) 虛擬設備的任何路由 (也稱為強制通道)，也會強制 Azure 服務流量採用與網際網路流量相同的路由。 服務端點可提供 Azure 流量的最佳路由。
+- **提高 Azure 服务资源的安全性**：透過服務端點，可以將 Azure 服務資源放到虛擬網路保護。 將服務資源放到虛擬網路保護可透過完全移除資源的公用網際網路存取，而且只允許來自您虛擬網路的流量，藉此改善安全性。
+- **来自虚拟网络的 Azure 服务流量的最佳路由**：虛擬網路中強制網際網路流量通過內部部署和 (或) 虛擬設備的任何路由 (也稱為強制通道)，也會強制 Azure 服務流量採用與網際網路流量相同的路由。 服務端點可提供 Azure 流量的最佳路由。
 
   端點一律會直接採用從虛擬網路到 Azure 骨幹網路上服務的服務流量。 將流量保持在 Azure 骨幹網路上，可讓您透過強制通道，繼續稽核和監視來自虛擬網路的輸出網際網路流量，而不會影響服務流量。 深入了解[使用者定義的路由和強制通道](../virtual-network/virtual-networks-udr-overview.md)。
 
-- **設定簡單且管理額外負荷較小**：虛擬網路中不再需要保留的公用 IP 位址，就可以透過 IP 防火牆保護 Azure 資源。 設定服務端點時不需要 NAT 或閘道裝置。 只要在子網路上按一下，即可設定服務端點。 維護端點沒有額外的負荷。
+- **设置简单，管理开销更少**：虛擬網路中不再需要保留的公用 IP 位址，就可以透過 IP 防火牆保護 Azure 資源。 設定服務端點時不需要 NAT 或閘道裝置。 只要在子網路上按一下，即可設定服務端點。 維護端點沒有額外的負荷。
 
 若要深入了解服務端點，以及在哪些區域有哪些 Azure 服務的服務端點可取得，請參閱[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)。
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: f9e0582a1338bcae7b330c7ece7c3d8cc8593cfa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004508"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543884"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>如何在 Azure 上安裝 MySQL
 本文將示範如何在執行 Linux 的 Azure 虛擬機器上安裝和設定 MySQL
@@ -51,13 +51,13 @@ ms.locfileid: "58004508"
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
   
-    在安裝期間，您會看到對話方塊視窗會出現要求您設定 MySQL 根密碼，而且您需要在這裡設定密碼。
+    在安装过程中，会看到如下所示的对话窗口显示，要求设置 MySQL 根密码。需要在此处设置该密码。
   
-    ![映像](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
+    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
     再次輸入密碼以進行確認。
 
-    ![映像](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
+    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
 
 * 步驟 2：登入 MySQL Server
   

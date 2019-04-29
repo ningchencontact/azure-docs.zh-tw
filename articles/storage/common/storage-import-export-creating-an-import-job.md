@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102174"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483072"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>建立 Azure 匯入/匯出服務的匯入作業
 
@@ -33,7 +33,7 @@ ms.locfileid: "58102174"
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>準備具有 Azure 匯入/匯出工具的磁碟機
 
-不論您是建立透過入口網站或透過 REST API 作業，若要準備匯入作業的磁碟機的步驟都相同。
+无论是通过门户还是 REST API 创建作业，为导入作业准备驱动器的步骤都是相同的。
 
 以下是磁碟機準備的簡要概觀。 請參閱 [Azure 匯入匯出工具參考](storage-import-export-tool-how-to-v1.md)以取得完整指示。 您可以在[這裡](https://go.microsoft.com/fwlink/?LinkID=301900)下載 Azure 匯入/匯出工具。
 

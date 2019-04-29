@@ -1,7 +1,6 @@
 ---
 title: 'Azure Toolkit for IntelliJ：建立適用於 HDInsight 叢集的 Spark 應用程式 '
 description: 使用適用於 IntelliJ 的 Azure 工具組來開發以 Scala 撰寫的 Spark 應用程式，並將它們提交到 HDInsight Spark 叢集。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 8fa3cd79011ab31349ec44edf52b8fd9048d0d37
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 682b2266442f3aba6696385862844e1b4b93aa3d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077967"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124249"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for IntelliJ 為 HDInsight 叢集建立 Apache Spark 應用程式
 
@@ -161,7 +160,7 @@ ms.locfileid: "58077967"
 
     * **HDInsight 叢集**  
   
-        |屬性 |值 |
+        |屬性 |Value |
         |----|----|
         |連結資源類型|從下拉式清單中選取 [HDInsight 叢集]。|
         |叢集名稱/URL| 輸入叢集名稱。|
@@ -173,7 +172,7 @@ ms.locfileid: "58077967"
 
     * **Livy 服務**  
   
-        |屬性 |值 |
+        |屬性 |Value |
         |----|----|
         |連結資源類型|從下拉式清單中選取 [Livy 服務]。|
         |Livy 端點| 輸入 Livy 端點|
@@ -204,7 +203,7 @@ ms.locfileid: "58077967"
 
 3. 在 [編輯組態] 視窗中，提供下列值，然後選取 [確定]：
 
-    |屬性 |值 |
+    |屬性 |Value |
     |----|----|
     |Spark 叢集 (僅限 Linux)|選取您要在其中執行應用程式的 HDInsight Spark 叢集。|
     |選取要提交的成品|保留預設值。|
@@ -284,7 +283,7 @@ ms.locfileid: "58077967"
 
 4. 提供下列值，然後選取 [確定]：
 
-    |屬性 |值 |
+    |屬性 |Value |
     |----|----|
     |作業主類別|預設值是來自所選取檔案的主類別。 選取省略符號 (**...**) 並選擇另一個類別，即可變更類別。|
     |環境變數|請確定 HADOOP_HOME 的值正確無誤。|
@@ -318,7 +317,7 @@ ms.locfileid: "58077967"
 
 4. 提供下列值，然後選取 [確定]：
 
-    |屬性 |值 |
+    |屬性 |Value |
     |----|----|
     |Spark 叢集 (僅限 Linux)|選取您要在其中執行應用程式的 HDInsight Spark 叢集。|
     |主類別名稱|預設值是來自所選取檔案的主類別。 選取省略符號 (**...**) 並選擇另一個類別，即可變更類別。|
@@ -421,5 +420,5 @@ ms.locfileid: "58077967"
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="managing-resources"></a>管理資源
-* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)

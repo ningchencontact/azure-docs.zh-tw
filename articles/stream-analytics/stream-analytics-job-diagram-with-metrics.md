@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 4a6d359b27b9a2e52d71ed5f8547041645147605
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479877"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>使用作業圖表進行資料導向偵錯
 
@@ -54,7 +55,7 @@ ms.lasthandoff: 04/18/2018
 ### <a name="how-much-data-is-being-read"></a>已讀取多少資料？
 
 *   **InputEventsSourcesTotal** 是讀取的資料單位數目。 例如，Blob 的數目。
-*   **InputEventsTotal** 是讀取的事件數目。 此度量適用於每個資料分割。
+*   **InputEventsTotal** 是讀取的事件數目。 此指标按分区提供。
 *   **InputEventsTotal** 是讀取的位元組數目。
 *   **InputEventsLastArrivalTime** 會更新每個收到事件的加入佇列時間。
  

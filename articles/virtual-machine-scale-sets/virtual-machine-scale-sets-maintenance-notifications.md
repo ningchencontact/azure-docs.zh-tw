@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
 ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618450"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虛擬機器擴展集的計劃性維護通知
 
@@ -86,7 +86,7 @@ ms.locfileid: "57992426"
 
 此時，[自助維護] 資料行就會出現在虛擬機器擴展集的清單中。 每個虛擬機器擴展集可以具備下列自助式維護資料行的其中一個值：
 
-| 值 | 描述 |
+| Value | 描述 |
 |-------|-------------|
 | 是 | 虛擬機器擴展集中至少有一個 VM 處於自助服務時段內。 您可以在此自助服務期間隨時開始維護。 | 
 | 否 | 受影響之虛擬機器擴展集中沒有任何 VM 處於自助服務時段內。 | 

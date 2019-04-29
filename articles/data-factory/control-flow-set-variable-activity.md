@@ -12,11 +12,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 71abfdff629f36b278488851b546c7371353a4d9
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575285"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60767960"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Azure Data Factory 中的設定變數活動
 
@@ -27,7 +27,7 @@ ms.locfileid: "57575285"
 屬性 | 描述 | 必要項
 -------- | ----------- | --------
 name | 管線中的活動名稱 | 是
-說明 | 說明活動用途的文字 | no
+description | 說明活動用途的文字 | no
 type | 活動類型是 SetVariable | 是
 value | 用來設定指定變數的字串常值或運算式物件值 | 是
 variableName | 此活動所將設定的變數名稱 | 是

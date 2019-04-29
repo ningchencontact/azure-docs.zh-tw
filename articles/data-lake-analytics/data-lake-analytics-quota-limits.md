@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4629b52f3b2c9e351ddc2a68a40c5178a9a73950
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: d3601fd8c32c70cf828cd08fada71258ec8fa5d4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048250"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812717"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>調整 Azure Data Lake Analytics 中的配額和限制
 
@@ -22,7 +22,7 @@ ms.locfileid: "43048250"
 
 ## <a name="azure-subscriptions-limits"></a>Azure 訂用帳戶限制
 
-**每個訂用帳戶在每個區域的 ADLA 帳戶最大數目**：5
+**最大數目每個區域的 ADLA 帳戶的詳細資訊：** 5
 
 如果您嘗試建立第六個 ADLA 帳戶，會收到「您已達到訂用帳戶名稱下區域中允許的 Data Lake Analytics 帳戶的數目上限 (5)」錯誤。 
 
@@ -32,18 +32,18 @@ ms.locfileid: "43048250"
 
 ## <a name="default-adla-account-limits"></a>預設 ADLA 帳戶限制
 
-**每個帳戶的分析單位 (AU) 數目上限：** 32
+**每個帳戶分析單位 (Au) 的最大數目：** 32
 
 這是可以同時在您的帳戶中執行的 AU 的最大數目。 如果您的所有作業加起來的執行中 AU 總數超過此限制，系統會自動將較新的工作排入佇列。 例如︰
 
 * 如果您只有一個作業使用 32 個 AU 在執行，當您提交第二個作業時，在第一個作業完成之前，第二個作業會在作業佇列中等待。
 * 如果您已經有四個執行中的作業，而每個都使用 8 AU，當您送出第五個需要 8 AU 的作業時，它會在作業佇列中等到有 8 AU 可使用。
 
-**每個作業的分析單位 (AU) 數目上限：** 32
+**每個作業的分析單位 (Au) 最大數目：** 32
 
 這是每個個別作業可以在您的帳戶中指派的預設 AU 數目上限。 除非提交者受可提供每項作業更多 AU 的計算原則 (作業提交限制) 影響，否則系統會拒絕已指派超過此限制的作業。 此值的上限是帳戶的 AU 限制。
 
-**每個帳戶的並行 U-SQL 作業最大數目︰** 20
+**最大數目每個帳戶的並行 U-SQL 作業的詳細資訊：** 20
 
 這是可以同時在您的帳戶中執行之工作的最大數目。 超過此值，新的工作會自動排入佇列。
 

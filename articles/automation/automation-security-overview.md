@@ -12,11 +12,11 @@ ms.topic: conceptual
 manager: carmonm
 ROBOTS: NOINDEX
 ms.openlocfilehash: 60175a5b9309c08d5fdab997469a9d0526afaefe
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737018"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Azure 自動化中的驗證簡介  
 Azure 自動化可讓您針對 Azure、內部部署以及其他雲端提供者 (例如 Amazon Web Services (AWS)) 的資源自動執行工作。  為了讓 Runbook 執行其必要動作，其必須有權能以訂用帳戶內的最少必要權限，安全地存取資源。
@@ -26,7 +26,7 @@ Azure 自動化可讓您針對 Azure、內部部署以及其他雲端提供者 (
 ## <a name="automation-account-overview"></a>自動化帳戶概觀
 當您第一次啟動 Azure 自動化時，您必須建立至少一個自動化帳戶。 自動化帳戶可讓您將您的自動化資源 (Runbook、資產、組態) 與其他自動化帳戶中包含的資源區隔開來。 您可以使用自動化帳戶將資源分成個別的邏輯環境。 例如，您可能會針對開發、生產和內部部署環境各自使用一個帳戶。  Azure 自動化帳戶與 Microsoft 帳戶或您在 Azure 訂用帳戶中建立的帳戶不同。
 
-每個自動化帳戶的自動化資源都會與單一 Azure 區域相關聯，但自動化帳戶可管理訂用帳戶中的所有資源。 在不同區域建立自動化帳戶的主要原因會是，若您擁有需要區隔資料和資源到特定區域的原則時。
+每個自動化帳戶的自動化資源都會與單一 Azure 區域相關聯，但自動化帳戶可管理訂用帳戶中的所有資源。 在不同区域中创建自动化帐户的主要原因是，策略要求数据和资源隔离到特定的区域。
 
 在 Azure 自動化中使用 Azure Resource Manager 和 Azure Cmdlet 針對資源所執行的工作，皆必須使用 Azure Active Directory 組織身分識別的認證型驗證向 Azure 進行驗證。  憑證型驗證是 Azure 傳統的原始驗證方法，但其設定步驟很複雜。  我們在 2014 年重新引進使用 Azure AD 使用者向 Azure 進行驗證的方法，不僅是為了簡化驗證帳戶的設定程序，也是為了能夠以同時適用於 Azure Resource Manager 和傳統資源的單一使用者帳戶向 Azure 進行非互動式驗證。   
 

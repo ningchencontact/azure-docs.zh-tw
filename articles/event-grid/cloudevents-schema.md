@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
 ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61436591"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>透過事件方格使用 CloudEvents 結構描述
 
@@ -67,7 +67,7 @@ CloudEvents v0.1 具有下列可用屬性：
 | eventType          | 字串   | "com.example.someevent"          | 發生的事件類型                                   | eventType
 | eventTypeVersion   | 字串   | "1.0"                            | eventType 的版本 (選用)                            | dataVersion
 | cloudEventsVersion | 字串   | "0.1"                            | 事件使用之 CloudEvents 規格的版本        | *已傳遞*
-| 來源             | URI      | "/mycontext"                     | 說明事件產生者                                       | topic#subject
+| source             | URI      | "/mycontext"                     | 說明事件產生者                                       | topic#subject
 | eventID            | 字串   | "1234-1234-1234"                 | 事件的識別碼                                                    | id
 | eventTime          | Timestamp| "2018-04-05T17:31:00Z"           | 事件發生時的時間戳記 (選用)                    | eventTime
 | schemaURL          | URI      | "https:\//myschema.com"           | 資料屬性所符合之結構描述的連結 (選用) | *未使用*

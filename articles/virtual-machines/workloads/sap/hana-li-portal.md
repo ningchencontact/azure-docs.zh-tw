@@ -17,11 +17,11 @@ ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009363"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482144"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>透過 Azure 入口網站控制 Azure HANA Large Instances
 本文件涵蓋如何[HANA 大型執行個體](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)按照[Azure 入口網站](https://portal.azure.com)和透過 Azure 入口網站會為您部署的 HANA 大型執行個體單位，可以執行哪些活動。 在 Azure 入口網站中 HANA 大型執行個體的可見性是透過 Azure 資源提供者提供的 HANA 大型執行個體，其中目前處於公開預覽狀態

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: seodec18
 ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61480153"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用析診斷記錄對 Azure 串流分進行疑難排解
 
@@ -29,7 +29,7 @@ ms.locfileid: "57247149"
 * [診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (可設定) 可讓您更深入地了所有與作業相關的發生事件。 診斷記錄會在作業建立時開始執行，並在作業刪除時結束。 這些記錄涵蓋作業更新時與作業執行時的情形。
 
 > [!NOTE]
-> 您可以使用服務，例如 Azure 儲存體、 Azure 事件中樞和 Azure 監視器記錄來分析不一致的資料。 這些服務將會依據各自的計價模式向您收取費用。
+> 可以使用 Azure 存储、Azure 事件中心和 Azure Monitor 日志等服务分析不一致的数据。 這些服務將會依據各自的計價模式向您收取費用。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -55,9 +55,9 @@ ms.locfileid: "57247149"
 
 6. 如果活動記錄檔中的錯誤訊息不是很有幫助識別根本原因，請啟用診斷記錄檔，並使用 Azure 監視器記錄檔。
 
-## <a name="send-diagnostics-to-azure-monitor-logs"></a>將診斷傳送至 Azure 監視器記錄檔
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>将诊断发送到 Azure Monitor 日志
 
-強烈建議您開啟診斷記錄檔，並將它們傳送到 Azure 監視器記錄檔。 診斷記錄預設為 [關閉]。 若要開啟診斷記錄，請完成下列步驟︰
+强烈建议打开诊断日志并将它们发送到 Azure Monitor 日志。 診斷記錄預設為 [關閉]。 若要開啟診斷記錄，請完成下列步驟︰
 
 1.  登入 Azure 入口網站，然後瀏覽至您的 Stream Analytics 作業。 在 [監視] 下，選取 [診斷記錄]。 然後選取 [開啟診斷]。
 
@@ -69,7 +69,7 @@ ms.locfileid: "57247149"
 
 3. 當您的 Stream Analytics 作業啟動時，診斷記錄會路由傳送至 Log Analytics 工作區。 瀏覽至 Log Analytics 工作區，然後選擇 [一般] 區段下的 [記錄]。
 
-   ![在 [一般] 區段下的 azure 監視器記錄檔](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![“常规”部分下的 Azure Monitor 日志](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. 您可以[撰寫自己的查詢](../azure-monitor/log-query/get-started-portal.md)來搜尋字詞、識別趨勢、分析模式，以及提供以資料為基礎的深入解析。 例如，您可以撰寫查詢以篩選僅具有訊息「串流處理工作失敗」的診斷記錄。 Azure Stream Analytics 的診斷記錄會儲存在 **AzureDiagnostics** 資料表中。
 
@@ -100,8 +100,8 @@ ms.locfileid: "57247149"
 
 名稱 | 描述
 ------- | -------
-分析 | 記錄的時間戳記 (UTC 時間)。
-ResourceId | 作業執行資源的識別碼 (大寫)。 其中包含訂用帳戶識別碼、資源群組，以及作業名稱。 例如，**/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**。
+time | 記錄的時間戳記 (UTC 時間)。
+resourceId | 作業執行資源的識別碼 (大寫)。 其中包含訂用帳戶識別碼、資源群組，以及作業名稱。 例如，**/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**。
 category | 記錄類別 (**執行**或**編寫**)。
 operationName | 記錄的作業名稱。 例如，**傳送事件︰SQL 輸出寫入失敗至 mysqloutput**。
 status | 作業的狀態。 例如，**失敗**或**成功**。

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656663"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API 管理中的問題範本
 「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](api-management-template-resources.md#strings)、[字形资源](api-management-template-resources.md#glyphs)和[页面控件](api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
@@ -101,9 +101,9 @@ ms.locfileid: "58540834"
 |--------------|----------|-----------------|  
 |`Issues`|[問題](api-management-template-data-model-reference.md#Issue)實體的集合。|目前使用者可看見的問題。|  
 |`Paging`|[分頁](api-management-template-data-model-reference.md#Paging)實體。|應用程式集合的分頁資訊。|  
-|`IsAuthenticated`|布林值|目前使用者是否已登入開發人員入口網站。|  
-|`CanReportIssues`|布林值|目前使用者是否具備提出問題的權限。|  
-|`Search`|字串|此屬性已過時而不應使用。|  
+|`IsAuthenticated`|boolean|目前使用者是否已登入開發人員入口網站。|  
+|`CanReportIssues`|boolean|目前使用者是否具備提出問題的權限。|  
+|`Search`|string|此屬性已過時而不應使用。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   

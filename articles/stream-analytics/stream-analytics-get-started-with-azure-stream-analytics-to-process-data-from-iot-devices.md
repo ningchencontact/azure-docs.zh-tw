@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: b883dcf941683d6065c9b6ee5075d2a358f3452a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481311"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>開始使用 Azure 串流分析來處理 IoT 裝置的資料
 在本教學課程中，您將學習如何建立串流處理邏輯，以從物聯網 (IoT) 裝置收集資料。 我們將使用真實世界的物聯網 (IoT) 使用案例以示範如何快速且經濟地建置您的解決方案。
@@ -44,7 +44,7 @@ Contoso 是一家工業自動化空間的公司，他們已完全自動化其製
 ## <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下加號然後在右側文字視窗中輸入 **STREAM ANALYTICS**。 然後在結果清單中選取 [串流分析作業]。
    
-    ![建立新的串流分析作業](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
+    ![创建新的流分析作业](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 2. 輸入唯一的工作名稱，並確認訂用帳戶為您作業適用的正確訂用帳戶。 然後建立新的資源群組，或在您的訂用帳戶上選取現有的資源群組。
 3. 然後選取作業的位置。 針對資料傳輸的處理速度和減少成本，建議選取相同位置做為資源群組和預期的儲存體帳戶。
    
@@ -87,16 +87,16 @@ Contoso 是一家工業自動化空間的公司，他們已完全自動化其製
     ![測試串流分析查詢的結果](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### <a name="query-filter-the-data-based-on-a-condition"></a>查詢：根據條件篩選資料
-讓我們試著根據條件篩選結果。 我們想要僅針對來自 “sensorA” 的事件顯示結果。 查詢位於 Filtering.txt 檔案中。
+讓我們試著根據條件篩選結果。 我們想要僅針對來自 “sensorA” 的事件顯示結果。 查询在 Filtering.txt 文件中。
 
 ![篩選資料串流](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 
-請注意，區分大小寫的查詢會比較字串值。 再次按一下 [測試] 齒輪以執行查詢。 查詢應該會針對 1860 個事件傳回 389 個資料列。
+請注意，區分大小寫的查詢會比較字串值。 再次按一下 [測試] 齒輪以執行查詢。 查询应返回 1,860 个事件中的 389 行。
 
 ![查詢測試的第二個輸出結果](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
 ### <a name="query-alert-to-trigger-a-business-workflow"></a>查詢：觸發商務工作流程的警示
-讓我們的查詢變得更為詳細。 對於每一個類型的感應器，我們想要監視每 30 秒時段的平均溫度，並且只顯示平均溫度高於 100 度的結果。 我們會撰寫下列查詢，然後按一下 [測試] 來查看結果。 查詢位於 ThresholdAlerting.txt 檔案中。
+讓我們的查詢變得更為詳細。 对于每个类型的传感器，我们想要每 30 秒监视一次平均温度，且仅在平均温度高于 100 度的情况下显示结果。 我們會撰寫下列查詢，然後按一下 [測試] 來查看結果。 查詢位於 ThresholdAlerting.txt 檔案中。
 
 ![30 秒篩選查詢](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
@@ -107,8 +107,8 @@ Contoso 是一家工業自動化空間的公司，他們已完全自動化其製
 
 ![偵測不存在的事件](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-此處，我們對相同的資料串流使用 **LEFT OUTER** 聯結 (自我聯結)。 對於 **INNER** 聯結，只會在找到相符項目時傳回結果。  對於 **LEFT OUTER** 聯結，如果聯結左側的事件不相符，則會針對右側的所有資料行傳回具有 NULL 的資料列。 這項技術對於尋找不存在的事件很有用。 如需 [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx) 的詳細資訊，請參閱我們的 MSDN 文件。
+此處，我們對相同的資料串流使用 **LEFT OUTER** 聯結 (自我聯結)。 對於 **INNER** 聯結，只會在找到相符項目時傳回結果。  對於 **LEFT OUTER** 聯結，如果聯結左側的事件不相符，則會針對右側的所有資料行傳回具有 NULL 的資料列。 这种方法对于查找事件缺失很有用。 如需 [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx) 的詳細資訊，請參閱我們的 MSDN 文件。
 
 ## <a name="conclusion"></a>結論
-本教學課程的目的在於示範如何撰寫不同的串流分析查詢語言查詢，並在瀏覽器中查看結果。 但是，這只是剛開始。 您還可以使用串流分析執行更多功能。 串流分析支援各種輸入和輸出，並甚至可以使用 Azure Machine Learning 中的函式，使其成為分析資料串流的健全工具。 您可以使用我們的[學習地圖](https://docs.microsoft.com/azure/stream-analytics/)開始深入探索串流分析。 如需如何撰寫查詢的詳細資訊，請閱讀有關[常見查詢模式](stream-analytics-stream-analytics-query-patterns.md)的文章。
+本教學課程的目的在於示範如何撰寫不同的串流分析查詢語言查詢，並在瀏覽器中查看結果。 但是，这仅仅是一个开始。 您還可以使用串流分析執行更多功能。 串流分析支援各種輸入和輸出，並甚至可以使用 Azure Machine Learning 中的函式，使其成為分析資料串流的健全工具。 您可以使用我們的[學習地圖](https://docs.microsoft.com/azure/stream-analytics/)開始深入探索串流分析。 如需如何撰寫查詢的詳細資訊，請閱讀有關[常見查詢模式](stream-analytics-stream-analytics-query-patterns.md)的文章。
 

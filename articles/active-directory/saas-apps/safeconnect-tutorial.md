@@ -16,11 +16,11 @@ ms.date: 08/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbb94c28d56b0492fe3488d7c9e2e1257a8b9388
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624208"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>教學課程：Azure Active Directory 與 SafeConnect 整合
 
@@ -34,7 +34,7 @@ SafeConnect 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 SafeConnect 的 Azure AD 整合，您需要下列項目：
 

@@ -14,21 +14,21 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61260015"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - 範例
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 的 PowerShell 範例](../samples-powershell.md)和 [Azure 程式碼範例資源庫中的程式碼範例](https://azure.microsoft.com/resources/samples/?service=data-factory)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 的 PowerShell 範例](../samples-powershell.md)和 [Azure 程式碼範例資源庫中的程式碼範例](https://azure.microsoft.com/resources/samples/?service=data-factory)。
 
 
 ## <a name="samples-on-github"></a>GitHub 上的範例
 [GitHub Azure-DataFactory 儲存機制](https://github.com/azure/azure-datafactory) 包含數個範例，可協助您快速運用 Azure Data Factory 服務，或修改指令碼並用在您自己的應用程式中。 Samples\JSON 資料夾包含常見案例的 JSON 程式碼片段。
 
-| 範例 | 說明 |
+| 範例 | 描述 |
 |:--- |:--- |
 | [ADF 逐步解說](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |此範例提供一個端對端逐步解說，說明如何使用 Azure Data Factory 來處理記錄檔，以將來自記錄檔的資料轉換成深入解析。 <br/><br/>在此逐步解說中，Data Factory 管線會收集範例記錄、處理這些記錄並以參考資料充實記錄資料，然後轉換資料以評估最近展開之行銷活動的成效。 |
 | [JSON 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |此範例提供常見案例的 JSON 範例。 |
@@ -48,7 +48,7 @@ ms.locfileid: "54020807"
 ## <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
 您可以在 GitHub 上找到下列適用於 Data Factory 的 Azure Resource Manager 範本。
 
-| 範本 | 說明 |
+| 範本 | 描述 |
 | --- | --- |
 | [從 Azure Blob 儲存體複製到 Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |部署此範本會建立 Azure Data Factory，其中有管線可將資料從指定的 Azure Blob 儲存體複製到 Azure SQL Database。 |
 | [從 Salesforce 複製到 Azure Blob 儲存體](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |部署此範本會建立 Azure Data Factory，其中有管線可將資料從指定的 Salesforce 帳戶複製到 Azure Blob 儲存體。 |
@@ -105,7 +105,7 @@ ms.locfileid: "54020807"
    3. 選取您要在其中建立 Data Factory 的 [Azure 訂用帳戶]  。
    4. 選取 Data Factory 的 [資源群組]  。
    5. 針對 [區域]，選取 [美國西部]、[美國東部] 或 [北歐]。
-   6. 按 [下一步] 。
+   6. 单击“下一步”。
 6. 在 [設定資料存放區] 頁面中，指定現有的 [Azure SQL Database] 和 [Azure 儲存體帳戶]，或建立資料庫/儲存體，然後按 [下一步]。
 7. 在 [設定計算] 頁面中，選取預設值，然後按 [下一步]。
 8. 在 [摘要] 頁面中，檢閱所有設定，然後按 [下一步]。

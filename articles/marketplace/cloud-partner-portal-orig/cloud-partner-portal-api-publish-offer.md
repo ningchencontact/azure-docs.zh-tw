@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: cb1293a771a137f4df7e36a2b412f68b384f16ef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806727"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094339"
 ---
 <a name="publish-an-offer"></a>發佈供應項目
 ================
@@ -35,7 +35,7 @@ ms.locfileid: "48806727"
 |  ------------- |  ------------------------------------            |   -----------  |
 |  publisherId   | 發行者識別碼，例如 `contoso`      |   字串       |
 |  offerId       | 供應項目識別碼                                 |   字串       |
-|  api-version   | API 的最新版本                        |   日期         |
+|  api-version   | API 的最新版本                        |   date         |
 |  |  |
 
 
@@ -45,7 +45,7 @@ ms.locfileid: "48806727"
 |  **名稱**        |    **值**          |
 |  --------        |    ---------          |
 |  Content-Type    | `application/json`    |
-|  Authorization   |  `Bearer YOUR_TOKEN`  |
+|  授權   |  `Bearer YOUR_TOKEN`  |
 |  |  |
 
 

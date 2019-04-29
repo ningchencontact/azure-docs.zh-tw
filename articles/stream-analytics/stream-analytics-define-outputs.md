@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
 ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481109"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 本文說明適用於 Azure Stream Analytics 作業輸出的類型。 輸出可讓您存放並儲存串流分析作業的結果。 使用輸出資料，您可以執行進一步的商務分析與資料倉儲的資料。
@@ -228,7 +228,7 @@ datetime | 字串 | 字串 |  datetime | 字串
 | 資料表名稱 |資料表的名稱。 如果不存在，則會建立資料表。 |
 | 資料分割索引鍵 |包含資料分割索引鍵的輸出資料行名稱。 資料分割索引鍵會構成實體主索引鍵的第一個部分的資料表內資料分割的唯一識別碼。 它是可達 1 KB 大小的字串值。 |
 | 列索引鍵 |包含資料列索引鍵的輸出資料行名稱。 資料列索引鍵是資料分割內實體的唯一識別碼。 它可構成實體主索引鍵的第二個部分。 資料列索引鍵是字串值可達 1 KB 的大小。 |
-| 批次大小 |批次作業的記錄數目。 預設值 (100)通常足以應付大部分的作業。 請參閱[資料表的批次作業規格](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)如需詳細資訊修改此設定。 |
+| 批大小 |批次作業的記錄數目。 預設值 (100)通常足以應付大部分的作業。 請參閱[資料表的批次作業規格](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)如需詳細資訊修改此設定。 |
 
 ## <a name="service-bus-queues"></a>服務匯流排佇列
 [服務匯流排佇列](https://msdn.microsoft.com/library/azure/hh367516.aspx)提供 FIFO 訊息傳遞至一或多個競爭取用者。 一般而言，訊息會由接收和處理已新增至佇列的時間順序的接收者。 每個訊息是由接收和處理一個訊息取用者。

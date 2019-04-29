@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: d987a4ae170f21532a886552cbe1eb5a0d25fc3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c174f6ce0fb3d40af953be205a7bfcca60fbfeec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108206"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632926"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>使用 StorSimple 8000 系列裝置的 [服務摘要] 刀鋒視窗
 
@@ -80,11 +80,11 @@ StorSimple 裝置管理員的 [服務摘要] 刀鋒視窗提供連線至 StorSim
 
     ![按一下 [裝置] 圖格](./media/storsimple-8000-service-dashboard/service-summary9.png)
 
-## <a name="view-the-activity-logs"></a>檢視活動記錄檔
+## <a name="view-the-activity-logs"></a>檢視活動記錄
 
-若要檢視 StorSimple 裝置管理員中執行的各種作業，請按一下 StorSimple 服務摘要刀鋒視窗左側的 [活動記錄檔] 連結。 這會帶您前往 [活動記錄檔] 刀鋒視窗，您可以在其中看到最近執行的作業摘要。
+若要檢視 StorSimple 裝置管理員中執行的各種作業，請按一下 StorSimple 服務摘要刀鋒視窗左側的 [活動記錄] 連結。 這會帶您前往 [活動記錄] 刀鋒視窗，您可以在其中看到最近執行的作業摘要。
 
-![活動記錄檔](./media/storsimple-8000-service-dashboard/activity-logs1.png)
+![活動記錄](./media/storsimple-8000-service-dashboard/activity-logs1.png)
 ## <a name="next-steps"></a>後續步驟
 
 * 深入了解如何[使用 StorSimple 裝置管理員服務管理 StorSimple 裝置](storsimple-8000-manager-service-administration.md)。
