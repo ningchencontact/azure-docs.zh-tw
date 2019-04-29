@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: d87c8a46459a9b4bf80bef895ec97e436d38e699
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
-ms.translationtype: HT
+ms.openlocfilehash: 17469d3602935715d570a496e12b6680269ff465
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622887"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>在 Azure DevTest Labs 的金鑰保存庫中儲存秘密
 您在使用 Azure DevTest Labs 時可能需要輸入複雜的祕密：Windows VM 的密碼、Linux VM 的公用 SSH 金鑰，或透過成品複製 Git 存放庫所需的個人存取權杖。 祕密通常很長，且包含隨機字元。 因此，在輸入時可能需要技巧且不便，特別是在您多次使用相同的祕密時。

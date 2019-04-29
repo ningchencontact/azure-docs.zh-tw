@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
 ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61087217"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>儲存在 Log Analytics 和 Application Insights 中的個人資料指引
 
@@ -90,7 +90,7 @@ Log Analytics 是彈性的存放區，在指定資料結構描述的同時，允
 > [!IMPORTANT]
 >  雖然大部分的清除作業可能速度會比 SLA，完成**型式的清除作業完成的 SLA 在 30 天設定**由於大量使用的資料平台影響。 這是自動化程序;沒有任何方法來要求更快速處理作業。
 
-### <a name="delete"></a>刪除
+### <a name="delete"></a>Delete
 
 > [!WARNING]
 > Log Analytics 中的刪除動作具有破壞性，且將無法復原！ 進行這方面的作業時請格外小心。

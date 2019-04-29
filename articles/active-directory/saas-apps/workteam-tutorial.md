@@ -16,11 +16,11 @@ ms.date: 08/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7cd986544dfb1472f5cc8a013fec951dca42a59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898647"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60523571"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>教學課程：Azure Active Directory 與 Workteam 整合
 
@@ -200,7 +200,7 @@ Workteam 與 Azure AD 的整合可提供下列優點：
 
     a. 在 [名稱] 文字方塊中，輸入使用者的名字，例如 **Brittasimon**。
 
-    b. 在 **電子郵件**文字中，輸入使用者電子郵件，例如**Brittasimon\@contoso.com**。
+    b. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件地址，例如 **Brittasimon\@contoso.com**。
 
     c. 按一下 [確定]。
 

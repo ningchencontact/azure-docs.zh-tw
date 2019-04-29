@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880278"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 向 Azure Data Lake Storage Gen1 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -41,9 +41,9 @@ ms.locfileid: "58876763"
 2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 3. 在 [ **新增專案**] 中，輸入或選取下列值：
 
-   | 屬性 | 值 |
+   | 屬性 | Value |
    | --- | --- |
-   | 類別 |範本/Visual C#/Windows |
+   | Category |範本/Visual C#/Windows |
    | 範本 |主控台應用程式 |
    | 名稱 |CreateADLApplication |
 

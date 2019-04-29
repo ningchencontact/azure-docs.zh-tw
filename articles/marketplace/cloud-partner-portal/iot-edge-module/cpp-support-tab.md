@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9926c9a0443eb5220e7689dfc6e49e4b8d661d65
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909837"
 ---
 # <a name="iot-edge-module-support-tab"></a>IoT Edge 模組支援索引標籤
 
-使用 [新增供應項目] 頁面中的 [支援] 索引標籤來協助您為供應項目提供技術及使用者支援資源。  支援表單上包括下列需要填寫的欄位：**工程連絡人**、**客戶支援**和**支援 URL**。 欄位名稱上附加的星號 (*) 表示此為必填欄位。
+使用 [新增供應項目] 頁面中的 [支援] 索引標籤來協助您為供應項目提供技術及使用者支援資源。  支援表單上提供下列輸入的區域：**工程連絡人**，**客戶支援部門**，以及**支援 Url**。 欄位名稱上附加的星號 (*) 表示此為必填欄位。
 
 ![IoT Edge 模組新增供應項目表單上的支援索引標籤](./media/iot-edge-module-support-tab.png)
 

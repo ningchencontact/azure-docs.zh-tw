@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563331"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 區域和記錄的概觀
 
@@ -59,7 +59,7 @@ Azure DNS 支援 [萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS
 ### <a name="caa-records"></a>CAA 記錄
 
 CAA 記錄可讓網域擁有者指定哪些憑證授權單位 (CA) 有權為其網域發行憑證。 這可讓 CA 避免在某些情況下誤發憑證。 CAA 記錄都有三個屬性：
-* **旗標**：這是介於 0 到 255 之間的整數，用來表示對每個 [RFC](https://tools.ietf.org/html/rfc6844#section-3) 具有特殊意義的重要旗標
+* **Flags**：这是一个介于 0 和 255 之间的整数，用于根据 [RFC](https://tools.ietf.org/html/rfc6844#section-3) 表示具有特殊含义的关键标志
 * **標記**：ASCII 字串，可以是下列其中一項：
     * **issue**：當您想要指定有權發行憑證 (所有類型) 的 CA 時，使用此選項
     * **issuewild**：當您想要指定有權發行憑證 (僅限 Wildcard 憑證) 的 CA 時，使用此屬性

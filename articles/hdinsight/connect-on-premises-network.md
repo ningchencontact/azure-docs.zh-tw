@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537824"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>將 HDInsight 連線至內部部署網路
 
@@ -71,14 +71,14 @@ ms.locfileid: "59256799"
 
 3. 在 [基本] 索引標籤中，輸入下列資訊：  
   
-    | 欄位 | 值 |
+    | 欄位 | Value |
     | --- | --- |
     |訂用帳戶 |選取適當的訂用帳戶。|
     |資源群組 |選取包含先前建立之虛擬網路的資源群組。|
     |虛擬機器名稱 | 輸入此虛擬機器的易記名稱。 此範例使用 **DNSProxy**。|
     |區域 | 選取與先前建立之虛擬網路相同的區域。  並非所有 VM 大小在所有區域都可供使用。  |
     |可用性選項 |  選取所需的可用性層級。  Azure 提供各種選項以管理應用程式的可用性和復原。  建立解決方案的架構，以在「可用性區域」或「可用性設定組」中使用複寫的虛擬機器來保護您的應用程式和資料避免發生資料中心中斷，並維護事件。 此範例使用 [不需要基礎結構備援]。 |
-    |映像 | 將保留**Ubuntu Server 18.04 LTS**。 |
+    |Image | 將保留**Ubuntu Server 18.04 LTS**。 |
     |驗證類型 | __密碼__或 __SSH 公開金鑰__：SSH 帳戶的驗證方法。 我們建議使用公開金鑰，因為它們較為安全。 這個範例會使用**密碼**。  如需詳細資訊，請參閱[建立及使用適用於 Linux VM 的 SSH 金鑰](../virtual-machines/linux/mac-create-ssh-keys.md)文件。|
     |使用者名稱 |輸入虛擬機器的系統管理員使用者名稱。  此範例使用 **sshuser**。|
     |密碼或 SSH 公開金鑰 | 可用的欄位取決於您選擇的**驗證類型**而定。  輸入適當的值。|
@@ -90,7 +90,7 @@ ms.locfileid: "59256799"
 
 4. 在 [網路] 索引標籤中，輸入下列資訊：
 
-    | 欄位 | 值 |
+    | 欄位 | Value |
     | --- | --- |
     |虛擬網路 | 選取您先前建立的虛擬網路。|
     |子網路 | 為您稍早建立的虛擬網路選取預設子網路。 請__勿__選取 VPN 閘道使用的子網路。|

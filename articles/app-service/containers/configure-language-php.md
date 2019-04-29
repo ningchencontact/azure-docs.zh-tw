@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 11d0648ee5090f02cb96c2d42a8d90cc3ea0ed28
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60853298"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>適用於 Azure App Service 中設定 Linux PHP 應用程式
 
@@ -105,7 +105,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>存取環境變數
 
-在 App Service 中，您可以[設定應用程式設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)外部應用程式程式碼。 然後您可以存取它們使用標準[getenv （)](https://secure.php.net/manual/function.getenv.php)模式。 例如，若要存取稱為 `DB_HOST` 的應用程式設定，請使用下列程式碼：
+在 App Service 中，您可以於應用程式的程式碼外部[設定應用程式設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)。 然後您可以存取它們使用標準[getenv （)](https://secure.php.net/manual/function.getenv.php)模式。 例如，若要存取稱為 `DB_HOST` 的應用程式設定，請使用下列程式碼：
 
 ```php
 getenv("DB_HOST")
@@ -252,7 +252,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [教學課程：採用 MySQL 的 PHP 應用程式](tutorial-php-mysql-app.md)
+> [教學課程：使用 MySQL 的 PHP 應用程式](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
 > [App Service Linux 常見問題集](app-service-linux-faq.md)

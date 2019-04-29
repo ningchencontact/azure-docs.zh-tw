@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126935"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>保護 SQL 資料倉儲中的資料庫
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 若要提供使用者執行其他作業 (例如建立登入或建立新資料庫) 的權限，請為他們指派主要資料庫中的 `Loginmanager` 和 `dbmanager` 角色。 如需有關這些額外角色及向 SQL Database 驗證的詳細資訊，請參閱[管理 Azure SQL Database 的資料庫和登入][Managing databases and logins in Azure SQL Database]。  如需詳細資訊，請參閱[使用 Azure Active Directory 驗證連線到 SQL 資料倉儲][Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]。
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>授權
 授權是指您在 Azure SQL 資料倉儲資料庫內可以執行的動作。 授權權限取決於角色成員資格和權限。 最好的作法是，您應該授與使用者所需的最低權限。 若要管理角色，您可以使用下列預存程序：
 
 ```sql

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
 ms.openlocfilehash: 9d9369afd36f64c27cd2222cab0de5912aa913de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909191"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>資訊安全中心監視的 azure 安全性原則
 本文提供一份 Azure 原則定義，您可以在 Azure 資訊安全中心中監視。 如需有關安全性原則的詳細資訊，請參閱[搭配使用安全性原則](tutorial-security-policy.md)。

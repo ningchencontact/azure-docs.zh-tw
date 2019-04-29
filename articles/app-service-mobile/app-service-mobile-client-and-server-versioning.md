@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 56c5e0582afe55dcd63aa056817898d3d4942419
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594061"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859068"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps 和行動服務中的用戶端和伺服器版本控制
 Azure 行動服務的最新版本是 Azure App Service 的 **Mobile Apps** 功能。
@@ -70,7 +70,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 注意：行動服務用戶端 SDK「不會」傳送 `ZUMO-API-VERSION` 的標頭值。 如果服務收到此標頭或查詢字串值，將會傳回錯誤，除非您如上面所述明確選擇不要進行檢查。
 
 ### <a name="MobileServicesClients"></a>行動「服務」用戶端 SDK
-| 客户端平台 | 版本 | 版本標頭值 |
+| 客户端平台 | Version | 版本標頭值 |
 | --- | --- | --- |
 | 托管客户端（Windows、Xamarin） |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |n/a |
 | iOS |[2.2.2](https://aka.ms/gc6fex) |n/a |
@@ -78,7 +78,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | HTML |[1.2.7](https://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |n/a |
 
 ### <a name="mobile-services-server-sdks"></a>行動「服務」  伺服器 SDK
-| 伺服器平台 | 版本 | 接受的版本標頭 |
+| 伺服器平台 | Version | 接受的版本標頭 |
 | --- | --- | --- |
 | .NET |[WindowsAzure.MobileServices.Backend.* 版本 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**無版本標頭** |
 | Node.js |(敬請期待) |**無版本標頭** |
@@ -96,7 +96,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="MobileAppsClients"></a> Mobile Apps 用戶端 SDK
 版本檢查是從 **Azure Mobile Apps**下列版本的用戶端 SDK 開始引進：
 
-| 用戶端平台 | 版本 | 版本標頭值 |
+| 用戶端平台 | Version | 版本標頭值 |
 | --- | --- | --- |
 | 受控用戶端 (Windows、Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |

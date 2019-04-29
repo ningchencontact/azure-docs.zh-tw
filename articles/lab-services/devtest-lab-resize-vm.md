@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9b9a1839bf4b028aec13b764b4de66385de4189e
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: a0bc618a9c0a02aae884d8be359df6bdbf4c0d2a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47090746"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60868049"
 ---
 # <a name="resize-a-vm-in-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中調整實驗室中 VM 的大小
 Azure 虛擬機器的其中一個重要功能就是可讓您根據您的 CPU、網路或磁碟效能需求，變更虛擬機器 (VM) 的大小。 Azure DevTest Labs 現在可針對實驗室中的 VM 支援此功能。 調整大小功能會遵守適用於實驗室所允許 VM 大小的實驗室原則。 也就是說，您只能在實驗室所允許的大小範圍內變更 VM 的大小。 

@@ -1,20 +1,22 @@
 ---
 title: Azure Cosmos DB Gremlin API 中的資料分割
 description: 了解如何使用 Azure Cosmos DB 中的資料分割圖表。 本文也說明資料分割圖表的需求和最佳做法。
-author: luisbosquez
-ms.author: lbosq
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: conceptual
-ms.date: 12/06/2018
+origin.date: 12/06/2018
+ms.date: 03/18/2019
 ms.custom: seodec18
 ms.openlocfilehash: f1e486a302b440d819e15ef86f8d76ea5e50d201
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888399"
 ---
+<!--Verify sucessfully-->
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的資料分割圖表
 
 Azure Cosmos DB 中的 Gremlin API 的主要功能之一，是能夠透過水平縮放處理大規模的圖形。 水平縮放透過 [Azure Cosmos DB 中的資料分割功能](partition-data.md)來達成。 容器可以在儲存體和輸送量方面獨立調整。 您可以在 Azure Cosmos DB 中，建立能自動縮放來儲存圖表資料的容器。 資料根據指定的**分割區金鑰**來自動取得平衡。
@@ -37,27 +39,26 @@ Azure Cosmos DB 中的 Gremlin API 的主要功能之一，是能夠透過水平
 
     - 不支援 Gremlin API 中的容器以 `/id` 和 `/label` 作為資料分割索引鍵。
 
-
     - 依識別碼選取頂點，然後**使用 `.has()` 步驟指定資料分割索引鍵屬性**： 
-    
+
         ```
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
+
     - 藉由**指定包含資料分割索引鍵值和識別碼的 Tuple** 來選取頂點： 
-    
+
         ```
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - 指定**資料分割索引鍵值和識別碼的 Tuple 陣列**：
-    
+
         ```
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
+
     - 選取一組頂點，並**指定資料分割索引鍵值清單**： 
-    
+
         ```
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
@@ -81,3 +82,6 @@ Azure Cosmos DB 中的 Gremlin API 的主要功能之一，是能夠透過水平
 * 了解 [Azure Cosmos DB 中的資料分割和調整](partition-data.md)。
 * 了解 [Gremlin API 中的 Gremlin 支援](gremlin-support.md)。
 * 了解 [Gremlin API 簡介](graph-introduction.md)。
+
+<!--Update_Description: new articles on  -->
+<!--ms.date: 03/18/2019-->

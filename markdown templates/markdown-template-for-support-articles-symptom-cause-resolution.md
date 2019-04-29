@@ -14,12 +14,12 @@ ms.tgt_pltfrm: may be required
 ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
-ms.openlocfilehash: 1f86194857a54ed3a903c2696efc9b23d482c274
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: HT
+ms.openlocfilehash: ae89f8e4c501e62ce70f9dddc00e45f4d9fdaae1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "26730552"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61215962"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>標題 (最多 120 個字元，目標為主要關鍵字)
 *在描述中使用 2-3 個次要關鍵字。*
@@ -61,7 +61,7 @@ ms.locfileid: "26730552"
 * 如果可能的話，新增螢幕擷取畫面。
 * 如果有多個解決方案，請將它們依複雜性順序排放，並提供有關如何從中選擇的指示。
 
-| <em>版本 1：您的文章與部署模型無關</em> | <em>版本 2：Resource Manager 和傳統大致相同的步驟</em> | <em>版本 3：Resource Manager 和傳統大致不同的步驟。 <br />在此情況下，使用 <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">GitHub 中的簡單選取器技術</a>。 <br />請注意：ARM 的 VM 文件為例外狀況，且不應該使用 ARM/傳統選取器。</em> |
+| <em>第 1 版：您的文章與部署模型無關</em> | <em>第 2 版：Resource Manager 和傳統的步驟大致相同</em> | <em>第 3 版：步驟 Resource Manager 和傳統大致不同。 <br />在此情況下，使用 <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">GitHub 中的簡單選取器技術</a>。 <br />注意：ARM 例外狀況的 VM 文件，不應該使用 ARM/傳統選取器。</em> |
 |:--- |:--- |:--- |
 | <p><h3>解決方案 1</h3><em>(最簡單且最有效)</em></p><ol><li>[步驟 1]</li><li>[步驟 2]</li></ol><p><h3>解決方案 2</h3><em>(較不簡單或有效)</em></p><ol><li>[步驟 1]</li><li>[步驟 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /> |<p><h3>解決方案 1</h3><em>(最簡單且最有效)</em></p><ol><li>[步驟 1]</li><li>如果您使用傳統部署模型，[請這麼做]。<br />如果您使用 Resource Manager 部署模型，[請這麼做]。</li><li>[步驟 3]</li></ol><p><h3>解決方案 2</h3><em>(較不簡單或有效)</em></p><ol><li>[步驟 1]</li><li>如果您使用傳統部署模型，[請這麼做]。<br />如果您使用 Resource Manager 部署模型，[請這麼做]。</li><li>[步驟 3]</li></ol> |<img src="media/markdown-template-for-support-articles-symptom-cause-resolution/rm-classic.png" alt="ARM-Classic"><p><h3>解決方案 1</h3><em>(最簡單且最有效)</em></p><ol><li>[步驟 1]</li><li>[步驟 2]</li></ol><p><h3>解決方案 2</h3><em>(較不簡單或有效)</em></p><ol><li>[步驟 1]</li><li>[步驟 2]</li></ol><br /><br /><br /><br /> |
 

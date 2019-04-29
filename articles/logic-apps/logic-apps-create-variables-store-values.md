@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075709"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61004431"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立用於儲存和管理值的變數
 
@@ -74,7 +74,7 @@ ms.locfileid: "58075709"
 
    | 屬性 | 必要項 | Value |  描述 |
    |----------|----------|-------|--------------|
-   | 名稱 | 是 | <*variable-name*> | 要遞增的變數名稱 | 
+   | Name | 是 | <*variable-name*> | 要遞增的變數名稱 | 
    | Type | 是 | <*variable-type*> | 變數的資料類型 | 
    | Value | 否 | <*start-value*> | 您的變數初始值 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道變數的開始值。 | 
    ||||| 
@@ -210,7 +210,7 @@ ms.locfileid: "58075709"
 
    | 屬性 | 必要項 | Value |  描述 |
    |----------|----------|-------|--------------|
-   | 名稱 | 是 | <*variable-name*> | 要遞增的變數名稱 | 
+   | Name | 是 | <*variable-name*> | 要遞增的變數名稱 | 
    | Value | 否 | <*increment-value*> | 用來遞增變數的值。 預設值為一。 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞增變數的特定值。 | 
    |||| 
 
@@ -330,7 +330,7 @@ ms.locfileid: "58075709"
 
 | 屬性 | 必要項 | Value |  描述 |
 |----------|----------|-------|--------------|
-| 名稱 | 是 | <*variable-name*> | 要遞減的變數名稱 | 
+| Name | 是 | <*variable-name*> | 要遞減的變數名稱 | 
 | Value | 否 | <*increment-value*> | 用來遞減變數的值。 預設值為一。 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞增變數的特定值。 | 
 ||||| 
 
@@ -365,7 +365,7 @@ ms.locfileid: "58075709"
 
 | 屬性 | 必要項 | Value |  描述 | 
 |----------|----------|-------|--------------| 
-| 名稱 | 是 | <*variable-name*> | 要變更的變數名稱 | 
+| Name | 是 | <*variable-name*> | 要變更的變數名稱 | 
 | Value | 是 | <*new-value*> | 您想要指派給變數的值。 兩者必須具有相同的資料類型。 | 
 ||||| 
 
@@ -424,7 +424,7 @@ ms.locfileid: "58075709"
 
 | 屬性 | 必要項 | Value |  描述 | 
 |----------|----------|-------|--------------| 
-| 名稱 | 是 | <*variable-name*> | 要變更的變數名稱 | 
+| Name | 是 | <*variable-name*> | 要變更的變數名稱 | 
 | Value | 是 | <*append-value*> | 您想要附加的值 (可以具有任何類型) | 
 |||||  
 

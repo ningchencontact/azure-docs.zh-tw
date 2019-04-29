@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57239822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60906062"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>安全性警示地圖和威脅情報
 本文可協助您使用的 Azure 資訊安全中心安全性警訊地圖和以安全性事件為基礎的威脅情報地圖，以解決安全性相關問題。

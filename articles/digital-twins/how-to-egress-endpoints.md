@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: alinast
 ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924800"
 ---
 # <a name="egress-and-endpoints"></a>輸出和端點
 
@@ -47,16 +47,16 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
-| id | 字串 | 事件的唯一識別碼。 |
-| 主旨 | 字串 | 發行者定義事件主體的路徑。 |
+| id | string | 事件的唯一識別碼。 |
+| 主旨 | string | 發行者定義事件主體的路徑。 |
 | data | 物件 | 資源提供者特有的事件資料。 |
-| eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
-| eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
-| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
-| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| eventType | string | 此事件來源已註冊的事件類型之一。 |
+| eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
+| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
 
 如需有關事件方格事件結構描述的詳細資訊：
 
@@ -122,7 +122,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -153,7 +153,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -188,7 +188,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -223,7 +223,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_NAMESPACE | 端點的命名空間 |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串|
     | YOUR_SECONDARY_KEY | 用於驗證的次要連接字串 |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_NAMESPACE | 端點的命名空間 |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_NAMESPACE | 端點的命名空間 |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |

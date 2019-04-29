@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821775"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>在使用不同通訊協定的取用者和產生者之間交換事件：AMQP、Kafka 和 HTTPS
 Azure 事件中樞支援三種適用於取用者和產生者的通訊協定：AMQP、Kafka 和 HTTPS。 這些通訊協定中的每一個都有自己用來表示訊息的方式，因此自然會浮現下列問題：如果應用程式使用某種通訊協定來將事件傳送到事件中樞，並使用不同的通訊協定來取用它們，則事件的各種組件和值在送達取用者時看起來如何？ 本文將討論適用於產生者和取用者的最佳做法，以確保取用應用程式能夠正確解譯事件內的值。
@@ -344,5 +344,5 @@ String myStringProperty = new String(rawbytes, StandardCharsets.UTF_8);
 * [了解事件中樞](event-hubs-what-is-event-hubs.md)
 * [了解適用於 Kafka 的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
 * [在適用於 Kafka 的事件中樞上探索更多範例 (GitHub)](https://github.com/Azure/azure-event-hubs-for-kafka)
-* 使用[MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)到[將事件從內部部署上的 Kafka 串流至 Kafka 啟用雲端上的事件中樞。](event-hubs-kafka-mirror-maker-tutorial.md)
+* 使用 [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)，[將事件從 Kafka 內部部署串流至雲端上已啟用 Kafka 的事件中樞](event-hubs-kafka-mirror-maker-tutorial.md)。
 * 了解如何使用[原生的 Kafka 應用程式](event-hubs-quickstart-kafka-enabled-event-hubs.md)、[Apache Flink](event-hubs-kafka-flink-tutorial.md) 或 [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md) 串流至已啟用 Kafka 的事件中樞

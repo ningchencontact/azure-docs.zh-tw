@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116740"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60906933"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure 資訊安全中心的安全性劇本 (預覽)
 這份文件可協助您使用 Azure 資訊安全中心的安全性劇本，以回應安全性相關問題。
@@ -96,7 +96,7 @@ ms.locfileid: "56116740"
 > 如需如何使用 Azure Logic App 來建立自己的劇本的詳細資訊，請參閱[建立第一個邏輯應用程式工作流程來自動執行雲端應用程式與雲端服務之間的程序](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app)。
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 在本文件中，您已了解如何在 Azure 資訊安全中心內使用劇本。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
 * [管理及回應 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。

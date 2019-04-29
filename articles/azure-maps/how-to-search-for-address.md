@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60904053"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務來尋找地址
 
@@ -58,7 +58,7 @@ ms.locfileid: "59785562"
 
     ![模糊搜尋](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Key | 值 |
+    | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |
@@ -72,7 +72,7 @@ ms.locfileid: "59785562"
 
 5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | Key | Value |
     |------------------|-------------------------|
     | countrySet | US |
   
@@ -84,7 +84,7 @@ ms.locfileid: "59785562"
 
     ![模糊搜尋](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Key | 值 |
+    | Key | Value |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -108,7 +108,7 @@ ms.locfileid: "59785562"
   
     ![地址搜尋](./media/how-to-search-for-address/address_search_params.png)
   
-    | Key | 值 |
+    | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |
@@ -125,7 +125,7 @@ ms.locfileid: "59785562"
 
 6. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | Key | Value |
     |-----|------------|
     | typeahead | true |
 
@@ -149,7 +149,7 @@ ms.locfileid: "59785562"
   
     ![反向位址搜尋參數](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Key | 值 |
+    | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |
@@ -161,7 +161,7 @@ ms.locfileid: "59785562"
   
 5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | Key | Value |
     |-----|------------|
     | number | true |
 
@@ -169,7 +169,7 @@ ms.locfileid: "59785562"
   
 6. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | Key | Value |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -177,7 +177,7 @@ ms.locfileid: "59785562"
 
 7. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | Key | Value |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -185,7 +185,7 @@ ms.locfileid: "59785562"
 
 8. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
-    | Key | 值 |
+    | Key | Value |
     |-----|------------|
     | roadUse | true |
 
@@ -207,7 +207,7 @@ ms.locfileid: "59785562"
   
 3. 按一下 [Params]，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   
-    | Key | 值 |
+    | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<您的 Azure 地圖服務金鑰\> |

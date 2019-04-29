@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
 ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831229"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>應用程式閘道中的 WebSocket 支援概觀
 
@@ -22,11 +22,11 @@ ms.locfileid: "59606900"
 
 您可以在連接埠 80 或 443 上繼續使用標準 HTTP 接聽程式來接收 WebSocket 流量。 WebSocket 流量接著會使用應用程式閘道規則中指定的適當後端集區，來導向到已啟用 WebSocket 的後端伺服器。 後端伺服器必須回應應用程式閘道探查，[健康情況探查概觀](application-gateway-probe-overview.md)一節中會有所說明。 應用程式閘道健康情況探查僅限使用 HTTP/HTTPS。 每一部後端伺服器都必須回應 HTTP 探查，應用程式閘道才能將 WebSocket 流量路由傳送至伺服器。
 
-它用於受益於快速的即時通訊，例如聊天、 儀表板，遊戲的應用程式的應用程式。
+它用在受益于快速实时通信的应用（例如聊天、仪表板和游戏应用）中。
 
-## <a name="how-does-websocket-work"></a>WebSocket 如何運作
+## <a name="how-does-websocket-work"></a>WebSocket 工作原理
 
-若要建立 WebSocket 連線，用戶端和伺服器之間交換特定 HTTP 為基礎的交握。 如果成功，應用程式層通訊協定是 「 」 從 HTTP 升級至 Websocket，使用先前建立的 TCP 連線。 一旦發生這種情況，HTTP 是完全運作;資料可以傳送或接收 both 端點所使用的 WebSocket 通訊協定，直到關閉 WebSocket 連接。 
+若要建立 WebSocket 连接，需在客户端和服务器之间交换特定的基于 HTTP 的握手。 如果成功，则应用程序层协议会使用之前建立的 TCP 连接从 HTTP“升级”为 WebSocket。 然后就完全不使用 HTTP；两个终结点可以使用 WebSocket 协议来发送或接收数据，直至 WebSocket 连接关闭。 
 
 ![addcert](./media/application-gateway-websocket/websocket.png)
 

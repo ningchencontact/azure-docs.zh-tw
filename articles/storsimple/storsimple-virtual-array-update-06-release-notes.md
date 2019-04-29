@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/24/2017
 ms.author: alkohli
-ms.openlocfilehash: af202cf652300ee7897eb2dede33f38058fc2837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e984531feced2d61332e4c399848c12cd245a34a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870701"
 ---
 # <a name="storsimple-virtual-array-update-06-release-notes"></a>StorSimple Virtual Array Update 0.6 版本資訊
 
@@ -52,7 +52,7 @@ Update 0.6 是重大更新，應該立即部署。 此更新包含下列修正�
 
 下表提供本版已修正問題的摘要。
 
-| 編號 | 功能 | 問題 |
+| 沒有。 | 功能 | 問題 |
 | --- | --- | --- |
 | 1 |安全性| 此版本包含重大的 Windows 安全性更新。 我們建議您立即安裝此更新。|
 | 2 |Restore| 在還原期間發生競爭情形，讓還原作業無法完成。 BUG 修正會解決此競爭情形。|
@@ -62,7 +62,7 @@ Update 0.6 是重大更新，應該立即部署。 此更新包含下列修正�
 
 下表提供 StorSimple Virtual Array 的已知問題摘要，並包含舊版所列的問題。
 
-| 編號 | 功能 | 問題 | 因應措施/註解 |
+| 沒有。 | 功能 | 問題 | 因應措施/註解 |
 | --- | --- | --- | --- |
 | **1.** |更新 |預覽版中所建立的虛擬裝置無法更新為支援的正式運作版本。 |必須針對正式運作版本使用災害復原 (DR) 工作流程容錯移轉這些虛擬裝置。 |
 | **2.** |佈建的資料磁碟 |佈建特定指定大小的資料磁碟並建立對應的 StorSimple 虛擬裝置之後，不得展開或壓縮資料磁碟。 嘗試執行會導致裝置本機層中的所有資料遺失。 | |
@@ -80,7 +80,7 @@ Update 0.6 是重大更新，應該立即部署。 此更新包含下列修正�
 | **14.** |檔案伺服器 |如果資料夾中的檔案中有與其相關聯的替代資料流 (ADS)，就不會透過災害復原、複製和項目層級復原來備份或還原 ADS。 | |
 | **15.** |檔案伺服器 |不支援符號連結。 | |
 | **16.** |檔案伺服器 |如果將 Windows 加密檔案系統 (EFS) 保護的檔案複製或儲存到 StorSimple 虛擬陣列檔案伺服器，將會導致不支援的組態。  | |
-| **17.** |更新 |如果透過本機 UI 嘗試安裝 Hotfix 時看到錯誤代碼：2359302 (十六進位 0x240006)，表示您的裝置上已安裝了 Hotfix。   | |
+| **17.** |更新 |如果您看到錯誤的程式碼：2359302 （十六進位 0x240006） 安裝 hotfix，以透過本機 UI 時，這表示您的裝置上已安裝的 hotfix。   | |
 
 ## <a name="next-step"></a>後續步驟
 在 StorSimple Virtual Array 上[安裝 Update 0.6](storsimple-virtual-array-install-update-06.md)。

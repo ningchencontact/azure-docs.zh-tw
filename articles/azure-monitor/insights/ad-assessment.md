@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.openlocfilehash: 3b5da6c9046fc694bd5eb0f55cf031b82b6d0103
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370528"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60919754"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>在 Azure 監視器中使用 Active Directory 健康情況檢查解決方案來最佳化 Active Directory 環境
 
@@ -128,7 +128,7 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-以下是顯示記錄檔查詢的螢幕擷取畫面：<br><br> ![失敗的建議](media/ad-assessment/ad-failed-recommendations.png)
+下面是一个显示了日志查询的屏幕截图：<br><br> ![失敗的建議](media/ad-assessment/ad-failed-recommendations.png)
 
 選擇您想要忽略的建議。 您將使用下一個程序中的 RecommendationId 值。
 

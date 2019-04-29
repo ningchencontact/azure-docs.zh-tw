@@ -14,11 +14,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823941"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從 MySQL 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 MySQL 連結服務專屬 JSON 元素的描述。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |類型屬性必須設定為：**OnPremisesMySql** |是 |
 | 伺服器 |MySQL 伺服器的名稱。 |是 |
@@ -82,7 +82,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 
 每個資料集類型的 **typeProperties** 區段都不同，可提供資料存放區中的資料位置資訊。 **RelationalTable** 資料集類型的 typeProperties 區段 (包含 MySQL 資料集) 具有下列屬性
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | tableName |MySQL 資料庫執行個體中連結服務所參照的資料表名稱。 |否 (如果已指定 **RelationalSource** 的 **query**) |
 
@@ -93,7 +93,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 
 當複製活動中的來源類型為 **RelationalSource** (包括 MySQL) 時，typeProperties 區段中會有下列可用屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |否 (如果已指定 **dataset** 的 **tableName**) |
 
@@ -301,19 +301,19 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 
 | MySQL 資料庫類型 | .NET Framework 類型 |
 | --- | --- |
-| 不帶正負號的 bigint |十進位 |
+| 不帶正負號的 bigint |Decimal |
 | bigint |Int64 |
-| bit |十進位 |
+| bit |Decimal |
 | blob |Byte[] |
-| 布林 |BOOLEAN |
+| 布林 |Boolean |
 | char |字串 |
-| 日期 |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
-| decimal |十進位 |
-| 雙精度 |兩倍 |
-| 兩倍 |兩倍 |
+| decimal |Decimal |
+| 雙精度 |Double |
+| 兩倍 |Double |
 | 列舉 |字串 |
-| float |單一 |
+| float |Single |
 | 不帶正負號的 int |Int64 |
 | int |Int32 |
 | 不帶正負號的整數 |Int64 |
@@ -326,20 +326,20 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 | 不帶正負號的 mediumint |Int64 |
 | mediumint |Int32 |
 | mediumtext |字串 |
-| numeric |十進位 |
-| real |兩倍 |
+| numeric |Decimal |
+| real |Double |
 | set |字串 |
 | 不帶正負號的 smallint |Int32 |
 | smallint |Int16 |
 | text |字串 |
-| 分析 |時間範圍 |
+| time |TimeSpan |
 | timestamp |DateTime |
 | tinyblob |Byte[] |
 | 不帶正負號的 tinyint |Int16 |
 | tinyint |Int16 |
 | tinytext |字串 |
 | varchar |字串 |
-| 年 |int |
+| 年 |Int |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
 若要了解如何將來源資料集內的資料行與接收資料集內的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。

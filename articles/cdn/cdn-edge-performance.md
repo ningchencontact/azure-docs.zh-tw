@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61069925"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>在 Microsoft Azure CDN 中分析邊緣節點效能
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -84,7 +84,7 @@ ms.locfileid: "54320068"
   * 降低營運成本。
 * 加速資料傳遞，因為將直接從 CDN 提供更多要求。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | --- | --- |
 | 快取效率 |表示從快取提供傳輸的資料百分比。 這個度量會測量所要求內容的快取版本何時直接從 CDN (邊緣伺服器) 提供給要求者 (例如網頁瀏覽器) |
 | 命中率 |表示從快取提供的要求百分比。 這個度量會測量所要求內容的快取版本何時直接從 CDN (邊緣伺服器) 提供給要求者 (例如網頁瀏覽器)。 |
@@ -102,7 +102,7 @@ ms.locfileid: "54320068"
 > 
 > 
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | --- | --- |
 | 平均輸出位元組 |表示從 CDN (邊緣伺服器) 提供給要求者 (例如網頁瀏覽器) 的每個要求所平均傳輸的位元組數。 |
 | 無快取組態位元組速率 |表示從 CDN (邊緣伺服器) 提供給的要求者 (例如網頁瀏覽器) 的流量百分比，這些流量不會由於「略過快取」功能而快取。 |
@@ -114,7 +114,7 @@ ms.locfileid: "54320068"
 #### <a name="performance-metrics"></a>效能度量
 這些度量的用途在於追蹤您的流量的整體 CDN 效能。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | --- | --- |
 | 傳輸速率 |表示內容從 CDN 傳輸至要求者的平均速率。 |
 | Duration |表示將資產傳遞至要求者 (例如網頁瀏覽器) 所花費的平均時間 (毫秒)。 |
@@ -126,7 +126,7 @@ ms.locfileid: "54320068"
 #### <a name="secure-traffic-metrics"></a>安全流量度量
 這些度量的用途在於追蹤 HTTPS 流量的 CDN 效能。
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | --- | --- |
 | 安全快取效率 |表示從快取提供的 HTTPS 要求所傳輸的資料百分比。 這個度量會測量所要求內容的快取版本何時直接從 CDN (邊緣伺服器) 透過 HTTPS 提供給要求者 (例如網頁瀏覽器)。 |
 | 安全傳輸速率 |表示內容從 CDN (邊緣伺服器) 透過 HTTPS 傳輸至要求者 (例如網頁瀏覽器) 的平均速率。 |
@@ -147,7 +147,7 @@ ms.locfileid: "54320068"
    
     邊緣節點分析報告畫面隨即顯示。
 
-| 報告 | 說明 |
+| 報告 | 描述 |
 | --- | --- |
 | 每日摘要 |可讓您檢視一段指定期間內的每日流量趨勢。 此圖形上的每個橫條都代表特定日期。 橫條大小表示那一天發生的點擊總數。 |
 | 每小時摘要 |可讓您檢視一段指定期間內的每小時流量趨勢。 此圖形上的每個橫條都代表特定日期的單一小時。 橫條大小表示那一小時發生的點擊總數。 |
@@ -183,7 +183,7 @@ ms.locfileid: "54320068"
 | 502 錯誤 |包含的橫條圖可讓您檢視導致「502 錯誤的閘道」回應碼的前 10 名要求。 當伺服器和 HTTP Proxy 之間發生 HTTP 通訊協定失敗時，就會發生「502 錯誤的閘道」回應碼。 就我們的 CDN 而言，「502 錯誤的閘道」回應碼通常發生於客戶原始伺服器傳回無效回應給邊緣伺服器的情況。 無法剖析或不完整的回應就是無效。 |
 | 5xx 錯誤 |包含的橫條圖可讓您檢視導致 500 系列回應碼的前 10 名要求。  這份報告中排除「502 錯誤的閘道」和「504 閘道逾時」回應碼。 |
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [Azure CDN 概觀](cdn-overview.md)
 * [Microsoft Azure CDN 中的即時統計資料](cdn-real-time-stats.md)
 * [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)

@@ -9,11 +9,11 @@ ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
 ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "58115162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61127154"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>符合成本效益的標準儲存體及非受控和受控 Azure VM 磁碟
 
@@ -140,7 +140,7 @@ ms.locfileid: "58115162"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Azure 儲存體簡介](../articles/storage/common/storage-introduction.md)
+* [Azure 存储简介](../articles/storage/common/storage-introduction.md)
 
 * [建立儲存體帳戶](../articles/storage/common/storage-quickstart-create-account.md)
 

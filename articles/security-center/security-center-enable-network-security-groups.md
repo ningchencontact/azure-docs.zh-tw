@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 14b7cc8f8162574380ca21ac515af8b7d3d5ded9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60911417"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>在 Azure 資訊安全中心啟用網路安全性群組
 如果尚未啟用網路安全性群組 (NSG)，Azure 資訊安全中心會建議您啟用。 NSG 包含存取控制清單 (ACL) 規則的清單，可允許或拒絕虛擬網路中 VM 執行個體的網路流量。 NSG 可與子網路或該子網路內的個別 VM 執行個體相關聯。 當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。 此外，將 NSG 直接關聯至該 VM，即可進一步限制個別 VM 的流量。 若要深入了解，請參閱 [什麼是網路安全性群組 (NSG)？](../virtual-network/security-overview.md)
@@ -45,7 +45,7 @@ ms.locfileid: "56111691"
 
 如果您建立一個 NSG，請依照[管理網路安全性群組](../virtual-network/manage-network-security-group.md)中的步驟，建立 NSG 並設定安全性規則。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 本文說明了如何實作資訊安全中心建議的針對子網路或虛擬機器「啟用網路安全性群組」。 若要深入了解啟用 NSG，請參閱下列項目：
 
 * [什麼是網路安全性群組 (NSG)？](../virtual-network/security-overview.md)

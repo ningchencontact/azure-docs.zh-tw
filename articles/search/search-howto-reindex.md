@@ -10,11 +10,11 @@ ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 2595912732389c8a415d1854a84a7b9c182e4dc7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871143"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>如何重建 Azure 搜尋服務索引
 
@@ -26,7 +26,7 @@ ms.locfileid: "56341635"
 
 ## <a name="rebuild-conditions"></a>重建條件
 
-| 條件 | 說明 |
+| 條件 | 描述 |
 |-----------|-------------|
 | 變更欄位定義 | 修改欄位名稱、資料類型或特定[索引屬性](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\) (可搜尋、可篩選、可排序、可面向化) 需要完整重建。 |
 | 將分析器指派給欄位 | [分析器](search-analyzers.md)定義在索引中，之後指派給欄位。 您可以隨時將新分析器定義新增至索引，但當欄位建立後，您只能*指派*分析器。 這適用於 **analyzer** 和 **indexAnalyzer** 屬性。 **searchAnalyzer** 屬性是例外狀況 (您可以將此屬性指派給現有欄位)。 |
@@ -94,7 +94,7 @@ ms.locfileid: "56341635"
 
 第一個文件載入之後，您就可以開始查詢索引。 如果您知道文件的別碼，[查閱文件 REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) \(英文\) 可傳回特定文件。 若要進行更廣泛的測試，您應該等到索引完全載入，然後使用查詢來確認您預期會看到的內容。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [索引子概觀](search-indexer-overview.md)
 + [大規模索引大型資料集](search-howto-large-index.md)

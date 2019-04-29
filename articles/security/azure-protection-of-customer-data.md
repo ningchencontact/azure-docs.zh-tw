@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589084"
 ---
 # <a name="azure-customer-data-protection"></a>Azure 客戶資料保護   
 預設會拒絕 Microsoft 運作與支援人員對於客戶資料的存取。 授與客戶資料的存取權時，需要經由主管核准，才能仔細管理和記錄存取權。 存取控制需求是由下列 Azure 安全性原則所建立：

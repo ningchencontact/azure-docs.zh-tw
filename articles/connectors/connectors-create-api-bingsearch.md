@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60952543"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>使用 Bing 搜尋和 Azure Logic Apps 尋找新聞
 
@@ -56,9 +56,9 @@ ms.locfileid: "58313544"
    | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
    | Search Query | 是 | <*search-words*> | 輸入您要使用的搜尋關鍵字。 |
-   | Market | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
-   | Safe Search | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
-   | Count | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
+   | 市場 | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
+   | 安全搜尋 | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
+   | 計數 | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
    | Offset | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
    |||||
 
@@ -94,7 +94,7 @@ ms.locfileid: "58313544"
 3. 在搜尋方塊中，輸入 "Bing 搜尋" 作為篩選條件。
 從 [動作] 清單中，選取您想要的動作。
 
-   此範例會使用這項動作：
+   此示例使用以下操作：
 
    **Bing 搜尋-查詢清單新聞**
 
@@ -107,9 +107,9 @@ ms.locfileid: "58313544"
    | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
    | Search Query | 是 | <*search-expression*> | 輸入查詢觸發程序結果的運算式。 您可以從動態內容清單中的欄位選取，或使用運算式產生器建立運算式。 |
-   | Market | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
-   | Safe Search | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
-   | Count | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
+   | 市場 | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
+   | 安全搜尋 | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
+   | 計數 | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
    | Offset | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
    |||||
 

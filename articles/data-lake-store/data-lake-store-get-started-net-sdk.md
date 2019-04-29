@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60877420"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 對 Azure Data Lake Storage Gen1 進行帳戶管理作業。
 > [!div class="op_single_selector"]
@@ -41,9 +41,9 @@ ms.locfileid: "58879704"
 2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 3. 在 [ **新增專案**] 中，輸入或選取下列值：
 
-   | 屬性 | 值 |
+   | 屬性 | Value |
    | --- | --- |
-   | 類別 |範本/Visual C#/Windows |
+   | Category |範本/Visual C#/Windows |
    | 範本 |主控台應用程式 |
    | 名稱 |CreateADLApplication |
 4. 按一下 [確定]  以建立專案。

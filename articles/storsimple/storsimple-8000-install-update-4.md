@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 57d6d63c55f8ad4da5d1905a1e209da454b0491c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630189"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860307"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>在 StorSimple 裝置上安裝 Update 4
 
@@ -74,7 +74,7 @@ Hotfix 方法涉及下列三個步驟：
 
 您必須以指定的順序和建議的資料夾下載並安裝下列 Hotfix：
 
-| 順序 | KB | 說明 | 更新類型 | 安裝時間 |安裝在資料夾|
+| 順序 | KB | 描述 | 更新類型 | 安裝時間 |安裝在資料夾|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4011839 |軟體更新 |Regular <br></br>非干擾性 |~ 25 分鐘 |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |LSI 驅動程式與韌體更新 <br> USM 韌體更新 (3.38 版) |Regular <br></br>非干擾性 |~ 3 小時 <br> (包括 2A. 2B. + 2C.)|SecondOrderUpdate|
@@ -83,7 +83,7 @@ Hotfix 方法涉及下列三個步驟：
 
 除了前面表格所示的所有更新之外，您可能還需要安裝磁碟韌體更新。 您可以執行 `Get-HcsFirmwareVersion` Cmdlet 來確認是否需要進行磁碟韌體更新。 如果您執行的是這些韌體版本：`XMGJ`、`XGEG`、`KZ50`、`F6C2`、`VR08`、`N002`、`0106`，您就不需要安裝這些更新。
 
-| 順序 | KB | 說明 | 更新類型 | 安裝時間 | 安裝在資料夾|
+| 順序 | KB | 描述 | 更新類型 | 安裝時間 | 安裝在資料夾|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB3121899 |磁碟韌體 |維護  <br></br>干擾性 |~ 30 分鐘 | ThirdOrderUpdate |
 

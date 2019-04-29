@@ -13,17 +13,17 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/19/2019
 ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226975"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61036493"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>使用 SQL Database 中的記憶體內部技術將效能最佳化
 
 Azure SQL Database 中的記憶體內部技術可讓您改善應用程式的效能，還能降低您的資料庫成本。 
 
-## <a name="when-to-use-in-memory-technologies"></a>使用中記憶體內部技術的時機
+## <a name="when-to-use-in-memory-technologies"></a>何时使用内存中技术
 
 您可以藉由使用 Azure SQL Database 中的記憶體內部技術，來達成各種工作負載的效能改善：
 
@@ -83,7 +83,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 
 - **記憶體最佳化資料列存放區**格式，其中每個資料列為不同的記憶體物件。 這是針對高效能 OLTP 工作負載進行最佳化的傳統記憶體內部 OLTP 格式。 有兩種類型的記憶體最佳化資料表，可用於記憶體最佳化資料列存放區格式：
   - 「持久性資料表」(SCHEMA_AND_DATA)，其中置於記憶體內的資料列會在伺服器重新啟動後予以保留。 這類型的資料表行為類似於傳統資料列存放區資料表，但具有記憶體內部最佳化的額外好處。
-  - *非持久性資料表*(SCHEMA_ONLY) 其中的資料列是不保留重新啟動之後。 這種類型的資料表專為下列項目而設計：暫存資料 (例如，取代暫存資料表)，或是您需要快速載入資料，再將它移至某個永續性資料表的資料表 (所謂的暫存資料表)。
+  - 非持久性表 (SCHEMA_ONLY)：重启后不保留行。 這種類型的資料表專為下列項目而設計：暫存資料 (例如，取代暫存資料表)，或是您需要快速載入資料，再將它移至某個永續性資料表的資料表 (所謂的暫存資料表)。
 - **記憶體最佳化資料行存放區**格式，其中的資料會組織成單欄式格式。 此結構設計用於 HTAP 案例，在此案例中，您需要在執行 OLTP 工作負載的相同資料結構上執行分析查詢。
 
 > [!Note]

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61131726"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 入口網站分析您的媒體 
 > [!NOTE]
@@ -136,7 +136,7 @@ Azure 媒體服務分析是語音和視覺元件的集合 (具企業規模、相
 
 ![仲裁影片](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
-### <a name="version"></a>版本 
+### <a name="version"></a>Version 
 使用 "2.0"。
 
 ### <a name="mode"></a>Mode

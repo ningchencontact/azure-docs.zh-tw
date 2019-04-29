@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: adgera
 ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926076"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -62,13 +62,13 @@ ms.locfileid: "54259269"
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Name  | 更換為 | 範例 |
+    | 名稱  | 更換為 | 範例 |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | 您的租用戶或組織的名稱 | `microsoft` |
 
 1. 選取 [授權] 索引標籤、選取 [OAuth 2.0]，然後選取 [取得新的存取權杖]。
 
-    | 欄位  | 值 |
+    | 欄位  | Value |
     |---------|---------|
     | 授與類型 | `Implicit` |
     | 回呼 URL | `https://www.getpostman.com/oauth2/callback` |

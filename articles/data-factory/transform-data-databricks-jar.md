@@ -13,11 +13,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860979"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>在 Azure Databricks 中執行 Jar 活動來轉換資料
 
@@ -59,7 +59,7 @@ ms.locfileid: "57575863"
 |屬性|描述|必要項|
 |:--|---|:-:|
 |name|管線中的活動名稱。|是|
-|說明|說明活動用途的文字。|否|
+|description|說明活動用途的文字。|否|
 |type|若是 Databricks Jar 活動，則活動類型是 DatabricksSparkJar。|是|
 |預設容器|Jar 活動執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
 |mainClassName|類別的完整名稱，該類別包含要執行的 main 方法。 這個類別必須包含在提供做為程式庫的 JAR 中。|是|

@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
 ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845730"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的結構描述參考
 
@@ -71,7 +71,7 @@ ms.locfileid: "59616793"
 
 | 元素 | 必要項 | 類型 | 描述 |
 |---------|----------|------|-------------|
-| type | 是 | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 如需保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | 參數的類型 |
+| type | 是 | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 有关保护参数的详细信息，请参阅[保护逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | 參數的類型 |
 | defaultValue | 是 | 與 `type` 相同 | 在工作流程具現化時，未指定任何值時的預設參數值 |
 | allowedValues | 否 | 與 `type` 相同 | 具有參數可接受值的陣列 |
 | 中繼資料 | 否 | JSON 物件 | 任何其他參數詳細資料，例如 「 名稱 」 或 「 您的邏輯應用程式或流程或使用 Visual Studio 或其他工具的設計階段資料的可讀取描述 |

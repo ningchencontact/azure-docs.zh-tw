@@ -3,22 +3,22 @@ title: 刪除虛擬網路閘道：Azure 入口網站：Resource Manager | Micros
 description: 在 Resource Manager 部署模型中使用 Azure 入口網站刪除虛擬網路閘道。
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
-ms.date: 10/23/2018
-ms.author: cherylmc
-ms.topic: conceptual
+origin.date: 10/23/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: 387b4e982772f22453876e1ea8b9e7c4039601c4
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845679"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>使用入口網站刪除虛擬網路閘道
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Azure 门户](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (傳統)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 
@@ -63,3 +63,5 @@ ms.locfileid: "57790572"
 1. 在 [所有資源] 中，找出資源群組，然後按一下以開啟刀鋒視窗。
 2. 按一下 [刪除] 。 在 [刪除] 刀鋒視窗中，檢視受影響的資源。 請確定您想要刪除所有資源。 如果不是，請使用這篇文章上方之刪除 VPN 閘道中的步驟。
 3. 若要繼續，請輸入您想要刪除之資源群組的名稱，然後按一下 [刪除]。
+
+<!--Update_Description: wording update-->

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 70dca655d5300fcd34b4198093e136f6a971963b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 44b965bd60d976d4d28dc5e31d78a1c838d4ee02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542252"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>高效能運算的虛擬機器大小
 
@@ -33,8 +33,10 @@ ms.locfileid: "49344484"
 
 ### <a name="mpi"></a>MPI 
 
-只支援 Intel MPI 5.x 版本。 Intel MPI 執行階段程式庫的較新版本 (2017 和 2018) 與 Azure Linux RDMA 驅動程式不相容。
+只支援 Intel MPI 5.x 版本。
 
+> [!NOTE]
+> 更新版本 （2017年和 2018年） 的 Intel MPI 執行階段程式庫可能會或可能不相容的 Azure Linux RDMA 驅動程式。
 
 ### <a name="distributions"></a>散發
  
@@ -82,7 +84,7 @@ Azure 提供數個選項來建立 Linux HPC VM 的叢集，而這些 VM 可以�
 
 ## <a name="other-sizes"></a>其他大小
 - [一般用途](sizes-general.md)
-- [計算最佳化](sizes-compute.md)
+- [计算优化](sizes-compute.md)
 - [記憶體最佳化](sizes-memory.md)
 - [儲存體最佳化](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)

@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: e1b411ab54a5b666849893ba9d246eff85e7e54e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306879"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871229"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>使用 Azure 搜尋服務對 Azure 表格儲存體編制索引
 本文章說明如何使用 Azure 搜尋服務來對儲存於 Azure 表格儲存體中的資料編制索引。
@@ -24,7 +24,7 @@ ms.locfileid: "57306879"
 
 您可以使用下列資源設定 Azure 表格儲存體索引子︰
 
-* [Azure 入口網站](https://ms.portal.azure.com)
+* [Azure 门户](https://ms.portal.azure.com)
 * Azure 搜尋服務 [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure 搜尋服務 [.NET SDK](https://aka.ms/search-sdk)
 

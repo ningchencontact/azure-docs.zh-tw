@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 3369f3b3349e8daf9ff540b824c10bbd618a1147
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859948"
 ---
 # <a name="send-request-context-information-to-the-backend-service"></a>將要求內容資訊傳送至後端服務
 

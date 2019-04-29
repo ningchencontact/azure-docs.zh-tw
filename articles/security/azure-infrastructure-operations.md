@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104546"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591467"
 ---
 # <a name="azure-production-operations-and-management"></a>Azure 生產環境運作與管理    
 Azure 生產網路的管理和運作是 Azure 運作小組與 Azure SQL Database 之間的協調工作。 小組在環境中使用了數個系統和應用程式效能監視工具。 此外，他們會使用適當的工具監視網路裝置、伺服器、服務和應用程式程序。

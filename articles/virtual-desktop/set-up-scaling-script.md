@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497892"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870718"
 ---
 # <a name="automatically-scale-session-hosts"></a>自動調整工作階段主機
 
@@ -58,7 +58,7 @@ ms.locfileid: "58497892"
 
 1. 開啟以系統管理員的 PowerShell ISE。
 2. 開啟編輯 窗格和負載**函式 PSStoredCredentials.ps1**檔案。
-3. 執行下列 Cmdlet：
+3. 运行以下 cmdlet：
     
     ```powershell
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>

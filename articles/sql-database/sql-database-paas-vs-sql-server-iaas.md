@@ -14,15 +14,15 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584843"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>在 Azure 中選擇適當的 SQL Server 選項
 
-在 Azure 中，您可以讓 SQL Server 工作負載在託管基礎結構 (IaaS) 中執行或以託管服務 ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) 形式執行。 在 PaaS 中，您有多個部署選項，而且每個部署選項中都有多個服務層。 在 PaaS 或 IaaS 之間做決定時，您必須詢問的關鍵問題是，您是否要管理資料庫、套用修補程式、進行備份，還是要將這些作業委派給 Azure？
+在 Azure 中，您可以讓 SQL Server 工作負載在託管基礎結構 (IaaS) 中執行或以託管服務 ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) 形式執行。 在 PaaS 中，您有多個部署選項，而且每個部署選項中都有多個服務層級。 在 PaaS 或 IaaS 之間做決定時，您必須詢問的關鍵問題是，您是否要管理資料庫、套用修補程式、進行備份，還是要將這些作業委派給 Azure？
 根據答案，您會有下列選項：
 
 - [Azure SQL Database](sql-database-technical-overview.md)：一個完全受控的 SQL 資料庫引擎，以最新穩定版的 SQL Server Enterprise 為基礎。 這是裝載在 Azure 雲端的關聯式資料庫即服務 (DBaaS)，其產業類別屬於「平台即服務 (PaaS)」。 SQL Database 有多個部署選項，而且每個部署選項都會建立在 Microsoft 所擁有、託管及維護的標準化硬體和軟體上。 透過 SQL Database，您可以使用需要在 SQL Server 中進行大量設定的內建功能 (內部部署或在 Azure 虛擬機器中)。 使用 SQL Database 時，您可以隨用隨付，並使用相應增加或相應放大選項以取得不需中斷的更強大功能。 SQL Database 具有 SQL Server 中無法使用的額外功能，例如內建高可用性、智慧和管理功能。 Azure SQL Database 提供下列部署選項：
@@ -103,13 +103,13 @@ ms.locfileid: "59360812"
 
 #### <a name="billing-and-licensing-basics"></a>計費和授權基本概念
 
-目前，**SQL Database** 以服務形式銷售並提供數個部署選項，而且在資源價格不同的數個服務層中，所有資源都根據您所選擇的服務層和計算大小，以固定費率計算每小時的費用。 如需有關目前支援服務層、計算大小和儲存體帳戶的最新資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
+目前，**SQL Database** 以服務形式銷售並提供數個部署選項，而且在資源價格不同的數個服務層級中，所有資源都根據您所選擇的服務層級和計算大小，以固定費率計算每小時的費用。 如需有關目前支援服務層級、計算大小和儲存體帳戶的最新資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 
-- 使用 SQL Database 單一資料庫，您可以從基本層的每月 5 美元開始，從各種不同的價格中選擇適合您需求的服務層。
+- 使用 SQL Database 單一資料庫，您可以從基本層的每月 5 美元開始，從各種不同的價格中選擇適合您需求的服務層級。
 - 您可以建立[彈性集區](sql-database-elastic-pool.md)以便在資料庫執行個體間共用資源，進而降低成本及因應使用尖峰。
 - 使用 SQL Database 受控執行個體，您也可以自備授權。 如需採用自己的授權的詳細資訊，請參閱 [Azure 上藉軟體保證而實現的授權行動性](https://azure.microsoft.com/pricing/license-mobility/)或使用 [Azure Hybrid Benefit 計算機](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database)查看如何**節省高達 40%**。
 
-此外，傳出的網際網路流量也會以一般 [資料傳輸費率](https://azure.microsoft.com/pricing/details/data-transfers/)計費。 您可以動態調整服務層和計算大小，以滿足應用程式的不同輸送量需求。
+此外，傳出的網際網路流量也會以一般 [資料傳輸費率](https://azure.microsoft.com/pricing/details/data-transfers/)計費。 您可以動態調整服務層級和計算大小，以滿足應用程式的不同輸送量需求。
 
 有了 **SQL Database**，Microsoft 便會自動設定、修補和升級資料庫軟體，以降低您的系統管理成本。 此外，它 [內建的備份](sql-database-automated-backups.md) 功能可協助您達到有效節省成本，尤其是當您擁有為數眾多的資料庫時效果更為顯著。
 

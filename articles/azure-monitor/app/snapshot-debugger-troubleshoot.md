@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58094934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60783935"
 ---
 # <a id="troubleshooting"></a> 針對啟用 Application Insights 快照集偵錯工具，或檢視快照集的問題進行疑難排解
 如果您針對您的應用程式啟用 Application Insights 快照集偵錯工具，但看不到的例外狀況的快照集，您可以使用這些指示進行疑難排解。 可以有許多不同的原因為何不會產生快照集。 您可以執行快照集的健全狀況檢查，以識別可能的常見原因。

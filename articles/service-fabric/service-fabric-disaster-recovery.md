@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60948499"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的災害復原
 提供高可用性的關鍵在於確保服務能夠承受所有不同類型的故障。 這對於預料之外且無法控制的故障而言特別重要。 本文說明一些常見的故障模式，如果沒有未正確建立模型和管理，可能會造成嚴重損壞。 此外，本文也會探討發生災害時應採取的緩解措施和行動。 目標是發生故障 (無論計劃與否) 時，限制或排除停機或資料遺失的風險。

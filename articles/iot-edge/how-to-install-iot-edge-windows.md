@@ -11,11 +11,11 @@ ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
 ms.openlocfilehash: 95e984f6f08af01a2ffd7b9b4e0ec598d73f4d05
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60595113"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安裝 Azure IoT Edge 執行階段
 
@@ -26,16 +26,16 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 本文列出在 Windows x64 (AMD/Intel) 系統上安裝 Azure IoT Edge 執行階段的步驟。 Windows 支援目前為預覽版。
 
 > [!NOTE]
-> 已知的 Windows 作業系統問題會防止轉換至睡眠與休眠電源狀態時執行 IoT Edge 模組 （處理序隔離 Windows Nano Server 容器）。 這個問題會影響裝置上的電池壽命。
+> 当 IoT Edge 模块（进程隔离的 Windows Nano Server 容器）正在运行时，一个已知的 Windows 操作系统问题会阻止转换到睡眠和休眠电源状态。 此问题会影响设备的电池寿命。
 >
-> 因應措施，使用命令`Stop-Service iotedge`停止任何正在執行的 IoT Edge 模組，才能使用這些電源狀態。 
+> 作为解决方法，在使用这些电源状态之前，请使用 `Stop-Service iotedge` 命令停止任何正在运行的 IoT Edge 模块。 
 
 <!--
 > [!NOTE]
 > Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
 -->
 
-使用 Linux 容器在 Windows 系統上的不是 Azure IoT Edge 的建議或支援的生產組態。 不過，這很適合用於開發與測試用途。 
+不推荐或支持在 Windows 系统上使用 Linux 容器作为 Azure IoT Edge 的生产配置。 不過，這很適合用於開發與測試用途。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -61,7 +61,7 @@ Azure IoT Edge 支援不同版本的 Windows，取決於您執行 Windows 容器
 
 Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器引擎。 對於生產案例，請使用安裝指令碼中包含的 Moby 引擎，在 Windows 裝置上執行 Windows 容器。 對於開發和測試，您可以在您的 Windows 裝置上執行 Linux 容器，但您需要先安裝及設定容器引擎，然後再安裝 IoT Edge。 對於上述任一案例，請參閱下列各節，了解準備您的裝置的必要條件。 
 
-如果您想要在虛擬機器上安裝 IoT Edge，啟用巢狀虛擬化，並配置至少 2 GB 的記憶體。 啟用巢狀虛擬化的方式不一樣在 hypervisor 上，視您使用就行了。 Hyper-v，第 2 代虛擬機器具有巢狀虛擬化預設啟用。 對於 VMWare，沒有可啟用此功能在您的虛擬機器上的切換符號。 
+若要在虚拟机上安装 IoT Edge，请启用嵌套虚拟化并分配至少 2-GB 内存。 如何启用嵌套虚拟化取决于所用的虚拟机监控程序。 就 Hyper-V 来说，第 2 代虚拟机已默认启用嵌套虚拟化。 如果使用 VMWare，则可通过切换开关在虚拟机上启用此功能。 
 
 #### <a name="moby-engine-for-windows-containers"></a>適用於 Windows 容器的 Moby 引擎
 

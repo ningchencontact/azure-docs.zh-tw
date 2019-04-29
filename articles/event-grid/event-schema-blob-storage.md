@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614896"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>blob 儲存體的 Azure Event Grid 事件結構描述
 
@@ -24,7 +24,7 @@ ms.locfileid: "54469725"
 
 blob 儲存體會發出下列事件類型：
 
-| 事件類型 | 說明 |
+| 事件類型 | 描述 |
 | ---------- | ----------- |
 | Microsoft.Storage.BlobCreated | 建立 blob 時引發。 |
 | Microsoft.Storage.BlobDeleted | 刪除 blob 時引發。 |
@@ -88,30 +88,30 @@ blob 刪除事件的結構描述如下：
 
 事件具有下列的最高層級資料：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | 字串 | 發行者定義事件主體的路徑。 |
-| eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
-| eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
-| id | 字串 | 事件的唯一識別碼。 |
+| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| 主旨 | string | 發行者定義事件主體的路徑。 |
+| eventType | string | 此事件來源已註冊的事件類型之一。 |
+| eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| id | string | 事件的唯一識別碼。 |
 | data | 物件 | blob 儲存體帳戶。 |
-| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
-| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
+| dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| api | 字串 | 觸發事件的作業。 |
-| clientRequestId | 字串 | 用戶端產生的不透明值，具有 1 KB 的字元限制。 當您啟用儲存體分析記錄時，它會記錄在分析記錄中。 |
-| requestId | 字串 | 要求的唯一識別碼。 使用它針對要求進行疑難排解。 |
-| etag | 字串 | 此值可讓您依條件執行作業。 |
-| contentType | 字串 | 為 blob 指定內容類型。 |
+| api | string | 觸發事件的作業。 |
+| clientRequestId | string | 用戶端產生的不透明值，具有 1 KB 的字元限制。 當您啟用儲存體分析記錄時，它會記錄在分析記錄中。 |
+| requestId | string | 要求的唯一識別碼。 使用它針對要求進行疑難排解。 |
+| etag | string | 此值可讓您依條件執行作業。 |
+| contentType | string | 為 blob 指定內容類型。 |
 | contentLength | integer | Blob 大小 (以位元組為單位)。 |
-| blobType | 字串 | Blob 的類型。 有效值為 "BlockBlob" 或 "PageBlob"。 |
-| url | 字串 | blob 的路徑。 |
-| 排序器 | 字串 | 使用者控制的值，可用來追蹤要求。 |
+| blobType | string | Blob 的類型。 有效值為 "BlockBlob" 或 "PageBlob"。 |
+| url | string | blob 的路徑。 |
+| 排序器 | string | 使用者控制的值，可用來追蹤要求。 |
 | storageDiagnostics | 物件 | 儲存體診斷的相關資訊。 |
  
 ## <a name="next-steps"></a>後續步驟

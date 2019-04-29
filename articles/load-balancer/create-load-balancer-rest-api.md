@@ -14,11 +14,11 @@ ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
 ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884974"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>使用 REST API 建立 Azure 基本負載平衡器
 
@@ -33,12 +33,12 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
   ```
 ### <a name="uri-parameters"></a>URI 參數
 
-|Name  |在  |必要 |類型 |說明 |
+|名稱  |在  |必要項 |類型 |描述 |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  True       |   字串      |  可唯一識別 Microsoft Azure 訂用帳戶的訂用帳戶認證。 訂用帳戶識別碼會構成每個服務呼叫 URI 的一部分。      |
-|resourceGroupName     |     path    | True        |  字串       |   資源群組的名稱。     |
-|loadBalancerName     |  path       |      True   |    字串     |    負載平衡器的名稱。    |
-|api-version    |   query     |  True       |     字串    |  用戶端 API 版本。      |
+|subscriptionId   |  path       |  True       |   string      |  可唯一識別 Microsoft Azure 訂用帳戶的訂用帳戶認證。 訂用帳戶識別碼會構成每個服務呼叫 URI 的一部分。      |
+|resourceGroupName     |     path    | True        |  string       |   資源群組的名稱。     |
+|loadBalancerName     |  path       |      True   |    string     |    負載平衡器的名稱。    |
+|api-version    |   query     |  True       |     string    |  用戶端 API 版本。      |
 
 
 
@@ -46,9 +46,9 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
 
 唯一必要的參數是 `location`。 如果您未定義 *SKU* 版本，預設會建立基本負載平衡器。  使用[選擇性參數](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body)來自訂負載平衡器。
 
-| Name | 類型 | 說明 |
+| 名稱 | 類型 | 描述 |
 | :--- | :--- | :---------- |
-| location | 字串 | 資源位置。 使用 [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 作業取得目前的位置清單。 |
+| location | string | 資源位置。 使用 [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 作業取得目前的位置清單。 |
 
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>範例：建立及更新基本負載平衡器

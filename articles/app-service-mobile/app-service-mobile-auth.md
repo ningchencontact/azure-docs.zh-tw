@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
 ms.openlocfilehash: 87bdfcc827155e5dd0a02ffb1640bf7e9cd4e479
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859119"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure App Service 中行動裝置應用程式的驗證和授權
 
@@ -58,7 +58,7 @@ ms.locfileid: "53715778"
 下列教學課程示範如何使用[伺服器導向流程](../app-service/overview-authentication-authorization.md#authentication-flow)，將驗證新增至您的行動用戶端︰
 
 * [將驗證新增至您的 iOS 應用程式][iOS]
-* [將驗證新增至 Android 應用程式][Android]
+* [将身份验证添加到 Android 应用][Android]
 * [將驗證新增至 Windows 應用程式][Windows]
 * [將驗證新增至 Xamarin.iOS 應用程式][Xamarin.iOS]
 * [將驗證新增至 Xamarin.Android 應用程式][Xamarin.Android]

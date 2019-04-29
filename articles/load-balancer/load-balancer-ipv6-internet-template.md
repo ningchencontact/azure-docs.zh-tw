@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216738"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>使用範本部署配置有 IPv6 的網際網路面向負載平衡器解決方案
 
@@ -30,7 +30,7 @@ ms.locfileid: "54039787"
 
 
 
-Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 此負載平衡器可藉由在負載平衡器集合中，將連入流量分散於雲端服務或虛擬機器中狀況良好的服務執行個體之間，來提供高可用性。 Azure Load Balancer 也會在多個連接埠、多個 IP 位址或兩者上顯示這些服務。
+Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 此負載平衡器可藉由在負載平衡器集合中，將連入流量分散於雲端服務或虛擬機器中狀況良好的服務執行個體之間，來提供高可用性。 Azure 负载均衡器还可以在多个端口和/或多个 IP 地址上显示这些服务。
 
 ## <a name="example-deployment-scenario"></a>範例部署案例
 
@@ -113,7 +113,7 @@ Azure Resource Manager 範本可包含多個變數和參數，讓您自訂自己
 | --- | --- |
 | adminUsername |指定用來登入虛擬機器的系統管理員帳戶名稱。 |
 | adminPassword |指定用來登入虛擬機器的系統管理員帳戶密碼。 |
-| dnsNameforIPv4LbIP |指定您想要指派為負載平衡器公用名稱的 DNS 主機名稱。 這個名稱會解析為負載平衡器的公用 IPv4 位址。 此名稱必須是小寫，並符合規則運算式：^[a-z][a-z0-9-]{1,61}[a-z0-9]$。 |
+| dnsNameforIPv4LbIP |指定想要分配为负载均衡器公共名称的 DNS 主机名。 這個名稱會解析為負載平衡器的公用 IPv4 位址。 此名稱必須是小寫，並符合規則運算式：^[a-z][a-z0-9-]{1,61}[a-z0-9]$。 |
 | dnsNameforIPv6LbIP |指定您想要指派為負載平衡器公用名稱的 DNS 主機名稱。 這個名稱會解析為負載平衡器的公用 IPv6 位址。 此名稱必須是小寫，並符合規則運算式：^[a-z][a-z0-9-]{1,61}[a-z0-9]$。 這可以和 IPv4 位址的名稱相同。 當名稱相同時，若用戶端傳送此名稱的 DNS 查詢，Azure 將傳回 A 和 AAAA 記錄。 |
 | vmNamePrefix |指定 VM 名稱前置詞。 建立 VM 時，範本會在名稱上附加一個數字 (0、1 等等)。 |
 | nicNamePrefix |指定網路介面名稱前置詞。 建立網路介面時，範本會在名稱上附加一個數字 (0、1 等等)。 |

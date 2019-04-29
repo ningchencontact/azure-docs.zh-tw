@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: ad52d2b1df458d04a1ca9bd52a99bab38ddabef1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: baed2b23a321c53a614303d3085fbb3a4bf6ad0b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308575"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831090"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>使用內部負載平衡器搭配 App Service Environment 的應用程式閘道並未將後端伺服器憑證列入允許清單
 
@@ -70,6 +70,6 @@ ms.locfileid: "56308575"
 
 若要減少額外負荷，您可以上傳 HTTP 設定中的 ILB 憑證，以進行探查路徑工作。 (此步驟只適用於加入允許清單。 不會用於 SSL 通訊。)若要擷取 ILB 憑證，您可以從瀏覽器使用 HTTPS 上的 IP 位址來存取 ILB，然後以 Base-64 編碼的 CER 格式匯出 SSL 憑證，並上傳個別 HTTP 設定上的憑證。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-support"></a>需要協助嗎？ 联系支持人员
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

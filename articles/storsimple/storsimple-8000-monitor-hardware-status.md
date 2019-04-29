@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 58007eea9ce25423bc3a9c2847de42db04be43eb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
-ms.translationtype: HT
+ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632799"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>使用 StorSimple 裝置管理員服務監視硬體元件和狀態
 
@@ -79,7 +79,7 @@ ms.locfileid: "42141484"
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>StorSimple 裝置之主要機箱的元件清單
 下表摘要列出您內部部署 StorSimple 裝置之主要機箱 (在 8100 和 8600 中皆為贈品) 中包含的實體和邏輯元件。
 
-| 元件 | 模組 | 類型 | 位置 | 現場可更換單位 (FRU)？ | 說明 |
+| 元件 | 模組 | 類型 | 位置 | 現場可更換單位 (FRU)？ | 描述 |
 | --- | --- | --- | --- | --- | --- |
 | 插槽 [0-11] 中的磁碟機 |磁碟機 |實體 |共用 |是 |主要機箱中的每個 SSD 或 HDD 磁碟機都表示為一行。 |
 | 周圍溫度感應器 |機箱 |實體 |共用 |否 |測量底座內溫度。 |
@@ -120,7 +120,7 @@ ms.locfileid: "42141484"
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>StorSimple 裝置之 EBOD 機箱的元件清單
 下表摘要列出您內部部署 StorSimple 裝置之 EBOD 機箱 (只在 8600 機型中為贈品) 中包含的實體和邏輯元件。
 
-| 元件 | 模組 | 類型 | 位置 | FRU？ | 說明 |
+| 元件 | 模組 | 類型 | 位置 | FRU？ | 描述 |
 | --- | --- | --- | --- | --- | --- |
 | 插槽 [0-11] 中的磁碟機 |磁碟機 |實體 |共用 |是 |EBOD 機箱前方的每個 HDD 磁碟機都表示為一行。 |
 | 周圍溫度感應器 |機箱 |實體 |共用 |否 |測量底座內溫度。 |

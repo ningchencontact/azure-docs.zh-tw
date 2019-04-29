@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: 8c081c6436939089565425a0f14bbf1856ca7ce8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536758"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230619"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>適用於 MySQL 的 Azure 資料庫移轉合作夥伴
 為廣泛支援「適用於 MySQL 的 Azure 資料庫」解決方案，您可以從各種不同的業界領導合作夥伴和工具中擇一使用。 本文主要說明有移轉解決方案可支援「適用於 MySQL 的 Azure 資料庫」的 Microsoft 合作夥伴。
 
 ## <a name="migration-partners"></a>移轉合作夥伴
-| 合作夥伴 | 說明 | 連結 | 影片 |
+| 合作夥伴 | 描述 | 連結 | 影片 |
 | --- | --- | --- | --- |
 | ![SNP Technologies][1] |**SNP Technologies**<br>SNP Technologies 是純雲端的服務提供者，會為明日的企業建置安全可靠的解決方案。 該公司相信，他們能為貴公司創造真正的價值。 SNP Technologies 會從思想到執行面，與客戶共享目標，讓客戶的投資轉變成優勢。|[網站][snp_website]<br>[Twitter][snp_twitter]<br>[Contact][snp_contact] | |
 | ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>DB Best 會協助客戶充分利用受控的 Azure 資料庫服務。 該公司提供數種方式讓您開始作業，包括[未來狀態的架構設計](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0)、[適用於 Microsoft 資料平台的資料管理最佳化](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fdata-management-optimization-for-microsoft-data-platform%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261204561&sdata=DYF9EeMaMdKZP%2FJ9d3mw%2F67hUAxWmINcI1rMbEQZ1DM%3D&reserved=0)、[Microsoft Azure 部署規劃服務](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fmicrosoft-azure-deployment-planning-services%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=Q%2FNJaHWXrrln6eXaVmU1iVb4tJCoKVgSA8cEBQiZaDk%3D&reserved=0)和 [Azure 資料平台整備訓練](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fazure-data-platform-readiness-training%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=dX%2BBGSCyq4x9ZPkTN74Y%2FUgHJ%2FqtsNgwEFDJft%2FTkc0%3D&reserved=0)。|[網站][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Contact][dbbest_contact] | |

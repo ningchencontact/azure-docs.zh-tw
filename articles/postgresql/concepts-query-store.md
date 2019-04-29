@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485912"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563999"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查詢存放區監視效能
 
@@ -29,14 +29,14 @@ ms.locfileid: "58485912"
 1. 登入 Azure 入口網站，然後選取適用於 PostgreSQL 的 Azure 資料庫伺服器。
 2. 在功能表的 [設定] 區段中，選取 [伺服器參數]。
 3. 搜尋 `pg_qs.query_capture_mode` 參數。
-4. 將值設為`TOP`並**儲存**。
+4. 将值设置为 `TOP` 并**保存**。
 
-若要啟用查詢存放區中的等候統計資料： 
+若要在查询存储中启用等待统计信息，请执行以下操作： 
 1. 搜尋 `pgms_wait_sampling.query_capture_mode` 參數。
-1. 將值設為`ALL`並**儲存**。
+1. 将值设置为 `ALL` 并**保存**。
 
 
-或者，您可以設定這些參數，使用 Azure CLI。
+或者，可使用 Azure CLI 设置这些参数。
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL

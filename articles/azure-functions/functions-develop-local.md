@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 0f1d4fdbb9e5d2b05b8ec43c1393951a4c6a87b8
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: 6486b38040fc92c2ece839801293817c4afc7cf5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094754"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614025"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
 
-雖然您能夠在 [Azure 入口網站]中開發及測試 Azure Functions，但許多開發人員仍偏好本機開發體驗。 Functions 可讓您輕鬆使用最喜愛的程式碼編輯器及開發工具，在本機電腦上建立及測試函式。 您的本機函式可以連線到即時 Azure 服務，而且您可以在本機電腦上使用完整的 Functions 執行階段進行偵錯。
+雖然您能夠在 [Azure 门户]中開發及測試 Azure Functions，但許多開發人員仍偏好本機開發體驗。 Functions 可讓您輕鬆使用最喜愛的程式碼編輯器及開發工具，在本機電腦上建立及測試函式。 您的本機函式可以連線到即時 Azure 服務，而且您可以在本機電腦上使用完整的 Functions 執行階段進行偵錯。
 
 ## <a name="local-development-environments"></a>本機開發環境
 
 您在本機電腦上開發函式的方式取決於您的[語言](supported-languages.md)和工具喜好設定。 下表中的環境支援本機開發：
 
-|環境                              |語言         |說明|
+|環境                              |Languages         |描述|
 |-----------------------------------------|------------|---|
 | [命令提示字元或終端機](functions-run-local.md) | [C# (類別程式庫)](functions-dotnet-class-library.md)、[C# script (.csx)](functions-reference-csharp.md)、[JavaScript](functions-reference-node.md) | [Azure Functions Core Tools] 提供核心執行階段和範本來建立函式，以便進行本機開發。 2.x 版支援在 Linux、MacOS 和 Windows 上進行開發。 所有環境都依賴 Core Tools 執行本機 Functions 執行階段。 |
 |[Visual Studio Code](functions-create-first-function-vs-code.md)| [C# (類別程式庫)](functions-dotnet-class-library.md)、[C# script (.csx)](functions-reference-csharp.md)、[JavaScript](functions-reference-node.md) | [適用於 VS Code 的 Azure Functions 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)將 Functions 支援新增至 VS Code。 需要 Core Tools。 使用 2.x 版 Core Tools 時，支援在 Linux、MacOS 和 Windows 上進行開發。 若要深入了解，請參閱[使用 Visual Studio Code 建立第一個函式](functions-create-first-function-vs-code.md)。 |
@@ -45,5 +45,5 @@ ms.locfileid: "44094754"
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure 入口網站]: https://portal.azure.com 
+[Azure 门户]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

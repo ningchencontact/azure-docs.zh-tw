@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871328"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
 本文說明如何使用 Azure 搜尋服務對儲存在 Azure Blob 儲存體的文件編製索引 (例如 PDF、Microsoft Office 文件和數種其他通用格式)。 首先，它會說明安裝和設定 blob 索引子的基本概念。 然後，它會提供可能會發生之行為和案例的更深入探索。
@@ -28,7 +28,7 @@ blob 索引子可以從下列文件格式擷取文字：
 ## <a name="setting-up-blob-indexing"></a>設定 blob 編製索引
 您可以使用下列項目設定 Azure Blob 儲存體索引子︰
 
-* [Azure 入口網站](https://ms.portal.azure.com)
+* [Azure 门户](https://ms.portal.azure.com)
 * Azure 搜尋服務 [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure 搜尋服務 [.NET SDK](https://aka.ms/search-sdk)
 

@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
 ms.openlocfilehash: d2dcb1eb9132e68bebbe84d81a4e4f17df79f2d3
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615555"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>使用 Azure Sentinel 預覽版的實用資源
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 這篇文章列出可協助您取得有關使用 Azure Sentinel 的詳細資訊的資源。

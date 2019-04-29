@@ -9,11 +9,11 @@ ms.date: 03/12/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883127"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>將公用互連移至 Microsoft 對等互連
 
@@ -39,7 +39,7 @@ ms.locfileid: "53100016"
 
 確認已啟用 Microsoft 對等互連，且已公告公用首碼為已設定狀態。
 
-  * [Azure 入口網站](expressroute-howto-routing-portal-resource-manager.md#getmsft)
+  * [Azure 门户](expressroute-howto-routing-portal-resource-manager.md#getmsft)
   * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)
   * [Azure CLI](howto-routing-cli.md#getmsft)
 
@@ -69,4 +69,4 @@ ms.locfileid: "53100016"
 
 ## <a name="next-steps"></a>後續步驟
 
-如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
+有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](expressroute-faqs.md)。

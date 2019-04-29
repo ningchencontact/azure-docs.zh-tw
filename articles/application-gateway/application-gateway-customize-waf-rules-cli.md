@@ -4,14 +4,15 @@ description: 此文章提供如何透過 Azure CLI，在應用程式閘道中自
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
-ms.author: victorh
+origin.date: 02/22/2019
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5e364c597b8c524e95297f279003462f2d16abe1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832892"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>透過 Azure CLI 自訂 Web 應用程式防火牆規則
 
@@ -25,7 +26,7 @@ Azure 應用程式閘道 Web 應用程式防火牆 (WAF) 提供 Web 應用程式
 
 下列範例顯示如何檢視規則群組：
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --type OWASP
 ```
 
@@ -78,7 +79,7 @@ az network application-gateway waf-config list-rule-sets --type OWASP
 
 下列範例顯示如何檢視指定規則群組中的規則：
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
@@ -117,7 +118,7 @@ az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP
 
 下列範例會停用應用程式閘道上的規則 `910018` 和 `910017`：
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
 ```
 
@@ -125,14 +126,14 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 以下列表包含导致 WAF 在防护模式下阻止请求的条件（在检测模式下，它们作为异常记录）。 无法配置或禁用这些规则：
 
-* 除非关闭正文检查（XML、JSON、表单数据），否则无法分析请求正文会导致请求被阻止
-* 请求正文（不带文件）数据长度大于配置的限制
-* 请求正文（包括文件）大于限制
-* WAF 引擎发生内部错误
+- 除非关闭正文检查（XML、JSON、表单数据），否则无法分析请求正文会导致请求被阻止
+- 请求正文（不带文件）数据长度大于配置的限制
+- 请求正文（包括文件）大于限制
+- WAF 引擎发生内部错误
 
 CRS 3.x 特定：
 
-* 入站异常分数超出阈值
+- 入站异常分数超出阈值
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -142,3 +143,5 @@ CRS 3.x 特定：
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
+
+<!-- Update_Description: wording update -->

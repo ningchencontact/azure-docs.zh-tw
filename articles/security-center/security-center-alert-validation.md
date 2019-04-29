@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 009f5fe7243b8ce597c2be9f9c6874cdb56d103c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108540"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60706037"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Azure 資訊安全中心的警示驗證
 這份文件可協助您了解如何驗證您的系統是否已針對 Azure 資訊安全中心警示正確設定。
@@ -43,9 +43,9 @@ ms.locfileid: "56108540"
 
 
 > [!NOTE]
-> 觀看 [Azure 資訊安全中心的警示驗證](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center)影片，以查看此功能的示範。
+> 觀看 [Azure 資訊安全中心的警示驗證](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center)影片，以查看這項功能的示範。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 本文介紹警示驗證程序。 現在，您已熟悉此驗證，請嘗試下列文章︰
 
 * [管理及回應 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。

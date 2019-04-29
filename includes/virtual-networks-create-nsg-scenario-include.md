@@ -2,18 +2,19 @@
 title: 包含檔案
 description: 包含檔案
 services: virtual-network
-author: genlin
+author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: genli
+origin.date: 04/13/2018
+ms.date: 06/11/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 873549442284ede2e9f020bd90879f721b9c1a18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 588aa260f2ece543445bfd4da7ef4682dab8334c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38760349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309911"
 ---
 ## <a name="scenario"></a>案例
 為了更清楚說明如何建立 NSG，此文件會使用下列案例：
@@ -30,4 +31,3 @@ ms.locfileid: "38760349"
   * **web-rule**。 拒絕來自「後端」子網路的所有網際網路繫結流量。
 
 這些規則的組合會建立類似 DMZ 的案例，其後端子網路只能接收來自前端子網路 SQL 的傳入流量，且無網際網路的存取權；而前端子網路則可與網際網路通訊，並接收傳入的 HTTP 要求。
-

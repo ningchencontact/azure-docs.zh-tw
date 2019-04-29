@@ -9,11 +9,11 @@ ms.date: 12/26/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 737e179c2c16937d00bc9b6601f12ebe392c1906
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60892506"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>將 MongoDB 應用程式連接到 Azure Cosmos DB
 了解如何使用 MongoDB 連接字串，將 MongoDB 應用程式連線至 Azure Cosmos DB。 您可以使用 Azure Cosmos DB 資料庫作為 MongoDB 應用程式的資料存放區。 
@@ -64,7 +64,7 @@ Azure Cosmos DB 支援標準 MongoDB 連接字串 URI 格式，有幾個特定�
 * 資料庫 (選用)：連線所使用的資料庫。 如果未提供資料庫，則預設資料庫是 "test"。
 * ssl=true (必要)
 
-例如，請考慮 [連接字串] 刀鋒視窗中顯示的帳戶。 有效的連接字串為：
+例如，請考慮 [連接字串] 刀鋒視窗中顯示的帳戶。 有效的连接字符串为：
 
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 

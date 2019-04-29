@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60931756"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將記錄資料傳送給 Azure 監視器 (公開預覽)
 本文示範如何使用 HTTP 資料收集器 API 將記錄資料從 REST API 用戶端傳送給 Azure 監視器。  內容說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Azure 監視器授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
@@ -52,7 +52,7 @@ Log Analytics 工作區中的所有資料都會以具有特定記錄類型的記
 | 參數 | 描述 |
 |:--- |:--- |
 | CustomerID |Log Analytics 工作區的唯一識別碼。 |
-| 資源 |API 資源名稱︰/api/logs。 |
+| Resource |API 資源名稱︰/api/logs。 |
 | API 版本 |要使用於這個要求的 API 版本。 目前是 2016-04-01。 |
 
 ### <a name="request-headers"></a>要求標頭
@@ -61,7 +61,7 @@ Log Analytics 工作區中的所有資料都會以具有特定記錄類型的記
 | Authorization |授權簽章。 本文稍後會說明如何建立 HMAC-SHA256 標頭。 |
 | Log-Type |指定正在提交的資料記錄類型。 此參數的大小上限是 100 個字元。 |
 | x-ms-date |處理要求的日期 (採用 RFC 1123 格式)。 |
-| x-ms-AzureResourceId | 應相關聯的 Azure 資源資料的資源識別碼。 這會填入[_ResourceId](log-standard-properties.md#_resourceid)屬性，並可讓要納入資料[資源中心](manage-access.md#access-modes)查詢。 如果未指定此欄位，資料將不會包含在資源為主的查詢中。 |
+| x-ms-AzureResourceId | 应该与数据关联的 Azure 资源的资源 ID。 这样会填充 [_ResourceId](log-standard-properties.md#_resourceid) 属性，并允许将数据包括在[以资源为中心](manage-access.md#access-modes)的查询中。 如果未指定此字段，则不会将数据包括在以资源为中心的查询中。 |
 | time-generated-field | 資料中包含資料項目時間戳記的欄位名稱。 如果您指定欄位，則其內容會用於 **TimeGenerated**。 如果未指定此欄位，則 **TimeGenerated** 的預設值是所擷取訊息的時間。 訊息欄位的內容應遵循 ISO 8601 格式 YYYY-MM-DDThh:mm:ssZ。 |
 
 ## <a name="authorization"></a>授權
@@ -142,7 +142,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 | 屬性資料類型 | 尾碼 |
 |:--- |:--- |
 | 字串 |_s |
-| BOOLEAN |_b |
+| Boolean |_b |
 | Double |_d |
 | Date/time |_t |
 | GUID |_g |
@@ -168,8 +168,8 @@ Azure 監視器用於每個屬性的資料類型取決於新記錄的記錄類�
 
 ![範例記錄 4](media/data-collector-api/record-04.png)
 
-## <a name="reserved-properties"></a>保留的屬性
-下列屬性是保留的不應用於自訂記錄類型。 如果您的承載包含任何這些屬性名稱，您會收到錯誤。
+## <a name="reserved-properties"></a>保留的属性
+以下属性为保留属性，不应在自定义记录类型中使用。 如果有效负载中包含这些属性名称中的任何一个，则会收到错误。
 
 - tenant
 
@@ -471,8 +471,8 @@ def post_data(customer_id, shared_key, body, log_type):
 
 post_data(customer_id, shared_key, body, log_type)
 ```
-## <a name="alternatives-and-considerations"></a>替代項目和考量
-雖然資料收集器 API 涵蓋大部分您自由格式的資料收集到 Azure 記錄檔的需求，但在克服 API 的限制，可能需要替代的執行個體。 所有的選項，如下所示，是包含的主要考量：
+## <a name="alternatives-and-considerations"></a>替代方法和注意事项
+虽然数据收集器 API 应该满足你将自由格式数据收集到 Azure 日志中的大部分需求，但有时候也可能需要替代方法来克服此 API 的某些限制。 所有选项如下所示，包括了主要的考虑事项：
 
 | 替代方案 | 描述 | 最適合用來 |
 |---|---|---|

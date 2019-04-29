@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 2121cd661f5f1c2c14dc32eb2a4cbf717c966c67
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935718"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server 上 Azure VM 的 SAP HANA 高可用性
 
@@ -55,7 +55,7 @@ ms.locfileid: "58668952"
 
 請先閱讀下列 SAP Note 和文件：
 
-* SAP Note [1928533]，其中包含：
+* SAP 说明 [1928533]，其中包含：
   * SAP 軟體部署支援的 Azure VM 大小清單。
   * Azure VM 大小的重要容量資訊。
   * 支援的 SAP 軟體，以及作業系統 (OS) 與資料庫組合。

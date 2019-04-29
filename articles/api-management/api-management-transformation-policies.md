@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946604"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理轉換原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -215,7 +215,7 @@ ms.locfileid: "58105279"
 ```
 
 > [!NOTE]
-> 後端實體可以透過管理來管理[API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend)並[PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)。
+> 后端实体可以通过管理 [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) 和[PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) 进行管理。
 
 ### <a name="example"></a>範例
 
@@ -269,8 +269,8 @@ ms.locfileid: "58105279"
 
 |名稱|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
-|base-url|新的後端服務基底 URL。|其中一個`base-url`或`backend-id`必須存在。|N/A|
-|backend-id|要傳送至的後端識別碼。 (透過管理後端實體[API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend)並[PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)。)|其中一個`base-url`或`backend-id`必須存在。|N/A|
+|base-url|新的後端服務基底 URL。|必须存在 `base-url` 或 `backend-id` 中的一个。|N/A|
+|backend-id|要傳送至的後端識別碼。 （后端实体通过 [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) 和 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) 进行管理。）|必须存在 `base-url` 或 `backend-id` 中的一个。|N/A|
 |sf-partition-key|僅適用於後端為 Service Fabric 服務並使用 'backend-id' 指定時。 用於從名稱解析服務解析特定資料分割。|否|N/A|
 |sf-replica-type|僅適用於後端為 Service Fabric 服務並使用 'backend-id' 指定時。 控制要求應移至資料分割的主要或次要複本。 |否|N/A|
 |sf-resolve-condition|只有在后端为 Service Fabric 服务时才适用。 識別新的解析是否必須重複呼叫 Service Fabric 後端的條件。|否|N/A|
@@ -385,7 +385,7 @@ ms.locfileid: "58105279"
 </set-body>
 ```
 
-#### <a name="transform-json-using-a-liquid-template"></a>使用 Liquid 範本的 JSON 轉換
+#### <a name="transform-json-using-a-liquid-template"></a>使用 Liquid 模板转换 JSON
 ```xml
 {
 "order": {

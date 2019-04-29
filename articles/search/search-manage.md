@@ -11,11 +11,11 @@ ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775589"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565426"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 入口網站中 Azure 搜尋服務的服務管理
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Azure 搜尋服務是完全受控、以雲端為基礎的搜尋服務，用來�
 > [!div class="checklist"]
 > * 管理 API 金鑰  (用於讀取或寫入您的服務存取權) 的存取權。
 > * 變更資料分割和複本的配置來調整服務容量。
-> * 監視資源使用量，相對於服務層的最大限制。
+> * 監視資源使用量，相對於服務層級的最大限制。
 
 請注意，「升級」不是管理工作。 因為資源是在佈建服務時進行配置，所以移動到其他層需要新的服務。 如需詳細資料，請參閱[建立 Azure 搜尋服務](search-create-service-portal.md)。
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
 ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845761"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>建立結構描述，以便追蹤 Azure Logic Apps 整合帳戶中的 X12 訊息
 
@@ -72,10 +72,10 @@ ms.locfileid: "57195178"
 | transactionSetControlNumber | 字串 | 交易集控制編號。 (選用) |
 | CorrelationMessageId | 字串 | 相互關聯訊息識別碼。 {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} 組合。 (選用) |
 | messageType | 字串 | 交易集或文件類型。 (選用) |
-| isMessageFailed | BOOLEAN | X12 訊息是否失敗。 (必要) |
-| isTechnicalAcknowledgmentExpected | BOOLEAN | X12 合約中是否設定技術通知。 (必要) |
-| isFunctionalAcknowledgmentExpected | BOOLEAN | X12 合約中是否設定功能通知。 (必要) |
-| needAk2LoopForValidMessages | BOOLEAN | 有效的訊息是否需要 AK2 迴圈。 (必要) |
+| isMessageFailed | Boolean | X12 訊息是否失敗。 (必要) |
+| isTechnicalAcknowledgmentExpected | Boolean | X12 合約中是否設定技術通知。 (必要) |
+| isFunctionalAcknowledgmentExpected | Boolean | X12 合約中是否設定功能通知。 (必要) |
+| needAk2LoopForValidMessages | Boolean | 有效的訊息是否需要 AK2 迴圈。 (必要) |
 | segmentsCount | Integer | X12 交易集的區段數目。 (選用) |
 ||||
 
@@ -131,11 +131,11 @@ ms.locfileid: "57195178"
 | respondingFunctionalGroupId | 字串 | 回應功能群組識別碼，在通知中對應至 AK101。 (選用) |
 | respondingtransactionSetControlNumber | 字串 | 回應交易集控制編號。 (選用) |
 | respondingTransactionSetId | 字串 | 回應交易集識別碼，在通知中對應至 AK201。 (選用) |
-| StatusCode | BOOLEAN | 交易集通知狀態碼。 (必要) |
+| StatusCode | Boolean | 交易集通知狀態碼。 (必要) |
 | segmentsCount | 例舉 | 通知狀態碼。 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
 | processingStatus | 例舉 | 通知的處理狀態。 允許的值為 **Received**、**Generated** 和 **Sent**。 (必要) |
 | CorrelationMessageId | 字串 | 相互關聯訊息識別碼。 {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber} 組合。 (選用) |
-| isMessageFailed | BOOLEAN | X12 訊息是否失敗。 (必要) |
+| isMessageFailed | Boolean | X12 訊息是否失敗。 (必要) |
 | ak2Segment | 字串 | 接收的功能群組內交易集的通知。 (選用) |
 | ak3Segment | 字串 | 報告資料區段中的錯誤。 (選用) |
 | ak5Segment | 字串 | 報告是否接受或拒絕 AK2 區段中識別的交易集，以及原因。 (選用) |
@@ -183,8 +183,8 @@ ms.locfileid: "57195178"
 | direction | 例舉 | 訊息流程的方向，接收或傳送。 (必要) |
 | interchangeControlNumber | 字串 | 交換控制編號。 (選用) |
 | isaSegment | 字串 | 訊息 ISA 區段。 (選用) |
-| isTechnicalAcknowledgmentExpected | BOOLEAN | X12 合約中是否設定技術通知。 (必要) |
-| isMessageFailed | BOOLEAN | X12 訊息是否失敗。 (必要) |
+| isTechnicalAcknowledgmentExpected | Boolean | X12 合約中是否設定技術通知。 (必要) |
+| isMessageFailed | Boolean | X12 訊息是否失敗。 (必要) |
 | isa09 | 字串 | X12 文件交換日期。 (選用) |
 | isa10 | 字串 | X12 文件交換時間。 (選用) |
 | isa11 | 字串 | X12 交換控制標準識別碼。 (選用) |
@@ -235,7 +235,7 @@ ms.locfileid: "57195178"
 | interchangeControlNumber | 字串 | 從合作夥伴收到的技術通知交換控制編號。 (選用) |
 | isaSegment | 字串 | 從合作夥伴收到的技術通知 ISA 區段。 (選用) |
 | respondingInterchangeControlNumber |字串 | 從合作夥伴收到的技術通知交換控制編號。 (選用) |
-| isMessageFailed | BOOLEAN | X12 訊息是否失敗。 (必要) |
+| isMessageFailed | Boolean | X12 訊息是否失敗。 (必要) |
 | StatusCode | 例舉 | 交換通知狀態碼。 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
 | processingStatus | 例舉 | 通知狀態。 允許的值為 **Received**、**Generated** 和 **Sent**。 (必要) |
 | ta102 | 字串 | 交換日期。 (選用) |
@@ -288,9 +288,9 @@ ms.locfileid: "57195178"
 | interchangeControlNumber | 字串 | 交換控制編號。 (選用) |
 | functionalGroupControlNumber | 字串 | 功能的控制編號。 (選用) |
 | isaSegment | 字串 | 訊息 GS 區段。 (選用) |
-| isTechnicalAcknowledgmentExpected | BOOLEAN | X12 合約中是否設定技術通知。 (必要) |
-| isFunctionalAcknowledgmentExpected | BOOLEAN | X12 合約中是否設定功能通知。 (必要) |
-| isMessageFailed | BOOLEAN | X12 訊息是否失敗。 (必要)|
+| isTechnicalAcknowledgmentExpected | Boolean | X12 合約中是否設定技術通知。 (必要) |
+| isFunctionalAcknowledgmentExpected | Boolean | X12 合約中是否設定功能通知。 (必要) |
+| isMessageFailed | Boolean | X12 訊息是否失敗。 (必要)|
 | gs01 | 字串 | 功能識別碼。 (選用) |
 | gs02 | 字串 | 應用程式寄件者的代碼。 (選用) |
 | gs03 | 字串 | 應用程式接收者的代碼。 (選用) |
@@ -347,7 +347,7 @@ ms.locfileid: "57195178"
 | isaSegment | 字串 | 同功能群組控制編號，但只在特定情況下才會填入。 (選用) |
 | respondingfunctionalGroupControlNumber | 字串 | 原始功能群組的控制編號。 (選用) |
 | respondingFunctionalGroupId | 字串 | 在通知功能群組識別碼中對應至 AK101。 (選用) |
-| isMessageFailed | BOOLEAN | X12 訊息是否失敗。 (必要) |
+| isMessageFailed | Boolean | X12 訊息是否失敗。 (必要) |
 | StatusCode | 例舉 | 通知狀態碼。 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
 | processingStatus | 例舉 | 通知的處理狀態。 允許的值為 **Received**、**Generated** 和 **Sent**。 (必要) |
 | ak903 | 字串 | 已接收交易集數目。 (選用) |

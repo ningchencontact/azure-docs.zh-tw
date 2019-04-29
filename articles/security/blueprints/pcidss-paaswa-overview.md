@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
 ms.openlocfilehash: 5452a1adb419a2f57e2124d5aac49f9cdcff615a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111662"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609953"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure 安全性與合規性藍圖：PCI DSS 的 PaaS Web 應用程式
 
@@ -50,7 +50,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 
 - App Service Environment v2
-- 應用程式閘道
+- 应用程序网关
   - (1) Web 應用程式防火牆
     - 防火牆模式：防止
     - 規則集：OWASP 3.0

@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
 ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845778"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>建立結構描述，以便追蹤 Azure Logic Apps 整合帳戶中的 AS2 訊息和 MDN
 
@@ -67,14 +67,14 @@ ms.locfileid: "57193503"
 | messageId | 字串 | AS2 訊息 ID，從 AS2 訊息的標頭 (選用) |
 | dispositionType |字串 | 訊息處理通知 (MDN) 配置類型值。 (選用) |
 | fileName | 字串 | 檔案名稱，從 AS2 訊息的標頭。 (選用) |
-| isMessageFailed |BOOLEAN | AS2 訊息是否失敗。 (必要) |
-| isMessageSigned | BOOLEAN | AS2 訊息是否簽署。 (必要) |
-| isMessageEncrypted | BOOLEAN | AS2 訊息是否加密。 (必要) |
-| isMessageCompressed |BOOLEAN | AS2 訊息是否壓縮。 (必要) |
+| isMessageFailed |Boolean | AS2 訊息是否失敗。 (必要) |
+| isMessageSigned | Boolean | AS2 訊息是否簽署。 (必要) |
+| isMessageEncrypted | Boolean | AS2 訊息是否加密。 (必要) |
+| isMessageCompressed |Boolean | AS2 訊息是否壓縮。 (必要) |
 | correlationMessageId | 字串 | AS2 訊息識別碼，將訊息與 MDN 相互關聯。 (選用) |
 | incomingHeaders |JToken 的字典 | 內送 AS2 訊息標頭詳細資料。 (選用) |
 | outgoingHeaders |JToken 的字典 | 外寄 AS2 訊息標頭詳細資料。 (選用) |
-| isNrrEnabled | BOOLEAN | 如果不知道值，則使用預設值。 (必要) |
+| isNrrEnabled | Boolean | 如果不知道值，則使用預設值。 (必要) |
 | isMdnExpected | Boolean | 如果不知道值，則使用預設值。 (必要) |
 | mdnType | 例舉 | 允許的值為 **NotConfigured**、**Sync** 和 **Async**。 (必要) |
 ||||
@@ -120,9 +120,9 @@ ms.locfileid: "57193503"
 | messageId | 字串 | AS2 訊息識別碼。 (選用) |
 | originalMessageId |字串 | AS2 原始訊息識別碼。 (選用) |
 | dispositionType | 字串 | MDN 處置類型值。 (選用) |
-| isMessageFailed |BOOLEAN | AS2 訊息是否失敗。 (必要) |
-| isMessageSigned |BOOLEAN | AS2 訊息是否簽署。 (必要) |
-| isNrrEnabled | BOOLEAN | 如果不知道值，則使用預設值。 (必要) |
+| isMessageFailed |Boolean | AS2 訊息是否失敗。 (必要) |
+| isMessageSigned |Boolean | AS2 訊息是否簽署。 (必要) |
+| isNrrEnabled | Boolean | 如果不知道值，則使用預設值。 (必要) |
 | StatusCode | 例舉 | 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
 | micVerificationStatus | 例舉 | 允許的值為 **NotApplicable**、**Succeeded** 和 **Failed**。 (必要) |
 | correlationMessageId | 字串 | 相互關連識別碼。 原始 messaged 識別碼 (設定 MDN 之訊息的訊息識別碼)。 (選用) |

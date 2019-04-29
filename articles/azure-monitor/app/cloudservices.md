@@ -14,11 +14,11 @@ ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
 ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60903181"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 雲端服務的 Application Insights
 [Application Insights][start] 透過將 Application Insights SDK 的資料與 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 資料結合的方式，監視 [Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)的可用性、效能、故障與使用狀況。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
@@ -162,7 +162,7 @@ ms.locfileid: "54267227"
 
 ![Azure 診斷資料](./media/cloudservices/23-wad.png)
 
-若要搜尋 Azure 診斷所傳送的各種追蹤記錄，請使用[搜尋](../../azure-monitor/app/diagnostic-search.md)或[分析查詢](../../azure-monitor/log-query/get-started-portal.md)。 例如，假設您有未處理的例外狀況導致角色損毀並需要回收。 這項資訊會出現在 Windows 事件記錄檔的「應用程式 (Application)」通道。 您可以使用 [搜尋] 來檢視 Windows 事件記錄檔錯誤，並取得例外狀況的完整堆疊追蹤。 這將協助您找出問題的根本原因。
+若要搜尋 Azure 診斷所傳送的各種追蹤記錄檔，請使用[搜尋](../../azure-monitor/app/diagnostic-search.md)或[分析查詢](../../azure-monitor/log-query/get-started-portal.md)。 例如，假設您有未處理的例外狀況導致角色損毀並需要回收。 這項資訊會出現在 Windows 事件記錄檔的「應用程式 (Application)」通道。 您可以使用 [搜尋] 來檢視 Windows 事件記錄檔錯誤，並取得例外狀況的完整堆疊追蹤。 這將協助您找出問題的根本原因。
 
 ![Azure 診斷搜尋](./media/cloudservices/25-wad.png)
 

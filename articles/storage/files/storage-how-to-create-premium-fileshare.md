@@ -9,11 +9,11 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844512"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>如何建立 Azure 的進階檔案共用
 
@@ -79,7 +79,7 @@ FileStorage （預覽） 的儲存體帳戶類型代表 Azure 檔案服務，可
 
 安裝最新版的 [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) 模組。
 
-升級您的 powershell 模組、 登入您的 Azure 訂用帳戶、 建立資源群組，然後再建立儲存體帳戶。
+然後升級您的 powershell 模組、登入您的 Azure 訂用帳戶、建立資源群組，然後建立儲存體帳戶。
 
 ### <a name="upgrade-your-powershell-module"></a>升級 PowerShell 模組
 
@@ -144,7 +144,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-a-premium-file-share-using-azure-cli"></a>建立進階檔案共用使用 Azure CLI
 
-若要啟動 Azure Cloud Shell，請登入[Azure 入口網站](https://portal.azure.com)。
+若要啟動 Azure Cloud Shell，請登入 [Azure 入口網站](https://portal.azure.com)。
 
 若想要登入您的本機安裝 CLI，請執行登入命令：
 

@@ -5,14 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/14/2019
-ms.author: victorh
+origin.date: 02/14/2019
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301599"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832000"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>建立應用程式閘道的自訂錯誤頁面
 
@@ -34,7 +35,6 @@ ms.locfileid: "56301599"
 - **兩者** - 定義於接聽程式層級上的自訂錯誤頁面會覆寫在全域層級上設定的頁面。
 
 若要建立自訂錯誤頁面，您必須具備：
-
 - HTTP 回應狀態碼。
 - 錯誤頁面的對應位置。 
 - 可公開存取的 Azure 儲存體 Blob 位置。
@@ -48,10 +48,10 @@ ms.locfileid: "56301599"
 
 1. 在入口網站中瀏覽至 [應用程式閘道]，然後選擇應用程式閘道。
 
-    ![ag-overview](media/custom-error/ag-overview.png)
+    ![ag-overview](./media/custom-error/ag-overview.png)
 2. 按一下 [接聽程式]，然後瀏覽至您要指定錯誤頁面的特定接聽程式。
 
-    ![應用程式閘道接聽程式](media/custom-error/ag-listener.png)
+    ![應用程式閘道接聽程式](./media/custom-error/ag-listener.png)
 3. 在接聽程式層級上設定 403 WAF 錯誤的自訂錯誤頁面或 502 維護頁面。
 
     > [!NOTE]
@@ -59,7 +59,7 @@ ms.locfileid: "56301599"
 
 4. 為給定的錯誤狀態碼指定可公開存取的 Blob URL，然後按一下 [儲存]。 應用程式閘道現在已設定自訂錯誤頁面。
 
-   ![應用程式閘道錯誤碼](media/custom-error/ag-error-codes.png)
+   ![應用程式閘道錯誤碼](./media/custom-error/ag-error-codes.png)
 
 ## <a name="azure-powershell-configuration"></a>Azure PowerShell 組態
 
@@ -76,3 +76,5 @@ ms.locfileid: "56301599"
 ## <a name="next-steps"></a>後續步驟
 
 如需應用程式閘道診斷的相關資訊，請參閱[應用程式閘道的後端健康情況、診斷記錄和計量](application-gateway-diagnostics.md)。
+
+<!-- Update_Description: wording update -->

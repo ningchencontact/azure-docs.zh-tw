@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 21fcac62c9335652d0c682a6ac889be82e649464
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844137"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>設定 Service Fabric 服務的叢集資源管理員設定
 Service Fabric 群集资源管理器允许精细地控制用于管控每个独立命名服务的规则。 每個具名服務都可以指定規則來規定它在叢集中的配置方式。 每個具名服務還可以定義一組它想要報告的計量，包括它們對該服務的重要程度。 設定服務可細分成三個不同的工作︰
@@ -31,7 +31,7 @@ Service Fabric 群集资源管理器允许精细地控制用于管控每个独�
 ## <a name="placement-constraints"></a>放置约束
 放置约束可用来控制服务实际可在群集中的哪些节点上运行。 通常特定的具名服務執行個體或某個指定類型的所有服務會受到限制，只能在特定類型的節點上執行。 放置條件約束是可擴充的。 您可以依據節點類型定義任何屬性集，然後在建立服務時為它們選取條件約束。 您也可以變更執行中的服務放置條件約束。 這可讓您回應叢集中的變更或服務的需求。 指定節點的屬性也可以在叢集中動態更新。 可以在 [這篇文章](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
-## <a name="metrics"></a>度量
+## <a name="metrics"></a>指标
 計量是指定的具名服務所需的一組資源。 服務的計量組態包括該服務的每個具狀態複本或無狀態執行個體對該資源的預設耗用量。 計量也包含一個權數，用來指出平衡該計量對服務來說有多重要 (以因應需要取捨的情況)。
 
 ## <a name="advanced-placement-rules"></a>進階放置規則

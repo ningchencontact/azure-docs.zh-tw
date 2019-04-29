@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: dd160ede1189b0de544c8cf5db3b13228d212419
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e55964beff48df6ce24d99c01975d39b662f1612
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576084"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>變更 StorSimple 裝置的裝置模式
 
@@ -53,7 +53,7 @@ StorSimple 裝置可以在標準、維護和復原模式下運作。 以下簡�
 
 ### <a name="recovery-mode"></a>復原模式
 
-復原模式可以形容成「含網路支援的 Windows 安全模式」。 復原模式會連絡 Microsoft 支援服務小組，並允許他們在系統上執行診斷。 復原模式的主要目的是擷取系統記錄檔。
+復原模式可以形容成「含網路支援的 Windows 安全模式」。 復原模式會連絡 Microsoft 支援服務小組，並允許他們在系統上執行診斷。 復原模式的主要目的是擷取系統記錄。
 
 如果您的系統進入復原模式，您應該連絡 Microsoft 支援服務來請示後續步驟。 如需詳細資訊，請移至 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。
 

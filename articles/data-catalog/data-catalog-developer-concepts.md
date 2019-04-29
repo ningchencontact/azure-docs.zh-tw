@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61002656"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 資料目錄開發人員概念
 Microsoft **Azure 資料目錄** 是完全受控的雲端服務，能夠進行資料來源探索，以及讓群眾外包資料來源中繼資料。 開發人員可以透過 REST API 來使用此服務。 開發人員必須了解服務中所實作的概念，才能成功地與 **Azure 資料目錄**整合。
@@ -78,7 +78,7 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 ＜重要概念＞一節介紹的 **Azure 資料目錄** 物件模型所包含的項目，可以是資產或註解。 項目具有選用或必要的屬性。 某些屬性會套用至所有項目。 某些屬性會套用至所有資產。 某些屬性只套用至特定的資產類型。
 
 ### <a name="system-properties"></a>系統屬性
-<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>timestamp</td><td>Datetime</td><td>上次修改項目的時間。 伺服器會在插入項目時以及每次更新項目時產生此欄位。 此屬性值會在輸入發佈作業時遭到忽略。</td></tr><tr><td>id</td><td>Uri</td><td>項目的絕對 URL (唯讀)。 它是項目的唯一可定址 URI。  此屬性值會在輸入發佈作業時遭到忽略。</td></tr><tr><td>type</td><td>字串</td><td>資產的類型 (唯讀)。</td></tr><tr><td>etag</td><td>字串</td><td>對應到項目版本的字串，在執行會更新目錄中項目的作業時可用於開放式並行存取控制。 "*" 可用來比對任何值。</td></tr></table>
+<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>上次修改項目的時間。 伺服器會在插入項目時以及每次更新項目時產生此欄位。 此屬性值會在輸入發佈作業時遭到忽略。</td></tr><tr><td>id</td><td>Uri</td><td>項目的絕對 URL (唯讀)。 它是項目的唯一可定址 URI。  此屬性值會在輸入發佈作業時遭到忽略。</td></tr><tr><td>type</td><td>字串</td><td>資產的類型 (唯讀)。</td></tr><tr><td>etag</td><td>字串</td><td>對應到項目版本的字串，在執行會更新目錄中項目的作業時可用於開放式並行存取控制。 "*" 可用來比對任何值。</td></tr></table>
 
 ### <a name="common-properties"></a>通用屬性
 這些屬性套用至所有根資產類型和所有註解類型。
@@ -224,7 +224,7 @@ Azure 資料目錄提供數個內建資料來源通訊協定，列在 [資料來
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>屬性的名稱。 名稱長度必須介於 1 到 100 個字元，以字母開頭並且只能包含字母和數字。</td></tr>
 <tr><td></td><td>type</td><td>string</td><td>屬性的類型。 支援的值："bool"、"boolean"、"byte"、"guid"、"int"、"integer"、"long"、"string"、"url"</td></tr>
-<tr><td></td><td>ignoreCase</td><td>bool</td><td>表示使用屬性的值時，是否應忽略大小寫。 只能對具有 "string" 類型的屬性指定。 預設值為 false。</td></tr>
+<tr><td></td><td>ignoreCase</td><td>布林</td><td>表示使用屬性的值時，是否應忽略大小寫。 只能對具有 "string" 類型的屬性指定。 預設值為 false。</td></tr>
 <tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>指出是否應忽略 url 路徑之每個區段的大小寫。 只能對具有 "url" 類型的屬性指定。 預設值為 [false]。</td></tr>
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>

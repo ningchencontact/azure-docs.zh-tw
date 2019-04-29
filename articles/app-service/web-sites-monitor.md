@@ -16,11 +16,11 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832530"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>監視 Azure App Service 中的應用程式
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 會在 [Azure 入口網站](https://portal.azure.com)中為 Web 應用程式、行動後端和 API 應用程式提供內建的監視功能。
@@ -39,7 +39,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 免費或共用應用程式的配額如下︰
 
-| Quota | 說明 |
+| Quota | 描述 |
 | --- | --- |
 | **CPU (短期)** | 此應用程式在 5 分鐘間隔內允許的 CPU 數量。 此配額會每 5 分鐘重設一次。 |
 | **CPU (天)** | 此應用程式在 1 天內允許的 CPU 總量。 此配額會每隔 24 小時在午夜 (UTC) 重設一次。 |
@@ -69,7 +69,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 若為應用程式，可用的計量如下︰
 
-| 計量 | 說明 |
+| 計量 | 描述 |
 | --- | --- |
 | **平均回應時間** | 應用程式處理要求所花費的平均時間 (以毫秒為單位)。 |
 | **平均記憶體工作集** | 應用程式使用的平均記憶體數量 (以 MiB 為單位)。 |
@@ -111,12 +111,12 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 > App Service 方案計量只適用於基本、標準和進階層中的方案。
 > 
 
-| 計量 | 說明 |
+| 計量 | 描述 |
 | --- | --- |
 | **CPU 百分比** | 方案的所有執行個體使用的平均 CPU。 |
 | **記憶體百分比** | 方案的所有執行個體使用的平均記憶體。 |
 | **資料輸入** | 方案的所有執行個體使用的平均連入頻寬。 |
-| **資料輸出** | 方案的所有執行個體使用的平均連出頻寬。 |
+| **数据输出** | 方案的所有執行個體使用的平均連出頻寬。 |
 | **磁碟佇列長度** | 儲存體上已排入佇列的平均讀取和寫入要求數目。 磁碟佇列長度很大表示應用程式可能因為過度的磁碟 I/O 而變慢。 |
 | **Http 佇列長度** | 必須在履行前排入佇列的平均 HTTP 要求數目。 HTTP 佇列長度很大或不斷增加是方案負載過重的徵兆。 |
 

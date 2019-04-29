@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844421"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>將建議工具新增至 Azure 搜尋服務中的自動提示的索引
 

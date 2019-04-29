@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527348"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871575"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>如何使用 Azure 搜尋服務 Blob 索引子編製 JSON blob
 本文說明如何設定 Azure 搜尋服務 blob [indexer](search-indexer-overview.md)擷取 Azure Blob 儲存體中的 JSON 文件中的結構化的內容，並使其可在 Azure 搜尋服務。 此工作流程建立 Azure 搜尋服務索引，並將其載入具有現有從 JSON blob 擷取的文字。 
@@ -143,7 +143,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 + Azure 搜尋服務名稱
 + Azure 搜尋服務管理金鑰
-+ Azure 儲存體帳戶名稱
++ Azure 存储帐户名称
 + Azure 儲存體帳戶金鑰
 
 您可以在入口網站中找到這些值：

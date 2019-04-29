@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 37eb8ca3c25268dd7923087439a8fbf0fd1f168b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551748"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的進階彙總
 
@@ -38,7 +38,8 @@ Event
 | order by TimeGenerated desc
 | summarize makelist(EventID) by Computer
 ```
-|電腦|list_EventID|
+
+|Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085,704,704,701] |
 | computer2 | [326,105,302,301,300,102] |
@@ -54,7 +55,8 @@ Event
 | order by TimeGenerated desc
 | summarize makeset(EventID) by Computer
 ```
-|電腦|list_EventID|
+
+|Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085] |
 | computer2 | [326,105,302,301,300,102] |
@@ -71,12 +73,12 @@ Heartbeat
 | project Computer, Solutions
 ```
 
-| 電腦 | 解決方案 | 
+| Computer | 解決方案 | 
 |--------------|----------------------|
 | computer1 | 「安全性」、「更新」、「變更追蹤」 |
 | computer2 | 「安全性」、「更新」 |
 | computer3 | 「反惡意程式碼」、「變更追蹤」 |
-| ... | ... | ... |
+| ... | ... |
 
 使用 `mvexpand` 以在個別列中顯示每個值，而不是顯示逗號分隔清單：
 
@@ -87,7 +89,7 @@ Heartbeat
 | mvexpand Solutions
 ```
 
-| 電腦 | 解決方案 | 
+| Computer | 解決方案 | 
 |--------------|----------------------|
 | computer1 | 「安全性」 |
 | computer1 | 「更新」 |
@@ -96,7 +98,7 @@ Heartbeat
 | computer2 | 「更新」 |
 | computer3 | 「反惡意程式碼」 |
 | computer3 | 「變更追蹤」 |
-| ... | ... | ... |
+| ... | ... |
 
 
 接著，您可以再次使用 `makelist` 以將項目組成群組，而且這次您會看到每個解決方案的電腦清單：
@@ -108,6 +110,7 @@ Heartbeat
 | mvexpand Solutions
 | summarize makelist(Computer) by tostring(Solutions) 
 ```
+
 |解決方案 | list_Computer |
 |--------------|----------------------|
 | 「安全性」 | ["computer1", "computer2"] |
@@ -124,7 +127,8 @@ Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
-| 類別 | TimeGenerated | count_ |
+
+| Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | 直接代理程式 | 2017-06-06T17:00:00Z | 15 |
 | 直接代理程式 | 2017-06-06T18:00:00Z | 60 |
@@ -140,7 +144,7 @@ Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
 
-| 類別 | count_ | TimeGenerated |
+| Category | count_ | TimeGenerated |
 |---|---|---|
 | 直接代理程式 | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
@@ -153,7 +157,8 @@ Heartbeat
 | mvexpand TimeGenerated, count_
 | project Category, TimeGenerated, count_
 ```
-| 類別 | TimeGenerated | count_ |
+
+| Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | 直接代理程式 | 2017-06-06T17:00:00Z | 15 |
 | 直接代理程式 | 2017-06-06T18:00:00Z | 60 |

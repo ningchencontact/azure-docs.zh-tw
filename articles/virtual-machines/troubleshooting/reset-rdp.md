@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 0a12cbabc28640283f5a28eb7a83c7d7717e0882
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407686"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60921201"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>在 Windows VM 中重設遠端桌面服務或其系統管理員密碼
 如果您無法連線到 Windows 虛擬機器 (VM)，您可以重設本機系統管理員密碼，或重設遠端桌面服務設定 (Windows 網域控制站上不支援)。 若要重設密碼，請使用 Azure 入口網站或 Azure PowerShell 中的 VM 存取延伸模組。 當您登入 VM 之後，請重設該本機系統管理員的密碼。  
@@ -45,7 +45,7 @@ ms.locfileid: "58407686"
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**重設遠端桌面服務設定**
 
-此程序會啟用遠端桌面服務在 VM 中，並建立預設 RDP 連接埠 3389 的防火牆規則。
+此过程将启用 VM 中的远程桌面服务，并为默认 RDP 端口 3389 创建防火墙规则。
 
 1. 選取您的 Windows VM，然後選取 [支援與疑難排解] 下方的 [重設密碼]。 [重設密碼] 視窗隨即顯示。 
 

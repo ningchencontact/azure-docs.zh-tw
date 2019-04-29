@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2017
-ms.author: amsriva
+origin.date: 07/18/2017
+ms.date: 01/15/2019
+ms.author: v-junlch
 ms.openlocfilehash: d05d509b67fd26c958e0e2fa2bbd877db26e6521
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232204"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831739"
 ---
 # <a name="application-gateway-redirect-overview"></a>應用程式閘道重新導向概觀
 
@@ -36,3 +37,5 @@ ms.locfileid: "54232204"
 ### <a name="next-steps"></a>後續步驟
 
 [在應用程式閘道上設定 HTTP 對 HTTPS 重新導向](redirect-http-to-https-portal.md)
+
+<!-- Update_Description: wording update -->

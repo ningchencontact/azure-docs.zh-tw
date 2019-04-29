@@ -7,17 +7,18 @@ ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: MladjoA
-ms.author: mlandzic
+author: WenJason
+ms.author: v-jay
 ms.reviewer: sstein
-manager: craigg
-ms.date: 01/25/2019
+manager: digimobile
+origin.date: 01/25/2019
+ms.date: 02/25/2019
 ms.openlocfilehash: e7ba8057cd22c5cc1080b4a6d95f17bf76d4acb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585390"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>對不同結構描述的雲端資料庫執行查詢 (預覽)
 
@@ -61,8 +62,8 @@ ms.locfileid: "55459429"
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH 
                (TYPE = RDBMS,
-                LOCATION = ’<fully_qualified_server_name>’,
-                DATABASE_NAME = ‘<remote_database_name>’,  
+                LOCATION = '<fully_qualified_server_name>',
+                DATABASE_NAME = '<remote_database_name>',  
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
@@ -78,7 +79,7 @@ ms.locfileid: "55459429"
     WITH 
     ( 
         TYPE=RDBMS, 
-        LOCATION='myserver.database.windows.net', 
+        LOCATION='myserver.database.chinacloudapi.cn', 
         DATABASE_NAME='ReferenceData', 
         CREDENTIAL= SqlUser 
     ); 
@@ -144,7 +145,7 @@ SCHEMA_NAME 和 OBJECT_NAME 子句提供的功能可將外部資料表定義分�
 
 ## <a name="security-considerations"></a>安全性考量
 
-可存取外部資料表的使用者可以在外部資料來源定義中所提供的認證下，自動取得基礎遠端資料表的存取權。 您應該仔細管理外部資料表的存取權，以避免透過外部資料來源的認證所造成的意外權限提升。 一般的 SQL 權限可用來授與或撤銷外部資料表的存取權，如同它是一般資料表那樣。  
+有权访问外部表的用户在使用外部数据源定义中提供的凭据时自动获得对基础远程表的访问权。 您應該仔細管理外部資料表的存取權，以避免透過外部資料來源的認證所造成的意外權限提升。 一般的 SQL 權限可用來授與或撤銷外部資料表的存取權，如同它是一般資料表那樣。  
 
 ## <a name="example-querying-vertically-partitioned-databases"></a>範例︰查詢垂直資料分割的資料庫
 
@@ -197,7 +198,7 @@ sp\_execute\_remote 會使用叫用參數中提供的外部資料來源，在遠
 ## <a name="next-steps"></a>後續步驟
 
 * 如需彈性查詢的概觀，請參閱[彈性查詢概觀](sql-database-elastic-query-overview.md)。
-* 若要開始撰寫程式碼，請參閱 [開始使用跨資料庫查詢 (垂直資料分割)](sql-database-elastic-query-getting-started-vertical.md)。
+* 有关垂直分区的教程，请参阅[跨数据库查询（垂直分区）入门](sql-database-elastic-query-getting-started-vertical.md)。
 * 如需水平資料分割 (分區化) 教學課程，請參閱[開始使用彈性查詢進行水平資料分割 (分區化)](sql-database-elastic-query-getting-started.md)。
 * 如需水平資料分割之資料的語法和範例查詢，請參閱[查詢水平資料分割的資料](sql-database-elastic-query-horizontal-partitioning.md)
 * 如需會在單一遠端 Azure SQL Database 或一組在水平資料分割配置中作為分區之資料庫上執行 Transact-SQL 陳述式的預存程序，請參閱 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)。

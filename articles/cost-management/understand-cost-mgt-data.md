@@ -5,27 +5,29 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 5c8f70ff76da458fcc1433226a51012fb7ccd18e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 81947baccf723ab759f2dc24df40b81af4502e09
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61003973"
 ---
 # <a name="understand-cost-management-data"></a>了解成本管理資料
 
 本文將協助您深入了解 Azure 成本管理所包含的資料。 此外也說明處理、收集、顯示和關閉資料的頻率。 您須按月支付使用 Azure 的費用。 不過，您的 Azure 訂用帳戶類型會決定您的計費月份於何時結束。 「成本管理」接收使用量資料的頻率會隨著不同的因素而改變。 這類因素包括處理資料所需的時間，以及 Azure 服務向計費系統發出使用量資料的頻率。
 
+成本的管理會包含所有的使用方式與購買項目，包括保留項目和 Enterprise 合約 (EA) 帳戶的第三方供應項目。 Microsoft 客戶協議 (MCA) 帳戶和隨用隨付訂用帳戶只會包含從 Azure 與 Marketplace 服務的使用方式。 支援和其他成本不包含在內。 成本估計，直到產生發票並不會納入信用額度。
+
 ## <a name="supported-microsoft-offers"></a>支援的 Microsoft 供應項目
 
 下列資訊顯示 Azure 成本管理中目前支援的 [Microsoft Azure 供應項目](https://azure.microsoft.com/support/legal/offer-details/)。  Azure 供應項目是您 Azure 訂用帳戶的類型。
 
-| 類別  | **供應項目名稱** | **Quota ID** | **供應項目號碼** |
+| Category  | **供應項目名稱** | **Quota ID** | **供應項目號碼** |
 | --- | --- | --- | --- |
 | **Azure Germany** | [Azure 德國預付型方案](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
@@ -49,7 +51,7 @@ ms.locfileid: "59544631"
 
 下表顯示不支援的供應項目。
 
-| 類別  | **供應項目名稱** | **Quota ID** | **供應項目號碼** |
+| Category  | **供應項目名稱** | **Quota ID** | **供應項目號碼** |
 | --- | --- | --- | --- |
 | **雲端解決方案提供者 (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **雲端解決方案提供者 (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
@@ -86,6 +88,7 @@ ms.locfileid: "59544631"
 |   | 點數 - 如需詳細資訊，請參閱[發票條款說明](../billing/billing-understand-your-invoice.md)。 |
 
 <sup>1</sup> Azure 服務使用量以保留和議定價格為基礎。
+
 <sup>2</sup> marketplace 供應項目使用方式不適用於隨用隨付、 MSDN、 與 Visual Studio 提供這一次。
 
 **Metadata**
@@ -113,7 +116,7 @@ Enterprise 合約 (EA) 訂用帳戶 – 如果計費月份在 3 月 31 日結束
 
 ### <a name="rerated-data"></a>重新評估的資料
 
-無論您使用[成本管理 API](https://aka.ms/costmgmt/docs)、PowerBI 還是 Azure 入口網站來擷取資料，都應預期目前計費期間的費用可能進行重新評估，且持續變更，直到發票結算為止。
+您是否使用[成本管理 Api](https://aka.ms/costmgmt/docs)，Power BI 或 Azure 入口網站來擷取資料，預期取得重新分級，並因此變更，直到關閉的發票目前計費週期的費用。
 
 ## <a name="usage-data-update-frequency-varies"></a>使用量資料更新頻率不相同
 

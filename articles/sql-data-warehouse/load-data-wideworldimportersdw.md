@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454329"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61081293"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>教學課程：將資料載入到 Azure SQL 資料倉儲
 
@@ -57,7 +57,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 3. 在 SQL 資料倉儲表單中填寫下列資訊︰   
 
-   | 設定 | 建議的值 | 說明 | 
+   | 設定 | 建議的值 | 描述 | 
    | ------- | --------------- | ----------- | 
    | **資料庫名稱** | SampleDW | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 | 
    | **訂用帳戶** | 您的訂用帳戶  | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
@@ -68,7 +68,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 4. 按一下 [伺服器] 為您的新資料庫建立及設定新的伺服器。 在**新伺服器表單**表單中填寫下列資訊︰ 
 
-    | 設定 | 建議的值 | 說明 | 
+    | 設定 | 建議的值 | Description | 
     | ------- | --------------- | ----------- |
     | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 | 
     | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
@@ -81,7 +81,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 6. 按一下 [效能層] 可指定資料倉儲是否針對彈性或計算最佳化，以及資料倉儲單位的數目。 
 
-7. 此教學課程中，選取 [針對彈性最佳化] 服務層。 根據預設，滑桿會設定為 **DW400**。  請嘗試向上和向下移動以查看其運作方式。 
+7. 此教學課程中，選取 [針對彈性最佳化] 服務層級。 根據預設，滑桿會設定為 **DW400**。  請嘗試向上和向下移動以查看其運作方式。 
 
     ![設定效能](media/load-data-wideworldimportersdw/configure-performance.png)
 
@@ -145,15 +145,15 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 1. 開啟 SQL Server Management Studio。
 
-2. 在 [連接到伺服器] 對話方塊中，輸入下列資訊：
+2. 在“连接到服务器”对话框中，输入以下信息：
 
-    | 設定      | 建議的值 | 說明 | 
+    | 設定      | 建議的值 | 描述 | 
     | ------------ | --------------- | ----------- | 
     | 伺服器類型 | 資料庫引擎 | 這是必要值 |
     | 伺服器名稱 | 完整伺服器名稱 | 例如，**sample-svr.database.windows.net** 是完整的伺服器名稱。 |
-    | 驗證 | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
+    | Authentication | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
     | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時所指定的帳戶。 |
-    | 密碼 | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
+    | 密碼 | 服务器管理员帐户的密码 | 這是您在建立伺服器時所指定的密碼。 |
 
     ![連接到伺服器](media/load-data-wideworldimportersdw/connect-to-server.png)
 

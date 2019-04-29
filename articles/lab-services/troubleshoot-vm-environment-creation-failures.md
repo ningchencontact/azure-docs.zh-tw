@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.openlocfilehash: a653a785e99619c3e256613d6a4d2c7592f54c8c
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848454"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>針對虛擬機器 (VM) 和 Azure DevTest Labs 中的環境建立失敗進行疑難排解
 DevTest Labs 會提供警告的電腦名稱是否無效，或您即將違反實驗室原則。 有時候，您會看到紅色`X`旁您的實驗室 VM 或環境會通知您發生錯誤的狀態。  本文章提供您可用來尋找潛在問題，並希望避免未來發生問題的一些技巧。

@@ -13,11 +13,11 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900455"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>計量遙測：Application Insights 資料模型
 
@@ -41,15 +41,15 @@ Application Insights 支援數個已知的計量名稱。 這些計量會置入 
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | 進行中... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | 平均要求執行時間
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | 進行中... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | 佇列中等候處理的要求數目
 
-## <a name="name"></a>Name
+## <a name="name"></a>名稱
 
 您想要在 Application Insights 入口網站和 UI 中看到的計量名稱。 
 
-## <a name="value"></a>值
+## <a name="value"></a>Value
 
 度量的單一值。 個別彙總度量的總和。
 
-## <a name="count"></a>Count
+## <a name="count"></a>計數
 
 彙總計量的計量權數。 不應該為度量設定。
 

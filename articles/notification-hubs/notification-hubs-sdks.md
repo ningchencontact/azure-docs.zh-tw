@@ -13,15 +13,15 @@ ms.topic: article
 ms.author: jowargo
 ms.date: 02/14/2019
 ms.openlocfilehash: 9ed69ac3526098cd5426c966952de97c948322b5
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559937"
 ---
 # <a name="azure-notification-hubs-sdks"></a>Azure 通知中樞 SDK
 
-Microsoft 和協力廠商發行適用於 Azure 通知中樞的 SDK。 適用於 Android、 iOS 和.NET 的 Microsoft 存放庫也包含每個目標平台的範例應用程式。
+Microsoft 和協力廠商發行適用於 Azure 通知中樞的 SDK。 适用于 Android、iOS 和 .NET 的 Microsoft 存储库也包含每个目标平台的示例应用。
 
 | SDK            | 發行者      |
 | -------------- | -------------- |

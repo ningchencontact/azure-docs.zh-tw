@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60838039"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>使用匯入和匯出移轉您的 MySQL 資料庫
 本文說明使用 MySQL Workbench 將資料匯入與匯出適用於 MySQL 伺服器的 Azure 資料庫的兩個常見方式。 
@@ -83,7 +83,7 @@ ms.locfileid: "53545513"
 下列範例會從 CSV 檔案匯入資料表：
 1. 以滑鼠右鍵按一下要匯入之資料庫的資料表。 
 2. 瀏覽並選取要匯入的 CSV 檔案，然後按 [下一步]。 
-3. 選取目的地資料表 (新的或現有的)、選取或取消選取 [匯入前截斷資料表] 核取方塊。 按 [下一步] 。
+3. 選取目的地資料表 (新的或現有的)、選取或取消選取 [匯入前截斷資料表] 核取方塊。 单击“下一步”。
 4. 選取編碼方式和要匯入的資料行，然後按 [下一步]。 
 5. 在 [匯入資料] 分頁上，按 [下一步]。 精靈會據以匯入資料。
 

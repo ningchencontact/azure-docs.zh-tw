@@ -13,17 +13,17 @@ ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946717"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 環境變數
 
 Service Fabric 具有針對每個服務執行個體所設定的內建環境變數。 環境變數的完整清單如下：
 
-| 環境變數                         | 說明                                                            | 範例                                                              |
+| 環境變數                         | 描述                                                            | 範例                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | 應用程式的網狀架構 URI 名稱                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | 處理序所屬的程式碼套件名稱              | 代碼                                                                 |

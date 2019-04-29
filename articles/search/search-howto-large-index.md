@@ -10,11 +10,11 @@ ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742230"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871160"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>如何在 Azure 搜尋服務中為大型資料集編製索引
 
@@ -98,7 +98,7 @@ ms.locfileid: "53742230"
 > [!Note]
 > 增加複本時，如果預計索引大小會大幅增加，請考慮增加分割區計數。 分割區會儲存配量的索引內容；您的分割區愈多，每個分割區所須儲存的配量就愈少。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [索引子概觀](search-indexer-overview.md)
 + [在入口網站中編製索引](search-import-data-portal.md)

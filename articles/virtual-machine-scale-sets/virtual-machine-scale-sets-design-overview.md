@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618467"
 ---
 # <a name="design-considerations-for-scale-sets"></a>擴展集的設計考量
 本文會討論虛擬機器擴展集的設計考量。 如需虛擬機器擴展集的相關資訊，請參閱 [虛擬機器擴展集概觀](virtual-machine-scale-sets-overview.md)。
@@ -48,7 +48,7 @@ ms.locfileid: "53791042"
 ## <a name="storage"></a>儲存體
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>包含 Azure 受控磁碟的擴展集
-擴展集可以使用 [Azure 受控磁碟](../virtual-machines/windows/managed-disks-overview.md)來建立，而不是傳統的 Azure 儲存體帳戶。 受控磁碟可提供下列優點：
+擴展集可以使用 [Azure 受控磁碟](../virtual-machines/windows/managed-disks-overview.md)來建立，而不是傳統的 Azure 儲存體帳戶。 托管磁盘可以提供以下优点：
 - 您不必為擴展集 VM 預先建立一組 Azure 儲存體帳戶。
 - 您可以為擴展集中的 VM 定義[附加的資料磁碟](virtual-machine-scale-sets-attached-disks.md)。
 - 可以設定擴展集以[支援集合中多達 1,000 個 VM](virtual-machine-scale-sets-placement-groups.md)。 
@@ -62,9 +62,9 @@ ms.locfileid: "53791042"
 ## <a name="overprovisioning"></a>過度佈建
 擴展集目前預設為「過度佈建」VM。 藉由開啟過度佈建，擴展集實際上所啟動的 VM 數目會比您要求的還多，然後在成功佈建要求的 VM 數目後刪除額外的 VM。 過度佈建可改善佈建成功率並縮短部署時間。 這些額外的 VM 不會計費，也不會計入配額限制。
 
-雖然過度佈建的確改善了佈建的成功率，但也可能導致不是設計來處理額外 VM 出現而後消失的應用程式出現令人困惑的行為。 若要將過度佈建關閉，請確定範本中具有下列字串：`"overprovision": "false"`。 您可以在[擴展集 REST API 文件](/rest/api/virtualmachinescalesets/create-or-update-a-set)中找到更多詳細資料。
+虽然过度预配可以提高预配成功率，但对于不是用于处理时而出现时而消失的额外 VM 的应用程序，会导致其行为混乱。 若要將過度佈建關閉，請確定範本中具有下列字串：`"overprovision": "false"`。 您可以在[擴展集 REST API 文件](/rest/api/virtualmachinescalesets/create-or-update-a-set)中找到更多詳細資料。
 
-如果擴展集使用使用者管理的儲存體，而且您關閉過度佈建，則每個儲存體帳戶可以有 20 部以上的 VM，但基於 IO 效能考量，不建議超過 40 部。 
+如果规模集使用用户管理的存储，并且关闭了过度预配，则可为每个存储帐户预配超过 20 个 VM，但是出于 IO 性能考虑，建议不要超过 40 个 VM。 
 
 ## <a name="limits"></a>限制
 以 Marketplace 映像 (也稱為平台映像) 為建置基礎並設定為使用 Azure 受控磁碟的擴展集可支援多達 1,000 部 VM。 如果您將擴展集設定為支援 100 部以上的 VM，並非所有案例的作用都相同 (適用於負載平衡)。 如需詳細資訊，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。 
@@ -73,5 +73,5 @@ ms.locfileid: "53791042"
 
 若以 Azure 受控磁碟進行設定，以自訂映像 (由您建立的映像) 為建置基礎的擴展集可以有多達 600 部 VM。 如果以使用者管理的儲存體帳戶設定擴展集，它必須在一個儲存體帳戶內建立所有的 OS 磁碟 VHD。 因此，在以自訂映像和使用者管理的儲存體為建置基礎的擴展集中建議 VM 數上限為 20。 如果關閉過度佈建，數目上限為 40。
 
-如果超出這些限制允許的 VM，您必須部署多個擴展集，如 [這個範本](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)中所示。
+对于高出这些限制所允许的 VM，需要部署多个规模集，如[此模板](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)所示。
 

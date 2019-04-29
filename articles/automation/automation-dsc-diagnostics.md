@@ -10,16 +10,16 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61073926"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>将 Azure Automation State Configuration 报表数据转发到 Azure Monitor 日志
 
-Azure 自動化狀態設定將保留 30 天的節點狀態資料。
-如果您想要保留這項資料更長的時間，您可以將節點狀態資料傳送給您的 Log Analytics 工作區中。
+Azure Automation State Configuration 会将节点状态数据保留 30 天。
+如果希望节点状态数据能够保留更长的时间，则可将其发送到 Log Analytics 工作区。
 節點以及節點組態中個別 DSC 資源的合規性狀態會顯示在 Azure 入口網站中或使用 PowerShell 顯示。
 可以使用 Azure Monitor 日志进行以下操作：
 
@@ -136,8 +136,8 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | ConfigurationMode | 設定如何套用至節點。 可能的值為 __"ApplyOnly"__、__"ApplyandMonitior"__ 和 __"ApplyandAutoCorrect"__。 <ul><li>__ApplyOnly__：DSC 會套用設定但不執行任何進一步的動作，除非有新的設定發送到目標節點，或從伺服器提取新的設定時。 初始套用新的設定之後，DSC 不會檢查先前設定的狀態是否漂移。 DSC 在 __ApplyOnly__ 生效之前會一直嘗試套用設定，直到成功為止。 </li><li> __ApplyAndMonitor__：這是預設值。 LCM 會套用任何新的設定。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄中報告差異。 DSC 在 __ApplyAndMonitor__ 生效之前會一直嘗試套用設定，直到成功為止。</li><li>__ApplyAndAutoCorrect__：DSC 會套用任何新的組態。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄中報告差異，然後重新套用目前的設定。</li></ul> |
 | HostName_s | 受控節點名稱。 |
 | IPAddress | 受控節點的 IPv4 位址。 |
-| Category | DscNodeStatus |
-| Resource | Azure 自動化帳戶的名稱。 |
+| 類別 | DscNodeStatus |
+| 資源 | Azure 自動化帳戶的名稱。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | NodeId_g |識別受控節點的 GUID。 |
 | DscReportId_g |識別報表的 GUID。 |
@@ -162,8 +162,8 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | OperationName |DscResourceStatusData|
 | ResultType |資源是否符合規範。 |
 | NodeName_s |受控節點名稱。 |
-| Category | DscNodeStatus |
-| Resource | Azure 自動化帳戶的名稱。 |
+| 類別 | DscNodeStatus |
+| 資源 | Azure 自動化帳戶的名稱。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | NodeId_g |識別受控節點的 GUID。 |
 | DscReportId_g |識別報表的 GUID。 |
@@ -202,5 +202,5 @@ Azure Monitor 日志可以更直观地显示 Automation State Configuration 数�
 - 如需 PowerShell Cmdlet 參考，請參閱 [Azure 自動化狀態設定 Cmdlet](/powershell/module/azurerm.automation/#automation)
 - 如需定價資訊，請參閱 [Azure 自動化狀態設定的定價](https://azure.microsoft.com/pricing/details/automation/)
 - 若要查看在持續部署管線中使用 Azure 自動化狀態設定的範例，請參閱[使用 Azure 自動化狀態設定和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)
-- 若要深入了解如何建構不同的搜尋查詢，以及檢閱使用 Azure 監視器記錄檔的自動化狀態設定記錄檔，請參閱[Azure 監視器記錄檔中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)
-- 若要深入了解 Azure 監視器記錄檔和資料收集來源，請參閱[Azure 監視器中收集 Azure 儲存體的資料記錄檔概觀](../azure-monitor/platform/collect-azure-metrics-logs.md)
+- 若要详细了解如何使用 Azure Monitor 日志构造不同的搜索查询和查看 Automation State Configuration 日志，请参阅 [Azure Monitor 日志中的日志搜索](../log-analytics/log-analytics-log-searches.md)
+- 若要了解有关 Azure Monitor 日志和数据收集源的详细信息，请参阅[在 Azure Monitor 日志中收集 Azure 存储数据概述](../azure-monitor/platform/collect-azure-metrics-logs.md)

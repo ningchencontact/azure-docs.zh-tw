@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
 ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524883"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837805"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>使用 CLI 建立和修改 ExpressRoute 線路
 
@@ -20,7 +20,7 @@ ms.locfileid: "59524883"
 本文說明如何使用命令列介面 (CLI) 來建立 Azure ExpressRoute 線路。 本文也會示範如何檢查狀態、更新或刪除和取消佈建線路。 如果您想要對 ExpressRoute 線路使用不同的方法，您可以從下列清單選取文章：
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure 门户](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)

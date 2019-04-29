@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: ed101df5cd3d6e5754b88c5f66807f9fda846cf4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998792"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Azure 資料目錄的鍵盤快速鍵
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>資料目錄之資料來源註冊工具的鍵盤快速鍵

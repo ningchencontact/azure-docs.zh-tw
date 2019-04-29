@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure 資料總管 建立叢集失敗進行疑難排解
+title: 排查无法创建 Azure 数据资源管理器群集的问题
 description: 本文描述在 Azure 資料總管中建立叢集的疑難排解步驟。
 author: orspod
 ms.author: orspodek
@@ -8,13 +8,13 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 9e6b3f53f07ac86d6b648a8562be4ef45879c37e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791666"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829271"
 ---
-# <a name="troubleshoot-failed-cluster-creation-of-azure-data-explorer"></a>疑難排解：失敗的叢集建立的 Azure 資料總管
+# <a name="troubleshoot-failed-cluster-creation-of-azure-data-explorer"></a>疑難排解：无法完成 Azure 数据资源管理器的群集创建
 
 萬一在 Azure 資料總管中建立叢集失敗，請遵循下列步驟。
 

@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/02/2019
 ms.author: babanisa
 ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822793"
 ---
 # <a name="event-grid-subscription-schema"></a>事件格線訂用帳戶的結構描述
 
@@ -33,26 +33,26 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
  
 ## <a name="event-subscription-properties"></a>事件訂用帳戶屬性
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | 目的地 | 物件 | 定義端點的物件。 |
 | filter | 物件 | 篩選事件類型的選擇性欄位。 |
 
 ### <a name="destination-object"></a>目的地物件
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| endpointType | 字串 | 訂用帳戶的端點類型 (webhook/HTTP、事件中樞或佇列)。 | 
-| endpointUrl | 字串 | 此事件訂用帳戶中事件的目的地 URL。 | 
+| endpointType | string | 訂用帳戶的端點類型 (webhook/HTTP、事件中樞或佇列)。 | 
+| endpointUrl | string | 此事件訂用帳戶中事件的目的地 URL。 | 
 
 ### <a name="filter-object"></a>篩選物件
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | 事件訊息中的事件類型完全符合這些事件類型名稱其中之一時，即會符合。 事件名稱不符合事件來源的已註冊事件類型名稱時，會引發錯誤。 預設會符合所有事件類型。 |
-| subjectBeginsWith | 字串 | 事件訊息中對主體欄位的前置詞符合篩選。 預設值或空字串會符合全部。 | 
-| subjectEndsWith | 字串 | 事件訊息中對主體欄位的後置詞符合篩選。 預設值或空字串會符合全部。 |
-| isSubjectCaseSensitive | 字串 | 控制篩選的區分大小寫比對。 |
+| subjectBeginsWith | string | 事件訊息中對主體欄位的前置詞符合篩選。 預設值或空字串會符合全部。 | 
+| subjectEndsWith | string | 事件訊息中對主體欄位的後置詞符合篩選。 預設值或空字串會符合全部。 |
+| isSubjectCaseSensitive | string | 控制篩選的區分大小寫比對。 |
 
 
 ## <a name="example-subscription-schema"></a>範例訂用帳戶的結構描述

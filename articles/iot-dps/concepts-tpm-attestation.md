@@ -3,17 +3,17 @@ title: Azure IoT 中樞裝置佈建服務 - TPM 證明
 description: 本文將在概念上略述使用 IoT 中樞裝置佈建服務時的 TPM 證明流程。
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 04/23/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048872"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746391"
 ---
 # <a name="tpm-attestation"></a>TPM 證明
 

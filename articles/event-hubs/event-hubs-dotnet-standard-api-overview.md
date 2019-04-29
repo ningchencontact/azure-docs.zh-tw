@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
 ms.openlocfilehash: b09f39f45936a7c43dbc1ef109780315d62c768f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728414"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821915"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>事件中樞 .NET Standard API 概觀
 
@@ -184,7 +184,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 若要深入了解事件中樞案例，請造訪下列連結：
 
-* [Azure 事件中樞是什麼？](event-hubs-what-is-event-hubs.md)
+* [什么是 Azure 事件中心？](event-hubs-what-is-event-hubs.md)
 * [可用的事件中樞 API](event-hubs-api-overview.md)
 
 .NET API 參考如下：

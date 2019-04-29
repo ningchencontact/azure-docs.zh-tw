@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 12934ad53050d16b89dd5b4175ca19a24d1ec4d9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60916264"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>在 Azure 資訊安全中心啟用 VM 代理程式
 VM 代理程式必須安裝在虛擬機器 (VM) 上，才能 [啟用資料收集](security-center-enable-data-collection.md)。  Azure 資訊安全中心可讓您查看哪些 VM 需要 VM 代理程式，而且會建議您在那些 VM 上啟用 VM 代理程式。
@@ -37,7 +37,7 @@ VM 代理程式必須安裝在虛擬機器 (VM) 上，才能 [啟用資料收集
 2. 這會開啟 [VM 代理程式遺失或沒有回應] 刀鋒視窗。 此刀鋒視窗會列出需要 VM 代理程式的 VM。 依照刀鋒視窗中的指示安裝 VM 代理程式。
    ![VM 代理程式已遺失][2]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 如要深入了解資訊安全中心，請參閱下列主題：
 
 * [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md)--了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。

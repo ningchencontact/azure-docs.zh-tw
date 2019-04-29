@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
 ms.openlocfilehash: a0a16fbda662ee1d3718dbafc4231de67aab277e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400680"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614826"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>教學課程：偵測到以 Azure Sentinel 預覽版的威脅
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 之後您[連接的資料來源](quickstart-onboard.md)Sentinel Azure，您要在發生可疑發生時收到通知。 為了讓您執行這項操作，Azure Sentinel 可讓您建立進階產生情況下，您可以將指定的警示規則和用以深入調查異常和您的環境中的威脅。 

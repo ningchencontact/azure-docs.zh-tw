@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827250"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 工作參考：YAML
 
@@ -81,9 +81,9 @@ az configure --defaults acr=myregistry
 
 | 屬性 | 類型 | 選用 | 描述 | 支援覆寫 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | 字串 | 是 | 「ACR 工作」服務所剖析的 `acr-task.yaml` 檔案版本。 在「ACR 工作」努力維持回溯相容性的同時，此值則可讓「ACR 工作」在已定義的版本內維持相容性。 如果未指定，則會預設為最新版本。 | 否 | None |
+| `version` | string | 是 | 「ACR 工作」服務所剖析的 `acr-task.yaml` 檔案版本。 在「ACR 工作」努力維持回溯相容性的同時，此值則可讓「ACR 工作」在已定義的版本內維持相容性。 如果未指定，則會預設為最新版本。 | 否 | None |
 | `stepTimeout` | 整數 (秒) | 是 | 步驟的可執行秒數上限。 如果工作指定的屬性，它會設定預設`timeout`屬性的所有步驟。 如果`timeout`屬性會指定上一個步驟時，它會覆寫工作所提供的屬性。 | 是 | 600 (10 分鐘) |
-| `workingDirectory` | 字串 | 是 | 在執行階段容器的工作目錄。 如果工作指定的屬性，它會設定預設`workingDirectory`屬性的所有步驟。 如果指定的步驟，它會覆寫工作所提供的屬性。 | 是 | `$HOME` |
+| `workingDirectory` | string | 是 | 在執行階段容器的工作目錄。 如果工作指定的屬性，它會設定預設`workingDirectory`屬性的所有步驟。 如果指定的步驟，它會覆寫工作所提供的屬性。 | 是 | `$HOME` |
 | `env` | [字串, 字串, ...] | 是 |  中的字串陣列`key=value`定義工作的環境變數的格式。 如果工作指定的屬性，它會設定預設`env`屬性的所有步驟。 如果指定的步驟，它會覆寫繼承自工作的任何環境變數。 | None |
 | `secrets` | [secret, secret, ...] | 是 | 陣列[祕密](#secret)物件。 | None |
 | `networks` | [網路，網路，...] | 是 | 陣列[網路](#network)物件。 | None |
@@ -94,9 +94,9 @@ az configure --defaults acr=myregistry
 
 | 屬性 | 類型 | 選用 | 描述 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | 字串 | 否 | 密碼的識別項。 | None |
-| `akv` | 字串 | 是 | Azure Key Vault (AKV) 祕密 URL。 | None |
-| `clientID` | 字串 | 是 | 使用者指派的用戶端識別碼會管理適用於 Azure 資源的身分識別。 | None |
+| `id` | string | 否 | 密碼的識別項。 | None |
+| `akv` | string | 是 | Azure Key Vault (AKV) 祕密 URL。 | None |
+| `clientID` | string | 是 | 使用者指派的用戶端識別碼會管理適用於 Azure 資源的身分識別。 | None |
 
 ### <a name="network"></a>網路
 
@@ -104,8 +104,8 @@ az configure --defaults acr=myregistry
 
 | 屬性 | 類型 | 選用 | 描述 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | 字串 | 否 | 網路的名稱。 | None |
-| `driver` | 字串 | 是 | 若要管理的網路驅動程式。 | None |
+| `name` | string | 否 | 網路的名稱。 | None |
+| `driver` | string | 是 | 若要管理的網路驅動程式。 | None |
 | `ipv6` | 布林 | 是 | 是否已啟用 IPv6 網路功能。 | `false` |
 | `skipCreation` | 布林 | 是 | 是否略過建立網路。 | `false` |
 | `isDefault` | 布林 | 是 | 網路是否提供 Azure Container Registry 的預設網路 | `false` |
@@ -149,12 +149,12 @@ steps:
 | -------- | ---- | -------- |
 | `detach` | 布林 | 選用 |
 | `disableWorkingDirectoryOverride` | 布林 | 選用 |
-| `entryPoint` | 字串 | 選用 |
+| `entryPoint` | string | 選用 |
 | `env` | [字串, 字串, ...] | 選用 |
 | `expose` | [字串, 字串, ...] | 選用 |
-| `id` | 字串 | 選用 |
+| `id` | string | 選用 |
 | `ignoreErrors` | 布林 | 選用 |
-| `isolation` | 字串 | 選用 |
+| `isolation` | string | 選用 |
 | `keep` | 布林 | 選用 |
 | `network` | 物件 | 選用 |
 | `ports` | [字串, 字串, ...] | 選用 |
@@ -166,7 +166,7 @@ steps:
 | `startDelay` | 整數 (秒) | 選用 |
 | `timeout` | 整數 (秒) | 選用 |
 | `when` | [字串, 字串, ...] | 選用 |
-| `workingDirectory` | 字串 | 選用 |
+| `workingDirectory` | string | 選用 |
 
 ### <a name="examples-build"></a>範例：build
 
@@ -220,7 +220,7 @@ steps:
 | | | |
 | -------- | ---- | -------- |
 | `env` | [字串, 字串, ...] | 選用 |
-| `id` | 字串 | 選用 |
+| `id` | string | 選用 |
 | `ignoreErrors` | 布林 | 選用 |
 | `startDelay` | 整數 (秒) | 選用 |
 | `timeout` | 整數 (秒) | 選用 |
@@ -266,12 +266,12 @@ steps:
 | -------- | ---- | -------- |
 | `detach` | 布林 | 選用 |
 | `disableWorkingDirectoryOverride` | 布林 | 選用 |
-| `entryPoint` | 字串 | 選用 |
+| `entryPoint` | string | 選用 |
 | `env` | [字串, 字串, ...] | 選用 |
 | `expose` | [字串, 字串, ...] | 選用 |
-| `id` | 字串 | 選用 |
+| `id` | string | 選用 |
 | `ignoreErrors` | 布林 | 選用 |
-| `isolation` | 字串 | 選用 |
+| `isolation` | string | 選用 |
 | `keep` | 布林 | 選用 |
 | `network` | 物件 | 選用 |
 | `ports` | [字串, 字串, ...] | 選用 |
@@ -283,7 +283,7 @@ steps:
 | `startDelay` | 整數 (秒) | 選用 |
 | `timeout` | 整數 (秒) | 選用 |
 | `when` | [字串, 字串, ...] | 選用 |
-| `workingDirectory` | 字串 | 選用 |
+| `workingDirectory` | string | 選用 |
 
 您可以在此文章的[工作步驟屬性](#task-step-properties)一節中，找到這些屬性的詳細資料。
 
@@ -366,12 +366,12 @@ steps:
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | 布林 | 是 | 執行時是否應將容器中斷連結。 | `false` |
 | `disableWorkingDirectoryOverride` | 布林 | 是 | 是否要停用`workingDirectory`覆寫功能。 搭配使用此`workingDirectory`有容器的工作目錄的完整控制權。 | `false` |
-| `entryPoint` | 字串 | 是 | 覆寫步驟容器的 `[ENTRYPOINT]`。 | None |
+| `entryPoint` | string | 是 | 覆寫步驟容器的 `[ENTRYPOINT]`。 | None |
 | `env` | [字串, 字串, ...] | 是 | `key=value` 格式的字串陣列，用來定義步驟的環境變數。 | None |
 | `expose` | [字串, 字串, ...] | 是 | 從容器所公開的連接埠的陣列。 |  None |
-| [`id`](#example-id) | 字串 | 是 | 可唯一識別工作內的步驟。 工作內的其他步驟可以參考步驟的 `id`，例如使用 `when`進行相依性檢查。<br /><br />`id` 同時也是執行中容器的名稱。 舉例來說，在工作內其他容器中執行的程序可以參考 `id` 作為其 DNS 主機名稱，或藉由 docker logs [id] 來存取它。 | `acb_step_%d`其中`%d`是由上而下的 YAML 檔案中的步驟 0 為基底的索引 |
+| [`id`](#example-id) | string | 是 | 可唯一識別工作內的步驟。 工作內的其他步驟可以參考步驟的 `id`，例如使用 `when`進行相依性檢查。<br /><br />`id` 同時也是執行中容器的名稱。 舉例來說，在工作內其他容器中執行的程序可以參考 `id` 作為其 DNS 主機名稱，或藉由 docker logs [id] 來存取它。 | `acb_step_%d`其中`%d`是由上而下的 YAML 檔案中的步驟 0 為基底的索引 |
 | `ignoreErrors` | 布林 | 是 | 是否要將步驟標記為成功，不論是否在容器執行期間發生錯誤。 | `false` |
-| `isolation` | 字串 | 是 | 容器的隔離等級。 | `default` |
+| `isolation` | string | 是 | 容器的隔離等級。 | `default` |
 | `keep` | 布林 | 是 | 在執行後是否應保留步驟的容器。 | `false` |
 | `network` | 物件 | 是 | 識別容器執行所在的網路。 | None |
 | `ports` | [字串, 字串, ...] | 是 | 發行從容器至主機的連接埠的陣列。 |  None |
@@ -384,8 +384,8 @@ steps:
 | `startDelay` | 整數 (秒) | 是 | 若要延遲的容器執行的秒數。 | 0 |
 | `timeout` | 整數 (秒) | 是 | 終止步驟前可允許步驟執行的秒數上限。 | 600 |
 | [`when`](#example-when) | [字串, 字串, ...] | 是 | 設定步驟與工作內一或多個其他步驟的相依性。 | None |
-| `user` | 字串 | 是 | 使用者名稱或容器的 UID | None |
-| `workingDirectory` | 字串 | 是 | 設定步驟的工作目錄。 「ACR 工作」預設會建立根目錄作為工作目錄。 不過，如果您的組建含有數個步驟，則可藉由指定相同的工作目錄，讓較前面的步驟與較後面的步驟共用成品。 | `$HOME` |
+| `user` | string | 是 | 使用者名稱或容器的 UID | None |
+| `workingDirectory` | string | 是 | 設定步驟的工作目錄。 「ACR 工作」預設會建立根目錄作為工作目錄。 不過，如果您的組建含有數個步驟，則可藉由指定相同的工作目錄，讓較前面的步驟與較後面的步驟共用成品。 | `$HOME` |
 
 ### <a name="examples-task-step-properties"></a>範例：工作步驟屬性
 

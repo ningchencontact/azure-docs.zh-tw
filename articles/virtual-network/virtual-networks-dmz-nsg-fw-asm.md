@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: e0271c9212b093bd803518ebeaa4b7d9682cc773
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60868320"
 ---
 # <a name="example-2-build-a-perimeter-network-to-protect-applications-with-a-firewall-and-nsgs"></a>範例 2：： 建置周邊網路，透過防火牆和 Nsg 保護應用程式
 [返回 Microsoft 雲端服務和網路安全性 頁面][HOME]
 
-此範例示範如何建立周邊網路 (也稱為*DMZ*，*周邊網路*，並*遮蔽式子網路*) 防火牆時，四個 Windows Server 電腦，與網路安全性群組 (Nsg)。 它包含相關命令，以提供更深入的了解每個步驟的詳細資訊。 < 流量案例 > 一節提供如何流量流經周邊網路中的防禦層的逐步說明。 最後，[參考] 區段提供的完整程式碼和指示如何建置此環境來測試和試驗不同的案例。
+此範例示範如何建立周邊網路 (也稱為*DMZ*，*非軍事區域*，並*遮蔽式子網路*) 防火牆時，四個 Windows Server 電腦，與網路安全性群組 (Nsg)。 它包含相關命令，以提供更深入的了解每個步驟的詳細資訊。 < 流量案例 > 一節提供如何流量流經周邊網路中的防禦層的逐步說明。 最後，[參考] 區段提供的完整程式碼和指示如何建置此環境來測試和試驗不同的案例。
 
 ![具有 NVA 和 Nsg 的輸入的周邊網路][1]
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278814"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60642583"
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
 此文章說明使用「復原服務」保存庫針對「Azure 備份」設定報告時，所需依循的步驟。 本文也說明如何使用 Power BI 來存取報告。 完成這些步驟之後，您可以直接移至 Power BI 來檢閱、自訂及建立報告。
@@ -29,7 +29,7 @@ ms.locfileid: "59278814"
 - 藉由使用「Azure 復原服務代理程式」，可針對 Azure 虛擬機器備份及將檔案/資料夾備份到雲端，支援「Azure 備份」報告。
 - 目前不支援 Azure SQL Database、Azure 檔案共用、Data Protection Manager 及「Azure 備份」伺服器的報告。
 - 如果針對每個保存庫皆設定相同的儲存體帳戶，您便可以跨保存庫和訂用帳戶檢閱報告。 所選儲存體帳戶必須與「復原服務」保存庫位於相同的區域。
-- Power BI 中報告的排程重新整理頻率為 24 小時。 您也可以執行報告的臨機操作重新整理 Power BI 中。 在此情況下，會使用客戶儲存體帳戶中的最新資料來轉譯報告。
+- Power BI 中報告的排程重新整理頻率為 24 小時。 也可在 Power BI 中临时刷新报表。 在此情況下，會使用客戶儲存體帳戶中的最新資料來轉譯報告。
 
 ## <a name="prerequisites"></a>必要條件
 - 建立 [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)以針對報告進行設定。 這個儲存體帳戶會用來儲存與報告相關的資料。

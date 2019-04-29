@@ -1,6 +1,6 @@
 ---
-title: 監視 Azure 資料總管效能、 健全狀況和使用量計量
-description: 了解如何使用 Azure Data Explorer 度量來監視叢集的效能、 健全狀況和使用量。
+title: 使用指标监视 Azure 数据资源管理器的性能、运行状况和使用情况
+description: 了解如何使用 Azure 数据资源管理器指标来监视群集的性能、运行状况和使用情况。
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,61 +8,61 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60826765"
 ---
-# <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>監視 Azure 資料總管效能、 健全狀況和使用量計量
+# <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>使用指标监视 Azure 数据资源管理器的性能、运行状况和使用情况
 
-Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 Azure 的資料總管計量提供健全狀況和效能的叢集資源的主要指標。 使用度量來監視 Azure 資料總管叢集健全狀況和效能在您的特定案例中為獨立計量這篇文章中所述的。 您也可以使用度量做為基礎 operational [Azure 儀表板](/azure/azure-portal/azure-portal-dashboards)並[Azure 警示](/azure/azure-monitor/platform/alerts-metric-overview)。
+Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 Azure 数据资源管理器指标提供群集资源运行状况和性能的关键指标。 使用本文中详述的独立指标可以监视特定方案中 Azure 数据资源管理器群集的运行状况和性能。 还可以将指标用作正常运行的 [Azure 仪表板](/azure/azure-portal/azure-portal-dashboards)和 [Azure 警报](/azure/azure-monitor/platform/alerts-metric-overview)的基础。
 
 ## <a name="prerequisites"></a>必要條件
 
 * 如果您還沒有 Azure 訂用帳戶，建立[免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-* 建立[叢集與資料庫](create-cluster-database-portal.md)。
+* 创建[群集和数据库](create-cluster-database-portal.md)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-## <a name="using-metrics"></a>使用計量
+## <a name="using-metrics"></a>使用指标
 
-在您的 Azure 資料總管叢集中，選取**計量**以開啟 [計量] 窗格並開始分析您的叢集。
+在 Azure 数据资源管理器群集中，选择“指标”打开指标窗格，开始对群集进行分析。
 
 ![選取計量](media/using-metrics/select-metrics.png)
 
-在 [計量] 窗格中：
+在“指标”窗格中：
 
-![度量窗格](media/using-metrics/metrics-pane.png)
+![“指标”窗格](media/using-metrics/metrics-pane.png)
 
-1. 若要建立的計量圖表，請選取**公制**名稱和相關**彙總**每個計量，如以下。 **Resource**並**度量命名空間**選擇器會預先選取為您的 Azure 資料總管叢集。
+1. 若要创建指标图表，请根据下面的详述，选择**指标**名称和每个指标的相关**聚合**。 系统为 Azure 数据资源管理器群集预先选择了“资源”和“指标命名空间”选取器。
 
-    **度量** | **單位** | **彙總** | **度量說明**
+    **度量** | **單位** | **彙總** | **指标说明**
     |---|---|---|---|
-    | 快取使用量 | 百分比 | Avg、 Max、 Min | 已配置的快取中的資源目前的叢集所使用的百分比。 快取是指配置給使用者的活動，根據定義的快取原則的 SSD 的大小。 平均快取使用量的 80%或更少是叢集的持續性狀態。 如果平均快取使用量高於 80%，叢集就應該[相應增加](manage-cluster-scale-up.md)到儲存體最佳化的定價層或[相應放大](manage-cluster-scale-out.md)到更多執行個體。 或者，調整快取原則 （在快取中的較少天）。 如果快取使用量超過 100%，快取，快取原則，根據資料大小是較大的叢集上的快取的大小總計。 |
-    | CPU | 百分比 | Avg、 Max、 Min | 目前在叢集中的機器所使用的配置的計算資源的百分比。 平均 CPU 時間的 80%或更少是叢集的持續性。 CPU 的最大值是 100%，這表示沒有額外的計算資源來處理資料。 當叢集不順利執行時，請檢查來判斷是否有封鎖的特定 Cpu 的 CPU 的最大值。 |
-    | 事件處理 （適用於事件中樞） | 計數 | Max、 Min、 Sum | 從事件中樞讀取並由叢集處理的事件總數。 事件是分成拒絕的事件和叢集引擎所接受的事件。 |
-    | 擷取延遲 | 秒 | Avg、 Max、 Min | 擷取的資料量，從叢集中已收到資料，直到它準備查詢的時間延遲。 擷取延遲期間取決於擷取案例。 |
-    | 擷取結果 | 計數 | 計數 | 失敗和成功的擷取作業的總數。 使用**適用於分割**建立貯體的成功和失敗的結果及分析的維度 (**值** > **狀態**)。|
-    | 擷取使用量 | 百分比 | Avg、 Max、 Min | 用來擷取從配置中的產能原則，來執行擷取的總資源資料的實際資源的百分比。 預設產能原則不會超過 512 並行的擷取作業或 75%的投資中擷取的叢集資源。 平均擷取或較少的 80%的使用率是叢集的持續性狀態。 擷取使用量最大值是 100%，這表示所有的叢集擷取功能會使用，而且可能會造成擷取佇列。 |
-    | 擷取磁碟區 （以 mb 為單位） | 計數 | Max、 Min、 Sum | 擷取到叢集 （以 mb 為單位），壓縮前的資料大小總計。 |
-    | 保持運作 | 計數 | 平均 | 會追蹤叢集的回應能力。 完整的回應能力的叢集傳回值 1 和已封鎖或已中斷連線的叢集會傳回 0。 |
-    | 查詢持續時間 | 秒 | 計數、 平均、 Min、 Max、 Sum | 總時間，直到查詢結果都收到為止 （不包括網路延遲）。 |
+    | 缓存利用率 | 百分比 | Avg、Max、Min | 群集当前使用的已分配缓存资源百分比。 缓存是指为用户活动分配的、符合定义的缓存策略的 SSD 大小。 80% 或更低的平均缓存利用率可以维持群集的正常状态。 如果平均缓存利用率超过 80%时，则群集应[纵向扩展](manage-cluster-scale-up.md)到存储优化的定价层级，或[横向扩展](manage-cluster-scale-out.md)为更多实例。 也可以调整缓存策略（减少缓存的天数）。 如果缓存利用率超过 100%，则根据缓存策略缓存的数据大小将大于群集上的缓存总大小。 |
+    | CPU | 百分比 | Avg、Max、Min | 群集中的计算机当前使用的已分配计算资源百分比。 80% 或更低的平均 CPU 利用率可以维持群集的正常状态。 最大 CPU 利用率值为 100%，表示没有更多的计算资源可用于处理数据。 如果某个群集的性能不佳，请检查最大 CPU 利用率值，以确定特定的 CPU 是否阻塞。 |
+    | 处理的事件数（针对事件中心） | 計數 | Max、Min、Sum | 从事件中心读取的以及由群集处理的事件总数 事件划分为群集引擎拒绝的事件和接受的事件。 |
+    | 引入延迟 | 秒 | Avg、Max、Min | 引入数据的延迟，根据从群集中收到数据，到数据可供查询的时间来测得。 引入延迟周期决于引入方案。 |
+    | 引入结果 | 計數 | 計數 | 失败和成功的引入操作总数。 使用“应用拆分”可以创建成功和失败结果桶，并分析维度（**值** > **状态**）。|
+    | 引入利用率 | 百分比 | Avg、Max、Min | 用于从容量策略中分配的所有资源引入数据，以执行引入的实际资源百分比。 默认的容量策略是不超过 512 个并发的引入操作，或者不超过引入中投入的群集资源数的 75%。 80% 或更低的平均引入利用率可以维持群集的正常状态。 最大的引入利用率值为 100%，表示使用整个群集引入能力，这可能会生成引入队列。 |
+    | 引入量 (MB) | 計數 | Max、Min、Sum | 引入到群集中的数据在压缩前的总大小 (MB)。 |
+    | 保持活动状态 | 計數 | Avg | 跟踪群集的响应度。 完全可响应的群集将返回值 1，受阻或断开连接的群集将返回 0。 |
+    | 查詢持續時間 | 秒 | Count、Avg、Min、Max、Sum | 收到查询结果之前所花费的总时间（不包括网络延迟）。 |
     | | | |
 
-    其他資訊有關[支援 Azure 資料總管叢集計量](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
+    有关[支持的 Azure 数据资源管理器群集指标](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)的更多信息
 
-2. 選取 [**新增計量**] 按鈕，查看多個相同的圖表中繪製的度量。
-3. 選取 [ **+ 新的圖表**] 按鈕，查看在一個檢視中的多個圖表。
-4. 若要變更時間範圍內使用時間選擇器 (預設： 過去 24 小時)。
-5. 使用[**新增篩選器**並**套用分割**](/azure/azure-monitor/platform/metrics-getting-started#apply-dimension-filters-and-splitting)有維度的計量。
-6. 選取 **釘選到儀表板**新增儀表板的圖表組態，以便重新檢視它。
-7. 設定**新的警示規則**以視覺化方式檢視您使用的組準則的計量。 新的警示規則將包含來自您圖表的目標資源、計量、分割及篩選維度。 修改這些設定，在[警示規則建立窗格](/azure/azure-monitor/platform/metrics-charts#create-alert-rules)。
+2. 选择“添加指标”按钮可以查看同一图表中绘制的多个指标。
+3. 选择“+ 新建图表”按钮可在一个视图中查看多个图表。
+4. 使用时间选取器更改时间范围（默认：过去 24 小时）。
+5. 对包含维度的指标使用[**添加筛选器**和**应用拆分**](/azure/azure-monitor/platform/metrics-getting-started#apply-dimension-filters-and-splitting)。
+6. 选择“固定到仪表板”可将图表配置添加到仪表板，以便可以再次查看它。
+7. 设置**新的警报规则**可以使用设置的条件将指标可视化。 新的警示規則將包含來自您圖表的目標資源、計量、分割及篩選維度。 在[警报规则创建窗格](/azure/azure-monitor/platform/metrics-charts#create-alert-rules)中修改这些设置。
 
-需使用詳細資訊[計量瀏覽器](/azure/azure-monitor/platform/metrics-getting-started)。
+有关使用[指标资源管理器](/azure/azure-monitor/platform/metrics-getting-started)的更多信息。
 
 
 ## <a name="next-steps"></a>後續步驟

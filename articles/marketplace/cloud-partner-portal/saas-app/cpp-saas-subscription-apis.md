@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: d6ab18d68d6508a18f0b36ab5a39e15fa7c0555a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594500"
 ---
 # <a name="saas-sell-through-azure---apis"></a>透過 Azure API 銷售 SaaS 
 
@@ -112,7 +112,7 @@ HTTP 方法
 |  Grant_type         | True         | 授與類型。 預設值為 `client_credentials`。                    |
 |  Client_id          | True         |  與 Azure AD 應用程式相關聯的用戶端/應用程式識別碼。                  |
 |  client_secret      | True         |  與 Azure AD 應用程式相關聯的密碼。                               |
-|  資源           | True         |  要求權杖的目標資源。 預設值為 `62d94f6c-d599-489b-a797-3e10e42fbe22`。 |
+|  Resource           | True         |  要求權杖的目標資源。 預設值為 `62d94f6c-d599-489b-a797-3e10e42fbe22`。 |
 |  |  |  |
 
 
@@ -380,7 +380,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | 403                  | `Forbidden`          | 呼叫者沒有權限執行此作業。                   |
 | 404                  | `NotFound`           | 找不到具有該指定識別碼的訂用帳戶                                  |
 | 429                  | `RequestThrottleId`  | 服務正忙於處理多個要求，請稍後重試。                  |
-| 503                  | `ServiceUnavailable` | 服務已暫時關閉。 請稍後重試。                          |
+| 503                  | `ServiceUnavailable` | 服務已暫時關閉。 请稍后重试。                          |
 |  |  |  |
 
 如果回應碼為 202，請追蹤「Operation-location 」 標頭的要求作業狀態。 驗證作業與其他 Marketplace API 相同。
@@ -595,7 +595,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | 403                  | `Forbidden`          | 呼叫者沒有權限執行此作業。                      |
 | 404                  | `NotFound`           | 找不到具有該指定識別碼的訂用帳戶                                     |
 | 429                  | `RequestThrottleId`  | 服務正忙於處理多個要求，請稍後重試。                     |
-| 503                  | `ServiceUnavailable` | 服務已暫時關閉。 請稍後重試。                             |
+| 503                  | `ServiceUnavailable` | 服務已暫時關閉。 请稍后重试。                             |
 |  |  |  |
 
 *回應標頭*
@@ -635,6 +635,6 @@ SaaS Webhook 可用來主動通知 SaaS 服務關於變更的訊息。 此 POST 
 | offerId                | 字串        | 使用者訂閱的供應項目識別碼。 僅為「更新」動作提供。        |
 | publisherId                | 字串        | SaaS 供應項目的發行者識別碼         |
 | planId                 | 字串        | 使用者訂閱的方案識別碼。 僅為「更新」動作提供。          |
-| 動作                 | 字串        | 觸發此通知的動作。 可能的值 - 啟動、刪除、暫止、恢復、更新          |
+| action                 | 字串        | 觸發此通知的動作。 可能的值 - 啟動、刪除、暫止、恢復、更新          |
 | timeStamp                 | 字串        | 觸發此通知時的時間戳記值 (採用 UTC)。          |
 |  |  |  |

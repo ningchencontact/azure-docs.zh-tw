@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
 ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008064"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831824"
 ---
 # <a name="application-gateway-components"></a>应用程序网关组件
 
@@ -74,7 +74,7 @@ Azure 應用程式閘道 v2 SKU 支援這兩個靜態內部和靜態公用 IP �
 
 應用程式閘道會處理接聽程式在顯示的順序。 如果基本接聽程式符合傳入的要求，則會在第一次處理。 若要將流量路由至正確的後端，設定基本接聽程式之前的多站台接聽程式。
 
-## <a name="request-routing-rules"></a>要求路由規則
+## <a name="request-routing-rules"></a>请求路由规则
 
 要求的路由規則會是應用程式閘道的重要元件，因為它會決定如何將流量路由傳送接聽程式上。 该规则绑定侦听器、后端服务器池和后端 HTTP 设置。
 

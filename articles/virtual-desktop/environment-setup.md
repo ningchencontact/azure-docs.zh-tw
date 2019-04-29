@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870314"
 ---
 # <a name="windows-virtual-desktop-preview-environment"></a>Windows 虛擬桌面預覽環境
 
@@ -63,5 +63,5 @@ Windows 虛擬桌面，在 Windows 虛擬桌面的租用戶會是大部分的安
 
 若要了解如何連線到 Windows 虛擬桌面，請參閱下列文章：
 
-- [連接到 Windows 7 和 Windows 10 的遠端桌面用戶端](connect-windows-7-and-10.md)
-- [連線至 Windows 虛擬桌面預覽 web 用戶端](connect-web.md)
+- [連線到 Windows 7 和 Windows 10 上的遠端桌面用戶端](connect-windows-7-and-10.md)
+- [連線到 Windows 虛擬桌面預覽版 Web 用戶端](connect-web.md)

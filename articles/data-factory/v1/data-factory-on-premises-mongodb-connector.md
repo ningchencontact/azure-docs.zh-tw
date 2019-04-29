@@ -14,11 +14,11 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824179"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ ms.locfileid: "54331532"
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 **OnPremisesMongoDB** 連結服務專屬 JSON 元素的描述。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |類型屬性必須設定為：**OnPremisesMongoDb** |是 |
 | 伺服器 |MongoDB 伺服器的 IP 位址或主機名稱。 |是 |
@@ -82,7 +82,7 @@ ms.locfileid: "54331532"
 
 每個資料集類型的 **typeProperties** 區段都不同，可提供資料存放區中的資料位置資訊。 **MongoDbCollection** 類型資料集的 typeProperties 區段具有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | collectionName |MongoDB 資料庫中集合的名稱。 |是 |
 
@@ -93,7 +93,7 @@ ms.locfileid: "54331532"
 
 如果來源類型為 **MongoDbSource** ，則 typeProperties 區段可使用下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | query |使用自訂查詢來讀取資料。 |SQL-92 查詢字串。 例如：select * from MyTable。 |否 (如果已指定 **dataset** 的 **collectionName**) |
 
@@ -296,9 +296,9 @@ Azure Data Factory 服務會使用 MongoDB 集合中最新的 100 份文件，�
 | MongoDB 類型 | .NET Framework 類型 |
 | --- | --- |
 | Binary |Byte[] |
-| BOOLEAN |BOOLEAN |
-| 日期 |Datetime |
-| NumberDouble |兩倍 |
+| Boolean |Boolean |
+| date |DateTime |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |字串 |

@@ -16,11 +16,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 639bc4ff9c69bca3d5f8bca6967bfc3e8e6a13d4
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100538"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822396"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>事件中樞擷取逐步解說︰Python
 
@@ -54,7 +54,7 @@ ms.locfileid: "56100538"
 
 ## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>建立 Python 指令碼以將事件傳送到事件中樞
 1. 開啟您慣用的 Python 編輯器，例如 [Visual Studio 程式碼][Visual Studio Code]。
-2. 建立稱為 **sender.py**的指令碼。 此指令碼會將 200 個事件傳送到事件中樞。 這些事件是以 JSON 格式傳送的簡單環境數據。
+2. 创建名为 **sender.py**的脚本。 此指令碼會將 200 個事件傳送到事件中樞。 這些事件是以 JSON 格式傳送的簡單環境數據。
 3. 將下列程式碼貼到 sender.py：
    
    ```python
@@ -76,7 +76,7 @@ ms.locfileid: "56100538"
            sbs.send_event('INSERT YOUR EVENT HUB NAME', s)
        print y
    ```
-4. 更新上述程式碼，以使用您在建立「事件中樞」命名空間時取得的命名空間名稱、金鑰值及事件中樞名稱。
+4. 更新前面的代码，以使用在创建事件中心命名空间时获得的命名空间名称、密钥值和事件中心名称。
 
 ## <a name="create-a-python-script-to-read-your-capture-files"></a>建立 Python 指令碼來讀取擷取檔案
 

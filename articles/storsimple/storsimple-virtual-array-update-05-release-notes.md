@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4d020ff2b998da4cb52fe91e4d7d4b93544965a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 385d9126d578250064659153f6f0f54eec696790
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870667"
 ---
 # <a name="storsimple-virtual-array-update-05-release-notes"></a>StorSimple Virtual Array Update 0.5 版本資訊
 
@@ -47,7 +47,7 @@ Update 0.5 主要是錯誤修正組建。 主要加強功能錯誤修正如下�
 
 下表提供本版已修正問題的摘要。
 
-| 編號 | 功能 | 問題 |
+| 沒有。 | 功能 | 問題 |
 | --- | --- | --- |
 | 1 |備份復原功能| 在舊版中，只會針對特定的例外狀況重試備份。 此版本包含會重試所有備份例外狀況來讓備份更有彈性的修正。|
 | 2 |監視| 從 2017 年 6 月 30 日開始，將會取代「StorSimple 虛擬裝置系列」的儲存體使用情況監視。 此動作會影響在 StorSimple Virtual Array (1200 型號) 上執行之 StorSimple Device Manager 服務上的監視圖表。 此版本包含可讓使用者在 2017 年 6 月 30 日後繼續在虛擬陣列上使用儲存體使用情況監視的更新。|
@@ -58,7 +58,7 @@ Update 0.5 主要是錯誤修正組建。 主要加強功能錯誤修正如下�
 
 下表提供 StorSimple Virtual Array 的已知問題摘要，並包含舊版所列的問題。
 
-| 編號 | 功能 | 問題 | 因應措施/註解 |
+| 沒有。 | 功能 | 問題 | 因應措施/註解 |
 | --- | --- | --- | --- |
 | **1.** |更新 |預覽版中所建立的虛擬裝置無法更新為支援的正式運作版本。 |必須針對正式運作版本使用災害復原 (DR) 工作流程容錯移轉這些虛擬裝置。 |
 | **2.** |佈建的資料磁碟 |佈建特定指定大小的資料磁碟並建立對應的 StorSimple 虛擬裝置之後，不得展開或壓縮資料磁碟。 嘗試執行會導致裝置本機層中的所有資料遺失。 | |

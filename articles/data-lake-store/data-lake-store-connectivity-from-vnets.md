@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
 ms.openlocfilehash: c8d028a981d7811ed2c864db5750afc83ab93b2b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878863"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>從 Azure VNET 內的虛擬機器存取 Azure Data Lake Storage Gen1
 Azure Data Lake Storage Gen1 是公用網際網路 IP 位址上執行的 PaaS 服務。 可以連線到公用網際網路的任何伺服器，通常也可以連線到 Azure Data Lake Storage Gen1 端點。 根據預設，Azure VNET 中的所有虛擬機器皆可存取網際網路，因此，可以存取 Azure Data Lake Storage Gen1。 不過，也可以將 VNET 中的 VM 設定為無法存取網際網路。 對於這類虛擬機器，也會限制對 Azure Data Lake Storage Gen1 的存取。 封鎖 Azure VNET 中 VM 的公用網際網路存取，可以使用下列任一個方法來完成：

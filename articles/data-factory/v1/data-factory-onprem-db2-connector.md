@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824009"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>使用 Azure Data Factory 複製活動從 DB2 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,23 +79,23 @@ ms.locfileid: "56311523"
 ## <a name="db2-linked-service-properties"></a>DB2 連結服務屬性
 下表列出 DB2 連結服務特定的 JSON 屬性。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| **type** |此屬性必須設為 **OnPremisesDB2**。 |yes |
-| **server** |DB2 伺服器的名稱。 |yes |
-| **database** |DB2 資料庫的名稱。 |yes |
+| **type** |此屬性必須設為 **OnPremisesDB2**。 |是 |
+| **server** |DB2 伺服器的名稱。 |是 |
+| **database** |DB2 資料庫的名稱。 |是 |
 | **schema** |在 DB2 資料庫中的結構描述名稱。 此屬性必須區分大小寫。 |否 |
-| **authenticationType** |用來連接到 DB2 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |yes |
+| **authenticationType** |用來連接到 DB2 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
 | **username** |使用者帳戶的名稱 (如果您使用基本或 Windows 驗證)。 |否 |
 | **password** |使用者帳戶的密碼。 |否 |
-| **gatewayName** |Data Factory 服務應該用來連接到內部部署 DB2 資料庫的閘道器名稱。 |yes |
+| **gatewayName** |Data Factory 服務應該用來連接到內部部署 DB2 資料庫的閘道器名稱。 |是 |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的**結構**、**可用性**和**原則**等區段類似於所有的資料集類型 (Azure SQL、Azure Blob 儲存體、Azure 資料表儲存體等)。
 
 每個資料集類型的 **typeProperties** 區段都不同，可提供資料存放區中的資料位置資訊。 **RelationalTable** 類型資料集的 **typeProperties** 區段 (包含 DB2 資料集) 具有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | **tableName** |DB2 資料庫執行個體中連結服務所參照的資料表名稱。 此屬性必須區分大小寫。 |否 (如果指定 **RelationalSource** 類型複製活動的**查詢**屬性) |
 
@@ -104,7 +104,7 @@ ms.locfileid: "56311523"
 
 在複製活動中，如果來源類型為 **RelationalSource** (包含 DB2)，則 **typeProperties** 區段可使用下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | **query** |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：`"query": "select * from "MySchema"."MyTable""` |否 (如果已指定資料集的 **tableName** 屬性) |
 
@@ -316,11 +316,11 @@ ms.locfileid: "56311523"
 | Float |Double |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| 數值 |Decimal |
-| 日期 |DateTime |
+| Numeric |Decimal |
+| date |DateTime |
 | 時間 |TimeSpan |
 | Timestamp |Datetime |
-| xml |Byte[] |
+| Xml |Byte[] |
 | Char |字串 |
 | VarChar |字串 |
 | LongVarChar |字串 |
@@ -342,11 +342,11 @@ ms.locfileid: "56311523"
 | Float |Double |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| 數值 |Decimal |
-| 日期 |DateTime |
+| Numeric |Decimal |
+| date |DateTime |
 | 時間 |TimeSpan |
 | Timestamp |Datetime |
-| xml |Byte[] |
+| Xml |Byte[] |
 | Char |字串 |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行

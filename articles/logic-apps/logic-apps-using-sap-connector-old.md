@@ -11,16 +11,16 @@ ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60847334"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
 
 > [!NOTE]
-> 此 SAP 連接器會針對 deprecation 排程。 請使用，或移轉至[較新且更進階的 SAP 連接器](./logic-apps-using-sap-connector.md)。 
+> 此 SAP 连接器已计划弃用。 请使用或迁移到[更新更高级的 SAP 连接器](./logic-apps-using-sap-connector.md)。 
 
 本文顯示如何使用 SAP 應用程式伺服器和 SAP 訊息伺服器連接器，從邏輯應用程式內部存取 SAP 資源。 如此您即可建立邏輯應用程式，以自動化用來管理 SAP 資料和資源的工作、流程和工作流程。
 
@@ -91,7 +91,7 @@ ms.locfileid: "58170831"
    * **SAP 應用程式伺服器 - 傳送至 SAP**
    * **SAP 訊息伺服器 - 傳送至 SAP**
 
-   此範例會使用這項動作：**SAP 應用程式伺服器 - 傳送至 SAP**
+   此示例使用以下操作：**SAP 應用程式伺服器 - 傳送至 SAP**
 
    ![選取 [SAP 應用程式伺服器] 或 [SAP 訊息伺服器]](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 

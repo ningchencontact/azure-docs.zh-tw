@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003443"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593791"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>教學課程：在 Azure VM 中手動設定 Always On 可用性群組
 
@@ -418,7 +418,7 @@ Azure Load Balancer 可以是標準負載平衡器，也可以是基本負載平
 
    | 設定 | 描述 | 範例
    | --- | --- |---
-   | **名稱** | 文字 | SQLAlwaysOnEndPointListener |
+   | **名稱** | Text | SQLAlwaysOnEndPointListener |
    | **前端 IP 地址** | 選擇一個位址 |使用您建立負載平衡器時所建立的位址。 |
    | **协议** | 選擇 [TCP] |TCP |
    | **連接埠** | 使用可用性群組接聽程式的連接埠 | 1433 |
@@ -426,7 +426,7 @@ Azure Load Balancer 可以是標準負載平衡器，也可以是基本負載平
    | **探查** |您為探查指定的名稱 | SQLAlwaysOnEndPointProbe |
    | **工作階段持續性** | 下拉式清單 | **无** |
    | **閒置逾時** | 讓 TCP 連線保持開啟的分鐘數 | 4 |
-   | **浮動 IP (伺服器直接回傳)** | |已啟用 |
+   | **浮動 IP (伺服器直接回傳)** | |Enabled |
 
    > [!WARNING]
    > 伺服器直接回傳是在建立時設定。 無法予以變更。
@@ -445,7 +445,7 @@ WSFC IP 位址也必須位於負載平衡器上。
 
    | 設定 | 描述 | 範例
    | --- | --- |---
-   | **名稱** | 文字 | WSFCEndPointProbe |
+   | **名稱** | Text | WSFCEndPointProbe |
    | **通訊協定** | 選擇 [TCP] | TCP |
    | **連接埠** | 任何未使用的連接埠 | 58888 |
    | **間隔**  | 探查嘗試間隔的時間長度 (秒) |5 |
@@ -459,7 +459,7 @@ WSFC IP 位址也必須位於負載平衡器上。
 
    | 設定 | 描述 | 範例
    | --- | --- |---
-   | **名稱** | 文字 | WSFCEndPoint |
+   | **名稱** | Text | WSFCEndPoint |
    | **前端 IP 位址** | 選擇一個位址 |使用您在設定 WSFC IP 位址時所建立的位址。 這與接聽程式 IP 位址不同 |
    | **通訊協定** | 選擇 [TCP] |TCP |
    | **連接埠** | 使用叢集 IP 位址的連接埠。 這個可用的連接埠不用於接聽程式探查連接埠。 | 58888 |
@@ -467,7 +467,7 @@ WSFC IP 位址也必須位於負載平衡器上。
    | **探查** |您為探查指定的名稱 | WSFCEndPointProbe |
    | **工作階段持續性** | 下拉式清單 | **无** |
    | **閒置逾時** | 讓 TCP 連線保持開啟的分鐘數 | 4 |
-   | **浮動 IP (伺服器直接回傳)** | |已啟用 |
+   | **浮動 IP (伺服器直接回傳)** | |Enabled |
 
    > [!WARNING]
    > 伺服器直接回傳是在建立時設定。 無法予以變更。

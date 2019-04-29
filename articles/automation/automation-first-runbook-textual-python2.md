@@ -10,11 +10,11 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e79f4b58582ab6643a7a13ffee25503060a2208c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60929251"
 ---
 # <a name="my-first-python-runbook"></a>我的第一個 Python Runbook
 
@@ -27,7 +27,7 @@ ms.locfileid: "58226737"
 本教學課程將逐步引導您在「Azure 自動化」中建立 [Python Runbook](automation-runbook-types.md#python-runbooks)。 從您測試及發佈的簡單 Runbook 開始。 接著您會修改 Runbook 以實際管理 Azure 資源，在此情況下會啟動 Azure 虛擬機器。 最後您藉由新增 Runbook 參數，讓 Runbook 更穩固。
 
 > [!NOTE]
-> 不支援使用 webhook 來啟動 Python runbook。
+> 不支持使用 Webhook 启动 Python runbook。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -81,7 +81,7 @@ print("Hello World!")
 1. 按一下 [發佈] 來發佈 Runbook，然後出現提示時按一下 [是]。
 1. 如果您現在向左捲動以檢視 [Runbook] 窗格中的 Runbook，則畫面會顯示 [已發佈] 的 [撰寫狀態]。
 1. 捲動回到右側，檢視 [MyFirstRunbook-Python] 的窗格。
-   在頂端的選項可讓我們啟動 runbook、 檢視 runbook，或其排程為在未來某個時間點啟動。
+   顶部的选项允许我们启动 Runbook、查看 Runbook、计划其在将来的某个时刻启动。
 2. 您想要啟動 Runbook，因此按一下 [啟動]，然後在 [啟動 Runbook] 刀鋒視窗開啟時按一下 [確定]。
 3. 作業窗格會針對您所建立的 Runbook 作業開啟。 您可以關閉此窗格，但在此情況下，您會讓它開啟，以便觀看作業的進度。
 1. [作業摘要] 中會顯示作業狀態，且符合當您測試 Runbook 時看到的狀態。

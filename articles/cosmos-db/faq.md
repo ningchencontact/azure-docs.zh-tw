@@ -8,11 +8,11 @@ ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 8e8b3e647d6ef91d69a7b81ca6fdf36fc9d0f9c8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60890538"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>關於 Azure Cosmos DB 內不同 API 的常見問題集
 
@@ -34,7 +34,7 @@ Azure DocumentDB 服務現在是 Azure Cosmos DB 服務的一部分，且本身�
 
 [要求單位](request-units.md) (RU) 是 Azure Cosmos DB 的輸送量計算單位。 1 RU 的輸送量會對應至 1KB 文件的 GET 輸送量。 根據完成作業所需的輸送量，Azure Cosmos DB 中的每個作業 (包括讀取、寫入、SQL 查詢和預存程序執行) 具有決定性的 RU 值。 您可以就單一 RU 計量來思考，而不是思考 CPU、IO 和記憶體以及它們分別如何影響您的應用程式輸送量。
 
-您可以按照每秒輸送量 RU 的佈建輸送量設定每個 Azure Cosmos DB 容器。 對於任何規模的應用程式，您可以將個別要求設為基準以測量其 RU 值，以及佈建容器來處理所有要求的要求單位總數。 您也可以隨著應用程式發展需求，相應增加或減少容器的輸送量。 如需要求單位的詳細資訊，以及協助判斷您的容器需求，請嘗試[輸送量計算機](https://www.documentdb.com/capacityplanner)。
+您可以按照每秒輸送量 RU 的佈建輸送量設定每個 Azure Cosmos DB 容器。 對於任何規模的應用程式，您可以將個別要求設為基準以測量其 RU 值，以及佈建容器來處理所有要求的要求單位總數。 您也可以隨著應用程式發展需求，相應增加或減少容器的輸送量。 如需请求单位的详细信息以及帮助确定容器需求，请尝试使用[吞吐量计算器](https://www.documentdb.com/capacityplanner)。
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Azure Cosmos DB 如何支援各種資料模型，例如索引鍵/值、單欄式資料、文件和圖形？
 
@@ -104,7 +104,7 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>如何註冊 Azure Cosmos DB？
 
-Azure 入口網站中已提供 Azure Cosmos DB。 首先，請註冊 Azure 訂用帳戶。 您已註冊之後，您可以加入您 Azure 訂用帳戶來 Azure Cosmos DB 帳戶。
+Azure 入口網站中已提供 Azure Cosmos DB。 首先，請註冊 Azure 訂用帳戶。 注册后，可将 Azure Cosmos DB 帐户添加到 Azure 订阅。
 
 ### <a name="what-is-a-master-key"></a>什麼是主要金鑰？
 
@@ -202,7 +202,7 @@ SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>在入口網站中從資料總管檢視文件中的長浮點值時，這些值為何會四捨五入。
 
-這是 JavaScript 的限制。 JavaScript 會使用 IEEE 754 中所指定的雙精確度浮點數格式化數字，它可以安全地保存數字，介於-(2<sup>53</sup> -1） 和 2<sup>53</sup>-1 (亦即，9007199254740991) 只。
+這是 JavaScript 的限制。 JavaScript 根据 IEEE 754 中的规定使用双精度浮点格式的数字，并且只能安全地保存 -(2<sup>53</sup> - 1) 和 2<sup>53</sup>-1（即 9007199254740991）之间的数字。
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>物件階層中允許哪些權限？
 
@@ -212,11 +212,11 @@ SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交
 
 ### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>什麼是適用於 MongoDB 的 Azure Cosmos DB API？
 
-Azure Cosmos DB API for MongoDB 是有線通訊協定相容性層級，可讓應用程式，以輕鬆且透明地與原生 Azure Cosmos DB 資料庫引擎通訊藉由使用適用於 MongoDB 的現有、 社群支援的 Sdk 和驅動程式。 開發人員現在可以使用現有的 MongoDB 工具鏈和技能來建置利用 Azure Cosmos DB 的應用程式。 從 Azure Cosmos DB，包括使用多重主機複寫時，自動編製索引、 備份維護、 全域散發的獨特功能的開發人員權益有財務支援的服務等級協定 (Sla) 等。
+Azure Cosmos DB 的 API for MongoDB 是一个线路协议兼容层，允许应用程序使用现有的、社区支持的 SDK 和用于 MongoDB 的驱动程序轻松、透明地与本机 Azure Cosmos DB 数据库引擎通信。 开发人员现在可以使用现有的 MongoDB 工具链和技术，生成能够充分利用 Azure Cosmos DB 的应用程序。 從 Azure Cosmos DB，包括使用多重主機複寫時，自動編製索引、 備份維護、 全域散發的獨特功能的開發人員權益有財務支援的服務等級協定 (Sla) 等。
 
 ### <a name="how-do-i-connect-to-my-database"></a>我要如何連線到我的資料庫？
 
-若要使用適用於 MongoDB 的 Azure Cosmos DB API 來連線至 Cosmos 資料庫，最快的方式是直接前往 [Azure 入口網站](https://portal.azure.com)。 移至您的帳戶，然後在左側瀏覽功能表中按一下 [快速入門]。 快速入門是取得程式碼片段以連接到您資料庫的最佳方式。
+若要使用適用於 MongoDB 的 Azure Cosmos DB API 來連線至 Cosmos 資料庫，最快的方式是直接前往 [Azure 入口網站](https://portal.azure.com)。 移至您的帳戶，然後在左側瀏覽功能表中按一下 [快速入門]。 快速入门是获取连接到数据库的代码片段的最佳方式。
 
 Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos DB 帳戶需要驗證和透過 SSL 的安全通訊，因此請務必使用 TLSv1.2。
 
@@ -252,13 +252,13 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 來自 Azure 資料表儲存體而想要使用 Azure Cosmos DB 資料表 API 來建立資料表的使用者，應該注意以下的部分行為差異：
 
 * Azure Cosmos DB 資料表 API 使用保留容量模型來確保效能獲得保證，但這也表示，使用者一建立資料表，就必須支付其容量費用，即使該容量並未使用也是如此。 而在使用 Azure 資料表儲存體時，使用者只需要就使用的容量付費。 此一行為有助於解釋，為何資料表 API 可於第 99 個百分位數的水準提供 10 毫秒的讀取和 15 毫秒的寫入 SLA，而 Azure 資料表儲存體則是提供 10 秒的 SLA。 但也因為這樣，資料表 API 的資料表 (甚至是沒有任何要求的空白資料表) 必須付出金錢，才能確保有容量可用來處理其所收到的任何要求，並以 Azure Cosmos DB 所提供的 SLA 來進行。
-* 「 資料表 API 所傳回的查詢結果不是資料分割索引鍵/資料列索引鍵的順序排序，以其在 Azure 資料表儲存體。
+* 表 API 返回的查询结果未按分区键/行键顺序排序，因为它们在 Azure 表存储中。
 * 資料列索引鍵最多只能是 255 個位元組
 * 批次最多只可有 2 MB
 * 目前不支援 CORS
-* 在 Azure 資料表儲存體中的資料表名稱不區分大小寫，但它們位於 Azure Cosmos DB 資料表 API
+* Azure 表存储中的表名不区分大小写，但出现在 Azure Cosmos DB 表 API 中
 * 部分 Azure Cosmos DB 用於編碼資訊 (例如二進位欄位) 的內部格式，目前不如預期地有效率。 因此這會對資料大小造成非預期的限制。 例如，目前無法使用資料表實體的完整 1 Meg 來儲存二進位資料，因為編碼方式增加了資料的大小。
-* 實體屬性名稱 'ID' 目前不支援
+* 当前不支持实体属性名称“ID”
 * TableQuery TakeCount 不限於 1000
 
 就 REST API 來說，Azure Cosmos DB 資料表 API 並不支援某些端點/查詢選項：
@@ -637,11 +637,11 @@ g.V('mary').out('knows').executionProfile()
 ]
 ```
 
-上述的設定檔的輸出會顯示花費多少時間取得頂點物件、 edge 物件和工作資料集的大小。 這與 Azure Cosmos DB 查詢的標準成本量值相關。
+上述配置文件的输出显示了获取顶点对象、边对象所花费的时间量，以及工作数据集的大小。 這與 Azure Cosmos DB 查詢的標準成本量值相關。
 
 ## <a id="cassandra"></a> Cassandra API
 
-### <a name="what-is-the-protocol-version-supported-by-azure-cosmso-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>什麼是 Azure Cosmso DB Cassandra API 所支援的通訊協定版本？ 是否打算支援其他通訊協定？
+### <a name="what-is-the-protocol-version-supported-by-azure-cosmso-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>Azure Cosmso DB Cassandra API 支持哪个协议版本？ 是否打算支援其他通訊協定？
 
 Azure Cosmos DB 的 Apache Cassandra API 目前支援 CQL 第 4 版。 如果您有關於支援其他通訊協定的意見反應，請透過 [User Voice 意見反應](https://feedback.azure.com/forums/263030-azure-cosmos-db)讓我們知道，或傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)。
 
@@ -727,7 +727,7 @@ Apache Cassandra API 是一種平台服務，可讓您輕鬆地規劃容量並�
 
 ### <a name="what-happens-with-respect-to-various-config-settings-for-keyspace-creation-like-simplenetwork"></a>各種組態設定會對 keyspace 的建立 (例如簡單/網路) 造成什麼影響？
 
-基於可用性和低延遲的考量，Azure Cosmos DB 預設會提供全域發佈。 您不需要設定複本或其他項目。 所有 writes 都總是永久認可，當您撰寫並提供效能保證任何區域中的仲裁。
+基於可用性和低延遲的考量，Azure Cosmos DB 預設會提供全域發佈。 您不需要設定複本或其他項目。 所有写入均在你进行写入的区域中经过仲裁永久认可，同时提供性能保障。
 
 ### <a name="what-happens-with-respect-to-various-settings-for-table-metadata-like-bloom-filter-caching-read-repair-change-gcgrace-compression-memtableflushperiod-and-more"></a>各種設定會對資料表中繼資料 (例如 Bloom 篩選、快取、讀取修復變更、gc_grace 和 compression memtable_flush_period 等) 造成什麼影響？
 
@@ -745,7 +745,7 @@ Azure Cosmos DB 是一種平台服務，可協助您提高產能，而不必擔�
 
 ### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>哪些用戶端 SDK 可以搭配 Azure Cosmos DB 的 Apache Cassandra API 來運作？
 
-用戶端程式使用使用 CQLv3 的 Apache Cassandra SDK 用戶端驅動程式。 如果您使用其他驅動程式，或如果您遇到問題，請傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)。
+Apache Cassandra SDK 的使用 CQLv3 的客户端驱动程序用于客户端程序。 如果您使用其他驅動程式，或如果您遇到問題，請傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)。
 
 ### <a name="is-composite-partition-key-supported"></a>是否支援複合資料分割索引鍵？
 
@@ -782,7 +782,7 @@ Azure Cosmos DB Cassandra API 會藉助 Azure Cosmos DB 的全域分散式平台
 
 我們計劃在未來支援這項功能。
 
-### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>Azure Cosmos DB 做為平台時似乎還有很多功能，例如變更摘要和其他功能。 是否會將這些功能新增到 Cassandra API？
+### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>平台形式的 Azure Cosmos DB 似乎拥有许多功能，例如，更改源和其他功能。 是否會將這些功能新增到 Cassandra API？
 
 Apache Cassandra API 會提供和 Apache Cassandra 相同的 CQL 功能。 我們的確有計劃要了解在未來支援各種功能的可行性。
 

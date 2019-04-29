@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
 ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729518"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60925856"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>裝置連線能力與遙測輸入
 
@@ -67,10 +67,10 @@ YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
  **Message** 的承載內容可以是大小上限為 256 KB 的任意資料。 [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) 類型的屬性應會有幾項需求。 下表顯示系統支援的必要和選擇性屬性。
 
-| 屬性名稱 | 值 | 必要 | 說明 |
+| 屬性名稱 | Value | 必要項 | 描述 |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | yes | 識別系統訊息的常數值。 |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | yes | 傳送 **Message** 之感應器的唯一識別碼。 此值必須符合物件的 **HardwareId** 屬性，才能讓系統進行處理。 例如： `00FF0643BE88-CO2`。 |
+| **DigitalTwins-Telemetry** | 1.0 | 是 | 識別系統訊息的常數值。 |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | 是 | 傳送 **Message** 之感應器的唯一識別碼。 此值必須符合物件的 **HardwareId** 屬性，才能讓系統進行處理。 例如： `00FF0643BE88-CO2`。 |
 | **CreationTimeUtc** | `string` | 否 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 格式的日期字串，用來識別承載的取樣時間。 例如： `2018-09-20T07:35:00.8587882-07:00`。 |
 | **CorrelationId** | `string` | 否 | 用來追蹤系統上各個事件的 UUID。 例如： `cec16751-ab27-405d-8fe6-c68e1412ce1f`。
 

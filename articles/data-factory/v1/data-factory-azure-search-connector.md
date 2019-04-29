@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567226"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料推送到 Azure 搜尋服務索引
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,17 +56,17 @@ ms.locfileid: "54330002"
 
 下表提供 Azure 搜尋服務連結服務專屬之 JSON 元素的描述。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | -------- | ----------- | -------- |
 | type | 類型屬性必須設定為：**AzureSearch**。 | 是 |
 | url | Azure 搜尋服務的 URL。 | 是 |
-| key | Azure 搜尋服務的系統管理金鑰。 | 是 |
+| 索引鍵 | Azure 搜尋服務的系統管理金鑰。 | 是 |
 
 ## <a name="dataset-properties"></a>資料集屬性
 
 如需定義資料集的區段和屬性完整清單，請參閱 [建立資料集](data-factory-create-datasets.md) 一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型。 不同類型資料集的 **typeProperties** 區段不同。 **AzureSearchIndex** 類型資料集的 typeProperties 區段有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | -------- | ----------- | -------- |
 | type | type 屬性必須設為 **AzureSearchIndex**。| 是 |
 | IndexName | Azure 搜尋服務索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 搜尋服務中。 | 是 |
@@ -77,7 +77,7 @@ ms.locfileid: "54330002"
 
 對於「複製活動」，當接收的類型為 **AzureSearchIndexSink** 時，typeProperties 區段中會有下列可用屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | 指定若文件已經存在於索引中，是否要合併或取代。 請參閱 [WriteBehavior 屬性](#writebehavior-property)。| 合併 (預設值)<br/>上傳| 否 |
 | WriteBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料上傳至 Azure 搜尋服務中。 如需詳細資訊，請參閱 [WriteBatchSize 屬性](#writebatchsize-property)。 | 1 到 1000。 預設值為 1000。 | 否 |
@@ -100,11 +100,11 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 
 | Azure 搜尋服務資料類型 | 在 Azure 搜尋服務接收器中受到支援 |
 | ---------------------- | ------------------------------ |
-| String | Y |
+| 字串 | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
-| Boolean | Y |
+| BOOLEAN | Y |
 | DataTimeOffset | Y |
 | String Array | N |
 | GeographyPoint | N |

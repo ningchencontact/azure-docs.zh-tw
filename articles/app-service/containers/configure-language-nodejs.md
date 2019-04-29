@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60850165"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>適用於 Azure App Service 中設定 Linux Node.js 應用程式
 
@@ -137,7 +137,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>存取環境變數
 
-在 App Service 中，您可以[設定應用程式設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)外部應用程式程式碼。 然後，您可以使用標準的 Node.js 模式。 例如，若要存取稱為 `NODE_ENV` 的應用程式設定，請使用下列程式碼：
+在 App Service 中，您可以於應用程式的程式碼外部[設定應用程式設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)。 然後，您可以使用標準的 Node.js 模式。 例如，若要存取稱為 `NODE_ENV` 的應用程式設定，請使用下列程式碼：
 
 ```javascript
 process.env.NODE_ENV

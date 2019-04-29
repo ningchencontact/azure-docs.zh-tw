@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 8b18224339654c067d8ab9b543fa49a9c7d55ddd
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870518"
 ---
-# <a name="host-pool-load-balancing-methods"></a>主應用程式集區的負載平衡方法
+# <a name="host-pool-load-balancing-methods"></a>主機集區負載平衡方法
 
 Windows 虛擬桌面的預覽支援兩種負載平衡方法。 每個方法會判斷哪一個工作階段主機會裝載連線至主應用程式集區中的資源時的使用者工作階段。
 

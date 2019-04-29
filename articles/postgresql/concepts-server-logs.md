@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195093"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871516"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的伺服器記錄 
 適用於 PostgreSQL 的 Azure 資料庫會產生查詢和錯誤記錄。 查詢和錯誤記錄可用來針對組態錯誤及未達最佳效能的情況，進行識別、疑難排解及修復。 (不包括對交易記錄的存取)。 
@@ -28,16 +28,16 @@ ms.locfileid: "57195093"
 
 
 ## <a name="diagnostic-logs"></a>診斷記錄
-「適用於 PostgreSQL 的 Azure 資料庫」已與「Azure 監視器診斷記錄」整合。 一旦您的 PostgreSQL 伺服器上啟用記錄，您可以選擇將它們發出[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)，事件中樞或 Azure 儲存體。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的＜如何＞一節。 
+「適用於 PostgreSQL 的 Azure 資料庫」已與「Azure 監視器診斷記錄」整合。 在 PostgreSQL 服务器上启用日志后，可以选择将它们发送到 [Azure Monitor 日志](../azure-monitor/log-query/log-query-overview.md)、事件中心或 Azure 存储。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的＜如何＞一節。 
 
 > [!IMPORTANT]
-> 此診斷功能的伺服器記錄檔僅適用於一般用途和記憶體最佳化[定價層](concepts-pricing-tiers.md)。
+> 服务器日志的此诊断功能仅适用于“常规用途”和“内存优化”的[定价层](concepts-pricing-tiers.md)。
 
 下表描述每個記錄的內容。 視您選擇的輸出端點而定，所含欄位及其出現順序可能會有所不同。 
 
 |**欄位** | **說明** |
 |---|---|
-| TenantId | 您的租用戶識別碼 |
+| TenantId | 租户 ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | 以 UTC 記錄記錄時的時間戳記 |
 | 類型 | 記錄的類型。 一律為 `AzureDiagnostics` |

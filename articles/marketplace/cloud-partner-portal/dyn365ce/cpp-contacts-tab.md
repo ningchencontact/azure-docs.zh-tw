@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: pbutlerm
 ms.openlocfilehash: e15b20c4b874e68c09321e00604aed24b7970371
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60873657"
 ---
 # <a name="azure-application-contacts-tab"></a>Azure 應用程式連絡人索引標籤
 
@@ -32,7 +32,7 @@ ms.locfileid: "54081851"
 
 提供下列值，為您的供應項目定義主要**工程連絡人**。
 
-|    欄位        |  說明                    |
+|    欄位        |  描述                    |
 |    ---------    |  ---------------                |
 |  **名稱**       |  應用程式工程連絡人的名稱。 這名連絡人將收到來自 Microsoft 的技術通訊。   |
 |  **電子郵件**      |  工程連絡人的電子郵件地址  |
@@ -41,7 +41,7 @@ ms.locfileid: "54081851"
 
 提供下列值，為您的供應項目定義主要**支援連絡人**。
 
-|    欄位        |   說明                   |
+|    欄位        |   描述                   |
 |    ---------    |  ---------------                |
 |  **名稱**       |  應用程式的客戶支援連絡人的名稱。 這名連絡人將收到來自 Microsoft 的支援相關通訊。   |
 |  **電子郵件**      |  客戶支援連絡人的電子郵件地址  |

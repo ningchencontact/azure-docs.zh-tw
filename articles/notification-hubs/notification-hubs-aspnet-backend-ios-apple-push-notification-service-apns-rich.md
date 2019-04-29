@@ -1,6 +1,6 @@
 ---
 title: Azure 通知中心豐富內容推播
-description: 了解如何從 Azure 將各種推播通知傳送至 iOS 應用程式。 程式碼範例是以 Objective-C 及 C# 撰寫。
+description: 了解如何從 Azure 將各種推播通知傳送至 iOS 應用程式。 代码示例是使用 .Objective-C 和 C# 编写的。
 documentationcenter: ios
 services: notification-hubs
 author: jwargo
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: dd808a04dff77388248bf7309f5ff804e6dd065c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60873058"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure 通知中心豐富內容推播
 
 ## <a name="overview"></a>概觀
 
-為了與使用者進行即時豐富內容交流，應用程式可能會想要推播純文字以外的內容。 這些通知可提高使用者互動，並呈現如 URL、音效、影像/優待券等內容。 本教學課程會以 [通知使用者](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 主題為基礎，說明如何傳送包含裝載 (例如影像) 的推播通知。
+为了吸引用户使用即时丰富内容，除纯文本之外，应用程序可能还需要以其他形式进行推送。 這些通知可提高使用者互動，並呈現如 URL、音效、影像/優待券等內容。 本教學課程會以 [通知使用者](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 主題為基礎，說明如何傳送包含裝載 (例如影像) 的推播通知。
 
 本教學課程適用於 iOS 7 和 8。
 
@@ -371,7 +371,7 @@ ms.locfileid: "54447747"
 
 ## <a name="run-the-application"></a>執行應用程式
 
-1. 在 XCode 中，在實體 iOS 裝置上執行應用程式 (推播通知無法在模擬器中運作)。
+1. 在 XCode 中，在物理 iOS 设备上运行此应用（推送通知将无法在模拟器中正常工作）。
 2. 在 iOS 應用程式 UI 中，輸入與驗證相同值的使用者名稱和密碼，然後按一下 [登入] 。
 3. 按一下 [傳送推播]  ，您應該會看到一則應用程式內部警示。 如果您按一下 [詳細說明] ，將會顯示您選擇要包含在應用程式後端的影像。
 4. 您也可以按一下 [傳送推播]  ，並立即按下裝置的主畫面按鈕。 在幾分鐘的時間內，您就會收到推播通知。 如果您點選該通知或按一下 [詳細說明]，則會顯示您的應用程式以及豐富的影像內容。

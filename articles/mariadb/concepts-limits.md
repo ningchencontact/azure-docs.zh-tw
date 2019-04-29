@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61041270"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫相關限制
 下列各節說明資料庫服務中的容量、儲存引擎支援、權限支援、資料操作陳述式支援，以及功能限制。
@@ -87,5 +87,5 @@ ms.locfileid: "59616266"
 - MariaDB 伺服器執行個體於建立連線後會顯示不正確的伺服器版本。 若要取得正確的伺服器執行個體引擎版本，請使用 `select version();` 命令。
 
 ## <a name="next-steps"></a>後續步驟
-- [每個服務層中可用的項目](concepts-pricing-tiers.md)
+- [每個服務層級中可用的項目](concepts-pricing-tiers.md)
 - [支援的 MariaDB 資料庫版本](concepts-supported-versions.md)

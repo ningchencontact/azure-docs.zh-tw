@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: crdun
 ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859387"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用 Android 版 Azure Mobile Apps SDK
 
@@ -201,11 +201,11 @@ public final void setPriority(Integer priority) {
 
 Azure Mobile Apps 後端資料表定義了五個特殊欄位，其中四個可供用戶端使用︰
 
-* `String id`：記錄的全域唯一識別碼。  最佳做法是，使識別碼成為 [UUID][17] 物件的字串表示法。
-* `DateTimeOffset updatedAt`：上次更新的日期/時間。  UpdatedAt 欄位由伺服器設定，且不得由用戶端程式碼設定。
-* `DateTimeOffset createdAt`：建立物件的日期/時間。  CreatedAt 欄位由伺服器設定，且不得由用戶端程式碼設定。
-* `byte[] version`：通常會以字串表示，版本也是由伺服器設定。
-* `boolean deleted`：表示記錄已刪除，但尚未清除。  請勿使用 `deleted` 作為您類別中的屬性。
+* `String id`:記錄的全域唯一識別碼。  最佳做法是，使識別碼成為 [UUID][17] 物件的字串表示法。
+* `DateTimeOffset updatedAt`:上次更新的日期/時間。  UpdatedAt 欄位由伺服器設定，且不得由用戶端程式碼設定。
+* `DateTimeOffset createdAt`:建立物件的日期/時間。  CreatedAt 欄位由伺服器設定，且不得由用戶端程式碼設定。
+* `byte[] version`:通常會以字串表示，版本也是由伺服器設定。
+* `boolean deleted`:表示記錄已刪除，但尚未清除。  請勿使用 `deleted` 作為您類別中的屬性。
 
 `id` 是必填欄位。  `updatedAt` 欄位和 `version` 欄位是用於離線同步處理 (分別適用於增量同步處理和衝突解決)。  `createdAt` 欄位是參考欄位，且用戶端不可使用。  名稱為屬性的 "across-the-wire" 名稱，且不可調整。  不過，您可以使用 [gson][3] 程式庫，建立物件與 "across-the-wire" 名稱之間的對應。  例如︰
 

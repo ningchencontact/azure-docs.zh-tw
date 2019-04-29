@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
 ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60868217"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>追蹤與在 Azure DevTest Labs 中對實驗室相關聯的成本
 這篇文章會提供有關如何追蹤您的實驗室的成本資訊。 它會顯示您如何檢視預估費用 trent 目前日曆月份的實驗室。 本文也說明如何檢視實驗室中的每個資源的月-日成本。

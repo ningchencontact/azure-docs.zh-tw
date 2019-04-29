@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 08/25/2016
 ms.author: cherylmc
 ms.openlocfilehash: 9361c0b2ee84d7459bd432f5a8ce13fc5fd85ef8
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "26730333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583475"
 ---
 # <a name="connecting-your-on-premises-network-to-azure"></a>將內部部署網路連線到 Azure
 Microsoft 提供多種類型的雲端服務。 您可以透過公用網際網路連線到所有服務，同時也可以透過網際網路或透過 Microsoft 的直接、私人連線，使用虛擬私人網路 (VPN) 通道連線到某些服務。 本文以您使用的 Microsoft 雲端服務類型為基礎，協助您判斷最符合您需求的連線選項。 大部分的組織使用多種連線類型，如下所述。

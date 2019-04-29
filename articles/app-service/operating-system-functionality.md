@@ -16,11 +16,11 @@ ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901780"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835493"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service 上的作業系統功能
 本文說明在 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)上執行的所有 Windows 應用程式可用的一般基礎作業系統功能。 此功能包含檔案、網路、登錄存取、診斷記錄和事件。 
@@ -36,7 +36,7 @@ App Service 會在多租用戶裝載環境中執行客戶應用程式。 部署�
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-因為 App Service 支援不同層之間的完美縮放體驗，所以強制 App Service 應用程式採用的安全性設定維持不變。 這可確保當 App Service 在不同層之間切換時，應用程式不會突然出現不同的行為，發生非預期的失敗。
+由于应用服务支持不同层之间的无缝缩放体验，因此，为应用服务应用实施的安全配置保持不变。 這可確保當 App Service 在不同層之間切換時，應用程式不會突然出現不同的行為，發生非預期的失敗。
 
 <a id="developmentframeworks"></a>
 

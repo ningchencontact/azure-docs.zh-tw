@@ -18,11 +18,11 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60833034"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>針對 Azure App Service 中「502 不正確的閘道」和「503 服務無法使用」的 HTTP 錯誤，進行疑難排解
 在裝載於 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 的應用程式中，「502 不正確的閘道」和「503 服務無法使用」是常見的錯誤。 本文可協助您對這些錯誤進行疑難排解。

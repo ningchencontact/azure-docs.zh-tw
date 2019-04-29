@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61023710"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用
 
@@ -85,7 +85,7 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 `aks install-connector` 命令可使用下列引數。
 
-| 引數： | 說明 | 必要 |
+| 引數： | 描述 | 必要項 |
 |---|---|:---:|
 | `--connector-name` | ACI 連接器的名稱。| 是 |
 | `--name` `-n` | 受控叢集的名稱。 | 是 |

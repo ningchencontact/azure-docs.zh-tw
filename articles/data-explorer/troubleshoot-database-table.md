@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 0d221138914230d5455dc0addbe08cdaaed36a0b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60826249"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>疑難排解：無法在 Azure 資料總管中建立或刪除資料庫或資料表
 
@@ -36,7 +36,7 @@ ms.locfileid: "59050419"
 
     如需有關權限的詳細資訊，請參閱[管理資料庫權限](manage-database-permissions.md)。
 
-1. 確定具有相同名稱的資料表尚未存在。 如果它存在，則您可以：建立具有不同的名稱; 的資料表重新命名現有的資料表 (需要*資料表的系統管理員*角色)，或卸除現有的資料表 (需要*資料庫管理員*角色)。 使用下列命令。
+1. 確定具有相同名稱的資料表尚未存在。 如果存在，则可：使用不同的名称创建表；重命名现有表（需要“表管理员”角色）；或删除现有表（需要“数据库管理员”角色）。 使用下列命令。
 
     ```Kusto
     .drop table <TableName>

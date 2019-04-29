@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844382"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>度量的重組和 Service Fabric 中的負載
 Service Fabric 叢集資源管理員對於管理叢集中負載計量的預設策略是分散負載。 確保平均使用節點，以避免忙碌和閒置位置，導致爭用和浪費的資源。 就故障情況下幸存而言，分散工作負載是最安全的，因為這可確保不會因為故障而使指定的工作負載損失慘重。 
@@ -42,7 +42,7 @@ Service Fabric 叢集資源管理員支援管理負載的不同策略，也就�
 
 <center>
 
-![比較平衡和重組叢集][Image1]
+![比较均衡的群集与重整的群集][Image1]
 </center>
 
 在平衡情況下，請注意放置其中一個最大服務物件所需的移動次數。 在重組的叢集中，大型工作負載可以放置於四或五個節點，而不需要等待其他服務移動。

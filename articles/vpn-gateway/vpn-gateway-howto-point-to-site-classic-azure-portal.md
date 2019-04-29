@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845386"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>使用憑證驗證設定點對站連線 (傳統)
 
@@ -29,7 +29,7 @@ ms.locfileid: "58000933"
 本文說明如何建立具有點對站連線的 VNet。 您會使用 Azure 入口網站，透過傳統部署模型建立此 VNet。 此組態會使用自我簽署或 CA 核發的憑證來驗證連線用戶端。 您也可以使用下列文章中所述的選項，透過不同的部署工具或模型來建立這個組態：
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure 门户](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Azure 入口網站 (傳統)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >

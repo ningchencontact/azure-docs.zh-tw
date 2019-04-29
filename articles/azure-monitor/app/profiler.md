@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: b8f6a2d12e1a9920421e6491432b516520ae110b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493734"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730130"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure App Service 應用程式
 
@@ -49,7 +49,7 @@ Application Insights Profiler 會預先安裝的應用程式服務執行階段�
 建立您的 Azure App Service 應用程式設定，可以啟用 Application Insights Profiler。 如上所示的選項頁面建立這些為您的應用程式設定。 但是，您可以自動建立的範本或其他方式使用這些設定。 如果您的 Application Insights 資源位於不同的訂用帳戶，從您的 Azure App Service，這些設定也會運作。
 以下是啟用分析工具所需的設定：
 
-|應用程式設定    | 值    |
+|應用程式設定    | Value    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 資源的 iKey    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |

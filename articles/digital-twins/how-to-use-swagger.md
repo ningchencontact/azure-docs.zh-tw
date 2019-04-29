@@ -10,11 +10,11 @@ ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: 1746e1d53be01e6c40b5d1948c666960970b75a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60922380"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 參考文件
 
@@ -104,7 +104,7 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | Name  | 更換為 | 範例 |
+    | 名稱  | 更換為 | 範例 |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | 您在入口網站中找到的管理 REST API 文件 URL  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 

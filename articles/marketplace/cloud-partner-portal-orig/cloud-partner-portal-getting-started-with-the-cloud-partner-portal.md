@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 00558b9effed39e160aef93c22431863daf6aa0d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61067395"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>開始使用 Cloud Partner 入口網站
 
@@ -51,7 +51,7 @@ Cloud Partner 入口網站包含您所需的一切，能讓您在雲端中提供
 ![供應項目頁面](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/offer-page.png)
 
 在供應項目頁面上，您可以：
-- 透過切換兩個頂層層級模式，來新增內容，或檢查您的供應項目狀態︰[編輯器] 和 [狀態]。
+- 新增內容，或檢查您的供應項目狀態方法於兩個頂層層級模式之間切換：**編輯器**並**狀態**。
 - 使用**動作列**儲存及捨棄您的輸入，可明確地管理您的供應項目變更。
 - 變更供應項目設定時，請瀏覽每個供應項目的必要**表單**。
 

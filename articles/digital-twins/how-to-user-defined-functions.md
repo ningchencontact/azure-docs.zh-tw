@@ -10,11 +10,11 @@ ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
 ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60921809"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中建立使用者定義函式
 
@@ -67,7 +67,7 @@ YOUR_MANAGEMENT_API_URL/matchers
 }
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | 裝載您執行個體的伺服器區域 |
 
@@ -107,7 +107,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | 多部分內容界限名稱 |
 | YOUR_SPACE_IDENTIFIER | 空間識別碼  |
@@ -212,7 +212,7 @@ function process(telemetry, executionContext) {
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_SPACE_NAME | 想要使用的空間名稱 |
 
@@ -232,7 +232,7 @@ function process(telemetry, executionContext) {
     }
     ```
 
-    | 值 | 更換為 |
+    | Value | 更換為 |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | 所需角色的識別碼 |
     | YOUR_USER_DEFINED_FUNCTION_ID | 您所要使用的使用者定義函式其識別碼 |

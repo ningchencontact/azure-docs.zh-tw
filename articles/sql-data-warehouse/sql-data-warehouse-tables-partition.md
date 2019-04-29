@@ -11,11 +11,11 @@ ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: d3557be2fd8fdb459571d2c792302963e17e4471
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935875"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中分割資料表
 在 Azure SQL 資料倉儲中使用資料表分割的建議與範例。
@@ -225,8 +225,8 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
-### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>將新的資料包含在一個步驟中的資料分割的載入
-將資料載入至資料分割切換資料分割是便利的方式，階段看不到使用者資料表中的新資料交換器的新資料。  它可以是一項挑戰在忙碌的系統，來處理資料分割切換相關聯的鎖定爭用。  若要清除的資料分割中的現有資料`ALTER TABLE`用以必須切換移出資料。  另一個`ALTER TABLE`才能切換移入新的資料。  在 SQL 資料倉儲中，`TRUNCATE_TARGET`支援選項`ALTER TABLE`命令。  具有`TRUNCATE_TARGET``ALTER TABLE`命令覆寫新資料分割區中的現有資料。  以下是範例會使用`CTAS`為與現有的資料，建立新的資料表會將新的資料，則參數的所有資料都傳回至目標資料表，並覆寫現有的資料。
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>通过一个步骤将新数据加载到包含数据的分区中
+将数据加载到使用分区开关的分区中可以很方便地将新数据暂存在对用户不可见的表中，然后将新数据切换进来。  在繁忙且需要处理与分区切换相关联的锁定争用的系统中，这可能很具挑战性。  在过去，若要清除分区中的现有数据，需要使用 `ALTER TABLE` 将数据切换出来，  然后需要使用另一 `ALTER TABLE` 将新数据切换进去。  在 SQL 数据仓库中，支持在 `ALTER TABLE` 命令中使用 `TRUNCATE_TARGET` 选项。  带 `TRUNCATE_TARGET` 的 `ALTER TABLE` 命令会使用新数据覆盖分区中的现有数据。  下面是一个示例。此示例使用 `CTAS` 创建一个包含现有数据的新表，插入新数据，然后将所有数据切换回目标表中，覆盖现有的数据。
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

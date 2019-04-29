@@ -15,11 +15,11 @@ ms.date: 04/20/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835289"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service 中的輸入和輸出 IP 位址
 
@@ -45,11 +45,11 @@ ms.locfileid: "58480799"
 
 當您在較低層級 (**基本**、**標準**和**進階**) 和**進階 V2** 層級之間調整應用程式時，應用程式的該組輸出 IP 位址會變更。
 
-您可以找到所有可能輸出 IP 位址可以使用您的應用程式，不論定價層，藉由尋找一組`possibleOutboundIPAddresses`屬性或**額外的輸出 IP 位址**欄位中**屬性**刀鋒視窗中，在 Azure 入口網站中的。 請參閱[尋找輸出 IP](#find-outbound-ips)。
+无论是哪个定价层，你都可以通过查找 `possibleOutboundIPAddresses` 属性或者在 Azure 门户的“属性”边栏选项卡中的“其他出站 IP 地址”字段中查找你的应用可以使用的所有可能的出站 IP 地址。 請參閱[尋找輸出 IP](#find-outbound-ips)。
 
 ## <a name="find-outbound-ips"></a>尋找輸出 IP
 
-若要在 Azure 入口網站中尋找應用程式目前所使用的輸出 IP 位址，請按一下應用程式左側導覽中的 [屬性]。 它們會列在**輸出 IP 位址**欄位。
+若要在 Azure 入口網站中尋找應用程式目前所使用的輸出 IP 位址，請按一下應用程式左側導覽中的 [屬性]。 它们列出在“出站 IP 地址”字段中。
 
 您可以在 [Cloud Shell](../cloud-shell/quickstart.md) 中執行下列命令來找到同樣的資訊。
 
@@ -61,7 +61,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-若要尋找_所有_可能輸出 IP 位址，您的應用程式，不論定價層，按一下**屬性**在左側導覽中您的應用程式。 它們會列在**額外的輸出 IP 位址**欄位。
+若要查找你的应用可能使用的所有出站 IP 地址（无论是哪个定价层），请在你的应用的左侧导航栏中单击“属性”。 它们列出在“其他出站 IP 地址”字段中。
 
 您可以在 [Cloud Shell](../cloud-shell/quickstart.md) 中執行下列命令來找到同樣的資訊。
 

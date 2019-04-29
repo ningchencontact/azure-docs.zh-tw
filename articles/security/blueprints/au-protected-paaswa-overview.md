@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
 ms.openlocfilehash: c17f16ce796c9f296facd69c18de4effc7ff5258
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610140"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 安全性與合規性藍圖 - 適用於 Australia PROTECTED 的 PaaS Web 應用程式
 
@@ -42,7 +42,7 @@ ms.locfileid: "57440976"
 
 此解決方案會使用下列 Azure 服務。 進一步詳細資訊位於[部署架構](#deployment-architecture)一節。
 
-- 應用程式閘道
+- 应用程序网关
     - Web 應用程式防火牆
         - 防火牆模式：防止
         - 規則集：OWASP

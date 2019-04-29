@@ -15,11 +15,11 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526362"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60595774"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
 > [!NOTE]
@@ -73,7 +73,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 | type |變數的資料類型。 針對使用者顯示的輸入控制項視資料類型而定。<br><br>bool - 下拉式方塊<br>string - 文字方塊<br>int - 文字方塊<br>securestring - 密碼欄位<br> |
 | category |參數的選擇性類別。  相同類別中的參數會群組在一起。 |
 | control |string 參數的其他功能。<br><br>datetime - Datetime 控制項隨即顯示。<br>guid - 會自動產生 Guid 值，但未顯示此參數。 |
-| 說明 |參數的選擇性說明。  顯示於參數旁邊的資訊球形文字說明。 |
+| description |參數的選擇性說明。  顯示於參數旁邊的資訊球形文字說明。 |
 
 ### <a name="standard-parameters"></a>標準參數
 下表列出所有管理解決方案的標準參數。  系統會為使用者填入這些值，而不會在他們從 Azure Marketplace 或快速入門範本安裝解決方案時提示他們輸入這些值。  如果以其他方法安裝解決方案，使用者必須提供這些值。
@@ -85,12 +85,12 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 | 參數 | 類型 | 描述 |
 |:--- |:--- |:--- |
-| accountName |字串 |Azure 自動化帳戶名稱。 |
-| pricingTier |字串 |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
-| regionId |字串 |Azure 自動化帳戶的區域。 |
-| solutionName |字串 |解決方案的名稱。  如果您是透過快速入門範本部署解決方案，則您應該將 solutionName 定義為參數，如此您就可以定義字串，而不需要使用者來指定。 |
-| workspaceName |字串 |Log Analytics 工作區名稱。 |
-| workspaceRegionId |字串 |Log Analytics 工作區的區域。 |
+| accountName |string |Azure 自動化帳戶名稱。 |
+| pricingTier |string |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
+| regionId |string |Azure 自動化帳戶的區域。 |
+| solutionName |string |解決方案的名稱。  如果您是透過快速入門範本部署解決方案，則您應該將 solutionName 定義為參數，如此您就可以定義字串，而不需要使用者來指定。 |
+| workspaceName |string |Log Analytics 工作區名稱。 |
+| workspaceRegionId |string |Log Analytics 工作區的區域。 |
 
 
 以下是您可以複製並貼到您的方案檔案中的標準參數結構。  

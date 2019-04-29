@@ -14,11 +14,11 @@ ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837831"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>安全服務與反向 Proxy 的連線
 
@@ -35,14 +35,14 @@ ms.locfileid: "39502435"
 服務可以實作邏輯來驗證反向 Proxy 出示的憑證。 服務可以將接受的用戶端憑證詳細資料指定為設定套件中的組態設定。 系統會在執行階段時加以讀取，並用來驗證反向 Proxy 出示的憑證。 若要新增組態設定，請參閱[管理應用程式參數](service-fabric-manage-multiple-environment-app-configuration.md)。 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>反向 Proxy 可透過服務出示的憑證，來驗證服務的身分識別：
-反向 Proxy 需支援下列原則，才能針對服務出示的憑證執行伺服器憑證驗證：None、ServiceCommonNameAndIssuer 和 ServiceCertificateThumbprints。
+反向 proxy 支援下列原則來執行伺服器憑證驗證服務出示的憑證：None、 ServiceCommonNameAndIssuer 和 ServiceCertificateThumbprints 中。
 若要選擇反向 Proxy 要使用的原則，請在 [fabricSettings](service-fabric-cluster-fabric-settings.md) 下方的 **ApplicationGateway/Http** 區段中指定 **ApplicationCertificateValidationPolicy**。
 
 下節會逐一說明這些選項的組態詳細資料。
 
 ### <a name="service-certificate-validation-options"></a>服務憑證驗證選項 
 
-- **None**：反向 Proxy 會略過驗證透過 Proxy 的服務憑證，並建立安全連線。 此為預設行為。
+- **無**：反向 proxy 會略過 proxy 的服務憑證驗證，並建立安全連線。 此為預設行為。
 在 [ApplicationGateway/Http](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 區段中，為 **ApplicationCertificateValidationPolicy** 指定 **None** 值。
 
    ```json
@@ -63,7 +63,7 @@ ms.locfileid: "39502435"
    }
    ```
 
-- **ServiceCommonNameAndIssuer**：反向 Proxy 會依據憑證的通用名稱和直接簽發者的指紋，來驗證服務出示的憑證：在 [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 區段中，為 **ApplicationCertificateValidationPolicy** 指定 **ServiceCommonNameAndIssuer** 值。
+- **ServiceCommonNameAndIssuer**:反向 proxy 會驗證憑證的一般名稱] 和 [即時運算的簽發者指紋為基礎的服務所提供的憑證：指定**ApplicationCertificateValidationPolicy**具有值**ServiceCommonNameAndIssuer**中[ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)一節。
 
    ```json
    {
@@ -110,7 +110,7 @@ ms.locfileid: "39502435"
    }
    ```
 
-- **ServiceCertificateThumbprints**：反向 Proxy 會依據透過 Proxy 之服務的指紋來驗證其憑證。 當服務設為使用自我簽署憑證時，您可以選擇採用此路由：在 [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 區段中，為 **ApplicationCertificateValidationPolicy** 指定 **ServiceCertificateThumbprints** 值。
+- **ServiceCertificateThumbprints**:反向 proxy 會驗證其指紋為依據透過 proxy 之服務憑證。 您可以選擇此路由，當服務設為使用自我簽署憑證：指定**ApplicationCertificateValidationPolicy**具有值**ServiceCertificateThumbprints**中[ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)一節。
 
    ```json
    {
@@ -151,7 +151,7 @@ ms.locfileid: "39502435"
    }
    ```
 
-   如果這個設定項目中有列入伺服器憑證的指紋，反向 Proxy 的 SSL 連線即可成功。 否則，它會終止連線而無法完成用戶端的要求，並顯示 502 (閘道錯誤)。 HTTP 狀態行也會出現「SSL 憑證無效」的句子。
+   如果這個設定項目中有列入伺服器憑證的指紋，反向 Proxy 的 SSL 連線即可成功。 否則，它會終止連線而無法完成用戶端的要求，並顯示 502 (閘道錯誤)。 HTTP 状态行也会包含短语“Invalid SSL Certificate”。
 
 ## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>當服務公開安全與不安全端點時的端點選取邏輯
 Service Fabric 支援設定多個服務端點。 如需詳細資訊，請參閱[在服務資訊清單中指定資源](service-fabric-service-manifest-resources.md)。

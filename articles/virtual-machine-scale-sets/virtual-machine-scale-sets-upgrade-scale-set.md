@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
 ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60803146"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虛擬機器擴展集
 
@@ -316,7 +316,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 - 您也可以使用語言特定 [Azure SDK](https://azure.microsoft.com/downloads/)。
 
 >[!NOTE]
-> Service Fabric 叢集只能使用「自動」模式，但處理更新的方式不同。 如需詳細資訊，請參閱 < [Service Fabric 應用程式升級](../service-fabric/service-fabric-application-upgrade.md)。
+> Service Fabric 叢集只能使用「自動」模式，但處理更新的方式不同。 有关详细信息，请参阅 [Service Fabric 应用程序升级](../service-fabric/service-fabric-application-upgrade.md)。
 
 有一種全域擴展集屬性修改並不遵守升級原則。 對於擴展集作業系統設定檔 (例如系統管理員使用者名稱和密碼) 的變更，只能在 API 版本 2017-12-01 或更新版本中進行。 這些變更只會套用至變更擴展集模型之後建立的 VM。 若要將現有的 VM 更新至最新狀態，您必須為每個現有的 VM 執行「重新安裝映像」作業。 您可以透過下列方式執行這個重新安裝映像作業：
 

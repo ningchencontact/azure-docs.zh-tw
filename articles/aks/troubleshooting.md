@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
 ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61031400"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -63,33 +63,33 @@ ms.locfileid: "58540919"
 
 如果沒有看到 Kubernetes 儀表板，請檢查 `kube-proxy` Pod 是否正在 `kube-system` 命名空間中執行。 如果它並未處於執行中狀態，請刪除該 Pod，而它會重新啟動。
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>我無法使用 kubectl 記錄取得記錄，或無法連線到 API 伺服器。 我收到 「 伺服器發生錯誤： 錯誤撥號後端： 撥接 tcp...」。 我該怎麼辦？
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>我無法使用 kubectl 記錄取得記錄，或無法連線到 API 伺服器。 我收到“来自服务器的错误：拨号后端时出错: 拨打 tcp...”。 我該怎麼辦？
 
-請確定未修改預設網路安全性群組，且連接埠 22 已開啟至 API 伺服器的連線。 檢查是否`tunnelfront`pod 中執行*kube 系統*命名空間使用`kubectl get pods --namespace kube-system`命令。 若非如此，請強制刪除該 Pod，而它會重新啟動。
+请确保默认网络安全组未被修改并且端口 22 已打开以连接到 API 服务器。 使用 `kubectl get pods --namespace kube-system` 命令检查 `tunnelfront` Pod是否在 *kube-system* 命名空间中运行。 若非如此，請強制刪除該 Pod，而它會重新啟動。
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>我正嘗試升級或調整，卻收到「訊息：不允許變更 'ImageReference' 屬性」錯誤。 如何修正此問題？
 
 您可能會因為修改了 AKS 叢集內代理程式節點中的標記而收到此錯誤。 修改和刪除 MC_* 資源群組中資源的標記和其他屬性可能會導致非預期的結果。 在 AKS 叢集中修改 MC_* 群組下的資源會破壞服務層級目標 (SLO)。
 
-## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>我收到錯誤，我的叢集處於失敗狀態，並修正之前升級或調整將會無法運作
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>有错误指出，我的群集处于故障状态，在解决此解决之前无法进行升级或缩放
 
 *從重新導向到這個疑難排解的協助 https://aka.ms/aks-cluster-failed*
 
-當叢集有多種原因進入失敗的狀態時，就會發生此錯誤。 請遵循下列步驟來解決您的叢集失敗狀態，再重試先前失敗的作業：
+如果群集出于多种原因进入故障状态，则会发生此错误。 请遵循以下步骤解决群集故障状态，然后重试先前失败的操作：
 
-1. 直到叢集共`failed`狀態，`upgrade`和`scale`作業會失敗。 常見的根本問題和解決方式包括：
-    * 使用自動調整規模**不足，無法計算 (CRP) 配額**。 若要解決，第一次調整您的叢集回到穩定的目標狀態在配額內。 請遵循這些[步驟來要求的計算配額增加](../azure-supportability/resource-manager-core-quotas-request.md)之前嘗試相應增加一次除了初始的配額限制。
-    * 調整叢集的進階網路功能及**不足的子網路 （網路） 資源**。 若要解決，第一次調整您的叢集回到穩定的目標狀態在配額內。 然後依照[這些步驟來要求資源配額增加](../azure-resource-manager/resource-manager-quota-errors.md#solution)之前嘗試相應增加一次除了初始的配額限制。
-2. 一旦解決升級失敗的根本原因，您的叢集應該處於成功狀態。 狀態為已成功驗證後，請再試一次原始作業。
+1. 除非群集摆脱 `failed` 状态，否则 `upgrade` 和 `scale` 操作不会成功。 常见的根本问题和解决方法包括：
+    * 使用**不足的计算 (CRP) 配额**进行缩放。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高计算配额](../azure-supportability/resource-manager-core-quotas-request.md)，然后尝试扩展到超出初始配额限制。
+    * 使用高级网络和**不足的子网（网络）资源**缩放群集。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高资源配额](../azure-resource-manager/resource-manager-quota-errors.md#solution)，然后尝试扩展到超出初始配额限制。
+2. 解决升级失败的根本原因后，群集应会进入成功状态。 确认处于成功状态后，重试原始操作。
 
-## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>我收到錯誤時嘗試升級或小數位數指出我的叢集目前正在執行升級或升級失敗
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>尝试升级或缩放群集时，有错误指出我的群集当前正在升级或升级失败
 
 *從重新導向到這個疑難排解的協助 https://aka.ms/aks-pending-upgrade*
 
-發生作用中的升級作業，或升級已嘗試，但後續失敗時，叢集作業會受到限制。 若要診斷問題執行`az aks show -g myResourceGroup -n myAKSCluster -o table`擷取在叢集上的詳細的狀態。 根據結果：
+如果当前正在执行升级操作，或者过去尝试了升级，但随后升级失败，则群集操作会受到限制。 若要诊断此问题，请运行 `az aks show -g myResourceGroup -n myAKSCluster -o table` 检索群集上的详细状态。 根据结果：
 
-* 如果叢集正在主動升級，等到作業會終止。 如果成功，重試先前失敗的作業。
-* 如果叢集已經無法升級，請遵循上述步驟
+* 如果群集正在升级，请等到该操作终止。 如果升级成功，请重试先前失败的操作。
+* 如果群集升级失败，请遵循上面所述的步骤
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>可以我我將叢集移至不同的訂用帳戶或訂用帳戶與我的叢集，以新的租用戶？
 

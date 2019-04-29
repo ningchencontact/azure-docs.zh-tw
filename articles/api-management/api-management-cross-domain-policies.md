@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098525"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657487"
 ---
 # <a name="api-management-cross-domain-policies"></a>API 管理跨網域原則
-本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。
+本主题提供以下 API 管理策略的参考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。
 
 ## <a name="CrossDomainPolicies"></a>跨網域原則
 
 - [允許跨網域呼叫](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - 將 API 設為可供 Adobe Flash 和 Microsoft Silverlight 瀏覽器型用戶端存取。
 - [CORS](api-management-cross-domain-policies.md#CORS) - 將跨原始來源資源分享 (CORS) 支援加入至操作或 API，以允許來自瀏覽器型用戶端的跨網域呼叫。
-- [JSONP](api-management-cross-domain-policies.md#JSONP) - 將 JSON 與補充的 (JSONP) 支援加入至操作或 API，以允許來自 JavaScript 瀏覽器型用戶端的跨網域呼叫。
+- [JSONP](api-management-cross-domain-policies.md#JSONP) - 向操作或 API 添加填充型 JSON (JSONP) 支持，以便从基于 JavaScript 浏览器的客户端执行跨域调用。
 
 ## <a name="AllowCrossDomainCalls"></a>允許跨網域呼叫
 使用 `cross-domain` 原則以將 API 設為可供 Adobe Flash 和 Microsoft Silverlight 瀏覽器型用戶端存取。
@@ -54,9 +54,9 @@ ms.locfileid: "56098525"
 
 ### <a name="elements"></a>元素
 
-|Name|說明|必要|
+|名稱|描述|必要項|
 |----------|-----------------|--------------|
-|cross-domain|根元素。 子元素必須符合 [Adobe 跨網域原則檔案規格](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。|yes|
+|cross-domain|根元素。 子元素必須符合 [Adobe 跨網域原則檔案規格](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。|是|
 
 ### <a name="usage"></a>使用量
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
@@ -123,20 +123,20 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 
 ### <a name="elements"></a>元素
 
-|Name|說明|必要|預設值|
+|名稱|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
-|cors|根元素。|yes|N/A|
-|allowed-origins|包含可說明跨網域要求之允許來源的 `origin` 元素。 `allowed-origins` 可包含指定了 `*` 以允許任何來源的單一 `origin` 元素，或一或多個包含 URI 的 `origin` 元素。|yes|N/A|
-|來源|值可以是 `*` 以允許所有來源，或是 URI 以指定單一來源。 URI 必須包含配置、主機和連接埠。|yes|如果 URI 中省略了連接埠，則會將連接埠 80 用於 HTTP，將連接埠 443 用於 HTTPS。|
+|cors|根元素。|是|N/A|
+|allowed-origins|包含可說明跨網域要求之允許來源的 `origin` 元素。 `allowed-origins` 可包含指定了 `*` 以允許任何來源的單一 `origin` 元素，或一或多個包含 URI 的 `origin` 元素。|是|N/A|
+|來源|值可以是 `*` 以允許所有來源，或是 URI 以指定單一來源。 URI 必須包含配置、主機和連接埠。|是|如果 URI 中省略了連接埠，則會將連接埠 80 用於 HTTP，將連接埠 443 用於 HTTPS。|
 |allowed-methods|如果允許 GET 或 POST 以外的方法，則需要此元素。 包含指定了所支援 HTTP 動詞命令的 `method` 元素。|否|如果這個區段不存在，則會支援 GET 和 POST。|
-|method|指定 HTTP 動詞命令。|如果 `allowed-methods` 區段存在，則需要至少一個 `method` 元素。|N/A|
+|方法|指定 HTTP 動詞命令。|如果 `allowed-methods` 區段存在，則需要至少一個 `method` 元素。|N/A|
 |allowed-headers|此元素包含指定了可包含在要求中之標頭名稱的 `header` 元素。|否|N/A|
 |expose-headers|此元素包含指定了可供用戶端存取之標頭名稱的 `header` 元素。|否|N/A|
 |頁首|指定標頭名稱。|如果 `allowed-headers` 或 `expose-headers` 區段存在，則該區段中需要至少一個 `header` 元素。|N/A|
 
 ### <a name="attributes"></a>屬性
 
-|Name|說明|必要|預設值|
+|名稱|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|事前回應中的 `Access-Control-Allow-Credentials` 標頭會設定為這個屬性的值，並影響用戶端是否能夠在跨網域要求中提交認證。|否|false|
 |preflight-result-max-age|事前回應中的 `Access-Control-Max-Age` 標頭會設定為這個屬性的值，並影響使用者代理程式是否能夠快取事前回應。|否|0|
@@ -168,20 +168,20 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 
 ### <a name="elements"></a>元素
 
-|Name|說明|必要|
+|名稱|描述|必要項|
 |----------|-----------------|--------------|
-|jsonp|根元素。|yes|
+|jsonp|根元素。|是|
 
 ### <a name="attributes"></a>屬性
 
-|Name|說明|必要|預設值|
+|名稱|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
-|callback-parameter-name|跨網域 JavaScript 函數呼叫，開頭加上函數所在的完整網域名稱。|yes|N/A|
+|callback-parameter-name|跨網域 JavaScript 函數呼叫，開頭加上函數所在的完整網域名稱。|是|N/A|
 
 ### <a name="usage"></a>使用量
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
-- **原則區段︰** 輸出
+- **策略节：** 出站
 - **原則範圍︰** 全域、產品、API、作業
 
 ## <a name="next-steps"></a>後續步驟

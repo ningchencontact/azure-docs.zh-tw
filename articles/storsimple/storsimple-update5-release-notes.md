@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: HT
+ms.openlocfilehash: 462cbd6261723aa91bbfd23292611e758a800ed2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2017
-ms.locfileid: "24518914"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844086"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 系列 Update 5 版本資訊
 
@@ -53,9 +53,9 @@ Update 5 包含以下重要的改良功能和錯誤修正。
 
 | 否 | 功能 | 問題 | 適用於實體裝置 | 適用於虛擬裝置 |
 | --- | --- | --- | --- | --- |
-| 1 |Windows PowerShell 遠端處理 |在舊版中，使用者會在嘗試透過 Windows PowerShell 對 StorSimple 雲端設備建立遠端連線時收到錯誤。 此版本已找出此問題的根本原因並加以修正。 |否 |yes |
-| 2 |頻寬範本 |舊版中的頻寬範本有問題，從而導致頻寬比裝置所設定的值還低。 本版已經修正這個問題。 |yes |yes |
-| 3 |容錯移轉 |在舊版中，當擁有大量磁碟區的裝置容錯移轉至另一個執行 Update 4 的裝置時，該程序會在嘗試套用存取控制記錄時失敗。 此版本已經修正這個問題。 |yes |yes |
+| 1 |Windows PowerShell 遠端處理 |在舊版中，使用者會在嘗試透過 Windows PowerShell 對 StorSimple 雲端設備建立遠端連線時收到錯誤。 此版本已找出此問題的根本原因並加以修正。 |否 |是 |
+| 2 |頻寬範本 |舊版中的頻寬範本有問題，從而導致頻寬比裝置所設定的值還低。 本版已經修正這個問題。 |是 |是 |
+| 3 |容錯移轉 |在舊版中，當擁有大量磁碟區的裝置容錯移轉至另一個執行 Update 4 的裝置時，該程序會在嘗試套用存取控制記錄時失敗。 此版本已經修正這個問題。 |是 |是 |
 
 
 
