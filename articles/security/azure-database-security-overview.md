@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587602"
 ---
 # <a name="azure-database-security-overview"></a>Azure 資料庫安全性概觀
 
@@ -125,7 +125,7 @@ Azure SQL Database 服務只透過 TCP 連接埠 1433 提供。 若要從您的�
   - 您可以使用外部 (Azure AD) 群組來管理資料庫權限。
   - 它可以透過啟用整合式 Windows 驗證和 Azure AD 支援的其他形式驗證來減少密碼儲存需求。
 
-#### <a name="authorization"></a>Authorization
+#### <a name="authorization"></a>授權
 
 [授權](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)是指使用者可在 Azure SQL 資料庫內執行的動作。 它是由您使用者帳戶的資料庫[角色成員資格](https://msdn.microsoft.com/library/ms189121)和[物件層級權限](https://msdn.microsoft.com/library/ms191291.aspx)來控制的。 授權是決定主體可存取哪些安全性實體資源，以及可對這些資源執行哪些作業的程序。
 

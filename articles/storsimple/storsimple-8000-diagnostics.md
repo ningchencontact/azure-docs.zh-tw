@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576181"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>使用 StorSimple 診斷工具針對 8000 系列裝置問題進行疑難排解
 
@@ -414,10 +414,10 @@ Controller0>
 
 下表描述系統資訊中各種 Windows PowerShell 參數對應的意義。 
 
-| PowerShell 參數    | 說明  |
+| PowerShell 參數    | 描述  |
 |-------------------------|------------------|
 | 執行個體識別碼             | 每個控制器都有相關聯的唯一識別碼或 GUID。|
-| Name                    | 在裝置部署期間，透過 Azure 入口網站設定的裝置易記名稱。 預設的易記名稱是裝置序號。 |
+| 名稱                    | 在裝置部署期間，透過 Azure 入口網站設定的裝置易記名稱。 預設的易記名稱是裝置序號。 |
 | 模型                   | StorSimple 8000 系列裝置的機型。 機型可以是 8100 或 8600。|
 | SerialNumber            | 裝置序號是在工廠裡指派，長度為 15 個字元。 例如，8600-SHX0991003G44HT 表示：<br> 8600 – 裝置機型。<br>SHX – 製造場所。<br> 0991003 – 特定產品。 <br> G44HT– 最後 5 位數會遞增以產生唯一序號。 這可能不是連續的組合。|
 | TimeZone                | 裝置時區是在裝置部署期間於 Azure 入口網站中設定。|
@@ -434,7 +434,7 @@ Controller0>
 | CisAgentVersion         | StorSimple 裝置上執行的 Ci 代理程式版本。 此代理程式可協助與 Azure 中執行的 StorSimple Manager 服務進行通訊。|
 | MdsAgentVersion         | 與 StorSimple 裝置上執行的 Mds 代理程式相對應的版本。 此代理程式會將資料移至的監視與診斷服務 (MDS)。|
 | Lsisas2Version          | 與 StorSimple 裝置上的 LSI 驅動程式相對應的版本。|
-| Capacity                | 裝置的總容量 (以位元組為單位)。|
+| 容量                | 裝置的總容量 (以位元組為單位)。|
 | RemoteManagementMode    | 指出是否可以透過 Windows PowerShell 介面從遠端管理裝置。 |
 | FipsMode                | 指出您的裝置上是否啟用美國聯邦資訊處理標準 (FIPS) 模式。 FIPS 140 標準定義核准美國聯邦政府電腦系統所使用的密碼編譯演算法來保護機密資料。 如果是執行 Update 4 或更新版本的裝置，預設會啟用 FIPS 模式。 |
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: spelluru
 ms.openlocfilehash: 4d2ba11181977f1976b5ae933e8b93a92424fa96
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56809159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695267"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>用於訓練的教室實驗室
 您可以設定實驗室，以進行訓練。 教室實驗室的 Azure 實驗室服務可讓您建立實驗室以進行訓練，每位受訓者使用相同且隔離的環境進行訓練。 您可以新增原則，以確保訓練環境只會在受訓者需要時才提供給他們使用，且包含足夠的訓練所需資源，例如虛擬機器。 

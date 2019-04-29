@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
 ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470609"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561557"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 事件結構描述
 
@@ -80,16 +80,16 @@ ms.locfileid: "54470609"
 
 所有事件皆包含下列相同的最高層級資料：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | 字串 | 發行者定義事件主體的路徑。 |
-| eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
-| eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
-| id | 字串 | 事件的唯一識別碼。 |
+| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| 主旨 | string | 發行者定義事件主體的路徑。 |
+| eventType | string | 此事件來源已註冊的事件類型之一。 |
+| eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| id | string | 事件的唯一識別碼。 |
 | data | 物件 | 資源提供者特有的事件資料。 |
-| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
-| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
+| dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 若要了解資料物件中的屬性，請參閱事件來源：
 
@@ -100,7 +100,7 @@ ms.locfileid: "54470609"
 * [IoT 中心](event-schema-iot-hub.md)
 * [媒體服務](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [資源群組 (管理作業)](event-schema-resource-groups.md)
-* [服務匯流排](event-schema-service-bus.md)
+* [服务总线](event-schema-service-bus.md)
 
 針對自訂主題，事件發行者會決定資料物件。 最高層級的資料應包含與標準資源定義事件相同的欄位。
 

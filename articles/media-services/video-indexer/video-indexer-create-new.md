@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 4a65e88e3f94f64a56bde882b535030968ae354d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560165"
 ---
 # <a name="create-highlights-from-existing-videos"></a>從現有影片建立醒目提示
 
@@ -52,6 +52,6 @@ ms.locfileid: "55991271"
 - [使用影片索引器 REST API 處理內容](video-indexer-use-apis.md)
 - [將視覺介面控件內嵌到應用程式](video-indexer-embed-widgets.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [影片索引子概觀](video-indexer-overview.md) 

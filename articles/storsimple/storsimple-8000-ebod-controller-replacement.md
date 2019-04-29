@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 45699c267d1009c4884dd164fd3f2950d6d5f555
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578630"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>更換 StorSimple 裝置上的 EBOD 控制器
 
@@ -54,7 +54,7 @@ ms.locfileid: "23108216"
    
      **圖 1** EBOD 模組的背面
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |故障 LED |
    | 2 |電源 LED |
@@ -86,7 +86,7 @@ ms.locfileid: "23108216"
    
     **圖 4**。 重新連接纜線
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |主要機箱 |
    | 2 |PCM 0 |

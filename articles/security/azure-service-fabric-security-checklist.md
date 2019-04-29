@@ -15,23 +15,23 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 06a1903e5e27d748310c1b7846105b8069b73437
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611532"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Azure Service Fabric 安全性檢查清單
 本文提供便於使用的檢查清單，以協助您保護 Azure Service Fabric 環境。
 
 ## <a name="introduction"></a>簡介
-Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 也可解決開發與管理雲端應用程式時遭遇的重大挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。
+Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 还解决了开发和管理云应用程序中的重大难题。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。
 
 ## <a name="checklist"></a>檢查清單
 您可以使用下列檢查清單，確保未忽略安全 Azure Service Fabric 解決方案管理和設定中的任何重要問題。
 
 
-|檢查清單類別| 說明 |
+|檢查清單類別| 描述 |
 | ------------ | -------- |
 |[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles) | <ul><li>存取控制可讓叢集系統管理員針對不同的使用者群組限制特定叢集作業的存取權，讓叢集更加安全。</li><li>系統管理員可以完整存取管理功能 (包括讀取/寫入功能)。 </li><li> 使用者預設只具有管理功能的讀取存取權 (例如查詢功能)，以及解析應用程式和服務的能力。</li></ul>|
 |[X.509 憑證和 Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) | <ul><li>執行生產環境工作負載之叢集中所使用的[憑證](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates)應該是使用已正確設定的 Windows Server 憑證服務來建立，或是從已核准的[憑證授權單位 (CA)](https://en.wikipedia.org/wiki/Certificate_authority) 取得。</li><li>絕對不要在生產環境中使用以 [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968.aspx) 這類工具建立的[暫時或測試憑證](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-create-temporary-certificates-for-use-during-development)。 </li><li>您可以使用[自我簽署憑證](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)，但應該只用於測試叢集，不應該在生產環境中使用。</li></ul>|

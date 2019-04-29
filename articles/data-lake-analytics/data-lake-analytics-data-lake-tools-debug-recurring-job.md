@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629713"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>針對異常的週期性作業進行疑難排解
 
@@ -27,7 +27,7 @@ ms.locfileid: "51260035"
 
 Azure Data Lake Tools for Visual Studio 中的**相關作業檢視**可協助您加快兩種案例的疑難排解進度。
 
-## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>步驟 1：找出週期性作業，並開啟 [相關作業檢視]
+## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>步驟 1：找出週期性作業，並開啟 相關作業檢視
 
 若要使用 [相關作業檢視] 針對週期性作業問題進行疑難排解，您必須先在 Visual Studio 中找出週期性作業，然後開啟 [相關作業檢視]。
 
@@ -37,7 +37,7 @@ Azure Data Lake Tools for Visual Studio 中的**相關作業檢視**可協助您
 
 ![Data Lake Analytics 工具中的 [檢視相關作業] 連結](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
-### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>案例 2：您有週期性作業的管線，而不是 URL
+### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>案例 2︰您有週期性作業，而不是 URL 的管線
 
 在 Visual Studio 中，您可以透過 [伺服器總管] > 您的 Azure Data Lake Analytics 帳戶 > [管線] 來開啟管線瀏覽器  (如果您在伺服器總管中找不到此節點，請[下載最新外掛程式。](https://aka.ms/adltoolsvs))。 
 
@@ -47,7 +47,7 @@ Azure Data Lake Tools for Visual Studio 中的**相關作業檢視**可協助您
 
 ![選取管線並開啟 [相關作業檢視]](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
 
-## <a name="step-2-analyze-a-statistics-report"></a>步驟 2：分析統計資料報表
+## <a name="step-2-analyze-a-statistics-report"></a>步驟 2：分析統計資料報告
 
 摘要和統計資料報表會顯示在 [相關作業檢視] 頂端。 您可以在這裡找到問題的潛在根本原因。 
 

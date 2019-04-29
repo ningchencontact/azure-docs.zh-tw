@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5dc4a98bf889d38c62c76364289c2d58c14d771e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 079a2f153f257040d1899a33c9e255d633e526ad
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576323"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>StorSimple 8000 系列裝置的容錯移轉和災害復原
 
@@ -50,8 +50,8 @@ ms.locfileid: "23108476"
 
 假設有兩個備份原則，defaultPol 與 customPol：
 
-* defaultPol：一個磁碟區 (vol1)，會於每日晚上 10:30 開始執行。
-* customPol：四個磁碟區 (vol1、vol2、vol3、vol4)，會於每日晚上 10:00 開始執行。
+* *defaultPol*:一個磁碟區*vol1*，執行每日開始，在下午 10:30。
+* *customPol*:四個磁碟區， *vol1*， *vol2*， *vol3*， *vol4*，執行每日開始 10:00 PM。
 
 在此情況下，StorSimple 會針對損毀一致性來排定優先順序，並使用 customPol，因其擁有的磁碟區較多。 此原則的最新備份可用來還原資料。 如需如何建立及管理備份原則的詳細資訊，請移至[使用 StorSimple 裝置管理員服務來管理備份原則](storsimple-8000-manage-backup-policies-u2.md)。
 

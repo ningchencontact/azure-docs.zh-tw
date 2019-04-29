@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: fd7c5fd929163dc7fcd22fbb045dee0fe3070394
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359029"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611548"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft 威脅模型化工具威脅
 
@@ -37,7 +37,7 @@ ms.locfileid: "54359029"
 
 為了協助您更加清楚地闡述上面指出的這些問題，Microsoft 使用了 STRIDE 模型，它會將不同類型的威脅分類，並簡化整體安全性對話。
 
-| 類別 | 說明 |
+| 類別 | 描述 |
 | -------- | ----------- |
 | **詐騙** | 涉及非法存取然後使用其他使用者的驗證資訊，例如使用者名稱和密碼 |
 | **竄改** | 涉及惡意修改資料。 範例包括未經授權變更持續性資料 (例如保存在資料庫中的資料)，以及修改在兩部電腦之間透過開放式網路 (例如網際網路) 流動的資料 |

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9253051d907a811ffedad3a714112c9b25543a35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60667390"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - 對 Azure 進行大規模移轉
 
@@ -293,6 +293,7 @@ Contoso 必須了解如何根據容量考量來部署這些元件。
 **處理序伺服器** | Contoso 會部署獨立的專用處理序伺服器，並使其能夠複寫 100 至 200 個 VM：<br/><br/> CPU：16 個 vCPU (2 個插槽 * 8 核心 @ 2.5GHz)<br/><br/> 記憶體：32 GB<br/><br/> 快取磁碟：1 TB<br/><br/> 資料變更率：1 TB 至 2 TB。<br/><br/> 處理序伺服器會竭力運作，因此其位置應該落在 ESXi 主機上，以便應付複寫所需的磁碟 I/O、網路流量和 CPU。 為此，Contoso 會考慮使用專用主機。 
 **網路功能** | Contoso 已檢閱目前的站對站 VPN 基礎結構，並決定實作 Azure ExpressRoute。 此實作很重要，因為它會減少延遲，並提升通往 Contoso 主要美國東部 2 Azure 區域的頻寬。<br/><br/> **監視**：Contoso 將需要仔細監視來自處理序伺服器的資料。 如果資料負載超過網路頻寬處理能力，Contoso 會考慮[將處理序伺服器的頻寬節流](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth)。
 **Azure 儲存體** | 為了移轉，Contoso 必須識別目標 Azure 儲存體帳戶的正確類型和數目。  Site Recovery 會將 VM 資料複寫至 Azure 儲存體。<br/><br/> Site Recovery 可以複寫至標準或進階的 (SSD) 儲存體帳戶。<br/><br/> 為了決定儲存體，Contoso 必須檢閱[儲存體限制](../virtual-machines/windows/disks-types.md)，並考慮一段時間後的預期成長和使用量增加。 知道移轉速度和優先順序後，Contoso 決定使用進階 SSD<br/><br/>
+
 Contoso 已決定對部署至 Azure 的所有 VM 使用受控磁碟。  所需的 IOPS 將會決定磁碟會是標準 HDD、標準 SSD 還是進階 (SSD)。<br/><br/>
 
 #### <a name="data-migration-service"></a>資料移轉服務
@@ -379,7 +380,7 @@ Contoso 會仰賴 Azure 資訊安全中心為混合式雲端工作負載提供�
 
 ### <a name="monitoring"></a>監視
 
-針對剛剛遷移的應用程式、基礎結構和目前執行 Azure 的資料，Contoso 需要了解其健康情況和效能。 Contoso 會利用內建的 Azure 雲端監視工具，例如 Azure 監視器、Log Analytics 和 Application Insights。
+針對剛剛遷移的應用程式、基礎結構和目前執行 Azure 的資料，Contoso 需要了解其健康情況和效能。 Contoso 會利用監視工具，例如 Azure 監視器、 Log Analytics 工作區，以及 Application Insights 內建的 Azure 雲端。
  
 - 透過這些工具，Contoso 可以輕鬆從來源收集資料並取得豐富見解。 例如，Contoso 可以測量 VM 的 CPU 磁碟和記憶體使用量、檢視多部 VM 之間的應用程式和網路相依性，並追蹤應用程式效能。
 - Contoso 會使用這些雲端監視工具來採取行動，並與服務解決方案整合。

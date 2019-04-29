@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: c7bbe8c6b2ad51ed7272cd215552807c7cea3aee
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559818"
 ---
 # <a name="video-indexer-concepts"></a>影片索引器概念
  
@@ -36,6 +36,6 @@ TimeRange 是原始影片中的時間範圍。 AdjustedTimeRange 是相對於目
 
 如需有關如何開始使用的資訊，請參閱[如何註冊及上傳您的第一個影片](video-indexer-get-started.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [影片索引子概觀](video-indexer-overview.md)

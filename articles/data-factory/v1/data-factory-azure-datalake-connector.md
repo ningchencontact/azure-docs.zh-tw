@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 3bb372c4c3ddb79429df20c24c691c847e927e2a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567345"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>使用 Data Factory 從 Data Lake Storage Gen1 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -26,7 +26,7 @@ ms.locfileid: "57975605"
 > * [第 2 版 (目前的版本)](../connector-azure-data-lake-store.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前的 Data Factory 服務版本，請參閱[第 2 版中的 Azure Data Lake Storage Gen1 連接器](../connector-azure-data-lake-store.md)。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前的 Data Factory 服務版本，請參閱[第 2 版中的 Azure Data Lake Storage Gen1 連接器](../connector-azure-data-lake-store.md)。
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從 Azure Data Lake Storage Gen1 (先前稱為 Azure Data Lake Store) 來回移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文概述使用「複製活動」移動資料。
 

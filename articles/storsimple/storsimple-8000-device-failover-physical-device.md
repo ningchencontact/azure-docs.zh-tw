@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f3ac9545a341fc24ca12c9f2547805d6956cd98a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5fcf95a1a3033a5150945dbd841f12d50ebb023b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60577178"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>容錯移轉至 StorSimple 8000 系列實體裝置
 
@@ -32,7 +32,7 @@ ms.locfileid: "23108266"
 若要將 StorSimple 實體裝置容錯移轉至 StorSimple 雲端設備，請移至[容錯移轉至 StorSimple 雲端設備](storsimple-8000-device-failover-cloud-appliance.md)。 若要將實體裝置容錯移轉至本身的裝置，請移至[容錯移轉至相同的 StorSimple 實體裝置](storsimple-8000-device-failover-same-device.md)。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 請確定您已檢閱裝置容錯移轉的注意事項。 如需詳細資訊，請移至[裝置容錯移轉的一般注意事項](storsimple-8000-device-failover-disaster-recovery.md)。
 
@@ -61,7 +61,7 @@ ms.locfileid: "23108266"
 
         ![選取目標](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev6.png)
 
-   3. 最後，檢閱 [摘要] 下的所有容錯移轉設定。 檢閱設定之後，選取核取方塊，代表所選取磁碟區容器中的磁碟區已離線。 按一下 [SERVICEPRINCIPAL] 。
+   3. 最後，檢閱 [摘要] 下的所有容錯移轉設定。 檢閱設定之後，選取核取方塊，代表所選取磁碟區容器中的磁碟區已離線。 按一下 [確定]。
 
        ![檢閱容錯移轉設定](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev8.png)
   

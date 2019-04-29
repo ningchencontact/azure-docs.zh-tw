@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560008"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>檢查影片索引器輸出所產生的 API
 
@@ -32,7 +32,7 @@ ms.locfileid: "60011312"
 
 ## <a name="root-elements"></a>根元素
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |accountId|播放清單的 VI 帳戶識別碼。|
 |id|播放清單的識別碼。|
@@ -92,7 +92,7 @@ ms.locfileid: "60011312"
 
 ## <a name="videos"></a>videos
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |accountId|影片的 VI 帳戶識別碼。|
 |id|影片的識別碼。|
@@ -197,7 +197,7 @@ id|區塊的識別碼。|
 
 #### <a name="transcript"></a>文字記錄
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|行識別碼。|
 |text|文字記錄本身。|
@@ -235,7 +235,7 @@ id|區塊的識別碼。|
 
 #### <a name="ocr"></a>ocr
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|OCR 行識別碼。|
 |text|OCR 文字。|
@@ -270,7 +270,7 @@ id|區塊的識別碼。|
 
 #### <a name="keywords"></a>關鍵字
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|關鍵字識別碼。|
 |text|關鍵字。|
@@ -301,7 +301,7 @@ id|區塊的識別碼。|
 
 #### <a name="faces"></a>臉部
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|臉部識別碼。|
 |name|臉部的名稱。 這可以是 'Unknown #0、已識別的名人或客戶培訓人員。|
@@ -346,7 +346,7 @@ id|區塊的識別碼。|
 
 #### <a name="labels"></a>標籤
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|標籤識別碼。|
 |name|標籤名稱 (例如，電腦、電視)。|
@@ -405,7 +405,7 @@ id|區塊的識別碼。|
 
 #### <a name="scenes"></a>場景
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|場景的識別碼。|
 |執行個體|時間範圍 （場景只能有 1 個執行個體） 此場景的清單。|
@@ -438,7 +438,7 @@ id|區塊的識別碼。|
 
 #### <a name="shots"></a>擷取畫面
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|擷取畫面識別碼。|
 |keyFrames|螢幕擷取 （每個具有識別碼和執行個體的時間範圍的清單） 內的主要畫面格的清單。 每個主要畫面格執行個體已保存的主要畫面格的縮圖的 thumbnailId 欄位識別碼。|
@@ -488,7 +488,7 @@ id|區塊的識別碼。|
 
 在語音轉換文字的文字記錄和/或影片 OCR 中偵測到的商務和產品品牌名稱。 這不包括品牌或標誌的影像辨識偵測。
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|品牌識別碼。|
 |name|品牌名稱。|
@@ -547,7 +547,7 @@ id|區塊的識別碼。|
 
 #### <a name="statistics"></a>統計資料
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |CorrespondenceCount|影片中的對應數目。|
 |SpeakerWordCount|每個說話者的字數。|
@@ -557,7 +557,7 @@ id|區塊的識別碼。|
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|音訊效果識別碼。|
 |type|音訊效果類型 (例如，拍手聲、說話、無聲)。|
@@ -586,7 +586,7 @@ id|區塊的識別碼。|
 
 人氣會依據其 sentimentType 欄位 (Positive/Neutral/Negative) 加以彙總。 例如：0-0.1、0.1-0.2。
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|人氣識別碼。|
 |averageScore |所有該人氣類型執行個體的總分平均值 - Positive/Neutral/Negative|
@@ -625,7 +625,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 經發現含有成人或猥褻內容的影片，只能供私人檢視。 使用者可以要求人工審核影片內容，在此情況下，IsAdult 屬性將包含人工審核的結果。
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|視覺內容仲裁識別碼。|
 |adultScore|成人分數 (由內容仲裁提供)。|
@@ -661,7 +661,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|文字內容仲裁識別碼。|
 |bannedWordsCount |禁用文字數目。|
@@ -671,7 +671,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 影片索引子會根據語音和音訊提示來識別表情。可能的表情為：快樂、悲傷、憤怒或恐懼。
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|表情識別碼。|
 |type|系統會根據語音和音訊提示來識別感性時刻。表情包括：快樂、悲傷、憤怒或恐懼。|
@@ -761,7 +761,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 影片索引子會從文字記錄中推斷主要主題。 如果可能，會包含第 1 層級的 [IPTC](https://iptc.org/standards/media-topics/) 分類。 
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|主題識別碼。|
 |name|主題名稱，例如："Pharmaceuticals"。|

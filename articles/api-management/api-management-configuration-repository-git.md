@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657879"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
 
@@ -165,7 +165,7 @@ git push
 | --- | --- |
 | json |個別實體的組態資訊 |
 | html |實體的相關描述，通常顯示於開發人員入口網站 |
-| xml |Policy statements |
+| Xml |Policy statements |
 | css |開發人員入口網站自訂的樣式表 |
 
 可以在您的本機檔案系統上建立、刪除、編輯和管理這些檔案，並將變更部署回您的 API 管理服務執行個體。

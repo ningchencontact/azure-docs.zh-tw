@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560388"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>將影片索引子小工具內嵌到應用程式中
 
@@ -28,7 +28,7 @@ ms.locfileid: "60006483"
 
 **認知深入解析**小工具包含從您的影片索引編製程序中擷取的所有視覺化深入解析。 深入解析小工具支援下列選擇性 URL 參數：
 
-|Name|定義|描述|
+|名稱|定義|描述|
 |---|---|---|
 |widgets|以逗號分隔的字串|可讓您控制您想要呈現的深入解析。 <br/>範例：`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只會呈現人員和品牌 UI 深入解析<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>使用 version=2 時無法透過 URL 支援<br/><br/>**附註：** 第 2 版中不支援小工具的 URL 參數。 |
 
@@ -36,7 +36,7 @@ ms.locfileid: "60006483"
 
 **播放器**小工具可讓您使用調適性位元速率來串流影片。 播放器小工具支援下列選擇性 URL 參數：
 
-|Name|定義|描述|
+|名稱|定義|描述|
 |---|---|---|
 |t|開始後的秒數|可讓播放器從指定的時間點開始播放。<br/>範例：t=60|
 |captions|語言代碼|在可於標題功能表中載入小工具期間，擷取指定語言的標題。<br/>範例：captions=en-US|

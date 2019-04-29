@@ -2,23 +2,19 @@
 title: 使用 CLI 管理 Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: 使用此文章運用 Azure CLI 將 Key Vault 中的常見工作自動化
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
 ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641019"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 來管理 Key Vault 
 
@@ -43,7 +39,7 @@ ms.locfileid: "56115618"
 如需 Azure Key Vault 的概觀，請參閱[什麼是 Azure Key Vault？](key-vault-whatis.md)
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用本文中的 Azure CLI 命名，您必須具有下列項目：
 
@@ -98,7 +94,7 @@ az account set --subscription <subscription name or ID>
 
 如需設定 Azure 跨平台命令列介面的詳細資訊，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
-### <a name="create-a-new-resource-group"></a>建立新的資源群組
+### <a name="create-a-new-resource-group"></a>创建新的资源组
 
 使用 Azure 資源管理員時，會在資源群組內建立所有相關資源。 您可以在現有的資源群組中建立金鑰保存庫。 如果您想使用新的資源群組，可以建立一個新的。
 
@@ -132,7 +128,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 此命令的輸出會顯示您所建立的金鑰保存庫屬性。 兩個最重要屬性是：
 
-* **名稱**：在此範例中，名稱是 ContosoKeyVault。 您將在其他 Key Vault 命令中使用此名稱。
+* **name**：在此範例中，名稱是 ContosoKeyVault。 您將在其他 Key Vault 命令中使用此名稱。
 * **vaultUri**：在此範例中，URI 是 https://contosokeyvault.vault.azure.net。 透過其 REST API 使用保存庫的應用程式必須使用此 URI。
 
 您的 Azure 帳戶現已取得在此金鑰保存庫上執行任何作業的授權。 而且，沒有其他人已獲授權。
@@ -313,7 +309,7 @@ az keyvault key show --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
-以下是如何移除特定金鑰的範例：
+下面是演示如何删除特定密钥的示例：
 
 ```azurecli
 az keyvault key delete --vault-name "ContosoKeyVault" --name "ContosoFirstKey"

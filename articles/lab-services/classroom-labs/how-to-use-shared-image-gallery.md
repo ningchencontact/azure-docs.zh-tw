@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
 ms.openlocfilehash: 93136c7d685bd9fc8ec4bcdea3a900b28029059b
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652983"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695142"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>使用 Azure 實驗室服務在共用的映像庫
 本文說明如何老師/實驗室系統管理員可以在其中儲存範本的虛擬機器映像，才能由其他人重複使用。 這些映像會儲存在 Azure 中[共用的映像庫](../../virtual-machines/windows/shared-image-galleries.md)。 第一個步驟中，為實驗室系統管理員會將現有的共用的映像庫附加至實驗室帳戶。 一旦附加共用映像庫時，實驗室的實驗室帳戶中建立可以儲存共用的映像庫映像。 其他老師可以選取此映像來建立它們的類別範本的共用的映像庫。 
@@ -30,9 +30,9 @@ ms.locfileid: "58652983"
 下列程序會示範如何將共用的映像庫連接到實驗室帳戶。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取左側功能表上的 [所有服務]。 選取 **實驗室服務**中**DEVOPS**一節。 如果您選取星號 (`*`) 旁**實驗室服務**，它會新增至**我的最愛**左側功能表上的一節。 在您選取及更新版本在下一次，從**實驗室服務**下方**我的最愛**。
+2. 選取左側功能表上的 [所有服務]。 選取 **DEVOPS** 區段中的 [實驗室服務]。 如果您選取 [實驗室服務] 旁邊的星號 (`*`)，它會新增到左功能表上的 [我的最愛] 區段。 從下一次開始，您可選取 [我的最愛] 下方的 [實驗室服務]。
 
-    ![所有服務]-> 都 [實驗室服務](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+    ![[所有服務] -> [實驗室服務]](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
 3. 選取您的實驗室帳戶，以查看**實驗室帳戶**頁面。 
 4. 選取 **共用映像庫**左側的功能表中，然後選取**附加**工具列上。 
 

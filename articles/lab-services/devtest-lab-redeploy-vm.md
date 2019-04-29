@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454250"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561592"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中重新部署實驗室中的 VM
 如果您無法連線至虛擬機器 (VM) 透過遠端桌面連線的實驗室中，重新部署 VM，然後再試一次連接到它。 當您重新部署 VM 時，DevTest Labs 會將 VM 從其執行所在的節點移至 Azure 基礎結構內的新節點。 接著，它會啟動 VM，同時仍保留您的設定選項及相關資源。 當您針對與實驗室中 Windows 型 VM 的遠端桌面連線問題或應用程式對這些 VM 的存取問題進行疑難排解時，此功能可節省所花費的時間。 

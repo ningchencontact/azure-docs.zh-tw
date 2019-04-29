@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620167"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>為虛擬機器擴展集中的擴充功能佈建排序
 Azure 虛擬機器擴充功能可提供多種功能，例如部署後的設定和管理、監視、安全性等等。 生產環境部署通常會搭配使用多個為 VM 執行個體設定的擴充功能，以達成所需的結果。

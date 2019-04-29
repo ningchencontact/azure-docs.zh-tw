@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: alavital
 ms.custom: ''
 ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57991921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576530"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>使用成本警示監視使用量和支出
 
@@ -49,7 +49,7 @@ ms.locfileid: "57991921"
 
 ## <a name="view-cost-alerts"></a>檢視成本警示
 
-若要檢視成本警示，請開啟 在 Azure 入口網站，然後選取 所需的範圍內**預算**功能表中。 使用**範圍**丸切換到不同的範圍。 選取 **成本警示**功能表中。 如需有關範圍的詳細資訊，請參閱 <<c0> [ 了解及使用範圍](understand-work-scopes.md)。
+若要檢視成本警示，請開啟 在 Azure 入口網站，然後選取 所需的範圍內**預算**功能表中。 使用**範圍**丸切換到不同的範圍。 選取 **成本警示**功能表中。 如需有關範圍的詳細資訊，請參閱[了解並使用範圍](understand-work-scopes.md)。
 
 ![在成本管理中顯示的警示範例影像](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

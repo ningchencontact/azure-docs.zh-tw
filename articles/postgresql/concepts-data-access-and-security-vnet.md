@@ -1,17 +1,18 @@
 ---
 title: 適用於 PostgreSQL 伺服器的 Azure 資料庫 vnet 服務端點概觀
 description: 了解如何 VNET 服務端點如何針對適用於 PostgreSQL 伺服器的 Azure 資料庫運作。
-author: bolzmj
-ms.author: mbolz
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/20/2018
+origin.date: 08/20/2018
+ms.date: 04/22/2019
 ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560110"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>針對適用於 PostgreSQL 的 Azure 資料庫使用虛擬網路服務端點和規則
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 7/02/2017
 ms.author: atsenthi
 ms.openlocfilehash: c9b2f9ac131e71b7c6b37ed85568adc0c3978dc2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668231"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621191"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric 應用程式案例
 Azure Service Fabric 提供可靠且彈性的平台，可讓您撰寫及執行許多類型的商務應用程式和服務。 這些應用程式和微服務可以是無狀態或具狀態，而且它們會跨虛擬機器進行資源平衡，以達到最佳效率。 Service Fabric 的獨特架構可讓您在應用程式中執行接近即時的資料分析、記憶體中計算、平行交易和事件處理。 可根据不断变化的资源要求轻松向上或向下缩放应用程序（其实是扩展或缩减）。

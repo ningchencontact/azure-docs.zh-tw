@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105870"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587184"
 ---
 # <a name="azure-infrastructure-availability"></a>Azure 基礎結構可用性
 Azure 會根據透過虛擬化技術達到的龐大備援能力，提供穩定的可用性。 Azure 提供許多備援層級，以提供客戶資料的最大可用性。

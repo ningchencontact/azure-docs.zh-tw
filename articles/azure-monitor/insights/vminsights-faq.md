@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
 ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596593"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>適用於 VM 的 Azure 監視器 (預覽) 常見問題集
 此 Microsoft 常見問題集是適用於 VM 的 Azure 監視器常見問題清單。 若您有任何關於解決方案的其他問題，請前往[討論論壇](https://feedback.azure.com/forums/34192--general-feedback)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。

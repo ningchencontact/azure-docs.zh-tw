@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629849"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>部署適用於雲端解決方案提供者方案的 StorSimple Virtual Array
 
@@ -44,7 +44,7 @@ ms.locfileid: "51238925"
 
      ![合作夥伴中心的儀表板](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. 在左窗格中，按一下 [客戶]。 在右窗格中，按一下 [新增客戶]。 輸入客戶的詳細資料。 按 [下一步︰訂用帳戶] 建立客戶訂用帳戶。
+2. 在左窗格中，按一下 [客戶]。 在右窗格中，按一下 [新增客戶]。 輸入客戶的詳細資料。 按一下 **下一步訂用帳戶**建立客戶訂用帳戶。
 
     ![新增客戶](./media/storsimple-partner-csp-deploy/image2.png)
 
@@ -103,5 +103,5 @@ ms.locfileid: "51238925"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 關於 StorSimple in CSP，如果您還有其他問題，請移至 [StorSimple in CSP︰常見問題集](storsimple-partner-csp-faq.md)。
+- 如果您有更多的問題，關於 StorSimple in CSP 時，請移至[StorSimple in CSP︰常見問題集](storsimple-partner-csp-faq.md)。
 - 如果您已準備好部署 StorSimple，請移至[部署 StorSimple in CSP](storsimple-partner-csp-deploy.md)。

@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: service-health
 ms.date: 11/14/2017
 ms.openlocfilehash: f17215a5695128bf2ea507efa0c12fdbba9467d2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858853"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620857"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>使用 ServiceNow 設定服務健康情況警示
 

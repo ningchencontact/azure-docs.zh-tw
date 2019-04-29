@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
 ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60658546"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶
 
@@ -81,7 +81,7 @@ ms.locfileid: "55746722"
 
 ## <a name="step2"> </a>設定 API 以使用 OAuth 2.0 使用者授權
 
-1. 從左側 [API 管理] 功能表按一下 [API]。
+1. 在左侧的“API 管理”菜单中单击“API”。
 
     ![OAuth 2.0 API](./media/api-management-howto-oauth2/oauth-05.png)
 
@@ -119,7 +119,7 @@ ms.locfileid: "55746722"
 
 登入後，系統會將授權要求的 `Authorization : Bearer` 標頭填入 [要求標頭]。
 
-![Request header token][api-management-request-header-token]
+![请求标头令牌][api-management-request-header-token]
 
 此時，您可以針對剩餘的參數設定需要的值，然後再提交要求。
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 0386406f5fc81a007d55bd5358e7a6b333f63b04
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 8323c4e1b236444f55dab826d2567491f5f0f736
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629317"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>在 Azure 入口網站中新增使用者
 
@@ -31,18 +31,18 @@ ms.locfileid: "43048328"
 針對包含輸入資料和輸出資料的資料夾，視需要授與資料夾的 "R-X" 或 "RWX"。
 
 
-## <a name="optionally-add-the-user-to-the-azure-data-lake-store-role-reader-role"></a>(選擇性) 將使用者新增至 Azure Data Lake Store 的**讀者**角色。
-1.  尋找您的 Azure Data Lake Store 帳戶。
+## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>您可以選擇將使用者新增至 Azure Data Lake Storage Gen1 的**讀者**角色。
+1.  尋找您的 Azure Data Lake Storage Gen1 帳戶。
 2.  按一下 [使用者]。
 3. 按一下 [新增] 。
 4.  選取一個「Azure RBAC 角色」來指派給此群組。
-5.  指派給 [讀者] 角色。 此角色具備瀏覽/管理 ADLS 中所儲存資料時所需的一組最基本權限。 如果不打算讓群組管理 Azure 服務，請將其指派給此角色。
+5.  指派給 [讀者] 角色。 這個角色有一組最低權限，可以瀏覽/管理儲存在 ADLSGen1 中的資料。 如果不打算讓群組管理 Azure 服務，請將其指派給此角色。
 6.  輸入群組的名稱。
 7.  按一下 [確定]。
 
 ## <a name="adding-a-user-using-powershell"></a>使用 PowerShell 來新增使用者
 
-1. 依照下列指南中的指示進行操作：[如何安裝並設定 Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) \(英文\)。
+1. 請遵循本指南中的指示：[如何安裝和設定 Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)。
 2. 下載 [Add-AdlaJobUser.ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1) PowerShell 指令碼。
 3. 執行 PowerShell 指令碼。 
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 732fdf3f9210a1484895e0b43e061b4bbc586b43
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657891"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Azure API 管理中的應用程式範本
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页的内容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
@@ -83,7 +83,7 @@ ms.locfileid: "58541259"
 |--------------|----------|-----------------|  
 |`Paging`|[分頁](api-management-template-data-model-reference.md#Paging)實體。|应用程序集合的分页信息。|  
 |`Applications`|[应用程序](api-management-template-data-model-reference.md#Application)实体的集合。|目前使用者可看見的應用程式。|  
-|`CategoryName`|字串|應用程式的類別。|  
+|`CategoryName`|string|應用程式的類別。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   

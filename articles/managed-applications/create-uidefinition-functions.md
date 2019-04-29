@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587915"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 函式
 本節包含 CreateUiDefinition 所有支援的函式的簽章。
@@ -526,7 +526,7 @@ ms.locfileid: "54063789"
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>字串
+### <a name="string"></a>string
 將參數轉換成字串。 此函式支援所有 JSON 資料類型的參數。
 
 下列範例會傳回 `"1"`：

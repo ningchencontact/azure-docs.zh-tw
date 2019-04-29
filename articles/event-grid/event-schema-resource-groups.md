@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 6cbfc06f380d7c4818ca82e858c23bb18849fb7c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535734"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561688"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid 資源群組事件結構描述
 
@@ -236,14 +236,14 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | 字串 | 發行者定義事件主體的路徑。 |
-| eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
-| eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
-| id | 字串 | 事件的唯一識別碼。 |
+| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| 主旨 | string | 發行者定義事件主體的路徑。 |
+| eventType | string | 此事件來源已註冊的事件類型之一。 |
+| eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| id | string | 事件的唯一識別碼。 |
 | data | 物件 | 資源群組事件資料。 |
-| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
-| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
+| dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 資料物件具有下列屬性：
 
@@ -251,14 +251,14 @@ Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型�
 | -------- | ---- | ----------- |
 | 授權 | 物件 | 作業的所要求授權。 |
 | claims | 物件 | 宣告的屬性。 如需詳細資訊，請參閱 [JWT 規格](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。 |
-| correlationId | 字串 | 用於疑難排解的作業識別碼。 |
+| correlationId | string | 用於疑難排解的作業識別碼。 |
 | httpRequest | 物件 | 作業的詳細資料。 更新現有資源或刪除資源時，只會包含這個物件。 |
-| resourceProvider | 字串 | 作業的資源提供者。 |
-| resourceUri | 字串 | 作業中資源的 URI。 |
-| operationName | 字串 | 已採取的作業。 |
-| status | 字串 | 作業狀態。 |
-| subscriptionId | 字串 | 資源的訂用帳戶識別碼。 |
-| tenantId | 字串 | 資源的租用戶識別碼。 |
+| resourceProvider | string | 作業的資源提供者。 |
+| resourceUri | string | 作業中資源的 URI。 |
+| operationName | string | 已採取的作業。 |
+| status | string | 作業狀態。 |
+| subscriptionId | string | 資源的訂用帳戶識別碼。 |
+| tenantId | string | 資源的租用戶識別碼。 |
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,11 +11,11 @@ ms.topic: hub-page
 ms.date: 01/29/2019
 ms.author: magoedte
 ms.openlocfilehash: ced88f973ff26f7c8990c1c80bf8532949ef9ae8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640101"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -113,8 +113,8 @@ ms.locfileid: "56244771"
                                                             <a href="/azure/azure-monitor/platform/data-sources-collectd">已收集的效能資料</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix">Nagios 和 Zabbix 的警示</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-syslog">Syslog</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-iis-logs">IIS 記錄檔</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-custom-logs">自訂的記錄檔</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-iis-logs">IIS 記錄</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-custom-logs">自訂的記錄</a><br/>
                                                             <a href="/azure/azure-monitor/platform/custom-fields">自訂欄位</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-collector-api">資料收集器 API</a><br/>
                                                         </p>

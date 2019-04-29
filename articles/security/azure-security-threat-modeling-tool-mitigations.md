@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611325"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft 威脅模型化工具風險降低
 
@@ -31,7 +31,7 @@ ms.locfileid: "54359131"
 
 威脅模型化工具風險降低措施會根據 Web 應用程式安全性架構來分類，其包含下列類別︰
 
-| 類別 | 說明 |
+| Category | 描述 |
 | -------- | ----------- |
 | **[稽核和記錄](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | 誰在何時做了什麼？ 稽核和記錄是指應用程式記錄安全性相關事件的方式 |
 | **[驗證](./azure-security-threat-modeling-tool-authentication.md)** | 你是誰？ 驗證是某實體證明另一個實體身分識別的程序 (通常透過使用者名稱和密碼等認證) |

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: bf2af67bb9498d4814f63fa66fdd50171ce0b4a1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 18ef1f182611a9c8fbf24cd08026633f5449bbe9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613330"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>使用儲存體總管管理 Azure Data Lake Storage Gen1 資源
 
@@ -31,7 +31,7 @@ ms.locfileid: "57534339"
 若要完成本文中的步驟，您必須符合下列先決條件︰
 
 *   Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial)。
-*   Data Lake Storage Gen1 帳戶。 如需有關如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
+*   Data Lake Storage Gen1 帳戶。 如需如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
 
 ## <a name="install-storage-explorer"></a>安裝儲存體總管
 

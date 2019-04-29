@@ -16,11 +16,11 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999769"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596683"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>使用 REST API 建立 Azure 資源的自訂角色
 
@@ -58,7 +58,7 @@ ms.locfileid: "59999769"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 取代 *{filter}* 與角色類型。
 
@@ -82,7 +82,7 @@ ms.locfileid: "59999769"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 取代 *{filter}* 角色顯示名稱。
 
@@ -108,7 +108,7 @@ ms.locfileid: "59999769"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 將 *{roleDefinitionId}* 取代為角色定義的 GUID 識別碼。
 
@@ -156,7 +156,7 @@ ms.locfileid: "59999769"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 將 *{roleDefinitionId}* 取代為自訂角色的 GUID 識別碼。
 
@@ -221,7 +221,7 @@ ms.locfileid: "59999769"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 將 *{roleDefinitionId}* 取代為自訂角色的 GUID 識別碼。
 
@@ -305,7 +305,7 @@ ms.locfileid: "59999769"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 將 *{roleDefinitionId}* 取代為自訂角色的 GUID 識別碼。
 

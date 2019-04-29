@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
 ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336062"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640475"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>如何以 CLI 使用金鑰保存庫虛刪除
 
@@ -223,19 +223,19 @@ az keyvault purge --location westus --name ContosoVault
 >[!IMPORTANT]
 >已清除的保存庫物件，由其「排定清除日期」欄位觸發，會永久刪除。 它無法復原！
 
-## <a name="enabling-purge-protection"></a>啟用清除保護
+## <a name="enabling-purge-protection"></a>启用清除保护
 
-清除保護開啟時，保存庫或中的物件已刪除狀態無法清除，直到已超過 90 天的保留期限。 這類保存庫或物件仍可復原。 這項功能提供更加確定保存庫或物件不能永久刪除，直到保留期限已通過。
+启用清除保护时，在长达 90 天的保留期到期之前，不能清除处于已删除状态的保管库或对象。 這類保存庫或物件仍可復原。 此功能可增加保障，在保留期到期之前，永远不会永久删除保管库或对象。
 
-只有也啟用虛刪除時，您可以啟用清除保護。 
+只有启用了软删除，才能启用清除保护。 
 
-若要開啟這兩個虛刪除，並清除保護，當建立保存庫時，請使用[az keyvault 建立](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)命令：
+若要在创建保管库时同时启用软删除和清除保护，请使用 [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) 命令：
 
 ```
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
-清除保護新增到現有的保存庫 （且已啟用虛刪除），請使用[az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update)命令：
+若要向现有保管库（已启用软删除）添加清除保护，请使用 [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) 命令：
 
 ```
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true

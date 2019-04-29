@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
 ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586844"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 
@@ -117,7 +117,7 @@ Windows 事件系統記錄是適用於 VM 的診斷記錄類別之一。 Blob、
 
 診斷記錄與[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)不同。 活動記錄能讓您了解訂用帳戶中的資源所執行之作業。 診斷記錄能讓您了解您的資源自行執行的作業。
 
-### <a name="metrics"></a>度量
+### <a name="metrics"></a>指标
 
 Azure 監視器提供遙測功能，讓您可以在 Azure 上查看工作負載的效能與健康情況。 Azure 遙測資料最重要的類型是由大多數 Azure 資源所發出的[計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (也稱為效能計數器)。 Azure 監視器提供數種方式可設定及取用這些度量進行監視與疑難排解。
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586779"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure 設施、廠房以及實體安全性
 Azure 是由[分散在世界各地的資料中心基礎結構](https://azure.microsoft.com/global-infrastructure/)所組成，可支援支援數千項線上服務，並且橫跨全球超過 100 個高度安全的設施。

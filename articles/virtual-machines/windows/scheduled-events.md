@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 2ed92486b55aa4fd7dce32f54f0b6567c7bb3cf2
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486728"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710994"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 中繼資料服務：Windows VM 的已排定事件
 
@@ -64,7 +64,7 @@ ms.locfileid: "58486728"
 ### <a name="version-and-region-availability"></a>版本和區域可用性
 排程的事件服務已進行版本設定。 版本是必要項目，且目前版本為 `2017-11-01`。
 
-| 版本 | 版本類型 | 區域 | 版本資訊 | 
+| Version | 版本類型 | 區域 | 版本資訊 | 
 | - | - | - | - |
 | 2017-11-01 | 正式運作 | 全部 | <li> 已新增的支援低優先順序 VM 收回 EventType 'Preempt'<br> | 
 | 2017-08-01 | 正式運作 | 全部 | <li> 已從 IaaS VM 的資源名稱中移除預留底線<br><li>強制所有要求的中繼資料標頭需求 | 

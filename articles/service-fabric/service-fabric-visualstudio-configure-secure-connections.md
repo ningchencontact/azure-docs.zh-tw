@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: 8d76a2144234591792359ed8dd4a0779e6a2fc5c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42141871"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628275"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>從 Visual Studio 設定對 Service Fabric 叢集的安全連線
 了解如何使用 Visual Studio 安全地存取已設定存取控制原則的 Azure Service Fabric 叢集。
@@ -40,11 +40,11 @@ Visual Studio Service Fabric 工具支援所有用於連線到叢集來進行發
 
 ### <a name="to-connect-to-a-secure-cluster"></a>連線到安全的叢集
 1. 請確定您可以存取目的地叢集所信任的其中一個用戶端憑證。 憑證通常是以「個人資訊交換」(.pfx) 檔案的形式共用。 如需了解如何設定伺服器以授與用戶端存取權，請參閱 [從 Azure 入口網站設定 Service Fabric 叢集](service-fabric-cluster-creation-via-portal.md) 。
-2. 安裝受信任的憑證。 若要這樣做，請按兩下.pfx 檔案，或使用 PowerShell 指令碼 Import-PfxCertificate 來匯入憑證。 將憑證安裝至 **Cert:\LocalMachine\My**。 匯入憑證時，可以接受所有預設設定。
+2. 安裝受信任的憑證。 若要這樣做，請按兩下.pfx 檔案，或使用 PowerShell 指令碼 Import-PfxCertificate 來匯入憑證。 將憑證安裝至 **Cert:\LocalMachine\My**。 导入证书时，可以接受所有默认设置。
 3. 在專案的捷徑功能表上選擇 [發行...] 命令以開啟 [發行 Azure 應用程式] 對話方塊，然後選取目標叢集。 此工具會自動解析連線，並將安全連線參數儲存在發行設定檔中。
-4. 選擇性︰您可以編輯發行設定檔來指定安全的叢集連線。
+4. 選用：您可以編輯發行設定檔來指定安全的叢集連線。
    
-   由於您正手動編輯「發行設定檔」XML 檔案以指定憑證資訊，因此請務必記下憑證存放區名稱、存放區位置，以及憑證指紋。 您將必須為憑證的存放區名稱和存放區位置提供這些值。 如需詳細資訊，請參閱[做法：擷取憑證的指紋](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx)。
+   由於您正手動編輯「發行設定檔」XML 檔案以指定憑證資訊，因此請務必記下憑證存放區名稱、存放區位置，以及憑證指紋。 您將必須為憑證的存放區名稱和存放區位置提供這些值。 請參閱[如何：擷取憑證的指紋](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx)如需詳細資訊。
    
    您可以使用 *ClusterConnectionParameters* 參數指定連線到 Service Fabric 叢集時要使用的 PowerShell 參數。 有效的參數是 Connect-ServiceFabricCluster Cmdlet 所接受的任何參數。 如需可用參數的清單，請參閱 [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) 。
    

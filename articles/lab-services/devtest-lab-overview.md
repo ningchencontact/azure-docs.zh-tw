@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
 ms.openlocfilehash: b7cd6bb1fd0377ca1440d9c667453df922aacbd4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698651"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561450"
 ---
 # <a name="about-azure-devtest-labs"></a>關於 Azure DevTest Labs
 Azure DevTest Labs 可讓小組的開發人員，有效率地自行管理虛擬機器 (Vm) 和 PaaS 資源而不需等待核准。

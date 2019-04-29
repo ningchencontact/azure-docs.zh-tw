@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
 ms.openlocfilehash: a4aaf440856746895a31914aeee2bddec2ce23f6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544973"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>了解 Azure 資訊安全中心資源建議
 
@@ -28,7 +28,7 @@ ms.locfileid: "56104816"
 請參考下表，以利了解可用的計算和 SQL 服務和應用程式服務建議，以及每一項建議在套用後將產生的作用。
 
 ### <a name="computers"></a>電腦
-| 建議 | 說明 |
+| 建議 | 描述 |
 | --- | --- |
 | [啟用訂用帳戶的資料收集](security-center-enable-data-collection.md) |建議您為每個訂用帳戶和訂用帳戶中的所有虛擬機器 (VM) 開啟安全性原則中的 [資料收集]。 |
 | [為 Azure 儲存體帳戶啟用加密](security-center-enable-encryption-for-storage-account.md) | 建議您為待用資料啟用「Azure 儲存體服務加密」。 「儲存體服務加密」(SSE) 會在資料被寫入 Azure 儲存體時加密資料，並於擷取資料之前將其解密。 SSE 目前僅適用於 Azure Blob 服務，可用於區塊 Blob、分頁 Blob 和附加 Blob。 若要深入了解，請參閱[待用資料的儲存體服務加密](../storage/common/storage-service-encryption.md)。</br>只有在 Resource Manager 儲存體帳戶上才支援 SSE。 目前不支援傳統儲存體帳戶。 若要了解傳統和 Resource Manager 部署模型，請參閱 [Azure 部署模型](../azure-classic-rm.md)。 |
@@ -44,7 +44,7 @@ ms.locfileid: "56104816"
 | [修復弱點](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |可讓您查看 VM 上安裝的弱點評估解決方案所偵測到的系統和應用程式弱點。 |
 
 ### 應用程式服務 <a name="app-services"></a>
-| 建議 | 說明 |
+| 建議 | 描述 |
 | --- | --- |
 | App Service 應只可經由 HTTPS 存取 | 建議您限制只能透過 HTTPS 存取 App Service。 |
 | Web 應用程式應停用 Web 通訊端| 建議您仔細檢閱如何在 Web 應用程式中使用 Web 通訊端。  Web 通訊端通訊協定易受不同類型的安全性威脅攻擊。 |

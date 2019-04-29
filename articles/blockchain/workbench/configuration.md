@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578975"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 組態參考
 
@@ -81,9 +81,9 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 | int      | 整數資料類型。 |
 | money    | 金額資料類型。 |
 | state    | 工作流程狀態。 |
-| 字串  | 字串資料類型。 最多 4000 個字元。 請參閱[組態範例](#example-configuration-of-type-string)。 |
+| string  | 字串資料類型。 最多 4000 個字元。 請參閱[組態範例](#example-configuration-of-type-string)。 |
 | user     | 使用者類型的位址。 |
-| 分析     | 時間資料類型。 |
+| time     | 時間資料類型。 |
 |`[ Application Role Name ]`| 應用程式角色中所指定的任何名稱。 限制使用者只能成為該角色類型。 |
 
 ### <a name="example-configuration-of-type-array"></a>陣列類型的組態範例

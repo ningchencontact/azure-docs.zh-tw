@@ -14,11 +14,11 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561484"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>相應增加 Azure DevTest Labs 基礎結構
 在企業級規模實作 DevTest Labs 之前，有數個重要決策點。 了解這些高層的決策點可協助組織未來設計決策。 不過，這些決策點應該不會妨礙組織開始概念證明。 初始相應增加計劃的前三個領域如下：

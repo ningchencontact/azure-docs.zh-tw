@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662348"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544804"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>錯誤分析服務簡介
 錯誤分析服務的設計目的是測試建置於 Microsoft Azure Service Fabric 上的服務。 您可以利用錯誤分析服務引發有意義的錯誤，針對應用程式執行完整的測試案例。 這些錯誤及案例會在受控制、安全且一致的情況下，執行及驗證服務在其生命週期會發生的各種狀態和轉換情形。

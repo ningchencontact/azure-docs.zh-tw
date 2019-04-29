@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: fa89117e85bc3d3c9664e6aa037fac923b7432ce
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544855"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>開始在 Azure 傳統 CLI 中，建立網際網路對向的 Load Balancer (傳統)
 
@@ -149,6 +149,6 @@ azure vm endpoint delete web1 tcp-80-80
 
 [開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-ps.md)
 
-[設定負載平衡器分配模式](load-balancer-distribution-mode.md)
+[配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: jingwang
 ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546534"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -318,8 +318,8 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | 自動編號 |字串 |
 | 核取方塊 |Boolean |
 | 貨幣 |Decimal |
-| date |Datetime |
-| 日期/時間 |Datetime |
+| date |DateTime |
+| 日期/時間 |DateTime |
 | 電子郵件 |字串 |
 | id |字串 |
 | 查閱關聯性 |字串 |

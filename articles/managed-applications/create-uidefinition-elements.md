@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 895b5cfb121347f9400d1aa315fef05d9088c55c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 41a583a77f85bb1524112fa20d9098e18bc4f431
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366466"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587933"
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition 元素
 本文描述 CreateUiDefinition 所有支援元素的結構描述和屬性。 
@@ -38,7 +38,7 @@ ms.locfileid: "46366466"
 }
 ```
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | -------- | -------- | ----------- |
 | name | 是 | 要參考元素特定執行個體的內部識別碼。 元素名稱的最常見用法是在 `outputs`，其中指定元素的輸出值會對應到範本的參數。 您也可以使用它，將元素的輸出值繫結至另一個元素的 `defaultValue`。 |
 | type | 是 | 要呈現元素的 UI 控制項。 如需支援類型的清單，請參閱[元素](#elements)。 |

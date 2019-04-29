@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
 ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561790"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IoT 中樞的 Azure Event Grid 事件結構描述
 
@@ -113,51 +113,51 @@ DeviceCreated 和 DeviceDeleted 事件的結構描述具有相同的結構。 �
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| id | 字串 | 事件的唯一識別碼。 |
-| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | 字串 | 發行者定義事件主體的路徑。 |
-| eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
-| eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| id | string | 事件的唯一識別碼。 |
+| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| 主旨 | string | 發行者定義事件主體的路徑。 |
+| eventType | string | 此事件來源已註冊的事件類型之一。 |
+| eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | data | 物件 | IoT 中樞事件資料。  |
-| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
-| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
+| dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 對於所有 IoT 中樞事件，資料物件都會包含下列屬性：
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| hubName | 字串 | 已建立或刪除裝置的 IoT 中樞名稱。 |
-| deviceId | 字串 | 裝置的唯一識別碼。 此區分大小寫的字串最長為 128 個字元，並支援 ASCII 7 位元英數字元和下列特殊字元：`- : . + % _ # * ? ! ( ) , = @ ; $ '`。 |
+| hubName | string | 已建立或刪除裝置的 IoT 中樞名稱。 |
+| deviceId | string | 裝置的唯一識別碼。 此區分大小寫的字串最長為 128 個字元，並支援 ASCII 7 位元英數字元和下列特殊字元：`- : . + % _ # * ? ! ( ) , = @ ; $ '`。 |
 
 每個事件發行者有不同的資料物件內容。 對於**裝置連線**和**裝置中斷連線** IoT 中樞事件，資料物件會包含下列屬性：
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| moduleId | 字串 | 模組的唯一識別碼。 針對模組裝置才會輸出此欄位。 此區分大小寫的字串最長為 128 個字元，並支援 ASCII 7 位元英數字元和下列特殊字元：`- : . + % _ # * ? ! ( ) , = @ ; $ '`。 |
+| moduleId | string | 模組的唯一識別碼。 針對模組裝置才會輸出此欄位。 此區分大小寫的字串最長為 128 個字元，並支援 ASCII 7 位元英數字元和下列特殊字元：`- : . + % _ # * ? ! ( ) , = @ ; $ '`。 |
 | deviceConnectionStateEventInfo | 物件 | 裝置連線狀態事件資訊
-| sequenceNumber | 字串 | 一個號碼，有助於指出裝置連線或裝置中斷連線事件的順序。 最新的事件會有高於前一個事件的序號。 此號碼的變動有可能超過 1，但只會增加不會減少。 請參閱[如何使用序號](../iot-hub/iot-hub-how-to-order-connection-state-events.md)。 |
+| sequenceNumber | string | 一個號碼，有助於指出裝置連線或裝置中斷連線事件的順序。 最新的事件會有高於前一個事件的序號。 此號碼的變動有可能超過 1，但只會增加不會減少。 請參閱[如何使用序號](../iot-hub/iot-hub-how-to-order-connection-state-events.md)。 |
 
 每個事件發行者有不同的資料物件內容。 對於**裝置建立**和**裝置刪除** IoT 中樞事件，資料物件會包含下列屬性：
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | twin | 物件 | 裝置對應項，也就是雲端中顯示的應用程式裝置中繼資料的相關資訊。 | 
-| deviceID | 字串 | 裝置對應項的唯一識別碼。 | 
-| etag | 字串 | 可確保裝置對應項的更新具有一致性的驗證程式。 對每個裝對應項而言，每個 etag 保證都是唯一的。 |  
-| deviceEtag| 字串 | 可確保裝置登錄的更新具有一致性的驗證程式。 對每個裝置登錄而言，每個 deviceEtag 保證都是唯一的。 |
-| status | 字串 | 已啟用或停用裝置對應項。 | 
-| statusUpdateTime | 字串 | 上次更新裝置對應項狀態的 ISO8601 時間戳記。 |
-| connectionState | 字串 | 裝置已連線或已中斷連線。 | 
-| lastActivityTime | 字串 | 上次活動的 ISO8601 時間戳記。 | 
+| deviceID | string | 裝置對應項的唯一識別碼。 | 
+| etag | string | 可確保裝置對應項的更新具有一致性的驗證程式。 對每個裝對應項而言，每個 etag 保證都是唯一的。 |  
+| deviceEtag| string | 可確保裝置登錄的更新具有一致性的驗證程式。 對每個裝置登錄而言，每個 deviceEtag 保證都是唯一的。 |
+| status | string | 已啟用或停用裝置對應項。 | 
+| statusUpdateTime | string | 上次更新裝置對應項狀態的 ISO8601 時間戳記。 |
+| connectionState | string | 裝置已連線或已中斷連線。 | 
+| lastActivityTime | string | 上次活動的 ISO8601 時間戳記。 | 
 | cloudToDeviceMessageCount | integer | 傳送到此裝置的雲端到裝置訊息計數。 | 
-| authenticationType | 字串 | 用於這個裝置的驗證類型：`SAS`、`SelfSigned` 或 `CertificateAuthority`。 |
-| x509Thumbprint | 字串 | 指紋是 x509 憑證的唯一值，通常用來尋找憑證存放區中的特定憑證。 指紋是使用 SHA1 演算法所動態產生的，並未實際存在於憑證中。 | 
-| primaryThumbprint | 字串 | x509 憑證的主要指紋。 |
-| secondaryThumbprint | 字串 | x509 憑證的次要指紋。 | 
+| authenticationType | string | 用於這個裝置的驗證類型：`SAS`、`SelfSigned` 或 `CertificateAuthority`。 |
+| x509Thumbprint | string | 指紋是 x509 憑證的唯一值，通常用來尋找憑證存放區中的特定憑證。 指紋是使用 SHA1 演算法所動態產生的，並未實際存在於憑證中。 | 
+| primaryThumbprint | string | x509 憑證的主要指紋。 |
+| secondaryThumbprint | string | x509 憑證的次要指紋。 | 
 | version | integer | 每次更新裝置對應項時，整數就會遞增 1。 |
 | desired | 物件 | 只能由應用程式後端寫入，並可由裝置讀取的屬性部分。 | 
 | reported | 物件 | 只能由裝置寫入，並可由應用程式後端讀取的屬性部分。 |
-| lastUpdated | 字串 | 上次更新裝置對應項屬性的 ISO8601 時間戳記。 | 
+| lastUpdated | string | 上次更新裝置對應項屬性的 ISO8601 時間戳記。 | 
 
 ## <a name="next-steps"></a>後續步驟
 

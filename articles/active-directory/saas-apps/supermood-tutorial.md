@@ -17,11 +17,11 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60efdd5b509045ce2398720d650894983c2cfc23
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198519"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60639542"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>教學課程：Azure Active Directory 與 Supermood 整合
 

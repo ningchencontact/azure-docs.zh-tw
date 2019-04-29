@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
 ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621539"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 應用程式和服務安全性
 微服務架構可以帶來[許多優點](service-fabric-overview-microservices.md)。 不過，管理微服務的安全性是一種挑戰，而且與管理傳統的整合型應用程式安全性有所不同。 
@@ -38,7 +38,7 @@ ms.locfileid: "58670416"
 
 針對 ASP.NET Core，[驗證使用者](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)的主要機制是 ASP.NET Core 身分識別成員資格系統。 ASP.NET Core 身分識別會將使用者資訊 (包括登入資訊、角色及宣告) 儲存在由開發人員設定的資料存放區中。 ASP.NET Core 身分識別支援雙因素驗證。  另外也支援外部驗證提供者，以便使用者使用 Microsoft、Google、Facebook 或 Twitter 等提供者的現有驗證程序進行登入。 
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>授權
 驗證之後，服務需要授權使用者存取權，或判斷使用者可以執行哪些作業。 這個程序允許服務讓 API 可供某些已驗證的使用者使用，而不是所有使用者都可使用。 授權與驗證彼此獨立且互不影響，後者是查明使用者是誰的程序。 驗證可為目前使用者建立一或多個身分識別。
 
 [ASP.NET Core 授權](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications)可以根據使用者的角色或根據自訂原則來進行，其中包含檢查宣告或其他啟發學習法。

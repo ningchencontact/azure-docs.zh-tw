@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/20/2019
 ms.author: terrylan
 ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587136"
 ---
 # <a name="azure-network-architecture"></a>Azure 網路架構
 Azure 網路架構會遵循改良版業界標準核心/散發/存取模型 (具有不同的硬體層級)。 這些層級包括：

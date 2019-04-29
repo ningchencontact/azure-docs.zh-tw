@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
 ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561540"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure 事件方格中的事件來源
 
@@ -24,7 +24,7 @@ ms.locfileid: "56234181"
 
 訂閱 Azure 訂用帳戶事件，以回應整個 Azure 訂用帳戶中的資源變更。
 
-|標題 |說明  |
+|標題 |描述  |
 |---------|---------|
 | [教學課程：Azure 自動化與事件方格和 Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |建立會傳送事件的虛擬機器。 事件會觸發標記虛擬機器的自動化 Runbook，以及觸發傳送給 Microsoft Teams 通道的訊息。 |
 | [如何：透過入口網站訂閱事件](subscribe-through-portal.md) | 使用入口網站訂閱 Azure 訂用帳戶的事件。 |
@@ -36,7 +36,7 @@ ms.locfileid: "56234181"
 
 訂閱 Container Registry 事件以回應映像中的變更。
 
-|標題 |說明  |
+|標題 |描述  |
 |---------|---------|
 | [快速入門：傳送容器登錄事件](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 示範如何使用 Azure CLI 傳送 Container Registry 事件。 |
 | [事件結構描述](event-schema-container-registry.md) | 顯示 Container Registry 事件中的欄位。 |
@@ -45,7 +45,7 @@ ms.locfileid: "56234181"
 
 訂閱自訂主題，以回應應用程式事件。
 
-|標題  |說明  |
+|標題  |描述  |
 |---------|---------|
 | [快速入門：使用 Azure CLI 建立和路由傳送自訂事件](custom-event-quickstart.md) | 示範如何使用 Azure CLI 傳送自訂事件。 |
 | [快速入門：使用 Azure PowerShell 建立和路由傳送自訂事件](custom-event-quickstart-powershell.md) | 示範如何使用 Azure PowerShell 傳送自訂事件。 |
@@ -65,7 +65,7 @@ ms.locfileid: "56234181"
 
 訂閱事件中樞事件，以回應「擷取」檔案事件。 事件中樞可以做為事件來源或事件處理常式。 下列文章會示範如何使用事件中樞做為來源。
 
-|標題  |說明  |
+|標題  |描述  |
 |---------|---------|
 | [教學課程：將巨量資料串流處理至資料倉儲](event-grid-event-hubs-integration.md) | 當事件中樞建立「擷取」檔案時，事件方格會傳送一個事件至函式應用程式。 應用程式會對「擷取」檔案進行擷取，並將資料遷移到資料倉儲。 |
 | [事件結構描述](event-schema-event-hubs.md) | 顯示事件中樞事件中的欄位。 |
@@ -76,7 +76,7 @@ ms.locfileid: "56234181"
 
 訂閱 IoT 中樞事件，以回應裝置建立、刪除、連線和中斷連線事件。
 
-|標題  |說明  |
+|標題  |描述  |
 |---------|---------|
 | [使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知](publish-iot-hub-events-to-logic-apps.md) | 每當有裝置新增至您的 IoT 中樞時，邏輯應用程式就會傳送電子郵件通知。 |
 | [使用事件方格來觸發動作以回應「IoT 中樞」事件](../iot-hub/iot-hub-event-grid.md) | 整合 IoT 中樞與事件方格的概觀。 |
@@ -87,7 +87,7 @@ ms.locfileid: "56234181"
 
 訂閱媒體服務事件，以回應作業狀態事件。
 
-|標題  |說明  |
+|標題  |描述  |
 |---------|---------|
 | [概觀：回應媒體服務事件](../media-services/latest/reacting-to-media-services-events.md) | 整合媒體服務與事件方格的概觀。 |
 | [教學課程：使用 CLI，將 Azure 媒體服務事件路由至自訂 Web 端點](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 示範如何從媒體服務傳送事件。 |
@@ -97,7 +97,7 @@ ms.locfileid: "56234181"
 
 訂閱資源群組事件，以回應整個資源群組中的資源變。
 
-|標題  |說明  |
+|標題  |描述  |
 |---------|---------|
 | [教學課程：使用 Azure 事件方格和 Logic Apps 監視虛擬機器變更](monitor-virtual-machine-changes-event-grid-logic-app.md) | 邏輯應用程式會監視虛擬機器的變更，並傳送有關這些變更的電子郵件。 |
 | [Azure CLI：訂閱資源群組的事件](./scripts/event-grid-cli-resource-group.md)| 訂閱資源群組事件的範例指令碼。 它會將事件傳送到 WebHook。 |
@@ -111,7 +111,7 @@ ms.locfileid: "56234181"
 
 訂閱服務匯流排事件，以回應訊息沒有作用中接聽程式的事件。
 
-|標題  |說明  |
+|標題  |描述  |
 |---------|---------|
 | [教學課程：Azure 服務匯流排與 Azure 事件方格的整合範例](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 事件方格會從服務匯流排主題傳送訊息至函式應用程式和邏輯應用程式。 |
 | [概觀：Azure 服務匯流排與 Event Grid 的整合](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | 整合服務匯流排與事件方格的概觀。 |
@@ -121,7 +121,7 @@ ms.locfileid: "56234181"
 
 訂閱 Blob 儲存體事件，以回應 Blob 建立和刪除事件。
 
-|標題  |說明  |
+|標題  |描述  |
 |---------|---------|
 | [快速入門：使用 Azure CLI 將 Blob 儲存體事件路由至自訂的 Web 端點](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 示範如何使用 Azure CLI 將 Blob 儲存體事件傳送至 WebHook。 |
 | [快速入門：使用 PowerShell 將 Blob 儲存體事件路由至自訂的 Web 端點](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 示範如何使用 Azure PowerShell 將 Blob 儲存體事件傳送至 WebHook。 |
@@ -135,7 +135,7 @@ ms.locfileid: "56234181"
 ## <a name="maps"></a>地圖
 訂閱「Azure 地圖服務」事件以回應地理柵欄事件。 例如，應用程式可以在每次裝置進入或離開地理柵欄時傳遞電子郵件通知。
 
-|標題  |說明  |
+|標題  |描述  |
 |---------|---------|
 | [使用事件方格來回應 Azure 地圖服務事件](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 整合「Azure 地圖服務」與「事件方格」的概觀。 |
 | [教學課程：設定地理柵欄](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 本教學課程會逐步引導您完成使用「Azure 地圖服務」來設定地理柵欄的基本步驟。 您會使用「Azure 事件方格」來串流處理地理柵欄結果，並根據地理柵欄結果設定通知。 |

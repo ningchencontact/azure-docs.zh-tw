@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
 ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117964"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587510"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 資料庫安全性最佳做法
 安全性是管理資料庫的最重要考量，而且向來是 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 的優先考量。 您的資料庫可嚴加保護，有助於符合大多數法規或安全性需求，包括 HIPAA、ISO 27001/27002 和 PCI DSS Level 1。 [Microsoft 信任中心網站](https://azure.microsoft.com/support/trust-center/services/)提供目前的安全性合規性認證清單。 您也可以法規要求作為基礎，選擇將資料庫放在特定的 Azure 資料中心。
@@ -52,7 +52,7 @@ Azure SQL Database 服務只透過 TCP 連接埠 1433 提供。 若要從您的�
 
 連接程序當中，從 Azure 虛擬機器的連接會被重新導向到每個背景工作角色的唯一 IP 位址和連接埠。 連接埠號碼的範圍從 11000 到 11999。 如需 TCP 連接埠的詳細資訊，請參閱[適用於 ADO.NET 4.5 的 1433 以外的連接埠](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md)。
 
-如需 SQL Database 中防火牆規則的詳細資訊，請參閱 [SQL Database 防火牆規則](../sql-database/sql-database-firewall-configure.md)。
+有关 SQL 数据库中的防火墙规则的详细信息，请参阅 [SQL 数据库防火墙规则](../sql-database/sql-database-firewall-configure.md)。
 
 > [!Note]
 > 除了 IP 規則，防火牆會管理虛擬網路規則。 虛擬網路規則是以虛擬網路服務端點為基礎。 在某些情況下，相較於 IP 規則，最好使用虛擬網路規則。 若要深入了解，請參閱 [Azure SQL Database 的虛擬網路服務端點和規則](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md)。

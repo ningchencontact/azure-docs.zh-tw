@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60577793"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>從 Go 收集分散式追蹤 (預覽)
 
@@ -42,7 +42,7 @@ ms.locfileid: "55694096"
 
    設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
-    | 設定        | 值           | 說明  |
+    | 設定        | Value           | 描述  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 通用唯一值 | 此名稱可識別您要監視的應用程式 |
    | **應用程式類型** | 一般 | 您要監視的應用程式類型 |

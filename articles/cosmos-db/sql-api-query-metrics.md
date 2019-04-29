@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
 ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546415"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
 
@@ -216,7 +216,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ### <a name="indexing-policy"></a>索引策略
 若要了解編製索引路徑、種類和模式，以及它們如何影響執行查詢，請參閱[設定編製索引原則](index-policy.md)。 根據預設，編製索引原則會針對字串使用雜湊索引編製，這對於等號比較查詢很有效率，但不適用於範圍查詢/排序依據查詢。 如果您需要針對字串進行範圍查詢，我們建議針對所有字串指定範圍索引類型。 
 
-根據預設，Azure Cosmos DB 會套用到所有的資料自動編製索引。 高效能插入案例，請考慮排除路徑，因為這樣會減少每項插入作業的 RU 費用。 
+默认情况下，Azure Cosmos DB 会对所有数据应用自动索引。 对于高性能插入方案，考虑排除路径，因为这会降低每项插入操作的 RU 成本。 
 
 ## <a name="query-execution-metrics"></a>查詢執行計量
 您可以藉由傳入選擇性的 `x-ms-documentdb-populatequerymetrics` 標頭 (.NET SDK 中的 `FeedOptions.PopulateQueryMetrics`)，來取得查詢執行的詳細計量。 `x-ms-documentdb-query-metrics` 中傳回的值含有下列索引鍵/值組，適用於對查詢執行進行進階疑難排解。 
