@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7746d7256add185be0c67123edf63ea09b6b05a4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111827"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
 
@@ -132,7 +132,7 @@ SQL Database 超大規模資料庫架構不僅支援大型資料庫，同時也�
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>我是否可為記憶體密集工作負載佈建額外增加 RAM 的計算
 
-沒有。 若要有更多的 RAM，您需要升級至更高的計算大小。 Gen4 硬體提供的 RAM 比 Gen5 硬體多。 如需詳細資訊，請參閱[超大規模資料庫儲存體和計算大小](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview)。
+沒有。 若要有更多的 RAM，您需要升級至更高的計算大小。 Gen4 硬體提供的 RAM 比 Gen5 硬體多。 如需詳細資訊，請參閱[超大規模資料庫儲存體和計算大小](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview-for-provisioned-compute-tier)。
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>我是否可以佈建不同大小的多個計算節點
 
