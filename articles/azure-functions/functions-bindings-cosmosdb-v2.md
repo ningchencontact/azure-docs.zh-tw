@@ -2345,7 +2345,7 @@ public String cosmosDbQueryById(
 |屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |GatewayMode|閘道器|連線到 Azure Cosmos DB 服務時函式所使用的連線模式。 選項為 `Direct` 和 `Gateway`|
-|通訊協定|Https|連線到 Azure Cosmos DB 服務時函式所使用的連線通訊協定。  請參閱[此處以了解這兩種模式](../cosmos-db/performance-tips.md#networking)| 
+|Protocol|Https|連線到 Azure Cosmos DB 服務時函式所使用的連線通訊協定。  請參閱[此處以了解這兩種模式](../cosmos-db/performance-tips.md#networking)| 
 |leasePrefix|n/a|要在應用程式的所有函式上使用的租用前置詞。| 
 
 ## <a name="next-steps"></a>後續步驟
