@@ -10,11 +10,11 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: 7ad2c9dd89843a36a786eeefee8403d32027e11c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61443841"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 

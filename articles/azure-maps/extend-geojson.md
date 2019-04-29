@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 319f9cba23d088553f361b6a0d648bbde94e0743
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: be3c31951c4721a861f9239c5220419dec11b6bf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799146"
 ---
 # <a name="extending-geojson-geometries"></a>擴充 GeoJSON 幾何
 
@@ -30,7 +30,7 @@ Azure 提供許多強大的 API，能夠在地理特徵之內/依循地理特徵
 * Point
 * Polygon
 
-某些 Azure 地圖服務 API (例如：[幾何內搜尋](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) 接受不屬於 [GeoJSON 規格][1]的幾何，例如「Circle」。
+某些 Azure 地圖服務 Api (例如：[搜尋內幾何](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) 接受不是"Circle"，例如幾何的一部分[GeoJSON 規格][1]。
 
 本文詳細說明 Azure 地圖服務如何延伸 [GeoJSON 規格][1]來代表特定的幾何。
 
@@ -52,7 +52,7 @@ Azure 提供許多強大的 API，能夠在地理特徵之內/依循地理特徵
 
 #### <a name="example"></a>範例
 
-以下是中心在 (緯度：47.639754，經度：-122.126986) 且半徑等於 100 公尺的圓形，使用 `GeoJSON Feature` 物件：
+以下是將代表圓形，在置中對齊的方式 (緯度：47.639754，經度：-122.126986) 等於 100 公尺，使用半徑`GeoJSON Feature`物件：
 
 ```json            
 {

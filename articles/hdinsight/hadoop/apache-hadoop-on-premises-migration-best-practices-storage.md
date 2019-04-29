@@ -1,7 +1,6 @@
 ---
 title: 將內部部署 Apache Hadoop 叢集移轉至 Azure HDInsight - 儲存體最佳做法
 description: 了解將內部部署 Hadoop 叢集移轉至 Azure HDInsight 的儲存體最佳做法。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095277"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>將內部部署 Apache Hadoop 叢集移轉至 Azure HDInsight - 儲存體最佳做法
 
@@ -172,11 +171,11 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 5. 若要使用共用存取簽章來限制對容器的存取，請在 Ambari HDFS 的 [設定] > [進階] > [自訂核心網站] > [新增屬性] 下，將自訂項目新增至叢集的核心網站組態。
 
-6. 在 [金鑰] **** 和 [值] **** 欄位中使用下列值：
+6. 針對 [金鑰] 和 [值] 欄位使用下列值：
 
     **金鑰**：`fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **值**：Python 應用程式在前述的步驟 4 中傳回的 SAS 金鑰。
 
-7. 按一下 [新增] **** 按鈕以儲存這個金鑰和值，然後按一下 [儲存] **** 按鈕以儲存組態變更。 在出現提示時，新增變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存] ****。
+7. 按一下 [新增] 按鈕以儲存這個金鑰和值，然後按一下 [儲存] 按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]。
 
 8. 在 Ambari Web UI 中，選取左側清單中的 [HDFS]，然後從右側 [服務動作] 下拉式清單中選取 [重新啟動所有受影響項目] **** 。 出現提示時，選取 [確認全部重新啟動] ****。
 

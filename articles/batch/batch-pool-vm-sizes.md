@@ -16,11 +16,11 @@ ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 43094839c9da9b00c97d1dffd53f98a3acd119d5
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775724"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>為 Azure Batch 集區中的運算節點選擇 VM 大小
 
@@ -48,7 +48,7 @@ ms.locfileid: "56417137"
 | Hc 系列<sup>1、2</sup> | 全部 |
 | Lsv2 系列 | 全部 |
 | NDv2 系列<sup>1、2</sup> | 全部 |
-| NVv2 系列<sup>1</sup> | 全部 |
+| NVv2 系列 <sup>1</sup> | 全部 |
 | SAP HANA | 全部 |
 
 

@@ -1,6 +1,6 @@
 ---
-title: 關於備份 Azure Vm 使用 Azure 備份常見問題集
-description: 備份 Azure Vm 使用 Azure 備份的常見問題的解答。
+title: 有关使用 Azure 备份来备份 Azure VM 的常见问题
+description: 有关使用 Azure 备份来备份 Azure VM 的常见问题的解答。
 services: backup
 author: sogup
 manager: vijayts
@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
 ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848175"
 ---
-# <a name="frequently-asked-questions-back-up-azure-vms"></a>常見問題集的問題-備份 Azure Vm
+# <a name="frequently-asked-questions-back-up-azure-vms"></a>常见问题 - 备份 Azure VM
 
-這篇文章回答有關 Azure Vm 備份常見問題[Azure 備份](backup-introduction-to-azure-backup.md)服務。
+本文解答有关使用 [Azure 备份](backup-introduction-to-azure-backup.md)服务备份 Azure VM 的常见问题。
 
 
 ## <a name="backup"></a>Backup 
 
-### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>哪些 VM 映像可以啟用備份時建立它們？
+### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>哪些 VM 映像可以在创建时启用备份功能？
 當您建立 VM 時，您可以執行的 Vm 啟用備份[支援的作業系統](backup-support-matrix-iaas.md#supported-backup-actions)
  
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>是包含 VM 成本中的備份成本？ 
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>备份成本包含在 VM 成本内吗？ 
 
-沒有。 備份的成本會分開 VM 的成本。 深入了解[Azure 備份定價](https://azure.microsoft.com/pricing/details/backup/)。
+沒有。 备份成本独立于 VM 的成本。 详细了解 [Azure 备份定价](https://azure.microsoft.com/pricing/details/backup/)。
  
-### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>若要啟用 VM 的備份需要哪些權限？ 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>为 VM 启用备份需要哪些权限？ 
 
-如果您是 VM 參與者 」 時，您可以啟用 VM 上的備份。 如果您使用自訂角色，您需要下列權限，才能在 VM 上啟用備份： 
+如果你是 VM 参与者，便可以在 VM 上启用备份。 如果你使用的是自定义角色，则需要具有以下权限才可在 VM 上启用备份： 
 
 - Microsoft.RecoveryServices/Vaults/write 
 - Microsoft.RecoveryServices/Vaults/read 
@@ -43,7 +43,7 @@ ms.locfileid: "58885259"
 - Microsoft.RecoveryServices/Vaults/backupPolicies/read 
 - Microsoft.RecoveryServices/Vaults/backupPolicies/write 
  
-如果您的復原服務保存庫和 VM 有不同的資源群組，請確定您在復原服務保存庫的資源群組中具有寫入權限。  
+如果恢复服务保管库和 VM 的资源组不同，请确保具有恢复服务保管库资源组的写入权限。  
 
 
 ### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>您可以使用 Azure 備份來備份哪些 Azure VM？
@@ -51,10 +51,10 @@ ms.locfileid: "58885259"
 檢閱[支援矩陣](backup-support-matrix-iaas.md)支援詳細資料和限制。
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>隨選備份作業是否會使用與排定備份相同的保留排程？
-沒有。 指定隨選備份作業的保留範圍。 根據預設，若從入口網站觸發，則會保留 30 天。
+沒有。 为按需备份作业指定保留期。 根據預設，若從入口網站觸發，則會保留 30 天。
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>我在最近一些 VM 上啟用了 Azure 磁碟加密。 我的備份是否會繼續運作？
-提供適用於 Azure 備份來存取 Key Vault 的權限。 在 PowerShell 中指定權限，如 [Azure 備份 PowerShell](backup-azure-vms-automation.md) 文件的**啟用備份**一節中所述。
+提供 Azure 备份访问 Key Vault 所需的权限。 在 PowerShell 中指定權限，如 [Azure 備份 PowerShell](backup-azure-vms-automation.md) 文件的**啟用備份**一節中所述。
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>我已將 VM 磁碟遷移至受控磁碟。 我的備份是否會繼續運作？
 是，備份會順利運作。 不需要重新設定任何項目。
@@ -68,8 +68,8 @@ ms.locfileid: "58885259"
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>我是否可以取消進行中的備份作業？
 是。 您可以取消處於**正在建立快照**狀態的備份作業。 如果正在從快照集傳輸資料，則無法取消作業。
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>我啟用了 Azure 備份服務 （也就是所建立的資源群組鎖定 `AzureBackupRG_<geo>_<number>`)，將我的備份繼續運作？
-如果您鎖定 Azure 備份服務所建立的資源群組，備份將會開始失敗，因為沒有上限為 18 個還原點。
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>我在由 Azure 备份服务创建的资源组（即 `AzureBackupRG_<geo>_<number>`）上启用了锁定，我的备份是否继续有效？
+如果锁定 Azure 备份服务创建的资源组，则由于还原点的最大数目限制为 18 个，备份会开始失败。
 
 使用者必須移除鎖定並清除 使未來的備份成功，還原點集合，從該資源群組[遵循下列步驟](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal)移除還原點集合。
 
@@ -97,8 +97,8 @@ Azure 備份無法備份已啟用 WA 的磁碟，但可從備份中排除該磁�
 將 VM 還原視為 Azure VM 的快速建立選項。 此選項會變更磁碟名稱、 磁碟、 公用 IP 位址和網路介面名稱所使用的容器。 變更會在建立 VM 時維護唯一的資源。 VM 不會新增至可用性設定組。
 
 如果您想要，您可以使用還原磁碟選項：
-  * 自訂所建立的 VM。 例如，變更大小。
-  * 新增組態設定有不在備份的時間。
+  * 自訂所建立的 VM。 例如，更改大小。
+  * 添加备份时不存在的配置设置。
   * 控制所建立資源的命名慣例。
   * 將 VM 新增至可用性設定組。
   * 新增任何其他必須使用 PowerShell 或範本設定的設定。
@@ -137,6 +137,6 @@ VM 會使用已修改或新的原則中的排程和保留期設定來備份。
 
 1. 暫時停止備份並保留備份資料。
 2. 將 VM 移至目標資源群組。
-3. 在相同或新的保存庫中的重新啟用的備份。
+3. 在相同或新的保管库中重新启用备份。
 
 您可以從移動作業之前所建立的可用還原點來還原 VM。

@@ -11,15 +11,15 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311912"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125928"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>更新 IoT Edge 安全性精靈和執行階段
 
-IoT Edge 服務版本新版本，您會想要更新您的 IoT Edge 裝置的最新功能和安全性增強功能。 本文提供在新版本發行時如何更新 IoT Edge 裝置的相關資訊。 
+当 IoT Edge 服务发布新版本时，可能需要更新 IoT Edge 设备，使其获得最新功能并改善安全性。 本文提供在新版本發行時如何更新 IoT Edge 裝置的相關資訊。 
 
 如果您想要更新至較新的版本，IoT Edge 裝置將有兩個元件需要更新。 第一個元件是在裝置上執行，並在裝置啟動時啟動執行階段模組的安全性精靈。 目前，安全性精靈只能從裝置本身進行更新。 第二個元件是由 IoT Edge 中樞和 IoT Edge 代理程式模組組成的執行階段。 根據您建構部署的方式，執行階段可以從裝置或從遠端更新。 
 
@@ -30,7 +30,7 @@ IoT Edge 服務版本新版本，您會想要更新您的 IoT Edge 裝置的最�
 >* 您尚未將您的裝置升級到 Windows 組建 17763。 IoT Edge 版本 1.0.5 不支援 17763 以前的 Windows 組建。
 >* 您在 Windows 裝置上執行 Java 或 Node.js 模組。 即使您已經將您的 Windows 裝置更新為最新的組建，也請跳過版本 1.0.5。 
 >
->如需有關 IoT Edge 版本 1.0.5 的詳細資訊，請參閱 [1.0.5 版本資訊](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)。 如需如何更新為最新版本時，防止您的開發工具的詳細資訊，請參閱[IoT 開發人員部落格](https://devblogs.microsoft.com/iotdev/)。
+>如需有關 IoT Edge 版本 1.0.5 的詳細資訊，請參閱 [1.0.5 版本資訊](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)。 若要详细了解如何不让开发工具更新到最新版本，请参阅 [IoT 开发人员博客](https://devblogs.microsoft.com/iotdev/)。
 
 
 ## <a name="update-the-security-daemon"></a>更新安全性精靈
@@ -59,9 +59,9 @@ apt-get install libiothsm iotedge
 Uninstall-SecurityDaemon
 ```
 
-執行`Uninstall-SecurityDaemon`不含任何參數的命令只會移除安全性精靈從您的裝置，以及兩個執行階段容器映像。 Config.yaml 檔案以及來自 Moby 容器引擎的資料會保留在裝置上。 讓您不必提供連接字串或您的裝置一次在安裝過程中的裝置佈建服務資訊的組態資訊方法。 
+在没有任何参数的情况下运行 `Uninstall-SecurityDaemon` 命令只会从设备中删除安全守护程序以及两个运行时容器映像。 Config.yaml 檔案以及來自 Moby 容器引擎的資料會保留在裝置上。 保留配置信息意味着，在安装过程中，不需再次为设备提供连接字符串或设备预配服务信息。 
 
-根據 IoT Edge 裝置使用的是 Windows 容器還是 Linux 容器，來重新安裝安全性精靈。 取代片語**\<Windows 或 Linux\>** 與適當的容器作業系統。 使用 **-ExistingConfig** 旗標，以指向您裝置上的現有 config.yaml 檔案。 
+根據 IoT Edge 裝置使用的是 Windows 容器還是 Linux 容器，來重新安裝安全性精靈。 请将短语 **\<Windows or Linux\>** 替换为相应的容器操作系统。 使用 **-ExistingConfig** 旗標，以指向您裝置上的現有 config.yaml 檔案。 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -106,7 +106,7 @@ IoT Edge 服務將會提取執行階段映像的最新版本，並自動在您�
 
 在 Azure 入口網站中，執行階段部署映像會宣告於 [設定進階 Edge 執行階段設定] 區段中。 
 
-![設定進階的 edge 執行階段設定](./media/how-to-update-iot-edge/configure-runtime.png)
+![配置高级 Edge 运行时设置](./media/how-to-update-iot-edge/configure-runtime.png)
 
 在 JSON 部署資訊清單中，更新 [systemModules] 區段中的模組映像。 
 

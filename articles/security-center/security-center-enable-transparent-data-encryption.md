@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: d5ddec40a1b20e377ec18ce871018f674557e7b4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703975"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>在 Azure 資訊安全中心啟用透明資料加密
 如果尚未啟用 TDE，Azure 資訊安全中心將建議您在 SQL Database 上啟用透明資料加密 (TDE)。 TDE 可保護您的資料，並在無須變更您應用程式的情況下，加密不在作用中的資料庫、相關聯的備份以及交易記錄檔，以協助您符合法規遵循需求。 若要深入了解，請參閱 [Azure SQL Database 的透明資料加密](https://msdn.microsoft.com/library/dn948096)。
@@ -43,7 +43,7 @@ ms.locfileid: "56111759"
 
    ![加密狀態][4]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 本文說明了如何實作資訊安全中心建議的「啟用透明資料加密」。 如要深入了解 SQL TDE，請參閱下列主題：
 
 * [Azure SQL Database 的透明資料加密](https://msdn.microsoft.com/library/dn948096)

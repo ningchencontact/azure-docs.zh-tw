@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 36e8875e91e2f04dbb60bab3211f07b2053e78f5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
-ms.translationtype: HT
+ms.openlocfilehash: 3ce881da4b683cf7034100d5044dd0f3c93edb52
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800177"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>適用於 Linux 的 Azure 磁碟加密 (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -72,23 +72,23 @@ Azure 磁碟加密目前在特定的發行版本和版本上受到支援。  如
 
 ### <a name="property-values"></a>屬性值
 
-| Name | 值 / 範例 | 資料類型 |
+| 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 日期 |
-| publisher | Microsoft.Azure.Security | 字串 |
-| type | AzureDiskEncryptionForLinux | 字串 |
+| apiVersion | 2015-06-15 | date |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1、1.1 (VMSS) | int |
 | AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| AADClientSecret | password | 字串 |
-| AADClientCertificate | thumbprint | 字串 |
+| AADClientSecret | password | string |
+| AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 字典 |
-| EncryptionOperation | EnableEncryption、EnableEncryptionFormatAll | 字串 | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP'、'RSA-OAEP-256'、'RSA1_5' | 字串 |
-| KeyEncryptionKeyURL | url | 字串 |
-| KeyVaultURL | url | 字串 |
-| 複雜密碼 | password | 字串 | 
-| SequenceVersion | uniqueidentifier | 字串 |
-| VolumeType | 作業系統、資料、全部 | 字串 |
+| EncryptionOperation | EnableEncryption、EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP'、'RSA-OAEP-256'、'RSA1_5' | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultURL | url | string |
+| 複雜密碼 | password | string | 
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | 作業系統、資料、全部 | string |
 
 ## <a name="template-deployment"></a>範本部署
 

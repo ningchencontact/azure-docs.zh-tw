@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814855"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61438120"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Mobile Apps 繫結 
 
@@ -140,7 +140,7 @@ module.exports = function (context, myQueueItem) {
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `MobileTable` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 | **type**|| 必須設定為 "mobileTable"|
 | **direction**||必須設定為 "in"|
@@ -298,7 +298,7 @@ public static object Run(
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `MobileTable` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 | **type**|| 必須設定為 "mobileTable"|
 | **direction**||必須設定為 "out"|

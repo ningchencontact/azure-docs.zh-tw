@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000414"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093194"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Marketplace 列名指導方針
 
@@ -95,7 +95,7 @@ ms.locfileid: "58000414"
 | 7 | 提供隱私權原則及使用條款  |  原則或條款為非必要  | | 
 | 8 | 服務類型 | 確定服務類型與標題相符 | |
 | 9 | 專長認證 |<br>• 必須至少為下列其中一個：<br>• 應用程式開發 <br>• 應用程式整合 <br>• 應用程式生命週期管理 <br>• 雲端平台 <br>• 資料分析 <br>• 資料中心 <br>• 資料平台 <br>• DevOps |
-| 10 | 產品 | 必須是 Azure | |
+| 10 | Products | 必須是 Azure | |
 | 11 | 國家/區域 | 確定國家和地區與選擇的貨幣相符 | |
 | 12 | 詳細資訊  | <br>• 在底部提供有關解決方案詳細資訊的連結 (在描述的底下，而非左側的 Marketplace 連結)，且連結為公開可用並正確顯示。 <br>• 連結必須有「易記名稱」，且透過任何方式下載都不會顯示為檔案名稱 | |
 

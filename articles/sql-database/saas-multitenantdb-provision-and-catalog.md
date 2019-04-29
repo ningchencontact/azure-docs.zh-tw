@@ -13,11 +13,11 @@ ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485900"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>使用分區化多租用 Azure SQL 資料庫在 SaaS 應用程式中對新的租用戶進行佈建及編目
 
@@ -61,7 +61,7 @@ ms.locfileid: "57835776"
 #### <a name="tenant-metadata-beyond-location"></a>位置以外的租用戶中繼資料
 
 目錄也可指出租用戶是否會離線進行維護或其他動作。 此外，可以擴充目錄來儲存其他租用戶或資料庫中繼資料，例如下列項目：
-- 資料庫的服務層或版本。
+- 資料庫的服務層級或版本。
 - 資料庫結構描述的版本。
 - 租用戶名稱及其 SLA (服務等級協定)。
 - 啟用應用程式管理、客戶支援或 DevOps 程序的資訊。  
@@ -86,7 +86,7 @@ ms.locfileid: "57835776"
 - 它的資料表是否具有新租用戶所需的參考資料，或是否可以新增資料？
 - 它是否具有適用於新租用戶的適當基底結構描述變體？
 - 它是否位於接近新租用戶的適當地理位置？
-- 它是否位於適用於新租用戶的正確服務層？
+- 它是否位於適用於新租用戶的正確服務層級？
 
 當您想要將新租用戶隔離在其自己的資料庫中時，您可以建立它來符合租用戶的規格。
 

@@ -10,11 +10,11 @@ ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61290443"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure 搜尋服務 - 常見問題集 (FAQ)
 
@@ -94,7 +94,7 @@ Azure 搜尋服務支援多個資料來源、[許多語言的語言分析](https
 
 您的問題是否與缺少特性或功能相關？ 請在 [User Voice 網站](https://feedback.azure.com/forums/263029-azure-search)上要求此功能。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
  [StackOverflow：Azure 搜尋服務](https://stackoverflow.com/questions/tagged/azure-search)   
  [全文檢索搜尋如何在 Azure 搜尋服務中運作](search-lucene-query-architecture.md)  

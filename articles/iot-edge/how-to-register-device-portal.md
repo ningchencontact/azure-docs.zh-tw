@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 6414f694296ce1f5a8b65ccab30cceaf2172dee7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126308"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>從 Azure 入口網站註冊新的 Azure IoT Edge 裝置
 

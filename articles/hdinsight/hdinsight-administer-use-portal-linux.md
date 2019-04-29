@@ -1,7 +1,6 @@
 ---
 title: 使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集
 description: 了解如何使用 Azure 入口網站來監視和管理 HDInsight 叢集。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 80c27d588bb8b4c60ae8432fbd3a2ac3d2db1394
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096348"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集
 
@@ -107,7 +106,7 @@ ms.locfileid: "58802655"
 |建立日期|叢集部署的日期。|
 |作業系統|**Windows** 或 **Linux**。|
 |類型|Hadoop、HBase、Storm、Spark。|
-|版本|請參閱 [HDInsight 版本](hdinsight-component-versioning.md)。|
+|Version|請參閱 [HDInsight 版本](hdinsight-component-versioning.md)。|
 |訂用帳戶|訂用帳戶名稱。|
 |預設資料來源|預設叢集檔案系統。|
 |背景工作角色節點大小|背景工作節點的選取 VM 大小。|
@@ -265,7 +264,7 @@ HDInsight 叢集可以有兩個使用者帳戶。 建立程序期間建立的 HD
 4. 從 [指令碼動作] 刀鋒視窗中，選取 [提交新的]。 
 5. 從 [提交指令碼動作] 刀鋒視窗中，輸入下列資訊：
 
-   | 欄位 | 值 |
+   | 欄位 | Value |
    | --- | --- |
    | 指令碼類型 | 從下拉式清單中選取 [- 自訂]。|
    | 名稱 |「變更 SSH 密碼」 |

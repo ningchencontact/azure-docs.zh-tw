@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
 ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112308"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61323915"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 
@@ -74,7 +74,7 @@ ms.locfileid: "58112308"
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>開啟邏輯應用程式的診斷記錄
 
-進行更豐富偵錯與執行階段詳細資料和事件，您可以設定診斷記錄[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)。 Azure 監視器是監視您的雲端和內部部署環境，協助您維護其可用性和效能的 Azure 中的服務。 
+進行更豐富偵錯與執行階段詳細資料和事件，您可以設定診斷記錄[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)。 Azure Monitor 是 Azure 中的一个服务，用于监视云和本地环境，帮助使其保持较高的可用性和性能。 
 
 開始之前，您需要有 Log Analytics 工作區。 了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
 
@@ -155,7 +155,7 @@ ms.locfileid: "58112308"
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>延伸搭配使用診斷資料與其他服務的方式和位置
 
-Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程式的診斷資料的其他 Azure 服務，例如： 
+结合使用 Azure Monitor 日志后，可以扩展将逻辑应用的诊断数据用于其他 Azure 服务的方式，例如： 
 
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -178,7 +178,7 @@ Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程�
 
 若要監視邏輯應用程式的特定計量或已超過閾值，請設定 [Azure 中的警示](../azure-monitor/platform/alerts-overview.md)。 了解 [Azure 中的計量](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。 
 
-若要設定警示，而不需要[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)，請遵循下列步驟。 針對更進階的警示準則和動作[設定 Azure 監視器記錄](#azure-diagnostics)太。
+若要設定警示，而不需要[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)，請遵循下列步驟。 有关更高级的警报条件和操作，也可以[设置 Azure Monitor 日志](#azure-diagnostics)。
 
 1. 在邏輯應用程式刀鋒視窗功能表上，於 [監視] 下選擇 [診斷] > [警示規則] > [新增警示]，如下所示：
 

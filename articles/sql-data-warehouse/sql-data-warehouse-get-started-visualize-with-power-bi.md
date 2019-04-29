@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474661"
 ---
 # <a name="visualize-data-with-power-bi"></a>使用 Power BI 視覺化資料
 本教學課程會示範如何使用 Power BI 來連接到 SQL 資料倉儲，並建立一些基本的視覺效果。

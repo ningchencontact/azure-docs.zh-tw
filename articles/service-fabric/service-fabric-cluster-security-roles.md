@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 39b77813e3494e809b92738924544e196d89a166
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: ed000dc4be1ae45382d688d4a596ec745c69d0bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711148"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>角色型存取控制 (適用於 Service Fabric 用戶端)
-Azure Service Fabric 針對連線到 Service Fabric 叢集的用戶端，支援兩種不同的存取控制類型：系統管理員和使用者。 存取控制可讓叢集系統管理員針對不同的使用者群組限制特定叢集作業的存取權，讓叢集更加安全。  
+Azure Service Fabric 針對連線到 Service Fabric 叢集的用戶端，支援兩種不同的存取控制類型：系統管理員和使用者。 访问控制可让群集管理员针对不同的用户组限制特定群集操作的访问权限，使群集更加安全。  
 
 **系統管理員**可以完整存取管理功能 (包括讀取/寫入功能)。 **使用者**預設只具有管理功能的讀取存取權 (例如查詢功能)，以及解析應用程式和服務的能力。
 
-您可在建立叢集時為每個角色提供個別的憑證，以指定兩個用戶端角色 (系統管理員和用戶端)。 如需有關設定安全 Service Fabric 叢集的詳細資訊，請參閱 [Service Fabric 叢集安全性](service-fabric-cluster-security.md) 。
+可在创建群集时为每个角色提供不同的证书，以指定两个客户端角色（管理员和客户端）。 如需有關設定安全 Service Fabric 叢集的詳細資訊，請參閱 [Service Fabric 叢集安全性](service-fabric-cluster-security.md) 。
 
 ## <a name="default-access-control-settings"></a>預設存取控制設定
 系統管理員存取控制類型可以完整存取所有的 FabricClient API。 它可以在 Service Fabric 叢集上執行任何讀取和寫入，包括下列作業：
@@ -52,9 +52,9 @@ Azure Service Fabric 針對連線到 Service Fabric 叢集的用戶端，支援�
 * **RecoverSystemPartitions**：復原系統服務分割                             
 
 ### <a name="cluster-operations"></a>叢集作業
-* **ProvisionFabric**：佈建 MSI 和/或叢集資訊清單                             
+* **ProvisionFabric**:MSI 和/或叢集資訊清單佈建                             
 * **UpgradeFabric**：啟動叢集升級                             
-* **UnprovisionFabric**：解除 MSI 和/或叢集資訊清單佈建                         
+* **UnprovisionFabric**:MSI 和/或叢集資訊清單取消佈建                         
 * **MoveNextFabricUpgradeDomain**：以明確的更新網域繼續進行叢集升級                             
 * **ReportFabricUpgradeHealth**：以目前的升級進度繼續進行叢集升級                             
 * **StartInfrastructureTask**：啟動基礎結構工作                             

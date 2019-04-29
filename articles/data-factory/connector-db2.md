@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
 ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60786368"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 DB2 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,7 +59,7 @@ ms.locfileid: "54019617"
 
 以下是針對 DB2 連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Db2** | 是 |
 | 伺服器 |DB2 伺服器的名稱。 您可以指定在伺服器名稱後面加上以冒號隔開的連接埠號碼，例如 `server:port`。 |是 |
@@ -100,7 +100,7 @@ ms.locfileid: "54019617"
 
 若要從 DB2 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
 | tableName | DB2 資料庫中的表格名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -130,7 +130,7 @@ ms.locfileid: "54019617"
 
 若要從 DB2 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` 。 | 否 (如果已指定資料集中的 "tableName") |
@@ -178,27 +178,27 @@ ms.locfileid: "54019617"
 | Blob |Byte[] |
 | Char |字串 |
 | Clob |字串 |
-| 日期 |DateTime |
+| date |DateTime |
 | DB2DynArray |字串 |
 | DbClob |字串 |
-| 十進位 |十進位 |
-| DecimalFloat |十進位 |
-| 兩倍 |兩倍 |
-| Float |兩倍 |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Double |Double |
+| Float |Double |
 | 圖形 |字串 |
 | 整數  |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |字串 |
 | LongVarGraphic |字串 |
-| 數值 |十進位 |
-| Real |單一 |
+| Numeric |Decimal |
+| Real |Single |
 | SmallInt |Int16 |
-| 時間 |時間範圍 |
-| Timestamp |Datetime |
+| 時間 |TimeSpan |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
 | VarChar |字串 |
 | VarGraphic |字串 |
-| xml |Byte[] |
+| Xml |Byte[] |
 
 
 ## <a name="next-steps"></a>後續步驟

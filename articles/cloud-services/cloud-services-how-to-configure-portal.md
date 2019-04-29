@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 904056363c685ef0a16b229ce72383eb80701a39
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 4d8d3b93ef2a6347076fada53932b5fc56838d20
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435733"
 ---
 # <a name="how-to-configure-cloud-services"></a>如何設定雲端服務
 
-您可以在 Azure 入口網站中設定雲端服務的最常用設定。 或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。 使用上述任一種方式，都會將組態更新推送到所有角色執行個體。
+您可以在 Azure 入口網站中設定雲端服務的最常用設定。 或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。 无论使用哪种方法，配置更新都会应用于所有角色实例。
 
 您也可以管理雲端服務角色的執行個體，或從遠端桌面存取它們。
 
-每個角色至少必須有兩個角色執行個體，Azure 才能確保服務在組態更新期間有 99.95% 的可用性。 如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。 如需詳細資訊，請參閱 [服務等級協定](https://azure.microsoft.com/support/legal/sla/)。
+如果每个角色至少具有两个角色实例，那么 Azure 在配置更新期间只能确保 99.95% 的服务可用性。 这使得一台虚拟机可以在另一台虚拟机更新时处理客户端请求。 如需詳細資訊，請參閱 [服務等級協定](https://azure.microsoft.com/support/legal/sla/)。
 
 ## <a name="change-a-cloud-service"></a>變更雲端服務
 

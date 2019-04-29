@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61346338"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Delete 活動
 
@@ -115,7 +115,7 @@ ms.locfileid: "58881778"
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Delete 活動的範例記錄檔
 
-| 名稱 | 類別 | 狀態 | Error |
+| 名稱 | Category | 狀態 | Error |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.json | 檔案 | Deleted |  |
 | test2/hello789.txt | 檔案 | Deleted |  |

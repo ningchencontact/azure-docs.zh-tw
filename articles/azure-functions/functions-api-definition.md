@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341622"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions 中的 OpenAPI 2.0 中繼資料支援 (預覽)
 Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是預覽功能，可讓您用來撰寫函式應用程式內的 OpenAPI 2.0 定義。 接著您可以使用函式應用程式裝載該檔案。

@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61429675"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>在 Azure 機器學習中的進階分析案例
 本文概述可以運用 [Team Data Science Process (TDSP)](overview.md)來處理的各種範例資料來源和目標案例。 TDSP 提供系統化的方法，可讓小組共同建置智慧型應用程式。 此處呈現的案例將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明資料處理工作流程中可用的選項。

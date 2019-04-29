@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 1e18addc43e53cb45e92966607ad5d1db2b42c3c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 40864bab068659be016161f7dc40243ebbd45174
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812628"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>使用 Azure 入口網站監視 Azure Data Lake Analytics 中的作業
 
@@ -45,7 +45,7 @@ ms.locfileid: "43046714"
     "/Samples/Data/SearchLog.tsv"
 8. 按一下 [ **提交作業**]。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [Azure 資料湖分析概觀](data-lake-analytics-overview.md)
 * [使用 Azure PowerShell 開始使用 Azure 資料湖分析](data-lake-analytics-get-started-powershell.md)
 * [使用 Azure 入口網站管理 Azure Data Lake Analytics](data-lake-analytics-manage-use-portal.md)

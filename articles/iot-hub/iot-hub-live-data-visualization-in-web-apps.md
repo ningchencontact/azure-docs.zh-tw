@@ -9,11 +9,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
 ms.openlocfilehash: 070f37a969411cfc4caf5f2d2b089ccfae759ca2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125707"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>使用 Azure App Service 的 Web Apps 功能將來自 Azure IoT 中樞的即時感應器資料視覺化
 
@@ -61,7 +61,7 @@ ms.locfileid: "59683186"
 
 2. 按一下 [應用程式設定]，然後在 [應用程式設定] 之下，新增下列索引鍵/值組：
 
-   | Key                                   | 值                                                        |
+   | Key                                   | Value                                                        |
    |---------------------------------------|--------------------------------------------------------------|
    | Azure.IoT.IoTHub.ConnectionString     | 從 Azure CLI 取得                                      |
    | Azure.IoT.IoTHub.ConsumerGroup        | 您新增至 IoT 中樞之取用者群組的名稱  |

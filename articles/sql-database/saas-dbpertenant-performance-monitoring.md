@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100423"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61388551"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中 Azure SQL Database 和集區的效能
 
@@ -142,7 +142,7 @@ Wingtip Tickets SaaS Database Per Tenant 是 SaaS 應用程式，而實際 SaaS 
 
 如果集區上的彙總負載層級增加到超出集區最大值且達到 100% eDTU 使用率，則個別資料庫效能會受到影響，可能拖慢集區中所有資料庫的查詢回應時間。
 
-就**短期**來說，請考慮相應增加集區以提供其他資源，或從集區移除資料庫 (將資料庫移動至其他集區，或從集區移出至獨立的服務層)。
+就**短期**來說，請考慮相應增加集區以提供其他資源，或從集區移除資料庫 (將資料庫移動至其他集區，或從集區移出至獨立的服務層級)。
 
 就**長期**來說，請考慮最佳化查詢或使用索引來改善資料庫效能。 根據應用程式對效能問題的敏感度，最佳做法是在集區達到 100% eDTU 使用量之前相應增加它。 使用警示來事先警告您。
 

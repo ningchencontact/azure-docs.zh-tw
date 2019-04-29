@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188351"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463781"
 ---
-# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>使用從內部部署編碼器接收多位元速率即時串流的通道
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>使用从本地编码器接收多比特率实时流的频道
 
 > [!NOTE]
 > 從 2018 年 5 月 12 日開始，即時通道將不再支援 RTP/MPEG-2 傳輸串流內嵌通訊協定。 請從 RTP/MPEG-2 移轉到 RTMP 或分散式 MP4 (Smooth Streaming) 內嵌通訊協定。
@@ -45,7 +45,7 @@ ms.locfileid: "58188351"
 > [!NOTE]
 > 本文討論未啟用而無法執行即時編碼的通道屬性。 如需使用已啟用執行即時編碼通道的相關資訊，請參閱 [使用 Azure 媒體服務建立多位元速率串流的即時串流](media-services-manage-live-encoder-enabled-channels.md)。
 >
->如的相關資訊，建議的內部部署編碼器，請參閱[建議在內部部署編碼器執行](media-services-recommended-encoders.md)。
+>有关建议的本地编码器的信息，请参阅[建议的本地编码器](media-services-recommended-encoders.md)。
 
 下圖顯示一個即時串流工作流程，這個流程利用內部部署即時編碼器以多位元速率 RTMP 或 Fragmented MP4 (Smooth Streaming) 串流做為輸出。
 
@@ -229,7 +229,7 @@ ms.locfileid: "58188351"
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>相關主題
-[建議的內部部署編碼器](media-services-recommended-encoders.md)
+[建议的本地编码器](media-services-recommended-encoders.md)
 
 [Azure 媒體服務的分散 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
 

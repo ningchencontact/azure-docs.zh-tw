@@ -9,17 +9,17 @@ ms.date: 02/12/2019
 ms.author: jeking
 ms.subservice: common
 ms.openlocfilehash: 30470f7313fb198aedd89f5dd37325359f0d7a9e
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729603"
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>本地備援儲存體 (LRS)：適用於 Azure 儲存體的低成本資料備援
 
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-lrs.md)]
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [Azure 儲存體複寫](storage-redundancy.md)
 - [區域備援儲存體 (ZRS)：高可用性 Azure 儲存體應用程式](storage-redundancy-zrs.md)

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
 ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997960"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129192"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -53,7 +53,7 @@ Linux 診斷擴充功能可協助使用者監視在 Microsoft Azure 上執行的
 
 * **Azure Linux Agent 2.2.0 版或更新版本**。 大部分的 Azure VM Linux 資源庫映像包含版本 2.2.7 或更新版本。 執行 `/usr/sbin/waagent -version` 以確認安裝在 VM 上的版本。 如果 VM 執行的是舊版客體代理程式，請依照[這些指示](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)更新。
 * **Azure CLI**。 在您的電腦上[設定 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 環境。
-* Wget 命令，如果您沒有：執行 `sudo apt-get install wget`。
+* Wget 命令，如果您沒有：运行 `sudo apt-get install wget`。
 * 現有的 Azure 訂用帳戶與其中現有的儲存體帳戶以儲存資料。
 * 支援的 Linux 散發套件清單位於 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
@@ -127,7 +127,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 }
 ```
 
-名稱 | 值
+名稱 | Value
 ---- | -----
 storageAccountName | 擴充功能寫入資料的儲存體帳戶名稱。
 storageAccountEndPoint | (選擇性) 可識別儲存體帳戶所在雲端的端點。 如果沒有此設定，LAD 會預設為 Azure 公用雲端，`https://core.windows.net`。 若要使用 Azure 德國、Azure Government 或 Azure 中國中的儲存體帳戶，請相應地設定此值。
@@ -146,7 +146,7 @@ sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細
 1. 依前述設定適當的區段
 1. 按一下 [產生 SAS] 按鈕。
 
-![映像](./media/diagnostics-linux/make_sas.png)
+![image](./media/diagnostics-linux/make_sas.png)
 
 將產生的 SAS 複製到 [storageAccountSasToken] 欄位；移除前置問號 ("?")。
 
@@ -167,7 +167,7 @@ sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細
 
 此選擇性區段會定義額外的目的地，讓擴充功能可將收集到的資訊傳送到該目的地。 "sink" 陣列包含每個額外資料接收的物件。 "type" 屬性可決定物件中的其他屬性。
 
-元素 | 值
+元素 | Value
 ------- | -----
 name | 用來在擴充功能組態中的其他位置參考此接收的字串。
 type | 正在定義的接收類型。 決定此類型執行個體中的其他值 (若有的話)。
@@ -229,7 +229,7 @@ https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.wi
 }
 ```
 
-元素 | 值
+元素 | Value
 ------- | -----
 StorageAccount | 擴充功能寫入資料的儲存體帳戶名稱。 必須與在[保護設定](#protected-settings)中指定的名稱相同。
 mdsdHttpProxy | (選擇性) 與[受保護的設定](#protected-settings)相同。 公用值會被私用值 (若有設定) 覆寫。 將包含祕密 (例如密碼) 的 Proxy 設定設置在[受保護的設定](#protected-settings)中。
@@ -252,7 +252,7 @@ mdsdHttpProxy | (選擇性) 與[受保護的設定](#protected-settings)相同�
 
 此選擇性結構會控制計量與記錄的收集，以傳遞至 Azure 計量與其他資料接收。 您必須指定 `performanceCounters` 或 `syslogEvents` 或是兩者。 您必須指定 `metrics` 結構。
 
-元素 | 值
+元素 | Value
 ------- | -----
 eventVolume | (選擇性) 控制在儲存體資料表中建立的分割區數目。 必須是 `"Large"`、`"Medium"` 或 `"Small"` 的其中之一。 如果未指定，默认值为 `"Medium"`。
 sampleRateInSeconds | (選擇性) 原始 (未彙總) 計量集合之間的預設間隔。 支援的最小採樣速率為 15 秒。 若未指定，則預設值為 `15`。
@@ -269,9 +269,9 @@ sampleRateInSeconds | (選擇性) 原始 (未彙總) 計量集合之間的預設
 }
 ```
 
-元素 | 值
+元素 | Value
 ------- | -----
-ResourceId | VM 所屬之 VM 或虛擬機器擴展集的 Azure Resource Manager 資源 ID。 如果在組態中使用任何的 JsonBlob 接收，則亦須指定此設定。
+resourceId | VM 所屬之 VM 或虛擬機器擴展集的 Azure Resource Manager 資源 ID。 如果在組態中使用任何的 JsonBlob 接收，則亦須指定此設定。
 scheduledTransferPeriod | 系統會計算彙總計量的頻率並傳輸至 Azure 計量 (以 IS 8601 時間間隔表示)。 最小傳輸期間為 60 秒，亦即 PT1M。 您必須指定至少一個 scheduledTransferPeriod。
 
 系統每隔 15 秒或以為計數器明確定義的採樣速率收集在 performanceCounters 區段中指定的計量樣本。 如果顯示多個 scheduledTransferPeriod 頻率 (如範例所述)，則會獨立計算每個彙總。
@@ -309,7 +309,7 @@ scheduledTransferPeriod | 系統會計算彙總計量的頻率並傳輸至 Azure
 * 上次收集的值
 * 用於計算彙總的原始樣本計數
 
-元素 | 值
+元素 | Value
 ------- | -----
 sinks | (選擇性) 以逗號分隔的接收名稱清單，LAD 會將彙總的計量結果傳送至此清單。 系統會將所有彙總的計量發佈至每個列出的接收。 請參閱 [sinksConfig](#sinksconfig)。 範例： `"EHsink1, myjsonsink"`.
 type | 識別計量的實際提供者。
@@ -355,7 +355,7 @@ LAD 或 Azure 入口網站皆不預期 counterSpecifier 值符合任何模式。
 
 syslogEventConfiguration 集合對每個感興趣的 Syslog 設備都會一個項目。 如果特定設備的 minSeverity 為 "NONE"，或如果該設備完全未顯示在元素中，則不會從該設備中擷取事件。
 
-元素 | 值
+元素 | Value
 ------- | -----
 sinks | 系統會將個別記錄事件發佈至的接收名稱清單，以逗號分隔。 符合 syslogEventConfiguration 中限制的所有記錄事件會發佈至每個所列的接收。 範例："EHforsyslog"
 facilityName | Syslog 設備名稱 (例如 "LOG\_USER" 或 "LOG\_LOCAL0")。 請參閱 [Syslog 手冊頁](http://man7.org/linux/man-pages/man3/syslog.3.html)中的「設備」(英文) 一節，以取得完整清單。
@@ -384,7 +384,7 @@ minSeverity | Syslog 嚴重性層級 (例如 "LOG\_ERR" 或 "LOG\_INFO")。 請�
 ]
 ```
 
-元素 | 值
+元素 | Value
 ------- | -----
 namespace | (選擇性) 應執行查詢的 OMI 命名空間。 如果未指定，則預設值為 "root/scx"，此值由[系統中心跨平台提供者](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation) (英文) 實作。
 query | 欲執行的 OMI 查詢。
@@ -408,7 +408,7 @@ sinks | (選擇性) 原始樣本計量結果應發佈至的額外接收名稱，
 ]
 ```
 
-元素 | 值
+元素 | Value
 ------- | -----
 file | 欲監看與擷取的記錄檔完整路徑名稱。 路徑名稱必須命名單一檔案，不能命名目錄或包含萬用字元。
 資料表 | (選擇性) 所指定儲存體帳戶中的 Azure 儲存體資料表 (如受保護組態中指定)，檔案「尾端」的新行會寫入至此資料表。
@@ -686,7 +686,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 
 使用 Azure 入口網站檢視效能資料或集合警示：
 
-![映像](./media/diagnostics-linux/graph_metrics.png)
+![image](./media/diagnostics-linux/graph_metrics.png)
 
 `performanceCounters` 資料一律儲存在 Azure 儲存體資料表中。 Azure 儲存體 API 適用於許多語言與平台。
 
@@ -699,7 +699,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 
 Microsoft Azure 儲存體總管工作階段的這個快照顯示從測試 VM 上正確設定的 LAD 3.0 擴充功能產生的 Azure 儲存體資料表及容器。 影像不完全符合[範例 LAD 3.0 組態](#an-example-lad-30-configuration)。
 
-![映像](./media/diagnostics-linux/stg_explorer.png)
+![image](./media/diagnostics-linux/stg_explorer.png)
 
 請參閱相關的 [EventHubs 資訊](../../event-hubs/event-hubs-what-is-event-hubs.md)，以了解如何取用發佈至 EventHubs 端點的訊息。
 

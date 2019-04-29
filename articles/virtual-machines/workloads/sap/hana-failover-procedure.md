@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76d8bb816bdf229d13a49fa61337899a8bf29ecd
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338422"
+ms.locfileid: "62098281"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>災害復原容錯移轉程序
 
@@ -35,34 +35,20 @@ ms.locfileid: "60338422"
 >[!NOTE]
 >需要在代表 DR 單位的 HANA 大型執行個體單位上執行下列步驟。 
  
-若要還原到最新複寫的儲存體快照集，請執行下列步驟： 
+若要還原的最新複寫的儲存體快照集，執行一節中所列的步驟 **'執行完整災害復原容錯移轉-azure_hana_dr_failover'** 文件的[Microsoft 的 Azure 上的 SAP HANA 快照集工具](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
-1. 在您執行的 HANA 大型執行個體災害復原單位上，關閉非生產的 HANA 執行個體。 這是因為已預先安裝休眠中的 HANA 生產執行個體。
-1. 確定沒有任何 SAP HANA 程序處於執行狀態。 使用下列命令進行這項檢查：`/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`。 您應該會從輸出中看到 **hdbdaemon** 程序處於已停止狀態，而且已沒有其他 HANA 程序處於執行中或已啟動狀態。
-1. 在 DR 網站 HANA 大型執行個體單位上，執行指令碼 azure_hana_dr_failover.pl。 該指令碼要求還原 SAP HANA SID。 執行要求時，請輸入一個或唯一的 SAP HANA SID，其已複寫並保留在 DR 網站中 HANA 大型執行個體單位上的 HANABackupCustomerDetails.txt 檔案。 
+如果您想要有多個容錯移轉的 SAP HANA 執行個體，您需要多次執行 azure_hana_dr_failover 命令。 執行要求時，輸入您想要容錯移轉及還原的 SAP HANA SID。 
 
-      如果您想要容錯移轉多個 SAP HANA 執行個體，您需要多次執行指令碼。 執行要求時，輸入您想要容錯移轉及還原的 SAP HANA SID。 完成時，指令碼會顯示新增至 HANA 大型執行個體單位的磁碟區掛接點清單。 此清單也包含還原的 DR 磁碟區。
 
-1. 透過使用 Linux 作業系統命令，將還原的災害復原磁碟區掛接到災害復原網站中的 HANA 大型執行個體單位。 
-1. 啟動休眠的 SAP HANA 生產執行個體。
-1. 如果您選擇複製交易記錄備份的記錄以降低 RPO 時間，必須將這些交易記錄備份合併到新掛接 DR 的 /hana/logbackups 目錄。 請勿覆寫現有的備份。 複製尚未隨著儲存體快照集的最新複寫一起複寫的較新備份。
-1. 您也可以從已複寫到 DR Azure 區域中 /hana/shared/PRD 磁碟區的快照集，還原單一檔案。 
-
-您也可以測試 DR 容錯移轉，而不會影響實際的複寫關係。 若要執行測試容錯移轉，請遵循上述步驟 1 和 2，然後繼續進行下列的步驟 3。
+您也可以測試 DR 容錯移轉，而不會影響實際的複寫關係。 若要執行測試容錯移轉，請依照下列中的步驟 **'執行測試 DR 容錯移轉-azure_hana_test_dr_failover'** 文件[Microsoft Azure 上的 SAP HANA 快照工具](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)。 
 
 >[!IMPORTANT]
->「請勿」透過**測試容錯移轉**的流程以及步驟 3 中介紹的指令碼，在 DR 網站中建立的執行個體上執行任何生產異動。 該命令會建立一組與主要站台沒有任何關聯的磁碟區。 如此一來，「不」可能同步回主要站台。 
+>請勿*未*在您完成程序在 DR 網站中建立的執行個體上執行任何生產異動**測試容錯移轉**。 該命令 azure_hana_test_dr_failover 會建立一組主要站台沒有任何關聯的磁碟區。 如此一來，「不」可能同步回主要站台。 
 
-容錯移轉測試的步驟 3：
+如果您想要測試多個 SAP HANA 執行個體，您需要多次執行指令碼。 執行要求時，輸入您想要測試容錯移轉的執行個體 SAP HANA SID。 
 
-在 DR 網站 HANA 大型執行個體單位上，執行指令碼 **azure_hana_test_dr_failover.pl**。 此指令碼「不會」停止主要站台與 DR 網站之間的複寫關聯性。 相反地，該指令碼會複製 DR 存放磁碟區。 複製程序成功之後，複製的磁碟區會還原至最新的快照集狀態，然後再掛接到 DR 單位。 該指令碼要求還原 SAP HANA SID。 請輸入一個或唯一的 SAP HANA SID，其已複寫並保留在 DR 網站中 HANA 大型執行個體單位上的 HANABackupCustomerDetails.txt 檔案。 
-
-如果您想要測試多個 SAP HANA 執行個體，您需要多次執行指令碼。 執行要求時，輸入您想要測試容錯移轉的執行個體 SAP HANA SID。 完成時，指令碼會顯示新增至 HANA 大型執行個體單位的磁碟區掛接點清單。 此清單也包含複製的 DR 磁碟區。
-
-繼續前往步驟 4。
-
-   >[!NOTE]
-   >如果您需要容錯移轉至 DR 網站以救援幾小時前已刪除的部分資料，且需要將 DR 磁碟區設定為較早的快照集，則會套用此程序。 
+>[!NOTE]
+>如果您需要容錯移轉至 DR 網站以救援小時前已刪除某些資料，而且需要將 DR 磁碟區設定為較早的快照，適用於此程序。 
 
 1. 在您執行的 HANA 大型執行個體災害復原單位上，關閉非生產的 HANA 執行個體。 這是因為已預先安裝休眠中的 HANA 生產執行個體。
 1. 確定沒有任何 SAP HANA 程序處於執行狀態。 使用下列命令進行這項檢查：`/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`。 您應該會從輸出中看到 **hdbdaemon** 程序處於已停止狀態，而且已沒有其他 HANA 程序處於執行中或已啟動狀態。
@@ -121,34 +107,8 @@ ms.locfileid: "60338422"
 
 ## <a name="monitor-disaster-recovery-replication"></a>監視災害復原複寫
 
-您可藉由執行`azure_hana_replication_status.pl` 指令碼來監視儲存體複寫進度的狀態。 此指令碼必須從正在災害復原位置中執行的單位來執行，才可如預期般運作。 無論複寫是否為作用中，指令碼都有作用。 您可以對災害復原位置中的租用戶所具有的每個 HANA 大型執行個體單位執行這個指令碼。 但不能將它用來取得開機磁碟區的詳細資料。
+您可藉由執行`azure_hana_replication_status` 指令碼來監視儲存體複寫進度的狀態。 此命令必須執行單位執行災害復原位置中如預期般運作。 此命令適用於無論複寫是否作用中。 命令可以執行您的租用戶，災害復原位置中的每個 HANA 大型執行個體單位。 但不能將它用來取得開機磁碟區的詳細資料。 如命令和其輸出的詳細資料，請參閱 **'取得 DR 複寫狀態-azure_hana_replication_status'** 文件[Microsoft Azure 上的 SAP HANA 快照工具](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)。
 
-使用此命令呼叫指令碼：
-```
-./azure_hana_replication_status.pl
-```
 
-輸出會依磁碟區細分成下列各區段：  
-
-- 連結狀態
-- 目前的複寫活動
-- 所複寫的最新快照集 
-- 最新快照集的大小
-- 目前在快照集間的延隔時間 (最後一次完成的快照式複寫與現在時刻)
-
-連結狀態會顯示為 [作用中] \(除非位置之間的連結已關閉)，或是顯示為目前有正在進行容錯移轉的事件。 複寫活動會指出資料目前正在複寫、處於閒置，或者連結目前是否正發生其他活動。 最後複寫的快照集應該只會顯示為 `snapmirror…`。 然後會顯示最後一個快照集的大小。 最後則會顯示延隔時間。 延隔時間代表從排程的複寫時間到複寫完成時的時間。 資料複寫的延隔時間可能會超過一個小時，特別是初始的複寫，即使複寫已啟動亦然。 延隔時間會持續增加，直到進行中的複寫完成。
-
-以下是輸出的範例：
-
-```
-hana_data_hm3_mnt00002_t020_dp
--------------------------------------------------
-Link Status: Broken-Off
-Current Replication Activity: Idle
-Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154095454.2017-04-21_051515
-Size of Latest Snapshot Replicated: 244KB
-Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
-```
-
-**後續步驟**
-- 請參閱[從 HANA 端進行監視和疑難排解](hana-monitor-troubleshoot.md)。
+## <a name="next-steps"></a>後續步驟
+- 請參閱[監視和疑難排解從 HANA 端](hana-monitor-troubleshoot.md)。

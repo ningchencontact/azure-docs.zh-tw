@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
 ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60869872"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 自訂指令碼擴充功能第 2 版會在 Azure 虛擬機器上下載並執行指令碼。 此擴充功能適用於部署後設定、軟體安裝或其他任何設定/管理工作。 您可以從 Azure 儲存體或其他可存取的網際網路位置下載指令碼，或是將指令碼提供給擴充功能執行階段。 
@@ -109,17 +109,17 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 
 | 名稱 | 值 / 範例 | 資料類型 | 
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 日期 |
-| publisher | Microsoft.Compute.Extensions | 字串 |
-| type | CustomScript | 字串 |
+| apiVersion | 2015-06-15 | date |
+| publisher | Microsoft.Compute.Extensions | string |
+| type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (例如) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (例如) | python MyPythonScript.py <my-param1> | 字串 |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | 字串 |
-| skipDos2Unix (範例) | false | 布林值 |
+| commandToExecute (例如) | python MyPythonScript.py <my-param1> | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| skipDos2Unix (範例) | false | boolean |
 | timestamp (範例) | 123456789 | 32 位元整數 |
-| storageAccountName (例如) | examplestorageacct | 字串 |
-| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 字串 |
+| storageAccountName (例如) | examplestorageacct | string |
+| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>屬性值詳細資料
 * `skipDos2Unix`：(選擇性，布林值) 略過指令碼型檔案 URL 或指令碼的 dos2unix 轉換。
@@ -364,7 +364,7 @@ az vm extension set \
 /var/log/azure/custom-script/handler.log
 ```
 
-您應該尋找個別的執行，它看起來像：
+应该查找如下所示的个别执行：
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check

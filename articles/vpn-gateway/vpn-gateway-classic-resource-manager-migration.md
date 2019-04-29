@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: amsriva
-ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b65b47389611bcc0e5acb3c7ebff672f72a87581
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23127096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761563"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>從傳統 VPN 閘道到 Resource Manager 移轉
 VPN 閘道現在可以用來從傳統移轉至 Resource Manager 部署模型。 您可以進一步了解 Azure Resource Manager [功能和優點](../azure-resource-manager/resource-group-overview.md)。 在本文中，我們會詳細說明如何從傳統部署移轉至較新的 Resource Manager 為基礎模型。 
@@ -38,7 +38,7 @@ Resource Manager 中的模型不同於傳統模型，是由虛擬網路閘道、
 * 多站台連線能力
 * 強制通道已啟用 VNets
 
-不支援的案例包括 -  
+不支持的方案包括：  
 
 * 目前不支援 VNet 隨附 ExpressRoute 閘道與 VPN 閘道。
 * 傳輸 VM 擴充功能連線到內部部署伺服器的案例。 傳輸 VPN 連線能力限制如下所述。

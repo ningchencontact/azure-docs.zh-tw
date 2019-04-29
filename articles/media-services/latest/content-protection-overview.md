@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 984c5d6b5e6e2010489533a3889501c5b524a6bd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103710"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>內容保護與動態加密
 
@@ -206,6 +206,9 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 如果您收到錯誤訊息結尾`_NOT_SPECIFIED_IN_URL`，請確定您在 URL 中指定的加密格式。 例如： `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`。 請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)。
 
+## <a name="provide-feedback"></a>提供意見反應
+
+請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 
 ## <a name="next-steps"></a>後續步驟
 

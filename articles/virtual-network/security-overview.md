@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
 ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731652"
 ---
 # <a name="security-groups"></a>安全性群組
 <a name="network-security-groups"></a>
@@ -32,7 +32,7 @@ ms.locfileid: "59996776"
 
 |屬性  |說明  |
 |---------|---------|
-|Name|網路安全性群組中的唯一名稱。|
+|名稱|網路安全性群組中的唯一名稱。|
 |優先順序 | 100 和 4096 之間的數字。 系統會依照優先權順序處理規則，較低的數字會在較高的數字之前處理，因為較低的數字具有較高的優先順序。 一旦流量符合規則，處理就會停止。 因此，如果存在較低優先順序 (較高數字) 的規則具有與較高優先順序之規則相同的屬性，則不會進行處理。|
 |來源或目的地| 任何或個別的 IP 位址、無類別網域間路由 (CIDR) 區塊 (例如 10.0.0.0/24)、[服務標籤](#service-tags)或[應用程式安全性群組](#application-security-groups)。 當您指定 Azure 資源的位址時，可以指定指派給資源的私人 IP 位址。 在 Azure 針對輸入流量將公用 IP 位址轉譯為私人 IP 位址之後，和 Azure 針對輸出流量將私人 IP 位址轉譯為公用 IP 位址之前，網路安全性群組會進行處理。 深入了解 Azure [IP 位址](virtual-network-ip-addresses-overview-arm.md)。 指定範圍、服務標籤或應用程式安全性群組，可讓您建立較少的安全性規則。 在規則中指定多個個別 IP 位址和範圍 (您無法指定多個服務標籤或應用程式群組) 的功能也稱為[增強型安全性規則](#augmented-security-rules)。 增強型安全性規則只可以在透過 Resource Manager 部署模型建立的網路安全性群組中建立。 您無法在透過傳統部署模型建立的網路安全性群組中指定多個 IP 位址與 IP 位址範圍。 深入了解 Azure [部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。|
 |通訊協定     | TCP、UDP 或 [任何]，其中包括 (但不限於) TCP、 UDP 和 ICMP。 您無法單獨指定 ICMP，如果您需要 ICMP，則必須使用 [任何]。 |

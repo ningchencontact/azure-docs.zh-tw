@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000541"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478873"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 串流分析中的查詢平行化作業
 本文會示範如何利用 Azure 串流分析中的平行化作業。 您可以了解如何透過設定輸入資料分割並調整分析查詢定義來調整串流分析工作。
@@ -23,7 +23,7 @@ ms.locfileid: "54000541"
 ## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>串流分析工作由哪些部分所組成？
 串流分析工作的定義包含輸入、查詢及輸出。 輸入是指作業讀取資料流的來源。 查詢是用來轉換資料輸入資料流，而輸出是作業傳送作業結果的目的地。  
 
-一個工作至少需要一個輸入來源來進行資料串流。 資料流輸入來源可以儲存在 Azure 事件中樞或 Azure Blob 儲存體中。 如需詳細資訊，請參閱 [Azure 串流分析簡介](stream-analytics-introduction.md)和[開始使用 Azure 串流分析](stream-analytics-real-time-fraud-detection.md)。
+若要对数据进行流式处理，作业需要至少一个输入源。 資料流輸入來源可以儲存在 Azure 事件中樞或 Azure Blob 儲存體中。 如需詳細資訊，請參閱 [Azure 串流分析簡介](stream-analytics-introduction.md)和[開始使用 Azure 串流分析](stream-analytics-real-time-fraud-detection.md)。
 
 ## <a name="partitions-in-sources-and-sinks"></a>來源與接收的資料分割
 調整串流分析作業需要利用輸入或輸出中的分割區。 資料分割可讓您根據分割索引鍵，將資料分成子集。 取用資料的流程 (例如串流分析作業) 可以平行取用和寫入不同的分割區，這樣可以增加輸送量。 
@@ -182,10 +182,10 @@ Power BI 輸出目前不支援資料分割。 因此，此情節不是窘迫平�
 
 | 查詢                                               | 作業的最多 SU |
 | --------------------------------------------------- | ------------------- |
-| <ul><li>查詢包含一個步驟。</li><li>步驟未分割。</li></ul> | 6 |
+| <ul><li>该查询包含一个步骤。</li><li>步驟未分割。</li></ul> | 6 |
 | <ul><li>輸入資料流會分割為 16 個。</li><li>查詢包含一個步驟。</li><li>步驟進行分割。</li></ul> | 96 (6 * 16 個資料分割) |
 | <ul><li>查詢包含兩個步驟。</li><li>兩個步驟都不會分割。</li></ul> | 6 |
-| <ul><li>輸入資料流分割時會除以 3。</li><li>查詢包含兩個步驟。 輸入步驟會分割，而第二個步驟則否。</li><li><strong>SELECT</strong> 陳述式會讀取分割的輸入。</li></ul> | 24 (18 個用於分割的步驟 + 6 個用於非分割的步驟) |
+| <ul><li>輸入資料流分割時會除以 3。</li><li>查詢包含兩個步驟。 输入步骤进行了分区，第二个步骤未分区。</li><li><strong>SELECT</strong> 陳述式會讀取分割的輸入。</li></ul> | 24 (18 個用於分割的步驟 + 6 個用於非分割的步驟) |
 
 ### <a name="examples-of-scaling"></a>調整的範例
 
@@ -233,7 +233,7 @@ Power BI 輸出目前不支援資料分割。 因此，此情節不是窘迫平�
 
 
 ## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)

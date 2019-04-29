@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: 55d59871ee72f755fcd881e4f89e56e6d6d1d84e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60637568"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>適用於 Android 的離線 Widevine 串流  
 

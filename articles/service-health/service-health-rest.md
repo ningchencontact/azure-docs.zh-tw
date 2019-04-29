@@ -8,11 +8,11 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878386"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790907"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>使用 REST API 取得資源健康狀態 
 
@@ -32,14 +32,14 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 以下是必要標頭： 
 
-|要求標頭|說明|  
+|要求標頭|描述|  
 |--------------------|-----------------|  
 |*Content-Type:*|必要。 設定為 `application/json`。|  
 |*Authorization:*|必要。 設定為無效的 `Bearer` [存取權杖](/rest/api/azure/#authorization-code-grant-interactive-clients)。 |  
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| Name | 說明 |
+| 名稱 | 描述 |
 | :--- | :---------- |
 | subscriptionId | 可識別 Azure 訂用帳戶的訂用帳戶識別碼。 如果您有多個訂用帳戶，請參閱[使用多個訂用帳戶](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。 |
 | api-version | 要用於要求的 API 版本。<br /><br /> 本文件涵蓋 api-version `2015-04-01`，內含於上述 URL 中。  |

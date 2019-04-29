@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: a17bc3cf8c8f1ffbb2a91e17944bfc1c203f439d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60905817"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Azure 資訊安全中心的更新作業系統版本
 對於雲端服務中的虛擬機器 (VM)，如果有更新的版本可用，則 Azure 資訊安全中心會建議更新作業系統 (OS)。  只監視生產位置中執行的雲端服務 Web 角色和背景工作角色。
@@ -34,7 +34,7 @@ ms.locfileid: "56111861"
    ![更新作業系統版本][1]
 2. [更新作業系統版本] 刀鋒視窗隨即開啟。 遵循此刀鋒視窗中的步驟來更新作業系統版本。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 本文說明了如何實作資訊安全中心建議的「更新作業系統版本」。 若要深入了解雲端服務和更新雲端服務的作業系統版本，請參閱：
 
 * [雲端服務概觀](../cloud-services/cloud-services-choose-me.md)

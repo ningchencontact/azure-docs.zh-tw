@@ -1,6 +1,6 @@
 ---
 title: 控制 App Service 環境的連入流量 - Azure
-description: 了解如何設定網路安全性規則，以控制 App Service 環境的連入流量。
+description: 了解如何設定網路安全性規則，以控制 App Service 環境的輸入流量。
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -16,26 +16,26 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 84575dcb67845a074ce19cf9d819e1dda3f90e20
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271951"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130784"
 ---
-# <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>如何控制 App Service 環境的連入流量
+# <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>如何控制 App Service 環境的輸入流量
 ## <a name="overview"></a>概觀
-您可以在 Azure Resource Manager 虛擬網路**或**傳統部署模型[虛擬網路][virtualnetwork]中建立 App Service 環境。  建立 APP Service 環境時，可以定義新的虛擬網路和新的子網路。  或者亦可在先前既存的虛擬網路和既存的子網路中建立 APP Service 環境。  在 2016 年 6 月所進行的變更之後，ASE 也可以部署到使用公用位址範圍或 RFC1918 位址空間 (也就是私人位址) 的虛擬網路。  如需有關建立 App Service 環境的詳細資訊，請參閱[如何建立 App Service 環境][HowToCreateAnAppServiceEnvironment]。
+您可以在 Azure Resource Manager 虛擬網路**或**傳統部署模型[虛擬網路][virtualnetwork]中建立 App Service Environment。  建立 APP Service 環境時，可以定義新的虛擬網路和新的子網路。  或者亦可在先前既存的虛擬網路和既存的子網路中建立 APP Service 環境。  在 2016 年 6 月所進行的變更之後，ASE 也可以部署到使用公用位址範圍或 RFC1918 位址空間 (也就是私人位址) 的虛擬網路。  如需有關建立 App Service Environment 的詳細資訊，請參閱[如何建立 App Service Environment][HowToCreateAnAppServiceEnvironment]。
 
-App Service 環境必須一律建立於子網路中，因為子網路可提供網路界限以便用來鎖定上游裝置和服務背後的連入流量，因此只接受來自特定上游 IP 位址的 HTTP 和 HTTPS 流量。
+应用服务环境始终必须在子网中创建，由于子网提供网络边界用于锁定上游设备和服务后面的入站流量，因此只接受来自特定上游 IP 地址的 HTTP 和 HTTPS 流量。
 
-您可以使用[網路安全性群組][NetworkSecurityGroups]來控制子網路上的連入和連出網路流量。 控制連入流量時，需要在網路安全性群組中建立網路安全性規則，然後將網路安全性群組指派給包含 App Service 環境的子網路。
+您可以使用[網路安全性群組][NetworkSecurityGroups]來控制子網路上的輸入和輸出網路流量。 控制輸入流量時，需要在網路安全性群組中建立網路安全性規則，然後將網路安全性群組指派給包含 App Service 環境的子網路。
 
-將網路安全性群組指派給子網路後，會根據網路安全性群組中定義的允許和拒絕規則，允許/封鎖 App Service 環境中應用程式的連入流量。
+將網路安全性群組指派給子網路後，會根據網路安全性群組中定義的允許和拒絕規則，允許/封鎖 App Service 環境中應用程式的輸入流量。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="inbound-network-ports-used-in-an-app-service-environment"></a>App Service 環境中使用的輸入網路連接埠
-利用網路安全性群組鎖定連入網路流量之前，請務必知道 App Service 環境所用的必要和選用網路連接埠集合。  意外關閉送至某些連接埠的流量，可能會導致在 App Service 環境中喪失功能。
+## <a name="inbound-network-ports-used-in-an-app-service-environment"></a>App Service Environment 中使用的輸入網路連接埠
+利用網路安全性群組鎖定輸入網路流量之前，請務必知道 App Service 環境所用的必要和選用網路連接埠集合。  意外關閉送至某些連接埠的流量，可能會導致在 App Service 環境中喪失功能。
 
 以下是 App Service 環境所使用的連接埠清單。 除非明確註明，否則所有連接埠為 **TCP**：
 
@@ -48,17 +48,17 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 * 10001-10020：FTP 的資料通道。  如同控制通道，若未使用 FTP，即可安全地封鎖這些連接埠。  在啟用 ILB 的 ASE 上，此連接埠可以繫結至 ASE 的 ILB 位址。
 * 4016：用於 Visual Studio 2012 的遠端偵錯。  如果未使用此功能，就可以安全地封鎖此連接埠。  在啟用 ILB 的 ASE 上，此連接埠繫結至 ASE 的 ILB 位址。
 * 4018：用於 Visual Studio 2013 的遠端偵錯。  如果未使用此功能，就可以安全地封鎖此連接埠。  在啟用 ILB 的 ASE 上，此連接埠繫結至 ASE 的 ILB 位址。
-* 4020：用於 Visual Studio 2015 的遠端偵錯。  如果未使用此功能，就可以安全地封鎖此連接埠。  在啟用 ILB 的 ASE 上，此連接埠繫結至 ASE 的 ILB 位址。
+* 4020：用於 Visual Studio 2015 的遠端偵錯。  如果未使用此功能，就可以安全地封鎖此連接埠。  在启用 ILB 的 ASE 中，此端口绑定到 ASE 的 ILB 地址。
 
-## <a name="outbound-connectivity-and-dns-requirements"></a>連出連線和 DNS 需求
-若要讓 App Service 環境正確運作，它還需要不同端點的連出存取權。 [ExpressRoute 的網路組態](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) 文章的＜需要的網路連線＞一節中有提供 ASE 所使用的外部端點完整清單。
+## <a name="outbound-connectivity-and-dns-requirements"></a>出站连接和 DNS 要求
+若要讓 App Service Environment 正確運作，它還需要不同端點的輸出存取權。 [ExpressRoute 的网络配置](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) 一文的“所需的网络连接”部分中提供了 ASE 所用外部终结点的完整列表。
 
-App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。  如果 DNS 設定在建立 App Service 環境之後因為任何原因而變更，開發人員可以強制 App Service 環境挑選新的 DNS 組態。  若是使用位於 [Azure 入口網站][NewPortal]中 [App Service 環境管理] 刀鋒視窗頂端的 [重新啟動] 圖示來觸發輪流環境重新開機，就會導致環境挑選新的 DNS 組態。
+App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。  如果 DNS 設定在建立 App Service 環境之後因為任何原因而變更，開發人員可以強制 App Service 環境挑選新的 DNS 組態。  若是使用位於 [Azure 入口網站][NewPortal]中 [App Service Environment 管理] 刀鋒視窗頂端的 [重新啟動] 圖示來觸發輪流環境重新開機，就會導致環境挑選新的 DNS 組態。
 
-也建議事先在虛擬網路上設定任何自訂 DNS 伺服器，再建立 App Service 環境。  如果在建立 App Service 環境時變更虛擬網路的 DNS 組態，則會導致 App Service 環境建立程序失敗。  同樣地，若自訂 DNS 伺服器存在於 VPN 閘道的另一端，且 DNS 伺服器無法連線或使用，則 App Service 環境建立程序也會失敗。
+也建議事先在虛擬網路上設定任何自訂 DNS 伺服器，再建立 App Service 環境。  如果在建立 App Service 環境時變更虛擬網路的 DNS 組態，則會導致 App Service 環境建立程序失敗。  同样地，如果自定义 DNS 服务器存在于 VPN 网关的另一端，且 DNS 服务器无法连接或无法使用，则应用服务环境创建过程也会失败。
 
 ## <a name="creating-a-network-security-group"></a>建立網路安全性群組
-如需有關網路安全性群組如何運作的完整詳細資料，請參閱下列[資訊][NetworkSecurityGroups]。  下面的「Azure 服務管理」範例說明網路安全性群組的重點，其中是將焦點放在設定網路安全群組並套用到包含 App Service 環境的子網路。
+如需有關網路安全性群組如何運作的完整詳細資料，請參閱下列[資訊][NetworkSecurityGroups]。  下面的「Azure 服務管理」範例說明網路安全性群組的重點，其中是將焦點放在設定網路安全群組並套用到包含 App Service Environment 的子網路。
 
 **附註：** 您可以使用 [Azure 入口網站](https://portal.azure.com)以圖形方式設定網路安全性群組，或透過 Azure PowerShell 進行設定。
 
@@ -77,7 +77,7 @@ App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。  �
 
 鎖定對連接埠 80 和 443 的存取，以「隱藏」上游裝置或服務背後的 App Service 環境時，您必須知道上游 IP 位址。  例如，如果您使用 Web 應用程式防火牆 (WAF)，則 WAF 將會有自己的 IP 位址，以便在將流量 Proxy 處理至下游 App Service 環境時使用。  您必須在網路安全性規則的 *SourceAddressPrefix* 參數中使用此 IP 位址。
 
-在下面範例中，明確允許來自特定上游 IP 位址的連入流量。  位址 *1.2.3.4* 會做為上游 WAF 的 IP 位址預留位置。  變更此值，以符合您的上游裝置或服務所使用的位址。
+在下面範例中，明確允許來自特定上游 IP 位址的輸入流量。  位址 *1.2.3.4* 會做為上游 WAF 的 IP 位址預留位置。  變更此值，以符合您的上游裝置或服務所使用的位址。
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT HTTP" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT HTTPS" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
@@ -96,7 +96,7 @@ App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。  �
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT RemoteDebuggingVS2015" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '4020' -Protocol TCP
 
 ## <a name="assigning-a-network-security-group-to-a-subnet"></a>將網路安全性群組指派給子網路
-網路安全性群組有拒絕存取所有外部流量的預設安全性規則。  結合上述的網路安全性規則與用來封鎖連入流量的預設安全性規則，結果就是只有來自與 *允許* 動作相關聯之來源位址範圍的流量，能夠傳送到在 App Service 環境中執行的應用程式。
+網路安全性群組有拒絕存取所有外部流量的預設安全性規則。  結合上述的網路安全性規則與用來封鎖輸入流量的預設安全性規則，結果就是只有來自與 *允許* 動作相關聯之來源位址範圍的流量，能夠傳送到在 App Service 環境中執行的應用程式。
 
 在網路安全性群組填入安全性規則之後，必須將該群組指派給包含 App Service 環境的子網路。  指派命令會同時參考 App Service 環境所在的虛擬網路名稱，以及 App Service 環境建立所在的子網路名稱。  
 
@@ -104,23 +104,23 @@ App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。  �
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
-網路安全性群組指派成功後 (指派是一項長時間執行的作業並可能需要幾分鐘才能完成)，只有符合 *允許* 規則的連入流量才能成功抵達 App Service 環境中的應用程式。
+網路安全性群組指派成功後 (指派是一項長時間執行的作業並可能需要幾分鐘才能完成)，只有符合 *允許* 規則的輸入流量才能成功抵達 App Service 環境中的應用程式。
 
 基於完整性，下列範例示範如何移除進而取消網路安全性群組與子網路的關聯：
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## <a name="special-considerations-for-explicit-ip-ssl"></a>明確 IP-SSL 的特殊考量
-如果為應用程式設定了明確的 IP-SSL 位址 (「僅」適用於具有公用 VIP 的 ASE)，而不是使用 App Service 環境的預設 IP 位址，則 HTTP 和 HTTPS 流量都會透過一組與連接埠 80 和 443 不同的連接埠流向子網路。
+如果為應用程式設定了明確的 IP-SSL 位址 (「僅」適用於具有公用 VIP 的 ASE)，而不是使用 App Service Environment 的預設 IP 位址，則 HTTP 和 HTTPS 流量都會透過一組與連接埠 80 和 443 不同的連接埠流向子網路。
 
 每個 IP-SSL 位址使用的個別連接埠組合，可以在 App Service 環境的詳細資料 UX 刀鋒視窗的入口網站使用者介面中找到。  選取 [所有設定] --> [IP 位址]。  「IP 位址」刀鋒視窗會顯示 App Service 環境所有明確設定的 IP-SSL 位址，以及特殊連接埠配對，這些特殊連接埠配對則是用於路由與每個 IP-SSL 位址關聯的 HTTP 和 HTTPS 流量。  在網路安全性群組中設定規則時，必須針對 DestinationPortRange 參數使用此連接埠配對。
 
 當 ASE 上的 app 設定為使用 IP-SSL 時，外部客戶將不會看到且不需要擔心特殊連接埠配對對應。  應用程式流量會正常流向設定的 IP-SSL 位址。  將流量路由到包含 ASE 的子網路時，在路由流量最後階段期間，特殊連接埠組合的轉譯會於內部自動發生。 
 
-## <a name="getting-started"></a>開始使用
-若要開始使用 App Service 環境，請參閱 [App Service 環境簡介][IntroToAppServiceEnvironment]
+## <a name="getting-started"></a>入门
+若要開始使用 App Service Environment，請參閱 [App Service Environment 簡介][IntroToAppServiceEnvironment]
 
-如需有關將應用程式安全地從 App Service 環境連接到後端資源的詳細資料，請參閱[安全地從 App Service 環境連接到後端資源][SecurelyConnecttoBackend]
+如需有關將應用程式安全地從 App Service Environment 連接到後端資源的詳細資料，請參閱[安全地從 App Service Environment 連接到後端資源][SecurelyConnecttoBackend]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

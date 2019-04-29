@@ -10,11 +10,11 @@ custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
 ms.openlocfilehash: 8ea80d557185f4489a96384b77ddd2519e7bd049
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477462"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>將 Azure 儲存體用於 Jenkins 連續整合解決方案
 
@@ -118,7 +118,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 1. 在工作組態的 [組建] 區段中，選取 [新增組建步驟]，然後選取 [從 Azure Blob 儲存體下載]。
 2. 在 [儲存體帳戶名稱] 中，選取要使用的儲存體帳戶。
 3. 在 [容器名稱] 中，指定您要下載的 Blob 所在之容器的名稱。 您可以使用環境變數。
-4. 在 [Blob 名稱] 中，指定 Blob 名稱。 您可以使用環境變數。 另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。 例如，**專案\\*** 指定所有的 blob 名稱開頭**專案**。
+4. 在 [Blob 名稱] 中，指定 Blob 名稱。 您可以使用環境變數。 另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。 例如，**project\\*** 将指定名称以 **project** 开头的所有 Blob。
 5. [選擇性] 在 [下載路徑] 中，指定在 Jenkins 機器上您要從 Azure Blob 儲存體下載檔案的路徑。 也可以使用環境變數 (如果您未提供 [下載路徑] 的值，則 Azure Blob 儲存體中的檔案會下載至工作的工作區。)
 
 如果您還有其他項目要從 Azure Blob 儲存體下載，您可以建立其他組建步驟。

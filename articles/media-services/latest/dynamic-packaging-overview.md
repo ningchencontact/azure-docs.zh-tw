@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 90af9d40f797e493696d52e4cd744b99e3b57911
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104117"
 ---
 # <a name="dynamic-packaging"></a>動態封裝
 
@@ -197,6 +197,10 @@ Smooth Streaming 資訊清單的範例如下：
 
 > [!NOTE]
 > 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](developers-guide.md)。
+
+## <a name="provide-feedback"></a>提供意見反應
+
+請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 
 ## <a name="next-steps"></a>後續步驟
 

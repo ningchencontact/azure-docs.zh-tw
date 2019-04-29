@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
 ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216094"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>針對 Microsoft Azure 復原服務 (MARS) 代理程式進行疑難排解
 
@@ -29,7 +29,7 @@ ms.locfileid: "58621612"
 
 | 錯誤詳細資料 | 建議動作 |
 | ---     | ---    |
-|無法下載保存庫認證檔案。 (識別碼：403) | <ul><li> 請嘗試使用不同的瀏覽器下載保存庫認證，或執行下列步驟： <ul><li> 啟動 IE，按下 F12 鍵。 </li><li> 移至 [網路] 索引標籤，清除 IE 的快取和 Cookie </li> <li> 重新整理頁面<br>(或)</li></ul> <li> 檢查訂用帳戶是否已停用/過期<br>(或)</li> <li> 檢查是否有任何防火牆規則封鎖保存庫認證檔的下載 <br>(或)</li> <li> 確定您還沒有耗盡保存庫的限制 (每個保存庫 50 部電腦)<br>(或)</li>  <li> 確認使用者具有必要下載保存庫認證和保存庫註冊伺服器，請參閱 Azure 備份權限[文章](backup-rbac-rs-vault.md)</li></ul> | 
+|無法下載保存庫認證檔案。 (識別碼：403) | <ul><li> 請嘗試使用不同的瀏覽器下載保存庫認證，或執行下列步驟： <ul><li> 啟動 IE，按下 F12 鍵。 </li><li> 移至 [網路] 索引標籤，清除 IE 的快取和 Cookie </li> <li> 重新整理頁面<br>(或)</li></ul> <li> 檢查訂用帳戶是否已停用/過期<br>(或)</li> <li> 檢查是否有任何防火牆規則封鎖保存庫認證檔的下載 <br>(或)</li> <li> 確定您還沒有耗盡保存庫的限制 (每個保存庫 50 部電腦)<br>(或)</li>  <li> 确保用户具有下载保管库凭据所需的 Azure 备份权限并向保管库注册了服务器，请参阅[此文](backup-rbac-rs-vault.md)</li></ul> | 
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Microsoft Azure 復原服務代理程式無法連線至 Microsoft Azure 備份
 
@@ -60,7 +60,7 @@ ms.locfileid: "58621612"
 ## <a name="backups-dont-run-according-to-the-schedule"></a>備份未依據排程執行
 如果排程的備份未自動觸發、而手動備份運作未發生任何問題時，請嘗試下列動作：
 
-- 請確定 Windows Server 備份排程不會衝突與 Azure 檔案和資料夾備份的排程。
+- 确保 Windows Server 备份计划与 Azure 文件和文件夹备份计划不冲突。
 - 移至 [控制台] > [系統管理工具] > [工作排程器]。 依序展開 [Microsoft]，然後選取 [線上備份]。 按兩下 [Microsoft-OnlineBackup]，並移至 [觸發程序] 索引標籤。請確定狀態設為 [已啟用]。 如果不是，請選取 [編輯]，然後選取 [已啟用] 核取方塊，並按一下 [確定]。 在 [一般] 索引標籤上，移至 [安全性選項] 並確定為執行的工作選取的使用者帳戶是伺服器上的 **SYSTEM** 或**本機系統管理員群組**。
 
 - 查看是否已在伺服器上安裝 PowerShell 3.0 或更新版本。 若要檢查 PowerShell 版本，請執行下列命令，並確認「主要」版本號碼等於或大於 3。

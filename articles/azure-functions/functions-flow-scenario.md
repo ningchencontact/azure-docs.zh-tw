@@ -3,26 +3,21 @@ title: 從 Microsoft Flow 呼叫 Azure 函式 | Microsoft Docs
 description: 建立自訂連接器，然後使用該連接器來呼叫函式。
 services: functions
 keywords: 雲端應用程式, 雲端服務, Microsoft Flow, 商務程序, 商務應用程式
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467739"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106965"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>從 Microsoft Flow 呼叫函式
 
@@ -41,7 +36,7 @@ ms.locfileid: "38467739"
 > * 如果修復符合成本效益，就建立流程來傳送電子郵件。
 > * 執行流程。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 + 使用中的 [Microsoft Flow 帳戶](https://flow.microsoft.com/documentation/sign-up-sign-in/)，其登入認證與您的 Azure 帳戶相同。 
 + SharePoint，您可用來作為此流程的資料來源。 如果您還沒有 SharePoint，請註冊 [Office 365 試用版](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1)。
@@ -50,10 +45,10 @@ ms.locfileid: "38467739"
 ## <a name="create-a-sharepoint-list"></a>建立 SharePoint 清單
 首先，建立一個您用來作為流程資料來源的清單。 清單具有下列資料行。
 
-| 清單資料行     | 資料類型           | 注意                                    |
+| 清單資料行     | 数据类型           | 注意                                    |
 |-----------------|---------------------|------------------------------------------|
 | **標題**           | 單行文字 | 渦輪機的名稱                      |
-| **LastServiceDate** | 日期                |                                          |
+| **LastServiceDate** | date                |                                          |
 | **MaxOutput**       | 數字              | 渦輪機的輸出，以 KwH 為單位            |
 | **ServiceRequired** | 是/否              |                                          |
 | **EstimatedEffort** | 數字              | 修復的預估時間，以小時為單位 |
@@ -137,7 +132,7 @@ ms.locfileid: "38467739"
 
     ![新增條件](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow 會在流程中新增兩個分支：**如果是**和**如果否**。 當您定義要比對的條件之後，可將步驟新增至其中一個分支或這兩個分支。
+    Microsoft Flow 會在流程中加入兩個分支：**若是**並**有**。 當您定義要比對的條件之後，可將步驟新增至其中一個分支或這兩個分支。
 
     ![條件分支](media/functions-flow-scenario/condition-branches.png)
 
@@ -229,12 +224,12 @@ ms.locfileid: "38467739"
 
 2. 在編輯方格中輸入下列值。
 
-    | 清單資料行     | 值           |
+    | 清單資料行     | Value           |
     |-----------------|---------------------|
     | **標題**           | 渦輪機 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | yes |
+    | **ServiceRequired** | 是 |
     | **EstimatedEffort** | 10 |
 
 3. 按一下 [完成] 。

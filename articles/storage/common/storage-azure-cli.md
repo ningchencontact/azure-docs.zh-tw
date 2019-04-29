@@ -10,11 +10,11 @@ ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
 ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483551"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>使用 Azure CLI 搭配 Azure 儲存體
 
@@ -231,7 +231,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 > 本文下列各節中的所有範例都假設您已設定 `AZURE_STORAGE_ACCOUNT` 和 `AZURE_STORAGE_KEY` 環境變數。
 
 ## <a name="create-and-manage-blobs"></a>建立和管理 Blob
-Azure Blob 儲存體是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。 本節假設您已熟悉 Azure Blob 儲存體的概念。 如需詳細資訊，請參閱[使用 .NET 開始使用 Azure Blob 儲存體](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服務概念](/rest/api/storageservices/blob-service-concepts)。
+Azure Blob 存储是用于存储大量非结构化数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。 本節假設您已熟悉 Azure Blob 儲存體的概念。 如需詳細資訊，請參閱[使用 .NET 開始使用 Azure Blob 儲存體](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服務概念](/rest/api/storageservices/blob-service-concepts)。
 
 ### <a name="create-a-container"></a>建立容器
 Azure 儲存體中的每個 Blob 必須位於一個容器中。 您可以使用 `az storage container create` 命令來建立容器：
@@ -243,8 +243,8 @@ az storage container create --name <container_name>
 您可以指定選擇性 `--public-access` 引數，以針對新容器設定讀取權限的三個層級之一︰
 
 * `off` (預設值)︰容器資料為帳戶擁有者私有。
-* `blob`：Blob 的公用讀取權限。
-* `container`：整個容器的公用讀取和清單權限。
+* `blob`:Blob 的公用讀取權限。
+* `container`:整個容器的公用讀取和清單權限。
 
 如需詳細資訊，請參閱 [管理對容器與 Blob 的匿名讀取權限](../blobs/storage-manage-access-to-resources.md)。
 
@@ -285,7 +285,7 @@ az storage blob list \
     --output table
 ```
 
-### <a name="copy-blobs"></a>複製 Blob
+### <a name="copy-blobs"></a>复制 blob
 您可以在儲存體帳戶內或在不同儲存體帳戶和區域之間，以非同步方式複製 Blob。
 
 下列範例示範如何從一個儲存體帳戶複製 Blob 到另一個儲存體帳戶。 我們會先在來源儲存體帳戶中建立容器，指定對其 Blob 的公用讀取存取權。 接著，我們會將檔案上傳至容器，最後，將 Blob 從該容器複製到目的地儲存體帳戶中的容器。
@@ -334,7 +334,7 @@ Azure 檔案共用是 Azure 中的 SMB 檔案共用。 所有目錄和檔案都�
 az storage share create --name myshare
 ```
 
-### <a name="create-a-directory"></a>建立目錄
+### <a name="create-a-directory"></a>创建目录
 目錄會提供 Azure 檔案共用的階層式結構。 下列範例會在檔案共用中建立名為 **myDir** 的目錄。
 
 ```azurecli

@@ -8,11 +8,11 @@ ms.date: 11/20/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: c3a3305197802906077dab330a6b51c1195c6c36
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879466"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729101"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 的擁有權總成本 (TCO)
 
@@ -20,7 +20,7 @@ Azure Cosmos DB 採用更細緻的多租用戶和資源控管設計。 這項設
 
 OSS NoSQL 資料庫解決方案 (例如 Apache Cassandra、MongoDB、HBase)，引擎是針對內部部署環境所設計。 當作為受控服務提供時，它們相當於使用租用戶資料庫來管理已佈建的叢集和監視支援的 Resource Manager 範本。 OSS NoSQL 架構需要大量的作業額外負荷，並且查找專門知識可能既困難又昂貴。 另一方面，Azure Cosmos DB 是完全受控的雲端服務，它允許開發人員專注於商務創新，而不是管理和維護資料庫基礎結構上。 
 
-與雲端原生資料庫服務 Azure Cosmos DB 不同，OSS NoSQL 資料庫引擎不是以資源控管或更細緻的多租用戶作為基礎架構原則而設計和建置的。 OSS NoSQL 資料庫引擎 (例如 Cassandra 與 MongoDB) 做出了一個基本假設，即執行它們的虛擬機器的所有資源都可供其使用。 如果資源數量低於特定臨界值，則許多這些資料庫引擎無法運作。 例如，針對小型的 VM 執行個體，它們可用於廠商建議的組態，通常建議具有更高成本的大規模 VM。 因此，不可能裝載 OSS NoSQL 或任何其他內部部署資料庫引擎，並使其可使用消費型計費模型，例如每個第二個或已使用的儲存體的要求。
+與雲端原生資料庫服務 Azure Cosmos DB 不同，OSS NoSQL 資料庫引擎不是以資源控管或更細緻的多租用戶作為基礎架構原則而設計和建置的。 OSS NoSQL 資料庫引擎 (例如 Cassandra 與 MongoDB) 做出了一個基本假設，即執行它們的虛擬機器的所有資源都可供其使用。 如果資源數量低於特定臨界值，則許多這些資料庫引擎無法運作。 例如，針對小型的 VM 執行個體，它們可用於廠商建議的組態，通常建議具有更高成本的大規模 VM。 因此，无法托管 OSS NoSQL 或其他任何本地数据库引擎，并使用基于消耗量的计费模型（例如每秒请求数，或消耗的存储）来提供资源。
 
 ## <a name="total-cost-of-ownership-of-azure-cosmos-db"></a>Azure Cosmos DB 的擁有權總成本 
 
@@ -38,7 +38,7 @@ Azure Cosmos DB 的無伺服器佈建模型不需要過度佈建的資料庫基�
 
 * **針對雲端進行最佳化：** Azure Cosmos DB 是全新設計，具有更細緻的多租用戶和效能隔離。 這樣可以跨叢集和資料中心，以最佳方式放置、執行和平衡數千個租用戶和其工作負載。 相比之下，目前世代的 OSS NoSQL 資料庫會在內部部署環境運行，假設整個虛擬機器執行單一租用戶的工作負載。 這些資料庫也不是為了充分利用雲端提供者的基礎結構和硬體而設計的。 例如，OSS NoSQL 資料庫引擎不會知道虛擬機器與例行的映像升級之間的差異，或者該進階磁碟其實已經三向複寫。 它無法利用這些優勢，並將優勢和節省量傳遞給客戶。
 
-* **按小時支付：** 針對大規模的工作負載，需要在任何時間點進行調整的工作，只需要依時數付費。 應用程式上的工作負載通常在一年中的不同時間，以及查詢的資料上有所不同。 使用 Azure Cosmos DB，您可以根據需要相應增加或減少，並僅依需求支付。 在內部部署或 IaaS 託管系統中，您無法比對此模型中，因為沒有要解除委任硬體每隔一小時的方式。 在這種情況下，Azure Cosmos DB 平均可以節省 10 至 14 倍。
+* **按小時支付：** 針對大規模的工作負載，需要在任何時間點進行調整的工作，只需要依時數付費。 應用程式上的工作負載通常在一年中的不同時間，以及查詢的資料上有所不同。 使用 Azure Cosmos DB，您可以根據需要相應增加或減少，並僅依需求支付。 不能搭配本地或 IaaS 托管的系统使用此模型，因为没有任何方法可以每隔一小时解除硬件。 在這種情況下，Azure Cosmos DB 平均可以節省 10 至 14 倍。
 
 * **您可以免費取得多種功能：** 在 Azure Cosmos DB 中，與替代的資料庫服務相比較，寫入工作負載要便宜得多。 此外，Azure Cosmos DB 還提供諸如[自動編製索引](indexing-policies.md)、[存留時間 (TTL)](time-to-live.md)、[變更摘要](change-feed.md)等功能，而不需要任何額外的費用，其他資料庫服務通常會收費。
 

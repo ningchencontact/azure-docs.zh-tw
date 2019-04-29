@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
 ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61020368"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
-Azure Functions 執行階段支援[Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/)。
+Azure Functions 运行时支持 [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/)。
 
-本指南包含撰寫 Java 的 Azure Functions 的錯綜複雜的相關資訊。
+本指南包含有关使用 Java 编写 Azure Functions 的复杂性的信息。
 
-Java 函式是`public`方法以註釋裝飾`@FunctionName`。 這個方法會定義 java 函式的項目，而且必須是唯一指定的封裝中。 
+Java 函数是一个 `public` 方法，使用注释 `@FunctionName` 修饰。 此方法定义 java 函数的条目，必须在给定包中独一无二。 
 
-本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。 您也應該完成 Functions 快速入門，來建立您的第一個函式，使用[Visual Studio Code](functions-create-first-function-vs-code.md)或是[使用 maven](functions-create-first-java-maven.md)。
+本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。 此外，应该完成有关如何使用 [Visual Studio Code](functions-create-first-function-vs-code.md) 或[使用 maven](functions-create-first-java-maven.md) 创建第一个函数的 Functions 快速入门。
 
 ## <a name="programming-model"></a>程式設計模型 
 

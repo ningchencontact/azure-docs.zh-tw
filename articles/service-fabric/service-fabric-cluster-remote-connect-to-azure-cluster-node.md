@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
 ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663769"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110918"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>遠端連線到虛擬機器擴展集執行個體或叢集節點
 在 Azure 中執行的 Service Fabric 叢集內，您定義的每個叢集節點類型都會[設定虛擬機器的個別擴展](service-fabric-cluster-nodetypes.md)。  您可以從遠端連線特定的擴展集執行個體 (叢集節點)。  不同於單一執行個體的 VM，VM 擴展集的執行個體不會有自己的虛擬 IP 位址。 當您要尋找可用來遠端連線至特定執行個體的 IP 位址和連接埠時，可能有點困難。

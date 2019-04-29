@@ -17,11 +17,11 @@ ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b3a4f3b37b0dc4d74b03ffcfa61c97fbb571d57f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465587"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM 上的 SAP NetWeaver 高可用性
 
@@ -1047,7 +1047,7 @@ Azure Load Balancer 具有內部負載平衡器，會在連線閒置一段時間
 | --- | --- |
 | 變數名稱 |`KeepAliveTime` |
 | 變數類型 |REG_DWORD (十進位) |
-| 值 |120000 |
+| Value |120000 |
 | 文件連結 |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**表 3：** 變更第一個 TCP/IP 參數_
@@ -1058,7 +1058,7 @@ _**表 3：** 變更第一個 TCP/IP 參數_
 | --- | --- |
 | 變數名稱 |`KeepAliveInterval` |
 | 變數類型 |REG_DWORD (十進位) |
-| 值 |120000 |
+| Value |120000 |
 | 文件連結 |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**表 4：** 變更第二個 TCP/IP 參數_

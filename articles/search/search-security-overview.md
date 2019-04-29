@@ -10,11 +10,11 @@ ms.date: 04/06/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269549"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61283333"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure 搜尋服務中的安全性和資料隱私權
 
@@ -47,7 +47,7 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 
 加密是在「Azure 搜尋服務」內部進行的，由 Microsoft 在內部管理憑證和加密金鑰，並且全面套用。 您無法在入口網站中或透過程式設計方式，開啟或關閉加密、管理或替代自己的金鑰，或是檢視加密設定。 
 
-在 2018 年 1 月 24 日已宣布推出待用加密功能，並且適用於所有區域中的所有服務層，包括共用 (免費) 服務。 若要達到完整加密的目的，針對在該日期之前建立的索引，您必須先捨棄再重新建置，才能進行加密。 否則，系統只會加密 1 月 24 日之後新增的新資料。
+在 2018 年 1 月 24 日已宣布推出待用加密功能，並且適用於所有區域中的所有服務層級，包括共用 (免費) 服務。 若要達到完整加密的目的，針對在該日期之前建立的索引，您必須先捨棄再重新建置，才能進行加密。 否則，系統只會加密 1 月 24 日之後新增的新資料。
 
 ## <a name="azure-wide-user-access-controls"></a>整個 Azure 的使用者存取控制
 

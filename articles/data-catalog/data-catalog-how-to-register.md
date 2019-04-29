@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 57b9a040b875c584b126e2062e4938b37875a31b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61001288"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>在 Azure 資料目錄中註冊資料來源
 ## <a name="introduction"></a>簡介

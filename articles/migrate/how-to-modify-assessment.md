@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: raynew
 ms.openlocfilehash: 8419d7e7a91e4cbfd0eebfe00d35bf498cf5998c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129818"
 ---
 # <a name="customize-an-assessment"></a>自訂評量
 
@@ -51,11 +51,11 @@ ms.locfileid: "54200304"
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>效能歷程記錄和百分位數使用率對大小建議有何影響？
 
-這些屬性僅適用於以效能為基礎的調整大小。 Azure Migrate 會收集內部部署機器的效能歷程記錄，並用其來建議在 Azure 中使用的 VM 大小和磁碟類型。
+這些屬性僅適用於以效能為基礎的調整大小。 Azure Migrate 會收集內部部署機器的效能記錄，並用其來建議在 Azure 中的 VM 大小和磁碟類型。
 
 - 收集器設備會持續分析內部部署環境，每 20 秒便收集一次即時使用情況資料。
 - 設備會彙總 20 秒範例，然後每 15 分鐘建立一個單一資料點。 為了建立單一資料點，設備會從所有 20 秒範例中選取尖峰值並將其傳送給 Azure。
-- 當您在 Azure 中建立評估時，Azure Migrate 會根據效能持續時間和效能歷程記錄的百分位數值，計算有效的使用率值，並將其用於調整大小。
+- 當您在 Azure 中建立評估時，Azure Migrate 會根據效能持續時間和效能記錄的百分位數值，計算有效的使用率值，並將其用於調整大小。
 
 例如，如果您已將效能持續時間設定為 1 天，且百分位數設定為 95 百分位數值，Azure Migrate 會使用收集器將過去一天所傳送的 15 分鐘取樣點，以遞增順序排序並挑選第 95 個百分位數值作為有效使用率。 第 95 個百分位數值可確保您忽略任何極端值，如果您選擇第 99 個百分位數，則可能出現極端值。 如果您想選擇該期間的尖峰使用量，但不想錯過任何極端值，您應該選取第 99 個百分位數。
 

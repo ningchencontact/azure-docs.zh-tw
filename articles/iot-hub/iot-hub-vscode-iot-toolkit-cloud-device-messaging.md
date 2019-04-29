@@ -9,11 +9,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
 ms.openlocfilehash: 5b74524a05317cf22160561a4a001e88f9215953
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61440061"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用適用於 Visual Studio Code 的 Azure IoT Tools 來傳送和接收裝置與 IoT 中樞之間的訊息
 

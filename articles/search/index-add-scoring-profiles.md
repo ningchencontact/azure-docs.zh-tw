@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: eae7de00294a6a09cb7f942d11ee2391710fc55f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007806"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844273"
 ---
 # <a name="add-scoring-profiles-to-an-azure-search-index"></a>將評分設定檔新增至 Azure 搜尋服務索引
 
@@ -232,7 +232,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 > [!NOTE]  
 >  評分函式只能套用至可篩選的欄位。  
 
-|屬性|說明|  
+|屬性|描述|  
 |---------------|-----------------|  
 |`Name`|必要。 這是評分設定檔的名稱。 它會遵循欄位的相同命名慣例。 它必須以字母開頭，且不可包含點、冒號或 @ 符號，而且開頭不可以是片語 'azureSearch' (區分大小寫)。|  
 |`Text`|包含「權數」屬性。|  
@@ -284,7 +284,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  如需更多範例，請參閱 [XML 結構描述：資料類型 (W3.org 網站)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)。  
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>請參閱  
  [Azure 搜尋服務 REST](https://docs.microsoft.com/rest/api/searchservice/)   
  [建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Azure 搜尋服務 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

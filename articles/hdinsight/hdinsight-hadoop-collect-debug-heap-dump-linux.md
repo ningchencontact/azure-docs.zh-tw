@@ -1,7 +1,6 @@
 ---
 title: 在 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印 - Azure
 description: 在以 Linux 為基礎的 HDInsight 叢集上啟用 Apache Hadoop 服務的堆積傾印，以進行偵錯和分析。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: d4245ce35cfc1e3aa0ba9ee9307315c9a999b5ff
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a1b816656e019a214e8c0dc72b79575c49d99e68
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722034"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098349"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印
 
@@ -64,7 +63,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
 ### <a name="dump-location"></a>傾印位置
 
-傾印檔案的預設位置是目前的工作目錄。 您可以使用以下選項，控制檔案的儲存位置：
+傾印檔案的預設位置是目前的工作目錄。 可以使用以下选项来控制文件的存储位置：
 
     -XX:HeapDumpPath=/path
 
@@ -98,11 +97,11 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
 3. 在 [篩選...] 項目中輸入 **opts**。 只會顯示包含此文字的項目。
 
-    ![篩選的清單](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
+    ![筛选的列表](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
 
 4. 針對您想要啟用堆積傾印的服務尋找 **\*\_OPTS** 項目，並新增您想要啟用的選項。 在下圖中，我將 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` 新增至 **HADOOP\_NAMENODE\_OPTS** 項目：
 
-    ![含有 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/ 的 HADOOP_NAMENODE_OPTS](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    ![HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
    > [!NOTE]  
    > 啟用 map 或 reduce 子處理序的堆積傾印時，請尋找名為 **mapreduce.admin.map.child.java.opts** 和 **mapreduce.admin.reduce.child.java.opts** 的欄位。

@@ -1,5 +1,5 @@
 ---
-title: 管理 Azure 資源使用 RBAC 和 Azure 入口網站的存取權 |Microsoft Docs
+title: 使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限 | Microsoft Docs
 description: 了解如何使用角色型存取控制 (RBAC) 與 Azure 入口網站來管理使用者、群組、服務主體與受控識別針對 Azure 資源的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: ''
@@ -15,75 +15,75 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805285"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533169"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 入口網站管理對 Azure 資源的存取
 
-[角色型存取控制 (RBAC)](overview.md) 是您管理對 Azure 資源存取的機制。 本文將告訴您如何管理使用 Azure 入口網站的存取。 如果您需要管理 Azure Active Directory 存取權，請參閱[Azure Active Directory 中的檢視，並指派系統管理員角色](../active-directory/users-groups-roles/directory-manage-roles-portal.md)。
+[角色型存取控制 (RBAC)](overview.md) 是您管理對 Azure 資源存取的機制。 本文介绍如何使用 Azure 门户管理访问权限。 如需管理对 Azure Active Directory 的访问权限，请参阅[在 Azure Active Directory 中查看和分配管理员角色](../active-directory/users-groups-roles/directory-manage-roles-portal.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要新增及移除角色指派，您必須：
+若要创建和删除角色分配，必须拥有以下权限：
 
-- `Microsoft.Authorization/roleAssignments/write` 並`Microsoft.Authorization/roleAssignments/delete`權限，例如[使用者存取系統管理員](built-in-roles.md#user-access-administrator)或[擁有者](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` 和 `Microsoft.Authorization/roleAssignments/delete` 权限，例如[用户访问管理员](built-in-roles.md#user-access-administrator)或[所有者](built-in-roles.md#owner)
 
-## <a name="overview-of-access-control-iam"></a>存取控制 (IAM) 的概觀
+## <a name="overview-of-access-control-iam"></a>“访问控制(IAM)”概述
 
-**存取控制 (IAM)** 是您用來管理 Azure 資源的存取權 刀鋒視窗。 它亦稱為身分識別和存取管理，並顯示在 Azure 入口網站中的數個位置。 下面顯示某訂用帳戶之 [存取控制 (IAM)] 刀鋒視窗的範例。
+使用“访问控制(IAM)”边栏选项卡可以管理对 Azure 资源的访问权限。 该功能也称为标识和访问管理，会显示在 Azure 门户中的多个位置。 下面顯示某訂用帳戶之 [存取控制 (IAM)] 刀鋒視窗的範例。
 
 ![訂用帳戶的存取控制 (IAM) 刀鋒視窗](./media/role-assignments-portal/access-control-numbers.png)
 
-下表說明的某些元素是適用於：
+下表描述了一些元素的用途：
 
-| # | 元素 | 您將它用於 |
+| # | 元素 | 用途 |
 | --- | --- | --- |
-| 1 | 資源的存取控制 (IAM) 開啟的位置 | 識別範圍 （在此範例中的訂閱） |
-| 2 | **新增**按鈕 | 新增角色指派 |
-| 3 | **檢查存取** 索引標籤 | 檢視單一使用者的角色指派 |
-| 4 | **角色指派** 索引標籤 | 檢視目前範圍的角色指派 |
-| 5 | **角色** 索引標籤 | 檢視所有的角色和權限 |
+| 1 | 在其中打开访问控制 (IAM) 的资源 | 标识范围（在本示例中为订阅） |
+| 2 | “添加”按钮 | 新增角色指派 |
+| 3 | “检查访问权限”选项卡 | 查看单个用户的角色分配 |
+| 4 | “角色分配”选项卡 | 查看当前范围的角色分配 |
+| 5 | “角色”选项卡 | 查看所有角色和权限 |
 
-若要最有效的存取控制 (IAM) 刀鋒視窗，將有所助益時想要管理存取權，您可以回答下列三個問題：
+如果在尝试管理访问权限时能够回答以下三个问题，则可以最有效地利用“访问控制(IAM)”边栏选项卡：
 
-1. **誰需要存取？**
+1. **谁需要访问权限？**
 
     誰是指使用者、 群組、 服務主體或受管理的身分識別。 這也稱為*安全性主體*。
 
-1. **他們需要什麼權限？**
+1. **他们需要哪些权限？**
 
-    權限會分組放入角色。 您可以從數個內建角色清單中選取。
+    权限组合成角色。 可以从多个内置角色的列表中选择。
 
-1. **他們需要在其中存取？**
+1. **他们在何处需要访问权限？**
 
-    其中是指一組存取權會套用到的資源。 其中可以是管理群組、 訂用帳戶、 資源群組或單一資源，例如儲存體帳戶。 這就叫做*範圍*。
+    “何处”是指访问权限应用到的资源集。 “何处”可以是管理组、订阅、资源组或单个资源，例如存储帐户。 这称为“范围”。
 
 ## <a name="open-access-control-iam"></a>開啟存取控制 (IAM)
 
-您必須決定的第一件事就是開啟存取控制 (IAM) 刀鋒視窗的位置。 這取決於您想要何種的資源管理的存取權。 若要管理存取權管理群組、 訂用帳戶、 資源群組或單一資源中的所有項目中的所有項目中的所有項目嗎？
+需要确定的第一件事是在何处打开“访问控制(IAM)”边栏选项卡。 这取决于要管理哪些资源的访问权限。 是要管理管理组中所有对象、订阅中所有对象、资源组中所有对象还是单个资源的访问权限？
 
-1. 在 Azure 入口網站中，按一下**所有服務**，然後選取範圍。 例如，您可以選取 [管理群組]、[訂用帳戶]、[資源群組]或資源。
+1. 在 Azure 门户中单击“所有服务”，然后选择范围。 例如，您可以選取 [管理群組]、[訂用帳戶]、[資源群組]或資源。
 
-1. 按一下特定的資源。
+1. 单击特定的资源。
 
 1. 按一下 [存取控制 (IAM)]。
 
-    下面顯示某訂用帳戶之 [存取控制 (IAM)] 刀鋒視窗的範例。 如果您在任何存取控制此變更，它們會套用到整個訂用帳戶。
+    下面顯示某訂用帳戶之 [存取控制 (IAM)] 刀鋒視窗的範例。 如果在此处进行任何访问控制更改，这些更改将应用到整个订阅。
 
     ![訂用帳戶的存取控制 (IAM) 刀鋒視窗](./media/role-assignments-portal/access-control-subscription.png)
 
 ## <a name="view-roles-and-permissions"></a>檢視角色與權限
 
-角色定義是您用於角色指派的權限集合。 Azure 具有超過 70 個[適用於 Azure 資源的內建角色](built-in-roles.md)。 請遵循下列步驟來檢視可用的角色和權限。
+角色定義是您用於角色指派的權限集合。 Azure 具有超過 70 個[適用於 Azure 資源的內建角色](built-in-roles.md)。 遵循以下步骤查看可用的角色和权限。
 
-1. 開啟**存取控制 (IAM)** 在任何範圍。
+1. 在任一范围打开“访问控制(IAM)”。
 
 1. 按一下 [角色] 索引標籤以查看所有內建與自訂角色清單。
 
-   您可以看到使用者和群組指派給在目前的範圍內的每個角色的數目。
+   可以看到在当前范围分配到每个角色的用户和组的数目。
 
    ![角色清單](./media/role-assignments-portal/roles-list.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "56805285"
 
 ## <a name="view-role-assignments"></a>檢視角色指派
 
-管理存取權，當您想要知道誰可以存取，什麼是其權限，以及在何種範圍內。 清單存取使用者、 群組、 服務主體或受控身分識別，以檢視其角色指派。
+管理访问权限时，需要了解谁拥有访问权限、其权限是什么，以及权限范围是什么。 若要列出某个用户、组、服务主体或托管标识的访问权限，请查看其角色分配。
 
 ### <a name="view-role-assignments-for-a-single-user"></a>檢視單一使用者的角色指派
 

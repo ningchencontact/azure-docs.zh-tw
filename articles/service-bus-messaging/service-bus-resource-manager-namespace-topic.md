@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 8155a9c8dd8e16ae9853f78ea949954fd15d30e1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847504"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109475"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立服務匯流排命名空間與主題和訂用帳戶
 
@@ -30,9 +30,9 @@ ms.locfileid: "54847504"
 如需完整的範本，請參閱[服務匯流排命名空間與主題和訂用帳戶][Service Bus namespace with topic and subscription]範本。
 
 > [!NOTE]
-> 下列 Azure Resource Manager 範本可供下載和部署。
+> 以下 Azure Resource Manager 模板可供下载和部署。
 > 
-> * [建立服務匯流排命名空間](service-bus-resource-manager-namespace.md)
+> * [创建服务总线命名空间](service-bus-resource-manager-namespace.md)
 > * [建立服務匯流排命名空間與佇列](service-bus-resource-manager-namespace-queue.md)
 > * [建立服務匯流排命名空間與佇列和授權規則](service-bus-resource-manager-namespace-auth-rule.md)
 > * [建立服務匯流排命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
@@ -55,7 +55,7 @@ ms.locfileid: "54847504"
 
 透過 Azure 資源管理員，您可以定義在部署範本時想要指定之值的參數。 此範本有一個 `Parameters` 區段，內含所有參數值。 針對隨您要部署的專案或要部署到的環境而變化的值定義參數。 請不要為永遠保持不變的值定義參數。 每個參數值都可在範本中用來定義所部署的資源。
 
-範本會定義下列參數：
+模板定义以下参数：
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 要建立的服務匯流排命名空間名稱。
@@ -151,7 +151,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>後續步驟
 現在您已使用 Azure Resource Manager 建立並部署資源，請檢視這些文件，了解如何管理這些資源︰
 
-* [使用 PowerShell 管理服務匯流排](service-bus-manage-with-ps.md)
+* [使用 PowerShell 管理服务总线](service-bus-manage-with-ps.md)
 * [使用服務匯流排總管管理服務匯流排資源](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md

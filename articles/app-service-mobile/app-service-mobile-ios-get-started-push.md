@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: crdun
-ms.openlocfilehash: b84990d053d92b9408e119b8aba28c8b9f8b046e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: 4d56453eb05e88c3558b66250439d6211e8069fd
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818993"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122569"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>將推播通知新增至您的 iOS 應用程式
 
@@ -41,7 +41,7 @@ ms.locfileid: "42818993"
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## <a name="configure-azure-to-send-push-notifications"></a>設定 Azure 來傳送推播通知
+## <a name="configure-azure-to-send-push-notifications"></a>配置 Azure 以发送推送通知
 
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 

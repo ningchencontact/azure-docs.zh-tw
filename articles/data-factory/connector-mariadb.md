@@ -3,21 +3,22 @@ title: 使用 Azure Data Factory 從 MariaDB 複製資料 | Microsoft Docs
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 MariaDB 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.author: jingwang
+origin.date: 02/01/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: f99a96f1b886f9f426c5dac64ac852368544475a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61401241"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MariaDB 複製資料
 
@@ -41,10 +42,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 MariaDB 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**MariaDB** | yes |
-| connectionString | 連線到 MariaDB 的 ODBC 連接字串。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `pwd` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | yes |
+| type | 類型屬性必須設定為：**MariaDB** | 是 |
+| connectionString | 連線到 MariaDB 的 ODBC 連接字串。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `pwd` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -127,9 +128,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 MariaDB 複製資料，請將複製活動中的來源類型設定為 **MariaDBSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**MariaDBSource** | yes |
+| type | 複製活動來源的類型屬性必須設定為：**MariaDBSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**

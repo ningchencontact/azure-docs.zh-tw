@@ -1,6 +1,6 @@
 ---
 title: Azure 串流分析地理空間函式簡介
-description: 此文章說明 Azure 串流分析作業所使用的地理空間函式。
+description: 本文說明 Azure 串流分析作業所使用的地理空間函式。
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479978"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>串流分析地理空間函式簡介
 
@@ -202,5 +202,5 @@ FROM input
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

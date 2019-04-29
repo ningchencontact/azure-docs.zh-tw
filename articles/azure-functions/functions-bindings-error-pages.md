@@ -10,14 +10,15 @@ ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/01/2018
-ms.author: cshoe
+origin.date: 02/01/2018
+ms.date: 11/22/2018
+ms.author: v-junlch
 ms.openlocfilehash: bf54d312de5625a7fa44cea4d5107e83cf15583c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248246"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105503"
 ---
 # <a name="azure-functions-error-handling"></a>Azure 函式錯誤處理
 
@@ -41,6 +42,8 @@ ms.locfileid: "50248246"
 
 + [佇列儲存體](functions-bindings-storage-queue.md#exceptions-and-return-codes)
 
-+ [服務匯流排](functions-bindings-service-bus.md#exceptions-and-return-codes)
++ [服务总线](functions-bindings-service-bus.md#exceptions-and-return-codes)
 
 + [資料表儲存體](functions-bindings-storage-table.md#exceptions-and-return-codes)
+
+<!-- Update_Description: update metedata properties -->

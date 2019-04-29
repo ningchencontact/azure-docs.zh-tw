@@ -2,20 +2,26 @@
 title: 使用 .NET 和 HDInsight 執行 Apache Sqoop 作業 - Azure
 description: 了解如何在 Apache Hadoop 叢集與 Azure SQL Database 之間使用 HDInsight .NET SDK 執行 Apache Sqoop 匯入和匯出。
 keywords: Sqoop 作業
-ms.reviewer: jasonh
+editor: cgronlun
+manager: jhubbard
 services: hdinsight
-author: hrasheed-msft
+documentationcenter: ''
+tags: azure-portal
+author: mumian
+ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
+ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: bca61c652953cd7fb9745c49773d22dc372b0f35
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+origin.date: 05/16/2018
+ms.date: 04/29/2019
+ms.author: v-yiso
+ms.openlocfilehash: ac0890be0abccb316bffc4d9bdd6868a80173e18
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128986"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>在 HDInsight 中使用 .NET SDK for Apache Hadoop 執行 Apache Sqoop 作業
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -24,6 +30,7 @@ ms.locfileid: "58448829"
 
 > [!NOTE]
 > 雖然本文中的程序可與以 Windows 為基礎或以 Linux 為基礎的 HDInsight 叢集搭配使用，不過，這些程序只能從 Windows 用戶端運作。 若要選擇其他方法，您可使用本文頂端的索引標籤選取器。
+> 
 
 ## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備下列項目：
@@ -40,61 +47,60 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 2. 從 Visual Studio Package Manager 主控台執行下列 NuGet 命令以匯入套件：
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
-
 3. 在 Program.cs 檔案中使用下列程式碼：
-   
+
         using System.Collections.Generic;
         using Microsoft.Azure.Management.HDInsight.Job;
         using Microsoft.Azure.Management.HDInsight.Job.Models;
         using Hyak.Common;
-   
+
         namespace SubmitHDInsightJobDotNet
         {
             class Program
             {
                 private static HDInsightJobManagementClient _hdiJobManagementClient;
-   
+
                 private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
-                private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+                private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.cn";
                 private const string ExistingClusterUsername = "<Cluster Username>";
                 private const string ExistingClusterPassword = "<Cluster User Password>";
-   
+
                 static void Main(string[] args)
                 {
                     System.Console.WriteLine("The application is running ...");
-   
+
                     var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
                     _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
-   
+
                     SubmitSqoopJob();
-   
+
                     System.Console.WriteLine("Press ENTER to continue ...");
                     System.Console.ReadLine();
                 }
-   
+
                 private static void SubmitSqoopJob()
                 {
                     var sqlDatabaseServerName = "<SQLDatabaseServerName>";
                     var sqlDatabaseLogin = "<SQLDatabaseLogin>";
                     var sqlDatabaseLoginPassword = "<SQLDatabaseLoginPassword>";
                     var sqlDatabaseDatabaseName = "<DatabaseName>";
-   
+
                     var tableName = "<TableName>";
                     var exportDir = "/tutorials/usesqoop/data";
-   
+
                     // Connection string for using Azure SQL Database.
                     // Comment if using SQL Server
-                    var connectionString = "jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + "@" + sqlDatabaseServerName + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
+                    var connectionString = "jdbc:sqlserver://" + sqlDatabaseServerName + ".database.chinacloudapi.cn;user=" + sqlDatabaseLogin + "@" + sqlDatabaseServerName + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
                     // Connection string for using SQL Server.
                     // Uncomment if using SQL Server
                     //var connectionString = "jdbc:sqlserver://" + sqlDatabaseServerName + ";user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
-   
+
                     var parameters = new SqoopJobSubmissionParameters
                     {
                         Files = new List<string> { "/user/oozie/share/lib/sqoop/sqljdbc41.jar" }, // This line is required for Linux-based cluster.
                         Command = "export --connect " + connectionString + " --table " + tableName + "_mobile --export-dir " + exportDir + "_mobile --fields-terminated-by \\t -m 1"
                     };
-   
+
                     System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
                     var response = _hdiJobManagementClient.JobManagement.SubmitSqoopJob(parameters);
                     System.Console.WriteLine("Validating that the response is as expected...");

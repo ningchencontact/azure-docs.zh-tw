@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: bfbdb05e8d2764d2b878e22d236cae30519da176
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62113966"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>叢集資源管理員架構概觀
 Service Fabric 叢集資源管理員是在叢集中執行的中央服務。 它會管理叢集中服務的所需狀態，特別是關於資源耗用和任何放置規則。 
@@ -52,7 +52,7 @@ Service Fabric 叢集資源管理員是在叢集中執行的中央服務。 它�
 
 <center>
 
-![資源平衡器架構][Image1]
+![资源均衡器体系结构][Image1]
 </center>
 
 執行階段可能發生許多變化。 例如，假設某些服務耗用的資源數量改變、某些服務失敗，以及某些節點加入和離開叢集。 節點上的所有變更會彙總，並定期傳送到叢集資源管理員服務 (1，2)，它們會在其中再次彙總、分析及儲存。 每隔幾秒鐘，服務就會查看變更，並判斷是否需要採取任何動作 (3)。 例如，它可能會注意到某些空的節點已新增至叢集。 如此一來，它會決定要將某些服務移至這些節點。 叢集資源管理員可能也會注意到特定節點是超載的，或者某些服務已失敗或刪除，而在別處釋放資源。
@@ -61,7 +61,7 @@ Service Fabric 叢集資源管理員是在叢集中執行的中央服務。 它�
 
 <center>
 
-![資源平衡器架構][Image2]
+![资源均衡器体系结构][Image2]
 </center>
 
 ## <a name="next-steps"></a>後續步驟

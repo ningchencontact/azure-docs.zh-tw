@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473734"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 建立 Linux VM
 
@@ -50,7 +50,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 使用對應到常見作業系統散發版本的 Azure CLI 別名，可以快速選擇版本。 下表列出別名 (依 Azure CLI 0.10 版)。 所有使用 `quick-create` 建立的 VM 預設都是由固態硬碟 (SSD) 儲存空間支援，SSD 提供更快的佈建及高效能磁碟存取。 (這些別名代表 Azure 上可用 OS 散發版本的一小部分。 [在 PowerShell 中](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、[Web 上](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)搜尋映像以在 Azure Marketplace 中尋找更多映像，或者[可以上傳您自己的自訂映像](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。)
 
-| Alias | 发布者 | 产品/服务 | SKU | 版本 |
+| Alias | 发布者 | 产品/服务 | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7.2 |最新 |
 | CoreOS |CoreOS |CoreOS |Stable |最新 |

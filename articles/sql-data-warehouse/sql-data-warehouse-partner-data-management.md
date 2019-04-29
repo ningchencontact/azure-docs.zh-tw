@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 08d168a688935328fb4716b849c70e828545765b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476163"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL 資料倉儲資料管理合作夥伴
 若要建立資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 本文將重點放在具有可支援「Azure SQL 資料倉儲」之資料管理工具和解決方案的 Microsoft 合作夥伴公司。

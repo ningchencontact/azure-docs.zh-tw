@@ -8,11 +8,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: faf378a81a6db24acc676bed82fe495cfb108612
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61421837"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>針對適用於 MySQL 的 Azure 資料庫的連線問題進行疑難排解
 
@@ -24,7 +24,7 @@ ms.locfileid: "57855515"
 * 某些「適用於 MySQL 的 Azure 資料庫」資源已達上限
 * 服務基礎結構發生問題
 * 正在服務中執行維護
-* 藉由調整 vCore 數目或移至不同的服務層，變更伺服器的計算配置
+* 藉由調整虛擬核心數目或移至不同的服務層級，變更伺服器的計算配置
 
 一般而言，「適用於 MySQL 的 Azure 資料庫」的連線問題可分類如下：
 
@@ -33,7 +33,7 @@ ms.locfileid: "57855515"
 
 ## <a name="troubleshoot-transient-errors"></a>針對暫時性錯誤進行疑難排解
 
-當執行維護、系統遇到硬體或軟體錯誤，或是您變更伺服器的 vCore 或服務層時，就會發生暫時性錯誤。 「適用於 MySQL 的 Azure 資料庫」服務內建高可用性，並已設計為可自動解決這些類型的問題。 不過，您的應用程式會有一小段時間與伺服器中斷連線，通常最多不超過 60 秒。 有些事件可能偶爾需要更長的時間才能解決，例如當有大型交易導致長時間執行的復原時。
+當執行維護、系統遇到硬體或軟體錯誤，或是您變更伺服器的虛擬核心或服務層級時，就會發生暫時性錯誤。 「適用於 MySQL 的 Azure 資料庫」服務內建高可用性，並已設計為可自動解決這些類型的問題。 不過，您的應用程式會有一小段時間與伺服器中斷連線，通常最多不超過 60 秒。 有些事件可能偶爾需要更長的時間才能解決，例如當有大型交易導致長時間執行的復原時。
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>解決暫時性連線問題的步驟
 

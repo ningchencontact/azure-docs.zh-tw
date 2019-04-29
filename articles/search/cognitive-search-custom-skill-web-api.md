@@ -12,11 +12,11 @@ ms.date: 01/31/2019
 ms.author: luisca
 ms.custom: seojan2018
 ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757300"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61343334"
 ---
 # <a name="custom-web-api-skill"></a>自訂 Web API 技能
 
@@ -41,7 +41,7 @@ Microsoft.Skills.Custom.WebApiSkill
 | uri | _JSON_ 承載傳送目標 Web API 的 URI。 僅允許 **https** URI 配置 |
 | httpMethod | 傳送承載時使用的方法。 允許的方法為 `PUT` 和 `POST` |
 | httpHeaders | 機碼值組的集合，其中機碼代表標頭名稱，而值代表將與承載一起傳送至 Web API 的標頭值。 下列標頭禁止加入此集合：`Accept`、`Accept-Charset`、`Accept-Encoding`、`Content-Length`、`Content-Type`、`Cookie`、`Host`、`TE`、`Upgrade`、`Via` |
-| timeout | (選擇性) 指定時，表示進行 API 呼叫的 http 用戶端逾時。 它的格式必須是 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 例如，`PT60S` 為 60 秒。 如果沒有設定，則選擇的預設值為 30 秒。 逾時可以設定為最大值 90 秒，最小值 1 秒。 |
+| timeout | (選擇性) 指定時，表示進行 API 呼叫的 http 用戶端逾時。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 例如，`PT60S` 為 60 秒。 如果沒有設定，則選擇的預設值為 30 秒。 逾時可以設定為最大值 90 秒，最小值 1 秒。 |
 | batchSize | (選擇性) 指出每個 API 呼叫將傳送多少「資料記錄」(請參閱下面的 _JSON_ 承載結構)。 如果未設定，則選擇的預設值為 1000。 我們建議您使用此參數在編製索引的輸送量和 API 負載之間達到適當的取捨 |
 
 ## <a name="skill-inputs"></a>技能輸入
@@ -201,8 +201,8 @@ Microsoft.Skills.Custom.WebApiSkill
 
 針對 Web API 無法使用或傳回 HTTP 錯誤的情況，將在索引子執行歷程記錄中加入有關 HTTP 錯誤的任何可用詳細資料的易懂錯誤。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-+ [如何定義技能集](cognitive-search-defining-skillset.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [在認知搜尋中加入自訂技能](cognitive-search-custom-skill-interface.md)
 + [建立使用文字翻譯 API 的自訂技能](cognitive-search-create-custom-skill-example.md)

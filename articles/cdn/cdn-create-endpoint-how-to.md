@@ -15,11 +15,11 @@ ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679530"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>建立 Azure CDN 端點
 此文章說明在現有 CDN 設定檔中建立 [Azure 內容傳遞網路 (CDN)](cdn-overview.md) 端點的所有設定。 建立設定檔與端點之後，即可開始將內容傳遞給您的客戶。 如需建立設定檔和端點的快速入門，請參閱[快速入門：建立 Azure CDN 設定檔和端點](cdn-create-new-endpoint.md)。

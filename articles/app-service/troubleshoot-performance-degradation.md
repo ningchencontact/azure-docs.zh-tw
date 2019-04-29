@@ -18,11 +18,11 @@ ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884217"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128444"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>針對 Azure App Service 中應用程式效能變慢的問題進行疑難排解
 本文可協助您針對 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 中應用程式效能變慢的問題進行疑難排解。

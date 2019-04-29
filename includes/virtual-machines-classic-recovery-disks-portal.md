@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 5490bdd3934b438a683ce4271fbec20b3d13735d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58115576"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770851"
 ---
 如果 Azure 中的虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是應用程式更新無效，導致 VM 無法成功開機。 本文說明如何使用 Azure 入口網站將虛擬硬碟連接至另一個 VM，以修正任何錯誤，然後重新建立原始 VM。
 

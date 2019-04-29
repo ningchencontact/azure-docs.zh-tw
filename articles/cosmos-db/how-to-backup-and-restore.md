@@ -8,11 +8,11 @@ ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 1d886e146e9e18eb735e6f88d2cb2c1a4a472924
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61059619"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中從備份還原資料 
 
@@ -34,10 +34,10 @@ ms.locfileid: "57996888"
 
 * 如果一個或多個容器遭到刪除，您應該提供 Azure Cosmos 帳戶名稱、資料庫名稱和容器名稱， 並指出是否有使用相同名稱的容器存在。
 
-* 如果您不小心刪除或損毀您的資料，您應該連絡[Azure 支援](https://azure.microsoft.com/support/options/)8 小時內，讓 Azure Cosmos DB 小組可以協助您從備份還原資料。
+* 如果意外删除或损坏了数据，则应在 8 小时内联系 [Azure 支持](https://azure.microsoft.com/support/options/)，以便 Azure Cosmos DB 团队帮助你从备份中还原数据。
   
-  * 如果您不小心刪除您的資料庫或容器，請開啟 嚴重性 B 或嚴重性 C 的 Azure 支援案例。 
-  * 如果您不小心刪除或損毀的容器內的某些文件，請開啟 嚴重性 A 支援案例。 
+  * 如果意外删除了数据库或容器，请提交一个严重性级别为 B 或 C 的 Azure 支持案例。 
+  * 如果意外删除或损坏了容器中的某些文档，请提交一个严重性级别为 A 的支持案例。 
 
 發生資料損毀及容器內的文件遭到修改或刪除時，請**儘速刪除容器**。 藉由刪除容器，您可以避免 Azure Cosmos DB 覆寫備份。 如果基於某些原因而無法進行刪除，應儘速提出票證。 除了 Azure Cosmos 帳戶名稱、資料庫名稱和集合名稱，您應指定資料可以還原到哪個時間點。 愈精確愈好，如此可協助我們判斷該時間的最佳可用備份。 也請務必以 UTC 指定時間。 
 

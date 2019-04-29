@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
 ms.openlocfilehash: 4f2c242e27d8a0ed6687eb4a3510bbce6e07694f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457629"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>下載 Azure SDK for PHP
 
@@ -37,19 +37,19 @@ Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azur
 本主題中的指示假設您已安裝 [PHP][install-php]。
 
 > [!NOTE]
-> 您必須有 PHP 5.5 或更新版本，才能使用適用於 Azure 的 PHP 用戶端程式庫。
+> 若要使用 Azure 的 PHP 客户端库，则必须安装 PHP 5.5 或更高版本。
 >
 >
 
 ## <a name="php-client-libraries-for-azure"></a>適用於 Azure 的 PHP 用戶端程式庫
 
-適用於 Azure 的 PHP 用戶端程式庫提供了一個介面，以便從任何作業系統存取 Azure 功能，例如資料管理服務和雲端服務。 您可以透過編輯器安裝這些程式庫。
+適用於 Azure 的 PHP 用戶端程式庫提供了一個介面，以便從任何作業系統存取 Azure 功能，例如資料管理服務和雲端服務。 可以通过 Composer 安装这些库。
 
 如需有關如何使用適用於 Azure 的 PHP 用戶端程式庫的詳細資訊，請參閱[如何使用 Blob 服務][blob-service]、[如何使用表格服務][table-service]，和[如何使用佇列服務][queue-service]。
 
-### <a name="install-via-composer"></a>透過編輯器安裝
+### <a name="install-via-composer"></a>通过 Composer 安装
 
-1. [安裝 Git][install-git]。 在 Windows 中，您也需要將 Git 可執行檔新增至 PATH 環境變數。
+1. [安装 Git][install-git]。 在 Windows 中，您也需要將 Git 可執行檔新增至 PATH 環境變數。
 
 2. 在專案的根目錄中建立名為 **composer.json** 的檔案，並新增下列程式碼：
 
@@ -67,9 +67,9 @@ Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azur
 
 ## <a name="azure-powershell-and-azure-emulators"></a>Azure PowerShell 和 Azure 模擬器
 
-Azure PowerShell 是一組 PowerShell Cmdlet，可用於部署和管理 Azure 服務 (例如雲端服務和虛擬機器)。 Azure 模擬器是雲端服務和資料管理服務的模擬器，可讓您在本機測試應用程式。 只有 Windows 支援這些元件。
+Azure PowerShell 是一組 PowerShell Cmdlet，可用於部署和管理 Azure 服務 (例如雲端服務和虛擬機器)。 Azure 模擬器是雲端服務和資料管理服務的模擬器，可讓您在本機測試應用程式。 这些组件仅受 Windows 支持。
 
-安裝 Azure PowerShell 和 Azure 模擬器的建議方式就是使用 [Microsoft Web Platform Installer][download-wpi]。 請注意，您也可以選擇安裝其他開發元件，例如 PHP、SQL Server、適用於 SQL Server for PHP 的 Microsoft 驅動程式和 WebMatrix。
+安裝 Azure PowerShell 和 Azure 模擬器的建議方式就是使用 [Microsoft Web Platform Installer][download-wpi]。 请注意，也可以选择安装其他开发组件，如 PHP、SQL Server、Microsoft Drivers for SQL Server for PHP 和 WebMatrix。
 
 如需有關如何使用 Azure PowerShell 的詳細資訊，請參閱[如何使用 Azure PowerShell][powershell-tools]。
 

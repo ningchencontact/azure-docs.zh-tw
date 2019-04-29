@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
 ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731303"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800069"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>使用 VMAccess 擴充功能搭配 Azure CLI 在 Linux VM 上管理系統管理使用者、SSH 及檢查或修復磁碟
 ## <a name="overview"></a>概觀
@@ -36,7 +36,7 @@ Linux VM 的磁碟顯示錯誤。 您不知怎麼重設 Linux VM的根密碼，�
 
 您可以對這類 Linux 發行版執行 VM 存取擴充功能。
 
-| 配送映像 | 版本 |
+| 配送映像 | Version |
 |---|---|
 | Ubuntu | 16.04 LTS、14.04 LTS 和 12.04 LTS |
 | Debian | Debian 7.9+、8.2+ |

@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: de9261548ec79e206b0db87caabc1fa4c9ad6771
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591545"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094499"
 ---
 <a name="retrieve-offers"></a>擷取供應項目
 ===============
@@ -35,7 +35,7 @@ ms.locfileid: "56591545"
 | **名稱**         |  **說明**                         |  **資料類型** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | 發行者識別碼，例如 `contoso` |   字串    |
-|  api-version     | API 的最新版本                    |    日期        |
+|  api-version     | API 的最新版本                    |    date        |
 |  |  |
 
 
@@ -45,7 +45,7 @@ ms.locfileid: "56591545"
 |  **名稱**        |         **值**       |
 |  --------------- |       ----------------  |
 |  Content-Type    | `application/json`      |
-|  Authorization   | `Bearer YOUR_TOKEN`     |
+|  授權   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
 

@@ -13,11 +13,11 @@ ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
 ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61486337"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>使用擷取的資料執行跨租用戶分析 - 多租用戶應用程式
  
@@ -208,7 +208,7 @@ ms.locfileid: "58481377"
 
 Contoso Concert Hall 的上述繪圖顯示並非所有事件都發生搶購熱潮。 試用篩選選項，以查看其他地點的銷售趨勢。
 
-票證銷售模式的深入解析可能會引導 Wingtip Tickets 最佳化其商務模型。 Wingtip 或許應該引進不同計算大小的服務層，而非對所有租用戶平均收費。 可以為需要每日銷售更多票證的較大地點，提供具有較高服務等級協定 (SLA) 的較高層級。 這些地點可以將其資料庫放在具有較高每個資料庫資源限制的集區中。 每個服務層可以有每小時銷售配置，針對超過的配置收取額外費用。 具有定期銷售爆發的較大地點可以從較高的層級獲益，Wingtip Tickets 也可以更有效率地從其服務創造營收。
+票證銷售模式的深入解析可能會引導 Wingtip Tickets 最佳化其商務模型。 Wingtip 或許應該引進不同計算大小的服務層級，而非對所有租用戶平均收費。 可以為需要每日銷售更多票證的較大地點，提供具有較高服務等級協定 (SLA) 的較高層級。 這些地點可以將其資料庫放在具有較高每個資料庫資源限制的集區中。 每個服務層級可以有每小時銷售配置，針對超過的配置收取額外費用。 具有定期銷售爆發的較大地點可以從較高的層級獲益，Wingtip Tickets 也可以更有效率地從其服務創造營收。
 
 同時，有些 Wingtip Tickets 客戶抱怨，他們在銷售足夠票證以攤平服務成本方面有難處。 或許在這些深入解析中，有機會可以為表現不佳的地點促進票證銷售。 較高的銷售會增加服務的認知值。 以滑鼠右鍵按一下 fact_Tickets，然後選取 [新的量值]。 針對稱為 **AverageTicketsSold** 的新量值輸入下列運算式：
 

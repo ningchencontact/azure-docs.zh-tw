@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
 ms.openlocfilehash: bc7569c9f230abb7677a8df9fc0cc0268e57296f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661168"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725891"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Acto 如何使用 Service Fabric 平台
 本文說明 Reliable Actors 在 Azure Service Fabric 平台上的運作方式。 Reliable Actors 會在名為*動作項目服務*的具狀態可靠服務實作上裝載的架構中執行。 動作項目服務包含管理生命週期和您的動作項目用於發送之訊息所需的所有元件︰

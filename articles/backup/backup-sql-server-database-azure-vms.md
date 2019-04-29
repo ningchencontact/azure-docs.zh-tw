@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 08eff24dc42f594424d109b82933b01b5c1be454
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733895"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -40,12 +40,12 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 ### <a name="establish-network-connectivity"></a>建立網路連線
 
-要執行任何作業時，SQL Server VM 虛擬機器都必須連線至 Azure 公用 IP 位址。 VM 作業 （資料庫探索、 設定備份、 排程備份、 還原復原點，依此類推） 失敗，而不連線到公用 IP 位址。 請透過下列其中一個選項建立連線：
+要執行任何作業時，SQL Server VM 虛擬機器都必須連線至 Azure 公用 IP 位址。 （資料庫探索、 設定備份、 排程備份、 還原復原點等等） 的 VM 作業失敗，而不需要連線到公用 IP 位址。 請透過下列其中一個選項建立連線：
 
 - **允許 Azure 資料中心 IP 範圍**：允許下載中的 [IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 若要存取 網路安全性群組 (NSG)，請使用**Set-azurenetworksecurityrule** cmdlet。
 - **部署 HTTP Proxy 伺服器以路由流量**：當您在 Azure VM 上備份 SQL Server 資料庫時，VM 上的備份擴充功能會使用 HTTPS API 將管理命令傳送至 Azure 備份，並將資料傳送至 Azure 儲存體。 備份延伸模組也會使用 Azure Active Directory (Azure AD) 進行驗證。 透過 HTTP Proxy 路由傳送這三項服務的備份延伸模組流量。 延伸模組是已針對至公用網際網路存取之唯一元件。
 
-每個選項各有其優缺點
+每個選項都有優點和缺點
 
 **選項** | **優點** | **缺點**
 --- | --- | ---
@@ -60,11 +60,11 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 - 為了探索虛擬機器上的資料庫，Azure 備份會建立帳戶 **NT SERVICE\AzureWLBackupPluginSvc**。 此帳戶用於備份和還原，且必須具有 SQL 系統管理員權限。
 - Azure 備份會利用 **NT AUTHORITY\SYSTEM** 帳戶進行資料庫探索/查詢，因此該帳戶必須在 SQL 上公開登入。
 
-如果您尚未從 Azure Marketplace 建立 SQL Server VM，您可能會收到 **UserErrorSQLNoSysadminMembership** 錯誤。 若發生此狀況，請[依照下列指示操作](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)。
+如果您尚未從 Azure Marketplace 建立 SQL Server VM，您可能會收到 **UserErrorSQLNoSysadminMembership** 錯誤。 如果發生這種情況[遵循這項指示](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)。
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>確認 Azure 備份的資料庫命名方針
 
-請避免使用下列資料庫名稱：
+避免以下的資料庫名稱：
 
   * 後置/前置空格
   * 後置 ‘!’
@@ -106,7 +106,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
     ![部署成功訊息](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Azure 備份會探索 VM 上的所有 SQL Server 資料庫。 在探索期間，會在背景中執行下列作業：
+8. Azure 備份會探索 VM 上的所有 SQL Server 資料庫。 在探索期間會在背景進行以下：
 
     - Azure 備份向用來備份工作負載的保存庫註冊 VM。 已註冊 VM 上的所有資料庫都只能備份至此保存庫。
     - Azure Backup 在 VM 上安裝 **AzureBackupWindowsWorkload** 擴充功能。 SQL 資料庫上不會安裝代理程式。
@@ -171,7 +171,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 若要建立備份原則：
 
 1. 在保存庫中，按一下 [備份原則] > [新增]。
-2. 在 [新增] 功能表中，按一下 [Azure VM 中的 SQL Server]。 這會定義原則類型。
+2. 在 [新增] 功能表中，按一下 [Azure VM 中的 SQL Server]。 若要定義的原則類型。
 
    ![針對新備份原則選擇原則類型](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -179,7 +179,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 4. 在 [完整備份原則] 中選取 [備份頻率]，然後選擇 [每日] 或 [每週]。
 
    - 若選擇 [每日]，請選取備份作業的開始時間和時區。
-   - 您必須執行完整備份，因此無法關閉 [完整備份] 選項。
+   - 您必須先執行完整備份，因為您無法關閉**完整備份**選項。
    - 按一下 [完整備份] 以檢視原則。
    - 您無法為每日完整備份建立差異備份。
    - 若選擇 [每週]，請選取備份作業的開始日期 (星期幾)、時間和時區。

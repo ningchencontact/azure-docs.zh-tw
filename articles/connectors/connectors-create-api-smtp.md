@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106145"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>使用 Azure Logic Apps 從您的 SMTP 帳戶傳送電子郵件
 
@@ -53,7 +53,7 @@ ms.locfileid: "50230500"
 
 1. 出現提示時，請提供這項連線資訊：
 
-   | 屬性 | 必要 | 說明 |
+   | 屬性 | 必要項 | 描述 |
    |----------|----------|-------------|
    | 連線名稱 | 是 | 與 SMTP 伺服器的連線名稱 | 
    | **SMTP 伺服器位址** | 是 | SMTP 伺服器的位址 | 

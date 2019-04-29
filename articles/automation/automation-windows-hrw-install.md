@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/17/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7c6d8fbe54d89fc587c8841b8983d7fdcba29b7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0cc00b4f2075ba77490d310080b9968bedb8dc1f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61304935"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>部署 Windows 混合式 Runbook 背景工作角色
 
@@ -91,9 +91,13 @@ ms.locfileid: "59787966"
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2.將自動化解決方案新增至 Log Analytics 工作區
 
-解決方案會將功能加入 Azure 監視器記錄檔。 「自動化」解決方案會增加「Azure 自動化」的功能，包括對「混合式 Runbook 背景工作角色」的支援。 將解決方案新增至工作區時，它會自動將背景工作角色元件推送給您在下一步將安裝的代理程式電腦。
+自動化 Azure 監視器記錄解決方案會將功能加入 Azure 自動化，包括支援 Hybrid Runbook Worker。 將解決方案新增至工作區時，它會自動將背景工作角色元件推送給您在下一步將安裝的代理程式電腦。
 
-若要將**自動化**解決方案新增至 Log Analytics 工作區，請依照[使用方案庫新增解決方案](../log-analytics/log-analytics-add-solutions.md)中的指示進行操作。
+若要新增**自動化**Azure 監視器記錄到您的工作區中，然後再執行下列 PowerShell 的解決方案。
+
+```powershell-interactive
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
+```
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3.安裝 Microsoft Monitoring Agent
 

@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 4bd143b37e4403d039108b4349b27604b6503e0e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123020"
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>疑難排解：無法刪除 Azure 中的虛擬網路
+# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>故障排除：无法在 Azure 中删除虚拟网络
 
 當您嘗試刪除 Microsoft Azure 中的虛擬網路時，可能會收到錯誤。 本文提供可協助您解決此問題的疑難排解步驟。 
 
@@ -56,7 +56,7 @@ ms.locfileid: "50415214"
 
 移至虛擬網路的 [概觀] 頁面。 檢查應用程式閘道的 [連線的裝置]。
 
-![檢查連線的裝置](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![检查已连接的设备](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 如果有應用程式閘道，您必須先移除它，才能刪除虛擬網路。
 
@@ -93,4 +93,4 @@ ms.locfileid: "50415214"
 ## <a name="next-steps"></a>後續步驟
 
 - [Azure 虛擬網路](virtual-networks-overview.md)
-- [Azure 虛擬網路的常見問題 (FAQ)](virtual-networks-faq.md)
+- [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md)

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
 ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847961"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123394"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 轉送的 REST 教學課程
 本教學課程描述如何建置簡單的 Azure 轉送主機應用程式來公開 REST 架構介面。 REST 可讓 Web 用戶端 (例如 Web 瀏覽器) 透過 HTTP 要求存取服務匯流排 API。

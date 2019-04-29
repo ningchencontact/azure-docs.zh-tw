@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/24/2017
 ms.author: yegu
 ms.openlocfilehash: de0b2e3ef7b0268540ef4896ade132a297ee88ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543317"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>如何設定進階 Azure Cache for Redis 的資料持續性
 Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集功能、持續性及虛擬網路支援等「進階」層功能。 本文說明如何在進階 Azure Cache for Redis 執行個體中設定持續性。

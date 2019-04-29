@@ -1,15 +1,10 @@
 ---
-author: rayne-wiselman
-ms.service: site-recovery
-ms.topic: include
-ms.date: 10/26/2018
-ms.author: raynew
 ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "58115573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122790"
 ---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>準備在 Windows 電腦上推送安裝
 
@@ -18,7 +13,7 @@ ms.locfileid: "58115573"
 
    > [!NOTE]
    > 如果您未使用網域帳戶，請停用本機電腦上的遠端使用者存取控制。 若要停用遠端使用者存取控制，請在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 登錄機碼下的新增 DWORD:**LocalAccountTokenFilterPolicy**。 將值設定為 **1**。 此工作的做法是在命令提示字元執行下列命令︰  
-   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+   > `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
 1. 在您要保護之電腦的 Windows 防火牆中，選取 [允許應用程式或功能通過防火牆]。 啟用 [檔案及印表機共用] 和 [Windows Management Instrumentation (WMI)]。 針對隸屬於網域的電腦，您可以利用群組原則物件 (GPO) 進行防火牆設定。
@@ -36,3 +31,5 @@ ms.locfileid: "58115573"
     d. 加入您所建立的帳戶。
 
     e. 輸入您為電腦啟用複寫時使用的認證。
+<!--Update_Description: wording update-->
+<!--ms.date: 09/17/2018-->

@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: b1a7e64cf6b85b517bc027d6541d63c9be729734
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773973"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>撰寫 Azure 資料總管查詢
 
@@ -614,9 +614,9 @@ StormEvents
 
 ### <a name="mv-expand"></a>mv-expand
 
-[**mv-依序展開**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator):從動態輸入的資料行展開多值的集合，讓集合中的每個值取得不同的資料列。 所展開資料列中的其他所有資料行則會重複。 並且與 makelist 相反。
+[**mv-expand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator)：從動態輸入的資料行展開多值的集合，讓集合中的每個值取得不同的資料列。 所展開資料列中的其他所有資料行則會重複。 並且與 makelist 相反。
 
-下列查詢會產生範例資料，藉由建立一組，並再利用它來示範**mv-展開**功能。
+以下查询通过创建一组数据，然后用其演示 **mv-expand** 功能来生成示例数据。
 
 **\[**[**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWOQQ6CQAxF9yTcoWGliTcws1MPIFygyk9EKTPpVBTj4Z2BjSz%2f738v7WF06r1vD2xcp%2bCoNq9yHDFYLIsvvW5Q0JybKYCco2omqnyNTxHW7oPFckbwajFZhB%2bIsE1trNZ0gi1dpuRmQ%2baC%2bjuuthS7Fbwvi%2f%2bP8lpGvAMP7Wr3A6BceSu7AAAA)**\]**
 
@@ -727,7 +727,7 @@ StormEvents
 | extend row_number = row_number()
 ```
 
-資料列集也是為序列化時的結果：**排序**，**頂端**，或**範圍**運算子，可以選擇性地跟著**專案**，**專案離開**，**擴充**，**其中**，**剖析**， **mv-展開**，或**採取**運算子。
+如果行集是以下运算的结果，则同样视为已序列化：sort、top 或 range 运算符，后可跟 project、project-away、extend、where、parse、mv-expand 或 take 运算符。
 
 **\[**[**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcvmF5XABRQSi5NBgqkVJal5KQpF%2beXxeaW5SalFCrZIHA1NAEGimf5iAAAA)**\]**
 

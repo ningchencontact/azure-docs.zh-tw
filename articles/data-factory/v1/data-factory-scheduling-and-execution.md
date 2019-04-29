@@ -14,15 +14,15 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 2d7fc45faf1fb77c7d9181e5a2419096dd1ad0f1
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61258901"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory 排程和執行
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[管線執行和觸發程序](../concepts-pipeline-execution-triggers.md)一文。
+> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[管線執行和觸發程序](../concepts-pipeline-execution-triggers.md)一文。
 
 本文說明 Azure Data Factory 應用程式模型的排程和執行層面。 本文假設您已了解 Data Factory 應用程式模型的基本概念，包括活動、管線、連結的服務和資料集。 請看下列文章，了解 Azure Data Factory 的基本概念：
 
@@ -184,10 +184,10 @@ Data Factory 管線中的一個活動可以接受零個或多個輸入「資料�
 ### <a name="dataset-availability"></a>資料集可用性 
 下表描述您在 **availability** 區段中可使用的屬性：
 
-| 屬性 | 說明 | 必要 | 預設值 |
+| 屬性 | 描述 | 必要項 | 預設值 |
 | --- | --- | --- | --- |
-| frequency |指定資料集配量生產的時間單位。<br/><br/><b>支援的頻率</b>：Minute、Hour、Day、Week、Month |yes |NA |
-| interval |指定頻率的倍數<br/><br/>「頻率 x 間隔」會決定產生配量的頻率。<br/><br/>如果您需要將資料集以每小時為單位來切割，請將 <b>Frequency</b> 設定為 <b>Hour</b>，將 <b>interval</b> 設定為 <b>1</b>。<br/><br/><b>注意</b>：如果您將 Frequency 指定為 Minute，建議您將 interval 設定為不小於 15 |yes |NA |
+| frequency |指定資料集配量生產的時間單位。<br/><br/><b>支援的頻率</b>：Minute、Hour、Day、Week、Month |是 |NA |
+| interval |指定頻率的倍數<br/><br/>「頻率 x 間隔」會決定產生配量的頻率。<br/><br/>如果您需要將資料集以每小時為單位來切割，請將 <b>Frequency</b> 設定為 <b>Hour</b>，將 <b>interval</b> 設定為 <b>1</b>。<br/><br/><b>注意</b>：如果您將 Frequency 指定為 Minute，建議您將 interval 設定為不小於 15 |是 |NA |
 | style |指定是否應該在間隔開始/結束時產生配量。<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>如果 Frequency 設為 Month，style 設為 EndOfInterval，則會在當月最後一天產生配量。 如果 style 設為 StartOfInterval，則會在每月的第一天產生配量。<br/><br/>如果 Frequency 設為 Day，style 設為 EndOfInterval，則會在當天最後一個小時產生配量。<br/><br/>如果 Frequency 設為 Hour，style 設為 EndOfInterval，則會在每小時結束時產生配量。 例如，若為下午 1 – 2 點期間的配量，此配量會在下午 2 點產生。 |否 |EndOfInterval |
 | anchorDateTime |定義排程器用來計算資料集配量界限的時間絕對位置。 <br/><br/><b>注意</b>：如果 AnchorDateTime 有比頻率更細微的日期部分，則系統會忽略那些更細微的部分。 <br/><br/>例如，如果 <b>interval</b> 為 <b>hourly</b> (frequency：hour 且 interval：1)，而且 <b>AnchorDateTime</b> 包含<b>分鐘和秒鐘</b>，則會忽略 AnchorDateTime 的<b>分鐘和秒鐘</b>部分。 |否 |01/01/0001 |
 | Offset |所有資料集配量的開始和結束移位所依據的時間範圍。 <br/><br/><b>注意</b>：如果同時指定 anchorDateTime 和 offset，結果會是合併的位移。 |否 |NA |
@@ -232,7 +232,7 @@ Data Factory 管線中的一個活動可以接受零個或多個輸入「資料�
 
 資料集中的 **policy** 區段定義資料集配量必須符合的準則或條件。 下表說明您可以在 **policy** 區段中使用的屬性：
 
-| 原則名稱 | 說明 | 適用於 | 必要 | 預設值 |
+| 原則名稱 | 描述 | 適用於 | 必要項 | 預設值 |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | 驗證 **Azure Blob** 中的資料是否符合最小的大小需求 (以 MB 為單位)。 |Azure Blob |否 |NA |
 | minimumRows | 驗證 **Azure SQL Database** 或 **Azure 資料表**中的資料是否包含最小的資料列數。 |<ul><li>連接字串</li><li>Azure 資料表</li></ul> |否 |NA |
@@ -268,7 +268,7 @@ Data Factory 管線中的一個活動可以接受零個或多個輸入「資料�
 ## <a name="activity-policies"></a>活動原則
 原則會影響活動的執行階段行為，特別是在處理資料表配量的時候。 下表提供詳細資料。
 
-| 屬性 | 允許的值 | 預設值 | 說明 |
+| 屬性 | 允許的值 | 預設值 | 描述 |
 | --- | --- | --- | --- |
 | 並行 |整數  <br/><br/>最大值：10 |1 |活動的並行執行數目。<br/><br/>它可決定不同配量上可以發生的平行活動執行數目。 例如，如果活動需要處理大量可用的資料，具有較大的並行值會加快資料處理。 |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |決定正在處理之資料配量的順序。<br/><br/>例如，如果您有 2 個配量 (一個發生在下午 4 點，另一個發生在下午 5 點)，而兩者都暫停執行。 如果您將 executionPriorityOrder 設為 NewestFirst，則會先處理下午 5 點的配量。 同樣地，如果您將 executionPriorityOrder 設為 OldestFIrst，則會處理下午 4 點的配量。 |

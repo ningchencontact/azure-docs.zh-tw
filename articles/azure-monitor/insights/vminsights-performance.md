@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61385878"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>如何使用適用於 VM 的 Azure 監視器 (預覽) 來繪製效能圖表
 適用於 VM 的 Azure 監視器包含一組以關鍵效能指標 (KPI) 為目標的效能圖表，可協助您判斷虛擬機器的執行狀況。 那些圖表會顯示一段時間的資源使用率，讓您能夠找出瓶頸、異常狀況，或切換至列出每部機器的檢視方塊，以根據所選計量來檢視資源使用率。 雖然在處理效能時要考量許多元素，不過適用於 VM 的 Azure 監視器著重於監視與處理器、記憶體、網路介面卡和磁碟使用率相關的主要作業系統指標。 效能可彌補健康狀態監視功能，並有助於揭示可能導致系統元件故障的問題、支援調整和最佳化以實現效率，或支援容量規劃。  

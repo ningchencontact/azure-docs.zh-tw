@@ -1,7 +1,6 @@
 ---
 title: 使用 Livy Spark 將作業提交至 Azure HDInsight 上的 Spark 叢集
 description: 了解如何使用 Apache Spark REST API 從遠端將 Spark 作業提交至 Azure HDInsight 叢集。
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 62056b27669f334f1d8007d5284979ac4701f9d9
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 99175f79e030a55991947313e4a7e32a738d6adb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097382"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 將遠端作業提交至 HDInsight Spark 叢集
 
@@ -31,13 +30,13 @@ ms.locfileid: "53650502"
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>提交 Apache Livy Spark 批次作業
 在提交批次作業之前，您必須將應用程式 jar 上傳至與叢集相關聯的叢集儲存體。 您可以使用命令列公用程式 [**AzCopy**](../../storage/common/storage-use-azcopy.md) 來執行此動作。 此外也有各種用戶端可用來上傳資料。 [在 HDInsight 上將 Apache Hadoop 作業的資料上傳](../hdinsight-upload-data.md)中可找到其詳細資訊。
 
-    curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
+    curl -k --user "<hdinsight user>:<user password>" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 
 **範例**：
 
 * 如果 jar 檔案位於叢集儲存體 (WASB) 上
   
-        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
+        curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
 * 如果您需要在輸入檔案 (在此範例中為 input.txt) 中傳遞 jar 檔案名稱和類別名稱
   
         curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
@@ -183,6 +182,6 @@ Livy 可為在叢集上執行的 Spark 作業提供高可用性。 以下是一�
 ## <a name="next-step"></a>後續步驟
 
 * [Apache Livy REST API 文件](https://livy.incubator.apache.org/docs/latest/rest-api.html)
-* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)
 

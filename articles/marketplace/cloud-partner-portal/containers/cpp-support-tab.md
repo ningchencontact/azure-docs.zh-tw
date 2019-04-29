@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 90a103bcdfdcd5d61433c05d4cadfa746c67e192
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472731"
 ---
 # <a name="container-support-tab"></a>容器支援索引標籤
 
-使用 [新增供應項目] 頁面中的 [支援] 索引標籤來協助您為供應項目提供技術及使用者支援資源。  支援表單上包括下列需要填寫的欄位：**工程連絡人**、**客戶支援**和**支援 URL**。 欄位名稱上附加的星號 (*) 表示此為必填欄位。
+使用 [新增供應項目] 頁面中的 [支援] 索引標籤來協助您為供應項目提供技術及使用者支援資源。  支援表單上提供下列輸入的區域：**工程連絡人**，**客戶支援部門**，以及**支援 Url**。 欄位名稱上附加的星號 (*) 表示此為必填欄位。
 
 ## <a name="support-form-fields"></a>支援表單欄位
 

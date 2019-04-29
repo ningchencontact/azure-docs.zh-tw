@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
 ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112915"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111384"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>管理及回應 Azure 資訊安全中心的安全性警示
 本文件可協助您使用 Azure 資訊安全中心來管理及回應安全性警示。
@@ -102,7 +102,7 @@ ms.locfileid: "56112915"
 > 資訊安全中心已向有限預覽發行一組新的偵測，可運用通用稽核架構的 auditd 記錄來偵測 Linux 電腦上的惡意行為。 請將含有您的訂用帳戶識別碼的電子郵件傳送給[我們](mailto:ASC_linuxdetections@microsoft.com)，以加入預覽。
 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 在本文件中，您了解到如何在資訊安全中心設定安全性原則。 如要深入了解資訊安全中心，請參閱下列主題：
 
 * [在 Azure 資訊安全中心處理安全性事件](security-center-incident.md)

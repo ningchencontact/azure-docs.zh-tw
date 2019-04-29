@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
 ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991201"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561993"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 訊息傳遞與重試
 
@@ -31,7 +31,7 @@ Event Grid 針對事件傳遞使用指數輪詢重試原則。 如果端點未�
 1. 1 分鐘
 1. 5 分鐘
 1. 10 分鐘
-1. 30 分鐘
+1. 30 分钟
 1. 1 小時
 1. 每小時，最多 24 小時
 

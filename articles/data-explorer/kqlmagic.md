@@ -1,6 +1,6 @@
 ---
-title: 使用 Jupyter Notebook 來分析 Azure 資料總管 中的資料
-description: 本主題說明您如何在 Azure 資料總管中的資料分析使用 Jupyter Notebook 和 Kqlmagic 擴充功能。
+title: 使用 Jupyter Notebook 分析 Azure 数据资源管理器中的数据
+description: 本主题介绍如何使用 Jupyter Notebook 和 Kqlmagic 扩展在 Azure 数据资源管理器中分析数据。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,16 +8,16 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: 896a5d13279c15f0035f214da3d5a7d7e6f1861f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60758410"
 ---
-# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>使用 Jupyter Notebook 會和 Kqlmagic 延伸來分析 Azure 資料總管 中的資料
+# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>使用 Jupyter Notebook 和 Kqlmagic 扩展分析 Azure 数据资源管理器中的数据
 
 Jupyter Notebook 是開放原始碼的 Web 應用程式，可讓您建立及共用含有即時程式碼、方程式、視覺效果和敘述文字的文件。 使用方式包含資料清理和轉換、數字模擬、統計模型、資料視覺效果和機器學習。
-[Jupyter Notebook](https://jupyter.org/) 支援 magic 函式，可藉由支援其他命令來擴展核心的功能。 KQL magic 是一種命令，可在 Jupyter Notebook 中擴展 Python 核心的功能，讓您能夠以原生方式執行 Kusto 語言查詢。 您可以輕鬆地結合 Python 和 Kusto 查詢語言，以使用與 `render` 命令整合在一起的豐富 Plot.ly 程式庫，來查詢並以視覺方式呈現資料。 支援用於執行查詢的資料來源。 這些資料來源包含 Azure 資料總管的記錄檔和遙測資料，以及 Azure 監視器記錄的快速又可高度擴充的資料探索服務和 Application Insights。 KQL magic 也可以與 Azure Notebooks、Jupyter Lab 及 Visual Studio Code Jupyter 延伸模組搭配運作。
+[Jupyter Notebook](https://jupyter.org/) 支援 magic 函式，可藉由支援其他命令來擴展核心的功能。 KQL magic 是一種命令，可在 Jupyter Notebook 中擴展 Python 核心的功能，讓您能夠以原生方式執行 Kusto 語言查詢。 您可以輕鬆地結合 Python 和 Kusto 查詢語言，以使用與 `render` 命令整合在一起的豐富 Plot.ly 程式庫，來查詢並以視覺方式呈現資料。 支援用於執行查詢的資料來源。 这些数据源包括 Azure 数据资源管理器（一个用于日志和遥测数据的快速且高度可缩放的数据探索服务），以及 Azure Monitor 日志和 Application Insights。 KQL magic 也可以與 Azure Notebooks、Jupyter Lab 及 Visual Studio Code Jupyter 延伸模組搭配運作。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -170,6 +170,6 @@ df.head(10)
 執行 help 命令來瀏覽下列包含所有支援功能的範例 Notebook：
 - [開始使用適用於 Azure 資料總管的 KQL magic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
 - [開始使用適用於 Application Insights 的 KQL magic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
-- [開始使用 Azure 監視器記錄檔的 KQL magic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
+- [适用于 Azure Monitor 日志的 KQL magic 入门](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [使用 Python 將 KQL magic 查詢參數化](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
 - [為 KQL magic 查詢圖表結果選擇調色盤](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)

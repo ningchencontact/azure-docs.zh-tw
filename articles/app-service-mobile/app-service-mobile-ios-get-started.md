@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
 ms.openlocfilehash: d0d6a3d9da2768c2d7b04bd9c4a7c24fba9eb65e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129003"
 ---
 # <a name="create-an-ios-app"></a>创建 iOS 应用
 
@@ -31,15 +31,15 @@ ms.locfileid: "57781675"
 
 若要完成本教學課程，您需要一部 Mac 和 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>步驟 i:建立新的 Azure 行動應用程式後端
+## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>步骤 I：建立新的 Azure 行動應用程式後端
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="step-ii-configure-the-backend-project"></a>步驟 II︰設定後端專案
+## <a name="step-ii-configure-the-backend-project"></a>步骤 II：配置后端项目
 
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="step-iii-download-and-run-the-ios-app"></a>步驟 III︰下載並執行 iOS 應用程式
+## <a name="step-iii-download-and-run-the-ios-app"></a>步骤 III：下载并运行 iOS 应用
 
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 

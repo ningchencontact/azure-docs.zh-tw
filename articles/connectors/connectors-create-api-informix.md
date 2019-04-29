@@ -12,11 +12,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60690812"
 ---
 # <a name="get-started-with-the-informix-connector"></a>開始使用 Informix 連接器
 Microsoft Connector for Informix 可將 Logic Apps 連接至 IBM Informix 資料庫中儲存的資源。 Informix 連接器包含透過 TCP/IP 網路與遠端 Informix 伺服器電腦通訊的 Microsoft 用戶端。 其中包括雲端資料庫 (例如在 Azure 虛擬化中執行的 IBM Informix for Windows)，以及使用內部部署資料閘道的內部部署資料庫。 請參閱支援的 IBM Informix 平台和版本 [清單](connectors-create-api-informix.md#supported-informix-platforms-and-versions) (本主題結尾處)。

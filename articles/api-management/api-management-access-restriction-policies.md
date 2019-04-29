@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
 ms.openlocfilehash: acc9f83923c8fdaae98cc55bc6baf62f56f2116b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60798598"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 
@@ -213,7 +213,7 @@ ms.locfileid: "58663140"
 
 ### <a name="example"></a>範例
 
-在下列範例中，原則只允許來自從單一 IP 位址或 IP 位址範圍指定的要求
+在下面的示例中，策略仅允许来自指定的单一 IP 地址或 IP 地址范围的请求
 
 ```xml
 <ip-filter action="allow">
@@ -467,7 +467,7 @@ ms.locfileid: "58663140"
 
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>根據權杖宣告授與作業的存取權
 
-此範例示範如何使用[驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT)原則來授權存取作業會根據權杖宣告值。
+以下示例演示了如何使用[验证 JWT](api-management-access-restriction-policies.md#ValidateJWT) 策略根据令牌声明值授予操作访问权限。
 
 ```xml
 <validate-jwt header-name="Authorization" require-scheme="Bearer" output-token-variable-name="jwt">
@@ -542,7 +542,7 @@ ms.locfileid: "58663140"
 | require-signed-tokens           | 布林值。 指定是否需要簽署權杖。                                                                                                                                                                                                                                                                                                                                                                                           | 否                                                                               | true                                                                              |
 | 分隔符號                       | 字串。 指定用於從多重值宣告中擷取一組值的分隔符號 (例如 ",")。                                                                                                                                                                                                                                                                                                                                          | 否                                                                               | N/A                                                                               |
 | url                             | 可從中取得 Open ID 設定中繼資料的 Open ID 設定端點 URL。 回應應該根據 URL 所定義的規格：`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`。 對於 Azure Active Directory，使用下列 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 代替您的目錄租用戶名稱，例如 `contoso.onmicrosoft.com`。 | 是                                                                              | N/A                                                                               |
-output-token-variable-name|字串。 將會收到權杖值的型別物件的內容變數的名稱[ `Jwt` ](api-management-policy-expressions.md)成功的權杖驗證時|否|N/A
+output-token-variable-name|字串。 成功进行令牌验证后，将作为 [`Jwt`](api-management-policy-expressions.md) 类型的对象接收令牌值的上下文变量的名称|否|N/A
 
 ### <a name="usage"></a>使用量
 

@@ -10,11 +10,11 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
 ms.openlocfilehash: 12799a308157c3c0e19de1f82c0fe3df44fad37e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106295"
 ---
 # <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Azure Logic Apps 中的 Azure 監視器記錄檔監視 B2B 訊息
 
@@ -46,7 +46,7 @@ ms.locfileid: "57195153"
 1. 立即尋找並選取您的整合帳戶。 在篩選清單中，選取要套用到整合帳戶的值。
 當您完成時，請選擇 [新增診斷設定]。
 
-   | 屬性 | 值 | 描述 | 
+   | 屬性 | Value | 描述 | 
    |----------|-------|-------------|
    | **訂用帳戶** | <*Azure-subscription-name*> | 與整合帳戶相關聯的 Azure 訂用帳戶 | 
    | **資源群組** | <*Azure-resource-group-name*> | 適用於整合帳戶的 Azure 資源群組 | 
@@ -88,7 +88,7 @@ ms.locfileid: "57195153"
 1. 立即尋找並選取您的整合帳戶。 在篩選清單中，選取要套用到整合帳戶的值。
 當您完成時，請選擇 [新增診斷設定]。
 
-   | 屬性 | 值 | 描述 | 
+   | 屬性 | Value | 描述 | 
    |----------|-------|-------------|
    | **訂用帳戶** | <*Azure-subscription-name*> | 與整合帳戶相關聯的 Azure 訂用帳戶 | 
    | **資源群組** | <*Azure-resource-group-name*> | 適用於整合帳戶的 Azure 資源群組 | 
@@ -121,7 +121,7 @@ ms.locfileid: "57195153"
 
 ## <a name="use-diagnostic-data-with-other-services"></a>將診斷資料與其他服務搭配使用
 
-Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程式的診斷資料的其他 Azure 服務，例如： 
+结合使用 Azure Monitor 日志后，可以扩展将逻辑应用的诊断数据用于其他 Azure 服务的方式，例如： 
 
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 

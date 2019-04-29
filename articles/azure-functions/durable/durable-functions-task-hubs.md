@@ -8,14 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2017
-ms.author: azfuncdf
+origin.date: 12/07/2017
+ms.date: 02/21/2019
+ms.author: v-junlch
 ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730257"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的工作中樞
 
@@ -29,11 +30,11 @@ ms.locfileid: "55753459"
 
 工作中樞由下列儲存體資源所組成：
 
-* 一或多個控制佇列。
-* 一個工作項目佇列。
-* 一個記錄資料表。
-* 一個執行個體資料表。
-* 一個儲存體容器，含有一或多個租用 blob。
+- 一或多個控制佇列。
+- 一個工作項目佇列。
+- 一個記錄資料表。
+- 一個執行個體資料表。
+- 一個儲存體容器，含有一或多個租用 blob。
 
 當協調器或活動函式執行時，或已排程執行時，就會在預設 Azure 儲存體帳戶中自動建立所有這些資源。 [效能和延展性](durable-functions-perf-and-scale.md)一文說明如何使用這些資源。
 
@@ -140,3 +141,5 @@ public static async Task<HttpResponseMessage> Run(
 
 > [!div class="nextstepaction"]
 > [了解如何處理版本控制](durable-functions-versioning.md)
+
+<!-- Update_Description: wording update -->

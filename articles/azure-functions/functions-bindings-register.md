@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 04/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5534086d5754691f650370e465fa2c63210e0dc7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437849"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>注册 Azure Functions 绑定扩展
 
@@ -37,7 +38,7 @@ Azure Functions 支持 HTTP 和现成的计时器。 若要使用其他服务，
 
 ## <a name="azure-portal-development"></a>Azure 入口網站開發
 
-當您建立函式或新增繫結時，系統會在觸發程序或繫結的擴充功能需要註冊時提示您。 請按一下 [安裝] 來註冊擴充功能，以回應提示。 安裝在取用方案上可能需要多達 10 分鐘。
+當您建立函式或新增繫結時，系統會在觸發程序或繫結的擴充功能需要註冊時提示您。 請按一下 [安裝] 來註冊擴充功能，以回應提示。 安裝在取用方案上可能需要多達 10 分鐘。 
 
 針對指定的函式應用程式，您只須安裝每個延伸模組一次。 針對已支援但在入口網站中未提供的繫結，或是若要更新已安裝的延伸模組，您也可以[從入口網站手動安裝或更新 Azure Functions 繫結延伸模組](install-update-binding-extensions-manual.md)。  
 
@@ -75,4 +76,5 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <targ
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
 > [Azure Functions 触发器和绑定示例](./functions-bindings-example.md)
+
 

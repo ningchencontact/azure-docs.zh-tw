@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60769323"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>自動調整和 App Service 環境 v1
 
@@ -41,7 +41,7 @@ Azure App Service 環境支援「自動調整」 。 您可以根據度量或排
 
 該處的介面應相當熟悉，因為這是和您調整 App Service 方案時所看到的相同的體驗。 
 
-![手動調整設定。][scale-manual]
+![手动缩放设置。][scale-manual]
 
 您也可以設定自動調整設定檔。
 
@@ -55,14 +55,14 @@ Azure App Service 環境支援「自動調整」 。 您可以根據度量或排
 
 ![調整規則。][scale-rule]
 
- 任何背景工作集區或前端度量均可用來定義自動調整規則。 這些度量是您可以在資源刀鋒視窗圖形中監視或設定警示的相同度量。
+ 可以使用任何辅助池或前端指标来定义自动缩放规则。 這些度量是您可以在資源刀鋒視窗圖形中監視或設定警示的相同度量。
 
 ## <a name="autoscale-example"></a>自動調整範例
 App Service 環境的自動調整可使用逐步解說一個案例來加以說明。
 
 本文說明設定自動調整時所有必要的考量。 本文將引導您進行當您納入 App Service 環境所裝載的自動調整 App Service 環境時派上用場的所有互動。
 
-### <a name="scenario-introduction"></a>案例簡介
+### <a name="scenario-introduction"></a>方案简介
 Frank 是企業的系統管理員，他已將所負責的部分工作量移轉至 App Service 環境。
 
 App Service 環境設為以如下方式手動調整：
@@ -110,7 +110,7 @@ Frank 非常熟悉應用程式。 他知道負載尖峰時間是上午 9:00 到�
 | **冷靜 (分鐘)：** 20 |**冷靜 (分鐘)：** 10 |
 
 ### <a name="app-service-plan-inflation-rate"></a>App Service 方案擴大率
-設定為自動調整的 App Service 方案，就會以每小時最大的速率進行。 此速率可以根據自動調整規則上提供的值計算。
+設定為自動調整的 App Service 方案，就會以每小時最大的速率進行。 可以根据自动缩放规则中提供的值计算此比率。
 
 了解及計算「App Service 方案擴大率」  對 App Service 環境自動調整來說很重要，因為背景工作集區的調整變更並非瞬間完成。
 
@@ -142,8 +142,8 @@ App Service 方案擴大率的計算方式如下：
 
 ![裝載於背景工作集區中的多個 App Service 方案的總擴大率計算。][ASP-Total-Inflation]
 
-### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>使用 App Service 方案擴大率來定義背景工作集區自動調整規則
-裝載 App Service 方案且設定為自動調整的背景工作集區必須配置容量緩衝區。 緩衝區可在需要時允許自動調整作業增加和縮減 App Service 方案。 最小緩衝區會計算為總計 App Service 方案擴大率。
+### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>使用应用服务计划膨胀率定义辅助池自动缩放规则
+裝載 App Service 方案且設定為自動調整的背景工作集區必須配置容量緩衝區。 有了缓冲区，即可根据需要通过自动缩放操作来缩放应用服务计划。 最小緩衝區會計算為總計 App Service 方案擴大率。
 
 由於 App Service 環境調整作業需要一些時間才能套用，任何變更應該考量當調整正在進行時可能會發生的進一步需求變更。 為了因應此延遲，建議您使用計算的總計 App Service 方案擴大率作為對每個自動調整作業加入的執行個體數目下限。
 
@@ -166,7 +166,7 @@ App Service 方案擴大率的計算方式如下：
 | **資源：** 背景工作集區 1 |**資源：** 背景工作集區 1 |
 | **計量：** WorkersAvailable |**計量：** WorkersAvailable |
 | **作業：** 小於 8 |**作業：** 小於 3 |
-| **持續時間：** 20 分鐘 |**持續時間：** 30 分鐘 |
+| **持續時間：** 20 分鐘 |**持續時間：** 30 分钟 |
 | **時間彙總：** 平均值 |**時間彙總：** 平均值 |
 | **動作：** 將計數增加 8 |**動作：** 將計數增加 3 |
 | **冷靜 (分鐘)：** 180 |**冷靜 (分鐘)：** 180 |

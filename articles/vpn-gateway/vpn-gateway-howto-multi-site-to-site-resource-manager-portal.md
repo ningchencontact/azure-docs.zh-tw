@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60760415"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>將站台對站台連線新增至使用現有 VPN 閘道連線的 VNet
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure 门户](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (傳統)](vpn-gateway-multi-site.md)
 >
 > 

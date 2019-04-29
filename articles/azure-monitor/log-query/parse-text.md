@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
 ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61426726"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>剖析 Azure 監視器記錄中的文字資料
 Azure 監視器所收集的部分記錄資料將在單一屬性中包含多個資訊片段。 將此資料剖析成多個屬性可讓您更輕鬆地在查詢中使用。 常見的範例為[自訂記錄檔](../../log-analytics/log-analytics-data-sources-custom-logs.md)，可將具有多個值的整個記錄檔項目收集成單一屬性。 您可以針對不同的值建立不同的屬性，以便在每個屬性中搜尋並彙總。

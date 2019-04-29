@@ -10,11 +10,11 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61226911"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自動化中的 Runbook 輸出與訊息
 大部分 Azure 自動化 Runbook 都有一些輸出形式。 此輸出可能是給使用者的錯誤訊息，或是您想要與另一個 Runbook 搭配使用的物件。 Windows PowerShell 提供 [多個資料流](/powershell/module/microsoft.powershell.core/about/about_redirection) 從指令碼或工作流程傳送輸出。 Azure 自動化會以不同方式處理這些資料流中的每一個。 建立 Runbook 時，應遵循如何使用每個資料流的最佳做法。
@@ -168,7 +168,7 @@ Windows PowerShell 使用 [喜好設定變數](https://technet.microsoft.com/lib
 
 下表列出 Runbook 中有效之喜好設定變數值的行為。
 
-| 值 | 行為 |
+| Value | 行為 |
 |:--- |:--- |
 | Continue |記錄訊息並繼續執行 Runbook。 |
 | SilentlyContinue |繼續執行 Runbook 但不記錄訊息。 此值有忽略訊息的作用。 |

@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 9a4b99e311a65435595c9cb0455b0411b7c09324
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883108"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受控服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：

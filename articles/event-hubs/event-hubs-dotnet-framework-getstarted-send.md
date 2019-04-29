@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 0cccf6f6187f894faadbe4f572d75c483638aafd
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 097605a81e263ba558c616bd9f0d1ac38092f86e
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679239"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738356"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>傳送事件，或從使用.NET Framework 的 Azure 事件中樞接收事件
 Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可接收和處理數百萬個事件。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
@@ -103,7 +103,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 5. 執行程式，並確定沒有任何錯誤。
   
 ## <a name="receive-events"></a>接收事件
-在本節中，您會撰寫.NET Framework 主控台應用程式從使用您建立事件中樞接收訊息[Event Processor Host](event-hubs-event-processor-host.md)。 [事件處理器主機](event-hubs-event-processor-host.md)是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞的事件接收作業。 使用事件處理器主機，可讓您將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。 此範例說明單一接收者如何使用事件處理器主機。 [相應放大事件處理][Scale out Event Processing with Event Hubs]範例說明如何搭配使用事件處理器主機與多個接收者。
+在本節中，您會撰寫.NET Framework 主控台應用程式從使用您建立事件中樞接收訊息[Event Processor Host](event-hubs-event-processor-host.md)。 [事件處理器主機](event-hubs-event-processor-host.md)是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞的事件接收作業。 使用事件處理器主機，可讓您將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。 
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -225,7 +225,6 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 <!-- Links -->
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Event Hubs overview]: event-hubs-about.md
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Azure Storage account]:../storage/common/storage-create-storage-account.md
 [Event Processor Host]: event-hubs-event-processor-host.md

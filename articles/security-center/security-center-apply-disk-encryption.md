@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: d285461aef1e56dfd08a162e51ada0340d6eeae4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095416"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>在 Azure 資訊安全中心中套用磁碟加密
 如果您有未使用 Azure 磁碟加密進行加密的 Windows 或 Linux VM 磁碟，Azure 資訊安全中心會建議您套用磁碟加密。 磁碟加密可讓您替 Windows 和 Linux IaaS VM 磁碟加密。  建議您的 VM 上的作業系統和資料磁碟區都進行加密。
@@ -48,7 +48,7 @@ ms.locfileid: "56108265"
 
 有許多方法可以用於 Azure 虛擬機器。 如果您已經很熟悉 Azure PowerShell 或 Azure CLI，可能會想要使用其他方法。 若要深入了解其他這些方法，請參閱 [Azure 磁碟加密](../security/azure-security-disk-encryption.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 本文件說明如何實作 Azure 資訊安全中心建議的「套用磁碟加密」。 若要深入了解磁碟加密，請參閱下列主題：
 
 * [Azure 金鑰保存庫的加密和金鑰管理](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (影片，36 分 39 秒) -- 了解如何使用 IaaS VM 和 Azure 金鑰保存庫的磁碟加密管理功能，協助保護您的資料。

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: f81fde441a2f0dc2504601f82e5b890eb6e216de
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105287"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>動作項目生命週期、自動記憶體回收，以及手動刪除
 第一次呼叫動作項目的方法時就會啟動動作項目。 如果有一段可設定的時間未使用動作項目，動作項目就會停用 (由動作項目執行階段進行記憶體回收)。 動作項目與其狀態也可以隨時進行手動刪除。

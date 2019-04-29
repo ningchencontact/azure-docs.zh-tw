@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7e90dc00a8e042e48d8016e25dda04c15ce9f619
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114068"
 ---
 # <a name="introduction-to-application-groups"></a>應用程式群組簡介
 Service Fabric 的叢集資源管理員通常會將負載平均分配到整個叢集 (透過[計量](service-fabric-cluster-resource-manager-metrics.md)表示)，以管理叢集資源。 Service Fabric 透過[容量](service-fabric-cluster-resource-manager-cluster-description.md)管理叢集的節點容量及整個叢集的容量。 計量和容量很適用於許多工作負載，但過度使用不同 Service Fabric 應用程式執行個體的模式，有時會引起其他需求。 例如，您可能想要：
@@ -37,7 +37,7 @@ Service Fabric 的叢集資源管理員通常會將負載平均分配到整個�
 
 <center>
 
-![應用程式執行個體定義節點數目上限][Image1]
+![定义最大节点数的应用程序实例][Image1]
 </center>
 
 在左邊的範例中，應用程式沒有定義的節點數目上限，且提供有三項服務。 叢集資源管理員已將所有複本分散到六個可用的節點，在叢集中達到最佳平衡狀態 (預設行為)。 在右邊的範例中，我們看到相同的應用程式限制為三個節點。
@@ -119,7 +119,7 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 
 <center>
 
-![定義保留的容量的應用程式執行個體][Image2]
+![定义保留容量的应用程序实例][Image2]
 </center>
 
 在左邊的範例中，應用程式並沒有定義任何應用程式容量。 叢集資源管理員會根據一般規則來平衡一切事物。

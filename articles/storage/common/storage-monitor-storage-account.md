@@ -9,11 +9,11 @@ ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 64cfac0d689df88c4d432e772bcd0a0cc7ab4ade
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478117"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>在 Azure 入口網站中監視儲存體帳戶
 
@@ -41,7 +41,7 @@ ms.locfileid: "58317675"
    若要設定資料保留原則，請移動 [保留期 (天)] 滑桿，或輸入要保留資料的天數，範圍從 1 到 365 天。 新儲存體帳戶的預設值是 7 天。 如果不需要设置保留策略，请输入零。 如果沒有保留原則，您可以決定是否刪除監視資料。
 
    > [!WARNING]
-   > 若您以手動方式刪除計量資料，將需要付費。 過時的分析資料 (存在時間超過保留原則的資料) 則會由系統刪除，不必付費。 建議您根據要將帳戶的儲存體分析資料保留多久來設定保留原則。 請參閱[儲存體計量計費](storage-analytics-metrics.md#billing-on-storage-metrics)如需詳細資訊。
+   > 若您以手動方式刪除計量資料，將需要付費。 過時的分析資料 (存在時間超過保留原則的資料) 則會由系統刪除，不必付費。 建議您根據要將帳戶的儲存體分析資料保留多久來設定保留原則。 有关详细信息，请参阅[按存储指标计费](storage-analytics-metrics.md#billing-on-storage-metrics)。
    >
 
 1. 監視組態完成時，選取 [儲存]。
@@ -138,7 +138,7 @@ ms.locfileid: "58317675"
 
 診斷記錄會儲存在儲存體帳戶中名為 *$logs* 的 Blob 容器內。 若要檢視記錄資料，您可以使用 [Microsoft 儲存體總管](https://storageexplorer.com)之類的儲存體總管，或使用儲存體用戶端程式庫或 PowerShell 以程式設計方式進行檢視。
 
-如需存取 $logs 容器的詳細資訊，請參閱 <<c0> [ 儲存體分析記錄](storage-analytics-logging.md)。
+有关如何访问 $logs 容器的信息，请参阅[存储分析日志记录](storage-analytics-logging.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

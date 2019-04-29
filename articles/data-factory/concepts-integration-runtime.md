@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: abnarain
 ms.openlocfilehash: d63ede800f7e60db44072234f5ec74910e4c70f2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61261970"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：

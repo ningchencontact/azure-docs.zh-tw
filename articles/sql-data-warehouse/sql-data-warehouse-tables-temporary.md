@@ -2,20 +2,21 @@
 title: SQL 資料倉儲中的暫存資料表 | Microsoft Docs
 description: 使用暫存資料表的基本指引，並強調說明工作階段層級暫存資料表的原則。
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/01/2019
-ms.author: rortloff
+origin.date: 04/17/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 23a62e28700ad5fd733040c43ea0eec225fd286f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474890"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 資料倉儲中的暫存資料表
 本文包含使用暫存資料表的基本指引，並強調說明工作階段層級暫存資料表的原則。 使用這份文件中的資訊可協助您將程式碼模組化，以提高程式碼的重複使用性，維護起來更簡單。

@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 41999defb01e024773b6364f169a1ce3b1377237
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056350"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60902302"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>將連續監視新增至您的發行管線
 
@@ -38,7 +38,7 @@ Azure DevOps Services 現在支援持續監視，發行管線可以從 Applicati
 
    將會出現設定方塊，請使用下表來填寫輸入欄位。
 
-    | 參數        | 值 |
+    | 參數        | Value |
    | ------------- |:-----|
    | **環境名稱**      | 說明發行管線環境的名稱 |
    | **Azure 訂用帳戶** | 下拉式清單會填入連結到 Azure DevOps Services 組織的任何 Azure 訂用帳戶|

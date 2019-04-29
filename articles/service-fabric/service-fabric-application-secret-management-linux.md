@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/04/2019
 ms.author: shsha
 ms.openlocfilehash: 9589d6ea69a2293d592a9e63f2b726f1a620bb9e
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54068916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126982"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>設定加密憑證，並在 Linux 叢集上將祕密加密
 本文書名如何設定加密憑證，並在 Linux 叢集上將祕密加密。 針對 Windows 叢集，請參閱[設定加密憑證，並在 Windows 叢集上將祕密加密][secret-management-windows-specific-link]。

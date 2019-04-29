@@ -17,11 +17,11 @@ ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800223"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解與使用 Azure Linux 代理程式
 
@@ -108,12 +108,12 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
 ## <a name="command-line-options"></a>命令列選項
 ### <a name="flags"></a>旗標
-* 詳細資訊：提高指定命令的詳細資訊
-* 強制執行：略過某些命令的互動式確認
+* verbose：增加指定命令的详细程度
+* force：跳过某些命令的交互式确认
 
 ### <a name="commands"></a>命令
-* 說明：列出支援的命令和旗標。
-* 取消佈建：嘗試清除系統，使之適合重新佈建。 下列作業會刪除：
+* help：列出支持的命令和标志。
+* deprovision：尝试清理系统并使其适用于重新预配。 下列作業會刪除：
   
   * 所有 SSH 主機金鑰 (如果組態檔中的 Provisioning.RegenerateSshHostKeyPair 是 'y')
   * /etc/resolv.conf 中的名稱伺服器設定
@@ -126,11 +126,11 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 > 
 > 
 
-* deprovision + user:在-deprovision （上述） 中執行的所有項目也會刪除最後佈建的使用者帳戶 （取自於 /var/lib/waagent） 和相關聯的資料。 此參數是為了取消佈建 Azure 上先前佈建的映像，以便擷取並重複使用。
-* 版本：顯示 waagent 的版本
-* serialconsole:設定 GRUB，以將 ttyS0 （第一個序列埠） 為開機主控台。 這可確保將核心開機記錄傳送至序號埠且可用於偵錯。
-* 精靈：精靈，以管理與平台間的互動方式執行 waagent。 此引數是在 waagent init 指令碼中指定給 waagent。
-* 啟動：背景處理序方式執行 waagent
+* deprovision+user：执行 -deprovision（上述）中的所有操作，同时删除最后预配的用户帐户（从 /var/lib/waagent 中获得）和关联数据。 此參數是為了取消佈建 Azure 上先前佈建的映像，以便擷取並重複使用。
+* version：显示 waagent 的版本
+* serialconsole：配置 GRUB 以将 ttyS0（第一个串行端口）标记为启动控制台。 這可確保將核心開機記錄傳送至序號埠且可用於偵錯。
+* daemon：将 waagent 作为 daemon 运行以管理与平台的交互。 此引數是在 waagent init 指令碼中指定給 waagent。
+* start：将 waagent 作为后台进程运行
 
 ## <a name="configuration"></a>組態
 組態檔 (/etc/waagent.conf) 控制 waagent 的動作。 以下顯示的是範例組態檔：
@@ -344,6 +344,6 @@ Ubuntu 雲端映像會利用 [cloud-init](https://launchpad.net/ubuntu/+source/c
 
 * 如需詳細資訊，請參閱下列資源，以便在佈建期間，於 Ubuntu 雲端映像上設定資源磁碟掛接點和交換空間：
   
-  * [Ubuntu Wiki:設定交換資料分割](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki：配置交换分区](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [將自訂資料插入 Azure 虛擬機器](../windows/classic/inject-custom-data.md)
 

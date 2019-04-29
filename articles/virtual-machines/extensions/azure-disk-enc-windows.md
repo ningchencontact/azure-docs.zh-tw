@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
 ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800054"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>適用於 Windows 的 Azure 磁碟加密 (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -79,21 +79,21 @@ Azure 磁碟加密需要網際網路連線以存取 Active Directory、Key Vault
 
 | 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 日期 |
-| publisher | Microsoft.Azure.Security | 字串 |
-| type | AzureDiskEncryptionForWindows| 字串 |
-| typeHandlerVersion | 1.0、 1.1，2.2 (VMSS) | int |
+| apiVersion | 2015-06-15 | date |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForWindows| string |
+| typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
 | (選擇性) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (選擇性) AADClientSecret | password | 字串 |
-| (選擇性) AADClientCertificate | thumbprint | 字串 |
-| EncryptionOperation | EnableEncryption | 字串 | 
-| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | 字串 |
-| KeyEncryptionKeyURL | url | 字串 |
-| KeyVaultResourceId | 資源 uri | 字串 |
-| KekVaultResourceId | 資源 uri | 字串 |
-| KeyVaultURL | url | 字串 |
-| SequenceVersion | uniqueidentifier | 字串 |
-| VolumeType | 作業系統、資料、全部 | 字串 |
+| (選擇性) AADClientSecret | password | string |
+| (選擇性) AADClientCertificate | thumbprint | string |
+| EncryptionOperation | EnableEncryption | string | 
+| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultResourceId | 资源 URI | string |
+| KekVaultResourceId | 资源 URI | string |
+| KeyVaultURL | url | string |
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | 作業系統、資料、全部 | string |
 
 ## <a name="template-deployment"></a>範本部署
 如需範本部署的範例，請參閱[從資源庫映像建立新的加密 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)。

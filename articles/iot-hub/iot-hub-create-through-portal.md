@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515840"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741968"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>使用 Azure 入口網站建立 IoT 中樞
 
@@ -34,13 +34,13 @@ ms.locfileid: "51515840"
 
 以下是一些您可以為 IoT 中樞設定的屬性：
 
-**定價與級別**：您可以使用這個屬性移轉至不同的層，或設定 IoT 中樞單位數。 
+**定價與級別**:移轉至不同的層，或設定的 IoT 中樞單位，您可以使用這個屬性。 
 
-**作業監視**：開啟或關閉不同的監視類別，例如記錄與裝置到雲端訊息或雲端到裝置訊息相關的事件。
+**作業監視**:例如，當裝置到雲端訊息或雲端到裝置訊息的相關事件的記錄開啟或關閉，開啟不同的監視類別。
 
-**IP 篩選器**：您可以在這裡指定將由 IoT 中樞接受或拒絕的 IP 位址範圍。
+**IP 篩選器**:指定的 IP 位址範圍，以接受或拒絕 IoT 中樞。
 
-**屬性**：提供可以複製並在其他位置使用的屬性清單，例如資源識別碼、資源群組、位置等等。
+**屬性**：提供的屬性清單，您可以複製並使用其他位置，例如資源識別碼、 資源群組、 位置等等。
 
 ### <a name="shared-access-policies"></a>共用存取原則
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
 ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307814"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60899337"
 ---
 # <a name="export-telemetry-from-application-insights"></a>從 Application Insights 匯出遙測
 想要讓遙測保留比標準保留期限還久的時間？ 或以某些特殊方式處理它？ 連續匯出很適合此用途。 在 Application Insights 入口網站中看見的事件，可以使用 JSON 格式匯出到 Microsoft Azure 中的儲存體。 從那裡，您可以下載資料並編寫處理所需的任何程式碼。  

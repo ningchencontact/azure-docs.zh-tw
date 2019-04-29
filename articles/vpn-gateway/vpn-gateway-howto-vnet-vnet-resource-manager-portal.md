@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
 ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090095"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128376"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>使用 Azure 入口網站設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -31,7 +31,7 @@ ms.locfileid: "58090095"
 本文中的步驟適用於 Azure Resource Manager 部署模型並使用 Azure 入口網站。 您可以使用下列文章中所述的選項，透過不同的部署工具或模型來建立這個組態：
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure 入口網站 (傳統)](vpn-gateway-howto-vnet-vnet-portal-classic.md)

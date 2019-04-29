@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
 ms.openlocfilehash: 68f8ad903f967812c4a416c732b35fa1712404cd
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60756611"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>使用 Azure 入口網站來管理 Azure Data Box Edge 上的使用者
 

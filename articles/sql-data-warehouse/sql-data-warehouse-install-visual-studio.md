@@ -13,11 +13,11 @@ ms.date: 04/05/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f67c2a4547ee923e5c1b49302c38693e9ffe87c4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474244"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>安裝適用於 SQL 資料倉儲的 Visual Studio 和 SSDT
 您可以使用 Visual Studio 2017 來開發 SQL 資料倉儲的應用程式。 目前適用於 SQL 資料倉儲不支援 Visual Studio 2019 SSDT。 

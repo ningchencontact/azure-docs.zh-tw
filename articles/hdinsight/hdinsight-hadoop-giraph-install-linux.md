@@ -1,27 +1,22 @@
 ---
-title: 安裝並使用 HDInsight (Hadoop) 上的 Giraph
-description: 在本主題中，您將學習如何使用指令碼動作在以 Linux 為基礎的 HDInsight 叢集上安裝 Giraph。 透過變更叢集組態或自訂安裝服務與公用程式，指令碼動作可讓您在叢集建立期間自訂叢集。
-services: hdinsight
+title: 安裝和使用 Azure HDInsight 上的 Giraph
+description: 了解如何使用指令碼動作在 HDInsight 叢集上安裝 Giraph。 您可以使用 Giraph 執行圖形處理 Azure 雲端中的 Apache Hadoop 中。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: hrasheed
-ms.openlocfilehash: a2f964915efda6ce83439c3c1970de58b0467456
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: aa13d8dfc65f020f3f27183423913933cd0b9404
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61395359"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 叢集上安裝 Apache Giraph 並使用 Giraph 來處理大規模圖形
 
 了解如何在 HDInsight 叢集上安裝 Apache Giraph。 HDInsight 的指令碼動作功能可讓您執行 bash 指令碼來自訂叢集。 在叢集建立期間和之後，可利用指令碼來自訂叢集。
-
-> [!IMPORTANT]  
-> 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="whatis"></a>什麼是 Giraph
 
@@ -58,7 +53,7 @@ ms.locfileid: "58201716"
 > [!NOTE]  
 > 您可以使用下列任何方法套用指令碼動作︰
 > * Azure PowerShell
-> * Azure 傳統 CLI
+> * Azure CLI
 > * HDInsight .NET SDK
 > * Azure 資源管理員範本
 > 
@@ -148,7 +143,7 @@ ms.locfileid: "58201716"
 
     如需這些項目以及與 Giraph 範例搭配使用之其他參數的詳細資訊，請參閱 [Giraph 快速入門](https://giraph.apache.org/quick_start.html)。
 
-6. 一旦作業完成，結果會儲存在 **/example/out/shotestpaths** 目錄中。 輸出檔的名稱會以 **part-m-** 開頭，結束的數字表示是第一個、第二個檔案，依此類推。 使用下列命令來檢視輸出：
+6. 完成作業後，結果會儲存在 **/example/out/shortestpaths**目錄。 輸出檔的名稱會以 **part-m-** 開頭，結束的數字表示是第一個、第二個檔案，依此類推。 使用下列命令來檢視輸出：
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
 ms.openlocfilehash: c716ae0a2bb30e7e8eb249a1d230097efc0d3795
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521011"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097788"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>設定 Service Fabric Mesh CLI
 必須使用 Service Fabric Mesh 命令列介面 (CLI)，才能在本機和 Azure Service Fabric Mesh 中部署及管理資源。 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: d88bdb1eaeb95413df84bf69ed4fc763b6d4901f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449262"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61458482"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure 通知中心安全推播
 
@@ -34,7 +34,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 基於法規或安全性限制，應用程式有時會想要在通知中加入無法透過標準推播通知基礎結構傳送的內容。 本教學課程說明如何透過用戶端裝置和應用程式後端之間的安全、已驗證連線來傳送敏感資訊，以達到相同體驗。
 
-概括而言，流程如下所示：
+在高级别中，此流程如下所示：
 
 1. 應用程式後端：
    * 在後端資料庫中儲存安全裝載。
@@ -153,10 +153,10 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 ## <a name="run-the-application"></a>執行應用程式
 
-若要執行應用程式，請執行下列動作：
+若要运行应用程序，请执行以下操作：
 
 1. 在 XCode 中，在實體 iOS 裝置上執行應用程式 (推播通知無法在模擬器中運作)。
-2. 在 iOS 應用程式 UI 中，輸入使用者名稱和密碼。 這些可以是任何字串，但必須是相同值。
+2. 在 iOS 應用程式 UI 中，輸入使用者名稱和密碼。 这些信息可以是任意字符串，但必须是相同的值。
 3. 在 iOS 應用程式 UI 中，按一下 [登入] 。 然後按一下 [傳送推播] 。 您應該會在您的通知中心內看見安全通知。
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

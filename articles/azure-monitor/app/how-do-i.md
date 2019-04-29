@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
 ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074201"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60902026"
 ---
 # <a name="how-do-i--in-application-insights"></a>我如何在 Application Insights 中...？
 ## <a name="get-an-email-when-"></a>... 時收到電子郵件

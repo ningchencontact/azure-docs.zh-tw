@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: 424453e70e5b62e408f408cd5ae8169cddb14dd7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109923"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121686"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 資料庫安全性檢查清單
 
@@ -43,7 +43,7 @@ ms.locfileid: "56109923"
 我們建議您先閱讀 [Azure 資料庫安全性最佳做法](https://docs.microsoft.com/azure/security/azure-database-security-best-practices)一文，再檢閱這份檢查清單。 在您了解最佳做法之後，您就能夠充分利用這份檢查清單。 您可以接著使用這份檢查清單，確保您已解決 Azure 資料庫安全性的重大問題。
 
 
-|檢查清單類別| 說明|
+|檢查清單類別| 描述|
 | ------------ | -------- |
 |**保護資料**||
 | <br> 移動/傳輸中加密| <ul><li>[傳輸層安全性](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol)，用於在資料移至網路時進行資料加密。</li><li>資料庫要求來自用戶端的安全通訊以透過 TLS (傳輸層安全性) 的 [TDS (表格式資料流)](https://msdn.microsoft.com/library/dd357628.aspx) 通訊協定為基礎。</li></ul> |

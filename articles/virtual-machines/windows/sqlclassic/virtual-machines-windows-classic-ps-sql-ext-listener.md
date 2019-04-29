@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 89623adbddce07cbc3c3ead811f5174d108c9b0e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101620"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>設定 Azure 中 Always On 可用性群組的外部接聽程式
 > [!div class="op_single_selector"]
@@ -123,11 +123,11 @@ ms.locfileid: "57444781"
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>測試可用性群組接聽程式 (位於網際網路)
-若要存取從虛擬網路外部的接聽程式，您必須使用外部/公用負載平衡 （如本主題所述） 而不 ILB，這只在相同的 VNet 內存取。 在連接字串中，您將指定雲端服務名稱。 例如，如果您雲端服務的名稱為 *mycloudservice*，sqlcmd 陳述式便如下所示：
+若要从虚拟网络外部访问侦听器，必须使用外部/公共负载均衡（如本主题中所述）而不是 ILB，因为 ILB 只能在同一 VNet 中进行访问。 在連接字串中，您將指定雲端服務名稱。 例如，如果您雲端服務的名稱為 *mycloudservice*，sqlcmd 陳述式便如下所示：
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-不同於先前範例，必須使用 SQL 驗證，因為呼叫端無法透過網際網路使用 Windows 驗證。 如需詳細資訊，請參閱[Always On 可用性群組在 Azure VM 中：用戶端連線案例](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)。 使用 SQL 驗證時，請確定您在兩個複本上建立相同的登入。 如需有關使用可用性群組疑難排解登入的詳細資訊，請參閱 [如何對應登入或使用包含的 SQL Database 使用者以連線到其他複本並對應到可用性資料庫](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)。
+不同於先前範例，必須使用 SQL 驗證，因為呼叫端無法透過網際網路使用 Windows 驗證。 有关详细信息，请参阅 [Azure VM 中的 Always On 可用性组：客户端连接方案](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)。 使用 SQL 驗證時，請確定您在兩個複本上建立相同的登入。 如需有關使用可用性群組疑難排解登入的詳細資訊，請參閱 [如何對應登入或使用包含的 SQL Database 使用者以連線到其他複本並對應到可用性資料庫](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)。
 
 如果 Always On 複本位於其他子網路中，用戶端必須在連接字串中指定 **MultisubnetFailover=True** 。 這會導致對於不同子網路中的複本進行平行連接嘗試。 請注意，此情況包含跨區域的 Always On 可用性群組部署。
 

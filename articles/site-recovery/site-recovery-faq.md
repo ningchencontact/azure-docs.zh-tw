@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 4/08/2019
 ms.author: raynew
 ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61278899"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
 本文摘要說明 Azure Site Recovery 的相關常見問題的解答。 

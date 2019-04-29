@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: 20d50ac4ac4a1919077ebe67bb529e2dc5abf187
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61449612"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>將 Raspberry Pi 裝置連線到遠端監視解決方案加速器 (Node.js)
 

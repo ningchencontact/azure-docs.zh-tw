@@ -3,21 +3,22 @@ title: 使用 Azure Data Factory 從 MongoDB 複製資料 | Microsoft Docs
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 MongoDB 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
-ms.author: jingwang
+origin.date: 12/20/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: ca6040bb74839f30a2f1b13297f6037f05240c67
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400435"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
 
@@ -46,11 +47,11 @@ ms.locfileid: "55562199"
 
 以下是針對 MongoDB 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type |類型屬性必須設定為：**MongoDbV2** |yes |
-| connectionString |指定 MongoDB 連接字串，例如 `mongodb://[username:password@]host[:port][/[database][?options]]`。 如需詳細資訊，請參閱 [MongoDB 手冊中關於連接字串的內容](https://docs.mongodb.com/manual/reference/connection-string/)。 <br/><br />將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 |yes |
-| 資料庫 | 您要存取的資料庫名稱。 | yes |
+| type |類型屬性必須設定為：**MongoDbV2** |是 |
+| connectionString |指定 MongoDB 連接字串，例如 `mongodb://[username:password@]host[:port][/[database][?options]]`。 如需詳細資訊，請參閱 [MongoDB 手冊中關於連接字串的內容](https://docs.mongodb.com/manual/reference/connection-string/)。 <br/><br />將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 |是 |
+| 資料庫 | 您要存取的資料庫名稱。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -79,10 +80,10 @@ ms.locfileid: "55562199"
 
 如需定義資料集的區段和屬性完整清單，請參閱[資料集和連結服務](concepts-datasets-linked-services.md)。 以下是針對 MongoDB 資料集支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**MongoDbV2Collection** | yes |
-| collectionName |MongoDB 資料庫中集合的名稱。 |yes |
+| type | 資料集的類型屬性必須設定為：**MongoDbV2Collection** | 是 |
+| collectionName |MongoDB 資料庫中集合的名稱。 |是 |
 
 **範例：**
 
@@ -110,9 +111,9 @@ ms.locfileid: "55562199"
 
 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**MongoDbV2Source** | yes |
+| type | 複製活動來源的類型屬性必須設定為：**MongoDbV2Source** | 是 |
 | filter | 使用查詢運算子指定選取範圍篩選。 若要傳回集合中的所有文件，請省略此參數，或傳遞空白文件 ({})。 | 否 |
 | cursorMethods.project | 指定要在文件中傳回以便投影的欄位。 若要傳回比對文件中的所有欄位，請省略此參數。 | 否 |
 | cursorMethods.sort | 指定查詢傳回比對文件的順序。 請參閱 [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort)。 | 否 |

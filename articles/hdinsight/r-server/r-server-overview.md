@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight 上的 ML 服務簡介
 description: 了解如何使用 HDInsight 上的 ML 服務來建立適用於巨量資料分析的應用程式。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: a07f052cf89da039bb9fe091f1cd997c19d2fcc7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 56a11a17de3c66a3d45edb71c72be20ce1a1c89e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584525"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124725"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight 上的 ML 服務與開放原始碼 R 功能簡介
 
@@ -61,7 +60,7 @@ HDInsight 中的 ML 服務提供下列優點︰
 
 HDInsight 上的 ML 服務包含下列功能。
 
-| 功能分類 | 說明 |
+| 功能分類 | 描述 |
 |------------------|-------------|
 | 已啟用 R | [R 套件](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference)適用於以 R 撰寫的解決方案、具有 R 的開放原始碼散佈，以及用於執行指令碼的執行階段基礎結構。 |
 | 已啟用 Python | [Python 套件](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference)適用於以 Python 撰寫的解決方案、具有 Python 的開放原始碼散佈，以及用於執行指令碼的執行階段基礎結構。

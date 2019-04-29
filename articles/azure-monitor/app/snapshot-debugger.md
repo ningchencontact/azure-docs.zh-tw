@@ -13,11 +13,11 @@ ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: 669b4d65798a553188a2b99080b72ffc7cd9e898
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60783567"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 發生例外狀況時，您可以自動從即時 Web 應用程式收集偵錯快照集。 快照集會顯示擲回例外狀況時原始程式碼和變數的狀態。 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的快照集偵錯工具 (預覽) 會監視 web 應用程式的例外狀況遙測。 它會收集前幾個擲回例外狀況的快照集，讓您取得診斷生產環境中問題所需的資訊。 將[快照集收集器 NuGet 套件](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)納入您的應用程式，並選擇性地設定 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 中的集合參數。快照集會顯示在 Application Insights 入口網站中的[例外狀況](../../azure-monitor/app/asp-net-exceptions.md)。

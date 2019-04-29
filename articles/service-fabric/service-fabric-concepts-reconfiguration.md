@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60882192"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>在 Azure Service Fabric 中重新設定
 對於具狀態服務的分割區而言，*設定*定義為複本及其角色。
@@ -32,28 +32,28 @@ ms.locfileid: "34212801"
 重新設定可分成兩種類型：
 
 - 主要複本變更所在的重新設定：
-    - **容錯移轉**：容錯移轉是為了回應執行中主要複本失敗的重新設定。
-    - **SwapPrimary**：在交換這種重新設定中，Service Fabric 通常必須將執行中的主要複本從某個節點移到另一節點，以回應負載平衡或升級。
+    - **容錯移轉**：容錯移轉是重新設定，以回應失敗的主要執行。
+    - **SwapPrimary**:交換會重新設定，Service Fabric 必須將執行主要節點到另一個，通常以回應負載平衡或升級。
 
 - 主要複本不會變更的重新設定。
 
 ## <a name="reconfiguration-phases"></a>重新設定階段
 重新設定有數個階段：
 
-- **階段 0**：發生於交換主要複本重新設定中，在此階段，目前主要複本會將其狀態轉移到新的主要複本，並轉換成使用中次要複本。
+- **階段 0**:這個階段會在交換主要重新設定目前主要複本位置將其狀態轉移到新的主要和作用中次要資料庫的轉換。
 
-- **階段 1**：發生於重新設定期間，在此階段，主要複本正在變更中。 此階段進行期間，Service Fabric 會從目前複本中找出正確的主要複本。 在交換主要複本重新設定期間不需要此階段，因為新的主要複本已經選定。 
+- **階段 1**:這個階段期間發生的狀況主要變更所在的複本。 此階段進行期間，Service Fabric 會從目前複本中找出正確的主要複本。 在交換主要複本重新設定期間不需要此階段，因為新的主要複本已經選定。 
 
-- **階段 2**：在此階段進行期間，Service Fabric 會確定目前設定其大部分複本中的所有資料皆可使用。
+- **階段 2**:在這個階段，Service Fabric 可確保所有的資料可在大部分的目前組態的複本。
 
 還有其他數個階段僅供內部使用。
 
 ## <a name="stuck-reconfigurations"></a>重新設定停滯
 重新設定可能會因各種原因而「停滯」。 一些常見原因包括：
 
-- **複本停擺**：某些重新設定階段需要設定中大部分的複本為啟動的狀態。
-- **網路或通訊問題**：重新設定需要不同節點之間有網路連線。
-- **API 失敗**：重新設定通訊協定需要服務實作完成某些 API。 例如：若不接受取消可靠服務中的權杖，會導致 SwapPrimary 重新設定停滯。
+- **向下複本**:某些重新設定階段需要大部分組態中的複本為啟動的狀態。
+- **網路或通訊問題**:重新設定需要不同節點之間的網路連線。
+- **API 失敗**:重新設定通訊協定需要服務實作完成某些 Api。 例如：若不接受取消可靠服務中的權杖，會導致 SwapPrimary 重新設定停滯。
 
 如 System.FM、System.RA、System.RAP 等系統元件的健康情況報告可用於診斷重新設定在哪裡停滯。 [系統健康情況報告頁面](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)會說明這些健康情況報告。
 

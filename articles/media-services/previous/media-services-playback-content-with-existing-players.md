@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: c96710d6dcca9f5ef99b3a02a0bc875d433f814d
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58257426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463327"
 ---
 # <a name="playing-your-content-with-existing-players"></a>使用現有播放器來播放您的內容
 Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、HTTP 即時資料流和 MPEG-Dash。 本主题列出了可用于测试流的现有播放器。

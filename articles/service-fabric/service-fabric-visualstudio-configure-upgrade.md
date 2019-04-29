@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
 ms.openlocfilehash: 79120371ca2a62e5ef9f2bf38476635db12e9fcc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61082830"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>在 Visual Studio 中設定 Service Fabric 應用程式的升級
 Azure Service Fabric 的 Visual Studio 工具提供發佈至本機或遠端叢集的升級支援。 在進行測試和偵錯時，有三種情況您會想要將應用程式升級成較新的版本，而不是取代應用程式：
@@ -31,7 +31,7 @@ Azure Service Fabric 的 Visual Studio 工具提供發佈至本機或遠端叢�
 ## <a name="parameters-needed-to-upgrade"></a>升級所需的參數
 您可以選擇的部署類型有兩種：一般或升級。 一般部署會將叢集上所有先前的部署資訊和資料都清除，而升級部署則會將其保留。 當您在 Visual Studio 中升級 Service Fabric 應用程式時，您需要提供應用程式升級參數和健康情況檢查原則。 應用程式升級參數可協助控制升級，而健康狀態檢查原則則可判斷升級是否成功。 如需詳細資訊，請參閱 [Service Fabric 應用程式升級：升級參數](service-fabric-application-upgrade-parameters.md) 。
 
-有三種升級模式：Monitored、UnmonitoredAuto 及 UnmonitoredManual。
+有三種升級模式：*監視*， *UnmonitoredAuto*，以及*UnmonitoredManual*。
 
 * Monitored 升級會自動進行升級和應用程式健康狀態檢查。
 * UnmonitoredAuto 升級會自動進行升級，但會略過應用程式健康狀態檢查。

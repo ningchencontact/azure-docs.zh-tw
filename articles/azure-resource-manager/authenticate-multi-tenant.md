@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: tomfitz
 ms.openlocfilehash: 6554c05f40f580a6d7ae086e1d09834298f86621
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550762"
 ---
 # <a name="authenticate-requests-across-tenants"></a>跨租用戶驗證要求
 
@@ -26,9 +26,9 @@ ms.locfileid: "54109473"
 
 要求具有下列驗證標頭值：
 
-| 標頭名稱 | 說明 | 範例值 |
+| 標頭名稱 | 描述 | 範例值 |
 | ----------- | ----------- | ------------ |
-| Authorization | 主要權杖 | Bearer &lt;primary-token&gt; |
+| 授權 | 主要權杖 | Bearer &lt;primary-token&gt; |
 | x-ms-authorization-auxiliary | 輔助權杖 | Bearer &lt;auxiliary-token1&gt;; EncryptedBearer &lt;auxiliary-token2&gt;; Bearer &lt;auxiliary-token3&gt; |
 
 輔助標頭最多可以持有三個輔助權杖。 

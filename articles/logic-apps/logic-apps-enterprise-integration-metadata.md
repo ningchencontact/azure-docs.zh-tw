@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
 ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60846132"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>搭配 Azure Logic Apps 和 Enterprise Integration Pack 管理整合帳戶中的成品中繼資料
 
@@ -63,7 +63,7 @@ ms.locfileid: "54446777"
 
 1. 針對您想要尋找的成品提供此資訊：
 
-   | 屬性 | 必要 | 值 | 說明 | 
+   | 屬性 | 必要項 | Value | 描述 | 
    |----------|---------|-------|-------------| 
    | **成品類型** | 是 | [結構描述]、[對應]、[合作夥伴]、[合約]，或自訂類型 | 所需的成品類型 | 
    | **成品名稱** | 是 | <*artifact-name*> | 所需的成品名稱 | 
@@ -85,7 +85,7 @@ ms.locfileid: "54446777"
 
       例如，假設您想要取得先前在本主題中所新增的 `routingUrl` 中繼資料。 以下是您可以指定的屬性值： 
 
-      | 屬性 | 必要 | 值 | 說明 | 
+      | 屬性 | 必要項 | Value | 描述 | 
       |----------|----------|-------|-------------| 
       | **方法** | 是 | <*operation-to-run*> | 要在成品上執行的 HTTP 作業。 例如，此 HTTP 動作會使用 **GET** 方法。 | 
       | **URI** | 是 | <*metadata-location*> | 若要存取來自所擷取之成品的 `routingUrl` 中繼資料值，您可以使用如下的運算式： <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 

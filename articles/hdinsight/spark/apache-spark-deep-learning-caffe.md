@@ -1,19 +1,18 @@
 ---
 title: 在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
 description: 在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: MT
+ms.openlocfilehash: d0d68263485c5ab6e57a349317b1975862470cc2
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124385"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
 
@@ -298,5 +297,5 @@ SampleID 代表 MNIST 資料集的識別碼，且標籤是此模型識別的數�
 * [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>管理資源
-* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
 

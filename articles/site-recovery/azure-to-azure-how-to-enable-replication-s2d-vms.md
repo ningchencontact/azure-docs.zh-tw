@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: asgang
 ms.openlocfilehash: 6c639d4503b170660abed5767e3571c8a2bf24b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790276"
 ---
 # <a name="replicate-azure-virtual-machines-using-storage-spaces-direct-to-another-azure-region"></a>將使用儲存空間直接存取的 Azure 虛擬機器複寫到另一個 Azure 區域
 

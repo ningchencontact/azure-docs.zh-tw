@@ -1,19 +1,20 @@
 ---
-title: 產生並匯出點對站的憑證：MakeCert:Azure | Microsoft Docs
+title: 產生並匯出點對站的憑證：MakeCert：Azure | Microsoft Docs
 description: 建立自我簽署的根憑證、匯出公開金鑰，以及使用 MakeCert 產生用戶端憑證。
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/05/2018
-ms.author: cherylmc
+origin.date: 09/05/2018
+ms.date: 10/01/2018
+ms.author: v-jay
 ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768101"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>使用 MakeCert 來產生並匯出點對站連線的憑證
 
@@ -28,7 +29,7 @@ ms.locfileid: "58102072"
 下列步驟說明如何使用 MakeCert 來建立自我簽署憑證。 這些並非部署模型特定的步驟。 它們同樣適用於資源管理員和傳統部署模型。
 
 1. 下載並安裝 [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx)。
-2. 安裝完成後，您通常可以找到 makecert.exe 公用程式，此路徑下：'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. 雖然，它有可能已安裝到另一個位置。 以系統管理員身分開啟命令提示字元，然後瀏覽至 MakeCert 公用程式的位置。 您可以使用下列範例，並針對適當的位置進行調整：
+2. 安装后，通常可在此路径中找到 makecert.exe 实用工具：“C:\Program Files (x86)\Windows Kits\10\bin\<arch>”。 雖然，它有可能已安裝到另一個位置。 以系統管理員身分開啟命令提示字元，然後瀏覽至 MakeCert 公用程式的位置。 您可以使用下列範例，並針對適當的位置進行調整：
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64

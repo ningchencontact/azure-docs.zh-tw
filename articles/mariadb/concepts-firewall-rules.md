@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 6fb9099ebfe884fc6eee58882ee23e46ba550e13
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546240"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734406"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>適用於 MariaDB 的 Azure 資料庫伺服器防火牆規則
 防火牆會防止對您資料庫伺服器的所有存取，直到您指定哪些電腦擁有權限。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。

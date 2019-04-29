@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: v-sharos
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38c197c7bc57110b29b1d8cb789d5b7310823da2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f7436bb63f52c9c2b697c8e7031922ce89d786b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111466"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60789593"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager 簡介
 
@@ -93,7 +93,7 @@ VSS 的 StorSimple Snapshot Manager 實作會使用 SQL Server 和一般 NTFS �
 
 1. 要求者通常是資料管理和保護解決方案 (例如 StorSimple Snapshot Manager) 或備份應用程式，其會叫用 VSS，並要求從目標應用程式中的寫入器軟體收集資訊。
 2. VSS 會連絡寫入器元件來擷取資料的說明。 寫入器會傳回要備份之資料的說明。 
-3. VSS 會指示寫入器準備應用程式進行備份。 寫入器會完成開啟的交易、更新交易記錄檔等等來準備資料進行備份，然後通知 VSS。
+3. VSS 會指示寫入器準備應用程式進行備份。 寫入器會完成開啟的交易、更新交易記錄等等來準備資料進行備份，然後通知 VSS。
 4. VSS 會指示寫入器暫時停止應用程式的資料存放區，並確定在建立陰影複製時沒有資料寫入至磁碟區。 這個步驟可確保資料一致性，而且所需時間不超過 60 秒。
 5. VSS 會指示提供者建立陰影複製。 以軟體或硬體為基礎的提供者可管理目前執行中的磁碟區，並依需求建立陰影複製。 提供者會建立陰影複製，並在完成時通知 VSS。
 6. VSS 會連絡寫入器以通知應用程式可繼續 I/O，同時也可確認在建立陰影複製期間已順利暫停 I/O。 

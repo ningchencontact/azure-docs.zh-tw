@@ -14,11 +14,11 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 7832691812d8f10342dc7df20a7cfab7265f2d9d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775707"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>治理 Azure DevTest Labs 基礎結構 - 管理成本和擁有權
 當您考慮建置開發和測試環境時，成本和擁有權是主要考量。 在此節中，您會發現可協助您進行成本最佳化，並在環境中配置擁有權的資訊。

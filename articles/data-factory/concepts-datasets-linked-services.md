@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 ms.openlocfilehash: 9e5da96cb02e681c83bd707fc038117050712ccf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61261838"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory 中的資料集和已連結的服務
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ ms.locfileid: "54044241"
 
 在您建立資料集之前，您必須建立一個「已連結的服務」，以將資料存放區連結到資料處理站。 已連結的服務非常類似連接字串，可定義 Data Factory 連接到外部資源所需的連線資訊。 這麼說吧：資料集代表已連結之資料存放區內的資料結構，而已連結的服務則定義與資料來源的連線。 例如，「Azure 儲存體」已連結服務會將儲存體帳戶連結到 Data Factory。 Azure Blob 資料集代表該 Azure 儲存體帳戶內包含要處理之輸入 Blob 的 Blob 容器和資料夾。
 
-以下是一個範例案例。 若要將資料從 Blob 儲存體複製到 SQL Database，您需建立兩個連結服務：Azure 儲存體和 Azure SQL Database。 接著，建立兩個資料集：Azure Blob 資料集 (此資料集參考「Azure 儲存體」連結服務) 和「Azure SQL 資料表」資料集 (此資料集參考 Azure SQL Database 連結服務)。 「Azure 儲存體」和 Azure SQL Database 已連結服務包含 Data Factory 在執行階段分別用來連接到「Azure 儲存體」和 Azure SQL Database 的連接字串。 Azure Blob 資料集會指定包含 Blob 儲存體中輸入 Blob 的 Blob 容器和 Blob 資料夾。 「Azure SQL 資料表」資料集會指定作為資料複製目的地的 SQL Database 中 SQL 資料表。
+以下是一個範例案例。 若要將資料從 Blob 儲存體複製到 SQL Database，您需建立兩個連結服務：Azure 儲存體和 Azure SQL Database。 接著，建立兩個資料集：Azure Blob 資料集 (此資料集參考 Azure 儲存體連結服務) 和 Azure SQL 資料表資料集 (此資料集參考 Azure SQL Database 連結服務)。 「Azure 儲存體」和 Azure SQL Database 已連結服務包含 Data Factory 在執行階段分別用來連接到「Azure 儲存體」和 Azure SQL Database 的連接字串。 Azure Blob 資料集會指定包含 Blob 儲存體中輸入 Blob 的 Blob 容器和 Blob 資料夾。 「Azure SQL 資料表」資料集會指定作為資料複製目的地的 SQL Database 中 SQL 資料表。
 
 下圖顯示 Data Factory 中管線、活動、資料集及已連結服務之間的關聯性：
 
@@ -62,7 +62,7 @@ Data Factory 中的連結服務會以 JSON 格式定義如下：
 
 下表描述上述 JSON 的屬性：
 
-屬性 | 說明 | 必要 |
+屬性 | 描述 | 必要項 |
 -------- | ----------- | -------- |
 name | 連結服務的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
 type | 連結服務的類型。 例如︰AzureStorage (資料存放區) 或 AzureBatch (計算)。 請參閱 typeProperties 的描述。 | 是 |
@@ -119,7 +119,7 @@ Data Factory 中的資料集會以 JSON 格式定義如下：
 ```
 下表描述上述 JSON 的屬性：
 
-屬性 | 說明 | 必要 |
+屬性 | 描述 | 必要項 |
 -------- | ----------- | -------- |
 name | 資料集的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
 type | 資料集的類型。 指定 Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 <br/><br/>如需詳細資料，請參閱[資料集類型](#dataset-type)。 | 是 |
@@ -185,7 +185,7 @@ typeProperties | 每個類型的類型屬性都不同 (例如：Azure Blob、Azu
 
 structure 中的每個資料行都包含下列屬性︰
 
-屬性 | 說明 | 必要
+屬性 | 描述 | 必要項
 -------- | ----------- | --------
 name | 資料行的名稱。 | 是
 type | 資料行的資料類型。 Data Factory 支援以下列過渡資料類型當作值：**Int16、Int32、Int64、Single、Double、Decimal、Byte[]、Boolean、String、Guid、Datetime、Datetimeoffset 及 Timespan** | 否

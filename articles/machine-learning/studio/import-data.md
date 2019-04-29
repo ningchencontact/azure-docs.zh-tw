@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
 ms.openlocfilehash: 41cc1d6638871f26ae942e724a402e17f52150fc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60811047"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>從各種資料來源將訓練資料匯入 Azure Machine Learning Studio
 
@@ -67,7 +67,7 @@ Studio 可辨識下列資料類型：
 * 字串
 * 整數 
 * Double
-* BOOLEAN
+* Boolean
 * DateTime
 * TimeSpan
 

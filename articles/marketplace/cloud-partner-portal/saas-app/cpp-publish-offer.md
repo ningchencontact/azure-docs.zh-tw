@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 25c9ab0008e7f056789536d8cc737b69e83d6db5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195647"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120232"
 ---
 # <a name="publish-a-saas-application-offer"></a>發佈 SaaS 應用程式供應項目
 

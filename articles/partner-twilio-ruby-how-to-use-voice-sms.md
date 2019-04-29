@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457646"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>如何在 Ruby 中透過 Twilio 使用語音和簡訊功能
 本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。 涵蓋的案例包括打電話和傳送簡訊 (SMS)。 如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱 [後續步驟](#NextSteps) 一節。
@@ -52,15 +52,15 @@ Twilio 動詞是指示 Twilio 應執行哪些 **動作**的 XML 標籤。 例如
 
 以下是 Twilio 動詞清單。
 
-* **&lt;撥號&gt;**：使撥號者接通另一支電話。
-* **&lt;收集&gt;**：收集電話按鍵上輸入的號碼。
-* **&lt;掛斷&gt;**：結束通話。
-* **&lt;播放&gt;**：播放音訊檔案。
-* **&lt;暫停&gt;**：靜候一段指定的秒數。
-* **&lt;記錄&gt;**：錄製來電者的語音並傳回含有錄音的檔案 URL。
-* **&lt;重新導向&gt;**：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
-* **&lt;拒絕&gt;**：拒絕 Twilio 號碼的來電而不計費
-* **&lt;說出&gt;**：將來電的文字轉換成語音。
+* **&lt;Dial&gt;**：使撥號者接通另一支電話。
+* **&lt;Gather&gt;**：收集電話按鍵上輸入的號碼。
+* **&lt;Hangup&gt;**：結束通話。
+* **&lt;Play&gt;**：播放音訊檔案。
+* **&lt;Pause&gt;**：靜候一段指定的秒數。
+* **&lt;Record&gt;**：錄製來電者的語音並傳回含有錄音之檔案的 URL。
+* **&lt;Redirect&gt;**：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
+* **&lt;Reject&gt;**：拒絕 Twilio 號碼的來電而不計費
+* **&lt;Say&gt;**：將來電的文字轉換成語音。
 * **&lt;Sms&gt;**：傳送簡訊。
 
 如需 Twilio 動詞、屬性和 TwiML 的詳細資訊，請參閱 [TwiML][twiml]。 如需 Twilio API 的詳細資訊，請參閱 [Twilio API][twilio_api]。
@@ -109,7 +109,7 @@ Twilio 動詞是指示 Twilio 應執行哪些 **動作**的 XML 標籤。 例如
 
 至此一切皆已就緒，您可以在 Web 應用程式中使用適用於 Ruby 的 Twilio 協助程式程式庫。
 
-## <a id="howto_make_call"></a>作法：撥出電話
+## <a id="howto_make_call"></a>操作說明：撥出電話
 下列程式碼將說明如何向外撥打電話。 主要的概念包括使用適用於 Ruby 的 Twilio 協助程式程式庫，來撥打 REST API 電話以及轉譯 TwiML。 請將 **From** 和 **To** 電話號碼換成您的值，在執行程式碼之前，請記得先驗證 Twilio 帳戶的 **From** 電話號碼。
 
 將此函數新增至 `web.md`：
@@ -146,7 +146,7 @@ Twilio 動詞是指示 Twilio 應執行哪些 **動作**的 XML 標籤。 例如
 
 第三個參數 (`url`) 是 Twilio 要求取得相關指示以得知在電話接通時應執行何種動作的 URL。 在此案例中，我們設定的 URL (`http://yourdomain.cloudapp.net`) 會傳回簡易的 TwiML 文件，並使用 `<Say>` 動詞來執行文字轉換成語音的動作，對接聽電話的人說出 "Hello Monkey"。
 
-## <a id="howto_receive_sms"></a>如何：接收 SMS 簡訊
+## <a id="howto_receive_sms"></a>操作說明：接收 SMS 訊息
 在前述範例中，我們撥打了 **外撥** 電話。 現在，我們要使用 Twilio 在註冊期間提供給我們的電話號碼來處理 **傳入的** 簡訊。
 
 首先，請登入您的 [Twilio 儀表板][twilio_account]。 在頂端的導覽區中按一下「號碼」，然後按一下 Twilio 提供給您的號碼。 您會看見兩個可以設定的 URL。 語音要求 URL 和簡訊要求 URL。 這是在撥打電話或傳送簡訊至您的號碼時，Twilio 所將呼叫的 URL。 這些 URL 也稱為 "Web hook"。
@@ -161,7 +161,7 @@ Twilio 動詞是指示 Twilio 應執行哪些 **動作**的 XML 標籤。 例如
 
 進行變更後，請確實重新啟動 Web 應用程式。 現在，請拿起電話，傳送簡訊至您的 Twilio 號碼。 您應會立即收到簡訊回應，顯示 "Hey, thanks for the ping! Twilio and Azure rock!"。
 
-## <a id="additional_services"></a>如何：使用其他 Twilio 服務
+## <a id="additional_services"></a>操作說明：使用其他 Twilio 服務
 除了此處所示的範例以外，Twilio 還提供網頁式 API，方便您從 Azure 應用程式中充份利用其他 Twilio 功能。 如需完整詳細資料，請參閱 [Twilio API 文件][twilio_api_documentation]。
 
 ### <a id="NextSteps"></a>後續步驟

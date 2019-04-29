@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400469"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ ms.locfileid: "54320475"
 
 以下是針對 MongoDB 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type |類型屬性必須設定為：**MongoDb** |是 |
 | 伺服器 |MongoDB 伺服器的 IP 位址或主機名稱。 |是 |
@@ -95,7 +95,7 @@ ms.locfileid: "54320475"
 
 如需定義資料集的區段和屬性完整清單，請參閱[資料集和連結服務](concepts-datasets-linked-services.md)。 以下是針對 MongoDB 資料集支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**MongoDbCollection** | 是 |
 | collectionName |MongoDB 資料庫中集合的名稱。 |是 |
@@ -126,7 +126,7 @@ ms.locfileid: "54320475"
 
 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**MongoDbSource** | 是 |
 | query |使用自訂的 SQL-92 查詢來讀取資料。 例如：select * from MyTable。 |否 (如果已指定資料集中 "collectionName") |
@@ -177,9 +177,9 @@ Azure Data Factory 服務會使用 MongoDB 集合中**最新的 100 份文件**�
 | MongoDB 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | Binary |Byte[] |
-| BOOLEAN |BOOLEAN |
-| 日期 |Datetime |
-| NumberDouble |兩倍 |
+| Boolean |Boolean |
+| date |DateTime |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |字串 |

@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: ce98502113e75aea8deef7dbc7363662827634f3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: e572a9e19da144be61faefacc370cf512f5079ac
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682231"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738400"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>傳送事件，或從使用.NET Core 的 Azure 事件中樞接收事件
 「事件中樞」是一種服務，可處理來自連接裝置和應用程式的大量事件資料 (遙測)。 收集資料至「事件中樞」之後，可以使用存放裝置叢集來儲存資料，或使用即時分析提供者進行轉換。 此大規模事件收集和處理功能是新型應用程式架構 (包括物聯網 (IoT)) 的重要元件。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
@@ -195,8 +195,7 @@ ms.locfileid: "59682231"
 6. 執行程式，並確定沒有任何錯誤。
 
 ## <a name="receive-events"></a>接收事件
-本節說明如何撰寫.NET Core 主控台應用程式從使用您建立事件中樞接收訊息[Event Processor Host](event-hubs-event-processor-host.md)。 [事件處理器主機](event-hubs-event-processor-host.md)是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞的事件接收作業。 使用事件處理器主機，可讓您將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。 此範例說明單一接收者如何使用事件處理器主機。 [相應放大事件處理](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)範例說明如何搭配使用事件處理器主機與多個接收者。
-
+本節說明如何撰寫.NET Core 主控台應用程式從使用您建立事件中樞接收訊息[Event Processor Host](event-hubs-event-processor-host.md)。 [事件處理器主機](event-hubs-event-processor-host.md)是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞的事件接收作業。 使用事件處理器主機，可讓您將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。 此範例說明單一接收者如何使用事件處理器主機。
 > [!NOTE]
 > 您可以從 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) 下載此快速入門來作為範例，並以您事件中樞的值取代 `EventHubConnectionString`和 `EventHubName`、`StorageAccountName`、`StorageAccountKey` 和 `StorageContainerName` 字串，然後執行。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
 

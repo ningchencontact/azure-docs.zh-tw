@@ -17,11 +17,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822305"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>為 Azure 事件中樞設定診斷記錄
 
@@ -48,7 +48,7 @@ ms.locfileid: "56957516"
 
     ![變更診斷記錄的狀態](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  設定的封存目標，您想要的選項;例如，儲存體帳戶、 事件中樞或 Azure 監視器記錄。
+5.  设置所需的存档目标；例如存储帐户、事件中心或 Azure Monitor 日志。
 
 6.  儲存新的診斷設定。
 

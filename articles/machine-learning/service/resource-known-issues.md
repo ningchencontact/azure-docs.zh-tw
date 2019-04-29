@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60752329"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
 

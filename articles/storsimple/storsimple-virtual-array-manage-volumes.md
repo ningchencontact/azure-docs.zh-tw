@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a507bf1866952cb79fa6334fed80c88cd207cd0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110206"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125792"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員服務管理 StorSimple Virtual Array 上的磁碟區
 
@@ -33,8 +33,8 @@ StorSimple 裝置管理員服務是 Azure 入口網站中的一項擴充，可�
 
 StorSimple 磁碟區可以是：
 
-* **固定在本機**︰這些磁碟區中的資料永遠停留在陣列上，不會流向雲端。
-* **階層式**：這些磁碟區中的資料可能流向雲端。 當您建立階層式磁碟區時，大約 10 % 的空間會佈建在本機層，而 90 % 的空間會佈建在雲端。 舉例來說，如果您佈建 1 TB 的磁碟區，當資料使用階層式磁碟區時，其中 100 GB 會位於本機的空間，900 GB 會位於雲端。 這也意味著，如果裝置的可用空間用盡，您就無法佈建階層式磁碟區 (因為本機層上需要的 10% 無法使用)。
+* **固定在本機**:這些磁碟區中的資料隨時保持在陣列上，而且不會溢出到雲端。
+* **分層**:這些磁碟區中的資料可能流向雲端。 當您建立階層式磁碟區時，大約 10 % 的空間會佈建在本機層，而 90 % 的空間會佈建在雲端。 舉例來說，如果您佈建 1 TB 的磁碟區，當資料使用階層式磁碟區時，其中 100 GB 會位於本機的空間，900 GB 會位於雲端。 這也意味著，如果裝置的可用空間用盡，您就無法佈建階層式磁碟區 (因為本機層上需要的 10% 無法使用)。
 
 ### <a name="provisioned-capacity"></a>佈建的容量
 請參閱下表以了解每個磁碟區類型的最大佈建容量。

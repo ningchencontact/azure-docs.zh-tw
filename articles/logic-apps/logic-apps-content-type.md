@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 82eb9c895f016efe569651dc89885d2e4850fd59
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60685723"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>在 Azure 邏輯應用程式中處理內容類型
 
@@ -140,15 +140,15 @@ Logic Apps 一律會在收到的 HTTP 要求或回應中保留 `Content-Type`。
 
 以下清單說明當您使用這些[函式](../logic-apps/workflow-definition-language-functions-reference.md)時，Logic Apps 如何轉換內容：
 
-* `json()`：將資料轉換為 `application/json`
-* `xml()`：將資料轉換為 `application/xml`
-* `binary()`：將資料轉換為 `application/octet-stream`
-* `string()`：將資料轉換為 `text/plain`
-* `base64()`：將內容轉換為 Base64 字串
-* `base64toString()`：將 Base64 編碼的字串轉換為 `text/plain`
-* `base64toBinary()`：將 Base64 編碼的字串轉換為 `application/octet-stream`
-* `encodeDataUri()`：將字串編碼為 dataUri 位元組陣列
-* `decodeDataUri()`：將 `dataUri` 解碼為位元組陣列
+* `json()`:要轉換資料 `application/json`
+* `xml()`:要轉換資料 `application/xml`
+* `binary()`:要轉換資料 `application/octet-stream`
+* `string()`:要轉換資料 `text/plain`
+* `base64()`:將內容轉換成 base64 字串
+* `base64toString()`:將 base64 編碼字串轉換 `text/plain`
+* `base64toBinary()`:將 base64 編碼字串轉換 `application/octet-stream`
+* `encodeDataUri()`:將字串編碼為 dataUri 位元組陣列
+* `decodeDataUri()`:將解碼`dataUri`的位元組陣列
 
 例如，如果您收到 `Content-Type` 設定為 `application/xml` 的 HTTP 要求，例如以下內容：
 

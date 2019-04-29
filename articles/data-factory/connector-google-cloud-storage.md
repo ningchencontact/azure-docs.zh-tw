@@ -2,20 +2,21 @@
 title: 使用 Azure Data Factory 從 Google Cloud Storage 複製資料 | Microsoft Docs
 description: 了解如何使用 Azure Data Factory 將資料從 Google Cloud Storage 複製到支援的接收資料存放區。
 services: data-factory
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: jingwang
+origin.date: 01/25/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: 815ee569f0919f32b38b7b7cdf848be184b7aea8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808968"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>使用 Azure Data Factory 從 Google Cloud Storage 複製資料
 
@@ -47,12 +48,12 @@ ms.locfileid: "55661848"
 
 以下是針對 Google Cloud Storage 已連結服務支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**AmazonS3**。 | yes |
-| accessKeyId | 密碼存取金鑰的識別碼。 若要尋找存取金鑰和祕密，請前往 [Google Cloud Storage] > [設定] > [互通性]。 |yes |
-| secretAccessKey | 密碼存取金鑰本身。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
-| serviceUrl | 指定自訂 S3 端點做為 **`https://storage.googleapis.com`**。 | yes |
+| type | 類型屬性必須設定為：**AmazonS3**。 | 是 |
+| accessKeyId | 密碼存取金鑰的識別碼。 若要尋找存取金鑰和祕密，請前往 [Google Cloud Storage] > [設定] > [互通性]。 |是 |
+| secretAccessKey | 密碼存取金鑰本身。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
+| serviceUrl | 指定自訂 S3 端點做為 **`https://storage.googleapis.com`**。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 下列是一個範例：
@@ -84,9 +85,9 @@ ms.locfileid: "55661848"
 
 若要從 Google Cloud Storage 複製資料，請將資料集的類型屬性設定為 **AmazonS3Object**。 以下是支援的屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**AmazonS3Object** |yes |
+| type | 資料集的類型屬性必須設定為：**AmazonS3Object** |是 |
 | bucketName | S3 貯體名稱。 不支援萬用字元篩選。 |[是] 適用於複製/查閱活動，[否] 適用於 GetMetadata 活動 |
 | 索引鍵 | 指定貯體下 S3 物件索引鍵的**名稱或萬用字元篩選**。 未指定 "prefix" 屬性時才適用。 <br/><br/>針對資料夾部分和檔案名稱部分，都支援萬用字元篩選。 允許的萬用字元為：`*` (符合零或多個字元) 和 `?` (符合零或單一字元)。<br/>- 範例 1：`"key": "rootfolder/subfolder/*.csv"`<br/>- 範例 2：`"key": "rootfolder/subfolder/???20180427.txt"`<br/>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 如果實際資料夾/檔案名稱內有萬用字元或逸出字元 `^`，請使用此逸出字元來逸出。 |否 |
 | prefix | S3 物件索引鍵的前置詞。 系統會選取索引鍵以此前置詞開頭的物件。 未指定 "key" 屬性時才適用。 |否 |
@@ -137,9 +138,9 @@ ms.locfileid: "55661848"
 
 若要從 Google Cloud Storage 複製資料，請將複製活動中的來源類型設定為 **FileSystemSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |yes |
+| type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
 | 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 
 **範例：**

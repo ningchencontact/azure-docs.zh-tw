@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: tyao;kumud
 ms.openlocfilehash: 5368ed8d1e60a646366065e2cf617fb2f3735b53
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59782882"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459726"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>監視和記錄的 azure web 應用程式防火牆 
 

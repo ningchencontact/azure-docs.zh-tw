@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107971"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 設定虛擬機器 (傳統) 的私人 IP 位址
 
@@ -71,7 +71,7 @@ ms.locfileid: "54023884"
    * **TestService**。 將建立 VM 之雲端服務的名稱。
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**。 用來建立 VM 的映像。
    * **adminuser**。 Windows VM 的本機系統管理員。
-   * <strong>AdminP@ssw0rd</strong>。 Windows VM 的本機系統管理員密碼。
+   * <strong>AdminP@ssw0rd</strong>. Windows VM 的本機系統管理員密碼。
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>如何擷取 VM 的靜態私人 IP 位址資訊
 若要檢視使用上述指令碼建立之 VM 的靜態私人 IP 位址資訊，請執行下列 Azure CLI 命令並觀察 *Network StaticIP*的值：

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
 ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543085"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何在 Azure 中使用 Packer 來建立 Linux 虛擬機器映像
 Azure 中的每個虛擬機器 (VM) 都是透過映像所建立，而映像則會定義 Linux 散發套件和作業系統版本。 映像中可包含預先安裝的應用程式與組態。 Azure Marketplace 提供了許多第一方和第三方映像，這些映像適用於最常見的散發套件和應用程式環境，而您也可以建立自己自訂的映像，以符合您的需求。 本文詳述如何使用開放原始碼工具 [Packer](https://www.packer.io/)，在 Azure 中定義並建置自訂映像。
@@ -61,7 +61,7 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 az account show --query "{ subscription_id: id }"
 ```
 
-您將在下一個步驟中使用這兩個命令的輸出。
+在下一步中使用这两个命令的输出。
 
 
 ## <a name="define-packer-template"></a>定義 Packer 範本
@@ -216,7 +216,7 @@ az vm create \
 
 建立 VM 需要幾分鐘的時間。 在 VM 建立好之後，請記下 Azure CLI 所顯示的 `publicIpAddress`。 此位址可用來透過 Web 瀏覽器存取 NGINX 網站。
 
-若要讓 Web 流量到達您的 VM，請使用 [az vm open-port](/cli/azure/vm) 從網際網路開啟通訊埠 80：
+若要使 VM 能使用 Web 流量，请通过 [az vm open-port](/cli/azure/vm) 从 Internet 打开端口 80：
 
 ```azurecli
 az vm open-port \
@@ -226,9 +226,9 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>測試 VM 和 NGINX
-現在，您可以開啟 Web 瀏覽器，並在網址列輸入 `http://publicIpAddress`。 提供您自己從 VM 建立程序中取得的公用 IP 位址。 預設 NGINX 網頁即會顯示，如下列範例所示：
+現在，您可以開啟 Web 瀏覽器，並在網址列輸入 `http://publicIpAddress`。 在 VM 创建过程中提供自己的公共 IP 地址。 預設 NGINX 網頁即會顯示，如下列範例所示：
 
-![預設 NGINX 網站](./media/build-image-with-packer/nginx.png) 
+![NGINX 默认站点](./media/build-image-with-packer/nginx.png) 
 
 
 ## <a name="next-steps"></a>後續步驟

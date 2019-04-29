@@ -17,23 +17,23 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: manayar
 ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108047"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>如何使用 Visual Studio 建立虛擬機器擴展集
 本文說明如何使用 Visual Studio 資源群組部署，部署 Azure 虛擬機器調整集。
 
 [Azure 虛擬機器擴展集 (英文)](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) 是一個 Azure 計算資源，可使用自動調整規模和負載平衡來部署和管理類似虛擬機器的集合。 您可以使用 [Azure Resource Manager 範本 (英文)](https://github.com/Azure/azure-quickstart-templates) 來佈建和部署虛擬機器擴展集。 您可以使用 Azure CLI、PowerShell、REST 部署 Azure Resource Manager 範本，也可以直接從 Visual Studio 部署。 Visual Studio 會提供一組範例範本，這些範本可部署為 Azure 資源群組部署專案的一部分。
 
-Azure 資源群組部署是一種方式，可在單一部署作業中將一組相關的 Azure 資源群組在一起並加以發佈。 您可以在以下位置深入了解： [透過 Visual Studio 建立與部署 Azure 資源群組](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
+Azure 資源群組部署是一種方式，可在單一部署作業中將一組相關的 Azure 資源群組在一起並加以發佈。 您可以深入了解它們這裡：[透過 Visual Studio 建立與部署 Azure 資源群組](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
 
 ## <a name="pre-requisites"></a>先決條件
 若要開始在 Visual Studio 中部署虛擬機器擴展集，您需要下列項目：
 
-* Visual Studio 2013 或更新版本
+* Visual Studio 2013 或更高版本
 * Azure SDK 2.7、2.8 或 2.9
 
 >[!NOTE]
@@ -46,11 +46,11 @@ Azure 資源群組部署是一種方式，可在單一部署作業中將一組�
 
 2. 在 [Visual C# | 雲端] 底下，選擇 [Azure Resource Manager] 來建立專案，以部署 Azure Resource Manager 範本。
    
-    ![建立專案][create_project]
+    ![创建项目][create_project]
 
 3. 從範本清單中，選取 Linux 或 Windows 虛擬機器調整集範本。
    
-   ![選取範本][select_Template]
+   ![选择模板][select_Template]
 
 4. 建立專案之後，您會看到 PowerShell 部署指令碼、Azure Resource Manager 範本，以及虛擬機器擴展集的參數檔。
    
@@ -61,7 +61,7 @@ Azure 資源群組部署是一種方式，可在單一部署作業中將一組�
 
 負載平衡器可讓您透過 SSH (Linux) 或 RDP (Windows) 連接到 VM 執行個體。 前端連接埠範圍是從 50000 開始。 針對 Linux，這表示如果您透過 SSH 連接到通訊埠 50000，系統就會將您路由傳送到擴展集中第一個 VM 的連接埠 22。 連接到連接埠 50001，將路由傳送到第二個 VM 的連接埠 22，依此類推。
 
- 使用 Visual Studio 編輯範本的好方法是使用 JSON 大綱來組織參數、變數和資源。 了解結構描述 Visual Studio 可以在部署範本之前在其中指出錯誤。
+ 使用 Visual Studio 編輯範本的好方法是使用 JSON 大綱來組織參數、變數和資源。 了解架构后，Visual Studio 可以在部署前指出模板中的错误。
 
 ![JSON 總管][json_explorer]
 

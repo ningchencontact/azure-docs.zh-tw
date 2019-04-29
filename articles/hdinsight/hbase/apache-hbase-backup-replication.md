@@ -1,7 +1,6 @@
 ---
 title: 設定 Apache HBase 和 Apache Phoenix 的備份和複寫 - Azure HDInsight
 description: 設定 HBase 和 Phoenix 的備份和複寫。
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: d182d23bf4b3f4dc1ed42a737e8fe8b753c035ae
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: e60aef7b1848197f41f96a1b5f5414bb0c8f4a15
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114519"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>設定 HDInsight 上的 Apache HBase 和 Apache Phoenix 備份和複寫
 

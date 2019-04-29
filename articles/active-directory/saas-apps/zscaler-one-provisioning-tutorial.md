@@ -15,80 +15,77 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: 26448d5056e58cf1110e825ad04c5123fca20684
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 5319b0ac06c4ddf1a7627a4e7fe0bfb2694f79f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114595"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 Zscaler One
 
-本教學課程的目的是要示範在 Zscaler One 與 Azure Active Directory (Azure AD) 設定 Azure AD 自動佈建和取消佈建使用者和/或群組至 Zscaler One 中執行的步驟。
+本教學課程會示範在 Zscaler One 與 Azure Active Directory (Azure AD) 設定 Azure AD 自動佈建和取消佈建使用者和群組給 Zscaler One 中執行的步驟。
 
 > [!NOTE]
-> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../active-directory-saas-app-provisioning.md)。
+> 本教學課程說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、 運作方式和常見問題集，請參閱 <<c0> [ 自動化使用者佈建和解除佈建軟體做為服務 (SaaS) 應用程式與 Azure Active Directory](../active-directory-saas-app-provisioning.md)。
 >
-
-> 此連接器目前處於公開預覽狀態。 如需有關 Microsoft Azure 的一般使用規定預覽功能的詳細資訊，請參閱 <<c0> [ 補充使用條款的 Microsoft Azure 預覽版](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此連接器是目前以預覽形式提供。 如需有關 Microsoft Azure 的一般使用規定預覽功能的詳細資訊，請參閱 <<c0> [ 使用 Microsoft Azure 預覽補充規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="prerequisites"></a>必要條件
 
-本教學課程中說明的案例假設您已經具有下列項目：
+本教學課程中所述的案例假設您有：
 
-* Azure AD 租用戶
-* Zscaler One 租用戶
-* 在 Zscaler One 使用者帳戶具有管理員權限
+* Azure AD 租用戶。
+* Zscaler One 租用戶。
+* 使用者帳戶在 Zscaler One 中具有管理員權限。
 
 > [!NOTE]
-> Azure AD 佈建整合仰賴 Zscaler One SCIM API，這是提供給 Zscaler One 的開發人員與企業封裝的帳戶。
+> Azure AD 佈建整合仰賴 Zscaler One SCIM API。 此 API 是提供給 Zscaler One 的開發人員與企業封裝的帳戶。
 
-## <a name="adding-zscaler-one-from-the-gallery"></a>從資源庫新增 Zscaler One
+## <a name="add-zscaler-one-from-the-azure-marketplace"></a>從 Azure Marketplace 新增 Zscaler One
 
-設定自動化使用者佈建 Azure AD 與 Zscaler One 時，您需要 Zscaler One 從 Azure AD 應用程式庫新增到受控 SaaS 應用程式清單。
+設定自動化使用者佈建與 Azure AD 的 Zscaler One 之前，將 Zscaler One 從 Azure Marketplace 加入受控 SaaS 應用程式清單。
 
-**若要從 Azure AD 應用程式庫，將新增 Zscaler One，執行下列步驟：**
+從 Marketplace，將新增 Zscaler One，請遵循下列步驟。
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在  [Azure 入口網站](https://portal.azure.com)，在左側瀏覽窗格中選取**Azure Active Directory**。
 
-    ![Azure Active Directory 按鈕](common/select-azuread.png)
+    ![Azure Active Directory 圖示](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 移至 [企業應用程式]，然後選取 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增應用程式，請選取對話方塊頂端的 [新增應用程式]。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Zscaler One**，從結果面板中選取 [Zscaler One]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在 [搜尋] 方塊中，輸入**Zscaler One** ，然後選取**Zscaler One**從結果面板中。 若要新增應用程式，請選取**新增**。
 
     ![結果清單中的 Zscaler One](common/search-new-app.png)
 
-## <a name="assigning-users-to-zscaler-one"></a>將使用者指派給 Zscaler One
+## <a name="assign-users-to-zscaler-one"></a>將使用者指派給 Zscaler One
 
-Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使用者應接收對指定應用程式的存取權。 在自動使用者佈建的內容中，只有「已指派」至 Azure AD 中的應用程式之使用者和/或群組會進行同步處理。
+Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接收所選的應用程式的存取。 在自動使用者佈建的內容中，會同步處理只的使用者或群組指派給 Azure AD 中的應用程式。
 
-之前設定，並啟用自動使用者佈建，您應該決定哪些使用者和/或 Azure AD 中的群組需要存取 Zscaler One。 一旦決定後，您可以指派這些使用者和/或群組給 Zscaler One 依照此處的指示：
-
-* [將使用者或群組指派給企業應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+您設定並啟用自動使用者佈建之前，決定哪些使用者或群組在 Azure AD 中的需要存取 Zscaler One。 若要將這些使用者或群組指派給 Zscaler One，請遵循[將使用者或群組指派給企業應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)。
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-one"></a>將使用者指派給 Zscaler One 的重要秘訣
 
-* 建議將單一 Azure AD 使用者指派給 Zscaler One，以測試自動使用者佈建的設定。 其他使用者及/或群組可能會稍後再指派。
+* 我們建議您指派單一 Azure AD 使用者給 Zscaler One 測試自動使用者佈建的設定。 稍後可以指派額外的使用者或群組。
 
-* 當將使用者指派給 Zscaler One，您必須選取 [指派] 對話方塊中的任何有效的應用程式特有角色 （如果有的話）。 具有**預設存取**角色的使用者會從佈建中排除。
+* 當您將使用者指派給 Zscaler One 時，請選取任何有效的應用程式特有角色，如果有的話，在指派對話方塊中。 具有**預設存取**角色的使用者會從佈建中排除。
 
-## <a name="configuring-automatic-user-provisioning-to-zscaler-one"></a>設定自動使用者佈建到 Zscaler One
+## <a name="configure-automatic-user-provisioning-to-zscaler-one"></a>設定自動使用者佈建到 Zscaler One
 
-本節會引導您完成設定 Azure AD 佈建服務以建立、 更新和停用使用者和/或群組，在 Zscaler One 根據使用者和/或群組指派 Azure AD 中的步驟。
+本節會引導您完成設定 Azure AD 佈建服務的步驟。 您可以使用它來建立、 更新和停用的 Zscaler One 根據使用者或群組指派 Azure AD 中使用者或群組。
 
 > [!TIP]
-> 您也可以選擇啟用 SAML 型單一登入 Zscaler one，下列指示中提供[Zscaler One 單一登入教學課程](zscaler-One-tutorial.md)。 雖然自動使用者佈建和單一登入這兩個功能互相補充，您還是可以將它們分開設定。
+> 您也可以啟用 SAML 型單一登入 Zscaler one。 請依照下列中的指示[Zscaler One 單一登入教學課程](zscaler-One-tutorial.md)。 單一登入可以獨立設定自動使用者佈建，雖然這兩個功能彼此補充。
 
-### <a name="to-configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>若要設定 Azure ad 自動使用者佈建的 Zscaler One:
+### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>設定 Azure ad 自動使用者佈建的 Zscaler One
 
-1. 登入[Azure 入口網站](https://portal.azure.com)，然後選取**企業應用程式**，選取**所有應用程式**，然後選取**Zscaler One**。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 **企業應用程式** > **所有應用程式** > **Zscaler One**。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
@@ -102,61 +99,63 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 4. 將 [佈建模式] 設定為 [自動]。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/provisioning-credentials.png)
+    ![Zscaler 的一種佈建模式](./media/zscaler-one-provisioning-tutorial/provisioning-credentials.png)
 
-5. 底下**系統管理員認證**區段中，輸入**租用戶 URL**並**祕密權杖**您的 Zscaler One 帳戶步驟 6 中所述。
+5. 底下**系統管理員認證**區段中，填寫**租用戶 URL**並**祕密權杖**方塊以設定您 Zscaler one 帳戶步驟 6 中所述。
 
-6. 若要取得**租用戶 URL**並**祕密權杖**，瀏覽至**管理 > 驗證設定**在 Zscaler One 的入口網站使用者介面以及中的，按一下  **SAML**底下**驗證類型**。
+6. 若要取得租用戶 URL 」 及 「 祕密權杖，請前往**Administration** > **驗證設定**Zscaler One 的入口網站 UI 中。 底下**驗證類型**，選取**SAML**。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
+    ![Zscaler One 的驗證設定](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 
-    按一下 **設定 SAML**來開啟**設定 SAML**選項。
+    a. 選取 **設定 SAML**來開啟**設定 SAML**選項。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
+    ![Zscaler One 設定 SAML](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
 
-    選取  **Enable SCIM-Based 佈建**來擷取**基底 URL**並**持有人權杖**，然後儲存該設定。 複製**基底 URL**要**租用戶 URL**並**持有人權杖**至**祕密權杖**在 Azure 入口網站中。
+    b. 選取  **Enable SCIM-Based 佈建**取得設定**基底 URL**並**持有人權杖**。 然後儲存設定。 複製**基底 URL**設為**租用戶 URL**在 Azure 入口網站中。 複製**持有人權杖**設為**祕密權杖**在 Azure 入口網站中。
 
-7. 填寫後在步驟 5 中所顯示的欄位，按一下**測試連接**以確保 Azure AD 可以連線到 Zscaler One。 如果連線失敗，請確定您的 Zscaler One 帳戶具有系統管理員權限並再試一次。
+7. 您在步驟 5 所示的方塊中，填滿之後，請選取**測試連接**以確定 Azure AD 可以連線到 Zscaler One。 如果連線失敗，請確定您的 Zscaler One 帳戶具有管理員權限，並再試一次。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/test-connection.png)
+    ![Zscaler 一項測試連接](./media/zscaler-one-provisioning-tutorial/test-connection.png)
 
-8. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選 [發生失敗時傳送電子郵件通知] 核取方塊。
+8. 在 **通知電子郵件**方塊中，輸入人員的電子郵件地址或群組以接收佈建錯誤通知。 選取 **發生失敗時傳送電子郵件通知**核取方塊。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/notification.png)
+    ![Zscaler One 通知電子郵件](./media/zscaler-one-provisioning-tutorial/notification.png)
 
-9. 按一下 [檔案] 。
+9. 選取 [ **儲存**]。
 
 10. 底下**對應**區段中，選取**同步處理 Azure Active Directory 使用者至 Zscaler One**。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/user-mappings.png)
+    ![Zscaler One 使用者同步處理](./media/zscaler-one-provisioning-tutorial/user-mappings.png)
 
-11. 檢閱從 Azure AD 同步至 Zscaler One 中的使用者屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對的使用者帳戶在 Zscaler One，進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
+11. 檢閱從 Azure AD 同步至 Zscaler One 中的使用者屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對的使用者帳戶在 Zscaler One，進行更新作業。 若要儲存任何變更，請選取**儲存**。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/user-attribute-mappings.png)
+    ![Zscaler One 相符的使用者屬性](./media/zscaler-one-provisioning-tutorial/user-attribute-mappings.png)
 
 12. 底下**對應**區段中，選取**同步處理 Azure Active Directory 群組至 Zscaler One**。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/group-mappings.png)
+    ![Zscaler One 的群組同步處理](./media/zscaler-one-provisioning-tutorial/group-mappings.png)
 
-13. 檢閱從 Azure AD 同步至 Zscaler One 中的群組屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對的 Zscaler One 中進行更新作業的群組。 選取 [儲存] 按鈕以認可所有變更。
+13. 檢閱從 Azure AD 同步至 Zscaler One 中的群組屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對的 Zscaler One 中進行更新作業的群組。 若要儲存任何變更，請選取**儲存**。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/group-attribute-mappings.png)
+    ![Zscaler One 相符的群組屬性](./media/zscaler-one-provisioning-tutorial/group-attribute-mappings.png)
 
-14. 若要設定範圍篩選，請參閱[範圍篩選教學課程](./../active-directory-saas-scoping-filters.md)中提供的下列指示。
+14. 若要設定範圍篩選器，請依照下列中的指示[範圍篩選教學課程](./../active-directory-saas-scoping-filters.md)。
 
-15. 若要啟用 Azure AD 佈建服務的 Zscaler One，請變更**佈建狀態**要**上**中**設定**一節。
+15. 若要啟用 Azure AD 中佈建服務 Zscaler One**設定**區段中，變更**佈建狀態**來**上**。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/provisioning-status.png)
+    ![Zscaler 的一種佈建狀態](./media/zscaler-one-provisioning-tutorial/provisioning-status.png)
 
-16. 藉由選擇需要的值中定義的使用者和/或您想要的群組要佈建到 Zscaler One**領域**中**設定**一節。
+16. 要佈建到 Zscaler One 中定義的使用者或您想要的群組。 在 **設定**區段中，選取您想要在的值**範圍**。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/scoping.png)
+    ![Zscaler One Scope](./media/zscaler-one-provisioning-tutorial/scoping.png)
 
-17. 當您準備好要佈建時，按一下 [儲存]。
+17. 當您準備好要佈建時時，請選取**儲存**。
 
-    ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/save-provisioning.png)
+    ![其中一個儲存 Zscaler](./media/zscaler-one-provisioning-tutorial/save-provisioning.png)
 
-此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用**同步處理詳細資料**區段來監視進度，並依循連結前往佈建活動報告，當中會描述佈建服務在 Zscaler One 的 Azure AD 所執行的所有動作。
+此作業會啟動初始同步處理所有的使用者或群組中定義**領域**中**設定**一節。 初始同步處理所花費的時間比更新的同步執行。 只要 Azure AD 佈建服務執行，它們就會發生大約每 40 分鐘。 
+
+您可以使用**同步處理詳細資料**區段來監視進度，並依循連結前往佈建活動報告。 報表會描述佈建服務在 Zscaler One 的 Azure AD 所執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
 

@@ -10,11 +10,11 @@ ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098604"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 儲存體計量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -79,7 +79,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 * **HTTP 網路追蹤記錄檔**，用以收集 HTTP/HTTPS 要求和回應資料，包括對 Azure 儲存體的作業。 在本教學課程中，我們將透過 Message Analyzer 產生網路追蹤。
 
 ### <a name="configure-server-side-logging-and-metrics"></a>設定伺服器端記錄和度量
-首先，我們將需要設定 Azure 儲存體記錄和度量，因此，我們已經從服務端，若要分析的資料。 您可以用各種方式設定記錄和計量 - 透過 [Azure 入口網站](https://portal.azure.com)，或使用 PowerShell，或以程式設計的方式。 請參閱[啟用度量](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal)並[啟用記錄](storage-analytics-logging.md#enable-storage-logging)如需設定記錄和度量的詳細資訊。
+首先，我们需要配置 Azure 存储日志记录和度量值，以便可以从服务端获取要分析的数据。 您可以用各種方式設定記錄和計量 - 透過 [Azure 入口網站](https://portal.azure.com)，或使用 PowerShell，或以程式設計的方式。 请参阅[启用指标](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal)和[启用日志记录](storage-analytics-logging.md#enable-storage-logging)，详细了解如何配置日志记录和指标。
 
 ### <a name="configure-net-client-side-logging"></a>設定 .NET 用戶端記錄
 若要設定 .NET 應用程式的用戶端的記錄，請在應用程式的組態檔 (web.config 或 app.config) 中啟用 .NET 診斷。 如需詳細資訊，請參閱 MSDN 上的[使用 .NET Storage Client Library 的用戶端記錄](https://msdn.microsoft.com/library/azure/dn782839.aspx)和[使用 Microsoft Azure Storage SDK for Java 的用戶端記錄](https://msdn.microsoft.com/library/azure/dn782844.aspx)。

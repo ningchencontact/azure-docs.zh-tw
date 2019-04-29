@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: d12d6b1274a756bfb13761ab999a1539bcee3657
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58178113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61097791"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務進行 Azure SQL DB 受控執行個體移轉的網路拓樸
 本文會討論 Azure 資料庫移轉服務進行內部部署 SQL Server 到 Azure SQL Database 受控執行個體移轉時，用於提供全面移轉體驗的各種網路拓撲。

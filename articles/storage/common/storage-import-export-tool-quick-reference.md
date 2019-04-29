@@ -9,11 +9,11 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 7d21ab42188d5b8d6cb8c179a28d1b5bee822f05
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478414"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>匯入作業的常用命令快速參考
 
@@ -51,4 +51,4 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3 /AdditionalDriveS
 
 ## <a name="next-steps"></a>後續步驟
 
-* [針對匯入作業準備硬碟的簡單工作流程](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
+* [为导入作业准备硬盘驱动器的示例工作流](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)

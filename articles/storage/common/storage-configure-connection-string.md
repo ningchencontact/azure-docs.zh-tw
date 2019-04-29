@@ -9,11 +9,11 @@ ms.date: 04/12/2017
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 26670a739bca03a2c9bbe6617cf433c730a7489e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098232"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>設定 Azure 儲存體連接字串
 
@@ -56,7 +56,7 @@ ms.locfileid: "55473811"
 > 您可以在 [Azure 入口網站](https://portal.azure.com)中找到儲存體帳戶的連接字串。 若要查看這主要和次要存取金鑰的連接字串，請在儲存體帳戶的功能表刀鋒視窗中，瀏覽至 [設定] > [存取金鑰]。
 >
 
-## <a name="create-a-connection-string-using-a-shared-access-signature"></a>使用共用存取簽章建立連接字串
+## <a name="create-a-connection-string-using-a-shared-access-signature"></a>使用共享访问签名创建连接字符串
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ## <a name="create-a-connection-string-for-an-explicit-storage-endpoint"></a>建立明確儲存體端點的連接字串
@@ -124,11 +124,11 @@ AccountKey=<account-key>;
 EndpointSuffix=core.chinacloudapi.cn;
 ```
 
-## <a name="parsing-a-connection-string"></a>剖析連接字串
+## <a name="parsing-a-connection-string"></a>分析连接字符串
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
 * [使用 Azure 儲存體模擬器進行開發和測試](storage-use-emulator.md)
 * [Azure 儲存體總管](storage-explorers.md)
-* [使用共用存取簽章 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
+* [使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 

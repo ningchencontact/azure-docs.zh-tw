@@ -17,16 +17,16 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421385"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098111"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>建立有多個子網路的虛擬網路 (傳統)
 
 > [!IMPORTANT]
-> Azure 有二種建立和處理資源的[不同部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)：Resource Manager 和傳統模型。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議透過 [Resource Manager](quick-create-portal.md) 部署模型建立最新的虛擬網路。
+> Azure 具有用于创建和处理资源的两个[不同的部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)：资源管理器部署模型和经典部署模型。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議透過 [Resource Manager](quick-create-portal.md) 部署模型建立最新的虛擬網路。
 
 本教學課程可供了解如何建立具有不同公用和私人子網路的基本 Azure 虛擬網路 (傳統)。 您可以在子網路中建立 Azure 資源，像是虛擬網路、雲端服務。 在虛擬網路 (傳統) 中建立的資源可以互相通訊，也可以和連線到虛擬網路之其他網路中的資源通訊。
 
@@ -49,7 +49,7 @@ ms.locfileid: "50421385"
     |---|---|
     |名稱|myVnet|
     |位址空間|10.0.0.0/16|
-    |子網路名稱|公開|
+    |子网名称|公開|
     |子網路位址範圍|10.0.0.0/24|
     |資源群組|讓 [新建] 保持選取狀態，然後輸入 **myResourceGroup**。|
     |訂用帳戶和位置|選取您的訂用帳戶和位置。
@@ -60,7 +60,7 @@ ms.locfileid: "50421385"
 6. 在出現的 [myVnet - 子網路] 窗格中，按一下 [+ 新增]。
 7. 在 [新增子網路] 窗格中的 [名稱] 輸入**私人**。 在 [位址範圍] 輸入 **10.0.1.0/24**。  按一下 [確定]。
 8. 您就會在 [myVnet - 子網路] 窗格中看到您建立的 [公用] 和 [私人] 子網路。
-9. **選用**：當您完成本教學課程後，可能會想刪除您所建立的資源，以免產生使用費：
+9. **可选**：完成本教程后，可能想要删除创建的资源，以免产生使用费：
     - 按一下 [myVnet] 窗格上的 [概觀]。
     - 按一下 [myVnet] 窗格上的 [刪除] 圖示。
     - 若要確認刪除，請在 [刪除虛擬網路] 方塊中，按一下 [是]。
@@ -98,7 +98,7 @@ ms.locfileid: "50421385"
     azure network vnet show --vnet myVnet
     ```
 
-7. **選用**：當您完成本教學課程後，可能會想刪除您所建立的資源，以免產生使用費：
+7. **可选**：完成本教程后，可能想要删除创建的资源，以免产生使用费：
 
     ```azurecli-interactive
     azure network vnet delete --vnet myVnet --quiet
@@ -111,7 +111,7 @@ ms.locfileid: "50421385"
 
 1. 安裝最新版的 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 模組。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 2. 啟動 PowerShell 工作階段。
-3. 在 PowerShell 中，輸入 `Add-AzureAccount` 命令來登入 Azure。
+3. 在 PowerShell 中，输入 `Add-AzureAccount` 命令登录 Azure。
 4. 視需要變更下列的路徑和檔名，然後再匯出您現有的網路組態檔：
 
     ```powershell
@@ -145,7 +145,7 @@ ms.locfileid: "50421385"
     ```
 
     > [!WARNING]
-    > 匯入變更過的網路組態檔會導致您訂用帳戶中現有的虛擬網路 (傳統) 發生變更。 請確定您只新增先前的虛擬網路，並且未變更或移除您訂用帳戶中任何現有的虛擬網路。 
+    > 导入更改的网络配置文件会导致订阅中现有虚拟网络（经典）发生变化。 請確定您只新增先前的虛擬網路，並且未變更或移除您訂用帳戶中任何現有的虛擬網路。 
 
 7. 檢閱虛擬網路和子網路：
 
@@ -153,7 +153,7 @@ ms.locfileid: "50421385"
     Get-AzureVNetSite -VNetName "myVnet"
     ```
 
-8. **選用**：當您完成本教學課程後，可能會想刪除您所建立的資源，以免產生使用費。 若要刪除虛擬網路，再次執行步驟 4-6，這次移除您在步驟 5 中加入的 **VirtualNetworkSite** 元素。
+8. **可选**：完成本教程后，可能想要删除创建的资源，以免产生使用费。 若要刪除虛擬網路，再次執行步驟 4-6，這次移除您在步驟 5 中加入的 **VirtualNetworkSite** 元素。
  
 > [!NOTE]
 > 雖然您無法使用 PowerShell 指定要建立虛擬網路 (傳統) 的資源群組，Azure 會在名為 Default-Networking 的資源群組中建立虛擬網路。
@@ -165,4 +165,4 @@ ms.locfileid: "50421385"
 - 若要了解所有虛擬網路和子網路的設定，請參閱[管理虛擬網路](manage-virtual-network.md)和[管理虛擬網路子網路](virtual-network-manage-subnet.md)。 您有各種選項可在生產環境中使用虛擬網路和子網路，以便符合不同的需求。
 - 建立 [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器，然後將它連線至現有的虛擬網路。
 - 若要將同一個 Azure 位置中的兩個虛擬網路連線，請在兩個虛擬網路之間建立[虛擬網路對等互連](create-peering-different-deployment-models.md)。 您可以對等互連虛擬網路 (Resource Manager) 與虛擬網路 (傳統)，但無法對等互連兩個虛擬網路 (傳統)。
-- 使用 [VPN 閘道](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或 [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 線路將虛擬網路連線至內部部署網路。
+- 使用 [VPN 网关](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或 [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 线路将虚拟网络连接到本地网络。

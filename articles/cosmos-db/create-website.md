@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.openlocfilehash: 1a63de4642850e425cc785e0d89197178ceec1a6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041011"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889729"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本部署 Azure Cosmos DB 和 Azure App Service Web Apps
 本教學課程示範如何使用 Azure Resource Manager 範本，來部署和整合 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)、[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) Web 應用程式及範例 Web 應用程式。
@@ -51,7 +51,7 @@ ms.locfileid: "54041011"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，按一下 [新增]，並搜尋「範本部署」。
     ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment1.png)
-2. 選取範本部署項目，然後按一下 [建立] ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment2.png)
+2. 选择模板部署项目，然后单击“创建”![模板部署 UI 的屏幕截图](./media/create-website/TemplateDeployment2.png)
 3. 按一下 [編輯範本]，貼上 DocDBWebsiteTodo.json 範本檔案的內容，然後按一下 [儲存]。
    ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment3.png)
 4. 按一下 [編輯參數]，提供每個必要參數的值，然後按一下 [確定]。  參數如下所示：
@@ -64,8 +64,8 @@ ms.locfileid: "54041011"
       ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment4.png)
 5. 選擇現有的資源群組，或提供名稱建立新的資源群組，然後選擇資源群組的位置。
 
-    ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment5.png)
-6. 依序按一下 [檢閱法律條款]、[購買] 和 [建立] 以開始部署。  選取 [釘選到儀表板]  讓產生的部署輕鬆簡單顯示在 Azure 入口網站的首頁上。
+    ![模板部署 UI 的屏幕截图](./media/create-website/TemplateDeployment5.png)
+6. 依次单击“查看法律条款”、“购买”和“创建”以开始部署。  選取 [釘選到儀表板]  讓產生的部署輕鬆簡單顯示在 Azure 入口網站的首頁上。
    ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment6.png)
 7. 部署完成時，隨即開啟 [資源群組] 窗格。
    ![資源群組窗格的螢幕擷取畫面](./media/create-website/TemplateDeployment7.png)  
@@ -87,7 +87,7 @@ ms.locfileid: "54041011"
 > 
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [新增]，並搜尋「範本部署」。
-    ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment1.png)
+    ![模板部署 UI 的屏幕截图](./media/create-website/TemplateDeployment1.png)
 2. 選取範本部署項目，然後按一下 [建立] ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment2.png)
 3. 按一下 [編輯範本]，貼上 DocDBWebSite.json 範本檔案的內容，然後按一下 [儲存]。
    ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment3.png)
@@ -101,13 +101,13 @@ ms.locfileid: "54041011"
       ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment4.png)
 5. 選擇現有的資源群組，或提供名稱建立新的資源群組，然後選擇資源群組的位置。
 
-    ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment5.png)
-6. 依序按一下 [檢閱法律條款]、[購買] 和 [建立] 以開始部署。  選取 [釘選到儀表板]  讓產生的部署輕鬆簡單顯示在 Azure 入口網站的首頁上。
+    ![模板部署 UI 的屏幕截图](./media/create-website/TemplateDeployment5.png)
+6. 依次单击“查看法律条款”、“购买”和“创建”以开始部署。  選取 [釘選到儀表板]  讓產生的部署輕鬆簡單顯示在 Azure 入口網站的首頁上。
    ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment6.png)
 7. 部署完成時，隨即開啟 [資源群組] 窗格。
    ![資源群組窗格的螢幕擷取畫面](./media/create-website/TemplateDeployment7.png)  
 8. 按一下 [資源] 清單中的 Web 應用程式資源，然後按一下 [應用程式設定] ![資源群組的螢幕擷取畫面](./media/create-website/TemplateDeployment9.png)  
-9. 請注意出現的 Azure Cosmos DB 端點以及每個 Azure Cosmos DB 主要金鑰的應用程式設定。
+9. 注意出现的 Azure Cosmos DB 终结点和每个 Azure Cosmos DB 主密钥的应用程序设置。
 
     ![應用程式設定的螢幕擷取畫面](./media/create-website/TemplateDeployment10.png)  
 10. 任意繼續瀏覽探索 Azure 入口網站，或遵循其中一個 Azure Cosmos DB [範例](https://go.microsoft.com/fwlink/?LinkID=402386)，來建立您自己的 Azure Cosmos DB 應用程式。
@@ -118,7 +118,7 @@ ms.locfileid: "54041011"
 恭喜！ 您已使用 Azure Resource Manager 範本部署了 Azure Cosmos DB、App Service Web 應用程式及範例 Web 應用程式。
 
 * 若要深入了解 Azure Cosmos DB，請按一下[這裡](https://azure.microsoft.com/services/cosmos-db/)。
-* 若要深入了解 Azure App Service Web Apps，請按一下 [這裡](https://go.microsoft.com/fwlink/?LinkId=325362)。
+* 若要了解有关 Azure 应用服务 Web 应用的详细信息，请单击[此处](https://go.microsoft.com/fwlink/?LinkId=325362)。
 * 若要深入了解 Azure 資源管理員範本，請按一下 [這裡](https://msdn.microsoft.com/library/azure/dn790549.aspx)。
 
 ## <a name="whats-changed"></a>變更的項目

@@ -1,7 +1,6 @@
 ---
 title: 將 HBase 叢集移轉至新的版本 - Azure HDInsight
 description: 如何將 HBase 叢集移轉至新的版本。
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 3b27fe0bec4ec23739e3cff02d6aed667f1d3e1d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: ac7984c50e6adec888c112cc260cf2e6af02fc97
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114456"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>將 Apache HBase 叢集移轉至新的版本
 
@@ -201,9 +200,9 @@ ms.locfileid: "58226822"
 
 8. **如果您不會使用 HBase 叢集使用增強式寫入功能，請略過此步驟。它只需用於 HBase 叢集使用增強式寫入功能。**
    
-   變更 hbase.rootdir 路徑以指向原始叢集的容器。
+   将 hbase.rootdir 路径改为指向原始群集的容器。
 
-    ![在 Ambari 中，變更 hbase rootdir 的容器名稱](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    ![在 Ambari 中更改 hbase rootdir 的容器名称](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
     
 9. 儲存您的變更。
 10. 如 Ambari 所示，重新啟動所有必要的服務。

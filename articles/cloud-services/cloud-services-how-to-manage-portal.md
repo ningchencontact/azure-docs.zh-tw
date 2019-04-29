@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: HT
+ms.openlocfilehash: d3d1ae759f0f3fa5edd417da61f1fa50b5d9cde7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61433894"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>在 Azure 入口網站中管理雲端服務
 在 Azure 入口網站的 [雲端服務] 區域中，您可以：
@@ -32,7 +32,7 @@ ms.locfileid: "40038038"
 如需如何調整雲端服務的詳細資訊，請參閱[在入口網站中設定雲端服務的自動調整](cloud-services-how-to-scale-portal.md)。
 
 ## <a name="update-a-cloud-service-role-or-deployment"></a>更新雲端服務角色或部署
-如果您需要更新雲端服務的應用程式程式碼，請使用雲端服務刀鋒視窗上的 [ **更新** ]。 您可以更新單一角色或所有角色。 您可以上傳新的服務封裝或服務組態檔來更新。
+如果您需要更新雲端服務的應用程式程式碼，請使用雲端服務刀鋒視窗上的 [ **更新** ]。 可以更新一个角色或所有角色。 您可以上傳新的服務封裝或服務組態檔來更新。
 
 1. 在 [Azure 入口網站][Azure portal]中，選取您想要更新的雲端服務。 這會開啟雲端服務執行個體刀鋒視窗。
 
@@ -75,7 +75,7 @@ ms.locfileid: "40038038"
 
     為了節省運算成本，您可以在確認生產部署如預期運作之後刪除預備部署。
 
-### <a name="common-questions-about-swapping-deployments"></a>交換部署的相關常見問題
+### <a name="common-questions-about-swapping-deployments"></a>有关交换部署的常见问题
 
 **交換部署有哪些必要條件？**
 
@@ -87,7 +87,7 @@ ms.locfileid: "40038038"
 
 請注意，客體 OS 更新和服務修復作業也可能導致部署交換失敗。 如需詳細資訊，請參閱[對雲端服務部署問題進行疑難排解](cloud-services-troubleshoot-deployment-problems.md)。
 
-**交換是否會導致我的應用程式停止運作？我應該如何處理該情況？**
+**应用程序的交换是否会导致停机？我應該如何處理該情況？**
 
 如上一節中所述，部署交換通常很快，因為它只是 Azure 負載平衡器中的設定變更。 在某些情況下，它會花費 10 秒以上的時間，而導致暫時性的連線失敗。 若要限縮對您客戶造成的影響，請考慮實作[用戶端重試邏輯](../best-practices-retry-general.md)。
 
@@ -126,7 +126,7 @@ ms.locfileid: "40038038"
 [Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>後續步驟
-* [雲端服務的一般設定](cloud-services-how-to-configure-portal.md)。
+* [云服务的常规配置](cloud-services-how-to-configure-portal.md)。
 * 了解如何 [部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。
 * 設定 [自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
 ms.openlocfilehash: 856f4bd9c2b04ff10ed598c5e641955e1de99398
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557523"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory 中執行資料的流程活動
 用於執行資料流活動觸發的管線執行和管線偵錯 (sandbox) 執行中執行您的 ADF 資料流。

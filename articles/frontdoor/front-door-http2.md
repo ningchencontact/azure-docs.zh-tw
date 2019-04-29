@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4282c9e9b660476992ba6f948bc5e408e9b064a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 33e738f31be493d5890fc972ec71e7c6cd733bf4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736442"
 ---
 # <a name="http2-support-in-azure-front-door-service"></a>Azure Front Door Service 中的 HTTP/2 支援
 HTTP/2 是 HTTP/1.1 的重大修訂版。 它提供更快的 Web 效能、更短的回應時間和改善的使用者體驗，但保留常用的 HTTP 方法、狀態碼和語意。 雖然 HTTP/2 是設計來搭配 HTTP 與 HTTPS 使用，但許多用戶端 Web 瀏覽器僅支援透過傳輸層安全性 (TLS) 使用 HTTP/2。
@@ -42,7 +42,7 @@ HTTP/2 的優點包括︰
 
 所有主要瀏覽器都已在其目前的版本中實作 HTTP/2 支援。 不支援的瀏覽器會自動降回 HTTP/1.1。
 
-|瀏覽器|最低版本|
+|[瀏覽器]|最低版本|
 |-------------|------------|
 |Microsoft Edge| 12|
 |Google Chrome| 43|

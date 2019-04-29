@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
 ms.openlocfilehash: 332f899f3502f34e46b4f158a6980dc96248140e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703081"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>管理 Azure 實驗室服務中的教室實驗室 
 本文說明如何建立和刪除教室實驗室。 它也示範如何檢視實驗室帳戶中的所有教室實驗室。 
@@ -28,7 +28,7 @@ ms.locfileid: "59544019"
 
 ## <a name="create-a-classroom-lab"></a>建立教室實驗室
 
-1. 瀏覽至 [Azure 實驗室服務網站](https://labs.azure.com)。 請注意，Internet Explorer 11 尚不支援。 
+1. 瀏覽至 [Azure 實驗室服務網站](https://labs.azure.com)。 請注意，目前不支援 Internet Explorer 11。 
 2. 選取 [登入]。 選取或輸入**使用者識別碼** (其為實驗室帳戶中具有**實驗室建立者**角色的成員)，然後輸入密碼。 Azure 實驗室服務支援組織帳戶和 Microsoft 帳戶。 
 3. 在 [新增實驗室] 視窗中，執行下列動作： 
     1. 指定實驗室的**名稱**。 

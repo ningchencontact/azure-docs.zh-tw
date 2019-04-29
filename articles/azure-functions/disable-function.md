@@ -10,25 +10,26 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
-ms.author: tdykstra
-ms.openlocfilehash: be30a97c9c94031ea526385326c220fbf0d316b7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
-ms.translationtype: HT
+origin.date: 07/24/2018
+ms.date: 08/31/2018
+ms.author: v-junlch
+ms.openlocfilehash: a32b4815a2716428ceeec034ddc5589e3aa062e8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710555"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>如何停用 Azure Functions 中的函式
 
 本文說明如何停用 Azure Functions 中的函式。 「停用」函式表示讓執行階段忽略為此函式定義的自動觸發程序。 您這麼做的方式取決於執行階段版本和程式設計語言：
 
-* Functions 1.x
-  * 指令碼語言
-  * C# 類別庫
-* Functions 2.x
-  * 一種方法適用於所有語言
-  * C# 類別庫的選擇性方法
+- Functions 1.x
+  - 指令碼語言
+  - C# 類別庫
+- Functions 2.x
+  - 一種方法適用於所有語言
+  - C# 類別庫的選擇性方法
 
 ## <a name="functions-1x---scripting-languages"></a>Functions 1.x - 指令碼語言
 
@@ -61,7 +62,7 @@ ms.locfileid: "40007100"
 
 您可以在 Azure 入口網站中編輯此檔案，或使用函式的 [管理] 索引標籤上的 [函式狀態] 切換。此入口網站切換可藉由變更 *function.json* 檔案來產生作用。
 
-![函式狀態切換](media/disable-function/function-state-switch.png)
+![函式狀態切換](./media/disable-function/function-state-switch.png)
 
 ## <a name="functions-1x---c-class-libraries"></a>Functions 1.x - C# 類別庫
 
@@ -112,7 +113,7 @@ public static class QueueFunctions
 
 在 Functions 2.x 中，您可使用應用程式設定來停用函式。 例如，若要停用名為 `QueueTrigger` 的函式，您可建立名為 `AzureWebJobs.QueueTrigger.Disabled` 的應用程式設定，並將它設定為 `true`。 若要啟用此函式，請將應用程式設定設為 `false`。 您也可以使用函式的 [管理] 索引標籤上的 [函式狀態] 切換。此切換可藉由建立和刪除 `AzureWebJobs.<functionname>.Disabled` 應用程式設定來產生作用。
 
-![函式狀態切換](media/disable-function/function-state-switch.png)
+![函式狀態切換](./media/disable-function/function-state-switch.png)
 
 ## <a name="functions-2x---c-class-libraries"></a>Functions 2.x - C# 類別庫
 
@@ -121,3 +122,4 @@ public static class QueueFunctions
 ## <a name="next-steps"></a>後續步驟
 
 本文關於如何停用自動觸發程序。 如需觸發程序的詳細資訊，請參閱[觸發程序與繫結](functions-triggers-bindings.md)。
+

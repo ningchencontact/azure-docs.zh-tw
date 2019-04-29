@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
 ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827267"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Azure Container Registry 中的容器映像儲存體
 
@@ -34,7 +34,7 @@ Azure 使用異地備援儲存體配置來避免您的容器映像遺失。 Azur
 
 下表說明 Azure 容器登錄的容器映像和儲存體限制。
 
-| 資源 | 限制 |
+| Resource | 限制 |
 | -------- | :---- |
 | 儲存機制 | 沒有限制 |
 | 映像 | 沒有限制 |

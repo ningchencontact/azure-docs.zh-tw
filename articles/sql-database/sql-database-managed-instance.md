@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098521"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>使用 SQL Database 進階資料安全性搭配虛擬網路幾乎 100%相容
 
@@ -82,18 +82,18 @@ ms.locfileid: "60002743"
 
 在[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)中尋找關於硬體世代之間差異的詳細資訊。
 
-## <a name="managed-instance-service-tiers"></a>受控執行個體服務層
+## <a name="managed-instance-service-tiers"></a>受控執行個體服務層級
 
-有兩個服務層可使用受控執行個體：
+有兩個服務層級可使用受控執行個體：
 
 - **一般用途**：專為具有標準效能和 IO 延遲需求的應用程式所設計。
 - **業務關鍵**：專為具有低 IO 延遲需求且對工作負載的基礎維護作業影響最小的應用程式所設計。
 
-這兩個服務層均保證 99.99% 的可用性，可讓您單獨選取儲存體大小和計算容量。 如需 Azure SQL Database 高可用性架構的詳細資訊，請參閱[高可用性和 Azure SQL Database](sql-database-high-availability.md)。
+這兩個服務層級均保證 99.99% 的可用性，可讓您單獨選取儲存體大小和計算容量。 如需 Azure SQL Database 高可用性架構的詳細資訊，請參閱[高可用性和 Azure SQL Database](sql-database-high-availability.md)。
 
-### <a name="general-purpose-service-tier"></a>一般目的服務層
+### <a name="general-purpose-service-tier"></a>一般目的服務層級
 
-下列清單說明一般用途服務層的主要特色：
+下列清單說明一般用途服務層級的主要特色：
 
 - 專為大多數有標準效能需求的商務應用程式所設計
 - 高效能的 Azure Blob 儲存體 (8 TB)
@@ -101,13 +101,13 @@ ms.locfileid: "60002743"
 
 如需詳細資訊，請參閱[一般用途層中的儲存體層](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c)和[受控執行個體 (一般用途) 的儲存體效能最佳做法和考量](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/) \(英文\)。
 
-在[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中尋找關於服務層之間差異的詳細資訊。
+在[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中尋找關於服務層級之間差異的詳細資訊。
 
-### <a name="business-critical-service-tier"></a>業務關鍵服務層
+### <a name="business-critical-service-tier"></a>業務關鍵服務層級
 
-業務關鍵服務層是為具有高 IO 需求的應用程式所建置。 使用數個分開的複本，針對失敗提供最高的復原能力。
+業務關鍵服務層級是為具有高 IO 需求的應用程式所建置。 使用數個分開的複本，針對失敗提供最高的復原能力。
 
-下列清單概述業務關鍵服務層的主要特色：
+下列清單概述業務關鍵服務層級的主要特色：
 
 - 專為具有極高效能和 HA 需求的商務應用程式所設計
 - 提供超級快速的本機 SSD 儲存體 (在 Gen4 上可達 1 TB，而在 Gen5 上可達 4 TB)
@@ -115,7 +115,7 @@ ms.locfileid: "60002743"
 - 可用於報告和其他唯讀工作負載的其他內建[唯讀資料庫複本](sql-database-read-scale-out.md)
 - [記憶體內部 OLTP](sql-database-in-memory.md)，可用於具有高效能需求的工作負載  
 
-在[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中尋找關於服務層之間差異的詳細資訊。
+在[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中尋找關於服務層級之間差異的詳細資訊。
 
 ## <a name="advanced-security-and-compliance"></a>進階安全性與合規性
 

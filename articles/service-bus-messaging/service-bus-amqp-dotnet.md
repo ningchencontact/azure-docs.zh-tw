@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885701"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749252"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>搭配使用 .NET 的服務匯流排與 AMQP 1.0
 
@@ -63,7 +63,7 @@ ms.locfileid: "58885701"
 
 | .NET 主體物件類型 | 對應的 AMQP 類型 | AMQP 主體區段類型 |
 | --- | --- | --- |
-| 布林 |布林值 |AMQP 值 |
+| 布林 |boolean |AMQP 值 |
 | byte |ubyte |AMQP 值 |
 | ushort |ushort |AMQP 值 |
 | uint |uint |AMQP 值 |
@@ -79,7 +79,7 @@ ms.locfileid: "58885701"
 | DateTime |timestamp |AMQP 值 |
 | Guid |uuid |AMQP 值 |
 | byte[] |binary |AMQP 值 |
-| 字串 |字串 |AMQP 值 |
+| string |string |AMQP 值 |
 | System.Collections.IList |list |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。 |
 | System.Array |数组 |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。 |
 | System.Collections.IDictionary |map |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。注意︰僅支援 String 索引鍵。 |

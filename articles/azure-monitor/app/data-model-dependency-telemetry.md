@@ -13,17 +13,17 @@ ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60901020"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>相依性遙測：Application Insights 資料模型
 
 相依性遙測 (在 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中) 代表受監視元件與遠端元件 (例如 SQL 或 HTTP 端點) 的互動。
 
-## <a name="name"></a>Name
+## <a name="name"></a>名稱
 
 使用此相依性呼叫所起始之命令的名稱。 基數值低。 範例為預存程序名稱和 URL 路徑範本。
 

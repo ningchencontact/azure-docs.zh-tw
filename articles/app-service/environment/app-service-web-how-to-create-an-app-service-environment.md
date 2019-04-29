@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 9bc796c4d0d449f72dc3234bc2825554eafaf77f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128869"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>如何建立 App Service 環境 v1 
 
@@ -31,11 +31,11 @@ ms.locfileid: "53339887"
 ### <a name="overview"></a>概觀
 App Service 環境 (ASE) 是 Azure App Service 的進階服務選項，可提供多租用戶戳記中不提供的增強式設定功能。 ASE 功能基本上會將 Azure App Service 部署到客戶的虛擬網路中。 若要更深入了解 App Service Environment 所提供的功能，請閱讀[什麼是 App Service Environment][WhatisASE] 文件。
 
-### <a name="before-you-create-your-ase"></a>建立 ASE 之前
+### <a name="before-you-create-your-ase"></a>创建 ASE 前的准备工作
 務必注意您無法變更的項目。 建立後，您無法變更 ASE 的相關層面是：
 
 * 位置
-* 訂用帳戶
+* 订阅
 * 資源群組
 * 使用的 VNet
 * 使用的子網路 

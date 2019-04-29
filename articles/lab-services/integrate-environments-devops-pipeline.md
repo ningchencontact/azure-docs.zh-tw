@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61318377"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>將環境整合到您的 Azure DevOps 的 CI/CD 管線
 您可以使用 Azure DevTest Labs 工作擴充功能安裝於 Azure DevOps 服務 （前身為 Visual Studio Team Services） 中輕鬆整合您的持續整合 (CI) / 持續傳遞 (CD) 建置和發行管線與 Azure研發/測試實驗室。 這些擴充功能進行快速部署的工作變得更容易[環境](devtest-lab-test-env.md)特定測試工作，並在測試完成後加以刪除。 

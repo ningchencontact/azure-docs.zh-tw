@@ -16,11 +16,11 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61271643"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中備份應用程式
 [Azure App Service](overview.md) 中的「備份與還原」功能可讓您以手動或透過排程方式，輕鬆建立應用程式備份。 您可以透過覆寫現有的應用程式或還原到另一個應用程式，將應用程式還原到先前狀態的快照。 

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009960"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115320"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流：以 1 秒的延遲進行監視與診斷
 
@@ -50,10 +50,13 @@ ms.locfileid: "59009960"
 
 4. 如果您可能在篩選中使用客戶名稱等敏感性資料，請[保護控制通道](#secure-the-control-channel)。
 
+### <a name="nodejs"></a>Node.js
+
+即時計量以 Node.js 來使用，您必須更新成 1.30 或更新的 sdk 版本。 預設會停用 Node.js SDK 中的即時計量。 若要啟用即時計量新增`setSendLiveMetrics(true)`至您[組態方法](https://github.com/Microsoft/ApplicationInsights-node.js#configuration)如初始化 SDK。
+
 ### <a name="no-data-check-your-server-firewall"></a>沒有資料？ 請檢查您的伺服器防火牆
 
 檢查是否已開啟您伺服器防火牆中[即時計量資料流的連出連接埠](../../azure-monitor/app/ip-addresses.md#outgoing-ports)。 
-
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>即時計量資料流與計量瀏覽器和分析有何不同？
 
@@ -65,7 +68,6 @@ ms.locfileid: "59009960"
 |免費|即時資料流資料免費|依[價格](../../azure-monitor/app/pricing.md)付費
 |取樣|傳輸所有選取的計量和計數器。 取樣失敗和堆疊追蹤。 不會套用 TelemetryProcessors。|可能[取樣](../../azure-monitor/app/api-filtering-sampling.md)事件|
 |控制通道|篩選控制項訊號會傳送至 SDK。 建議您保護這個通道。|對入口網站的單向通訊|
-
 
 ## <a name="select-and-filter-your-metrics"></a>選取並篩選您的計量
 

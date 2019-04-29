@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795926"
 ---
 # <a name="clustering-point-data"></a>叢集點資料
 
@@ -86,10 +86,10 @@ var datasource = new atlas.source.DataSource(null, {
 
 | 屬性名稱 | 類型 | 描述 |
 |---------------|------|-------------|
-| 叢集 | 布林值 | 指出是否功能代表叢集。 |
-| cluster_id | 字串 | 可以搭配資料來源叢集的唯一識別碼`getClusterExpansionZoom`， `getClusterChildren`，和`getClusterLeaves`方法。 |
+| 叢集 | boolean | 指出是否功能代表叢集。 |
+| cluster_id | string | 可以搭配資料來源叢集的唯一識別碼`getClusterExpansionZoom`， `getClusterChildren`，和`getClusterLeaves`方法。 |
 | point_count | number | 叢集中包含的點數目。 |
-| point_count_abbreviated | 字串 | 縮寫 point_count 值，如果很長的字串。 （例如 4000 變成 4k） |
+| point_count_abbreviated | string | 縮寫 point_count 值，如果很長的字串。 （例如 4000 變成 4k） |
 
 這個範例會取得泡泡圖層可呈現叢集點，並新增 click 事件，當觸發時，計算中, 與縮放地圖來叢集就會中斷分開使用的下一步] 縮放層級`getClusterExpansionZoom`方法`DataSource`類別，並`cluster_id`屬性的已按下 [叢集資料點。 
 

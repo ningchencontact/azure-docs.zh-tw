@@ -5,14 +5,15 @@ author: shizn
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/07/2018
+origin.date: 01/07/2018
+ms.date: 05/06/2019
 ms.author: xshi
 ms.openlocfilehash: ab3c02d7207bca70a90df8aa08c73c1484cd635d
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61440586"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用適用於 Visual Studio 的 Cloud Explorer，在您的裝置和 IoT 中樞之間傳送及接收訊息
 
@@ -48,14 +49,10 @@ ms.locfileid: "59571306"
 
     ![按一下 [帳戶管理]](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
-
-2. 在 Cloud Explorer 中按一下 [管理帳戶]。
-
-3. 若為第一次登入 Azure，請在新視窗中按一下 [新增帳戶]。
-
-4. 登入之後，系統會顯示您的 Azure 訂用帳戶清單。 選取您想要檢視的 Azure 訂用帳戶並按一下 [套用]。
-
-5. 展開**您的訂用帳戶** > [IoT 中樞] > **您的 IoT 中樞**，裝置清單會顯示在您的 IoT 中樞節點下。
+1. 在 Cloud Explorer 中按一下 [管理帳戶]。
+1. 若為第一次登入 Azure，請在新視窗中按一下 [新增帳戶]。
+1. 登入之後，系統會顯示您的 Azure 訂用帳戶清單。 選取您想要檢視的 Azure 訂用帳戶並按一下 [套用]。
+1. 展開**您的訂用帳戶** > [IoT 中樞] > **您的 IoT 中樞**，裝置清單會顯示在您的 IoT 中樞節點下。
 
     ![裝置清單](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
 
@@ -67,11 +64,11 @@ ms.locfileid: "59571306"
 
     ![開始監視 D2C 訊息](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message.png)
 
-2. 監視的訊息會顯示在 [IoT 中樞] 輸出窗格。
+1. 監視的訊息會顯示在 [IoT 中樞] 輸出窗格。
 
     ![監視 D2C 訊息結果](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result.png)
 
-3. 若要停止監視，請以滑鼠右鍵按一下任何 IoT 中樞或裝置，並選取 [Stop Monitoring D2C Message] \(停止監視 D2C 訊息\)。
+1. 若要停止監視，請以滑鼠右鍵按一下任何 IoT 中樞或裝置，並選取 [Stop Monitoring D2C Message] \(停止監視 D2C 訊息\)。
 
 ## <a name="send-cloud-to-device-messages"></a>傳送雲端到裝置訊息
 
@@ -81,9 +78,8 @@ ms.locfileid: "59571306"
 
     ![傳送 C2D 訊息](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message.png)
 
-2. 在輸入方塊中輸入訊息。
-
-3. 結果會顯示在 [IoT 中樞] 輸出窗格。
+1. 在輸入方塊中輸入訊息。
+1. 結果會顯示在 [IoT 中樞] 輸出窗格。
 
     ![傳送 C2D 訊息結果](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result.png)
 

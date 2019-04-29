@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 4/23/2019
 ms.author: victorh
-ms.openlocfilehash: 740b0ac505edfff1f703c2831ec5608e72851610
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 7a412589f4e86f2a49d07f2d01ca34bf30fd528b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738774"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 標籤概觀
 
@@ -35,7 +35,7 @@ FQDN 標籤代表一群與知名 Microsoft 服務相關聯的完整網域名稱 
 |Microsoft Active Protection Service (MAPS)|允許對 [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/) 進行輸出存取。|
 |App Service Environment (ASE)|允許對 ASE 平台流量進行輸出存取。 此標籤未涵蓋客戶專屬的儲存體和 ASE 所建立的 SQL 端點。 這些項目應該透過[服務端點](../virtual-network/tutorial-restrict-network-access-to-resources.md)來啟用，或以手動方式新增。<br><br>如需將 Azure 防火牆與 ASE 整合的詳細資訊，請參閱[鎖定 App Service 環境](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase)。|
 |Azure 備份|允許對 Azure 備份服務進行輸出存取。|
-|Azure HDInsight<br>(預覽)|允許輸出存取 HDInsight 平台的流量。 此標記未涵蓋的範圍從 HDInsight 的特定客戶的儲存體或 SQL 流量。 這些透過啟用[服務端點](../virtual-network/tutorial-restrict-network-access-to-resources.md)或以手動方式加入。|
+|Azure HDInsight<br>(預覽)|允許輸出存取 HDInsight 平台的流量。 此標記未涵蓋的範圍從 HDInsight 的特定客戶的儲存體或 SQL 流量。 啟用這些 using[服務端點](../virtual-network/tutorial-restrict-network-access-to-resources.md)或手動新增它們。|
 
 > [!NOTE]
 > 選取應用程式規則中的 FQDN 標籤時，[通訊協定:連接埠] 欄位必須設定為 [https]。

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: ramkris
 ms.openlocfilehash: 60afd8128224050d456699e798d814a259e106ae
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61330241"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>使用 Apache Spark 至 Azure Cosmos DB 連接器來加速巨量資料分析
 
@@ -19,7 +19,7 @@ ms.locfileid: "59543816"
 
 您可以使用的連接器[Azure Databricks](https://azure.microsoft.com/services/databricks)或是[Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)，在 Azure 上提供受控的 Spark 叢集。 下表顯示支援的 Spark 版本。
 
-| 元件 | 版本 |
+| 元件 | Version |
 |---------|-------|
 | Apache Spark | 2.4.x、 2.3.x、 2.2.x 版本和 2.1.x |
 | Scala | 2.11 |

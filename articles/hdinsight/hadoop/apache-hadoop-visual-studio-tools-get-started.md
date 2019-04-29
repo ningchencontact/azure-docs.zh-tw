@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: cf392bb254e38b2e07a92e87927b12e144b26f16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d4a690ada0954015e515d616e3eb95ce1bfc3a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343841"
+ms.locfileid: "62124944"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Apache Hive 查詢
 
@@ -180,7 +180,7 @@ ms.locfileid: "60343841"
 
       ![查询和“执行”的屏幕截图](./media/apache-hadoop-visual-studio-tools-get-started/execute.png)  
 
-    * **Batch**  
+    * **批次**  
 
       确保“批处理”已选中，然后选择“提交”。  如果选择高级提交选项，请为脚本配置“作业名称”、“参数”、“其他配置”和“状态目录”。
 

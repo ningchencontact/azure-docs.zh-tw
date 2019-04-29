@@ -12,14 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: yegu
+origin.date: 01/23/2017
+ms.date: 02/27/2019
+ms.author: v-junlch
 ms.openlocfilehash: 73c771ab18d1cc2944298818c1cab90eb2f277ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829798"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Azure Cache for Redis 範例
 本主題提供「Azure Redis 快取」範例清單，其中涵蓋下列這類案例：連線至快取、對快取進行資料讀取和寫入，以及使用 ASP.NET「Azure Redis 快取」提供者。 有些範例是可下載的專案，有些則提供逐步指導並包括程式碼片段，但沒有可下載專案的連結。
@@ -31,14 +32,14 @@ ms.locfileid: "56238397"
 
 此範例示範如何：
 
-* 使用各種連線選項
-* 使用同步和非同步作業在快取中讀取和寫入物件
-* 使用 Redis MGET/MSET 命令來傳回所指定金鑰的值
-* 執行 Redis 交易作業
-* 使用 Redis 清單和已排序的集合
-* 使用 JsonConvert 序列化程式儲存 .NET 物件
-* 使用 Redis 集合來實作標記
-* 使用 Redis 叢集
+- 使用各種連線選項
+- 使用同步和非同步作業在快取中讀取和寫入物件
+- 使用 Redis MGET/MSET 命令來傳回所指定金鑰的值
+- 執行 Redis 交易作業
+- 使用 Redis 清單和已排序的集合
+- 使用 JsonConvert 序列化程式儲存 .NET 物件
+- 使用 Redis 集合來實作標記
+- 使用 Redis 叢集
 
 如需詳細資訊，請參閱 GitHub 上的 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) \(英文\) 文件，如需更多使用案例，則請參閱 [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) \(英文\) 單元測試。
 
@@ -52,8 +53,8 @@ ms.locfileid: "56238397"
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Azure Redis 快取客戶查詢範例
 本範例示範如何比較從快取中存取資料與從持續性儲存體中存取資料之間的效能。 此範例有兩個專案。
 
-* [示範 Azure Redis 快取如何透過快取資料來改善效能](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
-* [植入示範的資料庫和快取](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+- [示範 Azure Redis 快取如何透過快取資料來改善效能](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+- [植入示範的資料庫和快取](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
 ## <a name="aspnet-session-state-and-output-caching"></a>ASP.NET 工作階段狀態和輸出快取
 [使用 Azure Redis 快取來儲存 ASP.NET SessionState 和 OutputCache](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) 範例示範如何使用「Azure Redis 快取」，藉由適用於 Redis 的 SessionState 和 OutputCache 提供者來儲存 ASP.NET「工作階段」和「輸出快取」。
@@ -69,4 +70,6 @@ ms.locfileid: "56238397"
 
 ## <a name="bandwidth-monitor"></a>頻寬監視器
 [頻寬監視器](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) 範例可讓您監視用戶端上使用的頻寬。 若要測量頻寬，請在快取用戶端電腦上執行這個範例、呼叫快取，並觀察頻寬監視器範例所報告的頻寬。
+
+<!-- Update_Description: update metedata properties -->
 

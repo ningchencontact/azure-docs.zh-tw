@@ -2,7 +2,6 @@
 title: 在 HDInsight 上使用 Spark MLlib 建立機器學習的範例 - Azure
 description: 了解如何使用 Spark MLlib 建立一個透過羅吉斯迴歸使用分類來分析資料集的機器學習應用程式。
 keywords: spark 機器學習, spark 機器學習範例
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 31755dcc247ea3be5fb38249afd98dc72dcbc544
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097094"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>使用 Apache Spark MLlib 建置機器學習應用程式及分析資料集
 
@@ -46,7 +45,7 @@ MLlib 是核心 Spark 程式庫之一，提供許多可用於機器學習工作�
 
 1. 使用 PySpark 核心建立 Jupyter Notebook。 如需指示，請參閱[建立 Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)。
 
-2. 匯入此應用程式所需的類型。 複製並貼入空白儲存格，下列程式碼，然後再按下**SHIFT + ENTER**。
+2. 匯入此應用程式所需的類型。 将以下代码复制并粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
 
     ```PySpark
     from pyspark.ml import Pipeline

@@ -10,11 +10,11 @@ ms.date: 02/28/2017
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: d00bf87a80e13808c42a5839ad0f4508ad7214b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477479"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>使用 Azure 儲存體與 Hudson 連續整合解決方案
 ## <a name="overview"></a>概觀
@@ -134,7 +134,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 1. 在工作組態的 [Build] 區段中，按一下 [Add build step]，並選擇 [Download from Azure Blob storage]。
 2. 对于“存储帐户名称”，请选择要使用的存储帐户。
 3. 在 [容器名稱] 中，指定您要下載的 Blob 所在之容器的名稱。 您可以使用環境變數。
-4. 在 [Blob 名稱] 中，指定 Blob 名稱。 您可以使用環境變數。 另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。 例如，**專案\\*** 指定所有的 blob 名稱開頭**專案**。
+4. 在 [Blob 名稱] 中，指定 Blob 名稱。 您可以使用環境變數。 另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。 例如，**project\\*** 将指定名称以 **project** 开头的所有 Blob。
 5. [選擇性] 針對**下載路徑**，請於 Hudson 機器上指定要從 Azure Blob 儲存體下載檔案的目標路徑。 也可以使用环境变量。 (如果您未提供 [下載路徑] 的值，則 Azure Blob 儲存體中的檔案會下載至工作的工作區。)
 
 如果要從 Azure Blob 儲存體下載其他項目，您可以建立其他組建步驟。

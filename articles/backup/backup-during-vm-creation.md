@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: raynew
 ms.openlocfilehash: d96b898c8f72abd7e4eb3522ae046e9fc926f387
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809348"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>建立 Azure VM 時啟用備份
 
@@ -45,12 +45,12 @@ ms.locfileid: "58403573"
 
 8. 接受預設備份原則，或修改的設定。
     - 備份原則會指定如何經常建立備份快照的 VM，並保留這些備份複本的時間長度。 
-    - 預設的原則一天一次備份 VM。
+    - 默认策略每天备份 VM 一次。
     - 您可以自訂您自己進行每日或每週備份 Azure VM 的備份原則。
     - [了解更多](backup-azure-vms-introduction.md#backup-and-restore-considerations)有關 Azure Vm 的備份考量。
     - [了解更多](backup-instant-restore-capability.md)需立即還原功能。
 
-      ![預設備份原則](./media/backup-during-vm-creation/daily-policy.png) 
+      ![默认备份策略](./media/backup-during-vm-creation/daily-policy.png) 
 
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>開始備份之後建立 VM 

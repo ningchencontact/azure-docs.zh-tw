@@ -1,7 +1,6 @@
 ---
 title: 適用於 Apache Kafka-Azure HDInsight 的 azure 監視器記錄檔
 description: 了解如何使用 Azure 監視器記錄來分析 Azure HDInsight 上的 Apache Kafka 叢集的記錄。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 5154058bb1562b670e24f8813e979588a536f086
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: b4eced461f798f3cbf3ce968dae59cfb8f1a0363
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359852"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115089"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上分析 Apache Kafka 的記錄
 

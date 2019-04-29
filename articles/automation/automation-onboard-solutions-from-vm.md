@@ -10,11 +10,11 @@ ms.service: automation
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619717"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60738880"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>從 Azure 虛擬機器讓更新管理、變更追蹤和清查解決方案上線
 
@@ -59,7 +59,7 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 
 移至工作區。 在 [一般] 下，選取 [已儲存的搜尋]。 下表會顯示這些解決方案所使用的兩個已儲存搜尋：
 
-|名稱     |類別  |Alias  |
+|名稱     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 更新        | Updates__MicrosoftDefaultComputerGroup         |

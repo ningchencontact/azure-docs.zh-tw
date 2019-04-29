@@ -9,11 +9,11 @@ ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883601"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>使用 Azure 入口網站檢視服務健康情況通知
 
@@ -46,7 +46,7 @@ subscriptionId | 記錄此事件的 Azure 訂用帳戶。
 status | 字串，描述作業的狀態。 以下為一些常用的值：**已啟動**、**進行中**、**成功**、**失敗**、**使用中**和**已解決**。
 operationName | 作業的名稱。
 category | 此屬性一律為 **ServiceHealth**。
-ResourceId | 受影響資源的資源識別碼。
+resourceId | 受影響資源的資源識別碼。
 Properties.title | 此通訊的當地語系化標題。 預設語言為英文。
 Properties.communication | 與 HTML 標記通訊的詳細資料 (已當地語系化)。 預設語言為英文。
 Properties.incidentType | 下列其中一個值：**ActionRequired**、**Informational**、**Incident**、**Maintenance** 或 **Security**。

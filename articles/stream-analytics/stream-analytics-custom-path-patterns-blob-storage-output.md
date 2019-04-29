@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982670"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771768"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure 串流分析自訂 Blob 輸出資料分割
 
@@ -72,7 +72,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 
 下列格式規範權杖可以單獨使用，或者合併使用以達成自訂日期時間格式：
 
-|格式規範   |說明   |範例時間 2018-01-02T10:06:08 的結果|
+|格式規範   |描述   |範例時間 2018-01-02T10:06:08 的結果|
 |----------|-----------|------------|
 |{datetime:yyyy}|四位數的年份|2018|
 |{datetime:MM}|從 01 到 12 的月份|01|

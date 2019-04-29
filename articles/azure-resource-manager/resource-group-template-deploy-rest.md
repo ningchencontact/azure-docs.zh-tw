@@ -1,6 +1,6 @@
 ---
 title: 使用 REST API 和範本部署資源 | Microsoft Docs
-description: 使用 Azure Resource Manager 和 Resource Manager REST API 將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
+description: 使用 Azure Resource Manager 和 Resource Manager REST API 将资源部署到 Azure。 資源會定義在 Resource Manager 範本中。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 03/28/2019
 ms.author: tomfitz
 ms.openlocfilehash: 15e4a7058dc1e74c726644e86c58381003eee937
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649746"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782968"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>使用 Resource Manager 範本和 Resource Manager REST API 部署資源
 
@@ -25,15 +25,15 @@ ms.locfileid: "58649746"
 
 您可以在要求本文中納入範本，也可以連結至檔案。 使用檔案時，該檔案可以是本機檔案，也可以是透過 URI 所取得的外部檔案。 當範本位於儲存體帳戶中時，您可以限制範本的存取權，並在部署期間提供共用存取簽章 (SAS) 權杖。
 
-## <a name="deployment-scope"></a>部署範圍
+## <a name="deployment-scope"></a>部署范围
 
-您可以針對您的 Azure 訂用帳戶或訂用帳戶內的資源群組的部署。 在大部分情況下，您會針對部署至資源群組。 使用訂用帳戶部署來套用原則和角色指派，在訂用帳戶。 您也可以使用訂用帳戶部署來建立資源群組，並將資源部署到它。 根據部署的範圍，您可以使用不同的命令。
+可将部署目标设定为 Azure 订阅或订阅中的资源组。 大多数情况下，我们会将以资源组指定为部署目标。 可以使用订阅部署在整个订阅中应用策略和角色分配。 还可以使用订阅部署创建资源组并向其部署资源。 你将根据部署范围使用不同的命令。
 
-若要部署到**資源群組**，使用[Deployments-建立](/rest/api/resources/deployments/createorupdate)。
+若要部署到**资源组**，请使用“[部署 - 创建](/rest/api/resources/deployments/createorupdate)”。
 
-若要部署到**訂用帳戶**，使用[Deployments-建立在訂用帳戶範圍](/rest/api/resources/deployments/createorupdateatsubscriptionscope)。
+若要部署到**订阅**，请使用“[部署 - 在订阅范围创建](/rest/api/resources/deployments/createorupdateatsubscriptionscope)”。
 
-這篇文章中的範例會使用資源群組部署。 如需有關訂用帳戶部署的詳細資訊，請參閱[建立資源群組和資源的訂用帳戶層級](deploy-to-subscription.md)。
+本文中的示例使用资源组部署。 有关订阅部署的详细信息，请参阅[在订阅级别创建资源组和资源](deploy-to-subscription.md)。
 
 ## <a name="deploy-with-the-rest-api"></a>使用 REST API 部署
 
@@ -176,12 +176,12 @@ ms.locfileid: "58649746"
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失敗時重新部署
 
-這項功能就是所謂*錯誤時回復*。 當部署失敗時，您可以從部署記錄自動重新部署先前成功的部署。 若要指定重新部署，請使用要求主體中的 `onErrorDeployment` 屬性。 如果您為您的基礎結構部署有已知的良好狀態，並想還原成這，這項功能很有用。 有一些注意事項和限制：
+此功能也称为“出错时回滚”。 當部署失敗時，您可以從部署記錄自動重新部署先前成功的部署。 若要指定重新部署，請使用要求主體中的 `onErrorDeployment` 屬性。 如果你的基础结构部署存在一个已知良好的状态，并且你希望还原到此状态，则此功能非常有用。 有许多需要注意的问题和限制：
 
-- 完全依照其先前執行相同的參數，則會執行重新部署。 您無法變更參數。
-- 先前的部署會使用執行[完整模式](./deployment-modes.md#complete-mode)。 也會刪除任何不包含在先前的部署的資源，而任何資源的設定會設定為先前的狀態。 請確定您完全了解[部署模式](./deployment-modes.md)。
-- 重新部署只會影響資源，不會影響任何資料變更。
-- 這項功能只有在資源群組部署中，未訂用帳戶層級部署。 如需訂用帳戶層級部署的詳細資訊，請參閱[建立資源群組和資源的訂用帳戶層級](./deploy-to-subscription.md)。
+- 重新部署使用与以前运行它时相同的参数以相同的方式运行。 无法更改参数。
+- 以前的部署是使用[完整模式](./deployment-modes.md#complete-mode)运行的。 以前的部署中未包括的任何资源都将被删除，任何资源配置都将设置为以前的状态。 请确保你完全理解[部署模式](./deployment-modes.md)。
+- 重新部署只会影响资源，不会影响任何数据更改。
+- 只有资源组部署支持此功能，订阅级部署不支持此功能。 有关订阅级部署的详细信息，请参阅[在订阅级别创建资源组和资源](./deploy-to-subscription.md)。
 
 若要使用這個選項，您的部署必須有唯一的名稱，以便在歷程記錄中進行識別。 如果您沒有唯一的名稱，則目前失敗的部署可能會覆寫歷程記錄中先前成功的部署。 您只可以使用此選項搭配根層級部署。 從巢狀範本部署不適用於重新部署。
 

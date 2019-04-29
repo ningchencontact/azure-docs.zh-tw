@@ -11,13 +11,13 @@ ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 08/25/2018
 ms.openlocfilehash: 1d3c4039ae823d3797e768af5892333d4d925268
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57789936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995945"
 ---
-# <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>案例：使用 Azure Functions 和 Azure 服務匯流排觸發邏輯應用程式
+# <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>案例：使用 Azure Functions 和 Azure 服务总线触发逻辑应用
 
 當您需要部署長時間執行的接聽程式或工作時，可以使用 Azure Functions 來建立邏輯應用程式的觸發程序。 例如，您可以建立一個將會在佇列上接聽的函數，接著立即引發邏輯應用程式成為推送觸發程序。
 
@@ -35,9 +35,9 @@ ms.locfileid: "57789936"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後建立空白的邏輯應用程式。 
 
-   如果您不熟悉 logic apps，請檢閱[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+   如果不熟悉逻辑应用，请查看[快速入门：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-1. 在搜尋方塊中，輸入 "http request"。 在觸發程序清單底下，選取此觸發程序：**收到 HTTP 要求時**
+1. 在搜尋方塊中，輸入 "http request"。 在觸發程序清單底下，選取此觸發程序：**收到 HTTP 请求时**
 
    ![選取觸發程序](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -99,7 +99,7 @@ ms.locfileid: "57789936"
 
 1. 在 Azure 入口網站中，開啟並展開函式應用程式 (如果尚未開啟)。 
 
-1. 在函式應用程式名稱之下，展開 [Functions]。 在 [函式] 窗格上，選擇 [新增函式]。 選取此範本：**服務匯流排佇列觸發程序-C#**
+1. 在函式應用程式名稱之下，展開 [Functions]。 在 [函式] 窗格上，選擇 [新增函式]。 选择此模板：**服务总线队列触发器 - C#**
    
    ![選取 Azure Functions 入口網站](./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png)
 

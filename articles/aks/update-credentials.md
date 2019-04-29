@@ -2,17 +2,18 @@
 title: 重設 Azure Kubernetes Service (AKS) 叢集的認證
 description: 了解如何為 Azure Kubernetes Service (AKS) 中的叢集更新或重設服務主體認證
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 01/30/2019
-ms.author: iainfou
+origin.date: 01/30/2019
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: d880615d0d132403c935fe39e8478d7b3fc48dbe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61029348"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>為 Azure Kubernetes Service (AKS) 中的服務主體更新或輪替認證
 
@@ -35,7 +36,7 @@ ms.locfileid: "55490068"
 
 若要更新現有服務主體的認證，請使用 [az aks show][az-aks-show] 命令，取得叢集的服務主體識別碼。 下列範例會針對 *myResourceGroup* 資源群組中名稱為 *myAKSCluster* 的叢集取得識別碼。 服務主體識別碼設為變數，以用於其他命令中。
 
-```azurecli-interactive
+```azurecli
 SP_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
 ```
 
@@ -43,7 +44,7 @@ SP_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalP
 
 使用包含服務主體識別碼的變數集，現在可以使用 [az ad sp credential reset][az-ad-sp-credential-reset] 重設認證。 以下範例可讓 Azure 平台為服務主體產生新的安全密碼。 這個新的安全密碼也會儲存為變數。
 
-```azurecli-interactive
+```azurecli
 SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
@@ -55,7 +56,7 @@ SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 
 若要建立服務主體，然後更新 AKS 叢集以使用這些新認證，請使用 [az ad sp create-for-rbac] [ az-ad-sp-create] 命令。 在下列範例中，`--skip-assignment` 參數會防止指派任何額外的預設指派：
 
-```azurecli-interactive
+```azurecli
 az ad sp create-for-rbac --skip-assignment
 ```
 
@@ -72,7 +73,7 @@ az ad sp create-for-rbac --skip-assignment
 
 現在，使用您自己的 [az ad sp create-for-rbac][az-ad-sp-create] 命令輸出，定義服務主體識別碼和用戶端密碼的變數，如以下範例所示。 *SP_ID* 是您的 *appId*，而 *SP_SECRET* 是您的*密碼*：
 
-```azurecli-interactive
+```azurecli
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```
@@ -81,7 +82,7 @@ SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 
 無論您選擇要更新現有服務主體的認證，或建立服務主體，您現在可利用 [az aks update-credentials][az-aks-update-credentials] 命令，使用新認證更新 AKS 叢集。 使用 *--service-principal* 和 *--client-secret* 的變數：
 
-```azurecli-interactive
+```azurecli
 az aks update-credentials \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -97,9 +98,9 @@ az aks update-credentials \
 在本文中，已更新 AKS 叢集本身的服務主體。 如需更多如何管理叢集內工作負載之身分識別的相關資訊，請參閱[在 AKS 中驗證和授權的最佳做法][best-practices-identity]。
 
 <!-- LINKS - internal -->
-[install-azure-cli]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-update-credentials]: /cli/azure/aks#az-aks-update-credentials
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
+[az-aks-update-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-update-credentials
 [best-practices-identity]: operator-best-practices-identity.md
-[az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-ad-sp-create]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
+[az-ad-sp-credential-reset]: https://docs.azure.cn/zh-cn/cli/ad/sp/credential?view=azure-cli-latest#az-ad-sp-credential-reset

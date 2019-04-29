@@ -9,11 +9,11 @@ ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867570"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478567"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 匯入/匯出服務：常見問題集 
 以下是當您使用 Azure 匯入/匯出服務將資料轉送至 Azure 儲存體時可能會遇到的問題與解答。 問題和解答可分為下列幾個類別：
@@ -138,7 +138,7 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure 匯入/匯出所支援的最大區塊 Blob 和分頁 Blob 大小是多少？
 
 最大區塊 Blob 大小大約是 4.768 TB 或 5,000,000 MB。
-最大分頁 Blob 大小為 8 TB。
+最大页 Blob 大小为 8 TB。
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure 匯入/匯出是否支援 AES-256 加密？

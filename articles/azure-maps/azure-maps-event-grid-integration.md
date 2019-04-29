@@ -10,11 +10,11 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: a70011b934398ac4e7f74bb67013e93bb5e86e4e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799170"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>使用事件格線回應 Azure 地圖服務事件 
 
@@ -30,7 +30,7 @@ Azure 事件方格是一個完全受控的事件路由服務，它使用發佈-�
 
 Event Grid 使用[事件訂閱](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions)將事件訊息路由至訂閱者。 Azure 地圖服務帳戶會發出下列事件類型： 
 
-| 事件類型 | 說明 |
+| 事件類型 | 描述 |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | 會在接收到的座標已從指定的地理柵欄外移至柵欄內時引發 |
 | Microsoft.Maps.GeofenceExited | 會在接收到的座標已從指定的地理柵欄內移至柵欄外時引發 |

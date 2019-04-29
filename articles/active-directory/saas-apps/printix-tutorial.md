@@ -16,11 +16,11 @@ ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e883833f7998c073b574c892ed5c7777e01faab4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>教學課程：Azure Active Directory 與 Printix 整合
 

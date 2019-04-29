@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
 ms.openlocfilehash: ae8a0ab0382083ebfca0834d2238403668efa71d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725596"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>適用於 Reliable Services 的 WCF 式通訊堆疊
 Reliable Services 架構允許服務作者選擇其想要針對服務使用的通訊堆疊。 他們可以透過從 **CreateServiceReplicaListeners 或 CreateServiceInstanceListeners** 方法傳回的 [ICommunicationListener](service-fabric-reliable-services-communication.md) ，來外掛所選擇的通訊堆疊。 服務作者如果想要使用 Windows Communication Foundation (WCF) 式通訊，架構可提供以 WCF 式實作的通訊堆疊。

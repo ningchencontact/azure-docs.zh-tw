@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
 ms.openlocfilehash: 861c68ae8163e0ba8c2af2a3d96153ac3e84855f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60803216"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>擴展集中的低優先順序 VM (預覽)
 
@@ -42,7 +42,7 @@ ms.locfileid: "55978131"
 ## <a name="deploying-low-priority-vms-on-scale-sets"></a>在擴展集上部署低優先順序 VM
 
 若要在擴展集上部署低優先順序 VM，可將新的 Priority 旗標設為 Low。 擴展集中的所有 VM 都會設定為低優先順序。 若要建立使用低優先順序 VM 的擴展集，請使用下列其中一個方法︰
-- [Azure 入口網站](#use-the-azure-portal)
+- [Azure 门户](#use-the-azure-portal)
 - Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure 資源管理員範本](#use-azure-resource-manager-templates)

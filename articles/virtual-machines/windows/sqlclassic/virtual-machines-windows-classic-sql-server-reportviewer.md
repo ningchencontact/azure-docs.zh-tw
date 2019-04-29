@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: b554dc1fa33519d87aa0c9c5ba9130b47cbea142
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60580063"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>在裝載於 Azure 上的網站中使用 ReportViewer
 > [!IMPORTANT]
@@ -90,6 +90,6 @@ ReportViewer 必須使用正確的認證對報表伺服器進行驗證，而且�
 ## <a name="resources"></a>資源
 [Microsoft 報告](https://go.microsoft.com/fwlink/?LinkId=205399)
 
-[Azure 虛擬機器中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
+[Azure 虚拟机中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 
-[使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM](../classic/ps-sql-report.md)
+[使用 PowerShell 创建运行本机模式报表服务器的 Azure VM](../classic/ps-sql-report.md)

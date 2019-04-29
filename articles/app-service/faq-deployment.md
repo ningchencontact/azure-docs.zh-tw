@@ -17,11 +17,11 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 9d38e3caf3d835eaf73df90282157eed76c5ea25
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61270016"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的部署常見問題集
 
@@ -59,7 +59,7 @@ App Service 支援兩種認證類型，用於本機 Git 部署和 FTP/S 部署�
 
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>當我嘗試 FTP 我的檔案時，如何解決「FTP 錯誤 550 - 磁碟空間不足」？
 
-如果您看到此訊息，可能是您即將用盡 Web 應用程式之服務方案中的磁碟配額。 您可能需要根據您的磁碟空間需求，相應增加至較高服務層。 如需定價方案和資源限制的詳細資訊，請參閱 [App Service 定價](https://azure.microsoft.com/pricing/details/app-service/)。
+如果您看到此訊息，可能是您即將用盡 Web 應用程式之服務方案中的磁碟配額。 您可能需要根據您的磁碟空間需求，相應增加至較高服務層級。 如需定價方案和資源限制的詳細資訊，請參閱 [App Service 定價](https://azure.microsoft.com/pricing/details/app-service/)。
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>如何為 App Service Web 應用程式設定持續部署？
 

@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916167"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075490"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5 超過 1433 以外的連接埠
 
@@ -43,11 +43,11 @@ ms.locfileid: "58916167"
 
 1. ADO.NET 4.5 (或更新版本) 會起始與 Azure 雲端的簡短互動，並且接收動態已識別的連接埠號碼。
 
-   * 動態已識別的連接埠號碼是範圍內的 11000-11999。
+   * 动态识别的端口号范围为 11000-11999。
 2. 然後 ADO.NET 會直接連線到 SQL Database 伺服器，中間沒有中介軟體。
 3. 查詢會直接傳送到資料庫，結果會直接傳回至用戶端。
 
-請確定 Azure 用戶端電腦上的 11000-11999 範圍保留供 ADO.NET 4.5 用戶端互動，使用 SQL Database 的連接埠。
+确保 Azure 客户端计算机上 11000-11999 的端口范围已保留，供 ADO.NET 4.5 客户端与 SQL 数据库的交互使用。
 
 * 特別是範圍中的連接埠必須沒有其他任何輸出封鎖器。
 * 在您的 Azure VM 上， **具有進階安全性的 Windows 防火牆** 會控制此連接埠設定。

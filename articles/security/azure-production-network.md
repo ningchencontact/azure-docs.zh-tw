@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611350"
 ---
 # <a name="the-azure-production-network"></a>Azure 生產網路
 Azure 生產網路的使用者同時包括存取自有 Azure 應用程式的外部客戶，以及管理生產網路的內部 Azure 支援人員。 本文會討論用於建立 Azure 生產網路連線的安全性存取方法和保護機制。

@@ -16,13 +16,13 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 2a9214b918883e493ebe5c93fc7f56e7ce9c77ec
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60652208"
 ---
-# <a name="common-issues-that-cause-roles-to-recycle"></a>導致角色回收的常見問題
+# <a name="common-issues-that-cause-roles-to-recycle"></a>导致角色回收的常见问题
 本文討論部署問題的常見原因，和可協助您解決這些問題的疑難排解秘訣。 應用程式出現問題的徵候之一，是角色執行個體無法啟動，或是在初始化中、忙碌和停止中狀態之間循環。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "51234489"
 Azure 是 64 位元環境。 因此，針對 32 位元目標編譯的 .NET 組件無法在 Azure 上運作。
 
 ## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>角色在初始化或停止時會擲回未處理的例外狀況
-[RoleEntryPoint] 類別的方法 (包括 [OnStart]、[OnStop] 和 [Run]) 方法所擲回的任何例外狀況，都是未處理的例外狀況。 如果其中有一個方法發生未處理的例外狀況，角色就會進行回收。 如果角色重複回收，它可能會在每次嘗試啟動時擲回未處理的例外狀況。
+[RoleEntryPoint] 類別的方法 (包括 [OnStart]、[OnStop] 和 [Run]) 方法所擲回的任何例外狀況，都是未處理的例外狀況。 如果这些方法中的某个方法出现未处理异常，则会对角色进行回收。 如果角色重複回收，它可能會在每次嘗試啟動時擲回未處理的例外狀況。
 
 ## <a name="role-returns-from-run-method"></a>角色因 Run 方法而回收
 [Run] 方法應該無限期地執行。 如果您的程式碼覆寫 [Run] 方法，此方法應無限期地停用。 如果 [Run] 方法回復，角色即會回收。

@@ -1,7 +1,6 @@
 ---
 title: 在 HDInsight 上運作 ML 服務 - Azure
 description: 了解如何在 Azure HDInsight 中運作 ML 服務。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: d0cae4210fa313c5d6e1f33987422e7b0d53e76a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 916c4fae8eed9451080f92e97743876e89bd25ea
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124572"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上運作 ML 服務叢集
 
@@ -179,7 +178,7 @@ ML 服務叢集並非透過 [Apache Hadoop YARN](https://hadoop.apache.org/docs/
 
 1. 透過 SSH 連線到邊緣節點。
 
-1. 執行 `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`。
+1. 运行 `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`。
 
 1. 尋找 [Uris] 區段，並新增背景工作節點的 IP 和連接埠詳細資料。
 

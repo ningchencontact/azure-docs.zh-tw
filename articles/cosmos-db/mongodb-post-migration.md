@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: roaror
 ms.openlocfilehash: c0c761fef481a1fdaa027f1329e9a4e72d62985a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61331194"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>使用適用於 MongoDB 的 Azure Cosmos DB 的 API 時的移轉後的最佳化步驟 
 
-移轉 MongoDB 的 Azure Cosmos DB 的 api 的 MongoDB 資料庫中儲存的資料之後，您可以連線到 Azure Cosmos DB，以及管理資料。 本指南提供您應該考慮在移轉之後的步驟。 請參閱[移轉至 Azure Cosmos DB 的 MongoDB 教學課程中的 API 的 MongoDB](../dms/tutorial-mongodb-cosmos-db.md)移轉步驟。
+將 MongoDB 資料庫中儲存的資料遷移至 Azure Cosmos DB 的 MongoDB 版 API 之後，您就可以連線到 Azure Cosmos DB 並管理這些資料。 本指南提供您應該考慮在移轉之後的步驟。 請參閱[移轉至 Azure Cosmos DB 的 MongoDB 教學課程中的 API 的 MongoDB](../dms/tutorial-mongodb-cosmos-db.md)移轉步驟。
 
 在本指南中，您將了解如何：
 - [連接您的應用程式](#connect-account)

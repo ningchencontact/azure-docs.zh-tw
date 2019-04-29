@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461998"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>使用 Azure Data Factory 從 PostgreSQL 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -311,7 +311,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[]、String |
 | 位元不同 [ (n) ] |varbit |Byte[]、String |
-| 布林值 |布林 |BOOLEAN |
+| boolean |布林 |Boolean |
 | 方塊 | |Byte[]、String |
 | bytea | |Byte[]、String |
 | character [(n)] |char [(n)] |字串 |
@@ -319,7 +319,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 | cid | |字串 |
 | cidr | |字串 |
 | 圓形 | |Byte[]、String |
-| 日期 | |DateTime |
+| date | |DateTime |
 | daterange | |字串 |
 | 雙精度 |float8 |Double |
 | inet | |Byte[]、String |

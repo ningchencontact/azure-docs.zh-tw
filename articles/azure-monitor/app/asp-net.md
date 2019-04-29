@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691557"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
@@ -127,7 +127,7 @@ Application Insights 設定畫面：
 
 ## <a name="video"></a>影片
 
-* 關於外部逐步影片[使用從零開始的.NET 應用程式設定 Application Insights](https://www.youtube.com/watch?v=blnGAVgMAfA)。
+* 關於如何[使用 .NET 應用程式從零開始設定 Application Insights](https://www.youtube.com/watch?v=blnGAVgMAfA) 的外部逐步說明影片。
 
 ## <a name="next-steps"></a>後續步驟
 

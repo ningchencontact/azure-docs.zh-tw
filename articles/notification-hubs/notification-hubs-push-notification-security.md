@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: bd9df12cbe941b868c769daccd02c1d81b39f7bd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776485"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Azure 通知中樞的安全性模型
 
@@ -43,10 +43,10 @@ ms.locfileid: "54465355"
 
 與其他實體類似，通知中樞作業也可有三種安全性宣告：接聽、傳送及管理。
 
-| 宣告   | 說明                                          | 允許的作業 |
+| 宣告   | 描述                                          | 允许的操作 |
 | ------- | ---------------------------------------------------- | ------------------ |
 | 接聽  | 建立/更新、讀取及刪除單一註冊 | 建立/更新註冊<br><br>讀取註冊<br><br>讀取控制代碼的所有註冊<br><br>刪除註冊 |
-| 傳送    | 將訊息傳送到通知中樞                | 傳送訊息 |
+| 傳送    | 將訊息傳送到通知中樞                | 发送消息 |
 | 管理  | 對通知中樞執行 CRUD (包含更新 PNS 認證及安全性金鑰) 並依標記讀取的註冊 |建立/更新/讀取/刪除通知中樞<br><br>依標記讀取註冊 |
 
 通知中樞接受授 Microsoft Azure 存取控制權杖所授與的宣告，以及直接在通知中樞設定，由共用金鑰所產生之簽章權杖所授與的宣告。

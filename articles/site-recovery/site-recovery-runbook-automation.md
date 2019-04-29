@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 26c3466080cb356ca3610d42eaaf5ee4975d3731
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61471876"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>將 Azure 自動化 Runbook 新增至復原方案
 在本文中，我們說明如何將 Azure Site Recovery 與 Azure 自動化整合在一起，以協助您擴充復原方案。 復原方案可以協調使用 Site Recovery 保護的 VM 復原。 復原方案可複寫至次要雲端，也可以複寫至 Azure。 復原方案也有助於讓復原「保持一致精確」、「可重複執行」及「自動化」。 如果您將 VM 容錯移轉至 Azure，與 Azure 自動化的整合可擴充復原方案。 您可以使用它來執行 Runbook，以提供功能強大的自動化工作。
@@ -27,9 +27,9 @@ ms.locfileid: "52866367"
     ![按一下 [自訂] 按鈕](media/site-recovery-runbook-automation-new/essentials-rp.png)
 
 
-2. 以滑鼠右鍵按一下 [群組 1: 開始]，然後選取 [新增後續動作]。
+2. 右键单击“组 1: 启动”，再选择“添加后操作”。
 
-    ![以滑鼠右鍵按一下 [群組 1: 開始] 並新增後續動作](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![右键单击“组 1: 启动”并添加后操作](media/site-recovery-runbook-automation-new/customize-rp.png)
 
 3. 按一下 [Choose a script] \(選擇指令碼)。
 
@@ -43,7 +43,7 @@ ms.locfileid: "52866367"
 
 6. 在您的自動化帳戶中，選取一個 Runbook。 此 Runbook 是在執行復原方案時，於復原第一個群組後執行的指令碼。
 
-7. 若要儲存指令碼，請按一下 [確定]。 指令碼會新增至 [群組 1: 後續步驟]。
+7. 若要儲存指令碼，請按一下 [確定]。 此时，脚本将添加到“组 1: 后步骤”。
 
     ![[群組 1: 開始] 的後續動作](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 

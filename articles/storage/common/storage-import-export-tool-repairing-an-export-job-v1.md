@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 915cf1e66ec400e0d2461873d9fb3d66be9883fb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477938"
 ---
 # <a name="repairing-an-export-job"></a>修復匯出作業
 完成匯出作業之後，您可以在內部部署上執行 Microsoft Azure 匯入/匯出工具，以便：  
@@ -30,7 +30,7 @@ ms.locfileid: "55756745"
 
 您可以搭配 **RepairExport** 指定下列參數：  
   
-|參數|說明|  
+|參數|描述|  
 |---------------|-----------------|  
 |**/r:<RepairFile\>**|必要。 修復檔案的路徑，可追蹤修復進度，並可讓您繼續中斷的修復。 每個磁碟機必須只能有一個修復檔案。 當您啟動指定磁碟機的修復時，您將會傳入尚不存在之修復檔的路徑。 若要恢復中斷的修復，您應傳入現有修復檔案名稱。 一律必須指定對應於目標磁碟機的修復檔。|  
 |**/logdir:\><LogDirectory**|選用。 記錄檔目錄。 詳細資訊記錄檔會寫入至這個目錄。 如未指定記錄檔目錄，則會使用目前的目錄做為記錄檔目錄。|  
@@ -154,6 +154,6 @@ G:\pictures\wild\canyon.jpg.properties
  
 * [設定 Azure 匯入/匯出工具](storage-import-export-tool-setup-v1.md)   
 * [針對匯入作業準備硬碟](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [利用複製記錄檔檢閱作業狀態](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [使用复制日志文件查看作业状态](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [修復匯入作業](storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [針對 Azure 匯入/匯出工具進行疑難排解](storage-import-export-tool-troubleshooting-v1.md)

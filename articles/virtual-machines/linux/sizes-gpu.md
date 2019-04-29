@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 09/24/2018
 ms.author: jonbeck
-ms.openlocfilehash: 435dc3a4815d9fe554ccba57a49ed9a772b53529
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8f50f090fe38382b8bc3cb7f669ab4025d36ff76
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799438"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 最佳化的虛擬機器大小
 
@@ -42,7 +42,7 @@ ms.locfileid: "37904074"
 
 ## <a name="other-sizes"></a>其他大小
 - [一般用途](sizes-general.md)
-- [計算最佳化](sizes-compute.md)
+- [计算优化](sizes-compute.md)
 - [記憶體最佳化](sizes-memory.md)
 - [儲存體最佳化](sizes-storage.md)
 - [高效能計算](sizes-hpc.md)

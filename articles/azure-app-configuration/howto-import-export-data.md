@@ -13,11 +13,11 @@ ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: 6557f3a4129076c1e8708208e5d4e0d4f53dcec3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741735"
 ---
 # <a name="import-or-export-configuration-data"></a>匯入或匯出設定資料
 
@@ -70,4 +70,4 @@ Azure 應用程式組態支援的資料匯入和匯出作業。 使用這些作�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [建立 ASP.NET Core web 應用程式](./quickstart-aspnet-core-app.md)  
+> [建立 ASP.NET Core Web 應用程式](./quickstart-aspnet-core-app.md)  

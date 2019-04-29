@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan;juliako
 ms.openlocfilehash: 5c86a49cd9dc26f724de12ed2e5e77e645e4ab53
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466590"
 ---
-# <a name="hybrid-design-of-drm-subsystems"></a>DRM 子系統的混合式設計 
+# <a name="hybrid-design-of-drm-subsystems"></a>DRM 子系统的混合设计 
 
 本主題討論使用 Azure 媒體服務的 DRM 子系統混合式設計。
 

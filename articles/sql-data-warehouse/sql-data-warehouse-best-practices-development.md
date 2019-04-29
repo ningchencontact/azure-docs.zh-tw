@@ -11,11 +11,11 @@ ms.date: 09/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 1682a26ba713db564484e8984010e9c12ce9d79e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61421421"
 ---
 # <a name="development-best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的開發最佳做法
 本文說明您在開發資料倉儲解決方案時可遵循的指引和最佳做法。 

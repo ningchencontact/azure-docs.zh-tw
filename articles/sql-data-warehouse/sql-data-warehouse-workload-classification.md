@@ -11,18 +11,18 @@ ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474822"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>SQL 数据仓库工作负荷分类（预览）
 
 本文介绍用于向传入请求分配资源类和重要性的 SQL 数据仓库工作负荷分类过程。
 
 > [!Note]
-> 使用 SQL 資料倉儲 Gen2 上預覽工作負載分類。 工作負載管理分類和重要性的 preview 是組建與發行日期 2019 年 4 月 9 日，或更新版本。  使用者應該避免使用組建早於這個日期的工作負載管理測試。  若要判斷您的組建是否以工作負載管理功能，執行 select @@version時連線到您的 SQL 資料倉儲執行個體。
+> 工作負載分類可在 SQL 資料倉儲 Gen2 上以預覽的方式取得。 工作負載管理和重要性預覽適用於發行日期在 2019 年 4 月 9 日之後的組建。  使用者應該避免使用早於此日期的組建進行工作負載管理測試。  若要判斷您的組建是否以能夠使用工作負載管理功能，請在連線至您的 SQL 資料倉儲執行個體時，執行 select @ @version。
 
 ## <a name="classification"></a>分類
 

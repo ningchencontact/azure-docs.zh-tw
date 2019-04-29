@@ -2,20 +2,21 @@
 title: 在 Azure SQL 資料倉儲中使用交易 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中實作交易以便開發解決方案的秘訣。
 services: sql-data-warehouse
-author: ckarst
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/22/2019
-ms.author: xiaoyul
+origin.date: 03/22/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 0b4ce6f4479552f42d32124149f64614b7e3cb70
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61439174"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用交易
 在 Azure SQL 資料倉儲中實作交易以便開發解決方案的秘訣。
@@ -36,7 +37,7 @@ SQL 資料倉儲實作 ACID 交易。 不過，交易支援的隔離等級僅限
 
 ## <a name="gen2"></a>Gen2
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | 限制每個散發套件 (GB) | 散發的數目 | 交易大小上限 (GB) | 每個散發的資料列數 | 每個交易的資料列數上限 |
+| [DWU](sql-data-warehouse-overview-what-is.md) | 每个分布的上限 (GB) | 散發的數目 | 最大事务大小 (GB) | 每個散發的資料列數 | 每個交易的資料列數上限 |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -57,7 +58,7 @@ SQL 資料倉儲實作 ACID 交易。 不過，交易支援的隔離等級僅限
 
 ## <a name="gen1"></a>Gen1
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | 限制每個散發套件 (GB) | 散發的數目 | 交易大小上限 (GB) | 每個散發的資料列數 | 每个事务的最大行数 |
+| [DWU](sql-data-warehouse-overview-what-is.md) | 每个分布的上限 (GB) | 散發的數目 | 最大事务大小 (GB) | 每個散發的資料列數 | 每个事务的最大行数 |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |

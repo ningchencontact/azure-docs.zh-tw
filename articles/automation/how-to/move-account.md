@@ -10,11 +10,11 @@ ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 59d433bfb888eaa41cc8f66bdf3ad28c16efbe5c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225955"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61302504"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>將您的 Azure 自動化帳戶移至另一個訂用帳戶
 
@@ -139,7 +139,7 @@ Remove-AzureRmActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_V
 
 |功能|測試|疑難排解連結|
 |---|---|---|
-|Runbook|Runbook 可以順利執行並連接到 Azure 資源。|[對 Runbook 進行疑難排解](../troubleshoot/runbooks.md)
+|runbook|Runbook 可以順利執行並連接到 Azure 資源。|[對 Runbook 進行疑難排解](../troubleshoot/runbooks.md)
 | 原始檔控制|您可以在您的原始檔控制存放庫上執行手動同步處理。|[原始檔控制整合](../source-control-integration.md)|
 |變更追蹤和清查|請確認您看到目前的存貨資料從您的機器。|[疑難排解 變更追蹤](../troubleshoot/change-tracking.md)|
 |更新管理|請確認您會看到您的機器，而且它們都狀況良好。</br>執行測試的軟體更新部署。|[更新管理疑難排解](../troubleshoot/update-management.md)|

@@ -11,11 +11,11 @@ author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821254"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -175,7 +175,7 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時，您可�
 
 活動可透過 SDK 或 Web UI 提供通知，方便您輕鬆監視這些作業的進度。
 
-## <a name="image"></a>映像
+## <a name="image"></a>Image
 
 映像提供一個可靠的方式來部署模型以及使用模型時所需的所有元件。 映像包含下列項目：
 

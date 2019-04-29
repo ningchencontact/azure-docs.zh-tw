@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
 ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764283"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Web 活動
 使用 Web 活動可以從 Data Factory 管線呼叫自訂的 REST 端點。 您可以傳遞資料集和連結服務，以供活動取用和存取。
@@ -61,7 +61,7 @@ ms.locfileid: "54214295"
 
 ## <a name="type-properties"></a>類型屬性
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
 name | Web 活動的名稱 | 字串 | 是
 type | 必須設定為 **WebActivity**。 | 字串 | 是
@@ -86,7 +86,7 @@ linkedServices | 傳遞至端點的連結服務清單。 | 連結服務參考的
 | 非 JSON 型別 | 不支援 | 不支援 |
 ||||
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 ### <a name="none"></a>None
 如果不需要驗證，請勿包含 authentication 屬性。

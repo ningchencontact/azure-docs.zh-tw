@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: 0b45bd2a1a2599908d2077198dce0062071b79af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31512505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129054"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>如何建立 Azure 支援要求
 ## <a name="summary"></a>總結
@@ -32,9 +32,9 @@ Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://por
 
 根據客戶的意見反應，我們已更新支援要求體驗，著重在三個主要目標︰
 
-* **流暢**︰減少點按次數以及讓刀鋒視窗提交支援要求的程序更簡單。
-* **整合**︰當您在疑難排解 Azure 資源的問題時，很輕易就能開啟該資源的支援要求，而不需要切換內容。
-* **有效**︰收集支援工程師所需的重要資訊，有效率地解決問題。
+* **簡化**:減少按下滑鼠，以及讓提交支援要求的程序簡單刀鋒視窗。
+* **整合式**:當您正在疑難排解 Azure 資源的問題時，很輕易就能開啟支援要求以取得該資源，而不需要切換內容。
+* **效率**：收集支援工程師有效率地解決問題所需的金鑰資訊。
 
 ## <a name="getting-started"></a>開始使用
 您可以從頂端導覽功能表或直接從資源刀鋒視窗中建立支援要求。
@@ -54,7 +54,7 @@ Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://por
 ## <a name="basics"></a>基本概念
 支援要求程序的第一個步驟會收集您的問題和支援計劃的基本資訊。
 
-讓我們來看一個範例︰您面臨虛擬機器的技術問題，而且懷疑是網路連接問題。
+讓我們來看一個範例：您所面臨技術問題與您的虛擬機器，而且懷疑是網路連線問題。
 選取服務 (「執行 Windows 的虛擬機器」)，精靈的第一個步驟中的資源 (您的虛擬機器的名稱) 會啟動取得此問題協助的程序。
 
 ![基本概念刀鋒視窗](./media/how-to-create-azure-support-request/Basics.png)

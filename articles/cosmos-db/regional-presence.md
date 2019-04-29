@@ -8,15 +8,15 @@ ms.date: 03/31/2019
 ms.author: rimman
 ms.custom: seodec18
 ms.openlocfilehash: 851da72a308b164b9a01b7ccfa3d541fc06810ba
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926212"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Azure Cosmos DB 遍及各區的情形
 
-Azure Cosmos DB 是在 Azure 中，基本服務，而且根據預設，位於一律在所有區域，可使用 Azure 的。 Azure 目前已在全球 [54 個區域](https://azure.microsoft.com/global-infrastructure/regions/)中提供使用。 
+Azure Cosmos DB 是 Azure 中的一项基础服务，默认情况下，在所有提供 Azure 的区域均可使用。 Azure 目前已在全球 [54 個區域](https://azure.microsoft.com/global-infrastructure/regions/)中提供使用。 
 
 [![可使用 Azure Cosmos DB 的區域](./media/regional-presence/regional-presence.png)](./media/regional-presence/regional-presence.png#lightbox)
 
@@ -36,11 +36,11 @@ Azure Cosmos DB 是在 Azure 中，基本服務，而且根據預設，位於一
 
 根據預設，所有 Azure 區域中可用 （包括 SQL、 MongoDB、 Cassandra、 Gremlin 及資料表） 的 Azure Cosmos DB 所公開的所有 Api。 比方說，您可以讓 MongoDB 和 Cassandra Api 由 Azure Cosmos DB 中的所有全域 Azure 區域，不僅在主權雲端，例如中國、 德國、 政府和美國國防部 (DoD) 區域。
 
-Azure Cosmos db[分散在世界各地](distribute-data-globally.md)資料庫服務。 您可以將任意數目的 Azure 區域與您的 Azure Cosmos 帳戶相關聯，而且您的資料會自動且透明地複寫。 您可以隨時在 Azure Cosmos 帳戶中新增或移除區域。 Azure Cosmos DB 具有周全的全球發佈功能和多重主要複寫通訊協定，可在第 99 個百分位數提供不到 10 毫秒的讀取和寫入延遲、具有 99.999 的讀取和寫入可用性，並可跨與您 Azure Cosmos 帳戶相關聯的所有區域，彈性調整針對其中的讀取和寫入所佈建的輸送量。 Azure Cosmos DB 也會提供五個具有完善定義的一致性模型，您可以選擇對資料套用特定的一致性模型。 最後，Azure Cosmos DB 是唯一的資料庫服務，提供全方位的業界[服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)計之佈建的輸送量、 99 百分位數高可用性、 延遲和一致性。 上述功能可用於所有 Azure 雲端。
+Azure Cosmos db[分散在世界各地](distribute-data-globally.md)資料庫服務。 您可以將任意數目的 Azure 區域與您的 Azure Cosmos 帳戶相關聯，而且您的資料會自動且透明地複寫。 您可以隨時在 Azure Cosmos 帳戶中新增或移除區域。 Azure Cosmos DB 具有周全的全球發佈功能和多重主要複寫通訊協定，可在第 99 個百分位數提供不到 10 毫秒的讀取和寫入延遲、具有 99.999 的讀取和寫入可用性，並可跨與您 Azure Cosmos 帳戶相關聯的所有區域，彈性調整針對其中的讀取和寫入所佈建的輸送量。 Azure Cosmos DB 也會提供五個具有完善定義的一致性模型，您可以選擇對資料套用特定的一致性模型。 最后，Azure Cosmos DB 是业内唯一一种提供综合[服务级别协议 (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/) 的数据库服务，包括预配的吞吐量、第 99 百分位的延迟、高可用性和一致性。 以上功能在所有 Azure 云中推出。
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在可以深入了解 Azure Cosmos db 的核心概念，利用下列文章：
+现可通过以下文章了解 Azure Cosmos DB 的核心概念：
 
 * [全球資料發佈](distribute-data-globally.md)
 * [如何管理 Azure Cosmos DB 帳戶](manage-account.md)

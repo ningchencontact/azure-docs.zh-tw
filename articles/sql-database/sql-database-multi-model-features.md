@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
 ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122654"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database 的多模型功能
 
@@ -29,7 +29,7 @@ Azure SQL Database 的設計訴求是要使用關聯式模型，在各種一般�
 对于以下情况，应考虑使用 Azure SQL 数据库的多模型功能：
 - 某些信息或结构更适合 NoSQL 模型，并且你不想要使用独立的 NoSQL 数据库。
 - 大部分数据适合关系模型，并且你需要以 NoSQL 形式为某些数据部分建模。
-- 您想要利用豐富的 TRANSACT-SQL 語言來查詢及分析關聯式和 NoSQL 資料，並將它與各種不同的工具和應用程式可以使用 SQL 語言整合。
+- 希望利用丰富的 Transact-SQL 语言来查询和分析关系数据与 NoSQL 数据，并将其集成到可以使用 SQL 语言的各种工具和应用程序。
 - 您想要套用的資料庫功能，例如[記憶體內部技術](sql-database-in-memory.md)提升您分析效能或處理您的 NoSQL 資料 strucutres，使用[異動複寫](sql-database-managed-instance-transactional-replication.md)或[可讀取複本](sql-database-read-scale-out.md)上其他位置中建立資料複本，並卸載某些分析的工作負載，從主要資料庫。
 
 ## <a name="overview"></a>概觀

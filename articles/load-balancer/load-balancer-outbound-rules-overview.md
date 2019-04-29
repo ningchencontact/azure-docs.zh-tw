@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 7a0b679ef7a1a468c8a849b0a3fb9f744a392dd3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 52fafa7e9dd46b6c78af3776797bae48b22ea8df
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243598"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62736659"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 輸出規則
 
@@ -84,7 +84,7 @@ API 版本 "2018-07-01" 允許輸出規則定義建構如下：
 
           "allocatedOutboundPorts": 10000
 
-來自輸出規則之所有前端的每個公用 IP 位址都會提供最多 51,200 個暫時連接埠，以當成 SNAT 連接埠使用。  Load Balancer 會以 8 的倍數來配置 SNAT 連接埠數目。 如果您提供的值無法與 8 整除，則會拒絕設定作業。  如果您嘗試根據公用 IP 位址數目來配置比可用 SNAT 連接埠更多的 SNAT 連接埠，則會拒絕設定作業。  例如，如果您為每個 VM 配置 10,000 個連接埠，而且後端集區中的 7 個 VM 會共用單一公用 IP 位址，則會拒絕設定 (7 x 10,0000 個 SNAT 連接埠 > 51,200 個 SNAT 連接埠)。  您可以將更多公用 IP 位址新增至輸出規則的前端，以啟用此情節。
+來自輸出規則之所有前端的每個公用 IP 位址都會提供最多 51,200 個暫時連接埠，以當成 SNAT 連接埠使用。  Load Balancer 會以 8 的倍數來配置 SNAT 連接埠數目。 如果您提供的值無法與 8 整除，則會拒絕設定作業。  如果您嘗試根據公用 IP 位址數目來配置比可用 SNAT 連接埠更多的 SNAT 連接埠，則會拒絕設定作業。  比方說，如果您配置 10,000 的連接埠，每個 VM 和 7 個 Vm 在後端集區會共用單一公用 IP 位址，設定會被拒絕 （7 x 10,000 SNAT 連接埠 > 51,200 SNAT 連接埠）。  您可以將更多公用 IP 位址新增至輸出規則的前端，以啟用此情節。
 
 您可以指定連接埠數目 0，以還原為[根據後端集區大小的自動 SNAT 連接埠配置](load-balancer-outbound-connections.md#preallocatedports)。
 
@@ -124,7 +124,7 @@ Load Balancer 的預設行為，是在達到輸出閒置逾時的當時以無訊
 - 調整同時用於輸入和輸出的 IP 位址輸出 NAT 參數。  必須停用自動輸出 NAT 程式設計，以允許輸出規則取得控制。  例如，若要變更位址的 SNAT 連接埠配置也用於輸入，此參數必須設定為 true。  如果您嘗試使用輸出規則來重新定義也用於輸入的 IP 位址參數，但尚未發行負載平衡規則的輸出 NAT 程式設計，則設定輸出規則的作業會失敗。
 
 >[!IMPORTANT]
-> 如果您將此參數設定為 true，但沒有輸出規則 (或[執行個體層級公用 IP 情節](load-balancer-outbound-connections.md#ilpip)) 定義輸出連線，則您的虛擬機器不會有輸出連線。  您 VM 或應用程式的某些作業可能取決於可用輸出連線。 請確定您了解情節的相依性，並考慮此變更的影響。
+> 如果您將此參數設定為 true，但沒有輸出規則 (或[執行個體層級公用 IP 情節](load-balancer-outbound-connections.md#ilpip)) 定義輸出連線，則您的虛擬機器不會有輸出連線。  您 VM 或應用程式的某些作業可能取決於可用輸出連線。 請確定您了解情節的相依性，並考慮這項變更的影響。
 
 您可以使用此設定參數，在負載平衡規則上停用輸出 SNAT：
 

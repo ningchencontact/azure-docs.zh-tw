@@ -10,11 +10,11 @@ ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352507"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683612"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>在 Azure Logic Apps 中傳送、接收及批次處理訊息
 
@@ -50,13 +50,13 @@ ms.locfileid: "54352507"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)或 Visual Studio 中，使用下列名稱來建立一個邏輯應用程式："BatchReceiver" 
 
-2. 在 Logic Apps 設計工具中，新增**次**觸發程序，它會啟動您的邏輯應用程式工作流程。 在搜尋方塊中，輸入 "batch" 作為篩選條件。 選取此觸發程序：**批次訊息**
+2. 在 Logic Apps 設計工具中，新增**次**觸發程序，它會啟動您的邏輯應用程式工作流程。 在搜尋方塊中，輸入 "batch" 作為篩選條件。 选择此触发器：**批次訊息**
 
    ![新增 [批次訊息] 觸發程序](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
 3. 設定批次接收者的屬性： 
 
-   | 屬性 | 說明 | 
+   | 屬性 | 描述 | 
    |----------|-------------|
    | **批次模式** | - **內嵌**：用來定義批次觸發程序內的發行準則 <br>- **整合帳戶**：透過[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，可定義多個發行準則組態。 透過整合帳戶，您可以在同一個地方維護上述所有組態，而不是在個別的邏輯應用程式中進行維護。 | 
    | **批次名稱** | 您的批次名稱 (在此範例中為 "TestBatch")，只適用於 [內嵌] 批次模式 |  
@@ -88,7 +88,7 @@ ms.locfileid: "54352507"
       如果您有 Gmail 帳戶，請選取 Gmail 連接器。 
       此範例使用 Office 365 Outlook。 
 
-   3. 選取此動作：**傳送電子郵件 - <電子郵件提供者>**
+   3. 选择以下操作：**傳送電子郵件 - <電子郵件提供者>**
 
       例如︰
 
@@ -137,7 +137,7 @@ ms.locfileid: "54352507"
 1. 建立具有此名稱的另一個邏輯應用程式："BatchSender"
 
    1. 在搜尋方塊中，輸入 "recurrence" 作為篩選條件。 
-   選取此觸發程序：**週期 - 排程**
+   选择此触发器：**定期 - 计划**
 
       ![新增「定期 - 排程」觸發程序](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
 
@@ -163,15 +163,15 @@ ms.locfileid: "54352507"
       > 
       > 如果您使用 Visual Studio，而且您未看到任何可選取的批次接收者，請確認您已將批次接收者部署至 Azure。 如果您尚未這麼做，請了解如何[將批次接收者邏輯應用程式部署至 Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure)。 
 
-   4. 選取此動作：**Batch_messages - <*your-batch-receiver*>**
+   4. 选择以下操作：**Batch_messages - <*your-batch-receiver*>**
 
-      ![選取此動作："Batch_messages - <your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      ![选择以下操作："Batch_messages - <your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 3. 設定批次傳送者的屬性：
 
-   | 屬性 | 說明 | 
+   | 屬性 | 描述 | 
    |----------|-------------| 
-   | **批次名稱** | 接收者邏輯應用程式所定義的批次名稱，在本例中為 "TestBatch" <p>**重要**：批次名稱會在執行階段驗證，而且必須符合接收者邏輯應用程式所指定的名稱。 變更批次名稱會導致批次傳送者失敗。 | 
+   | **批次名稱** | 接收者邏輯應用程式所定義的批次名稱，在本例中為 "TestBatch" <p>**重要说明**：批次名稱會在執行階段驗證，而且必須符合接收者邏輯應用程式所指定的名稱。 變更批次名稱會導致批次傳送者失敗。 | 
    | **訊息內容** | 您要傳送的訊息內容 | 
    ||| 
 
@@ -187,7 +187,7 @@ ms.locfileid: "54352507"
 
 4. 現在設定批次的資料分割。 在 "BatchReceiver" 動作中，選擇 [顯示進階選項] 並設定下列屬性：
 
-   | 屬性 | 說明 | 
+   | 屬性 | 描述 | 
    |----------|-------------| 
    | **分割名稱** | 選擇性的唯一分割索引鍵，可用於將目標批次分割誠邏輯子集，以及根據該索引鍵收集訊息 | 
    | **訊息識別碼** | 選擇性的訊息識別碼，空白時是一個產生的 全域唯一識別碼 (GUID) | 

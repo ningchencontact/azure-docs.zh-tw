@@ -9,14 +9,14 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450659"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>安全 OPC UA 用戶端與 OPC UA 伺服器應用程式 
-OPC 保存庫是微服務，可以設定、 註冊和管理憑證生命週期的 OPC UA 伺服器和雲端中的用戶端應用程式。 本文說明如何保護 OPC UA 用戶端和 OPC UA 伺服器應用程式使用新的金鑰組與使用 OPC 保存庫的憑證。
+OPC 保存庫是一項微服務，可以設定、註冊和管理雲端中的 OPC UA 伺服器和用戶端應用程式的憑證生命週期。 本文說明如何保護 OPC UA 用戶端和 OPC UA 伺服器應用程式使用新的金鑰組與使用 OPC 保存庫的憑證。
 
 在下列設定中，OPC 用戶端正在測試 OPC 有的連線。 根據預設，連線不可能因為這兩個元件具有尚未佈建正確的憑證。 在此工作流程中，我們請勿使用 OPC UA 元件的自我簽署的憑證並簽署它們透過 OPC 保存庫。 請參閱先前[testbed](howto-opc-vault-deploy-existing-client-plc-communication.md)。 相反地，此 testbed 會佈建兩者所產生 OPC 保存庫的元件使用新的憑證，以及使用新的私密金鑰。 OPC UA 安全性的一些背景資訊可在這[（英文） 白皮書](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf)。 OPC UA 規格中，可以找到完整的資訊。
 

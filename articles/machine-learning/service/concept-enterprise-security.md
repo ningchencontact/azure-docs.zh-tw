@@ -11,11 +11,11 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
 ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821395"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 服務的企業安全性
 
@@ -51,7 +51,7 @@ print(primary)
 > 如果您需要重新產生金鑰，使用 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>授權
 
 您可以建立多個工作區，而且每個工作區都可由多人共用。 共用工作區時，您可以透過指派下列角色給使用者來控制對工作區的存取：
 * 擁有者
@@ -83,7 +83,7 @@ print(primary)
 
 如需有關受管理的身分識別的詳細資訊，請參閱[管理適用於 Azure 資源的身分識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-| 資源 | 權限 |
+| Resource | 權限 |
 | ----- | ----- |
 | 工作區 | 參與者 | 
 | 儲存體帳戶 | 儲存體 Blob 資料參與者 | 

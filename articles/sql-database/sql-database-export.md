@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: 27a65a871264fa13a42acfb5be2d4b5f99d31adc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57758687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483821"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>將 Azure SQL 資料庫匯出到 BACPAC 檔案
 
@@ -28,7 +28,7 @@ ms.locfileid: "57758687"
 - 为保证导出的事务处理方式一致，必须确保导出期间未发生写入活动，或者正在从 Azure SQL 数据库的[事务处理方式一致性副本](sql-database-copy.md)中导出。
 - 如果您要匯出至 blob 儲存體，BACPAC 檔案的大小上限為 200 GB。 若要存档更大的 BACPAC 文件，请导出到本地存储。
 - 不支援使用本文所討論的方法將 BACPAC 檔案匯出到 Azure 進階儲存體。
-- 在防火牆後面的儲存體目前不支援。
+- 目前不支持有防火墙的存储。
 - 如果執行從 Azure SQL Database 匯出的作業超過 20 個小時，它可能會被取消。 若要增加匯出期間的效能，您可以︰
 
   - 暫時提高計算大小。
@@ -78,7 +78,7 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.d
 > [!NOTE]
 > [受控執行個體](sql-database-managed-instance.md)目前不支援使用 Azure PowerShell 將資料庫匯出至 BACPAC 檔案。 若要將受控執行個體匯出到 BACPAC 檔案，請使用 SQL Server Management Studio 或 SQLPackage。
 
-使用[新增 AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) cmdlet 來提交匯出資料庫要求至 Azure SQL Database 服務。 視資料庫大小而定，匯出作業可能需要一些時間才能完成。
+使用 [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) cmdlet 向 Azure SQL 数据库服务提交导出数据库请求。 視資料庫大小而定，匯出作業可能需要一些時間才能完成。
 
 ```powershell
 $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
@@ -86,7 +86,7 @@ $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -
   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 ```
 
-若要檢查的匯出要求狀態，請使用[Get AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet。 如果在要求後立即執行此 Cmdlet，通常會傳回 **Status :InProgress**。 當您看到 **Status:Succeeded** 時，匯出已完成。
+若要检查导出请求的状态，请使用 [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet。 如果在要求後立即執行此 Cmdlet，通常會傳回 **Status :InProgress**。 當您看到 **Status:Succeeded** 時，匯出已完成。
 
 ```powershell
 $exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

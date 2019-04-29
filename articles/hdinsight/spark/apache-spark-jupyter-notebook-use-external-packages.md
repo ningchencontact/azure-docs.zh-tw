@@ -1,7 +1,6 @@
 ---
 title: 在 Azure HDInsight 上的 Spark 中搭配 Jupyter 使用自訂 Maven 套件
 description: 說明如何設定讓 HDInsight Spark 叢集隨附之 Jupyter Notebook 使用自訂 Maven 套件的逐步指示。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: c0394025fef15b987f0777d157c465e83d860601
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 6af25b95aa3a38c4a2e9f3bd8147604dccae0abb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124171"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>在 HDInsight 上的 Apache Spark 叢集中搭配 Jupyter Notebook 使用外部封裝
 > [!div class="op_single_selector"]
@@ -35,20 +34,20 @@ ms.locfileid: "53652127"
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>搭配 Jupyter Notebook 使用外部套件
 1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。   
 
-1. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
+1. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。 出现提示时，请输入群集的管理员凭据。
 
     > [!NOTE]  
     > 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
     > 
     > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-1. 建立新的 Notebook。 按一下 [新增]，然後按一下 [Spark]。
+1. 建立新的 Notebook。 单击“新建”，并单击“Spark”。
    
     ![建立新的 Jupyter Notebook](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "建立新的 Jupyter Notebook")
 
 1. 系統隨即會建立新 Notebook，並以 Untitled.pynb 的名稱開啟。 在頂端按一下 Notebook 名稱，然後輸入好記的名稱。
    
-    ![提供 Notebook 的名稱](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "提供 Notebook 的名稱")
+    ![提供笔记本的名称](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "提供笔记本的名称")
 
 1. 您將使用 `%%configure` magic 來設定讓 Notebook 使用外部套件。 在使用外部套件的 Notebook 中，確定您在第一個程式碼單元中呼叫 `%%configure` magic。 這可確保將核心設定為在啟動工作階段之前即使用此套件。
 
@@ -62,9 +61,9 @@ ms.locfileid: "53652127"
 
 1. 對於 Maven 中央儲存機制中的外部套件，上述程式碼片段預期會使用 Maven 座標。 在此程式碼片段中， `com.databricks:spark-csv_2.10:1.4.0` 是 **spark-csv** 套件的 maven 座標。 以下說明如何建立套件的座標。
    
-    a. 在「Maven 儲存機制」中找出套件。 針對本教學課程，我們使用 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)。
+    a. 在 Maven 存储库中找出该包。 針對本教學課程，我們使用 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)。
    
-    b. 從儲存機制收集 [GroupId]、[ArtifactId] 及 [版本] 的值。 確定您收集的值符合您的叢集。 在此案例中，我們使用 Scala 2.10 與 Spark 1.4.0 套件，但您可能必須為叢集中的適當 Scala 或 Spark 版本選取不同的版本。 您可以透過在 Spark Jupyter 核心或 Spark 提交上執行 `scala.util.Properties.versionString` 以查看您叢集上的 Scala 版本。 您可以透過在 Jupyter 筆記本上執行 `sc.version` 以查看您叢集上的 Spark 版本。
+    b. 从存储库中收集 **GroupId**、**ArtifactId** 和 **Version** 的值。 確定您收集的值符合您的叢集。 在此案例中，我們使用 Scala 2.10 與 Spark 1.4.0 套件，但您可能必須為叢集中的適當 Scala 或 Spark 版本選取不同的版本。 您可以透過在 Spark Jupyter 核心或 Spark 提交上執行 `scala.util.Properties.versionString` 以查看您叢集上的 Scala 版本。 您可以透過在 Jupyter 筆記本上執行 `sc.version` 以查看您叢集上的 Spark 版本。
    
     ![搭配 Jupyter Notebook 使用外部封裝](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "搭配 Jupyter Notebook 使用外部封裝")
    
@@ -115,5 +114,5 @@ ms.locfileid: "53652127"
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理資源
-* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)

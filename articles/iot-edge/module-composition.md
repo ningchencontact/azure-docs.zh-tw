@@ -3,18 +3,18 @@ title: 宣告具有部署資訊清單的模組和路由 - Azure IoT Edge | Micro
 description: 了解部署資訊清單如何宣告要部署哪些模組、如何加以部署，以及如何在其間建立訊息路由。
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 03/28/2019
+ms.author: v-yiso
+origin.date: 03/28/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ms.openlocfilehash: f4a562cab445398986c1b8f379f6cb90ca843342
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758076"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363147"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>了解如何在 IoT Edge 中部署模組及建立路由
 
@@ -75,9 +75,9 @@ ms.locfileid: "58758076"
 
 ## <a name="configure-modules"></a>設定模組
 
-定義 IoT Edge 執行階段在您部署中安裝模組的方式。 IoT Edge 代理程式是一項執行階段元件，負責管理 IoT Edge 裝置的安裝、更新及狀態回報。 因此，$edgeAgent 模組對應項需要所有模組的設定及管理資訊。 這項資訊包含 IoT Edge 代理程式本身的組態參數。 
+定義 IoT Edge 執行階段在您部署中安裝模組的方式。 IoT Edge 代理程式是一項執行階段元件，負責管理 IoT Edge 裝置的安裝、更新及狀態回報。 因此，$edgeAgent 模組對應項需要所有模組的設定及管理資訊。 此信息包括 IoT Edge 代理本身的配置参数。 
 
-如需可以或必須包含的屬性的完整清單，請參閱[IoT Edge 代理程式和 IoT Edge 中樞屬性](module-edgeagent-edgehub.md)。
+有关可以或必须包含的属性的完整列表，请参阅 [IoT Edge 代理和 IoT Edge 中心的属性](module-edgeagent-edgehub.md)。
 
 $EdgeAgent 屬性遵循此結構：
 
@@ -177,9 +177,9 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 | `$upstream` | 將訊息傳送到 IoT 中樞 |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | 將訊息傳送到特定模組的特定輸入 |
 
-IoT Edge 提供至少一次的保證。 IoT Edge 中樞將訊息儲存在本機以免路由無法將訊息傳遞到其接收。 例如，如果 IoT Edge 中樞無法連線到 IoT 中樞或目標模組未連線。
+IoT Edge 提供至少一次的保證。 IoT Edge 中心在本地存储消息，以防路由无法将消息传送到其接收器。 例如，如果 IoT Edge 中心无法连接到 IoT 中心，或者目标模块未连接。
 
-IoT Edge 中樞會將儲存的訊息中指定的時間`storeAndForwardConfiguration.timeToLiveSecs`的屬性[IoT Edge 中樞所需屬性](module-edgeagent-edgehub.md)。
+IoT Edge 中心会一直存储消息，直到达到在 [IoT Edge 中心所需属性](module-edgeagent-edgehub.md)的 `storeAndForwardConfiguration.timeToLiveSecs` 属性中指定的时间。
 
 ## <a name="define-or-update-desired-properties"></a>定義或更新所需屬性 
 
@@ -273,6 +273,12 @@ IoT Edge 中樞會將儲存的訊息中指定的時間`storeAndForwardConfigurat
 
 ## <a name="next-steps"></a>後續步驟
 
-* 可以或必須包含在 $edgeAgent 和 $edgeHub 屬性完整清單，請參閱 < [IoT Edge 代理程式和 IoT Edge 中樞屬性](module-edgeagent-edgehub.md)。
+* 有关在 $edgeAgent 和 $edgeHub 中可以或必须包含的属性的完整列表，请参阅 [IoT Edge 代理和 IoT Edge 中心的属性](module-edgeagent-edgehub.md)。
 
 * 您現在知道如何使用 IoT Edge 模組，[了解開發 IoT Edge 模組的需求和工具](module-development.md)。
+
+[lnk-deploy]: module-deployment-monitoring.md
+[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
+[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
+[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
+[lnk-module-dev]: module-development.md

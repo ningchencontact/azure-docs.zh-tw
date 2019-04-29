@@ -1,7 +1,6 @@
 ---
 title: 在 Azure HDInsight 中搭配 HBase 使用 Apache Phoenix 和 SQLLine
 description: 了解如何在 HDInsight 中使用 Apache Phoenix。 也了解如何在電腦上安裝並設定 SQLLine，以連線到在 HDInsight 中的 HBase 叢集。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 38f86bd19c85440fbad0e7fd56a3dd9ba836c7b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0bef586540635ee1bada3475f6316c84dea4308c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123156"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>在 HDInsight 中搭配 Linux 型 Apache HBase 叢集使用 Apache Phoenix
 了解如何在 Azure HDInsight 中使用 [Apache Phoenix](https://phoenix.apache.org/)，以及如何使用 SQLLine。 如需有關 Phoenix 的詳細資訊，請參閱 [15 分鐘內了解 Apache Phoenix](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 如需 Phoenix 文法，請參閱 [Apache Phoenix 文法](https://phoenix.apache.org/language/index.html)。

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800297"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 
@@ -121,15 +121,15 @@ Linux 自訂指令碼擴充功能有兩個：
 
 | 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 日期 |
-| publisher | Microsoft.OSTCExtensions | 字串 |
-| type | CustomScriptForLinux | 字串 |
+| apiVersion | 2015-06-15 | date |
+| publisher | Microsoft.OSTCExtensions | string |
+| type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (例如) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (例如) | python MyPythonScript.py \<my-param1\> | 字串 |
-| enableInternalDNSCheck | true | 布林值 |
-| storageAccountName (例如) | examplestorageacct | 字串 |
-| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 字串 |
+| commandToExecute (例如) | python MyPythonScript.py \<my-param1\> | string |
+| enableInternalDNSCheck | true | boolean |
+| storageAccountName (例如) | examplestorageacct | string |
+| storageAccountKey (例如) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>屬性值詳細資料
 

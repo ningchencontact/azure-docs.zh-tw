@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61480564"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>使用 Azure 串流分析和 Azure Machine Learning 執行情感分析
 本文說明如何快速設定簡單的 Azure 串流分析工作與 Azure Machine Learning 整合。 您要使用 Cortana 智慧資源庫的機器學習服務情感分析模型，來分析串流文字資料並即時判斷情感分數。 使用 Cortana Intelligence Suite 可讓您完成這項工作，而不需擔心建立情感分析模型的複雜性。
@@ -136,7 +136,7 @@ ms.locfileid: "58109302"
 3. 使用下列值填寫 [Blob 儲存體] 刀鋒視窗：
 
    
-   |欄位  |值  |
+   |欄位  |Value  |
    |---------|---------|
    |**輸入別名** | 使用名稱 `datainput`，並選取 [從您的訂用帳戶選取 Blob 儲存體]       |
    |**儲存體帳戶**  |  選取您稍早建立的儲存體帳戶。  |
@@ -156,7 +156,7 @@ ms.locfileid: "58109302"
 
 3. 使用下列值填寫 [Blob 儲存體] 刀鋒視窗：
 
-   |欄位  |值  |
+   |欄位  |Value  |
    |---------|---------|
    |**輸出別名** | 使用名稱 `datamloutput`，並選取 [從您的訂用帳戶選取 Blob 儲存體]       |
    |**儲存體帳戶**  |  選取您稍早建立的儲存體帳戶。  |
@@ -179,7 +179,7 @@ ms.locfileid: "58109302"
 
 3. 使用下列值填寫 [Azure Machine Learning 函式] 刀鋒視窗：
 
-   |欄位  |值  |
+   |欄位  |Value  |
    |---------|---------|
    | **函式別名** | 使用名稱 `sentiment` 並選取 [手動提供 Azure Machine Learning 函式設定]，讓您能夠選擇輸入 URL 和金鑰。      |
    | **URL**| 貼上 Web 服務 URL。|

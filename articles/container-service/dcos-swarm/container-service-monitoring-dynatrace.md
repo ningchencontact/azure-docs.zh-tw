@@ -10,11 +10,11 @@ ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119842"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(已淘汰) 使用 Dynatrace SaaS/受控監視 Azure Container Service DC/OS 叢集
 

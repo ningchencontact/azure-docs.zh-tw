@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 2216deb7a59dda2a7c3b99c55956ef8541925425
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa6b4ef76b039e9e24b4a72cfb6e76dcfae8378d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326372"
+ms.locfileid: "62111982"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>教學課程：使用 AES-128 動態加密和金鑰傳遞服務
 
@@ -158,6 +158,11 @@ ms.locfileid: "60326372"
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## <a name="provide-feedback"></a>提供意見反應
+
+請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
+
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
