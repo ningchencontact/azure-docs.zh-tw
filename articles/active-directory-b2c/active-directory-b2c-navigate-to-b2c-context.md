@@ -3,7 +3,7 @@ title: 在 Azure Active Directory B2C 中切換至 B2C 租用戶 | Microsoft Doc
 description: 如何切換至您的 Active Directory B2C 租用戶環境。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 4/13/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 9315b3a5e1641098daf2c7dadf9fa4f09d0cb2a7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317596"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>切換至您的 Azure AD B2C 租用戶
 
@@ -37,7 +37,7 @@ Azure 入口網站會重新整理。  現在您已在您的 Azure AD B2C 租用�
 1. 按一下 [所有服務]，然後在左導覽窗格中搜尋 `Azure AD B2C`。  (若要釘選到左側的「開始面板」，請按一下 Azure AD B2C 左邊的星形)
 1. 按一下 [Azure AD B2C]  以存取 B2C 功能窗格。
    
-    ![螢幕擷取畫面的瀏覽至 B2C 功能窗格](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![浏览到 B2C 功能窗格的屏幕截图](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
 > 您必須是 B2C 租用戶的全域管理員，才能存取 B2C 功能窗格。 其他租用戶的全域管理員或所有租用戶的使用者均無法存取。  您可以使用 Azure 入口網站右上角中的租用戶切換器來切換至 B2C 租用戶。

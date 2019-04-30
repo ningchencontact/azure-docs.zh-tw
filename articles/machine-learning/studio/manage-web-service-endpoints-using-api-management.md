@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347083"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>使用 API 管理來管理 Machine Learning Studio Web 服務
 ## <a name="overview"></a>概觀
@@ -168,7 +168,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 ### <a name="creating-the-experiment"></a>建立實驗
 以下步驟可讓您建立簡單的 AzureML 實驗並將其部署為 Web 服務。 Web 服務接受任意文字的資料行做為輸入，並傳回一組以整數來表示的特徵。 例如︰
 
-| 文字 | 雜湊的文字 |
+| Text | 雜湊的文字 |
 | --- | --- |
 | 這是美好的一天 |1 1 2 2 0 2 0 1 |
 

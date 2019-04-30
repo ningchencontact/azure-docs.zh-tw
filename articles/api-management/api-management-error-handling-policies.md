@@ -83,9 +83,9 @@ ms.locfileid: "60564306"
 | 原因   | string | 方便電腦理解的錯誤碼，可用於處理錯誤。                                       | 否       |
 | 訊息  | string | 人類可以看懂的錯誤描述。                                                                         | 是      |
 | 影響範圍    | string | 發生錯誤之範圍的名稱，此名稱可為「全域」、「產品」、「API」或「作業」其中之一 | 否       |
-| 區段  | string | 發生錯誤的區段名稱。 可能的值：「輸入」、「後端」、「輸出」或 「錯誤」。       | 否       |
-| Path     | string | 指定巢狀原則，例如 "choose[3]/when[2]"。                                                        | 否       |
-| PolicyId | string | 發生錯誤之原則上 `id` 屬性的值 (如果客戶有指定)             | 否       |
+| Section  | string | 發生錯誤的區段名稱。 可能的值：「輸入」、「後端」、「輸出」或 「錯誤」。       | 否       |
+| `Path`     | string | 指定巢狀原則，例如 "choose[3]/when[2]"。                                                        | 否       |
+| `PolicyId` | string | 發生錯誤之原則上 `id` 屬性的值 (如果客戶有指定)             | 否       |
 
 > [!TIP]
 > 您可以透過 context.Response.StatusCode 存取狀態碼。  
