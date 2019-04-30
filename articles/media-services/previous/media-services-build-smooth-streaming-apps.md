@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466035"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何建置 Smooth Streaming Windows 市集應用程式  
 
@@ -66,7 +66,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 1. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 1. 從 [新增專案] 對話方塊中，輸入或選取下列值：
 
-    | 名稱 | 值 |
+    | 名稱 | Value |
     | --- | --- |
     | 範本群組 |已安裝/範本/Visual C#/Windows 市集 |
     | 範本 |空白應用程式 (XAML) |
@@ -82,7 +82,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 1. 從 [方案總管] 中，在 [SSPlayer] 上按一下滑鼠右鍵，然後按一下 [加入參考]。
 1. 輸入或選取下列值：
 
-    | 名稱 | 值 |
+    | 名稱 | Value |
     | --- | --- |
     | 參考群組 |Windows/延伸 |
     | 參考 |選取 Microsoft Smooth Streaming Client SDK for Windows 8 和 Microsoft Visual C++ Runtime Package |
