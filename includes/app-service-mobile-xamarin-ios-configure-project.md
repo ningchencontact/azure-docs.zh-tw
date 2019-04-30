@@ -1,15 +1,10 @@
 ---
-author: conceptdev
-ms.service: app-service-mobile
-ms.topic: include
-ms.date: 08/23/2018
-ms.author: crdun
 ms.openlocfilehash: a69df0cc9ea14a2c9fa172c77663afb1d6861f9b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097512"
 ---
 #### <a name="configure-the-ios-project-in-xamarin-studio"></a>在 Xamarin Studio 中設定 iOS 專案
 1. 在 Xamarin.Studio 中，開啟 **Info.plist**，然後使用您稍早以新應用程式識別碼建立的套件組合識別碼，來更新 [套件組合識別碼]。
@@ -23,7 +18,7 @@ ms.locfileid: "50134001"
 
    ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png)
 
-   這將確保專案使用新的設定檔進行程式碼簽署。 如需官方 Xamarin 裝置佈建文件，請參閱 [Xamarin 裝置佈建]。
+   這將確保專案使用新的設定檔進行程式碼簽署。 有关正式的 Xamarin 设备设置文档，请参阅 [Xamarin 设备设置]。
 
 #### <a name="configure-the-ios-project-in-visual-studio"></a>在 Visual Studio 中設定 iOS 專案
 1. 在 Visual Studio 中，以滑鼠右鍵按一下專案，然後按一下 [屬性] 。
@@ -34,7 +29,7 @@ ms.locfileid: "50134001"
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png)
 
-    這將確保專案使用新的設定檔進行程式碼簽署。 如需官方 Xamarin 裝置佈建文件，請參閱 [Xamarin 裝置佈建]。
+    這將確保專案使用新的設定檔進行程式碼簽署。 如需官方 Xamarin 裝置佈建文件，請參閱 [Xamarin 设备设置]。
 4. 按兩下 Info.plist 以開啟，並啟用 [背景模式] 下的 **RemoteNotifications**。
 
-[Xamarin 裝置佈建]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
+[Xamarin 设备设置]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/

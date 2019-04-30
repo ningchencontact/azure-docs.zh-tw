@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 564c121aa90746498a94022fd0fb8d8529142c91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128578"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>使用 Windows PowerShell for StorSimple 管理您的裝置
 
@@ -159,7 +159,7 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 在 Windows PowerShell for StorSimple 中也有 Cmdlet 的說明。 此說明的最新版本也會線上提供，供您更新您系統上的說明。
 
-在此介面中取得說明和在 Windows PowerShell 中類似，而且大部分與說明相關的 Cmdlet 都能用。 您可以找到協助適用於 Windows PowerShell 的線上 TechNet Library 中：[使用 Windows PowerShell 撰寫指令碼](https://go.microsoft.com/fwlink/?LinkID=108518)。
+在此介面中取得說明和在 Windows PowerShell 中類似，而且大部分與說明相關的 Cmdlet 都能用。 您可以在線上找到協助適用於 Windows PowerShell:[Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
 
 以下是此 Windows PowerShell 介面中各種說明類型的簡短描述，包括如何更新說明。
 

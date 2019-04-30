@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
 ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61438103"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -361,7 +361,7 @@ module.exports = function (context, req) {
 
 這個繫結需要下列 Azure AD 權限︰
 
-|資源|權限|
+|Resource|權限|
 |--------|--------|
 |Microsoft Graph|讀取使用者檔案|
 
@@ -524,7 +524,7 @@ module.exports = function (context, req) {
 
 這個繫結需要下列 Azure AD 權限︰
 
-|資源|權限|
+|Resource|權限|
 |--------|--------|
 |Microsoft Graph|可以完整存取使用者檔案|
 
@@ -667,14 +667,14 @@ module.exports = function (context, req) {
 
 這個繫結需要下列 Azure AD 權限︰
 
-|資源|權限|
+|Resource|權限|
 |--------|--------|
 |Microsoft Graph|讀取使用者檔案|
 
 繫結會向 .NET 函式公開下列類型：
 - byte[]
 - Stream
-- 字串
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -815,14 +815,14 @@ module.exports = function (context, req) {
 
 這個繫結需要下列 Azure AD 權限︰
 
-|資源|權限|
+|Resource|權限|
 |--------|--------|
 |Microsoft Graph|可以完整存取使用者檔案|
 
 繫結會向 .NET 函式公開下列類型：
 - byte[]
 - Stream
-- 字串
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -965,14 +965,14 @@ module.exports = function (context, req) {
 
 這個繫結需要下列 Azure AD 權限︰
 
-|資源|權限|
+|Resource|權限|
 |--------|--------|
 |Microsoft Graph|以使用者的身分傳送電子郵件|
 
 繫結會向 .NET 函式公開下列類型：
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- 字串
+- string
 - 自訂物件類型 (使用結構化模型繫結)
 
 
@@ -1402,7 +1402,7 @@ module.exports = function (context, req) {
 ### <a name="webhook-output---usage"></a>Webhook 輸出 - 使用方式
 
 繫結會向 .NET 函式公開下列類型：
-- 字串
+- string
 - Microsoft.Graph.Subscription
 
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61432631"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什麼是雲端服務模型？如何封裝？
 雲端服務是從三個元件建立的，也就是服務定義 (.csdef)、服務組態 (.cscfg) 和服務封裝 (.cspkg)。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 這兩個檔案是以 XML 為基礎，描述雲端服務的結構及其設定方式，統稱為模型。 **ServicePackage.cspkg** 是從 **ServiceDefinition.csdef** 產生的 zip 檔案，此外，包含所有必要的二進位型相依性。 Azure 會從 **ServicePackage.cspkg** 和 **ServiceConfig.cscfg** 建立雲端服務。
@@ -266,7 +266,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 其中的變數定義如下：
 
-| 變數 | 值 |
+| 變數 | Value |
 | --- | --- |
 | \[DirectoryName\] |專案根目錄底下的子目錄，其中包含 Azure 專案的 .csdef 檔案。 |
 | \[ServiceDefinition\] |服務定義檔的名稱。 默认情况下，此文件名为 ServiceDefinition.csdef。 |

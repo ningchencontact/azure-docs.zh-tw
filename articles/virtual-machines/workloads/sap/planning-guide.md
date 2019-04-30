@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732412"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南
 
@@ -451,7 +451,11 @@ SAP 常被視為企業內最常見的關鍵任務應用程式。 這些應用程
 >
 > 您必須符合這些限制，才能讓一個 SAP 系統的內部網路有很低延遲和很高效能，特別是在 SAP 系統的應用程式執行個體與 DBMS 層之間。
 >
->
+> 使用經過高度整合的多個 SAP 系統時，必須發生特殊的計劃的系統和區域。 請務必將這些系統彼此網路延遲降至最低，盡可能接近部署。 高度整合的 SAP 系統的範例如下：
+> * SAP BW 的 SAP OLTP 系統，例如 ERP、 CRM 或 SRM; 中讀取資料或
+> * 用來將資料複寫多個 SPA 系統或之間 SAP 和非 SAP 系統，SAP SLT或
+> * 連接到 SAP ERP 系統，SAP S/4等。
+
 
 ### <a name="supported-os-and-database-releases"></a>支援的 OS 和資料庫版本
 * 這篇文章列出 Azure 虛擬機器服務支援的 Microsoft 伺服器軟體：<https://support.microsoft.com/kb/2721672>。
