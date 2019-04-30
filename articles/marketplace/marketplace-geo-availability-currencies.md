@@ -2,9 +2,7 @@
 title: 各地區上市情況 」 及 「 貨幣支援 |Azure
 description: Azure Marketplace 和 AppSource 中的各地區上市
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019

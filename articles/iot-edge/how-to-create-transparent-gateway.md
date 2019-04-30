@@ -279,7 +279,7 @@ ms.locfileid: "63766315"
 
 閘道案例中運作，其中至少一個 IoT Edge 中樞支援的通訊協定必須開放給來自下游裝置的輸入流量。 支援的通訊協定是 MQTT、 AMQP 及 HTTPS。
 
-| Port | 通訊協定 |
+| Port | Protocol |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |
