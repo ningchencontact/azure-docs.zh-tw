@@ -60,7 +60,7 @@ ms.locfileid: "60567226"
 | -------- | ----------- | -------- |
 | type | 類型屬性必須設定為：**AzureSearch**。 | 是 |
 | url | Azure 搜尋服務的 URL。 | 是 |
-| 索引鍵 | Azure 搜尋服務的系統管理金鑰。 | 是 |
+| key | Azure 搜尋服務的系統管理金鑰。 | 是 |
 
 ## <a name="dataset-properties"></a>資料集屬性
 
@@ -100,11 +100,11 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 
 | Azure 搜尋服務資料類型 | 在 Azure 搜尋服務接收器中受到支援 |
 | ---------------------- | ------------------------------ |
-| 字串 | Y |
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
-| BOOLEAN | Y |
+| Boolean | Y |
 | DataTimeOffset | Y |
 | String Array | N |
 | GeographyPoint | N |
