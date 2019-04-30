@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 16871bdc59d141334bc2c95f26929f270d7971cf
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100528"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106736"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>如何使用適用於 Azure Mobile Apps 的 JavaScript 用戶端程式庫
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -60,7 +60,7 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 ## <a name="auth"></a>操作說明：驗證使用者
 Azure App Service 支援使用各種外部識別提供者來驗證與授權應用程式使用者：Facebook、Google、Microsoft 帳戶及 Twitter。 您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。 您也可以在伺服器指令碼中，使用驗證的使用者的身分識別來實作授權規則。 如需詳細資訊，請參閱 [開始使用驗證] 教學課程。
 
-支援兩個驗證流程：伺服器流程和用戶端流程。  由於伺服器流程採用提供者的 Web 驗證介面，因此所提供的驗證體驗也最為簡單。 用戶端流程依賴提供者專屬的 SDK，可以與裝置特有的功能深入整合，例如單一登入。
+支持两种身份验证流：服务器流和客户端流。  由於伺服器流程採用提供者的 Web 驗證介面，因此所提供的驗證體驗也最為簡單。 用戶端流程依賴提供者專屬的 SDK，可以與裝置特有的功能深入整合，例如單一登入。
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
@@ -73,7 +73,7 @@ Azure App Service 支援使用各種外部識別提供者來驗證與授權應�
 
 在本機執行會造成問題，因為根據預設，App Service 驗證只設定為允許從您的行動裝置應用程式後端來存取。 請使用下列步驟來變更 App Service 設定，以便在本機執行伺服器時啟用驗證：
 
-1. 登入 [Azure 入口網站]
+1. 登录到 [Azure 门户]
 2. 瀏覽至行動裝置應用程式後端。
 3. 選取 [開發工具] 功能表中的 [資源總管]。
 4. 按一下 [執行]  ，在新的索引標籤或視窗中開啟行動裝置應用程式後端的資源總管。
@@ -91,7 +91,7 @@ Azure App Service 支援使用各種外部識別提供者來驗證與授權應�
 
 您還需要將相同的回送 URL 加入至 CORS 白名單設定：
 
-1. 瀏覽回 [Azure 入口網站]。
+1. 瀏覽回 [Azure 门户]。
 2. 瀏覽至行動裝置應用程式後端。
 3. 按一下 [API] 功能表中的 [CORS]。
 4. 在空的 [允許的原點]  文字方塊中輸入每一個 URL。  隨即會建立新的文字方塊。
@@ -104,6 +104,6 @@ Azure App Service 支援使用各種外部識別提供者來驗證與授權應�
 [開始使用驗證]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/
 [適用於 Azure Mobile Apps 的 JavaScript SDK]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

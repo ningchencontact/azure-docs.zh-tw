@@ -10,11 +10,11 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996603"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457209"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(已淘汰) 啟用 Azure Container Service 應用程式的公用存取
 
@@ -35,21 +35,21 @@ ACS [公用代理程式集區](container-service-mesos-marathon-ui.md#deploy-a-d
     ![Azure Container Service 的負載平衡器探查](./media/container-service-enable-public-access/add-probe.png)
 5. 填寫探查表單，然後按一下 [確定] 。
    
-   | 欄位 | 說明 |
+   | 欄位 | 描述 |
    | --- | --- |
-   | Name |探查的描述性名稱。 |
+   | 名稱 |探查的描述性名稱。 |
    | Port |要測試之容器的連接埠。 |
    | Path |(處於 HTTP 模式時) 探查的相對網站路徑。 不支援 HTTPS。 |
-   | 間隔 |探查嘗試間隔的時間量 (秒)。 |
+   | Interval |探查嘗試間隔的時間量 (秒)。 |
    | 狀況不良臨界值 |在將容器視為狀況不良之前的連續探查嘗試次數。 |
 6. 回到代理程式負載平衡器的屬性中，依序按一下 [負載平衡規則] 和 [新增]。
    
     ![Azure Container Service 的負載平衡器規則](./media/container-service-enable-public-access/add-balancer-rule.png)
 7. 填寫負載平衡器表單，然後按一下 [確定] 。
    
-   | 欄位 | 說明 |
+   | 欄位 | 描述 |
    | --- | --- |
-   | Name |負載平衡器的描述性名稱。 |
+   | 名稱 |負載平衡器的描述性名稱。 |
    | Port |公用的連入通訊埠。 |
    | 後端連接埠 |要將流量路由傳送到之容器的內部對公用連接埠。 |
    | 後端集區 |此集區中的容器將會是此負載平衡器的目標。 |
@@ -70,9 +70,9 @@ ACS [公用代理程式集區](container-service-mesos-marathon-ui.md#deploy-a-d
     ![Azure Container Service 網路安全性群組規則](./media/container-service-enable-public-access/add-firewall-rule.png)
 5. 填寫防火牆規則以允許公用連接埠，然後按一下 [確定] 。
    
-   | 欄位 | 說明 |
+   | 欄位 | 描述 |
    | --- | --- |
-   | Name |防火牆規則的描述性名稱。 |
+   | 名稱 |防火牆規則的描述性名稱。 |
    | 優先順序 |規則的優先順序排名。 編號愈低，優先順序就愈高。 |
    | 來源 |限制此規則要允許或拒絕的連入 IP 位址範圍。 使用 **任何** 即可不指定限制。 |
    | 服務 |選取一組適用此安全性規則的預先定義服務。 否則，使用 **自訂** 建立自己的服務。 |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
 ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128144"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>將驗證新增至您的 iOS 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "57445903"
 
 安全身份验证要求为应用定义新的 URL 方案。  這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。  我們會在這整個教學課程中使用 URL 配置 appname。  不過，您可以使用任何您選擇的 URL 結構描述。  它對於您的行動應用程式而言應該是唯一的。  若要在伺服器端啟用重新導向：
 
-1. 在 [Azure 入口網站]中，選取您的 App Service。
+1. 在 [Azure 门户]中，選取您的 App Service。
 
 2. 按一下 [驗證/授權] 功能表選項。
 
@@ -212,12 +212,12 @@ ms.locfileid: "57445903"
 
 5. 按下 [執行] 以啟動應用程式，然後登入。 當您登入時，應該能夠檢視待辦事項清單並進行更新。
 
-App Service 驗證會使用 Apples Inter-App Communication。  有关此主题的更多详细信息，请参阅 [Apple 文档][2]
+App Service 驗證會使用 Apples Inter-App Communication。  如需有關這個主題的詳細資訊，請參閱 [Apple 文件][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[Azure 入口網站]: https://portal.azure.com
+[Azure 门户]: https://portal.azure.com
 
 [iOS 快速入門]: app-service-mobile-ios-get-started.md
 

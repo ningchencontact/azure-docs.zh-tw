@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 4fa5402b87eea969a5a4093000dda06d3cb5675d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312983"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216216"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊
 
@@ -35,7 +35,7 @@ Proxy URL 採用下列格式：**protocol**://**proxy_host**:**proxy_port**。
 
 * **protocol**是 HTTP 或 HTTPS。 Docker 精靈可以使用任一種通訊協定，端視您的容器登錄設定而定，但 IoT Edge 精靈和執行階段容器應該一律使用 HTTPS。
 
-* **proxy_host**是 Proxy 伺服器的位址。 如果您的 proxy 伺服器需要驗證，您可以使用下列格式的 proxy 主機一部分提供您的認證：**使用者**:**密碼**\@**proxy_host**.
+* **proxy_host**是 Proxy 伺服器的位址。 如果代理服务器要求进行身份验证，则可采用 **user**:**password**\@**proxy_host** 格式将凭据作为 proxy_host 的一部分提供。
 
 * **proxy_port**是 Proxy 回應網路流量的網路連接埠。
 
@@ -43,7 +43,7 @@ Proxy URL 採用下列格式：**protocol**://**proxy_host**:**proxy_port**。
 
 若您正於 Linux 裝置上安裝 IoT Edge 執行階段，請設定套件管理員以 Proxy 伺服器存取安裝套件。 例如，[設定 apt-get 以使用 http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy) \(英文\)。 設定您的套件管理員之後，請依照[在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)或[在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)中的指示執行。
 
-如果您要在 Windows 裝置上安裝 IoT Edge 執行階段，您需要兩次通過 proxy 伺服器。 第一個連接是下載安裝程式指令碼檔案，而第二個連接是以下載必要元件安裝期間。 您可以在 Windows 設定中設定 Proxy 資訊，或直接在安裝指令碼中包含您的 Proxy 資訊。 下列 PowerShell 指令碼是使用 `-proxy` 引數的 Wndows 安裝範例：
+若要在 Windows 设备上安装 IoT Edge 运行时，需要两次通过代理服务器执行操作。 第一个连接用于下载安装程序脚本文件，第二个连接用于在安装过程中下载必需的组件。 您可以在 Windows 設定中設定 Proxy 資訊，或直接在安裝指令碼中包含您的 Proxy 資訊。 下列 PowerShell 指令碼是使用 `-proxy` 引數的 Wndows 安裝範例：
 
 ```powershell
 . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -64,22 +64,22 @@ Install-SecurityDaemon -Manual -ContainerOs Windows -InvokeWebRequestParameters 
 
 ## <a name="configure-the-daemons"></a>設定精靈
 
-在您的 IoT Edge 裝置上執行的白鯨和 IoT Edge 精靈需要設定為使用 proxy 伺服器。 從容器登錄庫，白鯨精靈會建立 web 要求以提取容器映像。 IoT Edge 精靈會發出 Web 要求，以和 IoT 中樞通訊。
+需要将 IoT Edge 设备上运行的 Moby 和 IoT Edge 守护程序配置为使用代理服务器。 Moby 守护程序发出 Web 请求，以从容器注册表中拉取容器映像。 IoT Edge 精靈會發出 Web 要求，以和 IoT 中樞通訊。
 
-### <a name="moby-daemon"></a>白鯨精靈
+### <a name="moby-daemon"></a>Moby 守护程序
 
-因為白鯨的以 Docker 為基礎，請參閱 Docker 文件，若要使用環境變數設定白鯨精靈。 大部分的容器登錄 (包括 Docker Hub 和 Azure Container Registry) 皆支援 HTTPS 要求，因此您應該設定的參數為 **HTTPS_PROXY**。 如果您是從不支援傳輸層安全性 (TLS) 的登錄提取映像，則應該設定 **HTTP_PROXY** 參數。 
+由于 Moby 是基于 Docker 的，因此若要使用环境变量配置 Moby 守护程序，请参阅 Docker 文档。 大部分的容器登錄 (包括 Docker Hub 和 Azure Container Registry) 皆支援 HTTPS 要求，因此您應該設定的參數為 **HTTPS_PROXY**。 如果您是從不支援傳輸層安全性 (TLS) 的登錄提取映像，則應該設定 **HTTP_PROXY** 參數。 
 
-選擇適用於您的 IoT Edge 裝置作業系統的發行項： 
+选择适用于 IoT Edge 设备操作系统的文章： 
 
-* [在 Linux 上設定 Docker 精靈](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-    * 在 Linux 上的裝置上的白鯨服務精靈會保留 Docker 的名稱。
-* [Windows 上設定 Docker 精靈](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
-    * 在 Windows 裝置上的白鯨服務精靈會呼叫 iotedge 白鯨。 名稱彼此不同，因為它是可以在 Windows 裝置上執行 Docker Desktop 」 和 「 白鯨 」 都以平行方式。 
+* [在 Linux 上配置 Docker 守护程序](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+    * Linux 设备上的 Moby 守护程序保留“Docker”这一名称。
+* [在 Windows 上配置 Docker 守护程序](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+    * Windows 设备上的 Moby 守护程序称为 iotedge-moby。 之所以让这些名称保持不同，是因为可能会在 Windows 设备上并行运行 Docker Desktop 和 Moby。 
 
 ### <a name="iot-edge-daemon"></a>IoT Edge 精靈
 
-IoT Edge 服務精靈已在白鯨背景類似的方式。 IoT Edge 傳送至 IoT 中樞的所有要求皆是使用 HTTPS。 請根據您的作業系統，使用下列相對應的步驟來針對服務設定環境變數。 
+IoT Edge 守护程序以类似的方式配置为 Moby 守护程序。 IoT Edge 傳送至 IoT 中樞的所有要求皆是使用 HTTPS。 請根據您的作業系統，使用下列相對應的步驟來針對服務設定環境變數。 
 
 #### <a name="linux"></a> Linux
 

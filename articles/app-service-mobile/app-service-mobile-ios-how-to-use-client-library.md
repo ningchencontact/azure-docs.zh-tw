@@ -1,5 +1,5 @@
 ---
-title: 如何使用適用於 Azure Mobile Apps 的 iOS SDK
+title: 如何使用适用于 Azure 移动应用的 iOS SDK
 description: 如何使用適用於 Azure Mobile Apps 的 iOS SDK
 services: app-service\mobile
 documentationcenter: ios
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121765"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122450"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用適用於 Azure Mobile Apps 的 iOS 用戶端程式庫
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-本指南說明如何使用最新的 [Azure Mobile Apps iOS SDK][1] 執行常見案例。 如果您是 Azure Mobile Apps 的新手，請先完成 [Azure Mobile Apps 快速啟動] 以建立後端、建立資料表及下載預先建置的 iOS Xcode 專案。 在本指南中，我們會著重於用戶端 iOS SDK。 若要深入了解後端的伺服器端 SDK，請參閱伺服器 SDK 做法。
+本指南說明如何使用最新的 [Azure Mobile Apps iOS SDK][1] 執行常見案例。 对于 Azure 移动应用的新手，请先完成 [Azure Mobile Apps 快速啟動]，创建后端、创建表并下载预先生成的 iOS Xcode 项目。 在本指南中，我們會著重於用戶端 iOS SDK。 若要深入了解後端的伺服器端 SDK，請參閱伺服器 SDK 做法。
 
 ## <a name="reference-documentation"></a>參考文件
 
@@ -35,7 +35,7 @@ iOS 用戶端 SDK 的參考文件位於此處：[Azure Mobile Apps iOS 用戶端
 iOS SDK 支援 Objective-C 專案、Swift 2.2 專案，以及適用於 iOS 8.0 版或更新版本的 Swift 2.3 專案。
 
 「伺服器流程」驗證在呈現的 UI 中使用 WebView。  如果裝置無法呈現 WebView UI，您需要本產品無法提供的其他驗證方法。  
-因此，此 SDK 不適用於手錶類型或受到類似限制的裝置。
+因此这个 SDK 不适用于监视类型或同样受限制的设备。
 
 ## <a name="Setup"></a>設定和必要條件
 
@@ -109,7 +109,7 @@ table.readWithCompletion { (result, error) in
 
 若要篩選結果，有許多可用的選項。
 
-若要使用述詞篩選，請使用 `NSPredicate` 和 `readWithPredicate`。 下列篩選器傳回的資料只尋找未完成的待辦事項。
+若要使用述詞篩選，請使用 `NSPredicate` 和 `readWithPredicate`。 以下筛选器返回的数据只用于查找未完成的待办事项。
 
 **Objective-C**：
 
@@ -170,7 +170,7 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 * 限制要傳回的記錄數
 * 指定回應中的總計數
 * 在要求中指定自訂查詢字串參數
-* 套用其他函式
+* 应用其他函数
 
 在物件上呼叫 `readWithCompletion` 以執行 `MSQuery` 查詢。
 
@@ -284,7 +284,7 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 
 若要插入新的資料表資料列，請建立 `NSDictionary` 並叫用 `table insert`。 如果[動態結構描述]已啟用，Azure App Service 行動後端會根據 `NSDictionary` 自動產生新的資料欄。
 
-如果未提供 `id` ，則後端會自動產生新的唯一識別碼。 提供您自己的 `id` ，以使用電子郵件地址、使用者名稱或您自己自訂的值作為識別碼。 提供您自己的識別碼可以讓聯結和商務導向的資料庫邏輯變得更容易。
+如果未提供 `id` ，則後端會自動產生新的唯一識別碼。 提供您自己的 `id` ，以使用電子郵件地址、使用者名稱或您自己自訂的值作為識別碼。 提供自己的 ID 可以让联接和业务导向型数据库逻辑变得更容易。
 
 `result` 含有先前插入的新項目。 視您的伺服器邏輯而定，相較於傳遞給伺服器的項目，它可能會含有其他或已修改的資料。
 
@@ -347,7 +347,7 @@ if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
 }
 ```
 
-或者，提供資料列識別碼和更新的欄位：
+或者，提供行 ID 和更新的字段：
 
 **Objective-C**：
 
@@ -435,7 +435,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 使用自訂 API，您可以公開任何後端功能。 它不必對應至資料表作業。 您不僅能進一步控制訊息，甚至還可以讀取或設定標頭，並變更回應內文格式。 若要了解如何在後端上建立自訂 API，請閱讀 [自訂 API](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
-若要呼叫自訂 API，請呼叫 `MSClient.invokeAPI`。 要求和回應內容會被視為 JSON。 若要使用其他媒體類型，[請使用 `invokeAPI`] 的其他多載[5]。  若要進行 `GET` 要求而不是 `POST` 要求，請將參數 `HTTPMethod` 設為 `"GET"`，以及將參數 `body` 設為 `nil` (因為 GET 要求沒有訊息內文)。如果您的自訂 API 支援其他 HTTP 動詞命令，請適當地變更 `HTTPMethod`。
+若要呼叫自訂 API，請呼叫 `MSClient.invokeAPI`。 请求和响应内容被视为 JSON。 若要使用其他媒體類型，[請使用 `invokeAPI`] 的其他多載[5]。  若要進行 `GET` 要求而不是 `POST` 要求，請將參數 `HTTPMethod` 設為 `"GET"`，以及將參數 `body` 設為 `nil` (因為 GET 要求沒有訊息內文)。如果您的自訂 API 支援其他 HTTP 動詞命令，請適當地變更 `HTTPMethod`。
 
 **Objective-C**：
 
@@ -510,11 +510,11 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-所有標記都將因安全性而移除。  若要將標籤新增至安裝中或安裝內的範本，請參閱[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK][4]。  若要使用這些已註冊的範本來傳送通知，請使用[通知中樞 API][3]。
+出于安全考虑，从请求中删除所有标记。  若要將標籤新增至安裝中或安裝內的範本，請參閱[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK][4]。  若要使用這些已註冊的範本來傳送通知，請使用[通知中樞 API][3]。
 
 ## <a name="errors"></a>操作說明：處理錯誤
 
-呼叫 Azure App Service行動後端時，completion 區塊會包含 `NSError` 參數。 發生錯誤時，此參數便會傳回非 Nil。 您應檢查程式碼中的此參數，並視需要處理錯誤，如上述的程式碼片段所示。
+呼叫 Azure App Service行動後端時，completion 區塊會包含 `NSError` 參數。 如果出错，此参数为非 nil 值。 您應檢查程式碼中的此參數，並視需要處理錯誤，如上述的程式碼片段所示。
 
 檔案 [`<WindowsAzureMobileServices/MSError.h>`][6] 定義常數 `MSErrorResponseKey`、`MSErrorRequestKey` 和 `MSErrorServerItemKey`。 若要取得與錯誤相關的詳細資料︰
 
@@ -546,9 +546,9 @@ if (error.code == MSErrorPreconditionFailed) {
 
 ## <a name="adal"></a>操作說明：使用 Active Directory Authentication Library 驗證使用者
 
-您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。 相較於使用 `loginWithProvider:completion:` 方法，較建議使用身分識別提供者 SDK 的用戶端流程驗證。  用戶端流程驗證能提供較原生的 UX 風格，並允許進行其他自訂。
+您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。 相較於使用 `loginWithProvider:completion:` 方法，較建議使用身分識別提供者 SDK 的用戶端流程驗證。  客户端流身份验证提供更自然的 UX 体验，并允许进行额外的自定义。
 
-1. 依照[如何設定 App Service 來進行 Active Directory 登入][7]教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。 請務必完成註冊原生用戶端應用程式的選擇性步驟。 若是 iOS，我們建議採用 `<app-scheme>://<bundle-id>` 形式的重新導向 URI。 如需詳細資訊，請參閱 [ADAL iOS 快速入門][8]。
+1. 根据 [How to configure App Service for Active Directory login][7] （如何为 Active Directory 登录配置应用服务）教程的说明，为 AAD 登录配置移动应用。 請務必完成註冊原生用戶端應用程式的選擇性步驟。 对于 iOS，建议重定向 URI 采用 `<app-scheme>://<bundle-id>` 格式。 如需詳細資訊，請參閱 [ADAL iOS 快速入門][8]。
 2. 使用 Cocoapods 安裝 ADAL。 編輯您的 Podfile 以納入下列定義，並以您的 Xcode 專案名稱取代 **YOUR-PROJECT** ：
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -562,7 +562,7 @@ if (error.code == MSErrorPreconditionFailed) {
 3. 使用終端機，從包含您專案的目錄執行 `pod install`，然後開啟產生的 Xcode 工作區 (而不是專案)。
 4. 根據您使用的語言，將下列程式碼新增至您的應用程式。 取代每個程式碼的以下項目：
 
-   * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應為 https://login.microsoftonline.com/contoso.onmicrosoft.com。 您可以從 [Azure 入口網站]之 Azure Active Directory 的 [網域] 索引標籤中複製這個值。
+   * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應為 https://login.microsoftonline.com/contoso.onmicrosoft.com。 您可以從 [Azure 门户]之 Azure Active Directory 的 [網域] 索引標籤中複製這個值。
    * 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE  。 您可以從入口網站 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得用戶端識別碼。
    * 以您從原生用戶端應用程式中複製的用戶端識別碼取代 INSERT-CLIENT-ID-HERE  。
    * 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應該類似 https://contoso.azurewebsites.net/.auth/login/done。
@@ -898,7 +898,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/
 [Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx

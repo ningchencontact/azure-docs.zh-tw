@@ -1,6 +1,6 @@
 ---
 title: 自動調整 Azure Batch 集區中的計算節點 | Microsoft Docs
-description: 在雲端集區上啟用自動調整，以動態調整集區中的計算節點數目。
+description: 对云池启用自动缩放功能可以动态调整池中计算节点的数目。
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -16,11 +16,11 @@ ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118106"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>建立自動調整公式來調整 Batch 集區中的計算節點
 
@@ -85,15 +85,15 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 
 您可以取得並設定這些這些服務定義的變數值，以管理集區中的計算節點：
 
-| 讀寫服務定義變數 | 說明 |
+| 讀寫服務定義變數 | 描述 |
 | --- | --- |
 | $TargetDedicatedNodes |集區之專用計算節點的目標數目。 專用節點數目被指定作為目標，因為集區不一定會達到想要的節點數目。 例如，如果在集區達到初始目標之前，自動調整評估修改目標專用節點數目，則集區可能未達到目標。 <br /><br /> 如果目標超過 Batch 帳戶節點或核心配額，以 Batch 服務設定建立之帳戶中的集區可能未達到其目標。 如果目標超過訂用帳戶的共用核心配額，以使用者訂用帳戶設定建立之帳戶中的集區可能未達到其目標。|
 | $TargetLowPriorityNodes |集區之低優先順序計算節點的目標數目。 低優先順序節點數目被指定作為目標，因為集區不一定會達到想要的節點數目。 例如，如果在集區達到初始目標之前，自動調整評估修改目標低優先順序節點數目，則集區可能未達到目標。 如果目標超過 Batch 帳戶節點或核心配額，則集區也可能未達到其目標。 <br /><br /> 如需有關低優先順序計算節點的詳細資訊，請參閱[搭配 Batch 使用低優先順序 VM (預覽)](batch-low-pri-vms.md)。 |
-| $NodeDeallocationOption |計算節點從集區移除時所發生的動作。 可能的值包括：<ul><li>**requeue**：立即終止工作，並將這些工作放回工作佇列，為它們重新排程。<li>**terminate**：立即終止工作，並從作業佇列移除這些工作。<li>**taskcompletion**：等待目前執行中的工作完成，然後再從集區中移除該節點。<li>**retaineddata**：等待所有本機工作保留在節點上的資料先清除，再從集區移除節點。</ul> |
+| $NodeDeallocationOption |計算節點從集區移除時所發生的動作。 可能的值包括：<ul><li>**requeue**：立即終止工作，並將這些工作放回工作佇列，為它們重新排程。<li>**terminate**：立即終止工作，並從作業佇列移除這些工作。<li>**taskcompletion**：等待目前執行中的工作完成，然後再從集區中移除該節點。<li>**retaineddata**--等待清理节点上的本地任务保留的所有数据，并从池中删除节点。</ul> |
 
 您可以取得這些服務定義的變數值，以根據 Batch 服務提供的計量進行調整：
 
-| 唯讀服務定義變數 | 說明 |
+| 唯讀服務定義變數 | 描述 |
 | --- | --- |
 | $CPUPercent |CPU 使用量的平均百分比。 |
 | $WallClockSeconds |已耗用的秒數。 |
@@ -111,7 +111,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | $PendingTasks |$ActiveTasks 和 $RunningTasks 的總和。 |
 | $SucceededTasks |已成功完成的工作數目。 |
 | $FailedTasks |失敗的工作數目。 |
-| $CurrentDedicatedNodes |目前的專用計算節點數目。 |
+| $CurrentDedicatedNodes |当前的专用计算节点数。 |
 | $CurrentLowPriorityNodes |低優先順序計算節點的目前數目，包括任何已被優先佔用的節點。 |
 | $PreemptedNodeCount | 優先佔用狀態的集區中之節點數目。 |
 
@@ -126,7 +126,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 * double
 * doubleVec
 * doubleVecList
-* 字串
+* string
 * timestamp：timestamp 是包含下列成員的複合結構：
 
   * 年
@@ -156,27 +156,27 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | --- | --- | --- |
 | double 運算子  double |+、-、*、/ |double |
 | double 運算子  timeinterval |* |timeinterval |
-| doubleVec 運算子  double |+、-、*、/ |doubleVec |
+| doubleVec 運算子  double |+, -, *, / |doubleVec |
 | doubleVec 運算子  doubleVec |+、-、*、/ |doubleVec |
 | timeinterval 運算子  double |*、/ |timeinterval |
 | timeinterval 運算子  timeinterval |+、- |timeinterval |
 | timeinterval 運算子  timestamp |+ |timestamp |
 | timestamp 運算子  timeinterval |+ |timestamp |
-| timestamp  timestamp |- |timeinterval |
+| timestamp *operator* timestamp |- |timeinterval |
 | double |-、! |double |
 | timeinterval |- |timeinterval |
 | double 運算子  double |<、<=、==、>=、>、!= |double |
 | string  string |<、<=、==、>=、>、!= |double |
 | timestamp  timestamp |<、<=、==、>=、>、!= |double |
 | timeinterval 運算子  timeinterval |<、<=、==、>=、>、!= |double |
-| double 運算子  double |&&, &#124;&#124; |double |
+| double *operator* double |&&, &#124;&#124; |double |
 
 測試具有三元運算子的雙精準數 (`double ? statement1 : statement2`) 時，非零為 **true**，而零則為 **false**。
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>函数
 這些預先定義的 **函式** 可供您用來定義自動調整公式。
 
-| 函式 | 傳回類型 | 說明 |
+| 函式 | 傳回類型 | 描述 |
 | --- | --- | --- |
 | avg(doubleVecList) |double |傳回 doubleVecList 中所有值的平均值。 |
 | len(doubleVecList) |double |傳回 doubleVecList 建立的向量的長度。 |
@@ -211,7 +211,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| 方法 | 說明 |
+| 方法 | 描述 |
 | --- | --- |
 | GetSample() |`GetSample()` 方法會傳回資料樣本的向量。<br/><br/>一個樣本有 30 秒的度量資料。 換句話說，每隔 30 秒會取得範例。 如下所述，從收集樣本到可用於公式之間會延遲。 因此，並非一段指定時間內的所有樣本都可供公式評估。<ul><li>`doubleVec GetSample(double count)`<br/>指定要從最近收集的樣本中取得的樣本數。<br/><br/>`GetSample(1)` 會傳回最後一個可用的樣本。 不過，這不適用於 `$CPUPercent` 之類的度量，因為不可能知道「何時」收集到樣本。 此範例可能是最新的，也可能因為系統問題，是更舊的。 在此情況下，最好使用如下所示的時間間隔。<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>指定收集樣本資料的時間範圍。 它也會選擇性地指定在要求的時間範圍內必須可用的樣本數百分比。<br/><br/>如果 CPUPercent 歷程記錄中有最後 10 分鐘的所有樣本，則 `$CPUPercent.GetSample(TimeInterval_Minute * 10)` 會傳回 20 個樣本。 不過，如果最後一分鐘的歷程記錄無法使用，則只會傳回 18 個樣本。 在此案例中：<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` 會失敗，因為只有 90% 的樣本可用。<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` 會成功。<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>指定收集資料的時間範圍 (含開始時間和結束時間)。<br/><br/>如上所述，從收集樣本到可用於公式之間會延遲。 當您使用 `GetSample` 方法時，請考慮此延遲。 請參閱下文中的 `GetSamplePercent`。 |
 | GetSamplePeriod() |傳回歷史範例資料集中取得範例的期間。 |
@@ -259,17 +259,17 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 因為樣本可用性可能延遲，所以請務必記得指定回顧開始時間早於一分鐘的時間範圍。 樣本需要花大約一分鐘的時間才能傳播到整個系統，所以通常無法使用 `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` 範圍中的樣本。 同樣地，您可以使用 `GetSample()` 的百分比參數來強制特定樣本百分比需求。
 
 > [!IMPORTANT]
-> 我們**強烈建議**您***避免「只」*`GetSample(1)`依賴自動調整公式中的** 。 這是因為 `GetSample(1)` 基本上會向 Batch 服務表示：「不論您多久以前擷取最後一個樣本，請將它提供給我」。 因為它只是單一樣本，而且可能是較舊的樣本，所以可能無法代表最近工作或資源狀態的全貌。 如果您使用 `GetSample(1)`，請確定它是較大的陳述式，而且不是您的公式所依賴的唯一資料點。
+> 我們**強烈建議**您***避免「只」*`GetSample(1)`依賴自動調整公式中的** 。 這是因為 `GetSample(1)` 基本上會向 Batch 服務表示：「不論您多久以前擷取最後一個樣本，請將它提供給我」。 由于它只是单个样本，而且可能是较旧的样本，因此可能无法代表最近任务或资源状态的全貌。 如果您使用 `GetSample(1)`，請確定它是較大的陳述式，而且不是您的公式所依賴的唯一資料點。
 >
 >
 
-## <a name="metrics"></a>度量
+## <a name="metrics"></a>指标
 您可以在定義公式時使用資源和工作計量。 您會根據您取得和評估的度量資料來調整集區中專用節點的目標數目。 如需每個度量的詳細資訊，請參閱上面的 [變數](#variables) 一節。
 
 <table>
   <tr>
     <th>計量</th>
-    <th>說明</th>
+    <th>描述</th>
   </tr>
   <tr>
     <td><b>Resource</b></td>

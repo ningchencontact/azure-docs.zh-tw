@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997539"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128095"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用 Mobile Apps Node.js SDK
 
@@ -139,7 +139,7 @@ Visual Studio 2015 需要延伸模組才能在整合式開發環境 (IDE) 內開
 
 ### <a name="create-node-backend-portal"></a>使用 Azure 入口網站建立 Node.js 後端
 
-您可以在 [Azure 入口網站]中直接建立 Mobile Apps 後端。 您可以完成下列步驟，或者依照[建立行動應用程式](app-service-mobile-ios-get-started.md)教學課程，同時建立用戶端和伺服器。 本教學課程包含下列指示的簡化版本，最適用於概念驗證專案。
+您可以在 [Azure 门户]中直接建立 Mobile Apps 後端。 您可以完成下列步驟，或者依照[建立行動應用程式](app-service-mobile-ios-get-started.md)教學課程，同時建立用戶端和伺服器。 本教學課程包含下列指示的簡化版本，最適用於概念驗證專案。
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -300,7 +300,7 @@ Mobile Apps Node.js SDK 會使用 [mssql Node.js 套件] 來建立及使用 SQL 
 
    g. 選取 [確定] 。 在快顯對話方塊中選取 [確定]。
 
-   h. 在樹狀結構功能表中，選取 [SQL Server 服務]。
+   h.如果该值不存在，请单击“添加行”。 在樹狀結構功能表中，選取 [SQL Server 服務]。
 
    i. 以滑鼠右鍵按一下 [SQL Server (SQLEXPRESS)]，然後選取 [重新啟動]。
 
@@ -336,7 +336,7 @@ Node.js 應用程式會讀取 `SQLCONNSTR_MS_TableConnectionString` 環境變數
 
 ### <a name="howto-config-localdev"></a>設定專案以在本機上進行開發
 
-Mobile Apps 會從本機檔案系統讀取名為 *azureMobile.js* 的 JavaScript 檔案。 請勿使用此檔案在生產環境中設定 Mobile Apps SDK。 請改用 [Azure 入口網站]中的 [應用程式設定]。
+Mobile Apps 會從本機檔案系統讀取名為 *azureMobile.js* 的 JavaScript 檔案。 請勿使用此檔案在生產環境中設定 Mobile Apps SDK。 請改用 [Azure 门户]中的 [應用程式設定]。
 
 azureMobile.js 檔案應會匯出組態物件。 最常見的設定如下：
 
@@ -364,15 +364,15 @@ module.exports = {
 };
 ```
 
-建議您將 **azureMobile.js** 新增至您的 **.gitignore** 檔案 (或其他原始程式碼控制忽略檔案)，以防止密碼儲存在雲端中。 請一律在 [Azure 入口網站]內的 [應用程式設定] 中設定生產設定。
+建議您將 **azureMobile.js** 新增至您的 **.gitignore** 檔案 (或其他原始程式碼控制忽略檔案)，以防止密碼儲存在雲端中。 請一律在 [Azure 门户]內的 [應用程式設定] 中設定生產設定。
 
 ### <a name="howto-appsettings"></a>設定行動應用程式的應用程式設定
 
-azureMobile.js 檔案中的大部分設定在 [Azure 入口網站]中都有對等的 [應用程式設定]。 請使用下列清單，在 [應用程式設定] 中設定您的應用程式：
+azureMobile.js 檔案中的大部分設定在 [Azure 门户]中都有對等的 [應用程式設定]。 請使用下列清單，在 [應用程式設定] 中設定您的應用程式：
 
 | 應用程式設定 | azureMobile.js 設定 | 描述 | 有效值 |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |應用程式的名稱 |字串 |
+| **MS_MobileAppName** |name |應用程式的名稱 |string |
 | **MS_MobileLoggingLevel** |logging.level |要記錄的訊息的最小記錄層級 |error、warning、info、verbose、debug、silly |
 | **MS_DebugMode** |debug |啟用或停用偵錯模式 |true、false |
 | **MS_TableSchema** |data.schema |SQL 資料表的預設結構描述名稱 |字符串（默认值：dbo） |
@@ -382,7 +382,7 @@ azureMobile.js 檔案中的大部分設定在 [Azure 入口網站]中都有對�
 
 若要設定應用程式設定：
 
-1. 登入 [Azure 入口網站]。
+1. 登入 [Azure 门户]。
 1. 選取 [所有資源] 或 [應用程式服務]，然後選取行動應用程式的名稱。
 1. 根據預設，[設定] 窗格會隨即開啟。 如果沒有，請選取 [設定]。
 1. 在 [一般] 功能表上，選取 [應用程式設定]。
@@ -399,7 +399,7 @@ azureMobile.js 檔案中的大部分設定在 [Azure 入口網站]中都有對�
 
 無論是何種 Azure App Service 應用程式類型，以 SQL Database 作為資料存放區的程序都是相同的。 如果您尚未執行，請依照下列步驟建立 Mobile Apps 後端：
 
-1. 登入 [Azure 入口網站]。
+1. 登入 [Azure 门户]。
 1. 在視窗左上方，依序選取 [+新增] 按鈕 > [Web + 行動] > [行動應用程式]，然後為您的 Mobile Apps 後端命名。
 1. 在 [資源群組]  方塊中，輸入與您應用程式相同的名稱。
 1. 系統將會選取預設 App Service 方案。 如果您要變更 App Service 方案：
@@ -437,7 +437,7 @@ azureMobile.js 檔案中的大部分設定在 [Azure 入口網站]中都有對�
 
 ### <a name="howto-tables-auth"></a>需經過驗證才能存取資料表
 
-如果您想要在 `tables` 端點使用 App Service 驗證，就必須先在 [Azure 入口網站]中設定 App Service 驗證。 如需詳細資訊，請參閱您要使用之身分識別提供者的設定指南：
+如果您想要在 `tables` 端點使用 App Service 驗證，就必須先在 [Azure 门户]中設定 App Service 驗證。 如需詳細資訊，請參閱您要使用之身分識別提供者的設定指南：
 
 * [設定 Azure Active Directory 驗證]
 * [設定 Facebook 驗證]
@@ -748,7 +748,7 @@ if (context.push) {
 
 除了透過 `/tables` 端點的資料存取 API 以外，Mobile Apps 也可提供自訂 API 涵蓋範圍。 自訂 API 會以類似於資料表定義的方法定義，並且可存取所有相同功能，包括驗證。
 
-如果您想要在自訂 API 使用 App Service 驗證，就必須先在 [Azure 入口網站]中設定 App Service 驗證。 如需詳細資訊，請參閱您要使用之身分識別提供者的設定指南：
+如果您想要在自訂 API 使用 App Service 驗證，就必須先在 [Azure 门户]中設定 App Service 驗證。 如需詳細資訊，請參閱您要使用之身分識別提供者的設定指南：
 
 * [設定 Azure Active Directory 驗證]
 * [設定 Facebook 驗證]
@@ -902,7 +902,7 @@ Azure App Service 提供數個適用於 Node.js 應用程式的偵錯和疑難�
 * [在 Azure App Service 中啟用診斷記錄]
 * [在 Visual Studio 中進行 Azure App Service 的疑難排解]
 
-Node.js 應用程式可存取多種不同的診斷記錄工具。 在內部，Mobile Apps Node.js SDK 會使用 [Winston] 進行診斷記錄。 當您啟用偵錯模式，或是在 [Azure 入口網站]中將 `MS_DebugMode` 應用程式設定設為 true 時，即會自動啟用記錄功能。 產生的記錄會顯示在 [Azure 入口網站]的診斷記錄中。
+Node.js 應用程式可存取多種不同的診斷記錄工具。 在內部，Mobile Apps Node.js SDK 會使用 [Winston] 進行診斷記錄。 當您啟用偵錯模式，或是在 [Azure 门户]中將 `MS_DebugMode` 應用程式設定設為 true 時，即會自動啟用記錄功能。 產生的記錄會顯示在 [Azure 门户]的診斷記錄中。
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>在 Azure 入口網站中使用簡單資料表
 
@@ -979,7 +979,7 @@ Node.js 應用程式可存取多種不同的診斷記錄工具。 在內部，Mo
 [Express]: https://expressjs.com/
 [Swagger]: https://swagger.io/
 
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/
 [OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [GitHub 上的 basicapp 範例]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

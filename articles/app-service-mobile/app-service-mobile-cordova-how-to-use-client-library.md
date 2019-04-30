@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109571"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>如何使用適用於 Azure Mobile Apps 的 Apache Cordova 用戶端程式庫
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -93,7 +93,7 @@ Azure App Service 支援使用各種外部識別提供者來驗證與授權應�
 
 請遵循下列指示來將您的本機設定加入組態︰
 
-1. 登入 [Azure 入口網站]
+1. 登入 [Azure 门户]
 2. 選取 [所有資源] 或 [應用程式服務]，然後按一下行動應用程式的名稱。
 3. 按一下 [工具] 
 4. 按一下 [觀察] 功能表中的 [資源總管]，然後按一下 [前往]。  会打开新窗口或选项卡。
@@ -113,7 +113,7 @@ Azure App Service 支援使用各種外部識別提供者來驗證與授權應�
 此時即會儲存設定。  在設定完成儲存之前，請勿關閉瀏覽器視窗。
 此外，請將這些回送 URL 新增至 App Service 的 CORS 設定：
 
-1. 登入 [Azure 入口網站]
+1. 登入 [Azure 门户]
 2. 選取 [所有資源] 或 [應用程式服務]，然後按一下行動應用程式的名稱。
 3. [設定] 刀鋒視窗隨即自動開啟。  如果沒有，請按一下 [所有設定] 。
 4. 按一下 API 功能表下方的 [CORS]  。
@@ -170,7 +170,7 @@ pushHandler.on('error', function (error) {
 您可以在 [API 文件](https://azure.github.io/azure-mobile-apps-js-client/)中找到 API 詳細資訊。
 
 <!-- URLs. -->
-[Azure 入口網站]: https://portal.azure.com
+[Azure 门户]: https://portal.azure.com
 [Azure Mobile Apps 快速啟動]: app-service-mobile-cordova-get-started.md
 [開始使用驗證]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md

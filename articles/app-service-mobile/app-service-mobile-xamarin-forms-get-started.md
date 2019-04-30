@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 2e0a4b51e9140b9b3c0032980b7c6cd5a4d55638
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128915"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 建立 Xamarin.Forms 應用程式
 
@@ -58,7 +58,7 @@ ms.locfileid: "57761382"
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. 移至 [Azure 入口網站]。
+1. 移至 [Azure 门户]。
 
 2. 在行動應用程式的設定刀鋒視窗上，按一下 [快速入門] \(在 [部署] 之下) > [Xamarin.Forms]。 在步驟 3 中，按一下 建立新的應用程式 \(如果尚未選取的話)。  接著按一下 [下載]  按鈕。
 
@@ -72,7 +72,7 @@ ms.locfileid: "57761382"
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
-1. 移至 [Azure 入口網站]。
+1. 移至 [Azure 门户]。
 
 2. 在行動應用程式的設定刀鋒視窗上，按一下 [快速入門] \(在 [部署] 之下) > [Xamarin.Forms]。 在步驟 3 中，按一下 建立新的應用程式 \(如果尚未選取的話)。  接著按一下 [下載]  按鈕。
 
@@ -213,4 +213,4 @@ ms.locfileid: "57761382"
 <!-- URLs. -->
 [Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
 [Mobile app SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/

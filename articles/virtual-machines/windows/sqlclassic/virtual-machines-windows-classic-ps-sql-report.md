@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609878"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM
 > [!IMPORTANT] 
@@ -124,7 +124,7 @@ ms.locfileid: "58650269"
       
        例如，下圖的 VM 名稱是 **ssrsnativecloud**，而使用者名稱是 **testuser**。
       
-       ![登入包括 vm 名稱](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![登录名包含 VM 名称](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. 執行 mmc.exe。 如需詳細資訊，請參閱[操作說明：使用 MMC 嵌入式管理單元檢視憑證](https://msdn.microsoft.com/library/ms788967.aspx)。
    3. 在主控台應用程式的 [檔案] 功能表中，新增 [憑證] 嵌入式管理單元，在系統提示時選取 [電腦帳戶]，然後按 [下一步]。
    4. 選取要管理的 [本機電腦]，然後按一下 [完成]。
@@ -160,7 +160,7 @@ ms.locfileid: "58650269"
    
     例如，下圖的 VM 名稱是 **ssrsnativecloud**，而使用者名稱是 **testuser**。
    
-    ![登入包括 vm 名稱](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![登录名包含 VM 名称](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. 在 VM 上，以系統管理權限開啟 **Windows PowerShell ISE** 。 Windows Server 2012 預設會安裝 PowerShell ISE。 建議您使用 ISE 代替標準 Windows PowerShell 視窗，以便將指令碼貼到 ISE、修改指令碼，並接著執行指令碼。
 3. 在 Windows PowerShell ISE 中，按一下 [檢視] 功能表，然後按一下 [顯示指令碼窗格]。
 4. 複製下列指令碼，然後將指令碼貼到 [Windows PowerShell ISE 指令碼] 窗格。
@@ -294,7 +294,7 @@ ms.locfileid: "58650269"
    
     例如，下圖的 VM 名稱是 **ssrsnativecloud**，而使用者名稱是 **testuser**。
    
-    ![登入包括 vm 名稱](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![登录名包含 VM 名称](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. 在 VM 上，以系統管理權限開啟 **Windows PowerShell ISE** 。 Windows Server 2012 預設會安裝 PowerShell ISE。 建議您使用 ISE 代替標準 Windows PowerShell 視窗，以便將指令碼貼到 ISE、修改指令碼，並接著執行指令碼。
 3. 若要允許執行指令碼，請執行下列 Windows PowerShell 命令：
    

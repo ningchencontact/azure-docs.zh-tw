@@ -2,18 +2,19 @@
 title: Azure 儲存體資料表設計的指引 | Microsoft Docs
 description: 設計您的 Azure 表格服務以有效率地支援讀取作業。
 services: storage
-author: SnehaGunda
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: sngun
-ms.subservice: tables
+origin.date: 04/23/2018
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: tables
 ms.openlocfilehash: d056d29469ad9a60fceeee307aca3c0e1319283c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61269828"
 ---
 # <a name="guidelines-for-table-design"></a>資料表設計指導方針
 
@@ -24,7 +25,7 @@ ms.locfileid: "55454516"
 * ***設計大量讀取應用程式中的查詢。***  當您在設計資料表時，請先思考您將執行的查詢 (尤其是較無法容續延遲的查詢)，然後再思考更新實體的方法。 透過這樣的方式，通常可造就一個有效率且高效能的解決方案。  
 * ***在查詢中同時指定 PartitionKey 和 RowKey。*** *點查詢* 都是最有效率的表格服務查詢。  
 * ***考慮儲存重複的實體副本。***  資料表儲存體的成本較低，因此請考慮多次儲存相同的實體 (使用不同索引鍵)，以啟用更有效率的查詢。  
-* ***考慮將資料反正規化。***  資料表儲存體十分便宜，所以建議您考慮將資料反正規化。 例如儲存摘要實體，可讓彙總資料的查詢只需存取單一實體。  
+* ***考慮將資料反正規化。***  資料表儲存體十分便宜，所以建議您考慮將資料反正規化。 例如，存储摘要实体，以便对聚合数据的查询只需访问单个实体。  
 * ***使用複合索引鍵值。*** 您只有 **PartitionKey** 和 **RowKey** 這兩個索引鍵。 例如，使用複合索引鍵值啟用替代的實體索引鍵式存取路徑。  
 * ***使用查詢預測。***  使用僅選取您所需欄位的查詢，即可減少透過網路傳輸的資料量。  
 

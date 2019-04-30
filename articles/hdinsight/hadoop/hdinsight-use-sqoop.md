@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565847"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129394"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>搭配使用 Apache Sqoop 與 HDInsight 中的 Hadoop
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -45,14 +45,14 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
   
   | 欄位 | 数据类型 |
   | --- | --- |
-  | clientid |字串 |
-  | querytime |字串 |
-  | market |字串 |
-  | deviceplatform |字串 |
-  | devicemake |字串 |
-  | devicemodel |字串 |
-  | state |字串 |
-  | country |字串 |
+  | clientid |string |
+  | querytime |string |
+  | market |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | country |string |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -76,7 +76,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 
 2. 輸入下列屬性：
 
-    |欄位 |值 |
+    |欄位 |Value |
     |---|---|
     |訂用帳戶 |從下拉式清單中選取您的 Azure 訂用帳戶。|
     |資源群組 |從下拉式清單中，選取您的資源群組，或建立新的帳戶|

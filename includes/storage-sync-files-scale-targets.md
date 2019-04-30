@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: dfba8db87dab12f856fbd97d578321477e9f92b5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 19c570be71583a2933a39780ba948edeb9f68498
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129089"
 ---
-| 資源 | 目標 | 固定限制 |
+| Resource | 目標 | 固定限制 |
 |----------|--------------|------------|
 | 每個區域的儲存體同步服務數目 | 15 個儲存體同步服務 | 是 |
 | 每個儲存體同步服務的同步群組 | 100 個同步群組 | 是 |
@@ -26,7 +26,7 @@ ms.locfileid: "57553440"
 | 端點大小 | 4 TiB | 否 |
 | 每個同步群組的檔案系統物件 (目錄和檔案) | 2500 萬個物件 | 否 |
 | 目錄中的檔案系統物件 (目錄和檔案) 數目上限 | 1 百萬個物件 | 是 |
-| 物件 (目錄和檔案) 安全性描述元大小上限 | 4 KiB | 是 |
+| 物件 (目錄和檔案) 安全性描述元大小上限 | 64 KiB | 是 |
 | 檔案大小 | 100 GiB | 否 |
 | 要分層之檔案的檔案大小下限 | 64 KiB | 是 |
 | 並行同步處理工作階段 | V4 代理程式和更新版本：可用系統資源限制而有所不同。 <BR> V3 代理程式：每個處理器或最多八個作用中的同步處理工作階段，每一部伺服器的兩個使用中的同步處理工作階段。 | 是

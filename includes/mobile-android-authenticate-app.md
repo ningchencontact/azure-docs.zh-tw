@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440044"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119753"
 ---
 1. 在 Android Studio 中開啟專案。
 
@@ -62,7 +62,7 @@ ms.locfileid: "52440044"
     此程式碼會建立一個處理 Google 驗證程序的方法。 將出現對話方塊來顯示已驗證使用者的識別碼。 您只能繼續進行成功驗證。
 
     > [!NOTE]
-    > 如果您使用的識別提供者不是 Google，請將傳給 **login** 方法的值變更為下列其中一個值：_MicrosoftAccount_、_Facebook_、_Twitter_ 或 _windowsazureactivedirectory_。
+    > 如果您使用的不是 Google 身分識別提供者，變更值傳遞給**登入**方法，以下列值之一：_MicrosoftAccount_， _Facebook_， _Twitter_，或_windowsazureactivedirectory_。
 
 4. 在 **OnCreate`MobileServiceClient` 方法中，在具現化** 物件的程式碼後面加入下列這一行程式碼。
 

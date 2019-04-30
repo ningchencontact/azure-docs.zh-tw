@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: a20c79acce8c9dc9051651a0473fd07b8e62f5de
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960340"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126897"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>啟用 Android 行動應用程式的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -74,22 +74,22 @@ ms.locfileid: "52960340"
             return runAsyncTask(task);
         }
 
-## <a name="test-the-app"></a>測試應用程式
+## <a name="test-the-app"></a>测试应用程序
 在本節中，您會在開啟 WiFi 的情況下測試行為，然後關閉 WiFi 以建立離線案例。
 
-當您新增資料項目時，這些項目會存放在本機 SQLite 存放區中，但直到您按 [重新整理]  按鈕時才會同步處理至行動服務。 對於何時需要同步處理資料，其他應用程式可能會有不同的需求，但是為了示範目的，本教學課程讓使用者明確要求。
+當您新增資料項目時，這些項目會存放在本機 SQLite 存放區中，但直到您按 [重新整理]  按鈕時才會同步處理至行動服務。 根据数据需要同步的时间，其他应用可能具有不同的要求，但出于演示目的，本教程让用户显式请求它。
 
 當您按下該按鈕時，新的背景工作會啟動。 它會使用同步處理內容先推送對本機存放區做的所有變更，然後將所有變更的資料從 Azure 提取至本機資料表。
 
-### <a name="offline-testing"></a>離線測試
+### <a name="offline-testing"></a>脱机测试
 1. 讓裝置或模擬器處於「飛航模式」 。 這會建立離線案例。
-2. 新增一些 *ToDo* 項目，或將某些項目標示為完成。 結束裝置或模擬器 (或強制關閉應用程式)，然後重新啟動。 請確認您的變更已保存在裝置上，因為它們會保留在本機 SQLite 存放區中。
+2. 新增一些 *ToDo* 項目，或將某些項目標示為完成。 退出设备或模拟器（或强制关闭应用），然后重新启动。 請確認您的變更已保存在裝置上，因為它們會保留在本機 SQLite 存放區中。
 3. 使用 SQL 工具 (如 *SQL Server Management Studio*) 或 REST 用戶端 (如 *Fiddler* 或 *Postman*) 檢視 Azure *TodoItem* 資料表的內容。 請確認新項目「尚未」  同步處理到伺服器
    
        + 若為 Node.js 後端，請移至 [Azure 入口網站](https://portal.azure.com/)，在您的行動應用程式後端中按一下 [簡單資料表] > [TodoItem]，檢視 `TodoItem` 資料表的內容。
        + 若為 .NET 後端，請使用 SQL 工具 (例如 *SQL Server Management Studio*) 或 REST 用戶端 (例如 *Fiddler* 或 *Postman*) 檢視資料表內容。
-4. 在裝置或模擬器中開啟 WiFi。 接著，按 [重新整理]  按鈕。
-5. 在 Azure 入口網站中，再次檢視 TodoItem 資料。 新的和變更的 TodoItems 現在應該會出現。
+4. 在设备或模拟器中打开 WiFi。 接著，按 [重新整理]  按鈕。
+5. 在 Azure 入口網站中，再次檢視 TodoItem 資料。 新的和更改的 TodoItem 现在应会出现。
 
 ## <a name="additional-resources"></a>其他資源
 * [Azure Mobile Apps 中的離線資料同步處理]

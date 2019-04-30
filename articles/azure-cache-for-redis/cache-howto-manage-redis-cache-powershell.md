@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: f7f4f9ae6a80052e06b2cafa68cb5c11dfa1333a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097924"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Cache for Redis
 > [!div class="op_single_selector"]
@@ -36,8 +36,8 @@ ms.locfileid: "56233841"
 
 如需傳統部署模型的詳細資訊，請參閱 [Azure Resource Manager 與傳統部署：了解資源的部署模型和狀態](../azure-resource-manager/resource-manager-deployment-model.md)。
 
-## <a name="prerequisites"></a>先決條件
-如果您已安裝 Azure PowerShell，其必須是 Azure PowerShell 1.0.0 或更新的版本。 您可以在 Azure PowerShell 命令提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
+## <a name="prerequisites"></a>必要條件
+如果已安装 Azure PowerShell，则必须确保安装的是 Azure PowerShell 版本 1.0.0 或更高版本。 您可以在 Azure PowerShell 命令提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
 
     Get-Module Az | format-table version
 
@@ -52,13 +52,13 @@ ms.locfileid: "56233841"
 
     Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
 
-若要指定訂用帳戶，請執行下列命令。 在下列範例中，訂用帳戶的名稱為 `ContosoSubscription`。
+若要指定訂用帳戶，請執行下列命令。 在以下示例中，订阅名为 `ContosoSubscription`。
 
     Select-AzSubscription -SubscriptionName ContosoSubscription
 
 在將 Windows PowerShell 與 Azure 資源管理員搭配使用之前，您需要下列項目：
 
-* Windows PowerShell 3.0 或 4.0 版本。 若要找出 Windows PowerShell 的版本，輸入：`$PSVersionTable`，並確認 `PSVersion` 的值是 3.0 或 4.0。 若要安裝相容版本，請參閱 [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。
+* Windows PowerShell 3.0 或 4.0 版本。 若要找出 Windows PowerShell 的版本，輸入：`$PSVersionTable`，並確認 `PSVersion` 的值是 3.0 或 4.0。 若要安装兼容版本，请参阅 [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。
 
 若要取得您在本教學課程中任何所見 Cmdlet 的詳細說明，請使用 Get-Help Cmdlet。
 
@@ -125,9 +125,9 @@ ms.locfileid: "56233841"
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>用於 Azure Cache for Redis PowerShell 的屬性
 下表為使用 Azure PowerShell 建立和管理 Azure Cache for Redis 執行個體時常用參數的屬性和說明。
 
-| 參數 | 說明 | 預設值 |
+| 參數 | 描述 | 預設值 |
 | --- | --- | --- |
-| Name |快取的名稱 | |
+| 名稱 |快取的名稱 | |
 | 位置 |快取的位置 | |
 | resourceGroupName |資源群組名稱，將在其中建立快取 | |
 | 大小 |快取的大小。 有效值為：P1、P2、P3、P4、C0、C1、C2、C3、C4、C5、C6、250MB、1GB、2.5GB、6GB、13GB、26GB、53GB |1GB |
@@ -142,7 +142,7 @@ ms.locfileid: "56233841"
 | KeyType |指定更新存取金鑰時要重新產生哪一個存取金鑰。 有效值為：主要、次要 | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration 屬性
-| 屬性 | 說明 | 定價層 |
+| 屬性 | 描述 | 定价层 |
 | --- | --- | --- |
 | rdb-backup-enabled |是否已啟用 [Redis 資料持續性](cache-how-to-premium-persistence.md) |僅限進階版 |
 | rdb-storage-connection-string | [Redis 資料持續性](cache-how-to-premium-persistence.md) |僅限進階版 |
@@ -247,7 +247,7 @@ ms.locfileid: "56233841"
 
 `ResourceGroupName`、`Name` 和 `Location` 是必要參數，其餘則為選擇性的而且有預設值。 執行先前的命令會建立標準 SKU Azure Cache for Redis 執行個體，具有指定的名稱、位置和資源群組，大小為 1 GB，且停用非 SSL 連接埠。
 
-若要建立進階快取，請指定大小為 P1 (6 GB - 60 GB)、P2 (13 GB - 130 GB)、P3 (26 GB - 260 GB) 或 P4 (53 GB - 530 GB)。 若要啟用叢集，使用 `ShardCount` 參數指定分區計數。 下列範例會建立具有 3 個分區的 P1 進階快取。 P1 進階快取的大小為 6 GB，因為我們指定三個分區，大小總計為 18 GB (3 x 6 GB)。
+若要建立進階快取，請指定大小為 P1 (6 GB - 60 GB)、P2 (13 GB - 130 GB)、P3 (26 GB - 260 GB) 或 P4 (53 GB - 530 GB)。 若要啟用叢集，使用 `ShardCount` 參數指定分區計數。 下列範例會建立具有 3 個分區的 P1 進階快取。 P1 高级缓存的大小为 6 GB。由于我们指定了 3 个分片，因此总大小为 18 GB (3 x 6 GB)。
 
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 

@@ -18,11 +18,11 @@ ms.date: 11/06/2018
 ms.author: rclaus
 ms.custom: ''
 ms.openlocfilehash: de282041066e18a52d596f051def598eef3d458d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648919"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>於 Microsoft Azure 上執行的 SAP 認證和設定
 
@@ -48,7 +48,7 @@ SAP 和 Microsoft 是已合作多年的穩固合作夥伴，能互相為彼此�
 Microsoft Azure 已獲認證可用於下列 SAP 產品，因此具備 Microsoft 和 SAP 的完整支援。
 參考：
 
-- [1928533 - Azure 上的 SAP 應用程式：支援的產品和 Azure VM 類型](https://launchpad.support.sap.com/#/notes/1928533)用於所有 SAP NetWeaver 型應用程式，包括 SAP TREX、SAP LiveCache 及 SAP 內容伺服器。 還有所有資料庫，但不包括 SAP HANA。
+- [1928533-在 Azure 上的 SAP 應用程式：支援的產品和 Azure VM 類型](https://launchpad.support.sap.com/#/notes/1928533)所有的 SAP NetWeaver 型應用程式，包括 SAP TREX、 SAP LiveCache 及 SAP 內容伺服器。 還有所有資料庫，但不包括 SAP HANA。
 
 
 | SAP 產品 | 客體作業系統 | RDBMS | 虛擬機器類型 |

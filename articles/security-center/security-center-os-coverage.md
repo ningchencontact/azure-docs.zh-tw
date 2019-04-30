@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 4/17/2019
 ms.author: monhaber
 ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703569"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure 資訊安全中心所支援的平台和功能
 
@@ -70,7 +70,7 @@ ms.locfileid: "59678304"
 > [!div class="mx-tableFixed"]
 > 
 
-|伺服器|Windows||Linux||
+|伺服器| Windows|| Linux||
 |----|----|----|----|----|
 |環境|Azure|非 Azure|Azure|非 Azure|
 |VMBA 威脅偵測警示|✔|✔|✔ (在支援的版本上)|✔|

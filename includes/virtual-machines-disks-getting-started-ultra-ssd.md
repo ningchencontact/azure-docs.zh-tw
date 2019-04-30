@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3b596e5bad8202d88ea06c7eee114bec1063a35f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58052076"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075672"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>啟用 Azure 的強力 Ssd
 
@@ -29,7 +29,7 @@ CLI：`az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS�
 
 回應將會類似於下面的形式，其中 X 是要用於在美國東部 2 中部署的區域。 X 可能是 1、2 或 3。
 
-|ResourceType  |名稱  |位置  |區域  |限制  |功能  |值  |
+|ResourceType  |名稱  |位置  |區域  |限制  |功能  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 

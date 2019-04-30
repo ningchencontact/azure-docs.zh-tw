@@ -9,11 +9,11 @@ ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
 ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103838"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>对 Microsoft Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -246,7 +246,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 >
 
 ### <a name="server-request-id"></a>伺服器要求 ID
-儲存體服務會自動產生的伺服器要求 Id。
+存储服务会自动生成服务器请求 ID。
 
 * 在伺服器端的儲存體記錄中，伺服器要求識別碼會顯示在 [要求識別碼標頭] 資料行。
 * 以 Fiddler 所擷取的網路追蹤為例，伺服器要求識別碼會顯示在回應訊息中，並呈現為 **x-ms-request-id** HTTP 標頭值。

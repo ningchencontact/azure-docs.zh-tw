@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
 ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985386"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473958"
 ---
 您可以利用許多機會，藉由收集、檢視及分析診斷和記錄資料來監視 VM。 若要執行簡單的 VM [監視](../articles/azure-monitor/overview.md)，您可以在 Azure 入口網站中使用 VM 的 [概觀] 畫面。 您可以使用[擴充功能](../articles/virtual-machines/windows/extensions-features.md)來設定 VM 診斷，以收集其他計量資料。 您也可以使用更進階的監視選項，例如 [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 和 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)。
 

@@ -9,11 +9,11 @@ ms.date: 09/06/2017
 ms.author: dineshmurthy
 ms.subservice: common
 ms.openlocfilehash: ae6ceee33aa6d96c360782c33232e0c7561cf209
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483106"
 ---
 # <a name="azure-storage-client-tools"></a>Azure 存储客户端工具
 Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工具，檢視他們資料或與其互動。 我們在下表中列出幾個可讓您這麼做的工具。 如果該區塊可以列舉及/或存取資料抽象，我們便在該區塊中放一個 "X"。 下表也會顯示該工具是否免費提供。 「試用」表示有免費試用版，但完整產品並非免費。 「Y/N」表示有某個版本可供免費使用，而另一個版本則需購買使用。

@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164872"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122723"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>設定您的應用程式以存取 Azure 儲存體
 有兩種方式可驗證您的應用程式對儲存體服務的存取權：
 
-* 共用金鑰：使用僅供測試用途的共用金鑰
-* 共用存取簽章 (SAS)：使用適用於生產應用程式的 SAS
+* 共享密钥：共享密钥仅用于测试目的
+* 共享访问签名 (SAS)：对生产应用程序使用 SAS
 
 ### <a name="shared-key"></a>共用金鑰
 共用金鑰驗證表示您的應用程式會使用您的帳戶名稱和帳戶金鑰來存取儲存體服務。 為了快速示範如何使用此程式庫，我們將在此快速入門中使用共用金鑰驗證。
@@ -49,5 +49,5 @@ ms.locfileid: "50164872"
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-如您所見，使用 SAS 時，您並不會在應用程式中公開您的帳戶金鑰。 您可以參閱 [共用存取簽章：了解 SAS 模型](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)，以進一步了解 SAS 與使用 SAS 的最佳做法。
+如您所見，使用 SAS 時，您並不會在應用程式中公開您的帳戶金鑰。 可以查阅[共享访问签名：了解 SAS 模型](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)，详细了解 SAS 以及 SAS 使用方面的最佳做法。
 

@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a6cf2276da463f71f008c4bfb6eee4c232b18308
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61433683"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何建立和部署雲端服務
-Azure 入口網站提供兩種方法讓您建立和部署雲端服務：*快速建立*並*自訂建立*。
+Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和*自定义创建*。
 
 本主題說明如何使用「快速建立」方法建立新的雲端服務，然後使用 [上傳]  上傳雲端服務封裝並在 Azure 中部署。 當您使用這個方法時，Azure 入口網站會在過程中提供便利的連結，讓您完成所有要求。 如果您準備在建立雲端服務時加以部署，可以同時使用 [自訂建立] 進行這兩項作業。
 

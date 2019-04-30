@@ -9,11 +9,11 @@ ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832702"
 ---
 ## <a name="prepare-your-web-app"></a>準備您的 Web 應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "53381402"
 
 按一下左側功能表中的 [應用程式服務]，然後按一下 Web 應用程式的名稱。
 
-![選取 Web 應用程式](./media/app-service-ssl-prepare-app/select-app.png)
+![选择 Web 应用](./media/app-service-ssl-prepare-app/select-app.png)
 
 您已經位於 Web 應用程式的管理頁面。  
 

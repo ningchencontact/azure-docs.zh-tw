@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112645"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>啟用 iOS Mobile Apps 的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -198,10 +198,10 @@ MS_TableOperationErrors
 | 屬性 | 類型 | 附註 |
 | --- | --- | --- |
 | id | 字符串（标记为必需） |遠端存放區中的主索引鍵 |
-| 完成 | BOOLEAN | To-do 項目欄位 |
+| 完成 | Boolean | To-do 項目欄位 |
 | text |字串 |To-do 項目欄位 |
-| 建立時間 | 日期 | (選擇性) 對應至 **createdAt** 系統屬性 |
-| 更新時間 | 日期 | (選擇性) 對應至 **updatedAt** 系統屬性 |
+| 建立時間 | date | (選擇性) 對應至 **createdAt** 系統屬性 |
+| 更新時間 | date | (選擇性) 對應至 **updatedAt** 系統屬性 |
 | version | 字串 | (選擇性) 用來偵測衝突，對應至版本 |
 
 ## <a name="setup-sync"></a>變更應用程式的同步處理行為

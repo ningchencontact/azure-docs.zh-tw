@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 4ee71e00807fcfe698a7e965979434f338f5b870
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 7b80c1148cf2716e71308d953ac445c4bb50cbc5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38595523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119754"
 ---
 # <a name="add-authentication-to-your-android-app"></a>將驗證加入 Android 應用程式中
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -32,13 +32,13 @@ ms.locfileid: "38595523"
 
 ## <a name="redirecturl"></a>將您的應用程式新增至允許的外部重新導向 URL
 
-安全的驗證會要求您為應用程式定義新的 URL 配置。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname。 不過，您可以使用任何您選擇的 URL 結構描述。 它對於您的行動應用程式而言應該是唯一的。 在伺服器端啟用重新導向：
+安全身份验证要求为应用定义新的 URL 方案。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname。 不過，您可以使用任何您選擇的 URL 結構描述。 对于移动应用程序而言，它应是唯一的。 在伺服器端啟用重新導向：
 
-1. 在 [Azure 入口網站]中，選取您的 App Service。
+1. 在 [Azure 门户]中，選取您的 App Service。
 
 2. 按一下 [驗證/授權] 功能表選項。
 
-3. 在 [允許的外部重新導向 URL] 中，輸入 `appname://easyauth.callback`。  此字串中的 appname 是您行動應用程式的 URL 配置。  它必須遵循通訊協定的標準 URL 規格 (只使用字母和數字，並以字母為開頭)。  請記下您選擇的字串，因為您將需要在數個位置中使用該 URL 配置來調整您的行動應用程式程式碼。
+3. 在 [允許的外部重新導向 URL] 中，輸入 `appname://easyauth.callback`。  此字串中的 appname 是您行動應用程式的 URL 配置。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  請記下您選擇的字串，因為您將需要在數個位置中使用該 URL 配置來調整您的行動應用程式程式碼。
 
 4. 按一下 [確定]。
 
@@ -80,4 +80,4 @@ ms.locfileid: "38595523"
 
 <!-- URLs. -->
 [開始使用 Mobile Apps]: app-service-mobile-android-get-started.md
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/

@@ -6,15 +6,16 @@ author: ggailey777
 manager: jeconnoc
 ms.service: functions
 ms.topic: include
-ms.date: 09/04/2018
-ms.author: glenga
+origin.date: 09/04/2018
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 4d03894ebc43cc4e76b73bd30eb6ef68bf6a71e6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342853"
 ---
 下表說明如何在每個開發環境中為此繫結新增支援。
 
@@ -25,3 +26,4 @@ ms.locfileid: "58113893"
 |入口網站開發| 在新增輸出繫結時安裝    |
 
 若要了解如何在不重新發行您的函數應用程式專案的情況下在入口網站中更新現有的繫結延伸模組，請參閱[更新您的延伸模組](../articles/azure-functions/install-update-binding-extensions-manual.md)。
+

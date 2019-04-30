@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122433"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>將您現有的 .NET Azure 行動服務升級為 App Service
 App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的新方式。 若要深入了解，請參閱 [何謂 Mobile Apps？]
@@ -45,35 +45,35 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 * 支援新的 App Service 驗證功能，可讓您跨 Web 和行動應用程式使用常見的驗證設定。
 
 ## <a name="overview"></a>基本升級概觀
-在許多情況下，只需切換到新的 Mobile Apps 伺服器 SDK 並將程式碼重新發佈至新的行動 App 執行個體，即可完成升級。 但在某些情況下則需要一些額外的設定，例如進階驗證案例和使用排程工作。 後續各節將逐一加以討論。
+在許多情況下，只需切換到新的 Mobile Apps 伺服器 SDK 並將程式碼重新發佈至新的行動 App 執行個體，即可完成升級。 但在某些情况下则需要一些额外的配置，例如高级身份验证方案和使用计划作业。 後續各節將逐一加以討論。
 
 > [!TIP]
-> 建議您先閱讀並徹底了解本主題的其餘部分，再開始升級。 請記下您使用的下列任何功能。
+> 建議您先閱讀並徹底了解本主題的其餘部分，再開始升級。 请记下以下概括的所有功能。
 >
 >
 
 行動服務用戶端 SDK 與新的 Mobile Apps 伺服器 SDK「不」  相容。 為了提供您應用程式的服務持續性，您不應該將變更發佈至目前正在服務已發佈之用戶端的網站。 而是應該建立新的行動應用程式做為重複項目。 您可以在同一個 App Service 方案中放置此應用程式，以避免產生額外的財務成本。
 
-您之後會有兩個版本的應用程式：一個維持不變並為已發佈的現有應用程式提供服務，另一個則可升級且目標為新的用戶端版本。 您可依自己的步調移動並測試程式碼，但應該確定您所進行的任何錯誤修正都會套用到這兩個版本。 當您覺得已將現有用戶端應用程式的所需數量升級到最新版本，就可以視需要刪除原本移轉的應用程式。
+您之後會有兩個版本的應用程式：一個維持不變並為已發佈的現有應用程式提供服務，另一個則可升級且目標為新的用戶端版本。 可根据自己的步调移动和测试代码，但应确保所做的任何 bug 修复都已应用到这两个版本。 當您覺得已將現有用戶端應用程式的所需數量升級到最新版本，就可以視需要刪除原本移轉的應用程式。
 
-完整的升級程序大致如下：
+完整的升级过程大致如下：
 
 1. 建立新的行動 App
 2. 更新專案以使用新的伺服器 SDK
-3. 發行新版的用戶端應用程式
+3. 发布新版客户端应用程序
 4. (選擇性) 刪除原始已移轉的執行個體
 
 ## <a name="mobile-app-version"></a>建立第二個應用程式執行個體
-升級的第一個步驟是建立將主控新版應用程式的行動 App 資源。 如果您已經移轉現有的行動服務，則您會想要在同一個主控方案中建立這個版本。 請開啟 [Azure 入口網站] ，並瀏覽到您已移轉的應用程式。 請記下其正在其上執行的 App Service 方案。
+升級的第一個步驟是建立將主控新版應用程式的行動 App 資源。 如果您已經移轉現有的行動服務，則您會想要在同一個主控方案中建立這個版本。 請開啟 [Azure 门户] ，並瀏覽到您已移轉的應用程式。 請記下其正在其上執行的 App Service 方案。
 
 接下來，依照 [.NET 後端建立指示](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)建立第二個應用程式執行個體。 當系統提示選取您的 App Service 方案或「主控方案」時，請選擇已移轉之應用程式的方案。
 
-您可能會想要使用與行動服務中相同的資料庫和通知中心。 您可以複製這些值，方法是開啟 [Azure 入口網站]、瀏覽至原始的應用程式，然後依序按一下 [設定] > [應用程式設定]。 在 [連接字串] 下，複製 `MS_NotificationHubConnectionString` 和 `MS_TableConnectionString`。 瀏覽至新的升級網站並將它們貼上，覆寫任何現有的值。 針對您的應用程式需要的任何其他應用程式設定重複執行此程序。
+可能需要使用与移动服务中相同的数据库和通知中心。 您可以複製這些值，方法是開啟 [Azure 门户]、瀏覽至原始的應用程式，然後依序按一下 [設定] > [應用程式設定]。 在 [連接字串] 下，複製 `MS_NotificationHubConnectionString` 和 `MS_TableConnectionString`。 瀏覽至新的升級網站並將它們貼上，覆寫任何現有的值。 針對您的應用程式需要的任何其他應用程式設定重複執行此程序。
 
 針對您的應用程式製作 ASP.NET 專案的複本，然後將它發佈到新的網站。 透過利用新 URL 更新的用戶端應用程式複本，驗證一切運作正常。
 
 ## <a name="updating-the-server-project"></a>更新伺服器專案
-行動應用程式有新的 [行動應用程式伺服器 SDK] ，提供許多與行動服務執行階段相同的功能。 首先，您應該移除對行動服務封裝的所有參考。 在 NuGet 封裝管理員中，搜尋 `WindowsAzure.MobileServices.Backend`。 大部分的 app 將會在此處看見數個封裝，包括 `WindowsAzure.MobileServices.Backend.Tables` 和 `WindowsAzure.MobileServices.Backend.Entity`。 在這種情況下，請從相依性樹狀目錄中的最低封裝 (例如 `Entity`) 開始，然後將它移除。 出現提示時，請勿移除所有相依的封裝。 重複執行此程序，直到您移除了 `WindowsAzure.MobileServices.Backend` 本身為止。
+行動應用程式有新的 [移动应用服务器 SDK] ，提供許多與行動服務執行階段相同的功能。 首先，您應該移除對行動服務封裝的所有參考。 在 NuGet 封裝管理員中，搜尋 `WindowsAzure.MobileServices.Backend`。 大部分的 app 將會在此處看見數個封裝，包括 `WindowsAzure.MobileServices.Backend.Tables` 和 `WindowsAzure.MobileServices.Backend.Entity`。 在這種情況下，請從相依性樹狀目錄中的最低封裝 (例如 `Entity`) 開始，然後將它移除。 出現提示時，請勿移除所有相依的封裝。 重複執行此程序，直到您移除了 `WindowsAzure.MobileServices.Backend` 本身為止。
 
 此時，您的專案將不再參考行動服務 SDK。
 
@@ -92,7 +92,7 @@ ConfigOptions options = new ConfigOptions();
 HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
 ```
 
-取代為
+替换为
 
 ```csharp
 HttpConfiguration config = new HttpConfiguration();
@@ -103,7 +103,7 @@ new MobileAppConfiguration()
 ```
 
 > [!NOTE]
-> 如果您想要深入了解新的 .NET 伺服器 SDK 以及如何從您的 app 新增/移除功能，請參閱 [如何使用 .NET 伺服器 SDK] 主題。
+> 如果您想要深入了解新的 .NET 伺服器 SDK 以及如何從您的 app 新增/移除功能，請參閱 [如何使用 .NET 服务器 SDK] 主題。
 >
 >
 
@@ -142,7 +142,7 @@ string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_Mo
 * __deleted
 * __version
 
-行動服務用戶端 SDK 具有特殊的邏輯，可用來剖析這種格式的系統屬性。
+移动服务客户端 SDK 具有特殊的逻辑用于分析这种格式的系统属性。
 
 在 Azure Mobile Apps 中，系統屬性不再具有特殊格式並具有下列名稱：
 
@@ -163,8 +163,8 @@ Mobile Apps 用戶端 SDK 會使用新的系統屬性名稱，因此不需要對
 | 屬性 | 類型 | 附註 |
 | --- | --- | --- |
 | id |字串 (標示為必要) |遠端存放區中的主索引鍵 |
-| 建立時間 |日期 |(選擇性) 對應至 createdAt 系統屬性 |
-| 更新時間 |日期 |(選擇性) 對應至 updatedAt 系統屬性 |
+| createdAt |date |(選擇性) 對應至 createdAt 系統屬性 |
+| 更新時間 |date |(選擇性) 對應至 updatedAt 系統屬性 |
 | version |字串 |(選擇性) 用來偵測衝突，對應至版本 |
 
 #### <a name="querying-system-properties"></a>查詢系統屬性
@@ -209,10 +209,10 @@ public class TodoItem : ITableData
 而使用 CORS 的主要考量，在於您必須允許使用 `eTag` 和 `Location` 標頭，用戶端 SDK 才能正常運作。
 
 ### <a name="push-notifications"></a>推播通知
-對於推播，您可能會發現伺服器 SDK 中遺漏的主要項目是 PushRegistrationHandler 類別。 註冊在行動應用程式中處理方式稍有不同，依預設會啟用不具標籤的註冊。 管理標籤可使用自訂 API 來完成。 如需詳細資訊，請參閱 [註冊標籤](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) 的指示。
+对于推送，可能会发现服务器 SDK 中遗漏的主项是 PushRegistrationHandler 类。 註冊在行動應用程式中處理方式稍有不同，依預設會啟用不具標籤的註冊。 管理標籤可使用自訂 API 來完成。 如需詳細資訊，請參閱 [註冊標籤](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) 的指示。
 
 ### <a name="scheduled-jobs"></a>排程的工作
-Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任何現有工作都必須個別升級。 其中一個選項是在行動應用程式程式碼網站上建立排程 [Web 工作] 。 您也可以設定用來保存工作程式碼的控制器，並設定依預期的排程在端點上執行的 [Azure 排程器] 。
+Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任何現有工作都必須個別升級。 其中一個選項是在行動應用程式程式碼網站上建立排程 [Web 工作] 。 您也可以設定用來保存工作程式碼的控制器，並設定依預期的排程在端點上執行的 [Azure 计划程序] 。
 
 ### <a name="miscellaneous-changes"></a>其他變更
 行動用戶端將取用的所有 ApiControllers 現在必須具備 `[MobileAppController]` 屬性。 預設不再包含此屬性，因此，其他 ApiControllers 不會受到行動格式器所影響。
@@ -236,7 +236,7 @@ traceWriter.Info("Hello, World");
 對於某些提供者 (例如 AAD、Facebook 及 Google)，您應該能夠運用來自您複製應用程式的現有註冊。 您只需瀏覽至身分識別提供者的入口網站，並將新的重新導向 URL 新增至註冊即可。 接著，利用用戶端識別碼和密碼來設定 App Service 驗證/授權。
 
 ### <a name="controller-action-authorization"></a>控制器動作授權
-`[AuthorizeLevel(AuthorizationLevel.User)]` 屬性的所有執行個體現在都必須變更，以使用標準的 ASP.NET `[Authorize]` 屬性。 此外，根據預設，控制器現在是匿名的，就如同在其他 ASP.NET 應用程式中。
+`[AuthorizeLevel(AuthorizationLevel.User)]` 屬性的所有執行個體現在都必須變更，以使用標準的 ASP.NET `[Authorize]` 屬性。 此外，默认情况下，控制器现在是匿名的，如同在其他 ASP.NET 应用程序中一样。
 如果您使用其中一個其他 AuthorizeLevel 選項 (例如系統管理員或應用程式)，請注意，這些項目都不見了。 您可以改為設定共用密碼的 AuthorizationFilters，或者設定 AAD 服務主體，安全地啟用服務對服務的呼叫。
 
 ### <a name="getting-additional-user-information"></a>取得其他使用者資訊
@@ -279,12 +279,12 @@ public static MobileServiceClient MobileService = new MobileServiceClient(
 
 <!-- URLs. -->
 
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/
 [何謂 Mobile Apps？]: app-service-mobile-value-prop.md
-[行動應用程式伺服器 SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
+[移动应用服务器 SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure 排程器]: /azure/scheduler/
+[Azure 计划程序]: /azure/scheduler/
 [Web 工作]: https://github.com/Azure/azure-webjobs-sdk/wiki
-[如何使用 .NET 伺服器 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[如何使用 .NET 服务器 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [App Service 定價]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET 伺服器 SDK 概觀]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

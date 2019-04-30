@@ -15,11 +15,11 @@ ms.workload: mobile
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61460646"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>透過百度開始使用通知中樞
 
@@ -284,7 +284,7 @@ ms.locfileid: "57848672"
 
     使用百度雲專案中的 API_KEY 來設定 `API_KEY` 字串的值。
 
-    使用 [Azure 入口網站]中您的通知中樞名稱來設定 `NotificationHubName` 字串的值，然後以 [Azure 入口網站]中的 `DefaultListenSharedAccessSignature` 取代 `NotificationHubConnectionString`。
+    使用 [Azure 门户]中您的通知中樞名稱來設定 `NotificationHubName` 字串的值，然後以 [Azure 门户]中的 `DefaultListenSharedAccessSignature` 取代 `NotificationHubConnectionString`。
 
 11. 開啟 MainActivity.java，並將下列程式碼新增至 onCreate 方法：
 
@@ -466,7 +466,7 @@ ms.locfileid: "57848672"
 
 ## <a name="send-notifications-to-your-app"></a>將通知傳送至您的應用程式
 
-您可以在 [Azure 入口網站]中快速測試通知的接收：使用通知中樞設定畫面中的 [傳送] 按鈕 (如下列畫面所示)︰
+您可以在 [Azure 门户]中快速測試通知的接收：使用通知中樞設定畫面中的 [傳送] 按鈕 (如下列畫面所示)︰
 
 ![](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
 ![](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
@@ -533,10 +533,10 @@ ms.locfileid: "57848672"
 
 應用程式會從百度推播通知服務中擷取 `userId` 和 `channelId`，並向通知中樞註冊。
 
-若要傳送測試通知，您可以使用 [Azure 入口網站]的 [偵錯] 索引標籤。 如果建置 Visual Studio 的 .NET 主控台應用程式時，僅須在 Visual Studio 中按 F5 鍵，即可執行該應用程式。 應用程式會傳送通知，而該通知會顯示在裝置或模擬器上方的通知區域中。
+若要傳送測試通知，您可以使用 [Azure 门户]的 [偵錯] 索引標籤。 如果建置 Visual Studio 的 .NET 主控台應用程式時，僅須在 Visual Studio 中按 F5 鍵，即可執行該應用程式。 應用程式會傳送通知，而該通知會顯示在裝置或模擬器上方的通知區域中。
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [百度推播 Android SDK]: https://push.baidu.com/sdk/push_client_sdk_for_android
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/
 [百度入口網站]: https://www.baidu.com/

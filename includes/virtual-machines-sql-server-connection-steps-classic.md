@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 57f238a8f91df1271e91894b88a7f02118b1f123
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108410"
 ---
 ### <a name="determine-the-dns-name-of-the-virtual-machine"></a>決定虛擬機器的 DNS 名稱
 若要從另一部電腦連接 SQL Server Database Engine，您必須知道虛擬機器的網域名稱系統 (DNS) 名稱。 (這是網際網路用來識別虛擬機器的名稱。 您可以使用 IP 位址，不過當 Azure 因備援或維護而移動資源時，IP 位址可能會改變。 DNS 名稱是穩定的，因為它可以重新導向新的 IP 位址。)  

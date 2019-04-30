@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3d4c58cd9e7ee0674f42d776c8df6e96faba1ab1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9f0d694badaa6f4484a13364c6a56aee2ad1dcfb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123927"
 ---
 ## <a name="supported-distributions-and-drivers"></a>支援的散發套件和驅動程式
 
@@ -34,7 +34,7 @@ Microsoft 會針對用來作為虛擬工作站的 NV 和 NVv2 系列虛擬機器
 
 | 配送映像 | 驅動程式 |
 | --- | -- |
-| Ubuntu 16.04 LTS、18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3、7.4、7.5、7.6<br/><br/>CentOS 型 7.3、7.4、7.5、7.6 | NVIDIA GRID 7.1，驅動程式分支 R410|
+| Ubuntu 16.04 LTS、18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3、7.4、7.5、7.6<br/><br/>CentOS 型 7.3、7.4、7.5、7.6 | NVIDIA GRID 8.0，驅動程式分支 R418|
 
 > [!WARNING] 
 > 在 Red Hat 產品上安裝第三方軟體可能會影響 Red Hat 支援條款。 請參閱 [Red Hat 知識庫文件 (英文)](https://access.redhat.com/articles/1067)。

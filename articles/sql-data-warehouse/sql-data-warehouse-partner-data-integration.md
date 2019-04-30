@@ -11,11 +11,11 @@ ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 74449f7319f800e8008c5d457351fa49ae1af59a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476653"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL 資料倉儲資料整合合作夥伴
 若要建立資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 這篇文章特別介紹 Microsoft 夥伴公司支援 Azure SQL 資料倉儲的正式資料整合解決方案。

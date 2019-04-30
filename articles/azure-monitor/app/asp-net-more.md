@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
 ms.openlocfilehash: b81a555111ff49fcf2e14a75afdce81835d151bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691167"
 ---
 # <a name="more-telemetry-from-application-insights"></a>更多來自 Application Insights 的遙測
 在您已經 [將 Application Insights 加入到您的 ASP.NET 程式碼](../../azure-monitor/app/asp-net.md)之後，您可以採取幾個動作來取得更多遙測。 

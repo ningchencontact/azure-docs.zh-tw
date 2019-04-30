@@ -10,11 +10,11 @@ ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149694"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61305963"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -223,7 +223,7 @@ Heartbeat
 
 | 屬性 | 描述 |
 | --- | --- |
-| Name |用以識別更新部署的唯一名稱。 |
+| 名稱 |用以識別更新部署的唯一名稱。 |
 |作業系統| Linux 或 Windows|
 | 若要更新的群組 |適用於 Azure 的機器，定義查詢的訂用帳戶、 資源群組、 位置和標記，來建立要包含在您的部署中的 Azure Vm 的動態群組結合。 </br></br>對於非 Azure 機器，選取現有的已儲存的搜尋，以選取要包含在部署中的非 Azure 機器群組。 </br></br>若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)|
 | 要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md) |

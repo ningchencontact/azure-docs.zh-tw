@@ -2,18 +2,19 @@
 title: 包含檔案
 description: 包含檔案
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/06/2018
-ms.author: cherylmc
+origin.date: 12/06/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845385"
 ---
 這個常見問題集適用於使用傳統部署模型的 P2S 連線。
 
@@ -31,7 +32,7 @@ ms.locfileid: "53323624"
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>是否任何支援 SSTP 的軟體 VPN 用戶端都適用於點對站功能？
 
-否。 僅支援列出的 Windows 作業系統版本。
+沒有。 僅支援列出的 Windows 作業系統版本。
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>在我的點對站組態中可以有多少個 VPN 用戶端端點？
 
@@ -51,7 +52,7 @@ ms.locfileid: "53323624"
 
 ### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>在 VPN 用戶端上點對站功能支援自動重新連線和 DDNS 嗎？
 
-否。 點對站 VPN 目前不支援自動重新連接和 DDNS。
+沒有。 點對站 VPN 目前不支援自動重新連接和 DDNS。
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>可以對相同虛擬網路使用站對站和點對站組態嗎？
 

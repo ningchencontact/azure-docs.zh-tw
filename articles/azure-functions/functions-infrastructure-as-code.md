@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
 ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737052"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions 中函數應用程式的自動化資源部署
 
@@ -37,7 +37,7 @@ ms.locfileid: "59270893"
 
 Azure Functions 部署通常包含這些資源：
 
-| 資源                                                                           | 需求 | 語法和屬性參考                                                         |   |
+| Resource                                                                           | 需求 | 語法和屬性參考                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | 函數應用程式                                                                     | 必要項    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | [Azure 儲存體](../storage/index.yml)帳戶                                   | 必要項    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
@@ -216,7 +216,7 @@ Application Insights 監視您的函式應用程式的建議。 Application Insi
 
 ### <a name="create-a-function-app"></a>建立函數應用程式
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 在 Windows 中，取用方案需要在站台設定中的兩個其他設定：`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`和`WEBSITE_CONTENTSHARE`。 這些屬性能設定儲存函數應用程式程式碼和組態的儲存體帳戶和檔案路徑。
 
@@ -263,7 +263,7 @@ Application Insights 監視您的函式應用程式的建議。 Application Insi
 }
 ```
 
-#### <a name="linux"></a>Linux
+#### <a name="linux"></a> Linux
 
 函式應用程式必須具有在 Linux 上，其`kind`設定為`functionapp,linux`，而且必須`reserved`屬性設定為`true`:
 
