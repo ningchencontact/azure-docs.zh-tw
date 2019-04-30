@@ -9,15 +9,15 @@ ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 9d6b54027adcf2b12c6ca4081a11208a31f620e8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61464360"
 ---
 下表列出 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)的特定配額與限制。 如需事件中樞價格的相關資訊，請參閱[事件中樞價格](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
-| 限制 | 影響範圍 | 注意 | 值 |
+| 限制 | 影響範圍 | 注意 | Value |
 | --- | --- | --- | --- |
 | 每一訂用帳戶的「事件中樞」命名空間數目 |訂用帳戶 |- |100 |
 | 每個命名空間的事件中樞數目 |命名空間 |创建新事件中心的后续请求会被拒绝。 |10 |

@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 3cfdca99c91dc54a711801d92aa0da91fb9703e4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484232"
 ---
 > [!IMPORTANT]
 > 儲存體帳戶金鑰很類似儲存體帳戶的根密碼。 請務必小心保護您的帳戶金鑰。 請避免轉發給其他使用者、進行硬式編碼，或將它儲存在其他人可以存取的純文字當中。 如果您認為帳戶金鑰可能遭到破解，請使用 Azure 入口網站重新產生帳戶金鑰。

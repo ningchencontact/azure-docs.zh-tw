@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/21/2018
 ms.author: estfan
 ms.custom: include file
-ms.openlocfilehash: 6e95d456c5eb981a29400057cfd58faa419060fc
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
-ms.translationtype: HT
+ms.openlocfilehash: 4d9d0f132a2cc754cd9f69bb54ef4dbb78a2c493
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34677887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60958558"
 ---
 1. 當系統提示您需要連線資訊時，請提供以下詳細資料：
 
    *必要*
 
-   | 屬性 | 值 | 說明 | 
+   | 屬性 | Value | 描述 | 
    |----------|-------|-------------| 
    | 連線名稱 | <*connection-name*> | 要為連線建立的名稱 | 
    | 儲存體帳戶 | <*儲存體帳戶*> | 從清單中選取您的儲存體帳戶。 | 

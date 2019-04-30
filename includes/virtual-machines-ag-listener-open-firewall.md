@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097647"
 ---
 在此步驟中，您會建立防火牆規則來開啟負載平衡端點用的探查連接埠 (59999，如先前所指定)，以及建立另一個規則來開啟可用性群組接聽程式連接埠。 因為您在包含可用性群組複本的 VM 上建立了負載平衡的端點，您必須在個別 VM 上開啟探查連接埠和接聽程式連接埠。
 
@@ -29,3 +30,4 @@ ms.locfileid: "50226835"
 
 8. 針對可用性群組接聽程式連接埠 (如稍早在指令碼的 $EndpointPort 參數中指定) 重複前述步驟，然後指定適當的規則名稱，例如 **AlwaysOn 接聽程式連接埠**。
 
+<!-- Update_Description: update meta properties -->

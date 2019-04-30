@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 74a9764187b15bddf1dc48fa2b7988217d31abce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889462"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860306"
 ---
 ## <a name="troubleshooting-update-failures"></a>更新失敗的疑難排解
 **如果您看到升級前檢查失敗的通知，該怎麼辦？**

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: eb6438271547348abef78dd8b35b577f2ac0ab8c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61409907"
 ---
 #### <a name="to-install-regular-updates-via-the-azure-classic-portal"></a>透過 Azure 傳統入口網站安裝一般更新
 1. 在 [裝置]  頁面上，選取要安裝更新的裝置。

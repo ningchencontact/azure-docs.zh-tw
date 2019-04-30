@@ -9,15 +9,15 @@ ms.date: 04/04/2018
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 30c6fc189ebcd497a214828f65213a55cefdf03f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61464339"
 ---
 儲存體受限於磁碟空間，或者索引、文件或其他高層級資源的「數目上限」，取決於何者較早出現。 下表記載儲存體限制。 如需索引、 文件和其他物件的最大限制，請參閱[資源限制](../articles/search/search-limits-quotas-capacity.md#index-limits)。
 
-| 資源 | 免費 | 基本<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
+| Resource | 免費 | 基本<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 服務等級協定 (SLA)<sup>3</sup>  |否 |yes |是 |是 |是 |是 |是 |是 |
 | 每個資料分割的儲存體 |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |

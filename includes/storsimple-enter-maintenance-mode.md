@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: d35f0ef783a2c48f8211657bc8829635c19495aa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61409906"
 ---
 #### <a name="to-enter-maintenance-mode"></a>進入維護模式
 1. 在序列主控台功能表中，選擇選項 1 [使用完整存取權登入] 。

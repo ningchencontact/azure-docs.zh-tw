@@ -2,24 +2,18 @@
 title: 開始使用儲存體總管 | Microsoft Docs
 description: 使用儲存體總管來管理 Azure 儲存體資源
 services: storage
-documentationcenter: na
 author: cawaMS
-manager: paulyuk
-editor: ''
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
+ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3db1d638aa1e0d8488c310593a593465c2b9b336
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459148"
+ms.locfileid: "62128274"
 ---
 # <a name="get-started-with-storage-explorer"></a>開始使用儲存體總管
 
@@ -115,7 +109,9 @@ Azure 儲存體總管[版本資訊](https://go.microsoft.com/fwlink/?LinkId=8382
 
 透過儲存體總管，您可以使用模擬器來處理本機儲存體。 此方法可讓您模擬使用 Azure 儲存體，而不需在 Azure 上部署儲存體帳戶。
 
-從 1.1.0 版開始，所有平台皆支援本機儲存體模擬器。 儲存體總管連線至接聽預設本機儲存體端點的任何模擬服務。
+從 1.1.0 版開始，儲存體總管支援所有平台上使用本機儲存體模擬器。 儲存體總管連線至接聽預設本機儲存體端點的任何模擬服務。
+
+[Azure 儲存體模擬器](storage/common/storage-use-emulator.md)目前只能在 Windows 上執行。 針對考慮適用於 Linux 之儲存體模擬器的使用者，有一個選擇是社群維護的開放原始碼儲存體模擬器 [Azurite](https://github.com/azure/azurite)。
 
 > [!NOTE]
 > 儲存體服務和功能的支援可能會隨著您所選擇的模擬器而有很大的不同。 請確定您的模擬器支援您想要使用的服務和功能。

@@ -9,11 +9,11 @@ ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701177"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61446093"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>裝置機型結構描述的部分
 
@@ -46,7 +46,7 @@ ms.locfileid: "55701177"
 
 下表描述最上層結構描述項目：
 
-| 結構描述項目 | 說明 |
+| 結構描述項目 | 描述 |
 | -- | --- |
 | `SchemaVersion` | 結構描述版本一律為 `1.0.0` 且為此檔案格式專屬。 |
 | `Id` | 此裝置機型的唯一 ID。 |
@@ -141,8 +141,8 @@ ms.locfileid: "55701177"
 
 * 物件 - 使用 JSON 序列化
 * 二進位 - 使用 base64 序列化
-* 文字
-* BOOLEAN
+* Text
+* Boolean
 * 整數 
 * Double
 * DateTime
