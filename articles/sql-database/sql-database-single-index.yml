@@ -14,7 +14,7 @@ metadata:
   ms.author: jovanpop-msft
   ms.reviewer: carlrab
   manager: craigg
-  ms.date: 05/06/2019
+  ms.date: 04/26/2019
 abstract:
   description: Azure SQL Database 是關聯式資料庫即服務 (DBaaS)，它是根據最新穩定版本的 Microsoft SQL Server 資料庫引擎而建置。 SQL Database 是高效能、簡單易用、可靠且安全的資料庫，您可以使用選定的程式設計語言來建置新應用程式、網站及微服務，而不需要管理基礎結構。 了解如何透過我們的快速入門、教學課程和範例使用 SQL Database。
   aside:

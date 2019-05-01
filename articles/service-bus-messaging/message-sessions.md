@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403671"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569801"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>訊息工作階段：先進先出 (FIFO) 
 
@@ -79,8 +79,7 @@ Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 使用 .NET 標準程式庫，從服務匯流排佇列傳送及接收以工作階段為基礎之訊息的[完整範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) \(英文\)。
-- 使用 .NET Framework 用戶端來處理工作階段感知訊息的[範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) \(英文\)。 
+- 請參閱 < [Microsoft.Azure.ServiceBus 範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions)或是[Microsoft.ServiceBus.Messaging 範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions)如需使用.NET Framework 用戶端來處理工作階段感知訊息的範例。 
 
 若要深入了解服務匯流排傳訊，請參閱下列主題：
 

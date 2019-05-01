@@ -1,5 +1,5 @@
 ---
-title: 適用於 Azure Active Directory B2C 中的 JavaScript 範例 | Microsoft Docs
+title: JavaScript 範例-Azure Active Directory B2C |Microsoft Docs
 description: 了解在 Azure Active Directory B2C 中使用 JavaScript。
 services: active-directory-b2c
 author: davidmu1
@@ -7,25 +7,28 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3645945400bcc58cdf11721458bfab529d89f0b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 972c8ec1b67161a3998a1b165072f584db2f7fbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397085"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570517"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>適用於 Azure Active Directory B2C 中的 JavaScript 範例
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-您可以將自己的 JavaScript 用戶端程式碼新增到您的 Azure Active Directory (Azure AD) B2C 應用程式。 本文說明如何變更[使用者流程](user-flow-javascript-overview.md)或[自訂原則](active-directory-b2c-overview-custom.md)，以啟用指令碼執行。
+您可以將自己的 JavaScript 用戶端程式碼新增到您的 Azure Active Directory (Azure AD) B2C 應用程式。 若要啟用您的應用程式的 JavaScript，您必須新增項目您[自訂原則](active-directory-b2c-overview-custom.md)，選取[頁面合約](page-contract.md)，並使用[b2clogin.com](b2clogin.md)在要求中。 本文說明如何變更您的自訂原則，以啟用指令碼執行。
+
+> [!NOTE]
+> 如果您想要為使用者流程中啟用 JavaScript，請參閱[JavaScript 和頁面合約版本在 Azure Active Directory B2C](user-flow-javascript-overview.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-選取適用於您應用程式之使用者介面元素的[頁面合約](page-contract.md)。 如果您想要使用 JavaScript，您必須針對使用者流程或自訂原則中的所有內容定義，定義頁面合約版本。
+選取您的應用程式的使用者介面項目頁面合約。 如果您想要使用 JavaScript，您必須針對您自訂原則中的所有內容定義，定義頁面合約版本。
 
 ## <a name="add-the-scriptexecution-element"></a>新增 ScriptExecution 元素
 
@@ -140,7 +143,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-在程式碼中，請將 `termsOfUseUrl` 取代為您使用規定合約的連結。 針對您的目錄，請建立稱為 **termsOfUse** 的新使用者屬性，然後將 **termsOfUse** 包含為您使用者流程的使用者屬性。
+在程式碼中，請將 `termsOfUseUrl` 取代為您使用規定合約的連結。 為您的目錄中，建立新的使用者屬性，稱為**termsOfUse** ，然後包含**termsOfUse**作為使用者屬性。
 
 ## <a name="next-steps"></a>後續步驟
 

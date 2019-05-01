@@ -11,20 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357940"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572691"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>虛擬核心服務層級、Azure Hybrid Benefit 及移轉
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>選擇 虛擬核心服務層，並從 DTU 服務層移轉
 
 以虛擬核心為基礎的購買模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。 它也可讓您選擇硬體世代：
 
 - Gen4 - 最多 24 個以 Intel E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 PP (實體核心)，每一核心 7 GB，連結的 SSD
 - Gen5 - 最多 80 個以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 LP (超執行緒)，每一核心 5.1 GB，快速 eNVM SSD
+
 
 在 Gen4 硬體中，每個虛擬核心的記憶體會高出許多。 不過，Gen5 硬體可讓您大幅相應增加計算資源。
 
@@ -40,9 +41,9 @@ ms.locfileid: "59357940"
 ||**一般用途**|**商務關鍵性**|**超大規模 (預覽)**|
 |---|---|---|---|
 |適用對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整規模的計算與儲存體選項。|高 IO 需求的商務應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|具有可高度擴充的儲存體和讀取規模需求的多數商務工作負載|
-|計算|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|
-|記憶體|第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB | 第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB |第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB|
-|儲存體|使用遠端儲存體：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 8 TB |使用本機 SSD 儲存體：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 4 TB |儲存體可依需求彈性地自動成長。 可支援多達 100 TB 以上的儲存體。 本機緩衝區集區快取和本機資料儲存可使用本機 SSD 儲存體。 以 Azure 遠端儲存體作為最終的長期資料存放區。 |
+|CPU|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心<br/>**無伺服器計算**<br/>第 5 代：0.5 - 4 vCore|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|
+|記憶體|**佈建計算**:<br/>第 4 代：每個核心 7 GB<br/>第 5 代：每個核心 5.1 GB<br/>**無伺服器計算**<br/>第 5 代：每個核心的 3 GB|**佈建計算**:<br/>第 4 代：每個核心 7 GB<br/>第 5 代：每個核心 5.1 GB |**佈建計算**:<br/>第 4 代：每個核心 7 GB<br/>第 5 代：每個核心 5.1 GB|
+|儲存體|使用遠端儲存體：<br/>**單一資料庫佈建計算**:<br/>5 GB – 4 TB<br/>**單一資料庫的無伺服器計算**:<br/>5 GB - 1 TB<br/>**受控執行個體**:32 GB - 8 TB |使用本機 SSD 儲存體：<br/>**單一資料庫佈建計算**:<br/>5 GB – 4 TB<br/>**受控執行個體**:<br/>32 GB - 4 TB |儲存體可依需求彈性地自動成長。 可支援多達 100 TB 以上的儲存體。 本機緩衝區集區快取和本機資料儲存可使用本機 SSD 儲存體。 以 Azure 遠端儲存體作為最終的長期資料存放區。 |
 |IO 輸送量 (大約)|單一資料庫：每個虛擬核心 500 IOPS，且 IOPS 上限為 7000</br>受控執行個體：視[檔案大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)而定|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200,000|TBD|
 |可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域備援 HA|?|
 |備份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|Azure 遠端儲存體中有以快照集為基礎的備份，還原時可使用這些快照集進行快速復原。 備份可迅速完成，且不會影響計算的 IO 效能。 還原速度非常快，而且不是資料作業的大小 (以分鐘而非小時或天來計算)。|
@@ -56,16 +57,18 @@ ms.locfileid: "59357940"
 - 如需一般用途與商務關鍵性服務層級的詳細資訊，請參閱[一般用途與商務關鍵性服務層級](sql-database-service-tiers-general-purpose-business-critical.md)。
 - 如需以虛擬核心為基礎的購買模型中超大規模服務層的詳細資訊，請參閱[超大規模服務層](sql-database-service-tier-hyperscale.md)。  
 
-> [!IMPORTANT]
-> 如果您需要的計算容量少於一個虛擬核心，請使用以 DTU 為基礎的購買模型。
+
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-在以虛擬核心為基礎的購買模型中，您可以使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，以折扣優惠在 SQL Database 上交換現有授權。 這個 Azure 權益可讓您使用具備軟體保證的內部部署 SQL Server 授權，在 Azure SQL Database 上使用內部部署 SQL Server 授權省下最高 30% 的成本。
+在佈建的電腦層中的虛擬核心為基礎的購買模型，您可以交換您現有的授權，以在使用 SQL Database 的折扣優惠[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)。 這個 Azure 權益可讓您使用具備軟體保證的內部部署 SQL Server 授權，在 Azure SQL Database 上使用內部部署 SQL Server 授權省下最高 30% 的成本。
 
 ![定價](./media/sql-database-service-tiers/pricing.png)
 
-使用 Azure Hybrid Benefit 時，您可以選擇使用 SQL 資料庫引擎本身現有的 SQL Server 授權來僅支付相關 Azure 基礎結構的費用 (**BasePrice**)，或是同時支付相關基礎結構和 SQL Server 授權的費用 (**LicenseIncluded**)。 您可以使用 Azure 入口網站或下列其中一個 API，來選擇或變更授權模型。
+使用 Azure Hybrid Benefit 時，您可以選擇使用 SQL 資料庫引擎本身現有的 SQL Server 授權來僅支付相關 Azure 基礎結構的費用 (**BasePrice**)，或是同時支付相關基礎結構和 SQL Server 授權的費用 (**LicenseIncluded**)。
+
+
+您可以使用 Azure 入口網站或下列其中一個 API，來選擇或變更授權模型。
 
 - 使用 PowerShell 來設定或更新授權類型：
 
@@ -130,5 +133,5 @@ ms.locfileid: "59357940"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需特定計算大小的詳細資訊和單一資料庫可用的儲存體大小選項，請參閱[單一資料庫 SQL Database 以虛擬核心為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- 如需特定計算大小的詳細資訊和單一資料庫可用的儲存體大小選項，請參閱[單一資料庫 SQL Database 以虛擬核心為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md)
 - 如需特定計算大小的詳細資訊和彈性集區可用的儲存體大小選項，請參閱[彈性集區的 SQL Database V 核心形式資源限制](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)。

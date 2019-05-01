@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/23/2019
-ms.openlocfilehash: 6a027e6c0afd526139484240f288205fa946d557
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e2230bc8adf13825692f93b1e2bc33a4b79076e2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111794"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574362"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 服務層
 
@@ -63,5 +63,5 @@ Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需特定計算大小的詳細資訊和一般用途與業務關鍵服務層中單一資料庫可用的儲存體大小選項，請參閱[單一資料庫 SQL Database 以 V 核心為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier)
-- 如需特定計算大小的詳細資訊和一般用途與業務關鍵服務層中彈性集區可用的儲存體大小選項，請參閱[彈性集區 SQL Database 以 V 核心為基礎的資源限制](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)。
+- 如需特定計算大小的詳細資訊和一般用途與業務關鍵服務層中單一資料庫可用的儲存體大小選項，請參閱[單一資料庫 SQL Database 以 V 核心為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md)
+- 如需特定計算大小的詳細資訊和一般用途與業務關鍵服務層中彈性集區可用的儲存體大小選項，請參閱[彈性集區 SQL Database 以 V 核心為基礎的資源限制](sql-database-vcore-resource-limits-elastic-pools.md)。

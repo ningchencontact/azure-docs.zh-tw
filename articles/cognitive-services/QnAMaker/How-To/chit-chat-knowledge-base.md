@@ -11,26 +11,29 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a908185f2d8475afb642250d1499cffa539aca4d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858037"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573508"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>在知識庫中新增閒聊
 
 將閒聊新增至您的 Bot，讓它變得更健談且吸引人。 QnA Maker 中的閒聊功能可讓您輕鬆地將預先填入的一組最常見閒聊，新增至您的資料庫 (KB)。 這可以是您 Bot 的特質起始點，並將節省您從頭撰寫它們的時間和成本。  
 
-此資料集有大約 100 個以三個角色發音的閒聊案例 - 專業人員、朋友、卡通人物。 選擇最類似您 Bot 聲音的角色。 假設有使用者查詢，QnA Maker 會嘗試將它與最接近的已知閒聊 QnA 比對。 
+此資料集有約 100 個案例的 chit 交談中的多個角色，例如 Professional、 方便和 Witty 語音。 選擇最類似您 Bot 聲音的角色。 假設有使用者查詢，QnA Maker 會嘗試將它與最接近的已知閒聊 QnA 比對。  
 
-不同特質的一些範例：<!-- added quotes so acrolinx doesn't score these sentences -->
-|使用者查詢|專業人員|朋友|卡通人物|
+不同人物的一些範例如下。 您可以看到連同自身個性遭到的詳細資料的所有個性資料集[此處](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)。
+
+<!-- added quotes so acrolinx doesn't score these sentences -->
+|使用者查詢|專業|易記|詼諧|
 |--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|
+|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
 |`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`You can't handle my dulcet tones.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Aw, that's sweet.`|`Sure. Take me to city hall. See what happens.`|
+|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
+|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
+
 
 
 > [!NOTE]
@@ -66,6 +69,6 @@ ms.locfileid: "55858037"
 > [!div class="nextstepaction"]
 > [匯入知識庫](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>另請參閱 
+## <a name="see-also"></a>請參閱 
 
 [QnA Maker 概觀](../Overview/overview.md)

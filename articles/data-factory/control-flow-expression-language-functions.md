@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8a2a080ee87d48d25d7d793ca0aca463f25e52eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4c51974498539a0305312d6501bcfa9ebc3b2e88
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60808835"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573544"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory 中的運算式和函式
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ ms.locfileid: "60808835"
 ### <a name="examples"></a>範例
 
 #### <a name="a-dataset-with-a-parameter"></a>具有參數的資料集
-在以下範例中，BlobDataset 會採用一個名為 **path** 的參數。 其值會藉由下列運算式，用來設定 **folderPath** 屬性的值：`@{dataset().path}`。 
+在以下範例中，BlobDataset 會採用一個名為 **path** 的參數。 若要設定的值，則會使用該值**folderPath**屬性使用運算式： `dataset().path`。 
 
 ```json
 {

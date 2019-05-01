@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect：針對連線問題進行疑難排解 | Microsoft Docs
+title: Azure AD Connect：疑難排解 Azure AD 連線問題 |Microsoft Docs
 description: 說明如何使用 Azure AD Connect 疑難排解連線問題。
 services: active-directory
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386537"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572793"
 ---
-# <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的連線問題進行疑難排解
+# <a name="troubleshoot-azure-ad-connectivity"></a>針對 Azure AD 連線進行疑難排解
 這篇文章說明 Azure AD Connect 與 Azure AD 之間的連線的運作方式，以及如何疑難排解連線問題。 這些問題最有可能出現在具有 Proxy 伺服器的環境中。
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>在安裝精靈中疑難排解連線問題

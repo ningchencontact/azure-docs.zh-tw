@@ -2,18 +2,17 @@
 title: 指令碼動作 - 在 Azure HDInsight 上搭配 Jupyter 安裝 Python 套件
 description: 說明如何使用指令碼動作以設定讓 HDInsight Spark 叢集隨附之 Jupyter Notebook 使用外部 Python 套件的逐步指示。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 876037e0e8e795ca98ddd3adf74dd0a304192a35
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/22/2019
+ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097907"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574657"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>使用指令碼動作在 HDInsight Linux 上的 Apache Spark 叢集中安裝 Jupyter Notebook 的外部 Python 封裝
 > [!div class="op_single_selector"]
@@ -75,10 +74,10 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
     ```bash
     #!/usr/bin/env bash
-    /usr/bin/anaconda/bin/conda install -c conda-forge tensorflow
+    /usr/bin/anaconda/bin/conda install --yes tensorflow
     ```
 
-5. 選取 [建立] 。  瀏覽有關於[如何使用自訂指令碼動作](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)的文件。
+5. 選取 [建立] 。  瀏覽有關於[如何使用自訂指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)的文件。
 
 6. 等候指令碼完成。  **指令碼動作**會在狀態窗格**目前的叢集作業完成後，就可以提交新的指令碼動作**指令碼執行時。  您可以從 Ambari UI 中檢視進度列**背景作業**視窗。
 

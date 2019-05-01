@@ -3,8 +3,8 @@ title: 建立 Azure 網路監看員執行個體 | Microsoft Docs
 description: 了解如何在 Azure 區域中啟用網路監看員。
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: c97f6dff17896b8a58c17aed9063e0b2b5733503
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051558"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681566"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>建立 Azure 網路監看員執行個體
 

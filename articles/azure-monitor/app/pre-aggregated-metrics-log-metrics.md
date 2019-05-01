@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0b544bfcb59bf4c2b44e6b666fcd33e9fb493692
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96d4c2c8d6c2dd7722b7377dd7a0ffd42acd3126
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60256643"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572510"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Application Insights 中記錄型和預先彙總的計量
 
@@ -63,7 +63,7 @@ ms.locfileid: "60256643"
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>建立圖表並探索記錄型和標準預先彙總的計量
 
-使用 Azure 監視器計量瀏覽器，根據預先彙總和記錄型計量繪製圖表，以及編寫具有圖表的儀表板。 選取所需的 Application Insights 資源之後，使用命名空間選擇器在標準 (預覽) 與記錄型計量之間切換，或選取自訂計量命名空間：
+使用[Azure 監視器計量瀏覽器](../platform/metrics-getting-started.md)來繪製圖表的圖表預先彙總，並按一下 記錄檔為基礎的計量，以及作者的儀表板。 選取所需的 Application Insights 資源之後，使用命名空間選擇器在標準 (預覽) 與記錄型計量之間切換，或選取自訂計量命名空間：
 
 ![計量命名空間](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 

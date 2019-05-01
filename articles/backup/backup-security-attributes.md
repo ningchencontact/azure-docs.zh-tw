@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cf012a452d1e43134d955e03ccf34e153b1282ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60253804"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64680806"
 ---
 # <a name="common-security-attributes-for-azure-backup"></a>適用於 Azure 備份的常見安全性屬性
 
@@ -27,7 +27,7 @@ Azure 服務的各個層面都整合了安全性。 這篇文章說明內建於 
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
 | 待用加密：<ul><li>伺服器端加密</li><li>使用客戶管理的金鑰進行伺服器端加密</li><li>其他加密功能 (例如用戶端、一律加密等)</ul>| 是 | 對儲存體帳戶使用儲存體服務加密。 |
-| 傳輸中加密：<ul><li>Express Route 加密</li><li>VNet 中加密</li><li>VNet-VNet 加密</ul>| 否 | 使用 HTTPS。 |
+| 傳輸中加密：<ul><li>Express Route 加密</li><li>在 VNet 加密</li><li>VNet-VNet 加密</ul>| 否 | 使用 HTTPS。 |
 | 加密金鑰處理 （CMK、 BYOK）| 否 |  |
 | 資料行層級加密 (Azure Data Services)| 否 |  |
 | API 呼叫加密| 是 |  |
@@ -37,7 +37,7 @@ Azure 服務的各個層面都整合了安全性。 這篇文章說明內建於 
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
 | 服務端點支援| 否 |  |
-| vNET 插入支援| 否 |  |
+| VNet 插入支援| 否 |  |
 | 網路隔離，而且防火牆支援| 是 | 支援以強制通道進行 VM 備份。 對於在 VM 內執行的工作負載則不支援強制通道。 |
 | 強制通道的支援| 否 |  |
 

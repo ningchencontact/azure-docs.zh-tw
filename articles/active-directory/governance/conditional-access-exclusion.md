@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351529"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571372"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>使用 Azure AD 存取權檢閱管理使用者排除條件式存取原則
 
@@ -38,7 +38,7 @@ ms.locfileid: "60351529"
 
 ![具名位置](./media/conditional-access-exclusion/named-locations.png)
 
-不過，在某些情況下，使用者從這些已封鎖國家/地區登入可能會有合理的原因。 例如，使用者可能因為工作或個人原因而旅行。 在此範例中，用來封鎖這些國家/地區的條件式存取原則，可能有專供從原則中排除的使用者使用的雲端安全性群組。 在旅行時需要存取的使用者，可以使用 [Azure AD 自助式群組管理](../users-groups-roles/groups-self-service-management.md)將本身新增到群組。
+不過，在某些情況下，使用者可能會有合理的原因，若要從這些已封鎖的國家/地區登入。 例如，使用者可能因為工作或個人原因而旅行。 在此範例中，條件式存取原則，來封鎖這些國家/地區可能會有專用的雲端安全性群組會從原則中排除的使用者。 在旅行時需要存取的使用者，可以使用 [Azure AD 自助式群組管理](../users-groups-roles/groups-self-service-management.md)將本身新增到群組。
 
 另一個範例可能是您有條件式存取原則，可[封鎖絕大多數使用者的舊版驗證](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/)。 Microsoft 強烈建議您在租用戶中封鎖使用舊版通訊協定，以改善安全性狀態。 不過，如果有些使用者一定需要使用舊版驗證方法才能透過 Office 2010 或 IMAP/SMTP/POP 型用戶端存取您的資源，您則可從封鎖舊版驗證方法的原則中排除這些使用者。
 
@@ -97,9 +97,9 @@ ms.locfileid: "60351529"
 
 我們會討論您可以使用存取權檢閱來管理條件式存取原則中排除項目的兩個範例。
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>範例 1：可供使用者從已封鎖的國家/地區存取的存取權檢閱
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>範例 1：從已封鎖的國家/地區存取的使用者的存取權檢閱
 
-假設您有可封鎖從特定國家/地區存取的條件式存取原則。 其中包含從原則中排除的群組。 以下是會檢閱群組成員的建議存取權檢閱。
+例如，假設您有一個條件式存取原則封鎖存取來自特定國家/地區。 其中包含從原則中排除的群組。 以下是會檢閱群組成員的建議存取權檢閱。
 
 > [!NOTE]
 > 全域管理員或使用者系統管理員角色，才能建立存取權檢閱。
@@ -110,9 +110,9 @@ ms.locfileid: "60351529"
 
 3. 此群組的所有成員都在檢閱範圍內。
 
-4. 每個使用者必須自我證明，他們仍然需要從這些已封鎖的國家/地區存取，因此他們仍必須是群組的成員。
+4. 每個使用者對自我證明，他們仍然需要有這些已封鎖的國家/地區存取權，他們就仍然需要是群組的成員。
 
-5. 如果使用者未回應檢閱要求，他們將會從群組中自動移除，因此前往這些國家/地區時，再也無法存取租用戶。
+5. 如果使用者不會回應檢閱要求中，它們會將從群組中，將會自動移除，並因此，就無法再存取租用戶時前往這些國家/地區。
 
 6. 啟用郵件通知，讓使用者能收到開始和完成存取權檢閱的通知。
 

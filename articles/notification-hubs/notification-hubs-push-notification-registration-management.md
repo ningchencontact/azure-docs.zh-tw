@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457703"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685383"
 ---
 # <a name="registration-management"></a>註冊管理
 
@@ -40,7 +40,7 @@ ms.locfileid: "61457703"
 
 ### <a name="installations"></a>安裝
 
-安裝是增強型的註冊，包含一組推播相關的屬性。 它是註冊您的裝置最新最好的方法。 不過，目前用戶端 .NET SDK([適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) 不支援此種安裝。  這表示如果您要從用戶端裝置本身註冊，您必須使用 [通知中樞 REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) 方法來支援安裝。 如果您使用後端服務，您應該能夠使用 [適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
+安裝是增強型的註冊，包含一組推播相關的屬性。 它是註冊您的裝置最新最好的方法。 不過，目前用戶端 .NET SDK([適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) 不支援此種安裝。  這表示如果您要從用戶端裝置本身註冊，您必須使用 [通知中樞 REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) 方法來支援安裝。 如果您使用後端服務，您應該能夠使用 [適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 
 以下是使用安裝的一些主要優點：
 
@@ -48,7 +48,7 @@ ms.locfileid: "61457703"
 - 此安装模型支持特殊的标记格式 (`$InstallationId:{INSTALLATION_ID}`)，该格式允许将通知直接发送到特定的设备。 例如，如果应用的代码为此特定设备设置了安装 ID `joe93developer`，则开发人员在向 `$InstallationId:{joe93developer}` 标记发送通知时，可以将此设备作为目标。 这样，无需编写任何额外的代码，就能将特定设备作为目标。
 - 使用安裝也可讓您進行部分註冊更新。 要求部分安裝更新時，是使用 [JSON-Patch 標準](https://tools.ietf.org/html/rfc6902)以 PATCH 方法來要求。 當您想要更新註冊的相關標記時，這會特別有用。 您不需要移除整個註冊，然後再次重新傳送所有先前的標記。
 
-安裝可以包含下列屬性。 如需完整的安裝屬性清單，請參閱[使用 REST API 建立或覆寫安裝](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation)或[安裝屬性](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)。
+安裝可以包含下列屬性。 如需完整的安裝屬性清單，請參閱[使用 REST API 建立或覆寫安裝](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation)或[安裝屬性](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation)。
 
 ```json
 // Example installation format to show some supported properties
@@ -95,7 +95,7 @@ ms.locfileid: "61457703"
 
 如果您想要使用[範本](notification-hubs-templates-cross-platform-push-messages.md)，裝置安裝也保有與該裝置關聯且採用 JSON 格式的所有範本 (請參閱上面的範例)。 範本名稱可協助將目標指向相同裝置的不同範本。
 
-每個範本名稱皆對應到一個範本主體和一組選擇性的標記。 此外，每個平台可以有額外的範本屬性。 就 Windows 市集 (使用 WNS) 和 Windows Phone 8 (使用 MPNS) 而言，一組額外的標頭可以是範本的一部分。 如果是 APN，您可以將到期屬性設定為常數或範本運算式。 如需完整的安裝屬性清單，請參閱 [使用 REST 來建立或覆寫安裝](https://msdn.microsoft.com/library/azure/mt621153.aspx) 主題。
+每個範本名稱皆對應到一個範本主體和一組選擇性的標記。 此外，每個平台可以有額外的範本屬性。 就 Windows 市集 (使用 WNS) 和 Windows Phone 8 (使用 MPNS) 而言，一組額外的標頭可以是範本的一部分。 如果是 APN，您可以將到期屬性設定為常數或範本運算式。 如需完整的安裝屬性清單，請參閱 [使用 REST 來建立或覆寫安裝](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) 主題。
 
 ### <a name="secondary-tiles-for-windows-store-apps"></a>Windows 市集應用程式的次要磚
 
@@ -120,7 +120,7 @@ SecondaryTiles 字典使用的 TileId 會與在「Windows 市集」應用程式�
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>使用安裝從裝置向通知中樞註冊的範例程式碼
 
-此時，只有使用 [通知中樞 REST API](https://msdn.microsoft.com/library/mt621153.aspx)才支援這種做法。
+此時，只有使用 [通知中樞 REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation)才支援這種做法。
 
 您也可以使用 [JSON-Patch 標準](https://tools.ietf.org/html/rfc6902) 以 PATCH 方法更新安裝。
 

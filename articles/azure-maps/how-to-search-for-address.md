@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904053"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572381"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務來尋找地址
 
@@ -68,7 +68,7 @@ ms.locfileid: "60904053"
 
     「pizza」的模稜兩可查詢字串傳回了 10 個[景點](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) 結果，其類別分別落在「pizza」和「restaurant」。 每個結果都會傳回街道地址、緯度 / 經度值、檢視連接埠和位置的進入點。
   
-    此查詢中的結果會有所不同，未繫結至任何特定的參考位置。 您可以使用 **countrySet** 參數來指定只有您的應用程式需要涵蓋範圍的國家/地區，因為預設行為是要搜尋全世界，可能會傳回不必要的結果。
+    此查詢中的結果會有所不同，未繫結至任何特定的參考位置。 您可以使用**countrySet**參數來指定只國家/地區，您的應用程式需要涵蓋範圍，因為預設行為是要搜尋全世界，可能會傳回不必要的結果。
 
 5. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 

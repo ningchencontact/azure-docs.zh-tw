@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034118"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575570"
 ---
 # <a name="virtual-appliance-scenario"></a>虛擬設備的案例
 在較大的 Azure 客戶中，常見的案例是需要對網際網路公開兩層式的應用程式，同時允許從內部部署資料中心存取後層。 本文件會逐步引導您完成案例，使用使用者定義路由 (UDR)、VPN 閘道和網路虛擬裝置來部署符合下列需求的兩層式環境︰
@@ -30,14 +30,14 @@ ms.locfileid: "61034118"
 * 經過應用程式伺服器的所有流量都必須通過防火牆虛擬設備。 這個虛擬設備會用於存取後端伺服器，以及存取透過 VPN 閘道來自內部部署的網路。
 * 系統管理員必須能夠使用管理用途專用的第三個防火牆虛擬設備，從他們的內部部署電腦來管理防火牆虛擬設備。
 
-這是標準的 DMZ 和受保護網路的 DMZ 案例。 您可利用 NSG、防火牆虛擬設備或兩者的組合，在 Azure 中建構這類案例。 下表會顯示 NSG 和防火牆虛擬設備之間的優缺點。
+這是標準的周邊網路 (也為 DMZ knowns) 案例的 DMZ 和受保護的網路。 使用 Nsg、 防火牆虛擬設備或兩者的組合，可以在 Azure 中建構這類案例。 下表會顯示 NSG 和防火牆虛擬設備之間的優缺點。
 
 |  | 优点 | 缺點 |
 | --- | --- | --- |
-| NSG |無成本。 <br/>整合到 Azure RBAC。 <br/>可在 ARM 範本中建立規則。 |大型環境中的複雜性各有不同。 |
+| NSG |無成本。 <br/>整合到 Azure RBAC。 <br/>Azure Resource Manager 範本中，就可以建立規則。 |大型環境中的複雜性各有不同。 |
 | 防火牆 |完全掌控資料面。 <br/>透過防火牆主控台集中管理。 |防火牆設備的成本。 <br/>不與 Azure RBAC 相整合。 |
 
-下列解決方案使用防火牆虛擬設備實作 DMZ/受保護網路案例。
+下列解決方案使用防火牆虛擬設備來實作周邊網路 (DMZ) / 受保護網路案例。
 
 ## <a name="considerations"></a>考量
 您可以使用目前可用的不同功能，在 Azure 中部署上述環境，如下所示。
@@ -167,5 +167,5 @@ AZF2 代表包含下列規則的 Azure 虛擬設備︰
 2. 如果您想要部署 VNet 來模擬內部部署網路，請佈建屬於 **ONPREMRG**的資源。
 3. 佈建屬於 **AZURERG**的資源。
 4. 佈建 **onpremvnet** 到 **azurevnet** 的通道。
-5. 佈建好所有資源之後，請登入 **onpremvm2** 並 ping 10.0.3.101 來測試 **onpremsn2** 和 **azsn3** 之間的連線。
+5. 所有資源會佈都建之後，登入**onpremvm2**並 ping 10.0.3.101 來測試之間的連線**onpremsn2**並**azsn3**。
 

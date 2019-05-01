@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 2a2df8b47b60f29d8ecd3c040e8ef979ee23afa8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000924"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575412"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure 地圖地理編碼涵蓋範圍
 
@@ -44,7 +44,6 @@ ms.locfileid: "60000924"
 | 加拿大                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 開曼群島                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | 智利                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
-| 克利珀頓島                                   |                 |                |              |      ✓     |                    |
 | 哥倫比亞                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 哥斯大黎加                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | 古巴                                                |                 |                |       ✓      |      ✓     |          ✓         |
@@ -98,12 +97,12 @@ ms.locfileid: "60000924"
 | 英屬印度洋領地                      |                 |                |              |      ✓     |          ✓         |
 | 汶萊                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | 柬埔寨                                            |                 |                |              |      ✓     |          ✓         |
-| 中國                                               |        ✓        |        ✓       |              |      ✓     |          ✓         |
+| 中國                                               |                 |                |              |      ✓     |          ✓         |
 | 聖誕島                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | 可可斯 (基林) 群島                             |                 |                |              |      ✓     |          ✓         |
 | 葛摩                                             |                 |                |              |      ✓     |          ✓         |
 | 庫克群島                                        |                 |                |              |      ✓     |          ✓         |
-| 斐濟                                                |                  |                |              |      ✓     |          ✓         |
+| 斐濟                                                |                  |                |              |      ✓     |          ✓        |
 | 法屬玻里尼西亞                                    |                 |                |              |      ✓     |          ✓         |
 | 赫德島及麥唐納群島                   |                 |                |              |      ✓     |          ✓         |
 | 香港特別行政區                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

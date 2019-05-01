@@ -1,28 +1,28 @@
 ---
 title: Azure AD Connect：什麼是 ADConnectivityTool PowerShell 模組 | Microsoft Docs
-description: 本文件介紹新的 ADConnectivity PowerShell 模組
+description: 本文件介紹新 ADConnectivity PowerShell 模組，以及如何使用它來協助疑難排解。
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 4/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245670"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571124"
 ---
-# <a name="what-is-the-adconnectivitytool-powershell-module"></a>什麼是 ADConnectivityTool PowerShell 模組？
+# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>針對使用 ADConnectivityTool PowerShell 模組的 Azure AD 連線進行疑難排解
 
 ADConnectivity 工具是 PowerShell 模組，可在下列其中一種情況使用：
 
-- 在安裝期間，發生網路連線問題，而無法成功驗證使用者在精靈中提供的 Active Directory 認證。
+- 在安裝期間當網路連線發生問題，讓驗證成功的 Active Directory 的認證在精靈中提供的使用者。
 - 由從 PowerShell 工作階段呼叫函式的使用者進行後續安裝。
 
 此工具位於：**C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 

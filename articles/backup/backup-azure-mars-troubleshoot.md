@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e36e0813b7a50c659a2c3ae61350381e83a1823f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216094"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686186"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>針對 Microsoft Azure 復原服務 (MARS) 代理程式進行疑難排解
 
@@ -23,13 +23,13 @@ ms.locfileid: "61216094"
 
 | 錯誤詳細資料 | 可能的原因 | 建議動作 |
 | ---     | ---     | ---    |
-| **錯誤** </br> *提供的保存庫認證無效。檔案已損毀或沒有與復原服務關聯的最新認證。(識別碼：34513)* | <ul><li> 保存庫認證無效 (亦即，在將它們下載超過 48 小時之後才註冊)。<li>MARS 代理程式無法將檔案下載到 Windows Temp 目錄。 <li>保存庫認證位於網路位置上。 <li>TLS 1.0 已停用<li> 已設定的 Proxy 伺服器正在封鎖連線。 <br> |  <ul><li>下載新的保存庫認證。(**注意**：如果先前下載了多個保存庫認證檔案，只有最新下載的檔案會在 48 小時內維持有效狀態。) <li>啟動 [IE] > [設定][網際網路選項] >  > [安全性] > [網際網路]。 接下來，選取 [自訂層級]，然後捲動，直到您看到檔案下載區段為止。 接著選取 [啟用]。<li>您可能也必須在 IE [信任的網站](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins)中新增這些網站。<li>變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。 <li> 使日期和時間與您的電腦相符。<li>如果您收到敘述不允許檔案下載的錯誤，有可能 C:/Windows/Temp 目錄中具有大量檔案。<li>移至 C:/Windows/Temp，並檢查具有 .tmp 副檔名的檔案是否超過 60,000 或 65,000 個。 如果有，請刪除這些檔案。<li>確定您已安裝 .NET Framework 4.6.2。 <li>如果您因 PCI 合規性而停用了 TLS 1.0，請參閱這個[疑難排解頁面](https://support.microsoft.com/help/4022913)。 <li>如果您已在伺服器上安裝防毒程式，請從防毒掃描中排除下列檔案： <ul><li>CBengine.exe<li>與 .NET Framework 相關的 CSC.exe。 伺服器上所安裝的每個 .NET 版本都有一個 CSC.exe。 排除受影響伺服器上繫結至所有 .NET Framework 版本的 CSC.exe 檔案。 <li>臨時資料夾或快取位置。 <br>臨時資料夾或快取位置路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch。<br><li>Bin 資料夾 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+| **錯誤** </br> *提供的保存庫認證無效。檔案已損毀或沒有與復原服務關聯的最新認證。(識別碼：34513)* | <ul><li> 保存庫認證無效 (亦即，在將它們下載超過 48 小時之後才註冊)。<li>MARS 代理程式無法將檔案下載到 Windows Temp 目錄。 <li>保存庫認證位於網路位置上。 <li>TLS 1.0 已停用<li> 已設定的 Proxy 伺服器正在封鎖連線。 <br> |  <ul><li>下載新的保存庫認證。(**注意**：如果先前下載了多個保存庫認證檔案，只有最新下載的檔案會在 48 小時內維持有效狀態。) <li>啟動 [IE] > [設定][網際網路選項] >  > [安全性] > [網際網路]。 接下來，選取 [自訂層級]，然後捲動，直到您看到檔案下載區段為止。 接著選取 [啟用]。<li>您可能也必須在 IE [信任的網站](https://docs.microsoft.com/azure/backup/backup-configure-vault#verify-internet-access)中新增這些網站。<li>變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。 <li> 使日期和時間與您的電腦相符。<li>如果您收到敘述不允許檔案下載的錯誤，有可能 C:/Windows/Temp 目錄中具有大量檔案。<li>移至 C:/Windows/Temp，並檢查具有 .tmp 副檔名的檔案是否超過 60,000 或 65,000 個。 如果有，請刪除這些檔案。<li>確定您已安裝 .NET Framework 4.6.2。 <li>如果您因 PCI 合規性而停用了 TLS 1.0，請參閱這個[疑難排解頁面](https://support.microsoft.com/help/4022913)。 <li>如果您已在伺服器上安裝防毒程式，請從防毒掃描中排除下列檔案： <ul><li>CBengine.exe<li>與 .NET Framework 相關的 CSC.exe。 伺服器上所安裝的每個 .NET 版本都有一個 CSC.exe。 排除受影響伺服器上繫結至所有 .NET Framework 版本的 CSC.exe 檔案。 <li>臨時資料夾或快取位置。 <br>臨時資料夾或快取位置路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch。<br><li>Bin 資料夾 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 
 ## <a name="unable-to-download-vault-credential-file"></a>無法下載保存庫認證檔
 
 | 錯誤詳細資料 | 建議動作 |
 | ---     | ---    |
-|無法下載保存庫認證檔案。 (識別碼：403) | <ul><li> 請嘗試使用不同的瀏覽器下載保存庫認證，或執行下列步驟： <ul><li> 啟動 IE，按下 F12 鍵。 </li><li> 移至 [網路] 索引標籤，清除 IE 的快取和 Cookie </li> <li> 重新整理頁面<br>(或)</li></ul> <li> 檢查訂用帳戶是否已停用/過期<br>(或)</li> <li> 檢查是否有任何防火牆規則封鎖保存庫認證檔的下載 <br>(或)</li> <li> 確定您還沒有耗盡保存庫的限制 (每個保存庫 50 部電腦)<br>(或)</li>  <li> 确保用户具有下载保管库凭据所需的 Azure 备份权限并向保管库注册了服务器，请参阅[此文](backup-rbac-rs-vault.md)</li></ul> | 
+|無法下載保存庫認證檔案。 (識別碼：403) | <ul><li> 請嘗試使用不同的瀏覽器下載保存庫認證，或執行下列步驟： <ul><li> 啟動 IE，按下 F12 鍵。 </li><li> 移至 [網路] 索引標籤，清除 IE 的快取和 Cookie </li> <li> 重新整理頁面<br>(或)</li></ul> <li> 檢查訂用帳戶是否已停用/過期<br>(或)</li> <li> 檢查是否有任何防火牆規則封鎖保存庫認證檔的下載 <br>(或)</li> <li> 確定您還沒有耗盡保存庫的限制 (每個保存庫 50 部電腦)<br>(或)</li>  <li> 确保用户具有下载保管库凭据所需的 Azure 备份权限并向保管库注册了服务器，请参阅[此文](backup-rbac-rs-vault.md)</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Microsoft Azure 復原服務代理程式無法連線至 Microsoft Azure 備份
 

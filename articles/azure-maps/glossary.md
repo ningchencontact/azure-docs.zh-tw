@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 11e49d362508e9720cf65fc20e020930b5f5c3ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769833"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575345"
 ---
 # <a name="glossary"></a>詞彙
 
@@ -63,7 +63,7 @@ ms.locfileid: "60769833"
 
 <a name="bearing"></a> **Bearing** (方位)：某點與另一個點之間的相對水平方向。 這是以相對於北方的角度來表示，依順時針方向從 0 度到 360 度。 
 
-<a name="boundary"></a> **Boundary** (界線)：分隔相鄰政治實體 (例如國家/地區、行政區及房地產) 的線段或多邊形。 界線為可能或可能不會依循實體特徵 (例如河流、山或牆) 的線條。
+<a name="boundary"></a> **Boundary** (界線)：線條或多邊形分隔相鄰政治實體的詳細資訊，例如國家/地區、 區域售出之品和屬性。 界線為可能或可能不會依循實體特徵 (例如河流、山或牆) 的線條。
 
 <a name="bounds"></a> **Bounds** (邊界)：請參閱[週框方塊](#bounding-box)。
 
@@ -91,13 +91,13 @@ ms.locfileid: "60769833"
 
 <a name="coordinate-system"></a> **Coordinate system** (座標系統)：用來定義二維或三維空間中之點位置的參考架構。
 
-<a name="country-code"></a> **Country code** (國碼 (地區碼))：國家/地區的 ISO 標準唯一識別碼。 ISO2 為國家/地區的二字元代碼 (例如 US)，而 ISO3 則代表三字元代碼 (例如 USA)。
+<a name="country-code"></a> **Country code** (國碼 (地區碼))：國家/地區在 ISO 標準為基礎的唯一識別碼。 ISO2 為國家/地區的二字元代碼 (例如 US)，而 ISO3 則代表三字元代碼 (例如 USA)。
 
-<a name="country-subdivision"></a> **Country subdivision** (國家/地區從屬行政區)：國家/地區的第一級從屬行政區，通常稱為州或省 (市)。
+<a name="country-subdivision"></a> **Country subdivision** (國家/地區從屬行政區)：第一層子分割的國家/地區，通常稱為州或省。
 
-<a name="country-secondary-subdivision"></a> **Country secondary subdivision** (國家/地區第二從屬行政區)：國家/地區的第二級從屬行政區，通常稱為郡 (縣市)。
+<a name="country-secondary-subdivision"></a> **Country secondary subdivision** (國家/地區第二從屬行政區)：第二個層級駐留在內的國家/地區，通常稱為郡。
 
-<a name="country-tertiary-subdivision"></a> **Country tertiary subdivision** (國家/地區第三從屬行政區)：國家/地區的第三級從屬行政區，通常是區之類的具名區域。
+<a name="country-tertiary-subdivision"></a> **Country tertiary subdivision** (國家/地區第三從屬行政區)：第三層駐留在內的國家/地區，通常例如 ward 的具名區域。
 
 <a name="cross-street"></a> **Cross street** (交叉路口)：兩條或多條街道的交會點。
 
@@ -283,7 +283,7 @@ ms.locfileid: "60769833"
 
 <a name="post-code"></a> **Post code** (郵區編號)：請參閱[郵遞區號](#postal-code)。
 
-<a name="postal-code"></a> **Postal code** (郵遞區號)：具有特定格式的一系列字母或數字 (或兩者)，由國家/地區的郵政服務用來將地理區域分割成較小的區域，以簡化郵件的投遞。
+<a name="postal-code"></a> **Postal code** (郵遞區號)：一系列的字母或數字，或兩者，以特定的格式，用來將地理區域分割成區域，以簡化的郵件傳遞的國家/地區的郵遞服務。
 
 <a name="prime-meridian"></a> **Prime meridian** (本初子午線)：代表經度 0 度的經度線。 一般而言，經度的值會隨著朝西方行進而逐漸遞減 (直到 180 度為止)，並會隨著朝東方行進而逐漸遞增 (直到 -180 度為止)。 
 
@@ -351,11 +351,11 @@ ms.locfileid: "60769833"
 
 <a name="terrain"></a> **Terrain** (地形)：土地上具有特定特性 (例如多沙地形或山陵地形) 的區域。
 
-<a name="thematic-maps"></a> **Thematic maps** (主題地圖)：主題地圖是用來反映關於某地理區域之某個主題的簡易地圖。 此地圖類型的常見案例，是依據某些資料計量為行政區 (例如國家/地區) 上色。
+<a name="thematic-maps"></a> **Thematic maps** (主題地圖)：主題地圖是用來反映關於某地理區域之某個主題的簡易地圖。 常見的案例，這種類型是對應的色彩的系統管理的區域，例如 data 一些計量為基礎的國家/地區。
 
 <a name="tile-layer"></a> **Tile layer** (圖格圖層)：透過將地圖圖格 (矩形區段) 組合成連續圖層來顯示的圖層。 圖格可能是點陣影像圖格或向量圖格。 點陣圖格圖層通常會預先轉譯，並以影像的形式儲存在伺服器上。 這可能會佔用大量儲存體空間。 向量圖格圖層會在用戶端應用程式內即時轉譯，使伺服器端的儲存體需求變得較小。
 
-<a name="time-zone"></a> **Time zone** (時區)：地球上的某個區域，基於法律、商業和社會目的而遵循統一的標準時間。 時區通常會遵循國家/地區及其從屬行政區的界線。
+<a name="time-zone"></a> **Time zone** (時區)：地球上的某個區域，基於法律、商業和社會目的而遵循統一的標準時間。 時區，通常會遵循下列國家/地區和其細分的界限。
 
 <a name="transaction"></a> **Transaction** (交易)：Azure 地圖服務會使用交易式授權模型，其中：
 
@@ -398,5 +398,5 @@ ms.locfileid: "60769833"
 
 <a name="zip-code"></a> **Zip code** (郵遞區號)：請參閱[郵遞區號](#postal-code)。
 
-<a name="Zoom level"></a> **Zoom level** (縮放層級)：指定詳細資料的層級，以及地圖的可見程度。 一路縮小到層級 0 時，通常會顯示完整的世界地圖，但只能顯示有限的詳細資料，例如國家/地區名稱和邊界，以及海洋名稱。 放大到層級 17 時，地圖將會顯示涵蓋數個城市街區的區域，並提供詳細的道路資訊。 如需詳細資訊，請參閱[縮放層級和圖格格線](zoom-levels-and-tile-grid.md)文件。
+<a name="Zoom level"></a> **Zoom level** (縮放層級)：指定詳細資料的層級，以及地圖的可見程度。 當一路縮小層級為 0，完整的世界地圖通常會在檢視中，但會顯示受限制的詳細資訊，例如國家/地區名稱和框線，以及 ocean 名稱。 放大到層級 17 時，地圖將會顯示涵蓋數個城市街區的區域，並提供詳細的道路資訊。 如需詳細資訊，請參閱[縮放層級和圖格格線](zoom-levels-and-tile-grid.md)文件。
 

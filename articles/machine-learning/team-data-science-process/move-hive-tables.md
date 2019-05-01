@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 404335ce0cd05085c79cbeea29ad95f79008289c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522498"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681939"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>建立 Hive 資料表，並從 Azure Blob 儲存體載入資料
 
@@ -47,7 +47,7 @@ ms.locfileid: "59522498"
 2. [利用 Hive 編輯器提交 Hive 查詢](#hive-editor)
 3. [利用 Azure PowerShell 命令提交 Hive 查詢](#ps)
 
-Hive 查詢類似 SQL。 如果您熟悉 SQL，您可能會發現 [Hive for SQL 使用者功能提要](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) 很有用。
+Hive 查詢類似 SQL。 如果您熟悉 SQL，您可能會發現 [Hive for SQL 使用者功能提要](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) 很有用。
 
 提交 Hive 查詢時，您也可以控制 Hive 查詢輸出的目的地，它是否會出現在螢幕上，或是輸出到前端節點上的本機檔案或 Azure Blob。
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: b7af0149a690e3cc3a357a5cb769751e3674d374
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437679"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575612"
 ---
 # <a name="azure-functions-networking-options"></a>Azure 網路功能選項的函式
 
@@ -31,15 +31,14 @@ ms.locfileid: "61437679"
 
 ## <a name="matrix-of-networking-features"></a>網路功能矩陣
 
-|                |[取用方案](functions-scale.md#consumption-plan)|⚠ [進階方案](functions-scale.md#premium-plan-public-preview)|[App Service 計劃](functions-scale.md#app-service-plan)|[App Service 環境](../app-service/environment/intro.md)|
+|                |[取用方案](functions-scale.md#consumption-plan)|[進階方案 （預覽）](functions-scale.md#premium-plan-public-preview)|[App Service 計劃](functions-scale.md#app-service-plan)|[App Service 環境](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[輸入的 IP 限制](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[輸出 IP 限制](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 |[虛擬網路整合](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
-|[（Azure ExpressRoute 和服務端點） 的虛擬網路整合的預覽](#preview-version-of-virtual-network-integration)|❌No|⚠[是]|⚠[是]|✅Yes|
+|[預覽 （Azure ExpressRoute 和輸出的服務端點） 的虛擬網路整合](#preview-version-of-virtual-network-integration)|❌No|✅Yes|✅Yes|✅Yes|
 |[混合式連線](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[私人網站存取](#private-site-access)|❌No| ❌No|❌No|✅Yes|
-
-⚠ 這項預覽功能不用於生產環境中。
+|[私人網站存取](#private-site-access)|❌No| ✅Yes|✅Yes|✅Yes|
 
 ## <a name="inbound-ip-restrictions"></a>輸入的 IP 限制
 
@@ -49,6 +48,10 @@ ms.locfileid: "61437679"
 > 若要使用 Azure 入口網站的編輯器，在入口網站必須能夠直接存取您執行的函式應用程式。 此外，您用來存取入口網站的裝置必須具有其 IP 允許清單。 在位置的網路限制，您仍然可以存取任何功能上**平台功能** 索引標籤。
 
 若要進一步了解，請參閱[Azure App Service 靜態存取限制](../app-service/app-service-ip-restrictions.md)。
+
+## <a name="outbound-ip-restrictions"></a>輸出 IP 限制
+
+輸出 IP 限制僅可供部署至 App Service Environment 的函式。 您可以設定 App Service Environment 部署所在的虛擬網路的輸出限制。
 
 ## <a name="virtual-network-integration"></a>虛擬網路整合
 
@@ -88,7 +91,10 @@ ms.locfileid: "61437679"
 
 ## <a name="private-site-access"></a>私人網站存取
 
-私人網站存取是指讓您的應用程式只能從私人網路這類來自 Azure 的虛擬網路內存取。 私人網站存取可僅與使用內部負載平衡器 (ILB) 設定 App Service Environment。 如需詳細資訊，請參閱 <<c0> [ 建立及使用內部負載平衡與 App Service Environment](../app-service/environment/create-ilb-ase.md)。
+私人網站存取是指讓您的應用程式只能從私人網路這類來自 Azure 的虛擬網路內存取。 
+* 私人網站存取是適用於 Premium 和 App Service 方案**服務端點**設定。如需詳細資訊，請參閱[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * 請記住，透過服務端點，您的函式仍有完整的對外存取網際網路，即使使用 VNET 整合設定。
+* 私人網站存取可僅與使用內部負載平衡器 (ILB) 設定 App Service Environment。 如需詳細資訊，請參閱 <<c0> [ 建立及使用內部負載平衡與 App Service Environment](../app-service/environment/create-ilb-ase.md)。
 
 有許多方式來存取其他裝載選項中的虛擬網路資源。 但是，App Service Environment 是允許透過虛擬網路會發生函式的觸發程序的唯一方法。
 

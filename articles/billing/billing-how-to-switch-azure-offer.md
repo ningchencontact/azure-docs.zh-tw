@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918580"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570992"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>將您的 Azure 預付型方案訂閱變更為其他供應項目
 
@@ -86,7 +86,7 @@ Azure 供應項目是您擁有之 Azure 訂用帳戶的「類型」。 例如，
 ### <a name="why-do-i-see-there-are-no-offers-available-in-your-region-or-country-at-this-time"></a>為什麼我會看到「目前您的國家/地區沒有提供此供應項目」錯誤訊息？
 
 * 您可能不符合任何改用供應項目的資格。 請查看[您可以切換的可用供應項目清單](#whats-supported)，並確定您已透過 Visual Studio 或 Bizspark 啟動適當的權益。
-* 部分供應項目可能無法在所有國家/地區中使用。
+* 部分優惠可能無法在所有國家/地區。
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>切換 Azure 供應項目對我的服務和帳單有什麼好處？
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 99175f79e030a55991947313e4a7e32a738d6adb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097382"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570492"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 將遠端作業提交至 HDInsight Spark 叢集
 
@@ -164,16 +164,6 @@ Livy 可為在叢集上執行的 Spark 作業提供高可用性。 以下是一�
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>在 Azure 虛擬網路內提交叢集的 Livy 作業
 
 如果您是從 Azure 虛擬網路內連線到 HDInsight Spark 叢集，可以直接連線到叢集上的 Livy。 在此案例中，Livy 端點的 URL 是 `http://<IP address of the headnode>:8998/batches`。 在這裡，**8998** 是 Livy 在叢集前端節點上執行的連接埠。 如需有關在非公用連接埠上存取服務的詳細資訊，請參閱 [HDInsight 上 Apache Hadoop 服務所使用的連接埠](../hdinsight-hadoop-port-settings-for-services.md)。
-
-## <a name="troubleshooting"></a>疑難排解
-
-以下是一些使用 Livy 進行對 Spark 叢集的遠端作業提交時可能遇到的問題。
-
-### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>不支援從其他儲存體使用外部 jar
-
-**問題：** 如果您的 Livy Spark 作業是參考與叢集相關聯的其他儲存體帳戶之外部 jar，則作業將會失敗。
-
-**解決方案：** 請確定您想要使用的 jar 位於與 HDInsight 叢集相關聯的預設儲存體中。
 
 
 

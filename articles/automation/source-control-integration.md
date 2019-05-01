@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880310"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574116"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 
@@ -52,14 +52,16 @@ Azure 自動化支援三種類型的原始檔控制：
 |存放庫     | 存放庫或專案的名稱。 會傳回前 200 個儲存機制。 若要搜尋存放庫，在欄位中輸入名稱，然後按一下**GitHub 上的搜尋**。|
 |分支     | 此分支可從中提取原始程式檔。 目標分支不適用於 TFVC 原始檔控制類型。          |
 |資料夾路徑     | 包含要同步處理之 Runbook 的資料夾。範例：/Runbooks </br>*只有在指定的資料夾中的 runbook 會同步處理。不支援遞迴。*        |
-|自動同步處理     | 在原始檔控制存放庫中進行認可時開啟或關閉自動同步處理         |
+|自動同步處理<sup>1</sup>     | 在原始檔控制存放庫中進行認可時開啟或關閉自動同步處理         |
 |發佈 Runbook     | 如果設定為**上**之後從原始檔控制它們將會自動發佈的 runbook 會同步處理。         |
 |描述     | 用來提供其他詳細資料的文字欄位        |
+
+<sup>1</sup>若要使用 Azure 儲存機制設定原始檔控制整合時，請啟用自動同步處理，您必須是專案系統管理員。
 
 ![原始檔控制摘要](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> 確定您在設定原始檔控制時使用了正確的帳戶登入。 如果有所疑慮，請在您的瀏覽器中開啟新的索引標籤並從 visualstudio.com 或 github.com 登出，然後再試一次連線原始檔控制。
+> 您的登入您的原始檔控制儲存機制的可能不同於您的登入 Azure 入口網站。 請確定您登入正確的帳戶為您的原始檔控制儲存機制時設定原始檔控制。 如果有所疑慮，請在您的瀏覽器中開啟新的索引標籤並從 visualstudio.com 或 github.com 登出，然後再試一次連線原始檔控制。
 
 ## <a name="configure-source-control---powershell"></a>設定原始檔控制-PowerShell
 

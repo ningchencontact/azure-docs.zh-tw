@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373408"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569614"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure 監視器活頁簿建立互動式報表
 
@@ -206,7 +206,7 @@ datatable( column1:string, column2:string )
 
 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/011-data-table.png)
 
-更好的範例是使用下拉式清單來從依名稱排列之國家/地區中進行選擇：
+更適用的範例使用下拉式清單中，依名稱從一份國家/地區中挑選：
 
 ```
 customEvents

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3843b5022aaf218bf91e25ecf6d9c36bb2db2dee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034734"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575416"
 ---
 # <a name="plan-virtual-networks"></a>規劃虛擬網路
 
@@ -77,7 +77,7 @@ ms.locfileid: "61034734"
 - 如果子網路內不同的 VM 需要套用不同的安全性規則，您可以將 VM 中的網路介面與一或多個應用程式安全性群組建立關聯。 安全性規則可以在其來源、目的地，或是上述兩者中指定應用程式安全性群組。 該規則接著只會套用到身為該應用程式安全性群組成員的網路介面。 深入了解[網路安全性群組](security-overview.md)和[應用程式安全性群組](security-overview.md#application-security-groups)。
 - Azure 會在每個網路安全性群組內建立數個預設的安全性規則。 其中一個預設規則會允許流量流經虛擬網路中所有資源。 若要覆寫這個行為，請使用網路安全性群組、透過自訂路由將流量路由傳送到 NVA，或是上述兩者。 建議您熟悉 Azure 的所有[預設安全性規則](security-overview.md#default-security-rules)，並了解網路安全性群組規則套用到資源的方法。
 
-您可以檢視使用 [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) 或[網路安全性群組](virtual-networks-dmz-nsg.md)來在 Azure 和網際網路之間實作 DMZ 的範例設計。
+您可以檢視範例來實作周邊網路 (也稱為 DMZ) 的設計，Azure 和網際網路使用之間[NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)或是[網路安全性群組](virtual-networks-dmz-nsg.md)。
 
 ### <a name="traffic-routing"></a>流量路由
 

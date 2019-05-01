@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b673e625e1a50c32e3d8580ec442792ed8611703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637041"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572591"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>在 Azure Functions 中的網路功能的相關常見問題的解答
 
@@ -28,11 +28,14 @@ ms.locfileid: "60637041"
 您可以限制網際網路存取數種方式：
 
 * [IP 限制](../app-service/app-service-ip-restrictions.md):函式應用程式限制輸入的流量的 IP 範圍。
+    * 在 IP 限制，您就也能夠設定[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)，限制您的函式只接受來自特定的虛擬網路的輸入的流量。
 * 移除所有的 HTTP 觸發程序。 對於某些應用程式，就已足夠只要避免 HTTP 觸發程序，並觸發您的函式中使用任何其他的事件來源。
 
 請記住 Azure 入口網站的編輯器，需要您執行的函式的直接存取。 您用來瀏覽入口網站，將其 IP 允許清單中的裝置時，會需要變更任何程式碼，透過 Azure 入口網站。 但您仍然可以使用平台功能 索引標籤底下的任何項目使用中適當的網路限制。
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>如何在虛擬網路限制我的函式應用程式？
+
+您可以限制**傳入**虛擬網路，使用函數應用程式的流量[服務端點](./functions-networking-options.md#private-site-access)。 此組態仍會允許到網際網路的傳出呼叫此函式應用程式。
 
 完全限制函式，使所有的流量流經虛擬網路的唯一方式是使用內部負載平衡 App Service 環境。 此選項會部署您的網站上的虛擬網路內的專用基礎結構，並將傳送所有的觸發程序和透過虛擬網路的流量。 
 
@@ -48,8 +51,11 @@ ms.locfileid: "60637041"
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>如何觸發的函式，從虛擬網路中的資源？
 
-只要將您的函式應用程式部署至 App Service Environment，您可以觸發的函式，從虛擬網路中的資源。 如需使用 App Service Environment 的詳細資訊，請參閱 <<c0> [ 建立及使用內部負載平衡與 App Service Environment](../app-service/environment/create-ilb-ase.md)。
+您可允許從虛擬網路，使用呼叫的 HTTP 觸發程序[服務端點](./functions-networking-options.md#private-site-access)。 
 
+您也可以將您的函式應用程式部署至 App Service 環境，以觸發的函式，從虛擬網路中的資源。 如需使用 App Service Environment 的詳細資訊，請參閱 <<c0> [ 建立及使用內部負載平衡與 App Service Environment](../app-service/environment/create-ilb-ase.md)。
+
+Premium 和 App Service 計劃支援 HTTP 觸發程序從虛擬網路，但只有 App Service 環境支援所有其他函式觸發程序類型透過虛擬網路。
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>如何部署我的虛擬網路中的函式應用程式？
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361481"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570650"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>使用 Azure 的網路原則伺服器擴充功能來整合您的 VPN 基礎結構與 Azure MFA
 
@@ -76,7 +76,7 @@ Azure 的網路原則伺服器 (NPS) 擴充功能可讓組織使用以雲端為�
 
 ## <a name="prerequisites"></a>必要條件
 
-本節會詳述在整合 MFA 與遠端桌面閘道之前必須完成的必要條件。 開始之前，您必須先具備下列必要條件：
+本節將詳細說明您可以整合 MFA 與 VPN 之前必須完成的必要條件。 開始之前，您必須先具備下列必要條件：
 
 * VPN 基礎結構
 * 網路原則與存取服務角色
@@ -338,7 +338,7 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
 
 ### <a name="install-the-nps-extension"></a>安裝 NPS 擴充功能
 
-NPS 擴充功能必須安裝於已安裝「網路原則與存取服務」角色，且依設計要作為 RADIUS 伺服器的伺服器上。 請「勿」將 NPS 擴充功能安裝在您的遠端桌面伺服器上。
+NPS 擴充功能必須安裝於已安裝「網路原則與存取服務」角色，且依設計要作為 RADIUS 伺服器的伺服器上。 請勿*不*VPN 伺服器上安裝 NPS 擴充功能。
 
 1. 從 [Microsoft 下載中心](https://aka.ms/npsmfa)下載 NPS 擴充功能。
 

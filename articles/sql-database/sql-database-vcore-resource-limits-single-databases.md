@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/17/2019
-ms.openlocfilehash: d5ada9b992afe98241162749b1c45723b89a6b77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: aa9217251965b35dd90e09c619607c9421a9f6f4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331106"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572642"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>適用於單一資料庫的 Azure SQL Database 以虛擬核心為基礎的購買模型限制
 
@@ -96,7 +96,7 @@ ms.locfileid: "60331106"
 |儲存體類型|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|
 |IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
 |目標 IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|日志速率限制 (MBps)|2.5|5.6|7.5|10|12.5|15|17.5|
+|日志速率限制 (MBps)|2.5|56|7.5|10|12.5|15|17.5|
 |並行背景工作 (要求) 數上限|200|400|600|800|1000|1200|1400|
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|30000|
 |複本數目|1|1|1|1|1|1|1|

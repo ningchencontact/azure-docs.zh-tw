@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 的自訂原則中定義 JWT 權杖簽發�
 description: 在 Azure Active Directory B2C 的自訂原則中定義 JWT 權杖簽發者的技術設定檔。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 247ebdc8156453062eefe6738c5c281d393a9923
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33dce27b69d080c57b925562ba83db0046b77ca9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396762"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683791"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 JWT 權杖簽發者的技術設定檔
 
@@ -23,7 +23,7 @@ ms.locfileid: "60396762"
 
 Azure Active Directory (Azure AD) B2C 會在處理每個驗證流程時發出數種安全性權杖。 JWT 權杖簽發者的技術設定檔會發出將傳回至信賴憑證者應用程式的 JWT 權杖。 此技術設定檔通常是使用者旅程圖中的最後一個協調流程步驟。
 
-## <a name="protocol"></a>通訊協定
+## <a name="protocol"></a>Protocol
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `None`。 請將 **OutputTokenFormat** 元素設定為 `JWT`。
 

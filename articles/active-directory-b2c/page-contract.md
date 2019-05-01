@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Active Directory B2C 中選取頁面合約 | Microsoft Docs
+title: 選取頁面合約-Azure Active Directory B2C |Microsoft Docs
 description: 了解如何在 Azure Active Directory B2C 中選取頁面合約。
 services: active-directory-b2c
 author: davidmu1
@@ -7,24 +7,24 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 39198c0093f018b64a1292f023914651b51b4faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4cd29df19179f07fd9b61a2f484b1d49cc05c4cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361042"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570573"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>使用自訂原則在 Azure Active Directory B2C 中選取頁面合約
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-無論您使用的是使用者流程或自訂原則，都可以在 Azure Active Directory (Azure AD) B2C 原則中啟用 JavaScript 用戶端程式碼。 本文探討如何藉由在[自訂原則](active-directory-b2c-overview-custom.md)中設定頁面合約，以在 Azure AD B2C 中選取之。 頁面合約是由 Azure AD B2C 提供的元素與您提供的內容所相關聯的內容。 如果您想要使用 [JavaScript](javascript-samples.md)，您必須針對您自訂原則中的所有內容定義，定義頁面合約版本。
+無論您使用的是使用者流程或自訂原則，都可以在 Azure Active Directory (Azure AD) B2C 原則中啟用 JavaScript 用戶端程式碼。 若要啟用您的應用程式的 JavaScript，您必須新增項目您[自訂原則](active-directory-b2c-overview-custom.md)、 選取頁面合約，以及使用[b2clogin.com](b2clogin.md)在要求中。 頁面合約是由 Azure AD B2C 提供的元素與您提供的內容所相關聯的內容。 這篇文章討論如何藉由設定自訂原則中，選取 Azure AD B2C 中的頁面合約。
 
 > [!NOTE]
-> 如果要為使用者流程啟用 JavaScript，請參閱[關於在使用者流程中使用 JavaScript 和頁面合約版本](user-flow-javascript-overview.md)。
+> 如果您想要為使用者流程中啟用 JavaScript，請參閱[JavaScript 和頁面合約版本在 Azure Active Directory B2C](user-flow-javascript-overview.md)。
 
 ## <a name="replace-datauri-values"></a>取代 DataUri 值
 

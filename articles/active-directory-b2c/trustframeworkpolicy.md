@@ -3,19 +3,19 @@ title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: 指定 Azure Active Directory B2C 中自訂原則的 TrustFrameworkPolicy 元素。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 558e9c3a3bfd43f6ceb958bc3be55d58e1eb7f91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360453"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684137"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -43,7 +43,7 @@ ms.locfileid: "60360453"
 | PolicySchemaVersion | 是 | 用來執行此原則的結構描述版本。 值必須是 `0.3.0.0` |
 | TenantObjectId | 否 | Azure Active Directory (Azure AD) B2C 租用戶的唯一物件識別碼。 |
 | TenantId | 是 | 此原則所屬之租用戶的唯一識別碼。 |
-| PolicyId | 是 | 原則的唯一識別碼。 此識別碼必須加上前置詞 *B2C_1A_* |
+| `PolicyId` | 是 | 原則的唯一識別碼。 此識別碼必須加上前置詞 *B2C_1A_* |
 | PublicPolicyUri | 是 | 原則的 URI，也就是租用戶識別碼和原則識別碼的組合。 |
 | DeploymentMode | 否 | 可能的值：`Production`、`Debugging` 或 `Development`。 `Production` 為預設值。 使用此屬性以偵錯您的原則。 如需詳細資訊，請參閱[收集記錄](active-directory-b2c-troubleshoot-custom.md)。 |
 | UserJourneyRecorderEndpoint | 否 | 當 **DeploymentMode** 設為 `Development` 時，可使用端點。 值必須是 `urn:journeyrecorder:applicationinsights`。 如需詳細資訊，請參閱[收集記錄](active-directory-b2c-troubleshoot-custom.md)。 |
@@ -91,7 +91,7 @@ ms.locfileid: "60360453"
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Azure AD B2C 租用戶的識別碼。 |
-| PolicyId | 1:1 | 父代原則的識別碼。 |
+| `PolicyId` | 1:1 | 父代原則的識別碼。 |
 
 
 下列範例顯示如何指定基底原則。 此 **B2C_1A_TrustFrameworkExtensions** 元則衍生自 **B2C_1A_TrustFrameworkBase** 原則。 

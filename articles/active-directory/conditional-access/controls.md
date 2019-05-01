@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5c6f1064d2d73ab3d99ca341cffd9b296723e97
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411623"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571099"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？
 
@@ -113,7 +113,7 @@ ms.locfileid: "60411623"
 
 ### <a name="custom-controls-preview"></a>自訂控制項 (預覽)
 
-您可以在條件式存取中建立自訂控制項，以將使用者重新導向至相容的服務，從而滿足 Azure Active Directory 之外的其他需求。 這可讓您使用某些外部的多重要素驗證和驗證提供者，來強制執行條件式存取規則或建置您自己的自訂服務。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。 
+您可以將使用者重新導向至相容的服務，以進一步滿足需求，Azure Active Directory 之外的條件式存取中新增自訂控制項。 這可讓您使用某些外部的多重要素驗證和驗證提供者來強制執行條件式存取需求。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。 
 
 ## <a name="custom-controls"></a>自訂控制項
 
@@ -137,6 +137,8 @@ ms.locfileid: "60411623"
 ### <a name="creating-custom-controls"></a>建立自訂控制項
 
 若要建立自訂控制項，請先連絡您想要使用的提供者。 每個非 Microsoft 的提供者在註冊、訂閱或成為服務一部分等方面，以及在指出您想要與條件式存取整合的方面，都有自己的處理程序和需求。 屆時，提供者會提供您 JSON 格式的資料區塊。 這項資料可讓提供者和條件式存取一起為您的租用戶工作，建立新的控制項，以及定義條件式存取要如何分辨使用者是否已成功執行提供者所提出的驗證。
+
+自訂控制項不能使用 Identity Protection 的自動化需要 multi-factor authentication，或提高權限角色 Privileged Identity Manager (PIM) 中。
 
 複製 JSON 資料並貼到相關文字方塊中。 除非您明確地了解您要進行的變更，否則請勿變更 JSON。 進行變更可能會讓提供者與 Microsoft 之間的連線中斷，進而可能將您的帳戶鎖定，讓您和您的使用者無法使用。
 

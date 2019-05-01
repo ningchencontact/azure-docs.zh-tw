@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a8812e8a24082bd8c3a2e9bd489e12a12c80c76d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559845"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574136"
 ---
 # <a name="what-is-video-indexer"></a>什麼是影片索引子？
 
@@ -37,8 +37,8 @@ Azure 影片索引器是以 Azure 媒體分析、Azure 搜尋服務、認知服�
 
 ## <a name="audio-insights"></a>音訊見解
 
-- **自動語言偵測**：自動識別主要口說語言。 支援的語言包括英文、西班牙文、法文、德文、義大利文、中文 (簡體)、日文、俄文和葡萄牙文 (巴西)。 若無法偵測語言，則會恢復為英文。
-- **音訊轉譯**：將語音轉換為 12 種語言的文字，並允許擴充。 支援的語言包括英文、西班牙文、法文、德文、義大利文、中文 (簡體)、日文、阿拉伯文、俄文、葡萄牙文 (巴西)、印度文和韓文。
+- **自動語言偵測**：自動識別主要口說語言。 無法偵測到的語言時，支援的語言包括英文、 西班牙文、 法文、 德文、 義大利文、 中文 （簡體）、 日文、 俄文和巴西葡萄牙文將後援至英文版。
+- **音訊轉譯**：將語音轉換為 12 種語言的文字，並允許擴充。 支援的語言包括英文、 西班牙文、 法文、 德文、 義大利文、 中文 （簡體）、 日文、 阿拉伯文、 俄文、 巴西葡萄牙文、 印度文和韓文。
 - **隱藏式輔助字幕**：建立三種格式的隱藏式輔助字幕：VTT、TTML、SRT。
 - **雙通道處理**：自動偵測分離的文字記錄並合併到單一時間軸。
 - **減少雜訊**：清除電話音頻或錄音雜訊 (視 Skype 的篩選條件而定)。
@@ -47,7 +47,7 @@ Azure 影片索引器是以 Azure 媒體分析、Azure 搜尋服務、認知服�
 - **說話者統計資料**：提供說話者語音比率的統計資料。
 - **文字內容仲裁**：偵測音訊文字記錄中的明確文字。
 - **音訊效果**：識別音訊效果，例如拍手聲、語音和無聲。
-- **情緒偵測**：根據語音及音訊提示來識別情緒。表情包括：快樂、悲傷、憤怒或恐懼。
+- **情緒偵測**：識別語音 （所陳述的內容） 和語音 tonality （如何它的陳述） 為基礎的情感。  表情包括：快樂、悲傷、憤怒或恐懼。
 - **翻譯**：為音訊文字記錄建立 54 種不同語言的翻譯。
 
 ## <a name="audio-and-video-insights-multi-channels"></a>音訊與視訊見解 (多重通道)

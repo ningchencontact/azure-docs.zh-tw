@@ -9,19 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: sstein
+ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: 74a52df4eab8a3e471e541889cde74846af00fb8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359735"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574205"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>預付具有 Azure SQL Database 保留容量的 SQL Database 計算資源
 
 使用 Azure SQL Database 時，對於計算資源的預付費用，會比預付型方案的價格還要划算。 若使用 Azure SQL Database 保留容量，即表示您預先承諾會使用 SQL Database 一或三年的時間，來換取大幅的計算費用折扣。 若要購買 SQL Database 保留容量，您必須指定 Azure 區域、部署類型、效能層級與期間。
+
 
 您不需將保留指派給特定的 SQL Database 執行個體 (單一資料庫、彈性集區或受控執行個體)。 只要符合已執行或新部署的 SQL Database 執行個體，就會自動獲得好處。 透過購買保留，您會預付為期一或三年的計算費用。 購買保留容量後，符合保留屬性的 SQL Database 計算費用就不會再按照預付型方案的費率來收費。 保留容量並未涵蓋與 SQL Database 執行個體相關聯的軟體、網路或儲存體費用。 在保留期限結束時，計費好處會到期，隨後 SQL Database 便會按照預付型方案的費率來計費。 保留不會自動更新。 如需定價資訊，請參閱 [SQL Database 保留容量供應項目](https://azure.microsoft.com/pricing/details/sql-database/managed/)。
 

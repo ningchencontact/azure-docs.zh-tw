@@ -7,39 +7,52 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e33143626e136523b4af086e841b92e9ad30fa86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 36ab3fff4294b4cda3d1554ef2761d3f4acaca35
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294991"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687236"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>什麼是 Azure AD Connect 管理代理程式？ 
-Azure AD Connect 管理代理是 Azure Active Directory Connect 的一个新组件，安装在 Azure Active Directory Connect 服务器上。 该组件用于从 Active Directory 环境收集特定的数据，以帮助 Microsoft 支持工程师在收到支持案例时排查问题。
+Azure AD Connect 管理代理程式是 Azure Active Directory Connect 可在 Azure Active Directory Connect 的伺服器上安裝的新元件。 该组件用于从 Active Directory 环境收集特定的数据，以帮助 Microsoft 支持工程师在收到支持案例时排查问题。 
 
-安装后，Azure AD Connect 管理代理会等待 Azure Active Directory 发来的特定数据请求，从同步环境获取请求的数据，并将数据发送到 Azure Active Directory，后者将数据提供给 Microsoft 支持工程师。
+>[!NOTE]
+>尚未安裝及預設啟用的管理代理程式。  您必須安裝代理程式，才能收集資料，以協助的支援案例。
 
-Azure AD Connect 管理代理从环境中检索到的信息不会以任何形式进行存储 - 这些信息只向 Microsoft 支持工程师显示，以帮助他们调查你所提出的 Azure Active Directory Connect 相关支持案例，以及进行故障排除
+安裝時，針對特定要求，Azure AD Connect 管理代理程式等候的資料從 Azure Active Directory 中，從同步處理環境中取得要求的資料，並將它傳送至 Azure Active Directory，其中就會向 Microsoft 支援工程師。 
 
-## <a name="how-is-the-azure-ad-connect-admin-agent-installed-on-the-azure-ad-connect-server"></a>Azure AD Connect 管理代理如何安装在 Azure AD Connect 服务器上？ 
-安装管理代理后，服务器控制面板上的“添加/删除程序”列表中会显示以下两个新程序： 
+Azure AD Connect 管理代理程式會擷取您的環境的資訊不會儲存在任何方式-它只會顯示給 Microsoft 支援工程師，以協助他們在調查及疑難排解 Azure Active Directory ConnectAzure AD Connect 伺服器上預設未安裝相關的支援案例，您會開啟 Azure AD Connect 管理代理程式。 
+
+## <a name="install-the-azure-ad-connect-administration-agent-on-the-azure-ad-connect-server"></a>Azure AD Connect 伺服器上安裝 Azure AD Connect 管理代理程式 
+Azure AD Connect 管理代理程式二進位檔會放置在 AAD Connect 伺服器。 若要安裝代理程式，執行下列作業： 
+
+
+
+1. 在管理員模式開啟 powershell 
+2. 瀏覽至應用程式與位於的 cd"C:\Program Files\Microsoft Azure Active Directory Connect\SetupFiles"所在的目錄 
+3. 執行 AADConnectAdminAgentSetup.exe 應用程式 
+ 
+出現提示時，請輸入您的 Azure AD 全域管理員認證。 
+
+>[!NOTE]
+>沒有已知的問題，您將會提示您輸入認證多次。 這將在下一版中修正。
+
+安裝代理程式之後，您會看到您的伺服器控制項台中的 [新增/移除程式] 清單中的下列兩個新程式： 
 
 ![管理代理](media/whatis-aadc-admin-agent/adminagent1.png)
 
-请不要删除或卸载这些程序，因为它们是 Azure AD Connect 安装的关键组成部分。
+## <a name="what-data-in-my-sync-service-is-shown-to-the-microsoft-service-engineer"></a>向 Microsoft 服务工程师显示同步服务中的哪些数据？ 
+當您開啟支援案例，Microsoft 支援工程師所見，指定的使用者在 Active Directory 中的相關資料、 Active Directory 連接器空間中的 Azure Active Directory Connect 的伺服器，在 Azure 中的 Azure Active Directory 連接器空間Active Directory Connect 的伺服器與 Metaverse 中的 Azure Active Directory Connect 的伺服器。 
 
-## <a name="what-data-in-my-sync-service-is-shown-to-the-microsoft-service-engineer"></a>向 Microsoft 服务工程师显示同步服务中的哪些数据？
-当你提出支持案例时，Microsoft 支持工程师可以查看给定用户在 Active Directory 中的相关数据、Azure Active Directory Connect 服务器中的 Active Directory 连接器空间，以及 Azure Active Directory Connect 服务器中的 Metaverse。
-
-Microsoft 支持工程师无法更改你的系统中的任何数据，且无法查看任何密码。
+Microsoft 支持工程师无法更改你的系统中的任何数据，且无法查看任何密码。 
 
 ## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>如果我不希望 Microsoft 支持工程师访问我的数据，该怎样做？ 
- 
-如果你不希望 Microsoft 服务工程师在处理支持请求时访问你的数据，可按如下所述通过修改服务配置文件来禁用此设置： 
+代理程式安裝之後，如果您不想要存取您的資料，支援呼叫 Microsoft 服務工程師，您可以修改服務組態檔，如下所述來停用的功能： 
 
 1.  開啟**C:\Program Files\Microsoft Azure AD Connect 管理 Agent\AzureADConnectAdministrationAgentService.exe.config**在記事本中。
 2.  按如下所示禁用 **UserDataEnabled** 设置。 如果 **UserDataEnabled** 设置存在并已设置为 true，请将其设置为 false。 如果该设置不存在，请按如下所示添加该设置。    

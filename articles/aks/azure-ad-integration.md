@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: db92526bd02ba55be5df7ce6999e3099e72b8fa5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c23c13969fd4e2814fdc1894a98a3f876da7315b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116767"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574299"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>整合 Azure Active Directory 與 Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD) 進行使用者驗證。 在此組態中，您可以登入使用您的 Azure Active Directory 驗證語彙基元的 AKS 叢集。 此外，叢集系統管理員也可以設定 Kubernetes 角色型存取控制 (RBAC) 根據使用者的身分識別或目錄群組的成員資格。
 
-這篇文章說明如何部署 AKS 和 Azure AD 的必要條件，然後如何部署 Azure AD 啟用叢集，並在 AKS 叢集中建立基本的 RBAC 角色。
+這篇文章說明如何部署 AKS 和 Azure AD 的必要條件，然後如何部署 Azure AD 啟用叢集，並在 AKS 叢集中使用 Azure 入口網站中建立基本的 RBAC 角色。 您也可以[完成這些步驟中使用 Azure CLI][azure-ad-cli]。
 
 套用下列限制：
 
@@ -46,7 +46,7 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 
 2. 選取 [資訊清單]，並將 `groupMembershipClaims` 值編輯為 `"All"`。
 
-   完成後儲存更新。
+   **儲存**完成後的更新。
 
    ![將群組成員資格更新為全部](media/aad-integration/edit-manifest.png)
 
@@ -64,11 +64,11 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 
    ![設定應用程式圖表權限](media/aad-integration/read-directory.png)
 
-6. 在 [委派的權限] 之下 [登入並讀取使用者設定檔] 和 [讀取目錄資料] 的旁邊標上核取記號。 完成後儲存更新。
+6. 在 [委派的權限] 之下 [登入並讀取使用者設定檔] 和 [讀取目錄資料] 的旁邊標上核取記號。 選擇**選取**，儲存的更新。
 
    ![設定應用程式圖表權限](media/aad-integration/delegated-permissions.png)
 
-   選取 [完成] 。
+   然後，選取**完成**。
 
 7. 從 API 清單中選擇 [Microsoft Graph]，然後選取 [授與權限]。 如果目前的帳戶不是租用戶系統管理員，此步驟將會失敗。
 
@@ -96,11 +96,13 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 
    ![設定應用程式權限](media/aad-integration/select-api.png)
 
-3. 在應用程式的旁邊標上核取記號，然後按一下 [選取]。
+    選取您的伺服器應用程式，然後選擇**選取**。
+
+3. 回到*加入 API 存取權*] 視窗中，選擇**選取 [權限**。 請在下一個核取記號*委派的權限*存取您的應用程式，然後選擇**選取**。
 
    ![選取 AKS AAD 伺服器應用程式端點](media/aad-integration/select-server-app.png)
 
-   選取 [完成] 
+   回到*加入 API 存取權*視窗中，選取**完成**。
 
 4. 從清單中選取您的伺服器 API，然後選擇 [授與權限]：
 
@@ -259,3 +261,4 @@ error: You must be logged in to the server (Unauthorized)
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md

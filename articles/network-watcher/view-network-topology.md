@@ -3,8 +3,8 @@ title: 檢視 Azure 虛擬網路拓撲 | Microsoft Docs
 description: 了解如何檢視虛擬網路中的資源，以及資源之間的關聯性。
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: ''
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
-ms.author: jdial
-ms.openlocfilehash: a9cddf3f8091115f7cd39999e8c52d87ead4af07
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786815"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682044"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>檢視 Azure 虛擬網路的拓撲
 

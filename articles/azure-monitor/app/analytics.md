@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691899"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574272"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights 中的分析
 Analytics 是 [Application Insights](app-insights-overview.md) 強大的搜尋和查詢工具。 Analytics 是 web 工具，不需要設定。
@@ -38,7 +38,7 @@ Application Insights 分析是根據 [Azure 資料總管](/azure/data-explorer)�
 
 ## <a name="query-data-in-analytics"></a>在 Analytics 中查詢資料
 查詢通常以資料表名稱開頭，後面接著一連串以 `|` 隔開的「運算子」。
-例如，讓我們查明應用程式在過去 3 小時內從不同國家/地區收到多少要求：
+比方說，讓我們了解多少要求我們收到來自不同國家/地區，在過去 3 小時內的應用程式：
 ```AIQL
 requests
 | where timestamp > ago(3h)

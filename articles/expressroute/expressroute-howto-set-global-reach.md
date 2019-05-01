@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 8ea3b3580cb70d0453a5ec6a38f6063788ebf7f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364738"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572748"
 ---
 # <a name="configure-expressroute-global-reach"></a>設定 ExpressRoute Global Reach
 
@@ -39,7 +39,7 @@ ms.locfileid: "60364738"
 1. 若要開始設定，登入您的 Azure 帳戶並選取您想要使用的訂用帳戶。
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. 找出您要使用的 ExpressRoute 線路。 您可以在任兩個 ExpressRoute 線路之間啟用 ExpressRoute Global Reach，只要它們位於支援的國家/地區且建立在不同的對等互連位置即可。 
+2. 找出您要使用的 ExpressRoute 線路。 您可以啟用 ExpressRoute 觸及全球範圍之間任何兩個 ExpressRoute 線路，只要它們位於支援的國家/地區，並建立不同的對等互連位置。 
 
    * 如果兩個線路皆為您的訂用帳戶所擁有，則您可以選擇使用任一線路來執行下列各節中的設定。
    * 如果兩個線路在不同的 Azure 訂用帳戶中，您便需要從一個 Azure 訂用帳戶取得授權。 接著，您需在於另一個 Azure 訂用帳戶中執行設定命令時，傳入該授權金鑰。

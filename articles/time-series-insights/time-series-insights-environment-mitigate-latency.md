@@ -12,14 +12,15 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 3a42570b51811cfbdd4329f196b98d75c8cd53f7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 6b5cdf8aebdf584216afef9f1d1421eea8c4ba4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556742"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685156"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>監視與降低節流，以減少 Azure 時間序列深入解析中的延遲
+
 當內送資料的數量超過您的環境設定時，可能會在 Azure 時間序列深入解析中發生延遲或節流。
 
 您可以避免延遲和節流，方法為適當地設定您環境需要分析的資料量。
@@ -31,7 +32,7 @@ ms.locfileid: "53556742"
 - 將大量的歷程記錄事件推送至事件來源，從而導致延隔時間 (時間序列深入解析必須趕上)。
 - 將參考資料與遙測聯結，從而導致較大的事件大小。  就節流的觀點而言，會將封包大小為 32 KB 的輸入資料封包視為 32 個事件，每個大小為 1 KB。 允許的事件大小上限為 32 KB；大於 32 KB 的資料封包會加以截斷。
 
-## <a name="video"></a>視訊： 
+## <a name="video"></a>影片
 
 ### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>在本影片中，我們將說明時間序列深入解析資料輸入行為以及如何進行規劃。</br>
 
@@ -43,7 +44,7 @@ ms.locfileid: "53556742"
 
 1. 在 Azure 入口網站中，按一下 [計量]。 
 
-   ![度量](media/environment-mitigate-latency/add-metrics.png)
+   ![指标](media/environment-mitigate-latency/add-metrics.png)
 
 2. 按一下 [新增計量警示]。  
 
@@ -51,7 +52,7 @@ ms.locfileid: "53556742"
 
 從該處，您可以使用下列計量來設定警示：
 
-|計量  |說明  |
+|計量  |描述  |
 |---------|---------|
 |**輸入接收的位元組**     | 從事件來源讀取的未經處理位元組計數。 未經處理的計數通常會包含屬性名稱和值。  |  
 |**輸入接收的無效訊息**     | 從所有的 Azure 事件中樞或 Azure IoT 中樞事件來源讀取的無效訊息計數。      |
@@ -60,7 +61,6 @@ ms.locfileid: "53556742"
 |**輸入儲存的事件**     |   已儲存且可供查詢的壓平合併事件計數。      |
 |**輸入接收的訊息時間延遲**    |  訊息在事件來源中加入佇列的時間與在輸入中處理的時間之間的差異 (以秒為單位)。      |
 |**輸入接收的訊息計數延遲**    |  事件來源資料分割中最後加入佇列之訊息的序號與輸入中所處理訊息的序號之間的差異。      |
-
 
 ![Latency](media/environment-mitigate-latency/latency.png)
 
@@ -74,11 +74,14 @@ ms.locfileid: "53556742"
 
 此外，如果您懷疑已進行節流，可以比較您 [輸入接收的訊息] 與您事件來源的輸出訊息。  如果事件中樞的輸入大於您 [輸入接收的訊息]，時間序列深入解析就可能會受到節流。
 
-## <a name="improving-performance"></a>改善效能 
+## <a name="improving-performance"></a>改善效能
+
 若要減少節流或發生延遲，最佳的修正方法是增加您環境的容量。 
 
 您可以避免延遲和節流，方法為適當地設定您環境需要分析的資料量。 如需如何將容量新增至您環境的詳細資訊，請參閱[調整您的環境](time-series-insights-how-to-scale-your-environment.md)。
 
 ## <a name="next-steps"></a>後續步驟
+
 - 如需其他的疑難排解步驟，請參閱[在 Time Series Insights 環境中診斷並解決問題](time-series-insights-diagnose-and-solve-problems.md)。
+
 - 如需其他協助，請在 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights)或 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights) 上啟動交談。 您也可以連絡 [Azure 支援](https://azure.microsoft.com/support/options/)以取得協助的支援選項。

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357472"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570827"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
@@ -59,7 +59,7 @@ ms.locfileid: "60357472"
    * 759731 
    * 673801
 
-Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的多重要素驗證即時交付。 為了使用者的利益，Microsoft 可能會在調整路由來改善 SMS 傳遞能力時，隨時新增或移除簡短程式碼。 Microsoft 不支援美國和加拿大以外之國家/地區的簡短程式碼
+Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的多重要素驗證即時交付。 為了使用者的利益，Microsoft 可能會在調整路由來改善 SMS 傳遞能力時，隨時新增或移除簡短程式碼。 Microsoft 不支援美國和加拿大以外的國家/地區的簡短程式碼。
 
 ## <a name="billing"></a>計費
 
@@ -95,7 +95,7 @@ Azure 系統管理員的 Multi-factor Authentication 提供免費存取 Microsof
 
 如果貴組織購買的 MFA 是使用量計費型獨立服務，則您可以在建立 MFA 提供者時選擇計費模式。 您無法在 MFA 提供者建立之後變更計費模型。 不過，您可以刪除 MFA 提供者，然後建立一個使用不同計費模式的 MFA 提供者。
 
-MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租用戶」) 連結。 如果目前的 MFA 提供者已連結到 Azure AD 租用戶，您就可以安全地將 MFA 提供者刪除，並建立連結至相同 Azure AD 租用戶的 MFA 提供者。 或者，如果您購買的 MFA、Azure AD Premium 或 Enterprise Mobility + Security (EMS) 授權已足夠讓啟用 MFA 的所有使用者使用，您可以一併刪除 MFA 提供者。
+建立 MFA 提供者時，它可以連結至 Azure Active Directory 或 「 Azure AD 租用戶。 」 如果目前的 MFA 提供者已連結至 Azure AD 租用戶，您就可以安全地刪除 MFA 提供者，並建立連結至相同的 Azure AD 租用戶的其中一個。 或者，如果您購買的 MFA、Azure AD Premium 或 Enterprise Mobility + Security (EMS) 授權已足夠讓啟用 MFA 的所有使用者使用，您可以一併刪除 MFA 提供者。
 
 如果您的 MFA 提供者未連結至 Azure AD 租用戶，或是您將新的 MFA 提供者連結至不同 Azure AD 租用戶，則使用者設定和組態選項並不會進行轉移。 此外，現有 Azure MFA 伺服器也需要使用新 MFA 提供者產生的啟用認證重新啟動。 重新啟用 MFA 伺服器以將其連結至新的 MFA 提供者，並不會影響電話和簡訊驗證，但所有使用者的行動裝置應用程式通知將會停止運作，直到他們重新啟動行動裝置應用程式。
 
@@ -142,7 +142,7 @@ MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租
 > [!NOTE]
 > 適用於 Office 2013 用戶端的新式驗證
 >
-> 只有不支援最新驗證方式的應用程式需要應用程式密碼。 Office 2013 用戶端支援最新的驗證通訊協定，但需要設定。 現在新式驗證可執行適用於 Office 2013 年 3 月 2015年或更新版本更新任何客戶。 如需詳細資訊，請參閱 <<c0> [ 宣布 Office 2013 現代化驗證公用預覽](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)。
+> 只有不支援最新驗證方式的應用程式需要應用程式密碼。 Office 2013 用戶端支援最新的驗證通訊協定，但需要設定。 現在新式驗證可執行適用於 Office 2013 年 3 月 2015年或更新版本更新任何客戶。 如需詳細資訊，請參閱部落格文章[更新的 Office 365 新式驗證](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)。
 
 **问：我的使用者說他們有時會沒收到簡訊，或回覆雙向簡訊時，驗證逾時。**
 

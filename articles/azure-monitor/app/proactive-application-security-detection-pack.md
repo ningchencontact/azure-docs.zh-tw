@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 16dd381301bdc650022ba5580f96a1733aeb32b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90d58d1b22e893e922aa0f3770198fc95f539419
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199947"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572880"
 ---
 # <a name="application-security-detection-pack-preview"></a>應用程式安全性偵測套件 (預覽)
 
@@ -29,7 +29,7 @@ Application Insights 會自動分析由您的應用程式所產生的遙測，�
 會偵測三種類型的安全性問題：
 1. 不安全的 URL 存取：有人透過 HTTP 和 HTTPS 存取應用程式中的 URL。 一般而言，接受 HTTPS 要求的 URL 不應該接受 HTTP 要求。 這可能表示您的應用程式有錯誤或安全性問題。
 2. 不安全的表單：應用程式中的表單 (或其他 "POST" 要求) 使用 HTTP 而非 HTTPS。 使用 HTTP 可能會危及表單傳送的使用者資料。
-3. 可疑的使用者活動：同一個使用者在大約相同的時間從多個國家/地區存取應用程式。 例如，同一個使用者在同一小時內從西班牙和美國存取應用程式。 此偵測指出對您的應用程式有潛在的惡意存取嘗試。
+3. 可疑使用者活動： 應用程式從進行存取多個國家/地區的相同使用者在大約相同的時間。 例如，同一個使用者在同一小時內從西班牙和美國存取應用程式。 此偵測指出對您的應用程式有潛在的惡意存取嘗試。
 
 ## <a name="does-my-app-definitely-have-a-security-issue"></a>我的應用程式一定會有安全性問題嗎？
 否，通知並不表示您的應用程式一定有安全性問題。 在許多情況下，上述任何案例的偵測可能代表有安全性問題。 不過，偵測可能只是基於商務理由，您可以忽略。
@@ -46,5 +46,5 @@ Application Insights 會自動分析由您的應用程式所產生的遙測，�
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>如何修正「可疑的使用者活動」偵測？
 1. **分級。** 通知會提供展現可疑行為的不同使用者數目。 這可協助您將優先順序指派給此問題。
-2. **範圍。** 可疑要求來自哪個國家/地區？ 哪個使用者最可疑？ 可以從通知取得這項資訊。
-3. **診斷。** 偵測會提供可疑使用者清單和每個使用者的國家/地區清單，協助您進一步診斷問題。
+2. **範圍。** 從哪些國家/地區沒有可疑要求的來源？ 哪個使用者最可疑？ 可以從通知取得這項資訊。
+3. **診斷。** 偵測會提供可疑使用者清單以及每位使用者，可協助您進一步診斷問題的國家/地區的清單。

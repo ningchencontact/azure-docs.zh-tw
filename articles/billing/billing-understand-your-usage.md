@@ -1,93 +1,130 @@
 ---
-title: 了解您的 Azure 詳細使用量 | Microsoft Docs
-description: 了解如何閱讀並了解 Azure 訂用帳戶的詳細使用量 CSV 區段
-services: ''
-documentationcenter: ''
+title: 了解詳細的使用量和費用 |Microsoft Docs
+description: 了解如何閱讀並了解詳細的使用量和費用
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: micflan
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369619"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683993"
 ---
-# <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>了解您 Microsoft Azure 詳細使用量費用的相關字詞 
+# <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>了解您的 Azure 使用量和費用檔案中的詞彙
 
-詳細的使用量費用 CSV 檔案會包含目前計費期間的每日及計量層級使用量費用。 
+詳細的使用量和費用檔案包含根據交涉的費率，購買項目 （例如，保留項目、 Marketplace 費用） 和退費記錄一段指定的每日評分最高的使用量。
+費用不包含信用額度、 稅金或其他費用或折扣。
+下列表格涵蓋哪些費用會包含每一個帳戶類型。
 
-若要取得詳細使用量檔案，請參閱[如何取得您的 Azure 帳單發票和每日使用量資料](billing-download-azure-invoice-daily-usage-date.md)。
-此檔案以逗號分隔值 (.csv) 檔案格式提供，您可以使用試算表應用程式開啟這個檔案。 如果看到两个版本可用，请下载版本 2。 這是最新的檔案格式。
+帳戶類型 | Azure 使用量 | Marketplace 使用方式 | 購買項目 | 退款
+--- | --- | --- | --- | ---
+Enterprise 合約 (EA) | 是 | 是 | 是 | 否
+Microsoft 客戶合約 (MCA) | 是 | 是 | 是 | 是
+預付型方案 (PAYG) | 是 | 否 | 否 | 否
 
-使用量費用是訂用帳戶的**每月**總費用。 使用量費用不會將任何信用額度或折扣列入考慮。
+若要深入了解 Marketplace 訂單 （也稱為外部服務），請參閱[了解您的 Azure 外部服務費用](billing-understand-your-azure-marketplace-charges.md)。
 
->[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
+請參閱[如何取得您的 Azure 帳單發票和每日使用量資料](billing-download-azure-invoice-daily-usage-date.md)如需下載指示。
+使用逗點分隔值 (.csv) 檔案格式，您可以開啟試算表應用程式中的使用量和費用檔案。
 
-## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>詳細使用量檔案的詳細字詞和描述
+## <a name="list-of-terms-and-descriptions"></a>字詞和描述的清單
 
-下列各節說明第 2 版詳細使用量檔案中所示的重要字詞。
+下表描述最新版的 Azure 使用量和費用檔案中使用的重要詞彙。
+本清單已涵蓋隨用隨付 (PAYG) 」、 「 Enterprise 合約 (EA) 和 「 Microsoft 客戶協議 (MCA) 帳戶。
 
-### <a name="statement"></a>陳述式
+詞彙 | 帳戶類型 | 描述
+--- | --- | ---
+AccountName | EA | 註冊帳戶的顯示名稱。
+帳戶擁有者識別碼 | EA | 註冊帳戶的唯一識別碼。
+其他資訊 | 全部 | 服務專屬的中繼資料。 例如，虛擬機器的影像類型。
+BillingAccountId | EA, MCA | 計費帳戶根目錄的唯一識別碼。
+BillingAccountName | EA, MCA | 計費帳戶的名稱。
+BillingCurrency | EA, MCA | 計費帳戶相關聯的貨幣。
+BillingPeriod | EA | 計費期間的費用。
+BillingPeriodEndDate | EA, MCA | 在計費週期結束日期。
+BillingPeriodStartDate | EA, MCA | 在計費週期開始日期。
+BillingProfileId | EA, MCA | EA 註冊或 MCA 帳單設定檔的唯一識別碼。
+BillingProfileName | EA, MCA | EA 註冊或 MCA 帳單設定檔的名稱。
+ChargeType | EA, MCA | 指出其電量是否表示使用量 (**使用量**)，購買 (**購買**)，或退款 (**退款**)。
+ConsumedQuantity | PAYG | 請參閱數量。
+已使用的服務 | 全部 | 免費的服務名稱相關聯。
+成本 | EA | 請參閱 CostInBillingCurrency。
+CostCenter | EA, MCA | 定義用於追蹤成本 （僅適用於開啟 MCA 帳戶的計費期間） 的訂用帳戶成本中心。
+CostInBillingCurrency | MCA | 在 帳單的貨幣信用額度或稅前費用的成本。
+CostInPricingCurrency | MCA | 成本的定價貨幣信用額度或稅前費用。
+貨幣 | PAYG | 請參閱 BillingCurrency。
+date | EA, MCA | 付費的使用方式或購買日期。
+ExchangeRateDate | MCA | 建立貨幣匯率的日期。
+ExchangeRatePricingToBilling | MCA | 用來將帳單的貨幣轉換的成本的定價貨幣的匯率。
+頻率 | EA, MCA | 指出是否必須是重複的費用。 費用可能是發生一次 (**OneTime**)，請重複每月或每年的基礎 (**週期性**)，或根據使用方式 (**UsageBased**)。
+IncludedQuantity | PAYG | 目前計費週期內免費包含的計量數量。
+InstanceId | PAGY | ResourceId，請參閱。
+InvoiceId | EA, MCA | 唯一的文件識別碼列出 PDF 發票上。
+InvoiceSection | MCA | 請參閱 InvoiceSectionName。
+InvoiceSectionId | EA, MCA | EA 部門或 MCA 發票區段的唯一識別碼。
+InvoiceSectionName | EA, MCA | EA 部門或 MCA 發票區段的名稱。
+IsAzureCreditEligible | EA, MCA | 指出是否能夠使用 Azure 信用額度支付的費用 (值：True、 False)。
+位置 | EA, MCA | 正在執行資源的資料中心位置。
+計量類別目錄 | 全部 | 計量的分類類別目錄的名稱。 例如，*雲端服務*並*網路*。
+計量識別碼 | 全部 | 計量的唯一識別碼。
+計量名稱 | 全部 | 計量表的名稱。
+計量地區 | 全部 | 資料中心位置計價的服務名稱的位置為基礎。 請參閱位置。
+計量子類別目錄 | 全部 | 計量 subclassification 類別的名稱。
+OfferId | EA, MCA | 購買的供應項目名稱。
+PartNumber | EA | 用來取得特定的計量器定價的識別碼。
+計劃名稱 | EA | Marketplace 方案名稱。
+PreviousInvoiceId | MCA | 如果這個行項目是退款原始發票的參考。
+PricingCurrency | MCA | 交涉的價格為基礎的評等時所使用的貨幣。
+Products | MCA | 請參閱產品名稱。
+ProductId | EA, MCA | 產品的唯一識別碼。
+ProductName | EA | 產品的名稱。
+ProductOrderId | EA, MCA | 產品順序的唯一識別碼。
+ProductOrderName | EA, MCA | 產品順序的唯一名稱。
+PublisherName | EA, MCA | Marketplace 服務的 「 發行者 」。
+PublisherType | EA, MCA | 「 發行者 」 的型別 (值： firstParty thirdPartyReseller，thirdPartyAgency)。
+數量 | EA, MCA | 購買或耗用的單位數目。
+費率 | PAYG | 請參閱 UnitPrice。
+ReservationId | EA, MCA | 購買的保留執行個體的唯一識別碼。
+ReservationName | EA, MCA | 購買的保留執行個體名稱。
+ResourceGroupId | EA, MCA | 唯一識別項[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)資源為中。
+resourceGroupName | EA, MCA | 名稱[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)資源為中。
+resourceId | EA, MCA | 唯一識別碼[Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources)資源。
+資源位置 | EA, MCA | 正在執行資源的資料中心位置。 請參閱位置。
+ResourceName | EA | 資源名稱。
+ResourceType | MCA | 資源執行個體的型別。
+ServiceFamily | EA, MCA | 服務服務所屬的系列。
+服務資訊 1 | 全部 | 服務專屬的中繼資料。
+服務資訊 2 | 全部 | 舊版欄位，以選擇性的服務特定中繼資料。
+ServicePeriodEndDate | MCA | 分級期間的結束日期，定義並鎖定已使用或購買服務的定價。
+ServicePeriodStartDate | MCA | 分級期間的開始日期，定義並鎖定已使用或購買服務的定價。
+SubscriptionId | 全部 | 訂用帳戶的唯一識別碼。
+SubscriptionName | 全部 | 訂用帳戶的名稱。
+標記 | 全部 | 指派給資源的標記。 不包含資源群組的標記。 可用來群組或散發內部的計費功能的成本。 如需詳細資訊，請參閱[使用標記組織您的 Azure 資源](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)。
+單位 | PAYG | 請參閱 UnitOfMeasure。
+測量單位 | 全部 | 服務的計費的測量單位。 例如，計算服務是按每小時計費。
+UnitPrice | EA | 費用的每單位價格。
+UsageDate | PAYG | 請參閱日期。
 
-詳細使用量 CSV 檔案的上方區段會顯示您在當月計費期間使用的服務。 下表列出本節中所顯示的詞彙和說明。
+請注意，某些欄位而異的大小寫和帳戶類型之間的間距。
+舊版的隨用隨付的使用方式檔案會有另一個區塊的陳述式和每日使用量。
 
-| 术语 | 描述 |
-| --- | --- |
-|計費期間 |使用計量時的計費期間 |
-|計量類別 |識別使用量的最上層服務 |
-|計量子類別 |定義可能會影響費率的 Azure 服務類型 |
-|計量名稱 |識別耗用計量的量值單位 |
-|計量區域 |針對以資料中心位置作為基礎所定價的某些服務，識別資料中心的位置 |
-|SKU |識別每個 Azure 計量的唯一系統識別碼 |
-|單位 |識別服務的計費單位。 例如，GB、小時、10,000 秒。 |
-|已耗用的數量 |計費期間所使用之計量的數量 |
-|已包括的數量 |目前計費期間免費提供之計量的數量 |
-|超額數量 |显示已耗用数量和已包含数量之间的差异。 我們會針對此數量向您收費。 對於不提供供應項目所含數量的隨收隨付供應項目，這個總數會與「已耗用的數量」相同。 |
-|承諾用量期間 |顯示從您的 6 或 12 個月供應項目相關認可用量中減去的計量費用。 計量費用得依時間順序減去。 |
-|貨幣 |目前計費期間所使用的貨幣 |
-|超額部分 |顯示超過您的 6 或 12 個月供應項目相關認可用量的計量費用 |
-|承諾用量費率 |以您的 6 或 12 個月供應項目相關聯總認可用量作為基礎所顯示的認可用量費率 |
-|費率 |每個計費單位向您收取的費率 |
-|Value |顯示 [超額數量] 資料行和 [費率] 資料行兩者相乘的結果。 如果已耗用数量未超过已包含数量，则此列中没有费用。 |
+## <a name="ensure-that-your-charges-are-correct"></a>請確定您的費用正確
 
-### <a name="daily-usage"></a>每日使用量
-
-CSV 檔案的 [每日使用量] 區段會顯示影響收費率的使用量詳細資料。 下表列出本節中所顯示的詞彙和說明。
-
-| 术语 | 描述 |
-| --- | --- |
-|使用日期 |使用計量時的日期 |
-|計量類別 |識別這個使用量所屬的最上層服務 |
-|計量識別碼 |用於訂定計費使用量價格的計費計量識別碼 |
-|計量子類別 |定義可能會影響費率的 Azure 服務類型 |
-|計量名稱 |識別耗用計量的量值單位 |
-|計量區域 |針對以資料中心位置作為基礎所定價的某些服務，識別資料中心的位置 |
-|單位 |識別計量的計費單位。 例如，GB、小時、10,000 秒。 |
-|已耗用的數量 |當日已耗用的計量量 |
-|資源位置 |識別正在執行計量的資料中心 |
-|已耗用的服務 |您所使用的 Azure 平台服務 |
-|資源群組 |部署的資源正在其中執行的計量群組。 <br/><br/>如需詳細資訊，請參閱 [Azure Resource Manager 概觀](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。 |
-|執行個體識別碼 | 計量的識別碼。 <br/><br/> 識別碼包含在建立時為計量指定的名稱。 這會是資源的名稱或完整的資源 ID。 如需詳細資訊，請參閱 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources)。 |
-|標記 | 您指派給計量的標記。 使用標記為帳單記錄分組。<br/><br/>例如，您可以使用標記，根據使用計量的部門散發成本。 支援發出標記的服務為虛擬機器、儲存體，以及使用 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources) 佈建的網路服務。 如需詳細資訊，請參閱[使用標記組織您的 Azure 資源](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)。 |
-|其他資訊 |服務專屬的中繼資料。 例如，虚拟机的映像类型。 |
-|服務資訊 1 |服務在訂用帳戶上所屬的專案名稱 |
-|服務資訊 2 |舊版欄位，可擷取選擇性的服務特定中繼資料 |
-
-## <a name="how-do-i-make-sure-that-the-charges-in-my-detailed-usage-file-are-correct"></a>如何確定我詳細使用量檔案中的費用是否正確？
-如果您需要詳細使用量檔案費用的更多詳細資料，請參閱[了解您的 Microsoft Azure 帳單。](./billing-understand-your-bill.md)
-
-## <a name="external"></a>外部服務費用呢？
-外部服務 (也稱為 Marketplace 訂單) 是由獨立服務廠商提供，並會分開計費。 費用不會顯示在 Azure 發票上。 若要深入了解，請參閱[了解您的 Azure 外部服務費用](billing-understand-your-azure-marketplace-charges.md)。
+若要深入了解詳細的使用量和費用，請參閱如何了解您[隨用隨付](./billing-understand-your-bill.md)或是[Microsoft 客戶合約](billing-mca-understand-your-bill.md)發票。
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+
+## <a name="next-steps"></a>後續步驟
+
+- [檢視及下載您 Microsoft Azure 發票](billing-download-azure-invoice.md)
+- [檢視及下載您的 Microsoft Azure 使用量和費用](billing-download-azure-daily-usage.md)

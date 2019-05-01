@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1838dbb627a6dec46f817101fc1d0cca0961ef77
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929445"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574196"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集
 此常見問題集可回答為 Azure Web Apps 使用及購買 ClearDB MySQL 資料庫的常見問題。
@@ -49,7 +49,7 @@ ms.locfileid: "60929445"
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>我在自己的 Azure 虛擬機器上執行 MySQL。 可以將我的 Azure Web 應用程式連接到我的資料庫嗎？
 是。 只要您的 Azure VM 已將遠端存取權提供給 Web 應用程式，Web 應用程式就能連線到您的資料庫。 如需詳細資訊，請參閱 [在虛擬機器上安裝 MySQL](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>支援 ClearDB Premium MySQL 叢集的國家 (地區)有哪些？
+## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>所在的國家/地區都支援 ClearDB Premium MySQL 叢集嗎？
 ClearDB Premium MySQL 叢集適用於下列區域以外的全球所有 Azure 區域：印度、澳洲、巴西南部及中國。
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>可以於使用 ClearDB Premium 叢集解決方案建立資料庫之前建立新的叢集嗎？
@@ -68,7 +68,7 @@ Azure Marketplace 無法供在亞塞拜然、克羅埃西亞、挪威或波多�
 在 [Azure 入口網站](https://portal.azure.com)，您可以相應增加 ClearDB 共用裝載資料庫。 閱讀[本文](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/)以深入了解。 我們目前不支援 Azure 入口網站中的 ClearDB 進階叢集升級。
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>我在 Azure 入口網站中看不到我的 ClearDB 資料庫？
-如果在傳統入口網站中建立了 ClearDB 資料庫，您在 [Azure 入口網站](https://portal.azure.com)中就看不到您的資料庫。 這個問題目前無法解決。
+如果您在傳統中建立 ClearDB 資料庫，您將無法看到您的資料庫[Azure 入口網站](https://portal.azure.com)。 這個問題目前無法解決。
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>我的資料庫關閉時應向誰連絡尋求支援？
 如有任何資料庫相關的問題，請連絡 [ClearDB 支援](https://www.cleardb.com/developers/help/support) 。 準備好提供問題資訊與您的 Azure 訂用帳戶資訊。

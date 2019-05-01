@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 8f5b470cb3f75f434033a245f4aaa185aeb665c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325913"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571739"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在不同區域的 Azure 虛擬機器上設定 Always On 可用性群組
 
@@ -145,7 +145,7 @@ ms.locfileid: "60325913"
 
 建議您更新用戶端連接字串以設定 `MultiSubnetFailover=Yes`。 請參閱[使用 MultiSubnetFailover 進行連接](https://msdn.microsoft.com/library/gg471494#Anchor_0)。
 
-如果您無法修改連接字串，您可以設定名稱解析快取功能。 請參閱[多子網路可用性群組中的連線逾時 (英文)](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/)。
+如果您無法修改連接字串，您可以設定名稱解析快取功能。 請參閱[逾時錯誤，而且您無法連線到 SQL Server 2012 AlwaysOn 可用性群組接聽程式多重子網路環境中](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av)。
 
 ## <a name="fail-over-to-remote-region"></a>容錯移轉至遠端區域
 

@@ -1,21 +1,19 @@
 ---
 title: 在 Azure HDInsight 中針對 Apache Kafka 設定 SSL 加密及驗證
 description: 針對 Kafka 用戶端和 Kafka 訊息代理程式之間，以及 Kafka 訊息代理程式之間的通訊設定 SSL 加密。 設定用戶端的 SSL 驗證。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 01/15/2019
-ms.date: 04/15/2019
-ms.author: v-yiso
+ms.date: 01/15/2019
+ms.author: hrasheed
 ms.openlocfilehash: 9d8d5e57d0dd7d7022e65a061360c8450848fb4b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114952"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682909"
 ---
 # <a name="setup-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>在 Azure HDInsight 中針對 Apache Kafka 設定安全通訊端層 (SSL) 加密及驗證
 

@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894c42e4102a3565ff43798d33afb4046fda76bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b924746c00a438ec4ac81dacc02905565adf30e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286696"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682119"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure 監視器中的 azure AD 活動記錄
 
@@ -72,14 +72,24 @@ ms.locfileid: "60286696"
 
 每個稽核記錄事件會使用約 2KB 的資料儲存體。 對具有 100,000 名使用者的租用戶而言，每天大約會產生 150 萬個事件，因此您每天需要約 3 GB 的資料儲存體。 由於寫入會以約 5 分鐘的批次執行，因此您可以預期每個月大概會有 9000 個寫入作業。 
 
-下表包含以租用戶大小為準的估計成本，儲存體帳戶是位於美國西部的一般用途 v2 帳戶，保留期間至少一年。 若要針對您預期應用程式將使用的資料量建立更精確的估計值，請使用 [Azure 儲存體定價計算機](https://azure.microsoft.com/pricing/details/storage/blobs/)。 下表只會包含處理/儲存體成本和不在訂用帳戶的成本。 
+
+下表包含以租用戶大小為準的估計成本，儲存體帳戶是位於美國西部的一般用途 v2 帳戶，保留期間至少一年。 若要針對您預期應用程式將使用的資料量建立更精確的估計值，請使用 [Azure 儲存體定價計算機](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
 
-| 記錄分類       | 使用者人數 | 每日事件數 | 每個月 （30 天） 的事件 | 成本的每月美金 (est)。 |
-| ---                | ---             | ---            | ---                        | ---                          | 
-| 稽核和登入 | 100,000         | 16,500,000     | 495,000,000                | $1093                        |
-| 稽核              | 100,000         | 1,500,000      | 45,000,000                 | $246.66                      |
-| 登入           | 100,000         | 15,000,000     | 450,000,000                | $847.28                      |
+| 記錄分類 | 使用者人數 | 每日事件數 | 每月資料量 (估計值) | 每月成本 (估計值) | 每年成本 (估計值) |
+|--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
+| 稽核 | 100,000 | 150&nbsp;萬 | 90 GB | $1.93 | $23.12 |
+| 稽核 | 1,000 | 15,000 | 900 MB | $0.02 | $0.24 |
+| 登入 | 1,000 | 34,800 | 4 GB | $0.13 | $1.56 |
+| 登入 | 100,000 | 1500&nbsp;萬 | 1.7 TB | $35.41 | $424.92 |
+ 
+
+
+
+
+
+
+
 
 
 ### <a name="event-hub-messages-for-activity-logs"></a>活動記錄的事件中樞訊息

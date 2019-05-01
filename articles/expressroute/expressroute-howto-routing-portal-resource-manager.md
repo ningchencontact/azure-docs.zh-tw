@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6d1ce56ef66d224b89f49a00c2883ebbf22a5745
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1f94b7b2ab71afaa40831446e5e5aede00db7b1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364845"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570842"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>建立和修改 ExpressRoute 線路的對等互連
 
@@ -91,7 +91,7 @@ ms.locfileid: "60364845"
 
 ### <a name="getmsft"></a>檢視 Microsoft 對等詳細資訊
 
-選取 Azure 公用對等，即可檢視該對等的屬性。
+您可以檢視 Microsoft 對等互連的對等互連所選取的屬性。
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
@@ -159,6 +159,10 @@ ms.locfileid: "60364845"
 ## <a name="public"></a>Azure 公用對等互連
 
 本節將協助您為 ExpressRoute 線路建立、取得、更新和刪除 Azure 公用對等互連設定。
+
+> [!Note]
+> Azure 公用對等互連已不再支援新的線路。 如需詳細資訊，請參閱 < [ExpressRoute 對等互連](expressroute-circuit-peerings.md)。
+>
 
 ### <a name="to-create-azure-public-peering"></a>建立 Azure 公用對等
 

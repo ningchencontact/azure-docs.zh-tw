@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291b3d506993cfea89be072684835c0d4efe75f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60243097"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571346"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>后续步骤以及如何管理 Azure AD Connect
 使用本文中的操作程序來自訂 Azure Active Directory (Azure AD) Connect，以符合您組織的需要和需求。  
@@ -47,20 +47,21 @@ ms.locfileid: "60243097"
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>確認已排程的同步處理工作
 1. 以系統管理員身分登入 Azure 入口網站。
 2. 選取左邊的 [Active Directory] 。
-3. 在 [Active Directory] 頁面上，在有您想要設定之使用者的目錄上按兩下。
-4. 在 [目錄] 頁面的頂端，選取 [目錄整合] 。
-5. 請注意 [與本機 Active Directory 整合] 下方的上次同步處理時間。
+3. 在左側，選取**Azure AD Connect**
+4. 在頁面頂端，記下上次同步處理。
 
-<center>
-
-![目錄同步處理時間](./media/how-to-connect-post-installation/verify.png)</center>
+![目錄同步處理時間](./media/how-to-connect-post-installation/verify2.png)
 
 ## <a name="start-a-scheduled-synchronization-task"></a>啟動已排定的同步處理工作
-如果您需要執行同步處理工作，只要將 Azure AD Connect 精靈整個再執行一遍即可。  您需要提供 Azure AD 認證。  在精靈中，選取 [自訂同步處理選項] 工作，然後按 [下一步] 來繼續完成精靈步驟。 最後，確定已選取 [初始設定一完成，即開始同步處理程序]  方塊。
+如果您需要執行同步處理工作，您可以藉由：
 
-<center>
-
-![啟動同步處理](./media/how-to-connect-post-installation/startsynch.png)</center>
+1. 按兩下 Azure AD Connect 的桌面捷徑啟動精靈。
+2. 按一下 [設定] 。
+3. 在 [工作] 畫面中，選取**自訂同步處理選項**，按一下 [**下一步]**
+4. 輸入您的 Azure AD 認證
+5. 单击“下一步”。 单击“下一步” 。  单击“下一步”。
+5.  在上**即可設定**畫面上，確定**設定完成時開始同步處理程序**選取方塊。
+6.  按一下 [設定] 。
 
 如需有關 Azure AD Connect 同步排程器的詳細資訊，請參閱 [Azure AD Connect 排程器](how-to-connect-sync-feature-scheduler.md)。
 
@@ -69,13 +70,19 @@ ms.locfileid: "60243097"
 
 下表提供這些工作的摘要及個別工作的簡短描述。
 
-![其他工作清單](./media/how-to-connect-post-installation/addtasks.png)
+![其他工作清單](./media/how-to-connect-post-installation/addtasks2.png)
 
 | 其他工作 | 描述 |
 | --- | --- |
-| **檢視所選取的案例** |檢視目前的 Azure AD Connect 解決方案。  這包括一般設定、同步處理的目錄，以及同步處理設定。 |
+|**隱私權設定**|檢視哪些遙測資料與 Microsoft 共用。|
+|**檢視目前的設定**|檢視目前的 Azure AD Connect 解決方案。  這包括一般設定、同步處理的目錄，以及同步處理設定。 |
 | **自訂同步處理選項** |變更目前的組態，像是將其他 Active Directory 樹系新增到組態中或啟用同步處理選項 (例如使用者、群組、裝置或密碼回寫)。 |
-| **啟用預備模式** |預備不會立即同步處理及匯出到 Azure AD 或內部部署 Active Directory 的資訊。  此功能可讓您在進行同步處理之前，先進行預覽。 |
+|**設定裝置選項**|可用於同步處理的裝置選項|
+|**重新整理目錄結構描述**|可讓您新增新的內部部署目錄物件，進行同步處理|
+|**設定預備模式** |預備不會立即同步處理及匯出到 Azure AD 或內部部署 Active Directory 的資訊。  此功能可讓您在進行同步處理之前，先進行預覽。 |
+|**變更使用者登入**|變更使用者用來登入的驗證方法|
+|**管理同盟**|管理您的 AD FS 基礎結構中，更新憑證，並新增 AD FS 伺服器|
+|**疑難排解**|說明 Azure AD Connect 的問題進行疑難排解|
 
 ## <a name="next-steps"></a>後續步驟
 深入了解[將內部部署身分識別與 Azure Active Directory 整合](whatis-hybrid-identity.md)。

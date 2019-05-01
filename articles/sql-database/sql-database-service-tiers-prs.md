@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d7d1bc95a646527ccdf9d2808aefe6b8f46d7e9a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e12b89d0469587d7d7326bbee30f6467ada06bd5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111760"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574079"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database 進階 RS 服務層 (預覽狀態) 進入淘汰階段 - 移轉選項
 
@@ -100,5 +100,5 @@ ms.locfileid: "62111760"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需特定計算大小的詳細資訊和單一資料庫可用的儲存體大小選項，請參閱[單一資料庫 SQL Database 以虛擬核心為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier)
-- 如需特定計算大小的詳細資訊和彈性集區可用的儲存體大小選項，請參閱[彈性集區的 SQL Database V 核心形式資源限制](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)。
+- 如需特定計算大小的詳細資訊和單一資料庫可用的儲存體大小選項，請參閱[單一資料庫 SQL Database 以虛擬核心為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md)
+- 如需特定計算大小的詳細資訊和彈性集區可用的儲存體大小選項，請參閱[彈性集區的 SQL Database V 核心形式資源限制](sql-database-vcore-resource-limits-elastic-pools.md)。

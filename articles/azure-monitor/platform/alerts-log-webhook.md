@@ -1,6 +1,6 @@
 ---
 title: Azure 警示中各項記錄警示的 Webhook 動作
-description: 本文說明如何記錄警示規則來使用 log analytics 工作區或 application insights，將資料作為 HTTP webhook 推送以及不同的自訂的詳細資料可能。
+description: 本文介绍了使用 Log Analytics 工作区或 Application Insights 的日志警报规则如何作为 HTTP Webhook 推送数据，以及可能的不同自定义设置的详细信息。
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 809c98c1e2e51ae51d7fe03f2165a5d9eecb05cc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515533"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681810"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
 [在 Azure 中建立記錄警示](alerts-log.md)後，您可以選擇[使用動作群組設定](action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
 
+> [!NOTE]
+> 您也可以使用[常見的警示結構描述](https://aka.ms/commonAlertSchemaDocs)、 提供一個可延伸的優點，並統一跨所有警示的警示承載的 webhook 整合服務在 Azure 監視器中。 [深入了解常見的警示的結構描述定義。](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Webhook 動作
 
@@ -54,7 +56,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 | 訂用帳戶識別碼 |#subscriptionid |搭配 Application Insights 使用之 Azure 訂用帳戶的識別碼。 
 
 > [!NOTE]
-> LinkToSearchResults 會將參數 (例如 SearchQuery、URL 中的搜尋間隔開始時間和搜尋間隔結束時間) 傳遞至 Azure 入口網站，以便在 Analytics 區段中檢視。 Azure 入口網站有大小限制，大約 2000年個字元，並將 URI*不*提供在警示中，如果參數值超過該的限制的開啟連結。 使用者可以手動輸入詳細資料，以在 Analytics 入口網站中檢視結果，或使用 [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](/rest/api/loganalytics/) 以程式設計方式擷取結果 
+> LinkToSearchResults 會將參數 (例如 SearchQuery、URL 中的搜尋間隔開始時間和搜尋間隔結束時間) 傳遞至 Azure 入口網站，以便在 Analytics 區段中檢視。 Azure 门户的 URI 大小限制约为 2000 个字符，如果参数值超过此限制，将不会打开警报中提供的链接。 使用者可以手動輸入詳細資料，以在 Analytics 入口網站中檢視結果，或使用 [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](/rest/api/loganalytics/) 以程式設計方式擷取結果 
 
 例如，您可以指定下列自訂承載，其中包含稱為 text 的單一參數。  此 Webhook 所呼叫的服務需要有這個參數。
 
@@ -118,7 +120,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
  ```
 
 > [!NOTE]
-> 嚴重性 欄位值可能會變更，如果您有[切換您 API 的喜好設定](alerts-log-api-switch.md)Log analytics 的記錄警示。
+> 如果在 Log Analytics 上针对日志警报[切换了 API 首选项](alerts-log-api-switch.md)，则“严重性”字段值可能会更改。
 
 
 #### <a name="log-alert-for-azure-application-insights"></a>Azure Application Insights 記錄警示
@@ -202,5 +204,5 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 - 了解[管理 Azure 中的記錄警示](alerts-log.md)
 - 建立和管理 [Azure 中的動作群組](action-groups.md)
 - 深入了解 [Application Insights](../../azure-monitor/app/analytics.md)
-- 深入了解[記錄查詢](../log-query/log-query-overview.md)。 
+- 了解有关[日志查询](../log-query/log-query-overview.md)的详细信息。 
 

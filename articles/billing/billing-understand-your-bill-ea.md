@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 810d0795bd005cc313ec3567811ad55ba1d9d522
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369988"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571200"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>了解 Azure Enterprise 合約帳單
 
@@ -29,7 +29,7 @@ ms.locfileid: "60369988"
 
 ## <a name="invoices-for-most-customers"></a>對大多數客戶的發票
 
-本節不適用於在澳洲、 日本、 或新加坡的 Azure 客戶。 如果您是在這些國家/地區的其中一個，請參閱[若為其他客戶的發票](#invoices-for-other-customers)。
+本節不適用於在澳洲、 日本、 或新加坡的 Azure 客戶。 如果您是在其中一個國家/地區/區域，請參閱[若為其他客戶的發票](#invoices-for-other-customers)。
 
 在您的計費週期期間發生下列其中一項時，您會收到 Azure 發票：
 
