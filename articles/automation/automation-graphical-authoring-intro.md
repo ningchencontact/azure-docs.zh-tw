@@ -44,7 +44,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。 �
 
 程式庫控制項是您選取 [活動](#activities) 以加入至您的 Runbook 的位置。 您會將它們加入畫布，在畫布中將它們連接到其他活動。 它包含下表所述的四個區段：
 
-| 區段 | 描述 |
+| Section | 描述 |
 |:--- |:--- |
 | Cmdlet |包含可以在 Runbook 中使用的所有 Cmdlet。 Cmdlet 是依模組組織。 已在您自動化帳戶中安裝的所有模組皆可供使用。 |
 | runbook |包含自動化帳戶中的 Runbook。 這些 Runbook 可以加入至畫布以做為子 Runbook。 只會顯示與所編輯之 Runbook 相同核心類型的 Runbook。針對圖形化 Runbook，只會顯示以 PowerShell 為基礎的 Runbook，而針對圖形化 PowerShell 工作流程 Runbook，只會顯示以 PowerShell 工作流程為基礎的 Runbook。 |

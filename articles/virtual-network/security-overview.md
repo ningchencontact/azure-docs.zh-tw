@@ -35,7 +35,7 @@ ms.locfileid: "60731652"
 |名稱|網路安全性群組中的唯一名稱。|
 |優先順序 | 100 和 4096 之間的數字。 系統會依照優先權順序處理規則，較低的數字會在較高的數字之前處理，因為較低的數字具有較高的優先順序。 一旦流量符合規則，處理就會停止。 因此，如果存在較低優先順序 (較高數字) 的規則具有與較高優先順序之規則相同的屬性，則不會進行處理。|
 |來源或目的地| 任何或個別的 IP 位址、無類別網域間路由 (CIDR) 區塊 (例如 10.0.0.0/24)、[服務標籤](#service-tags)或[應用程式安全性群組](#application-security-groups)。 當您指定 Azure 資源的位址時，可以指定指派給資源的私人 IP 位址。 在 Azure 針對輸入流量將公用 IP 位址轉譯為私人 IP 位址之後，和 Azure 針對輸出流量將私人 IP 位址轉譯為公用 IP 位址之前，網路安全性群組會進行處理。 深入了解 Azure [IP 位址](virtual-network-ip-addresses-overview-arm.md)。 指定範圍、服務標籤或應用程式安全性群組，可讓您建立較少的安全性規則。 在規則中指定多個個別 IP 位址和範圍 (您無法指定多個服務標籤或應用程式群組) 的功能也稱為[增強型安全性規則](#augmented-security-rules)。 增強型安全性規則只可以在透過 Resource Manager 部署模型建立的網路安全性群組中建立。 您無法在透過傳統部署模型建立的網路安全性群組中指定多個 IP 位址與 IP 位址範圍。 深入了解 Azure [部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。|
-|通訊協定     | TCP、UDP 或 [任何]，其中包括 (但不限於) TCP、 UDP 和 ICMP。 您無法單獨指定 ICMP，如果您需要 ICMP，則必須使用 [任何]。 |
+|Protocol     | TCP、UDP 或 [任何]，其中包括 (但不限於) TCP、 UDP 和 ICMP。 您無法單獨指定 ICMP，如果您需要 ICMP，則必須使用 [任何]。 |
 |Direction| 規則是否套用至輸入或輸出流量。|
 |連接埠範圍     |您可以指定個別連接埠或連接埠範圍。 例如，您可以指定 80 或 10000-10005。 指定範圍可讓您建立較少的安全性規則。 增強型安全性規則只可以在透過 Resource Manager 部署模型建立的網路安全性群組中建立。 您無法在透過傳統部署模型建立之網路安全性群組的相同安全性規則中指定多個連接埠與連接埠範圍。   |
 |動作     | 允許或拒絕        |
@@ -96,19 +96,19 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|優先順序|來源|來源連接埠|目的地|目的地連接埠|通訊協定|Access|
+|優先順序|來源|來源連接埠|目的地|目的地連接埠|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|全部|允許|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|優先順序|來源|來源連接埠|目的地|目的地連接埠|通訊協定|Access|
+|優先順序|來源|來源連接埠|目的地|目的地連接埠|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|全部|允許|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|優先順序|來源|來源連接埠|目的地|目的地連接埠|通訊協定|Access|
+|優先順序|來源|來源連接埠|目的地|目的地連接埠|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|全部|拒絕|
 
@@ -116,19 +116,19 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | 通訊協定 | Access |
+|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 全部 | 允許 |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | 通訊協定 | Access |
+|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | 全部 | 允許 |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | 通訊協定 | Access |
+|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 全部 | 拒絕 |
 
@@ -148,7 +148,7 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 需要此規則才能讓流量從網際網路流向 Web 伺服器。 因為來自網際網路的輸入流量會遭到 [DenyAllInbound](#denyallinbound) 預設安全性規則拒絕，而 AsgLogic 或 AsgDb 應用程式安全性群組則不需要其他規則。
 
-|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | 通訊協定 | Access |
+|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | 允許 |
 
@@ -156,7 +156,7 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 由於 [AllowVNetInBound](#allowvnetinbound) 預設安全性規則允許相同虛擬網路中各資源之間的所有通訊，因此需要此規則才能拒絕來自所有資源的流量。
 
-|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | 通訊協定 | Access |
+|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | 全部 | 拒絕 |
 
@@ -164,7 +164,7 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 此規則會允許流量從 AsgLogic應用程式安全性群組流向 AsgDb 應用程式安全性群組。 此規則的優先順序高於 Deny-Database-All  規則的優先順序。 如此一來，此規則會在 Deny-Database-All 規則之前進行處理，因此系統會允許來自 AsgLogic 應用程式安全性群組的流量，但所有其他流量仍會遭到封鎖。
 
-|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | 通訊協定 | Access |
+|優先順序|來源|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | 允許 |
 
