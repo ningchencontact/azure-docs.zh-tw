@@ -10,7 +10,7 @@ ms.date: 02/28/2019
 ms.author: normesta
 ms.openlocfilehash: d56fb411eb032e5e6227d68cd8abe02c0e30850b
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60708459"

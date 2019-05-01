@@ -9,7 +9,7 @@ ms.date: 12/20/2018
 ms.author: absha
 ms.openlocfilehash: 4747d824dcf531ed883d476a0daad182ea081c39
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60715091"

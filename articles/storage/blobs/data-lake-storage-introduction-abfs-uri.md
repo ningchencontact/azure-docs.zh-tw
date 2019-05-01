@@ -2,15 +2,16 @@
 title: 使用 Azure Data Lake Storage Gen2 URI
 description: 使用 Azure Data Lake Storage Gen2 URI
 services: storage
-author: jamesbak
+author: normesta
 ms.topic: conceptual
-ms.author: jamesbak
+ms.author: normesta
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
+ms.reviewer: jamesbak
 ms.openlocfilehash: e4f148ac6f66cfbd7d89eff3623418197c2e0a33
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60708476"

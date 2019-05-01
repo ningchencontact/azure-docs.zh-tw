@@ -2,21 +2,14 @@
 title: Azure Marketplace 和 AppSource 的慣用解決方案
 description: 一覽 Marketplace 中的慣用解決方案，並概略說明慣用解決方案的挑選方式
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
-manager: ''
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: ellacroi
 ms.openlocfilehash: dba917da81b2060f3e3c136fe87d7225e858d879
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60733822"
