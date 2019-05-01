@@ -1,22 +1,28 @@
 ---
-title: Azure 地圖服務中的支援語言 | Microsoft Docs
+title: Azure 地圖服務中的當地語系化支援 |Microsoft Docs
 description: 了解 Azure 地圖服務中服務的支援語言
-author: juliekohler
-ms.author: julieko
-ms.date: 04/08/2019
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769187"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686775"
 ---
-# <a name="azure-maps-supported-languages"></a>Azure 地圖服務支援的語言
-Azure 地圖服務已經跨服務當地語系化為各種語言。  下表提供每個服務的支援語言代碼。  
+# <a name="localization-support-in-azure-maps"></a>Azure 地圖服務中的當地語系化支援
+
+Azure 地圖服務支援各種不同的語言和國家/地區為基礎的檢視。 本文提供支援的語言和檢視，可協助引導您 Azure 地圖服務的實作。
+
+
+## <a name="azure-maps-supported-languages"></a>Azure 地圖服務支援的語言
+
+Azure 地圖服務已經跨服務當地語系化為各種語言。 下表提供每個服務的支援語言代碼。  
   
 
 | ID         | 名稱                   |  地圖 | Search | 路由 | 流量事件 | JS 地圖控制項 | 時區 |
@@ -75,3 +81,30 @@ Azure 地圖服務已經跨服務當地語系化為各種語言。  下表提�
 | tr-TR      | 土耳其文                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | uk-UA      | 烏克蘭文               |       |    ✓   |         |                   |                |     ✓     |
 | vi-VN      | 越南文             |       |    ✓   |         |                   |                |     ✓     |
+
+
+## <a name="azure-maps-supported-views"></a>Azure 地圖服務支援檢視
+
+Azure （也稱為 「 使用者區域參數 」） 的對應資料集參數是 2 個字母 ISO 3166 國家/地區的程式碼會顯示指定的地理政治集該國家/地區的正確對應有爭議的框線，標籤會顯示在地圖上。  View 參數設定為預設 **"Unified"**。  不在 [檢視] 清單的國家/地區會預設為"Unified"檢視。 您必須負責判斷您的使用者的位置，然後設定 View 參數，該位置的正確。 在 Azure 地圖服務檢視參數必須使用符合當地法律，包括與國家/地區位置地圖、 影像和其他資料和第三方內容，您會授權存取透過 Azure 地圖服務的相關對應可供。
+
+下表提供支援的檢視。
+
+| 檢視         | 描述                            |  地圖 | Search | JS 地圖控制項 |
+|--------------|----------------------------------------|:-----:|:------:|:--------------:|
+| AE           | 阿拉伯聯合大公國 （阿拉伯文檢視）    |   ✓   |        |     ✓          |
+| AR           | 阿根廷 （阿根廷檢視）           |   ✓   |    ✓   |     ✓          |
+| BH           | 巴林 （阿拉伯文檢視）                 |   ✓   |        |     ✓          |
+| IN           | 印度 （印度檢視）                    |   ✓   |   ✓     |     ✓          |
+| IQ           | 伊拉克 （阿拉伯文檢視）                    |   ✓   |        |     ✓          |
+| JO           | 約旦 （阿拉伯文檢視）                  |   ✓   |        |     ✓          |
+| KW           | 科威特 （阿拉伯文檢視）                  |   ✓   |        |     ✓          |
+| LB           | 黎巴嫩 （阿拉伯文檢視）                 |   ✓   |        |     ✓          |
+| MA           | 摩洛哥 （摩洛哥檢視）                |   ✓   |   ✓     |     ✓          |
+| OM           | 阿曼 （阿拉伯文檢視）                    |   ✓   |        |     ✓          |
+| PK           | 巴基斯坦 （巴基斯坦檢視）              |   ✓   |    ✓    |     ✓          |
+| PS           | 巴勒斯坦民族權力機構 （阿拉伯文檢視）    |   ✓   |        |     ✓          |
+| QA           | 卡達 （阿拉伯文檢視）                   |   ✓   |        |     ✓          |
+| SA           | 沙烏地阿拉伯 （阿拉伯文檢視）            |   ✓   |        |     ✓          |
+| SY           | 敘利亞 （阿拉伯文檢視）                   |   ✓   |        |     ✓          |
+| YE           | 葉門 （阿拉伯文檢視）                   |   ✓   |        |     ✓          |
+| 整合      | （其他） 的統一的檢視                  |   ✓   |   ✓     |     ✓          |

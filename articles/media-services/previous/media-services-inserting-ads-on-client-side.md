@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8b0f5cdcf5a24513b89a2523be71dd74a1a2859b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 8f5cdc33e48d647dba8caeb09b57e233d64712f6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484826"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687737"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>在用戶端插入廣告
 本文包含如何在用戶端上插入各種類型廣告的相關資訊。
@@ -170,7 +170,7 @@ Application/x-shockwave-flash – 資源在 Flash Player 中顯示。
 
 **IFrameResource** 說明可在 IFrame 中顯示的 HTML 資源。 **HTMLResource** 說明可插入網頁的 HTML 程式碼片段。 **TrackingEvents** 指定追蹤事件以及當發生事件時要求的 URI。 在此範例中，會追蹤 acceptInvitation 和 collapse 事件。 如需有關 **NonLinearAds** 元素和其子系的詳細資訊，請參閱 IAB.NET/VAST。 請注意，**TrackingEvents** 元素位於 **NonLinearAds** 元素內，而不是 **NonLinear** 元素中。
 
-隨播廣告會在 `<CompanionAds>` 元素內定義。 `<CompanionAds>` 元素可以包含一或多個 `<Companion>` 元素。 每個 `<Companion>` 元素都會說明隨播廣告，而且可以包含 `<StaticResource>`、`<IFrameResource>` 或 `<HTMLResource>`，其指定方式與非線性廣告相同。 VAST 檔案可以包含多個隨播廣告，而且播放器應用程式可以選擇要顯示的最適當廣告。 如需 VAST 的詳細資訊，請參閱 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)。
+隨播廣告會在 `<CompanionAds>` 元素內定義。 `<CompanionAds>` 元素可以包含一或多個 `<Companion>` 元素。 每個 `<Companion>` 元素都會說明隨播廣告，而且可以包含 `<StaticResource>`、`<IFrameResource>` 或 `<HTMLResource>`，其指定方式與非線性廣告相同。 VAST 檔案可以包含多個隨播廣告，而且播放器應用程式可以選擇要顯示的最適當廣告。 如需 VAST 的詳細資訊，請參閱 [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf)。
 
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>使用 Digital Video Multiple Ad Playlist (VMAP) 檔案
 VMAP 檔案可讓您指定何時插播廣告、每個插播多久、插播中可以顯示多少廣告，以及插播期間可以顯示哪些類型的廣告。 範例 VMAP 檔案中的下列項目會定義單一廣告插播：
@@ -243,7 +243,7 @@ VMAP 檔案開頭為 `<VMAP>` 元素，包含一或多個 `<AdBreak>` 元素，�
 * `<AdTagURI>` 從另一個系統參考廣告回應的 URI
 * `<CustomAdData>` -表示非 VAST 回應的任意字串
 
-在這個範例中，內嵌廣告回應是以 `<VASTAdData>` 元素指定，該元素包含 VAST 廣告回應。 如需其他元素的詳細資訊，請參閱 [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap)。
+在這個範例中，內嵌廣告回應是以 `<VASTAdData>` 元素指定，該元素包含 VAST 廣告回應。 如需其他元素的詳細資訊，請參閱 [VMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap)。
 
 <**AdBreak**> 元素也可以包含一個 <**TrackingEvents**> 元素。 <**TrackingEvents**> 元素可讓您追蹤廣告插播的開頭或結束，或廣告插播期間是否發生錯誤。 <**TrackingEvents**> 元素包含一或多個 <**Tracking**> 元素，每個元素會指定追蹤事件和追蹤 URI。 可能的追蹤事件如下：
 
@@ -363,7 +363,7 @@ VPAID 是 API，用於啟用可執行廣告單元，以便與視訊播放器通�
     </MediaFiles>
 ```
 
-可以使用 VAST 回應中 `<Linear>` 或 `<NonLinear>` 元素內的 `<AdParameters>` 元素，初始化可執行廣告。 如需 `<AdParameters>` 元素的詳細資訊，請參閱 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)。 如需 VPAID API 的詳細資訊，請參閱 [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf)。
+可以使用 VAST 回應中 `<Linear>` 或 `<NonLinear>` 元素內的 `<AdParameters>` 元素，初始化可執行廣告。 如需 `<AdParameters>` 元素的詳細資訊，請參閱 [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf)。 如需 VPAID API 的詳細資訊，請參閱 [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf)。
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>實作包含廣告支援的 Windows 或 Windows Phone 8 播放器
 Microsoft 媒體平台：Player Framework for Windows 8 和 Windows Phone 8 包含範例應用程式集合，為您示範如何使用架構實作視訊播放器應用程式。 您可以從 [適用於Windows 8 和 Windows Phone 8 的 Player Framework](https://playerframework.codeplex.com)下載 Player Framework 和範例。

@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 02e9b64c89eda1471d644e0116bbf8c1c061ccc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548399"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682523"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>將您的臉部資料移轉至其他臉部訂用帳戶
 
 本指南示範如何使用「快照集」功能，將臉部資料 (例如，已儲存的 **PersonGroup** 臉部) 移動到其他 臉部 API 訂用帳戶。 這可讓您在移動或擴充您的作業時，避免重複建立和定型 **PersonGroup** 或是 **FaceList**。 例如，您可能已使用免費試用版訂用帳戶建立 **PersonGroup**，但現在想要將它移轉至您的付費訂用帳戶，或您可能需要將臉部資料同步處理至跨區域的大型企業作業。
 
-相同的移轉策略也適用於 **LargePersonGroup** 和 **LargeFaceList** 物件。 如果您不熟悉本指南中的概念，請在[詞彙](../Glossary.md)中參閱其定義。 本指南搭配使用臉部 API .NET 用戶端程式庫和 C#。
+相同的移轉策略也適用於 **LargePersonGroup** 和 **LargeFaceList** 物件。 如果您不熟悉本指南中的概念，請參閱在其定義[臉部辨識概念](../concepts/face-recognition.md)指南。 本指南搭配使用臉部 API .NET 用戶端程式庫和 C#。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,15 +29,13 @@ ms.locfileid: "59548399"
 - 對應到目標訂用帳戶的臉部 API 訂用帳戶識別碼 (可在 Azure 入口網站中的 [概觀] 刀鋒視窗中找到)。 
 - 任何 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 版本。
 
-
 ## <a name="create-the-visual-studio-project"></a>建立 Visual Studio 專案
 
 本指南將使用簡單的主控台應用程式來執行臉部資料移轉。 如需完整的實作，請參閱 GitHub 上的[臉部 API 快照集範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)。
 
-1. 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案，並將它命名為 **FaceApiSnapshotSample**。 
+1. 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案，並將它命名為 **FaceApiSnapshotSample**。
 1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [管理 NuGet 套件]。 按一下 [瀏覽] 索引標籤，並選取 [包含發行前版本]；然後尋找並安裝下列套件：
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview) \(英文\)
-
 
 ## <a name="create-face-clients"></a>建立臉部用戶端
 
@@ -226,7 +224,9 @@ private static async Task IdentifyInPersonGroup(IFaceClient client, string perso
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="related-topics"></a>相關主題
+## <a name="next-steps"></a>後續步驟
+
+接下來，請參閱相關的 API 參考文件，瀏覽範例應用程式使用快照集功能，或遵循開始使用這裡所述的其他 API 作業的操作說明指南。
 
 - [快照集參考文件 (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [臉部 API 快照集範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

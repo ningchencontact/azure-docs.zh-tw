@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6775f6e37a5b282afcfcdce7f93751e852923366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60349550"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571367"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect：當您有現有的租用戶時
 大部分說明如何使用 Azure AD Connect 的主題會假設您開始使用新的 Azure AD 租用戶，而且沒有任何使用者或其他物件。 但如果您開始使用 Azure AD 租用戶，且以使用者和其他物件填入，而現在想要使用 Connect，則這個主題很適用於您。
@@ -58,6 +58,15 @@ Azure AD 中的物件可能會在雲端 (Azure AD) 中受控或內部部署。 �
 
 ### <a name="other-objects-than-users"></a>使用者以外的其他物件
 對於擁有郵件功能的群組和連絡人，您可以根據 proxyAddresses 來大致比對。 精確比對不適用，因為您只能更新使用者的 sourceAnchor/immutableID (使用 PowerShell)。 對於未擁有郵件功能的群組，目前不支援大致比對或精確比對。
+
+### <a name="admin-role-considerations"></a>系統管理員角色的考量
+若要防止不受信任內部部署使用者符合具有任何管理員角色的雲端使用者，Azure AD Connect 不會符合內部部署使用者物件，與具有系統管理員角色的物件。 這是預設值。 若要解決此行為，您可以執行下列動作：
+
+1.  從僅限雲端使用者物件中移除目錄角色
+2.  觸發同步處理
+3.  （選擇性） 之後發生的比對，請回到使用者物件，在雲端中新增目錄角色。
+
+
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>從 Azure AD 中的資料建立新的內部部署 Active Directory
 有些客戶開始使用僅限雲端的解決方案與 Azure AD，且他們沒有內部部署 AD。 稍後，他們要使用內部部署資源，而且想要根據 Azure AD 資料建置內部部署 AD。 Azure AD Connect 無法針對此案例協助您。 它不會在內部部署建立使用者，且它無法在內部部署將密碼設定為與 Azure AD 中的相同。

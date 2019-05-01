@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5028a05fe74f1d19ed5e43ac797df87bbe3382e8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a3087718a3eece1e19f05757ace64ba00aa0dc58
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680718"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682676"
 ---
 # <a name="install-and-run-face-containers"></a>安裝並執行臉部的容器
 
@@ -34,10 +34,9 @@ ms.locfileid: "59680718"
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
 |Azure`Cognitive Services`資源 |若要使用此容器，您必須具備：<br><br>A_認知服務_Azure 資源和相關聯的計費金鑰計費的端點 URI。 這兩個值都位於 概觀 和 索引鍵的頁面，資源，才能啟動容器。 您需要新增`face/v1.0`BILLING_ENDPOINT_URI 下例所示，路由傳送至端點 URI。 <br><br>**{BILLING_KEY}**：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}**：端點 URI 範例為：`https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-
 ## <a name="request-access-to-the-private-container-registry"></a>要求私人容器登錄的存取
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>主機電腦
 
@@ -84,7 +83,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 
 使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來執行三個容器的其中一個。 此命令會使用下列參數：
 
-| Placeholder | 值 |
+| Placeholder | Value |
 |-------------|-------|
 |{BILLING_KEY} | 此金鑰用來啟動容器時，且可在 Azure`Cognitive Services`金鑰 頁面。  |
 |{BILLING_ENDPOINT_URI} | 計費的端點 URI 值是可在 Azure`Cognitive Services`概觀 頁面。 以下是範例： `https://westus.api.cognitive.microsoft.com/face/v1.0`|
@@ -162,5 +161,4 @@ ApiKey={BILLING_KEY}
 * 檢閱[設定容器](face-resource-container-config.md)以了解組態設定
 * 檢閱[臉部概觀](Overview.md)以深入了解偵測與識別臉部  
 * 參閱[臉部 API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) \(英文\) 以取得容器所支援之方法的詳細資訊。
-* 參閱[常見問題集 (FAQ)](FAQ.md) 來解決與臉部功能相關的問題。
 * 使用更多[認知服務容器](../cognitive-services-container-support.md)

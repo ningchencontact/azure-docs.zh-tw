@@ -1,6 +1,6 @@
 ---
-title: 計算節點環境變數 - Azure Batch | Microsoft Docs
-description: Azure Batch 分析的計算節點環境變數參考。
+title: 工作執行階段環境變數-Azure Batch |Microsoft Docs
+description: 工作執行階段環境變數的指引和 Azure Batch 分析的參考。
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/07/2019
+ms.date: 04/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782220"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575572"
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 計算節點環境變數
+# <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 執行階段環境變數
 
 [Azure Batch 服務](https://azure.microsoft.com/services/batch/)會在計算節點上設定下列環境變數。 您可以在工作命令列中，以及由該命令列執行的程式及指令碼中，參照這些環境變數。
 
@@ -28,6 +28,12 @@ ms.locfileid: "60782220"
 ## <a name="environment-variable-visibility"></a>環境變數可見性
 
 這些環境變數僅適用於**工作使用者**的內容中，也就是工作執行所在節點上的使用者帳戶。 如果您透過遠端桌面通訊協定 (RDP) 或安全殼層 (SSH) [遠端連線](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes)到計算節點，並列出環境變數，您將*不會*看見這些環境變數。 這是因為用於遠端連線的使用者帳戶與工作所用的帳戶不同。
+
+若要取得環境變數的目前值，請啟動`cmd.exe`上的 Windows 計算節點或`/bin/sh`在 Linux 節點上：
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>環境變數的命令列擴充功能
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: f0c9b84f31810a4b0cec93738f7ce327bc24d8d0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101603"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685626"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新適用於容器的 Azure 監視器，若要啟用度量
 適用於容器的 azure 監視器引進了從 Azure Kubernetes Service (AKS) 叢集節點和 pod 收集計量並將它們寫入至 Azure 監視器計量存放區的支援。 這項變更被要呈現在效能圖表，支援釘選在 Azure 入口網站儀表板中的效能圖表中的彙總計算 （Avg、 Count、 最大、 最小值、 總和） 時提供改良的時效性和支援的計量警示。

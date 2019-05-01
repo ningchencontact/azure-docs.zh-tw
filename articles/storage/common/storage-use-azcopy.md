@@ -8,29 +8,35 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a91910d474b13fe8cc5306c53109575d2883224e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728979"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572943"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 AzCopy on Windows 傳送資料
+
 AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的簡單命令來將資料複製到/複製出 Microsoft Azure Blob、檔案和表格儲存體所設計。 您可以在檔案系統和儲存體帳戶之間，或者儲存體帳戶之間複製資料。  
 
-有兩個 AzCopy 版本可供您下載。 AzCopy on Windows 提供了 Windows 樣式的命令列選項。 [AzCopy on Linux](storage-use-azcopy-linux.md) 以 Linux 平台為目標，提供 POSIX 樣式的命令列選項。 本文涵蓋之內容包括 AzCopy on Windows。
+> [!IMPORTANT]
+> 本文說明較舊版本的 AzCopy。
+>若要安裝最新版本的 AzCopy，請參閱[AzCopy v10](storage-use-azcopy-v10.md)。
 
-## <a name="download-and-install-azcopy-on-windows"></a>在 Windows 上下載並安裝 AzCopy
+如果您選擇安裝較舊版本的 AzCopy (AzCopy v8.1)，則有多個版本可供您下載。 AzCopy on Windows 提供了 Windows 樣式的命令列選項。 [AzCopy on Linux](storage-use-azcopy-linux.md) 以 Linux 平台為目標，提供 POSIX 樣式的命令列選項。 本文涵蓋之內容包括 AzCopy on Windows。
 
-### <a name="latest-version-v81"></a>最新版本 (v8.1)
-下載 [最新版本的 AzCopy on Windows](https://aka.ms/downloadazcopy)。
+## <a name="download-and-install-azcopy-v81-on-windows"></a>下載並安裝在 Windows 上的 AzCopy (v8.1)
+
+下載[在 Windows 上的 AzCopy (v8.1)](https://aka.ms/downloadazcopy)。
 
 #### <a name="azcopy-on-windows-81-release-notes"></a>AzCopy on Windows 8.1 版本資訊
+
 - 最新版不再支援資料表服務。 如果您會使用資料表匯出功能，請下載 AzCopy 7.3 版。
 - 使用 .NET Core 2.1 建置，且現已在安裝中封裝所有 .NET Core 相依項目。
 - 已新增 OAuth 驗證支援。 使用 ```azcopy login``` 以 Azure Active Directory 登入。
 
 ### <a name="azcopy-with-table-support-v73"></a>AzCopy (含資料表支援) (v7.3)
+
 下載 [AzCopy 7.3 (含資料表支援)](https://aka.ms/downloadazcopynet)。
 
 ### <a name="post-installation-step"></a>後續安裝步驟

@@ -1,28 +1,19 @@
 ---
 title: 採用 Visual Studio 和 C# 的 Apache Storm 拓撲 - Azure HDInsight
 description: 了解如何使用 C# 建立 Storm 拓撲。 使用適用於 Visual Studio 的 Hadoop 工具在 Visual Studio 中建立簡單的字數統計拓撲。
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: ''
-ms.devlang: java
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 11/27/2017
-ms.date: 04/01/2019
-ms.author: v-yiso
+ms.date: 11/27/2017
+ROBOTS: NOINDEX
 ms.openlocfilehash: 14aa45808f44f7ca6fe34b70ef282a99f230bf0d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125216"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687761"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 開發 Apache Storm 的 C# 拓撲
 
@@ -30,7 +21,7 @@ ms.locfileid: "62125216"
 
 同时还说明了如何创建使用 C# 和 Java 组件的混合拓扑。
 
-> [!NOTE]
+> [!NOTE]  
 > 雖然本文件中的步驟依賴 Windows 開發環境與 Visual Studio，但已編譯的專案可以提交到以 Linux 或 Windows 為基礎的 HDInsight 叢集。 只有在 2016 年 10 月 28 日之後所建立之以 Linux 為基礎的叢集可支援 SCP.NET 拓撲。
 
 若要搭配使用 C# 拓撲與以 Linux 為基礎的叢集，您必須將專案使用的 Microsoft.SCP.Net.SDK NuGet 套件更新為 0.10.0.6 版或更新版本。 套件版本也必須符合 HDInsight 上安裝的 Storm 主要版本。
@@ -42,7 +33,7 @@ ms.locfileid: "62125216"
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 基于 Linux 的群集上的 C# 拓扑必须使用 .NET 4.5，并使用 Mono 在 HDInsight 群集上运行。 查看 [Mono 相容性](https://www.mono-project.com/docs/about-mono/compatibility/) \(英文\) 以了解可能的不相容情形。
 
 ## <a name="install-visual-studio"></a>安裝 Visual Studio
@@ -133,7 +124,7 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
 
 ### <a name="eventhub-templates-notes"></a>EventHub 模板说明
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 包含在 EventHub Reader 讀取器範本中，以 Java 為基礎的 EventHub Spout 元件可能無法與 Storm on HDInsight 3.5 版或更新版本搭配使用。 此元件的更新版本可在 [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib) \(英文\) 取得。
 
 如需使用此元件和搭配 Storm on HDInsight 3.5 使用的範例拓撲，請參閱 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub) \(英文\)。
@@ -238,7 +229,7 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
 
    * **Counter.cs**：實作會計算每個字組數目，並發出新的一串字組和每個字組計數的 Bolt。
 
-     > [!NOTE]
+     > [!NOTE]  
      > 這些 Bolt 會讀取和寫入資料流，但是您也可以使用 Bolt 與資料庫或服務等來源進行通訊。
 
 3. 開啟 **Splitter.cs**。 它預設只有一個方法：**Execute**。 這是在 Bolt 收到要處理的 Tuple 時所呼叫的執行方法。 此时，可读取和处理传入元组，以及发出传出元组。
@@ -416,21 +407,21 @@ return topologyBuilder;
 
 1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如果出现提示，请输入 Azure 订阅的凭据。 如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
 
 2. 從 [Storm 叢集] 下拉式清單中選取 Storm on HDInsight 叢集，然後選取 [提交]。 您可以使用 [輸出]  視窗監視提交是否成功。
 
 3. 順利提交拓撲時，應該會出現叢集的 [Storm 拓撲]  。 從清單中選取 [WordCount]  拓撲，以檢視執行中拓撲的詳細資訊。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 您也可以從 [伺服器總管] 檢視 [Storm 拓撲]。 展開 [Azure] > [HDInsight]，以滑鼠右鍵按一下 Storm on HDInsight 叢集，然後選取 [檢視 Storm 拓撲]。
 
     若要檢視拓撲中元件的相關資訊，請按兩下圖表中的元件。
 
 4. 在“拓扑摘要”视图中，单击“终止”以停止拓扑。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 除非停用 Storm 拓撲或刪除叢集，否則 Storm 拓撲會繼續執行。
 
 ## <a name="transactional-topology"></a>交易式拓撲
@@ -467,13 +458,13 @@ return topologyBuilder;
 
     * 交易式版本定義於 **HybridTopologyTx_csharpSpout_javaBolt**。
 
-  > [!NOTE]
+  > [!NOTE]  
   > 這個版本也會示範如何使用文字檔中的 Clojure 程式碼做為 Java 元件。
 
 
 若要切換為提交專案時所使用的拓撲，請在提交至叢集之前，將 `[Active(true)]` 陳述式移至您要使用的拓撲即可。
 
-> [!NOTE]
+> [!NOTE]  
 > 在 **JavaDependency** 資料夾中，所需的所有 Java 檔案都會提供為此專案的一部分。
 
 當您建立和提交混合式拓撲時，請考慮下列項目：
@@ -492,7 +483,7 @@ SCP.NET 0.9.4.203 版引進了專用於事件中樞 Spout (從事件中樞讀取
 
 * **TopologyBuilder.SetEventHubSpout** 方法：將事件中樞 Spout 元件新增至拓撲。
 
-> [!NOTE]
+> [!NOTE]  
 > 您仍然必須使用 **CustomizedInteropJSONSerializer** 來序列化 Spout 所產生的資料。
 
 ## <a id="configurationmanager"></a>使用 ConfigurationManager
@@ -540,7 +531,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 2. 从包管理器中选择“更新”。 如果有可用的更新，它會列出。 按一下套件的 [更新] 來安裝它。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 如果您的專案是利用未使用 NuGet 的舊版 SCP.NET 建立，您必須執行下列步驟更新為新的版本：
 >
 > 1. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。
@@ -570,7 +561,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 雖然很容易就可以將拓撲部署至叢集，但是在某些情況下，您可能需要在本機測試拓撲。 使用下列步驟，在開發環境上以本機執行和測試本教學課程中的範例拓撲。
 
-> [!WARNING]
+> [!WARNING]  
 > 本機測試只適用於僅限 C# 的基本拓撲。 您不得將本機測試使用於混合式拓撲或使用多個資料流的拓撲。
 
 1. 在**方案總管**中，於專案上按一下滑鼠右鍵，然後選取 [屬性]。 在项目属性中，将“输出类型”更改为“控制台应用程序”。
@@ -694,10 +685,10 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 3. 使用 [Windows 檔案總管] 找出包含您專案的目錄。 例如︰**C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。 在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。 应可看到运行测试时生成的文本文件：sentences.txt、counter.txt 和 splitter.txt。 開啟每個文字檔，並檢查資料。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 字串資料會在這些檔案中保存為十進位值的陣列。 例如，**splitter.txt** 檔案中的 \[[97,103,111]] 是 *and* 這個單字。
 
-> [!NOTE]
+> [!NOTE]  
 > 在部署到 Storm on HDInsight 群集之前，请确保将“项目类型”设置回“类库”。
 
 ### <a name="log-information"></a>记录信息
@@ -710,7 +701,7 @@ Context.Logger.Info("Component started");
 
 您可以從 **[Hadoop 服務記錄]** \(位於**伺服器總管中**) 檢視記錄的資訊。 展開 Storm on HDInsight 叢集的項目，然後展開 [Hadoop 服務記錄]。 最後，選取要檢視的記錄檔。
 
-> [!NOTE]
+> [!NOTE]  
 > 記錄會儲存在您叢集所使用的 Azure 儲存體帳戶中。 若要在 Visual Studio 中檢視記錄，您必須登入至擁有儲存體帳戶的 Azure 訂用帳戶。
 
 ### <a name="view-error-information"></a>檢視錯誤資訊
@@ -729,7 +720,7 @@ Context.Logger.Info("Component started");
 
 如果將拓撲提交到 HDInsight 時發生錯誤，您可以尋找在 HDInsight 叢集上處理拓撲提交之伺服器端元件的記錄。 若要擷取這些記錄，請在命令列使用以下命令：
 
-    scp sshuser@clustername-ssh.azurehdinsight.cn:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
+    scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 
 以叢集的 SSH 使用者帳戶取代 __sshuser__。 以 HDInsight 叢集的名稱取代 __clustername__。 如需搭配 HDInsight 使用 `scp` 和 `ssh` 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 

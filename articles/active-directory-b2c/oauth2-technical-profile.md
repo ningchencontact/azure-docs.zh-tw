@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e92378cca445191f42708bd6348b1c75b29da1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 65634cb6573a0f163f7a0ca07bf26af9512e240b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361059"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683895"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 自訂原則中定義的 OAuth2 的技術設定檔
 
@@ -23,7 +23,7 @@ ms.locfileid: "60361059"
 
 Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供者的支援。 OAuth2 是主要的通訊協定進行授權和委派的驗證。 如需詳細資訊，請參閱 [RFC 6749 The OAuth 2.0 授權架構](https://tools.ietf.org/html/rfc6749)。 使用 OAuth2 的技術設定檔，您可以與 OAuth2 型的識別提供者，例如 Facebook 同盟。 同盟身分識別提供者，可讓使用者使用其現有的社交登入或企業身分識別。
 
-## <a name="protocol"></a>通訊協定
+## <a name="protocol"></a>Protocol
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `OAuth2`。 例如，**Facebook-OAUTH** 技術設定檔的通訊協定是 `OAuth2`：
 

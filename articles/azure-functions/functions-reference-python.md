@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021257"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571167"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -28,7 +28,7 @@ ms.locfileid: "61021257"
 
 ## <a name="programming-model"></a>程式設計模型
 
-Python 指令碼中的 Azure 函式應該是無狀態方法，處理輸入及產生輸出。 依預設，執行階段預期這將會實作為全域方法 (在 `__init__.py` 檔案中稱為 `main()`)。
+Python 指令碼中的 Azure 函式應該是無狀態方法，處理輸入及產生輸出。 根據預設，執行階段會預期要實作為通用的方法呼叫的方法`main()`在`__init__.py`檔案。
 
 您可以藉由指定 `function.json` 檔案中的 `scriptFile` 和 `entryPoint` 屬性來變更預設組態。 例如，下方的 _function.json_ 會告訴執行階段使用在 _main.py_ 檔案中的 _customentry()_ 方法，以作為 Azure 函式的進入點。
 
@@ -40,7 +40,7 @@ Python 指令碼中的 Azure 函式應該是無狀態方法，處理輸入及產
 }
 ```
 
-來自觸發程序和繫結的資料，透過方法屬性 (使用 `function.json` 組態檔中定義的 `name` 屬性) 繫結至函式。 例如，下方的 _function.json_ 說明由名為 `req` HTTP 要求觸發的簡單函式：
+來自觸發程序和繫結的資料，透過方法屬性 (使用 `function.json` 組態檔中定義的 `name` 屬性) 繫結至函式。 例如， _function.json_以下說明名為 HTTP 要求所觸發的簡單函式`req`:
 
 ```json
 {
@@ -109,15 +109,16 @@ Python 函式專案的資料夾結構看起來如下：
 from ..SharedCode import myFirstHelperFunction
 ```
 
-在函式執行階段時使用的繫結擴充功能，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須使用 Azure Functions Core Tools [註冊繫結擴充功能](./functions-bindings-register.md#local-development-azure-functions-core-tools)。 
+在函式執行階段時使用的繫結擴充功能，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須使用 Azure Functions Core Tools [註冊繫結擴充功能](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 
 
 將 Functions 專案部署到 Azure 中的功能應用程式時，FunctionApp 資料夾的整個內容應包含在套件中，但不應包含資料夾本身。
 
-## <a name="inputs"></a>輸入
+## <a name="triggers-and-inputs"></a>觸發程序和輸入
 
-在 Azure Functions 中輸入會分成兩個類別：觸發程序輸入和額外的輸入。 雖然它們在 `function.json` 中是不同的，在 Python 程式碼中的使用方式則相同。 讓我們以下列程式碼片段為例：
+在 Azure Functions 中輸入會分成兩個類別：觸發程序輸入和額外的輸入。 雖然它們在 `function.json` 中是不同的，在 Python 程式碼中的使用方式則相同。  觸發程序和輸入來源的連接字串應該對應至值`local.settings.json`檔案儲存在本機，並在 Azure 中執行時的應用程式設定。 讓我們以下列程式碼片段為例：
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -139,7 +140,19 @@ from ..SharedCode import myFirstHelperFunction
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -149,7 +162,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-叫用此函式時，HTTP 要求會以 `req` 形式傳遞至函式。 系統會根據路由 URL 中的 _id_ 從 Azure Blob 儲存體擷取輸入，並在函式主體中以 `obj` 形式提供。
+叫用此函式時，HTTP 要求會以 `req` 形式傳遞至函式。 項目會從 Azure Blob 儲存體，以擷取_識別碼_中的路由 URL，並可做為`obj`函式主體中。  在此儲存體帳戶指定的連接字串位於`AzureWebJobsStorage`即函式應用程式所使用的相同儲存體帳戶。
+
 
 ## <a name="outputs"></a>輸出
 

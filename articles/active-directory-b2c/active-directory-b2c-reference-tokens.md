@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 11361bc6ab75e873e1b4081dcfc6492abc093b54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316930"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681900"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的語彙基元的概觀
 
@@ -50,7 +50,7 @@ A[註冊應用程式](tutorial-register-applications.md)接收權杖，並會將
 
 下表列出您可以預期在 ID 權杖和存取 Azure AD B2C 所簽發的權杖的宣告。
 
-| Name | 宣告 | 範例值 | 描述 |
+| 名稱 | 宣告 | 範例值 | 描述 |
 | ---- | ----- | ------------- | ----------- |
 | 對象 | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | 識別權杖的預定接收者。 Azure AD B2C 中，對象是應用程式識別碼。 您的應用程式應該驗證此值，並拒絕權杖，如果它不符合。 對象是資源的同義詞。 |
 | 簽發者 | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | 識別負責建構並傳回權杖的 Security Token Service (STS)。 它也會識別在其中驗證使用者的目錄。 您的應用程式應該驗證簽發者宣告，以確保權杖來自適當的端點。 |
