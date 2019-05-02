@@ -3,8 +3,8 @@ title: Azure CLI 指令碼範例 - 讓兩個虛擬網路對等互連 | Microsoft
 description: Azure CLI 指令碼範例 - 讓兩個虛擬網路對等互連。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
-ms.author: jdial
-ms.openlocfilehash: 142b36e5c1f0908ccfc1bf2e475442028e02edf7
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.author: kumud
+ms.openlocfilehash: 82f4f06cd4e615df38f2251be9aef9e8578b9df4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728447"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726792"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>讓兩個虛擬網路對等互連的指令碼範例
 

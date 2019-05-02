@@ -3,19 +3,19 @@ title: 教學課程 - 授與存取 ASP.NET Web API 的權限 - Azure Active Dire
 description: 關於如何使用 Active Directory B2C 來保護 ASP.NET Web API，以及如何從 ASP.NET Web 應用程式加以呼叫的教學課程。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cc4db0f2fe8f5db41f6e8332a398029bd105f3af
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 77e3eaeffba862c727e021427e5f27967fcf35bd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756337"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687989"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 授與存取 ASP.NET Web API 的權限
 

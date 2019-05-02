@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61a17842158326c927f049af893a00818f3acc55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793381"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701558"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>快速入門：使用 Azure Container Registry 工作建置和執行容器映像
 
@@ -52,7 +52,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry008 --s
 現在，請使用 Azure Container Registry 建置映像。 首先請建立工作目錄，然後使用下列內容建立名為 *Dockerfile* 的 Dockerfile。 這是建置 Linux 容器映像的簡單範例，但您可以自行建立標準 Dockerfile，並建置適用於其他平台的映像。
 
 ```bash
-echo "FROM hello-world" > Dockerfile
+echo FROM hello-world > Dockerfile
 ```
 
 執行 [az acr build][az-acr-build] 命令以建置映像。 成功建置後，映像會推送至您的登錄。 下列範例會推送 `sample/hello-world:v1` 映像。 命令結尾處的 `.` 會設定 Dockerfile 的位置，在此案例中為目前的目錄。

@@ -1,7 +1,6 @@
 ---
 title: 快速入門：使用 Azure 入口網站在 HDInsight 中建立 Spark 叢集
 description: 本快速入門會說明如何使用 Azure 入口網站在 Azure HDInsight 中建立 Apache Spark 叢集，以及執行 Spark SQL。
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 6f96195197daf026cddee10785e0cadae8096031
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 971e6ab86faec17466f05b41cd1512776e882658
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111764"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724599"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 HDInsight 中建立 Apache Spark 叢集
 了解如何在 Azure HDInsight 中建立 Apache Spark 叢集，以及如何對 Hive 資料表執行 Spark SQL 查詢。 Apache Spark 能夠運用記憶體內部處理，使得資料分析及叢集運算更為快速。 如需 Spark on HDInsight 相關資訊，請參閱[概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。

@@ -17,12 +17,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: da70b77edeb483cae0e74400e739f018f78d0993
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: aff00978178f63b7324168e9aca765b77decf2b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370800"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922922"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>教學課程 - 使用 Azure CLI 管理 Azure 磁碟
 
@@ -46,11 +46,9 @@ Azure 虛擬機器 (VM) 使用磁碟來儲存作業系統、應用程式和資�
 
 **暫存磁碟** - 暫存磁碟會使用與 VM 位於相同 Azure 主機的固態磁碟機。 暫存磁碟的效能非常好，可用於暫存資料處理等作業。 不過，如果 VM 移至新的主機，則會移除儲存在暫存磁碟上的任何資料。 暫存磁碟的大小取決於 VM 大小。 暫存磁碟會標示為 /dev/sdb，其掛接點為 /mnt。
 
-
 ## <a name="azure-data-disks"></a>Azure 資料磁碟
 
-若要安裝應用程式和儲存資料，可以新增額外的資料磁碟。 資料磁碟應使用於任何需要持久且有回應之資料儲存體的情況。 每個資料磁碟皆具有 4 TB 的最大容量。 虛擬機器的大小會決定可連結到 VM 的資料磁碟數目。 每個 VM vCPU 可以連結四個資料磁碟。
-
+若要安裝應用程式和儲存資料，可以新增額外的資料磁碟。 資料磁碟應使用於任何需要持久且有回應之資料儲存體的情況。 虛擬機器的大小會決定可連結到 VM 的資料磁碟數目。 每個 VM vCPU 可以連結四個資料磁碟。
 
 ## <a name="vm-disk-types"></a>VM 磁碟類型
 

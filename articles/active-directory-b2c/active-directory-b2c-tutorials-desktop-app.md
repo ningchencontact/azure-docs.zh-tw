@@ -3,19 +3,19 @@ title: 教學課程 - 在原生用戶端應用程式中啟用驗證 - Azure Acti
 description: 關於如何使用 Azure Active Directory B2C 為 .NET 傳統型應用程式提供使用者登入的教學課程。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a1842859723173412df2053a242ebe9ca4cf7f32
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 3df54c6805c5117e627afe0a2b4caa0ddd94b182
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754019"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723710"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在原生用戶端應用程式中啟用驗證
 

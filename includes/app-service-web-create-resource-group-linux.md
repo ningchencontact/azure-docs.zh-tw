@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: a30e702900dbdc9c7532e0413ef36de6081e5815
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 02a6b88dfb37be41a4da8b35d7c524b905ceed8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38731827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "64739719"
 ---
 ## <a name="create-a-resource-group"></a>建立資源群組
 

@@ -2,7 +2,6 @@
 title: 快速入門：使用 Resource Manager 建立 Apache Hadoop 叢集，並使用 Apache Hive 查詢資料 - Azure HDInsight
 description: 了解如何建立 HDInsight 叢集，以及使用 Hive 查詢資料。
 keywords: 開始使用,hadoop linux,hadoop 快速入門,開始使用 hive,hive 快速入門
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 12/27/2018
-ms.openlocfilehash: 220549c4ac3b6db584654b2c8bf27d9b4519b54a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: f192c0bcd11aacde90992e06c2736e1412f85505
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225802"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729407"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本在 Azure HDInsight 中開始使用 Apache Hadoop 和 Apache Hive
 

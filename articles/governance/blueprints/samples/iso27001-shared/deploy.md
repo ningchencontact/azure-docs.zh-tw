@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 88d5cfbbcb29cacc2e8c1c6a226367c5f23e8231
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792396"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926292"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>部署 ISO 27001 共用服務藍圖範例
 
@@ -99,7 +99,7 @@ ms.locfileid: "59792396"
 1. 輸入所有參數後，選取頁面底部的 [指派]。 藍圖指派會隨即建立，並且開始部署成品。 部署需要大約一小時的時間。 若要檢查部署的狀態，請開啟藍圖指派。
 
 > [!WARNING]
-> Azure 藍圖服務和內建藍圖範例皆是**免費**項目。 Azure 資源會[依據產品計價](https://azure.microsoft.com/en-us/pricing/)。 請使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)來預估此藍圖範例所部署資源的執行成本。
+> Azure 藍圖服務和內建藍圖範例皆是**免費**項目。 Azure 資源會[依據產品計價](https://azure.microsoft.com/pricing/)。 請使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)來預估此藍圖範例所部署資源的執行成本。
 
 ## <a name="artifact-parameters-table"></a>成品參數資料表
 
@@ -107,10 +107,10 @@ ms.locfileid: "59792396"
 
 |成品名稱|成品類型|參數名稱|說明|
 |-|-|-|-|
-|[預覽]：為 Linux VM 擴展集 (VMSS) 部署 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Linux OS|(選用) 預設值為 _["none"]_。|
-|[預覽]：部署適用於 Linux VM 的 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Linux OS|(選用) 預設值為 _["none"]_。|
-|[預覽]：為 Windows VM 擴展集 (VMSS) 部署 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Windows OS|(選用) 預設值為 _["none"]_。|
-|[預覽]：部署適用於 Windows VM 的 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Windows OS|(選用) 預設值為 _["none"]_。|
+|\[預覽\]：為 Linux VM 擴展集 (VMSS) 部署 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Linux OS|(選用) 預設值為 _["none"]_。|
+|\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Linux OS|(選用) 預設值為 _["none"]_。|
+|\[預覽\]：為 Windows VM 擴展集 (VMSS) 部署 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Windows OS|(選用) 預設值為 _["none"]_。|
+|\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式|原則指派|選用：要新增至範圍的 VM 映像清單，這些映像具有支援的 Windows OS|(選用) 預設值為 _["none"]_。|
 |允許的資源類型|原則指派|允許的資源類型|可部署的資源類型清單。 這份清單包含部署在共用服務中的所有資源類型。|
 |允許的儲存體帳戶 SKU|原則指派|允許的儲存體 SKU|允許的診斷記錄儲存體帳戶 SKU 清單。 預設值是 ["Standard_LRS"]。|
 |允許的虛擬機器 SKU|原則指派|允許部署的虛擬機器 SKU 清單。 預設值是 ["Standard_DS1_v2", "Standard_DS2_v2"]。|

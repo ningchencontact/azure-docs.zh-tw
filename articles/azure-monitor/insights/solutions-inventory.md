@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 6da2b63b7a9c8dc490bd30bb02ae6e7d932b2f7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bdadd2ac5c7790f9e1da57de925bfba659a5890
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60595979"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916562"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure 中管理解決方案的資料收集詳細資料
 本文包含 Microsoft 所提供的[管理解決方案清單](solutions.md)，以及其詳細文件的連結。  此外，還提供資料收集到 Azure 監視器中的方法和頻率相關資訊。  您可以使用本文中的資訊來識別不同的可用解決方案，以及了解不同管理解決方案的資料流程和連線需求。 
@@ -58,8 +58,8 @@ ms.locfileid: "60595979"
 | [Azure SQL Analytics (預覽)](../../azure-monitor/insights/azure-sql.md) |  Windows | | | | | | 1 分鐘 |
 | [備份](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 與通知同時 |
 | [容量與效能 (預覽)](../../azure-monitor/insights/capacity-performance.md) | Windows |&#8226; |&#8226; | | |&#8226; |與抵達同時 |
-| [變更追蹤](../../automation/automation-change-tracking.md) | Windows |&#8226; |&#8226; | | |&#8226; |[varies](../../automation/automation-change-tracking.md#change-tracking-data-collection-details) |
-| [變更追蹤](../../automation/automation-change-tracking.md) | Linux |&#8226; | | | | |[varies](../../automation/automation-change-tracking.md#change-tracking-data-collection-details) |
+| [變更追蹤](../../automation/change-tracking.md) | Windows |&#8226; |&#8226; | | |&#8226; |[varies](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [變更追蹤](../../automation/change-tracking.md) | Linux |&#8226; | | | | |[varies](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [容器](../../azure-monitor/insights/containers.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 3 分鐘 |
 | [金鑰保存庫分析](../../azure-monitor/insights/azure-key-vault.md) | Windows | | | | | |與通知同時 |
 | [惡意程式碼評估](../../security-center/security-center-install-endpoint-protection.md) | Windows |&#8226; |&#8226; | | |&#8226; |每小時 |

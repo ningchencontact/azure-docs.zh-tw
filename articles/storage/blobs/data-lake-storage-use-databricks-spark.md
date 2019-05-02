@@ -2,18 +2,19 @@
 title: 教學課程：使用 Spark 以 Azure Databricks 存取 Azure Data Lake Storage Gen2 資料 | Microsoft Docs
 description: 本教學課程顯示如何在 Azure Databricks 叢集上執行 Spark 查詢，以存取 Azure Data Lake Storage Gen2 儲存體帳戶中的資料。
 services: storage
-author: dineshmurthy
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: dineshm
-ms.openlocfilehash: 7f712bcf3e82005480d4960484cb0ea3ad51fbff
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: normesta
+ms.reviewer: dineshm
+ms.openlocfilehash: 02cff1be85f4489a9529383d90694581f2599cba
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226754"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939184"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>教學課程：使用 Spark 以 Azure DataBricks 存取 Data Lake Storage Gen2 資料
 

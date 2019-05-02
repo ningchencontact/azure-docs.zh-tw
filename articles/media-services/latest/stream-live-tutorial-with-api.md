@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/01/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74be798106ef5d028f3ad497a6e726439e86ad51
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863758"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714730"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>教學課程：透過媒體服務 v3 使用 .NET 進行即時串流
 
@@ -182,6 +182,10 @@ az group delete --name amsResourceGroup
 
 > [!IMPORTANT]
 > 讓即時事件處於執行狀態將會產生費用。 請注意，如果專案/程式失效或因故關閉，即時事件可能會在計費狀態下持續執行。
+
+## <a name="provide-feedback"></a>提供意見反應
+
+請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 
 ## <a name="next-steps"></a>後續步驟
 

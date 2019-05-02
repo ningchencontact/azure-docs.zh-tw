@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 78136a081e52ef3f12d672d01449ce616534462e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537644"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569646"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>設定命令列中的容器執行個體，以覆寫預設命令列作業
 
@@ -24,7 +24,15 @@ ms.locfileid: "60537644"
 
 * 根據預設，指定命令列*單一程序，而不需要殼層啟動*容器中。 例如，在命令列可能會執行 Python 指令碼或可執行檔。 
 
-* 若要執行多個命令，開始您的命令列設定容器作業系統中的 shell 環境 (範例： `bin/sh`， `/bin/bash`， `cmd`)。 請遵循的慣例，來結合多個序列中執行的命令殼層。
+* 若要執行多個命令，開始您的命令列設定支援容器作業系統中的 shell 環境。 範例：
+
+  |作業系統  |預設殼層  |
+  |---------|---------|
+  |Ubuntu     |   `/bin/bash`      |
+  |Alpine     |   `/bin/sh`      |
+  | Windows     |    `cmd`     |
+
+  請遵循的慣例，來結合多個序列中執行的命令殼層。
 
 * 根據容器組態中，您可能需要設定命令列可執行檔的完整路徑或引數。
 

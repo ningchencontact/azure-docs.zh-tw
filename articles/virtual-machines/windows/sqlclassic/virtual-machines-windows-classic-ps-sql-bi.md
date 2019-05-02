@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
 ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609286"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -107,7 +107,7 @@ Microsoft Azure 虛擬機器資源庫涵蓋數個包含 Microsoft SQL Server 的
   > [!NOTE]
   > 支援的 BI 案例中需要 SQL Server 資料庫引擎。 在單一伺服器 VM 拓撲中，需要資料庫引擎才能在相同的 VM 上執行。
   
-    如需詳細資訊，請參閱下列：[解除安裝 Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx)並[解除安裝 Analysis services 執行個體](https://msdn.microsoft.com/library/ms143687.aspx)。
+    如需詳細資訊，請參閱下列：[卸载 Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) 和[卸载 Analysis Services 实例](https://msdn.microsoft.com/library/ms143687.aspx)。
 * 檢查 **Windows Update** 以取得新的「重要更新」。 Microsoft Azure 虛擬機器映像經常更新；不過，在前一次重新整理 VM 映像之後，重要更新可能可從 **Windows Update** 取得。
 
 ## <a name="example-deployment-topologies"></a>部署拓撲範例
@@ -217,7 +217,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 若要驗證組態，瀏覽至 VM 上的報表管理員。
 
 1. 在 VM 上，以系統管理員權限啟動 Internet Explorer。
-2. 瀏覽至 http:\/localhost/報告在 VM 上。
+2. 在 VM 上浏览到 http:\//localhost/reports。
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>若要連接遠端入口網站或 2012 和 2014 版的報表管理員
 如果您想要從遠端電腦連接到虛擬機器上的入口網站或 2012 和 2014 版報表管理員，請建立新的虛擬機器 TCP 端點。 根據預設，報表伺服器會接聽 **連接埠 80**上的 HTTP 要求。 如果您將報表伺服器 URL 設定為使用不同的連接埠，您必須在下列指示中指定該連接埠編號。
@@ -226,21 +226,21 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 2. 在虛擬機器防火牆中開啟連接埠 80。
 3. 使用 Azure 虛擬機器 **DNS 名稱** 做為 URL 中的伺服器名稱，瀏覽至入口網站或報表管理員。 例如︰
    
-    **報表伺服器**:http://uebi.cloudapp.net/reportserver  **入口網站**: http://uebi.cloudapp.net/reports
+    **报表服务器**： http://uebi.cloudapp.net/reportserver  **Web 门户**： http://uebi.cloudapp.net/reports
    
     [為報表伺服器存取設定防火牆](https://msdn.microsoft.com/library/bb934283.aspx)
 
 ### <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>建立並將報表發佈至 Azure 虛擬機器
 下表摘要列出一些選項，可將現有報表從內部部署電腦發佈至 Microsoft Azure 虛擬機器上託管的報表伺服器：
 
-* **報表產生器**：虛擬機器包含 click-click-once 版本的 Microsoft SQL Server 報表產生器適用於 SQL 2014 和 2012年。 若要在虛擬機器上首次啟動搭配 SQL 2016 的報表產生器：
+* **報表產生器**：虚拟机包括适用于 SQL 2014 和 2012 的 Microsoft SQL Server 报表生成器的一键式版本。 若要在虛擬機器上首次啟動搭配 SQL 2016 的報表產生器：
   
   1. 以管理權限啟動瀏覽器。
   2. 瀏覽至虛擬機器上的入口網站，並選取右上角的 **下載** 圖示。
   3. 選取 [報表產生器] 。
      
      如需詳細資訊，請參閱 [啟動報表產生器](https://msdn.microsoft.com/library/ms159221.aspx)。
-* **SQL Server Data Tools**:VM：SQL Server Data Tools 安裝在虛擬機器上，而且可用來建立**報表伺服器專案**和虛擬機器上的報表。 SQL Server Data Tools 可將報表發佈至虛擬機器上的報表伺服器。
+* **SQL Server Data Tools**：VM：SQL Server Data Tools 安装在虚拟机上，可用于在该虚拟机上创建报表服务器项目和报表。 SQL Server Data Tools 可將報表發佈至虛擬機器上的報表伺服器。
 * **SQL Server Data Tools：遠端**：在本機電腦上，以 SQL Server Data Tools 建立含有 Reporting Services 報告的 Reporting Services 專案。 設定專案以連接至 Web 服務 URL。
   
     ![SSRS 專案的 ssdt 專案屬性](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
@@ -329,7 +329,7 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。 �
 如需有關如何建立端點的詳細資訊，請參閱下列各項：
 
 * 建立端點：[如何設定虛擬機器的端點](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
-* SQL Server:請參閱 「 完成組態步驟以連接到虛擬機器使用 SQL Server Management Studio 」 一節[佈建在 Azure 上的 SQL Server 虛擬機器](../sql/virtual-machines-windows-portal-sql-server-provision.md)。
+* SQL Server：請參閱 「 完成組態步驟以連接到虛擬機器使用 SQL Server Management Studio 」 一節[佈建在 Azure 上的 SQL Server 虛擬機器](../sql/virtual-machines-windows-portal-sql-server-provision.md)。
 
 下圖說明要在 VM 防火牆中開啟，以允許遠端存取 VM 上的功能和元件的連接埠。
 

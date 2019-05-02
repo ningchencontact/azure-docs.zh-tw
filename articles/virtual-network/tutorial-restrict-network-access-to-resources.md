@@ -3,8 +3,8 @@ title: 限制對 PaaS 資源的網路存取 -教學課程 - Azure 入口網站 |
 description: 在本教學課程中，您將了解如何使用 Azure 入口網站透過虛擬網路服務端點來限制對 Azure 資源 (例如 Azure 儲存體和 Azure SQL Database) 的網路存取。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
-ms.author: jdial
-ms.openlocfilehash: b951386fbeca883ae61a7f8040893e55467c8e5d
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.author: kumud
+ms.openlocfilehash: 4d3fd152782c65c7f63e459a1c35dee6ae764361
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810079"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708837"
 ---
-# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過虛擬網路服務端點來限制對 PaaS 資源的網路存取
+# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>教學課程：透過使用 Azure 入口網站的虛擬網路服務端點來限制對 PaaS 資源的網路存取
 
 虛擬網路服務端點可讓您限制某些 Azure 服務資源對虛擬網路子網路的網路存取。 您也可以移除對資源的網際網路存取。 服務端點提供從您虛擬網路到受支援 Azure 服務的直接連線，讓您可以使用虛擬網路的私人位址空間來存取 Azure 服務。 透過服務端點預定流向 Azure 資源的流量，一律會留在 Microsoft Azure 骨幹網路中。 在本教學課程中，您了解如何：
 
@@ -51,7 +51,7 @@ ms.locfileid: "42810079"
 
    |設定|值|
    |----|----|
-   |名稱| myVirtualNetwork |
+   |Name| myVirtualNetwork |
    |位址空間| 10.0.0.0/16|
    |訂用帳戶| 選取您的訂用帳戶|
    |資源群組 | 選取 [新建]，然後輸入 *myResourceGroup*。|
@@ -75,7 +75,7 @@ ms.locfileid: "42810079"
 
     |設定|值|
     |----|----|
-    |名稱| 私人 |
+    |Name| 私人 |
     |位址範圍| 10.0.1.0/24|
     |服務端點| 選取 [服務] 底下的 [Microsoft.Storage]|
 
@@ -92,7 +92,7 @@ ms.locfileid: "42810079"
 
     |設定|值|
     |----|----|
-    |名稱| myNsgPrivate |
+    |Name| myNsgPrivate |
     |訂用帳戶| 選取您的訂用帳戶|
     |資源群組 | 選取 [使用現有項目]，然後選取 [myResourceGroup]。|
     |位置| 選取 [美國東部] |
@@ -110,9 +110,9 @@ ms.locfileid: "42810079"
     |目的地服務標記 | 選取 [儲存體]|
     |目的地連接埠範圍| * |
     |通訊協定|任意|
-    |動作|允許|
+    | 動作|允許|
     |優先順序|100|
-    |名稱|Allow-Storage-All|
+    |Name|Allow-Storage-All|
 
 8. 建立另一個拒絕網際網路通訊的輸出安全性規則。 此規則會覆寫所有網路安全性群組中允許輸出網際網路通訊的預設規則。 使用下列值，再次完成步驟 5-7：
 
@@ -124,9 +124,9 @@ ms.locfileid: "42810079"
     |目的地服務標記| 選取 [網際網路]|
     |目的地連接埠範圍| * |
     |通訊協定|任意|
-    |動作|拒絕|
+    | 動作|拒絕|
     |優先順序|110|
-    |名稱|Deny-Internet-All|
+    |Name|Deny-Internet-All|
 
 9. 在 [設定] 下，選取 [輸入安全性規則]。
 10. 選取 [+ 新增] 。
@@ -139,9 +139,9 @@ ms.locfileid: "42810079"
     |目的地 | 選取 [VirtualNetwork]|
     |目的地連接埠範圍| 3389 |
     |通訊協定|任意|
-    |動作|允許|
+    | 動作|允許|
     |優先順序|120|
-    |名稱|Allow-RDP-All|
+    |Name|Allow-RDP-All|
 
 12. 在 [設定] 底下，選取 [子網路]。
 13. 選取 [+ 關聯]
@@ -160,7 +160,7 @@ ms.locfileid: "42810079"
 
     |設定|值|
     |----|----|
-    |名稱| 請輸入在所有 Azure 位置間具有唯一性、長度介於 3-24 個字元，且僅使用數字和小寫字母的名稱。|
+    |Name| 請輸入在所有 Azure 位置間具有唯一性、長度介於 3-24 個字元，且僅使用數字和小寫字母的名稱。|
     |帳戶類型|StorageV2 (一般用途 v2)|
     |位置| 選取 [美國東部] |
     |複寫| 本地備援儲存體 (LRS)|
@@ -215,7 +215,7 @@ ms.locfileid: "42810079"
 
    |設定|值|
    |----|----|
-   |名稱| myVmPublic|
+   |Name| myVmPublic|
    |使用者名稱|輸入您選擇的使用者名稱。|
    |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
    |訂用帳戶| 選取您的訂用帳戶。|

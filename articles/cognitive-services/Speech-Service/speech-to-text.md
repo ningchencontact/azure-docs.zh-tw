@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008487"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916826"
 ---
 # <a name="what-is-speech-to-text"></a>什麼是語音轉換文字？
 
-語音轉換文字從 Azure 語音服務，也就是語音轉換文字，啟用即時轉譯的音訊資料流為可使用您的應用程式、 工具或裝置，文字會顯示，，並採取動作做為命令的輸入。 這項服務具備相同，Microsoft 會使用 Cortana 和 Office 產品的完美搭配的轉譯和文字轉換語音辨識技術。  如需可用的語音轉換文字語言的完整清單，請參閱 <<c0> [ 支援的語言](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text)。
+語音轉換文字從 Azure 語音服務，也就是語音轉換文字，啟用即時轉譯的音訊資料流為可使用您的應用程式、 工具或裝置，文字會顯示，，並採取動作做為命令的輸入。 這項服務具備相同，Microsoft 會使用 Cortana 和 Office 產品的完美搭配的轉譯和文字轉換語音辨識技術。  如需可用的語音轉換文字語言的完整清單，請參閱 <<c0> [ 支援的語言](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text)。
 
 根據預設，語音轉換文字服務會使用通用的語言模型。 使用 Microsoft 所擁有的資料定型此模型，而且是已部署的雲端。 它是適合交談和語音輸入案例。 如果您在獨特的環境中使用語音轉文字進行辨識及轉譯，您可以建立並定型自訂原音、語言和發音模型，以處理環境噪音或業界專有詞彙。 
 

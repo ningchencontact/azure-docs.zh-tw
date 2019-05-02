@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 89f32499d02978294398aae7be21f63b5d6aa028
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009507"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919821"
 ---
 # <a name="create-an-azure-automation-account"></a>建立 Azure 自動化帳戶
 
@@ -37,7 +37,7 @@ ms.locfileid: "59009507"
     ![在頁面中輸入您自動化帳戶的相關資訊](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
-    > 如需可部署自動化帳戶之處的更新清單，請參閱[依區域提供的產品](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all)。
+    > 如需可部署自動化帳戶之處的更新清單，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all)。
 
 1. 在部署完成後，按一下 [所有服務]，選取 [自動化帳戶]，然後選取您所建立的自動化帳戶。
 

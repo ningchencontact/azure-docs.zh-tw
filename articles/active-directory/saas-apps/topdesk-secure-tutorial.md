@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a559191bb4e84b3b60529bf20a25e381c72f42a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 845ca13bdd8e3677f559bac373efa078f3b951be
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840931"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920353"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>教學課程：Azure Active Directory 與 TOPdesk - Secure 整合
 
@@ -180,7 +180,7 @@ ms.locfileid: "57840931"
 
     b. 若要上傳您的憑證檔案，請在 [憑證 (RSA)] 下按一下 [瀏覽]。
 
-    c. 針對 **私密金鑰 (RSA、PKCS8、DER)**，您可以上傳您自己的私密金鑰，也可以連絡 [TOPdesk - Secure 用戶端支援小組](http://www.topdesk.com/us/support)以取得私密金鑰。
+    c. 針對 **私密金鑰 (RSA、PKCS8、DER)**，您可以上傳您自己的私密金鑰，也可以連絡 [TOPdesk - Secure 用戶端支援小組](https://www.topdesk.com/us/support)以取得私密金鑰。
 
     d. 若要上傳您從 TOPdesk 支援小組取得的標誌檔案，請在 [標誌圖示] 下按一下 [瀏覽]。
 

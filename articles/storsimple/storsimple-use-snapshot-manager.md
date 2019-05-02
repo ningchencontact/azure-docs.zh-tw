@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: ''
-ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23113526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845136"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>使用 StorSimple Snapshot Manager 使用者介面來管理備份作業與備份類別目錄
 
@@ -67,7 +67,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 #### <a name="menu-description"></a>功能表說明
 下表說明 [ **檔案** ] 功能表上出現的項目。
 
-| 功能表項目 | 說明 |
+| 功能表項目 | 描述 |
 |:--- |:--- |
 | 新增 |按一下 [ **新增** ]，可根據 StorSimple Snapshot Manager 建立新的主控台。 |
 | 開啟 |按一下 [ **開啟** ]，可開啟現有的主控台。 |
@@ -107,14 +107,14 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 > 
 > 
 
-| 動作 | 導覽 | 說明 |
+|  動作 | 導覽 | 描述 |
 |:--- |:--- |:--- |
 | 驗證 |按一下 [裝置] 節點，並以滑鼠右鍵按一下 [結果] 窗格中的裝置。 |按一下 [ **驗證** ]，以輸入您為裝置設定的密碼。 |
 | 複製 |依序展開 [備份目錄]、[雲端快照]，再按一下帶有日期的備份，然後選取 [結果] 窗格中的磁碟區。 |按一下 [ **複製** ]，以建立雲端快照的複本，並將其儲存在您指定的位置。 |
 | 設定裝置 |以滑鼠右鍵按一下 [ **裝置** ] 節點。 |按一下 [ **設定裝置** ]，以設定單一裝置或多個裝置來連接至 Windows 主機。 |
 | 建立備份原則 |執行下列其中一項：<ul><li>以滑鼠右鍵按一下 [備份原則]。</li><li>按一下或展開**磁碟區群組**，然後以滑鼠右鍵按一下磁碟區群組。</li><li>按一下或展開**備份目錄**，然後以滑鼠右鍵按一下磁碟區群組。</li></ul> |按一下 [ **建立備份原則** ] 以設定磁碟區群組的排程備份。 |
 | 建立磁碟區群組 |執行下列其中一項：<ul><li>按一下 [磁碟區] 節點，然後以滑鼠右鍵按一下 [結果] 窗格中的磁碟區。</li><li>以滑鼠右鍵按一下 [ **磁碟區群組** ] 節點。</li></ul> |按一下 [ **建立磁碟區群組** ]，將磁碟區指派給磁碟區群組。 |
-| 刪除 |按一下節點或結果 (此項目出現在許多 [動作] 功能表和 [動作] 窗格上。) |按一下 [ **刪除** ]，以刪除或您所選取的節點和結果。 確認對話方塊出現時，請確認或取消刪除。 |
+| Delete |按一下節點或結果 (此項目出現在許多 [動作] 功能表和 [動作] 窗格上。) |按一下 [ **刪除** ]，以刪除或您所選取的節點和結果。 確認對話方塊出現時，請確認或取消刪除。 |
 | 詳細資料 |按一下 [裝置] 節點，然後以滑鼠右鍵按一下 [結果] 窗格中的裝置。 |按一下 [ **詳細資料** ]，以查看裝置的組態詳細資料。 |
 | Edit |按一下 [備份原則]，然後以滑鼠右鍵按一下 [結果] 窗格中的原則。 |按一下 [ **編輯** ]，以變更磁碟區群組的備份排程。 |
 | 匯出清單 |按一下任何節點或結果 (此項目出現在所有 [動作] 功能表和 [動作] 窗格上。) |按一下 [ **匯出清單** ]，以將清單儲存為逗號分隔值 (CSV) 檔案。 然後，您可以將這個檔案匯入試算表應用程式進行分析。 |
@@ -139,7 +139,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 #### <a name="menu-description"></a>功能表說明
 下表描述 [ **檢視** ] 功能表上出現的項目。
 
-| 功能表項目 | 說明 |
+| 功能表項目 | 描述 |
 |:--- |:--- |
 | 新增/移除資料行 |按一下 [新增/移除資料行]，可新增或移除 [結果] 窗格中的資料行。 |
 | 自訂 |按一下 [ **自訂** ]，可顯示或隱藏 StorSimple Snapshot Manager 主控台視窗中的項目。 |
@@ -155,7 +155,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 #### <a name="menu-description"></a>功能表說明
 下表描述 [ **我的最愛** ] 功能表上出現的項目。
 
-| 功能表項目 | 說明 |
+| 功能表項目 | 描述 |
 |:--- |:--- |
 | 加到我的最愛 |按一下 [ **加到我的最愛** ]，可將目前的檢視新增至我的最愛清單。 |
 | 組織我的最愛 |按一下 [ **組織我的最愛** ]，可組織 [我的最愛] 資料夾的內容。 |
@@ -173,7 +173,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 #### <a name="menu-description"></a>功能表說明
 下表描述 [視窗] 功能表上出現的項目。
 
-| 功能表項目 | 說明 |
+| 功能表項目 | 描述 |
 |:--- |:--- |
 | 開新視窗 |按一下 [ **開新視窗** ]，可開啟新的主控台視窗 (除了現有的視窗外)。 |
 | 重疊顯示 |按一下 [ **重疊顯示** ]，以重疊顯示樣式顯示開啟的主控台視窗。 |
@@ -190,7 +190,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 #### <a name="menu-description"></a>功能表說明
 下表說明描述功能表上出現的項目。
 
-| 功能表項目 | 說明 |
+| 功能表項目 | 描述 |
 |:--- |:--- |
 | StorSimple Snapshot Manager 的相關說明 |按一下 [ **StorSimple Snapshot Manager 的相關說明** ]，可在個別視窗中開啟 StorSimple Snapshot Manager 說明。 |
 | 說明主題 |按一下 [ **說明主題** ]，可在個別視窗中開啟 MMC 線上說明。 |
@@ -204,7 +204,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 ### <a name="icon-descriptions"></a>圖示說明
 下表描述工具列上出現的圖示。 
 
-| 圖示 | 說明 |
+| 圖示 | 描述 |
 |:--- |:--- |
 | ![向左箭號](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |按一下向左箭號圖示，可返回上一頁。 |
 | ![向右箭號](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |按一下向右箭號，可移至下一頁 (如果箭號呈現灰色，則動作無法使用)。 |
@@ -337,7 +337,7 @@ StorSimple Snapshot Manager 可啟用 Windows 作業系統和 Microsoft Manageme
 ### <a name="keyboard-navigation-keys"></a>鍵盤導覽鍵
 下表描述您可以用來導覽 StorSimple Snapshot Manager 使用者介面的按鍵。 
 
-| 導覽鍵 | 動作 |
+| 導覽鍵 |  動作 |
 |:--- |:--- |
 | 向下鍵 |使用向下鍵，可垂直移至功能表或窗格中的下一個項目。 |
 | Enter |按 Enter 鍵，可完成動作，然後繼續進行下一個步驟。 例如，您可以按 Enter 鍵來選取 [下一步]、[確定] 或 [建立]，然後移至精靈中的下一個步驟。 |

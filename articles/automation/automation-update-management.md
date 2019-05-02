@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61305963"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919693"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -54,7 +54,9 @@ ms.locfileid: "61305963"
 
 您可以藉由建立排定的部署，在需要更新的電腦上部署和安裝軟體更新。 歸類為「選擇性」的更新不會包含在 Windows 電腦的部署範圍內。 部署範圍中僅包含必要更新。
 
-已排定的部署會透過明確指定電腦，或透過選取以一組特定電腦之記錄搜尋為基礎的[電腦群組](../azure-monitor/platform/computer-groups.md)，來定義哪些目標電腦會收到適用的更新。 您也可以指定核准排程，並設定一段可安裝更新的期間。 這段時間稱為維護視窗。 如果需要重新開機，而且您選取適當的重新開機選項，在維護期間的十分鐘會保留重新開機。 如果修補所花費的時間超出預期，而且在維護期間沒有不超過十分鐘的時間，不會發生重新開機。
+排程的部署可讓您定義哪些目標電腦會收到適用的更新，明確指定的電腦，或選取[電腦群組](../azure-monitor/platform/computer-groups.md)，根據記錄搜尋的一組特定的電腦，或[Azure 查詢](#azure-machines)動態選取以指定的準則為基礎的 Azure Vm。 這些群組是來自不同[範圍設定](../azure-monitor/insights/solution-targeting.md)，這只會用來判斷哪些電腦取得啟用解決方案的管理組件。 
+
+您也可以指定核准排程，並設定一段可安裝更新的期間。 這段時間稱為維護視窗。 如果需要重新開機，而且您選取適當的重新開機選項，在維護期間的十分鐘會保留重新開機。 如果修補所花費的時間超出預期，而且在維護期間沒有不超過十分鐘的時間，不會發生重新開機。
 
 在 Azure 自動化中，會由 Runbook 安裝更新。 您無法檢視這些 Runbook，而且這些 Runbook 也不需要任何設定。 建立更新部署之後，更新部署會建立排程，以便在指定的時間內，針對包含的電腦啟動主要更新 Runbook。 主要 Runbook 會在每個代理程式上啟動子 Runbook，以安裝必要的更新。
 
@@ -76,6 +78,9 @@ ms.locfileid: "61305963"
 |Red Hat Enterprise 6 (x86/x64) 和 7 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
 |SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
 |Ubuntu 14.04 LTS、16.04 LTS 和 18.04 (x86/x64)      |Linux 代理程式必須能夠存取更新存放庫。         |
+
+> [!NOTE]
+> Azure 虛擬機器擴展集可以使用更新管理來管理。 更新管理適用於執行個體本身並不是的基底映像。 您必須以累加的方式，並不會更新所有 VM 執行個體一次排程更新。
 
 ### <a name="unsupported-client-types"></a>不支援的用戶端類型
 

@@ -1,25 +1,18 @@
 ---
-title: 設定適用於 Azure Marketplace 的 Microsoft Azure 裝載虛擬機器 | Microsoft Docs
+title: 設定 Microsoft Azure 託管 VM 的 Azure Marketplace
 description: 說明如何針對 Azure 上裝載的虛擬機器，執行調整大小、更新和一般化等作業。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 3d38efadfb8ad13d072056ef851be99d9540ad4b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833496"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938421"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>設定 Azure 裝載的虛擬機器
 

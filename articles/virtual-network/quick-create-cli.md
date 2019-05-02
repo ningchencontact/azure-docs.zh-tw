@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: 在此快速入門中，您將了解如何使用 Azure CLI 建立虛擬網路。 虛擬網路可讓 Azure 資源 (例如虛擬機器) 彼此及與網際網路進行私密通訊。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
-ms.author: jdial
-ms.openlocfilehash: affbfdebd91d341a4bc32b4a6bc9827919a48817
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.author: kumud
+ms.openlocfilehash: 6306d893f491f93cc31b7e478afe5632e997285c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427783"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692636"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立虛擬網路
 

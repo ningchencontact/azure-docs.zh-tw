@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848277"
 ---
 # <a name="design-scalable-and-performant-tables"></a>設計可擴充且具效能的資料表
 
@@ -61,7 +61,7 @@ ms.locfileid: "55472553"
 </table>
 </tr>
 <tr>
-<td>行銷</td>
+<td>Marketing</td>
 <td>00002</td>
 <td>2014-08-22T00:50:34Z</td>
 <td>
@@ -145,14 +145,14 @@ EGT 也會帶來需在您設計中評估的潛在取捨。 那就是，使用較
 | Azure 儲存體帳戶的容量總計 | 500 TB |
 | --- | --- |
 | Azure 儲存體帳戶中的資料表數目 |僅受限於儲存體帳戶的容量 |
-| 資料表中的資料分割數目 |僅受限於儲存體帳戶的容量 |
+| 資料表中的資料分割數目 |仅受存储帐户的容量限制 |
 | 資料分割中的實體數目 |僅受限於儲存體帳戶的容量 |
 | 個別實體的大小 |最多 1 MB 和 255 個屬性 (包括 **PartitionKey**、**RowKey** 和 **Timestamp**) |
-|  **PartitionKey** |大小最多 1 KB 的字串 |
+|  **PartitionKey** |大小最大为 1 KB 的字符串 |
 |  **RowKey** |大小最多 1 KB 的字串 |
 | 實體群組交易的大小 |交易最多可以包含 100 個實體，而承載大小必須小於 4 MB。 一個 EGT 只能更新實體一次。 |
 
-如需詳細資訊，請參閱 [了解表格服務資料模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。  
+有关详细信息，请参阅 [了解表服务数据模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。  
 
 ## <a name="cost-considerations"></a>成本考量
 表格儲存體比較便宜，但您在評估任何表格服務方案時，均應將容量使用量和交易數目的成本預估同時納入考量。 不過，在許多情況下，儲存反正規化或重複的資料以改善方案的效能或延展性，也是有效措施。 如需定價的詳細資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。  

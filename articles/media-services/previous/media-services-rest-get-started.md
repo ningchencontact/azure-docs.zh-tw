@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fea9bae9fadc20622a6ca3d2e08db9cd3a92c800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 76eae5fa049ed1fbf7195277613867aca63c1082
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60639397"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867624"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>使用 REST 傳遞點播內容入門  
 
-[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
+> [!NOTE]
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
 
-本快速入门介绍了使用 Azure 媒体服务 (AMS) REST API 实现视频点播 (VoD) 内容传送应用程序的步骤。
+本快速入門將逐步引導您使用 REST API 完成利用 Azure 媒體服務 (AMS) 來實作點播視訊 (VoD) 內容傳遞應用程式。
 
 教學課程中介紹基本的媒體服務工作流程，以及媒體服務開發最常用的程式設計物件和必要工作。 完成本教學課程時，您將能夠串流或以漸進方式下載您已上傳、編碼和下載的範例媒體檔案。
 

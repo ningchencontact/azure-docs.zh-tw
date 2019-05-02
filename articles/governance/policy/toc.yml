@@ -292,6 +292,12 @@
           href: '/powershell/module/az.policyinsights#policy_insights'
         - name: 來賓組態
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
+    - name: 適用於 .NET 的 Azure SDK
+      items:
+        - name: 指派
+          href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+        - name: 原則定義
+          href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
     - name: REST
       items:
         - name: 活動

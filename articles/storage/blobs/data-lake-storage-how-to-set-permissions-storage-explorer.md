@@ -2,19 +2,19 @@
 title: 使用 Azure 儲存體總管設定 Data Lake Storage Gen2 的權限
 description: 您可以透過這個方式，了解如何在您支援 Azure Data Lake Storage Gen2 的儲存體帳戶內部，使用 Azure 儲存體總管設定檔案和目錄的使用權限。
 services: storage
-author: roygara
+author: normesta
 ms.custom: mvc
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
-ms.author: rogarana
-ms.openlocfilehash: f2569b29ab6124f1cfa22fa745d45082c213a6be
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.author: normesta
+ms.openlocfilehash: 5f0211765c96cad668abaad7d42da87ec88298c3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003463"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939317"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>搭配 Azure Data Lake Storage Gen2 使用 Azure 儲存體總管設定檔案和目錄等級使用權限
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: b39259fcfc93cb0a2a1a2dc600e5235da8cc6930
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6f1a0cf6025cb3a398ab93320c6fcb69b1e62429
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558028"
 ---
 # <a name="edit-an-api"></a>編輯 API
 
@@ -27,7 +27,7 @@ ms.locfileid: "38488946"
 + 您可以透過新增、刪除或重新命名 APIM 執行個體中的作業來執行此動作。 
 + 您可以編輯您 API 的 Swagger。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 + [建立 Azure API 管理執行個體](get-started-create-service-instance.md)
 + [匯入和發佈您的第一個 API](import-and-publish.md)

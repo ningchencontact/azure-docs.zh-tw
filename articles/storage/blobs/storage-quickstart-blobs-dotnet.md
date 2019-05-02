@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 50bb13ecaa9e6076f00749d54b492a1e6663a93e
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 2708efc22d373db6ee55dfee6b8adfa35bd450ef
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287106"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924331"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>快速入門：使用 .NET 在物件儲存體中建立 Blob
 
@@ -48,13 +48,13 @@ ms.locfileid: "58287106"
 
 本快速入門使用的範例應用程式是基本的主控台應用程式。 您可探索 [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart) 上的範例應用程式。
 
-使用 [git](https://git-scm.com/) 將應用程式的複本下載至您的開發環境。 
+使用 [git](https://git-scm.com/) 將應用程式的複本下載至您的開發環境。
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-此命令會將存放庫複製到本機的 git 資料夾。 若要開啟 Visual Studio 解決方案，請找出 *storage-blobs-dotnet-quickstart* 資料夾並加以開啟，然後按兩下 *storage-blobs-dotnet-quickstart.sln*。 
+此命令會將存放庫複製到本機的 git 資料夾。 若要開啟 Visual Studio 解決方案，請找出 *storage-blobs-dotnet-quickstart* 資料夾並加以開啟，然後按兩下 *storage-blobs-dotnet-quickstart.sln*。
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -70,7 +70,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-新增環境變數之後，您可能需要重新啟動任何需要讀取環境變數的執行中程式，包括主控台視窗。 例如，如果您使用 Visual Studio 做為編輯器，請在執行範例前重新啟動 Visual Studio。 
+新增環境變數之後，您可能需要重新啟動任何需要讀取環境變數的執行中程式，包括主控台視窗。 例如，如果您使用 Visual Studio 做為編輯器，請在執行範例前重新啟動 Visual Studio。
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -85,7 +85,7 @@ export storageconnectionstring=<yourconnectionstring>
 編輯 .bash_profile，然後新增環境變數：
 
 ```bash
-export STORAGE_CONNECTION_STRING=<yourconnectionstring>
+export storageconnectionstring=<yourconnectionstring>
 ```
 
 新增環境變數之後，從主控台視窗執行 `source .bash_profile`，讓變更生效。
@@ -94,15 +94,15 @@ export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 
 ## <a name="run-the-sample"></a>執行範例
 
-這個範例會在本機 **MyDocuments** 資料夾中建立測試檔案，並將它上傳到 Blob 儲存體。 這個範例會接著列出容器中的 Blob，並下載具有新名稱的檔案，您便可比較舊檔案和新檔案。 
+這個範例會在本機 **MyDocuments** 資料夾中建立測試檔案，並將它上傳到 Blob 儲存體。 這個範例會接著列出容器中的 Blob，並下載具有新名稱的檔案，您便可比較舊檔案和新檔案。
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-如果您使用 Visual Studio 作為編輯器，請按 **F5** 來執行。 
+如果您使用 Visual Studio 作為編輯器，請按 **F5** 來執行。
 
 否則，瀏覽至您的應用程式目錄，並使用 `dotnet run` 命令執行應用程式。
 
-```
+```console
 dotnet run
 ```
 
@@ -110,7 +110,7 @@ dotnet run
 
 瀏覽至您的應用程式目錄，並使用 `dotnet run` 命令執行應用程式。
 
-```
+```console
 dotnet run
 ```
 
@@ -118,7 +118,7 @@ dotnet run
 
 瀏覽至您的應用程式目錄，並使用 `dotnet run` 命令執行應用程式。
 
-```
+```console
 dotnet run
 ```
 
@@ -126,7 +126,7 @@ dotnet run
 
 範例應用程式的輸出類似下列範例：
 
-```
+```output
 Azure Blob storage - .NET Quickstart sample
 
 Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
@@ -144,7 +144,7 @@ Press any key to delete the sample files and example container.
 
 當您按 **Enter** 鍵時，應用程式會刪除儲存體容器和檔案。 在刪除之前，請檢查 **MyDocuments** 資料夾，找出這兩個檔案。 您可以開啟它們，並觀察它們是否相同。 複製主控台視窗中的 Blob URL，將它貼至瀏覽器以檢視 Blob 的內容。
 
-確認檔案之後，請按任一鍵以完成示範並刪除測試檔案。 現在您已知道這個範例的工作內容，請開啟 Program.cs 檔案中查看程式碼。 
+確認檔案之後，請按任一鍵以完成示範並刪除測試檔案。 現在您已知道這個範例的工作內容，請開啟 Program.cs 檔案中查看程式碼。
 
 ## <a name="understand-the-sample-code"></a>了解範例程式碼
 
@@ -184,23 +184,22 @@ else
 
 接下來，此範例會建立容器並設定其權限，讓容器中的任何 blob 都是公用的。 如果 blob 是公用的，任何用戶端都可以匿名方式存取它。
 
-若要建立容器，請先建立 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient) 物件的執行個體，其指向您儲存體帳戶中的 Blob 儲存體。 接下來，建立 [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) 物件的執行個體，然後建立容器。 
+若要建立容器，請先建立 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient) 物件的執行個體，其指向您儲存體帳戶中的 Blob 儲存體。 接下來，建立 [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) 物件的執行個體，然後建立容器。
 
 在此情況下，此範例會呼叫 [CreateAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync) 方法來建立容器。 容器名稱會附加 GUID 值，以確保它是唯一的。 在生產環境中，通常偏好使用 [CreateIfNotExistsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexistsasync) 方法來建立容器 (僅限容器不存在時)，以避免發生命名衝突。
 
 > [!IMPORTANT]
 > 容器名稱必須是小寫字母。 如需為容器和 Blob 命名的詳細資訊，請參閱[命名和參考容器、Blob 及中繼資料](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
 
-
 ```csharp
 // Create the CloudBlobClient that represents the Blob storage endpoint for the storage account.
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
-// Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
+// Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique.
 CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
 await cloudBlobContainer.CreateAsync();
 
-// Set the permissions so the blobs are public. 
+// Set the permissions so the blobs are public.
 BlobContainerPermissions permissions = new BlobContainerPermissions
 {
     PublicAccess = BlobContainerPublicAccessType.Blob
@@ -210,7 +209,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>將 Blob 上傳到容器
 
-接下來，此範例會將本機檔案上載至區塊 blob。 此程式碼範例會藉由在前一節建立的容器上呼叫 [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) 方法，以取得 **CloudBlockBlob** 物件的參考。 然後藉由呼叫 [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) 方法，將所選的檔案上傳到 blob。 如果 Blob 不存在，此方法會建立 Blob，若已存在，則會加以覆寫。 
+接下來，此範例會將本機檔案上載至區塊 blob。 此程式碼範例會藉由在前一節建立的容器上呼叫 [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) 方法，以取得 **CloudBlockBlob** 物件的參考。 然後藉由呼叫 [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) 方法，將所選的檔案上傳到 blob。 如果 Blob 不存在，此方法會建立 Blob，若已存在，則會加以覆寫。
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.
@@ -248,7 +247,7 @@ do
     {
         Console.WriteLine(item.Uri);
     }
-} while (blobContinuationToken != null); // Loop while the continuation token is not null. 
+} while (blobContinuationToken != null); // Loop while the continuation token is not null.
 
 ```
 
@@ -257,7 +256,7 @@ do
 接下來，此範例會使用 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) 方法，將先前建立的 blob 下載至本機檔案系統。 此範例程式碼會將 "_DOWNLOADED" 後置字元新增至 blob 名稱，您便可在本機檔案系統中看到這兩個檔案。
 
 ```csharp
-// Download the blob to a local file, using the reference created earlier. 
+// Download the blob to a local file, using the reference created earlier.
 // Append the string "_DOWNLOADED" before the .txt extension so that you can see both files in MyDocuments.
 destinationFile = sourceFile.Replace(".txt", "_DOWNLOADED.txt");
 Console.WriteLine("Downloading blob to {0}", destinationFile);
@@ -288,7 +287,7 @@ File.Delete(destinationFile);
 
 ### <a name="binaries-and-source-code"></a>二進位檔和原始程式碼
 
-- 針對 Azure 儲存體最新版的 [.NET 用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)下載 NuGet 套件。 
+- 針對 Azure 儲存體最新版的 [.NET 用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)下載 NuGet 套件。
 - 在 GitHub 上檢視 [.NET 用戶端程式庫原始程式碼](https://github.com/Azure/azure-storage-net)。
 
 ### <a name="client-library-reference-and-samples"></a>用戶端程式庫參考和範例
@@ -298,7 +297,7 @@ File.Delete(destinationFile);
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何使用 .NET 上傳、下載及列出 Blob。 
+在本快速入門中，您已了解如何使用 .NET 上傳、下載及列出 Blob。
 
 若要了解如何建立可將映像上傳至 Blob 儲存體的 Web 應用程式，請繼續進行[使用 Azure 儲存體在雲端上傳影像資料](storage-upload-process-images.md)。
 
@@ -307,4 +306,3 @@ File.Delete(destinationFile);
 
 - 若要深入了解 .NET Core，請參閱[在 10 分鐘內開始使用 .NET](https://www.microsoft.com/net/learn/get-started/)。
 - 若要探索您可以從 Visual Studio for Windows 部署的範例應用程式，請參閱[使用 Azure Blob 儲存體的 .NET 相片圖庫 Web 應用程式範例](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)。
- 

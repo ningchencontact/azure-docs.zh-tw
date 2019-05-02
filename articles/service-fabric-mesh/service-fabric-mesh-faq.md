@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979746"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728585"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh 的常見問題
 
@@ -28,7 +28,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>參與預覽版的成本為何？
 
-將應用程式或容器部署至 Mesh 預覽版目前不需任何費用。 不過，除非您要積極測試所部署的資源，否則建議您刪除這些資源，而不要讓它們繼續執行。
+將應用程式或容器部署至 Mesh 預覽版目前不需任何費用。 不過，我們建議您刪除的資源部署，而且不讓它們保持執行，除非您要主動測試。
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>核心和 RAM 數目是否有配額限制？
 
@@ -77,7 +77,9 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 若要刪除資源群組，請使用 `az group delete <nameOfResourceGroup>` 命令。
 
-## <a name="supported-container-os-images"></a>支援的容器 OS 映像
+## <a name="deployments"></a>部署
+
+### <a name="what-container-images-are-supported"></a>支援哪些容器映像？
 
 如果您是在 Windows Fall Creators Update (1709 版) 機器上進行開發，則只能使用 Windows 1709 版 Docker 映像。
 
@@ -90,6 +92,10 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
     - Windows Server 1803 版
 -  Linux
     - 沒有已知的限制
+
+### <a name="what-types-of-applications-can-i-deploy"></a>可以部署何種類型的應用程式？ 
+
+您可以部署任何符合的限制內的容器中執行放在應用程式資源 （如需配額的詳細資訊請參閱以上） 上的項目。 如果我們偵測到您用來執行不合法的工作負載網狀結構或濫用系統 （也就採礦），然後我們會保留在服務上執行您訂用帳戶終止您的部署和封鎖清單的權限。 請連絡我們如果您有任何問題，在執行特定工作負載。 
 
 ## <a name="developer-experience-issues"></a>開發人員體驗問題
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668121"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926138"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器網路模式
 
@@ -30,7 +30,7 @@ ms.locfileid: "58668121"
 當某個容器服務重新啟動或移到叢集中的另一個節點時，IP 位址便會變更。 因此，不建議使用以動態方式指派的 IP 位址來探索容器服務。 只有 Service Fabric 命名服務或 DNS 服務可用於服務探索。 
 
 >[!WARNING]
->Azure 可讓每個虛擬網路的 65,356 Ip 總計。 節點數目和容器服務執行個體 （也就使用 Open 模式） 的數字的總和不得超過 65,356 Ip，虛擬網路內。 針對高密度的情況，建議使用 nat 網路模式。 此外，其他的相依性，例如負載平衡器會有其他[限制](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits)考量。 目前最多至 50 Ip 每個節點都已通過測試且經過實證的穩定。 
+>Azure 可讓每個虛擬網路的 65,356 Ip 總計。 節點數目和容器服務執行個體 （也就使用 Open 模式） 的數字的總和不得超過 65,356 Ip，虛擬網路內。 針對高密度的情況，建議使用 nat 網路模式。 此外，其他的相依性，例如負載平衡器會有其他[限制](https://docs.microsoft.com/azure/azure-subscription-service-limits)考量。 目前最多至 50 Ip 每個節點都已通過測試且經過實證的穩定。 
 >
 
 ## <a name="set-up-open-networking-mode"></a>設定 Open 網路模式
@@ -200,7 +200,7 @@ ms.locfileid: "58668121"
  
 3. 僅針對 Windows 叢集，使用下列值來設定能針對虛擬網路開啟連接埠 UDP/53 的 Azure 網路安全性群組 (NSG) 規則：
 
-   |設定 |值 | |
+   |設定 |Value | |
    | --- | --- | --- |
    |優先順序 |2000 | |
    |名稱 |Custom_Dns  | |

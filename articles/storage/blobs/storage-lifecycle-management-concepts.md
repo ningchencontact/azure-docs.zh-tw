@@ -5,15 +5,15 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 4/29/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392461"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938557"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 儲存體生命週期
 
@@ -42,7 +42,7 @@ ms.locfileid: "60392461"
 
 ## <a name="add-or-remove-a-policy"></a>新增或移除原則 
 
-您可以新增、 編輯或移除原則，使用 Azure 入口網站中， [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)，Azure CLI [REST Api](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies)，或用戶端工具。 這篇文章會示範如何使用入口網站和 PowerShell 方法來管理原則。  
+您可以新增、 編輯或移除原則，使用 Azure 入口網站中， [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)，Azure CLI [REST Api](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)，或用戶端工具。 這篇文章會示範如何使用入口網站和 PowerShell 方法來管理原則。  
 
 > [!NOTE]
 > 如果您啟用儲存體帳戶的防火牆規則，可能會封鎖生命週期管理要求。 您可以提供例外狀況來解除封鎖這些要求。 是必要的略過： `Logging,  Metrics,  AzureServices`。 如需詳細資訊，請參閱[設定防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)中的＜例外狀況＞一節。
@@ -80,7 +80,47 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
+## <a name="arm-template-with-lifecycle-management-policy"></a>ARM 範本與生命週期管理原則
 
+您可以定義和部署生命週期管理，您使用 ARM 範本的 Azure 解決方案部署的一部分。 下列是範例範本，以部署生命週期管理原則的 RA-GRS GPv2 儲存體帳戶。 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "storageAccountName": "[uniqueString(resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-04-01",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {}
+      }
+    },
+    {
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+      "apiVersion": "2019-04-01",
+      "dependsOn": [
+        "[variables('storageAccountName')]"
+      ],
+      "properties": {
+        "policy": {...}
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="policy"></a>原則
 
@@ -115,7 +155,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 | 參數名稱 | 參數類型 | 注意 | 必要項 |
 |----------------|----------------|-------|----------|
-| name           | String |規則名稱可包含最多 256 個的英數字元。 規則名稱會區分大小寫。  它在原則內必須是唯一的。 | True |
+| name           | 字串 |規則名稱可包含最多 256 個的英數字元。 規則名稱會區分大小寫。  它在原則內必須是唯一的。 | True |
 | 已啟用 | Boolean | 選擇性的布林值，以允許規則，以暫時停用。 預設值為 true，如果未設定。 | False | 
 | type           | 列舉值 | 目前有效的型別是`Lifecycle`。 | True |
 | 定義     | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 | True |
@@ -305,8 +345,8 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
   ]
 }
 ```
-## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>常見問題集：我建立了新原則，為什麼動作不會立即執行？ 
-
+## <a name="faq"></a>常見問題集 
+**我建立新的原則，原因動作不立即執行嗎？**  
 平台會每天執行一次生命週期原則。 一旦您設定原則時，可能需要 24 小時，對於某些動作 （例如階層處理和刪除） 執行第一次。  
 
 ## <a name="next-steps"></a>後續步驟

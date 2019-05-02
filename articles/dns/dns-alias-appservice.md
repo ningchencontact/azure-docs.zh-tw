@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790737"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>在區域頂點裝載負載平衡的 Azure Web 應用程式
 
@@ -30,7 +30,7 @@ DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何�
 
 必須提供可用的網域名稱，如此才能裝載於 Azure DNS 進行測試。 您必須擁有此網域的完整控制權。 完整控制權包括為網域設定名稱伺服器 (NS) 記錄的能力。
 
-將您的網域，在 Azure DNS 中裝載的指示，請參閱[教學課程：在 Azure DNS 上託管您的網域](dns-delegate-domain-azure-dns.md)。
+如需在 Azure DNS 中裝載網域的相關指示，請參閱[教學課程：在 Azure DNS 上託管您的網域](dns-delegate-domain-azure-dns.md)。
 
 本教學課程使用的範例網域是 contoso.com，但請使用您自己的網域名稱。
 

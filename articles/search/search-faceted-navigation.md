@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291582"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924579"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>如何在 Azure 搜尋服務中實作多面向導覽
 多面向導覽是一個篩選機制，它在搜尋應用程式中提供自動導向的向下鑽研導覽。 「多面向導覽」一詞可能讓您感到陌生，但您可能早已使用過它。 如下列範例所示，多面向導覽其實就是用來篩選結果的類別。
@@ -34,7 +34,7 @@ ms.locfileid: "61291582"
 ## <a name="sample-code-and-demo"></a>程式碼範例和示範
 本文使用作業搜尋入口網站來作為範例。 此範例會實作為 ASP.NET MVC 應用程式。
 
--   請在 [Azure 搜尋服務作業入口網站示範](http://azjobsdemo.azurewebsites.net/)參閱運作示範並進行線上測試。
+-   請在 [Azure 搜尋服務作業入口網站示範](https://azjobsdemo.azurewebsites.net/)參閱運作示範並進行線上測試。
 
 -   從 [GitHub 上的 Azure 範例儲存機制](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)下載程式碼。
 

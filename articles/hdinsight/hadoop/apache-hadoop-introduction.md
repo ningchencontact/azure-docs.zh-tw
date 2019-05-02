@@ -2,19 +2,18 @@
 title: 什麼是 Apache Hadoop 與 Apache Spark 技術堆疊？ - Azure HDInsight
 description: HDInsight 及 Apache Hadoop 與 Apache Spark 技術堆疊和元件簡介，包括用於巨量資料分析的 Kafka、Hive、Storm 和 HBase。
 keywords: azure hadoop, hadoop azure, hadoop 簡介, hadoop 簡介, hadoop 技術堆疊, hadoop 簡介, hadoop 簡介, 什麼是 hadoop 叢集, 什麼是 hadoop 叢集, 什麼是 hadoop
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 01/28/2019
-ms.openlocfilehash: ca5d0602948a0abe689578fad1508d8f3b3d5198
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f4c291d5684054d606dcb438df71721bd209e5fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443536"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708403"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>什麼是 Azure HDInsight 和 Apache Hadoop 技術堆疊
 

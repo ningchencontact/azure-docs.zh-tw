@@ -2,18 +2,19 @@
 title: 包含檔案
 description: 包含檔案
 services: azure-policy
-author: DCtheGeek
+author: WenJason
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/18/2018
-ms.author: dacoulte
+origin.date: 05/17/2018
+ms.date: 07/09/2018
+ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 9205e1654b5376845c9164658be8f819096c5519
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9884557d8002d0babbc43722aeb1fb11d647f1e2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47003622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865731"
 ---
 ## <a name="network"></a>網路
 

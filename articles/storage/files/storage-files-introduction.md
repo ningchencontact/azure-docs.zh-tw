@@ -2,18 +2,18 @@
 title: Azure 檔案服務簡介 | Microsoft Docs
 description: Azure 檔案服務的概觀，此服務可讓您使用業界標準 SMB 通訊協定在雲端建立和使用網路檔案共用。
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: overview
 ms.date: 07/19/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 647b1723136edd23f3e58f1c225c9226714d4d97
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6e8e2843ad8e00b1fe334200b9b1a5c8a7c2c5df
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466885"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706962"
 ---
 # <a name="what-is-azure-files"></a>什麼是 Azure 檔案服務？
 Azure 檔案提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)存取。 Windows、Linux 和 macOS 的雲端部署或內部部署可同時掛接 Azure 檔案共用。 此外，透過 Azure 檔案同步可以在 Windows Server 上快取 Azure 檔案共用，以便在資料的使用位置附近快速存取。

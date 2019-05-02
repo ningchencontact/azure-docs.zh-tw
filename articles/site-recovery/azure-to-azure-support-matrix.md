@@ -1,23 +1,22 @@
 ---
 title: 使用 Azure Site Recovery 的 Azure 區域之間的 Azure Vm 的災害復原的支援矩陣 |Microsoft Docs
-description: 摘要說明支援的作業系統，以及 Azure 虛擬機器 (VM) 的 Azure Site Recovery 複寫設定 (對於嚴重損壞修復 (DR) 需求，從一個區域複寫至另一個區域)。
-services: site-recovery
+description: 摘要說明必要條件和支援災害復原 Azure Vm 從一個區域到另一個使用 Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: c64148fbc0432bd25c5b02fb20b3e44134c1d9d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502079"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926581"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm 從一個區域複寫到另一個的支援矩陣
 
-本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務來部署災害復原，以將 Azure VM 從一個 Azure 區域複寫、容錯移轉及復原至另一個區域時，所支援的設定和元件。
+當您設定的災害復原 Azure Vm 從一個 Azure 區域到另一個，並使用此文章摘要說明其支援和必要條件[Azure Site Recovery](site-recovery-overview.md)服務。
 
 
 ## <a name="deployment-method-support"></a>部署方法的支援
@@ -96,10 +95,10 @@ Windows Server 2008 R2 | 執行 SP1 或更新版本
 Red Hat Enterprise Linux | 6.7、6.8、6.9、6.10、7.0、7.1、7.2、7.3、7.4、7.5、7.6  
 CentOS | 6.5、6.6、6.7、6.8、6.9、6.10、7.0、7.1、7.2、7.3、7.4、7.5、7.6
 Ubuntu 14.04 LTS 伺服器 | [支援的核心版本](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-Ubuntu 16.04 LTS 伺服器 | [支援的核心版本](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> 使用密碼型驗證和登入並使用雲端 init 封裝來設定雲端 VM 的 Ubuntu 伺服器，可能對容錯移轉停用密碼型登入 (取決於 cloudinit 組態)。 針對已容錯移轉的 VM，從 Azure 入口網站中的 [支援] > [疑難排解] > [設定功能表] 中重設密碼，即可在虛擬機器上重新啟用密碼型登入。
+Ubuntu 16.04 LTS 伺服器 | [支援的核心版本](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> 在容錯移轉 （取決於 cloudinit 組態） 的停用，以使用密碼型驗證和登入，Ubuntu 伺服器和雲端 init 封裝來設定雲端的 Vm，可能會有密碼型登。 密碼型登入即可重新啟用虛擬機器上重設密碼，從支援 > 疑難排解 > （在容錯移轉之 VM 在 Azure 入口網站中 [設定] 功能表。
 Debian 7 | [支援的核心版本](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [支援的核心版本](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1,SP2,SP3,SP4. [(支援的核心版本)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1、 SP2、 SP3、 SP4。 [(支援的核心版本)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> 不支援將複寫機器從 SP3 升級至 SP4。 如果已升級複寫的機器，您需要在升級後停用複寫，然後再重新啟用複寫。
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4、6.5、6.6、6.7、6.8、6.9、6.10、7.0、7.1、7.2、7.3、7.4、7.5 <br/><br/> 執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)。
@@ -133,7 +132,7 @@ Debian 8 | 9.21, 9.22, 9.23, 9.24 | 3.16.0-4-amd64 至 3.16.0-7-amd64、4.9.0-0.
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | 9.24 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>若要 4.4.175-94.79-default SP3 4.4.73-5-default</br></br>若要 4.12.14-95.6-default SP4 4.12.14-94.41-default |
 SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | 9.23 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.69-default</br></br>若要 4.12.14-95.6-default SP4 4.12.14-94.41-default |
-SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.22 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.72-default |
+SUSE Linux Enterprise Server 12 (SP1、 SP2 SP3) | 9.22 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.21 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.72-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>複寫機器 - Linux 檔案系統/客體儲存體
@@ -148,7 +147,7 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.21 | SP1 3.12.49-11-defaul
 **設定** | **支援** | **詳細資料**
 --- | --- | ---
 大小 | 至少 2 顆 CPU 核心和 1 GB RAM 的任何 Azure VM 大小 | 確認 [Azure 虛擬機器大小](../virtual-machines/windows/sizes.md)。
-可用性設定組 | 支援 | 如果您以預設選項啟用 Azure VM 的複寫，系統會根據來源區域設定自動建立可用性設定組。 您可以修改這些設定。
+可用性設定組 | 支援 | 如果您啟用使用預設選項為 Azure 虛擬機器的複寫時，可用性設定組會自動建立，根據來源區域設定。 您可以修改這些設定。
 可用性區域 | 支援 |
 Hybrid Use Benefit (HUB) | 支援 | 如果來源 VM 已啟用 HUB 授權，測試容錯移轉或容錯移轉 VM 也會使用 HUB 授權。
 VM 擴展集 | 不支援 |
@@ -191,7 +190,8 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 静态加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
 適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援啟用[使用 Azure AD 應用程式加密](https://aka.ms/ade-aad-app)的 VM |
 適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 不支援 |
-熱新增/移除磁碟 | 不支援 | 如果您在 VM 上新增或移除資料磁碟，需要停用複寫，然後再次為 VM 啟用複寫。
+熱新增 | 支援 | 啟用資料磁碟加入至複寫的 Azure VM 的複寫支援使用受控的磁碟的 Vm。
+熱移除磁碟 | 不支援 | 如果您移除 VM 上的資料磁碟時，您要停用複寫，然後再次為 VM 啟用複寫。
 排除磁碟 | 支援。 您必須使用[Powershell](azure-to-azure-exclude-disks.md)設定。 |  根據預設排除暫存磁碟。
 儲存空間直接存取  | 支援損毀一致復原點。 不支援應用程式一致復原點。 |
 向外延展檔案伺服器  | 支援損毀一致復原點。 不支援應用程式一致復原點。 |
@@ -241,7 +241,7 @@ Azure DNS | 支援 |
 自訂 DNS  | 支援 |
 未經驗證的 Proxy | 支援 | [深入瞭解]。(site-recovery-azure-to-azure-networking-guidance.md)   
 經驗證的 Proxy | 不支援 | 如果 VM 對於輸出連線能力使用經驗證的 Proxy，則無法使用 Azure Site Recovery 加以複寫。    
-在內部部署 VPN 站對站連線<br/><br/>（不論有無 ExpressRoute）| 支援 | 請確定設定 UDR 和 NSG 時，站台復原流量不是傳送到內部部署的裝置。 [深入了解](site-recovery-azure-to-azure-networking-guidance.md)    
+在內部部署 VPN 站對站連線<br/><br/>（不論有無 ExpressRoute）| 支援 | 請確定設定 Udr 和 Nsg，站台復原流量不會路由傳送至內部部署的方式。 [深入了解](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET 對 VNET 連線 | 支援 | [深入了解](site-recovery-azure-to-azure-networking-guidance.md)  
 虛擬網路服務端點 | 支援 | 如果您要限制只有儲存體帳戶可以存取虛擬網路，請確定受信任的 Microsoft 服務可以存取儲存體帳戶。
 加速網路 | 支援 | 必須在來源 VM 上啟用加速網路。 [深入了解](azure-vm-disaster-recovery-with-accelerated-networking.md)。

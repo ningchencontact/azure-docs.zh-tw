@@ -1,7 +1,6 @@
 ---
 title: '教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢 '
 description: 了解如何在 Azure HDInsight 中的 Spark 叢集上載入資料和執行互動式查詢。
-services: azure-hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 04/03/2019
-ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f480aeb7e126cb6ab8286bbfbfb8441fefeb07ef
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274003"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716093"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢
 

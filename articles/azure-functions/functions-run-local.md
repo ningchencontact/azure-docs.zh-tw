@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61022047"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875931"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -41,6 +41,9 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 ### <a name="v2"></a>版本 2.x
 
 工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本，包括 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 您必須先安裝 .NET Core 2.x SDK。
+
+> [!IMPORTANT]
+> 當您啟用專案的 host.json 檔案中的延伸模組套件組合時，您不需要安裝.NET Core 2.x SDK。 如需詳細資訊，請參閱 <<c0> [ 本機開發與 Azure Functions Core Tools 與擴充功能的配套](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 延伸模組套件組合需要版本 2.6.1071 的核心工具或更新版本。
 
 #### <a name="windows-npm"></a>Windows
 
@@ -310,6 +313,7 @@ func host start
 | **`--script-root --prefix`** | 用來為要執行或部署的函式應用程式指定根目錄的路徑。 此選項可用於在子資料夾中產生專案檔的編譯專案。 例如，當您建置 C# 類別庫專案時，將會以類似於 `MyProject/bin/Debug/netstandard2.0` 的路徑在 *root* 子資料夾中產生 host.json、local.settings.json 和 function.json 等檔案。 在此情況下，請將前置詞設為 `--script-root MyProject/bin/Debug/netstandard2.0`。 這是函式應用程式在 Azure 中執行時的根目錄。 |
 | **`--timeout -t`** | Functions 主機要啟動的逾時 (以秒為單位)。 預設值：20 秒。|
 | **`--useHttps`** | 繫結至 `https://localhost:{port}` 而不是 `http://localhost:{port}` 。 根據預設，此選項會在您的電腦上建立受信任的憑證。|
+| **`--enableAuth`** | 啟用處理管線的完整驗證。|
 
 針對 C# 類別庫專案 (.csproj)，您必須包含 `--build` 選項才能產生程式庫 .dll。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c3a7a8644e0e391f8817a7ae3a4cb9b8af5dab7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280752"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920354"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>教學課程：Azure Active Directory 與 Wingspan eTMF 整合
 
@@ -112,7 +112,7 @@ Wingspan eTMF 與 Azure AD 整合提供下列優點：
     c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
-    > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [Wingspan eTMF 用戶端支援小組](http://www.wingspan.com/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [Wingspan eTMF 用戶端支援小組](https://www.wingspan.com/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -130,7 +130,7 @@ Wingspan eTMF 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-wingspan-etmf-single-sign-on"></a>設定 Wingspan eTMF 單一登入
 
-若要在 **Wingspan eTMF** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和複製的適當 URL 傳送給 [Wingspan eTMF 支援小組](http://www.wingspan.com/contact-us/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Wingspan eTMF** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和複製的適當 URL 傳送給 [Wingspan eTMF 支援小組](https://www.wingspan.com/contact-us/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -184,7 +184,7 @@ Wingspan eTMF 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-wingspan-etmf-test-user"></a>建立 Wingspan eTMF 測試使用者
 
-在本節中，您會在 Wingspan eTMF 中建立名為 Britta Simon 的使用者。 請與  [Wingspan eTMF 支援小組](http://www.wingspan.com/contact-us/)合作，在 Wingspan eTMF 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Wingspan eTMF 中建立名為 Britta Simon 的使用者。 請與  [Wingspan eTMF 支援小組](https://www.wingspan.com/contact-us/)合作，在 Wingspan eTMF 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

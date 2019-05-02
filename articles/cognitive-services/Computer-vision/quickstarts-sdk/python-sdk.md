@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 95705e7b7a372867e33c86826f44e380407dfee1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ce7e8788ec807c8ceccb49a7d435041b34e75348
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999309"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917086"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>適用於 Python 的 Azure 認知服務電腦視覺 SDK
 
@@ -216,7 +216,7 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>從影像中取得文字
 
-您可以從影像中取得任何手寫或列印的文字。 這需要對 SDK 發出兩個呼叫：[`batch_read_file`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) 和 [`get_read_operation_result`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-)。 對 `batch_read_file` 的呼叫是非同步的。 在 `get_read_operation_result` 呼叫的結果中，您必須先確認第一個呼叫是否已完成且有 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes]，再擷取文字資料。 結果中會包含文字以及文字的週框座標。
+您可以從影像中取得任何手寫或列印的文字。 這需要對 SDK 發出兩個呼叫：[`batch_read_file`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) 和 [`get_read_operation_result`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-)。 對 `batch_read_file` 的呼叫是非同步的。 在 `get_read_operation_result` 呼叫的結果中，您必須先確認第一個呼叫是否已完成且有 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes]，再擷取文字資料。 結果中會包含文字以及文字的週框座標。
 
 ```Python
 # import models

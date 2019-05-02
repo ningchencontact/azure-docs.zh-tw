@@ -2,7 +2,6 @@
 title: 快速入門：使用 Azure 入口網站開始使用 Apache Hadoop 和 Apache Hive - Azure HDInsight
 description: 了解如何使用 Azure 入口網站來建立 HDInsight 叢集，以及使用 Hive 來查詢資料。
 keywords: 開始使用,hadoop linux,hadoop 快速入門,開始使用 hive,hive 快速入門
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 81eb750f271062bcb4891edf8008d76a18ac85c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c466840c3de9337d7bb8d22f00da0ba52227770
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881192"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697805"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure HDInsight 中開始使用 Apache Hadoop 和 Apache Hive
 

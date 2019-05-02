@@ -2,18 +2,18 @@
 title: 使用 Azure 儲存體總管來管理 Azure 檔案共用的快速入門
 description: 使用此快速入門了解如何使用 Azure 儲存體總管來管理 Azure 檔案服務。
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 931098d688e39490aa0aadaa8ade8405e5ba8a12
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bf87704a8055b5725178c846df71ed4d873417e3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452238"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713869"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>快速入門：使用 Azure 儲存體總管來建立及管理 Azure 檔案共用
 本指南會逐步說明透過 [Azure 儲存體總管](storage-files-introduction.md)來使用 Azure 檔案共用的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 

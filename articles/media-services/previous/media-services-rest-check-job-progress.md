@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: a7b61ba05aea817d65e7cac991ad460d708a5ea7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 378a90b712af031f9d89758939afb993cee5aafd
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60873405"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869496"
 ---
 # <a name="how-to-check-job-progress"></a>作法：檢查工作進度
-> [!div class="op_single_selector"]
-> * [入口網站](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+
+> [!NOTE]
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
 
 執行作業時，您通常需要設法追蹤作業進度。 您可以使用工作的 State 屬性，以查明工作狀態。 如需 State 屬性的詳細資訊，請參閱 [工作實體屬性](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties)。
 

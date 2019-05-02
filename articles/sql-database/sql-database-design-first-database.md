@@ -10,12 +10,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 3ca17ae905fff0911b58a0d336e0899ff385085c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3b802573bfc1eba74217d01005a2f232ff575fda
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990474"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730408"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>教學課程：使用 SSMS 在 Azure SQL Database 的單一資料庫中設計關聯式資料庫
 
@@ -79,7 +79,7 @@ Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 5. 按一下 [選取] 。
 6. 按一下 [定價層] 可指定服務層、DTU 或虛擬核心的數目，以及儲存體數量。 您可以瀏覽 DTU/虛擬核心數目的選項，以及可供您每個服務層級使用的儲存體。
 
-    在選取服務層、DTU 或虛擬核心數目和儲存體數量之後，按一下 [套用]。
+    在選取服務層、DTU 或 vCore 數目和儲存體數量之後，按一下 [套用]。
 
 7. 為空白資料庫輸入 [定序]\(在此教學課程中使用預設值)。 如需定序的詳細資訊，請參閱[定序](/sql/t-sql/statements/collations)。
 
@@ -227,10 +227,10 @@ QL Database 服務會在伺服器層級建立 IP 防火牆。 此防火牆會防
 4. 執行下列命令，將範例資料插入資料表中，並以適用於您環境的值取代 *server*、*database*、*user*, 和 *password* 的值。
 
    ```cmd
-   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 您現在已將範例資料載入至先前建立的資料表。

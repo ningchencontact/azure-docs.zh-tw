@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6c3accdd74ce3277181f6cdfc890de0d8c55bf07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13db0406681f676f47a3764cf2a59c4dbf251715
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344626"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729196"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -38,6 +38,9 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.AAD/domainServices/oucontainer/read | 讀取 Ou 容器 |
 > |  動作 | Microsoft.AAD/domainServices/oucontainer/write | 寫入 Ou 容器 |
 > |  動作 | Microsoft.AAD/domainServices/read | 讀取網域服務 |
+> |  動作 | Microsoft.AAD/domainServices/ReplicaSets/delete | 刪除叢集站台 |
+> |  動作 | Microsoft.AAD/domainServices/ReplicaSets/read | 讀取叢集站台 |
+> |  動作 | Microsoft.AAD/domainServices/ReplicaSets/write | 寫入叢集站台 |
 > |  動作 | Microsoft.AAD/domainServices/write | 寫入網域服務 |
 > |  動作 | Microsoft.AAD/locations/operationresults/read |  |
 > |  動作 | Microsoft.AAD/Operations/read |  |
@@ -100,9 +103,7 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.ADHybridHealthService/reports/availabledeployments/read | 取得可用區域清單，以供 DevOps 用來支援客戶事件。 |
 > |  動作 | Microsoft.ADHybridHealthService/reports/badpassword/read | 取得 Active Directory Federation Service 中所有使用者的錯誤密碼嘗試清單。 |
 > |  動作 | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | 取得 Blob SAS URI，其包含新近排入佇列的報告作業狀態和最終結果，執行該作業是為了了解指定租用戶每個 UserId、每個 IPAddress、每天發生的錯誤使用者名稱/密碼嘗試頻率。 |
-> |  動作 | Microsoft.ADHybridHealthService/reports/blobUris/read | 获取过去 7 天的所有风险 IP 报告 URI。 |
 > |  動作 | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | 取得 DevOps 同意的租用戶清單。 通常用於客戶支援。 |
-> |  動作 | Microsoft.ADHybridHealthService/reports/generateBlobUri/action | 生成风险 IP 报告并返回指向它的 URI。 |
 > |  動作 | Microsoft.ADHybridHealthService/reports/isdevops/read | 取得可指出租用戶是否已獲得 DevOps 同意的值。 |
 > |  動作 | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | 更新所選 Dev Ops 租用戶的 userid (objectid)。 |
 > |  動作 | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | 取得指定租用戶所選取的部署。 |
@@ -125,7 +126,9 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | 新增或更新服務的監視組態。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/premiumcheck/read | 此 API 會取得進階租用戶所有已上架服務的清單。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/read | 讀取租用戶中的服務執行個體。 |
+> |  動作 | Microsoft.ADHybridHealthService/services/reports/blobUris/read | 获取过去 7 天的所有风险 IP 报告 URI。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/reports/details/read | 取得過去 7 天排行前 50 名有不正確密碼錯誤的使用者報告 |
+> |  動作 | Microsoft.ADHybridHealthService/services/reports/generateBlobUri/action | 生成风险 IP 报告并返回指向它的 URI。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/servicemembers/action | 在服務中建立伺服器執行個體。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/servicemembers/alerts/read | 讀取伺服器的警示。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/servicemembers/credentials/read | 在伺服器註冊期間，會呼叫此 API 來取得用於將新伺服器上架的認證。 |
@@ -213,163 +216,169 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.ApiManagement/operations/read | 讀取可供 Microsoft.ApiManagement 資源使用的所有 API 作業 |
 > |  動作 | Microsoft.ApiManagement/register/action | 針對 Microsoft.ApiManagement 資源提供者註冊訂用帳戶 |
 > |  動作 | Microsoft.ApiManagement/reports/read | 取得依時間週期、地理區域、開發人員、產品、API、作業、訂用帳戶和依需求彙總的報告。 |
-> |  動作 | Microsoft.ApiManagement/service/apis/delete | 移除現有 API |
-> |  動作 | Microsoft.ApiManagement/service/apis/diagnostics/delete | 移除現有診斷 |
-> |  動作 | Microsoft.ApiManagement/service/apis/diagnostics/read | 取得診斷清單，或取得診斷的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/diagnostics/write | 新增診斷，或更新現有的診斷詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/issues/attachments/delete | 移除現有附件 |
-> |  動作 | Microsoft.ApiManagement/service/apis/issues/attachments/read | 取得問題附件或取得 API 管理問題附件的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/issues/attachments/write | 新增 API 問題附件 |
-> |  動作 | Microsoft.ApiManagement/service/apis/issues/comments/delete | 移除現有註解 |
-> |  動作 | Microsoft.ApiManagement/service/apis/issues/comments/read | 取得問題註解或取得 API 管理問題註解的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/issues/comments/write | 新增 API 問題註解 |
-> |  動作 | Microsoft.ApiManagement/service/apis/issues/delete | 移除現有問題 |
-> |  動作 | Microsoft.ApiManagement/service/apis/issues/read | 取得 API 相關問題或取得 API 管理問題的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/issues/write | 新增 API 問題或更新 API 問題 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/delete | 移除現有的 API 作業 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/policies/delete | 從 API 作業原則中移除原則設定 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/policies/read | 取得 API 作業的原則，或取得 API 作業的原則設定詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/policies/write | 設定 API 作業的原則設定詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/policy/delete | 從作業中移除原則組態 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/policy/read | 取得作業的原則組態詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/policy/write | 設定作業的原則組態詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/read | 取得現有 API 作業的清單，或取得 API 作業的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/tags/delete | 刪除現有標記與現有作業的關聯 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/tags/read | 取得與作業相關聯的標記，或取得標記詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/tags/write | 將現有標記關聯至現有作業 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operations/write | 建立新的 API 作業，或更新現有的 API 作業 |
-> |  動作 | Microsoft.ApiManagement/service/apis/operationsByTags/read | 取得作業/標記關聯的清單 |
-> |  動作 | Microsoft.ApiManagement/service/apis/policies/delete | 從 API 原則中移除原則設定 |
-> |  動作 | Microsoft.ApiManagement/service/apis/policies/read | 取得 API 的原則，或取得 API 的原則設定詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/policies/write | 設定 API 的原則組態詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/policy/delete | 從 API 中移除原則組態 |
-> |  動作 | Microsoft.ApiManagement/service/apis/policy/read | 取得 API 的原則組態詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/policy/write | 設定 API 的原則組態詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/products/read | 取得 API 所屬的所有產品 |
-> |  動作 | Microsoft.ApiManagement/service/apis/read | 取得所有已註冊之 API 的清單，或取得 API 的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/releases/delete | 移除 API 的所有版本，或移除 API 版本 |
-> |  動作 | Microsoft.ApiManagement/service/apis/releases/read | 取得 API 的版本，或取得 API 版本的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/releases/write | 建立新的 API，或更新現有 API 版本 |
+> |  動作 | Microsoft.ApiManagement/service/apis/delete | 刪除指定的 API，API 管理服務執行個體。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/diagnostics/delete | 從 API 中刪除指定的診斷。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/diagnostics/read | 列出所有的診斷，API。 或取得的 api 識別碼所指定的診斷詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/diagnostics/write | 建立新的診斷，api，或更新現有的。 或更新識別碼所指定的診斷，api 的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/issues/attachments/delete | 刪除指定的註解的問題。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/issues/attachments/read | 列出與指定的 API，相關聯之問題的所有附件。 或取得問題的 API 識別碼所指定的附件的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/issues/attachments/write | 問題的 API 中，建立新的附件，或更新現有的。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/issues/comments/delete | 刪除指定的註解的問題。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/issues/comments/read | 列出與指定的 API，相關聯之問題的所有註解。 或取得問題的詳細資料註解識別碼所指定的 api。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/issues/comments/write | 建立新的註解的 API 中的問題，或更新現有的。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/issues/delete | 從 API 中刪除指定的問題。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/issues/read | 列出與指定的 API 相關聯的所有問題。 或取得的 API 識別碼所指定的問題詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/issues/write | 為 API 建立新的問題，或更新現有的。 或更新現有 api 發出。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/delete | 刪除 API 中指定的作業。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/policies/delete | 刪除在此 Api 作業的原則設定。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/policies/read | 取得 API 作業層級的原則設定的清單。 或取得 API 作業層級的原則組態。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/policies/write | 建立或更新 API 作業層級的原則組態。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/policy/delete | 刪除作業層級的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/policy/read | 在作業層級取得的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/policy/write | 在作業層級建立的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/read | 列出指定之 api 作業的集合。 或取得識別碼所指定 API 作業的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/tags/delete | 中斷連結作業的標記。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/tags/read | 列出與作業相關聯的所有標記。 或取得與作業相關聯的標記。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/tags/write | 將標籤指派至作業。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operations/write | 在 API 中建立新的作業，或更新現有的。 或更新識別碼所指定 api 作業的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/operationsByTags/read | 列出作業與標記相關聯的集合。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/policies/delete | 刪除 api 的原則設定。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/policies/read | 在 API 層級取得的原則組態。 或者，在 API 層級取得的原則組態。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/policies/write | 建立或更新 API 原則組態。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/policy/delete | 刪除在 API 層級的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/apis/policy/read | 在 API 層級取得的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/apis/policy/write | 在 API 層級建立的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/apis/products/read | 列出所有產品、 API 是的一部分。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/read | 列出所有的 Api，API 管理服務執行個體。 或取得識別碼所指定之 API 詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/releases/delete | 移除所有的 API 版本，或刪除 API 中指定的版本。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/releases/read | 列出所有的 API 版本。<br>建立 API 修訂目前時，會建立的 API 版本。<br>版本也可用於回復到舊有修訂版本。<br>結果要進行分頁，而且會受到 $top 和 $skip 參數。<br>或傳回 API 的詳細資料發行。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/releases/write | 建立新的發行 api。 或更新識別碼所指定的 api 版本的詳細資料。 |
 > |  動作 | Microsoft.ApiManagement/service/apis/revisions/delete | 移除 API 的所有修訂 |
-> |  動作 | Microsoft.ApiManagement/service/apis/revisions/read | 取得屬於 API 的修訂 |
-> |  動作 | Microsoft.ApiManagement/service/apis/schemas/delete | 移除現有結構描述 |
-> |  動作 | Microsoft.ApiManagement/service/apis/schemas/document/read | 取得說明結構描述的文件 |
-> |  動作 | Microsoft.ApiManagement/service/apis/schemas/document/write | 更新說明結構描述的文件 |
-> |  動作 | Microsoft.ApiManagement/service/apis/schemas/read | 取得指定 API 的所有結構描述，或取得 API 所使用的結構描述 |
-> |  動作 | Microsoft.ApiManagement/service/apis/schemas/write | 設定 API 所使用的結構描述 |
-> |  動作 | Microsoft.ApiManagement/service/apis/tagDescriptions/delete | 從 API 中移除標記描述 |
-> |  動作 | Microsoft.ApiManagement/service/apis/tagDescriptions/read | 取得 API 範圍內的多個標記描述，或取得 API 範圍內的單一標記描述 |
-> |  動作 | Microsoft.ApiManagement/service/apis/tagDescriptions/write | 建立/變更 API 範圍內的標記描述 |
-> |  動作 | Microsoft.ApiManagement/service/apis/tags/delete | 移除現有的 API/標記關聯 |
-> |  動作 | Microsoft.ApiManagement/service/apis/tags/read | 取得 API 的所有 API/標記關聯，或取得 API/標記關聯的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apis/tags/write | 新增 API/標記關聯 |
-> |  動作 | Microsoft.ApiManagement/service/apis/write | 建立新的 API，或更新現有 API 的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/apisByTags/read | 取得 API/標記關聯的清單 |
-> |  動作 | Microsoft.ApiManagement/service/apiVersionSets/delete | 移除現有的 VersionSet |
-> |  動作 | Microsoft.ApiManagement/service/apiVersionSets/read | 取得版本群組實體的清單，或取得 VersionSet 的詳細資料 |
+> |  動作 | Microsoft.ApiManagement/service/apis/revisions/read | 列出所有修訂的 API。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/schemas/delete | 刪除 api 的結構描述設定。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/schemas/read | 取得結構描述組態在 API 層級。 或者，取得結構描述組態，在 API 層級。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/schemas/write | 建立或更新 API 的結構描述組態。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/tagDescriptions/delete | 刪除標記描述 api。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/tagDescriptions/read | 列出所有標記描述範圍內的 API。 模型類似於 swagger-API 層級上定義 tagDescription 但標記可能會指派給作業，或取得 API 範圍內的標記描述 |
+> |  動作 | Microsoft.ApiManagement/service/apis/tagDescriptions/write | 建立/更新範圍中的標記描述的 api。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/tags/delete | 卸離 Api 的標記。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/tags/read | 列出 API 相關聯的所有標記。 或取得 API 相關聯的標記。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/tags/write | 將標記指派給 Api。 |
+> |  動作 | Microsoft.ApiManagement/service/apis/write | 建立新的或更新現有指定的 API，API 管理服務執行個體。 或更新指定的 API，API 管理服務執行個體。 |
+> |  動作 | Microsoft.ApiManagement/service/apisByTags/read | 列出一系列與標記相關聯的 api。 |
+> |  動作 | Microsoft.ApiManagement/service/apiVersionSets/delete | 刪除特定 Api 版本設定。 |
+> |  動作 | Microsoft.ApiManagement/service/apiVersionSets/read | 列出的 API 版本集合中指定的服務執行個體的集合。 或取得 Api 版本，設定識別碼所指定的詳細資料。 |
 > |  動作 | Microsoft.ApiManagement/service/apiVersionSets/versions/read | 取得版本實體的清單 |
-> |  動作 | Microsoft.ApiManagement/service/apiVersionSets/write | 建立新的 VersionSet，或更新現有 VersionSet 詳細資料 |
+> |  動作 | Microsoft.ApiManagement/service/apiVersionSets/write | 建立或更新 Api 版本設定。 或更新識別碼所指定的 Api VersionSet 的詳細資料。 |
 > |  動作 | Microsoft.ApiManagement/service/applynetworkconfigurationupdates/action | 更新虛擬網路中執行的 Microsoft.ApiManagement 資源，以挑選更新後的網路設定。 |
-> |  動作 | Microsoft.ApiManagement/service/authorizationServers/delete | 移除現有的授權伺服器 |
-> |  動作 | Microsoft.ApiManagement/service/authorizationServers/read | 取得授權伺服器的清單，或取得授權伺服器的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/authorizationServers/write | 建立新的授權伺服器，或更新現有授權伺服器的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/backends/delete | 移除現有後端 |
-> |  動作 | Microsoft.ApiManagement/service/backends/read | 取得後端清單，或取得後端的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/backends/reconnect/action | 建立重新連線要求 |
-> |  動作 | Microsoft.ApiManagement/service/backends/write | 新增後端，或更新現有的後端詳細資料 |
+> |  動作 | Microsoft.ApiManagement/service/authorizationServers/delete | 刪除特定的授權伺服器執行個體。 |
+> |  動作 | Microsoft.ApiManagement/service/authorizationServers/read | 列出授權伺服器服務執行個體內定義的集合。 或取得識別碼所指定的授權伺服器的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/authorizationServers/write | 建立新的授權伺服器或更新現有的授權伺服器。 或更新識別碼所指定的授權伺服器的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/backends/delete | 刪除指定的後端。 |
+> |  動作 | Microsoft.ApiManagement/service/backends/read | 列出指定的服務執行個體中的後端的集合。 或取得識別碼所指定的後端的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/backends/reconnect/action | 通知 APIM proxy 建立後端在指定的逾時之後新的連接。 如果已指定沒有逾時，會使用 2 分鐘的逾時。 |
+> |  動作 | Microsoft.ApiManagement/service/backends/write | 建立或更新後端。 或更新現有的後端。 |
 > |  動作 | Microsoft.ApiManagement/service/backup/action | 將 API 管理服務備份到使用者所提供之儲存體帳戶中的指定容器 |
-> |  動作 | Microsoft.ApiManagement/service/certificates/delete | 移除現有憑證 |
-> |  動作 | Microsoft.ApiManagement/service/certificates/read | 取得憑證清單，或取得憑證的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/certificates/write | 新增憑證 |
+> |  動作 | Microsoft.ApiManagement/service/caches/delete | 刪除特定快取。 |
+> |  動作 | Microsoft.ApiManagement/service/caches/read | 列出指定的服務執行個體中的所有外部快取的集合。 或取得識別碼所指定的快取的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/caches/write | 建立或更新 Api 管理執行個體中會使用外部快取。 或更新識別碼所指定的快取的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/certificates/delete | 刪除特定的憑證。 |
+> |  動作 | Microsoft.ApiManagement/service/certificates/read | 列出指定的服務執行個體中的所有憑證的集合。 或取得的識別碼所指定的憑證詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/certificates/write | 建立或更新所用來與後端的驗證憑證。 |
 > |  動作 | Microsoft.ApiManagement/service/contentTypes/contentItems/delete | 移除指定的內容項目。 |
 > |  動作 | Microsoft.ApiManagement/service/contentTypes/contentItems/read | 傳回內容項目清單或傳回內容項目詳細資料 |
 > |  動作 | Microsoft.ApiManagement/service/contentTypes/contentItems/write | 建立新的內容項目或更新指定的內容項目 |
 > |  動作 | Microsoft.ApiManagement/service/contentTypes/read | 傳回內容類型清單 |
 > |  動作 | Microsoft.ApiManagement/service/delete | 刪除 API 管理服務執行個體 |
-> |  動作 | Microsoft.ApiManagement/service/diagnostics/delete | 移除現有診斷 |
-> |  動作 | Microsoft.ApiManagement/service/diagnostics/read | 取得診斷清單，或取得診斷的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/diagnostics/write | 新增診斷，或更新現有的診斷詳細資料 |
+> |  動作 | Microsoft.ApiManagement/service/diagnostics/delete | 刪除指定的診斷。 |
+> |  動作 | Microsoft.ApiManagement/service/diagnostics/read | 列出所有的診斷，API 管理服務執行個體。 或取得的識別碼所指定的診斷詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/diagnostics/write | 建立新的診斷或更新現有的帳戶。 或更新識別碼所指定的診斷的詳細資料。 |
 > |  動作 | Microsoft.ApiManagement/service/getssotoken/action | 取得 SSO 權杖，以供用來登入 API 管理服務舊版入口網站 (登入身分為系統管理員) |
-> |  動作 | Microsoft.ApiManagement/service/groups/delete | 移除現有群組 |
-> |  動作 | Microsoft.ApiManagement/service/groups/read | 取得群組清單，或取得群組的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/groups/users/delete | 從現有群組移除現有使用者 |
-> |  動作 | Microsoft.ApiManagement/service/groups/users/read | 取得群組使用者的清單 |
+> |  動作 | Microsoft.ApiManagement/service/groups/delete | 刪除 API 管理服務執行個體的特定群組。 |
+> |  動作 | Microsoft.ApiManagement/service/groups/read | 列出服務執行個體內定義的群組集合。 或取得群組識別碼所指定的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/groups/users/delete | 從現有的群組中移除現有的使用者。 |
+> |  動作 | Microsoft.ApiManagement/service/groups/users/read | 列出與群組相關聯的使用者實體的集合。 |
 > |  動作 | Microsoft.ApiManagement/service/groups/users/write | 將現有使用者新增至現有群組 |
-> |  動作 | Microsoft.ApiManagement/service/groups/write | 建立新的群組，或更新現有群組的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/identityProviders/delete | 移除現有的識別提供者 |
-> |  動作 | Microsoft.ApiManagement/service/identityProviders/read | 取得識別提供者清單，或取得識別提供者的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/identityProviders/write | 建立新的識別提供者，或更新現有識別提供者的詳細資料 |
+> |  動作 | Microsoft.ApiManagement/service/groups/write | 建立或更新的群組。 或更新識別碼所指定群組的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/identityProviders/delete | 刪除指定的識別提供者設定。 |
+> |  動作 | Microsoft.ApiManagement/service/identityProviders/read | 列出指定的服務執行個體中所設定的身分識別提供者的集合。 或取得指定的服務執行個體中設定的身分識別提供者的設定詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/identityProviders/write | 建立或更新 IdentityProvider 組態。 或更新現有的 IdentityProvider 組態。 |
+> |  動作 | Microsoft.ApiManagement/service/issues/read | 列出集合中指定的服務執行個體的問題。 或取得 API 管理問題的詳細資料 |
 > |  動作 | Microsoft.ApiManagement/service/locations/networkstatus/read | 取得位置中服務相依資源的網路存取狀態。 |
-> |  動作 | Microsoft.ApiManagement/service/loggers/delete | 移除現有的記錄器 |
-> |  動作 | Microsoft.ApiManagement/service/loggers/read | 取得記錄器的清單，或取得記錄器的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/loggers/write | 新增記錄器，或更新現有的記錄器詳細資料 |
+> |  動作 | Microsoft.ApiManagement/service/loggers/delete | 刪除指定的記錄器。 |
+> |  動作 | Microsoft.ApiManagement/service/loggers/read | 列出指定的服務執行個體中的記錄器集合。 或取得的識別碼所指定的記錄器詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/loggers/write | 建立或更新記錄器。 或更新現有的記錄器。 |
 > |  動作 | Microsoft.ApiManagement/service/managedeployments/action | 變更 SKU/單位、新增/移除 API 管理服務的區域部署 |
 > |  動作 | Microsoft.ApiManagement/service/networkstatus/read | 取得服務相依資源的網路存取狀態。 |
 > |  動作 | Microsoft.ApiManagement/service/notifications/action | 將通知傳送給指定的使用者 |
-> |  動作 | Microsoft.ApiManagement/service/notifications/read | 取得所有的 API 管理發行者通知，或取得 API 管理發行者通知詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/notifications/recipientEmails/delete | 移除目前與通知相關聯的電子郵件 |
-> |  動作 | Microsoft.ApiManagement/service/notifications/recipientEmails/read | 取得與 API 管理發行者通知相關聯的電子郵件收件者 |
-> |  動作 | Microsoft.ApiManagement/service/notifications/recipientEmails/write | 建立通知的新電子郵件收件者 |
-> |  動作 | Microsoft.ApiManagement/service/notifications/recipientUsers/delete | 移除與通知收件者相關聯的使用者 |
-> |  動作 | Microsoft.ApiManagement/service/notifications/recipientUsers/read | 取得與通知相關聯的收件者使用者 |
-> |  動作 | Microsoft.ApiManagement/service/notifications/recipientUsers/write | 將使用者新增至通知收件者 |
-> |  動作 | Microsoft.ApiManagement/service/notifications/write | 建立或更新 API 管理發行者通知 |
-> |  動作 | Microsoft.ApiManagement/service/openidConnectProviders/delete | 移除現有的 OpenID Connect 提供者 |
-> |  動作 | Microsoft.ApiManagement/service/openidConnectProviders/read | 取得 OpenID Connect 提供者的清單，或取得 OpenID Connect 提供者的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/openidConnectProviders/write | 建立新的 OpenID Connect 提供者，或更新現有 OpenID Connect 提供者的詳細資料 |
+> |  動作 | Microsoft.ApiManagement/service/notifications/read | 列出服務執行個體內定義的屬性的集合。 或取得的識別碼所指定的通知詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/notifications/recipientEmails/delete | 移除通知的清單中的電子郵件。 |
+> |  動作 | Microsoft.ApiManagement/service/notifications/recipientEmails/read | 取得清單中的通知收件者電子郵件訂閱通知。 |
+> |  動作 | Microsoft.ApiManagement/service/notifications/recipientEmails/write | 將通知的收件者清單中的電子郵件地址。 |
+> |  動作 | Microsoft.ApiManagement/service/notifications/recipientUsers/delete | 從 [通知] 清單中移除 API 管理使用者。 |
+> |  動作 | Microsoft.ApiManagement/service/notifications/recipientUsers/read | 取得通知訂閱的通知收件者使用者清單。 |
+> |  動作 | Microsoft.ApiManagement/service/notifications/recipientUsers/write | 將通知的收件者清單中的 API 管理使用者。 |
+> |  動作 | Microsoft.ApiManagement/service/notifications/write | 建立或更新 API 管理發行者通知。 |
+> |  動作 | Microsoft.ApiManagement/service/openidConnectProviders/delete | 刪除特定 OpenID Connect 提供者的 API 管理服務執行個體。 |
+> |  動作 | Microsoft.ApiManagement/service/openidConnectProviders/read | 所有的 OpenId Connect 提供者的清單。 或取得特定 OpenID Connect 提供者。 |
+> |  動作 | Microsoft.ApiManagement/service/openidConnectProviders/write | 建立或更新 OpenID Connect 提供者。 或更新特定 OpenID Connect 提供者。 |
 > |  動作 | Microsoft.ApiManagement/service/operationresults/read | 取得長時間執行之作業的目前狀態 |
-> |  動作 | Microsoft.ApiManagement/service/policies/delete | 從租用戶原則中移除原則設定 |
-> |  動作 | Microsoft.ApiManagement/service/policies/read | 取得租用戶的原則，或取得租用戶的原則設定詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/policies/write | 設定租用戶的原則設定詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/policySnippets/read | 取得所有原則程式碼片段 |
-> |  動作 | Microsoft.ApiManagement/service/portalsettings/read | 取得入口網站的註冊設定、取得入口網站的登入設定，或取得入口網站的委派設定 |
-> |  動作 | Microsoft.ApiManagement/service/portalsettings/write | 更新註冊設定、更新登入設定，或更新委派設定 |
-> |  動作 | Microsoft.ApiManagement/service/products/apis/delete | 從現有產品中移除現有 API |
-> |  動作 | Microsoft.ApiManagement/service/products/apis/read | 取得新增至現有產品之 API 的清單 |
-> |  動作 | Microsoft.ApiManagement/service/products/apis/write | 將現有 API 新增至現有產品 |
-> |  動作 | Microsoft.ApiManagement/service/products/delete | 移除現有產品 |
-> |  動作 | Microsoft.ApiManagement/service/products/groups/delete | 刪除現有開發人員群組與現有產品的關聯 |
-> |  動作 | Microsoft.ApiManagement/service/products/groups/read | 取得與產品相關聯的開發人員群組清單 |
-> |  動作 | Microsoft.ApiManagement/service/products/groups/write | 將現有開發人員群組與現有產品相關聯 |
-> |  動作 | Microsoft.ApiManagement/service/products/policies/delete | 從產品原則中移除原則設定 |
-> |  動作 | Microsoft.ApiManagement/service/products/policies/read | 取得產品的原則，或取得產品的原則設定詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/products/policies/write | 設定產品的原則設定詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/products/policy/delete | 從現有產品中移除原則組態 |
-> |  動作 | Microsoft.ApiManagement/service/products/policy/read | 取得現有產品的原則組態 |
-> |  動作 | Microsoft.ApiManagement/service/products/policy/write | 設定現有產品的原則組態 |
-> |  動作 | Microsoft.ApiManagement/service/products/read | 取得產品清單，或取得產品的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/products/subscriptions/read | 取得產品訂用帳戶的清單 |
-> |  動作 | Microsoft.ApiManagement/service/products/tags/delete | 刪除現有標記與現有產品的關聯 |
-> |  動作 | Microsoft.ApiManagement/service/products/tags/read | 取得與產品相關聯的標記，或取得標記詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/products/tags/write | 將現有標記關聯至現有產品 |
-> |  動作 | Microsoft.ApiManagement/service/products/write | 建立新的產品，或更新現有產品的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/productsByTags/read | 取得產品/標記關聯的清單 |
-> |  動作 | Microsoft.ApiManagement/service/properties/delete | 移除現有屬性 |
-> |  動作 | Microsoft.ApiManagement/service/properties/read | 取得所有屬性的清單，或取得指定之屬性的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/properties/write | 建立新的屬性，或更新指定之屬性的值 |
+> |  動作 | Microsoft.ApiManagement/service/policies/delete | 刪除 Api 管理服務的全域原則設定。 |
+> |  動作 | Microsoft.ApiManagement/service/policies/read | 列出 Api 管理服務的所有全域原則定義。 或取得 Api 管理服務的全域原則定義。 |
+> |  動作 | Microsoft.ApiManagement/service/policies/write | 建立或更新 Api 管理服務的全域原則設定。 |
+> |  動作 | Microsoft.ApiManagement/service/policy/delete | 刪除租用戶層級的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/policy/read | 取得租用戶層級的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/policy/write | 在租用戶層級建立的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/policySnippets/read | 列出所有原則程式碼片段。 |
+> |  動作 | Microsoft.ApiManagement/service/portalsettings/read | 入口網站或 Get 登入口網站的設定或取得入口網站的委派設定，請在設定中有正負號。 |
+> |  動作 | Microsoft.ApiManagement/service/portalsettings/write | 更新登入設定。 或建立或更新登入的設定。 或更新註冊設定或更新註冊設定或更新委派設定。 或建立或更新委派設定。 |
+> |  動作 | Microsoft.ApiManagement/service/products/apis/delete | 刪除指定的 API，從指定的產品。 |
+> |  動作 | Microsoft.ApiManagement/service/products/apis/read | 列出一系列的 Api 產品相關聯。 |
+> |  動作 | Microsoft.ApiManagement/service/products/apis/write | 將 API 新增至指定的產品。 |
+> |  動作 | Microsoft.ApiManagement/service/products/delete | 刪除產品。 |
+> |  動作 | Microsoft.ApiManagement/service/products/groups/delete | 刪除指定的群組與產品之間的關聯。 |
+> |  動作 | Microsoft.ApiManagement/service/products/groups/read | 列出與指定的產品相關聯的開發人員群組集合。 |
+> |  動作 | Microsoft.ApiManagement/service/products/groups/write | 將指定的產品在指定的開發人員群組之間的關聯。 |
+> |  動作 | Microsoft.ApiManagement/service/products/policies/delete | 刪除在產品的原則設定。 |
+> |  動作 | Microsoft.ApiManagement/service/products/policies/read | 產品層級取得的原則組態。 或取得產品層級的原則組態。 |
+> |  動作 | Microsoft.ApiManagement/service/products/policies/write | 建立或更新產品的原則組態。 |
+> |  動作 | Microsoft.ApiManagement/service/products/policy/delete | 刪除在產品層級的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/products/policy/read | 在產品層級取得的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/products/policy/write | 在產品層級建立的原則組態 |
+> |  動作 | Microsoft.ApiManagement/service/products/read | 列出指定的服務執行個體中產品的集合。 或取得識別碼所指定之產品的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/products/subscriptions/read | 列出指定之產品的訂用帳戶的集合。 |
+> |  動作 | Microsoft.ApiManagement/service/products/tags/delete | 中斷連結，從產品的標記。 |
+> |  動作 | Microsoft.ApiManagement/service/products/tags/read | 列出產品相關聯的所有標記。 或取得產品相關聯的標記。 |
+> |  動作 | Microsoft.ApiManagement/service/products/tags/write | 將標記指派給產品中。 |
+> |  動作 | Microsoft.ApiManagement/service/products/write | 建立或更新的產品。 或更新現有的產品詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/productsByTags/read | 列出與標記相關聯的產品的集合。 |
+> |  動作 | Microsoft.ApiManagement/service/properties/delete | 從 API 管理服務執行個體刪除特定的屬性。 |
+> |  動作 | Microsoft.ApiManagement/service/properties/read | 列出服務執行個體內定義的屬性的集合。 或取得識別碼所指定之屬性的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/properties/write | 建立或更新的屬性。 或更新特定的屬性。 |
 > |  動作 | Microsoft.ApiManagement/service/quotas/periods/read | 取得期間的配額計數器值 |
 > |  動作 | Microsoft.ApiManagement/service/quotas/periods/write | 設定配額計數器目前的值 |
 > |  動作 | Microsoft.ApiManagement/service/quotas/read | 取得配額的值 |
 > |  動作 | Microsoft.ApiManagement/service/quotas/write | 設定配額計數器目前的值 |
 > |  動作 | Microsoft.ApiManagement/service/read | 讀取 API 管理服務執行個體的中繼資料 |
+> |  動作 | Microsoft.ApiManagement/service/regions/read | 列出服務已存在的所有 azure 區域。 |
 > |  動作 | Microsoft.ApiManagement/service/reports/read | 取得依時間週期彙總的報告、取得依地理區域彙總的報告，或取得依開發人員彙總的報告。<br>或者，取得依產品彙總的報告。<br>或者，取得依 API 彙總的報告、取得依作業彙總的報告，或取得依訂用帳戶彙總的報告。<br>或者，取得報告資料的要求 |
 > |  動作 | Microsoft.ApiManagement/service/restore/action | 從使用者所提供之儲存體帳戶中的指定容器來還原 API 管理服務 |
-> |  動作 | Microsoft.ApiManagement/service/subscriptions/delete | 刪除訂用帳戶。 這項作業可用來刪除訂用帳戶 |
-> |  動作 | Microsoft.ApiManagement/service/subscriptions/read | 取得產品訂用帳戶清單，或取得產品訂用帳戶的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/subscriptions/regeneratePrimaryKey/action | 重新產生訂用帳戶的主要金鑰 |
-> |  動作 | Microsoft.ApiManagement/service/subscriptions/regenerateSecondaryKey/action | 重新產生訂用帳戶的次要金鑰 |
-> |  動作 | Microsoft.ApiManagement/service/subscriptions/write | 讓現有使用者訂閱現有產品，或更新現有的訂用帳戶詳細資料。 這項作業可用來續訂訂用帳戶 |
-> |  動作 | Microsoft.ApiManagement/service/tagResources/read | 取得具有相關聯資源的標記清單 |
-> |  動作 | Microsoft.ApiManagement/service/tags/delete | 移除現有標記 |
-> |  動作 | Microsoft.ApiManagement/service/tags/read | 取得標記的清單，或取得標記的詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/tags/write | 新增標記，或更新現有的標記詳細資料 |
+> |  動作 | Microsoft.ApiManagement/service/subscriptions/delete | 刪除指定的訂用帳戶。 |
+> |  動作 | Microsoft.ApiManagement/service/subscriptions/read | 列出所有訂用帳戶的 API 管理服務執行個體。 或取得指定的訂用帳戶實體。 |
+> |  動作 | Microsoft.ApiManagement/service/subscriptions/regeneratePrimaryKey/action | 重新產生主索引鍵的現有的訂用帳戶的 API 管理服務執行個體。 |
+> |  動作 | Microsoft.ApiManagement/service/subscriptions/regenerateSecondaryKey/action | 重新產生次要金鑰的 API 管理服務執行個體的現有訂用帳戶。 |
+> |  動作 | Microsoft.ApiManagement/service/subscriptions/write | 建立或更新指定使用者的訂用帳戶，以指定的產品。 或更新識別碼所指定的訂用帳戶的詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/tagResources/read | 列出與標記相關聯的資源集合。 |
+> |  動作 | Microsoft.ApiManagement/service/tags/delete | 刪除 API 管理服務執行個體的特定標記。 |
+> |  動作 | Microsoft.ApiManagement/service/tags/read | 列出服務執行個體內定義的標記的集合。 或取得的識別碼所指定的標記詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/tags/write | 建立標記。 或更新識別碼所指定標記的詳細資料。 |
 > |  動作 | Microsoft.ApiManagement/service/templates/delete | 重設預設的 API 管理電子郵件範本 |
 > |  動作 | Microsoft.ApiManagement/service/templates/read | 取得所有電子郵件範本，或取得 API 管理電子郵件範本詳細資料 |
 > |  動作 | Microsoft.ApiManagement/service/templates/write | 建立或更新 API 管理電子郵件範本，或更新 API 管理電子郵件範本 |
 > |  動作 | Microsoft.ApiManagement/service/tenant/delete | 移除租用戶的原則組態 |
 > |  動作 | Microsoft.ApiManagement/service/tenant/deploy/action | 執行部署工作，以將所指定 git 分支的變更套用至資料庫中的組態。 |
 > |  動作 | Microsoft.ApiManagement/service/tenant/operationResults/read | 取得作業結果的清單，或取得特定作業的結果 |
-> |  動作 | Microsoft.ApiManagement/service/tenant/read | 取得租用戶的原則設定，或取得租用戶存取資訊詳細資料 |
+> |  動作 | Microsoft.ApiManagement/service/tenant/read | 取得 Api 管理服務的全域原則定義。 或取得租用戶存取資訊詳細資料 |
 > |  動作 | Microsoft.ApiManagement/service/tenant/regeneratePrimaryKey/action | 重新產生主要存取金鑰 |
 > |  動作 | Microsoft.ApiManagement/service/tenant/regenerateSecondaryKey/action | 重新產生次要存取金鑰 |
 > |  動作 | Microsoft.ApiManagement/service/tenant/save/action | 在存放庫的指定分支中建立具有組態快照集的認可 |
@@ -379,21 +388,16 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.ApiManagement/service/updatecertificate/action | 上傳 API 管理服務的 SSL 憑證 |
 > |  動作 | Microsoft.ApiManagement/service/updatehostname/action | 設定、更新或移除 API 管理服務的自訂網域名稱 |
 > |  動作 | Microsoft.ApiManagement/service/users/action | 註冊新的使用者 |
-> |  動作 | Microsoft.ApiManagement/service/users/applications/attachments/delete | 移除附件 |
-> |  動作 | Microsoft.ApiManagement/service/users/applications/attachments/read | 取得應用程式附件，或取得附件 |
-> |  動作 | Microsoft.ApiManagement/service/users/applications/attachments/write | 將附件新增至應用程式 |
-> |  動作 | Microsoft.ApiManagement/service/users/applications/delete | 移除現有應用程式 |
-> |  動作 | Microsoft.ApiManagement/service/users/applications/read | 取得所有使用者應用程式的清單，或取得 API 管理應用程式詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/users/applications/write | 向 API 管理註冊應用程式，或更新應用程式詳細資料 |
 > |  動作 | Microsoft.ApiManagement/service/users/confirmations/send/action | 傳送確認 |
-> |  動作 | Microsoft.ApiManagement/service/users/delete | 移除使用者帳戶 |
-> |  動作 | Microsoft.ApiManagement/service/users/generateSsoUrl/action | 產生 SSO URL。 URL 可用來存取管理入口網站 |
-> |  動作 | Microsoft.ApiManagement/service/users/groups/read | 取得使用者群組的清單 |
-> |  動作 | Microsoft.ApiManagement/service/users/keys/read | 取得使用者金鑰的清單 |
-> |  動作 | Microsoft.ApiManagement/service/users/read | 取得已註冊的使用者清單，或取得使用者的帳戶詳細資料 |
-> |  動作 | Microsoft.ApiManagement/service/users/subscriptions/read | 取得使用者訂用帳戶的清單 |
-> |  動作 | Microsoft.ApiManagement/service/users/token/action | 為使用者取得權杖的存取權杖 |
-> |  動作 | Microsoft.ApiManagement/service/users/write | 註冊新的使用者，或更新現有使用者的帳戶詳細資料 |
+> |  動作 | Microsoft.ApiManagement/service/users/delete | 刪除特定使用者。 |
+> |  動作 | Microsoft.ApiManagement/service/users/generateSsoUrl/action | 擷取包含指定的使用者登入開發人員入口網站的驗證權杖的重新導向 URL。 |
+> |  動作 | Microsoft.ApiManagement/service/users/groups/read | 列出所有的使用者群組。 |
+> |  動作 | Microsoft.ApiManagement/service/users/identities/read | 所有的使用者身分識別清單。 |
+> |  動作 | Microsoft.ApiManagement/service/users/keys/read | 取得使用者相關聯的金鑰 |
+> |  動作 | Microsoft.ApiManagement/service/users/read | 列出指定的服務執行個體中的已註冊使用者的集合。 或取得的識別碼所指定的使用者詳細資料。 |
+> |  動作 | Microsoft.ApiManagement/service/users/subscriptions/read | 列出的訂用帳戶指定使用者的集合。 |
+> |  動作 | Microsoft.ApiManagement/service/users/token/action | 取得使用者權杖的共用的存取授權。 |
+> |  動作 | Microsoft.ApiManagement/service/users/write | 建立或更新的使用者。 或更新識別碼所指定之使用者的詳細資料。 |
 > |  動作 | Microsoft.ApiManagement/service/write | 建立 API 管理服務的新執行個體 |
 > |  動作 | Microsoft.ApiManagement/unregister/action | 針對 Microsoft.ApiManagement 資源提供者取消註冊訂用帳戶 |
 
@@ -718,11 +722,13 @@ ms.locfileid: "60344626"
 > | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > |  動作 | Microsoft.Capacity/appliedreservations/read | 讀取所有保留項目 |
+> |  動作 | Microsoft.Capacity/calculateexchange/action | 計算 exchange 量並購買新的價格，並傳回原則錯誤。 |
 > |  動作 | Microsoft.Capacity/calculateprice/action | 計算任何保留價格 |
 > |  動作 | Microsoft.Capacity/catalogs/read | 讀取保留目錄 |
 > |  動作 | Microsoft.Capacity/checkoffers/action | 檢查任何訂用帳戶供應項目 |
 > |  動作 | Microsoft.Capacity/checkscopes/action | 檢查任何訂用帳戶 |
 > |  動作 | Microsoft.Capacity/commercialreservationorders/read | 取得在任何租用戶中建立的保留順序 |
+> |  動作 | Microsoft.Capacity/exchange/action | 交換任何保留項目 |
 > |  動作 | Microsoft.Capacity/operations/read | 讀取任何作業 |
 > |  動作 | Microsoft.Capacity/register/action | 註冊容量資源提供者，並讓您能夠建立容量資源。 |
 > |  動作 | Microsoft.Capacity/reservationorders/action | 更新任何保留項目 |
@@ -1448,15 +1454,24 @@ ms.locfileid: "60344626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
+> |  動作 | Microsoft.CostManagement/cloudConnectors/delete | 刪除指定的 cloudConnector。 |
+> |  動作 | Microsoft.CostManagement/cloudConnectors/read | 列出已驗證之使用者 cloudConnectors。 |
+> |  動作 | Microsoft.CostManagement/cloudConnectors/write | 建立或更新指定的 cloudConnector。 |
 > |  動作 | Microsoft.CostManagement/dimensions/read | 依範圍列出所有支援的維度。 |
 > |  動作 | Microsoft.CostManagement/exports/action | 執行指定的匯出。 |
 > |  動作 | Microsoft.CostManagement/exports/delete | 刪除指定的匯出。 |
 > |  動作 | Microsoft.CostManagement/exports/read | 依範圍列出匯出。 |
+> |  動作 | Microsoft.CostManagement/exports/run/action | 執行匯出。 |
 > |  動作 | Microsoft.CostManagement/exports/write | 建立或更新指定的匯出。 |
+> |  動作 | Microsoft.CostManagement/externalBillingAccounts/externalSubscriptions/read | 列出已驗證之使用者 externalBillingAccount 內 externalSubscriptions。 |
+> |  動作 | Microsoft.CostManagement/externalBillingAccounts/read | 列出已驗證之使用者 externalBillingAccounts。 |
+> |  動作 | Microsoft.CostManagement/externalSubscriptions/read | 列出已驗證之使用者 externalSubscriptions。 |
+> |  動作 | Microsoft.CostManagement/externalSubscriptions/write | 更新相關聯的管理群組的 externalSubscription |
 > |  動作 | Microsoft.CostManagement/query/action | 依範圍查使用狀況資料。 |
 > |  動作 | Microsoft.CostManagement/query/read | 依範圍查使用狀況資料。 |
 > |  動作 | Microsoft.CostManagement/reports/action | 依範圍排定使用狀況資料報告。 |
 > |  動作 | Microsoft.CostManagement/reports/read | 依範圍排定使用狀況資料報告。 |
+> |  動作 | Microsoft.CostManagement/tenants/register/action | 註冊之 Microsoft.CostManagement 由租用戶範圍的動作。 |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
@@ -1587,6 +1602,7 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | 列出或取得警示 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | 列出或取得警示 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/delete | 刪除頻寬排程 |
+> |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/operationResults/read | 列出或取得作業結果 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | 列出或取得頻寬排程 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | 列出或取得頻寬排程 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/write | 建立或更新頻寬排程 |
@@ -1597,8 +1613,10 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | 在裝置上安裝更新 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | 列出或取得作業 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | 列出或取得裝置網路設定 |
+> |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationResults/read | 列出或取得作業結果 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationsStatus/read | 列出或取得作業狀態 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | 删除订单 |
+> |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/operationResults/read | 列出或取得作業結果 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | 列出或获取订单 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | 列出或获取订单 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/write | 创建或更新订单 |
@@ -1606,27 +1624,33 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | 列出或取得 Data Box Edge 裝置 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | 列出或取得 Data Box Edge 裝置 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | 删除角色 |
+> |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/operationResults/read | 列出或取得作業結果 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | 列出或获取角色 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | 列出或获取角色 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | 创建或更新角色 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/scanForUpdates/action | 掃描更新 |
+> |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/operationResults/read | 列出或取得作業結果 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/update/action | 更新安全性設定 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | 刪除共用 |
+> |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/operationResults/read | 列出或取得作業結果 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | 列出或取得共用 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | 列出或取得共用 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | 以來自雲端的資料重新整理共用中繼資料 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/write | 建立或更新共用 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/delete | 刪除儲存體帳戶認證 |
+> |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/operationResults/read | 列出或取得作業結果 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | 列出或取得儲存體帳戶認證 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | 列出或取得儲存體帳戶認證 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/write | 建立或更新儲存體帳戶認證 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/delete | 删除触发器 |
+> |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/operationResults/read | 列出或取得作業結果 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | 列出或获取触发器 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | 列出或获取触发器 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/write | 创建或更新触发器 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | 列出或取得更新摘要 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | 上傳裝置註冊的憑證 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | 刪除共用使用者 |
+> |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/operationResults/read | 列出或取得作業結果 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | 列出或取得共用使用者 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | 列出或取得共用使用者 |
 > |  動作 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/write | 建立或更新共用使用者 |
@@ -1651,13 +1675,12 @@ ms.locfileid: "60344626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
-> |  動作 | Microsoft.DataCatalog/catalogs/delete | 刪除目錄。 |
-> |  動作 | Microsoft.DataCatalog/catalogs/read | 取得訂用帳戶或資源群組下一或多個目錄的屬性。 |
-> |  動作 | Microsoft.DataCatalog/catalogs/write | 建立目錄，或更新目錄的標記和屬性。 |
-> |  動作 | Microsoft.DataCatalog/checkNameAvailability/action | 檢查租用戶的目錄名稱可用性。 |
-> |  動作 | Microsoft.DataCatalog/operations/read | 列出可以對 Microsoft.DataCatalog 資源提供者執行的作業。 |
-> |  動作 | Microsoft.DataCatalog/register/action | 向 Microsoft.DataCatalog 資源提供者註冊訂用帳戶。 |
-> |  動作 | Microsoft.DataCatalog/unregister/action | 從 Microsoft.DataCatalog 資源提供者取消註冊訂用帳戶。 |
+> |  動作 | Microsoft.DataCatalog/datacatalogs/delete | 資料目錄資源提供者刪除 DataCatalog 資源。 |
+> |  動作 | Microsoft.DataCatalog/datacatalogs/read | 資料目錄資源提供者讀取 DataCatalog 資源。 |
+> |  動作 | Microsoft.DataCatalog/datacatalogs/write | 資料目錄資源提供者撰寫 DataCatalog 資源。 |
+> |  動作 | Microsoft.DataCatalog/operations/read | 讀取所有可用的作業，在資料目錄資源提供者。 |
+> |  動作 | Microsoft.DataCatalog/register/action | 註冊為資料目錄資源提供者訂用帳戶 |
+> |  動作 | Microsoft.DataCatalog/unregister/action | 取消註冊為資料目錄資源提供者的訂用帳戶 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -1873,26 +1896,40 @@ ms.locfileid: "60344626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
+> |  動作 | Microsoft.DBforMariaDB/locations/azureAsyncOperation/read | 傳回 MariaDB 伺服器作業的結果 |
+> |  動作 | Microsoft.DBforMariaDB/locations/operationResults/read | 傳回的 ResourceGroup 基礎 MariaDB 伺服器作業結果 |
+> |  動作 | Microsoft.DBforMariaDB/locations/operationResults/read | 傳回 MariaDB 伺服器作業的結果 |
 > |  動作 | Microsoft.DBforMariaDB/locations/performanceTiers/read | 傳回可用的效能層級清單。 |
+> |  動作 | Microsoft.DBforMariaDB/locations/securityAlertPoliciesAzureAsyncOperation/read | 傳回伺服器威脅偵測作業結果的清單。 |
+> |  動作 | Microsoft.DBforMariaDB/locations/securityAlertPoliciesOperationResults/read | 傳回伺服器威脅偵測作業結果的清單。 |
+> |  動作 | Microsoft.DBforMariaDB/operations/read | 傳回 MariaDB 作業的清單。 |
 > |  動作 | Microsoft.DBforMariaDB/performanceTiers/read | 傳回可用的效能層級清單。 |
+> |  動作 | Microsoft.DBforMariaDB/register/action | 註冊 MariaDB 資源提供者 |
 > |  動作 | Microsoft.DBforMariaDB/servers/configurations/read | 傳回伺服器的組態清單，或取得指定組態的屬性。 |
 > |  動作 | Microsoft.DBforMariaDB/servers/configurations/write | 更新指定組態的值 |
+> |  動作 | Microsoft.DBforMariaDB/servers/databases/delete | 刪除現有的 MariaDB 資料庫。 |
+> |  動作 | Microsoft.DBforMariaDB/servers/databases/read | 傳回指定之資料庫的 MariaDB 資料庫或取得的屬性清單。 |
+> |  動作 | Microsoft.DBforMariaDB/servers/databases/write | 使用指定的參數建立 MariaDB 資料庫，或指定的資料庫更新的屬性。 |
 > |  動作 | Microsoft.DBforMariaDB/servers/delete | 刪除現有伺服器。 |
 > |  動作 | Microsoft.DBforMariaDB/servers/firewallRules/delete | 刪除現有防火牆規則。 |
 > |  動作 | Microsoft.DBforMariaDB/servers/firewallRules/read | 傳回伺服器的防火牆規則清單，或取得指定防火牆規則的屬性。 |
 > |  動作 | Microsoft.DBforMariaDB/servers/firewallRules/write | 使用指定參數建立防火牆規則，或更新現有的規則。 |
+> |  動作 | Microsoft.DBforMariaDB/servers/logFiles/read | 傳回 MariaDB LogFiles 的清單。 |
 > |  動作 | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/read | 取得資源的診斷設定 |
 > |  動作 | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/write | 建立或更新資源的診斷設定 |
 > |  動作 | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/logDefinitions/read | 取得 MariaDB 伺服器的可用記錄 |
 > |  動作 | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/metricDefinitions/read | 傳回可供資料庫使用之計量的類型 |
+> |  動作 | Microsoft.DBforMariaDB/servers/queryTexts/action | 返回查询列表的文本 |
 > |  動作 | Microsoft.DBforMariaDB/servers/read | 傳回伺服器清單，或取得指定伺服器的屬性。 |
 > |  動作 | Microsoft.DBforMariaDB/servers/recoverableServers/read | 傳回可復原的 MariaDB 伺服器資訊 |
 > |  動作 | Microsoft.DBforMariaDB/servers/securityAlertPolicies/read | 擷取給定伺服器上所設定的伺服器威脅偵測原則詳細資料 |
 > |  動作 | Microsoft.DBforMariaDB/servers/securityAlertPolicies/write | 變更指定伺服器的伺服器威脅偵測原則 |
+> |  動作 | Microsoft.DBforMariaDB/servers/topQueryStatistics/read | 傳回最高排名查詢的查詢統計資料清單。 |
 > |  動作 | Microsoft.DBforMariaDB/servers/updateConfigurations/action | 更新指定伺服器的組態 |
 > |  動作 | Microsoft.DBforMariaDB/servers/virtualNetworkRules/delete | 刪除現有虛擬網路規則 |
 > |  動作 | Microsoft.DBforMariaDB/servers/virtualNetworkRules/read | 傳回虛擬網路規則的清單，或取得指定虛擬網路規則的屬性。 |
 > |  動作 | Microsoft.DBforMariaDB/servers/virtualNetworkRules/write | 使用指定參數建立虛擬網路規則，或更新指定虛擬網路規則的屬性或標記。 |
+> |  動作 | Microsoft.DBforMariaDB/servers/waitStatistics/read | 傳回執行個體的等候統計資料 |
 > |  動作 | Microsoft.DBforMariaDB/servers/write | 使用指定參數建立伺服器，或更新指定伺服器的屬性或標記。 |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
@@ -1900,14 +1937,25 @@ ms.locfileid: "60344626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
+> |  動作 | Microsoft.DBforMySQL/locations/azureAsyncOperation/read | 傳回 MySQL 伺服器的作業結果 |
+> |  動作 | Microsoft.DBforMySQL/locations/operationResults/read | 傳回的資源群組以 MySQL 伺服器的作業結果 |
+> |  動作 | Microsoft.DBforMySQL/locations/operationResults/read | 傳回 MySQL 伺服器的作業結果 |
 > |  動作 | Microsoft.DBforMySQL/locations/performanceTiers/read | 傳回可用的效能層級清單。 |
+> |  動作 | Microsoft.DBforMySQL/locations/securityAlertPoliciesAzureAsyncOperation/read | 傳回伺服器威脅偵測作業結果的清單。 |
+> |  動作 | Microsoft.DBforMySQL/locations/securityAlertPoliciesOperationResults/read | 傳回伺服器威脅偵測作業結果的清單。 |
+> |  動作 | Microsoft.DBforMySQL/operations/read | 傳回 MySQL 作業的清單。 |
 > |  動作 | Microsoft.DBforMySQL/performanceTiers/read | 傳回可用的效能層級清單。 |
+> |  動作 | Microsoft.DBforMySQL/register/action | 註冊 MySQL 資源提供者 |
 > |  動作 | Microsoft.DBforMySQL/servers/configurations/read | 傳回伺服器的組態清單，或取得指定組態的屬性。 |
 > |  動作 | Microsoft.DBforMySQL/servers/configurations/write | 更新指定組態的值 |
+> |  動作 | Microsoft.DBforMySQL/servers/databases/delete | 刪除現有的 MySQL 資料庫。 |
+> |  動作 | Microsoft.DBforMySQL/servers/databases/read | 傳回指定之資料庫的 MySQL 資料庫或取得的屬性清單。 |
+> |  動作 | Microsoft.DBforMySQL/servers/databases/write | 使用指定的參數建立 MySQL 資料庫，或更新指定資料庫的屬性。 |
 > |  動作 | Microsoft.DBforMySQL/servers/delete | 刪除現有伺服器。 |
 > |  動作 | Microsoft.DBforMySQL/servers/firewallRules/delete | 刪除現有防火牆規則。 |
 > |  動作 | Microsoft.DBforMySQL/servers/firewallRules/read | 傳回伺服器的防火牆規則清單，或取得指定防火牆規則的屬性。 |
 > |  動作 | Microsoft.DBforMySQL/servers/firewallRules/write | 使用指定參數建立防火牆規則，或更新現有的規則。 |
+> |  動作 | Microsoft.DBforMySQL/servers/logFiles/read | 傳回 PostgreSQL LogFiles 的清單。 |
 > |  動作 | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | 取得資源的診斷設定 |
 > |  動作 | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | 建立或更新資源的診斷設定 |
 > |  動作 | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/logDefinitions/read | 取得 MySQL 伺服器的可用記錄 |
@@ -1922,6 +1970,7 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.DBforMySQL/servers/virtualNetworkRules/delete | 刪除現有虛擬網路規則 |
 > |  動作 | Microsoft.DBforMySQL/servers/virtualNetworkRules/read | 傳回虛擬網路規則的清單，或取得指定虛擬網路規則的屬性。 |
 > |  動作 | Microsoft.DBforMySQL/servers/virtualNetworkRules/write | 使用指定參數建立虛擬網路規則，或更新指定虛擬網路規則的屬性或標記。 |
+> |  動作 | Microsoft.DBforMySQL/servers/waitStatistics/read | 傳回執行個體的等候統計資料 |
 > |  動作 | Microsoft.DBforMySQL/servers/write | 使用指定參數建立伺服器，或更新指定伺服器的屬性或標記。 |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
@@ -1929,17 +1978,28 @@ ms.locfileid: "60344626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
+> |  動作 | Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read | 傳回 PostgreSQL 伺服器的作業結果 |
+> |  動作 | Microsoft.DBforPostgreSQL/locations/operationResults/read | 傳回的 ResourceGroup 基礎 PostgreSQL 伺服器的作業結果 |
+> |  動作 | Microsoft.DBforPostgreSQL/locations/operationResults/read | 傳回 PostgreSQL 伺服器的作業結果 |
 > |  動作 | Microsoft.DBforPostgreSQL/locations/performanceTiers/read | 傳回可用的效能層級清單。 |
+> |  動作 | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesAzureAsyncOperation/read | 傳回伺服器威脅偵測作業結果的清單。 |
+> |  動作 | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesOperationResults/read | 傳回伺服器威脅偵測作業結果的清單。 |
+> |  動作 | Microsoft.DBforPostgreSQL/operations/read | 傳回 PostgreSQL 作業的清單。 |
 > |  動作 | Microsoft.DBforPostgreSQL/performanceTiers/read | 傳回可用的效能層級清單。 |
+> |  動作 | Microsoft.DBforPostgreSQL/register/action | 註冊 PostgreSQL 資源提供者 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/advisors/read | 傳回建議程式清單 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActions/read | 傳回建議的動作清單 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActionSessions/action | 提出建議 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/configurations/read | 傳回伺服器的組態清單，或取得指定組態的屬性。 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/configurations/write | 更新指定組態的值 |
+> |  動作 | Microsoft.DBforPostgreSQL/servers/databases/delete | 刪除現有的 PostgreSQL 資料庫。 |
+> |  動作 | Microsoft.DBforPostgreSQL/servers/databases/read | 傳回指定之資料庫的 PostgreSQL 資料庫或取得的屬性清單。 |
+> |  動作 | Microsoft.DBforPostgreSQL/servers/databases/write | 使用指定的參數建立 PostgreSQL 資料庫，或更新指定的資料庫的屬性。 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/delete | 刪除現有伺服器。 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/firewallRules/delete | 刪除現有防火牆規則。 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/firewallRules/read | 傳回伺服器的防火牆規則清單，或取得指定防火牆規則的屬性。 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/firewallRules/write | 使用指定參數建立防火牆規則，或更新現有的規則。 |
+> |  動作 | Microsoft.DBforPostgreSQL/servers/logFiles/read | 傳回 PostgreSQL LogFiles 的清單。 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | 取得資源的診斷設定 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | 建立或更新資源的診斷設定 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | 取得 Postgres 伺服器的可用記錄 |
@@ -1957,6 +2017,10 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/write | 使用指定參數建立虛擬網路規則，或更新指定虛擬網路規則的屬性或標記。 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/waitStatistics/read | 傳回執行個體的等候統計資料 |
 > |  動作 | Microsoft.DBforPostgreSQL/servers/write | 使用指定參數建立伺服器，或更新指定伺服器的屬性或標記。 |
+> |  動作 | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/read | 取得資源的診斷設定 |
+> |  動作 | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/write | 建立或更新資源的診斷設定 |
+> |  動作 | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | 取得 Postgres 伺服器的可用記錄 |
+> |  動作 | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/metricDefinitions/read | 傳回可供資料庫使用之計量的類型 |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
@@ -2055,6 +2119,7 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.DevSpaces/controllers/listConnectionDetails/action | 列出 Azure Dev Spaces 控制器基礎結構的連接詳細資料 |
 > |  動作 | Microsoft.DevSpaces/controllers/read | 讀取 Azure Dev Spaces 控制器屬性 |
 > |  動作 | Microsoft.DevSpaces/controllers/write | 建立或更新 Azure Dev Spaces 控制器屬性 |
+> |  動作 | Microsoft.DevSpaces/locations/operationresults/read | 讀取非同步作業的狀態 |
 > |  動作 | Microsoft.DevSpaces/register/action | 向訂用帳戶註冊 Microsoft Dev Spaces 資源提供者 |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
@@ -2105,6 +2170,12 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.DevTestLab/labs/serviceRunners/delete | 刪除服務執行器。 |
 > |  動作 | Microsoft.DevTestLab/labs/serviceRunners/read | 讀取服務執行器。 |
 > |  動作 | Microsoft.DevTestLab/labs/serviceRunners/write | 新增或修改服務執行器。 |
+> |  動作 | Microsoft.DevTestLab/labs/sharedGalleries/delete | 刪除共用的組件庫。 |
+> |  動作 | Microsoft.DevTestLab/labs/sharedGalleries/read | 讀取共用組件庫。 |
+> |  動作 | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/delete | 刪除共用的映像。 |
+> |  動作 | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/read | 讀取共用的映像。 |
+> |  動作 | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/write | 新增或修改共用的映像。 |
+> |  動作 | Microsoft.DevTestLab/labs/sharedGalleries/write | 新增或修改共用的組件庫。 |
 > |  動作 | Microsoft.DevTestLab/labs/users/delete | 刪除使用者設定檔。 |
 > |  動作 | Microsoft.DevTestLab/labs/users/disks/Attach/action | 將磁碟連結至虛擬機器並建立磁碟租用。 |
 > |  動作 | Microsoft.DevTestLab/labs/users/disks/delete | 刪除磁碟。 |
@@ -2170,6 +2241,41 @@ ms.locfileid: "60344626"
 > | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > |  動作 | Microsoft.DocumentDB/databaseAccountNames/read | 檢查名稱可用性。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/delete | 刪除集合。 僅適用於 API 類型: 'mongodb'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/read | 讀取集合，或列出所有集合。 僅適用於 API 類型: 'mongodb'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/throughput/read | 讀取集合的輸送量。 僅適用於 API 類型: 'mongodb'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/throughput/write | 更新集合的輸送量。 僅適用於 API 類型: 'mongodb'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/write | 建立或更新集合。 僅適用於 API 類型: 'mongodb'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/delete | 刪除容器。 僅適用於 API 類型: 'sql'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/read | 讀取容器，或列出的所有容器。 僅適用於 API 類型: 'sql'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/throughput/read | 讀取容器輸送量。 僅適用於 API 類型: 'sql'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/throughput/write | 更新的容器輸送量。 僅適用於 API 類型: 'sql'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/write | 建立或更新的容器。 僅適用於 API 類型: 'sql'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/delete | 刪除資料庫。 僅適用於 API 類型: 'sql'，'mongodb'、 'gremlin'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/delete | 刪除圖表。 僅適用於 API 類型: 'gremlin'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/read | 閱讀圖形，或列出所有圖形。 僅適用於 API 類型: 'gremlin'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/throughput/read | 閱讀圖形輸送量。 僅適用於 API 類型: 'gremlin'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/throughput/write | 更新圖表的輸送量。 僅適用於 API 類型: 'gremlin'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/write | 建立或更新的圖形。 僅適用於 API 類型: 'gremlin'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/read | 讀取資料庫，或列出所有資料庫。 僅適用於 API 類型: 'sql'，'mongodb'、 'gremlin'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/throughput/read | 讀取資料庫輸送量。 僅適用於 API 類型: 'sql'，'mongodb'、 'gremlin'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/throughput/write | 更新資料庫輸送量。 僅適用於 API 類型: 'sql'，'mongodb'、 'gremlin'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/databases/write | 建立資料庫。 僅適用於 API 類型: 'sql'，'mongodb'、 'gremlin'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/delete | 刪除 keyspace。 僅適用於 API 類型: 'cassandra'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/read | 讀取的 keyspace 或列出所有的 keyspace。 僅適用於 API 類型: 'cassandra'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/read | 讀取 keyspace 輸送量。 僅適用於 API 類型: 'cassandra'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/write | 更新的 keyspace 輸送量。 僅適用於 API 類型: 'cassandra'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | 刪除資料表。 僅適用於 API 類型: 'cassandra'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/read | 讀取資料表或清單的所有資料表。 僅適用於 API 類型: 'cassandra'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/read | 讀取資料表的輸送量。 僅適用於 API 類型: 'cassandra'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/write | 更新資料表的輸送量。 僅適用於 API 類型: 'cassandra'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/write | 建立或更新的資料表。 僅適用於 API 類型: 'cassandra'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/write | 建立的 keyspace。 僅適用於 API 類型: 'cassandra'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete | 刪除資料表。 僅適用於 API 類型: 'table'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/tables/read | 讀取資料表或清單的所有資料表。 僅適用於 API 類型: 'table'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/read | 讀取資料表的輸送量。 僅適用於 API 類型: 'table'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/write | 更新資料表的輸送量。 僅適用於 API 類型: 'table'。 |
+> |  動作 | Microsoft.DocumentDB/databaseAccounts/apis/tables/write | 建立或更新的資料表。 僅適用於 API 類型: 'table'。 |
 > |  動作 | Microsoft.DocumentDB/databaseAccounts/backup/action | 提交要求以設定備份 |
 > |  動作 | Microsoft.DocumentDB/databaseAccounts/changeResourceGroup/action | 變更資料庫帳戶的資源群組 |
 > |  動作 | Microsoft.DocumentDB/databaseAccounts/databases/collections/metricDefinitions/read | 讀取集合計量定義。 |
@@ -2653,6 +2759,7 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | 讀取計量定義 |
 > |  動作 | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | 讀取計量定義 |
 > |  動作 | Microsoft.Insights/MetricDefinitions/Read | 讀取計量定義 |
+> |  動作 | Microsoft.Insights/Metricnamespaces/Read | 讀取計量命名空間 |
 > |  動作 | Microsoft.Insights/Metrics/Action | 計量動作 |
 > |  動作 | Microsoft.Insights/Metrics/Microsoft.Insights/Read | 讀取計量 |
 > |  動作 | Microsoft.Insights/Metrics/providers/Metrics/Read | 讀取計量 |
@@ -2689,6 +2796,7 @@ ms.locfileid: "60344626"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
+> |  動作 | Microsoft.IoTCentral/appTemplates/action | 取得在 Azure IoT Central 的所有可用的應用程式範本 |
 > |  動作 | Microsoft.IoTCentral/checkNameAvailability/action | 檢查 IoT Central 應用程式名稱是否可用 |
 > |  動作 | Microsoft.IoTCentral/checkSubdomainAvailability/action | 檢查 IoT Central 應用程式子網域是否可用 |
 > |  動作 | Microsoft.IoTCentral/IoTApps/delete | 刪除 IoT Central 應用程式 |
@@ -3602,6 +3710,7 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.Network/locations/checkDnsNameAvailability/read | 檢查指定的位置是否有 DNS 標籤 |
 > |  動作 | Microsoft.Network/locations/operationResults/read | 取得非同步 POST 或 DELETE 作業的作業結果 |
 > |  動作 | Microsoft.Network/locations/operations/read | 取得代表非同步作業狀態的作業資源 |
+> |  動作 | Microsoft.Network/locations/serviceTags/read | 取得服務標籤 |
 > |  動作 | Microsoft.Network/locations/supportedVirtualMachineSizes/read | 取得支援的虛擬機器大小 |
 > |  動作 | Microsoft.Network/locations/usages/read | 取得資源使用量計量 |
 > |  動作 | Microsoft.Network/locations/virtualNetworkAvailableEndpointServices/read | 取得可用虛擬網路端點服務的清單 |
@@ -3911,7 +4020,9 @@ ms.locfileid: "60344626"
 > | --- | --- | --- |
 > |  動作 | Microsoft.OperationalInsights/linkTargets/read | 列出未與 Azure 訂用帳戶相關聯的現有帳戶。 若要將此 Azure 訂用帳戶連結到工作區，請在「建立工作區」作業的客戶識別碼屬性中，使用這項作業所傳回的客戶識別碼。 |
 > |  動作 | microsoft.operationalinsights/operations/read | 列出所有可用的 OperationalInsights Rest API 作業。 |
+> |  動作 | microsoft.operationalinsights/register/action | Rergisters 訂用帳戶。 |
 > |  動作 | Microsoft.OperationalInsights/register/action | 向資源提供者註冊訂用帳戶。 |
+> |  動作 | microsoft.operationalinsights/unregister/action | 取消註冊訂用帳戶。 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/analytics/query/action | 使用新的引擎進行搜尋。 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/analytics/query/schema/read | 取得搜尋結構描述 V2。 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/api/query/action | 使用新的引擎進行搜尋。 |
@@ -3963,6 +4074,16 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | 從 ContainerLog 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/ContainerNodeInventory/read | 读取 ContainerNodeInventory 表中的数据 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | 從 ContainerServiceLog 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/DatabricksAccounts/read | 從 DatabricksAccounts 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/DatabricksClusters/read | 從 DatabricksClusters 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/DatabricksDBFS/read | 從 DatabricksDBFS 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/DatabricksJobs/read | 從 DatabricksJobs 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/DatabricksNotebook/read | 從 DatabricksNotebook 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/DatabricksSecrets/read | 從 DatabricksSecrets 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/DatabricksSQLPermissions/read | 從 DatabricksSQLPermissions 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/DatabricksSSH/read | 從 DatabricksSSH 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/DatabricksTables/read | 從 DatabricksTables 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/DatabricksWorkspace/read | 從 DatabricksWorkspace 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | 從 DeviceAppCrash 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | 從 DeviceAppLaunch 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | 從 DeviceCalendar 資料表讀取資料 |
@@ -3993,6 +4114,7 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/HuntingBookmark/read | 读取 HuntingBookmark 表中的数据 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | 從 IISAssessmentRecommendation 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | 從 InboundConnection 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/InsightsMetrics/read | 從 InsightsMetrics 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/IntuneAuditLogs/read | 從 IntuneAuditLogs 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/IntuneOperationalLogs/read | 從 IntuneOperationalLogs 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | 從 KubeEvents 資料表讀取資料 |
@@ -4010,6 +4132,7 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MADeploymentPlan/read | 從 MADeploymentPlan 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MADevice/read | 從 MADevice 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MADeviceNotEnrolled/read | 從 MADeviceNotEnrolled 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/MADeviceNRT/read | 從 MADeviceNRT 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | 從 MADevicePnPHealth 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | 從 MADevicePnPHealthAlternativeVersions 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | 從 MADevicePnPHealthIssues 資料表讀取資料 |
@@ -4035,7 +4158,9 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | 從 MAOfficeCurrencyAssessment 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | 從 MAOfficeCurrencyAssessmentDailyCounts 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | 從 MAOfficeDeploymentStatus 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatusNRT/read | 從 MAOfficeDeploymentStatusNRT 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroErrorNRT/read | 從 MAOfficeMacroErrorNRT 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroGlobalHealth/read | 從 MAOfficeMacroGlobalHealth 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | 從 MAOfficeMacroHealth 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | 從 MAOfficeMacroHealthIssues 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | 從 MAOfficeMacroIssueInstanceReadiness 資料表讀取資料 |
@@ -4048,6 +4173,7 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | 從 MAWindowsCurrencyAssessment 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | 從 MAWindowsCurrencyAssessmentDailyCounts 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | 從 MAWindowsDeploymentStatus 資料表讀取資料 |
+> |  動作 | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatusNRT/read | 從 MAWindowsDeploymentStatusNRT 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | 從 MAWindowsSysReqInstanceReadiness 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | 從 NetworkMonitoring 資料表讀取資料 |
 > |  動作 | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | 從 OfficeActivity 資料表讀取資料 |
@@ -4162,6 +4288,7 @@ ms.locfileid: "60344626"
 > | 動作類型 | 作業 | 描述 |
 > | --- | --- | --- |
 > |  動作 | Microsoft.PolicyInsights/asyncOperationResults/read | 取得非同步作業結果。 |
+> |  動作 | Microsoft.PolicyInsights/operations/read | 取得支援 Microsoft.PolicyInsights 命名空間上的作業 |
 > |  動作 | Microsoft.PolicyInsights/policyEvents/queryResults/action | 查詢原則事件的相關資訊。 |
 > |  動作 | Microsoft.PolicyInsights/policyEvents/queryResults/read | 查詢原則事件的相關資訊。 |
 > |  動作 | Microsoft.PolicyInsights/policyStates/queryResults/action | 查詢原則狀態的相關資訊。 |
@@ -4466,6 +4593,7 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.Resources/deployments/operations/read | 取得或列出部署作業。 |
 > |  動作 | Microsoft.Resources/deployments/read | 取得或列出部署。 |
 > |  動作 | Microsoft.Resources/deployments/validate/action | 驗證部署。 |
+> |  動作 | Microsoft.Resources/deployments/whatIf/action | 預測範本部署的變更。 |
 > |  動作 | Microsoft.Resources/deployments/write | 建立或更新部署。 |
 > |  動作 | Microsoft.Resources/links/delete | 刪除資源連結。 |
 > |  動作 | Microsoft.Resources/links/read | 取得或列出資源連結。 |
@@ -5052,7 +5180,7 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.Sql/servers/importExportOperationResults/read | 取得進行中的匯入/匯出作業 |
 > |  動作 | Microsoft.Sql/servers/interfaceEndpointProfiles/delete | 刪除指定的介面端點設定檔 |
 > |  動作 | Microsoft.Sql/servers/interfaceEndpointProfiles/read | 傳回指定介面端點設定檔的屬性 |
-> |  動作 | Microsoft.Sql/servers/interfaceEndpointProfiles/write | 使用指定参数创建接口终结点配置文件，或更新指定接口终结点的属性或标记 |
+> |  動作 | Microsoft.Sql/servers/interfaceEndpointProfiles/write | 使用指定參數建立介面端點設定檔，或更新指定介面端點的屬性或標記 |
 > |  動作 | Microsoft.Sql/servers/jobAgents/delete | 刪除 Azure SQL DB 工作代理程式 |
 > |  動作 | Microsoft.Sql/servers/jobAgents/read | 取得 Azure SQL DB 工作代理程式 |
 > |  動作 | Microsoft.Sql/servers/jobAgents/write | 建立或更新 Azure SQL DB 工作代理程式 |
@@ -5060,6 +5188,8 @@ ms.locfileid: "60344626"
 > |  動作 | Microsoft.Sql/servers/keys/read | 傳回伺服器金鑰的清單，或取得指定伺服器金鑰的屬性。 |
 > |  動作 | Microsoft.Sql/servers/keys/write | 使用指定參數建立金鑰，或更新指定伺服器金鑰的屬性或標記。 |
 > |  動作 | Microsoft.Sql/servers/operationResults/read | 取得進行中的伺服器作業 |
+> |  動作 | Microsoft.Sql/servers/privateEndpointConnections/delete | 刪除現有的私用端點連接 |
+> |  動作 | Microsoft.Sql/servers/privateEndpointConnections/read | 傳回私用端點連接的清單，或取得指定的私用端點連接的屬性。 |
 > |  動作 | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | 傳回可供伺服器使用的計量類型 |
 > |  動作 | Microsoft.Sql/servers/read | 傳回伺服器清單，或取得指定伺服器的屬性。 |
 > |  動作 | Microsoft.Sql/servers/recommendedElasticPools/databases/read | 擷取給定伺服器之建議彈性資料庫集區的計量 |
@@ -5106,7 +5236,6 @@ ms.locfileid: "60344626"
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | 傳回刪除自動快照集的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | 傳回帳戶下具有相符標籤篩選的 Blob 清單 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | 傳回 blob 命令的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | 傳回讀取 Blob 標籤的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | 傳回寫入 Blob 標籤的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 傳回寫入 Blob 的結果 |

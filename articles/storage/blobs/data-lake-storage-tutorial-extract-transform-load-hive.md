@@ -2,18 +2,19 @@
 title: 教學課程：使用 Azure HDInsight 上的 Apache Hive 來執行擷取、轉換、載入 (ETL) 作業
 description: 在本教學課程中，您將了解如何從原始 CSV 資料集擷取資料、使用 Azure HDInsight 上的 Apache Hive 加以轉換，然後使用 Sqoop 將已轉換的資料載入 Azure SQL Database 中。
 services: storage
-author: jamesbak
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 02/21/2019
-ms.author: jamesbak
-ms.openlocfilehash: a5e7fd200617661c38b65ebbd4473a1a729de457
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.author: normesta
+ms.reviewer: jamesbak
+ms.openlocfilehash: be7ce4d96b7c1bd17853447448f06070637c7855
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682350"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939198"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料
 

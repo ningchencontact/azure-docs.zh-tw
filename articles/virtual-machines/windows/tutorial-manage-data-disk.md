@@ -17,12 +17,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: be6375972747c5c962bf1a8ef9b9b0093402bb7a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4a60d3d77408e7c05311a2bd6bcceeb9331bd1af
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368250"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924690"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>教學課程 - 使用 Azure PowerShell 管理 Azure 磁碟
 
@@ -51,7 +51,7 @@ Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中�
 
 ## <a name="azure-data-disks"></a>Azure 資料磁碟
 
-您可以新增額外資料磁碟，以便安裝應用程式和儲存資料。 只要需要持久且有回應的資料儲存體，即應使用資料磁碟。 每個資料磁碟的最大容量為 4 TB。 虛擬機器的大小會決定可連結到 VM 的資料磁碟數目。 每個 VM vCPU 可以連結四個資料磁碟。
+您可以新增額外資料磁碟，以便安裝應用程式和儲存資料。 只要需要持久且有回應的資料儲存體，即應使用資料磁碟。 虛擬機器的大小會決定可連結到 VM 的資料磁碟數目。 每個 VM vCPU 可以連結四個資料磁碟。
 
 ## <a name="vm-disk-types"></a>VM 磁碟類型
 

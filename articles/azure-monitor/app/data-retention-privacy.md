@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60899219"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
@@ -28,7 +28,7 @@ ms.locfileid: "58003588"
 * 「現成可用」的標準遙測模組不太可能將敏感資料傳送至服務。 遙測會考量負載、效能和使用度量、例外狀況報告和其他診斷資料。 診斷報告中顯示的主要使用者資料的 URL；但是，您的應用程式在任何情況下都應該不會將敏感資料以純文字形式放在 URL 中。
 * 您可以撰寫會傳送其他自訂遙測的程式碼，以利診斷與監視使用情形。 (此擴充性是 Application Insights 的絕佳功能之一)。在撰寫使程式碼時有可能會不慎包含個人資料和其他敏感資料。 如果您的應用程式會使用這類資料，您應對您撰寫的程式碼採用完整的檢閱程序。
 * 在開發及測試您的應用程式時，可以輕易地檢查由 SDK 傳送的內容。 資料會出現在 IDE 和瀏覽器的偵錯輸出視窗中。 
-* 資料會保存在美國或歐洲的 [Microsoft Azure](https://azure.com) 伺服器中。 (但是您的 App 可以在任何地方執行)。Azure 有[嚴密的安全性程序，並符合各種法規遵循標準](https://azure.microsoft.com/support/trust-center/)。 只有您和您指定的小組可以存取您的資料。 Microsoft 工作人員只有在您知情的特定有限情況下，才具有其限定存取權。 它在傳輸時會加密，但在伺服器中不會加密。
+* 資料會保存在美國或歐洲的 [Microsoft Azure](https://azure.com) 伺服器中。 (但是您的 App 可以在任何地方執行)。Azure 有[嚴密的安全性程序，並符合各種法規遵循標準](https://azure.microsoft.com/support/trust-center/)。 只有您和您指定的小組可以存取您的資料。 Microsoft 工作人員只有在您知情的特定有限情況下，才具有其限定存取權。 它會加密傳輸中和靜止。
 
 本文的其餘部分將詳細說明上述問題的答案。 本文設計為自助式，以便您可以將其顯示給不屬於您直屬小組的同事。
 
@@ -64,7 +64,7 @@ Application Insights SDK 可用於多種應用程式類型：裝載於您自己�
 * [例外狀況](../../azure-monitor/app/asp-net-exceptions.md) 和當機 - **堆疊傾印**、組建識別碼、CPU 類型。 
 * [相依性](../../azure-monitor/app/asp-net-dependencies.md) - 對外部服務的呼叫，例如 REST、SQL、AJAX。 URI 或連接字串、持續時間、成功、命令。
 * [可用性測試](../../azure-monitor/app/monitor-web-app-availability.md) - 測試的持續時間、步驟、回應。
-* [追蹤記錄檔](../../azure-monitor/app/asp-net-trace-logs.md)和[自訂遙測](../../azure-monitor/app/api-custom-events-metrics.md) - **任何您以程式碼撰寫到記錄檔或遙測中的項目**。
+* [追蹤記錄](../../azure-monitor/app/asp-net-trace-logs.md)和[自訂遙測](../../azure-monitor/app/api-custom-events-metrics.md) - **任何您以程式碼撰寫到記錄或遙測中的項目**。
 
 [詳細資訊](#data-sent-by-application-insights)。
 
@@ -127,12 +127,9 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 
 是，在無法連線到端點時，特定遙測通道會將資料保存在本機。 請檢閱下列內容，以了解哪些架構和遙測通道會受到影響。
 
-
 使用本機儲存體的遙測通道會在 TEMP 或 APPDATA 目錄中建立暫存檔案，而這些目錄僅限執行應用程式的特定帳戶使用。 當端點暫時無法使用或已達到節流限制時，就可能發生此狀況。 此問題解決後，遙測通道就會繼續傳送所有新的和保存的資料。
 
-
-這項保存的資料**不會加密**，因此強烈建議您重新建構資料收集原則，以停用私人資料的收集。 (如需詳細資訊，請參閱[如何匯出及刪除私人資料](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data))。
-
+此保存的資料不會在本機加密。 如果這是需要考量，請檢閱資料，並限制的私用資料收集。 (如需詳細資訊，請參閱[如何匯出及刪除私人資料](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data))。
 
 如果客戶基於特定安全需求而必須設定此目錄，可以就個別架構進行設定。 請確定執行應用程式的程序具有此目錄的寫入權限，但也請確定此目錄會受到保護，以避免非預期的使用者讀取遙測資料。
 
@@ -262,7 +259,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 | 工作階段 |工作階段識別碼 |
 | ServerContext |電腦名稱、地區設定、作業系統、裝置、使用者工作階段、使用者內容、作業 |
 | 推斷 |從 IP 位址的地區位置、時間戳記、作業系統、瀏覽器 |
-| 度量 |計量名稱和值 |
+| 指标 |計量名稱和值 |
 | 活動 |事件名稱和值 |
 | PageViews |URL 和頁面名稱或螢幕名稱 |
 | 用戶端效能 |URL/頁面名稱、瀏覽器載入時間 |

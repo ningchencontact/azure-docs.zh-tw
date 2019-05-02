@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 718aac00582c119bfa721935d97e35f49e3d58a0
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: b080f68d17cd2914aa35d26f6b1bd7bee1794ddd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216198"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922538"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>快速入門：使用 Java 在 QnA Maker 中發佈知識庫
 
@@ -28,7 +28,7 @@ ms.locfileid: "57216198"
 ## <a name="prerequisites"></a>必要條件
 
 * [JDK SE](https://aka.ms/azure-jdks) (英文) (Java 開發套件，標準版)
-* 這個範例會使用 HTTP 元件中的 [Apache HTTP 用戶端](http://hc.apache.org/httpcomponents-client-ga/)。 您必須在專案中新增下列 Apache HTTP 用戶端程式庫： 
+* 這個範例會使用 HTTP 元件中的 [Apache HTTP 用戶端](https://hc.apache.org/httpcomponents-client-ga/)。 您必須在專案中新增下列 Apache HTTP 用戶端程式庫： 
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar

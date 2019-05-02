@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621425"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728045"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 
@@ -321,10 +321,6 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](https://github.com/Azure/
 * 目前您無法透過 SSL 連線擷取 RTMP 即時資料流。
 * 您傳遞內容的來源串流端點必須是在 2014 年 9 月 10 日之後建立的，才能透過 SSL 進行串流處理。 如果您的串流 URL 是以 2014 年 9 月 10 日之後建立的串流端點為基礎，則 URL 會包含 "streaming.mediaservices.windows.net" (新格式)。 包含 "origin.mediaservices.windows.net" (舊格式) 的串流 URL 不支援 SSL。 如果您的 URL 是舊格式，而您想要透過 SSL 進行串流處理，請[建立新的串流端點](media-services-portal-manage-streaming-endpoints.md)。 若要透過 SSL 進行內容的串流處理，請使用以新的串流端點為基礎的 URL。
 
-## <a id="october_changes_14"></a>2014 年 10 月版本
-### <a id="new_encoder_release"></a>媒體服務編碼器版本
- 發表了新版的媒體服務 Azure 媒體編碼器。 使用最新的媒體編碼器時，您只需要支付輸出 GB 的費用。 此外，新的編碼器是與舊版編碼器相容的功能。 如需詳細資訊，請參閱[媒體服務定價詳細資料]。
-
 ### <a id="oct_sdk"></a>媒體服務 .NET SDK
 Media Services SDK for .NET 延伸模組的現行版本為 2.0.0.3。
 
@@ -396,14 +392,6 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
   * 現在，在出現 Web 例外狀況時 (例如，在存取控制服務權杖要求期間)，嚴重錯誤的失效速度已變快。
 
 如需詳細資訊，請參閱 [Media Services SDK for .NET 中的重試邏輯]。
-
-## <a id="april_changes_14"></a>2014 年 4 月編碼器版本
-### <a name="april_14_enocer_changes"></a>媒體服務編碼器更新
-* 新增了相關支援，而可擷取以 Grass Valley EDIUS 非線性編輯器撰寫的 AVI 檔案。 在此程序中，視訊會使用 Grass Valley HQ/HQX 轉碼器稍微進行壓縮。 如需詳細資訊，請參閱 [Grass Valley 發表透過雲端的 EDIUS 7 Streaming]。
-*  新增了為媒體服務編碼器所產生的檔案指定命名慣例的支援。 如需詳細資訊，請參閱[控制媒體服務編碼器輸出檔案名稱](https://msdn.microsoft.com/library/azure/dn303341.aspx)。
-*  新增了視訊和 (或) 音訊重疊的支援。 如需詳細資訊，請參閱[建立重疊](https://msdn.microsoft.com/library/azure/dn640496.aspx)。
-*  新增了編結多個視訊片段的支援。 如需詳細資訊，請參閱[編結視訊片段](https://msdn.microsoft.com/library/azure/dn640504.aspx)。
-* 修正了音訊是以 MPEG-1 Audio Layer 3 (也稱為 MP3) 編碼的 MP4 在轉碼方面的錯誤。
 
 ## <a id="jan_feb_changes_14"></a>2014 年 1/2 月版本
 ### <a name="jan_fab_14_donnet_changes"></a>媒體服務 .NET SDK 3.0.0.1、3.0.0.2 和 3.0.0.3
@@ -556,7 +544,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 <!--- URLs. --->
 [Azure 媒體服務 MSDN 論壇]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure 媒體服務 REST API 參考]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[媒體服務定價詳細資料]: https://azure.microsoft.com/pricing/details/media-services/
+[Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [輸入中繼資料]: https://msdn.microsoft.com/library/azure/dn783120.aspx
 [輸出中繼資料]: https://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: https://msdn.microsoft.com/library/azure/hh973618.aspx
@@ -573,7 +561,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: https://msdn.microsoft.com/library/azure/dn189154.aspx
 [Media Services SDK for .NET 中的重試邏輯]: https://msdn.microsoft.com/library/azure/dn745650.aspx
-[Grass Valley 發表透過雲端的 EDIUS 7 Streaming]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Grass Valley announces EDIUS 7 streaming through the cloud]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: https://msdn.microsoft.com/library/azure/dn303341.aspx
 [Create overlays]: https://msdn.microsoft.com/library/azure/dn640496.aspx
 [Stitch video segments]: https://msdn.microsoft.com/library/azure/dn640504.aspx

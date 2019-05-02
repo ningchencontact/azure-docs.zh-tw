@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 1db103fe46db292e2aa41b648c0ace16fd450d90
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: ac2510b97e083cbbcd6529feb6f02fa17455fcb8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525417"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925493"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模擬器進行本機開發和測試
 
@@ -153,7 +153,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 * [安裝 Python 2.7](https://www.python.org/downloads/release/python-2716/)
 
-* [安裝 Cassandra CLI/CQLSH](http://cassandra.apache.org/download/)
+* [安裝 Cassandra CLI/CQLSH](https://cassandra.apache.org/download/)
 
 * 在一般命令提示字元視窗中，執行下列命令：
 
@@ -181,7 +181,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 從系統管理員的命令提示字元中，使用 "/EnableGremlinEndpoint" 來啟動模擬器。 或者，您也可以設定環境變數 `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-* [安裝 apache-tinkerpop-gremlin-console-3.3.4](http://tinkerpop.apache.org/downloads.html)
+* [安裝 apache-tinkerpop-gremlin-console-3.3.4](https://tinkerpop.apache.org/downloads.html)
 
 * 在模擬器的 [資料總管] 中，建立資料庫 "db1" 和集合 "coll1"；針對分割區索引鍵，選擇 "/name"
 

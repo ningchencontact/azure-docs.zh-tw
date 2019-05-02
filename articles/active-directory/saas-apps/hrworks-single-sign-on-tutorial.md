@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 06a10cab81b1253658f505b3cd3f2c520ef9cea8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f69ef2c7c260d8df918fb2495bded6910d6b17b1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266336"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707637"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>教學課程：Azure Active Directory 與 HRworks Single Sign-On 整合
 
@@ -108,7 +108,7 @@ ms.locfileid: "59266336"
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://login.hrworks.de/?companyId=<companyId>&directssologin=true`
 
     > [!NOTE]
-    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [HRworks Single Sign-On 客戶支援小組](mailto:nadja.sommerfeld@hrworks.de)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [HRworks Single Sign-On 客戶支援小組](mailto:support@hrworks.de)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 

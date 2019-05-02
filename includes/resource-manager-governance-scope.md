@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 4f5dbbd1da8a221fb5f8b9641e016829987db538
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dc4281c17b92e1720625764a52a34a94d6f296ab
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38740548"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "64732695"
 ---
 在建立任何項目之前，讓我們先檢閱範圍的概念。 Azure 提供四個管理層級：管理群組、訂用帳戶、資源群組和資源。 [管理群組](../articles/billing/billing-enterprise-mgmt-group-overview.md)是預覽版本。 下圖顯示這些層級的範例。
 

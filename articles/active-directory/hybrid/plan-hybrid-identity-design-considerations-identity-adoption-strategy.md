@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d64cac3812d8daf8ac34b93c91338e1dfab88a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381919"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919111"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>定義混合式身分識別採用策略
 在這項工作中，您將為混合式身分識別解決方案，定義混合式身分識別採用策略，以滿足下列幾節已討論的商務需求：
@@ -37,7 +37,7 @@ ms.locfileid: "60381919"
 ## <a name="define-an-integration-strategy"></a>定義整合策略
 Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步處理身分識別和同盟身分識別。  您應該規劃採用這些整合策略的其中一個。  您選擇的策略可能不同，決策的因素可能包括您想要提供何種使用者體驗、是否有現有的基礎結構，以及什麼最符合成本效益。  
 
-![](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
+![整合案例](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
 上圖所定義的案例如下：
 
@@ -111,14 +111,14 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 ### <a name="supported-topologies"></a>支援的拓撲
 定義同步處理策略時，必須判斷使用的拓撲。 您可以根據步驟 2 中已判斷的資訊，判斷適合使用的拓撲。 單一樹系、單一 Azure AD 拓撲最常見，由單一 Active Directory 樹系和單一 Azure AD 執行個體所組成。  這將用於大部分的案例中，也是在使用 Azure AD Connect Express 安裝時預期的拓撲，如下圖所示。
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest.png) 單一樹系案例。在大型組織，甚至小型組織中，擁有多個樹系很平常，如圖 5 所示。
+![支援的拓撲](./media/plan-hybrid-identity-design-considerations/single-forest.png)單一樹系案例中很常見的大型組織，甚至小型組織有多個樹系，如 圖 5 所示。
 
 > [!NOTE]
 > 如需不同的內部部署和 Azure AD 拓撲與 Azure AD Connect 同步處理的詳細資訊，請參閱 [Azure AD Connect 的拓撲](plan-connect-topologies.md)一文。
 > 
 > 
 
-![](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![多樹系拓撲](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 多樹系案例
 
@@ -140,7 +140,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 
 如果上述條件不成立，而且您有多個使用中的帳戶或多個信箱，Azure AD Connect 會挑選其中一個，其他全部忽略。  如果您有連結的信箱，但沒有其他帳戶，這些帳戶不會匯出至 Azure AD，而且該使用者不會是任何群組的成員。  這不同以往在 DirSync 中的情形，主要是為了更充分支援這些多樹系案例。 下圖顯示多樹系案例。
 
-![](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![多個 Azure AD 租用戶](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **多樹系多個 Azure AD 案例**
 
@@ -148,7 +148,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 
 可以且支援將一個 Active Directory 內部部署執行個體連接到多個 Azure AD 目錄，如下圖所示：
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![單一樹系篩選](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **單一樹系篩選案例**
 

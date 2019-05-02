@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a0f21165af0bcbd8bda28f0eae20d3ee837f3be9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 964d7af92b087bd9905113a25513e2b2f7a3df17
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275652"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922344"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>教學課程：Azure Active Directory 與 Mozy Enterprise 整合
 
@@ -107,7 +107,7 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<tenantname>.Mozyenterprise.com`
 
     > [!NOTE]
-    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Mozy Enterprise 用戶端支援小組](http://support.mozy.com/)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Mozy Enterprise 用戶端支援小組](https://support.mozy.com/)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 

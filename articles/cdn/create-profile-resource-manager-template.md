@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5c393916bc977f4e0bc51913bdb2dfbbd6677c97
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: c26c9021637b1b6ec2b3808db1307de9955bb660
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727583"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922382"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本，建立 Azure CDN 設定檔和端點
 
@@ -51,7 +51,7 @@ az group create --name cdn --location eastus
 
 在此步驟中，您可以建立部署資源的範本檔案。
 
-雖然此範例會逐步解說「一般網站加速」情節，但還可以設定許多其他設定。 這些設定可在 Azure Resource Manager 範本參考中取得。 請參閱 [CDN 設定檔](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) /(英文/)與 [CDN 設定檔端點](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints) /(英文/) 參考。
+雖然此範例會逐步解說「一般網站加速」情節，但還可以設定許多其他設定。 這些設定可在 Azure Resource Manager 範本參考中取得。 請參閱 [CDN 設定檔](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) /(英文/)與 [CDN 設定檔端點](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints) /(英文/) 參考。
 
 請注意，Microsoft CDN 並不支援修改內容類型清單。
 
@@ -224,8 +224,8 @@ az group delete --name cdn
 
 ## <a name="references"></a>參考
 
-* CDN 設定檔 - [Azure Resource Manager 範本參考](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* CDN 端點 - [Azure Resource Manager 範本參考文件](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* CDN 設定檔 - [Azure Resource Manager 範本參考](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
+* CDN 端點 - [Azure Resource Manager 範本參考文件](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## <a name="next-steps"></a>後續步驟
 

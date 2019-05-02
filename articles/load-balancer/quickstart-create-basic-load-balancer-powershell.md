@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31795b0dfb5a9815113ab232a266d9f7f8955068
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109792"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688389"
 ---
 # <a name="get-started"></a>快速入門：使用 Azure PowerShell 建立公用負載平衡器
 
@@ -335,7 +335,7 @@ Get-AzPublicIPAddress `
 
 ![測試負載平衡器](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
-若要查看負載平衡器如何將流量分散於執行您應用程式的這兩部 VM，您可以強制重新整理您的網頁瀏覽器。
+若要查看負載平衡器如何將流量分散於執行您應用程式的這兩個 VM，您可以強制重新整理您的網頁瀏覽器。
 
 ## <a name="clean-up-resources"></a>清除資源
 

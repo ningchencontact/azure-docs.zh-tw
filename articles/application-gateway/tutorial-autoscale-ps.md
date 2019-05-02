@@ -8,19 +8,16 @@ ms.topic: tutorial
 ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 616a710237c31ef2b4a19c3e1e61838164a78530
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308562"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947151"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>教學課程：建立改善 Web 應用程式存取的應用程式閘道
 
 如果您是 IT 系統管理員，並且想改善 Web 應用程式的存取，您可以最佳化應用程式閘道，以根據客戶需求並跨越多個可用性區域來調整規模。 本教學課程可協助您設定 Azure 應用程式閘道功能，以完成：自動調整、區域備援及保留的 VIP (靜態 IP)。 若要解決此問題，您將使用 Azure PowerShell Cmdlet 和 Azure Resource Manager 部署模型。
-
-> [!IMPORTANT] 
-> 自動調整規模和區域備援應用程式閘道 SKU 目前為公開預覽版。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
 
 在本教學課程中，您了解如何：
 

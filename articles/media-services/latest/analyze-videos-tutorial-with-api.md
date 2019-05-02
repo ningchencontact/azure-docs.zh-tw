@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6508e90f76a374d628fdd5032c475e4dde8ffa78
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 48d08af1c33eaddd8d963d9e1ab0322c3972997e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351774"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693271"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>教學課程：透過媒體服務 v3 使用 .NET 分析影片
 
@@ -166,6 +166,10 @@ az group delete --name amsResourceGroup
 ## <a name="multithreading"></a>多執行緒
 
 Azure 媒體服務 v3 SDK 不是安全執行緒。 當使用多執行緒應用程式時，您應該為每個執行緒產生新的 AzureMediaServicesClient 物件。
+
+## <a name="provide-feedback"></a>提供意見反應
+
+請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -16,14 +16,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: kumud
-ms.openlocfilehash: 888808c94115e2ea136e90eb635faf28e7d92fd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 121d3f941f3d00373bd2821534c3e601107e97e6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506955"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Azure CLI 指令碼範例：為目標為 VM 的流量進行負載平衡以達到高可用性
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Azure CLI 指令碼範例：使用 VM 平衡流量負載以達到高可用性
 
 此 Azure CLI 指令碼範例會建立所需的一切，以執行數部依據特定可用性區域內高可用性和負載平衡組態所設定的 Ubuntu 虛擬機器。 執行指令碼之後，在區域內的單一可用性區域中，您將擁有三部可透過 Azure Standard Load Balancer 存取的虛擬機器。 
 

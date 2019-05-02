@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: f7120e80d079723ed8265320ba4b38d76a825a00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9187863234dd62757efecf6f0817ff00da48064a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621324"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685537"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>快速入門：使用適用於 C++ 的語音 SDK 來翻譯語音
 

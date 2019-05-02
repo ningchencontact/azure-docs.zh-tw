@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ad5a4981869f992ab6823a13afc2cad0e5252d08
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: eb731dc18b1524bcf161352265af9e277f85876e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105428"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730614"
 ---
 # <a name="configure-php-in-azure-app-service"></a>在 Azure App Service 中設定 PHP
 
@@ -35,15 +35,11 @@ PHP 7.0 和 PHP 7.2 版本同樣可供使用，但預設並未啟用。 若要�
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的應用程式，然後按一下 [設定] 按鈕。
+1. 瀏覽至您的應用程式中[Azure 入口網站](https://portal.azure.com)，然後捲動至**組態**頁面。
 
-    ![應用程式設定][settings-button]
-2. 從 [設定] 刀鋒視窗中，選取 [應用程式設定]，並選擇新的 PHP 版本。
+2. 從**組態**，選取**一般設定**並選擇新的 PHP 版本。
 
-    ![應用程式設定][application-settings]
-3. 按一下 [應用程式設定] 刀鋒視窗頂端的 [儲存] 按鈕。
-
-    ![儲存組態設定。][save-button]
+3. 按一下 **儲存**頂端的按鈕**一般設定**刀鋒視窗。
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
@@ -130,18 +126,12 @@ PHP 7.0 和 PHP 7.2 版本同樣可供使用，但預設並未啟用。 若要�
 ### <a name="configure-via-app-setting"></a>透過應用程式設定來設定
 
 1. 將 `bin` 目錄新增至根目錄。
-1. 將 `.dll` 擴充檔放入 `bin` 目錄中 (例如，`php_xdebug.dll`)。 請確定擴充功能與預設的 PHP 版本相容，並且與 VC9 及非執行緒安全 (nts) 相容。
-2. 部署您的應用程式。
-3. 在 Azure 入口網站中瀏覽至您的應用程式，然後按一下 [設定] 按鈕。
-
-    ![應用程式設定][settings-button]
-4. 從 [設定] 刀鋒視窗中選取 [應用程式設定]，然後捲動至 [應用程式設定] 區段。
-5. 在 [應用程式設定] 區段中，建立 **PHP_EXTENSIONS** 索引鍵。 此索引鍵的值是相對於網站根目錄的路徑：**bin\your-ext-file**。
-
-    ![啟用應用程式設定中的擴充][php-extensions]
-6. 按一下 [應用程式設定] 刀鋒視窗頂端的 [儲存] 按鈕。
-
-    ![儲存組態設定。][save-button]
+2. 將 `.dll` 擴充檔放入 `bin` 目錄中 (例如，`php_xdebug.dll`)。 請確定擴充功能與預設的 PHP 版本相容，並且與 VC9 及非執行緒安全 (nts) 相容。
+3. 部署您的應用程式。
+4. 瀏覽至您的應用程式，在 Azure 入口網站中，然後按一下**組態**下方**設定**一節。
+5. 從**組態**刀鋒視窗中，選取**應用程式設定**。
+6. 在 **應用程式設定**區段中，按一下 **+ 新增應用程式設定**並建立**PHP_EXTENSIONS**索引鍵。 此索引鍵的值是相對於網站根目錄的路徑：**bin\your-ext-file**。
+7. 按一下 **更新**下方的按鈕，然後按一下 **儲存**上方**應用程式設定** 索引標籤。
 
 Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。 若要啟用多個擴充功能，請針對應用程式設定值包含以逗號分隔的 `.dll` 檔案清單。
 
@@ -154,15 +144,11 @@ Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。 若要啟�
 3. 或者，將擴充功能新增至 PHP 執行階段，並且在 `php.ini` 檔案中啟用這些擴充功能。
 4. 將 `bin` 目錄新增至根目錄，並在其中放入包含 PHP 執行階段的目錄 (例如，`bin\php`)。
 5. 部署您的應用程式。
-6. 在 Azure 入口網站中瀏覽至您的應用程式，然後按一下 [設定] 按鈕。
-
-    ![應用程式設定][settings-button]
-7. 從 [設定] 刀鋒視窗中選取 [應用程式設定]，然後捲動至 [處理常式對應] 區段。 將 `*.php` 新增至 [副檔名] 欄位，然後將路徑加入 `php-cgi.exe` 可執行檔。 如果您將 PHP 執行階段放入應用程式根目錄內的 `bin` 目錄中，該路徑將是 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
-
-    ![指定處理常式對應中的處理常式][handler-mappings]
-8. 按一下 [應用程式設定] 刀鋒視窗頂端的 [儲存] 按鈕。
-
-    ![儲存組態設定。][save-button]
+6. 瀏覽至您的應用程式，在 Azure 入口網站中，然後按一下**組態**刀鋒視窗。
+8. 從**組態**刀鋒視窗中，選取**路徑對應**。 
+9. 按一下  **+ 新的處理常式**並加入`*.php`延伸模組欄位，然後將路徑加入至`php-cgi.exe`中的可執行檔**指令碼處理器**。 如果您將 PHP 執行階段放入應用程式根目錄內的 `bin` 目錄中，該路徑將是 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
+10. 在底部，按一下**更新**以完成新增處理常式對應。
+11. 按一下 [儲存] 來儲存變更。
 
 <a name="composer" />
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: a973d8dbab18e9ea66afb5ffff83f47c3ad98f93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9cb7172fb529d8f0cd8650db7c06a78176ef342d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844875"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729547"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自動化 Azure 虛擬機器部署
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -134,7 +134,9 @@ cookbook_path       ["#{current_dir}/cookbooks"]
 
 將下列資訊新增至 knife.rb：
 
-validation_client_name   "myorg-validator" validation_key           ""#{current_dir}/myorg.pem"
+validation_client_name   "myorg-validator"
+
+validation_key           "#{current_dir}/myorg.pem"
 
 並新增下列反映 Azure 發行設定檔名稱的程式碼行。
 

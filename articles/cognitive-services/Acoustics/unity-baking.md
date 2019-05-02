@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790224"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916993"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>聲場專案 Unity 聲場模擬教學課程
 本教學課程描述在 Unity 中運用聲場專案進行聲場模擬。
 
 軟體需求：
-* 適用於 Windows 的 [Unity 2018.2+](http://unity3d.com)
+* 適用於 Windows 的 [Unity 2018.2+](https://unity3d.com)
 * [Unity 專案中整合的聲場專案外掛程式](unity-integration.md)或[聲場專案 Unity 範例內容](unity-quickstart.md)
 * 選用：[Azure Batch 帳戶](create-azure-account.md)，以使用雲端運算加快聲場模擬速度
 

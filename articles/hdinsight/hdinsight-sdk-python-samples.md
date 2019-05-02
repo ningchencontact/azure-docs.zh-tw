@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8c7c17811a64e05fc0d3246385eb3c64f848ea1b
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: e8e5afa0a29136dd4f266f4356f082365c3f6c22
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580938"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712604"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight：Python 範例
 
@@ -22,7 +22,7 @@ ms.locfileid: "59580938"
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
 
-此文章提供：
+本文提供：
 
 * 叢集建立工作範例的連結。
 * 其他管理工作參考內容的連結。

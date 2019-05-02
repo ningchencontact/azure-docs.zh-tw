@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a72b2c44550c0e481f7be4e37152e3bbe3a22f3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08de78e598ef7fa751c5474a248f8d901c694ea8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889857"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918381"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>教學課程：Azure Active Directory 與 Datahug 整合
 
@@ -71,7 +71,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Datahug 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Datahug 設定及測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Datahug 中相關使用者之間的連結關聯性。
 
 如要設定及測試搭配 Datahug 的 Azure AD 單一登入，您需要完成下列構成元素：
@@ -87,7 +87,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Datahug 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 Datahug 設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Datahug] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -103,7 +103,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![Datahug 網域及 URL 單一登入資訊](common/idp-intiated.png)
+    ![Datahug 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://apps.datahug.com/identity/<uniqueID>`
 
@@ -111,12 +111,12 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![Datahug 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![Datahug 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://apps.datahug.com/`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Datahug 用戶端支援小組](http://datahug.com/about/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Datahug 用戶端支援小組](https://datahug.com/about/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載 [同盟中繼資料 XML]，並儲存在您的電腦上。
 
@@ -146,7 +146,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-datahug-single-sign-on"></a>設定 Datahug 單一登入
 
-若要在 **Datahug** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [Datahug 支援小組](http://datahug.com/about/contact-us/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Datahug** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [Datahug 支援小組](https://datahug.com/about/contact-us/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -183,7 +183,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Datahug]。
 
-    ![應用程式清單中的 [Datahug] 連結](common/all-applications.png)
+    ![應用程式清單中的 Datahug 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

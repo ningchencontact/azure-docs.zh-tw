@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: c201945e94474d54b8a19918f3b55a0b40995a97
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743508"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>叢集資源管理員與 Service Fabric 叢集管理整合
 Service Fabric 叢集資源管理員不會促使 Service Fabric 升級，但有所關聯。 叢集資源管理員協助管理的第一種方法是追蹤所需的叢集狀態及其內部的服務。 當叢集資源管理員無法讓叢集處於所需的設定時，它會送出健全狀況報告。 例如，如果容量不足，叢集資源管理員會發出健康情況警告和錯誤，指出問題所在。 整合的另一方面必定與升級方式有關。 在升級期間，叢集資源管理員會稍微改變其行為。  

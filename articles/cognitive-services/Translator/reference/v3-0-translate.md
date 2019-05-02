@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608430"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722436"
 ---
 # <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0：Translate
 
@@ -42,11 +42,11 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>from</td>
-    <td>選擇性參數。<br/>指定輸入文字的語言。 使用 <code>translation</code> 範圍查閱[支援語言](./v3-0-languages.md)，以尋找可用於翻譯的來源語言。 若未指定 <code>from</code> 參數，則會套用自動語言偵測來判斷來源語言。</td>
+    <td>選擇性參數。<br/>指定輸入文字的語言。 使用 <code>translation</code> 範圍查閱<a href="./v3-0-languages.md">支援語言</a>，以尋找可用於翻譯的來源語言。 若未指定 <code>from</code> 參數，則會套用自動語言偵測來判斷來源語言。</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>必要參數。<br/>指定輸出文字的語言。 目標語言必須是 <code>translation</code> 範圍內包含的[支援語言](./v3-0-languages.md)之一。 例如，使用 <code>to=de</code> 翻譯為德文。<br/>在查詢字串中重複參數，可能會同時翻譯為多種語言。 例如，使用 <code>to=de&to=it</code> 翻譯為德文和義大利文。</td>
+    <td>必要參數。<br/>指定輸出文字的語言。 目標語言必須是 <code>translation</code> 範圍內包含的<a href="./v3-0-languages.md">支援語言</a>之一。 例如，使用 <code>to=de</code> 翻譯為德文。<br/>在查詢字串中重複參數，可能會同時翻譯為多種語言。 例如，使用 <code>to=de&to=it</code> 翻譯為德文和義大利文。</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -54,15 +54,15 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>category</td>
-    <td>選擇性參數。<br/>字串，指定翻譯的分類 (定義域)。 此參數用來從使用 [Custom Translator](../customization.md) 所建置的自訂系統取得翻譯。 將來自自訂翻譯專案的類別識別碼新增至此參數，以使用您部署的自訂系統。 預設值為：<code>general</code>。</td>
+    <td>選擇性參數。<br/>字串，指定翻譯的分類 (定義域)。 此參數用來從使用 <a href="../customization.md">Custom Translator</a> 所建置的自訂系統取得翻譯。 將來自自訂翻譯專案的類別識別碼新增至此參數，以使用您部署的自訂系統。 預設值為：<code>general</code>。</td>
   </tr>
   <tr>
     <td>profanityAction</td>
-    <td>選擇性參數。<br/>指定如何處理翻譯中的粗話。 可能的值為：<code>NoAction</code> (預設)、<code>Marked</code> 或 <code>Deleted</code>。 若要了解處理粗話的方式，請參閱[粗話處理](#handle-profanity)。</td>
+    <td>選擇性參數。<br/>指定如何處理翻譯中的粗話。 可能的值為：<code>NoAction</code> (預設)、<code>Marked</code> 或 <code>Deleted</code>。 若要了解處理粗話的方式，請參閱<a href="#handle-profanity">粗話處理</a>。</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td>選擇性參數。<br/>指定如何在翻譯中標示粗話。 可能的值為：<code>Asterisk</code> (預設) 或 <code>Tag</code>。 若要了解處理粗話的方式，請參閱[粗話處理](#handle-profanity)。</td>
+    <td>選擇性參數。<br/>指定如何在翻譯中標示粗話。 可能的值為：<code>Asterisk</code> (預設) 或 <code>Tag</code>。 若要了解處理粗話的方式，請參閱<a href="#handle-profanity">粗話處理</a>。</td>
   </tr>
   <tr>
     <td>includeAlignment</td>

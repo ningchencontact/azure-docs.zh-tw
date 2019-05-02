@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ee721558e0e643a4b5fdcfa4cf0fe9c2195fa479
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59736965"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64736975"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure 進階儲存體：專為高效能而設計
 
@@ -299,7 +299,7 @@ Azure 進階儲存體提供八個 GA 磁碟大小和目前為預覽版的三種�
 1. 在裝載記錄檔的進階儲存體磁碟上設定「無」快取。  
    a.  記錄檔以大量寫入的作業為主。 因此，無法從「唯讀」快取中受惠。
 
-### <a name="optimize-performance-on-linux-vms"></a>最佳化 Linux VM 的效能
+## <a name="optimize-performance-on-linux-vms"></a>最佳化 Linux VM 的效能
 
 對於所有快取設為 [唯讀] 或 [無] 的進階 SSD 或 Ultra 磁碟，當您掛接檔案系統時，您必須停用 "barriers" (阻礙)。 此案例中您不需要阻礙，因為對這些快取設定而言，寫入進階儲存體磁碟是持久的。 寫入要求成功完成時，資料就已寫入永久性的存放區。 若要停用 "barrier" (阻礙)，請使用下列其中一種方法。 請選擇適用您檔案系統的方法︰
   
@@ -313,7 +313,7 @@ Azure 進階儲存體提供八個 GA 磁碟大小和目前為預覽版的三種�
 
 部分版本需要適用於 Azure 的最新 Linux Integration Services 4.0 版。 若要下載並安裝散發套件，請遵循下表所列的連結。 完成驗證時，我們會將映像新增至清單中。 驗證結果顯示每個映像的效能各有差異。 效能取決於工作負載特性和映像上的設定。 不同的映像已針對不同種類的工作負載進行調整。
 
-| 分发 | 版本 | 支援的核心 | 詳細資料 |
+| 分发 | Version | 支援的核心 | 詳細資料 |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
@@ -328,7 +328,7 @@ Azure 進階儲存體提供八個 GA 磁碟大小和目前為預覽版的三種�
 | Oracle | 7.0-7.1 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 | Oracle | 6.4-6.7 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
-## <a name="lis-drivers-for-openlogic-centos"></a>Openlogic CentOS 的 LIS 驅動程式
+### <a name="lis-drivers-for-openlogic-centos"></a>Openlogic CentOS 的 LIS 驅動程式
 
 如果您執行 OpenLogic CentOS VM，請執行下列命令以安裝最新的驅動程式：
 

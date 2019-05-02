@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7afa815f81e2a61db8ac83623baafb97cb986b2c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683829"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925368"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中尋找要求單位 (RU) 費用
 
@@ -186,7 +186,7 @@ double requestCharge = (double)stats["RequestCharge"];
 
 ### <a name="use-the-mongodb-java-driver"></a>使用 MongoDB Java 驅動程式
 
-使用[官方 MongoDB Java 驅動程式](http://mongodb.github.io/mongo-java-driver/)時 (請參閱[本快速入門](create-mongodb-java.md)中有關於其使用方式的資訊)，可藉由對 `MongoDatabase` 物件呼叫 `runCommand` 方法來執行命令。
+使用[官方 MongoDB Java 驅動程式](https://mongodb.github.io/mongo-java-driver/)時 (請參閱[本快速入門](create-mongodb-java.md)中有關於其使用方式的資訊)，可藉由對 `MongoDatabase` 物件呼叫 `runCommand` 方法來執行命令。
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));

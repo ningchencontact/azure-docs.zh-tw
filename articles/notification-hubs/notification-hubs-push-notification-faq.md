@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 8af545f5700e90303562174a3c27cc5438b28e24
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998918"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925870"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集
 
@@ -218,7 +218,7 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 [通知中樞安全推播教學課程]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [通知中樞疑難排解]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [通知中樞計量]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[註冊匯出/匯入]: https://docs.microsoft.com/en-us/azure/notification-hubs/export-modify-registrations-bulk
+[註冊匯出/匯入]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
 [Azure 门户]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/

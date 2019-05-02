@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: d7d4aa89c4dcf2ac9cc0c393e0481cae1f3aeaf2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776057"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure 監視器中的代理程式資料來源
 Azure 監視器從代理程式收集的資料由您設定的資料來源設定。  系統會將來自代理程式的資料連同一組記錄儲存成[記錄資料](data-platform-logs.md)。  每個資料來源都會建立特定類型的記錄，每種類型各有自己的一組屬性。
@@ -31,13 +31,13 @@ Azure 監視器從代理程式收集的資料由您設定的資料來源設定�
 
 | 資料來源 | 平台 | Microsoft Monitoring Agent | Operations Manager 代理程式 | Azure 儲存體 | 是否需要 Operations Manager？ | 透過管理群組傳送的 Operations Manager 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [自訂的記錄](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | 與抵達同時 |
-| [自訂的記錄](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | 與抵達同時 |
-| [IIS 記錄](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |取決於記錄檔檔案換用設定 |
-| [效能計數器](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |依排程，最少 10 秒 |
-| [效能計數器](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |依排程，最少 10 秒 |
-| [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |從 Azure 儲存體：：10 分鐘；從代理程式：與抵達同時 |
-| [Windows 事件記錄](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | 與抵達同時 |
+| [自訂的記錄](data-sources-custom-logs.md) |  Windows |&#8226; |  | |  |  | 與抵達同時 |
+| [自訂的記錄](data-sources-custom-logs.md) |  Linux   |&#8226; |  | |  |  | 與抵達同時 |
+| [IIS 記錄](data-sources-iis-logs.md) |  Windows |&#8226; |&#8226; |&#8226; |  |  |取決於記錄檔檔案換用設定 |
+| [效能計數器](data-sources-performance-counters.md) |  Windows |&#8226; |&#8226; |  |  |  |依排程，最少 10 秒 |
+| [效能計數器](data-sources-performance-counters.md) |  Linux |&#8226; |  |  |  |  |依排程，最少 10 秒 |
+| [Syslog](data-sources-syslog.md) |  Linux |&#8226; |  |  |  |  |從 Azure 儲存體：：10 分鐘；從代理程式：與抵達同時 |
+| [Windows 事件記錄](data-sources-windows-events.md) | Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | 與抵達同時 |
 
 
 ## <a name="configuring-data-sources"></a>設定資料來源

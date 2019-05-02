@@ -1,22 +1,20 @@
 ---
 title: Apache Storm 範例 Java 拓撲 - Azure HDInsight
 description: 了解如何藉由建立範例字數統計拓撲，以使用 Java 建立 Apache Storm 拓撲。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm,apache storm 範例,storm java,storm 拓撲範例
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 03/14/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
+ms.date: 03/14/2019
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125165"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695652"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>在 Java 中建立 Apache Storm 拓撲
 

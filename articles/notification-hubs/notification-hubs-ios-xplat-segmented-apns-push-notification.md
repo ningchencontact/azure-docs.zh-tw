@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60873127"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推播至特定 iOS 裝置
 
@@ -242,7 +242,7 @@ ms.locfileid: "57834212"
 
 ## <a name="optional-send-tagged-notifications"></a>(選擇性) 傳送加註標記的通知
 
-如果您無法存取 Visual Studio，可以跳到下一節，並從應用程式本身傳送通知。 您也可以使用通知中樞的 [偵錯] 索引標籤，從 [Azure 入口網站] 傳送正確的範本通知。
+如果您無法存取 Visual Studio，可以跳到下一節，並從應用程式本身傳送通知。 您也可以使用通知中樞的 [偵錯] 索引標籤，從 [Azure 门户] 傳送正確的範本通知。
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -366,4 +366,4 @@ ms.locfileid: "57834212"
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Azure 入口網站]: https://portal.azure.com
+[Azure 门户]: https://portal.azure.com

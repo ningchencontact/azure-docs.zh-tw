@@ -4,15 +4,16 @@ description: 描述 Azure 資料箱閘道，這是可讓您將資料傳輸到 Az
 services: databox
 author: alkohli
 ms.service: databox
+ms.subservice: gateway
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 340ff99aae9acff49ffdeaa43463521debb16a07
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2905cae6d5d97062d5a2fc1da41d55290d89fb4a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797579"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924510"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>什麼是 Azure Data Box Gateway？
 
