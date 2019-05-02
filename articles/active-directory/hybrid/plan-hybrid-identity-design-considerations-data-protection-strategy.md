@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2017
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05c1575781f280b3be1843abee0469af52baeb2d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381604"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918418"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>定義混合式身分識別解決方案的資料保護策略
 在這項工作中，您將為混合式身分識別解決方案定義資料保護策略，以符合您已定義的商務需求：
@@ -89,7 +89,7 @@ ms.locfileid: "60381604"
 ## <a name="define-access-control-options"></a>定義存取控制選項
 利用 Azure AD 中提供的驗證、授權和存取控制功能，您將能夠讓公司使用中央身分識別存放庫，同時允許使用者和合作夥伴使用單一登入 (SSO)，如下圖所示：
 
-![](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![集中式的管理](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 集中式管理以及與其他目錄的完全整合
 
@@ -115,7 +115,7 @@ Azure Active Directory 可為數千個 SaaS 應用程式和內部部署 Web 應�
 
 使用 Azure AD 驗證使用者之後，務必要評估使用者所將擁有的存取層級。 使用者對資源的存取層級可能有所不同。 由於 Azure AD 可藉由控制對某些資源的存取而增加額外的安全性層級，因此請記住，資源本身也可能有其本身的存取控制清單，例如，對位於檔案伺服器中之檔案的存取控制。 下圖摘要說明您在混合式案例中可以有的存取控制層級：
 
-![](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![存取控制](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
 圖 X 中顯示的每個互動，分別代表 Azure AD 可以涵蓋的一個存取控制案例。 每個案例的說明如下：
 

@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60728733"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -153,7 +153,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 是，Azure 備份現在可供使用。
 
 **如何建立標準 SSD 磁碟？**
-您可以建立標準的 SSD 磁碟使用 Azure Resource Manager 範本、 SDK、 PowerShell 或 CLI。 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：
+可以使用 Azure 资源管理器模板、SDK、PowerShell 或 CLI 创建标准 SSD 盘。 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：
 
 * Microsoft.Compute 的 apiVersion 必須設定為 `2018-04-01` (或更新版本)
 * 將 managedDisk.storageAccountType 指定為 `StandardSSD_LRS`
@@ -179,7 +179,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 -AccountType StandardSSD_LRS
 
 **使用標準 SSD 磁碟而不使用 HDD 有何優點？**
-標準的 SSD 磁碟提供更佳的延遲、 一致性、 可用性和可靠性相較於 HDD 磁碟。 因此，應用程式工作負載在「標準 SSD」上執行起來更加順暢。 請注意，針對大多數 IO 密集型生產環境工作負載，建議的解決方案是「進階 SSD」磁碟。
+与 HDD 磁盘相比，标准 SSD 盘可以提供更好的延迟、一致性、可用性和可靠性。 因此，應用程式工作負載在「標準 SSD」上執行起來更加順暢。 請注意，針對大多數 IO 密集型生產環境工作負載，建議的解決方案是「進階 SSD」磁碟。
 
 **可以使用標準 SSD 作為非受控磁碟嗎？**
 否，標準 SSD 磁碟僅適用於受控磁碟。
@@ -191,7 +191,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 
 **移轉對於受控磁碟的效能是否有任何影響？**
 
-移轉涉及從一個儲存體位置將磁碟移動到另一個儲存體位置。 這協調透過背景資料複本，這可能需要數小時才能完成，通常不會超過 24 小時內的磁碟中的資料量而定。 在這段期間，應用程式可能出現比平常高的讀取延遲，因為某些讀取會重新導向至原始位置，因此可能需要較長的時間才能完成。 在這段期間，對於寫入延遲沒有任何影響。  
+移轉涉及從一個儲存體位置將磁碟移動到另一個儲存體位置。 这是通过在后台复制数据来安排的，可能需要花费数小时才能完成，通常少于 24 小时，具体取决于磁盘中的数据量。 在這段期間，應用程式可能出現比平常高的讀取延遲，因為某些讀取會重新導向至原始位置，因此可能需要較長的時間才能完成。 在這段期間，對於寫入延遲沒有任何影響。  
 
 **在移轉至受控磁碟前/後，預先存在的 Azure 備份服務設定需要哪些變更？**
 
@@ -355,7 +355,7 @@ Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB�
 
 **我們支援所有的磁碟大小上啟用 主機快取？**
 
-ReadOnly 主機快取和讀/寫上支援磁碟大小少於 4 TiB。 針對超過 4 TiB 的磁碟大小，我們只支援設定為「無」的快取選項。 建議您利用快取較小型磁碟大小的方式，以便您透過快取到 VM 的資料增進效能。
+我们支持在小于 4 TiB 的磁盘大小上启用只读和读/写主机缓存。 針對超過 4 TiB 的磁碟大小，我們只支援設定為「無」的快取選項。 建議您利用快取較小型磁碟大小的方式，以便您透過快取到 VM 的資料增進效能。
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>如果這裡沒有解答我的問題該怎麼辦？
 

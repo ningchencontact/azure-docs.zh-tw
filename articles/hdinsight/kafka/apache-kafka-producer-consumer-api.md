@@ -1,7 +1,6 @@
 ---
 title: '教學課程：使用 Apache Kafka Producer 和 Consumer API - Azure HDInsight '
 description: 了解如何搭配 HDInsight 上的 Kafka 使用 Apache Kafka Producer 和 Consumer API。 在本教學課程中，您將了解如何從 Java 應用程式將這些 API 用於 HDInsight 上的 Kafka。
-services: hdinsight
 author: dhgoelmsft
 ms.author: dhgoel
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/02/2019
-ms.openlocfilehash: 6b77cd9939e244fd031788164cdfe391c3e2b9d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3dead1bdedb75a1b6fafb947da9c88094f0c4de9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916388"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724146"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教學課程：使用 Apache Kafka Producer 和 Consumer API
 

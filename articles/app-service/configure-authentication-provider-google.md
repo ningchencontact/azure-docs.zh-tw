@@ -16,11 +16,11 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 50905b86924e0f564eaf4867c2906ad8740ddbaf
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411240"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60851168"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>如何設定 App Service 應用程式以使用 Google 登入
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "53411240"
 若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Google 帳戶。 若要建立新的 Google 帳戶，請前往 [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302)。
 
 ## <a name="register"> </a>向 Google 註冊您的應用程式
-1. 登入 [Azure 入口網站]，然後瀏覽到您的應用程式。 複製 **URL**，以供稍後用來設定 Google 應用程式。
+1. 登入 [Azure 门户]，然後瀏覽到您的應用程式。 複製 **URL**，以供稍後用來設定 Google 應用程式。
 2. 瀏覽至 [Google APIs](https://go.microsoft.com/fwlink/p/?LinkId=268303) 網站，以您的 Google 帳戶認證登入，按一下 [建立專案]，提供 [專案名稱]，然後按一下 [建立]。
 3. 建立專案之後，請選取專案。 在專案儀表板中，按一下 [移至 API 概觀]。
 4. 選取 [啟用 API 和服務]。 搜尋 **Google+ API**，並加以選取。 接著，按一下 [啟用] 。
@@ -45,7 +45,7 @@ ms.locfileid: "53411240"
 
 
 ## <a name="secrets"> </a>將 Google 資訊新增至應用程式
-1. 回到 [Azure 入口網站]，並瀏覽到您的應用程式。 依序按一下 [設定] 及 [驗證/授權]。
+1. 回到 [Azure 门户]，並瀏覽到您的應用程式。 依序按一下 [設定] 及 [驗證/授權]。
 2. 如果 [驗證/授權] 功能未啟用，請切換到 [開] 。
 3. 按一下 [Google] 。 貼上先前取得的應用程式識別碼與應用程式密碼值，然後選擇性啟用應用程式需要的任何範圍。 然後按一下 [確定] 。
    
@@ -71,5 +71,5 @@ ms.locfileid: "53411240"
 
 [Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 446f83ecf81d344163deca58ac4aaf8487292ab4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8847b5c6e7ceac5bec321ebcf6310a624f16e184
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181039"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916734"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>快速入門：搭配使用翻譯工具文字 API 與 Java 來取得支援的語言清單
 
@@ -172,7 +172,7 @@ gradle run
 
 ## <a name="sample-response"></a>範例回應
 
-請在此[語言清單](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)中尋找國家/地區縮寫。
+請在此[語言清單](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)中尋找國家/地區縮寫。
 
 成功的回應會以 JSON 格式傳回，如下列範例所示：
 

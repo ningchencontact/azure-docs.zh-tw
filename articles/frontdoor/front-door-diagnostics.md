@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736769"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>監視計量與 Azure 前端服務中的記錄
 

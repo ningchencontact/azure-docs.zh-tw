@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546537"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573564"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -56,7 +56,7 @@ ms.locfileid: "59546537"
 
 若要建立 ILB ASE：
 
-1. 在 Azure 入口網站中，選取 [建立資源] **** > [Web] > [App Service 環境]。
+1. 在 Azure 入口網站中，選取 [建立資源] > [Web] > [App Service 環境]。
 
 2. 選取您的訂用帳戶。
 
@@ -66,7 +66,7 @@ ms.locfileid: "59546537"
 
 5. 如果您選取現有的 VNet，則需要建立子網路來存放 ASE。 確定將子網路的大小設為足以容納 ASE 的任何未來成長。 建議的大小是 `/24`，具有 256 個位址，而且可以處理最大大小的 ASE 和任何縮放需求。 
 
-6. 選取 [虛擬網路/位置] ****  > [虛擬網路設定]， 並將 [VIP 類型] 設定為 [內部]。
+6. 選取 [虛擬網路/位置]  >  [虛擬網路設定]， 並將 [VIP 類型] 設定為 [內部]。
 
 7. 輸入網域名稱。 這個網域會成為在此 ASE 中建立之應用程式所使用的網域。 有某些限制。 不能是：
 
@@ -96,14 +96,14 @@ ms.locfileid: "59546537"
 
 選取 [內部] 之後，系統會移除把更多 IP 位址新增至您 ASE 的功能。 取而代之的是您必須提供 ASE 的網域。 在使用外部 VIP 的 ASE 中，ASE 的名稱會在網域中用於在該 ASE 中建立的 app。
 
-如果您將 [VIP 類型] 設定為 [內部]，您的 ASE 名稱不會在 ASE 的網域中使用。 您可以明確地指定網域。 如果您的網域是 *contoso.corp.net* ，而您在該 ASE 中建立一個名為 *timereporting* 的應用程式，該應用程式的 URL 會是 timereporting.contoso.corp.net。
+如果您將 [VIP 類型] 設定為 [內部]，您的 ASE 名稱不會在 ASE 的網域中使用。 您可以明確地指定網域。 如果您的網域是 contoso.corp.net 而您在該 ASE 中建立一個名為 timereporting 的應用程式，該應用程式的 URL 會是 timereporting.contoso.corp.net。
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>在 ILB ASE 中建立應用程式： ##
 
 在 ILB ASE 中建立應用程式的做法，與在 ASE 中建立應用程式相同。
 
-1. 在 Azure 入口網站中，選取 [建立資源] **** >  [Web + 行動] > [Web 應用程式]。
+1. 在 Azure 入口網站中，選取 [建立資源] >  [Web + 行動] > [Web 應用程式]。
 
 1. 輸入應用程式的名稱。
 
@@ -117,7 +117,7 @@ ms.locfileid: "59546537"
 
 1. 選取或建立 App Service 方案。 如果您想建立新的 App Service 方案，請選取您的 ASE 作為位置。 選取您想要建立 App Service 方案的背景工作集區。 當您建立 App Service 方案時，選取您的 ASE 作為位置與背景工作角色集區。 指定應用程式的名稱時，會看見您的應用程式名稱底下的網域已被您的 ASE 網域取代。
 
-1. 選取 [建立] 。 如果希望應用程式顯示在儀表板上，請選取 [釘選到儀表板] **** 核取方塊。
+1. 選取 [建立] 。 如果希望應用程式顯示在儀表板上，選取 [釘選到儀表板] 核取方塊。
 
     ![App Service 方案建立][2]
 
@@ -127,7 +127,7 @@ ms.locfileid: "59546537"
 
 ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理自己的 DNS。 您也必須提供您自己的 HTTPS 連線憑證。
 
-建立 ASE 之後，網域名稱會顯示您所指定的網域。 [設定] **** 功能表中會出現名為 **ILB 憑證**的新項目。 ASE 使用憑證建立，該憑證未指定 ILB ASE 網域。 如果您使用 ASE 與該憑證，您的瀏覽器會告訴您它是無效的。 此憑證可讓您更輕鬆地測試 HTTPS，但您必須上傳您自己的繫結至 ILB ASE 網域的憑證。 無論您的憑證是自我簽署或是從憑證授權單位取得，這個步驟都是必要的。
+建立 ASE 之後，網域名稱會顯示您所指定的網域。 在 [設定] 功能表中會出現新的項目 [ILB 憑證]。 ASE 使用憑證建立，該憑證未指定 ILB ASE 網域。 如果您使用 ASE 與該憑證，您的瀏覽器會告訴您它是無效的。 此憑證可讓您更輕鬆地測試 HTTPS，但您必須上傳您自己的繫結至 ILB ASE 網域的憑證。 無論您的憑證是自我簽署或是從憑證授權單位取得，這個步驟都是必要的。
 
 ![ILB ASE 網域名稱][3]
 
@@ -154,7 +154,7 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理�
 
 若要上傳您自己的憑證並測試存取：
 
-1. 建立 ASE 之後，移至 ASE UI。 選取 [ASE]  >  [設定]  >  [ILB 憑證]。
+1. 建立 ASE 之後，移至 ASE UI。 選取 [ASE]  >  [設定]  >  [ILB 憑證]。
 
 1. 若要設定 ILB 憑證，選取憑證的 .pfx 檔案並輸入密碼。 這個步驟需要一些處理時間。 會出現訊息指出上傳作業正在進行中。
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29ca16e149852d044fdd6f6ea0baf0b11ccb75cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834790"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709567"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>教學課程：Azure Active Directory 與 Coupa 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "57834790"
 將 Coupa 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Coupa 的人員。
-* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Coupa (單一登入)。
+* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Coupa (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -36,7 +36,7 @@ ms.locfileid: "57834790"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Coupa 的整合，您需要下列項目：
+若要設定 Azure AD 與 Coupa 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Coupa 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ ms.locfileid: "57834790"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Coupa 支援由 **SP** 起始的 SSO
+* Coupa 支援 **SP** 起始的 SSO
 
 ## <a name="adding-coupa-from-the-gallery"></a>從資源庫新增 Coupa
 
@@ -80,7 +80,7 @@ ms.locfileid: "57834790"
 2. **[設定 Coupa 單一登入](#configure-coupa-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Coupa 測試使用者](#create-coupa-test-user)** - 在 Coupa 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+5. **[建立 Coupa 測試使用者](#create-coupa-test-user)** - 在 Coupa 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -114,16 +114,16 @@ ms.locfileid: "57834790"
 
     | 環境  | URL |
     |:-------------|----|
-    | 沙箱 | `devsso35.coupahost.com`|
-    | Production | `prdsso40.coupahost.com`|
+    | 沙箱 | `sso-stg1.coupahost.com`|
+    | Production | `sso-prd1.coupahost.com`|
     | | |
 
     c. 在 [回覆 URL] 文字方塊中，鍵入 URL：
 
     | 環境 | URL |
     |------------- |----|
-    | 沙箱 | `https://devsso35.coupahost.com/sp/ACS.saml2`|
-    | Production | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | 沙箱 | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | Production | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
 4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
@@ -246,7 +246,7 @@ ms.locfileid: "57834790"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Coupa] 圖格時，應該會自動登入您已設定 SSO 的 Coupa。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Coupa] 圖格時，應該會自動登入您設定 SSO 的 Coupa。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

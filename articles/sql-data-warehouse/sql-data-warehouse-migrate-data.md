@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 6a2acf602252ee4319f9a5eccef53a25d8e2dd7f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014260"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748181"
 ---
 # <a name="migrate-your-data"></a>移轉資料
 資料可以藉由各種工具，從不同的來源移到您的「SQL 資料倉儲」中。  ADF 複製、SSIS 和 bcp 都可用來達成此目標。 不過，隨著資料量增加，您應該考慮將資料移轉程序細分成步驟。 這樣讓您有機會來最佳化每個步驟的效能和彈性，以確保順暢移轉資料。

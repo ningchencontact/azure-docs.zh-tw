@@ -14,24 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: df967c56d84650894d2e07054e9ec8d6f830192b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c6271b5bb64eacf66c771b84139cead722a2e7b3
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711724"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869403"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>使用 PlayReady 和/或 Widevine 動態一般加密
 
-> [!div class="op_single_selector"]
-> * [.NET](media-services-protect-with-playready-widevine.md)
-> * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-> * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
->
-
 > [!NOTE]
-> 若要取得最新的 Java SDK 版本並開始使用 Java 進行開發，請參閱[開始使用適用於 Azure 媒體服務的 Java 用戶端 SDK](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)。 <br/>
-> 若要下載適用於媒體服務的最新 PHP SDK，請在 [Packagist 存放庫](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)中尋找 0.5.7 版的 Microsoft/WindowsAzure 套件。 
+> 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。   > 任何新的特色或功能會被新增至媒體服務 v2。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+>   
 
 ## <a name="overview"></a>概觀
 
@@ -619,6 +613,9 @@ namespace DynamicEncryptionWithDRM
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>請參閱
+
 * [使用具有多重 DRM 及存取控制的 CENC](media-services-cenc-with-multidrm-access-control.md)
 * [使用媒體服務設定 Widevine 套件](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
-* [宣布在 Azure 媒體服務中推出 Google Widevine 授權傳遞服務](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
+* [開始使用 Java 用戶端 SDK 進行 Azure 媒體服務](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
+* 若要下載適用於媒體服務的最新 PHP SDK，請在 [Packagist 存放庫](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)中尋找 0.5.7 版的 Microsoft/WindowsAzure 套件。 
+

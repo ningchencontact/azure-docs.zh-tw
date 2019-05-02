@@ -16,11 +16,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 19b347423c28b4c615f90f325ead462b9d3e8e9e
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990029"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822592"
 ---
 # <a name="azure-event-hubs---authentication-and-security-model"></a>Azure 事件中樞 - 驗證和安全性模型
 
@@ -68,7 +68,7 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>產生權杖
 
-您可以使用 SAS 金鑰來產生權杖。 您只能為每個用戶端產生一個權杖。 您可以使用下列方法來產生權杖。 所有權杖都是以 **EventHubSendKey** 金鑰產生。 每個權杖均有一個指派的唯一 URI。 'Resource' 參數對應至 URI 的服務端點 （在本例中的 「 事件中樞 」）。
+您可以使用 SAS 金鑰來產生權杖。 您只能為每個用戶端產生一個權杖。 您可以使用下列方法來產生權杖。 所有權杖都是以 **EventHubSendKey** 金鑰產生。 每個權杖均有一個指派的唯一 URI。 'resource' 参数对应于服务（在此示例中为事件中心）的 URI 终结点。
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)

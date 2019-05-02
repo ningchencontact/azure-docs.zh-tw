@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537695"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922252"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>藉由使用 SSH 和 Azure Logic Apps 來監視、建立及管理 SFTP 檔案
 
@@ -32,7 +32,7 @@ ms.locfileid: "60537695"
 
 ## <a name="limits"></a>限制
 
-* SFTP-SSH 動作才能讀取或寫入的檔案*1GB 或更小*藉由管理資料做為*50 MB 項*，不是 1 GB 片段。
+* SFTP-SSH 動作才能讀取或寫入的檔案*1GB 或更小*藉由管理資料當做*15 MB 片段*，不是 1 GB 片段。
 
 * 檔案*大於 1 GB*，可以使用動作[訊息區塊處理](../logic-apps/logic-apps-handle-large-messages.md)。 目前，SFTP-SSH 觸發程序不支援區塊處理。
 
@@ -44,7 +44,7 @@ ms.locfileid: "60537695"
 
 以下是 SFTP-SSH 連接器與 SFTP 連接器之間的其他主要差異，其中 SFTP-SSH 連接器具備這些功能：
 
-* 使用 <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a> 程式庫，這是一個支援 .NET 的開放原始碼安全殼層 (SSH) 程式庫。
+* 會使用[SSH.NET 程式庫](https://github.com/sshnet/SSH.NET)，這是支援.NET 開放原始碼安全殼層 (SSH) 程式庫。
 
   > [!NOTE]
   >
@@ -54,7 +54,7 @@ ms.locfileid: "60537695"
   > * **加密演算法**：DES-EDE3-CBC、DES-EDE3-CFB、 DES-CBC、AES-128-CBC、AES-192-CBC 和 AES-256-CBC
   > * **指紋**：MD5
 
-* 動作可以讀取或寫入檔案*最多 1 GB*相較於 SFTP 連接器，但 50 MB 項，不是 1 GB 中的控制代碼資料片段。 針對大於 1 GB 的檔案，動作也可以使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。 目前，SFTP-SSH 觸發程序不支援區塊處理。
+* 動作可以讀取或寫入檔案*最多 1 GB*相較於 SFTP 連接器，但 15 MB 項目，不是 1 GB 中的控制代碼資料片段。 針對大於 1 GB 的檔案，動作也可以使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。 目前，SFTP-SSH 觸發程序不支援區塊處理。
 
 * 提供**建立資料夾**動作，可在 SFTP 伺服器上指定的路徑中建立資料夾。
 
@@ -136,7 +136,7 @@ SFTP-SSH 觸發程序的運作方式是會輪詢 SFTP 檔案系統，然後尋�
 
 當觸發程序找到新檔案時，觸發程序會確認該新檔案是完整檔案，而不是部分寫入的檔案。 例如，當觸發程序檢查檔案伺服器時，檔案可能正在進行變更。 為避免傳回部分寫入的檔案，觸發程序會備註最近發生變更之檔案的時間戳記，但不會立即傳回該檔案。 觸發程序只有在再次輪詢伺服器時，才會傳回該檔案。 有時，此行為可能會導致最長可達觸發程序輪詢間隔兩倍的延遲。 
 
-在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式： 
+當要求檔案的內容時，觸發程序無法取得檔案大於 15 MB。 若要取得大於 15 MB 的檔案，請遵循此模式： 
 
 * 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。
 
@@ -152,7 +152,7 @@ SFTP-SSH 觸發程序的運作方式是會輪詢 SFTP 檔案系統，然後尋�
 
 **企業範例**：您可以使用此觸發程序，來監視代表客戶訂單的新檔案 SFTP 資料夾。 然後，您可以使用 SFTP 動作 (例如**取得檔案內容**)，來取得訂單的內容以進一步處理，並將該訂單儲存在訂單資料庫中。
 
-在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式： 
+當要求檔案的內容時，觸發程序無法取得檔案大於 15 MB。 若要取得大於 15 MB 的檔案，請遵循此模式： 
 
 * 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。
 
@@ -164,7 +164,7 @@ SFTP-SSH 觸發程序的運作方式是會輪詢 SFTP 檔案系統，然後尋�
 
 此動作會從 SFTP 伺服器上的檔案取得內容。 舉例來說，您可以新增來自上一個範例中的觸發程序，以及新增檔案內容必須符合的條件。 如果條件為 true，則可以執行會取得內容的動作。 
 
-在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式： 
+當要求檔案的內容時，觸發程序無法取得檔案大於 15 MB。 若要取得大於 15 MB 的檔案，請遵循此模式： 
 
 * 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。
 

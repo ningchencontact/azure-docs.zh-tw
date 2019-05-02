@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: 了解如何使用 Azure 監視器中的 Azure DDoS Protection Standard 遙測來降低攻擊風險。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
-ms.author: jdial
-ms.openlocfilehash: 32c4516c7dc68b04826b362d34841160936d682d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.author: kumud
+ms.openlocfilehash: 6b1d62f4cedb7add843a5ddae24125019130d58f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244514"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728337"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure DDoS Protection Standard
 
@@ -101,7 +101,7 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
     |名稱                     | myDdosAlert                                                                                        |
     |訂用帳戶             | 選取包含您想要接收警示之公用 IP 位址的訂用帳戶。        |
     |資源群組           | 選取包含您想要接收警示之公用 IP 位址的資源群組。      |
-    |資源                 | 選取包含您想要接收警示之公用 IP 位址的公用 IP 位址。 DDoS 會監視指派給虛擬網路內資源的公用 IP 位址。 如果您在虛擬網路中沒有任何具有公用 IP 位址的資源，就必須先建立一個具有公用 IP 位址的資源。 針對 [Azure 服務的虛擬網路](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)中所列出透過 Resource Manager (非傳統) 部署的所有資源，您可以監視資源的公用 IP 位址，但「Azure App Service 環境」和「Azure VPN 閘道」除外。 若要繼續進行本教學課程，您可以快速建立一個 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器。                   |
+    |Resource                 | 選取包含您想要接收警示之公用 IP 位址的公用 IP 位址。 DDoS 會監視指派給虛擬網路內資源的公用 IP 位址。 如果您在虛擬網路中沒有任何具有公用 IP 位址的資源，就必須先建立一個具有公用 IP 位址的資源。 針對 [Azure 服務的虛擬網路](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)中所列出透過 Resource Manager (非傳統) 部署的所有資源，您可以監視資源的公用 IP 位址，但「Azure App Service 環境」和「Azure VPN 閘道」除外。 若要繼續進行本教學課程，您可以快速建立一個 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器。                   |
     |計量                   | 是否正遭受 DDoS 攻擊                                                                            |
     |閾值                | 1 - **1** 表示您正遭受攻擊。 **0** 表示您並未遭受攻擊。                         |
     |期間                   | 選取您選擇的任何值。                                                                   |

@@ -263,7 +263,7 @@ ms.locfileid: "61306396"
 |SourceSystem | 指定所提交資料的來源系統。 對自動化來說，該值是 OpsManager|
 |StreamType | 指定事件的類型。 可能的值包括：<br>- Verbose<br>- Output<br>- Error<br>- Warning|
 |SubscriptionId | 指定作業的訂用帳戶 ID。
-|時間 | 执行 Runbook 作业的日期和时间。|
+|Time | 执行 Runbook 作业的日期和时间。|
 
 ### <a name="job-streams"></a>作業串流
 
@@ -282,7 +282,7 @@ ms.locfileid: "61306396"
 |RunbookName | Runbook 的名称。|
 |SourceSystem | 指定所提交資料的來源系統。 對自動化來說，該值是 OpsManager。|
 |StreamType | 作業串流的類型。 可能的值包括：<br>- Progress (進度)<br>- Output (輸出)<br>- Warning (警告)<br>- Error (錯誤)<br>- Debug (偵錯)<br>- Verbose|
-|時間 | Runbook 作業的執行日期和時間。|
+|Time | Runbook 作業的執行日期和時間。|
 
 當您執行的記錄搜尋傳回 **JobLogs** 或 **JobStreams** 的類別記錄時，您可以選取 **JobLogs** 或 **JobStreams** 檢視，其中會顯示一組彙總搜尋所傳回更新的圖格。
 

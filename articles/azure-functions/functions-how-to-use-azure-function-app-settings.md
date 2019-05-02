@@ -12,11 +12,11 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 7497255dcad55cea86e0c640e2f1423d7d763a7f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713621"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737840"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 入口網站中管理函數應用程式 
 
@@ -28,9 +28,9 @@ ms.locfileid: "53713621"
 
 ## <a name="favorite"></a>入口網站中的我的最愛函式 
 
-有時候很難在 [Azure 入口網站]中找到您的資源。 若要更輕鬆地尋找您所建立的函數應用程式，在入口網站中將函數應用程式新增至我的最愛。 
+有時候很難在 [Azure 门户]中找到您的資源。 若要更輕鬆地尋找您所建立的函數應用程式，在入口網站中將函數應用程式新增至我的最愛。 
 
-1. 登入 [Azure 入口網站]。
+1. 登入 [Azure 门户]。
 
 2. 按一下左下方的箭號以展開所有服務，在 [篩選] 欄位中輸入 `Functions`，然後按一下 [函式應用程式] 旁的星號。  
  
@@ -42,7 +42,7 @@ ms.locfileid: "53713621"
  
     ![[我的最愛] 中的函式應用程式](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
  
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>函數應用程式設定索引標籤
 

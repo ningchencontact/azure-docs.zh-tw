@@ -9,11 +9,11 @@ ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6afe54d269d273c6a93e6431e9f1c1af7b18cc0e
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766381"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720911"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 檔案服務
 [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 本文將說明如何在組織中實際部署 Azure 檔案服務。

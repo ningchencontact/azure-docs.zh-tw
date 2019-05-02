@@ -16,11 +16,11 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: f37a0c9e4c664ac9631a0a07fa6f114e62939845
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60852595"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>如何設定 App Service 應用程式以使用 Facebook 登入
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "59522877"
 若要完成本主題的程序，您必須具有已通過電子郵件地址與手機號碼驗證的 Facebook 帳戶。 若要建立新的 Facebook 帳戶，請前往 [facebook.com]。
 
 ## <a name="register"> </a>向 Facebook 註冊您的應用程式
-1. 登入 [Azure 入口網站]，並瀏覽到您的應用程式。 複製您的 **URL**。 您將使用此 URL 設定您的 Facebook 應用程式。
+1. 登入 [Azure 门户]，並瀏覽到您的應用程式。 複製您的 **URL**。 您將使用此 URL 設定您的 Facebook 應用程式。
 2. 在其他瀏覽器視窗中，瀏覽至 [Facebook 開發人員] 網站，並以您的 Facebook 帳戶認證登入。
 3. (選擇性) 按一下 [應用程式] > [以開發人員身分註冊]，接受政策並遵循註冊步驟 (若您尚未註冊)。
 4. 按一下 [我的應用程式]  >  [新增應用程式]。
@@ -51,7 +51,7 @@ ms.locfileid: "59522877"
 9. 用來註冊應用程式的 Facebook 帳戶是應用程式的系統管理員。 此時，只有系統管理員可以登入此應用程式。 若要驗證其他 Facebook 帳戶，按一下**應用程式審查**並啟用**進行\<您的應用程式名稱 > 公用**使用 Facebook 驗證的一般公用存取。
 
 ## <a name="secrets"> </a>將 Facebook 資訊加入應用程式
-1. 回到 [Azure 入口網站]，並瀏覽到您的應用程式。 按一下 [設定] > [驗證/授權]，並確定 [App Service 驗證] 為 [開啟]。
+1. 回到 [Azure 门户]，並瀏覽到您的應用程式。 按一下 [設定] > [驗證/授權]，並確定 [App Service 驗證] 為 [開啟]。
 2. 按一下 [Facebook]，貼上先前取得的應用程式識別碼與應用程式密碼值，選擇性啟用應用程式需要的任何範圍，然後按一下 [確定]。
    
     ![][0]
@@ -72,4 +72,4 @@ ms.locfileid: "59522877"
 [Facebook 開發人員]: https://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/

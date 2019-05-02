@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 938801148b175456553865b54d59271021811401
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60873312"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>企業推送架構指引
 
@@ -232,7 +232,7 @@ ms.locfileid: "58372407"
 
     ![][3]
 
-    g. 將作業設定為 [連續執行]，如此一來，當您登入 [Azure 入口網站]時，應能看見與以下範例相似的內容：
+    g. 將作業設定為 [連續執行]，如此一來，當您登入 [Azure 门户]時，應能看見與以下範例相似的內容：
 
     ![][4]
 
@@ -270,7 +270,7 @@ ms.locfileid: "58372407"
 
     ![][5]
 
-4. 這些訊息最初是傳送至服務匯流排主題，這些主題是受到您 WebJob 中服務匯流排訂用帳戶所監視。 待服務匯流排主題接收到訊息後，它會建立通知並傳送給行動應用程式。 在 [Azure 入口網站]中，當您前往 WebJob 的 [記錄] 連結時，可以瀏覽 WebJob 記錄來確認處理狀態：
+4. 這些訊息最初是傳送至服務匯流排主題，這些主題是受到您 WebJob 中服務匯流排訂用帳戶所監視。 待服務匯流排主題接收到訊息後，它會建立通知並傳送給行動應用程式。 在 [Azure 门户]中，當您前往 WebJob 的 [記錄] 連結時，可以瀏覽 WebJob 記錄來確認處理狀態：
 
     ![][6]
 
@@ -289,4 +289,4 @@ ms.locfileid: "58372407"
 [服務匯流排發佈/訂用帳戶程式撰寫]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure WebJob]: ../app-service/webjobs-create.md
 [通知中樞 - Windows Universal 教學課程]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/

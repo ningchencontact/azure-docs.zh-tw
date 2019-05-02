@@ -11,11 +11,11 @@ ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286307"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871292"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>如何從 .NET 應用程式使用 Azure 搜尋服務
 本文會逐步指引您學會如何使用 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)。 您可以透過 .NET SDK，利用 Azure 搜尋服務在應用程式中實作豐富的搜尋經驗。

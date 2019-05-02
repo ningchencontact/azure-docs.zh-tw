@@ -136,8 +136,6 @@
         - name: 使用空白邊緣節點
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: 開發 Python 串流程式
-          href: apache-hadoop-streaming-python.md
         - name: 處理並分析 JSON 文件
           href: using-json-in-hive.md
         - name: '使用 C# 使用者定義函式'

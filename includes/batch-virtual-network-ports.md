@@ -64,14 +64,14 @@ ms.locfileid: "60550176"
 
 <bpt id="p1">**</bpt>Inbound security rules<ept id="p1">**</ept>
 
-| 來源 IP 位址 | 來源服務標籤 | 來源連接埠 | 目的地 | 目的地連接埠 | 通訊協定 |  動作 |
+| 來源 IP 位址 | 來源服務標籤 | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol |  動作 |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/A | `BatchNodeManagement` [服務標籤](../articles/virtual-network/security-overview.md#service-tags) | * | 任意 | 29876-29877 | TCP | 允許 |
 | 如有需要，從遠端存取計算節點和/或計算節點的子網路的 Linux 多重執行個體工作，使用者來源 Ip。 | N/A | * | 任意 | 3389 (Windows)、22 (Linux) | TCP | 允許 |
 
 **輸出安全性規則**
 
-| 來源 | 來源連接埠 | 目的地 | 目的地服務標記 | 通訊協定 |  動作 |
+| 來源 | 來源連接埠 | 目的地 | 目的地服務標記 | Protocol |  動作 |
 | --- | --- | --- | --- | --- | --- |
 | 任意 | 443 | [服務標記](../articles/virtual-network/security-overview.md#service-tags) | `Storage` （在您的 Batch 帳戶和 VNet 位於相同區域）  | 任意 | 允許 |
 
@@ -97,13 +97,13 @@ ms.locfileid: "60550176"
 
 <bpt id="p1">**</bpt>Inbound security rules<ept id="p1">**</ept>
 
-| 來源 IP 位址 | 來源連接埠 | 目的地 | 目的地連接埠 | 通訊協定 |  動作 |
+| 來源 IP 位址 | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol |  動作 |
 | --- | --- | --- | --- | --- | --- |
 任意 <br /><br />雖然這實際上需要「全部允許」，但 Batch 服務會在每個節點的層級上套用 ACL 規則，而篩選掉所有非 Batch 服務的 IP 位址。 | * | 任意 | 10100、20100、30100 | TCP | 允許 |
 | （選擇性） 若要讓計算節點的 RDP 存取。 | * | 任意 | 3389 | TCP | 允許 |
 
 **輸出安全性規則**
 
-| 來源 | 來源連接埠 | 目的地 | 目的地連接埠 | 通訊協定 |  動作 |
+| 來源 | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol |  動作 |
 | --- | --- | --- | --- | --- | --- |
 | 任意 | * | 任意 | 443  | 任意 | 允許 |

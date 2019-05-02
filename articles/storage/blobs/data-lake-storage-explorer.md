@@ -2,19 +2,19 @@
 title: '快速入門：使用 Azure 儲存體總管來管理 Azure Data Lake Storage Gen2 中的資料 '
 description: 在本快速入門中，您將了解如何使用 Azure 儲存體總管搭配 Azure Data Lake Storage Gen2 帳戶建立檔案系統、目錄及檔案。 接下來您會了解如何將檔案下載到本機電腦，以及如何檢視目錄中的所有檔案。
 services: storage
-author: tamram
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
-ms.author: tamram
-ms.openlocfilehash: b6add3c2402df9c0db2284945269d3fbaa1c65e1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.author: normesta
+ms.openlocfilehash: 01743eb7ec7f6650a0fd28fd9c4f090bebd524b3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995467"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939350"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>快速入門：使用 Azure 儲存體總管來管理 Azure Data Lake Storage Gen2 帳戶中的資料
 

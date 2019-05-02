@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: a2fdeeab2e8027dc3b548f7004912906d4574ccc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4c77477e31e7513cb806dda968a68fc1ac5030ed
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007420"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694968"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Node.js 來呼叫文字分析認知服務  
 <a name="HOLTop"></a>
@@ -156,7 +156,7 @@ get_language (documents);
 
 ## <a name="analyze-sentiment"></a>分析人氣
 
-情感分析 API 會使用 [Sentiment 方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c9)，偵測一組文字記錄中的情緒態度。 藉由分析原始文字而獲得有關於正面或負面情感的線索，情感分析可用來了解客戶對您的品牌或主題有何看法。 下列範例會為兩份文件提供評分，一份是英文，另一份則是西班牙文。
+情感分析 API 會使用 [Sentiment 方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)，偵測一組文字記錄中的情緒態度。 藉由分析原始文字而獲得有關於正面或負面情感的線索，情感分析可用來了解客戶對您的品牌或主題有何看法。 下列範例會為兩份文件提供評分，一份是英文，另一份則是西班牙文。
 
 1. 在您最愛的 IDE (或您桌面上的資料夾) 中建立新的 Node.JS 專案。
 2. 將下方提供的程式碼新增至新的 `.js` 檔案。
@@ -252,7 +252,7 @@ get_sentiments (documents);
 
 ## <a name="extract-key-phrases"></a>擷取關鍵片語
 
-關鍵片語擷取 API 會使用[關鍵片語方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c6)從文字文件擷取關鍵片語。 關鍵片語擷取可用來快速識別文件或文字的重點。 以下範例會擷取英文和西班牙文文件的關鍵片語。
+關鍵片語擷取 API 會使用[關鍵片語方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)從文字文件擷取關鍵片語。 關鍵片語擷取可用來快速識別文件或文字的重點。 以下範例會擷取英文和西班牙文文件的關鍵片語。
 
 1. 在您最愛的 IDE (或您桌面上的資料夾) 中建立新的 Node.JS 專案。
 2. 將下方提供的程式碼新增至新的 `.js` 檔案。

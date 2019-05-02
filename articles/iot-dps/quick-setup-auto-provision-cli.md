@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 入口網站設定裝置佈建 | Microsoft Docs
+title: 使用 Azure CLI 設定裝置佈建服務 | Microsoft Docs
 description: Azure 快速入門 - 使用 Azure CLI 設定 Azure IoT 中樞裝置佈建服務
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cf2e108aa7cab6be2996cb535d27d597e462617c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3062fb640985498ba35e23f6310828a2bd59bfed
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363711"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>使用 Azure CLI 設定 IoT 中樞裝置佈建服務
 
@@ -26,8 +26,6 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 > 您在本快速入門中建立的 IoT 中樞與佈建服務均可作為 DNS 端點公開探索。 如果您決定變更這些資源所用的名稱，請務必避免使用任何敏感性資訊。
 >
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-a-resource-group"></a>建立資源群組

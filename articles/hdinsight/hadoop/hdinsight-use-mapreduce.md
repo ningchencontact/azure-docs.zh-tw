@@ -1,7 +1,6 @@
 ---
 title: 搭配 MapReduce 與 HDInsight 上的 Apache Hadoop
 description: 了解如何在 HDInsight 叢集中的 Apache Hadoop 上執行 MapReduce 作業。
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9da6b6ba3ab697887e55f9077b44cf6fa100a981
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521190"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707960"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>搭配 MapReduce 與 HDInsight 上的 Apache Hadoop
 
@@ -49,15 +48,13 @@ Hadoop 串流會透過 STDIN 與 STDOUT 與對應工具和歸納工具進行通�
 
 如需詳細資訊，請參閱 [Hadoop 資料流](https://hadoop.apache.org/docs/r1.2.1/streaming.html)(英文)。
 
-如需搭配 HDInsight 使用 Hadoop 資料流的範例，請參閱下列文件：
+如需使用 Hadoop 串流與 HDInsight 的範例，請參閱下列文件：
 
 * [開發 C# MapReduce 工作](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [开发 Python MapReduce 作业](apache-hadoop-streaming-python.md)
-
 ## <a id="data"></a>範例資料
 
-HDInsight 提供各種範例資料集，這些範例資料及儲存在 `/example/data` 和 `/HdiSamples` 目錄。 這些目錄位於您叢集的預設儲存體中。 在本文件中，我們使用 `/example/data/gutenberg/davinci.txt` 檔案。 這個檔案包含達文西手稿筆記。
+HDInsight 提供各種範例資料集，這些範例資料及儲存在 `/example/data` 和 `/HdiSamples` 目錄。 這些目錄位於您叢集的預設儲存體中。 在本文件中，我們使用 `/example/data/gutenberg/davinci.txt` 檔案。 此檔案包含達文西手稿筆記。
 
 ## <a id="job"></a>範例 MapReduce
 
@@ -137,11 +134,9 @@ public class WordCount {
 }
 ```
 
-如須撰寫您自己的 MapReduce 應用程式相關的指示，請參閱下列文件︰
+如需撰寫您自己的 MapReduce 應用程式的指示，請參閱下列文件：
 
 * [開發 HDInsight 的 Java MapReduce 應用程式](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [開發 HDInsight 的 Python MapReduce 應用程式](apache-hadoop-streaming-python.md)
 
 ## <a id="run"></a>執行 MapReduce
 
@@ -158,8 +153,6 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。 請使用下表決定�
 若要深入了解如何處理 HDInsight 的資料，請參閱下列文件：
 
 * [開發 HDInsight 的 Java MapReduce 程式](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [開發 HDInsight 的 Python 資料流 MapReduce 程式](apache-hadoop-streaming-python.md)
 
 * [搭配 HDInsight 使用 Apache Hive][hdinsight-use-hive]
 

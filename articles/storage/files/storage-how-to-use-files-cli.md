@@ -2,18 +2,18 @@
 title: 使用 Azure CLI 管理 Azure 檔案共用的快速入門
 description: 使用此快速入門了解如何使用 Azure CLI 來管理 Azure 檔案服務。
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f18b2cbf31b50b27c1ae8a6d4fa4a6510781cb12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 43a5a72ac32d8ed3510cecb505f5e62cf91d7106
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886478"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710807"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>快速入門：使用 Azure CLI 來建立及管理 Azure 檔案共用
 本指南會逐步說明透過 Azure CLI 來使用 [Azure 檔案共用](storage-files-introduction.md)的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 

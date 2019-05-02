@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 04/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: cd2895378f713749b3a1d0ac01986b728ceafd2b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ecc63cac56c9aeb3d1dd3875134d53cb481e6a5c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008998"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708201"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概觀
 Azure Service Fabric 是一個分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務與容器。 Service Fabric 也解決了開發及管理雲端原生應用程式時所面臨的重大挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。 Service Fabric 代表新一代的平台，可用於建置及管理這些在容器中執行的企業級、第一層雲端級別應用程式。

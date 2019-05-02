@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1c790e0fa726c719d5b888d42b5f59739777566b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317182"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917108"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>聲場專案 Unity 快速入門
 使用適用於 Unity 的聲場專案範例內容對模擬所支援的設計控制項進行實驗。
 
 軟體需求：
-* 適用於 Windows 的 [Unity 2018.2+](http://unity3d.com) \(英文\)
+* 適用於 Windows 的 [Unity 2018.2+](https://unity3d.com) \(英文\)
 * [聲場專案範例內容套件](https://www.microsoft.com/download/details.aspx?id=57346) \(英文\)
 
 範例套件中包含哪些內容？

@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: 在本教學課程中，您會了解如何使用 Azure 入口網站以路由表路由網路流量。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 153c692a8fb0fa538ec49c6eafa11815dd794b5d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095952"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681531"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站以路由表路由傳送網路流量
 

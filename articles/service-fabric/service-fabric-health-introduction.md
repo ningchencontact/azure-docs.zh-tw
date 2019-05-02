@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60949136"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric 健康狀態監視簡介
 Azure Service Fabric 導入了健康狀態模型，提供豐富、彈性且可延伸的健康狀態評估與報告。 此模型允許幾乎即時地監視叢集狀態以及其中所執行的服務。 您可以輕鬆地取得健康狀態資訊，並在潛在問題引起連鎖反應和造成大規模中斷之前，予以更正。 在一般模型中，服務會根據其本機檢視傳送報告，且該資訊會進行彙總以提供整體叢集層級檢視。

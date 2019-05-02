@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: fee172eccd79fd28e281b2beece9702630ac39b5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001182"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60901563"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 了解您的網頁或應用程式的效能和使用量。 如果將 [Application Insights](app-insights-overview.md) 新增至頁面指令碼，您會取得頁面載入的時間和 AJAX 呼叫、計數和瀏覽器例外狀況與 AJAX 失敗的詳細資料，以及使用者和工作階段計數。 這些項目可以依據頁面、用戶端作業系統和瀏覽器版本、地區位置和其他維度分割。 您可以對失敗計數或緩慢頁面載入設定警示。 而在 JavaScript 程式碼中插入追蹤呼叫，即可追蹤網頁應用程式的各種功能使用方式。

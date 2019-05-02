@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: 在此快速入門中，您將了解如何使用 Azure 入口網站建立虛擬網路。 虛擬網路可讓 Azure 資源 (例如虛擬機器) 彼此及與網際網路進行私密通訊。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
-ms.author: jdial
-ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.author: kumud
+ms.openlocfilehash: 995bc8e7b2eb4e9160b2b625067f20324df2cbfd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020824"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717005"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立虛擬網路
 

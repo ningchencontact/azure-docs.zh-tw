@@ -165,7 +165,7 @@ ms.locfileid: "62107069"
 
 |屬性  |預設值 | 描述 |
 |---------|---------|---------| 
-|已啟用|true|指定是否已启用该功能。 | 
+|enabled|true|指定是否已启用该功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
 |healthCheckWindow|2 分鐘|與 `healthCheckThreshold` 設定搭配使用的滑動時間範圍。| 
 |healthCheckThreshold|6|在主機回收起始之前，健康情況檢查可以失敗的最大次數。| 

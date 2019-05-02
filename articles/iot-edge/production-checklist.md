@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998450"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
 
@@ -172,7 +172,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
    | \*.azurecr.io | 443 | 個人和第三方容器登錄 |
    | \*.blob.core.windows.net | 443 | 映像差異的下載 | 
    | \*.azure-devices.net | 5671、8883、443 | IoT 中樞存取 |
-   | \*.docker.io  | 443 | Docker 中樞的存取 （選擇性） |
+   | \*.docker.io  | 443 | Docker 中心访问（可选） |
 
 ### <a name="configure-communication-through-a-proxy"></a>設定 Proxy 通訊
 
@@ -186,17 +186,17 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 ### <a name="set-up-logs-and-diagnostics"></a>設定記錄與診斷
 
-在 Linux 上，IoT Edge 守护程序使用日志作为默认的日志记录驱动程序。 您可以使用命令列工具 `journalctl` 查詢精靈記錄。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-WinEvent` 查詢精靈記錄。 IoT Edge 模組使用 JSON 驅動程式進行記錄，這是預設值。  
+在 Linux 上，IoT Edge 守护程序使用日志作为默认的日志记录驱动程序。 您可以使用命令列工具 `journalctl` 查詢精靈記錄。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-WinEvent` 查詢精靈記錄。 IoT Edge 模块使用 JSON 驱动程序（默认设置）进行日志记录。  
 
 正在測試 IoT Edge 部署時，通常可以存取您的裝置來擷取記錄並進行疑難排解。 在部署情節中，可能不提供該選項。 請考慮要如何收集生產環境中的裝置相關資訊。 其中一個選項是使用能夠收集其他模組資訊，並將資訊傳送至雲端的記錄模組。 其中一個記錄模組範例是 [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics)，您也可以設計自己的專用模組。 
 
-### <a name="place-limits-on-log-size"></a>記錄檔大小會限制
+### <a name="place-limits-on-log-size"></a>施加日志大小限制
 
-根據預設，白鯨容器引擎不會設定容器記錄大小限制。 經過一段時間，這可能會導致裝置填滿記錄檔，而用盡磁碟空間。 請考慮下列選項，以避免這個問題：
+默认情况下，Moby 容器引擎不会设置容器日志大小限制。 一段时间后，这可能会导致设备中填满了日志，因此出现磁盘空间不足的情况。 请考虑采用以下选项来防止这种情况：
 
-**選項：設定適用於容器的所有模組的全域限制**
+**选项：设置应用到所有容器模块的全局限制**
 
-您可以限制容器引擎記錄檔選項中的所有容器記錄檔的大小。 下列範例會將記錄驅動程式設定為`json-file`（建議選項） 上的檔案數量和大小的限制：
+可以在容器引擎日志选项中限制所有容器日志文件的大小。 以下示例将日志驱动程序设置为 `json-file`（建议），并对文件的大小和数量施加限制：
 
     {
         "log-driver": "json-file",
@@ -206,18 +206,18 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
         }
     }
 
-新增 （或附加） 這項資訊至檔案，名為`daemon.json`，並將它用於您的裝置平台的正確位置。
+将此信息添加（或附加）到名为 `daemon.json` 的文件，然后将此文件放到设备平台上的适当位置。
 
 | 平台 | 位置 |
 | -------- | -------- |
 |  Linux | `/etc/docker/` |
 |  Windows | `C:\ProgramData\iotedge-moby-data\config\` |
 
-Container 引擎必須重新啟動，變更才會生效。
+必须重启容器引擎才能使更改生效。
 
-**選項：調整每個容器模組的記錄檔設定**
+**选项：调整每个容器模块的日志设置**
 
-您可以在執行**createOptions**的每個模組。 例如︰
+可在每个模块的 **createOptions** 中执行此操作。 例如︰
 
     "createOptions": {
         "HostConfig": {
@@ -232,11 +232,11 @@ Container 引擎必須重新啟動，變更才會生效。
     }
 
 
-**在 Linux 系統上的其他選項**
+**Linux 系统上的其他选项**
 
-* 設定容器引擎，以將記錄傳送至`systemd`[日誌](https://docs.docker.com/config/containers/logging/journald/)藉由設定`journald`作為預設記錄驅動程式。 
+* 通过将 `journald` 设置为默认的日志记录驱动程序，将容器引擎配置为向 `systemd` [日记](https://docs.docker.com/config/containers/logging/journald/)发送日志。 
 
-* 定期移除舊的記錄檔從您的裝置，藉由安裝 logrotate 工具。 使用下列檔案規格： 
+* 安装 logrotate 工具，以便从设备中定期删除旧日志。 使用下列檔案規格： 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

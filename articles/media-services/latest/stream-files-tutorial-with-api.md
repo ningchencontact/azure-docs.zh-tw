@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/18/2019
+ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 82d8a8085ca285c95a550678cdc534e586a4faa7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 53f69b6b8eb6cbbb8082ea0777af9dbceb7bdba1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415959"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699698"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>教學課程：使用 .NET 上傳、編碼和串流影片
 
@@ -197,6 +197,10 @@ az group delete --name amsResourceGroup
 ## <a name="multithreading"></a>多執行緒
 
 Azure 媒體服務 v3 SDK 不是安全執行緒。 開發多執行緒應用程式時，您應該為每個執行緒產生及使用新的 AzureMediaServicesClient 物件。
+
+## <a name="provide-feedback"></a>提供意見反應
+
+請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 
 ## <a name="next-steps"></a>後續步驟
 

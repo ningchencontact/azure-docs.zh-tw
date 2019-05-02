@@ -2,19 +2,21 @@
 title: 包含檔案
 description: 包含檔案
 services: cosmos-db
-author: SnehaGunda
+author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: sngun
+origin.date: 04/13/2018
+ms.date: 03/18/2019
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b656001c8a7d1bed21c208bc643018c5f751e09c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9800848b24523a0eb5992e64ce1580cc53b0e3a0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60891425"
 ---
+<!--Verify sucessfully-->
 您現在可以在 Azure 入口網站中使用 [資料總管] 工具，建立圖形資料庫。 
 
 1. 按一下 [資料總管] > [新增圖形]。
@@ -33,3 +35,7 @@ ms.locfileid: "38733810"
     Throughput|400 RU|將輸送量變更為每秒 400 個要求單位 (RU/秒)。 如果您想要降低延遲，稍後可以相應增加輸送量。
 
 3. 填妥表單後，按一下 [確定]。
+
+<!--Verify sucessfully-->
+<!--Update_Description: new articles on  -->
+<!--ms.date: 03/18/2019-->

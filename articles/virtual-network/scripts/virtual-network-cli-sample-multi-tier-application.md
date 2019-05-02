@@ -3,8 +3,8 @@ title: Azure CLI 指令碼範例 - 為多層式應用程式建立網路 | Micros
 description: Azure CLI 指令碼範例 - 為多層式應用程式建立虛擬網路。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
-ms.author: jdial
-ms.openlocfilehash: 2db43d842ec5656f6f059c240eb9b9cc2376459e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.author: kumud
+ms.openlocfilehash: 9bd6fac54c4f6c86c4e1c624ffc26f626e938e49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697463"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715690"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>為多層式應用程式建立網路的指令碼範例
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 2fbf29385b9a14cf5d4a9df621f0767a32079587
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094570"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61020976"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
 
@@ -30,7 +30,7 @@ ms.locfileid: "58094570"
 
 本節將示範如何在 Functions 入口網站中建立 Proxy。
 
-1. 開啟 [Azure 入口網站]，然後移至您的函式應用程式。
+1. 開啟 [Azure 门户]，然後移至您的函式應用程式。
 2. 在左側窗格中，選取 [新增 Proxy]。
 3. 為您的 Proxy 提供名稱。
 4. 指定 [路由範本] 和 [HTTP 方法]，以設定此函式應用程式上公開的端點。 這些參數的行為會根據 [HTTP 觸發程序]的規則。
@@ -248,7 +248,7 @@ requestOverrides 物件定義針對傳回給用戶端之回應所做的變更。
 > [!NOTE] 
 > 此範例會直接設定回應本文，因此不需要 `backendUri` 屬性。 此範例示範如何使用 Azure Functions Proxy 來模擬 API。
 
-[Azure 入口網站]: https://portal.azure.com
+[Azure 门户]: https://portal.azure.com
 [HTTP 觸發程序]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

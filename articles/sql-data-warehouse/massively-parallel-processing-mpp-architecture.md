@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 0c2ad7e5a707c20db2773324e8047eedaad1a48b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61076950"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL 資料倉儲 - 大量平行處理 (MPP) 架構
 了解 Azure SQL 資料倉儲如何將大量平行處理 (MPP) 與 Azure 儲存體結合，以達到高效能和延展性。 
@@ -84,7 +84,7 @@ SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。
 ## <a name="replicated-tables"></a>複寫的資料表
 複寫的資料表會為小型資料表提供最快速的查詢效能。
 
-複寫的資料表會在每個計算節點上快取一份完整的資料表複本。 因此，複寫資料表就不需在進行聯結或彙總之前，於計算節點之間傳輸資料。 複寫的資料表最好能與小型資料表搭配使用。 須有額外的儲存體，而且沒有寫入讓大型資料表並不實用的資料時造成的額外負擔。  
+複寫的資料表會在每個計算節點上快取一份完整的資料表複本。 因此，複寫資料表就不需在進行聯結或彙總之前，於計算節點之間傳輸資料。 複寫的資料表最好能與小型資料表搭配使用。 它需要额外存储并且在写入数据时会产生额外负载，因此不适用于大型表。  
 
 下圖顯示複寫的資料表。 對於 SQL 資料倉儲，會在每個計算節點中的第一個散發上快取複寫的資料表。  
 

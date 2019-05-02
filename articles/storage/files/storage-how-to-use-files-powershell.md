@@ -2,18 +2,18 @@
 title: 使用 Azure PowerShell 管理 Azure 檔案共用的快速入門
 description: 使用此快速入門了解如何使用 Azure PowerShell 管理 Azure 檔案共用。
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f353c9952d9ccec0f279d6bd98bf5db215758559
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 439a1c60942b1540328bf9972d74d7dd4d573a65
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524539"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700654"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立及管理 Azure 檔案共用 
 本指南會逐步說明透過 PowerShell 來使用 [Azure 檔案共用](storage-files-introduction.md)的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 
