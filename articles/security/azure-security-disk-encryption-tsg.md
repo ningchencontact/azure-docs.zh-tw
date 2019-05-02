@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490028"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694119"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁碟加密疑難排解指南
 
@@ -52,7 +52,7 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>更新 Azure 虛擬機器代理程式和擴充功能版本
 
-Azure 磁碟加密作業使用不受支援的版本的 Azure 虛擬機器代理程式的虛擬機器映像上可能會失敗。 如需詳細資訊，請參閱[在 Azure 中的虛擬機器代理程式的最小版本支援](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)。  
+Azure 磁碟加密作業使用不受支援的版本的 Azure 虛擬機器代理程式的虛擬機器映像上可能會失敗。 啟用加密之前您應該更新與代理程式版本早於 2.2.38 的 Linux 映像。 如需詳細資訊，請參閱 <<c0> [ 如何更新 Azure Linux 代理程式，在 VM 上](../virtual-machines/extensions/update-linux-agent.md)並[在 Azure 中的虛擬機器代理程式的最小版本支援](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)。
 
 也需要 Microsoft.Azure.Security.AzureDiskEncryption 或 Microsoft.Azure.Security.AzureDiskEncryptionForLinux 的客體代理程式擴充功能的正確版本。 可維護及平台符合 Azure 虛擬機器代理程式的必要條件，並可支援的虛擬機器代理程式版本時自動更新延伸模組版本。
 

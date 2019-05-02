@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577584"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690141"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
@@ -28,7 +28,7 @@ ms.locfileid: "59577584"
 **V2 Translator API**
 
 > [!NOTE]
-> V2 已於 2018 年 4 月 30 日過時，並將於 2019 年 4 月 30 日中止。
+> V2 已於 2018 年 4 月 30 日淘汰。 請將應用程式移轉至 V3 若要利用以獨佔方式在 V3 中使用的新功能。
 
 * 僅限統計：此語言沒有可用的類神經系統。
 * 可使用類神經：可以使用類神經系統。 使用 `category=generalnn` 參數來存取類神經系統。
@@ -230,14 +230,17 @@ Translator Text API 偵測到適用於轉譯和轉換的所有語言。
 | 印尼文|   `id`    |
 | 義大利文      | `it`          |
 | 日文      | `ja`          |
+|史瓦希里文| `sw`    |
 | 韓文      | `ko`          |
 | 拉脫維亞文      | `lv`          |
 | 立陶宛文      | `lt`          |
+|馬達加斯加文|  `mg`    |
 | 挪威文      | `nb`          |
 | 波蘭文      | `pl`          |
 | 葡萄牙文      | `pt`          |
 | 羅馬尼亞文      | `ro`          |
 | 俄文      | `ru`          |
+|薩摩亞文|    `sm`    |
 | 塞爾維亞文 (拉丁)      | `sr-Latn`          |
 | 斯洛伐克文     | `sk`          |
 | 斯洛維尼亞文      | `sl`          |

@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 21ddeb9cb0621f0f11ca23a7b12a82df0b7aa8ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5d7ff8513a0659ca1107b9baf07cdf4bac4b807
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60528300"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688637"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -40,31 +40,25 @@ ms.locfileid: "60528300"
 
 計算資源會以 vCore 的形式提供，vCore 代表了基礎硬體的邏輯 CPU。 目前，有兩個計算世代可供您選擇，即「第 4 代」和「第 5 代」。 「第 4 代」邏輯 CPU 是以 Intel E5-2673 v3 (Haswell) 2.4-GHz 處理器為基礎。 「第 5 代」邏輯 CPU 是以 Intel E5-2673 v4 (Broadwell) 2.3-GHz 處理器為基礎。 「第 4 代」和「第 5 代」在下列區域中可供使用 ("X" 代表可用)。
 
-> [!IMPORTANT]
-> 從 2018 年 12 月 12 日開始，新的客戶將無法在巴西南部、加拿大中部、加拿大東部、東亞、美國東部 2、印度中部、印度西部、日本西部、美國中北部、美國西部佈建第 4 代計算伺服器。 先前在這些區域中建立的第 4 代計算伺服器，將於 2019 年 2 月 1 日移轉到第 5 代計算。
->
-> [!IMPORTANT]
-> 從開始 2019 年 2 月 15 日，新客戶將無法佈建在美國中部、 美國東部、 日本東部、 北歐、 美國中南部、 東南亞、 西歐的計算第 4 代伺服器。 先前建立 4 部伺服器將會移轉至計算世代 5 開始於 2019 年 4 月 1 日，在這些區域中的計算世代。
-
 | **Azure 區域** | **第 4 代** | **第 5 代** |
 |:---|:----------:|:--------------------:|
 | 美國中部 |  | X |
 | 美國東部 |  | X |
 | 美國東部 2 |  | X |
 | 美國中北部 |  | X |
-| 美國中南部 | X | X |
+| 美國中南部 |  | X |
 | 美國西部 |  | X |
 | 美國西部 2 |  | X |
 | 巴西南部 |  | X |
 | 加拿大中部 |  | X |
 | 加拿大東部 |  | X |
-| 北歐 | X | X |
+| 北歐 |  | X |
 | 西歐 |  | X |
 | 法國中部 |  | X |
 | 英國南部 |  | X |
 | 英國西部 |  | X |
 | 東亞 |  | X |
-| 東南亞 | X | X |
+| 東南亞 |  | X |
 | 澳洲東部 |  | X |
 | 澳大利亞中部 |  | X |
 | 澳大利亞中部 2 |  | X |
@@ -72,7 +66,7 @@ ms.locfileid: "60528300"
 | 印度中部 |  | X |
 | 印度南部 |  | X |
 | 印度西部 |  | X |
-| 日本東部 | X | X |
+| 日本東部 |  | X |
 | 日本西部 |  | X |
 | 南韓中部 |  | X |
 | 南韓南部 |  | X |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731504"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688352"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活動記錄警示的 Webhook
 在定義動作群組的過程中，您可以設定 Webhook 端點以接收活動記錄警示通知。 您可以使用 Webhook 將這些通知路由到其他系統，以進行後置處理或自訂動作。 本文會說明 HTTP POST 至 Webhook 的承載資料樣貌。
@@ -21,6 +21,10 @@ ms.locfileid: "57731504"
 如需有關活動記錄警示的詳細資訊，請參閱如何[建立 Azure 活動記錄警示](activity-log-alerts.md)。
 
 如需有關動作群組的資訊，請參閱如何[建立動作群組](../../azure-monitor/platform/action-groups.md)。
+
+> [!NOTE]
+> 您也可以使用[常見的警示結構描述](https://aka.ms/commonAlertSchemaDocs)、 提供一個可延伸的優點，並統一跨所有警示的警示承載的 webhook 整合服務在 Azure 監視器中。 [深入了解常見的警示的結構描述定義。](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 ## <a name="authenticate-the-webhook"></a>驗證 Webhook
 Webhook 可以選擇使用以權杖作為基礎的授權來進行驗證。 Webhook URI 是以權杖識別碼儲存，例如，`https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`。
@@ -173,10 +177,10 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 | conditionType |一律為「事件」。 |
 | name |警报规则的名称。 |
 | id |警示的資源識別碼。 |
-| 說明 |建立警示時，會設定警示描述。 |
+| description |建立警示時，會設定警示描述。 |
 | subscriptionId |Azure 訂用帳戶識別碼。 |
 | timestamp |處理要求的 Azure 服務產生事件的時間。 |
-| ResourceId |受影響資源的資源識別碼。 |
+| resourceId |受影響資源的資源識別碼。 |
 | resourceGroupName |受影響資源的資源群組的名稱。 |
 | properties |一組包含事件相關詳細資料的`<Key, Value>`配對 (也就是 `Dictionary<String, String>`)。 |
 | 事件 |包含事件相關中繼資料的元素。 |
@@ -190,7 +194,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 | httpRequest |要求通常包括 “clientRequestId”、“clientIpAddress” 和 HTTP “method” (例如 PUT)。 |
 | 層級 |下列其中一個值：重大、錯誤、警告和告知性。 |
 | operationId |通常是對應至單一作業的事件之間共用的 GUID。 |
-| operationName |作業名稱。 |
+| operationName |操作的名称。 |
 | properties |事件的属性。 |
 | status |字串。 作業的狀態。 常見的值包括︰「已啟動」、「進行中」、「成功」、「失敗」、「使用中」和「已解決」。 |
 | 子狀態 |通常包含對應 REST 呼叫的 HTTP 狀態碼。 它也可以包含其他描述子狀態的字串。 常見的子狀態值包括正常 (HTTP 狀態碼:200)、已建立 (HTTP 狀態碼:201)、已接受 (HTTP 狀態碼:202)、無內容 (HTTP 狀態碼:204)、錯誤的要求 (HTTP 狀態碼:400)、找不到 (HTTP 狀態碼:404)、衝突 (HTTP 狀態碼:409)、內部伺服器錯誤 (HTTP 狀態碼:500)、無法使用服務 (HTTP 狀態碼:503)，以及閘道逾時 (HTTP 狀態碼:504)。 |

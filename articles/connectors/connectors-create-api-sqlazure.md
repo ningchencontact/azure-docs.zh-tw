@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540785"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696409"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SQL Server 或 Azure SQL Database
 
@@ -116,23 +116,26 @@ ms.locfileid: "60540785"
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="process-data-in-bulk"></a>處理大量資料
+## <a name="handle-bulk-data"></a>處理大量資料
 
-如果您處理的結果集很大，導致連接器無法一次傳回所有結果，或是您想要對結果集的大小和結構擁有更好的控制能力，則可以使用*分頁*，以協助您將這些結果分為較小的集合來管理。 
+有時候，您可能必須使用結果集太大，連接器不會傳回所有結果，在此同時，或您想更有效控制的大小和結構的結果集。 以下是一些您可以處理這類大型結果集的方法：
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* 若要協助您管理為較小的集的結果，開啟*分頁*。 如需詳細資訊，請參閱 <<c0> [ 取得大量資料、 記錄和項目，藉由使用分頁](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md)。
 
-### <a name="create-a-stored-procedure"></a>建立預存程序
+* 建立您想要的方式組織結果的預存程序。
 
-在取得或插入多個資料列時，邏輯應用程式可在這些[限制](../logic-apps/logic-apps-limits-and-config.md)內使用 [*until 迴圈*](../logic-apps/logic-apps-control-flow-loops.md#until-loop)，來逐一查看這些項目。 但有時候邏輯應用程式必須處理的記錄集很大 (例如，數千或數百萬個資料列)，所以您想要將資料庫的呼叫成本降至最低。 
+  當開始或插入多個資料列時，邏輯應用程式可逐一查看這些資料列使用[ *until 迴圈*](../logic-apps/logic-apps-control-flow-loops.md#until-loop)內這些[限制](../logic-apps/logic-apps-limits-and-config.md)。 
+  不過，當您的邏輯應用程式必須使用記錄集太大，比方說，數千或數百萬個資料列，您想要對資料庫的呼叫所產生的成本降至最低。
 
-您可以轉而建立<a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*預存程序*</a>，其可在 SQL 執行個體中執行，並使用 **SELECT - ORDER BY** 陳述式以所需方式組織結果。 此解決方案可讓您對結果的大小和結構擁有更好的控制能力。 邏輯應用程式會使用 SQL Server 連接器的**執行預存程序**動作來呼叫預存程序。 
+  若要組織您想要的方式中的結果，您可以建立[*預存程序*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) ，在您的 SQL 執行個體中執行，並使用**SELECT-ORDER BY**陳述式。 
+  此解決方案可讓您對結果的大小和結構擁有更好的控制能力。 
+  邏輯應用程式會使用 SQL Server 連接器的**執行預存程序**動作來呼叫預存程序。
 
-如需解決方案的詳細資訊，請參閱下列文章：
+  如需解決方案的詳細資訊，請參閱下列文章：
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">可供使用 Logic Apps 傳輸大量資料的 SQL 分頁</a>
+  * [可供使用 Logic Apps 傳輸大量資料的 SQL 分頁](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECT - ORDER BY 子句</a>
+  * [SELECT - ORDER BY 子句](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## <a name="connector-specific-details"></a>連接器特定的詳細資料
 

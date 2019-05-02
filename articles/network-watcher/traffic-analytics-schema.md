@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799317"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691422"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>在 流量分析的結構描述和資料彙總
 
@@ -35,7 +35,7 @@ ms.locfileid: "59799317"
 1. 在 NSG"FlowIntervalStartTime_t"和"FlowIntervalEndTime_t 」 之間的所有流量記錄會每隔一分鐘的儲存體帳戶中，為 blob 都擷取之前正在處理的流量分析。 
 2. 預設流量分析的處理間隔時間為 60 分鐘。 這表示，流量分析會挑選彙總的儲存體的 blob 每隔 60 分鐘。
 3. 流程具有相同來源 IP、 目的地 IP、 目的地連接埠、 NSG 名稱、 NSG 規則、 流程方向和傳輸層通訊協定 （TCP 或 UDP） (附註：來源連接埠排除於彙總） 會組合在一起成單一流程流量分析
-4. 此單一記錄裝飾 （下一節中的詳細資料） 和流量分析的 Log Analytics 中擷取。
+4. 此單一記錄且裝飾 （詳細資料在下一節中的） 中內嵌的記錄分析流量 Analytics.This 程序最多可能需要 1 小時內最大值。
 5. FlowStartTime_t 欄位會指出這類彙總流程 (相同四個 tuple) 第一個處理間隔 」 FlowIntervalStartTime_t"和"FlowIntervalEndTime_t 」 流程記錄檔中。 
 6. Ta 及緊接在中的任何資源，UI 所示，流程是總流量看到的 NSG，但在 Log Analytics 使用者會看到只有單一、 縮減記錄。 若要查看所有流程，使用 blob_id 欄位中，您可以從儲存體參考。 流量總計算的記錄會比對出現在 blob 中的個別流程。
 
@@ -60,7 +60,7 @@ ms.locfileid: "59799317"
 | SrcIP_s | 來源 IP 位址 | 將會是空白時 AzurePublic 和 ExternalPublic 流程 |
 | DestIP_s | 目的地 IP 位址 | 將會是空白時 AzurePublic 和 ExternalPublic 流程 |
 | VMIP_s | 之 VM 的 IP | 用於 AzurePublic 和 ExternalPublic 流程 |
-| PublicIP_S | 公用 IP 位址 | 用於 AzurePublic 和 ExternalPublic 流程 |
+| PublicIP_s | 公用 IP 位址 | 用於 AzurePublic 和 ExternalPublic 流程 |
 | DestPort_d | 目的地連接埠 | 是連入流量的連接埠 | 
 | L4Protocol_s  | * T <br> * U  | 傳輸通訊協定。 T = TCP <br> U = UDP | 
 | L7Protocol_s  | 通訊協定名稱 | 衍生自目的地連接埠 |
@@ -121,6 +121,7 @@ ms.locfileid: "59799317"
 1. MaliciousFlow-其中一個 IP 位址屬於 azure 虛擬網路的 IP 位址時，在 Azure 中並不會回報為惡意流量分析的處理間隔會耗用 ASC 摘要中的公用 IP 」FlowIntervalStartTime_t"和"FlowIntervalEndTime_t 」。 
 1. UnknownPrivate-其中一個 IP 位址屬於 Azure 虛擬網路時的其他 IP 位址屬於私人 IP 範圍，如 RFC 1918 中所定義，而且無法對應，流量分析至客戶自有網站或 Azure 虛擬網路。
 1. 未知-無法對應任一個 IP 位址在流程在 Azure 中的客戶拓樸，以及在內部部署 （網站）。
+1. 某些欄位名稱會加上 _s 或 _d。 這些代表來源和目的地。
 
 ### <a name="next-steps"></a>後續步驟
 若要取得常見問題的解答，請參閱[流量分析常見問題集](traffic-analytics-faq.md)若要查看有關功能的詳細資訊，請參閱[流量分析文件](traffic-analytics.md)

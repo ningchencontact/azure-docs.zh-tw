@@ -4,24 +4,24 @@ titlesuffix: Azure Virtual Network
 description: 了解如何建立關聯的虛擬機器的公用 IP 位址。
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: jdial
-ms.openlocfilehash: ce573ff8fe61f2e1d4c88963e0f21fc9402776e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: kumud
+ms.openlocfilehash: 69460a111e6fd879807b4025d6832b3ac515a9b4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083210"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691998"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>關聯至虛擬機器的公用 IP 位址
 
-在本文中，您了解如何將現有的虛擬機器 (VM) 的公用 IP 位址產生關聯。 如果您想要從網際網路連線至 VM，VM 必須有與其相關聯的公用 IP 位址。 如果您想要建立新的 VM 與公用 IP 位址，做法使用[Azure 入口網站](virtual-network-deploy-static-pip-arm-portal.md)，則[Azure 命令列介面 (CLI)](virtual-network-deploy-static-pip-arm-cli.md)，或[PowerShell](virtual-network-deploy-static-pip-arm-ps.md)。 公用 IP 位址需要少許費用。 如需詳細資料，請參閱[定價](https://azure.microsoft.com/pricing/details/ip-addresses/)。 沒有公用 IP 位址，您可以使用每個訂用帳戶數目限制。 如需詳細資訊，請參閱 <<c0> [ 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits-1)。
+在本文中，您了解如何將現有的虛擬機器 (VM) 的公用 IP 位址產生關聯。 如果您想要從網際網路連線至 VM，VM 必須有與其相關聯的公用 IP 位址。 如果您想要建立新的 VM 與公用 IP 位址，做法使用[Azure 入口網站](virtual-network-deploy-static-pip-arm-portal.md)，則[Azure 命令列介面 (CLI)](virtual-network-deploy-static-pip-arm-cli.md)，或[PowerShell](virtual-network-deploy-static-pip-arm-ps.md)。 公用 IP 位址需要少許費用。 如需詳細資料，請參閱[定價](https://azure.microsoft.com/pricing/details/ip-addresses/)。 沒有公用 IP 位址，您可以使用每個訂用帳戶數目限制。 如需詳細資訊，請參閱 <<c0> [ 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)。
 
 您可以使用[Azure 入口網站](#azure-portal)，Azure[命令列介面](#azure-cli)(CLI)，或[PowerShell](#powershell)關聯至 VM 的公用 IP 位址。
 

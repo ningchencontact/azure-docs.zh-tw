@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162640"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690276"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中樞常見問題集
 
@@ -50,6 +50,47 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>如何監視事件中樞？
 事件中樞會發出詳盡的計量，以便將您的資源狀態提供給 [Azure 監視器](../azure-monitor/overview.md)。 它們也可以讓您存取事件中樞服務的整體健康情況 (不僅是在命名空間層級，還包括在實體層級)。 了解針對 [Azure 事件中樞](event-hubs-metrics-azure-monitor.md)所提供的監視功能。
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>我需要在防火牆上開啟哪些連接埠？ 
+您可以使用下列通訊協定與 Azure 服務匯流排，來傳送和接收訊息：
+
+- 進階訊息佇列通訊協定 (AMQP)
+- HTTP
+- Apache Kafka
+
+請參閱下列表格以取得您需要開啟通訊使用這些通訊協定，透過 Azure 事件中樞的輸出連接埠。 
+
+| Protocol | 連接埠 | 詳細資料 | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 和 5672 | 請參閱[AMQP 通訊協定指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP、HTTPS | 80、443 |  |
+| Kafka | 9092 | 請參閱[從 Kafka 的應用程式的使用事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>哪些 IP 位址需要列入白名單嗎？
+若要尋找您的連線正確的 IP 位址到允許清單，請遵循下列步驟：
+
+1. 从命令提示符处运行以下命令： 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. 記下中傳回的 IP 位址`Non-authoritative answer`。 此 IP 位址是靜態的。 它會變更的唯一點的時間是如果您還原至不同的叢集中的命名空間。
+
+如果您的命名空間中使用區域備援，您需要執行一些額外步驟： 
+
+1. 首先，您會在命名空間上執行 nslookup。
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. 記下中的名稱**非授權的回答**區段中，也就是下列格式之一： 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. 每個尾碼 s1、 s2 與 s3 取得三個可用性區域中執行的所有三個執行個體的 IP 位址與執行 nslookup 
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka 整合
 
@@ -150,7 +191,7 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 
 ### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>保留事件中樞事件超過 24 小時需要計費嗎？
 
-事件中樞標準層允許 24 小時以上的訊息保留期間，最多達七天。 如果儲存之事件總數的大小超過選定輸送量單位數目的儲存額度 (每個輸送量單位 84 GB)，超過額度的大小將以已發佈的 Azure Blob 儲存體費率計費。 即使您已將輸送量單位的最大輸入額度用盡，每個輸送量單位的儲存額度依然涵蓋 24 小時保留期間 (預設值) 的所有儲存費用。
+事件中樞標準層允許 24 小時以上的訊息保留期間，最多達七天。 如果儲存之事件總數的大小超過選定輸送量單位數目的儲存額度 (每個輸送量單位 84 GB)，超過額度的大小將以已發佈的 Azure Blob 儲存體費率計費。 每个吞吐量单元的存储限制包括 24 小时（默认值）的保留期期间的所有存储成本，即使吞吐量单元已经用到了最大入口限制。
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>事件中樞儲存空間大小如何計算及收費？
 
@@ -158,13 +199,13 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 
 ### <a name="how-are-event-hubs-ingress-events-calculated"></a>事件中樞輸入事件的計算方式為何？
 
-每個傳送到事件中樞的事件都算是可計費訊息。 *輸入事件*的定義為小於或等於 64 KB 的資料單位。 任何大小小於或等於 64 KB 的事件均視為一個可計費事件。 如果事件大於 64 KB，可計費事件的數目乃根據事件大小來計算 (64 KB 的倍數)。 例如，一個傳送到事件中樞的 8 KB 事件將視為一個事件來計費，不過，一則傳送到事件中樞的 96 KB 訊息將視為兩個事件來計費。
+每個傳送到事件中樞的事件都算是可計費訊息。 *入口事件* 定义为小于等于 64 KB 的数据单位。 任何大小小於或等於 64 KB 的事件均視為一個可計費事件。 如果事件大於 64 KB，可計費事件的數目乃根據事件大小來計算 (64 KB 的倍數)。 例如，一個傳送到事件中樞的 8 KB 事件將視為一個事件來計費，不過，一則傳送到事件中樞的 96 KB 訊息將視為兩個事件來計費。
 
 自事件中樞取用的事件，以及管理作業和控制呼叫 (如檢查點)，不會計入可計費輸入事件，但會累積在輸送量單位額度內。
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>代理連線費用適用於事件中樞嗎？
 
-只有在使用 AMQP 通訊協定時才需要支付連線費用。 不論傳送系統或裝置的數目多寡，使用 HTTP 來傳送事件不需要支付連線費用。 如果您打算使用 AMQP (例如，為了實現更有效率的事件串流，或針對 IoT 命令和控制案例啟用雙向通訊)，請參閱[事件中樞定價資訊](https://azure.microsoft.com/pricing/details/event-hubs/)分頁，以取得關於每個服務層級中包含多少個連線的詳細資訊。
+只有在使用 AMQP 通訊協定時才需要支付連線費用。 使用 HTTP 发送事件没有连接费用，无论发送系统或设备的数量是多少。 如果您打算使用 AMQP (例如，為了實現更有效率的事件串流，或針對 IoT 命令和控制案例啟用雙向通訊)，請參閱[事件中樞定價資訊](https://azure.microsoft.com/pricing/details/event-hubs/)分頁，以取得關於每個服務層級中包含多少個連線的詳細資訊。
 
 ### <a name="how-is-event-hubs-capture-billed"></a>事件中樞擷取如何計費？
 
