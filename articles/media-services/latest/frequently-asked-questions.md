@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: d6e5142bec29f58671c553b7b32bb72202cae263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d99e3661fd51b481a20404cfeb55157ac803c220
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322697"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706161"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure 媒體服務 v3 常見問題集
 
@@ -41,6 +41,10 @@ ms.locfileid: "60322697"
 ### <a name="how-does-pagination-work"></a>分頁的運作方式為何？
 
 使用分頁時，您應一律使用下一頁連結來列舉集合，而不應依存於特定頁面大小。 如需詳細資訊和範例，請參閱[篩選、排序、分頁](entities-overview.md)。
+
+### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>哪些功能尚無法使用 Azure 媒體服務 v3 中？
+
+如需詳細資訊，請參閱 <<c0> [ 功能對於 v2 Api 間距](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis)。
 
 ## <a name="live-streaming"></a>即時串流 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 360b822bc78d353e91612459a70334a0bf3a56e6
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8bd0014518dc93abb952114a1728f8fc1d3fb4a5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189626"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708072"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務時如何設定內部部署編碼器來建立多位元速率串流
 本主題列出的內部部署即時編碼器可用來擷取即時事件，並傳送單一位元速率即時串流到 AMS 通道 (啟用即時編碼) 以供進一步處理。 本主題也列出示範如何設定列出之編碼器的教學課程連結。
@@ -37,7 +37,7 @@ ms.locfileid: "58189626"
 如需有關如何設定 [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) 編碼器，藉此傳送單一位元速率的即時串流到 AMS 通道，請參閱 [設定 Wirecast](media-services-configure-wirecast-live-encoder.md)。
 
 ## <a name="newtek-tricaster"></a>NewTek TriCaster
-如需有關如何設定 [Tricaster](http://newtek.com/products/tricaster-40.html) 編碼器，藉此傳送單一位元速率的即時串流到 AMS 通道，請參閱 [設定 Tricaster](media-services-configure-tricaster-live-encoder.md)。
+如需有關如何設定 [Tricaster](https://newtek.com/products/tricaster-40.html) 編碼器，藉此傳送單一位元速率的即時串流到 AMS 通道，請參閱 [設定 Tricaster](media-services-configure-tricaster-live-encoder.md)。
 
 ## <a name="elemental-live"></a>Elemental Live
 如需詳細資訊，請參閱 [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live)。

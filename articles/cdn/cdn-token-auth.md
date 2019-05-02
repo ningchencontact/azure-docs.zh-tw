@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324460"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869415"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>使用權杖驗證保護 Azure CDN 資產
 
@@ -33,7 +33,7 @@ ms.locfileid: "60324460"
 
 權杖驗證會藉由提出要求需包含權杖值 (其中包含關於要求者的編碼資訊) 的要求，來確認要求是由受信任的網站所產生。 只有在編碼資訊符合需求時，才會將內容提供給要求者，否則會拒絕要求。 您可以使用下列一或多個參數來設定需求：
 
-- 國家/地區:允許或拒絕來自指定國家/地區的要求他們[國家/地區代碼](/previous-versions/azure/mt761717(v=azure.100))。
+- 國家/地區:允許或拒絕來自指定國家/地區要求他們[國家/地區代碼](/previous-versions/azure/mt761717(v=azure.100))。
 - URL：允許符合指定的資產或路徑的要求。
 - 主機：允許或拒絕在要求標頭中使用指定的主機的要求。
 - 訪客來源︰允許或拒絕來自指定訪客來源的要求。
@@ -86,7 +86,7 @@ ms.locfileid: "60324460"
 
       ![CDN 權杖驗證安裝識別碼](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. 使用加密工具設定加密參數，並產生權杖。 使用加密工具時，您可以根據到期時間、國家/地區、訪客來源、通訊協定及用戶端 IP (任意組合) 來允許或拒絕要求。 雖然組成權杖的參數沒有任何數目和組合上的限制，但是權杖的總長度限制為 512 個字元。 
+   4. 使用加密工具設定加密參數，並產生權杖。 使用加密工具時，您可以允許或拒絕要求根據到期時間、 國家/地區、 訪客來源、 通訊協定和用戶端 IP (任意組合）。 雖然組成權杖的參數沒有任何數目和組合上的限制，但是權杖的總長度限制為 512 個字元。 
 
       ![CDN 加密工具](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -120,11 +120,11 @@ ms.locfileid: "60324460"
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>只允許來自一或多個指定國家/地區的要求。 來自其他所有國家/地區的要求將會遭到拒絕。 對每個國家/地區使用兩個字母 [ISO 3166 國家/地區碼](/previous-versions/azure/mt761717(v=azure.100))，並將每個國家/地區以逗號分隔；請勿加上空格。 例如，如果您只想允許來自美國和法國的存取，請輸入 `US,FR`。</td>
+      >    <td>只允許來自一或多個指定國家/地區的要求。 來自所有其他國家/地區的要求會遭到拒絕。 對每個國家/地區使用兩個字母 [ISO 3166 國家/地區碼](/previous-versions/azure/mt761717(v=azure.100))，並將每個國家/地區以逗號分隔；請勿加上空格。 例如，如果您只想允許來自美國和法國的存取，請輸入 `US,FR`。</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>拒絕來自一或多個指定國家/地區的要求。 來自其他所有國家/地區的要求將會獲得允許。 實作與 <b>ec_country_allow</b> 參數相同。 如果 <b>ec_country_allow</b> 和 <b>ec_country_deny</b> 參數中同時出現國家/地區碼，<b>ec_country_allow</b> 參數具有高優先順序。</td>
+      >    <td>拒絕來自一或多個指定國家/地區的要求。 允許來自所有其他國家/地區的要求。 實作與 <b>ec_country_allow</b> 參數相同。 如果 <b>ec_country_allow</b> 和 <b>ec_country_deny</b> 參數中同時出現國家/地區碼，<b>ec_country_allow</b> 參數具有高優先順序。</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>

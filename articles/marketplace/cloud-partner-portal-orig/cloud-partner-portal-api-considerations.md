@@ -1,28 +1,21 @@
 ---
-title: API 考量 | Microsoft Docs
+title: API 的考量 |Azure Marketplace
 description: 使用 Marketplace API 時的版本設定、錯誤處理與授權問題。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c6cfb41cb6254145821ab3fef662e9a5e54f6298
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6bf27db27daee50f78552344ae1b2b116d48a5c0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625052"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935567"
 ---
-<a name="api-considerations"></a>API 考量
-=================
+# <a name="api-considerations"></a>API 考量
+
 
 <a name="api-versioning"></a>API 版本控制
 --------------

@@ -9,11 +9,11 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6440e5c2cf534ea431387bcdfed8b218919bf627
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766274"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701522"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 檔案服務中建立檔案共用
 您可以使用  [Azure 入口網站](https://portal.azure.com/)、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。 在本教學課程中，您將了解：

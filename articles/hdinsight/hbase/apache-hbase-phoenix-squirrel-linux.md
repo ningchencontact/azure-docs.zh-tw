@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
 ms.openlocfilehash: 0bef586540635ee1bada3475f6316c84dea4308c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123156"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722681"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>在 HDInsight 中搭配 Linux 型 Apache HBase 叢集使用 Apache Phoenix
 了解如何在 Azure HDInsight 中使用 [Apache Phoenix](https://phoenix.apache.org/)，以及如何使用 SQLLine。 如需有關 Phoenix 的詳細資訊，請參閱 [15 分鐘內了解 Apache Phoenix](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 如需 Phoenix 文法，請參閱 [Apache Phoenix 文法](https://phoenix.apache.org/language/index.html)。

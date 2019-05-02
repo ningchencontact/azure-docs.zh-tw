@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3ff97dc86ea6932ba51a4a30e53edf1082d5305
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326409"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937476"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>適用於 Windows 10 的離線 PlayReady 串流
 
@@ -32,7 +32,7 @@ Azure 媒體服務支援在具備 DRM 保護的情況下離線下載/播放。 �
 
 本節提供一些離線模式播放的背景資訊，尤其是開發該技術的原因：
 
-* 在某些國家/地區，網際網路可用性和/或頻寬仍受到限制。 使用者可以選擇先下載，以便能以夠高的解析度觀賞內容，來獲得令人滿意的檢視體驗。 在此情況下，更常見的問題不是網路可用性，而是有限的網路頻寬。 OTT/OVP 提供者正在要求提供離線模式支援。
+* 在某些國家/地區，網際網路可用性和/或頻寬是仍然有限。 使用者可以選擇先下載，以便能以夠高的解析度觀賞內容，來獲得令人滿意的檢視體驗。 在此情況下，更常見的問題不是網路可用性，而是有限的網路頻寬。 OTT/OVP 提供者正在要求提供離線模式支援。
 * Netflix 2016 年第 3 季股東會議中，Netflix CEO Reed Hastings 揭露了一項資訊，那就是下載內容是「頻繁被要求的功能」，並且「我們對此持開放態度」。
 * 某些內容提供者可能不允許 DRM 授權傳遞超出國家/地區的邊界。 如果使用者想要在需要出國旅行時仍能觀賞內容，就需要離線下載。
  

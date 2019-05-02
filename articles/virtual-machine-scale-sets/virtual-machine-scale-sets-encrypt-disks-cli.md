@@ -13,46 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 04/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 417772b2e955b1a3664dd495f292a76ab2819165
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 1264c7e4ebaf5e948e624fa49dc5fb0b4cdb31f0
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734516"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869064"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>使用 Azure CLI (預覽) 加密虛擬機器擴展集中的 OS 與連結的資料磁碟
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>加密作業系統和虛擬機器擴展集使用 Azure CLI 中的連結的資料磁碟
 
 為了使用業界標準加密技術來保護與防禦待用資料，虛擬機器擴展集支援 Azure 磁碟加密 (ADE)。 您可以針對 Linux 和 Windows 虛擬機器擴展集啟用加密。 如需詳細資訊，請參閱 [Linux 和 Windows 適用的 Azure 磁碟加密](../security/azure-security-disk-encryption.md)。
-
-> [!NOTE]
->  適用於虛擬機器擴展集的 Azure 磁碟加密目前處於公開預覽，可在所有 Azure 公用區域使用。
 
 Azure 磁碟加密支援：
 - 使用受控磁碟建立的擴展集，且不支援原生 (或非受控) 磁碟擴展集。
 - Windows 擴展集中的作業系統和資料磁碟區。 停用加密支援 Windows 擴展集的作業系統和資料磁碟區。
-- Linux 擴展集中的資料磁碟區。 目前的 Linux 擴展集預覽中「不」支援作業系統磁碟加密。
-
-目前的預覽中不支援擴展集 VM 重新安裝映像和升級作業。 建議您僅在測試環境中使用虛擬機器擴展集預覽的 Azure 磁碟加密。 在預覽中，請勿在生產環境中啟用磁碟加密，因為您在其中可能必須升級加密擴展集中的作業系統映像。
+- Linux 擴展集中的資料磁碟區。 OS 磁碟加密不支援的 Linux 擴展集。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
-
-## <a name="register-for-disk-encryption-preview"></a>註冊磁碟加密預覽
-
-適用於虛擬機器擴展集預覽的 Azure 磁碟加密會要求您使用 [az feature register](/cli/azure/feature) 自行註冊訂用帳戶。 您只需要在第一次使用磁碟加密預覽功能時，執行下列步驟：
-
-```azurecli-interactive
-az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
-```
-
-註冊要求傳播的時間最多可能需要 10 分鐘。 您可以使用 [az feature show](/cli/azure/feature) 檢查註冊狀態。 當 `State` 回報「已登錄」時，請使用 [az provider register](/cli/azure/provider) 重新登錄 *Microsoft.Compute* 提供者：
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
 
 ## <a name="create-a-scale-set"></a>建立擴展集
 
@@ -135,6 +116,30 @@ az vmss encryption enable \
 
 由於擴展集是在先前步驟設定為「自動」時建立的擴展集上的升級原則，因此 VM 執行個體會自動開始執行加密程序。 在升級原則為手動的擴展集上，使用 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances) 對 VM 執行個體啟動加密原則。
 
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>包裝金鑰使用 KEK 來啟用加密
+
+您也可以使用為了提高安全性金鑰加密金鑰，加密的虛擬機器擴展集時。
+
+```azurecli-interactive
+# Get the resource ID of the Key Vault
+vaultResourceId=$(az keyvault show --resource-group myResourceGroup --name $keyvault_name --query id -o tsv)
+
+# Enable encryption of the data disks in a scale set
+az vmss encryption enable \
+    --resource-group myResourceGroup \
+    --name myScaleSet \
+    --disk-encryption-keyvault $vaultResourceId \
+    --key-encryption-key myKEK \
+    --key-encryption-keyvault $vaultResourceId \
+    --volume-type DATA
+```
+
+> [!NOTE]
+>  磁碟加密-key vault 參數的值的語法是完整的識別項字串：</br>
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
+> 金鑰加密金鑰參數的值的語法是在做為 KEK 的完整 URI:</br>
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
+
 ## <a name="check-encryption-progress"></a>檢查加密程序
 
 若要檢查磁碟加密的狀態，請使用 [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show)：
@@ -180,6 +185,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>後續步驟
 
-在此文章中，您使用 Azure CLI 加密虛擬機器擴展集。 您也可以使用 [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) 或適用於 [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) 或 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox) 的範本。
-
-您可以在[這裡](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat)找到 Linux 擴展集資料磁碟加密的端對端批次檔案範例。 這個範例會建立資源群組和 Linux 擴展集、掛接 5 GB 資料磁碟，並加密虛擬機器擴展集。
+- 在此文章中，您使用 Azure CLI 加密虛擬機器擴展集。 您也可以使用 [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) 或適用於 [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) 或 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox) 的範本。
+- 如果您想要讓 Azure 磁碟加密套用另一個延伸模組佈建之後，您可以使用[擴充功能排序](virtual-machine-scale-sets-extension-sequencing.md)。 您可以使用[這些範例](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates)開始著手。
+- 您可以在[這裡](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat)找到 Linux 擴展集資料磁碟加密的端對端批次檔案範例。 這個範例會建立資源群組和 Linux 擴展集、掛接 5 GB 資料磁碟，並加密虛擬機器擴展集。

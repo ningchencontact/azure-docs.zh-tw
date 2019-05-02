@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: e395fc96c560c6c6c1671e472840ba0f2a316d98
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 1f53dc60a74f0b558525897bef97bf2500442b54
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006772"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867840"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing 自訂搜尋 API 支援的語言和區域
 
@@ -27,7 +27,7 @@ Bing 自訂搜尋 API 支援三十多個國家/地區，許多國家/地區具�
 
 `Accept-Language` 標頭和 `setLang` 查詢參數彼此互斥 — 請勿同時指定。 如需詳細資料，請參閱 [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage)。
 
-## <a name="countries"></a>國家/地區
+## <a name="countriesregions"></a>國家/地區
 
 |國家/區域|代碼|
 |-------|----|

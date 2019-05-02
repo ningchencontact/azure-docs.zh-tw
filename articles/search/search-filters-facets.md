@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290044"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939865"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>如何在 Azure 搜尋服務中建置 Facet 篩選條件 
 
@@ -35,7 +35,7 @@ Facet 是動態且會在查詢中傳回。 搜尋回應會為它們提供用來�
 
 ## <a name="choose-fields"></a>選擇欄位
 
-Facet 可透過單一值欄位以及集合來計算。 最適合在多面向導覽中使用的欄位具有較低的基數：在您的搜尋主體 (例如，色彩、國家/地區或品牌名稱的清單) 內重複出現於文件各處的少數相異值。 
+Facet 可透過單一值欄位以及集合來計算。 最適合在多面向導覽的欄位具有較低的基數： 少量的搜尋主體 （例如色彩、 國家/地區或品牌名稱的清單） 中的文件內重複的相異值。 
 
 當您建立索引時，可藉由將下列屬性設為 TRUE，逐欄位啟用 Facet：`filterable`、`facetable`。 只有可篩選的欄位可以面向化。
 

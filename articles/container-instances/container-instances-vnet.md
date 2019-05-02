@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 25f9d4e02bcb354acf1c771157622f07c5f4bcc1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684159"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712798"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
@@ -265,7 +265,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 此功能的初始預覽需要額外使用幾項命令來刪除您先前建立的網路資源。 如果您使用了本文前幾節的範例命令來建立虛擬網路及子網路，您可以使用下列指令碼來刪除這些網路資源。
 
-在執行指令碼之前，請將變數 `RES_GROUP` 設定為包含應刪除虛擬網路及子網路的資源群組名稱。 此指令碼會針對 Bash 殼層加以格式化。 如果您慣用其他殼層，例如 PowerShell 或是命令提示字元，您需要相應調整變數指派及存取子。
+在執行指令碼之前，請將變數 `RES_GROUP` 設定為包含應刪除虛擬網路及子網路的資源群組名稱。 更新虛擬網路和子網路的名稱，如果您未使用`aci-vnet`和`aci-subnet`稍早建議的名稱。 此指令碼會針對 Bash 殼層加以格式化。 如果您慣用其他殼層，例如 PowerShell 或是命令提示字元，您需要相應調整變數指派及存取子。
 
 > [!WARNING]
 > 此指令碼會刪除資源！ 它會刪除虛擬網路及內含的所有子網路。 在執行此指令碼之前，請先確認您已不再需要虛擬網路中的「任何」資源，包括內含的任何子網路。 一旦您刪除後，**這些資源就無法復原**。
@@ -281,6 +281,8 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
 # Get the service association link (SAL) ID
+# Replace aci-vnet and aci-subnet with your VNet and subnet names in the following commands
+
 SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
 
 # Delete the default SAL ID for the subnet

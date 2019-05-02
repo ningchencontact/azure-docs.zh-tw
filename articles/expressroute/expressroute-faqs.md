@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367836"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924660"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -43,7 +43,7 @@ ExpressRoute 連線不會經過公用網際網路。 相較於網際網路一般
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>如果我支付指定頻寬的 ExpressRoute 線路，是否能夠在需要時突增到較高的速度？
 
-是的。 ExpressRoute 線路設定允許您可以突增兩倍的所採購頻寬限制，且無需另外付費。 請洽詢您的服務提供者，以了解是否支援此功能。
+是的。 ExpressRoute 線路設定允許您可以突增兩倍的所採購頻寬限制，且無需另外付費。 請洽詢您的服務提供者，以了解是否支援此功能。 這不是持續一段時間，而且不保證。 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>我是否可以在虛擬網路和其他 Azure 服務中同時使用相同的私人網路連線？
 
@@ -119,11 +119,11 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>如何實作私用對等互連的備援性？
 
-從不同的對等互連位置的多個 ExpressRoute 線路可以連接到相同虛擬網路，並提供高可用性，萬一單一線路變得無法使用。 您可以接著[較高權數指派](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection)偏好本機連接到偏好特定的線路。 強烈建議客戶設定至少兩個 ExpressRoute 線路，以避免單一失敗點。 
+從不同的對等互連位置的多個 ExpressRoute 線路可以連接到相同虛擬網路，並提供高可用性，萬一單一線路變得無法使用。 您可以接著[較高權數指派](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection)偏好本機連接到偏好特定的線路。 強烈建議客戶設定至少兩個 ExpressRoute 線路，以避免單一失敗點。 
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>如何實作備援 Microsoft 對等互連？
 
-強烈建議客戶使用 Microsoft 對等互連來存取 Azure 公用服務，例如 Azure 儲存體或 Azure SQL，以及使用 Microsoft 對等互連，它們會實作多個線路不同對等互連中的 Office 365 的客戶時若要避免發生單一 faiure 點的位置。 客戶可以通告相同的前置詞，這兩個線路上並使用[AS PATH 前置](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)或通告不同的前置詞，以決定從內部部署的路徑。
+強烈建議客戶使用 Microsoft 對等互連來存取 Azure 公用服務，例如 Azure 儲存體或 Azure SQL，以及使用 Microsoft 對等互連，它們會實作多個線路不同對等互連中的 Office 365 的客戶時若要避免發生單一 faiure 點的位置。 客戶可以通告相同的前置詞，這兩個線路上並使用[AS PATH 前置](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)或通告不同的前置詞，以決定從內部部署的路徑。
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>如何確保在連線到 ExpressRoute 之虛擬網路上的高可用性？
 

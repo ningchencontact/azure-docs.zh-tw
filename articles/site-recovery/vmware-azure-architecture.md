@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/26/2019
 ms.author: raynew
-ms.openlocfilehash: d9fdd6f42e1443c0515c2c38496e9d474c87715c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c91629d24267d280edefdb7530e2614eb7be89fd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837389"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704877"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware 至 Azure 災害復原架構
 
@@ -53,6 +53,7 @@ ms.locfileid: "60837389"
     - 設定伺服器會透過輸出連接埠 HTTPS 443 與 Azure 協調複寫。
     - VM 會透過輸入連接埠 HTTPS 9443 將複寫資料傳送至處理伺服器 (在設定伺服器電腦上執行)。 您可以修改此連接埠。
     - 處理伺服器會透過輸出連接埠 443 接收複寫資料、將其最佳化並加密，然後傳送至 Azure 儲存體。
+5. 複寫資料會記錄在 Azure 中的快取儲存體帳戶中的首。 處理這些記錄檔和資料會儲存在 Azure 受控磁碟 （稱為 「 asr 種子磁碟 」）。 在此磁碟上建立復原點。
 
 
 

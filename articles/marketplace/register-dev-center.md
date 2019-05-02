@@ -2,24 +2,18 @@
 title: 在開發人員中心註冊 | Azure
 description: 如何在開發人員中心 (Dev Center) 註冊。
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735724"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937588"
 ---
 # <a name="register-in-dev-center"></a>在開發人員中心註冊  
 為了協助確認您尚未登入個人瀏覽器帳戶，請開啟新的 Internet Explorer InPrivate 或 Chrome Incognito 瀏覽工作階段。  
@@ -34,7 +28,7 @@ ms.locfileid: "60735724"
     ![國家/地區方塊的帳戶資訊](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >如果要在 Azure Marketplace 中銷售服務，請確認您的註冊實體是來自其中一個經過核准的「銷售來源」國家/地區。 基於支出和稅務理由，因此需要這項位置限制。 
+    >若要銷售您的服務，在 Azure Marketplace 中，確認您的註冊的實體是來自已核准其中一項*售出*國家/地區。 基於支出和稅務理由，因此需要這項位置限制。 
     >*   如需詳細資訊，請參閱 Azure Marketplace 參與原則網頁：[azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies)。  
 
 4.  針對「帳戶類型」，選取 `Company` 選項按鈕。  

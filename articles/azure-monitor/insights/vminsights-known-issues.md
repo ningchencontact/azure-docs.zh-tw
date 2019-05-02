@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 5fdee4edce0301a5a4524725879f599b0a2e3532
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab5cbf6e24d6e7b5530addcee655e1cc4621d042
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61386373"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875977"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>適用於 VM 的 Azure 監視器 (預覽) 已知問題
 
@@ -27,13 +27,11 @@ ms.locfileid: "61386373"
 ## <a name="health"></a>健康情況 
 以下是目前版本的「健康情況」功能已知問題：
 
-- VM 屬性面板會將 Windows Server 2019 作業系統顯示為 Windows Server 2016。 這個問題將於即將推出的版本中獲得修正。
 - 如果移除或刪除了 Azure VM，該 VM 將在 VM 清單檢視中顯示一段時間。 此外，按一下已移除或已刪除 VM 的狀態，即會開啟 [健康情況診斷] 檢視，繼而初始載入迴圈。 選取已刪除 VM 的名稱會開啟一個窗格，並顯示一則指出 VM 已刪除的訊息。
 - 設定變更 (例如更新閾值) 最多需要 30 分鐘，即使入口網站或工作負載監視 API 可能會立即更新它們也一樣。 
 - [健康情況診斷] 體驗的更新速度比其他檢視還快。 當您在它們之間切換時，資訊可能會延遲。 
 - 針對 Linux VM，為單一 VM 檢視列出健康情況準則的頁面標題會包含 VM 的完整網域名稱，而不是使用者定義的 VM 名稱。 
 - 在您使用其中一種支援的方法來停用對 VM 的監視之後，而嘗試再次部署它時，應該將它部署在相同的工作區中。 如果您選擇不同的工作區並嘗試檢視該 VM 的健全狀態，它可能會顯示不一致的行為。
-- Windows 的 [CPU 使用率總計] 健全準則會顯示一個「不等於」**4** 的閾值，意謂著 CPU 使用率大於 95% 且系統佇列長度大於 15。 此健全準則在此預覽版中不可設定。  
 - 從工作區中移除解決方案元件之後，您可能會繼續看到來自 Azure VM 的健全狀態；特別是效能和對應資料，當您在入口網站中瀏覽至上述任一檢視時，就會看到該資料。 資料最終會在一段時間後停止出現在 [效能] 和 [對應] 檢視中；不過，[健康情況] 檢視會繼續顯示 VM 的健康情況狀態。 只有從 [效能] 和 [對應] 檢視，才能讓 [立即試用] 選項重新上線。
 
 ## <a name="next-steps"></a>後續步驟

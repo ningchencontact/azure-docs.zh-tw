@@ -1,25 +1,18 @@
 ---
-title: 擷取特定供應項目 API | Microsoft Docs
+title: 擷取特定的供應項目 API |Azure Marketplace
 description: API 會在發行者命名空間內擷取特定供應項目。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9484cf0f549db94be8f1ac2363addca952a3cff3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61096058"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935429"
 ---
 <a name="retrieve-a-specific-offer"></a>擷取特定供應項目
 =========================

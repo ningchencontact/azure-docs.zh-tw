@@ -1,25 +1,18 @@
 ---
-title: SaaS 履行 Api-Azure Marketplace |Microsoft Docs
+title: SaaS 履行 Api |Azure Marketplace
 description: 引進了 「 履行 」 可讓您整合您的 SaaS Api 提供與 Azure Marketplace 的版本。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/26/2019
-ms.author: pbutlerm
-ms.openlocfilehash: c7da46984d592abc6ed97d7490fde732bf26b0ba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: pabutler
+ms.openlocfilehash: ec206c2d637f9fb2727d72cf17087050a765672c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101348"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941971"
 ---
 # <a name="saas-fulfillment-apis"></a>SaaS 履行 API
 

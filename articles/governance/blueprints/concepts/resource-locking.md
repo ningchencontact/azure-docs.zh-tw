@@ -3,17 +3,17 @@ title: 了解資源鎖定
 description: 了解在指派藍圖時保護資源的鎖定選項。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 232d823f364f9f98d1da1bade50ba369b898a57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60683000"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719734"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>了解 Azure 藍圖中的資源鎖定
 
@@ -53,6 +53,13 @@ ms.locfileid: "60683000"
 如果指派選取了 [唯讀] 或 [不要刪除] 選項，則在藍圖指派期間，會將 RBAC [拒絕指派](../../../role-based-access-control/deny-assignments.md)的拒絕動作套用到成品資源。 拒絕動作會由藍圖指派的受控身分識別來新增，並且只能透過相同的受控身分識別從成品資源中移除。 此安全性措施可強制執行鎖定機制，並防止移除藍圖外部的藍圖鎖定。
 
 ![Blueprint （藍圖） 會拒絕對資源群組的指派](../media/resource-locking/blueprint-deny-assignment.png)
+
+[拒絕指派屬性](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties)的每一種模式如下所示：
+
+|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|-|-|-|-|-|-|
+|唯讀 |**\*** |**\*/read** |SystemDefined (Everyone) |藍圖指派，並在使用者定義**excludedPrincipals** |資源群組- _，則為 true_;資源- _false_ |
+|不要刪除 |**\*/delete** | |SystemDefined (Everyone) |藍圖指派，並在使用者定義**excludedPrincipals** |資源群組- _，則為 true_;資源- _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager 最多可快取 30 分鐘的角色指派詳細資料。 因此，藍圖資源上拒絕指派的拒絕動作可能不會立即完全生效。 在這段時間內，有可能會刪除藍圖鎖定所要保護的資源。

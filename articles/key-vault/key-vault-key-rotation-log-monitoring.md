@@ -2,23 +2,19 @@
 title: 使用端對端金鑰輪替和稽核設定 Azure 金鑰保存庫 | Microsoft Docs
 description: 借助本操作指南设置密钥轮换和监视 Key Vault 日志。
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: ''
-ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: fb3300a45f905eb57fcc4880269e4a9bed9dac0c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 785e60ddf54a3772ae7687b9d18477ef04707609
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789884"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713691"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>使用金鑰輪替和稽核設定 Azure Key Vault
 
@@ -167,7 +163,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 ## <a name="key-rotation-using-azure-automation"></a>使用 Azure 自動化的金鑰輪替
 
 > [!IMPORTANT]
-> Azure 自動化 runbook 仍需要使用`AzureRM`模組。
+> Azure 自动化 Runbook 仍需使用 `AzureRM` 模块。
 
 现在，对于存储为 Key Vault 机密的值，可以设置轮换策略。 可通过多种方式轮换机密：
 

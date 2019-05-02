@@ -1,20 +1,18 @@
 ---
-title: Azure 合作夥伴與客戶使用狀況屬性
+title: Azure 合作夥伴和客戶的使用方式屬性 |Azure Marketplace
 description: 有關如何追蹤客戶 Azure Marketplace 解決方案使用狀況的概觀
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
-manager: nunoc
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: cfe9b469cfac848c9e57f1fc10193208722be109
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123413"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935712"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 

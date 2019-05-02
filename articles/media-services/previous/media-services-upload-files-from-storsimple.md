@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8a2972b8fbc31a3f945f40949128b3f37f2f4b77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c77b700cab4afd411c3a2df824ee8335cb394cda
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60544937"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868303"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>從 Azure StorSimple 將檔案上傳至 Azure 媒體服務帳戶  
 
-本文提供 Azure StorSimple Data Manager 的簡短概述。 本文也會連結至教學課程，說明如何從 StorSimple 擷取資料，並將此資料當作資產上傳至 Azure 媒體服務 (AMS) 帳戶。
-
-> 
 > [!NOTE]
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+>
+> 
 > Azure StorSimple Data Manager 目前處於私人預覽階段。 
 > 
 

@@ -2,24 +2,17 @@
 title: Go-To-Market 服務 - 行銷最佳做法 | Azure
 description: Go-To-Market 服務 - 本節描述 Azure Marketplace 發行者的行銷最佳做法
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: bdae273506a238c4d47c1cdce004cdd92b2d58a1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6d704398d706d3f6f2caea057862b7eef9d5baf9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121019"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938527"
 ---
 # <a name="marketing-best-practices"></a>行銷最佳做法
 

@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.openlocfilehash: 935c6ff03485c2b8e4d3e2f3df51c740ec1e8371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7ac4b54740b03a8b3fa09486a8e09f3262f67555
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770210"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866887"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>常見的 Azure Cosmos DB 使用案例
 本文提供數個常見的 Azure Cosmos DB 使用案例概觀。  本文中的建議可作為使用 Cosmos DB 來開發應用程式時的起點。   
@@ -108,7 +108,7 @@ JSON (Cosmos DB 所支援的格式) 是一種呈現 UI 配置資料的有效格�
 * [Citrix](https://customers.microsoft.com/story/citrix)。 Citrix 使用 Azure Service Fabric 和 Azure Cosmos DB 開發單一登入解決方式。
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXA 針對汽車車主推出的革命性 IoT 解決方案不僅可幫助節省時間、金錢、燃料，還可能幫助保命。
 * [Domino's Pizza](https://www.dominos.com)。 Domino's Pizza Inc. 是一個美國披薩餐廳連鎖店。
-* [Johnson Controls](https://www.johnsoncontrols.com)。 Johnson Controls 是一個全球多樣化技術與多重產業領導者，為超過 150 個國家/地區的客戶提供多種服務。
+* [Johnson Controls](https://www.johnsoncontrols.com)。 Johnson Controls 是全球多樣化的技術與多重產業領導者，超過 150 個國家/地區提供各種不同的客戶。
 * [Microsoft Windows、通用市集、Azure IoT 中樞、Xbox Live 及其他網際網路級別的服務](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/)。 Microsoft 如何使用 Azure Cosmos DB 來建置可大幅調整的服務。
 * [Microsoft 資料與分析小組](https://customers.microsoft.com/story/microsoftdataandanalytics)。 Microsoft 的「資料與分析」小組使用 Azure Cosmos DB 來達成全球級別的巨量資料收集
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india)。 Sulekha 使用 Azure Cosmos DB 來連接印度各地的客戶和企業。

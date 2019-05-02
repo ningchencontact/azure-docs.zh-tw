@@ -1,23 +1,23 @@
 ---
-title: Azure 資料箱入口網站管理員指南 | Microsoft Docs
+title: 透過 Azure 入口網站管理 Azure 資料箱 |Microsoft Docs
 description: 描述如何使用 Azure 入口網站來管理您的 Azure 資料箱。
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 483e1e0f6a472132446b20a161d012e69d83c4ac
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: HT
+ms.openlocfilehash: bf1d810733df4eaae17d092caba42888a63cc59f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607104"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919278"
 ---
-# <a name="use-the-azure-portal-to-administer-your-data-box"></a>使用 Azure 入口網站來管理您的資料箱
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>使用 Azure 入口網站管理您的 Azure 資料箱
 
-此文章說明一些可以在資料箱上執行的複雜工作流程與管理工作。 您可以透過 Azure 入口網站或本機 Web UI 來管理資料箱。 
+本文說明一些複雜的工作流程和管理工作，可對 Azure 資料箱。 您可以透過 Azure 入口網站或本機 Web UI 來管理資料箱。
 
 本文著重於可使用 Azure 入口網站執行的工作。 使用 Azure 入口網站來管理訂單、管理資料箱，並訂單完成之前持續追蹤其狀態。
 
@@ -197,7 +197,7 @@ ms.locfileid: "59607104"
 
 當入口網站中的裝置狀態出現變更時，系統會以電子郵件通知您。
 
-|訂單狀態 |說明 |
+|訂單狀態 |描述 |
 |---------|---------|
 |訂購時間     | 已成功下單。 <br>如果裝置可供使用，Microsoft 會識別要寄送的裝置，並準備該裝置。 <br> 如果裝置無法立即提供使用，系統將會在裝置可供使用時處理該訂單。 訂單的處理可能需花費數天到數個月的時間。 如果無法在 90 天內完成訂單，系統將會取消該訂單並通知您。         |
 |已處理     | 訂單處理已完成。 裝置已根據您的訂單在資料中心做好寄送準備。         |

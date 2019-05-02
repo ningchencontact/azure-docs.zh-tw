@@ -1,25 +1,19 @@
 ---
-title: 裝載的試用產品 | Microsoft Docs
+title: 裝載試用產品 |Azure Marketplace
 description: 如何設定及維護 Marketplace 裝載的試用產品
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 5057c0c781cb9ec60ecde7dd3f4bf96089b902df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: b8f9ca96ac9386037460ad5c1c9f56fe7b9c2e18
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559784"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939988"
 ---
 # <a name="hosted-test-drive"></a>裝載的試用產品
 

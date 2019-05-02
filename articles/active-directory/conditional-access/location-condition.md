@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6771cf093f62ef7823e57ced8223e4cc6c0dc57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354625"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917671"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的位置條件？ 
 
@@ -50,16 +50,13 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 - **IP 範圍** - CIDR 格式的一或多個 IPv4 位址範圍。 不支援指定的 IPv6 位址範圍。
 
    > [!NOTE]
-   > IPv6 位址 rangess 目前不能包含具名的 locationThis measn IPv6 無法從條件式存取原則中排除範圍中。
+   > IPv6 位址 rangess 目前不能包含具名位置中。 無法從 條件式存取原則中排除此 measn IPv6 範圍。
 
 - **標記為信任位置** - 您可以為具名位置設定旗標，以指出信任的位置。 一般而言，信任的位置是由您的 IT 部門所控制的網路區域。 除了條件式存取，Azure Identity Protection 與 Azure AD 安全性報告也會使用信任的具名位置以減少[誤判](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1)。
 - **國家/地區** - 此選項可讓您選取一或多個國家或地區，以定義具名位置。
 - **包括未知區域** - 部分 IP 位址未對應至特定國家/地區。 此選項可讓您選擇這些 IP 位址是否應包含在具名位置中。 當使用具名位置的原則應套用到未知位置時，請使用此設定。
 
-您可以設定的具名位置數目受到 Azure AD 中相關物件大小的限制。 您可以設定位置根據下列限制：
-
-- 一個具名位置最多有 1200 個 IP 範圍。
-- 最多 90 個具名位置，每個位置皆指派一個 IP 範圍。
+您可以設定的具名位置數目受到 Azure AD 中相關物件大小的限制。 組織可以設定最高達 90 lamed 的位置，每個設定最多 12000 IP 範圍。
 
 條件式存取原則適用於 IPv4 和 IPv6 流量。 目前具名的位置不允許設定的 IPv6 範圍。 這項限制會導致下列情況：
 

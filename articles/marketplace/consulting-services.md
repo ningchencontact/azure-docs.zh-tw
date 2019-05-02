@@ -2,24 +2,17 @@
 title: Azure Marketplace 和 AppSource 諮詢服務
 description: 本文說明 Azure Marketplace 中最新諮詢服務供應項目的適用性準則和發佈需求。
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nuno costa
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121126"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938318"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 的諮詢服務
 Azure Marketplace 和 AppSource 中的諮詢服務會為 Microsoft 合作夥伴提供一個目標，希望以服務連結客戶，支援並擴大客戶對 Azure 的使用和商務目標。 
@@ -48,7 +41,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 > [!TIP]
 > 若要發行至 Azure Marketplace 店面，需在 Cloud Partner 入口網站中的 [主要產品] 下拉式功能表選擇 [Azure]，來進行選取。 若要發行至 AppSource，需在 Cloud Partner 入口網站中的 [主要產品] 下拉式功能表選擇 [Dynamics 365]、[Power BI] 或 [Power Apps]，來進行選取。
 
-## <a name="eligible-partners-and-supported-countries"></a>合格的合作夥伴和支援的國家/地區
+## <a name="eligible-partners-and-supported-countriesregions"></a>符合資格的合作夥伴和支援的國家/地區
 
 合作夥伴必須具備其服務相關領域的**銀級或金級專長認證**。 
 
@@ -74,7 +67,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 <b> 如需詳細資訊，請參閱[透過 Microsoft 合作夥伴網路了解專長認證](https://partner.microsoft.com/membership/competencies)。</b>
  
 
-**SI 合作夥伴可以在下列 18 個國家/地區提交諮詢服務供應項目**
+**SI 合作夥伴可以提交諮詢服務供應項目，如下列 18 個國家/地區**
 
 |合格的國家/地區 |   |   |   |
 |---------|----------|----------|----------|
@@ -84,7 +77,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 |丹麥   |義大利   |     挪威          |美國 |
 |芬蘭   |日本   |     波蘭          
 
-諮詢服務將在特定地理位置推出。 首波推出區域將為：美國、加拿大、英國與澳洲。 在合作夥伴提交一定數量且極具吸引力的精選服務供應項目並經 Microsoft 核准後，其他國家/地區的目錄就會推出。
+諮詢服務將在特定地理位置推出。 首波推出區域將為：美國、加拿大、英國與澳洲。 其他國家/地區的目錄就會上線之後的有意義的數字，且引人注目的精選服務供應項目在合作夥伴提交並經 Microsoft 核准。
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>如何使用 Azure Marketplace 和 AppSource 註冊諮詢服務
 首先，在市集中[註冊](https://azuremarketplace.microsoft.com/sell/signup)您的公司資訊。 如需完整的註冊需求清單，發行者可以參考[成為 Marketplace 中的發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。 
@@ -124,7 +117,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 3. **提交**：提供指示中所列的必要資訊。 所有的內容和支援資料皆必須以英文提交。 
 4. **檢閱**：我們的行銷和編輯小組會檢閱您的提交，以求最佳的可讀性、文法和效率。 
 5. **暫存**：我們會暫存您的提交以供您檢閱。 
-6. **發佈**：當您和 Microsoft 皆滿意暫存階段的內容時，您的清單便準備好在市集上推出。 清單的推出日期取決於您供應項目中指定的國家/地區。 如果您選取之國家/地區的目錄已經在 Azure Marketplace 或 AppSource 中上線，您的清單就會在幾小時內出現。 否則，在目錄上線時就會出現清單。
+6. **發佈**：當您和 Microsoft 皆滿意暫存階段的內容時，您的清單便準備好在市集上推出。 您的清單的推出日期取決於您的供應項目中指定國家/地區。 如果您選取的國家/地區的目錄已經是即時在 Azure Marketplace 或 AppSource 中，您的清單會出現的幾小時內。 否則，在目錄上線時就會出現清單。
 
 ## <a name="offer-listings-and-content-review-criteria"></a>供應項目清單和內容檢閱準則
 供應項目必須是以下五種服務類型之一 (您可以列出一個以上)： 

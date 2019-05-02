@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78897e2e03085a20f07ce8724226f0e0171861e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291226"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707184"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>使用租用戶限制來管理對 SaaS 雲端應用程式的存取權
 
@@ -42,7 +42,7 @@ ms.locfileid: "60291226"
 
 3. **用戶端軟體**:若要支援租用戶限制，用戶端軟體必須要求權杖直接從 Azure AD 中，以便 proxy 基礎結構可以攔截流量。 瀏覽器為基礎的 Office 365 應用程式目前支援租用戶限制，一樣是使用新式驗證 （例如 OAuth 2.0) 的 Office 用戶端。
 
-4. **新式驗證**:雲端服務必須使用新式驗證來使用租用戶限制，並封鎖對所有非允許之租用戶存取。 您必須設定為預設使用新式驗證通訊協定的 Office 365 雲端服務。 如需有關 Office 365 對新式驗證之支援的最新資訊，請參閱[更新的 Office 365 新式驗證 (英文)](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)。
+4. **新式驗證**:雲端服務必須使用新式驗證來使用租用戶限制，並封鎖對所有非允許之租用戶存取。 您必須設定為預設使用新式驗證通訊協定的 Office 365 雲端服務。 如需有關 Office 365 對新式驗證之支援的最新資訊，請參閱[更新的 Office 365 新式驗證 (英文)](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)。
 
 下圖說明概略的流量流程。 租用戶限制需要只在資料傳輸至 Azure AD，而非 Office 365 雲端服務上的 SSL 檢查。 這項區別很重要，，因為向 Azure AD 進行驗證的流量通常遠比對 SaaS 應用程式，例如 Exchange Online 和 SharePoint Online 的流量。
 
@@ -128,7 +128,7 @@ Office 365 應用程式必須符合租用戶限制的完整支援的兩個準則
 1. 使用用戶端支援新式驗證。
 2. 啟用新式驗證作為雲端服務的預設驗證通訊協定。
 
-如需有關哪些 Office 用戶端目前支援新式驗證的最新資訊，請參閱[更新的 Office 365 新式驗證 (英文)](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)。 該頁面也包含在特定 Exchange Online 和「商務用 Skype Online」租用戶上啟用新式驗證的指示連結。 SharePoint Online 已啟用新式驗證預設。
+如需有關哪些 Office 用戶端目前支援新式驗證的最新資訊，請參閱[更新的 Office 365 新式驗證 (英文)](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)。 該頁面也包含在特定 Exchange Online 和「商務用 Skype Online」租用戶上啟用新式驗證的指示連結。 SharePoint Online 已啟用新式驗證預設。
 
 Office 365 瀏覽器為基礎的應用程式 （Office Portal、 Yammer、 SharePoint 網站、 Outlook Web 等等） 目前支援 「 租用戶限制。 豐富型用戶端 （Outlook、 Skype for Business、 Word、 Excel、 PowerPoint 和更多功能） 只有在使用新式驗證時，可以強制執行租用戶限制。  
 
@@ -185,5 +185,5 @@ Fiddler 是一個免費的 Web 偵錯 Proxy，可用來擷取和修改 HTTP/HTTP
 
 ## <a name="next-steps"></a>後續步驟
 
-- 閱讀[更新的 Office 365 新式驗證 (英文)](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
+- 閱讀[更新的 Office 365 新式驗證 (英文)](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - 檢閱 [Office 365 URL 與 IP 位址範圍](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

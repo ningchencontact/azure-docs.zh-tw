@@ -1,25 +1,18 @@
 ---
-title: Azure IoT Edge 模組支援 | Microsoft Docs
+title: 支援的 Azure IoT Edge 模組 |Azure Marketplace
 description: IoT Edge 模組的支援選項。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9926c9a0443eb5220e7689dfc6e49e4b8d661d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: fba5ac7669f7e2b1cfd3320e813891b5f99551d4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60909837"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943179"
 ---
 # <a name="iot-edge-module-support-tab"></a>IoT Edge 模組支援索引標籤
 
@@ -29,21 +22,22 @@ ms.locfileid: "60909837"
 
 ## <a name="support-form-fields"></a>支援表單欄位
 
-下表說明表單中各欄位以及應填內容。
+下表說明表單中各欄位以及應填內容。 必要欄位由星號 (*) 標示。
 
 |  **欄位**                |     **說明**                                                          |
 |  ---------                |     ---------------                                                          |
 | ***工程連絡人***  |  *Microsoft 與貴組織的技術連絡人* | 
-| **名稱**                  | 負責技術/工程支援的人員或群組名稱     |
-| **電子郵件**                 | 此技術連絡人的電子郵件地址                                      |
-| **電話**                 | 此技術連絡人的電話號碼                                           |
+| **名稱\***                  | 負責技術/工程支援的人員或群組名稱     |
+| **電子郵件\***                 | 此技術連絡人的電子郵件地址                                      |
+| **Phone\***                 | 此技術連絡人的電話號碼                                           |
 | ***客戶支援***  | *接收客戶在 Azure 中開啟的支援票證* |
-| **名稱**                  | 負責客戶支援的人員或群組名稱                  |
-| **電子郵件**                 | 客戶支援部門的電子郵件地址                                            |
-| **電話**                 | 客戶支援部門的電話號碼                                            |
+| **名稱\***                  | 負責客戶支援的人員或群組名稱                  |
+| **電子郵件\***                 | 客戶支援部門的電子郵件地址                                            |
+| **Phone\***                 | 客戶支援部門的電話號碼                                            |
 | ***支援 URL***  | *當您的客戶建立支援票證時，Microsoft 會使用這些支援網站* |
 | **公用 Azure**          | 公用網際網路支援網站 URL                                         |
 | **Azure Government 雲端**| 政府雲端支援網站 URL                                        |
+|   |   |
 
 ## <a name="next-steps"></a>後續步驟
 

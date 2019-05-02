@@ -8,26 +8,26 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 7ad6d4b3a1f465f3d15e00f0164da9f2778f7f1c
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: ed2611896f2c23a3cf1d2fec5d9e711f518a65c6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760795"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926357"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集
 
-企業安全性套件 (ESP) 叢集可在 Azure HDInsight 叢集上提供多使用者存取。 具有 ESP 的 HDInsight 叢集會與網域連線，讓網域使用者可以使用其網域認證來驗證叢集並執行巨量資料作業。 
+企業安全性套件 (ESP) 叢集可在 Azure HDInsight 叢集上提供多使用者存取。 具有 ESP 的 HDInsight 叢集會與網域連線，讓網域使用者可以使用其網域認證來驗證叢集並執行巨量資料作業。
 
 在本文中，您將了解如何使用 Azure Active Directory Domain Services (Azure AD-DS) 來設定具有 ESP 的 HDInsight 叢集。
 
 > [!NOTE]  
-> 在 HDI 3.6 中，Apache Spark、互動式及 Apache Hadoop 的 ESP 是正式運作版。 Apache HBase 和 Apache Kafka 叢集類型的 ESP 則為預覽版。
+> ESP 已正式推出在 HDI 3.6 叢集類型：互動式的 Apache Spark 和 Apache Hadoop。 Apache HBase 和 Apache Kafka 叢集類型的 ESP 則為預覽版。
 
 ## <a name="enable-azure-ad-ds"></a>啟用 Azure AD-DS
 
 > [!NOTE]  
-> 只有租用戶的系統管理員具有啟用 Azure AD-DS 的權限。 如果叢集儲存體是 Azure Data Lake Storage (ADLS) Gen1 或 Gen2，您必須只針對需要使用基本 Kerberos 驗證來存取叢集的使用者停用「多重要素驗證」(MFA)。 您可以使用[信任的 IP](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) 或[條件式存取](../../active-directory/conditional-access/overview.md)，只在特定使用者存取 HDInsight 叢集 VNET IP 範圍時，為這些使用者停用 MFA。 如果您使用條件式存取，請確定 AD 服務端點中啟用 HDInsight VNET 上。
+> 只有租用戶的系統管理員具有啟用 Azure AD-DS 的權限。 如果叢集儲存體是 Azure Data Lake 儲存體 (ADLS) Gen1 或 Gen2，您必須停用多重要素驗證 (MFA) 只需要存取叢集使用基本的 Kerberos 驗證的使用者。 您可以使用[信任的 IP](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) 或[條件式存取](../../active-directory/conditional-access/overview.md)，只在特定使用者存取 HDInsight 叢集 VNET IP 範圍時，為這些使用者停用 MFA。 如果您使用條件式存取，請確定在 HDInsight VNET 上已啟用 AD 服務端點。
 >
 > 如果叢集儲存體是 Azure Blob 儲存體 (WASB)，請勿停用 MFA。
 
@@ -44,7 +44,7 @@ $lifetime=Get-Date
 New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
   -Type SSLServerAuthentication -DnsName *.contoso100.onmicrosoft.com, contoso100.onmicrosoft.com
-``` 
+```
 
 ## <a name="check-azure-ad-ds-health-status"></a>檢查 Azure AD-DS 健康狀態
 選取 [管理] 類別下方的 [健康情況]，以檢視您的 Azure Active Directory Domain Services 的健康狀態。 請確定 Azure AD-DS 的狀態是綠色的 (執行中)，且同步處理已完成。
@@ -68,7 +68,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 ## <a name="networking-considerations"></a>網路考量
 
 > [!NOTE]  
-> Azure AD-DS 必須部署在 Azure Resource Manager (ARM) 架構的 vNET 中。 Azure AD-DS 不支援傳統虛擬網路。 如需詳細資訊，請參閱[啟用 Azure Active Directory Domain Services 使用 Azure 入口網站](../../active-directory-domain-services/active-directory-ds-getting-started-network.md)。
+> Azure AD-DS 必須部署在 Azure Resource Manager (ARM) 架構的 vNET 中。 Azure AD-DS 不支援傳統虛擬網路。 如需詳細資訊，請參閱[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-network.md)。
 
 啟用 Azure AD-DS 之後，本機網域名稱服務 (DNS) 伺服器會在 AD 虛擬機器 (VM) 上執行。 將 Azure AD-DS 虛擬網路 (VNET) 設定為使用這些自訂的 DNS 伺服器。 若要找出正確的 IP 位址，請選取 [管理] 類別下的 [屬性]，然後查看 [虛擬網路上的 IP 位址] 下方列出的 IP 位址。
 
@@ -87,7 +87,7 @@ VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服
 如果您在您的 HDInsight 子網路中使用網路安全性群組 (NSG) 規則，您應該允許輸入和輸出流量[所需的 IP](../hdinsight-extend-hadoop-virtual-network.md)。 
 
 **若要測試**您的網路是否已正確設定，請將 Windows VM 加入至 HDInsight VNET/子網路，並 Ping 網域名稱 (它應更會解析為 IP)，接著執行 **ldp.exe** 以存取 Azure AD-DS 網域。 接著，**將此 Windows VM 加入至網域**，以確認用戶端與伺服器之間的所有必要 RPC 呼叫都會成功。 您也可以使用 **nslookup** 來確認對您儲存體帳戶或您可能使用之任何外部 DB (例如，外部 Hive 中繼存放區或 Ranger DB) 的網路存取。
-請確定所有[所需的連接埠](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers)會列入白名單 AAD DS 子網路中的網路安全性群組規則，如果 AAD DS 受到 NSG。 如果此 Windows VM 網域成功加入網域，您就可以繼續進行下一個步驟並建立 ESP 叢集。
+您應該確認所有[必要連接埠](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) \(英文\) 都已在 AAD-DS 子網路網路安全性群組規則中列為允許清單 (若 AAD-DS 已由 NSG 保護)。 如果此 Windows VM 網域成功加入網域，您就可以繼續進行下一個步驟並建立 ESP 叢集。
 
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>建立具有 ESP 的 HDInsight 叢集
 
@@ -95,7 +95,6 @@ VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服
 
 > [!NOTE]  
 > ESP 叢集名稱的前六個字元在您的環境中必須是唯一的。 例如，如果您在不同的 VNET 中有多個 ESP 叢集，您應該選擇能確保叢集名稱前六個字元是唯一的命名慣例。
-
 
 ![Azure HDInsight 企業安全性套件網域驗證](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 
@@ -119,7 +118,7 @@ VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服
 
 ![Azure HDInsight ESP Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png)上也提供本文中使用的原始碼。
 
-
 ## <a name="next-steps"></a>後續步驟
+
 * 如需了解如何設定 Hive 原則及執行 Hive 查詢，請參閱[為具有 ESP 的 HDInsight 叢集設定 Apache Hive 原則](apache-domain-joined-run-hive.md)。
 * 如需了解如何使用 SSH 來連線到具有 ESP 的 HDInsight 叢集，請參閱[從 Linux、Unix 或 OS X 使用 SSH 搭配 Linux 型 HDInsight 上的 Apache Hadoop](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)。

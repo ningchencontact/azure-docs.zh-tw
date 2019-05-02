@@ -2,33 +2,48 @@
 title: 包含檔案
 description: 包含檔案
 services: functions
-author: ggailey777
+author: craigshoemaker
 ms.service: functions
 ms.topic: include
-ms.date: 09/21/2018
-ms.author: glenga
+ms.date: 09/25/2018
+ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: f1b53c53b1e5fb089eb9b8a9b816b11a1eea126d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47044504"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733275"
 ---
-當您在本機開發函式時，您可以從終端機或命令提示字元中使用 Azure Functions Core Tools，來安裝需要的擴充。
+延伸模組套件組合請透過在設定 Azure Functions 小組所發行的所有繫結*host.json*檔案。 針對本機開發，請確定您有最新版[Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)。
 
-在更新 function.json 檔案以包含函式所需的所有繫結後，請在專案資料夾中執行下列命令。
+若要使用延伸模組套件組合，更新*host.json*檔案，以包含下列項目`extensionBundle`:
 
-```bash
-func extensions install
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    }
+}
 ```
 
-此命令會讀取 function.json 檔案，查看您需要哪些套件，加以安裝，然後重建擴充專案。 它會在目前版本中新增任何新繫結，但不會更新現有的繫結。 在安裝新的繫結時，使用 `--force` 選項將現有繫結更新為最新版本。
+- `id`屬性參照 Microsoft Azure 函式延伸模組套件組合的命名空間。
+- `version`參考套件組合的版本。
 
-如果您想要安裝特定版本的套件，或是要在編輯 function.json 檔案之前安裝套件，請使用 `func extensions install` 命令搭配套件的名稱，如下列範例所示：
+以套件組合變更的套件組合版本遞增。 只有當套件組合中的移動主要版本時，才發生主要版本變更。 `version`屬性使用[間隔標記法來指定版本範圍](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards)。 Functions 執行階段一律會挑選版本範圍或間隔所定義的最高允許版本。
 
-```bash
-func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
+一旦您在專案中參考延伸模組套件組合，然後所有的預設繫結可供您的函式。 提供的繫結[延伸模組套件組合](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json)是：
 
-以特定版本的套件取代 `<target_version>`，例如 `3.0.0-beta5`。 有效的版本會列在 [NuGet.org](https://nuget.org) 的個別套件頁面上。
+|Package  |Version  |
+|---------|---------|
+|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
+|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
+|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
+|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
+|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
+|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|

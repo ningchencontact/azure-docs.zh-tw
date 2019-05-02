@@ -1,25 +1,18 @@
 ---
-title: 在 Microsoft Azure Marketplace 建立虛擬機器供應項目 | Microsoft Docs
+title: 在 Azure Marketplace 中建立虛擬機器供應項目
 description: 列出在 Microsoft Azure Marketplace 建立新虛擬機器 (VM) 供應項目所需步驟。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a3124ca2f163291d266fba77255d2ee98d30fd23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 4cd635c6f664a5260b79e62ea72bbb86fc4e1e4f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744143"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938363"
 ---
 # <a name="create-virtual-machine-offer"></a>建立虛擬機器供應項目
 

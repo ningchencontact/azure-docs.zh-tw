@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129192"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710403"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -500,7 +500,9 @@ ReadsPerSecond | 每秒的讀取作業數
 WritesPerSecond | 每秒的寫入作業數
 TransfersPerSecond | 每秒的讀取或寫入作業數
 
-可透過設定 `"condition": "IsAggregate=True"` 取得的所有檔案系統彙總值。 可透過設定 `"condition": 'Name="/mnt"'` 取得的特定已掛接檔案系統 (例如 "/mnt") 的值。
+可透過設定 `"condition": "IsAggregate=True"` 取得的所有檔案系統彙總值。 可透過設定 `"condition": 'Name="/mnt"'` 取得的特定已掛接檔案系統 (例如 "/mnt") 的值。 
+
+**附註**：如果使用 Azure 入口網站，而不 JSON，正確的條件欄位表單就是名稱 ='/ /mnt '
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>磁碟類別的內建計量
 

@@ -3,8 +3,8 @@ title: 檢視特定位置中 Azure 區域的相對延遲 | Microsoft Docs
 description: 了解如何檢視特定位置中 Azure 區域跨網際網路提供者的相對延遲。
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792413"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939867"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>檢視特定位置中 Azure 區域的相對延遲
 
@@ -60,7 +60,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> 您在前一個命令中指定的區域不必與您擷取網路監看員時所指定的區域相同。 前一個命令只會要求您指定現有的網路監看員。 網路監看員可位於任何區域。 如果您指定 `-Country` 和 `-State` 的值，它們必須是有效的。 值會區分大小寫。 資料可供有限數目的國家/地區、州和城市使用。 在[檢視可用的國家/地區、州、城市及提供者](#view-available)中執行命令，以檢視可與前一個命令搭配使用的國家/地區、城市及狀態清單。 
+> 您在前一個命令中指定的區域不必與您擷取網路監看員時所指定的區域相同。 前一個命令只會要求您指定現有的網路監看員。 網路監看員可位於任何區域。 如果您指定 `-Country` 和 `-State` 的值，它們必須是有效的。 值會區分大小寫。 資料可供有限數目的國家/地區、 州和城市。 在 執行命令[檢視可用的國家/地區、 狀態、 城市及提供者](#view-available)以檢視可用的國家/地區、 城市及狀態，以使用與前一個命令的清單。 
 
 > [!WARNING]
 > 您必須針對 `-StartTime` 和 `-EndTime` 指定過去 30 天內的日期。 指定先前的日期會導致未傳回任何資料。
@@ -125,15 +125,15 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > 不同於您指定單一位置時，如果您不指定位置，或是指定多個位置，例如「美國西部 2」、「美國西部」，就必須在執行命令時，指定網際網路服務提供者。 
 
-## <a name="view-available"></a>檢視可用的國家/地區、州、城市及提供者
+## <a name="view-available"></a>檢視可用的國家/地區、 狀態、 城市及提供者
 
-資料可供特定的網際網路服務提供者、國家/地區、州和城市使用。 若要檢視所有您可以檢視資料的可用網際網路服務提供者、國家/地區、州和城市的清單，請輸入下列命令：
+使用特定的網際網路服務提供者、 國家/地區、 州和城市的資料。 若要檢視一份所有可用的網際網路服務提供者、 國家/地區、 州和城市，您可以檢視資料，輸入下列命令：
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-資料僅可供前一個命令所傳回的國家/地區、州和城市使用。 前一個命令會要求您指定現有的網路監看員。 範例已在名為 *NetworkWatcherRG*的資源群組中指定 NetworkWatcher_eastus 網路監看員，但是您可以指定任何現有的網路監看員。 如果您沒有現有的網路監看員，請建立一個網路監看員，方法是完成[建立網路監看員](#create-a-network-watcher)中的工作。 
+只有使用的國家/地區、 州和城市先前命令所傳回的資料。 前一個命令會要求您指定現有的網路監看員。 範例已在名為 *NetworkWatcherRG*的資源群組中指定 NetworkWatcher_eastus 網路監看員，但是您可以指定任何現有的網路監看員。 如果您沒有現有的網路監看員，請建立一個網路監看員，方法是完成[建立網路監看員](#create-a-network-watcher)中的工作。 
 
 在執行前一個命令後，您可以篩選傳回的輸出，方法是指定 [國家/地區]、[州] 和 [城市] 的有效值。  例如，若要檢視美國境內華盛頓州的西雅圖中可用的網際網路服務提供者清單，請輸入下列命令：
 

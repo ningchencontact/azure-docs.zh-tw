@@ -3,19 +3,19 @@ title: 定義 Azure Active Directory B2C 自訂原則中的 Azure Active Directo
 description: 定義 Azure Active Directory B2C 自訂原則中的 Azure Active Directory 技術設定檔。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b8dac47d1aa91eb8a8ee1ef9515809607b267437
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 433307791201e3799b3bc9e54aec765d9fbeb4af
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190696"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718696"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的 Azure Active Directory 技術設定檔
 
@@ -23,7 +23,7 @@ ms.locfileid: "55190696"
 
 Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者管理功能。 本文會說明技術設定檔的詳細規格，其可和支援此標準化通訊協定的宣告提供者互動。
 
-## <a name="protocol"></a>通訊協定
+## <a name="protocol"></a>Protocol
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `Proprietary`。 **handler** 屬性必須包含通訊協定處理常式組件的完整名稱 `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`。
 
@@ -252,7 +252,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 ```
 ## <a name="metadata"></a>中繼資料
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | 作業 | 是 | 要執行的作業。 可能的值：`Read`、`Write`、`DeleteClaims` 或 `DeleteClaimsPrincipal`。 | 
 | RaiseErrorIfClaimsPrincipalDoesNotExist | 否 | 如果使用者物件不存在目錄中，會發生錯誤。 可能的值：`true` 或 `false`。 | 

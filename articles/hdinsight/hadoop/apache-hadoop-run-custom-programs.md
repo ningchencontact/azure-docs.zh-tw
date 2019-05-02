@@ -1,7 +1,6 @@
 ---
 title: 執行自訂 MapReduce 程式 - Azure HDInsight
 description: 何時及如何在 HDInsight 中執行自訂 MapReduce 程式。
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: c9cbea913a86a681620eea4adc0a5c99cc84f920
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 5ed82fc21aedc9af394922059859f81cfba1867e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433860"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713098"
 ---
 # <a name="run-custom-mapreduce-programs"></a>執行自訂 MapReduce 程式
 
@@ -38,7 +37,6 @@ Map/Reduce 程式碼是由以 **map** 和 **reduce** 元件來實作的兩個個
 自訂 Map/Reduce 元件通常會以 Java 撰寫。 Hadoop 有提供一個串流介面，可一併允許使用以其他語言 (例如 C#、F#、Visual Basic、Python 及 JavaScript) 開發的元件。
 
 * 如需有關開發自訂 Java MapReduce 程式的逐步解說，請參閱[開發適用於 HDInsight 上 Hadoop 的 Java MapReduce 程式](apache-hadoop-develop-deploy-java-mapreduce-linux.md)。
-* 若要查看使用 Python 的範例，請參閱[開發 HDInsight 的 Python 串流處理 MapReduce 程式](apache-hadoop-streaming-python.md)。
 
 針對下列情況，請考慮建立您自己的 map 和 reduce 元件：
 
@@ -76,6 +74,5 @@ Map/Reduce 程式碼是由以 **map** 和 **reduce** 元件來實作的兩個個
 
 * [搭配 HDInsight 的 Apache Hadoop 上的 MapReduce 串流使用 C#](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [開發適用於 HDInsight 上 Apache Hadoop 的 Java MapReduce 程式](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [開發 HDInsight 的 Python 資料流 MapReduce 程式](apache-hadoop-streaming-python.md)
 * [使用 Azure Toolkit for Eclipse 為 HDInsight 叢集建立 Apache Spark 應用程式](../spark/apache-spark-eclipse-tool-plugin.md)
 * [在 HDInsight 上搭配 Apache Hive 和 Apache Pig 使用 Python 使用者定義函數 (UDF)](python-udf-hdinsight.md)

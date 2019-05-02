@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764274"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706321"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>使用自訂映像來建立虛擬機器的集區 
 
 當您使用虛擬機器設定建立 Azure Batch 集區時，需指定 VM 映像，以提供集區中每個計算節點的作業系統。 您可以使用支援的 Azure Marketplace 映像或自訂映像 (即您自行建立並設定的 VM 映像) 來建立虛擬機器集區。 自訂映像必須是*受控映像*資源，且位於和 Batch 帳戶相同的 Azure 訂用帳戶和區域中。
 
-## <a name="why-use-a-custom-image"></a>為何要使用自訂映像？
+## <a name="benefits-of-custom-images"></a>自訂映像的優點
 
 當您提供自訂映像，您可以控制作業系統設定以及要使用的作業系統和資料磁碟類型。 自訂映像可以包含應用程式和參考資料，它們在所有 Batch 集區節點上一經佈建便可使用。
 
@@ -32,12 +32,11 @@ ms.locfileid: "63764274"
 - **節省 VM 的重新開機時間。** 應用程式安裝通常需要重新啟動 VM，這相當耗時。 預先安裝應用程式可以節省重新開機時間。 
 - **一次複製大量資料。** 藉由將靜態資料複製到受控映像的資料磁碟，使靜態資料成為受控自訂映像的一部分。 這只需要執行一次，就能將資料提供給集區的每個節點。
 - **選擇磁碟類型。** 您可以選擇在 OS 磁碟和資料磁碟使用進階儲存體。
-- **讓集區變大。** 當您使用受控自訂映像來建立集區時，您無須複製映像 Blob VHD，集區便可以成長。 
-
+- **讓集區變大。** 當您使用受控自訂映像來建立集區時，您無須複製映像 Blob VHD，集區便可以成長。
 
 ## <a name="prerequisites"></a>必要條件
 
-- **受控映像資源**。 若要使用自訂映像來建立虛擬機器集區，您必須在與 Batch 帳戶相同的 Azure 訂用帳戶和區域中，擁有或建立受控映像資源。 您應該從 VM 之 OS 磁碟 (以及視需要從其連結之資料磁碟) 的快照集建立該映像。 如需詳細資訊及準備受控映像的步驟，請參閱下一節。 
+- **受控映像資源**。 若要使用自訂映像來建立虛擬機器集區，您必須在與 Batch 帳戶相同的 Azure 訂用帳戶和區域中，擁有或建立受控映像資源。 您應該從 VM 之 OS 磁碟 (以及視需要從其連結之資料磁碟) 的快照集建立該映像。 如需詳細資訊及準備受控映像的步驟，請參閱下一節。
   - 針對您建立的每個集區使用唯一的自訂映像。
   - 若要使用 Batch API 以映像建立集區，請指定映像的**資源識別碼**，其形式為 `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`。 若要使用入口網站，請使用映像的**名稱**。  
   - 受控映像資源應該在集區存留期內都存在，以供集區調升規模，並可在刪除集區之後移除。
@@ -46,7 +45,7 @@ ms.locfileid: "63764274"
 
 ## <a name="prepare-a-custom-image"></a>準備自訂映像
 
-在 Azure 中，您可以從 Azure VM 之 OS 和資料磁碟的快照集、從含有受控磁碟的一般化 Azure VM，或從您所上傳的一般化內部部署 VHD，準備受控映像。 若要使用自訂映像來可靠地調整 Batch 集區，建議您「只」使用第一個方法：使用 VM 磁碟的快照集。 請參閱下列步驟來準備 VM、建立快照集，然後從快照集建立映像。 
+在 Azure 中，您可以從 Azure VM 之 OS 和資料磁碟的快照集、從含有受控磁碟的一般化 Azure VM，或從您所上傳的一般化內部部署 VHD，準備受控映像。 若要使用自訂映像來可靠地調整 Batch 集區，建議您「只」使用第一個方法：使用 VM 磁碟的快照集。 請參閱下列步驟來準備 VM、建立快照集，然後從快照集建立映像。
 
 ### <a name="prepare-a-vm"></a>準備 VM
 
@@ -60,6 +59,7 @@ ms.locfileid: "63764274"
 
 * 確定使用受控磁碟來建立 VM。 當您建立 VM 時，這是預設的儲存體設定。
 * 不要在 VM 上安裝 Azure 延伸模組，例如「自訂指令碼」延伸模組。 如果映像包含預先安裝的延伸模組，則 Azure 在部署 Batch 集區時可能會遇到問題。
+* 當使用連接的資料磁碟時，您要掛接和格式化的磁碟內的 VM，以使用它們。
 * 確定您提供的基本 OS 映像使用預設的暫存磁碟機。 Batch 節點代理程式目前需要有預設的暫存磁碟機。
 * 一旦 VM 開始執行之後，請透過 RDP (適用於 Windows) 或 SSH (適用於 Linux) 向它連線。 安裝任何必要的軟體或複製所需的資料。  
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
-ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03c5fb0f399e43af2584743655eeea8af4c5b2f5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620822"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924453"
 ---
 # <a name="azure-resource-health-faq"></a>Azure 資源健康狀態常見問題集
 了解 Azure 資源健康狀態相關常見問題的答案。
@@ -50,7 +50,7 @@ ms.locfileid: "60620822"
 在入口網站中，會使用藍色通知圖示來顯示使用者啟動的動作，而規劃與未規劃的事件則會使用紅色警告圖示來顯示。 [資源健康狀態概觀](Resource-health-overview.md)中會提供更多詳細資料。  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>可以將資源健康狀態與我的監視工具進行整合嗎？
-資源健康狀態已[預覽支援](resource-health-alert-arm-template-guide.md)針對活動記錄檔為基礎的警示。 使用的活動記錄警示[動作群組](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups)通知使用者已觸發警示。 動作群組可支援各種不同的通知通道，例如電子郵件、 SMS、 webhook 及 ITSM 動作。
+資源健康狀態已[預覽支援](resource-health-alert-arm-template-guide.md)針對活動記錄檔為基礎的警示。 使用的活動記錄警示[動作群組](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)通知使用者已觸發警示。 動作群組可支援各種不同的通知通道，例如電子郵件、 SMS、 webhook 及 ITSM 動作。
 
 ## <a name="where-do-i-find-resource-health"></a>哪裡可以找到資源健康狀態？
 登入 Azure 入口網站之後，您可以使用多種方式來存取資源健康狀態：

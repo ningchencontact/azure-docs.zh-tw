@@ -3,17 +3,16 @@ title: Azure Marketplace 原則和詞彙 |Azure
 description: Microsoft Azure Marketplace 原則和詞彙適用於所有的發行者和 Microsoft Azure Marketplace 供應項目。
 services: Azure, Marketplace, AppSource
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 9dc4bfa1f2435488f7d6513f9c14e82da33a4d64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5041e9f7b19508480ff27311ba61d180f4a5a01
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322748"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937638"
 ---
 # <a name="azure-marketplace-policies-and-terms"></a>Azure Marketplace 原則和條款
 
@@ -26,9 +25,12 @@ ms.locfileid: "60322748"
 
 ## <a name="policies-and-terms"></a>原則和詞彙
 
-* [一般清單和供應項目原則](https://docs.microsoft.com/legal/marketplace/general-policies)
+* [Azure Marketplace 認證原則](https://docs.microsoft.com/legal/marketplace/certification-policies)
+
 * [參與原則](https://docs.microsoft.com/legal/marketplace/participation-policy)
+
 * [原則評等和檢閱](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
+
 * [Azure Marketplace 條款](https://docs.microsoft.com/legal/marketplace/terms)
 
 ## <a name="next-steps"></a>後續步驟

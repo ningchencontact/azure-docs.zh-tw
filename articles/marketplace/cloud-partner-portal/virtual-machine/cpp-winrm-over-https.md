@@ -1,25 +1,18 @@
 ---
-title: 透過 Azure 的 HTTPS 進行 Windows 遠端管理 | Microsoft Docs
-description: 上也提供本文中使用的原始碼。
+title: Windows 遠端管理在 HTTPS 上的 Azure |Azure Marketplace
+description: 說明如何設定 Azure 託管、 以 Windows 為基礎的 VM，使它與 PowerShell 可以從遠端管理。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 99c41dc010ae589cc43c093646fd1c05c1333f7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: fb661a2705d437d1f40ceebcad7e759c2a78540f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342809"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938232"
 ---
 # <a name="windows-remote-management-over-https"></a>透過 HTTPS 進行 Windows 遠端管理
 

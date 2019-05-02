@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578556"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943927"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>在 Azure 上佈建深入學習虛擬機器 
 
@@ -35,7 +35,8 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
 )上的虛擬機器清單。
 2. 選取底部的 [建立] 按鈕以進入精靈。![create-dlvm](./media/dlvm-provision-wizard.PNG)
 3. 針對此圖右邊列舉的**四個步驟**，用來建立 DLVM 的精靈會要求**輸入**每個步驟。 以下是設定每個步驟所需的輸入：
-   
+
+   <a name="basics"></a>   
    1. **基本概念**
       
       1. **名稱**：您要建立之資料科學伺服器的名稱。
@@ -46,13 +47,14 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
       5. **資源群組**：您可以建立新的群組，也可以使用訂用帳戶中**空白**的現有 Azure 資源群組。
       6. **位置**：選取最適合的資料中心。 它通常是擁有您大部分的資料或者是最接近您的實際位置以取得最快速度的網路存取的資料中心。 
       
-> [!NOTE]
-> DLVM 支援所有 NC 和 ND 系列 GPU VM 執行個體。 佈建 DLVM 時，您必須在 Azure 中選擇其中一個具有 GPU 的位置。 請參閱[依區域的 Azure 產品頁面](https://azure.microsoft.com/regions/services/)以取得可用位置，並在 [計算] 下方尋找 [NC 系列]、[NCv2 系列]、[NCv3 系列] 或 [ND 系列]。 
+      > [!NOTE]
+      > DLVM 支援所有 NC 和 ND 系列 GPU VM 執行個體。 佈建 DLVM 時，您必須在 Azure 中選擇其中一個具有 GPU 的位置。 請參閱[依區域的 Azure 產品頁面](https://azure.microsoft.com/regions/services/)以取得可用位置，並在 [計算] 下方尋找 [NC 系列]、[NCv2 系列]、[NCv3 系列] 或 [ND 系列]。 
 
-1. **設定**：選取符合您功能性需求和成本限制的其中一個 NC 系列 (NC、NCv2、NCv3) 或 ND 系列 GPU 虛擬機器大小。 為您的 VM 建立儲存體帳戶。  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   1. **設定**：選取符合您功能性需求和成本限制的其中一個 NC 系列 (NC、NCv2、NCv3) 或 ND 系列 GPU 虛擬機器大小。 為您的 VM 建立儲存體帳戶。  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-1. **摘要**：請確認您輸入的所有資訊都正確無誤。
-1. ：按一下 [購買] 以開始佈建。 會提供一個交易條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
+   1. **摘要**：請確認您輸入的所有資訊都正確無誤。
+
+   1. ：按一下 [購買] 以開始佈建。 會提供一個交易條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
 
 > [!NOTE]
 > 佈建大約 10-20 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。
@@ -66,7 +68,7 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
 
 ### <a name="linux-edition"></a>Linux 版本
 
-建立 VM 之後，您就可以使用 SSH 登入。 針對文字殼層介面，使用您在步驟 3 的 **基本** 區段中建立的帳戶認證。 在 Windows 用戶端上，您可以下載 SSH 用戶端工具，例如 [Putty](https://www.putty.org)。 如果您偏好圖形化桌面 (X Windows 系統)，您可以在 Putty 上使用 X11 轉寄或安裝 X2Go 用戶端。
+建立 VM 之後，您就可以使用 SSH 登入。 使用您在中建立的帳戶認證[**基本概念**](#basics)一節的步驟 3 針對文字殼層介面。 如需有關 Azure vm 的 SSH 連線的詳細資訊，請參閱[安裝和設定遠端桌面連線到 Azure 中的 Linux VM](/azure/virtual-machines/linux/use-remote-desktop)。 在 Windows 用戶端中，您可以下載 SSH 用戶端工具，例如[Putty](http://www.putty.org)。 如果您偏好圖形化桌面 (X Windows 系統)，您可以在 Putty 上使用 X11 轉寄或安裝 X2Go 用戶端。 
 
 > [!NOTE]
 > 在測試中，X2Go 用戶端的效能優於 X11 轉寄。 我們建議您使用 X2Go 用戶端作為圖形化桌面介面。

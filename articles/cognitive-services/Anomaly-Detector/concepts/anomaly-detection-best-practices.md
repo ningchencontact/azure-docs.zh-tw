@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 467ac4e475a1c23e25b62c76cfbc959e7ed49465
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484027"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692206"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>使用異常偵測器 API 的最佳做法
 
@@ -25,6 +25,29 @@ ms.locfileid: "58484027"
 * 在您的 API 要求中的資料點數目。 
 
 您可以使用本文來了解使用 API 為您的資料得到最佳效果的最佳做法。 
+
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>使用批次 （整個） 或最新版本的時機 （上一次） 點異常偵測
+
+異常偵測器 API 的批次偵測端點可讓您偵測異常行為，透過您的整個時間序列資料。 偵測模式時，會在單一的統計模型建立，並套用至資料集中的每個點。 如果您的時間序列具有下列特性，我們建議使用以預覽您的資料，在單一 API 呼叫中的批次偵測。
+
+* 季節性的時間序列的偶發的異常狀況。
+* 一般的趨勢時間序列，使用偶發的尖峰/下降。 
+
+我們不建議使用批次異常偵測，即時監視，或使用沒有上述特性的時間序列資料的資料。 
+
+* 建立批次偵測，並適用於只有一個模型，每個點偵測完成整個系列的內容中。 如果時間序列資料趨勢增加和減少不含季節性、 一些點的變更 （dip 和資料尖峰） 可能會遺漏模型。 同樣地，某些點較不明顯大於稍後在資料集中的變更可能不會被視為明顯到足以併入模型中。
+
+* 批次偵測低於執行監看即時資料，因為所分析的點數目時，偵測異常的狀態最新的點。
+
+監看即時資料，我們建議偵測異常狀態的最新資料點只能。 藉由持續套用最新的端點偵測，串流處理監視資料可更有效率且更精確地。
+
+下列範例會說明這些偵測模式會對效能的影響。 第一張圖顯示持續地偵測到異常的狀態最新點沿著 28 先前看到的資料點的結果。 紅色的點是異常狀況。
+
+![顯示使用最新點的異常偵測映像](../media/last.png)
+
+以下是相同的資料集使用批次異常偵測。 建立作業模型已忽略標示矩形的數個異常狀況。
+
+![顯示使用批次方法的異常偵測映像](../media/entire.png)
 
 ## <a name="data-preparation"></a>資料準備
 

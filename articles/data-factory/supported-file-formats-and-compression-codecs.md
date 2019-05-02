@@ -3,18 +3,18 @@ title: Azure Data Factory 中支援的檔案格式 | Microsoft Docs
 description: 本主題描述 Azure Data Factory 中以檔案為基礎的連接器所支援的檔案格式和壓縮碼。
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394419"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925143"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -29,9 +29,12 @@ ms.locfileid: "60394419"
 * [Avro 格式](#avro-format)
 
 > [!TIP]
-> 請參閱[複製活動中的結構描述對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動將來源資料對應至接收的方式，其中包括中繼資料是如何根據您的檔案格式設定來決定，以及指定[資料集 `structure`](concepts-datasets-linked-services.md#dataset-structure) 區段的時機。
+> 請參閱[複製活動中的結構描述對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動將來源資料對應至接收的方式，其中包括中繼資料是如何根據您的檔案格式設定來決定，以及指定[資料集 `structure`](concepts-datasets-linked-services.md#dataset-structure-or-schema) 區段的時機。
 
 ## <a name="text-format"></a>文字格式
+
+>[!NOTE]
+>導入新的 data Factory 分隔文字格式的資料集，請參閱 <<c0> [ 分隔文字格式](format-delimited-text.md)發行項的詳細資料。 下列組態檔為基礎的資料存放區資料集上仍可作為-適用於回溯 compabitility。 建議您在使用新的模型，從現在開始。
 
 如果您想要從文字檔讀取或寫入至文字檔，請將資料集之 `format` 區段中的 `type` 屬性設定成 **TextFormat**。 您也可以在 `format` 區段中指定下列**選擇性**屬性。 關於如何設定，請參閱 [TextFormat 範例](#textformat-example)一節。
 
@@ -97,7 +100,7 @@ ms.locfileid: "60394419"
 | nestingSeparator |用來分隔巢狀層級的字元。 預設值為 '.' (點)。 |否 |
 
 >[!NOTE]
->這種交叉套用陣列中的資料到多個資料列 (案例 1 中的範例 2]-> [ [JsonFormat 範例](#jsonformat-example))，您只能選擇將展開使用屬性的單一陣列`jsonNodeReference`。 
+>這種交叉套用陣列中的資料到多個資料列 (案例 1 中的範例 2]-> [ [JsonFormat 範例](#jsonformat-example))，您只能選擇將展開使用屬性的單一陣列`jsonNodeReference`。
 
 ### <a name="json-file-patterns"></a>JSON 檔案模式
 
@@ -196,7 +199,7 @@ ms.locfileid: "60394419"
 
 **範例 1︰從物件和陣列擷取資料**
 
-在此範例中，預計會有一個根 JSON 物件對應至表格式結果中的單一記錄。 如果您的 JSON 檔案含有下列內容：  
+在此範例中，預計會有一個根 JSON 物件對應至表格式結果中的單一記錄。 如果您的 JSON 檔案含有下列內容：
 
 ```json
 {
@@ -408,6 +411,9 @@ ms.locfileid: "60394419"
 
 ## <a name="parquet-format"></a>Parquet 格式
 
+>[!NOTE]
+>Data Factory 引進新的 Parquet 格式資料集，請參閱 < [Parquet 格式](format-delimited-text.md)發行項的詳細資料。 下列組態檔為基礎的資料存放區資料集上仍可作為-適用於回溯 compabitility。 建議您在使用新的模型，從現在開始。
+
 如果您想要剖析 Parquet 檔案，或以 Parquet 格式寫入資料，請將 `format``type` 屬性設定為 **ParquetFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
 
 ```json
@@ -426,13 +432,13 @@ ms.locfileid: "60394419"
 > [!IMPORTANT]
 > 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 Parquet 檔案，就需要在 IR 機器上安裝 **64 位元的 JRE 8 (Java Runtime Environment) 或 OpenJDK**。 如需更多詳細資料，請參閱接下來的段落。
 
-針對在自我裝載 IR 上搭配 Parquet 檔案序列化/還原序列化來執行的複製，ADF 會找出 Java 執行階段，方法是先檢查登錄 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 是否有 JRE，如果找不到，就接著檢查系統變數 *`JAVA_HOME`* 是否有 OpenJDK。 
+針對在自我裝載 IR 上搭配 Parquet 檔案序列化/還原序列化來執行的複製，ADF 會找出 Java 執行階段，方法是先檢查登錄 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 是否有 JRE，如果找不到，就接著檢查系統變數 *`JAVA_HOME`* 是否有 OpenJDK。
 
 - **使用 JRE**：64 位元 IR 需要 64 位元 JRE。 您可以從[這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到該程式。
 - **使用 OpenJDK**：自 IR 3.13 版開始便可支援。 請將 jvm.dll 與所有其他必要的 OpenJDK 組件一起封裝至自我裝載 IR 機器，然後相應地設定 JAVA_HOME 系統環境變數。
 
 >[!TIP]
->如果您使用自我裝載 Integration Runtime 將資料複製到 Parquet 格式 (或從該格式複製資料)，而且遇到錯誤顯示 [叫用 Java 時發生錯誤。訊息: **java.lang.OutOfMemoryError:Java heap space**]，您可以在裝載自我裝載 IR 的機器中新增環境變數 `_JAVA_OPTIONS`，以調整 JVM 的堆積大小下限/上限，使系統能執行這樣的複製，然後重新執行管線。 
+>如果您使用自我裝載 Integration Runtime 將資料複製到 Parquet 格式 (或從該格式複製資料)，而且遇到錯誤顯示 [叫用 Java 時發生錯誤。訊息: **java.lang.OutOfMemoryError:Java heap space**]，您可以在裝載自我裝載 IR 的機器中新增環境變數 `_JAVA_OPTIONS`，以調整 JVM 的堆積大小下限/上限，使系統能執行這樣的複製，然後重新執行管線。
 
 ![在自我裝載 IR 上設定 JVM 堆積大小](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -454,8 +460,8 @@ ms.locfileid: "60394419"
 | Single | Float | N/A | N/A |
 | Double | Double | N/A | N/A |
 | Decimal | Binary | Decimal | Decimal |
-| String | Binary | Utf8 | Utf8 |
-| Datetime | Int96 | N/A | N/A |
+| 字串 | Binary | Utf8 | Utf8 |
+| DateTime | Int96 | N/A | N/A |
 | TimeSpan | Int96 | N/A | N/A |
 | DateTimeOffset | Int96 | N/A | N/A |
 | ByteArray | Binary | N/A | N/A |
@@ -483,7 +489,7 @@ ms.locfileid: "60394419"
 > [!IMPORTANT]
 > 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 ORC 檔案，就需要在 IR 機器上安裝 **64 位元的 JRE 8 (Java Runtime Environment) 或 OpenJDK**。 如需更多詳細資料，請參閱接下來的段落。
 
-針對在自我裝載 IR 上搭配 ORC 檔案序列化/還原序列化來執行的複製，ADF 會找出 Java 執行階段，方法是先檢查登錄 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 是否有 JRE，如果找不到，就接著檢查系統變數 *`JAVA_HOME`* 是否有 OpenJDK。 
+針對在自我裝載 IR 上搭配 ORC 檔案序列化/還原序列化來執行的複製，ADF 會找出 Java 執行階段，方法是先檢查登錄 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 是否有 JRE，如果找不到，就接著檢查系統變數 *`JAVA_HOME`* 是否有 OpenJDK。
 
 - **使用 JRE**：64 位元 IR 需要 64 位元 JRE。 您可以從[這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到該程式。
 - **使用 OpenJDK**：自 IR 3.13 版開始便可支援。 請將 jvm.dll 與所有其他必要的 OpenJDK 組件一起封裝至自我裝載 IR 機器，然後相應地設定 JAVA_HOME 系統環境變數。
@@ -500,16 +506,16 @@ ms.locfileid: "60394419"
 | Int32 | Int |
 | UInt32 | long |
 | Int64 | long |
-| UInt64 | String |
+| UInt64 | 字串 |
 | Single | Float |
 | Double | Double |
 | Decimal | Decimal |
-| String | String |
-| Datetime | Timestamp |
+| 字串 | 字串 |
+| DateTime | Timestamp |
 | DateTimeOffset | Timestamp |
 | TimeSpan | Timestamp |
 | ByteArray | Binary |
-| Guid | String |
+| Guid | 字串 |
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>AVRO 格式
@@ -538,7 +544,7 @@ Azure Data Factory 支援在複製期間壓縮/解壓縮資料。 當您在輸�
 * 從 FTP 伺服器讀取.zip 檔、將它解壓縮以取得其中的檔案，並將這些檔案放入 Azure Data Lake Store。 您可以利用設為 ZipDeflate 的 `compression` `type` 屬性，定義輸入 FTP 資料集。
 * 從 Azure blob 讀取 GZIP 壓縮資料，將其解壓縮、使用 BZIP2 將其壓縮，並將結果資料寫入到 Azure blob。 您會利用設為 GZIP 的 `compression` `type` 定義輸入 Azure Blob 資料集，並利用設為 BZIP2 的 `compression` `type` 定義輸出資料集。
 
-若要指定資料集的壓縮，請使用資料集 JSON 中的 **壓縮** 屬性，如下列範例所示：   
+若要指定資料集的壓縮，請使用資料集 JSON 中的 **壓縮** 屬性，如下列範例所示：
 
 ```json
 {
@@ -579,11 +585,12 @@ Azure Data Factory 支援在複製期間壓縮/解壓縮資料。 當您在輸�
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>不支援的檔案類型和壓縮格式
 
-您可以使用 Azure Data Factory 的擴充性功能來轉換不支援的檔案。 兩個選項包括使用 Azure Batch 的 Azure Functions 和自訂工作。
+您可以使用 Azure Data Factory 的擴充性功能來轉換不支援的檔案。
+兩個選項包括使用 Azure Batch 的 Azure Functions 和自訂工作。
 
 您可以看到使用 Azure 函式的範例[解壓縮 tar 檔案內容](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)。 如需詳細資訊，請參閱 < [Azure Functions 活動](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)。
 
-您也可以建置這項功能使用的自訂 dotnet 活動。 進一步的資訊[這裡](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
+您也可以建置這項功能使用的自訂 dotnet 活動。 進一步的資訊[這裡](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>後續步驟
 

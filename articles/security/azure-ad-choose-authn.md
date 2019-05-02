@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 1f950841946b65d618c7335ea3d8d42993a89481
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 773d4dd28da3165261d75e4f800750c1f54377d0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805256"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702293"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法 
 
@@ -49,7 +49,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 ### <a name="cloud-authentication"></a>雲端驗證
 當您選擇此驗證方法時，Azure AD 會處理使用者的登入程序。 搭配無縫單一登入 (SSO)，使用者不必重新輸入認證，就能登入雲端應用程式。 若使用雲端驗證，有兩個選項可供您選擇： 
 
-**Azure AD 密碼雜湊同步處理**。 這是在 Azure AD 中啟用內部部署目錄物件驗證的最簡單方式。 使用者可以使用他們在內部部署中所使用的相同使用者名稱和密碼，而不需部署任何其他基礎結構。 無論您選擇何種驗證方法，Azure AD 的某些進階功能 (例如 Identity Protection) 還是需要密碼雜湊同步處理。
+**Azure AD 密碼雜湊同步處理**。 這是在 Azure AD 中啟用內部部署目錄物件驗證的最簡單方式。 使用者可以使用他們在內部部署中所使用的相同使用者名稱和密碼，而不需部署任何其他基礎結構。 Azure AD 中，某些進階功能，例如 Identity Protection 及[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync)，需要密碼雜湊同步處理，不論哪一種驗證方法選擇。
 
 > [!NOTE] 
 > 密碼永遠都不會以純文字儲存，或在 Azure AD 中使用可回復的演算法進行加密。 如需密碼雜湊同步處理實際程序的詳細資訊，請參閱[使用 Azure AD Connect 同步來實作密碼雜湊同步處理](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization)。 
@@ -92,7 +92,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
 * **使用者體驗**。 若要改善使用者的登入體驗，請部署具有密碼雜湊同步處理的無縫 SSO。 當使用者登入時，無縫 SSO 會排除不必要的提示。
 
-* **進階案例**。 如果組織選擇此選項，就能透過 Azure AD Premium P2，搭配 Azure AD Identity Protection 報表來使用身分識別的見解。 例如認證外洩的報表。 Windows hello 企業版有[當您使用密碼雜湊同步處理的特定需求](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)。 
+* **進階案例**。 如果組織選擇此選項，就能透過 Azure AD Premium P2，搭配 Azure AD Identity Protection 報表來使用身分識別的見解。 例如認證外洩的報表。 Windows hello 企業版有[當您使用密碼雜湊同步處理的特定需求](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)。 [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync)需要佈建使用者以公司認證在受控網域中的密碼雜湊同步處理。
 
     需要多重要素驗證與密碼雜湊同步處理的組織，必須使用 Azure AD 多重要素驗證。 這些組織不能使用第三方或內部部署多重要素驗證方法。
 

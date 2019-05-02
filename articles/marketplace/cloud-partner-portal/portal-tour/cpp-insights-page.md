@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace 的見解頁面 | Microsoft Docs
-description: 上也提供本文中使用的原始碼。
+title: Azure marketplace 的 [insights] 頁面
+description: 在 Azure marketplace 的 Cloud Partner 入口網站中的 [Insights] 頁面的概觀。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 93cc8e84f13988357a363a70c44a479bed8f462c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 2cbe3b790197c3f71305e4cb21d0f37fe0404511
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318221"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943495"
 ---
 # <a name="insights-page"></a>見解頁面
 

@@ -2,24 +2,17 @@
 title: Azure Marketplace SaaS 應用程式技術發行指南
 description: 將 SaaS 應用程式發行至 Azure Marketplace 的逐步指南與發行檢查清單
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: ''
 author: keithcharlie
-manager: nunoc
-editor: keithcharlie
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5106b22500b73b650742e7fe0f881c2a4c984eff
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765392"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937722"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 應用程式供應項目發行指南
 

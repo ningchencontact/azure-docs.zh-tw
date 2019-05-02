@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121516"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935873"
 ---
 # <a name="security-frame-authorization--mitigations"></a>安全性框架：授權 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -280,7 +280,7 @@ WHERE userID=:id < - session var
 | **適用的技術** | 泛型 |
 | **屬性**              | StorageType - 資料表 |
 | **參考**              | [如何使用 SAS 將存取權委派給 Azure 儲存體帳戶中的物件](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **步驟** | 在特定商務案例中，Azure 表格儲存體可能必須儲存能滿足不同合作夥伴需求的敏感性資料。 例如，屬於不同的國家/地區的敏感性資料。 在這類情況下，藉由指定資料分割和資料列金鑰範圍來建構 SAS 簽章，使用者便可存取特定國家/地區特有的資料。| 
+| **步驟** | 在特定商務案例中，Azure 表格儲存體可能必須儲存能滿足不同合作夥伴需求的敏感性資料。 例如，機密資料屬於不同的國家/地區。 在這種情況下，SAS 簽章可以建構所指定的資料分割和資料列索引鍵範圍，使得使用者可以存取特定國家/地區特有的資料。| 
 
 ## <a id="rbac-azure-manager"></a>使用 Azure Resource Manager 啟用 Azure 儲存體帳戶的角色型存取控制 (RBAC)
 

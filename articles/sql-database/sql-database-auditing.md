@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61418321"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924750"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -90,7 +90,7 @@ ms.locfileid: "61418321"
 5. **新增** - 您現在有多個選項可設定要寫入稽核記錄的位置。 Azure 儲存體帳戶、 Log Analytics 工作區，供 Azure 監視器記錄檔，或使用事件中樞取用的事件中樞，您可以寫入記錄。 您可以設定這些選項的任何組合，並將稽核記錄寫入至每個組合。
 
    > [!WARNING]
-   > 啟用稽核至 Log Analytics 會產生根據擷取速率的成本。 請特別注意相關聯的成本，使用這[選項](https://azure.microsoft.com/en-us/pricing/details/monitor/)，或考慮在 Azure 儲存體帳戶中儲存稽核記錄。
+   > 啟用稽核至 Log Analytics 會產生根據擷取速率的成本。 請特別注意相關聯的成本，使用這[選項](https://azure.microsoft.com/pricing/details/monitor/)，或考慮在 Azure 儲存體帳戶中儲存稽核記錄。
 
     ![儲存體選項](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 

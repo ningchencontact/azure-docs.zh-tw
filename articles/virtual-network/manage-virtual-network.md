@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: 了解如何在 Azure 中建立、變更或刪除虛擬網路。
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
-ms.author: jdial
-ms.openlocfilehash: 6e393bf9c08eaa656a1c9b2302cde937a87ccc9a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: kumud
+ms.openlocfilehash: 235a82c6bba4165790c370c2641ee6cd41f10840
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088497"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700473"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>建立、變更或刪除虛擬網路
 
@@ -31,7 +31,7 @@ ms.locfileid: "58088497"
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組版本 1.0.0 或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 1.0.0 版或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 - 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
@@ -62,7 +62,7 @@ ms.locfileid: "58088497"
 
      - **子網路位址範圍**︰此範圍必須位於您針對虛擬網路輸入的位址空間內。 您可以指定的最小範圍是 /29，此範圍可提供八個 IP 位址供子網路使用。 為了符合通訊協定的規定，Azure 會保留每個子網路中的第一個和最後一個位址。 此外还会保留三个地址供 Azure 服务使用。 因此，使用 /29 子網路位址範圍的虛擬網路只有三個可用的 IP 位址。 如果您打算將虛擬網路連線至 VPN 閘道，則必須建立一個閘道子網路。 深入了解[閘道子網路位址範圍的具體考量](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 若符合特定條件，您可以在子網路建立好之後變更其位址範圍。 若要了解如何變更子網路的位址範圍，請參閱[管理子網路](virtual-network-manage-subnet.md)。
      - 訂用帳戶：選取一個[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)。 您無法在多個 Azure 訂用帳戶中使用相同的虛擬網路。 不過，您可以利用[虛擬網路對等互連](virtual-network-peering-overview.md)，將某個訂用帳戶中的虛擬網路連線至其他訂用帳戶中的虛擬網路。 您連線到虛擬網路的任何 Azure 資源必須與虛擬網路位於相同的訂用帳戶中。
-     - **資源群組**：選取現有[資源群組](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups)或建立新群組。 您連線到虛擬網路的 Azure 資源，可以位於與虛擬網路相同或不同的資源群組中。
+     - **资源组**：選取現有[資源群組](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups)或建立新群組。 您連線到虛擬網路的 Azure 資源，可以位於與虛擬網路相同或不同的資源群組中。
      - **位置**：選取 Azure [位置](https://azure.microsoft.com/regions/) (也稱為區域)。 虛擬網路只能位於一個 Azure 位置。 不過，您可以使用 VPN 閘道，將某個位置的虛擬網路連線至其他位置的虛擬網路。 您連線到虛擬網路的任何 Azure 資源必須與虛擬網路位於相同的位置。
 
 **命令**

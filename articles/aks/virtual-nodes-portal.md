@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 4b9e9aeab6ed24dd2179f853def02ad194fe1b67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d12226daa7353c01ee462ea31c5cbf011ba28409
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025165"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726080"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>预览 - 创建 Azure Kubernetes 服务 (AKS) 群集并将其配置为使用 Azure 门户中的虚拟节点
 
@@ -22,6 +22,30 @@ ms.locfileid: "61025165"
 > AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
 >
 > 如果遇到预览版功能的问题，请[在 AKS GitHub 存储库中提交问题][aks-github]，并在 Bug 标题中填写预览版功能的名称。
+
+## <a name="before-you-begin"></a>開始之前
+
+虛擬節點能夠進行在 ACI 與 AKS 叢集中執行的 pod 之間的網路通訊。 為了提供此通訊功能，需要建立虛擬網路子網路並指派委派權限。 虛擬節點只能與使用「進階」網路所建立的 AKS 叢集搭配運作。 但根據預設，系統會使用「基本」網路來建立 AKS 叢集。 本文說明如何建立虛擬網路和子網路，然後部署使用進階網路的 AKS 叢集。
+
+如果您先前未使用 ACI，請向您的訂用帳戶註冊服務提供者。 您可以使用 [az provider list][az-provider-list] 命令來檢查 ACI 提供者註冊狀態，如以下範例所示：
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+*Microsoft.ContainerInstance* 提供者應該回報為 *Registered*，如以下範例輸出所示：
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+如果提供者會顯示成*NotRegistered*，註冊的提供者使用 [az 提供者註冊] [az 提供者-暫存器]，如下列範例所示：
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ## <a name="regional-availability"></a>區域可用性
 
@@ -55,9 +79,12 @@ ms.locfileid: "61025165"
 
 - 專案詳細資料：選取 Azure 訂用帳戶，然後選取或建立 Azure 資源群組，例如 *myResourceGroup*。 輸入 **Kubernetes 叢集名稱**，例如 myAKSCluster。
 - 叢集詳細資料：選取 AKS 叢集的區域、Kubernetes 版本及 DNS 名稱前置詞。
-- 調整大小：選取 AKS 節點的 VM 大小。 VM 大小**無法**在 AKS 叢集部署完畢後變更。
-    - 選取要部署到叢集的節點數目。 本文將 [節點計數] 設為 1。 節點計數**可以**在叢集部署完畢後調整。
-    - 在 [虛擬節點] 底下，選取 [已啟用]。
+- *主要節點的集區*:選取 AKS 節點的 VM 大小。 VM 大小**無法**在 AKS 叢集部署完畢後變更。
+     - 選取要部署到叢集的節點數目。 本文將 [節點計數] 設為 1。 節點計數**可以**在叢集部署完畢後調整。
+
+按一下 **下一步擴展**。
+
+在 **擴展**頁面上，選取*已啟用*下**虛擬節點**。
 
 ![建立 AKS 叢集並啟用虛擬節點](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -215,3 +242,4 @@ $ curl -L 10.241.0.4
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
+[az-provider-list]: /cli/azure/provider#az-provider-list

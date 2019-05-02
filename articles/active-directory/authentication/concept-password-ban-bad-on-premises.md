@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 644054960e12979c231bbf50a5979bc12d343f89
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415849"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694774"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>強制執行 Windows Server Active Directory 的 Azure AD 密碼保護
 
-Azure AD 密碼保護是一項功能，可增強組織中的密碼原則。 在內部部署密碼保護，會使用這兩個的全域和自訂禁用密碼清單儲存在 Azure AD。 它會執行相同檢查內部部署為 Azure AD 的雲端架構的變更。
+Azure AD 密碼保護是一項功能，可增強組織中的密碼原則。 密碼保護的內部部署會使用這兩個的全域和自訂禁用密碼清單儲存在 Azure AD。 它會執行相同檢查內部部署為 Azure AD 的雲端架構的變更。
 
 ## <a name="design-principles"></a>設計原則
 

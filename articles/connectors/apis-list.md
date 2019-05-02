@@ -9,18 +9,18 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 221bcbfb2517efae41005641321a651dfdf8e39f
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759437"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722983"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的連接器
 
 連接器從 Azure Logic Apps，事件、 資料和動作跨其他應用程式、 服務、 系統、 通訊協定，與平台，提供快速存取。 在您的 logic apps 中使用連接器，您可以展開雲端和內部部署應用程式執行工作所建立，且已有的資料功能。
 
-儘管 Logic Apps 提供 [200 個以上的連接器](https://docs.microsoft.com/connectors)，但本文說明由數千個應用程式及數百萬次執行成功用於處理資料和資訊的熱門常用連接器。 若要尋找的連接器和每個連接器的參考資訊的完整清單，例如觸發程序、 動作和限制，請檢閱連接器參考的資料頁[連接器概觀](https://docs.microsoft.com/connectors)。 此外，深入了解[觸發程序和動作](#triggers-actions)。
+儘管 Logic Apps 提供 [200 個以上的連接器](https://docs.microsoft.com/connectors)，但本文說明由數千個應用程式及數百萬次執行成功用於處理資料和資訊的熱門常用連接器。 若要尋找的連接器和每個連接器的參考資訊，例如觸發程序、 動作和限制，完整的清單檢閱連接器參考頁面底下[連接器概觀](https://docs.microsoft.com/connectors)。 此外，深入了解[觸發程序和動作](#triggers-actions)。
 
 > [!NOTE]
 > 若要整合的服務或沒有連接器的 API，您可以直接透過 HTTP 等通訊協定呼叫服務，或建立[自訂連接器](#custom)。
@@ -29,27 +29,32 @@ ms.locfileid: "63759437"
 
 * [**内置操作**](#built-ins)：這些內建動作和觸發程序是 「 原生 」 至 Azure Logic Apps 和可幫助您建立邏輯應用程式，在自訂排程上執行，與其他端點進行通訊、 接收和回應要求，並呼叫 Azure functions、 Azure API 應用程式 （Web 應用程式）、 您自己的 Api受管理及使用已發行的 Azure API 管理，以及可以接收要求的巢狀的邏輯應用程式。 您也可以使用內建動作，協助您組織及控制邏輯應用程式的工作流程，以及處理資料。
 
-* **受控連接器**：部署和管理由 Microsoft，這些連接器提供觸發程序和動作來存取其他服務和系統，例如 Office 365、 Azure Blob 儲存體、 SQL Server、 Salesforce 等等。 某些連接器需要您先建立 Azure Logic Apps 所管理的連線。 受控連接器可歸納為以下群組：
+* **受控連接器**：部署和管理由 Microsoft，這些連接器提供觸發程序和動作來存取雲端服務、 內部部署系統，或兩者，包括 Office 365、 Azure Blob 儲存體、 SQL Server、 Dynamics、 Salesforce、 SharePoint 等等。 某些連接器特別支援企業對企業 (B2B) 通訊案例，而且需要[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)連結到邏輯應用程式。 之前使用特定連接器，您可能必須先建立 Azure Logic Apps 所管理的連線。 
+
+  比方說，如果您使用 Microsoft BizTalk Server，您的邏輯應用程式可以連接到並使用與您的 BizTalk Server 進行通訊[BizTalk Server 內部部署連接器](#on-premises-connectors)。 
+  您可以使用[整合帳戶連接器](#integration-account-connectors)，接著在邏輯應用程式中擴充或執行類似 BizTalk 的作業。
+
+  连接器分类为“标准”或“企业”连接器。 
+  [企業連接器](#enterprise-connectors)提供企業系統例如 SAP、 IBM MQ 和 IBM 3270 存取產生額外費用。 若要判斷連接器是否為 Standard 或 Enterprise，請參閱底下的每個連接器的參考頁面中的技術細節[連接器概觀](https://docs.microsoft.com/connectors)。 
+  
+  您也可以識別連接器使用這些分類中，雖然某些連接器可以跨越多個類別。 
+  例如，SAP 是企業連接器和內部部署連接器：
 
   |   |   |
   |---|---|
-  | [**受控 API 連接器**](#managed-api-connectors) | 建立可使用 Azure Blob 儲存體、Office 365、Dynamics、Power BI、OneDrive、Salesforce、SharePoint Online 等其他服務的邏輯應用程式。 | 
-  | [**內部部署連接器**](#on-premises-connectors) | 在您安裝並設定[內部部署資料閘道][gateway-doc]之後，這些連接器可協助您的邏輯應用程式存取內部部署系統，例如 SQL Server、SharePoint Server、Oracle DB、檔案共用及其他系統。 | 
-  | [**整合帳戶連接器**](#integration-account-connectors) | 當您建立並支付整合帳戶時，這些連接器會轉換和驗證 XML、進行一般檔案的編碼和解碼，以及透過 AS2、EDIFACT 和 X12 通訊協定處理企業對企業 (B2B) 訊息。 | 
-  | [**企業連接器**](#enterprise-connectors) | 可供存取企業系統，例如 SAP 和 IBM MQ (額外付費)。 |
-  ||| 
-
-  例如，如果您使用 Microsoft BizTalk Server，則邏輯應用程式可以使用 [BizTalk Server 連接器](#on-premises-connectors)連線到 BizTalk Server 並且進行通訊。 
-  您可以使用[整合帳戶連接器](#integration-account-connectors)，接著在邏輯應用程式中擴充或執行類似 BizTalk 的作業。 
+  | [**受控 API 連接器**](#managed-api-connectors) | 建立可使用 Azure Blob 儲存體、Office 365、Dynamics、Power BI、OneDrive、Salesforce、SharePoint Online 等其他服務的邏輯應用程式。 |
+  | [**內部部署連接器**](#on-premises-connectors) | 在您安裝並設定[內部部署資料閘道][gateway-doc]之後，這些連接器可協助您的邏輯應用程式存取內部部署系統，例如 SQL Server、SharePoint Server、Oracle DB、檔案共用及其他系統。 |
+  | [**整合帳戶連接器**](#integration-account-connectors) | 當您建立並支付整合帳戶時，這些連接器會轉換和驗證 XML、進行一般檔案的編碼和解碼，以及透過 AS2、EDIFACT 和 X12 通訊協定處理企業對企業 (B2B) 訊息。 |
+  |||
 
 > [!NOTE]
-> 如需連接器的完整清單和每個連接器的參考資訊，例如動作和任何觸發程序 (由 Swagger 描述定義) 以及任何限制，您可以在[連接器概觀](/connectors/)下找到完整清單。 如需定價資訊，請參閱 [Logic Apps 定價詳細資料](https://azure.microsoft.com/pricing/details/logic-apps/)和 [Logic Apps 定價模型](../logic-apps/logic-apps-pricing.md)。 
+> 完整清單的連接器和每個連接器的參考資訊，例如動作和任何觸發程序，其中所定義以 OpenAPI (以前稱為 Swagger) 描述，再加上任何限制，您可以找到完整的清單底下[連接器概觀](/connectors/). 如需定價資訊，請參閱 [Logic Apps 定價詳細資料](https://azure.microsoft.com/pricing/details/logic-apps/)和 [Logic Apps 定價模型](../logic-apps/logic-apps-pricing.md)。 
 
 <a name="built-ins"></a>
 
 ## <a name="built-ins"></a>內建項目
 
-Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程為基礎的工作流程，協助邏輯應用程式與其他應用程式和服務通訊、透過邏輯應用程式控制工作流程，以及管理或操作資料。 
+Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程為基礎的工作流程，協助邏輯應用程式與其他應用程式和服務通訊、透過邏輯應用程式控制工作流程，以及管理或操作資料。
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -128,10 +133,10 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 
 您的邏輯應用程式可以存取企業系統，例如 SAP 和 IBM MQ：
 
-|   |   | 
-|---|---| 
-| [![API 圖示][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API 圖示][sap-icon]<br/>**SAP**][sap-connector-doc] |
-||| 
+|   |   |   | 
+|---|---|---| 
+| [![API 圖示][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![API 圖示][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API 圖示][sap-icon]<br/>**SAP**][sap-connector-doc] |
+|||| 
 
 <a name="triggers-actions"></a>
 
@@ -156,9 +161,9 @@ Azure Logic Apps 的觸發程序引發之後，建立邏輯應用程式的執行
 
 每個連接器的觸發程序和動作提供自己的屬性，讓您設定。 許多連接器也需要，您必須先建立*連線*目標服務或系統，並提供驗證認證或其他組態詳細資料，才能在邏輯應用程式中使用的觸發程序或動作。 例如，您必須授權 Twitter 帳戶來存取資料，或張貼您的名義上的連接。 
 
-對於使用 OAuth 的連接器，建立連線表示登入服務，例如 Office 365、 Salesforce 或 GitHub，其中您的存取權杖是加密，而安全地儲存在 Azure 的祕密存放區。 其他連接器，例如 FTP 和 SQL，需要具有設定的詳細資料，例如伺服器位址、 使用者名稱和密碼的連接。 此連線組態詳細資料會也會加密並安全地儲存。 
+對於使用 OAuth 的連接器，建立連線表示登入服務，例如 Office 365、 Salesforce 或 GitHub，其中您的存取權杖是加密，而安全地儲存在 Azure 的祕密存放區。 其他連接器，例如 FTP 和 SQL，需要具有設定的詳細資料，例如伺服器位址、 使用者名稱和密碼的連接。 這些連線的組態詳細資料也會加密並安全地儲存。 
 
-只要該服務或系統允許目標服務或系統可以存取連線。 使用 Azure Active Directory (AD) OAuth 連接，例如 Office 365 和 Dynamics 之服務的 Azure Logic Apps 會重新整理存取權杖無限期。 其他服務可能會放在 Azure Logic Apps 多久使用權杖而不重新整理的限制。 一般而言，某些動作會使所有的存取權杖，例如變更您的密碼。
+只要該服務或系統允許目標服務或系統可以存取連線。 使用 Azure Active Directory (AD) OAuth 連接，例如 Office 365 和 Dynamics 之服務的 Azure Logic Apps 會重新整理存取權杖無限期。 其他服務可能會有多久 Azure Logic Apps 可使用權杖而不重新整理的限制。 一般而言，某些動作會使所有的存取權杖，例如變更您的密碼。
 
 <a name="custom"></a>
 
@@ -222,6 +227,7 @@ Azure Logic Apps 的觸發程序引發之後，建立邏輯應用程式的執行
 [google-drive-doc]: ./connectors-create-api-googledrive.md "連接至 GoogleDrive 以便使用資料"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "連線至 Google 試算表以便修改工作表"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "連線至 Google Tasks 以便管理工作"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "連線至在 IBM 大型主機上的 3270 應用程式"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "連線至雲端或內部部署中的 IBM DB2。更新資料列、取得資料表等等"
 [ibm-informix-doc]: ./connectors-create-api-informix.md "連線至雲端或內部部署中的 Informix。讀取資料列、列出資料表等等"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "連線到 IBM MQ 內部部署或 Azure 以傳送及接收訊息"
@@ -328,6 +334,7 @@ Azure Logic Apps 的觸發程序引發之後，建立邏輯應用程式的執行
 [google-sheets-icon]: ./media/apis-list/google-sheet.png
 [google-tasks-icon]: ./media/apis-list/google-tasks.png
 [hipchat-icon]: ./media/apis-list/hipchat.png
+[ibm-3270-icon]: ./media/apis-list/ibm-3270.png
 [ibm-db2-icon]: ./media/apis-list/ibm-db2.png
 [ibm-informix-icon]: ./media/apis-list/ibm-informix.png
 [ibm-mq-icon]: ./media/apis-list/ibm-mq.png

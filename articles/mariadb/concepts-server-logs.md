@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: a26f61eb199d8f370e1a9dd010932dc868b74ae4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: 8a78a9b8f0772a83e45ac2b926878e61e6ee2e61
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61041253"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926341"
 ---
 # <a name="server-logs-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫中的伺服器記錄
 在適用於 MariaDB 的 Azure 資料庫中，使用者可以使用慢速查詢記錄檔。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。
@@ -23,7 +23,7 @@ ms.locfileid: "61041253"
 
 在 Azure 入口網站中，選取適用於 MariaDB 的 Azure 資料庫伺服器。 在 [監視] 標題下方，選取 [伺服器記錄] 頁面。
 
-<!-- For more information on Azure CLI, see [Configure and access server logs using Azure CLI](howto-configure-server-logs-in-cli.md).-->
+如需 Azure CLI 的詳細資訊，請參閱[使用 Azure CLI 設定和存取伺服器記錄](howto-configure-server-logs-cli.md)。
 
 ## <a name="log-retention"></a>記錄保留
 記錄最多可以從建立開始算起保留七天。 如果可用記錄的大小總計超過 7 GB，則除非有空間可用，否則會刪除最舊檔案。
@@ -41,6 +41,42 @@ ms.locfileid: "61041253"
 - **log_throttle_queries_not_using_indexes**：這個參數會限制可寫入至慢速查詢記錄的非索引查詢次數。 log_queries_not_using_indexes 設為 ON 時，這個參數會生效。
 
 如需慢速查詢記錄檔參數的完整描述，請參閱 MariaDB [慢速查詢記錄檔文件](https://mariadb.com/kb/en/library/slow-query-log-overview/)。
+
+## <a name="diagnostic-logs"></a>診斷記錄
+適用於 MariaDB 的 azure 資料庫與 Azure 監視器的診斷記錄檔整合。 一旦您啟用慢速查詢記錄 MariaDB 伺服器上，您可以選擇將它們發出給 Azure 監視器記錄檔、 事件中樞或 Azure 儲存體。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的操作說明一節。
+
+> [!IMPORTANT]
+> 服务器日志的此诊断功能仅适用于“常规用途”和“内存优化”的[定价层](concepts-pricing-tiers.md)。
+
+下表描述每個記錄的內容。 視輸出方法而定，包含的欄位及其出現的順序可能有所不同。
+
+| **屬性** | **說明** |
+|---|---|
+| `TenantId` | 您的租用戶識別碼 |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | 以 UTC 記錄記錄時的時間戳記 |
+| `Type` | 記錄的類型。 一律為 `AzureDiagnostics` |
+| `SubscriptionId` | 伺服器所屬訂用帳戶的 GUID |
+| `ResourceGroup` | 伺服器所屬資源群組的名稱 |
+| `ResourceProvider` | 資源提供者名稱。 一律為 `MICROSOFT.DBFORMARIADB` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | 資源 URI |
+| `Resource` | 伺服器的名稱 |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | 伺服器的名稱 |
+| `start_time_t` [UTC] | 查詢開始時間 |
+| `query_time_s` | 執行查詢所花費的總時間 |
+| `lock_time_s` | 查詢遭到鎖定的總時間 |
+| `user_host_s` | 使用者名稱 |
+| `rows_sent_s` | 傳送的資料列數目 |
+| `rows_examined_s` | 檢查的資料列數目 |
+| `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |
+| `insert_id_s` | 插入識別碼 |
+| `sql_text_s` | 完整查詢 |
+| `server_id_s` | 伺服器識別碼 |
+| `thread_id_s` | 執行緒 ID |
+| `\_ResourceId` | 資源 URI |
 
 ## <a name="next-steps"></a>後續步驟
 - [如何從 Azure 入口網站設定和存取伺服器記錄](howto-configure-server-logs-portal.md)。

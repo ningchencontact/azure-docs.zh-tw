@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/28/2019
+ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c3e2102b5794fb3770b1c77e241320fa7d2222c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cc333cc1a46d6d7e72faeeb8a4e59a70cc0f27ed
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613961"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925538"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
 Azure 執行個體中繼資料服務提供執行可用於管理和設定虛擬機器之虛擬機器執行個體的相關資訊。
-這包括 SKU、網路組態及近期維護事件等資訊。 如需可用資訊類型的詳細資訊，請參閱[中繼資料類別](#instance-metadata-data-categories)。
+這包括 SKU、網路組態及近期維護事件等資訊。 如需有關何種資訊是可用的詳細資訊，請參閱[中繼資料 Api](#metadata-apis)。
 
-Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) \(英文\) 建立之 IaaS VM 可存取的 REST 端點。
+Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/)建立之所有 IaaS VM 可存取的 REST 端點。
 端點可以在已知的非可路由 IP 位址 (`169.254.169.254`) 取得，該位址只能從 VM 內存取。
 
 > [!IMPORTANT]
-> 這項服務已在 Azure 區域中**正式推出**。  它會定期接收更新，以公開有關虛擬機器執行個體的新資訊。 此页反映了最新可用的[数据类别](#instance-metadata-data-categories)。
+> 這項服務已在所有 Azure 區域中**正式推出**。  它會定期接收更新，以公開有關虛擬機器執行個體的新資訊。 此頁面會反映最新狀態[中繼資料 Api](#metadata-apis)可用。
 
 ## <a name="service-availability"></a>服務可用性
 
@@ -39,12 +39,16 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 
 區域                                        | 可用性？                                 | 支援的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
+[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
-[Azure China](https://www.azure.cn/)                                                           | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
+[Azure China](https://www.azure.cn/)                                                     | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
+[公用美國中西部](https://azure.microsoft.com/regions/)                           | 正式推出 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
 
 當有服務更新和/或有新支援的版本可取得時，此表格便會更新。
+
+> [!NOTE]
+> 2019-02-01 目前推出，並在其他區域近期內將提供。 
 
 若要試用執行個體中繼資料服務，請從 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 或 [Azure 入口網站](https://portal.azure.com)的上述區域中建立 VM，並遵循以下的範例。
 
@@ -96,6 +100,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > 所有執行個體中繼資料查詢都會區分大小寫。
 
 ### <a name="data-output"></a>資料輸出
+
 根據預設，執行個體中繼資料服務會以 JSON 格式傳回資料 (`Content-Type: application/json`)。 不過，不同的 API 會依照要求傳回不同格式的資料。
 下表是 API 可能支援之其他資料格式的參考。
 
@@ -266,6 +271,7 @@ curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-versio
 或透過 `Invoke-RestMethod` Cmdlet：
 
 ```powershell
+
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2018-10-01 -Method get 
 ```
 
@@ -330,42 +336,61 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 }
 ```
 
-## <a name="instance-metadata-data-categories"></a>執行個體中繼資料資料類別
+## <a name="metadata-apis"></a>中繼資料 Api
 
-可透過執行個體中繼資料服務取得下列資料類別：
+#### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>下列 Api 都是透過中繼資料端點：
+
+資料 | 描述 | 引進的版本
+-----|-------------|-----------------------
+attested | 請參閱[證明資料](#attested-data) | 2018-10-01
+身分識別 | 適用於 Azure 資源的受控識別。 請參閱[取得存取權杖](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+instance | 請參閱[執行個體 API](#instance-api) | 2017-04-02
+scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
+
+#### <a name="instance-api"></a>執行個體 API
+##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>下列計算類別都是透過執行個體 API:
+
+> [!NOTE]
+> 中繼資料端點，透過下列類別是透過計算執行個體/存取
 
 資料 | 描述 | 引進的版本
 -----|-------------|-----------------------
 azEnvironment | VM 运行时所在的 Azure 环境 | 2018-10-01
+customData | 請參閱[自訂資料](#custom-data) | 2019-02-01
 location | VM 執行所在的 Azure 區域 | 2017-04-02
 name | VM 的名稱 | 2017-04-02
 供應項目 | 提供 VM 映像的資訊。 此值只會針對從 Azure 映像庫部署的映像呈現。 | 2017-04-02
-publisher | VM 映像的發佈者 | 2017-04-02
-sku | VM 映像的特定 SKU | 2017-04-02
-version | VM 映像的版本 | 2017-04-02
 osType | Linux 或 Windows | 2017-04-02
-platformUpdateDomain |  VM 執行所在的[更新網域](manage-availability.md) | 2017-04-02
-platformFaultDomain | VM 執行所在的[容錯網域](manage-availability.md) | 2017-04-02
-vmId | VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
-vmSize | [VM 大小](sizes.md) | 2017-04-02
-subscriptionId | 虛擬機器的 Azure 訂用帳戶 | 2017-08-01
-tags | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
-resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
 placementGroupId | 虛擬機器擴展集的[放置群組](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 計劃 | 在 Azure 市场映像中 VM 的[计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)，包含名称、产品和发布者 | 2018-04-02
+platformUpdateDomain |  VM 執行所在的[更新網域](manage-availability.md) | 2017-04-02
+platformFaultDomain | VM 執行所在的[容錯網域](manage-availability.md) | 2017-04-02
 provider | VM 的提供商 | 2018-10-01
 publicKeys | [公钥的集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey)，已分配给 VM 和路径 | 2018-04-02
+publisher | VM 映像的發佈者 | 2017-04-02
+resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
+sku | VM 映像的特定 SKU | 2017-04-02
+subscriptionId | 虛擬機器的 Azure 訂用帳戶 | 2017-08-01
+tags | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+version | VM 映像的版本 | 2017-04-02
+vmId | VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmScaleSetName | 虛擬機器擴展集的[虛擬機器擴展集名稱](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
+vmSize | [VM 大小](sizes.md) | 2017-04-02
 區域 | 您虛擬機器的[可用性區域](../../availability-zones/az-overview.md) | 2017-12-01
+
+##### <a name="the-following-network-categories-are-available-through-the-instance-api"></a>下列的網路類別都是透過執行個體 API:
+
+> [!NOTE]
+> 透過中繼資料端點，透過執行個體/網路/介面存取下列類別
+
+資料 | 描述 | 引進的版本
+-----|-------------|-----------------------
 ipv4/privateIpAddress | VM 的本機 IPv4 位址 | 2017-04-02
 ipv4/publicIpAddress | VM 的公用 IPv4 位址 | 2017-04-02
 subnet/address | VM 的子網路位址 | 2017-04-02
 subnet/prefix | 子網路首碼，範例 24 | 2017-04-02
 ipv6/ipAddress | VM 的本機 IPv6 位址 | 2017-04-02
 macAddress | VM mac 位址 | 2017-04-02
-scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
-身分識別 | 適用於 Azure 資源的受控識別。 請參閱[取得存取權杖](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-attested | 請參閱[證明資料](#attested-data) | 2018-10-01
 
 ## <a name="attested-data"></a>證明資料
 
@@ -373,11 +398,10 @@ attested | 請參閱[證明資料](#attested-data) | 2018-10-01
 
 ### <a name="example-attested-data"></a>證明資料範例
 
- > [!NOTE]
+> [!NOTE]
 > 所有 API 回應都是 JSON 字串。 下列範例回應均美化顯示，很容易閱讀。
 
  **要求**
-
 
  ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
@@ -388,6 +412,7 @@ Api-version 是必要欄位，證明資料所支援的版本是 2018-10-01。
 Nonce 是所提供的選用 10 位數字串。 Nonce 可用來追蹤要求，若未提供，則在回應編碼字串中會傳回目前的 UTC 時間戳記。
 
  **回應**
+
 > [!NOTE]
 > 回應是 JSON 字串。 下列範例回應均列印清晰，很容易閱讀。
 
@@ -397,7 +422,7 @@ Nonce 是所提供的選用 10 位數字串。 Nonce 可用來追蹤要求，若
 }
 ```
 
- > 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它內含可用於簽署的憑證和 VM 詳細資料，例如 vmId、nonce、文件的建立和到期時間戳記，以及關於該映像的方案資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
+> 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它內含可用於簽署的憑證和 VM 詳細資料，例如 vmId、nonce、文件的建立和到期時間戳記，以及關於該映像的方案資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>在 Windows 虛擬機器中擷取證明中繼資料
 
@@ -430,6 +455,7 @@ Nonce 是所提供的選用 10 位數字串。 Nonce 可用來追蹤要求，若
 ```
 
 > 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它內含可用於簽署的憑證和 VM 詳細資料，例如 vmId、nonce、文件的建立和到期時間戳記，以及關於該映像的方案資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
+
 
 ## <a name="example-scenarios-for-usage"></a>使用方式的範例案例  
 
@@ -505,18 +531,18 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure 有各種不同的主權雲端，例如 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)。 有時候您會需要 Azure 環境來進行一些執行階段決策。 下列範例會說明如何實現此行為。
 
 **要求**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **回應**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 
 ### <a name="getting-the-tags-for-the-vm"></a>取得標記 vm
 
-您可能已標記指派給您的 Azure Vm，以邏輯方式組織成分類。 可以在下面的要求中擷取的標記指派給 VM。
+標記可能已套用至您的 Azure VM，以邏輯方式組織成分類。 可以在下面的要求中擷取的標記指派給 VM。
 
 **要求**
 
@@ -535,12 +561,12 @@ Department:IT;Environment:Test;Role:WebRole
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>驗證 VM 是在 Azure 中執行
 
- Marketplace 廠商想要確保其軟體是授權為只在 Azure 中執行。 如果有人將 VHD 複製到內部部署環境，這些廠商必須有方法偵測到此情況。 藉由呼叫 Instance Metadata Service，Marketplace 廠商可以取得簽署的資料，以保證回應只會來自 Azure。
+Marketplace 廠商想要確保其軟體全都只授權在 Azure 中執行。 如果有人將 VHD 複製到內部部署環境，這些廠商必須有能力偵測到此情況。 藉由呼叫 Instance Metadata Service，Marketplace 廠商可以取得簽署的資料，以保證回應只會來自 Azure。
 
- > [!NOTE]
+> [!NOTE]
 > 必須安裝 jq。
 
- **要求**
+**要求**
 
  ```bash
   # Get the signature
@@ -613,6 +639,7 @@ openssl x509 -noout -issuer -in intermediate.pem
 # Verify the certificate chain
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
+
 ### <a name="failover-clustering-in-windows-server"></a>Windows Server 中的容錯移轉叢集
 
 對於某些情況，使用容錯移轉叢集查詢 Instance Metadata Service 時，必須將路由新增至路由表。
@@ -656,6 +683,27 @@ Network Destination        Netmask          Gateway       Interface  Metric
 
 ```bat
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
+```
+
+### <a name="custom-data"></a>自訂資料
+執行個體中繼資料服務提供的 VM 具有其自訂資料的存取權的能力。 二進位資料必須是小於 64 KB，並且提供 base64 編碼格式的 vm。 如需如何使用自訂的資料來建立 VM 的詳細資訊，請參閱 <<c0> [ 部署虛擬機器使用 CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)。
+
+#### <a name="retrieving-custom-data-in-virtual-machine"></a>擷取虛擬機器中的自訂資料
+Base64 編碼格式中的 VM 執行個體中繼資料服務提供自訂的資料。 下列範例將解碼的 base64 編碼字串。
+
+> [!NOTE]
+> 在此範例中的自訂資料會解譯為 ASCII 字串讀取，「 我神秘無比的資料。 」。
+
+**要求**
+
+```bash
+curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/customData?api-version=2019-02-01&&format=text" | base64 --decode
+```
+
+**回應**
+
+```text
+My super secret data.
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>在 VM 內使用不同語言呼叫中繼資料服務的範例

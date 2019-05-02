@@ -3,8 +3,8 @@ title: Azure 網路監看員連線疑難排解簡介 | Microsoft Docs
 description: 本頁提供網路監看員連線疑難排解功能的概觀
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: jdial
-ms.openlocfilehash: 4b1164c3dedc5d8a2fa02d70f66ff00afe604836
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532463"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705810"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Azure 網路監看員中連線疑難排解的簡介
 

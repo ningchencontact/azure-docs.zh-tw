@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 自訂原則中定義的 OpenId Connect �
 description: 在 Azure Active Directory B2C 自訂原則中定義的 OpenId Connect 的技術設定檔。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e8bfa5a3e60efe860b5e7197d96ebe5ce3a86030
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ec323d4596c866da33c4a8ff5499bf2ad92a8bd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418265"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710321"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 自訂原則中定義的 OpenId Connect 的技術設定檔
 
@@ -23,7 +23,7 @@ ms.locfileid: "60418265"
 
 Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) 通訊協定識別提供者。 OpenID Connect 1.0 會定義 OAuth 2.0 上的身分識別層，是先進新式驗證通訊協定的代表。 使用 OpenId Connect 技術設定檔，您可以與 OpenId Connect 型的識別提供者，例如 Azure AD 同盟。 同盟身分識別提供者，可讓使用者使用其現有的社交登入或企業身分識別。
 
-## <a name="protocol"></a>通訊協定
+## <a name="protocol"></a>Protocol
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `OpenIdConnect`。 例如，**MSA-OIDC** 技術設定檔的通訊協定是 `OpenIdConnect`：
 

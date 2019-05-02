@@ -2,24 +2,18 @@
 title: 依清單類型的需求 | Azure
 description: 本文說明合作夥伴若要了解如何發佈應用程式到 Azure Marketplace 的資格條件和發佈需求。
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: ebe344d9f596f862fe5ffbfef083725e6527d0d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e45346ce8bd23ea8431faf8a123d57ecdee71606
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599321"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937883"
 ---
 # <a name="requirements-by-listing-type"></a>依清單類型別需求  
 技術與行銷內容需求會因店面、供應項目類型和清單類型而異。 請檢閱以下規格，檢查您的合規性。  

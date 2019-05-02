@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 21fbfe22901de677209b55639cd8871ab408375b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406410"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719028"
 ---
 # <a name="sizes-for-cloud-services"></a>雲端服務的大小
 本主題描述雲端服務角色執行個體 (Web 角色和背景工作角色)的可用大小和選項。 同時也提供計劃使用這些資源時，需注意的部署考量。 每種大小都有一個識別碼，可讓您放入[服務定義檔](cloud-services-model-and-package.md#csdef)。 每種大小的價格可以在[雲端服務價格](https://azure.microsoft.com/pricing/details/cloud-services/)頁面上取得。

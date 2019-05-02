@@ -4,7 +4,7 @@ description: 了解如何在 Linux 虛擬機器擴展集範本中使用客體計
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: na
@@ -13,24 +13,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: deddcc8623803f9d003f3fafcef5252ebd34b813
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8cd665ffd82547c4f554eb4a515a8da7dc5b3f5f
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803359"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868981"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>在 Linux 擴展集範本中使用客體計量自動調整規模
 
-在 Azure 中蒐集自 VM 和擴展集的計量有兩種類型：部分來自主機 VM，其他則來自客體 VM。 概括而言，如果您使用標準的 CPU、磁碟及網路計量，則可能適合採用主機計量。 不過，如果您需要更大的計量選取範圍，則可能較適合採用客體計量。 讓我們看看兩者之間的差異：
+有兩種廣泛的 Azure 中，收集自 Vm 和擴展集的計量：主機計量和客體計量。 概括而言，如果您想要使用標準的 CPU、 磁碟及網路計量，然後主機計量是不錯的選擇。 如果，不過，您需要更多選項的計量，應該會在研究過客體計量。
 
-主機計量比較簡單且更可靠。 它們不需要額外的安裝，因為它們會由主機 VM 所收集，而客體計量需要您在客體 VM 中安裝 [Windows Azure 診斷擴充功能](../virtual-machines/windows/extensions-diagnostics-template.md)或 [Linux Azure 診斷擴充功能](../virtual-machines/linux/diagnostic-extension.md)。 使用客體計量而非主機計量的一個常見原因是，客體計量會提供比主機計量更大的計量選取範圍。 記憶體耗用量計量即為一例，這類計量只能透過客體計量使用。 [這裡](../azure-monitor/platform/metrics-supported.md)會列出支援的主機度量，而常用的客體計量則列於[這裡](../azure-monitor/platform/autoscale-common-metrics.md)。 本文將說明如何根據適用於 Linux 擴展集的客體計量來修改[最基本可行的擴展集範本](./virtual-machine-scale-sets-mvss-start.md)，以使用自動調整規模規則。
+主機計量不需要額外的安裝程式因為它們會收集由主機 VM，而客體計量需要您安裝[Windows Azure 診斷擴充功能](../virtual-machines/windows/extensions-diagnostics-template.md)或[Linux Azure 診斷擴充功能](../virtual-machines/linux/diagnostic-extension.md)客體 VM 中。 使用客體計量而非主機計量的一個常見原因是，客體計量會提供比主機計量更大的計量選取範圍。 記憶體耗用量計量即為一例，這類計量只能透過客體計量使用。 [這裡](../azure-monitor/platform/metrics-supported.md)會列出支援的主機度量，而常用的客體計量則列於[這裡](../azure-monitor/platform/autoscale-common-metrics.md)。 這篇文章說明如何修改[基本的可行擴展集範本](virtual-machine-scale-sets-mvss-start.md)使用客體計量的 Linux 擴展集為基礎的自動調整規則。
 
 ## <a name="change-the-template-definition"></a>變更範本定義
 
-您可以在[這裡](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)看到最基本可行的擴展集範本，並在[這裡](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json)看到使用以客體為基礎之自動調整規模部署 Linux 擴展集的範本。 讓我們逐步檢查用來建立此範本 (`git diff minimum-viable-scale-set existing-vnet`) 的差異：
+在 [前一篇文章](virtual-machine-scale-sets-mvss-start.md)我們建立基本的擴展集範本。 現在，我們會使用較早的範本，並修改它建立範本部署 Linux 擴展集使用客體計量型自動調整。
 
 首先，新增 `storageAccountName` 和 `storageAccountSasToken` 的參數。 診斷代理程式會將計量資料儲存於此儲存體帳戶的[表格](../cosmos-db/table-storage-how-to-use-dotnet.md)中。 從 Linux 診斷代理程式 3.0 版開始，不再支援使用儲存體存取金鑰。 請改用 [SAS 權杖](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
@@ -111,7 +111,7 @@ ms.locfileid: "60803359"
        }
 ```
 
-最後，新增 `autoscaleSettings` 資源，以根據這些計量來設定自動調整規模。 此資源含有 `dependsOn` 子句，其會參考擴展集以確定擴展集存在，然後再嘗試自動調整其規模。 如果您選擇不同的計量來自動調整規模，可以使用來自診斷擴充功能設定的 `counterSpecifier`，作為自動調整規模設定中的 `metricName`。 如需自動調整規模設定的詳細資訊，請參閱[自動調整規模的最佳做法](..//azure-monitor/platform/autoscale-best-practices.md)和 [Azure 監視器 REST API 參考文件](https://msdn.microsoft.com/library/azure/dn931928.aspx) \(英文\)。
+最後，新增 `autoscaleSettings` 資源，以根據這些計量來設定自動調整規模。 此資源含有 `dependsOn` 子句，其會參考擴展集以確定擴展集存在，然後再嘗試自動調整其規模。 如果您選擇不同的計量來自動調整規模，可以使用來自診斷擴充功能設定的 `counterSpecifier`，作為自動調整規模設定中的 `metricName`。 如需自動調整規模設定的詳細資訊，請參閱[自動調整規模的最佳做法](../azure-monitor/platform/autoscale-best-practices.md)和 [Azure 監視器 REST API 參考文件](/rest/api/monitor/autoscalesettings) \(英文\)。
 
 ```diff
 +    },

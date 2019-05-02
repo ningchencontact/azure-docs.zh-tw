@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60864211"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926236"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>針對傳統儲存體資源刪除錯誤進行疑難排解
 本文章提供疑難排解指引，協助您排解在嘗試刪除 Azure 傳統儲存體帳戶、容器或 *.vhd 分頁 Blob 檔案時發生的以下任一錯誤。 
@@ -37,7 +37,7 @@ ms.locfileid: "60864211"
 3. 磁碟租用中斷之後，就可以刪除分頁 Blobb 本身。 在刪除儲存體帳戶或容器上的所有「磁碟」資源之後，即可刪除儲存體帳戶或容器。
 
 >[!NOTE] 
->如果使用者刪除 VM 但不刪除 VHD，則會在分頁 Blob *.vhd 檔案上繼續累積費用。 費用會與儲存體帳戶類型一致，如需詳細資訊，請查看[定價頁面](https://azure.microsoft.com/en-us/pricing/details/storage/)。 如果使用者不再打算使用 VHD，請將其刪除以避免產生未來的費用。 
+>如果使用者刪除 VM 但不刪除 VHD，則會在分頁 Blob *.vhd 檔案上繼續累積費用。 費用會與儲存體帳戶類型一致，如需詳細資訊，請查看[定價頁面](https://azure.microsoft.com/pricing/details/storage/)。 如果使用者不再打算使用 VHD，請將其刪除以避免產生未來的費用。 
 
 ## <a name="unable-to-delete-storage-account"></a>無法刪除儲存體帳戶 
 

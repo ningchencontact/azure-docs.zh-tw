@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 04/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b63fb963408b8f22453c7ea78e36a49402273a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906046"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875596"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>在 Azure 資訊安全中心自訂 SQL 資訊保護原則 (預覽)
  
@@ -41,12 +41,11 @@ Information Protection 隨附一組預設會使用的內建標籤和資訊類型
 ## <a name="customize-the-information-protection-policy"></a>自訂資訊保護原則
 若要自訂 Azure 租用戶的資訊保護原則，您需要具有[租用戶根管理群組的管理權限](security-center-management-groups.md)。 
  
-1. 在 [資訊安全中心] 主功能表中，選取 [安全性原則]。
-2. 選擇 [階層式檢視 (預覽)]，然後按一下 [Tenant Root Group] \(租用戶根群組\) 下的 [編輯設定]。
- 
+1. 在安全性中心主功能表中，下方**資源的安全性防護**移至**資料和儲存體**，然後按一下**SQL 資訊保護** 按鈕。
+
    ![設定資訊保護原則](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. 在 [原則元件] 下，按一下 [資訊保護]。 在 [Information protection settings] \(資訊保護設定\) 頁面中，您可以檢視目前這組標籤。 這些主要分類屬性用來分類資料的敏感度等級。 在這裡，您可以設定租用戶的 [Information protection labels] \(資訊保護標籤\) 和 [資訊類型]。 
+2. 在 [ **SQL Information Protection** ] 頁面上，您可以檢視目前這組標籤。 這些主要分類屬性用來分類資料的敏感度等級。 在這裡，您可以設定租用戶的 [Information protection labels] \(資訊保護標籤\) 和 [資訊類型]。 
  
 ### <a name="customizing-labels"></a>自訂標籤
  

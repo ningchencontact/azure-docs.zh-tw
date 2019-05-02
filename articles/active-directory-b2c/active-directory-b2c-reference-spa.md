@@ -3,19 +3,19 @@ title: 單一頁面登入使用隱含流程-Azure Active Directory B2C |Microsof
 description: 了解如何新增單一頁面登入搭配 Azure Active Directory B2C 使用 OAuth 2.0 隱含流程。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 65a29d16f2a2d66425f568e7307e6202b8d55d24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06156b1050bbf77fbbd5be8559b3c1683c2ced24
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317005"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698939"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>單一頁面登入 Azure Active Directory B2C 中使用 OAuth 2.0 隱含流程
 

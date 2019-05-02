@@ -1,25 +1,18 @@
 ---
-title: 處理 Azure 應用程式檢閱意見反應 - Azure Marketplace | Microsoft Docs
+title: 處理 Azure 應用程式檢閱意見反應 |Azure Marketplace
 description: 說明如何使用 Azure DevOps 處理 Azure Marketplace 的 Azure 應用程式供應項目的檢閱意見反應。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.author: pbutlerm
-ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 57efbfe12df8072d619cf71f4b08da2e2e5be3ce
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60745501"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942949"
 ---
 # <a name="handling-review-feedback"></a>處理檢閱意見反應
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58c09c71aad2b6244f6e2f3d144c033665932f50
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564664"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925569"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 
@@ -231,13 +231,13 @@ VSS 安裝是行動代理程式安裝的一部分。 此服務是用於產生應
 
 ### <a name="vss-error--2147023824-0x80070430---exit-code-517"></a>VSS 錯誤 -2147023824 [0x80070430] - 結束代碼 517
 
-此錯誤會在 Azure Site Recovery VSS 提供者服務[被標記為要進行刪除](https://msdn.microsoft.com/en-us/library/ms838153.aspx) \(英文\) 的情況下發生。 請嘗試執行下列命令列來在來源電腦上手動安裝 VSS
+此錯誤會在 Azure Site Recovery VSS 提供者服務[被標記為要進行刪除](https://msdn.microsoft.com/library/ms838153.aspx) \(英文\) 的情況下發生。 請嘗試執行下列命令列來在來源電腦上手動安裝 VSS
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ### <a name="vss-error--2147023841-0x8007041f---exit-code-512"></a>VSS 錯誤 -2147023841 [0x8007041F] - 結束代碼 512
 
-此錯誤會在 Azure Site Recovery VSS 提供者服務資料庫[已鎖定](https://msdn.microsoft.com/en-us/library/ms833798.aspx)的情況下發生。請嘗試執行下列命令列來在來源電腦上手動安裝 VSS
+此錯誤會在 Azure Site Recovery VSS 提供者服務資料庫[已鎖定](https://msdn.microsoft.com/library/ms833798.aspx)的情況下發生。請嘗試執行下列命令列來在來源電腦上手動安裝 VSS
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 

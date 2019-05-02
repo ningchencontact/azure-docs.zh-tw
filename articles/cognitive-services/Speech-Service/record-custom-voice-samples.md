@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530734"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866536"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>錄製語音樣本來建立自訂語音
 
@@ -109,7 +109,7 @@ ms.locfileid: "57530734"
 |-|-|
 |[CMU Arctic 語料庫](http://festvox.org/cmu_arctic/) \(英文\)|大約有 1100 個都是從已不受著作權保護的作品中選出，且特別適合用於語音合成專案的句子。 絕佳的起點。|
 |作品不再<br>受著作權保護|作品通常是在 1923 年之前出版。 [Project Gutenberg](https://www.gutenberg.org/) \(英文\) 提供成千上萬個英文版的這類作品。 您可能希望專注在較新的作品上，因為語言將更接近現代英文。|
-|政府&nbsp;著作|美國政府的著作在美國境內不受著作權保護，但政府可以在其他國家/地區宣告著作權。|
+|政府&nbsp;著作|美國政府所建立的運作方式是不受著作權保護在美國境內，但政府可能宣告其他國家/地區的著作權。|
 |公眾領域|著作權已明確放棄或專用於公眾領域的作品 可能無法在部分司法管轄區完全放棄著作權。|
 |獲得授權許可的作品|根據 Creative Commons 或 GNU 自由文件授權 (GFDL) 散佈的作品。 維基百科使用 GFDL。 但是，部分授權對演出授權內容施加的限制，可能會影響自訂語音模型的建立，因此請仔細閱讀授權。|
 

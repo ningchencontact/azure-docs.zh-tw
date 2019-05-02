@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 7a2cb110d5be74e23e8e782fc02873786e8813e9
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 2f86b74299b5d47a87ed0b8e89a992f0f91a84be
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149711"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924637"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>将 IoT DevKit AZ3166 连接到 Azure IoT 中心
 
@@ -79,7 +79,9 @@ ms.locfileid: "60149711"
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
-
+   > [!NOTE]
+   > 如果您執行時發生`device-identity`，安裝[Azure CLI 的 Azure IOT 擴充功能](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md)如需詳細資訊。
+  
 1. 在 Azure Cloud Shell 中執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。

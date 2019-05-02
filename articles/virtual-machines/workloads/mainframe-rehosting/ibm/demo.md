@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: f8af19056a343abdbafcd4ead8b072330cb41fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438448"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925682"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>設定註冊應用程式開發人員控制發佈 (ADCD) 在 IBM zD & T v1
 
@@ -187,7 +187,7 @@ ZD (& T)，例如 ADCDs 是僅適用於 IBM 客戶和合作夥伴，專門用於
 - [大型主機移轉： 迷思與事實](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [在 Azure 上的 IBM DB2 pureScale](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
 - [疑難排解](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [揭開大型主機移轉至 Azure 的神秘面紗](https://azure.microsoft.com/en-us/resources/demystifying-mainframe-to-azure-migration/)
+- [揭開大型主機移轉至 Azure 的神秘面紗](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

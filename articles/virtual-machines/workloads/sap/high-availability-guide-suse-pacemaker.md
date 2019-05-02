@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0758105c7e2a18e976bc0c210eaf4e55e418a22d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710640"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925716"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
 
@@ -578,7 +578,7 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>適用於 Azure 的 pacemaker 設定排定的事件
 
-Azure 優惠[已排定事件](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events)。 排定的事件會提供透過中繼資料服務，並允許提供時間讓應用程式虛擬機器關機、 重新部署 VM 等事件做準備。資源代理程式 **[azure 事件](https://github.com/ClusterLabs/resource-agents/pull/1161)** Azure 的已排定事件的監視。 如果偵測到事件，該代理程式會嘗試停止受影響的 VM 上的所有資源，並將其移至叢集中的另一個節點。 若要達到該額外的 Pacemaker 資源必須設定。 
+Azure 優惠[已排定事件](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events)。 排定的事件會提供透過中繼資料服務，並允許提供時間讓應用程式虛擬機器關機、 重新部署 VM 等事件做準備。資源代理程式 **[azure 事件](https://github.com/ClusterLabs/resource-agents/pull/1161)** Azure 的已排定事件的監視。 如果偵測到事件，該代理程式會嘗試停止受影響的 VM 上的所有資源，並將其移至叢集中的另一個節點。 若要達到該額外的 Pacemaker 資源必須設定。 
 
 1. **[A]** 安裝**azure 事件**代理程式。 
 

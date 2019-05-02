@@ -2,24 +2,18 @@
 title: 在 Azure Marketplace 中啟用潛在客戶共用 | Azure
 description: 了解如何為應用程式與服務發行者啟用 Azure Marketplace 和 AppSource 的潛在客戶共用。
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 346ebd9636623a2fc8b08d42c2170a21a5e9a316
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9aecef81547131e6f843fdd55db259d2c4299c9c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121073"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938684"
 ---
 # <a name="enable-lead-sharing"></a>啟用潛在客戶共用
 確定已啟用潛在客戶管理，讓您列於 [Azure Marketplace](https://azuremarketplace.microsoft.com) 或 [Microsoft AppSource](https://appsource.microsoft.com) 中，協助您接收下列對象的連絡人資訊：

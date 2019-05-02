@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c68bae87440bddf704d18b575aeb1f4ba4760bbb
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 3f62557d024f56b7014784b6956f15a950f8cca7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578238"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926241"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>如何在 Azure 中變更 SQL Server 虛擬機器的授權模型
 本文說明如何在 Azure 中使用新的 SQL VM 資源提供者 **Microsoft.SqlVirtualMachine**，來變更 SQL Server 虛擬機器的授權模型。 有兩個授權裝載 SQL Server-隨用隨付，虛擬機器 (VM) 的模型和自備授權 (BYOL)。 而現在，使用 Azure 入口網站、 Azure CLI 或 PowerShell 您可以修改您的 SQL Server VM 會使用哪個授權模型。 
@@ -33,10 +33,13 @@ ms.locfileid: "59578238"
 
 ## <a name="remarks"></a>備註
 
+
  - CSP 客戶可以運用 AHB 的權益，先部署隨用隨付的 VM，然後再將其轉換成自備授權。 
  - 向資源提供者註冊自訂的 SQL Server VM 映像，當指定授權類型 = 'AHUB'。 離開授權類型為空白，或指定 'PAYG' 會造成失敗的註冊。 
  - 如果您卸除 SQL Server VM 資源，您將會移回至映像的硬式編碼的授權設定。 
+ - 將 SQL Server VM 加入至可用性設定組時，需要重新建立 VM。 這類，任何虛擬機器加入至可用性集合將會回到預設的隨用隨付授權類型，並適 AHB 必須再次啟用。 
  - 若要變更授權模型的能力是 SQL VM 的資源提供者的功能。 部署在 Azure 入口網站的 marketplace 映像會自動向資源提供者的 SQL Server VM。 不過，自我安裝 SQL Server 的客戶將需要手動[註冊其 SQL Server VM](#register-sql-server-vm-with-the-sql-vm-resource-provider)。 
+ 
 
  
 ## <a name="limitations"></a>限制
@@ -172,7 +175,7 @@ az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation>
 # Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzVm -ResourceGroupName AHBTest -Name AHBTest
 $vm=Get-AzVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
-New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Proper
+New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
 ```
 
 
@@ -190,7 +193,7 @@ SQL IaaS 擴充是向 SQL VM 資源提供者註冊 SQL Server VM 的必要先決
   > 安裝 SQL IaaS 擴充將會重新啟動 SQL Server 服務，因此僅應在維護期間進行。 如需詳細資訊，請參閱 [SQL IaaS 擴充安裝](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension#installation)。 
 
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>找不到 '< 資源群組 >' 的資源群組下的' Microsoft.SqlVirtualMachine/SqlVirtualMachines/ < 資源群組 >' 的資源。 此物件上找不到屬性 'sqlServerLicenseType'。 請確認屬性存在，且可以設定。
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>資源 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<資源群組 >' 位於資源群組'\<資源群組 >' 找不到。 此物件上找不到屬性 'sqlServerLicenseType'。 請確認屬性存在，且可以設定。
 當您嘗試使用 SQL 資源提供者尚未註冊的 SQL Server VM 上的授權模式變更時，就會發生此錯誤。 您必須註冊資源提供者，以您[訂用帳戶](#register-sql-vm-resource-provider-with-subscription)，再將您的 SQL Server VM 向 SQL[資源提供者](#register-sql-server-vm-with-sql-resource-provider)。 
 
 ### <a name="cannot-validate-argument-on-parameter-sku"></a>無法驗證參數 'Sku' 上的引數

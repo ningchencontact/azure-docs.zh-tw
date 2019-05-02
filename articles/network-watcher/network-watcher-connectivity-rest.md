@@ -3,8 +3,8 @@ title: 利用 Azure 網路監看員進行連線疑難排解 - Azure REST API | M
 description: 了解如何運用 Azure REST API，來使用 Azure 網路監看員的連線疑難排解功能。
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
-ms.author: jdial
-ms.openlocfilehash: 45fbdac3c099b44f8f12a54f5bde147524f10458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: 7fbe36d9ee15ffbdaa2ba978aabf3cc4f5db3889
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535740"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694067"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>使用 Azure REST API 利用 Azure 網路監看員進行連線疑難排解
 

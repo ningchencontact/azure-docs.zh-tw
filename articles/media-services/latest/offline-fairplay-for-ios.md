@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 25bc7798853d350139a7802eaad68d52a1d7d99f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58315e639a54b67bdef6751004b7a768e4f92224
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60996570"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937506"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>適用於 iOS 的離線 FairPlay 串流 
 
@@ -36,8 +36,8 @@ ms.locfileid: "60996570"
 除了透過各種不同的串流處理通訊協定來保護內容進行線上串流處理，受保護內容的離線模式也是一個經常被要求的功能。 下列案例需要離線模式支援：
 
 * 在無法使用網際網路連線 (例如旅行期間) 時播放。
-* 某些內容提供者可能不允許超出國家/地區的邊界來傳遞 DRM 授權。 如果使用者要在其國家/地區外旅行時觀賞內容，就需要離線下載。
-* 在某些國家/地區，網際網路可用性和 (或) 頻寬仍然有限。 使用者可選擇先下載內容，才能觀賞解析度夠高的內容，從而獲得滿意的觀賞體驗。 因此，問題通常不在於網路可用性，而是網路頻寬有限。 Over-the-top (OTT)/線上視訊平台 (OVP) 提供者會要求離線模式支援。
+* 某些內容提供者可能不允許 DRM 授權傳遞超出國家/地區的邊界。 如果使用者想要的國家/地區外旅行時觀賞內容，則需要離線下載。
+* 在某些國家/地區，網際網路可用性和/或頻寬是仍然有限。 使用者可選擇先下載內容，才能觀賞解析度夠高的內容，從而獲得滿意的觀賞體驗。 因此，問題通常不在於網路可用性，而是網路頻寬有限。 Over-the-top (OTT)/線上視訊平台 (OVP) 提供者會要求離線模式支援。
 
 本文會說明 FairPlay 串流 (FPS) 離線模式支援，此支援是以執行 iOS 10 或更新版本的裝置為目標。 其他 Apple 平台 (例如 watchOS、tvOS 或 macOS 上的 Safari) 則不支援此功能。
 

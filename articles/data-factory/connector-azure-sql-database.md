@@ -10,25 +10,30 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 749b5690f5814bb2f63f9f4451bba85990166acd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 543defc622942f4a0643aca275ad4ad2fa9e1ab2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306256"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926537"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [第 1 版](v1/data-factory-azure-sql-connector.md)
 > * [目前的版本](connector-azure-sql-database.md)
 
-本文說明如何使用 Azure Data Factory 中的「複製活動」，從 Azure SQL Database 來回複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文概述如何從 Azure SQL Database 來回複製資料。 若要了解 Azure Data Factory，請閱讀[簡介文章](introduction.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-您可以將資料從 Azure SQL Database 來回複製到任何支援的接收資料存放區。 您也可以將資料從任何支援的來源資料存放區複製到 Azure SQL Database。 如需複製活動所支援作為來源或接收的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md#supported-data-stores-and-formats)表格。
+此 Azure SQL Database 連接器支援下列活動：
+
+- [複製活動](copy-activity-overview.md)具有[支援來源/接收器矩陣](copy-activity-overview.md)資料表
+- [對應資料流程](concepts-data-flow-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
+- [GetMetadata 活動](control-flow-get-metadata-activity.md)
 
 具體而言，這個 Azure SQL Database 連接器支援下列功能：
 
@@ -135,12 +140,12 @@ ms.locfileid: "60306256"
 2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員必須是 Azure AD 使用者或 Azure AD 群組，但不能是服務主體。 此步驟必須完成，如此您才可以在下一個步驟中使用 Azure AD 身分識別，為服務主體建立自主資料庫使用者。
 
 3. 為服務主體**[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**。 以至少具有 ALTER ANY USER 權限的 Azure AD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料庫。 執行下列 T-SQL： 
-    
+  
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. 如同您一般對 SQL 使用者或其他人所做的一樣，**將所需的權限授與服務主體**。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
+4. 如同您一般對 SQL 使用者或其他人所做的一樣，**將所需的權限授與服務主體**。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -185,12 +190,12 @@ ms.locfileid: "60306256"
 1. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您授與管理的身分識別系統管理員角色的群組，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
 
 2. **[建立自主的資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** 的 Data Factory 受控身分識別。 以至少具有 ALTER ANY USER 權限的 Azure AD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料庫。 執行下列 T-SQL： 
-    
+  
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **授與 Data Factory 受控身分識別所需的權限**像您一般的 SQL 使用者和其他項目。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
+3. **授與 Data Factory 受控身分識別所需的權限**像您一般的 SQL 使用者和其他項目。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
@@ -588,6 +593,10 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 
 預存程序功能使用 [資料表值參數](https://msdn.microsoft.com/library/bb675163.aspx)。
 
+## <a name="mapping-data-flow-properties"></a>對應資料流程屬性
+
+了解詳細資料，從[來源轉換](data-flow-source.md)並[接收轉換](data-flow-sink.md)中對應的資料流。
+
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Azure SQL Database 的資料類型對應
 
 從 Azure SQL Database 複製資料或將資料複製到該處時，會使用下列從 Azure SQL Database 資料類型對應到 Azure Data Factory 過渡期資料類型的對應。 請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動如何將來源結構描述和資料類型對應至接收。
@@ -605,7 +614,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| Image |Byte[] |
+| image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |

@@ -3,20 +3,19 @@ title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的日
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的日期宣告轉換範例。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-origin.date: 09/10/2018
-ms.date: 04/04/2019
-ms.author: v-junlch
+ms.date: 09/10/2018
+ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22484adcc709c1d2726d8086ac75300f189bcc41
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384220"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710434"
 ---
 # <a name="date-claims-transformations"></a>日期宣告轉換
 
@@ -177,4 +176,3 @@ ms.locfileid: "60384220"
     - **timeSpanInSeconds**：7776000 (90 天)
 - 輸出宣告：
     - **結果**：true
-

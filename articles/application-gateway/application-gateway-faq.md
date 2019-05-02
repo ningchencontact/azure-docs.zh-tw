@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/20/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 3c8a2fe9f4486fe4d33754b58f4e7ebec1b3252d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682945"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947076"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>關於應用程式閘道的常見問題集
 
@@ -119,7 +119,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="does-application-gateway-support-autoscaling"></a>應用程式閘道是否支援自動調整？
 
-是，應用程式閘道 v2 SKU 支援自動調整規模。 如需詳細資訊，請參閱 <<c0> [ 自動調整和區域備援應用程式閘道 （公開預覽）](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)。
+是，應用程式閘道 v2 SKU 支援自動調整規模。 如需詳細資訊，請參閱 <<c0> [ 自動調整和區域備援應用程式閘道](application-gateway-autoscaling-zone-redundant.md)。
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>執行手動相應增加或相應減少會造成停機嗎？
 
@@ -195,7 +195,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 沒有。
 
-## <a name="configuration---ssl"></a>設定-SSL
+## <a name="configuration---ssl"></a>配置 - SSL
 
 ### <a name="what-certificates-does-application-gateway-support"></a>應用程式閘道支援哪些憑證？
 
@@ -267,7 +267,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>不會使用 Azure Key Vault 以原生方式整合應用程式閘道？
 
-沒有。
+是，應用程式閘道 v2 SKU 支援金鑰保存庫。 如需詳細資訊，請參閱 < [Key Vault 憑證與 SSL 終止](key-vault-certs.md)。
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>如何設定 HTTPS 接聽程式的.com 與.net 的網站？ 
 

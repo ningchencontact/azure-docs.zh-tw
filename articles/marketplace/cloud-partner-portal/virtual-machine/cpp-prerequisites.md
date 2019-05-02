@@ -1,25 +1,18 @@
 ---
-title: Microsoft Azure 虛擬機器先決條件 | Microsoft Docs
+title: 適用於 Microsoft Azure 虛擬機器的必要條件 |Azure Marketplace
 description: 若要發佈 VM 供應項目至 Microsoft Azure Marketplace，此為先決條件清單。
 services: Azure, Marketplace, Cloud Partner Portal
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 5c26fd3d6c2593217aef8588e2a58377a86412ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844035"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938071"
 ---
 # <a name="virtual-machine-prerequisites"></a>虛擬機器先決條件
 
@@ -49,7 +42,7 @@ ms.locfileid: "60844035"
     > 您需要使用與註冊 Microsoft 開發人員中心相同的帳戶來登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)。
     > 您所有的 Azure Marketplace 供應項目應該只會共有一個 Microsoft 帳戶。 帳戶不應僅供單一服務或供應項目使用。
     
-- 您的公司 (或其子公司) 必須位於 Microsoft Azure Marketplace 支援的銷售來源國家/地區。  如需目前的國家/地區清單，請參閱 [Microsoft Azure Marketplace 參與政策](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)。
+- 您的公司 （或其子公司） 必須位於銷售-從-國家/地區支援 Azure marketplace。  目前的國家/地區清單，請參閱 < [Microsoft Azure Marketplace 參與原則](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)。
 - 您的產品授權，必須與 Azure Marketplace 支援的計費模式相容。  如需詳細資訊，請參閱 [Azure Marketplace 的計費選項](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace)。 
 - 您必須以合乎商業行為的方式，負責為客戶提供技術支援。 此支援可以免費、收費或透過社群提供。
 - 您必須負責為您的軟體和任何第三方廠商相依性進行授權。

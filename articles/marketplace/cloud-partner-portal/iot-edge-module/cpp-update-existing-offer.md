@@ -1,25 +1,18 @@
 ---
-title: 更新現有 Azure IoT Edge 模組供應項目 | Microsoft Docs
+title: 更新現有的 Azure IoT Edge 模組優惠 |Azure Marketplace
 description: 說明如何更新 Microsoft Azure Marketplace 中之現有 IoT Edge 模組供應項目。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ca7bed26d91c28304638e85d6da93708bfcfcada
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 1dc6832fe09a610634ad934e3b173be6cc3331e6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914105"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942162"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>更新現有 IoT Edge 模組供應項目
 

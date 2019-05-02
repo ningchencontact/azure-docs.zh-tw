@@ -1,25 +1,19 @@
 ---
-title: 試用產品的轉換範例 | Microsoft Docs
+title: 測試磁碟機轉換範例 |Azure Marketplace
 description: 如何實作試用產品的範例清單。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 7e8263595a484500b86a8491d1408f02b4286181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 727028611c52a8d03026e5d3fa67b2e0ee7e2053
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60638129"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938484"
 ---
 <a name="transforming-examples-for-test-drive"></a>試用產品的轉換範例
 ====================================

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: f34e32b9bda83ac1185d0c7b7dcaaaa7b47161a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: babe2ac55953940370daa0731463ed6ed8988502
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332798"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925903"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>在適用於 MariaDB 的 Azure 資料庫中監視
 監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 適用於 MariaDB 的 Azure 資料庫提供多種計量，可讓您深入了解您伺服器的行為。
@@ -41,7 +41,7 @@ ms.locfileid: "60332798"
 |network_bytes_ingress|Network In|位元組|跨作用中連線的網路輸入。|
 
 ## <a name="server-logs"></a>伺服器記錄
-您可以在伺服器上啟用慢速查詢記錄。 若要深入了解記錄，請造訪[伺服器記錄](concepts-server-logs.md)頁面。
+您可以在伺服器上啟用慢速查詢記錄。 这些日志也可通过 Azure Monitor 日志、事件中心和存储帐户中的 Azure 诊断日志获得。 若要深入了解記錄，請瀏覽 [伺服器記錄](concepts-server-logs.md)頁面。
 
 ## <a name="next-steps"></a>後續步驟
 - 如需如何使用 Azure 入口網站、REST API 或 CLI 存取及匯出計量的詳細資訊，請參閱 [Azure 計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。

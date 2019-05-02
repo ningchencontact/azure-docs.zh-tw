@@ -1,28 +1,19 @@
 ---
 title: Azure HDInsight 中的 Phoenix 效能
 description: 將 Phoenix 效能最佳化的最佳做法。
-services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 01/22/2018
-ms.date: 01/14/2019
-ms.author: v-yiso
+ms.topic: conceptual
+ms.date: 01/22/2018
+ms.author: ashishth
 ms.openlocfilehash: 4fc4d1843ddb8d007ca062d928ebbddf90909583
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114302"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690037"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Apache Phoenix 效能最佳做法
 
@@ -61,7 +52,7 @@ Phoenix 中資料表上定義的主索引鍵，可決定資料儲存在基礎 HB
 
 在上表的第一列中，rowkey 的資料如下所示：
 
-|rowkey|       索引鍵|   value| 
+|rowkey|       key|   value| 
 |------|--------------------|---|
 |  Dole-John-111|位址 |1111 San Gabriel Dr.|  
 |  Dole-John-111|電話 |1-425-000-0002|  

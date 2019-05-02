@@ -14,33 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 4098d55a0b7505b2178c95d612c078a427adc9a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61464210"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869477"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 將檔案上傳至媒體服務帳戶 
-> [!div class="op_single_selector"]
-> * [.NET](media-services-dotnet-upload-files.md)
-> * [REST](media-services-rest-upload-files.md)
-> * [入口網站](media-services-portal-upload-files.md)
-> 
-> 
+
+> [!NOTE]
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
 
 在媒體服務中，您可以將數位檔案上傳 (或內嵌) 到資產。 **資產**實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式輔助字幕檔案 (以及這些檔案的相關中繼資料)。上傳檔案之後，您的內容會安全地儲存在雲端，以進一步進行處理和串流處理。
 
 資產中的檔案稱為 **資產檔案**。 **AssetFile** 執行個體和實際媒體檔是兩個不同的物件。 AssetFile 執行個體包含媒體檔案的相關中繼資料，而媒體檔案包含實際的媒體內容。
 
-> [!NOTE]
-> 您必須考量下列事項：
-> 
-> * 建置串流內容的 URL (例如， http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。出于这个原因，不允许使用百分号编码。 **Name** 屬性的值不能有下列任何[百分比編碼保留字元](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 而且，副檔名只能有一個 '.'。
-> * 名稱長度不應超過 260 個字元。
-> * 對於在媒體服務處理檔案，支援的檔案大小有上限。 請參閱[這篇](media-services-quotas-and-limitations.md)文章，以取得有關檔案大小限制的詳細資料。
-> * 對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
-> 
+## <a name="considerations"></a>考量
+
+您必須考量下列事項：
+ 
+ * 建置串流內容的 URL (例如， http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。出于这个原因，不允许使用百分号编码。 **Name** 屬性的值不能有下列任何[百分比編碼保留字元](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 而且，副檔名只能有一個 '.'。
+* 名稱長度不應超過 260 個字元。
+* 對於在媒體服務處理檔案，支援的檔案大小有上限。 請參閱[這篇](media-services-quotas-and-limitations.md)文章，以取得有關檔案大小限制的詳細資料。
+* 對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 建立資產時，您可以指定下列加密選項：
 
@@ -61,6 +58,7 @@ ms.locfileid: "61464210"
 本文顯示如何使用 Media Services .NET SDK 以及 Media Services .NET SDK 擴充功能，以將檔案上傳到媒體服務資產。
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>使用媒體服務 .NET SDK 上傳單一檔案
+
 以下程式碼使用 .NET 來上傳一個檔案。 AccessPolicy 與定位器會由所上傳的函式建立並終結。 
 
 ```csharp

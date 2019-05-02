@@ -9,12 +9,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 57cda4d07315c6c37c2ce51f530fb081949b628c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708612"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939492"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob Filesystem 驅動程式 (ABFS)：適用於 Hadoop 的專用 Azure 儲存體驅動程式
 

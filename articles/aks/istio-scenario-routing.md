@@ -2,18 +2,17 @@
 title: 透過 Istio 在 Azure Kubernetes Service (AKS) 中使用智慧型路由和 Canary 版本
 description: 了解如何使用 Istio 在 Azure Kubernetes Service (AKS) 叢集中提供智慧型路由及部署 Canary 版本
 services: container-service
-author: rockboyfor
+author: paulbouwer
 ms.service: container-service
 ms.topic: article
-origin.date: 12/03/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
-ms.openlocfilehash: 0a4e5e7e310a9949ee59291c2032eafda46955a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/19/2019
+ms.author: pabouwer
+ms.openlocfilehash: bd660a2b6ffb96478c3170cc7013ff22518b758f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465827"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702215"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>透過 Istio 在 Azure Kubernetes Service (AKS) 中使用智慧型路由和 Canary 版本
 
@@ -31,25 +30,28 @@ ms.locfileid: "60465827"
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文中詳述的步驟假設您已建立 AKS 叢集 (已啟用 RBAC 的 Kubernetes 1.10 和更新版本)，並已建立與叢集的 `kubectl` 連線。 您也必須在叢集中安裝 Istio。
+> [!NOTE]
+> 此案例中，已經過 Istio 版本`1.1.3`。
 
-如果您需要前述任何方面的協助，請參閱 [AKS 快速入門][aks-quickstart]和[在 AKS 中安裝 Istio][istio-install]。
+這篇文章中詳述的步驟假設您已建立 AKS 叢集 (Kubernetes`1.11`和更新版本，使用 RBAC 啟用)，並已建立`kubectl`與叢集的連線。 您也需要安裝在您的叢集中的 Istio。
+
+如果您需要協助進行任何這些項目，則會看到[AKS 快速入門][ aks-quickstart]並[安裝在 AKS 的 Istio] [ istio-install]指引。
 
 ## <a name="about-this-application-scenario"></a>關於此應用程式的案例
 
-範例 AKS 投票應用程式為使用者提供兩種投票選項 (「貓」或「狗」)。 有一項儲存體元件會保存各個選項的投票數。 此外，還有一項分析元件會提供與每個選項的投票有關的詳細資料。
+範例 AKS 投票應用程式提供兩個投票選項 (**貓**或是**Dogs**) 給使用者。 有一項儲存體元件會保存各個選項的投票數。 此外，還有一項分析元件會提供與每個選項的投票有關的詳細資料。
 
-在本文中，您首先將部署 *1.0* 版的投票應用程式和 *1.0* 版的分析元件。 此分析元件會提供簡單的投票計數。 投票應用程式和分析元件會與採用 Redis 的 *1.0* 版儲存體元件互動。
+在此應用程式案例中，您先部署版本`1.0`投票應用程式和版本`1.0`的 analytics 元件。 此分析元件會提供簡單的投票計數。 投票應用程式和分析元件互動版本`1.0`的儲存體元件，而由 Redis。
 
-接著您會將此分析元件升級至 *1.1* 版，此版本不僅提供計數，也提供總計和百分比。
+分析元件升級至新版`1.1`，它提供計數，並立即總計和百分比。
 
-一部分的使用者會透過 Canary 版本測試 *2.0* 版的應用程式。 這個新版本會使用由 MySQL 資料庫支援的儲存體元件。
+使用者測試版本的子集`2.0`透過 canary 版本的應用程式。 這個新版本會使用由 MySQL 資料庫支援的儲存體元件。
 
-在您確認 *2.0* 版可供該部分的使用者正常運作後，您即會為使用者推出 *2.0* 版。
+一旦您確信該版本`2.0`轉出版本的使用者子集上正常運作，`2.0`給您的使用者。
 
 ## <a name="deploy-the-application"></a>部署應用程式
 
-首先我們將在您的 Azure Kubernetes Service (AKS) 叢集中部署應用程式。 下圖顯示本節的結尾所執行的項目 - 所有元件的 *1.0* 版，且透過 Istio 輸入閘道回應輸入要求：
+首先我們將在您的 Azure Kubernetes Service (AKS) 叢集中部署應用程式。 下圖顯示執行結束時的這一節的什麼版本`1.0`透過 Istio 輸入閘道服務的輸入要求的所有元件：
 
 ![AKS 投票應用程式元件和路由。](media/istio/components-and-routing-01.png)
 
@@ -65,27 +67,27 @@ git clone https://github.com/Azure-Samples/aks-voting-app.git
 cd scenarios/intelligent-routing-with-istio
 ```
 
-首先，在您的 AKS 叢集中為範例 AKS 投票應用程式建立名為「投票」的命名空間，如下所示：
+首先，建立範例 AKS 投票應用程式名為 AKS 叢集中的 命名空間`voting`，如下所示：
 
-```console
+```azurecli
 kubectl create namespace voting
 ```
 
 為此命名空間加上 `istio-injection=enabled` 的標籤。 此標籤會指示 istio 在此命名空間內的所有 Pod 中自動插入 istio-proxy 作為側車。
 
-```console
+```azurecli
 kubectl label namespace voting istio-injection=enabled
 ```
 
-現在，我們將建立 AKS 投票應用程式的元件。 在上一個步驟所建立的「投票」命名空間中建立這些元件。
+現在，我們將建立 AKS 投票應用程式的元件。 建立這些元件在`voting`在上一個步驟中建立的命名空間。
 
-```console
+```azurecli
 kubectl apply -f kubernetes/step-1-create-voting-app.yaml --namespace voting
 ```
 
-下列範例輸出顯示已成功建立的資源：
+下列範例輸出會顯示正在建立的資源：
 
-```
+```console
 deployment.apps/voting-storage-1-0 created
 service/voting-storage created
 deployment.apps/voting-analytics-1-0 created
@@ -99,28 +101,28 @@ service/voting-app created
 
 若要查看已建立的 Pod，請使用 [kubectl get pods][kubectl-get] 命令，如下所示：
 
-```console
+```azurecli
 kubectl get pods -n voting
 ```
 
-下列範例輸出顯示 *voting-app* Pod 有三個執行個體，而 *voting-analytics* 和 *voting-storage* Pod 各有一個執行個體。 每個 Pod 有兩個容器。 其中一個容器是元件，另一個則是 *istio-proxy*：
+下列範例輸出顯示有三個執行個體`voting-app`pod 和這兩者的單一執行個體`voting-analytics`和`voting-storage`pod。 每個 Pod 有兩個容器。 其中一個容器是元件，而另一個是`istio-proxy`:
 
-```
+```console
 NAME                                    READY     STATUS    RESTARTS   AGE
-voting-analytics-1-0-669f99dcc8-lzh7k   2/2       Running   0          1m
-voting-app-1-0-6c65c4bdd4-bdmld         2/2       Running   0          1m
-voting-app-1-0-6c65c4bdd4-gcrng         2/2       Running   0          1m
-voting-app-1-0-6c65c4bdd4-strzc         2/2       Running   0          1m
-voting-storage-1-0-7954799d96-5fv9r     2/2       Running   0          1m
+voting-analytics-1-0-57c7fccb44-ng7dl   2/2       Running   0          39s
+voting-app-1-0-956756fd-d5w7z           2/2       Running   0          39s
+voting-app-1-0-956756fd-f6h69           2/2       Running   0          39s
+voting-app-1-0-956756fd-wsxvt           2/2       Running   0          39s
+voting-storage-1-0-5d8fcc89c4-2jhms     2/2       Running   0          39s
 ```
 
 若要查看 Pod 的相關資訊，請使用 [kubectl describe pod][kubectl-describe]。 請將 Pod 名稱取代為前述輸出中您個人 AKS 叢集內的 Pod 名稱：
 
-```console
-kubectl describe pod voting-app-1-0-6c65c4bdd4-bdmld --namespace voting
+```azurecli
+kubectl describe pod voting-app-1-0-956756fd-d5w7z --namespace voting
 ```
 
-Istio 已在 *Istio-proxy* 容器中自動插入，以管理出入於元件的網路流量，如下列範例輸出所示：
+`istio-proxy`容器自動已經由插入 Istio 來管理網路流量進出您的元件，如下列範例輸出所示：
 
 ```
 [...]
@@ -129,68 +131,90 @@ Containers:
     Image:         mcr.microsoft.com/aks/samples/voting/app:1.0
     ...
   istio-proxy:
-    Image:         docker.io/istio/proxyv2:1.0.4
+    Image:         docker.io/istio/proxyv2:1.1.3
 [...]
 ```
 
 在建立 Istio [閘道][istio-reference-gateway]和[虛擬服務][istio-reference-virtualservice]前，您無法連線至投票應用程式。 這些 Istio 資源會將來自預設 Istio 輸入閘道的流量路由至我們的應用程式。
 
 > [!NOTE]
-> *閘道*是位於服務網格邊緣的元件，會接收輸入或輸出的 HTTP 和 TCP 流量。
->
-> *虛擬服務*會為一或多個目的地服務定義一組路由規則。
+> **閘道**是位於服務網格邊緣的元件，會接收輸入或輸出的 HTTP 和 TCP 流量。
+> 
+> **虛擬服務**會為一或多個目的地服務定義一組路由規則。
 
-使用 `istioctl` 用戶端二進位檔部署閘道和虛擬服務 yaml。 如同 `kubectl apply` 命令，請記得指定這些資源要部署到的命名空間。
+使用`kubectl apply`命令來部署閘道和虛擬服務 yaml。 請記得要指定這些資源會部署到的命名空間。
+
+```azurecli
+kubectl apply -f istio/step-1-create-voting-app-gateway.yaml --namespace voting
+```
+
+下列範例輸出顯示新的閘道和所建立的虛擬服務：
 
 ```console
-istioctl create -f istio/step-1-create-voting-app-gateway.yaml --namespace voting
+virtualservice.networking.istio.io/voting-app created
+gateway.networking.istio.io/voting-app-gateway created
 ```
 
 使用下列命令取得 Istio 輸入閘道的 IP 位址：
 
-```console
+```azurecli
 kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 ```
 
 下列範例輸出顯示輸入閘道的 IP 位址：
 
 ```
-52.187.250.239
+20.188.211.19
 ```
 
 開啟瀏覽器並貼上 IP 位址。 範例 AKS 投票應用程式隨即顯示。
 
 ![在已啟用 Istio 的 AKS 叢集中執行的 AKS 投票應用程式。](media/istio/deploy-app-01.png)
 
-畫面底部的資訊顯示應用程式使用 *1.0* 版的 *voting-app* 和 *1.0* 版 (Redis) 作為儲存體選項。
+應用程式使用的版本會顯示在畫面底部的資訊`1.0`的`voting-app`和 版本`1.0`的`voting-storage`(Redis)。
 
 ## <a name="update-the-application"></a>更新應用程式
 
-我們將部署新版本的分析元件。 *1.1* 這個新版本除了會顯示每個類別的計數，也會顯示總計和百分比。
+我們將部署新版本的分析元件。 這個新版本`1.1`顯示總計，以及除了每個分類計數的百分比。
 
-下圖顯示本節的結尾所執行的項目 - 只有 *1.1* 版的 *voting-analytics* 元件有路由自 *voting-app* 元件的流量。 即使 *1.0* 版的 *voting-analytics* 元件繼續執行，並且由 *voting-analytics* 服務所參考，Istio Proxy 仍不允許其輸入和輸出流量。
+下圖顯示哪些會執行這一節只有版本結尾`1.1`的我們`voting-analytics`元件的流量路由傳送從`voting-app`元件。 即使版本`1.0`的我們`voting-analytics`元件會繼續執行，而且由參考`voting-analytics`服務、 Istio proxy 不允許流量進出它。
 
 ![AKS 投票應用程式元件和路由。](media/istio/components-and-routing-02.png)
 
-我們將部署 *1.1* 版的 *voting-analytics* 元件。 請在「投票」命名空間中建立此元件：
+讓我們來部署版本`1.1`的`voting-analytics`元件。 建立此元件在`voting`命名空間：
 
 ```console
 kubectl apply -f kubernetes/step-2-update-voting-analytics-to-1.1.yaml --namespace voting
 ```
 
+下列範例輸出會顯示正在建立的資源：
+
+```console
+deployment.apps/voting-analytics-1-1 created
+```
+
 使用在上一個步驟中取得的 Istio 輸入閘道 IP 位址，再次在瀏覽器中開啟範例 AKS 投票應用程式。
 
-您的瀏覽器會在兩個檢視之間交替顯示，如下所示。 由於您對 *voting-analytics* 元件使用的 Kubernetes [服務][kubernetes-service]只有單一標籤選取器 (`app: voting-analytics`)，因此 Kubernetes 會在符合該選取器的 Pod 之間使用循環配置資源的預設行為。 在此案例中，這是 *voting-analytics* Pod 的 *1.0* 和 *1.1* 版。
+您的瀏覽器會在兩個檢視之間交替顯示，如下所示。 因為您要使用 Kubernetes[服務][ kubernetes-service] for`voting-analytics`元件只是單一標籤選取器 (`app: voting-analytics`)，Kubernetes 會使用循環之間的預設行為符合該選取器的 pod。 在此情況下，它是兩個版本`1.0`並`1.1`的您`voting-analytics`pod。
 
 ![在 AKS 投票應用程式中執行的 1.0 版分析元件。](media/istio/deploy-app-01.png)
 
 ![在 AKS 投票應用程式中執行的 1.1 版分析元件。](media/istio/update-app-01.png)
 
-您可以視覺化方式顯示兩個 *voting-analytics* 元件版本之間的切換，如下所示。 請務必使用您個人 Istio 輸入閘道的 IP 位址。
+您可以視覺化方式顯示兩個版本之間切換`voting-analytics`元件，如下所示。 請務必使用您個人 Istio 輸入閘道的 IP 位址。
 
-```console
-INGRESS_IP=52.187.250.239
+Bash 
+
+```bash
+INGRESS_IP=20.188.211.19
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
+```
+
+Powershell
+
+```powershell
+$INGRESS_IP="20.188.211.19"
+(1..5) |% { (Invoke-WebRequest -Uri $INGRESS_IP).Content.Split("`n") | Select-String -Pattern "results" }
 ```
 
 下列範例輸出顯示在不同版本間切換網站時，所傳回網站的對應部分：
@@ -205,59 +229,51 @@ for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
 
 ### <a name="lock-down-traffic-to-version-11-of-the-application"></a>鎖定對 1.1 版應用程式的流量
 
-現在，我們將鎖定對 *1.1* 版 *voting-analytics* 元件和 *1.0* 版 *voting-storage* 元件的流量。 接著，您會定義所有其他元件的路由規則。
+現在讓我們鎖定只有版本流量`1.1`的`voting-analytics`元件和版本`1.0`的`voting-storage`元件。 接著，您會定義所有其他元件的路由規則。
 
-> * *虛擬服務*會為一或多個目的地服務定義一組路由規則。
-> * *目的地規則*會定義流量原則和版本特定原則。
-> * *原則*會定義可用於工作負載的驗證方法。
+> * **虛擬服務**會為一或多個目的地服務定義一組路由規則。
+> * **目的地規則**會定義流量原則和版本特定原則。
+> * **原則**會定義可用於工作負載的驗證方法。
 
-您將使用 `istioctl` 用戶端二進位檔來取代 *voting-app* 的虛擬服務定義，並且為其他元件新增[目的地規則][istio-reference-destinationrule]和[虛擬服務][istio-reference-virtualservice]。
+使用`kubectl apply`命令，以取代虛擬服務定義，在您`voting-app`並新增[目的地規則][ istio-reference-destinationrule]並[虛擬服務][istio-reference-virtualservice]其他元件。 您將會加入[原則][ istio-reference-policy]到`voting`使用相互 TLS 和用戶端憑證保護，確保所有通訊服務之間的命名空間。
 
-您也會將[原則][istio-reference-policy]新增至*投票*命名空間，以確定服務之間的所有通訊都會透過相互 TLS 和用戶端憑證受到保護。
+* 原則含有`peers.mtls.mode`設定為`STRICT`以確保相互 TLS 會強制執行您的服務內之間`voting`命名空間。
+* 我們也會設定`trafficPolicy.tls.mode`至`ISTIO_MUTUAL`我們所有的目的地規則。 Istio 可提供具有增強式身分識別的服務，並使用 Istio 可明確管理的相互 TLS 和用戶端憑證保護服務之間的通訊。
 
-由於您所取代的 *voting-app* 有現有的虛擬服務定義，請使用 `istioctl replace` 命令，如下所示：
+```azurecli
+kubectl apply -f istio/step-2-update-and-add-routing-for-all-components.yaml --namespace voting
+```
+
+下列範例輸出顯示新的原則、 目的地規則，以及正在更新/建立的虛擬服務：
 
 ```console
-istioctl replace -f istio/step-2a-update-voting-app-virtualservice.yaml --namespace voting
+virtualservice.networking.istio.io/voting-app configured
+policy.authentication.istio.io/default created
+destinationrule.networking.istio.io/voting-app created
+destinationrule.networking.istio.io/voting-analytics created
+virtualservice.networking.istio.io/voting-analytics created
+destinationrule.networking.istio.io/voting-storage created
+virtualservice.networking.istio.io/voting-storage created
 ```
 
-下列範例輸出顯示 Istio 虛擬服務已成功更新：
-
-```
-Updated config virtual-service/voting/voting-app to revision 141902
-```
-
-接下來，請使用 `istioctl create` 命令新增新的原則，以及所有其他元件的新目的地規則和虛擬服務。
-
-* 此原則會將 `peers.mtls.mode` 設為 `STRICT`，以確定您在*投票*命名空間內的服務之間會強制執行相互 TLS。
-* 您也會在所有的目的地規則中將 `trafficPolicy.tls.mode` 設為 `ISTIO_MUTUAL`。 Istio 可提供具有增強式身分識別的服務，並使用 Istio 可明確管理的相互 TLS 和用戶端憑證保護服務之間的通訊。
-
-```console
-istioctl create -f istio/step-2b-add-routing-for-all-components.yaml --namespace voting
-```
-
-下列範例輸出顯示新的原則、目的地規則和虛擬服務已成功建立：
-
-```
-Created config policy/voting/default to revision 142118
-Created config destination-rule/voting/voting-app at revision 142119
-Created config destination-rule/voting/voting-analytics at revision 142120
-Created config virtual-service/voting/voting-analytics at revision 142121
-Created config destination-rule/voting/voting-storage at revision 142122
-Created config virtual-service/voting/voting-storage at revision 142123
-```
-
-如果您再次在瀏覽器中開啟 AKS 投票應用程式，將只有 *voting-app* 元件會使用新版本 *1.1* 的 *voting-analytics* 元件。
+如果您的 AKS 投票應用程式瀏覽器中開啟同樣地，只有新的版本才`1.1`的`voting-analytics`元件由`voting-app`元件。
 
 ![在 AKS 投票應用程式中執行的 1.1 版分析元件。](media/istio/update-app-01.png)
 
-您可以更輕鬆地呈現出我們目前僅路由至 *1.1* 版的 *voting-analytics* 元件，如下所示。 請務必使用您的 Istio 輸入閘道的 IP 位址。
+您可以視覺化方式顯示，您現在只有路由傳送至版本`1.1`的程式`voting-analytics`元件，如下所示。 請務必使用您個人 Istio 輸入閘道的 IP 位址：
 
-您可以呈現出您目前僅路由至 *1.1* 版的 *voting-analytics* 元件，如下所示。 請務必使用您個人 Istio 輸入閘道的 IP 位址：
+Bash 
 
-```azurecli
-INGRESS_IP=52.187.250.239
+```bash
+INGRESS_IP=20.188.211.19
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
+```
+
+Powershell
+
+```powershell
+$INGRESS_IP="20.188.211.19"
+(1..5) |% { (Invoke-WebRequest -Uri $INGRESS_IP).Content.Split("`n") | Select-String -Pattern "results" }
 ```
 
 下列範例輸出顯示所傳回網站的對應部分：
@@ -270,67 +286,114 @@ for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
 ```
 
-請確認 Istio 使用相互 TLS 來保護每個服務之間的通訊。 下列命令會檢查每個 *voting-app* 服務的 TLS 設定：
+讓我們現在先確認 Istio 使用相互 TLS 保護每個服務之間的通訊。 我們將使用這[authn tls 檢查][ istioctl-authn-tls-check]命令`istioctl`用戶端二進位檔，其使用下列格式。
 
 ```console
-istioctl authn tls-check voting-app.voting.svc.cluster.local
-istioctl authn tls-check voting-analytics.voting.svc.cluster.local
-istioctl authn tls-check voting-storage.voting.svc.cluster.local
+istioctl authn tls-check <pod-name[.namespace]> [<service>]
 ```
 
-下列範例輸出顯示透過原則和目的地規則為每個服務強制執行相互 TLS 的情形：
+這組命令指定的服務，提供存取權的相關資訊，從所有 pod 的命名空間中，符合一組的標籤：
 
+Bash
+
+```bash
+# mTLS configuration between each of the istio ingress pods and the voting-app service
+kubectl get pod -n istio-system -l app=istio-ingressgateway | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.istio-system voting-app.voting.svc.cluster.local
+
+# mTLS configuration between each of the voting-app pods and the voting-analytics service
+kubectl get pod -n voting -l app=voting-app | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.voting voting-analytics.voting.svc.cluster.local
+
+# mTLS configuration between each of the voting-app pods and the voting-storage service
+kubectl get pod -n voting -l app=voting-app | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.voting voting-storage.voting.svc.cluster.local
+
+# mTLS configuration between each of the voting-analytics version 1.1 pods and the voting-storage service
+kubectl get pod -n voting -l app=voting-analytics,version=1.1 | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.voting voting-storage.voting.svc.cluster.local
 ```
+
+Powershell
+
+```powershell
+# mTLS configuration between each of the istio ingress pods and the voting-app service
+(kubectl get pod -n istio-system -l app=istio-ingressgateway | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".istio-system") voting-app.voting.svc.cluster.local } }
+
+# mTLS configuration between each of the voting-app pods and the voting-analytics service
+(kubectl get pod -n voting -l app=voting-app | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".voting") voting-analytics.voting.svc.cluster.local } }
+
+# mTLS configuration between each of the voting-app pods and the voting-storage service
+(kubectl get pod -n voting -l app=voting-app | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".voting") voting-storage.voting.svc.cluster.local } }
+
+# mTLS configuration between each of the voting-analytics version 1.1 pods and the voting-storage service
+(kubectl get pod -n voting -l app=voting-analytics,version=1.1 | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".voting") voting-storage.voting.svc.cluster.local } }
+```
+
+此下列的範例輸出顯示相互 TLS 會強制執行每個我們上面的查詢。 輸出也會顯示原則並強制執行相互 TLS 的目的地規則：
+
+```console
+# mTLS configuration between istio ingress pods and the voting-app service
 HOST:PORT                                    STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
 voting-app.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-app/voting
 
+# mTLS configuration between each of the voting-app pods and the voting-analytics service
+HOST:PORT                                          STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-analytics.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-analytics/voting
+HOST:PORT                                          STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-analytics.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-analytics/voting
 HOST:PORT                                          STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
 voting-analytics.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-analytics/voting
 
+# mTLS configuration between each of the voting-app pods and the voting-storage service
+HOST:PORT                                        STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS       default/voting     voting-storage/voting
+HOST:PORT                                        STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS       default/voting     voting-storage/voting
+HOST:PORT                                        STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS       default/voting     voting-storage/voting
+
+# mTLS configuration between each of the voting-analytics version 1.1 pods and the voting-storage service
 HOST:PORT                                        STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
 voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS       default/voting     voting-storage/voting
 ```
 
 ## <a name="roll-out-a-canary-release-of-the-application"></a>推出應用程式的 Canary 版本
 
-現在，我們將部署新版本 *2.0* 的 *voting-app*、*voting-analytics* 和 *voting-storage* 元件。 新的 *voting-storage* 元件會使用 MySQL 而非 Redis，且 *voting-app* 和 *voting-analytics* 元件會進行更新，以便能夠使用這個新的 *voting-storage* 元件。
+現在讓我們來部署新版本`2.0`的`voting-app`， `voting-analytics`，和`voting-storage`元件。 新`voting-storage`元件使用 MySQL，而不是 Redis，而`voting-app`並`voting-analytics`元件會更新為允許它們使用新`voting-storage`元件。
 
-*voting-app* 元件現已可支援功能旗標功能。 此功能旗標可讓您針對某部分的使用者測試 Istio 的 Canary 版本功能。
+`voting-app`元件現在支援的功能旗標。 此功能旗標可讓您針對某部分的使用者測試 Istio 的 Canary 版本功能。
 
-下圖顯示本節的結尾處所將執行的項目。
+下圖顯示您必須執行本節的結尾。
 
-* *1.0* 版的 *voting-app* 元件、*1.1* 版的 *voting-analytics* 元件和 *1.0* 版的 *voting-storage* 元件能夠互相通訊。
-* *2.0* 版的 *voting-app* 元件、*2.0* 版的 *voting-analytics* 元件和 *2.0* 版的 *voting-storage* 元件能夠互相通訊。
-* 只有已設定特定功能旗標的使用者能夠存取 *2.0* 版的 *voting-app* 元件。 這項變更可透過 Cookie 使用功能旗標來管理。
+* 版本`1.0`的`voting-app`元件、 版本`1.1`的`voting-analytics`元件和版本`1.0`的`voting-storage`元件可以彼此通訊。
+* 版本`2.0`的`voting-app`元件、 版本`2.0`的`voting-analytics`元件和版本`2.0`的`voting-storage`元件可以彼此通訊。
+* 版本`2.0`的`voting-app`元件只會有一組特定的功能旗標的使用者存取。 這項變更可透過 Cookie 使用功能旗標來管理。
 
 ![AKS 投票應用程式元件和路由。](media/istio/components-and-routing-03.png)
 
 首先，請更新 Istio 目的地規則和虛擬服務，以因應這些新元件的需求。 這些更新可確保您不會錯誤地將流量路由至新元件，且使用者不會獲得非預期的存取：
 
-```console
-istioctl replace -f istio/step-3-add-routing-for-2.0-components.yaml --namespace voting
+```azurecli
+kubectl apply -f istio/step-3-add-routing-for-2.0-components.yaml --namespace voting
 ```
 
-下列範例輸出顯示目的地規則和虛擬服務已成功更新：
-
-```
-Updated config destination-rule/voting/voting-app to revision 150930
-Updated config virtual-service/voting/voting-app to revision 150931
-Updated config destination-rule/voting/voting-analytics to revision 150937
-Updated config virtual-service/voting/voting-analytics to revision 150939
-Updated config destination-rule/voting/voting-storage to revision 150940
-Updated config virtual-service/voting/voting-storage to revision 150941
-```
-
-接著，我們將為新版本 *2.0* 的元件新增 Kubernetes 物件。 您也會更新 *voting-storage* 服務，以納入適用於 MySQL 的 *3306* 連接埠：
+下列範例輸出顯示的目的地規則 」 和 「 虛擬服務更新：
 
 ```console
+destinationrule.networking.istio.io/voting-app configured
+virtualservice.networking.istio.io/voting-app configured
+destinationrule.networking.istio.io/voting-analytics configured
+virtualservice.networking.istio.io/voting-analytics configured
+destinationrule.networking.istio.io/voting-storage configured
+virtualservice.networking.istio.io/voting-storage configured
+```
+
+接下來，讓我們新增新版的 Kubernetes 物件`2.0`元件。 您也更新`voting-storage`服務，以包含`3306`適用於 MySQL 的連接埠：
+
+```azurecli
 kubectl apply -f kubernetes/step-3-update-voting-app-with-new-storage.yaml --namespace voting
 ```
 
 下列範例輸出顯示 Kubernetes 物件已成功更新或建立：
 
-```
+```console
 service/voting-storage configured
 secret/voting-storage-secret created
 deployment.apps/voting-storage-2-0 created
@@ -339,13 +402,13 @@ deployment.apps/voting-analytics-2-0 created
 deployment.apps/voting-app-2-0 created
 ```
 
-等待所有的 *2.0* 版 Pod 執行完成。 使用 [kubectl get pods][kubectl-get] 命令檢視*投票*命名空間中的所有 Pod：
+等到所有版本`2.0`pod 執行時。 使用[kubectl get pods] [ kubectl-get]命令來檢視中的所有 pod`voting`命名空間：
 
 ```azurecli
 kubectl get pods --namespace voting
 ```
 
-您現在應可在 *1.0* 版和 *2.0* 版 (canary) 的投票應用程式之間切換。 畫面底部的功能旗標切換會設定 Cookie。 *voting-app* 虛擬服務會使用此 Cookie 將使用者路由至新版本 *2.0*。
+您現在應該能夠在版本之間切換`1.0`和 版本`2.0`(canary) 投票應用程式。 畫面底部的功能旗標切換會設定 Cookie。 會使用此 cookie`voting-app`將使用者路由至新版本的虛擬服務`2.0`。
 
 ![1.0 版的 AKS 投票應用程式 -「不會」設定功能旗標。](media/istio/canary-release-01.png)
 
@@ -355,7 +418,7 @@ kubectl get pods --namespace voting
 
 ## <a name="finalize-the-rollout"></a>完成推出
 
-在您成功測試 Canary 版本後，請更新 *voting-app* 虛擬服務，以將所有流量路由至 *2.0* 版的 *voting-app* 元件。 其後，無論是否已設定功能旗標，所有使用者都會看到 *2.0* 版的應用程式：
+一旦您已成功通過測試的 canary 版本，更新`voting-app`將所有流量都路由到版本的虛擬服務`2.0`的`voting-app`元件。 所有使用者，然後都查看版本`2.0`應用程式，不論是否設定功能旗標：
 
 ![AKS 投票應用程式元件和路由。](media/istio/components-and-routing-04.png)
 
@@ -367,22 +430,39 @@ kubectl get pods --namespace voting
 
 您現在已成功推出新版的 AKS 投票應用程式。
 
+## <a name="clean-up"></a>清除 
+
+您可以在此案例中移除我們所用的 AKS 投票應用程式，從您的 AKS 叢集，藉由刪除`voting`命名空間，如下所示：
+
+```azurecli
+kubectl delete namespace voting
+```
+
+下列範例輸出顯示，已從您的 AKS 叢集移除的 AKS 投票應用程式的所有元件。
+
+```console
+namespace "voting" deleted
+```
+
 ## <a name="next-steps"></a>後續步驟
 
 您可以使用 [Istio Bookinfo 應用程式範例][istio-bookinfo-example]探索其他案例。
 
 <!-- LINKS - external -->
 [github-azure-sample]: https://github.com/Azure-Samples/aks-voting-app
+[istio-github]: https://github.com/istio/istio
+
 [istio]: https://istio.io
 [istio-docs-concepts]: https://istio.io/docs/concepts/what-is-istio/
-[istio-github]: https://github.com/istio/istio
-[istio-requirements-pods-and-services]: https://istio.io/docs/setup/kubernetes/spec-requirements/
-[istio-reference-gateway]: https://istio.io/docs/reference/config/istio.networking.v1alpha3/#Gateway
+[istio-requirements-pods-and-services]: https://istio.io/docs/setup/kubernetes/prepare/requirements/
+[istio-reference-gateway]: https://istio.io/docs/reference/config/networking/v1alpha3/gateway/
 [istio-reference-policy]: https://istio.io/docs/reference/config/istio.authentication.v1alpha1/#Policy
-[istio-reference-virtualservice]: https://istio.io/docs/reference/config/istio.networking.v1alpha3/#VirtualService
-[istio-reference-destinationrule]: https://istio.io/docs/reference/config/istio.networking.v1alpha3/#DestinationRule
-[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
+[istio-reference-virtualservice]: https://istio.io/docs/reference/config/networking/v1alpha3/virtual-service/
+[istio-reference-destinationrule]: https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/
+[istioctl-authn-tls-check]: https://istio.io/docs/reference/commands/istioctl/#istioctl-authn-tls-check
+
+[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 

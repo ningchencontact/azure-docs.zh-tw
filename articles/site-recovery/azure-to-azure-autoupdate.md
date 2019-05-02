@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/29/2098
 ms.author: rajanaki
-ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792923"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925704"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>在 Azure 至 Azure 複寫的行動服務的自動更新
 
@@ -31,9 +31,10 @@ Azure Site Recovery 會使用每月的發行頻率愈來愈快，修正任何問
 預設 runbook 排程重複執行每日上午 12:00 時區的異地複寫的 VM。 您也可以變更 runbook 排程，透過 「 自動化 」 帳戶。
 
 > [!NOTE]
+> 從更新彙總套件 35 開始，您可以選擇要用於更新現有的自動化帳戶。 此更新之前，Site Recovery 會依預設建立此帳戶。 為 VM 啟用複寫時，可以使用此選項。 如果您變更設定時，就會套用相同的保存庫中受保護的所有 Azure vm。
+ 
 > 開啟自動更新，不需要重新啟動您的 Azure Vm，或會影響進行中的複寫。
 
-> [!NOTE]
 > 作業中的自動化帳戶的計費根據一個月中使用的作業執行階段分鐘數。 根據預設，500 分鐘的時間是作為內容的自動化帳戶的免費單位。 執行作業需要幾秒鐘的時間約一分鐘每一天，並涵蓋為免費單位。
 
 | 包含免費單位 （每個月） | 價格 |
@@ -63,7 +64,7 @@ Azure Site Recovery 會使用每月的發行頻率愈來愈快，修正任何問
 
 
 > [!Note]
-> 其中一個選項會通知您用來管理更新的自動化帳戶。 如果您使用這項功能在保存庫中第一次，則會建立新的自動化帳戶。 在相同的保存庫中的所有後續的啟用複寫會使用先前建立的一個。
+> 其中一個選項會通知您用來管理更新的自動化帳戶。 如果您使用這項功能在保存庫中第一次，預設會建立新的自動化帳戶。 或者，您可以自訂設定，並選擇現有的自動化帳戶。 在相同的保存庫中的所有後續的啟用複寫會使用先前建立的一個。
 
 對於自訂的自動化帳戶，使用下列指令碼：
 

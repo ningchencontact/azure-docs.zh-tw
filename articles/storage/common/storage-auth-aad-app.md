@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c4959d6abd1b33c81f731ad0479bd59d271c7797
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 979019da60c1129c6c6ef0bec42d9f9096735c1b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483920"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926046"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>向 Azure Active Directory 從應用程式存取 blob 和佇列
 
@@ -37,7 +37,7 @@ ms.locfileid: "61483920"
 
 當您註冊應用程式時，會向 Azure AD 提供應用程式的相關資訊。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的用戶端識別碼 (也稱為「應用程式識別碼」)。 若要深入了解用戶端識別碼，請參閱 [Azure Active Directory 中的應用程式和服務主體物件](../../active-directory/develop/app-objects-and-service-principals.md)。
 
-若要註冊 Azure 儲存體應用程式，請遵循[整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) 中[新增應用程式](../../active-directory/active-directory-integrating-applications.md)一節的步驟。 如果您將應用程式註冊為原生應用程式，就能為**重新導向 URI** 指定任何有效的 URI。 此值不需要是實際的端點。
+若要註冊 Azure 儲存體應用程式，請遵循[整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-register-app.md) 中[新增應用程式](../../active-directory/active-directory-integrating-applications.md)一節的步驟。 如果您將應用程式註冊為原生應用程式，就能為**重新導向 URI** 指定任何有效的 URI。 此值不需要是實際的端點。
 
 ![示範如何使用 Azure AD 中註冊您的儲存體應用程式的螢幕擷取畫面](./media/storage-auth-aad-app/app-registration.png)
 

@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307563"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708123"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>重設離線 Azure VM 的本機 Windows 密碼
 您可以使用 [Azure 入口網站或 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 在 Azure 中重設 VM 的本機 Windows 密碼 (假設已安裝 Azure 客體代理程式)。 這個方法是為 Azure VM 重設密碼的主要方式。 如果您遇到 Azure 客體代理程式沒有回應，或無法在上傳自訂映像後進行安裝等問題，您可以手動重設 Windows 密碼。 本文將詳細說明如何將來源 OS 虛擬磁碟連接至另一部 VM，以重設本機帳戶密碼。 本文中所述的步驟不適用於 Windows 網域控制站。 
@@ -106,7 +106,7 @@ ms.locfileid: "60307563"
      ```
      
      ![建立 gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. 在 `\Windows\System32\GroupPolicy\Machine\Scripts\Startup` 中建立 `scripts.ini`。 確定已顯示隱藏的資料夾。 如有需要，請建立 `Machine` 或 `Scripts` 資料夾。
+5. 在 `\Windows\System32\GroupPolicy\Machines\Scripts\` 中建立 `scripts.ini`。 確定已顯示隱藏的資料夾。 如有需要，請建立 `Machine` 或 `Scripts` 資料夾。
    
    * 將下列幾行新增至您建立的 `scripts.ini` 檔案：
      
@@ -156,7 +156,7 @@ ms.locfileid: "60307563"
     
     * 從 %windir%\System32
       * 移除 FixAzureVM.cmd
-    * 從 %windir%\System32\GroupPolicy\Machine\
+    * From %windir%\System32\GroupPolicy\Machine\Scripts
       * 移除 scripts.ini
     * 從 %windir%\System32\GroupPolicy
       * 移除 gpt.ini (如果 gpt.ini 早已存在，且您已將它重新命名為 gpt.ini.bak，請將此 .bak 檔案重新命名為 gpt.ini)

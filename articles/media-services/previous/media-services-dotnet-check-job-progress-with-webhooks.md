@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 36ef27dfb4a5d77ec2e595013a82f55cdf240c0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3b4c3bac1a2d62246fa5a7ff3a348c6cb2652ea1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465689"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868177"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 監視 .NET 的媒體服務作業通知 
+
+> [!NOTE]
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
 
 執行作業時，您通常需要設法追蹤作業進度。 您可以使用 Azure Webhook 或 [Azure 佇列儲存體](media-services-dotnet-check-job-progress-with-queues.md)來監視媒體服務作業通知。 本文說明如何使用 Webhook。
 
@@ -31,7 +34,7 @@ ms.locfileid: "61465689"
     
     在此情況下，當您的編碼作業變更狀態時，媒體服務會觸發 Webhook。 此函式會接聽來自媒體服務通知的 Webhook 回呼，並在作業完成之後發佈輸出資產。 
     
-    >[!NOTE]
+    >[!TIP]
     >繼續之前，請確定您了解 [Azure Functions HTTP 和 Webhook 繫結](../../azure-functions/functions-bindings-http-webhook.md)的運作方式。
     >
     

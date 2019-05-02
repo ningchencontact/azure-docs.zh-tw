@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c42867ff7aea2210f20a2cd2adb5c067b8f36c80
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484148"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926511"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的進階威脅防護
 
@@ -23,7 +23,7 @@ Azure 儲存體的進階威脅防護可多提供一道安全智慧，偵測儲�
 
 > [!NOTE]
 > * Azure 儲存體的進階的威脅防護，目前僅適用於 Blob 儲存體。
-> * 如需定價詳細資料，包括免費的 30 天的試用版，請參閱[Azure 資訊安全中心定價頁面]( https://azure.microsoft.com/en-us/pricing/details/security-center/)。
+> * 如需定價詳細資料，包括免費的 30 天的試用版，請參閱[Azure 資訊安全中心定價頁面]( https://azure.microsoft.com/pricing/details/security-center/)。
 > * Azure 儲存體功能的 ATP 目前不是適用於 Azure government 和主權雲端區域。
 
 Azure 儲存體的進階的威脅防護內嵌讀取、 寫入和刪除要求，威脅偵測的 Blob 儲存體的診斷記錄的檔。 若要調查的警示，從進階威脅防護，您可以檢視相關的儲存體活動使用儲存體分析記錄。 如需詳細資訊，請參閱如何[設定儲存體分析記錄](storage-monitor-storage-account.md#configure-logging)。

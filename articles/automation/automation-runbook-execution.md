@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f851fd2857650dd00e365abf71ec5f0199db6d57
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738121"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711578"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -78,6 +78,9 @@ else
 ### <a name="time-dependant-scripts"></a>與時間相依的指令碼
 
 編寫 Runbook 時應該仔細考量。 如先前所述，您需要將 Runbook 編寫為健全的，而且可以處理可能造成 Runbook 重新啟動或失敗的暫時性錯誤。 如果某个 Runbook 失败，将会重试该 Runbook。 如果 Runbook 在时间约束内正常运行，则应在 Runbook 中实现检查执行时间的逻辑，确保只在特定时间运行启动、关闭或横向扩展等操作。
+
+> [!NOTE]
+> Azure 的沙箱處理序上的本機時間設定為 UTC 時間。 日期和時間在 runbook 中的計算需要考慮這一點。
 
 ### <a name="tracking-progress"></a>追蹤進度
 

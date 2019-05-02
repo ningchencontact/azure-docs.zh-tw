@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 90ec7cf4964440d39b3f69eb9ae9708eaafe3748
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 328aa4c80c830014de8ee8b573d13ae56af73efc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710674"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925811"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性
 
@@ -215,7 +215,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
          * 重複上述步驟來為 ASCS ERS 設定連接埠 33**02**、5**02**13、5**02**14、5**02**16 和 TCP
 
 > [!IMPORTANT]
-> 不會啟用 TCP 放置 Azure 負載平衡器後方的 Azure Vm 上的時間戳記。 啟用 TCP 加上時間戳記將會造成失敗的健康狀態探查。 設定參數**net.ipv4.tcp_timestamps**要**0**。 如需詳細資訊，請參閱[負載平衡器健康情況探查](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview)。
+> 不會啟用 TCP 放置 Azure 負載平衡器後方的 Azure Vm 上的時間戳記。 啟用 TCP 加上時間戳記將會造成失敗的健康狀態探查。 設定參數**net.ipv4.tcp_timestamps**要**0**。 如需詳細資訊，請參閱[負載平衡器健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
 
 ### <a name="create-pacemaker-cluster"></a>建立 Pacemaker 叢集
 

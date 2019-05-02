@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 42c1856f30484532e1ace2e84187bcaaacdf4c72
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553285"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733793"
 ---
 Azure Data Factory 是多租用戶的服務，以確保客戶訂用帳戶受到保護免於彼此的工作負載中有下列的預設限制。 引發最多可以為您的訂用帳戶的限制，請連絡支援人員。
 
 ### <a name="version-2"></a>第 2 版
 
-| 資源 | 預設限制 | 上限 |
+| Resource | 預設限制 | 上限 |
 | -------- | ------------- | ------------- |
 | Azure 訂用帳戶中的資料處理站 | 50 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 實體，例如管線、 資料集、 觸發程序、 連結的服務和整合執行階段，為 data factory 中的總次數 | 5,000 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 總 CPU 核心 Azure SSIS 整合執行階段的一個訂用帳戶 | 256 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 每個處理站中的所有管線之間共用的 data factory 的並行管線執行回合 | 10,000  | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 每個管線，其中包含適用於容器的內部活動的最大活動 | 40 | 40 |
-| 您可以針對單一的自我裝載的整合執行階段建立的連結的整合執行階段的最大數目 | 20 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
+| 您可以針對單一的自我裝載的整合執行階段建立的連結的整合執行階段的最大數目 | 100 | [連絡客戶支援](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 |
 | 每個管線的最大值參數 | 50 | 50 |
 | ForEach 項目 | 100,000 | 100,000 |
 | ForEach 平行處理原則 | 20 | 50 |

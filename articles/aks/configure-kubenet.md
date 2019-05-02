@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: b80177d17e0dc5a4e54396907ecee61890ec523f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466745"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709888"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用 kubenet 網路與您自己的 IP 位址範圍
 
@@ -165,26 +165,7 @@ az aks create \
     --client-secret <password>
 ```
 
-## <a name="associate-network-resources-with-the-node-subnet"></a>將網路資源與節點子網路相關聯
-
-當您建立 AKS 叢集時，會建立網路安全群組和路由表。 這些網路資源是受 AKS 控制平面管理，並在您建立並公開 (expose) 服務時進行更新。 將網路安全性群組和路由資料表與虛擬網路子網路關聯，如下所示：
-
-```azurecli-interactive
-# Get the MC_ resource group for the AKS cluster resources
-MC_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-
-# Get the route table for the cluster
-ROUTE_TABLE=$(az network route-table list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Get the network security group
-NODE_NSG=$(az network nsg list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Update the subnet to associate the route table and network security group
-az network vnet subnet update \
-    --route-table $ROUTE_TABLE \
-    --network-security-group $NODE_NSG \
-    --ids $SUBNET_ID
-```
+當您建立 AKS 叢集時，會建立網路安全群組和路由表。 這些網路資源被受 AKS 控制平面。 網路安全性群組會自動與您的節點上的虛擬 Nic 產生關聯。 路由表是自動與虛擬網路子網路產生關聯。 網路安全性群組規則和路由表，並自動更新您建立和公開服務。
 
 ## <a name="next-steps"></a>後續步驟
 

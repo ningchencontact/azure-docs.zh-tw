@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb5e41feb9be978592a1c1708ade0188ba20d504
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827366"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873155"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 資料總管中的時間序列分析
 
@@ -260,3 +260,8 @@ demo_many_series1
 ADX 在兩分鐘內分析了接近 20,000 個時間序列，並偵測到兩個異常的時間序列，其中的讀取計數突然下降。
 
 這些與 ADX 快速效能相結合的進階功能會提供唯一且功能強大的解決方案來進行時間序列分析。
+
+## <a name="next-steps"></a>後續步驟
+
+* 深入了解[時間序列異常偵測和預測](/azure/data-explorer/anomaly-detection)Azure 在資料總管中。
+* 深入了解[機器學習服務功能](/azure/data-explorer/machine-learning-clustering)Azure 在資料總管中。

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 933d411f67655b49b4aef7bf413dfe5f87e4ff08
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: ee52cde6feeb69f9140df497a9abee300c93fd71
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556725"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692108"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>新增 IoT 中樞事件來源到您的時間序列深入解析環境
 
@@ -73,9 +73,9 @@ ms.locfileid: "53556725"
 
    ![[新事件來源] 窗格 - [從可用的訂用帳戶使用 Iot 中樞] 選項中要設定的屬性][4]
 
-   | 屬性 | 說明 |
+   | 屬性 | 描述 |
    | --- | --- |
-   | 訂用帳戶識別碼 | 選取建立 IoT 中樞的訂用帳戶。
+   | 订阅 ID | 選取建立 IoT 中樞的訂用帳戶。
    | IoT 中樞名稱 | 選取 IoT 中樞的名稱。
    | IoT 中樞原則名稱 | 選取共用存取原則。 您可以在 [IoT 中樞設定] 索引標籤中找到共用存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**服務連線**權限。
    | IoT 中樞原則金鑰 | 索引鍵已預先填入。
@@ -85,9 +85,9 @@ ms.locfileid: "53556725"
 
 1. 下表說明 [手動提供 Iot 中樞設定] 的必要屬性：
 
-   | 屬性 | 說明 |
+   | 屬性 | 描述 |
    | --- | --- |
-   | 訂用帳戶識別碼 | 建立 IoT 中樞的訂用帳戶。
+   | 订阅 ID | 建立 IoT 中樞的訂用帳戶。
    | 資源群組 | 建立 IoT 中樞所在的資源群組名稱。
    | IoT 中樞名稱 | 您 IoT 中樞的名稱。 當您建立 IoT 中樞時，也會輸入 IoT 中樞的名稱。
    | IoT 中樞原則名稱 | 共用存取原則。 您可以在 [IoT 中樞設定] 索引標籤中建立共用存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**服務連線**權限。
@@ -107,7 +107,9 @@ ms.locfileid: "53556725"
 ## <a name="next-steps"></a>後續步驟
 
 * [定義資料存取原則](time-series-insights-data-access.md)來保護資料。
+
 * [將事件傳送](time-series-insights-send-events.md)到事件來源。
+
 * 在[時間序列深入解析總管](https://insights.timeseries.azure.com)中存取您的環境。
 
 <!-- Images -->

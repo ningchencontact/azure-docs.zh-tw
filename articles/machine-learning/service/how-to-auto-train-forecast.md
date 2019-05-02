@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d79154a8792b9017b98f9d21a2ab0360b7304d1c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820045"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697865"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測的模型
 
@@ -67,7 +67,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > 在訓練模型，以預測未來值時，請確定所有執行您預期的作業範圍的預測時，就可以使用定型中所使用的功能。 比方說，在建立時的需求預測，包括目前股價的功能可能可大幅增加訓練精確度。 不過，如果您想要預測使用長的時間範圍，您可能無法精確地預測未來的內建值，對應到未來的時間序列點，以及模型的精確度可能會受到影響。
 
-## <a name="configure-experiment"></a>設定實驗
+## <a name="configure-and-run-experiment"></a>設定及執行實驗
 
 預測工作自動化的機器學習服務會使用前置處理和估計特有時間序列資料的步驟。 將執行下列處理前的步驟：
 
@@ -126,6 +126,20 @@ best_run, fitted_model = local_run.get_output()
 > [!NOTE]
 > 交叉驗證 (CV) 程序中，時間序列資料可能會違反的統計的基本假設，在標準的 K 摺疊交叉驗證策略，以便自動化的機器學習服務會實作循環的原始驗證程序，以建立時間序列資料的交叉驗證折數。 若要使用此程序，指定`n_cross_validations`中的參數`AutoMLConfig`物件。 您可以略過驗證並使用您自己的驗證設定具有`X_valid`和`y_valid`參數。
 
+### <a name="view-feature-engineering-summary"></a>檢視功能工程摘要
+
+針對時間序列工作自動化的 machine learning 中的類型，您可以檢視特性工程設計程序的詳細的資料。 下列程式碼會顯示每個未經處理的功能，以及下列屬性：
+
+* 未經處理的功能名稱
+* 馬上此原始特性工程設計的特徵數目
+* 偵測到的類型
+* 功能是否已卸除
+* 功能轉換未經處理的功能清單
+
+```python
+fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+```
+
 ## <a name="forecasting-with-best-model"></a>使用最佳的模型預測
 
 您可以使用最佳的模型反覆項目來預測的測試資料集的值。
@@ -133,6 +147,16 @@ best_run, fitted_model = local_run.get_output()
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
+```
+
+或者，您可以使用`forecast()`函式，而不是`predict()`，讓預測何時應該開始的規格。 在下列範例中，您先取代中的所有值`y_pred`與`NaN`。 預測的來源會在定型資料的結尾在此情況下，因為它通常可以使用時`predict()`。 不過，如果您更換的第二個半部`y_pred`與`NaN`，函式會讓數值上半年未經過修改，但預測`NaN`的第二部分中的值。 函數會傳回預測的值和對齊的功能。
+
+您也可以使用`forecast_destination`中的參數`forecast()`函式來預測值至指定的日期為止。
+
+```python
+y_query = y_test.copy().astype(np.float)
+y_query.fill(np.nan)
+y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 計算 RMSE （根平均平方差） 之間`y_test`實際的值，並在預測的值`y_pred`。

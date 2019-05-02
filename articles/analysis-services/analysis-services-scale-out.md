@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766821"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939678"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -39,13 +39,13 @@ ms.locfileid: "63766821"
 
 执行后续的横向扩展操作时（例如，将查询池中的副本数从两个增加到五个），新副本将与 Blob 存储中第二组文件内的数据合成。 不会发生同步。 如果在横向扩展后执行同步，则查询池中的新副本将合成两次 - 多余的合成。 执行后续的横向扩展操作时，请务必记住：
 
-* 先执行同步，再执行横向扩展操作，以免多余地合成添加的副本。
+* 先执行同步，再执行横向扩展操作，以免多余地合成添加的副本。 不允許並行的同步處理和在相同時間執行的相應放大作業。
 
 * 将处理操作和横向扩展操作自动化时，必须先处理主服务器上的数据，再执行同步，然后执行横向扩展操作。 遵循此顺序可确保尽量减轻对 QPU 和内存资源造成的影响。
 
 * 即使查询池中没有副本，也允许同步。 如果在主服务器上通过处理操作将包含新数据的副本数从零个横向扩展为一个或多个，请先在查询池中不包含任何副本的情况下执行同步，然后再横向扩展。在横向扩展之前执行同步可以避免多余地合成新添加的副本。
 
-* 从主服务器中删除模型数据库时，不会自动从查询池中的副本内删除该数据库。 必须使用 [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell 命令执行同步操作。该命令会从副本的共享 Blob 存储位置删除该数据库的文件，然后删除查询池中的副本内的模型数据库。
+* 从主服务器中删除模型数据库时，不会自动从查询池中的副本内删除该数据库。 必须使用 [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell 命令执行同步操作。该命令会从副本的共享 Blob 存储位置删除该数据库的文件，然后删除查询池中的副本内的模型数据库。 若要判斷模型的資料庫是否存在查詢集區中的複本，但不是能在主要伺服器，請確定**分開處理伺服器查詢集區**設定為 **是**。 然後使用 SSMS 連接到主要伺服器使用`:rw`資料庫是否存在的辨識符號。 然後藉由連接而不需要連接的查詢集區中的複本`:rw`限定詞是否也已有相同的資料庫。 如果資料庫存在，查詢集區中的複本，但不是在主要伺服器上，執行同步處理作業。   
 
 * 重命名主服务器上的数据库时，需要执行一个额外的步骤来确保数据库正确同步到所有副本。 重命名后，使用 [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) 并使用旧数据库名称指定 `-Database` 参数，来执行同步。 这种同步会从所有副本中删除使用旧名称的数据库和文件。 然后，使用新数据库名称指定 `-Database` 参数，来执行另一次同步。 第二次同步会将新命名的数据库复制到第二组文件，并合成所有副本。 无法在门户中使用“同步模型”命令执行这些同步。
 
@@ -58,6 +58,8 @@ ms.locfileid: "63766821"
 若要判斷您的伺服器是否需要擴充，請使用計量在 Azure 入口網站中監視您的伺服器。 如果您的 QPU 經常超出最大值，表示對應模型的查詢數目超出方案的 QPU 限制。 查詢執行緒集區佇列中的查詢數目超過可用 QPU 時，查詢集區作業佇列長度計量也會增加。 
 
 可监视的另一个很好指标是按 ServerResourceType 列出的平均 QPU。 此指标将主服务器的平均 QPU 与查询池的平均 QPU 进行比较。 
+
+![查詢相應放大的計量](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 ### <a name="to-configure-qpu-by-serverresourcetype"></a>按 ServerResourceType 配置 QPU
 1. 在“指标”折线图中，单击“添加指标”。 
@@ -146,6 +148,8 @@ ms.locfileid: "63766821"
 **問題：** 使用者收到錯誤 [在連線模式 'ReadOnly' 中，找不到伺服器 '\<伺服器名稱>' 執行個體。]
 
 **解決方案：** 选择“从查询池隔离处理服务器”选项时，使用默认连接字符串（不带 `:rw`）的客户端连接将重定向到查询池副本。 如果查詢集區中的複本因為尚未完成同步處理而未上線，則重新導向的用戶端連線可能會失敗。 若要避免連線失敗，則在執行同步處理時，查詢集區中必須有至少兩部伺服器。 每部伺服器會個別同步，而其他伺服器則維持線上狀態。 如果您選擇在處理期間查詢集區中不要有處理中的伺服器，可以選擇從集區中移除該伺服器以供處理，然後在處理完成之後，但在同步處理之前，將它加回集區。 使用記憶體和 QPU 計量來監視同步處理狀態。
+
+
 
 ## <a name="related-information"></a>相關資訊
 

@@ -1,6 +1,6 @@
 ---
-title: Azure 媒體服務中的串流端點 | Microsoft Docs
-description: 本文解釋串流端點是什麼，以及 Azure 媒體服務用它們來做什麼。
+title: 串流端點 （來源） 在 Azure 媒體服務 |Microsoft Docs
+description: 在 Azure 媒體服務串流端點 （來源） 會代表動態封裝和可以內容直接傳遞給用戶端播放器應用程式中，或以內容傳遞網路 (CDN) 供進一步發佈的串流服務。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125418"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867603"
 ---
-# <a name="streaming-endpoints"></a>串流端點
+# <a name="streaming-endpoints-origin"></a>串流端點 （來源）
 
-在「Microsoft Azure 媒體服務」(AMS) 中，[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints)實體代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給「內容傳遞網路」(CDN) 以進行進一步散發的串流服務。 來自**串流端點**服務的輸出串流可以是即時資料流，或您「媒體服務」帳戶中的隨選視訊「資產」。 當您建立媒體服務帳戶時，系統會為您建立**預設**串流端點 (處於已停止狀態)。 您無法刪除**預設**串流端點。 您可以在帳戶下建立額外的串流端點。 
+在 Microsoft Azure Media Services[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints)代表可以直接向用戶端播放器應用程式，使用其中一種傳遞即時與隨選內容的動態 (-just-in-time) 封裝與原始服務一般串流媒體通訊協定 （HLS 或 DASH）。 颾魤 ㄛ**串流端點**提供領先業界的 Drm 的動態 (-just-in-time) 加密。
+
+當您建立媒體服務帳戶時，系統會為您建立**預設**串流端點 (處於已停止狀態)。 您無法刪除**預設**串流端點。 可以在帳戶下建立額外的串流端點 (請參閱[配額和限制](limits-quotas-constraints.md))。 
 
 > [!NOTE]
 > 若要開始串流處理視訊，您必須啟動要作為視訊串流處理來源的**串流端點**。 
@@ -35,33 +37,37 @@ ms.locfileid: "62125418"
 
 ## <a name="types"></a>類型  
 
-**串流端點**有兩種類型：「標準」和「進階」。 類型會根據您為串流端點配置的縮放單位數 (`scaleUnits`) 來定義。 
+**串流端點**有兩種類型：**標準**（預覽） 和**Premium**。 類型會根據您為串流端點配置的縮放單位數 (`scaleUnits`) 來定義。 
 
 類型描述如下表所示：  
 
 |類型|縮放單位|描述|
 |--------|--------|--------|  
-|**標準串流端點** (建議)|0|預設為串流端點**標準**類型，但可以變更為進階類型。<br/> 標準的類型是幾乎所有的資料流案例和對象規模的建議的選項。 **標準**類型會自動調整輸出頻寬。 從這種類型的串流端點輸送量為最多 600 Mbps。 視訊片段快取在 CDN 中，請勿使用的串流端點的頻寬。<br/>針對需求極高的客戶，媒體服務提供**進階**串流端點，可用來相應增加容量，以因應極大量的網際網路觀眾。 如果您預期大量對象和並行檢視者，與我們連絡 amsstreaming\@如需指引您是否需要移至 microsoft.com **Premium**型別。 |
-|**進階串流端點**|>0|**進階**串流端點適合進階工作負載，提供專用並能靈活調整的頻寬容量。 您可以藉由調整 `scaleUnits` 來移至**進階**類型。 `scaleUnits` 提供您專用的輸出容量，您可以透過每次增量 200 Mbps 的方式來購買。 使用**進階**類型時，每個啟用的單位會提供額外頻寬容量給應用程式。 |
- 
-## <a name="comparing-streaming-types"></a>比較串流類型
+|**標準**|0|預設為串流端點**標準**類型，可以變更為進階類型，藉由調整`scaleUnits`。|
+|**高級**|>0|**Premium**串流端點適合進階工作負載，提供專用和可調整的頻寬容量。 移至**Premium**型別，藉由調整`scaleUnits`（串流單位）。 `scaleUnits` 提供您專用的輸出容量，您可以透過每次增量 200 Mbps 的方式來購買。 使用**進階**類型時，每個啟用的單位會提供額外頻寬容量給應用程式。 |
 
-### <a name="features"></a>特性
+> [!NOTE]
+> 對於想要將內容傳遞給大量的網際網路對象的客戶，我們建議您啟用串流端點的 CDN。
+
+如需 SLA 的資訊，請參閱[定價與 SLA](https://azure.microsoft.com/pricing/details/media-services/)。
+
+## <a name="comparing-streaming-types"></a>比較串流類型
 
 功能|標準|進階
 ---|---|---
-前 15 天免費| 是 |否
-Throughput |未使用 Azure CDN 時最多 600 Mbps。 隨著 CDN 調整。|每個串流單位 (SU) 200 Mbps。 隨著 CDN 調整。
+前 15 天免費<sup>1</sup>| 是 |否
+Throughput |最多 600 Mbps，並使用 CDN 時，可提供有效的輸送量。|每個串流單位 (SU) 200 Mbps。 使用 CDN 時，可以提供有效的輸送量。
 CDN|Azure CDN、第三方 CDN 或没有 CDN。|Azure CDN、協力廠商 CDN 或沒有 CDN。
 按比例計費| 每日|每日
 動態加密|是|是
 動態封裝|是|是
-調整|自動相應增加至目標輸送量。|其他串流單位
-IP 篩選/G20/自訂主機<sup>1</sup>|是|是
+調整|自動相應增加至目標輸送量。|額外的 Su
+IP 篩選/G20/自訂主機<sup>2</sup>|是|是
 漸進式下載|是|是
-建議用法 |建議用於絕大多數的串流案例。|專業用法。<br/>如果認為您的需求已超過「標準」。 如果您預期有 50,000 位以上的觀眾同時觀看，請連絡我們 (amsstreaming@microsoft.com)。
+建議用法 |建議用於絕大多數的串流案例。|專業用法。
 
-<sup>1</sup>在端點上未啟用 CDN 時，才使用直接在串流端點上。
+<sup>1</sup>免費的試用版僅適用於新建立的媒體服務帳戶和預設串流端點。<br/>
+<sup>2</sup>在端點上未啟用 CDN 時，才使用直接在串流端點上。<br/>
 
 ## <a name="properties"></a>properties 
 

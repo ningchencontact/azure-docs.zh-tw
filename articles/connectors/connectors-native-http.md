@@ -11,26 +11,28 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447543"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713808"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>使用 Azure Logic Apps 來呼叫 HTTP 或 HTTPS 端點
 
-您可以使用 Azure Logic Apps 和超文字傳輸通訊協定 (HTTP) 連接器，建立自動化的工作流程，藉由建置邏輯應用程式來與任何 HTTP 或 HTTPS 端點通訊。 例如，您可以監視網站的服務端點。 當該端點上發生事件時，例如您的網站停止運作，事件就會觸發邏輯應用程式的工作流程，並執行指定的動作。 
+您可以使用 Azure Logic Apps 和超文字傳輸通訊協定 (HTTP) 連接器，建立自動化的工作流程，藉由建置邏輯應用程式來與任何 HTTP 或 HTTPS 端點通訊。 例如，您可以監視網站的服務端點。 當該端點上發生事件時，例如您的網站停止運作，事件就會觸發邏輯應用程式的工作流程，並執行指定的動作。
 
 您可以使用 HTTP 觸發程序作為工作流程中的第一個步驟，以定期檢查或「輪詢」端點。 在每次檢查時，觸發程序會將呼叫或「要求」傳送至端點。 端點的回應會決定是否執行邏輯應用程式的工作流程。 觸發程序會將回應的任何內容，傳遞至邏輯應用程式中的動作。 
 
-您可以使用 HTTP 動作作為工作流程中的任何其他步驟，在您想要的時候檢查端點。 端點的回應會決定工作流程的剩餘動作如何執行。
+您可以使用 HTTP 動作作為工作流程中的任何其他步驟，在您想要的時候檢查端點。 端點的回應會決定工作流程的剩餘動作如何執行。 
+
+根據目標端點的功能，此連接器支援傳輸層安全性 (TLS) 1.0、 1.1 和 1.2 版。 與端點的 logic Apps 是透過使用可能的最新支援的版本交涉。 因此，比方說，如果端點支援 1.2，連接器會使用 1.2 第一次。 否則，連接器會使用下一個最高支援的版本。
 
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您想要呼叫的目標端點 URL 
 

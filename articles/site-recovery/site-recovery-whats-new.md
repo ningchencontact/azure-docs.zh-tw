@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: raynew
-ms.openlocfilehash: 5ee1328dddb6ae1e1c878384097b0e10aa32feeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 61bcc0565d57f9c64c453f79f319fc56d5a6de18
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776283"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925052"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 最新功能
 
@@ -126,7 +126,7 @@ Site Recovery 新增了行動服務擴充功能的自動更新選項。 行動�
 **更新** | **詳細資料**
 --- | ---
 **提供者和代理程式** | Site Recovery 代理程式和提供者 （如彙總套件中所述） 的更新
-**適用於 Linux 的災害復原** | **Azure VM**：新增支援 RedHat Enterprise Linux 6.10;CentOS 6.10。<br/><br/> **VMware Vm**:RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> 使用 GUID 磁碟分割表格 (GPT) 磁碟分割樣式，在傳統 BIOS 相容模式現在也支援以 Linux 為基礎的 Vm。 請參閱[關於 Azure IaaS VM 磁碟的常見問題集](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/faq-for-disks)如需詳細資訊。 
+**適用於 Linux 的災害復原** | **Azure VM**：新增支援 RedHat Enterprise Linux 6.10;CentOS 6.10。<br/><br/> **VMware Vm**:RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> 使用 GUID 磁碟分割表格 (GPT) 磁碟分割樣式，在傳統 BIOS 相容模式現在也支援以 Linux 為基礎的 Vm。 請參閱[關於 Azure IaaS VM 磁碟的常見問題集](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks)如需詳細資訊。 
 **雲端支援** | 支援在德國雲端的 Azure Vm 的災害復原。
 **跨訂用帳戶的災害復原** | 將某一個區域中的 Azure Vm 複寫至不同的訂用帳戶，在相同的 Azure Active Directory 租用戶內的另一個區域的支援。 [深入了解](https://aka.ms/cross-sub-blog)。
 **Windows Server 2008** | 支援移轉的電腦上執行的 Windows Server 2008 R2/2008年 64 位元和 32 位元。<br/><br/> 僅限移轉 （複寫和容錯移轉）。 不支援容錯回復。

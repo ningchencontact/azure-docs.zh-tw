@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace 的 Cloud Partner 入口網站瀏覽 | Microsoft Docs
-description: 上也提供本文中使用的原始碼。
+title: Cloud Partner 入口網站瀏覽 Azure marketplace
+description: 在 Cloud Partner 入口網站內瀏覽 Azure marketplace 的說明。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e963734af450a96ac08830769560a2b5e8eef9c6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: pabutler
+ms.openlocfilehash: ef329bfef9dc4f98dfd975a33c190f0b1825df4e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128614"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942061"
 ---
 # <a name="cloud-partner-portal-navigation"></a>Cloud Partner 入口網站瀏覽
 

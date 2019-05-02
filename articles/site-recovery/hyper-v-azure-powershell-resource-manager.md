@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 75a7424f6c3bb6ef13de9e44b46489ab1ef0fbcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792975"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690561"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>針對 Hyper-V VM，使用 PowerShell 和 Azure Resource Manager 設定至 Azure 的災害復原
 
@@ -107,7 +107,7 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 ## <a name="step-5-install-the-provider-and-agent"></a>步驟 5：安裝 Provider 和代理程式
 
 1. 從 [Microsoft](https://aka.ms/downloaddra)下載最新版提供者的安裝程式。
-2. 在 Hyper-V 主機上執行安裝程式。
+2. 在 Hyper-V 主机上运行安装程序。
 3. 在安裝結尾繼續註冊步驟。
 4. 當系統提示時，請提供下載金鑰，並完成 Hyper-V 主機註冊。
 5. 確認 Hyper-V 主機向網站註冊，如下所示：

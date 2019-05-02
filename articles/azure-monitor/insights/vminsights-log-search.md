@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122586"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702510"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>如何從適用於 VM 的 Azure 監視器 (預覽) 查詢記錄
 適用於 Vm 的 azure 監視器會收集效能和連線計量、 電腦和處理程序清查資料，以及健全狀況狀態資訊，並將它轉送至 Log Analytics 工作區，在 Azure 監視器中。  這項資料可供[查詢](../../azure-monitor/log-query/log-query-overview.md)Azure 監視器中。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
@@ -58,7 +58,7 @@ ms.locfileid: "62122586"
 |SourceIp |來源的 IP 位址 |
 |DestinationIp |目的地的 IP 位址 |
 |DestinationPort |目的地的連接埠號碼 |
-|通訊協定 |用於連線的通訊協定。  值為 *tcp*。 |
+|Protocol |用於連線的通訊協定。  值為 *tcp*。 |
 
 為了說明群組的影響，會在記錄的下列屬性中提供群組實體連線數目的相關資訊：
 
@@ -139,7 +139,7 @@ VMBoundPort 中的每一筆記錄識別下列欄位：
 |Process | 處理序 （或處理程序群組） 與連接埠是與相關聯的識別。|
 |IP | 連接埠 IP 位址 (可以是萬用字元 IP *0.0.0.0*) |
 |Port |連接埠號碼 |
-|通訊協定 | 通訊協定。  範例中， *tcp*或是*udp* (只有*tcp*目前支援)。|
+|Protocol | 通訊協定。  範例中， *tcp*或是*udp* (只有*tcp*目前支援)。|
  
 身分識別連接埠衍生自上述的五個欄位，並會儲存在 PortId 屬性。 這個屬性可用來跨時間快速尋找特定的連接埠的記錄。 
 
@@ -202,7 +202,7 @@ VMBoundPort 中的每一筆記錄識別下列欄位：
 | ProductVersion_s | 產品版本 |
 | FileVersion_s | 檔案版本 |
 | CommandLine_s | 命令列 |
-| ExecutablePath _s | 可執行檔的路徑 |
+| ExecutablePath_s | 可執行檔的路徑 |
 | WorkingDirectory_s | 工作目錄 |
 | UserName | 執行處理序的帳戶 |
 | UserDomain | 執行處理序的網域 |

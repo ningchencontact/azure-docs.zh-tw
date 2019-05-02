@@ -1,25 +1,18 @@
 ---
-title: Azure 與 Dynamcis 365 諮詢服務供應項目 - 輸入店面詳細資料 | Microsoft Docs
-description: 在 Cloud Partner 入口網站的 Azure 或 Dynamcis 365 諮詢服務供應項目中定義電子店面詳細資料的指南。
+title: 諮詢供應項目輸入店面詳細資料 |Azure Marketplace
+description: 在 Azure 或 Dynamics 365 諮詢服務供應項目在 Cloud Partner 入口網站中定義店面詳細資料。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865355"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942719"
 ---
 # <a name="storefront-details-tab"></a>電子店面詳細資料索引標籤
 
@@ -32,14 +25,16 @@ ms.locfileid: "60865355"
 
 ![建立新的諮詢服務供應項目 - [電子店面詳細資料] 索引標籤](media/consultingoffer-storefront-details.png)
 
+
 ## <a name="offer-details"></a>供應項目詳細資料
 
 [產品/服務詳細資料] 區段包含下列方塊：
 
--   **供應項目摘要**
--   **供應項目描述**
+-   **供應項目摘要\***
+-   **供應項目描述\***
 
-### <a name="offer-summary"></a>供應項目摘要
+
+### <a name="offer-summary"></a>供應項目摘要\*
 
 [供應項目摘要] 是顯示在供應項目名稱底下的供應項目簡短描述。 使用純文字來輸入供應項目摘要，其中不含任何分行符號。 下列是良好的供應項目摘要及其對應之供應項目名稱的範例。
 
@@ -68,7 +63,8 @@ ms.locfileid: "60865355"
 -   **供應項目名稱**：Dynamics 和專案：3 天的評量
 -   **供應項目摘要**：專為專業服務公司及專案導向業務所設計之 ERP 解決方案的需求收集與評量。
 
-### <a name="offer-description"></a>供應項目描述
+
+### <a name="offer-description"></a>供應項目描述\*
 
 在 [供應項目描述] 方塊中輸入諮詢服務供應項目的描述。 良好的供應項目描述涵蓋業務開發實際情況的確切詳細資料，以及客戶獲得的最終交付項目。 它應該清楚地協助客戶了解他們能獲得的項目。 包括您的供應項目與您提供諮詢服務的 Microsoft 產品有何關聯。
 
@@ -144,6 +140,7 @@ ms.locfileid: "60865355"
 輸入祕密金鑰，以在上線之前先在 AppSource 上預覽您的供應項目。
 此識別碼不是密碼。
 
+
 ## <a name="listing-details"></a>清單詳細資料
 
 **諮詢服務類型**
@@ -166,7 +163,7 @@ Microsoft 僅著重於固定範圍、固定期間、估計或固定價格 (或�
 選取可取得此諮詢服務供應項目的國家/地區和區域。 單一供應項目不能在多個國家/地區或區域發佈。 必須針對每個國家/地區或區域都建立新的供應項目。
 
 >[!Note]
->AppSource 諮詢服務目前已在美國、英國和加拿大上線。 您可以針對尚未上線的國家/地區提交供應項目，而它將經過審核並準備好上線。 需要達到已準備好上線的供應項目數下限，才會開放新的國家/地區，因此，我們鼓勵針對尚未上線的國家/地區提交供應項目。
+>AppSource 諮詢服務目前已在美國、英國和加拿大上線。 您可以提交尚無法上線，國家/地區的供應項目，而且它會檢閱並準備好上線。 若要開啟新國家/地區，以針對不是即時的國家/地區的供應項目，建議需要準備好上線的供應項目數目下限。
 
 **產業**
 
@@ -207,6 +204,7 @@ Microsoft 僅著重於固定範圍、固定期間、估計或固定價格 (或�
 **螢幕擷取畫面 (限五個)**
 
 上傳最多五個影像，提供有關您的供應項目、其交付項目或公司的更多資訊。 一些範例如，行銷摺頁冊的片段，簡報的相關投影片，或是顯示公司趨勢或專業知識的影像。
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0d520a9dc8d60a386d25694d441931fbc3ed38e4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: dec40f7ec21a4a059c6e4a7c75f6378f9757a479
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352063"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916836"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>開始使用 Speech Devices SDK
 
@@ -28,7 +28,7 @@ ms.locfileid: "58352063"
 
 在使用「語音裝置 SDK」開始開發之前，請收集您需要的資訊和軟體：
 
-* [從 ROOBO 取得開發套件](http://ddk.roobo.com/)。 套件隨附線性或圓形麥克風陣列設定。 請依據您的需求選擇正確的設定。
+* [從 ROOBO 取得開發套件](https://ddk.roobo.com/)。 套件隨附線性或圓形麥克風陣列設定。 請依據您的需求選擇正確的設定。
 
     |開發套件設定|喇叭位置|
     |-----------------------------|------------|
@@ -199,4 +199,4 @@ ms.locfileid: "58352063"
 
 ### <a name="audio"></a>音訊
 
-ROOBO 提供一種可將所有的音訊擷取到快閃記憶體的工具。 它可以協助您針對音訊問題進行疑難排解。 針對每個開發套件設定提供了工具版本。 在 [ROOBO 網站](http://ddk.roobo.com/)上選取您的裝置，然後選取頁面底部的 [ROOBO Tools] \(ROOBO 工具\) 連結。
+ROOBO 提供一種可將所有的音訊擷取到快閃記憶體的工具。 它可以協助您針對音訊問題進行疑難排解。 針對每個開發套件設定提供了工具版本。 在 [ROOBO 網站](https://ddk.roobo.com/)上選取您的裝置，然後選取頁面底部的 [ROOBO Tools] \(ROOBO 工具\) 連結。

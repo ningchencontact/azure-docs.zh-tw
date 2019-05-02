@@ -16,12 +16,12 @@ ms.date: 5/4/2018
 ms.author: celested
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216568ac43c8e1b04c91d9a8f611a0ceb2e430af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92999f23b468c975d0f95f2628b9a5069d929031
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294186"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707332"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>安裝存取面板的瀏覽器擴充功能
 
@@ -63,7 +63,8 @@ ms.locfileid: "60294186"
 您也可以直接從下列網站下載適用於 Chrome 和 Microsoft Edge 的延伸模組：
 
 - [Chrome 擴充功能](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Microsoft Edge 延伸模組](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Microsoft Edge 延伸模組](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Firefox 的延伸模組](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>使用 My Apps 安全登入擴充功能
 * 如果您是使用 `https://myapps.microsoft.com` 以外的 My Apps URL，請執行下列作業來設定您的預設 URL：

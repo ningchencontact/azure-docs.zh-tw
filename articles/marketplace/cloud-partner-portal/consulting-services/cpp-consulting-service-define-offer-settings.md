@@ -1,25 +1,18 @@
 ---
-title: Azure 與 Dynamcis 365 諮詢服務供應項目 - 定義供應項目設定 | Microsoft Docs
-description: 本指南會說明如何在 Cloud Partner 入口網站中定義 Azure 或 Dynamcis 365 諮詢服務的供應項目設定。
+title: 定義供應項目設定諮詢服務供應項目 |Azure Marketplace
+description: 定義在 Azure 或 Dynamics 365 諮詢服務供應項目在 Cloud Partner 入口網站中 Azure Marketplace 供應項目設定。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749632"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942780"
 ---
 # <a name="offer-settings-tab"></a>供應項目設定索引標籤
 
@@ -27,7 +20,8 @@ ms.locfileid: "60749632"
 
 ![建立新諮詢服務供應項目 - 供應項目設定索引標籤](media/consultingoffer-settings-tab.png)
 
-### <a name="offer-id"></a>供應項目識別碼
+
+### <a name="offer-id"></a>供應項目識別碼 *
 
 這個識別碼是您第一次提交供應項目時，所建立的唯一名稱。 它只能包含小寫英數字元、連字號或底線。 **供應項目識別碼**會顯示在 URL 中，並影響搜尋引擎結果。 例如，*yourcompanyname_exampleservice*。
 
@@ -36,11 +30,13 @@ ms.locfileid: "60749632"
 >[!Note]
 >供應項目上架之後，即無法更新其識別碼。
 
-### <a name="publisher-id"></a>發行者識別碼
+
+### <a name="publisher-id"></a>發行者識別碼 *
 
 此識別碼與您的帳戶相關。 您登入您的組織帳戶後，您的**發行者識別碼**會顯示在下拉式功能表中。
 
-### <a name="name"></a>名稱
+
+### <a name="name"></a>名稱*
 
 此字串將在 AppSource 上或在 Azure Marketplace 中顯示為供應項目名稱。 [名稱] 方塊上限為 50 個字元。 檢閱者可能需要編輯您的標題，才能將持續時間和供應項目類型附加到供應項目名稱。
 

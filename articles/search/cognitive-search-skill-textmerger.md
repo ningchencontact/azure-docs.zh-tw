@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ceda22394aab27f27740bb999b36e2cc46a6bd06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4dfd00f7f6bf591b3b40a3ca391d2f722b01b7f0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126882"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919133"
 ---
 #    <a name="text-merge-cognitive-skill"></a>文字合併認知技能
 
@@ -78,7 +78,7 @@ Microsoft.Skills.Text.MergeSkill
 
 使用文字合併的常見案例是將影像的文字表示 (來自 OCR 技能的文字，或影像標題) 合併至文件的內容欄位。 
 
-下列範例技能集使用 OCR 技能來擷取文件中內嵌影像的文字。 接下來，它會建立 *merged_text* 欄位以包含每個影像的原始和已進行 OCR 處理的文字。 您可以在[這裡](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr)深入了解 OCR 技能。
+下列範例技能集使用 OCR 技能來擷取文件中內嵌影像的文字。 接下來，它會建立 *merged_text* 欄位以包含每個影像的原始和已進行 OCR 處理的文字。 您可以在[這裡](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr)深入了解 OCR 技能。
 
 ```json
 {

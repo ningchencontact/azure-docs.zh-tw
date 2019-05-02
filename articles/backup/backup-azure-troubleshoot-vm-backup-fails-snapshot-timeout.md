@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337701"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914937"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 
@@ -51,7 +51,7 @@ ms.locfileid: "60337701"
 **錯誤碼**：UserErrorRpCollectionLimitReached <br>
 **錯誤訊息**：已達到還原點集合上限。 <br>
 * 如果鎖定復原點資源群組以防止復原點自動清除，就可能會發生此問題。
-* 如果每日觸發多個備份，也會發生此問題。 目前我們建議每日的只有一個備份，因為 「 立即還原點會保留 1-5 天，根據設定的快照集保留期，並在任何時候，只有 18 立即 Rp 可以是與 VM 相關聯。 <br>
+* 如果每日觸發多個備份，也會發生此問題。 目前，我们建议每天只创建一个备份，因为即时还原点只保留 1-5 天（按照配置的快照保留期的要求），并且在任意给定时间，只能将 18 个即时 RP 与一个 VM 相关联。 <br>
 
 建議的動作：<br>
 若要解決此問題，請移除 VM 資源群組的鎖定，並重試此作業以觸發清除動作。
@@ -102,12 +102,12 @@ ms.locfileid: "60337701"
 **原因 5：備份服務因資源群組鎖定而沒有刪除舊還原點的權限** <br>
 **原因 6：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize-目前的 Azure 備份不支援大於 4095 GB 的磁碟大小
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - 当前，Azure 备份不支持大于 4095GB 的磁盘大小
 
 **錯誤碼**：UserErrorUnsupportedDiskSize <br>
-**錯誤訊息**：目前 Azure 備份不支援大於 4095 GB 的磁碟大小 <br>
+**錯誤訊息**：当前 Azure 备份不支持大于 4095GB 的磁盘大小 <br>
 
-備份的磁碟大小超過 4095 GB 的 VM 時，您的備份作業可能會失敗。 即將推出大型磁碟支援。  
+对磁盘大小大于 4095GB 的 VM 进行备份时，备份操作可能会失败。 即将推出对大型磁盘的支持。  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 無法起始備份，因為另一個備份作業正在進行中
 
@@ -121,9 +121,9 @@ ms.locfileid: "60337701"
 3. 在 [保存庫儀表板] 功能表中，按一下 [備份作業] 以顯示所有備份作業。
 
     * 如果有正在進行中的備份作業，請等到該作業完成或取消備份作業。
-        * 若要取消備份作業，請以滑鼠右鍵按一下備份作業，然後按一下 [取消]，或使用 [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)。
+        * 若要取消備份作業，請以滑鼠右鍵按一下備份作業，然後按一下 [取消]，或使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)。
     * 如果您已在不同的保存庫中重新設定備份，請確定舊的保存庫中沒有正在執行的備份作業。 若有的話，請取消備份作業。
-        * 若要取消備份作業，請以滑鼠右鍵按一下備份作業，然後按一下 [取消]，或使用 [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+        * 若要取消備份作業，請以滑鼠右鍵按一下備份作業，然後按一下 [取消]，或使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. 請重試備份作業。
 
 如果排定的備份作業因費時過久而與下一個備份設定發生衝突，請檢閱[最佳做法](backup-azure-vms-introduction.md#best-practices)、[備份效能](backup-azure-vms-introduction.md#backup-performance)和[還原考量](backup-azure-vms-introduction.md#backup-and-restore-considerations)。
@@ -193,7 +193,7 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 | 原因 | 解決方法 |
 | --- | --- |
 | 因為遠端桌面通訊協定 (RDP) 中的 VM 關機，而導致報告的 VM 狀態不正確。 | 如果您關閉 RDP 中的 VM，請檢查入口網站，以判斷 VM 狀態是否正確。 如果不正確，可使用 VM 儀表板上的 [關閉] 選項來關閉入口網站中的 VM。 |
-| VM 無法從 DHCP 取得主機或網狀架構位址。 | 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果 VM 無法從 DHCP 回應 245 取得主機或網狀架構位址，則無法下載或執行任何延伸模組。 如果您需要靜態的私人 ip 位址，您應該設定透過**Azure 入口網站**或是**PowerShell** ，並確定已啟用 VM 內的 [DHCP] 選項。 [了解更多](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)如何設定靜態 IP 位址使用 PowerShell。
+| VM 無法從 DHCP 取得主機或網狀架構位址。 | 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果 VM 無法從 DHCP 回應 245 取得主機或網狀架構位址，則無法下載或執行任何延伸模組。 如果需要静态专用 IP，则应通过 Azure 门户或 PowerShell 进行配置，同时确保启用 VM 内的 DHCP 选项。 [详细了解](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)如何通过 PowerShell 设置静态 IP 地址。
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>備份擴充功能無法更新或載入
 如果無法載入延伸模組，備份就會因為無法取得快照集而失敗。
@@ -224,14 +224,14 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 ### <a name="clean_up_restore_point_collection"></a> 清除還原點集合
 移除鎖定之後，必須清除還原點。 若要清除還原點，請遵循下列任一方法：<br>
-* [清除還原點集合執行臨機操作備份](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [通过运行即席备份来清理还原点集合](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [從 Azure 入口網站清除還原點集合](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>清除還原點集合執行臨機操作備份
-請移除鎖定之後, 觸發 ad 臨機操作/手動備份。 這可確保還原點會自動清除。 預期失敗的第一次; 這個 ad 臨機操作/手動操作不過，它可確保自動清除，而不是手動刪除還原點。 完成清除作業之後，下一個排定的備份應該會成功。
+删除锁后，触发即席/手动备份。 這可確保還原點會自動清除。 预期此即席/手动操作第一次会失败；但是，它可以确保自动完成清理，而无需手动删除还原点。 完成清除作業之後，下一個排定的備份應該會成功。
 
 > [!NOTE]
-> 觸發 ad 臨機操作/手動備份的幾個小時之後，會發生自動清除。 如果您排定的備份仍然失敗，請使用[此處](#clean-up-restore-point-collection-from-azure-portal)列出的步驟，嘗試手動刪除還原點集合。
+> 自动清理将在触发即席/手动备份的数小时后发生。 如果您排定的備份仍然失敗，請使用[此處](#clean-up-restore-point-collection-from-azure-portal)列出的步驟，嘗試手動刪除還原點集合。
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>從 Azure 入口網站清除還原點集合 <br>
 

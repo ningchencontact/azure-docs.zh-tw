@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611305"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926289"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM 適用的 Azure 磁碟加密常見問題集
 
@@ -162,7 +162,7 @@ Windows 的 "Bek volume" 或 Linux 的 "/mnt/azure_bek_disk" 均為本機資料�
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>我可以備份與還原加密的 VM？ 
 
-Azure 備份提供一個機制來備份與還原加密的 VM 的相同的訂用帳戶和區域內。  如需指示，請參閱[備份與還原加密的虛擬機器，使用 Azure 備份](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption)。  目前不支援加密的 VM 還原至不同的區域。  
+Azure 備份提供一個機制來備份與還原加密的 VM 的相同的訂用帳戶和區域內。  如需指示，請參閱[備份與還原加密的虛擬機器，使用 Azure 備份](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)。  目前不支援加密的 VM 還原至不同的區域。  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>我可以在哪裡提出問題或意見反應？
 

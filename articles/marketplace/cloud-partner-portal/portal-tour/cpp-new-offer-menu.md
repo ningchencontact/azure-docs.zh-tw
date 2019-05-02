@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace 的新增供應項目功能表 | Microsoft Docs
-description: 上也提供本文中使用的原始碼。
+title: Azure Marketplace 的新供應項目功能表
+description: 新增概觀會提供 Azure Marketplace 的 Cloud Partner 入口網站中的功能表。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 04cac492fd044471a646444afc21bc70f92537d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 8ec1a6a6ec77838ec75666d219d90739bf74517b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849102"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943278"
 ---
 # <a name="new-offer-menu"></a>新增供應項目功能表
 

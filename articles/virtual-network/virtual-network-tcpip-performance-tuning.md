@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032446"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924779"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP 的效能微調 Azure Vm
 
@@ -304,7 +304,7 @@ Azure 提供各種不同的 VM 大小和類型，各有不同的效能功能組�
 
 Azure 虛擬機器擁有至少一個附加到它們的網路介面。 它們可能會有數個。 配置給虛擬機器的頻寬會是跨所有連接至機器的網路介面的所有輸出流量總和。 換句話說，針對每個虛擬機器，不論多少個網路介面連接至機器配置頻寬。
 
-預期的輸出輸送量，以及每個 VM 大小所支援的網路介面數目會詳述[大小的 Windows Azure 中的虛擬機器](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)。 若要查看的最大輸送量，選取類型，例如**一般用途**，然後尋找 在產生的頁面上 （例如，"Dv2 系列 」） 的大小系列的相關章節。 每個數列，沒有資料表，其中提供網路的規格，在過去的專欄中，標題為 「 最大 Nic / 預期的網路頻寬 (Mbps)。 」
+預期的輸出輸送量，以及每個 VM 大小所支援的網路介面數目會詳述[大小的 Windows Azure 中的虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)。 若要查看的最大輸送量，選取類型，例如**一般用途**，然後尋找 在產生的頁面上 （例如，"Dv2 系列 」） 的大小系列的相關章節。 每個數列，沒有資料表，其中提供網路的規格，在過去的專欄中，標題為 「 最大 Nic / 預期的網路頻寬 (Mbps)。 」
 
 輸送量限制會套用至虛擬機器。 輸送量不會受到下列因素：
 
@@ -388,4 +388,4 @@ NTttcp 是用於測試的 Linux 或 Windows VM 的 TCP 效能的工具。 您可
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解 TCP/IP Azure Vm 的效能微調，您可能想要了解其他考量[計劃的虛擬網路](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm)或[深入了解連接和設定虛擬網路](https://docs.microsoft.com/en-us/azure/virtual-network/).
+既然您已了解 TCP/IP Azure Vm 的效能微調，您可能想要了解其他考量[計劃的虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)或[深入了解連接和設定虛擬網路](https://docs.microsoft.com/azure/virtual-network/).

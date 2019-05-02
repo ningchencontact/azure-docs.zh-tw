@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300139"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713349"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>作法：提供給您的 Azure AD 應用程式的選擇性宣告
 
@@ -52,12 +52,12 @@ ms.locfileid: "60300139"
 
 **表 2：V1.0 與 V2.0 選擇性宣告集**
 
-| Name                       |  描述   | 權杖類型 | 使用者類型 | 注意  |
+| 名稱                       |  描述   | 權杖類型 | 使用者類型 | 注意  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 上次驗證使用者的時間。 請參閱 OpenID Connect 規格。| JWT        |           |  |
 | `tenant_region_scope`      | 資源租用戶的區域 | JWT        |           | |
 | `home_oid`                 | 就來賓使用者而言，是使用者主租用戶中的使用者物件識別碼。| JWT        |           | |
-| `sid`                      | 用於每個工作階段使用者登出的工作階段識別碼。 | JWT        |           |         |
+| `sid`                      | 用於每個工作階段使用者登出的工作階段識別碼。 | JWT        |  個人和 Azure AD 帳戶。   |         |
 | `platf`                    | 裝置平台    | JWT        |           | 限制為可驗證裝置類型的受控裝置。|
 | `verified_primary_email`   | 以使用者的 PrimaryAuthoritativeEmail 為來源      | JWT        |           |         |
 | `verified_secondary_email` | 以使用者的 SecondaryAuthoritativeEmail 為來源   | JWT        |           |        |
@@ -80,7 +80,7 @@ ms.locfileid: "60300139"
 
 **表 3：僅適用於 V2.0 的選擇性宣告**
 
-| JWT 宣告     | Name                            | 描述                                | 注意 |
+| JWT 宣告     | 名稱                            | 描述                                | 注意 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 位址                      | 用戶端的登入來源 IP 位址。   |       |
 | `onprem_sid`  | 內部部署安全性識別碼 |                                             |       |
@@ -91,7 +91,6 @@ ms.locfileid: "60300139"
 | `family_name` | 姓氏                       | 提供使用者物件中定義的最後一個的名稱、 姓氏或使用者的姓氏。 <br>"family_name":"Miller" | MSA 和 AAD 支援   |
 | `given_name`  | 名字                      | 會提供或為使用者物件上設定 「 指定 」 的使用者名稱。<br>"given_name"："Frank"                   | MSA 和 AAD 支援  |
 | `upn`         | 使用者主體名稱 | 可與 username_hint 參數搭配使用的使用者識別碼。  不是使用者的持久識別碼，且不應該用於金鑰資料。 | 如需了解宣告的設定，請參閱下方的[額外屬性](#additional-properties-of-optional-claims)。 |
-| `sid`         | 工作階段識別碼                      | GUID 的工作階段識別碼，用來追蹤與 MSA 的驗證工作階段。 | 只有 MSA。  將不會包含為 Azure AD 帳戶。 | 
 
 
 ### <a name="additional-properties-of-optional-claims"></a>選擇性宣告的額外屬性
@@ -164,7 +163,7 @@ ms.locfileid: "60300139"
 
 **表 5：OptionalClaims 類型屬性**
 
-| Name        | 類型                       | 描述                                           |
+| 名稱        | 類型                       | 描述                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 集合 (OptionalClaim) | 在 JWT 識別碼權杖中傳回的選擇性宣告。 |
 | `accessToken` | 集合 (OptionalClaim) | 在 JWT 存取權杖中傳回的選擇性宣告。 |
@@ -177,7 +176,7 @@ ms.locfileid: "60300139"
 
 **表 6：OptionalClaim 類型屬性**
 
-| Name                 | 類型                    | 描述                                                                                                                                                                                                                                                                                                   |
+| 名稱                 | 類型                    | 描述                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 選擇性宣告的名稱。                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | 宣告的來源 (目錄物件)。 有來自延伸模組屬性的預先定義宣告和使用者定義宣告。 如果來源值為 null，宣告便是預先定義的選擇性宣告。 如果來源值為 user，名稱屬性中的值即為來自使用者物件的延伸模組屬性。 |

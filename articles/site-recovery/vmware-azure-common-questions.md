@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/23/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125554"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925525"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -93,8 +93,8 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 
 Site Recovery 會將內部部署 VMware Vm 和實體伺服器複寫至 Azure 中的受控磁碟。
 - Site Recovery 處理伺服器會將複寫記錄檔寫入的目標區域中的快取儲存體帳戶。
-- 這些記錄檔會用來建立受控磁碟上的復原點。
-- 容錯移轉時，您選取的復原點用來建立目標的受控的磁碟。
+- 這些記錄檔用來在 Azure 上建立復原點受控磁碟有 asrseeddisk 的前置詞。
+- 容錯移轉時，您選取的復原點用來建立新的目標受控的磁碟。 此受控的磁碟已連結至 Azure 中的 VM。
 - 先前已複寫到儲存體帳戶 （之前年 3 月 2019) 的 Vm 不會受到影響。
 
 
@@ -111,7 +111,7 @@ Site Recovery 會將內部部署 VMware Vm 和實體伺服器複寫至 Azure 中
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>機器受到保護後可以變更受控的磁碟類型嗎？
 
-是，您可以輕鬆地[受控磁碟的類型變更](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)。 在變更之前的型別，請確定您撤銷磁碟 SAS URL，方法是前往 Azure 入口網站中的 受控磁碟資源。 從 [概觀] 刀鋒視窗中，取消任何進行中的匯出。 一旦已撤銷該 SA URL，請接下來的幾分鐘內變更磁碟類型。 不過，如果您變更受控的磁碟類型時，等候要由 Azure Site Recovery 產生全新的復原點。 適用於任何測試容錯移轉或容錯移轉從現在開始使用新的復原點。
+是，您可以輕鬆地[受控磁碟的類型變更](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)的進行中的複寫。 之前的類型變更，請確定受管理的磁碟上，會產生任何 SAS URL。 前往 Azure 入口網站中的 受控磁碟資源，並檢查您是否擁有 SAS URL 橫幅，在 概觀 刀鋒視窗上。 如果有的話，按一下以取消進行中的匯出。 完成後，請在接下來的幾分鐘內變更磁碟類型。 不過，如果您變更受控的磁碟類型時，等候要由 Azure Site Recovery 產生全新的復原點。 適用於任何測試容錯移轉或容錯移轉從現在開始使用新的復原點。
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>我可以切換至非受控磁碟的複寫從受控磁碟嗎？
 
@@ -133,6 +133,10 @@ Site Recovery 會將內部部署 VMware Vm 和實體伺服器複寫至 Azure 中
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>是否可執行離線初始複寫？
 不支援此做法。 請在 [意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出這項功能的要求。
+
+
+### <a name="what-is-asrseeddisk"></a>什麼是 asrseeddisk？
+每個來源磁碟，資料會複寫至 Azure 中的受控磁碟。 此磁碟有 asrseeddisk 的前置詞。 它會儲存來源磁碟及所有復原點快照集的複本。
 
 ### <a name="can-i-exclude-disks-from-replication"></a>可以從複寫排除磁碟嗎？
 是，您可以排除磁碟。
@@ -249,7 +253,7 @@ Site Recovery 會遵循到 N-4 支援模型。 [了解更多](https://aka.ms/asr
 
 ### <a name="unable-to-select-process-server-during-enable-replication"></a>無法啟用複寫期間選取處理序伺服器
 
-從 9.24 版本，增強功能會提供[產品中的指引](vmware-azure-manage-process-server.md#process-server-selection-guidance)上設定向外延展處理序伺服器的時機。 這是為了避免處理序伺服器節流並避免的狀況不良的處理序伺服器的使用方式。
+從 9.24 版本，以提供做改進[處理伺服器警示](vmware-physical-azure-monitor-process-server.md#process-server-alerts)上設定向外延展處理序伺服器的時機。 這是為了避免處理序伺服器節流並避免的狀況不良的處理序伺服器的使用方式。
 
 ### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>我該怎麼取得精確的健全狀況狀態的處理序伺服器？
 

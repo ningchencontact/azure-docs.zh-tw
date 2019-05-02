@@ -1,29 +1,23 @@
 ---
-title: Azure IoT Edge 模組 SKU | Microsoft Docs
+title: Azure IoT Edge 模組 Sku |Azure Marketplace
 description: 建立 IoT Edge 模組的的 SKU。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: bf8957c315909785112dea947f2e2e0f7b26349f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910871"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942182"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IoT Edge 模組 SKU 索引標籤
 
 可使用 [新增供應項目] 頁面的 [SKU] 索引標籤，建立一個或一個以上的 SKU，並建立 SKU 與新供應項目之間的關聯性。  可以使用不同的 SKU，依功能集、帳單模式或其他部分特性，讓解決方案彼此互有差異。
+
 
 ## <a name="sku-settings"></a>SKU 設定
 
@@ -41,7 +35,9 @@ ms.locfileid: "60910871"
 
 |  **欄位**       |     **說明**                                                          |
 |  ---------       |     ---------------                                                          |
-| **SKU 識別碼**       | 此 SKU 的識別碼。 此名稱的長度上限為 50 個字元，由小寫英數字元或連字號 (-) 組成，但不能以連字號結尾。 **附註：** 發行供應項目之後，您無法變更此名稱。 該名稱會在產品網址中公開顯示。 |
+| **SKU ID\***       | 此 SKU 的識別碼。 此名稱的長度上限為 50 個字元，由小寫英數字元或連字號 (-) 組成，但不能以連字號結尾。 **附註：** 發行供應項目之後，您無法變更此名稱。 該名稱會在產品網址中公開顯示。 |
+|  |  |
+
 
 ## <a name="sku-details"></a>SKU 詳細資料
 
@@ -49,24 +45,28 @@ ms.locfileid: "60910871"
 
 ![IoT Edge 模組 SKU 中繼資料](media/iot-edge-module-skus-tab-metadata.png)
 
-下表說明 [SKU 詳細資料] 下的欄位用途、內容和格式。
+下表說明 [SKU 詳細資料] 下的欄位用途、內容和格式。 必要欄位由星號 (*) 標示。
 
 |  **欄位**       |     **說明**                                                          |
 |  ---------       |     ---------------                                                          |
-| **標題**        | 此 SKU 的標題。 長度上限為 50 個字元。 <br/> 會顯示在 Azure 入口網站中，並在部署時做為預設的模組名稱 (不含空格和特殊字元)。 請參閱下圖，以確切了解此欄位的顯示位置。|
-| **總結**      | SKU 的簡短摘要。 長度上限是 100 個字元。 **請勿**提供供應項目的摘要，僅需 SKU 的摘要即可  此摘要會顯示在 Azure Marketplace 中。 請參閱下圖，以確切了解此欄位的顯示位置。|
-| **說明**  | 此 SKU 的簡短說明。長度上限為 3000 個字元。 請勿提供供應項目的說明，僅需 SKU 的說明即可。 說明會顯示在 Azure Marketplace 和 Azure 入口網站中。 在 Azure 入口網站中，說明會附加到用以說明 [Marketplace] 索引標籤所定義之供應項目的 [Marketplace 說明] 中。其可能與 SKU 摘要相同。 請參閱下圖，以確切了解此欄位的顯示位置。|
-| **隱藏此 SKU** | 請保留預設設定值，即**否**。 |
+| **標題\***        | 此 SKU 的標題。 長度上限為 50 個字元。 <br/> 會顯示在 Azure 入口網站中，並在部署時做為預設的模組名稱 (不含空格和特殊字元)。 請參閱下圖，以確切了解此欄位的顯示位置。|
+| **摘要\***      | SKU 的簡短摘要。 長度上限是 100 個字元。 **請勿**提供供應項目的摘要，僅需 SKU 的摘要即可  此摘要會顯示在 Azure Marketplace 中。 請參閱下圖，以確切了解此欄位的顯示位置。|
+| **說明\***  | 此 SKU 的簡短說明。長度上限為 3000 個字元。 請勿提供供應項目的說明，僅需 SKU 的說明即可。 說明會顯示在 Azure Marketplace 和 Azure 入口網站中。 在 Azure 入口網站中，說明會附加到用以說明 [Marketplace] 索引標籤所定義之供應項目的 [Marketplace 說明] 中。其可能與 SKU 摘要相同。 請參閱下圖，以確切了解此欄位的顯示位置。|
+| **隱藏此 SKU\*** | 請保留預設設定值，即**否**。 |
+|  |  |
+
 
 ### <a name="sku-example"></a>SKU 範例
 
  下列範例顯示了 SKU 的 [標題]、[摘要] 以及 [說明] 欄位會以何種方式顯示在不同的檢視畫面上。
  
+
 #### <a name="on-the-azure-marketplace-website"></a>在 Azure Marketplace 網站上：
 
 - 查看 SKU 詳細資料時：
 
     ![Azure.com Marketplace 網站中 SKU 的顯示方式](media/iot-edge-module-ampdotcom-pdp-plans.png)
+
 
 #### <a name="on-the-azure-portal-website"></a>在 Azure 入口網站上：
 
@@ -88,6 +88,7 @@ ms.locfileid: "60910871"
     
     ![IoT Edge 模組在部署時的顯示方式](./media/iot-edge-module-deployment.png)
 
+
 ## <a name="sku-content"></a>SKU 內容
 
 在 [Edge 模組映像] 下，提供上傳 IoT Edge 模組所需的資訊。
@@ -98,24 +99,24 @@ ms.locfileid: "60910871"
 
 ![IoT Edge 模組映像](./media/iot-edge-module-skus-tab-acr.png)
 
-下表說明此欄位的用途、內容和格式：
+下表說明用途，也就是內容，並針對下列各欄位的格式**映像儲存機制詳細資料**並**映像版本**。  必要欄位由星號 (*) 標示。
 
-- **映像存放庫詳細資料**
-- **映像版本**
 
 |  **欄位**       |     **說明**                                                          |
 |  ---------       |     ---------------                                                          |
-|  ***映像存放庫詳細資料***   |  |
-| **訂用帳戶識別碼**        | ACR 的 Azure 訂用帳戶識別碼。|
-| **資源群組名稱**      | ACR 的資源群組名稱。|
-| **登錄名稱**  | 您的 ACR 登錄名稱。 只會複製登錄名稱，而不是登入伺服器名稱 (例如，不含 `azurecr.io`。) |
-| **存放庫名稱**  | ACR 的存放庫名稱包含您的 IoT Edge 模組。 **附註：** 設定名稱之後，就無法變更更新版本。 請使用唯一不重複的名稱，以確保您帳戶中不會有其他相同名稱的供應項目。 |
-| **使用者名稱** | 與 ACR 相關聯的使用者名稱 (系統管理員使用者名稱)。 |
-| **密碼** | 與 ACR 相關聯的密碼。 |
-|  ***映像版本***   |  |
-| **映像標籤或訊息摘要** | 其必須至少包含 `latest` 標籤和版本標籤 (例如，以 `xx.xx.xx-` 開頭，其中 xx 是數字)， 且應是[資訊清單標籤](https://github.com/estesp/manifest-tool)，以將多個平台設為目標。 也請務必新增資訊清單標籤參考的所有標籤，以便上傳。 您可以使用標籤來新增多個版本的 IoT Edge 模組。 所有資訊清單標籤 (除了 `latest` 以外) 必須以 `X.Y-` 或 `X.Y.Z-` 開頭，其中 X、Y、Z 是整數。 請至[「準備 IoT Edge 模組的技術資產」一文的標籤和版本設定段落](./cpp-create-technical-assets.md)進一步了解。 <br/> 例如，如果 `latest` 標籤指向 `1.0.1-linux-x64`、`1.0.1-linux-arm32`，以及 `1.0.1-windows-arm32`，則需要在此處加入這 6 個標籤。 |
+|  |  ***映像存放庫詳細資料***    |
+| **訂用帳戶識別碼\***        | ACR 的 Azure 訂用帳戶識別碼。|
+| **資源群組名稱\***      | ACR 的資源群組名稱。|
+| **登錄名稱\***  | 您的 ACR 登錄名稱。 只會複製登錄名稱，而不是登入伺服器名稱 (例如，不含 `azurecr.io`。) |
+| **存放庫名稱\***  | ACR 的存放庫名稱包含您的 IoT Edge 模組。 **附註：** 設定名稱之後，就無法變更更新版本。 請使用唯一不重複的名稱，以確保您帳戶中不會有其他相同名稱的供應項目。 |
+| **使用者名稱\*** | 與 ACR 相關聯的使用者名稱 (系統管理員使用者名稱)。 |
+| **密碼\*** | 與 ACR 相關聯的密碼。 |
+|    |  ***映像版本***   |
+| **映像的標籤或摘要\*** | 其必須至少包含 `latest` 標籤和版本標籤 (例如，以 `xx.xx.xx-` 開頭，其中 xx 是數字)， 且應是[資訊清單標籤](https://github.com/estesp/manifest-tool)，以將多個平台設為目標。 也請務必新增資訊清單標籤參考的所有標籤，以便上傳。 您可以使用標籤來新增多個版本的 IoT Edge 模組。 所有資訊清單標籤 (除了 `latest` 以外) 必須以 `X.Y-` 或 `X.Y.Z-` 開頭，其中 X、Y、Z 是整數。 請至[「準備 IoT Edge 模組的技術資產」一文的標籤和版本設定段落](./cpp-create-technical-assets.md)進一步了解。 <br/> 例如，如果 `latest` 標籤指向 `1.0.1-linux-x64`、`1.0.1-linux-arm32`，以及 `1.0.1-windows-arm32`，則需要在此處加入這 6 個標籤。 |
+|  |  |
 
-### <a name="help-your-customers-launch-your-iot-edge-module-by-using-default-settings"></a>協助客戶使用預設設定啟動您的 IoT Edge 模組
+
+### <a name="help-your-customers-launch-by-using-default-settings"></a>協助您使用預設設定啟動的客戶
 
 請定義您的 IoT Edge 模組最常用的部署設定。 如此便能讓客戶立即以預設值啟動 IoT Edge 模組，以此方式使客戶的部署達到最佳化。
 
@@ -129,8 +130,10 @@ ms.locfileid: "60910871"
 | **預設對應項的所需屬性**      | 每個預設對應項的所需屬性名稱和值必須少於 512 個字元。 最多可以定義 5 個名稱/值對應項的所需屬性。 對應項所需屬性的值必須是有效的 JSON、非逸出、無陣列，且包含最多 4 個巢狀階層。 深入了解[對應項的所需屬性](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties)。 <br/> 例如，如果模組透過對應項的所需屬性支援可動態設定的重新整理頻率，請定義以下預設的對應項所需屬性：<br/> - Name #1: `RefreshRate`<br/>- Value #1: `60`|
 | **預設環境變數**  | 每個預設環境變數名稱和值必須少於 512 個字元。 最多可以定義 5 個名稱/值的環境變數。 <br/>例如，如果模組在啟動之前需要接受使用條款，您可以定義以下環境變數：<br/> - Name #1: `ACCEPT_EULA`<br/>- Value #1: `Y`|
 | **預設 createOptions**  | createOptions 必須少於 512 個字元， 必須是非逸出的有效 JSON。 深入了解 [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules)。 <br/> 例如，如果模組需要繫結連接埠，您可以定義下列 createOptions:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|
+|   |   |
 
-<br/> 選取 [儲存] 以儲存您的 SKU 設定。 
+選取 [儲存] 以儲存您的 SKU 設定。 
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f873f20f97b822e1f4dee716cb69535b0522dc2c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614337"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866525"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell 的功能和工具
 
@@ -50,6 +50,18 @@ Azure 磁碟機可讓您輕鬆探索和導覽與檔案系統導覽類似的 Azur
 對 Azure 資源進行的任何變更 (在 Azure 入口網站中直接進行，或透過 Azure PowerShell Cmdlet) 都會反映在 Azure 磁碟機中。  您可以執行 `dir -Force` 以重新整理您的資源。
 
 ![](media/features-powershell/azure-drive.png)
+
+### <a name="manage-exchange-online"></a>Manage Exchange Online
+
+Cloud Shell 中的 PowerShell 包含私用組建的 Exchange Online 的模組。  執行`Connect-EXOPSSession`以取得您的 Exchange 指令程式。
+
+![](media/features-powershell/exchangeonline.png)
+
+ 執行 `Get-Command -Module tmp_*`
+> [!NOTE]
+> 模組名稱應以開頭`tmp_`，如果您已安裝模組具有相同的前置詞，將也會呈現其 cmdlet。 
+
+![](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>與開放原始碼工具深度整合
 

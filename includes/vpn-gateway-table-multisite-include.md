@@ -2,21 +2,20 @@
 title: 包含檔案
 description: 包含檔案
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/21/2018
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 04/26/2019
+ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4535fd0e4ad09fe80f3474f716a14fc35040718f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ff633b33a800e1dfe28c63b6ba880233e2b4a1c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60760414"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929350"
 ---
-| **部署模型/方法** | **Azure 入口網站** | **PowerShell** |
+| **部署模型/方法** | **Azure 门户** | **PowerShell** |
 | --- | --- | --- |
-| Resource Manager |[文章](../articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) |支援 |
-| 傳統 | 不支援 | [文章](../articles/vpn-gateway/vpn-gateway-multi-site.md) |
+| Resource Manager |[教學課程](../articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) |支援 |
+| 傳統 | 不支援 | [教學課程](../articles/vpn-gateway/vpn-gateway-multi-site.md) |

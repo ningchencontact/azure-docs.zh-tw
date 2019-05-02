@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
 ms.openlocfilehash: bef71f210e015dc10cd6f5c0c655d0d3beee3655
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124436"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728915"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>使用自訂 Python 程式庫搭配 HDInsight 上的 Apache Spark 叢集來分析網站記錄
 

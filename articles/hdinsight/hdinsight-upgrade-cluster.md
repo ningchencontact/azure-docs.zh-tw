@@ -1,28 +1,24 @@
 ---
 title: 將 HDInsight 叢集升級為更新的版本 - Azure
 description: 了解如何將 HDInsight 叢集升級為較新的版本。
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
-ms.author: v-yiso
+ms.author: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 04/04/2017
-ms.date: 02/04/2019
+ms.date: 04/04/2017
 ms.openlocfilehash: b5048266fe17bc16fba8228f7cc17d0ee9f3bc0b
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763985"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714775"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>將 HDInsight 叢集升級為更新的版本
 若要充分利用最新的 HDInsight 功能，建議您將 HDInsight 叢集升級到最新的版本。 依照下面的指導方針升級您的 HDInsight 叢集版本。
 
-> [!NOTE]
+> [!NOTE]  
 > 如需受支援 HDInsight 版本的詳細資訊，請參閱 [HDInsight 元件版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
->
->
 
 ## <a name="upgrade-tasks"></a>升級工作
 升級 HDInsight 叢集的工作流程如下。

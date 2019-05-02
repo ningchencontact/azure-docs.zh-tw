@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 3eb53fa88a0757d22fc4575e9d9f402d6eebee13
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119330"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719299"
 ---
 # <a name="service-connectivity-monitor"></a>服務連線能力監視
 
@@ -59,7 +59,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 開始建立您的測試，來監視服務端點的網路連線。
 
 1. 選取 [服務連線能力監視] 索引標籤。
-2. 選取 [新增測試] 並輸入測試名稱和描述。 
+2. 選取 [新增測試] 並輸入測試名稱和描述。 您可以建立每個工作區的最大 450 測試。 
 3. 選取測試類型：<br>
 
     * 選取 [Web] 以監視回應 HTTP/S 要求之服務的連線，例如 outlook.office365.com 或 bing.com。<br>

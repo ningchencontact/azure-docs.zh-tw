@@ -1,27 +1,22 @@
 ---
-title: 透過 Microsoft 推廣您的業務 | Azure
+title: 升級您的 Microsoft 業務 |Azure Marketplace
 description: 使用適用於應用程式和服務發行者的 Azure Marketplace 和 AppSource 來推廣您的業務
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735879"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937623"
 ---
-# <a name="promote-your-business-with-microsoft"></a>透過 Microsoft 推廣您的業務  
+# <a name="promote-your-business-with-microsoft"></a>透過 Microsoft 推廣您的業務 
+
 Microsoft 的目標是支援合作夥伴 (您)，以及簡化您應用程式或供應項目在市集店面中的銷售。 透過在市集上陳列，您便可以存取市集上的程式和資源。 
 
 如果您尚未向「Microsoft 合作夥伴網路」(MPN) 註冊，則請先註冊，再繼續操作。  

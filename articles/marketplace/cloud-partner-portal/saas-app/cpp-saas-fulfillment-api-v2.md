@@ -1,25 +1,18 @@
 ---
-title: SaaS 履行 API V2-Azure Marketplace |Microsoft Docs
+title: SaaS 履行 API V2 |Azure Marketplace
 description: 說明如何建立使用相關聯的 「 履行 」 V2 Api 在 Azure Marketplace 上的 SaaS 供應項目。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: e1715c2cb66398ff7ca55c0ccdbfe50685fae76e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594783"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941985"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 履行 Api 第 2 版 
 
@@ -39,7 +32,7 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 
 #### <a name="provisioning"></a>佈建
 
-當客戶啟動購買時，ISV 會收到這項資訊在 AuthCode 客戶互動式 web 網頁上使用的 URL 參數。 AuthCode 可以進行驗證，並將他們佈建所需之詳細資料交換。  當佈建完成 SaaS 服務時，它會傳送啟用呼叫，以表示 「 履行 」 已完成，而且客戶可以支付的費用。  下圖顯示佈建案例的 API 呼叫的順序。  
+當客戶啟動購買時，ISV 會使用 URL 參數的客戶互動式網頁上的驗證程式碼中收到這項資訊。 例如：`https://contoso.com/signup?token=..`登陸頁面的 URL 提供者，在合作夥伴中心所在`https://contoso.com/signup`。 可以進行驗證的驗證程式碼，並交換所需佈建方法是呼叫解決 API 之詳細資料。  當佈建完成 SaaS 服務時，它會傳送啟用呼叫，以表示 「 履行 」 已完成，而且客戶可以支付的費用。  下圖顯示佈建案例的 API 呼叫的順序。  
 
 ![API 呼叫來佈建一項 SaaS 服務。](./media/saas-post-provisioning-api-v2-calls.png)
 
@@ -87,15 +80,73 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 |     ----------------     |     ----------                         |
 | `subscriptionId`         | SaaS 資源的 GUID 識別碼  |
 | `name`                   | 由客戶提供這項資源的易記名稱 |
-| `publisherId`            | 針對每一個發行者上，例如"conotosocorporation 」 自動產生的唯一字串識別項 |
-| `offerId`                | 針對每個供應項目，例如"contosooffer1 」 自動產生的唯一字串識別項  |
-| `planId`                 | 針對每個計劃/sku，例如"contosobasicplan 」 自動產生的唯一字串識別項 |
+| `publisherId`            | 每個 「 發行者 」，例如"contoso"的唯一字串識別項 |
+| `offerId`                | 每個供應項目，例如"offer1 」 的唯一字串識別項  |
+| `planId`                 | 每個計劃/sku，例如 「 銀級 」 的唯一字串識別項 |
 | `operationId`            | 針對特定作業的 GUID 識別碼  |
-|  `action`                | 可能是正在執行的資源上的動作`subscribe`， `unsubscribe`， `suspend`， `reinstate`，或 `changePlan`  |
+|  `action`                | 可能是正在執行的資源上的動作`subscribe`， `unsubscribe`， `suspend`， `reinstate`，或`changePlan`， `changeQuantity`， `transfer`  |
 |   |   |
 
 全域唯一識別碼 ([Guid](https://en.wikipedia.org/wiki/Universally_unique_identifier)) 是通常自動產生的 128 位元 （32 個十六進位） 數字。 
 
+#### <a name="resolve-a-subscription"></a>解決訂用帳戶 
+
+解決端點可讓發行者 marketplace 語彙基元解析為永續性的資源識別碼。 資源識別碼是 SAAS 訂用帳戶的唯一識別碼。  使用者重新導向至 ISV 的網站時，URL 會包含查詢參數中的權杖。 ISV 必須使用此權杖，並提出要求，以解決此問題。 回應包含唯一的 SAAS 訂用帳戶識別碼、名稱、供應項目識別碼和資源方案。 此權杖僅在一小時內有效。 
+
+**文章：<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
+
+*查詢參數：*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  要用於此要求的作業版本  |
+
+*要求標頭：*
+ 
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  Content-Type      | `application/json` |
+|  x-ms-requestid    |  用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
+|  x-ms-correlationid |  在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，則回應標頭中會產生並提供一個。  |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  x-ms-marketplace-token  |  當使用者重新導向至 SaaS ISV 的網站從 Azure URL 中的語彙基元的查詢參數 (如例如： `https://contoso.com/signup?token=..`)。 *附註：* URL 解碼後才能使用它的瀏覽器中的權杖值。  |
+
+*回應碼：*
+
+程式碼：200<br>
+SaaS 的訂用帳戶將解析的不透明的語彙基元。<br>
+
+```json
+Response body:
+{
+    "subscriptionId": "<guid>",  
+    "subscriptionName": "Contoso Cloud Solution",
+    "offerId": "offer1",
+    "planId": "silver",
+    "quantity": "20" 
+}
+```
+
+程式碼：404<br>
+找不到
+
+程式碼：400<br>
+不正確的要求。 x-ms-marketplace-語彙基元是遺失、 格式不正確或已過期。
+
+程式碼：403<br>
+未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
+
+程式碼：500<br>
+內部伺服器錯誤
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+```
 
 ### <a name="subscription-api"></a>訂用帳戶 API
 
@@ -121,7 +172,7 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 | Content-Type       |  `application/json`  |
 | x-ms-requestid     |  用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 | x-ms-correlationid |  在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
-| 授權      |  JSON Web 權杖 (JWT) 持有人權杖。  |
+| 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：*
 
@@ -135,7 +186,7 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
           "id": "<guid>",
           "name": "Contoso Cloud Solution",
           "publisherId": "contoso",
-          "offerId": "cont-cld-tier2",
+          "offerId": "offer1",
           "planId": "silver",
           "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
@@ -159,7 +210,7 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 
 
 程式碼：403 <br>
-未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前使用者的併購。 
+未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。 
 
 程式碼：500 內部伺服器錯誤
 
@@ -192,7 +243,7 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 |  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  x-ms-correlationid |  在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
-|  授權     |  JSON web 權杖 (JWT) 持有人權杖  |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：*
 
@@ -205,9 +256,9 @@ Response Body:
         "id":"",
         "name":"Contoso Cloud Solution",
         "publisherId": "contoso",
-        "offerId": "cont-cld-tier2",
+        "offerId": "offer1",
         "planId": "silver",
-        "quantity": "10"",
+        "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
               "tenantId": "<guid>"
           },
@@ -224,7 +275,7 @@ Response Body:
 找不到<br> 
 
 程式碼：403<br>
-未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前使用者的併購。
+未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
 程式碼：500<br>
 內部伺服器錯誤<br>
@@ -239,7 +290,7 @@ Response Body:
 
 #### <a name="list-available-plans"></a>清單適用的方案
 
-若要找出是否有任何私密/公開金鑰供應項目目前的使用者使用這個呼叫。
+若要找出是否有任何私密/公開金鑰供應項目目前的發行者使用這個呼叫。
 
 **取得此項目：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
 
@@ -256,7 +307,7 @@ Response Body:
 |   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  x-ms-correlationid  | 在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，則回應標頭中會產生並提供一個。 |
-|  授權     |  JSON web 權杖 (JWT) 持有人權杖 |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *回應碼：*
 
@@ -279,7 +330,7 @@ Response Body:
 找不到<br> 
 
 程式碼：403<br>
-未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前使用者的併購。 <br> 
+未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。 <br> 
 
 程式碼：500<br>
 內部伺服器錯誤<br>
@@ -290,66 +341,6 @@ Response Body:
       "code": "UnexpectedError", 
       "message": "An unexpected error has occurred." 
     } 
-```
-
-#### <a name="resolve-a-subscription"></a>解決訂用帳戶 
-
-解決端點可讓使用者解決 marketplace 語彙基元為永續性的資源識別碼。 資源識別碼是 SAAS 訂用帳戶的唯一識別碼。  使用者重新導向至 ISV 的網站時，URL 會包含查詢參數中的權杖。 ISV 必須使用此權杖，並提出要求，以解決此問題。 回應包含唯一的 SAAS 訂用帳戶識別碼、名稱、供應項目識別碼和資源方案。 此權杖僅在一小時內有效。 
-
-**文章：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
-
-*查詢參數：*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  ApiVersion        |  要用於此要求的作業版本  |
-
-*要求標頭：*
- 
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
-|  x-ms-requestid    |  用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
-|  x-ms-correlationid |  在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，則回應標頭中會產生並提供一個。  |
-|  授權     |  JSON web 權杖 (JWT) 持有人權杖  |
-|  x-ms-marketplace-token  |  在 URL 中，當使用者重新導向至 SaaS ISV 的網站從 Azure 中的語彙基元的查詢參數。 *附註：* URL 解碼後才能使用它的瀏覽器中的權杖值。 |
-
-*回應碼：*
-
-程式碼：200<br>
-SaaS 的訂用帳戶將解析的不透明的語彙基元。<br>
-
-```json
-Response body:
-{
-    "subscriptionId": "<guid>",  
-    "subscriptionName": "Contoso Cloud Solution",
-    "offerId": "cont-cld-tier2",
-    "planId": "silver",
-    "quantity": "20",
-    "operationId": "<guid>"  
-}
-```
-
-程式碼：404<br>
-找不到
-
-程式碼：400<br>
-不正確的要求驗證失敗
-
-程式碼：403<br>
-未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前使用者的併購。
-
-程式碼：500<br>
-內部伺服器錯誤
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
 ```
 
 #### <a name="activate-a-subscription"></a>啟用訂用帳戶
@@ -370,7 +361,7 @@ Response body:
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | 用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid  | 在用戶端上的作業的唯一字串值。 這個字串會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
-|  授權     |  JSON web 權杖 (JWT) 持有人權杖 |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *要求：*
 
@@ -393,7 +384,7 @@ Response body:
 不正確的要求驗證失敗
 
 程式碼：403<br>
-未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前使用者的併購。
+未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
 程式碼：500<br>
 內部伺服器錯誤
@@ -407,9 +398,9 @@ Response body:
 }
 ```
 
-#### <a name="update-a-subscription"></a>更新訂用帳戶
+#### <a name="change-the-plan-on-the-subscription"></a>變更訂用帳戶計劃
 
-更新或變更的訂用帳戶計劃，以提供的值。
+更新訂用帳戶方案。
 
 **修補程式：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
 
@@ -427,15 +418,14 @@ Response body:
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid  |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。    |
-| 授權      |  JSON Web 權杖 (JWT) 持有人權杖。  |
+| 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *要求承載：*
 
 ```json
 Request Body:
 {
-    "planId": "gold",
-    "quantity": ""
+    "planId": "gold"
 }
 ```
 
@@ -448,7 +438,7 @@ Request Body:
 *回應碼：*
 
 程式碼：202<br>
-ISV 會起始變更計劃] 或 [變更數量。 <br>
+若要變更方案的要求已經被接受。 ISV 要輪詢作業位置判斷成功/失敗。 <br>
 
 程式碼：404<br>
 找不到
@@ -460,7 +450,73 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 >只有一次修補，不能同時，可以是計劃或數量。 編輯訂閱加上**更新**不在`allowedCustomerOperations`。
 
 程式碼：403<br>
-未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前使用者的併購。
+未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
+
+程式碼：500<br>
+內部伺服器錯誤
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+```
+
+#### <a name="change-the-quantity-on-the-subscription"></a>變更訂用帳戶數量
+
+更新訂用帳戶數量。
+
+**修補程式：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
+
+*查詢參數：*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  要用於此要求的作業版本。  |
+| subscriptionId     | 取得解決使用解決 API 語彙基元之後的 SaaS 訂用帳戶的唯一識別碼。  |
+
+*要求標頭：*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  Content-Type      | `application/json` |
+|  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
+|  x-ms-correlationid  |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。    |
+| 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*要求承載：*
+
+```json
+Request Body:
+{
+    "quantity": 5
+}
+```
+
+*要求標頭：*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+| Operation-Location | 連結至資源，以取得作業的狀態。   |
+
+*回應碼：*
+
+程式碼：202<br>
+已接受。 變更數量的要求已經被接受。 ISV 要輪詢作業位置判斷成功/失敗。 <br>
+
+程式碼：404<br>
+找不到
+
+程式碼：400<br>
+不正確的要求驗證失敗。
+
+>[!Note]
+>只有一次修補，不能同時，可以是計劃或數量。 編輯訂閱加上**更新**不在`allowedCustomerOperations`。
+
+程式碼：403<br>
+未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
 程式碼：500<br>
 內部伺服器錯誤
@@ -494,7 +550,7 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，其中會產生並提供回應標頭中。   |
 |  x-ms-correlationid  |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。   |
-|  授權     |  JSON Web 權杖 (JWT) 持有人權杖。   |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：*
 
@@ -508,7 +564,7 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 刪除訂閱加上**刪除**不是在`allowedCustomerOperations`。
 
 程式碼：403<br>
-未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前使用者的併購。
+未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
 程式碼：500<br>
 內部伺服器錯誤
@@ -527,10 +583,134 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 
 作業 API 支援下列的修補程式，以及如何取得作業。
 
+#### <a name="list-outstanding-operations"></a>列出未完成的作業 
 
-#### <a name="update-a-subscription"></a>更新訂用帳戶
+列出目前的發行者未完成的作業。 
 
-更新訂用帳戶，以提供的值。
+**取得此項目：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
+
+*查詢參數：*
+
+|             |        |
+|  ---------------   |  ---------------  |
+|    ApiVersion                |   要用於此要求的作業版本。                |
+| subscriptionId     | 取得解決使用解決 API 語彙基元之後的 SaaS 訂用帳戶的唯一識別碼。  |
+
+*要求標頭：*
+ 
+|                    |                   |
+|  ---------------   |  ---------------  |
+|   Content-Type     |  `application/json` |
+|  x-ms-requestid    |  用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
+|  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*回應碼：*
+
+程式碼：200<br> 取得暫止的訂用帳戶的作業清單。<br>
+回應裝載：
+
+```json
+[{
+    "id": "<guid>",  
+    "activityId": "<guid>",
+    "subscriptionId": "<guid>",
+    "offerId": "offer1",
+    "publisherId": "contoso",  
+    "planId": "silver",
+    "quantity": "20",
+    "action": "Convert",
+    "timeStamp": "2018-12-01T00:00:00",  
+    "status": "NotStarted"  
+}]
+```
+
+程式碼：404<br>
+找不到
+
+程式碼：400<br>
+不正確的要求驗證失敗
+
+程式碼：403<br>
+未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
+
+程式碼：500<br>
+內部伺服器錯誤
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+
+```
+
+#### <a name="get-operation-status"></a>取得作業狀態
+
+可讓發行者追蹤指定觸發的非同步作業的狀態 (訂閱 / 取消訂閱] / [變更計劃 / 變更數量)。
+
+**取得此項目：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
+
+*查詢參數：*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  要用於此要求的作業版本。  |
+
+*要求標頭：*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  Content-Type      |  `application/json`   |
+|  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
+|  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
+|  授權     |[取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*回應碼：* 程式碼：200<br> 取得指定的暫止的 SaaS 作業<br>
+回應裝載：
+
+```json
+Response body:
+{
+    "id  ": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "offer1",
+    "publisherId": "contoso",  
+    "planId": "silver",
+    "quantity": "20",
+    "action": "Convert",
+    "timeStamp": "2018-12-01T00:00:00",
+    "status": "NotStarted"
+}
+
+```
+
+程式碼：404<br>
+找不到
+
+程式碼：400<br>
+不正確的要求驗證失敗
+
+程式碼：403<br>
+未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
+ 
+程式碼：500<br> 內部伺服器錯誤
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+
+```
+#### <a name="update-the-status-of-an-operation"></a>更新作業的狀態
+
+更新作業，以表示成功/失敗，以提供的值的狀態。
 
 **修補程式：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
@@ -549,16 +729,17 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 |   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。 |
-|  授權     |  JSON Web 權杖 (JWT) 持有人權杖。  |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *要求承載：*
 
 ```json
 {
-    "planId": "cont-cld-tier2",
+    "planId": "offer1",
     "quantity": "44",
     "status": "Success"    // Allowed Values: Success/Failure. Indicates the status of the operation.
 }
+
 ```
 
 *回應碼：*
@@ -572,137 +753,11 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 不正確的要求驗證失敗
 
 程式碼：403<br>
-未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前使用者的併購。
+未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
 程式碼：409<br>
 發生衝突。 比方說，是已達到較新的交易
 
-程式碼：500<br> 內部伺服器錯誤
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
-
-```
-
-#### <a name="list-outstanding-operations"></a>列出未完成的作業 
-
-列出目前的使用者未完成的作業。 
-
-**取得此項目：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
-
-*查詢參數：*
-
-|             |        |
-|  ---------------   |  ---------------  |
-|    ApiVersion                |   要用於此要求的作業版本。                |
-| subscriptionId     | 取得解決使用解決 API 語彙基元之後的 SaaS 訂用帳戶的唯一識別碼。  |
-
-*要求標頭：*
- 
-|                    |                   |
-|  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
-|  x-ms-requestid    |  用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
-|  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
-|  授權     |  JSON Web 權杖 (JWT) 持有人權杖。  |
-
-*回應碼：*
-
-程式碼：200<br> 取得暫止的訂用帳戶的作業清單。<br>
-回應裝載：
-
-```json
-[{
-    "id": "<guid>",  
-    "activityId": "<guid>",
-    "subscriptionId": "<guid>",
-    "offerId": "cont-cld-tier2",
-    "publisherId": "contoso",  
-    "planId": "silver",
-    "quantity": "20",
-    "action": "Convert",
-    "timeStamp": "2018-12-01T00:00:00",  
-    "status": "NotStarted"  
-}]
-```
-
-程式碼：404<br>
-找不到
-
-程式碼：400<br>
-不正確的要求驗證失敗
-
-程式碼：403<br>
-未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前使用者的併購。
-
-程式碼：500<br>
-內部伺服器錯誤
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
-
-```
-
-#### <a name="get-operation-status"></a>取得作業狀態
-
-可讓使用者追蹤指定觸發的非同步作業 （訂閱/取消訂閱/變更計劃） 的狀態。
-
-**取得此項目：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
-
-*查詢參數：*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  ApiVersion        |  要用於此要求的作業版本。  |
-
-*要求標頭：*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  Content-Type      |  `application/json`   |
-|  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
-|  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
-|  授權     | JSON Web 權杖 (JWT) 持有人權杖。  |
-
-*回應碼：* 程式碼：200<br> 取得指定的暫止的 SaaS 作業<br>
-回應裝載：
-
-```json
-Response body:
-{
-    "id  ": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "cont-cld-tier2",
-    "publisherId": "contoso",  
-    "planId": "silver",
-    "quantity": "20",
-    "action": "Convert",
-    "timeStamp": "2018-12-01T00:00:00",
-    "status": "NotStarted"
-}
-
-```
-
-程式碼：404<br>
-找不到
-
-程式碼：400<br>
-不正確的要求驗證失敗
-
-程式碼：403<br>
-未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前使用者的併購。
- 
 程式碼：500<br> 內部伺服器錯誤
 
 ```json
@@ -724,14 +779,21 @@ Response body:
     "operationId": "<guid>",
     "activityId": "<guid>",
     "subscriptionId":"<guid>",
-    "offerId": "cont-cld-tier2",
+    "offerId": "offer1",
     "publisherId": "contoso",
     "planId": "silver",
     "quantity": "20"  ,
-    "action": "Activate",   // Activate/Delete/Suspend/Reinstate/Change[new]  
+    "action": "Subscribe",
     "timeStamp": "2018-12-01T00:00:00"
 }
 
+Where action can be one of these: 
+       Subscribe, (When the resource has been activated)
+       Unsubscribe, (When the resource has been deleted)
+       ChangePlan, (When the change plan operation has completed)
+       ChangeQuantity, (When the change quantity operation has completed),
+       Suspend, (When resource has been suspended)
+       Reinstate, (When resource has been reinstated after suspension)
 ```
 
 

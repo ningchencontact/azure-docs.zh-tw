@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 04/2/2019
 ms.author: alkohli
-ms.openlocfilehash: ed6d567be255fe9b72be564c31d734541a1ffa73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564902"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939628"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>對 Azure 資料箱磁碟中的問題進行疑難排解
 
@@ -54,12 +54,12 @@ ms.locfileid: "60564902"
 使用活動記錄可在進行疑難排解時發現錯誤，或監視貴組織使用者修改資源的方式。 透過活動記錄，您可以判斷︰
 
 - 在訂用帳戶的資源上進行了哪些作業。
-- 起始作業的人員。 
+- 起始作業的人員。
 - 發生作業的時間。
 - 作業狀態。
 - 其他可能協助您研究作業的屬性值。
 
-活動記錄包含在您的資源上執行的所有寫入作業 (例如 PUT、POST、DELETE)，但不包含讀取作業 (例如 GET)。 
+活動記錄包含在您的資源上執行的所有寫入作業 (例如 PUT、POST、DELETE)，但不包含讀取作業 (例如 GET)。
 
 活動記錄會保留 90 天。 您可以查詢任何的日期範圍，只要開始日期不是在過去 90 天以前。 您也可以依據 Insights 中其中一個內建查詢來進行篩選。 例如，按一下錯誤然後選取並按一下特定錯誤，以了解根本原因。
 
@@ -79,7 +79,7 @@ ms.locfileid: "60564902"
 
 |錯誤訊息/警告  |建議 |
 |---------|---------|
-|[資訊] 擷取 m 磁碟區的 bitlocker 密碼 <br>[錯誤] 擷取 m: 磁碟區的 bitlocker 金鑰時攔截到例外狀況<br> 序列未包含項目。|如果目的地資料箱磁碟處於離線狀態，就會擲回這個錯誤。 <br> 對線上磁碟使用 `diskmgmt.msc` 工具。|
+|[資訊]擷取磁碟區的 BitLocker 密碼： m <br>[Error]擷取磁碟區 m： 的 BitLocker 金鑰時攔截到例外狀況<br> 序列未包含項目。|如果目的地資料箱磁碟處於離線狀態，就會擲回這個錯誤。 <br> 對線上磁碟使用 `diskmgmt.msc` 工具。|
 |[錯誤] 擲回例外狀況：WMI 作業失敗:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=所提供的復原密碼格式無效。 <br>BitLocker 修復原密碼是 48 位數字。 <br>請確認復原密碼的格式正確，然後再試一次。|先使用資料箱磁碟解除鎖定工具將磁碟解除鎖定，然後重試命令。 如需詳細資訊，請移至 <li> [解除鎖定適用於 Windows 用戶端的資料箱磁碟](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client)。 </li><li> [解除鎖定適用於 Linux 用戶端的資料箱磁碟](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client)。 </li>|
 |[錯誤] 擲回例外狀況：存在於目標磁碟機上的 DriveManifest.xml 檔案。 <br> 這表示目標磁碟機可能已透過不同的日誌檔案來準備。 <br>若要將更多資料新增至相同磁碟機，請使用先前的日誌檔案。 若要刪除現有資料，並再次使用目標磁碟進行新的匯入作業，則請刪除磁碟機上的 DriveManifest.xml。 以新的日誌檔案重新執行此命令。| 當您嘗試對多個匯入工作階段使用同一組磁碟機時，就會收到這個錯誤。 <br> 一組磁碟機僅適用於一個分割及複製工作階段。|
 |[錯誤] 擲回例外狀況：CopySessionId importdata-sept-test-1 參考前一個複製工作階段，而且無法用於新的複製工作階段。|如果嘗試使用前一個已成功完成的作業名稱來作為新作業的名稱，就會回報此錯誤。<br> 請為您的新作業指派唯一名稱。|
@@ -96,7 +96,7 @@ ms.locfileid: "60564902"
 
 原因可能是未整理的檔案系統。 
 
-將磁碟機重新掛接為讀寫不適用於資料箱磁碟。 此情節不適用於由 dislocker 解密的磁碟機。 您可能已經使用下列命令成功重新掛接磁碟機： 
+將磁碟機重新掛接為讀寫不適用於資料箱磁碟。 此情節不適用於由 dislocker 解密的磁碟機。 您可能已經使用下列命令成功重新掛接磁碟機：
 
     `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
@@ -104,15 +104,37 @@ ms.locfileid: "60564902"
 
 **解決方案**
 
-如果看到上述錯誤，您可以嘗試下列其中一個解決方法：
+執行下列步驟在您的 Linux 系統上：
 
-- 安裝 [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) \(英文\) (可在 `ntfsprogs` 套件中取得)，並對相關的磁碟分割執行它。
+1. 安裝`ntfsprogs`ntfsfix 公用程式的套件。
+2. 取消掛接後解除鎖定工具所提供的磁碟機的掛接點。 磁碟機而異的掛接點數目。
 
-- 如果您可以存取 Windows 系統
+    ```
+    unmount /mnt/DataBoxDisk/mountVol1
+    ```
 
-    - 請將該磁碟載入 Windows 系統。
-    - 以系統管理權限開啟命令提示字元。 在磁碟區上執行 `chkdsk`。
-    - 安全地移除磁碟區，然後再試一次。
+3. 執行`ntfsfix`上對應的路徑。 反白顯示的數字應該與步驟 2 相同。
+
+    ```
+    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
+    ```
+
+4. 執行下列命令來移除可能會造成連接問題的休眠中繼資料。
+
+    ```
+    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
+    ```
+
+5. 執行全新的卸載。
+
+    ```
+    ./DataBoxDiskUnlock_x86_64 /unmount
+    ```
+
+6. 執行全新的解除鎖定，並掛接。
+7. 寫入檔案，以測試掛接點。
+8. 卸載並重新掛接，以驗證檔案持續性。
+9. 繼續進行複製的資料。
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>問題：複製之後資料沒有保留的錯誤
  

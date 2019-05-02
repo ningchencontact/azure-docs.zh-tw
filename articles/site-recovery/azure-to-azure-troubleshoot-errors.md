@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60789833"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699085"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
@@ -221,7 +221,17 @@ ms.locfileid: "60789833"
 
 若問題持續發生，請連絡支援服務。
 
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>一或多個磁碟可供保護 （錯誤碼 153039）
+- **可能的原因** </br>
+  - 如果一或多個磁碟最近新增至虛擬機器的保護之後。 
+  - 如果一或多個磁碟的虛擬機器的保護之後，再初始化。
 
+### <a name="fix-the-problem"></a>修正問題
+您可以選擇保護的磁碟，或忽略的警告，若要再次 VM 的複寫狀態狀況良好。</br>
+1. 若要保護的磁碟。 瀏覽至 複寫的項目 > VM > 磁碟 > 未受保護的磁碟上按一下 > 啟用複寫。
+ ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+2. 若要關閉此警告。 移至 複寫的項目 > VM > 按一下 解除警示，在 概觀 區段下。
+![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>看不見 Azure VM，無法在「啟用複寫」中選取
 
  **原因 1：資源群組和來源虛擬機器位於不同的位置** <br>

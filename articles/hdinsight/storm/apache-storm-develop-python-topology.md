@@ -1,7 +1,6 @@
 ---
-title: 使用 Python 元件的 Apache Storm - Azure HDInsight
+title: 使用 Python 元件-Azure HDInsight 的 Apache Storm
 description: 了解如何建立使用 Python 元件的 Apache Storm 拓撲。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm python
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 87d13f8b0df4d9a357218b34035993663dfda8b3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a5cbd54dd07143688b676c063133bb1a73bed01a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634587"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694396"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 開發 Apache Storm 拓撲
 
@@ -72,7 +71,7 @@ Flux 要求 Python 指令碼位於拓撲所在之 jar 檔案內的 `/resources` 
 </resource>
 ```
 
-如先前所述，有一個 `storm.py` 檔案實作 Storm 的 Thrift 定義。 建置專案時，Flux 架構會自動包含 `storm.py`，因此您不必擔心要包含它。
+如前所述，存在实现 Storm 的 Thrift 定义的 `storm.py` 文件。 建置專案時，Flux 架構會自動包含 `storm.py`，因此您不必擔心要包含它。
 
 ## <a name="build-the-project"></a>建置專案
 
@@ -95,7 +94,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 > [!NOTE]  
 > 此命令需要本機 Storm 開發環境。 如需詳細資訊，請參閱[設定開發環境](https://storm.apache.org/releases/current/Setting-up-development-environment.html)。
 
-拓撲啟動之後，就會將類似下列文字的資訊發出至本機主控台︰
+拓扑启动后，它会向本地控制台发出类似如下文本的信息：
 
 
     24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
@@ -148,5 +147,4 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 請參閱下列文件，了解搭配使用 Python 與 HDInsight 的其他方式。
 
-* [如何使用 Python 串流處理 MapReduce 工作](../hadoop/apache-hadoop-streaming-python.md)
 * [如何在 Apache Pig 和 Apache Hive 中使用 Python 使用者定義函數 (UDF)](../hadoop/python-udf-hdinsight.md)

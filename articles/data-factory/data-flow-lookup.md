@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61348011"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868114"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory 對應資料流程查閱轉換
 
@@ -25,6 +25,10 @@ ms.locfileid: "61348011"
 選取您想要在內送資料流欄位與參考來源欄位之間比對的索引鍵欄位。 您必須先在資料流程設計畫布上建立新的來源，以作為查閱的右端。
 
 當找到相符項目時，來自參考來源的結果資料列和資料行將會新增到資料流程中。 您可以選擇有興趣且希望包含在資料流結尾接收 (Sink) 中的欄位。
+
+## <a name="match--no-match"></a>符合 / 沒有相符項目
+
+之後您查閱 」 轉換中，您可以使用後續的轉換使用運算式函式來檢查每個相符項目資料列的結果`isMatch()`在邏輯為基礎，zda bude 查閱會導致資料列的相符項目或不進行進一步的選擇。
 
 ## <a name="optimizations"></a>最佳化
 

@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: d1783890ba1b304ab658e827bfd24091e208fda4
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765712"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699259"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>將 Linux 虛擬機器從非受控磁碟轉換成受控磁碟
 

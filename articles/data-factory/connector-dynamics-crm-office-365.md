@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535315"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869540"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Dynamics 365 (Common Data Service) 複製資料以及複製資料至 Dynamics 365
 
@@ -69,9 +69,6 @@ ms.locfileid: "60535315"
 | password | 指定您為 username 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 如果來源連結服務沒有整合執行階段，則對於來源而言為「否」；對於接收而言為「是」 |
 
->[!IMPORTANT]
->將資料複製到 Dynamics 時，預設的 Azure Integration Runtime 無法用來執行複製。 換句話說，如果來源連結服務沒有指定的整合執行階段，請使用 Dynamics 執行個體附近的位置明確[建立 Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir)。 尋找您的 Dynamics 執行個體的參考中的位置[Dynamics 365 的區域清單](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions)。 在 Dynamics 連結服務中建立關聯，如下列範例所示。
-
 >[!NOTE]
 >您可利用 Dynamics 連接器來使用選擇性 "organizationName" 屬性，以識別您的 Dynamics CRM/365 Online 執行個體。 在其持續運作的同時，建議您改為指定新的 "serviceUri" 屬性，以取得更好的效能來探索執行個體。
 
@@ -117,9 +114,6 @@ ms.locfileid: "60535315"
 | password | 指定您為 username 指定之使用者帳戶的密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
 
->[!IMPORTANT]
->若要將資料複製到 Dynamics，請使用 Dynamics 執行個體附近的位置明確[建立 Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir)。 在連結服務中建立關聯，如下列範例所示。
-
 **範例：使用 IFD 驗證之搭配 IFD 的 Dynamics 內部部署版**
 
 ```json
@@ -160,8 +154,8 @@ ms.locfileid: "60535315"
 | entityName | 要擷取之實體的邏輯名稱。 | 否 (來源，如果已指定活動來源中的「查詢」)；是 (接收) |
 
 > [!IMPORTANT]
->- 從 Dynamics 複製資料時，"structure" 區段是選擇性區段，但建議在 Dynamics 資料集中需有此區段，以確保能有確定性的複製結果。 它會定義您想要複製的 Dynamics 資料之資料行名稱和資料類型。 若要深入了解，請參閱[資料集結構](concepts-datasets-linked-services.md#dataset-structure)和 [Dynamics 的資料類型對應](#data-type-mapping-for-dynamics)。
->- 在撰寫 UI 中匯入結構描述時，ADF 會推斷結構描述，方法是從 Dynamics 查詢結果取前幾個資料列作為樣本來進行結構建構初始化，在此情況下，會省略沒有值的資料行。 您可以視需要檢閱及將更多資料行新增至 Dynamics 資料集結構描述/結構，在複製執行階段即會予以採用。
+>- 當您從 Dynamics 複製資料時，"structure"區段是選擇性的但高度 recommanded Dynamics 資料集，以確保具決定性的複製結果。 它會定義您想要複製的 Dynamics 資料之資料行名稱和資料類型。 若要深入了解，請參閱[資料集結構](concepts-datasets-linked-services.md#dataset-structure-or-schema)和 [Dynamics 的資料類型對應](#data-type-mapping-for-dynamics)。
+>- 在撰寫 UI 中匯入結構描述時，ADF 會推斷結構描述，方法是從 Dynamics 查詢結果取前幾個資料列作為樣本來進行結構建構初始化，在此情況下，會省略沒有值的資料行。 相同的行為套用至複製的執行，如果沒有任何明確結構的定義。 您可以視需要檢閱及將更多資料行新增至 Dynamics 資料集結構描述/結構，在複製執行階段即會予以採用。
 >- 將資料複製到 Dynamics 時，Dynamics 資料集內不一定要有 "structure" 區段。 要複製到哪些資料行則由來源資料的結構描述決定。 如果來源是沒有標題的 CSV 檔案，在輸入資料集中使用資料行名稱和資料類型指定 "structure"。 它們會按順序一一對應至 CSV 檔案中的欄位。
 
 **範例：**
@@ -330,20 +324,20 @@ Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](http
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | | 
+| AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | String | ✓ | ✓ |
+| AttributeType.EntityName | 字串 | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (具有相關聯的單一目標) |
 | AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributeType.Memo | String | ✓ | ✓ |
+| AttributeType.Memo | 字串 | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | String | ✓ | ✓ |
+| AttributeType.String | 字串 | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

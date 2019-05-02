@@ -1,25 +1,18 @@
 ---
-title: Dynamics 365 for Customer Engagement 供應項目連絡人索引標籤 - Azure Marketplace | Microsoft Docs
+title: Dynamics 365 for Customer Engagement 提供連絡人 索引標籤 |Azure Marketplace
 description: 在 AppSource Marketplace 上建立設定 Dynamics 365 for Customer Engagement 供應項目的連絡人資訊。
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e15b20c4b874e68c09321e00604aed24b7970371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60873657"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942501"
 ---
 # <a name="azure-application-contacts-tab"></a>Azure 應用程式連絡人索引標籤
 
@@ -30,22 +23,22 @@ ms.locfileid: "60873657"
 
 ## <a name="specify-customer-and-engineering-contacts"></a>指定客戶和工程連絡人
 
-提供下列值，為您的供應項目定義主要**工程連絡人**。
+提供下列值，為您的供應項目定義主要**工程連絡人**。 必要欄位由星號 (*) 標示。
 
 |    欄位        |  描述                    |
 |    ---------    |  ---------------                |
-|  **名稱**       |  應用程式工程連絡人的名稱。 這名連絡人將收到來自 Microsoft 的技術通訊。   |
-|  **電子郵件**      |  工程連絡人的電子郵件地址  |
-|  **電話**      |  工程連絡人的電話號碼  |
+|  **名稱\***       |  應用程式工程連絡人的名稱。 這名連絡人將收到來自 Microsoft 的技術通訊。   |
+|  **電子郵件\***      |  工程連絡人的電子郵件地址  |
+|  **Phone\***      |  工程連絡人的電話號碼  |
 |  |  |
 
 提供下列值，為您的供應項目定義主要**支援連絡人**。
 
 |    欄位        |   描述                   |
 |    ---------    |  ---------------                |
-|  **名稱**       |  應用程式的客戶支援連絡人的名稱。 這名連絡人將收到來自 Microsoft 的支援相關通訊。   |
-|  **電子郵件**      |  客戶支援連絡人的電子郵件地址  |
-|  **電話**      |  客戶支援連絡人的電話號碼  |
+|  **名稱\***       |  應用程式的客戶支援連絡人的名稱。 這名連絡人將收到來自 Microsoft 的支援相關通訊。   |
+|  **電子郵件\***      |  客戶支援連絡人的電子郵件地址  |
+|  **Phone\***      |  客戶支援連絡人的電話號碼  |
 |  |  |
 
 

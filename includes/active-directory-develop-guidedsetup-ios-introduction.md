@@ -15,24 +15,24 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: include file
 ms.openlocfilehash: 971ae8cd44f1b345d3a71b8fa4f256c8f25ef961
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502726"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951333"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>從 iOS 應用程式呼叫 Microsoft Graph API
 
-此指南顯示原生 iOS 應用程式 (Swift) 如何呼叫需要來自 Microsoft 身分識別平台端點之存取權杖的 API。 此指南說明如何取得存取權杖，並將其用於呼叫 Microsoft Graph API 和其他 API。
+此指南顯示原生 iOS 應用程式 (Swift) 如何呼叫需要來自 Microsoft 身分識別平台端點之存取權杖的 API。 本指南說明如何取得存取權杖，並將其用於呼叫 Microsoft Graph API 和其他 API。
 
-完成此指南中的練習之後，您的應用程式可以從具有 Azure AD 的任何公司或組織呼叫受保護的 API。 您的應用程式可以藉由使用個人帳戶 (例如 outlook.com、live.com 等等) 和公司或學校帳戶來呼叫受保護的 API。
+完成本指南中的練習之後，您的應用程式可以從具有 Azure AD 的任何公司或組織呼叫受保護的 API。 您的應用程式可以藉由使用個人帳戶 (例如 outlook.com、live.com 等等) 和公司或學校帳戶來呼叫受保護的 API。
 
 ## <a name="prerequisites"></a>必要條件
 
 - 在此指南中建立的範例需要 XCode 版本 10.x。 您可以從 [iTunes 網站](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode 下載 URL") 下載 XCode。
 - 需要 [Carthage](https://github.com/Carthage/Carthage) 相依性管理員以進行套件管理。
 
-## <a name="how-this-guide-works"></a>此指南使用方式
+## <a name="how-this-guide-works"></a>本指南使用方式
 
 ![顯示此教學課程所產生的範例應用程式如何運作](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.svg)
 
@@ -48,8 +48,8 @@ MSAL 會為您管理快取和重新整理存取權杖，因此您的應用程式
 
 ## <a name="libraries"></a>程式庫
 
-此指南使用下列程式庫：
+本指南使用下列程式庫：
 
-|程式庫|說明|
+|程式庫|描述|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|適用於 iOS 的 Microsoft Authentication Library 預覽|

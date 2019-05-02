@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308542"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716107"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure 監視器中的 Azure 服務匯流排計量 (預覽)
 
@@ -83,14 +83,14 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過存取�
 |傳出訊息 (預覽)|在指定時段內，從服務匯流排接收的事件或訊息數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
 | 訊息 (預覽) | 佇列/主題中的訊息計數。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 維度：EntityName |
 | ActiveMessages (預覽) | 佇列/主題中的作用中訊息計數。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/> 維度：EntityName |
+| 信件的訊息 （預覽） | 成為無效信件佇列/主題中的訊息數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值 <br/>維度：EntityName |
+| 排定的訊息 （預覽） | 排定的訊息佇列/主題中的計數。 <br/><br/> 單位：計數 <br/> 彙總類型：平均值  <br/> 維度：EntityName |
 
 ## <a name="connection-metrics"></a>連接計量
 
 | 度量名稱 | 描述 |
 | ------------------- | ----------------- |
 |ActiveConnections (預覽)|命名空間及實體上的作用中連線數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|已開啟的連線 (預覽)|已開啟的連線數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|已關閉的連線 (預覽)|已關閉的連線數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName |
 
 ## <a name="resource-usage-metrics"></a>資源使用量計量
 
@@ -115,7 +115,7 @@ Azure 服務匯流排支援下列的 Azure 監視器計量維度。 將維度新
 1. 在 [服務匯流排命名空間] 頁面的 [計量] 索引標籤上，選取 [設定警示]。 
 
     ![[計量] 頁面 - [設定警示] 功能表](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. 選取 [選取目標]，然後在 [選取資源] 頁面上執行下列動作： 
+2. 選取 **選取目標**選項，然後執行下列動作上**選取資源**頁面： 
     1. 針對 [依資源類型篩選] 欄位，選取 [服務匯流排命名空間]。 
     2. 針對 [依訂用帳戶篩選]  欄位，選取您的訂用帳戶。
     3. 從清單中選取 [服務匯流排命名空間]。 

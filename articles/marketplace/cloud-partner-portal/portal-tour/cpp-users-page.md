@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace 的使用者頁面 | Microsoft Docs
-description: 上也提供本文中使用的原始碼。
+title: Azure marketplace 的 [使用者] 頁面
+description: 在 Azure Marketplace 的 Cloud Partner 入口網站中的 [使用者] 頁面的概觀。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 22768e90a419e7a5c3c9e286953afbf3ba2ab311
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 1c420a275efa4bb45ba952a04faafe25e30d64ef
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825554"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943451"
 ---
 # <a name="users-page"></a>使用者分頁
 

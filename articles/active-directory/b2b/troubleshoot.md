@@ -7,29 +7,28 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: mimart
-author: msmimart
+author: v-miegge
 manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2a0eaf75debf694421ac9e5f2f7eb13891a20cf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412387"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917356"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>針對 Azure Active Directory B2B 共同作業問題進行疑難排解
 
 以下是 Azure Active Directory (Azure AD) B2B 共同作業常見問題的補救方式。
 
-
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>我已新增外部使用者，但在我的全域通訊錄或人員選擇器中未看到他們
 
 若清單中未顯示外部使用者，該物件可能需要一些時間才能複寫。
 
-## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>B2B 來賓使用者不會顯示在 SharePoint Online/OneDrive 人員選擇器中 
- 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>B2B 來賓使用者不會顯示在 SharePoint Online/OneDrive 人員選擇器中
+
 在 SharePoint Online (SPO) 人員選擇器中搜尋現有來賓使用者的功能預設為關閉，以符合舊版的行為。
 
 您可以使用租用戶和網站集合層級中的 'ShowPeoplePickerSuggestionsForGuestUsers' 設定來啟用此功能。 您可以使用 Set-SPOTenant 和 Set-SPOSite Cmdlet 來設定此功能，讓成員搜尋目錄中所有的現有來賓使用者。 租用戶範圍中的變更不會影響已佈建的 SPO 網站。
@@ -79,10 +78,20 @@ ms.locfileid: "60412387"
 
 如果此案例對您很重要，您可以隱藏我們的 API 邀請電子郵件，然後透過您選擇的電子郵件機制傳送邀請電子郵件。 請諮詢貴組織的法律顧問，以確定透過此方式傳送的任何電子郵件也符合隱私權法律。
 
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>當您嘗試登入 Azure 資源時，您會收到 「 AADSTS65005 」 錯誤
+
+具有來賓帳戶的使用者無法登入，並收到下列錯誤訊息：
+
+    AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
+
+使用者具有 Azure 的使用者帳戶，而且是病毒式租用戶已放棄或未受管理。 此外，還有不是全域或公司系統管理員在租用戶中的。
+
+若要解決此問題，您必須高於已放棄的租用戶。 請參閱[Azure Active Directory 中的系統管理員身分接管非受控目錄](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)。 您也必須以提供直接的辨識項，您可以控制命名空間的存取有問題的網域尾碼的網際網路對向 DNS。 租用戶會傳回到受管理的狀態之後，請與客戶討論是否保留使用者，並驗證的網域名稱是其組織的最佳選項。
+
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>具有 Just-In-Time (JIT) 或「病毒式」租用戶的來賓使用者無法重設其密碼
 
 如果身分識別租用戶是 Just-In-Time (JIT) 或病毒式租用戶 (表示它是獨立、非受控的 Azure 租用戶)，只有來賓使用者才能重設自己的密碼。 組織有時會[接管病毒式租用戶的管理](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)，這些是員工使用其工作電子郵件地址來註冊服務時所建立的租用戶。 在組織接管病毒式租用戶之後，只有該組織的系統管理員可以重設使用者的密碼或啟用 SSPR。 如有必要，作為發出邀請的組織，您可以從目錄中移除來賓使用者帳戶，並重新傳送邀請。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [取得 B2B 共同作業的支援](get-support.md)
+[取得 B2B 共同作業的支援](get-support.md)

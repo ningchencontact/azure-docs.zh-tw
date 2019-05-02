@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1cd3fa11df9bd9c87b84985f7acad6ba0a5e8838
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317338"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695783"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>使用自訂原則來自訂使用者旅程的 UI
 

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299612"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917223"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>作法：使用 ADAL 在 iOS 上啟用跨應用程式的 SSO
 
@@ -44,7 +44,7 @@ Microsoft 的身分識別平台搭配 SDK，能讓您在整個裝置中，更輕
 
 此操作說明會假設您知道如何：
 
-* 使用 Azure AD 的傳統入口網站佈建應用程式。 如需詳細資訊，請參閱[向 Azure AD v1.0 端點註冊應用程式](quickstart-v1-add-azure-ad-app.md)
+* 使用 Azure AD 的傳統入口網站佈建應用程式。 如需詳細資訊，請參閱[註冊應用程式](quickstart-register-app.md)
 * 整合應用程式與 [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc)。
 
 ## <a name="single-sign-on-concepts"></a>單一登入概念

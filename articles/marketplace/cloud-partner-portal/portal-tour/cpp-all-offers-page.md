@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace 的所有供應項目頁面 | Microsoft Docs
-description: 上也提供本文中使用的原始碼。
+title: 所有 Azure marketplace 中提供 頁面
+description: 所有的概觀會提供 Azure Marketplace 的 Cloud Partner 入口網站中的頁面。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 67ec9765e4334330da04739dd5daa3be0d7c7342
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: d674cc154dd46704051c3c75ca2589dfd7a9ca4c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911086"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942107"
 ---
 # <a name="all-offers-page"></a>所有供應項目頁面
 

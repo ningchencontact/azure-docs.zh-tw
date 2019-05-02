@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
-ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474941"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937281"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的資料表統計資料
 
@@ -71,7 +71,7 @@ Table_name 是資料表的包含要顯示的統計資料名稱。 不能是外�
 
 ## <a name="updating-statistics"></a>更新統計資料
 
-其中一個最佳做法，是隨著新增新的日期，每天在日期資料行上更新統計資料。 每次有新資料列載入資料倉儲時，就會加入新的載入日期或交易日期。 這些會改變資料散發情況並使統計資料過時。 相反地，客戶資料表中國家/地區資料行上的統計資料，可能永遠不需要更新，因為值散發通常不會變更。 假設客戶間的散發固定不變，將新資料列加入至資料表變化並不會改變資料散發情況。 不過，如果您的資料倉儲原本只包含單一國家/地區，而您又帶入來自新國家/地區的資料，並導致資料倉儲儲存了來自多個國家/地區的資料，您便必須更新國家/地區資料行上的統計資料。
+其中一個最佳做法，是隨著新增新的日期，每天在日期資料行上更新統計資料。 每次有新資料列載入資料倉儲時，就會加入新的載入日期或交易日期。 這些會改變資料散發情況並使統計資料過時。 相反地，在 customer 資料表中的國家/地區資料行的統計資料可能永遠不需要更新，因為值散發通常不會變更。 假設客戶間的散發固定不變，將新資料列加入至資料表變化並不會改變資料散發情況。 不過，如果您的資料倉儲只包含一個國家/地區而您又帶入來自新國家/地區中的資料，導致資料從多個國家/地區儲存，則您必須更新國家/地區資料行的統計資料。
 
 以下為更新統計資料的相關建議：
 

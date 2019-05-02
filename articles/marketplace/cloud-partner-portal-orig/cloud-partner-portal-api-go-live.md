@@ -1,25 +1,18 @@
 ---
-title: 上線 | Microsoft Docs
+title: 上線 |Azure Marketplace
 description: Go Live API 會起始供應項目即時上市程序。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: ac56f86bad132f3e00a4b5c2507d65c0722c628c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60624967"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935480"
 ---
 <a name="go-live"></a>Go Live
 =======

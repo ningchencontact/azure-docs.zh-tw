@@ -3,19 +3,19 @@ title: 設定與使用自訂原則-Azure Active Directory B2C 的 LinkedIn 帳�
 description: 設定 Azure Active Directory B2C 中的 LinkedIn 帳戶使用自訂原則使用登入。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/23/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5bf1126a7015e668f3770835535b81c93d01cbda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 204e6ef27e4e8db89bdeb22a25ad847ec5c6bcfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387072"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706784"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶進行登入
 
@@ -51,7 +51,7 @@ ms.locfileid: "60387072"
 您必須將先前記錄的用戶端密碼儲存在 Azure AD B2C 租用戶中。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+2. 請確定您使用包含 Azure AD B2C 租用戶的目錄。 選取 **目錄和訂用帳戶篩選**上方功能表中，然後選擇包含您的租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 5. 選取 [原則金鑰]，然後選取 [新增]。
@@ -95,8 +95,8 @@ ms.locfileid: "60387072"
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
           </OutputClaims>
@@ -225,67 +225,6 @@ LinkedIn 的技術設定檔需要**ExtractGivenNameFromLinkedInResponse**並**Ex
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
 6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。
 
-
-## <a name="register-the-claims-provider"></a>註冊宣告提供者
-
-此時，識別提供者已設定妥當，但還未出現在任何註冊或登入畫面中。 若要讓它可供使用，您必須建立現有範本使用者旅程圖的複本，然後修改它，讓它也包含 LinkedIn 識別提供者。
-
-1. 從 Starter Pack 開啟 *TrustFrameworkBase.xml* 檔案。
-2. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
-3. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
-4. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
-5. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInLinkedIn`。
-
-### <a name="display-the-button"></a>顯示按鈕
-
-**ClaimsProviderSelection** 元素類似於註冊或登入畫面上的識別提供者按鈕。 如果您為 LinkedIn 帳戶新增 **ClaimsProviderSelection** 元素，當使用者登陸頁面時，就會出現新按鈕。
-
-1. 在您建立的使用者旅程圖中，尋找包含 `Order="1"` 的 **OrchestrationStep** 元素。
-2. 在 **ClaimsProviderSelects** 底下新增下列元素。 將 **TargetClaimsExchangeId** 的值設定成適當的值，例如 `LinkedInExchange`：
-
-    ```XML
-    <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
-    ```
-
-### <a name="link-the-button-to-an-action"></a>將按鈕連結至動作
-
-現在已備妥按鈕，您需要將它連結至動作。 在此案例中，動作是用來讓 Azure AD B2C 與 LinkedIn 帳戶進行通訊以接收權杖。
-
-1. 在使用者旅程圖中，尋找包含 `Order="2"` 的 **OrchestrationStep**。
-2. 新增下列 **ClaimsExchange** 元素，請確定用於 ID 的值與用於 **TargetClaimsExchangeId** 的值相同：
-
-    ```XML
-    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
-    ```
-    
-    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的識別碼。 例如： `LinkedIn-OAUTH`。
-
-3. 儲存 TrustFrameworkExtensions.xml 檔案，並再次上傳它以供驗證。
-
-## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
-
-與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 請確定您使用包含 Azure AD B2C 租用戶的目錄。 選取 **目錄和訂用帳戶篩選**上方功能表中，然後選擇包含您的租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-4. 選取 [應用程式]，然後選取 [新增]。
-5. 輸入應用程式的名稱，例如 testapp1。
-6. 針對 [Web 應用程式 / Web API] ，選取 `Yes`，然後y在 [回覆 URL] 欄位輸入 `https://jwt.ms`。
-7. 按一下頁面底部的 [新增] 。
-
-## <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案
-
-更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
-
-1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInLinkedIn.xml*。
-2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInLinkedIn`。
-3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_linkedin`
-4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignLinkedIn) 的識別碼。
-5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
-6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。
-
-
 ## <a name="migration-from-v10-to-v20"></a>從 v1.0 移轉至 v2.0
 
 最近的 LinkedIn[更新其 API 的 v1.0 從 v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates)。 若要將您現有的設定移轉到新的組態中，使用下列各節中的資訊，更新的技術設定檔中的項目。
@@ -385,14 +324,56 @@ LinkedIn 的技術設定檔需要**ExtractGivenNameFromLinkedInResponse**並**Ex
 
 ### <a name="obtain-an-email-address"></a>取得電子郵件地址
 
-從 v1.0 LinkedIn 移轉至 v2.0 的一部分，另一個 API 的額外呼叫才能取得電子郵件地址。 如果您需要在註冊期間取得電子郵件地址，請執行下列動作：
+從 v1.0 LinkedIn 移轉至 v2.0 的一部分，額外的另一個 API 呼叫才能取得電子郵件地址。 如果您需要在註冊期間取得電子郵件地址，請執行下列動作：
 
-1. 具有 Azure AD B2C 與 LinkedIn，讓使用者登入同盟。 當發生這種情況時，就會從 LinkedIn 的存取權杖傳送至 Azure AD B2C。
+1. 完成上述步驟，以讓 Azure AD B2C 與 LinkedIn，讓使用者登入同盟。 隨著同盟的詳細資訊，Azure AD B2C 會收到 LinkedIn 的存取權杖。
 2. 將 linkedin Elevate 存取權杖儲存到宣告中。 [請參閱此處的指示](idp-pass-through-custom.md)。
-3. 呼叫 Azure 函式，並傳遞函式的存取權杖在上一個步驟中收集。 [請參閱此處的指示](active-directory-b2c-rest-api-step-custom.md)
-    1. Azure 函式應採取的存取權杖，並建立 LinkedIn API 的呼叫 (`https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))`)。
-    2. Azure 函式會回應，並剖析出的電子郵件地址。
-    3. 電子郵件地址傳回到的原則。
-4. 電子郵件地址會儲存在電子郵件宣告和使用者旅程圖會繼續。
+3. 新增下列宣告提供者要求對 LinkedIn 的`/emailAddress`API。 來授與此要求，您需要 linkedin Elevate 存取權杖。
 
-取得從 LinkedIn 的電子郵件地址，在註冊期間是選擇性的。 如果您選擇不要取得電子郵件，使用者就會是需要以手動方式輸入電子郵件地址，並加以驗證。
+    ```XML
+    <ClaimsProvider> 
+      <DisplayName>REST APIs</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="API-LinkedInEmail">
+          <DisplayName>Get LinkedIn email</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+              <Item Key="ServiceUrl">https://api.linkedin.com/v2/emailAddress?q=members&amp;projection=(elements*(handle~))</Item>
+              <Item Key="AuthenticationType">Bearer</Item>
+              <Item Key="UseClaimAsBearerToken">identityProviderAccessToken</Item>
+              <Item Key="SendClaimsIn">Url</Item>
+              <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
+          </Metadata>
+          <InputClaims>
+              <InputClaim ClaimTypeReferenceId="identityProviderAccessToken" />
+          </InputClaims>
+          <OutputClaims>
+              <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="elements[0].handle~.emailAddress" />
+          </OutputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+4. 新增至使用者旅程圖下, 一個協調流程步驟，如此當使用者使用 LinkedIn 登入時觸發 API 的宣告提供者。 請務必更新`Order`正確數字。 此步驟之後立即新增觸發程序的 LinkedIn 的技術設定檔的協調流程步驟。
+
+    ```XML
+    <!-- Extra step for LinkedIn to get the email -->
+    <OrchestrationStep Order="4" Type="ClaimsExchange">
+      <Preconditions>
+        <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+          <Value>identityProvider</Value>
+          <Value>linkedin.com</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <ClaimsExchanges>
+        <ClaimsExchange Id="GetEmail" TechnicalProfileReferenceId="API-LinkedInEmail" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    ```
+
+取得從 LinkedIn 的電子郵件地址，在註冊期間是選擇性的。 如果您選擇不從 LinkedIn 取得電子郵件，但需要在註冊時設定，使用者就會是需要以手動方式輸入電子郵件地址，並加以驗證。
+
+使用 LinkedIn 識別提供者原則的完整範例，請參閱 <<c0> [ 自訂原則入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider)。

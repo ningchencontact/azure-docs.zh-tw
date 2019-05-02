@@ -5,15 +5,15 @@ services: virtual-machines
 author: jpconnock
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
+ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f60b5421f2bc66cf09ede4178ce18e2394030264
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542915"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929357"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>平台支援的 IaaS 資源移轉 (從傳統移轉至 Azure Resource Manager)
 本文會說明如何將 IaaS 資源從傳統部署模型遷移至 Resource Manager 部署模型，並詳述如何使用虛擬網路站對站閘道，從並存於訂用帳戶中的兩個部署模型連線到資源。 您可以進一步了解 [Azure Resource Manager 功能和優點](../articles/azure-resource-manager/resource-group-overview.md)。 
@@ -74,7 +74,20 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 
 > [!NOTE]
 > Resource Manager 部署模型並沒有「傳統」映像和磁碟的概念。 移轉儲存體帳戶時，「傳統」映像和磁碟不會顯示在 Resource Manager 堆疊中，但是作為基礎的 VHD 會繼續留在儲存體帳戶中。
->
+
+下列螢幕擷取畫面顯示如何將傳統儲存體帳戶升級至使用 Azure 入口網站的 Azure Resource Manager 儲存體帳戶：
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 瀏覽至儲存體帳戶。
+3. 在 **設定**區段中，按一下**移轉至 ARM**。
+4. 按一下 **驗證**來決定移轉可行性。
+5. 如果通過驗證，按一下**準備**建立已移轉的儲存體帳戶。
+6. 型別 **[是]** 來確認移轉，然後按一下**認可**完成移轉。
+
+    ![驗證儲存體帳戶](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    
+    ![準備儲存體帳戶](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    
+    ![完成儲存體帳戶移轉](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>移轉未連結的資源
 沒有相關聯磁碟或虛擬機器資料的儲存體帳戶可獨立進行遷移。
@@ -102,7 +115,7 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 
 | 服務 | 組態 | 建议 |
 | --- | --- | --- |
-| Resource Manager |傳統資源的「角色型存取控制」(RBAC) |由於資源的 URI 在移轉後會經過修改，因此建議您規劃需要在移轉後進行的 RBAC 原則更新。 |
+| Resource Manager |角色型存取控制 (RBAC) 的傳統資源 |由於資源的 URI 在移轉後會經過修改，因此建議您規劃需要在移轉後進行的 RBAC 原則更新。 |
 | 計算 |與 VM 關聯的多個子網路 |將子網路組態更新為只參考一個子網路。 這可能要求您從 VM 移除次要 NIC (其參考另一個子網路)，並在移轉完成後重新連結它。 |
 | 計算 |隸屬於虛擬網路但未獲指派明確子網路的虛擬機器。 |您可以選擇刪除此 VM。 |
 | 計算 |具有警示、自動調整原則的虛擬機器 |移轉會進行到完成，但會捨棄這些設定。 強烈建議您在執行移轉前先評估您的環境。 或者，您也可以在移轉完成之後重新設定警示設定。 |

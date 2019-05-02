@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 12598f3866cd1041cdf3cb89dac985b8d2caafce
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 2a632ef79c0e9bb925689456d682e7f22504806b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148801"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707836"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>驗證存取 Azure blob 和佇列使用 Azure Active Directory
 
@@ -21,15 +21,15 @@ Azure 儲存體支援使用 Azure Active Directory (Azure AD) 對 Blob 和佇列
 
 使用 Azure AD 認證來驗證使用者或應用程式，可提供比其他授權方法更高的安全性，也更容易使用。 雖然您可以繼續使用共用金鑰授權於應用程式，但使用 Azure AD 就不需要將帳戶存取金鑰和程式碼一起儲存。 您也可以繼續使用共用存取簽章 (SAS) 將細部存取權授與儲存體帳戶中的資源，但 Azure AD 提供類似功能，卻不必管理 SAS 權杖或擔心需要撤銷遭盜用的 SAS。 Microsoft 建議您盡可能針對 Azure 儲存體應用程式使用 Azure AD 驗證。
 
-驗證和授權使用 Azure AD 認證可供所有一般用途和 Blob 儲存體帳戶中的所有公用區域。 仅通过 Azure 资源管理器部署模型创建的存储帐户支持 Azure AD 授权。
+驗證和授權使用 Azure AD 認證可供所有一般用途和 Blob 儲存體帳戶的所有公用區域和國家/地區雲端。 仅通过 Azure 资源管理器部署模型创建的存储帐户支持 Azure AD 授权。
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>適用於 blob 和佇列的 Azure AD 的概觀
 
 當安全性主體 （使用者、 群組或應用程式） 會嘗試存取的 blob 或佇列資源時，要求必須授權，除非它是可供匿名存取 blob。 與 Azure AD 資源的存取權是兩步驟程序。 首先，已驗證的安全性主體的識別，並傳回 OAuth 2.0 權杖。 接下來，此權杖會做為要求的一部分傳遞至 Blob 或佇列服務，而且服務用來授與指定的資源存取權。
 
-驗證步驟會需要一或多個 RBAC 角色會指派給安全性主體。 Azure 儲存體提供 RBAC 角色，其中包含的 blob 和佇列資料的權限的一般設定。 指派給安全性主體的角色會決定該主體必須存取。 若要详细了解如何为 Azure 存储分配 RBAC 角色，请参阅[通过 RBAC 管理存储数据访问权限](storage-auth-aad-rbac.md)。
+驗證步驟會需要應用程式要求在執行階段的 OAuth 2.0 存取權杖。 如果應用程式從在 Azure 的實體，例如 Azure VM、 虛擬機器擴展集或 Azure Functions 應用程式內執行，它可以使用[受控身分識別](../../active-directory/managed-identities-azure-resources/overview.md)來存取 blob 或佇列。 若要了解如何向 Azure Blob 或佇列服務提出的受管理的身分識別要求的授權，請參閱[驗證適用於 Azure 資源的存取權的 blob 和佇列與 Azure Active Directory 與受管理的身分識別](storage-auth-aad-msi.md)。
 
-授權步驟需要應用程式要求在執行階段的 OAuth 2.0 存取權杖。 如果應用程式從在 Azure 的實體，例如 Azure VM、 虛擬機器擴展集或 Azure Functions 應用程式內執行，它可以使用[受控身分識別](../../active-directory/managed-identities-azure-resources/overview.md)來存取 blob 或佇列。 若要了解如何向 Azure Blob 或佇列服務提出的受管理的身分識別要求的授權，請參閱[驗證適用於 Azure 資源的存取權的 blob 和佇列與 Azure Active Directory 與受管理的身分識別](storage-auth-aad-msi.md)。
+授權步驟需要一或多個 RBAC 角色會指派給安全性主體。 Azure 儲存體提供 RBAC 角色，其中包含的 blob 和佇列資料的權限的一般設定。 指派給安全性主體的角色會決定將擁有主體的權限。 若要详细了解如何为 Azure 存储分配 RBAC 角色，请参阅[通过 RBAC 管理存储数据访问权限](storage-auth-aad-rbac.md)。
 
 原生應用程式和 Azure Blob 或佇列服務提出要求的 web 應用程式也可以使用 Azure AD 進行驗證。 若要了解如何要求存取權杖，並使用它來授權要求的 blob 或佇列的資料，請參閱[使用從 Azure 儲存體應用程式的 Azure AD 進行驗證](storage-auth-aad-app.md)。
 
@@ -69,14 +69,9 @@ Azure 入口網站可以使用您的 Azure AD 帳戶或帳戶存取金鑰來存�
 
 當您嘗試存取 blob 或佇列的資料時，Azure 入口網站會先檢查是否您已獲指派 RBAC 角色**Microsoft.Storage/storageAccounts/listkeys/action**。 如果您已獲指派的角色與此動作，在 Azure 入口網站會使用帳戶金鑰來存取 blob 和佇列資料，透過共用金鑰驗證。 如果您有尚未指派的角色與此動作，然後在 Azure 入口網站會嘗試使用您的 Azure AD 帳戶來存取資料。
 
-若要使用您的 Azure AD 帳戶在 Azure 入口網站中存取 blob 或佇列的資料，這兩個下列陳述式必須是適用於您程式碼：
+若要存取 blob 或佇列使用您的 Azure AD 帳戶在 Azure 入口網站中的資料，您需要存取 blob 和佇列資料的權限，您也需要瀏覽 Azure 入口網站中的儲存體帳戶資源的權限。 Azure 儲存體所提供的內建角色授與對 blob 和佇列資源的存取權，但他們不授與儲存體帳戶資源的權限。 基於這個理由，存取入口網站也需要 Azure Resource Manager 角色的指派這類[讀取器](../../role-based-access-control/built-in-roles.md#reader)範圍設定為或更高的儲存體帳戶的層級的角色。 **讀取器**角色會授與的限制最嚴格的權限，但另一個 Azure Resource Manager 角色，授與儲存體帳戶管理資源的存取權也可以接受。 若要深入了解如何將權限指派給使用者的 Azure AD 帳戶的 Azure 入口網站中的資料存取，請參閱[授與存取 Azure blob 和佇列資料使用 RBAC 在 Azure 入口網站中](storage-auth-aad-rbac-portal.md)。
 
-- 您已獲指派新的 Azure Resource Manager[讀取器](../../role-based-access-control/built-in-roles.md#reader)角色，且至少已設定領域的儲存體帳戶層級或更高版本。 **讀取器**角色會授與的限制最嚴格的權限，但另一個 Azure Resource Manager 角色，授與儲存體帳戶管理資源的存取權也可以接受。
-- 請提供 blob 或佇列的資料存取的內建或自訂的 RBAC 角色，您已獲指派。
-
-Azure 入口網站會指出哪一個配置正在使用中，當您瀏覽至容器或佇列。 如需有關在入口網站中的資料存取的詳細資訊，請參閱[使用 Azure 入口網站來存取 blob 或佇列資料](storage-access-blobs-queues-portal.md)。
-
-若要深入了解如何將權限指派給使用者的 Azure AD 帳戶的 Azure 入口網站中的資料存取，請參閱[授與存取 Azure blob 和佇列資料使用 RBAC 在 Azure 入口網站中](storage-auth-aad-rbac-portal.md)。
+Azure 入口網站會指出哪些授權配置正在使用中當您瀏覽至容器或佇列。 如需有關在入口網站中的資料存取的詳細資訊，請參閱[使用 Azure 入口網站來存取 blob 或佇列資料](storage-access-blobs-queues-portal.md)。
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>從 PowerShell 或 Azure CLI 進行資料存取
 

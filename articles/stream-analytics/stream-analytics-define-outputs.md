@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481109"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926070"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 本文說明適用於 Azure Stream Analytics 作業輸出的類型。 輸出可讓您存放並儲存串流分析作業的結果。 使用輸出資料，您可以執行進一步的商務分析與資料倉儲的資料。
@@ -182,7 +182,7 @@ Power BI 使用的先進先出 (FIFO) 保留原則。 資料會收集在資料�
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>從 Stream Analytics 的資料類型轉換為 Power BI
 如果輸出結構描述變更，則 Azure 串流分析會在執行階段動態更新資料模型。 所有資料行名稱變更、資料行類型變更以及資料行新增或移除都會加以追蹤。
 
-此資料表包含從資料類型轉換[Stream Analytics 的資料型別](https://msdn.microsoft.com/library/azure/dn835065.aspx)Power bi [Entity Data Model (EDM) 型別](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/entity-data-model)，如果 Power BI 資料集和資料表不存在。
+此資料表包含從資料類型轉換[Stream Analytics 的資料型別](https://msdn.microsoft.com/library/azure/dn835065.aspx)Power bi [Entity Data Model (EDM) 型別](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model)，如果 Power BI 資料集和資料表不存在。
 
 從串流分析 | 至 Power BI
 -----|-----

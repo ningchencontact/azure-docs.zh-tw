@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64d4c48697d38cfa5942e09cb672af37c27eede2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358770"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688679"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
 
@@ -122,7 +122,9 @@ MFA 的登入活動報告可讓您存取下列資訊：
 - 工作階段控制項
 - 結果
 
-## <a name="powershell-reporting"></a>Powershell 報告
+## <a name="powershell-reporting-on-users-registered-for-mfa"></a>報告使用者的 PowerShell 註冊 MFA
+
+首先，請確定您已[MSOnline V1 PowerShell 模組](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0)安裝。
 
 識別已使用下列 Powershell 註冊 MFA 的使用者。
 

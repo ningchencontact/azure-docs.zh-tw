@@ -1,22 +1,19 @@
 ---
 title: 在 Power BI 工作區集合中儲存報表 | Microsoft Docs
 description: 了解如何在 Power BI 工作區集合中儲存報表。 這需要適當權限才能順利運作。
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: ''
-ms.service: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
-origin.date: 09/26/2018
-ms.date: 03/05/2019
-ms.author: v-junlch
+ms.date: 09/20/2017
 ms.openlocfilehash: b61abee3382697d50b9a18de763c8a4d01e1ccba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103877"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701857"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中報表儲存
 
@@ -29,15 +26,15 @@ ms.locfileid: "62103877"
 
 若要儲存報表，您必須先為特定報表建立具有正確範圍的權杖：
 
-- 若要啟用儲存，就必須有 Report.ReadWrite 範圍
-- 若要啟用另存新檔，就必須有 Report.Read 和 Workspace.Report.Copy 範圍
-- 若要啟用儲存和另存新檔，就必須有 Report.ReadWrite 和 Workspace.Report.Copy
+* 若要啟用儲存，就必須有 Report.ReadWrite 範圍
+* 若要啟用另存新檔，就必須有 Report.Read 和 Workspace.Report.Copy 範圍
+* 若要啟用儲存和另存新檔，就必須有 Report.ReadWrite 和 Workspace.Report.Copy
 
 若要在 [檔案] 功能表中分別啟用正確的 [儲存]/[另存新檔] 按鈕，您必須在內嵌報表時，於內嵌設定中提供正確的權限：
 
-- models.Permissions.ReadWrite
-- models.Permissions.Copy
-- models.Permissions.All
+* models.Permissions.ReadWrite
+* models.Permissions.Copy
+* models.Permissions.All
 
 > [!NOTE]
 > 存取權杖也需要適當的範圍。 如需詳細資訊，請參閱[範圍](app-token-flow.md#scopes)。
@@ -62,7 +59,7 @@ ms.locfileid: "62103877"
     var config= {
         type: 'report',
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
-        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
         id:  '5dac7a4a-4452-46b3-99f6-a25915e0fe55',
         permissions: models.Permissions.All /*both save & save as buttons will be visible*/,
         viewMode: models.ViewMode.Edit,
@@ -77,7 +74,7 @@ ms.locfileid: "62103877"
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
-    </script>    
+    </script>
 ```
 
 現在會在編輯模式中，將報表內嵌於應用程式中。
@@ -115,10 +112,10 @@ ms.locfileid: "62103877"
 
 ```html
 <div id="reportContainer"></div>
-<script>  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
-        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
         reportId: '5dac7a4a-4452-46b3-99f6-a25915e0fe54',
     };
     
@@ -127,7 +124,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
-</script>    
+</script>
 ```
 
 ## <a name="see-also"></a>請參閱
@@ -141,5 +138,3 @@ var embedConfiguration = {
 
 有其他疑問？ [試用 Power BI 社群](https://community.powerbi.com/)
 
-
-<!-- Update_Description: update metedata properties -->

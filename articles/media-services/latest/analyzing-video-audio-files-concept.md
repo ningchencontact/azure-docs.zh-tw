@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: a4c643ecff5c33ec19c607da6ef8db41cfeb90c6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63762810"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689352"
 ---
 # <a name="analyzing-video-and-audio-files"></a>分析視訊和音訊檔案
 
@@ -35,7 +35,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 |---|---|---|
 |[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|分析音訊|此預設會套用一組預先定義的 AI 型分析作業，包括語音轉譯。 此預設目前支援處理具有單一音訊播放軌 (包含單一語言的語音) 的內容。 您可以使用「語言標記-區域」的 BCP-47 格式，為輸入中的音訊承載指定語言。 支援的語言有英文 ('EN-US' 和 'EN-GB')、西班牙文 ('ES-ES' 和 'ES-MX')、法文 ('fr-FR')、義大利文 ('IT-IT')、日文 ('JA-JP')、葡萄牙文 ('PT-BR')、中文 ('ZH-CN')、德文 ('DE-DE')、阿拉伯文 ('AR-EG')、俄文 ('RU-RU')、印度文 ('HI-IN') 和 韓文 ('KO-KR')。<br/><br/> 如果未指定語言或將語言設為 Null，自動語言偵測會選擇偵測到的第一種語言，並使用選取的語言處理整個檔案。 自動語言偵測功能目前支援英文、簡體中文、法文、德文、義大利文、日文、西班牙文、俄文和葡萄牙文。 目前不支援在偵測到第一個語言後，動態地切換語言。 搭配語音清晰的錄音時，自動語言偵測功能的效果最好。 如果自動語言偵測無法找到該語言，轉譯會切換回英文。|
 |[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|分析音訊和視訊|從音訊和視訊擷取見解 (豐富的中繼資料)，並輸出 JSON 格式檔案。 您可以指定在處理視訊檔案時，是否只想擷取音訊見解。 如需詳細資訊，請參閱[分析視訊](analyze-videos-tutorial-with-api.md)。|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)||描述要分析影片時用來偵測存在的所有臉部的設定。|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|偵測影片中出現的所有臉部|描述要分析影片時用來偵測存在的所有臉部的設定。|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 

@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 1915051380a514cf8143d43bddc0d0d475f43c07
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 3f33fb09a4b6c19bae3c02ecc47dae193a3a6cb0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765845"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925226"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>在 Linux VM 中新增磁碟
 本文說明如何將持續性磁碟連結到您的 VM，以便您保留資料 - 即使您的 VM 會由於維護或調整大小而重新佈建。
@@ -205,7 +205,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 >
 > *Nofail* 選項可確保即使檔案系統已損毀或磁碟在開機時並不存在，仍然會啟動 VM。 若不使用此選項，您可能會遇到[因為 FSTAB 錯誤所以無法 SSH 到 Linux VM](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) 中所述的行為
 >
-> Azure VM 的序列主控台可以用於主控台存取您的 VM，如果修改 fstab 導致開機失敗。 更多詳細資料位於[序列主控台的文件](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/serial-console-linux)。
+> Azure VM 的序列主控台可以用於主控台存取您的 VM，如果修改 fstab 導致開機失敗。 更多詳細資料位於[序列主控台的文件](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)。
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure 中 Linux 的 TRIM/UNMAP 支援
 有些 Linux 核心會支援 TRIM/UNMAP 作業以捨棄磁碟上未使用的區塊。 此功能主要是在標準儲存體中相當實用，可用來通知 Azure 已刪除的頁面已不再有效而可予以捨棄，而且如果您建立大型檔案，然後再將它們刪除，也可以節省成本。

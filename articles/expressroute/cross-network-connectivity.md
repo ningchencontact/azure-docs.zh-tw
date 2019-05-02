@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368661"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865992"
 ---
 # <a name="cross-network-connectivity"></a>跨網路連線能力
 
@@ -119,7 +119,7 @@ ExpressRoute 觸及全球範圍提供連線至不同的 ExpressRoute 線路的�
 
 請參閱[虛擬網路常見問題集][VNet-FAQ]，針對任何進一步的問題在 VNet 和 VNet 對等互連。 請參閱[ExpressRoute 常見問題集][ ER-FAQ]任何進一步的問題，在 ExpressRoute 上和虛擬網路連線。
 
-Global Reach 會依照國家/地區在各國家/地區推出。 若要查看您想要的國家/地區是否可使用 Global Reach，請參閱 [ExpressRoute Global Reach][Global Reach]。
+遍及全球的觸角推出國家/地區的國家/地區/區域為基礎。 若要查看是否可用的國家/地區，您想要觸及全球範圍，請參閱[ExpressRoute 觸及全球範圍][Global Reach]。
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "應用程式案例"

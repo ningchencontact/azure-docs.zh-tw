@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 7b10db06ab4ade1b23985b1a259d82d4818941b1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124961"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924837"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>針對復原到 Azure 的 VMware 災害復原進行容量和規模調整規劃
 
@@ -120,7 +120,7 @@ CPU | 記憶體 | 快取磁碟大小 | 資料變更率 | 受保護的機器
 
 ## <a name="deploy-additional-process-servers"></a>部署額外處理序伺服器
 
-如果您將部署規模相應放大到超過 200 部來源機器，或是您的每日變換率總計超過 2 TB，就必須新增處理伺服器來處理流量。 我們已增強 9.24 的版本，以提供的產品[產品中的指引](vmware-azure-manage-process-server.md#process-server-selection-guidance)上設定向外延展處理序伺服器的時機。 [設定處理序伺服器](vmware-azure-set-up-process-server-scale.md)來保護新的來源機器或[平衡負載](vmware-azure-manage-process-server.md#balance-the-load-on-process-server)。
+如果您將部署規模相應放大到超過 200 部來源機器，或是您的每日變換率總計超過 2 TB，就必須新增處理伺服器來處理流量。 我們已增強 9.24 的版本，以提供的產品[處理伺服器警示](vmware-physical-azure-monitor-process-server.md#process-server-alerts)上設定向外延展處理序伺服器的時機。 [設定處理序伺服器](vmware-azure-set-up-process-server-scale.md)來保護新的來源機器或[平衡負載](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load)。
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>移轉機器以使用新的處理序伺服器
 

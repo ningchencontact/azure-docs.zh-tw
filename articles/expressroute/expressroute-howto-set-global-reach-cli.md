@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364209"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869973"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>使用 Azure CLI 中設定 ExpressRoute 觸及全球範圍
 
@@ -48,7 +48,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>識別要設定的 ExpressRoute 線路
 
-您可以在任兩個 ExpressRoute 線路之間啟用 ExpressRoute Global Reach，只要它們位於支援的國家/地區且建立在不同的對等互連位置即可。 如果這兩個線路皆為您的訂用帳戶所擁有，您可以選擇任一線路來執行設定，如本文稍後所述。 如果這兩個線路位於不同的 Azure 訂用帳戶，您就必須具備其中一個 Azure 訂用帳戶的授權，並在您於另一個 Azure 訂用帳戶中執行設定命令時傳入它的授權金鑰。
+您可以啟用 ExpressRoute 觸及全球範圍之間的任何兩個 ExpressRoute 線路，前提是它們位於支援的國家/地區，以及在不同的對等互連位置建立。 如果這兩個線路皆為您的訂用帳戶所擁有，您可以選擇任一線路來執行設定，如本文稍後所述。 如果這兩個線路位於不同的 Azure 訂用帳戶，您就必須具備其中一個 Azure 訂用帳戶的授權，並在您於另一個 Azure 訂用帳戶中執行設定命令時傳入它的授權金鑰。
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>在內部部署網路之間啟用連線
 

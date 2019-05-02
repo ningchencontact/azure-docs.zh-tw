@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683022"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699142"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS 計量與警示
 Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構來提供名稱解析。 本文說明 Azure DNS 服務的計量與警示。
@@ -36,7 +36,7 @@ Azure DNS 提供讓客戶監視其裝載在服務中的 DNS 區域的特定層�
 >[!NOTE]
 > 目前，這些計量只適用於在 Azure DNS 中託管的公用 DNS 區域。 如果您在 Azure DNS 中有託管的私人區域，這些計量將不會提供這些區域的資料。 此外，計量與警示功能只有在 Azure 公用雲端中才受支援。 之後將提供主權雲端的支援。 
 
-這些計量細微的維度層級是 DNS 區域。
+最細微的項目，您可以查看的度量是 DNS 區域。 您目前無法看到在區域內的個別資源記錄的計量。
 
 ### <a name="query-volume"></a>查詢磁碟區
 

@@ -3,17 +3,17 @@ title: Azure IoT Central 支援的瀏覽器| Microsoft Docs
 description: Azure IoT Central 可透過現代化電腦、平板電腦與瀏覽器來存取。 此文章概述支援的瀏覽器清單。
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/23/2018
+ms.date: 04/24/2109
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b73d3f3252a2691d8a1dc520ba6cef43b27a5b32
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 66bff6dfbb355bd0cb62f2e68b2805b5ccebfe8b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50228868"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720092"
 ---
 # <a name="supported-browsers-for-azure-iot-central"></a>Azure IoT Central 支援的瀏覽器
 

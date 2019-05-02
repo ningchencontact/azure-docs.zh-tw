@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7725563a80182be8f8c02d94ef1e6cfa382c04d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471634"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924859"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>設定 SQL Server 的災害復原
 
@@ -170,7 +170,7 @@ SQL Always On 原本就不支援測試容錯移轉。 因此，我們建議您�
 
 在此案例中，建議您使用 Site Recovery 複寫保護 SQL Server 電腦。 確切步驟將取決於 SQL Server 是 VM 還是實體伺服器，以及您想要複寫至 Azure 還是次要內部部署網站。 了解 [Site Recovery 案例](site-recovery-overview.md)。
 
-## <a name="protect-a-sql-server-cluster-standard-editionwindows-server-2008-r2"></a>保護 SQL Server 叢集 (標準版/Windows Server 2008 R2)
+## <a name="protect-a-sql-server-cluster-standard-editionsql-server-2008-r2"></a>保護 SQL Server 叢集 (standard edition/SQL Server 2008 R2)
 
 對於執行 SQL Server Standard Edition 或 SQL Server 2008 R2 的叢集，建議您使用 Site Recovery 複寫保護 SQL Server。
 

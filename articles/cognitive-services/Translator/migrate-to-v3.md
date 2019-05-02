@@ -10,19 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fa1733ddd70de3f8ef93452a880094ccf8b9ef56
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916711"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951464"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 到 V3 的移轉
 
 > [!NOTE]
-> V2 已於 2018 年 4 月 30 日過時，並將於 2019 年 4 月 30 日中止。
+> V2 已於 2018 年 4 月 30 日淘汰。 請將應用程式移轉至 V3 若要利用以獨佔方式在 V3 中使用的新功能。
 > 
-> Microsoft Translator 中樞將於 2019 年 4 月 30 日淘汰。 [檢視重要的移轉資訊和日期](https://www.microsoft.com/translator/business/hub/)。  
+> Microsoft Translator 中樞將於 2019 5 月 17 日淘汰。 [檢視重要的移轉資訊和日期](https://www.microsoft.com/translator/business/hub/)。  
 
 Microsoft Translator 團隊已發行第 3 版 (V3) 的翻譯工具文字 API。 本版包含對 Microsoft Translator 服務傳送和接收資料的新功能、汰用方法和新格式。 本文件提供將應用程式變更為使用 V3 的資訊。 
 
@@ -110,7 +110,7 @@ Microsoft Translator V3 的定價方式與 V2 相同，即依字元計價，包�
 
 > [!NOTE]
 > 
-> Microsoft Translator 中樞將於 2019 年 4 月 30 日淘汰。 [檢視重要的移轉資訊和日期](https://www.microsoft.com/translator/business/hub/)。   
+> Microsoft Translator 中樞將於 2019 5 月 17 日淘汰。 [檢視重要的移轉資訊和日期](https://www.microsoft.com/translator/business/hub/)。   
 
 Microsoft Translator V3 依預設會使用類神經機器翻譯。 因此，無法搭配 Microsoft Translator Hub 使用。 Translator Hub 僅支援傳統統計機器翻譯。 類神經翻譯現在已可使用自訂翻譯工具進行自訂。 [深入了解如何自訂類神經機器翻譯](custom-translator/overview.md)
 
@@ -130,7 +130,6 @@ Microsoft Translator V3 依預設會使用類神經機器翻譯。 因此，無�
 如果您使用 api.cognitive.microsofttranslator.com 端點，您會使用第 3 版的 Translator Text API。
 
 **Translator Text API 第 2 版**
-* 已被取代。 從 2019 年 4 月 30 日起中斷服務。 
 * 未滿足所有 20001、20018 ISO 和 SOC 3 認證需求。 
 * 不允許您叫用您透過 Translator 自訂功能所自訂的類神經網路翻譯系統。
 * 可供存取使用 Microsoft Translator Hub 所建立的自訂翻譯系統。

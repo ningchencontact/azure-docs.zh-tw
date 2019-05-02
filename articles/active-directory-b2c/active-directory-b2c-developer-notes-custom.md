@@ -3,19 +3,19 @@ title: 自訂原則]-[Azure Active Directory B2C 的開發人員注意事項 |Mi
 description: 開發人員在使用自訂原則來設定和維護 Azure AD B2C 時的注意事項。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cf9c6f6a54c38f00e477e2a9d62e72ab5faccdef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1093f1882328604819d5fbab33d87b26f1af2886
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317967"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703250"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 自訂原則的開發人員注意事項
 

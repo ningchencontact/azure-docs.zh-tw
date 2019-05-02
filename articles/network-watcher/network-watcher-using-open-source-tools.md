@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 7c239bbf577645ddb8ab12c525d1b3a8832421df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60680488"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64936013"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>使用開放原始碼工具將往返於 VM 的網路流量模式視覺化
 
@@ -76,7 +76,7 @@ CapAnalysis 提供各種選項將封包擷取視覺化，各以不同的觀點�
 
 1. Geomap
 
-    此窗格提供網路流量的地圖檢視，並依據每個國家/地區的流量大小而改變顏色。 您可以選取醒目提示的國家/地區，以檢視其他流程統計資料，例如從該國家/地區中的 IP 傳送和接收的資料比例。
+    這個窗格提供您與您的網路流量的地圖檢視使用色彩調整每個國家/地區的流量。 您可以選取反白顯示的國家/地區來檢視其他流程統計資料，例如傳送和接收來自 Ip，在該國家/地區中資料的比例。
 
     ![geomap][8]
 

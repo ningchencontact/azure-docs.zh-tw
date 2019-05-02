@@ -3,8 +3,8 @@ title: Azure 流量分析 | Microsoft Docs
 description: 了解如何透過流量分析來分析 Azure 網路安全性群組流量記錄。
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;jdial
-ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: yagup;kumud
+ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60429715"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939883"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -176,7 +176,7 @@ New-AzStorageAccount `
 
     ![選取儲存體帳戶、Log Analytics 工作區和啟用流量分析](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-針對要啟用流量分析的任何其他 NSG 重複前述步驟。 流量記錄中的資料會傳送至工作區，因此請確定您所在國家/地區的當地法律和規範允許在工作區所在的區域中進行資料儲存。
+針對要啟用流量分析的任何其他 NSG 重複前述步驟。 流程記錄檔的資料傳送至工作區，因此請確定當地法律和法規，在您的國家/地區中，允許在工作區所在的區域中的資料儲存體。
 
 您也可以設定流量分析使用[組 AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) Azure PowerShell 中的 PowerShell cmdlet。 執行 `Get-Module -ListAvailable Az` 來了解您安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
@@ -270,13 +270,13 @@ New-AzStorageAccount `
 
     ![顯示流量分布的儀表板](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- 地理地圖會顯示頂端功能區以供您選取參數，例如資料中心 (已部署/無部署/使用中/非使用中/已啟用流量分析/未啟用流量分析) 以及對使用中部署貢獻良性/惡意流量的國家/地區：
+- 地理地圖會顯示頂端功能區，以供您選取參數，例如資料中心 （已啟用部署/無部署/作用中/非使用中/流量分析/未啟用流量分析） 和國家/地區貢獻良性/惡意流量，為 作用中部署：
 
     ![顯示使用中部署的地理地圖檢視](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- 地理地圖會顯示與資料中心通訊的國家/地區及大陸對該資料中心的流量分布，良性流量以藍色線段表示，惡意流量以紅色線段表示：
+- 地理地圖會顯示流量分布到資料中心的國家/地區各大洲以及它在藍色 （良性流量） 和紅色 （惡意流量） 線段與通訊：
 
-    ![顯示國家/地區及大陸之流量分布的地理地圖檢視](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![流量分布到國家/地區及大陸的地理地圖檢視](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![記錄搜尋中的流量分布的流量詳細資料](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 

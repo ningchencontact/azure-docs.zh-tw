@@ -1,6 +1,6 @@
 ---
 title: Azure 服務匯流排常見問題集 (FAQ) | Microsoft Docs
-description: 回答一些有關 Azure 服務匯流排的常見問題。
+description: 關於 Azure 服務匯流排的一些常見問題集的解答。
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 41a5f08be833d1235146d6e748580751af2c9d73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311024"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707146"
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
 
@@ -41,6 +41,48 @@ ms.locfileid: "60311024"
 使用分割實體時無法確保順序。 若分割無法使用，您仍可從其他分割傳送及接收訊息。
 
  [Premium SKU](service-bus-premium-messaging.md) 不再支援分割的實體。 
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>我需要在防火牆上開啟哪些連接埠？ 
+您可以使用下列通訊協定與 Azure 服務匯流排，來傳送和接收訊息：
+
+- 進階訊息佇列通訊協定 (AMQP)
+- 服務匯流排傳訊通訊協定 (SBMP)
+- HTTP
+
+請參閱下列表格以取得您需要開啟通訊使用這些通訊協定，透過 Azure 事件中樞的輸出連接埠。 
+
+| Protocol | 連接埠 | 詳細資料 | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 和 5672 | 請參閱[AMQP 通訊協定指南](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350 到 9354 | 請參閱[連線模式](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| HTTP、HTTPS | 80、443 | 
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>哪些 IP 位址需要列入白名單嗎？
+若要尋找您的連線正確的 IP 位址到允許清單，請遵循下列步驟：
+
+1. 从命令提示符处运行以下命令： 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. 記下中傳回的 IP 位址`Non-authoritative answer`。 此 IP 位址是靜態的。 它會變更的唯一點的時間是如果您還原至不同的叢集中的命名空間。
+
+如果您的命名空間中使用區域備援，您需要執行一些額外步驟： 
+
+1. 首先，您會在命名空間上執行 nslookup。
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. 記下中的名稱**非授權的回答**區段中，也就是下列格式之一： 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. 每個尾碼 s1、 s2 與 s3 取得三個可用性區域中執行的所有三個執行個體的 IP 位址與執行 nslookup 
+
 
 ## <a name="best-practices"></a>最佳作法
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure 服務匯流排的最佳做法有哪些？

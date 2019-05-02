@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: b09de67cddcec26a1083bb64d13b9bbc47c3d5e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: ae6547b7940ee4007c747847e6cec7b0c67a9d3c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998476"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717454"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間，會展開並更新以涵蓋更多服務 清單。
@@ -77,6 +77,7 @@ ms.locfileid: "59998476"
 * [IoT 中心](#iot-hub-limits)
 * [IoT 中樞裝置佈建服務](#iot-hub-device-provisioning-service-limits)
 * [金鑰保存庫](#key-vault-limits)
+* [負載平衡器](#load-balancer)
 * [Log Analytics](#log-analytics-limits)
 * [媒體服務](#media-services-limits)
 * [行動服務](#mobile-services-limits)
@@ -84,6 +85,7 @@ ms.locfileid: "59998476"
 * [網路功能](#networking-limits)
 * [網路監看員](#network-watcher-limits)
 * [通知中樞](#notification-hubs-limits)
+* [公用 IP 位址](#publicip-address)
 * [資源群組](#resource-group-limits)
 * [角色型存取控制](#role-based-access-control-limits)
 * [排程器](#scheduler-limits)
@@ -136,11 +138,11 @@ ms.locfileid: "59998476"
 ### <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes 服務限制
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### <a name="networking-limits"></a>網路限制
-[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
-
-#### <a name="networking-limits"></a>网络限制
+### <a name="networking-limits"></a>网络限制
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+
+#### <a name="expressroute-limits"></a>ExpressRoute 限制
+[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
 #### <a name="application-gateway-limits"></a>應用程式閘道限制
 

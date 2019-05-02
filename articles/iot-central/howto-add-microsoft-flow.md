@@ -4,16 +4,16 @@ description: 在 Microsoft Flow 中使用 IoT Central 連接器，觸發工作�
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/26/2019
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887613"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693601"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>在 Microsoft Flow 中使用 IoT Central 連接器建置工作流程
 
@@ -101,9 +101,12 @@ ms.locfileid: "60887613"
 
 1. 新增動作。 搜尋 [Azure IoT Central - 更新裝置] 動作。
 
-1. 從下拉式清單中選擇您的應用程式。 現在您將需要所要更新之現有裝置的識別碼。 您可以從**裝置總管**取得 IoT Central 裝置的識別碼。
+1. 從下拉式清單中選擇您的應用程式。 現在您將需要所要更新之現有裝置的識別碼。 
 
-    ![IoT Central Device Explorer 裝置識別碼](./media/howto-add-microsoft-flow/iotcdeviceid.png)
+    > [!NOTE] 
+    > **您必須使用在 URL 中找到 ID**您想要更新之裝置的裝置詳細資料頁面。 在 [裝置總管] 的裝置清單中找到的裝置識別碼不正確的權杖，才能在 Microsoft Flow。
+
+    ![IoT 中心識別碼 URL](./media/howto-add-microsoft-flow/iotcdeviceidurl.png)
 
 1. 您可以更新裝置名稱。 若要更新裝置的任何屬性和設定，您必須在 [裝置範本] 下拉式清單中針對您要更新的裝置選取裝置範本。 動作圖格會展開以顯示您可以更新的所有屬性和設定。
 
@@ -117,19 +120,32 @@ ms.locfileid: "60887613"
 
 ## <a name="get-device-information-in-a-workflow"></a>取得工作流程中的裝置資訊
 
-您可以取得其裝置識別碼使用的裝置資訊**Azure IoT Central-取得裝置**動作。 您可以取得資訊，例如裝置名稱、 裝置範本名稱、 屬性值，以及要傳遞至工作流程中的後續動作的設定值。 以下是範例工作流程，一起客戶名稱屬性值從裝置傳送至 Microsoft Teams。
+您可以取得其識別碼使用的裝置資訊**Azure IoT Central-取得裝置**動作。 
+> [!NOTE] 
+> **您必須使用在 URL 中找到 ID**您想要更新之裝置的裝置詳細資料頁面。 在 [裝置總管] 的裝置清單中找到的裝置識別碼不正確的權杖，才能在 Microsoft Flow。
+
+您可以取得資訊，例如裝置名稱、 裝置範本名稱、 屬性值，以及要傳遞至工作流程中的後續動作的設定值。 以下是範例工作流程，一起客戶名稱屬性值從裝置傳送至 Microsoft Teams。
 
    ![流程取得裝置的工作流程](./media/howto-add-microsoft-flow/flowgetdevice.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>在工作流程中的裝置上執行命令
-您可以在其裝置識別碼使用指定的裝置上執行命令**Azure IoT Central-執行命令**動作。 您可以挑選要執行，並傳入命令的參數，透過此動作的命令。 以下是範例工作流程執行裝置重新開機命令，從 Microsoft Flow 行動裝置應用程式中的按鈕。
+您可以使用其識別碼指定在裝置上執行命令**Azure IoT Central-執行命令**動作。 
+
+> [!NOTE] 
+> **您必須使用在 URL 中找到 ID**您想要更新之裝置的裝置詳細資料頁面。 在 [裝置總管] 的裝置清單中找到的裝置識別碼不正確的權杖，才能在 Microsoft Flow。
+    
+您可以挑選要執行，並傳入命令的參數，透過此動作的命令。 以下是範例工作流程執行裝置重新開機命令，從 Microsoft Flow 行動裝置應用程式中的按鈕。
 
    ![流程取得裝置的工作流程](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>刪除工作流程中的裝置
 
-您可以使用 [Azure IoT Central - 刪除裝置] 動作，以依據裝置識別碼刪除裝置。 以下是在 Microsoft Flow 行動應用程式中按下按鈕以刪除裝置的範例工作流程。
+您可以刪除其識別碼使用的裝置**Azure IoT Central-刪除裝置**動作。 
+> [!NOTE] 
+> **您必須使用在 URL 中找到 ID**您想要更新之裝置的裝置詳細資料頁面。 在 [裝置總管] 的裝置清單中找到的裝置識別碼不正確的權杖，才能在 Microsoft Flow。
+
+以下是在 Microsoft Flow 行動應用程式中按下按鈕以刪除裝置的範例工作流程。
 
    ![流程刪除裝置工作流程](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 

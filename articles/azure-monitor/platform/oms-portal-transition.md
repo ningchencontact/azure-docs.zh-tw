@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: c4950d03449f2b293a87ab88f1ea3f49eee29557
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 1496bf21ed1a81eedb44ca9cc9db777632e2a5cd
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62102011"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876016"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS 入口網站移至 Azure
 
 > [!NOTE]
 > 本文適用於 Azure 公用雲端和政府雲端，除非另有指示。
 
-Azure 入口網站為所有 Azure 服務的中樞，提供豐富的管理體驗，例如用以建立資源關聯的儀表板、用以尋找資源的智慧型搜尋，以及用以管理資源的標記等功能。 為了整合及簡化監控和管理工作流程，我們已陸續將 OMS 入口網站的功能加入 Azure 入口網站。 現在 OMS 入口網站的所有功能都已納入 Azure 入口網站。 事實上，流量分析等一些新功能僅能在 Azure 入口網站中使用。 您將能夠在 Azure 入口網站中，完成您在 OMS 入口網站中所執行的動作以及其他更多項目。 如果您尚未這麼做，請立即開始使用 Azure 入口網站！
+**Azure 公用雲端的 OMS 入口網站已正式淘汰。Azure Azure 美國政府雲端的 OMS 入口網站將於 2019 5 月 15 日正式淘汰。** 我們很高興移至 Azure 入口網站，並預期此次轉換將會很簡單。 但我們了解任何變更均有其難度，而且可能會對您造成困擾。 傳送任何問題、 意見反應或想法，才能**LAUpgradeFeedback\@microsoft.com**。 本文其餘部分將介紹關鍵案例和此次轉換的藍圖。
 
-**在 OMS 入口網站將於 2019 年 1 月 15 日正式淘汰**，對於 Azure 商務雲端和 Azure 美國政府雲端，OMS 入口網站**將於 2019 年 3 月 30 日正式淘汰。** 我們很高興移至 Azure 入口網站，並預期此次轉換將會很簡單。 但我們了解任何變更均有其難度，而且可能會對您造成困擾。 傳送任何問題、 意見反應或想法，才能**LAUpgradeFeedback\@microsoft.com**。 本文其餘部分將介紹關鍵案例和此次轉換的藍圖。
+Azure 入口網站為所有 Azure 服務的中樞，提供豐富的管理體驗，例如用以建立資源關聯的儀表板、用以尋找資源的智慧型搜尋，以及用以管理資源的標記等功能。 為了整合及簡化監控和管理工作流程，我們已陸續將 OMS 入口網站的功能加入 Azure 入口網站。 現在 OMS 入口網站的所有功能都已納入 Azure 入口網站。 事實上，流量分析等一些新功能僅能在 Azure 入口網站中使用。 您將能夠在 Azure 入口網站中，完成您在 OMS 入口網站中所執行的動作以及其他更多項目。 如果您尚未這麼做，請立即開始使用 Azure 入口網站！
 
 ## <a name="what-is-changing"></a>變更內容為何？ 
 下列變更會隨著 OMS 入口網站的淘汰一併宣布。 並將在下列各節中逐一詳細說明這些變更。
@@ -76,10 +76,7 @@ Azure 入口網站存取管理功能，比在 OMS 入口網站中的存取管理
 
 ### <a name="alert-extension"></a>警示擴充功能  
 
-> [!NOTE]
-> 公用雲端的警示功能現在已完全擴充至 Azure 入口網站。 您可以在 OMS 入口網站中檢視現有的警示規則，但只能在 Azure 入口網站中管理這些警示規則。 警示將在 2019 年 2 月從 Azure 政府雲端開始擴充至 Azure 入口網站中。
-
-警示已[擴充至 Azure 入口網站](alerts-extend.md)。 一旦完成後，警示的管理動作將只能在 Azure 入口網站中使用。 現有警示會繼續列在 OMS 入口網站中。 若您藉由使用 Log Analytics 警示 REST API 或 Log Analytics 警示資源範本以程式設計的方式存取警示，則必須使用動作群組，而非您 API 呼叫、Azure Resource Manager 範本及 PowerShell 命令中的動作。
+警示已[延伸至 Azure 入口網站](alerts-extend.md)現有警示會繼續列在 OMS 入口網站中，但您可以在 Azure 入口網站中，只有管理它們。 若您藉由使用 Log Analytics 警示 REST API 或 Log Analytics 警示資源範本以程式設計的方式存取警示，則必須使用動作群組，而非您 API 呼叫、Azure Resource Manager 範本及 PowerShell 命令中的動作。
 
 ### <a name="alert-management-solution"></a>警示管理解決方案
 如先前公告的變更，Azure 入口網站將會繼續提供及完整地支援[警示管理解決方案](alert-management-solution.md)。 您可以繼續從 Azure Marketplace 安裝該解決方案。

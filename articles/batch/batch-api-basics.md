@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1107842444ad0ac77ab890f07e65c8b489030461
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1fbe5b0a49960248133c35fb4a0401a31b95fb35
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60721675"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700942"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -132,7 +132,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
 - **虛擬機器設定**，會指定集區是由 Azure 虛擬機器所組成。 這些 VM 可能會從 Linux 或 Windows 映像加以建立。 
 
-    以虛擬機器設定作為基礎建立集區時，您不僅需要指定節點的大小和用來建立這些節點的映像來源，也必須在節點上安裝**虛擬機器映像參考**和 Batch **節點代理程式 SKU**。 如需指定這些集區屬性的詳細資訊，請參閱 [在 Azure Batch 集區中佈建 Linux 計算節點](batch-linux-nodes.md)。 您可以選擇性地將一或多個空的資料磁碟連結至從 Marketplace 映像建立的集區 VM，或是在自訂映像中包含資料磁碟，以建立 VM。
+    以虛擬機器設定作為基礎建立集區時，您不僅需要指定節點的大小和用來建立這些節點的映像來源，也必須在節點上安裝**虛擬機器映像參考**和 Batch **節點代理程式 SKU**。 如需指定這些集區屬性的詳細資訊，請參閱 [在 Azure Batch 集區中佈建 Linux 計算節點](batch-linux-nodes.md)。 您可以選擇性地將一或多個空的資料磁碟連結至從 Marketplace 映像建立的集區 VM，或是在自訂映像中包含資料磁碟，以建立 VM。 在包含資料磁碟，您要掛接和格式化的磁碟內的 VM，以使用它們。
 
 - **雲端服務設定**，會指定集區是由 Azure 雲端服務節點所組成。 雲端服務組態「只」提供 Windows 計算節點。
 

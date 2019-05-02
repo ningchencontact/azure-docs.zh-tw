@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101892"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925482"
 ---
 # <a name="scale-with-additional-process-servers"></a>調整的額外處理序伺服器
 
@@ -24,7 +24,7 @@ ms.locfileid: "62101892"
 
 請確定您已執行 VMware 複寫的[容量規劃](site-recovery-plan-capacity-vmware.md)。 這有助於您識別如何及何時應該部署額外的處理序伺服器。
 
-從 9.24 版本中，選取新的複寫的處理序伺服器的期間會加入指引。 狀況良好、 警告和重大根據特定準則，將會標示處理序伺服器。 若要了解不同的案例，可能會影響處理序伺服器的狀態，請造訪[流程伺服器選取項目指引](vmware-azure-manage-process-server.md#process-server-selection-guidance)。
+從 9.24 版本中，選取新的複寫的處理序伺服器的期間會加入指引。 狀況良好、 警告和重大根據特定準則，將會標示處理序伺服器。 若要了解不同的案例，可能會影響處理序伺服器的狀態，請檢閱[處理伺服器警示](vmware-physical-azure-monitor-process-server.md#process-server-alerts)。
 
 > [!NOTE]
 > 不支援使用複製的處理序伺服器元件。 請遵循本文中的步驟進行每個 PS 相應放大作業。

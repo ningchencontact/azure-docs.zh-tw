@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 44c6c8a55bbcbf76cf48fd17a6e52d188a5e99fc
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 81877ad23728ad76cb5d4dc5084990511257c6df
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556606"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695053"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>選擇時間序列識別碼的最佳做法
 
@@ -57,4 +57,5 @@ ms.locfileid: "53556606"
 ## <a name="next-steps"></a>後續步驟
 
 * 深入了解[資料模型建立](./time-series-insights-update-tsm.md)。
+
 * 規劃您的 [Azure 時間序列深入解析 (預覽) 環境](./time-series-insights-update-plan.md)。

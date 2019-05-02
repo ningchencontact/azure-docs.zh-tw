@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626458"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951507"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>徹底保護物聯網 (IoT) 安全性
 
@@ -33,7 +33,7 @@ ms.locfileid: "60626458"
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>徹底保護基礎結構的安全
 
-[Microsoft Cloud](https://azure.microsoft.com) 基礎結構支援 127 個國家/地區中超過十億位客戶。 利用 Microsoft 數十年來建置企業軟體，以及在世界各地執行一些大型線上服務的經驗，相較於多數客戶可自行實現的部分，Microsoft Cloud 提供更高層級的增強安全性、隱私權、相容性及威脅減輕做法。
+[Microsoft 雲端](https://azure.microsoft.com)基礎結構支援 127 的國家/地區的多個十億位客戶。 利用 Microsoft 數十年來建置企業軟體，以及在世界各地執行一些大型線上服務的經驗，相較於多數客戶可自行實現的部分，Microsoft Cloud 提供更高層級的增強安全性、隱私權、相容性及威脅減輕做法。
 
 [安全性開發週期 (SDL)](https://www.microsoft.com/sdl/) 可提供必要的全公司開發程序，將安全性需求嵌入整個軟體週期。 為了協助確保營運活動會遵循相同層級的安全性做法，SDL 會使用 Microsoft 的營運安全性保證 (OSA) 程序中所列出的嚴謹安全性指導方針。 Microsoft 也會與第三方稽核公司合作，持續驗證其是否符合法律遵循義務，並且 Microsoft 會透過建立卓越的中心 (包括 Microsoft 數位犯罪防治中心、Microsoft 安全性回應中心及 Microsoft 惡意程式碼防護中心)，致力於產生廣泛的安全性成果。
 

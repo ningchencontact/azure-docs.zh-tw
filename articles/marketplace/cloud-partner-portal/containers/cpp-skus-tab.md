@@ -1,25 +1,18 @@
 ---
-title: Azure 容器映像的 SKU | Microsoft Docs
+title: Azure 容器映像的 Sku |Azure Marketplace
 description: 設定 Azure 容器的 SKU。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 6953329bfabe99fc4bb28f2494cb412ba9cbbba0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472808"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942916"
 ---
 # <a name="container-skus-tab"></a>容器 SKU 索引標籤
 
@@ -38,11 +31,13 @@ ms.locfileid: "61472808"
     -   SKU 中繼資料
     -   容器中繼資料
 
+
 ### <a name="sku-metadata"></a>SKU 中繼資料
 
 SKU 中繼資料包含容器清單的店面顯示資訊。
 
 ![SKU 中繼資料](./media/containers-sku-details.png)
+
 
 ### <a name="container-metadata"></a>容器中繼資料
 
@@ -50,29 +45,31 @@ SKU 中繼資料包含容器清單的店面顯示資訊。
 
 ![容器中繼資料](./media/containers-image-repository.png)
     
-上一個螢幕擷取畫面中的 [映像存放庫詳細資料] 包含下列欄位：
+**映像儲存機制詳細資料**前一個螢幕擷取包含下列欄位。  必要欄位由星號 (*) 標示。
 
--   **訂用帳戶識別碼** – ACR 所在的 Azure 訂用帳戶識別碼。
--   **資源群組名稱** – ACR 的資源群組名稱。
--   **登錄名稱** – ACR 名稱。
--   **存放庫名稱**：存放庫名稱。 設定此名稱之後，就無法變更這個值。 使用唯一的名稱避免與您帳戶中的其他供應項目發生衝突。
--   **使用者名稱** – 與 ACR 映像相關聯的使用者名稱 (系統管理員使用者名稱)。
--   **密碼** – 與 ACR 映像相關聯的密碼。
+-   **訂用帳戶 ID\***  -ACR 所在的 Azure 訂用帳戶 ID。
+-   **資源群組名稱\*** -ACR 的資源群組名稱。
+-   **登錄名稱\*** -ACR 名稱。
+-   **存放庫名稱\*** -存放庫名稱。 設定此名稱之後，就無法變更這個值。 使用唯一的名稱避免與您帳戶中的其他供應項目發生衝突。
+-   **使用者名稱\*** -與 ACR 映像相關聯的使用者名稱 （系統管理員使用者名稱）。
+-   **密碼\*** -與 ACR 映像相關聯的密碼。
 
     >[!NOTE]
     >必須提供使用者名稱和密碼，以確保合作夥伴在發佈程序中能存取先前所述的 ACR。
+
 
 ### <a name="image-version"></a>映像版本
 
 發佈容器映像時，您可以提供一個或多個映像標籤以及 SHA 訊息摘要。
 
-**映像標籤或訊息摘要**
+**映像標記\*或摘要**
  
 - 此標籤或訊息摘要必須包含 `latest` 標籤和版本標籤 (例如，以 `xx.xx.xx-` 開頭，其中 xx 是數字)， 且應是[資訊清單標籤](https://github.com/estesp/manifest-tool)，以將多個平台設為目標。 也請務必新增資訊清單標籤參考的所有標籤，以便上傳。 
 - 您可以使用標籤來新增數個版本的容器。 所有資訊清單標籤 (除了 `latest` 以外) 必須以 `X.Y-` 或 `X.Y.Z-` 開頭，其中 X、Y、Z 是整數。 <br/> 例如，如果 `latest` 標籤指向 `1.0.1-linux-x64`、`1.0.1-linux-arm32`，以及 `1.0.1-windows-arm32`，則需要在此處加入這些標籤。
 
 >[!NOTE]
 >請記得將**測試標籤**新增到您的映像，以便您在測試期間識別該映像。
+
 
 ## <a name="next-steps"></a>後續步驟
 

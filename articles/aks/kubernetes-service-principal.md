@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1fe8929b5ae39c82850aa08899c7b3e6bb98c7e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464915"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725298"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
@@ -126,7 +126,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 - 根據預設，服務主體認證的有效期為一年。 您可以[更新或替換服務主體認證][ update-credentials]在任何時間。
 - 每個服務主體都會與 Azure AD 應用程式相關聯。 Kubernetes 叢集的服務主體可與任何有效的 Azure AD 應用程式名稱相關聯 (例如：*https://www.contoso.org/example*)。 應用程式的 URL 不一定是實際端點。
 - 當您指定服務主體**用戶端識別碼**時，請使用 `appId` 的值。
-- 在 Kubernetes 叢集中的主要和節點 VM 上，服務主體認證會儲存在 `/etc/kubernetes/azure.json` 檔案中。
+- 在 Kubernetes 叢集中的代理程式節點 Vm，服務主體認證會儲存在檔案中 `/etc/kubernetes/azure.json`
 - 當您使用 [az aks create][az-aks-create] 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 `~/.azure/aksServicePrincipal.json` 檔案。
 - 當您刪除使用 [az aks create][az-aks-create] 建立的叢集時，不會刪除自動建立的服務主體。
     - 若要刪除服務主體，請查詢您的叢集 servicePrincipalProfile.clientId，然後使用 [az ad app delete][az-ad-app-delete] 來刪除。 請將下列資源群組和叢集名稱更換為您自己的值：

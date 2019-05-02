@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239155"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698479"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -222,6 +222,22 @@ ms.locfileid: "60239155"
 - 資源群組中的所有 App Service 資源必須一起移動。
 - 只能從其最初建立 App Service 資源的資源群組中移動 App Service 資源。 如果 App Service 資源已不存在於其原始的資源群組中，則必須將其移回原始資源群組，然後才可以在訂用帳戶間移動。
 
+如果您不記得原始的資源群組，您可以透過診斷找到它。 Web 應用程式中，選取**診斷並解決問題**。 然後，選取**設定和管理**。
+
+![選取診斷](./media/resource-group-move-resources/select-diagnostics.png)
+
+選取 **移轉選項**。
+
+![選取移轉選項](./media/resource-group-move-resources/select-migration.png)
+
+選取建議的步驟，以移動 web 應用程式的選項。
+
+![選取建議的步驟](./media/resource-group-move-resources/recommended-steps.png)
+
+您會看到移動資源之前應採取的建議的動作。 這些資訊包括 web 應用程式的原始資源群組。
+
+![建議](./media/resource-group-move-resources/recommendations.png)
+
 ### <a name="app-service-certificate-limitations"></a>App Service 憑證限制
 
 您可以將 App Service 憑證移至新資源群組或訂用帳戶。 如果您的 App Service 憑證是繫結至 Web 應用程式，在將資源移動到新的訂用帳戶之前，還必須多採取幾個步驟。 請在移動資源前，先從 Web 應用程式刪除 SSL 繫結和私用憑證。 不需要刪除 App Service 憑證，只需要刪除 Web 應用程式中的私用憑證即可。
@@ -251,9 +267,9 @@ ms.locfileid: "60239155"
 * 目標訂用帳戶不得有其他任何傳統資源。
 * 只能透過適用於傳統移動的個別 REST API 來要求移動。 將傳統資源移到新的訂用帳戶時，標準 Resource Manager 移動命令無法運作。
 
-若要將傳統資源移到新的訂用帳戶，請使用傳統資源特定的 REST 作業。 若要使用 REST，請執行下列步驟：
+若要將傳統資源移到新的訂用帳戶，請使用傳統資源特定的 REST 作業。 若要使用 REST，執行下列步驟：
 
-1. 检查源订阅是否可以参与跨订阅移动。 使用以下操作：
+1. 請檢查來源訂用帳戶是否可以參與跨訂用帳戶移動。 使用以下操作：
 
    ```HTTP
    POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01

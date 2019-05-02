@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 511a95eaea65c1a0e67973ef56942bc05bb43f81
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 1639b8066f3c9943bc42f5151fcb456585441baf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002767"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866236"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Bing 圖像式搜尋 API 支援的語言和區域
 
@@ -34,7 +34,7 @@ Bing 圖像式搜尋 API 支援三十多個國家/地區，其中許多國家/�
 > - 食譜、購物以及內含入解析的頁面，僅在 EN-US 市場提供。
 
 
-## <a name="countries"></a>國家/地區
+## <a name="countriesregions"></a>國家/地區
 
 |國家/區域|代碼|
 |-------|----|

@@ -1,23 +1,22 @@
 ---
-author: rothja
+author: mdgattuso
 ms.service: billing
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: jroth
-ms.openlocfilehash: b3a610fd1c4da99d1e98a5caea9e1a4151fc1fea
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 04/29/2019
+ms.author: magattus
+ms.openlocfilehash: 0c989aa32c4f4defc9d22a2e510d85d7583ed1c8
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553369"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951506"
 ---
-| 資源 | 預設限制 | 上限 | 
-| --- | --- | --- |
-| Azure 內容傳遞網路設定檔 |25 |25 |
-| 每個設定檔的內容傳遞網路端點 |10 |25 |
-| 每個端點的自訂網域 |10 |25 |
+| Resource | 預設限制 |
+| --- | --- |
+| Azure 內容傳遞網路設定檔 |25 |
+| 每個設定檔的內容傳遞網路端點 |25 |
+| 每個端點的自訂網域 |25 |
 
 內容傳遞網路的訂用帳戶可以包含一或多個內容傳遞網路設定檔。 內容傳遞網路設定檔可以包含一或多個內容傳遞網路端點。 您可能想要使用多個設定檔來組織您的內容傳遞網路端點依網際網路網域、 web 應用程式或其他準則。 
 
-若要要求更新訂用帳戶的預設限制，請開啟支援票證。
 

@@ -1,64 +1,60 @@
 ---
-title: Azure Cloud Partner 入口網站中的虛擬機器 Marketplace 索引標籤 | Microsoft Docs
+title: Azure Marketplace 的 Cloud Partner 入口網站中的虛擬機器 Marketplace 索引標籤
 description: 說明用來建立 Microsoft Azure Marketplace 虛擬機器供應項目的 Marketplace 索引標籤。
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/25/2019
+ms.author: pabutler
+ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332710"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938195"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>虛擬機器 Marketplace 索引標籤
 
-在 [新增供應項目] 頁面的 [Marketplace] 索引標籤上，可提供行銷、銷售和法律方面的資訊與合約給您的潛在客戶，並管理 Marketplace 產生的潛在客戶。 這個完整的形式分為四個區段：**概觀**，**行銷構件**，**潛在客戶管理**，和**法律**。 
+在 [新增供應項目] 頁面的 [Marketplace] 索引標籤上，可提供行銷、銷售和法律方面的資訊與合約給您的潛在客戶，並管理 Marketplace 產生的潛在客戶。 這個完整的形式分為四個區段：**概觀**，**行銷構件**，**潛在客戶管理**，和**法律**。
+
 
 ## <a name="overview-section"></a>概觀區段
 在本區段中，可以輸入 Azure Marketplace Offer 的一般資訊。  欄位名稱上附加星號 (*) 表示為必填欄位。
 
-![虛擬機器新增供應項目表單 Marketplace 索引標籤的概觀區段](./media/publishvm_008.png)
+![虛擬機器的 [Marketplace] 索引標籤的 [概觀] 區段](./media/publishvm_008.png)
 
-下表說明這些欄位的用途和內容。
+下表說明這些欄位的用途和內容。 必要欄位由星號 (*) 標示。
 
 |  **欄位**                |     **說明**                                                          |
 |  ---------                |     ---------------                                                          |
-| **標題**                 | 供應項目的標題，通常是較長的正式名稱。 這個標題會醒目顯示在 Marketplace 中。  長度上限為 50 個字元。 |
-| **總結**               | 解決方案功能的簡短用途。  長度上限是 100 個字元。 |
-| **完整摘要**          | 解決方案功能的用途。  長度上限為 256 個字元。 |
-| **說明**           | 解決方案說明。  長度上限是 3000 個字元，支援簡單的 HTML 格式。 |
-| **Microsoft CSP 轉銷商通路** | 雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](../../cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。 |
-| **行銷識別碼**  | 與本供應項目相關聯的唯一不重複網址，通常會包含您的組織與解決方案名稱，長度上限是 50 個字元。  例如︰ <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **預覽訂用帳戶識別碼** | 可新增 1 到 100 個預覽使用者的訂閱帳戶識別碼。 這些列入允許清單的訂閱帳戶，待供應項目一發佈，即能在供應項目上線前先行存取。 |
+| **標題\***                 | 供應項目的標題，通常是較長的正式名稱。 這個標題會醒目顯示在 Marketplace 中。  長度上限為 50 個字元。 |
+| **摘要\***               | 解決方案功能的簡短用途。  長度上限是 100 個字元。 |
+| **完整摘要\***          | 解決方案功能的用途。  長度上限為 256 個字元。 |
+| **說明\***           | 解決方案說明。  長度上限是 3000 個字元，支援簡單的 HTML 格式。 |
+| **Microsoft CSP 轉銷商通路\*** | 雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](../../cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。 |
+| **行銷識別碼\***  | 與本供應項目相關聯的唯一不重複網址，通常會包含您的組織與解決方案名稱，長度上限是 50 個字元。  例如︰ <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **預覽訂用帳戶識別碼\*** | 可新增 1 到 100 個預覽使用者的訂閱帳戶識別碼。 這些列入允許清單的訂閱帳戶，待供應項目一發佈，即能在供應項目上線前先行存取。 |
 | **實用連結**          | 新增文件、版本資訊、常見問題等等的 URL。 |
-| **建議的類別 (最多 5 個)** | 可選擇多個適合與供應項目建立關聯的企業和技術類別，  最多可選擇五個。  |
+| **建議的分類 （最多 5 個）\*** | 可選擇多個適合與供應項目建立關聯的企業和技術類別，  最多可選擇五個。  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>行銷成品區段
 
-此第二個區段會分成三個子節：**標誌**，**螢幕擷取畫面**，以及**影片**。 標誌是唯一必要的行銷成品，但強烈建議您填寫所有項目，以提升對客戶的吸引力。
+此第二個區段會分成三個子節：**標誌**，**螢幕擷取畫面**，以及**影片**。 標誌是唯一必要的行銷成品，但強烈建議您填寫所有項目，以提升對客戶的吸引力。 
 
 ![虛擬機器 [新增供應項目] 表單上的 [Marketplace] 索引標籤行銷成品區段](./media/publishvm_009.png)
+
+下表說明這些欄位的用途和內容。 必要欄位由星號 (*) 標示。
 
 |  **欄位**                |     **說明**                                                          |
 |  ---------                |     ---------------                                                          |
 | *標誌*  |  |
-| **小型**                 | 40x40 像素 .ico 點陣圖                                                      |
-| **中型**                | 90x90 像素 .ico 點陣圖                                                      |
-| **大型**                 | 115x115 像素 .ico 點陣圖                                                   |
-| **寬**                  | 255x115 像素 .ico 點陣圖                                                    |
+| **小型\***                 | 40x40 像素 .ico 點陣圖                                                      |
+| **中型\***                | 90x90 像素 .ico 點陣圖                                                      |
+| **大型\***                 | 115x115 像素 .ico 點陣圖                                                   |
+| **寬\***                  | 255x115 像素 .ico 點陣圖                                                    |
 | **主圖**                  | 815 x 290 點陣圖。  (選擇性) 主圖圖示一旦上傳，即無法刪除。 |
 | *螢幕擷取畫面*  | (選擇性) 每個 SKU 的螢幕擷取畫面上限為五個。 |
 | **名稱**                  | 名稱或標題 <!-- TODO - max char length? none specified in UI -->                               |
@@ -67,8 +63,7 @@ ms.locfileid: "60332710"
 | **名稱**                  | 名稱或標題  <!-- TODO - max char length? -->                              |
 | **連結**                  | 裝載於 YouTube 或 Vimeo 的影片 URL                                        |
 | **縮圖**             | 533x324 點陣圖                                                               |
-|  |  |
-
+|   |   |
 
 ### <a name="logo-guidelines"></a>標誌指導方針
 
@@ -105,7 +100,6 @@ Cloud Partner 入口網站中所上傳的所有標誌都應該遵循指導方針
 
 
 ## <a name="lead-management-section"></a>潛在客戶管理區段
-<!-- this all should be referenced in a common location for lead management, not in this file. nothing unique for a vm specifically. -->
 
 第三個區段可讓您收集 Azure Marketplace 供應項目產生的潛在客戶。 此區段提供下列潛在客戶資訊的儲存選項 (位於下拉式清單)。
 
@@ -122,15 +116,16 @@ Cloud Partner 入口網站中所上傳的所有標誌都應該遵循指導方針
 
 ## <a name="legal-section"></a>法律聲明區段
 
-這最後一節可讓您提供兩個法律文件所需的每個供應項目：隱私權原則及使用規定。
+這最後一節可讓您提供必要的法律文件所需的每個供應項目。  
 
-|  **欄位**                |     **說明**                                                          |
-|  ---------                |     ---------------                                                          |
-| **隱私權原則 URL**    | 張貼隱私權原則的 URL                                            |
-| **使用規定**          | 純文字或簡單 HTML 原則。  <!-- TODO - max char length? -->       |
+|  **欄位**                    |     **說明**                                        |
+|  ---------                    |     ---------------                                        |
+| **隱私權原則 URL\***      | 張貼隱私權原則的 URL                          |
+| **使用標準的合約？\***  |   |
+| **使用規定\***            | 純文字或簡單 HTML 原則。                       |
 |  |  |
 
-<br/>
+
+## <a name="next-steps"></a>後續步驟
 
 您可以在下一個[支援](./cpp-support-tab.md)索引標籤中，為供應項目提供技術和使用者支援資源。
-

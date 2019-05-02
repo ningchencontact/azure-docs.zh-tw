@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ae097cb1c778c0ad60512753ae6ef28da04e8004
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764385"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926266"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>搭配 Windows 使用 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中順暢地使用。 本文討論搭配 Windows 和 Windows Server 使用 Azure 檔案共用的考量。
@@ -48,7 +48,7 @@ ms.locfileid: "63764385"
 
 * **儲存體帳戶金鑰**：若要掛接 Azure 檔案共用，您將需要主要 (或次要) 儲存體金鑰。 掛接目前不支援 SAS 金鑰。
 
-* **請確定已開啟連接埠 445**：使用 SMB 通訊協定時必須開啟 TCP 連接埠 445；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 可以在此处了解[如何通过各种方式来解决端口 445 被阻止的问题](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。
+* **請確定已開啟連接埠 445**：使用 SMB 通訊協定時必須開啟 TCP 連接埠 445；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 可以在此处了解[如何通过各种方式来解决端口 445 被阻止的问题](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。
 
     下列 PowerShell 程式碼會假設您有 Azure PowerShell 模組安裝，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)如需詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
 

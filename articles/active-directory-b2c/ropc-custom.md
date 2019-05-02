@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中設定資源擁有者密碼認證流程
 description: 了解如何在 Azure Active Directory B2C 中設定資源擁有者密碼認證流程。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d86caf5e5c6df29e00f17462f6a06602ff1245d8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419164"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688869"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>在 Azure Active Directory B2C 中使用自訂原則來設定資源擁有者密碼認證流程
 

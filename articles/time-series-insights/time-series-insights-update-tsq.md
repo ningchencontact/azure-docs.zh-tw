@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7885473d029556e10663675a9886c7ea3b9c709c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555416"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722167"
 ---
 # <a name="data-querying"></a>資料查詢
 
@@ -75,11 +75,11 @@ Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事�
 
 ## <a name="next-steps"></a>後續步驟
 
-深入閱讀：
+- 深入了解[儲存體與輸入](./time-series-insights-update-storage-ingress.md)預覽版 Azure 時間序列深入解析。
 
-- [Azure 時間序列深入解析預覽版儲存體和輸入](./time-series-insights-update-storage-ingress.md)
-- [資料模型](./time-series-insights-update-tsm.md)
-- [選擇時間序列識別碼時的最佳做法](./time-series-insights-update-how-to-id.md)
+- 讀取時間序列深入解析預覽[資料模型化](./time-series-insights-update-tsm.md)文章。
+
+- 探索[最佳做法，選擇 時間序列識別碼時](./time-series-insights-update-how-to-id.md)。
 
 <!-- Images -->
 [1]: media/v2-update-tsq/tsq.png

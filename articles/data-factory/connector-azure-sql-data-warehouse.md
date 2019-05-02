@@ -10,25 +10,30 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 8f1e2aebae88d34334200504915be4043f32013b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 319ea3eaac2fcaa3c8e29680e125b7e29018ecc3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107374"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926610"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [第 1 版](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [目前的版本](connector-azure-sql-data-warehouse.md)
 
-本文說明如何使用 Azure Data Factory 中的「複製活動」，從 Azure SQL 資料倉儲來回複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文概述如何從 Azure SQL 資料倉儲來回複製資料。 若要了解 Azure Data Factory，請閱讀[簡介文章](introduction.md)。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-您可以將資料從 Azure SQL 資料倉儲複製到任何支援的接收資料存放區。 您也可以將資料從任何支援的來源資料存放區複製到 Azure SQL 資料倉儲。 如需複製活動所支援作為來源或接收的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md#supported-data-stores-and-formats)表格。
+此 Azure Blob 連接器支援下列活動：
+
+- [複製活動](copy-activity-overview.md)具有[支援來源/接收器矩陣](copy-activity-overview.md)資料表
+- [對應資料流程](concepts-data-flow-overview.md)
+- [查閱活動](control-flow-lookup-activity.md)
+- [GetMetadata 活動](control-flow-get-metadata-activity.md)
 
 具體而言，這個「Azure SQL 資料倉儲」連接器支援下列功能：
 
@@ -136,12 +141,12 @@ ms.locfileid: "62107374"
 2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您授與管理的身分識別系統管理員角色的群組，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
 
 3. 為服務主體**[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**。 以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料倉儲。 執行下列 T-SQL：
-    
+  
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. 如同您一般對 SQL 使用者或其他人所做的一樣，**將所需的權限授與服務主體**。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
+4. 如同您一般對 SQL 使用者或其他人所做的一樣，**將所需的權限授與服務主體**。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -186,12 +191,12 @@ ms.locfileid: "62107374"
 1. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您授與管理的身分識別系統管理員角色的群組，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
 
 2. **[建立自主的資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** 的 Data Factory 受控身分識別。 以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料倉儲。 執行下列 T-SQL。 
-    
+  
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **授與 Data Factory 受控身分識別所需的權限**像您一般的 SQL 使用者和其他項目。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
+3. **授與 Data Factory 受控身分識別所需的權限**像您一般的 SQL 使用者和其他項目。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
@@ -416,7 +421,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、 Azure Data Lake 儲存體 G
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | 服務主體驗證 |
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | 帳戶金鑰驗證 |
 
-2. **來源資料集格式**屬於**ParquetFormat**， **OrcFormat**，或**TextFormat**，具備下列組態：
+2. **來源資料格式**屬於**Parquet**， **ORC**，或**分隔文字**，具備下列組態：
 
    1. `folderPath` 和`fileName`不包含萬用字元篩選條件。
    2. `rowDelimiter` 必須為 **\n**。
@@ -424,20 +429,6 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、 Azure Data Lake 儲存體 G
    4. `encodingName` 會設定為 **utf-8**，也就是預設值。
    5. 未指定 `escapeChar`、`quoteChar` 與 `skipLineCount`。 PolyBase 支援略過標頭列，這在 ADF 中可設定為 `firstRowAsHeader`。
    6. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。
-
-      ```json
-      "typeProperties": {
-        "folderPath": "<path>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8",
-            "firstRowAsHeader": <any>
-        }
-      },
-      ```
 
 ```json
 "activities":[
@@ -556,6 +547,10 @@ All columns of the table must be specified in the INSERT BULK statement.
 ```
 
 NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blob 中該欄的輸入資料可能會是空白。 但輸入資料集中不能缺少輸入資料。 PolyBase 會在 Azure SQL 資料倉儲中為遺漏值插入 NULL。
+
+## <a name="mapping-data-flow-properties"></a>對應資料流程屬性
+
+了解詳細資料，從[來源轉換](data-flow-source.md)並[接收轉換](data-flow-sink.md)中對應的資料流。
 
 ## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的資料類型對應
 

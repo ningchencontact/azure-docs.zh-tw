@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f6da199beb292f193d97eee309ca40dd74f81f8e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360362"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697738"
 ---
 # <a name="social-accounts-claims-transformations"></a>社交帳戶宣告轉換
 
@@ -42,7 +42,7 @@ ms.locfileid: "60360362"
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | 索引鍵 | string | 此 ClaimType 可指定社交識別提供者所使用的唯一使用者識別碼。 |
+| InputClaim | key | string | 此 ClaimType 可指定社交識別提供者所使用的唯一使用者識別碼。 |
 | InputClaim | identityProvider | string | 此 ClaimType 可指定社交帳戶識別提供者名稱，例如 facebook.com。 |
 | OutputClaim | alternativeSecurityId | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 包含社交帳戶使用者的身分識別相關資訊。 **issuer** 是 `identityProvider` 宣告的值。 **issuerUserId** 是 `key` base64 格式的值。 |
 

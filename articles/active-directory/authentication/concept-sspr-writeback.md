@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414999"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694848"
 ---
 # <a name="what-is-password-writeback"></a>什麼是密碼回寫？
 
@@ -85,9 +85,6 @@ ms.locfileid: "60414999"
    * 從 Active Directory 連接器物件到 MV 的連結上必須有同步處理規則 `Microsoft.InfromADUserAccountEnabled.xxx`。
    
    從雲端傳來呼叫時，同步處理引擎會使用 **cloudAnchor** 屬性來查閱 Azure Active Directory 連接器空間物件。 接著，它會依循連結回到 MV 物件，然後再依循連結回到 Active Directory 物件。 因為相同使用者可能會有多個 Active Directory 物件 (多樹系)，所以同步處理引擎需倚賴 `Microsoft.InfromADUserAccountEnabled.xxx` 連結來選出正確的物件。
-
-   > [!Note]
-   > 由於這個邏輯的緣故，Azure AD Connect 必須要能夠與主要網域控制站 (PDC) 模擬器通訊，密碼回寫才能運作。 如果需要手動啟用此功能，您可以將 Azure AD Connect 連線到 PDC 模擬器。 在 Active Directory 同步處理連接器的 [屬性] 上按一下滑鼠右鍵，然後選取 [設定目錄分割]。 從該處尋找 [網域控制站連線設定] 區段，然後核取標題為 [只使用慣用的網域控制站] 的方塊。 即使慣用的網域控制站不是 PDC 模擬器，Azure AD Connect 仍會嘗試連線至 PDC 來進行密碼回寫。
 
 1. 找到使用者帳戶之後，系統會嘗試在適當的 Active Directory 樹系中直接重設密碼。
 1. 如果密碼設定作業成功，系統會告訴使用者其密碼已變更。

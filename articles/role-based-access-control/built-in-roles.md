@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749320"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689869"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -87,6 +87,7 @@ ms.locfileid: "60749320"
 | [DocumentDB 帳戶參與者](#documentdb-account-contributor) | 可以管理 Azure Cosmos DB 帳戶。 Azure Cosmos DB 先前稱為 DocumentDB。 |
 | [EventGrid EventSubscription 參與者](#eventgrid-eventsubscription-contributor) | 可讓您管理 EventGrid 事件訂用帳戶作業。 |
 | [EventGrid EventSubscription 讀者](#eventgrid-eventsubscription-reader) | 可讓您讀取 EventGrid 事件訂用帳戶。 |
+| [HDInsight 叢集操作員](#hdinsight-cluster-operator) | 可讓您讀取和修改 HDInsight 叢集組態。 |
 | [HDInsight 網域服務參與者](#hdinsight-domain-services-contributor) | 可讀取、建立、修改和刪除 HDInsight 企業安全性套件所需的網域服務相關作業 |
 | [Intelligent Systems 帳戶參與者](#intelligent-systems-account-contributor) | 可讓您管理「智慧型系統」帳戶，但無法存取它們。 |
 | [Key Vault 參與者](#key-vault-contributor) | 可讓您管理金鑰保存庫，但無法存取它們。 |
@@ -121,6 +122,7 @@ ms.locfileid: "60749320"
 | [空間的錨點帳戶擁有者](#spatial-anchors-account-owner) | 讓您可管理帳戶中的空間錨點，包含將其刪除 |
 | [空間的錨點帳戶讀取器](#spatial-anchors-account-reader) | 讓您可找出及讀取帳戶中空間錨點的屬性 |
 | [SQL DB 參與者](#sql-db-contributor) | 可讓您管理 SQL 資料庫，但無法存取它們。 此外，您也無法管理其安全性相關原則或其父 SQL 伺服器。 |
+| [SQL 受管理的執行個體參與者](#sql-managed-instance-contributor) | 可讓您管理 SQL 受控執行個體和所需網路組態，但無法提供給其他人的存取。 |
 | [SQL 安全性管理員](#sql-security-manager) | 可讓您管理 SQL 伺服器及資料庫的安全性相關原則，但無法存取它們。 |
 | [SQL Server 參與者](#sql-server-contributor) | 可讓您管理 SQL 伺服器及資料庫，但無法存取它們，也無法存取其安全性相關原則。 |
 | [儲存體帳戶參與者](#storage-account-contributor) | 可讓您管理儲存體帳戶，但無法存取它們。 |
@@ -327,7 +329,7 @@ ms.locfileid: "60749320"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | 取得使用者金鑰的清單 |
+> | Microsoft.ApiManagement/service/users/keys/read | 取得使用者相關聯的金鑰 |
 > | **DataActions** |  |
 > | 無 |  |
 > | **NotDataActions** |  |
@@ -349,7 +351,7 @@ ms.locfileid: "60749320"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | 取得使用者金鑰的清單 |
+> | Microsoft.ApiManagement/service/users/keys/read | 取得使用者相關聯的金鑰 |
 > | **DataActions** |  |
 > | 無 |  |
 > | **NotDataActions** |  |
@@ -724,7 +726,7 @@ ms.locfileid: "60749320"
 > | **說明** | 可以檢視備份服務，但無法進行變更 |
 > | **Id** | a795c7a0-d4a2-40c1-ae25-d81f01202912 |
 > | **動作** |  |
-> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp 是服務所使用的內部作業 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | 傳回作業的狀態 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | 取得對保護容器執行之作業的結果。 |
@@ -1385,6 +1387,28 @@ ms.locfileid: "60749320"
 > | **NotDataActions** |  |
 > | 無 |  |
 
+## <a name="hdinsight-cluster-operator"></a>HDInsight 叢集操作員
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您讀取和修改 HDInsight 叢集組態。 |
+> | **Id** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
+> | **動作** |  |
+> | Microsoft.HDInsight/*/read |  |
+> | Microsoft.HDInsight/clusters/getGatewaySettings/action | 取得適用於 HDInsight 叢集的閘道設定 |
+> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | 更新適用於 HDInsight 叢集的閘道設定 |
+> | Microsoft.HDInsight/clusters/configurations/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Resources/deployments/operations/read | 取得或列出部署作業。 |
+> | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | 無 |  |
+> | **NotDataActions** |  |
+> | 無 |  |
+
 ## <a name="hdinsight-domain-services-contributor"></a>HDInsight 網域服務參與者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1517,7 +1541,7 @@ ms.locfileid: "60749320"
 > | **說明** | 可讓您管理邏輯應用程式，但無法存取它們。 |
 > | **Id** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | **動作** |  |
-> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 列出儲存體帳戶的存取金鑰。 |
 > | Microsoft.ClassicStorage/storageAccounts/read | 傳回具有給定帳戶的儲存體帳戶。 |
 > | Microsoft.Insights/alertRules/* | 创建和管理 Insights 警报规则 |
@@ -1807,6 +1831,7 @@ ms.locfileid: "60749320"
 > | **Id** | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | 傳回指定儲存體帳戶的存取金鑰。 |
+> | Microsoft.Storage/storageAccounts/ListAccountSas/action | 傳回指定儲存體帳戶的帳戶 SAS 權杖。 |
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
 > | **NotActions** |  |
 > | 無 |  |
@@ -2228,6 +2253,34 @@ ms.locfileid: "60749320"
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | 無 |  |
+> | **NotDataActions** |  |
+> | 無 |  |
+
+## <a name="sql-managed-instance-contributor"></a>SQL 受管理的執行個體參與者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您管理 SQL 受控執行個體和所需網路組態，但無法提供給其他人的存取。 |
+> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **動作** |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Network/networkSecurityGroups/* |  |
+> | Microsoft.Network/routeTables/* |  |
+> | Microsoft.Sql/locations/*/read |  |
+> | Microsoft.Sql/managedInstances/* |  |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | Microsoft.Network/virtualNetworks/subnets/* |  |
+> | Microsoft.Network/virtualNetworks/* |  |
+> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
+> | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
+> | Microsoft.Insights/metrics/read | 讀取計量 |
+> | Microsoft.Insights/metricDefinitions/read | 讀取計量定義 |
+> | **NotActions** |  |
+> | 無 |  |
 > | **DataActions** |  |
 > | 無 |  |
 > | **NotDataActions** |  |

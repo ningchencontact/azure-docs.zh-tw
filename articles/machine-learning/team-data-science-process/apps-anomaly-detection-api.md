@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: b67028562a2c377e1dd99635bdf04cad14782341
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326556"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926161"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 異常偵測 API
 
 > [!NOTE]
-> 此項目正在進行維護。 我們鼓勵您使用[異常偵測 API 服務](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/)由資源庫的機器學習演算法來偵測異常狀況，從 business，運作，以及 IoT 計量的 Azure 認知服務底下。
+> 此項目正在進行維護。 我們鼓勵您使用[異常偵測 API 服務](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/)由資源庫的機器學習演算法來偵測異常狀況，從 business，運作，以及 IoT 計量的 Azure 認知服務底下。
 
 ## <a name="overview"></a>概觀
 [異常偵測 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) 是一個搭配 Azure Machine Learning 建置的範例，此 API 使用固定時間間隔的數值，偵測時間序列資料中的異常狀況。

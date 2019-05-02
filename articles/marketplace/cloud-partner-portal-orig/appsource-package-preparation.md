@@ -1,25 +1,19 @@
 ---
-title: AppSource 套件準備 | Microsoft Docs
+title: AppSource 封裝準備 |Azure Marketplace
 description: 說明如何準備及建置 AppSource 套件。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625406"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935637"
 ---
 # <a name="appsource-package-preparation"></a>AppSource 套件準備
 
@@ -117,7 +111,7 @@ AppSource 套件需要一些額外的檔案。
 |SolutionAnchorName |Package Deployer 中用於解決方案資產顯示名稱和描述的解決方案 zip 檔案名稱。|
 | StartDate| 這是方案套件提供使用的日期。 格式為 MM/DD/YYYY|
 |EndDate|這是方案套件將停止使用的日期。 格式為 MM/DD/YYYY |
-|SupportedCountries |這是應該會看到此套件的國家/地區的逗號分隔清單。 請連絡線上服務，以取得一份所有目前的國家/地區代碼的清單。 同時，本文撰寫清單為：AE，AL，AM，AO，AR、 AT、 AU，AZ、 BA、 BB、 BD，是，BG、 BH、 BM、 BN、 BO、 巴西、 依 CA，CH，CI，CL，CM，CO、 CR、 CV，CW，CY、 CS-CZ、 DE、 DK、 執行、 DZ、 EC、 EE，例如，ES、 WI-FI、 FR、 GB、 GE、 GH、 GR、 GT、 香港特別行政區HN、 HR、 HU、 識別碼、 IE、 IL、 IN、 IQ，是，它、 JM，JO、 JP、 KE、 KG、 KN、 韓國、 千瓦，KY、 KZ、 LB、 LK、 L、 LU、 LV、 LY 拼湊的麻薩諸塞州、 MC，MD、 我、 MK，MN，MO，MT、 MU、 MX，我，NG，NI、 NL、 否、 紐西蘭、 OM、 PA、 PE、 PHPK、 PL、 提取要求、 PS、 PT、 PY、 QA、 RO、 RS、 RU、 RW、 SA、 SE、 SG、 SI，SK、 SN、 SV、 TH、 TM，TN、 TR、 TT、 TW、 UA、 美國、 UY、 UZ、 VE、 VI、 VN、 A-ZA、 ZW |
+|SupportedCountries |這是以逗號分隔的清單應該會看到此套件的國家/地區。 請連絡線上服務，以取得一份所有目前的國家/地區代碼的清單。 同時，本文撰寫清單為：AE，AL，AM，AO，AR、 AT、 AU，AZ、 BA、 BB、 BD，是，BG、 BH、 BM、 BN、 BO、 巴西、 依 CA，CH，CI，CL，CM，CO、 CR、 CV，CW，CY、 CS-CZ、 DE、 DK、 執行、 DZ、 EC、 EE，例如，ES、 WI-FI、 FR、 GB、 GE、 GH、 GR、 GT、 香港特別行政區HN、 HR、 HU、 識別碼、 IE、 IL、 IN、 IQ，是，它、 JM，JO、 JP、 KE、 KG、 KN、 韓國、 千瓦，KY、 KZ、 LB、 LK、 L、 LU、 LV、 LY 拼湊的麻薩諸塞州、 MC，MD、 我、 MK，MN，MO，MT、 MU、 MX，我，NG，NI、 NL、 否、 紐西蘭、 OM、 PA、 PE、 PHPK、 PL、 提取要求、 PS、 PT、 PY、 QA、 RO、 RS、 RU、 RW、 SA、 SE、 SG、 SI，SK、 SN、 SV、 TH、 TM，TN、 TR、 TT、 TW、 UA、 美國、 UY、 UZ、 VE、 VI、 VN、 A-ZA、 ZW |
 |LearnMoreLink | 此套件的詳細資訊頁面 URL。 |
 |Locales|針對您要在慣用方案 UX 中支援之每種 UX 語言的此節點的執行個體。 此節點包含描述每種語言之地區設定、標誌和字詞的子系|
 |地區設定：PackageLocale.Code|此節點之語言的 LCID。 範例：美式英文為 1033|

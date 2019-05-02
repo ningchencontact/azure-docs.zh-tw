@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure 資料方塊邊緣裝置的存取、 電源和連線模式 |Microsoft Docs
+title: Azure 資料方塊的邊緣裝置的存取、 電源和連線模式 |Microsoft Docs
 description: 說明如何管理存取、 電源及可協助將資料傳輸至 Azure 的 Azure 資料方塊的邊緣裝置的連線模式
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5fbe8f3eb05ac60918e488c68869c3fe44051a3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757268"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924356"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>管理您的 Azure 資料方塊邊緣的存取、 電源和連線模式
 

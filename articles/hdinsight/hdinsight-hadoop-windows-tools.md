@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 05/17/2017
-ms.openlocfilehash: 4d9d1ef6b7906ecebc399948a1ca0dcd590d5910
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765826"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926020"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>從 Windows 電腦在 HDInsight 上的 Apache Hadoop 生態系統中作業
 
@@ -29,11 +29,11 @@ Azure PowerShell 是一種指令碼環境，可讓您從 Windows 在 HDInsight �
 * [使用 PowerShell 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-powershell.md)。
 * [使用 PowerShell 管理叢集](hdinsight-administer-use-powershell.md)。
 
-請遵循步驟來[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 以取得最新的版本。 如果您需要修改指令碼才能使用適用於 Azure Resource Manager 的新 Cmdlet，請參閱[移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)](hdinsight-hadoop-development-using-azure-resource-manager.md)。
+請遵循步驟來[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 以取得最新的版本。
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>您可以在瀏覽器中執行的公用程式
 下列公用程式具有可在瀏覽器中執行的 Web UI：
-* **[Azure Cloud Shell (預覽)](https://docs.microsoft.com/azure/cloud-shell/quickstart)** 是可在瀏覽器中以及從 Azure 入口網站執行的互動式、命令列殼層。
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** 是互動式、 命令列殼層執行在瀏覽器，並從 Azure 入口網站。
 * **[Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** 是 Azure 入口網站中可用的管理和監視公用程式，可用來管理不同種類的作業，例如︰
     * [使用 Apache Ambari 搭配 REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Ambari 中的 Apache Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -57,9 +57,6 @@ Azure PowerShell 是一種指令碼環境，可讓您從 Windows 在 HDInsight �
 * [使用 .NET SDK 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
 * [在 Apache Hadoop 上搭配使用 C# 使用者定義函式與 Apache Hive 和 Apache Pig 串流處理](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)。
 
-> [!TIP]
-> 如果您執行的 .NET 解決方案是搭配 Windows 型 HDInsight 叢集，現在就是規劃移轉至 Linux 型叢集的好時機。 如需詳細資訊，請參閱[將以 Windows 為基礎的 HDInsight 適用的 .NET 方案移轉至以 Linux 為基礎的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)。
-
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>適用於 Spark 叢集的 Intellij IDEA 和 Eclipse IDE
 [Intellij IDEA](https://www.jetbrains.com/idea/download) 和 [Eclipse IDE](https://www.eclipse.org/downloads/) 都可以用來︰
 * 在 HDInsight Spark 叢集上開發並提交 Scala Spark 應用程式。
@@ -77,14 +74,17 @@ HDInsight 中的 Apache Spark 叢集包含可與 Jupyter Notebook 搭配使用�
 * [了解如何使用 Apache Spark 叢集上的核心搭配 Jupyter Notebook 來測試 Spark 應用程式](spark/apache-spark-zeppelin-notebook.md)
 * [了解如何使用 Apache Spark 叢集上的 Apache Zeppelin Notebook 來執行 Spark 作業](spark/apache-spark-jupyter-notebook-kernels.md) 
 
-
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>在 Windows 上執行以 Linux 為基礎的工具和技術
 
 如果您遇到必須使用只適用於 Linux 之工具或技術的情況，請考慮下列選項︰
 
-* **Windows 10 上的 Bash (Beta 版)** 在 Windows 上提供 Linux 子系統。 Bash 可讓您直接執行 Linux 公用程式，而不必維護專用的 Linux 安裝。 [在 Windows 10 上安裝和執行 Bash Beta 版](https://msdn.microsoft.com/commandline/wsl/install_guide)
+* **在 Windows 10 上 Ubuntu 的 bash**在 Windows 上提供 Linux 子系統。 Bash 可讓您直接執行 Linux 公用程式，而不必維護專用的 Linux 安裝。 有关安装步骤，请参阅[适用于 Linux 的 Windows 子系统安装指南 - Windows 10](https://docs.microsoft.com/windows/wsl/install-win10)。  也可以使用其他 [Unix shell](https://www.gnu.org/software/bash/)。
 * **Docker for Windows** 可供存取許多以 Linux 為基礎的工具，並可以直接從 Windows 執行。 例如，您可以使用 Docker 直接從 Windows 執行 Hive 適用的 Beeline 用戶端。 您也可以使用 Docker 來執行本機 Jupyter Notebook，並從遠端連線到 HDInsight 上的 Spark。 [開始使用 Docker for Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** 可讓您透過 SSH 連線，以圖形方式瀏覽叢集檔案系統。
+
+## <a name="cross-platform-tools"></a>跨平台工具
+
+Azure 命令列介面 (CLI) 是用來管理 Azure 資源的 Microsoft 跨平台命令列體驗。  如需詳細資訊，請參閱 < [Azure 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
 
 ## <a name="next-steps"></a>後續步驟
 如果您不熟悉使用以 Linux 為基礎的叢集，請參閱下列文章︰

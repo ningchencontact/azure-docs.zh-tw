@@ -1,25 +1,18 @@
 ---
-title: Azure SaaS 應用程式供應項目試用產品設定 | Microsoft Docs
+title: Azure SaaS 應用程式供應項目測試磁碟機組態 |Azure Marketplace
 description: 在 Azure Marketplace 上設定 SaaS 應用程式供應項目的試用產品。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pbutlerm
-ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: c76290d6c96108ff04799151c82334264a4c3dd0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594207"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941707"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS 應用程式試用產品索引標籤
 

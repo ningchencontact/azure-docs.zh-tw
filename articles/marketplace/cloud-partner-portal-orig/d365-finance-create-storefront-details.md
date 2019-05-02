@@ -1,25 +1,18 @@
 ---
-title: 如何填寫店面詳細資料表單 | Microsoft Docs
+title: 如何填寫店面詳細資料表單
 description: 說明新的 Dynamics 365 Business Central 應用程式的店面詳細資料表單上的值。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397896"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935031"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>如何填寫店面詳細資料表單
 ===========================================
@@ -57,9 +50,9 @@ ms.locfileid: "60397896"
 
 ### <a name="supported-countriesregions"></a>支援的國家/區域
 
-此欄位會決定供應項目可供試用的國家/區域。 您只能選擇 Microsoft Dynamics 365 Business Central 已發行或處於預覽階段的國家/地區。 如需目前的清單，請參閱[支援的國家/地區和翻譯](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations)。
+此欄位可決定您供應項目可供試用的國家/區域。 您可以只選擇其中 Microsoft Dynamics 365 Business Central 已經可用或在預覽中的國家/地區。 如需目前的清單，請參閱[國家/地區與支援翻譯](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations)。
 
-![選取支援的國家/地區和翻譯](./media/d365-financials/image008.png)
+![選取國家/地區和翻譯支援](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>支援的語言

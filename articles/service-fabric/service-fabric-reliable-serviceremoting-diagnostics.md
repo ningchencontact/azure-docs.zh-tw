@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: e4c698dc5aa8a07d09835adeac39db6ee35f720c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 01430c40ec9fcf1af3a463f8f86d646d15b6dd49
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123173"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925946"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting 的診斷和效能監視
 Reliable ServiceRemoting 執行階段會發出[效能計數器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)。 這些項目提供深入了解 ServiceRemoting 的運作方式，並有助於疑難排解及效能監視。
@@ -100,5 +100,5 @@ Reliable Service 執行階段會發佈與執行服務方法相關的下列效能
 | Service Fabric Service |要求序列化的平均毫秒數 |在回應傳送至用戶端之前，序列化服務回應訊息所花費的時間 (單位為毫秒) |
 
 ## <a name="next-steps"></a>後續步驟
-* [範例程式碼](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric&sort=0)
+* [範例程式碼](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [PerfView 中的 EventSource 提供程序](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 4/23/2019
 ms.author: b-juche
-ms.openlocfilehash: fc748ee993855c77f25f9b115ea472df4281acec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764345"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719431"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>建立適用於 Azure NetApp Files 的磁碟區
 
@@ -44,7 +44,7 @@ ms.locfileid: "63764345"
     * **磁碟區名稱**      
         為您要建立的磁碟區指定名稱。   
 
-        名稱在資源群組內必須是唯一的。 長度至少必須有三個字元。  您可以使用任何英數字元。
+        磁碟區名稱必須是每個容量集區中的唯一的。 長度至少必須有三個字元。 您可以使用任何英數字元。
 
     * **容量集區**  
         指定您想要建立的磁碟區容量集區。
@@ -72,7 +72,9 @@ ms.locfileid: "63764345"
 4. 按一下 **通訊協定**，然後選取**NFS**為磁碟區的通訊協定類型。   
     * 指定**file-path** ，將用來建立新的磁碟區的匯出路徑。 匯出路徑會用來掛接和存取磁碟區。
 
-        檔案路徑名稱只能包含字母、數字和連字號 ("-")。 長度必須介於 16 到 40 個字元之間。  
+        檔案路徑名稱只能包含字母、數字和連字號 ("-")。 長度必須介於 16 到 40 個字元之間。 
+
+        檔案路徑必須是每個訂用帳戶和每個區域內唯一的。 
 
     * （選擇性）[設定 NFS 磁碟區匯出原則](azure-netapp-files-configure-export-policy.md)
 
@@ -89,6 +91,33 @@ ms.locfileid: "63764345"
 Azure 的 NetApp 檔案支援 SMBv3 磁碟區。 您要新增的 SMB 磁碟區之前建立 Active Directory 連線。 
 
 ### <a name="create-an-active-directory-connection"></a>建立 Active Directory 連線
+
+1. 請確定您符合下列 requiements: 
+
+    * 您使用的系統管理員帳戶必須能夠在組織單位 (OU) 指定的路徑，您將建立電腦帳戶。
+    * 您必須在適用的 Windows Active Directory (AD) 伺服器上開啟適當的連接埠。  
+        必要的連接埠如下所示： 
+
+        |     服務           |     Port     |     Protocol     |
+        |-----------------------|--------------|------------------|
+        |    AD Web 服務    |    9389      |    TCP           |
+        |    DNS                |    53        |    TCP           |
+        |    DNS                |    53        |    UDP           |
+        |    ICMPv4             |    N/A       |    「 回應回覆    |
+        |    Kerberos           |    464       |    TCP           |
+        |    Kerberos           |    464       |    UDP           |
+        |    Kerberos           |    88        |    TCP           |
+        |    Kerberos           |    88        |    UDP           |
+        |    LDAP               |    389       |    TCP           |
+        |    LDAP               |    389       |    UDP           |
+        |    LDAP               |    3268      |    TCP           |
+        |    NetBIOS 名稱       |    138       |    UDP           |
+        |    SAM/LSA            |    445       |    TCP           |
+        |    SAM/LSA            |    445       |    UDP           |
+        |    安全的 LDAP        |    636       |    TCP           |
+        |    安全的 LDAP        |    3269      |    TCP           |
+        |    w32time            |    123       |    UDP           |
+
 
 1. 從 NetApp 帳戶中，按一下**Active Directory 連線**，然後按一下**聯結**。  
 
@@ -134,12 +163,7 @@ Azure 的 NetApp 檔案支援 SMBv3 磁碟區。 您要新增的 SMB 磁碟區�
     * **磁碟區名稱**      
         為您要建立的磁碟區指定名稱。   
 
-        名稱在資源群組內必須是唯一的。 長度至少必須有三個字元。  您可以使用任何英數字元。
-
-    * **檔案路徑**  
-        指定要用於建立新磁碟區匯出路徑的檔案路徑。 匯出路徑會用來掛接和存取磁碟區。   
-     
-        檔案路徑名稱只能包含字母、數字和連字號 ("-")。 長度必須介於 16 到 40 個字元之間。  
+        磁碟區名稱必須是每個容量集區中的唯一的。 長度至少必須有三個字元。 您可以使用任何英數字元。
 
     * **容量集區**  
         指定您想要建立的磁碟區容量集區。

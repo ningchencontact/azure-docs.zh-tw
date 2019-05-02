@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/23/2019
+ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108741"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696650"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>儲存多達 10 年的 Azure SQL Database 備份
 
@@ -29,17 +29,17 @@ ms.locfileid: "58108741"
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL Database 長期保留如何運作
 
-長期備份保留 (LTR) 會運用[自動建立](sql-database-automated-backups.md)的完整資料庫備份來啟用時間點還原 (PITR)。 如果設定了 LTR 原則，就會將這些備份複製到不同的儲存體 Blob。
-您可以為每個 SQL Database 設定 LTR 原則，並指定要將備份複製至長期儲存體 Blob 的頻率。 為了獲得這樣的彈性，您可以用這四個參數的組合定義原則：每週備份保留 (W)、每月備份保留 (M)、每年備份的保留期 (Y) 及年度週次 (WeekOfYear)。 如果指定 W，每週一次的備份會複製到長期儲存體。 如果指定 M，每月第一週進行的一次備份會複製到長期儲存體。 如果指定 Y，在以 WeekOfYear 指定的當週進行的一次備份會複製到長期儲存體。 在長期儲存體中，每個備份會保留以這些參數所指定的期間。 
+長期備份保留 (LTR) 會運用[自動建立](sql-database-automated-backups.md)的完整資料庫備份來啟用時間點還原 (PITR)。 如果已設定的 LTR 原則，這些備份會複製到不同的 blob，長期的儲存體中。 複製作業是沒有任何效能影響的資料庫工作負載的背景工作。 LTR 備份會保留一段 LTR 原則所設定的時間。 每個 SQL 資料庫的 LTR 原則也可以指定 LTR 備份建立的頻率。 若要獲得這樣的彈性，您可以定義使用的四個參數組合的原則： 每週備份保留 (W)、 每月備份保留 (M)、 每年備份保留期 (Y) 及年度週次 (WeekOfYear)。 如果指定 W，每週一次的備份會複製到長期儲存體。 如果指定 M，每月第一週進行的一次備份會複製到長期儲存體。 如果指定 Y，在以 WeekOfYear 指定的當週進行的一次備份會複製到長期儲存體。 在長期儲存體中，每個備份會保留以這些參數所指定的期間。 LTR 原則的任何變更適用於未來的備份。 比方說，如果指定的 WeekOfYear 在過去，當設定原則，第一次的 LTR 備份會建立下一個年度。 
 
-範例：
+LTR 原則的範例：
 
 -  W=0, M=0, Y=5, WeekOfYear=3
 
-   每年的第 3 個完整備份會保留 5 年。
+   每年的第三個完整備份會保留五年的時間。
+   
 - W=0, M=3, Y=0
 
-   每月的第 1 個完整備份會保留 3 個月。
+   每個月的第一個完整備份會保留三個月。
 
 - W=12, M=0, Y=0
 
@@ -47,7 +47,7 @@ ms.locfileid: "58108741"
 
 - W=6, M=12, Y=10, WeekOfYear=16
 
-   每個每週完整備份皆會保留 6 個月。 但每月的第 1 個完整備份除外，這個備份會保留 12 個月。 以及每年的第 16 週的完整備份除外，這個備份會保留 10 年。 
+   每個每週完整備份會保留六週內。 但每月的第 1 個完整備份除外，這個備份會保留 12 個月。 以及每年的第 16 週的完整備份除外，這個備份會保留 10 年。 
 
 下表說明以下原則的長期備份日程和到期日：
 
@@ -57,23 +57,26 @@ W=12 週 (84 天)、M=12 個月 (365 天)、Y=10 年 (3650 天)、WeekOfYear=15 
 
 
 
-如果您修改上述原則，設定成 W = 0 (沒有每週備份)，複製備份的日程會變更為上表中醒目提示的日期。 用來保留這些備份所需的儲存體數量會跟著減少。 
+如果您修改上述原則，並設定 W = 0 （沒有每週備份），頻率的備份複本時，將會變更顯示在上表中的反白顯示的日期。 用來保留這些備份所需的儲存體數量會跟著減少。 
 
 > [!NOTE]
-> 1. LTR 複製是由 Azure 儲存體服務執行，因此複製程序對現有資料庫的效能沒有影響。
-> 2. 該原則適用於未來的備份。 例如 如果在設定原則時指定的 WeekOfYear 為過去時間，則將在下一個年度建立第一個 LTR 備份。 
-> 3. 若要從 LTR 儲存體還原資料庫，可以依時間戳記選取特定備份。   可將資料庫還原至原始資料庫相同訂用帳戶底下的任何現有伺服器。 
+> 個別的 LTR 備份的時間會受到 Azure SQL Database。 您無法以手動方式建立 LTR 備份，或控制建立備份的時機。
+> 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>異地複寫和長期備份保留
 
-如果您使用主動式異地複寫或容錯移轉群組作為商務持續性解決方案，您應為最終容錯移轉最好準備，並在不同地區的次要資料庫中設定相同 LTR 原則。 由於備份不是從次要區域產生的，因此這不會增加 LTR 的儲存體成本。 只有當次要變成主要時，備份才會建立。 如此一來，當觸發容錯移轉，以及主要區域移到次要區域時，您可保證 LTR 備份可以不受中斷地產生。 
+如果您使用主動式異地複寫或容錯移轉群組做為商務持續性解決方案，您應該準備進行最終容錯移轉和異地次要資料庫上設定相同的 LTR 原則。 備份不會產生的次要複本從 LTR 儲存體成本不會增加。 只有當次要變成主要時，備份才會建立。 觸發容錯移轉和主要移到次要區域時，它會確保不中斷產生 LTR 備份。 
 
 > [!NOTE]
-> 當原本的主要資料庫從造成容錯移轉的中斷情況中復原時，它會變成新的次要資料庫。 因此，備份的建立不會繼續，而且現有的 LTR 原則將不會生效，除非它再次變成主要資料庫。 
+> 當原始的主要資料庫復原從中斷情況解決造成容錯移轉時，它會變成新的次要資料庫。 因此，備份的建立不會繼續，而且現有的 LTR 原則將不會生效，除非它再次變成主要資料庫。 
 
 ## <a name="configure-long-term-backup-retention"></a>設定長期備份保留期
 
-若要了解如何使用 Azure 入口網站或使用 PowerShell 設定長期保留，請參閱[設定長期備份保留](sql-database-long-term-backup-retention-configure.md)。
+若要了解如何使用 Azure 入口網站或 PowerShell 設定長期保留，請參閱[管理 Azure SQL Database 長期備份保留](sql-database-long-term-backup-retention-configure.md)。
+
+## <a name="restore-database-from-ltr-backup"></a>從 LTR 備份還原資料庫
+
+若要從 LTR 儲存體還原資料庫，可以依時間戳記選取特定備份。 可將資料庫還原至原始資料庫相同訂用帳戶底下的任何現有伺服器。 若要了解如何在您的資料庫從 LTR 備份還原，使用 Azure 入口網站或 PowerShell，請參閱[管理 Azure SQL Database 長期備份保留](sql-database-long-term-backup-retention-configure.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

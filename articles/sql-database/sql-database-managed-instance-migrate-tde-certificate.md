@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 43793380fab2bcece215c53b82e09a3c3a849af3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/25/2019
+ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833908"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706110"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>將受 TDE 保護之資料庫的憑證移轉到 Azure SQL Database 受控執行個體
 
@@ -31,20 +31,20 @@ ms.locfileid: "57833908"
 如需使用完全受控服務以進行受 TDE 保護資料庫和對應憑證順暢移轉的替代選項，請參閱[如何使用 Azure 資料庫移轉服務，將您的內部部署資料庫移轉到受控執行個體](../dms/tutorial-sql-server-to-managed-instance.md)。
 
 > [!IMPORTANT]
-> 適用於 Azure SQL Database 受控執行個體的透明資料加密可以在服務管理模式中運作。 移轉的憑證僅適用於還原受 TDE 保護的資料庫。 還原完成之後，移轉的憑證會立即由不同的系統管理憑證取代。
+> 移轉的憑證僅適用於還原受 TDE 保護的資料庫。 即將完成還原之後，已移轉的憑證取得取代由不同的保護裝置，受服務管理憑證或非對稱金鑰從 key vault，視您在執行個體設定透明資料加密的類型而定。
 
 ## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 若要完成本文中的步驟，您必須符合下列先決條件︰
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 命令列工具會安裝在內部部署伺服器或其他電腦上，可以存取匯出為檔案的憑證。 Pvk2Pfx 工具屬於[企業 Windows 驅動程式套件](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)，這是一個獨立式命令列環境。
 - 已安裝 [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) 5.0 版或更新版本。
-- Azure PowerShell 模組[安裝和更新](https://docs.microsoft.com/powershell/azure/install-az-ps)。
-- [Az.Sql 模組](https://www.powershellgallery.com/packages/Az.Sql)。
+- [已安装并更新](https://docs.microsoft.com/powershell/azure/install-az-ps) Azure PowerShell 模块。
+- [Az.Sql 模块](https://www.powershellgallery.com/packages/Az.Sql)。
   在 PowerShell 中執行下列命令以安裝/更新 PowerShell 模組：
 
    ```powershell

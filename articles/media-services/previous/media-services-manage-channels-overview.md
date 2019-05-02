@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a9d0daaacb046df7943202775adc77bc912cce11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61217549"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867901"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>使用媒體服務之即時串流的概觀
 
 > [!NOTE]
-> 從 2018 年 5 月 12 日開始，即時通道將不再支援 RTP/MPEG-2 傳輸串流內嵌通訊協定。 請從 RTP/MPEG-2 移轉到 RTMP 或分散式 MP4 (Smooth Streaming) 內嵌通訊協定。
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>概觀
 
@@ -42,9 +42,14 @@ ms.locfileid: "61217549"
   * 記錄並儲存擷取的內容以於稍後進行串流 (隨選視訊)
   * 透過一般串流通訊協定 (例如，MPEG DASH、Smooth、HLS) 直接將內容傳遞給客戶，或傳遞至內容傳遞網路 (CDN) 供進一步的發佈。
 
-Microsoft Azure 媒体服务 (AMS) 提供了引入、编码、预览、存储和实时传送视频流内容的功能。
+**Microsoft Azure 媒體服務** (AMS) 提供擷取、編碼、預覽、儲存和傳遞即時串流內容的能力。
 
-将内容传送给客户时，目标是将优质视频传送到处于不同网络条件下的各种设备。 為達成此目的，請使用即時編碼器將您的串流編碼成多位元速率 (調適性位元速率) 視訊串流。  請注意不同裝置上的串流，使用媒體服務 [動態封裝](media-services-dynamic-packaging-overview.md) 將串流動態地重新封裝至不同的通訊協定。 媒體服務支援傳遞下列自適性串流技術：HTTP 即時串流 (HLS)、Smooth Streaming、MPEG DASH。
+使用媒體服務，您可以善用[動態封裝](media-services-dynamic-packaging-overview.md)，可讓您將廣播即時資料流中 MPEG DASH、 HLS、 Smooth Streaming 格式從比重摘要傳送至服務。 您的檢視者可以搭配支援 HLS、DASH 或 Smooth Streaming 的播放器播放即時串流。 您可以使用 Azure Media Player 在您的 web 或行動應用程式，提供您在任何這些通訊協定中的資料流。
+
+> [!NOTE]
+> 從 2018 年 5 月 12 日開始，即時通道將不再支援 RTP/MPEG-2 傳輸串流內嵌通訊協定。 請從 RTP/MPEG-2 移轉到 RTMP 或分散式 MP4 (Smooth Streaming) 內嵌通訊協定。
+
+## <a name="streaming-endpoints-channels-programs"></a>串流端點、 通道、 程式
 
 在 Azure 媒體服務中，**通道**、**程式**及 **StreamingEndpoints** 會處理所有的即時串流功能，包括內嵌、格式化、DVR、安全性、延展性和備援能力。
 

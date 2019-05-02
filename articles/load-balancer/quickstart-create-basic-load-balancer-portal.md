@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507876"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727592"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立基本負載平衡器
 
@@ -41,7 +41,7 @@ ms.locfileid: "60507876"
     | ---                     | ---                                                |
     | 訂用帳戶               | 選取您的訂用帳戶。    |    
     | 資源群組         | 選取 [新建]，並在文字方塊中輸入 *MyResourceGroupLB*。|
-    | Name                   | *myLoadBalancer*                                   |
+    | 名稱                   | *myLoadBalancer*                                   |
     | 區域         | 選取 [西歐]。                                        |
     | 類型          | 選取 [公用]。                                        |
     | SKU           | 選取 [基本]。                          |
@@ -235,21 +235,27 @@ ms.locfileid: "60507876"
    
    VM 桌面會在新視窗中開啟。 
    
-**若要在 VM 上安裝 IIS：**
+**若要安裝 IIS**
 
-1. 如果 [伺服器管理員] 尚未在伺服器桌面上開啟，請瀏覽至 [Windows 系統管理工具] > [伺服器管理員]。
-   
-1. 在 [伺服器管理員] 中，選取 [新增角色及功能]。
-   
-   ![新增伺服器管理員角色](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. 在 [新增角色及功能精靈] 中：
-   1. 在 [選取安裝類型] 頁面中，選取 [角色型或功能型安裝]。
-   1. 在 [選取目的地伺服器] 頁面上，選取 [MyVM1]。
-   1. 在 [選取伺服器角色] 頁面上，按一下 [網頁伺服器 (IIS)]。 
-   1. 在安裝必要工具的提示中，選取 [新增功能]。 
-   1. 接受預設值，然後選取 [安裝]。 
-   1. 當功能安裝完成時，請選取 [關閉]。 
+1. 選取左側功能表中的 [所有服務]、選取 [所有資源]，然後從資源清單選取 *myResourceGroupSLB* 資源群組中的 [myVM1]。
+2. 在 [概觀] 頁面上，選取 [連線] 以透過 RDP 連入 VM。
+5. 使用您在此 VM 建立期間提供的認證登入 VM。 這會啟動虛擬機器的遠端桌面工作階段 - *myVM1*。
+6. 在伺服器桌面上，瀏覽至 [Windows 系統管理工具]>[Windows PowerShell]。
+7. 在 PowerShell 視窗中，執行下列命令以安裝 IIS 伺服器、移除預設 iisstart.htm 檔案，然後新增會顯示 VM 名稱的 iisstart.htm 檔案：
+
+   ```azurepowershell
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+    remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. 使用 myVM1 關閉 RDP 工作階段。
+7. 重複步驟 1 到 6，在 myVM2 上安裝 IIS 和更新的 iisstart.htm 檔案。
    
 1. 針對虛擬機器 **MyVM2** 重複步驟，但是將目的地伺服器設定為 [MyVM2]。
 
@@ -257,9 +263,9 @@ ms.locfileid: "60507876"
 
 開啟瀏覽器，並在瀏覽器的網址列中貼入負載平衡器的公用 IP 位址。 IIS Web 伺服器預設頁面應會出現在瀏覽器中。
 
-![IIS 網頁伺服器](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+![IIS Web 伺服器](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-若要查看負載平衡器如何將流量分散於執行您應用程式的這三部 VM，您可以強制重新整理您的 Web 瀏覽器。
+若要查看負載平衡器如何將流量分散於執行您應用程式的這兩個 VM，您可以強制重新整理您的網頁瀏覽器。
 ## <a name="clean-up-resources"></a>清除資源
 
 當您不再需要時，若要刪除負載平衡器和所有相關的資源，請開啟 **MyResourceGroupLB** 資源群組並選取 [刪除資源群組]。

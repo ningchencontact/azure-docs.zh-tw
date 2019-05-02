@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 7e37d8e732408e70dbcdc86d3e21556f553506cd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 26306489b11e24ab50f0ae893f11137d279c6127
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768479"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719822"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>當 Azure VM 開機時 Windows 顯示藍色畫面錯誤
 本文描述當您在 Microsoft Azure 中將 Windows 虛擬機器 (VM) 開機時可能碰到的藍色畫面錯誤。 它提供步驟，以協助您收集支援票證的資料。 
@@ -56,7 +56,7 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>找出傾印檔案，並提交支援票證
 
 1. 在復原 VM 上，移至已連結 OS 磁碟的 Windows 資料夾。 如果指派給已連結 OS 磁碟的磁碟機代號是 F，您必須移至 F:\Windows。
-2. 找到 memory.dmp 檔案，然後以傾印檔案[提交支援票證](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。 
+2. 找到 memory.dmp 檔案，然後[提交支援票證](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)傾印檔案。 
 
 如果找不到傾印檔案，請移到下一個步驟來啟用傾印記錄檔和序列主控台。
 

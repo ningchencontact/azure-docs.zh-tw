@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 6a4ad827c39ec106acdc7b52a5b769ab6e7febf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 362df8cee163bcd2d1dac73c650e42ee4f0f7751
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710742"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920109"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>如何在 Azure API 管理中管理使用者帳戶
 
-在 API 管理中，開發人員是指您使用 API 管理所公開之 API 的使用者。 本指南演示如何创建和邀请开发人员使用通过 API 管理实例向其提供的 API 和产品。 如需以程式設計方式管理使用者帳戶的相關資訊，請參閱 [API 管理 REST](/rest/api/apimanagement/) 參考中的[使用者實體](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)文件。
+在 API 管理中，開發人員是指您使用 API 管理所公開之 API 的使用者。 本指南演示如何创建和邀请开发人员使用通过 API 管理实例向其提供的 API 和产品。 如需以程式設計方式管理使用者帳戶的相關資訊，請參閱 [API 管理 REST](/rest/api/apimanagement/) 參考中的[使用者實體](https://docs.microsoft.com/rest/api/apimanagement/user)文件。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -69,7 +69,7 @@ ms.locfileid: "60710742"
 
 ## <a name="reset-a-user-password"></a>重設使用者密碼
 
-若要以程式設計方式使用使用者帳戶，請參閱 [API 管理 REST](/rest/api/apimanagement/) 參考中的[使用者實體](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)文件。 若要將使用者帳戶密碼重設為特定值，您可以使用 [更新使用者](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) 作業並指定所要的密碼。
+若要以程式設計方式使用使用者帳戶，請參閱 [API 管理 REST](/rest/api/apimanagement/) 參考中的[使用者實體](https://docs.microsoft.com/rest/api/apimanagement/user)文件。 若要將使用者帳戶密碼重設為特定值，您可以使用 [更新使用者](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) 作業並指定所要的密碼。
 
 ## <a name="next-steps"> </a>後續步驟
 建立開發人員帳戶之後，您可以將它與角色建立關聯，並讓它訂閱產品和 API。 如需詳細資訊，請參閱[如何建立和使用群組][How to create and use groups]。

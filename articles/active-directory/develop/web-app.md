@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 04/08/2019
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea3e1b951a683d7ee1def09024e531e94dd905b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296807"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918519"
 ---
 # <a name="web-apps"></a>Web 應用程式
 
@@ -46,7 +45,7 @@ Web 應用程式是向 Web 應用程式驗證 Web 瀏覽器中使用者的應用
 
 ## <a name="app-registration"></a>應用程式註冊
 
-若要註冊 Web 應用程式，請參閱[向 Azure AD v1.0 端點註冊應用程式](quickstart-v1-add-azure-ad-app.md)。
+若要註冊 web 應用程式，請參閱[註冊應用程式](quickstart-register-app.md)。
 
 * 單一租用戶 - 如果您只要為組織建置一個應用程式，則必須使用 Azure 入口網站，將它註冊在公司的目錄中。
 * 多租用戶 - 如果您要建置的應用程式可供組織外的使用者使用，它必須註冊在公司的目錄中，但也必須在每個將會使用該應用程式的組織的目錄中註冊。 若要讓您的應用程式出現在他們的目錄中，您可以為客戶加上註冊程序，讓他們同意應用程式。 當他們註冊您的應用程式時，他們會看到對話方塊顯示應用程式所需的權限，以及是否同意的選項。 根據所需的權限，其他組織的系統管理員可能必須同意。 當使用者或系統管理員同意時，應用程式就會註冊在他們的目錄中。
@@ -59,5 +58,3 @@ Web 應用程式是向 Web 應用程式驗證 Web 瀏覽器中使用者的應用
 
 * 深入了解其他[應用程式類型和案例](app-types.md)
 * 了解 Azure AD [驗證基本概念](authentication-scenarios.md)
-
-<!-- Update_Description: wording update -->

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
 ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127390"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713011"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。

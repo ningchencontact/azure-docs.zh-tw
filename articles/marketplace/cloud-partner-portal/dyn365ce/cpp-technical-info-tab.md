@@ -1,25 +1,18 @@
 ---
-title: Dynamics 365 for Customer Engagement 技術資訊索引標籤 - Azure Marketplace | Microsoft Docs
+title: Dynamics 365 for Customer Engagement 技術 Info 索引標籤 |Azure Marketplace
 description: 如何在 AppSource Marketplace 上指定 Dynamics 365 for Customer Engagement 應用程式的技術資訊。
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/05/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: df7f3be5a92a183176da7851ce1943793b8b57d0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332843"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942363"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Dynamics 365 for Customer Engagement 技術資訊索引標籤
 
@@ -32,13 +25,13 @@ ms.locfileid: "60332843"
 
 ![[技術資訊] 索引標籤的 [應用程式資訊] 區段](./media/dynce-technical-info-tab1.png)
 
-下表描述這些欄位。
+下表描述這些欄位。 必要欄位由星號 (*) 標示。
 
 |      欄位                    |    描述                  |
 |    ---------                  |  ---------------                |
-|   基本授權模型          |  授權模型會決定客戶如何在 Dynamics 365 系統管理中心指派您的應用程式。 **資源**授權是執行個體型，其中一個租用戶獲指派一個**使用者**授權。  |
-|  S2S 輸出與 CRM 安全存放區存取 |  啟用 CRM 安全存放區或伺服器對伺服器 (S2S) 輸出存取的組態。 這項功能需要 Dynamics 365 小組在認證階段期間的特殊考量。 Microsoft 會連絡您完成其他步驟，以支援這項功能。  |
-| 訂閱 CRM 生命週期事件 | 與 Dynamics 365 生命週期事件的整合需要您提供透過特殊合約向 Microsoft 註冊的專用服務。 這項功能需要 Dynamics 365 小組在認證階段期間的特殊考量。 您會收到通知指示您完成其他步驟，以支援這項功能。  |
+|   基底的授權模型\*          |  授權模型會決定客戶如何在 Dynamics 365 系統管理中心指派您的應用程式。 **資源**授權是執行個體型，其中一個租用戶獲指派一個**使用者**授權。  |
+|  S2S 輸出與 CRM 安全存放區存取權\* |  啟用 CRM 安全存放區或伺服器對伺服器 (S2S) 輸出存取的組態。 這項功能需要 Dynamics 365 小組在認證階段期間的特殊考量。 Microsoft 會連絡您完成其他步驟，以支援這項功能。  |
+| 訂閱 CRM 生命週期事件\* | 與 Dynamics 365 生命週期事件的整合需要您提供透過特殊合約向 Microsoft 註冊的專用服務。 這項功能需要 Dynamics 365 小組在認證階段期間的特殊考量。 您會收到通知指示您完成其他步驟，以支援這項功能。  |
 | 應用程式組態 URL | 網頁的 URL，可讓使用者設定應用程式 |
 | 適用的 Dynamics 365 產品  | 選取此供應項目適用的 Dynamics 365 產品。 此供應項目會出現在 AppSource 中已選取的產品底下。  |
 | 僅行銷變更         | 將這個選項設定為 [是] 表示只會對現有供應項目進行行銷/描述性變更。  這類變更可讓供應項目略過憑證和佈建階段。  |
@@ -51,14 +44,14 @@ ms.locfileid: "60332843"
 
 ![[技術資訊] 索引標籤的 [CRM 套件] 區段](./media/dynce-technical-info-tab2.png)
 
-下表描述這些欄位。
+下表描述這些欄位。  必要欄位由星號 (*) 標示。
 
 |      欄位                    |    描述                  |
 |    ---------                  |  ---------------                |
-|  套件的檔案名稱     |  套件的檔案名稱 (.zip)。  這個名稱「不是」公用，而是由 Dynamics 365 認證小組在內部使用。  |
-|  Url                          |  Azure 儲存體帳戶的 URL，其中包含已上傳的套件檔案。 此 URL 應包含唯讀 SAS 金鑰，讓我們的小組挑選要進行驗證的套件。  |
-| 一個以上的 CRM 套件     | 只有當您以其他套件支援 CRM 的多個版本時，才選取 [是]。  每個版本都有您必須個別建立的對應套件檔案。  |
-| 案例和使用案例資產   | 上傳應用程式的功能規格文件，供 Dynamics 365 驗證小組使用。  此規格的偏好格式是 [E2E 使用者案例範本](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx)。  |
+|  封裝的檔名\*     |  套件的檔案名稱 (.zip)。  這個名稱「不是」公用，而是由 Dynamics 365 認證小組在內部使用。  |
+|  封裝位置的 Url\*      |  Azure 儲存體帳戶的 URL，其中包含已上傳的套件檔案。 此 URL 應包含唯讀 SAS 金鑰，讓我們的小組挑選要進行驗證的套件。  |
+| 一個以上的 crm 封裝\*     | 只有當您以其他套件支援 CRM 的多個版本時，才選取 [是]。  每個版本都有您必須個別建立的對應套件檔案。  |
+| 案例和使用案例的資產\*   | 上傳應用程式的功能規格文件，供 Dynamics 365 驗證小組使用。  此規格的偏好格式是 [E2E 使用者案例範本](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx)。  |
 |  |  |
 
 

@@ -14,14 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c0571e202448951de0994d34f68e1649eabd5519
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 65e5b5502b7d63d89845781487443f539a708816
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61128048"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866958"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>使用 Azure 入口網站設定內容保護原則
+
+> [!NOTE]
+> 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。   > 任何新的特色或功能會被新增至媒體服務 v2。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+>
+
  您可以透過 Azure 媒體服務來保護媒體從離開電腦到進行儲存、處理和傳遞時的安全。 您可以利用媒體服務傳遞，使用進階加密標準 (AES) (使用 128 位元加密金鑰) 所動態加密的內容。 您也可以將它與一般加密 (CENC) 搭配使用，方法是使用 PlayReady 和/或 Widevine 數位版權管理 (DRM) 和 Apple FairPlay。 
 
 媒體服務提供一種服務，將 DRM 授權和 AES 清除金鑰傳遞給授權用戶端。 您可以使用 Azure 入口網站，針對所有加密類型建立一個金鑰/授權的授權原則。

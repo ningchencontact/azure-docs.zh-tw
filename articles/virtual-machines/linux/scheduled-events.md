@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aacb4521f4c6e8699be357cf396a01b7eb54b552
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799260"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924381"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure 中繼資料服務：Linux VM 的已排定事件
 
@@ -49,7 +49,7 @@ ms.locfileid: "60799260"
 - 平台起始的維護 (例如，主機 OS 更新)
 - 降級的硬體
 - 使用者起始的維護 (例如，使用者重新啟動或重新部署 VM)
-- [低優先順序 VM 收回](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets)在擴展集
+- [低優先順序 VM 收回](https://azure.microsoft.com/blog/low-priority-scale-sets)在擴展集
 
 ## <a name="the-basics"></a>基本概念  
 

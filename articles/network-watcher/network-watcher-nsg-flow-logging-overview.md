@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 6e15149dec9fdbb7413745d36b3f6a158113b586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684537"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925418"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>網路安全性群組流量記錄簡介
 
@@ -91,7 +91,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **在所有附加到資源的 NSG 上啟用 NSG 流量記錄**：Azure 中的流量記錄是在 NSG 資源上設定的。 流量只會與一個 NSG 規則相關聯。 在利用多個 NSG 的情況下，建議在適用於資源子網路或網路介面的所有 NSG 上啟用 NSG 流量記錄，以確保會記錄所有的流量。 如需網路安全性群組的詳細資訊，請參閱[如何評估流量](../virtual-network/security-overview.md#how-traffic-is-evaluated)。 
 
-**流量記錄成本**：NSG 流量記錄是以產生的記錄量來計費。 高流量可能會產生大量流量記錄和相關費用。 NSG 流量記錄價格不包括儲存體的基礎結構費用。 透過 NSG 流量記錄使用保留原則功能可能會產生大量的儲存體作業和相關成本。 如果您不需要保留原則功能，建議您將此值設為 0。 如需詳細資訊，請參閱[網路監看員價格](https://azure.microsoft.com/en-us/pricing/details/network-watcher/)和 [Azure 儲存體定價](https://azure.microsoft.com/en-us/pricing/details/storage/)。
+**流量記錄成本**：NSG 流量記錄是以產生的記錄量來計費。 高流量可能會產生大量流量記錄和相關費用。 NSG 流量記錄價格不包括儲存體的基礎結構費用。 透過 NSG 流量記錄使用保留原則功能可能會產生大量的儲存體作業和相關成本。 如果您不需要保留原則功能，建議您將此值設為 0。 如需詳細資訊，請參閱[網路監看員價格](https://azure.microsoft.com/pricing/details/network-watcher/)和 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。
 
 **輸入記錄來自網際網路的 Ip，而不需要公用 Ip 的 vm 的流程**:Vm 未透過與作為執行的執行個體層級公用 IP，NIC 相關聯的公用 IP 位址指派的公用 IP 位址或屬於基本負載平衡器後端集區，使用[預設 SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat)和已指派的 IP 位址Azure，以進行輸出連線。 如此一來，您可能會看到流程的流程記錄項目從網際網路 IP 位址，如果流程的目的指派之 SNAT 連接埠的範圍中的連接埠。 Azure 不會讓這些流量到 VM，並同時嘗試會記錄，並依設計會出現在 網路監看員的 NSG 流量記錄。 我們建議您不想要的輸入的網際網路流量與 NSG 會明確遭到封鎖。
 

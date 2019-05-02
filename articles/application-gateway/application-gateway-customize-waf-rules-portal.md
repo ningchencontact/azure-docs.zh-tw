@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733711"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720391"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>透過 Azure 入口網站自訂 Web 應用程式防火牆規則
 
@@ -33,11 +33,14 @@ Azure 應用程式閘道 Web 應用程式防火牆 (WAF) 提供 Web 應用程式
 
 ## <a name="search-for-rules-to-disable"></a>搜尋要停用的規則
 
-[Web 應用程式防火牆設定] 刀鋒視窗提供透過文字搜尋篩選規則的功能。 結果只會顯示包含您搜尋之文字的規則群組與規則。
+**Web 應用程式防火牆設定**頁面提供的功能，來篩選透過文字搜尋的規則。 結果只會顯示包含您搜尋之文字的規則群組與規則。
 
 ![搜尋規則][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>停用規則群組與規則
+
+> [!IMPORTANT]
+> 停用任何規則群組] 或 [規則時，請務必小心。 這可能會您暴露於更高的安全性風險。
 
 禁用规则时可以禁用整个规则组，也可以禁用一个或多个规则组下的特定规则。 
 
@@ -51,7 +54,9 @@ Azure 應用程式閘道 Web 應用程式防火牆 (WAF) 提供 Web 應用程式
 
 ## <a name="mandatory-rules"></a>强制性规则
 
-以下列表包含导致 WAF 在防护模式下阻止请求的条件（在检测模式下，它们作为异常记录）。 无法配置或禁用这些规则：
+下列清單包含會造成封鎖的要求在防止模式中 WAF 的條件。 在偵測模式中，它們會記錄為例外狀況。
+
+无法配置或禁用这些规则：
 
 * 除非关闭正文检查（XML、JSON、表单数据），否则无法分析请求正文会导致请求被阻止
 * 请求正文（不带文件）数据长度大于配置的限制

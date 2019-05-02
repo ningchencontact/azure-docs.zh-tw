@@ -2,24 +2,18 @@
 title: Marketplace ‎商業交易功能和考量 | Azure
 description: 此文章描述提供項目類型的交易定價、計費、發票開立和付款考量。
 services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
-documentationcenter: ''
 author: yijenj
 manager: nuno costa
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf0c6a5234846499d7b8a49f427dba7af36edc15
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61064992"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937964"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace ‎商業交易功能和考量
 

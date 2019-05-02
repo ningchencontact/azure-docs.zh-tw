@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 815be7400e0a0560ace7e07b317aeb25c2feacd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f81aea22014a2c7d5b37c500a546f0b5350b6435
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817422"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925389"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>針對 Azure Machine Learning 服務 AKS 和 ACI 部署進行疑難排解
 
@@ -307,7 +307,7 @@ Azure Kubernetes 服務部署支援自動調整功能，可允許加入以支援
     > [!NOTE]
     > 如果收到大於新的最小複本可以處理的要求尖峰，可能會收到 503年一次。 比方說，為您的服務增加的流量，您可能需要增加 最小的複本。
 
-如需設定的詳細資訊`autoscale_target_utilization`， `autoscale_max_replicas`，並`autoscale_min_replicas`，請參閱[AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py)模組參考。
+如需設定的詳細資訊`autoscale_target_utilization`， `autoscale_max_replicas`，並`autoscale_min_replicas`，請參閱[AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py)模組參考。
 
 
 ## <a name="next-steps"></a>後續步驟

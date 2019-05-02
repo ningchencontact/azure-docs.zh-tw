@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0dd8d7c1e004472d230337b72d55ac7ced905b41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 965d1ace2afdad21a069193b508fc2b10fdf4700
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490923"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697236"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure 監視器中計量警示所支援的資源
 
 Azure 監視器現已可支援[新的計量警示類型](../../azure-monitor/platform/alerts-overview.md)，此類型具有遠優於[傳統計量警示](../../azure-monitor/platform/alerts-classic.overview.md)的優點。 計量適用於 [Azure 服務的大型清單](../../azure-monitor/platform/metrics-supported.md)。 新版警示則可支援該資源類型 (不斷增長) 的子集。 本文將列出該子集。
 
-您也可以儲存在 Log Analytics 工作區中擷取來作為計量的常用記錄資料使用新版計量警示。 如需詳細資訊，請檢視[記錄的計量警示](../../azure-monitor/platform/alerts-metric-logs.md)。
+还可以对提取为指标的常用日志数据（在 Log Analytics 工作区中存储）使用新型指标警报。 如需詳細資訊，請檢視[記錄的計量警示](../../azure-monitor/platform/alerts-metric-logs.md)。
 
 ## <a name="portal-powershell-cli-rest-support"></a>入口網站、PowerShell、CLI、REST 支援
 目前，您只能在 Azure 入口網站、[REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/) 或 [Resource Manager 範本](../../azure-monitor/platform/alerts-metric-create-templates.md)中建立新版計量警示。 即將支援使用 PowerShell 和 Azure CLI 2.0 版與更新版本來設定新版警示。
@@ -44,8 +44,8 @@ Azure 監視器現已可支援[新的計量警示類型](../../azure-monitor/pla
 |Microsoft.DataFactory/factories     |   是     |[資料處理站 (V2)](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   N/A      |[適用於 MySQL 的 DB](../../azure-monitor/platform/metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/A     | [適用於 PostgreSQL 的 DB](../../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
-|Microsoft.Devices/IotHubs    | N/A     |[IoT 中樞度量](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)
-|Microsoft.Devices/provisioningServices    | 是     |[DPS 計量](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)
+|Microsoft.Devices/IotHubs    | N/A     |[IoT 中心指标](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)
+|Microsoft.Devices/provisioningServices    | 是     |[DPS 指标](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)
 |Microsoft.EventHub/namespaces     |  是      |[事件中樞](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/vaults| 否 | [保存庫](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
@@ -58,7 +58,7 @@ Azure 監視器現已可支援[新的計量警示類型](../../azure-monitor/pla
 |Microsoft.OperationalInsights/workspaces| 是|[Log Analytics 工作區](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 |Microsoft.PowerBIDedicated/capacities | N/A | [容量](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices     |   N/A      |[搜尋服務](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
-|Microsoft.ServiceBus/namespaces     |  是       |[服務匯流排](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
+|Microsoft.ServiceBus/namespaces     |  是       |[服务总线](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    是     | [儲存體帳戶](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
 |Microsoft.Storage/storageAccounts/services     |     是    | [Blob 服務](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices)、[檔案服務](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices)、[佇列服務](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices)及[資料表服務](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/A       | [串流分析](../../azure-monitor/platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs)|
@@ -68,6 +68,10 @@ Azure 監視器現已可支援[新的計量警示類型](../../azure-monitor/pla
 
 
 ## <a name="payload-schema"></a>承載結構描述
+
+> [!NOTE]
+> 您也可以使用[常見的警示結構描述](https://aka.ms/commonAlertSchemaDocs)、 提供一個可延伸的優點，並統一跨所有警示的警示承載的 webhook 整合服務在 Azure 監視器中。 [深入了解常見的警示的結構描述定義。](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 當使用已適當設定的[動作群組](../../azure-monitor/platform/action-groups.md)時，POST 作業會針對所有新版計量警示，包含下列 JSON 承載和結構描述：
 

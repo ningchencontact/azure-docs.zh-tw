@@ -1,25 +1,25 @@
 ---
-title: Azure Data Factory 中的資料集和已連結的服務 | Microsoft Docs
-description: 了解 Data Factory 中的資料集和已連結的服務。 已連結的服務會將計算/資料存放區連結至資料處理站。 資料集代表輸入/輸出資料。
+title: Azure Data Factory 中的資料集 |Microsoft Docs
+description: 深入了解 Data Factory 中的資料集。 資料集代表輸入/輸出資料。
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/25/2019
 ms.author: shlo
-ms.openlocfilehash: 9e5da96cb02e681c83bd707fc038117050712ccf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6b74f217d296b5de8886f608b1bc92e908b5d8b4
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61261838"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866456"
 ---
-# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory 中的資料集和已連結的服務
+# <a name="datasets-in-azure-data-factory"></a>Azure Data Factory 中的資料集
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-create-datasets.md)
 > * [目前的版本](concepts-datasets-linked-services.md)
@@ -29,11 +29,9 @@ ms.locfileid: "61261838"
 如果您不熟悉 Data Factory，請參閱 [Azure Data Factory 簡介](introduction.md)來概略了解。
 
 ## <a name="overview"></a>概觀
-資料處理站可以有一或多個管線。 「管線」是一起執行某個工作的「活動」所組成的邏輯群組。 管線中的活動會定義要在資料上執行的動作。 例如，您可以使用複製活動將資料從內部部署 SQL Server 複製到 Azure Blob 儲存體。 接著，您可以使用在 Azure HDInsight 叢集上執行 Hive 指令碼的 Hive 活動，來處理來自 Blob 儲存體的資料以產生輸出資料。 最後，您可以使用第二個複製活動將輸出資料複製到「Azure SQL 資料倉儲」，以在該處建置商業智慧 (BI) 報表解決方案。 如需有關管線和活動的詳細資訊，請參閱 Azure Data Factory 中的[管線和活動](concepts-pipelines-activities.md)。
+資料處理站可以有一或多個管線。 「管線」是一起執行某個工作的「活動」所組成的邏輯群組。 管線中的活動會定義要在資料上執行的動作。 現在，「資料集」是一個具名的資料檢視，指向或參考您想要在「活動」中用來作為輸入或輸出的資料。 資料集可識別資料表、檔案、資料夾和文件等各種資料存放區中的資料。 例如，Azure Blob 資料集會指定活動應從中讀取資料之 Blob 儲存體中的 Blob 容器和資料夾。
 
-現在，「資料集」是一個具名的資料檢視，指向或參考您想要在「活動」中用來作為輸入或輸出的資料。 資料集可識別資料表、檔案、資料夾和文件等各種資料存放區中的資料。 例如，Azure Blob 資料集會指定活動應從中讀取資料之 Blob 儲存體中的 Blob 容器和資料夾。
-
-在您建立資料集之前，您必須建立一個「已連結的服務」，以將資料存放區連結到資料處理站。 已連結的服務非常類似連接字串，可定義 Data Factory 連接到外部資源所需的連線資訊。 這麼說吧：資料集代表已連結之資料存放區內的資料結構，而已連結的服務則定義與資料來源的連線。 例如，「Azure 儲存體」已連結服務會將儲存體帳戶連結到 Data Factory。 Azure Blob 資料集代表該 Azure 儲存體帳戶內包含要處理之輸入 Blob 的 Blob 容器和資料夾。
+您建立資料集之前，您必須建立[**連結服務**](concepts-linked-services.md)來將資料存放區連結至 data factory。 已連結的服務非常類似連接字串，可定義 Data Factory 連接到外部資源所需的連線資訊。 這麼說吧：資料集代表已連結之資料存放區內的資料結構，而已連結的服務則定義與資料來源的連線。 例如，「Azure 儲存體」已連結服務會將儲存體帳戶連結到 Data Factory。 Azure Blob 資料集代表該 Azure 儲存體帳戶內包含要處理之輸入 Blob 的 Blob 容器和資料夾。
 
 以下是一個範例案例。 若要將資料從 Blob 儲存體複製到 SQL Database，您需建立兩個連結服務：Azure 儲存體和 Azure SQL Database。 接著，建立兩個資料集：Azure Blob 資料集 (此資料集參考 Azure 儲存體連結服務) 和 Azure SQL 資料表資料集 (此資料集參考 Azure SQL Database 連結服務)。 「Azure 儲存體」和 Azure SQL Database 已連結服務包含 Data Factory 在執行階段分別用來連接到「Azure 儲存體」和 Azure SQL Database 的連接字串。 Azure Blob 資料集會指定包含 Blob 儲存體中輸入 Blob 的 Blob 容器和 Blob 資料夾。 「Azure SQL 資料表」資料集會指定作為資料複製目的地的 SQL Database 中 SQL 資料表。
 
@@ -41,58 +39,9 @@ ms.locfileid: "61261838"
 
 ![管線、活動、資料集、已連結的服務之間的關聯性](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
 
-## <a name="linked-service-json"></a>連結服務 JSON
-Data Factory 中的連結服務會以 JSON 格式定義如下：
-
-```json
-{
-    "name": "<Name of the linked service>",
-    "properties": {
-        "type": "<Type of the linked service>",
-        "typeProperties": {
-              "<data store or compute-specific type properties>"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-下表描述上述 JSON 的屬性：
-
-屬性 | 描述 | 必要項 |
--------- | ----------- | -------- |
-name | 連結服務的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
-type | 連結服務的類型。 例如︰AzureStorage (資料存放區) 或 AzureBatch (計算)。 請參閱 typeProperties 的描述。 | 是 |
-typeProperties | 每個資料存放區和計算的類型屬性都不同。 <br/><br/> 如需支援的資料存放區類型及其類型屬性，請參閱本文章的[資料集類型](#dataset-type)表格。 請瀏覽資料存放區連接器的文章，以了解資料存放區特有的類型屬性。 <br/><br/> 如需支援的計算類型與其類型屬性，請參閱[計算連結服務](compute-linked-services.md)。 | 是 |
-connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否
-
-## <a name="linked-service-example"></a>已連結的服務範例
-以下連結服務是 Azure 儲存體連結服務。 請注意，類型已設為 AzureStorage。 Azure 儲存體連結服務的類型屬性包含連接字串。 Data Factory 服務會在執行階段使用連接字串來連線至資料存放區。
-
-```json
-{
-    "name": "AzureStorageLinkedService",
-    "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
 
 ## <a name="dataset-json"></a>資料集 JSON
-Data Factory 中的資料集會以 JSON 格式定義如下：
+下列 JSON 格式定義 Data Factory 中的資料集：
 
 ```json
 {
@@ -115,7 +64,6 @@ Data Factory 中的資料集會以 JSON 格式定義如下：
         }
     }
 }
-
 ```
 下表描述上述 JSON 的屬性：
 
@@ -123,8 +71,54 @@ Data Factory 中的資料集會以 JSON 格式定義如下：
 -------- | ----------- | -------- |
 name | 資料集的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
 type | 資料集的類型。 指定 Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 <br/><br/>如需詳細資料，請參閱[資料集類型](#dataset-type)。 | 是 |
-structure | 資料集的結構描述。 如需詳細資料，請參閱[資料集結構](#dataset-structure)。 | 否 |
+structure | 資料集的結構描述。 如需詳細資訊，請參閱 <<c0> [ 資料集結構描述](#dataset-structure-or-schema)。 | 否 |
 typeProperties | 每個類型的類型屬性都不同 (例如：Azure Blob、Azure SQL 資料表)。 如需有關支援的類型及其屬性的詳細資料，請參閱[資料集類型](#dataset-type)。 | 是 |
+
+### <a name="data-flow-compatible-dataset"></a>Data flow 相容的資料集
+
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
+請參閱[支援的資料集類型](#dataset-type)如需清單的資料集型別[資料流程](concepts-data-flow-overview.md)相容。 適合資料流程的資料集需要更細緻的資料集定義的轉換。 因此，JSON 定義中有些許不同。 而不是_結構_ 屬性中，資料流程相容的資料集有_結構描述_屬性。
+
+在資料流程中，資料集用在來源和接收器的轉換。 資料集定義的基本資料結構描述。 如果您的資料具有無結構描述，您可以使用您的來源和接收的結構描述漂移。 中的資料集的結構描述表示的實體資料類型和形狀。
+
+藉由定義資料集的結構描述，您會取得從相關聯的已連結服務的相關的資料類型、 資料格式、 檔案位置和連接資訊。 從資料集的中繼資料會出現在您的來源轉型做為來源*投影*。 來源轉換中的投影代表已定義的名稱和類型的資料流程資料。
+
+當您匯入資料流的資料集的結構描述時，請選取**匯入結構描述**按鈕，然後選擇匯入從來源或從本機檔案。 在大部分情況下，您會直接從來源匯入結構描述。 但是，如果您已經有本機結構描述檔案 （Parquet 檔案或 CSV 標頭），您可以直接使用 Data Factory 為基礎對該檔案的結構描述。
+
+
+```json
+{
+    "name": "<name of dataset>",
+    "properties": {
+        "type": "<type of dataset: AzureBlob, AzureSql etc...>",
+        "linkedServiceName": {
+                "referenceName": "<name of linked service>",
+                "type": "LinkedServiceReference",
+        },
+        "schema": [
+            {
+                "name": "<Name of the column>",
+                "type": "<Name of the type>"
+            }
+        ],
+        "typeProperties": {
+            "<type specific property>": "<value>",
+            "<type specific property 2>": "<value 2>",
+        }
+    }
+}
+```
+
+下表描述上述 JSON 的屬性：
+
+屬性 | 描述 | 必要項 |
+-------- | ----------- | -------- |
+name | 資料集的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
+type | 資料集的類型。 指定 Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 <br/><br/>如需詳細資料，請參閱[資料集類型](#dataset-type)。 | 是 |
+結構描述 | 資料集的結構描述。 如需詳細資訊，請參閱 <<c0> [ 資料流程相容的資料集](#dataset-type)。 | 否 |
+typeProperties | 每個類型的類型屬性都不同 (例如：Azure Blob、Azure SQL 資料表)。 如需有關支援的類型及其屬性的詳細資料，請參閱[資料集類型](#dataset-type)。 | 是 |
+
 
 ## <a name="dataset-example"></a>資料集範例
 在下列範例中，資料集代表 SQL Database 中名為 MyTable 的資料表。
@@ -155,7 +149,7 @@ typeProperties | 每個類型的類型屬性都不同 (例如：Azure Blob、Azu
 ## <a name="dataset-type"></a>資料集類型
 有許多不同類型的資料集，視您使用的資料存放區而定。 如需 Data Factory 所支援的資料存放區清單，請參閱下表。 按一下某個資料存放區，即可了解如何為該資料存放區建立已連結的服務和資料集。
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-dataflow.md)]
 
 在上一節的範例中，資料集的類型是設定為 **AzureSqlTable**。 同樣地，針對 Azure Blob 資料集，資料集的類型是設定為 **AzureBlob**，如以下 JSON 所示：
 
@@ -180,8 +174,9 @@ typeProperties | 每個類型的類型屬性都不同 (例如：Azure Blob、Azu
     }
 }
 ```
-## <a name="dataset-structure"></a>資料集結構
-**structure** 區段是選擇性區段。 它可透過包含資料行之名稱和資料類型的集合，定義資料集的結構描述。 您可以使用 structure 區段來提供類型資訊，此資訊會用來轉換類型並將資料行從來源對應到目的地。
+
+## <a name="dataset-structure-or-schema"></a>資料集結構或結構描述
+**結構**一節或**結構描述**(Data Flow 相容) 區段資料集是選擇性的。 它可透過包含資料行之名稱和資料類型的集合，定義資料集的結構描述。 您可以使用 structure 區段來提供類型資訊，此資訊會用來轉換類型並將資料行從來源對應到目的地。
 
 structure 中的每個資料行都包含下列屬性︰
 
@@ -230,4 +225,4 @@ format | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要
 - [快速入門：使用 .NET 來建立資料處理站](quickstart-create-data-factory-dot-net.md)
 - [快速入門：使用 PowerShell 來建立資料處理站](quickstart-create-data-factory-powershell.md)
 - [快速入門：使用 REST API 來建立資料處理站](quickstart-create-data-factory-rest-api.md)
-- 快速入門：使用 Azure 入口網站來建立資料處理站
+- [快速入門： 建立資料處理站使用 Azure 入口網站](quickstart-create-data-factory-portal.md)

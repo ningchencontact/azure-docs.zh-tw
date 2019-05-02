@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 9efaaa6bdd0f2b51efca398464dbf08de56d831d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1dfa81ad7981578d4f296de1b421c7e064819718
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579269"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867280"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的貨幣預先建置實體
-預先建置的 currency 實體可偵測許多面額與國家/地區的貨幣，無論 LUIS 應用程式文化特色為何。 因為此實體已經定型，所以您不需要將包含貨幣的範例語句加入應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援 currency 實體。 
+預先建置的貨幣實體偵測中許多 denominations 和國家/地區，不論 LUIS 應用程式的文化特性的貨幣。 因為此實體已經定型，所以您不需要將包含貨幣的範例語句加入應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援 currency 實體。 
 
 ## <a name="types-of-currency"></a>貨幣類型
 貨幣可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) GitHub 存放庫管理

@@ -1,25 +1,18 @@
 ---
-title: 更新 Marketplace 供應項目 - Azure Marketplace | Microsoft Docs
+title: 更新 marketplace 供應項目 |Azure Marketplace
 description: 使用 Cloud Partner 入口網站更新 Azure 和 AppSource Marketplace 上的供應項目
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 73e2812c678dca7e21089ee9cc091db756d7e25a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729595"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942380"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>更新 Azure Marketplace 和 AppSource 的供應項目
 

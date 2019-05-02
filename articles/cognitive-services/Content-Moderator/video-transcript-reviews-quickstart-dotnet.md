@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: fa782f687979f1d32cdf1c18bd08f6672e39adfe
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524492"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868599"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>使用 .NET 來建立影片文字記錄審核項目
 
@@ -162,7 +162,7 @@ public static ContentModeratorClient NewClient()
 - **Status**。 請將值設定為 "Unpublished"。 如果您未設定此屬性，則會預設為 "Pending"，意謂著已發佈影片審核項目而正等待人工審核。 發佈影片審核項目之後，您就無法再將影片畫面、文字記錄或文字記錄仲裁結果新增至該審核項目。
 
 > [!NOTE]
-> **CreateVideoReviews** 會傳回 IList<string>。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。
+> **CreateVideoReviews**會傳回 IList\<字串 >。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。
 
 將下列方法定義新增至 VideoReviews 命名空間、Program 類別。
 
@@ -341,7 +341,7 @@ static void Main(string[] args)
         var transcript = @"WEBVTT
 
         01:01.000 --> 02:02.000
-        First line with a crap word in a transcript.
+        First line with a negative word in a transcript.
 
         02:03.000 --> 02:25.000
         This is another line in the transcript.

@@ -1,6 +1,6 @@
 ---
-title: Azure 設施、廠房以及實體安全性 | Microsoft Docs
-description: 本文說明 Azure 資料中心，包括實體基礎結構、安全性以及合規性供應項目。
+title: Azure 資料中心-Microsoft Azure 的實體安全性 |Microsoft Docs
+description: 本文說明 Microsoft 運作來保護 Azure 資料中心，包括實體基礎結構、 安全性和合規性供應項目。
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d1b95695de809668987ebb6ef6720a3751205171
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586779"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939839"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure 設施、廠房以及實體安全性
+本文說明 Microsoft 運作來保護 Azure 基礎結構。
+
+## <a name="datacenter-infrastructure"></a>資料中心基礎結構
 Azure 是由[分散在世界各地的資料中心基礎結構](https://azure.microsoft.com/global-infrastructure/)所組成，可支援支援數千項線上服務，並且橫跨全球超過 100 個高度安全的設施。
 
-此基礎結構的設計訴求是將應用程式放在最靠近全球不同地區使用者的地點、預留資料落地，並為客戶提供完整的合規性與存放區選項。 Azure 在全球有 52 個區域，並且可在 140 個國家/地區使用。
+此基礎結構的設計訴求是將應用程式放在最靠近全球不同地區使用者的地點、預留資料落地，並為客戶提供完整的合規性與存放區選項。 Azure 全球，有 52 的區域，並且可在 140 個國家/地區/地區。
 
 區域是一組透過大規模且富有彈性的網路互連的資料中心。 依預設，此網路包含內容散發、負載平衡、備援及加密。 因為 Azure 提供的全球區域多於其他任何雲端提供者，可以讓您進行更彈性的規劃，將應用程式部署在需要的位置。
 
@@ -67,9 +70,9 @@ Microsoft 會使用最佳做法程序以及[符合 NIST 800-88 規範](https://c
 在系統的生命週期結束時，Microsoft 作業人員會遵循嚴格的資料處理和硬體處置程序，確保不受信任的對象無法存取可能包含您資料的硬體。 我們會對硬體使用其支援的安全清除方法。 對於無法清除的硬碟，我們會使用可將該硬碟銷毀，讓資訊不可能復原的銷毀程序。 此銷毀程序可能是弄碎、切碎、粉碎或焚化。 我們會根據資產類型決定處理方法。 並且保留銷毀的記錄。 所有 Azure 服務都會使用已核准的媒體儲存體和處置管理服務。
 
 ## <a name="compliance"></a>法規遵循
-我們會設計及管理 Azure 基礎結構，以符合一組廣泛的國際性及產業特定合規性標準，例如 ISO 27001、HIPAA、FedRAMP、SOC 1 和 SOC 2。 也可符合國家特定標準，包括澳洲 IRAP、英國 G-Cloud 及新加坡 MTCS。 嚴格的第三方稽核，例如「英國標準學會」所做的稽核，以確認符合這些標準要求的嚴格安全性控制。
+我們會設計及管理 Azure 基礎結構，以符合一組廣泛的國際性及產業特定合規性標準，例如 ISO 27001、HIPAA、FedRAMP、SOC 1 和 SOC 2。 我們也會符合特定國家/地區或區域標準，包括澳洲 IRAP、 UK G-cloud 及新加坡 MTCS。 嚴格的第三方稽核，例如「英國標準學會」所做的稽核，以確認符合這些標準要求的嚴格安全性控制。
 
-如需 Azure 所遵守的合規性標準完整清單，請參閱[合規性供應項目](https://www.microsoft.com/trustcenter/compliance/complianceofferings)。 
+如需 Azure 所遵守的合規性標準完整清單，請參閱[合規性供應項目](https://www.microsoft.com/trustcenter/compliance/complianceofferings)。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Microsoft 為協助保護 Azure 基礎結構執行了哪些動作，請參閱：

@@ -1,28 +1,20 @@
 ---
-title: 應用程式發行步驟 | Microsoft Docs
-description: 上也提供本文中使用的原始碼。
+title: 應用程式發行步驟 |Azure Marketplace
+description: 應用程式發行至 Azure Marketplace 的步驟。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0fc82229e158ed35b97203b11d08841c683c45ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 04278f50366ee91738fd36e64331572e14baf17c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60398012"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935172"
 ---
-<a name="app-publishing-steps"></a>應用程式發行步驟
-====================
+# <a name="app-publishing-steps"></a>應用程式發行步驟
 
 若要啟動發行程序，您要按一下 [編輯器] 索引標籤下的 [發行]。
 

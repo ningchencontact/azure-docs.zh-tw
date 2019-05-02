@@ -2,21 +2,29 @@
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: e18d0a6a01a86f844edc213fc95003cf4f4b46c9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165497"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925634"
 ---
-* 使用遠端桌面連線來連接到處理序伺服器虛擬機器。
-* 您可以按一下桌面上的可用捷徑來啟動 cspsconfigtool.exe (如果這是您第一次登入該處理伺服器，將會自動啟動此工具)。
-  - 設定伺服器的完整名稱 (FQDN) 或 IP 位址
-  - 設定伺服器用於接聽的連接埠。 此值應該是 443。
-  - 用於連接到設定伺服器的連接複雜密碼。
-  - 要針對此處理序伺服器設定的資料傳輸連接埠。 保留預設值，除非您已將它變更為您環境中的其他連接埠號碼。
+1. 建立遠端桌面連線到執行處理序伺服器的機器。 
+2. 執行 cspsconfigtool.exe 以啟動 Azure Site Recovery Process Server 組態工具。
+    - 此工具會自動啟動第一次登入處理序伺服器。
+    - 如果未自動開啟，請按一下其桌面上的捷徑。
 
+3. 在 **組態伺服器 FQDN 或 IP**，指定的名稱或 IP 位址，用來註冊處理序伺服器的組態伺服器。
+4. 在 **組態伺服器的連接埠**，請確定已指定 443。 這是針對要求設定伺服器接聽的連接埠。
+5. 在 **連線複雜密碼**，指定您指定當您設定組態伺服器複雜密碼。 若要尋找的複雜密碼：
+    -  在組態伺服器上，瀏覽至 Site Recovery 安裝資料夾 **\home\svssystems\bin\**。 
+    - 執行此命令： **genpassphrase.exe.n**。 這會顯示您的複雜密碼，您可以再記下位置。
+
+6. 在 **資料傳輸通訊埠**，保留預設值，除非您指定自訂連接埠。
+
+7. 按一下 **儲存**儲存設定，並註冊處理序伺服器。
+
+    
     ![註冊處理序伺服器](./media/site-recovery-vmware-register-process-server/register-ps.png)
-* 按一下 [儲存] 按鈕以儲存設定，並註冊處理序伺服器。

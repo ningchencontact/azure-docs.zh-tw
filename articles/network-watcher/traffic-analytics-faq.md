@@ -3,8 +3,8 @@ title: Azure 流量分析常見問題集 | Microsoft Docs
 description: 取得一些關於「流量分析」常見問題的解答。
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
-ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236609"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939915"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -241,7 +241,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>頻率流量分析會處理資料？
 
-請參閱[資料彙總區段](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation)流量分析的結構描述和資料彙總文件中
+請參閱[資料彙總區段](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation)流量分析的結構描述和資料彙總文件中
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>流量分析如何決定惡意 IP 時的？ 
 
@@ -253,14 +253,14 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 - 在 流量分析的 Log analytics，您可以使用簡短連結。 
 - 使用[結構描述，請參閱](traffic-analytics-schema.md)來撰寫查詢 
 - 按一下 [新增警示規則] 來建立警示
-- 請參閱[文件的記錄警示](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log)建立警示
+- 請參閱[文件的記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)建立警示
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>如何在地理地圖檢視中使用鍵盤來瀏覽？
 
 地理地圖頁面包含兩大區段：
     
-- **橫幅**地理地圖上方的橫幅會提供各種按鈕，可選取流量發佈篩選條件 (例如部署、國家/地區流量及惡意)。 當您選取按鈕時，個別篩選條件便會套用至地圖。 例如，如果您選取 [使用中] 按鈕，地圖就會將部署中的使用中資料中心醒目提示。
-- **地圖**橫幅下方的 [地圖] 區段會顯示 Azure 資料中心與國家/地區之間的流量分配。
+- **橫幅**在地理地圖頂端的橫幅會提供可選取流量分配篩選條件 （例如，部署、 國家/地區，從流量和惡意） 的按鈕。 當您選取按鈕時，個別篩選條件便會套用至地圖。 例如，如果您選取 [使用中] 按鈕，地圖就會將部署中的使用中資料中心醒目提示。
+- **地圖**以下的橫幅中，[對應] 區段會顯示 Azure 資料中心與國家/地區之間的流量分配。
     
 ### <a name="keyboard-navigation-on-the-banner"></a>橫幅上的鍵盤瀏覽
     

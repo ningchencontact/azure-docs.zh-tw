@@ -1,25 +1,18 @@
 ---
-title: 刪除 Marketplace 供應項目 - Azure Marketplace | Microsoft Docs
+title: 刪除 marketplace 供應項目 |Azure Marketplace
 description: 使用 Cloud Partner 入口網站刪除 Azure 和 AppSource Marketplace 上的供應項目
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 1d5d02d65dd3dcf5978639818fba4ebe36ffaaff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825144"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942115"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>刪除 Azure Marketplace 和 AppSource 的供應項目或 SKU
 
@@ -28,7 +21,7 @@ ms.locfileid: "60825144"
 - 「移除供應項目」可確保新的客戶無法再購買或部署您的供應項目，但是對現有客戶沒有任何影響，現有客戶指的是您必須根據授權合約和相關法規繼續支援的客戶。 
 - 「終止供應項目」是終止服務及/或您與現有客戶之間授權合約的程序。 
 
-提供移除和終止的相關指引和原則所控管[Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560)並[參與原則](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)(區段[供應項目擱置和移除](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal))。 
+提供移除和終止的相關指引和原則所控管[Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560)並[參與原則](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)(區段[供應項目擱置和移除](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal))。 
 
 本文件討論所支援的不同刪除案例，以及執行每個案例所需的步驟。  
 

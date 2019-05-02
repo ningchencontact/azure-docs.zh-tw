@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/22/2019
 ms.author: victorh
-ms.openlocfilehash: 7c31801156ee321fe93d73de41fc68179835261a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 06930171552843a5620d9a2bfb379a60e91a3915
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831107"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946752"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-using-azure-powershell"></a>使用 Azure PowerShell 的 Key Vault 憑證與設定 SSL 終止
 
@@ -21,9 +21,6 @@ ms.locfileid: "60831107"
 如需詳細資訊，請參閱 < [Key Vault 憑證與 SSL 終止](key-vault-certs.md)。
 
 本文章說明整合 Key Vault 與應用程式閘道以進行 SSL 終止憑證的 Azure PowerShell 指令碼。
-
-> [!IMPORTANT]
-> 應用程式閘道的金鑰保存庫整合目前處於公開預覽狀態。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

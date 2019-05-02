@@ -1,5 +1,5 @@
 ---
-title: 用於 Azure 虛擬機器的 Azure 安全性功能 | Microsoft Docs
+title: 安全性功能搭配 Azure 虛擬機器-Azure 安全性 |Microsoft Docs
 description: 本文對可用於虛擬機器的 Azure 安全性功能提供核心的概觀。
 services: security
 documentationcenter: na
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c0a4a8ae270c8d8f6f3c2e86db9deed4e14f668e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444243"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872021"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure 虛擬機器安全性概觀
+本文提供 Azure 安全性功能，可以搭配虛擬機器的核心的概觀。
 
 您可以使用 Azure 虛擬機器靈活地部署各種運算方案。 此服務支援 Microsoft Windows、Linux、Microsoft SQL Server、Oracle、IBM、SAP 和 Azure BizTalk 服務。 因此，您幾乎可以在所有作業系統上部署任何工作負載和任何語言。
 
@@ -33,9 +34,7 @@ Azure 虛擬機器讓您能夠有彈性地進行虛擬化，而不需購買並�
 * 將敏感性資料加密。
 * 保護網路流量。
 * 識別和偵測威脅。
-* 符合規範需求。
-
-本文的目的是對可用於虛擬機器的 Azure 安全性功能提供核心的概觀。 文中也會提供文章的連結，更詳細說明每個功能，好讓您能夠深入了解。  
+* 符合規範需求。  
 
 ## <a name="antimalware"></a>反惡意程式碼
 
@@ -77,14 +76,14 @@ Azure 虛擬機器讓您能夠有彈性地進行虛擬化，而不需購買並�
 * [管理和 API](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft 威脅保護](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-深入了解： 
+深入了解：
 
 * [開始使用 WDATP](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
 * [WDATP 功能的概觀](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## <a name="hardware-security-module"></a>硬體安全模組
 
-改善金鑰安全性可增強加密和驗證保護。 您可以藉由將關鍵密碼和金鑰存放在 Azure 金鑰保存庫中來簡化其管理與安全性。 
+改善金鑰安全性可增強加密和驗證保護。 您可以藉由將關鍵密碼和金鑰存放在 Azure 金鑰保存庫中來簡化其管理與安全性。
 
 金鑰保存庫讓您能選擇將金鑰存放在通過 FIPS 140-2 Level 2 標準認證的硬體安全性模組 (HSM) 中。 備份或 [透明資料加密](https://msdn.microsoft.com/library/bb934049.aspx) 的 SQL Server 加密金鑰都能與應用程式的任何金鑰或密碼一起存放在金鑰保存庫中。 這些受保護項目的權限和存取權是透過 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)來管理。
 
@@ -133,7 +132,7 @@ Azure 備份是可調式解決方案，可以不需成本地協助保護您的�
 
 ## <a name="virtual-networking"></a>虛擬網路
 
-虛擬機器需要遠端連線。 為了支援該需求，Azure 需要虛擬機器連接到 Azure 虛擬網路。 
+虛擬機器需要遠端連線。 為了支援該需求，Azure 需要虛擬機器連接到 Azure 虛擬網路。
 
 Azure 虛擬網路是以實體 Azure 網路網狀架構為基礎所建置的邏輯建構。 每個邏輯 Azure 虛擬網路都會與其他所有 Azure 虛擬網路隔離。 此隔離可協助確保其他 Microsoft Azure 客戶無法存取您部署中的網路流量。
 
@@ -169,14 +168,13 @@ Azure 虛擬機器經過 FISMA、FedRAMP、HIPAA、PCI DSS Level 1 及其他重�
 
 ## <a name="confidential-computing"></a>機密運算
 
-雖然就技術上而言，機密運算並不是虛擬機器安全性的一部分，虛擬機器安全性的主題仍位於「運算」安全性這個更高層級的主題之內。 機密運算位於「運算」安全性這個類別之內。 
+雖然就技術上而言，機密運算並不是虛擬機器安全性的一部分，虛擬機器安全性的主題仍位於「運算」安全性這個更高層級的主題之內。 機密運算位於「運算」安全性這個類別之內。
 
 機密運算能確保資料「暴露在外」(這對於有效進行處理來說是必要的) 時，該資料會被保護在受信任的執行環境 https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE，也稱為保護區) 之內，其範例如下圖所示。  
 
-TEE 能確保沒有任何方法可以從外部檢視資料或內部作業，就算是使用偵錯工具也一樣。 它們甚至能確保只有獲授權的程式碼可以存取該資料。 如果程式碼被修改或竄改，系統就會拒絕作業並停用環境。 TEE 能在位於其中的程式碼執行期間，強制執行這些保護。 
+TEE 能確保沒有任何方法可以從外部檢視資料或內部作業，就算是使用偵錯工具也一樣。 它們甚至能確保只有獲授權的程式碼可以存取該資料。 如果程式碼被修改或竄改，系統就會拒絕作業並停用環境。 TEE 能在位於其中的程式碼執行期間，強制執行這些保護。
 
 深入了解：
 
 * [Azure 機密運算簡介](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/) \(英文\)  
 * [Azure 機密運算](https://azure.microsoft.com/blog/azure-confidential-computing/) \(英文\)  
-

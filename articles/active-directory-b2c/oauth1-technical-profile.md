@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 自訂原則中定義 OAuth1 技術設定�
 description: 在 Azure Active Directory B2C 自訂原則中定義 OAuth1 技術設定檔。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3fe839de8cbaa0b321b0b0602b000b7575224dde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b3d579e9d4ceb92ee961778ba6083292461c144
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361093"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699834"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 自訂原則中定義 OAuth1 技術設定檔
 
@@ -23,7 +23,7 @@ ms.locfileid: "60361093"
 
 Azure Active Directory (Azure AD) B2C 可提供 [OAuth 1.0 通訊協定](https://tools.ietf.org/html/rfc5849)識別提供者的支援。 本文會說明技術設定檔的詳細規格，其可和支援此標準化通訊協定的宣告提供者互動。 OAuth1 的技術設定檔，您可以與 Twitter 等 OAuth1 型的識別提供者同盟。 同盟身分識別提供者，可讓使用者使用其現有的社交登入或企業身分識別。
 
-## <a name="protocol"></a>通訊協定
+## <a name="protocol"></a>Protocol
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `OAuth1`。 例如，**Twitter-OAUTH1** 技術設定檔的通訊協定是 `OAuth1`。
 

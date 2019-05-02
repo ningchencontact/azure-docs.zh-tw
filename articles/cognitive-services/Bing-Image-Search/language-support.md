@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a4c315d2696b081a4f2ac646d097e76ff9562380
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 57a96648e480c89d1112f069676edb1abcc7cfc3
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009475"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869857"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Bing 影像搜尋 API 支援的語言和區域
 
@@ -32,7 +32,7 @@ Bing 影像搜尋 API 支援三十多個國家/地區，許多國家/地區具�
 > - en-AU (英文，澳洲)
 > - zh-CN (中文，中國)
 
-## <a name="countries"></a>國家/地區
+## <a name="countriesregions"></a>國家/地區
 
 |國家/區域|代碼|
 |-------|----|

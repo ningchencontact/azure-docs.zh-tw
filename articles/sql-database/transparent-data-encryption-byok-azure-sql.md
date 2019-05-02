@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 6ad4cf251ad09adb7e1f11ebd42d7eab0d6a9183
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3a29c6b4d0308b41e29f38fc29d79634727d593
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330914"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926010"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL 透明資料加密使用 Azure Key Vault 中的客戶管理金鑰：「攜帶您自己的金鑰」支援
 
@@ -61,6 +61,7 @@ ms.locfileid: "60330914"
 - 決定所需的資源要使用哪些訂用帳戶 – 後續若要在訂用帳戶間移動伺服器，將必須重新設定具有 BYOK 的 TDE。 深入了解如何[移動資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - 設定具有 Azure Key Vault 的 TDE 時，請務必考量重複的包裝/解除包裝作業對金鑰保存庫造成的負載。 例如，由於與 SQL Database 伺服器相關聯的所有資料庫都使用相同的 TDE 保護裝置，當該伺服器容錯移轉時將會對保存庫觸發金鑰作業，且其數量會和伺服器中有資料庫時一樣多。 根據我們的經驗和文件中的[金鑰保存庫服務限制](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)，我們建議您在單一訂用帳戶中將不超過 500 個標準/一般用途或 200 個進階/業務關鍵資料庫與一個 Azure 金鑰保存庫產生關聯，以確保在存取保存庫中的 TDE 保護裝置時可持續保有高可用性。
 - 建議使用：在內部部署中保存 TDE 保護裝置的複本。  為此，您必須以 HSM 裝置在本機建立 TDE 保護裝置，並以金鑰委付系統儲存 TDE 保護裝置的本機複本。  了解[如何將金鑰從本機 HSM 傳輸至 Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)。
+- 如現有組態的問題，請參閱[疑難排解 TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/troubleshoot-tde)
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>設定 Azure Key Vault 的準則
 
@@ -72,7 +73,7 @@ ms.locfileid: "60330914"
 - 使用 SQL Database 伺服器的 Azure Active Directory (Azure AD) 身分識別為其授與金鑰保存庫的存取權。  使用入口網站 UI 時會自動建立 Azure AD 身分識別，並將金鑰保存庫的存取權授與伺服器。  使用 PowerShell 設定具有 BYOK 的 TDE 時，則必須建立 Azure AD 身分識別，並確認作業是否完成。 請參閱[設定具有 BYOK 的 TDE](transparent-data-encryption-byok-azure-sql-configure.md)和[針對受控執行個體設定具有 BYOK 的 TDE](https://aka.ms/sqlmibyoktdepowershell)，以取得使用 PowerShell 時的詳細逐步指示。
 
   > [!NOTE]
-  > 如果 Azure AD 身分識別**意外刪除，或使用金鑰保存庫的存取原則撤銷了伺服器的權限**，伺服器即會失去對金鑰保存庫的存取權，且 TDE 加密的資料庫將在 24 小時內無法存取。
+  > 如果 Azure AD 身分識別**意外刪除，或撤銷伺服器的權限**使用金鑰保存庫的存取原則或不小心將伺服器移至不同的訂用帳戶中，伺服器即失去對金鑰保存庫，並在 24 小時內都無法存取 TDE 加密資料庫。  
 
 - 使用防火牆和虛擬網路搭配 Azure Key Vault 時，您必須設定下列項目： 
   - 允許受信任的 Microsoft 服務略過此防火牆 - 選擇「是」

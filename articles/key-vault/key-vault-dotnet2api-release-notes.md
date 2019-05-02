@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 3d2543ea2b2ee6261b04396f92d5f3583a89ffb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9dd8a48da08f00cea1219f72940dd84dd3a97ac
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640696"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725503"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure 金鑰保存庫 .NET 2.0 - 版本資訊和移轉指南
 下列資訊可協助您移轉至適用於 C# 和 .NET 的 Azure Key Vault 文件庫 2.0 版。  您必須更新針對舊版所撰寫的應用程式，才能支援最新版本。  必須進行這些變更才能完整支援新功能和改進功能，例如 **Key Vault 憑證**。

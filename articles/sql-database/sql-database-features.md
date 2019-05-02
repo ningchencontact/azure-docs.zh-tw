@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 857b1059df2edf34e58d38d335725e27159977a0
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.openlocfilehash: 3fe6eae5f9f7d1ff318aa96bee7e1ab9a96a6870
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62738800"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867941"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比較：Azure SQL Database 與 SQL Server
 
@@ -48,14 +48,14 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [BACPAC 檔案 (匯出)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 是 - 請參閱 [SQL Database 匯出](sql-database-export.md) | 是 |
 | [BACPAC 檔案 (匯入)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | 是 - 請參閱 [SQL Database 匯入](sql-database-import.md) | 是 |
 | [備份命令](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | 否，僅限系統起始的自動備份 - 請參閱[自動備份](sql-database-automated-backups.md) | 系統起始的自動備份和使用者起始的只複製備份 - 請參閱[備份差異](sql-database-managed-instance-transact-sql-information.md#backup) |
-| [內建函式](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大部分 - 請參閱個別函式 | 是 - 請參閱[預存程序、函式、觸發程序差異](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [內建函式](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大部分 - 請參閱個別函式 | 是 - 請參閱[預存程序、函式、觸發程序差異](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [變更資料擷取](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 否 | 是 |
 | [變更追蹤](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | 是 |是 |
 | [定序 - 資料庫](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | 是 | 是 |
 | [定序 - 伺服器/執行個體](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | 否，預設`SQL_Latin1_General_CP1_CI_AS`一律會使用。 | 是，可以設定的時機[會建立執行個體](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)，因此無法更新。 |
 | [資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | 是 - [進階層、標準層 - S3 以上、一般用途層和業務關鍵層](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |是 |
 | [通用語言執行平台 (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 否 | 是的但無法存取檔案系統-請參閱[CLR 差異](sql-database-managed-instance-transact-sql-information.md#clr) |
-| [自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | 是 | 否[由於瑕疵中還原包括還原時間點](sql-database-managed-instance-transact-sql-information.md#cannot-restore-contained-database) |
+| [自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | 是 | 否[由於瑕疵中還原包括還原時間點](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database) |
 | [自主使用者](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | 是 | 是 |
 | [控制流程語言關鍵字](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | 是 | 是 |
 | [跨資料庫查詢](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 請參閱[彈性查詢](sql-database-elastic-query-overview.md) | 是，再加上[彈性查詢](sql-database-elastic-query-overview.md) |
@@ -86,7 +86,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 [檔案和檔案群組](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | 僅限主要檔案群組 | 是 |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 否 | 否 |
 | [全文檢索搜尋](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  不支援第三方斷詞工具 |不支援第三方斷詞工具 |
-| [函式](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大部分 - 請參閱個別函式 | 是 - 請參閱[預存程序、函式、觸發程序差異](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [函式](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大部分 - 請參閱個別函式 | 是 - 請參閱[預存程序、函式、觸發程序差異](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [異地還原](sql-database-recovery-using-backups.md#geo-restore) | 所有服務層以外的超大規模的是- | 是-使用[Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa)。 |
 | [圖表處理](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | 是 | 是 |
 | [記憶體內部最佳化](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 是 - [僅限進階和業務關鍵層](sql-database-in-memory.md) | 是 - [僅限業務關鍵層](sql-database-managed-instance.md) |
@@ -137,8 +137,8 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [SQL Server 複寫](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [僅限交易和快照複寫訂閱者](sql-database-single-database-migrate.md) | 是，現已在[公開預覽版](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)中推出 |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | 否 - 請參閱 [Power BI](https://docs.microsoft.com/power-bi/) | 否 - 請參閱 [Power BI](https://docs.microsoft.com/power-bi/) |
 | [預存程序](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | 是 | 是 |
-| [系統預存函式](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | 大部分 - 請參閱個別函式 | 是 - 請參閱[預存程序、函式、觸發程序差異](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
-| [系統預存程序](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | 部分 - 請參閱個別預存程序 | 是 - 請參閱[預存程序、函式、觸發程序差異](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [系統預存函式](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | 大部分 - 請參閱個別函式 | 是 - 請參閱[預存程序、函式、觸發程序差異](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
+| [系統預存程序](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | 部分 - 請參閱個別預存程序 | 是 - 請參閱[預存程序、函式、觸發程序差異](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [系統資料表](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | 部分 - 請參閱個別資料表 | 是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
 | [系統目錄檢視](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | 部分 - 請參閱個別檢視 | 是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
 | [暫存資料表](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | 本機和資料庫範圍的全域暫存資料表 | 本機和執行個體範圍的全域暫存資料表 |

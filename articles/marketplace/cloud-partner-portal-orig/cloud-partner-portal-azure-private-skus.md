@@ -1,25 +1,18 @@
 ---
-title: 私人 SKU 和方案 | Microsoft Docs
+title: 私用的 Sku 和計劃 |Azure Marketplace
 description: 如何使用私人 SKU 來管理供應項目可用性。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: dcc8b9fef75ba13b607d7fdda5bd55cc710165b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6efdb1c28777d9230727066fdba03d2850be62b0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561915"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935913"
 ---
 <a name="private-skus-and-plans"></a>私人 SKU 和方案
 ============

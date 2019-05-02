@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123073"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707985"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 

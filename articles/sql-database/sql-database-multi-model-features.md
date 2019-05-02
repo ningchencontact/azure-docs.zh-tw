@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122654"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939523"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database 的多模型功能
 
@@ -90,7 +90,7 @@ Azure SQL Database 可讓您輕鬆使用 JSON 資料，並將資料庫與新式�
 
 ## <a name="spatial-features"></a>空間功能
 
-空間資料代表幾何物件的實體位置和圖形相關資訊。 這些物件可以是點位置或更複雜的物件，例如國家/地區、道路或湖泊。
+空間資料代表幾何物件的實體位置和圖形相關資訊。 這些物件可以是點位置或更為複雜的物件，例如國家/地區、 道路或湖泊。
 
 Azure SQL Database 支援兩種空間資料類型 - 幾何資料類型和地理資料類型。
 - 幾何類型代表歐氏 (平面) 座標系統中的資料。

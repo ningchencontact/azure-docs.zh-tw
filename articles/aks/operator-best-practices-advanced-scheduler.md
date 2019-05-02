@@ -2,18 +2,17 @@
 title: 運算子最佳做法 - Azure Kubernetes Services (AKS) 中的進階排程器功能
 description: 了解叢集運算子在 Azure Kubernetes Service (AKS) 中使用進階排程器功能 (如污點和容差、節點選取器和親和性，或 Inter-pod 親和性和反親和性) 的最佳作法
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 11/26/2018
+ms.author: iainfou
+ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464963"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690472"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中進階排程器功能的最佳做法
 
@@ -37,7 +36,7 @@ Kubernetes 排程器可以使用污點和容差來限制可以在節點上執行
 * **污點**會套用至節點，該節點指示僅可以在其上排程特定的 pod。
 * 然後**容差**會套用至容器，允許它們*容許*節點的污點。
 
-將 pod 部署至 AKS 叢集時，Kubernetes 只會在容差與污點對齊之節點上排程 pod。 例如，假設您的 AKS 叢集中有一個節點池，用於具有 GPU 支援的節點。 您可以定義名稱，例如 *gpu*，然後定義排程的值。 如果將此值設定為 *NoSchedule*，則如果 pod 未定義適當的容差，則 Kubernetes 排程器無法在節點上排程 pod。
+將 pod 部署至 AKS 叢集時，Kubernetes 只會在容差與污點對齊之節點上排程 pod。 例如，假設您有支援在 AKS 叢集中配備 GPU 的節點的節點集區。 您可以定義名稱，例如 *gpu*，然後定義排程的值。 如果將此值設定為 *NoSchedule*，則如果 pod 未定義適當的容差，則 Kubernetes 排程器無法在節點上排程 pod。
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -53,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
   resources:
     requests:
       cpu: 0.5
@@ -73,6 +72,23 @@ spec:
 套用污點時，請與應用程式開發人員和擁有者合作，以允許他們在部署中定義必要的容差。
 
 如需污點和容差的相關詳細資訊，請參閱[套用污點和容差][k8s-taints-tolerations]。
+
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Taints 和 tolerations AKS 中的行為
+
+當您升級 AKS 中的節點集區時，taints 和 tolerations 依照組模式所要套用至新的節點：
+
+- **預設的叢集，而不使用虛擬機器擴展支援**
+  - 假設您有一個雙節點叢集- *node1*並*node2*。 當您升級時，其他的節點 (*node3*) 建立。
+  - 從 taints *node1*套用至*node3*，然後*node1*便會刪除。
+  - 在建立另一個新的節點 (名為*node1*，自前一個*node1*已刪除)，而*node2* taints 會套用至新*node1*. 然後， *node2*會被刪除。
+  - 基本上*node1*會變成*node3*，並*node2*會成為*node1*。
+
+- **叢集所使用的虛擬機器擴展集**（目前在 AKS 中的預覽）
+  - 同樣地，讓我們假設您有一個雙節點叢集- *node1*並*node2*。 您升級的節點集區。
+  - 建立兩個額外的節點， *node3*並*node4*，並分別 taints 傳遞。
+  - 原始*node1*並*node2*會被刪除。
+
+當您調整 AKS 中的節點集區時，taints 和 tolerations 不含依設計。
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>使用節點選取器和親和性來控制 pod 排程
 
@@ -96,7 +112,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -126,7 +142,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5

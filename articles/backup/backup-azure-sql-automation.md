@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 6469e3b35357867b6b38b00c8b11637ba30b2960
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3a424335a1e7d7775f6be0980e7009669e354ea7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287549"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717897"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>備份和還原 SQL Database 中使用 PowerShell 的 Azure Vm
 
@@ -33,17 +33,17 @@ ms.locfileid: "58287549"
 
 ## <a name="before-you-start"></a>開始之前
 
-* [了解更多](backup-azure-recovery-services-vault-overview.md)有關復原服務保存庫。
+* [详细了解](backup-azure-recovery-services-vault-overview.md)恢复服务保管库。
 * 了解的功能[備份 Azure Vm 中的 SQL Db](backup-azure-sql-database.md#before-you-start)。
-* 檢閱復原服務的 PowerShell 物件階層。
+* 查看恢复服务的 PowerShell 对象层次结构。
 
 ### <a name="recovery-services-object-hierarchy"></a>復原服務物件階層
 
-下圖摘要說明物件階層架構。
+下图汇总了对象层次结构。
 
 ![復原服務物件階層](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-檢閱**Az.RecoveryServices** [指令程式參考](/powershell/module/az.recoveryservices)Azure 文件庫中的參考。
+查看 Azure 库中的 **Az.RecoveryServices** [cmdlet 参考](/powershell/module/az.recoveryservices)。
 
 ### <a name="set-up-and-install"></a>設定和安裝
 
@@ -476,6 +476,18 @@ WorkloadName     Operation            Status               StartTime            
 ------------     ---------            ------               ---------                 -------                   -----
 master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
+
+### <a name="re-register-sql-vms"></a>重新註冊 SQL Vm
+
+> [!WARNING]
+> 請務必先閱讀這[文件](backup-sql-server-azure-troubleshoot.md#re-registration-failures)以了解失敗的徵狀和原因，然後再嘗試重新註冊
+
+若要觸發的 SQL VM 的重新註冊，擷取相關的備份容器，並將它傳遞到註冊 cmdlet。
+
+````powershell
+$SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
+Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID
+````
 
 ### <a name="stop-protection"></a>停止保護
 

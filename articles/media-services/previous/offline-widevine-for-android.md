@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 55d59871ee72f755fcd881e4f89e56e6d6d1d84e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64c5bff0e48f55406476e71c82763bd8f3c03afd
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637568"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937232"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>適用於 Android 的離線 Widevine 串流  
 
@@ -33,7 +33,7 @@ ms.locfileid: "60637568"
 除了保護線上串流的內容之外，媒體內容訂用帳戶與租賃服務能提供可在未連線到網際網路時使用的可下載內容。 在和網路中斷連線的飛行途中，您可能需要先將內容下載至手機或平板電腦，以在飛航模式中播放。 您可能會想要下載內容的其他案例如下：
 
 - 某些內容提供者可能不允許 DRM 授權傳遞超出國家/地區的邊界。 如果使用者想要在出國旅行時觀賞內容，則需要離線下載。
-- 在某些國家/地區，網際網路可用性和/或頻寬是受到限制的。 使用者可能會選擇下載內容，以便能以較高的解析度觀賞，來獲得令人滿意的檢視體驗。
+- 在某些國家/地區，網際網路可用性和/或頻寬是有限的。 使用者可能會選擇下載內容，以便能以較高的解析度觀賞，來獲得令人滿意的檢視體驗。
 
 本文討論如何針對 Android 裝置上受 Widevine 保護的 DASH 內容實作離線模式播放。 離線 DRM 可讓您為內容提供訂用帳戶、租賃及採購模式，讓服務的客戶能在和網際網路中斷連線時，輕鬆地隨身攜帶內容。
 

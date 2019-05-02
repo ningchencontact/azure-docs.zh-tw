@@ -1,25 +1,18 @@
 ---
-title: 建立 Azure IoT Edge 模組技術資產 | Microsoft Docs
+title: 建立 Azure IoT Edge 模組的技術資產 |Azure Marketplace
 description: 建立 IoT Edge 模組的技術資產。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2ed4826eb47ab2fb13d312860475f9ec9b323bf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 9f40e2272388e6f467b8c3d0b01a6639bf652e80
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60916203"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942334"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>準備 IoT Edge 模組的技術資產
 

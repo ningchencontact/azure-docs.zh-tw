@@ -5,22 +5,22 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a2bb8f5d27f1829f891a0638642093df1fa35b81
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3f27e10c47b84b6f037c0d9422e9fba40e0315f7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088446"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717044"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>使用 CLI 建立和修改 ExpressRoute 線路的對等互連
 
 本文將協助您使用 CLI，以 Resource Manager 部署模型建立和管理 ExpressRoute 線路的路由設定/對等互連。 您還可以檢查狀態、更新，或是刪除與取消佈建 ExpressRoute 線路的對等互連。 如果您想要對線路使用不同的方法，可選取下列清單中的文章：
 
 > [!div class="op_single_selector"]
-> * [Azure 入口網站](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure 门户](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [視訊 - 私用對等互連](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -322,6 +322,10 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 ## <a name="public"></a>Azure 公用對等互連
 
 本節將協助您為 ExpressRoute 線路建立、取得、更新和刪除 Azure 公用對等互連設定。
+
+> [!Note]
+> Azure 公用對等互連已不再支援新的線路。 如需詳細資訊，請參閱 < [ExpressRoute 對等互連](expressroute-circuit-peerings.md)。
+>
 
 ### <a name="to-create-azure-public-peering"></a>建立 Azure 公用對等
 

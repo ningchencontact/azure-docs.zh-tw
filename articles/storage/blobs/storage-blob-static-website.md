@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/29/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122671"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925287"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure 儲存體中的靜態網站代管
 Azure 儲存體 GPv2 帳戶可讓您直接從名為 *$web* 的儲存體容器提供靜態內容 (HTML、CSS、JavaScript 和影像檔)。 利用 Azure 儲存體中的代管，讓您能夠使用無伺服器架構，包括 [Azure Functions](/azure/azure-functions/functions-overview) 和其他 PaaS 服務。
@@ -52,16 +52,21 @@ https://contoso.z4.web.core.windows.net/image.png
 
 ## <a name="cdn-and-ssl-support"></a>CDN 和 SSL 支援
 
-若要讓您的靜態網站檔案可透過 HTTPS 使用，請參閱[使用 Azure CDN 透過 HTTPS 以自訂網域存取 Blob](storage-https-custom-domain-cdn.md)。 在此程序的過程中，您需要*將 CDN 指向 Web 端點*，而不是 Blob 端點。 您可能需要等候數分鐘，然後才會顯示您的內容，因為 CDN 設定不會立即執行。
+若要透過您的自訂網域和 HTTPS 進行靜態網站檔案，請參閱[使用 Azure CDN 透過 HTTPS 以自訂網域存取 blob](storage-https-custom-domain-cdn.md)。 在此程序的過程中，您需要*將 CDN 指向 Web 端點*，而不是 Blob 端點。 您可能需要等候數分鐘，然後才會顯示您的內容，因為 CDN 設定不會立即執行。
 
 當您更新您的靜態網站時，請務必清除 CDN 端點來清除快取在 CDN edge server 上的內容。 如需詳細資訊，請參閱[清除 Azure CDN 端點](../../cdn/cdn-purge-endpoint.md)。
+
+> [!NOTE]
+> 透過帳戶的 web 端點原本就支援 HTTPS。 使用透過 HTTPS 的自訂網域需要這一次的 Azure CDN 使用。 
+>
+> 透過 HTTPS 公開帳戶 web 端點： `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
 
 ## <a name="custom-domain-names"></a>自訂網域名稱
 
 您可以[設定 Azure 儲存體帳戶的自訂網域名稱](storage-custom-domain-name.md)，透過自訂網域來使您的靜態網站可供使用。 若要深入了解如何在 Azure 中裝載您的網域，請參閱[在 Azure DNS 中裝載您的網域](../../dns/dns-delegate-domain-azure-dns.md)。
 
 ## <a name="pricing"></a>價格
-靜態網站託管是免費提供的。 如需 Azure Blob 儲存體價格的詳細資訊，請參閱 [Azure Blob 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)。
+啟用靜態網站代管是免費。 客戶需支付使用的 blob 儲存體和作業成本。 如需 Azure Blob 儲存體價格的詳細資訊，請參閱 [Azure Blob 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
 ## <a name="quickstart"></a>快速入門
 
@@ -159,7 +164,10 @@ az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_N
 是，新的 Web 端點會遵守為儲存體帳戶設定的 VNET 和防火牆規則。
 
 **Web 端點會區分大小寫嗎？**  
-是，Web 端點與 Blob 端點一樣，都會區分大小寫。 
+是，Web 端點與 Blob 端點一樣，都會區分大小寫。
+
+**是 web 端點可透過 HTTP 和 HTTPS 存取？**
+Web 端點是可透過 HTTP 和 HTTPS 存取。 不過，如果儲存體帳戶設定為透過 HTTPS 要求使用安全傳輸，然後使用者必須使用 HTTPS 端點。 如需詳細資訊，請參閱 <<c0> [ 需要 Azure 儲存體中的安全傳輸](../common/storage-require-secure-transfer.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * [使用 Azure CDN 透過 HTTP 以自訂網域存取 blob](storage-https-custom-domain-cdn.md)

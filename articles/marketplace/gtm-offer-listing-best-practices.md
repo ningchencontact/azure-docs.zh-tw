@@ -2,24 +2,17 @@
 title: Go-To-Market 服務 - 陳列供應項目的最佳做法 | Azure
 description: Go-To-Market 服務 - 本節將描述陳列供應項目的最佳做法
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c06a338ec041c83588c3ee5126795b8c445ef469
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120985"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937994"
 ---
 # <a name="offer-listing-best-practices"></a>陳列供應項目的最佳做法
 

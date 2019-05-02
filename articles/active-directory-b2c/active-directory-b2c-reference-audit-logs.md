@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fdc3578fe78e60086a148e4204019a8293030b83
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317643"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688756"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
@@ -33,7 +33,7 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 |目錄 |當系統管理員使用 Azure 入口網站登入時，所擷取目錄屬性的相關活動 |
 |Application | B2C 應用程式上的 CRUD 作業 |
 |Key |B2C 金鑰容器所儲存金鑰上的 CRUD 作業 |
-|資源 |B2C 資源 (例如，原則和身分識別提供者) 上的 CRUD 作業
+|Resource |B2C 資源 (例如，原則和身分識別提供者) 上的 CRUD 作業
 |Authentication |使用者認證和權杖發行的驗證|
 
 > [!NOTE]

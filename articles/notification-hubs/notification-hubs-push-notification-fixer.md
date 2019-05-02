@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4fc4175c03baa4ddb81507dd4001fcdbe7c7058b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebf9ef63a8622c4cc431322b786fdf30f6352fe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61458641"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925829"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>診斷 Azure 通知中樞卸除的通知
 
@@ -123,7 +123,7 @@ Azure 通知中樞相關常見的問題是如何針對從應用程式的通知�
 
 #### <a name="push-notification-service-developer-portal"></a>推播通知服務開發人員入口網站 ####
 
-確認個別推播通知服務開發人員入口網站 (APNs、FCM、Windows 通知服務等等) 中的認證。 如需詳細資訊，請參閱[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)。
+確認個別推播通知服務開發人員入口網站 (APNs、FCM、Windows 通知服務等等) 中的認證。 如需詳細資訊，請參閱[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)。
 
 #### <a name="azure-portal"></a>Azure 入口網站 ####
 
@@ -180,7 +180,7 @@ Azure 通知中樞相關常見的問題是如何針對從應用程式的通知�
 
 如需更多使用通知中樞與 Visual Studio 伺服器總管的相關資訊，請參閱下列文章：
 
-* [如何檢視通知中樞的裝置註冊](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn792122(v=win.10))
+* [如何檢視通知中樞的裝置註冊](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
 * [深入探討：Visual Studio 2013 Update 2 RC 和 Azure SDK 2.3]
 * [宣佈發行 Visual Studio 2013 Update 3 和 Azure SDK 2.4]
 
@@ -261,7 +261,7 @@ The Token obtained from the Token Provider is wrong
 
 #### <a name="programmatic-access"></a>以程式設計方式存取 ####
 
-如需有關以程式設計方式存取的詳細資訊，請參閱 <<c0> [ 以程式設計方式存取](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100))。
+如需有關以程式設計方式存取的詳細資訊，請參閱 <<c0> [ 以程式設計方式存取](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100))。
 
 > [!NOTE]
 > 幾個與遙測有關的功能，例如匯出和匯入註冊，以及透過 API 進行遙測存取，只能在標準服務層級上使用。 如果您嘗試使用這些功能，從免費或基本服務層時，如果您使用 SDK，您會收到例外狀況訊息。 如果您使用直接從 REST Api 的功能，您會收到 HTTP 403 （禁止） 錯誤。

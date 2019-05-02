@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9849b8209db0a4aa73a80d461b67bda9b0b3656a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3e40e72a4cbb154a7ccef153959e81f7054ea003
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049722"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926388"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
@@ -96,7 +96,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
 #### <a name="solution-1---use-azure-file-sync"></a>解決方案 1-使用 Azure 檔案同步
-Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 Azure 檔案同步會透過連接埠 443 的運作方式，並因此可因應措施是將連接埠 445 遭到封鎖的用戶端存取 Azure 檔案。 [了解如何設定 Azure 檔案同步](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers)。
+Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 Azure 檔案同步會透過連接埠 443 的運作方式，並因此可因應措施是將連接埠 445 遭到封鎖的用戶端存取 Azure 檔案。 [了解如何設定 Azure 檔案同步](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers)。
 
 #### <a name="solution-2---use-vpn"></a>解決方案 2： 使用 VPN
 藉由設定 VPN 到特定的儲存體帳戶，流量會通過而不是安全通道，透過網際網路。 請遵循[指示說明如何設定 VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
@@ -106,7 +106,7 @@ Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔
 与 IT 部门或 ISP 配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=41653)开放端口 445 出站通信。
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>解決方案 4-使用 REST API 以儲存體總管/Powershell 等工具
-除了 SMB，Azure 文件存储还支持 REST。 REST 访问可以通过端口 443 进行（标准 tcp）。 有许多工具是用 REST API 编写的，可以给用户带来丰富的 UI 体验。 [存储资源管理器](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中之一。 [下载并安装存储资源管理器](https://azure.microsoft.com/en-us/features/storage-explorer/)，然后将其连接到 Azure 文件存储支持的文件共享。 也可使用 [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell)，此工具也使用 REST API。
+除了 SMB，Azure 文件存储还支持 REST。 REST 访问可以通过端口 443 进行（标准 tcp）。 有许多工具是用 REST API 编写的，可以给用户带来丰富的 UI 体验。 [存储资源管理器](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中之一。 [下载并安装存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)，然后将其连接到 Azure 文件存储支持的文件共享。 也可使用 [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell)，此工具也使用 REST API。
 
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>原因 2：已啟用 NTLMv1
