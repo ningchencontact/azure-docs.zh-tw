@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
 ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60716292"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>使用流量管理員根據使用者子網路將流量導向特定端點
 
@@ -62,7 +62,7 @@ ms.locfileid: "58001324"
 4. 在 [選擇大小] 底下選取虛擬機器大小。
 5. 針對 [設定] 選取下列值，然後選取 [確定]：
     
-    |設定|值|
+    |設定|Value|
     |---|---|
     |虛擬網路| 選取 [虛擬網路]，在 [建立虛擬網路] 中，針對 [名稱] 輸入 *myVNet1*，針對子網路輸入 *mySubnet*。|
     |網路安全性群組|選取 [基本]，然後在 [選取公用輸入連接埠] 下拉式清單中，選取 **HTTP** 和 **RDP** |
@@ -73,7 +73,7 @@ ms.locfileid: "58001324"
 
 7. 以下列變更再次完成步驟 1-6：
 
-    |設定|值|
+    |設定|Value|
     |---|---|
     |資源群組 | 選取 [新增]，然後輸入「myResourceGroupTM2」|
     |位置|西歐|
@@ -147,7 +147,7 @@ ms.locfileid: "58001324"
 4. 在 [選擇大小] 底下選取虛擬機器大小。
 5. 針對 [設定] 選取下列值，然後選取 [確定]：
 
-    |設定|值|
+    |設定|Value|
     |---|---|
     |虛擬網路| 選取 [虛擬網路]，在 [建立虛擬網路] 中，對 [名稱] 輸入 *myVNet3*，而對 [子網路] 則輸入 *mySubnet3*。|
     |網路安全性群組|選取 [基本]，然後在 [選取公用輸入連接埠] 下拉式清單中，選取 **HTTP** 和 **RDP** |
@@ -158,7 +158,7 @@ ms.locfileid: "58001324"
 
 7. 以下列變更再次完成步驟 1-5：
 
-    |設定|值|
+    |設定|Value|
     |---|---|
     |虛擬機器名稱 | *myVMWEurope*|
     |資源群組 | 選取 [現有]，然後輸入 *myResourceGroupTM2*|

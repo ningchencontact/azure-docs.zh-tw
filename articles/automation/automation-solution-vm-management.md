@@ -248,8 +248,8 @@ ms.locfileid: "61306396"
 
 |屬性 | 描述|
 |----------|----------|
-|调用方 |  谁启动了该操作。 可能的值为电子邮件地址或计划作业的系统。|
-|類別 | 数据类型的分类。 對自動化來說，該值是 JobLogs。|
+|Caller |  谁启动了该操作。 可能的值为电子邮件地址或计划作业的系统。|
+|Category | 数据类型的分类。 對自動化來說，該值是 JobLogs。|
 |CorrelationId | Runbook 作業之相互關聯識別碼的 GUID。|
 |JobId | Runbook 作業之識別碼的 GUID。|
 |operationName | 指定在 Azure 中執行的作業類型。 對自動化來說，該值是 Job。|
@@ -269,8 +269,8 @@ ms.locfileid: "61306396"
 
 |屬性 | 描述|
 |----------|----------|
-|调用方 |  谁启动了该操作。 可能的值为电子邮件地址或计划作业的系统。|
-|類別 | 資料類型的分類。 对于自动化，该值为 JobStreams。|
+|Caller |  谁启动了该操作。 可能的值为电子邮件地址或计划作业的系统。|
+|Category | 資料類型的分類。 对于自动化，该值为 JobStreams。|
 |JobId | Runbook 作業之識別碼的 GUID。|
 |operationName | 指定在 Azure 中執行的作業類型。 對自動化來說，該值是 Job。|
 |ResourceGroup | 指定 Runbook 作業的資源群組名稱。|

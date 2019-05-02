@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 307636b019b53c8457c65261824adbf8e52ca0a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875510"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726557"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>開始使用 R 程式語言，在 Azure Machine Learning Studio
 
@@ -253,7 +253,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 1. 在[執行 R 指令碼][execute-r-script]模組的程式碼視窗中，輸入含有您 Zip 檔案名稱的 `source()` 函式。 在我的案例中，我鍵入了 `source("src/simpleplot.R")`。  
 
-1. 請確定您選取**儲存**。
+1. 请务必选择“保存”。
 
 完成這些步驟之後，[執行 R 指令碼][execute-r-script]模組就會在實驗執行時，執行 Zip 檔案中的 R 指令碼。 此時，您的實驗應該會看起來像圖 5。
 
@@ -1320,7 +1320,7 @@ RStudio 是相當有完善的記載。 以下是一些 RStudio 文件，讓您�
 * **R 程式設計技術的：Tour of Statistical Software Design** Norman Matloff 是程式設計簡介  
 * **R Cookbook**於 Paul teetor 提供使用 r 的問題和解決方案的方法  
 * **作用中的 R** Robert Kabacoff 是另一個實用的簡介書籍。 附屬[Quick R 網站](https://www.statmethods.net/)是相當實用的資源。
-* **R Inferno** Patrick Burns 所是具技巧性和困難度的主題，在 r 中進行程式設計時可能遇到的令人出乎意料的幽默書籍本書是免費提供[R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/)。
+* **R Inferno** Patrick Burns 所是具技巧性和困難度的主題，在 r 中進行程式設計時可能遇到的令人出乎意料的幽默書籍本書是免費提供[R Inferno](https://www.burns-stat.com/documents/books/the-r-inferno/)。
 * 如果您想在 R 中的進階主題深入探討，我們看看本書**進階 R** Hadley Wickham 所著。 這本書的線上版本可免費[ http://adv-r.had.co.nz/ ](http://adv-r.had.co.nz/)。
 
 中可以找到 R 時間序列套件目錄[CRAN 工作檢視：時間序列分析](https://cran.r-project.org/web/views/TimeSeries.html)。 如需特定時間序列物件封裝的資訊，您應該參考該封裝的相關文件。

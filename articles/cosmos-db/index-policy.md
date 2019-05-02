@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: thweiss
-ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005089"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872675"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中編製索引原則
 
@@ -69,6 +69,8 @@ Azure Cosmos DB 支援兩個編製索引模式：
 - 包含要選擇性地排除不需要編製索引的路徑的根路徑。 這是建議的方法，因為這可讓 Azure Cosmos DB 主動編製索引的任何新屬性，可能會加入至您的模型。
 - 排除根路徑，以選擇性地包含需要編製索引的路徑。
 
+- 路徑規則包含的字元： 英數字元及 _ （底線），您不需要逸出路徑字串周圍雙引號括住 （例如，"/ 路徑 /？"）。 針對與其他特殊字元的路徑，您需要逸出周圍雙引號括住路徑字串 (例如，"/\"路徑 abc\"/？")。 如果您希望特殊字元，在您的路徑，您可以逸出每個路徑，基於安全性考量。 在功能上它不進行任何差異，如果逸出每個路徑與只是具有特殊字元。
+
 請參閱[本節](how-to-manage-indexing-policy.md#indexing-policy-examples)編製索引原則範例。
 
 ## <a name="modifying-the-indexing-policy"></a>修改編製索引原則
@@ -105,5 +107,5 @@ Azure Cosmos DB 支援兩個編製索引模式：
 
 在下列文章中深入了解編製索引：
 
-- [編製索引的概觀](index-overview.md)
+- [索引編製概觀](index-overview.md)
 - [如何管理編製索引原則](how-to-manage-indexing-policy.md)

@@ -11,11 +11,11 @@ ms.date: 07/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120174"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>在 Azure Logic Apps 中執行資料作業
 
@@ -33,7 +33,7 @@ ms.locfileid: "50231639"
 
 下列動作可協助您使用陣列中的資料。
 
-| 動作 | 說明 | 
+|  動作 | 描述 | 
 |--------|-------------| 
 | [**建立 CSV 資料表**](#create-csv-table-action) | 從陣列建立逗號分隔值 (CSV) 資料表。 | 
 | [**建立 HTML 資料表**](#create-html-table-action) | 從陣列建立 HTML 資料表。 | 
@@ -46,7 +46,7 @@ ms.locfileid: "50231639"
 
 下列動作可協助您使用 JavaScript 物件標記法 (JSON) 格式的資料。
 
-| 動作 | 說明 | 
+|  動作 | 描述 | 
 |--------|-------------| 
 | [**撰寫**](#compose-action) | 從可具有各種資料類型的多個輸入建立訊息或字串。 其後，您可以使用此字串作為單一輸入，而無須重複輸入相同的內容。 例如，您可以從多種輸入建立單一 JSON 訊息。 | 
 | [**剖析 JSON**](#parse-json-action) | 為 JSON 內容中的屬性建立易記的權杖，以便在您的邏輯應用程式中輕鬆使用這些屬性。 | 
@@ -62,7 +62,7 @@ ms.locfileid: "50231639"
 
 * 需透過作業來使用資料的邏輯應用程式 
 
-  如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+  如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 * 作為邏輯應用程式中第一個步驟的[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
@@ -82,7 +82,7 @@ ms.locfileid: "50231639"
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-若要試用範例，請使用 Logic App 設計工具按照下列步驟操作。 或者，如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**撰寫**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 撰寫](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+若要試用範例，請使用 Logic App 設計工具按照下列步驟操作。 或者，如果您偏好程式碼檢視編輯器中工作，您可以複製此範例**Compose**並**初始化變數**動作定義從這篇文章到您自己的邏輯應用程式的基礎工作流程定義：[資料作業的程式碼範例-Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。 
 
@@ -142,7 +142,7 @@ ms.locfileid: "50231639"
 
 若要從陣列中的 JavaScript 物件標記法 (JSON) 物件建立含有其屬性和值的逗號分隔值 (CSV) 資料表，請使用**資料作業 - 建立 CSV 資料表**動作。 接著，您可以在**建立 CSV 資料表**動作之後的動作中使用產生的資料表。 
 
-如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**建立 CSV 資料表**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 建立 CSV 資料表](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
+如果您偏好程式碼檢視編輯器中工作，您可以複製此範例**建立 CSV 資料表**並**初始化變數**動作定義從這篇文章到您自己的邏輯應用程式的基礎工作流程定義：[資料作業的程式碼範例-建立 CSV 資料表](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
 
 1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。 
 
@@ -211,7 +211,7 @@ ms.locfileid: "50231639"
 
 若要從陣列中的 JavaScript 物件標記法 (JSON) 物件建立含有其屬性和值的 HTML 資料表，請使用**資料作業 - 建立 HTML 資料表**動作。 接著，您可以在**建立 HTML 資料表**動作之後的動作中使用產生的資料表。
 
-如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**建立 HTML 資料表**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 建立 HTML 資料表](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+如果您偏好程式碼檢視編輯器中工作，您可以複製此範例**建立 HTML 資料表**並**初始化變數**動作定義從這篇文章到您自己的邏輯應用程式的基礎工作流程定義：[資料作業的程式碼範例-建立 HTML 資料表](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。 
 
@@ -288,7 +288,7 @@ ms.locfileid: "50231639"
 > 
 > 若要讓動作使用**篩選陣列**動作的陣列輸出，這些動作必須將陣列作為輸入，或者您可能必須將輸出陣列轉換為其他相容的格式。 
 
-如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**篩選陣列**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 篩選陣列](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
+如果您偏好程式碼檢視編輯器中工作，您可以複製此範例**篩選陣列**並**初始化變數**動作定義從這篇文章到您自己的邏輯應用程式的基礎工作流程定義：[資料作業的程式碼範例-篩選陣列](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
 
 1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。 
 
@@ -357,7 +357,7 @@ ms.locfileid: "50231639"
 
 若要建立包含陣列中所有項目的字串，並以特定分隔符號字元分隔這些項目，請使用**資料作業 - 聯結**動作。 接著，您可以在**聯結**動作之後的動作中使用該字串。
 
-如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**聯結**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 聯結](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
+如果您偏好程式碼檢視編輯器中工作，您可以複製此範例**聯結**並**初始化變數**動作定義從這篇文章到您自己的邏輯應用程式的基礎工作流程定義：[資料作業的程式碼範例-聯結](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
 
 1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。 
 
@@ -376,7 +376,7 @@ ms.locfileid: "50231639"
    * 若要在步驟之間新增動作，請將滑鼠移至連接箭頭上，如此就會出現加號 (+)。 
    選擇加號，然後選取 [新增動作]。
 
-3. 在搜尋方塊中，輸入「聯結」作為篩選條件。 從 [動作] 清單中，選取此動作：**聯結**
+3. 在搜尋方塊中，輸入「聯結」作為篩選條件。 從 [動作] 清單中，選取此動作：**Join**
 
    ![選取 [資料作業 - 聯結] 動作](./media/logic-apps-perform-data-operations/select-join-action.png)
 
@@ -421,7 +421,7 @@ ms.locfileid: "50231639"
 若要參考或存取 JavaScript 物件標記法 (JSON) 內容中的屬性，您可以使用**資料作業 - 剖析 JSON**動作為這些屬性建立易記的欄位或權杖。
 如此，您即可在指定邏輯應用程式的輸入時從動態內容清單中選取這些屬性。 針對此動作，您可以提供 JSON 結構描述，或從範例 JSON 內容或承載產生 JSON 結構描述。
 
-如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**剖析 JSON** 和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 剖析 JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
+如果您偏好程式碼檢視編輯器中工作，您可以複製此範例**剖析 JSON**並**初始化變數**動作定義從這篇文章到您自己的邏輯應用程式的基礎工作流程定義:[資料作業的程式碼範例-剖析 JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
 
 1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。 
 
@@ -499,7 +499,7 @@ ms.locfileid: "50231639"
 > [!NOTE]
 > 若要讓動作使用**選取**動作的陣列輸出，這些動作必須將陣列作為輸入，或者您可能必須將輸出陣列轉換為其他相容的格式。 
 
-如果您偏好在程式碼檢視編輯器中工作，您可以將本文中的範例**選取**和**初始化變數**動作定義複製到您自己的邏輯應用程式基礎工作流程定義中：[資料作業程式碼範例 - 選取](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+如果您偏好程式碼檢視編輯器中工作，您可以複製此範例**選取 **並**初始化變數**動作定義從這篇文章到您自己的邏輯應用程式的基礎工作流程定義：[選取 資料作業的程式碼範例-](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。 
 

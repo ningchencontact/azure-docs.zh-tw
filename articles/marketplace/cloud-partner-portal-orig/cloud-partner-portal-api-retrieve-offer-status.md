@@ -1,25 +1,18 @@
 ---
-title: 擷取供應項目狀態 | Microsoft Docs
+title: 擷取的供應項目狀態 |Azure Marketplace
 description: API 可擷取供應項目的目前狀態。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806553"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935447"
 ---
 <a name="retrieve-offer-status"></a>擷取供應項目狀態 
 =====================
@@ -35,17 +28,17 @@ ms.locfileid: "48806553"
 |  -------------  |  ------------------------------------------  |  ------------  |
 |  publisherId    | 發行者識別碼，例如 `Contoso`  |     字串     |
 |  offerId        | 可唯一識別供應項目的 GUID      |     字串     |
-|  api-version    | API 的最新版本                        |     日期       |
+|  api-version    | API 的最新版本                        |     date       |
 |  |  |
 
 
 <a name="header"></a>頁首
 ------
 
-|  名稱           |  值               |
+|  名稱           |  Value               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
-|  Authorization  | `Bearer YOUR_TOKEN`  |
+|  授權  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
@@ -132,14 +125,14 @@ ms.locfileid: "48806553"
 |  **名稱**             |    **說明**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
 |  status               | 供應項目的狀態。 如需可能值清單，請參閱下面的[供應項目狀態](#offer-status)。 |
-|  上限             | 與供應項目相關聯的訊息陣列                                                    |
+|   上限             | 與供應項目相關聯的訊息陣列                                                    |
 |  steps                | 供應項目發行期間，供應項目所歷經的步驟陣列                      |
 |  estimatedTimeFrame   | 完成此步驟要花費的估計時間 (易記格式)                       |
 |  id                   | 步驟的識別碼                                                                         |
 |  stepName             | 步驟的名稱                                                                               |
-|  說明          | 步驟的說明                                                                        |
+|  description          | 步驟的說明                                                                        |
 |  status               | 步驟的狀態。 如需可能值清單，請參閱下面的[步驟狀態](#step-status)。    |
-|  上限             | 與步驟相關聯的訊息陣列                                                          |
+|   上限             | 與步驟相關聯的訊息陣列                                                          |
 |  processPercentage    | 步驟的完成百分比                                                              |
 |  previewLinks         | 目前尚未實作                                                                    |
 |  liveLinks            | 目前尚未實作                                                                    |

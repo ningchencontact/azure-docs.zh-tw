@@ -16,11 +16,11 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 51a2ac93fd2d863855c820ba147418c5397c2a89
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60851531"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>如何設定 App Service 應用程式以使用 Twitter 登入
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "53411324"
 若要完成本主題的程序，您必須具有已驗證過電子郵件地址和電話號碼的 Twitter 帳戶。 若要建立新的 Twitter 帳戶，請前往 <a href="https://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>。
 
 ## <a name="register"> </a>向 Twitter 註冊您的應用程式
-1. 登入 [Azure 入口網站]，並瀏覽到您的應用程式。 複製您的 **URL**。 您將使用此 URL 設定您的 Twitter 應用程式。
+1. 登入 [Azure 门户]，並瀏覽到您的應用程式。 複製您的 **URL**。 您將使用此 URL 設定您的 Twitter 應用程式。
 2. 瀏覽至 [Twitter Developers] 網站，使用您的 Twitter 帳戶認證登入，然後按一下 [建立新的應用程式]。
 3. 針對您新的應用程式輸入 [名稱]和 [說明]。 貼上您應用程式的 **URL** 作為 [網站]值。 然後，針對 [回呼 URL]，貼上您之前複製的 [回呼 URL]。 這是您已附加路徑 /.auth/login/twitter/callback 的行動應用程式閘道器。 例如： `https://contoso.azurewebsites.net/.auth/login/twitter/callback`。 請確實使用 HTTPS 配置。
 4. 在頁面底部，閱讀並接受條款。 然後按一下 [ **建立 Twitter 應用程式**]。 這會註冊應用程式並顯示應用程式詳細資料。
@@ -43,7 +43,7 @@ ms.locfileid: "53411324"
    > 
 
 ## <a name="secrets"> </a>將 Twitter 資訊新增至應用程式
-1. 回到 [Azure 入口網站]，並瀏覽到您的應用程式。 依序按一下 [設定] 及 [驗證/授權]。
+1. 回到 [Azure 门户]，並瀏覽到您的應用程式。 依序按一下 [設定] 及 [驗證/授權]。
 2. 如果 [驗證/授權] 功能未啟用，請切換到 [開] 。
 3. 按一下 [Twitter] 。 貼入您先前取得的應用程式識別碼和應用程式密鑰值。 然後按一下 [確定] 。
    
@@ -66,5 +66,5 @@ ms.locfileid: "53411324"
 <!-- URLs. -->
 
 [Twitter Developers]: https://go.microsoft.com/fwlink/p/?LinkId=268300
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 门户]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

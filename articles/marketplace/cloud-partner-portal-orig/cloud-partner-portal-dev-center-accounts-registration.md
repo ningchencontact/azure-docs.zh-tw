@@ -1,25 +1,18 @@
 ---
-title: 建立 Microsoft 開發人員帳戶 | Microsoft Docs
+title: 建立 Microsoft 開發人員帳戶 |Azure Marketplace
 description: 建立 Microsoft 開發人員帳戶的需求與步驟。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326724"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935870"
 ---
 <a name="create-a-microsoft-developer-account"></a>建立 Microsoft 開發人員帳戶
 ====================================
@@ -106,7 +99,7 @@ Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是
    ![選取國家/地區](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >「銷售來源」國家/地區：如果要在 Azure Marketplace 上銷售您的服務，您的註冊實體必須是下拉式清單中其中一個經過核准的「銷售來源」國家/地區。 這項限制是基於付款和稅務理由。 如需詳細資訊，請參閱 Marketplace 參與原則。
+    >「 銷售來源 」 國家/地區：若要銷售您的服務，在 Azure Marketplace 上，您的註冊的實體必須是其中一個經過核准的 「 銷售來源 」 國家/地區的下拉式清單中所示。 這項限制是基於付款和稅務理由。 如需詳細資訊，請參閱 Marketplace 參與原則。
 
 5. 針對您的 [帳戶類型] 選取 [公司]，然後選取 [下一步]。
 

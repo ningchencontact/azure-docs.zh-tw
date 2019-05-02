@@ -1,25 +1,19 @@
 ---
-title: Azure Resource Manager 試用產品 | Microsoft Docs
+title: Azure Resource Manager 測試磁碟機 |Azure Marketplace
 description: 使用 Azure Resource Manager 建置 Markeplace 試用產品
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Patrick .Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.author: pabutler
+ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541157"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941580"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 試用產品
 
@@ -90,10 +84,10 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 | 中繼資料類型   | 參數類型  | 描述     | 範例值    |
 |---|---|---|---|
-| **baseuri**     | 字串          | 您部署套件的基底 URI| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
-| **username**    | 字串          | 新的隨機使用者名稱。| admin68876      |
+| **baseuri**     | string          | 您部署套件的基底 URI| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
+| **username**    | string          | 新的隨機使用者名稱。| admin68876      |
 | **password**    | 安全字串    | 新的隨機使用者密碼 | Lp!ACS\^2kh     |
-| **session id**   | 字串          | 唯一試用產品工作階段識別碼 (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **session id**   | string          | 唯一試用產品工作階段識別碼 (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="username"></a>username
 
