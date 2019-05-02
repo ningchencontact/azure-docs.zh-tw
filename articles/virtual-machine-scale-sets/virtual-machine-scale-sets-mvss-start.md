@@ -1,10 +1,10 @@
 ---
 title: 了解虛擬機器擴展集範本 | Microsoft Docs
-description: 了解如何為虛擬機器擴展集建立最基本的可行擴展集範本
+description: 了解如何建立基本的擴展集範本的虛擬機器擴展集
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,27 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60805575"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868910"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虛擬機器擴展集範本
-[Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)是部署相關資源群組的絕佳方式。 本教學課程系列說明如何建立最基本的可行擴展集範本，以及如何修改此範本來配合各種案例。 所有範例皆來自這個 [GitHub 存放庫](https://github.com/gatneil/mvss)。 
+[Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)是部署相關資源群組的絕佳方式。 本系列教學課程會示範如何建立基本的擴展集範本以及如何修改此範本來配合各種案例。 所有範例皆來自這個 [GitHub 存放庫](https://github.com/gatneil/mvss)。
 
 此範本已刻意簡化。 如需較完整的擴展集範本範例，請參閱 [Azure 快速入門範本 GitHub 存放庫](https://github.com/Azure/azure-quickstart-templates)，然後搜尋包含 `vmss` 字串的資料夾。
 
 如果您已經熟悉如何建立範本，您可以跳到「後續步驟」一節，以了解如何修改此範本。
-
-## <a name="review-the-template"></a>檢閱範本
-
-使用 GitHub 以檢閱最基本的可行擴展集範本 [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)。
-
-在本教學課程中，讓我們檢查差異 (`git diff master minimum-viable-scale-set`)，逐步建立最基本的可行擴展集範本。
 
 ## <a name="define-schema-and-contentversion"></a>定義 $schema 和 contentVersion
 首先，請定義範本中的 `$schema` 和 `contentVersion`。 `$schema` 元素會定義範本語言的版本，並用於 Visual Studio 語法醒目提示及類似的驗證功能。 `contentVersion` 元素不是由 Azure 使用。 相反地，它可協助您追蹤範本版本。
@@ -43,6 +37,7 @@ ms.locfileid: "60805575"
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
+
 ## <a name="define-parameters"></a>定義參數
 接著，定義兩個參數：`adminUsername` 和 `adminPassword`。 參數是您在部署時指定的值。 `adminUsername` 參數就是一個 `string`，但是由於 `adminPassword` 是祕密，因此請賦予它 `securestring` 類型。 稍後，這些參數會被傳送到擴展集組態。
 
@@ -70,13 +65,13 @@ Resource Manager 範本也可讓您定義以後要在範本中使用的變數。
    "resources": [
 ```
 
-所有資源都必須要有 `type`、`name`、`apiVersion` 及 `location` 屬性。 這個範例的第一個資源具有類型 [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)名稱 `myVnet`，以及 apiVersion `2016-03-30`。 (若要了解資源類型的最新 API 版本，請參閱 [Azure Resource Manager 範本參考](/azure/templates/)。)
+所有資源都必須要有 `type`、`name`、`apiVersion` 及 `location` 屬性。 這個範例的第一個資源具有類型 [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)名稱 `myVnet`，以及 apiVersion `2018-11-01`。 (若要了解資源類型的最新 API 版本，請參閱 [Azure Resource Manager 範本參考](/azure/templates/)。)
 
 ```json
      {
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
-       "apiVersion": "2016-12-01",
+       "apiVersion": "2018-11-01",
 ```
 
 ## <a name="specify-location"></a>指定位置
@@ -117,7 +112,7 @@ Resource Manager 範本也可讓您定義以後要在範本中使用的變數。
      {
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
          "Microsoft.Network/virtualNetworks/myVnet"
@@ -136,7 +131,7 @@ Resource Manager 範本也可讓您定義以後要在範本中使用的變數。
 ```
 
 ### <a name="choose-type-of-updates"></a>選擇更新類型
-擴展集也需要知道如何處理擴展集上的更新。 目前有兩個選項：`Manual` 和 `Automatic`。 有关这两者之间的区别的详细信息，请参阅文档[如何升级规模集](./virtual-machine-scale-sets-upgrade-scale-set.md)。
+擴展集也需要知道如何處理擴展集上的更新。 目前，有三種選項， `Manual`，`Rolling`和`Automatic`。 如需有關兩者之間差異的詳細資訊，請參閱有關[如何升級擴展集](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)的文件。
 
 ```json
        "properties": {

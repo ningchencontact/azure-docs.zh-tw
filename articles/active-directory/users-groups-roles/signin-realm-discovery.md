@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468830"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920506"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Azure Active Directory 登入頁面的主領域探索
 
@@ -49,7 +49,7 @@ ms.locfileid: "60468830"
     ![键入错误的密码，但用户名正确](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> 這項功能可能會影響依賴舊的網域層級主領域探索來強制同盟的同盟網域。 更新會新增同盟的網域支援的時，請參閱 <<c0> [ 主領域探索 Microsoft 365 服務的登入期間](https://azure.microsoft.com/en-us/updates/signin-hrd/)。 在此同時，某些組織有訓練員工能夠使用 Azure Active Directory 中不存在，但是包含適當的網域名稱，使用者名稱登入，因為網域名稱將使用者路由目前到其組織的網域的端點。 新的登录行为不允许此操作。 系统会告知用户更正用户名，且不允许他们使用 Azure Active Directory 中不存在的用户名登录。
+> 這項功能可能會影響依賴舊的網域層級主領域探索來強制同盟的同盟網域。 更新會新增同盟的網域支援的時，請參閱 <<c0> [ 主領域探索 Microsoft 365 服務的登入期間](https://azure.microsoft.com/updates/signin-hrd/)。 在此同時，某些組織有訓練員工能夠使用 Azure Active Directory 中不存在，但是包含適當的網域名稱，使用者名稱登入，因為網域名稱將使用者路由目前到其組織的網域的端點。 新的登录行为不允许此操作。 系统会告知用户更正用户名，且不允许他们使用 Azure Active Directory 中不存在的用户名登录。
 >
 > 如果你或你的组织在实践中依赖于旧行为，则组织管理员必须更新员工登录与身份验证文档，并为员工提供培训，让他们使用其 Azure Active Directory 用户名登录。
   

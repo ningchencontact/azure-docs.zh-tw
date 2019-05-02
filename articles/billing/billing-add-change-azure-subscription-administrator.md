@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 6cc965f8e775e02e9dec9f610516739a9a2c1936
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 000315a2d751a05d3e401ee1bb9f593c6e321194
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127712"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922906"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>新增或變更 Azure 訂用帳戶系統管理員
 
 若要管理對 Azure 資源的存取，您必須具有適當的系統管理員角色。 Azure 有一個稱為角色型存取控制 (RBAC) 的授權系統，其中含有可供您選擇的內建角色。 您可以在不同範圍 (例如管理群組、訂用帳戶或資源群組) 指派這些角色。
 
-Microsoft 建議您使用 RBAC 來管理對資源的存取。 不過，如果您仍是使用傳統部署模型，且使用 [Azure 服務管理 PowerShell 模組](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure) \(英文\) 來管理傳統資源，您會需要使用傳統系統管理員。 
+Microsoft 建議您使用 RBAC 來管理對資源的存取。 不過，如果您仍是使用傳統部署模型，且使用 [Azure 服務管理 PowerShell 模組](https://docs.microsoft.com/powershell/module/servicemanagement/azure) \(英文\) 來管理傳統資源，您會需要使用傳統系統管理員。 
 
 > [!TIP]
 > 如果您只使用 Azure 入口網站來管理傳統資源，則不需要使用傳統系統管理員。

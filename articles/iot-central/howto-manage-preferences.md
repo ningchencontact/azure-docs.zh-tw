@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dd6148d2d817b1f2465b6beaba5fd488b16ead21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 968bb5317e06b5cf9ac1f939eaf56288122a1ae0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518421"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724412"
 ---
 # <a name="manage-your-application-preferences"></a>管理您的應用程式偏好設定
 
@@ -36,4 +36,4 @@ IoT Central 是以多種語言支援。 您可以使用，以便切換您慣用�
 您現在已了解如何在 Azure IoT Central 中管理設定檔，以下是建議的後續步驟：
 
 > [!div class="nextstepaction"]
-> [設定您的應用程式儀表板](howto-configure-homepage.md)
+> [切換即時聊天](howto-show-hide-chat.md)

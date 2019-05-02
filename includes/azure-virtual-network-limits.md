@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 79c4530878783cbdb62cac630d81b65dc73c52a4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803567"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733775"
 ---
 <a name="virtual-networking-limits-classic"></a>下列限制僅適用於透過每個訂用帳戶的傳統部署模型所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
-| 資源 | 預設限制 | 上限 |
+| Resource | 預設限制 | 上限 |
 | --- | --- | --- |
 | 虛擬網路 |50 |100 |
 | 區域網路網站 |20 |請連絡支援人員。 |
@@ -40,7 +40,7 @@ ms.locfileid: "59803567"
 > [!NOTE]
 > 我們最近已將所有預設限制提升至其最大限制。 如果没有最大限制列，则资源没有可调整的限制。 如果过去已通过客户支持提高了这些上限，因此在以下表中看不到更新的限制，可[免费提交联机客户支持请求](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| 資源 | 預設限制 | 
+| Resource | 預設限制/最大限制 | 
 | --- | --- |
 | 虛擬網路 |1,000 |
 | 每一虛擬網路的子網路 |3,000 |
@@ -65,7 +65,7 @@ ms.locfileid: "59803567"
 | 每個虛擬網路 TAP 的網路介面 TAP 設定 |100 |
 
 #### <a name="publicip-address"></a>公用 IP 位址限制
-| 資源 | 預設限制 | 上限 |
+| Resource | 預設限制 | 上限 |
 | --- | --- | --- |
 | 公用 IP 位址 - 動態 | 基本版为 1,000。 |請連絡支援人員。 |
 | 公用 IP 位址 - 靜態 | 基本版为 1,000。 |請連絡支援人員。 |
@@ -75,7 +75,7 @@ ms.locfileid: "59803567"
 #### <a name="load-balancer"></a>負載平衡器限制
 下列限制僅適用於透過每個訂用帳戶每一區域的 Azure Resource Manager 所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
-| 資源 | 預設限制 |
+| Resource | 預設限制 |
 | --- | --- |
 | 負載平衡器 | 1,000 | 
 | 每個資源的規則，基本 | 250 |

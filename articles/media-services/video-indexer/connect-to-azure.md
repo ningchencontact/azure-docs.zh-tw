@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 08f2dac6317f294c3c7360cc00cf9aaa60c9a7ca
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796540"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715092"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>建立連線到 Azure 的影片索引器帳戶
 
@@ -103,7 +103,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
 1. 使用 [Azure 入口網站](https://portal.azure.com/)來建立 Azure 媒體服務帳戶，如[建立帳戶](../previous/media-services-portal-create-account.md)所示。
 
-    為媒體服務帳戶建立儲存體帳戶時，請針對帳戶種類選取 [StorageV2]，以及針對複寫欄位選取 [異地備援 (RG)]。
+    在建立媒體服務帳戶的儲存體帳戶，選取**StorageV2**的帳戶類型並**異地備援 (GRS)** 複寫欄位。
 
     ![新的 AMS 帳戶](./media/create-account/create-ams-account1.png)
 

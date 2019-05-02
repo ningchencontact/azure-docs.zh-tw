@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406638"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922972"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
 [Azure Functions](functions-overview.md)提供與內建的整合[Azure Application Insights](../azure-monitor/app/app-insights-overview.md)來監視函式。 這篇文章會示範如何設定 Azure Functions，以將系統產生記錄檔傳送至 Application Insights。
 
-我們建議使用 Application Insights，因為它會收集記錄檔、 效能和錯誤資料。 它會自動偵測效能異常狀況，並包含功能強大的分析工具可協助您診斷問題，並了解如何使用您的函式。 它是設計來協助您持續改善效能和可用性。 您甚至可以在區域函式應用程式專案的開發期間使用 Application Insights。 如需詳細資訊，請參閱[什麼是 Application Insights？](../azure-monitor/app/app-insights-overview.md)
+我們建議使用 Application Insights，因為它會收集記錄檔、 效能和錯誤資料。 它會自動偵測效能異常狀況，並包含功能強大的分析工具可協助您診斷問題，並了解如何使用您的函式。 它是設計來協助您持續改善效能和可用性。 您甚至可以在區域函式應用程式專案的開發期間使用 Application Insights。 如需詳細資訊，請參閱 <<c0> [ 什麼是 Application Insights？](../azure-monitor/app/app-insights-overview.md)。
 
 因為所需的 Application Insights 檢測內建在 Azure Functions，您只需要是有效的檢測金鑰，您的函式應用程式連線到 Application Insights 資源。
 
@@ -626,7 +626,7 @@ Functions v2 會自動收集 HTTP 要求、 服務匯流排，和 SQL 的相依�
 
 ### <a name="azure-cli"></a>Azure CLI
 
-您可以使用，以啟用資料流記錄[Azure 命令列介面 (CLI)](/cli/azure/install-azure-cli)。 Azure cli，請登入，請選擇您的訂用帳戶和串流處理記錄檔中使用下列命令：
+您可以使用，以啟用資料流記錄[Azure CLI](/cli/azure/install-azure-cli)。 若要登入，請選擇您的訂用帳戶和串流處理記錄檔中使用下列命令：
 
 ```azurecli
 az login

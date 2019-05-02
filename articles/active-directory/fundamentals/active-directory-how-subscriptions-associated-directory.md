@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248715"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918403"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>將 Azure 訂用帳戶關聯或新增至您的 Azure Active Directory 租用戶
 
@@ -31,7 +31,7 @@ Azure 訂用帳戶已與 Azure Active Directory (Azure AD)，這表示訂用帳�
 > [!Important]
 > 當您將建立關聯到另一個目錄，可使用指派的角色使用者的訂用帳戶[角色型存取控制 (RBAC)](../../role-based-access-control/role-assignments-portal.md)會失去其存取權。 傳統訂用帳戶系統管理員 （服務系統管理員和共同管理員） 也將無法存取。
 > 
-> 此外，將您的 Azure Kubernetes Service (AKS) 叢集移至不同的訂用帳戶，或將叢集擁有的訂用帳戶移至新的租用戶中，會導致叢集失去由於遺失的角色指派和服務主體權限的功能。 如需 AKS 的詳細資訊，請參閱[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/)。
+> 此外，將您的 Azure Kubernetes Service (AKS) 叢集移至不同的訂用帳戶，或將叢集擁有的訂用帳戶移至新的租用戶中，會導致叢集失去由於遺失的角色指派和服務主體權限的功能。 如需 AKS 的詳細資訊，請參閱[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/)。
 
 ## <a name="before-you-begin"></a>開始之前
 

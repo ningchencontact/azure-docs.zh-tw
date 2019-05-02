@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3d14200faa06bc30df45a2100635ed7dc697a339
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803097"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868617"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>語言和地區支援語音服務
 
@@ -29,7 +29,7 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
   代碼 | 語言 | [採用原音](how-to-customize-acoustic-models.md) | [採用語言](how-to-customize-language-model.md) | [採用發音](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | 阿拉伯文 (埃及)，現代標準 | 否 | 是 | 否
- ca-ES | 加泰蘭文 (西班牙) | 否 | 否 | 否
+ ca-ES | 卡達隆尼亞文 | 否 | 否 | 否
  da-DK | 丹麥文 (丹麥) | 否 | 否 | 否
  de-DE | 德文 (德國) | 是 | 是 | 否
  en-AU | 英文 (澳洲) | 否 | yes | 是
@@ -98,7 +98,7 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
 ar-EG\* | 阿拉伯文 (埃及) | 女性 | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)"
 ar-SA | 阿拉伯文 (沙烏地阿拉伯) | 男性 | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)"
 bg-BG | 保加利亞文 | 男性 | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)"
-ca-ES | 加泰蘭文 (西班牙) | 女性 | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)"
+ca-ES | 卡達隆尼亞文 | 女性 | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)"
 cs-CZ | 捷克文 | 男性 | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)"
 da-DK | 丹麥文 | 女性 | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | 德文 (奧地利) | 男性 | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"

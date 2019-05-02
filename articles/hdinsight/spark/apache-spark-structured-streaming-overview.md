@@ -1,21 +1,19 @@
 ---
 title: Azure HDInsight 中的 Spark 結構化串流
 description: 如何在 HDInsight Spark 叢集上使用 Spark 結構化串流應用程式。
-services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-orgin.date: 02/05/2018
-ms.date: 04/01/2019
-ms.author: v-yiso
+ms.date: 02/05/2018
+ms.author: maxluk
 ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098570"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711333"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark 結構化串流的概觀
 
@@ -25,9 +23,9 @@ ms.locfileid: "62098570"
 
 結構化串流會建立長時間執行的查詢，在這期間您會將作業套用到輸入資料，例如選取項目、投影、彙總，視窗化，以及將串流的 DataFrame 與參考 DataFrame 聯結。 接下來，您會使用自訂程式碼 (例如 SQL Database 或 Power BI) 將結果輸出到檔案儲存體 (Azure 儲存體 Blob 或 Data Lake Storage) 或任何資料存放區。 結構化串流也會提供輸出至主控台，以便在本機進行偵錯，並且會提供輸出至記憶體內部資料表，讓您可以在 HDInsight 中看到為偵錯而產生的資料。 
 
-![使用 HDInsight 的串流處理和 Spark 結構化串流 ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![使用 HDInsight 的串流處理和 Spark 結構化串流](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Spark 結構化串流即將取代 Spark 串流 (DStreams)。 從現在開始，結構化串流將會接受增強功能和維護，而 DStreams 將只處於維護模式。 結構化串流在支援現成的來源與接收方面，目前不像 DStreams 一樣功能完善，因此請評估您的需求，選擇適當的 Spark 串流處理選項。 
 
 ## <a name="streams-as-tables"></a>資料表形式的串流

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d348592589f448dab9b8b4f3a1a3eb286d464417
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109758"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723444"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>在總管中將資料視覺化 (預覽)
 
@@ -103,9 +103,9 @@ Azure 時間序列深入解析預覽總管包含下列元素：
 
 1. **Y 軸格式控制項**：可循環瀏覽可用的 Y 軸檢視選項：
 
-    * `Default`：每個線條都有一個獨立的 Y 軸。
-    * `Stacked`：可讓您在同一 Y 軸上堆疊多行線條，並依據選取的線條變更 Y 軸資料。
-    * `Shared`：同時顯示所有 Y 軸資料。
+    * `Default`:每個線條都有一個獨立的 Y 軸。
+    * `Stacked`:可讓您在同一 Y 軸上堆疊多行線條，並依據選取的線條變更 Y 軸資料。
+    * `Shared`:同時顯示所有 Y 軸資料。
 
 1. **目前資料元素**：目前選取的資料元素與其相關資訊。
 
@@ -216,10 +216,11 @@ Azure 時間序列深入解析預覽支援兩種佈景主題：
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱下列文章：
-* [Azure 時間序列深入解析預覽版儲存體和輸入](./time-series-insights-update-storage-ingress.md)
-* [資料模型](./time-series-insights-update-tsm.md)
-* [診斷與疑難排解](./time-series-insights-update-how-to-troubleshoot.md)
+- 深入了解[儲存體與輸入](./time-series-insights-update-storage-ingress.md)預覽版 Azure 時間序列深入解析。
+
+- 讀取時間序列深入解析預覽文件上[資料模型化](./time-series-insights-update-tsm.md)。
+
+- 了解[如何診斷和疑難排解](./time-series-insights-update-how-to-troubleshoot.md)您的 Time Series Insights 執行個體。
 
 <!-- Images -->
 [1]: media/v2-update-explorer/explorer-one.png

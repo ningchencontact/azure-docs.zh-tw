@@ -7,22 +7,20 @@ keywords: hadoop 高可用性
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 596b53d468a7dfc719c16dc6e6339492381d7f41
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763806"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704934"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Apache Hadoop 叢集的可用性和可靠性
 
 HDInsight 叢集提供兩個前端節點，可提升執行中 Apache Hadoop 服務和作業的可用性與可靠性。
 
 Hadoop 藉由在叢集中的多個節點間複寫服務和資料，以達到高可用性和可靠性。 不過 Hadoop 的標準散佈功能通常只能有一個前端節點。 单个头节点发生任何中断都可能导致群集停止工作。 HDInsight 提供兩個前端節點，以改善 Hadoop 的可用性和可靠性。
-
-[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>節點的可用性和可靠性
 
@@ -104,7 +102,7 @@ HDInsight 叢集中的節點具有只能自叢集存取的內部 IP 位址和 FQ
 
 ### <a name="ambari-web-ui"></a>Ambari Web UI
 
-可以在 https://CLUSTERNAME.azurehdinsight.net 檢視 Ambari Web UI。 將 **CLUSTERNAME** 取代為您叢集的名稱。 如果出現提示，請輸入叢集的 HTTP 使用者認證。 預設 HTTP 使用者名稱為 **admin** ，密碼是您在建立叢集時輸入的密碼。
+可以在 `https://CLUSTERNAME.azurehdinsight.net` 檢視 Ambari Web UI。 將 **CLUSTERNAME** 取代為您叢集的名稱。 如果出現提示，請輸入叢集的 HTTP 使用者認證。 預設 HTTP 使用者名稱為 **admin** ，密碼是您在建立叢集時輸入的密碼。
 
 當您來到 Ambari 頁面上時，會在該頁面的左邊列出已安裝的服務。
 
@@ -247,27 +245,25 @@ Ambari REST API 可透過網際網路提供。 HDInsight 公用閘道器會處�
 
 ## <a name="how-to-configure-the-node-size"></a>如何配置节点大小
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 只能在叢集建立期間選取節點的大小。 您可以在 [HDInsight 價格頁面](https://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單。
 
-建立叢集時，您可以指定節點的大小。 以下資訊提供如何使用 [Azure 入口網站][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure Classic CLI][azure-cli] 指定大小的指引：
+建立叢集時，您可以指定節點的大小。 下列資訊提供有關如何指定大小使用的指導方針[Azure 入口網站][preview-portal]， [Azure PowerShell 模組 Az][azure-powershell]，而[Azure CLI][azure-cli]:
 
 * **Azure 入口網站**︰建立叢集時，您可以設定叢集所使用的節點大小：
 
     ![可選取節點大小的 [叢集映像建立精靈]](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure 傳統 CLI**：使用 `azure hdinsight cluster create` 命令時，您可以使用 `--headNodeSize`、`--workerNodeSize` 和 `--zookeeperNodeSize` 參數來設定前端、背景工作及 ZooKeeper 節點的大小。
+* **Azure CLI**：使用時[az hdinsight 建立](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)命令時，您可以透過設定的前端、 背景工作與 ZooKeeper 節點大小`--headnode-size`， `--workernode-size`，和`--zookeepernode-size`參數。
 
-* **Azure PowerShell**：使用 `New-AzHDInsightCluster` Cmdlet 時，您可以使用 `-HeadNodeVMSize`、`-WorkerNodeSize` 和 `-ZookeeperNodeSize` 參數來設定前端、背景工作及 ZooKeeper 節點的大小。
+* **Azure PowerShell**：使用時[新增 AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet，您可以透過設定的前端、 背景工作與 ZooKeeper 節點大小`-HeadNodeSize`， `-WorkerNodeSize`，和`-ZookeeperNodeSize`參數。
 
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解這份文件中所敘述的項目，請使用下列連結。
 
 * [Apache Ambari REST 參考](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [安裝和設定 Azure CLI](../cli-install-nodejs.md)
-* [安裝並設定 Azure PowerShell](/powershell/azure/overview)
+* [安裝和設定 Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
+* [安裝和設定 Azure PowerShell 模組 Az](/powershell/azure/overview)
 * [使用 Apache Ambari 來管理 HDInsight](hdinsight-hadoop-manage-ambari.md)
 * [佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)
 

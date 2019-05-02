@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454858"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918782"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>透過強式識別解決方案規劃更高的資料安全性
 保護資料的第一個步驟是識別可以存取該資料的人員。 此外，您需要可與系統整合的身分識別解決方案，以提供驗證和授權功能。 驗證和授權常被混淆，兩者角色也常被誤解。 這兩者其實是不同的，如下圖所示：
 
-![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![行動裝置生命週期](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **行動裝置管理生命週期階段**
 
@@ -44,7 +44,7 @@ ms.locfileid: "60454858"
 但無論是何種產業，都有一些安全性層面是必須探索並驗證的。
 
 ## <a name="data-protection-paths"></a>資料保護路徑
-![](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![資料保護路徑](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **資料保護路徑**
 

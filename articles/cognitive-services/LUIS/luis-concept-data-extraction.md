@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526284"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867708"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>擷取與意圖和實體的 [utterance] 文字方塊中的資料
 LUIS 可讓您從使用者的自然語言語句取得資訊。 此資訊的擷取方式使得它可供程式、應用程式或 Chatbot 用來執行動作。 在下列各節中，您將透過 JSON 範例，了解從意圖和實體會傳回哪些資料。
@@ -46,7 +46,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 }
 ```
 
-|資料物件|数据类型|資料位置|值|
+|資料物件|数据类型|資料位置|Value|
 |--|--|--|--|
 |意圖|字串|topScoringIntent.intent|"GetStoreInfo"|
 
@@ -75,7 +75,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 意圖會依最高分到最低分排序。
 
-|資料物件|数据类型|資料位置|值|分數|
+|資料物件|数据类型|資料位置|Value|分數|
 |--|--|--|--|:--|
 |意圖|字串|intents[0].intent|"GetStoreInfo"|0.984749258|
 |意圖|字串|intents[1].intent|"None"|0.0168218873|
@@ -106,7 +106,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 }
 ```
 
-|網域|資料物件|数据类型|資料位置|值|
+|網域|資料物件|数据类型|資料位置|Value|
 |--|--|--|--|--|
 |公用事業|意圖|字串|intents[0].intent|"<b>Utilities</b>.ShowNext"|
 |通訊|意圖|字串|intents[1].intent|<b>Communication</b>.StartOver"|
@@ -168,7 +168,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 ]
 ```
 
-|資料物件|實體名稱|值|
+|資料物件|實體名稱|Value|
 |--|--|--|
 |簡單實體|`Customer`|`bob jones`|
 
@@ -196,7 +196,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 ]
 ```
 
-|資料物件|父系|子系|值|
+|資料物件|父系|子系|Value|
 |--|--|--|--|
 |階層式實體|位置|ToLocation|"paris"|
 
@@ -255,7 +255,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
   ]
 ```    
 
-|資料物件|實體名稱|值|
+|資料物件|實體名稱|Value|
 |--|--|--|
 |預先建置的實體 - number|"builtin.number"|"2"|
 |階層式實體 - Location|"Location::ToLocation"|"paris"|
@@ -441,7 +441,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 ### <a name="names-of-places"></a>地名
 
-地名是已設定且已知的名稱，例如城市、郡縣、州、省及國家/地區。 使用預先建置的實體**[geographyV2](luis-reference-prebuilt-geographyv2.md)** 擷取位置資訊。
+位置名稱已設定且已如城市、 縣市、 狀態、 省和國家/地區。 使用預先建置的實體**[geographyV2](luis-reference-prebuilt-geographyv2.md)** 擷取位置資訊。
 
 ### <a name="new-and-emerging-names"></a>全新和新興的名稱
 

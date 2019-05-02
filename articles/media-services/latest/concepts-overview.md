@@ -1,6 +1,6 @@
 ---
-title: Azure 媒體服務概念-Azure |Microsoft Docs
-description: 本主題提供 Azure 媒體服務概念的簡短概觀，並提供連結，如需詳細資訊。
+title: Azure 媒體服務術語和概念-Azure |Microsoft Docs
+description: 本主題提供 Azure 媒體服務術語和概念的簡短概觀，並提供連結以取得詳細資料。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,38 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103827"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867071"
 ---
 # <a name="media-services-concepts"></a>媒體服務概念
 
-本主題提供 Azure 媒體服務概念的簡短概觀，並提供深入的媒體服務 v3 概念和功能說明中的文章連結。 請先檢閱這些主題所述的基本概念再開始進行開發。
+本主題提供 Azure 媒體服務術語和概念的簡短概觀。 本文也提供以媒體服務 v3 概念和功能有深入的說明文章的連結。 
+
+請先檢閱這些主題所述的基本概念再開始進行開發。
 
 > [!NOTE]
 > 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](developers-guide.md)。
 
+## <a name="terminology"></a>術語
+
+本節說明一些常見的業界術語如何對應至媒體服務 v3 API。
+
+### <a name="live-event"></a>即時事件
+
+A**即時事件**代表內嵌，轉碼 （選擇性） 和封裝的視訊、 音訊及即時的中繼資料的即時資料流的管線。
+
+媒體服務 v2 Api，從移轉的客戶**即時事件**會取代**通道**v2 中的實體。 如需詳細資訊，請參閱 <<c0> [ 移轉從 v2 至 v3](migrate-from-v2-to-v3.md)。
+
+### <a name="streaming-endpoint-packaging-and-origin"></a>（「 封裝 」 和 「 原點 」） 的串流端點
+
+A**串流端點**代表可以直接向用戶端播放器應用程式，使用其中一種一般串流媒體通訊協定 (HLS 傳遞即時與隨選內容的動態 (-just-in-time) 封裝與原始服務或 DASH）。 颾魤 ㄛ**串流端點**提供領先業界的 Drm 的動態 (-just-in-time) 加密。
+
+在媒體串流產業中，這項服務通常稱為**Packager**或是**原點**。  這項功能在產業中的其他常見術語包括 JITP （恰好-中-時間-封裝程式） 或 JITE （只要在-時間-加密）。 
+ 
 ## <a name="cloud-upload-and-storage"></a>雲端上傳和儲存體
 
 若要開始管理、 加密、 編碼、 分析，以及串流處理媒體內容，在 Azure 中的，您需要建立媒體服務帳戶並上傳到將數位檔案**資產**。
@@ -52,7 +70,7 @@ ms.locfileid: "62103827"
 
 ## <a name="packaging-delivery-protection"></a>封裝、傳遞、保護
 
-一旦您的內容編碼時，您可以善用**動態封裝**。 **串流端點**是用來傳遞媒體內容給用戶端播放程式媒體服務中的動態封裝服務。 若要讓影片在輸出資產中供用戶端播放，您必須建立**串流定位器**，然後再建置串流 Url。 
+一旦您的內容編碼時，您可以善用**動態封裝**。 在 Media Services**串流端點**  /來源是動態封裝所用的服務來傳遞媒體內容給用戶端播放程式。 若要讓影片在輸出資產中供用戶端播放，您必須建立**串流定位器**，然後再建置串流 Url。 
 
 建立時**串流定位器**，您要指定資產的名稱，除了**串流原則**。 **串流處理原則**讓您定義串流通訊協定和加密選項 （如果有的話） 您**串流定位器**。
 

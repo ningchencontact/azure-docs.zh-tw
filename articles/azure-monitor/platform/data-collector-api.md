@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f5a996d68c80fd9b1f55a36de37579ea245d99d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60931756"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922763"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將記錄資料傳送給 Azure 監視器 (公開預覽)
 本文示範如何使用 HTTP 資料收集器 API 將記錄資料從 REST API 用戶端傳送給 Azure 監視器。  內容說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Azure 監視器授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
@@ -476,7 +476,7 @@ post_data(customer_id, shared_key, body, log_type)
 
 | 替代方案 | 描述 | 最適合用來 |
 |---|---|---|
-| [自訂事件](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties):在 Application Insights 中的原生 sdk 擷取 | Application Insights 中，通常是透過您的應用程式中 SDK 檢測可讓您為您自訂透過將資料傳送自訂事件。 | <ul><li> 您的應用程式內產生，但不是收取 SDK 透過其中一個預設資料類型的資料 (亦即： 要求、 相依性、 例外狀況等等)。</li><li> 最常在 Application Insights 中的其他應用程式資料相互關聯的資料 </li></ul> |
+| [自訂事件](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties):在 Application Insights 中的原生 sdk 擷取 | Application Insights 中，通常是透過您的應用程式中 SDK 檢測可讓您為您自訂透過將資料傳送自訂事件。 | <ul><li> 您的應用程式內產生，但不是收取 SDK 透過其中一個預設資料類型的資料 (亦即： 要求、 相依性、 例外狀況等等)。</li><li> 最常在 Application Insights 中的其他應用程式資料相互關聯的資料 </li></ul> |
 | [資料收集器 API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)中 Azure 監視器記錄檔 | 「 Azure 監視器記錄檔中的資料收集器 API 是完全開放式的方法來擷取資料。 格式化 JSON 物件中的任何資料可以傳送至此處。 傳送之後，它將會處理，和要記錄中可用相互關聯與其他資料記錄檔中，或針對其他 Application Insights 資料。 <br/><br/> 它是很容易就能將資料上傳檔案到 Azure Blob 的 blob，從將處理並上傳至 Log Analytics 這些檔案。 請參閱[這](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api)針對此類管線的範例實作。 | <ul><li> 就一定不會在 Application Insights 中檢測的應用程式內產生的資料。</li><li> 範例包括查閱和事實資料表、 參考資料、 預先彙總的統計資料等。 </li><li> 適用於會交互參考 （例如，Application Insights，其他記錄檔資料類型的資訊安全中心、 Azure 監視器容器/Vm 等） 的其他 Azure 監視器資料的資料。 </li></ul> |
 | [Azure 資料總管](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure 資料總管 (ADX) 是提供 Application Insights Analytics 和 Azure 監視器記錄檔的資料平台。 現在正式運作 (「 GA 」) 使用以其原始格式的資料平台可讓您完整的彈性 （但需要的管理額外負荷） 移轉叢集 (RBAC，留駐率、 結構描述等)。 ADX 提供許多[內嵌選項](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods)包括[CSV、 TSV 和 JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master)檔案。 | <ul><li> 將不會在 Application Insights 或記錄檔下的任何其他資料相互關聯的資料。 </li><li> 資料需要進階擷取，或處理功能目前不適用於 Azure 監視器記錄檔。 </li></ul> |
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851148"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919957"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -136,7 +136,7 @@ const io = require('socket.io')(server,{
 
 **我可以在我的自訂容器映像上公開多個連接埠嗎？**
 
-我們目前不支援公開多個連接埠。
+我們不支援公開多個連接埠。
 
 **我可以攜帶自己的儲存體嗎？**
 
@@ -154,11 +154,11 @@ SCM 網站是在個別的容器中執行。 您無法檢查應用程式容器的
 
 不需要，平台會在共用的前端處理 HTTPS 終止。
 
-## <a name="multi-container-with-docker-compose-and-kubernetes"></a>多重容器與 Docker Compose 和 Kubernetes
+## <a name="multi-container-with-docker-compose"></a>多容器 docker Compose
 
-**如何設定 Azure 容器登錄 (ACR) 與多重容器一起使用？**
+**如何設定 Azure 容器登錄 (ACR) 與多重容器一起使用？** 
 
-為了將 ACR 與多重容器一起使用，**所有容器映像**都必須裝載在相同的 ACR 登錄伺服器上。 一旦它們位於相同的登錄伺服器上，您必須建立應用程式設定，然後更新 Docker Compose 或 Kubernetes 組態檔，以包含 ACR 映像名稱。
+為了將 ACR 與多重容器一起使用，**所有容器映像**都必須裝載在相同的 ACR 登錄伺服器上。 在相同的登錄伺服器之後，您必須建立應用程式設定，然後更新 Docker Compose 的組態檔以加入 ACR 映像名稱。
 
 建立下列應用程式設定：
 

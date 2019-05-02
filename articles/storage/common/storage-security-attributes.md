@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8fa43998d0b10eddacdc9e0dd512295559814255
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 7868b52fee991d4b9323fa0b7969aeca4dc83cdb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101938"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711948"
 ---
 # <a name="common-security-attributes-for-azure-storage"></a>Azure 儲存體的一般安全性屬性
 
@@ -27,7 +27,7 @@ Azure 服務的各個層面都整合了安全性。 這篇文章說明內建於 
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
 | 待用加密：<ul><li>伺服器端加密</li><li>使用客戶管理的金鑰進行伺服器端加密</li><li>其他加密功能 (例如用戶端、一律加密等)</ul>| 是 |  |
-| 傳輸中加密：<ul><li>Express Route 加密</li><li>VNet 中加密</li><li>VNet-VNet 加密</ul>| 是 | 支援標準的 HTTPS/TLS 機制。  它會傳送至服務之前，使用者也可以加密資料。 |
+| 傳輸中加密：<ul><li>Express Route 加密</li><li>在 VNet 加密</li><li>VNet-VNet 加密</ul>| 是 | 支援標準的 HTTPS/TLS 機制。  它會傳送至服務之前，使用者也可以加密資料。 |
 | 加密金鑰處理 （CMK、 BYOK）| 是 | 請參閱[在 Azure Key Vault 中使用客戶管理金鑰的儲存體服務加密](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。|
 | 資料行層級加密 (Azure Data Services)| N/A |  |
 | API 呼叫加密| 是 |  |
@@ -37,7 +37,7 @@ Azure 服務的各個層面都整合了安全性。 這篇文章說明內建於 
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
 | 服務端點支援| 是 |  |
-| vNET 插入支援| N/A |  |
+| VNet 插入支援| N/A |  |
 | 網路隔離，而且防火牆支援| 是 | |
 | 強制通道的支援| N/A |  |
 

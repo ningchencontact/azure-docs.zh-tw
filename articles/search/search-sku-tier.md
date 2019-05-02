@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b50d0c0ca9a4000cc0c725453a3ef04b4bed9275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9c48703676dad16f5f86035400056a8c90f28f60
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61282470"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873109"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
@@ -60,7 +60,7 @@ ms.locfileid: "61282470"
 
 ## <a name="how-billing-works"></a>計費的運作方式
 
-在 Azure 搜尋服務中，有三種方式產生成本，在 Azure 搜尋中，而且有固定且可變的元件。 本節輪流探討每個計費的元件。
+在 Azure 搜尋服務中，有三種方式產生成本，在 Azure 搜尋服務，而且有固定且可變的元件。 本節輪流探討每個計費的元件。
 
 ### <a name="1-core-service-costs-fixed-and-variable"></a>1.核心服務成本 （固定且可變）
 

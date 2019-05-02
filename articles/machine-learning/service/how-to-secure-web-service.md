@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 02/05/2019
+ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a6aa75f3d25cd88cd1edb9b2cdcfabc3b4ec8f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ece32754ae51bde5db52d20ab44f0d748bf46533
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818521"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943931"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>使用 SSL 來保護具有 Azure Machine Learning 服務的 Web 服務
 
 在此文章中，您將了解如何保護使用 Azure Machine Learning services 部署的 Web 服務。 您可以限制存取 web 服務，並確保使用的用戶端所提交的資料安全[都會使用超文字傳輸通訊協定安全 (HTTPS)](https://en.wikipedia.org/wiki/HTTPS)。
 
-使用 HTTPS 來保護用戶端與您的 web 服務之間的通訊加密兩者之間的通訊。 加密會使用處理[傳輸層安全性 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security)。 這會還是有時為 Secure Sockets Layer (SSL)，也就是 TLS 的前身。
+使用 HTTPS 來保護用戶端與您的 web 服務之間的通訊加密兩者之間的通訊。 加密會使用處理[傳輸層安全性 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security)。 TLS 會還是有時為 Secure Sockets Layer (SSL)，也就是 TLS 的前身。
 
 > [!TIP]
 > Azure 機器學習服務 SDK 會使用的詞彙 'SSL' 屬性與啟用的通訊安全。 這不表示 TLS 不是由您的 web 服務，只要該 SSL 是許多讀者更容易辨識的詞彙。
@@ -34,7 +34,7 @@ TLS 和 SSL 同時依賴__數位憑證__，用來執行加密和身分識別驗�
 >
 > HTTPS 也可讓用戶端確認它連接到伺服器的真確性。 這可避免針對的用戶端[攔截](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)攻擊。
 
-保護新的 web 服務或現有的程序如下所示：
+保護新的 web 服務或一個現有的一般程序如下所示：
 
 1. 取得網域名稱。
 
@@ -43,6 +43,9 @@ TLS 和 SSL 同時依賴__數位憑證__，用來執行加密和身分識別驗�
 3. 部署或更新已啟用 SSL 設定的 Web 服務。
 
 4. 更新您的 DNS 以指向 Web 服務。
+
+> [!IMPORTANT]
+> 如果您要部署到 Azure Kubernetes Service (AKS) 中，您可以提供您自己的憑證，或使用 Microsoft 所提供的憑證。 如果您使用 Microsoft 提供的憑證，您不需要取得網域名稱或 SSL 憑證。 如需詳細資訊，請參閱 <<c0> [ 啟用 SSL 並部署](#enable)一節。
 
 跨[部署目標](how-to-deploy-and-where.md)保護 Web 服務時有些微差異。
 
@@ -65,19 +68,49 @@ TLS 和 SSL 同時依賴__數位憑證__，用來執行加密和身分識別驗�
 > [!WARNING]
 > 自我簽署的憑證應只用於開發。 這些憑證不應用於實際生產環境。 自我簽署的憑證可能會造成用戶端應用程式的問題。 如需詳細資訊，請參閱用戶端應用程式中所用網路程式庫的文件。
 
-## <a name="enable-ssl-and-deploy"></a>啟用 SSL 並部署
+## <a id="enable"></a> 啟用 SSL 並部署
 
-若要在 SSL 啟用時部署 (重新部署) 服務，請在適當的情況下，將 `ssl_enabled` 參數設定為 `True`。 將 `ssl_certificate` 參數設定為__憑證__檔案的值，並將 `ssl_key` 設定為__金鑰__檔案的值。
+若要部署 （或重新部署） 已啟用 SSL 的服務，將`ssl_enabled`參數來`True`，只要適用。 將 `ssl_certificate` 參數設定為__憑證__檔案的值，並將 `ssl_key` 設定為__金鑰__檔案的值。
 
 + **在 Azure Kubernetes Service (AKS) 上部署**
 
-  佈建 AKS 叢集時，提供 SSL 相關參數的值，如下列程式碼片段所示：
+  當部署至 AKS，您可以建立新的 AKS 叢集，或連結現有。 建立新的叢集會使用[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-)而附加現有的叢集使用[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-)。 兩者都傳回組態物件具有`enable_ssl`方法。
+
+  `enable_ssl`方法可以使用 Microsoft 或您提供的其中一個提供的憑證。
+
+  * 使用憑證時__由 Microsoft 提供__，您必須使用`leaf_domain_label`參數。 使用此參數，將會建立使用 Microsoft 所提供的憑證服務。 `leaf_domain_label`用來產生服務的 DNS 名稱。 例如，值`myservice`建立的網域名稱`myservice<6-random-characters>.<azureregion>.cloudapp.azure.com`，其中`<azureregion>`是包含服務的區域。 或者，您可以使用`overwrite_existing_domain`參數覆寫現有的分葉網域標籤。
+
+    若要在 SSL 啟用時部署 (重新部署) 服務，請在適當的情況下，將 `ssl_enabled` 參數設定為 `True`。 將 `ssl_certificate` 參數設定為__憑證__檔案的值，並將 `ssl_key` 設定為__金鑰__檔案的值。
+
+    > [!IMPORTANT]
+    > 使用 Microsoft 所提供的憑證時，您不需要購買您自己的憑證或網域名稱。
+
+    下列範例示範如何建立啟用由 Microsoft 所建立的 SSL 憑證的組態：
 
     ```python
     from azureml.core.compute import AksCompute
-
-    provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    # Config used to create a new AKS cluster and enable SSL
+    provisioning_config = AksCompute.provisioning_configuration().enable_ssl(leaf_domain_label = "myservice")
+    # Config used to attach an existing AKS cluster to your workspace and enable SSL
+    attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                          cluster_name = cluster_name).enable_ssl(leaf_domain_label = "myservice")
     ```
+
+  * 使用時__購買的憑證__，使用`ssl_cert_pem_file`， `ssl_key_pem_file`，和`ssl_cname`參數。  下列範例示範如何建立使用您提供使用的 SSL 憑證的組態`.pem`檔案：
+
+    ```python
+    from azureml.core.compute import AksCompute
+    # Config used to create a new AKS cluster and enable SSL
+    provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    provisioning_config = AksCompute.provisioning_configuration().enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    # Config used to attach an existing AKS cluster to your workspace and enable SSL
+    attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                         cluster_name = cluster_name).enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    ```
+
+  如需詳細資訊`enable_ssl`，請參閱 < [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-)並[AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-)。
 
 + **在 Azure 容器執行個體 (ACI) 上部署**
 
@@ -89,15 +122,7 @@ TLS 和 SSL 同時依賴__數位憑證__，用來執行加密和身分識別驗�
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-+ **在可現場程式化閘道陣列 (FPGA) 上部署**
-
-  部署到 FPGA 時，提供 SSL 相關參數的值，如下列程式碼片段所示：
-
-    ```python
-    from azureml.contrib.brainwave import BrainwaveWebservice
-
-    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
-    ```
+  如需詳細資訊，請參閱 < [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none-)。
 
 ## <a name="update-your-dns"></a>更新您的 DNS
 
@@ -111,6 +136,9 @@ TLS 和 SSL 同時依賴__數位憑證__，用來執行加密和身分識別驗�
 
 + **對於 AKS**：
 
+  > [!WARNING]
+  > 如果您使用`leaf_domain_label`Microsoft 所提供的憑證建立服務，不要手動更新叢集的 DNS 值。 值應該會自動設定。
+
   在 AKS 叢集之 [公用 IP 位址] 的 [設定] 索引標籤底下更新 DNS，如下圖所示。 您可以找到公用 IP 位址，作為在包含 AKS 代理程式節點和其他網路資源之資源群組下方所建立的其中一個資源類型。
 
   ![Azure Machine Learning 服務：使用 SSL 保護 Web 服務](./media/how-to-secure-web-service/aks-public-ip-address.png)
@@ -119,3 +147,4 @@ TLS 和 SSL 同時依賴__數位憑證__，用來執行加密和身分識別驗�
 了解如何：
 + [使用部署為 Web 服務的機器學習模型](how-to-consume-web-service.md)
 + [在 Azure 虛擬網路內安全地執行實驗與推斷](how-to-enable-virtual-network.md)
+

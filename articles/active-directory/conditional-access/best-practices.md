@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11d4d319fa31dd2493810dc7293d415554f79d94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54cb8c3017b2b0a4c476095ba639985fb9418441
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411709"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917327"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中條件式存取的最佳做法
 
@@ -109,7 +109,7 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>條件式存取是否適用於 Exchange ActiveSync？
 
-是，您可以使用一些條件式存取原則中的 Exchange ActiveSync[限制](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync)。 
+是，您可以使用一些條件式存取原則中的 Exchange ActiveSync[限制](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync)。 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>您應該使用 Office 365 應用程式如何設定條件式存取？
 

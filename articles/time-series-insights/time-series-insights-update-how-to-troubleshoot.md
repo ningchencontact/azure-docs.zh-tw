@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 381ecd4681bf1d7abfc8939e256bf84db9bc2172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ab3c680f7279ff78e0319f28f67c1cc8c203b47
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460549"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708027"
 ---
 # <a name="diagnose-and-troubleshoot"></a>診斷和疑難排解
 
@@ -109,7 +109,8 @@ ms.locfileid: "60460549"
 ## <a name="next-steps"></a>後續步驟
 
 - 閱讀[使用時間序列模型](./time-series-insights-update-how-to-tsm.md)。
-- 閱讀[支援的 JSON 樣貌](./how-to-shape-query-json.md)。
+
+- 深入了解[支援的 JSON 樣貌](./how-to-shape-query-json.md)。
 
 <!-- Images -->
 [1]: media/v2-update-diagnose-and-troubleshoot/environment.png

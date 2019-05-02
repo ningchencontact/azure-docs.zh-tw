@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60186817"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919316"
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -78,7 +78,7 @@ VNet 對等互連和全域 VNet 對等互連支援閘道傳輸。 只有當閘�
 ## <a name="requirements-and-constraints"></a>需求和限制
 
 只有在為虛擬網路建立全域的對等互連時，會受到下列限制：
-- 一個虛擬網路中的資源無法與全域對等互連的虛擬網路中的基本的內部負載平衡器的前端 IP 位址通訊。 基本 Load Balancer 支援只存在於相同區域內。 標準 Load Balancer 支援存在於全域 VNet 對等互連。
+- 一個虛擬網路中的資源無法與全域對等互連的虛擬網路中的基本的內部負載平衡器的前端 IP 位址通訊。 基本 Load Balancer 支援只存在於相同區域內。 標準 Load Balancer 支援存在，VNet 對等互連和全域 VNet 對等互連。 使用全域 VNet 對等互連上無法運作的基本負載平衡器服務會記載[這裡。](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 若要深入了解需求和限制，請參閱[虛擬網路對等互連需求和限制](virtual-network-manage-peering.md#requirements-and-constraints)。 若要了解您可為虛擬網路建立之對等互連數目的限制，請參閱 [Azure 網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 
 

@@ -4,22 +4,20 @@ description: 示範如何套用標籤以針對計費及管理來組織 Azure 資
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 003a78e5-2ff8-4685-93b4-e94d6fb8ed5b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: bc89b8d830e364c70fef5a5959d4da85c517a5ee
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0ee1cc9673d5e4fbd71706af74e82f6520d42b6d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764928"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868764"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用標記來組織 Azure 資源
 
@@ -115,7 +113,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-若要將所有標籤從資源群組都套用至其資源，並*在資源上保留現有的標籤*，使用下列指令碼：
+若要将资源组中的所有标记应用于其资源，并且不保留资源上的现有标记，请使用以下脚本：
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -125,7 +123,7 @@ foreach ($g in $groups)
 }
 ```
 
-若要將所有標籤從資源群組都套用至其資源，並*不是重複的資源上保留現有的標籤*，使用下列指令碼：
+若要将资源组中的所有标记应用于其资源，并且保留资源上不重复的现有标记，请使用以下脚本：
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -222,7 +220,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-若要將所有標籤從資源群組都套用至其資源，並*在資源上保留現有的標籤*，使用下列指令碼：
+若要将资源组中的所有标记应用于其资源，并且不保留资源上的现有标记，请使用以下脚本：
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -238,7 +236,7 @@ do
 done
 ```
 
-若要將所有標籤從資源群組都套用至其資源，並*在資源上保留現有的標籤*，使用下列指令碼：
+若要将资源组中的所有标记应用于其资源，并且保留资源上的现有标记，请使用以下脚本：
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)

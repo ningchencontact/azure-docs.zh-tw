@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 6cca6692da37714c76f5241ed14e24c967b00563
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467692"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920454"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>利用 Azure Advisor 改善 Azure 應用程式的效能
 
@@ -88,11 +88,11 @@ Azure 區域可以支援最多 250 每訂用帳戶的儲存體帳戶。 一旦�
 的低的快取點擊的率可能會導致較慢的查詢效能和更高的 IOPS。 這可能是因為不正確的查詢計劃或執行記憶體密集工作負載。 修正查詢計劃或 [增加記憶體](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers)PostgreSQL 資料庫伺服器、 Azure MySQL 資料庫伺服器或 Azure MariaDB 的 Azure 資料庫伺服器有助於最佳化執行資料庫工作負載。 Azure Advisor 會識別由於此高緩衝區集區變換所影響的伺服器，並建議修正的查詢計劃中，移至 更多的記憶體，較高的 SKU，或增加以取得更多 IOPS 的儲存體大小。
 
 ### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>使用 Azure MySQL 或 Azure PostgreSQL 讀取複本，來相應放大讀取的讀取密集的工作負載
-Azure Advisor 會利用工作負載為基礎啟發學習法例如讀取與寫入伺服器上識別為大量讀取工作負載在過去七天的比例。 您的資源用於 PostgreSQL 的 Azure 資料庫或具有極高的讀取/寫入比率的 MySQL 資源的 Azure 資料庫可能會導致 CPU 和/或記憶體爭用導致查詢效能變慢。 新增 [複本](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal)有助於您的相應放大到複本伺服器，以防止在主要伺服器上的 CPU 和/或記憶體條件約束的讀取。 Advisor 會識別這類高為大量讀取工作負載的伺服器，並建議您新增 [讀取複本](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) 來卸載部分讀取的工作負載。
+Azure Advisor 會利用工作負載為基礎啟發學習法例如讀取與寫入伺服器上識別為大量讀取工作負載在過去七天的比例。 您的資源用於 PostgreSQL 的 Azure 資料庫或具有極高的讀取/寫入比率的 MySQL 資源的 Azure 資料庫可能會導致 CPU 和/或記憶體爭用導致查詢效能變慢。 新增 [複本](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal)有助於您的相應放大到複本伺服器，以防止在主要伺服器上的 CPU 和/或記憶體條件約束的讀取。 Advisor 會識別這類高為大量讀取工作負載的伺服器，並建議您新增 [讀取複本](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 來卸載部分讀取的工作負載。
 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>調整您的 Azure MySQL、 Azure PostgreSQL 或 Azure MariaDB 伺服器，以較高的 SKU，以防止連接條件約束
-每個新連線到您的資料庫伺服器會佔一些記憶體。 如果因為無法連線到您的伺服器，就會降低資料庫伺服器的效能 [上限](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits)在記憶體中。 Azure Advisor 會識別伺服器執行具有許多連接失敗，並建議升級您的伺服器連線限制，藉由相應增加計算，或使用記憶體最佳化的 Sku，具有更多的運算，每個核心，提供更多記憶體到您的伺服器。
+每個新連線到您的資料庫伺服器會佔一些記憶體。 如果因為無法連線到您的伺服器，就會降低資料庫伺服器的效能 [上限](https://docs.microsoft.com/azure/postgresql/concepts-limits)在記憶體中。 Azure Advisor 會識別伺服器執行具有許多連接失敗，並建議升級您的伺服器連線限制，藉由相應增加計算，或使用記憶體最佳化的 Sku，具有更多的運算，每個核心，提供更多記憶體到您的伺服器。
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>如何在建議程式中存取效能建議
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778313"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919078"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
@@ -78,7 +78,7 @@ ms.locfileid: "60778313"
 
 在動作群組中，您可能必須為數有限的電子郵件動作。 請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)一文
 
-**ITSM** -您可能在動作群組中的有限數目有限的 ITSM 動作。 ITSM 動作需要 ITSM 連線。 了解如何建立 [ITSM 連線](../../azure-monitor/platform/itsmc-overview.md)。
+**ITSM** -您可能在動作群組中的有限的數目的 ITSM 動作。 ITSM 動作需要 ITSM 連線。 了解如何建立 [ITSM 連線](../../azure-monitor/platform/itsmc-overview.md)。
 
 **邏輯應用程式**-您可能在動作群組中的有限的數量的邏輯應用程式動作。
 
@@ -105,15 +105,12 @@ ms.locfileid: "60778313"
  - 51.5.148.86
  - 51.5.149.19
 
-若要接收這些 IP 位址，我們建議您變更的相關更新設定將 [服務健全狀況警示會監視有關動作群組的服務參考通知。
-
+若要接收這些 IP 位址變更的相關的更新，建議您設定服務健康情況警示，會監視 「 動作群組 」 服務的相關資訊通知。
 
 ## <a name="next-steps"></a>後續步驟 ##
-
 * 進一步了解 [SMS 警示行為](../../azure-monitor/platform/alerts-sms-behavior.md)。  
 * 了解[活動記錄警示 Webhook 結構描述](../../azure-monitor/platform/activity-log-alerts-webhook.md)。  
 * 深入了解 [ITSM 連接器](../../azure-monitor/platform/itsmc-overview.md)
 * 深入了解警示的[速率限制](../../azure-monitor/platform/alerts-rate-limiting.md)。
 * 取得[活動記錄警示的概觀](../../azure-monitor/platform/alerts-overview.md)，並了解如何收到警示。  
 * 了解如何[設定每當服務健康狀態通知公佈時的警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
-

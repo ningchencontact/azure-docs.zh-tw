@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82afadef58310f46046c8c3168ed93a34769b316
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472391"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920504"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -58,6 +58,18 @@ ms.locfileid: "60472391"
   * 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
   * Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
   * 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
+
+* **[B2C 使用者流量管理員](#b2c-user-flow-administrator)**:具備此角色的使用者可以建立和管理 B2C 使用者流程 （也稱為 「 內建 」 原則） 在 Azure 入口網站中。 藉由建立或編輯使用者流程，這些使用者可以變更的使用者體驗的 html/CSS/javascript 內容、 變更每個使用者流程的 MFA 需求、 變更權杖中的宣告和調整租用戶中的所有原則的工作階段設定。 相反地，此角色不包含可以讓您查看使用者資料，或對租用戶結構描述中包含的屬性進行變更。 變更為身分識別體驗架構 （也稱為自訂） 原則也是此角色的範圍之外。
+
+* **[B2C 使用者流程屬性系統管理員](#b2c-user-flow-attribute-administrator)**:具備此角色的使用者加入或刪除自訂屬性提供給租用戶中的所有使用者流量。 同樣地，具備此角色的使用者可以變更或終端使用者結構描述中新增新的項目和影響使用者的所有流程的行為，間接造成的變更可能會要求的使用者和以應用程式的宣告最後傳送的資料。 此角色無法編輯使用者流程。
+
+* **[B2C IEF 索引鍵集的系統管理員](#b2c-ief-keyset-administrator)**:  使用者可以建立和管理原則金鑰和祕密權杖加密，權杖的簽章，然後將其宣告加密/解密。 藉由將新的金鑰新增至現有的金鑰容器中，此限制的系統管理員可以變換祕密，視需要而不會影響現有的應用程式。 此使用者可以看到這些祕密和他們的到期日，甚至是在其建立後的完整內容。
+    
+  <b>重要事項︰</b> 這是機密的角色。 索引鍵集的系統管理員角色應該仔細的稽核，並在生產階段前和生產期間指派使用時請小心。
+
+* **[B2C IEF Policy Administrator](#b2c-ief-policy-administrator)**:此角色中的使用者能夠建立、 讀取、 更新和刪除 Azure AD B2C 中的所有自訂原則和因此擁有相關的 Azure AD B2C 租用戶中的 身分識別體驗架構的完整控制權。 藉由編輯原則，這位使用者可以建立與外部識別提供者的直接同盟，變更目錄結構描述、 變更所有使用者互動內容 (HTML、 CSS、 JavaScript)、 變更完成驗證、 建立新的使用者、 傳送的需求使用者資料，包括外部系統完整移轉，並編輯所有使用者的資訊，包括密碼和電話號碼等機密欄位。 相反地，此角色無法變更加密金鑰，或編輯用於同盟租用戶中的祕密。
+
+  <b>重要事項：</b>B2 IEF 原則系統管理員是高度機密的角色，它應該在生產環境中的租用戶指派給以非常有限的基礎。 這些使用者的活動應該要仔細稽核，特別是針對在生產環境中的租用戶。
 
 * **[計費管理員](#billing-administrator)**：進行採購、管理訂用帳戶、管理支援票證，以及監控服務健全狀況。
 
@@ -110,6 +122,9 @@ ms.locfileid: "60472391"
   > [!NOTE]
   > 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「Exchange 服務管理員」。 在 [Azure 入口網站](https://portal.azure.com)中則是「Exchange 管理員」。 在 [Exchange 系統管理中心](https://go.microsoft.com/fwlink/p/?LinkID=529144)中則是「Exchange Online 系統管理員」。 
 
+* **[外部身分識別提供者系統管理員](#external-identity-provider-administrator)**:此系統管理員可以管理 Azure Active Directory 租用戶與外部識別提供者之間的同盟。 使用此角色，使用者可以加入新的身分識別提供者和設定所有可用的設定 （例如驗證路徑，指派金鑰容器的服務識別碼）。 此使用者可以啟用要信任驗證從外部識別提供者的租用戶。 在終端使用者體驗上產生的影響取決於租用戶的類型：
+  * 員工和合作夥伴的 azure Active Directory 租用戶： 新增同盟 （例如，Gmail) 會立即影響所有尚未兌換的來賓邀請。 請參閱[將 Google 新增為 B2B 來賓使用者的身分識別提供者](https://docs.microsoft.com/azure/active-directory/b2b/google-federation)。
+  * Azure Active Directory B2C 租用戶中：新增同盟 （例如 Facebook 或與另一個 Azure Active Directory） 不會立即影響終端使用者流程直到身分識別提供者會成為使用者流程 （也稱為內建原則） 中的選項。 請參閱[設定為身分識別提供者的 Microsoft 帳戶](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app)的範例。 若要變更使用者流程，「 B2C 使用者流量管理員 」 的有限的角色則是必要項目。
 
 * **[全域系統管理員/公司系統管理員](#company-administrator)**：具有此角色的使用者可以存取 Azure Active Directory 中所有的系統管理功能，以及使用 Azure Active Directory 身分識別的服務，例如 Microsoft 365 資訊安全中心、Microsoft 365 合規性中心、Exchange Online、SharePoint Online 和商務用 Skype Online。 註冊 Azure Active Directory 租用戶的人員會變成全域管理員。 只有全域管理員才能指派其他系統管理員角色。 您的公司可以有多位全域管理員。 全域系統管理員可以為任何使用者和所有其他系統管理員重設密碼。
 
@@ -314,6 +329,34 @@ ms.locfileid: "60472391"
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
+
+### <a name="b2c-user-flow-administrator"></a>B2C 使用者流程的系統管理員
+建立和管理使用者流程的所有層面。
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | 讀取及設定 Azure Active Directory B2C 中的使用者流程。 |
+
+### <a name="b2c-user-flow-attribute-administrator"></a>B2C 使用者流程屬性管理員
+建立和管理提供給所有使用者流程的屬性結構描述。
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.aad.b2c/userAttributes/allTasks | 讀取及設定 Azure Active Directory B2C 中的使用者屬性。 |
+
+### <a name="b2c-ief-keyset-administrator"></a>B2C IEF 索引鍵集的系統管理員
+管理來實現同盟和身分識別體驗架構中的加密密碼。
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/keySets/allTasks | 讀取及設定 Azure Active Directory B2C 中的金鑰組。 |
+
+### <a name="b2c-ief-policy-administrator"></a>B2C IEF 原則系統管理員
+建立和管理身分識別體驗架構中的信任架構原則。
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/policies/allTasks | 讀取及設定 Azure Active Directory B2C 中的自訂原則。 |
 
 ### <a name="billing-administrator"></a>計費管理員
 能夠執行一般計費相關工作，例如更新付款資訊。
@@ -675,6 +718,13 @@ ms.locfileid: "60472391"
 | microsoft.office365.exchange/allEntities/allTasks | 管理 Exchange Online 的所有層面。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
+
+### <a name="external-identity-provider-administrator"></a>外部身分識別提供者系統管理員
+設定使用的身分識別提供者中直接聯盟。
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.aad.b2c/identityProviders/allTasks | 讀取及設定 Azure Active Directory B2C 中的身分識別提供者。 |
 
 ### <a name="guest-inviter"></a>來賓邀請者
 能夠邀請不受 [成員能夠邀請來賓] 設定限制的來賓使用者。

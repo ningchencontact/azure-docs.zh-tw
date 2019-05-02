@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683573"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727322"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>取得與 GenerateAnswer API 和中繼資料的知識答案
 
@@ -67,12 +67,12 @@ QnA Maker 可讓您將索引鍵和值組形式的中繼資料新增至問答集�
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|HTTP 要求的屬性|Name|類型|目的|
+|HTTP 要求的屬性|名稱|類型|目的|
 |--|--|--|--|
-|URL 路由參數|知識庫識別碼|字串|測試您知識庫的 GUID。|
-|URL 路由參數|QnAMaker 端點主機|字串|您的 Azure 訂用帳戶中，部署端點的主機名稱。 在發行知識庫之後，這是可在 [設定] 頁面上取得。 |
-|頁首|Content-Type|字串|傳送至 API 的本文媒體類型。 預設值是: '|
-|頁首|授權|字串|您的端點金鑰 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。|
+|URL 路由參數|知識庫識別碼|string|測試您知識庫的 GUID。|
+|URL 路由參數|QnAMaker 端點主機|string|您的 Azure 訂用帳戶中，部署端點的主機名稱。 在發行知識庫之後，這是可在 [設定] 頁面上取得。 |
+|頁首|Content-Type|string|傳送至 API 的本文媒體類型。 預設值是: '|
+|頁首|授權|string|您的端點金鑰 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。|
 |張貼本文|JSON 物件|JSON|與設定問題|
 
 
@@ -80,11 +80,12 @@ JSON 主體具有數個設定：
 
 |JSON 本文屬性|必要項|類型|目的|
 |--|--|--|--|
-|`question`|必要|字串|使用者問題傳送到您的知識庫。|
+|`question`|必要|string|使用者問題傳送到您的知識庫。|
 |`top`|選用|integer|要包含在輸出中的排名結果數目。 預設值為 1。|
-|`userId`|選用|字串|用來識別使用者的唯一識別碼。 此識別碼會記錄在交談記錄中。|
-|`isTest`|選用|布林值|如果為 true，傳回結果集`testkb`搜尋服務索引，而不是已發行的索引。|
-|`strictFilters`|選用|字串|如果指定，將會指示 QnA Maker 僅傳回含有指定中繼資料的解答。 使用`none`以指出回應應該會有任何中繼資料篩選。 |
+|`userId`|選用|string|用來識別使用者的唯一識別碼。 此識別碼會記錄在交談記錄中。|
+|`scoreThreshold`|選用|integer|會傳回信心分數高於此臨界值的解答。 預設值為 0。|
+|`isTest`|選用|boolean|如果為 true，傳回結果集`testkb`搜尋服務索引，而不是已發行的索引。|
+|`strictFilters`|選用|string|如果指定，將會指示 QnA Maker 僅傳回含有指定中繼資料的解答。 使用`none`以指出回應應該會有任何中繼資料篩選。 |
 
 範例 JSON 主體看起來像：
 
@@ -93,6 +94,7 @@ JSON 主體具有數個設定：
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
+    "scoreThreshold": 20,
     "strictFilters": [
     {
         "name": "category",
@@ -114,7 +116,7 @@ JSON 主體具有數個設定：
 |id|指派給解答的唯一識別碼。|
 |問題|使用者所提供的問題。|
 |接聽|問題的答案。|
-|來源|從中擷取解答或將其儲存在知識庫中的來源名稱。|
+|source|從中擷取解答或將其儲存在知識庫中的來源名稱。|
 |中繼資料|與解答相關聯的中繼資料。|
 |metadata.name|中繼資料名稱。 (字串，最大長度：100，必要)|
 |metadata.value:中繼資料值。 (字串，最大長度：100，必要)|

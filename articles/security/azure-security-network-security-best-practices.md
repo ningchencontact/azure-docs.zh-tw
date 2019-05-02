@@ -1,9 +1,8 @@
 ---
-title: Azure 網路安全性最佳作法 |Microsoft Docs
+title: 網路安全性-Microsoft Azure 的最佳做法
 description: 本文提供使用內建 Azure 功能的一些網路安全性最佳作法。
 services: security
-documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
@@ -12,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 04/28/2019
 ms.author: TomSh
-ms.openlocfilehash: b644a175814fb28563a2524e27f52d0285415d66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5bec7db1c4409165242416df16e437b121381b49
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610968"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872550"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 網路安全性最佳作法
-您可以透過將 [Azure 虛擬機器 (VM)](https://azure.microsoft.com/services/virtual-machines/) 和設備置於 [Azure 虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)上，來將它們連線到其他網路裝置。 也就是說，您可以將虛擬網路介面卡連線到虛擬網路，讓有網路功能的裝置之間可進行 TCP/IP 型通訊。 連線到 Azure 虛擬網路的虛擬機器能夠連線到在相同虛擬網路、其他虛擬網路、網際網路或甚至您自己的內部部署網路上的裝置。
-
 本文將討論一系列的 Azure 網路安全性最佳做法。 這些最佳作法衍生自我們的 Azure 網路經驗和客戶的經驗。
 
 針對每個最佳做法，本文說明：
@@ -35,8 +32,6 @@ ms.locfileid: "60610968"
 * 如何學習啟用最佳作法
 
 這篇「Azure 網路安全性最佳作法」是以共識意見以及 Azure 平台功能和特性集 (因為在撰寫本文時已存在) 為基礎。 意見和技術會隨著時間改變，這篇文章將會定期進行更新以反映這些變更。
-
-下列各節描述網路安全性的最佳做法。
 
 ## <a name="logically-segment-subnets"></a>以邏輯方式分割子網路
 Azure 虛擬網路類似於內部部署網路上的 LAN。 Azure 虛擬網路背後的構想是建立單一私人 IP 位址空間型網路，且您可以將所有 Azure 虛擬機器置於其上。 可用的私人 IP 位址空間位於類別 A (10.0.0.0/8)、類別 B (172.16.0.0/12) 和類別 C (192.168.0.0/16) 範圍中。

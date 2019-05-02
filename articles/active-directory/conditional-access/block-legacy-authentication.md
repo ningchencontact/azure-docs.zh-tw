@@ -18,12 +18,12 @@ ms.date: 03/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d2841d3be584cae45ef49ad9ff20da8a232c366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9fa7bc84558d2b794a569261ce3dd2db5d54493f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355076"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917398"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>作法：使用條件式存取封鎖對 Azure AD 的舊式驗證   
 
@@ -142,4 +142,4 @@ Azure 有一項安全功能會防止您建立此類原則，因為這種設定�
 
 - 如果您還不太了解如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](app-based-mfa.md)，以取得範例。
 
-- 如需有關新式驗證支援的詳細資訊，請參閱[新式驗證運作方式的 Office 2013 和 Office 2016 用戶端應用程式](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- 如需有關新式驗證支援的詳細資訊，請參閱[新式驗證運作方式的 Office 2013 和 Office 2016 用戶端應用程式](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

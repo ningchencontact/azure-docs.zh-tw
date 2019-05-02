@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe6848caad7cdac98d6717b7cea4860e7ce2db8f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438358"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725733"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的資料儲存體和輸入
 
@@ -116,7 +116,7 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 
 當您建立時間序列深入解析隨用隨付環境時，您會建立兩個資源：時間序列深入解析環境和 Azure 儲存體一般用途 V1 帳戶 (資料將儲存於其中)。 我們選擇 Azure 儲存體一般用途 V1 作為預設資源，是因為其互通性、價格和效能。 
 
-時間序列深入解析在您的 Azure 儲存體帳戶中，每個事件最多會發佈兩個複本。 初始複本一定會被保留，以便您可以使用其他服務，快速地查詢它。 您可以輕鬆地使用 Spark、Hadoop 和其他熟悉的工具，透過原始 Parquet 檔案橫跨時間序列識別碼，因為這些引擎都支援基本檔案名稱篩選。 依年份和月份分組 Blob，是列出自訂作業特定時間範圍內 Blob 的實用方式。 
+時間序列深入解析在您的 Azure 儲存體帳戶中，每個事件最多會發佈兩個複本。 初始副本始终会保留，使你能够使用其他服务对它进行快速查询。 您可以輕鬆地使用 Spark、Hadoop 和其他熟悉的工具，透過原始 Parquet 檔案橫跨時間序列識別碼，因為這些引擎都支援基本檔案名稱篩選。 依年份和月份分組 Blob，是列出自訂作業特定時間範圍內 Blob 的實用方式。 
 
 此外，時間序列深入解析會重新分割 Parquet 檔案，為時間序列深入解析 API 最佳化。 最近重新分割的檔案也會儲存。
 
@@ -193,9 +193,9 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 
 ## <a name="next-steps"></a>後續步驟
 
-閱讀 [Azure 時間序列深入解析預覽儲存體和輸入](./time-series-insights-update-storage-ingress.md)。
+- 閱讀 [Azure 時間序列深入解析預覽儲存體和輸入](./time-series-insights-update-storage-ingress.md)。
 
-閱讀新的[資料模型](./time-series-insights-update-tsm.md)。
+- 閱讀新的[資料模型](./time-series-insights-update-tsm.md)。
 
 <!-- Images -->
 [1]: media/v2-update-storage-ingress/storage-architecture.png

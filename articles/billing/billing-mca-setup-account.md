@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371722"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919159"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>設定您的帳單帳戶，Microsoft 客戶協議
 
@@ -108,7 +108,7 @@ ms.locfileid: "60371722"
 
 新的帳戶僅支援從租用戶登入 Microsoft 客戶合約時所選取的使用者。 如果您的 Enterprise 合約中的系統管理員權限的使用者是租用戶的一部分，它們會新的計費帳戶的存取權時進行安裝。 如果它們不屬於租用戶，他們將無法存取新的計費帳戶，除非您邀請他們。
 
-當您邀請的使用者時，他們會以來賓使用者身分加入租用戶，並取得計費帳戶的存取權。 若要邀請的使用者，來賓存取權必須開啟租用戶。 如需詳細資訊，請參閱 <<c0> [ 控制 Azure Active Directory 中的來賓存取](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory)。 如果來賓存取已關閉，請連絡全域系統管理員，您的租用戶將它開啟。 <!-- Todo - How can they find their global administrator -->
+當您邀請的使用者時，他們會以來賓使用者身分加入租用戶，並取得計費帳戶的存取權。 若要邀請的使用者，來賓存取權必須開啟租用戶。 如需詳細資訊，請參閱 <<c0> [ 控制 Azure Active Directory 中的來賓存取](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory)。 如果來賓存取已關閉，請連絡全域系統管理員，您的租用戶將它開啟。 <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-features-replaced-by-the-new-billing-account"></a>檢視新的計費帳戶被取代的功能
 

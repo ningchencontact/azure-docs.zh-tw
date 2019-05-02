@@ -3,19 +3,19 @@ title: TechnicalProfiles | Microsoft Docs
 description: 指定 Azure Active Directory B2C 中自訂原則的 TechnicalProfiles 元素。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: da769093794a559e4b856f7ae4f211c3900632c6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360124"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711043"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -85,7 +85,7 @@ ms.locfileid: "60360124"
 | 網域 | 0:1 | 技術設定檔的網域名稱。 例如，如果您的技術設定檔指定 Facebook 識別提供者，則網域名稱為 Facebook.com。 |
 | DisplayName | 0:1 | 可向使用者顯示的技術設定檔名稱。 |
 | 描述 | 0:1 | 可向使用者顯示的技術設定檔描述。 |
-| 通訊協定 | 0:1 | 用於與其他合作對象進行通訊的通訊協定。 |
+| Protocol | 0:1 | 用於與其他合作對象進行通訊的通訊協定。 |
 | 中繼資料 | 0:1 | 通訊協定使用的機碼值組，用於在交易過程中與端點通訊。 |
 | InputTokenFormat | 0:1 | 輸入權杖的格式。 可能的值：`JSON`、`JWT`、`SAML11` 或 `SAML2`。 `JWT` 值代表以 IETF 規格為基礎的 JSON Web 權杖。 `SAML11` 值代表以 OASIS 規格為基礎的 SAML 1.1 安全性權杖。  `SAML2` 值代表以 OASIS 規格為基礎的 SAML 2.0 安全性權杖。 |
 | OutputTokenFormat | 0:1 | 輸出權杖的格式。 可能的值：`JSON`、`JWT`、`SAML11` 或 `SAML2`。 |
@@ -102,7 +102,7 @@ ms.locfileid: "60360124"
 | UseTechnicalProfileForSessionManagement | 0:1 | 用於工作階段管理的不同技術設定檔。 |
 |EnabledForUserJourneys| 0:1 |控制是否可在使用者旅程圖中執行技術設定檔。  |
 
-### <a name="protocol"></a>通訊協定
+### <a name="protocol"></a>Protocol
 
 **Protocol** 元素包含下列屬性：
 

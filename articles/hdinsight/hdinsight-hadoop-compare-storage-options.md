@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921909"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720478"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>比較與 Azure HDInsight 叢集搭配使用的儲存體選項
 
@@ -31,8 +31,12 @@ ms.locfileid: "60921909"
 |Azure Data Lake Storage Gen2| 一般用途 V2 | 階層 （檔案系統） | Blob | 標準 | 經常性存取、 非經常性存取、 封存 | 3.6+ | 全部 |
 |Azure 儲存體| 一般用途 V2 | Object | Blob | 標準 | 經常性存取、 非經常性存取、 封存 | 3.6+ | 全部 |
 |Azure 儲存體| 一般用途 V1 | Object | Blob | 標準 | N/A | 全部 | 全部 |
-|Azure 儲存體| Blob 儲存體 | Object | Blob | 標準 | 經常性存取、 非經常性存取、 封存 | 全部 | 全部 |
+|Azure 儲存體| Blob 儲存體 * * | Object | 區塊 Blob | 標準 | 經常性存取、 非經常性存取、 封存 | 全部 | 全部 |
 |Azure Data Lake Storage Gen1| N/A | 階層 （檔案系統） | N/A | N/A | N/A | 只有 3.6 | HBase 的全部項目 |
+
+* * 對於 HDInsight 叢集，只有在次要儲存體帳戶可以是類型 BlobStorage。
+
+如需有關 Azure 儲存體帳戶類型的詳細資訊，請參閱[Azure 儲存體帳戶概觀](../storage/common/storage-account-overview.md)
 
 如需有關 Azure 儲存體存取層的詳細資訊，請參閱[Azure Blob 儲存體：Premium （預覽）、 經常性、 非經常性與封存儲存層](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -40,14 +44,14 @@ ms.locfileid: "60921909"
 
 | HDInsight 版本 | 主要儲存體 | 次要的儲存體 | 支援 |
 |---|---|---|---|
-| 3.6 & 4.0 | 標準 Blob | 標準 Blob | 是 |
-| 3.6 & 4.0 | 標準 Blob | Data Lake Storage Gen2 | 否 |
-| 3.6 & 4.0 | 標準 Blob | Data Lake Storage Gen1 | 是 |
+| 3.6 & 4.0 | 一般用途 V1、 一般用途 V2 | 一般用途 V1、 一般用途 V2 BlobStorage (區塊 Blob) | 是 |
+| 3.6 & 4.0 | 一般用途 V1、 一般用途 V2 | Data Lake Storage Gen2 | 否 |
+| 3.6 & 4.0 | 一般用途 V1、 一般用途 V2 | Data Lake Storage Gen1 | 是 |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | 是 |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | 標準 Blob | 是 |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | 一般用途 V1、 一般用途 V2 BlobStorage (區塊 Blob) | 是 |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | 否 |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | 是 |
-| 3.6 | Data Lake Storage Gen1 | 標準 Blob | 是 |
+| 3.6 | Data Lake Storage Gen1 | 一般用途 V1、 一般用途 V2 BlobStorage (區塊 Blob) | 是 |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 否 |
 | 4.0 | Data Lake Storage Gen1 | 任意 | 否 |
 

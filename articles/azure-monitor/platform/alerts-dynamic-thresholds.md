@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775787"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876204"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>在 Azure 監視器中具有動態閾值的計量警示 (公開預覽)
 
@@ -42,16 +42,16 @@ ms.locfileid: "60775787"
 選取閾值的方式，是偏離這些閾值的程度必須表示計量行為出現異常。
 
 > [!NOTE]
-> 季節性模式的偵測會設定為小時、 天或週的間隔。 這表示其他模式，例如 bihourly 模式或 semiweekly 可能無法偵測。
+> 季節性模式的偵測設定為小時、 天或每週間隔。 這表示其他模式，例如 bihourly 模式或 semiweekly 可能無法偵測。
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>動態閾值中的「敏感度」設定有何意義？
 
 警示閾值敏感度是一項基本概念，可控制須偏離計量行為達何種程度才會觸發警示。
 此選項不像靜態閾值那麼需要計量領域相關知識。 可用的選項如下︰
 
-- 高 – 閾值會嚴格且接近計量序列模式。 最小的偏差即會觸發警示規則，因此會產生較多警示。
+- 高 – 閾值會嚴格且接近計量序列模式。 上的最小的差，導致更多警示，就會觸發警示的規則。
 - 中 – 較不嚴格而較為中庸的閾值，產生的警示會比高敏感度少 (預設值)。
-- 低 – 閾值會寬鬆且偏離計量序列模式較遠。 在大型的差，導致較少的警示，才會觸發警示的規則。
+- 低 – 閾值會寬鬆且偏離計量序列模式較遠。 在大型的標準差，導致較少的警示，才會觸發警示的規則。
 
 ## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>動態閾值中有哪些「運算子」設定選項？
 
@@ -83,7 +83,7 @@ ms.locfileid: "60775787"
 警示檢視會顯示：
 
 - 目前所有計量的詳細資料的動態臨界值警示引發。
-- 警示是包含在該點的時間使用的動態閾值的觸發程序期間的圖表。
+- 包含在該點的時間使用的動態閾值的期間觸發警示的圖表。
 - 若要提供意見反應動態臨界值警示和警示 檢視體驗，可改善未來的偵測功能。
 
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>計量中緩慢的行為變更是否會觸發警示？
@@ -92,7 +92,7 @@ ms.locfileid: "60775787"
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>會有多少資料用來預覽並計算閾值？
 
-出現在圖表中之前的計量建立警示規則, 的臨界值會計算夠歷程記錄資料來計算小時或每日季節性模式 （10 天）。 一旦建立警示規則時，動態臨界值將使用所需的所有歷程記錄資料，而且將持續學習和精英根據新資料進行更精確的臨界值。 這表示，之後此計算圖表也會顯示每週的模式。
+出現在圖表中之前的計量建立警示規則, 的臨界值會根據歷程資料不足計算小時或每日季節性模式 （10 天） 計算。 一旦建立警示規則時，動態臨界值將會使用所有必要的歷程記錄資料會使用，並會持續學習並適應根據新的資料進行更精確的臨界值。 這表示之後此計算中，, 圖表也會顯示每週的模式。
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>觸發警示時，不需要多少資料？
 

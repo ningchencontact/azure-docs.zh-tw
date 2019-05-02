@@ -3,19 +3,19 @@ title: 教學課程 - 自訂使用者介面體驗 - Azure Active Directory B2C |
 description: 了解如何使用 Azure 入口網站在 Azure Active Directory B2C 中自訂應用程式的使用者介面。
 services: B2C
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0996c64acaa5e65061d80974fc428bad2dd8d4ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2a84bf72ab68937224ac93bd9ffd035e32c603d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360272"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702554"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中自訂使用者介面體驗
 

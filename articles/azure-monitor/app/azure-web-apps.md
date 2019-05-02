@@ -7,14 +7,14 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489617"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922454"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 
@@ -40,6 +40,10 @@ ms.locfileid: "59489617"
 > 如果代理程式的基礎監視和手動的 SDK 為基礎的檢測偵測到會接受僅手動檢測設定。 這是為了防止重複的資料傳送。 若要深入了解這個取出[疑難排解 區段](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)如下。
 
 ## <a name="enable-agent-based-monitoring-net"></a>啟用代理程式為基礎的監視.NET
+
+> [!NOTE]
+> 不支援 APPINSIGHTS_JAVASCRIPT_ENABLED 和 Urlcompression> 的組合。 如需詳細資訊，請參閱中的說明[疑難排解 區段](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)。
+
 
 1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]。
 
@@ -134,7 +138,7 @@ ms.locfileid: "59489617"
 
 ### <a name="application-settings-definitions"></a>應用程式設定定義
 
-|應用程式設定名稱 |  定義 | 值 |
+|應用程式設定名稱 |  定義 | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 主要擴充功能，控制執行階段監視。 | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  在預設模式的唯一、 不可或缺的功能會啟用以確保最佳效能。 | `default` 或 `recommended`。 |
@@ -352,6 +356,15 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | 這個值表示延伸模組偵測到參考`Microsoft.AspNet.TelemetryCorrelation`中應用程式，並將會退避法。 | 移除參考。
 |`AppContainsDiagnosticSourceAssembly**:true`|這個值表示延伸模組偵測到參考`System.Diagnostics.DiagnosticSource`中應用程式，並將會退避法。| 移除參考。
 |`IKeyExists:false`|這個值表示的檢測金鑰是不存在於 AppSetting， `APPINSIGHTS_INSTRUMENTATIONKEY`。 可能的原因：值可能已被不小心移除，忘記等自動化指令碼中設定的值。 | 請確定設定中的 App Service 應用程式設定。
+
+### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>不支援 APPINSIGHTS_JAVASCRIPT_ENABLED 和 Urlcompression>
+
+如果您使用 APPINSIGHTS_JAVASCRIPT_ENABLED = 設定為 true 會將在其中的內容編碼的情況下，您可能會收到錯誤，例如： 
+
+- 500 的 URL 重寫錯誤
+- 500.53 HTTP 回應的內容編碼 ('gzip') 時，無法套用 URL 重寫模組錯誤 Outbound 重寫規則的訊息。 
+
+這已因為 APPINSIGHTS_JAVASCRIPT_ENABLED 應用程式設定設定為 true 和內容編碼方式在相同的時間。 尚不支援此案例。 因應措施是從您的應用程式設定移除 APPINSIGHTS_JAVASCRIPT_ENABLED。 不幸的是這表示如果仍需要用戶端/瀏覽器端 JavaScript 檢測，手動的 SDK 參考所需的網頁。 請遵循[指示](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup)手動檢測使用 JavaScript SDK。
 
 如需有關 Application Insights 代理程式/擴充功能的最新資訊，請參閱[版本資訊](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)。
 

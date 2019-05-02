@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a6304a93b1409cff871ed1c4c1d7e66d6c8c6f53
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 496f7c75e6633089d4ca88a9e3cd7c76ee415780
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497681"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922401"
 ---
 # <a name="language-support-for-qna-maker"></a>QnA Maker 的語言支援
 
@@ -41,7 +41,7 @@ QnA Maker 支援在任何語言頁面中擷取問題/答案，但下列語言的
 
 確認主要語言，使用下列步驟：
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)。  
+1. 登入 [Azure 入口網站](https://portal.azure.com)。  
 1. 尋找並選取 QnA Maker 資源的過程中建立的 Azure 搜尋服務資源。 Azure 搜尋服務的資源名稱 QnA Maker 資源的相同名稱的開頭，且會有類型**Search 服務**。 
 1. 從**概觀**搜尋的選取資源頁面**索引**。 
 1. 選取 **testkb** 索引。

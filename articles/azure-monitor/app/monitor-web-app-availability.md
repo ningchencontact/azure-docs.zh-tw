@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60701446"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916390"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -67,7 +67,7 @@ ms.locfileid: "60701446"
 
     **HTTP 回應**：視為成功的傳回狀態碼。 200 是表示已傳回標準 Web 網頁的代碼。
 
-    **內容比對**：字串，例如「歡迎！ 我們會測試每個回應中的區分大小寫完全相符。 必須是單純字串，不含萬用字元。 別忘了，如果頁面內容變更，則可能需要更新。
+    **內容比對**：字串，例如「歡迎！ 我們會測試每個回應中的區分大小寫完全相符。 必須是單純字串，不含萬用字元。 別忘了，如果頁面內容變更，則可能需要更新。 **內容比對目前支援英文字元。** 
 
 * **警示位置閾值**：建議至少為位置數的 3/5。 警示位置閾值與測試位置數目之間的最佳關聯性，就是**警示位置閾值** = **測試位置數目** - 2 (最少五個測試位置)。
 
@@ -92,7 +92,7 @@ ms.locfileid: "60701446"
 
     ![在 Visual Studio Enterprise 版本中，從「Web 效能」和「負載測試」範本建立專案。](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *沒看見 Web 效能和負載測試範本嗎？* - 關閉 Visual Studio Enterprise。 開啟 [Visual Studio 安裝程式] 以修改 Visual Studio Enterprise 安裝。 在 [個別元件] 之下，選取 [Web 效能和負載測試工具]。
+ * *沒看見 Web 效能和負載測試範本嗎？* - 關閉 Visual Studio Enterprise。 開啟 [Visual Studio 安裝程式] 以修改 Visual Studio Enterprise 安裝。 在 [個別元件] 之下，選取 [Web 效能和負載測試工具]。
 
 2. 開啟 .webtest 檔案，並開始記錄。
 
@@ -273,6 +273,9 @@ Web 測試外掛程式提供將時間參數化的方法。
   (Visual Studio 會嘗試將測試參數化，但不會正確地將權杖參數化。)
 
 ## <a name="performance-tests"></a>效能測試
+> [!NOTE]  
+> 雲端式負載測試服務已被取代。 可以找到有關淘汰、 服務可用性，以及替代服務的詳細資訊[此處](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops)。
+
 您可以在網站上執行負載測試。 例如可用性測試，您可以從我們在全球各地的點傳送簡單要求或多個步驟的要求。 不同於可用性測試，許多要求傳送時會同時模擬多位使用者。
 
 在 [設定] 下方，移至 [效能測試]，並按一下 [新增] 以建立測試。

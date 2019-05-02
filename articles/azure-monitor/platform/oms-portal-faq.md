@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b353e3c0ed14c7ae42e6b1f2c8a92904bf0befd7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453100"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916284"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Log Analytics 使用者從 OMS 入口網站轉換到 Azure 入口網站的常見問題
 Log Analytics 一開始會使用其本身的入口網站 (稱為 OMS 入口網站) 來管理其設定和分析收集到的資料。  這個入口網站中的所有功能都已移至 Azure 入口網站，並將繼續進行開發。
@@ -97,9 +97,9 @@ OMS 入口網站之 [設定] 區段中的許多設定，都位於 Azure 入口�
 | 自訂記錄                  | 工作區的 [進階設定] 功能表。 |
 | syslog                       | 工作區的 [進階設定] 功能表。 |
 | Application Insights         | 由於 Log Analytics 和 Application Insights 共用相同的資料引擎，現在已淘汰此解決方案。  |
-| Windows 檔案追蹤        | Azure 自動化中的 [變更追蹤] 功能表。 如需詳細資料，請參閱[使用變更追蹤解決方案來追蹤環境中的變更](../../automation/automation-change-tracking.md)。 |
-| Windows 登錄追蹤        | Azure 自動化中的 [變更追蹤] 功能表。 如需詳細資料，請參閱[使用變更追蹤解決方案來追蹤環境中的變更](../../automation/automation-change-tracking.md)。 |
-| Linux 檔案追蹤          | Azure 自動化中的 [變更追蹤] 功能表。 如需詳細資料，請參閱[使用變更追蹤解決方案來追蹤環境中的變更](../../automation/automation-change-tracking.md)。 |
+| Windows 檔案追蹤        | Azure 自動化中的 [變更追蹤] 功能表。 如需詳細資料，請參閱[使用變更追蹤解決方案來追蹤環境中的變更](../../automation/change-tracking.md)。 |
+| Windows 登錄追蹤        | Azure 自動化中的 [變更追蹤] 功能表。 如需詳細資料，請參閱[使用變更追蹤解決方案來追蹤環境中的變更](../../automation/change-tracking.md)。 |
+| Linux 檔案追蹤          | Azure 自動化中的 [變更追蹤] 功能表。 如需詳細資料，請參閱[使用變更追蹤解決方案來追蹤環境中的變更](../../automation/change-tracking.md)。 |
 
 ### <a name="solutions"></a>解決方案
 在工作區的 [解決方案] 功能表中管理解決方案。 

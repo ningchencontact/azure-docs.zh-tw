@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cb0e079eee78f865d472b55b162fb65b5eadaf44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a1dadc29006a365f7e614db5722fa0e92e0129d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900483"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922513"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>關於語音裝置 SDK (預覽)
 
@@ -39,7 +39,7 @@ Speech Devices SDK 有助於促成各種已啟用語音功能的案例，例如�
 
 |||
 |-|-|
-|[![ROOBO 標誌](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO 針對家用電子設備、汽車、機器人、玩具及其他產業，提供完整的人工智慧 (AI) 系統解決方案。 ROOBO 的參考設計會大幅減少開發時間上市透過與 Azure 語音服務的整合。 [造訪 ROOBO](http://ddk.roobo.com/)。|
+|[![ROOBO 標誌](media/speech-devices-sdk/roobo-logo.png)](https://ddk.roobo.com/)|ROOBO 針對家用電子設備、汽車、機器人、玩具及其他產業，提供完整的人工智慧 (AI) 系統解決方案。 ROOBO 的參考設計會大幅減少開發時間上市透過與 Azure 語音服務的整合。 [造訪 ROOBO](https://ddk.roobo.com/)。|
 
 ## <a name="next-steps"></a>後續步驟
 

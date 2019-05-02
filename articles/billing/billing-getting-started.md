@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 146c74fe751e75fb85563378be6f812802928fe2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60919258"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918941"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的費用
 
@@ -203,7 +203,7 @@ SLA 閾值會因服務而異。 例如，SQL Web 層有 99.9 %sla、 Vm 有 99.9
 
 某些服務中，有要套用的 SLA 的必要條件。 例如，虛擬機器必須部署在相同的可用性設定組中的兩個或多個執行個體。
 
-如需詳細資訊，請參閱 <<c0> [ 服務等級協定](https://azure.microsoft.com/en-us/support/legal/sla/)文件並[Azure 服務的 SLA 摘要](https://azure.microsoft.com/en-us/support/legal/sla/summary/)文件。
+如需詳細資訊，請參閱 <<c0> [ 服務等級協定](https://azure.microsoft.com/support/legal/sla/)文件並[Azure 服務的 SLA 摘要](https://azure.microsoft.com/support/legal/sla/summary/)文件。
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 

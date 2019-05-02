@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: 044e997703f5b274215fb05c7152186948b331b4
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63761413"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728822"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -157,7 +157,7 @@ kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-in
 
 ### <a name="try"></a>請嘗試︰
 
-1. 請檢查位置 %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI (預覽) 中是否有 azds.exe。 如果有的話，請將該位置新增至 PATH 環境變數中。
+1. 請檢查針對 azds.exe 位置 %ProgramFiles%/Microsoft SDKs\Azure\Azure 開發空間 CLI。 如果有的話，請將該位置新增至 PATH 環境變數中。
 2. 如果未安裝 azds.exe，請執行下列命令：
 
     ```cmd
@@ -292,6 +292,16 @@ Container image build failed
 
 ### <a name="try"></a>請嘗試︰
 在您的叢集中重新啟動代理程式節點通常會解決這個問題。
+
+## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>「 錯誤： 發行 azds-\<識別碼\>-\<spacename\>-\<servicename\>失敗： 服務\<servicename\>' 已經存在 」 或 「 提取拒絕的存取權\<servicename\>，存放庫不存在或可能需要 [docker 登入] 」
+
+### <a name="reason"></a>原因
+如果您混用執行直接的 Helm 命令，可能會發生這些錯誤 (例如`helm install`， `helm upgrade`，或`helm delete`) 開發空格命令 (例如`azds up`和`azds down`) 相同的開發人員空間內。 其發生原因開發空間自己 Tiller 的執行個體，與在相同的開發環境中執行您自己 Tiller 執行個體成員互相衝突。
+
+### <a name="try"></a>請嘗試︰
+最好使用 Helm 命令和開發人員空格命令，針對相同的 AKS 叢集，但每個已啟用開發空間的命名空間應該使用其中一種。
+
+例如，假設父系開發空間中執行整個應用程式的情況下，您在使用 Helm 命令。 您可以建立子關閉該父代的開發人員空間、 執行子系內的個別服務開發人員的空格，必須以開發人員空格和一起測試服務。 當您準備好簽入變更時，使用 Helm 命令來部署更新的程式碼父代的開發人員分享空間。 請勿使用`azds up`執行更新的服務的父系中開發的空間，因為它會與一開始使用 Helm 來執行的服務發生衝突。
 
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev Spaces Proxy 可能會干擾在開發空間中執行的其他 Pod
 

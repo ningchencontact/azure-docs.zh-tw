@@ -3,19 +3,19 @@ title: 定義 Azure Active Directory B2C 自訂原則中的 RESTful 技術設定
 description: 定義 Azure Active Directory B2C 自訂原則中的 RESTful 技術設定檔。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ff14af756a55ccc6bbf40dd39d49c5168f4af1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0726c22e436658d51419b9e32d73f48db99ba805
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418279"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705313"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的 RESTful 技術設定檔
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) B2C 可支援您自己的 RESTful 服務。 Az
 - **驗證技術設定檔** - 驗證技術設定檔會呼叫 RESTful 服務。 在使用者旅程圖繼續進行之前，驗證技術設定檔會驗證使用者提供的資料。 若有驗證技術設定檔，錯誤訊息會顯示在自我判斷頁面上，然後傳回輸出宣告。
 - **宣告交換** - 透過協調流程步驟呼叫 RESTful 服務。 在此情況下，沒有任何使用者介面可呈現錯誤訊息。 如果您的 REST API 傳回錯誤，則會將使用者重新導向信賴憑證者應用程式，並附帶錯誤訊息。
 
-## <a name="protocol"></a>通訊協定
+## <a name="protocol"></a>Protocol
 
 **Protocol** 元素的 **Name** 屬性必須設定為 `Proprietary`。 **handler** 屬性必須包含 Azure AD B2C 所使用之通訊協定處理常式組件的完整名稱：`Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`。
 

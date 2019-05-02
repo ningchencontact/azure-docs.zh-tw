@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: c68c278b2a7afa8287845c452e3bec5380cf05c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03f330f429be583d3a400eb1ee00875f7c305e74
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498397"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64923022"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>使用 Azure SQL 分析來監視 Azure SQL Database (預覽)
 
@@ -23,7 +23,7 @@ ms.locfileid: "60498397"
 
 Azure SQL 分析是一個進階雲端監視解決方案，可以透過單一窗格跨多個訂用帳戶大規模監視 Azure SQL 資料庫、彈性集區和受控執行個體的效能。 它會收集重要的 Azure SQL Database 效能計量，並且以視覺效果方式呈現，具有內建智慧可以執行效能疑難排解。
 
-藉由使用您以解決方案收集的計量，您可以建立自訂的監視規則和警示。 解決方案可協助您找出應用程式堆疊中每個層級的問題。 它會使用 Azure 診斷計量，以及 Azure 監視器檢視您所有 Azure SQL 資料庫、 彈性集區和資料庫的相關資料呈現單一 Log Analytics 工作區中的 受控執行個體。 Azure 監視器可協助您收集、 相互關聯，並以視覺化方式檢視結構化和非結構化資料。
+藉由使用您以解決方案收集的計量，您可以建立自訂的監視規則和警示。 解決方案可協助您找出應用程式堆疊中每個層級的問題。 它使用 Azure 诊断指标和 Azure Monitor 视图，在单个 Log Analytics 工作区中呈现有关所有 Azure SQL 数据库和弹性池和托管实例中的数据库的数据。 Azure Monitor 可帮助用户收集、关联和可视化结构化和非结构化数据。
 
 如需使用 Azure SQL Analytics 解決方案，以及一般使用案例的實際操作概觀，請觀看內嵌影片：
 
@@ -43,7 +43,7 @@ Azure SQL 分析是僅限雲端的監視解決方案，支援適用於 Azure SQL
 | [System Center Operations Manager 管理群組](../platform/om-agents.md) | 否 | 從 Operations Manager 代理程式的直接連線至 Azure 監視器不會使用此解決方案。 |
 
 ## <a name="configuration"></a>組態
-使用中的程序[從方案庫新增 Azure 監視解決方案](../../azure-monitor/insights/solutions.md)將 Azure SQL 分析 （預覽） 解決方案新增至您的 Log Analytics 工作區。
+使用[从解决方案库中添加 Azure Monitor 解决方案](../../azure-monitor/insights/solutions.md)中所述的流程，将 Azure SQL Analytics（预览）解决方案添加到 Log Analytics 工作区。
 
 ### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>設定 Azure SQL Database、彈性集區 和受控執行個體以串流診斷遙測
 
@@ -69,9 +69,9 @@ Azure SQL 分析是僅限雲端的監視解決方案，支援適用於 Azure SQL
 
 ### <a name="viewing-azure-sql-analytics-data"></a>檢視 Azure SQL 分析資料
 
-儀表板包含透過不同檢視方塊監視之所有資料庫的概觀。 若要使用不同的檢視方塊，您必須啟用適當的計量或記錄檔串流處理至 Log Analytics 工作區的 SQL 資源上。
+儀表板包含透過不同檢視方塊監視之所有資料庫的概觀。 要使不同透视起效，必须允许将有关 SQL 资源的适当指标或日志流式传输到 Log Analytics 工作区。
 
-請注意，是否某些計量或記錄檔不會串流至 Azure 監視器中，方案中的圖格會不會填入監視資訊。
+请注意，如果某些指标或日志未流式传输到 Azure Monitor，则不会使用监视信息填充解决方案中的磁贴。
 
 ### <a name="azure-sql-database-and-elastic-pool-view"></a>Azure SQL Database 和彈性集區檢視
 
@@ -287,10 +287,10 @@ AzureDiagnostics
 
 ### <a name="pricing"></a>價格
 
-雖然可免費使用解決方案，但診斷資料的使用量若超過每個月所配置的免費資料擷取單位，則需付費，請參閱 [Log Analytics 定價](https://azure.microsoft.com/en-us/pricing/details/monitor)。 所提供的免費資料擷取單位可讓您每個月免費監視多個資料庫。 請注意，相較於閒置的資料庫，較繁重工作負載的更多作用中資料庫會擷取更多資料。 您可以藉由選取 Azure SQL 分析導覽功能表上的 OMS 工作區，然後選取 [使用量和估計成本]，輕鬆地監視您解決方案中的資料擷取耗用。
+雖然可免費使用解決方案，但診斷資料的使用量若超過每個月所配置的免費資料擷取單位，則需付費，請參閱 [Log Analytics 定價](https://azure.microsoft.com/pricing/details/monitor)。 所提供的免費資料擷取單位可讓您每個月免費監視多個資料庫。 請注意，相較於閒置的資料庫，較繁重工作負載的更多作用中資料庫會擷取更多資料。 您可以藉由選取 Azure SQL 分析導覽功能表上的 OMS 工作區，然後選取 [使用量和估計成本]，輕鬆地監視您解決方案中的資料擷取耗用。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 使用[記錄查詢](../log-query/log-query-overview.md)Azure 監視器，以檢視詳細的 Azure SQL 資料。
+- 使用 [Azure Monitor 中的日志查询](../log-query/log-query-overview.md)查看详细的 Azure SQL 数据。
 - [建立您自己的儀表板](../learn/tutorial-logs-dashboards.md)來顯示 Azure SQL 資料。
 - 在特定的 Azure SQL 事件發生時[建立警示](../platform/alerts-overview.md)。

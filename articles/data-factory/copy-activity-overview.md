@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387713"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869542"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -54,7 +54,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 您可以使用「複製活動」在兩個以檔案為基礎的資料存放區之間「依原狀複製檔案」，資料就會有效率地複製，而不需經過序列化/還原序列化。
 
-複製活動也支援以指定格式讀取和寫入檔案︰**文字、 JSON、 Avro、 ORC 和 Parquet**，並使用下列轉碼器壓縮及 decompresing 檔案：**GZip、 Deflate，Gzip、deflate、bzip2 和 ZipDeflate**。 如需詳細資訊，請參閱[支援的檔案和壓縮格式](supported-file-formats-and-compression-codecs.md)。
+複製活動也支援以指定格式讀取和寫入檔案︰**文字、 JSON、 Avro、 ORC 和 Parquet**，壓縮和解壓縮檔案使用下列轉碼器：**GZip、 Deflate，Gzip、deflate、bzip2 和 ZipDeflate**。 如需詳細資訊，請參閱[支援的檔案和壓縮格式](supported-file-formats-and-compression-codecs.md)。
 
 例如，您可以執行下列複製活動：
 
@@ -74,7 +74,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 1. **為來源和接收資料存放區建立已連結的服務。** 如需如何設定和支援的屬性，請參閱連接器發行項的＜連結服務屬性＞一節。 您可以在[支援的資料存放區和格式](#supported-data-stores-and-formats)一節找到支援的連接器清單。
 2. **建立來源和接收的資料集。** 如需如何設定和支援的屬性，請參閱來源和接收連接器發行項的＜資料集屬性＞一節。
-3. **建立具有複製活動的管線。** 下一節提供範例。  
+3. **建立具有複製活動的管線。** 下一節提供範例。
 
 ### <a name="syntax"></a>語法
 
@@ -134,12 +134,12 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 | 輸入 | 指定您所建立指向來源資料的資料集。 複製活動僅支援單一輸入。 | 是 |
 | 輸出 | 指定您所建立指向接收資料的資料集。 複製活動僅支援單一輸出。 | 是 |
 | typeProperties | 要設定複製活動的屬性群組。 | 是 |
-| 來源 | 指定關於如何擷取資料的複製來源類型和對應的屬性。<br/><br/>如需詳細資料，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列之連接器發行項的＜複製活動屬性＞一節。 | 是 |
+| source | 指定關於如何擷取資料的複製來源類型和對應的屬性。<br/><br/>如需詳細資料，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列之連接器發行項的＜複製活動屬性＞一節。 | 是 |
 | 接收 | 指定複製接收類型和關於如何寫入資料的對應屬性。<br/><br/>如需詳細資料，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列之連接器發行項的＜複製活動屬性＞一節。 | 是 |
 | 轉譯程式 | 指定從來源到接收的明確資料行對應。 適用於預設複製行為無法滿足您的需求時。<br/><br/>如需詳細資料，請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)。 | 否 |
 | dataIntegrationUnits | 指定 [Azure 整合執行階段](concepts-integration-runtime.md)以執行資料複製。 之前稱為「資料移動單位」(DMU)。 <br/><br/>如需詳細資訊，請參閱[資料整合單位](copy-activity-performance.md#data-integration-units)。 | 否 |
 | parallelCopies | 指定從來源讀取資料和寫入資料到接收時，「複製活動」要使用的平行處理原則。<br/><br/>如需詳細資料，請參閱[平行複製](copy-activity-performance.md#parallel-copy)。 | 否 |
-| enableStaging<br/>stagingSettings | 選擇在 aa blob 儲存體暫存過度資料，而不是直接從來源將資料複製到接收。<br/><br/>如需實用案例和設定的詳細資料，請參閱[分段複製](copy-activity-performance.md#staged-copy)。 | 否 |
+| enableStaging<br/>stagingSettings | 選擇暫存過度資料中的 blob 儲存體，而不是直接從來源到接收複製資料。<br/><br/>如需實用案例和設定的詳細資料，請參閱[分段複製](copy-activity-performance.md#staged-copy)。 | 否 |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 選擇從來源將資料複製到接收時，要如何處理不相容的資料列。<br/><br/>如需詳細資料，請參閱[容錯](copy-activity-fault-tolerance.md)。 | 否 |
 
 ## <a name="monitoring"></a>監視
@@ -148,7 +148,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 ### <a name="monitor-visually"></a>以視覺化方式監視
 
-若要以視覺化方式監視複製活動執行，請移至您的資料處理站 -> [編寫與監視] -> [監視] 索引標籤，您會看到管線執行清單，而其中的 [動作] 資料行中有「檢視活動回合」連結。 
+若要以視覺化方式監視複製活動執行，請移至您的資料處理站 -> [編寫與監視] -> [監視] 索引標籤，您會看到管線執行清單，而其中的 [動作] 資料行中有「檢視活動回合」連結。
 
 ![監視管線回合](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
@@ -156,7 +156,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 ![監視活動回合](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-按一下 [動作] 下方的「詳細資料」連結，可查看複製活動的執行詳細資料及效能特性。 其中顯示的資訊包括從來源複製到接收端的資料量/資料列/檔案、輸送量、複製活動在對應期間內經歷的步驟，以及您的複製案例所使用的組態。 
+按一下 [動作] 下方的「詳細資料」連結，可查看複製活動的執行詳細資料及效能特性。 其中顯示的資訊包括從來源複製到接收端的資料量/資料列/檔案、輸送量、複製活動在對應期間內經歷的步驟，以及您的複製案例所使用的組態。
 
 >[!TIP]
 >在某些情況下，您也會在複製監視頁面上方看到「效能微調秘訣」 ，這會告訴您已識別的瓶頸並引導您進行變更，以大幅提升複製輸送量，請參閱[此處](#performance-and-tuning)的範例詳細資料。
@@ -241,12 +241,12 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 **範例：使用效能調整秘訣複製到 Azure SQL DB**
 
-在此範例中，ADF 會在複製執行期間通知接收端有關 Azure SQL DB 達到高 DTU 使用量，這會使寫入作業變慢，因此建議在 Azure SQL DB 層中增加更多 DTU。 
+在此範例中，ADF 會在複製執行期間通知接收端有關 Azure SQL DB 達到高 DTU 使用量，這會使寫入作業變慢，因此建議在 Azure SQL DB 層中增加更多 DTU。
 
 ![複製監視和效能微調祕訣](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## <a name="incremental-copy"></a>增量複製 
-Data Factory 支援以累加方式將差異資料從來源資料存放區複製到目的地資料存放區的案例。 請參閱[教學課程：以累加方式複製資料](tutorial-incremental-copy-overview.md)。 
+## <a name="incremental-copy"></a>增量複製
+Data Factory 支援以累加方式將差異資料從來源資料存放區複製到目的地資料存放區的案例。 請參閱[教學課程：以累加方式複製資料](tutorial-incremental-copy-overview.md)。
 
 ## <a name="read-and-write-partitioned-data"></a>讀取和寫入分割的資料
 在第 1 版中，Azure Data Factory 支援使用 SliceStart/SliceEnd/WindowStart/WindowEnd 系統變數讀取或寫入分割的資料。 在目前的版本中，您可以透過使用管線參數，以觸發程序的開始時間/已排程時間作為參數的值來達成此行為。 如需詳細資訊，請參閱[如何讀取或寫入分割的資料](how-to-read-write-partitioned-data.md)。

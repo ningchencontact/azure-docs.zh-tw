@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228014"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922978"
 ---
 # <a name="configure-application-insights-profiler"></a>設定 Application Insights Profiler
 
@@ -41,7 +41,7 @@ ms.locfileid: "61228014"
 ## <a id="profileondemand"></a>手動觸發 Profiler
 
 ### <a name="minimum-requirements"></a>最低需求 
-手動觸發分析工具工作階段使用者他們需要最小值 「 寫入 」 存取其 Application Insights 元件的角色。 在大部分情況下此存取權會自動取得和需要任何額外的工作。 如果您有問題，要加入的訂用帳戶範圍角色會是 「 Application Insights 元件參與者 」 角色。 [深入了解角色存取控制與 Azure 監視](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control)。
+手動觸發分析工具工作階段使用者他們需要最小值 「 寫入 」 存取其 Application Insights 元件的角色。 在大部分情況下此存取權會自動取得和需要任何額外的工作。 如果您有問題，要加入的訂用帳戶範圍角色會是 「 Application Insights 元件參與者 」 角色。 [深入了解角色存取控制與 Azure 監視](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control)。
 
 您可以按一下滑鼠以手動觸發 Profiler。 假設您正在執行 Web 效能測試。 您將需要利用追蹤來了解 Web 應用程式在負載下的執行情形。 在擷取追蹤時擁有控制權是很重要的，因為這樣您才知道何時會執行負載測試。 但隨機取樣間隔可能會錯過這項資訊。
 

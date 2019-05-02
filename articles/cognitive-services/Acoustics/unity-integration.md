@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: aa7c5c513d65310bf9bffab29c1d18e7e7a85b49
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8605fe2ea86f875b5c5fd8ea451a287442dcd51b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316281"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922496"
 ---
 # <a name="project-acoustics-unity-integration"></a>Project 樂器 Unity 整合
 此 「 作法 」 說明專案樂器 Unity 外掛程式整合到您的 Unity 專案。
 
 軟體需求：
-* 適用於 Windows 的 [Unity 2018.2+](http://unity3d.com) \(英文\)
+* 適用於 Windows 的 [Unity 2018.2+](https://unity3d.com) \(英文\)
 * [專案樂器 Unity 封裝](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## <a name="import-the-plugin"></a>匯入外掛程式
@@ -37,9 +37,9 @@ ms.locfileid: "58316281"
 ## <a name="enable-the-plugin"></a>啟用外掛程式
 聲場工具組的製作部分需要 .NET 4.x 指令碼處理執行階段版本。 套件匯入將會更新您的 Unity 播放器設定。 請重新啟動 Unity 來讓此設定生效。
 
-![螢幕擷取畫面的 Unity 播放程式設定面板](media/player-settings.png)
+![Unity 播放器設定面板的螢幕擷取畫面](media/player-settings.png)
 
-![Unity 播放器設定螢幕擷取畫面 面板中選取的.NET 4.5](media/net45.png)
+![Unity 播放器設定面板 (已選取 .NET 4.5) 的螢幕擷取畫面](media/net45.png)
 
 ## <a name="set-up-audio-dsp"></a>設定 音訊 DSP
 專案樂器包含音訊的執行階段會整合成 Unity 音訊引擎空間架構的 DSP。 它包含 HRTF 式和移動的空間。 開啟使用 Unity 音訊設定，以啟用專案樂器 DSP**編輯 > 專案設定 > 音訊**，然後選取**專案樂器**做為**空間外掛程式**為您的專案。 請確定**DSP 緩衝區大小**設為達到最佳效能。
@@ -60,7 +60,7 @@ ms.locfileid: "58316281"
 ## <a name="enable-acoustic-design"></a>更柔和式設計
 將指令碼連接**AcousticsAdjust**若要啟用其他來源的設計參數，依序按一下場景中的音效來源**新增元件**，然後選擇**指令碼 > 樂器調整**:
 
-![螢幕擷取畫面的 Unity AcousticsAdjust 指令碼](media/acoustics-adjust.png)
+![Unity AcousticsAdjust 指令碼的螢幕擷取畫面](media/acoustics-adjust.png)
 
 ## <a name="next-steps"></a>後續步驟
 * [加強您的 Unity 專案樂器場景](unity-baking.md)

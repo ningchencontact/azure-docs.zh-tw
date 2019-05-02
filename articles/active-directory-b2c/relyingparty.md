@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360396"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705091"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -178,7 +178,7 @@ ms.locfileid: "60360396"
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | 字串，其中包含要向使用者顯示的技術設定檔名稱。 |
 | 描述 | 0:1 | 字串，其中包含要向使用者顯示的技術設定檔說明。 |
-| 通訊協定 | 1:1 | 用於同盟的通訊協定。 |
+| Protocol | 1:1 | 用於同盟的通訊協定。 |
 | 中繼資料 | 0:1 | 金鑰/值組的 *Item* 集合，通訊協定會在交易過程中利用它來與端點進行通訊，以設定信賴憑證者與其他社群參與者之間的互動。 |
 | OutputClaims | 0:1 | 宣告類型清單，可取得來作為技術設定檔中的輸出。 這些元素中的每一個均會參考已經定義於 **ClaimsSchema** 區段中或此原則檔所繼承之原則中的 **ClaimType**。 |
 | SubjectNamingInfo | 0:1 | 權杖中所使用的主體名稱。 |

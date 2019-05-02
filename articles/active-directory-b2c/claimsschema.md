@@ -3,19 +3,19 @@ title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: 指定 Azure Active Directory B2C 中自訂原則的 ClaimsSchema 元素。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487816"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721758"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -65,13 +65,13 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| 通訊協定 | 0:n | 含有其預設夥伴宣告類型名稱的通訊協定清單。 |
+| Protocol | 0:n | 含有其預設夥伴宣告類型名稱的通訊協定清單。 |
 
 **Protocol** 元素包含下列屬性：
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| 名稱 | 是 | Azure AD B2C 所支援的有效通訊協定名稱。 可能的值包括：OAuth1、OAuth2、SAML2、OpenIdConnect、WsFed 或 WsTrust。 |
+| Name | 是 | Azure AD B2C 所支援的有效通訊協定名稱。 可能的值包括：OAuth1、OAuth2、SAML2、OpenIdConnect、WsFed 或 WsTrust。 |
 | PartnerClaimType | 是 | 要使用的宣告類型名稱。 |
 
 在下列範例中，當識別體驗架構與 SAML2 識別提供者或信賴憑證者應用程式進行互動時，會將 **surname** 宣告對應至 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`，與 OpenIdConnect 和 OAuth2 互動時，則會將宣告對應至 `family_name`。
@@ -161,8 +161,8 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| 文字 | 是 | 針對此選項，要在使用者介面中顯示給使用者的顯示字串。 |
-|值 | 是 | 與選取此選項相關聯的宣告值。 |
+| Text | 是 | 針對此選項，要在使用者介面中顯示給使用者的顯示字串。 |
+|Value | 是 | 與選取此選項相關聯的宣告值。 |
 | SelectByDefault | 否 | 指出預設是否應該在 UI 中選取此選項。 可能的值：True 或 False。 |
 
 下列範例會設定**城市**下拉式清單宣告，並將預設值設定為 `New York`：

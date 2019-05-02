@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b4d047f4266d11a5f6b77f33054eb93e31f7090b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791570"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717494"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>管理透過 Windows PowerShell 的 Azure 資料方塊的邊緣裝置
 
@@ -24,7 +24,6 @@ Azure 資料方塊邊緣解決方案可讓您處理資料，並透過網路傳�
 這篇文章包含下列程序：
 
 - 連線到 PowerShell 介面
-- 啟動支援工作階段
 - 建立支援封裝
 - Upload certificate
 - 將裝置重設
@@ -59,7 +58,6 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 如需有關憑證的詳細資訊，請移至[Azure IoT Edge 憑證](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs)或是[閘道上安裝憑證](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway)。
 
 ## <a name="view-device-information"></a>檢視裝置資訊
-
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -90,6 +88,9 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
+## <a name="exit-the-remote-session"></a>結束遠端工作階段
+
+若要結束遠端 PowerShell 工作階段，請關閉 PowerShell 視窗。
 
 ## <a name="next-steps"></a>後續步驟
 

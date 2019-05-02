@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616681"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918977"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>商務持續性和災害復原 (BCDR)：Azure 配對區域
 
@@ -38,7 +38,6 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 | 歐洲 |北歐 |西歐 |
 | 法國 |法國中部|法國南部|
 | 德國 |德國中部 |德國東北部 |
-| 德國 |德國北部 | 德國中西部
 | 印度 |印度中部 |印度南部 |
 | 印度 |印度西部 |印度南部 |
 | 日本 |日本東部 |日本西部 |
@@ -47,13 +46,8 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 | 北美洲 |美國東部 2 |美國中部 |
 | 北美洲 |美國中北部 |美國中南部 |
 | 北美洲 |美國西部 2 |美國中西部 
-| 北美洲 |美國西部 3 |美國東部
-| 挪威 |挪威東部 |挪威西部
 | 南非 | 南非北部 | 南非西部
-| 瑞典 |瑞典中部 |瑞典南部
-| 瑞士 | 瑞士北部 | 瑞士西部
 | 英國 |英國西部 |英國南部 |
-| 英國 |英國北部 |英國南部 2
 | 阿拉伯聯合大公國 | 阿拉伯聯合大公國北部 | 阿拉伯聯合大公國 Center
 | 美國國防部 |美國 DoD 東部 |美國國防部中央 |
 | 美國政府 |美國政府亞利桑那州 |美國政府德克薩斯州 |

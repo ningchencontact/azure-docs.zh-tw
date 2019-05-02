@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00666e27c9251248aa6ecff75d88908baabf71f3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61360144"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919720"
 ---
 # <a name="pricing-and-associated-costs"></a>定價和相關成本
 
@@ -40,7 +40,7 @@ ASC iot 定價模型會包含兩個組件和 IoT 中樞後計費[啟用](quickst
   >[!Note]
   > 安全性訊息也會產生在 IoT 中樞上的配額耗用量。
 
-如需詳細資訊，請參閱 <<c0> [ 資訊安全中心價格](https://azure.microsoft.com/en-us/pricing/details/security-center/)。
+如需詳細資訊，請參閱 <<c0> [ 資訊安全中心價格](https://azure.microsoft.com/pricing/details/security-center/)。
 
 ## <a name="associated-costs"></a>相關聯的成本
 
@@ -65,7 +65,7 @@ Iot 的 ASC 有兩種類型的相關聯的成本，並不屬於直接定價：
 |     | 使用量 | 註解 |
 | --- | --- | --- |
 | **IoT 中樞配額耗用量** |  |
-| [匯出裝置](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices)作業 （對應項匯出） | 一天 1 次 | 停用_對應項中繼資料集合_ |
+| [匯出裝置](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices)作業 （對應項匯出） | 一天 1 次 | 停用_對應項中繼資料集合_ |
 | **記錄分析儲存體** |  |
 | 裝置的建議和警示| 安全性建議及服務所產生的警示 | 不是選擇性 |
 | 未經處理的安全性資料| 從 IoT 裝置，安全性代理程式所收集的未經處理的安全性資料 | 停用_儲存未經處理的裝置安全性事件_ |

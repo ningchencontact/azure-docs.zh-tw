@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 9c9a5f219af0d474e1608f98595abe027b894117
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef302ecaa6defc6ac0dc1dd58d4f8acc0f2fd263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001736"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711443"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 
@@ -537,7 +537,7 @@ GROUP BY
 
 **輸入**：
 
-| 分析 | deviceId | sensorName | value |
+| time | deviceId | sensorName | value |
 | --- | --- | --- | --- |
 | "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
 | "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
@@ -605,7 +605,7 @@ WHERE
 **說明**：第一個查詢 `max_power_during_last_3_mins` 會使用[滑動視窗](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) \(英文\) 來尋找過去 3 分鐘內每個裝置的功率感應器最大值。 系統會將第二個查詢加入第一個查詢，以找出目前事件最近相關時間範圍內的功率值。 然後，假如條件符合，就會針對裝置產生警示。
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>查詢範例：獨立於裝置時鐘誤差 (子串流) 的處理事件
-**描述**：事件會因事件產生器之間的時鐘誤差、分割之間的時鐘誤差或網路延遲，而導致延遲發生或順序錯誤。 在下列範例中，TollID 2 的裝置時鐘比 TollID 1 晚 10 秒，而且 TollID 3 的裝置時鐘比 TollID 1 晚 5 秒。 
+**描述**：事件會因事件產生器之間的時鐘誤差、分割之間的時鐘誤差或網路延遲，而導致延遲發生或順序錯誤。 在下列範例中，TollID 2 的裝置時鐘為 TollID 1 背後的五秒且裝置時鐘 TollID 3 是 10 秒背後 TollID 1。 
 
 
 **輸入**：
@@ -650,7 +650,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **輸入**：  
 
-| deviceId | 時間 | 屬性 | 值 |
+| deviceId | 時間 | 屬性 | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |

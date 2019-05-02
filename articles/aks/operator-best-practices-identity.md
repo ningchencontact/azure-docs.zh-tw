@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464459"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726619"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中驗證和授權的最佳做法
 
@@ -108,7 +108,8 @@ roleRef:
 1. 開發人員使用受控識別部署了透過 NMI 伺服器要求存取權杖的 Pod。
 1. 權杖傳回至 Pod，並用來存取 Azure SQL Server 執行個體。
 
-托管 Pod 标识是 AKS 开源项目，Azure 技术支持部门不为其提供支持。 提供它是为了从我们的社区收集反馈和 Bug。 建议不要将此项目用于生产。
+> [!NOTE]
+> 受管理的 pod 身分識別是開放原始碼專案，並不支援的 Azure 技術支援。
 
 若要使用 Pod 身分識別，請參閱 [Kubernetes 應用程式的 Azure Active Directory 身分識別][aad-pod-identity]。
 

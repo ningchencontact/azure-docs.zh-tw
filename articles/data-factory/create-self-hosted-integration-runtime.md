@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565499"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728082"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -40,7 +40,7 @@ ms.locfileid: "59565499"
 
     ```powershell
 
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
 
     ```
 
@@ -63,7 +63,7 @@ ms.locfileid: "59565499"
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>使用自我裝載 IR 的考量
 
 - 單一的自我裝載整合執行階段可用於多個內部部署資料來源。 單一的自我裝載整合執行階段可以與同一個 Azure Active Directory 租用戶內的另一個 資料處理站共用。 如需詳細資訊，請參閱[共用自我裝載整合執行階段](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)。
-- 單一電腦上只能安裝一個自我裝載整合執行階段執行個體。 如果您有兩個需要存取內部部署資料來源的資料處理站時，您需要安裝兩個內部部署的電腦上每個資料處理站的自我裝載的整合執行階段，或使用[自我裝載 IR 共用功能](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)與另一個 Data Factory 共用自我裝載的整合執行階段。  
+- 單一電腦上只能安裝一個自我裝載整合執行階段執行個體。 如果您有兩個 data factory 需要存取內部部署資料來源，請使用[自我裝載 IR 共用功能](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)共用自我裝載的整合執行階段，或對兩個安裝自我裝載的整合執行階段在內部部署電腦，一個用於每個資料處理站。  
 - 自我裝載整合執行階段不一定要在與資料來源相同的電腦上。 不過，讓自我裝載整合執行階段更靠近資料來源，可以減少自我裝載整合執行階段連線到資料來源花費的時間。 建議您將自我裝載整合執行階段安裝在與裝載內部部署資料來源不同的電腦上。 當自我裝載整合執行階段和資料來源位於不同的電腦上時，自我裝載整合執行階段才不會與資料來源爭奪資源。
 - 您可以在不同電腦上有多個自我裝載整合執行階段，但它們皆連接至相同的內部部署資料來源。 例如，您可能有兩個用於為兩個資料處理站提供服務的自我裝載整合執行階段，但相同的內部部署資料來源都會向這兩個資料處理站註冊。
 - 若您已在電腦上安裝用於 Power BI 案例的閘道，請在另一部電腦上安裝另一個用於 Azure Data Factory 的自我裝載整合執行階段。

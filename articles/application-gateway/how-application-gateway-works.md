@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830311"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702416"
 ---
 # <a name="how-an-application-gateway-works"></a>應用程式閘道的運作方式
 
@@ -26,7 +26,7 @@ ms.locfileid: "60830311"
 
 2. Azure DNS 會傳回給用戶端，也就是應用程式閘道的前端 IP 位址的 IP 位址。
 
-3. 應用程式閘道會接受一或多個接聽程式上的連入流量。 侦听器是检查连接请求的逻辑实体。 已使用該服務後端 IP 位址、 通訊協定和用戶端應用程式閘道的連線的連接埠號碼。
+3. 應用程式閘道會接受一或多個接聽程式上的連入流量。 侦听器是检查连接请求的逻辑实体。 會設定前端 IP 位址、 通訊協定和用戶端應用程式閘道的連線的連接埠號碼。
 
 4. 如果 web 應用程式防火牆 (WAF) 正在使用中，應用程式閘道檢查要求的標頭和本文中，如果有的話，依 WAF 規則。 此動作會判斷要求是否為有效的要求或安全性威脅。 如果要求是有效的它會路由傳送至後端。 如果要求不是有效的它會封鎖為 安全性威脅。
 

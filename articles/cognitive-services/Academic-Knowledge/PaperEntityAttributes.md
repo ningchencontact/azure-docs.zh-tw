@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: bd37665e962ada59149b54075d7f8acbea895c50
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437457"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875745"
 ---
 # <a name="paper-entity"></a>論文實體
 
@@ -26,9 +26,9 @@ ms.locfileid: "57437457"
 ------- | ------------------------------------------------- | --------- | ----------------------------
 id      |實體識別碼                                          |Int64      |Equals
 Ti      |論文標題                                        |字串     |Equals,<br/>StartsWith
-L       |以 "\@@@" 分隔的論文語言程式碼            |字串     |Equals
+L       |文件語言程式碼分隔 」\@\@\@"          |字串     |Equals
 Y       |論文年度                                         |Int32      |Equals,<br/>IsBetween
-D       |論文日期                                         |日期       |Equals,<br/>IsBetween
+D       |論文日期                                         |date       |Equals,<br/>IsBetween
 CC      |引用計數                                     |Int32      |None  
 ECC     |預估引用計數                           |Int32      |None
 AA.AuN  |作者姓名                                        |字串     |Equals,<br/>StartsWith

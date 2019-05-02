@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258355"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918960"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>備份及還原 Azure 檔案和 PowerShell
 
@@ -31,18 +31,18 @@ ms.locfileid: "58258355"
 
 ## <a name="before-you-start"></a>開始之前
 
-- [了解更多](backup-azure-recovery-services-vault-overview.md)有關復原服務保存庫。
+- [详细了解](backup-azure-recovery-services-vault-overview.md)恢复服务保管库。
 - 閱讀 預覽功能，如[備份 Azure 檔案共用](backup-azure-files.md)。
-- 檢閱復原服務的 PowerShell 物件階層。
+- 查看恢复服务的 PowerShell 对象层次结构。
 
 
 ## <a name="recovery-services-object-hierarchy"></a>復原服務物件階層
 
-下圖摘要說明物件階層架構。
+下图汇总了对象层次结构。
 
 ![復原服務物件階層](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-檢閱**Az.RecoveryServices** [指令程式參考](/powershell/module/az.recoveryservices)Azure 文件庫中的參考。
+查看 Azure 库中的 **Az.RecoveryServices** [cmdlet 参考](/powershell/module/az.recoveryservices)。
 
 
 ## <a name="set-up-and-install"></a>設定和安裝
@@ -241,7 +241,7 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 使用[備份 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0)來執行隨選備份受保護的 Azure 檔案共用。
 
 1. 擷取儲存體帳戶和檔案共用從容器中保留備份資料與保存庫[Get AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer)。
-2. 若要開始備份作業，您會取得與虛擬機器的相關資訊[Get AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem)。
+2. 若要開始備份作業，您需使用 [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem) 來取得 VM 的相關資訊。
 3. 執行隨選備份與[備份 AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem)。
 
 執行隨選備份，如下所示：
@@ -317,7 +317,7 @@ BackupManagementType : AzureStorage
 
 ### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Azure 檔案共用還原到替代位置
 
-使用[還原 AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0)還原至選取的復原點。 指定這些參數來識別替代的位置： 
+使用[還原 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0)還原至選取的復原點。 指定這些參數來識別替代的位置： 
 
 - **TargetStorageAccountName**：要還原備份內容的目標儲存體帳戶。 目標儲存體帳戶必須與保存庫位於相同位置。
 - **TargetFileShareName**：要還原備份內容之目標儲存體帳戶內的檔案共用。
@@ -340,7 +340,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ### <a name="restore-an-azure-file-to-an-alternate-location"></a>Azure 檔案還原到替代位置
 
-使用[還原 AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0)還原至選取的復原點。 指定這些參數來識別替代位置，以及唯一識別您想要還原的檔案。
+使用[還原 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0)還原至選取的復原點。 指定這些參數來識別替代位置，以及唯一識別您想要還原的檔案。
 
 * **TargetStorageAccountName**：要還原備份內容的目標儲存體帳戶。 目標儲存體帳戶必須與保存庫位於相同位置。
 * **TargetFileShareName**：要還原備份內容之目標儲存體帳戶內的檔案共用。

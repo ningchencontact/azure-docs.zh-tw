@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72bfbc34f57e7725ae9556e893825900474317cb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699715"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876839"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>跨 Azure 訂用帳戶和資源群組移動復原服務保存庫
 
@@ -21,7 +21,7 @@ ms.locfileid: "60699715"
 
 ## <a name="supported-region"></a>支援的區域
 
-復原服務保存庫支援在澳大利亞東部、 澳洲南部東部、 加拿大中部、 加拿大東部、 東南亞、 東亞、 美國中部、 North Central US、 美國東部、 美國東部 2 中的資源移動南部中央 US、 美國中西部、 西部中部美國 2、 美國西部、印度中部、 印度南部、 日本東部、 日本西部、 韓國中部、 韓國南部、 北歐、 西歐、 南非北部、 南非西部、 英國南部、 英國西部、 阿拉伯聯合大公國中部和阿拉伯聯合大公國北部。
+復原服務保存庫支援在澳大利亞東部、 澳洲南部東部、 加拿大中部、 加拿大東部、 東南亞、 東亞、 美國中部、 North Central US、 美國東部、 美國東部 2 中的資源移動南部中央 US、 美國中西部、 西部中部美國 2、 美國西部、印度中部、 印度南部、 日本東部、 日本西部、 韓國中部、 韓國南部、 北歐、 西歐、 南非北部、 南非西部、 英國南部和英國西部。
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>移動復原服務保存庫的必要條件
 

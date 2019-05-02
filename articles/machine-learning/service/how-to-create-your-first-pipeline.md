@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 01/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819919"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914898"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
@@ -359,6 +359,7 @@ response = requests.post(published_pipeline1.endpoint,
     json={"ExperimentName": "My_Pipeline",
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
 ## <a name="view-results"></a>檢視結果
 
 查看您所有管線的清單及其執行詳細資料：
@@ -368,6 +369,25 @@ response = requests.post(published_pipeline1.endpoint,
  ![機器學習管線清單](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 選取特定管線以查看執行結果。
+
+## <a name="caching--reuse"></a>快取與重複使用  
+
+若要最佳化並自訂您的管線，您可以執行一些作業周圍快取並重複使用的行為。 例如，您可以選擇：
++ **關閉 預設的重複使用執行輸出的步驟**splittunneling`allow_reuse=False`期間[步驟定義](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **擴充超出指令碼雜湊**，也包含絕對路徑或相對路徑到其他檔案和目錄使用 source_directory `hash_paths=['<file or directory']` 
++ **強制執行中的所有步驟的輸出重新產生**與 `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+
+根據預設，步驟重複使用已啟用，而且只有主要指令碼檔案會進行雜湊。 因此，如果指定的步驟的指令碼會維持不變 (`script_name`，輸入和參數)、 重複使用先前的步驟執行的輸出、 作業不會提交到計算，和先前的執行結果會改為立即提供下一個步驟.  
+
+```python
+step = PythonScriptStep(name="Hello World", 
+                        script_name="hello_world.py",  
+                        compute_target=aml_compute,  
+                        source_directory= source_directory, 
+                        allow_reuse=False, 
+                        hash_paths=['hello_world.ipynb']) 
+```
+ 
 
 ## <a name="next-steps"></a>後續步驟
 - 使用 [GitHub 上的這些 Jupyter Notebook](https://aka.ms/aml-pipeline-readme) 來進一步探索機器學習管線。

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483336"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710859"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -96,7 +96,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 出现空白登录对话框的原因往往是 ADFS 要求存储资源管理器执行 Electron 不支持的重定向。 若要解決此問題，您可以嘗試使用裝置程式碼流程來登入。 若要進行，請執行下列步驟：
 
-1. “转到预览”->“使用设备代码登录”。
+1. 功能表：預覽-> [使用裝置程式碼登入]。
 2. 開啟 [連線] 對話方塊 (透過左側垂直列上的插頭圖示，或透過在 [帳戶] 面板上的 [新增帳戶])。
 3. 选择要登录到的环境。
 4. 按一下 [登入] 按鈕。

@@ -3,20 +3,19 @@ title: 在 Azure Active Directory B2C 中使用自訂原則來管理 SSO 和權�
 description: 了解如何在 Azure Active Directory B2C 中使用自訂原則來管理 SSO 和權杖自訂。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 10/09/2018
-ms.date: 04/01/2019
-ms.author: v-junlch
+ms.date: 10/09/2018
+ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2033d37a4a847380003fb95243138082df804bbf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317168"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703388"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來管理 SSO 和權杖自訂
 
@@ -24,7 +23,11 @@ ms.locfileid: "60317168"
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>權杖存留期和宣告組態
 
-若要變更權杖存留期的設定，您可以在想要影響的原則信賴憑證者中，新增 [ClaimsProviders](claimsproviders.md) 元素。  **ClaimsProviders** 元素是 [TrustFrameworkPolicy](trustframeworkpolicy.md) 元素的子系。 您必須在其中放入會影響權杖存留期的資訊。 XML 看起來像這個範例：
+若要變更權杖存留期的設定，您可以在想要影響的原則信賴憑證者中，新增 [ClaimsProviders](claimsproviders.md) 元素。  **ClaimsProviders** 元素是 [TrustFrameworkPolicy](trustframeworkpolicy.md) 元素的子系。 
+
+插入 BasePolicy 項目和 RelyingParty 元素之間的信賴憑證者的合作對象檔案 ClaimsProviders 項目。
+
+您必須在其中放入會影響權杖存留期的資訊。 XML 看起來像這個範例：
 
 ```XML
 <ClaimsProviders>
@@ -101,4 +104,3 @@ ms.locfileid: "60317168"
 - **單一登入 (SSO)** - 單一登入會透過 **SingleSignOn** 來設定。 適用的值為 `Tenant`、`Application`、`Policy`和 `Suppressed`。 
 - **Web 應用程式工作階段存留期 (分鐘)** - Web 應用程式工作階段存留期會透過 **SessionExpiryInSeconds** 元素來設定。 預設值為 86400 秒 (1440 分鐘)。
 - **Web 應用程式工作階段逾時** - Web 應用程式工作階段逾時會透過 **SessionExpiryType** 元素來設定。 適用的值為 `Absolute` 和 `Rolling`。
-

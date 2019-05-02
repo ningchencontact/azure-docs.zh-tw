@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5b6efce033efe99ed4463d6b04b24503de57407c
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63762791"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869984"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure 地圖轉譯涵蓋範圍
 
@@ -45,7 +45,6 @@ Azure 地圖會同時使用點陣圖格和向量圖格來建立地圖。 在其�
 | 中非共和國         | ✓ | Ø |
 | 查德                             | ✓ | Ø |
 | 葛摩                          | ✓ | Ø |
-| 剛果                            | ✓ | ✓ |
 | 剛果民主共和國 | ✓ | ✓ |
 | 象牙海岸                    | ✓ | Ø |
 | 吉布地                         | ✓ | Ø |
@@ -109,7 +108,6 @@ Azure 地圖會同時使用點陣圖格和向量圖格來建立地圖。 在其�
 | 加拿大                    | ✓ | ✓ |
 | 開曼群島            | ✓ | ✓ |
 | 智利                     | ✓ | ✓ |
-| 克利珀頓島         | ✓ | ✓ |
 | 哥倫比亞                  | ✓ | ✓ |
 | 哥斯大黎加                | ✓ | ✓ |
 | 古巴                      | ✓ | ✓ |

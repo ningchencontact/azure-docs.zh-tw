@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bb7032c2741cc8c407c8d7d0285e58647f0bfd5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291326"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918544"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -128,7 +128,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
      - `and`
 * 不需要區分大小寫的相符項目結構中的項目在特定的修補程式的 SCIM`op`作業的值，如同 https://tools.ietf.org/html/rfc7644#section-3.5.2。 Azure AD 發出 'o' 的值作為`Add`， `Replace`，和`Remove`。
 * Microsoft Azure AD 會要求擷取隨機使用者和群組，以確保端點和認證有效。 它也會完成的一部分**測試連接**朝[Azure 入口網站](https://portal.azure.com)。 
-* 資源可以查詢的屬性應該設定為 比對的屬性中的應用程式[Azure 入口網站](https://portal.azure.com)。 如需詳細資訊，請參閱[自訂使用者佈建屬性對應](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+* 資源可以查詢的屬性應該設定為 比對的屬性中的應用程式[Azure 入口網站](https://portal.azure.com)。 如需詳細資訊，請參閱[自訂使用者佈建屬性對應](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
 ### <a name="user-provisioning-and-de-provisioning"></a>使用者佈建和取消佈建
 下圖顯示 Azure Active Directory 傳送至 SCIM 服務來管理您的應用程式身分識別存放區中的使用者生命週期的訊息。  

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: f6c2c8c49f34c707c7b0fb4d525337fbfa169a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: fcdfc78a62d901bdaf50c18e9286e6f2d30c5b13
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692420"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714140"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>如何調整您的 Time Series Insights 環境規模
 
@@ -60,5 +60,5 @@ ms.locfileid: "55692420"
 4. 選取 [儲存] 來調整環境。 認可變更之後，系統就會立即顯示進度列指示器。 
 
 ## <a name="next-steps"></a>後續步驟
-> [!div class="nextstepaction"]
-> [請確定新容量足夠以避免產生節流](time-series-insights-diagnose-and-solve-problems.md)。
+
+- 請確定新容量[足夠以避免產生節流](time-series-insights-diagnose-and-solve-problems.md)。

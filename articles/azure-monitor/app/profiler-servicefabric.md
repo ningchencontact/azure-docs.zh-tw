@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 0b1a06d181fc4d2a44d389d47d1f9480c2fdcb40
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 5c01c2721a29bf142ee0ba53c9bc29ec66a7278f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401095"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727919"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Service Fabric 應用程式
 
@@ -32,7 +32,7 @@ Application Insights Profiler 會隨附於 Azure 診斷。 您可以使用 Azure
 
 若要設定環境，請採取下列動作：
 
-1. 若要確保使用的是 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 或更新版本，確認部署的作業系統是 `Windows Server 2012 R2` 或更新版本就足夠。
+1. Profiler 會支援.NET Framework 和.Net Core。 如果您使用.NET Framework，請確定您使用[.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)或更新版本。 就已足夠，確認已部署的作業系統是`Windows Server 2012 R2`或更新版本。 Profiler 會支援.NET Core 2.1 和更新版本的應用程式。
 
 1. 在部署範本檔案中搜尋 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)擴充功能。
 
@@ -59,7 +59,6 @@ Application Insights Profiler 會隨附於 Azure 診斷。 您可以使用 Azure
 
 1. 重新部署應用程式。
 
-> [提示] 針對虛擬機器，上述 JSON 型步驟的替代方式是，在 Azure 入口網站中瀏覽至 [虛擬機器] > [診斷設定] > [接收]  > **將診斷資料傳送到 Application Insights 設為 [啟用]**，然後選取 Application Insights 帳戶或特定 ikey。
 
 ## <a name="next-steps"></a>後續步驟
 

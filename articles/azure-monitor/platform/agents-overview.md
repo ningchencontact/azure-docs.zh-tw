@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775875"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922849"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 監視代理程式概觀 
 Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或其他雲端提供者中，且執行 Microsoft Windows 和 Linux 的虛擬機器收集不同類型的資料。 三種可用來監視 VM 的代理程式類型為：
@@ -66,7 +66,7 @@ Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或�
 
 * 作業系統更新的 [Azure 自動化更新管理](../../automation/automation-update-management.md)。
 * [Azure 自動化 Desired State Configuration](../../automation/automation-dsc-overview.md) 用以維護一致的組態狀態。
-* 使用 [Azure 自動化變更追蹤與清查](../../automation/automation-change-tracking.md)來追蹤組態變更。
+* 使用 [Azure 自動化變更追蹤與清查](../../automation/change-tracking.md)來追蹤組態變更。
 * [Application Insights](https://docs.microsoft.com/azure/application-insights/) 和 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/)等 Azure 服務，這些服務會在原生狀態將其資料直接儲存在 Log Analytics 中。  
 
 ## <a name="dependency-agent"></a>相依性代理程式

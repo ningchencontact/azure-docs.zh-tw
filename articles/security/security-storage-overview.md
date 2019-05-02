@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 262ccc311b2b7ec634183eb4f914902048ba2c3b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120887"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872032"
 ---
 # <a name="azure-storage-security-overview"></a>Azure 儲存體安全性概觀
 
-Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應用程式仰賴持續性、可用性和可調整性來滿足其客戶的需求。 Azure 儲存體提供一組完整的安全性功能。 您可以：
+本文提供可與 Azure 儲存體搭配使用的 Azure 安全性功能概觀。 Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應用程式仰賴持續性、可用性和可調整性來滿足其客戶的需求。 Azure 儲存體提供一組完整的安全性功能。 您可以：
 
 * 使用角色型存取控制 (RBAC) 與 Azure Active Directory 來保護儲存體帳戶的安全。
 * 使用用戶端加密、HTTPS 或 SMB 3.0，保護應用程式和 Azure 之間傳輸中資料的安全。
@@ -33,9 +33,6 @@ Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應�
 * 使用分析來追蹤當某人存取儲存體時使用的驗證方法。
 
 若要深入了解「Azure 儲存體」中的安全性，請參閱 [Azure 儲存體安全性指南](../storage/common/storage-security-guide.md)。 本指南提供 Azure 儲存體安全性功能的深入探討。 這些功能包括儲存體帳戶金鑰、傳輸中和待用資料加密，以及儲存體分析。
-
-
-本文提供可與 Azure 儲存體搭配使用的 Azure 安全性功能概觀。 文中也會提供文章的連結，更詳細說明每個功能，好讓您能夠深入了解。
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 

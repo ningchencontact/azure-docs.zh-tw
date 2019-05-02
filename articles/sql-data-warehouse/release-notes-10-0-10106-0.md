@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 10d703ad613a340a0f99c4d5dd8f4c748ff3e6bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c5279d1ddf3153493ebc01dc010114ff7e6b5e7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475094"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917233"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL 資料倉儲版本資訊
 
@@ -26,12 +26,12 @@ ms.locfileid: "61475094"
 | 服務改進功能 | 詳細資料 |
 | --- | --- |
 |**現在可供 Gen2 預覽工作負載重要性**|工作負載的重要性會讓資料工程師能夠使用重要性來分類要求。 以高重要性的要求保證快速地存取資源，進而符合 Sla。  工作負載重要性可讓高商業值工作，以符合 Sla，在共用環境中使用較少的資源。<br/><br/>工作負載管理分類和重要性的 preview 是組建與發行日期 2019 年 4 月 9 日的或更新版本。 使用者應該避免使用早於此日期的組建進行工作負載管理測試。 若要判斷您的組建是否工作負載管理功能，請執行`select @@version`當連接到您的 SQL 資料倉儲執行個體。</br></br>如需有關工作負載重要性的詳細資訊，請參閱[分類](sql-data-warehouse-workload-classification.md)並[重要性](sql-data-warehouse-workload-importance.md)文件中的概觀文章。 請參閱[建立工作負載分類](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)以及文件。<br/><br/>請參閱中的作用中的工作負載重要性以下影片：<br/>[工作負載管理概念](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[工作負載管理案例](https://www.youtube.com/embed/_2rLMljOjw8)|
-|**資料探索與分類**|Azure SQL 資料倉儲的資料探索與分類現在提供公開預覽。 請務必保護敏感資料與客戶的隱私權。 隨著您的業務和客戶的資料資產的擴增，變得難以管理，來探索、 分類及保護您的資料。 我們使用 Azure SQL 資料倉儲原生導入的資料探索與分類功能，有助於保護您的資料更容易管理。 這個功能的整體優點包括：<br/>&bull; &nbsp; 會議資料隱私權標準和法規合規性需求。<br/>&bull; &nbsp; 限制存取權，並強化安全性的資料倉儲包含高度敏感性資料。<br/>&bull; &nbsp; 監視和警示的異常存取敏感性資料。<br/>&bull; &nbsp; 在 Azure 入口網站上的中央儀表板中的敏感性資料的視覺效果。 </br></br>資料探索與分類是適用於 Azure SQL 資料倉儲中所有的 Azure 區域，它的進階資料安全性，包括弱點評定和威脅偵測的一部分。 如需有關資料探索與分類的詳細資訊，請參閱 <<c0> [ 部落格文章](https://azure.microsoft.com/en-us/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/)與我們的線上[文件](/azure/sql-database/sql-database-data-discovery-and-classification)。|
+|**資料探索與分類**|Azure SQL 資料倉儲的資料探索與分類現在提供公開預覽。 請務必保護敏感資料與客戶的隱私權。 隨著您的業務和客戶的資料資產的擴增，變得難以管理，來探索、 分類及保護您的資料。 我們使用 Azure SQL 資料倉儲原生導入的資料探索與分類功能，有助於保護您的資料更容易管理。 這個功能的整體優點包括：<br/>&bull; &nbsp; 會議資料隱私權標準和法規合規性需求。<br/>&bull; &nbsp; 限制存取權，並強化安全性的資料倉儲包含高度敏感性資料。<br/>&bull; &nbsp; 監視和警示的異常存取敏感性資料。<br/>&bull; &nbsp; 在 Azure 入口網站上的中央儀表板中的敏感性資料的視覺效果。 </br></br>資料探索與分類是適用於 Azure SQL 資料倉儲中所有的 Azure 區域，它的進階資料安全性，包括弱點評定和威脅偵測的一部分。 如需有關資料探索與分類的詳細資訊，請參閱 <<c0> [ 部落格文章](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/)與我們的線上[文件](/azure/sql-database/sql-database-data-discovery-and-classification)。|
 |**GROUP BY 彙總套件**|彙總套件現在是支援的 GROUP BY 選項在 Azure 資料倉儲中。   GROUP BY ROLLUP 會建立每個資料行運算式組合的群組。 GROUP BY 也 「 積存 」 結果到小計和總計。 GROUP BY 函式會處理由右至左，減少對其建立群組和從右向的資料行運算式數目。  資料行順序會影響 ROLLUP 的輸出，而且可能會影響結果集中的資料列數目。<br/><br/>如需有關群組的彙總的詳細資訊，請參閱[GROUP BY & Amp;#40;transact-SQL&AMP;#41;](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**改善的精確度，已使用的 DWU 和 CPU 入口網站計量**|SQL 資料倉儲大幅增強 Azure 入口網站計量的精確度。  此版本包含的修正程式的 CPU 和 Dwu 計量定義，以正確反映所有計算節點的 您的工作負載。 此修正之前, 已正在 undereported 度量值。 預期會看見已使用的 DWU 增加和 Azure 入口網站中的 CPU 計量。 |
 |**資料列層級安全性**|我們在 2017 年 11 月引進的資料列層級安全性功能。 我們現在已擴充這項支援，以及外部資料表。 此外，我們已新增支援呼叫內嵌資料表值函數 （內嵌 Tvf） 定義的安全性篩選器述詞所需的不具決定性的函式。 此新增可讓您指定 IS_ROLEMEMBER()，user_name （） 等等。 在 安全性篩選器述詞。 如需詳細資訊，請參閱中的範例[資料列層級安全性文件](/sql/relational-databases/security/row-level-security)。|
 |**其他的 T-SQL 支援**|SQL 資料倉儲的 T-SQL 語言介面區已經擴充成包含對[STRING_SPLIT & Amp;#40;transact-SQL&AMP;#41;](/sql/t-sql/functions/string-split-transact-sql)。
-|**查詢最佳化工具增強功能** |查詢最佳化是任何資料庫的重要元件。 如何最適合執行查詢的最佳選擇可能會產生明顯的改進。  當分散式環境中執行複雜的分析查詢，作業數目就會執行大小事。 已產生更好的品質計畫增強查詢效能。 這些計劃降低昂貴的資料傳輸作業，例如備援計算重複的子查詢。 如需詳細資訊，請參閱此 Azure SQL 資料倉儲[部落格文章](https://azure.microsoft.com/en-us/blog/smarter-faster-safer-azure-sql-data-warehouse-is-simply-unmatched/)。|
+|**查詢最佳化工具增強功能** |查詢最佳化是任何資料庫的重要元件。 如何最適合執行查詢的最佳選擇可能會產生明顯的改進。  當分散式環境中執行複雜的分析查詢，作業數目就會執行大小事。 已產生更好的品質計畫增強查詢效能。 這些計劃降低昂貴的資料傳輸作業，例如備援計算重複的子查詢。 如需詳細資訊，請參閱此 Azure SQL 資料倉儲[部落格文章](https://azure.microsoft.com/blog/smarter-faster-safer-azure-sql-data-warehouse-is-simply-unmatched/)。|
 | | |
 
 ### <a name="documentation-improvements"></a>文件改進

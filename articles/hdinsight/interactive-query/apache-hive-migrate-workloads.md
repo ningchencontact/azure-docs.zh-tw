@@ -2,17 +2,17 @@
 title: 將 Azure HDInsight 3.6 Hive 工作負載移轉至 HDInsight 4.0
 description: 了解如何將 Apache Hive 在 HDInsight 3.6 上的工作負載移轉至 HDInsight 4.0。
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
+author: msft-tacox
+ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 04/15/2019
-ms.openlocfilehash: 144e0ada0ce3a15a5dcd13b31f46f50162750a74
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: b181edc08c51a5afa8682858b330acc84da7d73d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126557"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707007"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>將 Azure HDInsight 3.6 Hive 工作負載移轉至 HDInsight 4.0
 
@@ -98,6 +98,8 @@ alter table myacidtable compact 'major';
 在 HDInsight 3.6，與 Hive 伺服器互動的 GUI 用戶端會是 Ambari Hive 檢視。 HDInsight 4.0 會取代 Hive 檢視使用 Hortonworks Data Analytics Studio (DAS)。 DAS 不隨附於 HDInsight 叢集的現成的而且不正式支援的封裝。 不過，DAS 可以安裝在叢集上，如下所示：
 
 為節點類型的執行啟動指令碼動作，對您的叢集，請使用 「 前端節點 」。 將下列 URI 貼到文字方塊中標示為 「 Bash 指令碼 URI 」 中： https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+資料分析 Studio 可以啟動 url: https://<clustername>.azurehdinsight.net/das/
 
 
 

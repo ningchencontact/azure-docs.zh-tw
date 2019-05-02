@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c3395345093ae9a3d35deb27a08f12d331c9f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358152"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917667"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 密碼保護內部部署 - 常見問題集
 
@@ -42,7 +42,7 @@ ms.locfileid: "60358152"
 
 （有時稱為 「 密碼重設 」） 已設定密碼時，系統管理員帳戶的密碼以取代新的密碼，例如使用 Active Directory 使用者和電腦 管理工具。 這項作業需要高層級的權限 （通常是網域系統管理員），而且通常執行作業的人員沒有舊密碼的知識。 技術服務人員案例通常這樣做，例如當協助忘記密碼的使用者。 您也會看到 設定事件時正在第一次使用密碼建立全新的使用者帳戶的密碼。
 
-密碼驗證原則的行為相同，不論是否已完成密碼變更或設定。 Azure AD 密碼保護 DC 代理程式服務會記錄不同的事件，通知您是否變更密碼，或設定作業已完成。  請參閱[監視和記錄的 Azure AD 密碼保護](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)。
+密碼驗證原則的行為相同，不論是否已完成密碼變更或設定。 Azure AD 密碼保護 DC 代理程式服務會記錄不同的事件，通知您是否變更密碼，或設定作業已完成。  請參閱[監視和記錄的 Azure AD 密碼保護](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)。
 
 **问：是否支援同時安裝 Azure AD 密碼保護與其他密碼篩選產品？**
 

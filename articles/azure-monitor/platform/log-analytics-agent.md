@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 328433664d22925b4e991f2f18c858c5505cade1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781985"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916369"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>使用 Azure Log Analytics 代理程式收集記錄資料
 
@@ -38,7 +38,7 @@ Azure Log Analytics 代理程式先前稱為 Microsoft Monitoring Agent (MMA) �
 
 Windows 代理程式可以回報到最多四個 Log Analytics 工作區，而 Linux 代理程式只支援回報到單一工作區。  
 
-適用於 Linux 和 Windows 的代理程式也不只是用來連接到 Azure 監視器，它也支援這類裝載混合式 Runbook 背景工作角色和其他服務的 Azure 自動化[變更追蹤](../../automation/automation-change-tracking.md)和[的更新管理](../../automation/automation-update-management.md). 如需有關「混合式 Runbook」背景工作角色的詳細資訊，請參閱 [Azure 自動化混合式 Runbook 背景工作](../../automation/automation-hybrid-runbook-worker.md)。  
+適用於 Linux 和 Windows 的代理程式也不只是用來連接到 Azure 監視器，它也支援這類裝載混合式 Runbook 背景工作角色和其他服務的 Azure 自動化[變更追蹤](../../automation/change-tracking.md)和[的更新管理](../../automation/automation-update-management.md). 如需有關「混合式 Runbook」背景工作角色的詳細資訊，請參閱 [Azure 自動化混合式 Runbook 背景工作](../../automation/automation-hybrid-runbook-worker.md)。  
 
 ## <a name="supported-windows-operating-systems"></a>支援的 Windows 作業系統
 Windows 代理程式正式支援下列 Windows 作業系統版本：
@@ -101,7 +101,7 @@ Windows 和 Linux 代理程式支援透過 proxy 伺服器或 Azure 監視器使
 
 |屬性| 描述 |
 |--------|-------------|
-|通訊協定 | https |
+|Protocol | https |
 |user | 用於驗證 Proxy 的選擇性使用者名稱 |
 |password | 用於驗證 Proxy 的選擇性密碼 |
 |proxyhost | Proxy 伺服器/Log Analytics 閘道的位址或 FQDN |

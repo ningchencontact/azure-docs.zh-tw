@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 1a2d24be00b0e1224b5f8d52105e2969d64e5f64
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579354"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922467"
 ---
 # <a name="why-use-batch-transcription"></a>為何使用 Batch 轉譯？
 
@@ -29,7 +29,7 @@ ms.locfileid: "59579354"
 如同語音服務的所有功能，您可以依照我們的[快速入門指南](get-started.md)從 [Azure 入口網站](https://portal.azure.com)建立訂用帳戶金鑰。 如果您打算從我們的基準模型取得轉譯，您只要建立金鑰即可。
 
 >[!NOTE]
-> 語音服務的標準訂用帳戶 (S0) 才能使用批次轉譯。 免費訂用帳戶金鑰 (F0) 將無法運作。 如需詳細資訊，請參閱[定價和限制](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/)。
+> 語音服務的標準訂用帳戶 (S0) 才能使用批次轉譯。 免費訂用帳戶金鑰 (F0) 將無法運作。 如需詳細資訊，請參閱[定價和限制](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
 
 ### <a name="custom-models"></a>自訂模型
 
@@ -72,7 +72,8 @@ Batch 轉譯 API 支援下列格式：
   "properties": {
     "ProfanityFilterMode": "Masked",
     "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True"
+    "AddWordLevelTimestamps" : "True",
+    "AddSentiment" : "True"
   }
 }
 ```
@@ -87,6 +88,7 @@ Batch 轉譯 API 支援下列格式：
 | `ProfanityFilterMode` | 指定如何處理辨識結果中的不雅內容。 接受的值為 `none` (會停用不雅內容過濾)、`masked` (為以星號取代不雅內容)、`removed` (會移除結果中的所有不雅內容) 或 `tags` (會新增「不雅內容」標記)。 預設設定為 `masked`。 | 選用 |
 | `PunctuationMode` | 指定如何處理辨識結果中的標點符號。 接受的值為`none` (會停用標點符號)、`dictated` (暗示明確的標點符號)、`automatic` (會讓解碼器處理標點符號) 或 `dictatedandautomatic` (暗示口述的標點符號或自動)。 | 選用 |
  | `AddWordLevelTimestamps` | 指定是否將字組層級時間戳記新增至輸出。 接受的值為`true` 會啟用字組層級時間戳記，而 `false` (預設值) 會停用。 | 選用 |
+ | `AddSentiment` | 指定 人氣應新增至 utterance。 接受的值為`true`可讓每個 [utterance] 的人氣和`false`加以停用的 （預設值）。 | 選用 |
 
 ### <a name="storage"></a>儲存體
 
@@ -97,6 +99,57 @@ Batch 轉譯支援[Azure Blob 儲存體](https://docs.microsoft.com/azure/storag
 輪詢程式可能不會轉譯狀態的最有效，或提供最佳使用者體驗。 若要輪詢狀態，您可以註冊長時間執行轉譯工作完成時，會通知用戶端的回呼。
 
 如需詳細資訊，請參閱 < [Webhook](webhooks.md)。
+
+## <a name="sentiment"></a>情感
+
+情感是 Batch 轉譯 API 中的新功能，在呼叫 center 網域中的重要功能。 客戶可以使用`AddSentiment`其要求的參數 
+
+1.  客戶滿意度上取得深入解析
+2.  取得深入解析 （小組採取呼叫） 的代理程式的效能
+3.  找出的時間時呼叫一回合中以負數方向中的精確點
+4.  找出開啟負正呼叫時，也有何
+5.  識別客戶的喜歡和其相關產品或服務不喜歡
+
+情感評分每個音訊區段其中的音訊區段定義為 [utterance] （位移） 的開始之間的位元組資料流的結尾偵測無回應的時間間隔。 該區段中的整個文字用來計算情感。 我們並 「 不計算任何彙總情緒值的整個呼叫或整個語音的每一個色頻。 這些會保留給網域擁有者，來進一步套用。
+
+人氣已套用的語彙格式。
+
+JSON 輸出範例如下所示：
+
+```json
+{
+  "AudioFileResults": [
+    {
+      "AudioFileName": "Channel.0.wav",
+      "AudioFileUrl": null,
+      "SegmentResults": [
+        {
+          "RecognitionStatus": "Success",
+          "ChannelNumber": null,
+          "Offset": 400000,
+          "Duration": 13300000,
+          "NBest": [
+            {
+              "Confidence": 0.976174,
+              "Lexical": "what's the weather like",
+              "ITN": "what's the weather like",
+              "MaskedITN": "what's the weather like",
+              "Display": "What's the weather like?",
+              "Words": null,
+              "Sentiment": {
+                "Negative": 0.206194,
+                "Neutral": 0.793785,
+                "Positive": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+功能會使用目前為 beta 版的情緒模型。
 
 ## <a name="sample-code"></a>範例程式碼
 

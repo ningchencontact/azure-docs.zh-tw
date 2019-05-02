@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b477171be0f306431b0f7c5965ebede4f4680c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f344a4f928030c07f59c2f7aba201d153da123f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249944"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918706"
 ---
 # <a name="web-api"></a>Web API
 
@@ -69,7 +69,7 @@ Web API 應用程式是必須從 Web API 取得資源的 Web 應用程式。 在
 
 ## <a name="app-registration"></a>應用程式註冊
 
-若要向 Azure AD v1.0 端點註冊應用程式，請參閱[向 Azure AD v1.0 端點註冊應用程式](quickstart-v1-add-azure-ad-app.md)。
+若要註冊應用程式與 Azure AD v1.0 端點，請參閱[註冊應用程式](quickstart-register-app.md)。
 
 * 單一租用戶 - 無論是應用程式識別或委派的使用者識別的情況，Web 應用程式和 Web API 都必須註冊在 Azure AD 的相同目錄中。 Web API 可以設定為公開一組權限，用以限制 Web 應用程式對其資源的存取權。 如果使用委派的使用者識別類型，Web 應用程式需要從 Azure 入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。 如果使用應用程式識別類型，則不需要此步驟。
 * 多租用戶 - 首先，設定 Web 應用程式來指出它運作所需的權限。 當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。 有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可以同意應用程式。 其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。 只有目錄管理員才能對需要此權限層級的應用程式表示同意。 當使用者或系統管理員同意時，Web 應用程式和 Web API 都會註冊在他們的目錄中。

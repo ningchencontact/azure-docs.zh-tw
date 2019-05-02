@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 772f15f54819f31d92411df747fc10d54b3e96cd
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ffa42eb2247d163dd6a146ffb26c1f8cc5cf6d82
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544107"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922528"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>快速入門：偵測異常的時間序列資料使用異常偵測器 REST API 和C# 
 
@@ -35,7 +35,7 @@ ms.locfileid: "59544107"
         1. 以滑鼠右鍵按一下**Solution Manager**
         2. 按一下 [管理 NuGet 套件...]
         3. 搜尋`Newtonsoft.Json`並安裝套件
-- 如果您使用 Linux/MacOS，可以使用執行此應用程式[Mono](http://www.mono-project.com/)。
+- 如果您使用 Linux/MacOS，可以使用執行此應用程式[Mono](https://www.mono-project.com/)。
 
 - JSON 檔案包含時間序列資料點。 本快速入門中的範例資料都位於[GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json)。
 

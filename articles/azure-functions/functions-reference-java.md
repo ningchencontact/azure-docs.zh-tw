@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020368"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922934"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
@@ -111,7 +111,7 @@ public class Function {
 
 請從 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 下載並使用 [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK，以在本機開發 Java 函數應用程式。 當您將函數應用程式部署至雲端時，Azure Functions 使用 Azul Java 8 JDK 執行階段。
 
-針對 JDK 和函數應用程式的問題，[Azure 支援](https://azure.microsoft.com/en-us/support/)可提供[完整的支援方案](https://azure.microsoft.com/support/plans/)。
+針對 JDK 和函數應用程式的問題，[Azure 支援](https://azure.microsoft.com/support/)可提供[完整的支援方案](https://azure.microsoft.com/support/plans/)。
 
 ## <a name="third-party-libraries"></a>第三方程式庫 
 

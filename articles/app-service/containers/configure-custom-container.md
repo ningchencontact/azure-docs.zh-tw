@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853315"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919722"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>針對 Azure App Service 中設定自訂的 Linux 容器
 
@@ -109,7 +109,6 @@ SSH 可讓容器和用戶端之間進行安全通訊。 為了讓自訂容器，
 - [在 Docker Compose 使用永續性儲存體](#use-persistent-storage-in-docker-compose)
 - [預覽限制](#preview-limitations)
 - [Docker Compose 選項](#docker-compose-options)
-- [Kubernetes 組態選項](#kubernetes-configuration-options)
 
 ### <a name="use-persistent-storage-in-docker-compose"></a>在 Docker Compose 使用永續性儲存體
 
@@ -132,19 +131,6 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
-```
-
-### <a name="use-custom-storage-in-docker-compose"></a>使用自訂的儲存體中 Docker Compose
-
-Azure 儲存體 （Azure 檔案服務或 Azure Blob） 可以裝載多容器應用程式使用的自訂 id。若要檢視自訂識別碼名稱，請執行[ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)。
-
-在您*docker compose.yml*檔案中，對應`volumes`選項設定為`custom-id`。 例如︰
-
-```yaml
-wordpress:
-  image: wordpress:latest
-  volumes:
-  - <custom-id>:<path_in_container>
 ```
 
 ### <a name="preview-limitations"></a>預覽限制
@@ -179,22 +165,6 @@ wordpress:
 
 > [!NOTE]
 > 未明確標註的其他任何選項會忽略處於公開預覽狀態。
-
-### <a name="kubernetes-configuration-options"></a>Kubernetes 組態選項
-
-Kubernetes 支援下列設定選項：
-
-- args
-- 命令
-- containers
-- 映像
-- name
-- 連接埠
-- 規格
-
-> [!NOTE]
-> 未明確標註的其他任何選項並不支援公開預覽狀態。
->
 
 ## <a name="next-steps"></a>後續步驟
 

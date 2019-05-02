@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 9f47ba44e7940414932371ef1b7a360d0b01e1ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 1c744e0063d5c56b2ca17f2b6c6fa694ad13a26c
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483857"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872569"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>為 Azure 監視器中的記錄建立計量警示
 
@@ -57,7 +57,7 @@ Azure 監視器支援的[計量警示類型](../../azure-monitor/platform/alerts
 
 1. **作用中的 Log Analytics 工作區**：必須存在有效且作用中的 Log Analytics 工作區。 如需詳細資訊，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)。
 2. **已為 Log Analytics 工作區設定代理程式**：需要為 Azure VM (和/或) 內部部署 VM 設定代理程式，以傳送資料至在先前步驟中使用的 Log Analytics 工作區。 如需詳細資訊，請參閱 [Log Analytics - 代理程式概觀](../../azure-monitor/platform/agents-overview.md)。
-3. **已安裝支援的 Log Analytics 解決方案**：應設定 Log Analytics 解決方案並將資料傳送至 Log Analytics 工作區 - 支援的解決方案為 [Windows 和 Linux 效能計數器](../../azure-monitor/platform/data-sources-performance-counters.md)、[代理程式健全狀況的活動訊號記錄](../../azure-monitor/insights/solution-agenthealth.md)、更新管理以及[事件資料](../../azure-monitor/platform/data-sources-windows-events.md)。
+3. **已安裝支援的 Log Analytics 解決方案**：Log Analytics 解決方案應設定和傳送資料到 Log Analytics 工作區-支援解決方案[Windows 和 Linux 的效能計數器](../../azure-monitor/platform/data-sources-performance-counters.md)，[代理程式健全狀況的活動訊號記錄](../../azure-monitor/insights/solution-agenthealth.md)[更新管理](../../automation/automation-update-management.md)，並[事件資料](../../azure-monitor/platform/data-sources-windows-events.md)。
 4. **Log Analytics 解決方案設定為傳送記錄**：Log Analytics 解決方案應該有對應至已啟用之[支援 Log Analytics 工作區的計量](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)的所需記錄/資料。 例如，您必須先在[效能計數器](../../azure-monitor/platform/data-sources-performance-counters.md)解決方案中設定其 *% Available Memory* 計數器。
 
 ## <a name="configuring-metric-alert-for-logs"></a>設定記錄的計量警示

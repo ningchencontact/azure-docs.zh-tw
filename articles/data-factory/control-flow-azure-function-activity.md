@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: b98d20a1f96a6ab4a0dc72330e85fdc98ba04eae
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576373"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727049"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Azure 函式活動
 
@@ -28,7 +28,7 @@ Azure 函式活動可讓您在 Data Factory 管線中執行 [Azure 函式](../az
 
 ## <a name="azure-function-linked-service"></a>Azure 函式連結服務
 
-Azure 函式的傳回型別必須是有效的 `JObject`。 (請記住，[JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)「不是」一個`JObject`)。`JObject` 以外的所有傳回型別都會失敗，並引發「呼叫端點時發生錯誤」一般使用者錯誤。
+Azure 函式的傳回型別必須是有效的 `JObject`。 (請記住，[JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)「不是」一個`JObject`)。任何傳回型別以外`JObject`失敗，並引發使用者錯誤*回應內容不是有效的 JObject*。
 
 | **屬性** | **說明** | **必要** |
 | --- | --- | --- |
@@ -52,11 +52,18 @@ Azure 函式的傳回型別必須是有效的 `JObject`。 (請記住，[JArray]
 
 請在 [要求乘載結構描述](control-flow-web-activity.md#request-payload-schema) 一節中查看要求乘載的結構描述。
 
-## <a name="more-info"></a>其他資訊
+## <a name="routing-and-queries"></a>路由及查詢
 
-Azure 函式活動支援**路由**。 例如，如果您的應用程式使用下列路由 - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - 則 `functionName` 是 `functionName/{value}`，您可將其參數化以在執行階段提供所需的 `functionName`。
+Azure 函式活動支援**路由**。 例如，如果您的 Azure 函式有端點`https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`，則`functionName`若要在 Azure 函式活動中使用`<functionName>/<value>`。 您可以參數化此函式可提供所需`functionName`在執行階段。
 
-Azure 函式活動也支援**查詢**。 查詢必須是 `functionName` 的一部分 - 例如，`HttpTriggerCSharp2?name=hello` - 其中 `function name` 是 `HttpTriggerCSharp2`。
+Azure 函式活動也支援**查詢**。 查詢必須為一部分`functionName`。 例如，當函式名稱是`HttpTriggerCSharp`且您想要包含的查詢是`name=hello`，然後您可以建構`functionName`做為 Azure 函式活動中`HttpTriggerCSharp?name=hello`。 此函式可參數化，因此值可以在執行階段決定。
+
+## <a name="timeout-and-long-running-functions"></a>逾時和長時間執行的函式
+
+Azure 函式逾時之後 230 秒，不論`functionTimeout`設定中，您已設定的設定。 如需詳細資訊，請參閱 [本篇文章](../azure-functions/functions-versions.md#timeout)。 若要解決這個問題，請遵循非同步模式，或使用長期函式。 Durable Functions 的優點是，他們提供自己的狀態追蹤機制，因此您不需要實作您自己。
+
+深入了解 Durable Functions 中[這篇文章](../azure-functions/durable/durable-functions-overview.md)。 您可以設定 Azure 函式活動來呼叫永久性函式，會將回應傳回具有不同的 URI，例如[本例](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery)。 因為`statusQueryGetUri`傳回 HTTP 狀態 202，而函式正在執行時，您可以使用 Web 活動輪詢函式的狀態。 只要設定 Web 活動，具有`url`欄位設定為`@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`。 長期函式完成時，函式的輸出會是 Web 活動的輸出。
+
 
 ## <a name="next-steps"></a>後續步驟
 

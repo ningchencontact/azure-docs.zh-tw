@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 20ebcb502e03f2d817fe18624d8c790e920c667f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861229"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875702"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>在 QnA Maker 中以互動方式測試您的知識庫
 
@@ -24,8 +24,8 @@ QnA Maker 知識庫測試，對於用以改善傳回回應正確度的互動流�
 
 ## <a name="test-answer-matching"></a>測試答案比對
 
-1.  選取 [我的知識庫] **** 頁面上的資料庫名稱來存取知識庫。
-2.  若要存取 [測試] 滑出面板，請選取應用程式上方面板中的 [測試] **** 。
+1.  選取 [我的知識庫] 頁面上的資料庫名稱來存取知識庫。
+2.  若要存取測試滑出面板，請選取應用程式上方面板中的 [測試]。
 
     ![存取測試面板](../media/qnamaker-how-to-test-kb/access-test.png)
 
@@ -35,17 +35,17 @@ QnA Maker 知識庫測試，對於用以改善傳回回應正確度的互動流�
 
 ## <a name="clear-test-panel"></a>清除測試面板
 
-若要從測試主控台清除所有輸入的測試查詢及其結果，請選取測試面板左上角的 [重新開始] **** 。
+若要從測試主控台清除所有輸入的測試查詢及其結果，請選取測試面板左上角的 [重新開始]。
 
 ## <a name="close-test-panel"></a>關閉測試面板
 
-若要關閉 [測試] 面板，請再次選取 [測試] ****  按鈕。 測試面板開啟時，您無法編輯知識庫內容。
+若要關閉測試面板，請再次選取 [測試] 按鈕。 測試面板開啟時，您無法編輯知識庫內容。
 
 ## <a name="inspect-score"></a>檢查分數
 
 您可在 [檢查] 面板中檢查測試結果的詳細資料。
 
-1.  在測試滑出面板開啟後，選取 [檢查] ****  以取得該回應的詳細資料。
+1.  測試滑出面板開啟時，對於該回應的詳細資料選取 [檢查]。
 
     ![檢查回應](../media/qnamaker-how-to-test-kb/inspect.png)
 

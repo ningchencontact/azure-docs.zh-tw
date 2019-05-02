@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 25b2eb05a612b18eab1fbf790b119edbe9c4d8d2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817336"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707404"
 ---
 # <a name="scaling-media-processing-overview"></a>調整媒體處理概觀 
 此頁面提供調整媒體處理的方式及原因的概觀。 
@@ -33,9 +33,9 @@ ms.locfileid: "60817336"
 
 |RU 類型|案例|[7 分鐘 1080p 視訊](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)的結果範例|
 |---|---|---|
-| **S1**|單一位元速率編碼。 <br/>在 SD或如下解決方法的檔案、對時間不敏感、低成本。|使用「H264 單一位元速率 SD 16x9」所進行的單一位元速率 SD 解析 MP4 檔案編碼需要 10 分鐘。|
-| **S2**|單一位元速率和多重位元速率編碼。<br/>SD 和 HD 編碼的一般使用方式。|具有「H264 單一位元速率 720p」預設值的編碼需要大約 8 分鐘。<br/><br/>具有「H264 多重位元速率 720p」預設值的編碼需要大約 16.8 分鐘。|
-| **S3**|單一位元速率和多重位元速率編碼。<br/>Full HD 和 4K 解析度影片。 對時間敏感、周轉時間更快的編碼。|具有「H264 單一位元速率 1080p」預設值的編碼需要大約 4 分鐘。<br/><br/>具有「H264 多重位元速率 1080p」預設值的編碼需要大約 8 分鐘。|
+| **S1**|單一位元速率編碼。 <br/>在 SD或如下解決方法的檔案、對時間不敏感、低成本。|要使用 「 H264 單一位元速率 SD 16x9"的單一位元速率 SD 解析 MP4 檔案編碼方式需要大約 7 分鐘。|
+| **S2**|單一位元速率和多重位元速率編碼。<br/>SD 和 HD 編碼的一般使用方式。|編碼與 「 H264 單一位元速率 720p 」 預設值會花大約 6 分鐘的時間。<br/><br/>編碼與 「 H264 多重位元速率 720p 」 預設值會花大約 12 分鐘的時間。|
+| **S3**|單一位元速率和多重位元速率編碼。<br/>Full HD 和 4K 解析度影片。 對時間敏感、周轉時間更快的編碼。|編碼與 「 H264 單一位元速率 1080p 」 預設值會花大約 3 分鐘的時間。<br/><br/>編碼與 「 H264 多重位元速率 1080p 」 預設值會花大約 8 分鐘的時間。|
 
 ## <a name="considerations"></a>考量
 > [!IMPORTANT]

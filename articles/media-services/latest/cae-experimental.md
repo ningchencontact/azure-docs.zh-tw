@@ -12,16 +12,16 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: sethm
 ms.custom: ''
-ms.openlocfilehash: 3c50502a8b873503ee937914fac5f2d92cb23a2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b0b5a74a6ca0085f945075a8896c05a724ff062c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733426"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717958"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>實驗性的內容感知的編碼預設
 
-若要準備所傳遞的內容[調適性位元速率串流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)，視訊必須編碼在多重位元速率 （高到低）。 為了確保正常降級的品質、 位元速率降低，因此是影片的解析度。 這會導致所謂的編碼階梯 – 的解析度和位元速率，資料表可以看到一些我們已修正的編碼預設，這類[H264MultipleBitrate1080p](../previous/media-services-mes-preset-h264-multiple-bitrate-1080p.md)。
+若要準備所傳遞的內容[調適性位元速率串流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)，視訊必須編碼在多重位元速率 （高到低）。 為了確保正常降級的品質、 位元速率降低，因此是影片的解析度。 這會導致所謂的編碼階梯 – 解析度和位元速率; 的資料表請參閱媒體服務[內建的編碼預設](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)。
 
 ## <a name="overview"></a>概觀
 

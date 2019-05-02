@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 31a20f8faa712aef94b69c605ec57985bc334009
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: f96171e1c75676a185edf4a1901ef65b7181135a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122076"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721007"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>分析 Apache Hadoop 記錄
 
@@ -32,7 +32,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 * ambariserverlog
 * ambariagentlog
 
-資料表檔案名稱為 **u<ClusterName>DDMonYYYYatHHMMSSsss<TableName>**。
+資料表的檔案名稱會是**u\<ClusterName > DDMonYYYYatHHMMSSsss\<TableName >**。
 
 這些資料表包含下列欄位：
 

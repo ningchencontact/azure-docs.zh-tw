@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ae0e87fddabee9f42cbb5506dce4cd7a5f4f082
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350242"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918843"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>將 Azure AD Connect 資料庫從 SQL Server Express 移至 SQL Server 
 
@@ -25,7 +25,7 @@ ms.locfileid: "60350242"
 ## <a name="about-this-scenario"></a>有關此案例
 以下是一些有關此案例的簡短資訊。  在此案例中，Azure AD Connect 版本 (1.1.819.0) 會安裝於單一 Windows Server 2016 網域控制站上。  它會使用內建 SQL Server 2012 Express Edition 作為其資料庫。  資料庫會移到 SQL Server 2017 伺服器。
 
-![](media/how-to-connect-install-move-db/move1.png)
+![案例架構](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>移動 Azure AD Connect 資料庫
 使用下列步驟將 Azure AD Connect 資料庫移至遠端 SQL Server。
@@ -37,7 +37,7 @@ ms.locfileid: "60350242"
 5. 在遠端 SQL Server 上，開啟 SQL Server Management Studio。
 6. 在 [資料庫] 上，按一下滑鼠右鍵並選取 [連結]。
 7. 在 [連結資料庫] 畫面上，按一下 [新增] 並瀏覽至 ADSync.mdf 檔案。  按一下 [確定]。
-   ![](media/how-to-connect-install-move-db/move2.png)
+   ![附加資料庫](media/how-to-connect-install-move-db/move2.png)
 
 8. 連結資料庫之後，請回到 Azure AD Connect 伺服器並安裝 Azure AD Connect。
 9. 一旦 MSI 安裝完成後，Azure AD Connect 精靈就會開始使用快速模式安裝。 按一下 [結束] 圖示將畫面關閉。

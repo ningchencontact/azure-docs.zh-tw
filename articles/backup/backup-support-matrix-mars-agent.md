@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894388"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64923008"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 復原服務 (MARS) 代理程式進行備份的支援矩陣
 
@@ -24,14 +24,14 @@ ms.locfileid: "57894388"
 Azure Backup 將備份資料從內部部署機器和 Azure Vm 備份的復原服務保存庫，在 Azure 中使用 MARS 代理程式。 MARS 代理程式可以：
 - 在內部部署 Windows 機器上執行，以便它們可以直接備份至 Azure 備份復原服務保存庫。
 - 在 Windows Vm 上執行，以便它們可以直接備份到保存庫。
-- Microsoft Azure 備份伺服器 (MABS) 或 System Center Data Protection Manager (DPM) 伺服器上執行。 在此案例中，機器和工作負載備份到 MABS 或 DPM 伺服器。 MARS 代理程式，然後將此伺服器備份到 Azure 的保存庫。 
+- Microsoft Azure 備份伺服器 (MABS) 或 System Center Data Protection Manager (DPM) 伺服器上執行。 在此案例中，機器和工作負載備份到 MABS 或 DPM 伺服器。 MARS 代理程式，然後將此伺服器備份到 Azure 的保存庫。
 
 備份選項取決於安裝代理程式。 如需詳細資訊，請參閱 <<c0> [ 使用 MARS 代理程式的 Azure 備份架構](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)。 MABS 和 DPM 的備份架構的相關資訊，請參閱[備份至 DPM 或 MABS](backup-architecture.md#architecture-back-up-to-dpmmabs)。 另請參閱[需求](backup-support-matrix-mabs-dpm.md)備份架構。
 
 **安裝** | **詳細資料**
 --- | ---
 下載最新版的 MARS 代理程式 | 您可以從保存庫或[從這裡直接下載](https://aka.ms/azurebackup_agent)最新版本的代理程式。
-直接在電腦上安裝 | 您可以直接在內部部署 Windows 伺服器上，或所執行的是 Windows VM 上，安裝的 MARS 代理程式[支援的作業系統](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems)。
+直接在電腦上安裝 | 您可以直接在內部部署 Windows 伺服器上，或所執行的是 Windows VM 上，安裝的 MARS 代理程式[支援的作業系統](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems)。
 在備份伺服器上安裝 | 當您將 DPM 或 MABS 設定為備份至 Azure 時，您可以在伺服器上下載並安裝 MARS 代理程式。 您可以在上安裝代理程式[支援的作業系統](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)備份伺服器支援矩陣中。
 
 > [!NOTE]
@@ -45,8 +45,8 @@ Azure Backup 將備份資料從內部部署機器和 Azure Vm 備份的復原服
 
 **快取** | **詳細資料**
 --- | ---
-大小 |  快取資料夾中的可用空間應該至少 5 到 10%的備份資料的整體大小。 
-位置 | 快取資料夾必須要備份的電腦上本機儲存，而且它必須在線上。 在網路共用上、 卸除式媒體，或離線的磁碟區上，不應該是快取資料夾。 
+大小 |  快取資料夾中的可用空間應該至少 5 到 10%的備份資料的整體大小。
+位置 | 快取資料夾必須要備份的電腦上本機儲存，而且它必須在線上。 在網路共用上、 卸除式媒體，或離線的磁碟區上，不應該是快取資料夾。
 資料夾 | 重複資料刪除磁碟區或資料夾的壓縮、 疏鬆，或有重新分析點，則應該加密快取資料夾。
 位置的變更 | 您可以藉由停止備份引擎來變更快取位置 (`net stop bengine`) 並將快取資料夾複製到新的磁碟機。 （請確定新的磁碟機具有足夠的空間）。然後更新兩個登錄項目底下**HKLM\SOFTWARE\Microsoft\Windows Azure 備份**(**Config/ScratchLocation**和**Config/CloudBackupProvider/ScratchLocation**) 到新位置，重新啟動引擎。
 
@@ -103,9 +103,9 @@ Windows 7   | 1,700 GB
 
 ## <a name="supported-file-types-for-backup"></a>支援的備份檔案類型
 
-**類型** | **支援** 
---- | --- 
-已加密   | 支援。 
+**類型** | **支援**
+--- | ---
+已加密   | 支援。
 已壓縮 | 支援。
 疏鬆 | 支援。
 已壓縮和疏鬆 | 支援。
@@ -114,7 +114,7 @@ Windows 7   | 1,700 GB
 加密和疏鬆 |  不支援。 略過。
 壓縮資料流   | 不支援。 略過。
 疏鬆資料流   | 不支援。 略過。
-（已同步的檔案是疏鬆資料流） 的 OneDrive  | 不支援。 
+（已同步的檔案是疏鬆資料流） 的 OneDrive  | 不支援。
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>支援的磁碟機或磁碟區進行備份
 

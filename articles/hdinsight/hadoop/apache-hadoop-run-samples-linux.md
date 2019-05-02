@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 04/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5fd2d27533d725102a4c334f1e8a1abed6cd78cc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121889"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706658"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>執行包含在 HDInsight 中的 MapReduce 範例
 
@@ -24,12 +24,9 @@ ms.locfileid: "62121889"
 
 ## <a name="prerequisites"></a>必要條件
 
-* **HDInsight 叢集**：請參閱[在 Linux 上的 HDInsight 中開始使用 Apache Hadoop 和 Apache Hive](apache-hadoop-linux-tutorial-get-started.md)
+* 在 HDInsight 上 Apache Hadoop 叢集。 请参阅 [Linux 上的 HDInsight 入门](./apache-hadoop-linux-tutorial-get-started.md)。
 
-    > [!IMPORTANT]  
-    > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
-* **SSH 用戶端**：如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+* SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="the-mapreduce-examples"></a>MapReduce 範例
 
@@ -64,9 +61,13 @@ ms.locfileid: "62121889"
 
 ## <a name="run-the-wordcount-example"></a>執行 wordcount 範例
 
-1. 使用 SSH 連線到 HDInsight。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+1. 使用 SSH 連線到 HDInsight。 取代`CLUSTER`與您的叢集名稱，然後輸入下列命令：
 
-2. 在 `username@#######:~$` 提示符下，使用以下命令列出示例：
+    ```cmd
+    ssh sshuser@CLUSTER-ssh.azurehdinsight.net
+    ```
+
+2. 在 `username@#######:~$` 提示中，使用下列命令來列出範例：
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -86,7 +87,7 @@ ms.locfileid: "62121889"
 
     此訊息表示您可以為來源文件提供數個輸入路徑。 最後一個路徑是輸出 (來源文件中的字數計數) 的儲存處。
 
-4. 使用以下命令計算達文西手稿筆記中的所有字數，該文件已隨附於您的叢集做為範例資料：
+4. 使用下列項目計數在 Notebook 的達文西手稿筆記，與您的叢集提供做為範例資料中的所有文字：
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -162,11 +163,11 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 此命令傳回的值類似於 **3.14159155000000000000**。 Pi 的前 10 個小數位數是 3.1415926535，供您參考。
 
-## <a name="10-gb-greysort-example"></a>10 GB Greysort 範例
+## <a name="10-gb-graysort-example"></a>10GB GraySort 範例
 
 GraySort 是一種效能評定排序。 其計量為排序大量資料時 (通常至少為 100 TB) 所達成的排序速率 (TB/分鐘)。
 
-此示例使用适中的 10 GB 数据，这样它运行时能相对快一点。 本範例使用由 Owen O'Malley 和 Arun Murthy 共同開發的 MapReduce 應用程式。 這些應用程式於 2009 年的年度一般目的 (「耐力賽」) TB 排序效能評定中，以 0.578 TB/分鐘 (173 分鐘內達到 100 TB) 的速率獲勝。 如需此效能評比和其他排序效能評比的詳細資訊，請參閱 [Sortbenchmark](https://sortbenchmark.org/) 網站。
+此示例使用适中的 10 GB 数据，这样它运行时能相对快一点。 本範例使用由 Owen O'Malley 和 Arun Murthy 共同開發的 MapReduce 應用程式。 這些應用程式贏得在 2009 中，以 0.578 TB/分鐘 (173 分鐘內的 100 TB) 的速率獲勝的年度一般目的 （「 耐力賽 」） tb 排序效能評定。 如需有關這個和其他排序效能評定基準的詳細資訊，請參閱[排序效能評定](https://sortbenchmark.org/)站台。
 
 本範例使用三組 MapReduce 程式：
 
@@ -211,7 +212,3 @@ GraySort 是一種效能評定排序。 其計量為排序大量資料時 (通�
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)
 * [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
-
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-introduction]:apache-hadoop-introduction.md
-

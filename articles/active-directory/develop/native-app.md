@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 12/29/2018
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 4c15890a5693235e8f2554ba8d0fdefc161770f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5e37e40cd0dbba7961cbde75b5dde44f2666dc21
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443889"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918604"
 ---
 # <a name="native-apps"></a>原生應用程式
 
@@ -52,10 +52,10 @@ ms.locfileid: "60443889"
 
 ## <a name="app-registration"></a>應用程式註冊
 
-若要向 Azure AD v1.0 端點註冊應用程式，請參閱[向 Azure AD v1.0 端點註冊應用程式](quickstart-v1-add-azure-ad-app.md)。
+若要註冊應用程式與 Azure AD v1.0 端點，請參閱[註冊應用程式](quickstart-register-app.md)。
 
-- 單一租用戶 - 原生應用程式和 Web API 必須註冊在 Azure AD 的相同目錄中。 Web API 可以設定為公開一組權限，用以限制原生應用程式對其資源的存取權。 用戶端應用程式即可從 Azure 入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。
-- 多租用戶 - 首先，原生應用程式僅註冊在開發人員或發行者的目錄中。 第二，設定原生應用程式來指出它運作所需的權限。 當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。 有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可以同意應用程式。 其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。 只有目錄管理員才能對需要此權限層級的應用程式表示同意。 當使用者或系統管理員同意時，只有 Web API 會註冊在他們的目錄中。 
+* 單一租用戶 - 原生應用程式和 Web API 必須註冊在 Azure AD 的相同目錄中。 Web API 可以設定為公開一組權限，用以限制原生應用程式對其資源的存取權。 用戶端應用程式即可從 Azure 入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。
+* 多租用戶 - 首先，原生應用程式僅註冊在開發人員或發行者的目錄中。 第二，設定原生應用程式來指出它運作所需的權限。 當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。 有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可以同意應用程式。 其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。 只有目錄管理員才能對需要此權限層級的應用程式表示同意。 當使用者或系統管理員同意時，只有 Web API 會註冊在他們的目錄中。 
 
 ## <a name="token-expiration"></a>權杖到期
 
@@ -65,5 +65,3 @@ ms.locfileid: "60443889"
 
 - 深入了解其他[應用程式類型和案例](app-types.md)
 - 了解 Azure AD [驗證基本概念](authentication-scenarios.md)
-
-<!-- Update_Description: link update -->

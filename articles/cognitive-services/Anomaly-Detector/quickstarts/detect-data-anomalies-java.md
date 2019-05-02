@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1c8ce91a0fd8805b307e1e21bc08f9050b8a47d4
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1b52e578afb505c87c4084684e345b7aff6a4362
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547034"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922416"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>快速入門：偵測異常的時間序列資料使用異常偵測器 REST API 和 Java
 
@@ -29,7 +29,7 @@ ms.locfileid: "59547034"
 
 ## <a name="prerequisites"></a>必要條件
 
-- [Java&trade;開發 Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)或更新版本。
+- [Java&trade;開發 Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)或更新版本。
 
 - 從 Maven 儲存機制匯入這些程式庫
     - [在 Java 中的 JSON](https://mvnrepository.com/artifact/org.json/json)封裝

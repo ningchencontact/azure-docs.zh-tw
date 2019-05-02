@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 11d0648ee5090f02cb96c2d42a8d90cc3ea0ed28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853298"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920422"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>適用於 Azure App Service 中設定 Linux PHP 應用程式
 
@@ -141,7 +141,7 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 
 ## <a name="customize-phpini-settings"></a>自訂 php.ini 設定
 
-如果您需要變更您的 PHP 安裝，您可以變更的任何[php.ini 指示詞](http://www.php.net/manual/ini.list.php)依照下列步驟。
+如果您需要變更您的 PHP 安裝，您可以變更的任何[php.ini 指示詞](https://www.php.net/manual/ini.list.php)依照下列步驟。
 
 > [!NOTE]
 > 若要查看的 PHP 版本和目前的最佳方式*php.ini*組態就是呼叫[phpinfo （)](https://php.net/manual/function.phpinfo.php)應用程式中。
@@ -149,7 +149,7 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 
 ### <a name="customize-non-phpinisystem-directives"></a>自訂非 PHP_INI_SYSTEM 指示詞
 
-若要自訂 PHP_INI_USER、 PHP_INI_PERDIR 和 PHP_INI_ALL 指示詞 (請參閱[php.ini 指示詞](http://www.php.net/manual/ini.list.php))，新增 *.htaccess*檔案至您的應用程式的根目錄。
+若要自訂 PHP_INI_USER、 PHP_INI_PERDIR 和 PHP_INI_ALL 指示詞 (請參閱[php.ini 指示詞](https://www.php.net/manual/ini.list.php))，新增 *.htaccess*檔案至您的應用程式的根目錄。
 
 在  *.htaccess*檔案中，新增使用指示詞`php_value <directive-name> <value>`語法。 例如︰
 
@@ -165,11 +165,11 @@ php_value upload_max_filesize 10M
 
 重新部署您的應用程式所做的變更，然後重新啟動它。 如果您使用 kudu 進行部署 (例如，使用[Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json))，在部署之後會自動重新啟動。
 
-若要使用替代 *.htaccess*，您可以使用[ini_set （)](http://www.php.net/manual/function.ini-set.php)在您的應用程式來自訂這些非 PHP_INI_SYSTEM 指示詞。
+若要使用替代 *.htaccess*，您可以使用[ini_set （)](https://www.php.net/manual/function.ini-set.php)在您的應用程式來自訂這些非 PHP_INI_SYSTEM 指示詞。
 
 ### <a name="customize-phpinisystem-directives"></a>自訂 PHP_INI_SYSTEM 指示詞
 
-若要自訂 PHP_INI_SYSTEM 指示詞 (請參閱[php.ini 指示詞](http://www.php.net/manual/ini.list.php))，您無法使用 *.htaccess*方法。 App Service 可讓您提供不同的機制，使用`PHP_INI_SCAN_DIR`應用程式設定。
+若要自訂 PHP_INI_SYSTEM 指示詞 (請參閱[php.ini 指示詞](https://www.php.net/manual/ini.list.php))，您無法使用 *.htaccess*方法。 App Service 可讓您提供不同的機制，使用`PHP_INI_SCAN_DIR`應用程式設定。
 
 首先，執行下列命令， [Cloud Shell](https://shell.azure.com)以新增應用程式設定呼叫`PHP_INI_SCAN_DIR`:
 
@@ -237,7 +237,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
     - 取決於您*composer.json*，不同的封裝可能會安裝用於實際執行模式 (`require`與`require-dev`)。
     - 某些 web 架構可能部署在生產模式中有不同的靜態檔案。
     - 在生產模式中執行時，某些 web 架構可能會使用自訂的啟動指令碼。
-- 在 App Service 中偵錯模式執行您的應用程式。 例如，在[Laravel](http://meanjs.org/)，您可以設定您的應用程式輸出生產環境中的偵錯訊息[設定`APP_DEBUG`應用程式設定設`true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)。
+- 在 App Service 中偵錯模式執行您的應用程式。 例如，在[Laravel](https://meanjs.org/)，您可以設定您的應用程式輸出生產環境中的偵錯訊息[設定`APP_DEBUG`應用程式設定設`true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)。
 
 ### <a name="robots933456"></a>robots933456
 

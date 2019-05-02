@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: f53e122eb1b2a5b6dabb9a44aef42394d0c7edb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6568e5ebf356bb0e6b4ac8ff6059cd093f8da821
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478686"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917570"
 ---
 # <a name="mapping-data-flow-derived-column-transformation"></a>對應資料流程衍生資料行轉換
 
@@ -35,4 +35,4 @@ ms.locfileid: "60478686"
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解[Data Factory 進行轉換的運算式語言](http://aka.ms/dataflowexpressions)而[運算式產生器](concepts-data-flow-expression-builder.md)
+深入了解[Data Factory 進行轉換的運算式語言](https://aka.ms/dataflowexpressions)而[運算式產生器](concepts-data-flow-expression-builder.md)

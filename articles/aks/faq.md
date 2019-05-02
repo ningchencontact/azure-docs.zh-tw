@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: ae92a5c894b186a1c8b471c1b446a88299742aec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466370"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725648"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -53,10 +53,27 @@ ms.locfileid: "60466370"
 
 每個 AKS 部署皆跨越兩個資源群組：
 
-- 第一個資源群組是您所建立的資源群組，其中僅包含 Kubernetes 服務資源。 AKS 資源提供者會在部署期間自動建立第二個資源群組，例如 MC_myResourceGRoup_myAKSCluster_eastus。
+- 第一個資源群組是您所建立的資源群組，其中僅包含 Kubernetes 服務資源。 AKS 資源提供者會在部署期間自動建立第二個資源群組，例如 MC_myResourceGRoup_myAKSCluster_eastus。 如需有關如何指定這個第二個資源群組的名稱，請參閱下一節。
 - 第二個資源群組 (例如，MC_myResourceGroup_myAKSCluster_eastus) 包含所有與該叢集相關聯的基礎結構資源。 這些資源包括 Kubernetes 節點 VM、虛擬網路和儲存體。 另外建立這個資源群組是為了簡化資源清除作業。
 
 如果您建立要與 AKS 叢集搭配使用的資源 (例如，儲存體帳戶或保留的公用 IP 位址)，請將這些資源置於自動產生的資源群組中。
+
+## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>提供我自己 AKS 基礎結構資源群組的名稱？
+
+是。 根據預設，AKS 資源提供者會自動建立次要的資源群組在部署期間，這類*MC_myResourceGroup_myAKSCluster_eastus*。 為了符合公司原則，您可以提供您自己的名稱，此受管理的叢集 (*MC_*) 的資源群組。
+
+若要指定您自己的資源群組名稱，請安裝[aks 預覽][ aks-preview-cli] Azure CLI 擴充功能版本*0.3.2*或更新版本。 當您建立 AKS 叢集使用[az aks 建立][ az-aks-create]命令，使用 *-節點資源群組*參數並指定資源群組的名稱。 如果您[使用 Azure Resource Manager 範本][ aks-rm-template]來部署 AKS 叢集，您可以定義資源群組名稱使用*nodeResourceGroup*屬性。
+
+* 此資源群組會自動建立您自己的訂用帳戶中的 Azure 資源提供者。
+* 在建立叢集時，您只可以指定自訂的資源群組名稱。
+
+不支援下列案例：
+
+* 您無法指定為現有的資源群組*MC_* 群組。
+* 您無法指定不同的訂用帳戶，如*MC_* 資源群組。
+* 您無法變更*MC_* 在建立叢集之後，資源群組名稱。
+* 您無法指定在受管理的資源名稱*MC_* 資源群組。
+* 您無法修改或刪除的受管理資源內的標記*MC_* 資源群組 （請參閱下一節中的其他資訊）。
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>是否可以修改 MC_* 資源群組中 AKS 資源的標記和其他屬性？
 
@@ -100,6 +117,9 @@ AKS 目前並未原生整合到 Azure Key Vault。 不過，[Azure Key Vault Fle
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
+[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
 
 <!-- LINKS - external -->
 
@@ -108,4 +128,3 @@ AKS 目前並未原生整合到 Azure Key Vault。 不過，[Azure Key Vault Fle
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
-

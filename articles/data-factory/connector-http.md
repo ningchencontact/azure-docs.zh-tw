@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 87505081f16008dff7da1f567c1265c695f3f0ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f25b0f2c7b5e3148bae778c4b50a3f0bd0c148da
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653767"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875936"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 
@@ -160,11 +160,55 @@ ms.locfileid: "60653767"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-本節提供 HTTP 資料集所支援的屬性清單。 
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 
 
-如需定義資料集的區段和屬性完整清單，請參閱[資料集和連結服務](concepts-datasets-linked-services.md)。 
+- 針對**Parquet 和分隔的文字格式**，請參閱[Parquet 和分隔的文字格式的資料集](#parquet-and-delimited-text-format-dataset)一節。
+- 為其他格式，例如**ORC/Avro/JSON/二進位格式**，請參閱[其他格式的資料集](#other-format-dataset)一節。
 
-若要從 HTTP 複製資料，請將資料集的 **type** 屬性設定為 **HttpFile**.。 以下是支援的屬性：
+### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet 和分隔的文字格式的資料集
+
+若要將資料從 HTTP 複製**Parquet 或分隔的文字格式**，請參閱[Parquet 格式](format-parquet.md)並[分隔文字格式](format-delimited-text.md)文章格式為基礎的資料集，並支援設定。 以下支援的屬性底下的 http`location`格式為基礎的資料集內的設定：
+
+| 屬性    | 描述                                                  | 必要項 |
+| ----------- | ------------------------------------------------------------ | -------- |
+| type        | [類型] 屬性底下`location`資料集內必須設定為**HttpServerLocation**。 | 是      |
+| relativeUrl | 包含資料之資源的相對 URL。       | 否       |
+
+> [!NOTE]
+> 支援的 HTTP 要求承載大小是大約 500 KB。 如果您希望傳遞至 Web 端點的承載大小大於 500 KB，請考慮將承載分批處理成較小的區塊。
+
+> [!NOTE]
+> **HttpFile**下一節中所述的 Parquet] / [文字格式的類型資料集仍可作為-適用於回溯相容性的複製/查閱活動。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
+
+**範例：**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "HttpServerLocation",
+                "relativeUrl": "<relative url>"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>其他格式的資料集
+
+若要從 HTTP 複製資料**ORC/Avro/JSON/二進位格式**，支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -226,7 +270,69 @@ ms.locfileid: "60653767"
 
 ### <a name="http-as-source"></a>HTTP 作為來源
 
-若要從 HTTP 複製資料，請將複製活動中的**來源類型**設定為 **HttpSource**。 複製活動的 **source** 區段支援下列屬性：
+- 從複製**Parquet 和分隔的文字格式**，請參閱[Parquet 和分隔的文字格式來源](#parquet-and-delimited-text-format-source)一節。
+- 為其他格式的副本**ORC/Avro/JSON/二進位格式**，請參閱[其他格式來源](#other-format-source)一節。
+
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet 和分隔的文字格式的來源
+
+從 HTTP 複製資料**Parquet 或分隔的文字格式**，請參閱[Parquet 格式](format-parquet.md)並[分隔文字格式](format-delimited-text.md)上格式為基礎的複製活動來源的文件和支援的設定。 以下支援的屬性底下的 http`storeSettings`格式為基礎的複製來源中的設定：
+
+| 屬性                 | 描述                                                  | 必要項 |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| type                     | [類型] 屬性底下`storeSettings`必須設為**HttpReadSetting**。 | 是      |
+| requestMethod            | HTTP 方法。 <br>允許的值為 **Get** (預設值) 和 **Post**。 | 否       |
+| addtionalHeaders         | 其他 HTTP 要求標頭。                             | 否       |
+| requestBody              | HTTP 要求的主體。                               | 否       |
+| requestTimeout           | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。 | 否       |
+| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否       |
+
+> [!NOTE]
+> Parquet/分隔的文字格式，如**HttpSource**類型下一節中所述的複製活動來源仍可作為-是為了與舊版相容。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
+
+**範例：**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromHTTP",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "HttpReadSetting",
+                    "requestMethod": "Post",
+                    "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
+                    "requestBody": "<body for POST HTTP request>"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>其他格式的來源
+
+若要從 HTTP 複製資料**ORC/Avro/JSON/二進位格式**，以下支援的屬性將複製活動中**來源**區段：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |

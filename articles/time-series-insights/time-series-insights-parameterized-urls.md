@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3b6c4b8cebdff772ea1bd4ac95e4c8c06043f5d5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487867"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728154"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 
@@ -63,13 +63,13 @@ ms.locfileid: "58487867"
 
 `timeSeriesDefinitions=<collection of term objects>` 參數可指定時間序列深入解析檢視的字詞，其中：
 
-- "name":"<string>"
+- "name":"\<string>"
   - term 的名稱。
-- "splitBy":"<string>"
+- "splitBy":"\<string>"
   - split by 的資料行名稱。
-- "measureName":"<string>"
+- "measureName":"\<string>"
   - measure 的資料行名稱。
-- "predicate":"<string>"
+- "predicate":"\<string>"
   - 用於伺服器端篩選的 where 子句。
 - "useSum":"true"
   - 這是選擇性參數，指定使用總和作為您的量值。  請注意，如果 [事件] 是選取的量值，則預設會選取 [計數]。  如果未選取 [事件]，則預設會選取 [平均值]。  
@@ -121,4 +121,5 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 ![圖表檢視](media/parameterized-url/url2.png)
 
 ## <a name="next-steps"></a>後續步驟
-[使用 C# 查詢資料](time-series-insights-query-data-csharp.md)
+
+- 了解如何[查詢的資料使用C# ](time-series-insights-query-data-csharp.md)。

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850165"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919791"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>適用於 Azure App Service 中設定 Linux Node.js 應用程式
 
@@ -55,7 +55,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="configure-nodejs-server"></a>設定 Node.js 伺服器
 
-Node.js 容器隨附[PM2](http://pm2.keymetrics.io/)，實際執行程序管理員。 您可以設定您的應用程式使用 PM2，或使用 NPM，或自訂的命令來開始。
+Node.js 容器隨附[PM2](https://pm2.keymetrics.io/)，實際執行程序管理員。 您可以設定您的應用程式使用 PM2，或使用 NPM，或自訂的命令來開始。
 
 - [執行自訂命令](#run-custom-command)
 - [執行 npm 啟動](#run-npm-start)
@@ -99,12 +99,12 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 - *app.js*
 - *index.js*
 - *hostingstart.js*
-- 下列其中一種[PM2 檔案](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json*和*ecosystem.config.js*
+- 下列其中一種[PM2 檔案](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json*和*ecosystem.config.js*
 
 您也可以設定的自訂啟動檔案具有下列副檔名：
 
 - A *.js*檔案
-- A [PM2 檔](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file)副檔名 *.json*， *。 config.js*， *.yaml*，或 *.yml*
+- A [PM2 檔](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file)副檔名 *.json*， *。 config.js*， *.yaml*，或 *.yml*
 
 若要新增的自訂啟動檔案，請執行下列命令[Cloud Shell](https://shell.azure.com):
 
@@ -226,7 +226,7 @@ fi
 
 在 App Service 中，[SSL 終止](https://wikipedia.org/wiki/TLS_termination_proxy)會在網路負載平衡器上發生，因此所有的 HTTPS 要求都會以未加密 HTTP 要求的形式進入您的應用程式。 如果您的應用程式邏輯需要檢查使用者要求是否有加密，請檢查 `X-Forwarded-Proto` 標頭。
 
-熱門的 Web 架構可讓您在標準的應用程式模式中存取 `X-Forwarded-*` 資訊。 在  [Express](https://expressjs.com/)，您可以使用[信任 proxy](http://expressjs.com/guide/behind-proxies.html)。 例如︰
+熱門的 Web 架構可讓您在標準的應用程式模式中存取 `X-Forwarded-*` 資訊。 在  [Express](https://expressjs.com/)，您可以使用[信任 proxy](https://expressjs.com/guide/behind-proxies.html)。 例如︰
 
 ```javascript
 app.set('trust proxy', 1)
@@ -253,7 +253,7 @@ if (req.secure) {
     - 取決於您*package.json*，不同的封裝可能會安裝用於實際執行模式 (`dependencies`與`devDependencies`)。
     - 某些 web 架構可能部署在生產模式中有不同的靜態檔案。
     - 在生產模式中執行時，某些 web 架構可能會使用自訂的啟動指令碼。
-- 在開發模式中，在 App Service 中執行您的應用程式。 例如，在[MEAN.js](http://meanjs.org/)，您可以設定您的應用程式執行階段中的開發模式[設定`NODE_ENV`應用程式設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)。
+- 在開發模式中，在 App Service 中執行您的應用程式。 例如，在[MEAN.js](https://meanjs.org/)，您可以設定您的應用程式執行階段中的開發模式[設定`NODE_ENV`應用程式設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)。
 
 ## <a name="next-steps"></a>後續步驟
 

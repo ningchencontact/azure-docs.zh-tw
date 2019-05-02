@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311636"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716762"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -66,7 +66,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 }
 ```
 
-所有 Azure 原則範例都位於[原則範例](../samples/index.md)。
+所有 Azure 原則範例都都位於[「 Azure 原則範例](../samples/index.md)。
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -99,6 +99,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
   - `description`:參數用途的說明。 能用來提供可接受值的範例。
   - `displayName`:參數在入口網站中顯示的易記名稱。
   - `strongType`:(選擇性) 透過入口網站指派原則定義時會使用。 提供內容感知清單。 如需詳細資訊，請參閱 [strongType](#strongtype)。
+  - `assignPermissions`:（選擇性）設定為 _，則為 true_能夠在指派原則期間建立角色指派的 Azure 入口網站。 如果您想要指派權限指派範圍外的，此屬性相當實用。 沒有一個角色指派每個原則中的角色定義 （或每個角色定義中的所有計畫原則）。 參數值必須是有效的資源或範圍。
 - `defaultValue`:(選擇性) 如果沒有提供值，就在指派中設定參數的值。 更新已指派的現有原則定義時需要。
 - `allowedValues`:（選擇性）提供在指派期間會接受參數的值陣列。
 
@@ -148,6 +149,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 - `omsWorkspace`
 - `Microsoft.EventHub/Namespaces/EventHubs`
 - `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -375,7 +377,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 ### <a name="effect"></a>效果
 
-原則支援下列類型的效果：
+Azure 原則支援下列類型的效果：
 
 - **Deny**：會在活動記錄中產生事件，並讓要求失敗
 - **Audit**：會在活動記錄中產生警告事件，但不會讓要求失敗
@@ -410,7 +412,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 }
 ```
 
-如須每個效果的完整詳細資訊、評估順序、屬性和範例，請參閱[了解原則效果](effects.md)。
+如需每個作用中，順序評估、 屬性和範例，完整的詳細資訊，請參閱[了解 Azure 原則效果](effects.md)。
 
 ### <a name="policy-functions"></a>原則函式
 
@@ -593,9 +595,9 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在 [Azure 原則範例](../samples/index.md)檢閱範例
-- 檢閱[了解原則效果](effects.md)
-- 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)
-- 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)
-- 了解如何[補救不符合規範的資源](../how-to/remediate-resources.md)
-- 檢閱[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)，以了解何謂管理群組
+- 檢閱範例[「 Azure 原則範例](../samples/index.md)。
+- 檢閱[了解原則效果](effects.md)。
+- 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)。
+- 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
+- 了解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
+- 檢閱管理群組是使用[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)。

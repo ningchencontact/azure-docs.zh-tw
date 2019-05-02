@@ -1,24 +1,24 @@
 ---
-title: 如何使用 Azure 地圖服務中的 Android 的地圖控制項 |Microsoft Docs
+title: 開始使用 Azure 地圖服務中的 Android 的地圖控制項 |Microsoft Docs
 description: Android 中的地圖控制項 Azure 地圖服務。
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15706addbe6b7f6310223978130158c792a47c89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770304"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869809"
 ---
-# <a name="how-to-use-the-azure-maps-android-sdk"></a>如何使用 Azure 地圖服務的 Android SDK
+# <a name="getting-started-with-azure-maps-android-sdk"></a>開始使用 Azure 地圖服務的 Android SDK
 
-Azure 地圖服務的 Android SDK 是適用於 Android 的向量地圖庫。 這篇文章會引導您完成安裝 Azure 地圖服務的 Android SDK、 載入對應，以及將 pin 放在地圖上的處理程序。
+Azure 地圖服務的 Android SDK 是適用於 Android 的向量地圖庫。 這篇文章會引導您完成安裝 Azure 地圖服務的 Android SDK 及載入對應的處理程序。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -28,7 +28,7 @@ Azure 地圖服務的 Android SDK 是適用於 Android 的向量地圖庫。 這
 
 ### <a name="download-android-studio"></a>下載 Android Studio
 
-您需要下載 Android Studio，並建立專案，而空的活動，才能安裝 Azure 地圖服務的 Android SDK。 您可以[下載 Android Studio](https://developer.android.com/studio/)從 Google 免費。 
+您需要下載 Android Studio，並建立專案，而空的活動，然後再安裝 Azure 地圖服務的 Android SDK。 您可以[下載 Android Studio](https://developer.android.com/studio/)從 Google 免費。 
 
 ## <a name="create-a-project-in-android-studio"></a>在 Android Studio 中建立專案
 
@@ -55,7 +55,7 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 如此一來�
 
 建置您的應用程式的下一個步驟是安裝 Azure 地圖服務的 Android SDK。 完成這些步驟來安裝 SDK:
 
-1. 將下列程式碼加入**所有專案**，**存放庫**封鎖您**build.gradle**檔案。
+1. 開啟最上層**build.gradle**檔案，並新增下列程式碼**所有專案**，**存放庫**封鎖區段：
 
     ```
     maven {
@@ -64,8 +64,10 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 如此一來�
     ```
 
 2. 更新您**app/build.gradle**並加入下列程式碼：
+    
+    1. 請確定您的專案**minSdkVersion** API 21 或更新版本。
 
-    1. Android 的區塊中加入下列程式碼：
+    2. 將下列程式碼新增至 [Android] 區段中：
 
         ```
         compileOptions {
@@ -73,24 +75,16 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 如此一來�
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    2. 更新您的相依性的區塊，並加入下列程式碼：
+    3. 更新您的相依性的區塊，並新增新的實作相依性行適用於最新的 Azure Maps Android SDK:
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.1"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
 
-3. 藉由新增下列 XML 來設定權限您**AndroidManifest.xml**檔案：
+    > [!Note]
+    > Azure 地圖服務的 Android SDK 定期正在升級，並增強。 您所見[開始使用 Android 的地圖控制項](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library)文件，以取得最新的 Azure 地圖服務實作的版本號碼。 您也可以設定的版本號碼"0.2"從"0 +"，讓它一律指向最新版本。
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <manifest>
-        ...
-        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-        ...
-    </manifest>
-    ```
-
-4. 編輯**res** > **版面配置** > **activity_main.xml**讓它看起來像這個 XML:
+3. 編輯**res** > **版面配置** > **activity_main.xml**並取代為下列：
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -105,16 +99,20 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 如此一來�
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:mapcontrol_cameraTargetLat="47.64"
-            app:mapcontrol_cameraTargetLng="-122.33"
-            app:mapcontrol_cameraZoom="12"
             />
-
     </FrameLayout>
     ```
 
-5. 編輯 **MainActivity.java** 以建立地圖檢視活動類別。 您在編輯之後，它看起來應該像此類別：
+4. 在  **MainActivity.java**您需要的檔案：
+    
+    * 新增匯入適用於 Azure 地圖服務 SDK
+    * 設定您 Azure 地圖服務的驗證資訊
+    * 取得地圖控制項執行個體中**onCreate**方法
 
+    在全球使用的方法中的 setSubscriptionKey 或 setAadProperties AzureMaps 類別上設定的驗證資訊之後，您就不必在每個檢視中新增驗證資訊。 地圖控制項包含它自己的生命週期方法管理 Android 的 OpenGL 生命週期，這必須直接呼叫包含的活動。 為了讓您的應用程式正確地呼叫地圖控制項的生命週期方法，您必須覆寫下列活動，其中包含地圖控制項中的生命週期方法，並呼叫各自的地圖控制項方法。 
+
+    編輯**MainActivity.java**檔案，如下所示：
+    
     ```java
     package com.example.myapplication;
 
@@ -129,7 +127,7 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 如此一來�
     public class MainActivity extends AppCompatActivity {
         
         static {
-            AzureMaps.setSubscriptionKey("{subscription-key}");
+            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
         }
 
         MapControl mapControl;
@@ -197,97 +195,21 @@ Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 如此一來�
 
 Android Studio 中將會需要幾秒鐘的時間來建置應用程式。 建置完成之後，您可以在模擬的 Android 裝置來測試您的應用程式。 您應該會看到與下列類似的對應：
 
-![Android 地圖](./media/how-to-use-android-map-control-library/android-map.png)
+<center>
 
-## <a name="add-a-marker-to-the-map"></a>在地圖上新增標記
+![Android 的對應](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
-若要將標記加入至您的地圖，新增`mapView.getMapAsync()`函式以`MainActivity.java`。 最終`MainActivity.java`程式碼應該看起來像這樣：
+## <a name="next-steps"></a>後續步驟
 
-```java
-package com.example.myapplication;
+若要加入您的對應項目，請參閱：
 
-import android.app.Activity;
-import android.os.Bundle;
-import com.mapbox.geojson.Feature;
-import com.mapbox.geojson.Point;
-import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-import com.microsoft.azure.maps.mapcontrol.MapControl;
-import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-import static com.microsoft.azure.maps.mapcontrol.options.SymbolLayerOptions.iconImage;
-public class MainActivity extends AppCompatActivity {
-    
-    static{
-            AzureMaps.setSubscriptionKey("{subscription-key}");
-        }
+> [!div class="nextstepaction"]
+> [將符號圖層加入至 Android 的對應](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
 
-    MapControl mapControl;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+> [!div class="nextstepaction"]
+> [將圖形新增至 Android 的對應](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
-        mapControl = findViewById(R.id.mapcontrol);
+> [!div class="nextstepaction"]
+> [Android 的對應中的變更地圖樣式](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
 
-        mapControl.onCreate(savedInstanceState);
 
-        mapControl.getMapAsync(map -> {
-            DataSource dataSource = new DataSource();
-            dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
-
-            SymbolLayer symbolLayer = new SymbolLayer(dataSource);
-            symbolLayer.setOptions(iconImage("my-icon"));
-
-            map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
-            map.sources.add(dataSource);
-            map.layers.add(symbolLayer);
-        });
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mapControl.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mapControl.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mapControl.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        mapControl.onStop();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mapControl.onLowMemory();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mapControl.onDestroy();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapControl.onSaveInstanceState(outState);
-    }
-}
-```
-
-執行您的應用程式一次。 您應該在地圖上，看到標記，如下所示：
-
-![Android 地圖釘選圖示](./media/how-to-use-android-map-control-library/android-map-pin.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 8f5a6187b0a651da9dd8de1cb5670a8faffded1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0a5e04b91d79b99935b52fd7f24752fb5d1b115
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61358398"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919627"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>選取並部署您的 IoT 裝置上的安全性代理程式
 
@@ -49,7 +49,7 @@ C 為基礎的安全性代理程式具有較低的記憶體耗用量，而且使
 | 開放原始碼 | 底下[MIT license](https://en.wikipedia.org/wiki/MIT_License)在[Github](https://aka.ms/iot-security-github-cs) | 底下[MIT license](https://en.wikipedia.org/wiki/MIT_License)在[Github](https://aka.ms/iot-security-github-c) |
 | 開發語言    | C | C# |
 | 支援的 Windows 平台？ | 否 | 是 |
-| Windows 必要條件 | --- | [WMI](https://docs.microsoft.com/en-us/windows/desktop/wmisdk/) |
+| Windows 必要條件 | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | 支援的 Linux 平台？ | 是，x64 和 x86 | 是，僅限 x64 |
 | Linux 必要條件 | libunwind8、 libcurl3、 uuid 執行階段、 auditd、 audispd 外掛程式 | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins, sudo, netstat, iptables |
 | 磁碟使用量 | 10.5 MB | 90MB |

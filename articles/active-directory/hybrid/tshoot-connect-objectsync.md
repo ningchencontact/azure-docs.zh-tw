@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82139178d4c1db4774d539180e41e49699d8ee12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382375"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919127"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步所執行的物件同步處理進行疑難排解
 本文提供使用疑難排解工作，針對物件同步處理問題進行疑難排解的步驟。 若要查看疑難排解如何在 Azure Active Directory (Azure AD) Connect 中運作，請觀賞[這段短片](https://aka.ms/AADCTSVideo)。
@@ -37,13 +37,13 @@ ms.locfileid: "60382375"
 4.  瀏覽至 [其他工作] 頁面，選取 [疑難排解]，然後按 [下一步]。
 5.  在 [疑難排解] 頁面上，按一下 [啟動]，以在 PowerShell 中啟動疑難排解功能表。
 6.  在主功能表中，選取 [針對物件同步處理進行疑難排解]。
-![](media/tshoot-connect-objectsync/objsynch11.png)
+![針對物件同步處理進行疑難排解](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>針對輸入參數進行疑難排解
 疑難排解工作需要下列輸入參數：
 1.  **物件辨別名稱** – 這是需要疑難排解之物件的辨別名稱
 2.  **AD 連接器名稱** – 這是上述物件所在之 AD 樹系的名稱。
-3.  Azure AD 租用戶全域管理員認證 ![](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Azure AD 租用戶全域管理員認證![全域管理員認證](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>了解疑難排解工作的結果
 疑難排解工作會執行下列檢查：
@@ -60,27 +60,27 @@ ms.locfileid: "60382375"
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>系統不會向 Azure AD 租用戶確認 UPN 後置詞
 當系統未向 Azure AD 租用戶確認 UserPrincipalName (UPN)/替代登入識別碼後置詞時，Azure Active Directory 就會將 UPN 後置詞替換為預設網域名稱 "onmicrosoft.com"。
 
-![](media/tshoot-connect-objectsync/objsynch2.png)
+![Azure AD 能取代 UPN](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>將 UPN 後置詞從某個同盟網域變更為另一個同盟網域
 Azure Active Directory 不允許將 UserPrincipalName (UPN)/替代登入識別碼後置詞的變更從某個同盟網域同步處理至另一個同盟網域。 這適用於向 Azure AD 租用戶確認且驗證類型為「同盟」的網域。
 
-![](media/tshoot-connect-objectsync/objsynch3.png) 
+![從一個同盟網域之間沒有 UPN 同步處理](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>已停用 Azure AD 租用戶 DirSync 功能 ‘SynchronizeUpnForManagedUsers’
 當 Azure AD 租用戶 DirSync 功能 ‘SynchronizeUpnForManagedUsers’ 停用時，Azure Active Directory 不允許對具有受控驗證的授權使用者帳戶進行 UserPrincipalName/替代登入識別碼同步處理更新。
 
-![](media/tshoot-connect-objectsync/objsynch4.png)
+![SynchronizeUpnForManagedUsers](media/tshoot-connect-objectsync/objsynch4.png)
 
 ## <a name="object-is-filtered-due-to-domain-filtering"></a>因為網域篩選而篩選物件
 ### <a name="domain-is-not-configured-to-sync"></a>網域未設定為要同步處理
 物件會因為未設定網域而超出範圍。 在下列範例中，由於物件所屬的網域已從同步處理篩選出來，所以物件會超出同步範圍。
 
-![](media/tshoot-connect-objectsync/objsynch5.png)
+![網域未設定為要同步處理](media/tshoot-connect-objectsync/objsynch5.png)
 
 ### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>網域設定為要同步處理，但遺漏執行設定檔/執行步驟
 物件會因為網域遺漏執行設定檔/執行步驟而超出範圍。 在下列範例中，由於物件所屬的網域遺漏完整匯入執行設定檔的執行步驟，所以物件會超出同步範圍。
-![](media/tshoot-connect-objectsync/objsynch6.png)
+![遺漏執行設定檔](media/tshoot-connect-objectsync/objsynch6.png)
 
 ## <a name="object-is-filtered-due-to-ou-filtering"></a>因為 OU 篩選而篩選物件
 由於 OU 篩選設定所致，此物件會超出同步範圍。 在下列範例中，物件屬於 OU=NoSync,DC=bvtadwbackdc,DC=com。  這個 OU 不會包含在同步範圍內。</br>
@@ -99,7 +99,7 @@ Azure Active Directory 不允許將 UserPrincipalName (UPN)/替代登入識別�
 ## <a name="html-report"></a>HTML 報告
 除了分析物件外，疑難排解工作也會產生具有物件一切已知資訊的 HTML 報告。 如有需要，可與支援小組分享這個 HTML 報告以進行進一步的疑難排解。
 
-![](media/tshoot-connect-objectsync/objsynch8.png)
+![HTML 報告](media/tshoot-connect-objectsync/objsynch8.png)
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。

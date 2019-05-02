@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73fa9c4433a2af780798f0439c0a119bc32a678f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511565"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916689"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(已淘汰) 透過 Marathon REST API 的 DC/OS 容器管理
 
@@ -32,7 +32,7 @@ DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 ## <a name="access-the-dcos-apis"></a>存取 DC/OS API
 您已連線到 Azure Container Service 叢集之後，您可以透過 http 存取 DC/OS 和相關的 REST Api:\//localhost:local-連接埠。 本文件中的範例假設您的通道為連接埠 80。 比方說，可以達到 Marathon 端點的 uri 開頭為 http:\/localhost/marathon/v2 /。 
 
-如需各種 API 的詳細資訊，請參閱 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 和 [Chronos API](https://mesos.github.io/chronos/docs/api.html) 的 Mesosphere 文件，以及 [Mesos 排程器 API](http://mesos.apache.org/documentation/latest/scheduler-http-api/) 的 Apache 文件。
+如需各種 API 的詳細資訊，請參閱 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 和 [Chronos API](https://mesos.github.io/chronos/docs/api.html) 的 Mesosphere 文件，以及 [Mesos 排程器 API](https://mesos.apache.org/documentation/latest/scheduler-http-api/) 的 Apache 文件。
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>從 DC/OS 和 Marathon 收集資訊
 將容器部署至 DC/OS 叢集之前，請收集 DC/OS 叢集的一些相關資訊，例如 DC/OS 代理程式的名稱和狀態。 若要這樣做，請查詢 DC/OS REST API 的 `master/slaves` 端點。 如果一切順利，查詢會傳回 DC/OS 代理程式清單及每個代理程式的數個屬性。

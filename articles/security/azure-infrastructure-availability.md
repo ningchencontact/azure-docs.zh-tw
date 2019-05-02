@@ -1,6 +1,6 @@
 ---
-title: Azure 基礎結構可用性
-description: 本文描述備援層級，以提供客戶資料的最大可用性。
+title: Azure 基礎結構可用性-Azure 安全性
+description: 本文提供 Microsoft 來保護 Azure 基礎結構，並提供最高可用性的客戶資料執行作業的相關資訊。
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d13c79152afe00cb326f69b523e9fd7f0c3550b0
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587184"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872613"
 ---
 # <a name="azure-infrastructure-availability"></a>Azure 基礎結構可用性
-Azure 會根據透過虛擬化技術達到的龐大備援能力，提供穩定的可用性。 Azure 提供許多備援層級，以提供客戶資料的最大可用性。
+本文提供 Microsoft 來保護 Azure 基礎結構，並提供最高可用性的客戶資料執行作業的相關資訊。 Azure 會根據透過虛擬化技術達到的龐大備援能力，提供穩定的可用性。
 
 ## <a name="temporary-outages-and-natural-disaster"></a>暫時性中斷和天然災害
 Microsoft Cloud 基礎結構和營運小組負責設計、建置、運作及加強保護雲端基礎結構。 這個小組可確保 Azure 基礎結構提供高可用性和可靠性、高效率及智慧型延展性。 小組會提供更安全、更私密且受信任的雲端。

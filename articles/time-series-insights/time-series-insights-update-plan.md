@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 251e95744f57d9b5e42df9bdc3743f4880ff5381
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0472f53d11ec4c990fcf6face633444fe66ba937
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076991"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702352"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>規劃您的 Azure 時間序列深入解析預覽版環境
 
@@ -90,9 +90,7 @@ ms.locfileid: "58076991"
 如需 Azure 中的商務持續性和災害復原 (BCDR) 內建功能，請參閱 [Azure 商務持續性技術指導方針](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance)。 如需使 Azure 應用程式達到高可用性和災害復原能力的策略相關架構指導方針，請參閱[為 Azure 設計復原應用程式](https://docs.microsoft.com/azure/architecture/resiliency/index)。
 
 > [!NOTE]
-> 
->  時間序列深入解析沒有內建的 BCDR。
-> 根據預設，Azure 儲存體、Azure IoT 中樞和 Azure 事件中樞已內建復原。
+> 時間序列深入解析沒有內建的 BCDR。 根據預設，Azure 儲存體、Azure IoT 中樞和 Azure 事件中樞已內建復原。
 
 若要深入了解，請參閱：
 
@@ -115,7 +113,6 @@ ms.locfileid: "58076991"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解，請參閱：
+- 深入了解[儲存體與輸入](./time-series-insights-update-storage-ingress.md)時間序列深入解析預覽版。
 
-- [Azure 時間序列深入解析預覽版儲存體和輸入](./time-series-insights-update-storage-ingress.md)
-- [資料模型](./time-series-insights-update-tsm.md)
+- 深入了解[資料模型化](./time-series-insights-update-tsm.md)時間序列深入解析預覽版。

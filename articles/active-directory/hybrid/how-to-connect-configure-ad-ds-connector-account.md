@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245547"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918517"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect： 設定 AD DS 連接器帳戶權限 
 
@@ -25,7 +25,7 @@ ms.locfileid: "60245547"
 ## <a name="overview"></a>概觀 
 下列 PowerShell Cmdlet 可用來針對每個您選擇在 Azure AD Connect 中啟用的功能，設定 AD DS 連接器帳戶的 Active Directory 權限。 若要防止發生任何問題，只要您想要使用自訂網域帳戶安裝 Azure AD Connect 以連線到您的樹系，即應事先備妥 Active Directory 權限。 此 ADSyncConfig 模組也可在 Azure AD Connect 部署之後用來設定權限。
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![ad ds 帳戶的概觀](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 對於 Azure AD Connect Express 安裝，會有一個自動產生的帳戶 (MSOL_nnnnnnnnnn) 建立在 Active Directory 中，且具備所有必要的權限，因此，除非您已在組織單位或您要同步處理至 Azure AD 的特定 Active Directory 物件上封鎖權限繼承，否則不需要使用此 ADSyncConfig 模組。 
  

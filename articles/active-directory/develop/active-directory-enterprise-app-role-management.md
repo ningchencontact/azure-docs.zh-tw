@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb426eb15d20a4bbd628897ed1c3b29c37f32afd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412132"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723296"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對企業應用程式，設定 SAML 權杖中發出的角色宣告
 
@@ -152,7 +152,7 @@ ms.locfileid: "60412132"
 
 8. 更新 [屬性] 資料表以定義自訂的角色宣告對應。
 
-9. 在 [單一登入] 對話方塊的 [使用者屬性與宣告] 區段中，如圖所示設定 SAML 權杖屬性，然後執行下列步驟。
+9. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
 
     | 屬性名稱 | 屬性值 |
     | -------------- | ----------------|
@@ -161,11 +161,11 @@ ms.locfileid: "60412132"
     >[!NOTE]
     >如果角色宣告值是 null，則 Azure AD 不會傳送此值在權杖中，而這是預設是根據設計。
 
-    a. 按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
+    a. 按一下 **編輯**圖示以開啟**使用者屬性 & 宣告**對話方塊。
 
       ![[新增屬性] 按鈕](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. 選取 [新增屬性] 以開啟 [管理使用者宣告] 窗格。
+    b. 在 [**管理使用者宣告**] 對話方塊中，加入 SAML 權杖屬性上按一下**新增新的宣告**。
 
       ![[新增屬性] 按鈕](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

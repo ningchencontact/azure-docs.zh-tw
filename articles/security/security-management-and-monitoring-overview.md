@@ -1,10 +1,10 @@
 ---
-title: Azure 安全性管理和監視概觀 | Microsoft Docs
+title: 管理和監視安全性功能-Microsoft Azure |Microsoft Docs
 description: 本文涵蓋 Azure 提供來協助管理和監視 Azure 雲端服務和虛擬機器的安全性功能和服務概觀。
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
+manager: barbkess
 editor: TomSh
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9f741f578ea44e27814ddfcde2fadc44a0e90536
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597906"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872075"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 安全性管理和監視概觀
+本文涵蓋 Azure 提供來協助管理和監視 Azure 雲端服務和虛擬機器的安全性功能和服務概觀。
 
-Azure 提供安全性機制來協助管理和監視 Azure 雲端服務和虛擬機器 (VM)。 本文概述這些核心安全性功能和服務。 所提供的文章連結將提供每個項目的詳細資料，以讓您深入了解。
+## <a name="shared-responsibility"></a>共同責任
 
 Microsoft 雲端服務的安全性是您與 Microsoft 之間的合作關係和共同責任。 Microsoft 負責 Azure 平台及其資料中心的實體安全性 (透過使用門禁、圍牆和警衛之類的安全性保護)。 Azure 提供軟體層的強式雲端安全性層級，以符合其客戶的安全性、隱私權和合規性需求。
 
@@ -64,7 +65,7 @@ Azure 也支援 Symantec Endpoint Protection (SEP)。 透過入口網站整合�
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-Factor Authentication 是一種驗證方法，其需要使用一個以上的驗證方法。 它可以為使用者登入和交易新增重要的第二層安全性。 
+Azure Multi-Factor Authentication 是一種驗證方法，其需要使用一個以上的驗證方法。 它可以為使用者登入和交易新增重要的第二層安全性。
 
 Multi-Factor Authentication 有助於保護對資料與應用程式的存取，同時滿足使用者對簡單登入程序的需求。 它可以透過一系列的驗證選項 (例如電話、簡訊，或是行動應用程式通知或驗證碼) 和第三方 OATH 權杖來提供強大的驗證功能。
 
@@ -80,7 +81,7 @@ Multi-Factor Authentication 有助於保護對資料與應用程式的存取，�
 
 * 任意點對任意點 (IP VPN) 網路。
 * 點對點乙太網路。
-* 共置設備上透過連線提供者的虛擬交叉連線。 
+* 共置設備上透過連線提供者的虛擬交叉連線。
 
 ExpressRoute 連線不會越過公用網際網路。 相較於透過網際網路的一般連線，它們可以提供更為可靠、速度更快、延遲更低且安全性更高的網際網路連線。
 
@@ -99,7 +100,7 @@ VPN 閘道 (也稱為 Azure 虛擬網路閘道) 可用來在虛擬網路與內�
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-使用者有時候需要在 Azure 資源或其他 SaaS 應用程式中執行特殊權限的作業。 這通常表示組織會授與他們永久的 Azure Active Directory (Azure AD) 特殊存取權限。 
+使用者有時候需要在 Azure 資源或其他 SaaS 應用程式中執行特殊權限的作業。 這通常表示組織會授與他們永久的 Azure Active Directory (Azure AD) 特殊存取權限。
 
 這會提高雲端資源的安全性風險，因為組織無法滴水不漏地監視這些使用者利用其特殊存取權限的所作所為。 此外，如果具特殊存取權限的使用者帳戶遭到入侵，這個缺口就會影響組織的整體雲端安全性。 Azure AD Privileged Identity Management 有助於解決這項風險，方法是降低權限的曝光時間，並增加使用情形的可見性。  
 
@@ -150,4 +151,3 @@ Intelligent Security Graph 能在 Microsoft 產品及服務中提供即時威脅
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-

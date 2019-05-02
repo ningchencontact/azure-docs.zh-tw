@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 95e501eca0f7765cc5201f7b315703c3ca43df8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60529557"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723637"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 來授權開發人員帳戶
 
@@ -79,12 +79,12 @@ ms.locfileid: "60529557"
 
 儲存變更之後，所指定 Azure AD 執行個體中的使用者即可依照[使用 Azure AD 帳戶來登入開發人員入口網站](#log_in_to_dev_portal)中的步驟來登入開發人員入口網站。
 
-
 ## <a name="add-an-external-azure-ad-group"></a>新增外部 Azure AD 群組
 
 在您讓 Azure AD 執行個體中的使用者可以存取之後，即可在 API 管理中新增 Azure AD 群組。 之後，您就可以更輕鬆地管理群組中開發人員與產品之間的關聯。
 
-若要設定外部 Azure AD 群組，您必須依照上一節中的程序進行，先在 [身分識別] 索引標籤上設定 Azure AD 執行個體。 
+ > [!IMPORTANT]
+ > 若要新增外部 Azure AD 群組，您必須先設定 Azure AD 執行個體上**身分識別**遵循上一節中的程序 索引標籤。 此外，應用程式必須具有存取權搭配使用的 Azure AD Graph API`Directory.Read.All`權限。 
 
 您可以從 API 管理執行個體的 [群組] 索引標籤來新增外部 Azure AD 群組。
 

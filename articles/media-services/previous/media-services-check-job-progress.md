@@ -14,24 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 73c9fa82cefc192b237e3880c1e745b2412a323a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e787617ab6e04a5ff2e7f5d4921a5bf7a4a1eb5d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61235242"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867108"
 ---
-# <a name="monitor-job-progress-using-net"></a>使用 .NET 监视作业进度 
-> [!div class="op_single_selector"]
-> * [入口網站](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+# <a name="monitor-job-progress-using-net"></a>使用 .NET 監視工作進度 
+
+> [!NOTE]
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
 
 執行作業時，您通常需要設法追蹤作業進度。 定義 StateChanged 事件處理常式 (如本主題中所述) 或使用 Azure 佇列儲存體監視媒體服務工作通知 (如 [本主題](media-services-dotnet-check-job-progress-with-queues.md) 中所述)，即可檢查進度。
 
 ## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>定義 StateChanged 事件處理常式來監視工作進度
+
 下列程式碼定義 StateChanged 事件處理常式。 此事件處理常式可追蹤作業進度，並根據狀態來提供更新的狀態。 程式碼也定義 LogJobStop 方法。 此協助程式方法會記錄錯誤詳細資料。
 
 ```csharp

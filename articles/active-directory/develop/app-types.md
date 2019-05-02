@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef180fb444e32e8b055837fd418e21162ff58339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa4b68d48ec3f4fbb61c7144a133d9c42938c723
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411179"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917288"
 ---
 # <a name="application-types-in-v10"></a>v1.0 中的應用程式類型
 
@@ -63,7 +63,7 @@ Azure Active Directory (Azure AD) 支援各種新型應用程式架構的驗證�
   * **金鑰** - 在進行 Azure AD 驗證以呼叫 Web API 時，隨應用程式識別碼一起傳送的金鑰。
 * Azure AD 需要確定應用程式具有必要權限以存取您的目錄資料和組織中其他應用程式等等。
 
-如需詳細資訊，請了解如何[使用 Azure AD v1.0 端點註冊應用程式](quickstart-v1-add-azure-ad-app.md)。
+如需詳細資訊，請了解如何[註冊應用程式](quickstart-register-app.md)。
 
 ## <a name="single-tenant-and-multi-tenant-apps"></a>單一租用戶與多租用戶應用程式
 

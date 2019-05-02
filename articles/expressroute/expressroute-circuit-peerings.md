@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.author: mialdridm
+ms.date: 04/24/2019
+ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 35cee297156cf64deeef8c9c6b514ec8176f9ca5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4290473a7c1edce02d74a4a787c62ccf0d9c052
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367694"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924319"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 線路和對等互連
 
@@ -22,10 +22,11 @@ ExpressRoute 線路可透過連線提供者將內部部署基礎結構連線到 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
-> Azure 公用對等互連已被取代，因為它不適用於新的 ExpressRoute 線路。 新的線路支援 Microsoft 對等互連和私用對等互連。  
+> Azure 公用對等互連已被取代，並不適用於新的 ExpressRoute 線路。 新的線路支援 Microsoft 對等互連和私人對等互連。  
 >
 
 ## <a name="circuits"></a>ExpressRoute 線路
+
 ExpressRoute 線路代表您的內部部署基礎結構與 Microsoft 雲端服務之間，透過連線提供者的邏輯連線。 您可以訂購多條 ExpressRoute 線路。 每一條線路可以位於相同或不同區域，且可透過不同的連線提供者連線到您的內部環境。
 
 ExpressRoute 線路不對應至任何實體裝置。 線路由一個稱為服務金鑰 (s 金鑰) 的標準 GUID 唯一識別。 服務金鑰是 Microsoft、連線提供者與您之間唯一會交換的資訊。 S 金鑰不是安全性用途的密碼。 ExpressRoute 線路與 s 金鑰之間存在 1:1 對應。
@@ -35,14 +36,17 @@ ExpressRoute 線路不對應至任何實體裝置。 線路由一個稱為服務
 每個電路有固定的頻寬 (50 Mbps、100 Mbps、200 Mbps、500 Mbps、1 Gbps、10 Gbps)，而且對應至連線提供者和對等位置。 您選取的頻寬會在所有線路對等互連中共用
 
 ### <a name="quotas"></a>配額和限制
+
 每個 ExpressRoute 線路會套用預設的配額和限制。 如需最新的配額資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md) 。
 
 ## <a name="routingdomains"></a>ExpressRoute 對等互連
+
 ExpressRoute 線路有多個相關聯的路由網域/對等互連：Azure 公用、Azure 私人和 Microsoft。 每個對等互連在一對路由器上的設定完全相同 (使用主動-主動或載入共用設定)，以確保高可用性。 Azure 服務分成 *Azure 公用*和 *Azure 私用*兩類來代表 IP 定址配置。
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="privatepeering"></a>Azure 私人對等互連
+
 部署於虛擬網路內的 Azure 計算服務 (也就是虛擬機器 (IaaS) 和雲端服務 (PaaS)) 可透過私用對等網域進行連線。 私人對等互連網域會被視為核心網路至 Microsoft Azure 的受信任延伸。 您可以在核心網路與 Azure 虛擬網路 (VNet) 之間設定雙向連線。 此對等可讓您直接連線到虛擬機器和雲端服務的私人 IP 位址。  
 
 您可以將多個虛擬網路連線到私人對等互連網域。 如需限制的相關資訊，請檢閱 [常見問題集頁面](expressroute-faqs.md) 。 如需最新的限制資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md) 。  如需路由組態的詳細資訊，請參閱 [路由](expressroute-routing.md) 頁面。
@@ -58,7 +62,7 @@ ExpressRoute 線路有多個相關聯的路由網域/對等互連：Azure 公用
 ### <a name="publicpeering"></a>Azure 公用對等互連 (已被新的線路取代)
 
 > [!Note]
-> Azure 公用對等互連有 1 個 NAT IP 位址與每個 BGP 工作階段相關聯。 針對大於 2 的 NAT IP 位址，請移至[Microsoft 對等互連](https://docs.microsoft.com/en-us/azure/expressroute/how-to-move-peering)，其中您可以設定您自己的 NAT 配置，以及用於選擇性的前置詞公告的路由篩選。 
+> Azure 公用對等互連有 1 個 NAT IP 位址與每個 BGP 工作階段相關聯。 針對大於 2 的 NAT IP 位址，將移至 Microsoft 對等互連。 Microsoft 對等互連可讓您設定您自己的 NAT 配置，以及用於選擇性的前置詞公告的路由篩選。 如需詳細資訊，請參閱 <<c0> [ 移至 Microsoft 對等互連](https://docs.microsoft.com/azure/expressroute/how-to-move-peering)。
 >
 
 公用 IP 位址上提供如 Azure 儲存體、SQL Database 和網站等服務。 您可以透過公用對等互連路由網域，私人連線到在公用 IP 位址上託管的服務 (包括雲端服務的 VIP)。 您可以將公用對等網域連線到 DMZ，並從您的 WAN 連線到所有 Azure 服務的公用 IP 位址，而無需透過網際網路進行連線。
@@ -70,6 +74,7 @@ ExpressRoute 線路有多個相關聯的路由網域/對等互連：Azure 公用
 如需有關透過公用對等路由網域支援的服務詳細資訊，請參閱[常見問題集](expressroute-faqs.md)。
 
 ## <a name="peeringcompare"></a>對等互連比較
+
 下表是這三種對等互連的比較：
 
 |  | **私人對等互連** | **Microsoft 對等互連** |  **公用對等互連** (已被取代，不適用新線路) |
@@ -86,11 +91,13 @@ ExpressRoute 線路有多個相關聯的路由網域/對等互連：Azure 公用
 每個對等互連都需要不同的 BGP 工作階段 (每個對等互連類型一對)。 BGP 工作階段配對提供高可用性連結。 若您透過第 2 層連線提供者來連線，則要負責設定和管理路由。 如需深入瞭解，請檢閱有關設定 ExpressRoute 的 [工作流程](expressroute-workflows.md) 。
 
 ## <a name="health"></a>ExpressRoute 健康情況
+
 您可能會基於可用性、與 VNet 的連線能力及頻寬使用率，使用[網路效能監控](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) 來監視 ExpressRoute 線路。
 
 NPM 會監視 Azure 私用對等互連和 Microsoft 對等互連的健康情況。 如需詳細資訊，請參閱我們的[文章](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
+
 * 尋找服務提供者。 請參閱 [ExpressRoute 服務提供者和位置](expressroute-locations.md)。
 * 請確定符合所有必要條件。 請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md)。
 * 設定 ExpressRoute 連線。

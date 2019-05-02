@@ -1,21 +1,24 @@
 ---
-ms.openlocfilehash: 8b3879d87c7a17aff0a10c81f428a48119c606a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+author: mayanknayar
+ms.service: virtual-machine-scale-sets
+ms.topic: include
+ms.date: 04/26/2019
+ms.author: manayar
+ms.openlocfilehash: c41beda6c9d6bb4b63a45944126421dd22799904
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803360"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868918"
 ---
 您可以依照 [Azure Resource Manager 文件](../articles/azure-resource-manager/resource-group-template-deploy.md)所述來部署上述範本。
 
-您可以從[最基本的可行擴展集範本文章](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md)開始本教學課程系列。
+您可以開始從本教學課程系列[基本的擴展集範本文章](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md)。
 
-您可以了解如何修改[最基本的可行擴展集範本](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md)以便[將擴展集部署至現有虛擬網路](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md)。
+您可以了解如何修改[基本的擴展集範本](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md)要[部署擴展集現有的虛擬網路到](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md)。
 
-您可以了解如何修改[最基本的可行擴展集範本](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md)以便[使用自訂映像來部署擴展集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md)。
+您可以了解如何修改[基本的擴展集範本](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md)要[部署擴展集使用自訂映像](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md)。
 
-您可以了解如何修改[最基本的可行擴展集範本](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md)，以便[使用來賓型自動調整來部署 Linux 擴展集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)。
+您可以了解如何修改[基本的擴展集範本](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md)要[部署 Linux 擴展集使用來賓型自動調整](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)。
 
-如需有關擴展集的更多一般資訊，請參考[擴展集概觀頁面](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)。
-
-<!-- ms.date: 12/20/2018 -->
+如需有關擴展集的詳細資訊，請參閱[擴展集概觀頁面](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)。

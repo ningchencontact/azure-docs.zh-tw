@@ -1,7 +1,6 @@
 ---
 title: 在 Azure HDInsight Linux 叢集上安裝 Presto
 description: 了解如何使用指令碼動作，在 Linux 型 HDInsight Hadoop 叢集上安裝 Presto 和 Airpal。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 2bd5e1ae02ffbb62b9a5a95846aabeeab2b448b5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258338"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704803"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>在 Hadoop 型 HDInsight 叢集上安裝和使用 Presto
 
-這篇文章說明如何使用指令碼動作在 Hadoop 為基礎的 Azure HDInsight 叢集上安裝 Presto。 您也會了解如何在現有的 HDInsight 叢集上安裝 Airpal。
+本文介绍如何使用脚本操作在基于 Hadoop 的 Azure HDInsight 群集上安装 Presto。 您也會了解如何在現有的 HDInsight 叢集上安裝 Airpal。
 
 HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集使用。 如需詳細資訊，請參閱[在 Azure HDInsight 上安裝第三方 Apache Hadoop 應用程式](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)。
 
@@ -26,7 +25,7 @@ HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集�
 > 本文中的步驟需要一個使用 Linux 的 HDInsight 3.5 Hadoop 叢集。 Linux 是 HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [HDInsight 版本](hdinsight-component-versioning.md)。
 
 ## <a name="what-is-presto"></a>什麼是 Presto？
-[Presto](https://prestodb.io/overview.html) 是一個適用於巨量資料的快速分散式 SQL 查詢引擎。 Presto 適合數 PB 資料的互動式查詢。 如需 Presto 的元件以及它們共同運作方式的詳細資訊，請參閱 [Presto 概念](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst)。
+[Presto](https://prestosql.io) 是一個適用於巨量資料的快速分散式 SQL 查詢引擎。 Presto 適合數 PB 資料的互動式查詢。 如需 Presto 的元件以及它們共同運作方式的詳細資訊，請參閱 [Presto 概念](https://prestosql.io/docs/current/overview/concepts.html)。
 
 > [!WARNING]  
 > 對隨 HDInsight 叢集提供的元件會有完整支援。 「Microsoft 支援服務」會協助隔離和解決與這些元件相關的問題。
@@ -86,9 +85,9 @@ HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集�
    
     `select count (*) from hivesampletable;`
    
-    根據預設，已設定 Presto 的[Apache Hive](https://prestodb.io/docs/current/connector/hive.html) 和 [TPCH](https://prestodb.io/docs/current/connector/tpch.html) 連接器。 Hive 連接器已設定為使用預設 Hive 安裝。 因此，所有來自 Hive 的資料表在 Presto 中都會自動顯示。
+    根據預設，已設定 Presto 的[Apache Hive](https://prestosql.io/docs/current/connector/hive.html) 和 [TPCH](https://prestosql.io/docs/current/connector/tpch.html) 連接器。 Hive 連接器已設定為使用預設 Hive 安裝。 因此，所有來自 Hive 的資料表在 Presto 中都會自動顯示。
 
-    如需詳細資訊，請參閱 [Presto 文件](https://prestodb.io/docs/current/index.html)。
+    如需詳細資訊，請參閱 [Presto 文件](https://prestosql.io/docs/current/index.html)。
 
 ## <a name="use-airpal-with-presto"></a>使用 Airpal 搭配 Presto
 
@@ -151,7 +150,7 @@ HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集�
    
     如需詳細資訊，請參閱[使用 SSH 連線到 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-2. 在 `/var/lib/presto/presto-hdinsight-master/appConfig-default.json` 檔案中進行設定變更。 如需有關 Presto 設定的詳細資訊，請參閱 [YARN 型叢集的 Presto 設定選項](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html) \(英文\)。
+2. 在 `/var/lib/presto/presto-hdinsight-master/appConfig-default.json` 檔案中進行設定變更。 如需有關 Presto 設定的詳細資訊，請參閱 [YARN 型叢集的 Presto 設定選項](https://prestosql.github.io/presto-yarn/installation-yarn-configuration-options.html) \(英文\)。
 
 3. 將 Presto 目前執行中的執行個體停止並強制終止：
 

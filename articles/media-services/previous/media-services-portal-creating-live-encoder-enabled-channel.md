@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 88a66cae00bcd1256f6c3ad76a04d1333d1db9db
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: daab3c3b2a5b756686a4867350478faaa1142279
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917085"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726867"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>若要使用 Azure 入口網站建立多位元速率資料流使用媒體服務執行即時串流  
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ ms.locfileid: "58917085"
 
 1. 將攝影機連接到電腦。 <br/>如需了解裝備，請參閱[簡單的可攜式活動視訊器材裝備]( https://link.medium.com/KNTtiN6IeT) \(英文\)。
 
-    如果您沒有存取相機，之類的工具[Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm)可用視訊檔案從產生的即時摘要。
+    如果您沒有存取相機，之類的工具[Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm)可用視訊檔案從產生的即時摘要。
 1. 啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP 或 Smooth Streaming。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](https://go.microsoft.com/fwlink/?LinkId=532824)。 <br/>此外，也請參閱這個部落格：[使用 OBS 來產生即時串流](https://link.medium.com/ttuwHpaJeT) \(英文\)。
 
     此步驟也可以在您建立通道之後執行。

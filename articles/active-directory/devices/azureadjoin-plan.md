@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354441"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918826"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>作法：規劃 Azure AD 聯結實作
 
@@ -135,7 +135,11 @@ Azure AD Join：
 
 ### <a name="management-platform"></a>管理平台
 
-已加入 Azure AD 的裝置以 MDM 平台 (例如 Intune 和 MDM CSP) 作為其裝置管理的基礎。 Windows 10 有內建的 MDM 代理程式，可與所有相容的 MDM 解決方案搭配運作。
+Azure AD 已加入裝置的裝置管理為基礎的 MDM 平台，例如 Intune 和 MDM Csp。 Windows 10 有內建的 MDM 代理程式，可與所有相容的 MDM 解決方案搭配運作。
+
+> [!NOTE]
+> 因為在未連線至內部部署 Active Directory 群組原則不支援在 Azure AD 加入裝置。 Azure AD 已加入裝置的管理，才可以透過 MDM
+
 
 有兩種方法可用來管理已加入 Azure AD 的裝置：
 
@@ -143,7 +147,6 @@ Azure AD Join：
 
 - **共同管理** - 裝置由 MDM 提供者和 SCCM 所管理。 使用此方法時，SCCM 代理程式會安裝在 MDM 管理的裝置上，以管理特定層面。
 
-由於已加入 Azure AD 的裝置並未連線至內部部署 Active Directory，因此不支援群組原則。
 
 
 如果您要使用群組原則，請使用 [MDM 移轉分析工具 (MMAT)](https://github.com/WindowsDeviceManagement/MMAT) 評估您的 MDM 原則同位檢查。 

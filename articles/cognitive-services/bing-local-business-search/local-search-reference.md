@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c3628670d2393d7b6921c60317719ccf8e72a451
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992465"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866353"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing 當地商家搜尋 API v7 參考
 
-當地商家搜尋 API 向 Bing 傳送搜尋查詢以取得包含餐廳、旅館或其他當地商家的結果。 針對地點，查詢可指定本地商家名稱或類別 (例如，我附近的餐廳)。 實體結果包含人員、地點或事項。 此內容中的地點是商業實體、州、國家/地區等。  
+當地商家搜尋 API 向 Bing 傳送搜尋查詢以取得包含餐廳、旅館或其他當地商家的結果。 針對地點，查詢可指定本地商家名稱或類別 (例如，我附近的餐廳)。 實體結果包含人員、地點或事項。 在此內容中的位置是商業實體、 狀態、 國家/地區等。  
 
 本節將提供關於影響搜尋結果的回應物件，以及查詢參數和標頭的技術詳細資料。 如需示範如何提出要求的範例，請參閱[當地商家搜尋 C# 快速入門](quickstarts/local-quickstart.md)或[當地商家搜尋 Java 快速入門](quickstarts/local-search-java-quickstart.md)。 
   
@@ -70,7 +70,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 要求可能含有下列查詢參數。 請參閱必要參數的必要資料行。 您必須對查詢參數進行 URL 編碼。  
   
   
-|名稱|值|類型|必要項|  
+|名稱|Value|類型|必要項|  
 |----------|-----------|----------|--------------|
 |<a name="count" />count|若要傳回，從索引指定的結果數目`offset`參數。|字串|否|   
 |<a name="localCategories" />localCategories|依商家類別定義搜尋的選項清單。  請參閱[當地商家類別搜尋](local-categories.md)|字串|否|  
@@ -107,7 +107,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="errorresponse"></a>ErrorResponse  
 要求失敗時，回應包含的最上層物件。  
   
-|名稱|值|類型|  
+|名稱|Value|類型|  
 |----------|-----------|----------|  
 |_type|類型提示。|字串|  
 |<a name="errors" />errors|說明要求失敗原因的錯誤清單。|[Error](#error)[]|  
@@ -117,7 +117,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="license"></a>授權  
 定義可據以使用文字或相片的授權。  
   
-|名稱|值|類型|  
+|名稱|Value|類型|  
 |----------|-----------|----------|  
 |name|授權的名稱。|字串|  
 |url|可讓使用者取得更多授權相關資訊的網站 URL。<br /><br /> 請使用名稱和 URL 建立超連結。|字串|  
@@ -126,7 +126,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="link"></a>連結  
 定義超連結的元件。  
   
-|名稱|值|類型|  
+|名稱|Value|類型|  
 |----------|-----------|----------|  
 |_type|類型提示。|字串|  
 |text|顯示文字。|字串|  
@@ -140,7 +140,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
   
 請注意，發行者可以提供其名稱和 (或) 網站。  
   
-|名稱|值|類型|  
+|名稱|Value|類型|  
 |----------|-----------|----------|  
 |name|發行者的名稱。|字串|  
 |url|發行者網站的 URL。<br /><br /> 請注意，發行者可能不會提供網站。|字串|  
@@ -150,7 +150,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="place"></a>位置  
 定義有關當地商家的相關資訊，例如餐廳或旅館。  
   
-|名稱|值|類型|  
+|名稱|Value|類型|  
 |----------|-----------|----------|  
 |_type|類型提示，可能會設定為下列其中之一：<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>餐廳</ul><li>|字串|  
 |位址|實體所在位置的郵政地址。|PostalAddress|  
@@ -166,29 +166,29 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
   
 |元素|描述|類型|  
 |-------------|-----------------|----------|  
-|adultIntent|一個布林值，用以指出指定的查詢是否有成人意圖。 如果查詢有成人意圖，則此值為 **true**，若沒有則為 **false**。|BOOLEAN|  
+|adultIntent|一個布林值，用以指出指定的查詢是否有成人意圖。 如果查詢有成人意圖，則此值為 **true**，若沒有則為 **false**。|Boolean|  
 |alterationOverrideQuery|要用來強制 Bing 使用原始字串的查詢字串。 例如，如果查詢字串為 *saling downwind*，覆寫查詢字串將是 *+saling downwind*。 請記得編碼會產生 *%2Bsaling+downwind* 的查詢字串。<br /><br /> 只有原始查詢字串包含拼字錯誤時，才需要加入此欄位。|字串|  
 |alteredQuery|Bing 用來執行查詢的查詢字串。 如果原始查詢字串包含拼字錯誤，Bing 就會使用更改的查詢字串。 例如，如果查詢字串是 `saling downwind`，更改的查詢字串將是 `sailing downwind`。<br /><br /> 只有原始查詢字串包含拼字錯誤時，才需要加入此欄位。|字串|  
-|askUserForLocation|一個布林值，用以指出 Bing 是否需要使用者的位置以提供精確的結果。 如果您已使用 [X-MSEdge-ClientIP](#clientip) 和 [X-Search-Location](#location) 標頭指定使用者的位置，則可以忽略此欄位。<br /><br /> 針對需要使用者位置以提供精確結果的位置感知查詢 (例如「今天的天氣」或「這附近的餐廳」)，此欄位會設定為 **true**。<br /><br /> 針對包含位置的位置感知查詢 (例如「西雅圖的天氣」)，此欄位會設定為 **false**。 針對不是位置感知的查詢 (例如「最佳銷售員」)，此欄位也會設定為 **false**。|BOOLEAN|  
+|askUserForLocation|一個布林值，用以指出 Bing 是否需要使用者的位置以提供精確的結果。 如果您已使用 [X-MSEdge-ClientIP](#clientip) 和 [X-Search-Location](#location) 標頭指定使用者的位置，則可以忽略此欄位。<br /><br /> 針對需要使用者位置以提供精確結果的位置感知查詢 (例如「今天的天氣」或「這附近的餐廳」)，此欄位會設定為 **true**。<br /><br /> 針對包含位置的位置感知查詢 (例如「西雅圖的天氣」)，此欄位會設定為 **false**。 針對不是位置感知的查詢 (例如「最佳銷售員」)，此欄位也會設定為 **false**。|Boolean|  
 |originalQuery|指定於要求中的查詢字串。|字串|  
 
 ### <a name="identifiable"></a>Identifiable
 
-|名稱|值|類型|  
+|名稱|Value|類型|  
 |-------------|-----------------|----------|
 |id|資源識別碼|字串|
  
 ### <a name="rankinggroup"></a>RankingGroup
 定義搜尋結果群組，例如主線。
 
-|名稱|值|類型|  
+|名稱|Value|類型|  
 |-------------|-----------------|----------|
 |項目|要顯示在群組中的搜尋結果清單。|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 定義要顯示的搜尋結果項目。
 
-|名稱|值|類型|  
+|名稱|Value|類型|  
 |-------------|-----------------|----------|
 |resultIndex|答案中要顯示的項目以零為起始的索引。 如果該項目未包含此欄位，則會顯示答案中的所有項目。 例如，顯示「新聞」答案中的所有新聞發行項。|整數 |
 |answerType|包含要顯示項目的答案。 例如「新聞」。<br /><br />請使用類型在 SearchResponse 物件中尋找答案。 類型是 SearchResponse 欄位的名稱。<br /><br /> 不過，只有在此物件包含值欄位時，才需要使用答案類型，否則請加以忽略。|字串|
@@ -198,7 +198,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="rankingresponse"></a>RankingResponse  
 定義內容在搜尋結果頁面上的放置位置和順序。  
   
-|名稱|值|  
+|名稱|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|要顯示在主線中的搜尋結果。|  
 |<a name="ranking-pole" />pole|應獲得最明顯處理的搜尋結果 (例如，顯示在主線和資訊看板上方)。|  
@@ -209,7 +209,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
   
 請注意，如果服務懷疑有阻絕服務攻擊，要求就會成功 (HTTP 狀態碼為 200 OK)；不過，回應本文將是空的。  
   
-|名稱|值|類型|  
+|名稱|Value|類型|  
 |----------|-----------|----------|  
 |_type|類型提示，設定為 SearchResponse。|字串|  
 |places|與搜索查詢相關的實體清單。|JSON 物件|  

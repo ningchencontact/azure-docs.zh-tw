@@ -8,12 +8,12 @@ ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3cfd6bd453cd06be4676a806997697a71afb0b59
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002656"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727405"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 資料目錄開發人員概念
 Microsoft **Azure 資料目錄** 是完全受控的雲端服務，能夠進行資料來源探索，以及讓群眾外包資料來源中繼資料。 開發人員可以透過 REST API 來使用此服務。 開發人員必須了解服務中所實作的概念，才能成功地與 **Azure 資料目錄**整合。
@@ -99,7 +99,7 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 
 <table>
 <tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr>
-<tr><td>索引鍵</td><td>字串</td><td>可唯一識別目前集合中之註解的使用者指定索引鍵。 索引鍵長度不能超過 256 個字元。</td></tr>
+<tr><td>key</td><td>字串</td><td>可唯一識別目前集合中之註解的使用者指定索引鍵。 索引鍵長度不能超過 256 個字元。</td></tr>
 </table>
 
 ### <a name="root-asset-types"></a>根資產類型
@@ -174,9 +174,9 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>protocol</td><td>string</td><td>必要。 描述用來與資料來源進行通訊的通訊協定。 例如：適用於 SQl Server 的 "tds"、適用於 Oracle 的 "oracle" 等等。如需目前支援的通訊協定清單，請參閱<a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">資料來源參考規格 - DSL 結構</a>。</td></tr>
-<tr><td></td><td>位址</td><td>字典<string, object></td><td>必要。 位址是一組專屬於通訊協定的資料，用來識別所參考的資料來源。 資料將範圍設定為特定通訊協定的位址，表示如果不知道通訊協定就沒有意義。</td></tr>
+<tr><td></td><td>位址</td><td>字典&lt;string，object&gt;</td><td>必要。 位址是一組專屬於通訊協定的資料，用來識別所參考的資料來源。 資料將範圍設定為特定通訊協定的位址，表示如果不知道通訊協定就沒有意義。</td></tr>
 <tr><td></td><td>驗證</td><td>string</td><td>選用。 用來與資料來源進行通訊的驗證配置。 例如：windows、oauth 等等。</td></tr>
-<tr><td></td><td>connectionProperties</td><td>字典<string, object></td><td>選用。 如何連接資料來源的其他資訊。</td></tr>
+<tr><td></td><td>connectionProperties</td><td>字典&lt;string，object&gt;</td><td>選用。 如何連接資料來源的其他資訊。</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>後端不會在發佈期間對 AAD 驗證所提供的屬性。</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>使用者的唯一電子郵件地址。 如果未提供 objectId 或其位於 "lastRegisteredBy" 屬性的內容中則必須指定，否則為選擇性。</td></tr>

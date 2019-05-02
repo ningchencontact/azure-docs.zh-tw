@@ -1,25 +1,19 @@
 ---
-title: 在發佈入口網站中設定您的應用程式 | Microsoft Docs
+title: 在發佈入口網站中設定您的應用程式
 description: 關於如何在雲端發佈入口網站中設定應用程式的指示。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483160"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943570"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>在發佈入口網站中設定您的應用程式
 
@@ -59,7 +53,7 @@ ms.locfileid: "60483160"
 
 此下拉式表單，可讓您選擇您想要在什麼發行者設定檔之下發佈此供應項目。 供應項目上架後，此欄位便會鎖住。
 
-### <a name="name"></a>Name
+### <a name="name"></a>名稱
 
 您供應項目的顯示名稱。 此為會出現在 [AppSource](https://appsource.microsoft.com/) 中的名稱。 它最多不能超過 50 個字元。
 
@@ -88,7 +82,7 @@ ms.locfileid: "60483160"
 
 ### <a name="crm-package-availability"></a>CRM 套件可用性
 
-在本節中，請選取可使用您套件的 CRM 區域。 如需所在區域服務哪些國家/地區的詳細資訊，請參閱連結：[https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+在本節中，請選取可使用您套件的 CRM 區域。 資訊的 CRM 區域提供服務的國家/地區，請參閱連結： [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 注意：部署至德國「主權與美國政府雲端」主權區域，需要特殊權限且認證期間需要進行驗證
 

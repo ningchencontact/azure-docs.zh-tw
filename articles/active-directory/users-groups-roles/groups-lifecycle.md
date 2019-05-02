@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471919"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920160"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>為 Office 365 群組設定到期原則
 
@@ -86,7 +86,7 @@ ms.locfileid: "60471919"
 如果您要還原的群組包含文件、SharePoint 網站或其他持續物件，則可能需要 24 小時，才能完全還原群組及其內容。
 
 ## <a name="how-to-retrieve-office-365-group-expiration-date"></a>如何擷取 Office 365 群組到期日
-除了存取面板中，使用者可以檢視群組詳細資料，包括到期日期和上次更新的日期，您可以從 Microsoft Graph REST API 的 beta 版，擷取 Office 365 群組到期日。 Microsoft Graph beta 版中已啟用 expirationDateTime 做為群組的屬性。 它可以使用 GET 要求擷取。 如需詳細資訊，請參閱[本例](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example)。
+除了存取面板中，使用者可以檢視群組詳細資料，包括到期日期和上次更新的日期，您可以從 Microsoft Graph REST API 的 beta 版，擷取 Office 365 群組到期日。 Microsoft Graph beta 版中已啟用 expirationDateTime 做為群組的屬性。 它可以使用 GET 要求擷取。 如需詳細資訊，請參閱[本例](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example)。
 
 > [!NOTE]
 > 若要管理群組成員資格在存取面板上的，「 存取面板 」 中的群組限制存取 」 必須設為 [否]，在 Azure Active Directory 群組一般設定。
@@ -101,10 +101,10 @@ ms.locfileid: "60471919"
 ## <a name="powershell-examples"></a>PowerShell 範例
 以下是一些範例，說明如何使用 PowerShell Cmdlet 來為您租用戶中的 Office 365 群組設定到期設定：
 
-1. 安裝 PowerShell v2.0 預覽模組 (2.0.0.137) 並在 PowerShell 提示字元登入：
+1. 安裝 PowerShell v2.0 模組，並在 PowerShell 提示字元登入：
    ```powershell
-   Install-Module -Name AzureADPreview
-   connect-azuread 
+   Install-Module -Name AzureAD
+   Connect-AzureAD
    ```
 2. 設定到期設定 New-AzureADMSGroupLifecyclePolicy：此 Cmdlet 會將租用戶中所有 Office 365 群組的存留期設定為 365 天。 無擁有者之 Office 365 群組的續約通知會傳送給 ‘emailaddress@contoso.com’
   

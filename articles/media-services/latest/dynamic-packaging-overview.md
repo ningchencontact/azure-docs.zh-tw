@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 90af9d40f797e493696d52e4cd744b99e3b57911
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: a907e35e8e39b9dadd9106e7fd99063db28647a5
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104117"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869665"
 ---
 # <a name="dynamic-packaging"></a>動態封裝
 
-Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 和 XBOX) 提供許多媒體來源檔案格式、媒體串流格式和內容保護格式。 這些用戶端各自使用不同的通訊協定，例如 iOS 需要 HTTP 即時串流 (HLS) 格式，而 Silverlight 與 Xbox 需要 Smooth Streaming。 如果您有一組調適性位元速率 （多位元速率） MP4 (ISO Base Media 14496-12) 檔案或一組調適性位元速率 Smooth Streaming 檔案，您想要提供給 HLS、 MPEG DASH 或 Smooth Streaming 的用戶端，您可以利用動態封裝。 封裝是無從驗證的視訊解析度、 支援 SD/HD/UHD-4 個。
+Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 和 XBOX) 提供許多媒體來源檔案格式、媒體串流格式和內容保護格式。 這些用戶端各自使用不同的通訊協定，例如 iOS 需要 HTTP 即時串流 (HLS) 格式，而 Silverlight 與 Xbox 需要 Smooth Streaming。 如果您有一組調適性位元速率 （多位元速率） MP4 (ISO Base Media 14496-12) 檔案或一組調適性位元速率 Smooth Streaming 檔案，您想要提供給 HLS、 MPEG DASH 或 Smooth Streaming 的用戶端，您可以利用**動態封裝**。 封裝是無從驗證的視訊解析度、 支援 SD/HD/UHD-4 個。
 
-[串流端點](streaming-endpoint-concept.md)是用來傳遞媒體內容給用戶端播放程式媒體服務中的動態封裝服務。 動態封裝是一項功能在所有的標準**串流端點**（Standard 或 Premium）。 
+在 Media Services[串流端點](streaming-endpoint-concept.md)代表可以直接向用戶端播放器應用程式，使用其中一種常見的資料流提供即時與隨選內容的動態 (-just-in-time) 封裝與原始服務媒體通訊協定 （HLS 或 DASH）。 動態封裝是一項功能在所有的標準**串流端點**（Standard 或 Premium）。 
 
 善用**動態封裝**，您必須能夠**資產**與一組調適性位元速率 MP4 檔案和串流處理媒體服務動態封裝所需的組態檔。 取得這些檔案的方法之一，是使用媒體服務編碼您的夾層 (來源) 檔案。 若要讓影片中編碼的資產可供用戶端播放，您必須建立**串流定位器**並建置串流 Url。 然後，根據串流用戶端資訊清單 （HLS、 DASH 或 Smooth） 中指定的格式，您收到資料流中您所選擇的通訊協定。
 
@@ -77,7 +77,7 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 
 
 ## <a name="delivery-protocols"></a>傳遞通訊協定
 
-|通訊協定|範例|
+|Protocol|範例|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
