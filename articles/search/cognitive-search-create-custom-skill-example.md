@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61344138"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023618"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>範例：建立使用文字翻譯 API 的自訂技能
 
@@ -243,7 +243,7 @@ POST https://localhost:7071/api/Translate
 
 1. 遵循螢幕上的提示進行。 您將必須指定想要使用的 Azure 帳戶、資源群組、主控方案，以及儲存體帳戶。 如果您沒有上述項目，則可以建立新的資源群組、新的主控方案和儲存體帳戶。 完成後，請選取 [建立]
 
-1. 完成部署後，請記下網站 URL。 這是 Azure 中的函數應用程式的位址。 
+1. 完成部署之後，請注意網站 URL。 這是 Azure 中的函數應用程式的位址。 
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至資源群組，並尋找您發佈的翻譯函式。 在 [管理] 區段下，應該會看到主機金鑰。 選取 [預設] 主機金鑰的 [複製] 圖示。  
 
@@ -282,7 +282,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new translator custom skill",
-        "uri": "http://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "uri": "https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
