@@ -1,6 +1,6 @@
 ---
-title: 監視多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL Database 的效能 | Microsoft Docs
-description: 監視及管理多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL Database 的效能
+title: 監視多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL 資料庫的效能 | Microsoft Docs
+description: 監視及管理多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL 資料庫的效能
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -19,7 +19,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61485374"
 ---
-# <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL Database 的效能
+# <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL 資料庫的效能
 
 本教學課程會探索 SaaS 應用程式中使用的數個關鍵效能管理案例。 使用負載產生器來跨分區化多租用戶資料庫模擬活動，而且示範 SQL Database 的內建監視和警示功能。
 

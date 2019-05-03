@@ -59,7 +59,7 @@ SQL/資料管理員會建立大量資料匯入函式和操作資料更新函式�
 
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 - Azure Functions
-- 連接字串
+- Azure SQL Database
 - Azure Analysis Service
 - Azure Active Directory
 - Azure 金鑰保存庫

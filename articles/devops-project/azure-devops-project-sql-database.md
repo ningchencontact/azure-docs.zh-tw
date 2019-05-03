@@ -21,7 +21,7 @@ ms.locfileid: "57845217"
 Azure DevOps Projects 提供簡化的體驗，讓您可以自備現有程式碼和 Git 存放庫，或者選擇一個範例應用程式，在 Azure 中建立持續整合 (CI) 和持續傳遞 (CD) 管線。 
 
 DevOps Projects 也可用於：
-* 自動建立 Azure 資源，例如 Azure SQL Database。
+* 自動建立 Azure 資源，例如 Azure SQL 資料庫。
 * 在 Azure Pipelines 中建立並設定發行管線，其中包含 CI 的建置管線。
 * 設定 CD 的發行管線。 
 * 建立用於監視的 Azure Application Insights 資源。
@@ -34,16 +34,16 @@ DevOps Projects 也可用於：
 > * 檢查 CI 管線
 > * 檢查 CD 管線
 > * 將變更認可至 Azure Repos 並自動部署至 Azure
-> * 連線到 Azure SQL Database 
+> * 連線到 Azure SQL 資料庫 
 > * 清除資源
 
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 您可以透過 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) 取得免費的訂用帳戶。
 
-## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>在 DevOps Projects 中為 ASP.NET 應用程式和 Azure SQL Database 建立專案
+## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>在 DevOps Projects 中為 ASP.NET 應用程式和 Azure SQL 資料庫建立專案
 
-DevOps Projects 會在 Azure Pipelines 中建立 CI/CD 管線。 您可以建立新的 Azure DevOps 組織或使用現有組織。 DevOps Projects 也會在您選擇的 Azure 訂用帳戶中建立 Azure 資源，例如 Azure SQL Database。
+DevOps Projects 會在 Azure Pipelines 中建立 CI/CD 管線。 您可以建立新的 Azure DevOps 組織或使用現有組織。 DevOps Projects 也會在您選擇的 Azure 訂用帳戶中建立 Azure 資源，例如 Azure SQL 資料庫。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -162,9 +162,9 @@ DevOps Projects 會自動建立並設定必要的步驟，以從 Azure DevOps �
 
 1. 發行完成之後，請重新整理您的應用程式，以確認您的變更。
 
-## <a name="connect-to-the-azure-sql-database"></a>連線到 Azure SQL Database
+## <a name="connect-to-the-azure-sql-database"></a>連線到 Azure SQL 資料庫
 
-您必須要有適當的權限才能連線至 Azure SQL Database。
+您必須要有適當的權限才能連線至 Azure SQL 資料庫。
 
 1. 在 DevOps Projects 儀表板上，選取 [SQL Database] 以移至 SQL 資料物的管理頁面。
    
@@ -180,7 +180,7 @@ DevOps Projects 會自動建立並設定必要的步驟，以從 Azure DevOps �
 1. 選取 [重設密碼]，輸入 SQL Server 管理員登入的密碼，然後選取 [儲存]。  
     請務必保留此密碼，以便稍後在本教學課程中使用。
 
-    現在，您可以選擇性地使用 SQL Server Management Studio 或 Visual Studio 之類的用戶端工具，連線至 SQL Server 和 Azure SQL Database。 請使用 [伺服器名稱] 屬性進行連線。
+    現在，您可以選擇性地使用 SQL Server Management Studio 或 Visual Studio 之類的用戶端工具，連線至 SQL Server 和 Azure SQL 資料庫。 請使用 [伺服器名稱] 屬性進行連線。
 
     如果您一開始在 DevOps Projects 中設定專案時，並未變更資料庫使用者名稱，則您的使用者名稱會是電子郵件地址的本機部分。 例如，如果您的電子郵件地址是 *johndoe\@microsoft.com*，您的使用者名稱就是 *johndoe*。
 
@@ -189,7 +189,7 @@ DevOps Projects 會自動建立並設定必要的步驟，以從 Azure DevOps �
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果要進行測試，您可以清除資源，以避免產生費用。 如果不再需要，您可以刪除在此教學課程中建立的 Azure SQL Database 和相關資源。 若要這樣做，請使用 DevOps Projects 儀表板上的 [刪除] 功能。
+如果要進行測試，您可以清除資源，以避免產生費用。 如果不再需要，您可以刪除在此教學課程中建立的 Azure SQL 資料庫和相關資源。 若要這樣做，請使用 DevOps Projects 儀表板上的 [刪除] 功能。
 
 > [!IMPORTANT]
 > 下列程序會永久刪除資源。 「刪除」功能會終結 Azure DevOps Projects 專案在 Azure 和 Azure DevOps 中建立的資料，而且您將無法再擷取這些資料。 請務必在仔細閱讀提示之後，再使用此程序。
@@ -208,7 +208,7 @@ DevOps Projects 會自動建立並設定必要的步驟，以從 Azure DevOps �
 > * 檢查 CI 管線
 > * 檢查 CD 管線
 > * 將變更認可至 Azure Repos 並自動部署至 Azure
-> * 連線到 Azure SQL Database 
+> * 連線到 Azure SQL 資料庫 
 > * 清除資源
 
 若要深入了解 CI/CD 管線，請參閱：

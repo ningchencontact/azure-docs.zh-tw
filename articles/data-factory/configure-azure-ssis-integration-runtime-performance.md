@@ -57,7 +57,7 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation** 是整合執行階段背景工作節點的位置。 背景工作節點會維護 Azure SQL Database 上 SSIS 目錄資料庫 (SSISDB) 的持續連線。 將 **AzureSSISLocation** 設定為與裝載 SSISDB 之 SQL Database 伺服器相同的位置，這可讓整合執行階段盡可能有效率地運作。
+**AzureSSISLocation** 是整合執行階段背景工作節點的位置。 背景工作節點會維護 Azure SQL 資料庫上 SSIS 目錄資料庫 (SSISDB) 的持續連線。 將 **AzureSSISLocation** 設定為與裝載 SSISDB 之 SQL Database 伺服器相同的位置，這可讓整合執行階段盡可能有效率地運作。
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Data Factory (包括 Azure-SSIS IR) 支援下列選項：

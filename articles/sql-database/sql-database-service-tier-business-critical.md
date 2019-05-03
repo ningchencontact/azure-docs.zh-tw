@@ -35,7 +35,7 @@ Azure 透明地升級和修補基礎作業系統、驅動程式及 SQL Server Da
 
 進階可用性在 Azure SQL Database 的進階和商務關鍵性服務層中啟用，是專為密集工作負載而設計，這些工作負載無法負擔因正在進行的維護作業所導致的任何效能影響。
 
-在進階模式中，Azure SQL Database 於單一節點上整合了計算和儲存體。 使用類似 SQL Server [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)的技術，複寫四節點叢集中部署的計算 (SQL Server 資料庫引擎程序) 和儲存體 (本機連結的 SSD)，可達到此架構模型中的高可用性。
+在進階模式中，Azure SQL 資料庫於單一節點上整合了計算和儲存體。 使用類似 SQL Server [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)的技術，複寫四節點叢集中部署的計算 (SQL Server 資料庫引擎程序) 和儲存體 (本機連結的 SSD)，可達到此架構模型中的高可用性。
 
 ![資料庫引擎節點的叢集](media/sql-database-managed-instance/business-critical-service-tier.png)
 

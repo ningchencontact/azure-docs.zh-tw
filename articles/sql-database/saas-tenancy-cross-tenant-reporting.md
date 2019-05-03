@@ -1,5 +1,5 @@
 ---
-title: 跨多個 Azure SQL Database 執行報表查詢 | Microsoft Docs
+title: 跨多個 Azure SQL 資料庫執行報表查詢 | Microsoft Docs
 description: 使用分散式查詢跨租用戶報告。
 services: sql-database
 ms.service: sql-database

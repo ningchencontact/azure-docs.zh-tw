@@ -1,6 +1,6 @@
 ---
 title: 將單一或集區 Azure SQL 資料庫匯出到 BACPAC 檔案 | Microsoft Docs
-description: 使用 Azure 入口網站將 Azure SQL Database 匯出到 BACPAC 檔案
+description: 使用 Azure 入口網站將 Azure SQL 資料庫匯出到 BACPAC 檔案
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -23,7 +23,7 @@ ms.locfileid: "61483821"
 
 當您需要匯出資料庫以封存或移至另一個平台時，可以將資料庫結構描述和資料匯出至 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 檔案。 BACPAC 檔案是一種副檔名為 BACPAC 的 ZIP 檔案，其包含來自 SQL Server Database 的中繼資料和資料。 BACPAC 檔案可以儲存在 Azure Blob 儲存體，或在內部部署位置的本機儲存體中，之後再匯入至 Azure SQL Database 或 SQL Server 內部部署安裝。
 
-## <a name="considerations-when-exporting-an-azure-sql-database"></a>匯出 Azure SQL Database 時的考量
+## <a name="considerations-when-exporting-an-azure-sql-database"></a>匯出 Azure SQL 資料庫時的考量
 
 - 为保证导出的事务处理方式一致，必须确保导出期间未发生写入活动，或者正在从 Azure SQL 数据库的[事务处理方式一致性副本](sql-database-copy.md)中导出。
 - 如果您要匯出至 blob 儲存體，BACPAC 檔案的大小上限為 200 GB。 若要存档更大的 BACPAC 文件，请导出到本地存储。
@@ -71,7 +71,7 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.d
 
 ## <a name="export-to-a-bacpac-file-using-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 匯出到 BACPAC 檔案
 
-最新版的 SQL Server Management Studio 提供了精靈協助您將 Azure SQL Database 匯出至 BACPAC 檔案。 請參閱[匯出資料層應用程式](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)。
+最新版的 SQL Server Management Studio 提供了精靈協助您將 Azure SQL 資料庫匯出至 BACPAC 檔案。 請參閱[匯出資料層應用程式](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)。
 
 ## <a name="export-to-a-bacpac-file-using-powershell"></a>使用 PowerShell 匯出到 BACPAC 檔案
 

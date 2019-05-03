@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例 - 備份 - 還原 - Azure SQL Database | Microsoft Docs
+title: PowerShell 範例 - 備份 - 還原 - Azure SQL 資料庫 | Microsoft Docs
 description: 可將 Azure SQL 單一資料庫還原到自動備份中較早時間短的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database

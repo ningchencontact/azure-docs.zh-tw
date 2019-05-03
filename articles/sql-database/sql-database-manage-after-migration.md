@@ -300,7 +300,7 @@ SQL Database 會使用的一些智慧技術可讓它自動處理特定類別的�
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database"></a>如何以 BACPAC 檔案的形式從 SQL Database 匯出和匯入資料
 
-- **匯出**：您可以從 Azure 入口網站將 Azure SQL Database 匯出為 BACPAC 檔案
+- **匯出**：您可以從 Azure 入口網站將 Azure SQL 資料庫匯出為 BACPAC 檔案
 
    ![資料庫匯出](./media/sql-database-export/database-export1.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 匯入 BACPAC 檔案以建立 Azure SQL Database | Microsoft Docs
+title: 匯入 BACPAC 檔案以建立 Azure SQL 資料庫 | Microsoft Docs
 description: 匯入 BACPAC 檔案以建立新的 Azure SQL Database。
 services: sql-database
 ms.service: sql-database

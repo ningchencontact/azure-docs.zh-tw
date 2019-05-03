@@ -63,7 +63,7 @@ ms.locfileid: "60886763"
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory 會連線到 SQL 資料庫成為連結的服務， 其會執行預存程序活動來處理資料，並將資料儲存在分析資料表中。
 
-### <a name="azure-sql-database"></a>連接字串
+### <a name="azure-sql-database"></a>Azure SQL Database
 會自動建立這些資料表來填入預設報表。 請多加研究 Power BI 中的這類結構描述，您可以針對該資料建立屬於自己的視覺效果。
 
 | 資料表名稱 |

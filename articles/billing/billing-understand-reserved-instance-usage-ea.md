@@ -66,7 +66,7 @@ ms.locfileid: "60370649"
 
 ### <a name="usage-in-csv-file"></a>CSV 檔案中的使用方式
 
-針對 [其他資訊] 進行篩選並輸入您的 [保留識別碼]，然後選擇所需的 [計量類別目錄] - [Azure SQL Database] 或 [Azure Cosmos DB]。 以下螢幕擷取畫面顯示和此保留相關的欄位。
+針對 [其他資訊] 進行篩選並輸入您的 [保留識別碼]，然後選擇所需的 [計量類別目錄] - [Azure SQL 資料庫] 或 [Azure Cosmos DB]。 以下螢幕擷取畫面顯示和此保留相關的欄位。
 
 ![SQL Database 保留容量的 Enterprise 合約 (EA) csv](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
 

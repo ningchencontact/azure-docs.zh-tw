@@ -1,6 +1,6 @@
 ---
-title: PowerShell 範例 - 監視 - 調整 - 單一 SQL Database | Microsoft Docs
-description: 監視和調整單一 Azure SQL Database 的 Azure PowerShell 範例指令碼
+title: PowerShell 範例 - 監視 - 調整 - 單一 Azure SQL 資料庫 | Microsoft Docs
+description: 監視和調整單一 Azure SQL 資料庫的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance

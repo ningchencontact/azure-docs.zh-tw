@@ -77,7 +77,7 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 
 ### <a name="statement-section-of-csv-file"></a>CSV 檔案的「說明」區段
 
-針對 [保留執行個體使用方式] 計量名稱進行篩選，然後選擇所需的 [計量類別目錄] - [Azure SQL Database] 或 [Azure Cosmos DB]。 您會看到類似下列螢幕擷取畫面的內容：
+針對 [保留執行個體使用方式] 計量名稱進行篩選，然後選擇所需的 [計量類別目錄] - [Azure SQL 資料庫] 或 [Azure Cosmos DB]。 您會看到類似下列螢幕擷取畫面的內容：
 
 ![SQL Database 保留容量的 CSV 檔案](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 

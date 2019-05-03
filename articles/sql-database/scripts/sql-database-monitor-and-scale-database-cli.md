@@ -1,6 +1,6 @@
 ---
-title: CLI 範例 - 監視 - 調整 - 單一 SQL Database | Microsoft Docs
-description: 監視和調整單一 Azure SQL Database 的 Azure CLI 範例指令碼
+title: CLI 範例 - 監視 - 調整 - 單一 SQL 資料庫 | Microsoft Docs
+description: 監視和調整單一 Azure SQL 資料庫的 Azure CLI 範例指令碼
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -21,7 +21,7 @@ ms.locfileid: "59361599"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>使用 CLI 監視和調整單一 SQL Database
 
-此 Azure CLI 指令碼範例會在查詢單一 Azure SQL Database 的大小資訊後，將其調整為不同的計算大小。
+此 Azure CLI 指令碼範例會在查詢單一 Azure SQL 資料庫的大小資訊後，將其調整為不同的計算大小。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -107,7 +107,7 @@ ms.locfileid: "60521367"
 您將執行下列步驟，在雲端中執行應用程式：
 
 * 建立 Azure 雲端服務。
-* 建立 Azure SQL Database。
+* 建立 Azure SQL 資料庫。
 * 创建 Azure 存储帐户。
 * 將方案設定為在 Azure 中執行時使用 Azure SQL 資料庫。
 * 將方案設定為在 Azure 中執行時使用 Azure 儲存體帳戶。

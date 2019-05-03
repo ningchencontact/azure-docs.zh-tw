@@ -1,6 +1,6 @@
 ---
 title: 將資料移至 Azure SQL Database - Team Data Science Process
-description: 將一般檔案 (CSV 或 TSV 格式) 的資料或儲存在內部部署 SQL Server 中的資料移至 Azure SQL Database。
+description: 將一般檔案 (CSV 或 TSV 格式) 的資料或儲存在內部部署 SQL Server 中的資料移至 Azure SQL 資料庫。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -44,7 +44,7 @@ ms.locfileid: "61429292"
 您可以將上述程序調整為自己的資料集，或者遵循上述步驟使用 NYC 計程車資料集。 若要將 NYC 計程車資料集上傳至您的內部部署 SQL Server 資料庫，請遵循[大量匯入資料至 SQL Server 資料庫](sql-walkthrough.md#dbload)中概述的程序進行。 這些指示適用於 Azure 虛擬機器上的 SQL Server，但將資料上傳至內部部署 SQL Server 的程序是相同的。
 
 ## <a name="file-to-azure-sql-database"></a> 從一般檔案來源移動資料至 Azure SQL 資料庫
-一般檔案 (CSV 或 TSV 格式) 中的資料可以透過大量插入 SQL 查詢移動至 Azure SQL Database。
+一般檔案 (CSV 或 TSV 格式) 中的資料可以透過大量插入 SQL 查詢移動至 Azure SQL 資料庫。
 
 ### <a name="bulk-insert-sql-query"></a> 大量插入 SQL 查詢
 程序中使用大量插入 SQL 查詢的步驟，與從一般檔案來源移動資料至 Azure VM 上的 SQL Server 各節涵蓋之步驟類似。 如需詳細資料，請參閱 [大量插入 SQL 查詢](move-sql-server-virtual-machine.md#insert-tables-bulkquery)。

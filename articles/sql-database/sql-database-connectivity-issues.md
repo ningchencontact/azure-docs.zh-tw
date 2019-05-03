@@ -202,7 +202,7 @@ ms.locfileid: "60202103"
 
 #### <a name="starting-with-adonet-462"></a>開頭是 ADO.NET 4.6.2
 
-- 要立即針對 Azure SQL Database 重試的連線開啟嘗試，因而提升雲端式應用程式的效能。
+- 要立即針對 Azure SQL 資料庫重試的連線開啟嘗試，因而提升雲端式應用程式的效能。
 
 #### <a name="starting-with-adonet-461"></a>開頭是 ADO.NET 4.6.1
 

@@ -21,7 +21,7 @@ ms.locfileid: "60331500"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>使用適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器加速即時巨量資料分析
 
-適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器可讓 SQL 資料庫 (包括 Azure SQL Database 和 SQL Server) 做為 Spark 作業的輸入資料來源或輸出資料接收器。 它可讓您利用巨量資料分析中的即時交易資料，並將保存臨機操作查詢或報告的結果。 相較於內建的 JDBC 連接器，此連接器提供大量插入資料至 SQL 資料庫的能力。 它可以用 10 倍到 20 倍快的效能執行逐列插入。 適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器也支援 AAD 驗證。 它可讓您使用 AAD 帳戶安全地從 Azure Databricks 連線到您的 Azure SQL Database。 它提供類似內建 JDBC 連接器的介面。 您可以輕鬆移轉現有的 Spark 作業以使用此新的連接器。
+適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器可讓 SQL 資料庫 (包括 Azure SQL Database 和 SQL Server) 做為 Spark 作業的輸入資料來源或輸出資料接收器。 它可讓您利用巨量資料分析中的即時交易資料，並將保存臨機操作查詢或報告的結果。 相較於內建的 JDBC 連接器，此連接器提供大量插入資料至 SQL 資料庫的能力。 它可以用 10 倍到 20 倍快的效能執行逐列插入。 適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器也支援 AAD 驗證。 它可讓您使用 AAD 帳戶安全地從 Azure Databricks 連線到您的 Azure SQL 資料庫。 它提供類似內建 JDBC 連接器的介面。 您可以輕鬆移轉現有的 Spark 作業以使用此新的連接器。
 
 ## <a name="download"></a>下載
 若要開始進行，請從 GitHub 上的 [azure-sqldb-spark 存放庫](https://github.com/Azure/azure-sqldb-spark)下載「Spark 至 SQL DB」連接器。
@@ -34,7 +34,7 @@ ms.locfileid: "60331500"
 | Scala                                |2.10 或更新版本            |
 | Microsoft JDBC Driver for SQL Server |6.2 或更新版本             |
 | 連接字串                 |SQL Server 2008 或更新版本 |
-| 連接字串                   |支援                |
+| Azure SQL Database                   |支援                |
 
 適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器會利用 Microsoft JDBC Driver for SQL Server 在 Spark 背景工作節點與 SQL 資料庫之間移動資料：
  
@@ -55,7 +55,7 @@ ms.locfileid: "60331500"
 - 包含 SQL DB Spark JAR
 
 ## <a name="connect-spark-to-sql-db-using-the-connector"></a>使用連接器將 Spark 連線到 SQL DB
-您可以從 Spark 作業連線到 Azure SQL Database 或 SQL Server、讀取或寫入資料。 您也可以在 Azure SQL Database 或 SQL Server 資料庫中執行 DML 或 DDL 查詢。
+您可以從 Spark 作業連線到 Azure SQL Database 或 SQL Server、讀取或寫入資料。 您也可以在 Azure SQL 資料庫或 SQL Server 資料庫中執行 DML 或 DDL 查詢。
 
 ### <a name="read-data-from-azure-sql-database-or-sql-server"></a>從 Azure SQL Database 或 SQL Server 讀取資料
 
@@ -161,7 +161,7 @@ collection.show()
 #### <a name="setup-requirement"></a>安裝需求
 如果您使用存取權杖型驗證模式，必須下載 [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java)及其相依項目，並將它們包含在 Java 建置路徑中。
 
-請參閱[使用 Azure Active Directory 驗證向 SQL Database 進行驗證](sql-database-aad-authentication.md)，以了解如何取得 Azure SQL Database 的存取權杖。
+請參閱[使用 Azure Active Directory 驗證向 SQL Database 進行驗證](sql-database-aad-authentication.md)，以了解如何取得 Azure SQL 資料庫的存取權杖。
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -179,8 +179,8 @@ val collection = sqlContext.read.SqlDB(config)
 collection.show()
 ```
 
-## <a name="write-data-to-azure-sql-database-or-sql-server-using-bulk-insert"></a>使用大量插入將資料寫入 Azure SQL Database 或 SQL Server
-傳統的 jdbc 連接器使用逐列插入將資料寫入 Azure SQL Database 或 SQL Server。 您可以使用 Spark 至 SQL DB 連接器，藉由大量插入將資料寫入 SQL Database。 在載入大型資料集或將資料載入使用資料行存放區索引的資料表時，它會大幅改善寫入效能。
+## <a name="write-data-to-azure-sql-database-or-sql-server-using-bulk-insert"></a>使用大量插入將資料寫入 Azure SQL 資料庫或 SQL Server
+傳統的 jdbc 連接器使用逐列插入將資料寫入 Azure SQL 資料庫或 SQL Server。 您可以使用 Spark 至 SQL DB 連接器，藉由大量插入將資料寫入 SQL Database。 在載入大型資料集或將資料載入使用資料行存放區索引的資料表時，它會大幅改善寫入效能。
 
 ```scala
 import com.microsoft.azure.sqldb.spark.bulkcopy.BulkCopyMetadata

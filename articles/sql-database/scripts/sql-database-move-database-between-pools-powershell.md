@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例 - 移動 Azure SQL Database - 彈性集區 | Microsoft Docs
+title: PowerShell 範例 - 移動 Azure SQL 資料庫 - 彈性集區 | Microsoft Docs
 description: 使用 PowerShell 在彈性集區之間移動 SQL 資料庫的 Azure PowerShell 指令碼範例
 services: sql-database
 ms.service: sql-database

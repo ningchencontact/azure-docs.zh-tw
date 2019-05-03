@@ -1,6 +1,6 @@
 ---
 title: 使用變更追蹤和 Azure Data Factory 以累加方式複製資料 | Microsoft Docs
-description: '在本教學課程中，您會建立 Azure Data Factory 管線，透過累加方式將差異資料從內部部署 SQL Server 資料庫中的多個資料表，複製到 Azure SQL Database。 '
+description: '在本教學課程中，您會建立 Azure Data Factory 管線，透過累加方式將差異資料從內部部署 SQL Server 資料庫中的多個資料表，複製到 Azure SQL 資料庫。 '
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -20,7 +20,7 @@ ms.lasthandoff: 03/06/2019
 ms.locfileid: "57436539"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
-在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL Database 中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  
+在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL 資料庫中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  
 
 您會在本教學課程中執行下列步驟：
 
@@ -45,9 +45,9 @@ ms.locfileid: "57436539"
 > Azure SQL Database 和 SQL Server 都支援變更追蹤技術。 本教學課程會使用 Azure SQL Database 作為來源資料存放區。 但您也可以使用內部部署的 SQL Server。 
 
 1. **初始載入歷史資料** (執行一次)：
-    1. 在來源 Azure SQL Database 中啟用變更追蹤技術。
-    2. 取得 Azure SQL Database 中的 SYS_CHANGE_VERSION 初始值作為基準，以擷取變更的資料。
-    3. 將完整資料從 Azure SQL Database 載入到 Azure Blob 儲存體。 
+    1. 在來源 Azure SQL 資料庫中啟用變更追蹤技術。
+    2. 取得 Azure SQL 資料庫中的 SYS_CHANGE_VERSION 初始值作為基準，以擷取變更的資料。
+    3. 將完整資料從 Azure SQL 資料庫載入到 Azure Blob 儲存體。 
 2. **依排程累加載入差異資料** (在初始載入資料後定期執行)：
     1. 取得 SYS_CHANGE_VERSION 的舊值和新值。
     3. 藉由將 **sys.change_tracking_tables** 中有所變更資料列 (介於兩個 SYS_CHANGE_VERSION 值之間) 的主索引鍵，聯結到**來源資料表**中的資料來載入差異資料，然後將差異資料移動到目的地。
@@ -102,7 +102,7 @@ ms.locfileid: "57436539"
 4. 執行下列 SQL 查詢，在您的資料庫和來源資料表 (data_source_table) 啟用**變更追蹤**機制： 
 
     > [!NOTE]
-    > - 將 &lt;your database name&gt; 替換為具有 data_source_table 的 Azure SQL Database 名稱。 
+    > - 將 &lt;your database name&gt; 替換為具有 data_source_table 的 Azure SQL 資料庫名稱。 
     > - 在目前的範例中，有變更的資料會保留兩天。 如果您每隔三天以上才會載入變更的資料，則裡面可能不會包含某些已變更的資料。  您必須將 CHANGE_RETENTION 的值變更為更大的數字。 或者，請確保您用來載入已變更資料的期間是在兩天內。 如需詳細資訊，請參閱[啟用資料庫的變更追蹤](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
  
     ```sql
@@ -132,7 +132,7 @@ ms.locfileid: "57436539"
     
     > [!NOTE]
     > 如果在您啟用 SQL Database 的變更追蹤後，資料並未變更，變更追蹤版本的值會是 0。
-6. 執行下列查詢，在您的 Azure SQL Database 中建立預存程序。 該管線會叫用此預存程序，以更新您在上一個步驟建立的資料表變更追蹤版本。 
+6. 執行下列查詢，在您的 Azure SQL 資料庫中建立預存程序。 該管線會叫用此預存程序，以更新您在上一個步驟建立的資料表變更追蹤版本。 
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
@@ -233,7 +233,7 @@ ms.locfileid: "57436539"
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>建立 Azure SQL Database 連結服務。
-在此步驟中，您會將您的 Azure SQL Database 連結到您的 Data Factory。
+在此步驟中，您會將您的 Azure SQL 資料庫連結到您的 Data Factory。
 
 1. 使用下列內容，在 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 資料夾中建立名為 **AzureSQLDatabaseLinkedService.json** 的 JSON 檔案：儲存檔案之前，以您的 Azure SQL Server 名稱、資料庫名稱、使用者識別碼和密碼，取代 **&lt;server&gt;、&lt;database name **、&lt;user id&gt; 和 &lt;password&gt;**。 
 
@@ -468,7 +468,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 
 ![完整複製的輸出檔案](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
-此檔案應該會有 Azure SQL Database 中的資料：
+此檔案應該會有 Azure SQL 資料庫中的資料：
 
 ```
 1,aaaa,21
@@ -480,7 +480,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 
 ## <a name="add-more-data-to-the-source-table"></a>新增更多資料至來源資料表
 
-對 Azure SQL Database 執行下列查詢，以新增資料列並加以更新。 
+對 Azure SQL 資料庫執行下列查詢，以新增資料列並加以更新。 
 
 ```sql
 INSERT INTO data_source_table
@@ -646,7 +646,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 
 ![累加複製的輸出檔案](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
-此檔案應該只會有 Azure SQL Database 中的差異資料。 具有 `U` 的記錄是資料庫中更新的資料列，具有 `I` 的記錄則是一個新增的資料列。 
+此檔案應該只會有 Azure SQL 資料庫中的差異資料。 具有 `U` 的記錄是資料庫中更新的資料列，具有 `I` 的記錄則是一個新增的資料列。 
 
 ```
 1,update,10,2,U

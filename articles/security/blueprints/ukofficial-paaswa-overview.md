@@ -61,7 +61,7 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 - Application Insights
 - Azure Resource Manager
 - Azure 資訊安全中心
-- 連接字串
+- Azure SQL Database
 - Azure 儲存體
 
 ## <a name="deployment-architecture"></a>部署架構
@@ -117,7 +117,7 @@ App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCen
 - 度量[警示](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
 - [Azure API 應用程式](https://azure.microsoft.com/services/app-service/api/) 
 
-#### <a name="azure-sql-database"></a>連接字串
+#### <a name="azure-sql-database"></a>Azure SQL Database
 
 SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 提供受控的單一 SQL 資料庫、[彈性集區](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)中的受控 SQL 資料庫，以及 SQL [受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (處於公開預覽狀態)。 除了實現[可動態調整的效能](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)外，更能提供各種選項，例如用於極限分析和報告的[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的[記憶體內部 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。
 

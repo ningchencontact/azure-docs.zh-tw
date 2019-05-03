@@ -25,7 +25,7 @@ ms.locfileid: "53634247"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>使用 CLI 將 App Service 應用程式連線至 SQL 資料庫
 
-此範例指令碼會建立 Azure SQL Database 和 App Service 應用程式。 然後使用應用程式設定，將 SQL 資料庫連結到該應用程式。
+此範例指令碼會建立 Azure SQL 資料庫和 App Service 應用程式。 然後使用應用程式設定，將 SQL 資料庫連結到該應用程式。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

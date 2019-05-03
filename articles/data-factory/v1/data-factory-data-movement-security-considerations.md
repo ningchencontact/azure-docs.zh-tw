@@ -64,7 +64,7 @@ Azure Data Factory 可透過使用「受 Microsoft 管理的憑證」來「加�
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL 資料倉儲
 「Azure SQL 資料倉儲」中的「透明資料加密」(TDE) 可以對待用資料執行即時加密和解密，協助防止惡意活動的威脅。 用戶端並不會察覺到這個過程。 如需詳細資訊，請參閱[保護 SQL 資料倉儲中的資料庫](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)。
 
-#### <a name="azure-sql-database"></a>連接字串
+#### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database 也支援透明資料加密 (TDE)，TDE 可在不需變更應用程式的情況下，對資料執行即時加密和解密，協助防止惡意活動的威脅。 用戶端並不會察覺到這個過程。 若要深入了解，請參閱 [Azure SQL Database 的透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)。 
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store

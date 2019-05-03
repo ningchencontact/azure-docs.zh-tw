@@ -26,8 +26,8 @@ ms.locfileid: "60646790"
 ## <a name="supported-configurations"></a>**支援的設定：**
   
 - SQL Server 可以是在內部部署執行的 SQL Server 執行個體，或是在雲端 Azure 虛擬機器中執行的 SQL Server 執行個體。 如需詳細資訊，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/)。  
-- Azure SQL Database 必須是 SQL Server 發行者的發送訂閱者。  
-- 散發資料庫和複寫代理程式不能置於 Azure SQL Database 上。  
+- Azure SQL 資料庫必須是 SQL Server 發行者的發送訂閱者。  
+- 散發資料庫和複寫代理程式不能置於 Azure SQL 資料庫上。  
 - 支援快照集和單向異動複寫。 不支援點對點異動複寫和合併式複寫。
 - 複寫可在 Azure SQL Database 受控執行個體的公開預覽版上使用。 受控執行個體可以裝載發行者、散發者和訂閱者資料庫。 如需詳細資訊，請參閱[使用 SQL Database 受控執行個體進行複寫](replication-with-sql-database-managed-instance.md)。
 
@@ -45,10 +45,10 @@ ms.locfileid: "60646790"
 ## <a name="remarks"></a>備註
 
 - 若要設定複寫，請使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 或在發行者上執行 Transact-SQL 陳述式。 您無法使用 Azure 入口網站來設定複寫。  
-- 複寫只能使用 SQL Server 驗證登入來連線到 Azure SQL Database。
+- 複寫只能使用 SQL Server 驗證登入來連線到 Azure SQL 資料庫。
 - 複寫的資料表都必須有主索引鍵。  
 - 您必須具有現有的 Azure 訂用帳戶。  
-- Azure SQL Database 訂閱者可以位在任何區域中。  
+- Azure SQL 資料庫訂閱者可以位在任何區域中。  
 - SQL Server 上的單一發行集可同時支援 Azure SQL Database 和 SQL Server (內部部署和 Azure 虛擬機器中的 SQL Server) 訂閱者。  
 - 複寫管理、監視和疑難排解都必須從內部部署 SQL Server 執行。  
 - 僅支援對 Azure SQL Database 的發送訂閱。  
@@ -70,7 +70,7 @@ ms.locfileid: "60646790"
 ### <a name="data-migration-scenario"></a>資料移轉案例  
 
 1. 若要將資料從內部部署 SQL Server 資料庫複寫到 Azure SQL Database 中，請使用異動複寫。  
-2. 重新導向用戶端或中介層應用程式來更新 Azure SQL Database 複本。  
+2. 重新導向用戶端或中介層應用程式來更新 Azure SQL 資料庫複本。  
 3. 停止更新 SQL Server 版本的資料表，並移除發行集。  
 
 ## <a name="limitations"></a>限制

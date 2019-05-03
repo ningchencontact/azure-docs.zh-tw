@@ -23,7 +23,7 @@ ms.locfileid: "57838760"
 
 ## <a name="what-is-an-azure-sql-database-server"></a>什麼是 Azure SQL Database 伺服器
 
-SQL Database 伺服器是一種邏輯建構，可作為多個單一或[集區](sql-database-elastic-pool.md)資料庫、[登入](sql-database-manage-logins.md)、[防火牆規則](sql-database-firewall-configure.md)、[稽核規則](sql-database-auditing.md)、[威脅偵測原則](sql-database-threat-detection.md)，以及[容錯移轉群組](sql-database-auto-failover-group.md)的中央管理點。SQL Database 伺服器可以位於與其資源群組不同的區域中。 SQL Database 伺服器必須先存在，才能建立 Azure SQL Database。 由 SQL Database 伺服器管理的所有資料庫都是在與 SQL Database 伺服器相同的區域內建立。
+SQL Database 伺服器是一種邏輯建構，可作為多個單一或[集區](sql-database-elastic-pool.md)資料庫、[登入](sql-database-manage-logins.md)、[防火牆規則](sql-database-firewall-configure.md)、[稽核規則](sql-database-auditing.md)、[威脅偵測原則](sql-database-threat-detection.md)，以及[容錯移轉群組](sql-database-auto-failover-group.md)的中央管理點。SQL Database 伺服器可以位於與其資源群組不同的區域中。 SQL Database 伺服器必須先存在，才能建立 Azure SQL 資料庫。 由 SQL Database 伺服器管理的所有資料庫都是在與 SQL Database 伺服器相同的區域內建立。
 
 SQL Database 伺服器與您可能已熟悉運用在內部部署環境中的 SQL Server 執行個體不同。 具體來說，SQL Database 服務對於管理這些資料庫的 SQL Database 伺服器相關之資料庫位置不提供任何保證，且不公開任何執行個體層級存取權或功能。 相較之下，受控執行個體中的執行個體資料庫全部為共置 - 與您在內部部署環境中熟悉的 SQL Server 方式相同。
 
@@ -50,15 +50,15 @@ SQL Database 伺服器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure SQL 伺服器、資料庫和防火牆
 
-您可以事先或在建立伺服器本身的同時，建立 Azure SQL Database 的資源群組。 有多種方法可以使用新的 SQL Server 表單，可以透過建立新的 SQL Server，或是在建立新資料庫時一起使用。
+您可以事先或在建立伺服器本身的同時，建立 Azure SQL 資料庫的資源群組。 有多種方法可以使用新的 SQL Server 表單，可以透過建立新的 SQL Server，或是在建立新資料庫時一起使用。
 
 ### <a name="create-a-blank-sql-database-server"></a>建立空白的 SQL Database 伺服器
 
-若要使用 [Azure 入口網站](https://portal.azure.com)建立 Azure SQL Database 伺服器 (不含資料庫)，請瀏覽至空白的 SQL Server (邏輯伺服器) 表單。  
+若要使用 [Azure 入口網站](https://portal.azure.com)建立 Azure SQL Database 伺服器 (不含資料庫)，請瀏覽至空白的 SQL 伺服器 (邏輯伺服器) 表單。  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>建立空白或範例 SQL 資料庫
 
-若要使用 [Azure 入口網站](https://portal.azure.com)建立 Azure SQL Database，請瀏覽至空白的 SQL Database 表單，並提供要求的資訊。 您可以事先或在建立資料庫本身的同時，建立 Azure SQL 資料庫的資源群組和 SQL Database 伺服器。 您可以建立空白資料庫，或建立根據 Adventure Works LT 的範例資料庫。
+若要使用 [Azure 入口網站](https://portal.azure.com)建立 Azure SQL 資料庫，請瀏覽至空白的 SQL Database 表單，並提供要求的資訊。 您可以事先或在建立資料庫本身的同時，建立 Azure SQL 資料庫的資源群組和 SQL Database 伺服器。 您可以建立空白資料庫，或建立根據 Adventure Works LT 的範例資料庫。
 
   ![建立資料庫-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -141,7 +141,7 @@ SQL Database 伺服器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>使用 Transact-SQL 管理 Azure SQL 伺服器、資料庫和防火牆
 
-若要使用 Transact-SQL 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 T-SQL 命令。 您可以使用 Azure 入口網站、[SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs)，或任何可連線到 Azure SQL Database 伺服器並傳遞 Transact-SQL 命令的其他程式來發出這些命令。 如需管理彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
+若要使用 Transact-SQL 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 T-SQL 命令。 您可以使用 Azure 入口網站、[SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs)，或任何可連線到 Azure SQL Database 伺服器並傳遞 TRANSACT-SQL 命令的其他程式來發出這些命令。 如需管理彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
 
 > [!IMPORTANT]
 > 您無法使用 Transact-SQL 建立或刪除伺服器。
@@ -150,7 +150,7 @@ SQL Database 伺服器：
 | 命令 | 描述 |
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|建立新的資料庫。 您必須連線到 master 資料庫才能建立新的資料庫。|
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |修改 Azure SQL Database。 |
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |修改 Azure SQL 資料庫。 |
 |[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|修改 Azure SQL 資料倉儲。|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|刪除資料庫。|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|傳回 Azure SQL 資料庫或 Azure SQL 資料倉儲的版本 (服務層級)、服務目標 (定價層) 和彈性集區名稱 (如果有的話)。 若已登入 Azure SQL Database 伺服器中的 master 資料庫，則傳回所有資料庫的相關資訊。 對於 Azure SQL 資料倉儲，您必須連線到 master 資料庫。|

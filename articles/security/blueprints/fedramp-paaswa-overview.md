@@ -34,7 +34,7 @@ ms.locfileid: "60585949"
 
 - Azure Active Directory
 - Azure 金鑰保存庫
-- 連接字串
+- Azure SQL Database
 - 应用程序网关
     - (1) Web 應用程式防火牆
         - 防火牆模式：防止

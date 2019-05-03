@@ -20,7 +20,7 @@ ms.locfileid: "60480633"
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>PowerShell 指令碼 - 使用 Azure Data Factory 來大量複製多個資料表
 
-這個範例 PowerShell 指令碼會將資料從 Azure SQL Database 中的多個資料表複製到 Azure SQL 資料倉儲。
+這個範例 PowerShell 指令碼會將資料從 Azure SQL 資料庫中的多個資料表複製到 Azure SQL 資料倉儲。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

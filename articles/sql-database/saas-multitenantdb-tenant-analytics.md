@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure SQL Database 執行分析查詢 | Microsoft Docs
+title: 針對 Azure SQL 資料庫執行分析查詢 | Microsoft Docs
 description: 在多租用戶應用程式中使用從多個 Azure SQL Database 資料庫擷取的資料執行跨租用戶分析查詢。
 services: sql-database
 ms.service: sql-database

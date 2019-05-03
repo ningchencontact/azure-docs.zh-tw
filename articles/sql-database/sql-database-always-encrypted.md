@@ -28,7 +28,7 @@ ms.locfileid: "61419998"
 
 將資料庫設定為使用「一律加密」之後，您將使用 Visual Studio 以 C# 建立用戶端應用程式來使用加密資料。
 
-請依照本文章中的步驟操作，以了解如何為 Azure SQL Database 設定「一律加密」。 在本文章中，您將學習到如何執行下列工作：
+請依照本文章中的步驟操作，以了解如何為 Azure SQL 資料庫設定「一律加密」。 在本文章中，您將學習到如何執行下列工作：
 
 * 使用 SSMS 中的「一律加密」精靈來建立 [一律加密的金鑰](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)。
   * 建立 [資料行主要金鑰 (CMK)](https://msdn.microsoft.com/library/mt146393.aspx)。
@@ -49,7 +49,7 @@ ms.locfileid: "61419998"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下 [建立資源] > [資料 + 儲存體] > [SQL Database]。
-3. 在新的或現有伺服器上建立名稱為 **Clinic** (診所) 的**空白**資料庫。 如需有關如何在 Azure 入口網站中建立資料庫的詳細指示，請參閱[您的第一個 Azure SQL Database](sql-database-single-database-get-started.md)。
+3. 在新的或現有伺服器上建立名稱為 **Clinic** (診所) 的**空白**資料庫。 如需有關如何在 Azure 入口網站中建立資料庫的詳細指示，請參閱[您的第一個 Azure SQL 資料庫](sql-database-single-database-get-started.md)。
 
     ![建立空白資料庫](./media/sql-database-always-encrypted/create-database.png)
 

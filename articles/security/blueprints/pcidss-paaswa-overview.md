@@ -64,7 +64,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 - Azure 監視器
 - Azure Resource Manager
 - Azure 資訊安全中心
-- 連接字串
+- Azure SQL Database
 - Azure 儲存體
 - Azure 虛擬網路
     - (1) /16 網路

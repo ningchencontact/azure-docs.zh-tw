@@ -120,7 +120,7 @@ ms.locfileid: "61475644"
 
   彈性資料庫工作 (預覽) 會以客戶託管的 Azure 雲端服務來傳遞，以執行所要求的工作。 您可以從入口網站，在 Microsoft Azure 訂用帳戶中部署及託管服務。 預設至少會使用兩個背景工作角色來執行已部署的服務，以取得高可用性。 每個背景工作角色 (ElasticDatabaseJobWorker) 都會以預設大小在 A0 執行個體上執行。 如需價格，請參閱 [雲端服務價格](https://azure.microsoft.com/pricing/details/cloud-services/)。
 
-- 連接字串
+- Azure SQL Database
 
   服務會使用稱為**控制資料庫**的 Azure SQL Database 來儲存所有的工作中繼資料。 預設服務層為 S0。 如需價格，請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)。
 
@@ -134,7 +134,7 @@ ms.locfileid: "61475644"
 
 ## <a name="how-elastic-database-jobs-work"></a>彈性資料庫工作的運作方式
 
-1. Azure SQL Database 會指定 **控制資料庫** ，它會儲存所有中繼資料和狀態資料。
+1. Azure SQL Database 會指定 **控制資料庫**，它會儲存所有中繼資料和狀態資料。
 2. 控制資料庫是由 **工作服務** 存取，以啟動和追蹤要執行的工作。
 3. 與控制資料庫通訊的兩個不同角色：
    - 控制站：判斷哪些工作需要作業以執行要求的工作，並且藉由建立新的工作作業來重試失敗的工作。

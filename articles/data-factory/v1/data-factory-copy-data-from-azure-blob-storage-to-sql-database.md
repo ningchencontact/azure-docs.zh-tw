@@ -49,7 +49,7 @@ ms.locfileid: "60487300"
 
 * **Azure 訂用帳戶**。  如果您沒有訂用帳戶，則只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [免費試用](https://azure.microsoft.com/pricing/free-trial/) 一文。
 * **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Blob 儲存體做為 **來源** 資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) 一文以取得建立步驟。
-* **Azure SQL Database**。 在本教學課程中，您會使用 Azure SQL Database 做為 **目的地** 資料存放區。 如果您沒有可在教學課程中使用的 Azure SQL Database，請參閱 [如何建立和設定 Azure SQL Database](../../sql-database/sql-database-get-started.md) 建立一個。
+* **Azure SQL Database**。 在本教學課程中，您會使用 Azure SQL 資料庫做為 **目的地** 資料存放區。 如果您沒有可在教學課程中使用的 Azure SQL 資料庫，請參閱 [如何建立和設定 Azure SQL Database](../../sql-database/sql-database-get-started.md) 建立一個。
 * **SQL Server 2012/2014 或 Visual Studio 2013**。 您會使用 SQL Server Management Studio 或 Visual Studio，建立範例資料庫以及檢視資料庫中的結果資料。  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>收集 Blob 儲存體帳戶名稱和金鑰
@@ -68,7 +68,7 @@ ms.locfileid: "60487300"
 7. 按一下 **X**，關閉所有刀鋒視窗。
 
 ## <a name="collect-sql-server-database-user-names"></a>收集 SQL Server、資料庫、使用者名稱
-您需要有 Azure SQL 伺服器、資料庫和使用者的名稱，才能進行這個教學課程。 記下 Azure SQL Database 的**伺服器**、**資料庫**和**使用者**名稱。
+您需要有 Azure SQL 伺服器、資料庫和使用者的名稱，才能進行這個教學課程。 記下 Azure SQL 資料庫的**伺服器**、**資料庫**和**使用者**名稱。
 
 1. 在 **Azure 入口網站**中，按一下左側的 [所有服務]，然後選取 [SQL 資料庫]。
 2. 在 [SQL Database] 刀鋒視窗中，選取您想要在本教學課程中使用的**資料庫**。 記下 **資料庫名稱**。  
@@ -85,7 +85,7 @@ ms.locfileid: "60487300"
 4. 按一下 **X**，關閉所有刀鋒視窗。
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>準備 Blob 儲存體和 SQL Database
-現在，請執行下列步驟，準備本教學課程中的 Azure Blob 儲存體和 Azure SQL Database。  
+現在，請執行下列步驟，準備本教學課程中的 Azure Blob 儲存體和 Azure SQL 資料庫。  
 
 1. 啟動 [記事本]。 複製以下文字，並命名為 **emp.txt**，然後儲存至您硬碟上的 **C:\ADFGetStarted** 資料夾。
 
@@ -95,7 +95,7 @@ ms.locfileid: "60487300"
     ```
 2. 使用 [Azure 儲存體總管](https://storageexplorer.com/)這類的工具建立 **adftutorial** 容器，以及將 **emp.txt** 檔案上傳至該容器。
 
-3. 使用以下 SQL 指令碼，在您的 Azure SQL Database 中建立 **emp** 資料表。  
+3. 使用下列 SQL 指令碼，在您的 Azure SQL Database 中建立 **emp** 資料表。  
 
     ```SQL
     CREATE TABLE dbo.emp

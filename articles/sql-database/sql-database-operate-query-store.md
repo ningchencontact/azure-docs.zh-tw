@@ -26,7 +26,7 @@ Azure 中的查詢資料存放區是完全受控的資料庫功能，可持續�
 查詢存放區已自 2015 年 11 月在 Azure SQL Database 中 [通用版本上市](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) 。 查詢存放區是效能分析及調整功能的基礎，例如 [SQL Database 建議程式和效能儀表板](https://azure.microsoft.com/updates/sqldatabaseadvisorga/)。 在本文發行時，查詢存放區正於 Azure 中 200,000 個以上的使用者資料庫內執行，不間斷地收集數個月的查詢相關資訊。
 
 > [!IMPORTANT]
-> Microsoft 正在為所有 Azure SQL Database (現有和新的) 啟用「查詢存放區」。 
+> Microsoft 正在為所有 Azure SQL 資料庫 (現有和新的) 啟用「查詢存放區」。 
 
 ## <a name="optimal-query-store-configuration"></a>最佳查詢存放區組態
 
@@ -43,7 +43,7 @@ Azure 中的查詢資料存放區是完全受控的資料庫功能，可持續�
 |  | | | |
 
 > [!IMPORTANT]
-> 在所有 Azure SQL Database 中查詢存放區啟用的最後階段會自動套用這些預設值 (請參閱上面的重要附註)。 在這次推出之後，Azure SQL Database 不會變更客戶所設定的組態值，除非該組態值會對主要工作負載或查詢存放區的可靠操作造成負面影響。
+> 在所有 Azure SQL 資料庫中查詢存放區啟用的最後階段會自動套用這些預設值 (請參閱上面的重要附註)。 在這次推出之後，Azure SQL Database 不會變更客戶所設定的組態值，除非該組態值會對主要工作負載或查詢存放區的可靠操作造成負面影響。
 
 如果您想要繼續使用自訂設定，請使用 [ALTER DATABASE 搭配查詢存放區選項](https://msdn.microsoft.com/library/bb522682.aspx) ，以將組態還原到先前的狀態。 請查看 [使用查詢存放區的最佳作法](https://msdn.microsoft.com/library/mt604821.aspx) ，以了解如何選擇最佳的組態參數。
 

@@ -1,5 +1,5 @@
 ---
-title: 跨多個 Azure SQL Database 執行隨選報表查詢 | Microsoft Docs
+title: 跨多個 Azure SQL 資料庫執行隨選報表查詢 | Microsoft Docs
 description: 在多租用戶應用程式範例中，跨多個 SQL 資料庫執行隨選報表查詢。
 services: sql-database
 ms.service: sql-database
@@ -19,7 +19,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61485743"
 ---
-# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>跨多個 Azure SQL Database 執行臨機操作分析查詢
+# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>跨多個 Azure SQL 資料庫執行臨機操作分析查詢
 
 在本教學課程中，您會在整個租用戶資料庫集合執行分散式查詢以啟用臨機操作互動式報表。 這些查詢可以擷取藏在 Wingtip Tickets SaaS 應用程式日常操作資料中的深入解析。 若要執行這些擷取，您要將額外的分析資料庫部署到目錄伺服器，並使用「彈性查詢」來啟用分散式查詢。
 

@@ -1,6 +1,6 @@
 ---
 title: 使用 Python 查詢 Azure SQL Database | Microsoft Docs
-description: 本主題說明如何使用 Python 來建立連線到 Azure SQL Database 的程式，並使用 Transact-SQL 陳述式查詢。
+description: 本主題說明如何使用 Python 來建立連線到 Azure SQL 資料庫的程式，並使用 Transact-SQL 陳述式查詢。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -27,7 +27,7 @@ ms.locfileid: "58444974"
 
 若要完成本快速入門，請確定您具備下列項目︰
 
-- Azure SQL Database。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
+- Azure SQL 資料庫。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
 
   || 單一資料庫 | 受控執行個體 |
   |:--- |:--- |:---|
@@ -53,7 +53,7 @@ ms.locfileid: "58444974"
 
 ## <a name="get-sql-server-connection-information"></a>取得 SQL Server 連線資訊
 
-取得連線到 Azure SQL Database 所需的連線資訊。 在後續程序中，您將需要完整的伺服器名稱或主機名稱、資料庫名稱和登入資訊。
+取得連線到 Azure SQL 資料庫所需的連線資訊。 在後續程序中，您將需要完整的伺服器名稱或主機名稱、資料庫名稱和登入資訊。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 

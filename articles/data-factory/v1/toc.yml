@@ -80,7 +80,7 @@
               href: data-factory-azure-datalake-connector.md
             - name: Azure 搜尋服務
               href: data-factory-azure-search-connector.md
-            - name: 連接字串
+            - name: Azure SQL Database
               href: data-factory-azure-sql-connector.md
             - name: Azure SQL 資料倉儲
               href: data-factory-azure-sql-data-warehouse-connector.md

@@ -56,7 +56,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
   - 如需詳細資訊，請參閱部落格文章：[Azure SQL Database 中的記憶體內部 OLTP 部落格文章](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
-> 記憶體內部技術可用於進階和業務關鍵層 Azure SQL Database，以及進階彈性集區。
+> 記憶體內部技術可用於進階和業務關鍵層 Azure SQL 資料庫，以及進階彈性集區。
 
 下列影片說明 Azure SQL Database 中的記憶體內部技術所可能提升的效能。 請記住，能提升多少效能永遠取決於許多因素，包括工作負載和資料的性質、資料庫的存取模式等等。
 

@@ -28,7 +28,7 @@ SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法
 
 若要完成本教學課程，您需要：
 
-- Azure SQL Database。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
+- Azure SQL 資料庫。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
 
   || 單一資料庫 |
   |:--- |:--- |

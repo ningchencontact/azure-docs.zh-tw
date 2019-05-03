@@ -27,7 +27,7 @@ ms.locfileid: "60585579"
 
 ![彈性擴縮詞彙][1]
 
-**資料庫：** Azure SQL Database。 
+**資料庫：** Azure SQL 資料庫。 
 
 **資料依存路由**：可讓應用程式根據特定的分區化索引鍵連接到分區的功能。 請參閱 [資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。 請對照 **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**。
 

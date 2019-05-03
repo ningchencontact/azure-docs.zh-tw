@@ -158,7 +158,7 @@ Data Factory 中的複製活動會將資料從來源資料存放區複製到接�
 | longRetryInterval |TimeSpan |00:00:00 |長時間重試嘗試之間的延遲 |
 
 ## <a name="sample-copy-pipeline"></a>範例複製管線
-在以下的範例管線中， **Copy** in the **活動** 類型的活動。 在此範例中，[複製活動](data-factory-data-movement-activities.md)會將資料從 Azure Blob 儲存體複製到 Azure SQL Database。
+在以下的範例管線中， **Copy** in the **活動** 類型的活動。 在此範例中，[複製活動](data-factory-data-movement-activities.md)會將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。
 
 ```json
 {

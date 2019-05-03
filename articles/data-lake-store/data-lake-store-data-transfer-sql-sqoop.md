@@ -1,5 +1,5 @@
 ---
-title: 使用 Sqoop 在 Azure Data Lake Storage Gen1 和 Azure SQL Database 之間複製資料 | Microsoft Docs
+title: 使用 Sqoop 在 Azure Data Lake Storage Gen1 和 Azure SQL 資料庫之間複製資料 | Microsoft Docs
 description: 使用 Sqoop 在 Azure SQL Database 和 Azure Data Lake Storage Gen1 之間複製資料
 services: data-lake-store
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60878761"
 ---
-# <a name="copy-data-between-azure-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>使用 Sqoop 在 Azure Data Lake Storage Gen1 和 Azure SQL Database 之間複製資料
+# <a name="copy-data-between-azure-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>使用 Sqoop 在 Azure Data Lake Storage Gen1 和 Azure SQL 資料庫之間複製資料
 了解如何使用 Apache Sqoop 在 Azure SQL Database 和 Azure Data Lake Storage Gen1 之間匯入及匯出資料。
 
 ## <a name="what-is-sqoop"></a>什麼是 Sqoop？
@@ -33,7 +33,7 @@ ms.locfileid: "60878761"
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure Data Lake Storage Gen1 帳戶**。 如需建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * 可存取 Data Lake Storage Gen1 帳戶的 **Azure HDInsight 叢集**。 請參閱[建立搭配 Data Lake Storage Gen1 的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)。 本文假設您已使用 Azure Data Lake Storage Gen1 存取 HDInsight Linux 叢集。
-* **Azure SQL Database**。 如需建立方式的指示，請參閱 [建立 Azure SQL Database](../sql-database/sql-database-get-started.md)
+* **Azure SQL Database**。 如需建立方式的指示，請參閱 [建立 Azure SQL 資料庫](../sql-database/sql-database-get-started.md)
 
 ## <a name="do-you-learn-fast-with-videos"></a>使用影片快速學習？
 請[觀看這部影片](https://mix.office.com/watch/1butcdjxmu114)，主題是關於如何使用 DistCp 在 Azure 儲存體 Blob 與 Data Lake Storage Gen1 之間複製資料。
@@ -87,7 +87,7 @@ HDInsight 叢集已有可用的 Sqoop 套件。 如果您已設定 HDInsight 叢
 
         sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-    請注意， **sql-database-server-name** 預留位置代表正在執行 Azure SQL Database 之伺服器的名稱。 **sql-database-name** 預留位置代表實際的資料庫名稱。
+    請注意， **sql-database-server-name** 預留位置代表正在執行 Azure SQL 資料庫之伺服器的名稱。 **sql-database-name** 預留位置代表實際的資料庫名稱。
 
     例如，
 

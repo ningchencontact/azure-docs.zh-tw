@@ -21,7 +21,7 @@ ms.locfileid: "61000098"
 當您從下列資料來源註冊資料資產時，「Azure 資料目錄」會自動註冊與所選資料資產之間聯結關聯性相關的中繼資料。 
 
 - SQL Server
-- 連接字串
+- Azure SQL Database
 - MySQL
 - Oracle
 

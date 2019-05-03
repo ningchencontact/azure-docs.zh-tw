@@ -1,5 +1,5 @@
 ---
-title: CLI 範例 - 移動 Azure SQL Database - SQL 彈性集區 | Microsoft Docs
+title: CLI 範例 - 移動 Azure SQL 資料庫 - SQL 彈性集區 | Microsoft Docs
 description: 移動 SQL 彈性集區中 SQL 資料庫的 Azure CLI 範例指令碼
 services: sql-database
 ms.service: sql-database
@@ -19,9 +19,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357583"
 ---
-# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 移動 SQL 彈性集區中的 Azure SQL Database
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 移動 SQL 彈性集區中的 Azure SQL 資料庫
 
-此 Azure CLI 指令碼範例會建立兩個彈性集區，並將 Azure SQL Database 從一個 SQL 彈性集區移到另一個 SQL 彈性集區，然後將資料庫從彈性集區移出到單一資料庫計算大小。
+此 Azure CLI 指令碼範例會建立兩個彈性集區，並將 Azure SQL 資料庫從一個 SQL 彈性集區移到另一個 SQL 彈性集區，然後將資料庫從彈性集區移出到單一資料庫計算大小。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

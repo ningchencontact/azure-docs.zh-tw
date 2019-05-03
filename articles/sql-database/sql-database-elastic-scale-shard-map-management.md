@@ -1,5 +1,5 @@
 ---
-title: 相應放大 Azure SQL Database | Microsoft Docs
+title: 相應放大 Azure SQL 資料庫 | Microsoft Docs
 description: 如何使用彈性資料庫用戶端程式庫 ShardMapManager
 services: sql-database
 ms.service: sql-database

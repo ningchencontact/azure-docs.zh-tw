@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 的查詢效能深入解析 | Microsoft Docs
-description: 查詢效能監視可識別最耗用 CPU 的 Azure SQL Database 查詢。
+description: 查詢效能監視可識別最耗用 CPU 的 Azure SQL 資料庫查詢。
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -35,7 +35,7 @@ ms.locfileid: "60585193"
 
 ## <a name="prerequisites"></a>必要條件
 
-「查詢效能深入解析」要求 [查詢存放區](https://msdn.microsoft.com/library/dn817826.aspx) 在您的資料庫上為作用中狀態。 依預設會為所有 Azure SQL Database 啟用此項目。 如果查詢存放區未執行，Azure 入口網站會提示您加以啟用。
+「查詢效能深入解析」要求 [查詢存放區](https://msdn.microsoft.com/library/dn817826.aspx) 在您的資料庫上為作用中狀態。 依預設會為所有 Azure SQL 資料庫啟用此項目。 如果查詢存放區未執行，Azure 入口網站會提示您加以啟用。
 
 > [!NOTE]
 > 如果入口網站中出現「此資料庫的查詢存放區未正確設定」訊息，請參閱[最佳化查詢存放區組態](#optimize-the-query-store-configuration-for-query-performance-insight)。

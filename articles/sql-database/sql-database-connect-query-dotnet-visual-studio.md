@@ -19,15 +19,15 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58443675"
 ---
-# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>快速入門：在 Visual Studio 使用 .NET 和 C# 連線和查詢 Azure SQL Database
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>快速入門：在 Visual Studio 使用 .NET 和 C# 連線和查詢 Azure SQL 資料庫
 
-本快速入門示範如何在 Visual Studio 使用 [.NET Framework](https://www.microsoft.com/net/) 和 C# 程式碼，以 Transact-SQL 陳述式來查詢 Azure SQL Database。
+本快速入門示範如何在 Visual Studio 使用 [.NET Framework](https://www.microsoft.com/net/) 和 C# 程式碼，以 Transact-SQL 陳述式來查詢 Azure SQL 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門，您需要：
 
-- Azure SQL Database。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
+- Azure SQL 資料庫。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
 
   || 單一資料庫 | 受控執行個體 |
   |:--- |:--- |:---|
@@ -47,7 +47,7 @@ ms.locfileid: "58443675"
 
 ## <a name="get-sql-server-connection-information"></a>取得 SQL Server 連線資訊
 
-取得連線到 Azure SQL Database 所需的連線資訊。 在後續程序中，您將需要完整的伺服器名稱或主機名稱、資料庫名稱和登入資訊。
+取得連線到 Azure SQL 資料庫所需的連線資訊。 在後續程序中，您將需要完整的伺服器名稱或主機名稱、資料庫名稱和登入資訊。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 

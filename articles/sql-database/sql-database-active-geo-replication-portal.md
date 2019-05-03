@@ -29,7 +29,7 @@ ms.locfileid: "60864060"
 
 若要使用 Azure 入口網站來設定作用中異地複寫，您需要下列資源：
 
-* Azure SQL Database：您想要複寫到不同地理區域的主要資料庫。
+* Azure SQL 資料庫：您想要複寫到不同地理區域的主要資料庫。
 
 > [!Note]
 > 使用 Azure 入口網站時，您只能在與主要資料庫相同的訂用帳戶內建立次要資料庫。 如果次要資料庫必須在不同的訂用帳戶中，請使用 [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) 或 [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)。

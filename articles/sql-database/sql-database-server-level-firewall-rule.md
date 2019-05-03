@@ -42,7 +42,7 @@ SQL Database 服務會在資料庫伺服器層級建立單一和集區資料庫�
 
 請遵循下列步驟，為您用戶端的 IP 位址建立伺服器層級 IP 防火牆規則，並且讓外部連線僅能透過 SQL Database 防火牆存取該 IP 位址。
 
-1. 完成[必要 Azure SQL Database](#prerequisites) 部署之後，選取左側功能表中的 [SQL Database]，然後選擇 [SQL Database] 頁面上的 **mySampleDatabase**。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20170824.database.windows.net**)，並提供進一步的組態選項。
+1. 完成[必要 Azure SQL 資料庫](#prerequisites)部署之後，選取左側功能表中的 [SQL 資料庫]，然後選擇 [SQL 資料庫] 頁面上的 **mySampleDatabase**。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20170824.database.windows.net**)，並提供進一步的組態選項。
 
 2. 在其他快速入門中，請複製此完整伺服器名稱，以在連線到伺服器及其資料庫時使用。
 

@@ -63,7 +63,7 @@ Application Insights 提供即時的應用程式效能管理和透過 Azure 監�
 - Azure 監視器 （記錄檔）
 - Azure Resource Manager
 - Azure 資訊安全中心
-- 連接字串
+- Azure SQL Database
 - Azure 儲存體
 - Azure 自動化
 - Azure Web Apps 

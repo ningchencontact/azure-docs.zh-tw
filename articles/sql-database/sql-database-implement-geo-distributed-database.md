@@ -1,6 +1,6 @@
 ---
-title: 實作異地分散的 Azure SQL Database 解決方案| Microsoft Docs
-description: 了解如何設定您的 Azure SQL Database 和應用程式來容錯移轉至複寫資料庫，並測試容錯移轉。
+title: 實作異地分散的 Azure SQL 資料庫解決方案| Microsoft Docs
+description: 了解如何設定您的 Azure SQL 資料庫和應用程式來容錯移轉至複寫資料庫，並測試容錯移轉。
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -21,11 +21,11 @@ ms.locfileid: "60338956"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>教學課程：實作異地分散資料庫
 
-設定 Azure SQL Database 和應用程式來容錯移轉到遠端區域，並測試您的容錯移轉計畫。 您會了解如何：
+設定 Azure SQL 資料庫和應用程式來容錯移轉到遠端區域，並測試您的容錯移轉計畫。 您會了解如何：
 
 > [!div class="checklist"]
 > - 建立[容錯移轉群組](sql-database-auto-failover-group.md)
-> - 執行 Java 應用程式以查詢 Azure SQL Database
+> - 執行 Java 應用程式以查詢 Azure SQL 資料庫
 > - 測試容錯移轉
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
@@ -39,7 +39,7 @@ ms.locfileid: "60338956"
 若要完成本教學課程，請確定您已安裝下列項目：
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- Azure SQL Database。 若要建立一次使用，
+- Azure SQL 資料庫。 若要建立一次使用，
   - [入口網站](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
@@ -332,11 +332,11 @@ ms.locfileid: "60338956"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您要設定 Azure SQL Database 和應用程式來容錯移轉到遠端區域，然後測試容錯移轉計畫。 您已了解如何︰
+在本教學課程中，您要設定 Azure SQL 資料庫和應用程式來容錯移轉到遠端區域，然後測試容錯移轉計畫。 您已了解如何︰
 
 > [!div class="checklist"]
 > - 建立異地複寫容錯移轉群組
-> - 執行 Java 應用程式以查詢 Azure SQL Database
+> - 執行 Java 應用程式以查詢 Azure SQL 資料庫
 > - 測試容錯移轉
 
 請前進到下一個關於如何使用 DMS 進行移轉的教學課程。

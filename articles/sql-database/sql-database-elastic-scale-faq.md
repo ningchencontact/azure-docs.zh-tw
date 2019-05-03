@@ -31,7 +31,7 @@ ms.locfileid: "60584942"
 
 ## <a name="how-much-do-elastic-database-tools-cost"></a>使用彈性資料庫工具的成本要多少
 
-使用彈性資料庫用戶端程式庫不會產生任何成本。 只有您使用於分區和分區對應管理員的 Azure SQL Database 和您為分割合併工具佈建的 Web/背景工作角色才會產生成本。
+使用彈性資料庫用戶端程式庫不會產生任何成本。 只有您使用於分區和分區對應管理員的 Azure SQL 資料庫和您為分割合併工具佈建的 Web/背景工作角色才會產生成本。
 
 ## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>為什麼從其他伺服器新增分區時，我的認證無法使用
 

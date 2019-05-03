@@ -27,7 +27,7 @@ ms.locfileid: "56447968"
 
 | |  |
 |---|---|
-|[SQL Server Management Studio](sql-database-connect-query-ssms.md)|此快速入門示範如何使用 SSMS 來連線至 Azure SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。|
+|[SQL Server Management Studio](sql-database-connect-query-ssms.md)|此快速入門示範如何使用 SSMS 來連線至 Azure SQL 資料庫，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。|
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|此快速入門示範如何使用 Azure Data Studio 連線至 Azure SQL 資料庫，然後使用 Transact-SQL (T-SQL) 陳述式建立 Azure Data Studio 教學課程中使用的 TutorialDB。|
 |[Azure 入口網站](sql-database-connect-query-portal.md)|此快速入門會示範如何使用查詢編輯器來連線至 SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。|
 |[Visual Studio Code](sql-database-connect-query-vscode.md)|此快速入門示範如何使用 Visual Studio Code 來連線至 Azure SQL 資料庫，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。|

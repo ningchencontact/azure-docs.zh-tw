@@ -1,5 +1,5 @@
 ---
-title: 查詢分區化 Azure SQL Database | Microsoft Docs
+title: 查詢分區化 Azure SQL 資料庫 | Microsoft Docs
 description: 使用彈性資料庫用戶端程式跨分區執行查詢。
 services: sql-database
 ms.service: sql-database

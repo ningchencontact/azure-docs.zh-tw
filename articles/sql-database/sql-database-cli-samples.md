@@ -36,10 +36,10 @@ ms.locfileid: "59359442"
 | |  |
 |---|---|
 |**建立單一資料庫和彈性集區**||
-| [建立單一資料庫並設定防火牆規則](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 此 CLI 指令碼範例會建立單一 Azure SQL Database，並設定伺服器層級防火牆規則。 |
-| [建立彈性集區並移動集區資料庫](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 此CLI 指令碼範例會建立 SQL 彈性集區，並移動集區 Azure SQL Database，然後變更計算大小。|
+| [建立單一資料庫並設定防火牆規則](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 此 CLI 指令碼範例會建立單一 Azure SQL 資料庫，並設定伺服器層級防火牆規則。 |
+| [建立彈性集區並移動集區資料庫](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 此CLI 指令碼範例會建立 SQL 彈性集區，並移動集區 Azure SQL 資料庫，然後變更計算大小。|
 |**調整單一資料庫和彈性集區**||
-| [調整單一資料庫](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 此 CLI 指令碼範例會在查詢單一 Azure SQL Database 的大小資訊後，將其調整為不同的計算大小。 |
+| [調整單一資料庫](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 此 CLI 指令碼範例會在查詢單一 Azure SQL 資料庫的大小資訊後，將其調整為不同的計算大小。 |
 | [調整彈性集區](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 此 CLI 指令碼範例會將 SQL 彈性集區調整為不同的計算大小。  |
 |||
 

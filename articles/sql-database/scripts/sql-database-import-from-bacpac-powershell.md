@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例：將 BACPAC 檔案匯入 Azure SQL Database | Microsoft Docs
+title: PowerShell 範例：將 BACPAC 檔案匯入 Azure SQL 資料庫 | Microsoft Docs
 description: 將 BASPAC 檔案匯入 SQL Database 的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database
@@ -19,9 +19,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361225"
 ---
-# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 將 BACPAC 檔案匯入 Azure SQL Database
+# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 將 BACPAC 檔案匯入 Azure SQL 資料庫
 
-此 PowerShell 指令碼範例會從 BACPAC 檔案將資料庫匯入 Azure SQL Database。  
+此 PowerShell 指令碼範例會從 BACPAC 檔案將資料庫匯入 Azure SQL 資料庫。  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

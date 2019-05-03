@@ -130,7 +130,7 @@ EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","childr
 ## <a name="querying-json-data"></a>查詢 JSON 資料
 如果您有格式化為 JSON 的資料儲存在 Azure SQL 資料表中，JSON 函數可讓您在任何 SQL 查詢中使用此資料。
 
-Azure SQL Database 中可用的 JSON 函數可讓您將格式化為 JSON 的資料視為任何其他 SQL 資料類型。 您可以輕鬆地從 JSON 文字中擷取值，然後在任何查詢中使用 JSON 資料︰
+Azure SQL 資料庫中可用的 JSON 函數可讓您將格式化為 JSON 的資料視為任何其他 SQL 資料類型。 您可以輕鬆地從 JSON 文字中擷取值，然後在任何查詢中使用 JSON 資料︰
 
 ```
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')

@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Data Factory 以累加方式複製資料表 | Microsoft Docs
-description: 在本教學課程中，您會建立 Azure Data Factory 管線，以累加方式將資料從 Azure SQL Database 複製到 Azure Blob 儲存體。
+description: 在本教學課程中，您會建立 Azure Data Factory 管線，以累加方式將資料從 Azure SQL 資料庫複製到 Azure Blob 儲存體。
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -19,8 +19,8 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58447243"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
-在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL 資料庫載入到 Azure Blob 儲存體
+在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL 資料庫中的資料表載入到 Azure Blob 儲存體。 
 
 您會在本教學課程中執行下列步驟：
 
@@ -63,7 +63,7 @@ ms.locfileid: "58447243"
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>先決條件
-* **Azure SQL Database**。 您需要使用資料庫作為來源資料存放區。 如果您沒有 SQL 資料庫，請參閱[建立 Azure SQL Database](../sql-database/sql-database-get-started-portal.md)，按照步驟來建立 SQL 資料庫。
+* **Azure SQL Database**。 您需要使用資料庫作為來源資料存放區。 如果您沒有 SQL 資料庫，請參閱[建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)，按照步驟來建立 SQL 資料庫。
 * **Azure 儲存體**。 您需要使用 Blob 儲存體作為接收資料存放區。 如果您沒有儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)，按照步驟來建立儲存體帳戶。 建立名為 adftutorial 的容器。 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>在 SQL 資料庫中建立資料來源資料表
@@ -195,7 +195,7 @@ END
 5. 切換至 [設定] 索引標籤，然後按一下 [+ 新增] 以新增**來源資料集**。 在此步驟中，您會建立資料集來代表**浮水印資料表**中的資料。 此資料表包含先前複製作業中所使用的舊浮水印。 
 
    ![新增資料集功能表 - 舊浮水印](./media/tutorial-incremental-copy-portal/new-dataset-old-watermark.png)
-6. 在 [新增資料集] 視窗中，選取 [Azure SQL Database]，然後按一下 [完成]。 您會看到為該資料集開啟的新索引標籤。 
+6. 在 [新增資料集] 視窗中選取 [Azure SQL Database]，然後按一下 [完成]。 您會看到為該資料集開啟的新索引標籤。 
 
    ![選取 Azure SQL Database](./media/tutorial-incremental-copy-portal/select-azure-sql-database-old-watermark.png)
 7. 在該資料集的 [屬性] 視窗中，輸入 **WatermarkDataset** 作為 [名稱]。
@@ -227,7 +227,7 @@ END
 13. 在第二個 [查閱] 活動的 [屬性] 視窗中，切換到 [設定] 索引標籤，然後按一下 [新增]。 您建立的資料集會指向來源資料表，其中包含新浮水印值 (LastModifyTime 最大值)。 
 
     ![第二個查閱活動 - 新增資料集](./media/tutorial-incremental-copy-portal/second-lookup-activity-settings-new-button.png)
-14. 在 [新增資料集] 視窗中，選取 [Azure SQL Database]，然後按一下 [完成]。 您會看到為此資料集而開啟的新索引標籤。 你也會在樹狀檢視中看到該資料集。 
+14. 在 [新增資料集] 視窗中選取 [Azure SQL Database]，然後按一下 [完成]。 您會看到為此資料集而開啟的新索引標籤。 你也會在樹狀檢視中看到該資料集。 
 15. 在 [屬性] 視窗的 [一般] 索引標籤中，輸入 [SourceDataset] 作為 [名稱]。 
 
     ![來源資料集 - 名稱](./media/tutorial-incremental-copy-portal/source-dataset-name.png)

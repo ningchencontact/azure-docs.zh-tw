@@ -78,7 +78,7 @@ Integration Runtime 為 Azure Data Factory 使用的客戶受控資料整合基�
 
 1. 內部部署 SQL Server
 2. Azure Blob 儲存體
-3. Azure SQL Database
+3. Azure SQL 資料庫
 
 用於建立連結服務的逐步程序，已在[建立連結服務](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)中提供。
 

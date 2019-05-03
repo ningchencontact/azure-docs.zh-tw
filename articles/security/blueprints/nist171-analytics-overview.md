@@ -53,7 +53,7 @@ SQL Database 通常會透過 SQL Server Management Studio 來管理。 執行 SS
 - Azure Machine Learning
 - Azure 監視器 （記錄檔）
 - Azure 資訊安全中心
-- 連接字串
+- Azure SQL Database
 - Azure 儲存體
 - Azure 虛擬網路
     - (1) /16 網路

@@ -37,7 +37,7 @@ Azure SQL Database 稽核可讓企業將事件記錄到 Azure 儲存體中的稽
 
 Azure SQL 資料庫可嚴加保護，以符合大多數法規或安全性需求，包括 HIPAA、ISO 27001/27002 和 PCI DSS Level 1。 [Microsoft Azure 信任中心網站](https://azure.microsoft.com/support/trust-center/services/)提供目前的安全性合規性認證清單。
 
-本文將逐步解說保護 Microsoft Azure SQL Database 中結構化、表格式和關聯式資料的基本概念。 本文尤其著重於協助您開始利用資源來保護資料、控制存取，以及進行主動式監視。
+本文將逐步解說保護 Microsoft Azure SQL 資料庫中結構化、表格式和關聯式資料的基本概念。 本文尤其著重於協助您開始利用資源來保護資料、控制存取，以及進行主動式監視。
 
 ## <a name="protection-of-data"></a>對資料的保護
 

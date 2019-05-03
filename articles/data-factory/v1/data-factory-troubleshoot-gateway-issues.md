@@ -225,7 +225,7 @@ ms.locfileid: "61252320"
 #### <a name="resolution"></a>解決方案
 在連接到 SQL Database 之前，允許透過資料管理閘道用戶端上的連接埠 TCP/1433 進行輸出 TCP 連線。
 
-如果目標資料庫是 Azure SQL Database，請同時檢查 Azure 的 SQL Server 防火牆設定。
+如果目標資料庫是 Azure SQL 資料庫，請同時檢查 Azure 的 SQL Server 防火牆設定。
 
 請參閱下一節，以測試連往內部部署資料存放區的連線。
 

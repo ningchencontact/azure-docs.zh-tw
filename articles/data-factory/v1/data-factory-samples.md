@@ -50,7 +50,7 @@ ms.locfileid: "61260015"
 
 | 範本 | 描述 |
 | --- | --- |
-| [從 Azure Blob 儲存體複製到 Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |部署此範本會建立 Azure Data Factory，其中有管線可將資料從指定的 Azure Blob 儲存體複製到 Azure SQL Database。 |
+| [從 Azure Blob 儲存體複製到 Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |部署此範本會建立 Azure Data Factory，其中有管線可將資料從指定的 Azure Blob 儲存體複製到 Azure SQL 資料庫。 |
 | [從 Salesforce 複製到 Azure Blob 儲存體](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |部署此範本會建立 Azure Data Factory，其中有管線可將資料從指定的 Salesforce 帳戶複製到 Azure Blob 儲存體。 |
 | [在 Azure HDInsight 叢集上執行 Hive 指令碼來轉換資料](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |部署此範本會建立 Azure Data Factory，其中有管線可透過在 Azure HDInsight Hadoop 叢集上執行範例 Hive 指令碼來轉換資料。 |
 
@@ -106,7 +106,7 @@ ms.locfileid: "61260015"
    4. 選取 Data Factory 的 [資源群組]  。
    5. 針對 [區域]，選取 [美國西部]、[美國東部] 或 [北歐]。
    6. 单击“下一步”。
-6. 在 [設定資料存放區] 頁面中，指定現有的 [Azure SQL Database] 和 [Azure 儲存體帳戶]，或建立資料庫/儲存體，然後按 [下一步]。
+6. 在 [設定資料存放區] 頁面中，指定現有的 [Azure SQL 資料庫] 和 [Azure 儲存體帳戶]，或建立資料庫/儲存體，然後按 [下一步]。
 7. 在 [設定計算] 頁面中，選取預設值，然後按 [下一步]。
 8. 在 [摘要] 頁面中，檢閱所有設定，然後按 [下一步]。
 9. 在 [部署狀態] 頁面中，等候部署完成，然後按一下 [完成]。

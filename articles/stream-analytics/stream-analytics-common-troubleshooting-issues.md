@@ -77,7 +77,7 @@ ms.locfileid: "61362111"
 
 ## <a name="handle-duplicate-records-in-azure-sql-database-output"></a>Azure SQL Database 輸出中的控制代碼重複記錄
 
-當您設定 Azure SQL Database 作為串流分析作業的輸出時，它會將記錄大量插入至目的地資料表。 一般情況下，Azure 串流分析保證[至少一次傳遞]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics)至輸出接收，當 SQL 資料表已定義唯一限制式時，仍然可以[達到準確一次傳遞]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/)至 SQL 輸出。 
+當您設定 Azure SQL 資料庫作為串流分析作業的輸出時，它會將記錄大量插入至目的地資料表。 一般情況下，Azure 串流分析保證[至少一次傳遞]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics)至輸出接收，當 SQL 資料表已定義唯一限制式時，仍然可以[達到準確一次傳遞]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/)至 SQL 輸出。 
 
 一旦在 SQL 資料表上設定好唯一的索引鍵限制式，如果有重複的記錄插入至 SQL 資料表，Azure 串流分析就會移除重複的記錄。 它會將資料分割為幾個批次，並以遞迴方式插入批次，直到找到單一重複的記錄。 如果串流作業有相當多的重複資料列，這種分割和插入的程序必須一個一個忽略重複的項目，這樣比較沒有效率而且耗時。 如果您在過去一小時內的活動記錄中看到多個索引鍵違規警告訊息，有可能是 SQL 輸出減緩整個作業。 
 

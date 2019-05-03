@@ -59,7 +59,7 @@ ms.locfileid: "60331758"
 - 在移轉期間停用自動統計資料
 - 分割資料表和索引
 - 捨棄索引檢視表，然後於移轉完成後重新建立
-- 將鮮少查詢的歷程記錄資料移除到另一個資料庫，然後將此歷程記錄資料移轉至不同的 Azure SQL Database。 您接著可以使用[彈性查詢](sql-database-elastic-query-overview.md)查詢此歷程記錄資料。
+- 將鮮少查詢的歷程記錄資料移除到另一個資料庫，然後將此歷程記錄資料移轉至不同的 Azure SQL 資料庫。 您接著可以使用[彈性查詢](sql-database-elastic-query-overview.md)查詢此歷程記錄資料。
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>在移轉完成後將效能最佳化
 

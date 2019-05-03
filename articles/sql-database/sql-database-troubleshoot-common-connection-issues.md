@@ -1,5 +1,5 @@
 ---
-title: 疑難排解 Azure SQL Database 常見的連接問題
+title: 針對 Azure SQL Database 常見的連線問題進行疑難排解
 description: 找出並解決 Azure SQL Database 常見之連接錯誤的步驟。
 services: sql-database
 ms.service: sql-database
@@ -71,7 +71,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 ## <a name="troubleshoot-persistent-errors"></a>針對持續性錯誤進行疑難排解
 如果應用程式持續無法連接到 Azure SQL Database，通常表示下列其中一項發生問題︰
 
-* 防火牆組態。 Azure SQL Database 或用戶端防火牆封鎖 Azure SQL Database 的連接。
+* 防火牆組態。 Azure SQL 資料庫或用戶端防火牆封鎖 Azure SQL Database 的連接。
 * 用戶端上的網路重新設定：例如，新的 IP 位址或 Proxy 伺服器。
 * 使用者錯誤︰例如，輸入錯誤的連線參數，例如連接字串中的伺服器名稱。
 

@@ -1,6 +1,6 @@
 ---
 title: 將 Excel 連線至 Azure SQL Database 中的單一資料庫 | Microsoft Docs
-description: 了解如何將 Microsoft Excel 連線至 Azure SQL Database 中的單一資料庫。 將資料匯入 Excel 中進行報告和資料探索。
+description: 了解如何將 Microsoft Excel 連線至 Azure SQL 資料庫中的單一資料庫。 將資料匯入 Excel 中進行報告和資料探索。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -19,7 +19,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61414218"
 ---
-# <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>將 Excel 連線至 Azure SQL Database 中的單一資料庫和建立報表
+# <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>將 Excel 連線至 Azure SQL 資料庫中的單一資料庫和建立報表
 
 將 Excel 連線至 Azure SQL Database 中的單一資料庫並匯入資料，以及根據資料庫中的值來建立資料表和圖表。 在本教學課程中，您將設定 Excel 與資料庫資料表之間的連接、儲存可存放 Excel 資料和連接資訊的檔案，然後根據資料庫值建立樞紐分析圖。
 

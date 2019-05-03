@@ -20,7 +20,7 @@ metadata:
 sections:
   - items:
       - type: paragraph
-        text: Azure SQL Database 是完全受控的平台即服務 (PaaS) 資料庫引擎，可處理大部分的資料庫管理功能，例如升級、修補、備份和監視，而不需要使用者介入。 Azure SQL Database 一律會在最新穩定版本的 SQL Server 資料庫引擎上執行，並可在已修補作業系統達 99.99% 的可用性。 內建到 Azure SQL Database 的 PaaS 功能可讓您將焦點放在對企業非常重要的網域特定資料庫管理和最佳化活動上。
+        text: Azure SQL Database 是完全受控的平台即服務 (PaaS) 資料庫引擎，可處理大部分的資料庫管理功能，例如升級、修補、備份和監視，而不需要使用者介入。 Azure SQL Database 一律會在最新穩定版本的 SQL Server 資料庫引擎上執行，並可在已修補作業系統達 99.99% 的可用性。 內建到 Azure SQL 資料庫的 PaaS 功能可讓您將焦點放在對企業非常重要的網域特定資料庫管理和最佳化活動上。
       - type: list
         style: cards
         className: cardsM

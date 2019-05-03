@@ -29,7 +29,7 @@ ms.locfileid: "59425775"
 
 單一資料庫具有一組使用兩個[購買模型](sql-database-purchase-models.md)之一定義的計算、記憶體、IO 和儲存體資源。 當您建立單一資料庫時，您也會定義 [SQL Database 伺服器](sql-database-servers.md)加以管理，並將其放入指定區域中的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
 
-下列 JSON 檔案是本文中所用的範本。 此範本會儲存在 Azure 儲存體帳戶中。 在[這裡](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular)可找到更多 Azure SQL Database 範本範例。
+下列 JSON 檔案是本文中所用的範本。 此範本會儲存在 Azure 儲存體帳戶中。 在[這裡](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular)可找到更多 Azure SQL 資料庫範本範例。
 
 ```json
 {

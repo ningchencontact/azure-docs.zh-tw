@@ -21,7 +21,7 @@ ms.locfileid: "60584602"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>規劃 Azure SQL Database 的 Azure 維護事件
 
-了解如何為 Azure SQL Database 的計劃性維護事件做準備。
+了解如何為 Azure SQL 資料庫的計劃性維護事件做準備。
 
 ## <a name="what-is-a-planned-maintenance-event"></a>什麼是計劃性維護事件
 

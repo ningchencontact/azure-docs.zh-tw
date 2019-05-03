@@ -29,7 +29,7 @@ ms.locfileid: "60609057"
 
 Azure 已為客戶提供各種報表和分析服務；但是，此解決方案結合 Azure Analysis Services 與 Azure SQL Database，可透過更聰明的客戶資料模型，來快速瀏覽資料及傳遞更快的結果。 Azure Analytics Services 是機器學習的一種形式，其透過探索資料集之間的新關係，來加快查詢速度。 一旦透過數個統計函數來訓練模型之後，最多可以讓其他 7 個 (若包括客戶伺服器則是總計 8 個) 查詢集區與相同的表格式模型同步，以分散查詢工作負載並縮短回應時間。
 
-若要加強分析和報告，您可以使用資料行存放區索引來設定 Azure SQL 資料庫。 根據客戶的使用情況，Azure Analytics Services 和 Azure SQL database 可進行相應增加或減少，或甚至是完全關閉。 所有 SQL 流量都會使用 SSL 透過內含的自我簽署憑證來加密。 Azure 建議的最佳做法是使用受信任的憑證授權單位，來增強安全性。
+若要加強分析和報告，您可以使用資料行存放區索引來設定 Azure SQL 資料庫。 根據客戶的使用情況，Azure Analytics Services 和 Azure SQL 資料庫可進行相應增加或減少，或甚至是完全關閉。 所有 SQL 流量都會使用 SSL 透過內含的自我簽署憑證來加密。 Azure 建議的最佳做法是使用受信任的憑證授權單位，來增強安全性。
 
 一旦將資料上傳至 Azure SQL Database，並由 Azure Analysis Services 加以訓練後，操作使用者和 SQL/資料管理員就會使用 Power BI 來處理這些資料。 Power BI 會以直覺方式顯示資料，並同時提取多個資料集中的資訊，來繪製更深入的見解。 因為其適應性高且能輕鬆地與 Azure SQL Database 整合，可確保客戶能根據他們的業務需求進行設定，進而處理大量案例。
 
@@ -53,7 +53,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 - Azure 金鑰保存庫
 - Azure 監視器
 - Azure 資訊安全中心
-- 連接字串
+- Azure SQL Database
 - Azure 儲存體
 - Azure 虛擬網路
     - (1) /16 網路

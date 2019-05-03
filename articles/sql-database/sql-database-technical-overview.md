@@ -27,7 +27,7 @@ SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服�
 > [!NOTE]
 > 如需 Azure SQL Database 的詞彙解釋，請參閱 [SQL 資料庫術語詞彙](sql-database-glossary-terms.md)
 
-Azure SQL Database 為 Azure SQL Database 提供下列部署選項：
+Azure SQL Database 為 Azure SQL 資料庫提供下列部署選項：
 
 - 以[單一資料庫](sql-database-single-database.md)形式，內含透過 SQL Database 伺服器管理的自有資源集。 單一資料庫類似 SQL Server 中的[自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。
 - [彈性集區](sql-database-elastic-pool.md)，這是透過 SQL Database 伺服器管理的共用資源集出現在其中的資料庫集合。 單一資料庫可以移入和移出彈性集區。
@@ -113,11 +113,11 @@ Azure 可用性區域是婧矔菛高可用性問題。  它會嘗試防止建置
 
 - **[自動備份](sql-database-automated-backups.md)**：
 
-  SQL Database 會自動執行 Azure SQL Database 的完整、差異及交易記錄備份，以供您還原至任何時間點。 對於單一資料庫和集區資料庫，您可以設定 SQL 資料庫將完整資料庫備份儲存至 Azure 儲存體，以供長期備份保留。 對於受控執行個體，您也可以對僅複製備份執行長期備份保留。
+  SQL Database 會自動執行 Azure SQL 資料庫的完整、差異及交易記錄備份，以供您還原至任何時間點。 對於單一資料庫和集區資料庫，您可以設定 SQL 資料庫將完整資料庫備份儲存至 Azure 儲存體，以供長期備份保留。 對於受控執行個體，您也可以對僅複製備份執行長期備份保留。
 
 - **[時間點還原](sql-database-recovery-using-backups.md)**：
 
-  所有 SQL Database 部署選項均支援復原到任何 Azure SQL Database 自動備份保留期間內的任何時間點。
+  所有 SQL Database 部署選項均支援復原到任何 Azure SQL 資料庫自動備份保留期間內的任何時間點。
 - **[主動式異地複寫](sql-database-active-geo-replication.md)**：
 
   單一資料庫和集區資料庫可讓您在相同或全域分散的 Azure 資料中心最多設定四個可讀取的次要資料庫。  例如，如果 SaaS 應用程式的目錄資料庫有大量的並行唯讀交易，請使用主動式異地複寫功能來啟用全域讀取範圍，並移除主要資料庫上因為讀取工作負載所造成的瓶頸。 對於受控執行個體，請使用自動容錯移轉群組。

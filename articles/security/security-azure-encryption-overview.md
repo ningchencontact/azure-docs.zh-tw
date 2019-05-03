@@ -90,7 +90,7 @@ Azure Blob 儲存體和 Azure 檔案共用中的待用資料可以在伺服器�
 
 [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) 可用來使用資料庫加密金鑰 (DEK) 即時加密 [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016)、[Azure SQL Database](../sql-database/sql-database-technical-overview.md) 和 [Azure SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)資料檔案，該金鑰儲存在資料庫開機記錄中，以在復原期間使用。
 
-TDE 會使用 AES 和三重資料加密標準 (3DES) 加密演算法來保護資料和記錄檔。 資料庫檔案的加密會在頁面層級執行。 已加密資料庫中的頁面會在寫入磁碟之前進行加密，並會在讀入記憶體時進行解密。 現在預設會在新建立的 Azure SQL Database 上啟用 TDE。
+TDE 會使用 AES 和三重資料加密標準 (3DES) 加密演算法來保護資料和記錄檔。 資料庫檔案的加密會在頁面層級執行。 已加密資料庫中的頁面會在寫入磁碟之前進行加密，並會在讀入記憶體時進行解密。 現在預設會在新建立的 Azure SQL 資料庫上啟用 TDE。
 
 #### <a name="always-encrypted-feature"></a>Always Encrypted 功能
 

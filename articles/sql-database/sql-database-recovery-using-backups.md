@@ -1,5 +1,5 @@
 ---
-title: 從備份還原 Azure SQL Database | Microsoft Docs
+title: 從備份還原 Azure SQL 資料庫 | Microsoft Docs
 description: 了解還原時間點，其可讓您復原 Azure SQL Database 到先前的時間 (最多 35 天)。
 services: sql-database
 ms.service: sql-database
@@ -19,7 +19,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58620473"
 ---
-# <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL Database
+# <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL 資料庫
 
 根據預設，SQL Database 備份會儲存在地理複寫的 Blob 儲存體 (RA-GRS) 中。 下列選項可供使用[自動資料庫備份](sql-database-automated-backups.md)進行的資料庫復原使用：
 

@@ -30,7 +30,7 @@ ms.locfileid: "60824247"
 下列範例示範如何從 Data Factory 管線 (複製活動) 叫用 SQL Server 資料庫中的預存程序：  
 
 ## <a name="output-dataset-json"></a>輸出資料集 JSON
-在輸出資料集 JSON 中，將 **type** 設定為：**SqlServerTable**。 請將它設定為 **AzureSqlTable**，以與 Azure SQL Database 搭配使用。 **tableName** 屬性的值必須與預存程序第一個參數的名稱相符。  
+在輸出資料集 JSON 中，將 **type** 設定為：**SqlServerTable**。 請將它設定為 **AzureSqlTable**，以與 Azure SQL 資料庫搭配使用。 **tableName** 屬性的值必須與預存程序第一個參數的名稱相符。  
 
 ```json
 {

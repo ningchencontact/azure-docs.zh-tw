@@ -1,6 +1,6 @@
 ---
-title: Saas 應用程式：監視許多 Azure SQL Database 的效能 | Microsoft Docs
-description: 監視及管理多租用戶 SaaS 應用程式中 Azure SQL Database 和集區的效能
+title: Saas 應用程式：監視許多 Azure SQL 資料庫的效能 | Microsoft Docs
+description: 監視及管理多租用戶 SaaS 應用程式中 Azure SQL 資料庫和集區的效能
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -19,7 +19,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61388551"
 ---
-# <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中 Azure SQL Database 和集區的效能
+# <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中 Azure SQL 資料庫和集區的效能
 
 本教學課程會探索 SaaS 應用程式中使用的數個關鍵效能管理案例。 使用負載產生器來跨所有租用戶資料庫模擬活動，而且示範 SQL Database 和彈性集區的內建監視和警示功能。
 

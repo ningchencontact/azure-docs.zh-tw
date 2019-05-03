@@ -62,7 +62,7 @@ ms.locfileid: "56238363"
 - 事件中樞
 - Azure SQL Server
 - SQL 使用者 (和密碼)
-- Azure SQL Database
+- Azure SQL 資料庫
 - Azure 儲存體 
 - Azure Functions 應用程式
 

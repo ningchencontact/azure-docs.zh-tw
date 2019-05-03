@@ -61,7 +61,7 @@ sections:
             html: <p>視您的業務需求而定，在一般用途與業務關鍵服務層級之間做選擇。</p>
           - title: 進階安全性
             href: /azure/sql-database/sql-database-security-index
-            html: <p>使用內建 Azure SQL Database 安全性功能來保護執行個體和資料庫。<p>
+            html: <p>使用內建 Azure SQL 資料庫安全性功能來保護執行個體和資料庫。<p>
   - title: 新功能與預覽功能
     items:
       - type: paragraph

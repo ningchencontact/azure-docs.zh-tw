@@ -21,13 +21,13 @@ ms.locfileid: "58449036"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>快速入門：使用 Ruby 查詢 Azure SQL 資料庫
 
-此快速入門示範如何使用 [Ruby](https://www.ruby-lang.org) 連線至 Azure SQL Database，並使用 Transact-SQL 陳述式來查詢資料。
+此快速入門示範如何使用 [Ruby](https://www.ruby-lang.org) 連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門，您必須符合下列必要條件：
 
-- Azure SQL Database。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
+- Azure SQL 資料庫。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
 
   || 單一資料庫 | 受控執行個體 |
   |:--- |:--- |:---|
@@ -53,7 +53,7 @@ ms.locfileid: "58449036"
 
 ## <a name="get-sql-server-connection-information"></a>取得 SQL Server 連線資訊
 
-取得連線到 Azure SQL Database 所需的連線資訊。 在後續程序中，您將需要完整的伺服器名稱或主機名稱、資料庫名稱和登入資訊。
+取得連線到 Azure SQL 資料庫所需的連線資訊。 在後續程序中，您將需要完整的伺服器名稱或主機名稱、資料庫名稱和登入資訊。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -65,7 +65,7 @@ ms.locfileid: "58449036"
 
 1. 在文字或程式碼編輯器中，建立名為 *sqltest.rb* 的新檔案。
    
-1. 新增下列程式碼。 將 `<server>`、`<database>`、`<username>` 和 `<password>` 取代為您 Azure SQL Database 中的值。
+1. 新增下列程式碼。 將 `<server>`、`<database>`、`<username>` 和 `<password>` 取代為您 Azure SQL 資料庫中的值。
    
    >[!IMPORTANT]
    >此範例中的程式碼使用範例 AdventureWorksLT 資料，您可以在建立資料庫時選擇這些範例資料作為來源。 如果您的資料庫中有不同的資料，請在 SELECT 查詢中使用來自您自己資料庫的資料表。 

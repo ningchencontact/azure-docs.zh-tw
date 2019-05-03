@@ -58,7 +58,7 @@ Contoso 雲端小組已針對此次移轉擬定好各項目標。 這些目標�
 - Contoso 不想在這個應用程式上投注資源。  這對企業很重要，但以其目前的形式而言，Contoso 只想安全地移至雲端。
 - 應用程式的內部部署資料庫有可用性方面問題。 Contoso 想要將其部署於 Azure 中，作為具有容錯移轉能力的高可用性叢集。
 - Contoso 想要從目前的 SQL Server 2008 R2 平台升級至 SQL Server 2017。
-- Contoso 不想對此應用程式使用 Azure SQL Database，且正在尋求替代方案。
+- Contoso 不想對此應用程式使用 Azure SQL Database，且正在尋求替代項目。
 
 
 ## <a name="solution-design"></a>解決方案設計

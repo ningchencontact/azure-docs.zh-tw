@@ -21,7 +21,7 @@ ms.locfileid: "60556224"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨相應放大雲端資料庫報告 (預覽)
 
-您可以使用 [彈性查詢](sql-database-elastic-query-overview.md)，從單一連接點的多個 Azure SQL Database 建立報告。 資料庫必須水平分割 (也稱為「分區化」)。
+您可以使用 [彈性查詢](sql-database-elastic-query-overview.md)，從單一連接點的多個 Azure SQL 資料庫建立報告。 資料庫必須水平分割 (也稱為「分區化」)。
 
 如果您有現有的資料庫，請參閱 [將現有的資料庫移轉到相應放大的資料庫](sql-database-elastic-convert-to-use-elastic-tools.md)。
 
@@ -48,7 +48,7 @@ ms.locfileid: "60556224"
 
 ## <a name="create-an-elastic-query-database"></a>建立彈性的查詢資料庫
 1. 開啟 [Azure 入口網站](https://portal.azure.com)並登入。
-2. 在與分區安裝程式相同的伺服器中建立新的 Azure SQL Database。 將資料庫命名為 "ElasticDBQuery"。
+2. 在與分區安裝程式相同的伺服器中建立新的 Azure SQL 資料庫。 將資料庫命名為 "ElasticDBQuery"。
 
     ![Azure 入口網站和定價層][3]
 

@@ -164,7 +164,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 ## <a name="troubleshooting"> </a>疑難排解
 * **初始設定**：若未能成功地將 APIM 服務初始部署到子網路，建議您先將虛擬機器部署到相同的子網路。 接下來，再將桌面遠端連線到虛擬機器，並驗證您可以連線到 Azure 訂用帳戶中的下列其中一個資源
     * Azure 儲存體 Blob
-    * 連接字串
+    * Azure SQL Database
     * Azure 儲存體資料表
 
   > [!IMPORTANT]

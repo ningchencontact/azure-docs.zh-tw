@@ -57,7 +57,7 @@ ms.locfileid: "60332418"
 |Redis|20|只允許對您 Azure Cache for Redis 的安全連線|只允許透過 SSL 對 Azure Cache for Redis 進行連線。 使用安全連線可確保伺服器與服務之間的驗證，避免傳輸中的資料遭受網路層的攻擊，例如中間人攻擊、竊聽及工作階段劫持。|
 |SQL|15|在 SQL 資料庫上啟用透明資料加密|啟用透明資料加密，以保護待用資料及符合合規要求。|
 |SQL|15|在 SQL Server 上啟用稽核|啟用 Azure SQL Server 的稽核。 (僅限 Azure SQL 服務。 不包含在虛擬機器上執行的 SQ。)|
-|SQL|15|在 SQL Database 上啟用稽核|啟用 Azure SQL Database 的稽核。 (僅限 Azure SQL 服務。 不包含在虛擬機器上執行的 SQ。)|
+|SQL|15|在 SQL Database 上啟用稽核|啟用 Azure SQL 資料庫的稽核。 (僅限 Azure SQL 服務。 不包含在虛擬機器上執行的 SQ。)|
 |Data Lake 分析|15|啟用 Data Lake Analytics 的待用加密|啟用透明資料加密以保護 Data Lake Analytics 中的待用資料。 待用加密是在背景中自動進行的，也就是說 Data Lake Analytics 會在保存資料前自動將資料加密，並在擷取資料前自動將資料解密。 在與 Data Lake Analytics 互動的應用程式和服務中，無須因為加密而進行任何變更。 待用加密不僅可將實體竊取所造成的資料遺失風險降到最低，還有助於滿足法規合規性需求。|
 |Data Lake Store|15|啟用 Data Lake Store 的待用加密|啟用透明資料加密以保護 Data Lake Store 中的待用資料。 待用加密是在背景中自動進行的，也就是說 Data Lake Store 會在保存資料前自動將資料加密，並在擷取資料前自動將資料解密。 您無須在與 Data Lake Store 互動的應用程式和服務中，為配合加密而進行任何變更。 待用加密不僅可將實體竊取所造成的資料遺失風險降到最低，還有助於滿足法規合規性需求。|
 |Data Lake 分析|5|啟用 Data Lake Analytics 診斷記錄|啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 |

@@ -34,18 +34,18 @@ ms.locfileid: "60723984"
 ## <a id="AzureSQL"></a>虛擬機器上的 Azure SQL Database 和 SQL Server
 Azure SQL 建置在 Microsoft SQL Server 上，旨在提供高可用性、高效能以及可調整的服務。 透過內部部署上所執行的專屬資料庫來使用 SQL Azure 有許多好處。 使用 SQL Azure，您無需安裝、設定、維護或管理您的資料庫，只需要資料庫的內容和結構。 我們所擔心像容錯和冗餘等資料庫的一般項目皆已內建。
 
-Azure 目前有兩個選項可主控 SQL Server 的工作負載：虛擬機器 (VM) 上的 Azure SQL Database、資料庫即服務和 SQL Server。 我們不會詳細說明這兩個之間的差異，除非 Azure SQL Database 是您新雲端應用程式，可充分節省成本的最佳選擇，且雲端服務可提供的效能最佳化。 如果您考慮將您的內部應用程式移轉或擴充至雲端，Azure 虛擬機器上的 SQL Server 可能較合適您。 若要將本文簡化，讓我們建立 Azure SQL Database。
+Azure 目前有兩個選項可主控 SQL Server 的工作負載：虛擬機器 (VM) 上的 Azure SQL 資料庫、資料庫即服務和 SQL Server。 我們不會詳細說明這兩個之間的差異，除非 Azure SQL 資料庫是您新雲端應用程式，可充分節省成本的最佳選擇，且雲端服務可提供的效能最佳化。 如果您考慮將您的內部應用程式移轉或擴充至雲端，Azure 虛擬機器上的 SQL Server 可能較合適您。 若要將本文簡化，讓我們建立 Azure SQL 資料庫。
 
 ## <a id="ODBC"></a>資料存取技術︰ODBC 和 OLE DB
 連線到 Azure SQL DB 並無不同，目前有兩種方式可連接到資料庫：ODBC (開放式資料庫連接) 和 OLE DB (物件連結與嵌入資料庫)。 近年來，Microsoft 已配合 [ODBC 進行原生關聯式資料存取](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/)。 ODBC 相當簡單，而且也比 OLE DB 更快速。 唯一必須注意的是 ODBC 會使用舊的 C 樣式 API。
 
 ## <a id="Create"></a>步驟 1：建立 Azure SQL Database
-請參閱 [快速入門頁面](sql-database-single-database-get-started.md) ，以了解如何建立範例資料庫。  或者，您可以依照此[兩分鐘短片](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)使用 Azure 入口網站建立 Azure SQL Database。
+請參閱 [快速入門頁面](sql-database-single-database-get-started.md) ，以了解如何建立範例資料庫。  或者，您可以依照此[兩分鐘短片](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)使用 Azure 入口網站建立 Azure SQL 資料庫。
 
 ## <a id="ConnectionString"></a>步驟 2：取得連接字串
-在您佈建 Azure SQL Database 之後，需要執行下列步驟來判斷連接資訊，並新增您防火牆存取的用戶端 IP。
+在您佈建 Azure SQL 資料庫之後，需要執行下列步驟來判斷連接資訊，並新增您防火牆存取的用戶端 IP。
 
-在 [Azure 入口網站](https://portal.azure.com/)中，請移至 Azure SQL Database ODBC 連接字串，方法為使用列於您資料庫概觀區段的**顯示資料庫連接字串**︰
+在 [Azure 入口網站](https://portal.azure.com/)中，請移至 Azure SQL 資料庫 ODBC 連接字串，方法為使用列於您資料庫概觀區段的**顯示資料庫連接字串**︰
 
 ![ODBCConnectionString](./media/sql-database-develop-cplusplus-simple/azureportal.png)
 

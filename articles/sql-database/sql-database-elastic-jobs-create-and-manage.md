@@ -1,5 +1,5 @@
 ---
-title: 管理 Azure SQL Database 的群組 | Microsoft Docs
+title: 管理 Azure SQL 資料庫的群組 | Microsoft Docs
 description: 逐步解說如何建立和管理彈性工作。
 services: sql-database
 ms.service: sql-database

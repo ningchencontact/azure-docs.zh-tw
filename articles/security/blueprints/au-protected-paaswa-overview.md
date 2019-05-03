@@ -57,7 +57,7 @@ ms.locfileid: "60610140"
 - Azure 監視器
 - Azure Resource Manager
 - Azure 資訊安全中心
-- 連接字串
+- Azure SQL Database
 - Azure 儲存體
 - Azure 監視器記錄
 - Azure 虛擬網路

@@ -156,7 +156,7 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 ![監視效能影響](./media/sql-database-advisor-portal/query-insights.png)
 
 ## <a name="summary"></a>總結
-Azure SQL Database 會提供可改善 SQL Database 效能的建議。 藉由提供 T-SQL 指令碼，您會獲得最佳化資料庫的協助，並最終改善查詢效能。
+Azure SQL Database 會提供可改善 SQL 資料庫效能的建議。 藉由提供 T-SQL 指令碼，您會獲得最佳化資料庫的協助，並最終改善查詢效能。
 
 ## <a name="next-steps"></a>後續步驟
 監視建議，並繼續套用建議以改善效能。 資料庫工作負載會動態地持續變更。 Azure SQL Database 會繼續監視並提供可能改善資料庫效能的建議。 

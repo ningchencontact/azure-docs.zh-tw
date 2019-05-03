@@ -223,7 +223,7 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ## <a name="create-a-stream-analytics-output-target"></a>建立資料流分析輸出目標
 建立輸出目標與建立資料流分析輸入來源非常類似。 和輸入來源一樣，輸出目標會繫結至特定工作。 若要在不同的工作中使用相同的輸出目標，您必須重新呼叫此方法，並指定不同的工作名稱。
 
-下列程式碼會建立輸出目標 (Azure SQL Database)。 您可以自訂輸出目標的資料類型和/或序列化類型。
+下列程式碼會建立輸出目標 (Azure SQL 資料庫)。 您可以自訂輸出目標的資料類型和/或序列化類型。
 
    ```csharp
    // Create a Stream Analytics output target
