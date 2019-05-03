@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308220"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024433"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>在 Azure 搜尋服務中建立基本索引
 
@@ -54,7 +54,7 @@ ms.locfileid: "60308220"
 
 就結構描述而言，Azure 搜尋服務索引會包含下列元素。 
 
-「[欄位集合](#fields-collection)」通常是索引中最大的一部分，其中每個欄位都會具有名稱、類型和屬性，以及可決定其使用方式的可允許行為。 其他元素包括[建議工具](#suggesters)、[評分設定檔](#scoring-profiles)、具有元件組件以支援自訂的[分析器](#analyzers)，以及 [CORS](#cors) 選項。
+「[欄位集合](#fields-collection)」通常是索引中最大的一部分，其中每個欄位都會具有名稱、類型和屬性，以及可決定其使用方式的可允許行為。 其他項目包含[建議](#suggesters)，[評分設定檔](#scoring-profiles)，[分析器](#analyzers)元件組件，以支援自訂[CORS](#cors)和[加密金鑰](#encryption-key)選項。
 
 ```json
 {
@@ -126,6 +126,15 @@ ms.locfileid: "60308220"
   "corsOptions": (optional) {
     "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
     "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  },
+  "encryptionKey":(optional){
+    "keyVaultUri": "azure_key_vault_uri",
+    "keyVaultKeyName": "name_of_azure_key_vault_key",
+    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
+    "accessCredentials":(optional){
+      "applicationId": "azure_active_directory_application_id",
+      "applicationSecret": "azure_active_directory_application_authentication_key"
+    }
   }
 }
 ```
@@ -166,7 +175,7 @@ ms.locfileid: "60308220"
 
 您選取的屬性會影響儲存體。 下列螢幕擷取畫面說明各種屬性組合所產生的索引儲存模式。
 
-索引是以[內建的 realestate 範例](search-get-started-portal.md)資料來源為基礎，您可以在入口網站中編製索引和查詢。 雖然未顯示索引結構描述，但您可以根據索引名稱推斷屬性。 例如，*realestate 可搜尋*索引僅只選取 **searchable** 屬性，*realestate 可擷取*索引僅只選取 **retrievable** 屬性。
+索引根據[內建的房地產範例](search-get-started-portal.md)資料來源，您可以建立索引和入口網站中的查詢。 雖然未顯示索引結構描述，但您可以根據索引名稱推斷屬性。 例如，*realestate 可搜尋*索引僅只選取 **searchable** 屬性，*realestate 可擷取*索引僅只選取 **retrievable** 屬性。
 
 ![以屬性選取項目為基礎的索引大小](./media/search-what-is-an-index/realestate-index-size.png "以屬性選取項目為基礎的索引大小")
 
@@ -203,6 +212,10 @@ ms.locfileid: "60308220"
   如果您想要允許所有原始來源進行存取，請在 **allowedOrigins** 陣列中包含 `*` 作為單一項目。 「此做法並不建議用於生產環境搜尋服務」，但對於開發和偵錯通常很有幫助。
 
 + **maxAgeInSeconds** (選擇性)：瀏覽器會使用此值來判斷快取 CORS 預檢回應的持續期間 (以秒為單位)。 這必須是非負數的整數。 這個值越大，效能就越好，但是讓 CORS 原則變更生效的時間也就越長。 若未設定，即會使用預設持續期間 5 分鐘。
+
+## <a name="encryption-key"></a>加密金鑰
+
+雖然預設會使用 Microsoft 管理的金鑰會加密所有的 Azure 搜尋服務索引，索引可以設定要以加密**客戶管理的金鑰**金鑰保存庫中。 若要進一步了解，請參閱[管理 Azure 搜尋服務中的加密金鑰](search-security-manage-encryption-keys.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

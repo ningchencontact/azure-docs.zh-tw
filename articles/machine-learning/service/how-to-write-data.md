@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 92f04d80ea956f3036d7778a5d6de62e53b969ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817360"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023740"
 ---
-# <a name="write-and-configure-data-using-azure-machine-learning"></a>撰寫和設定使用 Azure Machine Learning 的資料
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>撰寫並使用 Azure Machine Learning 資料準備 SDK 設定資料
 
 在本文中，您將了解不同的方法，將使用的資料寫入[Azure Machine Learning 資料準備 Python SDK](https://aka.ms/data-prep-sdk) ，以及如何設定該資料以實驗[Azure 機器學習服務 SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  在資料流程中的任何時間點，就能寫入輸出資料。 寫入步驟產生的資料流，以及這些步驟在每次執行的資料流執行時加入。 資料會寫入多個分割區檔案，以允許平行寫入。
+
+> [!Important]
+> 如果您要建立新的方案，請嘗試[Azure Machine Learning 資料集](how-to-explore-prepare-data.md)（預覽） 來轉換您的資料、 快照集資料和儲存已建立版本的資料集定義。 資料集是資料準備供應項目來管理 AI 解決方案中的資料集的擴充的功能 SDK 的下一個版本。
 
 由於管線中的寫入步驟數目沒有任何限制，因此您能輕鬆地新增其他寫入步驟，取得要進行疑難排解或針對其他管線使用的中繼結果。
 

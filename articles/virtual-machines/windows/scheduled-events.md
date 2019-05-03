@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ab0aefd5650aada9c301115813a80747ddd1f2ac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926309"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992929"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 中繼資料服務：Windows VM 的已排定事件
 
@@ -45,7 +45,7 @@ ms.locfileid: "64926309"
 使用排程的事件，應用程式就可以探索維護所發生的時間，以及限制其影響的觸發工作。 啟用已排定事件可讓您的虛擬機器在執行維護活動之前有最短的時間。 如需詳細資料，請參閱下面的＜事件排程＞一節。
 
 排程的事件會提供下列使用案例中的事件：
-- 平台起始的維護 (例如，主機 OS 更新)
+- [平台起始的維護](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates)（例如，VM 重新開機、 即時移轉或記憶體保留更新主機）
 - 降級的硬體
 - 使用者起始的維護 (例如，使用者重新啟動或重新部署 VM)
 - [低優先順序 VM 收回](https://azure.microsoft.com/blog/low-priority-scale-sets)在擴展集
@@ -119,7 +119,7 @@ DocumentIncarnation 是 ETag，透過它很容易就能檢查自從上次查詢�
 |屬性  |  描述 |
 | - | - |
 | EventId | 此事件的全域唯一識別碼。 <br><br> 範例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 此事件造成的影響。 <br><br> 值： <br><ul><li> `Freeze`:虛擬機器已排定會暫停幾秒鐘。 CPU 會暫止，但不會影響記憶體、開啟的檔案或網路連線。 <li>`Reboot`:虛擬機器已排定要重新開機 (非持續性記憶體都會遺失)。 <li>`Redeploy`:虛擬機器已排定要移至另一個節點 (暫時磁碟都會遺失)。 <li>`Preempt`:正在刪除低優先順序虛擬機器 （暫時磁碟會遺失）。|
+| EventType | 此事件造成的影響。 <br><br> 值： <br><ul><li> `Freeze`:虛擬機器已排定會暫停幾秒鐘的時間。 CPU 和網路連線可能會暫止，但不會影響記憶體或開啟的檔案。 <li>`Reboot`:虛擬機器已排定要重新開機 (非持續性記憶體都會遺失)。 <li>`Redeploy`:虛擬機器已排定要移至另一個節點 (暫時磁碟都會遺失)。 <li>`Preempt`:正在刪除低優先順序虛擬機器 （暫時磁碟會遺失）。|
 | ResourceType | 受此事件影響的資源類型。 <br><br> 值： <ul><li>`VirtualMachine`|
 | 資源| 受此事件影響的資源清單。 其中最多只能包含來自一個[更新網域](manage-availability.md)的機器，但不能包含更新網域中的所有機器。 <br><br> 範例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | 事件狀態 | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`:此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`:已啟動事件。</ul> 如果未提供任何 `Completed` 或類似的狀態，事件完成時，將不會再傳回事件。
@@ -136,7 +136,8 @@ DocumentIncarnation 是 ETag，透過它很容易就能檢查自從上次查詢�
 | 優先於 | 30 秒 |
 
 ### <a name="event-scope"></a>事件範圍     
-排程的事件會傳送到：        
+排程的事件會傳送到：
+ - 獨立虛擬機器
  - 雲端服務中的所有虛擬機器      
  - 可用性設定組中的所有虛擬機器      
  - 擴展集放置群組中的所有虛擬機器。         

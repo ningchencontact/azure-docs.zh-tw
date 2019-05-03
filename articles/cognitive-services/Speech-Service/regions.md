@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578183"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020653"
 ---
 # <a name="speech-service-supported-regions"></a>語音服務支援的區域
 
@@ -28,9 +28,9 @@ ms.locfileid: "59578183"
 
 在[語音 SDK](speech-sdk.md) 中，區域會指定為字串 (例如，在適用於 C# 的語音 SDK 中，作為 `SpeechConfig.FromSubscription` 的參數)。
 
-### <a name="speech-recognition-and-translation"></a>語音辨識與翻譯
+### <a name="speech-to-text-text-to-speech-and-translation"></a>語音轉換文字、 文字轉換語音，以及轉譯
 
-針對**語音辨識**與 **翻譯**，語音 SDK 在這些區域中可用：
+在這些區域中的語音 SDK 是可用**語音辨識**，**文字轉換語音**，並**轉譯**:
 
   區域 | 語音 SDK 參數 | 語音自訂入口網站
  ------|-------|--------

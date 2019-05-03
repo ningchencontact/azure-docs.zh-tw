@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60951784"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022172"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>認知搜尋工作負載的文件資源
 
-認知搜尋 (現在位於公開預覽版中) 是 Azure 搜尋索引中的新擴充圖層，可在非文字來源和無差異文字中尋找潛在資訊，並將其轉換成 Azure 搜尋服務中可全文檢索搜尋的內容。
+認知服務，現在已正式推出，是的新擴充圖層在 Azure 搜尋服務索引中尋找非文字來源並無差別的文字，將它轉換成 Azure 搜尋服務中的全文檢索搜尋內容中潛在的資訊。
 
 下列文章是認知搜尋的完整文件。
 
@@ -51,9 +51,9 @@ ms.locfileid: "60951784"
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
-+ [預覽 REST API](search-api-2017-11-11-preview.md)
-  + [建立技能集 (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [建立索引子 (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [REST API](https://docs.microsoft.com/rest/api/searchservice/)
+  + [建立技能集 (api-version = 2019年-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>請參閱
 

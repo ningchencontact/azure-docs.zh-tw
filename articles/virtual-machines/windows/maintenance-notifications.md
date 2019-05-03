@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: cfd88118b483067f4c6ee62ee013a2202f0d7e67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76e0f496acf37d4220f57a599f0ce449ca130bba
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301739"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992908"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>處理 Windows 虛擬機器預定進行的維修作業通知
 
@@ -33,7 +33,7 @@ ms.locfileid: "60301739"
 預定進行的維修作業若需要重新開機，會排定在不同波段。 每一波段有不同的範圍 (區域)。
 
 - 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以使用 Azure [活動記錄警示](../../azure-monitor/platform/activity-logs-overview.md)，對通知新增更多收件者和傳訊選項，例如電子郵件、SMS 和 Webhook。  
-- 接獲通知時，即可使用「自助期間」。 在此期間，您可以找到此波段中包含的虛擬機器，並根據自己的排程需求主動開始維護。
+- 接獲通知時，即可使用「自助期間」。 在此期間，這通常是四週，您可以找到的虛擬機器會包含在這一波且主動開始維護根據自己的排程需求。
 - 在自助期間之後，「排定維護期間」隨即開始。 在此期間的某個時間點，Azure 會排定並將必要的維護套用於您的虛擬機器。 
 
 有兩個期間的目標是要讓您在知道 Azure 何時將會自動開始維修的同時，有足夠時間開始維修，並將虛擬機器重新啟動。

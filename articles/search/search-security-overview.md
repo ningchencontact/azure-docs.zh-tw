@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283333"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024507"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure 搜尋服務中的安全性和資料隱私權
 
@@ -43,11 +43,8 @@ Azure 搜尋服務具備跨實體安全性、加密傳輸、加密儲存體及�
 | 安全性階層 | 描述 |
 |----------------|-------------|
 | 傳輸中加密 <br>(HTTPS/SSL/TLS) | 「Azure 搜尋服務」會在 HTTPS 連接埠 443 上進行接聽。 在整個平台上，連至 Azure 服務的連線都會受到加密。 <br/><br/>用戶端對服務的所有 Azure 搜尋服務互動都支援 SSL/TLS 1.2。  請務必對服務的 SSL 連線使用 TLSv1.2。|
-| 待用加密 | 加密會完全在索引編製程序內進行，對索引編製完成時間或索引大小沒有任何重大的影響。 它會自動針對所有索引編製程序進行，包括針對未完全加密 (建立時間在 2018 年 1 月以前) 之索引的增量更新進行。<br><br>就內部而言，加密會根據 [Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) \(機器翻譯\)，使用的是 256 位元的 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) \(英文\)。|
-
-加密是在「Azure 搜尋服務」內部進行的，由 Microsoft 在內部管理憑證和加密金鑰，並且全面套用。 您無法在入口網站中或透過程式設計方式，開啟或關閉加密、管理或替代自己的金鑰，或是檢視加密設定。 
-
-在 2018 年 1 月 24 日已宣布推出待用加密功能，並且適用於所有區域中的所有服務層級，包括共用 (免費) 服務。 若要達到完整加密的目的，針對在該日期之前建立的索引，您必須先捨棄再重新建置，才能進行加密。 否則，系統只會加密 1 月 24 日之後新增的新資料。
+| 待用加密 <br>Microsoft 管理的金鑰 | 加密會完全在索引編製程序內進行，對索引編製完成時間或索引大小沒有任何重大的影響。 它會自動針對所有索引編製程序進行，包括針對未完全加密 (建立時間在 2018 年 1 月以前) 之索引的增量更新進行。<br><br>就內部而言，加密會根據 [Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) \(機器翻譯\)，使用的是 256 位元的 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) \(英文\)。<br><br> 加密是在「Azure 搜尋服務」內部進行的，由 Microsoft 在內部管理憑證和加密金鑰，並且全面套用。 您無法在入口網站中或透過程式設計方式，開啟或關閉加密、管理或替代自己的金鑰，或是檢視加密設定。<br><br>在 2018 年 1 月 24 日已宣布推出待用加密功能，並且適用於所有區域中的所有服務層級，包括共用 (免費) 服務。 若要達到完整加密的目的，針對在該日期之前建立的索引，您必須先捨棄再重新建置，才能進行加密。 否則，系統只會加密 1 月 24 日之後新增的新資料。|
+| 待用加密 <br>客戶管理的金鑰 | 使用客戶管理金鑰的加密**預覽**功能未提供的免費服務。 付費服務，它僅適用於搜尋服務上建立，或年 1 月 2019年之後使用最新預覽 api 版本 (api-version 2019年-05-06-preview)。<br><br>Azure 搜尋服務索引和同義字地圖可以現在使用來加密待用客戶在 Azure Key Vault 金鑰受管理金鑰。 若要進一步了解，請參閱[管理 Azure 搜尋服務中的加密金鑰](search-security-manage-encryption-keys.md)。<br>這項功能不會取代預設待用加密，但除了它而不是套用。<br>啟用這項功能，會增加索引大小，而且會降低查詢效能。 根據觀察的日期，您可以預期看到查詢時間增加的 30%-60%雖然實際效能取決於查詢的類型與索引定義。 因為這樣的效能衝擊，我們建議您只啟用此功能在真正需要的索引。
 
 ## <a name="azure-wide-user-access-controls"></a>整個 Azure 的使用者存取控制
 

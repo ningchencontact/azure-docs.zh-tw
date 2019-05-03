@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 71710cd940aad3a56dae6c19d4d52a5b141b3d80
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9cbd924f87ff2f5b38f67a1bf7db34c36e9c264b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660959"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020442"
 ---
 # <a name="text-to-speech-rest-api"></a>文字轉換語音 REST API
 
@@ -136,7 +136,7 @@ Authorization: Bearer [Base64 access_token]
 
 每個回應的 HTTP 狀態碼會指出成功或常見的錯誤。
 
-| HTTP 狀態碼 | 描述 | 可能的原因 |
+| HTTP 状态代码 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
 | 200 | OK | 要求成功。 |
 | 400 | 不正確的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
@@ -204,7 +204,7 @@ Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+    name='en-US-JessaRUS'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
@@ -219,7 +219,7 @@ Authorization: Bearer [Base64 access_token]
 
 每個回應的 HTTP 狀態碼會指出成功或常見的錯誤。
 
-| HTTP 狀態碼 | 描述 | 可能的原因 |
+| HTTP 状态代码 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
 | 200 | OK | 要求成功；回應主體是音訊檔案。 |
 | 400 | 不正確的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |

@@ -8,35 +8,44 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c55783e9b209a1280a21edca34b75e72481f4cb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5267f81c9886e2d1d8d62c134156aedb3b2b8763
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61127038"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023684"
 ---
 #   <a name="shaper-cognitive-skill"></a>塑形器認知技能
 
-**Shaper**技能將數種輸入彙總至複雜型別擴充管線中稍後可參考。 **塑形器**技能可讓您實質上建立結構、定義該結構成員的名稱，並將值指派給每個成員。 在搜尋案例中有用的彙總欄位的範例包括將第一個和最後一個名稱結合成單一結構、 縣 （市） 和成單一結構或名稱的狀態和成單一結構來建立唯一的身分識別的出生日期。
+**Shaper**技能會合併到數種輸入[複雜型別](search-howto-complex-data-types.md)來擴充管線中稍後參考。 **塑形器**技能可讓您實質上建立結構、定義該結構成員的名稱，並將值指派給每個成員。 在搜尋案例中有用的彙總欄位的範例包括將第一個和最後一個名稱結合成單一結構、 縣 （市） 和成單一結構或名稱的狀態和成單一結構來建立唯一的身分識別的出生日期。
 
-根據預設，此技術會支援單一層級深度的物件。 對於更複雜的物件，則可以鏈結數個**塑形器**步驟。
+API 版本會決定可以達到塑造您的深度。 
 
-在回應中，輸出名稱一律為 "output"。 就內部而言，管線可對應不同的名稱，例如以下範例中的 "analyzedText" 對應為 "output"，但**塑形器**技能本身會在回應中傳回 "output"。 如果您正在對擴充文件進行偵錯，並發現命名差異，或如果您建置自訂技能並自行建構回應，這可能十分重要。
+| API 版本 | 塑造行為 | 
+|-------------|-------------------|
+| 2019-05-06-preview 版 REST API （不支援.NET SDK） | 複雜物件，多個可以在其中一個深度層級**Shaper**技能定義。 |
+| 2019-05-06 * * （正式推出） 2017年-11-11-預覽| 複雜的物件，一個層級深度。 多層級的圖形需要將 shaper 的幾個步驟鏈結在一起。|
+
+預覽**Shaper**中所述的技能[案例 3](#nested-complex-types)，將新選擇性*sourceContext*輸入的屬性。 *來源*並*sourceContext*屬性互斥。 如果輸入是在技能的內容，只需使用*來源*。 如果輸入是在*不同*技能內容中，使用內容*sourceContext*。 *SourceContext*需要您定義的巢狀的輸入與處理做為來源的特定項目。 
+
+在回應中，所有的 API 版本，輸出名稱是一律"output"。 就內部而言，管線可以對應不同的名稱，例如"analyzedText 」 所示，在以下範例中，但**Shaper**本身的技能在回應中傳回 「 輸出 」。 如果您正在對擴充文件進行偵錯，並發現命名差異，或如果您建置自訂技能並自行建構回應，這可能十分重要。
 
 > [!NOTE]
-> 這項技能不受限於認知服務 API，您不需支付其使用費用。 不過，您仍然應該[連結認知服務資源](cognitive-search-attach-cognitive-services.md)，以覆寫限制您每天少量擴充的**免費**資源選項。
+> **Shaper**技能未繫結至認知服務 API，您不需支付使用它。 不過，您仍然應該[連結認知服務資源](cognitive-search-attach-cognitive-services.md)，以覆寫限制您每天少量擴充的**免費**資源選項。
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
-## <a name="sample-1-complex-types"></a>範例 1：複雜類型
+## <a name="scenario-1-complex-types"></a>案例 1： 複雜型別
 
-假設您要建立一個稱為 *analyzedText* 的結構，此結構有兩個成員，分別為：*text* 和 *sentiment*。 在 Azure 搜尋服務中，多部分的可搜尋欄位稱為*複雜類型*，目前預設尚未支援。 在此預覽中，**塑形器**技能可用來在索引中產生複雜類型的欄位。 
+假設您要建立一個稱為 *analyzedText* 的結構，此結構有兩個成員，分別為：*text* 和 *sentiment*。 在 Azure 搜尋服務索引，稱為多部分的可搜尋欄位*複雜型別*通常會建立來源資料具有對應的複雜結構對應至它時。
 
-下列範例提供成員名稱做為輸入。 輸出結構 (您在 Azure 搜尋服務中的複雜欄位) 是透過 *targetName* 指定的。 
+不過，用於建立複雜類型的另一種方法是透過**Shaper**技能。 這項技術在中包含的技能組合，技能集處理期間的記憶體中作業可輸出具有巢狀結構，然後在索引中的複雜型別對應的資料圖形。 
+
+下列範例遊戲定義提供的成員名稱做為輸入。 
 
 
 ```json
@@ -62,8 +71,36 @@ Microsoft.Skills.Util.ShaperSkill
 }
 ```
 
-### <a name="sample-input"></a>範例輸入
-提供此**塑形器**技能有用輸入的 JSON 文件可以是：
+### <a name="sample-index"></a>範例索引
+
+索引子，會叫用的技能組合和索引子需要索引。 在索引中的複雜的欄位表示看起來可能如下列範例所示。 
+
+```json
+
+    "name": "my-index",
+    "fields": [
+        {   "name": "myId", "type": "Edm.String", "key": true, "filterable": true   },
+        {   "name": "analyzedText", "type": "Edm.ComplexType",
+            "fields": [{
+                    "name": "text",
+                    "type": "Edm.String",
+                    "filterable": false,
+                    "sortable": false,
+                    "facetable": false,
+                    "searchable": true  },
+          {
+                    "name": "sentiment",
+                    "type": "Edm.Double",
+                    "searchable": true,
+                    "filterable": true,
+                    "sortable": true,
+                    "facetable": true
+                },
+```
+
+### <a name="skill-input"></a>技能輸入
+
+傳入的 JSON 文件提供可用的輸入，這個**Shaper**技能可能是：
 
 ```json
 {
@@ -80,8 +117,9 @@ Microsoft.Skills.Util.ShaperSkill
 ```
 
 
-### <a name="sample-output"></a>範例輸出
-**塑形器**技能會產生一個稱為 *analyzedText* 的新元素。此新元素結合了 *text* 和 *sentiment* 的元素。 
+### <a name="skill-output"></a>技能輸出
+
+**塑形器**技能會產生一個稱為 *analyzedText* 的新元素。此新元素結合了 *text* 和 *sentiment* 的元素。 此輸出符合索引結構描述。 它會匯入並在 Azure 搜尋服務索引編製索引。
 
 ```json
 {
@@ -101,11 +139,11 @@ Microsoft.Skills.Util.ShaperSkill
 }
 ```
 
-## <a name="sample-2-input-consolidation"></a>範例 2：輸入合併
+## <a name="scenario-2-input-consolidation"></a>案例 2： 輸入彙總
 
 在另一個範例中，假設在不同的管線處理階段，您已經擷取書名和書本不同頁面上的章節標題。 您現在可以建立由這些各種輸入所組成的單一結構。
 
-此案例的塑形器技能定義看起來像下列範例：
+**Shaper**技能定義，在此案例看起來如下列範例所示：
 
 ```json
 {
@@ -118,7 +156,7 @@ Microsoft.Skills.Util.ShaperSkill
         },
         {
             "name": "chapterTitles",
-            "source": "/document/content/pages/*/chapterTitles/*"
+            "source": "/document/content/pages/*/chapterTitles/*/title"
         }
     ],
     "outputs": [
@@ -130,8 +168,8 @@ Microsoft.Skills.Util.ShaperSkill
 }
 ```
 
-### <a name="sample-output"></a>範例輸出
-在此案例中，塑形器會將所有章節標題壓平合併，以建立單一陣列。 
+### <a name="skill-output"></a>技能輸出
+在此情況下， **Shaper**壓平合併所有的章節標題，建立一個單一的陣列。 
 
 ```json
 {
@@ -153,8 +191,78 @@ Microsoft.Skills.Util.ShaperSkill
 }
 ```
 
+<a name="nested-complex-types"></a>
+
+## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>案例 3： 從巢狀內容的輸入彙總
+
+> [!NOTE]
+> 巢狀結構支援 api-version = 可用於 2019年-05-06-Preview[知識存放區](knowledge-store-concept-intro.md)或在 Azure 搜尋服務索引中。
+
+假設您有標題、 章節和活頁簿的內容和實體辨識和金鑰的片語上執行內容而現在彙總結果需要從不同的技巧，進入 「 單一 」 圖形與章節名稱、 實體和關鍵片語。
+
+**Shaper**技能定義，在此案例看起來如下列範例所示：
+
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+    "context": "/document",
+    "inputs": [
+        {
+            "name": "title",
+            "source": "/document/content/title"
+        },
+        {
+            "name": "chapterTitles",
+            "sourceContext": "/document/content/pages/*/chapterTitles/*",
+            "inputs": [
+              {
+                  "name": "title",
+                  "source": "/document/content/pages/*/chapterTitles/*/title"
+              },
+              {
+                  "name": "number",
+                  "source": "/document/content/pages/*/chapterTitles/*/number"
+              }
+            ]
+        }
+
+    ],
+    "outputs": [
+        {
+            "name": "output",
+            "targetName": "titlesAndChapters"
+        }
+    ]
+}
+```
+
+### <a name="skill-output"></a>技能輸出
+在此情況下， **Shaper**建立複雜型別。 此結構存在記憶體中。 如果您想要將它儲存到的知識存放區，您應該建立在您定義儲存體特性的技能組合中的投影。
+
+```json
+{
+    "values": [
+        {
+            "recordId": "1",
+            "data": {
+                "titlesAndChapters": {
+                    "title": "How to be happy",
+                    "chapterTitles": [
+                      { "title": "Start young", "number": 1},
+                      { "title": "Laugh often", "number": 2},
+                      { "title": "Eat, sleep and exercise", "number: 3}
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
 ## <a name="see-also"></a>請參閱
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
-
++ [如何使用複雜型別](search-howto-complex-data-types.md)
++ [知識存放區概觀](knowledge-store-concept-intro.md)
++ [如何開始使用知識存放區](knowledge-store-howto.md)

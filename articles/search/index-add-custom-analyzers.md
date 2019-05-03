@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914903"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021667"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>將自訂分析器新增至 Azure 搜尋服務索引
 
@@ -300,7 +300,7 @@ analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選�
 |[對應](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)|MappingCharFilter|套用比對 (由比對選項定義) 的字元篩選器。 比對採用貪婪演算法 (由指定點上最長的模式比對勝出) 取代項目可以是空字串。<br /><br /> **選項**<br /><br /> mappings (類型：字串陣列) - 下列格式的比對清單： "a=>b" (將所有出現 "a" 的地方取代為字元 "b")。 必要。|  
 |[pattern_replace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)|PatternReplaceCharFilter|取代輸入字串中字元的字元篩選器。 其使用規則運算式來識別要保留的字元序列，並使用取代模式來識別要取代的字元。 例如，輸入文字 = "aa  bb aa bb"、模式 ="(aa)\\\s+(bb)" 取代 ="$1#$2"、結果 = "aa#bb aa#bb"。<br /><br /> **選項**<br /><br /> pattern (類型：字串) - 必要。<br /><br /> replacement (類型：字串) - 必要。|  
 
- <sup>1</sup> 字元篩選器類型在程式碼中一律會以 "#Microsoft.Azure.Search" 作為前置詞，因此 "MappingCharFilter" 實際上會指定為 "#Microsoft.Azure.Search.MappingCharFilter"。 為縮短表格寬度，我們已移除前置詞，但請務必將其包含在您的程式碼中。 請注意，char_filter_type 僅提供給可自訂的篩選器使用。 如果沒有任何選項 (如同 html_strip)，則也不會有相關聯的 #Microsoft.Azure.Search 類型。
+ <sup>1</sup> 字元篩選器類型在程式碼中一律會以 "#Microsoft.Azure.Search" 作為前置詞，因此 "MappingCharFilter" 實際上會指定為 "#Microsoft.Azure.Search.MappingCharFilter"。 為縮短表格寬度，我們已移除前置詞，但請務必將其包含在您的程式碼中。 請注意該 char_filter_type 只提供可自訂的篩選條件。 如果沒有任何選項 (如同 html_strip)，則也不會有相關聯的 #Microsoft.Azure.Search 類型。
 
 <a name="Tokenizers"></a>
 
@@ -324,7 +324,7 @@ analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選�
 |[uax_url_email](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|將 URL 和電子郵件 Token 化為一個語彙基元。<br /><br /> **選項**<br /><br /> maxTokenLength (類型：int) - 語彙基元長度的上限。 預設值：255，最大值：300。 超過長度上限的權杖會進行分割。|  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(有選項時才需套用類型) |在空白字元處分割文字。 分割長度超過 255 個字元的語彙基元。|  
 
- <sup>1</sup> Token 化工具類型在程式碼中一律會以 "#Microsoft.Azure.Search" 作為前置詞，因此 "ClassicTokenizer" 實際上會指定為 "#Microsoft.Azure.Search.ClassicTokenizer"。 為縮短表格寬度，我們已移除前置詞，但請務必將其包含在您的程式碼中。 請注意，tokenizer_type 僅提供給可自訂的 Token 化工具使用。 如果沒有任何選項 (如同字母 Token 化工具也不會有相關聯的 #Microsoft.Azure.Search 類型。
+ <sup>1</sup> Token 化工具類型在程式碼中一律會以 "#Microsoft.Azure.Search" 作為前置詞，因此 "ClassicTokenizer" 實際上會指定為 "#Microsoft.Azure.Search.ClassicTokenizer"。 為縮短表格寬度，我們已移除前置詞，但請務必將其包含在您的程式碼中。 請注意該 tokenizer_type 僅提供可自訂的 tokenizer。 如果沒有任何選項 (如同字母 Token 化工具也不會有相關聯的 #Microsoft.Azure.Search 類型。
 
 <a name="TokenFilters"></a>
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821254"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025226"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -68,7 +68,7 @@ ms.locfileid: "60821254"
 
 下圖說明工作區的分類：
 
-[![工作區分類](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![工作區分類](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>實驗
 
@@ -106,6 +106,16 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時，您可�
 
 如需回合組態的範例，請參閱[選取及使用計算目標將模型定型](how-to-set-up-training-targets.md)。
 
+## <a name="dataset"></a>Dataset
+
+Azure Machine Learning 資料集 （預覽） 讓您更輕鬆地存取及處理資料。 資料集管理各種案例，例如模型訓練中的資料，並建立的管線。 使用 Azure 機器學習服務 SDK，您就可以存取基礎儲存體、 探索及準備資料、 管理生命週期的不同資料集定義，並用於訓練和在生產環境中的資料集之間的比較。
+
+資料集提供方法來處理常見的格式，例如使用中的資料`from_delimited_files()`或`to_pandas_dataframe()`。
+
+如需詳細資訊，請參閱 <<c0> [ 建立及註冊 Azure Machine Learning 資料集](how-to-create-register-datasets.md)。
+
+如需使用資料集的範例，請參閱 <<c0> [ 範例 notebook](https://aka.ms/dataset-tutorial)。
+
 ## <a name="datastore"></a>資料存放區
 
 資料存放區是 Azure 儲存體帳戶的儲存體抽象概念。 資料存放區可以使用 Azure Blob 容器或 Azure 檔案共用作為後端儲存體。 每個工作區都有預設資料存放區，而且您可以註冊額外的資料存放區。
@@ -127,7 +137,7 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時，您可�
 | Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>(現場可程式化閘陣列) | &nbsp; | ✓ |
+| 現場可程式化閘陣列 (FPGA) | &nbsp; | ✓ |
 
 計算目標會附加至工作區。 本機電腦以外的計算目標會由工作區的使用者共用。
 
@@ -189,8 +199,6 @@ Azure Machine Learning 可以建立兩種類型的映像：
 * **Docker 映像**：在部署至 FPGA 以外的計算目標時使用。 例如，Azure 容器執行個體與 Azure Kubernetes Service。
 
 Azure Machine Learning 服務提供基底映像，預設會使用。 您也可以提供您自己的自訂映像。
-
-如需詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md#configureimage)的設定和註冊映像一節。
 
 如需建立映像的範例，請參閱[在 Azure 容器執行個體中部署映像分類模型](tutorial-deploy-models-with-aml.md)。
 

@@ -8,19 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61343334"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023863"
 ---
 # <a name="custom-web-api-skill"></a>自訂 Web API 技能
 
-**自訂 Web API** 技能可讓您透過呼叫提供自訂作業的 Web API 端點來擴充認知搜尋。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 根據輸入，您的 Web API 會在索引子執行時接收 JSON 承載，並輸出 JSON 承載以及成功狀態碼作為回應。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
+**自訂 Web API**技術可讓您藉由向外呼叫 Web API 端點，以提供自訂作業擴充認知搜尋。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 根據輸入，您的 Web API 接收 JSON 承載時在索引子執行，並將 JSON 承載輸出做為回應，以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
 
 JSON 承載的結構會在本文件中進一步描述。
 
@@ -38,7 +38,7 @@ Microsoft.Skills.Custom.WebApiSkill
 
 | 參數名稱     | 描述 |
 |--------------------|-------------|
-| uri | _JSON_ 承載傳送目標 Web API 的 URI。 僅允許 **https** URI 配置 |
+| uri | Web api 的 URI _JSON_會傳送承載。 僅允許 **https** URI 配置 |
 | httpMethod | 傳送承載時使用的方法。 允許的方法為 `PUT` 和 `POST` |
 | httpHeaders | 機碼值組的集合，其中機碼代表標頭名稱，而值代表將與承載一起傳送至 Web API 的標頭值。 下列標頭禁止加入此集合：`Accept`、`Accept-Charset`、`Accept-Encoding`、`Content-Length`、`Content-Type`、`Cookie`、`Host`、`TE`、`Upgrade`、`Via` |
 | timeout | (選擇性) 指定時，表示進行 API 呼叫的 http 用戶端逾時。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 例如，`PT60S` 為 60 秒。 如果沒有設定，則選擇的預設值為 30 秒。 逾時可以設定為最大值 90 秒，最小值 1 秒。 |
@@ -139,10 +139,10 @@ Microsoft.Skills.Custom.WebApiSkill
 
 ## <a name="sample-output-json-structure"></a>範例輸出 JSON 結構
 
-「輸出」對應於從您的 Web API 傳回的回應。 Web API 應該只傳回 _JSON_ 承載 (透過查看 `Content-Type` 回應標頭來驗證)，並且應該滿足下列限制式：
+「 輸出 」 會對應至您的 Web API 傳回的回應。 Web API 應該只會傳回_JSON_承載 (藉由查看驗證`Content-Type`回應標頭) 應該滿足下列條件約束：
 
 * 應該有一個名為 `values` 的最上層實體，它應該是物件陣列。
-* 陣列中的物件數目應與傳送至 Web API 的物件數目相同。
+* 陣列中的物件數目應該與物件傳送至 Web API 的數目相同。
 * 每個物件都應該有：
    * `recordId` 屬性
    * `data` 屬性，它是一個物件，其中的欄位是與 `output` 中的「名稱」相符的擴充，其值會被視為擴充。

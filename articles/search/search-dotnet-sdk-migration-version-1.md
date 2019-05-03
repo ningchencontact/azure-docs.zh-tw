@@ -10,14 +10,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 82823bae76521080634d4f7ff285d94ce8495fbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f47656bb13d08ea56cf25a2a29897722abb1cdb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61292795"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024157"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>升級至 Azure 搜尋服務 .NET SDK 版本 1.1
+
+> [!Important]
+> 此內容是仍在建構。 使用在 NuGet 上的 Azure 搜尋服務.NET SDK 的 9.0 版。 我們正努力這篇文章說明如何升級至 9.0。 
+> 
 
 如果您使用 1.0.2 預覽版或更舊版本的 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)，本文會協助您將應用程式升級為使用 1.1 版。
 

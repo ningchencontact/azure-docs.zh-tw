@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 2280af4bf37fdb3cd12482da855f979a9180f0ec
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498226"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020520"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>使用語音服務來建立自訂的喚醒字
 
@@ -47,29 +47,26 @@ ms.locfileid: "58498226"
 
 ## <a name="create-your-wake-word"></a>建立您的喚醒字
 
-您必須先使用「Microsoft 自訂喚醒字產生」服務來建立喚醒字，才能將自訂喚醒字和您的裝置搭配使用。 之後您提供網路喚醒 word，服務會產生，您將部署到您的開發套件，以啟用網路喚醒 word，您的裝置上的檔案。
+您可以使用自訂的網路喚醒 word 與您的裝置之前，您必須建立網路喚醒 word 與 Microsoft 自訂喚醒 Word 產生服務。 之後您提供網路喚醒 word，服務會產生，您將部署到您的開發套件，以啟用網路喚醒 word，您的裝置上的檔案。
 
-1. 移至[客製化語音服務入口網站](https://cris.ai/)。
+1. 移至[自訂語音服務入口網站](https://aka.ms/sdsdk-speechportal)並**登入**或如果您沒有選擇語音訂用帳戶[**建立訂用帳戶**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
     ![自訂語音服務入口網站](media/speech-devices-sdk/wake-word-4.png)
 
-1. 使用接收到 Azure Active Directory 的邀請電子郵件地址登入。
-
-1. [Custom Wake Word] \(自訂喚醒字\) 頁面並未提供給大眾使用，因此沒有可直接連至該頁面的連結。 自訂語音功能需要 Azure 訂用帳戶，但自訂喚醒 Word 功能不會。 如果出現「找不到任何訂用帳戶」 錯誤頁面，請直接將 **"Subscriptions?errorMessage=No%20Subscriptions%20found"** 取代為 URL 中的 "**customkws**"，然後點按 ENTER。 URL 應該是以下其中一個： https://westus.cris.ai/customkws、 https://eastasia.cris.ai/customkws 或 https://northeurope.cris.ai/customkws，這取決於您的地區在哪。
-
-1. 輸入您選擇的喚醒字，然後選擇 [提交字組]。
+1. 在[自訂喚醒 Word](https://aka.ms/sdsdk-wakewordportal)頁面上您的選擇，然後按一下 網路喚醒 word 中的型別**新增喚醒字詞**。 我們有一些[指導方針](#choose-an-effective-wake-word)若要協助選擇有效的關鍵字。 目前僅支援 EN-US 語言。
 
     ![輸入您的喚醒字](media/speech-devices-sdk/wake-word-5.png)
 
-1. 產生檔案可能需要數分鐘。 您應該會在瀏覽器視窗中看到旋轉的圓圈。 隨後，會出現資訊列要求您下載 .zip 檔案。
+1. 將建立三個其他的發音的線上醒機 word。 您可以選擇要使用的所有發音。 然後選取**送出**產生喚醒 word。 如果您想要變更網路喚醒 word 請移除現有第一，發音該行暫留時，會出現 [刪除] 圖示。
 
-1. 將 .zip 檔案儲存到您的電腦。 您需要此檔案來將自訂喚醒字部署到開發套件。 若要部署自訂喚醒字，請遵循[開始使用 Speech Devices SDK](speech-devices-sdk-qsg.md) 中的指示。
+    ![檢閱您的網路喚醒 word](media/speech-devices-sdk/wake-word-6.png)
 
-1. 選擇 [登出]。
+1. 可能需要一分鐘的時間產生模型。 系統會提示您下載檔案。
+
+    ![下載您的網路喚醒 word](media/speech-devices-sdk/wake-word-7.png)
+
+1. 將 .zip 檔案儲存到您的電腦。 您將需要此檔案來部署您的自訂網路喚醒 word 到開發套件。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要開始，請取得[免費的 Azure 帳戶](https://azure.microsoft.com/free/)並註冊 Speech Devices SDK。
-
-> [!div class="nextstepaction"]
-> [註冊 Speech Devices SDK](get-speech-devices-sdk.md)
+測試具有您自訂的網路喚醒單字[語音裝置 SDK 快速入門](https://aka.ms/sdsdk-quickstart)。

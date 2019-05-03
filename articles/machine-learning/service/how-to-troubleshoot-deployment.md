@@ -9,20 +9,20 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: f81aea22014a2c7d5b37c500a546f0b5350b6435
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 90e85e0030a696dd024dd65d27a0f4dbdc7e3cdc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925389"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023662"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>針對 Azure Machine Learning 服務 AKS 和 ACI 部署進行疑難排解
 
-在本文中，您將了解如何使用 Azure Machine Learning 服務，來因應或解決使用 Azure 容器執行個體 (ACI) 和 Azure Kubernetes Service (AKS) 的常見 Docker 部署錯誤。
+了解如何因應措施或解決常見的 Docker 部署錯誤，Azure Container Instances (ACI) 與 Azure Kubernetes Service (AKS) 使用 Azure Machine Learning 服務。
 
-在 Azure Machine Learning 服務中部署模型時，系統就會執行數項工作。 這是一系列複雜的事件，而且有時會發生問題。 部署後工作包含：
+在 Azure Machine Learning 服務中部署模型時，系統就會執行數項工作。 部署後工作包含：
 
 1. 在工作區模型登錄中註冊模型。
 
@@ -33,6 +33,9 @@ ms.locfileid: "64925389"
     4. 使用 dockerfile 建置新的 Docker 映像。
     5. 向與工作區相關聯的 Azure Container Registry 註冊 Docker 映像。
 
+    > [!IMPORTANT]
+    > 根據您的程式碼中，建立映像會自動您輸入的情況下。
+
 3. 將 Docker 映像部署至 Azure 容器執行個體 (ACI) 服務或 Azure Kubernetes Service (AKS)。
 
 4. 在 ACI 或 AKS 中啟動新的容器。 
@@ -41,9 +44,9 @@ ms.locfileid: "64925389"
 
 ## <a name="before-you-begin"></a>開始之前
 
-如果您遇到任何問題時，首先要做的事就是將部署工作 (先前所述) 分成個別步驟，以將問題隔離。 
+如果您遇到任何問題時，首先要做的事就是將部署工作 (先前所述) 分成個別步驟，以將問題隔離。
 
-這是如果您使用很有幫助`Webservice.deploy`API，或`Webservice.deploy_from_model`API，因為這些函式組成群組至單一動作的上述步驟。 這些 Api 通常很方便，但最好先藉由取代以進行疑難排解時，分解步驟下列 API 呼叫。
+部署分成工作很有幫助，如果您使用[Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) API，或[Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) API，為這些函式的執行與上述的步驟單一動作。 這些 Api 通常很方便，但最好先藉由取代以進行疑難排解時，分解步驟下列 API 呼叫。
 
 1. 註冊模型。 以下是一些範例程式碼：
 
@@ -86,7 +89,8 @@ ms.locfileid: "64925389"
 將部署程序分成個別的工作後，我們可以查看一些最常見的錯誤。
 
 ## <a name="image-building-fails"></a>映像建置失敗
-如果系統無法建置 Docker 映像，`image.wait_for_creation()` 呼叫會失敗，並包含一些能提供部分線索的錯誤訊息。 您也可以從映像組建記錄檔中了解更多有關錯誤的資訊。 以下一些範例程式碼會示範如何找出映像組建記錄檔的 URI。
+
+如果無法建置 Docker 映像， [image.wait_for_creation()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-)或是[service.wait_for_deployment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-)呼叫會失敗，可以提供一些線索某些錯誤訊息。 您也可以從映像組建記錄檔中了解更多有關錯誤的資訊。 以下一些範例程式碼會示範如何找出映像組建記錄檔的 URI。
 
 ```python
 # if you already have the image object handy
@@ -99,13 +103,14 @@ print(ws.images['myimg'].image_build_log_uri)
 for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
+
 映像記錄 URI 是 SAS URL，其指向 Azure Blob 儲存體中儲存的記錄檔。 只要將 URI 複製並貼到瀏覽器視窗中，您就可以下載並檢視記錄檔。
 
 ### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure 金鑰保存庫存取原則和 Azure Resource Manager 範本
 
-映像組建也會因為 Azure Key Vault 的存取原則的問題而失敗。 這可能是當您使用 Azure Resource Manager 範本建立的工作區和相關聯的資源 （包括 Azure Key Vault），許多次。 例如，使用範本多次使用相同的參數做為一部分的連續整合和部署管線。
+映像組建也會因為 Azure Key Vault 的存取原則的問題而失敗。 當您使用 Azure Resource Manager 範本建立的工作區和相關聯的資源 （包括 Azure Key Vault），多次時，可以發生這種情況。 例如，使用範本多次使用相同的參數做為一部分的連續整合和部署管線。
 
-大部分的資源建立作業，透過範本具有等冪性，但金鑰保存庫清除的存取原則每次使用此範本。 這會中斷存取金鑰保存庫的任何現有的工作區正在使用它。 這會導致錯誤，當您嘗試建立新的映像。 您可以接收錯誤的範例如下：
+大部分的資源建立作業，透過範本具有等冪性，但金鑰保存庫清除的存取原則每次使用此範本。 清除 存取原則符號 Key Vault 存取權的任何現有的工作區正在使用它。 這種狀況會導致錯誤，當您嘗試建立新的映像。 您可以接收錯誤的範例如下：
 
 __入口網站__：
 ```text
@@ -144,16 +149,81 @@ b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server 
 若要避免這個問題，我們建議下列方式之一：
 
 * 請勿部署範本一次以上相同的參數。 或使用範本來重新建立它們之前刪除現有的資源。
-* 檢查金鑰保存庫的存取原則，並使用此設定`accessPolicies`範本的屬性。
+* 檢查金鑰保存庫的存取原則，並接著使用這些原則來設定`accessPolicies`範本的屬性。
 * 檢查 Key Vault 資源是否已經存在。 若是如此，不會重建它透過範本。 例如，加入參數，可讓您停用建立金鑰保存庫資源，如果已經存在。
 
-## <a name="service-launch-fails"></a>服務啟動失敗
-成功建置映像之後，系統就會嘗試在 ACI 或 AKS 中 (取決於部署組態) 啟動容器。 建議您先，嘗試 ACI 部署，因為它是簡單的單一容器部署。 如此一來，您可以先排除任何與 AKS 相關的問題。
+## <a name="debug-locally"></a>在本機偵錯
 
-作為容器啟動程序的一部分，系統會叫用評分指令碼中的 `init()` 函式。 如果 `init()` 函式中有無法攔截的例外狀況，您可能會在錯誤訊息中看到 **CrashLoopBackOff** 錯誤。 以下是一些秘訣，協助您對問題進行疑難排解。
+如果您遇到問題，將模型部署至 ACI 或 AKS，請嘗試將它部署為本機的 web 服務。 使用本機 web 服務可讓您更輕鬆地針對問題進行疑難排解。 包含模型的 Docker 映像會下載，並在您的本機系統上啟動。
 
-### <a name="inspect-the-docker-log"></a>檢查 Docker 記錄
-您可以從服務物件中列印詳細的 Docker 引擎記錄訊息。
+> [!IMPORTANT]
+> 本機 web 服務部署需要使用您的本機系統上的 Docker 安裝。 必須先執行 docker，您將本機 web 服務部署。 如需安裝和使用 Docker 的詳細資訊，請參閱[ https://www.docker.com/ ](https://www.docker.com/)。
+
+> [!WARNING]
+> 本機 web 服務部署不支援針對實際執行案例。
+
+若要在本機部署，修改 程式碼以使用`LocalWebservice.deploy_configuration()`建立部署組態。 然後使用`Model.deploy()`部署服務。 下列範例會將模型部署 (包含在`model`變數) 做為本機的 web 服務：
+
+```python
+from azureml.core.model import InferenceConfig
+from azureml.core.webservice import LocalWebservice
+
+# Create inferencing configuration. This creates a docker image that contains the model.
+inference_config = InferenceConfig(runtime= "python", 
+                                   execution_script="score.py",
+                                   conda_file="myenv.yml")
+
+# Create a local deployment, using port 8890 for the web service endpoint
+deployment_config = LocalWebservice.deploy_configuration(port=8890)
+# Deploy the service
+service = Model.deploy(ws, "mymodel", [model], inference_config, deployment_config)
+# Wait for the deployment to complete
+service.wait_for_deployment(True)
+# Display the port that the web service is available on
+print(service.port)
+```
+
+此時，您可以使用如往常一樣的服務。 例如，下列程式碼示範將資料傳送至服務：
+
+```python
+import json
+
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10], 
+    [10,9,8,7,6,5,4,3,2,1]
+]})
+
+test_sample = bytes(test_sample,encoding = 'utf8')
+
+prediction = service.run(input_data=test_sample)
+print(prediction)
+```
+
+### <a name="update-the-service"></a>更新服務
+
+在本機測試，您可能需要更新`score.py`檔案來新增記錄，或嘗試解決您發現任何問題。 若要重新載入變更`score.py`檔案，請使用`reload()`。 比方說，下列程式碼重新載入服務，指令碼，並再將資料傳送給它。 使用更新的計分資料`score.py`檔案：
+
+```python
+service.reload()
+print(service.run(input_data=test_sample))
+```
+
+> [!NOTE]
+> 指令碼會從所指定的位置重新載入`InferenceConfig`服務所使用的物件。
+
+若要變更模型、 Conda 相依性或部署組態，請使用[update （)](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-)。 下列範例會更新服務所使用的模型：
+
+```python
+service.update([different_model], inference_config, deployment_config)
+```
+
+### <a name="delete-the-service"></a>刪除服務
+
+若要刪除的服務，請使用[delete （)](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--)。
+
+### <a id="dockerlog"></a> 檢查 Docker 記錄檔
+
+您可以從服務物件中列印詳細的 Docker 引擎記錄訊息。 ACI、 AKS，及本機部署，您可以檢視記錄檔。 下列範例示範如何列印的記錄檔。
 
 ```python
 # if you already have the service object handy
@@ -163,82 +233,15 @@ print(service.get_logs())
 print(ws.webservices['mysvc'].get_logs())
 ```
 
-### <a name="debug-the-docker-image-locally"></a>在本機上對 Docker 映像進行偵錯
-有時候，Docker 記錄發出的資訊不足以找出錯誤原因。 您可以繼續下一步並提取已建置的 Docker 映像，然後啟動本機容器，以互動方式直接在作用中的容器內進行偵錯。 若要啟動本機容器，您必須讓 Docker 引擎在本機執行，而且如果您已安裝 [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)，該程序會簡單很多。
+## <a name="service-launch-fails"></a>服務啟動失敗
 
-首先，我們需要找出的映像位置：
+已成功建立映像之後，系統就會嘗試啟動容器，使用您的部署組態。 作為容器啟動程序的一部分，系統會叫用評分指令碼中的 `init()` 函式。 如果 `init()` 函式中有無法攔截的例外狀況，您可能會在錯誤訊息中看到 **CrashLoopBackOff** 錯誤。
 
-```python
-# print image location
-print(image.image_location)
-```
-
-映像位置的格式為：`<acr-name>.azurecr.io/<image-name>:<version-number>`，例如 `myworkpaceacr.azurecr.io/myimage:3`。 
-
-現在，移至您的命令列視窗。 如果您已安裝 azure-cli，您可以輸入下列命令來登入與工作區 (映像所在位置) 相關聯的 ACR (Azure Container Registry)。 
-
-```sh
-# log on to Azure first if you haven't done so before
-$ az login
-
-# make sure you set the right subscription in case you have access to multiple subscriptions
-$ az account set -s <subscription_name_or_id>
-
-# now let's log in to the workspace ACR
-# note the acr-name is the domain name WITHOUT the ".azurecr.io" postfix
-# e.g.: az acr login -n myworkpaceacr
-$ az acr login -n <acr-name>
-```
-如果您沒有安裝 azure-cli，可以使用 `docker login` 命令來登入 ACR。 但是，您必須先從 Azure 入口網站擷取 ACR 的使用者名稱和密碼。
-
-登入 ACR 後，您就可以提取 Docker 映像並在本機啟動容器，然後使用 `docker run` 命令來啟動用於偵錯的 bash 工作階段：
-
-```sh
-# note the image_id is <acr-name>.azurecr.io/<image-name>:<version-number>
-# for example: myworkpaceacr.azurecr.io/myimage:3
-$ docker run -it <image_id> /bin/bash
-```
-
-一旦針對執行中的容器啟動 bash 工作階段後，您可以在 `/var/azureml-app` 資料夾中找到評分指令碼。 然後，您可以啟動 Python 工作階段來對評分指令碼進行偵錯。 
-
-```sh
-# enter the directory where scoring scripts live
-cd /var/azureml-app
-
-# find what Python packages are installed in the python environment
-pip freeze
-
-# sanity-check on score.py
-# you might want to edit the score.py to trigger init().
-# as most of the errors happen in init() when you are trying to load the model.
-python score.py
-```
-如果您需要文字編輯器來修改指令碼，您可以安裝 vim、nano、Emacs 或您慣用的編輯器。
-
-```sh
-# update package index
-apt-get update
-
-# install a text editor of your choice
-apt-get install vim
-apt-get install nano
-apt-get install emacs
-
-# launch emacs (for example) to edit score.py
-emacs score.py
-
-# exit the container bash shell
-exit
-```
-
-您也可以在本機上啟動 Web 服務，並將 HTTP 流量傳送至此。 Docker 容器中的 Flask 伺服器會在連接埠 5001 上執行。 您可以對應到主機上任何可使用的其他連接埠。
-```sh
-# you can find the scoring API at: http://localhost:8000/score
-$ docker run -p 8000:5001 <image_id>
-```
+使用中的資訊[檢查 Docker 記錄](#dockerlog)一節，查看記錄檔。
 
 ## <a name="function-fails-getmodelpath"></a>函式錯誤：get_model_path()
-通常，在評分指令碼的 `init()` 函式中，呼叫 `Model.get_model_path()` 函式是為了找出容器中的模型檔案或模型檔案資料夾。 如果找不到模型檔案或資料夾，這通常是來源錯誤。 若要對此錯誤進行偵錯，最簡單方式是在容器殼層中執行下列 Python 程式碼：
+
+通常，在`init()`評分指令碼中的函式[Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-)呼叫函式可找出模型檔案或資料夾的模型檔案容器中。 如果找不到的模型檔案或資料夾，則函式會失敗。 若要對此錯誤進行偵錯，最簡單方式是在容器殼層中執行下列 Python 程式碼：
 
 ```python
 import logging
@@ -247,11 +250,12 @@ from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-這會列印出容器中的本機路徑 (相對於 `/var/azureml-app`)，而您的評分指令碼預期會在其中找到模型檔案或資料夾。 然後您可以確認該檔案或資料夾是否確實是您需要的。
+此範例會列印出的本機路徑 (相對於`/var/azureml-app`) 容器，您的計分指令碼預期會找到的模型檔案或資料夾中。 然後您可以確認該檔案或資料夾是否確實是您需要的。
 
-將記錄層級設定為 [偵錯] 可記錄額外資訊，這在要找出失敗原因時可能很實用。
+將記錄層級設定為 偵錯時，可能會導致記錄，可能有助於識別失敗的其他資訊。
 
 ## <a name="function-fails-runinputdata"></a>函式失敗：run(input_data)
+
 如果已成功部署服務，但此服務在您發佈資料到評分端點時發生損毀，您可以在 `run(input_data)` 函式中新增錯誤攔截陳述式，以傳回詳細的錯誤訊息。 例如︰
 
 ```python
@@ -266,7 +270,8 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
-**注意**：從 `run(input_data)` 呼叫傳回錯誤訊息的方式應僅用於偵錯目的。 基於安全性考量，這可能不適合在生產環境中進行。
+
+**注意**：從 `run(input_data)` 呼叫傳回錯誤訊息的方式應僅用於偵錯目的。 基於安全性理由，您不應該傳回錯誤訊息這種方式在生產環境中。
 
 ## <a name="http-status-code-503"></a>HTTP 狀態碼 503
 
@@ -312,7 +317,7 @@ Azure Kubernetes 服務部署支援自動調整功能，可允許加入以支援
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解部署： 
-* [部署方式及位置](how-to-deploy-and-where.md)
+深入了解部署：
 
+* [部署方式及位置](how-to-deploy-and-where.md)
 * [教學課程：定型與部署模型](tutorial-train-models-with-aml.md)

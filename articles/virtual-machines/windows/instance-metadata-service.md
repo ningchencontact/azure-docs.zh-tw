@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 9097fef88a2c3c667416761c341a2e320c790121
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f892ded46f7124237fd80fbe1e3f5e866c12f0d5
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919044"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993074"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -640,6 +640,8 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
+在其中的中繼憑證無法下載由於網路條件約束驗證期間的情況下，都可以釘選的中繼憑證。 不過，Azure 會以標準的 PKI 作法根據憑證變換。 更新變換時需要固定的憑證。 每當已規劃的變更，更新的中繼憑證，將會更新 Azure 部落格，而 Azure 客戶會收到通知。 中繼憑證見[此處](https://www.microsoft.com/pki/mscorp/cps/default.htm)。 每個區域的中繼憑證可能會不同。
+
 ### <a name="failover-clustering-in-windows-server"></a>Windows Server 中的容錯移轉叢集
 
 對於某些情況，使用容錯移轉叢集查詢 Instance Metadata Service 時，必須將路由新增至路由表。
@@ -688,11 +690,13 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ### <a name="custom-data"></a>自訂資料
 執行個體中繼資料服務提供的 VM 具有其自訂資料的存取權的能力。 二進位資料必須是小於 64 KB，並且提供 base64 編碼格式的 vm。 如需如何使用自訂的資料來建立 VM 的詳細資訊，請參閱 <<c0> [ 部署虛擬機器使用 CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)。
 
+在 VM 中執行的所有處理程序使用自訂的資料。 建議客戶不要將祕密資訊插入自訂資料。
+
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>擷取虛擬機器中的自訂資料
 Base64 編碼格式中的 VM 執行個體中繼資料服務提供自訂的資料。 下列範例將解碼的 base64 編碼字串。
 
 > [!NOTE]
-> 在此範例中的自訂資料會解譯為 ASCII 字串讀取，「 我神秘無比的資料。 」。
+> 在此範例中的自訂資料會解譯為 ASCII 字串讀取，「 我的自訂資料。 」。
 
 **要求**
 
@@ -703,7 +707,7 @@ curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/custom
 **回應**
 
 ```text
-My super secret data.
+My custom data.
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>在 VM 內使用不同語言呼叫中繼資料服務的範例 

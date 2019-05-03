@@ -1,5 +1,5 @@
 ---
-title: 什麼是 FPGA 和 Project Brainwave？
+title: 欄位可程式化閘陣列 (FPGA) 有哪些？
 titleSuffix: Azure Machine Learning service
 description: 了解如何在 Azure 上使用 FPGA 為模型和深度類神經網路加速。 本文將介紹可現場程式化閘道陣列 (FPGA)，以及 Azure Machine Learning 服務如何在您將模型部署至 Azure FPGA 時提供即時人工智慧 (AI)。
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
-ms.date: 1/10/2019
+ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 716de6d491be753c5c32c0a2774404140010f72c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 648dc462477570a692eff588c558a18a3121e4e7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821223"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025243"
 ---
-# <a name="what-are-fpgas-and-project-brainwave"></a>什麼是 FPGA 和 Project Brainwave？
+# <a name="what-are-field-programmable-gate-arrays-fpga"></a>欄位可程式化閘陣列 (FPGA) 有哪些？
 
 本文將介紹可現場程式化閘道陣列 (FPGA)，以及 Azure Machine Learning 服務如何在您將模型部署至 Azure FPGA 時提供即時人工智慧 (AI)。
 
@@ -37,31 +37,28 @@ FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階
 |圖形處理器|GPU|這是頗受歡迎的 AI 計算選擇。 由於 GPU 能提供平行處理功能，因而使得它在轉譯影像的速度會比 CPU 還快。|
 |中央處理器|CPU|一般用途的處理器，其效能不適合圖形和影片處理。|
 
-## <a name="project-brainwave-on-azure"></a>Azure 的 Project Brainwave
+在 Azure 上的 Fpga 為基礎的資料科學家和開發人員用來加速即時 AI 計算的 Intel FPGA 裝置。 這個具有 FPGA 功能的架構可提供效能、彈性和擴展能力，並且可在 Azure 上使用。
 
-[Project Brainwave](https://www.microsoft.com/en-us/research/project/project-brainwave/) \(英文\) 是 Microsoft 所提供的硬體架構。 它會以 Intel 的 FPGA 裝置為基礎，讓資料科學家和開發人員可用來加速即時 AI 計算。 這個具有 FPGA 功能的架構可提供效能、彈性和擴展能力，並且可在 Azure 上使用。
-
-FPGA 可以實現低延遲的即時推斷請求。 不需要非同步要求 (批次處理)。 批次處理可能會造成延遲 (因為需要處理更多資料)。 使用類神經處理器的 Project Brainwave 實作不需要批次處理；因此，其延遲比 CPU 和 GPU 處理器低好幾倍。
+FPGA 可以實現低延遲的即時推斷請求。 不需要非同步要求 (批次處理)。 批次處理可能會造成延遲 (因為需要處理更多資料)。 類神經的處理單位的實作不需要批次處理;因此延遲可能會多次低，相較於 CPU 和 GPU 的處理器。
 
 ### <a name="reconfigurable-power"></a>可重新設定的電源
 您可以針對不同類型的機器學習模型重新設定 FPGA。 擁有此種彈性，就更易於依據最佳的數值有效位數和所用的記憶體模型來加速應用程式。 由於 FPGA 可重新設定，因此您可以與 AI 演算法快速變化的需求保持同步。
 
 ### <a name="whats-supported-on-azure"></a>Azure 上所支援的項目
-Microsoft Azure 是 FPGA 全球最大的雲端投資。 您可以在 Azure 的縮放基礎結構上執行 Project Brainwave。
+Microsoft Azure 是 FPGA 全球最大的雲端投資。 在 Azure 支援 Fpga:
 
-目前，Project Brainwave 支援：
 + 影像分類和辨識案例
 + TensorFlow 部署
 + DNN：ResNet 50、ResNet 152、VGG-16、SSD-VGG 和 DenseNet-121
 + Intel FPGA 硬體 
 
-使用這個具有 FPGA 功能的硬體架構，已定型的類神經網路執行速度會更快，延遲也較低。 Project Brainwave 可以在 FPGA 上平行處理預先定型的深度類神經網路 (DNN)，相應放大您的服務。 DNN 可以預先定型為深度 Featurizer 以傳輸學習，也可以使用更新過的加權來微調。
+使用這個具有 FPGA 功能的硬體架構，已定型的類神經網路執行速度會更快，延遲也較低。 Azure 可以預先定型深度類神經網路 (DNN) 平行處理 Fpga 相應放大您的服務。 DNN 可以預先定型為深度 Featurizer 以傳輸學習，也可以使用更新過的加權來微調。
 
 ### <a name="scenarios-and-applications"></a>案例和應用程式
 
-Project Brainwave 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評估 DNN、Bing 搜尋順位排序，以及軟體定義網路 (SDN) 加速來減少延遲，同時釋放 CPU 來執行其他工作。
+Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評估 DNN、Bing 搜尋順位排序，以及軟體定義網路 (SDN) 加速來減少延遲，同時釋放 CPU 來執行其他工作。
 
-以下為在 Project Brainwave 架構上使用 FPGA 的案例：
+下列案例使用 Fpga:
 + [自動化光學檢查系統](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
 
 + [地表覆蓋對應](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
@@ -70,7 +67,7 @@ Project Brainwave 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 
 
 若要在 Azure 中建立影像辨識服務，您可以使用支援的 DNN 作為功能化器，以將服務部署至 Azure FPGA：
 
-1. 使用[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 來建立服務定義。 服務定義是根據 TensorFlow 來描述圖形管線 (輸入、功能化器和分類器) 的檔案。 部署命令會自動將定義和圖表壓縮為 ZIP 檔案，然後將 ZIP 檔案上傳到 Azure Blob 儲存體。 DNN 已部署於 Project Brainwave 以便在 FPGA 上執行。
+1. 使用[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 來建立服務定義。 服務定義是根據 TensorFlow 來描述圖形管線 (輸入、功能化器和分類器) 的檔案。 部署命令會自動將定義和圖表壓縮為 ZIP 檔案，然後將 ZIP 檔案上傳到 Azure Blob 儲存體。 DNN 已部署到 FPGA 上執行。
 
 1. 使用 SDK 搭配 Azure Blob 儲存體中的 ZIP 檔案來註冊模型。
 

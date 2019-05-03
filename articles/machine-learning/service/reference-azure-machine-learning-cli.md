@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 04/30/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2992ec9f43aac9e0d80c5e42873d26ac3a9c3fd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9cc6ad4f7b33de4d132efe63ff11c34f10b614af
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916983"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023373"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務的 CLI 擴充功能
 
@@ -80,7 +80,6 @@ az extension remove -n azure-cli-ml
     ```
 
 + 附加到資料夾，以啟用 CLI 內容感知的工作區設定。
-
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
@@ -90,26 +89,14 @@ az extension remove -n azure-cli-ml
     ```azurecli-interactive
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
-
+    
 + 附加的 AKS 叢集作為計算目標。
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
     ```
 
-+ 建立新的 AMLcompute 目標
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
-    ```
-    
 ## <a id="experiments"></a>執行實驗
-
-+ 附加到資料夾，以啟用 CLI 內容感知的工作區設定。
-
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
 
 * 開始您的實驗回合。 使用此命令時，指定的 runconfig 檔案名稱 (在之前的文字\*.runconfig，如果您正在查看您的檔案系統) 對-c 參數。
 
@@ -123,7 +110,7 @@ az extension remove -n azure-cli-ml
     az ml experiment list
     ```
 
-## <a name="model-registration-profiling-deployment"></a>模型註冊、 程式碼剖析，部署
+## <a name="model-registration-profiling--deployment"></a>模型註冊、 程式碼剖析和部署
 
 下列命令示範如何註冊定型的模型，然後將它部署為生產服務：
 
