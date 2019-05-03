@@ -137,7 +137,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | HostName_s | 受控節點名稱。 |
 | IPAddress | 受控節點的 IPv4 位址。 |
 | Category | DscNodeStatus |
-| 資源 | Azure 自動化帳戶的名稱。 |
+| Resource | Azure 自動化帳戶的名稱。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | NodeId_g |識別受控節點的 GUID。 |
 | DscReportId_g |識別報表的 GUID。 |
@@ -163,7 +163,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | ResultType |資源是否符合規範。 |
 | NodeName_s |受控節點名稱。 |
 | Category | DscNodeStatus |
-| 資源 | Azure 自動化帳戶的名稱。 |
+| Resource | Azure 自動化帳戶的名稱。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | NodeId_g |識別受控節點的 GUID。 |
 | DscReportId_g |識別報表的 GUID。 |

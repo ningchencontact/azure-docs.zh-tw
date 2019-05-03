@@ -1,98 +1,41 @@
 ---
 title: 取得語音裝置 SDK
 titleSuffix: Azure Cognitive Services
-description: 語音服務可與各種裝置和音訊來源搭配運作。 您現在可以利用相符的硬體和軟體，將語音應用程式提升至下一個層級。 在本文中，您將了解如何取得語音裝置 SDK 的存取權，並開始進行開發。
+description: 語音服務可與各種裝置和音訊來源搭配運作。 您現在可以利用相符的硬體和軟體，將語音應用程式提升至下一個層級。 在本文中，您將了解如何取得存取語音裝置 SDK，並開始開發。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3c5874625ee9d1932c401238c1586ad89d5d206d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c2cff23f66ec704fe7e7c44136160313c10c9c2
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856717"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020586"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>取得認知服務語音裝置 SDK
 
-語音裝置 SDK 處於受限預覽狀態，要求您在程式中註冊。 目前，Microsoft 會偏好以大型公司作為存取這項產品的候選者。
+語音裝置 SDK 是設計用於特殊用途的開發套件，與不同的麥克風陣列設定 pretuned 程式庫。
 
-## <a name="request-access"></a>要求存取
+## <a name="choose-a-development-kit"></a>選擇一種開發套件
 
-取得語音裝置 SDK 的存取權：
-
-1. 移至 Microsoft 語音裝置 SDK [註冊表單](https://aka.ms/sdsdk-signup)。
-1. 閱讀[授權合約](speech-devices-sdk-license.md)。
-1. 如果您同意此授權合約的條款，請選取 [我同意]。
-1. 回答表單中的問題。
-1. 提交表單。
-1. 如果您的電子郵件地址還不是 Azure Active Directory (Azure AD) 的一部分，您會在核准存取時收到類似下面範例的邀請電子郵件。 如果您的電子郵件地址已經在 Azure AD 中，您會在獲得核准存取時收到來自 Microsoft 語音小組的電子郵件訊息，而且可以跳到[下載語音裝置 SDK](#download-the-speech-devices-sdk)。
-
-## <a name="approval-e-mail"></a>核准電子郵件
-
-```
-From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com>
-Subject: You're invited to the Microsoft organization
-```
-
-![電子郵件訊息](media/speech-devices-sdk/get-sdk-1.png)
-
-## <a name="accept-access"></a>接受存取
-
-完成下列步驟後，即可使用您在註冊時提供的電子郵件地址加入 Azure AD。 此流程可供您存取語音裝置 SDK 的[下載網站](https://shares.datatransfer.microsoft.com/)。
-
-1. 在您收到的電子郵件訊息中，選取 [開始使用]。 如果您的組織已經是 Office 365 客戶，系統會提示您登入，而您可以跳到步驟 7。
-
-2. 在開啟的瀏覽器視窗中，選取 [下一步]。
-
-    ![驗證視窗](media/speech-devices-sdk/get-sdk-2.png)
-
-3. 建立 Microsoft 帳戶 (如果您還沒有帳戶的話)。 輸入您用來接收邀請電子郵件的同一個電子郵件地址。
-
-    ![建立 Microsoft 帳戶](media/speech-devices-sdk/get-sdk-3.png)
-
-4. 選取 [下一步] 建立密碼。
-
-5. 當系統提示驗證您的電子郵件時，請使用您邀請電子郵件上所提供的驗證碼。
-
-7. 在對話方塊中貼上或輸入電子郵件訊息中的安全碼。 在此範例中，安全碼為 [8406]。 選取 [下一步] 。
-
-    ![驗證電子郵件](media/speech-devices-sdk/get-sdk-6.png)
-
-8. 當您在瀏覽器中看到 [存取面板應用程式] 時，您已確認您的電子郵件地址是 Azure AD 的一部分。 您現在可以存取語音裝置 SDK 下載網站。
+|裝置|規格|描述|案例|
+|--|--|--|--|
+|[Roobo 智慧音訊的開發人員套件](http://ddk.roobo.com)</br>[安裝程式](speech-devices-sdk-roobo-v1.md) / [快速入門](speech-devices-sdk-android-quickstart.md)![Roobo 智慧音訊的開發人員套件](media/speech-devices-sdk/device-roobo-v1.jpg)|7 的 mic 陣列，ARM SOC WIFI、 音訊外，IO。 </br>Android|第一個語音裝置 SDK，來調整 Microsoft Mic 陣列和前端處理 SDK，開發高品質的轉譯及語音的案例|交談文字記錄、 智慧型的主講人，語音代理程式，可穿戴式|
+|[Azure 的 Kinect DK](https://azure.microsoft.com/services/kinect-dk/)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|7 的 mic 陣列 RGB 和深度相機。 </br>Windows/Linux|使用進階的人工智慧 (AI) 感應器建置複雜的電腦視覺與語音模型開發人員套件。 它會結合同級產品中的空間麥克風陣列和深度攝影機的視訊攝影機和方向感應器 — 全都在一個小型的裝置，具有多個模式、 選項和 Sdk 為容納廣泛的計算類型。|交談文字記錄，機器人智慧建築|
+|Roobo 智慧音訊的開發人員套件 2![Roobo 智慧音訊的開發人員套件 2](media/speech-devices-sdk/device-roobo-v2.jpg)|7 的 mic 陣列，ARM SOC WIFI、 藍芽、 IO。 </br> Linux|第 2 代語音裝置 SDK 提供了替代的 OS 和更多的功能，在符合成本效益的參考設計。|交談文字記錄、 智慧型的主講人，語音代理程式，可穿戴式|
+|URbetter T11 開發面板![URbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|7 的 mic 陣列，ARM SOC WIFI、 乙太網路、 HDMI、 USB 網路攝影機。 </br> Linux|工業級語音裝置 SDK，可配合 Microsoft 的 Mic 陣列，並且支援擴充 HDMI/乙太網路等更多的 USB 週邊設備的 I/O|交談文字記錄、 教育版、 醫院、 機器人、 OTT 方塊中，語音代理程式，以到的磁碟機|
 
 ## <a name="download-the-speech-devices-sdk"></a>下載語音裝置 SDK
 
-前往[語音裝置 SDK 下載網站](https://shares.datatransfer.microsoft.com/)。 使用您稍早建立的 Microsoft 帳戶登入。
-
-![SDK 下載網站](media/speech-devices-sdk/get-sdk-7.png)
-
-下載語音裝置 SDK、相關聯的範例程式碼及參考資料：
-
-1. 當瀏覽器出現提示時，下載並安裝 Aspera Connect 工具。
-
-    ![下載 Aspera Connect](media/speech-devices-sdk/get-sdk-8.png)
-
-1. 選取 [是]，將應用程式切換為 Aspera Connect。
-
-    ![切換為 Aspera Connect](media/speech-devices-sdk/get-sdk-9.png)
-
-1. 選取 [允許]，確認使用 Aspera Connect 下載檔案。
-
-    ![使用 Aspera Connect 下載](media/speech-devices-sdk/get-sdk-10.png)
-
-1. 下載檔案後，請關閉 Aspera Connect 的 [傳輸] 視窗。
-
-    ![Aspera Connect 的 [傳輸] 視窗](media/speech-devices-sdk/get-sdk-11.png)
-
-根據預設，檔案會下載到您的 [下載] 資料夾。 您現在可以登出此網站。
+下載[語音裝置 SDK](https://aka.ms/sdsdk-download)。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [開始使用語音裝置 SDK](speech-devices-sdk-qsg.md)
+> [開始使用語音裝置 SDK](https://aka.ms/sdsdk-quickstart)

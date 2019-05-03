@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924579"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023965"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>如何在 Azure 搜尋服務中實作多面向導覽
 多面向導覽是一個篩選機制，它在搜尋應用程式中提供自動導向的向下鑽研導覽。 「多面向導覽」一詞可能讓您感到陌生，但您可能早已使用過它。 如下列範例所示，多面向導覽其實就是用來篩選結果的類別。
 
  ![Azure 搜尋服務作業入口網站示範][1]
 
-多面向導覽是替代的搜尋進入點。 它提供了方便的替代功能，讓您不必手動輸入複雜搜尋運算式。 多面向可協助您找到要找的項目，同時確保您不會得到沒有項目的結果。 身為開發人員，面向可讓您將最有用的搜尋準則公開，以導覽您的搜尋主體。 在線上零售應用程式中，通常會根據品牌、部門 (童鞋)、尺寸、價格、熱門程度和評分來建置多面向導覽。 
+多面向導覽是替代的搜尋進入點。 它提供了方便的替代功能，讓您不必手動輸入複雜搜尋運算式。 多面向可協助您找到要找的項目，同時確保您不會得到沒有項目的結果。 身為開發人員，面向可讓您公開最有用的搜尋準則，瀏覽您的搜尋服務索引。 在線上零售應用程式中，通常會根據品牌、部門 (童鞋)、尺寸、價格、熱門程度和評分來建置多面向導覽。 
 
 實作多面向導覽會因各搜尋技術而不同。 在 Azure 搜尋服務中，多面向導覽會在查詢時使用您先前歸屬在結構描述中的欄位來建置。
 

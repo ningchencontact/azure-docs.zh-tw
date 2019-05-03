@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56962021"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020392"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -45,23 +45,30 @@ ms.locfileid: "56962021"
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 受控部署所需
 
 >[!NOTE]
-> 從版本 1.3.0 開始檔案`Microsoft.CognitiveServices.Speech.csharp.bindings.dll`（隨附於之前的版本），則不需要再。 功能現已整合在 SDK 的核心。
+> 从版本 1.3.0 开始，不再需要 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 文件（在以前的版本中提供）。 此功能现在集成到核心 SDK 中。
 
 ## <a name="linux"></a> Linux
 
-語音 SDK 目前支援 Ubuntu 16.04 和 18.04 發行版。
+語音 SDK 目前支援的 Ubuntu 16.04，Ubuntu 18.04 Debian 9 的散發套件。
 對於原生應用程式，您需要提供語音 SDK 程式庫 `libMicrosoft.CognitiveServices.Speech.core.so`。
 確定您選取與您的應用程式相符的版本 (x86、x64)。 視 Linux 版本而定，您可能也需要包含下列相依性：
 
 * GNU C 程式庫的共用程式庫 (包括 POSIX 執行緒程式設計程式庫 `libpthreads`)
-* OpenSSL 程式庫 (`libssl.so.1.0.0`)
+* OpenSSL 程式庫 (`libssl.so.1.0.0`或`libssl.so.1.0.2`)
 * ALSA 應用程式的共用程式庫 (`libasound.so.2`)
 
 在 Ubuntu 上，預設應該已安裝 GNU C 程式庫。 使用下列命令可以安裝最後三項：
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+Debian 9 上安裝這些套件：
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>後續步驟

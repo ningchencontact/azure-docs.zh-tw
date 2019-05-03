@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564704"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035364"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>監視 Azure 搜尋服務中的資源耗用量和查詢活動
 
@@ -114,7 +114,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
 | operationName |string |"Query.Search" |作業的名稱 |
-| operationVersion |string |"2017-11-11" |使用的 api-version |
+| operationVersion |string |"2019-05-06" |使用的 api-version |
 | category |string |"OperationLogs" |常數 |
 | resultType |string |"Success" |可能的值：成功或失敗 |
 | resultSignature |int |200 |HTTP 結果碼 |
@@ -126,7 +126,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | 名稱 | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
 | 描述 |string |"GET /indexes('content')/docs" |作業的端點 |
-| 查詢 |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |查詢參數 |
+| 查詢 |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |查詢參數 |
 | 文件 |int |42 |處理的文件數目 |
 | IndexName |string |"testindex" |與作業相關聯的索引名稱 |
 

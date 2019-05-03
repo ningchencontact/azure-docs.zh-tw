@@ -4,7 +4,7 @@ description: 用於 Azure 搜尋服務的完整 Lucene 語法參考。
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317578"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024232"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure 搜尋服務中的 Lucene 查詢語法
 您可以基礎根據適用於特殊查詢形式的豐富 [Lucene 查詢剖析器](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)語法，為 Azure 搜尋服務撰寫查詢：萬用字元、模糊搜尋、鄰近搜尋、規則運算式只是其中一些範例。 大部分的 Lucene 查詢剖析器語法都可[完整移植到 Azure 搜尋服務中實作](search-lucene-query-architecture.md)，唯一的例外是*範圍搜尋*，這必須在 Azure 搜尋服務中透過 `$filter` 運算式來建構。 
@@ -42,13 +42,13 @@ ms.locfileid: "61317578"
 `searchMode=all` 參數在此範例中具有相關性。 每當在查詢上使用運算子時，您通常都應設定 `searchMode=all`，以確保*所有*的準則均相符。
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
 ```
 
  或者，可以使用 POST：  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2015-02-28
+POST /indexes/hotels/docs/search?api-version=2019-05-06
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",

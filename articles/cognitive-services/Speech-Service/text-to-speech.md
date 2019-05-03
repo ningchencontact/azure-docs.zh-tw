@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: cbabdde2dd5df2ca40ee45fe0f7b0437f095673b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578776"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020371"
 ---
 # <a name="what-is-text-to-speech"></a>文字轉換語音是什麼？
 
@@ -32,7 +32,9 @@ ms.locfileid: "59578776"
 
 類神經的語音使用深度類神經網路來克服在比對的壓力和口說語言中，在和中由單位的語音合成到電腦聲音的聲調模式中的傳統文字轉換語音系統的限制。 標準的文字轉換語音細分成個別的語言分析和獨立的模型所控管的原音預測步驟的韻律。 會導致 muffled、 buzzy 語音合成。 我們的類神經功能會韻律預測和語音合成同時，這會導致更流暢且自然發音的語音。
 
-神經語音可用來讓與聊天機器人及虛擬小幫手的互動變得更加自然有趣；例如將數位文字 (例如電子書) 轉換成有聲書；以及增強車上導航系統。 人性自然韻律和表明的字數，類神經語音大幅降低接聽疲勞 AI 系統互動時。 如需神經語音的詳細資訊，請參閱[支援的語言](language-support.md#text-to-speech)。
+神經語音可用來讓與聊天機器人及虛擬小幫手的互動變得更加自然有趣；例如將數位文字 (例如電子書) 轉換成有聲書；以及增強車上導航系統。 人性自然韻律和表明的字數，類神經語音大幅降低接聽疲勞 AI 系統互動時。 
+
+類神經的語音支援不同的樣式，例如中性和聽起來。 比方說，傑 (EN-US) 的語音可以唸出 cheerfully，其中最適合用於暖、 快樂的交談。 您可以調整語音輸出，例如音，音調、 並加快速度使用[語音合成標記語言](speech-synthesis-markup.md)。 可用的語音的完整清單，請參閱 <<c0> [ 支援的語言](language-support.md#text-to-speech)。
 
 若要深入了解類神經的語音的優點，請參閱[Microsoft 的新的類神經文字轉換語音服務可協助機器等人說](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/)。
 
@@ -63,9 +65,9 @@ ms.locfileid: "59578776"
 
 | 快速入門 (SDK) | 平台 | API 參考資料 |
 |------------|----------|---------------|
-| [C#.NET framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
-| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
+| [C#.NET framework](quickstart-text-to-speech-dotnet-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) |  Linux | [Browse](https://aka.ms/csspeech/cppref) |
 
 ### <a name="rest-quickstarts"></a>REST 快速入門
 

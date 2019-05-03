@@ -7,17 +7,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25a156c4403b7a89f7a7bf7f6acf22fa34216791
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871292"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025135"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>如何從 .NET 應用程式使用 Azure 搜尋服務
+
+> [!Important]
+> 此內容是仍在建構。 使用在 NuGet 上的 Azure 搜尋服務.NET SDK 的 9.0 版。 我們正努力更新本移轉指南，說明如何升級至新的版本。 敬請期待。
+>
+
 本文會逐步指引您學會如何使用 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)。 您可以透過 .NET SDK，利用 Azure 搜尋服務在應用程式中實作豐富的搜尋經驗。
 
 ## <a name="whats-in-the-azure-search-sdk"></a>Azure 搜尋服務 SDK 中有哪些內容
@@ -38,7 +42,7 @@ SDK 中還有其他 NuGet 套件：
 
 目前的 Azure 搜尋服務 .NET SDK 版本現在正式推出。 如果您想提供意見反應給我們，讓我們可以將您的意見併入下一個版本中，請瀏覽我們的 [意見回應頁面](https://feedback.azure.com/forums/263029-azure-search/)。
 
-.NET SDK 支援 `2017-11-11` 版的 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)。 此版本現在支援同義字，以及索引子的累加增強功能。 不屬於此版本的預覽功能 (例如 JSON 陣列和 CSV 檔案編製索引的支援) 處於[預覽](search-api-2016-09-01-preview.md)狀態，並可透過 [4.0-preview 版 .NET SDK](https://aka.ms/search-sdk-preview) 取得。
+.NET SDK 支援 `2017-11-11` 版的 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)。 此版本現在支援同義字，以及索引子的累加增強功能。 
 
 此 SDK 不支援[管理作業](https://docs.microsoft.com/rest/api/searchmanagement/)，例如建立及調整搜尋服務和管理 API 金鑰。 如果您需要從 .NET 應用程式管理搜尋資源，您可以使用 [Azure 搜尋服務 .NET 管理 SDK](https://aka.ms/search-mgmt-sdk)。
 
@@ -392,7 +396,7 @@ public partial class Hotel
 首先要注意的是，每個 `Hotel` 的公用屬性會對應索引定義中的欄位，但這之中有一項關鍵的差異：每個欄位的名稱會以小寫字母 (「駝峰式命名法」) 為開頭，而每個 `Hotel` 的公用屬性名稱會以大小字母 (「巴斯卡命名法」) 為開頭。 這在執行資料繫結、而目標結構描述在應用程式開發人員控制範圍之外的 .NET 應用程式中很常見。 與其違反 .NET 命名方針，使屬性名稱為駝峰式命名法，您可以改用 `[SerializePropertyNamesAsCamelCase]` 屬性，告訴 SDK 自動將屬性名稱對應至駝峰式命名法。
 
 > [!NOTE]
-> Azure 搜尋服務 .NET SDK 使用 [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) 程式庫來將您的自訂模型物件序列化到 JSON 中，以及將您在 JSON 中的自訂模型物件還原序列化。 如有需要，您可以自訂這個序列化的過程。 如需詳細資訊，請參閱[使用 JSON.NET 自訂序列化](#JsonDotNet)。
+> Azure 搜尋服務 .NET SDK 使用 [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) 程式庫來將您的自訂模型物件序列化到 JSON 中，以及將您在 JSON 中的自訂模型物件還原序列化。 如有需要，您可以自訂這個序列化的過程。 如需詳細資訊，請參閱 <<c0> [ 使用 JSON.NET 自訂序列化](#JsonDotNet)。
 > 
 > 
 
