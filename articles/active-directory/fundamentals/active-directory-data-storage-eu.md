@@ -12,53 +12,41 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249724"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875630"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory 中歐洲客戶的身分識別資料儲存體
-Azure Active Directory (Azure AD) 可協助您管理使用者身分識別，以及建立以資訊為依據的存取原則，以利確保組織資源的安全。 身分識別資料的儲存位置，會以組織在您訂閱服務時所提供的位址為基礎。 例如，當您訂閱 Office 365 或 Azure 時。 若想了解有關於您的身分識別資料儲存於何處的特定資訊，您可以使用 Microsoft 信任中心的 [您的資料所在位置](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 區段。
+身分識別資料會儲存 Azure ad 中，在地理位置為基礎的 Microsoft 線上服務，例如 Office 365 和 Azure 訂閱時，您的組織所提供的位址。 如需有關您的身分識別資料的儲存位置，您可以使用[其中是您的資料所在？](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Microsoft 信任中心 的區段。
 
-雖然大部分的 Azure AD 相關歐洲的身分識別資料保持在歐洲資料中心內，有一些操作、 服務特定的資料所需的一般 Azure AD 」 作業，其中會儲存在美國，而且不包含任何個人資料。
+提供在歐洲的地址的客戶，Azure AD 會保留大部分的歐洲資料中心內的身分識別資料。 本文件提供的資訊儲存在歐洲外部 Azure AD 服務的任何資料。
 
-## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>儲存在歐洲資料中心以外的歐洲客戶資料
-
-就具有歐洲區位址的組織而言，與 Azure AD 有關的歐洲身分識別資料，大多都會保存在歐洲資料中心。 不會儲存在歐洲資料中心，而且會複寫到美國資料中心的 Azure AD 資料，包括：
-
-- **Microsoft Azure 多因素驗證 (MFA) 和 Azure AD 自助式密碼重設 (SSPR)**
+## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multi-factor authentication (MFA)
     
-    MFA 會將所有待用的使用者資料儲存在歐洲資料中心。 不過，某些 MFA 服務特有的資料會儲存在美國，包括：
+- 所有的雙因素驗證使用通話或 SMS 來自於美國資料中心，而且也會路由傳送的全球其他提供者。
+- 推播通知使用 Microsoft Authenticator 應用程式是來自我們資料中心。 此外，裝置廠商特定的服務可能也會隨附到婧矔菛  或許外部歐洲這些服務。
+- OATH 代碼一律會在美國進行驗證。 
+
+## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
+
+Azure AD B2C 原則組態資料和金鑰容器會儲存在美國資料中心中。 這些並不包含任何使用者個人資料。 如需原則組態的詳細資訊，請參閱 [Azure Active Directory B2C：內建原則](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies)一文。
+
+## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
-    - 如果您使用 MFA 或 SSPR，則雙因素驗證及其相關個人資料可能會儲存在美國。
+Azure AD B2B 的存放區邀請與兌換連結，並在美國資料中心內的 URL 資訊重新導向。 此外，取消訂用接收 B2B 邀請的使用者電子郵件地址也會儲存在美國資料中心。
 
-        - 所有使用通話或 SMS 的雙因素驗證都可能須由美國電信業者完成。
-    
-        - 使用 Microsoft Authenticator 應用程式的推播通知需要來自製造商通知服務 (Apple 或 Google) 的通知，而這可能不在歐洲境內。
-    
-        - OATH 代碼一律會在美國進行驗證。 
-    
-    - 某些 MFA 和 SSPR 記錄會儲存在美國 30 天，無論驗證類型為何。
+## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory 網域服務 (Azure AD DS)
 
-- **Microsoft Azure Active Directory B2C (Azure AD B2C)**
+Azure AD DS 會將使用者資料儲存在與客戶選取的 Azure 虛擬網路相同的位置。 因此，如果網路不在歐洲境內，則資料會複寫並儲存在歐洲以外。
 
-    Azure AD B2C 會將所有待用的使用者資料儲存在歐洲資料中心。 不過，作業資料 (不含個人資料) 則會存留在使用者存取服務之處。 例如，如果 B2C 使用者在美國存取服務，作業記錄就會存留在美國。此外，所有不含個人資料的原則組態資料都只會儲存在美國。如需原則組態的詳細資訊，請參閱 [Azure Active Directory B2C：內建原則](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies)一文。
+## <a name="other-considerations"></a>其他考量
 
-- **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
-    
-    Azure AD B2B 會將所有待用的使用者資料儲存在歐洲資料中心。 不過，B2B 會將其非個人中繼資料儲存在美國資料中心的資料表中。 此資料表會包含 redeemUrl、invitationTicket、資源租用戶識別碼、InviteRedirectUrl 和 InviterAppId 等欄位。
+服務和應用程式與 Azure AD 整合有身分識別資料的存取權。 評估每個服務和應用程式，以判斷身分識別資料由該特定服務和應用程式的處理方式，以及它們是否符合貴公司的資料儲存需求。
 
-- **Microsoft Azure Active Directory Domain Services (Azure AD DS)**
-
-    Azure AD DS 會將使用者資料儲存在與客戶選取的 Azure 虛擬網路相同的位置。 因此，如果網路不在歐洲境內，則資料會複寫並儲存在歐洲以外。
-
-- **與 Azure AD 整合的服務和應用程式**
-
-    任何與 Azure AD 整合的服務和應用程式，都可以存取身分識別資料。 請評估每項服務和應用程式，以確認該服務和應用程式處理身分識別資料的方式，以及它們是否符合公司的資料儲存需求。
-
-    若想進一步了解 Microsoft 服務的資料存放處，請參閱 Microsoft 信任中心的 [您的資料所在位置](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 區段。
+若想進一步了解 Microsoft 服務的資料存放處，請參閱 Microsoft 信任中心的 [您的資料所在位置](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 區段。
 
 ## <a name="next-steps"></a>後續步驟
 如需前述任何特性和功能的詳細資訊，請參閱下列文章：

@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 57fd69542a5d92b9afd1e003d8b94c1ebb64953e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753827"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65031763"
 ---
 1. 使用您所使用之 Azure 訂用帳戶的認證來登入 [Azure 入口網站](https://portal.azure.com/)。 
 
@@ -26,7 +26,7 @@ ms.locfileid: "60753827"
 
 1. 在搜尋列中輸入 **Machine Learning**。 選取 **Machine Learning Service 工作區**的搜尋結果。
 
-   ![搜尋工作區](./media/aml-create-in-portal/allservices-search.PNG)
+   ![搜尋工作區](./media/aml-create-in-portal/allservices-search.png)
 
 1. 在 [ML 服務工作區] 窗格中捲動至底部，並選取 [建立] 開始操作。
 
