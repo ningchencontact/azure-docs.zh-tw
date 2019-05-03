@@ -212,7 +212,7 @@ ms.locfileid: "61088159"
 |DelegatedSubscriptionEnabled|boolean|此訂用帳戶是否已啟用[委派](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/)。|  
 |DelegatedSubscriptionUrl|string|如果已啟用委派，則是所委派的訂用帳戶 URL。|  
 |IsAgreed|boolean|如果產品有條款，目前的使用者是否已同意條款。|  
-|訂用帳戶|[訂用帳戶摘要](api-management-template-data-model-reference.md#SubscriptionSummary)實體的集合。|產品的訂用帳戶。|  
+|Subscriptions|[訂用帳戶摘要](api-management-template-data-model-reference.md#SubscriptionSummary)實體的集合。|產品的訂用帳戶。|  
 |Apis|[API](api-management-template-data-model-reference.md#API) 實體的集合。|此產品中的 API。|  
 |CannotAddBecauseSubscriptionNumberLimitReached|boolean|就訂用帳戶限制而言，目前的使用者是否有資格訂閱此產品。|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|就是否允許多個訂用帳戶而言，目前的使用者是否有資格訂閱此產品。|  
