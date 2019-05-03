@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 0d3927fbc1826f9ab4f613a7c2a310f581b7f7c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
+ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729292"
+ms.lasthandoff: 05/01/2019
+ms.locfileid: "64987933"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>將您的資料倉儲升級為 Gen2
 
@@ -67,7 +67,7 @@ Microsoft 協助降低執行資料倉儲的初階的成本。  低廉的計算�
 
 ## <a name="automatic-upgrade-process"></a>自動升級程序
 
-根據上述的可用性圖表，我們將會排程自動化的升級您的 Gen1 執行個體。 為了避免資料倉儲可用性發生任何未預期的中斷，自動化升級將會排在維護排程期間。 如需排程的詳細資訊，請參閱[檢視維護排程](viewing-maintenance-schedule.md)
+根據上述的可用性圖表，我們將會排程自動化的升級您的 Gen1 執行個體。 為了避免資料倉儲可用性發生任何未預期的中斷，自動化升級將會排在維護排程期間。 目前正在進行自動升級至 Gen2 的區域中，將會停用建立新的 Gen1 執行個體的能力。 如需排程的詳細資訊，請參閱[檢視維護排程](viewing-maintenance-schedule.md)
 
 升級程序會涉及簡短的卸除，連線能力 （大約 5 分鐘），因為我們重新啟動您的資料倉儲。  重新啟動後，您的資料倉儲就會完全可供使用。 不過，您可能會遇到效能降低，而升級程序仍會繼續升級中背景的資料檔案中。 效能降低的總時間會因您的資料檔案大小而有所不同。
 

@@ -5,21 +5,21 @@ services: virtual-machines
 author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/14/2018
+ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747fb9a38cc0c27d162192f4f3ed928e8a968f27
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301694"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993125"
 ---
 Azure 會定期更新平台來提升虛擬機器之主機基礎結構的可靠性、效能及安全性。 這些更新的範圍涵蓋修補主控環境中的軟體元件、升級網路元件，以及硬體解除委任。 這些更新大多數都不影響所裝載的虛擬機器。 不過，在某些情況下，更新的確會造成影響，而 Azure 會選擇影響最小的更新方法：
 
 - 如果可以執行無須重新開機的更新，在更新主機時將會暫停 VM，或是將其即時移轉至已經更新的主機。
 
-- 如果維護需要重新開機，您會在規劃維護時收到通知。 Azure 也會提供一個時間範圍，供您在適合您的時間自行開始進行維護。 Azure 正投資技術來減少 VM 必須為計劃性平台維護重新啟動的情況。 
+- 如果維護需要重新開機，您會在規劃維護時收到通知。 Azure 也會提供一個時間範圍，供您在適合您的時間自行開始進行維護。 自我維護時間範圍通常是四週，除非它是迫切需要執行維護工作。 Azure 也投資技術，以降低的情況下，當 Vm 重新啟動規劃的平台的維護。 
 
 本頁說明 Azure 如何執行這兩種類型的維護。 如需有關非計劃性事件 (中斷) 的詳細資訊，請參閱管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虛擬機器的可用性。
 
@@ -29,18 +29,30 @@ Azure 會定期更新平台來提升虛擬機器之主機基礎結構的可靠�
 
 ## <a name="maintenance-not-requiring-a-reboot"></a>不需要重新開機的維護
 
-大部分不需要重新開機的維護的目標是小於 10 秒暫停 vm。 在某些情況下，會使用記憶體保留維護機制，這會暫停 VM 最長達 30 秒，並將記憶體保留在 RAM 中。 虛擬機器會接著繼續執行，而系統會自動同步虛擬機器的時鐘。 Azure 正逐漸增加使用即時移轉技術，以及改進記憶體保留維護機制，以縮短暫停持續時間。
+不需要重新開機的最不零影響維護的目標是小於 10 秒暫停 vm。 Azure 會選擇會最不影響客戶 Vm 的更新機制。 在某些情況下，記憶體保留維護機制使用，它會暫停 30 秒的 VM，並會保留在 RAM 中的記憶體。 VM 會接著繼續執行，並會自動同步處理其時鐘。 Azure 正逐漸增加使用即時移轉技術，以及改進記憶體保留維護機制，以縮短暫停持續時間。  
 
 這些不需要重新開機的維護作業會逐個容錯網域套用，而且如果收到任何警告健康情況訊號，進度就會停止。 
 
 這些類型的更新會對某些應用程式造成影響。 如果是將 VM 即時移轉至不同的主機，有些敏感性工作負載可能會在該幾分鐘內出現些微的效能降低，而導致 VM 暫停。 對於這類應用程式，使用適用於 [Windows](../articles/virtual-machines/windows/scheduled-events.md) 或 [Linux](../articles/virtual-machines/linux/scheduled-events.md) 的 Scheduled Events 來為 VM 維護做準備會很有幫助，可在 Azure 維護期間不造成任何影響。 Azure 也正致力於為這類超敏感的應用程式開發維護控制功能。 
 
+## <a name="live-migration"></a>即時移轉
+
+即時移轉非 rebootful 操作，以保留記憶體的 vm，並在有限的結果暫停 」 或 「 凍結，通常維時不能超過 5 秒。 現在，所有的基礎結構即服務 (IaaS) 虛擬機器，除了 G、 M、 N 和 H 系列，可進行即時移轉。 這相當於超過 90%的部署到 Azure 團隊的內的 IaaS Vm。 
+
+由 Azure 網狀架構，在下列情況下起始即時移轉：
+- 計劃性維護
+- 硬體失敗
+- 配置最佳化
+
+即時移轉會運用在某些規劃的維護案例中，而且已排定事件可用來了解預先當即時移轉作業開始。
+
+將虛擬機器移出即將發生的預測失敗，當我們的機器學習服務演算法所偵測到的硬體及最佳化的虛擬機器配置，也會使用即時移轉。 若要深入了解我們預測性模型化所偵測到的已降級的硬體執行個體，請參閱我們的部落格文章標題[預測 ML 和即時移轉的改善 Azure 虛擬機器復原](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure)。 客戶一律會收到其在監視器中的 Azure 入口網站中的即時移轉通知 / 服務健全狀況記錄，或透過排程的事件是否正在使用這些。
 
 ## <a name="maintenance-requiring-a-reboot"></a>維護需要重新開機
 
 在罕見的情況下 VM 會需要針對計劃性維護重新啟動，但您會事先收到通知。 計劃性維護有兩個階段：自助式期間和排程維護期間。
 
-**自助時段**可讓您在您的 VM 上開始進行維護。 在此期間，您可以查詢每個 VM 來查看其狀態，並檢查上次維護要求的結果。
+**自助時段**可讓您在您的 VM 上開始進行維護。 在此期間，這通常是四週，您可以查詢每個 VM，以查看其狀態，並檢查上次維護要求的結果。
 
 當您開始進行自助維護時，您的 VM 會重新部署至已經更新的節點。 因為 VM 會重新開機，所以暫存磁碟會遺失，而系統會更新與虛擬網路介面關聯的動態 IP 位址。
 
@@ -50,7 +62,7 @@ Azure 會定期更新平台來提升虛擬機器之主機基礎結構的可靠�
 
 如需管理需要重新開機的維護作業的相關資訊，請參閱 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md) 的「處理預定進行的維修作業通知」。 
 
-### <a name="availability-considerations-during-scheduled-maintenance"></a>排程維護期間的可用性考量 
+### <a name="availability-considerations-during-scheduled-maintenance"></a>已排程的維護期間的可用性考量 
 
 如果您決定等到排程維護期間，為了維持 VM 的最高可用性，需考慮下列事項。 
 

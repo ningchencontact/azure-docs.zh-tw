@@ -1,7 +1,7 @@
 ---
 title: 將評分設定檔新增至搜尋索引 - Azure 搜尋服務
 description: 藉由新增評分設定檔，提高 Azure 搜尋服務搜尋結果的搜尋排名分數。
-ms.date: 01/31/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: eae7de00294a6a09cb7f942d11ee2391710fc55f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ccb6944227208cee8601751cf43a53c111c09c6
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844273"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021632"
 ---
 # <a name="add-scoring-profiles-to-an-azure-search-index"></a>將評分設定檔新增至 Azure 搜尋服務索引
 
@@ -66,17 +66,17 @@ ms.locfileid: "60844273"
  若要使用此評分設定檔，您的查詢會依公式調整以指定查詢字串的設定檔。 在下列查詢中，請留意要求中的查詢參數 `scoringProfile=geo`。  
 
 ```  
-GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2017-11-11  
+GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2019-05-06 
 ```  
 
- 此查詢會搜尋 ’inn’ 一詞，並傳入目前的位置。 請注意這個查詢包括其他的參數，例如 `scoringParameter`。 查詢參數的說明請見[搜尋文件 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。  
+ 此查詢會搜尋 ’inn’ 一詞，並傳入目前的位置。 請注意，此查詢包括其他參數，例如`scoringParameter`。 查詢參數的說明請見[搜尋文件 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。  
 
  按一下 [範例](#bkmk_ex) ，可檢閱更多評分設定檔的詳細範例。  
 
 ## <a name="what-is-default-scoring"></a>什麼是預設計分？  
  計分會計算排名排序的結果集中每個項目的搜尋分數。 搜尋結果集中的每個項目會被指派一個搜尋分數，然後從最高排名到最低。 具有較高分數的項目會傳回給應用程式。 依預設會傳回前 50 名，但您可以使用 `$top` 參數，以傳回較少或更多的項目數目 (單一回應中最多 1000 個)。  
 
-搜尋分數會根據資料和查詢的統計屬性來計算。 Azure 搜尋服務會尋找包含查詢字串中的搜尋詞彙的文件 (部分或全部，視 `searchMode`而定)，優先列出包含多個搜尋詞彙執行個體的文件。 如果詞彙在資料主體間很少見，但在文件中很常見，搜尋分數會更高。 這種計算相關性的方法基礎稱為 [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) (或 term frequency-inverse document frequency)。  
+搜尋分數會根據資料和查詢的統計屬性來計算。 Azure 搜尋服務會尋找包含查詢字串中的搜尋詞彙的文件 (部分或全部，視 `searchMode`而定)，優先列出包含多個搜尋詞彙執行個體的文件。 搜尋分數會跨資料索引，但一般文件中的詞彙是罕見的更高。 這種計算相關性的方法基礎稱為 [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) (或 term frequency-inverse document frequency)。  
 
  假設沒有任何自訂排序，結果會先依搜尋分數排名，再傳回給呼叫的應用程式。 若未指定 $top，則會傳回具有最高搜尋分數的 50 個項目。  
 
@@ -169,7 +169,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 |||  
 |-|-|  
 |**權數**|指定將相對權數指派給欄位的名稱值組。 在[範例](#bkmk_ex)中，albumTitle、內容類型和 artistName 欄位分別會提升 1.5、5 和 2。 為何內容類型提升的程度遠比其他多？ 如果是對帶有同質性的資料進行搜尋 (如同 `musicstoreindex` 中的 ’genre')，則相對加權可能需要較大的變異數。 例如，在 `musicstoreindex`中，'rock' 不僅以類型的形式出現，也出現在相同措詞的類型說明中。 如果您要讓類型的權數高於類型說明，則類型欄位需要更高的相對權數。|  
-|**函式**|在特定內容需要額外計算時使用。 有效值為 `freshness`、`magnitude`、`distance` 和 `tag`。 每個函數都有對其唯一的參數。<br /><br /> -   `freshness` 應使用於當您想要依項目的新舊程度進行提升時。 此函式僅適用於 `datetime` 欄位 (edm.DataTimeOffset)。 請注意，`boostingDuration` 屬性只能用於 `freshness` 函式。<br />-   `magnitude` 應使用於當您想要依數值的高低程度進行提升時。 呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。 此函數僅可用於雙精度浮點數和整數欄位。<br />     針對 `magnitude` 函式，若您想要反轉高至低的模式 (例如，比高價格項目優先提升低價格的項目)，則可將範圍反轉。 假設價格範圍為 $100 美元到 $1 美元，您會將 `boostingRangeStart` 設定為 100，並將 `boostingRangeEnd` 設定為 1，以在較低的價格項目提升。<br />-   `distance` 應使用於當您想要依鄰近性或地理位置進行提升時。 此函數只能搭配使用 `Edm.GeographyPoint` 欄位。<br />-   `tag` 。 此函數僅適用於 `Edm.String` 和 `Collection(Edm.String)` 欄位。<br /><br /> **使用函式的規則**<br /><br /> 函式類型 (`freshness`、`magnitude`、`distance`)、`tag` 必須是小寫。<br /><br /> 函數不可包含 null 或空值。 明確而言，如果您包含欄位名稱，則必須加以設定。<br /><br /> 函數只能套用至可篩選的欄位。 如需可篩選欄位的詳細資訊，請參閱[建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)。<br /><br /> 函數只能套用至索引的欄位集合中定義的欄位。|  
+|**函式**|在特定內容需要額外計算時使用。 有效值為 `freshness`、`magnitude`、`distance` 和 `tag`。 每個函數都有對其唯一的參數。<br /><br /> -   `freshness` 應使用於當您想要依項目的新舊程度進行提升時。 此函式僅適用於 `datetime` 欄位 (edm.DataTimeOffset)。 請注意`boostingDuration`屬性只適用於`freshness`函式。<br />-   `magnitude` 應使用於當您想要依數值的高低程度進行提升時。 呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。 此函數僅可用於雙精度浮點數和整數欄位。<br />     針對 `magnitude` 函式，若您想要反轉高至低的模式 (例如，比高價格項目優先提升低價格的項目)，則可將範圍反轉。 假設價格範圍為 $100 美元到 $1 美元，您會將 `boostingRangeStart` 設定為 100，並將 `boostingRangeEnd` 設定為 1，以在較低的價格項目提升。<br />-   `distance` 應使用於當您想要依鄰近性或地理位置進行提升時。 此函數只能搭配使用 `Edm.GeographyPoint` 欄位。<br />-   `tag` 。 此函數僅適用於 `Edm.String` 和 `Collection(Edm.String)` 欄位。<br /><br /> **使用函式的規則**<br /><br /> 函式類型 (`freshness`、`magnitude`、`distance`)、`tag` 必須是小寫。<br /><br /> 函數不可包含 null 或空值。 明確而言，如果您包含欄位名稱，則必須加以設定。<br /><br /> 函數只能套用至可篩選的欄位。 如需可篩選欄位的詳細資訊，請參閱[建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)。<br /><br /> 函數只能套用至索引的欄位集合中定義的欄位。|  
 
  索引定義之後，請上傳索引結構描述 (接著上傳文件)，以建置索引。 如需這些作業的相關指示，請參閱[建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) 和[新增、更新或刪除文件 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)。 索引建置後，您應會有可運作的評分設定檔可處理您的搜尋資料。  
 
@@ -237,7 +237,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 |`Name`|必要。 這是評分設定檔的名稱。 它會遵循欄位的相同命名慣例。 它必須以字母開頭，且不可包含點、冒號或 @ 符號，而且開頭不可以是片語 'azureSearch' (區分大小寫)。|  
 |`Text`|包含「權數」屬性。|  
 |`Weights`|選用。 指定欄位名稱和相對權數的名稱值組。 相對權數必須是正整數或浮點數。 最大值為 int32.MaxValue。<br /><br /> 您可以指定不含對應權數的欄位名稱。 權數可用來指出某欄位相對於其他欄位的重要性。|  
-|`Functions`|選用。 請注意，計分函數只能套用至可篩選的欄位。|  
+|`Functions`|選用。 評分函式只能套用至可篩選的欄位。|  
 |`Type`|計分函數的必要項目。 指出要使用的函數類型。 有效值包括量級、有效性、距離和標記。 您可以在每個評分設定檔中包含多個函數。 函數名稱必須是小寫。|  
 |`Boost`|計分函數的必要項目。 做為原始分數之乘數的正數。 此值不可等於 1。|  
 |`Fieldname`|計分函數的必要項目。 計分函數只能套用至屬於索引的欄位集合、並且可篩選的欄位。 此外，每個函式類型都有額外的限制 (有效性與日期時間欄位搭配使用，量級與整數或雙精確度浮點數欄位搭配，距離與位置欄位搭配)。 每個函數定義只能指定一個欄位。 例如，若要在相同的設定檔中使用量級兩次，您必須包含兩個定義量級，每個欄位各一個。|  
@@ -246,7 +246,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 |`magnitude` &#124; `boostingRangeStart`|設定計算量級分數之範圍的起始值。 此值必須是整數或浮點數。 就 1 到 4 的星級評等而言，這會是 1。 就超過 50% 的利潤而言，這會是 50。|  
 |`magnitude` &#124; `boostingRangeEnd`|設定計算量級分數之範圍的結束值。 此值必須是整數或浮點數。 就 1 到 4 的星級評等而言，這會是 4。|  
 |`magnitude` &#124; `constantBoostBeyondRange`|有效值為 true 或 false (預設值)。 設為 true 時，完整提升仍會繼續套用至目標欄位的值高於範圍上限的文件。 如果為 false，則此函數的提升將不會套用至目標欄位的值超出範圍的文件。|  
-|`freshness`|有效性評分函式可用來根據 `DateTimeOffset` 欄位中的值改變項目的排名分數。 例如，日期較近的項目可排在較舊項目之前。<br /><br /> 請注意，也可能會對像是具有未來日期的行事曆事件的項目進行排名，因此，越接近目前日期的項目排名會高於未來日期較遠的項目。<br /><br /> 在目前的服務版本中，範圍的其中一端會固定為目前的時間。 另一端則是以 `boostingDuration`為依據的過去時間。 若要提升未來的某個時間範圍，請使用負數的 `boostingDuration`。<br /><br /> 從最大與最小範圍變更的提升比率，取決於套用至評分設定檔的插補 (請參閱下圖)。 若要反轉套用的提升係數，請選擇小於 1 的提升係數。|  
+|`freshness`|有效性評分函式可用來根據 `DateTimeOffset` 欄位中的值改變項目的排名分數。 例如，日期較近的項目可排在較舊項目之前。<br /><br /> 它也可順位的項目，像是具有未來日期的行事曆事件，這類項目更接近現在可以比項目進一步在未來更高排名。<br /><br /> 在目前的服務版本中，範圍的其中一端會固定為目前的時間。 另一端則是以 `boostingDuration`為依據的過去時間。 若要提升未來的某個時間範圍，請使用負數的 `boostingDuration`。<br /><br /> 從最大與最小範圍變更的提升比率，取決於套用至評分設定檔的插補 (請參閱下圖)。 若要反轉套用的提升係數，請選擇小於 1 的提升係數。|  
 |`freshness` &#124; `boostingDuration`|設定要開始停止對特定文件進行提升的到期時間。 如需語法和範例，請參閱下一節中的[設定 boostingDuration](#bkmk_boostdur)。|  
 |`distance`|距離計分函數可用來根據文件與參考地理位置的距離，對文件的分數產生影響。 參考位置會以 lon,lat 引數的形式，指定為參數中查詢的一部分 (使用 `scoringParameterquery` 字串選項)。|  
 |`distance` &#124; `referencePointParameter`|傳入查詢中做為參考位置的參數。 `scoringParameter` 是查詢參數。 如需查詢參數的說明，請參閱[搜尋文件 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。|  

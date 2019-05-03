@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281772"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025161"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>範例：在 C# 中新增 Azure 搜尋服務的同義字
 
@@ -23,13 +23,15 @@ ms.locfileid: "61281772"
 在 Azure 搜尋服務中，同義字會定義於*同義字對應*中，透過*對應規則*讓相等的詞彙產生關聯。 此範例涵蓋了用於加入和使用同義字與現有索引的必要步驟。 您會了解如何：
 
 > [!div class="checklist"]
-> * 建立和張貼對應規則來啟用同義字 
-> * 在查詢字串中參考同義字對應
+> * 建立使用同義字地圖[SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet)類別。 
+> * 設定[SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet)上應該支援同義字透過查詢擴充欄位屬性。
+
+可以用正常方式，您可以查詢已啟用同義字的欄位。 沒有任何存取同義字所需的其他查詢語法。
 
 您可以建立多個同義字對應、將它們張貼為可供任何索引使用的全服務資源，然後參照哪一個要在欄位層級使用。 查詢時，除了搜尋索引，Azure 搜尋服務會查閱同義字對應 (如果在查詢中使用的欄位上指定一個同義字對應)。
 
 > [!NOTE]
-> 最新的 API 和 SDK 版本 (api-version=2017-11-11、SDK 5.0.0 版) 支援同義字。 目前 Azure 入口網站並不支援此功能。 如果 Azure 入口網站的同義字支援對您很有用，請在 [UserVoice](https://feedback.azure.com/forums/263029-azure-search) 上提供您的意見反應
+> 同義字可由以程式設計的方式，而不是在入口網站。 如果 Azure 入口網站的同義字支援對您很有用，請在 [UserVoice](https://feedback.azure.com/forums/263029-azure-search) 上提供您的意見反應
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -172,7 +174,7 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 
 ## <a name="next-steps"></a>後續步驟
 
-此範例示範[同義字 REST API](https://aka.ms/rgm6rq)在C#以建立和張貼對應規則，然後呼叫同義字地圖的查詢上的程式碼。 您可以在 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 和 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 參考文件中找到其他資訊。
+此範例示範 「 同義字 」 功能，在C#建立和張貼對應規則，然後呼叫同義字地圖的查詢上的程式碼。 您可以在 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 和 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 參考文件中找到其他資訊。
 
 > [!div class="nextstepaction"]
 > [如何在 Azure 搜尋服務中使用同義字](search-synonyms.md)

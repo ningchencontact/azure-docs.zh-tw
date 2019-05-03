@@ -6,25 +6,37 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
+ms.reviewer: larryfr
 ms.author: tedway
 author: tedway
-ms.date: 1/29/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7aa0e11ed47219829830369d17b300270d3fbffb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cfe21d2119b92665c5950d792dec6500257c6316
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819450"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024171"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務在 FPGA 上將模型部署為 Web 服務
 
-您可以將模型部署為[現場可程式化邏輯閘陣列 (FPGA)](concept-accelerate-with-fpgas.md) 上的 Web 服務。  使用 FPGA 時，即使是透過單一批次大小，也提供超低延遲推斷。  目前可使用以下模型：
+您可以將模型部署為 web 服務上[欄位可程式化閘陣列 (Fpga)](concept-accelerate-with-fpgas.md)與 Azure Machine Learning 的硬體加速的模型。 使用 FPGA 時，即使是透過單一批次大小，也提供超低延遲推斷。
+
+目前可使用以下模型：
   - ResNet 50
   - ResNet 152
   - DenseNet-121
-  - VGG-16   
+  - VGG-16
+  - SSD-VGG
+
+Fpga 可在這些 Azure 區域中：
+  - 美國東部
+  - 美國西部 2
+  - 西歐
+  - 東南亞
+
+> [!IMPORTANT]
+> 若要最佳化延遲和輸送量，您將資料傳送到 FPGA 模型的用戶端應該在其中一個區域上方 （您已部署之模型的那一個）。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -32,129 +44,222 @@ ms.locfileid: "60819450"
 
 - 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
  
-  - 您的工作區必須位於*美國東部 2* 區域。
-
-  - 安裝 contrib extras：
+  - 安裝 Python SDK 中的硬體加速的模型：
 
     ```shell
-    pip install --upgrade azureml-sdk[contrib]
+    pip install --upgrade azureml-accel-models
     ```
 
-  - 目前僅支援 tensorflow 版本<=1.10 ，因此在所有其他安裝完成之後安裝它：
+## <a name="sample-notebooks"></a>範例 Notebook
 
-    ```shell
-    pip install "tensorflow==1.10"
-    ```
+為了方便起見，[範例 notebook](https://aka.ms/aml-notebooks)適用於範例中，以下還有其他範例。  加速的模型，以查看作法-要-使用-azureml 和部署的資料夾底下。
 
-## <a name="create-and-deploy-your-model"></a>建立及部署您的模型
-建立管線，以在前置處理輸入的映像，使其使用 ResNet 50 FPGA 上, 一項功能，並再跑 ImageNet 資料集上定型分類器的功能。
+## <a name="create-and-containerize-your-model"></a>建立並將容器化您的模型
+
+本文件將說明如何建立前置處理輸入的映像，使其在 FPGA 中，使用 ResNet 50 featurizer TensorFlow 圖形，然後再執行透過 ImageNet 資料集上定型分類器的 功能。
 
 依照指示執行以：
 
-* 定義模型管道
+* 定義 TensorFlow 模型
 * 部署模型
 * 取用已部署的模型
 * 刪除已部署的服務
 
-> [!IMPORTANT]
-> 若要將延遲和輸送量最佳化，您的用戶端應該位於與端點相同 Azure 區域中。  目前 API 是在美國東部的 Azure 區域中建立的。
+### <a name="load-azure-ml-workspace"></a>載入 Azure ML 工作區
 
-
-
-### <a name="preprocess-image"></a>預先處理映像
-管道的第一個步驟是預先處理映像。
+載入您的 Azure ML 工作區。
 
 ```python
 import os
 import tensorflow as tf
+ 
+from azureml.core import Workspace
+ 
+ws = Workspace.from_config()
+print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
+```
 
+### <a name="preprocess-image"></a>預先處理映像
+
+Web 服務的輸入是 JPEG 影像。  第一個步驟是解碼 JPEG 影像和前置處理它。  JPEG 影像會在字串和結果都將成為 ResNet 50 模型輸入的 tensors 視為。
+
+```python
 # Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
-import azureml.contrib.brainwave.models.utils as utils
+import azureml.accel.models.utils as utils
 in_images = tf.placeholder(tf.string)
 image_tensors = utils.preprocess_array(in_images)
 print(image_tensors.shape)
 ```
 
-### <a name="add-featurizer"></a>加入功能化器
-初始化模型並下載要做為功能化器之 ResNet50 量化版本的 TensorFlow 檢查點。
+### <a name="load-featurizer"></a>載入 featurizer
+
+初始化模型並下載要做為功能化器之 ResNet50 量化版本的 TensorFlow 檢查點。  您可以藉由匯入其他深度類神經網路來取代"QuantizedResnet50 」 使用如下的程式碼片段：
+
+- QuantizedResnet152
+- QuantizedVgg16
+- Densenet121
 
 ```python
-from azureml.contrib.brainwave.models import QuantizedResnet50
-model_path = os.path.expanduser('~/models')
-model = QuantizedResnet50(model_path, is_frozen = True)
-feature_tensor = model.import_graph_def(image_tensors)
-print(model.version)
+from azureml.accel.models import QuantizedResnet50
+save_path = os.path.expanduser('~/models')
+model_graph = QuantizedResnet50(save_path, is_frozen = True)
+feature_tensor = model_graph.import_graph_def(image_tensors)
+print(model_graph.version)
 print(feature_tensor.name)
 print(feature_tensor.shape)
 ```
 
-### <a name="add-classifier"></a>新增分類器
-此分類器已在 ImageNet 資料集上定型。
+### <a name="add-classifier"></a>新增分類
+
+此分類器已在 ImageNet 資料集上定型。  傳輸學習和訓練您的自訂的權數範例可在一組[範例 notebook](https://aka.ms/aml-notebooks)。
 
 ```python
-classifier_output = model.get_default_classifier(feature_tensor)
+classifier_output = model_graph.get_default_classifier(feature_tensor)
+print(classifier_output)
 ```
 
-### <a name="create-service-definition"></a>建立服務定義
-您現在已定義映像預先處理、功能化器與在服務上執行的分類器，您可以建立服務定義。 服務定義是從部署到 FPGA 服務之模型產生的一組檔案。 服務定義由管道組成。 管道是依序執行的一系列階段。  支援 TensorFlow 階段、Keras 階段與 BrainWave 階段。  階段會在服務上依序執行，而且每個階段的輸出都會成為後續階段的輸入。
+### <a name="save-the-model"></a>儲存模型
 
-若要建立 TensorFlow 階段，請指定包含圖形 (在此案例中會使用預設圖形) 和此階段之輸入與輸出 tensors 的工作階段。  此資訊會用來將儲存圖形，以便它可以在服務上執行。
+既然已載入前置處理器、 ResNet 50 featurizer 並分類器，將儲存的圖形和相關聯的變數為模型。
 
 ```python
-from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
+model_name = "resnet50"
+model_def_path = os.path.join(save_path, model_name)
+print("Saving model in {}".format(model_def_path))
 
-save_path = os.path.expanduser('~/models/save')
-model_def_path = os.path.join(save_path, 'model_def.zip')
-
-model_def = ModelDefinition()
 with tf.Session() as sess:
-    model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
-    model_def.pipeline.append(BrainWaveStage(sess, model))
-    model_def.pipeline.append(TensorflowStage(sess, feature_tensor, classifier_output))
-    model_def.save(model_def_path)
-    print(model_def_path)
+    model_graph.restore_weights(sess)
+    tf.saved_model.simple_save(sess, model_def_path,
+                                   inputs={'images': in_images},
+                                   outputs={'output_alias': classifier_output})
 ```
 
-### <a name="deploy-model"></a>部署模型
-從服務定義建立服務。  您的工作區必須位於 美國東部 2 位置。
+### <a name="register-model"></a>註冊模型
+
+[註冊](./concept-model-management-and-deployment.md)您所建立的模型。  加入標記和有關模型的其他中繼資料，可協助您追蹤您已訓練的模型。
 
 ```python
-from azureml.core import Workspace
-
-ws = Workspace.from_config()
-print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
-
 from azureml.core.model import Model
-model_name = "resnet-50-rtai"
-registered_model = Model.register(ws, model_def_path, model_name)
 
-from azureml.core.webservice import Webservice
-from azureml.exceptions import WebserviceException
-from azureml.contrib.brainwave import BrainwaveWebservice, BrainwaveImage
-service_name = "imagenet-infer"
-service = None
-try:
-    service = Webservice(ws, service_name)
-except WebserviceException:
-    image_config = BrainwaveImage.image_configuration()
-    deployment_config = BrainwaveWebservice.deploy_configuration()
-    service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
-    service.wait_for_deployment(True)
+registered_model = Model.register(workspace = ws
+                                  model_path = model_def_path,
+                                  model_name = model_name)
+
+print("Successfully registered: ", registered_model.name, registered_model.description, registered_model.version, sep = '\t')
 ```
 
-### <a name="test-the-service"></a>測試服務
-若要將影像傳送到 API 並測試回應，請新增從輸出類別識別碼到 ImageNet 類別名稱的對應。
+如果您已註冊模型，而想要將其載入，您可能會擷取它。
+
+```python
+from azureml.core.model import Model
+model_name = "resnet50"
+# By default, the latest version is retrieved. You can specify the version, i.e. version=1
+registered_model = Model(ws, name="resnet50")
+print(registered_model.name, registered_model.description, registered_model.version, sep = '\t')
+```
+
+### <a name="convert-model"></a>轉換模型
+
+TensorFlow 圖形必須轉換成開放的類神經網路交換格式 ([ONNX](https://onnx.ai/))。  您必須提供的輸入和輸出 tensors 中，名稱，當您使用 web 服務時，將您的用戶端使用這些名稱。
+
+```python
+input_tensor = in_images.name
+output_tensors = classifier_output.name
+
+print(input_tensor)
+print(output_tensors)
+
+
+from azureml.accel.accel_onnx_converter import AccelOnnxConverter
+
+convert_request = AccelOnnxConverter.convert_tf_model(ws, registered_model, input_tensor, output_tensors)
+convert_request.wait_for_completion(show_output=True)
+
+# If the above call succeeded, get the converted model
+converted_model = convert_request.result
+print(converted_model.name, converted_model.url, converted_model.version, converted_model.id,converted_model.created_time)
+```
+
+### <a name="create-docker-image"></a>建立 Docker 映像
+
+已轉換的模型及其所有相依性會新增至 Docker 映像中。  此 Docker 映像可以再部署並在雲端或支援的 edge 裝置中這類執行個體化[Azure 資料方塊邊緣](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview)。  您也可以加入標記和描述，您已註冊的 Docker 映像。
+
+```python
+from azureml.core.image import Image
+from azureml.accel.accel_container_image import AccelContainerImage
+
+image_config = AccelContainerImage.image_configuration()
+image_name = "{}-image".format(model_name)
+
+image = Image.create(name = image_name,
+                     models = [converted_model],
+                     image_config = image_config, 
+                     workspace = ws)
+
+
+image.wait_for_creation(show_output = True)
+```
+
+依標籤列出映像，並取得詳細的記錄任何偵錯。
+
+```python
+for i in Image.list(workspace = ws):
+    print('{}(v.{} [{}]) stored at {} with build log {}'.format(i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
+```
+
+## <a name="model-deployment"></a>模型部署
+
+### <a name="deploy-to-the-cloud"></a>部署至雲端
+
+若要將模型部署為大規模生產 Web 服務，請使用 Azure Kubernetes Service (AKS)。 您可以建立新的資源使用 Azure 機器學習服務 SDK、 CLI 或 Azure 入口網站。
+
+```python
+# Use the default configuration (can also provide parameters to customize)
+prov_config = AksCompute.provisioning_configuration()
+
+aks_name = 'my-aks-9' 
+# Create the cluster
+aks_target = ComputeTarget.create(workspace = ws, 
+                                  name = aks_name, 
+                                  provisioning_configuration = prov_config)
+
+%%time
+aks_target.wait_for_completion(show_output = True)
+print(aks_target.provisioning_state)
+print(aks_target.provisioning_errors)
+
+#Set the web service configuration (using default here)
+aks_config = AksWebservice.deploy_configuration()
+
+%%time
+aks_service_name ='aks-service-1'
+
+aks_service = Webservice.deploy_from_image(workspace = ws, 
+                                           name = aks_service_name,
+                                           image = image,
+                                           deployment_config = aks_config,
+                                           deployment_target = aks_target)
+aks_service.wait_for_deployment(show_output = True)
+print(aks_service.state)
+print(aks_service.scoring_uri)
+```
+
+#### <a name="test-the-cloud-service"></a>測試雲端服務
+Docker 映像支援 gRPC 和 TensorFlow 提供 「 預測 」 API。  使用範例用戶端來呼叫進入 Docker 映像，若要從模型取得預測。  範例用戶端程式碼有：
+- [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
+- [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
+
+如果您想要使用 TensorFlow 服務，您可以[下載範例用戶端](https://www.tensorflow.org/serving/setup)。
 
 ```python
 import requests
 classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
-```
 
-呼叫您的服務並將下面的 "your-image.jpg" 檔案名稱取代為來自您電腦的影像。 
+# Score image using input and output tensor names
+results = client.score_file(path="./snowleopardgaze.jpg", 
+                             input_name=input_tensor, 
+                             outputs=output_tensors)
 
-```python
-with open('your-image.jpg') as f:
-    results = service.run(f)
 # map results [class_id] => [confidence]
 results = enumerate(results)
 # sort results by confidence
@@ -162,22 +267,23 @@ sorted_results = sorted(results, key=lambda x: x[1], reverse=True)
 # print top 5 results
 for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
-``` 
+```
 
-### <a name="clean-up-service"></a>清除服務
-刪除服務。
+### <a name="clean-up-the-service"></a>清除服務
+刪除您的 web 服務、 影像和模型 （必須以下列順序由於有相依性）。
 
 ```python
-service.delete()
-    
+aks_service.delete()
+image.delete()
 registered_model.delete()
+converted_model.delete()
 ```
+
+## <a name="deploy-to-a-local-edge-server"></a>部署至本機的邊緣伺服器
+
+所有[Azure 資料方塊的邊緣裝置](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
+)包含 FPGA 執行模型。  只有一個模型可以在 FPGA 中一次執行。  若要執行不同的模型，只需將部署新的容器。 指示和範例程式碼可在[這個 Azure 範例](https://github.com/Azure-Samples/aml-hardware-accelerated-models)。
 
 ## <a name="secure-fpga-web-services"></a>保護 FPGA Web 服務
 
 如需 FPGA Web 服務安全保護的相關資訊，請參閱[使用 SSL 來保護具有 Azure Machine Learning 服務的 Web 服務](how-to-secure-web-service.md) \(英文\) 一文。
-
-
-## <a name="next-steps"></a>後續步驟
-
-了解如何[取用部署為 Web 服務的 ML 模型](how-to-consume-web-service.md)。

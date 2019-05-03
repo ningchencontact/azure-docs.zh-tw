@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344201"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023865"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>如何參考認知搜尋技能集中的註釋
 
@@ -36,13 +36,13 @@ ms.locfileid: "60344201"
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>範例 1：簡單註解參考
 
-在 Azure Blob 儲存體中，假設您有多種檔案都參考了您想要使用具名實體辨識來擷取的人員名稱。 在下列技能定義中，`"/document/content"` 是整份文件的文字表示法，而 "people" 則是對識別為人員的實體擷取到的完整名稱。
+在 Azure Blob 儲存體中，假設您有各種不同的檔案包含您想要擷取使用實體辨識的人的名稱的參考。 在下列技能定義中，`"/document/content"` 是整份文件的文字表示法，而 "people" 則是對識別為人員的實體擷取到的完整名稱。
 
 由於預設內容為 `"/document"`，因此人員清單此時可以參考為 `"/document/people"`。 在這種情況下，`"/document/people"` 是註解，且此時有可能對應至索引中的欄位，或用於相同技能集中的另一項技能。
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [
@@ -98,7 +98,7 @@ ms.locfileid: "60344201"
 
 有時候，您必須將特定類型的所有註解分組在一起，以將其傳遞至特定技能。 請考慮建立假設性的自訂技能，以從擷取自範例 2 的所有姓氏中識別出最常見的姓氏。 若只要將姓氏提供給自訂技能，請將內容指定為 `"/document"`，並將輸入指定為 `"/document/people/*/lastname"`。
 
-請注意，`"/document/people/*/lastname"` 的基數大於文件的基數。 姓氏節點可能有 10 個，而此文件只有一個文件節點。 在此情況下，系統會自動建立一個 `"/document/people/*/lastname"` 陣列，其中包含文件中的所有元素。
+請注意的基數`"/document/people/*/lastname"`大於文件。 姓氏節點可能有 10 個，而此文件只有一個文件節點。 在此情況下，系統會自動建立一個 `"/document/people/*/lastname"` 陣列，其中包含文件中的所有元素。
 
 ```json
   {

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 8a07657d04cee57cb69c9f5f7862fed3e7965716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283553"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024557"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>部署策略和最佳化 Azure 搜尋服務效能的最佳作法
 
@@ -81,7 +81,7 @@ ms.locfileid: "61283553"
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>更新多個服務的內容中使用索引子
 
-如果您已經在上一個服務使用索引子，您可以將第二個索引子設定上使用相同的資料來源物件，第二項服務提取資料，從相同的位置。 每個區域中的每個服務有它自己的索引子和目標索引 （您的搜尋主體不共用，這表示重複資料），但每個索引子會參考相同的資料來源。
+如果您已經在上一個服務使用索引子，您可以將第二個索引子設定上使用相同的資料來源物件，第二項服務提取資料，從相同的位置。 每個區域中的每個服務有它自己的索引子和目標索引 （您的搜尋索引不共用，這表示重複資料），但每個索引子會參考相同的資料來源。
 
 以下是高階的視覺效果的該架構會如下所示。
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193094"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024646"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 最大值限制儲存體、 工作負載和數量的索引、 文件，和其他物件相依於是否您[佈建 Azure 搜尋服務](search-create-service-portal.md)在**免費**，**基本**， **標準**，或**儲存體最佳化**定價層。
@@ -47,10 +47,13 @@ ms.locfileid: "60193094"
 
 ## <a name="index-limits"></a>索引限制
 
-| 資源 | 免費 | 基本&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource | 免費 | 基本&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | 索引上限 |3 |5 或 15 |50 |200 |200 |每個分割區 1000 個或每個服務 3000 個 |10 |10 |
-| 每個索引的欄位上限 |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| 每個索引的簡單欄位上限 |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| 每個索引的最大的複雜集合欄位 |40 |40 |40 |40 |40 |40 |40 |40 |
+| 跨所有複雜的集合，每個文件的最大項目數 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| 複雜的欄位的最大深度 |10 |10 |10 |10 |10 |10 |10 |10 |
 | 每個索引的[建議工具](https://docs.microsoft.com/rest/api/searchservice/suggesters)上限 |1 |1 |1 |1 |1 |1 |1 |1 |
 | 每個索引的[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)上限 |100 |100 |100 |100 |100 |100 |100 |100 |
 | 每個設定檔的函式上限 |8 |8 |8 |8 |8 |8 |8 |8 |
@@ -102,7 +105,7 @@ ms.locfileid: "60193094"
 提供平衡和整個服務的穩定性的最大執行時間存在，但較大的資料集可能需要更編製索引的時間，超過允許的最大值。 如果索引作業無法在允許的時間上限內完成，請按照排程嘗試執行索引作業。 排程器會追蹤索引狀態。 如果排定的索引作業因故中斷，索引子可以在下次排定的執行時間繼續從上次停止處進行。
 
 
-| 資源 | 免費&nbsp;<sup>1</sup> | 基本&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Resource | 免費&nbsp;<sup>1</sup> | 基本&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | 索引子上限 |3 |5 或 15|50 |200 |200 |N/A |10 |10 |
 | 資料來源上限 |3 |5 或 15 |50 |200 |200 |N/A |10 |10 |

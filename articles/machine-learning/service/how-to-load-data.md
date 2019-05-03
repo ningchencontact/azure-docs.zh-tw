@@ -10,22 +10,24 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 2/22/2019
+ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819231"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024009"
 ---
-# <a name="load-and-read-data-with-azure-machine-learning"></a>使用 Azure Machine Learning 載入和讀取資料
-
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>載入並使用 Azure Machine Learning 資料準備 SDK 讀取資料
 在本文中，您將了解使用 Azure Machine Learning 資料準備 SDK 的資料載入不同的方法。 若要查看 SDK 的參考文件，請參閱[概觀](https://aka.ms/data-prep-sdk)。 SDK 支援多個資料擷取功能，包括：
 
 * 使用剖析參數推斷 (編碼、分隔符號、標頭)，從許多檔案類型載入
 * 在檔案載入期間使用推斷進行類型轉換
 * MS SQL Server 和 Azure Data Lake Storage 的連線支援
+
+> [!Important]
+> 如果您要建立新的方案，請嘗試[Azure Machine Learning 資料集](how-to-explore-prepare-data.md)（預覽） 進行資料探索和準備。 資料集是資料準備供應項目來管理在 AI 解決方案中的資料集的擴充的功能 SDK 的下一個版本。
 
 下表顯示用來將資料載入從常見的檔案類型的函式的選取範圍。
 

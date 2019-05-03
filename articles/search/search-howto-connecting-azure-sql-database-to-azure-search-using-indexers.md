@@ -1,7 +1,7 @@
 ---
 title: 與 Azure SQL Database 連線並使用索引子為內容編製索引 - Azure 搜尋服務
 description: 了解如何為 Azure 搜尋服務中的全文檢索搜尋使用索引子，在 Azure SQL Database 中搜耙資料。 本文涵蓋連線、索引子設定以及資料擷取。
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817156"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025349"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>連線至 Azure SQL Database 並使用 Azure 搜尋服務索引子為內容編製索引
 
@@ -63,7 +63,7 @@ ms.locfileid: "60817156"
 1. 建立資料來源：
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
+    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -82,7 +82,7 @@ ms.locfileid: "60817156"
 3. 利用命名及參考資料來源和目標索引來建立索引子：
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -95,7 +95,7 @@ ms.locfileid: "60817156"
 
 以這種方式建立索引子不需依照排程。 索引子一旦建立好就會自動執行。 您可以在任何時候使用 **執行索引子** 要求再執行一次：
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
     api-key: admin-key
 
 您可以自訂數個層面的索引子行為，例如，批次處理大小，以及在索引子執行失敗前可略過多少份文件。 如需詳細資訊，請參閱[建立索引子 API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)。
@@ -104,7 +104,7 @@ ms.locfileid: "60817156"
 
 若要監視索引子狀態及執行歷程紀錄 (項目索引編製數量、失敗等)，請使用 **索引子狀態** 要求：
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
     api-key: admin-key
 
 回應看起來應該如下所示：
@@ -146,7 +146,7 @@ ms.locfileid: "60817156"
 ## <a name="run-indexers-on-a-schedule"></a>依照排程執行索引子
 您也可以排列索引子，依照排程定期執行。 若要執行此工作，請在建立或更新索引子時新增**排程**屬性。 下方範例顯示以 PUT 要求更新索引子：
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 

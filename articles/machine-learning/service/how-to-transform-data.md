@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817548"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023795"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來轉換資料
 
 在本文中，您將了解不同的方法，將使用 Azure Machine Learning 資料準備 SDK 資料的轉換。 SDK 還提供讓您輕鬆加入資料行，篩選掉不必要的資料列或資料行，並插補遺漏值的函式。 若要查看 SDK 的參考文件，請參閱[概觀](https://aka.ms/data-prep-sdk)。
+
+> [!Important]
+> 如果您要建立新的方案，請嘗試[Azure Machine Learning 資料集](how-to-explore-prepare-data.md)（預覽） 來轉換您的資料、 快照集資料和儲存已建立版本的資料集定義。 資料集是資料準備供應項目來管理 AI 解決方案中的資料集的擴充的功能 SDK 的下一個版本。
 
 此操作說明會顯示下列工作的範例：
 
@@ -35,7 +38,7 @@ ms.locfileid: "60817548"
 
 Azure Machine Learning 資料準備 SDK 包含 `substring` 運算式，可以使用這些運算式以現有的資料行來計算值，然後在新的資料行中輸入該值。 在此範例中，您要載入資料，然後嘗試將資料行新增到該輸入資料。
 
-```python
+```Python
 import azureml.dataprep as dprep
 
 # loading data
@@ -52,7 +55,7 @@ dflow.head(3)
 
 使用 `substring(start, length)` 運算式擷取 [案例編號] 資料行中的前置詞，並將該字串放在新的資料行 `Case Category` 中。 將 `substring_expression` 變數傳遞至 `expression` 參數可建立新的導出資料行，此資料行會針對每一筆記錄執行運算式。
 
-```python
+```Python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -67,10 +70,9 @@ case_category.head(3)
 |2|10140270|HY329253|HY|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|電池|簡單的國產電池|街|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
-
 使用 `substring(start)` 運算式僅擷取 [案例編號] 資料行中的數字，然後建立新的資料行。 使用 `to_number()` 函式將其轉換為數值資料類型，並將字串資料行名稱當作參數傳遞。
 
-```python
+```Python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',

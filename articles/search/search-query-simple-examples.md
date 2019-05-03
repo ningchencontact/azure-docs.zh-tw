@@ -7,15 +7,15 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9b7147971bd320a11606a93ab4d988e924cf93b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61296907"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024539"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>使用 Azure 搜尋服務中的 「 簡單 」 的搜尋語法的查詢範例
 
@@ -50,7 +50,7 @@ URL 組合具有下列元素：
 + **`https://azs-playground.search.windows.net/`** 是由 Azure 搜尋服務開發小組維護的沙箱搜尋服務。 
 + **`indexes/nycjobs/`** 是該服務的索引集合中包含的 NYC 工作索引。 要求上必須同時有服務名稱和索引。
 + **`docs`** 是包含所有可搜尋內容的文件集合。 要求標頭中提供的查詢 API 金鑰僅適用於以文件集合為目標的讀取作業。
-+ **`api-version=2017-11-11`** 會設定 API 版本，這是每個要求的必要參數。
++ **`api-version=2019-05-06`** 會設定 API 版本，這是每個要求的必要參數。
 + **`search=*`** 是查詢字串，在初始查詢中設為 Null，會傳回前 50 個結果 (根據預設)。
 
 ## <a name="send-your-first-query"></a>傳送第一個查詢
@@ -60,7 +60,7 @@ URL 組合具有下列元素：
 將此 URL 貼入 REST 用戶端上，做為驗證步驟，以及檢視文件結構。
 
   ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
 查詢字串 **`search=*`** 是未指定的搜尋，等同於 Null 或空的搜尋。 其功用並不高，卻是最方便執行的搜尋。
@@ -92,7 +92,7 @@ search=*&searchFields=business_title, posting_type&$select=business_title, posti
 ### <a name="full-url"></a>完整的 URL
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchFields=business_title&$select=business_title&search=*
 ```
 
 此查詢的回應會如下列螢幕擷取畫面所示。
@@ -108,13 +108,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 所有文件都有唯一識別碼。 若要嘗試使用查閱查詢的語法，請先傳回文件識別碼清單，以尋找您要使用的文件。 NYC 工作的識別碼會儲存在 `id` 欄位中。
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=id&$select=id&search=*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchFields=id&$select=id&search=*
 ```
 
 下一個範例是根據 `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5" (出現在上述回應中的最上方) 傳回特定文件的查閱查詢。 下列查詢會傳回整份文件，而不只是選取的欄位。 
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2019-05-06&$count=true&search=*
 ```
 
 ## <a name="example-3-filter-queries"></a>範例 3：篩選查詢
@@ -122,7 +122,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 [篩選語法](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)是您可搭配**搜尋**使用或單獨使用的 OData 運算式。 獨立的篩選條件 (不含搜尋參數) 在篩選運算式能夠完全限定相關文件時，將有其效用。 沒有查詢字串，就沒有語彙或語言分析、沒有計分 (所有分數均為 1)，也沒有排名。 請注意，搜尋字串是空的。
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
@@ -138,13 +138,13 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 如果您想要使用 GET 在 Postman 中試用看看，您可以貼入此字串：
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
 ```
 
 合併篩選和搜尋的另一種強大方式就是透過篩選運算式中的 **`search.ismatch*()`**，您可以在其中的篩選內使用搜尋查詢。 這個篩選運算式在 *plan* 上使用萬用字元來選取包含 term plan、planner、planning 等等的 business_title。
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
 如需此函式的詳細資訊，請參閱[「篩選範例」中的 search.ismatch](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)。
@@ -158,7 +158,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 下列範例採用 POST 格式，以方便閱讀 (數值範圍，後面接著文字範圍)：
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "num_of_positions ge 5 and num_of_positions lt 10",
@@ -171,7 +171,7 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "business_title ge 'A*' and business_title lt 'C*'",
@@ -186,11 +186,11 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 您也可以使用 GET 在 Postman 中試用這些：
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=num_of_positions ge 5 and num_of_positions lt 10&$select=job_id, business_title, num_of_positions, agency&$orderby=agency&$count=true
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&search=&$filter=num_of_positions ge 5 and num_of_positions lt 10&$select=job_id, business_title, num_of_positions, agency&$orderby=agency&$count=true
 ```
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
 ```
 
 > [!NOTE]
@@ -203,7 +203,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 下列範例採用 POST 格式以便閱讀：
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
@@ -216,7 +216,7 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 您也可以使用 GET 在 Postman 中試用看看：
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
 ```
 
 ## <a name="example-6-search-precision"></a>範例 6：搜尋精準度
@@ -226,19 +226,19 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 範例 1︰**`&search=fire`** 傳回 150 個結果，其中，所有相符項目皆在文件中的某處包含 word 一字。
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=fire
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire
 ```
 
 範例 2︰**`&search=fire department`** 傳回 2002 個結果。 系統會針對包含 fire 或 department 的文件傳回相符項目。
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=fire department
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire department
 ```
 
 範例 3︰**`&search="fire department"`** 傳回 82 個結果。 以引號括住字串時會對這兩個字詞進行逐字搜尋，並從索引中包含此組合字詞的權杖化字詞尋找相符項目。 這解釋了為何 **`search=+fire +department`** 這樣的搜尋並不相同。 這兩個字詞都必須存在，但兩者的掃描會個別執行。 
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search="fire department"
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search="fire department"
 ```
 
 ## <a name="example-7-booleans-with-searchmode"></a>範例 7：使用 searchMode 的布林值
@@ -248,7 +248,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 使用預設 searchMode (any) 會傳回 2800 份文件：包含複合字詞 "fire department" 的文件，以及所有不含 "Metrotech Center" 一詞的文件。
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
   ![搜尋模式：任何](media/search-query-simple-examples/searchmodeany.png)
@@ -256,7 +256,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 將 searchMode 變更為 `all` 時，會對準則強制執行累加效果，而傳回較小的結果集 (21 份文件)，由包含完整片語 "fire department"、但工作地點不是 Metrotech Center 的文件所組成。
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
   ![搜尋模式：全部](media/search-query-simple-examples/searchmodeall.png)
 
@@ -265,24 +265,24 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 有數個參數會控制要在搜尋結果中包含的欄位、每個批次中傳回的文件數目，以及排序次序。 此範例將從前述幾個範例延伸，使用 **$select** 陳述式和逐字搜尋準則將結果限定於特定欄位，而傳回 82 個相符項目 
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"
 ```
 接續先前的範例，您可以依職稱排序。 之所以可進行此排序，是因為 civil_service_title 在索引中是*可排序的*。
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title
 ```
 
 分頁結果會使用 **$top** 參數來實作，在此範例中會傳回前 5 份文件：
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=0
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=0
 ```
 
 若要取得後續的 5 份文件，請略過第一個批次：
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=5
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=5
 ```
 
 ## <a name="next-steps"></a>後續步驟

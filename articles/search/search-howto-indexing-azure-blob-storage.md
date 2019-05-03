@@ -1,7 +1,7 @@
 ---
 title: 為 Azure Blob 儲存體內容編製索引以用於全文檢索搜尋 - Azure 搜尋服務
 description: 了解如何使用 Azure 搜尋服務對 Azure Blob 儲存體編製索引，以及從文件擷取文字。
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e55d596cfaf34c177f6dc43c27aaac37da87d2f7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871328"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024875"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
 本文說明如何使用 Azure 搜尋服務對儲存在 Azure Blob 儲存體的文件編製索引 (例如 PDF、Microsoft Office 文件和數種其他通用格式)。 首先，它會說明安裝和設定 blob 索引子的基本概念。 然後，它會提供可能會發生之行為和案例的更深入探索。
@@ -50,7 +50,7 @@ blob 索引子可以從下列文件格式擷取文字：
 
 若要建立資料來源：
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -82,7 +82,7 @@ blob 索引子可以從下列文件格式擷取文字：
 
 以下說明如何使用可搜尋的 `content` 欄位建立索引，以儲存從 blob 擷取的文字︰   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -101,7 +101,7 @@ blob 索引子可以從下列文件格式擷取文字：
 
 建立索引和資料來源之後，您就可以開始建立索引子︰
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -121,7 +121,7 @@ blob 索引子可以從下列文件格式擷取文字：
 取決於[組態](#PartsOfBlobToIndex)，blob 索引子只可以編製儲存體中繼資料的索引 (僅當您關注中繼資料且無須編製 blob 內容的索引時很有用)，儲存體和內容中繼資料，或中繼資料和文字內容。 根據預設，索引子會擷取中繼資料和內容。
 
 > [!NOTE]
-> 根據預設，結構化內容 (例如 JSON 或CSV) 的 Blob 會以單一區塊文字編製索引。 如果您要以結構化方式編製 JSON 和 CSV blob 的索引，請參閱[編製 JSON blob 的索引](search-howto-index-json-blobs.md)和[編製 CSV blob 的索引](search-howto-index-csv-blobs.md)預覽功能。
+> 根據預設，結構化內容 (例如 JSON 或CSV) 的 Blob 會以單一區塊文字編製索引。 如果您想要編製 JSON 和 CSV blob 索引結構化的方式，請參閱[編製 JSON blob](search-howto-index-json-blobs.md)並[編製 CSV blob](search-howto-index-csv-blobs.md)如需詳細資訊。
 >
 > 複合或內嵌文件 (例如 ZIP 封存或具有內嵌 Outlook 電子郵件 (內含附件) 的 Word 文件) 也會編制索引為單一文件。
 
@@ -172,7 +172,7 @@ blob 索引子可以從下列文件格式擷取文字：
 
 若要將所有項目整合在一起，以下是您新增欄位對應和針對現有索引子啟用 base-64 索引鍵編碼的方式：
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -198,7 +198,7 @@ blob 索引子可以從下列文件格式擷取文字：
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>只將具有特定副檔名的 Blob 編製成索引
 您可以使用 `indexedFileNameExtensions` 索引子組態參數，只將具有指定副檔名的 Blob 編製成索引。 值是包含副檔名 (有前置句點) 逗號分隔清單的字串。 例如，若只要將 .PDF 和 .DOCX Blob 編製成索引，請執行這項操作︰
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -210,7 +210,7 @@ blob 索引子可以從下列文件格式擷取文字：
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>排除具有特定副檔名的 Blob
 您可以使用 `excludedFileNameExtensions` 組態參數，在編製索引時排除具有特定副檔名的 Blob。 值是包含副檔名 (有前置句點) 逗號分隔清單的字串。 例如，若要將除 .PNG 和 .JPEG 副檔名以外的所有 Blob 都編製成索引，請執行下列動作︰
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -232,7 +232,7 @@ blob 索引子可以從下列文件格式擷取文字：
 
 例如，若只要編製儲存中繼資料的索引，請使用︰
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -255,7 +255,7 @@ blob 索引子可以從下列文件格式擷取文字：
 
 根據預設，一旦遇到不受支援內容類型 (例如影像) 的 blob 時，blob 索引子就會停止。 您當然可以使用 `excludedFileNameExtensions` 參數來略過特定內容類型。 不過，您可能需要編製 blob 的索引，而不需要事先知道所有可能的內容類型。 若要在遇到不受支援的內容類型時繼續編製索引，請將 `failOnUnsupportedContentType` 組態參數設定為 `false`：
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -293,7 +293,7 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 
 例如，如果 blob 有值為 `true` 的中繼資料屬性 `IsDeleted`，則下列原則會認為 blob 已刪除：
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -340,7 +340,7 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 
 如果所有的 Blob 都包含相同編碼的純文字，您可以使用「文字剖析模式」來大幅提升編制索引的效能。 若要使用文字剖析模式，請將 `parsingMode` 設定屬性設定為 `text`：
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

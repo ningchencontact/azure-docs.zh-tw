@@ -7,17 +7,29 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 4acf609ca1f81e69babfa1a319b43e20e84a8395
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 488a9fe24fb8fca0b7309dea63d0640a6384f95c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291530"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024087"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>升級至 Azure 搜尋服務 .NET SDK 版本 3
+
+> [!Important]
+> 此內容是仍在建構。 使用在 NuGet 上的 Azure 搜尋服務.NET SDK 的 9.0 版。 我們正努力這篇文章說明如何升級至 9.0。 
+> 
+
+<!--- DETAILS in the word doc
+cosmosdb
+NER v1 skill 
+Indexer execution result errors no longer have status
+the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
+--->
+
 如果您使用版本 2.0 預覽版或更舊版本的 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)，本文可協助您將應用程式升級至版本 3。
 
 如需包括範例的 SDK 一般逐步解說，請參閱 [如何從 .NET 應用程式使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)。

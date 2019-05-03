@@ -8,18 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/24/2019
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 6a9e66b1731a06d81e89b5f3fc4467a0f0344160
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697871"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020346"
 ---
 # <a name="release-notes"></a>版本資訊
 
+## <a name="speech-sdk-150-2019-may-release"></a>語音 SDK 1.5.0:2019 年發行
+
+**新功能**
+
+* 找出功能 (KWS) 的關鍵字是適用於 Windows 和 Linux。 KWS 功能可能會使用任何麥克風型別，官方 KWS 支援，不過，目前僅限麥克風陣列中找到 Azure Kinect DK 硬體或語音裝置 SDK。
+* 透過 SDK 使用片語提示功能。 如需詳細資訊，請參閱[這裡](how-to-phrase-lists.md)。
+* 交談文字記錄功能是透過 SDK。 請參閱 [這裡](conversation-transcription-service.md)。
+* 新增語音第一個虛擬助理使用直接列語音通道支援。
+
+**範例**
+
+* 加入新功能或支援的 SDK 的新服務的範例。
+
+**/變更**
+
+* 加入各種不同的辨識器屬性，以調整服務行為或服務 （例如遮罩不雅內容等） 的結果。
+* 您現在可以設定透過標準設定的屬性，辨識器，即使您建立的辨識器`FromEndpoint`。
+* 本節目標 c:`OutputFormat`屬性新增至 SPXSpeechConfiguration。
+* SDK 現在支援 Debian 9，作為 Linux 發佈。
+
+**錯誤修正**
+
+* 修正的問題，演講者備忘資源已解構過早在文字轉換語音的位置。
 ## <a name="speech-sdk-142"></a>Speech SDK 1.4.2
 
 这是一个 Bug 修复版本，只影响本机/托管 SDK。 它不影响 SDK 的 JavaScript 版本。
@@ -28,7 +51,7 @@ ms.locfileid: "64697871"
 
 這是僅限 JavaScript 的版本。 未新增任何功能。 已進行下列修正：
 
-* 防止 webpack 載入 https proxy 代理程式。
+* Web 組件造成妨礙載入 https proxy 代理程式。
 
 ## <a name="speech-sdk-140-2019-april-release"></a>語音 SDK 1.4.0:2019 年 4 月版本
 
@@ -49,7 +72,7 @@ ms.locfileid: "64697871"
 **/變更**
 
 * Python：現在透過公開的辨識結果的其他屬性`properties`屬性。
-* 如需其他開發和偵錯支援重新導向到記錄檔的 SDK 的記錄和診斷資訊 (更多詳細資料[此處](how-to-use-logging.md))。
+* 如需額外的開發和偵錯支援，您可以重新導向到記錄檔的 SDK 的記錄和診斷資訊 (更多詳細資料[此處](how-to-use-logging.md))。
 * JavaScript：改善音訊處理效能。
 
 **錯誤修正**
@@ -70,8 +93,8 @@ ms.locfileid: "64697871"
 
 **新功能**
 
-* 語音 SDK 支援透過 AudioConfig 類別來選取輸入麥克風。 這可讓您將音訊資料串流到語音服務從非預設麥克風。 如需詳細資訊，請參閱文件描述[音訊輸入裝置選取](how-to-select-audio-input-devices.md)。 此功能還無法在 JavaScript 中使用。
-* 語音 SDK 現在支援搶鮮版 (Beta) Unity。 請透過 [GitHub 範例存放庫](https://aka.ms/csspeech/samples)中的問題一節提供意見反應。 此版本可在 Windows x86 和 x64 (桌面或通用 Windows 平台應用程式) 以及 Android (ARM32/64、x86) 上支援 Unity。 詳情請參閱 [Unity 快速入門](quickstart-csharp-unity.md)。
+* 語音 SDK 支援透過 AudioConfig 類別來選取輸入麥克風。 這可讓您將音訊資料串流到語音服務從非預設麥克風。 如需詳細資訊，請參閱文件描述[音訊輸入裝置選取](how-to-select-audio-input-devices.md)。 這項功能尚無法從 JavaScript 使用。
+* 語音 SDK 現在支援搶鮮版 (Beta) Unity。 透過在 [問題] 區段提供意見反應[GitHub 範例存放庫](https://aka.ms/csspeech/samples)。 此版本可在 Windows x86 和 x64 (桌面或通用 Windows 平台應用程式) 以及 Android (ARM32/64、x86) 上支援 Unity。 詳情請參閱 [Unity 快速入門](quickstart-csharp-unity.md)。
 * 不再需要 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 文件（在以前的版本中提供）。 此功能现在集成到核心 SDK 中。
 
 
@@ -107,7 +130,7 @@ ms.locfileid: "64697871"
 **錯誤修正**
 
 * 空的 Proxy 使用者名稱和 Proxy 密碼之前不會正確處理。 在此版本中，如果您將 Proxy 使用者名稱和 Proxy 密碼設定為空字串，系統將不會在連線到 Proxy 時提交出去。
-* 在某些語言&nbsp;/環境中，SDK 所建立的工作階段識別碼並不一定會真正隨機。 已新增亂數產生器初始化來修正此問題。
+* 在某些語言&nbsp;/環境中，SDK 所建立的工作階段識別碼並不一定會真正隨機。 加入亂數產生器初始化，若要修正此問題。
 * 改善授權權杖的處理方式。 如果您想要使用授權權杖，請在 SpeechConfig 中指定，並讓訂用帳戶金鑰保持空白。 然後如往常般建立辨識器。
 * 在某些情況下，連線物件未正確釋放。 已修正此問題。
 * JavaScript 範例已修正，現在也能夠在 Safari 上支援以音訊輸出合成翻譯。
@@ -134,7 +157,7 @@ ms.locfileid: "64697871"
   * 音訊工作階段的長度限制已移除，重新連線會自動發生。
 * 連線物件
   * 從辨識器，您可以存取連接物件。 此物件可讓您明確地起始服務連線，並訂閱連線和中斷連線事件。
-    (此物件還無法在 JavaScript 和 Python 中使用。)
+    （這項功能尚無法使用從 JavaScript 和 Python。）
 * Ubuntu 18.04 支援。
 * Android
   * 已在 APK 產生期間啟用 ProGuard 支援。
@@ -142,7 +165,7 @@ ms.locfileid: "64697871"
 **改進**
 
 * 改進內部執行緒使用方式，並減少執行緒、鎖定、Mutex 的數目。
-* 已改善錯誤回報 / 資訊。 在有些情況下，錯誤訊息尚未完全傳播出去。
+* 已改善錯誤回報 / 資訊。 在許多情況下，錯誤訊息不已經傳播出一路放大。
 * 已將 JavaScript 中的開發相依性更新為使用最新的模組。
 
 **錯誤修正**
@@ -218,7 +241,7 @@ ms.locfileid: "64697871"
 **重大變更**
 
 * 此版本中，導入了一些重大變更。
-  如需詳細資訊，請參閱[此頁面](https://aka.ms/csspeech/breakingchanges_1_0_0)。
+  請檢查[本頁](https://aka.ms/csspeech/breakingchanges_1_0_0)如需詳細資訊。
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>認知服務語音 SDK 0.6.0：2018 年 8 月版本
 

@@ -4,7 +4,7 @@ description: Azure 搜尋服務中的全文檢索搜尋查詢所使用的簡單�
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 99729141e5e1478f45ad385cf671c44a8e08f21a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75e2d7c493b535c984b0ef61dd9a9fae53aee80a
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61316892"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024192"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Azure 搜尋服務中的簡單查詢語法
 Azure 搜尋服務會實作兩種以 Lucene 為基礎的查詢語言：[簡單查詢剖析器](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html)和 [Lucene 查詢剖析器](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)。 在 Azure 搜尋服務中，簡單查詢語法會排除 fuzzy/slop 選項。  

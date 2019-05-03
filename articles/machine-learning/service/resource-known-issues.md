@@ -11,16 +11,33 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60752329"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021098"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
 
 此文章可協助您尋找並修正使用 Azure Machine Learning 服務時遇到的錯誤與失敗。
+
+## <a name="visual-interface-issues"></a>視覺化介面問題
+
+機器學習服務問題的視覺化介面。
+
+### <a name="long-compute-preparation-time"></a>長時間計算的準備時間
+
+建立新的計算或呼叫離開的運算需要時間，可能是幾分鐘的時間或更久時間。 小組正著手進行最佳化。
+
+
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>無法執行實驗只包含資料集 
+
+您可能想要執行實驗只包含以視覺化方式檢視資料集的資料集。 不過，它具有不允許執行實驗只包含資料集現在。 我們主動修正此問題。
+ 
+之前修正程式中，您可以將資料集連接到任何資料轉換模組 （選取資料行中資料集 」、 「 編輯中繼資料 」 「 分割資料等），並執行實驗。 然後您可以將資料集視覺化。 
+
+下圖顯示方式： ![visulize 資料](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>SDK 安裝問題
 

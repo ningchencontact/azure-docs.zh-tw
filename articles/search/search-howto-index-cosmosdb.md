@@ -1,7 +1,7 @@
 ---
 title: 為 Azure Cosmos DB 資料來源編製索引 - Azure 搜尋服務
 description: 搜耙 Azure Cosmos DB 資料來源，並在 Azure 搜尋服務中的全文檢索搜尋索引中內嵌資料。 索引子可為選取的資料來源 (例如 Azure Cosmos DB) 將資料擷取自動化。
-ms.date: 02/28/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871678"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024730"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>如何使用 Azure 搜尋服務索引子的 Cosmos DB 編製索引
 
@@ -122,9 +122,8 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 在您的 Cosmos DB 帳戶中，您可以選擇是否要讓集合自動編製所有文件的索引。 根據預設，所有文件會自動編制索引，但您可以關閉自動編制索引。 關閉編製索引時，只能透過文件自己的連結或使用文件識別碼透過查詢來存取文件。 「Azure 搜尋服務」會要求在將由「Azure 搜尋服務」編製索引的集合中，必須開啟 Cosmos DB 自動編製索引功能。 
 
-> [!NOTE]
-> Azure Cosmos DB 是新一代的 DocumentDB。 雖然產品名稱變更，但 Azure 搜尋服務索引子中的 `documentdb` 語法仍存在，可在 Azure 搜尋服務和入口網站頁面中回溯相容性。 在設定索引子時，務必如本文中的指示指定 `documentdb` 語法。
-
+> [!WARNING]
+> Azure Cosmos DB 是新一代的 DocumentDB。 先前使用 api-version **2017年-11-11**您可以使用`documentdb`語法。 這表示您可以指定資料來源類型，如此`cosmosdb`或`documentdb`。 從 API 版本開始**2019年-05-06** Azure 搜尋服務 Api 和入口網站都只支援`cosmosdb`語法這篇文章中的指示。 這表示資料來源類型必須`cosmosdb`如果您想要連線到 Cosmos DB 端點。
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-組合要求的輸入
 
@@ -150,13 +149,13 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 若要建立資料來源，制訂的 POST 要求：
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
             "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
@@ -172,7 +171,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 | 欄位   | 描述 |
 |---------|-------------|
 | **name** | 必要。 選擇任何名稱，以代表您的資料來源物件。 |
-|**type**| 必要。 必須是 `documentdb`。 |
+|**type**| 必要。 必須是 `cosmosdb`。 |
 |**credentials** | 必要。 必須是 Cosmos DB 連接字串。<br/>對於 SQL 集合，連接字串會以下列格式： `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>針對 MongoDB 集合，新增 **/api 種類 = MongoDb**的連接字串：<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>請避免在端點 URL 中使用連接埠號碼。 如果您加入連接埠號碼，Azure 搜尋服務將無法為 Azure Cosmos DB 資料庫編製索引。|
 | **container** | 包含下列元素： <br/>**名稱**：必要。 指定要編製索引的資料庫集合識別碼。<br/>**查詢**：選用。 您可以指定查詢將任意 JSON 文件簡維成 Azure 搜尋服務可以編製索引的一般結構描述。<br/>針對 MongoDB 集合，不支援查詢。 |
 | **dataChangeDetectionPolicy** | 建議使用。 請參閱[索引變更的文件](#DataChangeDetectionPolicy)小節。|
@@ -193,7 +192,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
             "lastName": "hoh"
         },
         "company": "microsoft",
-        "tags": ["azure", "documentdb", "search"]
+        "tags": ["azure", "cosmosdb", "search"]
     }
 
 篩選查詢：
@@ -219,7 +218,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 [建立目標 Azure 搜尋服務索引](/rest/api/searchservice/create-index)如果您還沒有。 下列範例會建立具有識別碼和描述欄位的索引：
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -263,13 +262,13 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 建立索引和資料來源之後，您就可以開始建立索引子︰
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
     {
-      "name" : "mydocdbindexer",
-      "dataSourceName" : "mydocdbdatasource",
+      "name" : "mycosmosdbindexer",
+      "dataSourceName" : "mycosmosdbdatasource",
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
@@ -334,17 +333,17 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 下列範例會建立包含虛刪除原則的資料來源：
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
-            "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
+            "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
-        "container": { "name": "myDocDbCollectionId" },
+        "container": { "name": "myCosmosDbCollectionId" },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
             "highWaterMarkColumnName": "_ts"

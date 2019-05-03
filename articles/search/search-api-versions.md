@@ -7,15 +7,14 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f361417f25579b0ca605b33bafa4a581f68b1798
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126952"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024399"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure 搜尋服務中的 API 版本
 「Azure 搜尋服務」會定期推出功能更新。 有時候 (但並不一定)，這些更新會需要新版本的 API，以維持回溯相容性。 發行新版本可讓您控制在程式碼中整合搜尋服務更新的時機與方式。
@@ -30,18 +29,19 @@ ms.locfileid: "61126952"
 ## <a name="snapshot-of-current-versions"></a>目前版本的快照
 以下是 Azure 搜尋服務所有程式設計介面目前版本的快照。
 
+
 | 介面 | 最新主要版本 | 狀態 |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |5.0 |正式推出，2018 年 4 月發行 |
-| [.NET SDK 預覽版](https://aka.ms/search-sdk-preview) |4.0.1-preview |預覽版，2017 年 5 月發行 |
-| [服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |正式推出 |
-| [服務 REST API 2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-Preview |預覽 |
-| [.NET 管理 SDK](https://aka.ms/search-mgmt-sdk) |2.0 |正式推出 |
+| [.NET SDK](https://aka.ms/search-sdk) |9.0 |正式推出，發行 2019 年。 內容是仍在建構。  |
+| [.NET SDK 預覽版](https://aka.ms/search-sdk-preview) |8.0.0-preview |預覽版，發行 2019 年 4 月。 內容是仍在建構。|
+| [服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |正式推出 |
+| [Service REST API 2019-05-06-Preview](search-api-preview.md) |2019-05-06-Preview |預覽 |
+| [.NET 管理 SDK](https://aka.ms/search-mgmt-sdk) |3.0 |正式推出 |
 | [管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |正式推出 |
 
 針對 REST API，必須在每個呼叫中納入 `api-version` 。 使用 `api-version` 會使將特定版本 (例如預覽 API) 作為目標較為容易。 下列範例說明如何指定 `api-version` 參數：
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
+    GET https://my-demo-app.search.windows.net/indexes/hotels?api-version=2019-05-06
 
 > [!NOTE]
 > 雖然每個要求都具有 `api-version`，我們仍建議您針對所有的 API 要求使用相同的版本。 特別是當新的 API 版本引入舊版本無法辨識的屬性或作業時更建議您這樣做。 混合的 API 版本可能會有非預期的結果，應該予以避免。

@@ -6,16 +6,16 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281797"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024323"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure 搜尋服務的同義字
 
@@ -23,11 +23,13 @@ ms.locfileid: "61281797"
 
 在 Azure 搜尋服務中，同義字擴充在查詢同時就已完成。 您可以在不中斷現有作業的情況下，新增同義字地圖至服務中。 您無需重建索引，就可以將 synonymMaps 屬性新增至欄位定義。
 
-## <a name="feature-availability"></a>功能可用性
+## <a name="create-synonyms"></a>建立同義字
 
-最新的 api-version (api-version=2017-11-11) 支援同義字功能。 目前 Azure 入口網站並不支援此功能。
+沒有入口網站支援建立同義字，但您可以使用 REST API 或.NET SDK。 若要開始使用 REST，我們建議[使用 Postman](search-fiddler.md)及形式使用此 API 的要求的：[建立同義字地圖](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)。 針對C#開發人員，您可以開始使用[加入的同義字，在 Azure 搜尋中使用C# ](search-synonyms-tutorial-sdk.md)。
 
-## <a name="how-to-use-synonyms-in-azure-search"></a>如何在 Azure 搜尋服務中使用同義字
+（選擇性） 如果您使用[客戶管理的金鑰](search-security-manage-encryption-keys.md)服務端的待用加密，您可以套用該保護您的同義字地圖的內容。
+
+## <a name="use-synonyms"></a>使用同義字
 
 Azure 搜尋服務是根據您定義並上傳至服務的同義字地圖，提供同義字支援。 這些地圖由獨立資源構成 (例如索引或資料資源)，且可以在您搜尋服務索引中的任何可搜尋欄位使用。
 
@@ -49,7 +51,7 @@ Azure 搜尋服務是根據您定義並上傳至服務的同義字地圖，提�
 
 您可以使用 HTTP POST 建立新的同義字地圖，如下列範例所示︰
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -62,7 +64,7 @@ Azure 搜尋服務是根據您定義並上傳至服務的同義字地圖，提�
 
 或者，您也可以使用 PUT，並在 URI 中指定同義字地圖名稱。 如果同義字地圖不存在，系統就會加以建立。
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -74,38 +76,38 @@ Azure 搜尋服務是根據您定義並上傳至服務的同義字地圖，提�
 
 ##### <a name="apache-solr-synonym-format"></a>Apache Solr 同義字格式
 
-Solr 格式支援對等且明確的對應同義字。 對應規則需遵守 Apache Solr 的開放來源同義字篩選條件規格，規則如下列文件所述：[SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter) (英文)。 以下是對等同義字的樣本規則。
+Solr 格式支援對等且明確的對應同義字。 對應規則需遵守 Apache Solr，這份文件中所述的開放來源同義字篩選條件規格：[SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter) (英文)。 以下是對等同義字的樣本規則。
 ```
 USA, United States, United States of America
 ```
 
 根據上述規則，搜尋「USA」時，會擴充搜尋「USA」或「United States」以及「United States of America」。
 
-明確的對應由箭號「=>」表示。 當指定時，符合「=>」左手邊搜尋查詢的詞彙序列，將會被右手邊的替代詞彙取代。 根據下列規則，搜尋查詢「Washington」、「Wash.」 或「WA」，都會重寫為「WA」。 明確對應只會套用在指定的方向，而且在此案例中，不會在查詢「WA」時重寫為「Washington」。
+明確的對應由箭號「=>」表示。 指定時，符合左手邊搜尋查詢的詞彙序列"= >"會取代在右手邊的替代方案。 根據下列規則，搜尋查詢「Washington」、「Wash.」 或「WA」，都會重寫為「WA」。 明確對應只會套用在指定的方向，而且在此案例中，不會在查詢「WA」時重寫為「Washington」。
 ```
 Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>您服務中的同義字地圖清單。
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>在您的服務中取得同義字地圖。
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>刪除您服務中的同義字地圖。
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>在索引定義中設定要使用同義字地圖的可搜尋欄位。
 
 您可以使用新的欄位屬性 **synonymMaps**，來指定要在可搜尋欄位中使用的同義字地圖。 同義字地圖屬於服務層級的資源，且服務中的任何索引欄位均可參考。
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
     api-key: [admin key]
 
     {

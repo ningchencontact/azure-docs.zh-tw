@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: wolfma
-ms.openlocfilehash: be4c5d6187e6367ba04ce7debcc0701937e87ae9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b602a26c83be1ffd4bd55a8eff9ff8d83aac5919
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012481"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020820"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 macOS 上以 C++ 辨識語音
 
@@ -31,7 +31,7 @@ ms.locfileid: "59012481"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.4.0`。
+認知服務語音 SDK 目前的版本為 `1.5.0`。
 
 適用於 macOS 的語音 SDK 可從 https://aka.ms/csspeech/macosbinary 以壓縮的架構組合形式下載。
 

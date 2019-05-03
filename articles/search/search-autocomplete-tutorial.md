@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126733"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025146"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>範例：將建議或自動完成功能新增至您的 Azure 搜尋服務應用程式
 
@@ -23,7 +23,7 @@ ms.locfileid: "61126733"
 
 + *建議*會產生當您輸入時，其中每項建議是符合您已到目前為止輸入索引的單一結果的建議的結果。 
 
-+ *自動完成*，[預覽功能](search-api-preview.md)，「 完成 」 的單字或片語，在使用者目前輸入。 而不是傳回結果，它會完成的查詢，即可執行以傳回結果。 如同建議，已完成的單字或片語查詢中的都被基於索引中相符項目。 服務不會提供傳回零筆結果，在索引中的查詢。
++ *自動完成*「 完成 」 的單字或片語，在使用者目前輸入。 而不是傳回結果，它會完成的查詢，即可執行以傳回結果。 如同建議，已完成的單字或片語查詢中的都被基於索引中相符項目。 服務不會提供傳回零筆結果，在索引中的查詢。
 
 您可以下載並執行範例應用程式**DotNetHowToAutocomplete**來評估這些功能。 範例程式碼為目標的預先建置的索引，填入[為 NYCJobs 示範資料](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)。 為 NYCJobs 索引包含[建議工具建構](index-add-suggesters.md)，這是建議或自動完成是必要項。 您可以使用裝載在沙箱服務中，已備妥之的索引或[填入您自己的索引](#configure-app)為 NYCJobs 範例方案中使用的資料載入器。 
 

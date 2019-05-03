@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78db7d21774750892c831ac220244c54594b78f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cedd45d4142633e48d0d9dd41870f57c16d860c8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817728"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023846"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>定型 TensorFlow 和 Keras 的模型，使用 Azure Machine Learning 服務
 
@@ -185,6 +185,10 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 ```Python
 run = exp.submit(tf_est)
 ```
+
+## <a name="export-to-onnx"></a>匯出至 ONNX
+
+若要取得與最佳化的推斷[ONNX Runtime](concept-onnx.md)，您可以將您的定型的 TensorFlow 模型轉換成 ONNX 格式。 查看[範例](https://github.com/onnx/tensorflow-onnx/blob/master/examples/call_coverter_via_python.py)。
 
 ## <a name="examples"></a>範例
 

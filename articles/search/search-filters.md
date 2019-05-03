@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49f971fb50d0a8a6a0dab09158f780206a4d32f1
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61289581"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024837"
 ---
 # <a name="filters-in-azure-search"></a>Azure 搜尋服務中的篩選條件 
 
@@ -73,10 +73,10 @@ ms.locfileid: "61289581"
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
 
 # Option 2: Use filter for POST and pass it in the header
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -146,7 +146,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="text-filter-fundamentals"></a>文字篩選條件基本概念
 
-文字篩選條件適用於字串欄位，您會想要根據搜尋主體內的值，從其中提取一些任意的文件集合。
+文字篩選條件是適用於字串欄位，您要從中提取一些任意搜尋索引內的值為基礎的文件的集合。
 
 針對由字串組成的文字篩選條件，不會有任何語彙分析或斷詞，因此，比較僅限於完全相符的項目。 例如，假設欄位 *f* 包含 "sunny day"，則 `$filter=f eq 'Sunny'` 不相符，但 `$filter=f eq 'Sunny day'` 將會符合。 
 

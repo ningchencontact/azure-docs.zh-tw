@@ -1,7 +1,7 @@
 ---
 title: 為 Azure Blob 索引子的 JSON Blob 編製索引以用於全文檢索搜尋 - Azure 搜尋服務
 description: 使用 Azure 搜尋服務 Blob 索引子，搜耙文字內容的 Azure JSON Blob。 索引子可為選取的資料來源 (例如 Azure Blob 儲存體) 將資料擷取自動化。
-ms.date: 04/11/2019
+ms.date: 05/02/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b04cabe734b97436421595dbb0ab7584efd4911
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871575"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024951"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>如何使用 Azure 搜尋服務 Blob 索引子編製 JSON blob
 本文說明如何設定 Azure 搜尋服務 blob [indexer](search-indexer-overview.md)擷取 Azure Blob 儲存體中的 JSON 文件中的結構化的內容，並使其可在 Azure 搜尋服務。 此工作流程建立 Azure 搜尋服務索引，並將其載入具有現有從 JSON blob 擷取的文字。 
@@ -24,8 +24,7 @@ ms.locfileid: "60871575"
 
 Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 JSON 實體的集合。 對於 JSON 的集合，blob 可能**陣列**的語式正確的 JSON 元素。 Blob 也無法組成多個個別的 JSON 實體以新行字元分隔。 在 Azure 搜尋服務 blob 索引子可以剖析這類結構，取決於您設定的方式**parsingMode**要求的參數。
 
-> [!IMPORTANT]
-> `json` 並`jsonArray`剖析模式已公開推出，但`jsonLines`剖析模式處於公開預覽狀態，和不應在生產環境中。 如需詳細資訊，請參閱 [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md)。 
+剖析模式的所有 JSON (`json`， `jsonArray`， `jsonLines`) 已正式推出。 
 
 > [!NOTE]
 > 請依照下列中的索引子組態建議[-一對多編製索引](search-howto-index-one-to-many-blobs.md)輸出從一個 Azure blob 的多個搜尋文件。
@@ -132,8 +131,8 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 | JSON 文件 | parsingMode | 描述 | 可用性 |
 |--------------|-------------|--------------|--------------|
 | 一個 blob 一個 | `json` | 將 JSON blob 當作單一文字區塊來剖析。 每一個 JSON blob 會變成單一 Azure 搜尋服務文件。 | 在正式推出[其餘](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)API 並[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK。 |
-| 一個 blob 多個 | `jsonArray` | 剖析 blob 中的 JSON 陣列，陣列的每個元素會變成不同的 Azure 搜尋服務文件。  | 在同時提供預覽[其餘](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)API 並[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK。 |
-| 一個 blob 多個 | `jsonLines` | 剖析 blob，其中包含新行字元，其中每個實體會成為個別的 Azure 搜尋服務文件以分隔多個 JSON 實體 （「 陣列 」）。 | 在同時提供預覽[其餘](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)API 並[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK。 |
+| 一個 blob 多個 | `jsonArray` | 剖析 blob 中的 JSON 陣列，陣列的每個元素會變成不同的 Azure 搜尋服務文件。  | 在正式推出[其餘](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)API 並[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK。 |
+| 一個 blob 多個 | `jsonLines` | 剖析 blob，其中包含新行字元，其中每個實體會成為個別的 Azure 搜尋服務文件以分隔多個 JSON 實體 （「 陣列 」）。 | 在正式推出[其餘](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)API 並[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK。 |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-組合要求的輸入
 
@@ -160,7 +159,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 替換成有效的值，服務名稱、 系統管理金鑰、 儲存體帳戶和帳戶金鑰的預留位置。
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -179,7 +178,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 下列範例說明[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)要求。 索引會有可搜尋的 `content` 欄位，以供儲存從 Blob 擷取到的文字︰   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -196,7 +195,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 因為具有索引和資料來源和索引子也是具名物件，您會建立，並在 Azure 搜尋服務上重複使用。 建立索引子的完整指定的要求可能如下所示：
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -223,7 +222,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 所有索引子要求提供現有的資料連接資訊的資料來源物件。 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -239,7 +238,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 所有索引子需要接收資料的目標索引。 要求的主體會定義索引結構描述，其中包含屬於支援所需的行為，可搜尋的索引中的欄位。 當您執行索引子時，此索引應為空白。 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -258,7 +257,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 建立 Azure 搜尋服務索引子會觸發資料匯入。 它立即，之後會在執行排程提供了其中一個。
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -339,7 +338,7 @@ Blob 索引子會將 JSON 文件剖析成單一的 Azure 搜尋服務文件。 �
 
 若為 JSON 陣列，索引子定義看起來應該像下列範例。 請注意，parsingMode 參數會指定 `jsonArray` 剖析器。 指定正確的剖析器，並具有正確的資料輸入會編製索引 JSON blob 的只有兩個陣列特定需求。
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -386,7 +385,7 @@ Blob 索引子會將 JSON 文件剖析成單一的 Azure 搜尋服務文件。 �
 
 JSON 線條索引子定義看起來應該類似下列的範例。 請注意，parsingMode 參數會指定 `jsonLines` 剖析器。 
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

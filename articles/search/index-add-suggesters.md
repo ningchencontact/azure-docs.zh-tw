@@ -1,7 +1,7 @@
 ---
 title: 將自動提示查詢加入至索引-Azure 搜尋服務
 description: 啟用 Azure 搜尋服務中的預先輸入的查詢動作，藉由建立建議工具，並形成要求，以叫用自動完成或 autosuggested 查詢詞彙。
-ms.date: 03/22/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844421"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021883"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>將建議工具新增至 Azure 搜尋服務中的自動提示的索引
 
@@ -39,9 +39,6 @@ A**建議工具**是在建構[Azure 搜尋服務索引](search-what-is-an-index.
 + 索引元件是建議工具。 您可以使用入口網站、 REST API 或.NET SDK 來建立建議工具。 
 
 + 查詢元件是在查詢要求 （建議或自動完成動作） 中指定的動作。 
-
-> [!Important]
-> 自動完成功能目前為預覽狀態，可供預覽 REST Api 和.NET SDK。 它並不適用於實際執行應用程式。 
 
 針對每個欄位已啟用搜尋---輸入時支援。 如果您想體驗類似於螢幕擷取畫面所示，您可以實作相同的搜尋解決方案中這兩種自動提示行為。 這兩個要求的目標*文件*之後使用者已提供至少三個字元的輸入的字串，會傳回集合特定索引和回應。
 
@@ -106,7 +103,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 |屬性      |描述      |
 |--------------|-----------------|
-|`name`        |建議工具名稱。 呼叫時，使用的建議工具名稱[建議 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)或是[自動完成 REST API （預覽）](https://docs.microsoft.com/rest/api/searchservice/autocomplete)。|
+|`name`        |建議工具名稱。 呼叫時，使用的建議工具名稱[建議 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)或是[自動完成 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)。|
 |`searchMode`  |用來搜尋候選片語的策略。 目前唯一支援的模式是 `analyzingInfixMatching`，其可在句子開頭或中間執行彈性的片語比對。|
 |`sourceFields`|建議之內容來源的一或多個欄位清單。 只有類型 `Edm.String` 和 `Collection(Edm.String)` 的欄位可以用來做為提供建議的來源。 您只能使用未設定自訂語言分析器的欄位。<p/>無論是完整的字串搜尋列中的下拉式清單，請指定只擇預期且適當的回應，這些欄位。<p/>旅館名稱是很好的候選項目，因為其有效位數。 詳細資訊的欄位，例如描述和註解是過於密集。 同樣地，重複的欄位，例如類別和標記，會比較沒有效率。 在範例中，我們包含 「 類別 」 仍以示範您可以包含多個欄位。 |
 
@@ -120,7 +117,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 如先前所述，您可以使用建議工具，建議的查詢、 自動完成，或兩者。 
 
-建議工具會參考針對要求的作業。 例如，在 GET REST 呼叫中指定`suggest`或`autocomplete`文件集合。 其餘部分，會建立建議工具之後，請使用[建議 API](https://docs.microsoft.com/rest/api/searchservice/suggestions)或[自動完成 API （預覽）](https://docs.microsoft.com/rest/api/searchservice/autocomplete)在您的查詢邏輯。
+建議工具會參考針對要求的作業。 例如，在 GET REST 呼叫中指定`suggest`或`autocomplete`文件集合。 其餘部分，會建立建議工具之後，請使用[建議 API](https://docs.microsoft.com/rest/api/searchservice/suggestions)或[自動完成 API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)在您的查詢邏輯。
 
 適用於.NET，使用[SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview)或是[AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet)。
 

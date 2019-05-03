@@ -1,7 +1,7 @@
 ---
 title: Blob 編製索引包含多個搜尋索引文件，從 Azure Blob 索引子，供全文檢索搜尋-Azure 搜尋服務
 description: 搜耙 Azure blob 以供使用的 Azure 搜尋服務 Blob 索引子的文字內容。 每個 blob 可能會包含一或多個 Azure 搜尋服務索引文件。
-ms.date: 02/12/2019
+ms.date: 05/02/2019
 author: arv100kri
 manager: briansmi
 ms.author: arjagann
@@ -10,21 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
-ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 628ced069c9d32c6e874c2e36a1e3b752c476003
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871194"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024656"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>產生多個搜尋文件的索引編製 blob
 根據預設，blob 索引子會將 blob 的內容，視為單一搜尋文件。 某些**parsingMode**值支援的案例，其中個別的 blob 可能會導致多個搜尋文件。 不同類型的**parsingMode** ，允許超過一個的搜尋服務文件，從 blob 擷取的索引子：
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
-
-> [!IMPORTANT]
-> `jsonLines` 剖析模式處於公開預覽狀態，並不應在生產環境中。 如需詳細資訊，請參閱 [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md)。 
 
 ## <a name="one-to-many-document-key"></a>一對多文件索引鍵
 文件索引鍵可唯一識別 Azure 搜尋服務索引中會顯示每個文件。 
@@ -106,7 +103,7 @@ _Blob2.json_
 + [Azure 搜尋服務中的索引子](search-indexer-overview.md)
 + [使用 Azure 搜尋服務編製 Azure Blob 儲存體的索引](search-howto-index-json-blobs.md)
 + [使用 Azure 搜尋服務 blob 索引子編製 CSV blob 的索引](search-howto-index-csv-blobs.md)
-+ [使用 Azure 搜尋服務 blob 索引子編製索引 JSON blob](search-howto-index-csv-blobs.md)
++ [使用 Azure 搜尋服務 blob 索引子編製索引 JSON blob](search-howto-index-json-blobs.md)
 
 ## <a name="NextSteps"></a>接續步驟
 * 若要深入了解 Azure 搜尋服務，請參閱 [[搜尋服務] 頁面](https://azure.microsoft.com/services/search/)。

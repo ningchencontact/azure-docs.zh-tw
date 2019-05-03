@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 09695f764ff71b274e125e90835f5314eb25c980
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344457"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024589"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>在 Azure 搜尋服務中連結認知服務資源與技能 
 
@@ -28,8 +28,7 @@ AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intr
 > [!NOTE]
 > 當您藉由增加處理次數、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須連結可計費的認知服務資源。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
 >
-> 執行[內建認知技能](cognitive-search-predefined-skills.md)執行收費[認知服務付移價格](https://azure.microsoft.com/pricing/details/cognitive-services)，在相同速率如同直接執行的工作。 映像的擷取是 Azure 搜尋服務的費用，反映在[Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
-
+> 執行內建的技能收費現有[認知服務付移價格](https://azure.microsoft.com/pricing/details/cognitive-services/)。 映像擷取定價會說明[Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
 
 ## <a name="use-free-resources"></a>使用免費資源
 
@@ -100,7 +99,7 @@ AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intr
 下列範例示範了此模式。 請注意，位於定義底部的 cognitiveServices 區段
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -110,7 +109,7 @@ Content-Type: application/json
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [
@@ -142,7 +141,7 @@ Content-Type: application/json
 + 每頁各一個影像 (6000 個影像)
 + 每頁 3000 個字元
 
-假設有一個管線，由運用影像和文字擷取、影像的光學字元辨識 (OCR) 及組織的具名實體辨識對每個 PDF 進行的文件破解所組成。 
+假設管線，其中包含與影像和文字擷取、 光學字元辨識 (OCR) 的映像，每個 PDF 文件破解和實體辨識的組織。 
 
 在這個練習中，我們將採用每一交易的最高價格。 實際成本可能會因分級定價而較低。 請參閱[認知服務價格](https://azure.microsoft.com/pricing/details/cognitive-services)。
 

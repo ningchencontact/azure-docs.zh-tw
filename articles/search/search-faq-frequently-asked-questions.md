@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290443"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023984"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure 搜尋服務 - 常見問題集 (FAQ)
 
@@ -64,7 +64,7 @@ Azure 搜尋服務支援多個資料來源、[許多語言的語言分析](https
 
 不可以，不支援此作業。 搜尋的範圍一律是單一索引。
 
-### <a name="can-i-restrict-search-corpus-access-by-user-identity"></a>我可以依使用者身分識別來限制搜尋主體存取嗎？
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>可以依使用者識別來限制搜尋索引的存取嗎？
 
 您可以使用 `search.in()` 篩選器來實作[安全性篩選](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search)。 篩選條件是利用[身分識別管理服務，例如 Azure Active Directory (AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) 撰寫而成，能以定義的使用者群組成員資格為基礎修剪搜尋結果。
 

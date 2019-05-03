@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cdd639f690d98651661226fbd340964dfdc7861f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4d22764cfb038bc2021b99d0743f3cbac17d91d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914933"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024934"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
@@ -23,10 +23,24 @@ ms.locfileid: "64914933"
 + Azure Machine Learning 的 [**主要 SDK for Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+若要了解已知的 Bug 和因應措施，請參閱[已知問題的清單](resource-known-issues.md)。
+
+## <a name="2019-05-02"></a>2019-05-02
+
+### <a name="azure-portal"></a>Azure 入口網站
+
++ 在入口網站中建立自動化的 ML 實驗。
+
 
 ## <a name="2019-04-22"></a>2019-04-22
 
 ### <a name="azure-machine-learning-sdk-for-python-v1030"></a>Azure Machine Learning SDK for Python v1.0.30
++ **新功能**
+  + 資料集
+
++ **Bug 修正和增強功能**
+  + None
+
 
 ## <a name="2019-04-17"></a>2019-04-17
 

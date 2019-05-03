@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: ece32754ae51bde5db52d20ab44f0d748bf46533
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 50e42172af6ca6b966f9f60d3e037f9ae3dc5cbe
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943931"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023771"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>使用 SSL 來保護具有 Azure Machine Learning 服務的 Web 服務
 
@@ -72,7 +72,36 @@ TLS 和 SSL 同時依賴__數位憑證__，用來執行加密和身分識別驗�
 
 若要部署 （或重新部署） 已啟用 SSL 的服務，將`ssl_enabled`參數來`True`，只要適用。 將 `ssl_certificate` 參數設定為__憑證__檔案的值，並將 `ssl_key` 設定為__金鑰__檔案的值。
 
-+ **在 Azure Kubernetes Service (AKS) 上部署**
++ **視覺化介面-建立安全 Azure Kubernetes Service (AKS) 部署** 
+    
+    如果您嘗試建立視覺化介面的安全部署的計算，請參閱這個。 佈建時 AKS 叢集，提供 SSL 相關參數的值，然後建立新的 AKS。  請參閱以下程式碼片段：
+    
+
+    > [!TIP]
+    >  如果您不熟悉使用 Python SDK，開始從[Azure Machine Learning Python SDK 概觀。](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+
+
+    ```python
+    from azureml.core.compute import AksCompute, ComputeTarget
+
+    # Provide SSL-related parameters when provisioning the AKS cluster
+    prov_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")   
+ 
+    aks_name = 'secure-aks'
+    # Create the cluster
+    aks_target = ComputeTarget.create(workspace = ws,
+                                        name = aks_name,
+                                        provisioning_configuration = prov_config)
+    
+    # Wait for the create process to complete
+    aks_target.wait_for_completion(show_output = True)
+    print(aks_target.provisioning_state)
+    print(aks_target.provisioning_errors)
+    ```
+    
+   
+
++ **在 Azure Kubernetes Service (AKS) 上部署和 FPGA**
 
   當部署至 AKS，您可以建立新的 AKS 叢集，或連結現有。 建立新的叢集會使用[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-)而附加現有的叢集使用[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-)。 兩者都傳回組態物件具有`enable_ssl`方法。
 
@@ -142,6 +171,8 @@ TLS 和 SSL 同時依賴__數位憑證__，用來執行加密和身分識別驗�
   在 AKS 叢集之 [公用 IP 位址] 的 [設定] 索引標籤底下更新 DNS，如下圖所示。 您可以找到公用 IP 位址，作為在包含 AKS 代理程式節點和其他網路資源之資源群組下方所建立的其中一個資源類型。
 
   ![Azure Machine Learning 服務：使用 SSL 保護 Web 服務](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
+
 
 ## <a name="next-steps"></a>後續步驟
 了解如何：

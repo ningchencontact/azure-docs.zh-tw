@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871085"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024766"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Azure 搜尋服務的匯入資料精靈
 
@@ -27,7 +27,7 @@ Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈
 
 精靈無法連線至預先定義的索引，也無法執行現有的索引子，但在精靈中，您可以設定新的索引或索引子來支援您所需的結構和行為。
 
-不熟悉 Azure 搜尋服務嗎？ 逐步執行[快速入門：使用入口網站工具匯入、編製索引和查詢](search-get-started-portal.md)，以使用**匯入資料**和內建的 realestate 範例資料集來試用匯入和索引編製。
+不熟悉 Azure 搜尋服務嗎？ 逐步執行[快速入門：匯入、 索引編製及查詢使用入口網站工具](search-get-started-portal.md)試用產品匯入和使用編製索引，進而**匯入資料**和內建的房地產範例資料集。
 
 ## <a name="start-importing-data"></a>開始匯入資料
 
@@ -77,14 +77,14 @@ Azure 入口網站在 Azure 搜尋服務儀表板上提供 [匯入資料] 精靈
 * [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 * [Azure 表格儲存體](search-howto-indexing-azure-tables.md) (不支援[認知搜尋](cognitive-search-concept-intro.md)管線)
 
-必須輸入扁平化資料集。 您可以只從單一資料表、資料庫檢視或對等的資料結構匯入。 
+您可以只匯入從單一資料表、 資料庫檢視或對等的資料結構，不過，結構可以包含階層式或巢狀子結構。 如需詳細資訊，請參閱 <<c0> [ 如何建立模型的複雜型別](search-howto-complex-data-types.md)。
 
 您應該建立此資料結構，然後再執行精靈，且必須包含的內容。 無法執行**匯入資料**空的資料來源上的精靈。
 
 |  選取項目 | 描述 |
 | ---------- | ----------- |
 | **現有的資料來源** |如果您的搜尋服務中已經定義索引子，您可以針對另一次匯入選取現有的資料來源定義。 在 Azure 搜尋服務中，只有索引子會使用資料來源物件。 您可以利用程式設計方式或透過**匯入資料**精靈建立資料來源物件。|
-| **範例**| Azure 搜尋服務會裝載免費的公用 Azure SQL 資料庫，供您用來了解 Azure 搜尋服務中的匯入和查詢要求。 請參閱[快速入門：使用入口網站工具進行匯入、編製索引和查詢](search-get-started-portal.md)，來取得逐步解說。 |
+| **範例**| Azure 搜尋服務會裝載為免費的全域 Azure SQL database 可供您深入了解 Azure 搜尋服務中的匯入和查詢要求。 請參閱[快速入門：使用入口網站工具進行匯入、編製索引和查詢](search-get-started-portal.md)，來取得逐步解說。 |
 | **Azure SQL Database** |您可以在頁面上或透過 ADO.NET 連接字串指定服務名稱、具有讀取權限的資料庫使用者認證以及資料庫名稱。 選擇連接字串選項以檢視或自訂屬性。 <br/><br/>提供資料列集的資料表或檢視必須在頁面上指定。 連線成功後會出現此選項，並透過下拉式清單供您選取。 |
 | **在 Azure VM 上的 SQL Server** |指定完整服務名稱、使用者識別碼與密碼以及資料庫作為連接字串。 若要使用此資料來源，您必須先前就已在本機存放區中安裝用來加密連線的憑證。 如需指示，請參閱 [SQL VM 到 Azure 搜尋服務的連線](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)。 <br/><br/>提供資料列集的資料表或檢視必須在頁面上指定。 連線成功後會出現此選項，並透過下拉式清單供您選取。 |
 | **Cosmos DB** |需求包括帳戶、資料庫和集合。 集合中的所有文件將會包含在索引中。 您可以定義查詢來壓平合併或篩選資料列集，或將此查詢保留空白。 在此精靈中不需要查詢。|

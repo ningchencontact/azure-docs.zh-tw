@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819423"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023982"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>匯出或刪除您的 Machine Learning services 工作區資料 
 
@@ -231,3 +231,29 @@ ms.locfileid: "60819423"
 可以藉由下列方式取得資料來源：
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>刪除視覺介面的資產
+
+在您用來建立您的實驗的視覺化介面，刪除個別資產：
+
+1. 在左側，選取您想要刪除的資產的類型。
+
+    ![刪除資產](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. 在清單中，選取要刪除的個別資產。
+
+1. 在底部，選取**刪除**。
+
+## <a name="export-visual-interface-data"></a>匯出介面的視覺化資料
+
+在您用來建立您的實驗的視覺化介面，匯出您已新增的資料：
+
+1. 在左側，選取**資料**。
+
+1. 在頂端，選取**我的資料集**或是**範例**找出您想要匯出的資料。
+
+    ![下載資料](media/how-to-export-delete-data.md/download-data.png)
+
+1. 在清單中，選取要匯出的個別資料集。
+
+1. 在底部，選取**下載**。

@@ -7,17 +7,22 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d7684aa79ac9f58c2a047b01a6d9f5263795221d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 980f16680ecc65bf8ac30a49e02f39b0f18a15f6
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291702"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024109"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>升級至 Azure 搜尋服務 .NET SDK 第 5 版
+
+> [!Important]
+> 此內容是仍在建構。 使用在 NuGet 上的 Azure 搜尋服務.NET SDK 的 9.0 版。 我們正努力這篇文章說明如何升級至 9.0。 
+> 
+
 如果您使用 4.0 預覽版或更舊版本的 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)，本文會協助您將應用程式升級為使用第 5 版。
 
 如需包括範例的 SDK 一般逐步解說，請參閱 [如何從 .NET 應用程式使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)。

@@ -1,7 +1,7 @@
 ---
 title: 定義自訂 R 模組
 titleSuffix: Azure Machine Learning Studio
-description: 本主題描述如何在 Azure Machine Learning Studio 中撰寫及部署自訂 R 模組。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組；
+description: 本主題描述如何撰寫和部署自訂的 R Studio。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組；
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751193"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025070"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>定義自訂 R 模組以用於 Azure Machine Learning Studio
 
-本主題描述如何在 Azure Machine Learning Studio 中撰寫及部署自訂 R 模組。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組； 並說明如何在 Machine Learning 工作區中建構這些用來定義模組的檔案，以及如何註冊模組以進行部署。 接著，詳細說明用於自訂模組定義中的元素和屬性。 此外，也討論如何使用輔助功能和檔案以及多個輸出。 
+本主題描述如何撰寫和部署自訂的 R Studio。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組； 並說明如何在 Machine Learning 工作區中建構這些用來定義模組的檔案，以及如何註冊模組以進行部署。 接著，詳細說明用於自訂模組定義中的元素和屬性。 此外，也討論如何使用輔助功能和檔案以及多個輸出。 
 
 
 
@@ -159,7 +159,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-對於自訂 R 模組， Zip 連接埠的 id 不一定要符合 R 函式的任何參數。 這是因為 zip 檔案會自動解壓縮到 R 工作目錄。
+對於自訂 R 模組，Zip 連接埠 ID 並沒有比對任何 R 函式的參數。 這是因為 zip 檔案會自動解壓縮到 R 工作目錄。
 
 **輸入規則：**
 
@@ -225,7 +225,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
 ### <a name="arguments"></a>引數
 您可以透過 **Arguments** 元素中定義的模組參數，將其他資料傳遞至 R 函數。 選取模組時，這些參數會出現在 Machine Learning UI 最右側的屬性窗格中。 引數可以是任何支援的類型，或者您可以視需要建立自訂列舉。 類似於 **Ports** 元素，**Arguments** 元素可以有選擇性 **Description** 元素，以指定當滑鼠停留在參數名稱上時所顯示的文字。
 您可以將模組的選擇性屬性 (例如 defaultValue、minValue 和 maxValue) 新增到任何引數，做為 **Properties** 元素的屬性。 **Properties** 元素的有效屬性取決於引數類型，下一節將說明這些有效屬性和支援的引數類型。 **isOptional** 屬性設定為 **"true"** 的引數不需要使用者輸入值。 如果未提供值給引數，則不會傳遞引數給進入點函式。 選擇性的進入點函式引數必須由函式明確處理，例如在進入點函式定義中指派 NULL 預設值。 選擇性引數將只會強制執行其他引數限制 (也就是最小值或最大值，如果使用者提供值)。
-如同輸入和輸出，每個參數都必須有與其相關聯的 id 值。 在我們的快速入門範例中，相關聯的 id/參數是 *swap*。
+如同輸入和輸出，很重要，每個參數有與其相關聯的唯一識別碼值。 相關聯的 id/參數是在我們的快速入門範例*交換*。
 
 ### <a name="arg-element"></a>Arg 元素
 模組參數是使用 XML 定義檔之 **Arguments** 區段的 **Arg** 子元素所定義。 如同在 **Ports** 區段中的子元素，**Arguments** 區段中的參數順序會定義 UX 中遇到的配置。 參數會依照其在 XML 檔案中定義的相同順序，由上而下顯示在 UI 中。 Machine Learning 所支援的參數類型列示於此。 
@@ -270,7 +270,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
 
 * *選擇性屬性*：**default** 和 **isOptional**
 
-**ColumnPicker**：資料行選取參數。 此類型在 UX 中會轉譯成資料行選擇器。 此處使用 **Property** 元素來指定所要選取之資料行的連接埠 id，其中目標連接埠類型必須是 *DataTable*。 資料行選取的結果會傳遞至 R 函式，做為包含所選取資料行名稱的字串清單。 
+**ColumnPicker**：資料行選取參數。 此類型在 UX 中會轉譯成資料行選擇器。 **屬性**項目此處用來指定要從中選取資料行，其中目標連接埠類型必須是連接埠的識別碼*DataTable*。 資料行選取的結果會傳遞至 R 函式，做為包含所選取資料行名稱的字串清單。 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -278,7 +278,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
         </Arg>
 
 
-* *必要屬性*：**portId** - 符合類型為 *DataTable* 之 Input 元素的 id。
+* *必要屬性*: **portId** -符合輸入項目的 ID 與型別*DataTable*。
 * *選擇性屬性*：
   
   * **allowedTypes** - 篩選您可以從中挑選的資料行類型。 有效值包含： 
@@ -286,7 +286,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
     * Numeric
     * Boolean
     * 類別
-    * 字串
+    * String
     * 標籤
     * 功能
     * 分數
@@ -327,7 +327,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
     </Arg>    
 
 * *選擇性屬性*：
-  * **default** - 預設屬性的值必須對應至其中一個 **Item** 元素的 id 值。
+  * **預設值**-預設屬性的值必須對應至其中的 ID 值**項目**項目。
 
 ### <a name="auxiliary-files"></a>輔助檔案
 放在自訂模組 ZIP 檔案中的所有檔案在執行期間都可供使用。 所有存在的目錄結構皆會保留。 也就是說，檔案的取得在本機和 Azure Machine Learning Studio 執行中，都是以相同的方式運作。 
