@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
-ms.openlocfilehash: 16e4bcbb1514cfd5bbddc22b663d636292095231
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8427417c9b579c7dfa21f834ce1ca77099159eb2
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026724"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072612"
 ---
 # <a name="voice-first-virtual-assistants-preview-frequently-asked-questions"></a>語音第一個虛擬助理預覽：常見問題集
 
@@ -29,7 +29,7 @@ ms.locfileid: "65026724"
 
 **问：如何開始使用？**
 
-**答：** 最佳的方式開始建立語音第一個虛擬助理會開始[建立基本的 Bot Framework bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)。 接下來，連接到您的機器人[直接列語音通道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)。
+**答：** 最佳的方式開始建立語音第一個虛擬助理會開始[建立基本的 Bot Framework bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)。 接下來，連接到您的機器人[直接列語音通道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)。
 
 ## <a name="debugging"></a>Debugging
 
@@ -41,7 +41,7 @@ ms.locfileid: "65026724"
 
 **问：我回去辨識文字從直接列語音，但我看到 '1011' 錯誤、 什麼都沒有從我的機器人。原因為何？**
 
-**答：** 此錯誤表示 bot 和直接列語音間的通訊問題。 請確定您已[連線直接列語音通道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)，[新增串流處理通訊協定支援](https://aka.ms/botframework/addstreamingprotocolsupport)您的 bot （具有相關 Web 通訊端的支援），和您的 bot 會回應傳入的然後核取從通道的要求。
+**答：** 此錯誤表示 bot 和直接列語音間的通訊問題。 請確定您已[連線直接列語音通道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)，[新增串流處理通訊協定支援](https://aka.ms/botframework/addstreamingprotocolsupport)您的 bot （具有相關 Web 通訊端的支援），和您的 bot 會回應傳入的然後核取從通道的要求。
 
 **问：這仍然無法運作及/或使用 SpeechBotConnector 時收到不同的錯誤並不清楚我怎麼。什麼*應該*我嗎？**
 

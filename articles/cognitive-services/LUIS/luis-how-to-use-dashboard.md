@@ -1,7 +1,7 @@
 ---
-title: 應用程式儀表板
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: 了解應用程式儀表板，這個視覺化報告工具可讓您以速覽方式監視您的應用程式。
+title: 儀表板-Language Understanding
+titleSuffix: Azure Cognitive Services
+description: 修正 「 意圖 」 分析摘要儀表板，視覺化的報告工具。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,68 +9,166 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338428"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072514"
 ---
-# <a name="model-and-usage-statistics-in-the-dashboard"></a>在儀表板中的模型和使用量統計資料
-應用程式儀表板可讓您以速覽方式監視您的應用程式。 [儀表板] 會在您開啟應用程式時顯示，做法是在 [我的應用程式] 頁面上按一下應用程式名稱，然後從頂端面板中選取 [儀表板]。 
+# <a name="how-to-use-the-dashboard-to-improve-your-app"></a>如何使用儀表板，以改善您的應用程式
 
-> [!CAUTION]
-> 如果您想要 LUIS 的最新計量，您必須：
-> * 使用在 Azure 中建立的 LUIS [端點金鑰](luis-how-to-azure-subscription.md)
-> * 對所有端點要求 (包括 LUIS [API](https://aka.ms/luis-endpoint-apis) 和 Bot) 使用 LUIS 端點金鑰
-> * 對每個 LUIS 應用程式使用不同的端點金鑰。 請勿對所有應用程式使用單一端點金鑰。 端點金鑰是在金鑰層級，而不是在應用程式層級進行追蹤。  
+尋找和修正定型應用程式的意圖的問題，當您使用範例的發音。 摘要儀表板會顯示整體的應用程式資訊，以反白顯示的對應方式，必須先解決。 
 
-[儀表板] 頁面會顯示 LUIS 應用程式的概觀，包括目前模型狀態以及一段時間的[端點](luis-glossary.md#endpoint)使用量。 
-  
-## <a name="app-status"></a>應用程式狀態
-儀表板會顯示應用程式的訓練和發佈狀態，包括最後訓練並發佈應用程式的日期和時間。  
+檢閱儀表板分析是反覆的程序，一再重複，您變更，並改善您的模型。
 
-![儀表板 - 應用程式狀態](./media/luis-how-to-use-dashboard/app-state.png)
+此頁面不會有相關的分析之應用程式的意圖，稱為中沒有任何範例談話_模式僅限_應用程式。 
 
-## <a name="model-data-statistics"></a>模型資料統計資料
-儀表板會顯示應用程式中現有的意圖、實體及標示的語句總數。 
+## <a name="what-issues-can-be-fixed-from-dashboard"></a>從儀表板可以修正什麼問題嗎？
 
-![應用程式資料統計資料](./media/luis-how-to-use-dashboard/app-model-count.png)
+三個儀表板中已解決的問題是：
 
-## <a name="endpoint-hits"></a>端點叫用
-儀表板會顯示 LUIS 應用程式接收的端點叫用總數，讓您顯示所指定期間內的叫用。 顯示的叫用總數是以下兩者的總和：使用[端點金鑰](./luis-concept-keys.md#endpoint-key)的端點叫用以及使用[撰寫金鑰](./luis-concept-keys.md#authoring-key)的端點叫用。
+|問題|圖表色彩|說明|
+|--|--|--|
+|資料不平衡|-|會發生這種情況時大幅範例談話數量而有所不同。 所有的對應方式必須能夠_大約_相同數目的範例談話-無的意圖 除外。 它應該只有 10%-15%的總數量的表達方式在應用程式。<br><br> 如果資料不平衡，但意圖精確度高於某個臨界值，此不平衡並不會報告為問題。<br><br>**開始本文承蒙-它可能是其他問題的根本原因。**|
+|不清楚的預測|橙色|這發生前的意圖和下一步 的意圖分數時關閉它們可能翻轉的下一步 的訓練課程，因為[negative 取樣](luis-how-to-train.md#train-with-all-data)或加入意圖的詳細範例談話。 |
+|不正確的預測|紅色|會發生這種情況是當範例 [utterance] 不會加上標籤的意圖 （在意圖） 的預測。|
 
-![端點叫用](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
+正確的預測是以藍色表示。
 
-> [!NOTE] 
-> 最新的端點叫用次數位於 Azure 入口網站的 LUIS 服務概觀上。 
- 
-### <a name="total-endpoint-hits"></a>端點叫用總數
-從應用程式建立到目前日期為止，您的應用程式所收到的端點叫用總數。
+摘要儀表板會顯示這些問題並告訴您哪一個意圖會受到影響，並建議您應該如何改善應用程式。 
 
-### <a name="endpoint-hits-per-period"></a>每個期間的端點叫用數
-在過去一段時間內收到的叫用數目 (依照日期顯示)。 開始與結束日期之間的點代表落在這段期間內的天數。 將滑鼠指標暫留在每個點上，以查看期間內每一天的叫用次數。 
+## <a name="before-app-is-trained"></a>應用程式在定型之前 
 
-若要選取要在圖表上檢視的期間：
- 
-1. 按一下 [其他設定] ![[其他設定] 按鈕](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) 以存取期間清單。 您可以選取從一週到一年的期間。 
+訓練應用程式之前，摘要儀表板不包含任何建議的修正程式。 訓練您的應用程式，以查看這些建議。  
 
-    ![每個期間的端點叫用數](./media/luis-how-to-use-dashboard/timerange.png)
+## <a name="check-your-publishing-status"></a>檢查您的發佈狀態
 
-2. 從清單中選取一個期間，然後按一下返回箭頭 ![返回箭頭](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) 以顯示圖表。
+**發佈狀態**卡片包含作用中的相關資訊的最後發行版本。 
 
-### <a name="key-usage"></a>金鑰使用量
-從應用程式的端點金鑰取用的叫用次數。 如需端點金鑰的詳細資訊，請參閱 [LUIS 中的金鑰](luis-concept-keys.md)。 
-  
-## <a name="intent-breakdown"></a>意圖分解
-[意圖分解] 會根據標示的語句或端點叫用來顯示意圖分解。 此摘要圖表會顯示應用程式中每個意圖的相對重要性。 當您將滑鼠指標暫留在配量時，會看到意圖名稱以及它在標示的語句/端點叫用總數中所代表的百分比。 
+請檢查使用中的版本是您想要修正的版本。 
 
-![意圖分解](./media/luis-how-to-use-dashboard/intent-breakdown.png)
+![摘要儀表板會顯示應用程式的外部服務，發行區域，並彙總端點叫用。](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
-## <a name="entity-breakdown"></a>實體分解
-此儀表版會根據標示的語句或端點叫用來顯示實體分解。 此摘要圖表會顯示應用程式中每個實體的相對重要性。 當您將滑鼠指標暫留在配量時，會看到實體名稱以及在標示的語句/端點叫用中所佔的百分比。 
+這也會顯示任何外部服務]、 [已發佈的區域，並彙總端點叫用。 
 
-![實體分解](./media/luis-how-to-use-dashboard/entity-breakdown.png)
+## <a name="review-training-evaluation"></a>檢閱訓練評估
 
+**定型評估**卡片包含您的應用程式的整體精確度依區域列出的彙總的摘要。 分數表示意圖的品質。 
+
+![訓練評估卡片包含的第一個區域，您的應用程式的整體精確度的相關資訊。](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
+
+圖表會指出正確預測的意圖和問題區域，以不同的色彩。 因為您改善應用程式與建議，此分數會增加。 
+
+建議的修正的問題類型會被分，是最重要的應用程式。 如果您想要檢閱並修正問題，每個使用的意圖**[發生錯誤的意圖](#intents-with-errors)** 卡片底部的頁面。 
+
+每個問題 區域則需要修正的意圖。 當您選取的意圖的名稱，**意圖**頁面開啟時套用至的發音的篩選。 此篩選器可讓您專注於造成此問題的發音。
+
+### <a name="compare-changes-across-versions"></a>比較不同版本之間的變更
+
+應用程式進行變更之前建立的新版本。 在新的版本，建議變更的意圖範例談話，然後重新定型。 在 [儀表板] 頁面**訓練評估**卡片上，使用**從定型版本顯示變更**來比較所做的變更。 
+
+![比較不同版本之間的變更](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
+
+### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>藉由新增或編輯範例表達方式重新定型修正版本
+
+修正您的應用程式的主要方法是新增或編輯範例談話並重新定型。 新增或變更談話要遵循的指導方針[發音各不相同](luis-concept-utterance.md)。
+
+加入範例談話應該完成的其他人人員：
+
+* 具有較高程度的了解的表達方式是在不同的用途
+* 知道如何在一個意圖的表達方式可能會不清楚與另一個意圖
+* 能夠決定是否兩個的意圖，經常會與彼此混淆，應會摺疊成單一的意圖，以及不同的資料提取的實體
+
+### <a name="patterns-and-phrase-lists"></a>模式和片語清單
+
+[分析] 頁面未指出使用的時機[模式](luis-concept-patterns.md)或是[片語清單](luis-concept-feature.md)。 如果您需要新增它們，它可以協助使用不正確或不清楚的預測，但不會協助進行資料不平衡。 
+
+### <a name="review-data-imbalance"></a>檢閱資料不平衡
+
+開始本文承蒙-它可能是其他問題的根本原因。
+
+**的資料不平衡**意圖清單會顯示需要更多的談話，若要更正的資料不平衡的狀態的對應方式。 
+
+**若要修正此問題**:
+
+* 新增更多的表達方式與意圖，然後重新定型。 
+
+除非所建議的摘要儀表板，請勿為 None 的意圖新增表達方式。
+
+> [!Tip]
+> 在頁面上，使用第三個區段**發音意圖每**使用**談話 （數字）** 設定，其中對應方式需要更多的表達方式的快速視覺輔助線為。  
+    ![您可以使用 '談話 （數字）'，找出與資料不平衡的意圖。](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+
+### <a name="review-incorrect-predictions"></a>檢閱不正確的預測
+
+**不正確的預測**意圖清單會顯示已做為範例針對特定的意圖，但針對不同的用途預測的發音的意圖。 
+
+**若要修正此問題**:
+
+* 編輯為更特定的意圖和訓練一次的談話。
+* 如果談話太接近對齊，並重新定型，結合 「 意圖 」。
+
+### <a name="review-unclear-predictions"></a>檢閱不清楚的預測
+
+**清楚預測**意圖清單會顯示與使用預測分數不是從其最接近的競爭對手，[utterance] 的最上層的意圖可能變更的下一步] 的訓練課程，因為夠遠方式的發音的意圖[negative 取樣](luis-how-to-train.md#train-with-all-data)。
+
+**若要修正此問題**;
+
+* 編輯為更特定的意圖和訓練一次的談話。
+* 如果談話太接近對齊，並重新定型，結合 「 意圖 」。
+
+## <a name="utterances-per-intent"></a>每個意圖的表達方式
+
+這張卡片會顯示整體的應用程式健全狀況之間的對應方式。 當您修正意圖和重新定型，繼續來看看下列這張卡的問題。
+
+下圖顯示良好平衡的應用程式，幾乎沒有修正問題。
+
+![下圖顯示良好平衡的應用程式，幾乎沒有修正問題。](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
+
+下圖顯示不平衡的應用程式，具有許多修正的問題。
+
+![下圖顯示良好平衡的應用程式，幾乎沒有修正問題。](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+
+暫留以取得項目的相關資訊的每個目的列。 
+
+![下圖顯示良好平衡的應用程式，幾乎沒有修正問題。](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+
+使用**排序**來排列根據問題類型的對應方式，讓您可以專注於最有問題的對應方式，與該問題的功能。 
+
+## <a name="intents-with-errors"></a>發生錯誤的意圖
+
+這張卡片可讓您檢閱問題以取得特定的意圖。 這張卡片的預設檢視是最有問題的意圖，因此您知道哪裡可以將心力。
+
+![這些意圖具有錯誤卡可讓您檢閱問題以取得特定的意圖。 卡片會篩選最有問題的意圖，根據預設，讓您知道哪裡可以將心力。](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
+
+最上層的環圈圖會顯示目的的問題，跨三個問題類型。 如果在三種問題類型有問題，每個類型都以下，自己圖表，以及任何競爭對手的意圖。 
+
+### <a name="filter-intents-by-issue-and-percentage"></a>篩選的問題和百分比的意圖
+
+卡片的這個區段可讓您尋找正在下降超出錯誤閾值的範例談話。 在理想情況下，您會想重大正確的預測。 百分比是業務和客戶的需求。 
+
+決定您想要透過適合您企業的臨界值百分比。 
+
+篩選條件可讓您尋找特定問題的意圖：
+
+|Filter|建議的百分比|目的|
+|--|--|--|
+|最有問題的意圖|-|**從這裡開始**-修正談話中此意圖將可改善應用程式，多個其他修正程式。|
+|以下的正確預測|60%|這是所選的意圖正確無誤，但信心分數低於臨界值的發音的百分比。 |
+|上述的清楚預測|15%|這是在選取的對應方式與最接近的競爭對手意圖會混淆的發音的百分比。|
+|上述的不正確預測|15%|這是所選的用意在不正確預測的發音的百分比。 |
+
+### <a name="correct-prediction-threshold"></a>正確預測的臨界值
+
+您有信心的預測信心分數是什麼？ 在開始開發應用程式時，60%可能會將您的目標。 使用**更正預測下**包含選取需要修正的用意在尋找任何談話的 60%的百分比。
+
+### <a name="unclear-or-incorrect-prediction-threshold"></a>不明確或不正確預測的臨界值
+
+這兩個篩選可讓您找到所選的意圖，超出臨界值的談話。 您可以將這些兩個百分比的錯誤百分比。 如果您熟悉預測 10-15%錯誤率，設定篩選的臨界值為 15%，以尋找所有的談話，高於此值。 
+
+## <a name="next-steps"></a>後續步驟
+
+* [管理 Azure 資源](luis-how-to-azure-subscription.md)

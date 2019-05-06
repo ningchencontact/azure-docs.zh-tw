@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894452"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072787"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -240,7 +240,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 #### <a name="resolve-issue-in-luis"></a>解決 LUIS 中的問題
 從 [LUIS 端點](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) 傳遞相同的語句至 LUIS。 如果您收到錯誤，請解決 LUIS 中的問題，直到錯誤不再傳回。 常見錯誤包括：
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - 此問題表示您須從撰寫金鑰變更為[端點金鑰](luis-how-to-azure-subscription.md)，或者您必須變更[服務層](luis-how-to-azure-subscription.md#change-pricing-tier)。 
+* `Out of call volume quota. Quota will be replenished in <time>.` - 此問題表示您須從撰寫金鑰變更為[端點金鑰](luis-how-to-azure-subscription.md)，或者您必須變更[服務層級](luis-how-to-azure-subscription.md#change-pricing-tier)。 
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>解決 Azure Bot Service 中的問題
 
@@ -282,27 +282,19 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 是，如果您必須測量連線使用量，可以在這些情況下，使用 LUIS [容器](luis-container-howto.md)。 
 
-### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>在組建 2018 會議中，我聽到一種 Language Understanding 功能或示範，但不記得它的名稱為何？
+## <a name="migrating-to-the-next-version"></a>移轉至下一個版本
 
-組建 2018 會議已發行下列功能：
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>如何移轉預覽 V3 API？ 
 
-|名稱|內容|
-|--|--|
-|增強功能|[規則運算式](luis-concept-data-extraction.md##regular-expression-entity-data)實體和[關鍵片語](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)實體
-|模式|模式[概念](luis-concept-patterns.md)、[教學課程](luis-tutorial-pattern.md)、[做法](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) 實體概念 (包括例外狀況[明確清單](luis-concept-patterns.md#explicit-lists))<br>[角色](luis-concept-roles.md)概念|
-|整合|[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)與[情感分析](luis-how-to-publish-app.md#enable-sentiment-analysis)的整合<br>[語音](https://docs.microsoft.com/azure/cognitive-services/speech)與語音預備的整合搭配[語音 SDK](https://aka.ms/SpeechSDK)|
-|分派工具|在 [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) 期間，分派命令列[工具](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps)以將多個 LUIS 和 QnA Maker 應用程式合併為單一 LUIS 應用程式，以在 Bot 中更恰當地辨識意圖
+請參閱[API v2 至 v3 的移轉指南 LUIS 應用程式](luis-migration-api-v3.md)
 
-已包括其他撰寫 [API 路由](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md)。
+## <a name="build-2019-conference-announcements"></a>2019 大會宣布
 
-影片：
-* [Azure Friday 組建 2018：認知服務 - 語言 (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [組建 2018 AI 顯示 - Language Understanding 服務的最新消息](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [組建 2018 工作階段 - Bot 智慧、語音功能和 NLU 最佳做法](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [組建 2018 - LUIS 更新](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+2019 大會上發行的下列功能：
 
-專案：
-* [Contoso Cafe Bot](https://github.com/botbuilderbuild2018/build2018demo) 示範 - GitHub 上的原始程式碼
+* [V3 API 移轉指南的預覽](luis-migration-api-v3.md)
+* [改善的分析儀表板](luis-how-to-use-dashboard.md)
+* [改善預先建置的網域](luis-reference-prebuilt-domains.md)V2 和 V3 Api 工作
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000261"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072996"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | 值 |
+| Placeholder | Value |
 |-------------|-------|
 |{APPLICATION_ID} | 已發佈 LUIS 應用程式的應用程式識別碼。 |
 |{APPLICATION_ENVIRONMENT} | 已發佈 LUIS 應用程式的環境。 請使用下列其中一個值：<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -196,7 +196,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | 值 |
+| Placeholder | Value |
 |-------------|-------|
 |{APPLICATION_ID} | 已定型 LUIS 應用程式的應用程式識別碼。 |
 |{APPLICATION_VERSION} | 已定型 LUIS 應用程式的應用程式版本。 |
@@ -218,7 +218,7 @@ https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLIC
 
 將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 此命令會使用下列參數：
 
-| Placeholder | 值 |
+| Placeholder | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | 此金鑰可用來啟動容器。 請勿使用入門金鑰。 |
 |{BILLING_ENDPOINT} | 在 Azure 入口網站的計費的端點值可用`Cognitive Services`概觀 頁面。 您需要新增`luis/v2.0`傳送至端點 URI，如下列範例所示： `https://westus.api.cognitive.microsoft.com/luis/v2.0`。|
@@ -269,13 +269,13 @@ ApiKey={ENDPOINT_KEY}
 
 查詢參數會設定傳回查詢回應的方式和內容：
 
-|查詢參數|類型|目的|
+|查詢參數|Type|目的|
 |--|--|--|
-|`q`|字串|使用者的語句。|
+|`q`|string|使用者的語句。|
 |`timezoneOffset`|number|TimezoneOffset 可讓您[變更時區](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) (預先建置的實體 datetimeV2 所使用的時區)。|
-|`verbose`|布林值|設為 true 時，會傳回所有意圖及其分數。 預設值為 false，只會傳回最高分意圖。|
-|`staging`|布林值|設為 true 時，會從預備環境的結果中傳回查詢。 |
-|`log`|布林值|記錄查詢，可供後續的[主動式學習](luis-how-to-review-endpoint-utterances.md)使用。 預設值為 true。|
+|`verbose`|boolean|設為 true 時，會傳回所有意圖及其分數。 預設值為 false，只會傳回最高分意圖。|
+|`staging`|boolean|設為 true 時，會從預備環境的結果中傳回查詢。 |
+|`log`|boolean|記錄查詢，可供後續的[主動式學習](luis-how-to-review-endpoint-utterances.md)使用。 預設值為 true。|
 
 ### <a name="query-published-app"></a>查詢已發佈的應用程式
 
@@ -337,19 +337,28 @@ curl -X GET \
 
 如需這些選項的詳細資訊，請參閱[設定容器](luis-container-configuration.md)。
 
-## <a name="unsupported-dependencies"></a>不支援的相依性
+## <a name="supported-dependencies-for-latest-container"></a>支援的相依性`latest`容器
+
+最新的容器，在 2019年發行 / / 建置，將會支援：
+
+* Bing 拼字檢查： 使用查詢預測端點的要求`&spellCheck=true&bing-spell-check-subscription-key={bingKey}`查詢字串參數。 使用[Bing 拼字檢查 v7 教學課程](luis-tutorial-bing-spellcheck.md)若要深入了。 如果使用這項功能，則容器會傳送至您的 Bing 拼字檢查 V7 資源 [utterance]。
+* [新的預先建置的網域](luis-reference-prebuilt-domains.md)： 這些企業導向的專屬的網域包括實體、 範例談話和模式。 擴充供自己使用這些網域。 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>不支援的相依性`latest`容器
+
+如果您的 LUIS 應用程式中有不支援的相依性，您無法再[匯出容器](#export-packaged-app-from-luis)直到您移除不支援的功能。 當您嘗試要匯出的資料容器時，LUIS 入口網站會報告不支援您要移除的功能。
 
 您可以使用**不含**下列任何相依性的 LUIS 應用程式：
 
 不支援的應用程式組態|詳細資料|
 |--|--|
-|不支援的容器文化特性| 德文 (de-DE)<br>荷蘭文 (nl-NL)<br>日文 (ja-JP)<br>|
-|不支援的定義域|預先建置的定義域，包括預先建置的定義域意圖和實體|
+|不支援的容器文化特性| 荷蘭文 (nl-NL)<br>日文 (ja-JP)<br>僅支援德文[1.0.1 tokenizer 或更新版本](luis-language-support.md#custom-tokenizer-versions)。|
 |所有文化特性皆不支援的實體|適用於所有文化特性的 [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) 預先建置實體|
 |英文 (en-US) 文化特性不支援的實體|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) 預先建置的實體|
 |語音預備|在容器中不支援外部相依性。|
 |情感分析|在容器中不支援外部相依性。|
-|Bing 拼字檢查|在容器中不支援外部相依性。|
 
 ## <a name="summary"></a>總結
 

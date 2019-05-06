@@ -162,7 +162,7 @@ VMBoundPort 中的每一筆記錄識別下列欄位：
 
 | 屬性 | 描述 |
 |:--|:--|
-| 類型 | *ServiceMapComputer_CL* |
+| Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | resourceId | 工作區中機器的唯一識別碼 |
 | ResourceName_s | 工作區中機器的唯一識別碼 |
@@ -187,7 +187,7 @@ VMBoundPort 中的每一筆記錄識別下列欄位：
 
 | 屬性 | 描述 |
 |:--|:--|
-| 類型 | *ServiceMapProcess_CL* |
+| Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | resourceId | 工作區中處理序的唯一識別碼 |
 | ResourceName_s | 在執行處理序的機器上，處理序的唯一識別碼|

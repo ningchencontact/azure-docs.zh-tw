@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 0ba700285a4af6e28b7788016d4842de1aa61417
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528028"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073058"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>實體類型和其在 LUIS 中的目的
 
@@ -97,7 +97,6 @@ LUIS 會提供許多類型的實體。 您可以根據擷取資料的方式和�
 |機器學習|可標記|教學課程|範例<br>Response|實體類型|目的|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**複合**](#composite-entity)|實體群組，無論何種實體類型。|
-|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**階層式**](#hierarchical-entity)|簡單實體的群組。|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**清單**](#list-entity)|透過比對確切文字來擷取的項目和其同義字清單。|
 |混合||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|難以判斷實體結尾的實體。|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**預建**](#prebuilt-entity)|已訓練為擷取各種資料類型。|
@@ -112,7 +111,7 @@ Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本�
 
 ## <a name="composite-entity"></a>複合實體
 
-複合實體是由預建實體、簡單、規則運算式、清單和階層式等其他實體所組成的。 個別實體會構成一個完整的提體。 
+複合實體是組成其他實體，例如預先建置的實體，簡單的規則運算式和清單的實體。 個別實體會構成一個完整的提體。 
 
 當資料有下列特性時，最適用此實體：
 
@@ -126,18 +125,6 @@ Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本�
 
 [教學課程](luis-tutorial-composite-entity.md)<br>
 [實體的 JSON 回應範例](luis-concept-data-extraction.md#composite-entity-data)<br>
-
-## <a name="hierarchical-entity"></a>階層式實體
-
-**階層式實體最終會被取代。使用[實體的角色](luis-concept-roles.md)來判斷實體子型別，而不是階層式實體。**
-
-階層式實體是一個依內容學習的簡單實體 (稱為子系) 類別。
-
-![階層式實體](./media/luis-concept-entities/hierarchical-entity.png)
-
-### <a name="roles-versus-hierarchical-entities"></a>角色與階層式實體
-
-[角色](luis-concept-roles.md)解決階層式實體但適用於所有實體類型相同的問題。  
 
 ## <a name="list-entity"></a>清單實體
 

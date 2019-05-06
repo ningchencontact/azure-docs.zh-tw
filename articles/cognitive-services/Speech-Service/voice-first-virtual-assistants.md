@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: f40e53c67f099fea739e45f6bdc6963ee1e235cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: 024ceb83ab338e4fb7d68f32a46d3ceab1a5d20b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026756"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073567"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>關於自訂的語音第一個虛擬助理預覽
 
@@ -28,12 +28,12 @@ ms.locfileid: "65026756"
 
 ## <a name="core-features"></a>核心功能
 
-| Category | 特性 |
+| 類別 | 特性 |
 |----------|----------|
 |[自訂的網路喚醒 word](speech-devices-sdk-create-kws.md) | 您可以讓使用者以使用自訂的關鍵字 「 嘿，Contoso。 」 類似的機器人開始交談 完成這項工作與自訂的網路喚醒 word 引擎在語音 SDK 中，可以設定以文字做為自訂的網路喚醒[您可以在這裡產生](speech-devices-sdk-create-kws.md)。 直接列語音通道包括更為精確的線上醒機 word 啟用，與單獨裝置的服務端喚醒文字驗證。
 |[語音轉換文字](speech-to-text.md) | 直接列語音通道包含音訊的已辨識的文字所使用的即時轉譯[語音轉換文字](speech-to-text.md)Azure 語音服務。 因為它謄寫，此文字是可供您的機器人和用戶端應用程式。
 |[文字轉換語音](text-to-speech.md) | 文字的回應，從您的 bot 將會使用綜合[文字轉換語音](text-to-speech.md)Azure 語音服務。 此合成然後都可以當做音訊資料流，用戶端應用程式。 Microsoft 可讓您建置您自己[自訂、 高品質的類神經 TTS 語音](https://aka.ms/customneuraltts)，可讓您的品牌聲音。
-|[直線語音](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md) | Bot Framework 內的通道，直接列語音可讓順利且流暢地與之間的連線用戶端應用程式、 相容的 bot，Azure 語音服務的功能。 如需有關如何設定您的 bot，以使用直接列語音通道的詳細資訊，請參閱 < [Bot Framework 文件中的其頁面](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)。
+|[直線語音](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Bot Framework 內的通道，直接列語音可讓順利且流暢地與之間的連線用戶端應用程式、 相容的 bot，Azure 語音服務的功能。 如需有關如何設定您的 bot，以使用直接列語音通道的詳細資訊，請參閱 < [Bot Framework 文件中的其頁面](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)。
 
 ## <a name="sample-code"></a>範例程式碼
 

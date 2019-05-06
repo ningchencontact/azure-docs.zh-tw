@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6b4c3f7445d18ab1548fd63b1f4d12c5901cf949
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: 5e646c8c73d3a4cf8c6e5ba35a374b5aa376ca20
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339516"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069205"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 DatetimeV2 預先建置實體
 
@@ -216,6 +216,74 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
       }
     }
   ]
+```
+
+## <a name="preview-api-version-3x"></a>預覽 API 版本 3.x
+
+API V3 中，已變更 DatetimeV2 JSON 回應。 
+
+從 API V2 變更：
+* `datetimeV2.timex.type` 因為它會傳回在父層級中，不會再傳回屬性`datetimev2.type`。 
+* `datetimeV2.timex`屬性重新命名為`datetimeV2.value`。
+
+針對 [utterance]， `8am on may 2nd 2017`，DatetimeV2 V3 版本是：
+
+```JSON
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "timex": [
+                        "2017-05-02T08"
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+
+下列 JSON 是以`verbose`參數設定為`false`:
+
+```json
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6826963
+            }
+        },
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "timex": [
+                        "2017-05-02T08"
+                    ]
+                }
+            ],
+            "$instance": {
+                "datetimeV2": [
+                    {
+                    "type": "builtin.datetimeV2.datetime",
+                    "text": "8am on may 2nd 2017",
+                    "startIndex": 0,
+                    "length": 19,
+                    "modelTypeId": 2,
+                    "modelType": "Prebuilt Entity Extractor"
+                }
+            ],
+        }
+    }
+}
 ```
 
 ## <a name="deprecated-prebuilt-datetime"></a>已被取代的預先建置 datetime

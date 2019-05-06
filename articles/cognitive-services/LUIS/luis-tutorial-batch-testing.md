@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: ad0676cbfdcd708b0d51752522d16956bd0c6c9e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523132"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073738"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教學課程：批次測試資料集
 
@@ -28,7 +28,7 @@ ms.locfileid: "59523132"
 
 * 每個測試最多 1000 個語句。 
 * 沒有重複項目。 
-* 允許的實體類型：僅限簡單、階層式 (僅限父代) 及複合的機器學習實體。 批次測試僅適用於機器學習的意圖和實體。
+* 允許的實體類型： 簡單和複合唯一台學到的實體。 批次測試僅適用於機器學習的意圖和實體。
 
 使用本教學課程以外的應用程式時，請「不要」使用已新增到某個意圖的範例語句。 
 
@@ -95,7 +95,7 @@ ms.locfileid: "59523132"
 
 ## <a name="review-batch-results"></a>檢閱批次結果
 
-批次圖表會顯示四個象限的結果。 圖表的右邊是一個篩選條件。 根據預設，會將該篩選條件設定為清單中第一個意圖。 該篩選條件會包含所有意圖，而且只包含簡單、階層式 (僅限父代) 及複合實體。 當您選取某個[圖表區段](luis-concept-batch-test.md#batch-test-results)或圖表內的某一點時，相關聯的語句即會顯示於圖表下方。 
+批次圖表會顯示四個象限的結果。 圖表的右邊是一個篩選條件。 根據預設，會將該篩選條件設定為清單中第一個意圖。 篩選包含所有意圖和只有簡單和複合的實體。 當您選取某個[圖表區段](luis-concept-batch-test.md#batch-test-results)或圖表內的某一點時，相關聯的語句即會顯示於圖表下方。 
 
 將滑鼠停留在圖表上方時，滑鼠滾輪可以放大或縮小圖表中的顯示。 當圖表上有許多點緊密聚集在一起時，這非常有用。 
 
@@ -169,7 +169,7 @@ ms.locfileid: "59523132"
 
 ## <a name="create-batch-file-with-entities"></a>建立含有實體的批次檔 
 
-為了在批次測試中確認實體，必須在批次 JSON 檔案中標示實體。 僅使用機器學習的實體：簡單、階層式 (僅限父代) 及複合實體。 不要新增非機器學習的實體，因為一律可透過規則運算式或明確的文字相符項目找到它們。
+為了在批次測試中確認實體，必須在批次 JSON 檔案中標示實體。 使用機器學習的實體： 簡單和複合實體。 不要新增非機器學習的實體，因為一律可透過規則運算式或明確的文字相符項目找到它們。
 
 適用於文字 ([語彙基元](luis-glossary.md#token)) 總計數的實體變化可能會影響預測品質。 若已將定型資料提供給含有已標示語句的意圖，請確定這類資料包括各種實體長度。 
 
