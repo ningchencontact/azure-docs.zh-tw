@@ -45,6 +45,8 @@
           href: application-gateway-components.md
         - name: 組態概觀
           href: configuration-overview.md
+    - name: 自動調整 v2 SKU
+      href: application-gateway-autoscaling-zone-redundant.md
     - name: 路由
       items:
         - name: 多網站裝載
@@ -77,8 +79,6 @@
           href: application-gateway-probe-overview.md
         - name: 診斷
           href: application-gateway-diagnostics.md
-    - name: 自動調整規模和區域備援
-      href: application-gateway-autoscaling-zone-redundant.md
     - name: 應用程式服務 Webapp 和多租用戶支援
       href: application-gateway-web-app-overview.md
     - name: WebSocket 支援
@@ -183,6 +183,8 @@
           href: rewrite-http-headers-portal.md
         - name: Azure PowerShell
           href: add-http-header-rewrite-rule-powershell.md
+        - name: 建立和重新撰寫 HTTP 標頭
+          href: tutorial-http-header-rewrite-powershell.md
     - name: 設定應用程式服務 Webapp 和多租用戶服務
       items:
         - name: 入口網站

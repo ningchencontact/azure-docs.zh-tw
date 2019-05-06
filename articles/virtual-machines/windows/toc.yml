@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 - 高可用性 VM
       href: tutorial-availability-sets.md
-    - name: 6 - 建立 VM 擴展集
+    - name: 6 - 建立擴展集
       href: tutorial-create-vmss.md
     - name: 7 - 負載平衡的 VM
       href: tutorial-load-balancer.md
@@ -251,6 +251,8 @@
               href: shared-images.md
             - name: 使用 CLI 建立共用映像
               href: ../linux/shared-images.md
+            - name: 入口網站
+              href: shared-images-portal.md
             - name: 針對共用映像進行疑難排解
               href: troubleshooting-shared-images.md
         - name: 尋找及使用映像

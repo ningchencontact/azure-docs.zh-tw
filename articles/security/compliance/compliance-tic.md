@@ -143,7 +143,7 @@ Azure PaaS 服務 (例如 Azure 儲存體) 可透過網際網路連線的 URL �
 |適用於 PostgreSQL 的 Azure 資料庫  | 個人預覽版  |
 |適用於 MySQL 的 Azure 資料庫       | 個人預覽版  |
 |Azure SQL 資料倉儲       | 公開預覽版   |
-|連接字串             | 公開上市 (GA) |
+|Azure SQL Database             | 公開上市 (GA) |
 |Azure 儲存體                  | GA               |
 
 ### <a name="support-for-virtual-network-injection"></a>對虛擬網路插入的支援
@@ -258,7 +258,7 @@ Azure 原則以訂用帳戶層級為目標。 服務提供集中式介面，您�
 | Web 與行動裝置 | API 應用程式 | | App Service 環境 | |
 | 容器 | Azure Container Service | | | 是 |
 | 容器 | Azure Kubernetes Service (AKS) \* | | | 是 |
-| 資料庫 | 連接字串 | | Azure SQL Database 受控執行個體 \* | Azure SQL |
+| 資料庫 | Azure SQL Database | | Azure SQL Database 受控執行個體 \* | Azure SQL |
 | 資料庫 | 適用於 MySQL 的 Azure 資料庫 | | | 是 |
 | 資料庫 | 適用於 PostgreSQL 的 Azure 資料庫 | | | 是 |
 | 資料庫 | Azure SQL 資料倉儲 | | | 是 |

@@ -75,12 +75,12 @@ Information Protection 隨附一組預設會使用的內建標籤和資訊類型
 6. 在您完成資訊類型的管理之後，請務必按一下特定標籤的 [設定]，並視需要新增或刪除資訊類型，以建立相關類型與相關標籤的關聯。
 7. 請務必按一下主要 [標籤] 刀鋒視窗中的 [儲存]，以套用所有變更。
  
-完整定義和儲存資訊保護原則之後，就會套用至租用戶中所有 Azure SQL Database 上的資料分類。
+完整定義和儲存資訊保護原則之後，就會套用至租用戶中所有 Azure SQL 資料庫上的資料分類。
  
  
 ## <a name="next-steps"></a>後續步驟
  
-在本文中，您已了解在 Azure 資訊安全中心定義 SQL Information Protection 原則。 若要深入了解如何使用 SQL Information Protection 分類和保護 SQL Database 中的敏感性資料，請參閱 [Azure SQL Database 的資料探索與分類](../sql-database/sql-database-data-discovery-and-classification.md)。 
+在本文中，您已了解在 Azure 資訊安全中心定義 SQL Information Protection 原則。 若要深入了解如何使用 SQL Information Protection 分類和保護 SQL 資料庫中的敏感性資料，請參閱 [Azure SQL Database 的資料探索與分類](../sql-database/sql-database-data-discovery-and-classification.md)。 
 
 如需 Azure 資訊安全中心內安全性原則和資料安全性的詳細資訊，請參閱下列文章：
  

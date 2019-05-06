@@ -1,6 +1,6 @@
 ---
 title: 在編製索引期間搜耙資料來源的索引子 - Azure 搜尋服務
-description: 將 Azure SQL Database、Azure Cosmos DB 或 Azure 儲存體耙梳，以擷取可搜尋的資料並填入 Azure 搜尋服務索引。
+description: 將 Azure SQL 資料庫、Azure Cosmos DB 或 Azure 儲存體耙梳，以擷取可搜尋的資料並填入 Azure 搜尋服務索引。
 author: HeidiSteen
 manager: cgronlun
 services: search

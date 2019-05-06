@@ -148,7 +148,7 @@ Contoso 會透過比較一份優缺點清單，來評估建議設計。
 
 ## <a name="step-1-provision-an-azure-sql-database"></a>步驟 1：佈建 Azure SQL Database
 
-Contoso 管理員會佈建 Azure SQL Database。
+Contoso 管理員會佈建 Azure SQL 資料庫。
 
 1. 他們會選擇在 Azure 中建立 **SQL Database**。 
 
@@ -419,7 +419,7 @@ Contoso 管理員會使用 Visual Studio 和 SDK Tools 將應用程式轉換成�
 
     ![容器](./media/contoso-migration-rearchitect-container-sql/container7.png)
 
-9. 其會開啟 **ApplicationParameters/Cloud.xml** 檔案，並更新連接字串以將應用程式連線至 Azure SQL Database。 連接字串可在 Azure 入口網站的資料庫中找到。
+9. 其會開啟 **ApplicationParameters/Cloud.xml** 檔案，並更新連接字串以將應用程式連線至 Azure SQL 資料庫。 連接字串可在 Azure 入口網站的資料庫中找到。
 
     ![連接字串](./media/contoso-migration-rearchitect-container-sql/container8.png)
 
@@ -625,7 +625,7 @@ Contoso 管理員現在會設定 Azure DevOps Services 來執行建置和發行�
 
 ## <a name="conclusion"></a>結論
 
-在本文中，Contoso 已透過將應用程式前端 VM 移轉至 Service Fabric，來重構 SmartHotel360 應用程式。 應用程式資料庫已遷移至 Azure SQL Database。
+在本文中，Contoso 已透過將應用程式前端 VM 移轉至 Service Fabric，來重構 SmartHotel360 應用程式。 應用程式資料庫已遷移至 Azure SQL 資料庫。
 
 
 

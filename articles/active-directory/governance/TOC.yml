@@ -1,26 +1,57 @@
 - name: Azure AD Identity Governance 文件
   href: index.yml
 - name: 概觀
-  expanded: false
+  expanded: true
   items:
-    - name: 什麼是身分識別治理？
+    - name: 什麼是 Identity Governance？
       href: identity-governance-overview.md
+    - name: 什麼是權利管理？ (預覽)
+      href: entitlement-management-overview.md
     - name: 什麼是存取權檢閱？
       href: access-reviews-overview.md
-- name: 概念
-  expanded: false
+- name: 教學課程
+  expanded: true
   items:
-    - name: 使用檢閱管理來賓存取權
-      href: manage-guest-access-with-access-reviews.md
-    - name: 透過檢閱管理使用者存取
-      href: manage-user-access-with-access-reviews.md
-    - name: 管理程式及其控制項
-      href: manage-programs-controls.md
-    - name: 管理條件式存取以外的使用者
-      href: conditional-access-exclusion.md
+    - name: 建立您的第一個存取套件
+      href: entitlement-management-access-package-first.md
+- name: 概念
+  expanded: true
+  items:
+    - name: 權利管理
+      items:
+        - name: 要求程序和電子郵件
+          href: entitlement-management-process.md
+    - name: 存取權檢閱
+      items:
+        - name: 使用檢閱管理來賓存取權
+          href: manage-guest-access-with-access-reviews.md
+        - name: 透過檢閱管理使用者存取
+          href: manage-user-access-with-access-reviews.md
+        - name: 管理程式及其控制項
+          href: manage-programs-controls.md
+        - name: 管理條件式存取以外的使用者
+          href: conditional-access-exclusion.md
 - name: 使用說明指南
   expanded: true
   items:
+    - name: 權利管理
+      items:
+        - name: 常見案例
+          href: entitlement-management-scenarios.md
+        - name: 建立新的存取套件
+          href: entitlement-management-access-package-create.md
+        - name: 編輯存取套件
+          href: entitlement-management-access-package-edit.md
+        - name: 建立目錄
+          href: entitlement-management-catalog-create.md
+        - name: 要求存取
+          href: entitlement-management-request-access.md
+        - name: 核准要求
+          href: entitlement-management-request-approve.md
+        - name: 檢視報告和記錄
+          href: entitlement-management-reports.md
+        - name: 疑難排解
+          href: entitlement-management-troubleshoot.md
     - name: 存取權檢閱
       items:
         - name: 群組和應用程式

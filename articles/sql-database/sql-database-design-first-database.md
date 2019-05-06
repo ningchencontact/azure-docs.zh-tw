@@ -19,7 +19,7 @@ ms.locfileid: "64730408"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>教學課程：使用 SSMS 在 Azure SQL Database 的單一資料庫中設計關聯式資料庫
 
-Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務 (DBaaS)。 在本教學課程中，您會了解如何使用 Azure 入口網站和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)：
+Azure SQL 資料庫是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務 (DBaaS)。 在本教學課程中，您會了解如何使用 Azure 入口網站和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)：
 
 > [!div class="checklist"]
 > - 使用 Azure 入口網站建立單一資料庫*

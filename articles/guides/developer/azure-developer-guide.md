@@ -247,7 +247,7 @@ Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支�
     
 在 Azure 上執行應用程式可能包含使用多個 Azure 服務，而這些都遵循相同的生命週期，並且可以視為一個邏輯單元。 例如，Web 應用程式可能使用 Web Apps、SQL Database、「儲存體」、「Azure Redis 快取」及「Azure 內容傳遞網路」服務。 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 可讓您將應用程式中的資源當成群組使用。 您可以透過單一的協調作業來部署、更新或刪除所有資源。
 
-除了以邏輯方式分組和管理相關資源之外，Azure Resource Manager 還會包含部署功能，以讓您自訂相關資源的部署和設定。 例如，使用 Resource Manager，即可部署和設定將多個虛擬機器、一個負載平衡器和 Azure SQL Database 當成一個單位處理的應用程式。
+除了以邏輯方式分組和管理相關資源之外，Azure Resource Manager 還會包含部署功能，以讓您自訂相關資源的部署和設定。 例如，使用 Resource Manager，即可部署和設定將多個虛擬機器、一個負載平衡器和 Azure SQL 資料庫當成一個單位處理的應用程式。
 
 透過使用本身為 JSON 格式化文件的 Azure Resource Manager 範本，即可開發這些部署。 範本可讓您定義部署，以及使用宣告式範本而非指令碼來管理應用程式。 您的範本可以用於測試、預備和生產這類不同環境。 例如，使用範本，即可新增 GitHub 存放庫的按鈕，而且只要按一下，就可以將存放庫中的程式碼部署至一組 Azure 服務。
 

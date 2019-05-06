@@ -199,7 +199,7 @@ ms.locfileid: "65024934"
 ### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>Azure Machine Learning 資料準備 SDK v1.0.12
 
 + **新功能**
-  + 「資料準備」現在支援使用「資料存放區」從 Azure SQL Database 讀取資料。
+  + 「資料準備」現在支援使用「資料存放區」從 Azure SQL 資料庫讀取資料。
  
 + **變更**
   + 大幅改善大型資料上某些作業的記憶體效能。

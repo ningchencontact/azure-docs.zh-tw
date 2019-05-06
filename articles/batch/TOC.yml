@@ -49,6 +49,8 @@
       href: batch-pool-vm-sizes.md
     - name: 高可用性和災害復原
       href: high-availability-disaster-recovery.md
+    - name: 工作執行階段環境變數
+      href: batch-compute-node-environment-variables.md
 - name: 使用說明指南
   items:
     - name: 管理 Batch 帳戶
@@ -199,8 +201,6 @@
           href: batch-task-complete-event.md
         - name: 工作失敗事件
           href: batch-task-fail-event.md
-    - name: Batch 計算節點環境變數
-      href: batch-compute-node-environment-variables.md
 - name: 資源
   items:
     - name: Azure 藍圖

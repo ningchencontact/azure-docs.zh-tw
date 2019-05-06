@@ -143,17 +143,6 @@
             - name: 編製索引原則
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: 變更摘要
-          items:
-            - name: 概觀
-              href: change-feed.md
-            - name: 讀取變更摘要
-              href: read-change-feed.md
-            - name: 變更摘要處理器
-              href: change-feed-processor.md
-            - name: 觸發 Azure Functions
-              displayName: change feed
-              href: change-feed-functions.md
         - name: 存留時間
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -498,6 +487,9 @@
           href: data-explorer.md
         - name: 管理編製索引原則
           href: how-to-manage-indexing-policy.md
+        - name: SQL 子查詢範例
+          displayName: 'subquery, exists'
+          href: how-to-sql-subquery.md
     - name: 變更摘要
       items:
         - name: 多個 Azure Cosmos DB 觸發程序

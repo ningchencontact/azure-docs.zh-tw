@@ -25,7 +25,7 @@ Azure SQL Database 是有彈性的自動管理資料服務，您可以輕鬆監�
 
 ## <a name="monitoring-database-performance"></a>監視資料庫效能
 
-在 Azure 中監視 SQL Database 的效能，必須從監視您選擇之資料庫效能等級相關的資源使用率開始。 Azure SQL Database 可讓您檢閱[效能微調建議](sql-database-advisor.md)，找出不必變更資源卻能改善和最佳化查詢效能的機會。 遺漏索引與查詢最佳化不足是資料庫效能不佳的常見原因。 您可以套用這些調整建議來改善工作負載的效能。 您也可以套用所有發現的建議並驗證能否改善資料庫效能，讓 Azure SQL Database [自動最佳化查詢](sql-database-automatic-tuning.md)。
+在 Azure 中監視 SQL Database 的效能，必須從監視您選擇之資料庫效能等級相關的資源使用率開始。 Azure SQL Database 可讓您檢閱[效能微調建議](sql-database-advisor.md)，找出不必變更資源卻能改善和最佳化查詢效能的機會。 遺漏索引與查詢最佳化不足是資料庫效能不佳的常見原因。 您可以套用這些調整建議來改善工作負載的效能。 您也可以套用所有發現的建議並驗證能否改善資料庫效能，讓 Azure SQL 資料庫[自動最佳化查詢](sql-database-automatic-tuning.md)。
 
 您有下列選項可以用來針對資料庫效能進行監視和疑難排解：
 
@@ -142,7 +142,7 @@ ORDER BY count (distinct p.query_id) DESC
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>解決問題查詢或提供更多資源
 
-當您識別出問題之後，您可以調整問題查詢，或是升級計算大小或服務層級，以增加您 Azure SQL Database 的容量來滿足 CPU 需求。 如需調整單一資料庫資源的相關資訊，請參閱[在 Azure SQL Database 中調整單一資料庫資源](sql-database-single-database-scale.md)，如需調整彈性集區資源的相關資訊，請參閱[在 Azure SQL Database 中調整彈性集區](sql-database-elastic-pool-scale.md)。 如需調整受控執行個體的相關資訊，請參閱[執行個體層級的資源限制](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)。
+當您識別出問題之後，您可以調整問題查詢，或是升級計算大小或服務層級，以增加您 Azure SQL 資料庫的容量來滿足 CPU 需求。 如需調整單一資料庫資源的相關資訊，請參閱[在 Azure SQL Database 中調整單一資料庫資源](sql-database-single-database-scale.md)，如需調整彈性集區資源的相關資訊，請參閱[在 Azure SQL Database 中調整彈性集區](sql-database-elastic-pool-scale.md)。 如需調整受控執行個體的相關資訊，請參閱[執行個體層級的資源限制](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)。
 
 ### <a name="determine-if-running-issues-due-to-increase-workload-volume"></a>判斷是否因為增加工作負載磁碟區而導致執行問題
 

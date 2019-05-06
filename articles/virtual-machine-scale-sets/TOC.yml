@@ -152,6 +152,8 @@
         - name: vCPU 配額
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: 擴展集常見問題
+      href: virtual-machine-scale-sets-faq.md
 - name: 作法
   items:
     - name: 規劃和設計
@@ -183,6 +185,9 @@
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: 進階自動調整
               href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              maintainContext: true
+            - name: 針對自動調整進行疑難排解
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: 應用程式擴展集
           href: virtual-machine-scale-sets-deploy-app.md
         - name: 擴展集中的擴充功能
@@ -199,6 +204,9 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: 使用 Azure CLI
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
+            - name: 使用擴充排序的磁碟加密
+              href: ../security/azure-security-disk-encryption-extension-sequencing.md
+              maintainContext: true
         - name: 使用大型擴展集
           href: virtual-machine-scale-sets-placement-groups.md
         - name: 將擴展集範本轉換為使用受控磁碟
@@ -247,14 +255,6 @@
         - name: 自動調整擴展集
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-    - name: 疑難排解
-      items:
-        - name: Autoscale
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: 常見問題集
-      items:
-        - name: 擴展集常見問題
-          href: virtual-machine-scale-sets-faq.md
 - name: 參考
   items:
     - name: Azure PowerShell

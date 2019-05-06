@@ -60,16 +60,22 @@
     - name: 資料擷取概觀
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
-    - name: 時間序列分析
-      href: time-series-analysis.md
 - name: 使用說明指南
   items:
     - name: 開始使用
       items:
-        - name: 撰寫查詢
-          href: write-queries.md
         - name: 內嵌範例資料
           href: ingest-sample-data.md
+    - name: 查詢資料
+      items:
+        - name: 撰寫查詢
+          href: write-queries.md
+        - name: 時間序列分析
+          href: time-series-analysis.md
+        - name: 異常偵測和預測
+          href: anomaly-detection.md
+        - name: 機器學習服務
+          href: machine-learning-clustering.md
     - name: 管理
       items:
         - name: 管理資料庫權限
@@ -90,6 +96,8 @@
           href: using-metrics.md
     - name: 使用其他工具
       items:
+        - name: Apache Spark 連接器
+          href: spark-connector.md
         - name: 使用 Python 從 Databricks 連線
           href: connect-from-databricks.md
         - name: 在 Jupyter Notebook 和 Kqlmagic 中分析資料

@@ -69,7 +69,7 @@ Azure Key Vault 的虛擬網路服務端點可讓您將存取權限制為指定�
 |Exchange Online 和 SharePoint Online|允許使用[客戶金鑰](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697)存取 Azure 儲存體服務加密的客戶金鑰。|
 |Azure 資訊保護|允許存取 [Azure 資訊保護](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)的租用戶金鑰|
 |Azure App Service|[透過 Key Vault 部署 Azure Web 應用程式憑證](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)。|
-|連接字串|[Azure SQL Database 和資料倉儲具有「攜帶您自己的金鑰」支援的的透明資料加密](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)。|
+|Azure SQL Database|[Azure SQL Database 和資料倉儲具有「攜帶您自己的金鑰」支援的的透明資料加密](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)。|
 |Azure 儲存體|[使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密](../storage/common/storage-service-encryption-customer-managed-keys.md)。|
 |Azure Data Lake Store|使用客戶管理的金鑰[在 Azure Data Lake Store 中加密資料](../data-lake-store/data-lake-store-encryption.md)。|
 |Azure Databricks|[快速、簡單且可共同作業的 Apache Spark 型分析服務](../azure-databricks/what-is-azure-databricks.md)|

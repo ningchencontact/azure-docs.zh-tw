@@ -29,7 +29,7 @@ ms.locfileid: "64573377"
 ||受控執行個體|[受控執行個體](sql-database-managed-instance.md)|
 |伺服器物件|SQL Database 伺服器或資料庫伺服器|[資料庫伺服器](sql-database-servers.md)|
 ||SQL Database 受控執行個體伺服器、受控執行個體伺服器或執行個體伺服器|[受控執行個體](sql-database-managed-instance.md)|
-資料庫物件|Azure SQL Database|Azure SQL Database 中的任何資料庫|
+資料庫物件|Azure SQL 資料庫|Azure SQL Database 中的任何資料庫|
 ||單一資料庫|使用單一資料庫部署選項建立的資料庫|
 ||集區資料庫|在彈性集區內建立或移入彈性集區的資料庫|
 ||執行個體資料庫|在受控執行個體中建立的資料庫|

@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例 - 複製 - Azure SQL Database - 新伺服器 | Microsoft Docs
+title: PowerShell 範例 - 複製 - Azure SQL 資料庫 - 新伺服器 | Microsoft Docs
 description: 將 SQL Database 複製到新伺服器的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database

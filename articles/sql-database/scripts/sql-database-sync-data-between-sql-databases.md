@@ -1,6 +1,6 @@
 ---
-title: PowerShell 範例 - 在多個 Azure SQL Database 之間進行同步處理 | Microsoft Docs
-description: 在多個 Azure SQL Database 之間進行同步處理的 Azure PowerShell 範例指令碼
+title: PowerShell 範例 - 在多個 Azure SQL 資料庫之間進行同步處理 | Microsoft Docs
+description: 在多個 Azure SQL 資料庫之間進行同步處理的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -21,7 +21,7 @@ ms.locfileid: "60387871"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多個 SQL Database 之間進行同步處理
  
-此 PowerShell 範例會設定「資料同步」，以在多個 Azure SQL Database 之間進行同步處理。
+此 PowerShell 範例會設定「資料同步」，以在多個 Azure SQL 資料庫之間進行同步處理。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

@@ -42,7 +42,7 @@ ms.locfileid: "64723154"
 
 * **HDInsight 上的 Linux 型 Hadoop 叢集**。 請參閱[開始在 HDInsight 中使用 Apache Hadoop](hadoop/apache-hadoop-linux-tutorial-get-started.md)，以取得如何建立新的 Linux 型 HDInsight 叢集的步驟。
 
-* **Azure SQL Database**。 您會使用 Azure SQL Database 做為目的地資料存放區。 如果您沒有 SQL 資料庫，請參閱[在 Azure 入口網站中建立 Azure SQL Database](../sql-database/sql-database-get-started.md)。
+* **Azure SQL Database**。 您會使用 Azure SQL 資料庫做為目的地資料存放區。 如果您沒有 SQL 資料庫，請參閱[在 Azure 入口網站中建立 Azure SQL 資料庫](../sql-database/sql-database-get-started.md)。
 
 * **Azure CLI**。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 以取得相關步驟。
 
@@ -206,7 +206,7 @@ ms.locfileid: "64723154"
 
 ## <a name="create-a-sql-database-table"></a>建立 SQL 資料庫資料表
 
-本節假設您已建立事件 Azure SQL 資料庫。 如果您還沒有 SQL 資料庫，請使用[在 Azure 入口網站中建立 Azure SQL Database](../sql-database/sql-database-get-started.md) 中的資訊來建立一個資料庫。
+本節假設您已建立事件 Azure SQL 資料庫。 如果您還沒有 SQL 資料庫，請使用[在 Azure 入口網站中建立 Azure SQL 資料庫](../sql-database/sql-database-get-started.md)中的資訊來建立一個資料庫。
 
 如果您已經有 SQL 資料庫，就必須取得伺服器名稱。 若要在 [Azure 入口網站](https://portal.azure.com)中找到伺服器名稱，請選取 [SQL Database]，然後篩選您選擇使用的資料庫名稱。 伺服器名稱會列在 [伺服器名稱] 資料行中。
 

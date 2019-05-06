@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例 - 作用中異地複寫 - 集區 Azure SQL Database | Microsoft Docs
+title: PowerShell 範例 - 作用中異地複寫 - 集區 Azure SQL 資料庫 | Microsoft Docs
 description: 為 Azure SQL Database 中的集區資料庫設定作用中異地複寫並且進行容錯移轉的 Azure PowerShell 範例指令碼。
 services: sql-database
 ms.service: sql-database

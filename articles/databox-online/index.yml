@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure 資料箱文件 - 線上傳輸
 metadata:
-  title: Azure 資料箱文件 - 線上傳輸
-  description: 使用資料箱裝置，透過快速、成本低廉且可靠的方式，以網路將高效能資料轉送至 Azure。
+  title: Data Box Gateway、Data Box Edge 文件，透過網路資料轉送至 Azure
+  description: 使用 Data Box Edge 和 Data Box Gateway，以快速、成本低廉且可靠的方式，透過網路將高效能資料轉送至 Azure。
   services: databox
   author: alkohli
   manager: twooley
@@ -13,7 +13,7 @@ metadata:
   ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: Azure 資料箱系列可讓您以快速、實惠和可靠的方式，將數百 TB 的資料轉送到 Azure 中。 使用資料箱裝置，透過網路進行高效能資料轉送。<p>選擇 Data Box Gateway 來傳送資料，以便雲端封存、災害復原，或以雲端規模處理資料。  當您的資料移至 Azure 時，使用 Data Box Edge 來篩選、分析及轉換資料。</p><p>透過我們的教學課程，了解如何運用資料箱閘道和 Data Box Edge 進行網路式傳輸。</p>
+  description: Azure 資料箱系列可讓您以快速、實惠和可靠的方式，將數百 TB 的資料轉送到 Azure 中。 使用 Data Box Edge 和 Data Box Gateway，透過網路進行高效能資料轉送。<p>選擇 Data Box Gateway 來傳送資料，以便雲端封存、災害復原，或以雲端規模處理資料。  當您的資料移至 Azure 時，使用 Data Box Edge 來篩選、分析及轉換資料。</p><p>透過我們的教學課程，了解如何運用資料箱閘道和 Data Box Edge 進行網路式傳輸。</p>
 sections:
   - title: 教學課程
     items:

@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/16/2018
+  ms.date: 04/18/2019
   ms.author: rolyon
 abstract:
   description: Azure Active Directory (Azure AD) Identity Governance 可讓組織有能力管理身分識別週期、管理存取週期，以及保障跨員工與合作夥伴的安全管理。
@@ -26,23 +26,31 @@ abstract:
     href: 'https://www.youtube.com/embed/aY7A0Br8u5M'
     width: 200
 sections:
-  - title: 身分識別治理
+  - title: Identity Governance
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/governance/identity-governance-overview">什麼是身分識別治理？</a>
+          - html: <a href="/azure/active-directory/governance/identity-governance-overview">什麼是 Identity Governance？</a>
+  - title: 權利管理 (預覽)
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/governance/entitlement-management-overview">什麼是 Azure AD 權利管理？</a>
+          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-first">教學課程 - 建立您的第一個存取套件</a>
+          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-edit">編輯和管理現有的存取套件</a>
   - title: 存取權檢閱
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/governance/access-reviews-overview">什麼是存取權檢閱？</a>
-          - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">使用存取權檢閱來管理使用者存取權</a>
-          - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">使用存取權檢閱來管理來賓存取權</a>
+          - html: <a href="/azure/active-directory/governance/access-reviews-overview">什麼是 Azure AD 存取權檢閱？</a>
+          - html: <a href="/azure/active-directory/governance/create-access-review">建立群組或應用程式的存取權檢閱</a>
+          - html: <a href="/azure/active-directory/governance/perform-access-review">檢閱群組或應用程式的存取權</a>
   - title: 使用規定
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">使用規定對我有何幫助？</a>
+          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">需要使用規定？</a>

@@ -95,7 +95,9 @@
           href: vmware-azure-common-questions.md
         - name: VMware/實體至 Azure 支援矩陣
           href: vmware-physical-azure-support-matrix.md
-        - name: 組態伺服器部署的支援需求
+        - name: 關於 Site Recovery 元件 (設定/處理序/主要目標伺服器)
+          href: vmware-physical-azure-config-process-server-overview.md
+        - name: 設定和處理序伺服器的支援需求
           href: vmware-azure-configuration-server-requirements.md
         - name: VMware 至 Azure 架構
           href: vmware-azure-architecture.md
@@ -197,6 +199,8 @@
               items:
                 - name: 概觀和必要條件
                   href: site-recovery-deployment-planner.md
+                - name: 部署規劃工具版本歷程記錄
+                  href: site-recovery-deployment-planner-history.md
                 - name: 執行部署規劃工具
                   href: site-recovery-vmware-deployment-planner-run.md
                 - name: 分析已產生的報告
@@ -319,6 +323,8 @@
               items:
                 - name: 概觀和必要條件
                   href: hyper-v-deployment-planner-overview.md
+                - name: 部署規劃工具版本歷程記錄
+                  href: site-recovery-deployment-planner-history.md
                 - name: 執行部署規劃工具
                   href: hyper-v-deployment-planner-run.md
                 - name: 分析已產生的報告
@@ -425,10 +431,14 @@
           href: site-recovery-extension-troubleshoot.md
     - name: VMware/實體伺服器
       items:
+        - name: 監視處理序伺服器
+          href: vmware-physical-azure-monitor-process-server.md
         - name: VMware 至 Azure 複寫的疑難排解
           href: vmware-azure-troubleshoot-replication.md
         - name: 組態伺服器疑難排解
           href: vmware-azure-troubleshoot-configuration-server.md
+        - name: 針對處理序伺服器進行疑難排解
+          href: vmware-physical-azure-troubleshoot-process-server.md
         - name: 針對適用於 VMware VM/實體伺服器的行動服務推送安裝進行疑難排解
           href: vmware-azure-troubleshoot-push-install.md
         - name: 對 Azure 進行容錯移轉的疑難排解

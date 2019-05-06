@@ -14,20 +14,14 @@
         - name: 設定應用程式
           items:
             - name: 註冊應用程式
-              href: quickstart-v1-add-azure-ad-app.md
-            - name: 更新應用程式
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: 移除應用程式
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: 註冊應用程式 (預覽)
               href: quickstart-register-app.md
-            - name: 設定應用程式以存取 Web API (預覽)
+            - name: 設定應用程式以存取 Web API
               href: quickstart-configure-app-access-web-apis.md
-            - name: 設定應用程式以公開 Web API (預覽)
+            - name: 設定應用程式以公開 Web API
               href: quickstart-configure-app-expose-web-apis.md
-            - name: 修改應用程式支援的帳戶 (預覽)
+            - name: 修改應用程式支援的帳戶
               href: quickstart-modify-supported-accounts.md
-            - name: 移除應用程式 (預覽)
+            - name: 移除應用程式
               href: quickstart-remove-app.md
         - name: 單一頁面應用程式
           items:
@@ -243,20 +237,14 @@
         - name: 設定應用程式
           items:
             - name: 註冊應用程式
-              href: quickstart-v2-register-an-app.md
-            - name: 更新應用程式
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: 移除應用程式
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: 註冊應用程式 (預覽)
               href: quickstart-register-app.md
-            - name: 設定應用程式以存取 Web API (預覽)
+            - name: 設定應用程式以存取 Web API
               href: quickstart-configure-app-access-web-apis.md
-            - name: 設定應用程式以公開 Web API (預覽)
+            - name: 設定應用程式以公開 Web API
               href: quickstart-configure-app-expose-web-apis.md
-            - name: 修改應用程式支援的帳戶 (預覽)
+            - name: 修改應用程式支援的帳戶
               href: quickstart-modify-supported-accounts.md
-            - name: 移除應用程式 (預覽)
+            - name: 移除應用程式
               href: quickstart-remove-app.md
         - name: 單一頁面應用程式
           items:
@@ -350,6 +338,8 @@
               href: active-directory-certificate-credentials.md
         - name: 應用程式設定
           items:
+            - name: 應用程式註冊訓練指南
+              href: app-registrations-training-guide.md
             - name: 應用程式與服務主體
               href: app-objects-and-service-principals.md
             - name: 單一租用戶與多租用戶應用程式

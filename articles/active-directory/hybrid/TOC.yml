@@ -186,7 +186,7 @@
           href: how-to-connect-configure-ad-ds-connector-account.md
         - name: 變更 Azure ADSync 服務帳戶密碼
           href: how-to-connect-sync-change-serviceacct-pass.md
-        - name: 變更 Azure AD Connector 帳戶
+        - name: 變更 Azure AD Connector 帳戶密碼
           href: how-to-connect-azureadaccount.md
         - name: 變更 AD DS 連接器帳戶密碼
           href: how-to-connect-sync-change-addsacct-pass.md

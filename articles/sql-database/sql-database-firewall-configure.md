@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59549724"
@@ -94,7 +94,7 @@ Microsoft 建議在可行時使用資料庫層級 IP 防火牆規則增強安全
 
 ## <a name="manage-server-level-ip-firewall-rules-using-the-azure-portal"></a>使用 Azure 入口網站管理伺服器層級 IP 防火牆規則
 
-若要在 Azure 入口網站中設定伺服器層級 IP 防火牆規則，您可以前往 Azure SQL Database 的 [概觀] 頁面，或是 SQL Database 伺服器的 [概觀] 頁面。
+若要在 Azure 入口網站中設定伺服器層級 IP 防火牆規則，您可以前往 Azure SQL 資料庫的 [概觀] 頁面，或是 SQL Database 伺服器的 [概觀] 頁面。
 
 > [!TIP]
 > 如需教學課程，請參閱[使用 Azure 入口網站建立 DB](sql-database-single-database-get-started.md)。
@@ -250,8 +250,8 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 ## <a name="next-steps"></a>後續步驟
 
 - 請確認您的公司網路環境可讓 Microsoft Azure 資料中心所使用 （包括 SQL 範圍） 的計算 IP 位址範圍的輸入的通訊。 可能需要列入白名單這些 IP 位址，請參閱[Microsoft Azure Datacenter IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)  
-- 如需建立伺服器層級 IP 防火牆規則的快速入門，請參閱[建立 Azure SQL Database](sql-database-single-database-get-started.md)。
-- 如需從開放原始碼或協力廠商應用程式連接到 Azure SQL Database 的說明，請參閱 [SQL Database 的用戶端快速入門程式碼範例](https://msdn.microsoft.com/library/azure/ee336282.aspx)。
+- 如需建立伺服器層級 IP 防火牆規則的快速入門，請參閱[建立 Azure SQL 資料庫](sql-database-single-database-get-started.md)。
+- 如需從開放原始碼或協力廠商應用程式連接到 Azure SQL 資料庫的說明，請參閱 [SQL Database 的用戶端快速入門程式碼範例](https://msdn.microsoft.com/library/azure/ee336282.aspx)。
 - 如需詳細資訊，請參閱[針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)的〈SQL Database：外部與內部**〉一節。
 - 如需 Azure SQL Database 安全性的概觀，請參閱[保護您的資料庫](sql-database-security-overview.md)
 

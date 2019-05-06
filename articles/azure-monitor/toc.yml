@@ -129,6 +129,8 @@
           href: platform/activity-log-alerts.md
         - name: 一般警示結構描述
           href: platform/alerts-common-schema.md
+        - name: 動作規則
+          href: platform/alerts-action-rules.md
     - name: 顯現資料
       href: visualizations.md
     - name: 合作夥伴整合
@@ -309,6 +311,29 @@
                   href: app/asp-net.md
                 - name: 狀態監視器
                   href: app/monitor-performance-live-website-now.md
+                - name: 狀態監視器 v2
+                  href: app/status-monitor-v2-overview.md
+                  items:
+                    - name: 開始使用
+                      href: app/status-monitor-v2-get-started.md
+                    - name: 詳細指示
+                      href: app/status-monitor-v2-detailed-instructions.md
+                    - name: 疑難排解與已知問題
+                      href: app/status-monitor-v2-troubleshoot.md
+                    - name: API Disable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-disable-instrumentation-engine.md
+                    - name: API Disable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-disable-monitoring.md
+                    - name: API Enable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-enable-instrumentation-engine.md
+                    - name: API Enable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-enable-monitoring.md
+                    - name: API Get-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-get-config.md
+                    - name: API Get-ApplicationInsightsMonitoringStatus
+                      href: app/status-monitor-v2-api-get-status.md
+                    - name: API Set-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-set-config.md
                 - name: Windows 服務
                   href: app/windows-services.md
                 - name: Windows 桌面
@@ -560,6 +585,8 @@
               href: insights/containers.md
             - name: 監視 Docker 應用程式
               href: app/docker.md
+            - name: 適用於 Kubernetes 的 Application Insights
+              href: app/kubernetes.md
         - name: 監視資源群組
           href: insights/resource-group-insights.md
         - name: 監視資料庫
@@ -684,6 +711,8 @@
               href: platform/metrics-charts.md
             - name: 計量圖表範例
               href: platform/metric-chart-samples.md
+            - name: 針對計量圖表進行疑難排解
+              href: platform/metrics-troubleshoot.md
         - name: 記錄
           items:
             - name: 記錄查詢

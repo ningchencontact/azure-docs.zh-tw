@@ -47,7 +47,7 @@
       items:
         - name: 概觀
           href: encoding-concept.md
-          displayName: Presets
+          displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: 轉換與工作
           href: transforms-jobs-concept.md
         - name: 媒體編碼器標準格式
@@ -56,14 +56,19 @@
         - name: Autogen 彈性位元速率階梯
           href: autogen-bitrate-ladder.md
         - name: 內容感知的編碼方式
+          displayName: 'content, aware, cae'
           href: cae-experimental.md
+        - name: 作業錯誤碼
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: 媒體分析
       items:
         - name: 概觀
           href: analyzing-video-audio-files-concept.md
-          displayName: Presets
+          displayName: 'analyzing, presets, jobs'
         - name: 轉換與工作
           href: transforms-jobs-concept.md
+        - name: 作業錯誤碼
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: 封裝、傳遞、保護
       items:
         - name: 包裝中
@@ -100,6 +105,8 @@
           href: streaming-policy-concept.md
         - name: 內容金鑰原則
           href: content-key-policy-concept.md
+        - name: 原始錯誤碼
+          href: origin-error-codes.md
     - name: 即時串流
       items:
         - name: 概觀
@@ -138,6 +145,12 @@
           href: entities-overview.md
         - name: RBAC
           href: rbac-overview.md
+        - name: 錯誤碼
+          items:
+            - name: 原始錯誤碼
+              href: origin-error-codes.md
+            - name: 作業錯誤碼
+              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: 將移轉指引從 v2 變更為 v3
       href: migrate-from-v2-to-v3.md
 - name: 使用說明指南
@@ -240,6 +253,12 @@
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Resource Manager 範本
       href: /azure/templates/microsoft.media/allversions
+    - name: 錯誤碼
+      items:
+        - name: 原始錯誤碼
+          href: origin-error-codes.md
+        - name: 作業錯誤碼
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
 - name: 資源
   items:
     - name: Azure 媒體服務社群

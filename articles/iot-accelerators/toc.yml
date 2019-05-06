@@ -97,7 +97,7 @@
           href: iot-accelerators-remote-monitoring-rbac.md
         - name: 探索遙測
           items:
-            - name: 使用 PowerBI 將遙測視覺化
+            - name: 使用 Power BI 將遙測視覺化
               href: iot-accelerators-integrate-data-powerbi.md
             - name: 整合 Azure 時間序列深入解析與遠端監視
               href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -133,26 +133,22 @@
       items:
         - name: 什麼是企業 IoT
           href: overview-iot-industrial.md
-        - name: OPC 對應項
-          items:
-            - name: 什麼是 OPC 對應項
-              href: overview-opc-twin.md
-            - name: OPC 對應項架構
-              href: overview-opc-twin-architecture.md
-        - name: OPC 保存庫
-          items:
-            - name: 什麼是 OPC 保存庫
-              href: overview-opc-vault.md
-        - name: 連線的處理站
-          items:
-            - name: 連線的處理站概觀
-              href: iot-accelerators-connected-factory-features.md
-            - name: 連線的處理站架構
-              href: iot-accelerators-connected-factory-sample-walkthrough.md
+        - name: 什麼是 OPC 對應項
+          href: overview-opc-twin.md
+        - name: 什麼是 OPC 保存庫
+          href: overview-opc-vault.md
+        - name: 什麼是連線的處理站
+          href: iot-accelerators-connected-factory-features.md
     - name: 快速入門
       items:
         - name: 試用連線的處理站解決方案
           href: quickstart-connected-factory-deploy.md
+    - name: 概念
+      items:
+        - name: OPC 對應項架構
+          href: overview-opc-twin-architecture.md
+        - name: 連線的處理站架構
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: 使用說明指南
       items:
         - name: 連線的處理站

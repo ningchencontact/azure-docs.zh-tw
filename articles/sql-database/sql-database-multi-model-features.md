@@ -38,7 +38,7 @@ Azure SQL 提供下列多模型功能：
 - [圖形功能](#graph-features)可讓您以一組節點和邊緣的形式表現資料，並使用以 `MATCH` 運算子增強的標準 Transact-SQL 查詢來查詢圖形資料。
 - [JSON 功能](#json-features)可讓您將 JSON 文件放在資料表、將關聯式資料轉換為 JSON 文件，反之亦然。 您可以使用以 JSON 函式增強的標準 Transact-SQL 語言來剖析文件，並使用非叢集式索引、資料行存放區索引或記憶體最佳化的資料表，將查詢最佳化。
 - [空間功能](#spatial-features)可讓您儲存地理和幾何資料、使用空間索引來編製其索引，以及使用空間查詢來擷取資料。
-- [XML 功能](#xml-features)可讓您在資料庫中儲存 XML 資料及編製其索引，並使用原生 XQuery/XPath 作業來處理 XML 資料。 Azure SQL Database 有專門處理 XML 資料的內建 XML 查詢引擎。
+- [XML 功能](#xml-features)可讓您在資料庫中儲存 XML 資料及編製其索引，並使用原生 XQuery/XPath 作業來處理 XML 資料。 Azure SQL 資料庫有專門處理 XML 資料的內建 XML 查詢引擎。
 - [索引鍵/值組](#key-value-pairs)並未明確獲得支援，因為可以原生方式將索引鍵/值組模型化為雙資料行的資料表。
 
   > [!Note]
@@ -96,7 +96,7 @@ Azure SQL Database 支援兩種空間資料類型 - 幾何資料類型和地理�
 - 幾何類型代表歐氏 (平面) 座標系統中的資料。
 - 地理類型代表球形地球座標系統中的資料。
 
-有許多可使用於 Azure SQL Database 中的空間物件，例如 [Point](https://docs.microsoft.com/sql/relational-databases/spatial/point)、[LineString](https://docs.microsoft.com/sql/relational-databases/spatial/linestring)、[Polygon](https://docs.microsoft.com/sql/relational-databases/spatial/polygon) 等。
+有許多可使用於 Azure SQL 資料庫中的空間物件，例如 [Point](https://docs.microsoft.com/sql/relational-databases/spatial/point)、[LineString](https://docs.microsoft.com/sql/relational-databases/spatial/linestring)、[Polygon](https://docs.microsoft.com/sql/relational-databases/spatial/polygon) 等。
 
 Azure SQL Database 也會提供特製化[空間索引](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-indexes-overview)，以便改善空間查詢的效能。
 

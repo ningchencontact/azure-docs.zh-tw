@@ -46,7 +46,7 @@ Azure 虛擬網路提供下列主要功能：
 Azure 資源可透過下列其中一種方式安全地相互通訊：
 
 - **透過虛擬網路**：您可以將虛擬機器和數種其他類型的 Azure 資源部署到虛擬網路，例如 Azure App Service Environment、Azure Kubernetes Service (AKS) 和 Azure 虛擬機器擴展集。 若要檢視可部署到虛擬網路中的 Azure 資源的完整清單，請參閱[虛擬網路服務整合](virtual-network-for-azure-services.md)。 
-- **透過虛擬網路服務端點**：透過直接連線，將您的虛擬網路私人位址空間與虛擬網路的身分識別延伸至 Azure 服務資源，例如 Azure 儲存體帳戶與 Azure SQL Database。 服務端點可讓您將重要的 Azure 服務資源限用於虛擬網路，而加以保護。 若要深入了解，請參閱[虛擬網路服務端點概觀](virtual-network-service-endpoints-overview.md)。
+- **透過虛擬網路服務端點**：透過直接連線，將您的虛擬網路私人位址空間與虛擬網路的身分識別延伸至 Azure 服務資源，例如 Azure 儲存體帳戶與 Azure SQL 資料庫。 服務端點可讓您將重要的 Azure 服務資源限用於虛擬網路，而加以保護。 若要深入了解，請參閱[虛擬網路服務端點概觀](virtual-network-service-endpoints-overview.md)。
  
 ## <a name="communicate-with-on-premises-resources"></a>與內部部署資源通訊
 

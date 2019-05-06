@@ -133,7 +133,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 使用 Azure 入口網站管理 HDinsight 叢集時也可能會看到其中某些錯誤訊息。 但由於此情況下可能採取的補救動作有其限制，您可能看到的其他錯誤訊息比較不詳細。 在很顯然有緩和措施的情況下，則會提供其他錯誤訊息。 
 
 ### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
-* **描述**：請至少提供一個元件的 Azure SQL Database 詳細資料，以便使用 Hive 和 Oozie metastore 的自訂設定。
+* **描述**：請至少提供一個元件的 Azure SQL 資料庫詳細資料，以便使用 Hive 和 Oozie metastore 的自訂設定。
 * **降低風險**：使用者必須提供有效的 SQL Azure 中繼存放區，然後重試要求。  
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported

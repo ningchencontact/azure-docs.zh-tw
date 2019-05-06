@@ -85,7 +85,7 @@ ms.locfileid: "64701169"
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")         
 
-1. 使用下列程式碼片段，利用您 Azure SQL Database 中的資料表所包含的資料來建立資料框架。 在此程式碼片段中，我們使用可納入 **AdventureWorksLT** 資料庫中的 **SalesLT.Address** 資料表。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
+1. 使用下列程式碼片段，利用您 Azure SQL 資料庫中的資料表所包含的資料來建立資料框架。 在此程式碼片段中，我們使用可納入 **AdventureWorksLT** 資料庫中的 **SalesLT.Address** 資料表。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
 
        val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
 

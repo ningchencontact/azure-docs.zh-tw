@@ -120,7 +120,9 @@
   items:
     - name: 管線和活動
       href: concepts-pipelines-activities.md
-    - name: 資料集和連結服務
+    - name: 連結的服務
+      href: concepts-linked-services.md
+    - name: 資料集
       href: concepts-datasets-linked-services.md
     - name: 管線執行和觸發程序
       href: concepts-pipeline-execution-triggers.md
@@ -130,8 +132,6 @@
       items:
         - name: 對應資料流程概念
           href: concepts-data-flow-overview.md
-        - name: 資料流程資料集
-          href: concepts-data-flow-datasets.md
         - name: 偵錯模式
           href: concepts-data-flow-debug-mode.md
         - name: 結構描述漂移
@@ -216,6 +216,8 @@
           href: connector-couchbase.md
         - name: DB2
           href: connector-db2.md
+        - name: 分隔符號文字格式
+          href: format-delimited-text.md
         - name: 深入探詢
           href: connector-drill.md
         - name: Dynamics 365
@@ -283,6 +285,8 @@
           href: connector-oracle-responsys.md
         - name: Oracle Service Cloud
           href: connector-oracle-service-cloud.md
+        - name: Parquet 格式
+          href: format-parquet.md
         - name: Paypal
           href: connector-paypal.md
         - name: Phoenix
@@ -582,6 +586,8 @@
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
     - name: 常見問題集
       href: frequently-asked-questions.md
+    - name: 技術白皮書
+      href: whitepapers.md
     - name: 藍圖
       href: 'https://azure.microsoft.com/roadmap/?tag=data-factory'
     - name: 價格

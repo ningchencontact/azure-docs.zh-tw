@@ -36,7 +36,7 @@ ms.locfileid: "64917018"
 
 ![使用 SQL Database 的複寫](media/replication-to-sql-database/replication-to-sql-database.png)
 
-**發行者**是執行個體或伺服器，它會藉由將更新傳送到散發者，來發行在某些資料表 (文章) 上的變更。 下列 SQL Server 版本支援從內部部署 SQL Server 發佈至任何 Azure SQL Database：
+**發行者**是執行個體或伺服器，它會藉由將更新傳送到散發者，來發行在某些資料表 (文章) 上的變更。 下列 SQL Server 版本支援從內部部署 SQL Server 發佈至任何 Azure SQL 資料庫：
 
 - SQL Server 2019 (預覽)
 - SQL Server 2016 至 SQL 2017

@@ -107,7 +107,7 @@
               href: image-factory-save-distribute-custom-images.md
             - name: 設定保留原則並執行清除指令碼
               href: image-factory-set-retention-policy-cleanup.md
-        - name: 在企業中設定 DevTest Labs 基礎結構
+        - name: 企業中的 DevTest Labs
           href: devtest-lab-guidance-prescriptive-adoption.md
           items:
             - name: 參考架構

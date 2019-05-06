@@ -43,7 +43,7 @@ ms.locfileid: "64926610"
 
 > [!IMPORTANT]
 > 如果您使用Azure Data Factory Integration Runtime 複製資料，請設定 [Azure SQL 伺服器防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)，讓 Azure 服務可存取伺服器。
-> 如果您使用自我裝載整合執行階段來複製資料，請將 Azure SQL 伺服器防火牆設定為允許適當的 IP 範圍。 此範圍包括用來連線到 Azure SQL Database 的機器 IP。
+> 如果您使用自我裝載整合執行階段來複製資料，請將 Azure SQL 伺服器防火牆設定為允許適當的 IP 範圍。 此範圍包括機器的 IP，用來連線到 Azure SQL Database。
 
 ## <a name="get-started"></a>開始使用
 

@@ -25,7 +25,7 @@ ms.locfileid: "60335044"
 
 **如需最新版本**：請瀏覽 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 
-使用新的程式庫重新建置您的應用程式，以及變更您 Azure SQL Database 中儲存的現有分區對應管理員中繼資料以支援新功能。
+使用新的程式庫重新建置您的應用程式，以及變更您 Azure SQL 資料庫中儲存的現有分區對應管理員中繼資料以支援新功能。
 
 依照順序執行步驟可確保在更新中繼資料物件時，舊版用戶端程式庫不會再於您的環境中出現，這表示升級之後將不會再建立舊版中繼資料物件。
 

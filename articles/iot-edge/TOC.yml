@@ -13,28 +13,44 @@
       href: quickstart.md
 - name: 教學課程
   items:
-    - name: 使用 Azure Functions 篩選資料
-      href: tutorial-deploy-function.md
-    - name: 使用 ASA 尋找平均值
-      href: tutorial-deploy-stream-analytics.md
-    - name: 使用 Azure Machine Learning 服務為資料評分
-      href: tutorial-deploy-machine-learning.md
-    - name: 以自訂視覺服務分類映像
-      href: tutorial-deploy-custom-vision.md
-    - name: 使用 SQL 在本機儲存資料
-      href: tutorial-store-data-sql-server.md
-    - name: 開發自訂程式碼模組
+    - name: 1. 設定開發環境
       items:
+        - name: 針對 Linux 裝置開發
+          href: tutorial-develop-for-linux.md
+        - name: 針對 Windows 裝置開發
+          href: tutorial-develop-for-windows.md
+    - name: 2. 開發自訂程式碼模組
+      items:
+        - name: C
+          items:
+            - name: 適用於 Linux 裝置的 C 模組
+              href: tutorial-c-module.md
+            - name: 適用於 Windows 裝置的 C 模組
+              href: tutorial-c-module-windows.md
         - name: 'C#'
-          href: tutorial-csharp-module.md
-        - name: Python
-          href: tutorial-python-module.md
-        - name: Node.js
-          href: tutorial-node-module.md
+          items:
+            - name: '適用於 Linux 裝置的 C# 模組'
+              href: tutorial-csharp-module.md
+            - name: '適用於 Windows 裝置的 C# 模組'
+              href: tutorial-csharp-module-windows.md
         - name: Java
           href: tutorial-java-module.md
-        - name: C
-          href: tutorial-c-module.md
+        - name: Node.js
+          href: tutorial-node-module.md
+        - name: Python
+          href: tutorial-python-module.md
+    - name: 3. 將 Azure 服務部署為模組
+      items:
+        - name: 使用 Azure Functions 篩選資料
+          href: tutorial-deploy-function.md
+        - name: 使用 ASA 尋找平均值
+          href: tutorial-deploy-stream-analytics.md
+        - name: 使用 Azure Machine Learning 服務為資料評分
+          href: tutorial-deploy-machine-learning.md
+        - name: 以自訂視覺服務分類映像
+          href: tutorial-deploy-custom-vision.md
+        - name: 使用 SQL 在本機儲存資料
+          href: tutorial-store-data-sql-server.md
 - name: 概念
   items:
     - name: IoT Edge 執行階段

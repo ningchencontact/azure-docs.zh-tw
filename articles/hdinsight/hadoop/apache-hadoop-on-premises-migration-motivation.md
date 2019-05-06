@@ -61,7 +61,7 @@ Azure HDInsight 是  [Hortonworks Data Platform (HDP)](https://hortonworks.com/
     - Azure Blob 儲存體
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
-    - 連接字串
+    - Azure SQL Database
     - Azure Analysis Services
 
 - **自我修復程序和元件** - HDInsight 使用自有的監視基礎結構，持續檢查基礎結構和開放原始碼元件。 它也會自動復原重大失敗，例如無法取得開放原始碼元件和節點。 如果任何 OSS 元件失敗，就會在 Ambari 中觸發警示。

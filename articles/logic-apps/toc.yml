@@ -61,6 +61,8 @@
           href: logic-apps-scenario-function-sb-trigger.md
         - name: 呼叫、觸發或巢狀邏輯應用程式
           href: logic-apps-http-endpoint.md
+        - name: 利用分頁取得大量資料
+          href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: 批次程序訊息
           href: logic-apps-batch-process-send-receive-messages.md
         - name: 製作 JSON 定義

@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b9234814404194364f775add87f865170747220a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73dda32c3f5f89a8b3e7465fbfdde28cb0ad2d6f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61469056"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020833"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -434,6 +434,12 @@ Azure 服務和功能導覽 </a>
                                             <a href="/azure/cyclecloud/">
                                                 <img src="media/index/logo_cyclecloud.svg" alt="" />
                                                 <p>CycleCloud</p>
+                                            </a>
+                                        </li>
+<li>
+                                            <a href="/azure/vmware-cloudsimple/">
+                                                <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                <p>依 CloudSimple 的 Azure VMware 解決方案</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1018,6 +1024,12 @@ Azure 服務和功能導覽 </a>
                                                 <p>Bing 影像搜尋 API</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/open-datasets">
+                                                <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                <p>Open Datasets</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>移轉</h3>
                                     <ul>
@@ -1254,6 +1266,12 @@ Azure 服務和功能導覽 </a>
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen1</p>
                                             </a>
+                                        </li>
+                                        <li>
+                                        <a href="/azure/open-datasets">
+                                            <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                            <p>Open Datasets</p>
+                                        </a>
                                         </li>
                                     </ul>
                                     <h3>DevOps</h3>
@@ -2070,6 +2088,25 @@ Azure 服務和功能導覽 </a>
                                                 <div class="cardText">
                                                     <h3>CycleCloud</h3>
                                                     <p>建立、管理及操作任何規模的 HPC 和大型計算叢集，並予以最佳化</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+<li>
+                                <a href="/azure/vmware-cloudsimple/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>依 CloudSimple 的 Azure VMware 解決方案</h3>
+                                                    <p>在 Azure 中執行 VMware 平台</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3613,6 +3650,25 @@ Azure 服務和功能導覽 </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Open Datasets</h3>
+                                                    <p>用來增強機器學習模型的策展公用資料集</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-netapp-files/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3785,6 +3841,25 @@ Azure 服務和功能導覽 </a>
                                                 <div class="cardText">
                                                     <h3>Azure 搜尋服務</h3>
                                                     <p>完全受控的搜尋即服務</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Open Datasets</h3>
+                                                    <p>用來增強機器學習模型的策展公用資料集</p>
                                                 </div>
                                             </div>
                                         </div>

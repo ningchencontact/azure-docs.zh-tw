@@ -43,15 +43,13 @@ sections:
       - type: paragraph
         text: 了解如何安裝和設定 IoT Edge、部署模組，以及在 Edge 利用類似串流分析和自訂視覺的 Azure 服務。
       - type: list
-        style: unordered
+        style: ordered
         items:
+          - html: 設定您的開發電腦，並了解適用於 <a href="/azure/iot-edge/tutorial-develop-for-linux">Linux 裝置</a>或 <a href="/azure/iot-edge/tutorial-develop-for-windows">Windows 裝置</a>的 IoT Edge 模組。
+          - html: '以 <a href="/azure/iot-edge/tutorial-c-module">C</a>、<a href="/azure/iot-edge/tutorial-csharp-module">C#</a>、<a href="/azure/iot-edge/tutorial-python-module">Python</a>、<a href="/azure/iot-edge/tutorial-node-module">Node.js</a> 或 <a href="/azure/iot-edge/tutorial-java-module">Java</a> 開發適用於 Linux 裝置的自訂程式碼模組。'
+          - html: '以 <a href="/azure/iot-edge/tutorial-c-module-windows">C</a> 或 <a href="/azure/iot-edge/tutorial-csharp-module-windows">C#</a> 開發適用於 Windows 裝置的自訂程式碼模組。'
           - html: <a href="/azure/iot-edge/tutorial-deploy-function">使用 Azure Functions 篩選訊息</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">使用 Azure 串流分析作為模組來尋找平均值</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">使用 Azure Machine Learning 作為模組來為資料評分</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">使用自訂視覺服務將影像歸類為一個模組</a>
-          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">使用 C# 模組來篩選資料</a>'
-          - html: <a href="/azure/iot-edge/tutorial-python-module">使用 Python 模組來篩選資料</a>
-          - html: <a href="/azure/iot-edge/tutorial-node-module">使用 Node.js 模組來篩選資料</a>
-          - html: <a href="/azure/iot-edge/tutorial-java-module">使用 Java 模組篩選資料</a>
-          - html: '<a href="/azure/iot-edge/tutorial-c-module">使用 C# 模組來篩選資料</a>'
           - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">使用 SQL Server 在邊緣儲存資料</a>

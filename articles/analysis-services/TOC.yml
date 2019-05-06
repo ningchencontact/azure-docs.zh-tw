@@ -70,41 +70,10 @@
           href: analysis-services-deploy.md
         - name: 使用 REST API 重新整理
           href: analysis-services-async-refresh.md
-        - name: 在 Visual Studio 中建立資料模型 - Adventure Works (1400) 教學課程
-          href: tutorials/aas-adventure-works-tutorial.md
-          items:
-            - name: 1 - 建立表格式模型專案
-              href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
-            - name: 2 - 取得資料
-              href: tutorials/aas-lesson-2-get-data.md
-            - name: 3 - 標示為日期資料表
-              href: tutorials/aas-lesson-3-mark-as-date-table.md
-            - name: 4 - 建立關聯性
-              href: tutorials/aas-lesson-4-create-relationships.md
-            - name: 5 - 建立計算結果欄
-              href: tutorials/aas-lesson-5-create-calculated-columns.md
-            - name: 6 - 建立量值
-              href: tutorials/aas-lesson-6-create-measures.md
-            - name: 7 - 建立關鍵效能指標
-              href: tutorials/aas-lesson-7-create-key-performance-indicators.md
-            - name: 8 - 建立檢視方塊
-              href: tutorials/aas-lesson-8-create-perspectives.md
-            - name: 9 - 建立階層
-              href: tutorials/aas-lesson-9-create-hierarchies.md
-            - name: 10 - 建立分割區
-              href: tutorials/aas-lesson-10-create-partitions.md
-            - name: 11 - 建立角色
-              href: tutorials/aas-lesson-11-create-roles.md
-            - name: 12 - 使用 Excel 分析
-              href: tutorials/aas-lesson-12-analyze-in-excel.md
-            - name: 13 - 部署
-              href: tutorials/aas-lesson-13-deploy.md
-            - name: 補充課程 - 詳細資料列
-              href: tutorials/aas-supplemental-lesson-detail-rows.md
-            - name: 補充課程 - 動態安全性
-              href: tutorials/aas-supplemental-lesson-dynamic-security.md
-            - name: 補充課程 - 不完全階層
-              href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
+        - name: 使用 Logic Apps 重新整理
+          href: analysis-services-refresh-logic-app.md
+        - name: 使用 Azure 自動化重新整理
+          href: analysis-services-refresh-azure-automation.md
     - name: 安全性
       items:
         - name: 管理資料庫使用者

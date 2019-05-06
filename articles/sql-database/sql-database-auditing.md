@@ -1,6 +1,6 @@
 ---
 title: 開始使用 Azure SQL 資料庫稽核 | Microsoft Docs
-description: 使用 Azure SQL Database 稽核來將資料庫事件追蹤至稽核記錄。
+description: 使用 Azure SQL 資料庫稽核來將資料庫事件追蹤至稽核記錄。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security

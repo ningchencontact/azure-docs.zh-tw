@@ -105,6 +105,9 @@
     - name: 自動化
       tocHref: /azure/automation/
       topicHref: /azure/automation/
+    - name: Azure 區塊鏈服務
+      tocHref: /azure/blockchain/service
+      topicHref: /azure/blockchain/service
     - name: Azure Databricks
       tocHref: /azure/azure-databricks/
       topicHref: /azure/azure-databricks/
@@ -145,6 +148,9 @@
     - name: Azure NetApp Files
       tocHref: /azure/azure-netapp-files/
       topicHref: /azure/azure-netapp-files/
+    - name: 依 CloudSimple 的 Azure VMware 解決方案
+      tocHref: /azure/vmware-cloudsimple/
+      topicHref: /azure/vmware-cloudsimple/
     - name: Azure 入口網站自訂
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/\
@@ -476,6 +482,10 @@
         - name: 服務
           tocHref: /azure/machine-learning/service
           topicHref: /azure/machine-learning/service/
+          items:
+            - name: 演算法和模組參考
+              tocHref: /azure/machine-learning/algorithm-module-reference
+              topicHref: /azure/machine-learning/algorithm-module-reference/module-reference.md
         - name: Studio
           tocHref: /azure/machine-learning/studio
           topicHref: /azure/machine-learning/studio/
@@ -532,6 +542,9 @@
     - name: 通知中樞
       tocHref: /azure/notification-hubs/
       topicHref: /azure/notification-hubs/
+    - name: Open Datasets
+      tocHref: /azure/open-datasets/
+      topicHref: /azure/open-datasets/
     - name: Operations Management Suite
       tocHref: /azure/operations-management-suite/
       topicHref: /azure/operations-management-suite/

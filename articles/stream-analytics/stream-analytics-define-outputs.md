@@ -337,7 +337,7 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 Azure Fun
 | 輸出類型 | 支援分割 | 資料分割索引鍵  | 輸出寫入器數目 |
 | --- | --- | --- | --- |
 | Azure Data Lake Store | 是 | 使用 {date} 和 {time} 權杖路徑前置詞模式中。 選擇日期格式，例如 YYYY/MM/DD、 DD/MM/YYYY 或 MM DD YYYY。 HH 用於時間格式。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
-| 連接字串 | 是 | 根據查詢中的 PARTITION BY 子句。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 若要深入了解達成更好寫入輸送量效能，您要將資料載入 Azure SQL Database 時，請參閱[到 Azure SQL Database 的 Azure Stream Analytics 輸出](stream-analytics-sql-output-perf.md)。 |
+| Azure SQL Database | 是 | 根據查詢中的 PARTITION BY 子句。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 若要深入了解達成更好寫入輸送量效能，您要將資料載入 Azure SQL Database 時，請參閱[到 Azure SQL Database 的 Azure Stream Analytics 輸出](stream-analytics-sql-output-perf.md)。 |
 | Azure Blob 儲存體 | 是 | 使用 {date} 和 {time} 權杖，從您的事件欄位中的路徑模式。 選擇日期格式，例如 YYYY/MM/DD、 DD/MM/YYYY 或 MM DD YYYY。 HH 用於時間格式。 您可依照單一自訂事件屬性 {fieldname} 或 {datetime:\<specifier>} 分割 Blob 輸出。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 | Azure 事件中心 | 是 | 是 | 根據分割區對齊方式而有所不同。<br /> 事件中樞輸出分割區索引鍵平均配合上游 （舊版） 的查詢步驟中，寫入器數目時，在 事件中樞輸出分割區數目相同。 每個寫入器會使用[EventHubSender 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)將事件傳送至特定的磁碟分割。 <br /> 事件中樞輸出分割區索引鍵與上游 （舊版） 的查詢步驟不一致，寫入器數目時，該先前步驟中的資料分割數目相同。 每個寫入器會使用[SendBatchAsync 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)中**EventHubClient**將事件傳送至所有輸出資料分割。 |
 | Power BI | 否 | None | 不適用。 |
@@ -357,7 +357,7 @@ Azure Stream Analytics 會使用可變大小的批次來處理事件，並寫入
 | 輸出類型 | 訊息大小上限 | 批次大小最佳化 |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | 請參閱[Data Lake 儲存體限制](../azure-subscription-service-limits.md#data-lake-store-limits)。 | 使用最多為 4 MB，每個寫入作業。 |
-| 連接字串 | 單一大量插入每 10,000 個最大資料列。<br />單一大量插入每 100 個最小資料列。 <br />請參閱[Azure SQL 限制](../sql-database/sql-database-resource-limits.md)。 |  每個批次一開始是大量插入批次大小上限。 您可以分割一半 （直到您到達最小的批次大小） 批次可重試的錯誤，從 SQL 為基礎。 |
+| Azure SQL Database | 單一大量插入每 10,000 個最大資料列。<br />單一大量插入每 100 個最小資料列。 <br />請參閱[Azure SQL 限制](../sql-database/sql-database-resource-limits.md)。 |  每個批次一開始是大量插入批次大小上限。 您可以分割一半 （直到您到達最小的批次大小） 批次可重試的錯誤，從 SQL 為基礎。 |
 | Azure Blob 儲存體 | 請參閱[Azure 儲存體限制](../azure-subscription-service-limits.md#storage-limits)。 | 最大 blob 的區塊大小為 4 MB。<br />最大 blob bock 計數為 50,000。 |
 | Azure 事件中心  | 每個訊息的 256 KB。 <br />請參閱[事件中樞限制](../event-hubs/event-hubs-quotas.md)。 |  輸入/輸出資料分割不對齊時，每個事件封裝在個別**EventData**和傳送批次，但不超過最大訊息大小 (適用於進階 SKU 的 1 MB)。 <br /><br />  輸入/輸出資料分割若是 aligned，多個事件會封裝到單一**EventData**執行個體，但不超過最大訊息大小，並傳送。  |
 | Power BI | 請參閱[Power BI Rest API 限制](https://msdn.microsoft.com/library/dn950053.aspx)。 |

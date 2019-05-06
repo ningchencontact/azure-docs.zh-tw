@@ -244,10 +244,10 @@ download.microsoft.com | 443 | 用於下載更新
 例如，若要從內部部署資料存放區複製到 Azure SQL Database 接收器或 Azure SQL 資料倉儲接收器，請執行下列步驟︰
 
 1. 在 Windows 防火牆和公司防火牆的通訊埠 1433 上都允許進行輸出 TCP 通訊。
-2. 設定 Azure SQL 伺服器的防火牆設定，將自我裝載整合執行階段電腦的 IP 位址新增到允許的 IP 位址清單。
+2. 設定 Azure SQL 資料庫的防火牆設定，將自我裝載整合執行階段電腦的 IP 位址新增到允許的 IP 位址清單。
 
 > [!NOTE]
-> 如果您的防火牆不允許使用輸出連接埠 1433，自我裝載整合執行階段將無法直接存取 Azure SQL Database。 在此情況下，您可以使用[分段複製](copy-activity-performance.md)到 Azure SQL Database 和 Azure SQL 資料倉儲。 在此案例中，您只需要 HTTPS (連接埠 443) 即可進行資料移動。
+> 如果您的防火牆不允許使用輸出連接埠 1433，自我裝載整合執行階段將無法直接存取 Azure SQL 資料庫。 在此情況下，您可以使用[分段複製](copy-activity-performance.md)到 Azure SQL Database 和 Azure SQL 資料倉儲。 在此案例中，您只需要 HTTPS (連接埠 443) 即可進行資料移動。
 
 
 ## <a name="proxy-server-considerations"></a>Proxy 伺服器考量

@@ -247,7 +247,7 @@ Azure Key Vault 中使用客戶管理之金鑰的伺服器端加密模型，需�
 - 用戶端：Azure Blob、資料表和佇列支援用戶端加密。 當您使用用戶端加密時，客戶會將資料加密，並上傳資料做為加密的 blob。 金鑰管理是由客戶完成。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault](https://docs.microsoft.com/azure/storage/storage-client-side-encryption)。
 
 
-#### <a name="azure-sql-database"></a>連接字串
+#### <a name="azure-sql-database"></a>Azure SQL Database
 
 Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶端加密案例的靜態加密。
 

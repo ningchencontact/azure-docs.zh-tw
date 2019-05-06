@@ -33,7 +33,7 @@ ms.locfileid: "60673844"
 [文章 9：將應用程式重構到 Azure Web 應用程式和 Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | 說明 Contoso 如何將 SmartHotel 應用程式移轉至 Azure 容器型 Web 應用程式，以及如何將應用程式資料庫移轉至 Azure SQL Server。 | 可用
 [文章 10：將 Linux 應用程式重構到 Azure App Service 和 Azure MySQL Server](contoso-migration-refactor-linux-app-service-mysql.md) | 說明 Contoso 如何使用 PHP 7.0 Docker 容器，將 osTicket Linux 應用程式移轉至 Azure App Service。 部署的程式碼基底會移轉至 GitHub。 應用程式資料庫會移轉至 Azure MySQL。 | 可用
 文章 11：在 Azure DevOps Services 中重構 TFS 部署 | 將 TFS 開發應用程式遷移至 Azure 中的 Azure DevOps Services | 本文
-[文章 12：在 Azure 容器和 Azure SQL Database 上重新架構應用程式](contoso-migration-rearchitect-container-sql.md) | 說明 Contoso 如何將其 SmartHotel 應用程式移轉和重新建構至 Azure。 它們會將應用程式的 Web 層重新建構為 Windows 容器及 Azure SQL Database 中的應用程式資料庫。 | 可用
+[文章 12：在 Azure 容器和 Azure SQL Database 上重新架構應用程式](contoso-migration-rearchitect-container-sql.md) | 說明 Contoso 如何將其 SmartHotel 應用程式移轉和重新建構至 Azure。 他們會將應用程式的 Web 層重新建構為 Windows 容器及 Azure SQL Database 中的應用程式資料庫。 | 可用
 [文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | 示範 Contoso 如何使用各種 Azure 功能和服務 (包括應用程式服務、Azure Kubernetes、Azure Functions、認知服務及 Cosmos DB) 重建其 SmartHotel 應用程式。 | 可用
 [文章 14：對 Azure 進行大規模移轉](contoso-migration-scale.md) | Contoso 在試驗完移轉組合後，準備對 Azure 進行完整規模的移轉。 | 可用
 

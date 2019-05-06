@@ -22,8 +22,12 @@
       href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: 將 MySQL 線上遷移至適用於 MySQL 的 Azure DB
       href: tutorial-mysql-azure-mysql-online.md
+    - name: 將 RDS MySQL 線上遷移至適用於 MySQL 的 Azure DB
+      href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
     - name: 將PostgreSQL 線上遷移至適用於 PostgreSQL 的 Azure DB
       href: tutorial-postgresql-azure-postgresql-online.md
+    - name: 將RDS PostgreSQL 線上遷移至適用於 PostgreSQL 的 Azure DB
+      href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - name: 將 MongoDB 離線遷移至 Azure Cosmos DB Mongo API
       href: tutorial-mongodb-cosmos-db.md
     - name: 將 MongoDB 線上遷移至 Azure Cosmos DB Mongo API

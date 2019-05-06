@@ -21,7 +21,7 @@ ms.locfileid: "64867941"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比較：Azure SQL Database 與 SQL Server
 
-Azure SQL Database 與 SQL Server 共用通用的程式碼基底。 Azure SQL Database 所支援的 SQL Server 功能取決於您所建立的 Azure SQL Database 類型。 使用 Azure SQL Database 時，您可以將資料庫建立為[受控執行個體](sql-database-managed-instance.md)的一部分、作為單一資料庫，或為彈性集區的一部分。
+Azure SQL Database 與 SQL Server 共用通用的程式碼基底。 Azure SQL Database 所支援的 SQL Server 功能取決於您所建立的 Azure SQL 資料庫類型。 使用 Azure SQL Database 時，您可以將資料庫建立為[受控執行個體](sql-database-managed-instance.md)的一部分、作為單一資料庫，或為彈性集區的一部分。
 
 Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選來瀏覽 Azure 的「服務更新」網頁，以尋找最新更新：
 

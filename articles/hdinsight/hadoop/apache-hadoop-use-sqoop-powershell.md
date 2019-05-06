@@ -1,6 +1,6 @@
 ---
 title: 使用 PowerShell 和 Azure HDInsight 執行 Apache Sqoop 作業
-description: 了解如何從工作站使用 Azure PowerShell，在 Apache Hadoop 叢集與 Azure SQL Database 之間執行 Apache Sqoop 匯入和匯出。
+description: 了解如何從工作站使用 Azure PowerShell，在 Apache Hadoop 叢集與 Azure SQL 資料庫之間執行 Apache Sqoop 匯入和匯出。
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight

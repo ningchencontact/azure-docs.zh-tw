@@ -25,9 +25,9 @@ ms.locfileid: "60585649"
 
 ## <a name="why-use-elastic-queries"></a>為何要使用彈性查詢
 
-### <a name="azure-sql-database"></a>連接字串
+### <a name="azure-sql-database"></a>Azure SQL Database
 
-完全在 T-SQL 中跨 Azure SQL Database 執行查詢。 這可讓您執行遠端資料庫的唯讀查詢，並且讓目前的內部部署 SQL Server 客戶可選擇使用三和四部分的名稱或 SQL DB 的連結伺服器來移轉應用程式。
+完全在 T-SQL 中跨 Azure SQL 資料庫執行查詢。 這可讓您執行遠端資料庫的唯讀查詢，並且讓目前的內部部署 SQL Server 客戶可選擇使用三和四部分的名稱或 SQL DB 的連結伺服器來移轉應用程式。
 
 ### <a name="available-on-standard-tier"></a>適用於標準層
 

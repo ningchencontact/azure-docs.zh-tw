@@ -7,14 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 02/21/2019
+ms.date: 05/02/2019
 ms.topic: hub-page
-ms.openlocfilehash: 621cf49284ac1080bf18619f80f14c8a21c2f761
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b76f670c6d2e28ea2cb5ee1cece13cf1023af09f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61294179"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021490"
 ---
 <div id="main" class="v2">
 <h1>Azure 認知服務文件</h1>
@@ -295,9 +295,10 @@ ms.locfileid: "61294179"
                     <div class="cardText">
                         <h3>視覺 API</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">電腦視覺</a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/">內容仲裁</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">自訂視覺服務</a></p>
                         <p><a href="/azure/cognitive-services/face/">臉部 API</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>表單辨識器&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>筆墨辨識器&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">影片索引子</a></p>
                     </div>
                 </div>
@@ -310,7 +311,7 @@ ms.locfileid: "61294179"
                 <div class="card">
                     <div class="cardText">
                         <h3>Speech API</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">語音服務 API</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service">語音服務</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>說話者辨識&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>Bing 語音 API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/translator-speech/"><span>翻譯工具語音&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
@@ -325,22 +326,10 @@ ms.locfileid: "61294179"
                 <div class="card">
                     <div class="cardText">
                         <h3>語言 API</h3>
-                        <p><a href="/azure/cognitive-services/bing-spell-check/">Bing 拼字檢查</a></p>
                         <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
+                        <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">文字分析</a></p>
                         <p><a href="/azure/cognitive-services/translator/">翻譯工具文字</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>知識 API</h3>
-                            <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                     </div>
                 </div>
             </div>
@@ -360,6 +349,7 @@ ms.locfileid: "61294179"
                         <p><a href="/azure/cognitive-services/bing-entities-search/">Bing 實體搜尋</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search">Bing 圖片搜尋</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search">Bing 圖像式搜尋</a></p>
+                        <p><a href="/azure/cognitive-services/bing-spell-check/">Bing 拼字檢查</a></p>
                         <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing 當地商家搜尋&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                     </div>
                 </div>
@@ -371,8 +361,10 @@ ms.locfileid: "61294179"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>異常偵測</h3>
-                        <p><a href="/azure/cognitive-services/anomaly-detector/">異常偵測器<span>&nbsp;預覽<sup style="font-size:70%"></sup></span></a></p>               
+                        <h3>決策 API</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/">異常偵測器<span>&nbsp;預覽<sup style="font-size:70%"></sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">內容仲裁</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizer&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                     </div>
                 </div>
             </div>

@@ -2,14 +2,14 @@
   href: index.yml
 - name: 概觀
   items:
-    - name: Azure NetApp Files 簡介
+    - name: 什麼是 Azure NetApp Files
       href: azure-netapp-files-introduction.md
     - name: 了解儲存體階層
       href: azure-netapp-files-understand-storage-hierarchy.md
 - name: 快速入門
   expanded: true
   items:
-    - name: 設定 Azure NetApp Files 並建立磁碟區
+    - name: 設定 Azure NetApp Files 並建立 NFS 磁碟區
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: 概念
   items:
@@ -19,8 +19,8 @@
       href: azure-netapp-files-resource-limits.md
     - name: Azure NetApp Files 的計量
       href: azure-netapp-files-metrics.md
-    - name: 針對 Azure NetApp Files 資源提供者錯誤進行疑難排解
-      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: 適用於 Azure NetApp Files 的效能基準測試
+      href: azure-netapp-files-performance-benchmarks.md
 - name: 使用說明指南
   items:
     - name: 註冊 Azure NetApp Files
@@ -47,6 +47,8 @@
       items:
         - name: REST
           href: azure-netapp-files-develop-with-rest-api.md
+        - name: 針對 Azure NetApp Files 資源提供者錯誤進行疑難排解
+          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: 參考
   items:
     - name: REST

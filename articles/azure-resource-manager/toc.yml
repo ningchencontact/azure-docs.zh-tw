@@ -68,6 +68,8 @@
       href: resource-group-delete.md
     - name: Resource Manager 與傳統部署
       href: resource-manager-deployment-model.md
+    - name: Azure 常見安全性屬性
+      href: azure-resource-manager-security-attributes.md
 - name: 作法
   items:
     - name: 建立範本
@@ -225,6 +227,8 @@
           href: move-support-resources.md
         - name: 標記支援
           href: tag-support.md
+    - name: 依服務的資源提供者
+      href: azure-services-resource-providers.md
     - name: REST - Resource Manager
       href: /rest/api/resources/
     - name: REST - 部署管理員
