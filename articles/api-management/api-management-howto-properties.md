@@ -27,16 +27,16 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 | 屬性 | 類型 | 描述 |
 | --- | --- | --- |
-| 顯示名稱 |string |用於參考原則中屬性的英數字元字串。 |
+| Display name |string |用於參考原則中屬性的英數字元字串。 |
 | Value |string |屬性的值。 不能是空白或只由空白字元組成。 |
 |Secret|boolean|決定該值是否為密碼且是否應該加密。|
-| 標記 |字串陣列 |若有提供選用的標記，則可用來篩選屬性清單。 |
+| Tags |字串陣列 |若有提供選用的標記，則可用來篩選屬性清單。 |
 
 ![具名值](./media/api-management-howto-properties/named-values.png)
 
 屬性值可以包含常值字串及 [原則運算式](/azure/api-management/api-management-policy-expressions)。 例如，`ExpressionProperty` 的值是原則運算式，會傳回包含目前日期與時間的字串。 `ContosoHeaderValue` 屬性已標記為密碼，所以未顯示其值。
 
-| 名稱 | Value | Secret | 標記 |
+| 名稱 | Value | Secret | Tags |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
