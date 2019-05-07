@@ -2,18 +2,19 @@
 title: 教學課程：使用 Azure CDN 在靜態網站上啟用與 SSL 搭配運作的自訂網域 - Azure Storage
 description: 了解如何為靜態網站代管設定自訂網域。
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 6ccd33805fe4b62d3456121321edc4eec3bff2e5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110282"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145046"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>教學課程：使用 Azure CDN 為靜態網站啟用與 SSL 搭配運作的自訂網域
 
@@ -55,7 +56,7 @@ ms.locfileid: "53110282"
 1. 在 Azure 入口網站中，按一下新建立的端點以設定自訂網域和 SSL 憑證。
 1. 選取 [新增自訂網域] 並輸入您的網域名稱，然後按一下 [新增]。
 1. 選取新建立的自訂網域對應以佈建 SSL 憑證。
-1. 將 [自訂網域 HTTPS] 設定為 [開啟]。 選取 [由 CDN 管理]以讓 Azure CDN 管理您的 SSL 憑證。 按一下 [儲存]。
+1. 將 [自訂網域 HTTPS] 設定為 [開啟]。 選取 [由 CDN 管理]以讓 Azure CDN 管理您的 SSL 憑證。 按一下 [檔案] 。
 1. 存取網站 URL 來測試您的網站。
 
 ## <a name="next-steps"></a>後續步驟

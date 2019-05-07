@@ -1,6 +1,6 @@
 ---
 title: 管理 Azure Log Analytics 代理程式 | Microsoft Docs
-description: 本文描述 Microsoft Monitoring Agent (MMA) 部署在機器上的生命週期內，您通常會執行的不同管理工作。
+description: 本文將告訴您通常會執行週期中的 Log Analytics 的 Windows 或 Linux 代理程式部署在機器上的不同管理工作。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730282"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139255"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>管理和維護適用於 Windows 和 Linux 的 Log Analytics 代理程式
 
-初始部署後的 Log Analytics 的 Windows 或 Linux 代理程式在 Azure 監視器中的，您可能需要重新設定代理程式、 升級，或從電腦中，如果已達到其生命週期的淘汰階段中移除它。 您可以手動或自動的方式輕鬆地管理這些例行維護工作，後者可以降低操作錯誤和費用。
+初始部署後的 Log Analytics 的 Windows 或 Linux 代理程式在 Azure 監視器中的，您可能需要重新設定代理程式、 升級，或如果它已達到其生命週期的淘汰階段從電腦移除它。 您可以手動或自動的方式輕鬆地管理這些例行維護工作，後者可以降低操作錯誤和費用。
 
 ## <a name="upgrading-agent"></a>將代理程式升級
 
@@ -40,7 +40,7 @@ ms.locfileid: "64730282"
 
 您可以執行下列步驟，從您 Log Analytics 工作區中，下載最新版的 Windows 代理程式。
 
-1. 登入 Azure 入口網站。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics 工作區]。
 
@@ -91,6 +91,7 @@ ms.locfileid: "64730282"
 ## <a name="adding-or-removing-a-workspace"></a>新增或移除工作區
 
 ### <a name="windows-agent"></a>Windows 代理程式
+當您想要不只重新設定 Windows 代理程式向不同的工作區回報，或從其組態中，移除工作區，但也想要設定代理程式 （通常有多個工作區報告時，所需的這一節的步驟稱為多路連接）。 設定 Windows 代理程式，以報告多個工作區只有初始安裝的代理程式，並使用如下所述的方法之後執行。    
 
 #### <a name="update-settings-from-control-panel"></a>從控制台更新設定
 
@@ -140,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Linux 代理程式
-如果您決定要向不同工作區註冊 Linux 代理程式，或想要從其設定中移除工作區，下列步驟示範如何重新設定該代理程式。
+下列步驟示範如何重新設定 Linux 代理程式，如果您決定要向不同的工作區，或從其組態中移除工作區。
 
 1. 若要確認已向工作區註冊該代理程式，請執行下列命令：
 
@@ -160,7 +161,7 @@ $mma.ReloadConfiguration()
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-4. 若要確認您的變更已生效，請執行下列命令：
+4. 若要確認您的變更生效，請執行下列命令：
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
@@ -231,7 +232,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
     ```
 
 ## <a name="uninstall-agent"></a>解除安裝代理程式
-使用命令列或安裝精靈，透過下列其中一個程序將 Windows 或 Linux 代理程式解除安裝。
+請使用下列程序的其中一個，解除安裝使用命令列或安裝精靈 」 的 Windows 或 Linux 代理程式。
 
 ### <a name="windows-agent"></a>Windows 代理程式
 

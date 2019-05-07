@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012503"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148035"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>啟用語音 SDK 中的記錄
 
-記錄的檔案是語音 SDK 的選擇性功能。 在開發期間記錄會提供其他資訊和從 Speeck SDK 的核心元件診斷。 可藉由設定屬性來啟用`Speech_LogFilename`語音之組態物件的位置和記錄檔的名稱。 記錄從該組態建立的辨識器之後全域啟用，而不能在之後停用。 記錄工作階段執行期間，您無法變更記錄檔的名稱。
+記錄的檔案是語音 SDK 的選擇性功能。 在開發期間記錄會提供其他資訊和從語音 SDK 的核心元件診斷。 可藉由設定屬性來啟用`Speech_LogFilename`語音之組態物件的位置和記錄檔的名稱。 記錄從該組態建立的辨識器之後全域啟用，而不能在之後停用。 記錄工作階段執行期間，您無法變更記錄檔的名稱。
 
 > [!NOTE]
 > 在所有支援的語音 SDK 程式設計語言，除了 JavaScript 中使用記錄。

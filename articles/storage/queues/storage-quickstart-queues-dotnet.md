@@ -2,18 +2,19 @@
 title: 快速入門：使用 .NET 在 Azure 儲存體中建立佇列
 description: 在此快速入門中，您將了解如何使用適用於 .NET 的 Azure 儲存體用戶端程式庫，建立佇列及在其中新增訊息。 接下來，您會了解如何讀取和處理佇列中的訊息。
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: f16c4438dfb2feb70dece0b95f8afc701c5a3d66
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: mhopkins
+ms.reviewer: cbrooks
+ms.openlocfilehash: c7edc64e6bacfc1ea9c2184e57a384152e02190a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009303"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142479"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>快速入門：使用 .NET 在 Azure 儲存體中建立佇列
 

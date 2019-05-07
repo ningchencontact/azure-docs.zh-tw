@@ -2,18 +2,19 @@
 title: Azure 快速入門 - 使用 PHP 在物件儲存體中建立 Blob | Microsoft Docs
 description: 快速了解使用 PHP 在 Azure Blob 儲存體之間傳送物件
 services: storage
-author: roygara
+author: mhopkins-msft
 ms.service: storage
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: rogarana
-ms.openlocfilehash: 3e1738c3e5acbe63faf1d614e2435088efd8c4d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 790c6a372021542daa1098e94209c91b7bcecfd5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014784"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149448"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>使用 PHP 在 Azure Blob 儲存體之間傳送物件
 在本快速入門中，您會了解如何使用 PHP 在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。 

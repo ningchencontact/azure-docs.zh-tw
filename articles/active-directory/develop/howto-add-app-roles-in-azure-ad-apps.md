@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427e293c28f634df9f66a7210d79e0df0d4d063c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410343"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138363"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>作法：在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色
 
@@ -51,7 +51,9 @@ ms.locfileid: "60410343"
 1. 找出 `appRoles` 設定並新增所有的應用程式角色，以編輯應用程式資訊清單。
 
      > [!NOTE]
-     > 此資訊清單中的每個角色定義都必須有不同的有效 **Guid** 作為 [識別碼] 屬性。 每個角色的 `"value"` 屬性應完全符合應用程式的程式碼中使用的字串。
+     > 此資訊清單中的每個應用程式角色定義必須具有不同有效的 GUID，如`id`屬性。 
+     > 
+     > `value`的每個應用程式角色定義的屬性應完全符合應用程式中的程式碼中使用的字串。 `value`屬性不能包含空格。 若是如此，您會收到錯誤，當您儲存資訊清單。
      
 1. 儲存資訊清單。
 

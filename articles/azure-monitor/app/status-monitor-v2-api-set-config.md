@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 2ca738d5d79fc73f892922825d4b731e8ee92b72
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 953edcb98de6ea705721aef0922562d23e18f0f5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870488"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148254"
 ---
 # <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v021-alpha"></a>狀態監視器 v2 API:Set-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
@@ -121,3 +121,21 @@ VERBOSE: set config file
 VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
+
+## <a name="next-steps"></a>後續步驟
+
+  檢視遙測：
+ - [探索計量](../../azure-monitor/app/metrics-explorer.md)以監視效能和使用量
+- [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)來診斷問題
+- 更多進階查詢的[分析](../../azure-monitor/app/analytics.md)
+- [建立儀表板](../../azure-monitor/app/app-insights-dashboards.md)
+ 
+ 新增更多遙測：
+ - [建立 web 測試](monitor-web-app-availability.md)藉此確定您的網站保持即時狀態。
+- [新增 web 用戶端遙測](../../azure-monitor/app/javascript.md)以查看網頁程式碼中的例外狀況，並讓您插入追蹤呼叫。
+- [將 Application Insights SDK 新增至您的程式碼](../../azure-monitor/app/asp-net.md)，讓您插入追蹤和記錄呼叫
+ 
+ 進一步運用狀態監視器 v2:
+ - 使用我們的指南，來[疑難排解](status-monitor-v2-troubleshoot.md)狀態監視器 v2。
+ - [取得設定](status-monitor-v2-api-get-config.md)以確認您的設定未正確地記錄。
+ - [取得狀態](status-monitor-v2-api-get-status.md)檢查監視。

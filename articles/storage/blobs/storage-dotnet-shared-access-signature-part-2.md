@@ -8,13 +8,14 @@ ms.topic: article
 ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5dcb9f16b589b8332d5fcf35c9d8b4cd914460f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de035517383f066ed847f06b7bc4ff650ec496f3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392495"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148393"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>共用存取簽章，第 2 部分：透過 Blob 儲存體來建立與使用 SAS
 

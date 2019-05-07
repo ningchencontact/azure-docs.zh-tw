@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867603"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149240"
 ---
 # <a name="streaming-endpoints-origin"></a>串流端點 （來源）
 
@@ -41,7 +41,7 @@ ms.locfileid: "64867603"
 
 類型描述如下表所示：  
 
-|類型|縮放單位|描述|
+|Type|縮放單位|描述|
 |--------|--------|--------|  
 |**標準**|0|預設為串流端點**標準**類型，可以變更為進階類型，藉由調整`scaleUnits`。|
 |**高級**|>0|**Premium**串流端點適合進階工作負載，提供專用和可調整的頻寬容量。 移至**Premium**型別，藉由調整`scaleUnits`（串流單位）。 `scaleUnits` 提供您專用的輸出容量，您可以透過每次增量 200 Mbps 的方式來購買。 使用**進階**類型時，每個啟用的單位會提供額外頻寬容量給應用程式。 |
@@ -156,7 +156,7 @@ IP 篩選/G20/自訂主機<sup>2</sup>|是|是
 
 您可以判斷是否 DNS 變更後 （流量會被導向到 Azure CDN） 的串流端點上使用 https://www.digwebinterface.com。 如果結果有 azureedge.net 網域名稱，在結果中，將流量現在正在指向 CDN。
 
-## <a name="provide-feedback"></a>提供意見反應
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

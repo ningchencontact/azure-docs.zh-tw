@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: ae6547b7940ee4007c747847e6cec7b0c67a9d3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8d7fa7bbb501675ee38ccc9183e981ce7bb714cf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717454"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150294"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間，會展開並更新以涵蓋更多服務 清單。
@@ -123,6 +123,13 @@ ms.locfileid: "64717454"
 當您使用 Azure Resource Manager 和 Azure 資源群組時，就會適用下列限制。 未列尚未變更使用 Azure Resource Manager 的限制。 請參閱上的表，如需這些限制。
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+
+#### <a name="shared-image-gallery-limits"></a>共用映像庫限制
+
+有限制，每個訂用帳戶，使用共用映像資源庫部署資源：
+- 每個區域中每個訂用帳戶 10 個共用映像庫
+- 每個區域中每個訂用帳戶 200 個映像定義
+- 每個區域中每個訂用帳戶 2000 個映像版本
 
 ### <a name="virtual-machine-scale-sets-limits"></a>虛擬機器擴展集限制
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

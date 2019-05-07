@@ -1,31 +1,30 @@
 ---
-title: 比較 Microsoft 身分識別平台 (v2.0) 端點與 Azure AD v1.0 端點 |Microsoft Docs
-description: 了解 Microsoft 身分識別平台 (v2.0) 端點與 Azure Active Directory (Azure AD) v1.0 端點之間的差異。
+title: 為什麼要更新至 Microsoft 身分識別平台 (v2.0) |Azure
+description: 了解 Microsoft 身分識別平台 (v2.0) 端點與 Azure Active Directory (Azure AD) v1.0 端點之間的差異，並了解更新至 v2.0 的優勢。
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
-ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
+ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dba74735b4c703123f9ff89b63a57d53faa84fde
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410638"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138776"
 ---
-# <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>比較 Microsoft 身分識別平台端點與 Azure AD v1.0 端點
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>為什麼要更新至 Microsoft 身分識別平台 (v2.0)？
 
 在開發新的應用程式時，務必知道 Microsoft 身分識別平台 (v2.0) 與 Azure Active Directory (v1.0) 端點之間的差異。 本文章涵蓋的端點，以及一些現有的限制，Microsoft 身分識別平台的主要差異。
 
@@ -56,7 +55,7 @@ Microsoft 身分識別平台的端點，您可以使用來取得存取消費者�
 
 * 應用程式必須事先知道可能會存取的所有資源。 很難建立能夠存取任意數目的資源的應用程式。
 
-與 Microsoft 身分識別平台的端點，您可以忽略靜態定義的權限在 Azure 入口網站並要求權限的應用程式註冊資訊中以累加方式相反地，這表示裸機最小一組權限預先要求並產生更一段時間的客戶使用額外的應用程式功能。 若要這樣做，您隨時可以在要求存取權杖時於 `scope` 參數中納入新的範圍，以指定您應用程式所需的範圍，而不需要在應用程式註冊資訊中預先定義它們。 如果使用者尚未同意新增至要求的新範圍，則系統只會提示他們同意新的使用權限。 若要深入了解，請參閱[使用權限、同意和範圍](v2-permissions-and-consent.md)。
+與 Microsoft 身分識別平台的端點，您可以忽略靜態定義的權限在 Azure 入口網站並要求權限的應用程式註冊資訊中以累加方式相反地，這表示裸機最小一組權限預先要求並成長一段時間的客戶更多使用其他的應用程式功能。 若要這樣做，您隨時可以在要求存取權杖時於 `scope` 參數中納入新的範圍，以指定您應用程式所需的範圍，而不需要在應用程式註冊資訊中預先定義它們。 如果使用者尚未同意新增至要求的新範圍，則系統只會提示他們同意新的使用權限。 若要深入了解，請參閱[使用權限、同意和範圍](v2-permissions-and-consent.md)。
 
 允許應用程式透過 `scope` 參數動態要求權限，讓開發人員可以完全掌控使用者的體驗。 您也可以選擇將您的同意體驗提前，並在一個初始授權要求中要求所有使用權限。 如果您的應用程式需要大量的使用權限，您可以在他們嘗試使用應用程式的某些功能時，以累加的方式逐漸向使用者收集這些使用權限。
 
@@ -69,7 +68,7 @@ Microsoft 身分識別平台的端點，您可以使用來取得存取消費者�
 * 資源識別碼，或 `AppID URI`：`https://graph.windows.net/`
 * 範圍，或 `oAuth2Permissions`：`Directory.Read`、`Directory.Write` 等。
 
-這適用於 Microsoft 身分識別平台的端點。 應用程式仍可作為資源、定義範圍並依據 URI 識別。 用戶端應用程式仍可要求存取這些範圍。 不過，用戶端要求那些權限的方式已改變。
+這適用於 Microsoft 身分識別平台的端點。 應用程式仍可作為資源、定義範圍並依據 URI 識別。 用戶端應用程式仍可要求存取這些範圍。 不過，用戶端要求這些權限的方式已變更。
 
 對於 v1.0 端點，Azure AD 的 OAuth 2.0 授權要求可能如下所示：
 
@@ -91,7 +90,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-其中 **scope** 參數指出用戶端應用程式要求授權的資源和使用權限。 所需的資源仍存在於要求中，它包含在 scope 參數的每個值中。 以這種方式使用 scope 參數可讓 Microsoft 身分識別平台端點更符合 OAuth 2.0 規格，並更貼近常見的業界作法。 它也可以讓應用程式執行[累加式同意](#incremental-and-dynamic-consent) - 只在應用程式需要使用權限才要求，而不是事先要求。
+其中 **scope** 參數指出用戶端應用程式要求授權的資源和使用權限。 所需的資源仍存在於要求中，它包含在 scope 參數的每個值中。 以這種方式使用 scope 參數可讓 Microsoft 身分識別平台端點更符合 OAuth 2.0 規格，並更貼近常見的業界作法。 它也可讓應用程式進行[增量同意](#incremental-and-dynamic-consent)-僅當應用程式需要它們而不是事先要求權限。
 
 ## <a name="well-known-scopes"></a>知名的範圍
 
@@ -99,7 +98,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 
 使用 Microsoft 身分識別平台端點的應用程式可能需要使用新的已知權限的應用程式-`offline_access`範圍。 如果應用程式需要長期代表使用者存取資源，則所有應用程式都需要要求此權限，即使使用者可能不會主動使用此應用程式亦然。 在同意對話方塊中， `offline_access` 範圍會對使用者顯示為 [隨時存取您的資料]，而使用者必須加以同意。 要求`offline_access`權限可讓您的 web 應用程式，以從 Microsoft 身分識別平台端點獲取 OAuth 2.0 refresh_token。 重新整理權杖屬於長效權杖，可用來交換新的 OAuth 2.0 存取權杖以延長存取期間。
 
-如果您的應用程式未要求 `offline_access` 範圍，則不會收到重新整理權杖。 這表示當您在 OAuth 2.0 授權碼流程中兌換授權碼時，只會從 `/token` 端點接收一個存取權杖。 該存取權杖會短時間維持有效 (通常是一小時)，但最後終將過期。 屆時，您的應用程式必須將使用者重新導向回到 `/authorize` 端點以擷取新的授權碼。 在此重新導向期間，視應用程式的類型而定，使用者或許不需要再次輸入其認證或重新同意使用權限。
+如果您的應用程式不要求`offline_access`範圍，則不會收到重新整理權杖。 這表示當您在 OAuth 2.0 授權碼流程中兌換授權碼時，只會從 `/token` 端點接收一個存取權杖。 該存取權杖會短時間維持有效 (通常是一小時)，但最後終將過期。 屆時，您的應用程式必須將使用者重新導向回到 `/authorize` 端點以擷取新的授權碼。 在此重新導向期間，視應用程式的類型而定，使用者或許不需要再次輸入其認證或重新同意使用權限。
 
 若要深入了解 OAuth 2.0 `refresh_tokens`，並`access_tokens`，請參閱[Microsoft 身分識別平台通訊協定參考](active-directory-v2-protocols.md)。
 
@@ -109,8 +108,8 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 
 現在會限制 `openid` 範圍可提供應用程式存取權的資訊。 `openid` 範圍只允許您的應用程式將使用者登入，並接收使用者的應用程式特定識別碼。 如果您想要取得有關應用程式中使用者的個人資料，您的應用程式便需要向使用者要求其他使用權限。 兩個新範圍 (`email` 和 `profile`) 可讓您要求其他使用權限。
 
-* `email` 範圍可讓您的應用程式透過 id_token 中的 `email` 宣告，存取使用者的主要電子郵件地址 (假設使用者有可定址的電子郵件地址)。 
-* `profile` 範圍可以讓您的應用程式存取使用者的所有其他基本資訊，例如其 id_token 中的名稱、慣用的使用者名稱、物件識別碼等等。
+* `email` 範圍可讓您的應用程式透過 id_token 中的 `email` 宣告，存取使用者的主要電子郵件地址 (假設使用者有可定址的電子郵件地址)。
+* `profile`範圍給予您的應用程式存取所有其他基本使用者資訊，例如其名稱、 慣用使用者名稱，物件識別碼，等等，在 id_token 中。
 
 這可讓您以最低洩漏的方式撰寫應用程式，所以您只可以向使用者要求應用程式執行其作業所需的資訊集。 如需有關這些範圍的詳細資訊，請參閱 < [Microsoft 身分識別平台範圍參考](v2-permissions-and-consent.md)。
 
@@ -124,7 +123,7 @@ Microsoft 身分識別平台的端點預設承載小問題較小的其權杖中�
 
 當您建置與 Microsoft 身分識別平台整合的應用程式時，您必須決定的 Microsoft 身分識別平台端點和驗證通訊協定是否符合您的需求。 平台與 v1.0 端點仍受到完整支援，並在某些方面，比 Microsoft 身分識別平台功能更豐富。 不過，Microsoft 身分識別平台[帶來顯著的好處](azure-ad-endpoint-comparison.md)適用於開發人員。
 
-以下是我們在這個時間點針對開發人員所提供的簡化建議：
+以下是提供的簡化的建議適用於開發人員現在：
 
 * 如果您想要或需要在應用程式中支援個人 Microsoft 帳戶或您正在撰寫新的應用程式，使用 Microsoft 身分識別平台。 但在這樣做之前，請務必了解此文章中討論的限制。
 * 如果您正在移轉，或更新相依於 SAML 應用程式，您無法使用 Microsoft 身分識別平台。 相反地，請參閱[Azure AD v1.0 指南](v1-overview.md)。
@@ -133,7 +132,7 @@ Microsoft 身分識別平台端點將會進化到排除此處所列的限制，�
 
 ### <a name="restrictions-on-app-registrations"></a>應用程式註冊的限制
 
-您想要整合與 Microsoft 身分識別平台端點每個應用程式中，您可以在新建立的應用程式註冊[**應用程式註冊**體驗](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)在 Azure 入口網站中。 現有的 Microsoft 帳戶應用程式不相容預覽入口網站中，但所有的 Azure AD 應用程式，不論其位置及時間註冊。
+您想要整合與 Microsoft 身分識別平台端點每個應用程式中，您可以在新建立的應用程式註冊[**應用程式註冊**體驗](https://aka.ms/appregistrations)在 Azure 入口網站中。 現有的 Microsoft 帳戶應用程式不相容於入口網站中，但所有的 Azure AD 應用程式，不論其位置及時間註冊。
 
 支援公司和學校帳戶及個人帳戶的應用程式註冊有下列注意事項：
 
@@ -168,9 +167,9 @@ Microsoft 身分識別平台已註冊的應用程式僅限於一組有限的重�
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-您可以新增後面兩個，因為它們是第一個重新導向 URL (contoso.com) 的子網域。 即將推出的版本將會移除這項限制。
+您可以新增後面兩個，因為它們是第一個重新導向 URL 的子網域 contoso.com。
 
-另請注意，針對特定應用程式您只能有 20 個回覆 URL - 此限制會套用到註冊所支援的所有應用程式類型 (SPA、原生用戶端、Web 應用程式和服務)。  
+您可以有特定的應用程式只有 20 個回覆 Url-這項限制套用到所有的應用程式類型註冊支援 （單一頁面應用程式 (SPA)、 原生用戶端、 web 應用程式和服務）。  
 
 若要了解如何向 Microsoft 身分識別平台使用的應用程式，請參閱[註冊應用程式使用新的應用程式註冊體驗](quickstart-register-app.md)。
 
@@ -178,9 +177,9 @@ Microsoft 身分識別平台已註冊的應用程式僅限於一組有限的重�
 
 目前，Microsoft 身分識別平台端點的程式庫支援是有限的。 如果您想要在生產環境應用程式中使用 Microsoft 身分識別平台的端點，您會有下列選項：
 
-* 如果您要建置 Web 應用程式，您可以安心地使用公開推出的伺服器端中介軟體來執行登入和權杖驗證。 這些包括了適用於 ASP.NET 的 OWIN OpenID Connect 中介軟體和 Node.js Passport 外掛程式。 如需使用 Microsoft 中介軟體的程式碼範例，請參閱[開始使用 Microsoft 身分識別平台](v2-overview.md#getting-started)一節。
-* 如果您正在建置傳統型或行動應用程式，可以使用其中一個預覽 Microsoft 驗證程式庫 (MSAL)。 這些程式庫處於支援生產環境的預覽階段，因此可以在生產應用程式中安全地使用。 您可以在[驗證程式庫參考](reference-v2-libraries.md)中，閱讀更多和預覽條款與可用程式庫相關的詳細資訊。
-* 對於未涵蓋的 Microsoft 程式庫的平台，您可以透過直接傳送和接收通訊協定訊息在應用程式程式碼中整合與 Microsoft 身分識別平台的端點。 OpenID Connect 和 OAuth 通訊協定[明確地記載](active-directory-v2-protocols.md)可協助您執行這種整合。
+* 如果您正在建置的 web 應用程式，您可以安全地使用正式運作的伺服器端中介軟體，來進行登入和權杖驗證。 這些包括了適用於 ASP.NET 的 OWIN OpenID Connect 中介軟體和 Node.js Passport 外掛程式。 如需使用 Microsoft 中介軟體的程式碼範例，請參閱[開始使用 Microsoft 身分識別平台](v2-overview.md#getting-started)一節。
+* 如果您正在建置傳統型或行動應用程式，您可以使用其中一個 Microsoft Authentication Library (MSAL)。 這些程式庫現已公開推出，或在支援生產環境的預覽，因此它是安全地在實際執行應用程式中使用它們。 您可以在[驗證程式庫參考](reference-v2-libraries.md)中，閱讀更多和預覽條款與可用程式庫相關的詳細資訊。
+* 對於未涵蓋的 Microsoft 程式庫的平台，您可以透過直接傳送和接收通訊協定訊息在應用程式程式碼中整合與 Microsoft 身分識別平台的端點。 OpenID Connect 和 OAuth 通訊協定[明確地記載](active-directory-v2-protocols.md)可協助您達成這種整合。
 * 最後，您可以使用開放原始碼 OpenID Connect 和 OAuth 程式庫來與 Microsoft 身分識別平台端點整合。 Microsoft 身分識別平台端點應該與許多開放原始碼通訊協定程式庫，而不需要變更相容。 這類的程式庫的可用性會依語言和平台而有所不同。 [OpenID Connect](https://openid.net/connect/) \(英文\) 和 [OAuth 2.0](https://oauth.net/2/) \(英文\) 網站保有一份常用的實作清單。 如需詳細資訊，請參閱 < [Microsoft 身分識別平台和驗證程式庫](reference-v2-libraries.md)，以及開放原始碼用戶端程式庫和經過 Microsoft 身分識別平台端點的範例的清單。
 * 如需參考， `.well-known` Microsoft 身分識別平台的通用端點的端點是`https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`。 使用您的租用戶識別碼來取代 `common`，以取得您租用戶特有的資料。  
 
@@ -196,4 +195,4 @@ Microsoft 身分識別平台端點不支援 SAML 或 WS-同盟;此外，它只�
 
 #### <a name="saml-restrictions"></a>SAML 限制
 
-如果您已在 Windows 應用程式中使用 Active Directory Authentication Library (ADAL)，您可能已利用使用「安全性聲明標記語言」(SAML) 判斷提示授與的 Windows 整合式驗證。 有了此授與之後，同盟 Azure AD 租用戶的使用者便可向其內部部署 Active Directory 執行個體以無訊息方式進行驗證，而不需輸入認證。 不支援 SAML 判斷提示授與端點上的 Microsoft 身分識別平台。
+如果您已在 Windows 應用程式中使用 Active Directory Authentication Library (ADAL)，您可能已利用 Windows 整合式驗證，使用安全性判斷提示標記語言 (SAML) 判斷提示授與。 有了此授與之後，同盟 Azure AD 租用戶的使用者便可向其內部部署 Active Directory 執行個體以無訊息方式進行驗證，而不需輸入認證。 SAML 判斷提示授與不支援端點上的 Microsoft 身分識別平台。

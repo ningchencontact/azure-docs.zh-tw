@@ -9,17 +9,17 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/02/2019
-ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/25/2019
+ms.openlocfilehash: d47c073eb6bfc3012d42d6add8a15029271120f4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323337"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136504"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理邏輯應用程式
 
-尽管可以在 <a href="https://portal.azure.com" target="_blank">Azure 门户</a>中创建、编辑、管理和部署逻辑应用，但在需要将逻辑应用添加到源代码管理、发布不同的版本，以及为各种部署环境创建 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)模板时，也可以使用 Visual Studio。 使用 Visual Studio Cloud Explorer，您可以尋找並管理您的邏輯應用程式以及其他 Azure 資源。 例如，您可以開啟、下載、編輯、執行、檢視執行歷程記錄、停用和啟用已在 Azure 入口網站部署的邏輯應用程式。 如果您不曾在 Visual Studio 中使用 Azure Logic Apps，請了解[如何使用 Visual Studio 建立邏輯應用程式](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
+尽管可以在 [Azure 门户](https://portal.azure.com)中创建、编辑、管理和部署逻辑应用，但在需要将逻辑应用添加到源代码管理、发布不同的版本，以及为各种部署环境创建 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)模板时，也可以使用 Visual Studio。 使用 Visual Studio Cloud Explorer，您可以尋找並管理您的邏輯應用程式以及其他 Azure 資源。 例如，您可以開啟、下載、編輯、執行、檢視執行歷程記錄、停用和啟用已在 Azure 入口網站部署的邏輯應用程式。 如果您不曾在 Visual Studio 中使用 Azure Logic Apps，請了解[如何使用 Visual Studio 建立邏輯應用程式](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
 > [!IMPORTANT]
 > 從 Visual Studio 部署或發佈邏輯應用程式會覆寫該應用程式在 Azure 入口網站中的版本。 因此，如果您想要保留在 Azure 入口網站所做的變更，在下一次從 Visual Studio 部署或發佈之前，請確定您已從 Azure 入口網站[重新整理 Visual Studio 中的邏輯應用程式](#refresh)。
@@ -28,35 +28,33 @@ ms.locfileid: "60323337"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * 如果您還沒有以下這些工具，請加以下載並安裝： 
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019、2017 或 2015 - Community 版本或更高版本</a>。 
+  * [Visual Studio 2019、2017 或 2015 - Community 版本或更高版本](https://aka.ms/download-visual-studio)。 
   本快速入門使用免費的 Visual Studio Community 2017。
 
     > [!IMPORTANT]
     > 當您安裝 Visual Studio 2019 或 2017 時，請務必選取 **Azure 開發**工作負載。
     > 有关详细信息，请参阅[在 Visual Studio Cloud Explorer 中管理与 Azure 帐户关联的资源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view)。
-    >
-    > 在 Visual Studio 2019 中，Cloud Explorer 可在 Azure 门户中打开逻辑应用设计器，但目前无法打开嵌入式逻辑应用设计器。
 
     若要安装 Cloud Explorer for Visual Studio 2015，请[从 Visual Studio Marketplace 下载 Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)。 
     有关详细信息，请参阅[在 Visual Studio Cloud Explorer (2015) 中管理与 Azure 帐户关联的资源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)。
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK（2.9.1 或更高版本）</a> 
+  * [Azure SDK（2.9.1 或更高版本）](https://azure.microsoft.com/downloads/) 
 
-  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+  * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
   * 您想要的 Azure Logic Apps Tools for Visual Studio 版本：
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
-    
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
-    
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-    您可以直接從 Visual Studio Marketplace 下載並安裝 Azure Logic Apps Tools，或了解<a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">如何從 Visual Studio 內部安裝此擴充功能</a>。 
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
+
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
+
+    您可以直接從 Visual Studio Marketplace 下載並安裝 Azure Logic Apps Tools，或了解[如何從 Visual Studio 內部安裝此擴充功能](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions)。 
     請務必在完成安裝之後重新啟動 Visual Studio。
 
 * 使用內嵌的 Logic Apps 設計工具時能夠存取 Web
@@ -72,11 +70,11 @@ ms.locfileid: "60323337"
 
 1. 開啟 Visual Studio。 在 [檢視] 功能表上選取 [Cloud Explorer]。
 
-2. 在 Cloud Explorer 中，選擇 [帳戶管理]。 選取與您的邏輯應用程式相關聯的 Azure 訂用帳戶，然後選擇 [套用]。 例如︰
+1. 在 Cloud Explorer 中，選擇 [帳戶管理]。 選取與您的邏輯應用程式相關聯的 Azure 訂用帳戶，然後選擇 [套用]。 例如︰
 
    ![選擇 [帳戶管理]](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
-2. 根據您要依 [資源群組] 還是 [資源類型] 來搜尋，遵循下列相關步驟：
+1. 根據您要依 [資源群組] 還是 [資源類型] 來搜尋，遵循下列相關步驟：
 
    * **資源群組**：在您的 Azure 訂用帳戶底下，Cloud Explorer 會顯示與該訂用帳戶相關聯的所有資源群組。 
    展開包含您邏輯應用程式的資源群組，然後選取您的邏輯應用程式。
@@ -91,7 +89,7 @@ ms.locfileid: "60323337"
 
 1. 開啟 Cloud Explorer，並尋找您的邏輯應用程式。 
 
-2. 在邏輯應用程式的捷徑功能表上，選取 [使用邏輯應用程式編輯器開啟]。
+1. 在邏輯應用程式的捷徑功能表上，選取 [使用邏輯應用程式編輯器開啟]。
 
    這個範例會顯示依資源類型所搜尋到的邏輯應用程式，因此您的邏輯應用程式會出現在 [邏輯應用程式] 區段下。
 
@@ -104,7 +102,7 @@ ms.locfileid: "60323337"
 
 ## <a name="download-from-azure"></a>從 Azure 下載
 
-您可以從 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>下載邏輯應用程式，並將它們儲存為 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 範本。 之後您可以在本機使用 Visual Studio 編輯範本，並針對不同部署環境自訂邏輯應用程式。 下載邏輯應用程式會自動將其在 [Resource Manager 範本](../azure-resource-manager/resource-group-overview.md#template-deployment)中的定義「參數化」，這也會使用 JavaScript 物件標記法 (JSON)。
+您可以從 [Azure 入口網站](https://portal.azure.com)下載邏輯應用程式，並將它們儲存為 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 範本。 之後您可以在本機使用 Visual Studio 編輯範本，並針對不同部署環境自訂邏輯應用程式。 下載邏輯應用程式會自動將其在 [Resource Manager 範本](../azure-resource-manager/resource-group-overview.md#template-deployment)中的定義「參數化」，這也會使用 JavaScript 物件標記法 (JSON)。
 
 1. 在 Visual Studio 中，開啟 Cloud Explorer，然後尋找並選取您想要從 Azure 下載的邏輯應用程式。
 
@@ -131,7 +129,7 @@ ms.locfileid: "60323337"
 
   -或-
 
-* 在 Visual Studio Cloud Explorer 中，開啟邏輯應用程式的捷徑功能表，然後選取 [重新整理]。 
+* 在 Visual Studio Cloud Explorer 中，開啟邏輯應用程式的捷徑功能表，然後選取 [重新整理]。
 
 ![使用更新內容重新整理邏輯應用程式](./media/manage-logic-apps-with-visual-studio/refresh-logic-app.png)
 
@@ -155,14 +153,14 @@ ms.locfileid: "60323337"
 
    ![開啟執行歷程記錄](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-2. 若要檢閱特定執行的詳細資料，請對該執行按兩下。 例如︰
+1. 若要檢閱特定執行的詳細資料，請對該執行按兩下。 例如︰
 
    ![詳細的執行歷程記錄](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > 若要依屬性排序資料表，請選擇該屬性的資料行標頭。 
 
-3. 展開您要檢閱其輸入和輸出的步驟。 例如︰
+1. 展開您要檢閱其輸入和輸出的步驟。 例如︰
 
    ![檢視每個步驟的輸入和輸出](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
 

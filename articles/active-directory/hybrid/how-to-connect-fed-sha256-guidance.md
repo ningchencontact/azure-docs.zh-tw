@@ -1,5 +1,5 @@
 ---
-title: 變更 Office 365 信賴憑證者信任的簽章雜湊演算法 | Microsoft Docs
+title: 變更簽章雜湊演算法，適用於 Office 365 信賴憑證者信任-Azure
 description: 本頁面提供變更與 Office 365 搭配運作之同盟信任的 SHA 演算法的指導方針
 keywords: SHA1,SHA256,O365,同盟,aadconnect,adfs,ad fs,變更 sha,同盟信任,信賴憑證者信任
 services: active-directory
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa597c8b458305946aa298631726df3da317534
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b6c81343d52f016dc779f9e08176a0d909684c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60244410"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138631"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>變更 Office 365 信賴憑證者信任的簽章雜湊演算法
 ## <a name="overview"></a>概觀

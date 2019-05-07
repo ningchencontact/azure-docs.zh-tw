@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 319ea3eaac2fcaa3c8e29680e125b7e29018ecc3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926610"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153429"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -229,7 +229,7 @@ ms.locfileid: "64926610"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)一文。 本節提供「Azure SQL 資料倉儲」資料集所支援的屬性清單。
 
-若要從「Azure SQL 資料倉儲」複製資料或將資料複製到該處，請將資料集的**類型**屬性設定為 **AzureSqlDWTable**。 以下是支援的屬性：
+若要複製資料，或 Azure SQL 資料倉儲，支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -248,6 +248,7 @@ ms.locfileid: "64926610"
             "referenceName": "<Azure SQL Data Warehouse linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -375,7 +376,7 @@ GO
 | rejectType | 指定 **rejectValue** 選項為常值或百分比。<br/><br/>允許的值為**值** (預設值) 和**百分比**。 | 否 |
 | rejectSampleValue | 決定在 PolyBase 重新計算已拒絕的資料列百分比之前，所要擷取的資料列數目。<br/><br/>允許的值為 1、2 等其他值。 | 是，如果 **rejectType** 是**百分比**。 |
 | useTypeDefault | 指定當 PolyBase 從文字檔擷取資料時，如何處理分隔符號文字檔中的遺漏值。<br/><br/>從 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx) 的＜引數＞一節深入了解這個屬性。<br/><br/>允許的值為 **True** 和 **False** (預設值)。 | 否 |
-| writeBatchSize | 當緩衝區大小達到 **writeBatchSize** 時，將資料插入 SQL 資料表中。 只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**整數** (資料列數目)。 | 沒有。 預設值為 10000。 |
+| writeBatchSize | 要插入至 SQL 資料表的資料列的數目**每個批次**。 只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**整數** (資料列數目)。 依預設，Data Factory 以動態方式決定適當的批次大小為基礎的資料列大小。 | 否 |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**時間範圍**。 範例：“00:30:00” (30 分鐘)。 | 否 |
 | preCopyScript | 指定一個供「複製活動」在每次執行時將資料寫入到「Azure SQL 資料倉儲」前執行的 SQL 查詢。 使用此屬性來清除預先載入的資料。 | 否 |
 
@@ -423,12 +424,13 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、 Azure Data Lake 儲存體 G
 
 2. **來源資料格式**屬於**Parquet**， **ORC**，或**分隔文字**，具備下列組態：
 
-   1. `folderPath` 和`fileName`不包含萬用字元篩選條件。
-   2. `rowDelimiter` 必須為 **\n**。
-   3. `nullValue` 會設定為**空字串** ("") 或保留預設值，而 `treatEmptyAsNull` 則保留預設值或設定為 true。
-   4. `encodingName` 會設定為 **utf-8**，也就是預設值。
-   5. 未指定 `escapeChar`、`quoteChar` 與 `skipLineCount`。 PolyBase 支援略過標頭列，這在 ADF 中可設定為 `firstRowAsHeader`。
-   6. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。
+   1. 資料夾路徑不包含萬用字元篩選條件。
+   2. 檔案名稱指向單一檔案，或者是`*`或`*.*`。
+   3. `rowDelimiter` 必須為 **\n**。
+   4. `nullValue` 會設定為**空字串** ("") 或保留預設值，而 `treatEmptyAsNull` 則保留預設值或設定為 true。
+   5. `encodingName` 會設定為 **utf-8**，也就是預設值。
+   6. `quoteChar``escapeChar`，和`skipLineCount`未指定。 PolyBase 支援略過標頭列，這在 ADF 中可設定為 `firstRowAsHeader`。
+   7. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。
 
 ```json
 "activities":[

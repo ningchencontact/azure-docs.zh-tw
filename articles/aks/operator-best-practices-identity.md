@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f98e38556458b8d8a675d1e3f985aacfca022082
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726619"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074153"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中驗證和授權的最佳做法
 
@@ -88,7 +88,7 @@ roleRef:
 
 ## <a name="use-pod-identities"></a>使用 Pod 身分識別
 
-**最佳做法指引** - 請勿使用 Pod 或容器映像內的固定認證，因為這些認證有外洩或濫用的風險。 請改用 Pod 身分識別，以使用中央 Azure AD 身分識別解決方案自動要求存取權。
+**最佳做法指引** - 請勿使用 Pod 或容器映像內的固定認證，因為這些認證有外洩或濫用的風險。 請改用 Pod 身分識別，以使用中央 Azure AD 身分識別解決方案自動要求存取權。 適用於 Linux 的 pod 和容器映像只是 pod 身分識別。
 
 當 Pod 需要存取其他 Azure 服務時 (例如 Cosmos DB、Key Vault 或 Blob 儲存體)，Pod 將需要存取認證。 這些存取認證可以使用容器映像來定義或插入作為 Kubernetes 祕密，但必須以手動方式建立並指派。 認證通常會跨 Pod 重複使用，而不會定期輪替。
 

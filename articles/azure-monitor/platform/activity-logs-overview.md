@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d9583f232a7afd6ab64421d57bbf14a45299e374
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995654"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138219"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活動記錄監視訂用帳戶活動
 
@@ -63,6 +63,7 @@ ms.locfileid: "59995654"
 * 分析中使用 Power BI [ **Power BI 內容套件**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)。
 * [將活動記錄檔儲存到**儲存體帳戶**以供封存或手動檢查](../../azure-monitor/platform/archive-activity-log.md)。 您可以使用**記錄設定檔**指定保留時間 (以天為單位)。
 * 透過 PowerShell Cmdlet、CLI 或 REST API 查詢活動記錄。
+* 檢視[修訂歷程記錄](#view-change-history)特定事件
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>在 Azure 入口網站中查詢活動記錄
 
@@ -98,7 +99,7 @@ ms.locfileid: "59995654"
 * 应发送哪些事件类别（写入、删除、操作）。 *「類別」一詞在記錄設定檔和活動記錄事件中的意義並不相同。在記錄設定檔中，「類別」代表作業類型 (寫入、刪除、動作)。在活動記錄事件中，「類別」屬性代表事件的來源或類型 (例如，管理、ServiceHealth、警示等等)。*
 * 應該要匯出哪一個區域 (位置)。 請務必包含「全域」，因為活動記錄中的許多事件都是全域事件。
 * 活動記錄應該在儲存體帳戶中保留多久。
-    - 保留期為 0 天表示會永遠保留記錄。 否則，值可以是任意數目的 1 到 365 之間的天數。
+    - 保留期為 0 天表示會永遠保留記錄。 如果不需永久保留，则可将该值设置为 1 到 365 之间的任意天数。
     - 如果已設定保留原則，但將儲存體帳戶的記錄儲存停用 (例如，若只選取事件中樞或 Log Analytics 選項)，保留原則不會有任何作用。
     - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。
 
@@ -183,6 +184,20 @@ az monitor log-profiles create --name <profile name> \
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## <a name="view-change-history"></a>檢視變更歷程記錄
+
+檢閱時，活動記錄檔，它可以協助查看變更期間發生該事件的時間。 您可以檢視這項資訊與變更歷程記錄。
+
+瀏覽至活動記錄檔使用入口網站左側的功能表。 選取您想要尋找更深入到活動記錄檔中的事件。 選取 **修訂歷程記錄 （預覽）** 索引標籤來檢視任何與事件相關聯的變更。
+
+![變更事件的歷程記錄清單](./media/activity-logs-overview/change-history-event.png)
+
+如果有任何與事件相關聯的變更，您會看到一份您可以選取的變更。 這會開啟**修訂歷程記錄 （預覽）** 頁面。 在此頁面上，您會看到該資源所做的變更。 您可以看到下列的範例中，我們可不只會看到 VM 變更大小，但先前的 VM 大小已變更之前，它已變更為。
+
+![顯示差異的變更歷程記錄頁面](./media/activity-logs-overview/change-history-event-details.png)
+
+若要深入了解變更歷程記錄，請參閱[取得資源變更](../../governance/resource-graph/how-to/get-resource-changes.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

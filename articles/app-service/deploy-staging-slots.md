@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266200"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137887"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
@@ -265,6 +265,8 @@ ms.locfileid: "59266200"
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+根據預設，新的位置指定的路由規則`0%`、 以灰色顯示。 藉由明確將此值設定為`0%`（以黑色文字顯示），您的使用者可以手動存取預備位置，使用`x-ms-routing-name`查詢參數，但它們將不會路由至該位置自動因為路由百分比設定為 0。 這是進階的案例中，您可以 「 隱藏 」 您的預備位置，從公用，同時讓內部團隊來測試在位置上的變更。
 
 <a name="Delete"></a>
 

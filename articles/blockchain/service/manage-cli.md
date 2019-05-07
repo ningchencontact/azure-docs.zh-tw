@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 100d50443c7ed839e57d80ceea3b8b86904e4ba7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d078ca181b2eed4b80d4f12f1c03b42f4e242194
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027866"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154445"
 ---
 # <a name="manage-azure-blockchain-service-with-azure-cli"></a>管理 Azure 區塊鏈 Service 中使用 Azure CLI
 
@@ -30,7 +30,7 @@ ms.locfileid: "65027866"
 範例會執行新的協會仲裁分類帳通訊協定的 Azure 區塊鏈 Service 中建立區塊鏈成員。
 
 ```azurecli
-az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties '{ "location": "<myBlockchainLocation>", "properties": {"password": "<myStrongPassword>", "protocol": "Quorum", "consortium": "<myConsortiumName>", "consortiumManagementAccountPassword": "<myConsortiumManagementAccountPassword>", "firewallRules": [ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ] }, "sku": { "name": "<skuName>" } }'
+az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"<myBlockchainLocation>\", \"properties\": {\"password\": \"<myStrongPassword>\", \"protocol\": \"Quorum\", \"consortium\": \"<myConsortiumName>\", \"consortiumManagementAccountPassword\": \"<myConsortiumManagementAccountPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] }, \"sku\": { \"name\": \"<skuName>\" } }"
 ```
 
 | 參數 | 描述 |
@@ -38,7 +38,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName> --re
 | **resource-group** | Azure 區塊鏈服務資源的建立資源群組名稱。 |
 | **name** | 識別您的 Azure 區塊鏈 Service 區塊鏈成員唯一名稱。 公開的端點位址會使用的名稱。 例如： `myblockchainmember.blockchain.azure.com`。 |
 | **位置** | 區塊鏈成員建立所在的 azure 區域。 例如： `eastus`。 選擇最靠近您的使用者或其他 Azure 應用程式的位置。 |
-| **password** | 成員的帳戶密碼。 成員的帳戶密碼用來驗證使用基本驗證的區塊鏈成員的公用端點。 密碼必須符合下列四個需求的三個： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號 （\`)，按兩下 quote(")、 單引號、 破折號 （-） 和分號 （;）。 |
+| **password** | 成員的帳戶密碼。 成員的帳戶密碼用來驗證使用基本驗證的區塊鏈成員的公用端點。 密碼必須符合下列四個需求的三種： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號(\`)，按兩下 quote(")、 單引號、 破折號 （-） 和 semicolumn(;)|
 | **protocol** | 公開預覽支援仲裁。 |
 | **consortium** | 若要加入或建立協會的名稱。 |
 | **consortiumManagementAccountPassword** | 協會管理密碼。 此密碼用於加入協會。 |
@@ -58,7 +58,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 |---------|-------------|
 | **resource-group** | Azure 區塊鏈服務資源的建立資源群組名稱。 |
 | **name** | 識別您的 Azure 區塊鏈服務成員的名稱。 |
-| **password** | 成員的帳戶密碼。 密碼必須符合下列四個需求的三個： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號 （\`)，按兩下 quote(")、 單引號、 破折號 （-） 和分號 （;）。 |
+| **password** | 成員的帳戶密碼。 密碼必須符合下列四個需求的三種： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號(\`)，按兩下 quote(")、 單引號、 破折號 （-） 和分號 （;）。 |
 
 
 ## <a name="create-transaction-node"></a>建立交易節點
@@ -66,7 +66,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 建立現有的區塊鏈成員內的交易 節點。 藉由新增交易節點，您可以增加安全性隔離，並分散負載。 例如，您可能有不同的用戶端應用程式的交易節點端點。
 
 ```azurecli
-az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties '{ "location": "<myRegion>", "properties": { "password": "<myStrongPassword>", "firewallRules": [ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ] } }'
+az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties "{ \"location\": \"<myRegion>\", \"properties\": { \"password\": \"<myStrongPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] } }"
 ```
 
 | 參數 | 描述 |
@@ -74,7 +74,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName>/tran
 | **resource-group** | Azure 區塊鏈服務資源的建立資源群組名稱。 |
 | **name** | 也包含新的交易節點名稱的 Azure 區塊鏈 Service 區塊鏈成員名稱。 |
 | **位置** | 區塊鏈成員建立所在的 azure 區域。 例如： `eastus`。 選擇最靠近您的使用者或其他 Azure 應用程式的位置。 |
-| **password** | 異動節點的密碼。 密碼必須符合下列四個需求的三個： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號 （\`)，按兩下 quote(")、 單引號、 破折號 （-） 和分號 （;）。 |
+| **password** | 異動節點的密碼。 密碼必須符合下列四個需求的三種： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號(\`)，按兩下 quote(")、 單引號、 破折號 （-） 和分號 （;）。 |
 | **ruleName** | 列入白名單 IP 位址範圍的規則名稱。 防火牆規則的選擇性參數。 |
 | **startIpAddress** | 列入白名單 IP 位址範圍的開頭。 防火牆規則的選擇性參數。 |
 | **endIpAddress** | 列入白名單 IP 位址範圍的結尾。 防火牆規則的選擇性參數。|
@@ -91,7 +91,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName>/tran
 |---------|-------------|
 | **resource-group** | Azure 區塊鏈服務資源所在的資源群組名稱。 |
 | **name** | 也包含新的交易節點名稱的 Azure 區塊鏈 Service 區塊鏈成員名稱。 |
-| **password** | 異動節點的密碼。 密碼必須符合下列四個需求的三個： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號 （\`)，按兩下 quote(")、 單引號、 破折號 （-） 和分號 （;）。 |
+| **password** | 異動節點的密碼。 密碼必須符合下列四個需求的三種： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號(\`)，按兩下 quote(")、 單引號、 破折號 （-） 和分號 （;）。 |
 
 ## <a name="change-consortium-management-account-password"></a>變更協會管理帳戶密碼
 
@@ -105,12 +105,12 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 |---------|-------------|
 | **resource-group** | Azure 區塊鏈服務資源的建立資源群組名稱。 |
 | **name** | 識別您的 Azure 區塊鏈服務成員的名稱。 |
-| **consortiumManagementAccountPassword** | 協會管理帳戶密碼。 密碼必須符合下列四個需求的三個： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號 （\`)，按兩下 quote(")、 單引號、 破折號 （-） 和分號 （;）。 |
+| **consortiumManagementAccountPassword** | 協會管理帳戶密碼。 密碼必須符合下列四個需求的三種： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號(\`)，按兩下 quote(")、 單引號、 破折號 （-） 和分號 （;）。 |
   
 ## <a name="update-firewall-rules"></a>更新防火牆規則
 
 ```azurecli
-az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules='[ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ]' --remove properties.consortiumManagementAccountAddress
+az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules="[ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ]" --remove properties.consortiumManagementAccountAddress
 ```
 
 | 參數 | 描述 |

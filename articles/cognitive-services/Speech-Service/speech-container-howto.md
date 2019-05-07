@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e000c034d10efc652f328fa8d1db8d1902fac693
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026758"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153056"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安裝並執行語音服務的容器
 
@@ -107,7 +107,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 下表列出支援的地區設定，如**語音轉換文字**1.1.1 中容器的版本：
 
-|語言地區設定|標記|
+|語言地區設定|Tags|
 |--|--|
 |中文|`zh-cn`|
 |English |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
@@ -136,7 +136,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 下表列出支援的地區設定，如**文字轉換語音**1.1.0 中容器的版本：
 
-|語言地區設定|標記|支援的語音|
+|語言地區設定|Tags|支援的語音|
 |--|--|--|
 |中文|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao apollo|
 |English |`en-au`|catherine<br>hayleyrus|
@@ -178,7 +178,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來執行三個容器的其中一個。 此命令會使用下列參數：
 
-**在私人預覽期間**、 計費的設定必須是有效啟動容器，但不是會針對使用量計費。
+**在預覽期間**，計費的設定必須是有效啟動容器，但您不需支付使用方式。
 
 | Placeholder | Value |
 |-------------|-------|
@@ -226,7 +226,7 @@ ApiKey={BILLING_KEY}
 
 ### <a name="speech-to-text"></a>語音轉文字
 
-容器提供 websocket 為基礎的查詢端點的 Api，可透過存取[語音服務 SDK 文件](https://docs.microsoft.com/azure/cognitive-services/speech-service/)。
+容器提供 websocket 為基礎的查詢端點的 Api，可透過存取[語音 SDK](index.yml)。
 
 根據預設，語音 SDK 會使用線上語音服務。 若要使用容器，您需要變更初始設定方法。 請參閱下面的範例。
 

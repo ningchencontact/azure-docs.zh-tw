@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f7fa1d58c21ea0ed457cc5987d7823fad68d554f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339803"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153822"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>在 Azure App Service 方案中建立 Linux 上的函式應用程式
 
@@ -62,9 +62,6 @@ Azure Functions 可讓您在 Linux 上預設的 Azure App Service 容器中裝�
     ![定義新的函式應用程式設定](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
 5. 選取 [前往資源]，以檢視您新的函式應用程式。
-
-> [!TIP]
-> 在入口網站中尋找您的函式應用程式時若發生問題，請嘗試[在 Azure 入口網站中將函式應用程式新增至您的最愛](functions-how-to-use-azure-function-app-settings.md#favorite)。
 
 接下來，您要在新的函式應用程式中建立函式。 即使在您的函式應用程式可用之後，可能需要幾分鐘才能完全初始化。
 

@@ -2,18 +2,17 @@
 title: 概念 - 在 Azure Kubernetes Service (AKS) 中調整應用程式
 description: 了解 Azure Kubernetes Service (AKS) 中的調整功能，包括水平 Pod 自動調整程式、叢集自動調整程式，以及 Azure 容器執行個體連接器。
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/28/2019
+ms.author: zarhoads
+ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466923"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074047"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中調整應用程式的選項
 
@@ -57,6 +56,8 @@ Kubernetes 會使用水平 Pod 自動調整程式 (HPA) 來監視資源需求，
 ![Kubernetes 叢集自動調整程式](media/concepts-scale/cluster-autoscaler.png)
 
 叢集自動調整程式通常會與水平 Pod 自動調整程式一起使用。 加以結合時，水平 Pod 自動調整程式會根據應用程式需求來增加或減少 Pod 的數目，而叢集自動調整程式會據此來調整所需的節點數目，以執行這些額外的 Pod。
+
+叢集中自動調整程式僅應該在 AKS 叢集與單一節點的集區上的預覽中進行測試。
 
 若要在 AKS 中開始使用叢集自動調整程式，請參閱 [AKS 上的叢集自動調整程式][aks-cluster-autoscaler]。
 

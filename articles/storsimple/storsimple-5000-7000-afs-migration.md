@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309815"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150746"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>將資料從 StorSimple 5000-7000 系列移轉至 Azure 檔案同步
 
@@ -87,7 +87,7 @@ StorSimple 5000 和 7000 系列儲存體裝置將在 2019 年 7 月終止服務�
     如果您使用不同的 Windows Server 主機，請略過此步驟並移至下一個步驟。 如果您將相同的 Windows 檔案伺服器用於 AFS，此時將會出現幾分鐘的停機時間。 
     - **停機時間開始** - 刪除您在*步驟 1F* 中建立的伺服器端點。 
     - 使用您後續要用來存放資料的路徑，建立新的伺服器端點。
-    - 當伺服器端點呈現為「狀況良好」時 (這可能需要幾分鐘的時間)，您會在這個新的位置中看到資料。 現在，您可以設定 Windows Server 主機以從這個新位置提供檔案。 -**停機時間結束**。
+    - 當伺服器端點呈現為「狀況良好」時 (這可能需要幾分鐘的時間)，您會在這個新的位置中看到資料。 現在，您可以設定 Windows Server 主機以從這個新位置提供檔案。 - **停機時間結束**。
 5.  如果您將其他 Windows 檔案伺服器用於 Azure 檔案同步，則不會出現任何停機時間。 
     - 使用您準備要替代 StorSimple 裝置作為快取的本機儲存體所使用的路徑，新增另一個伺服器端點。 
     - 幾分鐘後您即可在新的伺服器中看到檔案。 您可以隨時從 StorSimple 裝置切換到主機上的這個新位置。

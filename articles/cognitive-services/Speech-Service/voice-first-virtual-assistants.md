@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 024ceb83ab338e4fb7d68f32a46d3ceab1a5d20b
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073567"
+ms.locfileid: "65138173"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>關於自訂的語音第一個虛擬助理預覽
 
-使用 Azure 語音服務的自訂虛擬助理，讓開發人員建立自然、 擬人之交談的介面，其應用程式和體驗。 Bot Framework 直接列語音通道會提供相容機器人的框架，可讓具備低延遲和高可靠性等特性的互動語音中語音的協調、 協調的進入點，以增強這些功能。 Microsoft 的 Language Understanding (LUIS) 可以使用這些 bot 自然語言互動。 直接列語音使用語音服務軟體開發套件 (SDK) 的裝置來存取。
+使用 Azure 語音服務的自訂虛擬助理，讓開發人員建立自然、 擬人之交談的介面，其應用程式和體驗。 Bot Framework 直接列語音通道會提供相容機器人的框架，可讓具備低延遲和高可靠性等特性的互動語音中語音的協調、 協調的進入點，以增強這些功能。 Microsoft 的 Language Understanding (LUIS) 可以使用這些 bot 自然語言互動。 直接列語音使用語音軟體開發套件 (SDK) 的裝置來存取。
 
    ![直線語音協調流程服務流程的概念圖](media/voice-first-virtual-assistants/overview.png "語音通道流程")
 
@@ -32,7 +32,7 @@ ms.locfileid: "65073567"
 |----------|----------|
 |[自訂的網路喚醒 word](speech-devices-sdk-create-kws.md) | 您可以讓使用者以使用自訂的關鍵字 「 嘿，Contoso。 」 類似的機器人開始交談 完成這項工作與自訂的網路喚醒 word 引擎在語音 SDK 中，可以設定以文字做為自訂的網路喚醒[您可以在這裡產生](speech-devices-sdk-create-kws.md)。 直接列語音通道包括更為精確的線上醒機 word 啟用，與單獨裝置的服務端喚醒文字驗證。
 |[語音轉換文字](speech-to-text.md) | 直接列語音通道包含音訊的已辨識的文字所使用的即時轉譯[語音轉換文字](speech-to-text.md)Azure 語音服務。 因為它謄寫，此文字是可供您的機器人和用戶端應用程式。
-|[文字轉換語音](text-to-speech.md) | 文字的回應，從您的 bot 將會使用綜合[文字轉換語音](text-to-speech.md)Azure 語音服務。 此合成然後都可以當做音訊資料流，用戶端應用程式。 Microsoft 可讓您建置您自己[自訂、 高品質的類神經 TTS 語音](https://aka.ms/customneuraltts)，可讓您的品牌聲音。
+|[文字轉換語音](text-to-speech.md) | 文字的回應，從您的 bot 將會使用綜合[文字轉換語音](text-to-speech.md)Azure 語音服務。 此合成然後都可以當做音訊資料流，用戶端應用程式。 Microsoft 可讓您建置可讓您的品牌，若要深入了語音您自己自訂的高品質的類神經 TTS 語音[與我們連絡](mailto:mstts@microsoft.com)。
 |[直線語音](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Bot Framework 內的通道，直接列語音可讓順利且流暢地與之間的連線用戶端應用程式、 相容的 bot，Azure 語音服務的功能。 如需有關如何設定您的 bot，以使用直接列語音通道的詳細資訊，請參閱 < [Bot Framework 文件中的其頁面](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)。
 
 ## <a name="sample-code"></a>範例程式碼

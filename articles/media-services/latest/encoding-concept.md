@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ed798995807f4037f0127b08e25e04bdd0340d42
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 216eae383c704125cd32d9ed4cb1309299af7336
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724295"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153387"
 ---
 # <a name="encoding-with-media-services"></a>使用媒體服務編碼
 
@@ -91,7 +91,7 @@ Azure 媒體服務可讓您將高品質的數位媒體檔案編碼成調適性�
 
 若要調整媒體處理，請參閱[使用 CLI 進行調整](media-reserved-units-cli-how-to.md)。
 
-## <a name="provide-feedback"></a>提供意見反應
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

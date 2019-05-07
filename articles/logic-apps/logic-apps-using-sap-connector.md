@@ -8,29 +8,34 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 04/19/2019
 tags: connectors
-ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0ee8b164aa46c4fe2f66f27d9a41d0282c676907
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120142"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136745"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
 
-本文顯示如何使用 SAP ERP Central Component (ECC) 連接器，從邏輯應用程式內部存取內部部署 SAP 資源。 連接器可搭配使用 ECC 與 S/4 HANA 系統在內部部署環境。 SAP ECC 連接器支援透過中繼文件 (IDoc)、商務應用程式開發介面 (BAPI) 或遠端函式呼叫 (RFC) 來進行訊息或資料與 SAP Netweaver 型系統的雙向整合。
+本文說明如何存取您內部部署 SAP 資源從邏輯應用程式內使用 SAP 連接器。 連接器適用於 SAP 的傳統釋放這類的 R/3 ECC 系統內部部署。 連接器也可整合以 SAP 的較新的 HANA 為基礎的 SAP 系統，例如 S/4 HANA，只要它們裝載-在內部部署或雲端中。
+SAP 連接器支援 SAP Netweaver 為基礎的系統，透過中繼文件 (IDoc) 或商務應用程式發展介面 (BAPI) 或遠端函式呼叫 (RFC) 來回的訊息或資料整合。
 
-SAP ECC 連接器會使用<a href="https://support.sap.com/en/product/connectors/msnet.html">SAP.NET 連接器 (NCo) 程式庫</a>，並提供這些作業或動作：
+使用 SAP 連接器<a href="https://support.sap.com/en/product/connectors/msnet.html">SAP.NET 連接器 (NCo) 程式庫</a>，並提供這些作業或動作：
 
 - **傳送至 SAP**：在 SAP 系統中透過 tRFC 傳送 IDoc 或呼叫 BAPI 函式。
 - **從 SAP 接收**：從 SAP 系統透過 tRFC 接收 IDoc 或 BAPI 函式呼叫。
 - **產生結構描述**：針對 IDoc、BAPI 或 RFC 的 SAP 成品產生結構描述。
 
+上述所有作業，如 SAP 連接器支援基本驗證，透過使用者名稱和密碼。 連接器也支援<a href="https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true">安全網路通訊 (SNC)</a>，可用的 SAP Netweaver 單一登入或外部的安全性產品所提供的額外的安全性功能。 
+
 SAP 連接器會透過[內部部署資料閘道](https://www.microsoft.com/download/details.aspx?id=53127)與內部部署 SAP 系統整合。 例如，在傳送案例中，若從 Logic Apps 傳送訊息到 SAP 系統，資料閘道會作為 RFC 用戶端，並將接收自 Logic Apps 的要求轉送到 SAP。
 同樣地，在接收案例中，資料閘道會作為 RFC 伺服器，以從 SAP 接收要求並轉送至 Logic Apps。 
 
 本文說明如何建立會與 SAP 整合的邏輯應用程式範例，同時也會說明先前所述的整合案例。
+
+<a name="pre-reqs"></a>
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -43,6 +48,12 @@ SAP 連接器會透過[內部部署資料閘道](https://www.microsoft.com/downl
 * 您的 <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP 應用程式伺服器</a>或 <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP 訊息伺服器</a>
 
 * 下載最新的[內部部署資料閘道](https://www.microsoft.com/download/details.aspx?id=53127)，並安裝在任何內部部署電腦中。 請務必先在 Azure 入口網站中設定閘道再繼續。 閘道可協助您安全地存取內部部署的資料和資源。 如需詳細資訊，請參閱[安裝 Azure Logic Apps 的內部部資料署閘道](../logic-apps/logic-apps-gateway-install.md)。
+
+* 如果您使用 SNC 與單一登入 (SSO)，然後確定已針對 SAP 使用者對應的使用者身分執行閘道。 若要變更預設的帳戶，請選取**變更帳戶**並輸入使用者認證。
+
+   ![變更閘道使用的帳戶](./media/logic-apps-using-sap-connector/gateway-account.png)
+
+* 如果您要啟用 SNC 與外部的安全性產品，複製 SNC 程式庫或檔案在同一部電腦上的安裝閘道。 SNC 產品的一些範例包括<a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>、 Kerberos、 NTLM，依此類推。
 
 * 下載最新的 SAP 用戶端程式庫 (目前是<a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">適用於 Microsoft .NET Framework 4.0 和 Windows 64 位元 (x64) 的 SAP Connector (NCo) 3.0.21.0</a>)，並安裝到與內部部署資料閘道所在的相同電腦上。 安裝此版本或更新版本的原因如下：
 
@@ -114,7 +125,7 @@ SAP 連接器會透過[內部部署資料閘道](https://www.microsoft.com/downl
       如果 [登入類型] 屬性設定為 [群組]，則需要這些通常會顯示為選擇性項目的屬性： 
 
       ![建立 SAP 訊息伺服器連線](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
-
+      
    2. 完成之後，請選擇 [建立]。 
    
       Logic Apps 會設定並測試連線，以確定連線運作正常。
@@ -375,23 +386,45 @@ SAP 連接器會透過[內部部署資料閘道](https://www.microsoft.com/downl
 
 2. 成功執行之後，請移至企業整合帳戶，並檢查產生的結構描述是否存在。
 
+## <a name="enable-secure-network-communications-snc"></a>啟用安全的網路通訊 (SNC)
+
+在開始之前，請確定您符合先前所列出[必要條件](#pre-reqs):
+
+* 在內部部署資料閘道會為您的 SAP 系統，相同網路中的電腦上安裝。
+
+* 針對單一登入，則對應到 SAP 使用者的使用者的身分執行閘道。
+
+* 在 部署資料閘道相同的電腦上已安裝 SNC 程式庫提供額外的安全性功能。 這些範例的部分<a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>，Kerberos、 NTLM，依此類推。
+
+若要啟用您的要求到 SAP 系統或從 SNC，選取**使用 SNC** SAP 連接中的核取方塊，並提供這些屬性：
+
+   ![在 連線設定 SAP SNC](media/logic-apps-using-sap-connector/configure-sapsnc.png) 
+
+   | 屬性   | 描述 |
+   |------------| ------------|
+   | **SNC 程式庫** | SNC 程式庫名稱或 NCo 安裝位置的相對路徑或絕對路徑。 做為範例 sapsnc.dll 或.\security\sapsnc.dll 或 c:\security\sapsnc.dll  | 
+   | **SNC SSO** | 連線時透過 SNC，SNC 身分識別通常用於驗證呼叫者。 另一個選項是覆寫，讓使用者/密碼資訊可用來驗證呼叫者，但仍屬於加密列。|
+   | **SNC 我的名字** | 在大部分情況下，這可省略。 已安裝的 SNC 解決方案通常會知道自己 SNC 的名稱。 只會針對支援 「 多重身分識別 」 的解決方案，您可能需要指定要用於特定的目的地/伺服器的身分識別 |
+   | **SNC 合作夥伴名稱** | 後端的 SNC 名稱 |
+   | **SNC 品質的保護** | 要用於特定的目的地/伺服器 SNC 通訊服務的品質。 預設值是由後端系統定義的。 最大值是由使用 SNC 安全性產品定義 |
+   |||
+
+   > [!NOTE]
+   > SNC_LIB 和 SNC_LIB_64 的環境變數不應該設定在電腦上擁有部署資料閘道和 SNC 程式庫。 如果設定，它們會優先於傳遞透過連接器的 SNC 程式庫值。
+   >
+
 ## <a name="known-issues-and-limitations"></a>已知問題與限制
 
 以下是 SAP 連接器目前的已知問題和限制：
+
+* 單一的「傳送至 SAP」呼叫或訊息才能與 tRFC 搭配運作。 不支援商務應用程式開發介面 (BAPI) 認可模式，例如在相同的工作階段中進行多個 tRFC 呼叫。
 
 * SAP 觸發程序不支援從 SAP 接收批次 IDOC。 此動作可能會導致 SAP 系統與資料閘道之間的 RFC 連線失敗。
 
 * SAP 觸發程序不支援資料閘道叢集。 在某些容錯移轉案例中，與 SAP 系統通訊的資料閘道節點可能會與作用中節點不同，而導致非預期的行為。 傳送案例可支援資料閘道叢集。
 
-* 接收案例不支援傳回非 null 回應。 具有觸發程序和回應動作的邏輯應用程式會導致非預期的行為。 
-
-* 單一的「傳送至 SAP」呼叫或訊息才能與 tRFC 搭配運作。 不支援商務應用程式開發介面 (BAPI) 認可模式，例如在相同的工作階段中進行多個 tRFC 呼叫。
-
-* 「傳送到 SAP」和「產生結構描述」這兩個動作都不支援含有附件的 RFC。
-
 * SAP 連接器目前不支援 SAP 路由器字串。 內部部署資料閘道必須和所要連線的 SAP 系統存在於相同 LAN 內。
 
-* 後續針對內部部署資料閘道所進行的更新，可能會讓 DATS 和 TIMS SAP 欄位的不存在 (null)、空白、最小和最大值轉換有所變更。
 
 ## <a name="get-support"></a>取得支援
 

@@ -1,6 +1,6 @@
 ---
-title: 在 PIM-Azure Active Directory 中執行我的 Azure AD 角色的存取權檢閱 |Microsoft Docs
-description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中執行您的 Azure AD 角色的存取權檢閱。
+title: 檢閱在 PIM-Azure Active Directory 中的 Azure AD 角色的存取權 |Microsoft Docs
+description: 了解如何檢閱在 Azure AD Privileged Identity Management (PIM) 中的 Azure AD 角色的存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3850af026ea13e1920aea65e18358ebb04ef0d25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287807"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140971"
 ---
-# <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>在 PIM 中執行我的 Azure AD 角色的存取權檢閱
+# <a name="review-access-to-azure-ad-roles-in-pim"></a>檢閱在 PIM 中的 Azure AD 角色的存取權
+
 Azure Active Directory (AD) Privileged Identity Management (PIM) 簡化了企業管理特殊權限的存取，在 Azure AD 中的資源和 Office 365 或 Microsoft Intune 等其他 Microsoft online services。  
 
 如果您已被指派系統管理角色，貴組織的特殊權限角色管理員可能會要求您定期確認您仍需要該角色來執行作業。 您可能會收到包含連結的電子郵件，或請直接移至 [Azure 入口網站](https://portal.azure.com)。 請遵循本文中的步驟，執行獲指派角色的自我檢閱。

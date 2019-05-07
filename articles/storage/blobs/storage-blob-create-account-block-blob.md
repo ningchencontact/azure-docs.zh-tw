@@ -1,18 +1,19 @@
 ---
 title: 建立區塊 blob 儲存體帳戶-Azure 儲存體 |Microsoft Docs
 description: 示範如何使用進階效能特性建立的 Azure 區塊 blob 儲存體帳戶。
+author: tamram
+services: storage
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/23/2019
-author: twooley
-ms.author: twooley
+ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f4d3e3ad923b6a603902bc007107cb41dae8cf6c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9d8fb8f5f470dc47088efb30b7f823a0b8c624c8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400470"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141005"
 ---
 # <a name="create-a-block-blob-storage-account"></a>建立區塊 Blob 儲存體帳戶
 
@@ -42,7 +43,7 @@ ms.locfileid: "58400470"
 
 1. 設定其餘部分，設定下列各項：
 
-   |欄位     |值  |
+   |欄位     |Value  |
    |---------|---------|
    |**效能**    |  選取  **Premium**。   |
    |**帳戶類型**    | 選取  **BlockBlobStorage**。      |

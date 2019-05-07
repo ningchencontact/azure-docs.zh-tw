@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/16/2018
-ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/06/2019
+ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916803"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147735"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -48,20 +48,20 @@ ms.locfileid: "64916803"
 
 以下是單一邏輯應用程式執行的限制：
 
-| 名稱 | 限制 | 注意 |
-|------|-------|-------|
-| 執行持續時間 | 90 天 | 若要變更此限制，請參閱[變更執行持續時間](#change-duration)。 |
-| 最小循環間隔 | 1 秒 | |
-| 最大循環間隔 | 500 天 | |
-| 儲存體保留期 | 從執行開始時間算起 90 天 | 若要將此值的限制變更為介於 7 天到 90 天之間，請參閱[變更儲存保留](#change-retention)。 |
-||||
+| 名稱 | 多租用戶限制 | 整合服務環境的限制 | 注意 |
+|------|--------------------|---------------------------------------|-------|
+| 執行持續時間 | 90 天 | 365 天 | 若要變更預設限制，請參閱[變更執行持續期間](#change-duration)。 |
+| 儲存體保留期 | 從執行開始時間算起 90 天 | 365 天 | 若要變更預設限制，請參閱[將變更儲存體保留期](#change-retention)。 |
+| 最小循環間隔 | 1 秒 | 1 秒 ||
+| 最大循環間隔 | 500 天 | 500 天 ||
+|||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
 ### <a name="change-run-duration-and-storage-retention"></a>變更執行持續時間和儲存體保留期
 
-若要將預設限制變更為介於 7 天到 90 天之間，請依照這些步驟執行。 如果需要指定超過上限的值，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)來協助處理您的需求。
+若要變更預設的限制執行的持續時間和儲存體保留期，請遵循下列步驟。 如果需要指定超過上限的值，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)來協助處理您的需求。
 
 1. 在 Azure 入口網站的邏輯應用程式功能表上，選擇 [工作流程設定]。
 
@@ -91,7 +91,7 @@ ms.locfileid: "64916803"
 
 以下是單一邏輯應用程式執行的限制：
 
-### <a name="global-logic-apps-service"></a>全局逻辑应用服务
+### <a name="multi-tenant-logic-apps-service"></a>多租用戶的邏輯應用程式服務
 
 | 名稱 | 限制 | 注意 |
 | ---- | ----- | ----- |
@@ -107,9 +107,9 @@ ms.locfileid: "64916803"
 
 | 名稱 | 限制 | 注意 |
 |------|-------|-------|
-| 基礎單位執行限制 | 每 5 分鐘，10000 的動作執行 <br>這是每月 ~ 80 百萬次動作執行 | |
-| 縮放單位執行限制 | 5,000 每 5 分鐘的動作執行 <br>這是每月 ~ 40 萬個動作執行次數 | |
-| 您可以新增的最大的縮放單位 | 3 | |
+| 基礎單位執行限制 | 當基礎結構容量達到 80%時系統節流 | 提供 ~ 4000 每分鐘，也就是每月 ~ 160 萬個動作執行的動作執行 | |
+| 縮放單位執行限制 | 當基礎結構容量達到 80%時系統節流 | 每個縮放單位可以提供每分鐘，為 ~ 80 萬 ~ 2000 執行其他動作執行每個月的多個動作執行 | |
+| 您可以新增的最大的縮放單位 | 10 | |
 ||||
 
 若要在正常處理中超出這些限制，或執行可能超出這些限制的負載測試，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)來協助處理您的需求。
@@ -124,20 +124,20 @@ ms.locfileid: "64916803"
 
 某些連接器作業會進行非同步呼叫或接聽 Webhook 要求，因此這些作業的逾時可能會超過這些限制。 如需詳細資訊，請參閱特定連接器的技術詳細資料以及[工作流程觸發程序和動作](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)。
 
-| 名稱 | 限制 | 注意 |
-| ---- | ----- | ----- |
-| 傳出的要求 | 120 秒 | 對於執行時間較久的作業，請使用[非同步輪詢模式](../logic-apps/logic-apps-create-api-app.md#async-pattern)或 [until 迴圈](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)。 |
-| 同步回應 | 120 秒 | 為了讓原始要求取得回應，除非您以巢狀工作流程的形式呼叫另一個邏輯應用程式，否則回應中的所有步驟都必須在限制時間內完成。 如需詳細資訊，請參閱[呼叫、觸發或巢狀邏輯應用程式](../logic-apps/logic-apps-http-endpoint.md)。 |
-|||| 
+| 名稱 | 多租用戶限制 | 整合服務環境的限制 | 注意 |
+|------|--------------------|---------------------------------------|-------|
+| 傳出的要求 | 120 秒 | 240 秒 | 對於執行時間較久的作業，請使用[非同步輪詢模式](../logic-apps/logic-apps-create-api-app.md#async-pattern)或 [until 迴圈](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)。 |
+| 同步回應 | 120 秒 | 240 秒 | 為了讓原始要求取得回應，除非您以巢狀工作流程的形式呼叫另一個邏輯應用程式，否則回應中的所有步驟都必須在限制時間內完成。 如需詳細資訊，請參閱[呼叫、觸發或巢狀邏輯應用程式](../logic-apps/logic-apps-http-endpoint.md)。 |
+|||||
 
 #### <a name="message-size"></a>訊息大小
 
-| Name | 限制 | 注意 |
-| ---- | ----- | ----- |
-| 訊息大小 | 100 MB | 若要解決此限制，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 |
-| 使用區塊化時的訊息大小 | 1 GB | 此限制適用於原生支援區塊化的動作，或可讓您在其執行階段設定中啟用區塊化的動作。 如需詳細資訊，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 |
-| 運算式評估限制 | 131,072 個字元 | `@concat()`、`@base64()`、`@string()` 運算式的長度不能超過此限制。 |
-||||
+| 名稱 | 多租用戶限制 | 整合服務環境的限制 | 注意 |
+|------|--------------------|---------------------------------------|-------|
+| 訊息大小 | 100 MB | 200 MB | 若要解決此限制，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 |
+| 使用區塊化時的訊息大小 | 1 GB | 5 GB | 此限制適用於原生支援區塊化的動作，或可讓您在其執行階段設定中啟用區塊化的動作。 <p>整合服務環境中，Logic Apps 引擎支援這項限制，但連接器都有其自己區塊處理的限制上限引擎，例如，請參閱 < [Azure Blob 儲存體連接器](/connectors/azureblob/)。 如需詳細資訊區塊處理，請參閱 <<c0> [ 處理大型訊息有區塊處理](../logic-apps/logic-apps-handle-large-messages.md)。 |
+| 運算式評估限制 | 131,072 個字元 | 131,072 個字元 | `@concat()`、`@base64()`、`@string()` 運算式的長度不能超過此限制。 |
+|||||
 
 #### <a name="retry-policy"></a>重試原則
 
@@ -154,10 +154,10 @@ ms.locfileid: "64916803"
 
 以下限制適用於可透過 Web API 來建立的自訂連接器。
 
-| 名稱 | 限制 |
-| ---- | ----- |
-| 自訂連接器的數目 | 每個 Azure 訂用帳戶 1,000 個 |
-| 自訂連接器所建立之每個連線的每分鐘要求數目 | 每個連線 500 個要求 |
+| 名稱 | 多租用戶限制 | 整合服務環境的限制 | 注意 |
+|------|--------------------|---------------------------------------|-------|
+| 自訂連接器的數目 | 每個 Azure 訂用帳戶 1,000 個 | 每個 Azure 訂用帳戶 1,000 個 ||
+| 每分鐘的自訂連接器的要求數目 | 每分鐘針對每個連接的 500 個要求 | 每分鐘每個 2,000 要求*自訂連接器* ||
 |||
 
 <a name="managed-identity"></a>
@@ -216,13 +216,13 @@ ms.locfileid: "64916803"
 
 ### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>B2B 通訊協定 (AS2、X12、EDIFACT) 訊息大小
 
-以下是適用於 B2B 通訊協定的限制：
+以下是適用於 B2B 通訊協定的訊息大小限制：
 
-| 名稱 | 限制 | 注意 |
-| ---- | ----- | ----- |
-| AS2 | 50 MB | 適用於解碼和編碼 |
-| X12 | 50 MB | 適用於解碼和編碼 |
-| EDIFACT | 50 MB | 適用於解碼和編碼 |
+| 名稱 | 多租用戶限制 | 整合服務環境的限制 | 注意 |
+|------|--------------------|---------------------------------------|-------|
+| AS2 | v2-100 MB<br>v1 - 50 MB | v2-200 MB <br>v1 - 50 MB | 適用於解碼和編碼 |
+| X12 | 50 MB | 50 MB | 適用於解碼和編碼 |
+| EDIFACT | 50 MB | 50 MB | 適用於解碼和編碼 |
 ||||
 
 <a name="disable-delete"></a>

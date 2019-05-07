@@ -1,20 +1,18 @@
 ---
 title: 使用 Azure 備份來取代您的磁帶基礎結構
 description: 了解 Azure 備份如何提供可讓您在 Azure 中備份和還原資料的磁帶式語意
-services: backup
-author: trinadhk
-manager: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/10/2017
-ms.author: saurse
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2017
+ms.author: dacurwin
+ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646893"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146030"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>將您的長期儲存空間從磁帶移至 Azure 雲端
 Azure 备份和 System Center Data Protection Manager 客户可以：
@@ -59,8 +57,7 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 因此復原點的總數是 56。
 
 > [!NOTE]
-> Azure 備份對於復原點數目沒有限制。
->
+> 您可以使用 Azure 備份來建立每個受保護的執行個體的最多 9999 個復原點。 受保護的執行個體係指會備份至 Azure 的電腦、伺服器 (實體或虛擬) 或工作負載。
 >
 
 ## <a name="advanced-configuration"></a>進階組態

@@ -2,19 +2,20 @@
 title: Microsoft Azure 儲存體的用戶端 Java 加密 | Microsoft Docs
 description: Azure Storage Client Library for Java 支援用戶端加密以及與 Azure 金鑰保存庫的整合，為您的 Azure 儲存體應用程式提供最大的安全性。
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 058dc97054aad310135ccc1f51d765f0af3f571b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992460"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147017"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Microsoft Azure 儲存體搭配 Java 的用戶端加密和 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -55,9 +56,9 @@ ms.locfileid: "57992460"
 > 
 > 
 
-下載已加密的 blob 牽涉到擷取整個 blob 使用的內容**下載**/**openInputStream**便利的方法。 包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
+下载已加密的 Blob 需要使用 **download**/**openInputStream** 便捷方法检索整个 Blob 的内容。 包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
 
-下載任意範圍 (**downloadRange**方法) 在加密的 blob 牽涉到調整使用者所提供取得少量額外的資料可以用來成功解密所要求的範圍範圍。  
+下载已加密 blob 中的任意范围（**downloadRange** 方法）需要调整用户提供的范围，获取少量可用于成功解密所请求范围的附加数据。  
 
 所有 Blob 類型 (區塊 Blob、頁面 Blob 和附加 Blob) 都可以使用此機制進行加密/解密。
 
@@ -118,7 +119,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 1. 離線建立密碼，再上載至金鑰保存庫。  
 2. 使用密碼的基底識別碼做為參數，解析用於加密的目前密碼版本，並在本機快取這項資訊。 使用 CachingKeyResolver 進行快取。使用者不需要實作自己的快取邏輯。  
 3. 建立加密原則時，使用快取解析程式做為輸入。
-   如需有關「金鑰保存庫」使用方式的詳細資訊，請參閱加密程式碼範例。 <fix URL>  
+   如需有關「金鑰保存庫」使用方式的詳細資訊，請參閱加密程式碼範例。
 
 ## <a name="best-practices"></a>最佳作法
 只有 Java 的儲存體用戶端程式庫才支援加密。
@@ -142,7 +143,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
   * 叫用金鑰解析程式 (如果指定) 以取得金鑰。 如果已指定解析程式，但沒有金鑰識別碼的對應，則會擲回錯誤。  
   * 如果未指定解析程式但指定了金鑰，則如果其識別項符合所需的金鑰識別項，就會使用該金鑰。 如果識別項不符合，則會擲回錯誤。  
     
-    [加密範例](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL> 會針對 Blob、佇列和資料表以及金鑰保存庫的整合，示範更詳細的端對端案例。
+    [加密範例](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) 會針對 Blob、佇列和資料表以及金鑰保存庫的整合，示範更詳細的端對端案例。
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 模式
 使用者可以針對所有上傳和下載都必須加密的作業模式，從中選擇啟用。 在此模式中，在用戶端上嘗試上傳沒有加密原則的資料或下載未在服務上加密的資料將會失敗。 要求選項物件的 **requireEncryption** 旗標會控制此行為。 如果您的應用程式會將所有儲存在 Azure 儲存體中的物件加密，則您可以在服務用戶端服務的預設要求選項上，設定 **requireEncryption** 屬性。   

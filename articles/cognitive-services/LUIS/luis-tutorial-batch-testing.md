@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: ad0676cbfdcd708b0d51752522d16956bd0c6c9e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073738"
+ms.locfileid: "65146166"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教學課程：批次測試資料集
 
@@ -205,11 +205,11 @@ ms.locfileid: "65073738"
 
 ## <a name="review-entity-batch-results"></a>檢閱實體批次結果
 
-圖表隨即開啟，並顯示已正確預測的所有意圖。 在右側篩選條件中向下捲動，以尋找發生錯誤的實體預測。 
+圖表隨即開啟，並顯示已正確預測的所有意圖。 向下捲動來尋找實體預測，但發生錯誤的右端篩選中。 
 
 1. 在篩選條件中選取 [作業] 實體。
 
-    ![篩選條件中發生錯誤的實體預測](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![在篩選中的錯誤實體預測](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     此圖表會變更以顯示實體預測。 
 

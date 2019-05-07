@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f365fcd61944fbae131ab79a1c3660aaf02fa8d7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725648"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073939"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -25,7 +25,9 @@ ms.locfileid: "64725648"
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS 是否支援節點自動調整？
 
-是，從 Kubernetes 1.10 開始，可透過 [Kubernetes Autoscaler][auto-scaler] 使用自動調整。 如需如何設定及使用叢集自動調整程式的詳細資訊，請參閱 [AKS 上的叢集自動調整][aks-cluster-autoscale]。
+是，從 Kubernetes 1.10 開始，可透過 [Kubernetes Autoscaler][auto-scaler] 使用自動調整。 如需有關如何手動設定，並使用叢集中自動調整程式的詳細資訊，請參閱 < [AKS 叢集中自動調整][aks-cluster-autoscale]。
+
+您也可以使用內建的叢集中自動調整程式 （目前在 AKS 中的預覽），來管理節點的縮放比例。 如需詳細資訊，請參閱 <<c0> [ 自動調整規模以符合應用程式需求在 AKS 叢集中][aks-cluster-autoscaler]。
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS 是否支援 Kubernetes 角色型存取控制 (RBAC)？
 
@@ -41,13 +43,17 @@ ms.locfileid: "64725648"
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>安全性更新是否會套用至 AKS 代理程式節點？
 
-是，Azure 會透過夜間排程將安全性修補程式自動套用至叢集中的節點。 不過，您有責任確保節點已視需要重新啟動。 您有多個執行節點重新啟動的選項：
+Azure 會自動套用至您在夜間排程上的叢集中的 Linux 節點的安全性修補程式。 不過，您有責任確保節點重新開機為這些 Linux 所需。 您有多個執行節點重新啟動的選項：
 
 - 手動、透過 Azure 入口網站，或透過 Azure CLI。
 - 藉由升級 AKS 叢集。 叢集會自動升級 [cordon 和 drain 節點][cordon-drain]，然後為每個節點的備份帶來最新的 Ubuntu 映像和新的修補程式版本或 Kubernetes 次要版本。 如需詳細資訊，請參閱[升級 AKS 叢集][aks-upgrade]。
 - 使用 [Kured](https://github.com/weaveworks/kured)，這是一款針對 Kubernetes 所推出的的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 系統會使用相同的 [cordon 和 drain 程序][cordon-drain] 作為叢集升級，跨叢集管理作業系統重新開機。
 
 如需使用 kured 的詳細資訊，請參閱[將安全性和核心更新套用至 AKS 中的節點][node-updates-kured]。
+
+### <a name="windows-server-nodes"></a>Windows Server 的節點
+
+對於 Windows Server （目前在 AKS 中的預覽） 的節點，Windows Update 不會自動執行，並套用最新的更新。 Windows Update 發行週期和您自己的驗證程序的定期排程，您應該在 AKS 叢集中執行 Windows Server 的節點集區上的升級。 此升級程序會建立執行的最新的 Windows Server 映像和修補程式的節點，然後移除舊的節點。 如需有關此程序的詳細資訊，請參閱 <<c0> [ 升級 AKS 中的節點集區][nodepool-upgrade]。
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>為何會使用 AKS 建立兩個資源群組？
 
@@ -102,7 +108,9 @@ AKS 目前並未原生整合到 Azure Key Vault。 不過，[Azure Key Vault Fle
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>我是否可以在 AKS 上執行 Windows Server 容器？
 
-若要執行 Windows Server 容器，您需要執行以 Windows Server 為基礎的節點。 目前在 AKS 中並未提供以 Windows Server 為基礎的節點。 不過，您可以使用 Virtual Kubelet 來排程 Azure 容器執行個體上的 Windows 容器，以及在 AKS 叢集當中進行管理。 如需詳細資訊，請參閱[使用 Virtual Kubelet 搭配 AKS][virtual-kubelet]。
+Windows Server 容器是以預覽形式提供。 若要在 AKS 中執行 Windows Server 容器，您會建立為客體 OS 中執行 Windows Server 的節點集區。 Windows Server 容器可以僅使用 Windows Server 2019。 若要開始，[與 Windows Server 的節點集區建立 AKS 叢集][aks-windows-cli]。
+
+視窗伺服器節點集區支援包括屬於上游 Kubernetes 專案中的 Windows Server 的一些限制。 如需有關這些限制的詳細資訊，請參閱 < [AKS 限制中的 Windows Server 容器][aks-windows-limitations]。
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS 是否提供服務等級協定？
 
@@ -120,6 +128,10 @@ AKS 目前並未原生整合到 Azure Key Vault。 不過，[Azure Key Vault Fle
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-cluster-autoscaler]: cluster-autoscaler.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[aks-windows-cli]: windows-container-cli.md
+[aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->
 
