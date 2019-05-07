@@ -2,18 +2,19 @@
 title: 將 VM 移轉至 Azure 進階儲存體 | Microsoft Docs
 description: 將您現有的 VM 移轉至 Azure 進階儲存體。 「進階儲存體」可針對在「Azure 虛擬機器」上執行且需要大量 I/O 的工作負載，提供高效能、低延遲的磁碟支援。
 services: storage
-author: yuemlu
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372313"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153771"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>移轉至 Azure 進階儲存體 (非受控磁碟)
 
@@ -72,7 +73,7 @@ Azure VM 大小的規格已列在 [虛擬機器的大小](../../virtual-machines
 如需有關進階儲存體規格的詳細資訊，請查看 [Azure 儲存體的擴充和效能目標](storage-scalability-targets.md#premium-performance-storage-account-scale-limits)。
 
 #### <a name="disk-caching-policy"></a>磁碟快取原則
-根據預設，所有 Premium 資料磁碟的磁碟快取原則都是*唯讀*，而連接至 VM 的 Premium 作業系統磁碟的磁碟快取原則則是*讀寫*。 為使應用程式的 IO 達到最佳效能，建議使用此組態設定。 對於頻繁寫入或唯寫的資料磁碟 (例如 SQL Server 記錄檔)，停用磁碟快取可獲得更佳的應用程式效能。 使用也可以更新現有的資料磁碟的快取設定[Azure 入口網站](https://portal.azure.com)或 *-您*參數*Set-azuredatadisk* cmdlet。
+根據預設，所有 Premium 資料磁碟的磁碟快取原則都是*唯讀*，而連接至 VM 的 Premium 作業系統磁碟的磁碟快取原則則是*讀寫*。 為使應用程式的 IO 達到最佳效能，建議使用此組態設定。 對於頻繁寫入或唯寫的資料磁碟 (例如 SQL Server 記錄檔)，停用磁碟快取可獲得更佳的應用程式效能。 可以使用 [Azure 门户](https://portal.azure.com)或 *Set-AzureDataDisk* cmdlet 的 *-HostCaching* 参数更新现有数据磁盘的缓存设置。
 
 #### <a name="location"></a>位置
 挑選 Azure 進階儲存體可用的位置。 如需可使用 Azure 服務之地點的最新資訊，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services)。 相較於與儲存 VM 磁碟的儲存體帳戶位於不同區域的 VM，位於相同區域將提供更優越的效能。
@@ -255,7 +256,7 @@ C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-範例 <Uri> 可能是 ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***。 範例 <FileInfo> 可能是 ***"C:\path\to\upload.vhd"***。
+舉例\<Uri > 可能 ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***。 舉例\<FileInfo > 可能 ***"C:\path\to\upload.vhd"***。
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>選項 2：使用 AzCopy 上傳 .vhd 檔案
 您可以使用 AzCopy，透過網際網路輕鬆上傳 VHD。 根據 VHD 的大小，這可能需要一些時間。 使用這個選項時，請記得檢查儲存體帳戶輸入/輸出限制。 如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md) 。

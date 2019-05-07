@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
-ms.openlocfilehash: 0157cdc8062d7c53aaeb3ff01762e9562aa9c394
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3cd22b89852706ed129373fd24ca9a9d9a27d25b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866348"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153368"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
 
@@ -93,7 +93,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 - [狀態和計費](live-event-states-billing.md)
 - [延遲](live-event-latency.md)
 
-## <a name="provide-feedback"></a>提供意見反應
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

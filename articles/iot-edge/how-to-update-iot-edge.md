@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a3b6327b9e05b039696cc1743fc2d16c5e945e26
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125928"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152625"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>更新 IoT Edge 安全性精靈和執行階段
 
@@ -50,25 +50,15 @@ apt-get install libiothsm iotedge
 
 ### <a name="windows-devices"></a>Windows 裝置
 
-在 Windows 裝置上，請使用 PowerShell 指令碼將安全性精靈解除安裝並重新安裝。 安裝指令碼會自動提取安全性精靈的最新版本。 
-
-在系統管理員 PowerShell 工作階段中解除安裝安全性精靈。 
+在 Windows 裝置上使用 PowerShell 指令碼來更新的安全性服務精靈。 指令碼自動提取最新安全性精靈版本。 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Uninstall-SecurityDaemon
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-在没有任何参数的情况下运行 `Uninstall-SecurityDaemon` 命令只会从设备中删除安全守护程序以及两个运行时容器映像。 Config.yaml 檔案以及來自 Moby 容器引擎的資料會保留在裝置上。 保留配置信息意味着，在安装过程中，不需再次为设备提供连接字符串或设备预配服务信息。 
+執行更新 IoTEdge 命令，是在您的裝置，以及兩個執行階段容器映像中移除的安全性服務精靈。 Config.yaml 檔案會保留上的裝置，以及資料從白鯨容器引擎，（如果您使用 Windows 容器）。 讓您不必提供連接字串或您的裝置一次在更新程序期間的裝置佈建服務資訊的組態資訊方法。 
 
-根據 IoT Edge 裝置使用的是 Windows 容器還是 Linux 容器，來重新安裝安全性精靈。 请将短语 **\<Windows or Linux\>** 替换为相应的容器操作系统。 使用 **-ExistingConfig** 旗標，以指向您裝置上的現有 config.yaml 檔案。 
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
-```
-
-如果您想要安裝安全性精靈的特定版本，請從 [IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)下載適當的 iotedged-windows.zip 檔案。 然後，使用 `-OfflineInstallationPath` 參數指向該檔案位置。 如需詳細資訊，請參閱[離線指南](how-to-install-iot-edge-windows.md#offline-installation)。
+如果您想要安裝的安全性服務精靈的特定版本，下載適當的 Microsoft-Azure-IoTEdge.cab 檔案，從[IoT Edge 釋放](https://github.com/Azure/azure-iotedge/releases)。 然後，使用 `-OfflineInstallationPath` 參數指向該檔案位置。 如需詳細資訊，請參閱[離線指南](how-to-install-iot-edge-windows.md#offline-installation)。
 
 ## <a name="update-the-runtime-containers"></a>更新執行階段容器
 

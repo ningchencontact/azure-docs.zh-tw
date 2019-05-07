@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474697"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154145"
 ---
-# <a name="sql-data-warehouse-workload-importance-preview"></a>SQL 数据仓库工作负荷重要性（预览）
+# <a name="sql-data-warehouse-workload-importance"></a>SQL 資料倉儲工作負載的重要性
 
 本文介绍工作负荷重要性如何影响 SQL 数据仓库请求的执行顺序。
-
-> [!Note]
-> 工作負載分類可在 SQL 資料倉儲 Gen2 上以預覽的方式取得。 工作負載管理和重要性預覽適用於發行日期在 2019 年 4 月 9 日之後的組建。  使用者應該避免使用早於此日期的組建進行工作負載管理測試。  若要判斷您的組建是否以能夠使用工作負載管理功能，請在連線至您的 SQL 資料倉儲執行個體時，執行 select @ @version。
 
 ## <a name="importance"></a>重要性
 
@@ -64,4 +61,4 @@ Q6 是在上午 9:01 提交的，具有 smallrc 资源类。
 
 ## <a name="next-steps"></a>後續步驟
 
-有关 SQL 数据仓库工作负荷分类的详细信息，请参阅 [SQL 数据仓库工作负荷分类](sql-data-warehouse-workload-classification.md)和[创建工作负荷分类器](quickstart-create-a-workload-classifier-tsql.md)。 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。
+若要開始使用建立分類器，請參閱[建立工作負載分類 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  如需有關 SQL 資料倉儲工作負載分類的詳細資訊，請參閱 < [SQL 資料倉儲工作負載分類](sql-data-warehouse-workload-classification.md)。  有關如何建立工作負載分類器，請參閱快速入門[建立工作負載分類器](quickstart-create-a-workload-classifier-tsql.md)。 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。

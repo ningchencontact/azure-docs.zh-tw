@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2018
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 08c7e84a27a4c8e9527083360dbd08296bd86775
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 40ac8badfac3c004d3451c598d7cd2a17982a585
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542458"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138940"
 ---
-# <a name="preview-create-a-shared-image-gallery-with-the-azure-cli"></a>預覽：使用 Azure CLI 建立共用映像資源庫
+# <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>使用 Azure CLI 建立共用映像資源庫
 
 [共用映像資源庫](shared-image-galleries.md)可簡化跨組織共用自訂映像。 自訂映像類似 Marketplace 映像，但您要自行建立它們。 自訂映像可用於啟動程序設定，例如，預先載入應用程式、應用程式設定和其他 OS 設定。 
 
@@ -58,7 +58,7 @@ az vm create\
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 
-
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>後續步驟
 您也可以使用範本建立共用映像庫資源。 有數個 Azure 快速入門範本可以使用： 

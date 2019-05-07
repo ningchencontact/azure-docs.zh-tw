@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 215ae29c571e56b7e3af589149123083223023c7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889369"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153464"
 ---
 # <a name="work-with-databases-containers-and-items"></a>使用資料庫、容器和項目
 
@@ -77,7 +77,7 @@ Azure Cosmos 容器具备一组系统定义的属性。 根據選擇的 API 不�
 
 | **系統定義屬性** | **是系统生成的还是可由用户配置的** | **用途** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_rid | 由系統產生 | 容器的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
+|_id | 由系統產生 | 容器的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
 |_etag | 由系統產生 | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
 |_ts | 由系統產生 | 容器的上次更新日期時間戳記 | 是 | 否 | 否 | 否 | 否 |
 |_self | 由系統產生 | 容器的可定址 URI | 是 | 否 | 否 | 否 | 否 |

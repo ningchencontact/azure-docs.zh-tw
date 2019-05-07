@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358063"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138147"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
@@ -55,7 +55,7 @@ ms.locfileid: "59358063"
 
 Azure 客戶可以在 Azure 入口網站中建立和管理支援要求。
 
-* [Azure 门户](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure 入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [美國政府的 Azure 入口網站](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>在 Stack Overflow 張貼問題
@@ -64,13 +64,14 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 若無法透過搜尋找到問題的解答，請將新問題提交至 Stack Overflow。 制訂問題時，請使用下列其中一個標記：
 
-|元件/區域  |標記  |
+|元件/區域  |Tags  |
 |---------|---------|
 |語音辨識 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |語音合成 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |語音翻譯 |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |語音意圖 |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |一般語音 SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+| 語音第一個虛擬助理 （預覽） | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
 
 > [!TIP]
 > Stack Overflow 的下列貼文包含如何提出問題以及新增原始程式碼的提示。 遵循這些指導方針有助於增加社群成員快速評估並回應您問題的機會：  

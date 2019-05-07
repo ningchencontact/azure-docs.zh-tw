@@ -1,25 +1,26 @@
 ---
 title: 使用 Azure PowerShell 來管理 Azure AD rbac-Azure 儲存體 blob 和佇列資料的存取權限
-description: 使用 Azure PowerShell 來指派存取權給容器和佇列，使用角色型存取控制 (RBAC)。 Azure 儲存體支援透過 Azure AD 的驗證內建和自訂的 RBAC 角色。
+description: 使用 Azure PowerShell 來指派存取權給容器和佇列，使用角色型存取控制 (RBAC)。 Azure 存储支持通过 Azure AD 使用内置和自定义的 RBAC 角色进行身份验证。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f14c6625a36356a6882e1596db13c1749a9a292a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: e850b915cd01b6bacd70d6df7752eeb83f7101d0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449927"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153848"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>使用 RBAC，使用 PowerShell 的 Azure blob 和佇列資料的授與存取權
 
 Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md)，來授與存取受保護資源的權限。 Azure 儲存體會定義一組內建的 RBAC 角色，其中包含一般用來存取容器或佇列的權限集合。 
 
-RBAC 角色指派給 Azure AD 安全性主體時，Azure 授與存取這些資源的安全性主體。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 Azure AD 安全性主體，可能是使用者、 群組、 應用程式的服務主體，或[受管理的 Azure 資源的識別](../../active-directory/managed-identities-azure-resources/overview.md)。
+将 RBAC 角色分配到 Azure AD 安全主体后，Azure 会向该安全主体授予对这些资源的访问权限。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 Azure AD 安全性主體，可能是使用者、 群組、 應用程式的服務主體，或[受管理的 Azure 資源的識別](../../active-directory/managed-identities-azure-resources/overview.md)。
 
 本文說明如何使用 Azure PowerShell 來列出內建的 RBAC 角色，並將它們指派給使用者。 如需使用 Azure PowerShell 的詳細資訊，請參閱[Azure PowerShell 概觀](https://docs.microsoft.com/powershell/azure/overview)。
 
@@ -29,7 +30,7 @@ RBAC 角色指派給 Azure AD 安全性主體時，Azure 授與存取這些資�
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>判斷資源範圍 
+## <a name="determine-resource-scope"></a>确定资源范围 
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 

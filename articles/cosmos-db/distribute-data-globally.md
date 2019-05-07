@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 70ead36e20861026e08e864f438071948c526844
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b90e495e0901c0caa14d9451f365e17f6c075e2b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889033"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070796"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>透過 Azure Cosmos DB 進行全域資料散發 - 概觀
 
@@ -51,6 +51,6 @@ Azure Cosmos DB 是一個全域散發的資料庫服務，旨在提供低延遲�
 
 * [全域散發 - 運作原理](global-dist-under-the-hood.md)
 * [如何在應用程式中設定多重主機](how-to-multi-master.md)
-* [設定多路連接的用戶端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [設定多路連接的用戶端](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [從您的 Azure Cosmos 帳戶新增或移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [建立 SQL API 帳戶的自訂衝突解決原則](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

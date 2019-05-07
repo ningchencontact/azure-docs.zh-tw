@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9209161f9c9e34320b1388e0e1edbd5069e73727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: daa3bd49fcb9970a4a4a026f764cc195423e83d1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438285"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154370"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>驗證適用於 Azure 資源的存取權的 blob 和佇列與 Azure Active Directory 與受管理的身分識別
 
@@ -25,7 +26,7 @@ Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../ac
 
 您可以使用適用於 Azure 資源管理的身分識別來授與對 blob 和佇列的存取權，從您的 VM 之前，您必須先啟用受管理的身分識別，在 VM 上的 Azure 資源。 若要了解如何啟用 Azure 資源的受控識別，請參閱下列其中一篇文章：
 
-- [Azure 门户](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure 入口網站](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager 範本](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)

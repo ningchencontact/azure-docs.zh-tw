@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 09f9731f78093354f324f263899519bc5d31fa5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682154"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153069"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
@@ -34,9 +34,19 @@ ms.locfileid: "64682154"
 
 如需詳細資訊，請參閱[從媒體服務 v2 移至 v3 的移轉指導](migrate-from-v2-to-v3.md#known-issues)。
 
+## <a name="may-2019"></a>2019 年
+
+### <a name="performance-improvements"></a>效能改進
+
+* 對於支援處理的最大檔案大小已更新。 查看，請[配額和限制](limits-quotas-constraints.md)。
+* [編碼速度改進](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types)。
+
 ## <a name="april-2019"></a>2019 年 4 月
 
-[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)已新增至內建分析器預設值。
+### <a name="new-presets"></a>新的預設值
+
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)已新增至內建分析器預設值。
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)已新增至內建的編碼器預設值。 如需詳細資訊，請參閱 <<c0> [ 感知內容的編碼](cae-experimental.md)。 
 
 ## <a name="march-2019"></a>2019 年 3 月
 
@@ -205,7 +215,7 @@ Azure CLI 2.0 模組即將推出，內含所有功能的操作 (包括即時、�
 
 * 提交工作時，您可以使用 HTTPS URL、SAS URL 或位於 Azure Blob 儲存體中檔案的路徑來指定內嵌您的來源影片。 目前，AMS v3 不支援透過 HTTPS URL 的區塊傳送編碼。
 
-## <a name="provide-feedback"></a>提供意見反應
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

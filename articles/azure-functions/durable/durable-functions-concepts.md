@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: aa9563266f6b43e3bc2f21fbc0b340c86c5895ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60862016"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071353"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Durable Functions 模式和技术概念 (Azure Functions)
 
@@ -219,9 +219,6 @@ module.exports = async function (context, req) {
 };
 ```
 
-> [!WARNING]
-> 在 JavaScript 中进行本地开发时，若要使用 `DurableOrchestrationClient` 中的方法，必须将环境变量 `WEBSITE_HOSTNAME` 设置为 `localhost:<port>`（例如 `localhost:7071`）。 有关此项要求的详细信息，请参阅 [GitHub 问题 28](https://github.com/Azure/azure-functions-durable-js/issues/28)。
-
 在 .NET 中，[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` 參數是來自 `orchestrationClient` 輸出繫結 (此繫結是 Durable Functions 擴充功能的一部分) 的值。 在 JavaScript 中，呼叫 `df.getClient(context)` 會傳回這個物件。 这些对象提供了可用于启动、向其发送事件、终止和查询新的或现有的业务流程协调程序函数实例的方法。
 
 在前面的示例中，HTTP 触发的函数采用传入的 URL 中的 `functionName` 值，并将该值传递给 [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)。 然后，[CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) 绑定 API 返回包含 `Location` 标头和有关实例的其他信息的响应。 稍后可以使用这些信息来查找已启动实例的状态或终止实例。
@@ -377,6 +374,63 @@ module.exports = async function (context) {
 };
 ```
 
+## <a name="pattern-6-aggregator-preview"></a>模式 #6:彙總工具 （預覽）
+
+第六個的模式是經過一段時間的事件資料彙總為單一的可定址*實體*。 在此模式中，彙總的資料可能來自於多個來源、 可能會在批次的方式來傳遞，或可能可透過長時間長的時間散佈。 彙總工具可能需要採取動作的事件資料到達時，以及外部用戶端可能需要查詢的彙總的資料。
+
+![彙總工具的圖表](./media/durable-functions-concepts/aggregator.png)
+
+想要實作此模式一般棘手一點，並行存取控制會變成極大的挑戰是無狀態函式。 不只需要擔心多個執行緒同時修改相同的資料，您也需要擔心如何確保，彙總工具只與單一 VM 上一次執行。
+
+使用[長期實體函式](durable-functions-preview.md#entity-functions)，可以實作此模式，輕鬆地為單一函式。
+
+```csharp
+public static async Task Counter(
+    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+{
+    int currentValue = ctx.GetState<int>();
+    int operand = ctx.GetInput<int>();
+
+    switch (ctx.OperationName)
+    {
+        case "add":
+            currentValue += operand;
+            break;
+        case "subtract":
+            currentValue -= operand;
+            break;
+        case "reset":
+            await SendResetNotificationAsync();
+            currentValue = 0;
+            break;
+    }
+
+    ctx.SetState(currentValue);
+}
+```
+
+用戶端，可以加入佇列*operations* （也稱為 「 發出訊號 」） 的實體函式使用`orchestrationClient`繫結。
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static async Task Run(
+    [EventHubTrigger("device-sensor-events")] EventData eventData,
+    [OrchestrationClient] IDurableOrchestrationClient entityClient)
+{
+    var metricType = (string)eventData.Properties["metric"];
+    var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
+
+    // The "Counter/{metricType}" entity is created on-demand.
+    var entityId = new EntityId("Counter", metricType);
+    await entityClient.SignalEntityAsync(entityId, "add", delta);
+}
+```
+
+同樣地，用戶端可以查詢的實體函式上使用方法的狀態`orchestrationClient`繫結。
+
+> [!NOTE]
+> 實體函式目前只會用於[Durable Functions 2.0 預覽](durable-functions-preview.md)。
+
 ## <a name="the-technology"></a>技術
 
 在幕后，Durable Functions 扩展构建在 [Durable Task Framework](https://github.com/Azure/durabletask)（GitHub 上的用于生成持久任务业务流程的开源库）的基础之上。 如同 Azure Functions 是 Azure WebJobs 的无服务器演进一样，Durable Functions 是 Durable Task Framework 的无服务器演进。 Microsoft 和其他组织广泛使用 Durable Task Framework 来自动处理任务关键型过程。 它天生就適合無伺服器的 Azure Functions 環境。
@@ -423,7 +477,7 @@ Durable Functions 扩展使用 Azure 存储中的队列、表和 Blob 来持久�
 
 ![Azure 存储资源管理器的屏幕截图](./media/durable-functions-concepts/storage-explorer.png)
 
-> [!WARNING]
+> [!NOTE]
 > 尽管可以在表存储中轻松查看执行历史记录，但请不要对此表有任何依赖。 该表可能会随着 Durable Functions 扩展的演变而发生变化。
 
 ## <a name="known-issues"></a>已知問題

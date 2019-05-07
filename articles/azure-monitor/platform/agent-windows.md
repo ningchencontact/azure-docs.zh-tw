@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777331"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138134"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>將 Windows 電腦連線到 Azure 監視器
 
@@ -31,16 +31,18 @@ ms.locfileid: "60777331"
 * 手動安裝。 在電腦上執行手動安裝可使用安裝精靈、從命令列、或使用現有的軟體發佈工具部署。
 * Azure 自動化期望狀態設定 (DSC)。 針對已在環境中部署的 Windows 電腦，利用指令碼使用 Azure 自動化中的 DSC。  
 * PowerShell 指令碼。
-* 針對 Azure Stack 中執行內部部署 Windows 的虛擬機器，使用 Resource Manager 範本。  
+* 針對 Azure Stack 中執行內部部署 Windows 的虛擬機器，使用 Resource Manager 範本。 
 
 >[!NOTE]
 >Azure 資訊安全中心 (ASC) 取決於 Microsoft Monitoring Agent （也稱為 「 Log Analytics Windows 代理程式 」），將會安裝並設定它，以回報至 Log Analytics 工作區，為其部署的一部分。 ASC 會包括自動佈建選項可讓您的訂用帳戶中的所有 Vm 的 Log Analytics Windows 代理程式的自動安裝，並將它設定為特定的工作區回報。 如需有關這個選項的詳細資訊，請參閱 <<c0> [ 啟用的 Log Analytics 代理程式的自動佈建](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-)。
 >
 
+如果您需要設定一個以上的工作區回報的代理程式，這無法執行初始安裝期間，只之後從控制台或 PowerShell 設定的更新，如中所述[新增或移除工作區](agent-manage.md#adding-or-removing-a-workspace).  
+
 若要了解支援的組態，請檢閱[支援的 Windows 作業系統](log-analytics-agent.md#supported-windows-operating-systems)和[網路防火牆組態](log-analytics-agent.md#network-firewall-requirements)。
 
 ## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和金鑰
-安裝適用於 Windows 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。  這項資訊才能正確設定代理程式，並確保與 Azure 監視器中 Azure commercial 和 US Government 雲端可以順利進行通訊的每種安裝方法安裝期間是必要的。  
+安裝適用於 Windows 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。  這項資訊才能正確設定代理程式，並確保與 Azure 監視器中 Azure commercial 和 US Government 雲端可以順利進行通訊的每種安裝方法安裝期間是必要的。 
 
 1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在您的 Log Analytics 工作區清單中，選取您要設定讓代理程式向哪個工作區報告。

@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect：使用 SAML 2.0 識別提供者來進行單一登入 | Microsoft Docs
+title: Azure AD Connect：使用 SAML 2.0 識別提供者進行單一登入-Azure
 description: 本文件描述如何使用符合 SAML 2.0 規範的 Idp 進行單一登入。
 services: active-directory
 author: billmath
@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1870137505b3d00ee6ed31595050908c970c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e25060152577e7947a78aa0e8d78c85cc7fd2fad
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350899"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138332"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 識別提供者 (IdP) 來進行單一登入
 
@@ -41,7 +41,7 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 >     - Windows 8 郵件用戶端和 Windows 8.1 郵件用戶端
 >     - Windows 10 郵件用戶端
 
-在此登入案例中，其他所有用戶端則無法與 SAML 2.0 識別提供者搭配使用。 例如，在 SAML 2.0 識別提供者已針對單一登入設定的情況下，Lync 2010 桌面用戶端將無法登入該服務。
+在此登入案例中，其他所有用戶端則無法與 SAML 2.0 識別提供者搭配使用。 例如，Lync 2010 桌面用戶端不能夠使用 SAML 2.0 識別提供者進行單一登入設定登入服務。
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Azure AD SAML 2.0 通訊協定需求
 本文件詳述為了與 Azure AD 同盟以便能夠登入一或多個 Microsoft 雲端服務 (例如 Office 365)，您的 SAML 2.0 識別提供者必須實作的通訊協定和訊息格式需求。 此案例所使用之 Microsoft 雲端服務的 SAML 2.0 信賴憑證者 (SP-STS) 是 Azure AD。
@@ -71,8 +71,8 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 繫結就是所需的傳輸相關通訊參數。 下列需求適用於繫結
 
 1. HTTPS 是必要的傳輸。
-2.  在登入期間，Azure AD 需要 HTTP POST 以便提交權杖
-3.  Azure AD 會對識別提供者的驗證要求使用 HTTP POST，並對識別提供者的登出訊息使用 REDIRECT。
+2.  Azure AD 需要 HTTP POST 在登入期間提交權杖。
+3.  Azure AD 會使用 HTTP POST，登出訊息給身分識別提供者的身分識別提供者和重新導向至驗證要求。
 
 ## <a name="required-attributes"></a>必要的屬性
 下表顯示 SAML 2.0 訊息中特定屬性的需求。
@@ -258,7 +258,7 @@ Microsoft 已提供一項工具供您用來測試 SAML 2.0 型識別提供者。
 2.  按一下 [立即安裝] 以開始下載及安裝此工具。
 3.  選取 [我無法設定與 Office 365、Azure 或其他使用 Azure Active Directory 之服務的同盟]。
 4.  工具開始下載並執行後，您會看到 [連線診斷] 視窗。 此工具會逐步引導您完成同盟連線的測試。
-5.  連線分析程式將開啟 SAML 2.0 IDP 以供您登入。請輸入所要測試使用者主體的認證：![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  Connectivity Analyzer 會開啟您 SAML 2.0 IDP 以供您登入、 使用者主體您正在測試輸入的認證：![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  在同盟測試登入視窗中，您應該針對設定來與 SAML 2.0 識別提供者進行同盟的 Azure AD 租用戶，輸入租用戶的帳戶名稱和密碼。 此工具會嘗試使用這些認證來進行登入，而系統則會在輸出中提供登入嘗試期間所執行之測試的詳細結果。
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. 此視窗顯示失敗的測試結果。 按一下 [檢閱詳細結果] 將會顯示所執行之每項測試結果的相關資訊。 您也可以將結果儲存至磁碟中以便共用。
@@ -271,7 +271,7 @@ Microsoft 已提供一項工具供您用來測試 SAML 2.0 型識別提供者。
 若要驗證系統是否已正確設定單一登入，請完成下列步驟：
 
 
-1. 在已加入網域的電腦上，使用和您用於公司認證相同的登入名稱來登入雲端服務。
+1. 在已加入網域的電腦上，登入您的雲端服務使用的相同登入名稱，您使用公司認證。
 2.  在密碼方塊內按一下。 如果已設定單一登入，密碼方塊將呈陰影狀，而您將會看到下列訊息：「現在您必須在 &lt;您的公司&gt; 登入。」
 3.  按一下 [在 &lt;您的公司&gt; 登入] 連結。 如果您能夠登入，便代表單一登入已設定完成。
 

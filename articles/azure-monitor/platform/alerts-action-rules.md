@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c260273c647dd5dd6050f1fd543ebd5a5aa47b89
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922757"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138125"
 ---
 # <a name="action-rules-preview"></a>動作規則 （預覽）
 
@@ -46,7 +46,7 @@ ms.locfileid: "64922757"
 
 ![新的動作規則建立流程](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>影響範圍
+### <a name="scope"></a>`Scope`
 
 第一次選擇的範圍，也就是目標資源、 資源群組或訂用帳戶。 您也可以進行多重選取 （在單一訂用帳戶中） 上述任一種的組合。 
 
@@ -184,8 +184,8 @@ Contoso 已定義[訂用帳戶層級的計量警示](https://docs.microsoft.com/
 
 * 問： 如果我有兩個單獨的動作規則中監視的資源發生什麼事？ 取得一或兩個通知？ 例如 'VM2' 在此案例中：
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
-      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1'
+      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1'
 
     A. 針對 'VM1' 和 'VM3' 上的每個警示，不會一次觸發動作群組 'AG1'。 在 'VM2' 上的每個警示的動作群組 'AG1' 就會觸發兩次 (**動作規則無法刪除重複動作**)。 
 
@@ -198,9 +198,10 @@ Contoso 已定義[訂用帳戶層級的計量警示](https://docs.microsoft.com/
 
 * 問： 如果我有警示規則和動作規則定義的相同資源呼叫不同的動作群組發生什麼事？ 例如，在此案例中的 ' VM1':
 
-     警示規則 'rule1' 'VM1' 動作群組 'AG2' 動作規則動作群組 'AG1'，'AR1' 定義為 'VM1'  
+      alert rule  'rule1' on          'VM1' with action group 'AG2'
+      action rule 'AR1'   defined for 'VM1' with action group 'AG1' 
  
-    A. 針對 'VM1' 上的每個警示，不會一次觸發動作群組 'AG1'。 每當觸發警示的規則 'rule1' 時，它也會觸發 'AG2' 此外。 (**動作的規則和警示規則中定義的群組各自獨立地操作沒有重複的動作**) 
+    A. 針對 'VM1' 上的每個警示，不會一次觸發動作群組 'AG1'。 每當觸發警示的規則 'rule1' 時，它也會觸發 'AG2' 此外。 **動作規則中定義的動作群組和警示規則分別作用，與任何重複**。 
 
 ## <a name="next-steps"></a>後續步驟
 

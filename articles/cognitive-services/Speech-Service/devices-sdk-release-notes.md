@@ -10,16 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 33a03b24de56ab1090cc8e07c9619eda17f33e27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9147f02f6ef2e2f3f776e67aa1f103e95ef132aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711896"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153043"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>認知服務語音裝置 SDK 的版本資訊
 
 下列各節列出最新版本中的變更。
+
+## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>SDK 1.5.0 認知服務語音裝置：2019 年發行
+
+*   語音裝置 SDK 現在是 GA，而不再受管制的預覽。
+*   更新[語音 SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 1.5.0 版的元件。 如需詳細資訊，請參閱其[版本資訊](https://aka.ms/csspeech/whatsnew)。
+*   新的線上醒機 word 技術帶來顯著的品質改良功能，請參閱重大變更。
+*   改善的最欄位辨識的新音效處理管線。
+
+**重大變更**
+
+*   因為新的線上醒機 word 技術所有網路喚醒文字時，必須在我們改善網路喚醒 word 入口網站重新建立。 若要完全移除舊的關鍵字，從裝置解除安裝舊版的應用程式。
+    - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>認知服務語音裝置 SDK 1.4.0:2019 年 4 月版本 
 

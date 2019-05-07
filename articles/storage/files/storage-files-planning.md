@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574466"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073363"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -111,20 +111,16 @@ Azure 備份可供進階檔案共用和 Azure Kubernetes 服務和更新版本 1
 
 下表說明這些公式的已佈建的共用大小的一些範例：
 
-(以表示大小 * 在有限的公開預覽)
-
 |容量 (GiB) | 基準 IOPS | 高載 IOPS | 輸出 (mib) | 輸入 (mib) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | 最多 300     | 66   | 44   |
 |500         | 500     | 最多 1,500 位   | 90   | 60   |
 |1,024       | 1,024   | 最多 3,072   | 122   | 81   |
 |5,120       | 5,120   | 最多 15,360  | 368   | 245   |
-|10,240 *     | 10,240  | 最多 30,720  | 675 | 450   |
-|33,792 *     | 33,792  | 最多 100,000 部 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | 最多 100,000 部 | 3,132 | 2,088   |
-|102,400 *    | 100,000 | 最多 100,000 部 | 6,204 | 4,136   |
-
-最多 5 TiB 的檔案共用大小目前處於公開預覽狀態，最多 100 TiB 的大小有限公開預覽的詳細資訊，來要求權限有限的公開預覽完成時[這份問卷。](https://aka.ms/azurefilesatscalesurvey)
+|10,240      | 10,240  | 最多 30,720  | 675 | 450   |
+|33,792      | 33,792  | 最多 100,000 部 | 2,088 | 1,392   |
+|51,200      | 51,200  | 最多 100,000 部 | 3,132 | 2,088   |
+|102,400     | 100,000 | 最多 100,000 部 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>負載平衡
 
@@ -184,7 +180,7 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 ## <a name="data-growth-pattern"></a>資料成長模式
 
-現在，Azure 檔案共用的大小上限是 5 TiB （100 TiB 進階檔案共用有限的公開預覽狀態）。 由於目前的此一限制，當您在部署 Azure 檔案共用時，必須考量預期的資料成長。
+現在，Azure 檔案共用的大小上限是 5 TiB (100 TiB 進階檔案共用，為公開預覽狀態)。 由於目前的此一限制，當您在部署 Azure 檔案共用時，必須考量預期的資料成長。
 
 使用 Azure 檔案同步可以將多個 Azure 檔案共用同步處理到單一 Windows 檔案伺服器。這可確保內部部署上較舊的大型檔案共用可以帶入 Azure 檔案同步。如需詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-files-planning.md)。
 

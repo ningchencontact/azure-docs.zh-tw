@@ -2,18 +2,19 @@
 title: 如何使用適用於 Java v7 的用戶端程式庫在 Azure 儲存體中建立 Blob | Microsoft Docs
 description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Java v7 適用的 Azure 儲存體用戶端程式庫將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
 services: storage
-author: roygara
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.author: rogarana
-ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: f7cae5b3c7b0a7da6420674635ff9c3420a6436a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128902"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154406"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>如何使用適用於 Java v7 的用戶端程式庫上傳、下載及列出 Blob
 

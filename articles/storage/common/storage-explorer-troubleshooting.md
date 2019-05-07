@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710859"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154199"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -235,7 +235,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 一般情况下，需要安装以下包才能在 Linux 上运行存储资源管理器：
 
-* [.NET core 2.0 執行階段](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET core 2.0 執行階段](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)附註：儲存體總管版本 1.7.0 和稍早需要.NET Core 2.0。 如果您有較新版的.NET Core 安裝將會需要修補儲存體總管 （請參閱下文）。 如果您執行儲存體總管 1.8.0 或更高的然後您應該能夠最多可以使用.NET Core 2.2。 2.2 版本尚未驗證能夠在這個階段。
 * `libgnome-keyring-common`和`libgnome-keyring-dev`
 * `libgconf-2-4`
 

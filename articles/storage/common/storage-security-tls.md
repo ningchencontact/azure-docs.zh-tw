@@ -2,18 +2,19 @@
 title: 為 Azure 儲存體用戶端啟用安全的 TLS | Microsoft Docs
 description: 了解如何在 Azure 儲存體的用戶端中啟用 TLS 1.2。
 services: storage
-author: fhryo-msft
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 06/25/2018
-ms.author: fryu
+ms.author: tamram
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4af86b570dfb24f990f1d8b4ff501d1a222bd21d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 218708ffc9a680150d7b6bf559a00ca87054bbe8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494284"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152974"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>為 Azure 儲存體用戶端啟用安全的 TLS
 
@@ -75,7 +76,7 @@ $listOfContainers
 
 ![在 Fiddler 中驗證 TLS 版本的螢幕擷取畫面](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [傳輸層安全性 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
 * [TLS 上的 PCI 合規性](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)

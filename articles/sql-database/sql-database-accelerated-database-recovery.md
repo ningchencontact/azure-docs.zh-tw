@@ -11,14 +11,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388710"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073458"
 ---
-# <a name="accelerated-database-recovery-preview"></a>加速資料庫復原 (預覽)
+# <a name="accelerated-database-recovery"></a>加速的資料庫復原
 
 **加速資料庫復原 (ADR)** 是新的 SQL 資料庫引擎功能，藉由重新設計 SQL 資料庫引擎復原程序，來大幅改善資料庫可用性 (特別是在有長時間執行的交易時)。 ADR 目前適用於 Azure SQL Database 中的單一與集區資料庫，以及 Azure SQL 資料倉儲中的資料庫。 ADR 的主要優點如下：
 
@@ -65,7 +65,7 @@ ADR 會透過完全重新設計 SQL 資料庫引擎復原程序來解決上述�
 - 藉由避免從最舊的作用中交易開頭來回掃描記錄，以使其保持固定的時間/瞬間完成。 使用 ADR，交易記錄檔只會處理從最後一個成功的檢查點 （或最舊的中途分頁記錄序號 (LSN)）。 因此，復原時間不會受到長時間執行的交易所影響。
 - 將所需的交易記錄空間降至最低，因為不再需要處理整個交易的記錄。 因此，能夠在發生檢查點和備份時主動截斷交易記錄。
 
-概括而言，ADR 會藉由對所有實體資料庫修改進行版本控制且只復原邏輯作業，來達到快速的資料庫復原，而這會受到限制且幾乎可立即復原。 任何在發生毀損時處於作用中的交易都會標記為已中止，因此，並行使用者查詢會忽略這些交易所產生的任何版本。
+概括而言，ADR 藉由版本控制達到快速的資料庫復原，所有實體的資料庫中修改和唯一復原邏輯作業，這受限於，可以迅速復原。 任何在發生毀損時處於作用中的交易都會標記為已中止，因此，並行使用者查詢會忽略這些交易所產生的任何版本。
 
 ADR 復原程序有三個與目前復原程序相同的階段。 下圖說明這三個階段使用 ADR 運作的方式，並且會在下圖後面進行更詳細的說明。
 
@@ -128,6 +128,3 @@ ADR 的四個主要元件如下：
 - 看過下列案例的客戶：作用中的交易會導致交易記錄大幅成長。  
 - 因為 SQL Server 長時間執行復原 (例如，未預期地重新啟動 SQL Server 或手動進行交易回復)，而導致其體驗到長時間無法使用資料庫的客戶。
 
-## <a name="to-enable-adr-during-this-preview-period"></a>在此預覽期間啟用 ADR
-
-在此功能的預覽期間，傳送電子郵件到 [adr@microsoft.com](mailto:adr@microsoft.com)，以深入了解並試用加速資料庫復原 (ADR)。 在電子郵件中，包含您 SQL Database 伺服器的名稱 (適用於 SQL Database 中的單一與集區資料庫，以及 Azure SQL 資料倉儲中的資料庫)。 由於這是一項預覽功能，因此，您的測試伺服器應該是非生產環境的伺服器。

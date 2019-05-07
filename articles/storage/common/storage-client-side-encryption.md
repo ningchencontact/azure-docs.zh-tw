@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c8f9b17bf5b572128348b22de62566ba06d5d766
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d8ef24bfec541ec65c74f77a90aa9476a8b298b2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992413"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153272"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault 金鑰保存庫
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -51,7 +52,7 @@ ms.locfileid: "57992413"
 儲存體用戶端程式庫會使用 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 來加密使用者資料。 具體來說，就是 [加密區塊鏈結 (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式搭配 AES。 每個服務的運作方式稍有不同，我們將在這裡討論每個服務。
 
 ### <a name="blobs"></a>Blob
-用戶端程式庫目前僅支援整個 Blob 的加密。 當使用者使用時，特別是，支援加密**UploadFrom**方法或**OpenWrite**方法。 針對下載，則皆支援完整與範圍下載。
+用戶端程式庫目前僅支援整個 Blob 的加密。 具体而言，用户使用 **UploadFrom** 方法或 OpenWrite 方法时支持加密。 針對下載，則皆支援完整與範圍下載。
 
 在加密期間，用戶端程式庫會產生 16 位元組的隨機初始化向量 (IV)，以及 32 位元組的隨機內容加密金鑰 (CEK)，並使用這項資訊執行 blob 資料的信封加密。 然後，已包裝的 CEK 和一些其他加密中繼資料會儲存為 blob 中繼資料，並連同加密的 blob 一起儲存在服務上。
 
@@ -60,9 +61,9 @@ ms.locfileid: "57992413"
 > 
 > 
 
-下載已加密的 blob 牽涉到擷取整個 blob 使用的內容**DownloadTo**/**BlobReadStream**便利的方法。 包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
+下载已加密的 Blob 需要使用 **DownloadTo**/**BlobReadStream** 便捷方法检索整个 Blob 的内容。 包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
 
-下載任意範圍 (**DownloadRange**方法) 在加密的 blob 牽涉到調整使用者所提供取得少量額外的資料可以用來成功解密所要求的範圍範圍。
+下载已加密 Blob 中的任意范围（**DownloadRange** 方法）需要调整用户提供的范围，获取少量可用于成功解密所请求范围的附加数据。
 
 所有 Blob 類型 (區塊 Blob、頁面 Blob 和附加 Blob) 都可以使用此機制進行加密/解密。
 

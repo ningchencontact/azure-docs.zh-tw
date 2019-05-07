@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465357"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073765"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>檢查叢集中的 Kubernetes 最佳做法
 
@@ -21,6 +21,8 @@ ms.locfileid: "60465357"
 ## <a name="about-kube-advisor"></a>關於 kube-advisor
 
 [kube-advisor 工具][kube-advisor-github]是專門設計為在叢集中執行的單一容器。 它會向 Kubernetes API 伺服器查詢部署的相關資訊，並傳回一套建議改善事項。
+
+Kube advisor 工具可報告資源的要求和限制遺漏 PodSpecs for Windows 應用程式，以及 Linux 應用程式，但 kube advisor 工具本身必須經過排程上的 Linux pod。 您可以排程在特定的作業系統使用的節點集區上執行的 pod[節點選取器][ k8s-node-selector] pod 的組態中。
 
 > [!NOTE]
 > Microsoft 致力支援 kube advisor 工具。 問題和建議應在 GitHub 上建檔。
@@ -73,3 +75,4 @@ kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

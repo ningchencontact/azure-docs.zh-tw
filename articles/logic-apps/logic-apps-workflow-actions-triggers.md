@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 06/22/2018
-ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 503bd6cfee1c19d2342ec9f535b3945178ab3ea0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691935"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136606"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>在 Azure Logic Apps 的工作流程定義語言觸發程序和動作類型的參考
 
@@ -804,6 +804,8 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
   * [**回應**](#response-action)，用以回應要求
 
+  * [**執行 JavaScript 程式碼**](#run-javascript-code)執行 JavaScript 程式碼片段
+
   * [**函式**](#function-action)，用以呼叫 Azure Functions
 
   * 資料作業動作，例如[**聯結**](#join-action)、[**撰寫**](#compose-action)、[**資料表**](#table-action)、[**選取**](#select-action)，以及其他會建立資料或從各種不同的輸入轉換資料的動作
@@ -821,6 +823,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 | 動作類型 | 描述 | 
 |-------------|-------------| 
 | [**撰寫**](#compose-action) | 從可具有多種類型的輸入建立單一輸出。 | 
+| [**執行 JavaScript 程式碼**](#run-javascript-code) | 執行符合特定準則的 JavaScript 程式碼片段。 如需程式碼的需求和詳細資訊，請參閱[新增並使用內嵌程式碼執行的程式碼片段](../logic-apps/logic-apps-add-run-inline-code.md)。 |
 | [**函式**](#function-action) | 呼叫 Azure 函式。 | 
 | [**HTTP**](#http-action) | 呼叫 HTTP 端點。 | 
 | [**聯結**](#join-action) | 從陣列中的所有項目建立字串，並使用指定的分隔字元來分隔這些項目。 | 
@@ -1047,6 +1050,81 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 以下是此動作建立的輸出：
 
 `"abcdefg1234"`
+
+<a name="run-javascript-code"></a>
+
+### <a name="execute-javascript-code-action"></a>執行 JavaScript 程式碼動作
+
+此動作執行的 JavaScript 程式碼片段，並傳回結果`Result`後續動作可以參考的語彙基元。
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "<JavaScript-code-snippet>",
+      "explicitDependencies": {
+         "actions": [ <previous-actions> ],
+         "includeTrigger": true
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*必要*
+
+| 值 | 類型 | 描述 |
+|-------|------|-------------|
+| <*JavaScript-code-snippet*> | 視情況而異 | 您想要執行的 JavaScript 程式碼。 如需程式碼的需求和詳細資訊，請參閱[新增並使用內嵌程式碼執行的程式碼片段](../logic-apps/logic-apps-add-run-inline-code.md)。 <p>在 `code`屬性，您的程式碼片段可以使用唯讀`workflowContext`物件做為輸入。 此物件具有子屬性，讓您的程式碼存取權的結果可以從觸發程序和工作流程中的上一個動作。 如需詳細資訊`workflowContext`物件，請參閱 <<c2> [ 參考程式碼中的觸發程序和動作結果](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext)。 |
+||||
+
+*在某些情況下需要*
+
+`explicitDependencies`屬性會指定您想要明確地包含來自觸發程序、 先前的動作，或兩者做為程式碼片段的相依性的結果。 如需有關如何新增這些相依性的詳細資訊，請參閱 <<c0> [ 加入內嵌程式碼的參數](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters)。 
+
+針對`includeTrigger`屬性，您可以指定`true`或`false`值。
+
+| Value | 類型 | 描述 |
+|-------|------|-------------|
+| <*previous-actions*> | 字串陣列 | 具有指定的動作名稱的陣列。 使用動作名稱出現在工作流程定義中，動作名稱使用底線 (_)，不可以有空格 ("")。 |
+||||
+
+*範例 1*
+
+取得邏輯應用程式的名稱，並傳回文字"Hello world < 邏輯的應用程式名稱的 > 從"做為結果的程式碼會執行此動作。 在此範例中，程式碼會參考工作流程的名稱來存取`workflowContext.workflow.name`透過唯讀屬性`workflowContext`物件。 如需使用詳細資訊`workflowContext`物件，請參閱 <<c2> [ 參考程式碼中的觸發程序和動作結果](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext)。
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var text = \"Hello world from \" + workflowContext.workflow.name;\r\n\r\nreturn text;"
+   },
+   "runAfter": {}
+}
+```
+
+*範例 2*
+
+此動作會執行觸發程序時新的電子郵件送達 Office 365 Outlook 帳戶中的邏輯應用程式中的程式碼。 邏輯應用程式也會使用轉送內容從收到的電子郵件核准要求以及傳送核准電子郵件動作。 
+
+從觸發程序的程式碼會擷取的電子郵件地址`Body`屬性，並傳回這些電子郵件地址，連同`SelectedOption`屬性值從核准動作。 此動作明確包含傳送核准電子郵件動作中的相依性`explicitDependencies`  >  `actions`屬性。
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "explicitDependencies": {
+         "actions": [
+            "Send_approval_email_"
+         ]
+      }
+   },
+   "runAfter": {}
+}
+```
+
+
 
 <a name="function-action"></a>
 
@@ -2310,7 +2388,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 您可以使用觸發程序或動作定義中的 `operationOptions` 屬性，變更觸發程序和動作的預設行為。
 
-| 作業選項 | 類型 | 描述 | 觸發程序或動作 | 
+| 作業選項 | Type | 描述 | 觸發程序或動作 | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | 字串 | 同步執行 HTTP 型動作，而不是非同步執行。 <p><p>若要設定此選項，請參閱[以同步方式執行動作](#asynchronous-patterns)。 | 動作： <p>[ApiConnection](#apiconnection-action)、 <br>[HTTP](#http-action)、 <br>[回應](#response-action) | 
 | `OptimizedForHighThroughput` | 字串 | 將每 5 分鐘的動作執行數目[預設限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)變更為[數目上限](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 <p><p>若要設定此選項，請參閱[在高輸送量模式中執行](#run-high-throughput-mode)。 | 所有動作 | 

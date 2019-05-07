@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/07/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a908185f2d8475afb642250d1499cffa539aca4d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573508"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153693"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>在知識庫中新增閒聊
 
@@ -54,10 +54,12 @@ ms.locfileid: "64573508"
 
 ![編輯閒聊 QnA](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
+若要檢視的中繼資料，請選取**檢視選項**工具列中，然後選取**顯示中繼資料**。
+
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>新增其他閒聊問題和回答
 您可以新增不在預先定義集合中的新閒聊 QnA。 確保您不會複製閒聊集已經涵蓋的 QnA 配對。 當您新增任何新的閒聊 QnA 時，它會新增到您的**編輯**來源。 若要確保順位排定程式了解這是閒聊，請新增中繼資料索引鍵/值配對「編輯：閒聊」，如下圖所示：
    
-![新增閒聊 QnA](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)
+![![新增 chit 聊天不](../ media/qnamaker-how-to-chit-chat/add-new-chit-chat.png）](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>從現有知識庫中刪除閒聊
 選取您的知識庫，並瀏覽至 [設定] 頁面。 您的特定閒聊來源會以檔案列示，內含選取的特質名稱。 您可以將此當作原始程式檔刪除。

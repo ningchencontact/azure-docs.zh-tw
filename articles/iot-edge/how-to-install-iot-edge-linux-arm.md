@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kgremban
-ms.openlocfilehash: ad7e34110b0c6d047eb7454b7fac9f8c10df8be2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126359"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152737"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段
 
@@ -22,7 +22,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 若要深入了解 IoT Edge 執行階段的運作方式，以及會包含哪些元件，請參閱[了解 Azure IoT Edge 執行階段及其架構](iot-edge-runtime.md)。
 
-本文列出了在 Linux ARM32v7/armhf IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 例如，這些步驟適用於 Raspberry Pi 裝置。 有关支持的 ARM32 操作系统的列表，请参阅 [Azure IoT Edge 支持](support.md#operating-systems)。 
+本文列出了在 Linux ARM32v7/armhf IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 例如，這些步驟適用於 Raspberry Pi 裝置。 如需支援的 ARM32 作業系統的清單，請參閱 < [Azure IoT Edge 支援系統](support.md#operating-systems)。 
 
 >[!NOTE]
 >Linux 軟體存放庫中的套件受限於每個套件中的授權條款 (/usr/share/doc/package-name)。 在使用套件之前，請先閱讀授權條款。 安裝及使用套件即表示接受這些授權條款。 如果您不同意授權條款，請勿使用套件。

@@ -12,38 +12,43 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 622a3ce0f80bd09bd09fa7ff097f68155318142d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19a8400a076825f17501fabdb3f38ea05915822e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351177"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138742"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>設定應用程式的群組宣告與 Azure Active Directory （公開預覽）
 
 Azure Active Directory 所提供的應用程式中使用的權杖中的使用者群組成員資格資訊。  支援兩種主要模式：
 
-- 其 Azure Active Directory 物件識別項 (OID) （正式推出） 所識別的群組
-- 群組或所識別的 SAMAccountName GroupSID Active Directory (AD) 同步處理群組和使用者 （公開預覽）
+- 群組屬性所識別其 Azure Active Directory 物件識別碼 (OID) （正式推出）
+- SAMAccountName 或 Active Directory (AD) 同步處理群組和使用者 （公開預覽） 的 GroupSID 屬性所識別的群組
 
-> [!Note]
-> 使用名稱和內部部署安全性識別碼 (Sid) 的支援主要被為了啟用移動現有的應用程式從 AD FS。    在 Azure AD 中管理群組不包含發出這些宣告所需的屬性。
+> [!IMPORTANT]
+> 有一些要注意這項預覽功能的注意事項：
+>
+>- 支援使用從內部部署同步處理的 sAMAccountName 和安全性識別碼 (SID) 屬性的設計是要讓移動現有的應用程式從 AD FS 和其他識別提供者。 在 Azure AD 中管理群組不包含發出這些宣告所需的屬性。
+>- 在大型組織的使用者群組的成員數目可能會超過 Azure Active Directory 會將新增至權杖的限制。 SAML 權杖中，而 200 代表 JWT 的 150 群組。 這可能會導致無法預期的結果。 如果這是潛在的問題我們建議您測試，並視需要等到我們新增的增強功能可讓您限制應用程式的宣告相關群組。  
+>- 新的應用程式開發，或在其中設定應用程式，並不需要巢狀的群組支援的位置的情況下，我們建議您在應用程式授權根據應用程式角色，而不是群組。  這會限制數量能夠移往正確的語彙基元，是更安全，分隔從應用程式設定使用者指派的資訊。
 
-## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-idps"></a>移轉 AD FS 和其他 Idp 的應用程式的群組宣告
+## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-identity-providers"></a>移轉 AD FS 和其他識別提供者的應用程式的群組宣告
 
-設定為使用 AD FS 進行驗證的許多應用程式依賴 Windows AD 群組屬性的表單中的群組成員資格資訊。   這些屬性是群組 SAMAccountName，可能是完整的網域名稱或 Windows 群組 SID。  當使用 AD FS 同盟應用程式時，AD FS 會使用 TokenGroups 函式來擷取使用者的群組成員資格。
+設定為使用 AD FS 進行驗證的許多應用程式依賴 Windows AD 群組屬性的表單中的群組成員資格資訊。   這些屬性是群組 sAMAccountName，可能是完整的網域名稱或 Windows 群組安全性識別元 (GroupSID)。  當使用 AD FS 同盟應用程式時，AD FS 會使用 TokenGroups 函式來擷取使用者的群組成員資格。
 
-群組和角色宣告可能會發出以符合應用程式會接收來自 AD FS 的權杖，其中包含網域限定 SAMAccountName，而不是群組的 Azure Active Directory 的 objectID。
+為了符合應用程式會接收來自 AD FS 的權杖，以群組和角色宣告，都可能包含網域限定 sAMAccountName，而不是群組的 Azure Active Directory objectID 會發出。
 
 群組宣告支援的格式如下：
 
-- **Azure Active Directory GroupObjectId** （適用於所有群組）
+- **Azure Active Directory 群組 ObjectId** （適用於所有群組）
 - **SAMAccountName** （適用於從 Active Directory 同步處理的群組）
-- **NetbiosDomain\samAccountName** （適用於從 Active Directory 同步處理的群組）
-- **DNSDomainName\samAccountName** （適用於從 Active Directory 同步處理的群組）
+- **NetbiosDomain\sAMAccountName** （適用於從 Active Directory 同步處理的群組）
+- **DNSDomainName\sAMAccountName** （適用於從 Active Directory 同步處理的群組）
+- **在內部部署群組安全性識別元**（適用於從 Active Directory 同步處理的群組）
 
 > [!NOTE]
-> SAMAccountName 和 OnPremisesGroupSID 屬性只可從 Active Directory 同步處理的群組物件上。   它們都無法使用在 Azure Active Directory 或 Office365 中建立的群組。   應用程式相依於內部部署群組屬性會取得它們只同步處理群組。
+> sAMAccountName 與在內部部署群組 SID 屬性才有提供的群組物件從 Active Directory 同步處理。   它們都無法使用在 Azure Active Directory 或 Office365 中建立的群組。   設定 Azure Active Directory 中的應用程式來取得內部同步處理的群組屬性會取得它們只同步處理群組。
 
 ## <a name="options-for-applications-to-consume-group-information"></a>使用群組資訊的應用程式的選項
 
@@ -51,17 +56,17 @@ Azure Active Directory 所提供的應用程式中使用的權杖中的使用者
 
 不過，如果現有的應用程式已預期會使用透過它所收到的權杖中宣告的群組資訊，可以設定 Azure Active Directory 與許多不同的宣告以符合應用程式的需求的選項。  請考量下列選項：
 
-- 使用群組成員資格進行時 （不論群組成員資格取得從權杖或圖形） 應用程式授權用途，最好是使用群組 ObjectID，這是不可變和在 Azure Active Directory 中是唯一且可供所有群組.
-- 如果使用 SAMAccountName 的群組進行授權，使用完整的網域名稱; 具有較少的情況下，所引發的機會發生名稱衝突。 在它自己的 SAMAccountName 可能內是唯一的 Active Directory 網域，但如果一個以上的 Active Directory 網域同步處理與 Azure Active Directory 租用戶已有相同名稱的多個群組。
+- 使用群組成員資格進行中的應用程式授權時偏好使用的群組 ObjectID，這是不可變和在 Azure Active Directory 中是唯一且可供所有群組。
+- 如果使用內部部署群組 sAMAccountName 進行授權，使用完整的網域名稱; 具有較少的情況下，所引發的機會發生名稱衝突。 在它自己的 SAMAccountName 可能內是唯一的 Active Directory 網域，但如果一個以上的 Active Directory 網域同步處理與 Azure Active Directory 租用戶已有相同名稱的多個群組。
 - 請考慮使用[應用程式角色](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md)提供一層的群組成員資格和應用程式之間的間接取值。   接著，應用程式會根據 在權杖中的角色 clams 內部的授權決策。
 - 如果應用程式設定為從 Active Directory 取得同步處理的群組屬性，而且群組不包含這些屬性則不會在宣告中。
-- 在權杖中的群組宣告包含巢狀的群組。   如果使用者屬於 GroupB GroupB 是群組的成員，則會包含使用者的群組宣告，群組和 GroupB。 具有巢狀群組的繁重使用量的組織和有大量的群組成員資格的使用者權杖中所列的群組數目可以成長的語彙基元的大小。   Azure Active Directory 會將它就會發出 SAML 判斷提示，150 到 200 的 JWT 權杖中的群組數目限制。
+- 在權杖中的群組宣告包含巢狀的群組。   如果使用者屬於 GroupB GroupB 是群組的成員，則會包含使用者的群組宣告，群組和 GroupB。 具有巢狀群組的繁重使用量的組織和有大量的群組成員資格的使用者權杖中所列的群組數目可以成長的語彙基元的大小。   Azure Active Directory 會將它就會發出 SAML 判斷提示，150，而 200 代表以防止權杖變得太大的 JWT 權杖中的群組數目限制。  如果使用者的限制比更大量的群組成員，會發出群組以及 Graph 端點，以取得群組資訊的連結。
 
 > 使用 群組屬性從 Active Directory 同步處理的必要條件： 必須從使用 Azure AD Connect 的 Active Directory 同步處理群組。
 
 有兩個步驟來設定 Azure Active Directory 發出的 Active Directory 群組的群組名稱。
 
-1. **同步處理群組名稱從 Active Directory**之前 Azure Active Directory 可以發出的群組名稱，或在內部部署群組上群組或角色中的 SID 宣告，需要從 Active Directory 同步處理所需的屬性。  您必須執行 Azure AD Connect 1.2.70 版或更新版本。   之前的版本 1.2.70 Azure AD Connect 會同步處理 Active Directory 中，從第群組物件，但預設不包含必要的群組名稱的屬性。  您應該升級至最新版本。
+1. **同步處理群組名稱從 Active Directory**之前 Azure Active Directory 可以發出的群組名稱，或在內部部署群組上群組或角色中的 SID 宣告，需要從 Active Directory 同步處理所需的屬性。  您必須執行 Azure AD Connect 1.2.70 版或更新版本。   之前的版本 1.2.70 Azure AD Connect 會同步處理群組物件，從 Active Directory，但預設不包含必要的群組名稱的屬性。  您應該升級至最新版本。
 
 2. **要包含在權杖中的群組宣告的 Azure Active Directory 中設定應用程式註冊**群組宣告可以是設定在資源庫 」 或 「 非資源庫 SAML SSO 應用程式，在入口網站的 [企業應用程式] 區段或應用程式資訊清單區段中使用應用程式註冊。  若要設定此應用程式資訊清單，請參閱下方的 < 設定 Azure Active Directory 應用程式註冊的群組屬性 > 中的群組宣告。
 
@@ -88,15 +93,15 @@ Azure Active Directory 所提供的應用程式中使用的權杖中的使用者
 
 ![宣告 UI](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
+若要發出使用 Active Directory 屬性，而不是 Azure AD Objectid 的從 Active Directory 同步處理群組，請從下拉式清單選取所需的格式。  這會將宣告中的物件識別碼取代包含群組名稱的字串值。   從 Active Directory 同步處理的群組將會包含宣告中。
+
+![宣告 UI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+
 ### <a name="advanced-options"></a>進階選項
 
 發出群組宣告的方式可以修改進階選項 下的設定
 
 自訂群組宣告的名稱：如果選取，就可以指定不同的宣告類型的群組宣告。   輸入 名稱 欄位和選擇性的命名空間中命名空間 欄位中的宣告的宣告型別。
-
-![宣告 UI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
-
-若要發出使用 Active Directory 群組屬性，而不是 Azure AD Objectid 檢查 '的 Return 群組名稱，而不是識別碼為' 方塊中，並從下拉式清單中選取格式。  這會將宣告中的物件識別碼取代包含群組名稱的字串值。   從 Active Directory 同步處理的群組將會包含宣告中。
 
 ![宣告 UI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 

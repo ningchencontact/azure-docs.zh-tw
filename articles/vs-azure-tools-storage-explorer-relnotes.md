@@ -14,18 +14,113 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 68d16a7e25e6f9a294dee1f077d53aa4551cda5e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924802"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154705"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
 本文包含 Azure 儲存體總管 1.4.3 版和先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
+
+## <a name="version-180"></a>版本 1.8.0
+5/1/2019
+
+### <a name="download-azure-storage-explorer-180"></a>下載 Azure 儲存體總管 1.8.0
+- [適用於 Windows azure 儲存體總管 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac 的 azure 儲存體總管 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 azure 儲存體總管 1.8.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>新增
+
+* 整合式的 AzCopy 版本已更新為版本 10.1.0。
+* Ctrl / Cmd + R 現在可以用來重新整理目前取得焦點的編輯器。 [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* Azure Stack 儲存體 API 版本已變更為 2017年-04-17。
+* ADLS Gen2 管理存取 對話方塊會立即讓遮罩保持同步的方式類似於其他 POSIX 權限的工具。 UI 也會警告您是否有所變更時，會導致使用者或群組的權限超過遮罩的界限。 [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* AzCopy 上傳，計算並設定 MD5 雜湊的旗標已啟用。 [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>預覽功能
+
+* 设备代码流登录现在可供预览。 若要启用此功能，请转到“预览”→“使用设备代码流登录”。 我们鼓励所有在空白登录窗口中遇到问题的用户试用此功能，因为经过证实，它是一种更可靠的登录方式。
+* 与 AzCopy 集成的存储资源管理器目前可供预览。 若要启用此功能，请转到“预览”→“使用 AzCopy 来改善 Blob 上传和下载”。 使用 AzCopy 应该可以更快且更有效地完成 Blob 传输。
+
+### <a name="fixes"></a>修正
+
+* [存取原則] 對話方塊上並沒有到期的儲存體的存取原則，將無法再設定到期日。 [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* 已確定產生的 SAS 時，會正確地使用 「 預存存取原則對一些變更來產生 SAS 對話方塊。 [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* 當嘗試將上傳為非 512 位元組對齊之分頁 Blob 的檔案時，儲存體總管現在會公開更多相關的錯誤。 [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* 複製 Blob 容器的過高的顯示名稱將會失敗。 現在，會使用 Blob 容器的實際名稱。 [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* 嘗試在其名稱中有 unicode 字元 ADLS Gen2 資料夾上執行某些動作將會失敗。 所有動作現在應可都運作。 [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>已知問題
+
+* 在執行非 AzCopy Blob 下載時，將大型檔案的 MD5 不正在驗證。 這是因為儲存體 SDK 中的 bug。 [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* 使用 RBAC 时，存储资源管理器需要一些管理层权限才能访问存储资源。 有关详细信息，请参阅[故障排除指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)。
+* 在代理后面尝试访问 ADLS Gen2 Blob 可能会失败。
+* 中斷連結透過 SAS URI 連結的資源 (例如 Blob 容器) 可能會導致錯誤，使得其他附件無法正確顯示。 若要解決此問題，只需重新整理群組節點。 如需詳細資訊，請參閱 #537。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請在此問題加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。 若要解決這個在上傳到 Blob 容器或從 Blob 容器下載時的問題，您可以使用實驗性的 AzCopy 功能。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用這裡所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* Azure Stack 不支援下列功能。 嘗試在使用 Azure Stack 資源時使用這些功能，可能會導致非預期的錯誤。
+   * 檔案共用
+   * 存取層級
+   * 虛刪除
+   * ADLS Gen2
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* 在 Linux 上執行儲存體總管需要先安裝特定相依性。 檢查儲存體總管[疑難排解指南](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies)如需詳細資訊。
+
+## <a name="previous-releases"></a>舊版
+
+* [版本 1.7.0](#version-170)
+* [版本 1.6.2](#version-162)
+* [1.6.1 版](#version-161)
+* [1.6.0 版](#version-160)
+* [1.5.0 版](#version-150)
+* [1.4.4 版](#version-144)
+* [1.4.3 版](#version-143)
+* [1.4.2 版](#version-142)
+* [1.4.1 版](#version-141)
+* [1.3.0 版](#version-130)
+* [版本 1.2.0](#version-120)
+* [1.1.0 版](#version-110)
+* [1.0.0 版](#version-100)
+* [0.9.6 版](#version-096)
+* [0.9.5 版](#version-095)
+* [0.9.4 和 0.9.3 版](#version-094-and-093)
+* [0.9.2 版](#version-092)
+* [0.9.1 和 0.9.0 版](#version-091-and-090)
+* [0.8.16 版](#version-0816)
+* [版本 0.8.14](#version-0814)
+* [0.8.13 版](#version-0813)
+* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
+* [0.8.9 和 0.8.8 版](#version-089-and-088)
+* [0.8.7 版](#version-087)
+* [0.8.6 版](#version-086)
+* [0.8.5 版](#version-085)
+* [0.8.4 版](#version-084)
+* [0.8.3 版](#version-083)
+* [0.8.2 版](#version-082)
+* [0.8.0 版](#version-080)
+* [0.7.20160509.0 版](#version-07201605090)
+* [0.7.20160325.0 版](#version-07201603250)
+* [0.7.20160129.1 版](#version-07201601291)
+* [0.7.20160105.0 版](#version-07201601050)
+* [0.7.20151116.0 版](#version-07201511160)
 
 ## <a name="version-170"></a>1.7.0 版
 3/5/2019
@@ -96,43 +191,6 @@ ms.locfileid: "64924802"
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>舊版
-
-* [版本 1.6.2](#version-162)
-* [1.6.1 版](#version-161)
-* [1.6.0 版](#version-160)
-* [1.5.0 版](#version-150)
-* [1.4.4 版](#version-144)
-* [1.4.3 版](#version-143)
-* [1.4.2 版](#version-142)
-* [1.4.1 版](#version-141)
-* [1.3.0 版](#version-130)
-* [版本 1.2.0](#version-120)
-* [1.1.0 版](#version-110)
-* [1.0.0 版](#version-100)
-* [0.9.6 版](#version-096)
-* [0.9.5 版](#version-095)
-* [0.9.4 和 0.9.3 版](#version-094-and-093)
-* [0.9.2 版](#version-092)
-* [0.9.1 和 0.9.0 版](#version-091-and-090)
-* [0.8.16 版](#version-0816)
-* [版本 0.8.14](#version-0814)
-* [0.8.13 版](#version-0813)
-* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
-* [0.8.9 和 0.8.8 版](#version-089-and-088)
-* [0.8.7 版](#version-087)
-* [0.8.6 版](#version-086)
-* [0.8.5 版](#version-085)
-* [0.8.4 版](#version-084)
-* [0.8.3 版](#version-083)
-* [0.8.2 版](#version-082)
-* [0.8.0 版](#version-080)
-* [0.7.20160509.0 版](#version-07201605090)
-* [0.7.20160325.0 版](#version-07201603250)
-* [0.7.20160129.1 版](#version-07201601291)
-* [0.7.20160105.0 版](#version-07201601050)
-* [0.7.20151116.0 版](#version-07201511160)
 
 ## <a name="version-162"></a>1.6.2 版
 2019 年 1 月 9 日

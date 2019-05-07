@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: juliako
-ms.openlocfilehash: d5fc14adab956fae23aad24fa7bc488c8c2041e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42b8c4caa53ffa6b3bc1148544c75602597ac452
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322561"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153834"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure 媒體服務 v3 配額和限制
 
@@ -36,26 +36,36 @@ ms.locfileid: "60322561"
 | 列出作業|將回應分頁，每頁 500 個作業|
 | 每個媒體服務帳戶的即時事件 |5|
 | 單一訂用帳戶的媒體服務帳戶 | 25 (固定) |
-| 在執行中狀態，每個即時事件的即時輸出 |3|
+| 每個即時事件的即時輸出 |3 <sup>(3)</sup> |
 | 最大即時輸出持續時間 | 25 個小時 |
 | 儲存體帳戶 | 100<sup>(4)</sup> (固定) |
 | 每個媒體服務帳戶的串流端點 (已停止或執行中)|2 （固定）|
-| 串流原則 | 100 <sup>(3)</sup> |
+| 串流原則 | 100 <sup>(5)</sup> |
 | 每個媒體服務帳戶的轉換 | 100 (固定)|
-| 一次與資產相關聯的唯一串流定位器 | 100<sup>(5)</sup> (固定) |
+| 一次與資產相關聯的唯一串流定位器 | 100<sup>(6)</sup> （固定） |
 | 內容金鑰原則 |30 | 
 
-<sup>1</sup> 單一 blob 支援的大小上限目前在 Azure Blob 儲存體是最多 5 TB。 不過，其他的限制會以服務所使用的 VM 大小作為基礎套用在 Azure 媒體服務中。 如果原始程式檔超過 260 GB，您的工作可能會失敗。 如果您的 4K 內容超過 260 GB 限制，請來函寄到 amshelp@microsoft.com，我們將針對您的情況，提供解決的方法。
+<sup>1</sup> 單一 blob 支援的大小上限目前在 Azure Blob 儲存體是最多 5 TB。 其他的限制適用於服務所使用的 VM 大小所根據的媒體服務中。 大小限制適用於您上傳的檔案，也因為媒體服務處理 （編碼或分析） 而產生的檔案。 如果原始程式檔超過 260 GB，您的工作可能會失敗。 
+
+下表會顯示上媒體保留單位 S1、 S2 和 S3 的限制。 如果您的來源檔案大於資料表中定義的限制，編碼作業將會失敗。 如果編碼的持續時間較長的 4k 解析來源，您會需要使用 S3 媒體保留單元，以達到所需的效能。 如果您有 4k 內容超過 S3 媒體保留單元的 260 GB 限制，與我們連絡amshelp@microsoft.com取得潛在防護功能，以支援您的案例。
+
+|媒體保留單元類型   |輸入的大小的上限 (GB)|
+|---|---|
+|S1 |   26|
+|S2 | 60|
+|S3 |260|
 
 <sup>2</sup> 這個數字包括佇列、已完成、作用中和已取消的工作。 不包含已刪除的工作。 
 
 您的帳戶中任何超過 90 天的工作記錄，都會自動刪除，即使記錄總數低於配額上限亦然。 
 
-<sup>3</sup> 使用自訂的[串流原則](https://docs.microsoft.com/rest/api/media/streamingpolicies)時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 不建議您對每個串流定位器建立新的串流原則。
+<sup>3</sup> live 的輸出上建立啟動和停止時刪除。
 
 <sup>4</sup> 儲存體帳戶必須來自相同的 Azure 訂用帳戶。
 
-<sup>5</sup> 串流定位器並非設計來管理每個使用者的存取控制。 若要給予個別使用者不同的存取權限，請使用數位版權管理 (DRM) 方案。
+<sup>5</sup>時使用自訂[Streaming 原則](https://docs.microsoft.com/rest/api/media/streamingpolicies)，您應該設計您的媒體服務帳戶的一組有限的這類原則，並重新將它們用於您 StreamingLocators 時相同的加密選項，以及通訊協定所需。 不建議您對每個串流定位器建立新的串流原則。
+
+<sup>6</sup>串流定位器並非設計來管理每位使用者存取控制。 若要給予個別使用者不同的存取權限，請使用數位版權管理 (DRM) 方案。
 
 ## <a name="support-ticket"></a>支援票證
 

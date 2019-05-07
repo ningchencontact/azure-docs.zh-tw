@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f29db5786c682188b4eadec12275df46ae3b547
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093942"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153346"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 受控執行個體及從該處複製資料
 
@@ -142,7 +142,7 @@ ms.locfileid: "61093942"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 Azure SQL Database 受控執行個體資料集所支援的屬性清單。
 
-若要從 Azure SQL Database 受控執行個體複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **SqlServerTable**。 以下是支援的屬性：
+若要與 Azure SQL Database 受控執行個體，請複製資料，支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -161,6 +161,7 @@ ms.locfileid: "61093942"
             "referenceName": "<Managed Instance linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -282,7 +283,7 @@ GO
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 type 屬性必須設定為 **SqlSink**。 | 是。 |
-| writeBatchSize |要插入至 SQL 資料表的資料列的數目**每個批次**。<br/>允許的值為整數的資料列數目。 |否 (預設值：10,000)。 |
+| writeBatchSize |要插入至 SQL 資料表的資料列的數目**每個批次**。<br/>允許的值為整數的資料列數目。 依預設，Data Factory 以動態方式決定適當的批次大小為基礎的資料列大小。  |否 |
 | writeBatchTimeout |此屬性會指定在逾時前等待批次插入作業完成的時間。<br/>允許的值為時間範圍。 範例是 “00:30:00”，也就是 30 分鐘。 |沒有。 |
 | preCopyScript |此屬性會針對複製活動指定一個 SQL 查詢，在將資料寫入到受控執行個體之前執行。 每一複製回合只會叫用此查詢一次。 您可以使用此屬性來清除預先載入的資料。 |沒有。 |
 | sqlWriterStoredProcedureName |這是用來定義如何將來源資料套用到目標資料表的預存程序名稱。 程序的範例是使用您自己的商務邏輯來進行 upsert 或轉換。 <br/><br/>此預存程序將會*依批次叫用*。 若要進行只執行一次且與來源資料無關的作業 (例如刪除或截斷)，請使用 `preCopyScript` 屬性。 |沒有。 |

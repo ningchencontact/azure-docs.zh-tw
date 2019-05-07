@@ -2,18 +2,17 @@
 title: 概念 - Azure Kubernetes Service (AKS) 中的網路功能
 description: 了解 Azure Kubernetes Service (AKS) 中的網路功能，包括 kubenet 和 Azure CNI 網路功能、輸入控制器、負載平衡器和靜態 IP 位址。
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/28/2019
+ms.author: iainfou
+ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467243"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074056"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的網路概念
 
@@ -65,7 +64,6 @@ Azure 平台也有助於簡化 AKS 叢集的虛擬網路。 當您建立 Kuberne
 - *Kubenet* 網路 - 在部署 AKS 叢集時通常會建立並設定網路資源。
 - *Azure 容器網路介面 (CNI)* 網路 - AKS 叢集會連線至現有的虛擬網路資源和組態。
 
-<a name="kubenet-basic-networking"></a>
 ### <a name="kubenet-basic-networking"></a>Kubenet (基本) 網路
 
 *Kubenet* 網路選項是建立 AKS 叢集時的預設組態。 使用 *kubenet*，節點會從 Azure 虛擬網路子網路取得 IP 位址。 Pod 會從邏輯上不同的位址空間接收至節點的 Azure 虛擬網路子網路的 IP 位址。 然後設定網路位址轉譯 (NAT)，以便 Pod 可以連線到 Azure 虛擬網路上的資源。 流量的來源 IP 位址會被轉譯為節點的主要 IP 位址。
@@ -74,7 +72,6 @@ Azure 平台也有助於簡化 AKS 叢集的虛擬網路。 當您建立 Kuberne
 
 如需詳細資訊，請參閱[為 AKS 叢集設定 kubenet 網路][aks-configure-kubenet-networking]。
 
-<a name="azure-cni-advanced-networking"></a>
 ### <a name="azure-cni-advanced-networking"></a>Azure CNI (進階) 網路
 
 使用 Azure CNI，每個 Pod 都從子網路取得 IP 位址，並且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多的規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大的子網路中重建叢集。
@@ -111,7 +108,7 @@ Azure CNI 透過 kubenet 網路提供下列功能：
 
 根據預設，AKS 叢集內的所有 Pod 都可無限制地傳送及接收流量。 為了提升安全性，您可以定義控制流量的規則。 後端應用程式通常只會對必要的前端服務公開，或是資料庫元件僅供與其連線的應用程式層存取。
 
-网络策略是一项 Kubernetes 功能，目前在 AKS 中为预览版，可用于控制 Pod 之间的流量。 您可以根據指派的標籤、命名空間或流量連接埠等設定，選擇允許或拒絕流量。 網路安全性群組較適用於 AKS 節點而非 Pod。 使用網路原則是一種控制流量的較合適且雲端原生的方式。 由於 Pod 是在 AKS 叢集內以動態方式建立的，因此可以自動套用所需的網路原則。
+網路原則是提供可讓您控制 pod 之間的流量的 AKS 中 Kubernetes 功能。 您可以根據指派的標籤、命名空間或流量連接埠等設定，選擇允許或拒絕流量。 網路安全性群組較適用於 AKS 節點而非 Pod。 使用網路原則是一種控制流量的較合適且雲端原生的方式。 由於 Pod 是在 AKS 叢集內以動態方式建立的，因此可以自動套用所需的網路原則。
 
 如需詳細資訊，請參閱[使用 Azure Kubernetes Service (AKS) 中的網路原則來保護 Pod 之間的流量][use-network-policies] \(英文\)。
 
@@ -142,10 +139,7 @@ Azure CNI 透過 kubenet 網路提供下列功能：
 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
-[aks-ingress-tls]: ingress-tls.md
-
-<!--Mooncake : URL redirect to ingress-tls.md-->
-
+[aks-ingress-tls]: ingress.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md

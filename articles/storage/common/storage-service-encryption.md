@@ -1,25 +1,28 @@
 ---
 title: Azure 儲存體加密待用資料 |Microsoft Docs
-description: Azure 儲存體自動加密，保護您的資料之前將它保存到雲端。 Azure 儲存體中的所有資料中的 blob、 磁碟、 檔案、 佇列或資料表，加密和解密透明地使用 256 位元 AES 加密，並且是 FIPS 140-2 符合規範。
+description: Azure 儲存體自動加密，保護您的資料之前將它保存到雲端。 Azure 儲存體中的所有資料會加密和解密以透明的方式使用 256 位元 AES 加密，並且是 FIPS 140-2 相容。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/30/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730818"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153094"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>待用資料的 azure 儲存體加密
 
 Azure 儲存體保存至雲端時，會自動加密您的資料。 加密可保護您的資料，並協助您符合組織安全性與合規性承諾。 Azure 儲存體中的資料加密和解密透明地使用 256 位元[AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)、 其中一個最強大區塊編碼器可用，且 FIPS 140-2 相容。 Azure 儲存體加密會類似於在 Windows 上的 BitLocker 加密。
 
-Azure 儲存體加密會啟用所有新的和現有的儲存體帳戶，而且無法停用。 因為您的資料受到保護預設情況下，您不需要修改您的程式碼或應用程式，以利用 Azure 儲存體加密。 不論他們的效能層級 （標準或進階） 或部署模型 （Azure Resource Manager 或傳統），會加密儲存體帳戶。 所有的 Azure 儲存體備援選項支援加密，並會加密儲存體帳戶的所有複本。 會加密所有的 Azure 儲存體資源，包括 blob、 磁碟、 檔案、 佇列和資料表。
+Azure 儲存體加密會啟用所有新的和現有的儲存體帳戶，而且無法停用。 因為您的資料受到保護預設情況下，您不需要修改您的程式碼或應用程式，以利用 Azure 儲存體加密。 
+
+不論他們的效能層級 （標準或進階） 或部署模型 （Azure Resource Manager 或傳統），會加密儲存體帳戶。 所有的 Azure 儲存體備援選項支援加密，並會加密儲存體帳戶的所有複本。 會加密所有的 Azure 儲存體資源，包括 blob、 磁碟、 檔案、 佇列和資料表。 此外，也會加密所有的物件中繼資料。
 
 加密並不會影響 Azure 儲存體效能。 沒有任何額外的成本，Azure 儲存體加密。
 

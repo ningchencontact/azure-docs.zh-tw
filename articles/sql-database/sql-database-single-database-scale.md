@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 4288eb7d051c44149a6f1970430dc8c409ca957d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572875"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074267"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>在 Azure SQL Database 中調整單一資料庫資源
 
-本文說明如何在佈建的計算層中調整適用於單一資料庫的計算和儲存體資源。 
+本文說明如何在佈建的計算層中調整適用於單一資料庫的計算和儲存體資源。 或者，[無伺服器 （預覽） 計算層次](sql-database-serverless.md)提供計算自動調整和每秒使用的計算的帳單。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

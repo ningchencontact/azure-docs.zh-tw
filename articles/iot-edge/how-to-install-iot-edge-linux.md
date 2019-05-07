@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 5829606f3ad226507c49f18dcc8ac4831d573b17
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b519ed21b4d2e0e258c48bd1dc12750176281c9e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126304"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152856"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux (x64) 上安裝 Azure IoT Edge 執行階段
 
@@ -23,7 +23,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 若要了解详细信息，请参阅[了解 Azure IoT Edge 运行时及其体系结构](iot-edge-runtime.md)。
 
-本文列出了在 Ubuntu Linux x64 (Intel/AMD) IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 有关支持的 AMD64 操作系统的列表，请参阅 [Azure IoT Edge 支持](support.md#operating-systems)。
+本文列出了在 Ubuntu Linux x64 (Intel/AMD) IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 請參閱[Azure IoT Edge 支援系統](support.md#operating-systems)取得一份支援 AMD64 的作業系統。
 
 > [!NOTE]
 > Linux 軟體存放庫中的套件受限於每個套件中的授權條款 (/usr/share/doc/package-name)。 在使用套件之前，請先閱讀授權條款。 安裝及使用套件即表示接受這些授權條款。 如果您不同意授權條款，請勿使用套件。

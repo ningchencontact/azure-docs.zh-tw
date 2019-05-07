@@ -2,18 +2,17 @@
 title: 開發人員最佳做法 - Azure Kubernetes Services (AKS) 中的 Pod 安全性
 description: 了解如何在 Azure Kubernetes Services (AKS) 中保護 Pod 的開發人員最佳做法
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1c2c5cbee91ddaee5f1f6af8ec17c48326f68e84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/06/2018
+ms.author: zarhoads
+ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466852"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073979"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中的 Pod 安全性最佳做法
 
@@ -32,7 +31,9 @@ ms.locfileid: "60466852"
 
 **最佳做法指引** - 若要以不同使用者或群組來執行，並限制基礎節點處理序與服務的存取，請定義 Pod 資訊安全內容設定。 指派所需的最少量權限。
 
-Pod 的執行身分應為定義的使用者或群組，而非「根」，您的應用程式才能正確執行。 Pod 或容器的 `securityContext` 可讓您定義如 *runAsUser* 或 *fsGroup* 的設定，取得適當的權限。 僅指派所需的使用者或群組的權限，並不使用資訊安全內容作為取得其他權限的方式。 當您的執行身分為非根使用者時，容器無法繫結至具特殊權限的連接埠 1024。 在此案例中，Kubernetes 服務可用來偽裝應用程式在特定連接埠上執行的事實。
+Pod 的執行身分應為定義的使用者或群組，而非「根」，您的應用程式才能正確執行。 Pod 或容器的 `securityContext` 可讓您定義如 *runAsUser* 或 *fsGroup* 的設定，取得適當的權限。 僅指派所需的使用者或群組的權限，並不使用資訊安全內容作為取得其他權限的方式。 *RunAsUser*，權限提升和其他 Linux 功能設定只適用於 Linux 節點和 pod。
+
+當您的執行身分為非根使用者時，容器無法繫結至具特殊權限的連接埠 1024。 在此案例中，Kubernetes 服務可用來偽裝應用程式在特定連接埠上執行的事實。
 
 Pod 資訊安全內容也可以定義存取處理序和服務的其他功能或權限。 您可以設定下列常見資訊安全內容定義：
 
@@ -54,7 +55,7 @@ metadata:
 spec:
   containers:
     - name: security-context-demo
-      image: dockerhub.azk8s.cn/nginx:1.15.5
+      image: nginx:1.15.5
     securityContext:
       runAsUser: 1000
       fsGroup: 2000
@@ -67,7 +68,7 @@ spec:
 
 ## <a name="limit-credential-exposure"></a>限制認證公開程度
 
-**最佳做法指引** - 不在應用程式程式碼中定義認證。 使用 Azure 資源的受控身分識別，可讓 Pod 要求存取其他資源。 如 Azure Key Vault 的數位保存庫也應可用來儲存和擷取數位金鑰與認證。
+**最佳做法指引** - 不在應用程式程式碼中定義認證。 使用 Azure 資源的受控身分識別，可讓 Pod 要求存取其他資源。 如 Azure Key Vault 的數位保存庫也應可用來儲存和擷取數位金鑰與認證。 受管理的 pod 適用於 Linux 的 pod 和容器映像只是身分識別。
 
 若要限制在應用程式程式碼中公開認證的風險，請避免使用固定或共用認證。 認證或金鑰不應直接包含在程式碼中。 如果公開這些認證，就需要更新和重新部署應用程式。 較好的方法是提供 Pod 自己的身分識別和自我驗證方式，或從數位保存庫自動擷取認證。
 
@@ -97,6 +98,8 @@ Azure 資源的受控身分識別可讓 Pod 向 Azure 中任何支援此功能�
 ![使用 Pod 受控身分識別從 Azure Key Vault 擷取認證的簡化工作流程](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
 有了 Key Vault，您就可以儲存並定期輪替使用祕密，例如認證、儲存體帳戶金鑰或憑證。 您可以使用 FlexVolum 整合 Azure Key Vault 與 AKS 叢集。 FlexVolume 驅動程式可讓 AKS 叢集從 Key Vault 原生擷取認證，並只會將認證安全地提供給提出要求的 Pod。 請和叢集操作員一起將 Key Vault FlexVol 驅動程式部署到 AKS 節點。 您可以使用 Pod 受控身分識別向 Key Vault 要求存取權，並透過 FlexVolume 驅動程式擷取所需的認證。
+
+Azure 金鑰保存庫，搭配 FlexVol 適合搭配應用程式和 Linux 的 pod 和節點上執行的服務。
 
 ## <a name="next-steps"></a>後續步驟
 

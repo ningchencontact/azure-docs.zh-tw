@@ -5,23 +5,20 @@ services: container-service
 author: iainfoulds
 ms.topic: conceptual
 ms.service: container-service
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 38b2654c8f3e8d302a66cac335913583bd4426ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe837c4d89a59325040355e35f12c3499aee7d98
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61024549"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072816"
 ---
-# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>預覽-建立並設定 Azure Kubernetes Service (AKS) 叢集將使用 Azure CLI 的虛擬節點
+# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>使用 Azure CLI 建立和設定 Azure Kubernetes Service (AKS) 叢集以使用虛擬節點
 
-若要在 Azure Kubernetes Service (AKS) 叢集中快速地調整應用程式工作負載，您可以使用虛擬節點。 透過虛擬節點，您可以快速佈建 Pod，而且只需在節點執行時付費 (以秒計算)。 您不需要等候 Kubernetes 叢集自動調整程式來部署 VM 計算節點以執行其他 Pod。 本文會示範如何建立和設定虛擬網路資源與 AKS 叢集，然後啟用虛擬節點。
+若要在 Azure Kubernetes Service (AKS) 叢集中快速地調整應用程式工作負載，您可以使用虛擬節點。 透過虛擬節點，您可以快速佈建 Pod，而且只需在節點執行時付費 (以秒計算)。 您不需要等候 Kubernetes 叢集自動調整程式來部署 VM 計算節點以執行其他 Pod。 虛擬節點，只支援 Linux pod 和節點。
 
-> [!IMPORTANT]
-> AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
->
-> 如果遇到预览版功能的问题，请[在 AKS GitHub 存储库中提交问题][aks-github]，并在 Bug 标题中填写预览版功能的名称。
+本文會示範如何建立和設定虛擬網路資源與 AKS 叢集，然後啟用虛擬節點。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -52,10 +49,16 @@ az provider register --namespace Microsoft.ContainerInstance
 針對虛擬節點部署支援下列區域：
 
 * 澳大利亞東部 (australiaeast)
+* 美國中部 (centralus)
 * 美國東部 (eastus)
+* 美國東部 2 (eastus2)
+* 日本東部 (japaneast)
+* 北歐 (northeurope)
+* 東南亞 (southeastasia)
 * 美國中西部 (westcentralus)
 * 西歐 (westeurope)
 * 美國西部 (westus)
+* 美國西部 2 (westus2)
 
 ## <a name="known-limitations"></a>已知限制
 虛擬節點功能是高度依賴 ACI 的功能集。 下列案例尚不支援具有虛擬節點
@@ -183,11 +186,6 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
-> [!NOTE]
-> 如果您收到關於虛擬節點找不到錯誤時，您可能需要安裝其 CLI 擴充功能 
-> ```azurecli-interactive
-> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-> ```
 
 ## <a name="connect-to-the-cluster"></a>連接到叢集
 
@@ -266,7 +264,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 Pod 會從 Azure 虛擬網路的子網路 (為搭配使用虛擬節點而委派) 獲派內部 IP 位址。
 
 > [!NOTE]
-> 如果您使用儲存在 Azure Container Registry 中的映像，請[設定並使用 Kubernetes 祕密][acr-aks-secrets]。 目前的虛擬節點預覽限制是，您無法使用整合式 Azure AD 服務主體驗證。 如果您未使用祕密，已在虛擬節點上排程的 Pod 就無法啟動並會回報錯誤 `HTTP response status code 400 error code "InaccessibleImage"`。
+> 如果您使用儲存在 Azure Container Registry 中的映像，請[設定並使用 Kubernetes 祕密][acr-aks-secrets]。 虛擬節點的目前限制是，您無法使用整合式的 Azure AD 服務主體驗證。 如果您未使用祕密，已在虛擬節點上排程的 Pod 就無法啟動並會回報錯誤 `HTTP response status code 400 error code "InaccessibleImage"`。
 
 ## <a name="test-the-virtual-node-pod"></a>測試虛擬節點 Pod
 

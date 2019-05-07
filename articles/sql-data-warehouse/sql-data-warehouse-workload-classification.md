@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474822"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154217"
 ---
-# <a name="sql-data-warehouse-workload-classification-preview"></a>SQL 数据仓库工作负荷分类（预览）
+# <a name="sql-data-warehouse-workload-classification"></a>SQL 資料倉儲工作負載分類
 
 本文介绍用于向传入请求分配资源类和重要性的 SQL 数据仓库工作负荷分类过程。
-
-> [!Note]
-> 工作負載分類可在 SQL 資料倉儲 Gen2 上以預覽的方式取得。 工作負載管理和重要性預覽適用於發行日期在 2019 年 4 月 9 日之後的組建。  使用者應該避免使用早於此日期的組建進行工作負載管理測試。  若要判斷您的組建是否以能夠使用工作負載管理功能，請在連線至您的 SQL 資料倉儲執行個體時，執行 select @ @version。
 
 ## <a name="classification"></a>分類
 
@@ -63,10 +60,10 @@ SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <
 
 請考慮下列狀況：
 
-•某个现有的数据仓库包含已分配到 largerc 资源类角色的数据库用户 DBAUser。 资源类分配是使用 sp_addrolemember 进行的。
-•现已使用工作负荷管理更新该数据仓库。
-•为了测试新的分类语法，为数据库角色 DBARole（DBAUser 是其成员）创建了一个分类器（用于将用户映射到 mediumrc），并且该角色具有较高的重要性。
-•当 DBAUser 登录并运行查询时，该查询将分配到 largerc， 因为用户优先于角色成员身份。
+- 現有的資料倉儲具有 DBAUser 指派為 largerc 資源類別角色的資料庫使用者。 资源类分配是使用 sp_addrolemember 进行的。
+- 資料倉儲現在已更新工作負載管理。
+- 若要測試新的分類語法，在資料庫角色 DBARole （即 DBAUser 的成員），會有建立為其對應至 mediumrc 和高重要性的分類器。
+- 當 DBAUser 登入，並執行查詢時，查詢將會指派為 largerc。 因为用户优先于角色成员身份。
 
 为了简化分类错误的排查，我们建议在创建工作负荷分类器时删除资源类角色映射。  以下代码返回现有的资源类角色成员身份。  针对相应资源类返回的每个成员名称运行 [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql)。
 
@@ -84,4 +81,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>後續步驟
 
-有关 SQL 数据仓库工作负荷分类和重要性的详细信息，请参阅[创建工作负荷分类器](quickstart-create-a-workload-classifier-tsql.md)和 [SQL 数据仓库重要性](sql-data-warehouse-workload-importance.md)。 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。
+若要開始使用建立分類器，請參閱[建立工作負載分類 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  有关 SQL 数据仓库工作负荷分类和重要性的详细信息，请参阅[创建工作负荷分类器](quickstart-create-a-workload-classifier-tsql.md)和 [SQL 数据仓库重要性](sql-data-warehouse-workload-importance.md)。 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 05/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381433"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137791"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常見問題集
 
@@ -78,6 +78,47 @@ Microsoft 建議強化您的 Azure AD Connect 伺服器，可減少安全性攻�
 
 為了簡單起見，我們建議安裝 Azure AD Connect 的使用者就是 SQL 中的系統管理員。 不過，在最新的組建中，您現在已可使用委派的 SQL 系統管理員，如[使用 SQL 委派管理員權限安裝 Azure AD Connect](how-to-connect-install-sql-delegation.md)中所述。
 
+**问：有哪些欄位中的最佳做法為何？**  
+
+以下是提供一些最佳做法工程、 支援的參考文件和我們的顧問已經開發多年。  項目符號清單可快速參考 所示。  雖然這份清單會嘗試在完整，但可能會有其他可能不導致它在清單尚未的最佳作法。
+
+- 如果使用完整的 SQL，則它應該保留本機與遠端
+    - 躍點較少
+    - 更容易進行疑難排解
+    - 較不複雜
+    - 必須指定 SQL 的資源，並允許 Azure AD Connect 和 OS 的額外負荷
+- 略過 Proxy 時，如果可以的話，如果您無法略過 proxy，則您需要確定的逾時值是 5 分鐘以上。
+- 如果 proxy 是必要的則您必須將 proxy 加入至 machine.config 檔案
+- 請注意本機的 SQL 作業和維護，以及它們會如何影響 Azure AD Connect-特別重新編製索引
+- 確保可外部解析 DNS
+- 請確認[伺服器規格](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect)建議每個您使用實體或虛擬伺服器
+- 如果您使用所需的資源為專用的虛擬伺服器，請確認
+- 請確定您有磁碟和磁碟組態符合適用於 SQL Server 的最佳作法
+- 安裝和設定 Azure AD Connect Health 進行監視
+- 使用內建於 Azure AD Connect 的刪除閾值。
+- 仔細檢閱版本更新的所有變更和新的屬性，可加入準備
+- 備份所有項目
+    - 備份金鑰
+    - 備份的同步處理規則
+    - 備份伺服器設定
+    - 備份 SQL 資料庫
+- 請確定沒有任何第 3 個合作對象備份代理程式沒有 SQL VSS 寫入器 （在第 3 個合作對象的快照集的虛擬伺服器的一般） 的 SQL 備份
+- 限制的自訂同步處理規則所使用，因為它們會增加複雜度
+- 將 Azure AD 連接的伺服器，如層 0 個伺服器
+- 是 leery 修改沒有很好的影響，以及正確的商務驅動程式的了解雲端同步處理規則
+- 請確定正確的 URL 和防火牆連接埠已開啟以支援 Azure AD Connect 與 Azure AD Connect Health
+- 利用雲端已篩選的屬性，以進行疑難排解，並避免虛設的物件
+- 預備伺服器以確保您使用 Azure AD Connect 組態文件產生器的伺服器之間的一致性
+- 預備伺服器應位於不同的資料中心 （實體位置
+- 預備伺服器不是用來提供高可用性解決方案，但是您可以有多個預備伺服器
+- 簡介 「 延遲 」 的預備伺服器可以減輕一些可能的停機時間，如果發生錯誤
+- 測試並先驗證預備伺服器上的所有升級
+- 一律驗證匯出之前先切換至預備 serverLeverage 完整匯入和完整的同步處理，以減少營運影響預備伺服器
+- 讓 Azure AD Connect 伺服器之間的版本一致性盡量 
+
+**问：我要允許在工作群組機器上建立的 Azure AD 連接器帳戶的 Azure AD Connect？**
+沒有。  為了讓 Azure AD Connect 來自動建立 Azure AD Connector 帳戶，電腦必須已加入網域。  
+
 ## <a name="network"></a>網路
 **问：我的防火牆、網路裝置或其他軟硬體會限制連線在網路上保持開啟的時間。當我使用 Azure AD Connect 時，用戶端逾時閥值的時間應該多長？**  
 所有網路軟體、實體裝置或其他軟硬體限制連線開啟時間上限的閥值應該至少為 5 分鐘 (300 秒)，以便讓安裝 Azure AD Connect 用戶端的伺服器與 Azure Active Directory 連線。 此建議也適用於所有先前發行的 Microsoft 身分識別同步處理工具。
@@ -107,6 +148,9 @@ Microsoft 建議強化您的 Azure AD Connect 伺服器，可減少安全性攻�
 ## <a name="environment"></a>環境
 **问：是否支援在安裝 Azure AD Connect 之後重新命名伺服器？**  
 沒有。 變更伺服器名稱會使同步引擎無法連線到 SQL 資料庫執行個體，並且無法啟動此服務。
+
+**问：下一代密碼編譯 (NGC) 同步處理規則支援在啟用 FIPS 的電腦上？**  
+沒有。  不支援。
 
 ## <a name="identity-data"></a>身分識別資料
 **问：Azure AD 中的 userPrincipalName (UPN) 屬性為什麼與內部部署的 UPN 不符？**  
