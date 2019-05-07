@@ -1,21 +1,21 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫中的效能建議
-description: 本文說明適用於 PostgreSQL 的 Azure 資料庫中的 [效能建議] 功能。
+title: 在 Azure Database for PostgreSQL-單一伺服器的效能建議
+description: 本文說明適用於 PostgreSQL-單一伺服器的 Azure 資料庫中的 [效能建議] 功能。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2018
-ms.openlocfilehash: c5324618eeda90b4ef1a512385fb2f14bf391215
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 31d8c0fdf1b4df3ee00f3652c933b4b738384bea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564426"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068853"
 ---
-# <a name="performance-recommendations-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的效能建議
+# <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Azure 資料庫中的 PostgreSQL-單一伺服器的效能建議
 
-**適用範圍：** 適用於 PostgreSQL 9.6 和 10 的 Azure 資料庫
+**適用範圍：** Azure Database for PostgreSQL-9.6] 和 [10 的單一伺服器
 
 [效能建議] 功能會分析您的資料庫，以建立自訂的建議，以改善效能。 若要產生的建議，分析會探討各種資料庫特性，包括結構描述。 啟用[查詢存放區](concepts-query-store.md)您充分利用 [效能建議] 功能的伺服器上。 實作任何效能建議後，您應該測試來評估這些變更的影響效能。 
 

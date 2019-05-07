@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 921d154226862d822802562442f59bf1c37c4745
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148916"
+ms.locfileid: "65205474"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>從媒體服務 v2 移動至 v3 的移轉指導
 
@@ -71,7 +71,7 @@ ms.locfileid: "65148916"
     * 串流定位器取代了定位器。
     * 即時事件取代了通道。<br/>即時事件計費是以直播頻道計量為基礎。 如需詳細資訊，請參閱[計費](live-event-states-billing.md)和[定價](https://azure.microsoft.com/pricing/details/media-services/)。
     * 即時輸出取代了程式。
-* 即時輸出不需要明確地啟動，它們會在建立時啟動，並在刪除時停止。 程式在 v2 API 中是以不同的方式運作，因此它們必須在建立後啟動。
+* 「實況輸出」會在建立時開始，並在刪除時結束。 程式在 v2 API 中是以不同的方式運作，因此它們必須在建立後啟動。
 *  若要取得工作的相關資訊，您需要知道在其建立作業轉換名稱。 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>與 v2 API 相關的功能差距

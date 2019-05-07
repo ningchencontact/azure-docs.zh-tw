@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0506ef82a00b46bf9be14757f15195bcbf8ab432
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148892"
+ms.locfileid: "65202918"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>自動調整和區域備援應用程式閘道 
 
@@ -22,6 +22,8 @@ ms.locfileid: "65148892"
 
 - **自動調整**：自動調整 SKU 下的「應用程式閘道」或 WAF 部署可以根據變動的流量負載模式來相應增加或相應減少。 自動調整規模也可讓您在佈建時，無須選擇部署大小或執行個體計數。 此 SKU 提供，則為 true 的彈性。 在 Standard_v2 和 WAF_v2 SKU 中，應用程式閘道能在固定的容量 （已停用自動調整），以啟用自動調整規模模式。 固定容量模式適用於工作負載一致且可預測的案例。 自動調整模式是有幫助，請參閱中的應用程式流量的變異數的應用程式中。
 - **區域備援**：部署 WAF 的應用程式閘道可以跨越多個可用性區域，而不需要佈建每個區域使用流量管理員中的個別應用程式閘道執行個體。 您可以選擇單一區域或多個區域部署的應用程式閘道執行個體的位置，讓區域失敗更有彈性。 應用程式的後端集區可以均等分散在可用性區域間。
+
+  區域備援可只所在 Azure 區域可用。 在其他區域，支援所有其他功能。 如需詳細資訊，請參閱[什麼是 Azure 中可用性區域？](../availability-zones/az-overview.md#services-support-by-region)
 - **靜態 VIP**：應用程式閘道 v2 SKU 支援靜態 VIP 以獨佔方式輸入。 這可確保應用程式閘道相關聯的 VIP 不會變更生命週期的部署，即使重新啟動。
 - **標頭重寫**:應用程式閘道可讓您新增、 移除或更新 HTTP 要求和回應標頭與 v2 SKU。 如需詳細資訊，請參閱[重寫的 HTTP 標頭，與應用程式閘道](rewrite-http-headers.md)
 - **金鑰保存庫整合 （預覽）**:應用程式閘道 v2 支援與整合 Key Vault （公開預覽） 中的之伺服器憑證附加到啟用 HTTPS 接聽程式。 如需詳細資訊，請參閱 < [Key Vault 憑證與 SSL 終止](key-vault-certs.md)。

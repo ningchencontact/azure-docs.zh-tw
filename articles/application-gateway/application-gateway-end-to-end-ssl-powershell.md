@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4ce1ad347742886e7d89a32bbeb60c2e0281409
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269345"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198568"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 以應用程式閘道設定端對端 SSL
 
@@ -174,7 +174,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01'
    ```
 
    > [!NOTE]
-   > 在此步驟中所提供的憑證，應該是在後端上出現的 .pfx 憑證本身的公開金鑰。 將安裝在後端伺服器上的憑證 (非根憑證) 以「宣告、證據和推論」(CER) 格式匯出，並將它用於此步驟。 此步驟會將後端加入到應用程式閘道的允許清單。
+   > 在上一個步驟中所提供的憑證應該出現在 後端上的.pfx 憑證的公開金鑰。 將安裝在後端伺服器上的憑證 (非根憑證) 以「宣告、證據和推論」(CER) 格式匯出，並將它用於此步驟。 此步驟會將後端加入到應用程式閘道的允許清單。
 
    如果您使用「應用程式閘道 v2 SKU」，則請建立受信任的根憑證，而不是建立驗證憑證。 如需詳細資訊，請參閱[應用程式閘道端對端 SSL 的概觀](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)：
 

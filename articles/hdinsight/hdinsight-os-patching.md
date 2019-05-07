@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: a887d6c69b9fa80f3144434e72a097e80d123a1b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722293"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203646"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight 的作業系統修補 
 
@@ -23,29 +23,25 @@ ms.locfileid: "64722293"
 HDInsight 叢集中的虛擬機器有時候需要重新開機，以便系統可以安裝重要的安全性修補程式。 
 
 您可以使用本文所述的指令碼動作來修改作業系統修補排程，如下所示︰
-1. 啟用或停用自動重新開機
-2. 設定重新開機頻率 (重新開機間隔天數)
-3. 設定要在星期幾重新開機
+1. 安裝完整的 OS 更新或安裝僅限安全性更新
+2. 重新啟動 VM
 
 > [!NOTE]  
-> 此指令碼動作只適用於在 2016 年 8 月 1 日之後建立的以 Linux 為基礎的 HDInsight 叢集。 VM 重新開機後，修補才會生效。 
+> 此指令碼動作只適用於在 2016 年 8 月 1 日之後建立的以 Linux 為基礎的 HDInsight 叢集。 VM 重新開機後，修補才會生效。 此指令碼將不會自動套用更新的所有未來的更新週期。 執行指令碼每次新的更新必須套用以安裝更新並重新啟動 VM。
 
 ## <a name="how-to-use-the-script"></a>如何使用指令碼 
 
 使用此指令碼時需要下列資訊︰
-1. 指令碼位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh。HDInsight 會使用此 URI 在叢集中的所有虛擬機器上尋找和執行指令碼。
+1. 指令碼位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh。HDInsight 會使用此 URI 在叢集中的所有虛擬機器上尋找和執行指令碼。
   
-2. 指令碼會套用到的叢集節點類型︰headnode、workernode、zookeeper。 此指令碼必須套用至叢集中的所有節點類型。 如果未套用至某個節點類型，則該節點類型的虛擬機器會繼續使用先前的修補排程。
+2. 指令碼會套用到的叢集節點類型︰headnode、workernode、zookeeper。 此指令碼必須套用至叢集中的所有節點類型。 如果它不會套用至節點類型，則該節點類型的虛擬機器將不會更新。
 
 
-3.  參數：此指令碼接受三個數值參數︰
+3.  參數：此指令碼會接受一個數值參數：
 
-    | 參數 | 定义 |
+    | 參數 | 定義 |
     | --- | --- |
-    | 啟用/停用自動重新開機 |0 或 1。 值為 0 會停用自動重新開機，1 則會啟用自動重新開機。 |
-    | 頻率 |7 到 90 (含)。 需要重新開機的修補程式在將虛擬機器重新開機之前所要等候的天數。 |
-    | 星期幾 |1 到 7 (含)。 值為 1 表示虛擬機器應該在星期一重新開機，7 則表示星期日。例如，使用參數 1 60 2，會導致虛擬機器每隔 60 天 (最多) 就會在星期二自動重新開機。 |
-    | 持續性 |對現有叢集套用指令碼動作時，您可以將指令碼標示為持續性。 持續性指令碼會在透過調整作業將新的 workernode 新增至叢集時套用。 |
+    | 安裝完整作業系統更新/安裝只有安全性更新 |0 或 1。 值為 0 在 1 會安裝完整的 OS 更新時，才會安裝安全性更新。 如果沒有參數提供預設值為 0。 |
 
 > [!NOTE]  
 > 在對現有叢集套用此指令碼時，您必須將其標示為持續性。 否則，透過調整作業所建立的新節點會使用預設的修補排程。  如果您在進行叢集建立程序時套用指令碼，該指令碼會自動成為持續性狀態。

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: f2f207b62522ceef9fe72d47026f4c2f8ed02e3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0a329722b65e407f011016a1f55e86ef17b47d70
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130412"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192409"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>透過 .NET SDK 開始使用 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體
 
@@ -135,7 +135,7 @@ ms.locfileid: "62130412"
 
 ## <a name="create-a-table"></a>建立資料表 
 
-[CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtableclient?redirectedfrom=MSDN&view=azure-dotnet) 類別可讓您擷取表格儲存體中儲存的資料表。 因為我們在 Cosmos DB 資料表 API 帳戶中沒有任何資料表，讓我們在 **Common.cs** 類別中新增 `CreateTableAsync` 方法來建立資料表：
+[CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) 類別可讓您擷取表格儲存體中儲存的資料表。 因為我們在 Cosmos DB 資料表 API 帳戶中沒有任何資料表，讓我們在 **Common.cs** 類別中新增 `CreateTableAsync` 方法來建立資料表：
 
 ```csharp
 public static async Task<CloudTable> CreateTableAsync(string tableName)
@@ -168,7 +168,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 ## <a name="define-the-entity"></a>定義實體 
 
-使用衍生自 [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx)的自訂類別，將實體對應至 C# 物件。 若要將實體新增至資料表，請建立一個類別來定義實體的屬性。
+使用衍生自 [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity)的自訂類別，將實體對應至 C# 物件。 若要將實體新增至資料表，請建立一個類別來定義實體的屬性。
 
 以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]、[新增資料夾]，然後將其命名為 **Model**。 在 [Model] 資料夾內新增一個名為 **CustomerEntity.cs** 的類別，然後將下列程式碼新增至其中。
 
@@ -194,11 +194,11 @@ namespace CosmosTableSamples.Model
 }
 ```
 
-此程式碼會定義一個實體類別，使用客戶名字作為資料列索引鍵，並使用姓氏作為分割區索引鍵。 系統會在資料表中以實體的資料分割和資料列索引鍵共同針對實體進行唯一識別。 查詢具有相同分割區索引鍵的實體，其速度快於查詢具有不同分割區索引鍵的實體，但使用不同的分割區索引鍵可針對平行作業提供更佳的延展性。 若要將實體儲存於資料表，其必須屬於支援的類型，例如衍生自 [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableentity?redirectedfrom=MSDN&view=azure-dotnet) 類別。 您想要儲存在資料表中的實體屬性必須是該類型的公用屬性，而且同時支援值的取得和設定。 此外，您的實體類型必須公開無參數建構函式。
+此程式碼會定義一個實體類別，使用客戶名字作為資料列索引鍵，並使用姓氏作為分割區索引鍵。 系統會在資料表中以實體的資料分割和資料列索引鍵共同針對實體進行唯一識別。 查詢具有相同分割區索引鍵的實體，其速度快於查詢具有不同分割區索引鍵的實體，但使用不同的分割區索引鍵可針對平行作業提供更佳的延展性。 若要將實體儲存於資料表，其必須屬於支援的類型，例如衍生自 [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity) 類別。 您想要儲存在資料表中的實體屬性必須是該類型的公用屬性，而且同時支援值的取得和設定。 此外，您的實體類型必須公開無參數建構函式。
 
 ## <a name="insert-or-merge-an-entity"></a>插入或合併實體
 
-下列程式碼範例會建立實體物件，並將它新增至資料表。 [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) \(英文\) 類別內的 InsertOrMerge 方法可用來插入或合併實體。 呼叫 [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtable.executeasync?view=azure-dotnet) \(英文\) 方法來執行作業。 
+下列程式碼範例會建立實體物件，並將它新增至資料表。 [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) \(英文\) 類別內的 InsertOrMerge 方法可用來插入或合併實體。 呼叫 [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) \(英文\) 方法來執行作業。 
 
 以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]、[新增項目]，然後新增名為 **SamplesUtils.cs** 的類別。 此類別會儲存在實體上執行 CRUD 作業所需的所有程式碼。 
 
@@ -237,7 +237,7 @@ public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable tab
 
 ### <a name="get-an-entity-from-a-partition"></a>從分割區取得實體
 
-您也可以使用 [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) \(英文\) 類別下方的 Retrieve 方法，從分割區取得實體。 下列程式碼範例會取得分割區索引鍵的資料列索引鍵、客戶實體的電子郵件及電話號碼。 此範例也會列印出查詢實體所耗用的要求單位。 若要查詢實體，將下列程式碼附加至 **SamplesUtils.cs** 檔案： 
+您也可以使用 [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) \(英文\) 類別下方的 Retrieve 方法，從分割區取得實體。 下列程式碼範例會取得分割區索引鍵的資料列索引鍵、客戶實體的電子郵件及電話號碼。 此範例也會列印出查詢實體所耗用的要求單位。 若要查詢實體，將下列程式碼附加至 **SamplesUtils.cs** 檔案： 
 
 ```csharp
 public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)

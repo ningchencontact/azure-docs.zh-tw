@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure 入口網站重新啟動「適用於 PostgreSQL 的 Azure 資料庫」伺服器
-description: 本文介绍如何使用 Azure 门户重启 Azure Database for PostgreSQL 服务器。
+title: 重新啟動適用於 PostgreSQL-使用 Azure 入口網站的單一伺服器的 Azure 資料庫
+description: 本文說明如何可以重新啟動 Azure Database for PostgreSQL-使用 Azure 入口網站的單一伺服器。
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/18/2019
-ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420389"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066828"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>使用 Azure 门户重启 Azure Database for PostgreSQL 服务器
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>重新啟動適用於 PostgreSQL-使用 Azure 入口網站的單一伺服器的 Azure 資料庫
 本主題說明如何重新啟動適用於 PostgreSQL 的 Azure 資料庫伺服器。 您可能會為了進行維護而需要重新啟動伺服器，進而在伺服器執行作業時導致短暫中斷。
 
 如果服務忙碌中，系統會阻止伺服器重新啟動。 例如，該服務可能正在處理先前要求的作業，例如調整虛擬核心。

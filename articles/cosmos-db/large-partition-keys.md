@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: ee1568274792621b8ed9f25d211c40440a82208c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46df484303237722f4eb66099748f2fcef8240b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160031"
+ms.locfileid: "65205841"
 ---
 # <a name="create-containers-with-large-partition-key"></a>建立具有大型的資料分割索引鍵的容器
 
@@ -43,6 +43,17 @@ database,
 若要建立新的容器，使用 Azure 入口網站時，請建立大型的資料分割索引鍵，請檢查**我的資料分割索引鍵長度超過 100 個位元組**選項。 根據預設，所有新的容器加入使用大型的資料分割索引鍵。 如果您不需要大型的資料分割索引鍵，或如果您有超過 1.18 的 Sdk 版本上執行的應用程式，請取消選取此核取方塊。
 
 ![建立使用 Azure 入口網站的大型資料分割索引鍵](./media/large-partition-keys/large-partition-key-with-portal.png)
+
+
+## <a name="supported-sdk-versions"></a>支援的 SDK 版本
+
+大型的資料分割索引鍵支援的 Sdk 最低版本如下：
+
+|SDK 類型  | 最小版本   |
+|---------|---------|
+|.Net     |    1.18     |
+|Java 同步處理     |   2.4.0      |
+|Java Async   |  2.5.0        |
  
 ## <a name="next-steps"></a>後續步驟
 

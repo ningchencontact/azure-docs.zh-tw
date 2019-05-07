@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 576627c96b19dd3563ab21a5d478b779e4a3ed64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 086f5773a8ae4085a8e5bc0637bdebe5f2df4fb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838989"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203339"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service 中的 OS 和執行階段修補
 
@@ -37,7 +37,7 @@ App Service 是平台即服務，這表示 Azure 會為您管理 OS 和應用程
 
 Azure 會在兩個層級管理 OS 修補，分別是實體伺服器和執行 App Service 資源的客體虛擬機器 (VM)。 兩者皆會每月更新，以配合每月的 [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) 排程。 這些更新會以能夠保證 Azure 服務具有高可用性 SLA 的方式自動套用。 
 
-如需更新套用方式的詳細資訊，請參閱[揭露 App Service OS 更新背後的魔法](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/)。
+如需更新套用方式的詳細資訊，請參閱[揭露 App Service OS 更新背後的魔法](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html)。
 
 ## <a name="how-does-azure-deal-with-significant-vulnerabilities"></a>Azure 如何處理重大漏洞？
 

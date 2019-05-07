@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b561091eedb43e1c77f3c97951beeb92bfcf4751
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832705"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65202933"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>購買及設定 Azure App Service 的 SSL 憑證
 
 本教學課程說明如何透過在 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) 中建立 (購買) App Service 憑證，然後將它繫結至 App Service 應用程式，來保護您的 [App Service 應用程式](https://docs.microsoft.com/azure/app-service/)或[函數應用程式](https://docs.microsoft.com/azure/azure-functions/)。
 
 > [!TIP]
-> App Service 憑證可以用於任何 Azure 或非 Azure 服務，並不限於應用程式服務。 若要如此，您需要建立一個可在任何地方使用的 App Service 憑證本機 PFX 複本。 如需詳細資訊，請參閱[建立 App Service 憑證的本機 PFX 複本](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)。
+> App Service 憑證可以用於任何 Azure 或非 Azure 服務，並不限於應用程式服務。 若要如此，您需要建立一個可在任何地方使用的 App Service 憑證本機 PFX 複本。 如需詳細資訊，請參閱[建立 App Service 憑證的本機 PFX 複本](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/)。
 >
 
 ## <a name="prerequisites"></a>必要條件

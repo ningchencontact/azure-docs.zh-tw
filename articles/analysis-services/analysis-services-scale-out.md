@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939678"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192332"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -51,7 +51,7 @@ ms.locfileid: "64939678"
 
 ### <a name="separate-processing-from-query-pool"></a>與查詢集區分開處理
 
-若要讓處理和查詢作業達到最佳效能，您可以選擇將處理伺服器和查詢集區區隔開來。 區隔之後，現有和新的用戶端連線都只會指派給查詢集區中的查詢複本。 如果處理作業短時間即可完成，您可以選擇只在執行處理和同步處理作業的期間內區隔處理伺服器與查詢集區，且隨後就將它重新納入查詢集區中。 
+若要讓處理和查詢作業達到最佳效能，您可以選擇將處理伺服器和查詢集區區隔開來。 分隔，新的用戶端連線會指派給只查詢集區中的查詢複本。 如果處理作業短時間即可完成，您可以選擇只在執行處理和同步處理作業的期間內區隔處理伺服器與查詢集區，且隨後就將它重新納入查詢集區中。 區隔處理伺服器與查詢集區，或將它送回查詢集區時，可能需要五分鐘的時間才能完成作業。
 
 ## <a name="monitor-qpu-usage"></a>監視 QPU 使用量
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 986414d0bac24d0c7e37b34df473346742fa97fd
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918960"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204189"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>備份及還原 Azure 檔案和 PowerShell
 
@@ -108,7 +108,7 @@ ms.locfileid: "64918960"
 3. 指定要用於保存庫儲存體備援類型。
 
    - 您可以使用[本機備援儲存體](../storage/common/storage-redundancy-lrs.md)或[異地備援儲存體](../storage/common/storage-redundancy-grs.md)。
-   - 下列範例會設定 **-BackupStorageRedundancy**選項[組 AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0)的 cmd **testvault**設為**異地備援**。
+   - 下列範例會設定 **-BackupStorageRedundancy**選項[組 AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty)的 cmd **testvault**設為**異地備援**。
 
      ```powershell
      $vault1 = Get-AzRecoveryServicesVault -Name "testvault"

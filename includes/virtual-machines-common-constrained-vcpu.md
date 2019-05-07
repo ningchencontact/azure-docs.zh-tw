@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 82cbffb257d85197848b8bca14231e5363d6d45c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 360674514aff79908dcab8c8b93095ca2feb5d51
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729832"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198897"
 ---
 部分資料庫工作負載 (例如 SQL Server 或 Oracle) 需要大量記憶體、儲存體和 I/O 頻寬，而不需要大量核心計數。 許多資料庫工作負載不需要大量 CPU。 Azure 提供特定的 VM 大小，您可以在其中限制 VM vCPU 計數以降低軟體授權的成本，同時維持相同的記憶體、儲存體和 I/O 頻寬。
 
@@ -41,7 +41,7 @@ vCPU 計數可以限制為原始 VM 大小的一半或四分之一。 這些新�
 | Standard_E8-2s_v3   | 2    | 與 E8s_v3 相同  |
 | Standard_E16-8s_v3  | 8    | 與 E16s_v3 相同 |
 | Standard_E16-4s_v3  | 4    | 與 E16s_v3 相同 |
-| Standard_E32-16_v3  | 16   | 與 E32s_v3 相同 |
+| Standard_E32-16s_v3 | 16   | 與 E32s_v3 相同 |
 | Standard_E32-8s_v3  | 8    | 與 E32s_v3 相同 |
 | Standard_E64-32s_v3 | 32   | 與 E64s_v3 相同 |
 | Standard_E64-16s_v3 | 16   | 與 E64s_v3 相同 |

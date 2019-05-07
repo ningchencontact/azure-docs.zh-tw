@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8b9cc112f51840a6bf2cf659863f61ab5962f6e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72e51deb31ad2894ccfc0fc71884c99863184f5b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306844"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203667"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -273,7 +273,7 @@ module.exports = async function (context, message) {
 
 ## <a name="trigger---message-metadata"></a>觸發程序 - 訊息中繼資料
 
-佇列觸發程序提供數個[中繼資料屬性](./functions-bindings-expressions-patterns.md#trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) 類別的屬性。
+佇列觸發程序提供數個[中繼資料屬性](./functions-bindings-expressions-patterns.md#trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 類別的屬性。
 
 |屬性|類型|描述|
 |--------|----|-----------|
@@ -526,7 +526,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 在 C# 和 C# 指令碼中，藉由使用下列其中一個類型，寫入多個佇列訊息： 
 
 * `ICollector<T>` 或 `IAsyncCollector<T>`
-* [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 在 JavaScript 函式中，使用 `context.bindings.<name>` 存取輸出佇列訊息。 對於佇列項目承載，可使用字串或 JSON 可序列化物件。
 
@@ -586,4 +586,4 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 <!-- LINKS -->
 
-[CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage

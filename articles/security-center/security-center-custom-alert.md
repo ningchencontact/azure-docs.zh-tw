@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2573ad64830247d232bbd6d156fac7f50d65f410
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925096"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192631"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure 資訊安全中心內的自訂警示規則 (預覽)
 本文件可協助您在 Azure 資訊安全中心內建立自訂警示規則。
 
 > [!NOTE]
-> 自訂警示即將淘汰，請閱讀更多在替代服務下方。
+> 自訂警示將於 2019 年 6 月 30 日淘汰。
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>在 Azure 資訊安全中心中的停用的自訂警示規則
 
 自訂警示體驗將淘汰 2019 年 6 月 30 日，因為停用的基礎結構為基礎。 在取代之前時間範圍內，使用者將能夠編輯現有的自訂警示規則，但是不能加入新的。
-若要啟用建議使用者[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)與自動移轉其現有的警示和建立新的或或者重新建立其警示與 Azure 監視器的單鍵登入的記錄警示。
+其中一個建議使用者：
+- 啟用[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)與自動移轉其現有的警示，並建立新的單鍵登入
+- 重新建立其警示與 Azure 監視器記錄警示
                                      
 若要保留您現有的警示，並將它們移轉到 Azure 的 Sentinel，請[啟動 Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview)。 第一個步驟中，選取 [儲存您自訂的警示] 工作區，然後選取 「 分析 」 功能表項目，將會自動移轉您的警示。
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fe5d638b5967f533e489a67d4235bbc5a3db1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128410"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198584"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本文件說明 Azure App Service 虛擬網路整合功能，以及示範如何使用 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式來設定此功能。 [Azure 虛擬網路][VNETOverview] (VNet) 可讓您將許多 Azure 資源，放在非網際網路可路由網路中。 然後，可以使用 VPN 技術，將這些網路連線到您的內部部署網路。 
@@ -271,9 +271,9 @@ App Service 環境功能可讓您在 VNet 中執行 Azure App Service 的單一�
 * 除了與 ExpressRoute 連線的 VNet 整合之外，您可以透過 ExpressRoute 連線來存取資源，而不需要進行任何額外設定。
 * 應用程式和 VNet 必須位於相同的區域
 * 新功能需要 Resource Manager VNet 中的未使用子網路。
+* 您的應用程式必須位於 Azure App Service 部署中，該部署能夠擴展到「進階 V2」。
 * App Service 方案必須是「標準」、「進階」或「進階 V2」方案
 * 新功能處於預覽狀態時，不支援生產工作負載
-* 您的應用程式必須位於 Azure App Service 部署中，該部署能夠擴展到「進階 V2」。
 * 新的 VNet 整合功能不適用於 App Service 環境中的應用程式。
 * 您無法刪除具有整合式應用程式的 VNet。  
 * 新的 VNet 整合尚未提供路由表和全域對等互連。  

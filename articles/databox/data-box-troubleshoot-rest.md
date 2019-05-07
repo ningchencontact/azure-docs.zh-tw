@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: ee2820d78e95924e09a0219753f87d6910c0e736
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5ceeb2e6419cab7945454087edd4c821db28343
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782951"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204226"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>針對 Azure 資料方塊中的 Blob 儲存體相關的問題進行疑難排解
 
@@ -55,7 +55,7 @@ ms.locfileid: "60782951"
 |錯誤訊息  |建議的動作 |
 |---------|---------|
 |其中一個 HTTP 標頭的值不是正確的格式。 |安裝的 Microsoft Azure 儲存體程式庫，適用於 Python 的版本不支援的資料 方塊中。 請參閱支援版本的 Azure 資料方塊中的 Blob 儲存體需求。|
-|… [SSL:CERTIFICATE_VERIFY_FAILED] …|執行 Python 之前, 設定 REQUESTS_CA_BUNDLE 環境變數的 Base64 編碼的 SSL 憑證檔案的路徑 (請參閱如何[下載憑證]())。 <br>例如︰<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>或者，將憑證新增至系統的憑證存放區，並再設定這個環境變數，該存放區的路徑。 <br> 例如，在 Ubuntu 上： <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL:CERTIFICATE_VERIFY_FAILED] …|執行 Python 之前, 設定 REQUESTS_CA_BUNDLE 環境變數的 Base64 編碼的 SSL 憑證檔案的路徑 (請參閱如何[下載憑證](data-box-deploy-copy-data-via-rest.md#download-certificate))。 <br>例如︰<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>或者，將憑證新增至系統的憑證存放區，並再設定這個環境變數，該存放區的路徑。 <br> 例如，在 Ubuntu 上： <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>常見錯誤

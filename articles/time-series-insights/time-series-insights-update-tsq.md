@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d28cb35b1e8e4eaa86418da632c6fcabb636e643
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722167"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205025"
 ---
 # <a name="data-querying"></a>資料查詢
 
@@ -35,9 +35,9 @@ Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事�
 
 支援下列核心 API。
 
-![tsq][1]
+[![時間序列查詢概觀](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
-### <a name="environment-apis"></a>環境 API
+## <a name="environment-apis"></a>環境 API
 
 下列環境 API 可以使用：
 
@@ -45,7 +45,7 @@ Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事�
 * [取得環境可用性 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api)：傳回事件時間戳記 `$ts` 上的事件計數分佈。 此 API 藉由傳回事件計數 (如果有的話) 來協助判斷時間戳記中是否存在任何事件。
 * [取得事件結構描述 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api)：傳回指定搜尋範圍的事件結構描述中繼資料。 此 API 可協助擷取指定搜尋範圍的結構描述中可用的所有中繼資料和屬性。
 
-### <a name="time-series-model-query-tsm-q-apis"></a>時間序列模型查詢 (TSM-Q) API
+## <a name="time-series-model-query-tsm-q-apis"></a>時間序列模型查詢 (TSM-Q) API
 
 下列的時間序列模型查詢 API 可以使用：
 
@@ -54,7 +54,7 @@ Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事�
 * [階層 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)：在時間序列階層及其相關聯的欄位路徑上啟用 CRUD。
 * [執行個體 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)：在時間序列執行個體及其相關聯的執行個體欄位上啟用 CRUD。
 
-### <a name="time-series-query-tsq-apis"></a>時間序列查詢 (TSQ) API
+## <a name="time-series-query-tsq-apis"></a>時間序列查詢 (TSQ) API
 
 下列時間序列查詢 API 可以使用：
 
@@ -80,6 +80,3 @@ Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事�
 - 讀取時間序列深入解析預覽[資料模型化](./time-series-insights-update-tsm.md)文章。
 
 - 探索[最佳做法，選擇 時間序列識別碼時](./time-series-insights-update-how-to-id.md)。
-
-<!-- Images -->
-[1]: media/v2-update-tsq/tsq.png

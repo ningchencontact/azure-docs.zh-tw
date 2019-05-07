@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148527"
+ms.locfileid: "65205725"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -67,7 +67,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 是。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)。 子網路位址空間不能互相重疊。
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>在這些子網路內使用 IP 位址是否有任何限制？
-是。 Azure 會在每個子網路中保留一些 IP 位址。 每個子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及每個子網路用於 Azure 服務的 x.x.x.1-x.x.x.3 位址。
+是。 Azure 會在每個子網路中保留 5 個 IP 位址。 每個子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及每個子網路用於 Azure 服務的 x.x.x.1-x.x.x.3 位址。
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 和子網路的大小限制為何？
 支援的最小子網路是 /29，最大則是 /8 (使用 CIDR 子網路定義)。
@@ -231,7 +231,7 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 VNet 對等互連 (或虛擬網路對等互連) 可讓您將虛擬網路連線。 虛擬網路之間的 VNet 對等互連連線可讓您私下透過 IPv4 位址在虛擬網路之間路由傳送流量。 所對等互連 VNet 中的虛擬機器可以彼此通訊，彷彿它們位於相同的網路內。 這些虛擬網路可位於相同或不同的區域 (也稱為全域 VNet 對等互連)。 VNet 對等互連連線也可以跨 Azure 訂用帳戶來建立。
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>我是否可對不同區域中的 VNet 建立對等互連連線？
-是。 全域 VNet 可讓您對不同區域中的對等 VNet 建立對等互連。 全域 VNet 對等互連適用於所有 Azure 公用區域和中國雲端區域。 您無法建立從 Azure 公用區域到國家雲端區域的全域對等互連。 全域對等互連目前不適用於 Government 雲端。
+是。 全域 VNet 可讓您對不同區域中的對等 VNet 建立對等互連。 全域 VNet 對等互連適用於所有 Azure 公用區域、 中國雲端區域和政府雲端區域。 您無法全域對等互連 Azure 公用區域從國家雲端區域。
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>全域 VNet 對等互連和負載平衡器相關的條件約束有哪些？
 如果兩個虛擬網路位於不同的區域 （全球 VNet 對等互連），您無法連線到使用基本 Load Balancer 資源。 您可以連接到使用標準 Load Balancer 資源。
@@ -241,7 +241,6 @@ VNet 對等互連 (或虛擬網路對等互連) 可讓您將虛擬網路連線�
 - Redis 快取 
 - 應用程式閘道 (v1) SKU
 - Service Fabric
-- SQL Always on
 - SQL MI
 - API 取決
 - Active Directory 網域服務 (ADDS)

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/03/2019
+ms.date: 5/06/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bb7032c2741cc8c407c8d7d0285e58647f0bfd5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fba0a9bc0886b9487b0c61b6091bd122fe6e370d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918544"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191548"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -31,7 +31,7 @@ ms.locfileid: "64918544"
 
 Azure AD 支援的應用程式的許多[預先整合的自動使用者佈建](../saas-apps/tutorial-list.md)實作變更通知的方法，以接收使用者的 SCIM。  除了這些之外，客戶可以連接支援特定的設定檔的應用程式[SCIM 2.0 通訊協定規格](https://tools.ietf.org/html/rfc7644)使用 Azure 入口網站中的泛用 「 非資源庫 」 整合選項。 
 
-這篇文章的重點所在的 Azure AD 會實作其一般的 SCIM 連接器為非資源庫應用程式一部分的 SCIM 2.0 設定檔。 不過，成功測試應用程式支援 SCIM 與一般的 Azure AD 連接器是透過讓應用程式以支援使用者佈建 Azure AD 資源庫中列出的步驟。 如需有關如何在 Azure AD 應用程式資源庫中列出的應用程式的詳細資訊，請參閱 < [Microsoft 應用程式網路](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)。
+這篇文章的重點所在的 Azure AD 會實作其一般的 SCIM 連接器為非資源庫應用程式一部分的 SCIM 2.0 設定檔。 不過，成功測試應用程式支援 SCIM 與一般的 Azure AD 連接器是透過讓應用程式以支援使用者佈建 Azure AD 資源庫中列出的步驟。 如需有關如何在 Azure AD 應用程式資源庫中列出的應用程式的詳細資訊，請參閱[How to:列出您的應用程式，Azure AD 應用程式庫中](../develop/howto-app-gallery-listing.md)。
  
 
 >[!IMPORTANT]

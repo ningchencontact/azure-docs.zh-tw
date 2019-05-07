@@ -1,19 +1,19 @@
 ---
-title: 在適用於 PostgreSQL 的 Azure 資料庫中設定 SSL 連線能力
-description: 用以設定適用於 PostgreSQL 之 Azure 資料庫及相關聯應用程式以適當使用 SSL 連接的指示與資訊。
+title: Azure 資料庫中設定 SSL 連線能力，適用於 PostgreSQL-單一伺服器
+description: 指示和資訊來設定 Azure Database for PostgreSQL-，單一伺服器和相關聯的應用程式，以適當使用 SSL 連接。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: 5a0fc99052b18dc1fa837147aa914a473d27d832
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 56611267872ca79d7d2fe3a08c9b9f49a9b1840b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871396"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067418"
 ---
-# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>在適用於 PostgreSQL 的 Azure 資料庫中設定 SSL 連線能力
+# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Azure 資料庫中設定 SSL 連線能力，適用於 PostgreSQL-單一伺服器
 適用於 PostgreSQL 的 Azure 資料庫偏好使用安全通訊端層 (SSL)，來將用戶端應用程式連接到 PostgreSQL 服務。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將伺服器與應用程式之間的資料流加密，有助於抵禦「中間人」攻擊。
 
 預設會將 PostgreSQL 資料庫服務設定為需要 SSL 連接。 (選擇性) 如果您的用戶端應用程式不支援 SSL 連線能力，您可以將需要 SSL 才能連線到資料庫服務的功能停用。 

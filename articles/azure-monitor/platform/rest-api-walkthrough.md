@@ -1,19 +1,19 @@
 ---
 title: Azure 監視 REST API 逐步解說
 description: 如何驗證要求，以及使用 Azure 監視器 REST API 來取出可用的計量定義和計量值。
-author: mcollier
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: mcollier
+ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: ddbc00155c3c5c136f7d33861e9ad5177df77470
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbc5aaf02f4ab4388e816faaf8df536770f3302a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452977"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205639"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 監視 REST API 逐步解說
 

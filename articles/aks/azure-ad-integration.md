@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 2a218a48223c81e009b83cb1f129601a8035e18e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138445"
+ms.locfileid: "65192114"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>整合 Azure Active Directory 與 Azure Kubernetes Service
 
@@ -244,6 +244,7 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 如果成功登入後看到授權錯誤訊息，請檢查：
 1. 使用者登入，是 Azure AD 執行個體 （此案例通常是如果您使用已同盟的帳戶，從不同的目錄） 中的來賓。
 2. 使用者不是 200 個以上的群組成員。
+3. 伺服器的應用程式註冊中所定義的密碼不符合使用-aad 伺服器-應用程式密碼設定的值
 
 ```console
 error: You must be logged in to the server (Unauthorized)

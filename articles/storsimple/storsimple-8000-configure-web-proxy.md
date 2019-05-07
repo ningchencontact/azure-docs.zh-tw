@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: be5719d2c383c838ef70c6862c1055c3374e05e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362403"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204256"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>為 StorSimple 裝置設定 Web Proxy
 
@@ -68,7 +68,7 @@ Web Proxy 設定完成之後，您可以在 Microsoft Azure StorSimple 裝置管
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     預設會指定 TCP 連接埠號碼 8080。
-4. 選擇驗證類型為 [NTLM]、[基本] 或 [無]。 [基本] 是 Proxy 伺服器設定最不安全的驗證。 NT LAN Manager (NTLM) 是非常安全和複雜的驗證通訊協定，使用三向傳訊系統 (需要更高完整性時，則是四向) 來驗證使用者。 預設驗證為 NTLM。 如需詳細資訊，請參閱[基本](http://hc.apache.org/httpclient-3.x/authentication.html)和 [NTLM 驗證](http://hc.apache.org/httpclient-3.x/authentication.html)。 
+4. 選擇驗證類型為 [NTLM]、[基本] 或 [無]。 [基本] 是 Proxy 伺服器設定最不安全的驗證。 NT LAN Manager (NTLM) 是非常安全和複雜的驗證通訊協定，使用三向傳訊系統 (需要更高完整性時，則是四向) 來驗證使用者。 預設驗證為 NTLM。 如需詳細資訊，請參閱[基本](https://hc.apache.org/httpclient-3.x/authentication.html)和 [NTLM 驗證](https://hc.apache.org/httpclient-3.x/authentication.html)。 
    
    > [!IMPORTANT]
    > **在 StorSimple 裝置管理員服務中，當裝置的 Proxy 伺服器組態中已啟用基本或 NTLM 驗證時，裝置監控圖表會沒有作用。為了讓監控圖表發揮作用，您必須確保驗證設定為 [無]。**

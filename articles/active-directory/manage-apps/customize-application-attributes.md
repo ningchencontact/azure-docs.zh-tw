@@ -15,12 +15,12 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9db6babff3ae0c91f730e6ec2e6e2a41d55b0bf
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712861"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191504"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應
 Microsoft Azure AD 使用者佈建到例如 Salesforce、 G Suite 等協力廠商 SaaS 應用程式提供支援。 如果您啟用使用者佈建的第三方 SaaS 應用程式，Azure 入口網站會控制其屬性值，透過 屬性對應。
@@ -149,6 +149,8 @@ Microsoft Azure AD 使用者佈建到例如 Salesforce、 G Suite 等協力廠�
 * 更新屬性對應會影響同步處理期間的效能。 更新屬性對應組態需要重新評估所有受控物件。 
 
 * 建議的最佳作法是將連續的變更數目至少您屬性對應。
+
+* 加入相片屬性佈建到應用程式目前都不支援，您無法指定要同步處理相片的格式。 您可依要求功能[User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,5 +1,5 @@
 ---
-title: 針對速度變慢或失敗的 HDInsight 叢集進行疑難排解 - Azure HDInsight
+title: 針對 HDInsight 叢集-Azure HDInsight 上變慢或失敗的作業進行疑難排解
 description: 針對速度變慢或失敗的 HDInsight 叢集進行診斷和疑難排解。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 785eac065e10c64b99839ab8667e9b613f62aeb9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708908"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203618"
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>疑難排解變慢或失敗的作業，HDInsight 叢集上
 
-如果 HDInsight 叢集執行速度變慢或失敗並出現錯誤代碼，有數個疑難排解選項可供您選擇。 如果您的作業執行時間超出預期，或通常回應時間都較慢，就可能是叢集上游 (例如叢集執行所在的服務) 發生失敗。 不過，這些變慢情況的最常見原因是規模調整不足。 當您建立新的 HDInsight 叢集時，選取適當[虛擬機器大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)。
+如果 HDInsight 叢集上的資料執行速度很慢或失敗並出現錯誤代碼的應用程式處理，您會有數個疑難排解選項。 如果您的作業執行時間超出預期，或通常回應時間都較慢，就可能是叢集上游 (例如叢集執行所在的服務) 發生失敗。 不過，這些變慢情況的最常見原因是規模調整不足。 當您建立新的 HDInsight 叢集時，選取適當[虛擬機器大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)。
 
 若要診斷速度變慢或失敗的叢集，請收集該環境所有方面的相關資訊，例如關聯的 Azure 服務、叢集組態及作業執行資訊。 其中一種有幫助的診斷方式是嘗試在另一個叢集上重現錯誤狀態。
 

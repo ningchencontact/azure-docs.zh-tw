@@ -5,15 +5,15 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/25/2018
+ms.date: 05/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 5070b6ced29599660afa28308239e1ba07c2cbd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cecafb013b5d22557961e98935fc9a2fee2a79b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710796"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198904"
 ---
 1. 選取 Azure 入口網站左上角的 [建立資源] 按鈕，然後選取 [計算] > [函式應用程式]。
 
@@ -42,6 +42,3 @@ ms.locfileid: "60710796"
     ![定義新的函式應用程式設定](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
 5. 選取 [前往資源]，以檢視您新的函式應用程式。
-
-> [!TIP]
-> 在入口網站中尋找您的函式應用程式時若發生問題，請嘗試[在 Azure 入口網站中將函式應用程式新增至您的最愛](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite)。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: yegu
-ms.openlocfilehash: 4a51040ecdbf22af03ce1e6edaaa0ff577bbc076
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7333fa51da1cd5bbd9175d56571ec1d17cbbe33f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233313"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203934"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>適用於 Azure Cache for Redis 的 ASP.NET 工作階段狀態提供者
 
@@ -81,6 +81,7 @@ NuGet 封裝會下載和加入必要的組件參考，並將下列區段加入�
          host=""
          accessKey=""
          ssl="true" />
+  </providers>
 </sessionState>
 ```
 

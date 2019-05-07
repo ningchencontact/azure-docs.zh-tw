@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709604"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191532"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory Identity Protection 風險事件參考
 
@@ -80,7 +80,9 @@ ms.locfileid: "64709604"
 
 ## <a name="unfamiliar-sign-in-properties"></a>不熟悉的登入屬性
 
-**偵測類型：** 即時**舊名稱：** 從不熟悉的位置登入
+**偵測類型：** 即時  
+**舊名稱：** 從不熟悉的位置登入
+
 
 此風險事件類型會考量過去的登入歷程記錄 (IP、 緯度 / 經緯度和 ASN) 以尋找異常的登入。系統會儲存有關使用者先前所用位置的資訊，並考量這些「熟悉的」位置。 從不在熟悉位置清單中的位置登入時，會觸發此風險事件。 新建立的使用者會處於 「 學習模式 」，一段時間的不熟悉的登入屬性中風險事件將會關閉而我們的演算法，了解使用者的行為。 學習模式的持續時間是動態的取決於花多少時間來收集有關使用者的登入模式的足夠資訊的演算法。 最小持續期間為 5 天。 使用者可以回到之後閒置很長一段學習模式。 系統也會忽略從熟悉的裝置以及地理上靠近熟悉位置的位置進行的登入。 
 

@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2019
-ms.openlocfilehash: e4bbfdbcf7a295089570d4c8b77b07fd7270b3fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/2/2019
+ms.openlocfilehash: c1b2875e6899d2301a4c4b564882214dc7bc4981
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771683"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205465"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 串流分析作業的相容性層級
 
@@ -25,8 +25,8 @@ ms.locfileid: "60771683"
 
 Azure Stream Analytics 目前支援三個的相容性層級：
 
-* 1.0-預設層級
-* 1.1-目前的版本行為
+* 1.0-先前的行為
+* 1.1-預設行為
 * 1.2 （預覽）-最新的增強功能評估最新的行為
 
 期間正式運作的 Azure Stream Analytics 幾年前就已經導入的原始 1.0 相容性層級。
@@ -49,7 +49,7 @@ Azure Stream Analytics 目前支援三個的相容性層級：
 
 更新相容性層級時，T-SQL 編譯器會以對應至所選相容性層級的語法來驗證作業。
 
-## <a name="compatibility-level-12"></a>相容性層級 1.2
+## <a name="compatibility-level-12-preview"></a>相容性層級 1.2 （預覽）
 
 相容性層級 1.2 中導入下列重大變更：
 

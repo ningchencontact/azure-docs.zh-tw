@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: b1bc0a68a9cf52e886c0664a474a4dbb75126698
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735950"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203713"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自訂 HDInsight 叢集
 
@@ -55,7 +55,7 @@ ms.locfileid: "60735950"
 下列 PowerShell 程式碼會自訂 [Apache Hive](https://hive.apache.org/) 組態：
 
 > [!IMPORTANT]  
-> 參數`Spark2Defaults`可能需要搭配[新增 AzHDInsightConfigValues](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalues)。 您可以傳遞空的值給參數，如下列程式碼範例所示。
+> 參數`Spark2Defaults`可能需要搭配[新增 AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue)。 您可以傳遞空的值給參數，如下列程式碼範例所示。
 
 
 ```powershell
@@ -66,7 +66,7 @@ $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzHDInsightConfigValues `
+    | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
         -Spark2Defaults @{}
 
@@ -243,7 +243,7 @@ $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzHDInsightConfigValues `
+    | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
         -Spark2Defaults @{}
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031400"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192282"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -94,3 +94,27 @@ ms.locfileid: "61031400"
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>可以我我將叢集移至不同的訂用帳戶或訂用帳戶與我的叢集，以新的租用戶？
 
 如果您已將 AKS 叢集移至不同的訂用帳戶擁有新的租用戶的訂用帳戶的叢集，叢集將會遺失由於遺失的角色指派和服務主體權限的功能。 **AKS 不支援跨訂用帳戶或租用戶移動叢集**因為這個條件約束。
+
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>我收到錯誤，嘗試使用需要虛擬機器擴展集的功能
+
+*Aka.ms/aks vmss-啟用從導向此疑難排解的協助*
+
+您可能會收到錯誤指出您的 AKS 叢集不在虛擬機器擴展集，如下列範例：
+
+**AgentPool 'agentpool' 已設定自動調整為已啟用，但不是虛擬機器擴展集上**
+
+若要使用功能，例如叢集中自動調整程式或多個節點集區，AKS 叢集必須建立使用虛擬機器擴展集。 如果您嘗試使用取決於虛擬機器擴展集的功能，而且您為目標的一般、 非虛擬機器擴展集 AKS 叢集，則會傳回錯誤。 虛擬機器擴展集支援目前為預覽狀態，AKS 中。
+
+請遵循*在您開始之前*預覽正確註冊虛擬機器擴展集功能適當的文件中的步驟，並建立 AKS 叢集：
+
+* [使用叢集中自動調整程式](cluster-autoscaler.md)
+* [建立及使用多個節點的集區](use-multiple-node-pools.md)
+ 
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>AKS 資源和參數，都會強制執行哪些命名的限制？
+
+*Aka.ms/aks-命名-規則導向此疑難排解的協助*
+
+命名限制的實作方式在 Azure 平台和 AKS 中。 如果資源名稱或參數會中斷這些限制的其中一個，會傳回錯誤，會要求您提供不同的輸入。 適用於下列的一般命名指導方針：
+
+* AKS *MC_* 資源群組名稱和資源名稱，結合了資源群組名稱。 自動產生的語法`MC_resourceGroupName_resourceName_AzureRegion`必須不超過 80 個字元。 如有需要減少您的資源群組名稱或 AKS 叢集名稱的長度。
+* *DnsPrefix*必須開頭和結尾為英數字元值。 有效字元包括英數字元值和連字號 （-）。 *DnsPrefix*不能包含特殊字元像是句號 （.）。

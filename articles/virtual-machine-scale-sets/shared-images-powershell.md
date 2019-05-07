@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 44cb068f1aa40169e728fc28787990b161e148ae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: ff8d94213e4e07b6597f6195126116a607c18bf7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150086"
+ms.locfileid: "65191722"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>使用 Azure PowerShell 為虛擬機器擴展集建立及使用共用映像
 
@@ -48,7 +48,9 @@ ms.locfileid: "65150086"
 
 下列步驟將詳細說明如何將現有 VM 轉換成可重複使用的自訂映像，以便讓您用來建立新的 VM 執行個體。
 
-若要完成本文中的範例，您必須具有現有的受控映像。 您可以遵循[教學課程：使用 Azure PowerShell 建立及使用虛擬機器擴展集的自訂映像](tutorial-use-custom-image-powershell.md)來建立一個 (如有需要)。 逐步完成本文之後，請視需要取代資源群組和 VM 名稱。
+若要完成本文中的範例，您必須具有現有的受控映像。 您可以遵循[教學課程：使用 Azure PowerShell 建立及使用虛擬機器擴展集的自訂映像](tutorial-use-custom-image-powershell.md)來建立一個 (如有需要)。 如果受控映像會包含資料磁碟，資料磁碟大小不得超過 1 TB。
+
+逐步完成本文之後，請視需要取代資源群組和 VM 名稱。
 
 
 [!INCLUDE [virtual-machines-common-shared-images-ps](../../includes/virtual-machines-common-shared-images-powershell.md)]

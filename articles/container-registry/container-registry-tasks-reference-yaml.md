@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827250"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192272"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 工作參考：YAML
 
@@ -79,7 +79,7 @@ az configure --defaults acr=myregistry
 
 工作屬性通常會出現在頂端`acr-task.yaml`檔案，並會完整執行工作步驟的過程中套用的全域屬性。 這些全域屬性中有些可在個別步驟中被覆寫。
 
-| 屬性 | 類型 | 選用 | 描述 | 支援覆寫 | 預設值 |
+| 屬性 | Type | 選用 | 描述 | 支援覆寫 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | 是 | 「ACR 工作」服務所剖析的 `acr-task.yaml` 檔案版本。 在「ACR 工作」努力維持回溯相容性的同時，此值則可讓「ACR 工作」在已定義的版本內維持相容性。 如果未指定，則會預設為最新版本。 | 否 | None |
 | `stepTimeout` | 整數 (秒) | 是 | 步驟的可執行秒數上限。 如果工作指定的屬性，它會設定預設`timeout`屬性的所有步驟。 如果`timeout`屬性會指定上一個步驟時，它會覆寫工作所提供的屬性。 | 是 | 600 (10 分鐘) |
@@ -92,7 +92,7 @@ az configure --defaults acr=myregistry
 
 密碼的物件具有下列屬性。
 
-| 屬性 | 類型 | 選用 | 描述 | 預設值 |
+| 屬性 | Type | 選用 | 描述 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | 否 | 密碼的識別項。 | None |
 | `akv` | string | 是 | Azure Key Vault (AKV) 祕密 URL。 | None |
@@ -102,7 +102,7 @@ az configure --defaults acr=myregistry
 
 網路物件具有下列屬性。
 
-| 屬性 | 類型 | 選用 | 描述 | 預設值 |
+| 屬性 | Type | 選用 | 描述 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | string | 否 | 網路的名稱。 | None |
 | `driver` | string | 是 | 若要管理的網路驅動程式。 | None |
@@ -362,7 +362,7 @@ steps:
 
 每個步驟類型都支援數個適用於其類型的屬性。 下表定義所有可用的步驟屬性。 並非所有步驟類型都支援所有屬性。 若要查看每個步驟類型可使用這當中哪些屬性，請參閱 [cmd](#cmd)、[build](#build)及 [push](#push) 步驟類型參考小節。
 
-| 屬性 | 類型 | 選用 | 描述 | 預設值 |
+| 屬性 | Type | 選用 | 描述 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | 布林 | 是 | 執行時是否應將容器中斷連結。 | `false` |
 | `disableWorkingDirectoryOverride` | 布林 | 是 | 是否要停用`workingDirectory`覆寫功能。 搭配使用此`workingDirectory`有容器的工作目錄的完整控制權。 | `false` |
@@ -452,8 +452,10 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 * `Run.ID`
 * `Run.Registry`
 * `Run.Date`
+* `Run.Commit`
+* `Run.Branch`
 
-### <a name="run46id"></a>Run&#46;ID
+### <a name="runid"></a>Run.ID
 
 每個「執行」(透過 `az acr run`) 或透過 `az acr task create` 建立之以觸發程序為基礎的工作執行都具有唯一識別碼。 此識別碼代表目前正在執行的「執行」。
 
@@ -478,6 +480,14 @@ steps:
 ### <a name="rundate"></a>Run.Date
 
 執行開始的目前 UTC 時間。
+
+### <a name="runcommit"></a>Run.Commit
+
+針對至 GitHub 存放庫的認可識別碼認可所觸發的工作。
+
+### <a name="runbranch"></a>Run.Branch
+
+針對至 GitHub 存放庫的分支名稱認可所觸發的工作。
 
 ## <a name="next-steps"></a>後續步驟
 

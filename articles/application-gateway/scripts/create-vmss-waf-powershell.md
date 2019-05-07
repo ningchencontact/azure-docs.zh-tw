@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8dedb05bdecf044828d90f7ed99f28ea5d12e910
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3dfb9708e22a86af8fb9854e424f7da7d1f410a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715722"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65202863"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>使用 Azure PowerShell 限制網路流量
 
@@ -55,7 +55,7 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 | [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig) | 建立組態，該組態將公用 IP 位址指派給應用程式閘道。 |
 | [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport) | 指派要用來存取應用程式閘道的連接埠。 |
 | [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) | 為應用程式閘道建立後端集區。 |
-| [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings) | 設定後端集區的設定。 |
+| [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting) | 設定後端集區的設定。 |
 | [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) | 建立接聽程式。 |
 | [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) | 建立路由規則。 |
 | [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) | 指定應用程式閘道的層級和容量。 |

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7cbcc8ac05e4541406abd08c14006a8abc0c91ca
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 501af75edfe764a81ac09d61c1f1f9e6a45bca3c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699296"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205048"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝協力廠商 Apache Hadoop 應用程式
 
@@ -25,22 +25,22 @@ HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用�
 
 |Application |群集类型 | 描述 |
 |---|---|---|
-|AtScale 智能平台 |Hadoop |AtScale 開啟您的 HDInsight 叢集至向外延展的 OLAP 伺服器，可讓您查詢無數的資料列的資料以互動方式使用您所熟悉、 擁有，且喜愛 – 從 Microsoft Excel、 Power BI、 Tableau Software 或 qlikview 的 BI 工具。 |
-|适用于 HDInsight 的 CDAP 4.2、4.3 |hbase |CDAP 是第一款用于处理大数据的统一集成平台，可以加速的 Hadoop 的价值实现，使 IT 人员能够提供自助服务数据。 CDAP 采用开源设计并且可扩展，消除了创新所面临的障碍。 需求：4 个区域节点，至少需要安装 D3 v2。 |
-|Datameer |Hadoop |Datameer 是一个可缩放的自助服务平台，用于准备、浏览和管理要分析的数据，可以加速将复杂多源数据转变为随时可在业务中使用的宝贵信息，以企业规模提供更快、更智能的见解。 |
-|HDInsight 上的 Dataiku DSS |Hadoop、Spark |企业数据科学平台中的 Dataiku DSS，可让数据科学家和数据分析师更有效地协作设计和运行新的数据产品与服务，将原始数据转变为有影响力的预测结果。 |
-|WANdisco Fusion HDI 应用 - 2.12.3、2.12.1、2.11.2 |Hadoop、Spark、HBase、Storm、Kafka |在分布式环境中保持数据一致性是一个很大的数据操作难题。 企业级的软件平台 WANdisco Fusion 可在任一环境中实现非结构化数据的一致性，从而可以解决此问题。 |
-|适用于 HDInsight 的 H2O SparklingWater |Spark |H2O Sparkling Water 支持以下分布式算法：GLM、朴素贝叶斯、分布式随机森林、梯度提升机、深度神经网络、深度学习、K 平均、PCA、广义低秩模型、异常情况检测和自编码器。 |
-|用于将实时数据与 HDInsight 集成的 Striim |Hadoop、HBase、Storm、Spark、Kafka |Striim（读作“stream”）是一个端到端流式处理数据集成和智能平台，可用于实现不同数据流的持续引入、处理和分析。 |
-|适用于 HDInsight 的 Jumbune |Hadoop、Spark |在较高层面，Jumbune 可通过以下方式为企业提供辅助：1. 加速基于 Tez、MapReduce 和 Spark 引擎的 Hive、Java 和 Scala 工作负荷性能。 2. 主动监视 Hadoop 群集。3. 在分布式文件系统中建立数据质量管理。 |
-|Kyligence Enterprise |Hadoop、HBase、Spark |Kyligence Enterprise 以 Apache Kylin 为后盾，可以基于大数据实现商业智能 (BI)。 作为 Hadoop 上的企业级 OLAP 引擎，Kyligence Enterprise 可让业务分析师使用行业标准的数据仓库和 BI 方法在 Hadoop 上构建 BI。 |
-|适用于 KNIME Spark 执行器的 Spark 作业服务器 |Spark |适用于 KNIME Spark 执行器的 Spark 作业服务器用于将 KNIME Analytics Platform 连接到 HDInsight 群集。 |
-|Azure HDInsight 上的 Starburst Presto、Starburst Presto (v0.213-e) |Hadoop |Presto 是一个快速的可缩放分布式 SQL 查询引擎。 Presto 專為分隔儲存體與計算所打造的架構，最適合用來查詢 Azure Data Lake Storage、Azure Blob 儲存體、SQL 與 NoSQL 資料庫以及其他資料來源中的資料。 |
-|适用于 HDInsight 云的 StreamSets 数据收集器 |Hadoop、HBase、Spark、Kafka |StreamSets 数据收集器是一个轻量的强大引擎，可以实时流式传输数据。 使用数据收集器可以路由和处理数据流中的数据。 该产品附带 30 天试用许可证。 |
-|[Trifacta Wrangler Enterprise](https://www.trifacta.com/) |Hadoop、Spark、HBase |Trifacta Wrangler Enterprise for HDInsight 支持对任何规模的数据进行企业级的数据整理。 在 Azure 上运行 Trifacta 的成本包括 Trifacta 订阅成本加上虚拟机的 Azure 基础结构成本。 |
-|Unifi Data Platform 3.1 |Hadoop、HBase、Storm、Spark |Unifi Data Platform 是一个无缝集成的自助服务数据工具套件，旨在帮助企业用户解决推动收入增长、降低成本或运营复杂性的数据难题。 |
-|Unraveldata APM |Spark |适用于 HDInsight Spark 群集的 Unravel Data 应用。 |
-|Waterline 数据目录 |Spark |Waterline 使用 AI 来编录、组织和管理数据以使用业务术语自动标记数据。 Waterline 是自助式分析、合規性與治理以及 IT 管理計劃成功的重要環節。 |
+|[AtScale 智慧平台](https://azuremarketplace.microsoft.com/marketplace/apps/atscale.atscale) |Hadoop |AtScale 開啟您的 HDInsight 叢集至向外延展的 OLAP 伺服器，可讓您查詢無數的資料列的資料以互動方式使用您所熟悉、 擁有，且喜愛 – 從 Microsoft Excel、 Power BI、 Tableau Software 或 qlikview 的 BI 工具。 |
+|[HDInsight 的 CDAP](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |hbase |CDAP 是第一款用于处理大数据的统一集成平台，可以加速的 Hadoop 的价值实现，使 IT 人员能够提供自助服务数据。 CDAP 采用开源设计并且可扩展，消除了创新所面临的障碍。 需求：4 个区域节点，至少需要安装 D3 v2。 |
+|[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop |Datameer 是一个可缩放的自助服务平台，用于准备、浏览和管理要分析的数据，可以加速将复杂多源数据转变为随时可在业务中使用的宝贵信息，以企业规模提供更快、更智能的见解。 |
+|[在 HDInsight 上的 Dataiku DSS](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop、Spark |企业数据科学平台中的 Dataiku DSS，可让数据科学家和数据分析师更有效地协作设计和运行新的数据产品与服务，将原始数据转变为有影响力的预测结果。 |
+|[WANdisco Fusion HDI 應用程式](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop、Spark、HBase、Storm、Kafka |在分布式环境中保持数据一致性是一个很大的数据操作难题。 企业级的软件平台 WANdisco Fusion 可在任一环境中实现非结构化数据的一致性，从而可以解决此问题。 |
+|[HDInsight 的 H2O SparklingWater](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O Sparkling Water 支持以下分布式算法：GLM、朴素贝叶斯、分布式随机森林、梯度提升机、深度神经网络、深度学习、K 平均、PCA、广义低秩模型、异常情况检测和自编码器。 |
+|[Striim 的即時資料整合至 HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.hdinsightintegration) |Hadoop、HBase、Storm、Spark、Kafka |Striim（读作“stream”）是一个端到端流式处理数据集成和智能平台，可用于实现不同数据流的持续引入、处理和分析。 |
+|[Jumbune 企業加速 BigData 分析](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop、Spark |在较高层面，Jumbune 可通过以下方式为企业提供辅助：1. 加速基于 Tez、MapReduce 和 Spark 引擎的 Hive、Java 和 Scala 工作负荷性能。 2. 主动监视 Hadoop 群集。3. 在分布式文件系统中建立数据质量管理。 |
+|[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence) |Hadoop、HBase、Spark |Kyligence Enterprise 以 Apache Kylin 为后盾，可以基于大数据实现商业智能 (BI)。 作为 Hadoop 上的企业级 OLAP 引擎，Kyligence Enterprise 可让业务分析师使用行业标准的数据仓库和 BI 方法在 Hadoop 上构建 BI。 |
+|[Spark Job Server for KNIME Spark Executor](https://azuremarketplace.microsoft.com/marketplace/apps/knime.spark-job-server-for-knime-spark-executor) |Spark |适用于 KNIME Spark 执行器的 Spark 作业服务器用于将 KNIME Analytics Platform 连接到 HDInsight 群集。 |
+|[爆炸 Presto for Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto 是一个快速的可缩放分布式 SQL 查询引擎。 Presto 專為分隔儲存體與計算所打造的架構，最適合用來查詢 Azure Data Lake Storage、Azure Blob 儲存體、SQL 與 NoSQL 資料庫以及其他資料來源中的資料。 |
+|[適用於 HDInsight 雲端的 StreamSets Data Collector](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop、HBase、Spark、Kafka |StreamSets 数据收集器是一个轻量的强大引擎，可以实时流式传输数据。 使用数据收集器可以路由和处理数据流中的数据。 该产品附带 30 天试用许可证。 |
+|[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01) |Hadoop、Spark、HBase |Trifacta Wrangler Enterprise for HDInsight 支持对任何规模的数据进行企业级的数据整理。 在 Azure 上运行 Trifacta 的成本包括 Trifacta 订阅成本加上虚拟机的 Azure 基础结构成本。 |
+|[Unifi 資料平台](https://azuremarketplace.microsoft.com/marketplace/apps/unifi-software.unifi-data-platform) |Hadoop、HBase、Storm、Spark |Unifi Data Platform 是一个无缝集成的自助服务数据工具套件，旨在帮助企业用户解决推动收入增长、降低成本或运营复杂性的数据难题。 |
+|[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |适用于 HDInsight Spark 群集的 Unravel Data 应用。 |
+|[Waterline AI 驅動資料目錄](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |Waterline 使用 AI 来编录、组织和管理数据以使用业务术语自动标记数据。 Waterline 是自助式分析、合規性與治理以及 IT 管理計劃成功的重要環節。 |
 
 本文提供的指示將使用 Azure 入口網站。 您也可以從入口網站匯出 Azure Resource Manager 範本或從廠商取得 Resource Manage 範本的複本，然後使用 Azure PowerShell 與 Azure 傳統 CLI 來部署範本。  請參閱[使用 Resource Manager 範本在 HDInsight 上建立 Apache Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 

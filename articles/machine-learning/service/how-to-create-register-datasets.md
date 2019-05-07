@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 4b3fa69156146037ff59a41eab8c8373f6e01dc4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 65a861c647c2dc92e416fa356075821aa5060042
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029111"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205030"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>建立並註冊 Azure Machine Learning 資料集 （預覽）
 
@@ -44,7 +44,7 @@ Azure Machine Learning 資料集 （預覽） 讓您更輕鬆地存取及處理�
 * 推斷和轉換資料行資料類型。
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
@@ -60,7 +60,9 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 * 匯入[ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)並[ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition)並`Dataset`來自 SDK 封裝。
 
 ```Python
-from azureml.core import Workspace, Datastore, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.datastore import Datastore
+from azureml.core.dataset import Dataset
 
 datastore_name = 'your datastore name'
 
@@ -74,7 +76,7 @@ workspace = Workspace.from_config()
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
-使用`from_delimited_files()`方法來讀取分隔的檔案，並建立於記憶體中資料集。
+使用`from_delimited_files()`讀取分隔的檔案，並建立取消註冊的資料集的方法。
 
 ```Python
 # create an in-memory Dataset on your local machine
@@ -98,23 +100,22 @@ dataset.head(5)
 使用[ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-)方法來註冊您的工作區的共用資料集，並重複使用您的組織內和跨各種不同的實驗。
 
 ```Python
-dataset = dataset.register(workspace = 'workspace_name',
-                           name = "dataset_crime",
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
+
                            description = 'Training data',
                            exist_ok = False
                            )
 ```
 
 >[!NOTE]
-> 預設參數值`register()`是 ' exist_ok = False'。 如果您嘗試註冊具有相同名稱的資料集，而不需要變更此設定會發生錯誤。
+> 預設參數值`register()`是`exist_ok = False`。 如果您嘗試註冊具有相同名稱的資料集，而不需要變更此設定會發生錯誤。
 
-`register()`方法會使用的參數設定值，更新已註冊的資料集定義`exist_ok = True`。
+`register()`方法會傳回已註冊的資料集使用參數設定時， `exist_ok = True`。
 
 ```Python
-dataset = dataset.register(workspace = workspace_name,
-                           name = "dataset_crime",
-                           description = 'Training data',
-                           exist_ok = True)
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
 ```
 
 使用`list()`若要查看所有已註冊的資料集，在您的工作區中。
@@ -137,7 +138,7 @@ Dataset.list(workspace_name)
 ```Python
 workspace = Workspace.from_config()
 
-dataset = workspace.Datasets['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 ```
 
 ## <a name="next-steps"></a>後續步驟

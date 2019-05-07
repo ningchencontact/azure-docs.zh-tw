@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916390"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205383"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -274,7 +274,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 
 ## <a name="performance-tests"></a>效能測試
 > [!NOTE]  
-> 雲端式負載測試服務已被取代。 可以找到有關淘汰、 服務可用性，以及替代服務的詳細資訊[此處](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops)。
+> 雲端式負載測試服務已被取代。 可以找到有關淘汰、 服務可用性，以及替代服務的詳細資訊[此處](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops)。
 
 您可以在網站上執行負載測試。 例如可用性測試，您可以從我們在全球各地的點傳送簡單要求或多個步驟的要求。 不同於可用性測試，許多要求傳送時會同時模擬多位使用者。
 

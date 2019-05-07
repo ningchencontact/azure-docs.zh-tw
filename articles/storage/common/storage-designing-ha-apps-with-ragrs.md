@@ -1,5 +1,5 @@
 ---
-title: 使用讀取權限異地備援儲存體 (RA-GRS) 設計高可用性應用程式 | Microsoft Docs
+title: 設計高可用性的應用程式使用讀取權限異地備援儲存體 (RA-GRS) |Microsoft Docs
 description: 如何使用 Azure RA-GRS 儲存體來設計高可用性應用程式的架構，使其有足夠的彈性來處理中斷。
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6dc497ac2afd54965485ff553bb25f47d7cf0491
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139333"
+ms.locfileid: "65205489"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 設計高可用性應用程式
 
@@ -148,7 +148,7 @@ ms.locfileid: "65139333"
 
 您有三個主要選項可用來監視主要區域中的重試頻率，以判斷何時要切換到次要區域，並將應用程式變更為在唯讀模式中執行。
 
-*   針對您傳遞到儲存體要求的 [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 物件上的 [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) 事件新增處理常式 - 這是本文所示的方法，並會在隨附的範例中使用。 每當用戶端重試要求時，這些事件即會觸發，讓您能夠追蹤用戶端在主要端點上發生可重試錯誤的頻率。
+*   針對您傳遞到儲存體要求的 [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) 物件上的 [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) 事件新增處理常式 - 這是本文所示的方法，並會在隨附的範例中使用。 每當用戶端重試要求時，這些事件即會觸發，讓您能夠追蹤用戶端在主要端點上發生可重試錯誤的頻率。
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -159,7 +159,7 @@ ms.locfileid: "65139333"
     };
     ```
 
-*   在自訂重試原則的 [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 方法中，您可以在每次進行重試時執行自訂程式碼。 除了記錄重試發生的時間，這也能讓您有機會修改重試行為。
+*   在自訂重試原則的 [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) 方法中，您可以在每次進行重試時執行自訂程式碼。 除了記錄重試發生的時間，這也能讓您有機會修改重試行為。
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

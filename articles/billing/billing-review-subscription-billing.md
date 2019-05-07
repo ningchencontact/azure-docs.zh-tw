@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: 15725989ef786f94421eddf647f101e3e73633fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a73462b7fdbaf6386a3051a72da755f31ff8dd2
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370810"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192112"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>使用 REST API 檢閱訂用帳戶計費
 
@@ -39,7 +39,7 @@ Authorization: Bearer
 
 `{subscriptionID}` 是必要參數，用於識別目標訂用帳戶。
 
-`{billingPeriod}` 是必要參數，用於指定目前的[計費週期](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod)。
+`{billingPeriod}` 是必要參數，用於指定目前的[計費週期](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)。
 
 `${startDate}` 和 `${endDate}` 在此範例中為必要參數，但對於端點則非必要。 它以 YYYY-MM-DD 格式的字串來指定日期範圍 (例如：`'20180501'` 和 `'20180615'`)。
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5d4be0bf52fd925e22e40e98258082304a25a111
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 82187b05a398c066f9da94c57cbe8a59a6ba3275
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148764"
+ms.locfileid: "65191741"
 ---
 ## <a name="launch-azure-cloud-shell"></a>啟動 Azure Cloud Shell
 
@@ -101,4 +101,7 @@ $job.State
 ```
 
 > [!NOTE]
-> 您需要等待映像版本，才能完全完成建置和複寫之前，您可以使用相同的受控映像來建立另一個映像版本。
+> 您需要等待映像版本，才能完全完成建置和複寫之前，您可以使用相同的受控映像來建立另一個映像版本。 
+>
+> 您也可以儲存在程式映像版本[區域備援儲存體](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)藉由新增`-StorageAccountType Standard_ZRS`當您建立的映像版本。
+>

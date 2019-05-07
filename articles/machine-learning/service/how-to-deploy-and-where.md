@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1da232c2a81c9989cc78eccf1be97b5d75a48666
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024477"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205070"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -193,7 +193,7 @@ inference_config = InferenceConfig(source_directory="C:/abc",
 
 在此範例中，組態會包含下列項目：
 
-* 包含執行推斷所需的資產目錄
+* 包含推斷所需的資產目錄
 * 此模型需要使用 Python
 * [項目指令碼](#script)，用以處理 web 要求傳送至已部署的服務
 * 描述執行推斷所需的 Python 套件的 conda 檔案

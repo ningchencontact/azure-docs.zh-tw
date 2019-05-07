@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67956b3369394f68d067fc4753a859c066428aea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708292"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191501"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 
@@ -274,6 +274,10 @@ Azure Active Directory (Azure AD) 可讓您自動化建立、 維護和移除在
 這是「應用程式的群組型指派」所受到的限制，對單一登入也會產生影響，相關說明請見[使用群組管理 SaaS 應用程式的存取權](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps )。
 
 因應措施，您應該明確地指派 (或其他[範圍中](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) 包含要佈建需要的使用者群組。
+
+### <a name="is-provisioning-between-azure-ad-and-a-target-application-using-an-encrypted-channel"></a>正在佈建 Azure AD 之間及使用加密的通道的目標應用程式嗎？
+
+是。 我們會使用 [伺服器] 目標的 HTTPS SSL 加密。 
 
 ## <a name="related-articles"></a>相關文章
 

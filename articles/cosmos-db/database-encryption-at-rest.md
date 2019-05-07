@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 07d5aa752d6613f6733a44c9b34e48f537eb67ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49fe9c0921579802b726e02a074bb0a911d88231
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889565"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204201"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Azure Cosmos DB 中的資料加密 
 
 「待用加密」是一個用來描述加密靜態儲存裝置 (例如固態硬碟 (SSD) 和硬碟 (HDD)) 上資料的常見用語。 Cosmos DB 會在 SSD 上儲存其主要資料庫。 其媒體附件和備份會儲存在通常由 HDD 備份的 Azure Blob 儲存體中。 在針對 Cosmos DB 發行待用加密之後，您所有的資料庫、媒體附件及備份都會進行加密。 您的資料現在會在傳輸過程 (透過網路) 和待用 (位於靜態儲存裝置上) 期間進行加密，提供您端對端的加密。
 
-Cosmos DB 是一種 PaaS 服務，使用起來非常容易。 由於儲存在 Cosmos DB 中的所有使用者資料都會在待用和傳輸過程期間進行加密，因此您不必採取任何動作。 換句話說，待用加密預設便會「開啟」。 沒有關閉或開啟的控制項。 在提供這項功能的同時，我們會繼續符合[可用性和效能 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)。
+Cosmos DB 是一種 PaaS 服務，使用起來非常容易。 由於儲存在 Cosmos DB 中的所有使用者資料都會在待用和傳輸過程期間進行加密，因此您不必採取任何動作。 換句話說，待用加密預設便會「開啟」。 沒有關閉或開啟的控制項。 Azure Cosmos DB 帳戶正在執行的所有區域上，使用 AES-256 加密。 在提供這項功能的同時，我們會繼續符合[可用性和效能 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db)。
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Azure Cosmos DB 待用加密實作
 

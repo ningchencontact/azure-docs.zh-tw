@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: 669b4d65798a553188a2b99080b72ffc7cd9e898
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 074b701422f32f4cd18fd2eb05e3453e139e17ae
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783567"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205590"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 發生例外狀況時，您可以自動從即時 Web 應用程式收集偵錯快照集。 快照集會顯示擲回例外狀況時原始程式碼和變數的狀態。 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的快照集偵錯工具 (預覽) 會監視 web 應用程式的例外狀況遙測。 它會收集前幾個擲回例外狀況的快照集，讓您取得診斷生產環境中問題所需的資訊。 將[快照集收集器 NuGet 套件](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)納入您的應用程式，並選擇性地設定 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 中的集合參數。快照集會顯示在 Application Insights 入口網站中的[例外狀況](../../azure-monitor/app/asp-net-exceptions.md)。
@@ -112,7 +112,7 @@ ms.locfileid: "60783567"
 
 ## <a name="limitations"></a>限制
 
-預設資料保留期限為 7 天。 每個 Application Insights 執行個體，每日允許 50 個快照的數目上限。
+預設資料保留期限是 15 天。 每個 Application Insights 執行個體，每日允許 50 個快照的數目上限。
 
 ### <a name="publish-symbols"></a>發佈符號
 快照集偵錯工具需要符號檔出現在生產環境伺服器上，才可將變數解碼並提供 Visual Studio 中的偵錯體驗。

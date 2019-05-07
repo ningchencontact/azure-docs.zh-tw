@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3a4f3b37b0dc4d74b03ffcfa61c97fbb571d57f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eaaaa5c2fe87b419bf38d6e6522ef745476ac1ad
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465587"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204948"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM 上的 SAP NetWeaver 高可用性
 
@@ -563,7 +563,7 @@ _**圖 2：** Azure 中不含共用磁碟的 Windows Server 容錯移轉叢集�
 2. 在兩個虛擬機器節點上執行 SIOS DataKeeper Cluster Edition。
 3. 設定 SIOS DataKeeper Cluster Edition，使它將來源虛擬機器的額外 VHD 連接磁碟區內容鏡像至目標虛擬機器的額外 VHD 連接磁碟區。 SIOS DataKeeper 将抽象化源和目标本地卷，并以单个共享磁盘的形式呈现给 Windows Server 故障转移群集。
 
-取得 [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/)的詳細資訊。
+取得 [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/)的詳細資訊。
 
 ![圖 3：Azure 中含 SIOS DataKeeper 的 Windows Server 容錯移轉叢集組態][sap-ha-guide-figure-1002]
 
@@ -1043,7 +1043,7 @@ Azure Load Balancer 具有內部負載平衡器，會在連線閒置一段時間
 
 若要在 SAP ASCS/SCS 執行個體的兩個叢集節點上新增登錄項目，首先，在 SAP ASCS/SCS 的兩個 Windows 叢集節點上新增這些 Windows 登錄項目︰
 
-| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | 變數名稱 |`KeepAliveTime` |
 | 變數類型 |REG_DWORD (十進位) |
@@ -1054,7 +1054,7 @@ _**表 3：** 變更第一個 TCP/IP 參數_
 
 然後，在 SAP ASCS/SCS 的兩個 Windows 叢集節點上都新增下列 Windows 登錄項目：
 
-| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | 變數名稱 |`KeepAliveInterval` |
 | 變數類型 |REG_DWORD (十進位) |

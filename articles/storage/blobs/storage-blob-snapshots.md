@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ac13b40ae58054b091963de198213c1a68fcdc05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de600770b35922d35f1d9066489f582aa61aec59
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61427649"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205096"
 ---
 # <a name="create-a-blob-snapshot"></a>建立 Blob 快照集
 
@@ -170,13 +170,13 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 * 如需使用 Blob 儲存體的其他程式碼範例，請參閱 [Azure 程式碼範例](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)。 您可以下載範例應用程式並加以執行，或瀏覽 GitHub 上的程式碼。
 
-[dotnet_AccessCondition]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.accesscondition.aspx
-[dotnet_CloudBlockBlob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx
-[dotnet_CreateSnapshotAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.createsnapshotasync.aspx
-[dotnet_HTTPStatusCode]: https://msdn.microsoft.com/library/system.net.httpstatuscode(v=vs.110).aspx
-[dotnet_PutBlockList]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.putblocklist.aspx
-[dotnet_PutBlock]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.putblock.aspx
-[dotnet_UploadFromByteArray]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfrombytearray.aspx
-[dotnet_UploadFromFile]: https://msdn.microsoft.com/library/azure/mt705654.aspx
-[dotnet_UploadFromStream]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstream.aspx
-[dotnet_UploadText]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadtext.aspx
+[dotnet_AccessCondition]: https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.accesscondition
+[dotnet_CloudBlockBlob]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob
+[dotnet_CreateSnapshotAsync]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.generatedblobs.createsnapshotasync
+[dotnet_HTTPStatusCode]: https://docs.microsoft.com/java/api/com.microsoft.store.partnercenter.network.httpstatuscode
+[dotnet_PutBlockList]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblocklist
+[dotnet_PutBlock]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblock
+[dotnet_UploadFromByteArray]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.uploadfrombytearray
+[dotnet_UploadFromFile]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.uploadfromfile
+[dotnet_UploadFromStream]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadfromstream
+[dotnet_UploadText]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadtext

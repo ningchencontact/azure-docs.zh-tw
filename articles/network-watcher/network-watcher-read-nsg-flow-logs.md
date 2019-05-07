@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: kumud
-ms.openlocfilehash: 6eaad301f3b3ea00639ddb3f4c9d22b28d8d7b88
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4126f27156ed8a75abebe02e5d67f35695f5235f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692703"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205543"
 ---
 # <a name="read-nsg-flow-logs"></a>讀取 NSG 流量記錄
 
@@ -39,7 +39,7 @@ NSG 流量記錄會以[區塊 Blob](https://docs.microsoft.com/rest/api/storages
 
 ## <a name="retrieve-the-block-list"></a>擷取區塊清單
 
-以下的 PowerShell 會設定查詢 NSG 流程記錄檔 Blob 所需的變數，並會列出 [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) \(英文\) 區塊 Blob 內的區塊。 更新指令碼以包含適用於您環境的有效值。
+以下的 PowerShell 會設定查詢 NSG 流程記錄檔 Blob 所需的變數，並會列出 [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) \(英文\) 區塊 Blob 內的區塊。 更新指令碼以包含適用於您環境的有效值。
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -116,7 +116,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>讀取區塊 Blob
 
-接下來，您需要讀取 `$blocklist` 變數以擷取資料。 在這個範例中，我們會逐一查看區塊清單，從每個區塊讀取位元組，並將它們儲存在陣列中。 使用 [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法來擷取資料。
+接下來，您需要讀取 `$blocklist` 變數以擷取資料。 在這個範例中，我們會逐一查看區塊清單，從每個區塊讀取位元組，並將它們儲存在陣列中。 使用 [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法來擷取資料。
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {

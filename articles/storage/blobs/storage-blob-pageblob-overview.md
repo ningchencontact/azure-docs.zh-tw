@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a0fc9a8356f4a322ae81a668515a6a60c6001011
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: c0d5108ee235be74f6188bfc8b590069a4e790b5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141247"
+ms.locfileid: "65192633"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 分頁 Blob 的概觀
 
@@ -43,7 +43,7 @@ Azure 分頁 Blob 的主要功能包括其 REST 介面、基礎儲存體的持�
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>建立指定大小的空分頁 Blob
-若要建立分頁 Blob，首先需建立 **CloudBlobClient** 物件，搭配用來存取您儲存體帳戶 (圖 1 中的 *pbaccount*) 之 Blob 儲存體的基底 URI，以及 **StorageCredentialsAccountAndKey** 物件，如下列範例所示。 然後，此範例會建立 **CloudBlobContainer** 物件的參照，然後建立容器 (testvhds) (如果它尚未存在)。 然後，透過 **CloudBlobContainer** 物件，建立 **CloudPageBlob** 物件的參照，方法是指定要存取的分頁 Blob 名稱 (os4.vhd)。 若要建立分頁 Blob，請呼叫 [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 傳入要建立之 Blob 的大小上限。 *blobSize* 必須是 512 位元組的倍數。
+若要建立分頁 Blob，首先需建立 **CloudBlobClient** 物件，搭配用來存取您儲存體帳戶 (圖 1 中的 *pbaccount*) 之 Blob 儲存體的基底 URI，以及 **StorageCredentialsAccountAndKey** 物件，如下列範例所示。 然後，此範例會建立 **CloudBlobContainer** 物件的參照，然後建立容器 (testvhds) (如果它尚未存在)。 然後，透過 **CloudBlobContainer** 物件，建立 **CloudPageBlob** 物件的參照，方法是指定要存取的分頁 Blob 名稱 (os4.vhd)。 若要建立分頁 Blob，請呼叫 [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 傳入要建立之 Blob 的大小上限。 *blobSize* 必須是 512 位元組的倍數。
 
 ```csharp
 using Microsoft.WindowsAzure.StorageClient;
@@ -66,13 +66,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 ```
 
 #### <a name="resizing-a-page-blob"></a>調整分頁 Blob 大小
-若要在建立之後重新調整分頁 Blob 的大小，請使用[調整大小](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) API。 要求的大小應該是 512 位元組的倍數。
+若要在建立之後重新調整分頁 Blob 的大小，請使用[調整大小](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) API。 要求的大小應該是 512 位元組的倍數。
 ```csharp
 pageBlob.Resize(32 * OneGigabyteAsBytes); 
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>將分頁寫入分頁 Blob
-若要寫入分頁，請使用 [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) 方法。  這可讓您寫入最多 4MB 的連續分頁集合。 要寫入的位移必須從 512 位元組界限 (startingOffset % 512 == 0) 開始，並於 512 界限 - 1 的位置結束。  下列程式碼範例顯示如何呼叫 Blob 的**WritePages**：
+若要寫入分頁，請使用 [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) 方法。  這可讓您寫入最多 4MB 的連續分頁集合。 要寫入的位移必須從 512 位元組界限 (startingOffset % 512 == 0) 開始，並於 512 界限 - 1 的位置結束。  下列程式碼範例顯示如何呼叫 Blob 的**WritePages**：
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -88,7 +88,7 @@ pageBlob.WritePages(dataStream, startingOffset);
 2.  長度為 1024 位元組並從位移 4096 開始的寫入作業 
 
 #### <a name="reading-pages-from-a-page-blob"></a>從分頁 Blob 讀取分頁
-若要讀取分頁，請使用 [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) 方法，從分頁 Blob 讀取位元組範圍。 這可讓您從 Blob 中的任何位移開始，下載完整的 Blob 或位元組範圍。 讀取時，位移並不需要從 512 的倍數開始。 從 NUL 分頁讀取位元組時，服務會傳回零個位元組。
+若要讀取分頁，請使用 [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) 方法，從分頁 Blob 讀取位元組範圍。 這可讓您從 Blob 中的任何位移開始，下載完整的 Blob 或位元組範圍。 讀取時，位移並不需要從 512 的倍數開始。 從 NUL 分頁讀取位元組時，服務會傳回零個位元組。
 ```csharp
 byte[] buffer = new byte[rangeSize];
 pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
@@ -97,7 +97,7 @@ pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSiz
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
-如果您有疏鬆填入的 Blob，建議只下載有效的頁面區域，以避免支付零位元組的輸出，並降低下載延遲。  若要判斷有哪些分頁是由資料所支援，請使用 [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet)。 然後，您可以對傳回的範圍進行列舉，並下載每個範圍中的資料。 
+如果您有疏鬆填入的 Blob，建議只下載有效的頁面區域，以避免支付零位元組的輸出，並降低下載延遲。  若要判斷有哪些分頁是由資料所支援，請使用 [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet)。 然後，您可以對傳回的範圍進行列舉，並下載每個範圍中的資料。 
 ```csharp
 IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
 

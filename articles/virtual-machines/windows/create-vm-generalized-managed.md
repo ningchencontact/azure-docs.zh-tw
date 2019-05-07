@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 9157765afaa610d207a47e19b73f80ae3898fd68
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 57fbab4194f6cd232e1462ecea9a07d104c6cb51
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977553"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205742"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>從受控映像建立 VM
 
 您可以使用 Azure 入口網站或 PowerShell，從 Azure 受控 VM 映像建立多部虛擬機器 (VM)。 受控 VM 映像包含建立 VM 所需的資訊，包括 OS 和資料磁碟。 組成映像的虛擬硬碟 (VHD) (包括 OS 磁碟和任何資料磁碟) 會儲存為受控磁碟。 
 
-建立新的 VM 之前，您必須[建立受控 VM 映像](capture-image-resource.md)作為來源映像。 
+然後再建立新的 VM，您必須[建立受管理的 VM 映像](capture-image-resource.md)作為來源映像和映像上的讀取權限授與任何使用者都應該具有存取權的映像。 
 
 
 ## <a name="use-the-portal"></a>使用入口網站
@@ -44,7 +44,7 @@ ms.locfileid: "55977553"
 
 您可以使用 PowerShell，透過針對 [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) Cmdlet 設定的簡化參數從映像建立 VM。 映像必須位在與您將要建立 VM 映像的同一個資源群組中。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 針對 [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 設定的簡化參數只會要求您提供名稱、資源群組和映像名稱，以便從映像建立 VM。 New-AzVm 會使用 **-Name** 參數的值作為自動建立的所有資源名稱。 在此範例中，會對每個資源提供更詳細的名稱，但會讓 Cmdlet 自動建立這些資源。 您也可以事先建立資源 (例如虛擬網路)，並將資源名稱傳遞至 Cmdlet。 如果可藉由名稱找到資源，New-AzVm 即會使用現有的資源。
 

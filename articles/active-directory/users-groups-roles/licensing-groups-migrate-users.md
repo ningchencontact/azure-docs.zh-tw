@@ -1,6 +1,6 @@
 ---
-title: 將個別授權的使用者移轉至以群組為基礎的授權-Azure Active Directory |Microsoft Docs
-description: 如何使用 Azure Active Directory 從個別使用者授權切換至以群組為基礎的授權
+title: 將個別授權的使用者新增至群組型授權-Azure Active Directory |Microsoft Docs
+description: 如何從個別使用者授權移轉至使用 Azure Active Directory 群組型授權
 services: active-directory
 keywords: Azure AD 授權
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 333f0ae0153073b57740446ecf47e36a1f9ce590
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470995"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192446"
 ---
-# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>如何新增授權時，將個別授權的使用者移轉至群組
+# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>如何將個別授權的使用者移轉至群組中，授權
 
 您可能會透過「直接指派」將現有授權部署給組織中的使用者，也就是，使用 PowerShell 指令碼或其他工具來指派個別使用者授權。 在您開始使用群組型授權來管理組織中的授權之前，您可以使用此移轉計劃要使用群組型授權中順暢地取代現有的解決方案。
 

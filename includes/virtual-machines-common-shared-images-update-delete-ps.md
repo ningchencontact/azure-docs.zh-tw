@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 10b95a92f36ad6eb340ae864cbfd9fcbeac371a8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148762"
+ms.locfileid: "65191738"
 ---
 ## <a name="update-resources"></a>更新資源
 
@@ -34,7 +34,7 @@ ms.locfileid: "65148762"
 - 從最新版排除
 - 生命週期結束日期
 
-
+如果您打算加入複本區域，不會刪除來源受控映像。 來源受控映像所需的映像版本複寫到其他地區。 
 
 若要更新資源庫的描述，請使用[更新 AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery)。
 
