@@ -54,9 +54,9 @@ ms.locfileid: "61261846"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**AmazonRedshift** | 是 |
-| 伺服器 |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
-| 連接埠 |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值為 5439 |
-| 資料庫 |Amazon Redshift 資料庫的名稱。 |是 |
+| server |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
+| port |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值為 5439 |
+| database |Amazon Redshift 資料庫的名稱。 |是 |
 | username |可存取資料庫之使用者的名稱。 |是 |
 | password |使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
@@ -210,17 +210,17 @@ ms.locfileid: "61261846"
 | Amazon Redshift 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |字串 |
-| CHAR |字串 |
-| 日期 |DateTime |
+| BOOLEAN |String |
+| CHAR |String |
+| DATE |DateTime |
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |
-| TEXT |字串 |
-| 時間戳記 |DateTime |
-| VARCHAR |字串 |
+| TEXT |String |
+| TIMESTAMP |DateTime |
+| VARCHAR |String |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。
