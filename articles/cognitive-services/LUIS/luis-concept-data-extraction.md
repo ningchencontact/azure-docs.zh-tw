@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867708"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150689"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>擷取與意圖和實體的 [utterance] 文字方塊中的資料
 LUIS 可讓您從使用者的自然語言語句取得資訊。 此資訊的擷取方式使得它可供程式、應用程式或 Chatbot 用來執行動作。 在下列各節中，您將透過 JSON 範例，了解從意圖和實體會傳回哪些資料。
@@ -172,34 +172,6 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 |--|--|--|
 |簡單實體|`Customer`|`bob jones`|
 
-## <a name="hierarchical-entity-data"></a>階層式實體資料
-
-**階層式實體最終會被取代。使用[實體的角色](luis-concept-roles.md)來判斷實體子型別，而不是階層式實體。**
-
-[階層式](luis-concept-entity-types.md)實體是機器學習實體，並可包含單字或片語。 子系會由內容來識別。 如果您要尋找全文相符的父子關係，請使用[清單](#list-entity-data)實體。
-
-`book 2 tickets to paris`
-
-在先前的語句中，`paris` 被標記為 `Location` 階層式實體的 `Location::ToLocation` 子系。
-
-從端點傳回的資料會包含實體名稱和子系名稱、從語句探索到的文字，所探索文字的位置，以及分數：
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|資料物件|父系|子系|Value|
-|--|--|--|--|
-|階層式實體|位置|ToLocation|"paris"|
-
 ## <a name="composite-entity-data"></a>複合實體資料
 [複合](luis-concept-entity-types.md)實體是機器學習實體，並可包含單字或片語。 例如，思考一下與下列語句搭配之預先建置 `number` 與 `Location::ToLocation` 的複合實體：
 
@@ -212,53 +184,54 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 複合實體會在 `compositeEntities` 陣列中傳回，而複合項目內的所有實體則會一併在 `entities` 陣列中傳回：
 
 ```JSON
-  "entities": [
+
+"entities": [
     {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
+    "entity": "2 tickets to cairo",
+    "type": "ticketInfo",
+    "startIndex": 0,
+    "endIndex": 17,
+    "score": 0.67200166
     },
     {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
+    "entity": "2",
+    "type": "builtin.number",
+    "startIndex": 0,
+    "endIndex": 0,
+    "resolution": {
+        "subtype": "integer",
         "value": "2"
-      }
+    }
     },
     {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
+    "entity": "cairo",
+    "type": "builtin.geographyV2",
+    "startIndex": 13,
+    "endIndex": 17
     }
-  ],
-  "compositeEntities": [
+],
+"compositeEntities": [
     {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
+    "parentType": "ticketInfo",
+    "value": "2 tickets to cairo",
+    "children": [
         {
-          "type": "builtin.number",
-          "value": "2"
+        "type": "builtin.geographyV2",
+        "value": "cairo"
         },
         {
-          "type": "Location::ToLocation",
-          "value": "paris"
+        "type": "builtin.number",
+        "value": "2"
         }
-      ]
+    ]
     }
-  ]
+]
 ```    
 
 |資料物件|實體名稱|Value|
 |--|--|--|
 |預先建置的實體 - number|"builtin.number"|"2"|
-|階層式實體 - Location|"Location::ToLocation"|"paris"|
+|Prebuilt Entity - GeographyV2|"Location::ToLocation"|"paris"|
 
 ## <a name="list-entity-data"></a>清單實體資料
 
@@ -268,8 +241,8 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 |清單項目|項目同義字|
 |---|---|
-|Seattle|sea-tac、sea、98101、206、+1 |
-|巴黎|cdg、roissy、ory、75001、1、+33|
+|`Seattle`|`sea-tac`、`sea`、`98101`、`206`、`+1` |
+|`Paris`|`cdg`、`roissy`、`ory`、`75001`、`1`、`+33`|
 
 `book 2 tickets to paris`
 

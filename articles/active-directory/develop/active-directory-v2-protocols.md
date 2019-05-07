@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7471bb82aece2b4c11f5071b6b3746f1a55a4a60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8d509e9f3cabcd588d539d42b8cce022e17a1222
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917334"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139200"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft 身分識別平台通訊協定
 
@@ -45,7 +45,7 @@ Microsoft 身分識別平台服務的端點身分識別-為-a-使用業界標準
 
 ## <a name="app-registration"></a>App 註冊
 
-每個想要接受同時個人和工作或學校帳戶的應用程式必須透過新註冊**應用程式註冊 （預覽）** 體驗[Azure 入口網站](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)它才能將這些使用者登入使用 OAuth 2.0 或 OpenID Connect。 應用程式註冊處理序會收集與指派一些值給您的應用程式：
+每個想要接受同時個人和工作或學校帳戶的應用程式必須透過註冊**應用程式註冊**體驗[Azure 入口網站](https://aka.ms/appregistrations)它可以將這些使用者在使用 OAuth 2.0 登入之前或 OpenID Connect。 應用程式註冊處理序會收集與指派一些值給您的應用程式：
 
 * 可唯一識別應用程式的「應用程式識別碼」
 * 可將回應導回至應用程式的**重新導向 URI**或**套件識別碼**

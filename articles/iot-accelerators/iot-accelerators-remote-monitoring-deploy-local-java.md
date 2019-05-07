@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccdb3e16ea60cf85ae28e533e3b2d9f473cc90c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 209a91453875531e81ddbcead8c1ed2fb309a0a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450770"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147453"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>在本機部署遠端監視解決方案加速器 - IntelliJ
 
@@ -135,7 +135,7 @@ ms.locfileid: "61450770"
 請遵循下列步驟以啟動串流分析作業：
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
-1. 瀏覽至為解決方案建立的**資源群組**。 當您執行 **start.cmd** 指令碼**時為解決方案選擇的名稱，就是資源群組的名稱。
+1. 瀏覽至為解決方案建立的**資源群組**。 當您執行 **start.cmd** 指令碼時為解決方案選擇的名稱，就是資源群組的名稱。
 1. 在資源清單中，按一下 [串流分析作業]。
 1. 在串流分析作業 [概觀] 頁面上，按一下 [啟動] 按鈕。 接著，按一下 [啟動] 以立即啟動作業。
 

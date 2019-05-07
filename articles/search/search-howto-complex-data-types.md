@@ -10,12 +10,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 397b3ea7fee67e25cd160f6b529a660e18c44046
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 00606ed5cbcd8681748241e9404c6e6e5aa95021
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024749"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147306"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>如何在 Azure 搜尋服務中模型化複雜資料類型
 
@@ -28,7 +28,7 @@ Azure 搜尋服務原本就支援複雜型別和集合。 在一起，這些類�
 > [!Note]
 > 複雜類型的支援已正式推出在`api-version=2019-05-06`。 
 >
-> 如果您的搜尋解決方案建置在較早的因應措施的扁平化的資料集集合中，您應該變更您要包含複雜型別中的最新的 API 版本所支援的索引。 如需有關升級的 API 版本的詳細資訊，請參閱[升級至最新的 REST API 版本](search-api-migration.md)或是[升級至最新的.NET SDK 版本](search-dotnet-sdk-migration.md)。
+> 如果您的搜尋解決方案建置在較早的因應措施的扁平化的資料集集合中，您應該變更您要包含複雜型別中的最新的 API 版本所支援的索引。 如需有關升級的 API 版本的詳細資訊，請參閱[升級至最新的 REST API 版本](search-api-migration.md)或是[升級至最新的.NET SDK 版本](search-dotnet-sdk-migration-version-9.md)。
 
 ## <a name="example-of-a-complex-structure"></a>複雜的結構範例
 

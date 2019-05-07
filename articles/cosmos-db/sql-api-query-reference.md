@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626872"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145186"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 語言參考 
 
@@ -31,7 +31,8 @@ Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 
 SELECT <select_specification>   
     [ FROM <from_specification>]   
     [ WHERE <filter_condition> ]  
-    [ ORDER BY <sort_specification> ]  
+    [ ORDER BY <sort_specification> ] 
+    [ OFFSET <offset_amount> LIMIT <limit_amount>]
 ```  
   
  **備註**  
@@ -42,6 +43,8 @@ SELECT <select_specification>
 -   [FROM 子句](#bk_from_clause)    
 -   [WHERE 子句](#bk_where_clause)    
 -   [ORDER BY 子句](#bk_orderby_clause)  
+-   [位移 LIMIT 子句](#bk_offsetlimit_clause)
+
   
 SELECT 陳述式中的子句的順序必須如上所述。 您可以省略任一選用子句。 但是，若使用了選用子句，則這些子句必須以正確的順序出現。  
   
@@ -52,7 +55,8 @@ SELECT 陳述式中的子句的順序必須如上所述。 您可以省略任一
 1.  [FROM 子句](#bk_from_clause)  
 2.  [WHERE 子句](#bk_where_clause)  
 3.  [ORDER BY 子句](#bk_orderby_clause)  
-4.  [SELECT 子句](#bk_select_query)  
+4.  [SELECT 子句](#bk_select_query)
+5.  [位移 LIMIT 子句](#bk_offsetlimit_clause)
 
 請注意，這裡的順序與語法中子句出現的順序不同。 您可以看到由已處理的子句所導入的所有新符號之順序，也能用於稍後要處理的子句。 例如，您可以在 WHERE 和 SELECT 子句中存取 FROM 子句中宣告的別名。  
 
@@ -76,8 +80,8 @@ SELECT <select_specification>
 
 <select_specification> ::=   
       '*'   
-      | <object_property_list>   
-      | VALUE <scalar_expression> [[ AS ] value_alias]  
+      | [DISTINCT] <object_property_list>   
+      | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
   
 <object_property_list> ::=   
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
@@ -101,7 +105,11 @@ SELECT <select_specification>
 - `VALUE`  
 
   指定應該擷取 JSON 值，而非擷取完整的 JSON 物件。 這與 `<property_list>` 不同，不會在物件中包裝預估的值。  
+ 
+- `DISTINCT`
   
+  指定應移除重複項目之預計屬性。  
+
 - `<scalar_expression>`  
 
   表示要計算之值的運算式。 請參閱[純量運算式](#bk_scalar_expressions)一節以取得詳細資料。  
@@ -341,27 +349,27 @@ WHERE <filter_condition>
 ```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
-<sort_expression> ::= <scalar_expression> [ASC | DESC]  
+<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
   
 ```  
-  
+
  **引數**  
   
 - `<sort_specification>`  
   
-   指定要排列查詢結果集的屬性或運算式。 排序資料行可指定為名稱或資料行別名。  
+   指定要排列查詢結果集的屬性或運算式。 排序資料行可以指定為名稱或屬性的別名。  
   
-   可以指定多個排序資料行。 資料行必須是唯一的。 ORDER BY 子句中的排序資料行順序會定義已排序結果集的組織。 也就是說，結果集是依第一個屬性排序，而該排序清單會依次要屬性進行排序，以此類推。  
+   可以指定多個屬性。 屬性名稱必須是唯一的。 ORDER BY 子句中的排序屬性的順序會定義排序的結果集的組織。 也就是說，結果集是依第一個屬性排序，而該排序清單會依次要屬性進行排序，以此類推。  
   
-   ORDER BY 子句中參照的資料行名稱必須明確對應至選取清單中的資料行，或在 FROM 子句中指定之資料表中定義的資料行。  
+   ORDER BY 子句中參考的屬性名稱必須對應至選取清單中的其中一個屬性或任何模稜兩可之 FROM 子句中指定的集合中定義的屬性。  
   
 - `<sort_expression>`  
   
-   指定要排列查詢結果集的單一屬性或運算式。  
+   指定一或多個屬性或運算式，用來排序查詢結果集。  
   
 - `<scalar_expression>`  
   
-   有关详细信息，请参阅[标量表达式](#bk_scalar_expressions)部分。  
+   請參閱[純量運算式](#bk_scalar_expressions)一節以取得詳細資料。  
   
 - `ASC | DESC`  
   
@@ -369,8 +377,34 @@ ORDER BY <sort_specification>
   
   **備註**  
   
-  即使查詢文法支援多個屬性順序，但 Cosmos DB 查詢執行階段僅會支援單一屬性及屬性名稱的排序 (不支援已計算屬性的排序)。 排序也需要索引原則，包括適用於屬性及指定類型的範圍索引，搭配最大有效位數。 如需詳細資訊，請參閱索引原則文件。  
+   ORDER BY 子句需要編製索引原則，包含要排序的欄位索引。 Azure Cosmos DB 查詢執行階段支援排序針對屬性名稱，而不是針對計算的屬性。 Azure Cosmos DB 支援多個 ORDER BY 屬性。 若要執行查詢時使用多個 ORDER BY 屬性，您應該定義[複合式索引](index-policy.md#composite-indexes)根據正在排序的欄位。
+
+
+##  <a name=bk_offsetlimit_clause></a> 位移 LIMIT 子句
+
+指定略過的項目數目和傳回的項目數。 如需範例，請參閱[位移限制子句範例](how-to-sql-query.md#OffsetLimitClause)
   
+ **語法**  
+  
+```sql  
+OFFSET <offset_amount> LIMIT <limit_amount>
+```  
+  
+ **引數**  
+ 
+- `<offset_amount>`
+
+   指定的查詢結果應該略過的項目數的整數。
+
+
+- `<limit_amount>`
+  
+   指定的查詢結果應包含的項目數的整數
+
+  **備註**  
+  
+  限制計數和位移計數所需位移限制子句中。 如果選擇性`ORDER BY`子句使用時，結果集藉由略過已排序的值產生。 否則，查詢會傳回固定的順序的值。
+
 ##  <a name="bk_scalar_expressions"></a>純量運算式  
  純量運算式結合了符號及運算子，可以加以評估以取得單一值。 簡單運算式可以是常數、屬性參考、陣列元素參考、別名參考或函式呼叫。 簡單運算式可以透過使用運算子，與複雜運算式結合。 如需範例，請參閱[純量運算式範例](how-to-sql-query.md#scalar-expressions)
   
@@ -681,7 +715,8 @@ ORDER BY <sort_specification>
 |[數學函式](#bk_mathematical_functions)|每個數學函數都會執行計算，通常以提供做為引數的輸入值為基礎，並且會傳回數值。|  
 |[類型檢查函式](#bk_type_checking_functions)|类型检查函数允许检查 SQL 查询内表达式的类型。|  
 |[字串函式](#bk_string_functions)|下列字串函式會對字串輸入值執行作業，並傳回字串、數值或布林值。|  
-|[陣列函式](#bk_array_functions)|下列陣列函式會對陣列輸入值執行作業，並傳回數值、布林值或陣列值。|  
+|[陣列函式](#bk_array_functions)|下列陣列函式會對陣列輸入值執行作業，並傳回數值、布林值或陣列值。|
+|[日期和時間函數](#bk_date_and_time_functions)|日期和時間函數可讓您以兩種形式，取得目前的 UTC 日期和時間數值的時間戳記，其值為 Unix epoch 以來毫秒，或為符合 ISO 8601 格式的字串。|
 |[空間函式](#bk_spatial_functions)|下列空間函數會對空間物件輸入值執行作業，並傳回數值或布林值。|  
   
 ###  <a name="bk_mathematical_functions"></a>數學函式  
@@ -2363,13 +2398,13 @@ SELECT
     StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
- 以下為結果集。
+以下為結果集。
 
 ```
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
- 下面是输入无效的示例。 
+下面是输入无效的示例。 
    
  在数组中使用单引号不是有效的 JSON。
 即使它们在查询中有效，系统也不会将其解析为有效数组。 必须将数组字符串中的字符串转义为 "[\\"\\"]"，否则其引号必须为单个 '[""]'。
@@ -2379,13 +2414,13 @@ SELECT
     StringToArray("['5','6','7']")
 ```
 
- 以下為結果集。
+以下為結果集。
 
 ```
 [{}]
 ```
 
- 下面是输入无效的示例。
+下面是输入无效的示例。
    
  传递的表达式将会解析为 JSON 数组；下面的示例不会计算为类型数组，因此返回未定义。
    
@@ -2398,7 +2433,7 @@ SELECT
     StringToArray(undefined)
 ```
 
- 以下為結果集。
+以下為結果集。
 
 ```
 [{}]
@@ -2429,7 +2464,7 @@ StringToBoolean(<expr>)
  
  下面是输入有效的示例。
 
- 只能在 "true"/"false" 之前或之后使用空格。
+只能在 "true"/"false" 之前或之后使用空格。
 
 ```  
 SELECT 
@@ -2444,8 +2479,8 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
- 下面是输入无效的示例。
- 
+下面是输入无效的示例。
+
  布尔值区分大小写，必须全用小写字符（即 "true" 和 "false"）来表示。
 
 ```  
@@ -2454,15 +2489,15 @@ SELECT
     StringToBoolean("False")
 ```  
 
- 以下為結果集。  
+以下為結果集。  
   
 ```  
 [{}]
 ``` 
 
- 传递的表达式将会解析为布尔表达式；以下输入不会计算为布尔类型，因此会返回未定义。
+传递的表达式将会解析为布尔表达式；以下输入不会计算为布尔类型，因此会返回未定义。
 
- ```  
+```  
 SELECT 
     StringToBoolean("null"),
     StringToBoolean(undefined),
@@ -2471,7 +2506,7 @@ SELECT
     StringToBoolean(true)
 ```  
 
- 以下為結果集。  
+以下為結果集。  
   
 ```  
 [{}]
@@ -2500,8 +2535,8 @@ StringToNull(<expr>)
   
   以下示例演示 StringToNull 在不同类型中的行为方式。 
 
- 下面是输入有效的示例。
- 
+下面是输入有效的示例。
+
  只能在 "null" 之前或之后使用空格。
 
 ```  
@@ -2517,9 +2552,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
- 下面是输入无效的示例。
+下面是输入无效的示例。
 
- Null 值区分大小写，必须全用小写字符（即 "null"）来表示。
+Null 值区分大小写，必须全用小写字符（即 "null"）来表示。
 
 ```  
 SELECT    
@@ -2533,7 +2568,7 @@ SELECT
 [{}]
 ```  
 
- 传递的表达式将会解析为 null 表达式；以下输入不会计算为 null 类型，因此会返回未定义。
+传递的表达式将会解析为 null 表达式；以下输入不会计算为 null 类型，因此会返回未定义。
 
 ```  
 SELECT    
@@ -2572,8 +2607,8 @@ StringToNumber(<expr>)
   
   以下示例演示 StringToNumber 在不同类型中的行为方式。 
 
- 只能在 Number 之前或之后使用空格。
- 
+只能在 Number 之前或之后使用空格。
+
 ```  
 SELECT 
     StringToNumber("1.000000") AS num1, 
@@ -2588,8 +2623,8 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
- 在 JSON 中，有效的 Number 必须是整数或浮点数。
- 
+在 JSON 中，有效的 Number 必须是整数或浮点数。
+
 ```  
 SELECT   
     StringToNumber("0xF")
@@ -2601,7 +2636,7 @@ SELECT
 {{}}
 ```  
 
- 传递的表达式将会解析为 Number 表达式；以下输入不会计算为 Number 类型，因此会返回未定义。 
+传递的表达式将会解析为 Number 表达式；以下输入不会计算为 Number 类型，因此会返回未定义。 
 
 ```  
 SELECT 
@@ -2643,7 +2678,7 @@ StringToObject(<expr>)
   以下示例演示 StringToObject 在不同类型中的行为方式。 
   
  下面是输入有效的示例。
- 
+
 ``` 
 SELECT 
     StringToObject("{}") AS obj1, 
@@ -2652,7 +2687,7 @@ SELECT
     StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
 ``` 
 
- 以下為結果集。
+以下為結果集。
 
 ```
 [{"obj1": {}, 
@@ -2660,40 +2695,40 @@ SELECT
   "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
- 
+
  下面是输入无效的示例。
 即使它们在查询中有效，系统也不会将其解析为有效对象。 必须将对象字符串中的字符串转义为 "{\\"a\\":\\"str\\"}"，否则其引号必须为单个 '{"a": "str"}'。
 
- 属性名称的单引号不是有效的 JSON。
+属性名称的单引号不是有效的 JSON。
 
 ``` 
 SELECT 
     StringToObject("{'a':[1,2,3]}")
 ```
 
- 以下為結果集。
+以下為結果集。
 
 ```  
 [{}]
 ```  
 
- 没有引号的属性名称不是有效的 JSON。
+没有引号的属性名称不是有效的 JSON。
 
 ``` 
 SELECT 
     StringToObject("{a:[1,2,3]}")
 ```
 
- 以下為結果集。
+以下為結果集。
 
 ```  
 [{}]
 ``` 
 
- 下面是输入无效的示例。
- 
+下面是输入无效的示例。
+
  传递的表达式将会解析为 JSON 对象；以下输入不会计算为对象类型，因此会返回未定义。
- 
+
 ``` 
 SELECT 
     StringToObject("}"),
@@ -2798,20 +2833,20 @@ CONCAT(ToString(p.Weight), p.WeightUnits)
 FROM p in c.Products 
 ```  
 
- 以下為結果集。  
+以下為結果集。  
   
 ```  
 [{"$1":"4lb" },
- {"$1":"32kg"},
- {"$1":"400g" },
- {"$1":"8999mg" }]
+{"$1":"32kg"},
+{"$1":"400g" },
+{"$1":"8999mg" }]
 
 ```  
 指定下列輸入。
 ```
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
- 下列範例顯示 ToString 可以如何與其他字串函式 (例如 REPLACE) 搭配使用。   
+下列範例顯示 ToString 可以如何與其他字串函式 (例如 REPLACE) 搭配使用。   
 ```
 SELECT 
     n.id AS nutrientID,
@@ -2819,14 +2854,14 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
- 以下為結果集。  
+以下為結果集。  
  ```
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ``` 
+``` 
  
 ####  <a name="bk_trim"></a> TRIM  
  傳回移除開頭和尾端空白之後的字串運算式。  
@@ -2937,7 +2972,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 傳回布林值，表示陣列是否包含指定值。 您可以在命令中使用布林值運算式，以檢查物件為部分相符或完全相符。 
 
- **語法**  
+**語法**  
   
 ```  
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
@@ -2977,7 +3012,7 @@ SELECT
 [{"b1": true, "b2": false}]  
 ```  
 
- 下列範例說明如何使用 ARRAY_CONTAINS 檢查陣列中的 JSON 部份相符。  
+下列範例說明如何使用 ARRAY_CONTAINS 檢查陣列中的 JSON 部份相符。  
   
 ```  
 SELECT  
@@ -3085,7 +3120,100 @@ SELECT
            "s7": [] 
 }]  
 ```  
- 
+
+###  <a name="bk_date_and_time_functions"></a> 日期和時間函數
+ 下列純量函數可讓您以兩種形式，取得目前的 UTC 日期和時間數值的時間戳記，其值為 Unix epoch 以來毫秒，或為符合 ISO 8601 格式的字串。 
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+ 傳回目前的 UTC 日期和時間以 ISO 8601 字串形式。
+  
+ **語法**
+  
+```
+GetCurrentDateTime ()
+```
+  
+  **傳回類型**
+  
+  傳回目前 UTC 日期和時間使用 ISO 8601 字串值。 
+
+  這表示，格式為 YYYY-MM-DDThh:mm:ss.sssZ 其中：
+  
+  |||
+  |-|-|
+  |YYYY|四位數年份|
+  |MM|兩位數月份 (01 = 年 1 月，等等。)|
+  |DD|兩位數天數的月份 (01 到 31)|
+  |T|從開始時間項目的 signifier|
+  |hh|兩位數的小時 (從 00 到 23)|
+  |mm|兩位數的分鐘 (00 到 59)|
+  |ss|兩位數的秒鐘 (00 到 59)|
+  |.sss|小數秒的三個數字|
+  |Z|UTC （國際標準時間） 指示項||
+  
+  如需有關 ISO 8601 格式的詳細資訊，請參閱[ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+  **備註**
+
+  GetCurrentDateTime 是不具決定性的函式。 
+  
+  傳回的結果會是 UTC （國際標準時間）。
+
+  **範例**  
+  
+  下列範例示範如何取得目前的 UTC 日期時間使用 GetCurrentDateTime 內建函式。
+  
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+  
+ 以下是範例結果集。
+  
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+ 傳回 00:00:00 1970 年 1 月 1 日，星期四以來所經過的毫秒的數。 
+  
+ **語法**  
+  
+```  
+GetCurrentTimestamp ()  
+```  
+  
+  **傳回類型**  
+  
+  傳回數值，目前的以來所經過的 Unix epoch 以來也就是 00:00:00 1970 年 1 月 1 日，星期四以來所經過的毫秒數的毫秒數。
+
+  **備註**
+
+  GetCurrentTimestamp 是不具決定性的函式。 
+  
+  傳回的結果會是 UTC （國際標準時間）。
+
+  **範例**  
+  
+  下列範例示範如何取得目前的時間戳記使用 GetCurrentTimestamp 內建函式。
+  
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+  
+ 以下是範例結果集。
+  
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
 ###  <a name="bk_spatial_functions"></a> 空間函式  
  下列純量值函式會對空間物件輸入值執行作業，並傳回數值或布林值。  
   
@@ -3292,7 +3420,7 @@ SELECT ST_ISVALIDDETAILED({
   }  
 }]  
 ```  
-  
+ 
 ## <a name="next-steps"></a>後續步驟  
 
 - [適用於 Cosmos DB 的 SQL 語法和 SQL 查詢](how-to-sql-query.md)

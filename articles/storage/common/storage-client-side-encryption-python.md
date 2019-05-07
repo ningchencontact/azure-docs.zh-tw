@@ -2,19 +2,20 @@
 title: Microsoft Azure 儲存體的用戶端 Python 加密 | Microsoft Docs
 description: 適用於 Python 的 Azure 儲存體用戶端程式庫支援適用於您 Azure 儲存體應用程式的最高安全性用戶端加密。
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011130"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146904"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure 儲存體的用戶端 Python 加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -138,8 +139,8 @@ KEK 必須實作下列方法以成功加密資料︰
   * 叫用金鑰解析程式 (如果指定) 以取得金鑰。 如果已指定解析程式，但沒有金鑰識別碼的對應，則會擲回錯誤。
   * 如果未指定解析程式但指定了金鑰，則如果其識別項符合所需的金鑰識別項，就會使用該金鑰。 如果識別項不符合，則會擲回錯誤。
 
-    azure.storage.samples <fix URL> 中的加密範例示範了針對 Blob、佇列及資料表更為詳細的端對端案例。
-      KEK 和密钥解析程序的示例实现在示例文件中分别以 KeyWrapper 和 KeyResolver 提供。
+    Azure.storage.samples 中的加密範例示範更詳細的端對端案例，針對 blob、 佇列和資料表。
+      KEK 與金鑰解析程式的實作範例已在範例檔案中以 KeyWrapper 和 KeyResolver 的形式個別提供。
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 模式
 使用者可以針對所有上傳和下載都必須加密的作業模式，從中選擇啟用。 在此模式中，在用戶端上嘗試上傳沒有加密原則的資料或下載未在服務上加密的資料將會失敗。 服務物件上的 **require_encryption** 旗標會控制此行為。

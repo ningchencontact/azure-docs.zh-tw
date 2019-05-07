@@ -2,19 +2,20 @@
 title: 跨原始資源共用 (CORS) 支援 | Microsoft Docs
 description: 了解如何啟用 Microsoft Azure 儲存體服務的 CORS 支援。
 services: storage
-author: cbrooksmsft
+author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
-ms.author: cbrooks
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb296db0d97382deac984369704777de5d5cb362
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483480"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147695"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Azure 儲存體服務的跨原始資源共用 (CORS) 支援
 從 2013-08-15 版本開始，Azure 儲存體服務就針對 Blob、資料表、佇列及檔案服務提供跨原始資源共用 (CORS) 的支援。 CORS 是一項 HTTP 功能，可讓 Web 應用程式在某個網域下執行，以存取其他網域中的資源。 網頁瀏覽器會實作稱為 [相同原始原則](https://www.w3.org/Security/wiki/Same_Origin_Policy) 的安全性限制，它可防止網頁呼叫不同網域中的 API；CORS 則提供了一個安全的方式，可讓一個網域 (原始網域) 能夠呼叫其他網域中的 API。 如需 CORS 的詳細資訊，請參閱 [CORS 規格](https://www.w3.org/TR/cors/) 。

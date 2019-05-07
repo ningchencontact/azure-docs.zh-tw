@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 05/02/2019
 ms.author: monhaber
-ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 581db3ebe3ce1cad5c8db3702af179e141f334b4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910375"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143434"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure 資訊安全中心的自適性應用程式控制
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定應用程式控制。
@@ -154,6 +154,22 @@ ms.locfileid: "60910375"
 
 Azure 資訊安全中心也可讓您對非建議的 VM 群組定義應用程式允許清單原則。 遵循先前所述的相同準則，同樣對這些群組設定應用程式允許清單原則。
 
+## <a name="move-a-vm-from-one-group-to-another"></a>將 VM 從一個群組移到另一個
+
+ 當您將 VM 從一個群組移到另一個時，套用應用程式控制原則的設定變更的群組，您將其移至。 您也可以從設定的群組移動 VM，到非設定群組時，會導致移除任何先前已套用至 VM 的應用程式控制原則。
+
+ 1. 從**自適性應用程式控制**頁面上，從**已設定**索引標籤上，按一下 將 VM 移到目前所屬的群組。
+1. 按一下 **設定 Vm 和電腦**。
+1. 按一下要移動，然後按一下 vm 列的三個點**移動**。 **移動電腦新增至不同的群組**視窗隨即開啟。
+
+    ![保護](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+
+ 1. 選取要移動 VM，然後按一下 群組**移動電腦**，然後按一下**儲存**。
+
+    ![保護](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+
+ > [!NOTE]
+> 務必按一下 **儲存**按一下後**移動電腦**。 如果您沒有按一下**儲存**，則不會移動電腦。
 
 ## <a name="next-steps"></a>後續步驟
 在本文件中，您已了解如何使用 Azure 資訊安全中心的自適性應用程式控制，Azure 和非 Azure Vm 中執行的允許清單應用程式。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：

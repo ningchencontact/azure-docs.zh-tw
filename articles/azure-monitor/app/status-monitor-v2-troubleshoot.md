@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 26d677df81df6e10fae8d63362d49deee2cd0aca
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f8e057bf2e71d5a00c1e2a8ef72a5c9415a5a207
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870743"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145129"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>疑難排解狀態監視 v2
 
@@ -200,3 +200,9 @@ ms.locfileid: "64870743"
 4. 嘗試瀏覽至您的應用程式。
 5. 您的應用程式完成載入之後，請返回 PerfView，然後按一下 停止收集
 
+
+
+## <a name="next-steps"></a>後續步驟
+
+- 檢閱我們[API 參考](status-monitor-v2-overview.md#powershell-api-reference)來尋找的參數，您可能會遺失。
+- 如果您遇到這裡未列出的問題時，您可能與我們連絡[此處](https://github.com/Microsoft/ApplicationInsights-Home/issues)。

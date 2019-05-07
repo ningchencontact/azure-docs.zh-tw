@@ -2,18 +2,19 @@
 title: 對 Azure 中的雲端儲存體應用程式進行疑難排解及監視 | Microsoft Docs
 description: 使用診斷工具、計量和警示，針對雲端應用程式進行疑難排解及監視。
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 07/20/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: fryu
 ms.custom: mvc
-ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1383ccd570e23d80343ccdfd586d08ee25ebbc8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259984"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148230"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>對雲端儲存體應用程式進行疑難排解及監視
 
@@ -105,7 +106,7 @@ curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCO
 
 ![Microsoft Message Analyzer - 檢視事件](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[儲存體總管](https://azure.microsoft.com/features/storage-explorer/)是另一種可用來與儲存體帳戶互動的工具，包括 **$logs** 容器與其中包含的記錄檔。
+[儲存體總管](https://azure.microsoft.com/features/storage-explorer/)是另一種可用來與儲存體帳戶互動的工具，包括 **$logs** 容器與其中包含的記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -4,14 +4,14 @@ description: 了解 Azure Cosmos DB 的 SQL 語法、資料庫概念及 SQL 查�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054103"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148941"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查詢範例
 
@@ -139,14 +139,14 @@ Azure Cosmos DB SQL API 帐户支持使用 结构化查询语言 (SQL) 作为 JS
     }]
 ```
 
-以下查询返回家庭中 `id` 匹配 `WakefieldFamily` 的所有孩子的名字，按年级排序。
+下列查詢會傳回家族中的所有指定之名稱的子系其`id`符合`WakefieldFamily`依據居住城市排序。
 
 ```sql
     SELECT c.givenName
     FROM Families f
     JOIN c IN f.children
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.grade ASC
+    ORDER BY f.address.city ASC
 ```
 
 結果為：
@@ -314,6 +314,70 @@ VALUE 关键字提供一种只返回 JSON 值的方式。 例如，下面所示�
     ]
 ```
 
+## <a id="DistinctKeyword"></a>DISTINCT 關鍵字
+
+DISTINCT 關鍵字會排除在查詢投影中的重複項目。
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+在此範例中，查詢會投射針對每個姓氏的值。
+
+結果為：
+
+```json
+[
+    "Andersen"
+]
+```
+
+您也可以投影唯一物件。 在此情況下，[lastName] 欄位不存在於其中兩個文件，所以查詢會傳回空的物件。
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+結果為：
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+DISTINCT 也可用在投影中的子查詢中使用：
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+此查詢會投射陣列，其中包含每個子系 givenName 移除重複項。 這個陣列的別名為 ChildNames，並在外部查詢中進行預計。
+
+結果為：
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="aliasing"></a>別名
 
 可以显式为查询中的值指定别名。 如果查询包含两个同名的属性，请使用别名来重命名其中一个或两个属性，以便可以在投影的结果中消除其歧义。
@@ -380,7 +444,7 @@ FROM 子句可将源化简为更小的子集。 要在每个项中仅枚举子�
         }
       ],
       [
-        {
+       {
             "familyName": "Merriam",
             "givenName": "Jesse",
             "gender": "female",
@@ -599,7 +663,7 @@ FROM 子句可将源化简为更小的子集。 要在每个项中仅枚举子�
 
 ## <a id="TopKeyword"></a>TOP 運算子
 
-TOP 关键字以未定义的顺序返回前 `N` 个查询结果。 最佳做法是结合使用 TOP 与 ORDER BY 子句，将结果限制为前 `N` 个有序值。 要预见性地指示哪些行受到 TOP 的影响，只能结合使用这两个子句。 
+TOP 关键字以未定义的顺序返回前 `N` 个查询结果。 最佳做法是结合使用 TOP 与 ORDER BY 子句，将结果限制为前 `N` 个有序值。 要预见性地指示哪些行受到 TOP 的影响，只能结合使用这两个子句。
 
 可以结合一个常量值使用 TOP（如以下示例中所示），或者在参数化查询中结合一个变量值使用 TOP。 有关详细信息，请参阅[参数化查询](#parameterized-queries)部分。
 
@@ -679,6 +743,65 @@ TOP 关键字以未定义的顺序返回前 `N` 个查询结果。 最佳做法�
       }
     ]
 ```
+
+此外，您可以依多個屬性。 依照多個屬性來排序查詢需要[複合式索引](index-policy.md#composite-indexes)。 請考量下列查詢：
+
+```sql
+    SELECT f.id, f.creationDate
+    FROM Families f
+    ORDER BY f.address.city ASC, f.creationDate DESC
+```
+
+此查詢會擷取家族`id`縣 （市） 名稱的遞增順序。 如果多個項目有相同的城市名稱，查詢會依`creationDate`以遞減順序。
+
+## <a id="OffsetLimitClause"></a>位移 LIMIT 子句
+
+位移的限制是選擇性的子句來略過，則採用多個查詢的值。 位移的計數和限制計數所需位移限制子句中。
+
+ORDER BY 子句搭配使用位移的限制時，結果集藉由略過產生，並對已排序的值。 如果沒有 ORDER BY 子句使用時，它會導致的值決定的順序。
+
+例如，以下是會略過第一個值，並傳回第二個值 （以依據居住城市名稱的順序） 的查詢：
+
+```sql
+    SELECT f.id, f.address.city
+    FROM Families f
+    ORDER BY f.address.city
+    OFFSET 1 LIMIT 1
+```
+
+結果為：
+
+```json
+    [
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+以下是查詢，會略過第一個值，並傳回第二個值 （而不會排序）：
+
+```sql
+   SELECT f.id, f.address.city
+    FROM Families f
+    OFFSET 1 LIMIT 1
+```
+
+結果為：
+
+```json
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+
+
+
 ## <a name="scalar-expressions"></a>純量運算式
 
 SELECT 子句支持标量表达式，例如常量、算术表达式和逻辑表达式。 以下查询使用一个标量表达式：
@@ -1018,7 +1141,7 @@ API 扩展了 SQL 语法，支持使用 UDF 的自定义应用程序逻辑。 �
        {
            Id = "REGEX_MATCH",
            Body = @"function (input, pattern) {
-                       return input.match(pattern) !== null;
+                      return input.match(pattern) !== null;
                    };",
        };
 

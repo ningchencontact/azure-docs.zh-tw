@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5e646c8c73d3a4cf8c6e5ba35a374b5aa376ca20
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069205"
+ms.locfileid: "65148644"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 DatetimeV2 預先建置實體
 
@@ -31,16 +31,16 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 ```json
 "entities": [
   {
-    "entity": "8am on may 2nd 2017",
+    "entity": "8am on may 2nd 2019",
     "type": "builtin.datetimeV2.datetime",
     "startIndex": 0,
     "endIndex": 18,
     "resolution": {
       "values": [
         {
-          "timex": "2017-05-02T08",
+          "timex": "2019-05-02T08",
           "type": "datetime",
-          "value": "2017-05-02 08:00:00"
+          "value": "2019-05-02 08:00:00"
         }
       ]
     }
@@ -82,7 +82,7 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 |屬性名稱|屬性描述|
 |--|--|
 |timex|以遵循 [ISO 8601 標準](https://en.wikipedia.org/wiki/ISO_8601)的 TIMEX 格式表示的時間、日期或日期範圍，並對註解的 TIMEX3 屬性使用 TimeML 語言。 此註解會在 [TIMEX 指導方針](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf) \(英文\) 中說明。|
-|type|可以是下列其中一個項目的子類型：datetime、date、time、daterange、timerange、datetimerange、duration、set。|
+|type|子類型可以是下列項目之一： `datetime`， `date`， `time`， `daterange`， `timerange`， `datetimerange`， `duration`， `set`。|
 |value|**選用。** 使用 yyyy:MM:dd (date)，HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime) 格式的 datetime 物件。 如果 `type` 是 `duration`，則值會是秒數 (duration) <br/> 只有當 `type` 是 `datetime` 或 `date`、`time` 或 `duration 時才能使用。|
 
 ## <a name="valid-date-values"></a>有效的日期值
@@ -116,12 +116,12 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
           {
             "timex": "XXXX-05-02",
             "type": "date",
-            "value": "2017-05-02"
+            "value": "2019-05-02"
           },
           {
             "timex": "XXXX-05-02",
             "type": "date",
-            "value": "2018-05-02"
+            "value": "2020-05-02"
           }
         ]
       }
@@ -145,14 +145,8 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
           {
             "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
             "type": "daterange",
-            "start": "2017-05-02",
-            "end": "2017-05-05"
-          },
-          {
-            "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-            "type": "daterange",
-            "start": "2018-05-02",
-            "end": "2018-05-05"
+            "start": "2019-05-02",
+            "end": "2019-05-05"
           }
         ]
       }
@@ -176,14 +170,8 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
           {
             "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
             "type": "daterange",
-            "start": "2017-06-13",
-            "end": "2017-06-15"
-          },
-          {
-            "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
-            "type": "daterange",
-            "start": "2017-06-20",
-            "end": "2017-06-22"
+            "start": "2019-04-30",
+            "end": "2019-05-02"
           }
         ]
       }
@@ -234,12 +222,20 @@ API V3 中，已變更 DatetimeV2 JSON 回應。
     "prediction": {
         "normalizedQuery": "8am on may 2nd 2017",
         "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6826963
+            }
+        },
         "entities": {
             "datetimeV2": [
                 {
                     "type": "datetime",
-                    "timex": [
-                        "2017-05-02T08"
+                    "values": [
+                        {
+                            "timex": "2017-05-02T08",
+                            "value": "2017-05-02 08:00:00"
+                        }
                     ]
                 }
             ]
@@ -265,22 +261,29 @@ API V3 中，已變更 DatetimeV2 JSON 回應。
             "datetimeV2": [
                 {
                     "type": "datetime",
-                    "timex": [
-                        "2017-05-02T08"
+                    "values": [
+                        {
+                            "timex": "2017-05-02T08",
+                            "value": "2017-05-02 08:00:00"
+                        }
                     ]
                 }
             ],
             "$instance": {
                 "datetimeV2": [
                     {
-                    "type": "builtin.datetimeV2.datetime",
-                    "text": "8am on may 2nd 2017",
-                    "startIndex": 0,
-                    "length": 19,
-                    "modelTypeId": 2,
-                    "modelType": "Prebuilt Entity Extractor"
-                }
-            ],
+                        "type": "builtin.datetimeV2.datetime",
+                        "text": "8am on may 2nd 2017",
+                        "startIndex": 0,
+                        "length": 19,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
         }
     }
 }

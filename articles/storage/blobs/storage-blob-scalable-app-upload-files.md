@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0673d97f755d7e01d42d0be7c611720ff1e4ad01
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240075"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187784"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>將大量隨機資料平行上傳至 Azure 儲存體
 
@@ -67,14 +67,14 @@ dotnet run
 
 應用程式會建立五個隨機命名的容器，並開始將暫存目錄中的檔案上傳至儲存體帳戶。 應用程式會將最小執行緒設為 100，以及將 [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) 設為 100，確保執行應用程式時能允許大量的並行連線。
 
-除了設定執行緒和連線限制設定，[UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) 的 [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) 方法也會設定為使用平行處理原則，並停用 MD5 雜湊驗證。 檔案會以 100 MB 的區塊上傳，這項設定可提供更佳的效能，但如果使用效能差的網路則可能提高成本，因為整個 100 MB 的區塊可能會因為失敗而需要重試。
+除了設定執行緒和連線限制設定，[UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) 的 [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet) 方法也會設定為使用平行處理原則，並停用 MD5 雜湊驗證。 檔案會以 100 MB 的區塊上傳，這項設定可提供更佳的效能，但如果使用效能差的網路則可能提高成本，因為整個 100 MB 的區塊可能會因為失敗而需要重試。
 
 |屬性|值|說明|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| 上傳時，此設定會將 Blob 分成區塊。 為達到最高效能，此值應為核心數目的 8 倍。 |
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 此屬性可停用檢查上傳內容的 MD5 雜湊。 停用 MD5 驗證可獲得較快的傳輸速度。 但不會確認所傳輸檔案的有效性和完整性。   |
-|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 此屬性可判斷是否已計算及儲存檔案的 MD5 雜湊。   |
-| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 具有 2 秒的輪詢，最多重試 10 次 |決定要求的重試原則。 連線失敗時進行重試，在此範例中，[ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) 原則設定為具有 2 秒的輪詢，以及最多重試 10 次。 當您的應用程式快達到 [Blob 儲存體的延展性目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)時，此設定就十分重要。  |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| 上傳時，此設定會將 Blob 分成區塊。 為達到最高效能，此值應為核心數目的 8 倍。 |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 此屬性可停用檢查上傳內容的 MD5 雜湊。 停用 MD5 驗證可獲得較快的傳輸速度。 但不會確認所傳輸檔案的有效性和完整性。   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 此屬性可判斷是否已計算及儲存檔案的 MD5 雜湊。   |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 具有 2 秒的輪詢，最多重試 10 次 |決定要求的重試原則。 連線失敗時進行重試，在此範例中，[ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry?view=azure-dotnet) 原則設定為具有 2 秒的輪詢，以及最多重試 10 次。 當您的應用程式快達到 [Blob 儲存體的延展性目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)時，此設定就十分重要。  |
 
 `UploadFilesAsync` 工作如下列範例所示：
 

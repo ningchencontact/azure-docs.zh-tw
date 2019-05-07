@@ -41,15 +41,15 @@
         - name: 帳戶管理
           href: cloudsimple-account.md
         - name: 活動管理
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-activity/'
+          href: cloudsimple-activity.md
         - name: 私人雲端上的 VMware
-          href: 'https://docs.azure.cloudsimple.com/vmware-components/'
+          href: vmware-components.md
         - name: 安全性概觀
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
         - name: 節點配額
-          href: 'https://docs.azure.cloudsimple.com/node-quota/'
+          href: node-quota.md
         - name: 維護和更新
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-maintenance-updates/'
+          href: cloudsimple-maintenance-updates.md
         - name: 常見問題集
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
     - name: 教學課程

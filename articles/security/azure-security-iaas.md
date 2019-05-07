@@ -12,31 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4b2506781df5572ddaff8dda34bf3edab8987be
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586507"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145211"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
+本文說明適用於 VM 和作業系統的最佳做法。
+
+最佳作法是根據共識的意見，並使用目前的 Azure 平台功能及功能集。 由於意見和技術會隨著時間改變，因此我們會更新本文以反映這些變化。
 
 在大部分的基礎結構即服務 (IaaS) 案例中，[Azure 虛擬機器 (VM)](https://docs.microsoft.com/azure/virtual-machines/) 對於使用雲端運算的組織來說是主要工作負載。 在組織想要慢慢地將工作負載移轉至雲端的[混合式案例](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx)中，這個情況相當明顯。 在這種情況下，請遵循 [IaaS 的一般安全性考量](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)，並將安全性最佳作法套用到您所有的 VM。
 
+## <a name="shared-responsibility"></a>共同責任
 您的安全性責任是根據雲端服務的類型。 下表摘要說明 Microsoft 與您所擔負之責任的平衡：
 
 ![責任範圍](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 安全性需求會取決於多項因素而有所不同，包括不同的工作負載類型。 任何其中一個最佳作法均無法獨自保護您的系統。 如同任何其他安全性項目，您必須選擇適當的選項，以及了解解決方案如何藉由滿足不足之處來彼此互補。
 
-本文說明適用於 VM 和作業系統的最佳做法。
-
-最佳作法是根據共識的意見，並使用目前的 Azure 平台功能及功能集。 由於意見和技術會隨著時間改變，因此我們會更新本文以反映這些變化。
-
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>使用驗證和存取控制來保護 VM
 保護 VM 的第一個步驟是確保只有已獲授權的使用者能設定新的 VM 和存取 VM。
+
+> [!NOTE]
+> 若要改善 Azure Linux Vm 上的安全性，您可以整合 Azure AD 驗證。 當您使用[適用於 Linux Vm 的 Azure AD 驗證](../virtual-machines/linux/login-using-aad.md)，集中控制和強制執行原則，允許或拒絕存取的 vm。
+>
+>
 
 **最佳做法**：控制 VM 存取。   
 **詳細資料**：使用 [Azure 原則](../azure-policy/azure-policy-introduction.md)為組織資源制定慣例及建立自訂原則。 將這些原則套用到資源，例如[資源群組](../azure-resource-manager/resource-group-overview.md)。 屬於某資源群組的 VM 會繼承其原則。
@@ -102,6 +107,9 @@ Azure VM 就跟所有內部部署 VM 一樣，受控於使用者。 Azure 不會
 **最佳做法**：定期重新部署 VM 以強制執行最新版的作業系統。   
 **詳細資料**：使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)來定義 VM，以便輕鬆重新部署。 使用範本可讓您在需要時取得經過修補的安全 VM。
 
+**最佳做法**：快速套用至 Vm 的安全性更新。   
+**詳細資料**：啟用 Azure 資訊安全中心 （免費層或標準層次）[識別遺漏的安全性更新，並將其套用](../security-center/security-center-apply-system-updates.md)。
+
 **最佳做法**：安裝最新的安全性更新。   
 **詳細資料**：客戶移至 Azure 的第一批工作負載中包括實驗室和對外系統。 如果 Azure VM 會裝載需要開放網際網路存取的應用程式或服務，請對修補作業保持警戒。 作業系統之外的修補。 合作夥伴應用程式上未修補的弱點也可能造成問題，但只要妥善管理修補程式即可避免這類問題。
 
@@ -165,6 +173,18 @@ Azure VM 就跟所有內部部署 VM 一樣，受控於使用者。 Azure 不會
 
 - 系統會透過業界標準的加密技術保護 IaaS VM 安全無虞，解決組織的安全性與法務遵循需求。
 - 開啟 IaaS VM 受到客戶控制的金鑰和原則限制，且您可以在金鑰保存庫中稽核其使用狀況。
+
+## <a name="restrict-direct-internet-connectivity"></a>限制直接網際網路連線
+監控並限制 VM 直接網際網路連線。 攻擊者經常會掃描開放管理連接埠的公用雲端 IP 範圍，並嘗試 「 簡單 」 的攻擊，例如常見的密碼和已知的未修補的弱點。 下表列出以協助防範這些攻擊的最佳作法：
+
+**最佳做法**：防止不慎暴露於網路路由與安全性。   
+**詳細資料**：您可以使用 RBAC，請確定只有中央網路群組具有網路資源的權限。
+
+**最佳做法**：找出並修復公開允許從 「 任何 」 來源 IP 位址存取的 Vm。   
+**詳細資料**：使用 Azure 資訊安全中心。 資訊安全中心會建議您限制透過網際網路面向端點的存取，如果任何網路安全性群組有一或多個輸入的規則，允許從 「 任何 」 來源 IP 位址的存取。 資訊安全中心會建議您編輯這些輸入的規則，以[限制存取](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md)實際上需要存取的來源 IP 位址。
+
+**最佳做法**：限制 （RDP、 SSH） 的管理連接埠。   
+**詳細資料**：[在 just-in-time (JIT) VM 存取](../security-center/security-center-just-in-time.md)可以用來鎖定 Azure vm，減少攻擊面，同時提供簡易存取連線至 Vm 時所需的輸入流量。 啟用 JIT 時，資訊安全中心藉此鎖定進入 Azure Vm 的流量建立網路安全性群組規則。 系統會鎖定選取的 VM 連接埠的輸入流量。 這些連接埠是由 JIT 解決方案控制。
 
 ## <a name="next-steps"></a>後續步驟
 如需更多安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](security-best-practices-and-patterns.md)，以便在使用 Azure 設計、部署和管理雲端解決方案時使用。

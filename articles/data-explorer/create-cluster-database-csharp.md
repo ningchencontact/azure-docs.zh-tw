@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 1489048619fa8d650b30659a00ae7679c8d5109d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9ae46d623c0525edf93a4f984393060888fcd009
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050691"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143015"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>使用 C# 建立 Azure 資料總管叢集與資料庫
 
@@ -49,7 +49,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
     AzureSku sku = new AzureSku("D13_v2", 5);
     Cluster cluster = new Cluster(location, sku);
     
-    ar authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
+    var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
     var credential = new ClientCredential(clientId: "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx", clientSecret: "xxxxxxxxxxxxxx");
     var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential).Result;
     

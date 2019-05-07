@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2fd7b05a5411c03e1324871fbff3c29061ce7b3d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713349"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139232"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>作法：提供給您的 Azure AD 應用程式的選擇性宣告
 
@@ -70,7 +70,8 @@ ms.locfileid: "64713349"
 | `xms_pl`                   | 使用者慣用語言  | JWT ||如果設定，則為使用者的慣用語言。 在來賓存取案例中，來源是其主租用戶。 格式化 LL-CC (“en-us”)。 |
 | `xms_tpl`                  | 租用戶慣用語言| JWT | | 如果設定，則為資源租用戶的慣用語言。 格式化 LL (“en”)。 |
 | `ztdid`                    | 全自動部署識別碼 | JWT | | 裝置身分識別，用於 [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `email`                    | 此使用者可定址的電子郵件 (如果使用者有的話)。  | JWT、SAML | MSA, AAD | 如果使用者是租用戶中的來賓，則預設會包含此值。  若為受管理的使用者 (在租用戶中)，則必須透過此選擇性宣告，或使用 OpenID 範圍 (僅限 v2.0) 要求此值。  若為受管理的使用者，電子郵件地址必須設定於 [Office 管理入口網站](https://portal.office.com/adminportal/home#/users)。|  
+| `email`                    | 此使用者可定址的電子郵件 (如果使用者有的話)。  | JWT、SAML | MSA, AAD | 如果使用者是租用戶中的來賓，則預設會包含此值。  若為受管理的使用者 (在租用戶中)，則必須透過此選擇性宣告，或使用 OpenID 範圍 (僅限 v2.0) 要求此值。  若為受管理的使用者，電子郵件地址必須設定於 [Office 管理入口網站](https://portal.office.com/adminportal/home#/users)。| 
+| `groups`| 選擇性群組宣告的格式 |JWT、SAML| |中的 GroupMembershipClaims 設定用於搭配[應用程式資訊清單](reference-app-manifest.md)，且必須也將它設。 如需詳細資訊，請參閱[群組宣告](#Configuring-group-optional claims)如下。 如需群組宣告的詳細資訊，請參閱[如何設定群組宣告](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`             | 租用戶中的使用者帳戶狀態。 | JWT、SAML | | 如果使用者是租用戶的成員，則值為 `0`。 如果是來賓使用者，則值為 `1`。 |
 | `upn`                      | UserPrincipalName 宣告。 | JWT、SAML  |           | 雖然會自動包含此宣告，但在來賓使用者案例中，您可以將它指定為選擇性宣告來附加額外屬性，以修改其行為。  |
 
@@ -91,7 +92,6 @@ ms.locfileid: "64713349"
 | `family_name` | 姓氏                       | 提供使用者物件中定義的最後一個的名稱、 姓氏或使用者的姓氏。 <br>"family_name":"Miller" | MSA 和 AAD 支援   |
 | `given_name`  | 名字                      | 會提供或為使用者物件上設定 「 指定 」 的使用者名稱。<br>"given_name"："Frank"                   | MSA 和 AAD 支援  |
 | `upn`         | 使用者主體名稱 | 可與 username_hint 參數搭配使用的使用者識別碼。  不是使用者的持久識別碼，且不應該用於金鑰資料。 | 如需了解宣告的設定，請參閱下方的[額外屬性](#additional-properties-of-optional-claims)。 |
-
 
 ### <a name="additional-properties-of-optional-claims"></a>選擇性宣告的額外屬性
 
@@ -131,24 +131,24 @@ ms.locfileid: "64713349"
 ```json
 "optionalClaims":  
    {
-       "idToken": [
-             { 
-                   "name": "auth_time", 
-                   "essential": false
-              }
-        ],
- "accessToken": [ 
+      "idToken": [
+            {
+                  "name": "auth_time", 
+                  "essential": false
+             }
+      ],
+      "accessToken": [
              {
                     "name": "ipaddr", 
                     "essential": false
               }
-        ],
-"saml2Token": [ 
-              { 
+      ],
+      "saml2Token": [
+              {
                     "name": "upn", 
                     "essential": false
                },
-               { 
+               {
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
                     "essential": false
@@ -187,7 +187,7 @@ ms.locfileid: "64713349"
 除了標準選擇性宣告集，您也可以設定權杖包含目錄結構描述延伸模組。 如需詳細資訊，請參閱 < [Directory 架構延伸](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)。 此功能可用來附加應用程式可使用的額外使用者資訊 – 例如，使用者已設定的額外識別碼或重要設定選項。 
 
 > [!Note]
-> 目錄結構描述延伸模組是僅適用於 AAD 的功能，因此如果您的應用程式資訊清單要求某個自訂延伸模組，而登入您應用程式的是 MSA 使用者，系統就不會傳回這些延伸模組。 
+> 目錄結構描述延伸模組是僅適用於 AAD 的功能，因此如果您的應用程式資訊清單要求某個自訂延伸模組，而登入您應用程式的是 MSA 使用者，系統就不會傳回這些延伸模組。
 
 ### <a name="directory-extension-formatting"></a>格式設定的目錄延伸模組
 
@@ -196,6 +196,98 @@ ms.locfileid: "64713349"
 在 JWT 內，這些宣告將會以下列名稱格式發出：`extn.<attributename>`。
 
 在 SAML 權杖內，這些宣告則會以下列 URI 格式發出：`http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+
+## <a name="configuring-group-optional-claims"></a>設定群組的選擇性宣告
+
+   > [!NOTE]
+   > 發出的使用者和群組從內部部署同步處理的群組名稱的能力是公開預覽
+
+此章節將涵蓋在針對變更的群組宣告的預設群組 objectID 的從內部部署 Windows Active Directory 同步處理的屬性中所使用的群組屬性的選擇性宣告的組態選項
+> [!IMPORTANT]
+> 請參閱[與 Azure Active Directory 中設定應用程式的群組宣告](../hybrid/how-to-connect-fed-group-claims.md)如需詳細資訊，包括內部部署屬性中的群組宣告的公開預覽的重要注意事項。
+
+1. 在入口網站]-> [Azure Active Directory]-> [應用程式註冊]-> [選取應用程式]-> [資訊清單
+
+2. 藉由變更 groupMembershipClaim 讓群組成員資格宣告
+
+   有效值為：
+
+   - [全部]
+   - "SecurityGroup"
+   - 「 DistributionList"
+   - "DirectoryRole"
+
+   例如︰
+
+   ```json
+   "groupMembershipClaims": "SecurityGroup"
+   ```
+
+   預設群組 Objectid 將發出群組宣告值。  若要修改的宣告值，以包含在內部部署群組屬性，或變更角色宣告類型，使用 OptionalClaims 組態如下所示：
+
+3. 設定群組名稱設定選擇性宣告。
+
+   如果您想要在權杖中的群組以包含選用的宣告區段中的 AD 群組屬性可讓您指定此語彙基元類型的選擇性宣告應該套用到在內部部署、 要求的選擇性宣告和所需的任何其他內容的名稱。  可以列出多個語彙基元的型別：
+
+   - OIDC 識別碼權杖的 idToken
+   - accessToken OAuth/OIDC 存取權杖
+   - Saml2Token SAML 權杖。
+
+   > [!NOTE]
+   > Saml2Token 類型適用於 SAML1.1 和 SAML2.0 格式語彙基元
+
+   針對每個相關的語彙基元型別，修改群組宣告，以使用資訊清單中的 [OptionalClaims] 區段。 OptionalClaims 結構描述如下所示：
+
+   ```json
+   {
+   "name": "groups",
+   "source": null,
+   "essential": false,
+   "additionalProperties": []
+   }
+   ```
+
+   | 選擇性宣告結構描述 | Value |
+   |----------|-------------|
+   | **名稱：** | 必須是 「 群組 」 |
+   | **來源：** | 不使用。 省略或指定 null |
+   | **重要：** | 不使用。 省略或指定 false |
+   | **additionalProperties:** | 其他屬性的清單。  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
+
+   在 additionalProperties 只有其中一個 「 sam_account_name"，"dns_domain_and_sam_account_name"，"netbios_domain_and_sam_account_name 」 則是必要項目。  如果多個存在，則第一個和任何其他人被忽略。
+
+   某些應用程式需要在角色宣告的使用者的群組資訊。  若要變更要從群組宣告的角色宣告的宣告類型，請將"emit_as_roles 」 加入其他屬性。  群組的值將會發出在角色宣告。
+
+   > [!NOTE]
+   > 如果 「 emit_as_roles 」 會使用任何應用程式角色可讓您設定將使用者指派將不會出現在角色宣告
+
+**範例：** 發出做為 dnsDomainName\sAMAccountName 格式的 OAuth 存取權杖中的群組名稱的群組
+
+```json
+"optionalClaims": {
+    "accessToken": [{
+        "name": "groups",
+        "additionalProperties": ["dns_domain_and_sam_account_name"]
+    }]
+}
+ ```
+
+若要發出群組名稱，以作為 SAML 和 OIDC 識別碼權杖中宣告的角色，netbiosDomain\sAMAccountName 格式傳回：
+
+```json
+"optionalClaims": {
+    "saml2Token": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }],
+
+    "idToken": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }]
+ }
+
+ ```
 
 ## <a name="optional-claims-example"></a>選擇性宣告範例
 
@@ -213,7 +305,7 @@ ms.locfileid: "64713349"
 1. 按一下應用程式頁面中的 [資訊清單]，以開啟內嵌資訊清單編輯器。 
 1. 您可以使用此編輯器直接編輯資訊清單。 資訊清單會依循[應用程式實體](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)的結構描述，並在儲存後會自動設定資訊清單的格式。 新元素會新增至 `OptionalClaims` 屬性。
 
-      ```json
+    ```json
       "optionalClaims": 
       {
             "idToken": [ 
@@ -223,13 +315,13 @@ ms.locfileid: "64713349"
                         "additionalProperties": [ "include_externally_authenticated_upn"]  
                   }
             ],
-      "accessToken": [ 
+            "accessToken": [ 
                   {
                         "name": "auth_time", 
                         "essential": false
                   }
             ],
-      "saml2Token": [ 
+            "saml2Token": [ 
                   { 
                         "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                         "source": "user", 
@@ -237,8 +329,10 @@ ms.locfileid: "64713349"
                   }
             ]
       }
-      ```
-      在此案例中，已將不同的選擇性宣告新增至應用程式可接收的每一種權杖。 識別碼權杖現在將會在完整格式 (`<upn>_<homedomain>#EXT#@<resourcedomain>`) 中包含同盟使用者的 UPN。 其他用戶端為這個應用程式要求的存取權杖，現在將包含 auth_time 宣告。 SAML 權杖現在將會包含 skypeId 目錄結構描述延伸模組 (在此範例中，此應用程式的應用程式識別碼是 ab603c56068041afb2f6832e2a17e237)。 SAML 權杖會將 Skype 識別碼公開為 `extension_skypeId`。
+
+    ```
+
+    在此案例中，已將不同的選擇性宣告新增至應用程式可接收的每一種權杖。 識別碼權杖現在將會在完整格式 (`<upn>_<homedomain>#EXT#@<resourcedomain>`) 中包含同盟使用者的 UPN。 其他用戶端為這個應用程式要求的存取權杖，現在將包含 auth_time 宣告。 SAML 權杖現在將會包含 skypeId 目錄結構描述延伸模組 (在此範例中，此應用程式的應用程式識別碼是 ab603c56068041afb2f6832e2a17e237)。 SAML 權杖會將 Skype 識別碼公開為 `extension_skypeId`。
 
 1. 完成資訊清單更新時，按一下 [儲存] 以儲存資訊清單
 

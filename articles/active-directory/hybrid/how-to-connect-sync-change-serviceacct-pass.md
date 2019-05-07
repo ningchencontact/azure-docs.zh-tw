@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 同步：變更 Azure AD Connect 同步服務帳戶 | Microsoft Docs
+title: Azure AD Connect 同步：變更 ADSync 服務帳戶 |Microsoft Docs
 description: 本主題文件說明加密金鑰，以及如何在密碼變更後放棄它。
 services: active-directory
 keywords: Azure AD 同步處理服務帳戶, 密碼
@@ -13,25 +13,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60241655"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139384"
 ---
-# <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>變更 Azure AD Connect 同步處理服務帳戶密碼
-如果您變更 Azure AD Connect 同步服務帳戶密碼，「同步處理服務」將會無法正確啟動，直到您放棄加密金鑰並將 Azure AD Connect 同步服務帳戶密碼重新初始化為止。 
+# <a name="changing-the-adsync-service-account-password"></a>變更 ADSync 服務帳戶密碼
+如果您變更 ADSync 服務帳戶的密碼時，同步處理服務將會無法啟動正確直到您放棄加密金鑰並重新初始化 ADSync 服務帳戶的密碼。 
 
-Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲存 AD DS 與 Azure AD 服務帳戶的密碼。  這些帳戶會先加密再儲存到資料庫中。 
+Azure AD Connect 同步處理服務的一部分使用的加密金鑰來儲存 AD DS 連接器帳戶和 ADSync 服務帳戶的密碼。  這些帳戶會先加密再儲存到資料庫中。 
 
-所使用的加密金鑰會使用 [Windows 資料保護 (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) 來提供保護。 DPAPI 為加密金鑰提供保護的方式是使用 **Azure AD Connect 同步處理服務帳戶的密碼**。 
+所使用的加密金鑰會使用 [Windows 資料保護 (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) 來提供保護。 DPAPI 保護加密金鑰 using **ADSync 服務帳戶**。 
 
-如果您需要變更服務帳戶的密碼，您可以使用[放棄 Azure AD Connect 同步處理加密金鑰](#abandoning-the-azure-ad-connect-sync-encryption-key)中的程序來完成這項作業。  如果您基於任何原因而需要放棄加密金鑰，您也應該使用這些程序。
+如果您需要變更服務帳戶的密碼，您就可以使用中的程序[放棄 ADSync 服務帳戶加密金鑰](#abandoning-the-adsync-service-account-encryption-key)為了達成此目的。  如果您基於任何原因而需要放棄加密金鑰，您也應該使用這些程序。
 
 ## <a name="issues-that-arise-from-changing-the-password"></a>變更密碼而引發的問題
 當您在變更服務帳戶的密碼時，有兩件事必須完成。
@@ -48,9 +48,9 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 - 如果您嘗試在 Windows 服務控制管理員底下啟動同步處理服務，但此服務無法擷取加密金鑰，此啟動作業便會失敗，並出現錯誤 [Windows 無法在本機電腦上啟動 Microsoft Azure AD 同步。<strong>如需詳細資訊，請檢閱系統事件記錄。</strong>如果這是一項非 Microsoft 服務，請連絡該服務廠商，並參照服務特定錯誤碼 -21451857952]。
 - 在 Windows 事件查看器中，应用程序事件日志包含**事件 ID 为 6028** 且内容为“服务器加密密钥无法访问”的错误消息。
 
-若要確保不會收到這些錯誤，請在變更密碼時遵循[放棄 Azure AD Connect 同步處理加密金鑰](#abandoning-the-azure-ad-connect-sync-encryption-key)中的程序。
+若要確保不會收到這些錯誤，請依照下列中的程序[放棄 ADSync 服務帳戶加密金鑰](#abandoning-the-adsync-service-account-encryption-key)時變更密碼。
  
-## <a name="abandoning-the-azure-ad-connect-sync-encryption-key"></a>放棄 Azure AD Connect 同步處理加密金鑰
+## <a name="abandoning-the-adsync-service-account-encryption-key"></a>放棄 ADSync 服務帳戶加密金鑰
 >[!IMPORTANT]
 >下列程序只適用於 Azure AD Connect 組建 1.1.443.0 或更舊版本。
 
@@ -64,9 +64,9 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 
 1. [放棄現有的加密金鑰](#abandon-the-existing-encryption-key)
 
-2. [提供 AD DS 帳戶的密碼](#provide-the-password-of-the-ad-ds-account)
+2. [提供 AD DS 連接器帳戶的密碼](#provide-the-password-of-the-ad-ds-connector-account)
 
-3. [重新初始化 Azure AD 同步處理帳戶的密碼](#reinitialize-the-password-of-the-azure-ad-sync-account)
+3. [重新初始化 ADSync 服務帳戶的密碼](#reinitialize-the-password-of-the-adsync-service-account)
 
 4. [啟動同步處理服務](#start-the-synchronization-service)
 
@@ -90,8 +90,8 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 
 ![Azure AD Connect 同步處理加密金鑰公用程式](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
-#### <a name="provide-the-password-of-the-ad-ds-account"></a>提供 AD DS 帳戶的密碼
-因為儲存在資料庫內的現有密碼無法再解密，您必須為同步處理服務提供 AD DS 帳戶的密碼。 同步處理服務會使用新的加密金鑰來將密碼加密︰
+#### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>提供 AD DS 連接器帳戶的密碼
+因為不再可以解密儲存在資料庫內的現有密碼，您需要提供 AD DS 連接器帳戶的密碼同步處理服務。 同步處理服務會使用新的加密金鑰來將密碼加密︰
 
 1. 啟動同步處理服務管理員 ([開始] → [同步處理服務])。
 </br>![Sync Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
@@ -103,7 +103,7 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 7. 按一下 [確定] 以儲存新密碼，然後關閉快顯對話方塊。
 ![Azure AD Connect 同步處理加密金鑰公用程式](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
-#### <a name="reinitialize-the-password-of-the-azure-ad-sync-account"></a>重新初始化 Azure AD 同步處理帳戶的密碼
+#### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>重新初始化 ADSync 服務帳戶的密碼
 您無法將 Azure AD 服務帳戶的密碼直接提供給同步處理服務。 相反地，您必須使用 **Add-ADSyncAADServiceAccount** Cmdlet 來重新初始化 Azure AD 服務帳戶。 此 Cmdlet 會重設帳戶密碼，並將密碼提供給同步處理服務︰
 
 1. 在 Azure AD Connect 伺服器上啟動新的 PowerShell 工作階段。

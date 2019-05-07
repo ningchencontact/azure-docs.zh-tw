@@ -8,12 +8,12 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 81cb5e62c8abc93aa5defb690628c7178fd2a869
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720336"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142545"
 ---
 # <a name="get-resource-changes"></a>取得資源變更
 
@@ -29,7 +29,7 @@ ms.locfileid: "64720336"
 - 保留設定管理資料庫，又稱為 CMDB，最新狀態。 而不要重新整理所有資源和其完整的屬性集的排程頻率，只會取得變更的項目。
 - 了解哪些其他屬性可能已經變更，當資源變更合規性狀態。 這些額外的屬性評估可深入了解可能需要管理透過 Azure 原則定義其他屬性。
 
-本文說明如何收集此資訊，透過圖形資源的 SDK。 若要查看 Azure 入口網站中的這項資訊，請參閱 Azure 原則[修訂歷程記錄](../../policy/how-to/determine-non-compliance.md#change-history-preview)。
+本文說明如何收集此資訊，透過圖形資源的 SDK。 若要查看 Azure 入口網站中的這項資訊，請參閱 Azure 原則[修訂歷程記錄](../../policy/how-to/determine-non-compliance.md#change-history-preview)或 Azure 活動記錄檔[修訂歷程記錄](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history)。
 
 > [!NOTE]
 > 資源圖形中的變更詳細資料適用於資源管理員屬性。 追蹤虛擬機器內的變更，請參閱 Azure 自動化[變更追蹤](../../../automation/automation-change-tracking.md)或 「 Azure 原則[Vm 的客體設定](../../policy/concepts/guest-configuration.md)。

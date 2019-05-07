@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021098"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149763"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
 
@@ -69,6 +69,9 @@ pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 
 Tensor Flow 自動化機器學習服務目前不支援 tensor flow 版本 1.13。 安裝此版本將會停止運作的套件相依性。 我們正努力在未來版本中修正此問題。 
 
+### <a name="experiment-charts"></a>實驗圖表
+
+二元分類圖表 （正確性-召回，ROC，獲得曲線等） 顯示在自動化的 ML 實驗反覆項目不是在使用者介面中的轉譯正確自 4/12。 圖表繪圖是目前反白顯示的結果，其中具有較低的結果顯示效能更好的模型。 解決方式是進行調查。
 
 ## <a name="databricks"></a>Databricks
 

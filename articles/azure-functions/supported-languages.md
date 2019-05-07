@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325440"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148804"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions 中支援的語言
 
@@ -37,7 +37,7 @@ ms.locfileid: "60325440"
 
 ### <a name="experimental-languages"></a>實驗性語言
 
-1.x 版的實驗性語言並未妥善調整，因此不支援所有繫結。 例如，1.x 中 PowerShell 的實驗性支援限於 5.1 版，因為該版本是函式應用程式執行所在 VM 上預設安裝的版本。 如果想要執行 PowerShell 指令碼，請考慮使用 [Azure 自動化](https://azure.microsoft.com/services/automation/)。
+1.x 版的實驗性語言並未妥善調整，因此不支援所有繫結。
 
 請勿針對您所依賴的任何項目使用實驗性功能，因為那些功能並未受到正式支援。 請勿針對實驗性語言相關的問題建立支援案例。 
 

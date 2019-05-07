@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 363377dde6d8f4d5f2e51a223c6315fcb93fe237
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/01/2019
+ms.openlocfilehash: ea6e58b4a06b7856aec3ed19643cb312b3547e93
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797239"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136710"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>教學課程：使用 DMS 在離線狀態從 SQL Server 遷移至 Azure SQL Database 中的單一資料庫或集區資料庫
 
@@ -179,9 +179,7 @@ ms.locfileid: "59797239"
 
     如需成本和定價層的詳細資訊，請參閱[定價分頁](https://aka.ms/dms-pricing)。
 
-    如果您需要選擇適當 Azure 資料庫移轉服務層的協助，請參閱[此處](https://go.microsoft.com/fwlink/?linkid=861067) \(英文\) 貼文中的建議。  
-
-     ![設定 Azure 資料庫移轉服務執行個體設定](media/tutorial-sql-server-to-azure-sql/dms-settings2.png)
+    ![設定 Azure 資料庫移轉服務執行個體設定](media/tutorial-sql-server-to-azure-sql/dms-settings2.png)
 
 7. 選取 [建立] 以建立服務。
 

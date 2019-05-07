@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2d56aba6d62d70c482ed1489a09276eeaa11f956
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026716"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147998"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>微調文字轉換語音輸出
 
@@ -43,7 +43,7 @@ Azure 的語音服務可讓您調整速度、 發音、 磁碟區、 音調、 �
    * 找出並選取**所有訂用帳戶**。  
    * 選取 [連線到現有的訂用帳戶]。  
      ![連接現有的訂用帳戶](./media/custom-voice/custom-voice-connect-subscription.png)。
-   * 從 Azure 入口網站中，輸入您 Azure 語音服務的訂用帳戶金鑰，然後選取**新增**。 您的訂用帳戶金鑰可在 Azure 入口網站中從 [資源管理] 窗格。  您也可以從訂用帳戶清單中，在微調語音入口網站中取得金鑰。
+   * 輸入您 Azure 語音服務的訂用帳戶金鑰，然後選取**新增**。 您的訂用帳戶金鑰可用於語音自訂入口網站中，從[訂用帳戶頁面](https://go.microsoft.com/fwlink/?linkid=2090458)。 您也可以從 [資源管理] 窗格中來取得索引鍵[Azure 入口網站](https://portal.azure.com/)。 
    * 如果您有多個語音服務訂用帳戶，您打算使用時，請為每個訂用帳戶重複這些步驟。
 
 ## <a name="customize-the-text-to-speech-output"></a>自訂文字轉換語音輸出

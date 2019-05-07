@@ -4,17 +4,17 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557135"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150304"
 ---
 >[!NOTE]
 >如需不固定的資源，開啟支援票證以要求增加配額。 請勿建立其他的 Azure 媒體服務帳戶在嘗試取得較高的限制。
 
-| Resource | 預設限制 | 
+| 資源 | 預設限制 | 
 | --- | --- | 
 | 單一訂用帳戶中的 azure 媒體服務帳戶 | 25 (固定) |
 | 媒體保留單元，每個媒體服務帳戶 |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
@@ -50,12 +50,12 @@ ms.locfileid: "60557135"
 >[!NOTE]
 > 如果您一律使用相同的天數和存取權限，使用相同的原則識別碼。 資訊和範例，請參閱[使用媒體服務.NET SDK 管理資產](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies)。
 
-<sup>7</sup>如果您將內容上傳至透過其中一個服務中的媒體處理器加以處理的媒體服務中的資產時，請注意支援的最大檔案大小。 資產包括像媒體編碼器標準編碼器和 Media Encoder Premium Workflow 或分析引擎，例如臉部偵測器。
+<sup>7</sup>支援單一 blob 目前是 Azure Blob 儲存體最多 5 TB 的大小上限。 其他的限制適用於服務所使用的 VM 大小所根據的媒體服務中。 大小限制適用於您上傳的檔案，也因為媒體服務處理 （編碼或分析） 而產生的檔案。 如果原始程式檔超過 260 GB，您的工作可能會失敗。 
 
-最多 5 TB 的 Azure Blob 儲存體中的目前支援單一 blob 的大小上限。 其他的限制適用於服務所使用的 VM 大小所根據的媒體服務中。 下表會顯示上媒體保留單位 S1、 S2 和 S3 的限制。 如果您的來源檔案大於資料表中定義的限制，編碼作業將會失敗。 如果編碼的持續時間較長的 4k 解析來源，您會需要使用 S3 媒體保留單元，以達到所需的效能。 如果您有 4k 內容超過 S3 媒體保留單元的 260 GB 限制，與我們連絡amshelp@microsoft.com取得潛在防護功能，以支援您的案例。
+下表會顯示上媒體保留單位 S1、 S2 和 S3 的限制。 如果您的來源檔案大於資料表中定義的限制，編碼作業將會失敗。 如果編碼的持續時間較長的 4k 解析來源，您會需要使用 S3 媒體保留單元，以達到所需的效能。 如果您有 4k 內容超過 S3 媒體保留單元的 260 GB 限制，與我們連絡amshelp@microsoft.com取得潛在防護功能，以支援您的案例。
 
-| 媒體保留單元類型 | 輸入的大小的上限 (GB)| 
-| --- | --- | 
-|S1 | 325|
-|S2 | 640|
-|S3 | 260|
+|媒體保留單元類型   |輸入的大小的上限 (GB)|
+|---|---|
+|S1 |   26|
+|S2 | 60|
+|S3 |260|
