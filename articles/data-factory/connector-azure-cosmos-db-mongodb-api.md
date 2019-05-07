@@ -50,7 +50,7 @@ ms.locfileid: "61259702"
 |:--- |:--- |:--- |
 | type | **type** 屬性必須設定為 **CosmosDbMongoDbApi**。 | 是 |
 | connectionString |為 Azure Cosmos DB 的 MongoDB 版 API 指定連接字串。 其提供在 Azure 入口網站 -> [Cosmos DB] 刀鋒視窗 -> 主要或次要連接字串中，模式為 `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`。 <br/><br />將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 |是 |
-| 資料庫 | 您要存取的資料庫名稱。 | 是 |
+| database | 您要存取的資料庫名稱。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定此屬性，則會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例**
