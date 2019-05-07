@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690472"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074191"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中進階排程器功能的最佳做法
 
@@ -30,6 +30,8 @@ ms.locfileid: "64690472"
 **最佳作法指引** - 限制耗用大量資源的應用程式 (如輸入控制器) 對特定節點的存取權。 保持節點資源可提供需要它們的工作負載使用，並且不允許在節點上排程其他工作負載。
 
 建立 AKS 叢集時，可以部署具有 GPU 支援的節點或大量功能強大的 CPU。 這些節點通常用於巨量資料處理工作負載，例如機器學習 (ML) 或人工智慧 (AI)。 由於這種類型的硬體通常是要部署的昂貴節點資源，因此請限制可在這些節點上排程的工作負載。 您可能希望在叢集中專用某些節點來執行輸入服務，並防止其他工作負載。
+
+這項支援不同的節點是使用多個節點的集區來提供。 AKS 叢集提供一或多個節點的集區。 在 AKS 中的多個節點集區的支援目前為預覽狀態。
 
 Kubernetes 排程器可以使用污點和容差來限制可以在節點上執行的工作負載。
 
@@ -53,13 +55,13 @@ spec:
   containers:
   - name: tf-mnist
     image: microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -72,6 +74,8 @@ spec:
 套用污點時，請與應用程式開發人員和擁有者合作，以允許他們在部署中定義必要的容差。
 
 如需污點和容差的相關詳細資訊，請參閱[套用污點和容差][k8s-taints-tolerations]。
+
+如需如何使用 AKS 中的多個節點集區的詳細資訊，請參閱[建立及管理在 AKS 叢集中多個節點的集區][use-multiple-node-pools]。
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Taints 和 tolerations AKS 中的行為
 
@@ -195,3 +199,4 @@ Kubernetes 排程器以邏輯方式隔離工作負載的最後一種方法，是
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

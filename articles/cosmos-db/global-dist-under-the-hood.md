@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 84ce13ae3bb0a4b66b8167e61b720fe6cecbe95c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c916a2fcff606a99e5c567318c1818ff7d5d273
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888774"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071953"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>透過 Azure Cosmos DB 全域資料散發 - 運作原理
 
@@ -84,5 +84,5 @@ Cosmos DB 的全域散發依賴兩個索引鍵的抽象概念 –*複本集*並*
 接下來，了解如何使用下列文章來設定全域散發：
 
 * [在資料庫帳戶中新增/移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [如何設定多路連接的用戶端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [如何設定多路連接的用戶端](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [如何创建自定义冲突解决策略](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

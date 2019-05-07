@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 392782310d8bc3b38a3dd1349cb1760ca287acd1
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875594"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147933"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>停用的資訊安全中心功能 (第 2019 年 7 月)
 
@@ -155,7 +155,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 
 ### <a name="edit-security-configurations---new-experience"></a>編輯安全性組態]-[新的體驗
 
-資訊安全中心將會支援[客體代理程式](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration)在不久的將來，允許更豐富的功能集-包括支援其他作業系統和客體組態使用 Azure 原則 （在客體的整合原則）。 這也會提供大規模的控制，並自動套用新的資源的能力。
+資訊安全中心將會支援[客體設定代理程式](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration)在不久的將來，允許更豐富的功能集-包括支援其他作業系統和客體設定以 Azure 原則 （與整合在客體原則）。 這也會提供大規模的控制，並自動套用新的資源的能力。
 
 ## 安全性和稽核儀表板 （原本是在 OMS 入口網站中使用） Log Analytics 工作區<a name="menu_securityomsdashboard"></a>
 

@@ -12,22 +12,27 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f17df53c1ea77bf99ab86329fe914d058eb00f64
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574102"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072696"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>虛擬核心與 DTU 購買模型之間選擇
 
 Azure SQL Database 可讓您輕鬆地購買符合您效能和成本需求且完全受控的 PaaS 資料庫引擎。 您可以根據 Azure SQL Database 的部署模型，選擇符合您需求的購買模型：
+
+- [以 vCore 為基礎的購買模型](sql-database-service-tiers-vcore.md)（建議選項）。 這個的購買模型提供佈建的計算層與無伺服器 （預覽） 計算層次之間選擇。 佈建的計算層中，使用中，您可以選擇一律會佈建的計算實際數量為您的工作負載。 使用無伺服器計算層中，您設定自動調整規模的計算可設定的計算範圍內。 與此計算層級中，您也可以選擇自動暫停及繼續工作負載活動為依據的資料庫。 每個時間單位的虛擬核心單位價格會比在無伺服器計算層中佈建的計算層中較低。
+- [以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。 這個的購買模型提供配套的一般工作負載平衡的計算和儲存體套件。
 
 Azure SQL Database 部署模型提供不同的購買模型：
 
 - [Azure SQL Database](sql-database-technical-overview.md) 中的[單一資料庫](sql-database-single-databases-manage.md)與[彈性集區](sql-database-elastic-pool.md)部署選項會提供 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和 [V 核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 - Azure SQL Database 中的[受控執行個體](sql-database-managed-instance.md)僅提供[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)部署選項。
 
+
+- [超大規模的服務層](sql-database-service-tier-hyperscale.md)目前可供使用的單一資料庫[以 vCore 為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 
 下列資料表和圖表比較並對照 vCore 和 DTU 購買模型。
 
@@ -45,6 +50,9 @@ Azure SQL Database 部署模型提供不同的購買模型：
 
 在佈建的計算層中，計算成本會反映已佈建應用程式的總計算容量。  在業務關鍵服務層級中，我們會自動配置至少 3 個複本。 為了反映此電腦資源的額外配置，以虛擬核心為基礎的購買模型中的價格，比一般用途服務層中的業務關鍵服務層的價格高約 2.7 倍。 基於相同原因，業務關鍵服務層級中較高的每一 GB 儲存體價格，則是反映 SSD 儲存體的高 IO 和低延遲性。 同時，這兩個服務層級的備份儲存體成本之間沒有差別，因為兩種情況下都是使用標準儲存體類別。
 
+### <a name="serverless-compute-costs"></a>無伺服器運算成本
+
+無伺服器計算層中，請參閱[SQL Database 無伺服器 （預覽）](sql-database-serverless.md)的計算容量的定義方式描述和成本計算方式。
 
 ## <a name="storage-costs"></a>儲存成本
 
@@ -56,7 +64,7 @@ Azure SQL Database 部署模型提供不同的購買模型：
 
 ## <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
 
-虛擬核心代表可在硬體世代與硬體實體特性 (例如，核心數目、記憶體、儲存體大小) 之間作選擇的邏輯 CPU。 以虛擬核心為基礎的購買模型可讓您以彈性、可控制且透明的方式耗用個別資源，並讓您直接將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，選擇計算、記憶體和儲存體。 在以虛擬核心為基礎的購買模型中，您可以就[單一資料庫](sql-database-single-database-scale.md)、[彈性集區](sql-database-elastic-pool.md)及[受控執行個體](sql-database-managed-instance.md)選擇[一般用途](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)和[業務關鍵](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)服務層。 若為單一資料庫，您也可以選擇[超大規模資料庫服務層級 (預覽)](sql-database-service-tier-hyperscale.md)。
+虛擬核心代表可在硬體世代與硬體實體特性 (例如，核心數目、記憶體、儲存體大小) 之間作選擇的邏輯 CPU。 以虛擬核心為基礎的購買模型可讓您以彈性、可控制且透明的方式耗用個別資源，並讓您直接將內部部署工作負載需求平移到雲端。 此模型可讓您根據工作負載需求，選擇計算、記憶體和儲存體。 在以虛擬核心為基礎的購買模型中，您可以就[單一資料庫](sql-database-single-database-scale.md)、[彈性集區](sql-database-elastic-pool.md)及[受控執行個體](sql-database-managed-instance.md)選擇[一般用途](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)和[業務關鍵](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)服務層。 為單一資料庫，您也可以選擇[超大規模的服務層](sql-database-service-tier-hyperscale.md)。
 
 以虛擬核心為基礎的購買模型可讓您獨立地選擇計算和儲存體資源，並符合內部部署效能需求，以及獲得最佳價格。 在以虛擬核心為基礎的購買模型中，客戶需支付下列費用：
 

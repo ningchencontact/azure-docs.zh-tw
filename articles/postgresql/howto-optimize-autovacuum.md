@@ -1,20 +1,19 @@
 ---
-title: 將適用於 PostgreSQL 的 Azure 資料庫伺服器上的自動資料清理最佳化
-description: 本文描述您可以如何將適用於 PostgreSQL 的 Azure 資料庫伺服器上的自動資料清理最佳化。
-author: WenJason
-ms.author: v-jay
+title: 最佳化 autovacuum 上 Azure Database for PostgreSQL-單一伺服器
+description: 這篇文章說明如何最佳化 autovacuum 上 Azure Database for PostgreSQL-單一伺服器
+author: dianaputnam
+ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/22/2018
-ms.date: 04/29/2019
-ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fb1ab9525974601a8b8c22ccc44e2cf37baf21a1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420265"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069106"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>將適用於 PostgreSQL 的 Azure 資料庫伺服器上的自動資料清理最佳化 
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>最佳化 autovacuum 上 Azure Database for PostgreSQL-單一伺服器
 本文描述如何有效地將適用於 PostgreSQL 的 Azure 資料庫伺服器上的自動資料清理最佳化。
 
 ## <a name="overview-of-autovacuum"></a>自動資料清理的概觀

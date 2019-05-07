@@ -1,6 +1,6 @@
 ---
-title: Azure 安全性最佳作法與模式 | Microsoft Docs
-description: 本文提供一系列適合不同 Azure 資源的 Azure 安全性最佳做法與模式。
+title: 安全性最佳作法和模式-Microsoft Azure |Microsoft Docs
+description: 本文章會連結您的安全性最佳作法和適用於不同的 Azure 資源的模式。
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/10/2018
+ms.date: 5/03/2019
 ms.author: terrylan
-ms.openlocfilehash: e607c1ce032972c62f4e70e9cb620e83e57a881b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff6a09f75a46eee0d95b9a995c4986a981f25b9c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444494"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150093"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 安全性最佳作法與模式
 

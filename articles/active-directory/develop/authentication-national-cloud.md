@@ -1,10 +1,10 @@
 ---
-title: 在國家雲端中使用 Azure AD 進行驗證
+title: 使用 國家/地區雲端中的 Azure Active Directory 進行驗證
 description: 了解國家雲端的應用程式註冊和驗證端點。
 services: active-directory
 documentationcenter: ''
 author: negoe
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/20/2018
+ms.date: 05/07/2019
 ms.author: negoe
-ms.reviewer: negoe,andret,saeeda,CelesteDG
+ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4feaf97de7b833514113af6c91b3745be0503eff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0d4586df23548854f4acbfefd32081a36906097
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411108"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067906"
 ---
-# <a name="national-clouds"></a>國家雲端
+# <a name="national-clouds"></a>國家/地區雲端
 
-國家雲端 (也稱為主權雲端) 是實際隔離的 Azure 執行個體。 這些 Azure 區域的設計目的，是要確保符合地理界限內的資料落地、主權及合規性需求。
+國家/地區雲端是 Azure 的實際隔離的執行個體。 這些 Azure 區域的設計目的，是要確保符合地理界限內的資料落地、主權及合規性需求。
 
 包含全球雲端在內，Azure Active Directory 會部署至下列國家雲端：  
 
@@ -38,16 +38,16 @@ ms.locfileid: "60411108"
 
 ## <a name="app-registration-endpoints"></a>應用程式註冊端點
 
-每個國家雲端都有個別的 Azure 入口網站。 若要在國家雲端中整合應用程式與 Microsoft 身分識別平台，您必須分別在環境特定的每個 Azure 入口網站中註冊您的應用程式。
+沒有個別的 Azure 入口網站，每個國家/地區的雲端。 若要在國家雲端中整合應用程式與 Microsoft 身分識別平台，您必須分別在環境特定的每個 Azure 入口網站中註冊您的應用程式。
 
 下表列出用來針對每個國家雲端註冊應用程式的 Azure Active Directory (Azure AD) 端點基底 URL。
 
-| 國家雲端 | Azure AD 入口網站端點
-| --- | --- |
-| 適用於美國政府的 Azure AD |`https://portal.azure.us`
-|Azure AD Germany |`https://portal.microsoftazure.de`
-|由 21Vianet 營運的 Azure AD China |`https://portal.azure.cn`
-|Azure AD (全球服務)|`https://portal.azure.com` 
+| 國家雲端 | Azure AD 入口網站端點 |
+|----------------|--------------------------|
+| 適用於美國政府的 Azure AD | `https://portal.azure.us` |
+| Azure AD Germany | `https://portal.microsoftazure.de` |
+| 由 21Vianet 營運的 Azure AD China | `https://portal.azure.cn` |
+| Azure AD (全球服務) |`https://portal.azure.com` |
 
 ## <a name="azure-ad-authentication-endpoints"></a>Azure AD 驗證端點
 
@@ -55,12 +55,12 @@ ms.locfileid: "60411108"
 
 下表列出 Azure Active Directory (Azure AD) 端點的基底 URL，這些端點可用來取得每個國家雲端的權杖。
 
-| 國家雲端 | Azure AD 驗證端點
-| --- | --- |
-| 適用於美國政府的 Azure AD |`https://login.microsoftonline.us`
-|Azure AD Germany| `https://login.microsoftonline.de`
-|由 21Vianet 營運的 Azure AD China | `https://login.chinacloudapi.cn`
-|Azure AD (全球服務)|`https://login.microsoftonline.com`
+| 國家雲端 | Azure AD 驗證端點 |
+|----------------|-------------------------|
+| 適用於美國政府的 Azure AD | `https://login.microsoftonline.us` |
+| Azure AD Germany| `https://login.microsoftonline.de` |
+| 由 21Vianet 營運的 Azure AD China | `https://login.chinacloudapi.cn` |
+| Azure AD (全球服務)| `https://login.microsoftonline.com` |
 
 - 使用適當的區域專屬基底 URL，即可形成對 Azure AD 授權或權杖端點的要求。 例如，對於 Azure Germany：
 
@@ -69,21 +69,23 @@ ms.locfileid: "60411108"
 
 - 對於單一租用戶應用程式，將先前 URL 的 common 取代為租用戶識別碼或名稱，例如 `https://login.microsoftonline.de/contoso.com`。
 
->[!NOTE]
+> [!NOTE]
 > [Azure AD v2.0 授權]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview)和權杖端點僅適用於全球服務。 尚未支援國家雲端部署。
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 若要了解如何在國家雲端環境中呼叫 Microsoft Graph API，請移至[國家雲端中的 Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/deployments)。
 
-
-
 > [!IMPORTANT]
 > 某些在「全域服務」特定區域中的服務和功能可能無法在全部國家雲端中提供。 若要了解提供的服務有哪些，請移至[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)。
 
+請遵循這[Microsoft Authentication Library (MSAL) 教學課程](msal-national-cloud.md)以了解如何建置使用 Microsoft 身分識別平台的應用程式。 具體來說，此應用程式會讓使用者登入，取得存取權杖呼叫 Microsoft Graph API。
+
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解 [Azure Government](https://docs.microsoft.com/azure/azure-government/) (英文)。
-- 深入了解 [Azure China 21Vianet](https://docs.microsoft.com/azure/china/) (英文)。
-- 深入了解 [Azure Germany](https://docs.microsoft.com/azure/germany/) (英文)。
-- 了解 [Azure AD 驗證基本概念](authentication-scenarios.md)。
+深入了解：
+
+- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
+- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
+- [Azure Germany](https://docs.microsoft.com/azure/germany/)
+- [Azure AD 驗證基本概念](authentication-scenarios.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: fac14281365ccf3c191684af8cfdebda69e734e0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 77c2cd9e0eac6717d91a73a6fc033dcaa2390444
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870443"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145035"
 ---
 # <a name="status-monitor-v2"></a>狀態監視器 v2
 
@@ -61,3 +61,19 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 - 如何確認啟用成功？
 
    我們不需要的 cmdlet 以確認該啟用成功。 我們建議您使用[即時計量](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)來快速地觀察 是否您的應用程式會傳送給我們的遙測。
+
+## <a name="next-steps"></a>後續步驟
+
+檢視遙測：
+
+* [探索計量](../../azure-monitor/app/metrics-explorer.md)以監視效能和使用量
+* [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)來診斷問題
+* 更多進階查詢的[分析](../../azure-monitor/app/analytics.md)
+* [建立儀表板](../../azure-monitor/app/app-insights-dashboards.md)
+
+新增更多遙測：
+
+* [建立 web 測試](monitor-web-app-availability.md)藉此確定您的網站保持即時狀態。
+* [新增 web 用戶端遙測](../../azure-monitor/app/javascript.md)以查看網頁程式碼中的例外狀況，並讓您插入追蹤呼叫。
+* [將 Application Insights SDK 新增至您的程式碼](../../azure-monitor/app/asp-net.md)，讓您插入追蹤和記錄呼叫
+

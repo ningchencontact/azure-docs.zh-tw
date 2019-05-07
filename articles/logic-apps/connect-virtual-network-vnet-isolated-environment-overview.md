@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/11/2019
-ms.openlocfilehash: b53cd54afdf6243769602971ab77145cfa9ba9cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 0206fd2b2ea0a7cfaf79aaf19052e0174645780b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506814"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143121"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>透過整合服務環境 (ISE) 從 Azure Logic Apps 存取 Azure 虛擬網路資源
-
-> [!NOTE]
-> 這項功能處於[*公開預覽*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 有時候，您的 Logic Apps 和整合帳戶會需要存取安全資源 (例如虛擬機器 (VM)) 及 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md) 中的其他系統或服務。 若要設定此存取權，請[建立整合服務環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)，以便執行邏輯應用程式和整合帳戶。 當您建立的 ISE 時，Azure 部署的私用和隔離執行個體的 Logic Apps 服務到您的 Azure 虛擬網路。 此私人執行個體使用專用資源 (例如儲存體)，並會與公用「全域」Logic Apps 服務分別執行。 用來分隔您隔離的私人執行個體和公用的全域執行個體也有助於減少其他 Azure 租用戶可能必須在您的應用程式的效能，這就是所謂的影響[「 吵雜芳鄰 」 效果](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)。
 
@@ -70,11 +67,6 @@ ISE 與非 ISE 連接器的差異是觸發與動作執行的位置：
 ## <a name="integration-accounts-with-ise"></a>使用 ISE 的整合帳戶
 
 您可以使用整合帳戶搭配整合服務環境 (ISE) 內的邏輯應用程式。 不過，這些整合帳戶必須使用「相同的 ISE」作為連結的邏輯應用程式。 ISE 中的 Logic Apps 只能參考位於相同 ISE 中的整合帳戶。 當您建立整合帳戶時，您可以選取您的 ISE，作為您整合帳戶的位置。
-
-## <a name="get-support"></a>取得支援
-
-* 如有問題，請瀏覽 <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps 論壇</a>。
-* 若要提交或票選功能構想，請造訪 <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps 使用者意見反應網站</a>。
 
 ## <a name="next-steps"></a>後續步驟
 

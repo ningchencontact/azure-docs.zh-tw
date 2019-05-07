@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572691"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148988"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>選擇 虛擬核心服務層，並從 DTU 服務層移轉
 
@@ -38,14 +38,16 @@ ms.locfileid: "64572691"
 
 下表可協助您了解這三層的差異︰
 
-||**一般用途**|**商務關鍵性**|**超大規模 (預覽)**|
+||**一般用途**|**商務關鍵性**|**Hyperscale**|
 |---|---|---|---|
 |適用對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整規模的計算與儲存體選項。|高 IO 需求的商務應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|具有可高度擴充的儲存體和讀取規模需求的多數商務工作負載|
-|CPU|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心<br/>**無伺服器計算**<br/>第 5 代：0.5 - 4 vCore|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|
-|記憶體|**佈建計算**:<br/>第 4 代：每個核心 7 GB<br/>第 5 代：每個核心 5.1 GB<br/>**無伺服器計算**<br/>第 5 代：每個核心的 3 GB|**佈建計算**:<br/>第 4 代：每個核心 7 GB<br/>第 5 代：每個核心 5.1 GB |**佈建計算**:<br/>第 4 代：每個核心 7 GB<br/>第 5 代：每個核心 5.1 GB|
+|計算|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：2 至 80 vCore<br/>**無伺服器計算**<br/>第 5 代：0.5 - 4 vCore|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：2 至 80 vCore|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：2 至 80 vCore|
+|記憶體|**佈建計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB<br/>**無伺服器計算**<br/>第 5 代：每個虛擬核心 3 GB|**佈建計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB |**佈建計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB|
 |儲存體|使用遠端儲存體：<br/>**單一資料庫佈建計算**:<br/>5 GB – 4 TB<br/>**單一資料庫的無伺服器計算**:<br/>5 GB - 1 TB<br/>**受控執行個體**:32 GB - 8 TB |使用本機 SSD 儲存體：<br/>**單一資料庫佈建計算**:<br/>5 GB – 4 TB<br/>**受控執行個體**:<br/>32 GB - 4 TB |儲存體可依需求彈性地自動成長。 可支援多達 100 TB 以上的儲存體。 本機緩衝區集區快取和本機資料儲存可使用本機 SSD 儲存體。 以 Azure 遠端儲存體作為最終的長期資料存放區。 |
+|記憶體|第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB | 第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB |第 5 代：每個核心 5.1 GB|
+|儲存體|使用遠端儲存體：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 8 TB |使用本機 SSD 儲存體：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 4 TB |儲存體可依需求彈性地自動成長。 可支援多達 100 TB 以上的儲存體。 本機緩衝區集區快取和本機資料儲存可使用本機 SSD 儲存體。 以 Azure 遠端儲存體作為最終的長期資料存放區。 |
 |IO 輸送量 (大約)|單一資料庫：每個虛擬核心 500 IOPS，且 IOPS 上限為 7000</br>受控執行個體：視[檔案大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)而定|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200,000|TBD|
-|可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域備援 HA|?|
+|可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域備援 HA|1 的讀取/寫入複本，再加上 0 到 4 之間[讀取級別複本](sql-database-read-scale-out.md)|
 |備份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|Azure 遠端儲存體中有以快照集為基礎的備份，還原時可使用這些快照集進行快速復原。 備份可迅速完成，且不會影響計算的 IO 效能。 還原速度非常快，而且不是資料作業的大小 (以分鐘而非小時或天來計算)。|
 |記憶體內|不支援|支援|不支援|
 |||
@@ -56,8 +58,6 @@ ms.locfileid: "64572691"
 - 如需詳細資訊，請參閱[單一資料庫中的虛擬核心資源限制](sql-database-vcore-resource-limits-single-databases.md)和[受控執行個體中的虛擬核心資源限制](sql-database-managed-instance.md#vcore-based-purchasing-model)。
 - 如需一般用途與商務關鍵性服務層級的詳細資訊，請參閱[一般用途與商務關鍵性服務層級](sql-database-service-tiers-general-purpose-business-critical.md)。
 - 如需以虛擬核心為基礎的購買模型中超大規模服務層的詳細資訊，請參閱[超大規模服務層](sql-database-service-tier-hyperscale.md)。  
-
-
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 

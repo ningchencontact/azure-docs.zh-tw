@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119124"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145154"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>針對將解決方案上線時的錯誤進行疑難排解
 
@@ -78,6 +78,36 @@ The solution cannot be enabled on this VM because the permission to read the wor
   * 對於原則已設定為拒絕的資源集合進行修改。
 
 檢查 Azure 入口網站中右上角的通知，或瀏覽至包含您的自動化帳戶並選取資源群組**部署**下方**設定**檢視失敗部署。 若要深入了解 Azure 原則，請造訪：[Azure 原則的概觀](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)。
+
+### <a name="unlink"></a>案例：嘗試取消連結工作區的錯誤
+
+#### <a name="issue"></a>問題
+
+嘗試取消連結工作區時，您會收到下列錯誤：
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### <a name="cause"></a>原因
+
+當您仍有解決方案使用 Log Analytics 工作區中，取決於您所連結的自動化帳戶，並記錄分析工作區時，就會發生此錯誤。
+
+### <a name="resolution"></a>解決方案
+
+若要解決此問題，您要從您的工作區移除下列解決方案，如果您使用它們：
+
+* 更新管理
+* 變更追蹤
+* 於下班時間開始/停止 VM
+
+移除解決方案之後，您可以取消連結您的工作區。 請務必清除任何現有的成品，從您的工作區和自動化帳戶從這些解決方案也一樣。  
+
+* 更新管理
+  * 從您的自動化帳戶中移除更新部署 （排程）
+* 於下班時間開始/停止 VM
+  * 在您的自動化帳戶，在移除解決方案的元件上的任何鎖定**設定** > **鎖定**。
+  * 如需在離峰解決方案期間移除啟動/停止 Vm 的其他步驟查看，請[離峰時間的方案中移除啟動/停止 VM](../automation-solution-vm-management.md##remove-the-solution)。
 
 ## <a name="mma-extension-failures"></a>MMA 延伸模組失敗
 

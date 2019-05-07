@@ -1,37 +1,35 @@
 ---
-title: 使用 Azure Functions 在 Azure Logic Apps 中新增和執行自訂程式碼 | Microsoft Docs
-description: 了解如何使用 Azure Functions 在 Azure Logic Apps 中新增和執行自訂程式碼片段
+title: 新增並使用 Azure Functions 的 Azure Logic Apps 中執行程式碼
+description: 新增並使用 Azure Functions 的 Azure Logic Apps 中執行程式碼
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e371a6abe32a1a41d3babeaa27aaec3e30bd3323
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687551"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142315"
 ---
-# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>使用 Azure Functions 在 Azure Logic Apps 中新增和執行自訂程式碼片段
+# <a name="add-and-run-code-by-using-azure-functions-in-azure-logic-apps"></a>新增並執行 Azure Logic Apps 中使用 Azure Functions 的程式碼
 
-當您想要執行剛剛好能夠執行邏輯應用程式中特定作業的程式碼時，您可以使用 [Azure Functions](../azure-functions/functions-overview.md) 建立自己的函式。 這項服務可協助您建立 Node.js、C# 和 F # 程式碼片段，因此您不必建置完整的應用程式或基礎結構來執行程式碼。 Azure Functions 可提供在雲端進行的無伺服器運算，適合用來執行以下舉例的各種工作：
+當您想要執行邏輯應用程式中執行特定工作的程式碼時，您可以建立自己的函式與[Azure Functions](../azure-functions/functions-overview.md)。 這項服務可協助您建立 Node.js C#，和F#程式碼，使您不需要建置完整的應用程式或執行您的程式碼的基礎結構。 您也可以[從 Azure 函式內呼叫邏輯應用程式](#call-logic-app)。
+Azure Functions 可提供在雲端進行的無伺服器運算，適合用來執行以下舉例的各種工作：
 
 * 使用 Node.js 或 C# 中的函式來擴充邏輯應用程式的行為。
 * 在邏輯應用程式工作流程中執行計算。
 * 在邏輯應用程式中套用進階格式設定或計算欄位。
 
-您也可以[從 Azure 函式內呼叫邏輯應用程式](#call-logic-app)。
+若要執行程式碼片段，而不需建立 Azure 函式，了解如何[加上執行的內嵌程式碼](../logic-apps/logic-apps-add-run-inline-code.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要遵循本文，您需要這些項目：
-
-* 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * Azure 函式應用程式 (也就是，Azure 函式的容器) 和 Azure 函式。 如果您沒有函式應用程式，[請先建立該函式應用程式](../azure-functions/functions-create-first-azure-function.md)。 然後，您可以在邏輯應用程式設計工具中建立函式，不論是要[在邏輯應用程式外另外](#create-function-external)建立，還是要[從邏輯應用程式內部](#create-function-designer)建立都行。
 
@@ -58,7 +56,7 @@ ms.locfileid: "60687551"
 
 ## <a name="create-functions-outside-logic-apps"></a>在邏輯應用程式外部建立函式
 
-在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中建立 Azure 函式應用程式 (必須有和邏輯應用程式相同的 Azure 訂用帳戶)，然後建立 Azure 函式。
+在 [Azure 入口網站](https://portal.azure.com)中建立 Azure 函式應用程式 (必須有和邏輯應用程式相同的 Azure 訂用帳戶)，然後建立 Azure 函式。
 如果您還不熟悉如何建立 Azure Functions，請了解如何[在 Azure 入口網站中建立您的第一個函式](../azure-functions/functions-create-first-azure-function.md)，但請注意下列需求，滿足後才能建立可從邏輯應用程式呼叫的函式：
 
 * 確定您有選取適用於 **JavaScript** 或 **C#** 的 **HTTP 觸發程序**函式範本。
@@ -116,7 +114,7 @@ function convertToDateString(request, response){
 
 若要在邏輯應用程式設計工具中從邏輯應用程式內部開始建立 Azure 函式，您必須先擁有 Azure 函式應用程式，以作為函式的容器。 如果您沒有函式應用程式，請先建立該函式應用程式。 請參閱[在 Azure 入口網站中建立您的第一個函式](../azure-functions/functions-create-first-azure-function.md)。 
 
-1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>的邏輯應用程式設計工具中，開啟邏輯應用程式。 
+1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，開啟邏輯應用程式。 
 
 2. 若要建立並新增函式，請遵循適用於您案例的步驟：
 
@@ -176,7 +174,7 @@ function convertToDateString(request, response){
 
 若要從邏輯應用程式呼叫現有 Azure 函式，您可以在邏輯應用程式設計工具中新增 Azure 函式，例如任何其他動作。 
 
-1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>的邏輯應用程式設計工具中，開啟邏輯應用程式。 
+1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，開啟邏輯應用程式。 
 
 2. 在想要新增函式的步驟底下，選擇 [新增步驟] > [新增動作]。 
 

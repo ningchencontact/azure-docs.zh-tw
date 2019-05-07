@@ -1,21 +1,21 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫查詢存放區
-description: 此文章描述在適用於 PostgreSQL 的 Azure 資料庫中使用查詢存放區功能。
+title: 在 Azure Database for PostgreSQL-單一伺服器的查詢存放區
+description: 本文章說明查詢存放區功能，在 Azure Database for PostgreSQL-單一伺服器。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563999"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067191"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查詢存放區監視效能
 
-**適用範圍：** 適用於 PostgreSQL 9.6 和 10 的 Azure 資料庫
+**適用範圍：** Azure Database for PostgreSQL-9.6] 和 [10 的單一伺服器
 
 適用於 PostgreSQL 的 Azure 資料庫查詢存放區功能提供的方法可追蹤一段時間的查詢效能。 查詢存放區可協助您快速找到執行時間最長又最耗資源的查詢，簡化效能疑難排解。 查詢存放區會自動擷取查詢的歷程記錄和執行階段統計資料，並予以保留以供您檢閱。 依時間範圍區分資料，以便查看資料庫使用模式。 所有使用者、資料庫及查詢的資料都會儲存在適用於 PostgreSQL 的 Azure 資料庫執行個體中名為 **azure_sys** 的資料庫。
 

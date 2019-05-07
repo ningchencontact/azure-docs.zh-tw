@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522345"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148717"
 ---
 # <a name="create-entities-without-utterances"></a>建立不含語句的實體
 
@@ -66,29 +66,6 @@ ms.locfileid: "59522345"
 
     這個規則運算式比對常值字元`hrf-`，然後 6 位數來表示表單的數字人力資源表單。
 
-## <a name="add-hierarchical-entities"></a>新增階層式實體
-
-階層式實體是內容學習和內容相關實體的分類。 在下列範例中，實體包含來源和目的地位置。 
-
-在語句 `Move John Smith from Seattle to Cairo` 中，Seattle 是來源位置，而 Cairo 是目的地位置。 每個位置的內容都不同，並且學習自語句中的字組順序和字組選擇。
-
-若要新增階層式實體，請完成下列步驟： 
-
-1. 在應用程式中，從左側瀏覽列選取 [實體]，然後選取 [建立新實體]。
-
-1. 在快顯對話方塊中，於 [實體名稱] 方塊中輸入 `Location`，然後從 [實體類型] 清單中選取 [階層式]。
-
-    ![新增階層式實體](./media/add-entities/hier-location-entity-creation.png)
-
-1. 選取 [新增子系]，然後在 [第一個子系] 方塊中輸入 `Origin`。 
-
-1. 選取 [新增子系]，然後在 [第二個子系] 方塊中輸入 `Destination`。 選取 [完成] 。
-
-    >[!CAUTION]
-    >在單一應用程式的所有實體中，子實體名稱必須是唯一的。 兩個不同的階層式實體不能包含同名的子實體。 
-
-    建立此實體後，請移至具有範例語句 (含有此實體) 的所有意圖。 選取範例語句中的文字並將此文字標示為實體。 
-
 <a name="add-composite-entities"></a>
 
 ## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>加入複合實體分組為父子式關聯性
@@ -137,9 +114,7 @@ ms.locfileid: "59522345"
 
 角色是根據內容的具名子型別。 提供所有實體，包括預先建置的和非機器學習的實體。 
 
-使用相同範例作為來源和目的地城市的階層式實體時，差異在於角色會命名為來源，而不是階層式子系。 
-
-角色的語法為 **{Entity name:Rolename}**，其中的實體名稱後面會接著冒號，然後是角色名稱。 例如： `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`。
+角色的語法**`{Entityname:Rolename}`** 其中的實體名稱後面接著冒號，則角色名稱。 例如： `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`。
 
 1. 從 [建置] 區段，選取左面板中的 [實體]。
 

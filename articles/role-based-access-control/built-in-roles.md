@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689869"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073346"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -74,6 +74,7 @@ ms.locfileid: "64689869"
 | [认知服务数据读者（预览）](#cognitive-services-data-reader-preview) | 可以读取认知服务数据。 |
 | [認知服務使用者](#cognitive-services-user) | 可讓您讀取和列出認知服務的金鑰。 |
 | [Cosmos DB 帳戶讀者角色](#cosmos-db-account-reader-role) | 可以讀取 Azure Cosmos DB 帳戶資料。 請參閱 [DocumentDB 帳戶參與者](#documentdb-account-contributor)以管理 Azure Cosmos DB 帳戶。 |
+| [Cosmos DB 運算子](#cosmos-db-operator) | 可讓您管理 Azure Cosmos DB 帳戶，但不是存取資料。 無法存取帳戶金鑰和連接字串。 |
 | [CosmosBackupOperator](#cosmosbackupoperator) | 可為帳戶的 Cosmos DB 資料庫或容器提交還原要求 |
 | [成本管理參與者](#cost-management-contributor) | 可檢視成本和管理成本組態 (例如預算、匯出) |
 | [成本管理讀者](#cost-management-reader) | 可檢視成本資料和組態 (例如預算、匯出) |
@@ -726,7 +727,7 @@ ms.locfileid: "64689869"
 > | **說明** | 可以檢視備份服務，但無法進行變更 |
 > | **Id** | a795c7a0-d4a2-40c1-ae25-d81f01202912 |
 > | **動作** |  |
-> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp 是服務所使用的內部作業 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | 傳回作業的狀態 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | 取得對保護容器執行之作業的結果。 |
@@ -1080,6 +1081,30 @@ ms.locfileid: "64689869"
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
 > | 無 |  |
+> | **DataActions** |  |
+> | 無 |  |
+> | **NotDataActions** |  |
+> | 無 |  |
+
+## <a name="cosmos-db-operator"></a>Cosmos DB 運算子
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您管理 Azure Cosmos DB 帳戶，但不是存取資料。 無法存取帳戶金鑰和連接字串。 |
+> | **Id** | 230815da-be43-4aae-9cb4-875f7bd000aa |
+> | **動作** |  |
+> | Microsoft.DocumentDb/databaseAccounts/* |  |
+> | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | **NotActions** |  |
+> | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/regenerateKey/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/* |  |
 > | **DataActions** |  |
 > | 無 |  |
 > | **NotDataActions** |  |

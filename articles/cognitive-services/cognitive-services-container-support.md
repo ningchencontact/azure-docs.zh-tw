@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021516"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147573"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 
@@ -26,6 +26,7 @@ Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的�
 * [臉部](Face/Overview.md)
 * [表單的辨識器](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Language Understanding](LUIS/luis-container-howto.md) (LUIS)
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [語音服務 API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [文字分析](text-analytics/overview.md)
 
@@ -56,6 +57,7 @@ Azure 認知服務容器能提供下列 Docker 容器集合，每個容器都包
 |[臉部](Face/face-how-to-install-containers.md) |F0, S0|**臉部** |能偵測影像中的人臉並識別其特性，包括臉部特徵點 (例如鼻子和眼睛)、性別、年齡及其他機器預測的臉部容貌。 除了偵測以外，臉部也可以使用信賴分數檢查相同或不同影像中的兩張臉是否相同，或將臉部向資料庫進行比對，看看是否有樣貌相似或相同的臉部。 它也能夠使用共同視覺特徵，將相似臉部分組。<br>[要求存取](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[表單的辨識器](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**表單的辨識器** |表單的了解適用於機器學習技術來識別和擷取表單中的索引鍵 / 值組和資料表。<br>[要求存取](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([影像](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|將已定型或發佈的 Language Understanding 模型 (也稱為 LUIS 應用程式) 載入 Docker 容器中，並提供從容器的 API 端點存取查詢預測的權限。 您可以從容器收集查詢記錄，並將這些記錄重新上傳至 [LUIS 入口網站](https://www.luis.ai)，以改善應用程式的預測精確度。|
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([映像](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer 是雲端架構的 API 服務，可讓您選擇最佳的體驗，以顯示給使用者，學習從及其即時的行為。|
 |[語音服務 API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**語音轉文字** |連續的即時語音謄寫成文字。<br>[要求存取](https://aka.ms/speechcontainerspreview/)|
 |[語音服務 API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**文字轉換語音** |將文字轉換成自然發音語音。<br>[要求存取](https://aka.ms/speechcontainerspreview/)|
 |[文字分析](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |其中 F0、 S|**關鍵片語擷取** ([影像](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |擷取關鍵片語來識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。 |
@@ -103,5 +105,6 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至
 * [臉部容器](Face/face-how-to-install-containers.md)
 * [表單辨識器的容器](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Language Understanding (LUIS) 容器](LUIS/luis-container-howto.md)
+* [Personalizer 容器](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 * [語音服務 API 容器](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [文字 Analytics 容器](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

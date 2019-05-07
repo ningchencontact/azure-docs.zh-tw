@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 3e9e3afd5172783c6b5ed8e6342ce9927353d006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed775bfca2db02b9bfddebb85bbd3f1f668cf3e0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386837"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142682"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>建立在 Windows Server 上執行的獨立叢集
 您可以使用 Azure Service Fabric 在執行 Windows Server 的任何虛擬機器或電腦上建立 Service Fabric 叢集。 這表示您能夠在包含一組互連式 Windows Server 電腦的任何環境中部署和執行 Service Fabric 應用程式，不論該環境是內部部署或是透過任何雲端提供者來提供。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
@@ -27,7 +27,7 @@ ms.locfileid: "60386837"
 本文將逐步引導您完成建立 Service Fabric 獨立叢集的步驟。
 
 > [!NOTE]
-> 此独立的 Windows Server 包已经可供购买，并且可用于生产部署。 此套件包含處於「預覽」狀態的新 Service Fabric 功能。 捲動至「[此封裝包含的預覽功能](#previewfeatures_anchor)」。 區段，以取得預覽功能的清單。 您可以立即[下載一份 EULA](https://go.microsoft.com/fwlink/?LinkID=733084)。
+> 此獨立 Windows Server 封裝會盡一切商業上可免費使用，並可用於生產環境部署。 此套件包含處於「預覽」狀態的新 Service Fabric 功能。 捲動至「[此封裝包含的預覽功能](#previewfeatures_anchor)」。 區段，以取得預覽功能的清單。 您可以立即[下載一份 EULA](https://go.microsoft.com/fwlink/?LinkID=733084)。
 > 
 > 
 

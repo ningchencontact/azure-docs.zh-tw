@@ -2,22 +2,23 @@
 title: 針對 Azure 儲存體帳戶設定自訂網域名稱 | Microsoft Docs
 description: 使用 Azure 入口網站，將您自己的正式名稱 (CNAME) 對應至 Azure 儲存體帳戶中的 Blob 儲存體或 Web 端點。
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112631"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148921"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>針對 Azure 儲存體帳戶設定自訂網域名稱
 
-您可以設定自訂網域名稱，以供存取 Azure 儲存體帳戶中的 Blob 資料。 Azure Blob 儲存體的預設端點是 *\<儲存體帳戶名稱>.blob.core.windows.net*。 您也可以使用隨[靜態網站功能 (預覽)](storage-blob-static-website.md) 一起產生的 Web 端點。 如果您對應自訂網域和子網域，例如*www\.contoso.com*，到儲存體帳戶的 blob 或 web 端點，您的使用者可以使用該網域存取您的儲存體帳戶中的 blob 資料。
+您可以設定自訂網域名稱，以供存取 Azure 儲存體帳戶中的 Blob 資料。 Azure Blob 儲存體的預設端點是 *\<儲存體帳戶名稱>.blob.core.windows.net*。 您也可以使用產生的 web 端點的一部分[靜態網站功能](storage-blob-static-website.md)。 如果您對應自訂網域和子網域，例如*www\.contoso.com*，到儲存體帳戶的 blob 或 web 端點，您的使用者可以使用該網域存取您的儲存體帳戶中的 blob 資料。
 
 > [!IMPORTANT]
 > Azure 儲存體尚未以原生方式支援使用自訂網域的 HTTPS。 您目前可以[使用 Azure CDN 透過 HTTPS 以自訂網域存取 Blob](storage-https-custom-domain-cdn.md)。
@@ -29,7 +30,7 @@ ms.locfileid: "58112631"
 > [!NOTE]
 > 對應沒有只適用於子網域 (例如 www\.contoso.com)。 如果您想要對根網域 (例如 contoso.com)，您可以使用的 web 端點，則您不必[Azure CDN 使用自訂網域](storage-https-custom-domain-cdn.md)
 
-下表展示的幾個範例 URL，適用於位在名為 *mystorageaccount* 之儲存體帳戶中的 Blob 資料。 儲存體帳戶是已註冊的自訂子網域*www\.contoso.com*:
+下表展示的幾個範例 URL，適用於位在名為 *mystorageaccount* 之儲存體帳戶中的 Blob 資料。 为存储帐户注册的自定义子域是 *www\.contoso.com*：
 
 | 資源類型 | 預設 URL | 自訂網域 URL |
 | --- | --- | --- |
@@ -41,15 +42,15 @@ ms.locfileid: "58112631"
 > [!NOTE]  
 > 如下列各節中所示，Blob 服務端點的所有範例也適用於 Web 服務端點。
 
-## <a name="direct-vs-intermediary-cname-mapping"></a>直接與中繼的 CNAME 對應
+## <a name="direct-vs-intermediary-cname-mapping"></a>直接 CNAME 映射与中间 CNAME 映射
 
-您可以指向加上一個子網域將自訂網域 (例如 www\.contoso.com) 中任一種方式儲存體帳戶的 blob 端點： 
+可通过下述两种方法之一将带有子域（例如 www\.contoso.com）前缀的自定义域指向存储帐户的 Blob 终结点： 
 * 使用直接 CNAME 對應。
 * 使用 *asverify* 中繼子網域。
 
 ### <a name="direct-cname-mapping"></a>直接 CNAME 對應
 
-第一種方法最為簡易，亦即建立正式名稱 (CNAME) 記錄將您的自訂網域與子網域直接對應至 Blob 端點。 CNAME 記錄是將來源網域對應至目的地網域的網域名稱系統 (DNS) 功能。 在本例中，來源網域是您自己的自訂網域和子網域 (*www\.contoso.com*，例如)。 目的地網域是您的 Blob 服務端點 (例如 *mystorageaccount.blob.core.windows.net*)。
+第一種方法最為簡易，亦即建立正式名稱 (CNAME) 記錄將您的自訂網域與子網域直接對應至 Blob 端點。 CNAME 記錄是將來源網域對應至目的地網域的網域名稱系統 (DNS) 功能。 在示例中，源域是你自己的自定义域和子域（例如 *www\.contoso.com*）。 目的地網域是您的 Blob 服務端點 (例如 *mystorageaccount.blob.core.windows.net*)。
 
 ＜註冊自訂網域＞一節涵蓋直接方法。
 
@@ -85,11 +86,11 @@ ms.locfileid: "58112631"
 1. 尋找管理 CNAME 的區段。  
    您可能需要前往進階設定頁面，然後尋找 [CNAME]、[Alias] \(別名\) 或 [Subdomains] \(子網域\)。
 
-1. 建立新的 CNAME 記錄，請輸入子網域別名，如**www**或是**相片**（須有子網域，不支援根網域），然後提供 主機名稱。  
+1. 创建新的 CNAME 记录，输入 **www** 或 **photos** 等子域别名（子域是必需的，根域不受支持），然后提供主机名。  
    主機名稱是您的 Blob 服務端點。 其格式為 *\<mystorageaccount>.blob.core.windows.net*，其中 *mystorageaccount* 是您儲存體帳戶的名稱。 要使用的主機名稱會顯示在 [Azure 入口網站](https://portal.azure.com)之 [自訂網域] 窗格的項目 #1 中。 
 
 1. 在 [自訂網域] 窗格的文字方塊中，輸入您的自訂網域名稱 (包含子網域)。  
-   例如，如果您的網域*contoso.com*且子網域別名*www*，輸入**www\.contoso.com**。 若您的子網域為 *photos*，請輸入 **photos.contoso.com**。
+   例如，如果域是 *contoso.com*，子域别名是 *www*，请输入 **www\.contoso.com**。 若您的子網域為 *photos*，請輸入 **photos.contoso.com**。
 
 1. 若要註冊您的自訂網域，請選取 [儲存]。  
    如果註冊成功，入口網站就會通知您已順利更新您的儲存體帳戶。
@@ -116,7 +117,7 @@ ms.locfileid: "58112631"
    主機名稱是您的 Blob 服務端點。 其格式為 *asverify.\<mystorageaccount>.blob.core.windows.net*，其中 *mystorageaccount* 是您儲存體帳戶的名稱。 要使用的主機名稱會顯示在 [Azure 入口網站](https://portal.azure.com)之 [自訂網域] 窗格的項目 #2 中。
 
 1. 在 [自訂網域] 窗格的文字方塊中，輸入您的自訂網域名稱 (包含子網域)。  
-   不包含 *asverify*。 例如，如果您的網域*contoso.com*且子網域別名*www*，輸入**www\.contoso.com**。 若您的子網域為 *photos*，請輸入 **photos.contoso.com**。
+   不包含 *asverify*。 例如，如果域是 *contoso.com*，子域别名是 *www*，请输入 **www\.contoso.com**。 若您的子網域為 *photos*，請輸入 **photos.contoso.com**。
 
 1. 選取 [使用間接 CNAME 驗證] 核取方塊。
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497384"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141165"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>透過內部部署資料閘道連線至內部部署資料來源
 內部部署資料閘道在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了搭配相同區域中的多部 Azure Analysis Services 伺服器運作，最新版的閘道也可以搭配 Azure Logic Apps、Power BI、Power Apps 和 Microsoft Flow運作。 您可以讓相同訂用帳戶及相同區域中的多個服務與單一閘道建立關聯。 
@@ -176,30 +176,9 @@ ms.locfileid: "60497384"
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
-
 #### <a name="event-logs"></a>事件記錄
 
 您可以在 [應用程式及服務記錄] 底下找到資料管理閘道和 PowerBIGateway 記錄。
-
-
-## <a name="telemetry"></a>遙測
-遙測可應用在監視和疑難排解上。 依照預設
-
-**開啟遙測**
-
-1.  檢查電腦上的內部部署資料閘道用戶端目錄。 此目錄通常是 **%systemdrive%\Program Files\內部部署資料閘道**。 或者，您可以開啟 [服務] 主控台並查看可執行檔的路徑：內部部署資料閘道服務的一個屬性。
-2.  在來自用戶端目錄的 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 檔案中， 將 SendTelemetry 設定變更為 true。
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.  儲存您的變更，然後重新啟動 Windows 服務：內部部署資料閘道服務。
-
-
-
 
 ## <a name="next-steps"></a>後續步驟
 * [安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)。   

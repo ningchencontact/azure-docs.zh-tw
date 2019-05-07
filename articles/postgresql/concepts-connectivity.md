@@ -1,22 +1,22 @@
 ---
-title: 處理適用於 PostgreSQL 的 Azure 資料庫的暫時性連線錯誤
-description: 了解如何處理「適用於 PostgreSQL 的 Azure 資料庫」的暫時性連線錯誤。
+title: 處理暫時性連接錯誤的 Azure Database for PostgreSQL-單一伺服器
+description: 了解如何處理 Azure Database for PostgreSQL-單一伺服器暫時性連線錯誤。
 keywords: postgresql 連線, 連接字串, 連線問題, 暫時性錯誤, 連線錯誤
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: 264656da38608026e3f9e866e2184ff55ba102d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: ea90de612dcfb2559b29fbffce8306278beb45b9
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559875"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073520"
 ---
-# <a name="handling-of-transient-connectivity-errors-for-azure-database-for-postgresql"></a>處理適用於 PostgreSQL 的 Azure 資料庫的暫時性連線錯誤
+# <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-單一伺服器處理暫時性連接錯誤
 
-本文說明如何處理「適用於 PostgreSQL 的 Azure 資料庫」的暫時性錯誤。
+本文說明如何處理暫時性錯誤，連接到 Azure Database for PostgreSQL。
 
 ## <a name="transient-errors"></a>暫時性錯誤
 

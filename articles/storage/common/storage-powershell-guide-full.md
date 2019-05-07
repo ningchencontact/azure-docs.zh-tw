@@ -2,18 +2,18 @@
 title: 將 Azure PowerShell 與 Azure 儲存體搭配使用 | Microsoft Docs
 description: 了解如何使用 Azure 儲存體的 Azure PowerShell Cmdlet。
 services: storage
-author: roygara
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 08/16/2018
-ms.author: rogarana
+ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 78eeb986be5380d9e34a42872cbbdeee37654cc0
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 082033cebc68fc97f7cff9ce80eb02acbbf5f4b0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316985"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145886"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>搭配使用 Azure PowerShell 與 Azure 儲存體
 
@@ -199,7 +199,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 > 您可以使用 PowerShell 啟用分鐘分析。 這項功能無法使用於入口網站。
 >
 
-* 若要了解如何啟用和檢視儲存體度量資料，使用 PowerShell，請參閱[儲存體分析度量](storage-analytics-metrics.md)。
+* 若要了解如何使用 PowerShell 启用和查看存储指标数据，请参阅[存储分析指标](storage-analytics-metrics.md)。
 
 * 若要了解如何使用 PowerShell 啟用和擷取儲存體記錄的資料，請參閱[如何使用 PowerShell 啟用儲存體記錄](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)和[尋找儲存體記錄的記錄資料](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)。
 

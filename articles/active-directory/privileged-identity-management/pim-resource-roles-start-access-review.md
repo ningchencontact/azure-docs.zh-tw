@@ -1,6 +1,6 @@
 ---
-title: 開始在 PIM-Azure Active Directory 中的 Azure 資源角色的存取權檢閱 |Microsoft Docs
-description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中起始 Azure 資源角色的存取權檢閱。
+title: 在 PIM-Azure Active Directory 中建立 Azure 資源角色的存取權檢閱 |Microsoft Docs
+description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中建立 Azure 資源角色的存取權檢閱。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,69 +11,67 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 04/02/2018
+ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46903967b375d882dc3c7a62cd0b7f8b6059f8b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78e4de5bbc56f95c0e903b1dac4e8481373716f3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286989"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143546"
 ---
-# <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>在 PIM 中起始 Azure 資源角色的存取權檢閱
-當使用者擁有不再需要的特殊存取權時，角色指派就會變成「過時」。 若要降低與這些過時角色指派相關聯的風險，特殊權限角色管理員應該定期檢閱角色。 本文件涵蓋在 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 開始存取權檢閱的步驟。
+# <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>在 PIM 中建立 Azure 資源角色的存取權檢閱
 
-從 PIM 應用程式主頁面移至：
+隨時間變化的員工存取特殊權限的 Azure 資源角色。 若要減少過期的角色指派相關聯的風險，您應該定期檢閱存取權。 您可以使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 來建立 Azure 資源角色特殊權限的存取權檢閱。 您也可以設定週期性的存取權檢閱自動發生。
 
-* [存取權檢閱] > [新增]
+本文說明如何建立特殊權限的 Azure 資源角色的一或多個存取權檢閱。
 
-![新增存取權檢閱](media/azure-pim-resource-rbac/rbac-access-review-home.png)
+## <a name="prerequisites"></a>必要條件
 
-選取 [新增] 按鈕時，隨即會顯示 [建立存取權檢閱] 刀鋒視窗。 在此刀鋒視窗上，為檢閱設定名稱和時間限制、選擇要檢閱的角色，然後決定要由誰執行檢閱。
+- [特殊權限角色管理員](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-![建立存取權檢閱](media/azure-pim-resource-rbac/rbac-create-access-review.png)
+## <a name="open-access-reviews"></a>開啟存取權檢閱
 
-### <a name="configure-the-review"></a>設定檢閱
-若要建立存取權檢閱，請先為它命名，然後設定開始和結束日期。
+1. 登入[Azure 入口網站](https://portal.azure.com/)與使用者特殊權限角色管理員角色的成員。
 
-![設定檢閱 - 螢幕擷取畫面](media/azure-pim-resource-rbac/rbac-access-review-setting-1.png)
+1. 開啟 **Azure AD Privileged Identity Management**。
 
-為檢閱設定足夠的時間長度，以便讓使用者能夠完成檢閱。 如果在結束日期之前即完成檢閱，一律可以提早停止檢閱。
+1. 在左側功能表中，按一下**Azure 資源**。
 
-### <a name="choose-a-role-to-review"></a>選取要檢閱的角色
-每個檢閱只針對一個角色。 除非您是從特定的角色刀鋒視窗開始存取權檢閱，否則您現在必須選擇一個角色。
+1. 按一下您想要管理的資源，例如訂用帳戶或管理群組。
 
-1. 移至 [檢閱角色成員資格]
-   
-    ![檢閱角色成員資格 - 螢幕擷取畫面](media/azure-pim-resource-rbac/rbac-access-review-setting-2.png)
-2. 從清單中選擇一個角色。
+1. 管理 下按一下 **存取權檢閱**。
 
-### <a name="decide-who-will-perform-the-review"></a>決定將由誰執行檢閱
-執行檢閱的選項有三個。 您可以將檢閱指派給其他人來完成、可以自行進行檢閱，也可以由每個使用者檢閱自己的存取權。
+    ![Azure 資源的存取權檢閱](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
-1. 選擇其中一個選項：
-   
-   * **選取的使用者**：如果您不知道誰需要存取權，請使用此選項。 使用此選項，您可以指派資源擁有者或群組管理員完成檢閱。
-   * **已指派 (自我)**：若要讓使用者檢閱自己的角色指派，請使用此選項。
-   
-2. 移至 [選取檢閱者]。
-   
-    ![選取檢閱者 - 螢幕擷取畫面](media/azure-pim-resource-rbac/rbac-access-review-setting-3.png)
 
-### <a name="start-the-review"></a>開始檢閱
-最後，您可以要求使用者提供核准存取權的原因。 依喜好新增檢閱描述。 然後，選取 [開始]。
+[!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
 
-請確定讓使用者知道有等待他們執行的存取權檢閱，並示範[如何執行存取權檢閱](pim-resource-roles-perform-access-review.md)。
+
+## <a name="start-the-access-review"></a>開始存取權檢閱
+
+在指定存取權檢閱的設定後，請按一下 [啟動]。 存取權檢閱會出現在您的清單，其中包含其狀態的指標。
+
+![存取權檢閱清單](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
+
+依預設，Azure AD 會在檢閱開始不久後傳送電子郵件給檢閱者。 如果您選擇不讓 Azure AD 傳送電子郵件，請務必通知檢閱者有存取權檢閱等待他們完成。 您可以提供他們如何指示[檢閱存取權的 Azure 資源角色](pim-resource-roles-perform-access-review.md)。
 
 ## <a name="manage-the-access-review"></a>管理存取權檢閱
-當檢閱者完成其檢閱時，您可以在 [PIM Azure 資源] 儀表板追蹤進度。 在[完成檢閱](pim-resource-roles-complete-access-review.md)之前，不會變更目錄中的任何存取權限。
 
-在檢閱期間結束之前，您都可以提醒使用者完成其檢閱，或是從 [存取權檢閱] 區段提前停止檢閱。
+當檢閱者完成其檢閱，您可以追蹤進度**概觀**的存取權檢閱 頁面。 在之前的目錄中變更任何存取權限[完成檢閱](pim-resource-roles-complete-access-review.md)。
+
+![存取權檢閱進度](./media/pim-resource-roles-start-access-review/access-review-overview.png)
+
+如果這是一次性的檢閱，然後存取權檢閱期間結束後或系統管理員停止存取權檢閱之後, 請依照下列中的步驟[完成 Azure 資源角色的存取權檢閱](pim-resource-roles-complete-access-review.md)來查看並套用結果。  
+
+若要管理一系列的存取權檢閱，瀏覽至 [存取權檢閱，和您將即將推出的項目中尋找已排程檢閱和編輯的結束日期] 或新增/移除檢閱者據以。
+
+根據您的選取項目，在**當設定完成時**，將會自動套用檢閱的結束日期，或當您以手動方式停止檢閱之後執行。 檢閱的狀態將會變更**已完成**歷經中繼狀態，例如**套用**最後狀態**套用**。 您應該會看到拒絕的使用者，如果有的話，在幾分鐘內從角色移除。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [在 PIM 中完成 Azure 資源角色的存取權檢閱](pim-resource-roles-complete-access-review.md)
-- [在 PIM 中執行 Azure 資源角色的存取權檢閱](pim-resource-roles-perform-access-review.md)
-- [在 PIM 中啟動 Azure AD 角色的存取權檢閱](pim-how-to-start-security-review.md)
+- [檢閱存取權的 Azure 資源角色](pim-resource-roles-perform-access-review.md)
+- [完成 Azure 資源角色的存取權檢閱](pim-resource-roles-complete-access-review.md)
+- [建立 Azure AD 角色的存取權檢閱](pim-how-to-start-security-review.md)

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468375"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142869"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>針對 Windows 的 azure 監視虛擬機器擴充功能
 
@@ -32,7 +32,10 @@ Azure 監視器記錄檔會提供跨雲端和內部部署資產的監視功能�
 
 ### <a name="operating-system"></a>作業系統
 
-適用於 Windows 的 Log Analytics 代理程式擴充功能可以在 Windows Server 2008 R2、2012、2012 R2 及 2016 版本上執行。
+Windows 的 Log Analytics 代理程式擴充功能支援下列版本的 Windows 作業系統：
+
+- Windows Server 2019
+- Windows Server 2008 R2、2012、2012 R2、2016，版本 1709 和 1803
 
 ### <a name="azure-security-center"></a>Azure 資訊安全中心
 
@@ -43,7 +46,7 @@ Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並將它�
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
-下列 JSON 顯示 Log Analytics 代理程式擴充功能的結構描述。 此擴充功能需要來自目標 Log Analytics 工作區的工作區識別碼和工作區金鑰。 在 Azure 入口網站中工作區的設定中可找到這些項目。 由於工作區金鑰應視為敏感性資料，因此應儲存在受保護的設定組態中。 Azure VM 擴充功能保護的設定資料會經過加密，只會在目標虛擬機器上解密。 請注意，**workspaceId** 和 **workspaceKey** 區分大小寫。
+下列 JSON 顯示 Log Analytics 代理程式擴充功能的結構描述。 此擴充功能需要來自目標 Log Analytics 工作區的工作區金鑰與工作區識別碼。 在 Azure 入口網站中工作區的設定中可找到這些項目。 由於工作區金鑰應視為敏感性資料，因此應儲存在受保護的設定組態中。 Azure VM 擴充功能保護的設定資料會經過加密，只會在目標虛擬機器上解密。 請注意，**workspaceId** 和 **workspaceKey** 區分大小寫。
 
 ```json
 {
@@ -84,6 +87,9 @@ Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並將它�
 ## <a name="template-deployment"></a>範本部署
 
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 上一節中詳述的 JSON 結構描述可在部署 Azure Resource Manager 範本期間，在 Azure Resource Manager 範本中用來執行 Log Analytics 代理程式擴充功能。 在 [Azure 快速入門資源庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm) \(英文\) 上可以找到包含 Log Analytics 代理程式 VM 擴充功能的範例範本。 
+
+>[!NOTE]
+>範本不支援指定多個工作區識別碼和工作區金鑰，當您想要設定多個工作區回報的代理程式。 若要設定多個工作區回報的代理程式，請參閱[新增或移除工作區](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace)。  
 
 虛擬機器擴充功能的 JSON 可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources)。 
 

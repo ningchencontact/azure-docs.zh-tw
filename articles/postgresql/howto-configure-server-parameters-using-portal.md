@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 0d0626c48ecebdead604aab93ab0602c698d0d77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed19083c6a4245a1b4bf7af166ae965d956c9e37
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421365"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067125"
 ---
-# <a name="configure-server-parameters-in-azure-portal"></a>在 Azure 入口網站中設定伺服器參數
+# <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>設定 Azure Database for PostgreSQL-透過 Azure 入口網站的單一伺服器伺服器參數 
 您可以透過 Azure 入口網站列出、顯示、更新適用於 PostgreSQL 的 Azure 資料庫伺服器的設定參數。
 
 ## <a name="prerequisites"></a>必要條件

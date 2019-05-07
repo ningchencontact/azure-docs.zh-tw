@@ -12,18 +12,20 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb628358c91d80a3117b065cadb284fd1665daa3
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573377"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073674"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database 術語詞彙
 
 |Context|詞彙|詳細資訊|
 |:---|:---|:---|
 |Azure 服務名稱|Azure SQL Database 或 SQL Database|[Azure SQL Database 服務](sql-database-technical-overview.md)|
+|計算層|無伺服器 （預覽）|[無伺服器計算層](sql-database-serverless.md)
+||已佈建|[無伺服器計算層](sql-database-serverless.md)
 |部署選項 |單一資料庫|[單一資料庫](sql-database-single-database.md)|
 ||彈性集區|[彈性集區](sql-database-elastic-pool.md)|
 ||受控執行個體|[受控執行個體](sql-database-managed-instance.md)|

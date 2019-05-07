@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657555"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141082"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>使用 OAuth 2.0 搭配 Azure Active Directory 與 API 管理來保護 API
 
@@ -44,7 +44,7 @@ ms.locfileid: "60657555"
 
 若要使用 Azure AD 保護 API，第一個步驟是在 Azure AD 中註冊一個應用程式來代表 API。 
 
-1. 瀏覽至您的 Azure AD 租用戶，然後瀏覽至 [應用程式註冊]。
+1. 瀏覽至您的 Azure AD 租用戶，並瀏覽至**應用程式註冊 （舊版）**。
 
 2. 選取 [新增應用程式註冊]。 
 
@@ -62,7 +62,7 @@ ms.locfileid: "60657555"
 
 每個呼叫 API 的用戶端應用程式也必須在 Azure AD 中註冊為應用程式。 在此範例中，範例用戶端應用程式是 API 管理開發人員入口網站中的開發人員主控台。 以下說明如何在 Azure AD 中註冊另一個應用程式，來代表開發人員主控台。
 
-1. 選取 [新增應用程式註冊]。 
+1. 當您在**應用程式註冊 （傳統）**，選取**新的應用程式註冊**。 
 
 2. 提供應用程式的名稱。 (此範例中，名稱為 `client-app`。)
 
@@ -86,7 +86,7 @@ ms.locfileid: "60657555"
 
 現在您已註冊兩個應用程式來代表 API 和開發人員主控台，您需要授與權限，允許用戶端應用程式呼叫後端應用程式。  
 
-1. 瀏覽至 [應用程式註冊]。 
+1. 瀏覽至**應用程式註冊 （舊版）**。 
 
 2. 選取 `client-app` 並移至 [設定]。
 

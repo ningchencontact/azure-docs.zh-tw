@@ -1,21 +1,19 @@
 ---
-title: 在適用於 PostgreSQL 的 Azure 資料庫伺服器中建立使用者
-description: 本文說明如何建立新的使用者帳戶，來與「適用於 PostgreSQL 的 Azure 資料庫」伺服器互動。
-author: WenJason
-ms.author: v-jay
-editor: jasonwhowell
+title: Azure 資料庫中建立使用者，適用於 PostgreSQL-單一伺服器
+description: 本文說明如何建立新的使用者帳戶，以互動的 Azure Database for PostgreSQL-單一伺服器。
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 33c107c46b314136fa3d43f8e7881e096afa374c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: ce6188732720bc43c5849fa492237c7ab98487c6
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422265"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067505"
 ---
-# <a name="create-users-in-azure-database-for-postgresql-server"></a>在適用於 PostgreSQL 的 Azure 資料庫伺服器中建立使用者 
+# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Azure 資料庫中建立使用者，適用於 PostgreSQL-單一伺服器
 本主題說明如在「適用於 PostgreSQL 的 Azure 資料庫」伺服器中建立使用者。
 
 ## <a name="the-server-admin-account"></a>伺服器管理帳戶
@@ -74,7 +72,7 @@ PostgreSQL 引擎會使用權限來控制資料庫物件的存取，如 [Postgre
 5. 指定委派的資料庫，使用新的使用者名稱和密碼來登入伺服器。 此範例會顯示 psql 命令列。 執行此命令時，系統會提示您輸入使用者名稱的密碼。 取代您自己的伺服器名稱、資料庫名稱和使用者名稱。
 
    ```azurecli-interactive
-   psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=db_user@mydemoserver --dbname=newdb
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 
 ## <a name="next-steps"></a>後續步驟

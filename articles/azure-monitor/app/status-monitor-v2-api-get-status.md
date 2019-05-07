@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1553bede87aab118b1fdddae20201a5d283a7b24
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 2a8ab0d22321be0095743228463ac859925f0847
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870458"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147507"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v021-alpha"></a>狀態監視器 v2 API:Get-ApplicationInsightsMonitoringStatus (v0.2.1-alpha)
 
@@ -129,3 +129,7 @@ listdlls64.exe -accepteula w3wp
 可选。 只能與 InspectProcess 搭配使用。 此參數會略過使用者提示，若要下載的其他工具。
 
 
+## <a name="next-steps"></a>後續步驟
+
+ 進一步運用狀態監視器 v2:
+ - 使用我們的指南，來[疑難排解](status-monitor-v2-troubleshoot.md)狀態監視器 v2。

@@ -6,25 +6,25 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bf783c988c0163fe562669a8331c332dbf8d535e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61067320"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070858"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>在 Azure 容器執行個體中針對常見問題進行疑難排解
 
-本文說明如何針對管理或將容器部署到 Azure 容器執行個體的常見問題，進行疑難排解。
+本文說明如何針對管理或將容器部署到 Azure 容器執行個體的常見問題，進行疑難排解。 另請參閱[常見問題集](container-instances-faq.md)。
 
 ## <a name="naming-conventions"></a>命名慣例
 
 定義您的容器規格時，特定參數需要遵循命名限制。 以下資料表具有容器群組屬性的特定需求。 如需 Azure 命名慣例的詳細資訊，請參閱 Azure Architecture Center 中的[命名慣例][azure-name-restrictions]。
 
-| 影響範圍 | 長度 | 大小寫 | 有效字元 | 建議模式 | 範例 |
+| `Scope` | 長度 | 大小寫 | 有效字元 | 建議模式 | 範例 |
 | --- | --- | --- | --- | --- | --- |
 | 容器群組名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | 容器名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
@@ -46,11 +46,7 @@ ms.locfileid: "61067320"
 }
 ```
 
-部署以半年通道 (SAC) 版本為基礎的 Windows 映像時，最常發生此錯誤。 比方說，Windows 1709 和 1803 版都是 SAC 版本，並且會在部署時產生此錯誤。
-
-Azure 容器執行個體目前僅支援以 **Windows Server 2016 長期維護通道 (LTSC)** 版本為基礎的 Windows 映像。 若要解決部署 Windows 容器時發生的這個問題，請一律部署以 Windows Server 2016 (LTSC) 為基礎的映像。 不支援以 Windows Server 2019 (LTSC) 為基礎的映像。
-
-如需 Windows LTSC 和 SAC 版的詳細資訊，請參閱 [Windows Server 半年通道概觀][windows-sac-overview]。
+最常在部署 Windows 映像為基礎的半年通道發行 1709年或 1803，不支援時，會發生此錯誤。 在 Azure Container Instances 中有超過支援的 Windows 映像，請參閱 <<c0> [ 常見問題集](container-instances-faq.md#what-windows-base-os-images-are-supported)。
 
 ## <a name="unable-to-pull-image"></a>無法提取映像
 
@@ -102,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -156,7 +152,7 @@ az container create -g myResourceGroup --name mywindowsapp --os-type Windows --i
 * [映像大小](#image-size)
 * [映像位置](#image-location)
 
-Windows 映像會有[其他考量](#cached-windows-images)。
+Windows 映像會有[其他考量](#cached-images)。
 
 ### <a name="image-size"></a>映像大小
 
@@ -176,14 +172,12 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 另一種可在容器啟動階段降低對於映像提取作業影響的方式，是在您想要部署容器執行個體的相同區域中，將容器映像裝載在 [Azure Container Registry](/azure/container-registry/) 中。 這種方式會縮短容器映像需要經過的網路路徑，從而大幅縮短下載時間。
 
-### <a name="cached-windows-images"></a>快取的 Windows 映像
+### <a name="cached-images"></a>快取的映像
 
-Azure 容器執行個體使用的快取機制，來協助加快容器啟動時間，針對常見的 Windows 和 Linux 映像為基礎的映像。 如需快取的映像和標籤的詳細清單，請使用[列出快取映像][ list-cached-images] API。
+Azure 容器執行個體使用的快取機制來協助加快容器啟動時間，針對根據常見的映像[Windows 基本映像](container-instances-faq.md#what-windows-base-os-images-are-supported)，包括`nanoserver:1809`， `servercore:ltsc2019`，和`servercore:1809`。 常用 Linux 映像的這類`ubuntu:1604`和`alpine:3.6`也會快取。 對於快取的映像和標籤的最新清單，使用[列出快取映像][ list-cached-images] API。
 
-若要確保擁有最快速的 Windows 容器啟動時間，請在以下**兩個映像**的**最新三個**版本中選一個作為基礎映像：
-
-* [Windows Server Core 2016] [ docker-hub-windows-core] (只有 LTSC)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> 使用 Azure Container Instances 中的 Windows Server 2019 型映像處於預覽狀態。
 
 ### <a name="windows-containers-slow-network-readiness"></a>Windows 容器會降低網路整備速度
 

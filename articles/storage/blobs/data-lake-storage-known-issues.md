@@ -6,91 +6,69 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 51230fe050c67253dd5b2bb3f23d03512df64ef6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 61d168a5f501923812db5945fa6df439ae7e70f9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939264"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145097"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知問題
 
-本文包含 Data Lake Storage Gen2 的已知问题和临时限制。
+本文列出的功能和工具尚不支援或僅部分支援且具有階層式命名空間 (Azure Data Lake 儲存體 Gen2) 的儲存體帳戶。
 
-## <a name="sdk-support-for-data-lake-storage-gen2-accounts"></a>针对 Data Lake Storage Gen2 帐户的 SDK 支持
-
-没有可用于 Data Lake Storage Gen2 帐户的 SDK。
+<a id="blob-apis-disabled" />
 
 ## <a name="blob-storage-apis"></a>Blob 儲存體 API
 
-Data Lake Storage Gen2 帐户尚不能使用 Blob 存储 API。
+Blob 儲存體 Api 會停用，以避免不小心的資料存取問題，因為 Blob 儲存體 Api 尚無法使用 Azure Data Lake Gen2 Api 互通，就會發生。
 
-這些 API 已停用以防止可能引發的意外資料存取問題，因為 Blob 儲存體 API 還不能與 Azure Data Lake Gen2 API 互通。
+### <a name="what-to-do-with-existing-tools-applications-and-services"></a>該如何處理現有的工具、 應用程式和服務
+
+如果任一這些使用 Blob 的 Api，以及您想要使用它們來處理所有的內容，您將上傳至您的帳戶，然後不在您的 Blob 儲存體帳戶上的階層式命名空間之前啟用 Blob Api 即可與 Azure Data Lake Gen2 Api 互通。
+
+使用儲存體帳戶不具有階層式命名空間表示則不需要存取 Data Lake 儲存體 Gen2 特定功能，例如目錄和檔案系統存取控制清單。
+
+### <a name="what-to-do-with-unmanaged-virtual-machine-vm-disks"></a>該如何處理虛擬機器 (VM) 的非受控磁碟
+
+這些取決於已停用的 Blob 儲存體 Api，因此如果您想要啟用階層式的命名空間，儲存體帳戶，請考慮將它們放入儲存體帳戶不具有已啟用 「 階層式命名空間功能。
+
+### <a name="what-to-do-if-you-used-blob-apis-to-load-data-before-blob-apis-were-disabled"></a>如果您使用 Blob Api 來載入資料，Blob Api 已停用之前，該怎麼辦
 
 如果您在 API 停用之前已使用這些 API 載入資料，而且您有存取該資料的實際需求，請透過下列資訊連絡 Microsoft 支援服務：
 
-* 訂用帳戶識別碼 (GUID，而不是名稱)
-
-* 儲存體帳戶名稱
-
-* 您是否在生產環境中受到影響，如果受影響，是哪些儲存體帳戶？
-
-* 即使您不會在生產環境中受到影響，也請告訴我們是否基於某些原因而需要這些資料複製到另一個儲存體帳戶，如果是，為什麼？
+> [!div class="checklist"]
+> * 訂用帳戶識別碼 （GUID，而不是名稱）。
+> * 儲存體帳戶名稱。
+> * 是否生產環境中，會主動受到影響，以及如果是這樣，哪些儲存體帳戶嗎？
+> * 即使您不會在生產環境中受到影響，也請告訴我們是否基於某些原因而需要這些資料複製到另一個儲存體帳戶，如果是，為什麼？
 
 在這些情況下，我們可以在一段有限的時間內還原 Blob API 的存取，以便您可以將這些資料複製到未啟用階層命名空間功能的儲存體帳戶。
 
-非受控虛擬機器 (VM) 磁碟仰賴停用的 Blob 儲存體 API，因此如果您要在儲存體帳戶上啟用階層命名空間，請考慮將非受控 VM 磁碟放入沒有啟用階層命名空間功能的儲存體帳戶。
+## <a name="all-other-features-and-tools"></a>所有其他功能和工具
 
-## <a name="api-interoperability"></a>API 互通性
+下表列出所有其他功能與工具，尚不支援或僅部分支援且具有階層式命名空間 (Azure Data Lake 儲存體 Gen2) 的儲存體帳戶。
 
-Blob 儲存體 API 和 Azure Data Lake Gen2 API 無法彼此互通。
+| 功能 / 工具    | 詳細資訊    |
+|--------|-----------|
+| **Data Lake 儲存體 Gen2 儲存體帳戶的 Api** | 部分支援 <br><br>您可以使用 Data Lake 儲存體 Gen2 **REST** Api，但 Api，例如.NET、 Java、 Python Sdk 的其他 Blob Sdk 中尚無法使用。|
+| **AzCopy** | 特定版本的支援 <br><br>使用最新版的 AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json))。 不支援例如 AzCopy v8.1，舊版的 AzCopy。|
+| **Azure Blob 儲存體生命週期管理原則** | 尚不支援 |
+| **Azure 內容傳遞網路 (CDN)** | 尚不支援|
+| **Azure 搜尋服務** |尚不支援|
+| **Azure 儲存體總管** | 特定版本的支援 <br><br>使用唯一版本`1.6.0`或更高版本。 <br>版本`1.6.0`可從[免費下載](https://azure.microsoft.com/features/storage-explorer/)。|
+| **Blob 容器的 Acl** |尚不支援|
+| **Blobfuse** |尚不支援|
+| **自訂網域** |尚不支援|
+| **診斷記錄** |尚不支援|
+| **檔案系統總管** | 有限的支援 |
+| **不可變的儲存體** |尚不支援 <br><br>不可變的儲存體可讓資料儲存在[蠕蟲 （寫入一次，多次讀取）](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)狀態。|
+| **物件層級層** |尚不支援 <br><br>例如︰Premium、 經常性存取、 冷的、 和封存層。|
+| **Powershell 和 CLI 的支援** | 有限的功能 <br><br>您可以使用 Powershell 或 CLI 來建立帳戶。 您無法執行作業，或在檔案系統、 目錄和檔案上設定存取控制清單。|
+| **靜態網站** |尚不支援 <br><br>具體來說，能夠提供檔案[靜態網站](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)。|
+| **協力廠商應用程式** | 有限的支援 <br><br>使用 REST Api 來運作的協力廠商應用程式會繼續運作，如果您使用 Data Lake 儲存體 Gen2。 <br>如果您有使用 Blob Api 的應用程式時，該應用程式很可能會有問題如果您使用該應用程式與 Data Lake 儲存體 Gen2。 若要進一步了解，請參閱[Blob 儲存體的 Data Lake 儲存體 Gen2 儲存體帳戶已停用 Api](#blob-apis-disabled)一節。|
+| **版本控制功能** |尚不支援 <br><br>這包括[快照集](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)並[虛刪除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)。|
+|
 
-如果您具有使用 Blob API 的工具、應用程式、服務或指令碼，而想要使用它們來處理上傳至帳戶的所有內容，則在 Blob API 與 Azure Data Lake Gen2 API 已可交互作用之前，請勿在 Blob 儲存體帳戶上啟用階層命名空間。 使用儲存體帳戶不具有階層式命名空間表示則不需要存取 Data Lake 儲存體 Gen2 特定功能，例如目錄和檔案系統存取控制清單。
-
-## <a name="azure-storage-explorer"></a>Azure 儲存體總管
-
-若要檢視或使用 Azure 儲存體總管來管理 Data Lake Storage Gen2 帳戶，您至少必須有版本 `1.6.0` 的工具，這個版本可供[免費下載](https://azure.microsoft.com/features/storage-explorer/)。
-
-請注意，內嵌至 Azure 入口網站的儲存體總管的版本不在目前不支援檢視或管理 Data Lake 儲存體 Gen2 帳戶已啟用階層式命名空間功能。
-
-## <a name="blob-viewing-tool"></a>Blob 檢視工具
-
-Azure 门户中的 Blob 查看工具仅为 Data Lake Storage Gen2 提供有限的支持。
-
-## <a name="third-party-applications"></a>協力廠商應用程式
-
-第三方应用程序可能不支持 Data Lake Storage Gen2。
-
-支援是由每個協力廠商應用程式提供者自行決定是否提供。 目前，Blob 存储 API 和 Data Lake Storage Gen2 API 不可用于管理相同的内容。 由于我们正在努力实现这种互操作性，有可能许多第三方工具将自动支持 Data Lake Storage Gen2。
-
-## <a name="azcopy-support"></a>AzCopy 支援
-
-AzCopy 版本 8 不支持 Data Lake Storage Gen2。
-
-请改用 AzCopy 的最新预览版 ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json))，因为它支持 Data Lake Storage Gen2 终结点。
-
-## <a name="azure-event-grid"></a>Azure Event Grid
-
-[Azure 事件格線](https://azure.microsoft.com/services/event-grid/)不會接收來自 Azure Data Lake Gen2 帳戶的事件，因為那些帳戶還不會產生事件。  
-
-## <a name="soft-delete-and-snapshots"></a>虛刪除和快照集
-
-软删除和快照不适用于 Data Lake Storage Gen2 帐户。
-
-所有的版本控制功能 (包括[快照集](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)和[虛刪除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)) 都還無法提供給啟用階層命名空間功能的儲存體帳戶使用。
-
-## <a name="object-level-storage-tiers"></a>物件層級儲存層
-
-物件層級儲存層 (經常性、非經常性和封存) 都還無法提供給 Azure Data Lake Storage Gen 2 帳戶使用，但它們可提供給未啟用階層命名空間功能的儲存體帳戶使用。
-
-## <a name="azure-blob-storage-lifecycle-management-policies"></a>Azure Blob 儲存體生命週期管理原則
-
-Azure Blob 儲存體生命週期管理原則尚未適用於 Data Lake 儲存體 Gen2 帳戶。
-
-這些原則可提供給未啟用階層命名空間功能的儲存體帳戶使用。
-
-## <a name="diagnostic-logs"></a>診斷記錄
-
-诊断日志不适用于 Data Lake Storage Gen2 帐户。

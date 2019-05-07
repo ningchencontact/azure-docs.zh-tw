@@ -13,184 +13,187 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2f0956b44d6df64fb73e5eee7844574237d8755
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60352791"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067641"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>在 Azure AD Connect 中修复已修改的默认规则
 
-Azure AD Connect 随附了有关同步的默认规则。  遗憾的是，这些规则并非普遍适用于所有组织，有时，你可能需要根据要求修改某些规则。
-
- 如果你修改了默认规则或打算进行修改，请花片刻时间阅读本文档。
-
-本文档将提供 2 个示例用于演示用户执行的最常见自定义操作，并说明如何正确实现这些自定义。
+Azure Active Directory (Azure AD) Connect 會使用預設規則的同步處理。  不幸的是，這些規則都不適用於所有的組織。 根據您的需求，您可能需要加以修改。 這篇文章討論最常見的自訂項目，兩個範例，並說明完成這些自訂的正確方式。
 
 >[!NOTE] 
-> 不支持通过修改现有默认规则来实现所需的自定义 - 这会导致无法将这些规则更新到将来发行版中的最新规则版本， 并且无法获取所需的 bug 修复和新功能。  本文档将介绍在不修改现有默认规则的情况下，如何实现相同的结果。 
+> 不支援修改現有的預設規則，以達到所需的自訂。 如果您這樣做，它會防止在未來更新為最新版本的這些規則會釋放。 您無法取得您需要 bug 修正或新功能。 本文件說明如何達成相同的結果，而不需修改現有的預設規則。 
 
-## <a name="how-to-identify-modified-default-rules"></a>如何识别已修改的默认规则？
-从 **Azure AD Connect** 版本 1.3.7.0 开始，可能很容易地识别已修改的默认规则。 可以转到桌面上的“应用”，并单击“同步规则编辑器”。
+## <a name="how-to-identify-modified-default-rules"></a>如何找出修改過的預設規則
+從 Azure AD connect 的 1.3.7.0 版開始，很容易識別修改過的預設規則。 移至**桌面上的應用程式**，然後選取**同步處理規則編輯器**。
 
-![编辑器](media/how-to-connect-fix-default-rules/default1.png)
+![Azure AD Connect，反白顯示的同步處理規則編輯器](media/how-to-connect-fix-default-rules/default1.png)
 
-在编辑器中，任何已修改默认规则的名称前面会显示一个图标，如下所示：
+在編輯器中，會顯示警告圖示名稱前面的任何修改過的預設規則。
 
-![icon](media/how-to-connect-fix-default-rules/default2.png)
+![警告圖示](media/how-to-connect-fix-default-rules/default2.png)
 
- 此外，该规则的旁边会显示一个同名的已禁用规则，它是标准的默认规则：
+ 已停用規則具有相同名稱旁邊也會出現 （這是標準的預設規則）。
 
-![默认规则](media/how-to-connect-fix-default-rules/default2a.png)
+![同步處理規則編輯器，顯示標準的預設規則，並已修改的預設規則](media/how-to-connect-fix-default-rules/default2a.png)
 
 ## <a name="common-customizations"></a>常见自定义操作
 下面是对默认规则执行的常见自定义操作：
 
-- [變更屬性流程](#changing-attribute-flow)
-- [變更範圍篩選器](#changing-scoping-filter)
-- [變更聯結條件](#changing-join-condition)
+- 變更屬性流程
+- 變更範圍篩選器
+- 變更聯結條件
 
-## <a name="before-changing-any-rules"></a>更改任何规则之前
-- 禁用同步计划程序。  默认情况下，计划程序每隔 30 分钟运行一次。 確保在進行變更時排程器未啟動，並疑難排解您的新規則。 若要暫時停用排程器，請啟動 PowerShell，然後執行 `Set-ADSyncScheduler -SyncCycleEnabled $false`。
- ![預設規則](media/how-to-connect-fix-default-rules/default3.png)
+之前，您要變更任何規則：
 
-- 更改范围筛选器可能会导致删除目标目录中的对象。 在对对象范围进行任何更改之前请保持谨慎。 建议先对暂存服务器进行更改，然后再对活动服务器进行更改。
-- 添加任何新规则之后，请根据[验证同步规则](#validate-sync-rule)部分所述，对单个对象运行预览。
-- 添加新规则或修改任何自定义同步规则之后，请运行完全同步。 这种同步会将新规则应用到所有对象。
+- 禁用同步计划程序。 默认情况下，计划程序每隔 30 分钟运行一次。 請確定未啟動，而您要進行變更，並疑難排解您的新規則。 若要暫時停用排程器，啟動 PowerShell，然後執行`Set-ADSyncScheduler -SyncCycleEnabled $false`。
+ ![若要停用同步排程器的 PowerShell 命令](media/how-to-connect-fix-default-rules/default3.png)
 
-## <a name="changing-attribute-flow"></a>更改属性流
-属性流有 3 种不同的方案。让我们了解在不更改标准默认规则的情况下如何实现这些方案。
-- 添加新属性
-- 替代现有属性的值
-- 不同步现有属性
+- 範圍篩選器中的變更可能會導致刪除目標目錄中的物件。 請小心在領域的物件進行任何變更之前。 我們建議您到預備伺服器進行變更，再使用中伺服器上進行變更。
+- 單一物件上執行預覽，如中所述[驗證同步處理規則](#validate-sync-rule)區段中，新增任何新的規則之後。
+- 執行完整同步處理之後加入新規則，或修改任何自訂的同步處理規則。 此同步處理會將新的規則套用到所有物件。
 
-### <a name="adding-new-attribute"></a>添加新属性：
-如果你发现某个属性不会从源目录流向目标目录，可以使用 [Azure AD Connect 同步：目录扩展](how-to-connect-sync-feature-directory-extensions.md)来流送新属性。
+## <a name="change-attribute-flow"></a>變更屬性流程
+有三種不同的案例，變更屬性流程：
+- 加入新屬性。
+- 覆寫現有屬性的值。
+- 選擇不進行同步處理現有的屬性。
 
-请注意，首要做法应该是使用 [Azure AD Connect 同步：目录扩展](how-to-connect-sync-feature-directory-extensions.md)，这是 Azure AD Connect 提供的现成功能。 但是，如果这种做法不起作用，请执行以下步骤，以便在不修改现有标准默认同步规则的情况下流送属性。为此，可以添加两个新的同步规则。
+您可以執行這些而不需要變更標準的預設規則。
+
+### <a name="add-a-new-attribute"></a>新增屬性
+如果您發現從來源目錄，不會將屬性流動的目標目錄，請使用[Azure AD Connect 同步：目錄擴充](how-to-connect-sync-feature-directory-extensions.md)要修正此問題。
+
+如果延伸模組不適合您，請嘗試加入兩個新的同步處理規則，下列各節所述。
 
 
-#### <a name="add-an-inbound-sync-rule"></a>添加入站同步规则：
-在入站同步规则中，属性的源是连接器空间，目标是 Metaverse。 例如，若要将本地 Active Directory 中的某个新属性流送到 Azure Active Directory，请创建一个新的入站同步规则，方法是启动“同步规则编辑器”，选择“入站”作为方向，然后单击“添加新规则”。 
+#### <a name="add-an-inbound-sync-rule"></a>新增輸入同步處理規則
+輸入同步處理規則表示屬性的來源是連接器空間，而且目標會在 metaverse。 比方說，有新的屬性流程從內部部署 Active Directory 以 Azure Active Directory 中，建立新的輸入同步處理規則。 啟動**同步處理規則編輯器**，選取**Inbound**作為方向，然後選取**新增規則**。 
 
- ![默认规则](media/how-to-connect-fix-default-rules/default3a.png)
+ !同步處理規則 Editor](media/how-to-connect-fix-default-rules/default3a.png)
 
-根据自己的命名约定为规则命名，此处我们使用了 **Custom In from AD - User**，表示该规则是自定义规则，并且是从 AD 连接器空间到 Metaverse 的入站规则。   
+請遵循您自己的命名慣例來命名規則。 在這裡，我們使用**自訂時間 In from AD-使用者**。 這表示規則是一個自訂的規則，而且是從 Active Directory 連接器空間到 metaverse 的輸入的規則。   
 
- ![默认规则](media/how-to-connect-fix-default-rules/default3b.png)
+ ![建立輸入同步處理規則](media/how-to-connect-fix-default-rules/default3b.png)
 
-提供規則的描述，讓未來的維護的規則很容易的此規則的目標為何，和需要原因等。
-選取 已連線系統 （樹系） 的屬性來源。 然後，選取的連線系統物件類型及 Metaverse 物件類型。
+提供您自己的規則，描述，以便未來維護的規則很簡單。 例如，描述可以根據規則的目標為何，以及為何需要它。
 
-指定優先順序值介於 0 – 99 （較低的數字，較高優先順序）。 将其他字段（例如“标记”、“启用密码同步”和“已禁用”）保留默认值。
+讓您選取項目**已連線系統**，**連線系統物件類型**，並**Metaverse 物件類型**欄位。
 
-将“范围筛选器”保留为空，表示该规则将应用到在 AD 联网系统与 Metaverse 之间联接的所有对象。
+指定從 0 到 99 的優先順序值 (較低數字，最高優先順序)。 針對**標記**，**啟用密碼同步處理**，並**已停用**欄位中，使用預設的選取項目。
 
-将“联接规则”保留为空，表示此规则将以标准默认规则中定义的联接条件为依据。 这是不禁用/删除标准默认规则的另一个原因，因为如果没有可依据的联接条件，则属性不会流动。 
+保持**範圍設定篩選**空白。 這表示，此規則會套用至所有物件加入 Active Directory 已連線系統和 metaverse 之間。
 
-为属性添加适当的转换。可以分配常量用于将常量值流送到目标属性、在源或目标属性之间进行定向映射，或者对属性使用表达式。 下面是可以使用的各种[表达式函数](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference)。
+保持**聯結規則**空白。 這表示此規則會使用標準的預設規則中所定義的聯結條件。 這是不能停用或刪除標準的預設規則的另一個原因。 如果沒有任何聯結條件，將不會流向屬性。 
 
-#### <a name="add-an-outbound-sync-rule"></a>添加出站同步规则：
-到目前为止，我们只是添加了一个入站同步规则，而没有将属性链接到目标目录，因此工作只完成了一半。 若要将属性链接到目标目录，需要创建一个出站规则，其中的源是 Metaverse，目标是联网系统。 若要创建出站规则，请启动“同步规则编辑器”，将“方向”更改为“出站”，然后单击“添加新规则”。 
+新增適當的轉換屬性。 您可以指派要做為常數的常數，值流向您的目標屬性。 您可以使用的來源或目標屬性之間的直接對應。 或者，您可以使用運算式的屬性。 下面是可以使用的各种[表达式函数](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference)。
 
-![默认规则](media/how-to-connect-fix-default-rules/default3c.png)
+#### <a name="add-an-outbound-sync-rule"></a>新增輸出同步處理規則
+若要連結到目標目錄的屬性，您需要建立輸出規則。 這表示來源是 metaverse，而且目標是連接的系統。 若要建立輸出規則，請啟動**同步處理規則編輯器**，變更**方向**來**輸出**，然後選取**新增規則**. 
 
-与在入站规则中一样，可以使用自己的命名约定来为规则**命名**。 选择“Azure AD 租户”作为**联网系统**，并选择要设置其属性值的联网系统对象。 设置 0 - 99 的优先顺序。 
+![同步處理規則編輯器](media/how-to-connect-fix-default-rules/default3c.png)
 
-![默认规则](media/how-to-connect-fix-default-rules/default3d.png)
+輸入的規則，您可以使用您自己的命名慣例命名規則。 選取 **已連線系統**作為 Azure AD 租用戶中，選取連接的系統中您想要的物件設定屬性值。 設定 0 到 99 間的優先順序。 
 
-将“范围筛选器”保留为空，将“联接规则”保留为空，填写“常量”、“定向”或表达式作为转换。 
+![建立輸出同步處理規則](media/how-to-connect-fix-default-rules/default3d.png)
 
-本示例演示了如何将 Active Directory 中某个用户对象的新属性流送到 Azure Active Directory。 可以使用这些步骤将任意对象中的任意属性映射到源和目标。  有关详细信息，请参阅[创建自定义同步规则](how-to-connect-create-custom-sync-rule.md)和[准备预配用户](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization)。
+保持**範圍設定篩選**並**聯結規則**空白。 填寫常數、 直接、 或運算式的轉換。 
 
-### <a name="overriding-value-of-existing-attribute"></a>替代现有属性的值
-你可能想要替代已映射属性的值，例如，你始终想要对 Azure AD 中的某个属性设置 Null 值，为此，只需根据前面的步骤所述创建一个入站规则，并为目标属性流送 **AuthoritativeNull** 常量值。 请注意，在本例中，我们使用了 AuthoritativeNulll 而不是 Null。 这是因为，非 Null 值将取代 Null 值，即使前者的优先顺序更低（在规则中的优先顺序数字值更大）。 但是，AuthoritativeNull 将被视为 Null，而不会由其他规则中的非 Null 值取代。 
+您現在知道如何從 Active Directory 中對 Azure Active Directory 的使用者物件流程的新屬性。 可以使用这些步骤将任意对象中的任意属性映射到源和目标。 如需詳細資訊，請參閱 <<c0> [ 建立自訂同步處理規則](how-to-connect-create-custom-sync-rule.md)並[準備將使用者佈建](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization)。
+
+### <a name="override-the-value-of-an-existing-attribute"></a>覆寫現有屬性的值
+您可能想要覆寫已對應屬性的值。 比方說，如果您一定想要在 Azure AD 中設定屬性的 null 值，只要建立只有輸入的規則。 請常數值， `AuthoritativeNull`，目標屬性的流程。 
+
+>[!NOTE] 
+> 使用`AuthoritativeNull`而不是`Null`在此情況下。 這是因為非 null 值取代 null 值，即使它具有較低的優先順序 （較高數字的值在規則中）。 `AuthoritativeNull`相反地，不會取代為非 null 值與其他規則。 
 
 ### <a name="dont-sync-existing-attribute"></a>不同步现有属性
-若要从同步中排除某个属性，可以使用 Azure AD Connect 中提供的属性筛选功能。 从桌面图标启动“Azure AD Connect”，然后选择“自定义同步选项”。
+如果您想要同步處理時，排除屬性，請使用篩選功能在 Azure AD Connect 所提供的屬性。 啟動**Azure AD Connect**從桌面圖示，然後選取**自訂同步處理選項**。
 
-![默认规则](media/how-to-connect-fix-default-rules/default4.png)
+![Azure AD Connect 其他工作選項](media/how-to-connect-fix-default-rules/default4.png)
 
- 确保“Azure AD 应用和属性筛选”已选中，然后单击“下一步”。
+ 請確定**Azure AD 應用程式和屬性篩選**已選取，然後選取**下一步**。
 
-![默认规则](media/how-to-connect-fix-default-rules/default5.png)
+![Azure AD Connect 的選用功能](media/how-to-connect-fix-default-rules/default5.png)
 
-取消选中要从同步中排除的属性。
+清除您想要從同步處理中排除的屬性。
 
-![默认规则](media/how-to-connect-fix-default-rules/default6a.png)
+![Azure AD Connect 屬性](media/how-to-connect-fix-default-rules/default6a.png)
 
-## <a name="changing-scoping-filter"></a>更改范围筛选器
-Azure AD Sync 会处理大部分对象，你可以缩小对象的范围，并以支持的方式减少要导出的对象数目，而无需更改标准默认同步规则。 若要增大对象的范围，可以**编辑**现有规则，克隆它，然后禁用原始规则。 Microsoft 建议不要增大 Azure AD Connect 所配置的范围。 增大对象范围会使得支持团队难以了解自定义操作以及为产品提供支持。
+## <a name="change-scoping-filter"></a>變更範圍篩選器
+Azure AD 同步處理會負責大部分的物件。 您可以縮小範圍的物件，並減少要匯出，而不需要變更的標準預設同步處理規則的物件數目。 
 
-可通过以下方式缩小同步到 Azure AD 的对象的范围。 请注意，如果缩小所要同步的 **users** 的范围，则针对筛选出的用户执行的密码哈希同步也会停止。 如果对象已同步，则缩小范围后，将从目标目录中删除已筛选出的对象，因此，请慎重处理范围。
-可通过以下支持的方法来缩小所要同步的对象的范围。
+您可以使用其中一種下列方法來減少要同步的物件的範圍：
 
-- [cloudFiltered 屬性](#cloudfiltered-attribute)
-- [OU 篩選](#ou-filtering)
+- cloudFiltered 属性
+- 組織單位篩選
+
+如果您要同步的使用者的範圍減少，，密碼雜湊同步處理也會停止已篩選出使用者。 如果物件已同步處理之後您縮小範圍,，篩選出刪除的物件會從目標目錄。 基於這個理由，請確定您範圍非常謹慎。
+
+>[!IMPORTANT] 
+> 不建議增加的 Azure AD Connect 所設定的物件範圍。 這樣做會很困難，Microsoft 支援小組，以了解自訂項目。 如果您必須增加之物件的範圍，編輯現有的規則、 複製它，並停用原始的規則。 
 
 ### <a name="cloudfiltered-attribute"></a>cloudFiltered 属性
-请注意，此属性不可以在 Active Directory 中设置。 需要根据“替代现有属性的值”部分所述添加新的入站规则，来设置此属性的值。 然后，可以使用**转换**和**表达式**在 Metaverse 中设置此属性。 在以下示例场景中，你不想要同步其部门名称以 **HRD**（不区分大小写）开头的所有用户：
+您無法在 Active Directory 中設定這個屬性。 藉由新增新的輸入的規則設定此屬性的值。 然後您可以使用**Transformation**並**運算式**metaverse 中設定這個屬性。 下列範例示範您不想要同步處理部門名稱開頭的所有使用者**HRD** （不區分大小寫）：
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
-我们已事先将源 (Active Directory) 中的部门名称转换为小写。 然后使用 Left 函数。我们只提取了前 3 个字符，并将其与 hrd 进行比较。 如果匹配，则将值设置为 True；否则设置为 NULL。 请注意，我们将设置 NULL 值，以便优先顺序更低（优先顺序数字值更大）的其他一些规则可以根据不同的条件写入该属性。 请针对一个对象运行预览，以根据[验证同步规则](#validate-sync-rule)部分所述验证同步规则。
+我們先轉換該部門從來源 (Active Directory) 為小寫。 然後，使用`Left`函式中，我們花了只有前三個字元，並比較它與`hrd`。 如果相符的話，要將值設為`True`，否則為`NULL`。 在將值設定為 null，優先順序較低 （較高數字的值） 的一些其他規則可以寫入它與不同的條件。 若要驗證同步處理規則中所述的一個物件上執行的預覽[驗證同步處理規則](#validate-sync-rule)一節。
 
-![默认规则](media/how-to-connect-fix-default-rules/default7a.png)
+![建立輸入同步處理規則選項](media/how-to-connect-fix-default-rules/default7a.png)
 
+### <a name="organizational-unit-filtering"></a>組織單位篩選
+您可以建立一或多個組織單位 (Ou)，並將您不想要同步至這些 Ou 的物件移動。 然後，設定 Azure AD Connect 中篩選的 OU。 啟動**Azure AD Connect**從桌面圖示，選取下列選項。 也可以在安装 Azure AD Connect 时配置 OU 筛选。 
 
+![Azure AD Connect 其他工作](media/how-to-connect-fix-default-rules/default8.png)
 
-### <a name="ou-filtering"></a>OU 筛选
-可以创建一个或多个 OU，并将你不想要同步的对象移到这些 OU。 然后在 Azure AD Connect 中配置 OU 筛选，方法是从桌面图标启动“Azure AD Connect”，并选择如下所示的选项。 也可以在安装 Azure AD Connect 时配置 OU 筛选。 
+遵循精靈的指示，並清除您不想要同步的 Ou。
 
-![默认规则](media/how-to-connect-fix-default-rules/default8.png)
+![Azure AD 連線的網域和 OU 篩選選項](media/how-to-connect-fix-default-rules/default9.png)
 
-遵循向导操作，并取消选择不想要同步的 OU。
-
-![默认规则](media/how-to-connect-fix-default-rules/default9.png)
-
-## <a name="changing-join-condition"></a>更改联接条件
-Microsoft 建议使用 Azure AD Connect 配置的默认联接条件。 更改默认联接条件会使得支持团队难以了解自定义操作以及为产品提供支持。
+## <a name="change-join-condition"></a>變更聯結條件
+使用 Azure AD Connect 所設定的預設聯結條件。 變更預設的聯結條件就難了解自訂項目，並支援產品的 Microsoft 支援服務。
 
 ## <a name="validate-sync-rule"></a>验证同步规则
-可以在不运行整个同步周期的情况下，使用预览功能来验证新添加的同步规则。 启动“同步服务”的 UI。
+您可以使用預覽功能，而不需要執行完整同步處理循環，以驗證新加入同步處理規則。 在 Azure AD Connect，請選取**同步處理服務**。
 
-![默认规则](media/how-to-connect-fix-default-rules/default10.png)
+![Azure AD Connect，反白顯示的同步處理服務](media/how-to-connect-fix-default-rules/default10.png)
 
-单击“Metaverse 搜索”，选择“person”作为范围对象，**添加子句**并指定搜索条件。 单击“搜索”按钮并在“搜索结果”中双击该对象。请注意，在运行此步骤之前，应该先对林运行导入和同步，以确保 Azure AD Connect 中的数据对于该对象而言是最新的。
+選取  **Metaverse 搜尋**。 選取的範圍物件**person**，選取**加入子句**，和提及您的搜尋準則。 接下來，選取**搜尋**，然後按兩下搜尋結果中的物件。 請確定您在 Azure AD Connect 中的資料匯入和同步處理執行樹系上，然後再執行此步驟中會是最新的物件，該物件。
 
-![默认规则](media/how-to-connect-fix-default-rules/default11.png)
+![同步處理服務管理員](media/how-to-connect-fix-default-rules/default11.png)
 
+在  **Metaverse 物件屬性**，選取**連接器**，選取對應的連接器 （樹系） 中的物件，然後選取**屬性...**.
 
+![Metaverse 物件屬性](media/how-to-connect-fix-default-rules/default12.png)
 
-选择“连接器”，在相应的连接器（林）中选择该对象，然后单击“属性...”。
+選取**預覽...**
 
-![默认规则](media/how-to-connect-fix-default-rules/default12.png)
+![連接器空間物件屬性](media/how-to-connect-fix-default-rules/default13a.png)
 
-单击“预览...”
+在 [預覽] 視窗中，選取**產生預覽**並**匯入屬性流程**的左窗格中。
 
-![默认规则](media/how-to-connect-fix-default-rules/default13a.png)
-
-在左窗格中单击“生成预览”和“导入属性流”。
-
-![默认规则](media/how-to-connect-fix-default-rules/default14.png)
+![預覽](media/how-to-connect-fix-default-rules/default14.png)
  
-在此处可以看到，新添加的规则已针对该对象运行，并且已将 cloudFiltered 属性设置为 True。
+請注意新加入的規則，在物件上執行，而且已設定`cloudFiltered`屬性設為 true。
 
-![默认规则](media/how-to-connect-fix-default-rules/default15a.png)
+![預覽](media/how-to-connect-fix-default-rules/default15a.png)
  
-如何将已修改的规则与默认规则进行比较？
-可将这两种规则单独作为文本文件导出。 这些规则将作为 PowerShell 脚本文件导出。 可以使用任何文件比较工具对其进行比较，以查看做出了哪种类型的更改。 以下示例使用了 windiff 来比较两个文件。
+若要比較的預設規則使用修改過的規則，將匯出這兩個規則分別為文字檔案。 這些規則會匯出為 PowerShell 指令碼檔案。 您可以使用任何檔案比較工具 (例如，windiff) 才能看到這些變更來比較它們。 
  
-可以看到，在用户修改的规则中，msExchMailboxGuid 属性已更改为 **Expression** 类型而不是 **Direct**，并且使用了 **NULL** 值和 **ExecuteOnce** 选项。 可以忽略 Identified（已识别）和 Precedence（优先顺序）的差异。 
+請注意，在修改過的規則`msExchMailboxGuid`屬性變更為**運算式**型別，而不是**直接**。 此外，將值變更為**NULL**並**ExecuteOnce**選項。 可以忽略 Identified（已识别）和 Precedence（优先顺序）的差异。 
 
-![默认规则](media/how-to-connect-fix-default-rules/default17.png)
+![windiff 工具輸出](media/how-to-connect-fix-default-rules/default17.png)
  
-如何修复已修改的默认规则？
-若要将规则修复为默认设置，可按如下所示删除已修改的规则并启用默认规则，然后运行**完全同步**。 在这样做之前，请根据前面所述采取纠正措施，以免丢失你想要实现的自定义## 后续步骤
+若要修正您的規則，若要變更這些預設設定，刪除已修改的規則，並啟用預設規則。 請確定您不會遺失您嘗試要達到的自訂。 當您準備好時，執行**完整同步處理**。
 
 ## <a name="next-steps"></a>後續步驟
 - [硬體和先決條件](how-to-connect-install-prerequisites.md) 
 - [快速設定](how-to-connect-install-express.md)
 - [自訂設定](how-to-connect-install-custom.md)
+
+
 

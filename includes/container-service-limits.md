@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 62eb75ef18d3ac81be65783e57c21c0aefd7a429
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a2729af6a689daa551fc01f585324d53a8770a9b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554777"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072864"
 ---
 | 資源 | 預設限制 |
 | --- | :--- |
@@ -22,7 +22,7 @@ ms.locfileid: "57554777"
 | 每個節點的最大 pod:採用 Kubenet 的[基本網路功能][basic-networking] | 110 |
 | 每個節點的最大 pod:[進階網路功能][ advanced-networking]與 Azure 容器網路介面 | Azure CLI 部署：30<sup>1</sup><br />Azure Resource Manager 範本：30<sup>1</sup><br />入口網站部署：30 |
 
-<sup>1</sup>當您部署使用 Azure CLI 或 Resource Manager 範本在 Azure Kubernetes Service (AKS) 叢集時，這個值是可設定到 110 的 pod，每個節點。 您已經部署 AKS 叢集，或如果您使用 Azure 入口網站部署叢集，您無法設定每個節點的最大 pod。<br />
+<sup>1</sup>當您部署使用 Azure CLI 或 Resource Manager 範本在 Azure Kubernetes Service (AKS) 叢集時，這個值是可設定最多 250 個 pod，每個節點。 您已經部署 AKS 叢集，或如果您使用 Azure 入口網站部署叢集，您無法設定每個節點的最大 pod。<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

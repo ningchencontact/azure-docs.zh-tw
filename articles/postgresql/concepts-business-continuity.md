@@ -1,19 +1,19 @@
 ---
-title: 使用「適用於 PostgreSQL 的 Azure 資料庫」的商務持續性概觀
+title: 使用 Azure Database for PostgreSQL-單一伺服器的商務持續性的概觀
 description: 使用「適用於 PostgreSQL 的 Azure 資料庫」的商務持續性概觀。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a31112f3b6f7bd79785f89822e2881b152708254
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456269"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068922"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>使用「適用於 PostgreSQL 的 Azure 資料庫」的商務持續性概觀
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>使用 Azure Database for PostgreSQL-單一伺服器的商務持續性的概觀
 
 本概觀說明適用於 PostgreSQL 的 Azure 資料庫針對商務持續性和災害復原所提供的功能。 了解有哪些選項可讓您從可能導致資料遺失或造成資料庫和應用程式無法使用的干擾性事件中復原。 了解當使用者或應用程式錯誤影響資料完整性、Azure 區域中斷，或您的應用程式需要維護時該如何處理。
 

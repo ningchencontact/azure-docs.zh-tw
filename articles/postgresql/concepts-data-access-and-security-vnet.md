@@ -1,20 +1,19 @@
 ---
-title: 適用於 PostgreSQL 伺服器的 Azure 資料庫 vnet 服務端點概觀
-description: 了解如何 VNET 服務端點如何針對適用於 PostgreSQL 伺服器的 Azure 資料庫運作。
-author: WenJason
-ms.author: v-jay
+title: 虛擬網路 (VNet) 服務端點概觀，在 Azure Database for PostgreSQL-單一伺服器
+description: 了解虛擬網路 (VNet) 服務端點如何適用於 Azure Database for PostgreSQL-單一伺服器。
+author: bolzmj
+ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/20/2018
-ms.date: 04/22/2019
-ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560110"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073485"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>針對適用於 PostgreSQL 的 Azure 資料庫使用虛擬網路服務端點和規則
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>使用虛擬網路服務端點和規則適用於 Azure Database for PostgreSQL-單一伺服器
 
 「虛擬網路規則」是一項防火牆功能，可控制適用於 PostgreSQL 伺服器的 Azure 資料庫是否接受虛擬網路中特定子網路所傳來的通訊。 本文說明為何虛擬網路規則功能，有時是讓適用於 PostgreSQL 伺服器的 Azure 資料庫安全地接受通訊的最佳選項。
 

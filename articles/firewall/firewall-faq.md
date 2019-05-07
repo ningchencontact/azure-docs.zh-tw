@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 4/17/2019
+ms.date: 5/3/2019
 ms.author: victorh
-ms.openlocfilehash: 5e009d5659a503fe8168f21a26939acff9944f2f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c4a6776e3bb56026a48963ec83fe582380c68d0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718802"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145950"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火牆常見問題集
 
@@ -123,11 +123,9 @@ Set-AzFirewall -AzureFirewall $azfw
 
 根據預設，不支援強制通道，但可透過支援的協助。
 
-Azure 的防火牆必須有直接的網際網路連線。 根據預設，AzureFirewallSubnet 具有 0.0.0.0/0 路由的 NextHopType 值設為**網際網路**。
+Azure 的防火牆必須有直接的網際網路連線。 如果您 AzureFirewallSubnet 學習您的內部部署網路透過 BGP 的預設路由，您必須使用覆寫此使用 0.0.0.0/0 UDR **NextHopType**將值設為**網際網路**維護直接網際網路連線。 根據預設，Azure 防火牆不支援在內部部署網路的強制通道。
 
-如果您啟用強制通道，在內部透過 ExpressRoute 或 VPN 閘道，您可能需要明確且 NextHopType 值設定為 網際網路設定 0.0.0.0/0 的使用者定義路由 (UDR)，並將它與您 AzureFirewallSubnet 產生關聯。 這會覆寫潛在的預設閘道回到您的內部部署網路的 BGP 公告。
-
-如果您的組織需要 Azure 防火牆，以將預設閘道流量回到您的內部部署網路的強制通道，請連絡支援服務。 我們可以在維護您的訂用帳戶，以確保必要的網際網路連線防火牆的白名單。
+不過，如果您的組態需要到內部部署網路的強制通道，Microsoft 將支援它以案例為基礎。 如此我們可以檢閱您的案例，請連絡支援服務。 如果接受，我們會將您的訂用帳戶的白名單，並確保能維持必要的防火牆的網際網路連線能力。
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>是否有任何防火牆資源群組的限制？
 

@@ -1,19 +1,19 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫中的伺服器記錄
-description: 本文說明適用於 PostgreSQL 的 Azure 資料庫產生查詢和錯誤記錄的方式，以及設定記錄保留的方式。
+title: 中的伺服器記錄 Azure Database for PostgreSQL-單一伺服器
+description: 本文說明適用於 PostgreSQL 的 Azure 資料庫-單一伺服器會產生查詢和錯誤記錄檔和記錄保留期的設定方式。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871516"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067400"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的伺服器記錄 
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>中的伺服器記錄 Azure Database for PostgreSQL-單一伺服器
 適用於 PostgreSQL 的 Azure 資料庫會產生查詢和錯誤記錄。 查詢和錯誤記錄可用來針對組態錯誤及未達最佳效能的情況，進行識別、疑難排解及修復。 (不包括對交易記錄的存取)。 
 
 ## <a name="configure-logging"></a>設定記錄 

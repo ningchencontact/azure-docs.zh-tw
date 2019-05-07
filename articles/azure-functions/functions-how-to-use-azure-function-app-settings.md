@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 7497255dcad55cea86e0c640e2f1423d7d763a7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 096f39eeef54f3a4a1e3d8928dd13b7c22847c8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737840"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143199"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 入口網站中管理函數應用程式 
 
@@ -25,24 +25,6 @@ ms.locfileid: "60737840"
 若要開始，請移至 [Azure 入口網站](https://portal.azure.com)，然後登入您的 Azure 帳戶。 在入口網站頂端的搜尋列中，輸入函數應用程式的名稱，然後從清單中選取它。 選取函數應用程式之後，您會看到下列頁面：
 
 ![Azure 入口網站中的函數應用程式概觀](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
-
-## <a name="favorite"></a>入口網站中的我的最愛函式 
-
-有時候很難在 [Azure 门户]中找到您的資源。 若要更輕鬆地尋找您所建立的函數應用程式，在入口網站中將函數應用程式新增至我的最愛。 
-
-1. 登入 [Azure 门户]。
-
-2. 按一下左下方的箭號以展開所有服務，在 [篩選] 欄位中輸入 `Functions`，然後按一下 [函式應用程式] 旁的星號。  
- 
-    ![在 Azure 入口網站中建立函式應用程式](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
-
-    這會在入口網站左側的功能表中新增 [Functions] 圖示。
-
-3. 關閉功能表，然後捲動到底部就能看到 [Functions] 圖示。 按一下此圖示可查看所有函式應用程式的清單。 按一下函式應用程式可在此應用程式中使用函式。 
- 
-    ![[我的最愛] 中的函式應用程式](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
- 
-[Azure 门户]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>函數應用程式設定索引標籤
 

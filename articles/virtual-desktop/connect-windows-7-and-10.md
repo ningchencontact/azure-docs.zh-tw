@@ -1,20 +1,20 @@
 ---
-title: 連接到 Windows 虛擬桌面的預覽與 Windows 7 和 Windows 10-Azure
-description: 如何連接到 Windows 7 或 Windows 10 的 Windows 虛擬桌面預覽服務。
+title: 從 Windows 10 或 Windows 7-Azure 連線到 Windows 虛擬桌面的預覽
+description: 如何從 Windows 10 或 Windows 7 連線至 Windows 虛擬桌面預覽。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/27/2019
+ms.date: 04/24/2019
 ms.author: helohr
-ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328845"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145996"
 ---
-# <a name="connect-with-windows-7-and-windows-10"></a>與 Windows 7 和 Windows 10 連線
+# <a name="connect-from-windows-10-or-windows-7"></a>從 Windows 10 或 Windows 7 連線
 
 > 適用於：Windows 7 和 Windows 10。
 
@@ -25,11 +25,11 @@ ms.locfileid: "60328845"
 
 ## <a name="install-the-client"></a>安裝用戶端
 
-[下載](https://go.microsoft.com/fwlink/?linkid=2068602) 並安裝到本機電腦的用戶端。 這需要系統管理員權限。
+[下載](https://go.microsoft.com/fwlink/?linkid=2068602) 並安裝到本機電腦的用戶端。 安裝需要系統管理員權限。
 
 ## <a name="subscribe-to-a-feed"></a>訂閱摘要
 
-藉由訂閱摘要提供您的管理員。 從本機電腦取得可用資源的清單給您
+要取得可用的受管理資源的清單，藉由訂閱摘要提供您的管理員。訂閱提供的資源在本機電腦上。
 
 若要訂閱摘要：
 
@@ -44,6 +44,33 @@ ms.locfileid: "60328845"
 - 從用戶端的主要頁面上，按兩下 要啟動它的資源。
 - 像平常一樣從 [開始] 功能表中的其他應用程式，請啟動資源。
   - 您也可以搜尋的搜尋列中的應用程式。
+
+一旦訂閱摘要，摘要內容會定期自動更新。 資源可能會新增、 變更或移除 根據您的系統管理員所做的變更。
+
+## <a name="view-the-details-of-a-feed"></a>檢視摘要的詳細資料
+
+訂閱後您可以藉由存取詳細資料窗格來檢視摘要的其他資訊。
+
+1. 從用戶端的主要頁面上，選取省略符號 (**...**) 右邊的 摘要的名稱。
+1. 從下拉式功能表中，選取**詳細資料**。
+1. [詳細資料] 面板會顯示在右側的用戶端。
+
+詳細資料面板包含摘要的有用資訊：
+
+- 用來訂閱的使用者名稱與 URL
+- 應用程式和桌上型電腦的數目
+- 上次更新日期/時間
+- 上次更新的狀態
+
+如有需要您可以選取上啟動手動更新**立即更新**。
+
+## <a name="unsubscribe-from-a-feed"></a>取消訂閱摘要
+
+本節將教導您如何取消訂閱摘要。 您可以取消訂閱來訂閱一次使用不同的帳戶，或從系統移除您的資源。
+
+1. 從用戶端的主要頁面上，選取省略符號 (**...**) 右邊的 摘要的名稱。
+1. 從下拉式功能表中，選取**Unsubscribe**。
+1. 檢閱並選取**繼續**從對話方塊。
 
 ## <a name="update-the-client"></a>更新用戶端
 

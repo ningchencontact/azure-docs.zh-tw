@@ -1,21 +1,21 @@
 ---
-title: 在 Azure 入口網站中設定和存取 PostgreSQL 的伺服器記錄
-description: 本文描述如何從 Azure 入口網站，在適用於 PostgreSQL 的 Azure 資料庫中設定和存取伺服器記錄。
+title: 設定和存取伺服器記錄適用於 Azure Database for PostgreSQL-在 Azure 入口網站中的單一伺服器
+description: 本文說明如何設定和存取伺服器記錄檔，在 Azure Database for PostgreSQL-從 Azure 入口網站的單一伺服器。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 509c3af66e8228f142126dae6938ad74daf1d7ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 13a8c1ee4b7ca114211f93245d74866e5aa5d52c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421837"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067440"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 入口網站中設定和存取伺服器記錄
+# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-in-the-azure-portal"></a>設定和存取適用於 PostgreSQL 的 Azure 資料庫-Azure 入口網站中的單一伺服器記錄
 
-您可以從 Azure 入口網站設定、列出及下載[適用於 PostgreSQL 的 Azure 資料庫伺服器記錄](concepts-server-logs.md)。
+您可以設定、 列出及下載[Azure Database for PostgreSQL 記錄](concepts-server-logs.md)從 Azure 入口網站。
 
 ## <a name="prerequisites"></a>必要條件
 若要逐步執行本作法指南，您需要︰

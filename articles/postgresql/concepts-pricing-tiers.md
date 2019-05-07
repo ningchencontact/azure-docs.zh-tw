@@ -1,19 +1,19 @@
 ---
-title: 適用於 PostgreSQL 之 Azure 資料庫的定價層
-description: 本文會說明「適用於 PostgreSQL 的 Azure 資料庫」的定價層。
+title: Azure database for PostgreSQL-單一伺服器的定價層
+description: 這篇文章會說明適用於 Azure Database for PostgreSQL-單一伺服器的定價層。
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: e2580a57f943ad8da16cfbaeda2ee35d0f4bb691
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712359"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073188"
 ---
-# <a name="azure-database-for-postgresql-pricing-tiers"></a>適用於 PostgreSQL 的 Azure 資料庫定價層
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL-單一伺服器的定價層
 
 您可以在下列三個不同定價層其中之一建立「適用於 PostgreSQL 的 Azure 資料庫」伺服器：「基本」、「一般用途」及「記憶體最佳化」。 定價層的差別在於虛擬核心中可佈建的計算數量、每個虛擬核心的記憶體，以及用來儲存資料的儲存體技術。 所有資源都會佈建在 PostgreSQL 伺服器層級。 一個伺服器可以有一個或多個資料庫。
 

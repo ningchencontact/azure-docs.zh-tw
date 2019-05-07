@@ -1,20 +1,19 @@
 ---
-title: 在適用於 PostgreSQL 的 Azure 資料庫伺服器中最佳化大量插入
-description: 本文說明如何在適用於 PostgreSQL 的 Azure 資料庫伺服器上最佳化大量插入作業。
-author: WenJason
-ms.author: v-jay
+title: 最佳化大量插入 Azure database for PostgreSQL-單一伺服器
+description: 本文說明如何最佳化大量插入作業，在 Azure Database for PostgreSQL-單一伺服器。
+author: dianaputnam
+ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/22/2018
-ms.date: 03/04/2019
-ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: c1ae29f7c498a79af09aaaf6d7aeae29561aa500
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422112"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067038"
 ---
-# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>在適用於 PostgreSQL 的 Azure 資料庫伺服器上最佳化大量插入及使用暫時性資料 
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>最佳化大量插入，並用暫時性資料上的 Azure Database for PostgreSQL-單一伺服器 
 本文說明如何在適用於 PostgreSQL 的 Azure 資料庫伺服器上最佳化大量插入作業及使用暫時性資料。
 
 ## <a name="use-unlogged-tables"></a>使用未記錄的資料表

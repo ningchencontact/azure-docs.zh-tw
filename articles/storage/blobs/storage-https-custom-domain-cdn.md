@@ -2,18 +2,19 @@
 title: 使用 Azure CDN 透過 HTTPS 以自訂網域存取 Blob
 description: 了解如何整合 Azure CDN 與 Blob 儲存體，以透過 HTTPS 使用自訂網域來存取 Blob
 services: storage
-author: michaelhauss
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: mihauss
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 90ddb58f3499180e17df559a98ac8a46b53fb824
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: da3a6dcb0d125ac4666bc375e843c57cf12fb2fc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392515"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148395"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>使用 Azure CDN 透過 HTTPS 以自訂網域存取 Blob
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: f0c9b84f31810a4b0cec93738f7ce327bc24d8d0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f4e15c4fc7bd7b786c5204153fe64f010e5ffe85
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685626"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148860"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新適用於容器的 Azure 監視器，若要啟用度量
 適用於容器的 azure 監視器引進了從 Azure Kubernetes Service (AKS) 叢集節點和 pod 收集計量並將它們寫入至 Azure 監視器計量存放區的支援。 這項變更被要呈現在效能圖表，支援釘選在 Azure 入口網站儀表板中的效能圖表中的彙總計算 （Avg、 Count、 最大、 最小值、 總和） 時提供改良的時效性和支援的計量警示。
@@ -55,7 +55,7 @@ ms.locfileid: "64685626"
     ```azurecli
     az login
     az account set --subscription "Subscription Name"
-    curl -sL https://git.io/aks-mdm-onboarding-atscale | bash -s subscriptionId   
+    curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
     ```
 
     組態變更可能需要幾秒鐘即可完成。 完成之後，將會顯示如下訊息並包含結果：

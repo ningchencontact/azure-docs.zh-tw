@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511084"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150588"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
-
-> [!NOTE]
-> 這項功能處於[*公開預覽*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 針對您邏輯應用程式與整合帳戶需存取 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)的案例，建立[整合服務的環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 ISE 是私用和隔離的環境會使用專用的儲存體和保留不同於公用或 「 全域 」 Logic Apps 服務的其他資源。 這種區隔也可減少任何其他 Azure 租用戶可能對您應用程式效能造成的影響。 您的 ISE 會「插入」Azure 虛擬網路，然後將 Logic Apps 服務部署到您的虛擬網路。 當您建立邏輯應用程式或整合帳戶時，請選取此 ISE 作為其位置。 然後，您的邏輯應用程式或整合帳戶就可以直接存取虛擬網路中的資源，例如：虛擬機器 (VM)、伺服器、系統及服務。
 
@@ -101,13 +98,11 @@ ms.locfileid: "60511084"
 若要建立您的整合服務環境 (ISE)，請遵循下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，於 Azure 主功能表上選取 [建立資源]。
+在搜尋方塊中，輸入「整合服務環境」作為篩選條件。
 
    ![建立新資源](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-1. 在搜尋方塊中，輸入「整合服務環境」作為篩選條件。
-從 [結果] 清單中，選取 [整合服務環境 (預覽)]，然後選擇 [建立]。
-
-   ![選取 [整合服務環境]](./media/connect-virtual-network-vnet-isolated-environment/select-integration-service-environment.png)
+1. 在 [整合服務環境建立] 窗格中，選擇**建立**。
 
    ![選擇 [建立]](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
@@ -121,8 +116,8 @@ ms.locfileid: "60511084"
    | **資源群組** | 是 | <*Azure-resource-group-name*> | 您要用來建立環境的 Azure 資源群組 |
    | **整合服務環境名稱** | 是 | <*environment-name*> | 提供給環境的名稱 |
    | **位置** | 是 | <*Azure-datacenter-region*> | 要用來部署環境的 Azure 資料中心區域 |
-   | **額外容量** | 是 | 0、1、2、3 | 若要使用此 ISE 資源的處理單位數目。 若要在建立後增加容量，請參閱[增加容量](#add-capacity)。 |
-   | **虛擬網路** | 是 | <*Azure-virtual-network-name*> | 要插入環境的 Azure 虛擬網路，讓該環境中的邏輯應用程式可以存取虛擬網路。 如果您沒有網路，可以在此建立一個。 <p>**重要**：您「只」可以在建立您的 ISE 時執行此插入作業。 不過，您可以建立此關聯性之前，請確定您已經設定角色型存取控制虛擬網路中適用於 Azure Logic Apps。 |
+   | **額外容量** | 是 | 0 到 10 | 若要使用此 ISE 資源的額外的處理單位數目。 若要在建立後增加容量，請參閱[新增 ISE 容量](#add-capacity)。 |
+   | **虛擬網路** | 是 | <*Azure-virtual-network-name*> | 要插入環境的 Azure 虛擬網路，讓該環境中的邏輯應用程式可以存取虛擬網路。 如果您沒有網路，請[先建立 Azure 虛擬網路](../virtual-network/quick-create-portal.md)。 <p>**重要**：您「只」可以在建立您的 ISE 時執行此插入作業。 |
    | **子網路** | 是 | <*subnet-resource-list*> | ISE 需要四個「空的」子網路，以在您的環境中建立資源。 若要建立每個子網路，[請遵循此表格底下的步驟](#create-subnet)。  |
    |||||
 
@@ -172,6 +167,9 @@ ms.locfileid: "60511084"
 
    1. 針對其他三個子網路重複這些步驟。
 
+      > [!NOTE]
+      > 如果您嘗試建立的子網路不是有效的 Azure 入口網站會顯示一則訊息，但不會封鎖您的進度。
+
 1. 在 Azure 成功驗證您的 ISE 資訊之後，選擇 [建立]，例如：
 
    ![驗證成功之後，選擇 [建立]](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
@@ -185,34 +183,17 @@ ms.locfileid: "60511084"
 
    ![部署成功](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
+   否則，請依照疑難排解部署的 Azure 入口網站的指示。
+
    > [!NOTE]
-   > 如果部署失敗或您刪除了 ISE，Azure「可能」需要最多一小時的時間來釋出您的子網路。 因此，您可能必須稍等，才能在另一個的 ISE 中重複使用這些子網路。
+   > 如果部署失敗，或刪除您 ISE 中，Azure 最多可能需要一小時之前釋放您的子網路。 此延遲表示您可能必須等候重複使用這些子網路，另一個的 ISE 中的表示。 
+   >
+   > 如果您刪除虛擬網路，Azure 通常需要兩個小時的時間之前釋放註冊您的子網路，但這項作業可能需要長時間。 
+   > 當刪除的虛擬網路，請確定沒有任何資源仍然保持連線。 請參閱[刪除虛擬網路](../virtual-network/manage-virtual-network.md#delete-a-virtual-network)。
 
 1. 如果 Azure 在部署完成之後不會自動移至您的環境，且若要檢視您的環境，請選擇 [移至資源]。  
 
-<a name="add-capacity"></a>
-
-### <a name="add-capacity"></a>新增容量
-
-ISE 基底單元有固定的容量，因此如果您需要更多的輸送量，您可以新增更多縮放單位。 您可以根據效能計量，或處理單位數目為基礎的自動調整。 如果您選擇的計量為基礎的自動調整時，您可以選擇從各種不同的條件，並指定符合該準則的臨界值條件。
-
-1. 在 Azure 入口網站中，找到您的 ISE。
-
-1. 若要檢視效能度量您 ISE 中，您的 ISE 主功能表上，選擇**概觀**。
-
-1. 若要設定自動調整，而下方**設定**，選取**相應放大**。在 **設定**索引標籤上，選擇**啟用自動調整規模**。
-
-1. 在 **預設**區段中，選擇 **依據計量調整規模**或**調整為特定執行個體計數**。
-
-1. 如果您選擇執行個體為基礎，請輸入處理單位數介於 0 到 3 （含）。 否則計量為基礎，遵循下列步驟：
-
-   1. 在 **預設**區段中，選擇**新增規則**。
-
-   1. 在 [**調整規模規則**] 窗格中，才會觸發此規則時設定的準則和動作。
-
-   1. 當您完成時，選擇**新增**。
-
-1. 當您完成時，請務必儲存您的變更。
+如需建立子網路的詳細資訊，請參閱[新增的虛擬網路子網路](../virtual-network/virtual-network-manage-subnet.md)。
 
 <a name="create-logic-apps-environment"></a>
 
@@ -248,10 +229,37 @@ ISE 基底單元有固定的容量，因此如果您需要更多的輸送量，�
 
 ![選取整合服務環境](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
-## <a name="get-support"></a>取得支援
+<a name="add-capacity"></a>
 
-* 如有問題，請瀏覽 <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps 論壇</a>。
-* 若要提交或票選功能構想，請造訪 <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps 使用者意見反應網站</a>。
+## <a name="add-ise-capacity"></a>將 ISE 容量
+
+ISE 基底單元有固定的容量，因此如果您需要更多的輸送量，您可以新增更多縮放單位。 您可以根據效能計量，或額外的處理單位數目為基礎的自動調整。 如果您選擇的計量為基礎的自動調整時，您可以選擇從各種不同的條件，並指定符合該準則的臨界值條件。
+
+1. 在 Azure 入口網站中，找到您的 ISE。
+
+1. 若要檢閱使用量和效能計量您 ISE 中，您的 ISE 主功能表上，選取**概觀**。
+
+   ![Ise 檢視使用量](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
+
+1. 若要設定自動調整，而下方**設定**，選取**相應放大**。在 **設定**索引標籤上，選擇**啟用自動調整規模**。
+
+   ![開啟自動調整功能](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
+
+1. 針對**自動調整規模設定名稱**，提供您設定的名稱。
+
+1. 在 **預設**區段中，選擇 **依據計量調整規模**或**調整為特定執行個體計數**。
+
+   * 如果您選擇執行個體為基礎，請輸入處理單位數介於 0 到 10 之間 （含）。
+
+   * 如果您選擇計量為基礎，請遵循下列步驟：
+
+     1. 在 **規則**區段中，選擇**新增規則**。
+
+     1. 在 [**調整規模規則**] 窗格中，才會觸發此規則時設定的準則和動作。
+
+     1. 當您完成時，選擇**新增**。
+
+1. 當您完成時自動調整設定時，請儲存您的變更。
 
 ## <a name="next-steps"></a>後續步驟
 

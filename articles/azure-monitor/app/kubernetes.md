@@ -1,24 +1,24 @@
 ---
-title: Azure 監視器-Application Insights for Kubernetes 服務網格 Istio |Microsoft Docs
-description: Kubernetes 的 application Insights 會監視解決方案，可讓您收集有關傳入和傳出要求，藉由使用服務網格技術，稱為 「 在 Kubernetes 叢集中執行的 pod 來回的 Application Insights 遙測資料Istio。
+title: Azure 監視器-監視 Kubernetes 託管的應用程式零檢測應用程式 |Microsoft Docs
+description: 監視裝載的 Kubernetes 應用程式零檢測應用程式是監視解決方案，可讓您收集有關在 Kubernetes 叢集中所執行的 pod 往返傳入和傳出要求的 Application Insights 遙測資料使用服務網格技術稱為 Istio。
 services: application-insights
-author: tokaplan
+author: rishabjolly
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: alkaplan
-ms.openlocfilehash: f3b278c2678542ec127c1c644cc0267622ca39fa
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.author: rijolly
+ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870683"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149884"
 ---
-# <a name="application-insights-for-kubernetes-with-service-mesh"></a>使用服務網格的 Kubernetes 的 application Insights
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Kubernetes 零檢測應用程式監視裝載的應用程式
 
 > [!IMPORTANT]
-> 透過服務網格的 Kubernetes 的 application Insights 目前處於公開預覽狀態。
+> 這項功能目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
 > 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
@@ -36,7 +36,7 @@ Azure 監視器現在會利用服務網格技術上您的 Kubernetes 叢集，�
 
 ## <a name="capabilities"></a>功能
 
-藉由使用裝載的 Kubernetes 應用程式的 Application Insights，您可以使用：
+藉由使用零個 kubernetes 監視裝載的應用程式的檢測應用程式，您可以使用：
 
 - [應用程式對應](../../azure-monitor/app/app-map.md)
 - [即時 Stream 計量](../../azure-monitor/app/live-stream.md)
@@ -71,9 +71,9 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 - 應用程式部署至*我的應用程式-命名空間*命名空間。 如果已部署應用程式，而且您已遵循上述的自動側車資料隱碼攻擊方法，您需要重新建立 pod，以確保 Istio 插入其側車;可能是起始輪流更新或刪除個別的 pod 並等候排程來重新建立。
 - 請確定您的應用程式遵守[Istio 需求](https://istio.io/docs/setup/kubernetes/prepare/requirements/)。
 
-### <a name="deploy-application-insights-for-kubernetes"></a>針對 Kubernetes 部署 Application Insights
+### <a name="deploy-zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>部署託管的應用程式監視 Kubernetes 零檢測應用程式
 
-1. 下載並解壓縮[ *Kubernetes 的 Application Insights* release](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/)。
+1. 下載並解壓縮[ *Application Insights 配接器*release](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/)。
 2. 瀏覽至 */srckubernetes/* 發行資料夾內。
 3. 編輯*application-insights-istio-mixer-adapter-deployment.yaml*
     - 編輯的值*ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY*環境變數，以包含在 Azure 入口網站，以包含遙測的 Application Insights 資源的檢測金鑰。
@@ -84,9 +84,9 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
    kubectl apply -f .
    ```
 
-### <a name="verify-application-insights-for-kubernetes-deployment"></a>確認 Application Insights，Kubernetes 部署
+### <a name="verify-deployment"></a>驗證部署
 
-- 確定已部署 Kubernetes 配接器的 Application Insights:
+- 確定已部署 Application Insights 配接器：
 
   ```console
   kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"
@@ -113,7 +113,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
    ```
    確認有一個名為容器*istio proxy*在 pod 上執行。
 
-5. 檢視*Application Insights for Kubernetes*配接器的追蹤。
+5. 檢視 Application Insights 配接器的追蹤。
 
    ```console
    kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"

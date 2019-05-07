@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466728"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074026"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式和叢集的安全性概念
 
@@ -34,9 +34,11 @@ ms.locfileid: "60466728"
 
 ## <a name="node-security"></a>節點安全性
 
-AKS 節點是您所管理和維護的 Azure 虛擬機器。 节点通过 Moby 容器运行时运行经过优化的 Ubuntu Linux 分发。 當 AKS 叢集建立或相應增加時，節點將會自動以最新的 OS 安全性更新和設定進行部署。
+AKS 節點是您所管理和維護的 Azure 虛擬機器。 執行最佳化的 Ubuntu 散發套件，選擇使用白鯨容器執行階段的 Linux 節點。 執行最佳化的 Windows Server 2019 的 Windows 伺服器節點 （目前在 AKS 中的預覽） 版本，而且也使用 白鯨容器執行階段。 當 AKS 叢集建立或相應增加時，節點將會自動以最新的 OS 安全性更新和設定進行部署。
 
-Azure 平台會在夜間將 OS 安全性修補程式自動套用至節點。 如果 OS 安全性更新需要重新啟動主機，此重新啟動作業並不會自動執行。 您可以手動重新啟動節點，或者，常見的方法是使用 [Kured][kured]，此為 Kubernetes 的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet][aks-daemonsets] 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 系統會使用相同的 [cordon 和 drain 程序](#cordon-and-drain)作為叢集升級，跨叢集管理作業系統重新啟動。
+Azure 平台會自動套用至 Linux 節點上每晚執行的 OS 安全性修補程式。 如果 Linux OS 安全性更新需要的主機重新開機，開機不會自動執行。 您可以手動重新啟動 Linux 節點，或常見的方法是使用[Kured][kured]，Kubernetes 開放原始碼重新啟動服務精靈。 Kured 會以 [DaemonSet][aks-daemonsets] 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 系統會使用相同的 [cordon 和 drain 程序](#cordon-and-drain)作為叢集升級，跨叢集管理作業系統重新啟動。
+
+對於 Windows Server （目前在 AKS 中的預覽） 的節點，Windows Update 不會自動執行，並套用最新的更新。 Windows Update 發行週期和您自己的驗證程序的定期排程，您應該在 AKS 叢集中執行 Windows Server 的節點集區上的升級。 此升級程序會建立執行的最新的 Windows Server 映像和修補程式的節點，然後移除舊的節點。 如需有關此程序的詳細資訊，請參閱 <<c0> [ 升級 AKS 中的節點集區][nodepool-upgrade]。
 
 節點會部署至私人虛擬網路子網路中，且不會指派公用 IP 位址。 基於疑難排解和管理用途，依預設會啟用 SSH。 此 SSH 存取僅供內部 IP 位址使用。
 
@@ -50,12 +52,12 @@ Azure 平台會在夜間將 OS 安全性修補程式自動套用至節點。 如
 
 ### <a name="cordon-and-drain"></a>隔離和清空
 
-在升級的過程中，AKS 節點會個別隔離於叢集外，使新的 Pod 不會排程於其上。 這些節點接著會清空並升級，如下所示：
+在升級過程中，AKS 節點會個別隔離從叢集中讓新的 pod 不會排定在其上。 這些節點接著會清空並升級，如下所示：
 
-- 現有的 Pod 依正常程序終止，並排程於其餘節點上。
-- 節點重新啟動，並在升級程序完成後，重新聯結到 AKS 叢集中。
-- Pod 重新排程在這些節點上執行。
-- 使用相同的程序隔離並清空叢集中的下一個節點，直到所有節點皆成功升級。
+- 新的節點會部署到節點的集區。 此節點會執行最新的 OS 映像和修補程式。
+- 其中一個現有的節點會識別升級。 在這個節點上的 pod 依正常程序會終止，並排定在節點集區中的其他節點上。
+- 這個現有的節點會從 AKS 叢集刪除。
+- 在叢集中的下一個節點隔離，並清空使用相同的程序，直到所有節點都會順利被都取代，升級程序的一部分。
 
 如需詳細資訊，請參閱[升級 AKS 叢集][aks-upgrade-cluster]。
 
@@ -102,3 +104,4 @@ Kubernetes *祕密*可用來將敏感性資料插入 Pod 中，例如存取認�
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

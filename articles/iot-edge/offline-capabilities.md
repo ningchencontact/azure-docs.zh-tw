@@ -9,19 +9,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998503"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148107"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>了解 IoT Edge 裝置、模組及子裝置的延伸離線功能 (預覽)
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>了解 IoT Edge 裝置、 模組和子裝置的擴充離線功能
 
 Azure IoT Edge 支援 IoT Edge 裝置上的延伸離線作業，也可以讓非 Edge 子裝置離線執行。 只要 IoT Edge 裝置已有機會連線到 IoT 中樞，該裝置及任何子裝置便能在間歇性或無網際網路連線的情況下繼續運作。 
 
->[!NOTE]
->IoT Edge 的離線支援目前處於[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)階段。
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -61,24 +59,49 @@ IoT Edge 裝置及其受指派的子裝置可在一開始的首次同步處理�
 
 ### <a name="assign-child-devices"></a>指派子裝置
 
-子裝置可為任何註冊到相同 IoT 中樞的非 Edge 裝置。 您可以在建立新裝置時，或是從父 IoT Edge 裝置或子 IoT 裝置的裝置詳細資料頁面管理父子關聯。 
+子裝置可為任何註冊到相同 IoT 中樞的非 Edge 裝置。 父裝置可擁有多個子裝置，但子裝置只能擁有一個父裝置。 有三個選項可以設定子裝置到 edge 裝置：
+
+#### <a name="option-1-iot-hub-portal"></a>選項 1：IoT 中樞入口網站
+
+ 您可以在建立新裝置時，或是從父 IoT Edge 裝置或子 IoT 裝置的裝置詳細資料頁面管理父子關聯。 
 
    ![從 IoT Edge 裝置詳細資料頁面管理子裝置](./media/offline-capabilities/manage-child-devices.png)
 
-父裝置可擁有多個子裝置，但子裝置只能擁有一個父裝置。
+
+#### <a name="option-2-use-the-az-command-line-tool"></a>選項 2：使用`az`命令列工具
+
+使用[Azure 命令列介面](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)具有[IoT 擴充功能](https://github.com/azure/azure-iot-cli-extension)(v0.7.0 或更新版本)，您可以管理與父子式關聯性[裝置身分識別](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)子命令。 在下列範例中，我們會執行查詢，以指派給所有的非 IoT Edge 中樞的裝置，做為子系的 IoT Edge 裝置的裝置。 
+
+```shell
+# Set IoT Edge parent device
+egde_device="edge-device1"
+
+# Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)
+
+# Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name 
+```
+
+您可以修改[查詢](../iot-hub/iot-hub-devguide-query-language.md)選取裝置的不同子集。 此命令可能需要幾秒鐘的時間，如果您指定大量的裝置。
+
+#### <a name="option-3-use-iot-hub-service-sdk"></a>選項 3：使用 IoT 中樞服務 SDK 
+
+最後，您可以在其中管理父子式關聯性，以程式設計方式使用C#、 Java 或 Node.js IoT 中樞服務 SDK。 以下是[將子裝置指派的範例](https://aka.ms/set-child-iot-device-c-sharp)使用C#SDK。
 
 ### <a name="specifying-dns-servers"></a>指定 DNS 伺服器 
 
-若要改善穩定性，建議您指定您環境中使用的 DNS 伺服器位址。 例如，在 Linux 上，更新 **/etc/docker/daemon.json** (您可能需要建立檔案) 來包含：
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-如果您使用本機 DNS 伺服器，請將 1.1.1.1 取代為本機 DNS 伺服器的 IP 位址。 重新啟動 Docker 服務以讓變更生效。
-
+若要改善穩定性，強烈建議您指定在您的環境中使用的 DNS 伺服器位址。 請參閱[兩個選項可以執行這項操作的疑難排解文件從](troubleshoot.md#resolution-7)。
 
 ## <a name="optional-offline-settings"></a>選擇性離線設定
 
@@ -86,7 +109,7 @@ IoT Edge 裝置及其受指派的子裝置可在一開始的首次同步處理�
 
 ### <a name="time-to-live"></a>存留時間
 
-存留時間設定是在過期前，訊息所能等待傳遞的時間長度。 預設為 7200 秒 (兩小時)。 
+存留時間設定是在過期前，訊息所能等待傳遞的時間長度。 預設為 7200 秒 (兩小時)。 最大值只受限於整數變數，也就是大約 2 億的最大值。 
 
 此設定是 IoT Edge 中樞的所需設定，會儲存在模組對應項中。 您可以在 Azure 入口網站的 [設定進階 Edge 執行階段設定] 區段內，或是直接於部署資訊清單中設定它。 
 

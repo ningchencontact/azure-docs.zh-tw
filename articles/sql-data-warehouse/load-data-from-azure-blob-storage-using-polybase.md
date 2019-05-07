@@ -2,20 +2,20 @@
 title: 教學課程：將紐約計程車資料載入 Azure SQL 資料倉儲 | Microsoft Docs
 description: 教學課程使用 Azure 入口網站和 SQL Server Management Studio，將紐約計程車資料從公用 Azure Blob 載入 Azure SQL 資料倉儲中。
 services: sql-data-warehouse
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/27/2019
-ms.author: mlee3gsd
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca4084fb271320eb4cdfdeb6cb9026367761be0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61078757"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143667"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教學課程：將紐約計程車資料載入 Azure SQL 資料倉儲
 
@@ -561,6 +561,49 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
     ![檢視載入的資料表](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>若要載入 （選擇性） 使用受管理的身分識別進行驗證
+載入使用 PolyBase，然後透過受管理的身分識別驗證是最安全的機制，並可讓您運用 VNet 服務端點搭配 Azure 儲存體。 
+
+### <a name="prerequisites"></a>必要條件
+1.  使用此[指南](https://docs.microsoft.com/powershell/azure/install-az-ps)安裝 Azure PowerShell。
+2.  如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此[指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)先升級至一般用途 v2。
+3.  您必須開啟 Azure 儲存體帳戶 [防火牆與虛擬網路] 設定功能表下方的 [允許信任的 Microsoft 服務存取此儲存體帳戶]。 如需詳細資訊請參閱此[指南](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
+
+#### <a name="steps"></a>步驟
+1. 在 PowerShell 中，透過 Azure Active Directory (AAD) **註冊 SQL Database 伺服器**：
+
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
+    
+   1. 以此[指南](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)建立**一般用途的 v2 儲存體帳戶**。
+
+   > [!NOTE]
+   > - 如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此 [指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)**升級至 v2**。
+    
+1. 請瀏覽至您儲存體帳戶之下的 [存取控制 \(IAM\)]，然後按一下 [新增角色指派]。 向 SQL 数据库服务器分配“存储 Blob 数据参与者”RBAC 角色。
+
+   > [!NOTE] 
+   > 僅有具備「擁有者」權限的成員才能執行此步驟。 關於 Azure 資源的各種內建角色，請參閱此[指南](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。
+  
+1. **Polybase 連線至 Azure 儲存體帳戶：**
+    
+   1. 建立資料庫範圍認證，而且**識別 = '受控服務識別'**:
+
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - 不需要使用 Azure 儲存體存取金鑰指定 SECRET，因為此機制會秘密使用[受控身分識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。
+       > - 身分識別名稱應該是**受控服務識別**讓 PolyBase 連線到使用 Azure 儲存體帳戶。
+    
+   1. 建立使用受控服務身分識別中指定資料庫範圍認證的外部資料來源。
+        
+   1. 以一般方式使用[外部資料表](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)查詢。
+
+請參考下列 [文件] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) 如果您想要設定虛擬網路服務端點，SQL 資料倉儲。 
 
 ## <a name="clean-up-resources"></a>清除資源
 

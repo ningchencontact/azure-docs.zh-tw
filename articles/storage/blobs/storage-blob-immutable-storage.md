@@ -2,18 +2,19 @@
 title: Azure 儲存體 Blob 的固定儲存體 | Microsoft Docs
 description: Azure 儲存體為 Blob 物件儲存體提供 WORM (一次寫入，多次讀取) 支援，可讓使用者在指定的間隔內以不可清除、不可修改的狀態儲存資料。
 services: storage
-author: xyh1
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2019
-ms.author: hux
+ms.author: tamram
+ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 7fd9992db79b2517256d85ca3fd8f3bf409afa48
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 716c6dfb613db2fa460c8d669bbb8addc73ea2e0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996017"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141227"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>在 Azure Blob 儲存體中儲存業務關鍵資料
 

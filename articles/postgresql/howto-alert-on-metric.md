@@ -1,19 +1,19 @@
 ---
-title: 在 Azure 入口網站中設定適用於 PostgreSQL 的 Azure 資料庫的計量警示
-description: 本文描述如何從 Azure 入口網站，設定和存取「適用於 PostgreSQL 的 Azure 資料庫」的計量警示。
+title: 設定適用於 Azure Database for PostgreSQL-Azure 入口網站中的單一伺服器的計量警示
+description: 這篇文章描述如何設定和存取計量警示適用於 Azure Database for PostgreSQL-從 Azure 入口網站的單一伺服器。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 000dfe2d3e594c71f9c7ebbff7bce7141243668a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421942"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067310"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>使用 Azure 入口網站來設定適用於 PostgreSQL 之 Azure 資料庫的計量警示 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>使用 Azure 入口網站設定適用於 Azure Database for PostgreSQL-單一伺服器的計量警示
 
 本文說明如何使用 Azure 入口網站來設定「適用於 PostgreSQL 的 Azure 資料庫」警示。 您可以收到以 Azure 服務的監視計量為基礎的警示。
 
@@ -25,7 +25,7 @@ ms.locfileid: "60421942"
 * 呼叫 Webhook。
 
 您可以透過下列方式，來設定及取得警示規則的相關資訊：
-* [Azure 门户](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure 入口網站](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [Azure 监视器 REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 

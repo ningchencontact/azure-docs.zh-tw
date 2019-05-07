@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 328aa4c80c830014de8ee8b573d13ae56af73efc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925811"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142960"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性
 
@@ -87,6 +87,9 @@ ms.locfileid: "64925811"
 
 NFS 伺服器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP HANA 資料庫會使用虛擬主機名稱和虛擬 IP 位址。 在 Azure 上必須有負載平衡器才能使用虛擬 IP 位址。 下列清單顯示 (A)SCS 和 ERS 負載平衡器的組態。
 
+> [!IMPORTANT]
+> 多 SID 叢集的 SAP ASCS/ERS 使用 SUSE Linux，因為在 Azure Vm 中的客體作業系統**不支援**。 多 SID 叢集描述安裝多個 SAP ASCS/ERS 執行個體具有不同的 Sid，在一個 Pacemaker 叢集
+
 ### <a name="ascs"></a>(A)SCS
 
 * 前端組態
@@ -114,6 +117,7 @@ NFS 伺服器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 S
 * 探查連接埠
   * 連接埠 621<strong>&lt;nr&gt;</strong>
 * 負載平衡規則
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -202,7 +206,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
          * 重複上述步驟以建立 ERS 的健康情況探查 (例如 621**02** 和 **nw1-aers-hp**)
    1. 負載平衡規則
       1. 針對 ASCS 是 32**00** TCP
-         1. 開啟負載平衡器、選取負載平衡規則，然後按一下 [新增]
+         1. 開啟負載平衡器、 選取負載平衡規則然後按一下 [新增]
          1. 輸入新負載平衡器規則的名稱 (例如 **nw1-lb-3200**)
          1. 選取您稍早建立的前端 IP 位址、後端集區及健康情況探查 (例如 **nw1-ascs-frontend**)
          1. 保留通訊協定 [TCP]，輸入連接埠 **3200**
@@ -587,7 +591,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  如果您是從舊版升級，並切換至加入佇列伺服器 2，請參閱 sap 附註[2641019](https://launchpad.support.sap.com/#/notes/2641019)。 
+  如果您是從舊版升級，並切換至加入佇列伺服器 2，請參閱 SAP 附註[2641019](https://launchpad.support.sap.com/#/notes/2641019)。 
 
    請確定叢集狀態正常，且所有資源皆已啟動。 資源在哪一個節點上執行並不重要。
 

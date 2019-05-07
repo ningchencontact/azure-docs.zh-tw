@@ -1,23 +1,19 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫的連線庫
-description: 本文描述幾個連線庫和驅動程式，開發人員可以在撰寫應用程式的程式碼，以連線及查詢適用於 PostgreSQL 的 Azure 資料庫時，使用這些連線庫和驅動程式。
-services: postgresql
-author: WenJason
-ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
+title: Azure database for PostgreSQL-單一伺服器的連線庫
+description: 這篇文章說明幾個程式庫和驅動程式開發人員可以使用時撰寫程式碼來連線及查詢 Azure Database for PostgreSQL-單一伺服器的應用程式。
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
-ms.topic: article
-origin.date: 02/28/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 0e762a2d7cf82e2957fb276fcea0a20553f719e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 5/6/2019
+ms.openlocfilehash: 85110126f9bdec225b1644860814cd89832132a1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559767"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073600"
 ---
-# <a name="connection-libraries-for-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫的連線庫
+# <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Azure database for PostgreSQL-單一伺服器的連線庫
 本文所列出開發人員可用來開發應用程式的程式庫和驅動程式，以連線及查詢適用於 PostgreSQL 的 Azure 資料庫。
 
 ## <a name="client-interfaces"></a>用戶端介面
