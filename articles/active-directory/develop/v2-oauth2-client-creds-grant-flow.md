@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6aed38c8c670c751ee51de95e6622685caea1ce
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112193"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190823"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 用戶端認證流程
 
@@ -249,6 +249,10 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | `timestamp` | 錯誤發生時間。 |
 | `trace_id` | 可協助進行診斷的要求唯一識別碼。 |
 | `correlation_id` | 可協助跨元件進行診斷的要求唯一識別碼。 |
+
+> [!NOTE]
+> 為了讓您的應用程式能夠接收 v2 語彙基元中，您可以更新應用程式從 azure 入口網站中的資訊清單檔。 您可以將屬性加入`accessTokenAcceptedVersion`並將值設定為 2 指定為`"accessTokenAcceptedVersion": 2`。 請檢查 發行項[應用程式資訊清單](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference)若要深入了解相同。 預設應用程式目前會將收到的 v1 語彙基元。 如果這不定義在 API/Web 應用程式資訊清單中，它的資訊清單中的這個屬性的預設值為 1，因此應用程式將會收到 v1 的語彙基元。  
+
 
 ## <a name="use-a-token"></a>使用權杖
 

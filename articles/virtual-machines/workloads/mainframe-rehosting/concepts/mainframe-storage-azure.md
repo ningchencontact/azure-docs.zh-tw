@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 4fea787e7fe20d60de91761811e1b69bebf3a010
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc78f87d9b47745119da91b8ed1f8f6c8572968c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485502"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190433"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>將大型主機儲存體移至 Azure
 
@@ -51,7 +51,7 @@ Azure 儲存體是當作[Azure 磁碟](/azure/virtual-machines/windows/managed-d
 
 <table>
 <thead>
-    <tr><th>類型</th><th>描述</th><th>當您想要實現下列目標時，即可使用：</th></tr>
+    <tr><th>Type</th><th>描述</th><th>當您想要實現下列目標時，即可使用：</th></tr>
 </thead>
 <tbody>
 <tr><td>Azure 檔案
@@ -94,7 +94,7 @@ Azure 儲存體是當作[Azure 磁碟](/azure/virtual-machines/windows/managed-d
 
 Ssd 提供在 Azure 上的最高的儲存體效能。 （在撰寫本文件） 有下列選項：
 
-| 類型         | 大小           | IOPS                  |
+| Type         | 大小           | IOPS                  |
 |--------------|----------------|-----------------------|
 | Ultra SSD    | 4 GB 到 64 TB  | 以 160,000 1,200 個 IOPS |
 | 進階 SSD  | 32 GB 到 32 TB | 12 到 15,000 位 IOPS     |
@@ -113,10 +113,10 @@ Blob 儲存體提供 Azure 上的最大的磁碟區的儲存體。 除了儲存�
 ### <a name="ibm-resources"></a>IBM 資源
 
 - [平行 Sysplex 上 IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS 和結合性功能：進階功能](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [IBM CICS 和結合性功能：進階功能](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [針對 Db2 pureScale 功能安裝建立必要使用者](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [Db2icrt - 建立執行個體命令](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Db2 pureScale 叢集資料庫解決方案](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Db2 pureScale 叢集資料庫解決方案](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government

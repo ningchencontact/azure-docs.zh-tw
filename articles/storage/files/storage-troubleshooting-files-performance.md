@@ -2,22 +2,22 @@
 title: Azure 檔案效能疑難排解指南
 description: 已知的進階 Azure 檔案共用 （預覽） 與相關聯的因應措施的效能問題。
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 767473a037bf890756df68719698c3872fed6a9c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577911"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190043"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>針對 Azure 檔案服務的效能問題進行疑難排解
 
-本文列出 Microsoft Azure premium 檔案共用 （預覽） 與相關的一些常見問題。 它提供可能的原因和因應措施時遇到這些問題。
+本文列出一些常見的問題與 premium Azure 檔案共用 （預覽）。 它提供可能的原因和因應措施時遇到這些問題。
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>高延遲、 低的輸送量和一般的效能問題
 
@@ -80,7 +80,7 @@ ms.locfileid: "64577911"
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>用戶端無法達到網路支援的最大輸送量
 
-其中一個可能原因是無權 fo SMB 多重通道支援。 目前，premium 檔案僅支援單一通道，因此從用戶端 VM 只有一個連線到伺服器。 此單一連線會限制單一核心 VM，在用戶端上，因此從 VM 可達成的最大輸送量受限於單一核心。
+其中一個可能原因是無權 fo SMB 多重通道支援。 目前，Azure 檔案共用只支援單一通道，因此從用戶端 VM 只有一個連線到伺服器。 此單一連線會限制單一核心 VM，在用戶端上，因此從 VM 可達成的最大輸送量受限於單一核心。
 
 ### <a name="workaround"></a>因應措施
 
@@ -137,7 +137,7 @@ ms.locfileid: "64577911"
 
 ### <a name="cause"></a>原因
 
-如果 DirectoryOpen/DirectoryClose 呼叫數目之間的最上層的 API 呼叫，而且您不預期用戶端來進行許多呼叫，它可能 Azue 用戶端 VM 上安裝防毒軟體發生問題。
+如果 DirectoryOpen/DirectoryClose 呼叫數目之間的最上層的 API 呼叫，而且您不預期用戶端來進行許多呼叫，它可能 Azure 的用戶端 VM 上安裝防毒軟體發生問題。
 
 ### <a name="workaround"></a>因應措施
 

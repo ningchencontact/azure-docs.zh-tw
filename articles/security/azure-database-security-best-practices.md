@@ -1,9 +1,9 @@
 ---
-title: Azure 資料庫安全性最佳做法 | Microsoft Docs
+title: 資料庫安全性最佳做法-Microsoft Azure
 description: 本文章提供一組 Azure 資料庫安全性的最佳做法。
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: barbkess
 editor: tomsh
 ms.assetid: ''
@@ -13,27 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: tomsh
-ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: terrylan
+ms.openlocfilehash: f59d349da023f9a1b21477a05750d4f8e9aef500
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587510"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187751"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 資料庫安全性最佳做法
+這篇文章描述資料庫安全性最佳的作法。
+
+最佳作法是根據共識的意見，並使用目前的 Azure 平台功能及功能集。 隨著時間變更的意見和技術，這篇文章會更新以反映這些變更以規則為基礎。
+
+## <a name="secure-databases"></a>安全的資料庫
 安全性是管理資料庫的最重要考量，而且向來是 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 的優先考量。 您的資料庫可嚴加保護，有助於符合大多數法規或安全性需求，包括 HIPAA、ISO 27001/27002 和 PCI DSS Level 1。 [Microsoft 信任中心網站](https://azure.microsoft.com/support/trust-center/services/)提供目前的安全性合規性認證清單。 您也可以法規要求作為基礎，選擇將資料庫放在特定的 Azure 資料中心。
-
-本文討論 Azure 資料庫安全性最佳做法的集合。 這些最佳做法衍生自我們的 Azure 資料庫安全性以及如您本身的客戶體驗。
-
-針對每個最佳做法，我們會說明︰
-
--   最佳作法是什麼
--   您為何想要啟用該最佳作法
--   如果無法啟用最佳作法，結果可能為何
--   如何學習啟用最佳作法
-
-這篇「Azure 資料庫安全性最佳做法」是以共識意見以及 Azure 平台功能和特性集 (因為在撰寫本文時已存在) 作為基礎。 意見和技術會隨著時間改變，這篇文章將會定期進行更新以反映這些變更。
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>使用防火牆規則來限制資料庫存取
 Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提供關聯式資料庫服務。 為了提供存取安全性，SQL Database 使用下列方式來控制存取：

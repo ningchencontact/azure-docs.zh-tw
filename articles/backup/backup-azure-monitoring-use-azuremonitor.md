@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 15bb64917fa58ba2d13c6f372640957508ab29c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60700106"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190512"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>監視大規模使用 Azure 監視器
 
@@ -109,7 +109,7 @@ Azure 監視器 」 可讓使用者從 LA 工作區中，您可以建立自己�
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-編輯 Kusto 查詢，如有必要，請選取適當的臨界值 （這會決定何時將會引發警示）、 右的期間 （時間範圍內執行查詢時），和頻率。 如為例：如果臨界值是大於 0 的期間是 5 分鐘，頻率為 5 分鐘，然後規則就會轉譯為 「 過去 5 分鐘內每隔 5 分鐘執行查詢和結果數目大於 0，如果選取的動作群組透過通知我 」
+編輯 Kusto 查詢，如有必要，請選取適當的臨界值 （這會決定何時將會引發警示）、 右的期間 （時間範圍內執行查詢時），和頻率。 例如︰如果臨界值是大於 0 的期間是 5 分鐘，頻率為 5 分鐘，然後規則就會轉譯為 「 過去 5 分鐘內每隔 5 分鐘執行查詢和結果數目大於 0，如果選取的動作群組透過通知我 」
 
 #### <a name="action-group-integration"></a>動作群組整合
 

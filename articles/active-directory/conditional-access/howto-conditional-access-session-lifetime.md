@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 884b3c2d3f4414427df87ee5f04138416f363b1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577221"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190211"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>設定驗證工作階段管理使用條件式存取
 
@@ -53,7 +53,7 @@ ms.locfileid: "64577221"
 條件式存取是 Azure AD Premium 功能，而且需要 premium 授權。 如果想進一步深入了解條件式存取，請參閱[什麼是 Azure Active Directory 條件式存取？](overview.md#license-requirements-for-using-conditional-access)
 
 > [!WARNING]
-> 如果您使用[可設定權杖存留期](../develop/active-directory-configurable-token-lifetimes.md)功能目前處於公開預覽狀態，請注意，我們不支援建立兩個不同的原則相同的使用者或應用程式組合： 一個與這項功能，另一個則使用可設定權杖存留期的功能。 Microsoft 計劃在 11 月 1 日淘汰 「 可設定權杖存留期 」 功能，並取代的條件式存取驗證工作階段管理功能。  
+> 如果您使用[可設定權杖存留期](../develop/active-directory-configurable-token-lifetimes.md)功能目前處於公開預覽狀態，請注意，我們不支援建立兩個不同的原則相同的使用者或應用程式組合： 一個與這項功能，另一個則使用可設定權杖存留期的功能。 Microsoft 計劃在年 10 月 15 日淘汰 「 可設定權杖存留期 」 功能，並取代的條件式存取驗證工作階段管理功能。  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>原則 1：登入頻率控制項
 

@@ -8,48 +8,48 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: eeab01146c938ec118deae08a30af85af4186a2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a9de28c96c2833033a3811835f57cffcccdf4619
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714070"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190341"
 ---
 # <a name="time-series-model"></a>時間序列模型
 
 本文描述屬於 Azure 時間序列深入解析一部分的時間序列模型。 它討論模型本身、其功能，以及如何開始建置和更新您自己的模型。
 
-傳統上，從 IoT 裝置收集的資料缺發關聯的資訊，因此很難快速地尋找及分析感應器。 時間序列模型主要動機是簡化尋找及分析 IoT 資料。 為了達到此目標，它藉由提供鑑藏、維護和擴充時間序列資料的功能，來協助準備取用者可用的資料集。 
+傳統上，從 IoT 裝置收集的資料缺發關聯的資訊，因此很難快速地尋找及分析感應器。 時間序列模型主要動機是簡化尋找及分析 IoT 資料。 為了達到此目標，它藉由提供鑑藏、維護和擴充時間序列資料的功能，來協助準備取用者可用的資料集。
 
 時間序列模型在查詢和瀏覽中扮演重要角色，因為它們將裝置和非裝置實體關聯化。 保留在時間序列模型中的資料，利用其中儲存的公式來提供時間序列查詢計算。
 
-![tsm][1]
+[![時間序列模型概觀](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>主要功能
 
 為了達到簡單輕鬆就能管理時間序列關聯化的目的，時間序列模型在時間序列深入解析中提供下列功能。 它可協助您：
 
 * 撰寫及管理計算或公式、轉換資料運用純量函數、彙總作業等等。
-
 * 定義父子式關聯性以提供導覽和參考功能，也提供時間序列遙測的內容。
-
 * 將與執行個體相關聯的屬性定義為「執行個體欄位」的一部分，並使用它們來建立階層。
 
-## <a name="times-series-model-key-components"></a>時間序列模型的主要元件
+## <a name="entity-components"></a>項目元件
 
-時間序列模型有三個主要元件：
+時間序列模型具有三個核心元件：
 
-* 時間序列模型「類型」
-* 時間序列模型「階層」
-* 時間序列模型「執行個體」
+* <a href="#time-series-model-types">時間序列模型類型</a>
+* <a href="#time-series-model-hierarchies">時間序列模型階層</a>
+* <a href="#time-series-model-instances">時間序列模型的執行個體</a>
+
+這些元件會結合，來指定時間序列模型，以及組織您的 Azure Time Series Insights 資料。
 
 ## <a name="time-series-model-types"></a>時間序列模型類型
 
 時間序列模型「類型」協助您定義執行計算的變數或公式。 類型與特定時間序列深入解析執行個體相關聯。 一個類型可以有一或多個變數。 例如，某個時間序列深入解析執行個體可能是「溫度感應器」，包含的變數有「平均溫度」、「最低溫度」和「最高溫度」。 我們會在資料開始流入時間序列深入解析時建立預設類型。 預設類型可以從模型設定擷取及更新。 預設類型有計算事件數目的變數。
 
-## <a name="time-series-model-type-json-example"></a>時間序列模型類型 JSON 範例
+### <a name="time-series-model-type-json-example"></a>時間序列模型類型 JSON 範例
 
 範例：
 
@@ -76,32 +76,20 @@ ms.locfileid: "64714070"
 
 如需時間序列模型類型的詳細資訊，請參閱[參考文件](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api) \(英文\)。
 
-## <a name="variables"></a>變數
+### <a name="variables"></a>變數
 
 時間序列深入解析類型有變數，它們是計算來自事件之值的具名計算。 時間序列深入解析變數定義包含公式和計算規則。 變數定義包括「種類」、「值」、「篩選條件」、「縮減」和「界限」。 變數儲存在時間序列模型中的類型定義中，並且可透過查詢 API 由內嵌方式提供，以覆寫儲存的定義。
 
 下列矩陣是當作變數定義的說明：
 
-![資料表][2]
+[![類型的變數定義資料表](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
-### <a name="variable-kind"></a>變數種類
-
-支援下列變數種類：
-
-* *數值*
-* *彙總*
-
-### <a name="variable-filter"></a>變數篩選條件
-
-變數的篩選條件指定選擇性的篩選子句，以根據條件來限制視為計算的資料列數目。
-
-### <a name="variable-value"></a>變數值
-
-變數值會用於且應該用於計算中。 此為事件中我們應該參考的資料行。
-
-### <a name="variable-aggregation"></a>變數彙總
-
-變數的彙總函式提供計算的一部分。 時間序列深入解析支援一般彙總 (也就是「最小值」、「最大值」、「平均」、「加總」和「計數」)。
+| 定義 | 描述 |
+| --- | ---|
+| 變數種類 |  *數值*並*彙總*類型支援 |
+| 變數篩選條件 | 變數的篩選條件指定選擇性的篩選子句，以根據條件來限制視為計算的資料列數目。 |
+| 變數值 | 變數值會用於且應該用於計算中。 若要如的資料點有問題，請參閱相關的欄位。 |
+| 變數彙總 | 變數的彙總函式提供計算的一部分。 時間序列深入解析支援一般彙總 (也就是「最小值」、「最大值」、「平均」、「加總」和「計數」)。 |
 
 ## <a name="time-series-model-hierarchies"></a>時間序列模型階層
 
@@ -146,7 +134,7 @@ ms.locfileid: "64714070"
 | ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | 未設定 “building”、“floor” 或 “room” |
 
-在上述範例中，ID1 和 ID4 在 Azure 時間序列深入解析總管中顯示為階層 H1 的一部分，而其餘的則被分類在「無上層的執行個體」下，因為它們不符合指定的資料階層。
+在上述範例中， **ID1**並**ID4**顯示為階層 H1 Azure Time Series Insights 總管 中的一部分，而其餘則分類*沒有父代的執行個體*因為它們不符合指定的資料階層。
 
 ## <a name="time-series-model-instances"></a>時間序列模型執行個體
 
@@ -156,9 +144,9 @@ ms.locfileid: "64714070"
 
 *instanceFields* 是執行個體的屬性，以及定義執行個體的任何靜態資料。 它們定義階層或非階層的值，同時也支援建立索引以執行搜尋作業。
 
-name 屬性是選擇性的，而且區分大小寫。 如果不使用 name，則會預設為時間序列識別碼。 如果有提供 name，則時間序列識別碼仍然可在 Well (總管內圖表下方的方格) 中取得。 
+*名稱*屬性是選擇性的而且區分大小寫。 如果不使用 name，則會預設為時間序列識別碼。 如果有提供 name，則時間序列識別碼仍然可在 Well (總管內圖表下方的方格) 中取得。
 
-## <a name="time-series-model-instance-json-example"></a>時間序列模型執行個體 JSON 範例
+### <a name="time-series-model-instance-json-example"></a>時間序列模型執行個體 JSON 範例
 
 範例：
 
@@ -180,7 +168,7 @@ name 屬性是選擇性的，而且區分大小寫。 如果不使用 name，則
 
 如需時間序列模型執行個體的詳細資訊，請參閱[參考文件](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api) \(英文\)。
 
-## <a name="time-series-model-settings-example"></a>時間序列模型設定範例
+### <a name="time-series-model-settings-example"></a>時間序列模型設定範例
 
 範例：
 
@@ -206,7 +194,3 @@ name 屬性是選擇性的，而且區分大小寫。 如果不使用 name，則
 - 請參閱 [Azure 時間序列深入解析預覽版儲存體和輸入](./time-series-insights-update-storage-ingress.md)。
 
 - 查看新的[時間序列模型](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) \(英文\)。
-
-<!-- Images -->
-[1]: media/v2-update-tsm/tsm.png
-[2]: media/v2-update-tsm/table.png

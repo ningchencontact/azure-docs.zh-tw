@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351984"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190498"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>作法：規劃混合式 Azure Active Directory Join 實作
 
@@ -41,7 +41,7 @@ ms.locfileid: "60351984"
 本文假設您熟悉 [Azure Active Directory 中的裝置管理簡介](../device-management-introduction.md)。
 
 > [!NOTE]
-> 需要的最低網域功能和樹系功能等級為 Windows 10 的混合式 Azure AD join 是 Windows Server 2008 R2。 在較低版本上，使用者可能不會收到主要重新整理權杖期間因為 LSA 問題的 Windows 登入。
+> 需要的最低網域功能和樹系功能等級為 Windows 10 的混合式 Azure AD join 是 Windows Server 2008 R2。
 
 ## <a name="plan-your-implementation"></a>計劃您的實作
 
@@ -121,6 +121,9 @@ ms.locfileid: "60351984"
 
 - 傳遞驗證 (PTA)
 - 密碼雜湊同步處理 (PHS)
+
+> [!NOTE]
+> Azure AD 不支援智慧卡或憑證受控網域中。
 
 從 1.1.819.0 版開始，Azure AD Connect 即為您提供用來設定混合式 Azure AD Join 的精靈。 此精靈可讓您大幅簡化設定程序。 如需詳細資訊，請參閱
 

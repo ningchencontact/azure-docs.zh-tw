@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26178066b2f5353cba99c5965bb2f3055556784c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1736b120b60ab6583a3c38bb13c985d312c021b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246541"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190949"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的預設使用者權限是什麼？
 在 Azure Active Directory (Azure AD) 中，所有使用者都會獲得一組預設權限。 使用者的存取權包含使用者類型、其[角色指派](active-directory-users-assign-role-azure-portal.md)，以及個別物件的擁有權。 本文說明這些預設權限，並包含成員與來賓使用者預設值的比較。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
@@ -40,7 +40,7 @@ ms.locfileid: "60246541"
 裝置 | 讀取裝置的所有屬性<br>管理擁有之裝置的所有屬性<br> | 沒有權限<br>刪除擁有的裝置<br>
 目錄 | 讀取所有公司資訊<br>讀取所有網域<br>讀取所有夥伴合約 | 讀取顯示名稱和已驗證的網域
 角色和範圍 | 讀取所有系統管理角色和成員資格<br>讀取系統管理單元的所有屬性和成員資格 | 沒有權限 
-訂用帳戶 | 讀取所有訂用帳戶<br>啟用服務方案成員 | 沒有權限
+Subscriptions | 讀取所有訂用帳戶<br>啟用服務方案成員 | 沒有權限
 原則 | 讀取原則的所有屬性<br>管理擁有之原則的所有屬性 | 沒有權限
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>限制成員使用者的預設權限
@@ -49,6 +49,8 @@ ms.locfileid: "60246541"
 
 權限 | 設定說明
 ---------- | ------------
+使用者可以註冊應用程式 | 將此選項設定為 [否] 可防止使用者建立應用程式註冊。 能力可以再授與回特定的個人將它們新增至應用程式開發人員 」 角色。
+允許使用者利用 LinkedIn 連線公司或學校的帳戶 | 將此選項設定為 [否] 可防止使用者連線其 LinkedIn 帳戶的工作或學校帳戶。  請參閱[LinkedIn 帳戶連線資料共用和同意](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/linkedin-user-consent)如需詳細資訊。
 建立安全性群組的能力 | 將此選項設定為 [否] 可防止使用者建立安全性群組。 全局管理员和用户管理员仍可创建安全组。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
 建立 Office 365 群組的能力 | 將此選項設定為 [否] 可防止使用者建立 Office 365 群組。 將此選項設定為 [部分] 可允許一組特定使用者建立 Office 365 群組。 全局管理员和用户管理员仍可创建 Office 365 组。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
 限制 Azure AD 系統管理入口網站的存取 | 將此選項設定為 [否] 可防止使用者存取 Azure Active Directory。

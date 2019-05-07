@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd60d6453b71387578b880ad580fb1741e6e512b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697912"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190017"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 檔案服務延展性和效能目標
 
@@ -34,15 +34,15 @@ Azure 檔案共用的父資源是 Azure 儲存體帳戶。 儲存體帳戶代表
 
 ## <a name="azure-files-scale-targets"></a>Azure 檔案擴展目標
 
-### <a name="premium-files-scale-targets"></a>進階檔案調整目標
+### <a name="premium-scale-targets"></a>Premium 擴展目標
 
-有三種類別的限制時應考量的進階檔案： 儲存體帳戶、 共用和檔案。
+有三種類別的限制時應考量的進階檔案共用： 儲存體帳戶、 共用和檔案。
 
 例如︰單一共用可達到 100,000 IOPS 和單一檔案可以調整最多 5,000 個 IOPS。 因此，比方說，如果您有一個共用中的三個檔案，您可以從共用取得的最大 IOPS 是 15000。
 
-### <a name="premium-filestorage-account-limits"></a>進階 filestorage 帳戶限制
+### <a name="premium-filestorage-account-limits"></a>進階 FileStorage 帳戶限制
 
-進階檔案會使用名為唯一的儲存體帳戶**filestorage （預覽）**，此帳戶具有比標準的檔案所使用的儲存體帳戶的稍有不同的擴展目標。 儲存體帳戶擴展目標，請參閱中的資料表[Azure 儲存體帳戶擴展目標](#azure-storage-account-scale-targets)一節。
+進階檔案共用會呼叫特殊的儲存體帳戶中佈建**filestorage （預覽）**。 這個帳戶具有比標準檔案共用所使用的儲存體帳戶的稍有不同的擴展目標。 儲存體帳戶擴展目標，請參閱中的資料表[Azure 儲存體帳戶擴展目標](#azure-storage-account-scale-targets)一節。
 
 > [!IMPORTANT]
 > 儲存體帳戶限制套用到所有的共用。 最多調整儲存體帳戶的最大值才可達成，如果沒有每個儲存體帳戶只能有一個共用。

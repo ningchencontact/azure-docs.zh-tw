@@ -1,21 +1,21 @@
 ---
 title: 轉譯多名參與者交談與 Speech SDK-語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用 Speech SDK 中的交談文字記錄服務。 適用於C++， C#，和 Java。
+description: 了解如何使用 Speech SDK 中的交談文字記錄。 適用於C++， C#，和 Java。
 services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: jhakulin
-ms.openlocfilehash: 73ab4cfa92a1efc49dea16ba2941cf16b7a1cf3e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9de4faf18c54f7c7582ef5a8ab0648629d4f48e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026708"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190159"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>轉譯多名參與者交談與 Speech SDK
 
@@ -24,7 +24,7 @@ ms.locfileid: "65026708"
 ## <a name="limitations"></a>限制
 
 * 交談手寫程式 來支援C++， C#，並在 Windows、 Linux 和 Android 上的 Java。
-* ROOBO DevKit 是建立交談，因為可提供說話者識別的交談文字記錄服務可以有效率地利用的循環多麥克風陣列支援的硬體環境。 [如需詳細資訊，請參閱語音裝置 SDK](speech-devices-sdk.md)。 
+* ROOBO DevKit 是建立交談，因為可提供說話者識別的交談文字記錄服務可以有效率地利用的循環多麥克風陣列支援的硬體環境。 [如需詳細資訊，請參閱語音裝置 SDK](speech-devices-sdk.md)。
 * 語音 SDK 支援僅限於使用的音訊提取和推送模式資料流，具有八個通道的 PCM 音訊。
 
 ## <a name="prerequisites"></a>必要條件
@@ -78,7 +78,7 @@ class Program
 
 若要轉譯與多個參與者的交談，建立`ConversationTranscriber`相關聯的物件`AudioConfig`交談工作階段和串流音訊使用所建立的物件`PullAudioInputStream`或`PushAudioInputStream`。
 
-假設您有一個叫做 ConversationTranscriber 類別`MyConversationTranscriber`。 您的程式碼可能如下所示： 
+假設您有一個叫做 ConversationTranscriber 類別`MyConversationTranscriber`。 您的程式碼可能如下所示：
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -97,7 +97,7 @@ public class MyConversationTranscriber
         var stopTranscription = new TaskCompletionSource<int>();
 
         // Create an audio stream from a wav file.
-        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback 
+        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             // Creates a conversation transcriber using audio stream input.

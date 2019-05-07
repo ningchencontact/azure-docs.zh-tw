@@ -1,10 +1,10 @@
 ---
-title: 資料安全性和加密最佳作法 | Microsoft Docs
+title: 資料安全性和加密最佳做法-Microsoft Azure
 description: 本文提供使用內建 Azure 功能的一些資料安全性和加密最佳作法。
 services: security
 documentationcenter: na
-author: barclayn
-manager: mbalwin
+author: TerryLanfear
+manager: barbkess
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,33 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
-ms.author: barclayn
-ms.openlocfilehash: 686d4a8ac5239af12206b57072cc00aa10114d79
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/06/2019
+ms.author: terrylan
+ms.openlocfilehash: 9955450b468ef38ba456d7ee73d9681de677494d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125114"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190715"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 資料安全性和加密最佳作法
+這篇文章描述資料安全性和加密最佳的作法。
 
+最佳作法是根據共識的意見，並使用目前的 Azure 平台功能及功能集。 隨著時間變更的意見和技術，這篇文章會更新以反映這些變更以規則為基礎。
+
+## <a name="protect-data"></a>保護資料
 若要協助保護雲端上的資料，您必須考慮您的資料可能會發生的狀態，以及哪些控制項適用於該狀態。 Azure 資料安全性和加密的最佳做法與下列資料狀態相關：
 
 - 待用：這包括實體媒體 (磁碟或光碟) 上以靜態方式存在的所有資訊儲存物件、容器和類型。
 - 傳輸中：當資料在元件、位置或程式之間傳輸時，即為傳輸中。 範例會透過網路、跨服務匯流排 (從內部部署到雲端，反之亦然，包括諸如 ExpressRoute 的混合式連線)，或輸入/輸出過程期間傳輸。
-
-本文將討論 Azure 資料安全性和加密最佳作法的集合。 這些最佳作法衍生自我們的 Azure 資料安全性和加密經驗和客戶的經驗。
-
-針對每個最佳作法，我們會說明︰
-
-* 最佳实践是什么
-* 您為何想要啟用該最佳作法
-* 如果無法啟用最佳作法，結果可能為何
-* 最佳作法的可能替代方案
-* 如何学习启用最佳实践
-
-這篇「Azure 資料安全性和加密最佳作法」是以共識意見以及 Azure 平台功能和特性集 (因為在撰寫本文時已存在) 為基礎。 意見和技術會隨著時間改變，這篇文章將會定期進行更新以反映這些變更。
 
 ## <a name="choose-a-key-management-solution"></a>選擇金鑰管理解決方案
 
@@ -95,7 +87,7 @@ Azure Key Vault 設計用來支援應用程式金鑰和祕密。 Key Vault 的�
 
 Azure 儲存體和 Azure SQL Database 預設會加密待用資料，且許多服務會提供加密選項。 您可以使用 Azure Key Vault 控管存取和加密資料的金鑰。 若要深入了解，請參閱 [Azure 資源提供者加密模型支援](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support)。
 
-**最佳做法**：使用加密，協助降低與未經授權存取資料相關的風險。
+**最佳做法**：使用加密，協助降低與未經授權存取資料相關的風險。   
 **详细信息**：將機密資料寫入它們之前，先加密您的磁碟機。
 
 未強制執行資料加密的組織會更容易遭受資料機密性問題的攻擊。 例如，未經授權或惡意使用者可能會竊取遭入侵帳戶中的資料，或未經授權存取以清除格式編碼的資料。 公司必須證明他們是十分用心，並使用正確的安全性控制項來增強資料安全性以遵守業界法規。
@@ -118,7 +110,7 @@ Azure 儲存體和 Azure SQL Database 預設會加密待用資料，且許多服
 **详细信息**：使用 [ExpressRoute](../expressroute/expressroute-introduction.md)。 如果您選擇使用 ExpressRoute，您也可以透過使用 [SSL/TLS](https://support.microsoft.com/kb/257591) 或其他通訊協定，在應用程式層級加密資料，以提供額外的保護。
 
 **最佳做法**：透過 Azure 入口網站與 Azure 儲存體互動。   
-**详细信息**：透過 HTTPS 發生的所有交易。 您也可以使用透過 HTTPS 的[儲存體 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) 來與 [Azure 儲存體](https://azure.microsoft.com/services/storage/)和 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 互動。
+**详细信息**：透過 HTTPS 發生的所有交易。 您也可以使用[儲存體 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)透過 HTTPS 與互動[Azure 儲存體](https://azure.microsoft.com/services/storage/)。
 
 無法保護傳輸中資料的組織比較容易遭受[攔截攻擊](https://technet.microsoft.com/library/gg195821.aspx)、[竊聽](https://technet.microsoft.com/library/gg195641.aspx)及工作階段攔截。 這些攻擊可能是取得機密資料存取權的第一步。
 

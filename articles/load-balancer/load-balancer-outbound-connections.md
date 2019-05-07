@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591450"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190160"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -176,13 +176,13 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
 
 ### <a name="tcp-snat-port-release"></a>TCP SNAT 連接埠釋出
 
-- 如果伺服器/用戶端均傳送 FIN/ACK，則會在 240 秒之後釋出 SNAT 連接埠。
+- 如果任一伺服器/用戶端傳送 FINACK，會在 240 秒之後釋放 SNAT 連接埠。
 - 如果看到 RST，則會在 15 秒之後釋出 SNAT 連接埠。
-- 已達到閒置逾時
+- 如果已經達到閒置逾時，會釋出連接埠。
 
 ### <a name="udp-snat-port-release"></a>UDP SNAT 連接埠釋出
 
-- 已達到閒置逾時
+- 如果已經達到閒置逾時，會釋出連接埠。
 
 ## <a name="problemsolving"></a>解決問題 
 

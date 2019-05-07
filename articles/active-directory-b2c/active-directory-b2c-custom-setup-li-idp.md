@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 204e6ef27e4e8db89bdeb22a25ad847ec5c6bcfc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3d927c2bf9344f2dc93cfe992e87457a0747f605
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706784"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190748"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶進行登入
 
@@ -360,8 +360,12 @@ LinkedIn 的技術設定檔需要**ExtractGivenNameFromLinkedInResponse**並**Ex
 
     ```XML
     <!-- Extra step for LinkedIn to get the email -->
-    <OrchestrationStep Order="4" Type="ClaimsExchange">
+    <OrchestrationStep Order="3" Type="ClaimsExchange">
       <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>identityProvider</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
         <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
           <Value>identityProvider</Value>
           <Value>linkedin.com</Value>

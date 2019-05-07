@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 8aea4a74ba84855f011dada70ea75ec0d5fb64fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 335a056a34412a7ed148613bfff59ecb30053e09
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485457"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190324"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>將大型主機計算移至 Azure
 
@@ -47,7 +47,7 @@ IBM 大型主機提供調整達 240 個核心 （目前 z14 大小的單一系�
 
 CF 允許直接存取的共用資料的計算叢集。 它用於鎖定的資訊、 快取的詳細資訊和共用的資料的資源清單。 使用一或多個 CFs 平行 Sysplex 可以視為 「 共用的所有項目 」 向外延展計算叢集。 如需這些功能的詳細資訊，請參閱[IBM Z 上平行 Sysplex](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) IBM 網站上。
 
-應用程式可以使用這些功能，來提供向外延展效能和高可用性。 如需 CICS 如何使用平行 Sysplex CF 的資訊，請下載[IBM CICS 和結合的功能：基本概念以外](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)redbook。
+應用程式可以使用這些功能，來提供向外延展效能和高可用性。 如需 CICS 如何使用平行 Sysplex CF 的資訊，請下載[IBM CICS 和結合的功能：基本概念以外](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)redbook。
 
 ## <a name="azure-compute-at-a-glance"></a>一眼的 azure 計算
 
@@ -121,10 +121,10 @@ Azure 為基礎的優點之一是解決方案的向外延展的能力。幾乎�
 ### <a name="ibm-resources"></a>IBM 資源
 
 - [平行 Sysplex 上 IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS 和結合性功能：進階功能](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [IBM CICS 和結合性功能：進階功能](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [針對 Db2 pureScale 功能安裝建立必要使用者](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [Db2icrt - 建立執行個體命令](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Db2 pureScale 叢集資料庫解決方案](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Db2 pureScale 叢集資料庫解決方案](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government

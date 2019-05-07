@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357985"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190348"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>如何成功推出自助式密碼重設
 
@@ -32,6 +32,10 @@ ms.locfileid: "60357985"
    * 您是否為他們提供可供註冊和重設的 URL？
       * 註冊： https://aka.ms/ssprsetup
       * 重設： https://aka.ms/sspr
+
+   > [!WARNING]
+   > 不支援的核取方塊 」 使用者必須變更密碼在下次登入時 」 等 Active Directory 使用者和電腦或 Active Directory 管理中心在內部部署 Active Directory 系統管理工具中的使用。 變更密碼時在內部部署環境就不會檢查此選項。 
+
 1. 教育您的使用者。
    * 本文件的下列幾節介紹範例通訊、密碼入口網站、如何強制執行註冊，以及填入驗證資料。
    * Azure Active Directory 產品群組已建立[逐步部署方案](https://aka.ms/SSPRDeploymentPlan)，組織能平行使用此方案，並搭配在此網站中找到的文件，來製作業務案例及規劃自助式重設密碼的部署。

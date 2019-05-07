@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917671"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190189"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的位置條件？ 
 
@@ -56,7 +56,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 - **國家/地區** - 此選項可讓您選取一或多個國家或地區，以定義具名位置。
 - **包括未知區域** - 部分 IP 位址未對應至特定國家/地區。 此選項可讓您選擇這些 IP 位址是否應包含在具名位置中。 當使用具名位置的原則應套用到未知位置時，請使用此設定。
 
-您可以設定的具名位置數目受到 Azure AD 中相關物件大小的限制。 組織可以設定最高達 90 lamed 的位置，每個設定最多 12000 IP 範圍。
+您可以設定的具名位置數目受到 Azure AD 中相關物件大小的限制。 組織可以設定最高達 90 的具名的位置，每個設定最多 12000 IP 範圍。
 
 條件式存取原則適用於 IPv4 和 IPv6 流量。 目前具名的位置不允許設定的 IPv6 範圍。 這項限制會導致下列情況：
 

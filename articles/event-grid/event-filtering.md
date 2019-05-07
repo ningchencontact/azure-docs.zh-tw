@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61436166"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187665"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>了解適用於事件格線訂用帳戶的事件篩選
 
@@ -43,7 +43,7 @@ ms.locfileid: "61436166"
 
 將事件發佈至自訂主題時，為您的事件建立主旨，以便訂閱者輕鬆地了解他們是否對該事件感興趣。 訂閱者使用主旨屬性以篩選和路由事件。 請考慮新增事件發生之位置的路徑，以便訂閱者可以根據該路徑的區段進行篩選。 該路徑可讓訂閱者縮小或放大篩選事件的範圍。 如果您在主旨中提供三區段路徑 (例如 `/A/B/C`)，訂閱者可根據第一個區段 `/A` 進行篩選，以取得一組廣泛的事件。 這些訂閱者可使用 `/A/B/C` 或 `/A/D/E` 之類的主旨來取得事件。 其他訂閱者可以根據 `/A/B` 篩選以取得一組範圍較小的事件。
 
-依事件類型進行篩選的 JSON 語法為：
+依主旨篩選的 JSON 語法是：
 
 ```json
 "filter": {
@@ -117,7 +117,7 @@ ms.locfileid: "61436166"
 針對雲端事件結構描述中的事件，請使用下列值作為索引鍵：
 
 * EventId
-* 來源
+* `Source`
 * EventType
 * EventTypeVersion
 * 事件資料 (例如 Data.key1)

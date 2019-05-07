@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917223"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190195"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>作法：使用 ADAL 在 iOS 上啟用跨應用程式的 SSO
 
@@ -165,7 +165,7 @@ Microsoft 為每個行動平台提供應用程式，允許跨不同廠商的應�
 
 若要跨您擁有的應用程式啟用 SSO，您需要執行下列動作︰
 
-1. 請確定您所有的應用程式使用相同的用戶端識別碼或應用程式識別碼。
+1. 請確定您的應用程式使用的相同用戶端識別碼或應用程式識別碼。
 2. 請確定您所有的應用程式共用來自 Apple 的相同簽署憑證，以便您可以共用金鑰鏈。
 3. 要求每個應用程式的相同金鑰鏈權利。
 4. 告知 SDK 您想要我們使用的共用金鑰鏈。

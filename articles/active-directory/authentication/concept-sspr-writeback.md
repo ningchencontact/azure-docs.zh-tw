@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694848"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190736"
 ---
 # <a name="what-is-password-writeback"></a>什麼是密碼回寫？
 
@@ -165,6 +165,9 @@ ms.locfileid: "64694848"
 * **不支援的系統管理員作業**
    * 系統管理員從 [Office 管理入口網站](https://portal.office.com)起始的任何使用者密碼重設
    * 任何由系統管理員從 PowerShell 第 1 版、第 2 版或 Azure AD Graph API 起始的使用者密碼重設
+
+> [!WARNING]
+> 不支援的核取方塊 」 使用者必須變更密碼在下次登入時 」 等 Active Directory 使用者和電腦或 Active Directory 管理中心在內部部署 Active Directory 系統管理工具中的使用。 變更密碼時在內部部署環境就不會檢查此選項。 
 
 ## <a name="next-steps"></a>後續步驟
 

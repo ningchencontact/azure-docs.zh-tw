@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
-ms.author: ryanwi
+ms.date: 05/06/2019
+ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 350cb3fec4d325d6cf5848733c0bae18d5efacca
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: d6e13ec3d822ba8a8cd2484f42ea81e615bae268
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076836"
+ms.locfileid: "65190976"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>使用網頁瀏覽器中 MSAL.NET
 網頁瀏覽器不需要互動式驗證。 根據預設，支援 MSAL.NET[系統的網頁瀏覽器](#system-web-browser-on-xamarinios-and-xamarinandroid)在 Xamarin.iOS 上並[Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser)。 但是[您也可以啟用內嵌的網頁瀏覽器](#enable-embedded-webviews)依據您的需求 (UX，讓單一登入 (SSO) 安全性的需求) 中[Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios)並[Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid)應用程式。 您甚至可以與[動態選擇](#detecting-the-presence-of-custom-tabs-on-xamarinandroid)的網頁瀏覽器使用根據 Chrome 或瀏覽器支援 Chrome 自訂索引標籤，在 Android 中的目前狀態。
@@ -40,7 +40,7 @@ ms.locfileid: "65076836"
 
 ## <a name="system-web-browser-on-xamarinios-and-xamarinandroid"></a>系統在 Xamarin.iOS 和 Xamarin.Android 的網頁瀏覽器
 
-根據預設，MSAL.NET 會支援系統 web 瀏覽器上 Xamarin.iOS 和 Xamarin.Android。 若要裝載與 STS 之間的互動，ADAL.NET 只會使用**內嵌**網頁瀏覽器。 對於所有平台提供 UI (也就是不是.NET Core)，對話方塊會提供內嵌的網頁瀏覽器控制項程式庫。 MSAL.NET 也會使用內嵌的 web 檢視.NET 桌面和 WAB UWP 平台。 不過，它會利用預設**系統的網頁瀏覽器**適用於 Xamarin iOS 和 Xamarin Android 應用程式。 在 iOS 上，甚至選擇 web 檢視，將根據作業系統版本而定 (iOS12，iOS11，及更早版本)。
+根據預設，MSAL.NET 會支援系統 web 瀏覽器上 Xamarin.iOS 和 Xamarin.Android。 對於所有平台提供 UI (也就是不是.NET Core)，對話方塊會提供內嵌的網頁瀏覽器控制項程式庫。 MSAL.NET 也會使用內嵌的 web 檢視.NET 桌面和 WAB UWP 平台。 不過，它會利用預設**系統的網頁瀏覽器**適用於 Xamarin iOS 和 Xamarin Android 應用程式。 在 iOS 上，甚至選擇 web 檢視，將根據作業系統版本而定 (iOS12，iOS11，及更早版本)。
 
 使用系統瀏覽器有顯著的好處，共用而不需要代理程式的 SSO 狀態和其他應用程式與 web 應用程式 (公司入口網站 / 驗證者)。 系統使用瀏覽器，根據預設，在適用於 Xamarin iOS 和 Xamarin Android 平台 MSAL.NET 因為在這些平台，系統 web 瀏覽器會佔用整個畫面，也更好的使用者經驗。 系統 web 檢視不是對話方塊有所區別。 不過，在 iOS 上，使用者可能必須同意瀏覽器的回呼的應用程式，這可能很煩人。
 
@@ -70,49 +70,55 @@ ms.locfileid: "65076836"
 
 使用 MSAL.NET 是開發人員，您會有數個選項，以顯示 [互動式] 對話方塊從 STS:
 
-- **系統瀏覽器。** 預設會設定系統瀏覽器的文件庫中。 如果使用 Android，請閱讀[系統瀏覽器](msal-net-system-browser-android-considerations.md)哪些瀏覽器可支援驗證的特定資訊。 當在 Android 中使用系統瀏覽器，我們建議的裝置有支援 Chrome 自訂索引標籤的瀏覽器。  否則，驗證可能會失敗。 
-- **內嵌 web 檢視。** 若要使用只在 MSAL.NET 內嵌 web 檢視，有的多載`UIParent()`適用於 Android 和 iOS 的建構函式。
+- **系統瀏覽器。** 預設會設定系統瀏覽器的文件庫中。 如果使用 Android，請閱讀[系統瀏覽器](msal-net-system-browser-android-considerations.md)哪些瀏覽器可支援驗證的特定資訊。 當在 Android 中使用系統瀏覽器，我們建議的裝置有支援 Chrome 自訂索引標籤的瀏覽器。  否則，驗證可能會失敗。
+- **內嵌 web 檢視。** 若要使用內嵌 web 檢視中 MSAL.NET，僅`AcquireTokenInteractively`參數產生器包含`WithUseEmbeddedWebView()`方法。
 
-    iOS：
+    iOS
 
     ```csharp
-    public UIParent(bool useEmbeddedWebview)
+    AuthenticationResult authResult;
+    authResult = app.AcquireTokenInteractively(scopes)
+                    .WithUseEmbeddedWebView(useEmbeddedWebview)
+                    .ExecuteAsync();
     ```
 
     Android：
 
     ```csharp
-    public UIParent(Activity activity, bool useEmbeddedWebview)
+    authResult = app.AcquireTokenInteractively(scopes)
+                .WithParentActivityOrWindow(activity)
+                .WithUseEmbeddedWebView(useEmbeddedWebview)
+                .ExecuteAsync();
     ```
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>內嵌的網頁瀏覽器或在 Xamarin.iOS 上的系統瀏覽器之間進行選擇
 
-在您的 iOS 應用程式，在`AppDelegate.cs`系統瀏覽器或內嵌 web 檢視，您可以使用。
+在您的 iOS 應用程式，在`AppDelegate.cs`您可以初始化`ParentWindow`至`null`。 它不會用於 iOS
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(true);
-
-// Use only system browser
-App.UIParent = new UIParent();
+App.ParentWindow = null; // no UI parent on iOS
 ```
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid"></a>內嵌的網頁瀏覽器或在 Xamarin.Android 系統瀏覽器之間進行選擇
 
-Android 的應用程式中在`MainActivity.cs`您可以決定如何實作 webview 選項。
+Android 的應用程式中在`MainActivity.cs`以便驗證會產生回傳給它，您可以設定在父活動：
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
+ App.ParentWindow = this;
+```
 
-// or
-// Use only system browser
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
+接著在`MainPage.xaml.cs`:
+
+```csharp
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(true)
+                      .ExecuteAsync();
 ```
 
 #### <a name="detecting-the-presence-of-custom-tabs-on-xamarinandroid"></a>偵測 Xamarin.Android 上自訂索引標籤存在
 
-如果您想要使用系統的 web 瀏覽器的瀏覽器中執行的應用程式啟用 SSO，但會擔心使用者體驗，適用於 Android 裝置不需要自訂索引標籤支援的瀏覽器，您可以藉由呼叫決定`IsSystemWebViewAvailable()`方法在 < c2 > `UIParent` 。 這個方法會傳回`true`如果 PackageManager 偵測到自訂索引標籤和`false`如果未偵測到裝置上。
+如果您想要使用系統的 web 瀏覽器的瀏覽器中執行的應用程式啟用 SSO，但會擔心使用者體驗，適用於 Android 裝置不需要自訂索引標籤支援的瀏覽器，您可以藉由呼叫決定`IsSystemWebViewAvailable()`方法在 < c2 > `IPublicClientApplication` 。 這個方法會傳回`true`如果 PackageManager 偵測到自訂索引標籤和`false`如果未偵測到裝置上。
 
 根據這種方法，以及您所傳回的值，您可以決定：
 
@@ -122,23 +128,16 @@ App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
 下列程式碼顯示內嵌 web 檢視選項：
 
 ```csharp
-bool useSystemBrowser = UIParent.IsSystemWebviewAvailable();
-if (useSystemBrowser)
-{
-    // A browser with custom tabs is present on device, use system browser
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
-}
-else
-{
-    // A browser with custom tabs is not present on device, use embedded webview
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
-}
+bool useSystemBrowser = app.IsSystemWebviewAvailable();
 
-// Alternative:
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, !useSystemBrowser);
-
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(!useSystemBrowser)
+                      .ExecuteAsync();
 ```
 
-## <a name="net-core-does-not-support-interactive-authentication"></a>.NET core 不支援互動式驗證
+## <a name="net-core-does-not-support-interactive-authentication-out-of-the-box"></a>.NET core 不支援內建的互動式驗證
 
 適用於.NET Core，取得權杖以互動方式無法使用。 事實上，.NET Core 不尚未提供 UI。 如果您想要提供.NET Core 應用程式的互動式登入，您也可以讓應用程式呈現給使用者程式碼並移至以互動方式登入 URL (請參閱[裝置的程式碼流程](msal-authentication-flows.md#device-code))。
+
+或者，您可以實作[IWithCustomUI](scenario-desktop-acquire-token.md#withcustomwebui)介面，並提供您自己的瀏覽器
