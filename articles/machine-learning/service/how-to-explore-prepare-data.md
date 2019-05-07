@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 683f916596b4c77ec1dbc2acf1f91876c0752c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f9087d1fda7574043879983e31d7b608dbe58798
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028826"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204980"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>探索及準備資料的資料集類別 （預覽）
 
@@ -44,7 +44,7 @@ ms.locfileid: "65028826"
 需要您的資料，以取得初始了解您的資料架構和內容的範例。 在此階段中， [ `sample()` ](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-)從資料集類別的方法支援 Top N、 簡單隨機和 Stratified 取樣策略。
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import random
 
 # create an in-memory Dataset from a local file
@@ -109,7 +109,6 @@ sample_dataset.to_pandas_dataframe()
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|遭竊|...
 2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN AVE|810|遭竊|...
 
-
 ## <a name="explore-with-summary-statistics"></a>瀏覽之摘要統計資料
 
  偵測異常狀況，遺漏值，或使用的錯誤計數[ `get_profile()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-)方法。 此函式取得的設定檔，並摘要統計資料的資料，從而決定要套用的所需的資料準備作業。
@@ -118,7 +117,7 @@ sample_dataset.to_pandas_dataframe()
 dataset.get_profile()
 ```
 
-||類型|Min|max|Count|遺漏計數|未遺漏計數|遺漏百分比|錯誤計數|空白計數|0.1% 分位數|1% 分位數|5% 分位數|25% 分位數|50% 分位數|75% 分位數|95% 分位數|99% 分位數|99.9% 分位數|平均值|標準差|Variance|偏度|峰度
+||Type|Min|max|Count|遺漏計數|未遺漏計數|遺漏百分比|錯誤計數|空白計數|0.1% 分位數|1% 分位數|5% 分位數|25% 分位數|50% 分位數|75% 分位數|95% 分位數|99% 分位數|99.9% 分位數|平均值|標準差|Variance|偏度|峰度
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
 案例編號|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -152,7 +151,7 @@ Year|FieldType.INTEGER|2016|2016|10.0|0.0|10.0|0.0|0.0|0.0|2016|2016|2016|2016|2
 首先，取得最新的資料集定義[ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-)和削減資料[ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow)，因此我們只能檢視我們想要討論的資料行。
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import azureml.dataprep as dprep
 
 # get the latest definition of Dataset
@@ -222,7 +221,6 @@ ds_def.head(3)
 1|10516598|False|41.744107|-87.664494
 2|10519196|False|41.780049|-87.000000
 
-
 更新資料集定義，具有[ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-)保持執行的轉換步驟。
 
 ```Python
@@ -246,6 +244,7 @@ dataset.head(3)
 
 ```Python
 from azureml.dataprep import value
+from azureml.core.dataset import Dataset
 
 # get the latest definition of the Dataset
 ds_def = dataset.get_definition()
@@ -257,7 +256,7 @@ ds_def = ds_def.assert_value('Longitude', (value <= 180) & (value >= -87), error
 ds_def.get_profile()
 ```
 
-||類型|Min|max|Count|遺漏計數|未遺漏計數|遺漏百分比|錯誤計數|空白計數|0.1% 分位數|1% 分位數|5% 分位數|25% 分位數|50% 分位數|75% 分位數|95% 分位數|99% 分位數|99.9% 分位數|平均值|標準差|Variance|偏度|峰度
+||Type|Min|max|Count|遺漏計數|未遺漏計數|遺漏百分比|錯誤計數|空白計數|0.1% 分位數|1% 分位數|5% 分位數|25% 分位數|50% 分位數|75% 分位數|95% 分位數|99% 分位數|99.9% 分位數|平均值|標準差|Variance|偏度|峰度
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
 阻止|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -282,7 +281,7 @@ print(error.originalValue)
 資料集的更進階的工具之一是能夠衍生資料行使用的所需的結果範例。 這可讓您提供給 SDK 範例中，因此，它可以產生程式碼，以達到預期的轉換。
 
 ```Python
-from azureml.dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local file
 dataset = Dataset.auto_read_files('./data/crime.csv')
@@ -295,15 +294,15 @@ dataset.head(3)
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S 沙加緬度 AVE|...
 
-假設您要轉換日期和時間格式 ' 2016年-04-04 下午 10 點-上午 12 點 '。 在  [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow)引數，提供您想要的輸出中的範例`example_data`參數，格式如下： *([所需的輸出中的 (原始輸出）*。
+假設您要轉換日期和時間格式 ' 2016年-04-04 下午 10 點-上午 12 點 '。 在 [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow)引數，提供您想要的輸出中的範例`example_data`參數，格式如下： *(所需的輸出中的 (原始輸出）*。
 
 下列程式碼提供兩個範例所需的輸出，("2016年-04-04 23:56:00"，"2016年-04-04 下午 10-12 AM") 和 ("2016年-04-15 17:00:00"，"2016年-04-15 下午 4 點-下午 6 」)
 
 ```Python
 ds_def = dataset.get_definition()
 ds_def = ds_def.derive_column_by_example(
-        source_columns = "Date", 
-        new_column_name = "Date_Time_Range", 
+        source_columns = "Date",
+        new_column_name = "Date_Time_Range",
         example_data = [("2016-04-04 23:56:00", "2016-04-04 10PM-12AM"), ("2016-04-15 17:00:00", "2016-04-15 4PM-6PM")]
     )
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
@@ -329,7 +328,7 @@ dataset = dataset.update_definition(ds_def, 'Derive Date_Time_Range')
 例如，資料行`inspections.business.city`包含數種形式的縣 （市) 名稱"San Francisco"。
 
 ```Python
-from azureml.Dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local json file
 dataset = Dataset.auto_read_files('./data/city.json')

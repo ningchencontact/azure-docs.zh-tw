@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 7dd469b07727e1efa326a1d92ea778bd3fb2cab1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ee7649dccf1ca50933e29cec9d40e4f5e16bd721
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026630"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074114"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>快速入門：使用語音 SDK、UWP 建立語音優先虛擬助理
 
@@ -31,7 +31,7 @@ ms.locfileid: "65026630"
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
-* 先前建立且使用 [Direct Line Speech 頻道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)設定的 Bot
+* 先前建立且使用 [Direct Line Speech 頻道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)設定的 Bot
 
     > [!NOTE]
     > 在預覽中，Direct Line Speech 頻道目前僅支援 **westus2** 區域。
@@ -247,7 +247,7 @@ ms.locfileid: "65026630"
     > 在預覽中，Direct Line Speech 頻道目前僅支援 **westus2** 區域。
 
     > [!NOTE]
-    > 如需設定 Bot 和擷取頻道祕密的詳細資訊，請參閱 [Direct Line Speech 頻道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)的 Bot Framework 文件。
+    > 如需設定 Bot 和擷取頻道祕密的詳細資訊，請參閱 [Direct Line Speech 頻道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)的 Bot Framework 文件。
 
     ```csharp
     // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key

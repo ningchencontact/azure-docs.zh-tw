@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: 磁碟備份和災害復原
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: 暫時性 OS 磁碟
+          href: ephemeral-os-disks.md
     - name: 網路功能
       href: network-overview.md
     - name: 自動調整應用程式
@@ -243,18 +245,38 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: 使用映像
       items:
-        - name: 共用映像 (預覽)
+        - name: 共用映像
           items:
             - name: 概觀
               href: shared-image-galleries.md
-            - name: 使用 PowerShell 建立共用映像
+            - name: PowerShell
               href: shared-images.md
-            - name: 使用 CLI 建立共用映像
+            - name: 入口網站
+              href: shared-images-portal.md
+            - name: CLI
               href: ../linux/shared-images.md
             - name: 入口網站
               href: shared-images-portal.md
+            - name: 跨租用戶共用映像
+              href: share-images-across-tenants.md
             - name: 針對共用映像進行疑難排解
               href: troubleshooting-shared-images.md
+        - name: 映像產生器 (預覽)
+          items:
+            - name: 概觀
+              href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: 使用 CLI
+              href: image-builder.md
+            - name: 搭配資源庫使用
+              href: image-builder-gallery.md
+            - name: 更新映像版本
+              href: image-builder-gallery-update-image-version.md
+            - name: 在 Azure 儲存體中使用指令碼
+              href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: 範本參考
+              href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: 疑難排解
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: 尋找及使用映像
           href: cli-ps-findimage.md
         - name: 準備 VM 以上傳
@@ -326,8 +348,6 @@
           href: detach-disk.md
         - name: 透過範本部署磁碟
           href: using-managed-disks-template-deployments.md
-        - name: 將 VHD 上傳到磁碟 - PowerShell
-          href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: 調整磁碟大小
           href: expand-os-disk.md
         - name: 製作磁碟的快照集
