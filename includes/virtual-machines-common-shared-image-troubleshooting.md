@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418640"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149637"
 ---
 如果您在共用映像資源庫、映像定義及映像版本上執行任何作業時遇到問題，請再次以偵錯模式執行失敗的命令。 透過 CLI 傳遞 **-debug** 參數以及透過 PowerShell 傳遞 **-Debug** 參數，可啟動偵錯模式。 一旦您找到錯誤，請遵循本文件來針對錯誤進行疑難排解。
 
@@ -24,7 +24,7 @@ ms.locfileid: "60418640"
 
 資源庫名稱無效。
 
-資源庫名稱允許的字元為大寫或小寫字母、數字、點和句點。 資源庫名稱不能有連字號。 變更資源庫名稱並再試一次。 
+資源庫名稱允許的字元為大寫或小寫字母、數字、點和句點。 組件庫名稱不能包含連字號。 變更資源庫名稱並再試一次。 
 
 資源庫名稱在您的訂用帳戶內不是唯一的。
 
@@ -37,7 +37,7 @@ ms.locfileid: "60418640"
 
 映像定義名稱無效。
 
-映像定義允許的字元為大寫或小寫字母、數字、點、破折號和句點。 變更映像定義名稱並再試一次。
+如需映像定義允許的字元是大寫或小寫字母、 數字、 點、 連字號和句號。 變更映像定義名稱並再試一次。
 
 未填入可供建立映像定義的必要屬性。
 
@@ -62,20 +62,7 @@ ms.locfileid: "60418640"
 
 請確定來源受控映像的佈建狀態是 [已成功]。
 
-尚未支援來源區域。
-
-使用下表來查看是否支援預定的來源區域：
-<br>
-
-| 在「來源地區」中建立資源庫   | 將版本複寫至「目標區域」 |
-|----------------------------------------|-------------------------------------------|
-| 美國中西部                        | 所有 Azure 公用雲端區域            |
-| 美國中南部                       |                                           |
-| 美國東部 2                              |                                           |
-| 東南亞                         |                                           |
-| 西歐                            |                                           |
-
-<br>
+*目標區域清單不包含來源區域。*
 
 目標區域清單必須包含映像版本的來源區域。 確定您已在您希望 Azure 將您的映像版本複寫至的目標區域清單中包含來源區域。
 
@@ -101,7 +88,7 @@ VM 或虛擬機器擴展集建立花費很長的時間。
 
 ## <a name="unable-to-share-resources"></a>無法共用資源
 
-使用[角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC)，可在訂用帳戶間啟用共用映像資源庫、映像定義及映像版本資源的共用。 
+訂用帳戶之間共用的映像庫映像定義及映像版本資源的共用使用已啟用[角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)(RBAC)。 
 
 ## <a name="replication-is-slow"></a>複寫速度很慢
 
