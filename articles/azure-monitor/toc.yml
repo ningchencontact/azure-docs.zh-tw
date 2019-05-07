@@ -555,6 +555,8 @@
                   href: app/usage-workbooks.md
             - name: Web 應用程式 Analytics 解決方案
               href: insights/azure-web-apps-analytics.md
+            - name: Kubernetes 裝載的應用程式
+              href: app/kubernetes.md
         - name: 監視容器
           items:
             - name: 適用於容器的 Azure 監視器
@@ -563,13 +565,19 @@
                   href: insights/container-insights-overview.md
                 - name: 常見問題集
                   href: insights/container-insights-faq.md
-                - name: 上線
-                  href: insights/container-insights-onboard.md
+                - name: 啟用監視
+                  items:
+                    - name: 啟用監視概觀
+                      href: insights/container-insights-onboard.md
+                    - name: 針對新的叢集啟用
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: 針對現有叢集啟用
+                      href: insights/container-insights-enable-existing-clusters.md
                 - name: 分析
                   href: insights/container-insights-analyze.md
                 - name: 停用監視
                   href: insights/container-insights-optout.md
-                - name: 檢視容器即時記錄
+                - name: 檢視即時記錄
                   href: insights/container-insights-live-logs.md
                 - name: 使用日誌查詢分析資料
                   href: insights/container-insights-log-search.md
@@ -585,8 +593,6 @@
               href: insights/containers.md
             - name: 監視 Docker 應用程式
               href: app/docker.md
-            - name: 適用於 Kubernetes 的 Application Insights
-              href: app/kubernetes.md
         - name: 監視資源群組
           href: insights/resource-group-insights.md
         - name: 監視資料庫

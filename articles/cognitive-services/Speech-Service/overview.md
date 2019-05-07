@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2e82e033e56af10bd8e676570e9409941753eb38
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010187"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020976"
 ---
 # <a name="what-are-the-speech-services"></a>什麼是語音服務？
 
-Azure 語音服務會將語音轉文字、文字轉語音及語音翻譯整合至單一 Azure 訂用帳戶。 藉由[語音 SDK](speech-sdk-reference.md)、[語音裝置 SDK](speech-devices-sdk-qsg.md) 或 [REST API](rest-apis.md)，可輕易地透過語音來啟用您的應用程式、工具和裝置。
+Azure 語音服務會將語音轉文字、文字轉語音及語音翻譯整合至單一 Azure 訂用帳戶。 藉由[語音 SDK](speech-sdk-reference.md)、[語音裝置 SDK](https://aka.ms/sdsdk-quickstart) 或 [REST API](rest-apis.md)，可輕易地透過語音來啟用您的應用程式、工具和裝置。
 
 > [!IMPORTANT]
 > 語音服務已取代 Bing 語音 API、翻譯工具語音和自訂語音。 如需移轉說明，請參閱 [操作指南] > [移轉]。
@@ -30,6 +30,7 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 |---------|---------|-------------|-----|------|
 | [語音轉文字](speech-to-text.md) | 語音轉文字 | 語音轉文字會即時地將音訊串流轉譯成文字，以便您的應用程式、工具或裝置使用或顯示。 若搭配 [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) 使用語音轉文字，即可從轉譯的語音衍生使用者意圖，以及根據語音命令執行動作。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [批次轉譯](batch-transcription.md) | 批次轉譯可讓您非同步地對大量資料進行語音轉文字的轉譯。 這是以 REST 為基礎的服務，其在自訂和模型管理上使用相同端點。 | 否 | [是](https://westus.cris.ai/swagger/ui/index) |
+| | [交談轉譯服務](conversation-transcription-service.md) | 啟用即時語音辨識、說話者識別和自動分段標記功能。 非常適合利用辨識說話者的能力來轉譯面對面會議。 | yes | 否 |
 | | [自訂](#customize-your-speech-experience) | 如果您在獨特的環境中使用語音轉文字進行辨識及轉譯，您可以建立並定型自訂原音、語言和發音模型，以處理環境噪音或業界專有詞彙。 | 否 | [是](https://westus.cris.ai/swagger/ui/index) |
 | [文字轉換語音](text-to-speech.md) | 文字轉換語音 | 文字轉語音會將輸入文字轉換為仿真人的合成語音。 可選擇標準語音和類神經語音 (請參閱[語言支援](language-support.md))。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [自訂](#customize-your-speech-experience) | 建立您品牌或產品專有的自訂聲音音調。 | 否 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
@@ -39,7 +40,8 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 
 了解 Azure 語音服務的新功能。
 
-* 2019 年 4 月 - 已發行語音 SDK 1.4.0，在 Windows 和 Linux 上可支援適用於 C++、C# 和 Java 的文字轉語音搶鮮版 (Beta)。 此外，此 SDK 目前在 Linux 上已支援適用於 C++ 和 C# 的 MP3 和 Opus/Ogg 音訊格式。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。 
+* 2019 年 5 月 - 發行的語音 SDK 1.5.0。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
+* 2019 年 4 月 - 已發行語音 SDK 1.4.0，在 Windows 和 Linux 上可支援適用於 C++、C# 和 Java 的文字轉語音搶鮮版 (Beta)。 此外，此 SDK 目前在 Linux 上已支援適用於 C++ 和 C# 的 MP3 和 Opus/Ogg 音訊格式。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
 * 2019 年 3 月 - 現已推出新的文字轉語音 (TTS) 端點，其可傳回特定區域中可用的完整語音清單。 此外，TTS 現在支援新的區域。 如需詳細資訊，請參閱[文字轉語音 API 參考 (REST)](rest-text-to-speech.md)。
 * 2019 年 2 月 - 發行支援 [Unity (Beta)](quickstart-csharp-unity.md) 的語音 SDK 1.3.0。 新增 `AudioInput` 類別的支援，可讓您選擇音訊的串流來源。 如需增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
 * 2018 年 12 月 - 發行支援 [Python](quickstart-python.md)、[Node.js](quickstart-js-node.md) 和 Ubuntu 18.04 LTS 的語音 SDK 1.2.0。 如需詳細資訊，請參閱[版本資訊](releasenotes.md)。

@@ -55,7 +55,9 @@
           href: logic-apps-create-variables-store-values.md
         - name: 執行資料作業
           href: logic-apps-perform-data-operations.md
-        - name: 使用 Azure Functions 新增自訂程式碼
+        - name: 使用內嵌程式碼新增和執行程式碼片段
+          href: logic-apps-add-run-inline-code.md
+        - name: 使用 Azure Functions 新增和執行程式碼
           href: logic-apps-azure-functions.md
         - name: 使用 Azure Functions 呼叫邏輯應用程式
           href: logic-apps-scenario-function-sb-trigger.md
@@ -167,7 +169,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure 服務匯流排
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: 連接字串
+        - name: Azure SQL Database
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing 搜尋
           href: ../connectors/connectors-create-api-bingsearch.md

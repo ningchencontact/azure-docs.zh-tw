@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 2/19/2019
+  ms.date: 02/19/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -55,8 +55,8 @@ sections:
         style: unordered
         items:
           - html: '<a href="https://aka.ms/aml-sdk">主要 Python SDK</a>：核心功能、自動化的機器學習服務、管線和更多功能'
-          - html: '<a href="https://aka.ms/data-prep-sdk">資料準備</a> Python SDK：準備和轉換資料'
           - html: '<a href="https://aka.ms/aml-monitoring-sdk">監視</a> Python SDK：在部署的 web 服務上收集資料'
+          - html: 適用於虛擬介面的<a href="../algorithm-module-reference/module-reference.md">演算法和模組參考</a>
   - title: 其他 Azure Machine Learning 技術
     items:
       - type: list

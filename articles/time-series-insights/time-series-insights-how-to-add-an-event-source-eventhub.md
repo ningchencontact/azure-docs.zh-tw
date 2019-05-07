@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2b307f662c0c9b94edc6bb8eb3ca299f5ad4620
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41d3e72d978a210c2d68365ade5d8cb42c24aad5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702643"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147595"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>新增事件中樞事件來源到您的時間序列深入解析環境
 
@@ -27,9 +27,9 @@ ms.locfileid: "64702643"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 建立時間序列深入解析環境。 如需詳細資訊，請參閱[建立 Azure 時間序列深入解析環境](./time-series-insights-update-create-environment.md)。
-- 建立事件中樞。 如需有關事件中樞的詳細資訊，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。
-- 事件中樞必須要有傳入的作用中訊息事件。 如需詳細資訊，請參閱[使用 .NET Framework 將事件傳送至 Azure 事件中樞](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md)。
+- 建立 Time Series Insights 環境中所述[建立 Azure Time Series Insights 環境](./time-series-insights-update-create-environment.md)。
+- 建立事件中樞。 請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。
+- 事件中樞必須要有傳入的作用中訊息事件。 了解如何[使用.NET Framework 將事件傳送至 Azure 事件中樞](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md)。
 - 在事件中樞建立專用取用者群組，讓時間序列深入解析環境從中取用。 每個時間序列深入解析事件來源都必須有自身專屬的取用者群組，且不可與任何其他取用者共用。 如果多個讀取器從同一個取用者群組取用事件，則所有讀取器都可能會看到錯誤。 另外也限制每一個事件中樞最多有 20 個取用者群組。 如需詳細資訊，請參閱 [事件中樞程式設計指南](../event-hubs/event-hubs-programming-guide.md)。
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>將取用者群組新增至事件中樞
@@ -42,7 +42,7 @@ ms.locfileid: "64702643"
 
 1. 在 [實體] 下，選取 [取用者群組]，然後選取 [取用者群組]。
 
-   ![事件中樞 - 新增取用者群組](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+   [![事件中樞-新增取用者群組](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png#lightbox)
 
 1. 在 [取用者群組] 頁面上，在 [名稱] 中輸入新的唯一值。  在時間序列深入解析環境中建立新的事件來源時，使用此相同名稱。
 
@@ -54,9 +54,9 @@ ms.locfileid: "64702643"
 
 1. 找出您的現有時間序列深入解析環境。 在左側功能表中，選取 [所有資源]，然後選取您的時間序列深入解析環境。
 
-1. 在 [環境拓撲] 下，選取 [事件來源],，然後選取 [加入]。
+1. 在 [環境拓撲] 下，選取 [事件來源],，然後選取 [新增]。
 
-   ![在 [事件來源] 下，選取 [加入] 按鈕](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
+   [![事件來源 下選取 [新增] 按鈕](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png#lightbox)
 
 1. 在 [事件來源名稱] 中輸入對此時間序列深入解析環境而言為唯一的值，例如 **event-stream**。
 
@@ -66,11 +66,11 @@ ms.locfileid: "64702643"
    - 若您的其中一個訂用帳戶中有現有的事件中樞，請選取 [來自可用訂閱的使用事件中樞]。 此選項是最簡單的方法。
    - 若事件中樞對於您的訂用帳戶而言是外部，或您想要選取進階選項，請選取 [手動提供事件中樞設定]。
 
-   ![在 [新增事件中樞] 窗格中，輸入前三個參數的值](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
+   [![在 [新增事件來源] 窗格中，輸入前三個參數值](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
 1. 下表說明 [來自可用訂閱的使用事件中樞] 選項的必要屬性：
 
-   ![訂用帳戶與事件中樞詳細資料](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
+   [![訂用帳戶和事件中樞詳細資料](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
    | 屬性 | 描述 |
    | --- | --- |
@@ -101,7 +101,7 @@ ms.locfileid: "64702643"
 
 1. 選取 [建立] 。
 
-   ![選取 [建立]](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   [![選取 [建立]](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox)
 
    建立事件來源之後，時間序列深入解析會自動開始將資料串流處理至您的環境。
 

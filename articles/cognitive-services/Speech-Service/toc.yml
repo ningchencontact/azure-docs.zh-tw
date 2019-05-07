@@ -15,6 +15,9 @@
     - name: 語音翻譯
       href: speech-translation.md
       displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+    - name: 語音優先虛擬助理預覽
+      href: voice-first-virtual-assistants.md
+      displayName: 'virtual assistants, speech-enabled bots, conversational agents'
 - name: 快速入門
   items:
     - name: 語音 SDK
@@ -73,7 +76,7 @@
               displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform'
             - name: C++ (Windows)
               href: quickstart-translate-speech-cpp-windows.md
-            - name: Java (Windows、Linux)
+            - name: Java (Windows、macOS、Linux)
               href: quickstart-translate-speech-java-jre.md
         - name: 文字轉換語音
           items:
@@ -86,6 +89,14 @@
             - name: C++ (Linux)
               href: quickstart-text-to-speech-cpp-linux.md
               displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
+        - name: 語音優先虛擬助理 (預覽)
+          items:
+            - name: 'C# (UWP)'
+              href: quickstart-virtual-assistant-csharp-uwp.md
+              displayName: 'virtual assistant, speech-enabled bot, conversational agent'
+            - name: Java (Windows、macOS、Linux)
+              href: quickstart-virtual-assistant-java-jre.md
+              displayName: 'virtual assistant, speech-enabled bot, conversational agent'
     - name: REST API
       items:
         - name: 依區域列出支援影片
@@ -103,7 +114,7 @@
             - name: Python
               href: quickstart-python-text-to-speech.md
     - name: 語音裝置 SDK
-      href: speech-devices-sdk-qsg.md
+      href: speech-devices-sdk-android-quickstart.md
       displayName: 'roobo, speech devices sdk'
 - name: 教學課程
   items:
@@ -113,6 +124,12 @@
     - name: 建置 Flask 應用程式以轉譯及合成文字，REST
       maintainContext: true
       href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
+- name: 概念
+  items:
+    - name: 交談轉譯服務
+      href: conversation-transcription-service.md
+    - name: 話務中心轉譯
+      href: call-center-transcription.md
 - name: 使用說明指南
   items:
     - name: 註冊語音服務
@@ -131,26 +148,42 @@
     - name: 啟用記錄 (SDK)
       href: how-to-use-logging.md
       displayName: 'debug, log, logging'
+    - name: 利用片語清單改善辨識度
+      href: how-to-phrase-lists.md
+      displayname: 'phrase lists, phrase, list, recognition accuracy'
+    - name: 轉譯交談 (SDK)
+      href: how-to-use-conversation-transcription-service.md
+      displayName: 'conversation, transcription, speech recognition'
     - name: 自訂
       items:
         - name: 語音轉文字
           items:
-            - name: 準備用於自訂的文字記錄
-              href: prepare-transcription.md
-            - name: 自訂原音模型
-              href: how-to-customize-acoustic-models.md
-            - name: 自訂語言模型
-              href: how-to-customize-language-model.md
-            - name: 自訂發音
-              href: how-to-customize-pronunciation.md
-            - name: 建立自訂辨識端點
-              href: how-to-create-custom-endpoint.md
+            - name: 開始使用自訂語音
+              href: how-to-custom-speech.md
+            - name: 準備資料
+              href: how-to-custom-speech-test-data.md
+            - name: 檢查資料
+              href: how-to-custom-speech-inspect-data.md
+            - name: 評估精確度
+              href: how-to-custom-speech-evaluate-data.md
+            - name: 定型自訂模型
+              href: how-to-custom-speech-train-model.md
+            - name: 部署自訂模型
+              href: how-to-custom-speech-deploy-model.md
+            - name: 指南：建立人為標記的轉譯
+              href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: 文字轉換語音
           items:
-            - name: 建立語音字型 (Bot 品牌聲音)
-              href: how-to-customize-voice-font.md
+            - name: 開始使用自訂語音
+              href: how-to-custom-voice.md
+            - name: 準備資料
+              href: how-to-custom-voice-prepare-data.md
+            - name: 建立和使用自訂語音模型
+              href: how-to-custom-voice-create-voice.md
             - name: 記錄語音範例
               href: record-custom-voice-samples.md
+            - name: 微調文字轉換語音輸出
+              href: how-to-voice-tuning.md
         - name: 建立自訂喚醒字 (裝置 SDK)
           href: speech-devices-sdk-create-kws.md
           displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
@@ -162,6 +195,14 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: 從翻譯工具語音 API
           href: how-to-migrate-from-translator-speech-api.md
+    - name: 使用容器
+      items:
+        - name: 安裝及執行容器
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: speech-container-howto.md
+        - name: 設定容器
+          href: speech-container-configuration.md
+          displayName: 'docker, container, billing, apikey, pull, logging'
 - name: 範例
   items:
     - name: 語音 SDK
@@ -196,9 +237,13 @@
     - name: 語音裝置 SDK
       items:
         - name: 取得語音裝置 SDK
-          href: 'get-speech-devices-sdk.md#download-the-speech-devices-sdk'
+          href: get-speech-devices-sdk.md
         - name: 版本資訊
           href: devices-sdk-release-notes.md
+        - name: Roobo v1 詳細資料
+          href: speech-devices-sdk-roobo-v1.md
+        - name: 麥克風規格
+          href: speech-devices-sdk-microphone.md
     - name: REST API
       items:
         - name: 語音轉文字
@@ -238,6 +283,8 @@
         - name: 語音翻譯
           href: 'https://www.microsoft.com/translator/faq.aspx'
           displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+        - name: 語音優先虛擬助理 (預覽)
+          href: faq-voice-first-virtual-assistants.md
     - name: 語音 SDK 授權
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
       items:
@@ -246,17 +293,18 @@
         - name: 協力廠商通知
           href: 'https://aka.ms/csspeech/toctpn'
     - name: 語音裝置 SDK
-      href: speech-devices-sdk.md
       displayName: 'roobo, speech devices sdk'
       items:
+        - name: 關於
+          href: speech-devices-sdk.md
         - name: 授權
           href: speech-devices-sdk-license.md
-          displayName: 'roobo, speech devices sdk'
         - name: 協力廠商通知
           href: devices-sdk-third-party-notices.md
-          displayName: 'roobo, speech devices sdk'
     - name: 針對語音 SDK 進行疑難排解
       href: troubleshooting.md
+    - name: 針對語音裝置 SDK 進行疑難排解
+      href: speech-devices-sdk-troubleshooting.md
     - name: 支援
       href: support.md
     - name: 價格和限制

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728733"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198870"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -140,6 +140,20 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 **我可以在 Azure 磁碟上使用 GPT 分割嗎？**
 
 GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS 磁碟必須使用 MBR 分割區樣式。
+
+## <a name="uploading-to-a-managed-disk"></a>上傳至受控磁碟
+
+**我可以上載資料到現有的受控磁碟嗎？**
+
+否上, 傳僅適用於新的空磁碟，以建立期間**ReadyToUpload**狀態。
+
+**是否可以連接的磁碟到 VM 時它是在上傳狀態？**
+
+沒有。
+
+**可能需要受控磁碟快照的集上傳狀態？**
+
+沒有。
 
 ## <a name="standard-ssd-disks"></a>標準 SSD 磁碟
 

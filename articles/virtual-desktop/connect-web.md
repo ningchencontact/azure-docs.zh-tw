@@ -1,20 +1,20 @@
 ---
-title: 使用 Windows 虛擬桌面預覽 web 用戶端連線-Azure
-description: 如何連線至 Windows 虛擬桌面預覽 HTML5 web 用戶端。
+title: 從網頁瀏覽器-Azure 連線到 Windows 虛擬桌面預覽
+description: 如何從網頁瀏覽器連線到 Windows 虛擬桌面預覽。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328862"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142456"
 ---
-# <a name="connect-with-the-web-client"></a>與 Web 用戶端連線
+# <a name="connect-from-a-web-browser"></a>從網頁瀏覽器連線
 
 Web 用戶端可讓您存取您的 Windows 虛擬桌面預覽資源從網頁瀏覽器，而不需要冗長的安裝程序。
 

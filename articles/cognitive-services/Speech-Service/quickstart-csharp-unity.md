@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3cedfaf1ae16c17026314fc24dbdc7bb11494caf
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872551"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020945"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>快速入門：使用適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 來辨識語音
 
@@ -27,14 +27,15 @@ ms.locfileid: "57872551"
 
 > [!NOTE]
 > 適用於 Unity 的語音 SDK 目前為搶鮮版 (Beta)。
-> 它支援 Windows x86 和 x64 (獨立桌面應用程式或通用 Windows 平台)，以及 Android (ARM32/64、x86)。
+> 它支援 Windows Desktop (x86 和 x64) 或通用 Windows 平台 (x86、x64、ARM/ARM64)，以及 Android (x86、ARM32/64)。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成此專案，您需要：
 
-* [Unity 2018.3 或更新版本](https://store.unity.com/)
+* [Unity 2018.3 或更新版本](https://store.unity.com/)與[新增 UWP ARM64 支援的 Unity 2019.1](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+     * 如需 ARM64 支援，安裝[適用於 ARM64 的選擇性建置工具和適用於 ARM64 的 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * 適用於語音服務的訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 * 能夠存取電腦的麥克風。
 

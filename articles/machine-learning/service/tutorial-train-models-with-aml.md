@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/28/2019
+ms.date: 04/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7617aec2739daa4f84bcecab060ae0f8e28fabe
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 712b5a003d3542908698d7b69c636780f6cf1007
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361586"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021756"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>教學課程：使用 Azure Machine Learning 服務將映像分類模型定型
 
@@ -45,31 +45,29 @@ ms.locfileid: "58361586"
 * 已安裝下列項目的 Python 3.6 Notebook 伺服器：
     * Azure Machine Learning SDK for Python
     * `matplotlib`和`scikit-learn`
-* 教學課程 Notebook 和 utils.py 檔案
-* 機器學習工作區 
-* 與 Notebook 位於相同目錄中的工作區組態檔 
+* 教學課程 Notebook 和 **utils.py** 檔案
+* 機器學習工作區
+* 與 Notebook 位於相同目錄中的工作區組態檔
 
 請從以下各節取得前述所有必要項目。
  
-* 使用 [Azure Notebooks](#azure) 
+* 使用[您工作區中的雲端 Notebook 伺服器](#azure) 
 * 使用[您自己的 Notebook 伺服器](#server)
 
-### <a name="azure"></a>使用 Azure Notebooks：雲端中的免費 Jupyter Notebook
+### <a name="azure"></a>使用您工作區中的雲端 Notebook 伺服器
 
-您可以輕鬆地開始使用 Azure Notebooks！ 我們已為您在 [Azure Notebooks](https://notebooks.azure.com/) 上安裝並設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk)。 Azure 服務會自動管理安裝和未來的更新。
-
-完成下列步驟之後，請在您的**開始使用**專案中執行 **tutorials/img-classification-part1-training.ipynb** Notebook。
+開始使用您自己的雲端式 Notebook 伺服器很容易。 我們已在您建立此雲端資源後，為您安裝及設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk)。
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* 啟動 Notebook 網頁之後，請開啟 **tutorials/img-classification-part1-training.ipynb** Notebook。
 
 
 ### <a name="server"></a>使用您自己的 Jupyter Notebook 伺服器
 
-使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。 
-
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
- 完成這些步驟之後，請執行 **tutorials/img-classification-part1-training.ipynb** Notebook。
+ 完成這些步驟之後，請從您複製的目錄執行 **tutorials/img-classification-part1-training.ipynb** Notebook。
 
 ## <a name="start"></a>設定您的開發環境
 
@@ -315,18 +313,16 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 請注意指令碼取得資料並儲存模型的方式：
 
-+ 定型指令碼會讀取引數以尋找包含資料的目錄。 在您稍後提交工作時，會指向這個引數的資料存放區：`parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`。
++ 定型指令碼會讀取引數以尋找包含資料的目錄。 當您稍後提交工作時，您會指向這個引數的資料存放區：```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ 定型指令碼會將模型儲存到名為 **outputs** 的目錄中： <br/>
-`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')` 。<br/>
-寫入此目錄之任何項目會自動上傳到您的工作區。 稍後在本教學課程中，您會從這個目錄存取您的模型。
-會從定型指令碼參考檔案 `utils.py`，以便正確載入資料集。 請將這個指令碼複製到指令碼資料夾中，以便可以一起存取它及遠端資源上的定型指令碼。
++ 定型指令碼會將模型儲存到名為 **outputs** 的目錄中。 寫入此目錄之任何項目會自動上傳到您的工作區。 稍後在本教學課程中，您會從這個目錄存取您的模型。 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
++ 定型指令碼需要 `utils.py` 檔案才能正確載入資料集。 下列程式碼會將 `utils.py` 複製到 `script_folder` 中，使該檔案可與遠端資源上的定型指令碼一起存取。
 
-```python
-import shutil
-shutil.copy('utils.py', script_folder)
-```
+  ```python
+  import shutil
+  shutil.copy('utils.py', script_folder)
+  ```
 
 
 ### <a name="create-an-estimator"></a>建立估計工具

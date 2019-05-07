@@ -1,0 +1,78 @@
+- name: 個人化工具文件
+  href: index.yml
+- name: 概觀
+  expanded: true
+  items:
+    - name: 什麼是個人化工具？
+      href: what-is-personalizer.md
+      displayName: 'loop, context, feature, action, rank, reward, developer, use case'
+- name: 快速入門
+  items:
+    - name: 建立及使用意見反應迴圈
+      href: csharp-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, c#'
+- name: 概念
+  items:
+    - name: 個人化工具的運作方式
+      href: how-personalizer-works.md
+      displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
+    - name: 個人化工具可以應用在何處？
+      href: where-can-you-use-personalizer.md
+      displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: 倫理和負責使用
+      href: ethics-responsible-use.md
+      displayName: 'best practice, design'
+    - name: 基本概念
+      items:
+        - name: 功能：動作和內容
+          href: concepts-features.md
+          displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: 增強式學習
+          href: concepts-reinforcement-learning.md
+          displayName: 'RL, contextual bandits, Vowpal Wabbit'
+    - name: 分析
+      items:
+        - name: 離線評估
+          href: concepts-offline-evaluation.md
+          displayName: 'learning policy, Counterfactual, features'
+- name: 使用說明指南
+  items:
+    - name: 建立和設定個人化工具
+      href: how-to-settings.md
+      displayName: 'azure, portal, settings, evaluation, offline, policy'
+    - name: 分析
+      items:
+        - name: 離線評估
+          href: how-to-offline-evaluation.md
+    - name: 使用容器
+      items:
+        - name: 安裝及執行容器
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey'
+          href: personalizer-container-howto.md
+        - name: 設定容器
+          href: personalizer-container-configuration.md
+          displayName: 'docker, run, apikey'
+- name: 參考
+  items:
+    - name: 範例
+      href: 'https://aka.ms/personalizer-samples'
+    - name: REST API 參考
+      href: 'https://aka.ms/personalizer-rest-api-docs'
+    - name: SDK
+      items:
+        - name: .Net SDK 參考
+          href: 'https://aka.ms/personalizer-dotnet-sdk-docs'
+        - name: Nuget 套件
+          href: 'https://aka.ms/personalizer-nuget-sdk'
+- name: 資源
+  items:
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure 藍圖
+      href: 'https://aka.ms/personalizer-roadmap'
+    - name: 價格
+      href: 'https://aka.ms/personalizer-pricing'
+    - name: 堆疊溢位
+      href: 'https://aka.ms/personalizer-stackoverflow'
+    - name: UserVoice
+      href: 'https://aka.ms/personalizer-uservoice'

@@ -4,6 +4,8 @@
   items:
     - name: 關於通知中樞
       href: notification-hubs-push-notification-overview.md
+    - name: 與 App Service Mobile Apps 整合
+      href: notification-hubs-app-service.md
 - name: 快速入門
   items:
     - name: 建立通知中樞 - Azure 入口網站

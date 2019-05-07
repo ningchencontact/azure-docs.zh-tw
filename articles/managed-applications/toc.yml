@@ -17,6 +17,8 @@
       href: publish-service-catalog-app.md
     - name: 發佈市集應用程式
       href: publish-marketplace-app.md
+    - name: 建立自訂資源提供者
+      href: create-custom-provider.md
 - name: 範例
   items:
     - name: Azure CLI
@@ -25,6 +27,10 @@
       href: powershell-samples.md
     - name: 受控應用程式解決方案
       href: sample-projects.md
+- name: 概念
+  items:
+    - name: 自訂提供者
+      href: custom-providers-overview.md
 - name: 使用說明指南
   items:
     - name: 發行者

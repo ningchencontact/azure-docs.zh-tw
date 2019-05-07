@@ -79,37 +79,40 @@
       displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
 - name: 使用說明指南
   items:
+    - name: 編輯知識庫
+      items:
+        - name: 編輯知識庫
+          href: How-To/edit-knowledge-base.md
+        - name: 使用後續提示建立多回合交談
+          href: How-To/multiturn-conversation.md
+          displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
+        - name: 新增閒聊
+          href: How-to/chit-chat-knowledge-base.md
+        - name: 新增受保護的 Sharepoint 檔案
+          href: How-To/add-sharepoint-datasources.md
+          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
     - name: 管理知識庫
       items:
         - name: 建立和發佈知識庫
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: 在知識庫中新增閒聊
-          href: How-to/chit-chat-knowledge-base.md
-        - name: 移轉知識庫
-          href: Tutorials/migrate-knowledge-base.md
-        - name: 編輯知識庫
-          href: How-To/edit-knowledge-base.md
-          displayName: 'metadata, pair'
-        - name: 新增受保護的 Sharepoint 檔案
-          href: How-To/add-sharepoint-datasources.md
-          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
-        - name: 在知識庫上共同作業
-          href: How-To/collaborate-knowledge-base.md
+        - name: 取得答案
+          href: How-To/metadata-generateanswer-usage.md
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer'
+        - name: 建立透過知識庫啟用的 Bot
+          href: Tutorials/integrate-qnamaker-luis.md
         - name: 以不同語言建立知識庫
           href: How-To/language-knowledge-base.md
+        - name: 移轉知識庫
+          href: Tutorials/migrate-knowledge-base.md
+          displayName: 'metadata, pair'
+        - name: 在知識庫上共同作業
+          href: How-To/collaborate-knowledge-base.md
         - name: 測試知識庫
           href: How-To/test-knowledge-base.md
         - name: 使用主動學習來改善知識庫
           href: How-to/improve-knowledge-base.md
           displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning'
-    - name: 使用知識庫
-      items:
-        - name: 透過 GenerateAnswer API 使用中繼資料
-          href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters'
-        - name: 具有 Bot
-          href: Tutorials/integrate-qnamaker-luis.md
     - name: 管理服務
       items:
         - name: 設定 QnA Maker 服務
@@ -154,7 +157,7 @@
     - name: 範例
       items:
         - name: QnA Maker 的說明機器人
-          href: 'https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot'
+          href: 'https://aka.ms/qnamakerhelpbotsample'
     - name: SDK
       items:
         - name: 'C#'

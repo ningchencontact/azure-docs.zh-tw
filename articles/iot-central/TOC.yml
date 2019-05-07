@@ -47,6 +47,8 @@
           href: howto-connect-raspberry-pi-csharp.md
         - name: 準備及連線 Windows IoT Core 裝置
           href: howto-connect-windowsiotcore.md
+        - name: 準備及連線 SensorTile.box 裝置
+          href: howto-connect-sensortile.md
         - name: 使用命令列監視裝置連線能力
           href: howto-use-iotc-explorer.md
     - name: 管理裝置

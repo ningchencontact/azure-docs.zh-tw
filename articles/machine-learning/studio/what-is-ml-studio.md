@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
-ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: dd1eaa95a23deed0bf2098995be43402c605defc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682996"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024205"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什麼是 Azure Machine Learning Studio？
 Microsoft Azure Machine Learning Studio 是共同作業式的拖放工具，您可以用來依據您的資料建置、測試及部署預測分析解決方案。 Machine Learning Studio 會以 Web 服務方式發佈模型，讓自訂應用程式或 BI 工具 (例如 Excel) 都能夠很容易地使用。
@@ -44,7 +44,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 ![Microsoft Azure Machine Learning Studio 功能概觀](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>開始使用 Machine Learning Studio
-第一次進入 [Machine Learning Studio](https://studio.azureml.net) 時，您會看到 [首頁]。 您可以從這裡檢視文件、影片、網路研討會，以及尋找其他重要資源。
+第一次進入 Machine Learning Studio (https://studio.azureml.net) 時，您會看到 [首頁]。 您可以從這裡檢視文件、影片、網路研討會，以及尋找其他重要資源。
 
 按一下左上方的功能表 ![功能表](./media/what-is-ml-studio/menu.png) 您會看到幾個選項。
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
@@ -111,14 +111,22 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 <a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Machine Learning Studio 與 Azure Machine Learning 服務有何不同？
 
-[Azure Machine Learning 服務](../service/overview-what-is-azure-ml.md)提供 SDK 和服務，可快速準備資料、定型及部署機器學習服務模型。 透過自動調整運算與管線，提升產能及降低成本。 使用開放原始碼 Python 架構 (例如 PyTorch、TensorFlow 及 scikit-learn)，存取這些功能。 
+[Azure Machine Learning 服務](../service/overview-what-is-azure-ml.md)提供 SDK **與**視覺化介面 (預覽)，可快速準備資料、定型及部署機器學習服務模型。 視覺化介面 (預覽) 對 Studio 提供類似的拖放體驗。 不過，不同於 Studio 的專屬計算平台，視覺化介面會使用您自己的計算資源，且已完全整合到 Azure Machine Learning 服務中。
 
-當您想要快速且輕鬆地實驗機器學習模型，而內建的機器學習演算法即已足夠您用於解決方案時，請使用 Machine Learning Studio。
+以下是快速的比較。
 
-若在 Python 環境中運作，而想要更充分掌控您的機器學習演算法，或是想要使用開放原始碼機器學習程式庫，請使用 Machine Learning 服務。
+|| Machine Learning Studio | Azure Machine Learning 服務：<br/>視覺化介面|
+|---| --- | --- |
+|| 正式上市 (GA) | 預覽狀態|
+|介面適用的模組| 多種 | 初始的受歡迎模組集合|
+|定型計算目標| 專屬計算目標，僅限 CPU 支援| 支援 Azure Machine Learning 計算 (GPU 或 CPU)。<br/>(SDK 中支援的其他計算)|
+|部署計算目標| 專屬 Web 服務格式 (不可自訂) | 企業安全性選項與 Azure Kubernetes 服務。 <br/>(SDK 中支援的[其他計算](../service/how-to-deploy-and-where.md)) |
+|自動化模型定型和超參數調整 | 否 | 尚未在視覺化介面中。 <br/> (在 SDK 和 Azure 入口網站中支援。) | 
+
+試用視覺介面 (預覽)，經由[快速入門：準備資料並加以視覺化 (不需撰寫程式碼)](../service/ui-quickstart-run-experiment.md)
 
 > [!NOTE]
-> 在 Azure Machine Learning Studio 中所建立的模型，無法由 Azure Machine Learning 服務進行部署或管理。
+> 在 Studio 中建立的模型無法由 Azure Machine Learning 服務進行部署或管理。 不過，可以透過 Azure Machine Learning 服務工作區管理在服務視覺化介面中建立和部署的模型。
 
 ## <a name="free-trial"></a>免費試用
 

@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 1bdf73dc6a4edf0c170b51e70fca2128d22e0eb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803584"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150306"
 ---
 下表列出不同服務層 S1、 S2、 S3 及 F1 相關聯的限制。 如需每個成本*單元*在每個層中，請參閱[Azure IoT 中樞價格](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
@@ -40,9 +40,9 @@ ms.locfileid: "59803584"
 | 雲端到裝置訊息的傳遞計數  <br/> 计数 |100 |
 | 回應雲端到裝置訊息之反應訊息的  <br/>  傳遞計數上限 |100 |
 | 回應雲端到裝置訊息之反應訊息的  <br/>  TTL 上限 |2 天 |
-| 裝置對應項的大小上限 <br/> (標記、報告的屬性，以及所需的屬性) | 8 KB |
+| [裝置對應項的大小上限](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (標記、報告的屬性，以及所需的屬性) | 8 KB |
 | 裝置對應項字串值的大小上限 | 4 KB |
-| 裝置對應項中的物件深度上限 | 5 |
+| [裝置對應項中的物件的最大深度](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
 | 直接方法承載的大小上限 | 128 KB |
 | 作業歷程記錄的保留期上限 | 30 天 |
 | 並行作業數上限 | 10 (適用於 S3)、5 (適用於 S2)、1 (適用於 S1) |
@@ -51,10 +51,8 @@ ms.locfileid: "59803584"
 | 同時連線之裝置串流的數目上限 | 50 (僅適用於 S1、S2、S3 和 F1) |
 | 裝置串流資料傳輸上限 | 每日 300 MB (僅適用於 S1、S2、S3 和 F1) |
 
-
 > [!NOTE]
 > 如果您需要超過 50 個 Azure 訂用帳戶付費的 IoT 中樞，請連絡 Microsoft 支援服務。
-
 
 > [!NOTE]
 > 您目前可以連線到單一 IoT 中樞的裝置數目上限為 1,000,000 個。 如果您想要上調此限制，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。

@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure 區塊鏈服務文件
+metadata:
+  title: Azure 區塊鏈服務文件 - 教學課程和 API 參考
+  description: 了解如何建立區塊鏈應用程式。 教學課程、API 參考和其他文件將示範如何使用 Azure 區塊鏈服務來建立、開發和管理 Azure 上的區塊鏈應用程式。
+  services: azure-blockchain
+  author: patricka
+  manager: femila
+  ms.service: azure-blockchain
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/13/2019
+  ms.author: patricka
+abstract:
+  description: 了解如何建立區塊鏈應用程式。 教學課程、API 參考和其他文件將示範如何使用 Azure 區塊鏈服務來建立、開發和使用 Azure 上的區塊鏈應用程式。
+sections:
+  - title: 5 分鐘快速入門
+    items:
+      - type: paragraph
+        text: 了解如何建立並連線到 Azure 上的聯盟成員。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/deploy.svg
+            text: 建立聯盟成員
+            href: /azure/blockchain/service/create-member
+          - image:
+              src: ./media/index/multi-connect.svg
+            text: 使用 MetaMask 連線
+            href: /azure/blockchain/service/connect-metamask
+          - image:
+              src: ./media/index/cligeneric.svg
+            text: 使用 geth 連線
+            href: /azure/blockchain/service/connect-geth
+          - image:
+              src: ./media/index/code-blocks.svg
+            text: 使用 Truffle 連線
+            href: /azure/blockchain/service/connect-truffle
+  - title: 逐步教學課程
+    items:
+      - type: paragraph
+        text: 了解如何建立、設定及開發 Azure 上的區塊鏈應用程式。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/blockchain/service/send-transaction">建立 Azure 區塊鏈服務成員並傳送交易</a>
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">REST API</a></p>'

@@ -32,6 +32,8 @@
       href: tutorial-mongodb-cosmos-db.md
     - name: 將 MongoDB 線上遷移至 Azure Cosmos DB Mongo API
       href: tutorial-mongodb-cosmos-db-online.md
+    - name: 在線上將 Oracle 遷移至適用於 PostgreSQL 的 Azure 資料庫
+      href: tutorial-oracle-azure-postgresql-online.md
 - name: 使用說明指南
   items:
     - name: 使用 PowerShell 將 SQL Server 遷移至 Azure SQL DB

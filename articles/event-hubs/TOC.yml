@@ -51,6 +51,8 @@
           href: event-hubs-capture-python.md
     - name: 串流至適用於 Apache Kafka 的事件中樞
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: 建立專用事件中樞叢集
+      href: event-hubs-dedicated-cluster-create-portal.md
 - name: 教學課程
   items:
     - name: 在事件中樞資料流上將資料異常視覺化

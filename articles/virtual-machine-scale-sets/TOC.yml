@@ -129,6 +129,8 @@
         - name: 進階儲存體效能
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
+        - name: 暫時性 OS 磁碟
+          href: ephemeral-os-disks.md
         - name: 磁碟適用的延展性目標
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
@@ -204,7 +206,7 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: 使用 Azure CLI
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
-            - name: 使用擴充排序的磁碟加密
+            - name: 擴充功能排序
               href: ../security/azure-security-disk-encryption-extension-sequencing.md
               maintainContext: true
         - name: 使用大型擴展集
@@ -221,13 +223,16 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: 使用 Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
-        - name: 共用映像資源庫 (預覽)
-          href: shared-image-galleries.md
+        - name: 共用映像資源庫
           items:
+            - name: 概觀
+              href: shared-image-galleries.md
             - name: CLI
               href: shared-images-cli.md
             - name: PowerShell
               href: shared-images-powershell.md
+            - name: 跨租用戶共用映像
+              href: share-images-across-tenants.md
             - name: 針對共用映像進行疑難排解
               href: troubleshooting-shared-images.md
         - name: 擴展集內的垂直縮放比例

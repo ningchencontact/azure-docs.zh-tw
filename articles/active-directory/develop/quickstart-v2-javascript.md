@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2021c5028637a6f7e732df61b6f7c034ef79324f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4f242afb717557a35b81515ab718971bdc398b5a
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547392"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992780"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>快速入門：登入使用者及從 JavaScript 單頁應用程式 (SPA) 取得存取權杖
 
@@ -49,7 +49,7 @@ ms.locfileid: "59547392"
 >
 > 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 > 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-> 1. 移至新的 [Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs)窗格。
+> 1. 移至新的 [Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs)窗格。
 > 1. 輸入您的應用程式名稱，然後按一下 [註冊]。
 > 1. 依照指示按一下滑鼠，即可下載並自動設定新的應用程式。
 >
@@ -81,27 +81,32 @@ ms.locfileid: "59547392"
 #### <a name="step-2-download-the-project"></a>步驟 2：下載專案
 
 您可以選擇適合您開發環境的其中一個選項。
-* [下載核心專案檔案 - 適用於網頁伺服器，例如 Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
-* [下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+* [下載核心專案檔案](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)，以搭配使用 Node.js 的網頁伺服器執行。 若要開啟檔案，請使用 [Visual Studio Code](https://code.visualstudio.com/) 等編輯器。
 
-將 ZIP 檔案解壓縮至本機資料夾 (例如，**C:\Azure-Samples**)。
-若要在開啟資料夾中的檔案，請使用 [Visual Studio Code](https://code.visualstudio.com/) 等編輯器。
+* (選擇性) [下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)來與 IIS 伺服器搭配執行。 將 ZIP 檔案解壓縮至本機資料夾 (例如，**C:\Azure-Samples**)。
+
+
 
 #### <a name="step-3-configure-your-javascript-app"></a>步驟 3：設定您的 JavaScript 應用程式
 
 > [!div renderon="docs"]
-> 在 *JavaScriptSPA* 資料夾下，編輯 `index.html`，於 `applicationConfig` 下設定 `clientID` 與 `authority` 值。
+> 在 *JavaScriptSPA* 資料夾下，編輯 `index.html`，於 `msalConfig` 下設定 `clientID` 與 `authority` 值。
 
 > [!div class="sxs-lookup" renderon="portal"]
-> 在 *JavaScriptSPA* 資料夾下，編輯 `index.html`，並將 `applicationConfig` 取代成：
+> 在 *JavaScriptSPA* 資料夾下，編輯 `index.html`，並將 `msalConfig` 取代成：
 
 ```javascript
-var applicationConfig = {
-    clientID: "Enter_the_Application_Id_here",
-    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-    graphScopes: ["user.read"],
-    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+var msalConfig = {
+    auth: {
+        clientId: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+    },
+    cache: {
+        cacheLocation: "localStorage",
+        storeAuthStateInCookie: true
+    }
 };
+
 ```
 > [!div renderon="docs"]
 >
@@ -110,10 +115,11 @@ var applicationConfig = {
 > - `Enter_the_Tenant_Info_Here` - 會設為下列其中一個選項：
 >   - 如果您的應用程式支援 [此組織目錄中的帳戶]，請將此值取代為 [租用戶識別碼] 或 [租用戶名稱] (例如 contoso.microsoft.com)
 >   - 如果您的應用程式支援 [任何組織目錄中的帳戶]，請將此值取代為 `organizations`
->   - 如果您的應用程式支援 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]，請將此值取代為 `common`
+>   - 如果您的應用程式支援 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]，請將此值取代為 `common`。 若要將支援範圍限制為「僅限個人 Microsoft 帳戶」，請將此值取代為 `consumers`。
 >
 > > [!TIP]
 > > 若要尋找 [應用程式 (用戶端) 識別碼]、[目錄 (租用戶) 識別碼] 和 [支援的帳戶類型] 的值，請在 Azure 入口網站中移至應用程式的 [概觀] 頁面。
+>
 
 #### <a name="step-4-run-the-project"></a>步驟 4：執行專案
 
@@ -141,13 +147,16 @@ var applicationConfig = {
 MSAL 是程式庫，用來登入使用者並要求權杖，該權杖是用來存取受 Microsoft 身分識別平台保護的 API。 快速入門的 index.html 包含程式庫的參考：
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.min.js"></script>
 ```
+> [!TIP]
+> 您可以使用 [MSAL.js 版本](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)下的最新發行版本取代上述版本。
 
-或者，如果您已安裝節點，可以透過 npm 下載它：
+
+或者，如果您已安裝 Node，可以透過 npm 下載最新預覽版本：
 
 ```batch
-npm install msal
+npm install msal@preview
 ```
 
 ### <a name="msal-initialization"></a>MSAL 初始化
@@ -155,29 +164,48 @@ npm install msal
 快速入門程式碼也會示範如何初始化程式庫：
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var msalConfig = {
+    auth: {
+        clientId: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+    },
+    cache: {
+        cacheLocation: "localStorage",
+        storeAuthStateInCookie: true
+    }
+};
+
+var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
 > |Where  |  |
 > |---------|---------|
 > |`ClientId`     |來自註冊於 Azure 入口網站中之應用程式的應用程式識別碼|
-> |`authority`    |它是授權單位 URL。 傳遞 Null 會將預設授權單位設為 `https://login.microsoftonline.com/common`。 如果您的應用程式是單一租用戶 (目標僅限於單一目錄中的帳戶)，請將此值設為 `https://login.microsoftonline.com/<tenant name or ID>`|
-> |`tokenReceivedCallback`| 在驗證重新導向回到應用程式之後所呼叫的回呼方法。 此處已傳遞 `acquireTokenRedirectCallBack`。 如果使用 loginPopup，這是 null 值。|
-> |`options`  |選擇性參數的集合。 在此情況下，`storeAuthStateInCookie` 和 `cacheLocation` 都是選擇性組態。 如需選項的詳細資訊，請參閱 [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options)。 |
+> |`authority`    | (選擇性) 這是如上述設定一節所述的授權單位 URL，用以支援帳戶類型。 預設授權單位是 `https://login.microsoftonline.com/common`。 |
+> |`cacheLocation`  | (選擇性) 這會設定驗證狀態的瀏覽器儲存體。 預設值是 sessionStorage。   |
+> |`storeAuthStateInCookie`  | (選擇性) 程式庫會在瀏覽器 cookie 中儲存驗證流程的驗證所需驗證要求狀態。 這會針對 IE 和 Edge 瀏覽器設定，以減少特定[已知問題](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)。 |
+
+ 如需可設定選項的詳細資訊，請參閱 [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options)。
 
 ### <a name="sign-in-users"></a>登入使用者
 
 下列程式碼片段顯示如何登入使用者：
 
 ```javascript
-myMSALObj.loginPopup(applicationConfig.graphScopes).then(function (idToken) {
-    //Callback code here
-})
+var request = {
+    scopes: ["user.read"]
+};
+
+myMSALObj.loginPopup(request).then(function (loginResponse) {
+    //Login Success callback code here
+}).catch(function (error) {
+    console.log(error);
+});
 ```
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | (選擇性) 包含在登入時針對使用者同意所要求的範圍。 例如，適用於 Microsoft Graph 的 `[ "user.read" ]` 或適用於自訂 Web API 的 `[ "<Application ID URL>/scope" ]` (也就是 `api://<Application ID>/access_as_user`)。 此處已傳遞 `applicationConfig.graphScopes`。 |
+> | `scopes`   | (選擇性) 包含在登入時針對使用者同意所要求的範圍。 例如，適用於 Microsoft Graph 的 `[ "user.read" ]` 或適用於自訂 Web API 的 `[ "<Application ID URL>/scope" ]` (也就是 `api://<Application ID>/access_as_user`)。 |
 
 > [!TIP]
 > 或者，您可以使用 `loginRedirect` 方法，將目前頁面重新導向至登入頁面 (而非快顯視窗)。
@@ -191,14 +219,21 @@ MSAL 有三種取得權杖的方法，`acquireTokenRedirect`、`acquireTokenPopu
 `acquireTokenSilent` 方法會處理權杖取得和更新作業，不需要與使用者進行任何互動。 在第一次執行 `loginRedirect` 或 `loginPopup` 方法之後，`acquireTokenSilent` 就會成為用來取得權杖的常用方法，以在後續呼叫中使用那些權杖存取受保護的資源。 以無訊息方式進行要求或更新權杖的呼叫。
 
 ```javascript
-myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (accessToken) {
+var request = {
+    scopes: ["user.read"]
+};
+
+myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
     // Callback code here
-})
+    console.log(tokenResponse.accessToken);
+}).catch(function (error) {
+    console.log(error);
+});
 ```
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | 包含要在 API 存取權杖中傳回的所要求範圍。 例如，適用於 Microsoft Graph 的 `[ "user.read" ]` 或適用於自訂 Web API 的 `[ "<Application ID URL>/scope" ]` (也就是 `api://<Application ID>/access_as_user`)。 此處已傳遞 `applicationConfig.graphScopes`。|
+> | `scopes`   | 包含要在 API 存取權杖中傳回的所要求範圍。 例如，適用於 Microsoft Graph 的 `[ "user.read" ]` 或適用於自訂 Web API 的 `[ "<Application ID URL>/scope" ]` (也就是 `api://<Application ID>/access_as_user`)。|
 
 #### <a name="get-a-user-token-interactively"></a>以互動方式取得使用者權杖
 
@@ -207,16 +242,22 @@ myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (acces
 * 您的應用程式要求其他資源範圍的存取權，需要使用者同意
 * 需要雙因素驗證
 
-大部分應用程式的一般建議模式是先呼叫 `acquireTokenSilent`、捕捉例外狀況，然後呼叫 `acquireTokenRedirect` (或 `acquireTokenPopup`) 以啟動互動式要求。
+大部分應用程式的一般建議模式是先呼叫 `acquireTokenSilent`、捕捉例外狀況，然後呼叫 `acquireTokenPopup` (或 `acquireTokenRedirect`) 以啟動互動式要求。
 
-呼叫 `acquireTokenPopup(scope)` 會導致要登入的快顯視窗 (或者呼叫 `acquireTokenRedirect(scope)` 會導致將使用者重新導向至 Microsoft 身分識別平台端點)，使用者必須藉由確認其認證、同意必要的資源，或完成雙因素驗證來進行互動。
+呼叫 `acquireTokenPopup` 會導致要登入的快顯視窗 (或者呼叫 `acquireTokenRedirect` 會導致將使用者重新導向至 Microsoft 身分識別平台端點)，使用者必須藉由確認其認證、同意必要的資源，或完成雙因素驗證來進行互動。
 
 ```javascript
-myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (accessToken) {
-    // Callback code here
-})
-```
+var request = {
+    scopes: ["user.read"]
+};
 
+myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+    // Callback code here
+    console.log(tokenResponse.accessToken);
+}).catch(function (error) {
+    console.log(error);
+});
+```
 > [!NOTE]
 > 如果因為 Internet Explorer 瀏覽器處理快顯視窗相關[已知問題](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)，而使用 Internet Explorer 瀏覽器，則本快速入門會使用 `loginRedirect` 和 `acquireTokenRedirect` 方法。
 

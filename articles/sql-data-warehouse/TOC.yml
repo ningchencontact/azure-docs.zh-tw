@@ -62,7 +62,7 @@
           href: quickstart-scale-compute-tsql.md
     - name: 工作負載管理
       items:
-        - name: 建立工作負載分類器 (預覽)
+        - name: 建立工作負載分類器
           items:
             - name: T-SQL
               href: quickstart-create-a-workload-classifier-tsql.md
@@ -72,28 +72,48 @@
       items:
         - name: 概觀
           href: sql-data-warehouse-overview-manage-security.md
-        - name: 存取控制
-          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: 防火牆規則
-          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: 虛擬網路服務端點
-          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Authentication
-          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Azure AD
-          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: 登入和使用者
-          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: 多因素驗證
-          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 進階資料安全性
+          items:
+            - name: 概觀
+              href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: 資料探索與分類
+              href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: 弱點評量
+              href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: 進階威脅防護
+              href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: 稽核
           href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: 資料探索與分類
-          href: 'https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json'
-        - name: 資料行層級安全性
-          href: column-level-security.md
-        - name: 資料列層級安全性
-          href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json'
+        - name: 網路安全性
+          items:
+            - name: 防火牆規則
+              href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: 虛擬網路服務端點
+              href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Authentication
+          items:
+            - name: 概觀
+              href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Azure Active Directory
+              href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: 登入和使用者
+              href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: 多因素驗證
+              href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 存取控制
+          items:
+            - name: 概觀
+              href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: 資料行層級安全性
+              href: column-level-security.md
+            - name: 資料列層級安全性
+              href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json'
+        - name: 資料保護
+          items:
+            - name: 透明資料加密 (TDE) 概觀
+              href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: 具有 BYOK 的 TDE
+              href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
     - name: 載入資料
       items:
         - name: 概觀
@@ -158,9 +178,9 @@
       items:
         - name: 資源類別與工作負載管理
           href: resource-classes-for-workload-management.md
-        - name: 工作負載分類 (預覽)
+        - name: 工作負載分類
           href: sql-data-warehouse-workload-classification.md
-        - name: 工作負載重要性 (預覽)
+        - name: 工作負載重要性
           href: sql-data-warehouse-workload-importance.md
         - name: 記憶體與並行限制
           href: memory-and-concurrency-limits.md
@@ -204,8 +224,6 @@
           href: sql-data-warehouse-encryption-tde.md
         - name: 啟用加密 - T-SQL
           href: sql-data-warehouse-encryption-tde-tsql.md
-        - name: 威脅偵測
-          href: sql-data-warehouse-security-threat-detection.md
     - name: 載入資料
       items:
         - name: 紐約計程車資料

@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 73dda32c3f5f89a8b3e7465fbfdde28cb0ad2d6f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1e1fdc43caf01ea33ce7587c1612ad416aed6d3d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020833"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074308"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -448,7 +448,7 @@ Azure 服務和功能導覽 </a>
                                         <li>
                                             <a href="/azure/sql-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>連接字串</p>
+                                                <p>Azure SQL Database</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2094,7 +2094,7 @@ Azure 服務和功能導覽 </a>
                                     </div>
                                 </a>
                             </li>
-<li>
+                            <li>
                                 <a href="/azure/vmware-cloudsimple/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2107,6 +2107,25 @@ Azure 服務和功能導覽 </a>
                                                 <div class="cardText">
                                                     <h3>依 CloudSimple 的 Azure VMware 解決方案</h3>
                                                     <p>在 Azure 中執行 VMware 平台</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/openshift/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/openshift.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Red Hat OpenShift</h3>
+                                                    <p>與 Red Hat 共同經營的完全受控 OpenShift 服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3069,6 +3088,25 @@ Azure 服務和功能導覽 </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/openshift/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/openshift.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Red Hat OpenShift</h3>
+                                                    <p>與 Red Hat 共同經營的完全受控 OpenShift 服務</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3085,7 +3123,7 @@ Azure 服務和功能導覽 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>連接字串</h3>
+                                                    <h3>Azure SQL Database</h3>
                                                     <p>受管理的關聯式 SQL Database 即服務</p>
                                                 </div>
                                             </div>

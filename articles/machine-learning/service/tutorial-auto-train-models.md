@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925749"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035452"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
 
@@ -54,16 +54,16 @@ ms.locfileid: "64925749"
 
 請從以下各節取得前述所有必要項目。
 
-* 使用 [Azure Notebooks](#azure)
+* 使用[您工作區中的雲端 Notebook 伺服器](#azure) 
 * 使用[您自己的 Notebook 伺服器](#server)
 
-### <a name="azure"></a>使用 Azure Notebooks：雲端中的免費 Jupyter Notebook
+### <a name="azure"></a>使用您工作區中的雲端 Notebook 伺服器
 
-您可以輕鬆地開始使用 Azure Notebooks！ 我們已為您在 [Azure Notebooks](https://notebooks.azure.com/) 上安裝並設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk)。 Azure 服務會自動管理安裝和未來的更新。
-
-完成下列步驟之後，請在您的**開始使用**專案中執行 **tutorials/regression-part2-automated-ml.ipynb** 筆記本。
+您可以輕鬆地開始使用自己的雲端式 Notebook 伺服器。 我們已在您建立此雲端資源後，為您安裝及設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk)。
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* 啟動 Notebook 網頁之後，請執行 **tutorials/regression-part2-automated-ml.ipynb** Notebook。
 
 ### <a name="server"></a>使用您自己的 Jupyter Notebook 伺服器
 

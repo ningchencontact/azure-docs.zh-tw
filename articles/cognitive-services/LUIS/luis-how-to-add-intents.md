@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521737"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148157"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>新增意圖以判斷語句的使用者用意
 
@@ -42,16 +42,25 @@ ms.locfileid: "59521737"
 
     LUIS 會將所有意圖轉換成小寫，並且在語彙基元 (例如連字號) 周圍新增空格。
 
-## <a name="intent-prediction-discrepancy-errors"></a>意圖預測差異錯誤 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-意圖中的語句在所選意圖與預測分數之間，可能會有意圖預測差異。 LUIS 會在範例語句的資料列上以紅色方塊圍住 [加上標籤的意圖] 來指出此差異。 
+## <a name="intent-prediction-errors"></a>意圖預測誤差 
 
-![意圖詳細資料頁面的螢幕擷取畫面，包含語句預測差異錯誤](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+在意圖範例 [utterance] 可能意圖預測錯誤範例 [utterance] 目前正在的目的之間決定在定型期間預測意圖。 
 
-在頂端導覽列中，選取 [定型]。 預測差異現在已消失。
+若要找出 [utterance] 預測錯誤並加以修正，請使用**篩選**選項的**評估**選項不正確和 Unclear 結合**檢視**選項**詳細檢視**。 
 
-> [!Note]
-> 當紅線的單字或片語中範例 [utterance] 底下[實體預測誤差](luis-how-to-add-example-utterances.md#entity-status-predictions)發生。 您需要修正它。 
+![若要找出 [utterance] 預測錯誤並加以修正，使用的篩選選項。](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+當套用的篩選條件和檢視，並有範例談話，但發生錯誤時，範例 [utterance] 清單會顯示談話和問題。
+
+![![時套用的篩選條件和檢視，且有錯誤的範例談話，範例 [utterance] 清單會顯示談話和問題。](。 / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+每個資料列會顯示目前的訓練範例 utterance，這是最接近的競爭對手的分數，這是這些兩個分數的差異的預測分數。 
+
+### <a name="fixing-intents"></a>修正 「 意圖 」
+
+若要了解如何修正意圖預測錯誤，請使用[摘要儀表板](luis-how-to-use-dashboard.md)。 摘要儀表板提供作用中版本的最後一個訓練的分析，並提供了修正您的模型最上層的建議。  
 
 ## <a name="add-a-custom-entity"></a>新增自訂實體
 

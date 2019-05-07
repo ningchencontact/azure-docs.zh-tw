@@ -26,8 +26,10 @@
     - name: 分析影片 - .NET
       displayName: 'job, transform'
       href: analyze-videos-tutorial-with-api.md
-    - name: AES-128 動態加密 - .NET
+    - name: 透過 AES-128 進行動態加密 - .NET
       href: protect-with-aes128.md
+    - name: 透過 DRM 進行動態加密 - .NET
+      href: protect-with-drm.md
 - name: 範例
   items:
     - name: Azure 程式碼範例
@@ -56,10 +58,9 @@
         - name: Autogen 彈性位元速率階梯
           href: autogen-bitrate-ladder.md
         - name: 內容感知的編碼方式
-          displayName: 'content, aware, cae'
           href: cae-experimental.md
         - name: 作業錯誤碼
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: 媒體分析
       items:
         - name: 概觀
@@ -68,7 +69,7 @@
         - name: 轉換與工作
           href: transforms-jobs-concept.md
         - name: 作業錯誤碼
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: 封裝、傳遞、保護
       items:
         - name: 包裝中
@@ -150,7 +151,7 @@
             - name: 原始錯誤碼
               href: origin-error-codes.md
             - name: 作業錯誤碼
-              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+              href: job-error-codes.md
     - name: 將移轉指引從 v2 變更為 v3
       href: migrate-from-v2-to-v3.md
 - name: 使用說明指南
@@ -215,8 +216,6 @@
       items:
         - name: 取得內容金鑰原則 - .NET
           href: get-content-key-policy-dotnet-howto.md
-        - name: DRM 動態加密 - .NET
-          href: protect-with-drm.md
         - name: 適用於 iOS 的離線 FairPlay
           href: offline-fairplay-for-ios.md
         - name: 適用於 Android 的離線 Widevine
@@ -258,7 +257,7 @@
         - name: 原始錯誤碼
           href: origin-error-codes.md
         - name: 作業錯誤碼
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
 - name: 資源
   items:
     - name: Azure 媒體服務社群

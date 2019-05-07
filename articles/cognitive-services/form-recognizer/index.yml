@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 表單辨識器文件
+metadata:
+  title: API 文件 - 表單辨識器 - Azure 認知服務 | Microsoft Docs
+  description: 了解如何使用表單辨識器，以智慧方式從表單文件中擷取索引鍵值資料。
+  services: cognitive-services
+  author: PatrickFarley
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.subservice: form-recognizer
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/16/2019
+  ms.author: pafarley
+ms.custom: seodec18
+abstract:
+  description: Azure 表單辨識器是一項認知服務，其使用機器學習技術來識別和擷取表單文件中的索引鍵值組和資料表資料。 然後，它會輸出在原始檔中包含關聯性的結構化資料。 非監督式學習可讓模型了解欄位與項目之間的配置和關聯性，而不需要手動資料標記或密集編碼和維護。
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/form-recognizer/overview
+            html: <p>了解表單辨識器。</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 什麼是表單辨識器？
+          - href: /azure/cognitive-services/form-recognizer/form-recognizer-container-howto
+            html: <p>了解如何使用表單辨識器容器來剖析表單和資料表資料。</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: 安裝及執行容器
+  - title: 5 分鐘快速入門
+    items:
+      - type: paragraph
+        text: 定型表單辨識器模型，並使用下列各項擷取表單中的資料：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/logos/logo-curl.svg
+            text: cURL
+            href: quickstarts/curl-train-extract.md
+          - image:
+              src: ./media/logos/logo-python.svg
+            text: Python
+            href: quickstarts/python-train-extract.md
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API
+            html: '<p><a href="https://aka.ms/form-recognizer/api">表單辨識器 API</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'

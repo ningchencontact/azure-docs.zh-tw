@@ -18,9 +18,9 @@
   items:
     - name: 連線至 Windows 虛擬桌面資源
       items:
-        - name: 與 Windows 7 和 Windows 10 連線
+        - name: 從 Windows 10 或 Windows 7 連線
           href: connect-windows-7-and-10.md
-        - name: 與 Web 用戶端連線
+        - name: 從網頁瀏覽器連線
           href: connect-web.md
     - name: 使用 Azure Resource Manager 範本建立主機集區
       href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: 準備和自訂主要 VHD 映像
       href: set-up-customize-master-image.md
+    - name: 設定 Windows 虛擬桌面的 GPU
+      href: configure-vm-gpu.md
     - name: 自動調整工作階段主機
       href: set-up-scaling-script.md
 - name: 概念

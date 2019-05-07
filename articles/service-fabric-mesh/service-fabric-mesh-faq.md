@@ -9,12 +9,12 @@ ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728585"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143283"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh 的常見問題
 
@@ -28,7 +28,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>參與預覽版的成本為何？
 
-將應用程式或容器部署至 Mesh 預覽版目前不需任何費用。 不過，我們建議您刪除的資源部署，而且不讓它們保持執行，除非您要主動測試。
+目前沒有將應用程式或容器部署至網狀結構預覽收取費用。 請觀看 5 月更新啟用計費。 不過，我們建議您刪除的資源部署，而且不讓它們保持執行，除非您要主動測試。
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>核心和 RAM 數目是否有配額限制？
 
@@ -88,10 +88,15 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 可以使用下列容器 OS 映像部署服務：
 
 - Windows：windowsservercore 和 nanoserver
-    - Windows Server 1709 版
-    - Windows Server 1803 版
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 -  Linux
     - 沒有已知的限制
+
+> [!NOTE]
+> Visual Studio 工具的網狀結構還不支援部署到 Windows Server 2019 和 1809年容器。
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>可以部署何種類型的應用程式？ 
 
@@ -138,6 +143,10 @@ Azure Mesh 目前不支援跨應用程式的 DNS 解析。
 您無法將多個應用程式部署到一個單一節點叢集。 減輕問題：
 - 將多個應用程式部署至本機叢集時，請使用五節點叢集。
 - 移除您目前沒有在測試的應用程式。
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>VS 工具適用於 Windows 容器的支援有限
+
+Visual Studio 工具僅支援目前部署與 Windows Server 1709 和 1803年的基底 OS 版本的 Windows 容器。 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>功能差距和其他已知問題
 

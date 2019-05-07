@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 987cd1e5860b0fe340ba8a5163d844bec29b541c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637641"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205113"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -264,7 +264,7 @@ _**圖 4：** SAP ASCS/SCS HA 架構與共用磁碟_
 2. 在兩個虛擬機器節點上執行 SIOS DataKeeper Cluster Edition。
 3. 設定 SIOS DataKeeper Cluster Edition，使它將來源虛擬機器的額外磁碟連接磁碟區內容鏡像至目標虛擬機器的額外磁碟連接磁碟區。 SIOS DataKeeper 會提取來源和目標本機磁碟區，並將它們當作一個共用磁碟來呈現給 Windows Server 容錯移轉叢集。
 
-取得 [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/)的詳細資訊。
+取得 [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/)的詳細資訊。
 
 ![圖 5：Windows Server 容錯移轉叢集使用 SIOS DataKeeper 在 Azure 中的組態][sap-ha-guide-figure-1002]
 

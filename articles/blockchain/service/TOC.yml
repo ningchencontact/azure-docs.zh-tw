@@ -1,0 +1,69 @@
+- name: Azure 區塊鏈服務 (預覽)
+  href: index.yml
+- name: 概觀
+  items:
+    - name: 關於 Azure 區塊鏈服務
+      href: overview.md
+- name: 快速入門
+  expanded: true
+  items:
+    - name: 建立成員 - 入口網站
+      href: create-member.md
+    - name: 建立成員 - CLI
+      href: create-member-cli.md
+    - name: 連線到交易節點
+      items:
+        - name: 使用 MetaMask
+          href: connect-metamask.md
+        - name: 使用 Geth
+          href: connect-geth.md
+        - name: 使用 Truffle
+          href: connect-truffle.md
+- name: 教學課程
+  items:
+    - name: 傳送交易
+      href: send-transaction.md
+- name: 概念
+  items:
+    - name: 聯盟
+      href: consortium.md
+    - name: 資料存取和安全性
+      href: data-security.md
+    - name: 開發
+      href: develop.md
+    - name: 限制
+      href: limits.md
+    - name: 修補、更新、版本控制
+      href: ledger-versions.md
+- name: 使用說明指南
+  items:
+    - name: 設定 Azure AD 存取權
+      href: configure-aad.md
+    - name: 設定交易節點
+      href: configure-transaction-nodes.md
+    - name: 使用 Azure CLI 管理
+      href: manage-cli.md
+    - name: 使用 PowerShell 管理聯盟
+      href: manage-consortium-powershell.md
+- name: 資源
+  items:
+    - name: 區塊鏈 REST API
+      href: 'https://docs.microsoft.com/rest/api/blockchain/'
+    - name: 部落格
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Azure 區塊鏈服務的 Visual Studio Code 擴充功能
+      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
+    - name: 程式碼範例
+      href: 'https://github.com/Azure-Samples/blockchain'
+    - name: 社群
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: 論壇
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain'
+    - name: 產品意見反應
+      href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'

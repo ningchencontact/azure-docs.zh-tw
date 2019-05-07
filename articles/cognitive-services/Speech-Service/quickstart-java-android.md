@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 690656449fdb86c200a8978f0e17db562e4abbca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dabae62b9e308bc97850ee36fa735b8a11c4d6f0
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009173"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020974"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Android 上以 Java 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在本文中，您將了解如何使用認知服務語音 SDK 將語音轉譯成文字，以開發適用於 Android 的 Java 應用程式。
-應用程式以語音 SDK Maven 套件 1.4.0 版和 Android Studio 3.3 為基礎。
+應用程式以語音 SDK Maven 套件 1.5.0 版和 Android Studio 3.3 為基礎。
 語音 SDK 目前與使用 32/64 位元 ARM 和 Intel x86/x64 相容處理器的 Android 裝置相容。
 
 > [!NOTE]
@@ -50,7 +50,7 @@ Android Studio 需要一些時間來準備您新的 Android 專案。 接著，�
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.4.0`。
+認知服務語音 SDK 目前的版本為 `1.5.0`。
 
 適用於 Android 的語音 SDK 會封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library) \(英文\)，其中包含必要的程式庫及所需的 Android 權限。
 它會裝載在位於 https:\//csspeechstorage.blob.core.windows.net/maven/ 的 Maven 存放庫中。
@@ -65,7 +65,7 @@ Android Studio 需要一些時間來準備您新的 Android 專案。 接著，�
 
    ![專案結構視窗的螢幕擷取畫面](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. 在出現的視窗中，輸入適用於 Android 之語音 SDK 的名稱和版本 `com.microsoft.cognitiveservices.speech:client-sdk:1.4.0`。 然後選取 [確定]。
+1. 在出現的視窗中，輸入適用於 Android 之語音 SDK 的名稱和版本 `com.microsoft.cognitiveservices.speech:client-sdk:1.5.0`。 然後選取 [確定]。
    語音 SDK 現在應該會加入至相依性的清單，如下所示：
 
    ![專案結構視窗的螢幕擷取畫面](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

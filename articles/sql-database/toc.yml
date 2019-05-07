@@ -120,6 +120,8 @@
           href: sql-database-service-tiers-vcore.md
         - name: DTU 服務層級
           href: sql-database-service-tiers-dtu.md
+        - name: 無伺服器計算層級
+          href: sql-database-serverless.md
         - name: 預付保留容量
           href: sql-database-reserved-capacity.md
         - name: 從進階 RS 服務層級遷移

@@ -4,14 +4,14 @@ description: 了解如何設定及變更編製索引原則，自動編製索引�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872675"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068595"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中編製索引原則
 
@@ -73,6 +73,36 @@ Azure Cosmos DB 支援兩個編製索引模式：
 
 請參閱[本節](how-to-manage-indexing-policy.md#indexing-policy-examples)編製索引原則範例。
 
+## <a name="composite-indexes"></a>複合索引
+
+查詢`ORDER BY`兩個或多個屬性需要一個複合的索引。 目前，複合的索引只利用多重`ORDER BY`查詢。 根據預設，因此您應先，未定義任何複合的索引[新增複合的索引](how-to-manage-indexing-policy.md#composite-indexing-policy-examples)視。
+
+定義複合的索引，當您指定：
+
+- 兩個或多個屬性的路徑。 路徑是在哪一個屬性中的序列定義大小事。
+- 順序 （遞增或遞減）。
+
+使用複合索引時，會使用下列考量：
+
+- 如果複合的索引路徑不相符的 ORDER BY 子句中的屬性順序，然後複合的索引無法支援的查詢
+
+- 複合的索引路徑 （遞增或遞減） 順序也應符合 ORDER BY 子句中的順序。
+
+- 複合的索引也支援 ORDER BY 子句，以相反順序，在所有路徑上。
+
+請考慮下列的範例，其中屬性定義複合的索引 a、 b 和 c:
+
+| **複合索引**     | **範例`ORDER BY`查詢**      | **索引的支援？** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
+| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+
+您應該自訂您的編製索引原則，因此您可以提供所有必要`ORDER BY`查詢。
+
 ## <a name="modifying-the-indexing-policy"></a>修改編製索引原則
 
 可以在任何時候更新容器的索引編製原則[藉由使用 Azure 入口網站或其中一個支援的 Sdk](how-to-manage-indexing-policy.md)。 編製索引原則的更新會觸發從舊索引轉換至新的程式，因此額外儲存空間會不佔用任何空間作業期間） 在線上或就地執行。 舊原則的索引有效率地轉換至新的原則不會影響寫入可用性或容器上佈建的輸送量。 索引轉換是非同步作業，並完成所花費的時間取決於佈建的輸送量、 項目數目和其大小。 
@@ -84,7 +114,7 @@ Azure Cosmos DB 支援兩個編製索引模式：
 
 ## <a name="indexing-policies-and-ttl"></a>索引編製原則與 TTL
 
-[-存留時間 (TTL) 功能](time-to-live.md)需要編製索引設為 [開啟] 容器中的 [作用。 這表示：
+[-存留時間 (TTL) 功能](time-to-live.md)需要編製索引設為 [開啟] 容器中的 作用。 這表示：
 
 - 不可能啟用編製索引模式設為 無的其中一個容器上的 TTL
 - 您不可能的索引編製模式設定為 無在容器上啟用 TTL 的位置。

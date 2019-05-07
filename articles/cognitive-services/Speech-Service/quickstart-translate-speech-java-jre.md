@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5dc1852a57970c2994d9f36cbd7242a18b580a61
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897092"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021003"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>快速入門：使用適用於 Java 的語音 SDK 來轉譯語音
 
-在此快速入門中，您將會建立簡單的 Java 應用程式以從電腦的麥克風即時擷取使用者語音，翻譯該語音，然後將翻譯的文字轉譯到命令列。 此應用程式是設計來在 64 位元的 Windows 或 64 位元的 Ubuntu Linux 16.04/18.04 上執行，並使用語音 SDK Maven 套件與 Eclipse Java IDE 所建置。
+在此快速入門中，您將會建立簡單的 Java 應用程式以從電腦的麥克風即時擷取使用者語音，翻譯該語音，然後將翻譯的文字轉譯到命令列。 此應用程式的設計訴求是要在 64 位元 Windows 或 64 位元 Linux (Ubuntu 16.04、Ubuntu 18.04、Debian 9) 或在 macOS 10.13 或更新版本上執行。 此應用程式是使用語音 SDK Maven 套件和 Eclipse Java IDE 來建置。
 
 如需可供進行語音翻譯的完整語言清單，請參閱[語言支援](language-support.md)。
 
@@ -27,17 +27,26 @@ ms.locfileid: "57897092"
 
 本快速入門需要：
 
-* 作業系統：64 位元的 Windows 或 64 位元的 Ubuntu Linux 16.04/18.04
+* 作業系統：64 位元 Windows、64 位元 Linux (Ubuntu 16.04、Ubuntu 18.04、Debian 9) 或 macOS 10.13 或更新版本
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/) \(英文\)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) \(英文\) 或 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) \(英文\)
 * 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
-如果您執行 Ubuntu 16.04/18.04，請先確定已安裝下列相依性，再啟動 Eclipse。
+如果您執行 Linux，請先確定已安裝下列相依性，再啟動 Eclipse。
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+ * 在 Ubuntu 上：
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.0 libasound2
+   ```
+
+ * 在 Debian 9 上：
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.2 libasound2
+   ```
 
 > [!NOTE]
 > 針對語音裝置 SDK 和 Roobo 裝置，請參閱[語音裝置 SDK](speech-devices-sdk.md)。

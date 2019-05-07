@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 個人化工具文件
+metadata:
+  document_id: null
+  title: 個人化工具 - 教學課程、快速入門、API 參考
+  description: 了解如何使用個人化工具服務，讓您的應用程式選擇最佳體驗來對使用者展現，進而從其即時行為中學習。
+  author: nitinme
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2019
+  ms.author: nitinme
+abstract:
+  description: Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對使用者展現，進而從其即時行為中學習。
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/personalizer/what-is-personalizer
+            html: <p>了解個人化工具的用途及其使用方式。</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: 什麼是個人化工具？
+          - href: /azure/cognitive-services/personalizer/how-personalizer-works
+            html: <p>了解個人化工具意見反應迴圈搭配排名和回報 API 的運作方式。</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 個人化工具的運作方式
+          - href: /azure/cognitive-services/personalizer/ethics-responsible-use
+            html: <p>以為您的公司和服務建立起信任感的方式來實作個人化。</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: 倫理與責任
+  - title: 5 分鐘快速入門
+    items:
+      - type: paragraph
+        text: ''
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ../media/index/logo_Csharp.svg
+            href: csharp-quickstart-commandline-feedback-loop.md
+            text: 'C#'
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST API
+            html: '<p><a href="https://aka.ms/personalizer-rest-api-docs"> 個人化工具 API</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'

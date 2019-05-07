@@ -4,27 +4,53 @@ description: 使用本文以了解 Azure IoT Edge 的標準診斷技巧，例如
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612288"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142852"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
-如果您在您的環境中執行 Azure IoT Edge 時遇到問題，請使用本文作為疑難排解和解決方案的指引。 
+如果您在您的環境中執行 Azure IoT Edge 時遇到問題，請使用本文作為疑難排解和解決方案的指引。
 
-## <a name="standard-diagnostic-steps"></a>標準的診斷步驟 
+## <a name="run-the-iotedge-check-command"></a>執行 [檢查] 命令 iotedge
 
-當您遇到問題時，可透過檢閱容器記錄與裝置的往來訊息，深入了解 IoT Edge 裝置的狀態。 可使用這一節中的命令與工具來收集資訊。 
+第一個步驟進行疑難排解的 IoT Edge 時應該使用`check`命令，針對常見的問題便會執行回收的組態與連線能力測試。 `check`命令適用於[釋放 version:1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7)和更新版本。
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>檢查 IoT Edge 安全性管理員的狀態及其記錄：
+您可以執行`check`命令，如下所示，或包含`--help`旗標來查看完整的選項清單：
+
+* 在 Linux 上：
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* 在 Windows 上：
+
+  ```powershell
+  iotedge check
+  ```
+
+執行工具所檢查的類型可以分類為：
+
+* 設定檢查：檢查可防止 Edge 裝置連接到雲端，包括問題的詳細資料*config.yaml*和 container engine。
+* 連線檢查：確認 IoT Edge 執行階段可以存取主應用程式在裝置上的連接埠，而且所有 IoT Edge 的元件可以都連接到 IoT 中樞。
+* 實際執行整備檢查：會尋找建議實際執行最佳做法，例如裝置憑證授權單位 (CA) 憑證和模組記錄檔設定的狀態。
+
+診斷檢查完整清單，請參閱 <<c0> [ 內建的疑難排解功能](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md)。
+
+## <a name="standard-diagnostic-steps"></a>標準的診斷步驟
+
+如果您遇到問題，您可以深入了解您的 IoT Edge 裝置的狀態藉由檢視容器記錄檔和訊息傳遞與裝置。 可使用這一節中的命令與工具來收集資訊。
+
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>檢查 「 IoT Edge 安全性管理員 」 和其記錄檔的狀態
 
 在 Linux 上：
 - 若要檢視 IoT Edge 安全性管理員的狀態：
@@ -72,20 +98,13 @@ ms.locfileid: "60612288"
 - 若要檢視 IoT Edge 安全性管理員的記錄：
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>如果 IoT Edge 安全性管理員未執行，請驗證您的 yaml 組態檔
 
 > [!WARNING]
-> YAML 檔案不可包含使用 Tab 鍵的縮排。 請改用 2 個空格。
+> YAML 檔案不能包含索引標籤，為縮排。 請改用 2 個空格。
 
 在 Linux 上：
 
@@ -332,7 +351,7 @@ Azure IoT Edge 允许使用支持的 IoT 中心协议从本地服务器来与 Az
 
 雖然 IoT Edge 提供增強的設定來保護 Azure IoT Edge 執行階段和已部署的模組，但它仍然倚賴基礎的機器和網路設定。 因此，必须确保设置适当的网络和防火墙规则来保护 Edge 与云之间的通信。 为托管 Azure IoT Edge 运行时的底层服务器配置防火墙规则时，可参考下表中的指导：
 
-|通訊協定|Port|傳入|傳出|指引|
+|Protocol|Port|傳入|傳出|指引|
 |--|--|--|--|--|
 |MQTT|8883|已封鎖 (預設值)|已封鎖 (預設值)|<ul> <li>使用 MQTT 作為通訊協定時，請將「傳出」(輸出) 設定為「開放」。<li>IoT Edge 不支援適用於 MQTT 的 1883。 <li>應該將傳入 (輸入) 連線封鎖。</ul>|
 |AMQP|5671|已封鎖 (預設值)|開放 (預設值)|<ul> <li>IoT Edge 的預設通訊協定。 <li> 如果未設定 Azure IoT Edge 使用其他支援的通訊協定，或 AMQP 是所需的通訊協定，則必須設定為「開放」。<li>IoT Edge 不支援適用於 AMQP 的 5672。<li>當 Azure IoT Edge 使用不同的 IoT Hub 已支援通訊協定時，請封鎖此連接埠。<li>應該將傳入 (輸入) 連線封鎖。</ul></ul>|
