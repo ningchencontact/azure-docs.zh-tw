@@ -70,7 +70,7 @@ Azure 資料總管連結服務支援以下屬性：
 |:--- |:--- |:--- |
 | type | **type** 屬性必須設定為 **AzureDataExplorer** | 是 |
 | endpoint | Azure 資料總管叢集的端點 URL，格式為 `https://<clusterName>.<regionName>.kusto.windows.net`。 | 是 |
-| 資料庫 | 資料庫名稱。 | 是 |
+| database | 資料庫名稱。 | 是 |
 | tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 這是什麼您通常稱為 「**授權識別碼**」 中[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 這是什麼您通常稱為 「**AAD 應用程式用戶端識別碼**」 中[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)。 | 是 |
 | servicePrincipalKey | 指定應用程式的金鑰。 這是什麼您通常稱為 「**AAD 應用程式金鑰**」 中[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
@@ -107,7 +107,7 @@ Azure 資料總管連結服務支援以下屬性：
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | **type** 屬性必須設定為 **AzureDataExplorerTable** | 是 |
-| 資料表 | 連結服務所參考的資料表名稱。 | Yes (接收)：No (來源) |
+| table | 連結服務所參考的資料表名稱。 | Yes (接收)：No (來源) |
 
 **資料集屬性範例**
 
