@@ -56,7 +56,7 @@ ms.locfileid: "60640073"
 |:--- |:--- |:--- |
 | type |類型屬性必須設定為：**Cassandra** |是 |
 | host |一或多個 Cassandra 伺服器 IP 位址或主機名稱。<br/>指定以逗號分隔的 IP 位址或主機名稱清單，以同時連線到所有伺服器。 |是 |
-| 連接埠 |Cassandra 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 9042) |
+| port |Cassandra 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 9042) |
 | authenticationType | 用來連接到 Cassandra 資料庫的驗證類型。<br/>允許的值包括：**基本**與**匿名**。 |是 |
 | username |指定使用者帳戶的使用者名稱。 |是，如果 authenticationType 設定為 [基本]。 |
 | password |指定使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是，如果 authenticationType 設定為 [基本]。 |
@@ -98,7 +98,7 @@ ms.locfileid: "60640073"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**CassandraTable** | 是 |
-| keyspace |Cassandra 資料庫中的 Keyspace 或結構描述名稱。 |否 (如果已指定「CassandraSource」的「查詢」) |
+| keySpace |Cassandra 資料庫中的 Keyspace 或結構描述名稱。 |否 (如果已指定「CassandraSource」的「查詢」) |
 | tableName |Cassandra 資料庫中資料表的名稱。 |否 (如果已指定「CassandraSource」的「查詢」) |
 
 **範例：**
@@ -173,21 +173,21 @@ ms.locfileid: "60640073"
 
 | Cassandra 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| ASCII |字串 |
+| ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |BOOLEAN |
+| BOOLEAN |Boolean |
 | DECIMAL |Decimal |
-| DOUBLE |DOUBLE |
+| DOUBLE |Double |
 | FLOAT |Single |
-| INET |字串 |
+| INET |String |
 | INT |Int32 |
-| TEXT |字串 |
-| 時間戳記 |DateTime |
+| TEXT |String |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |字串 |
-| VARINT |DECIMAL |
+| VARCHAR |String |
+| VARINT |Decimal |
 
 > [!NOTE]
 > 如需集合類型 (對應、集、清單等)，請參閱 [使用虛擬資料表處理 Cassandra 集合類型](#work-with-collections-using-virtual-table) 一節。
@@ -244,7 +244,7 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra �
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |具有使用  |
+| 1 |S1 |A |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
@@ -252,10 +252,10 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra �
 
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |具有使用  |
-| 1 |b |
+| 1 |A |
+| 1 |B |
 | 1 |C |
-| 3 |具有使用  |
+| 3 |A |
 | 3 |E |
 
 ## <a name="next-steps"></a>後續步驟
