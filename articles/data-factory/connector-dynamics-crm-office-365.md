@@ -107,7 +107,7 @@ ms.locfileid: "64869540"
 | type | type 屬性必須設定為 **Dynamics**。 | 是 |
 | deploymentType | Dynamics 執行個體的部署類型。 如果是搭配 IFD 的 Dynamics 內部部署版，就必須是 **"OnPremisesWithIfd"**。| 是 |
 | hostName | 內部部署 Dynamics 伺服器的主機名稱。 | 是 |
-| 連接埠 | 內部部署 Dynamics 伺服器的連接埠。 | 否，預設值為 443 |
+| port | 內部部署 Dynamics 伺服器的連接埠。 | 否，預設值為 443 |
 | organizationName | Dynamics 執行個體的組織名稱。 | 是 |
 | authenticationType | 連線到 Dynamics 伺服器時所使用的驗證類型。 如果是搭配 IFD 的 Dynamics 內部部署版，請指定 **"Ifd"**。 | 是 |
 | username | 指定要連線到 Dynamics 的使用者名稱。 | 是 |
