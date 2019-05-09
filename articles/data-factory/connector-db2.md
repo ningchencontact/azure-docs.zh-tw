@@ -62,8 +62,8 @@ ms.locfileid: "60786368"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Db2** | 是 |
-| 伺服器 |DB2 伺服器的名稱。 您可以指定在伺服器名稱後面加上以冒號隔開的連接埠號碼，例如 `server:port`。 |是 |
-| 資料庫 |DB2 資料庫的名稱。 |是 |
+| server |DB2 伺服器的名稱。 您可以指定在伺服器名稱後面加上以冒號隔開的連接埠號碼，例如 `server:port`。 |是 |
+| database |DB2 資料庫的名稱。 |是 |
 | authenticationType |用來連接到 DB2 資料庫的驗證類型。<br/>允許的值為：**基本**。 |是 |
 | username |指定要連線到 DB2 資料庫的使用者名稱。 |是 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
@@ -176,28 +176,28 @@ ms.locfileid: "60786368"
 | BigInt |Int64 |
 | Binary |Byte[] |
 | Blob |Byte[] |
-| Char |字串 |
-| Clob |字串 |
-| date |DateTime |
-| DB2DynArray |字串 |
-| DbClob |字串 |
+| Char |String |
+| Clob |String |
+| Date |Datetime |
+| DB2DynArray |String |
+| DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| 圖形 |字串 |
-| 整數  |Int32 |
+| Graphic |String |
+| Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |字串 |
-| LongVarGraphic |字串 |
+| LongVarChar |String |
+| LongVarGraphic |String |
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| 時間 |TimeSpan |
+| Time |TimeSpan |
 | Timestamp |DateTime |
 | VarBinary |Byte[] |
-| VarChar |字串 |
-| VarGraphic |字串 |
+| VarChar |String |
+| VarGraphic |String |
 | Xml |Byte[] |
 
 
