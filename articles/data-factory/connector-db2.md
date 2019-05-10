@@ -186,7 +186,7 @@ ms.locfileid: "60786368"
 | Double |Double |
 | Float |Double |
 | 圖形 |String |
-| 整數  |Int32 |
+| Integer |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |String |
 | LongVarGraphic |String |
