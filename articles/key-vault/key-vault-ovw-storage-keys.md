@@ -4,21 +4,21 @@ description: 儲存體帳戶金鑰提供 Azure Key Vault 與 Azure 儲存體帳�
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: mbaldwin
+author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: eefdb4d644c97bb55342e21c9a2fcf0a122a6ec5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 190375700f65cf2d3ea47335a646562eb46b2d49
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724786"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232571"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 受控儲存體帳戶 - CLI
 
 > [!NOTE]
-> [Azure 儲存體與 Azure Active Directory (Azure AD) 之間的整合現已處於預覽狀態](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)。 我們建議使用 Azure AD 進行驗證和授權，因為其和 Azure Key Vault 相同，能針對 Azure 儲存體提供以 OAuth2 權杖為基礎的存取。 這可讓您：
+> [Azure 儲存體整合與 Azure Active Directory (Azure AD)] 是 Microsoft 的雲端式身分識別和存取管理服務。 Azure AD 的整合是適用於 Blob 和佇列服務。(https://docs.microsoft.com/azure/storage/common/storage-auth-aad). 我們建議使用 Azure AD 進行驗證和授權，因為其和 Azure Key Vault 相同，能針對 Azure 儲存體提供以 OAuth2 權杖為基礎的存取。 這可讓您：
 > - 使用應用程式或使用者身分識別來驗證用戶端應用程式，而非使用儲存體帳戶認證。 
 > - 在 Azure 上執行時，使用 [Azure AD 受控識別](/azure/active-directory/managed-identities-azure-resources/)。 受控識別能直接移除用戶端驗證，以及使用應用程式儲存認證或將認證儲存於應用程式中的需求。
 > - 使用同時也受 Key Vault 支援的角色型存取控制 (RBAC) 來管理授權。

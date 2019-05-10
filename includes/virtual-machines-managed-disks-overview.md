@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/11/2019
+ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9d96bd76a4d284e9b4390c564446e8b27c43d591
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: MT
+ms.openlocfilehash: 91e9d3a99224c09ecfb5cc3b477a71a7f7bfed7a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118439"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198903"
 ---
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -31,9 +31,9 @@ ms.locfileid: "60118439"
 
 受控磁碟會與可用性設定組整合，以確定[可用性設定組中的虛擬機器](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)磁碟彼此充分隔離，以避免出現單一失敗點。 磁碟會自動放置在不同的儲存體縮放單位 (戳記)。 如果因為硬體或軟體失敗造成戳記失敗，則只有磁碟在這些戳記上的 VM 執行個體才會失敗。 例如，假設您的應用程式在五個 VM 上執行，且這些 VM 位於可用性設定組中。 這些磁碟的 VM 不會全部以相同的戳記儲存，因此，如果有一個戳記失效，應用程式的其他執行個體會繼續執行。
 
-### <a name="integration-with-availability-zones"></a>可用性區域與整合
+### <a name="integration-with-availability-zones"></a>整合可用性設定組
 
-受控磁碟支援[可用性區域](../articles/availability-zones/az-overview.md)，這是資料中心失敗可防止您的應用程式的高可用性供應項目。 「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 使用「可用性區域」時，Azure 可提供業界最佳的 99.99% VM 執行時間 SLA。
+受控磁碟支援[可用性區域](../articles/availability-zones/az-overview.md)，這是高可用性供應項目，可保護您的應用程式不受資料中心故障影響。 「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 使用「可用性區域」時，Azure 可提供業界最佳的 99.99% VM 執行時間 SLA。
 
 ### <a name="azure-backup-support"></a>Azure 備份支援
 
@@ -45,13 +45,13 @@ ms.locfileid: "60118439"
 
 ## <a name="disk-roles"></a>磁碟角色
 
-在 Azure 中有三個主要磁碟角色： 資料磁碟、 OS 磁碟和暫存磁碟。 這些角色會對應到磁碟已附加至您的虛擬機器。
+Azure 中有三個主要磁碟角色：資料磁碟、OS 磁碟和暫存磁碟。 這些角色對應至您的虛擬機器連結的磁碟。
 
 ![作用中的磁碟角色](media/virtual-machines-managed-disks-overview/disk-types.png)
 
 ### <a name="data-disk"></a>資料磁碟
 
-資料磁碟是連接至虛擬機器的受控磁碟，用來儲存應用程式資料或其他您需要保留的資料。 資料磁碟註冊為 SCSI 磁碟機，並以您選擇的字母標示。 每個資料磁碟具有 32,767 gib (GiB) 的最大容量。 虛擬機器的大小會決定您可以連接之磁碟的數量，以及您可以用來裝載磁碟的儲存體類型。
+資料磁碟是連接至虛擬機器的受控磁碟，用來儲存應用程式資料或其他您需要保留的資料。 資料磁碟註冊為 SCSI 磁碟機，並以您選擇的字母標示。 每個資料磁碟都有 32,767 GiB 的容量上限。 虛擬機器的大小會決定您可以連接之磁碟的數量，以及您可以用來裝載磁碟的儲存體類型。
 
 ### <a name="os-disk"></a>作業系統磁碟
 
@@ -61,7 +61,7 @@ ms.locfileid: "60118439"
 
 ### <a name="temporary-disk"></a>暫存磁碟
 
-每個虛擬機器皆包含一個暫存磁碟，此非受控磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 在[维护事件](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期间或[重新部署 VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) 时，临时磁盘上的数据可能会丢失。 在 Azure Linux Vm，暫存磁碟是 /dev/sdb，根據預設，Windows Vm 上的暫存磁碟會是 e： 根據預設。 在 VM 的成功標準重新開機，期間會保存暫存磁碟上的資料。
+每個虛擬機器皆包含一個暫存磁碟，此非受控磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 暫存磁碟上的資料可能會在[維護事件](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期間或當您[重新佈署虛擬機器](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)時遺失。 在 Azure Linux VM 上，暫存磁碟預設為 /dev/sdb，而在 Windows VM 上，暫存磁碟預設為 E:。 在 VM 的成功標準重新開機期間，暫存磁碟上的資料將保留。
 
 ## <a name="managed-disk-snapshots"></a>受控磁碟快照集
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918403"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463637"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>將 Azure 訂用帳戶關聯或新增至您的 Azure Active Directory 租用戶
 
@@ -64,8 +64,8 @@ Azure 訂用帳戶已與 Azure Active Directory (Azure AD)，這表示訂用帳�
 
     訂用帳戶的目錄會變更， 而且您會看到成功訊息。
 
-    ![關於目錄變更的成功訊息](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
-4. 使用**目錄切換器**移至您的新目錄。 最多可能需要 10 分鐘的時間才能正確顯示所有項目。
+    ![關於目錄變更的成功訊息](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+4. 使用**目錄切換器**移至您的新目錄。 可能需要數小時才能正確顯示的所有項目。 如果它的時間似乎太長，請確定您已勾選**全域訂用帳戶篩選**移動訂用帳戶，以確定它不只是隱藏。
 
     ![「 範例資訊的目錄切換器頁面](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

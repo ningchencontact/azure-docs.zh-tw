@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8865c851f394d73b5446ac159b5a7799c0c9ed2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192358"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442341"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>定型 TensorFlow 和 Keras 的模型，使用 Azure Machine Learning 服務
 
@@ -24,11 +24,11 @@ ms.locfileid: "65192358"
 
 `TensorFlow`估計工具也會提供一個抽象層執行，這表示，您可以輕易而不需要變更您的訓練指令碼設定在不同的計算目標上的參數化的執行。
 
-## <a name="getting-started"></a>開始使用
+## <a name="get-started"></a>開始使用
 
-提交的作業`TensorFlow`估計工具，類似於使用基底[ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)。 因此，我們建議您先閱讀[基底的評估工具操作說明文章](how-to-train-ml-models.md)先了解為名的概念。
+由於`TensorFlow`估算器類別是基底類似[ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)，我們建議您第一次讀取[基底的評估工具操作說明文章](how-to-train-ml-models.md)了解為名的概念。
 
-如果您想要開始使用 Azure Machine Learning 服務[完成此快速入門](quickstart-run-cloud-notebook.md)。 您必須載入所有的工作環境我們[範例 notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml)。
+若要開始使用 Azure Machine Learning 服務[完成此快速入門](quickstart-run-cloud-notebook.md)。 完成之後，就會看到[Azure Machine Learning 工作區](concept-azure-machine-learning-architecture.md#workspace)及其所有我們[範例 notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml)包括用於定型 TensorFlow 與 Keras 的 Dnn。
 
 ## <a name="single-node-training"></a>單一節點定型
 

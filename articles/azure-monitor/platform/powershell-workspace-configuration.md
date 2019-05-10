@@ -1,23 +1,23 @@
 ---
 title: 使用 PowerShell 建立和設定 Log Analytics 工作區 | Microsoft Docs
-description: Azure 監視器中的 log Analytics 工作區從伺服器的資料儲存在內部部署或雲端基礎結構。 您可以在 Azure 診斷產生電腦資料時，從 Azure 儲存體加以收集。
+description: Azure Monitor 中的 Log Analytics 工作区存储来自本地或云基础结构中的服务器的数据。 您可以在 Azure 診斷產生電腦資料時，從 Azure 儲存體加以收集。
 services: log-analytics
-author: richrundmsft
+author: bwren
 ms.service: log-analytics
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: richrund
-ms.openlocfilehash: 5c348adea0847929b37d1b61f024859b1d634fe7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: bwren
+ms.openlocfilehash: 2d3f1ab6704a0f5ecd15190fd08b10485cdf1ee9
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452733"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510099"
 ---
-# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>管理使用 PowerShell 的 Azure 監視器中的 Log Analytics 工作區
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>使用 PowerShell 管理 Azure Monitor 中的 Log Analytics 工作区
 
-您可以使用[Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/)在 Log Analytics 工作區在 Azure 監視器中從命令列或指令碼上執行各種功能。  您可以使用 PowerShell 執行的工作範例包括︰
+可使用 [Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 从命令行或作为脚本的一部分在 Azure Monitor 的 Log Analytics 工作区中执行各种函数。  您可以使用 PowerShell 執行的工作範例包括︰
 
 * 建立工作區
 * 新增或移除方案
@@ -39,7 +39,7 @@ ms.locfileid: "60452733"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
-這些範例可使用版本 1.0.0 或更新版本的 Az.OperationalInsights 模組。
+这些示例适用于 Az.OperationalInsights 模块 1.0.0 或更高版本。
 
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>建立及設定 Log Analytics 工作區
@@ -194,8 +194,8 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 | `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> 其中 + 是 + 或 - <br> zzzz 是時間位移 | `(([0-2][1-9]\|[3][0-1])\\\\/(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\/((19\|20)[0-9][0-9]):([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\\\s[\\\\+\|\\\\-][0-9]{4})` | | |
 | `yyyy-MM-ddTHH:mm:ss` <br> T 是常值的字母 T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
-## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>設定 Log Analytics 來傳送 Azure 診斷
-若要以無代理程式的方式監視 Azure 資源，資源需要啟用 Azure 診斷並將其設定為寫入至 Log Analytics 工作區。 這種方法會將資料傳送至工作區直接且不需要資料寫入至儲存體帳戶。 支援的資源包括：
+## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>将 Log Analytics 配置为发送 Azure 诊断
+若要以無代理程式的方式監視 Azure 資源，資源需要啟用 Azure 診斷並將其設定為寫入至 Log Analytics 工作區。 此方法将数据直接发送到工作区并且不要求将数据写入到存储帐户。 支援的資源包括：
 
 | 資源類型 | 記錄 | 度量 |
 | --- | --- | --- |
@@ -233,15 +233,15 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 您也可以使用前述 Cmdlet，來收集不同訂用帳戶中之資源的記錄。 因為您會提供建立記錄之資源和記錄所傳送至之工作區這兩個項目的識別碼，因此這個 Cmdlet 可跨訂用帳戶運作。
 
 
-## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>設定 Log Analytics 工作區，從儲存體收集 Azure 診斷
-若要從傳統雲端服務或 Service Fabric 叢集的執行中執行個體內收集記錄檔資料，您必須先將資料寫入 Azure 儲存體。 Log Analytics 工作區接著會設定為從儲存體帳戶收集記錄檔中。 支援的資源包括：
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>配置 Log Analytics 工作区，以便收集存储中的 Azure 诊断信息
+若要從傳統雲端服務或 Service Fabric 叢集的執行中執行個體內收集記錄檔資料，您必須先將資料寫入 Azure 儲存體。 然后，Log Analytics 工作区将配置为从存储帐户收集日志。 支援的資源包括：
 
 * 傳統雲端服務 (Web 和背景工作角色)
 * Service Fabric 叢集
 
 下列範例示範如何執行：
 
-1. 列出現有的儲存體帳戶和工作區會編製索引的資料的位置
+1. 列出工作区将为其中的数据编制索引的现有存储帐户和位置
 2. 建立組態以讀取儲存體帳戶
 3. 更新新建立的組態以檢索其他位置的資料
 4. 刪除新建立的組態

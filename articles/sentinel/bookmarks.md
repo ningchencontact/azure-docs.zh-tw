@@ -4,7 +4,7 @@ description: 本文說明如何使用 Azure Sentinel 追捕書籤來追蹤的資
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9a7ceeab6d2ad761752f778038692256bd87624b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1a438b9645dbb37d852eb0092355850d816872d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596920"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65207446"
 ---
 # <a name="keep-track-of-data-during-hunting"></a>追蹤的資料期間追捕
 
@@ -74,7 +74,7 @@ ms.locfileid: "60596920"
 
 有多個選項，可在 Log Analytics 中檢視您加上書籤的資料。 
 
-若要檢視已標記書籤的查詢、 結果或歷程記錄最簡單的方式是選取在所需的書籤**書籤**資料表，並使用詳細資料窗格中提供的連結。 選項包括： 
+若要檢視已標記書籤的查詢、 結果或歷程記錄最簡單的方式是選取在所需的書籤**書籤**資料表，並使用詳細資料窗格中提供的連結。 這些選項包括： 
 - 按一下 **檢視查詢**Log Analytics 中檢視來源查詢。  
 - 按一下 **檢視書籤記錄**若要查看所有書籤的中繼資料包括： 哪些人進行了更新、 更新的值，並更新發生的時間。 
 

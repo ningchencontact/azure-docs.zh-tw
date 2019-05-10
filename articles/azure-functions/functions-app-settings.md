@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 573e6ea857ef17a6160f7e03f52f9c64f903530a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d78fb546e954c4ae12e5836d9a7bef7ed5003090
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347496"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511082"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的應用程式設定參考
 
@@ -86,7 +86,7 @@ ms.locfileid: "60347496"
 
 |Key|範例值|
 |---|------------|
-|AzureWebJobsSecretStorageType|檔案|
+|AzureWebJobsSecretStorageType|文件|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -177,7 +177,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 根據預設，Functions Proxy 將利用捷徑來將 API 呼叫從 Proxy 直接傳送到同一個函數應用程式中的函式，而不是建立新的 HTTP 要求。 此設定可讓您停用該行為。
 
-|Key|Value|描述|
+|Key|Value|說明|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|若呼叫使用指向本機函數應用程式中之函數的後端 URL，則不再將呼叫直接傳送到函式，而是將改為導向回到函數應用程式的 HTTP 前端|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|這是預設值。 若呼叫使用指向本機函數應用程式的後端 URL，則會將呼叫直接轉送到該函式|
@@ -187,7 +187,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 此設定控制在將路由參數插入到後端 URL 時，是否要將其中的 %2F 解碼為斜線。 
 
-|Key|Value|描述|
+|Key|Value|說明|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|若路由參數含有已編碼的斜線，就必須將它們解碼。 `example.com/api%2ftest` 將成為 `example.com/api/test`|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|此為預設行為。 所有路由參數都將依原樣傳遞|
@@ -217,7 +217,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 ## <a name="next-steps"></a>後續步驟
 
-[了解如何更新應用程式設定](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[了解如何更新應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)
 
 [請參閱 host.json 檔案中的全域設定](functions-host-json.md)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570827"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228177"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
@@ -146,13 +146,13 @@ Azure 系統管理員的 Multi-factor Authentication 提供免費存取 Microsof
 
 **问：我的使用者說他們有時會沒收到簡訊，或回覆雙向簡訊時，驗證逾時。**
 
-因為有些無法控制的因素可能會影響服務可靠性，所以不保證會傳遞簡訊，以及在雙向簡訊中收到回覆。 這些因素包含目的地國家/地區、行動電信業者和訊號強度。
+因為有些無法控制的因素可能會影響服務可靠性，所以不保證會傳遞簡訊，以及在雙向簡訊中收到回覆。 這些因素包含目的地國家/地區、 行動電話業者及訊號強度。
 
 如果您的使用者時常無法收到簡訊，請告訴他們改用行動裝置應用程式或撥打電話的方式。 移动应用可以同时通过手机网络和 Wi-Fi 连接接收通知。 此外，即使裝置收不到訊號，行動應用程式可以產生驗證碼。 Microsoft 驗證器應用程式適用於 [Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[IOS](https://go.microsoft.com/fwlink/?Linkid=825073)和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。
 
-如果您必須使用簡訊，則建議盡可能使用單向簡訊，而不要使用雙向簡訊。 單向簡訊比較可靠，並可防止使用者因為回覆從其他國家/地區傳送的簡訊而產生全域簡訊費用。
+如果您必須使用簡訊，則建議盡可能使用單向簡訊，而不要使用雙向簡訊。 單向簡訊更可靠且可防止使用者不會產生全域簡訊費用從另一個國家/地區傳送的簡訊回覆。
 
-**問：可變更使用者必須在系統逾時前，輸入簡訊上驗證碼的時間限制嗎？**
+**问：可變更使用者必須在系統逾時前，輸入簡訊上驗證碼的時間限制嗎？**
 
 在某些情況下是可以的。 
 

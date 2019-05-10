@@ -12,12 +12,12 @@ author: sharonlo101
 ms.author: shlo
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: d2e51551643e154714b9d2368e63d7af9ebfa204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32e4abebdfb93312c60a25ca8b483f071e5e73c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60593096"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507803"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory 中的視覺化撰寫
 Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰寫及部署資料處理站的資源，而不必編寫任何程式碼。 您可以將活動拖放到管線畫布上、執行測試回合、反覆進行偵錯，以及部署和監視管線回合。 使用 UX 來執行視覺化撰寫的方法有兩種：
@@ -58,9 +58,9 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 
 此窗格會顯示下列 Azure Repos 程式碼存放庫設定：
 
-| 設定 | 描述 | Value |
+| 設定 | 說明 | Value |
 |:--- |:--- |:--- |
-| **存放庫類型** | Azure Repos 程式碼存放庫的類型。<br/>**注意**：目前不支援 GitHub。 | Azure Repos Git |
+| **存放庫類型** | Azure Repos 程式碼存放庫的類型。<br/> | Azure Repos Git |
 | **Azure Active Directory** | 您的 Azure AD 租用戶名稱。 | `<your tenant name>` |
 | **Azure Repos 組織** | 您的 Azure Repos 組織名稱。 您可以在 `https://{organization name}.visualstudio.com` 找到您的 Azure Repos 組織名稱。 您可以[登入您的 Azure Repos 組織](https://www.visualstudio.com/team-services/git/)，以存取 Visual Studio 設定檔和查看您的存放庫與專案。 | `<your organization name>` |
 | **ProjectName** | 您的 Azure Repos 專案名稱。 您可以在 `https://{organization name}.visualstudio.com/{project name}` 找到您的 Azure Repos 專案名稱。 | `<your Azure Repos project name>` |
@@ -115,7 +115,7 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 
 ### <a name="configure-publishing-settings"></a>設定發佈設定
 
-若要設定發佈分支 (亦即儲存 Resource Manager 範本的分支)，請將 `publish_config.json` 檔案新增至共同作業分支中的根資料夾。 Data Factory 會讀取此檔案、尋找 `publishBranch` 欄位，然後使用所提供的值來建立新分支 (如果尚未存在)。 接著，它會將所有 Resource Manager 範本都儲存到指定的位置。 例如︰
+若要設定發佈分支 (亦即儲存 Resource Manager 範本的分支)，請將 `publish_config.json` 檔案新增至共同作業分支中的根資料夾。 Data Factory 會讀取此檔案、尋找 `publishBranch` 欄位，然後使用所提供的值來建立新分支 (如果尚未存在)。 接著，它會將所有 Resource Manager 範本都儲存到指定的位置。 例如：
 
 ```json
 {

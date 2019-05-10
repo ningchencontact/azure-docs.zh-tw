@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af6d66d2e3eae80477a151323578b930dcd7727a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886594"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510330"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>將 Windows IoT 核心版裝置連線到 Azure IoT 中心應用程式
 
@@ -74,7 +74,7 @@ Azure IoT Central 應用程式中使用**Device Explorer**頁面，即可加入�
 [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal)內含的工具，可用來疑難排解您的裝置：
 
 - **Apps manager**頁面可讓您控制裝置上執行的應用程式。
-- 如果您不需要監視連線到您的裝置，您可以使用**裝置設定**頁面，即可擷取螢幕擷取畫面，從您的裝置。 例如︰
+- 如果您不需要監視連線到您的裝置，您可以使用**裝置設定**頁面，即可擷取螢幕擷取畫面，從您的裝置。 例如：
 
     ![應用程式螢幕擷取畫面](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
@@ -88,7 +88,7 @@ Azure IoT Central 應用程式中使用**Device Explorer**頁面，即可加入�
 
 ### <a name="telemetry-measurements"></a>遙測量測
 
-| 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
+| 欄位名稱     | 單位  | 最小值 | 最大值 | 小數位數 |
 | -------------- | ------ | ------- | ------- | -------------- |
 | 溼度       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -98,17 +98,17 @@ Azure IoT Central 應用程式中使用**Device Explorer**頁面，即可加入�
 
 數值設定
 
-| 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
+| Display name | 欄位名稱 | 單位 | 小數位數 | 最小值 | 最大值 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 風扇速度    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 ### <a name="properties"></a>properties
 
-| 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
+| Type            | Display name | 欄位名稱 | 数据类型 |
 | --------------- | ------------ | ---------- | --------- |
-| 裝置屬性 | 模具編號   | dieNumber  | number    |
+| 裝置屬性 | 模具編號   | dieNumber  | 號    |
 | Text            | 位置     | location   | N/A       |
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何將 Raspberry Pi 連線至 Azure IoT Central 應用程式，建議的下一個步驟是了解如何[設定自訂裝置範本](howto-set-up-template.md)IoT 裝置。
+既然您已了解如何將 Windows IoT 核心版裝置連接至 Azure IoT Central 應用程式，建議的下一個步驟是了解如何[設定自訂裝置範本](howto-set-up-template.md)IoT 裝置。

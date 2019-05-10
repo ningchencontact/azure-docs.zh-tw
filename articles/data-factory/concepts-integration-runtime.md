@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 05/07/2019
 ms.author: abnarain
-ms.openlocfilehash: d63ede800f7e60db44072234f5ec74910e4c70f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61261970"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232421"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
 
+- **資料流程**:執行[資料流程](concepts-data-flow-overview.md)受控 Azure 計算環境中。  
 - **資料移動**：在公用網路中的資料存放區與私人網路 (內部部署或虛擬私人網路) 中的資料存放區之間複製資料。 它支援內建的連接器、格式轉換、資料行對應，以及高效能和可調式資料轉送。
-- **活動分派**：分派和監視在 Azure HDInsight、Azure Machine Learning、Azure SQL Database、SQL Server 等各種計算服務上執行的轉換活動。
+- **活動分派**：執行各種計算服務，例如 Azure Databricks、 Azure HDInsight、 Azure Machine Learning、 Azure SQL Database、 SQL Server 等等的分派和監視轉換活動。
 - **SSIS 套件執行**：在受控 Azure 計算環境中，以原生方式執行 SQL Server Integration Services (SSIS) 套件。
 
-在 Data Factory 中，活動可定義要執行的動作。 連結服務可定義目標資料存放區或計算服務。 整合執行階段提供活動與連結服務之間的橋樑。  由連結服務所參考，並提供計算環境來執行活動或分派活動。  如此一來，就能在最接近目標資料存放區或計算服務的區域執行活動，效率最高，又滿足安全性和合規性需求。
+在 Data Factory 中，活動可定義要執行的動作。 連結服務可定義目標資料存放區或計算服務。 整合執行階段提供活動與連結服務之間的橋樑。  它所連結的服務或活動中，參考，並提供其中的活動上執行或分派計算環境。 如此一來，就能在最接近目標資料存放區或計算服務的區域執行活動，效率最高，又滿足安全性和合規性需求。
 
 ## <a name="integration-runtime-types"></a>整合執行階段類型
 Data Factory 提供三種整合執行階段，您應該選擇最符合所需之資料整合功能和網路環境需求的類型。  這三種類型為：
@@ -39,7 +40,7 @@ Data Factory 提供三種整合執行階段，您應該選擇最符合所需之�
 
 IR 類型 | 公用網路 | 私人網路
 ------- | -------------- | ---------------
-Azure | 資料移動<br/>活動分派 | &nbsp;
+Azure | 資料流程<br/>資料移動<br/>活動分派 | &nbsp;
 自我裝載 | 資料移動<br/>活動分派 | 資料移動<br/>活動分派
 Azure-SSIS | SSIS 套件執行 | SSIS 套件執行
 
@@ -50,20 +51,24 @@ Azure-SSIS | SSIS 套件執行 | SSIS 套件執行
 ## <a name="azure-integration-runtime"></a>Azure 整合執行階段
 Azure 整合執行階段能夠：
 
+- 在 Azure 中執行資料流 
 - 在雲端資料存放區之間執行複製活動
-- 在公用網路中分派下列轉換活動：HDInsight Hive 活動、 HDInsight Pig 活動、 HDInsight MapReduce 活動、 HDInsight Spark 活動、 HDInsight 串流活動、 Machine Learning 批次執行活動、 Machine Learning 更新資源活動、 預存程序活動Data Lake Analytics U-SQL 活動、.NET 自訂活動、 Web 活動、 查閱活動，以及取得中繼資料活動。
+- 在公用網路中分派下列轉換活動：Databricks Notebook / Jar / Python 活動、 HDInsight Hive 活動、 HDInsight Pig 活動、 HDInsight MapReduce 活動、 HDInsight Spark 活動、 HDInsight 串流活動、 Machine Learning 批次執行活動、 Machine Learning 更新資源活動、 預存程序活動、 Data Lake Analytics U-SQL 活動、.NET 自訂活動、 Web 活動、 查閱活動，以及取得中繼資料活動。
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 網路環境
-在具有公開存取端點的公用網路中，Azure 整合執行階段支援連線至其中的資料存放區和計算服務。 在 Azure 虛擬網路環境中使用自我裝載整合執行階段。
+Azure 整合執行階段支援連接至資料存放區和計算服務，具有公用存取的端點。 在 Azure 虛擬網路環境中使用自我裝載整合執行階段。
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Azure IR 計算資源和調整規模
 Azure 整合執行階段在 Azure 中提供完全受控、無伺服器的計算。  您不必擔心基礎結構佈建、軟體安裝、修補或容量大小調整。  此外，您只需支付實際使用時間。
 
-Azure 整合執行階段提供原生計算，能夠以安全、可靠且高效能的方式，在雲端資料存放區之間移動資料。  您可以設定要在複製活動上使用的資料整合單位數量，Azure IR 的計算大小會很有彈性地相應增加，您不必明確地調整 Azure Integration Runtime 的大小。
+Azure 整合執行階段提供原生計算，能夠以安全、可靠且高效能的方式，在雲端資料存放區之間移動資料。  您可以設定要在複製活動上使用的資料整合單位數量，Azure IR 的計算大小會很有彈性地相應增加，您不必明確地調整 Azure Integration Runtime 的大小。 
 
 活動分派是輕量型的作業，可將活動路由傳送至目標計算服務，所以在此情節中，不需要相應增加計算大小。
 
 如需有關建立及設定 Azure IR 的資訊，請參閱操作說明指南中的＜如何建立和設定 Azure IR＞。 
+
+> [!NOTE] 
+> Azure 整合執行階段有 Data Flow 執行階段，它會定義可用來執行資料流的基礎計算基礎結構與相關的屬性。 
 
 ## <a name="self-hosted-integration-runtime"></a>自我裝載整合執行階段
 自我裝載 IR 能夠：
@@ -112,7 +117,13 @@ Data Factory 位置中儲存資料處理站的中繼資料，也是觸發管道�
 如果您選擇使用自動解析 Azure IR (此為預設值)， 
 
 - 針對複製活動，ADF 會盡可能地自動偵測您的接收和來源資料存放區，以選擇位於相同區域中的最佳位置 (如果有的話) 或相同地理位置中最接近的位置；如果未偵測到，則使用資料處理站區域作為替代區域。
+
 - 針對查閱/GetMetadata 活動執行與轉換活動分派，ADF 將會在資料處理站區域中使用 IR。
+
+- 適用於資料流程，ADF 會使用 data factory 磁碟區域中的整合執行階段。 
+
+  > [!TIP] 
+  > 好的做法是以確保資料流 （如果可能） 執行相同的區域，做為對應的資料存放區中。 您可以這麼做，自動解決的 Azure IR （如果資料存放區位置是與 Data Factory 位置相同），或與您的資料存放區位於相同區域中建立新的 Azure IR 執行個體，並再對其執行資料流程的資料。 
 
 您可以在 UI 上的管線活動監視檢視中或活動監視承載中，監視在活動執行期間生效的 IR 位置。
 
@@ -153,8 +164,13 @@ Data Factory 位置中儲存資料處理站的中繼資料，也是觸發管道�
 
 每個轉換活動都有一個指向整合執行階段的目標計算「連結服務」。 轉換活動就是從這個整合執行階段執行個體分派而來。
 
+### <a name="data-flow-activity"></a>Data Flow 活動
+
+資料流活動會執行相關聯的整合執行階段。 
+
 ## <a name="next-steps"></a>後續步驟
 請參閱下列文章：
 
+- [建立 Azure 整合執行階段](create-azure-integration-runtime.md)
 - [建立自我裝載整合執行階段](create-self-hosted-integration-runtime.md)
 - [建立 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL Database 受控執行個體，以及將 IR 加入虛擬網路的指示。 

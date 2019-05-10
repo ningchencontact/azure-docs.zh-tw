@@ -52,7 +52,7 @@
           href: time-series-insights-update-tsm.md
         - name: 資料查詢
           href: time-series-insights-update-tsq.md
-        - name: 在 Explorer 更新中將資料視覺化
+        - name: 在總管中將資料視覺化 (預覽)
           href: time-series-insights-update-explorer.md
     - name: 開發
       items:

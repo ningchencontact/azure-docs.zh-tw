@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 618453ec9857254fe14608df8091bb79bd3815b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692921"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509974"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：將分散式應用程式分級
 
@@ -68,7 +68,7 @@ ms.locfileid: "60692921"
 
 ### <a name="go-to-details"></a>前往詳細資料
 
-選取 [移至詳細資料] 以探索端對端交易體驗，其可提供對呼叫堆疊層級進行的檢視。
+選取 **移至 詳細資料**瀏覽的端對端交易體驗，可檢視呼叫堆疊層級下的。
 
 ![移至詳細資料按鈕的螢幕擷取畫面](media/app-map/go-to-details.png)
 

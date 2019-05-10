@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e6b949824ec5da60c5e2485be830e61d156a11ff
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a33812dedaed81a1ed0b6fca8285f70f44decced
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55830721"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198907"
 ---
 1. 登入 [Firebase 主控台](https://firebase.google.com/console/)。 建立新的 Firebase 專案 (如果您還沒有 Firebase 專案的話)。
 2. 建立專案之後，請選取 [將 Firebase 新增至 Android 應用程式]。 
@@ -39,11 +39,12 @@ ms.locfileid: "55830721"
         implementation 'com.google.firebase:firebase-core:16.0.1'
         ```
 
-    3. 將下行新增至**應用程式層級 build.gradle** 結尾的相依性區段。 
+    3. 將下行新增至**應用程式層級 build.gradle** 檔案結尾的相依性區段之後。 
 
         ```
         apply plugin: 'com.google.gms.google-services'
         ```        
+    4. 在工具列上選取 [立即同步]*。 
  
         ![build.gradle 組態變更](./media/notification-hubs-enable-firebase-cloud-messaging/build-gradle-configurations.png)
 6. 選取頁面上的 [下一步]。 

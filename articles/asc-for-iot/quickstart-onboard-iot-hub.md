@@ -5,21 +5,21 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 670e6d2b-e168-4b14-a9bf-51a33c2a9aad
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3ef3891ac2b0423688f49ae034331935b1b0cd6c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010555"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192479"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>快速入門：在 IoT 中樞內啟用服務
 
@@ -39,6 +39,7 @@ ms.locfileid: "60010555"
   - 適用於 IoT 的 ASC 預設會在 Log Analytics 工作區中儲存兩種類型 (**安全性警示**和**建議**) 的資訊。 
   - 您可以選擇新增其他資訊類型 (**未經處理的事件**) 的儲存體。 請注意，在 Log Analytics 中儲存**未經處理的事件**會帶來額外的儲存體成本。 
 - IoT 中樞 (標準層或更高層)
+- 符合所有[服務必要條件](service-prerequisites.md) 
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>在 IoT 中樞上啟用適用於 IoT 的 ASC 
 
@@ -50,8 +51,7 @@ ms.locfileid: "60010555"
 4. 提供 Log Analytics 工作區詳細資料。 
    - 藉由讓 [未經處理的事件] 開關保持 [開啟]，來選擇除了儲存預設的儲存體資訊類型外，還要儲存**未經處理的事件**。 
    - 藉由讓 [對應項收集] 開關保持 [開啟]，來選擇啟用 [對應項收集]。 
-5. 按一下 [確定]。 
-6. 按一下 [檔案] 。 
+5. 按一下 [檔案] 。 
 
 恭喜！ 您已完成在 IoT 中樞上啟用 ASC 的工作。 
 

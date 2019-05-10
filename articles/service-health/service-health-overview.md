@@ -9,14 +9,14 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5385777134b911aa08b751978c44597f79acbc7
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620721"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442394"
 ---
-# <a name="service-health"></a>服務健康情況
+# <a name="service-health"></a>服務健康狀態
 服務健康狀態為您提供可自訂的儀表板，可追蹤您使用這些服務之所在區域中的 Azure 服務健康狀態。 在此儀表板中，您可以追蹤作用中的事件，例如，進行中的服務問題、近期預定的維修，或相關的健康狀態諮詢。 當事件變成非作用中時，它們會放置在健康狀態歷程記錄中最多 90 天。 最後，您可以使用服務健康狀態儀表板建立和管理服務健康狀態警示，當服務問題對您產生影響時，會主動予以通知。
 
 ## <a name="service-health-events"></a>服務健康情況事件
@@ -60,5 +60,7 @@ ms.locfileid: "60620721"
 ## <a name="configure-service-health-alerts"></a>設定服務健康狀態警示
 服務健康狀態已整合 Azure 監視器，當您的業務關鍵資源受到影響時，就會透過電子郵件、簡訊和 Webhook 通知向您發出警示。 設定適當服務健康狀態事件的活動記錄警示。 使用動作群組，將該警示傳送給組織中的適當人員。 如需詳細資訊，請參閱[設定適用於服務健康情況的警示](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
-# <a name="next-steps"></a>後續步驟
-設定警示，如此就能收到健康情況問題的通知。 如需詳細資訊，請參閱[設定適用於服務健康情況的警示](../azure-monitor/platform/alerts-activity-log-service-notifications.md)。 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
+
+## <a name="next-steps"></a>後續步驟
+設定警示，如此就能收到健康情況問題的通知。 如需詳細資訊，請參閱 <<c0> [ 最佳做法來設定 Azure 服務健康情況警示](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s)。 

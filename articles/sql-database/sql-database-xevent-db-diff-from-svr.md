@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 2dd3b9f0d1d8d61b2311977774c8b0f7267caa9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330990"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65206643"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database 中的擴充事件
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -82,7 +82,7 @@ ms.locfileid: "60330990"
 
 擴充事件功能受到多個 [目錄檢視](https://msdn.microsoft.com/library/ms174365.aspx)支援。 目錄檢視會告訴您目前資料庫中使用者建立事件工作階段的 *中繼資料或定義* 的相關資訊。 檢視不會傳回作用中事件工作階段的執行個體的相關資訊。
 
-| 名稱<br/>目錄檢視的名稱 | 描述 |
+| 名稱<br/>目錄檢視的名稱 | 說明 |
 |:--- |:--- |
 | **sys.database_event_session_actions** |返回针对事件会话的每个事件执行的每个操作所对应的行。 |
 | **sys.database_event_session_events** |針對事件工作階段中的每個事件傳回資料列。 |
@@ -96,7 +96,7 @@ ms.locfileid: "60330990"
 
 Azure SQL Database 具有支援擴充事件的 [動態管理檢視 (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) 。 DMV 會告訴您 *作用中* 事件工作階段的相關資訊。
 
-| DMV 的名稱 | 描述 |
+| DMV 的名稱 | 說明 |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |返回有关事件会话操作的信息。 |
 | **sys.dm_xe_database_session_events** |會傳回工作階段事件的相關資訊。 |
@@ -170,7 +170,7 @@ SELECT
 
 您針對 Azure 儲存體容器產生的 SAS 權杖必須指定權限的 **rwl** 。 **rwl** 值會提供下列權限：
 
-- 讀取
+- 閱讀
 - 写入
 - 列出
 
@@ -197,7 +197,7 @@ SELECT
 - [如何使用 .NET 的 Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
-- [關於 Microsoft SQL Server 中擴充事件的 Jonathan Kehayias 部落格文章](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [關於 Microsoft SQL Server 中擴充事件的 Jonathan Kehayias 部落格文章](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
 - Azure *服務更新*網頁，已透過參數將範圍縮小為 Azure SQL Database：

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386715"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209712"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>獨立 Windows 叢集的組態設定
 本文說明如何在 ClusterConfig.json 檔案中設定獨立 Azure Service Fabric 叢集的組態設定。 您將會使用此檔案來指定叢集節點、安全性設定，以及容錯和升級網域方面之網路拓撲的相關資訊。  變更或新增組態設定之後，您可以[建立獨立叢集](service-fabric-cluster-creation-for-windows-server.md)或[升級獨立叢集的組態](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -122,7 +122,7 @@ security 區段對於安全獨立的 Service Fabric 叢集是必要的項目。 
 }
 ```
 
-metadata 是安全叢集的說明，而且可根據您的設定來進行設定。 ClusterCredentialType 和 ServerCredentialType 決定叢集和節點會實作的安全性類型。 如果是憑證式安全性，可設定為 X509，如果是以 Azure Active Directory 為基礎的安全性，可設定為 Windows。 其餘的 security 區段則是根據安全性類型。 如需如何填滿其餘 security 區段的相關資訊，請參閱[獨立叢集中的憑證式安全性](service-fabric-windows-cluster-x509-security.md)或[獨立叢集中的 Windows 安全性](service-fabric-windows-cluster-windows-security.md)。
+metadata 是安全叢集的說明，而且可根據您的設定來進行設定。 ClusterCredentialType 和 ServerCredentialType 決定叢集和節點會實作的安全性類型。 它們可以設定為*X509*憑證為基礎的安全性或*Windows* Active Directory 為基礎的安全性。 其餘的 security 區段則是根據安全性類型。 如需如何填滿其餘 security 區段的相關資訊，請參閱[獨立叢集中的憑證式安全性](service-fabric-windows-cluster-x509-security.md)或[獨立叢集中的 Windows 安全性](service-fabric-windows-cluster-windows-security.md)。
 
 ### <a name="node-types"></a>節點類型
 nodeTypes 區段說明叢集所擁有的節點類型。 至少必須針對叢集指定一個節點類型，如下列程式碼片段所示： 

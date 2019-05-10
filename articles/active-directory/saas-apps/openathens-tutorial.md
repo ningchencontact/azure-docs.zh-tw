@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3eca6fc3ab788ee7085c0df5f6c9770858af29ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2cbb1bc64d923add0b1fd38749299714a9093633
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847343"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408026"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>教學課程：Azure Active Directory 與 OpenAthens 整合
 
@@ -76,13 +76,13 @@ OpenAthens 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 OpenAthens 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 OpenAthens 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 OpenAthens 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 OpenAthens 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 OpenAthens 單一登入](#configure-openathens-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 OpenAthens 測試使用者](#create-openathens-test-user)** - 在 OpenAthens 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+5. **[建立 OpenAthens 測試使用者](#create-openathens-test-user)** - 在 OpenAthens 中建立 Britta Simon 的對應項目，且該項目須與 Azure AD 中代表使用者的項目連結。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -143,11 +143,11 @@ OpenAthens 與 Azure AD 整合提供下列優點：
 
     a. 在 [顯示名稱對應] 中，選取 [使用屬性]。
 
-    b. 在 [顯示名稱屬性] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 值。
+    b. 在 [顯示名稱屬性] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 值。
     
     c. 在 [唯一使用者對應] 中，選取 [使用屬性]。
 
-    d. 在 [唯一使用者屬性] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 值。
+    d. 在 [唯一使用者屬性] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 值。
 
     e. 在 [狀態] 中，勾選三個核取方塊。
 
@@ -194,7 +194,7 @@ OpenAthens 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入 **OpenAthens** 並加以選取。
 
-    ![應用程式清單中的 [OpenAthens] 連結](common/all-applications.png)
+    ![應用程式清單中的 OpenAthens 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -212,7 +212,7 @@ OpenAthens 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-openathens-test-user"></a>建立 OpenAthens 測試使用者
 
-本節會在 OpenAthens 中建立名為 Britta Simon 的使用者。 OpenAthens 支援預設會啟用的 **Just-In-Time 使用者佈建**。 在這一節沒有您需要進行的動作項目。 如果 OpenAthens 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 OpenAthens 中建立名為 Britta Simon 的使用者。 OpenAthens 支援依預設啟用的 **Just-In-Time 使用者佈建**。 在這一節沒有您需要進行的動作項目。 如果 OpenAthens 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8508dbecceb9984f53a133d9634882603549cdd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573564"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199632"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -133,8 +133,8 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理�
 
 您的 ILB ASE 需要有效的 SSL 憑證。 使用內部憑證授權單位、向外部簽發者購買憑證、或使用自我簽署的憑證。 無論 SSL 憑證的來源，都需要正確設定下列憑證屬性︰
 
-* **主體**：此屬性必須設定為 *.your-root-domain-here。
-* **主體別名**：此屬性必須同時包含 **.your-root-domain-here* 和 **.scm.your-root-domain-here*。 系統將使用 your-app-name.scm.your-root-domain-here 形式的位址，進行與每個應用程式相關聯的 SCM/Kudu 網站的 SSL 連線。
+* **主體**：此屬性必須設定為 *\..your-root-domain-here。
+* **主體別名**：此屬性必須同時包含 *.your-root-domain-here* 和 *.scm.your-root-domain-here*。 系統將使用 your-app-name.scm.your-root-domain-here 形式的位址，進行與每個應用程式相關聯的 SCM/Kudu 網站的 SSL 連線。
 
 將 SSL 憑證轉換/儲存為 .pfx 檔案。 .pfx 檔案必須包含所有中繼和根憑證。 使用密碼保護其安全。
 

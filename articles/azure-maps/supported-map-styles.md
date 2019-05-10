@@ -3,17 +3,17 @@ title: Azure 地圖服務中的支援地圖樣式 | Microsoft Docs
 description: Azure 地圖服務支援 的地圖樣式
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 76ab49c7f28260249483bf3bc4387e8cbaca13b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db396ad06bf46cbbaf486696b68393a6a4214c2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767168"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230838"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure 地圖服務支援的地圖樣式
 「Azure 地圖服務」支援數個不同的內建地圖樣式，如下所述。
@@ -56,6 +56,17 @@ ms.locfileid: "60767168"
 **適用 API：**
 * JS 地圖控制項 
 * Android 的地圖控制項
+
+
+## <a name="grayscalelight"></a>grayscale_light
+**灰階 light**是輕量版的道路地圖樣式。
+
+![灰階光線](./media/supported-map-styles/grayscale_light.png)
+
+**適用 API：**
+* JS 地圖控制項
+* Android 的地圖控制項
+
 
 ## <a name="night"></a>夜間
 **夜間**是路段圖樣式的深色版本，具有彩色的道路和符號。

@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: becec6881ccc5c061a0f0e93e697852645f9388f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ac503c4408432da4e2c0c9281ee5cdd6e5d9e984
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115958"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198594"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>使用 Web 伺服器記錄監視 Web 應用程式
 
@@ -53,7 +53,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | 建立 App Service 方案。 |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 建立 Web 應用程式。 |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | 修改 Web 應用程式的組態。 |
-| [Get-AzWebAppMetrics](/powershell/module/az.websites/get-azwebappmetrics) | 取得 Web 應用程式的計量。 |
+| [Get-AzWebAppMetric](/powershell/module/az.websites/get-azwebappmetric) | 取得 Web 應用程式的計量。 |
 
 ## <a name="next-steps"></a>後續步驟
 

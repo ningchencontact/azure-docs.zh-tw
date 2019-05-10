@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54690386b3654952cc2292963c9bf01dc65e4315
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31df4cb9163e598bfde0c491d8088398c3204119
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875201"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>教學課程：Azure Active Directory 與 Qlik Sense Enterprise 整合
 
@@ -71,7 +71,7 @@ Qlik Sense Enterprise 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Qlik Sense Enterprise 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Qlik Sense Enterprise 設定及測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Qlik Sense Enterprise 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Qlik Sense Enterprise 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -87,7 +87,7 @@ Qlik Sense Enterprise 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Qlik Sense Enterprise 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 Qlik Sense Enterprise 設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Qlik Sense Enterprise] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -103,7 +103,7 @@ Qlik Sense Enterprise 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Qlik Sense Enterprise 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
+    ![Qlik Sense Enterprise 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
@@ -183,7 +183,7 @@ Qlik Sense Enterprise 與 Azure AD 整合提供下列優點：
 
     e. [SAML IdP 中繼資料] 是稍早在 [從 Azure AD 組態編輯同盟中繼資料] 區段中編輯的檔案。  **上傳 IdP 中繼資料之前，必須先編輯此檔案**才能移除資訊，以確保 Azure AD 與 Qlik Sense 伺服器之間的運作正常。  **如果檔案尚未進行編輯，請參閱上述指示。**  如果檔案已經過編輯，請按一下 [瀏覽] 按鈕，然後選取已編輯的中繼資料檔案，將它上傳至虛擬 Proxy 組態。
 
-    f. 輸入 SAML 屬性的屬性名稱或結構描述參考，代表 Azure AD 將傳送至 Qlik Sense 伺服器的 **UserID**。  在設定後的 Azure 應用程式畫面中可取得結構描述參考資訊。  若要使用名稱屬性，請輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    f. 輸入 SAML 屬性的屬性名稱或結構描述參考，代表 Azure AD 將傳送至 Qlik Sense 伺服器的 **UserID**。  在設定後的 Azure 應用程式畫面中可取得結構描述參考資訊。  若要使用名稱屬性，請輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
 
     g. 輸入**使用者目錄**的值，此值會在使用者透過 Azure AD 向 Qlik Sense 伺服器進行驗證時附加至使用者。  硬式編碼值必須以**方括號 []** 括住。  若要使用 Azure AD SAML 判斷提示中傳送的屬性，請在此文字方塊中輸入屬性名稱 (**不需**方括號)。
 
@@ -278,7 +278,7 @@ Qlik Sense Enterprise 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入並選取 [Qlik Sense Enterprise] 。
 
-    ![應用程式清單中的 [Qlik Sense Enterprise] 連結](common/all-applications.png)
+    ![應用程式清單中的 Qlik Sense Enterprise 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -296,13 +296,13 @@ Qlik Sense Enterprise 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-qlik-sense-enterprise-test-user"></a>建立 Qlik Sense Enterprise 測試使用者
 
-在本節中，您會在 Qlik Sense Enterprise 中建立名為 Britta Simon 的使用者。 請與  [Qlik Sense Enterprise 支援小組](https://www.qlik.com/us/services/support)合作，在 JQlik Sense Enterprise 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Qlik Sense Enterprise 中建立名為 Britta Simon 的使用者。 請與  [Qlik Sense Enterprise 支援小組](https://www.qlik.com/us/services/support)合作，在 JQlik Sense Enterprise 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Qlik Sense Enterprise] 圖格時，應該會自動登入您已設定 SSO 的 Qlik Sense Enterprise。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Qlik Sense Enterprise] 圖格時，應該會自動登入您設定 SSO 的 Qlik Sense Enterprise。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

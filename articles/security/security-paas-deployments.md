@@ -1,6 +1,6 @@
 ---
-title: 保護 PaaS 部署 | Microsoft Docs
-description: " 了解 PaaS 與其他雲端服務模型相較之下的安全性優點，以及了解保護 Azure PaaS 部署的建議做法。 "
+title: 保護 PaaS 部署 Microsoft Azure 的最佳作法
+description: 了解最佳做法設計、 建置及管理安全雲端在 Azure 上的應用程式，以及了解 PaaS 與其他雲端服務模型的安全性優點。
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107432"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231128"
 ---
 # <a name="securing-paas-deployments"></a>保護 PaaS 部署
 
@@ -29,6 +29,8 @@ ms.locfileid: "62107432"
 - 評估平台即服務 (PaaS) 與其他雲端服務模型相較之下的安全性優點
 - 將您的安全性焦點從以網路為中心變更成以身分識別為中心的周邊安全性方法
 - 實作一般 PaaS 安全性最佳做法建議
+
+[開發安全應用程式在 Azure 上的](abstract-develop-secure-apps.md)是安全性問題和控制項開發的雲端應用程式時，您應該考慮軟體開發生命週期的每個階段的一般指南。
 
 ## <a name="cloud-security-advantages"></a>雲端安全性優點
 在雲端環境中有一些安全性優點。 在內部部署環境中，組織可能責任重大但可投資在安全性上的資源卻相當有限，導致創造出一種攻擊者能夠利用所有層級弱點的環境。
@@ -115,8 +117,8 @@ Microsoft [安全性開發週期](https://www.microsoft.com/en-us/sdl)指定小�
 | 竄改 | 完整性 | 驗證 SSL 憑證。 |
 | 否認性 | 不可否認性 | 啟用 Azure [監視和診斷](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)。 |
 | 資訊洩漏 | 保密 | 使用[服務憑證](https://docs.microsoft.com/rest/api/appservice/certificates)將待用的敏感性資料加密。 |
-| Denial of service (拒絕服務) | 可用性 | 監視潛在拒絕服務狀況的效能計量。 實作 IP 連線篩選。 |
-| 權限提高 | 授權 | 使用[具特殊權限身分識別管理](../active-directory/privileged-identity-management/subscription-requirements.md)。 |
+| 拒絕服務 | 可用性 | 監視潛在拒絕服務狀況的效能計量。 實作 IP 連線篩選。 |
+| 提高權限 | 授權 | 使用[具特殊權限身分識別管理](../active-directory/privileged-identity-management/subscription-requirements.md)。 |
 
 ## <a name="develop-on-azure-app-service"></a>在 Azure App Service 上開發
 [Azure App Service](../app-service/overview.md) 是一個 PaaS 供應項目，可讓您為任何平台或裝置建立 Web 與行動應用程式，以及連線到雲端或內部部署環境中任何位置的資料。 App Service 包含先前以 Azure 網站和 Azure 行動服務形式個別提供的 Web 和行動功能。 此外，它也包含可用來自動執行商務程序及裝載雲端 API 的新功能。 App Service 會以單一整合式服務形式，為 Web、行動及整合案例提供一組豐富的功能。
@@ -155,6 +157,10 @@ Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标�
 
 Application Insights 具有廣泛的工具，能與它所收集的資料進行互動。 Application Insights 會將其資料儲存在一般存放庫中。 它可以利用共用功能，例如警示、 儀表板和使用 Kusto 查詢語言的深入分析。
 
+## <a name="perform-security-penetration-testing"></a>執行安全性滲透測試
+驗證安全性防禦措施，是與測試任何其他功能一樣重要。 製作[滲透測試](azure-security-pen-testing.md)您建置和部署程序的標準部分。 排程定期安全性測試和弱點掃描上部署應用程式，並監視開啟連接埠、 端點和攻擊。
+
+模糊 （fuzz） 測試是一種方法提供程式介面 （進入點），剖析並取用此資料格式不正確的輸入的資料中尋找程式失敗 （程式碼錯誤）。 [Microsoft 安全性風險偵測](https://www.microsoft.com/en-us/security-risk-detection/)是一個雲端為基礎的工具，可用來尋找 bug 和其他安全性漏洞，在您的軟體，再將它部署至 Azure。 此工具被設計來攔截弱點，因此您不需要修補錯誤、 處理當機，或回應攻擊的軟體發行之後，部署軟體之前。
 
 
 ## <a name="next-steps"></a>後續步驟
@@ -166,6 +172,8 @@ Application Insights 具有廣泛的工具，能與它所收集的資料進行�
 - Azure Cache for Redis
 - Azure 服務匯流排
 - Web 應用程式防火牆
+
+請參閱[開發安全應用程式在 Azure 上的](abstract-develop-secure-apps.md)安全性問題和開發的雲端應用程式時，您應該考慮軟體開發生命週期的每個階段的控制項。
 
 如需更多安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](security-best-practices-and-patterns.md)，以便在使用 Azure 設計、部署和管理雲端解決方案時使用。
 

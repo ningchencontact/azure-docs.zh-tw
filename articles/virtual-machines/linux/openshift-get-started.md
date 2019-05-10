@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 53bed2131e81ee5ed0f46bde389262ee8349339a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8ebd10544331d3b7d887124542fe4ee2753c714
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542419"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233134"
 ---
 # <a name="openshift-in-azure"></a>Azure 中的 OpenShift
 
@@ -34,15 +34,15 @@ OpenShift 包含容器協調流程與管理的 Kubernetes。 它新增以開發�
 
 沒有可用的 OpenShift 的多個版本。  這些版本中，只有兩個可立即供客戶在 Azure 中部署：OpenShift 容器平台和 OKD (先前稱為 OpenShift Origin)。
 
+## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
+
+Microsoft Azure 的 Red Hat OpenShift 是完全受控的供應項目，在 Azure 中執行的 OpenShift。 這項服務是由 Microsoft 與 Red Hat 共同管理和支援。 可以是完整的文件[此處](https://docs.microsoft.com/azure/openshift/)。 
+
 ## <a name="openshift-container-platform"></a>Red Hat OpenShift 容器平台
 
 「容器平台」是由 Red Hat 提供及支援、符合企業需求的[商業版](https://www.openshift.com)。 使用這個版本，客戶要購買 OpenShift 容器平台的必要權利，並負責安裝與管理整個基礎結構。
 
 因為客戶 「 擁有 」 整個平台，他們可以在內部部署資料中心，或安裝在公用雲端 （例如 Azure)。
-
-## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
-
-Azure 的 Red Hat OpenShift 是完全受控的供應項目，在 Azure 中執行的 OpenShift。 這項服務是由 Microsoft 與 Red Hat 共同管理和支援。 叢集將會部署到客戶的 Azure 訂用帳戶中。 服務被預定在 2019 年周圍的 GA。 個別受管理的服務文件時，即可使用此服務為 ga 狀態。
 
 ## <a name="okd"></a>OKD
 

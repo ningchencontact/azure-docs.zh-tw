@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364109"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464203"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中管理裝置
 
@@ -66,7 +66,7 @@ ms.locfileid: "60364109"
 
 1. 選取 [匯入]。
 
-    ![匯入動作](./media/howto-manage-devices/BulkImport1.png)
+    ![匯入動作](./media/howto-manage-devices/bulkimport1a.png)
 
 1. 選取具有所要匯入裝置識別碼清單的 CSV 檔案。
 
@@ -74,7 +74,7 @@ ms.locfileid: "60364109"
 
 1. 匯入完成之後，裝置方格上會顯示成功訊息。
 
-    ![匯入成功](./media/howto-manage-devices/BulkImport3.png)
+    ![匯入成功](./media/howto-manage-devices/bulkimport3a.png)
 
 如果裝置匯入作業失敗，您會在裝置格線上看到錯誤訊息。 隨即會產生擷取所有錯誤的記錄檔，以供您下載。
 
@@ -86,13 +86,13 @@ ms.locfileid: "60364109"
 
 1. 在左側面板上，選擇 [未關聯的裝置]：
 
-    ![未關聯的裝置](./media/howto-manage-devices/UnassociatedDevices1.png)
+    ![未關聯的裝置](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. 選取要與範本產生關聯的裝置：
 
 1. 選取 **產生關聯**:
 
-    ![建立裝置的關聯](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![建立裝置的關聯](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. 從可用的範本清單中選擇的範本，然後選取**產生關聯**。
 
@@ -113,7 +113,7 @@ ms.locfileid: "60364109"
 
 1. 選取您想要匯出，然後選取的裝置**匯出**動作。
 
-    ![匯出](./media/howto-manage-devices/Export1.png)
+    ![匯出](./media/howto-manage-devices/export1a.png)
 
 1. 匯出程序隨即啟動。 您可以在格線頂端追蹤狀態。
 
@@ -121,7 +121,7 @@ ms.locfileid: "60364109"
 
 1. 選取 **成功訊息**檔案下載到磁碟上的本機資料夾。
 
-    ![匯出成功](./media/howto-manage-devices/Export2.png)
+    ![匯出成功](./media/howto-manage-devices/export2a.png)
 
 1. 匯出的 CSV 檔案會包含下列資料行：裝置識別碼、裝置名稱、裝置金鑰及 X509 憑證指紋：
 

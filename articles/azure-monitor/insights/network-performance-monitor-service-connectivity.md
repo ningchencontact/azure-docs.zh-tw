@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 01410fb59135e9b1f54e4a3c75b206c7d30abeed
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 85a35207293f5afda40c78d105fc58732f06b626
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145027"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509808"
 ---
 # <a name="service-connectivity-monitor"></a>服務連線能力監視
 
@@ -64,7 +64,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
     * 選取 [Web] 以監視回應 HTTP/S 要求之服務的連線，例如 outlook.office365.com 或 bing.com。<br>
     * 選取 [網路] 以監視回應 TCP 要求但不會回應 HTTP/S 要求之服務的連線，例如 SQL 伺服器、FTP 伺服器或 SSH 連接埠。 
-    * 例如︰若要建立 web 測試的 blob 儲存體帳戶，請選取**Web** ，然後輸入目標<your storageaccount>。 blob.core.windows.net。 同樣地，您也可以建立其他資料表儲存體、 佇列儲存體和 Azure 檔案使用的測試[此連結。](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * 例如：若要建立 web 測試的 blob 儲存體帳戶，請選取**Web** ，然後輸入目標*yourstorageaccount*。 blob.core.windows.net。 同樣地，您也可以建立其他資料表儲存體、 佇列儲存體和 Azure 檔案使用的測試[此連結。](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. 如果您不想要執行網路量測，例如網路延遲、封包遺失和拓撲探索，請清除 [執行網路量測] 核取方塊。 保持選取狀態可充分發揮功能。 
 5. 在 [目標] 中，輸入您要監視網路連線的 URL/FQDN/IP 位址。
 6. 在 [連接埠號碼] 中，輸入目標服務的連接埠號碼。 
@@ -128,6 +128,16 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 * 如果應用程式執行緩慢，請判斷應用程式效能低落是因為網路還是應用程式提供者端的某些問題所造成。
 
+## <a name="gcc-office-urls-for-us-government-customers"></a>適用於美國政府客戶的 GCC Office Url
+美國維吉尼亞州政府區域只 DOD Url 會是內建的 NPM。 使用 GCC Url 的客戶，就必須建立自訂的測試，並且新增每個 URL 個別。
+
+| 欄位 | GCC |
+|:---   |:--- |
+| Office 365 入口網站與共用 | portal.apps.mil |
+| Office 365 驗證和身分識別 | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www。 office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
+| MS Teams | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>後續步驟
 [搜尋記錄檔](../../azure-monitor/log-query/log-query-overview.md)以檢視詳細的網路效能資料記錄。

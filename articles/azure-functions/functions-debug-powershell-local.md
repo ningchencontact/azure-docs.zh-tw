@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 554b7b7f401ec7cdb1ae08839550b81d797764f2
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530327"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230085"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>在本機偵錯 PowerShell Azure 函式
 
@@ -97,7 +97,7 @@ if($name) {
 
 若要偵錯您的 PowerShell 函式，在 Visual Studio Code 中，您必須具備下列延伸模組適用於 Visual Studio Code:
 
-* [PowerShell](/powershell/scripting/components/Visual Studio Code/using-Visual Studio Code)
+* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions](functions-create-first-function-vs-code.md)
 
 在安裝後的 PowerShell 和 Azure Functions 的延伸模組，會載入現有的函式應用程式專案。 您也可以[建立函式專案](functions-create-first-function-vs-code.md)。
@@ -189,7 +189,7 @@ pwsh            88785 None
 接下來，執行下列程式碼片段：
 
 ```powershell
-# This enters into the the Azure Functions PowerShell process.
+# This enters into the Azure Functions PowerShell process.
 # Put your value of `ProcessId` here.
 Enter-PSHostProcess -Id $ProcessId
 

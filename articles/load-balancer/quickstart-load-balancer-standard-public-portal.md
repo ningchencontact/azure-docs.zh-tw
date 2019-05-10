@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 77e322e32d19433d9ce4629c2e04c8bbd7e17f3f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79ba86fd32248da240706fda2d8b5fcf8323263d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858230"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143176"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立標準負載平衡器以平衡 VM 的負載
 
@@ -80,7 +80,7 @@ ms.locfileid: "57858230"
     | Port | 輸入 *80*。|
     | 間隔 | 輸入 *15* 作為探查嘗試之間的 [間隔]  秒數。 |
     | 狀況不良臨界值 | 選取 [2] 作為 [狀況不良閾值] 的數值，或將 VM 視為狀況不良之前，必須達到的連續探查失敗次數。|
-    | 健全狀況探查 | 選取 [myHealthProbe]。 |
+    | | |
 4. 選取 [確定] 。
 
 ### <a name="create-a-load-balancer-rule"></a>建立負載平衡器規則
@@ -99,11 +99,11 @@ ms.locfileid: "57858230"
     | 後端集區 | 選取 [myBackendPool]。|
     | 健全狀況探查 | 選取 [myHealthProbe]。 |
 4. 保留其餘的預設值，然後選取 [確定]。
-4. 選取 [確定] 。
+
 
 ## <a name="create-backend-servers"></a>建立後端伺服器
 
-在本節中，您會建立一個虛擬網路、針對負載平衡器的後端集區建立兩部虛擬機器，然後在虛擬機器上安裝 IIS，協助測試負載平衡器。
+在本節中，您會建立一個虛擬網路、針對 Load Balancer 的後端集區建立三部虛擬機器，然後在虛擬機器上安裝 IIS 以協助測試 Load Balancer。
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 1. 在畫面的左上方，選取 [建立資源] > [網路] > [虛擬網路]。
@@ -122,9 +122,9 @@ ms.locfileid: "57858230"
 1. 保留其餘的預設值，然後選取 [建立]。
 
 ### <a name="create-virtual-machines"></a>建立虛擬機器
-標準負載平衡器只支援在後端集區中具有標準 IP 位址的 VM。 在本節中，您將使用兩個不同區域 (*區域 1* 和*區域 2*) 中的標準公用 IP 位址來建立兩部 VM (*myVM1* 和 *myVM2*)，這些區域已新增至稍早建立的標準負載平衡器後端集區。
+標準負載平衡器只支援在後端集區中具有標準 IP 位址的 VM。 在本節中，您將使用三個不同區域 (區域 1、區域 2 及區域 3) 中的標準公用 IP 位址來建立三部 VM (*myVM1*、*myVM2* 及 *myVM3*)，這些區域後續會新增至先前建立的 Standard Load Balancer 後端集區。
 
-1. 在入口網站的左上方，選取 [建立資源] > **[計算]** > [Windows Server 2016 Datacenter]。 
+1. 在入口網站的左上方，選取 [建立資源] > **[計算]** > [Windows Server 2019 Datacenter]。 
    
 1. 在 [建立虛擬機器] 中，輸入或選取 [基本資訊] 索引標籤中的下列值：
    - [訂用帳戶] > [資源群組]：選取 [myResourceGroupSLB]。
@@ -132,26 +132,35 @@ ms.locfileid: "57858230"
    - [執行個體詳細資料] > [區域] > 選取 [歐洲西部]。
    - [執行個體詳細資料] > [可用性選項] > 選取 [可用性區域]。 
    - [執行個體詳細資料] > [可用性區域] > 選取 [1]。
+   - **系統管理員帳戶**> 輸入 [使用者名稱]、[密碼] 和 [確認密碼] 資訊。
+   - 選取 [網路] 索引標籤，或選取 **[下一步：磁碟]**，然後選取 **[下一步：網路]**。
   
-1. 選取 [網路] 索引標籤，或選取 **[下一步：磁碟]**，然後選取 **[下一步：網路]**。 
-   
-   - 請確定已選取下列項目：
-       - **虛擬網路**：*MyVNet*
-       - **子網路**：*MyBackendSubnet*
-       - [公用 IP] > 選取 [新建]，然後在 [建立公用 IP 位址] 視窗中，針對 [SKU] 選取 [標準]，並針對 [可用性區域] 選取 [區域備援]，然後選取 [確定]。
+1. 在 [網路] 索引標籤中，確定已選取下列項目：
+   - **虛擬網路**：*MyVNet*
+   - **子網路**：*MyBackendSubnet*
+   - [公用 IP] > 選取 [新建]，然後在 [建立公用 IP 位址] 視窗中，針對 [SKU] 選取 [標準]，並針對 [可用性區域] 選取 [區域備援]，然後選取 [確定]。
    - 若要在 [網路安全性群組] 之下建立新的網路安全性群組 (NSG，一種防火牆類型)，請選取 [進階]。 
        1. 在 [設定網路安全性群組] 欄位中，選取 [新建]。 
        1. 輸入 *myNetworkSecurityGroup*，然後選取 [確定]。
    - 若要使 VM 成為負載平衡器後端集區的一部分，請完成下列步驟：
         - 在 [負載平衡] 中，針對 [要將此虛擬機器放在現有負載平衡解決方案後面嗎?] 選取 [是]。
         - 在 [負載平衡設定] 中，針對 [負載平衡選項] 選取 [Azure Load Balancer]。
-        - 針對 [選取負載平衡器] 選取 [myLoadBalancer]。 
-1. 選取 [管理] 索引標籤，或選取 [下一步] > [管理]。 在 [監視] 下，將 [開機診斷] 設定為 [關閉]。 
+        - 針對 [選取負載平衡器] 選取 [myLoadBalancer]。
+        - 選取 [管理] 索引標籤，或選取 [下一步] > [管理]。
+2. 在 [管理] 索引標籤的 [監視] 下方，將 [開機診斷] 設為 [關閉]。 
 1. 選取 [檢閱 + 建立]。   
 1. 檢閱設定，然後選取 [建立]。
-1. 請依照下列步驟，建立名為 *MyVM2* 的另一部 VM，其 標準 SKU 公用 IP 位址名為 *myVM2-ip*、可用性區域 設定為 **2**，而其他所有設定與 *myVM1* 相同。 
+1. 依照步驟 2 到 6，使用下列值建立兩個額外的 VM (其他所有設定則與 *myVM1* 相同)：
 
-### <a name="create-nsg-rule"></a>建立 NSG 規則
+    | 設定 | VM 2| VM 3|
+    | ------- | ----- |---|
+    | Name |  *myVM2* |*myVM3*|
+    | 可用性區域 | 2 |3|
+    |公用 IP| **標準** SKU|**標準** SKU|
+    | 公用 IP - 可用性區域| **區域備援** |**區域備援**|
+    | 網路安全性群組 | 選取現有的 *myNetworkSecurity 群組*| 選取現有的 *myNetworkSecurity 群組*|
+
+ ### <a name="create-nsg-rule"></a>建立 NSG 規則
 
 在本節中，您會建立網路安全性群組規則，以允許使用 HTTP 的輸入連線。
 
@@ -166,30 +175,38 @@ ms.locfileid: "57858230"
     - 100 作為 [優先順序]
     - myHTTPRule 作為名稱
     - 允許 HTTP - 作為描述
-4. 選取 [確定] 。
+4. 選取 [新增] 。
  
 ### <a name="install-iis"></a>安裝 IIS
 
 1. 選取左側功能表中的 [所有服務]、選取 [所有資源]，然後從資源清單選取 *myResourceGroupSLB* 資源群組中的 [myVM1]。
 2. 在 [概觀] 頁面上，選取 [連線] 以透過 RDP 連入 VM。
-3. 以使用者名稱 azureuser 登入 VM。
-4. 在伺服器桌面上，瀏覽至 [Windows 系統管理工具]>[伺服器管理員]。
-5. 在 [伺服器管理員] 中，選取 [新增角色及功能]。
-6. 在 [新增角色及功能精靈] 中，使用下列值：
-    - 在 [選取安裝類型] 頁面中，選取 [角色型或功能型安裝]。
-    - 在 [選取目的地伺服器] 頁面中，選取 [myVM1]
-    - 在 [選取伺服器角色] 頁面中，選取 [網頁伺服器 (IIS)]
-    - 依照指示完成精靈的其餘部分 
-7. 針對虛擬機器 myVM2 重複步驟 1 到 6。
+5. 使用您在此 VM 建立期間提供的認證登入 VM。 這會啟動虛擬機器的遠端桌面工作階段 - *myVM1*。
+6. 在伺服器桌面上，瀏覽至 [Windows 系統管理工具]>[Windows PowerShell]。
+7. 在 PowerShell 視窗中，執行下列命令以安裝 IIS 伺服器、移除預設 iisstart.htm 檔案，然後新增會顯示 VM 名稱的 iisstart.htm 檔案：
 
-## <a name="test-the-load-balancer"></a>測試負載平衡器
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. 使用 myVM1 關閉 RDP 工作階段。
+7. 重複步驟 1 到 6，在 myVM2 和 myVM3 上安裝 IIS 和更新的 iisstart.htm 檔案。
+
+## <a name="test-the-load-balancer"></a>測試 Load Balancer
 1. 在 [概觀] 畫面上尋找負載平衡器的公用 IP 位址。 選取左側功能表中的 [所有服務]、選取 [所有資源]，然後選取 [myPublicIP]。
 
 2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。 IIS Web 伺服器的預設頁面會顯示在瀏覽器上。
 
-      ![IIS Web 伺服器](./media/load-balancer-standard-public-portal/9-load-balancer-test.png)
+   ![IIS Web 伺服器](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-若要查看負載平衡器如何將流量分散於執行您應用程式的所有三部 VM，您可以強制重新整理您的網頁瀏覽器。
+若要讓負載平衡器將流量分散到這三個 VM，您可以為每個 VM 的 IIS Web 伺服器自訂預設頁面，然後從用戶端機器強制重新整理您的網頁瀏覽器。
 
 ## <a name="clean-up-resources"></a>清除資源
 

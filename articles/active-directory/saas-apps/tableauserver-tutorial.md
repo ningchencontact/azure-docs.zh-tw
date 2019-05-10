@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 539a06398675dc7851017ec5d428e0942e54ce1f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 480e799e0fe307b39ce8a2f0b026a04f507a6beb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564759"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>教學課程：Azure Active Directory 與 Tableau Server 整合
 
@@ -116,13 +116,13 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 
 5. Tableau Server 應用程式預期要有自訂宣告**使用者名稱**，必須定義如下。 這會作為使用者識別碼，而不是使用唯一使用者識別碼宣告。 您可以在應用程式整合頁面的 [使用者屬性與宣告] 區段中管理這些屬性的值。 按一下 [編輯] 按鈕，以開啟 [使用者屬性與宣告] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性與宣告] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
     | Name | 來源屬性 | 命名空間 |
     | ---------------| --------------- | ----------- |
-    | username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | username | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
 
     a. 按一下 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。

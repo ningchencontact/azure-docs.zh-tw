@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 65a861c647c2dc92e416fa356075821aa5060042
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 938f13524b22f34f4becc936885d1611cb854df1
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205030"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510499"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>建立並註冊 Azure Machine Learning 資料集 （預覽）
 
@@ -87,7 +87,7 @@ dataset = Dataset.from_delimited_files(datapath)
 dataset.head(5)
 ```
 
-||ID|案例編號|date|區塊|IUCR|主要類型|描述|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置|
+||ID|案例編號|date|封鎖|IUCR|主要類型|說明|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置|
 |--|--|---|---|---|---|----|------|-------|------|-----|---|----|----|-----|-----|------|----|-----|----|----|-----
 |0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|詐騙的作法|透過美金 300 元的金融身分遭竊|OTHER|FALSE|FALSE|...|9|50|11|1183356|1831503|2016|5/11/2016 15:48|41.69283384|-87.60431945|(41.692833841, -87.60431945)|
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|遭竊| 從建立|居住地|FALSE|FALSE|...|21|71|6|1166776|1850053|2016|5/12/2016 15:48|41.74410697|-87.66449429|(41.744106973, -87.664494285)
@@ -102,7 +102,6 @@ dataset.head(5)
 ```Python
 dataset = dataset.register(workspace = workspace,
                            name = 'dataset_crime',
-
                            description = 'Training data',
                            exist_ok = False
                            )
@@ -116,6 +115,9 @@ dataset = dataset.register(workspace = workspace,
 ```Python
 dataset = dataset.register(workspace = workspace,
                            name = 'dataset_crime',
+                           description = 'Training data',
+                           exist_ok = True
+                           )
 ```
 
 使用`list()`若要查看所有已註冊的資料集，在您的工作區中。

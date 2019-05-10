@@ -16,18 +16,18 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548540"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191034"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-在本快速入門中，您將了解如何使用 OpenID Connect 透過搭配傳統網頁瀏覽器型應用程式的 ASP.NET MVC 解決方案實作「使用 Microsoft 登入」。 您將會了解如何在 ASP.NET 應用程式中啟用從公司和學校帳戶登入的功能。
+在本快速入門中，您將了解如何使用 OpenID Connect，透過搭配傳統網頁瀏覽器型應用程式的 ASP.NET Model View Controller (MVC) 解決方案實作「使用 Microsoft 登入」。 您將會了解如何在 ASP.NET 應用程式中啟用從公司和學校帳戶登入的功能。
 
 完成本快速入門之後，您的應用程式將能接受已與 Azure Active Directory (Azure AD) 整合之組織的公司和學校帳戶進行登入。
 
@@ -38,7 +38,7 @@ ms.locfileid: "59548540"
 
 開始之前，請先確定您符合以下先決條件：
 
-* 已安裝 Visual Studio 2015 Update 3 或 Visual Studio 2017。 沒有嗎？ [免費下載 Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* 已安裝 Visual Studio 2015 Update 3 或 Visual Studio 2019。 沒有嗎？ [免費下載 Visual Studio 2019](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>案例：在您的 ASP.NET 應用程式中從公司和學校帳戶登入使用者
 
@@ -46,7 +46,7 @@ ms.locfileid: "59548540"
 
 在此案例中，瀏覽器會存取 ASP.NET 網站並要求使用者使用登入按鈕進行驗證。 在這個案例中，大部分轉譯網頁的工作會在伺服器端執行。
 
-本快速入門會示範如何在 ASP.NET Web 應用程式上登入使用者，並從空白範本開始著手，並且包含新增登入按鈕等工作的步驟，以及每個控制器和方法，同時討論這些工作背後的概念。 或者，您也可以建立專案來登入 Azure AD 使用者 (公司和學校帳戶)，方法是使用 [Visual Studio Web 範本](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) 並選取 [組織帳戶]，然後選取其中一個雲端選項；此選項會使用更豐富的範本，並具有額外的控制器、方法及檢視。
+本快速入門會示範如何在 ASP.NET Web 應用程式上登入使用者，並從空白範本開始著手。 其中也包含新增登入按鈕等工作的步驟，以及每個控制器和方法，同時討論這些工作背後的概念。 您也可以建立專案來登入 Azure AD 使用者 (公司和學校帳戶)，方法是使用 [Visual Studio Web 範本](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) 並選取 [組織帳戶]，然後選取其中一個雲端選項；此選項會使用更豐富的範本，並具有額外的控制器、方法及檢視。
 
 ## <a name="libraries"></a>程式庫
 
@@ -158,7 +158,7 @@ ms.locfileid: "59548540"
 1. 選取 [MVC {版本} 控制器 – 空白]。
 1. 選取 [新增] 。
 1. 將它命名為 **ClaimsController**。
-1. 以下列程式碼取代您控制器類別的程式碼 - 這會將 `[Authorize]` 屬性新增至類別：
+1. 以下列程式碼取代您控制器類別的程式碼 - 此範例會將 `[Authorize]` 屬性新增至類別：
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
@@ -196,7 +196,7 @@ ms.locfileid: "59548540"
 4. 將專案的 SSL URL 複製到剪貼簿：<br/><br/>![專案屬性](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. 在 <code>web.config</code> 中，以您專案的 SSL URL 取代 <code>Enter_the_Redirect_URL_here</code>。
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>在「Azure 入口網站」中註冊您的應用程式，然後將其資訊新增至 *web.config*
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>在 Azure 入口網站中註冊您的應用程式，然後將其資訊新增至 *web.config*
 
 1. 前往 [Microsoft Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)來註冊應用程式。
 2. 選取 [新增應用程式註冊]。
@@ -205,7 +205,7 @@ ms.locfileid: "59548540"
 5. 選取 [建立] 以註冊應用程式。 此動作會帶您回到應用程式清單。
 6. 現在，請搜尋和/或選取您剛才建立的應用程式以開啟其屬性。
 7. 將 [應用程式識別碼] 底下的 GUID 複製到剪貼簿。
-8. 返回 Visual Studio，然後在 `web.config` 中，以您剛才註冊之應用程式的應用程式識別碼取代 `Enter_the_Application_Id_here`。
+8. 返回 Visual Studio，然後在 `web.config` 中，以您所註冊應用程式的應用程式識別碼取代 `Enter_the_Application_Id_here`。
 
 > [!TIP]
 > 如果您的帳戶已設定為可存取多個目錄，請確定您已針對要為其註冊應用程式的組織選取正確的目錄，方法是在 Azure 入口網站的右上角按一下您的帳戶名稱，然後確認所選取的目錄，如下所示：<br/>![選取正確的目錄](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
@@ -216,9 +216,9 @@ ms.locfileid: "59548540"
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>將應用程式設定成允許任何公司或組織 (多租用戶) 的公司和學校帳戶登入
 
-如果您想要接受已與 Azure AD 整合之任何公司或組織的公司和學校帳戶進行登入，請依照下列步驟進行操作。 這是「SaaS 應用程式」的常見案例：
+如果您想要接受已與 Azure AD 整合之任何公司或組織的公司和學校帳戶進行登入，請依照下列步驟進行操作。 此案例通用於 SaaS 應用程式：
 
-1. 返回 [Microsoft Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)，然後找出您剛才註冊的應用程式。
+1. 返回 [Microsoft Azure 入口網站 - 應用程式註冊](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)，然後找出您所註冊的應用程式。
 2. 在 [所有設定] 底下，選取 [屬性]。
 3. 將 [多重租用戶] 屬性變更為 [是]，然後選取 [儲存]。
 
@@ -278,7 +278,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 #### <a name="expected-results"></a>預期的結果
 
-登入之後，系統會將使用者重新導向至您網站的首頁，也就是您在「Microsoft 應用程式註冊入口網站」之應用程式註冊資訊中指定的 HTTPS URL。 此網頁現在會顯示「{使用者} 您好」 和一個登出連結，以及一個用於查看使用者宣告的連結 (這是之前所建立之「授權」控制器的連結)。
+使用者登入之後，系統會將使用者重新導向至您網站的首頁，也就是您在「Microsoft 應用程式註冊入口網站」之應用程式註冊資訊中指定的 HTTPS URL。 此網頁現在會顯示「{使用者} 您好」 和一個登出連結，以及一個用於查看使用者宣告的連結 (這是之前所建立之「授權」控制器的連結)。
 
 ### <a name="see-users-claims"></a>查看使用者的宣告
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615867"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232471"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>計費和成本管理的自動化案例
 
@@ -52,7 +52,7 @@ ms.locfileid: "60615867"
 | 保留建議 |                           |                  |           X          |                  |                    |           |
 | 保留詳細資料         |                           |                  |           X          |         X        |                    |           |
 | 保留摘要       |                           |                  |           X          |         X        |                    |           |
-| 使用量詳細資料               |             X             |         X        |           X          |         X        |          X         |     X     |
+| 使用情況詳細資料               |             X             |         X        |           X          |         X        |          X         |     X     |
 | 計費期間             |             X             |         X        |           X          |         X        |                    |           |
 | 發票                    |             X             |         X        |           X          |         X        |                    |           |
 | RateCard                    |             X             |                  |           X          |         X        |          X         |           |
@@ -85,9 +85,9 @@ Web Direct 和企業客戶可以使用所有下列 API (除了註明的以外)�
 -   [未分級使用量 API](/previous-versions/azure/reference/mt219003(v=azure.100))：在 Azure 進行任何計量/計費之前，取得使用量資訊。
 
 ### <a name="billing"></a>計費
--   [計費週期 API](https://docs.microsoft.com/rest/api/billing/billingperiods) \(英文\)：取得要分析的計費週期，以及該週期的發票識別碼。 您可以搭配使用發票識別碼和發票 API。
+-   [計費週期 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) \(英文\)：取得要分析的計費週期，以及該週期的發票識別碼。 您可以搭配使用發票識別碼和發票 API。
 
--   [發票 API](https://docs.microsoft.com/rest/api/billing/invoices)：以 PDF 格式取得計費週期的發票下載 URL。
+-   [發票 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices)：以 PDF 格式取得計費週期的發票下載 URL。
 
 ### <a name="enterprise-consumption"></a>企業使用量
 下列 API 僅適用於企業：
@@ -126,7 +126,7 @@ Web Direct 和企業客戶可以使用所有下列 API (除了註明的以外)�
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>發票 API 與使用量詳細資料 API 之間有何差異？
 這些 API 可提供相同資料的不同檢視：
 
-- [發票 API](https://docs.microsoft.com/rest/api/billing/invoices) 僅適用於 Web Direct 客戶。 它根據每個計量類型的彙總收費，提供您帳單的每月彙總。 
+- [發票 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) 僅適用於 Web Direct 客戶。 它根據每個計量類型的彙總收費，提供您帳單的每月彙總。 
 
 - [使用量詳細資料 API](https://docs.microsoft.com/rest/api/consumption/usagedetails) \(英文\) 提供每天的細微使用量/成本記錄檢視。 企業和 Web Direct 客戶都可以使用。
 

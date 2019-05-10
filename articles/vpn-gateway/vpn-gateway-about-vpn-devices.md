@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: yushwang
-ms.openlocfilehash: 188412130b059cd25952ce9bf570c4e95ebbc43a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 30558300036974a765765fe0eb0181e2a8dc73ca
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761605"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508369"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數
 
@@ -42,10 +42,9 @@ ms.locfileid: "60761605"
 |**供应商**          |**裝置系列**     |**作業系統最低版本** |**原則式設定指示** |**路由式設定指示** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |不相容  |[設定指南](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
-| Allied Telesis     |AR 系列 VPN 路由器 |AR 系列 5.4.7+               |敬請期待     |[設定指南](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
+| Allied Telesis     |AR 系列 VPN 路由器 |AR 系列 5.4.7+               |即將推出     |[設定指南](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall F-series |原則式︰5.4.3<br>路由式：6.2.0 |[設定指南](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[設定指南](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-series |Barracuda Firewall 6.5 |[設定指南](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |不相容 |
-| Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[設定指南](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |不相容 |
 | 检查点 |Security Gateway |R80.10 |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2\*) |支援 |[設定指南\*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |原則式︰IOS 15.1<br>路由式：IOS 15.2 |支援 |支援 |
@@ -142,7 +141,7 @@ ms.locfileid: "60761605"
 | 加密與雜湊演算法 |1.AES256、SHA256<br>2.AES256、SHA1<br>3.AES128、SHA1<br>4. 3DES、SHA1 |[RouteBased QM SA 产品/服务](#RouteBasedOffers) |
 | SA 存留期 (時間)            |3,600 秒  |27,000 秒                                |
 | SA 生存期（字节数）           |102,400,000 KB | -                                           |
-| 完全向前保密 (PFS) |否             |[RouteBased QM SA 供應項目](#RouteBasedOffers) |
+| 完全向前保密 (PFS) |無             |[RouteBased QM SA 供應項目](#RouteBasedOffers) |
 | 停用的對等偵測 (DPD)     |不支援  |支援                                    |
 
 

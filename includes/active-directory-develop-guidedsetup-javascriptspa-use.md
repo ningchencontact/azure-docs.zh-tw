@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 6f6318f2b4386118d83a72d667e63f88327e240b
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 8785f89a335f0ae7d983f267176da1656aee57a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993284"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198895"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>使用 Microsoft Authentication Library (MSAL) 登入使用者
 
@@ -170,7 +170,7 @@ ms.locfileid: "64993284"
 
 在使用者第一次按一下 [登入] 按鈕之後，`signIn` 方法會呼叫 `loginPopup` 以將使用者登入。 這個方法會導致「Microsoft 身分識別平台端點」開啟快顯視窗，以提示及驗證使用者的認證。 如果成功登入，使用者會被重新導向回到原始 index.html 分頁，並且會收到權杖，由 `msal.js` 處理，並且會快取權杖中包含的資訊。 此權杖也稱為「ID 權杖」且包含使用者的基本資訊，例如使用者顯示名稱。 如果您打算將此權杖所提供的任何資料用於任何目的，您必須確定後端伺服器已驗證此權杖，以保證權杖是發給您應用程式的有效使用者。
 
-此指南所產生的 SPA 會呼叫 `acquireTokenSilent` 和/或 `acquireTokenPopup`，以取得用來查詢 Microsoft Graph API 中使用者設定檔資訊的「存取權杖」。 如果您需要可驗證 ID 權杖的範例，請看一下 GitHub 中的 [這個](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 範例")範例應用程式 – 此範例使用 ASP.NET Web API 進行權杖驗證。
+本指南所產生的 SPA 會呼叫 `acquireTokenSilent` 和/或 `acquireTokenPopup`，以取得用來查詢 Microsoft Graph API 中使用者設定檔資訊的「存取權杖」。 如果您需要可驗證 ID 權杖的範例，請看一下 GitHub 中的 [這個](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 範例")範例應用程式 – 此範例使用 ASP.NET Web API 進行權杖驗證。
 
 #### <a name="getting-a-user-token-interactively"></a>以互動方式取得使用者權杖
 
@@ -215,7 +215,7 @@ function callMSGraph(theUrl, accessToken, callback) {
 
 ### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>針對受保護 API 進行 REST 呼叫的詳細資訊
 
-在此指南建立的範例應用程式中，`callMSGraph()` 方法是用來針對受保護資源提出 HTTP `GET` 要求，那些受保護資源需要權杖才能存取，然後再將內容傳回給使用者。 此方法會在「HTTP 授權標頭」中加入取得的權杖。 對於此指南建立的範例應用程式，資源為 Microsoft 圖形 API *me* 端點，它會顯示使用者的設定檔資訊。
+在本指南建立的範例應用程式中，`callMSGraph()` 方法是用來針對受保護資源提出 HTTP `GET` 要求，那些受保護資源需要權杖才能存取，然後再將內容傳回給使用者。 此方法會在「HTTP 授權標頭」中加入取得的權杖。 對於本指南建立的範例應用程式，資源為 Microsoft 圖形 API *me* 端點，它會顯示使用者的設定檔資訊。
 
 <!--end-collapse-->
 

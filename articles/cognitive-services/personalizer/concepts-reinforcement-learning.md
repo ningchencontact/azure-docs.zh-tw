@@ -10,15 +10,14 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 30f009f76c25d80281d748e1e484175380ca9743
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b65073c0646db0cd0c27a71005bb4f74b091ae09
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026672"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506895"
 ---
 # <a name="what-is-reinforcement-learning"></a>增強式學習是什麼？
-
 
 增強式學習是一種機器學習方法，會藉由從使用過程取得回饋以學習行為模式。
  
@@ -64,7 +63,7 @@ John 先前也曾提供數個關於各項主題的教學課程，例如 Joint Pr
 
 * [在低技術債務下做出內容相關決策](https://arxiv.org/abs/1606.03966)
 * [公平分類的縮減方法](https://arxiv.org/abs/1803.02453)
-* [在非穩定世界中的有效率內容相關吃角子老虎機](https://arxiv.org/abs/1708.01799ds)
+* [在非穩定世界中的有效率內容相關吃角子老虎機](https://arxiv.org/abs/1708.01799)
 * [剩餘損耗預測：沒有累加式意見反應的增強式學習](https://openreview.net/pdf?id=HJNMYceCW)
 * [使用增強式學習來將指示和視覺化觀察對應至動作](https://arxiv.org/abs/1704.08795)
 * [學習成為比老師更加優秀的搜尋者](https://arxiv.org/abs/1502.02206)

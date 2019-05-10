@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: d8e095303161002d10914ca7c3213ac0c6894e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a287a8da884290e94e9ac1c864abe28e47d53d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467117"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508149"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>預覽-自動調整以符合應用程式需求在 Azure Kubernetes Service (AKS) 叢集
 
 為了符合 Azure Kubernetes Service (AKS) 中的應用程式需求，您可能需要調整執行工作負載的節點數目。 叢集自動調整程式元件可以監看叢集中由於資源限制而無法調度的 Pod。 偵測到問題時，節點數目會增加以符合應用程式需求。 也會定期檢查節點是否缺少執行的 Pod，然後視需要減少節點數目。 自動相應增加或相應減少 AKS 叢集中節點數目的功能，可讓您執行有效率、符合成本效益的叢集。
 
-本文示範如何啟用和管理 AKS 叢集中的叢集自動調整程式。
+本文示範如何啟用和管理 AKS 叢集中的叢集自動調整程式。 叢集中自動調整程式僅應該在 AKS 叢集與單一節點的集區上的預覽中進行測試。
 
 > [!IMPORTANT]
 > AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
@@ -59,6 +59,12 @@ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/V
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+
+## <a name="limitations"></a>限制
+
+當您建立和管理 AKS 叢集中使用虛擬機器擴展集時，就會套用下列限制：
+
+* 無法使用的 HTTP 應用程式路由附加元件。
 
 ## <a name="about-the-cluster-autoscaler"></a>關於叢集自動調整程式
 
@@ -101,7 +107,6 @@ az group create --name myResourceGroup --location canadaeast
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.12.6 \
   --node-count 1 \
   --enable-vmss \
   --enable-cluster-autoscaler \

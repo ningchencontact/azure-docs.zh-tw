@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2019
 ms.author: jehollan
-ms.openlocfilehash: 1ef688dff65dc11f875f76e2f9127bf89af2f2b9
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2044718d2ec7a7acc58e1e7ba9ba04ec5caf16b3
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074586"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408455"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在.NET Azure Functions 中使用相依性插入
 
@@ -65,7 +65,7 @@ Azure Functions 應用程式提供做為相同的服務生命週期[ASP.NET 相�
 
 單一存留期服務建議來連線和用戶端，例如`SqlConnection`， `CloudBlobClient`，或`HttpClient`。
 
-檢視或下載[範例的不同服務存留期](http://aka.ms/functions/di-sample)。
+檢視或下載[範例的不同服務存留期](https://aka.ms/functions/di-sample)。
 
 ## <a name="logging-services"></a>記錄服務
 
@@ -78,7 +78,7 @@ Azure Functions 應用程式提供做為相同的服務生命週期[ASP.NET 相�
 
 函式的主應用程式會向許多服務。  以下是可安全依存於服務。  若要註冊或相依於不支援其他主機服務。  如果有其他服務，您想要採取相依性，請[建立 GitHub 上的問題，並討論](https://github.com/azure/azure-functions-host)。
 
-|服務類型|存留期|描述|
+|服務類型|存留期|說明|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|單一|執行階段組態|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|單一|負責提供的主控件執行個體識別碼|

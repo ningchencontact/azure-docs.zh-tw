@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020346"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465609"
 ---
 # <a name="release-notes"></a>版本資訊
 
@@ -24,7 +24,7 @@ ms.locfileid: "65020346"
 
 **新功能**
 
-* 找出功能 (KWS) 的關鍵字是適用於 Windows 和 Linux。 KWS 功能可能會使用任何麥克風型別，官方 KWS 支援，不過，目前僅限麥克風陣列中找到 Azure Kinect DK 硬體或語音裝置 SDK。
+* 現在適用於 Windows 和 Linux 喚醒字 (關鍵字找出/KWS) 功能。 KWS 功能可能會使用任何麥克風型別，官方 KWS 支援，不過，目前僅限麥克風陣列中找到 Azure Kinect DK 硬體或語音裝置 SDK。
 * 透過 SDK 使用片語提示功能。 如需詳細資訊，請參閱[這裡](how-to-phrase-lists.md)。
 * 交談文字記錄功能是透過 SDK。 請參閱 [這裡](conversation-transcription-service.md)。
 * 新增語音第一個虛擬助理使用直接列語音通道支援。
@@ -58,7 +58,7 @@ ms.locfileid: "65020346"
 **新功能** 
 
 * SDK 會為 beta 版，現在支援文字轉換語音服務。 它支援 Windows 和 Linux 桌面，從C++和C#。 如需詳細資訊，請[文字轉換語音概觀](text-to-speech.md#get-started-with-text-to-speech)。
-* SDK 現在支援 MP3 和這種門外漢只/Ogg 音訊檔案做為資料流輸入檔。 這項功能是只能在從 Linux 上使用C++和C#，目前在 beta 測試階段 (更多詳細資料[此處](how-to-use-compressed-audio-input-streams.md))。
+* SDK 現在支援 MP3 和這種門外漢只/OGG 音訊檔案做為資料流輸入檔。 這項功能是只能在從 Linux 上使用C++和C#，目前在 beta 測試階段 (更多詳細資料[此處](how-to-use-codec-compressed-audio-input-streams.md))。
 * 語音 SDK for Java，.NET core C++ ，OBJECTIVE-C 已獲得 macOS 的支援。 適用於 macOS 的 Objective C 支援目前為 beta 版。
 * iOS：語音 SDK 適用於 iOS (Objective C) 現在也發行為 CocoaPod。
 * JavaScript：做為輸入裝置的非預設麥克風的支援。
@@ -175,7 +175,7 @@ ms.locfileid: "65020346"
 * 已修正翻譯事件引數的記憶體流失。
 * 已修正在長時間執行的工作階段中重新連線的鎖定問題。
 * 修正遺漏失敗翻譯的最終結果可能會導致的問題。
-* C#：如果非同步作業未在主執行緒中等候，則在非同步工作完成之前，就可能處置了辨識器。
+* C#: 如果非同步作業未在主執行緒中等候，則在非同步工作完成之前，就可能處置了辨識器。
 * Java：已修正導致 Java VM 損毀的問題。
 * Objective-C：已修正列舉對應；傳回了 RecognizedIntent 而不是 RecognizingIntent。
 * JavaScript：在 SpeechConfig 中將預設輸出格式設定為 'simple'。

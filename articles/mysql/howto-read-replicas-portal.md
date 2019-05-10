@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 52f192a179c02e63c394401cce82b51fbe96e92d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: b422718a1eaec483acdc2c8ab37442b9aea78aaa
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61424824"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510796"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 入口網站在適用於 MySQL 的 Azure 資料庫中建立與管理讀取複本
 
-在本文中，您將了解如何使用 Azure 入口網站在「適用於 MySQL 的 Azure 資料庫」服務中，於與主要伺服器相同的 Azure 區域內建立與管理讀取複本。 此功能目前為公開預覽狀態。
+在本文中，您將學習如何建立和管理 Azure Database for MySQL 服務在 Azure 入口網站中的唯讀的複本。
+
+> [!IMPORTANT]
+> 在與您的主要伺服器相同的區域，或您選擇的任何其他 Azure 區域中，您可以建立一個讀取的複本。 跨區域複寫目前為公開預覽狀態。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,9 +41,15 @@ ms.locfileid: "61424824"
 
    ![適用於 MySQL 的 Azure 資料庫 -複寫](./media/howto-read-replica-portal/add-replica.png)
 
-5. 輸入複本伺服器的名稱，然後按一下 [確定] 確認建立複本。
+5. 輸入複本伺服器的名稱。
 
-   ![適用於 MySQL 的 Azure 資料庫 - 建立複本](./media/howto-read-replica-portal/create-replica.png)
+    ![Azure Database for MySQL-複本名稱](./media/howto-read-replica-portal/replica-name.png)
+
+6. 選取複本伺服器的位置。 您可以在任何 Azure 區域中建立複本。 預設位置是主要伺服器相同
+
+    ![Azure Database for MySQL-複本位置](./media/howto-read-replica-portal/replica-location.png)
+
+7. 選取 **確定**確認建立複本。
 
 > [!NOTE]
 > 系統會以與主要伺服器相同的伺服器設定建立讀取複本。 複本伺服器設定在建立後可以變更。 建議複本伺服器設定的值應保持等於或大於主要伺服器，以確保複本伺服器能保持與主要伺服器一致。
@@ -115,7 +124,7 @@ ms.locfileid: "61424824"
 
 2. 在提要欄位的 [監視] 區段下方，選取 [計量]：
 
-3. 從可用計量下拉式清單中選取 [複寫延遲 (秒)]。 
+3. 從可用計量下拉式清單中選取 [複寫延遲 (秒)]。
 
    ![選取複寫延遲](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 

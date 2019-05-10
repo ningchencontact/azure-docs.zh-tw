@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2018
+ms.date: 05/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49d44fa0926afac917ae0ba355d37f13a354f432
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b8b9076c0a4b1fddda4ab0bcfe9f104d7dcf8a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887929"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>教學課程：Azure Active Directory 與 Atlassian Cloud 整合
 
@@ -28,7 +29,7 @@ ms.locfileid: "57887929"
 Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Atlassian Cloud 的人員。
-* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Atlassian Cloud (單一登入)。
+* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Atlassian Cloud (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -36,9 +37,9 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Atlassian Cloud 的整合，您需要下列項目：
+若要設定 Azure AD 與 Atlassian Cloud 整合，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
+* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以申請[免費帳戶](https://azure.microsoft.com/free/)
 * 已啟用 Atlassian Cloud 單一登入的訂用帳戶
 * 若要針對 Atlassian Cloud 產品啟用安全性聲明標記語言 (SAML) 單一登入，您必須設定 Atlassian Access。 深入了解 [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager) \(英文\)。
 
@@ -46,7 +47,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Atlassian Cloud 支援由 **SP 和 IDP** 起始的 SSO
+* Atlassian Cloud 支援由 **SP 和 IDP** 初始化的 SSO
 
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>從資源庫新增 Atlassian Cloud
 
@@ -68,7 +69,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 4. 在搜尋方塊中，輸入 **Atlassian Cloud**，從結果面板中選取 [Atlassian Cloud]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 Atlassian Cloud](common/search-new-app.png)
+     ![結果清單中的 [Atlassian Cloud]](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -88,7 +89,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Atlassian Cloud 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 Atlassian Cloud 設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Atlassian Cloud] 應用程式整合分頁上，選取 [單一登入]。
 
@@ -102,9 +103,9 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
+4. 在 [基本 SAML 設定] 區段上，如果您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![[Application Name] 網域及 URL 單一登入資訊](common/idp-relay.png)
+    ![[Application Name] 網域與 URL 單一登入資訊](common/idp-relay.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://auth.atlassian.com/saml/<unique ID>`
 
@@ -115,11 +116,11 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
     d. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://<instancename>.atlassian.net`
 
     > [!NOTE]
-    > 上述值並非真正的值。 請使用實際的識別碼和回覆 URL 來更新這些值。 您將可從本教學課程稍後說明的 [Atlassian Cloud SAML 設定] 畫面取得這些真正的值。
+    > 上述值並非真正的值。 請使用實際的識別碼和回覆 URL 來更新這些值。 您會從 [Atlassian Cloud SAML 組態] 畫面取得這些真正的值，本教學課程稍的**設定 Atlassian Cloud 單一登入**會予以說明。
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![[Application Name] 網域及 URL 單一登入資訊](common/both-signonurl.png)
+    ![[Application Name] 網域與 URL 單一登入資訊](common/both-signonurl.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<instancename>.atlassian.net`
 
@@ -128,7 +129,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 6. 您的 Atlassian Cloud 應用程式會預期要有特定格式的 SAML 判斷提示，這需要您將自訂屬性對應新增到您的「SAML 權杖屬性」設定。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 Atlassian Cloud 應用程式要求 **nameidentifier** 需與 **user.mail** 相對應，因此您必須按一下 [編輯] 圖示以編輯屬性對應，並變更屬性對應。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
@@ -146,33 +147,41 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-atlassian-cloud-single-sign-on"></a>設定 Atlassian Cloud 單一登入
 
-1. 若要針對您的應用程式設定 SSO，請使用系統管理員認證來登入 Atlassian 入口網站。
+1. 若要自動執行 Atlassian Cloud 內的設定，您必須按一下 [安裝擴充功能] 來安裝「我的應用程式安全登入瀏覽器擴充功能」。
 
-2. 您必須先驗證您的網域再繼續設定單一登入。 如需詳細資訊，請參閱 [Atlassian 網域驗證](https://confluence.atlassian.com/cloud/domain-verification-873871234.html)文件。
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
 
-3. 在左側窗格中，選取 [SAML single sign-on] \(SAML 單一登入\) 。 如果您尚未這樣做，請訂閱 Atlassian Identity Manager。
+2. 將擴充功能新增至瀏覽器之後，按一下 [設定 Atlassian Cloud] 便會將您導向到 Atlassian Cloud 應用程式。 請從該處提供用以登入 Atlassian Cloud 的管理員認證。 瀏覽器延伸模組將會自動為您設定應用程式，並自動執行步驟 3 到 7。
+
+    ![設定組態](common/setup-sso.png)
+
+3. 如果您想要手動設定 Atlassian Cloud，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Atlassian Cloud 公司網站，然後執行下列步驟：
+
+4. 您必須先驗證您的網域再繼續設定單一登入。 如需詳細資訊，請參閱 [Atlassian 網域驗證](https://confluence.atlassian.com/cloud/domain-verification-873871234.html)文件。
+
+5. 在左側窗格中，選取 [SAML single sign-on] \(SAML 單一登入\) 。 如果您尚未這樣做，請訂閱 Atlassian Identity Manager。
 
     ![設定單一登入](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-4. 在 [Add SAML configuration] \(新增 SAML 設定\) 視窗中，執行下列操作：
+6. 在 [Add SAML configuration] \(新增 SAML 設定\) 視窗中，執行下列操作：
 
     ![設定單一登入](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
-    a. 在 [Identity provider Entity ID] \(身分識別提供者實體識別碼\) 方塊中，貼上您從 Azure 入口網站複製的 SAML 實體識別碼。
+    a. 在 [識別提供者實體識別碼] 方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]。
 
-    b. 在 [Identity provider SSO URL] \(身分識別提供者 SSO URL\) 方塊中，貼上您從 Azure 入口網站複製的 SAML 單一登入服務 URL。
+    b. 在 [識別提供者 SSO URL] 方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]。
 
     c. 開啟從 Azure 入口網站下載的憑證 (.txt 檔案)，複製值 (不含 *Begin Certificate* 和 *End Certificate* 行)，然後將它貼到 [Public X509 certificate] \(公用 X509 憑證\) 方塊中。
 
     d. 按一下 [儲存組態] 。
 
-5. 若要確定您已設定正確的 URL，請執行下列操作來更新 Azure AD 設定：
+7. 若要確定您已設定正確的 URL，請執行下列操作來更新 Azure AD 設定：
 
     ![設定單一登入](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
-    a. 在 SAML 視窗中，複製 [SP Identity ID] \(SP 身分識別識別碼\)，然後貼到 Azure 入口網站中 [Atlassian Cloud 網域及 URL] 底下的 [識別碼] 方塊中。
+    a. 在 SAML 視窗中，複製 [SP 身分識別識別碼]，然後在 Azure 入口網站中，將它貼到 Atlassian Cloud [基本 SAML 組態] 底下的 [識別碼] 方塊中。
 
-    b. 在 SAML 視窗中，複製 [SP Assertion Consumer Service URL] \(SP 判斷提示取用者服務 URL\)，然後貼到 Azure 入口網站中 [Atlassian Cloud 網域及 URL] 底下的 [回覆 URL] 方塊中。 登入 URL 是您 Atlassian Cloud 的租用戶 URL。
+    b. 在 SAML 視窗中，複製 [SP 判斷提示取用者服務 URL]，然後在 Azure 入口網站中，將它貼到 Atlassian Cloud [基本 SAML 組態] 底下的 [回覆 URL] 方塊中。 登入 URL 是您 Atlassian Cloud 的租用戶 URL。
 
     > [!NOTE]
     > 如果您是現有的客戶，在更新 Azure 入口網站中的 [SP Identity ID] \(SP 身分識別識別碼\) 和 [SP Assertion Consumer Service URL] \(SP 判斷提示取用者服務 URL\) 值之後，請選取 [Yes, update configuration] \(是，更新設定\)。 如果您是新客戶，則可以略過這個步驟。
@@ -253,7 +262,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Atlassian Cloud] 圖格時，應該會自動登入您已設定 SSO 的 Atlassian Cloud。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Atlassian Cloud] 圖格時，應該會自動登入您設定 SSO 的 Atlassian Cloud。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 96ee3f5e1b3cfe67cb75e50c6247e41f0d901393
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867909"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233725"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>將 SQL Server 內部部署移轉至 Azure SQL Database 受控執行個體使用 Azure PowerShell
 在本文中，您將移轉**Adventureworks2016**資料庫還原到內部部署 SQL Server 2005 執行個體，或上述到 Azure SQL Database 受控執行個體使用 Microsoft Azure PowerShell。 您可以從內部部署 SQL Server 執行個體移轉資料庫，Azure SQL Database 受控執行個體，使用`Az.DataMigration`中 Microsoft Azure PowerShell 模組。
@@ -25,7 +25,7 @@ ms.locfileid: "64867909"
 > [!div class="checklist"]
 >
 > * 建立資源群組。
-> * 建立 Azure 資料庫移轉服務執行的個體。
+> * 建立 Azure 資料庫移轉服務的執行個體。
 > * 建立移轉專案中的 Azure 資料庫移轉服務執行個體。
 > * 執行移轉。
 
@@ -69,7 +69,7 @@ Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>建立 Azure 資料庫移轉服務執行的個體
+## <a name="create-an-instance-of-azure-database-migration-service"></a>建立 Azure 資料庫移轉服務的執行個體
 
 您可以使用 `New-AzDataMigrationService` Cmdlet，來建立新的 Azure 資料庫移轉服務執行個體。
 此 Cmdlet 預期有下列必要參數：
@@ -86,7 +86,7 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 > 下列程式碼片段是離線移轉，不需要的進階 SKU 為基礎的 Azure 資料庫移轉服務執行個體。 如需線上移轉，-Sku 參數的值必須包含進階 SKU。
 
 ```powershell
- $vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+$vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 

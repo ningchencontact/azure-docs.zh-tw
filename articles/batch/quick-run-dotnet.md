@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6c332861bcaf228e4c1e0a619cf4f84e3be0ba15
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679914"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204172"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>快速入門：使用 .NET API 執行您的第一個 Azure Batch 作業
 
@@ -113,7 +113,7 @@ stderr:
 
 ### <a name="preliminaries"></a>準備工作
 
-為了與儲存體帳戶進行互動，應用程式會使用適用於 .NET 的 Azure 儲存體用戶端程式庫。 其使用 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 建立帳戶的參考，並從中建立 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient)。
+為了與儲存體帳戶進行互動，應用程式會使用適用於 .NET 的 Azure 儲存體用戶端程式庫。 其使用 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 建立帳戶的參考，並從中建立 [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient)。
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

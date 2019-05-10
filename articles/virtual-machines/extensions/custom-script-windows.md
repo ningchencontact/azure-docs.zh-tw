@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/15/2019
+ms.date: 05/02/2019
 ms.author: gwallace
-ms.openlocfilehash: e2b36633996f961d100f0a98abb09135fd4393e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b71ba69bcf4965ea607e097c392573e77aab6865
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869855"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408280"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows 的自訂指令碼延伸模組
 
@@ -106,9 +106,9 @@ ms.locfileid: "60869855"
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | string |
-| type | CustomScriptExtension | string |
+| 類型 | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
-| fileUris (例如) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| fileUris (例如) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | 陣列 |
 | timestamp (範例) | 123456789 | 32 位元整數 |
 | commandToExecute (例如) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (例如) | examplestorageacct | string |
@@ -207,6 +207,16 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 * 延伸模組**名稱**參數等同於先前的部署擴充功能。
 * 更新的設定，否則不會重新執行命令。 您可以將動態屬性加入命令，例如時間戳記。
 
+或者，您可以設定[ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag)屬性設 **，則為 true**。
+
+### <a name="using-invoke-webrequest"></a>使用 Invoke-webrequest
+
+如果您使用[Invoke-webrequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest)在您的指令碼中，您必須指定參數`-UseBasicParsing`或其他您會收到下列錯誤檢查的詳細的狀態時：
+
+```error
+The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
+```
+
 ## <a name="classic-vms"></a>傳統 VM
 
 若要部署在傳統 Vm 上的自訂指令碼擴充功能，您可以使用 Azure 入口網站或傳統的 Azure PowerShell cmdlet。
@@ -263,7 +273,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 執行 `commandToExecute` 命令時，擴充功能會將此目錄 (例如 `...\Downloads\2`) 設定為目前的工作目錄。 此程序可讓您使用相對路徑找出透過 `fileURIs` 屬性下載的檔案位置。 如需範例，請參閱下表。
 
-由於絕對下載路徑會隨時間而改變，最好盡可能在 `commandToExecute` 字串中選擇相對的指令碼/檔案路徑。 例如︰
+由於絕對下載路徑會隨時間而改變，最好盡可能在 `commandToExecute` 字串中選擇相對的指令碼/檔案路徑。 例如：
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

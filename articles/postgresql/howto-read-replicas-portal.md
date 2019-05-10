@@ -1,22 +1,24 @@
 ---
-title: 從 Azure 入口網站管理適用於 PostgreSQL 的 Azure 資料庫讀取複本
-description: 了解如何從 Azure 入口網站管理適用於 PostgreSQL 的 Azure 資料庫讀取複本。
-author: WenJason
-ms.author: v-jay
+title: 管理 Azure Database for PostgreSQL-從 Azure 入口網站的單一伺服器讀取的複本
+description: 了解如何管理讀取的複本 Azure Database for PostgreSQL-從 Azure 入口網站的單一伺服器。
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420666"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510364"
 ---
-# <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>從 Azure 入口網站建立及管理讀取複本
+# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>建立和管理適用於 PostgreSQL 的 Azure 入口網站的單一伺服器的 Azure 資料庫中讀取的複本
 
 在本文中，您將了解如何透過 Azure 入口網站，在「適用於 PostgreSQL 的 Azure 資料庫」中建立與管理讀取複本。 若要深入了解讀取複本，請參閱[概觀](concepts-read-replicas.md)。
+
+> [!IMPORTANT]
+> 在與您的主要伺服器相同的區域，或您選擇的任何其他 Azure 區域中，您可以建立一個讀取的複本。 跨區域複寫目前為公開預覽狀態。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -59,9 +61,15 @@ ms.locfileid: "60420666"
 
    ![新增複本](./media/howto-read-replicas-portal/add-replica.png)
 
-4. 輸入讀取複本的名稱。 選取 [確定] 來確認建立複本。
+4. 輸入讀取複本的名稱。 
 
-   ![複本的名稱](./media/howto-read-replicas-portal/name-replica.png) 
+    ![複本的名稱](./media/howto-read-replicas-portal/name-replica.png)
+
+5. 選取複本的位置。 您可以在任何 Azure 區域中建立複本。 預設位置是主要伺服器的相同。
+
+    ![選取位置](./media/howto-read-replicas-portal/location-replica.png)
+
+6. 選取 [確定] 來確認建立複本。
 
 系統會使用與主要伺服器相同的伺服器設定來建立複本。 建立複本之後，以下設定可以個別地從主要伺服器進行變更：計算世代、虛擬核心、儲存體及備份保留期間。 定價層也可以個別變更，但不能變更為基本層，或從基本層變更為別的層。
 

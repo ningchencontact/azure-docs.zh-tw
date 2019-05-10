@@ -1,21 +1,24 @@
 ---
-title: 適用於 PostgreSQL 的 Azure CLI 管理的 Azure 資料庫的讀取的複本
-description: 了解如何管理適用於 PostgreSQL 的 Azure CLI 從讀取複本的 Azure 資料庫。
+title: 管理 Azure Database for PostgreSQL-從 Azure CLI 的單一伺服器讀取的複本
+description: 了解如何管理適用於 PostgreSQL 的 Azure CLI 從單一伺服器的 Azure 資料庫中讀取的複本。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420235"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510242"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>建立和管理讀取的複本，從 Azure CLI
 
 在本文中，您會學習如何建立和管理適用於 PostgreSQL 的 Azure CLI 的 Azure 資料庫中讀取的複本。 若要深入了解讀取複本，請參閱[概觀](concepts-read-replicas.md)。
+
+> [!NOTE]
+> Azure CLI 不尚未支援從主要伺服器的不同區域中建立的複本。 若要建立跨區域複本，請使用[Azure 入口網站](howto-read-replicas-portal.md)。
 
 ## <a name="prerequisites"></a>必要條件
 - 使用[適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-up-azure-cli.md)作為主要伺服器。
@@ -46,7 +49,7 @@ ms.locfileid: "60420235"
 
 [Az postgres server 複本建立](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create)命令需要下列參數：
 
-| 設定 | 範例值 | 描述  |
+| 設定 | 範例值 | 說明  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  複本伺服器將會建立資源群組。  |
 | name | mydemoserver-replica | 所建立的新複本伺服器名稱。 |

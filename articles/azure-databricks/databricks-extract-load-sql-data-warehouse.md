@@ -7,14 +7,13 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 02/15/2019
-ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 05/07/2019
+ms.openlocfilehash: e2110378d16ff5826b8ded4620276b784ef1d68e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855685"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203359"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
@@ -48,13 +47,13 @@ ms.locfileid: "57855685"
 
 開始進行本教學課程前，請先完成下列工作：
 
-* 建立 Azure SQL 資料倉儲、建立伺服器層級的防火牆規則，並以伺服器管理員的身分連線至伺服器。請參閱[快速入門：建立 Azure SQL 資料倉儲](../sql-data-warehouse/create-data-warehouse-portal.md)。
+* 建立 Azure SQL 資料倉儲、建立伺服器層級的防火牆規則，並以伺服器管理員的身分連線至伺服器。請參閱[快速入門：如何在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲](../sql-data-warehouse/create-data-warehouse-portal.md)。
 
 * 建立 Azure SQL 資料倉儲的資料庫主要金鑰。 請參閱[建立資料庫主要金鑰](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)。
 
-* 建立 Azure Blob 儲存體帳戶和其中所含的容器。 此外，擷取用來存取儲存體帳戶的存取金鑰。 請參閱[快速入門：建立 Azure Blob 儲存體帳戶](../storage/blobs/storage-quickstart-blobs-portal.md)的指示操作。
+* 建立 Azure Blob 儲存體帳戶和其中所含的容器。 此外，擷取用來存取儲存體帳戶的存取金鑰。 請參閱[快速入門：使用 Azure 入口網站上傳、下載及列出 Blob](../storage/blobs/storage-quickstart-blobs-portal.md)。
 
-* 建立 Azure Data Lake Storage Gen2 儲存體帳戶。 請參閱[建立 Azure Data Lake Storage Gen2 帳戶](../storage/blobs/data-lake-storage-quickstart-create-account.md)。
+* 建立 Azure Data Lake Storage Gen2 儲存體帳戶。 請參閱[快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶](../storage/blobs/data-lake-storage-quickstart-create-account.md)。
 
 *  建立服務主體。 請參閱[如何：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
 
@@ -355,6 +354,11 @@ ms.locfileid: "57855685"
        .mode("overwrite")
        .save()
    ```
+
+   > [!NOTE]
+   > 此範例會使用 `forward_spark_azure_storage_credentials` 旗標，這會導致 SQL 資料倉儲使用存取金鑰來存取 Blob 儲存體中的資料。 這是唯一支援的驗證方法。
+   >
+   > 如果您的 Azure Blob 儲存體受限於選取虛擬網路，則 SQL 資料倉儲需要[受控服務識別，而不是存取金鑰](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)。 這會導致「此要求未經授權執行此作業」錯誤。
 
 6. 連線至 SQL 資料庫，並確認您看到名為 **SampleTable** 的資料庫。
 

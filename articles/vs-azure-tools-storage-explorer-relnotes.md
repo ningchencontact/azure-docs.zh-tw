@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 18c52a47c291181547a9005c273dc1a329b8c207
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154705"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510956"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
@@ -35,7 +35,7 @@ ms.locfileid: "65154705"
 - [Mac 的 azure 儲存體總管 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [適用於 Linux 的 azure 儲存體總管 1.8.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 
 * 整合式的 AzCopy 版本已更新為版本 10.1.0。
 * Ctrl / Cmd + R 現在可以用來重新整理目前取得焦點的編輯器。 [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
@@ -82,7 +82,7 @@ ms.locfileid: "65154705"
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* 在 Linux 上執行儲存體總管需要先安裝特定相依性。 檢查儲存體總管[疑難排解指南](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies)如需詳細資訊。
+* 在 Linux 上執行儲存體總管需要先安裝特定相依性。 檢查儲存體總管[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies)如需詳細資訊。
 
 ## <a name="previous-releases"></a>舊版
 
@@ -130,7 +130,7 @@ ms.locfileid: "65154705"
 - [适用于 Mac 的 Azure 存储资源管理器 1.7.0](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [适用于 Linux 的 Azure 存储资源管理器 1.7.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 
 * 现在，在管理 ADLS Gen2 容器、文件或文件夹的访问权限时，可以更改所有者和拥有组。
 * 在 Windows 上，从产品内部更新存储资源管理器现在属于增量安装操作。 这样应该可以加快更新的速度。 如果你偏向于全新安装，可以自行下载[安装程序](https://azure.microsoft.com/features/storage-explorer/)并手动安装。 #1089
@@ -212,7 +212,7 @@ ms.locfileid: "65154705"
 * 嘗試從 ADLS Gen2 Blob 容器下載資料夾時，如果資料夾的名稱中包含空格，則 AzCopy 會失敗。 已修正此問題。 [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * CosmosDB 編輯器已無法在 1.6.0 中使用。 現在已修正。 [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 
 * 您現在可以使用儲存體總管，透過 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409) 存取您的 Blob 資料。 如果您已登入且儲存體總管無法擷取儲存體帳戶的金鑰，則 OAuth 權杖將在處理資料時用來驗證。
 * 儲存體總管現在支援 ADLS Gen2 Storage 帳戶。 當儲存體總管偵測到儲存體帳戶已啟用階層式命名空間時，您會在您儲存體帳戶的名稱旁邊看見「(ADLS Gen2 預覽)」。 儲存體總管能夠偵測當您登入時是否已啟用階層式命名空間，或您是否已連結具有名稱和金鑰的儲存體帳戶。 對於 ADLS Gen2 儲存體帳戶，您可以使用儲存體總管：
@@ -281,7 +281,7 @@ ms.locfileid: "65154705"
 * 嘗試從 ADLS Gen2 Blob 容器下載資料夾時，如果資料夾的名稱中包含空格，則 AzCopy 會失敗。 已修正此問題。 [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * CosmosDB 編輯器已無法在 1.6.0 中使用。 現在已修正。 [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 
 * 您現在可以使用儲存體總管，透過 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409) 存取您的 Blob 資料。 如果您已登入且儲存體總管無法擷取儲存體帳戶的金鑰，則 OAuth 權杖將在處理資料時用來驗證。
 * 儲存體總管現在支援 ADLS Gen2 Storage 帳戶。 當儲存體總管偵測到儲存體帳戶已啟用階層式命名空間時，您會在您儲存體帳戶的名稱旁邊看見「(ADLS Gen2 預覽)」。 儲存體總管能夠偵測當您登入時是否已啟用階層式命名空間，或您是否已連結具有名稱和金鑰的儲存體帳戶。 對於 ADLS Gen2 儲存體帳戶，您可以使用儲存體總管：
@@ -336,7 +336,7 @@ ms.locfileid: "65154705"
 ## <a name="version-160"></a>1.6.0 版
 12/5/2018
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 
 * 您現在可以使用儲存體總管，透過 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409) 存取您的 Blob 資料。 如果您已登入且儲存體總管無法擷取儲存體帳戶的金鑰，則 OAuth 權杖將在處理資料時用來驗證。
 * 儲存體總管現在支援 ADLS Gen2 Storage 帳戶。 當儲存體總管偵測到儲存體帳戶已啟用階層式命名空間時，您會在您儲存體帳戶的名稱旁邊看見「(ADLS Gen2 預覽)」。 儲存體總管能夠偵測當您登入時是否已啟用階層式命名空間，或您是否已連結具有名稱和金鑰的儲存體帳戶。 對於 ADLS Gen2 儲存體帳戶，您可以使用儲存體總管：
@@ -391,7 +391,7 @@ ms.locfileid: "65154705"
 ## <a name="version-150"></a>1.5.0 版
 2018 年 10 月 29 日
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 
 * 您現在可以使用 [AzCopy v10 (預覽)](https://github.com/Azure/azure-storage-azcopy) 來上傳和下載 Blob。 若要啟用此功能，請移至 [Experimental] \(實驗性\) 功能表，然後按一下 [Use AzCopy for Improved Blob Upload and Download] \(使用 AzCopy 來改善 Blob 上傳和下載\)。 啟用時，會在下列情況下使用 AzCopy：
    * 將資料夾和檔案上傳到 Blob 容器 (不論是透過工具列還是拖放)。
@@ -460,7 +460,7 @@ ms.locfileid: "65154705"
 * 已復原 Azure 資源管理 API 版本，以將 Azure US Government 使用者解除封鎖。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * 載入進度環現在使用 CSS 動畫來減少儲存體總管所使用的 GPU。 [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * 已針對 SAS 連線和模擬器等大幅改良外部資源附件。 現在您可以：
    * 針對要連結的資源自訂顯示名稱。 [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 使用不同連接埠連結至多個本機模擬器。 [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
@@ -516,7 +516,7 @@ ms.locfileid: "65154705"
 * 已復原 Azure 資源管理 API 版本，以將 Azure US Government 使用者解除封鎖。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * 載入進度環現在使用 CSS 動畫來減少儲存體總管所使用的 GPU。 [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * 已針對 SAS 連線和模擬器等大幅改良外部資源附件。 現在您可以：
    * 針對要連結的資源自訂顯示名稱。 [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 使用不同連接埠連結至多個本機模擬器。 [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
@@ -571,7 +571,7 @@ ms.locfileid: "65154705"
 ### <a name="hotfixes"></a>Hotfix
 * 將 Azure 資源管理 API 版本更新為 2018-07-01 以新增新 Azure 儲存體帳戶類型的支援。 [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * 已針對 SAS 連線和模擬器等大幅改良外部資源附件。 現在您可以：
    * 針對要連結的資源自訂顯示名稱。 [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 使用不同連接埠連結至多個本機模擬器。 [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
@@ -631,7 +631,7 @@ ms.locfileid: "65154705"
 * 在速度較慢的 Windows 機器上，啟動顯示畫面有時會需要很長的時間才會出現。 [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
 * 即使沒有連結的帳戶或服務，還是會出現 [連線] 對話方塊。 [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * 已針對 SAS 連線和模擬器等大幅改良外部資源附件。 現在您可以：
    * 針對要連結的資源自訂顯示名稱。 [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 使用不同連接埠連結至多個本機模擬器。 [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
@@ -683,7 +683,7 @@ ms.locfileid: "65154705"
 ## <a name="version-130"></a>版本 1.3.0
 07/09/2018
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * 現在支援存取靜態網站所使用的 $web 容器。 這可讓您輕鬆上傳及管理您的網站所使用的檔案和資料夾。 [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * macOS 上的應用程式列已重整。 變更包括 [檔案] 功能表、一些快速鍵變更，以及應用程式功能表底下的數個新命令。 [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
 * 用於登入 Azure US Government 的授權單位端點已變更為 https://login.microsoftonline.us/
@@ -740,7 +740,7 @@ ms.locfileid: "65154705"
 ## <a name="version-120"></a>版本 1.2.0
 2018 年 12 月 6 日
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * 如果 [儲存體總管] 只有在從一小部分租用戶載入訂用帳戶時發生失敗，系統將會顯示所有已成功載入的訂用帳戶，並特別針對失敗的租用戶顯示錯誤訊息。 [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
 * 在 Windows 上，當有更新可用時，您現在可以選擇 [關閉時更新]。 選取此選項時，該項更新的安裝程式將會在您關閉 [儲存體總管] 之後執行。 [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
 * 已將 [還原快照集] 新增至檢視檔案共用快照集時的檔案共用編輯器操作功能表。[#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
@@ -797,7 +797,7 @@ ms.locfileid: "65154705"
 ## <a name="version-110"></a>1.1.0 版
 05/09/2018
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * 儲存體總管現在支援使用 Azurite。 注意：Azurite 的連線是硬式編碼至預設開發端點。
 * 儲存體總管現在支援僅限 Blob 和 GPV2 儲存體帳戶的存取層。 在[此處](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)深入了解存取層。
 * 產生 SAS 時，不再需要開始時間。
@@ -852,7 +852,7 @@ ms.locfileid: "65154705"
 ## <a name="version-100"></a>1.0.0 版
 04/16/2018
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * 增強式驗證，可讓儲存體總管使用與 Visual Studio 2017 相同的帳戶存放區。 若要使用這項功能，您必須重新登入您的帳戶，並重新設定已篩選的訂用帳戶。
 * 對於 AAD 所支援的 Azure Stack 帳戶，如果已啟用 [目標 Azure Stack]，則儲存體總管現在會擷取 Azure Stack 訂用帳戶。 您不再需要建立自訂登入環境。
 * 已新增數個捷徑，以便進行更快速的導覽。 這些包括切換各種面板並在編輯器之間移動。 如需詳細資訊，請參閱 [檢視] 功能表。
@@ -953,7 +953,7 @@ ms.locfileid: "65154705"
 ## <a name="version-095"></a>0.9.5 版
 02/06/2018
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 
 * 檔案共用快照集的支援：
     * 建立和管理檔案共用的快照集。
@@ -1002,7 +1002,7 @@ ms.locfileid: "65154705"
 ## <a name="version-094-and-093"></a>0.9.4 和 0.9.3 版
 01/21/2018
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * 在下列情況下，將會重新使用您的現有儲存體總管視窗：
     * 開啟儲存體總管中所產生的直接連結。
     * 從入口網站開啟儲存體總管。
@@ -1056,7 +1056,7 @@ ms.locfileid: "65154705"
 * Azure 美國政府的端點網域不正確。 已修正此問題。
 * [管理帳戶] 面板的 [套用] 按鈕有時不容易按。 這應該不會再發生。
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * Azure Cosmos DB 預覽支援：
     * [線上文件](./cosmos-db/storage-explorer.md)
     * 建立資料庫和集合
@@ -1112,7 +1112,7 @@ ms.locfileid: "65154705"
 
 ## <a name="version-091-and-090"></a>0.9.1 和 0.9.0 版
 10/20/2017
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * Azure Cosmos DB 預覽支援：
     * [線上文件](./cosmos-db/storage-explorer.md)
     * 建立資料庫和集合
@@ -1169,7 +1169,7 @@ ms.locfileid: "65154705"
 ## <a name="version-0816"></a>0.8.16 版
 8/21/2017
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 * 您開啟 blob 時，如果偵測到變更，儲存體總管將提示您上傳已下載的檔案
 * 增強的 Azure Stack 登入體驗
 * 改善同時上傳/下載許多小檔案的效能
@@ -1209,7 +1209,7 @@ ms.locfileid: "65154705"
 ### <a name="version-0814"></a>版本 0.8.14
 06/22/2017
 
-### <a name="new"></a>新增
+### <a name="new"></a>換一個
 
 * 將 Electron 版本更新至 1.7.2 以利用數個重要安全性更新
 * 現已可從 [說明] 功能表快速存取線上疑難排解指南
@@ -1236,7 +1236,7 @@ ms.locfileid: "65154705"
 ### <a name="version-0813"></a>0.8.13 版
 05/12/2017
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * 儲存體總管疑難排解[指南][2]
 * 連線至 Azure Stack 訂用帳戶的[指示][3]
@@ -1271,7 +1271,7 @@ ms.locfileid: "65154705"
 ### <a name="version-0812-and-0811-and-0810"></a>0.8.12、0.8.11 和 0.8.10 版
 04/07/2017
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * 儲存體總管現在會在您從更新通知安裝更新之後自動關閉
 * 就地快速存取能針對您經常存取的資源提供加強的使用體驗
@@ -1319,7 +1319,7 @@ ms.locfileid: "65154705"
 >[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * 儲存體總管 0.8.9 將會自動下載最新版本的更新。
 * Hotfix：先前使用由入口網站所產生的 SAS URI 來附加儲存體帳戶將會導致錯誤。
@@ -1349,7 +1349,7 @@ ms.locfileid: "65154705"
 
 >[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * 在剛開始更新、下載或複製工作階段時，您可以在 [活動] 視窗中選擇如何解決衝突
 * 將游標暫留在索引標籤上可以看到儲存體資源的完整路徑
@@ -1376,7 +1376,7 @@ ms.locfileid: "65154705"
 11/18/2016
 ### <a name="version-086"></a>0.8.6 版
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * 現已可將常用的服務釘選到 Quick Access 以便瀏覽
 * 現已可在多個索引標籤開啟多個編輯器。 按一下以開啟暫時索引標籤；按兩下以開啟永久索引標籤。您也可以按一下暫時索引標籤來將它設為永久索引標籤
@@ -1414,7 +1414,7 @@ ms.locfileid: "65154705"
 10/03/2016
 ### <a name="version-085"></a>0.8.5 版
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * 現已能使用由入口網站所產生的 SAS 金鑰來附加儲存體帳戶和資源
 
@@ -1437,7 +1437,7 @@ ms.locfileid: "65154705"
 
 >[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * 產生針對儲存體帳戶、容器、佇列、資料表或檔案共用的直接連結，以便共用及輕鬆存取資源 - Windows 與 Mac 作業系統支援
 * 從搜尋方塊搜尋 Blob 容器、資料表、佇列、檔案共用或儲存體帳戶
@@ -1484,7 +1484,7 @@ ms.locfileid: "65154705"
 
 >[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * 儲存體帳戶是依訂用帳戶進行群組。透過金鑰或 SAS 附加的開發儲存體和資源會顯示在 (本機和附加的) 節點之下
 * 在 [Azure 帳戶設定] 面板中登出帳戶
@@ -1511,7 +1511,7 @@ ms.locfileid: "65154705"
 
 >[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * 檔案共用支援：檢視、上傳、下載、複製檔案和目錄、SAS URI (建立和連線)
 * 改善透過 SAS URI 或帳戶金鑰連線至儲存體的使用者體驗
@@ -1534,7 +1534,7 @@ ms.locfileid: "65154705"
 05/17/2016
 ### <a name="version-07201605090"></a>0.7.20160509.0 版
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * 改善應用程式當機的錯誤處理
 
@@ -1554,7 +1554,7 @@ ms.locfileid: "65154705"
 
 >[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * 資料表支援：針對實體的檢視、查詢、匯出、匯入及 CRUD 作業
 * 佇列支援：針對訊息進行檢視、新增、清除佇列
@@ -1586,7 +1586,7 @@ ms.locfileid: "65154705"
 
 ### <a name="version-07201601050"></a>0.7.20160105.0 版
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * Linux 支援 (和 OSX 相同的功能)
 * 新增具有共用存取簽章 (SAS) 金鑰的 Blob 容器
@@ -1616,7 +1616,7 @@ ms.locfileid: "65154705"
 11/18/2015
 ### <a name="version-07201511160"></a>0.7.20151116.0 版
 
-#### <a name="new"></a>新增
+#### <a name="new"></a>換一個
 
 * macOS 及 Windows 版本
 * 使用您的「組織帳戶」、「Microsoft 帳戶」、2FA 等來登入以檢視「儲存體帳戶」。

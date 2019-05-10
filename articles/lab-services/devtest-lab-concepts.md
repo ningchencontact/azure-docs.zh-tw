@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 1e35513d5a5a799b1f5e45cf9a5aa97c083e2087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201812"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508391"
 ---
 # <a name="devtest-labs-concepts"></a>研發/測試實驗室概念
 ## <a name="overview"></a>概觀
@@ -29,7 +29,7 @@ ms.locfileid: "60201812"
 實驗室是包含一組資源 (例如虛擬機器 (VM)) 的基礎結構，可讓您藉由指定限制和配額更好地管理這些資源。
 
 ## <a name="virtual-machine"></a>虛擬機器
-Azure VM 是由 Azure 所提供的[隨選且可調整的數種運算資源](https://docs.microsoft.com/azure/app-service/overview-compare)類型之一。 Azure VM 提供您虛擬化的彈性，而無需購買並維護執行它的實體硬體，不過您仍然需要藉由執行特定工作，例如設定、修補和安裝在其中執行的軟體來維護 VM。
+Azure VM 是由 Azure 所提供的[隨選且可調整的數種運算資源](/azure/architecture/guide/technology-choices/compute-decision-tree)類型之一。 Azure VM 提供您虛擬化的彈性，而無需購買並維護執行它的實體硬體，不過您仍然需要藉由執行特定工作，例如設定、修補和安裝在其中執行的軟體來維護 VM。
 
 [Azure 中的 Windows 虛擬機器概觀](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview)提供您在建立 VM 之前應該考慮的事項、建立方式及管理方式的相關資訊。
 
@@ -44,7 +44,7 @@ Azure 可宣告 VM 是可供任何具有權限的實驗室使用者使用的虛�
 ## <a name="base-images"></a>基礎映像
 基礎映像是 VM 映像，包含預先安裝並加以設定的所有工具與設定，可用來快速建立 VM。 您可以挑選現有的基本映像並加入構件來安裝測試代理程式，藉以佈建 VM。 您接著可以儲存佈建的 VM 做為基本映像，如此一來，不必針對 VM 的每個佈建重新安裝測試代理程式，就能使用該基本映像。
 
-## <a name="artifacts"></a>構件
+## <a name="artifacts"></a>成品
 構件是在佈建 VM 之後用來部署和設定您的應用程式。 構件可以是：
 
 * 您想要在 VM 上安裝的工具 - 例如，代理程式、Fiddler 及 Visual Studio。

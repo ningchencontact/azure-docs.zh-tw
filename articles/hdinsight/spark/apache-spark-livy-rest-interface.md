@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c1497589153f1dc5a79cc1d3414966deaf11f21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570492"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228113"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 將遠端作業提交至 HDInsight Spark 叢集
 
@@ -153,13 +153,7 @@ Livy 可為在叢集上執行的 Spark 作業提供高可用性。 以下是一�
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>從 HDInsight 3.5 版開始對 Livy 設定的更新
 
-根據預設，HDInsight 3.5 叢集與更新版本會停用以本機檔案路徑存取範例資料檔案或 jar。 建議您使用 `wasb://` 路徑，而不是從叢集存取 jar 或範本資料檔案。 如果您確定要使用本機路徑，您就必須同時更新 Ambari 組態。 若要這樣做：
-
-1. 移至叢集的 Ambari 入口網站。 Ambari Web UI 位在您的 HDInsight 叢集的 https://**CLUSTERNAME**.azurehdidnsight.net，其中 CLUSTERNAME 是您的叢集的名稱。
-
-2. 在左側導覽中，按一下 [Livy]，然後按一下 [設定]。
-
-3. 在 [livy-default] 底下新增屬性名稱 `livy.file.local-dir-whitelist`，如果您想要允許存取整個檔案系統，可將其值設為 **"/"**。 如果您只想要允許存取特定目錄，請將值設為該目錄的路徑。
+根據預設，HDInsight 3.5 叢集與更新版本會停用以本機檔案路徑存取範例資料檔案或 jar。 建議您使用 `wasb://` 路徑，而不是從叢集存取 jar 或範本資料檔案。 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>在 Azure 虛擬網路內提交叢集的 Livy 作業
 

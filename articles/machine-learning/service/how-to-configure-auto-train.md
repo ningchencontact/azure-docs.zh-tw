@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72e43ac295fcb007dd58b2b7792a16c639ee9c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 64ba7096f181371a378708e024f46bce17449e98
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023720"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510578"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化的 ML 實驗
 
-在本指南中，了解如何定義您的自動化機器學習服務實驗使用的各種組態設定[Azure 機器學習服務 SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py)。 自動化機器學習服務會為您挑選演算法和超參數，並產生馬上可進行部署的模型。 有數個選項可用來設定自動化機器學習實驗。
+在本指南中，了解如何定義您的自動化機器學習服務實驗使用的各種組態設定[Azure 機器學習服務 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。 自動化機器學習服務會為您挑選演算法和超參數，並產生馬上可進行部署的模型。 有數個選項可用來設定自動化機器學習實驗。
 
 若要檢視自動化機器學習實驗的範例，請參閱[教學課程：使用自動化機器學習訓練分類模型](tutorial-auto-train-models.md)或[使用雲端中的自動化機器學習來訓練模型](how-to-auto-train-remote.md)。
 
@@ -115,7 +115,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 `get_data` 指令碼可傳回：
 
-Key | 類型 | 互斥項目    | 描述
+Key | Type | 互斥項目    | 說明
 ---|---|---|---
 X | Pandas 資料框架或 Numpy 陣列 | data_train、標籤、資料行 |  所有要用於訓練的特徵
 y | Pandas 資料框架或 Numpy 陣列 |   標籤   | 要用於訓練的標籤資料。 就分類而言，應為整數的陣列。
@@ -137,7 +137,7 @@ cv_splits_indices   | 一連串整數 ||  _選擇性_ 用來分割交叉驗證�
 >* 加入使用運算式的資料行
 >* 插補遺漏值
 >* 依範例衍生資料行
->* Filtering
+>* 正在篩選
 >* 自訂 Python 轉換
 
 若要深入了解 data prep sdk，請參閱[如何準備資料以進行模型化文件](how-to-load-data.md)。
@@ -299,7 +299,7 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="classification-metrics"></a>分類計量
 在每次反覆運算分類工作時會儲存下列計量。
 
-|計量|描述|計算|額外的參數
+|計量|說明|計算|額外的參數
 --|--|--|--|
 AUC_Macro| AUC 是「接收者作業特性曲線」下方的面積。 Macro 是每個類別 AUC 的算術平均值。  | [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC 是「接收者作業特性曲線」下方的面積。 Micro 是透過將每個類別的真肯定和誤判結合在一起全域計算而得| [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -325,7 +325,7 @@ weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例�
 ### <a name="regression-and-time-series-forecasting-metrics"></a>迴歸 」 和 「 時間序列預測的計量
 下列計量儲存在迴歸或預測工作的每個反覆項目中。
 
-|計量|描述|計算|額外的參數
+|計量|說明|計算|額外的參數
 --|--|--|--|
 explained_variance|Explained variance 是所給予資料集其變化的數學模型帳戶的比例。 它是原始資料其變異數中減少至錯誤變異數的百分比。 當錯誤的平均值為 0 時，它會等於 Explained variance。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|None|
 r2_score|R2 是與輸出平均值的基線模型相比的確定係數，或平方誤差減少的百分比。 當錯誤的平均值為 0 時，它會等於 Explained variance。|[計算](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|None|

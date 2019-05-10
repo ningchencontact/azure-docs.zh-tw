@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: f81ca34931e2ee4bce35fa06195fb64c47ef9a7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682040"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464634"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>將資料匯出至 Azure Blob 儲存體
 
@@ -57,14 +57,14 @@ ms.locfileid: "64682040"
     > [!Note]
     > 如果在左側功能表中沒有看到 [連續資料匯出]，即表示您不是應用程式的系統管理員。 請連絡系統管理員來設定資料匯出。
 
-    ![建立新的 cde 事件中樞](media/howto-export-data/export_menu.PNG)
+    ![建立新的 cde 事件中樞](media/howto-export-data/export_menu1.png)
 
 3. 選取  **+ 新增**右上角的按鈕。 選擇**Azure Blob 儲存體**做為您的匯出目的地。 
 
     > [!NOTE] 
     > 每一應用程式的匯出數目上限是 5。 
 
-    ![建立新的連續資料匯出](media/howto-export-data/export_new.PNG)
+    ![建立新的連續資料匯出](media/howto-export-data/export_new1.png)
 
 4. 在下拉式清單方塊中，選取您**儲存體帳戶的命名空間**。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]。 
 
@@ -87,7 +87,7 @@ ms.locfileid: "64682040"
 
 6. 若要開啟連續資料匯出，請務必將 [資料匯出] 設定為 [開啟]。 選取 [ **儲存**]。
 
-  ![設定連續資料匯出](media/howto-export-data/export-list-blob.png)
+   ![設定連續資料匯出](media/howto-export-data/export-list-blob.png)
 
 7. 幾分鐘後，您的資料就會出現在所選擇的目的地中。
 
@@ -99,7 +99,7 @@ ms.locfileid: "64682040"
 - 裝置：{container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 - 裝置範本：{container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
-### <a name="measurements"></a>量測
+### <a name="measurements"></a>度量
 
 匯出的度量資料包含 IoT Central 在該時間期間從所有裝置收到的所有新訊息。 匯出之檔案所使用的格式與 [IoT 中樞訊息路由](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)匯出至 Blob 儲存體的訊息檔案格式相同。
 

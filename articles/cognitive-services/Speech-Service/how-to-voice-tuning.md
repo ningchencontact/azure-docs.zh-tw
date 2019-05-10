@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147998"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508396"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>微調文字轉換語音輸出
 
@@ -28,9 +28,9 @@ Azure 的語音服務可讓您調整速度、 發音、 磁碟區、 音調、 �
 您可以開始微調語音微調工具的文字轉換語音輸出之前，您必須完成下列步驟：
 
 1. 建立[免費的 Microsoft 帳戶](https://account.microsoft.com/account)如果您還沒有其中一個。
-2. 建立[免費的 Azure 帳戶](https://azure.microsoft.com/en-us/free/)如果您還沒有其中一個。 按一下 **免費開始**，並建立新的 Azure 帳戶，使用您的 Microsoft 帳戶。
+2. 建立[免費的 Azure 帳戶](https://azure.microsoft.com/free/)如果您還沒有其中一個。 按一下 **免費開始**，並建立新的 Azure 帳戶，使用您的 Microsoft 帳戶。
 
-3. 在 Azure 入口網站中的語音服務的訂用帳戶。 逐步指示[如何建立語音資源](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)可用。
+3. 在 Azure 入口網站中的語音服務的訂用帳戶。 逐步指示[如何建立語音資源](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)可用。
    >[!NOTE]
    >當您在 Azure 入口網站中建立語音資源時，Azure 位置資訊必須符合與 TTS 語音區域。 類神經 TTS 語音支援的子集合的 Azure 位置。 如需支援的完整清單，請參閱 <<c0> [ 區域](regions.md#text-to-speech)。
 
@@ -70,6 +70,6 @@ Azure 的語音服務可讓您調整速度、 發音、 磁碟區、 音調、 �
 > 微調語音工具提供功能和調整的相關內容資訊。
 
 ## <a name="next-steps"></a>後續步驟
-* [在 Azure 中建立語音資源](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
+* [在 Azure 中建立語音資源](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
 * [開始微調語音](https://speech.microsoft.com/app.html#/VoiceTuning)
 * [語音合成標記語言 (SSML)](speech-synthesis-markup.md) \(英文\)

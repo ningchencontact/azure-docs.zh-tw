@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 15eded28e38279ea01bf019566d4fda5e7ac6c3e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4e8bdc63daa7450a88c2fcf4b7e878e18cea260d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57588103"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198873"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>建立 Azure SignalR 服務執行個體
 
@@ -39,6 +39,4 @@ ms.locfileid: "57588103"
 
 1. 選取 [建立] 以開始部署 SignalR 服務執行個體。
 
-1. 執行個體部署後，請在入口網站中加以開啟，並找出其 [設定] 頁面。 將 [服務模式] 設定變更為 [無伺服器]。
-
-    ![SignalR Service 模式](../media/signalr-concept-azure-functions/signalr-service-mode.png)
+1. 在部署執行個體之後，請在入口網站中開啟它，然後找出其 [設定] 頁面。 只有透過 Azure Functions 繫結或 REST API 使用 Azure SignalR 服務時，才要將 [服務模式] 設定變更為 [無伺服器]。 否則，將它保留為 [傳統] 或 [預設]。

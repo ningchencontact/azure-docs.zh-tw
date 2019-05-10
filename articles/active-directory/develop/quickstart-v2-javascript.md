@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f242afb717557a35b81515ab718971bdc398b5a
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992780"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190851"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>快速入門：登入使用者及從 JavaScript 單頁應用程式 (SPA) 取得存取權杖
 
@@ -37,7 +37,7 @@ ms.locfileid: "64992780"
 * 若要搭配 node.js 伺服器來執行專案，
     * 安裝 [Node.js](https://nodejs.org/en/download/)
     * 安裝 [Visual Studio Code](https://code.visualstudio.com/download) 來編輯專案檔
-* 若要執行作為 Visual Studio 解決方案的專案，請安裝 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)。
+* 若要執行作為 Visual Studio 解決方案的專案，請安裝 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)。
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>註冊並下載快速入門應用程式
@@ -147,16 +147,16 @@ var msalConfig = {
 MSAL 是程式庫，用來登入使用者並要求權杖，該權杖是用來存取受 Microsoft 身分識別平台保護的 API。 快速入門的 index.html 包含程式庫的參考：
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.min.js"></script>
 ```
 > [!TIP]
 > 您可以使用 [MSAL.js 版本](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)下的最新發行版本取代上述版本。
 
 
-或者，如果您已安裝 Node，可以透過 npm 下載最新預覽版本：
+或者，如果您已安裝 Node，可以透過 npm 下載最新版本：
 
 ```batch
-npm install msal@preview
+npm install msal
 ```
 
 ### <a name="msal-initialization"></a>MSAL 初始化
@@ -192,11 +192,11 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 下列程式碼片段顯示如何登入使用者：
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.loginPopup(request).then(function (loginResponse) {
+myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
     //Login Success callback code here
 }).catch(function (error) {
     console.log(error);
@@ -219,11 +219,11 @@ MSAL 有三種取得權杖的方法，`acquireTokenRedirect`、`acquireTokenPopu
 `acquireTokenSilent` 方法會處理權杖取得和更新作業，不需要與使用者進行任何互動。 在第一次執行 `loginRedirect` 或 `loginPopup` 方法之後，`acquireTokenSilent` 就會成為用來取得權杖的常用方法，以在後續呼叫中使用那些權杖存取受保護的資源。 以無訊息方式進行要求或更新權杖的呼叫。
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
@@ -247,11 +247,11 @@ myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
 呼叫 `acquireTokenPopup` 會導致要登入的快顯視窗 (或者呼叫 `acquireTokenRedirect` 會導致將使用者重新導向至 Microsoft 身分識別平台端點)，使用者必須藉由確認其認證、同意必要的資源，或完成雙因素驗證來進行互動。
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {

@@ -15,16 +15,21 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd2e30f7ae96ff38b0ded11c158fcef636e3a26
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 147ee2450a6a67f8ca02149105533401d038a53a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448806"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191090"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>教學課程：使用 Windows VM 系統指派的受控識別，透過存取金鑰來存取 Azure 儲存體
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+
+
+> [!IMPORTANT] 
+> Azure 儲存體現在支援 Azure AD 驗證。 最佳做法是使用 [Azure AD 驗證](tutorial-vm-windows-access-storage.md)，而不是存取金鑰。 
+
 
 本教學課程說明如何將系統指派的受控識別用於 Windows 虛擬機器 (VM)，以擷取儲存體帳戶存取金鑰。 在執行儲存體作業時 (例如使用儲存體 SDK)，您可以如往常般使用儲存體存取金鑰。 在此教學課程中，我們將使用 Azure 儲存體 PowerShell 來上傳和下載 Blob。 您將了解如何：
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 175cc03dac21280a5e3ef3ec130cb94bc800f540
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 094c8d45f7f6099b169e25c89dbfc4a7d6522dfc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153910"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510946"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -158,7 +158,7 @@ SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Re
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Azure 儲存體資料移動 API 和程式庫參考
 * [儲存體匯入/匯出服務 REST API](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [適用於 .NET 的儲存體資料移動 用戶端程式庫](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
+* [適用於 .NET 的儲存體資料移動 用戶端程式庫](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>工具和公用程式
 * [儲存體的 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.storage)

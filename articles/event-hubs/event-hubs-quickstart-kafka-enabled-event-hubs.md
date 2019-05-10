@@ -1,5 +1,5 @@
 ---
-title: 串流處理至啟用 Kafka 的事件中樞 - Azure 事件中樞 | Microsoft Docs
+title: 透過使用 Kafka 通訊協定的 Azure 事件中樞串流資料 | Microsoft Docs
 description: 本文提供關於如何使用 Kafka 通訊協定和 API 串流至 Azure 事件中樞的資訊。
 services: event-hubs
 author: basilhariri
@@ -7,15 +7,15 @@ ms.author: bahariri
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.openlocfilehash: 4fec60cdf3fcf24378567ea97dd7922c805cde18
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 05/06/2019
+ms.openlocfilehash: a4e050fdef20cdc62ee92e6383c455ffcb9abc90
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542925"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203912"
 ---
-# <a name="stream-into-event-hubs-for-the-apache-kafka"></a>串流至適用於 Apache Kafka 的事件中樞
+# <a name="data-streaming-with-event-hubs-using-the-kafka-protocol"></a>透過使用 Kafka 通訊協定的事件中樞串流資料 | Microsoft Docs
 本快速入門說明如何串流至已啟用 Kafka 的事件中樞，而不需要變更通訊協定用戶端或執行您自己的叢集。 您將了解如何僅在應用程式中變更設定，就能讓產生者和取用者與已啟用 Kafka 的事件中樞交談。 Azure 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)。
 
 > [!NOTE]

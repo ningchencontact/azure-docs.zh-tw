@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2e82e033e56af10bd8e676570e9409941753eb38
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8e5131e0c44f6f46d47fc0bcdcfb8c0503500357
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020976"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65200745"
 ---
 # <a name="what-are-the-speech-services"></a>什麼是語音服務？
 
@@ -30,36 +30,40 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 |---------|---------|-------------|-----|------|
 | [語音轉文字](speech-to-text.md) | 語音轉文字 | 語音轉文字會即時地將音訊串流轉譯成文字，以便您的應用程式、工具或裝置使用或顯示。 若搭配 [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) 使用語音轉文字，即可從轉譯的語音衍生使用者意圖，以及根據語音命令執行動作。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [批次轉譯](batch-transcription.md) | 批次轉譯可讓您非同步地對大量資料進行語音轉文字的轉譯。 這是以 REST 為基礎的服務，其在自訂和模型管理上使用相同端點。 | 否 | [是](https://westus.cris.ai/swagger/ui/index) |
-| | [交談轉譯服務](conversation-transcription-service.md) | 啟用即時語音辨識、說話者識別和自動分段標記功能。 非常適合利用辨識說話者的能力來轉譯面對面會議。 | yes | 否 |
-| | [自訂](#customize-your-speech-experience) | 如果您在獨特的環境中使用語音轉文字進行辨識及轉譯，您可以建立並定型自訂原音、語言和發音模型，以處理環境噪音或業界專有詞彙。 | 否 | [是](https://westus.cris.ai/swagger/ui/index) |
+| | [對話轉譯](conversation-transcription-service.md) | 啟用即時語音辨識、說話者識別和自動分段標記功能。 非常適合利用辨識說話者的能力來轉譯面對面會議。 | yes | 否 |
+| | [建立自訂語音模型](#customize-your-speech-experience) | 如果您在獨特的環境中使用語音轉文字進行辨識及轉譯，您可以建立並定型自訂原音、語言和發音模型，以處理環境噪音或業界專有詞彙。 | 否 | [是](https://westus.cris.ai/swagger/ui/index) |
 | [文字轉換語音](text-to-speech.md) | 文字轉換語音 | 文字轉語音會將輸入文字轉換為仿真人的合成語音。 可選擇標準語音和類神經語音 (請參閱[語言支援](language-support.md))。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [自訂](#customize-your-speech-experience) | 建立您品牌或產品專有的自訂聲音音調。 | 否 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [建立自訂語音](#customize-your-speech-experience) | 建立您品牌或產品專有的自訂聲音音調。 | 否 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [語音翻譯](speech-translation.md) | 語音翻譯 | 語音翻譯可讓您在應用程式、工具和裝置上使用即時且多語言的語音翻譯。 此服務可用於語音轉語音及語音轉文字翻譯。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | 否 |
+| [語音優先虛擬助理](voice-first-virtual-assistants.md) | 語音優先虛擬助理 | 使用 Azure 語音服務自訂虛擬助理，賦予開發人員建立自然、擬人的對話介面，供應用程式和體驗之用。 Bot Framework 的 Direct Line Speech 頻道提供相容 Bot 有組織且協調的進入點，具備低延遲性和高可靠性的互動語音功能。 | [是](voice-first-virtual-assistants.md) | 否 |
 
 ## <a name="news-and-updates"></a>新功能和更新
 
 了解 Azure 語音服務的新功能。
 
+* 2019 年 5 月 - [對話轉譯](conversation-transcription-service.md), [話務中心轉譯](call-center-transcription.md)和[語音優先虛擬助理](voice-first-virtual-assistants.md)的文件目前可供使用。
 * 2019 年 5 月 - 發行的語音 SDK 1.5.0。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
 * 2019 年 4 月 - 已發行語音 SDK 1.4.0，在 Windows 和 Linux 上可支援適用於 C++、C# 和 Java 的文字轉語音搶鮮版 (Beta)。 此外，此 SDK 目前在 Linux 上已支援適用於 C++ 和 C# 的 MP3 和 Opus/Ogg 音訊格式。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
 * 2019 年 3 月 - 現已推出新的文字轉語音 (TTS) 端點，其可傳回特定區域中可用的完整語音清單。 此外，TTS 現在支援新的區域。 如需詳細資訊，請參閱[文字轉語音 API 參考 (REST)](rest-text-to-speech.md)。
-* 2019 年 2 月 - 發行支援 [Unity (Beta)](quickstart-csharp-unity.md) 的語音 SDK 1.3.0。 新增 `AudioInput` 類別的支援，可讓您選擇音訊的串流來源。 如需增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
-* 2018 年 12 月 - 發行支援 [Python](quickstart-python.md)、[Node.js](quickstart-js-node.md) 和 Ubuntu 18.04 LTS 的語音 SDK 1.2.0。 如需詳細資訊，請參閱[版本資訊](releasenotes.md)。
 
 ## <a name="try-speech-services"></a>試試語音服務
 
 我們以最受歡迎的程式設計語言提供快速入門，目的是讓您能在 10 分鐘內執行程式碼。 此資料表包含每項功能最受歡迎的快速入門。 您可以使用左側導覽列來瀏覽其他語言及平台。
 
-| 語音轉文字 (SDK) | 翻譯 (SDK) | 文字轉語音 (REST) | 文字轉語音 (SDK) |
-|-------------------|-------------------|-----------------------|-----------------------|
-| [C#、.NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows、Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows、Linux、macOS)](quickstart-python-text-to-speech.md) | [C#、.NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) |
-| [JavaScript (瀏覽器)](quickstart-js-browser.md) | [C#、.NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#、.NET Core (Windows、Linux、macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
-| [Python (Windows、Linux、macOS)](quickstart-python.md) | [C#、.NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows、Linux、macOS)](quickstart-nodejs-text-to-speech.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) |
-| [Java (Windows、Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
+| 語音轉文字 (SDK) | 文字轉語音 (SDK) | 翻譯 (SDK) |
+|----------------------|----------------------|-------------------|
+| [C#、.NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [C#、.NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) | [Java (Windows、Linux)](quickstart-translate-speech-java-jre.md) |
+| [JavaScript (瀏覽器)](quickstart-js-browser.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) | [C#、.NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) |
+| [Python (Windows、Linux、macOS)](quickstart-python.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) | [C#、.NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) |
+| [Java (Windows、Linux)](quickstart-java-jre.md) | | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) |
+
+> [!NOTE]
+> 語音轉換文字和文字轉換語音也都具備 REST 端點和相關聯的快速入門。
 
 當您有機會使用語音服務後，請嘗試使用我們的教學課程，其中會教導您如何使用語音 SDK 和 LUIS 從語音辨識意圖。
 
 * [教學課程：使用語音 SDK 和 LUIS 從語音辨識意圖 (C#)](how-to-recognize-intents-from-speech-csharp.md)
+* [教學課程：建置 Flask 應用程式以翻譯文字、分析情緒並將翻譯的文字合成語音，REST](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## <a name="get-sample-code"></a>取得範例程式碼
 

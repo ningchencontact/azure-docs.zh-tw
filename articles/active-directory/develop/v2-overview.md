@@ -1,6 +1,6 @@
 ---
-title: 關於 v2.0 | Azure
-description: 了解 v2.0 端點與平台。
+title: Microsoft 身分識別平台 (v2.0) 概觀 - Azure
+description: 了解 Microsoft 身分識別平台 (v2.0) 端點和平台。
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -12,55 +12,71 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb269df035bcc11583ebb7cff7d1ee2c3f6d8bca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 414200462d3575aa576b5ef2268a3ac0b01063ba
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208294"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190767"
 ---
-# <a name="about-v20"></a>關於 v2.0
+# <a name="microsoft-identity-platform-v20-overview"></a>Microsoft 身分識別平台 (v2.0) 概觀
 
-v2.0 端點與平台已在預覽中，並持續增強。 現在，JavaScript 單頁應用程式 (SPA) 案例已功能完整，我們邀請您使用 MSAL.js 建置瀏覽器型應用程式並向我們提供意見反應，以便我們可以將狀態從預覽更新為公開推出 (GA)。
+Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 身分識別服務與開發人員平台的演化。 它可讓開發人員建置應用程式以登入所有 Microsoft 身分識別，並取得權杖以呼叫 Microsoft Graph 等 Microsoft API，或開發人員所建置的 API。 Microsoft 身分識別平台包含：
 
-> [!NOTE]
-> MSAL Android、iOS 與 .NET 仍有開發中的功能。 您可以使用它們來建置應用程式，並向我們傳送意見反應。
+- **OAuth 2.0 和 OpenID Connect 符合標準的驗證服務**，可讓開發人員驗證任何 Microsoft 身分識別，包括：
+  - 工作或學校帳戶 (透過 Azure AD 佈建)
+  - 個人 Microsoft 帳戶 (例如 Skype、Xbox 及 Outlook.com)
+  - 社交或本機帳戶 (透過 Azure AD B2C)
+- **開放原始碼程式庫**：Microsoft 驗證程式庫 (MSAL) 和其他符合標準的程式庫支援
+- **應用程式管理入口網站**：Azure 入口網站內建的註冊和設定體驗，以及所有其他 Azure 管理功能。
+- **應用程式設定 API 和 PowerShell**：可讓應用程式透過 REST API (Microsoft Graph 和 Azure Active Directory Graph 1.6) 和 PowerShell 以程式設計方式進行設定，以便您將 DevOps 工作自動化。
+- **開發人員內容**：概念和參考文件、快速入門範例、程式碼範例、教學課程及操作指南。
 
-Azure 入口網站[應用程式註冊 (預覽)](quickstart-register-app.md) 體驗已經大幅更新，現在包含使用 ADAL 或 MSAL 建置的所有應用程式，並改善可用性。
+對於開發人員，Microsoft 身分識別平台會提供身分識別和安全性空間創新的無縫整合，例如無密碼驗證、設定驗證和條件式存取。  您不需要自行實作這類功能：與 Microsoft 身分識別平台整合的應用程式可以原生方式利用這類創新。
 
-在過去，應用程式開發人員需要同時支援個人 Microsoft 帳戶和 Azure Active Directory (Azure AD) 中的公司帳戶時，必須整合這兩個不同的系統。 v2.0 端點與平台提供了一個簡化此程序的驗證 API 版本。 它使用單一整合讓使用者可從兩種類型的帳戶登入。 使用 v2.0 端點的應用程式也可以利用這其中一種帳戶，從 [Microsoft Graph API](https://developer.microsoft.com/graph) 取用 REST API。
+透過 Microsoft 身分識別平台，您可以撰寫程式碼一次並觸及任何使用者。 您可以建置應用程式一次並讓它在許多平台上運作，或建置可當作用戶端以及資源應用程式 (API) 的應用程式。
 
 ## <a name="getting-started"></a>開始使用
 
-從下列清單選擇您最愛的平台，使用 Microsoft 開放原始碼程式庫與架構來建置應用程式：
+使用身分識別一點都不難。 選擇您適用的案例 — 每個案例路徑都有快速入門和概觀頁面，可讓您在短短幾分鐘內啟動並執行：
 
-[!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
+- [建置單一頁面應用程式](scenario-spa-overview.md)
+- [建置可登入使用者的 Web 應用程式](scenario-web-app-sign-user-overview.md)
+- [建置可呼叫 Web API 的 Web 應用程式](scenario-web-app-call-api-overview.md)
+- [建置受保護的 Web API](scenario-protected-web-api-overview.md)
+- [建置可呼叫 Web API 的 Web API](scenario-web-api-call-api-overview.md)
+- [建置傳統型應用程式](scenario-desktop-overview.md)
+- [建置精靈應用程式](scenario-daemon-overview.md)
+- [建置行動應用程式](scenario-mobile-overview.md)
 
-## <a name="learn-more-about-the-v20-endpoint-and-platform"></a>深入了解 v2.0 端點與平台
+下圖概述常見的驗證應用程式案例 – 整合 Microsoft 身分識別平台與您的應用程式時，使用此圖作為參考。
 
-深入了解您可以使用 Azure AD v2.0 端點執行的內容：
+[![Microsoft 身分識別平台中的應用程式案例](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.png#lightbox)
 
-* 探索[您可以使用 Azure AD v2.0 端點來建置的應用程式類型](v2-app-types.md)。
-* 了解使用 Azure AD v2.0 端點的[限制和條件約束](active-directory-v2-limitations.md)。
+## <a name="next-steps"></a>後續步驟
 
-## <a name="additional-resources"></a>其他資源
+如果您想要深入了解核心驗證概念，建議您從下列主題著手：
 
-探索有關 v2.0 的深入資訊：
+- [驗證基本概念](authentication-scenarios.md)
+- [應用程式與服務主體](app-objects-and-service-principals.md)
+- [對象](v2-supported-account-types.md)
+- [權限和同意](v2-permissions-and-consent.md)
+- [識別碼權杖](id-tokens.md)和[存取權杖](access-tokens.md)
 
-* [關於 Microsoft 身分識別平台](about-microsoft-identity-platform.md)
-* [v2.0 通訊協定參考](active-directory-v2-protocols.md)
-* [存取權杖參考](access-tokens.md)
-* [識別碼權杖參考](id-tokens.md)
-* [v2.0 驗證程式庫參考](reference-v2-libraries.md)
-* [v2.0 中的權限和同意](v2-permissions-and-consent.md)
-* [Microsoft Graph API](https://developer.microsoft.com/graph)
+建置資料豐富的應用程式以呼叫 [Microsoft Graph](https://docs.microsoft.com/graph/overview)。
 
-> [!NOTE]
-> 如果您只需要從 Azure Active directory 登入公司及學校帳戶，請先閱讀 [Azure AD 開發人員指南](v1-overview.md)。 v2.0 端點的適用對象是明確需要登入 Microsoft 個人帳戶的開發人員。
+當您準備好在**生產環境**中啟動應用程式時，請檢閱下列最佳做法：
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+- 在應用程式中[啟用記錄](msal-logging.md)功能。
+- 在應用程式中啟用遙測功能。
+- 啟用 [Proxy 和自訂 HTTP 用戶端](msal-net-provide-httpclient.md)。
+- 遵循 [Microsoft 身分識別平台整合檢查清單](identity-platform-integration-checklist.md)來測試您的整合。
+
+## <a name="learn-more"></a>深入了解
+
+如果您打算建置可登入社交和本機身分識別的客戶面向應用程式，請查看 [Azure AD B2C 概觀](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers)。

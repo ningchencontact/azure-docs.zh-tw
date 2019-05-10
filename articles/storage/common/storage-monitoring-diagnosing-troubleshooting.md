@@ -2,18 +2,19 @@
 title: 針對 Azure 儲存體進行監視、診斷及疑難排解 | Microsoft Docs
 description: 使用儲存體分析、用戶端記錄及其他協力廠商工具之類的功能，針對 Azure 儲存體的相關問題進行識別、診斷及疑難排解。
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103838"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192156"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>对 Microsoft Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -425,7 +426,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 **PercentThrottlingError** 的增加通常會伴隨著儲存體要求數量增加一起發生，或是當您第一次對應用程式進行負載測試時。 當儲存體作業出現「503 伺服器忙碌」或是「500 作業逾時」狀態訊息時，用戶端也會明顯出現這個情況。
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>PercentThrottlingError 的暫時性增加
-如果應用程式中與高活動期間同時發生的 **PercentThrottlingError** 值突然增加，則您會在用戶端中針對重試作業實作指數型 (而非線性) 輪詢策略。 輪詢重試會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。 如需有關如何使用「儲存體用戶端程式庫」實作重試原則的詳細資訊，請參閱 [Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx)。
+如果應用程式中與高活動期間同時發生的 **PercentThrottlingError** 值突然增加，則您會在用戶端中針對重試作業實作指數型 (而非線性) 輪詢策略。 輪詢重試會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。 如需有關如何使用「儲存體用戶端程式庫」實作重試原則的詳細資訊，請參閱 [Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy)。
 
 > [!NOTE]
 > **PercentThrottlingError** 值的突然增加也可能與應用程式的大量活動期間非同時發生：最可能的原因是儲存體服務移動資料分割以改善負載平衡。

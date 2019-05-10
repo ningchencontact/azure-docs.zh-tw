@@ -53,7 +53,7 @@ ms.locfileid: "64702510"
 | 屬性 | 描述 |
 |:--|:--|
 |Direction |連線的方向，值為 *inbound* 或 *outbound* |
-|機器 |電腦 FQDN |
+|Machine |電腦 FQDN |
 |Process |處理序或處理序群組的身分識別，會起始/接受連線 |
 |SourceIp |來源的 IP 位址 |
 |DestinationIp |目的地的 IP 位址 |
@@ -77,7 +77,7 @@ ms.locfileid: "64702510"
 |:--|:--|
 |BytesSent |已在報告時間範圍內傳送的位元組總數 |
 |BytesReceived |已在報告時間範圍內接收的位元組總數 |
-|回應 |已在報告時間範圍內觀測到的回應數目。 
+|Responses |已在報告時間範圍內觀測到的回應數目。 
 |ResponseTimeMax |已在報告時間範圍內觀測到的最大回應時間 (毫秒)。 如果沒有值，則此屬性為空白。|
 |ResponseTimeMin |已在報告時間範圍內觀測到的最小回應時間 (毫秒)。 如果沒有值，則此屬性為空白。|
 |ResponseTimeSum |已在報告時間範圍內觀測到的所有回應時間總和 (毫秒)。 如果沒有值，則此屬性為空白。|
@@ -114,8 +114,8 @@ ms.locfileid: "64702510"
 |IndicatorThreadType |偵測到的威脅指標是下列值之一：*殭屍網路*、*C2*、*CryptoMining*、*Darknet*、*DDos*、*MaliciousUrl*、*惡意程式碼*、*網路釣魚*、*Proxy*、*PUA*、*關注清單*。   |
 |描述 |觀察到的威脅的說明。 |
 |TLPLevel |號誌燈通訊協定 (TLP) 層級是已定義的值 (*白色*、*綠色*、*琥珀色*、*紅色*) 之一。 |
-|信賴度 |值為 *0 – 100*。 |
-|严重性 |值為 *0 – 5*，其中 *5* 為最嚴重，*0* 為根本不嚴重。 預設值為 *3*。  |
+|Confidence |值為 *0 – 100*。 |
+|Severity |值為 *0 – 5*，其中 *5* 為最嚴重，*0* 為根本不嚴重。 預設值為 *3*。  |
 |FirstReportedDateTime |提供者第一次回報指標。 |
 |LastReportedDateTime |Interflow 最後一次看到指標。 |
 |IsActive |使用 *True* 或 *False* 值表示指標停用。 |
@@ -137,7 +137,7 @@ VMBoundPort 中的每一筆記錄識別下列欄位：
 | 屬性 | 描述 |
 |:--|:--|
 |Process | 處理序 （或處理程序群組） 與連接埠是與相關聯的識別。|
-|IP | 連接埠 IP 位址 (可以是萬用字元 IP *0.0.0.0*) |
+|Ip | 連接埠 IP 位址 (可以是萬用字元 IP *0.0.0.0*) |
 |Port |連接埠號碼 |
 |Protocol | 通訊協定。  範例中， *tcp*或是*udp* (只有*tcp*目前支援)。|
  

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d80f58215b1a8f1b93db158cd2f47186ba6354a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5b87e452b0c79ae9cdc1d7f9f391a611dceda2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443332"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231510"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量
 
@@ -39,7 +39,7 @@ ms.locfileid: "60443332"
 
 ## <a name="tenant-location-and-application-proxy-service"></a>租用戶位置與應用程式 Proxy 服務
 
-當您註冊 Azure AD 租用戶時，您租用戶的區域取決於您所指定的國家/地區。 當您啟用應用程式 Proxy 時，租用戶的應用程式 Proxy 服務執行個體會選取或建立在與 Azure AD 租用戶位於相同區域或最近的區域。
+當您註冊 Azure AD 租用戶 」 時，會將您的租用戶的區域取決您指定的國家/地區。 當您啟用應用程式 Proxy 時，租用戶的應用程式 Proxy 服務執行個體會選取或建立在與 Azure AD 租用戶位於相同區域或最近的區域。
 
 比方說，如果您的 Azure AD 租用戶的國家或地區為英國，則所有您的應用程式 Proxy 連接器都會使用在歐洲資料中心的服務執行個體。 當使用者存取發佈的應用程式時，其流量會通過這個位置的應用程式 Proxy 服務執行個體。
 
@@ -78,7 +78,7 @@ ms.locfileid: "60443332"
 
 ## <a name="focus-your-optimization-strategy"></a>專注於最佳化策略
 
-您幾乎沒有辦法可以控制您的使用者與應用程式 Proxy 服務之間的連線。 使用者可以從家用網路、咖啡廳或不同的國家/地區存取您的應用程式。 反之，您可以將應用程式 Proxy 服務與應用程式的應用程式 Proxy 連接器之連線最佳化。 請考慮將下列模式整合在您的環境中。
+您幾乎沒有辦法可以控制您的使用者與應用程式 Proxy 服務之間的連線。 使用者可以從家用網路、 咖啡廳或不同的國家/地區存取您的應用程式。 反之，您可以將應用程式 Proxy 服務與應用程式的應用程式 Proxy 連接器之連線最佳化。 請考慮將下列模式整合在您的環境中。
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>模式 1︰將連接器放在應用程式附近
 

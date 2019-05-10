@@ -1,6 +1,6 @@
 ---
 title: 在索引編製管線中呼叫認知服務 API 的 C# 教學課程 - Azure 搜尋服務
-description: 在此教學課程中，將逐步說明資料擷取和轉換的 Azure 搜尋服務索引中，資料擷取、自然語言和影像 AI 處理的範例。
+description: 在本教學課程中，將逐步說明資料擷取和轉換的 Azure 搜尋服務索引中，資料擷取、自然語言和影像 AI 處理的範例。
 manager: eladz
 author: MarkHeff
 services: search
@@ -9,29 +9,29 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 4e6f0317df2f0f631d2c8d3f8e5cefba06e154fd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1b3353cae73bb5710dc9343f1d211266d15743a2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027534"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153198"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C# 教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API
 
-在此教學課程中，您將了解在 Azure 搜尋服務中使用*認知技能*進行資料擴充程式設計的機制。 技能會受到自然語言處理 (NLP) 與認知服務中的映像分析功能所支援。 透過技能組合和設定，您可以擷取文字，以及映像或所掃描文件檔案的文字表示法。 您也可以偵測語言、實體、關鍵片語等。 其最終結果是，AI 支援的索引管線會在 Azure 搜尋服務索引中建立豐富的額外內容。
+在本教學課程中，您將了解在 Azure 搜尋服務中使用*認知技能*進行資料擴充程式設計的機制。 技能會受到自然語言處理 (NLP) 與認知服務中的映像分析功能所支援。 透過技能組合和設定，您可以擷取文字，以及映像或所掃描文件檔案的文字表示法。 您也可以偵測語言、實體、關鍵片語等。 其最終結果是，AI 支援的索引管線會在 Azure 搜尋服務索引中建立豐富的額外內容。
 
 在此教學課程中，您將使用 .NET SDK 來執行下列工作：
 
 > [!div class="checklist"]
 > * 建立對索引路由中的範例資料進行擴充的索引管線
 > * 套用內建技能：光學字元辨識、文字合併、語言偵測、文字分割、實體辨識、關鍵片語擷取
-> * 了解如何藉由將技能集的輸入對應至輸出，將多個技術串聯在一起
+> * 了解如何藉由將技能集的輸入對應至輸出，將多項技術串聯在一起
 > * 執行要求並檢閱結果
 > * 重設索引和索引子以進行進一步開發
 
 Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用其他標準功能來強化索引，例如[同義字](search-synonyms.md)、[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)、[分析器](search-analyzers.md)和[篩選](search-filters.md)。
 
-此教學課程雖然在免費服務上執行，但可用的交易數目限制為每日 20 份文件。 如果您想要在同一天中多次執行此教學課程，請使用較小的檔案集，如此才能在限制內完成多次執行。
+本教學課程雖然在免費服務上執行，但可用的交易數目限制為每日 20 份文件。 如果您想要在同一天中多次執行本教學課程，請使用較小的檔案集，如此才能在限制內完成多次執行。
 
 > [!NOTE]
 > 當您藉由增加處理次數、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須連結可計費的認知服務資源。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
@@ -40,11 +40,11 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-此教學課程會使用下列服務、工具和資料。 
+本教學課程會使用下列服務、工具和資料。 
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此教學課程的免費服務。
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
 
 [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。
 
@@ -94,9 +94,9 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk) 包含數個用戶端程式庫，可讓您管理索引、資料來源、索引子及技能集，以及上傳和管理文件，還可以執行查詢，而且一律不需要處理 HTTP 和 JSON 的細節。 這些用戶端程式庫都以 NuGet 套件來散發。
 
-針對此專案，您必須安裝 `Microsoft.Azure.Search` NuGet 套件的版本 7.x.x-preview 與最新的 `Microsoft.Extensions.Configuration.Json` NuGet 套件。
+針對此專案，您必須安裝 `Microsoft.Azure.Search` NuGet 套件的版本 9 與最新的 `Microsoft.Extensions.Configuration.Json` NuGet 套件。
 
-在 Visual Studio 中，使用套件管理員主控台來安裝 `Microsoft.Azure.Search` NuGet 套件。 若要開啟套件管理員主控台，請選取 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 若要取得要執行的命令，請瀏覽至 [Microsoft.Azure.Search NuGet 套件頁面](https://www.nuget.org/packages/Microsoft.Azure.Search) \(英文\)、選取版本 7.x.x-preview，然後複製套件管理員命令。 在套件管理員主控台中，執行此命令。
+在 Visual Studio 中，使用套件管理員主控台來安裝 `Microsoft.Azure.Search` NuGet 套件。 若要開啟套件管理員主控台，請選取 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 若要取得要執行的命令，請瀏覽至 [Microsoft.Azure.Search NuGet 套件頁面](https://www.nuget.org/packages/Microsoft.Azure.Search) \(英文\)、選取版本 9，然後複製套件管理員命令。 在套件管理員主控台中，執行此命令。
 
 若要在 Visual Studio 中安裝 `Microsoft.Extensions.Configuration.Json` NuGet 套件，請選取 [工具] > [NuGet 套件管理員] > [管理解決方案的 NuGet 套件]。選取 [瀏覽]，然後搜尋 `Microsoft.Extensions.Configuration.Json` NuGet 套件。 一旦找到它之後，請選取該套件、選取您的專案、確認該版本為最新的穩定版本，然後選取 [安裝]。
 
@@ -137,13 +137,25 @@ using Microsoft.Extensions.Configuration;
 
 ## <a name="create-a-client"></a>建立用戶端
 
-使用您新增至 `appsettings.json` 的資訊來建立 `SearchServiceClient` 類別的執行個體。
+建立 `SearchServiceClient` 類別的執行個體。
 
 ```csharp
 IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
 IConfigurationRoot configuration = builder.Build();
-
 SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+```
+
+`CreateSearchServiceClient` 會使用儲存在應用程式組態檔 (appsettings.json) 中的值，來建立新的 `SearchServiceClient`。
+
+```csharp
+private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string adminApiKey = configuration["SearchServiceAdminApiKey"];
+
+   SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+   return serviceClient;
+}
 ```
 
 > [!NOTE]
@@ -189,7 +201,7 @@ catch (Exception e)
 
 ## <a name="create-a-skillset"></a>建立技能集
 
-在此節中，您會定義一組要套用至資料的擴充步驟。 每個擴充步驟均稱為一個「技能」，而一組擴充步驟會稱為一個「技能集」。 此教學課程會使用為技能集[預先定義的認知技能](cognitive-search-predefined-skills.md)：
+在此節中，您會定義一組要套用至資料的擴充步驟。 每個擴充步驟均稱為一個「技能」，而一組擴充步驟會稱為一個「技能集」。 本教學課程會使用為技能集[預先定義的認知技能](cognitive-search-predefined-skills.md)：
 
 + [光學字元辨識](cognitive-search-skill-ocr.md)可辨識影像檔案中的列印和手寫文字。
 
@@ -197,9 +209,9 @@ catch (Exception e)
 
 + [語言偵測](cognitive-search-skill-language-detection.md)，用以識別內容的語言。
 
-+ [文字分割](cognitive-search-skill-textsplit.md)，用以在呼叫關鍵片語擷取技能和具名實體辨識技能之前，將大型內容分成較小的區塊。 關鍵片語擷取和具名實體辨識接受 50,000 個字元 (含) 以下的輸入。 有些範例檔案需要進行分割，以符合這項限制。
++ [文字分割](cognitive-search-skill-textsplit.md)，用以在呼叫關鍵片語擷取技能和實體辨識技能之前，將大型內容分成較小的區塊。 關鍵片語擷取和實體辨識接受 50,000 個字元 (含) 以下的輸入。 有些範例檔案需要進行分割，以符合這項限制。
 
-+ [具名實體辨識](cognitive-search-skill-named-entity-recognition.md)，用以從 Blob 容器中的內容擷取組織名稱。
++ [實體辨識](cognitive-search-skill-entity-recognition.md)，用以從 Blob 容器中的內容擷取組織名稱。
 
 + [關鍵片語擷取](cognitive-search-skill-keyphrases.md)，用以提取最高排名的關鍵片語。
 
@@ -225,7 +237,7 @@ outputMappings.Add(new OutputFieldMappingEntry(
     targetName: "text"));
 
 OcrSkill ocrSkill = new OcrSkill(
-    description: "Extract text (plain and structured) from image).",
+    description: "Extract text (plain and structured) from image",
     context: "/document/normalized_images/*",
     inputs: inputMappings,
     outputs: outputMappings,
@@ -279,7 +291,7 @@ outputMappings.Add(new OutputFieldMappingEntry(
     targetName: "languageCode"));
 
 LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
-    description: "Language detection skill",
+    description: "Detect the language used in the document",
     context: "/document",
     inputs: inputMappings,
     outputs: outputMappings);
@@ -312,9 +324,9 @@ SplitSkill splitSkill = new SplitSkill(
     maximumPageLength: 4000);
 ```
 
-### <a name="named-entity-recognition-skill"></a>具名實體辨識技能
+### <a name="entity-recognition-skill"></a>實體辨識技能
 
-此 `NamedEntityRecognitionSkill` 執行個體會設定來辨識類別類型 `organization`。 **具名實體辨識**技能也可以辨識類別類型 `person` 和 `location`。
+此 `EntityRecognitionSkill` 執行個體會設定來辨識類別類型 `organization`。 **實體辨識**技能也可以辨識類別類型 `person` 和 `location`。
 
 請注意，[內容] 欄位會設定為附有星號的 ```"/document/pages/*"```，這表示會在 ```"/document/pages"``` 下方針對每個頁面呼叫擴充步驟。
 
@@ -329,21 +341,21 @@ outputMappings.Add(new OutputFieldMappingEntry(
     name: "organizations",
     targetName: "organizations"));
 
-List<NamedEntityCategory> namedEntityCategory = new List<NamedEntityCategory>();
-namedEntityCategory.Add(NamedEntityCategory.Organization);
+List<EntityCategory> entityCategory = new List<EntityCategory>();
+entityCategory.Add(EntityCategory.Organization);
     
-NamedEntityRecognitionSkill namedEntityRecognition = new NamedEntityRecognitionSkill(
+EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
     description: "Recognize organizations",
     context: "/document/pages/*",
     inputs: inputMappings,
     outputs: outputMappings,
-    categories: namedEntityCategory,
-    defaultLanguageCode: NamedEntityRecognitionSkillLanguage.En);
+    categories: entityCategory,
+    defaultLanguageCode: EntityRecognitionSkillLanguage.En);
 ```
 
 ### <a name="key-phrase-extraction-skill"></a>關鍵片語擷取技能
 
-如同剛建立的 `NamedEntityRecognitionSkill` 執行個體，會針對文件的每個頁面呼叫**關鍵片語擷取**技能。
+如同剛建立的 `EntityRecognitionSkill` 執行個體，會針對文件的每個頁面呼叫**關鍵片語擷取**技能。
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -368,7 +380,7 @@ KeyPhraseExtractionSkill keyPhraseExtractionSkill = new KeyPhraseExtractionSkill
 
 ### <a name="build-and-create-the-skillset"></a>建置和建立技能集
 
-使用您建立的技能來建置 `SkillSet`。
+使用您建立的技能來建置 `Skillset`。
 
 ```csharp
 List<Skill> skills = new List<Skill>();
@@ -376,12 +388,12 @@ skills.Add(ocrSkill);
 skills.Add(mergeSkill);
 skills.Add(languageDetectionSkill);
 skills.Add(splitSkill);
-skills.Add(namedEntityRecognition);
+skills.Add(entityRecognitionSkill);
 skills.Add(keyPhraseExtractionSkill);
 
-Skillset skillSet = new Skillset(
+Skillset skillset = new Skillset(
     name: "demoskillset",
-    description: "Demo Skillset",
+    description: "Demo skillset",
     skills: skills);
 ```
 
@@ -390,7 +402,7 @@ Skillset skillSet = new Skillset(
 ```csharp
 try
 {
-    serviceClient.Skillsets.CreateOrUpdate(skillSet);
+    serviceClient.Skillsets.CreateOrUpdate(skillset);
 }
 catch (Exception e)
 {
@@ -400,7 +412,7 @@ catch (Exception e)
 
 ## <a name="create-an-index"></a>建立索引
 
-在此節中，您會藉由指定要在可搜尋索引中包含哪些欄位以及每個欄位的搜尋屬性，來定義索引結構描述。 欄位具有類型，並且可取用決定如何使用欄位 (可搜尋、可排序等等) 的屬性。 索引中的欄位名稱不需要完全符合來源中的欄位名稱。 在後續步驟中，您可以在索引子中新增欄位對應以連接來源-目的地欄位。 針對此步驟，請使用與搜尋應用程式相關的欄位命名慣例來定義索引。
+在本節中，您會藉由指定要在可搜尋索引中包含哪些欄位以及每個欄位的搜尋屬性，來定義索引結構描述。 欄位具有類型，並且可取用決定如何使用欄位 (可搜尋、可排序等等) 的屬性。 索引中的欄位名稱不需要完全符合來源中的欄位名稱。 在後續步驟中，您可以在索引子中新增欄位對應以連接來源-目的地欄位。 針對此步驟，請使用與搜尋應用程式相關的欄位命名慣例來定義索引。
 
 此練習會使用下列欄位和欄位類型：
 
@@ -459,16 +471,24 @@ var index = new Index()
 };
 ```
 
-在測試期間，您可能發現您正嘗試多次建立索引。 基於此緣故，請檢查以查看您即將建立的索引是否已經存在，然後再嘗試建立它。 
+在測試期間，您可能發現您正嘗試多次建立索引。 基於此緣故，請檢查以查看您即將建立的索引是否已經存在，然後再嘗試建立它。
 
 ```csharp
-bool exists = serviceClient.Indexes.Exists(index.Name);
-if (exists)
+try
 {
-    serviceClient.Indexes.Delete(index.Name);
-}
+    bool exists = serviceClient.Indexes.Exists(index.Name);
 
-serviceClient.Indexes.Create(index);
+    if (exists)
+    {
+        serviceClient.Indexes.Delete(index.Name);
+    }
+
+    serviceClient.Indexes.Create(index);
+}
+catch (Exception e)
+{
+    // Handle exception
+}
 ```
 
 若要深入了解如何定義索引，請參閱[建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)。
@@ -526,14 +546,15 @@ Indexer indexer = new Indexer(
     fieldMappings: fieldMappings,
     outputFieldMappings: outputMappings);
 
-bool exists = serviceClient.Indexers.Exists(indexer.Name);
-if (exists)
-{
-    serviceClient.Indexers.Delete(indexer.Name);
-}
-
 try
 {
+    bool exists = serviceClient.Indexers.Exists(indexer.Name);
+
+    if (exists)
+    {
+        serviceClient.Indexers.Delete(indexer.Name);
+    }
+
     serviceClient.Indexers.Create(indexer);
 }
 catch (Exception e)
@@ -560,27 +581,35 @@ catch (Exception e)
 索引子經定義後，將會在您提交要求時自動執行。 根據您所定義的認知技能，索引編製所需的時間可能會超出您的預期。 若要了解索引子是否仍在執行，請使用 `GetStatus` 方法。
 
 ```csharp
-IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
-switch (demoIndexerExecutionInfo.Status)
+try
 {
-    case IndexerStatus.Error:
-        Console.WriteLine("Indexer has error status");
-        break;
-    case IndexerStatus.Running:
-        Console.WriteLine("Indexer is running");
-        break;
-    case IndexerStatus.Unknown:
-        Console.WriteLine("Indexer status is unknown");
-        break;
-    default:
-        Console.WriteLine("No indexer status information");
-        break;
+    IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
+
+    switch (demoIndexerExecutionInfo.Status)
+    {
+        case IndexerStatus.Error:
+            Console.WriteLine("Indexer has error status");
+            break;
+        case IndexerStatus.Running:
+            Console.WriteLine("Indexer is running");
+            break;
+        case IndexerStatus.Unknown:
+            Console.WriteLine("Indexer status is unknown");
+            break;
+        default:
+            Console.WriteLine("No indexer information");
+            break;
+    }
+}
+catch (Exception e)
+{
+    // Handle exception
 }
 ```
 
 `IndexerExecutionInfo` 表示索引子的目前狀態和執行記錄。
 
-某些來源檔案和技能的組合常會出現警告，這並不一定表示有問題。 在此教學課程中，警告是良性的 (例如，沒有來自 JPEG 檔案的文字輸入)。
+某些來源檔案和技能的組合常會出現警告，這並不一定表示有問題。 在本教學課程中，警告是良性的 (例如，沒有來自 JPEG 檔案的文字輸入)。
  
 ## <a name="verify-content"></a>驗證內容
 
@@ -600,6 +629,19 @@ try
 catch (Exception e)
 {
     // Handle exception
+}
+```
+
+`CreateSearchIndexClient` 會使用儲存在應用程式組態檔 (appsettings.json) 中的值，來建立新的 `SearchIndexClient`。 請注意，系統會使用搜尋服務查詢 API 金鑰，而非管理金鑰。
+
+```csharp
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string queryApiKey = configuration["SearchServiceQueryApiKey"];
+
+   SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "demoindex", new SearchCredentials(queryApiKey));
+   return indexClient;
 }
 ```
 
@@ -626,52 +668,11 @@ catch (Exception e)
 
 對其他欄位重複前述步驟：此練習中的內容、語言程式碼、關鍵片語和組織。 您可以透過使用逗號分隔清單的 `$select` 傳回多個欄位。
 
-<a name="access-enriched-document"></a>
-
-## <a name="accessing-the-enriched-document"></a>存取擴充的文件
-
-認知搜尋可讓您查看擴充文件的結構。 擴充的文件是在擴充期間建立的暫時性結構，在程序完成後即會刪除。
-
-若要擷取在索引編製期間建立之擴充文件的快照集，請將名為 ```enriched``` 的欄位新增至您的索引。 索引子會自動在該欄位中傾印該文件所有擴充項目的字串表示法。
-
-```enriched``` 欄位將會包含一個字串，作為記憶體內部的擴充文件在 JSON 中的邏輯表示法。  不過，該欄位的值是有效的 JSON 文件。 引號會逸出，因此您必須將 `\"` 取代為 `"`，才能以格式化 JSON 的形式檢視文件。  
-
-```enriched``` 欄位的用途是偵錯，只是為了幫助您了解以運算式進行評估之內容的邏輯圖形。 它可以作為了解和偵錯技能集的實用工具。
-
-重複前述練習 (包括 `enriched` 欄位)，以擷取擴充文件的內容：
-
-### <a name="request-body-syntax"></a>要求本文語法
-```csharp
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
-public class DemoIndex
-{
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsSearchable, IsSortable]
-    public string Id { get; set; }
-
-    [IsSearchable]
-    public string Content { get; set; }
-
-    [IsSearchable]
-    public string LanguageCode { get; set; }
-
-    [IsSearchable]
-    public string[] KeyPhrases { get; set; }
-
-    [IsSearchable]
-    public string[] Organizations { get; set; }
-
-    public string Enriched { get; set; }
-}
-```
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>重設並重新執行
 
-在開發的早期實驗階段中，設計反覆項目最實用的方法是從 Azure 搜尋服務中刪除物件，並讓您的程式碼重建它們。 資源名稱是唯一的。 刪除物件可讓您使用相同的名稱加以重新建立。 
+在開發的早期實驗階段中，設計反覆項目最實用的方法是從 Azure 搜尋服務中刪除物件，並讓您的程式碼重建它們。 資源名稱是唯一的。 刪除物件可讓您使用相同的名稱加以重新建立。
 
 此教學課程會負責檢查現有的索引子和索引，如果它們已經存在，即會將它們刪除，讓您能夠重新執行您的程式碼。
 
@@ -681,15 +682,15 @@ public class DemoIndex
 
 ## <a name="takeaways"></a>重要心得
 
-此教學課程示範了藉由建立下列元件組件來建置擴充索引管線的基本步驟：資料來源、技能集、索引和索引子。
+本教學課程示範了藉由建立下列元件組件來建置擴充索引管線的基本步驟：資料來源、技能集、索引和索引子。
 
 [預先定義的技能](cognitive-search-predefined-skills.md)已透過輸入和輸出連同技能集定義和鏈結技能的機制一起導入。 您也已了解在將管線中的擴充值路由至 Azure 搜尋服務上的可搜尋索引時，索引子定義中必須要有 `outputFieldMappings`。
 
-最後，您了解到如何測試結果並重設系統，以進行進一步的反覆運算。 您已了解對索引發出查詢，會傳回由擴充的索引管線建立的輸出。 此版本提供了檢視內部建構 (由系統建立的擴充文件) 的機制。 您也已了解如何檢查索引子狀態，以及在重新執行管線之前應刪除哪些物件。
+最後，您了解到如何測試結果並重設系統，以進行進一步的反覆運算。 您已了解對索引發出查詢，會傳回由擴充的索引管線建立的輸出。 您也已了解如何檢查索引子狀態，以及在重新執行管線之前應刪除哪些物件。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在完成教學課程後，最快速的清除方式是刪除包含 Azure 搜尋服務和 Azure Blob 服務的資源群組。 如果您將這兩個服務放在相同群組中，此時刪除資源群組，將會永久刪除其中的所有內容，包括服務與您為此教學課程建立的任何已儲存內容。 在入口網站中，資源群組名稱位在每個服務的 [概觀] 頁面上。
+在完成教學課程後，最快速的清除方式是刪除包含 Azure 搜尋服務和 Azure Blob 服務的資源群組。 如果您將這兩項服務放在相同群組中，此時刪除資源群組，將會永久刪除其中的所有內容，包括服務與您為此教學課程建立的任何已儲存內容。 在入口網站中，資源群組名稱位在每個服務的 [概觀] 頁面上。
 
 ## <a name="next-steps"></a>後續步驟
 

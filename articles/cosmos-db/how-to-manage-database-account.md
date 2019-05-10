@@ -1,23 +1,23 @@
 ---
 title: 了解如何在 Azure Cosmos DB 中管理資料庫帳戶
 description: 了解如何在 Azure Cosmos DB 中管理資料庫帳戶
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: b2b5e58ca480aa3abaa0766319977b8d1160ebeb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/06/2019
+ms.author: mjbrown
+ms.openlocfilehash: 57116327168a76f971a22b61144850199cb0cbae
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282996"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068819"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帳戶
 
-本文說明如何管理 Azure Cosmos 帳戶。 您會了解如何設定內送流量備援容錯機制、新增或移除區域、設定多個寫入區域，以及設定容錯移轉優先順序。 
+本文說明如何使用 Azure 入口網站、Azure PowerShell、Azure CLI 和 Azure Resource Manager 範本管理 Azure Cosmos 帳戶的各項工作。
 
-## <a name="create-a-database-account"></a>建立資料庫帳戶
+## <a name="create-an-account"></a>建立帳戶
 
 ### <a id="create-database-account-via-portal"></a>Azure 入口網站
 
@@ -25,87 +25,67 @@ ms.locfileid: "59282996"
 
 ### <a id="create-database-account-via-cli"></a>Azure CLI
 
-```bash
+```azurecli-interactive
 # Create an account
-az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group Name>
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname' # must be lower case.
+
+az cosmosdb create \
+   --name $accountName \
+   --resource-group $resourceGroupName \
+   --kind GlobalDocumentDB \
+   --default-consistency-level Session \
+   --locations WestUS=0 EastUS=1 \
+   --enable-multiple-write-locations true
 ```
 
-## <a name="configure-clients-for-multi-homing"></a>設定內送流量備援容錯機制的用戶端
+### <a id="create-database-account-via-ps"></a>Azure PowerShell
+```azurepowershell-interactive
+# Create an Azure Cosmos Account for Core (SQL) API
+$resourceGroupName = "myResourceGroup"
+$location = "West US"
+$accountName = "mycosmosaccount" # must be lower case.
 
-### <a id="configure-clients-multi-homing-dotnet"></a>.NET SDK v2
+$locations = @(
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="East US"; "failoverPriority"=1 }
+)
 
-```csharp
-ConnectionPolicy policy = new ConnectionPolicy
-    {
-        ConnectionMode = ConnectionMode.Direct,
-        ConnectionProtocol = Protocol.Tcp,
-        UseMultipleWriteLocations = true
-    };
-policy.SetCurrentLocation("West US 2");
+$consistencyPolicy = @{
+    "defaultConsistencyLevel"="BoundedStaleness";
+    "maxIntervalInSeconds"=300;
+    "maxStalenessPrefix"=100000
+}
 
-// Pass the connection policy with the preferred locations on it to the client.
-DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.accountKey, policy);
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy;
+    "enableMultipleWriteLocations"="true"
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
+    -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-### <a id="configure-clients-multi-homing-dotnet-v3"></a>.NET SDK v3 (預覽)
+### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager 範本
 
-```csharp
-CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
-config.UseCurrentRegion("West US");
-CosmosClient client = new CosmosClient(config);
-```
-
-### <a id="configure-clients-multi-homing-java-async"></a>Java Async SDK
-
-```java
-ConnectionPolicy policy = new ConnectionPolicy();
-policy.setUsingMultipleWriteLocations(true);
-policy.setPreferredLocations(Collections.singletonList(region));
-
-AsyncDocumentClient client =
-    new AsyncDocumentClient.Builder()
-        .withMasterKeyOrResourceToken(this.accountKey)
-        .withServiceEndpoint(this.accountEndpoint)
-        .withConsistencyLevel(ConsistencyLevel.Eventual)
-        .withConnectionPolicy(policy).build();
-```
-
-### <a id="configure-clients-multi-homing-javascript"></a>Node.js/JavaScript/TypeScript SDK
-
-```javascript
-const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
-connectionPolicy.UseMultipleWriteLocations = true;
-connectionPolicy.PreferredLocations = [region];
-
-const client = new CosmosClient({
-  endpoint: config.endpoint,
-  auth: { masterKey: config.key },
-  connectionPolicy,
-  consistencyLevel: ConsistencyLevel.Eventual
-});
-```
-
-### <a id="configure-clients-multi-homing-python"></a>Python SDK
-
-```python
-connection_policy = documents.ConnectionPolicy()
-connection_policy.UseMultipleWriteLocations = True
-connection_policy.PreferredLocations = [region]
-
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
-```
+此 Azure Resource Manager 範本會以兩個區域和用來選取一致性層級、自動容錯移轉和多重主機的選項，為任何支援的 API 建立 Azure Cosmos DB 帳戶。 若要部署此範本，請在讀我檔案頁面的[建立 Azure Cosmos DB 帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)中，按一下 [部署至 Azure]
 
 ## <a name="addremove-regions-from-your-database-account"></a>在資料庫帳戶中新增/移除區域
 
 ### <a id="add-remove-regions-via-portal"></a>Azure 入口網站
 
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 
+
 1. 移至 Azure Cosmos 帳戶，然後開啟 [全域複寫資料] 功能表。
 
-2. 若要新增區域，請選取地圖上具有 **+** 標籤的六邊形，其對應至您所需的區域。 或者，若要新增區域，請選取 [+ 新增區域] 選項，然後從下拉式功能表中選擇區域，藉以新增區域。
+1. 若要新增區域，請選取地圖上具有 **+** 標籤、且與您所需的區域相對應的六邊形。 或者，若要新增區域，請選取 [+ 新增區域] 選項，然後從下拉式功能表中選擇區域，藉以新增區域。
 
-3. 若要移除區域，請選取具有核取記號的藍色六邊形，以清除地圖中的一或多個區域。 或者，選取右側區域旁邊的「垃圾桶」(🗑) 圖示。
+1. 若要移除區域，請選取具有核取記號的藍色六邊形，以清除地圖中的一或多個區域。 或者，選取右側區域旁邊的「垃圾桶」(🗑) 圖示。
 
-4. 若要儲存變更，請選取 [確定]。
+1. 若要儲存變更，請選取 [確定]。
 
    ![新增或移除區域功能表](./media/how-to-manage-database-account/add-region.png)
 
@@ -115,34 +95,112 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ### <a id="add-remove-regions-via-cli"></a>Azure CLI
 
-```bash
+```azurecli-interactive
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname'
+
 # Create an account with 1 region
-az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0
+az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations westus=0
 
 # Add a region
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0 westus=1
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0 eastus=1
 
 # Remove a region
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0
 ```
 
-## <a name="configure-multiple-write-regions"></a>設定多重寫入區域
+### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
+
+```azurepowershell-interactive
+# Create an account with 1 region
+$resourceGroupName = "myResourceGroup"
+$location = "West US"
+$accountName = "mycosmosaccount" # must be lower case.
+
+$locations = @( @{ "locationName"="West US"; "failoverPriority"=0 } )
+$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy
+}
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+
+# Add a region
+$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
+
+$locations = @( 
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="East Us"; "failoverPriority"=1 } 
+)
+
+$account.Properties.locations = $locations
+$CosmosDBProperties = $account.Properties
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+
+# Azure Resource Manager does not wait on the resource update
+Write-Host "Confirm region added before continuing..."
+
+# Remove a region
+$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
+
+$locations = @( @{ "locationName"="West US"; "failoverPriority"=0 } )
+
+$account.Properties.locations = $locations
+$CosmosDBProperties = $account.Properties
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
+## <a id="configure-multiple-write-regions"></a>設定多重寫入區域
 
 ### <a id="configure-multiple-write-regions-portal"></a>Azure 入口網站
 
-當您建立資料庫帳戶時，請確定已啟用 [多重區域寫入] 設定。
+開啟 [全域複寫資料] 索引標籤，並選取 [啟用] 以啟用多重區域寫入。 啟用多重區域寫入後，您目前在帳戶上擁有的所有讀取區域都將成為讀取和寫入區域。 
 
-![Azure Cosmos 帳戶建立螢幕擷取畫面](./media/how-to-manage-database-account/account-create.png)
+> [!NOTE]
+> 在您啟用多重區域寫入後，就無法將其停用。 
+
+![Azure Cosmos 帳戶設定多重主機的螢幕擷取畫面](./media/how-to-manage-database-account/single-to-multi-master.png)
+
+若有這項功能的其他相關問題，請連絡 askcosmosdb@microsoft.com 別名。 
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
-```bash
-az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
+```azurecli-interactive
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname'
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --enable-multiple-write-locations true
+```
+
+### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
+
+```azurepowershell-interactive
+# Update an Azure Cosmos Account from single to multi-master
+
+$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
+
+$account.Properties.enableMultipleWriteLocations = "true"
+$CosmosDBProperties = $account.Properties
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager 範本
 
-下列 JSON 程式碼是 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 範本的範例。 此程式碼可供您部署具有[限定過期一致性層級](consistency-levels.md)的 Azure Cosmos 帳戶。 過期間隔上限會設定為 5 秒。 容許的過期要求數目上限會設定為 100。 若要了解 Resource Manager 範本格式和語法，請參閱 [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)。
+帳戶可以從單一主機移轉至多重主機，只要部署用來建立帳戶的 Resource Manager 範本並設定 `enableMultipleWriteLocations: true` 即可。 下列 Azure Resource Manager 範本是一個最低限度範本，將會為已啟用單一區域和多重主機的 SQL API 部署 Azure Cosmos DB 帳戶。
 
 ```json
 {
@@ -153,13 +211,8 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
             "type": "String"
         },
         "location": {
-            "type": "String"
-        },
-        "locationName": {
-            "type": "String"
-        },
-        "defaultExperience": {
-            "type": "String"
+            "type": "String",
+            "defaultValue": "[resourceGroup().location]"
         }
     },
     "resources": [
@@ -169,35 +222,129 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
             "name": "[parameters('name')]",
             "apiVersion": "2015-04-08",
             "location": "[parameters('location')]",
-            "tags": {
-                "defaultExperience": "[parameters('defaultExperience')]"
-            },
+            "tags": {},
             "properties": {
                 "databaseAccountOfferType": "Standard",
-                "consistencyPolicy": {
-                    "defaultConsistencyLevel": "BoundedStaleness",
-                    "maxIntervalInSeconds": 5,
-                    "maxStalenessPrefix": 100
-                },
+                "consistencyPolicy": { "defaultConsistencyLevel": "Session" },
                 "locations": [
                     {
-                        "id": "[concat(parameters('name'), '-', parameters('location'))]",
-                        "failoverPriority": 0,
-                        "locationName": "[parameters('locationName')]"
+                        "locationName": "[parameters('location')]",
+                        "failoverPriority": 0
                     }
                 ],
-                "isVirtualNetworkFilterEnabled": false,
-                "enableMultipleWriteLocations": true,
-                "virtualNetworkRules": [],
-                "dependsOn": []
+                "enableMultipleWriteLocations": true
             }
         }
     ]
 }
 ```
 
+## <a id="automatic-failover"></a>啟用 Azure Cosmos DB 帳戶的自動容錯移轉
 
-## <a id="manual-failover"></a>啟用 Azure Cosmos 帳戶的手動容錯移轉
+[自動容錯移轉] 選項可讓 Azure Cosmos DB 在一個區域變得無法使用時，容錯移轉至具有最高容錯移轉優先順序的區域，而不需要使用者動作。 自動容錯移轉啟用時，可以修改區域的優先順序。 帳戶必須具有兩個或更多區域，才能啟用自動容錯移轉。
+
+### <a id="enable-automatic-failover-via-portal"></a>Azure 入口網站
+
+1. 從 Azure Cosmos DB 帳戶，開啟 [全域複寫資料] 窗格。
+
+2. 在窗格頂端，選取 [自動容錯移轉]。
+
+   ![全域複寫資料功能表](./media/how-to-manage-database-account/replicate-data-globally.png)
+
+3. 在 [自動容錯移轉] 窗格中，確定 [啟用自動容錯移轉] 設定為 [開啟]。 
+
+4. 選取 [ **儲存**]。
+
+   ![自動容錯移轉入口網站功能表](./media/how-to-manage-database-account/automatic-failover.png)
+
+### <a id="enable-automatic-failover-via-cli"></a>Azure CLI
+
+```azurecli-interactive
+# Enable automatic failover on an existing account
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname'
+
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --enable-automatic-failover true
+```
+
+### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+
+$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName
+
+$account.Properties.enableAutomaticFailover="true";
+$CosmosDBProperties = $account.Properties;
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
+## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>設定 Azure Cosmos 帳戶的容錯移轉屬性
+
+Cosmos 帳戶設定自動容錯移轉後，可以變更區域的容錯移轉優先順序。
+
+> [!IMPORTANT]
+> 帳戶設定了自動容錯移轉時，您無法修改寫入區域 (容錯移轉優先順序為零)。 若要變更寫入區域，您必須停用自動容錯移轉，並執行手動容錯移轉。
+
+### <a id="set-failover-priorities-via-portal"></a>Azure 入口網站
+
+1. 從 Azure Cosmos 帳戶，開啟 [全域複寫資料] 窗格。
+
+2. 在窗格頂端，選取 [自動容錯移轉]。
+
+   ![全域複寫資料功能表](./media/how-to-manage-database-account/replicate-data-globally.png)
+
+3. 在 [自動容錯移轉] 窗格中，確定 [啟用自動容錯移轉] 設定為 [開啟]。
+
+4. 若要修改容錯移轉優先順序，請透過當您暫留其上時出現在資料列左側的三個點拖曳讀取區域。
+
+5. 選取 [ **儲存**]。
+
+   ![自動容錯移轉入口網站功能表](./media/how-to-manage-database-account/automatic-failover.png)
+
+### <a id="set-failover-priorities-via-cli"></a>Azure CLI
+
+```azurecli-interactive
+# Assume region order is initially eastus=0 westus=1 southeastasia=2 on account creation
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname'
+
+az cosmosdb failover-priority-change --name $accountName --resource-group $resourceGroupName --failover-policies eastus=0 southeastasia=1 westus=2
+```
+
+### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell
+
+```azurepowershell-interactive
+# Assume account currently has regions with priority: West US = 0, East US = 1, Southeast Asia = 2
+$resourceGroupName = "myResourceGroup"
+$accountName = "myaccountname"
+
+$failoverPolicies = @(
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="Southeast Asia"; "failoverPriority"=1 },
+    @{ "locationName"="East US"; "failoverPriority"=2 }
+)
+
+Invoke-AzResourceAction -Action failoverPriorityChange `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
+```
+
+## <a id="manual-failover"></a>在 Azure Cosmos 帳戶上執行手動容錯移轉
+
+> [!IMPORTANT]
+> Azure Cosmos 帳戶必須已設定手動容錯移轉，這項作業才會成功。
+
+執行手動容錯移轉的程序，包括將帳戶的寫入區域 (容錯移轉優先順序 = 0) 變更為帳戶設定的另一個區域。
+
+> [!NOTE]
+> 多重主機帳戶無法以手動方式容錯移轉。 如果應用程式使用 Azure Cosmos DB SDK，此 SDK 將會偵測變得無法使用的區域，然後自動重新導向至下一個最接近的區域 (如果 SDK 中使用多路連接 API)。
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure 入口網站
 
@@ -215,79 +362,43 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
-```bash
-# Given your account currently has regions with priority: eastus=0 westus=1
+```azurecli-interactive
+# Assume account currently has regions with priority: eastus=0 westus=1
 # Change the priority order to trigger a failover of the write region
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0 eastus=1
+$resourceGroupName = 'myResourceGroup'
+$accountName = 'myaccountname'
+
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0 eastus=1
 ```
 
-## <a id="automatic-failover"></a>啟用 Azure Cosmos DB 帳戶的自動容錯移轉
+### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
-### <a id="enable-automatic-failover-via-portal"></a>Azure 入口網站
+```azurepowershell-interactive
+# Assume account currently has regions with priority: West US = 0, East US = 1
+# Change the priority order to trigger a failover of the write region
+$resourceGroupName = "myResourceGroup"
+$accountName = "myaccountname"
 
-1. 從 Azure Cosmos DB 帳戶，開啟 [全域複寫資料] 窗格。 
+$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName
 
-2. 在窗格頂端，選取 [自動容錯移轉]。
+$locations = @(
+    @{ "locationName"="East US"; "failoverPriority"=0 },
+    @{ "locationName"="West US"; "failoverPriority"=1 }
+)
 
-   ![全域複寫資料功能表](./media/how-to-manage-database-account/replicate-data-globally.png)
+$account.Properties.locations=$locations;
+$CosmosDBProperties = $account.Properties;
 
-3. 在 [自動容錯移轉] 窗格中，確定 [啟用自動容錯移轉] 設定為 [開啟]。 
-
-4. 選取 [ **儲存**]。
-
-   ![自動容錯移轉入口網站功能表](./media/how-to-manage-database-account/automatic-failover.png)
-
-您也可以在此功能表上設定容錯移轉優先順序。
-
-### <a id="enable-automatic-failover-via-cli"></a>Azure CLI
-
-```bash
-# Enable automatic failover on account creation
-az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
-
-# Enable automatic failover on an existing account
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
-
-# Disable automatic failover on an existing account
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
-```
-
-## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>設定 Azure Cosmos 帳戶的容錯移轉屬性
-
-### <a id="set-failover-priorities-via-portal"></a>Azure 入口網站
-
-1. 從 Azure Cosmos 帳戶，開啟 [全域複寫資料] 窗格。 
-
-2. 在窗格頂端，選取 [自動容錯移轉]。
-
-   ![全域複寫資料功能表](./media/how-to-manage-database-account/replicate-data-globally.png)
-
-3. 在 [自動容錯移轉] 窗格中，確定 [啟用自動容錯移轉] 設定為 [開啟]。 
-
-4. 若要修改容錯移轉優先順序，請透過當您暫留其上時出現在資料列左側的三個點拖曳讀取區域。 
-
-5. 選取 [ **儲存**]。
-
-   ![自動容錯移轉入口網站功能表](./media/how-to-manage-database-account/automatic-failover.png)
-
-您無法在此功能表上修改寫入區域。 若要手動變更寫入區域，您必須執行手動容錯移轉。
-
-### <a id="set-failover-priorities-via-cli"></a>Azure CLI
-
-```bash
-# Assume region order is initially eastus=0 westus=1 automatic failover on account creation
-az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies westus=0 eastus=1
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-請閱讀下列文章：
+如需關於如何管理 Azure Cosmos 帳戶以及資料庫和容器的詳細資訊和範例，閱讀下列文章：
 
-* [管理一致性](how-to-manage-consistency.md)
-* [管理區域之間的衝突](how-to-manage-conflicts.md)
-* [全域散發 - 運作原理](global-dist-under-the-hood.md)
-* [如何在應用程式中設定多重主機](how-to-multi-master.md)
-* [設定多路連接的用戶端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [從您的 Azure Cosmos 帳戶新增或移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [建立自訂衝突解決原則](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
-
+* [使用 Azure PowerShell 管理 Azure Cosmos DB](manage-with-powershell.md)
+* [使用 Azure CLI 管理 Azure Cosmos DB](manage-with-cli.md)

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 04/23/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83b08c442a7f10d6b29122fe7959bedf8f3cff0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8413c75a683ff135b3442da6c6a94787ed0866ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441062"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441455"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>針對應用程式 Proxy 的 Kerberos 限制委派設定進行疑難排解
 
@@ -177,7 +177,7 @@ Azure AD 應用程式 Proxy 可以部署到許多類型的基礎結構或環境�
 
 ## <a name="other-scenarios"></a>其他案例
 
-- Azure 應用程式 Proxy 會在將要求傳送至應用程式之前要求 Kerberos 票證。 有些協力廠商應用程式 (例如 Tableau Server) 並不喜歡這種驗證方法。 這些應用程式預期發生的是更傳統的交涉。 第一個要求是匿名要求，這可讓應用程式透過 401 回應其支援的驗證類型。
+- Azure 應用程式 Proxy 會在將要求傳送至應用程式之前要求 Kerberos 票證。 某些協力廠商應用程式不喜歡此驗證方法。 這些應用程式預期發生的是更傳統的交涉。 第一個要求是匿名要求，這可讓應用程式透過 401 回應其支援的驗證類型。
 
 - 雙躍點驗證通常適用於具有後端與前端且兩者都需要驗證的分層應用程式，例如 SQL Reporting Services。 若要設定多躍點案例，請參閱[多躍點案例中的 Kerberos 限制委派可能需要轉換通訊協定](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul) \(機器翻譯\) 支援文章。
 

@@ -205,6 +205,8 @@
           href: restore-sql-database-azure-vm.md
         - name: 管理 SQL Server 資料庫備份
           href: manage-monitor-sql-database-backup.md
+    - name: 將 SAP HANA 資料庫備份到 Azure VM
+      href: backup-azure-sap-hana-database.md
     - name: Windows Server
       items:
         - name: 備份 Windows Server 檔案和資料夾

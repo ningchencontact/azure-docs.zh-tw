@@ -10,35 +10,40 @@ ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9d0743e30c4ae32c052a9f27c9fa22b1036aead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a8bd4e02b03a20e348feb2d6c9424f5eb6cf5f9e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681720"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510037"
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用 C# 來管理 Azure Time Series Insights 環境的參考資料
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用管理 Azure Time Series Insights 環境的 GA 參考資料C#
 
 本文說明您可以編譯的範例 C# 專案來管理 Azure 時間序列深入解析環境的參考資料。
 
 ## <a name="prerequisites"></a>必要條件
+
 編譯及執行範例程式碼之前，您必須先完成下列步驟：
+
 1. [建立參考資料集](time-series-insights-add-reference-data-set.md)。
 
-2. 設定應用程式的授權存取權杖。 請務必透過 Azure Active Directory API 取得該權杖。 您應該在每個查詢 API 要求的 `Authorization` 標頭中傳遞此權杖。 
- 
+1. 設定應用程式的授權存取權杖。 請務必透過 Azure Active Directory API 取得該權杖。 您應該在每個查詢 API 要求的 `Authorization` 標頭中傳遞此權杖。
+
    如需如何設定非互動式應用程式的相關資訊，請參閱[驗證與授權](time-series-insights-authentication-and-authorization.md)。
 
-3. 編輯範例程式碼以取代在接近程式碼開頭之 **#DUMMY#** 所指定的範例常數。 
+1. 編輯範例程式碼以取代在接近程式碼開頭之 **#DUMMY#** 所指定的範例常數。
 
-[https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights) 也提供這個程式碼範例
+> [!NOTE]
+> 檢視在 GA 範例程式碼[ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample)。
 
-## <a name="project-references"></a>專案參考
-為此範例新增 NuGet 封裝 `Microsoft.IdentityModel.Clients.ActiveDirectory` 和 `Newtonsoft.Json`。 
+## <a name="project-dependencies"></a>專案相依性
 
-## <a name="c-sample-code"></a>C# 範例程式碼 
+為此範例新增 NuGet 封裝 `Microsoft.IdentityModel.Clients.ActiveDirectory` 和 `Newtonsoft.Json`。
+
+## <a name="c-sample-code"></a>C# 範例程式碼
+
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -134,7 +139,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     ""deleteproperties"": [{
         ""key"": {
             ""DeviceId"": ""Fan1""
-        },
+    },
         ""properties"": [""BladeCount""]
     }]
 }";

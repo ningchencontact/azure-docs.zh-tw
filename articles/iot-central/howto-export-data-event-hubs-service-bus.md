@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: b0a34cd8eebdd816cb780b34de936a6cc56d0994
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730224"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463935"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>匯出 Azure IoT Central 中的資料
 
@@ -64,14 +64,14 @@ ms.locfileid: "64730224"
     > [!Note]
     > 如果在左側功能表中沒有看到 [連續資料匯出]，即表示您不是應用程式的系統管理員。 請連絡系統管理員來設定資料匯出。
 
-    ![建立新的 cde 事件中樞](media/howto-export-data/export_menu.PNG)
+    ![建立新的 cde 事件中樞](media/howto-export-data/export_menu1.png)
 
 3. 選取  **+ 新增**右上角的按鈕。 選擇其中一個**Azure 事件中樞**或是**Azure 服務匯流排**做為您的匯出目的地。 
 
     > [!NOTE] 
     > 每一應用程式的匯出數目上限是 5。 
 
-    ![建立新的連續資料匯出](media/howto-export-data/export_new.PNG)
+    ![建立新的連續資料匯出](media/howto-export-data/export_new1.png)
 
 4. 在下拉式清單方塊中，選取您**事件中樞命名空間/服務匯流排命名空間**。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]。 
 
@@ -81,7 +81,7 @@ ms.locfileid: "64730224"
     > [!NOTE] 
     > 如果是 7 天試用版應用程式，則設定連續資料匯出的唯一方式是透過連接字串。 這是因為 7 天試用版應用程式並沒有相關聯的 Azure 訂用帳戶。
 
-    ![建立新的 cde 事件中樞](media/howto-export-data/export_create.PNG)
+    ![建立新的 cde 事件中樞](media/howto-export-data/export_create1.png)
 
 5. (選擇性) 如果您選擇 [輸入連接字串]，就會顯示一個可供您貼上連接字串的新方塊。 取得下列項目的連接字串：
     - 事件中樞 」 或 「 服務匯流排，請移至 Azure 入口網站中的命名空間。
@@ -95,7 +95,7 @@ ms.locfileid: "64730224"
 
 6. 若要開啟連續資料匯出，請務必將 [資料匯出] 設定為 [開啟]。 選取 [ **儲存**]。
 
-  ![設定連續資料匯出](media/howto-export-data/export_list.PNG)
+    ![設定連續資料匯出](media/howto-export-data/export_list1.png)
 
 7. 幾分鐘後，您的資料就會出現在所選擇的目的地中。
 
@@ -107,7 +107,7 @@ ms.locfileid: "64730224"
 > [!NOTE]
 > 選擇「服務匯流排」作為匯出目的地時，佇列和主題**不得啟用 [工作階段] 或 [重複資料偵測]**。 如果啟用這其中一個選項，有些訊息就不會送達到您的佇列或主題中。
 
-### <a name="measurements"></a>量測
+### <a name="measurements"></a>度量
 
 在 IoT Central 收到來自裝置的訊息之後，就會快速匯出新訊息。 「事件中樞」和「服務匯流排」中的每個匯出訊息都包含裝置以 JSON 格式在 "body" 屬性中傳送的完整訊息。 
 

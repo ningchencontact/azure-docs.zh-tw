@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867710"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228123"
 ---
 # <a name="video-moderation-with-human-review"></a>使用人工審核進行影片仲裁
 
-使用 Content Moderator 的電腦輔助[影片審核](video-moderation-api.md)和[人力審查工具](Review-Tool-User-Guide/human-in-the-loop.md)來審核成人 (明確) 和不雅 (暗示性) 內容的影片和文字記錄，以取得適合您業務的最佳結果。
+使用 Content Moderator 的機器輔助[影片審核](video-moderation-api.md)並[人工審核工具](Review-Tool-User-Guide/human-in-the-loop.md)中等的影片和文字記錄，針對成人 （明確） 和猥褻 （建議） 的內容，以取得最佳結果您的業務。
 
 ## <a name="video-trained-classifier-preview"></a>經過影片訓練的分類器 (預覽)
 
@@ -28,52 +28,53 @@ ms.locfileid: "55867710"
 ## <a name="shot-detection"></a>分鏡偵測
 
 在輸出分類詳細資料時，其他影片智慧對分析影片的彈性有助幫助。 不只是輸出畫面，Microsoft 的影片審查服務還會提供分鏡層級的資訊。 您現在可以選擇在分鏡層級和畫面層級分析您的影片。
- 
+
 ## <a name="key-frame-detection"></a>主畫面偵測
 
 影片審查服務只會識別和輸出可能完整 (良好) 的畫面，而不會定期輸出畫面。 此功能能夠有效地產生畫面，以便進行畫面層級的成人和不雅分析。
 
 下列摘錄顯示部分的回應，其中包含潛在分鏡、主畫面及成人和不雅分數：
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>人力審核的視覺效果
 
@@ -101,10 +102,7 @@ ms.locfileid: "55867710"
 
 ## <a name="next-steps"></a>後續步驟
 
-開始使用[影片審查快速入門](video-moderation-api.md)。 
-
-了解如何從已審核的輸出為您的人力審查者產生[影片審查](video-reviews-quickstart-dotnet.md)。
-
-將[影片文字記錄審核](video-transcript-reviews-quickstart-dotnet.md)新增至您的影片審核。
-
-查看有關如何開發[完整影片審查解決方案](video-transcript-moderation-review-tutorial-dotnet.md)的詳細教學課程。 
+- 開始使用[影片審查快速入門](video-moderation-api.md)。
+- 了解如何從已審核的輸出為您的人力審查者產生[影片審查](video-reviews-quickstart-dotnet.md)。
+- 將[影片文字記錄審核](video-transcript-reviews-quickstart-dotnet.md)新增至您的影片審核。
+- 查看有關如何開發[完整影片審查解決方案](video-transcript-moderation-review-tutorial-dotnet.md)的詳細教學課程。

@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 614dabe842c7fe99da3ddb486c27003c79382ea1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147933"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231387"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>停用的資訊安全中心功能 (第 2019 年 7 月)
 
@@ -81,6 +81,7 @@ ms.locfileid: "65147933"
 ![身分識別頁面-儀表板][8]
 
 接下來的所有三個畫面上方將被淘汰。 您的資料會繼續保留在 log analytics 的安全性解決方案和將無法修改或移除。
+原始的 Log Analytics 查詢，用來填入身分識別和存取儀表板都是在資訊安全中心[GitHub 存放庫](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards)。
 
 ### <a name="classic-identity--access-preview---new-experience"></a>傳統身分識別與存取權 （預覽）-新的體驗
 原生的資訊安全中心功能雖然 Log analytics 儀表板上指定的工作區只提供深入解析，提供所有訂用帳戶和所有與其相關聯，在簡單的工作區的可視性-若要使用檢視，可讓您專注於功能的重要的是，根據您的身分識別和存取建議的安全分數。
@@ -103,6 +104,7 @@ ms.locfileid: "65147933"
 ![在 Log Analytics 中的安全性警示對應][12]
 
 您現有的資料會繼續保留在 log analytics 的安全性解決方案和將不會修改也不移除。
+原始的 Log Analytics 查詢，用來填入 威脅情報儀表板都是在資訊安全中心[GitHub 存放庫](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards)。
 
 ### <a name="security-events-map---new-experience"></a>安全性事件對應新的體驗
 我們鼓勵客戶使用資訊安全中心內建的警示對應功能-[安全性警示對應 （預覽）]。 這會提供最佳的體驗，並允許巨集的可跨所有訂用帳戶和相關聯的工作區，檢視您的環境，並著重於單一工作區。
@@ -165,6 +167,8 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 
 ### <a name="security--audit-dashboard---new-experience"></a>安全性和稽核儀表板-新的體驗
 建議客戶使用 Azure 資訊安全中心，可跨多個訂用帳戶和與其相關聯，以及更豐富的功能集的工作區提供相同的安全性概觀。
+
+原始的 Log Analytics 查詢，用來填入安全性和稽核儀表板都是在資訊安全中心[GitHub 存放庫](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards)。
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/)

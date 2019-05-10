@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: 5edeebd9698384785082e5a441c24e136ed22481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317051"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228406"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>搭配服務匯流排之 Azure 資源的受控識別 
 
@@ -29,7 +29,7 @@ ms.locfileid: "61317051"
 
 ## <a name="service-bus-roles-and-permissions"></a>服務匯流排角色和權限
 
-您只能將受控識別新增到服務匯流排命名空間的 "Owner" 或 "Contributor" 角色。 它會授與身分識別對命名空間中所有實體的完整控制權。 不過，變更命名空間拓撲的管理作業一開始只能透過 Azure Resource Manager 來支援。 透過原生服務匯流排 REST 管理介面不支援。 此支援也表示您無法在受控識別內使用 .NET Framework 用戶端 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 物件。
+您只能將受控識別新增到服務匯流排命名空間的 "Owner" 或 "Contributor" 角色。 它會授與身分識別對命名空間中所有實體的完整控制權。 不過，變更命名空間拓撲的管理作業一開始只能透過 Azure Resource Manager 來支援。 透過原生服務匯流排 REST 管理介面不支援。 這項支援也表示您無法使用.NET Framework 用戶端[NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager)或.NET Standard 用戶端[ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient)內受管理的身分識別的物件。
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>搭配使用服務匯流排和 Azure 資源的受控識別
 

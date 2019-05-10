@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 61d168a5f501923812db5945fa6df439ae7e70f9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 27adc0eeeabed2b1f2e86f301a60604a3d358b82
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145097"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464727"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知問題
 
@@ -57,6 +57,7 @@ Blob 儲存體 Api 會停用，以避免不小心的資料存取問題，因為 
 | **AzCopy** | 特定版本的支援 <br><br>使用最新版的 AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json))。 不支援例如 AzCopy v8.1，舊版的 AzCopy。|
 | **Azure Blob 儲存體生命週期管理原則** | 尚不支援 |
 | **Azure 內容傳遞網路 (CDN)** | 尚不支援|
+| **事件格線** | 尚不支援 |
 | **Azure 搜尋服務** |尚不支援|
 | **Azure 儲存體總管** | 特定版本的支援 <br><br>使用唯一版本`1.6.0`或更高版本。 <br>版本`1.6.0`可從[免費下載](https://azure.microsoft.com/features/storage-explorer/)。|
 | **Blob 容器的 Acl** |尚不支援|
@@ -65,7 +66,7 @@ Blob 儲存體 Api 會停用，以避免不小心的資料存取問題，因為 
 | **診斷記錄** |尚不支援|
 | **檔案系統總管** | 有限的支援 |
 | **不可變的儲存體** |尚不支援 <br><br>不可變的儲存體可讓資料儲存在[蠕蟲 （寫入一次，多次讀取）](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)狀態。|
-| **物件層級層** |尚不支援 <br><br>例如︰Premium、 經常性存取、 冷的、 和封存層。|
+| **物件層級層** |尚不支援 <br><br>例如：Premium、 經常性存取、 冷的、 和封存層。|
 | **Powershell 和 CLI 的支援** | 有限的功能 <br><br>您可以使用 Powershell 或 CLI 來建立帳戶。 您無法執行作業，或在檔案系統、 目錄和檔案上設定存取控制清單。|
 | **靜態網站** |尚不支援 <br><br>具體來說，能夠提供檔案[靜態網站](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)。|
 | **協力廠商應用程式** | 有限的支援 <br><br>使用 REST Api 來運作的協力廠商應用程式會繼續運作，如果您使用 Data Lake 儲存體 Gen2。 <br>如果您有使用 Blob Api 的應用程式時，該應用程式很可能會有問題如果您使用該應用程式與 Data Lake 儲存體 Gen2。 若要進一步了解，請參閱[Blob 儲存體的 Data Lake 儲存體 Gen2 儲存體帳戶已停用 Api](#blob-apis-disabled)一節。|

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992929"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508204"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 中繼資料服務：Windows VM 的已排定事件
 
@@ -45,7 +45,7 @@ ms.locfileid: "64992929"
 使用排程的事件，應用程式就可以探索維護所發生的時間，以及限制其影響的觸發工作。 啟用已排定事件可讓您的虛擬機器在執行維護活動之前有最短的時間。 如需詳細資料，請參閱下面的＜事件排程＞一節。
 
 排程的事件會提供下列使用案例中的事件：
-- [平台起始的維護](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates)（例如，VM 重新開機、 即時移轉或記憶體保留更新主機）
+- [平台起始的維護](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)（例如，VM 重新開機、 即時移轉或記憶體保留更新主機）
 - 降級的硬體
 - 使用者起始的維護 (例如，使用者重新啟動或重新部署 VM)
 - [低優先順序 VM 收回](https://azure.microsoft.com/blog/low-priority-scale-sets)在擴展集
@@ -64,7 +64,7 @@ ms.locfileid: "64992929"
 ### <a name="version-and-region-availability"></a>版本和區域可用性
 排程的事件服務已進行版本設定。 版本是必要項目，且目前版本為 `2017-11-01`。
 
-| Version | 版本類型 | 區域 | 版本資訊 | 
+| 版本 | 版本類型 | 區域 | 版本資訊 | 
 | - | - | - | - |
 | 2017-11-01 | 正式運作 | 全部 | <li> 已新增的支援低優先順序 VM 收回 EventType 'Preempt'<br> | 
 | 2017-08-01 | 正式運作 | 全部 | <li> 已從 IaaS VM 的資源名稱中移除預留底線<br><li>強制所有要求的中繼資料標頭需求 | 
@@ -85,7 +85,7 @@ ms.locfileid: "64992929"
 
 ## <a name="using-the-api"></a>使用 API
 
-### <a name="headers"></a>headers
+### <a name="headers"></a>標頭
 查詢中繼資料服務時，您必須提供 `Metadata:true` 標頭以免不小心重新導向要求。 所有排程的事件都需要 `Metadata:true` 標頭。 要求中未包含標頭會導致中繼資料服務不正確的要求回應。
 
 ### <a name="query-for-events"></a>查詢事件
@@ -116,13 +116,13 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @
 DocumentIncarnation 是 ETag，透過它很容易就能檢查自從上次查詢之後，事件裝載是否已變更。
 
 ### <a name="event-properties"></a>事件屬性
-|屬性  |  描述 |
+|屬性  |  說明 |
 | - | - |
 | EventId | 此事件的全域唯一識別碼。 <br><br> 範例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 此事件造成的影響。 <br><br> 值： <br><ul><li> `Freeze`:虛擬機器已排定會暫停幾秒鐘的時間。 CPU 和網路連線可能會暫止，但不會影響記憶體或開啟的檔案。 <li>`Reboot`:虛擬機器已排定要重新開機 (非持續性記憶體都會遺失)。 <li>`Redeploy`:虛擬機器已排定要移至另一個節點 (暫時磁碟都會遺失)。 <li>`Preempt`:正在刪除低優先順序虛擬機器 （暫時磁碟會遺失）。|
-| ResourceType | 受此事件影響的資源類型。 <br><br> 值： <ul><li>`VirtualMachine`|
+| EventType | 此事件造成的影響。 <br><br> 值: <br><ul><li> `Freeze`:虛擬機器已排定會暫停幾秒鐘的時間。 CPU 和網路連線可能會暫止，但不會影響記憶體或開啟的檔案。 <li>`Reboot`:虛擬機器已排定要重新開機 (非持續性記憶體都會遺失)。 <li>`Redeploy`:虛擬機器已排定要移至另一個節點 (暫時磁碟都會遺失)。 <li>`Preempt`:正在刪除低優先順序虛擬機器 （暫時磁碟會遺失）。|
+| ResourceType | 受此事件影響的資源類型。 <br><br> 值: <ul><li>`VirtualMachine`|
 | 資源| 受此事件影響的資源清單。 其中最多只能包含來自一個[更新網域](manage-availability.md)的機器，但不能包含更新網域中的所有機器。 <br><br> 範例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| 事件狀態 | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`:此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`:已啟動事件。</ul> 如果未提供任何 `Completed` 或類似的狀態，事件完成時，將不會再傳回事件。
+| 事件狀態 | 此事件的狀態。 <br><br> 值: <ul><li>`Scheduled`:此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`:已啟動事件。</ul> 如果未提供任何 `Completed` 或類似的狀態，事件完成時，將不會再傳回事件。
 | NotBefore| 自此之後可能會啟動此事件的時間。 <br><br> 範例： <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>事件排程
@@ -131,7 +131,7 @@ DocumentIncarnation 是 ETag，透過它很容易就能檢查自從上次查詢�
 |EventType  | 最短時間通知 |
 | - | - |
 | 凍結| 15 分鐘 |
-| 重新啟動 | 15 分鐘 |
+| 重新開機 | 15 分鐘 |
 | 重新部署 | 10 分鐘 |
 | 優先於 | 30 秒 |
 

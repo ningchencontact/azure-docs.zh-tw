@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ad891f99-179e-4487-834d-35f3bc01c1ec
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fffaa266a29a500f27759adb7526d1aa6d61ccd0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 211e11b5bfd6a8bb7b1d61fec120566d60b9c5c0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915232"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191201"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>教學課程：Azure Active Directory 與 Cherwell 整合
 
@@ -38,7 +39,7 @@ ms.locfileid: "58915232"
 
 若要設定 Azure AD 與 Cherwell 的整合，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
+* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以申請[免費帳戶](https://azure.microsoft.com/free/)
 * 已啟用 Cherwell 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
@@ -67,7 +68,7 @@ ms.locfileid: "58915232"
 
 4. 在搜尋方塊中，輸入 **Cherwell**，從結果面板中選取 [Cherwell]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 Cherwell](common/search-new-app.png)
+    ![結果清單中的 Cherwell](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -126,7 +127,7 @@ ms.locfileid: "58915232"
 
 ### <a name="configure-cherwell-single-sign-on"></a>設定 Cherwell 單一登入
 
-若要設定 **Cherwell** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Cherwell 支援小組](https://csm.cherwell.com/contact)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要設定 **Cherwell** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Cherwell 支援小組](https://cherwellsupport.com/CherwellPortal)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!NOTE]
 > Cherwell 支援小組必須執行實際的 SSO 組態。 當您的訂用帳戶啟用 SSO 之後，您會收到通知。
@@ -149,8 +150,7 @@ ms.locfileid: "58915232"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
-    例如， BrittaSimon@contoso.com
+    b. 在 [使用者名稱] 欄位中，輸入 `brittasimon\@yourcompanydomain.extension`。 例如： BrittaSimon@contoso.com。
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
@@ -184,7 +184,7 @@ ms.locfileid: "58915232"
 
 ### <a name="create-cherwell-test-user"></a>建立 Cherwell 測試使用者
 
-若要讓 Azure AD 使用者能夠登入 Cherwell，必須將他們佈建到 Cherwell。 就 Cherwell 而言，必須由您的 [Cherwell 支援小組](https://csm.cherwell.com/contact)建立使用者帳戶。
+若要讓 Azure AD 使用者能夠登入 Cherwell，必須將他們佈建到 Cherwell。 就 Cherwell 而言，必須由您的 [Cherwell 支援小組](https://cherwellsupport.com/CherwellPortal)建立使用者帳戶。
 
 > [!NOTE]
 > 您可以使用任何其他的 Cherwell 使用者帳戶建立工具或 Cherwell 提供的 API 來佈建 Azure Active Directory 使用者帳戶。
