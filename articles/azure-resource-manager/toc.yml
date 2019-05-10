@@ -124,6 +124,8 @@
         - name: 使用 Azure DevOps Services 持續整合
           href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
           maintainContext: true
+    - name: 匯出範本
+      href: export-template-portal.md
     - name: 管理
       items:
         - name: 管理資源群組

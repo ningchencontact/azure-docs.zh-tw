@@ -40,6 +40,16 @@
           href: time-series-insights-explorer.md
         - name: 了解資料保留
           href: time-series-insights-concepts-retention.md
+        - name: 開發
+          items:
+            - name: 驗證和授權
+              href: time-series-insights-authentication-and-authorization.md
+            - name: '使用 C# 查詢資料'
+              href: time-series-insights-query-data-csharp.md
+            - name: '使用 C# 管理參考資料'
+              href: time-series-insights-manage-reference-data-csharp.md
+            - name: 共用自訂檢視
+              href: time-series-insights-parameterized-urls.md
     - name: Azure 時間序列深入解析預覽
       items:
         - name: 規劃您的環境
@@ -54,16 +64,12 @@
           href: time-series-insights-update-tsq.md
         - name: 在總管中將資料視覺化 (預覽)
           href: time-series-insights-update-explorer.md
-    - name: 開發
-      items:
-        - name: 驗證和授權
-          href: time-series-insights-authentication-and-authorization.md
-        - name: '使用 C# 查詢資料'
-          href: time-series-insights-query-data-csharp.md
-        - name: '使用 C# 管理參考資料'
-          href: time-series-insights-manage-reference-data-csharp.md
-        - name: 共用自訂檢視
-          href: time-series-insights-parameterized-urls.md
+        - name: 開發
+          items:
+            - name: 驗證和授權
+              href: time-series-insights-authentication-and-authorization.md
+            - name: '使用 C# 查詢資料'
+              href: time-series-insights-update-query-data-csharp.md
 - name: 使用說明指南
   items:
     - name: 授與資料存取
