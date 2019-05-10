@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 1e3a27f953246ce29de419949362c23b8932b0d5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073499"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410262"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-單一伺服器中的 PostgreSQL 擴充功能
 PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能。 擴充功能可在單一封裝中一併統合多個相關的 SQL 物件，其可使用單一命令從您的資料庫加以載入或移除。 載入資料庫之後，擴充功能就可如內建功能般運作。 如需有關 PostgreSQL 擴充功能的詳細資訊，請參閱 [將相關物件封裝成擴充功能](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)。
@@ -73,7 +73,6 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 > | **擴充功能** | **說明** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 可載入的程序性語言。 |
-> | [plv8](https://plv8.github.io/) | 可用於預存程序、觸發程序等的 PostgreSQL Javascript 語言擴充功能。 |
 
 ### <a name="miscellaneous-extensions"></a>其他擴充功能
 

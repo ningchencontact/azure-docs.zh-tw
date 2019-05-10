@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448878"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510265"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>從入口網站呼叫 Bing 自訂搜尋執行個體
 
@@ -26,12 +26,12 @@ ms.locfileid: "57448878"
 
 登入 Bing 自訂搜尋[入口網站](https://customsearch.ai)後，選取搜尋執行個體，然後按一下 [生產] 索引標籤。在 [端點] 之下，選取 API 端點 (例如 Web API)。 您的訂用帳戶可決定顯示的端點。
 
-若要建立搜尋查詢，請輸入您端點的參數值。 請注意，入口網站中顯示的參數可能會隨著您所選的端點而改變。 如需詳細資訊，請參閱[自訂搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)。 
+若要建立搜尋查詢，請輸入您端點的參數值。 請注意，入口網站中顯示的參數可能會隨著您所選的端點而改變。 如需詳細資訊，請參閱[自訂搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)。 若要變更您的搜尋執行個體所使用的訂用帳戶、 新增適當的訂用帳戶金鑰，並更新適當的市場及/或語言參數。
 
 一些重要參數如下：
 
 
-|參數  |描述  |
+|參數  |說明  |
 |---------|---------|
 |查詢     | 要搜尋的搜尋字詞。 僅適用於網頁、影像、影片與自動建議端點 |
 |自訂組態識別碼 | 所選取自訂搜尋執行個體的組態識別碼。 這是唯讀欄位。 |
@@ -40,7 +40,7 @@ ms.locfileid: "57448878"
 
 按一下 [其他參數] 會顯示下列參數：  
 
-|參數  |描述  |
+|參數  |說明  |
 |---------|---------|
 |安全搜尋     | 用來篩選成人內容網頁的篩選條件。 僅適用於網頁、影像、影片與裝載 UI 端點。        |
 |使用者介面語言    | 用於使用者介面字串的語言。 例如，若您在裝載 UI 中啟用影像與影片， [影像] 與 [影片] 索引標籤會使用指定的語言。        |

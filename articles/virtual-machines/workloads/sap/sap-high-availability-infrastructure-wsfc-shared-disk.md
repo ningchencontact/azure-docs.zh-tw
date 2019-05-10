@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b729327187a52f36d50f8a754f5521527bb07ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717411"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408780"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>使用 SAP ASCS/SCS 的 Windows 容錯移轉叢集和共用磁碟，為 SAP HA 準備 Azure 基礎結構
 
@@ -33,7 +33,7 @@ ms.locfileid: "60717411"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[tuning-failover-cluster-network-thresholds]:https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -739,8 +739,9 @@ Azure Load Balancer 具有內部負載平衡器，會在連線閒置一段時間
 
 當您安裝 Windows 容錯移轉叢集之後，必須變更某些閾值，讓它們能將容錯移轉偵測適應 Azure 中的條件。 需要變更的參數記載於[調整容錯移轉叢集網路閥值][tuning-failover-cluster-network-thresholds]中。 假設為 ASCS/SCS 建置 Windows 叢集組態的兩部 VM 位於相同子網路中，請將下列參數變更為這些值︰
 
-- SameSubNetDelay = 2
+- SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
 
 這些設定已與客戶進行測試，並提供很好的折衷方案。 它們具有足夠的彈性，但也提供在 SAP 軟體的真實錯誤條件或節點或 VM 失敗中夠快的容錯移轉。
 

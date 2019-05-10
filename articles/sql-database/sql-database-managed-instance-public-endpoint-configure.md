@@ -10,13 +10,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: ea16efbb846f21ec7c3fa39b2efeac741d8f8ce0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/07/2019
+ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928358"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465208"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控執行個體中設定公用端點
 
@@ -93,14 +93,14 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. 選取**輸入安全性規則**索引標籤上，並**新增**規則的優先順序高於**deny_all_inbound**規則具有下列設定： </br> </br>
 
-    |設定  |建議的值  |描述  |
+    |設定  |建議值  |說明  |
     |---------|---------|---------|
-    |**來源**     |任何 IP 位址或服務標籤         |<ul><li>對於像是 Power BI 的 Azure 服務，選取 Azure 雲端服務標籤</li> <li>您的電腦或 Azure VM，請使用 NAT IP 位址</li></ul> |
+    |**Source**     |任何 IP 位址或服務標籤         |<ul><li>對於像是 Power BI 的 Azure 服務，選取 Azure 雲端服務標籤</li> <li>您的電腦或 Azure VM，請使用 NAT IP 位址</li></ul> |
     |**來源連接埠範圍**     |*         |此選項可讓 * （任何），來源連接埠通常是動態配置，因此，無法預測 |
     |**目的地**     |任意         |保留做為可允許流量連到受管理的執行個體子網路的任何目的地 |
     |**目的地連接埠範圍**     |3342         |範圍目的地連接埠 3342，也就是受管理的執行個體的公用 TDS 端點 |
     |**通訊協定**     |TCP         |受控執行個體使用的 TCP 通訊協定的 TDS |
-    |**Action**     |允許         |允許輸入的流量透過公用端點的受控執行個體 |
+    |**動作**     |允許         |允許輸入的流量透過公用端點的受控執行個體 |
     |**優先順序**     |1300         |請確定此規則是優先順序高於**deny_all_inbound**規則 |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)

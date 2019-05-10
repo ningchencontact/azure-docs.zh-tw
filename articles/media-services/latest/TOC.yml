@@ -24,18 +24,13 @@
     - name: 即時串流 - .NET
       href: stream-live-tutorial-with-api.md
     - name: 分析影片 - .NET
-      displayName: 'job, transform'
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
       href: analyze-videos-tutorial-with-api.md
     - name: 透過 AES-128 進行動態加密 - .NET
       href: protect-with-aes128.md
     - name: 透過 DRM 進行動態加密 - .NET
+      displayName: 'PlayReady, Widevine'
       href: protect-with-drm.md
-- name: 範例
-  items:
-    - name: Azure 程式碼範例
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
-    - name: Azure CLI
-      href: cli-samples.md
 - name: 概念
   href: concepts-overview.md
   items:
@@ -52,6 +47,7 @@
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: 轉換與工作
           href: transforms-jobs-concept.md
+          displayName: 'preset, schema'
         - name: 媒體編碼器標準格式
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
@@ -75,7 +71,7 @@
         - name: 包裝中
           items:
             - name: 動態封裝
-              displayName: packager
+              displayName: 'origin, packager'
               href: dynamic-packaging-overview.md
             - name: 動態資訊清單
               href: filters-dynamic-manifest-overview.md
@@ -84,7 +80,7 @@
         - name: 內容保護
           items:
             - name: 串流通訊協定和加密類型
-              displayName: Dynamic encryption
+              displayName: 'dynamic, encryption'
               href: content-protection-overview.md
             - name: 多 DRM 系統與存取控制
               href: design-multi-drm-system-with-access-control.md
@@ -97,7 +93,7 @@
                 - name: FairPlay 授權需求
                   href: fairplay-license-overview.md
         - name: 串流端點/原始
-          displayName: 'origins, cdn'
+          displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: 串流定位器
           displayName: URLs
@@ -106,8 +102,8 @@
           href: streaming-policy-concept.md
         - name: 內容金鑰原則
           href: content-key-policy-concept.md
-        - name: 原始錯誤碼
-          href: origin-error-codes.md
+        - name: 串流端點錯誤碼
+          href: streaming-endpoint-error-codes.md
     - name: 即時串流
       items:
         - name: 概觀
@@ -141,6 +137,7 @@
           href: use-azure-media-player.md
     - name: 使用 v3 API 開發
       href: media-services-apis-overview.md
+      displayName: 'access, naming, long-running'
       items:
         - name: 分頁、篩選、排序實體
           href: entities-overview.md
@@ -148,8 +145,8 @@
           href: rbac-overview.md
         - name: 錯誤碼
           items:
-            - name: 原始錯誤碼
-              href: origin-error-codes.md
+            - name: 串流端點錯誤碼
+              href: streaming-endpoint-error-codes.md
             - name: 作業錯誤碼
               href: job-error-codes.md
     - name: 將移轉指引從 v2 變更為 v3
@@ -160,10 +157,14 @@
       items:
         - name: 建立帳戶 - CLI
           href: create-account-cli-how-to.md
+        - name: 重設帳戶認證 - CLI
+          href: cli-reset-account-credentials.md
         - name: 存取 API - CLI
           href: access-api-cli-how-to.md
         - name: 調整媒體保留單元 - CLI
           href: media-reserved-units-cli-how-to.md
+        - name: 建立資產 - CLI
+          href: cli-create-asset.md
         - name: 以 REST 開發
           items:
             - name: 使用 Postman 連線
@@ -190,6 +191,14 @@
         - name: 從本機檔案 - REST
           displayName: upload
           href: upload-files-rest-how-to.md
+        - name: 從本機檔案 - CLI
+          href: cli-upload-file-asset.md
+    - name: 建立轉換和作業
+      items:
+        - name: 建立轉換 - CLI
+          href: cli-create-transform.md
+        - name: 建立作業 - CLI
+          href: cli-create-jobs.md
     - name: 編碼內容
       items:
         - name: HTTPS 即作業輸入 - .NET
@@ -230,10 +239,15 @@
           href: filters-dynamic-manifest-rest-howto.md
         - name: 透過 CLI
           href: filters-dynamic-manifest-cli-howto.md
+    - name: 傳遞內容
+      items:
+        - name: 發佈資產 - CLI
+          href: cli-publish-asset.md
 - name: 參考
   items:
     - name: OpenAPI 規格 (Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'
+      displayName: schema
     - name: REST
       href: 'https://aka.ms/ams-v3-rest-ref'
     - name: Azure CLI
@@ -254,8 +268,8 @@
       href: /azure/templates/microsoft.media/allversions
     - name: 錯誤碼
       items:
-        - name: 原始錯誤碼
-          href: origin-error-codes.md
+        - name: 串流端點錯誤碼
+          href: streaming-endpoint-error-codes.md
         - name: 作業錯誤碼
           href: job-error-codes.md
 - name: 資源
@@ -285,7 +299,7 @@
           href: 'https://aka.ms/ams-v3-nodejs-sdk'
         - name: Ruby
           href: 'https://aka.ms/ams-v3-ruby-sdk'
-    - name: AMSE
+    - name: Azure 媒體服務總管
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
     - name: 版本資訊
       href: release-notes.md

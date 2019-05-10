@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998986"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408879"
 ---
-# <a name="tutorial-integrate-with-azure-managed-identities"></a>教學課程：與 Azure 受控識別整合
+# <a name="integrate-with-azure-managed-identities"></a>與 Azure 受控識別整合
 
 Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)可協助簡化您雲端應用程式的祕密管理。 透過受控識別，您可以設定程式碼來使用為其執行所在的 Azure 計算服務建立的服務主體。 您會使用受控識別，而不是使用儲存在 Azure Key Vault 中的個別認證或本機連接字串。 
 

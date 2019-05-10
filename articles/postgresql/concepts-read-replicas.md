@@ -6,16 +6,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 1d75d01df74a239ba865d9a4e2b216a410e6069c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ce99e03cbd767b5e25871397ea9ae9a301132ab6
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067426"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510984"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-單一伺服器中讀取複本
 
-讀取複本功能可讓您將資料從適用於 PostgreSQL 的 Azure 資料庫伺服器複寫到唯讀伺服器。 您可以從主要伺服器複寫到同一個 Azure 區域中的最多五個複本。 複本會使用 PostgreSQL 引擎的原生複寫技術以非同步方式更新。
+讀取複本功能可讓您將資料從適用於 PostgreSQL 的 Azure 資料庫伺服器複寫到唯讀伺服器。 您可以從主要伺服器複寫到最多五個複本。 複本會使用 PostgreSQL 引擎的原生複寫技術以非同步方式更新。
+
+> [!IMPORTANT]
+> 在與您的主要伺服器相同的區域，或您選擇的任何其他 Azure 區域中，您可以建立一個讀取的複本。 跨區域複寫目前為公開預覽狀態。
 
 複本是新伺服器，管理方式類似於一般適用於 PostgreSQL 的 Azure 資料庫伺服器。 針對每個讀取複本，系統每月會針對在虛擬核心中所佈建的計算量，以及在儲存體中所佈建的容量 (以 GB 為單位) 向您收費。
 
@@ -29,6 +32,8 @@ ms.locfileid: "65067426"
 由於複本是唯讀狀態，因此不會直接降低主要伺服器上的寫入容量負擔。 這項功能不是以寫入密集的工作負載為目標。
 
 讀取複本功能會使用 PostgreSQL 非同步複寫。 此功能不適用於同步複寫案例。 主要伺服器和複本之間將會有顯著的延遲。 複本上的資料最終仍會與主要伺服器上的資料保持一致。 請針對可接受此延遲的工作負載使用此功能。
+
+讀取複本，可以提升您的災害復原計劃。 必須先從主要的不同 Azure 區域中有複本。 區域災害時，您可以停止對該複本的複寫，並將您的工作負載重新導向至它。 停止複寫可讓開始接受寫入複本，以及讀取。 進一步了解[停止複寫](#stop-replication)一節。 
 
 ## <a name="create-a-replica"></a>建立複本
 主要伺服器必須將 `azure.replication_support` 參數設定為 **REPLICA**。 變更此參數後，必須重新啟動伺服器，才能讓變更生效。 (`azure.replication_support` 參數僅適用於「一般用途」和「記憶體最佳化」層級)。
@@ -47,7 +52,7 @@ ms.locfileid: "65067426"
 
 複本會從主要伺服器繼承系統管理員帳戶。 系統會將主要伺服器上的所有使用者帳戶複寫到讀取複本。 您只能使用主要伺服器上可用的使用者帳戶來連線到讀取複本。
 
-您可以使用複本的主機名稱和有效的使用者帳戶來連線到該複本，如同連線到一般適用於 PostgreSQL 的 Azure 資料庫伺服器一樣。 若伺服器名稱為 **myreplica**，且統管理員使用者名稱為 **myadmin**，則您可以使用 psql 來連線到複本：
+您可以使用複本的主機名稱和有效的使用者帳戶來連線到該複本，如同連線到一般適用於 PostgreSQL 的 Azure 資料庫伺服器一樣。 針對名為伺服器**我複本**具有系統管理員使用者名稱**myadmin**，您可以使用 psql 連線到複本：
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -63,7 +68,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 這個計量會從 `pg_stat_wal_receiver` 檢視中計算：
 
 ```SQL
-EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp())
+EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
 
 [複本延隔時間] 計量會顯示自最後一次重新執行交易已經過的時間。 如果主要伺服器上沒有發生交易，計量會反映此時間延隔。
@@ -96,6 +101,8 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 > 獨立伺服器無法再次設定為複本。
 > 在您停止讀取複本上的複寫之前，請確定該複本上已經有您所需要的所有資料。
 
+當您停止複寫時，複本會失去其先前的主要和其他複本的所有連結。 沒有任何主要和複本之間的自動容錯移轉。 
+
 了解如何[停止複寫至複本](howto-read-replicas-portal.md)。
 
 
@@ -107,7 +114,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 建立讀取複本之前，`azure.replication_support` 參數必須在主要伺服器上設定為 **REPLICA**。 變更此參數後，必須重新啟動伺服器，才能讓變更生效。 `azure.replication_support` 參數僅適用於「一般用途」和「記憶體最佳化」層級。
 
 ### <a name="new-replicas"></a>新複本
-讀取複本會建立為最新適用於 PostgreSQL 的 Azure 資料庫伺服器。 現有伺服器無法設定為複本。 只能在和主要伺服器相同的 Azure 區域中建立讀取複本。 您無法為另一個讀取複本建立複本。
+讀取複本會建立為最新適用於 PostgreSQL 的 Azure 資料庫伺服器。 現有伺服器無法設定為複本。 您無法為另一個讀取複本建立複本。
 
 ### <a name="replica-configuration"></a>複本設定
 系統會使用與主要伺服器相同的伺服器設定來建立複本。 建立複本之後，以下設定可以個別地從主要伺服器進行變更：計算世代、虛擬核心、儲存體及備份保留期間。 定價層也可以個別變更，但不能變更為基本層，或從基本層變更為別的層。

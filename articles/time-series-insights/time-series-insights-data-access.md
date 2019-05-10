@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716707"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236385"
 ---
 # <a name="grant-data-access-to-an-environment"></a>授與環境的資料存取權
 
@@ -34,11 +34,11 @@ ms.locfileid: "64716707"
 
 1. 選取 [資料存取原則]，然後選取 [+新增]。
 
-    ![資料存取一][1]
+    [![資料存取一](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
 1. 選擇 [選取使用者]。 搜尋使用者名稱或電子郵件地址，以找出您想要新增的使用者。 按一下 [選取] 以確認選取項目。
 
-    ![資料存取二][2]
+    [![資料存取兩](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
 1. 選擇 [選取角色]。 為使用者選擇適當的存取角色：
 
@@ -48,15 +48,15 @@ ms.locfileid: "64716707"
 
    選取 [確定] 以確認角色選擇。
 
-    ![資料存取三][3]
+    [![資料存取三](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
 
 1. 在 [選取使用者角色] 頁面中選取 [確定]。
 
-    ![資料存取四][4]
+    [![資料存取四](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
 
 1. 確認 [資料存取原則] 頁面列出的使用者和每個使用者的角色。
 
-    ![資料存取四][5]
+    [![資料存取五](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
 ## <a name="provide-guest-access-from-another-aad-tenant"></a>提供從另一個 AAD 租用戶的來賓存取
 
@@ -66,19 +66,19 @@ ms.locfileid: "64716707"
 
 1. 選取 [資料存取原則]，然後選取 [+ 邀請]。
 
-    ![資料存取六][6]
+    [![Data-access-six](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
 
 1. 輸入您要邀請之使用者的電子郵件地址。 此電子郵件地址必須與 Azure AD 相關聯。 (選擇性) 您可以在邀請中包括個人訊息。
 
-    ![資料存取七][7]
+    [![資料存取-七個](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
 
 1. 尋找顯示在畫面上的確認泡泡訊息。
 
-    ![資料存取八][8]
+    [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
 1. 選擇 [選取使用者]。 搜尋您邀請之來賓使用者的電子郵件地址，以尋找您要新增的使用者。 按一下 [選取] 以確認選取項目。
 
-    ![資料存取九][9]
+    [![資料存取-九個](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
 1. 選擇 [選取角色]。 為來賓使用者選擇適當的存取角色：
 
@@ -88,29 +88,29 @@ ms.locfileid: "64716707"
 
    選取 [確定] 以確認角色選擇。
 
-    ![資料存取十][10]
+    [![資料存取-十個](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
 
 1. 在 [選取使用者角色] 頁面中選取 [確定]。
 
 1. 確認 [資料存取原則] 頁面列出的來賓使用者與每個來賓使用者的角色。
 
-    ![資料存取十一][11]
+    [![資料集的存取-11](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
 
 1. 現在，來賓使用者必須遵循步驟，以存取位於您將其邀請到其中之 Azure 租用戶的環境。 首先，他們接受您傳送給他們的邀請。 此邀請是透過電子郵件傳送到您在步驟 5 使用的電子郵件地址。 他們選取 [開始使用] 以接受。
 
-    ![資料存取十二][12]
+    [![Data-access-twelve](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
 
 1. 接著，來賓使用者接受與系統管理員組織關聯的權限。
 
-    ![資料存取十三][13]
+    [![資料集的存取-13 個](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
 
 1. 在來賓使用者登入您用來邀請他們的電子郵件地址，並接受邀請之後，他們將會移至 insights.azure.com。 到達該處之後，他們要選取畫面右上角其電子郵件地址旁的頭像。
 
-    ![資料存取十四][14]
+    [![資料層存取-14](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
 
 1. 接著，來賓使用者必須從目錄下拉式清單功能表選取您的 Azure 租用戶。 此租用戶即為您邀請他們的租用戶。
 
-    ![資料存取十五][15]
+    [![15-存取資料-](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
 
 當來賓使用者選取您的租用戶之後，他們會看到您為其提供存取權的時間序列深入解析環境。 他們現在有您提供它們與角色相關聯的所有功能**步驟 5**。
 
@@ -121,20 +121,3 @@ ms.locfileid: "64716707"
 * [將事件傳送到事件來源](./time-series-insights-send-events.md)。
 
 * [在時間序列深入解析預覽總管中檢視您的環境](./time-series-insights-update-explorer.md)。
-
-<!-- Images -->
-[1]: media/data-access/data-access-one.png
-[2]: media/data-access/data-access-two.png
-[3]: media/data-access/data-access-three.png
-[4]: media/data-access/data-access-four.png
-[5]: media/data-access/data-access-five.png
-[6]: media/data-access/data-access-six.png
-[7]: media/data-access/data-access-seven.png
-[8]: media/data-access/data-access-eight.png
-[9]: media/data-access/data-access-nine.png
-[10]: media/data-access/data-access-ten.png
-[11]: media/data-access/data-access-eleven.png
-[12]: media/data-access/data-access-twelve.png
-[13]: media/data-access/data-access-thirteen.png
-[14]: media/data-access/data-access-fourteen.png
-[15]: media/data-access/data-access-fifteen.png

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 83a866b20d2802b7d49363b7c6451356e938eac1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626837"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510727"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -47,6 +47,20 @@ ms.locfileid: "60626837"
 * 新的物件模型，其最上層 CosmosClient 和方法分佈在相關 CosmosDatabases、CosmosContainers 與 CosmosItems 類別之間。 
 * 支援資料流。 
 * 更新來自伺服器的 CosmosResponseMessage 以傳回狀態碼，並只會在沒有傳回回應時擲回例外狀況。 
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* SDK 的 System.Net.Http 版本符合所定義於 NuGet 套件
+* 增加的 LINQ 查詢的小數有效位數大小。
+* 加入新的類別 CompositePath、 CompositePathSortOrder、 SpatialSpec、 SpatialType 和 PartitionKeyDefinitionVersion
+* 已新增的 TimeToLivePropertyPath DocumentCollection 至
+* 已新增的 CompositeIndexes 和 IndexPolicy 的 SpatialIndexes
+* 新增的版本至 PartitionKeyDefinition
+* 新增無 PartitionKey
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * 已新增的 IdleTcpConnectionTimeout、 OpenTcpConnectionTimeout、 MaxRequestsPerTcpConnection 和 ConnectionPolicy 的 MaxTcpConnectionsPerEndpoint。
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
@@ -359,8 +373,10 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 <br/>
 
-| Version | 發行日期 | 停用日期 |
+| 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |2019 年 05， |--- |
+| [2.3.0](#2.3.0) |2019 年 4 月 4日日 |--- |
 | [2.2.3](#2.2.3) |2019 年 2 月 11日日 |--- |
 | [2.2.2](#2.2.2) |2019 年 2 月 6 日 |--- |
 | [2.2.1](#2.2.1) |2018 年 12 月 24 日 |--- |

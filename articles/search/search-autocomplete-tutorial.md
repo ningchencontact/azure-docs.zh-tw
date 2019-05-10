@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f3e7cc2ed71dda0eb34328432b26a4016b62be1c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025146"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466424"
 ---
-# <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>範例：將建議或自動完成功能新增至您的 Azure 搜尋服務應用程式
+# <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>將建議或自動完成功能新增至您的 Azure 搜尋服務應用程式
 
 在這篇文章，了解如何使用[建議](https://docs.microsoft.com/rest/api/searchservice/suggestions)並[自動完成](https://docs.microsoft.com/rest/api/searchservice/autocomplete)建置功能強大的搜尋方塊中支援搜尋---輸入時的行為。
 
@@ -123,7 +123,7 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 http://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#example2").autocompleteInline({
         appendMethod: "replace",

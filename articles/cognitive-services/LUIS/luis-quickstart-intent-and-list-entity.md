@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521266"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236417"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教學課程：從語句取得完全相符的文字項目資料
 
@@ -108,11 +108,7 @@ ms.locfileid: "59521266"
 
 1. 在 [Department] \(部門\) 實體頁面上，輸入 `Accounting` 作為新值。
 
-    [![輸入值的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "輸入值的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. 針對同義字，請新增來自先前表格的同義字。
-
-    [![輸入同義字的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "輸入同義字的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. 繼續新增所有正式名稱及其同義字。 
 

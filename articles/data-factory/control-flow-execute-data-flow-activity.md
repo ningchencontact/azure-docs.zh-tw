@@ -1,23 +1,21 @@
 ---
 title: 執行 Azure Data Factory 中的資料流活動 |Microsoft Docs
-description: 執行資料流活動會執行資料流。
+description: 如何執行資料的流程從 data factory 管線中。
 services: data-factory
 documentationcenter: ''
 author: kromerm
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 856f4bd9c2b04ff10ed598c5e641955e1de99398
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557523"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236686"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory 中執行資料的流程活動
 用於執行資料流活動觸發的管線執行和管線偵錯 (sandbox) 執行中執行您的 ADF 資料流。
@@ -51,7 +49,7 @@ ms.locfileid: "60557523"
 
 ![執行資料流程](media/data-flow/activity-data-flow.png "執行資料流程")
 
-### <a name="run-on"></a>執行位置
+### <a name="run-on"></a>執行於
 
 選擇在資料流程的此執行的計算環境。 預設值是 Azure 自動解析預設整合執行階段。 這項選擇會在相同的區域，為您的 data factory 中的 Spark 環境上執行資料流程的資料。 計算類型會是作業的叢集，這表示計算環境將會需要幾分鐘時間來啟動。
 
@@ -59,15 +57,13 @@ ms.locfileid: "60557523"
 
 ![偵錯 按鈕](media/data-flow/debugbutton.png "偵錯 按鈕")
 
-利用適用於以互動方式執行管線偵錯版中測試您的資料流的 warmed 的叢集，使用資料流程偵錯。 您可以使用管線偵錯選項來測試管線中的資料流程。
+利用適用於以互動方式執行管線偵錯版中測試您的資料流的 warmed 的叢集，使用資料流程偵錯。 您可以使用管線進行偵錯的選項來測試管線中的資料流程。
 
-### <a name="compute-type"></a>計算類型
+### <a name="run-on"></a>執行於
 
-您可以選擇一般用途、 計算最佳化，或最佳化記憶體，在資料流程的需求而定。
+這是必要的欄位定義要用於您的 資料流程的活動執行的整合執行階段。 根據預設，Data Factory 會使用預設的自動解決 Azure 整合執行階段。 不過，您可以建立您的 Azure 整合執行階段定義特定區域，您的資料流活動執行的計算類型、 核心計數和 TTL。
 
-### <a name="core-count"></a>核心計數
-
-選擇您想要指派給作業的多少個核心。 對於較小的工作，較少的核心會配合更好。
+Data Flow 執行的預設值是 8 核心的一般計算，當 TTL 為 60 分鐘的時間。
 
 ### <a name="staging-area"></a>臨時區域
 
@@ -82,6 +78,8 @@ ms.locfileid: "60557523"
 ### <a name="debugging-parameterized-data-flows"></a>偵錯的參數化的資料流
 
 您可以只偵錯管線偵錯使用 execute 資料流程活動來執行參數化資料集的資料流。 目前，在 ADF 資料流程 」 中的互動式偵錯工作階段不適用於參數化資料集。 管線執行和偵錯回合會使用參數。
+
+理想的作法是建立與靜態的資料集的資料流程，讓您在設計階段有可用的完整中繼資料資料行傳播。 然後當您實作您的資料流管線時，請使用動態參數化資料集取代靜態的資料集。
 
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動： 

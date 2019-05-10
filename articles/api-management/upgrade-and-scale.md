@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed3c5790dcb51d12a38b85aa95e9c9178b6f44cd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859526"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408851"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>升級和調整 Azure API 管理執行個體的規模  
 
@@ -54,7 +54,7 @@ ms.locfileid: "60859526"
 您可以升級到任何階層，也能從任何階層降級。 請注意，升級或降級可以移除某些功能；例如，從進階層降級到標準層或基本層時，就會移除 VNET 或多區域部署。
 
 >[!NOTE]
->升級或調整程序需要 15 到 45 分鐘才會生效。 完成時會通知您。
+>升級或調整程序需要 15 到 45 分鐘才會生效。 完成時，取得通知您項目。
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>使用 Azure 入口網站來升級和調整規模
 

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776837"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405704"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>建立服務通知的活動記錄警示
 ## <a name="overview"></a>概觀
@@ -36,6 +36,10 @@ ms.locfileid: "60776837"
 若要深入了解動作群組，請參閱[建立及管理動作群組](../../azure-monitor/platform/action-groups.md)。
 
 若要了解如何使用 Azure Resource Manager 範本來設定服務健康情況通知警示，請參閱 [Resource Manager 範本](alerts-activity-log.md)。
+
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>觀看影片，以設定您的第一個 Azure 服務健康狀態警示
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="alert-and-new-action-group-using-azure-portal"></a>使用 Azure 入口網站來建立警示與新動作群組
 1. 在[入口網站](https://portal.azure.com)中，選取 [服務健康情況]。
@@ -195,6 +199,8 @@ ms.locfileid: "60776837"
 * 如果您需要暫時停止或恢復接收警示的通知，可以將警示停用或啟用。
 
 ## <a name="next-steps"></a>後續步驟
+- 深入了解[最佳做法來設定 Azure 服務健康情況警示](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa)。
+- 了解如何[設定 Azure 服務健康狀態的行動推播通知](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw)。
 - 了解如何[設定現有問題管理系統的 Webhook 通知](../../service-health/service-health-alert-webhook-guide.md)。
 - 深入了解[服務健康狀態通知](../../azure-monitor/platform/service-notifications.md)。
 - 深入了解[通知速率限制](../../azure-monitor/platform/alerts-rate-limiting.md)。

@@ -3,7 +3,7 @@ title: 連接到 Azure Sentinel 預覽版的 威脅情報資料 |Microsoft Docs
 description: 深入了解如何連接到 Azure Sentinel 的 威脅情報資料。
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 56412543-5664-44c1-b026-2dbaf78a9a50
 ms.service: security-center
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a33b00e4e553824f1f719be2c8518487241f0a11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 266e487a7c345f75e966afbde567c5bc4683b5c0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714518"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233757"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>威脅情報提供者從連線資料 
 
@@ -55,5 +55,5 @@ ms.locfileid: "60714518"
 
 本文件中，您已了解如何在您的威脅情報提供者連線到 Azure 的 Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章。
 
-- 若要開始使用 Azure Sentinel，您需要 Microsoft Azure 訂用帳戶。 如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/free/)。
+- 若要開始使用 Azure Sentinel，您需要 Microsoft Azure 訂用帳戶。 如果您沒有訂用帳戶，可以註冊 [免費試用](https://azure.microsoft.com/free/)。
 - 了解如何[將資料上架到 Azure Sentinel](quickstart-onboard.md)，並[掌握您的資料和潛在威脅](quickstart-get-visibility.md)。

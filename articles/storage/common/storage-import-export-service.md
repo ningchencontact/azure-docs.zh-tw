@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478718"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413915"
 ---
 # <a name="what-is-azure-importexport-service"></a>什麼是 Azure 匯入/匯出服務？
 
@@ -119,11 +119,11 @@ Azure 匯入/匯出服務支援與所有 Azure 儲存體帳戶相互複製資料
 ### <a name="supported-shipping-locations"></a>支援的運送位置
 
 
-|國家 (地區)  |國家 (地區)  |國家 (地區)  |國家 (地區)  |
+|國家/地區  |國家/地區  |國家/地區  |國家/地區  |
 |---------|---------|---------|---------|
 |美國東部    | 北歐        | 印度中部        |US Gov 愛荷華州         |
 |美國西部     |西歐         | 印度南部        | 美國 DoD 東部        |
-|美國東部 2    | 東亞        |  印度西部        | 美國國防部中央        |
+|美國東部 2    | 東亞        |  印度西部        | 美國 DoD 中部        |
 |美國西部 2     | 東南亞        | 加拿大中部        | 中國東部         |
 |美國中部     | 澳洲東部        | 加拿大東部        | 中國北部        |
 |美國中北部     |  澳大利亞東南部       | 巴西南部        | 英國南部        |
@@ -160,7 +160,7 @@ Azure 匯入/匯出服務支援與所有 Azure 儲存體帳戶相互複製資料
 
 **交易成本**
 
-將資料匯入 Azure 儲存體時，除了標準儲存體交易成本之外，無需支付其他的交易成本。 從 Blob 儲存體匯出資料時，適用標準輸出費用。 如需交易成本的更多資訊，請參閱[資料轉送價格](https://azure.microsoft.com/pricing/details/data-transfers/)。
+[標準儲存體交易費用](https://azure.microsoft.com/pricing/details/storage/)在匯入與匯出資料時套用。 從 Azure 儲存體匯出資料時，也會與儲存體交易費用適用標準輸出費用。 如需有關出口成本的詳細資訊，請參閱[資料傳輸價格。](https://azure.microsoft.com/pricing/details/data-transfers/)。
 
 
 

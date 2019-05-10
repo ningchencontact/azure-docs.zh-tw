@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 65d4326763ef9754159e94c9426f3aee69f80ffd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61f24b3c13a53b23538327cd1458a54756b7caa5
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095598"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466358"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows 虛擬機器的常見問題
-本文可解決在 Azure 中使用 Resource Manager 部署模型建立之 Windows 虛擬機器的一些常見問題。 如需本主題的 Linux 版本，請參閱 [Linux 虛擬機器的常見問題](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+本文可解決在 Azure 中使用 Resource Manager 部署模型建立之 Windows 虛擬機器的一些常見問題。 本主題的 Linux 版本，請參閱[關於 Linux 虛擬機器的常見問題集](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>我可以在 Azure VM 上运行什么程序？
-所有订户都可以在 Azure 虚拟机上运行服务器软件。 如需在 Azure 中執行 Microsoft 伺服器軟體的支援原則資訊，請參閱 [Microsoft Azure 虛擬機器的 Microsoft 伺服器軟體支援](https://support.microsoft.com/kb/2721672)
+所有订户都可以在 Azure 虚拟机上运行服务器软件。 在 Azure 中執行的 Microsoft 伺服器軟體的支援原則的相關資訊，請參閱[Microsoft 伺服器軟體支援 Azure 虛擬機器的](https://support.microsoft.com/kb/2721672)。
 
 特定版本的 Windows 7、Windows 8.1 及 Windows 10 可供 MSDN Azure 權益訂閱者和 MSDN 開發和測試隨用隨付訂閱者 (針對開發與測試工作) 使用。 如需詳細資訊 (包括指示和限制)，請參閱 [MSDN 訂閱者的 Windows 用戶端映像](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)。 
 
@@ -38,7 +38,7 @@ Azure 受控磁碟是受歡迎磁碟儲存體供應項目，可用在 Azure 虛�
 Azure 儲存體帳戶也提供作業系統磁碟和任何資料磁碟的儲存空間。 每個磁碟是以分頁 Blob 方式儲存的 .vhd 檔案。 如需定價的詳細資料，請參閱 [儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)。
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>如何访问我的虚拟机？
-使用遠端桌面連線 (RDP) 為 Windows VM 建立遠端連線。 有关说明，请参阅[如何连接并登录到运行 Windows 的 Azure 虚拟机](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 除非將伺服器設定為遠端桌面服務工作階段主機，否則最多支援兩個並行連線。  
+使用遠端桌面連線 (RDP) 為 Windows VM 建立遠端連線。 如需相關指示，請參閱 <<c0> [ 如何連接和登入執行 Windows 的 Azure 虛擬機器](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 除非將伺服器設定為遠端桌面服務工作階段主機，否則最多支援兩個並行連線。  
 
 如果您在使用「遠端桌面」時遇到問題，請參閱 [疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
 
@@ -85,36 +85,26 @@ Azure 儲存體帳戶也提供作業系統磁碟和任何資料磁碟的儲存�
 
 使用者名稱長度最多為 20 個字元，而且不能以句號 (".") 結尾。 
 
-
 不允許下列使用者名稱︰
-<table>
-    <tr>
-        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">adm</td><td style="text-align:center">admin</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
-    </tr>   <tr>
-        <td style="text-align:center">administrator</td><td style="text-align:center">aspnet</td><td style="text-align:center">backup</td><td style="text-align:center">console</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">david </td><td style="text-align:center">guest</td><td style="text-align:center">john</td><td style="text-align:center">owner</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">root</td><td style="text-align:center">server</td><td style="text-align:center">sql</td><td style="text-align:center">support</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">test1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">user</td><td style="text-align:center">user1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">user2</td><td style="text-align:center">user3</td><td style="text-align:center">user4</td><td style="text-align:center">user5</td>
-    </tr>
-</table>
+
+| | | | |
+|-----------------|-----------|--------------------|----------|
+| `administrator` | `admin`   | `user`             | `user1`  |
+| `test`          | `user2`   | `test1`            | `user3`  |
+| `admin1`        | `1`       | `123`              | `a`      |
+| `actuser`       | `adm`     | `admin2`           | `aspnet` |
+| `backup`        | `console` | `david`            | `guest`  |
+| `john`          | `owner`   | `root`             | `server` |
+| `sql`           | `support` | `support_388945a0` | `sys`    |
+| `test2`         | `test3`   | `user4`            | `user5`  |
+
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>建立 VM 時的密碼需求為何？
-密碼必須為 12 - 123 個字元，且符合下列 4 個複雜性需求的其中 3 個：
+
+有各種不同的密碼長度要求，視您所使用的工具而定：
+ - 入口網站-12-72 個字元之間
+ - PowerShell-介於 8 到 123 個字元之間
+ - CLI-12-123 之間
 
 * 包含小寫字元
 * 包含大小字元

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 427ba2b386810749810397afed8ef3f62dcf9217
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728045"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506635"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 
@@ -32,11 +32,11 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>目前的已知問題
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>媒體服務一般問題
 
-| 問題 | 描述 |
+| 問題 | 說明 |
 | --- | --- |
 | 有幾個常用的 HTTP 標題未提供於 REST API 中。 |如果您使用 REST API 來開發媒體服務應用程式，您會發現有些常用的 HTTP 標題欄位 (包括 CLIENT-REQUEST-ID、REQUEST-ID 和 RETURN-CLIENT-REQUEST-ID) 不受支援。 這些標頭將在未來的更新中加入。 |
 | 不允許 percent-encoding。 |媒體服務會在建置串流內容的 URL 時，使用 IAssetFile.Name 屬性的值 (例如 `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`)。 基於此原因，不允許使用 percent-encoding。 Name 屬性的值不可有下列任何[百分比編碼保留字元](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，副檔名只能有一個 "."。 |
-| 屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法無法運作。 |媒體服務會根據 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 版本產生 SAS URL。 如果您要使用 Storage SDK 列出 Blob 容器中的 Blob，請使用屬於 Storage SDK 2.x 版的 [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 方法。 |
+| 屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法無法運作。 |媒體服務會根據 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 版本產生 SAS URL。 如果您要使用 Storage SDK 列出 Blob 容器中的 Blob，請使用屬於 Storage SDK 2.x 版的 [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) 方法。 |
 | 媒體服務節流機制會針對向服務發出過多要求的應用程式限制資源使用量。 服務可能會傳回「服務無法使用」503 HTTP 狀態碼。 |如需詳細資訊，請參閱[媒體服務錯誤碼](media-services-encoding-error-codes.md)中有關於 503 HTTP 狀態碼的說明。 |
 | 當您查詢實體時，一次最多只能傳回 1000 個實體，因為公用 REST 第 2 版有 1,000 個查詢結果數目的限制。 |請依照[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中的說明，使用 Skip 和 Take (.NET)/top (REST)。 |
 | 某些用戶端在 Smooth Streaming 資訊清單中可能會遇到重複標記問題。 |如需詳細資訊，請參閱[本節](media-services-deliver-content-overview.md#known-issues)。 |
@@ -500,7 +500,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 ## <a id="november_changes_12"></a>2012 年 11 月版本
 本節說明的變更是 2012 年 11 月 (2.0.0.0 版) SDK 所包含的更新。 進行這些變更時，可能必須修改或重寫為 2012 年 6 月預覽 SDK 版本撰寫的程式碼。
 
-* Assets
+* 資產
   
     * IAsset.Create(assetName) 是*唯一的*資產建立函式。 IAsset.Create 已不會在方法呼叫期間上傳檔案。 請使用 IAssetFile 進行上傳。
     * IAsset.Publish 方法和 AssetState.Publish 列舉值已從服務 SDK 中移除。 任何依存於此值的程式碼都必須重寫。

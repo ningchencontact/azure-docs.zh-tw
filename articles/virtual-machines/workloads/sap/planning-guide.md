@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689406"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409777"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南
 
@@ -391,17 +391,10 @@ Microsoft Azure 是 Microsoft 所推出的雲端服務平台，可提供各式�
 ## <a name="possible-scenarios"></a>可能的案例
 SAP 常被視為企業內最常見的關鍵任務應用程式。 這些應用程式的架構和作業大部分都很複雜，而且務必要確保您符合可用性和效能的需求。
 
-因此，不論所選擇的雲端提供者為何，企業都必須仔細考慮哪些應用程式可以在公用雲端環境中執行。
+因此企業都必須仔細選擇執行這類商務的雲端提供者的相關重要的商務程序上。 Azure 是業務關鍵的 SAP 應用程式和商務程序的理想的公用雲端平台。 提供各種不同的 Azure 基礎結構，幾乎所有現有的 SAP NetWeaver 和 S/4HANA 系統可以裝載在 Azure 中立即。 Azure 提供多個 Tb 的記憶體及 200 個以上的 Cpu 的 Vm。 Azure 提供的更多[HANA 大型執行個體](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)，可讓最多 24 TB 和向外延展分析的向外延展 HANA 部署，最多 120 TB 的部署。 
 
-以下列出可能在公用雲端環境中部署 SAP NetWeaver 應用程式的系統類型︰
 
-1. 中型生產系統
-2. 開發系統
-3. 測試系統
-4. 原型系統
-5. 學習/示範系統
-
-若要成功地將 SAP 系統部署到 Azure IaaS 或一般 IaaS，請務必了解傳統外包服務商或主機服務提供者的供應項目與 IaaS 供應項目之間的顯著差異。 傳統主機服務提供者或外包服務商會將基礎結構 (網路、儲存體和伺服器類型) 調整成客戶想要裝載的工作負載，但在 IaaS 部署中，客戶有責任選擇適當的工作負載。
+若要成功地將 SAP 系統部署到 Azure IaaS 或一般 IaaS，請務必了解傳統外包服務商或主機服務提供者的供應項目與 IaaS 供應項目之間的顯著差異。 傳統主機服務提供者或外包調整成客戶想要裝載的工作負載的基礎結構 （網路、 儲存體和伺服器類型），而是改為客戶或合作夥伴的責任描繪工作負載，並選擇正確的 AzureVm、 儲存體和網路，以在 IaaS 部署的元件。
 
 在第一個步驟中，客戶必須確認下列項目︰
 
@@ -422,11 +415,13 @@ SAP 常被視為企業內最常見的關鍵任務應用程式。 這些應用程
 
 請記住，上面連結中所列的限制是上限。 它並不表示在所有情況下可提供之任何資源 (例如 IOPS) 的限制。 不過，這不包括所選擇之 VM 類型的 CPU 和記憶體資源。 針對 SAP 支援的 VM 類型，CPU 和記憶體資源會予以保留，因此可在任何時候供 VM 使用。
 
-其他 IaaS 平台等 Microsoft Azure 平台是多租用戶平台。 因此，儲存體、網路和其他資源會在租用戶之間共用。 智慧型節流和配額邏輯可用來防止一個租用戶大幅影響另一個租用戶 (鄰點干擾)。 雖然 Azure 的邏輯嘗試將體驗到的頻寬差異保持在很小，但比起許多客戶在其內部部署所習慣的差異，高度共用的平台往往引進更大的資源/頻寬可用性差異。 因此，您可能會在不同時間，針對網路或儲存體 I/O 體驗到不同等級的頻寬 (流量和延遲)。 您必須考慮 Azure 上的 SAP 系統可能體驗到比內部部署更大差異的可能性。
+Microsoft Azure 平台是多租用戶平台。 因此，儲存體、網路和其他資源會在租用戶之間共用。 智慧型節流和配額邏輯可用來防止一個租用戶大幅影響另一個租用戶 (鄰點干擾)。 特別是針對 SAP hana 認證的 Azure 平台，Microsoft 需要證明就是多個 Vm 可以執行定期在相同主機以 SAP 的情況下的資源隔離。 雖然在 Azure 中的邏輯嘗試將差異保持在頻寬小型，高度共用的平台往往引進更大差異資源/頻寬可用性比客戶可能會遇到在其內部部署。 您必須考慮 Azure 上的 SAP 系統可能體驗到比內部部署更大差異的可能性。
 
-最後一個步驟是評估可用性需求。 此時可能需要更新根本 Azure 基礎結構，並需要重新啟動執行 VM 的主機。 在這些情況下，也會關閉並重新啟動正在這些主機上執行的 VM。 這類維護工作會在特定區域的非主要上班時間內完成，但發生重新啟動的可能時間則相對較廣。 您可以在 Azure 平台中設定各種技術，來減輕這類更新的部分或所有影響。 Azure 平台、DBMS 和 SAP 應用程式的未來改進，會以將這類重新啟動的影響降到最低為設計目的。
+最後一個步驟是評估可用性需求。 此時可能需要更新根本 Azure 基礎結構，並需要重新啟動執行 VM 的主機。 Microsoft 文件中的不同案例[在 Azure 中的虛擬機器的維護](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)。 若要減輕罕見的情況下其中 Vm 被迫重新開機，但更重要的情況下您需要修補程式客體 OS 或 DBMS 元件時，您需要開發您的生產環境 SAP 系統有效的高可用性概念。 這項需求不是任何不同於您所面對的內部的需求。 Microsoft 會穩定地逐步引導到 Azure 平台的平台變更所造成的停機時間減少。 
 
 若要成功地將 SAP 系統部署到 Azure，內部部署 SAP 系統的作業系統、資料庫和 SAP 應用程式必須出現在 SAP Azure 支援矩陣中、符合 Azure 基礎結構可提供的資源限制，並且可搭配 Microsoft Azure 所提供的可用性 SLA 使用。 指定這些系統之後，您必須在下列兩種部署案例之間決定其中一個。
+
+
 
 
 
@@ -1639,7 +1634,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 | 發送器 |sapdp`<nn>` 請參閱 * |3201 |3200 - 3299 |SAP 调度程序，由适用于 Windows 和 Java 的 SAP GUI 使用 |
 | 訊息伺服器 |sapms`<sid`> 請參閱 ** |3600 |任意 sapms`<anySID`> |sid = SAP 系統 ID |
 | 閘道器 |sapgw`<nn`> 請參閱 * |3301 |任意 |SAP 閘道，用於 CPIC 和 RFC 通訊 |
-| SAP 路由器 |sapdp99 |3299 |任意 |安裝後，只能將 /etc/services 中的 CI (中央執行個體) 服務名稱重新指派為任意值。 |
+| SAP 路由器 |sapdp99 |3299 |免費 |安裝後，只能將 /etc/services 中的 CI (中央執行個體) 服務名稱重新指派為任意值。 |
 
 *) nn = SAP 執行個體號碼
 

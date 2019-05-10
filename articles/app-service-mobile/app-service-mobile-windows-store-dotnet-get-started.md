@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 289d50fc9d71ee5ea8960fd077e91ef6f68027cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127976"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412792"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>建立具有 Azure 後端的 Windows 應用程式
 
@@ -37,9 +37,9 @@ ms.locfileid: "62127976"
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。 如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* 使用中的 Azure 帳戶。 如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * Windows 10。
-* [Visual Studio Community 2017]。
+* [Visual Studio Community]。
 * 熟悉如何開發 UWP 應用程式。 請瀏覽 [UWP 文件](https://docs.microsoft.com/windows/uwp/)，以了解如何[完成設定](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)來建置 UWP 應用程式。
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>建立新的 Azure 行動應用程式後端
@@ -70,7 +70,7 @@ ms.locfileid: "62127976"
     如此會傳送 POST 要求到 Azure 中代管的新行動應用程式後端。
 
 > [!TIP]
-> 如果您使用 .NET 後端，您可以將 UWP 應用程式專案新增至與伺服器專案相同的解決方案。 如此即可更輕鬆地在相同的 Visual Studio 解決方案中偵錯及測試應用程式和後端。 若要將 UWP 應用程式專案新增至後端解決方案，您必須使用 Visual Studio 2017。
+> 如果您使用 .NET 後端，您可以將 UWP 應用程式專案新增至與伺服器專案相同的解決方案。 如此即可更輕鬆地在相同的 Visual Studio 解決方案中偵錯及測試應用程式和後端。 若要將 UWP 應用程式專案新增至後端解決方案，您必須使用 Visual Studio 2017 或更新版本。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -86,4 +86,4 @@ ms.locfileid: "62127976"
 <!-- URLs. -->
 [Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

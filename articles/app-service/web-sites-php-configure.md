@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: eb731dc18b1524bcf161352265af9e277f85876e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 38e0983830c540082a915332aa4158d2af84567b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730614"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408896"
 ---
 # <a name="configure-php-in-azure-app-service"></a>在 Azure App Service 中設定 PHP
 
@@ -181,9 +181,9 @@ App Service 預設不會對 composer.json (如果您 PHP 專案中有的話) 執
 [免費試用]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[php.ini 指示詞的清單]: http://www.php.net/manual/en/ini.list.php
-[.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: http://www.php.net/manual/en/function.ini-set.php
+[php.ini 指示詞的清單]: https://www.php.net/manual/en/ini.list.php
+[.user.ini]: https://www.php.net/manual/en/configuration.file.per-user.php
+[ini_set()]: https://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png

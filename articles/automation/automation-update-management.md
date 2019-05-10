@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43ca5bbfd789c1c41826c9a13a0030b80c72d4bc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919693"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510645"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -187,9 +187,9 @@ Heartbeat
 
 | 連線的來源 | 支援 | 描述 |
 | --- | --- | --- |
-| Windows 代理程式 |是 |解決方案會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
-| Linux 代理程式 |是 |解決方案會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
-| Operations Manager 管理群組 |是 |方案會從所連線之管理群組中的代理程式收集系統更新的相關資訊。<br/>從 Operations Manager 代理程式直接連線到 Azure 監視器記錄檔就不需要。 資料會從管理群組轉送至 Log Analytics 工作區。 |
+| Windows 代理程式 |有 |解決方案會從 Windows 代理程式收集系統更新的相關資訊，然後起始必要更新的安裝。 |
+| Linux 代理程式 |有 |解決方案會從 Linux 代理程式收集系統更新的相關資訊，然後在支援的發行版本上起始必要更新的安裝。 |
+| Operations Manager 管理群組 |有 |方案會從所連線之管理群組中的代理程式收集系統更新的相關資訊。<br/>從 Operations Manager 代理程式直接連線到 Azure 監視器記錄檔就不需要。 資料會從管理群組轉送至 Log Analytics 工作區。 |
 
 ### <a name="collection-frequency"></a>收集頻率
 
@@ -274,7 +274,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 ### <a name="windows"></a> Windows
 
-|分類  |描述  |
+|分類  |說明  |
 |---------|---------|
 |重大更新     | 特定問題的更新，負責處理與安全性無關的重大錯誤。        |
 |安全性更新     | 特定產品的安全性相關更新。        |
@@ -287,7 +287,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 ### <a name="linux"></a> Linux
 
-|分類  |描述  |
+|分類  |說明  |
 |---------|---------|
 |重大更新和安全性更新     | 特定問題或特定產品的安全性相關問題的更新，         |
 |其他更新     | 在性質上不重要或非安全性更新的所有其他更新。        |
@@ -584,7 +584,7 @@ Update
 * 訂用帳戶
 * 資源群組
 * 位置
-* 標記
+* Tags
 
 ![選取群組](./media/automation-update-management/select-groups.png)
 
@@ -634,7 +634,7 @@ Update
 
 CentOS 預設並不支援依更新分類來部署更新。 為了適當部署 CentOS 更新，請選取所有分類以確保套用所有更新。 針對 SUSE，只選取 [其他更新] 作為分類時，如果首先要的是與 zypper (套件管理員) 有關的安全性更新或其相依性時，有可能也會安裝某些安全性更新。 此行為是 zypper 的限制。 在某些情況下，您可能需要重新執行更新部署。 若要驗證，請檢查更新記錄。
 
-## <a name="remove-a-vm-for-update-management"></a>移除 VM 以進行更新管理
+## <a name="remove-a-vm-from-update-management"></a>從更新管理中移除 VM
 
 從「更新管理」中移除 VM：
 

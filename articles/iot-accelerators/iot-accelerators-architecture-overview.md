@@ -1,6 +1,6 @@
 ---
 title: IoT 解決方案加速器參考架構 - Azure | Microsoft Docs
-description: 了解 Azure IoT 解決方案加速器參考架構。 現有的解決方案加速器會運用此參考架構。 您建置您專屬的自訂 IoT 解決方案時，也可以使用該參考架構。
+description: 深入了解 Azure IoT 解決方案加速器參考架構。 現有的解決方案加速器會運用此參考架構。 您建置您專屬的自訂 IoT 解決方案時，也可以使用該參考架構。
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/04/2018
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450293"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466477"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Azure IoT 參考架構簡介
 
@@ -38,7 +38,7 @@ ms.locfileid: "61450293"
 
 參考架構會識別核心子系統，如下圖所示：
 
-![核心子系統](media/iot-accelerators-architecture-overview/CoreSubsystems.png)
+![核心子系統](media/iot-accelerators-architecture-overview/coresubsystems1.png)
 
 下列各節說明遠端監視解決方案加速器的元件如何對應於核心子系統。
 

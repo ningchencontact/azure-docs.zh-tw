@@ -40,6 +40,9 @@
     - name: 使用安全部署實務
       displayName: adm
       href: deployment-manager-tutorial.md
+    - name: 在部署管理員中使用健康情況檢查
+      displayName: adm
+      href: deployment-manager-tutorial-health-check.md
     - name: 針對範本部署進行疑難排解
       href: resource-manager-tutorial-troubleshoot.md
 - name: 範例
@@ -62,6 +65,9 @@
     - name: 部署管理員
       displayName: adm
       href: deployment-manager-overview.md
+    - name: 部署管理員健康情況檢查
+      displayName: adm
+      href: deployment-manager-health-check.md
     - name: 部署模式
       href: deployment-modes.md
     - name: 資源刪除

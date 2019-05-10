@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186e0365ae8aee3b7f92fcc06142e4d0496ffd08
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145186"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415447"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 語言參考 
 
@@ -505,7 +505,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
  **運算子類別：**  
   
-|**類別**|**詳細資料**|  
+|**分類**|**詳細資料**|  
 |-|-|  
 |**arithmetic**|運算子預期的輸入為數字。 輸出也是數字。 若有任何**未定義的**輸入，或輸入了數字以外的類型，則會產生**未定義**的結果。|  
 |**bitwise**|運算子預期的輸入為 32 位元的帶正負號整數。 輸出也為 32 位元的帶正負號整數。<br /><br /> 任何非整數值均會進行四捨五入。 正值會無條件捨去，負值則會進位。<br /><br /> 除了 32 位元整數範圍的任何值，都會以去掉其兩個元件標記法的最後 32 位元進行轉換。<br /><br /> 若有任何**未定義的**輸入，或輸入了數字以外的類型，則會產生**未定義**的結果。<br /><br /> **附註：** 以上行為會與 JavaScript 位元運算子行為相容。|  
@@ -547,7 +547,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 |**Number**|自然實數。<br /><br /> 負的無限值小於其他任何數值。<br /><br /> 正無限值大於其他任何數值。**NaN** 值無法比較。 與 **NaN** 比較會產生**未定義的**值。|  
 |**String**|詞彙編篡順序。|  
 |**Array**|沒有順序，但合理。|  
-|**Object**|沒有順序，但合理。|  
+|**物件**|沒有順序，但合理。|  
   
  **備註**  
   
@@ -710,7 +710,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 ##  <a name="bk_built_in_functions"></a>內建函式  
  Cosmos DB 提供許多內建 SQL 函式。 內建函式的分類如下所示。  
   
-|函式|描述|  
+|函式|說明|  
 |--------------|-----------------|  
 |[數學函式](#bk_mathematical_functions)|每個數學函數都會執行計算，通常以提供做為引數的輸入值為基礎，並且會傳回數值。|  
 |[類型檢查函式](#bk_type_checking_functions)|类型检查函数允许检查 SQL 查询内表达式的类型。|  
@@ -1307,7 +1307,7 @@ RADIANS (<numeric_expression>)
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
 ```  
   
- 以下為結果集。  
+  以下為結果集。  
   
 ```  
 [{  
@@ -1336,7 +1336,18 @@ ROUND(<numeric_expression>)
   
   **傳回類型**  
   
-  傳回數值運算式。  
+  返回一个数值表达式。  
+  
+  **備註**
+  
+  執行的捨入作業會遵循遠離零四捨五入的中間點。 如果輸入是介於兩個整數之間的確切的數值運算式的結果會是最接近的整數值，遠離零。  
+  
+  |<numeric_expression>|圓角|
+  |-|-|
+  |-6.5000|-7|
+  |-0.5|-1|
+  |0.5|1|
+  |6.5000|7||
   
   **範例**  
   
@@ -1346,7 +1357,7 @@ ROUND(<numeric_expression>)
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
   
- 以下為結果集。  
+  以下為結果集。  
   
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  

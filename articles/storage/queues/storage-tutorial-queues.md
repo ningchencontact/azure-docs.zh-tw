@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 81d7572f800f191791158f2c1f99e1f072980116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65151057"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233870"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>教學課程：使用 Azure 儲存體佇列
 
@@ -206,7 +206,7 @@ Azure 佇列儲存體可實作雲端式佇列，使分散式應用程式的元�
 
 ## <a name="insert-messages-into-the-queue"></a>將訊息插入佇列中
 
-建立將訊息傳送至佇列中的新方法。 將下列方法新增至您的**程式**類別。 此方法會取得佇列參考，然後藉由呼叫 [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet) 建立新的佇列 (如果還不存在)。 接著，它會藉由呼叫 [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet) 將訊息新增至佇列。
+建立將訊息傳送至佇列中的新方法。 將下列方法新增至您的**程式**類別。 此方法會取得佇列參考，然後藉由呼叫 [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet) 建立新的佇列 (如果還不存在)。 接著，它會藉由呼叫 [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet) 將訊息新增至佇列。
 
 1. 將下列 **SendMessageAsync** 方法新增至您的**程式**類別。
 
@@ -229,7 +229,7 @@ Azure 佇列儲存體可實作雲端式佇列，使分散式應用程式的元�
 
 ## <a name="dequeue-messages"></a>清除佇列中的訊息
 
-建立名為 **ReceiveMessageAsync** 的新方法。 此方法會藉由呼叫 [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet) 接收來自佇列的訊息。 在成功接收訊息後，務必要從佇列中刪除該訊息，以免受到多次處理。 收到訊息後，請呼叫 [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet) 以從佇列中刪除該訊息。
+建立名為 **ReceiveMessageAsync** 的新方法。 此方法會藉由呼叫 [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet) 接收來自佇列的訊息。 在成功接收訊息後，務必要從佇列中刪除該訊息，以免受到多次處理。 收到訊息後，請呼叫 [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet) 以從佇列中刪除該訊息。
 
 1. 將下列 **ReceiveMessageAsync** 方法新增至您的**程式**類別。
 

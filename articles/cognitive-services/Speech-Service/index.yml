@@ -18,7 +18,19 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: 了解如何使用語音服務與語音 SDK 將支援語音的功能新增到您的應用程式。 您可以使用與 SDK 來新增「語音轉換文字」<i></i>(語音辨識/SR)、意圖<i></i>、翻譯<i></i>與文字轉換語音<i></i> (TTS) 功能到您的應用程式。 語音服務也具有適用於任何程式設計語言的 REST API，可用來發出 HTTP 要求。
+  description: |
+    了解如何使用語音服務搭配 REST API，或使用我們的語音 SDK，將支援語音的功能新增到您的應用程式。 您可以使用語音 SDK，將下列 (或更多) 功能新增到您的應用程式&colon; 
+    <div class="row" style="font-size:16px"><div class="column"><ul>
+    <li><b><a href="speech-to-text.md">語音轉換文字</a></b> (語音-辨識/SR)</li>
+    <li><b><a href="speech-devices-sdk-create-kws.md">自訂喚醒文字</a></b> (關鍵字-尋找程式/KWS)</li>
+    <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">意圖</a></b></li>
+    <li><b><a href="speech-translation.md">翻譯</a></b></li>
+    <li><b><a href="speech-container-howto.md">內部部署容器</a></b></li></ul></div><div class="column"><ul>
+    <li><b><a href="text-to-speech.md">文字轉換語音</a></b> (TTS)</li>
+    <li><b><a href="conversation-transcription-service.md">對話轉譯</a></b> (CTS)</li>
+    <li><b><a href="how-to-phrase-lists.md">片語清單個人化</a>/<a href="how-to-custom-speech.md">採用自訂語音</a></b></li>
+    <li><b><a href="voice-first-virtual-assistants.md">語音優先虛擬助理</a></b></li>
+    <li><b><a href="call-center-transcription.md">話務中心轉譯</a></b></li></ul></div></div>
 sections:
   - items:
       - type: list
@@ -44,7 +56,7 @@ sections:
   - title: 5 分鐘快速入門
     items:
       - type: paragraph
-        text: 選取箭號連結，了解如何下載、安裝和使用 SDK <img src="media/index/link.jpg" height="15" width="15"></img>.
+        text: 選取箭號連結，了解如何下載、安裝和使用 SDK <img src="media/index/link.jpg" height="15" width="15"></img>上也提供本文中使用的原始碼。<br/><br/>所有箭號連結 <img src="media/index/link.jpg" height="15" width="15"></img> 語音轉換文字的快速入門預設值。 您可在此選取 (<a href="scenario-availability.md">其他可用的</a>) 快速入門，例如文字轉換語音或語音優先虛擬助理。
       - type: table
         style: dataMatrix
         columns:

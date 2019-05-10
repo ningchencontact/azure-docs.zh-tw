@@ -1,90 +1,155 @@
 ---
-title: 了解 Enterprise 的 Azure 保留的項目使用方式 |Microsoft Docs
+title: 了解 Azure 保留使用量的 Enterprise 合約
 description: 學習如何看懂使用量，以了解 Enterprise 註冊的 Azure 保留套用情形。
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+author: bandersmsft
+manager: yashar
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d85dd1c21f952261e838c01843e15dafcc0e931
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370649"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415768"
 ---
-# <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>了解 Enterprise 註冊的 Azure 保留使用量
+# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>取得 Enterprise 合約的保留項目成本與使用量
 
-使用[保留頁面](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)的 **ReservationId** 和 [EA 入口網站](https://ea.azure.com)的使用量檔案，來評估保留使用量。 您也可以在 [EA 入口網站 ](https://ea.azure.com) \(英文\) 的使用情況摘要區段中查看保留使用情況。
+保留項目成本和使用方式資料可供 Enterprise 合約客戶在 Azure 入口網站和 REST Api。 這篇文章可協助您：
 
-如果在預付型方案計費內容中購買保留，請參閱[了解預付型方案訂用帳戶的保留使用量](billing-understand-reserved-instance-usage.md)。
+- 取得保留購買資料
+- 取得保留項目不足的使用量資料
+- 降低保留成本
+- 保留使用量的計費
+- 計算保留節省量
 
-## <a name="usage-for-reserved-virtual-machines-instances"></a>保留的虛擬機器執行個體使用量
+Marketplace 費用將會合併使用情況資料。 您檢視第一次的合作對象使用、 marketplace 使用方式和從單一資料來源的購買費用。
 
-針對下列幾個區段，假設您在美國東部區域執行 Standard_D1_v2 Windows VM，且保留資訊看起來會類似下表：
+## <a name="reservation-charges-in-azure-usage-data"></a>在 Azure 的使用量資料的保留項目費用
 
-| 欄位 | Value |
-|---| --- |
-|ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
-|數量 |1|
-|SKU | 標準_D1|
-|區域 | eastus |
+資料會分成兩個不同的資料集：_實際成本_並_分攤成本_。 這兩個資料集有何不同：
 
-已涵蓋虛擬機器的硬體部分，因為部署的虛擬機器符合保留屬性。 若要查看保留未涵蓋哪些 Windows 軟體，請參閱 [Azure 保留 VM 執行個體的 Windows 軟體成本](billing-reserved-instance-windows-software-costs.md)。
+**實際成本**-提供資料給核對與每月帳單。 此資料已保留購買成本。 它具有零 EffectivePrice 收到保留折扣的使用方式。
 
-### <a name="usage-in-csv-file-for-reserved-vm-instances"></a>保留 VM 執行個體 CSV 檔案中的使用量
+**分攤成本**-資源取得保留折扣的 EffectiveCost 就是保留的執行個體的按比例計算的成本。 資料集也有未使用的保留項目成本。 未使用的保留區與保留成本的總和會提供的保留每日的分攤的成本。
 
-您可以從 Enterprise 入口網站下載 Enterprise 使用量 CSV 檔案。 在 CSV 檔案中，篩選**其他資訊**並輸入 **ReservationID**。 以下螢幕擷取畫面顯示和此保留相關的欄位：
+比較兩個資料集：
 
-![Azure 保留的 Enterprise 合約 (EA) csv](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
+| 資料 | 實際的成本資料集 | 分攤的成本資料集 |
+| --- | --- | --- |
+| 保留購買 | 在此檢視中可用。<br>  若要取得此資料篩選 ChargeType =&quot;採購&quot;。 <br> 請參閱 ReservationID 或 ReservationName 知道需要付費的是哪一個保留項目。  | 此檢視不適用。 <br> 分攤的資料中，不提供採購成本。 |
+| EffectivePrice | 取得保留折扣的使用量為零的值。 | 這個值是每小時按比例成本有保留折扣的使用方式的保留項目。 |
+| 未使用的保留項目 （提供的保留項目並未用於一天的小時數和浪費的貨幣值） | 在此檢視中不適用。 | 在此檢視中可用。<br> 若要取得這項資料，篩選 ChargeType = &quot;UnusedReservation&quot;。<br>  請參閱 ReservationID 或 ReservationName 知道哪一個保留項目使用量過低。 這是保留項目中有多少浪費在一天。  |
+| UnitPrice （來自價位表的資源的價格） | 可用 | 可用 |
 
-1. [其他資訊] 欄位中的 **ReservationId** 代表套用至 VM 的保留。
-2. **ConsumptionMeter** 是 VM 的計量識別碼。
-3. [計量識別碼] 是 $0 成本的保留計量。 保留的 VM 執行個體會支付執行中 VM 的費用。
-4. Standard_D1 是一種 vCPU VM，且是在沒有 Azure Hybrid Benefit 的情況下部署的 VM。 因此，這個計量涵蓋 Windows 軟體的額外費用。 若要尋找對應於 D 系列 1 核心 VM 的計量，請參閱 [Azure 保留 VM 執行個體的 Windows 軟體成本](billing-reserved-instance-windows-software-costs.md)。  如果您擁有 Azure Hybrid Benefit，就不會產生此額外費用。
+其他可用 Azure 使用量資料中的資訊已變更：
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>SQL Database 與 Cosmos DB 保留容量保留項目的使用情況
+- 產品和計量資訊-Azure 不會取代原本取用的計量使用 ReservationId 和 ReservationName，像先前一樣。
+- ReservationId 和 ReservationName-它們是他們自己的資料中的欄位。 先前，它以往是僅適用於 AdditionalInfo。
+- ProductOrderId-保留訂單識別碼中，新增為自己的欄位。
+- ProductOrderName-購買的保留的產品名稱。
+- 詞彙-12 個月或 36 個月。
+- RINormalizationRatio-AdditionalInfo 底下可使用。 這是比例保留項目套用至使用情況記錄的位置。 如果您保留項目會啟用執行個體大小的彈性，它可以套用至其他大小。 值會顯示此保留項目已套用至使用量記錄的比率。
 
-下列各節使用 Azure SQL Database 作為範例來說明使用情況報表。 您也可以使用相同步驟來取得 Azure Cosmos DB 的使用情況。
+## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>取得使用 API 的 Azure 耗用量和保留使用量資料
 
-假設您目前在美國東部區域執行 SQL Database Gen 4，且保留資訊看起來類似下表：
+您可以使用 API 取得資料，或從 Azure 入口網站下載。
 
-| 欄位 | Value |
-|---| --- |
-|ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
-|數量 |2|
-|產品| SQL Database Gen 4 (2 核心)|
-|區域 | eastus |
+您呼叫[使用量詳細資料 API](/rest/api/consumption/usagedetails/list) API 版本&quot;2019年-04-01-preview&quot;取得新的資料。 如需術語的詳細資訊，請參閱[使用條款](billing-understand-your-usage.md)。 呼叫端應該是 enterprise 合約使用企業系統管理員[EA 入口網站](https://ea.azure.com)。 唯讀的企業系統管理員也可以取得資料。
 
-### <a name="usage-in-csv-file"></a>CSV 檔案中的使用方式
+資料不適用於[適用於企業客戶-使用方式詳細資料的報告 Api](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)。
 
-針對 [其他資訊] 進行篩選並輸入您的 [保留識別碼]，然後選擇所需的 [計量類別目錄] - [Azure SQL 資料庫] 或 [Azure Cosmos DB]。 以下螢幕擷取畫面顯示和此保留相關的欄位。
+以下是範例呼叫 API:
 
-![SQL Database 保留容量的 Enterprise 合約 (EA) csv](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
+```
+https://consumption.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+```
 
-1. [其他資訊] 欄位中的 **ReservationId** 是套用至 SQL Database 資源的保留。
-2. **ConsumptionMeter** 是 SQL Database 資源的計量識別碼。
-3. [計量識別碼] 是 $0 成本的保留計量。 任何有資格獲得保留的 SQL Database 資源都會在 CSV 檔案中顯示此計量識別碼。
+如需詳細資訊 {enrollmentId} 和 {billingPeriodId}，請參閱[使用方式詳細資料 – 清單](https://docs.microsoft.com/rest/api/consumption/usagedetails/list)API 文件。
 
-## <a name="usage-summary-page-in-enterprise-portal"></a>Enterprise 入口網站中的使用量摘要頁面
+下表中計量與篩選相關的資訊可協助解決常見問題的保留項目。
 
-Azure 保留使用量也會顯示在企業版入口網站的 [使用量摘要] 區段中：![Enterprise 合約 (EA) 使用量摘要](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+| **API 資料類型** | API 呼叫動作 |
+| --- | --- |
+| **所有費用 （使用方式和購買項目）** | {計量} 取代為 ActualCost |
+| **取得保留折扣的使用方式** | {計量} 取代為 ActualCost<br>取代 {filter}: properties/reservationId%20ne%20 |
+| **未取得保留折扣的使用方式** | {計量} 取代為 ActualCost<br>Replace {filter} with: properties/reservationId%20eq%20 |
+| **分攤的費用 （使用方式和購買項目）** | {計量} 取代為 AmortizedCost |
+| **未使用的保留項目報表** | {計量} 取代為 AmortizedCost<br>取代 {filter}: properties/ChargeType%20eq%20'UnusedReservation' |
+| **保留購買** | 將取代為 ActualCostReplace {filter} 的 {計量} 取代： properties/ChargeType%20eq%20'Purchase'  |
+| **退款** | {計量} 取代為 ActualCost<br>取代 {filter}: properties/ChargeType%20eq%20'Refund' |
 
-1. 您不需要針對 VM 的硬體元件付費，原因是保留已涵蓋該費用。 針對 SQL Database 保留，您會看到有一行以**服務名稱**作為 Azure SQL Database 保留容量使用量。
-2. 在此範例中，您沒有 Azure Hybrid Benefit，因此需要就 VM 所使用的 Windows 軟體支付費用。
+## <a name="download-the-usage-csv-file-with-new-data"></a>下載使用量 CSV 檔案，以新的資料
+
+如果您是 EA 系統管理員，您可以下載 CSV 檔案包含新的使用方式資料，從 Azure 入口網站。 此資料無法使用從[EA 入口網站](https://ea.azure.com)。
+
+在 Azure 入口網站中，瀏覽至[成本管理 + 計費](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts)。
+
+1. 選取 計費帳戶。
+2. 按一下 **使用量 + 費用**。
+3. 按一下 [下載] 。  
+![示範如何下載 CSV 使用量資料檔案，在 Azure 入口網站中的範例](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
+4. 在**下載使用量 + 費用**下方**使用量詳細資料第 2 版**，選取 **（使用方式和購買項目） 的所有費用**，然後按一下 下載。 針對**分攤費用 （使用方式和購買項目）**。
+
+您所下載的 CSV 檔案包含實際的成本和分攤的成本。
+
+## <a name="common-cost-and-usage-tasks"></a>成本和使用方式的一般工作
+
+下列各節是大多數人用來檢視其保留項目成本與使用量資料的一般工作。
+
+### <a name="get-reservation-purchase-costs"></a>取得保留購買成本
+
+保留購買成本有實際的成本資料。 篩選_ChargeType = 購買_。 請參閱 ProductOrderID 來判斷是購買的保留項目順序。
+
+### <a name="get-underutilized-reservation-quantity-and-costs"></a>取得使用量過低的保留數量和成本
+
+取得分攤的成本資料，並篩選_ChargeType_ _= UnusedReservation_。 您可以取得每日的未使用的保留數量和成本。 您可以篩選的資料保留項目或使用的保留項目順序_ReservationId_並_ProductOrderId_欄位，分別。 如果保留已 100%時，記錄會有數量為 0。
+
+### <a name="amortize-reservation-costs"></a>降低保留成本
+
+取得分攤的成本資料和保留項目順序使用的篩選條件_ProductOrderID_取得保留每日的分攤的成本。
+
+### <a name="chargeback-for-a-reservation"></a>保留的計費
+
+您可以於其他組織的計費保留項目使用的訂用帳戶、 資源群組或標記。 分攤的成本資料提供保留區的使用量，在下列資料類型的貨幣的值：
+
+- 資源 （例如 VM)
+- 資源群組
+- Tags
+- 訂用帳戶
+
+### <a name="get-the-blended-rate-for-chargeback"></a>取得混合的費率計費功能
+
+若要判斷混合的速率，取得分攤的成本資料，並彙總的總成本。 針對 Vm，您可以使用從 AdditionalInfo JSON 資料的計量名稱或 ServiceType 資訊。 將分割的總費用由用來取得混合的率的數量。
+
+### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>稽核最佳保留執行個體使用大小的彈性
+
+使用多個數量_RINormalizationRatio_，從 AdditionalInfo。 結果會指出保留項目使用多少小時已套用至使用情況記錄。
+
+### <a name="determine-reservation-savings"></a>決定保留節省量
+
+取得 Amortized 成本資料，並篩選的資料保留的執行個體。 然後：
+
+1. 取得估計的隨用隨付成本。 乘_UnitPrice_值替換_Quantity_值，以取得估計的隨用隨付成本，如果保留折扣不適用於使用方式。
+2. 取得保留成本。 總和_成本_以取得您支付保留執行個體的貨幣值的值。 它包含使用和未使用的保留成本。
+3. 減去保留成本估計的隨用隨付成本，來取得預估的節約效益。
+
+## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>保留購買和在 Azure 的成本分析分攤
+
+保留執行個體成本位於[Azure 的成本分析預覽模式](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis)。 根據預設，成本資料檢視會是實際成本。 您可以切換到 分攤成本。 以下是範例。
+
+![範例，示範如何在 成本分析中選取 分攤的成本](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
+
+套用篩選以查看您的費用依保留項目或費用的型別。 群組保留區名稱，以查看依保留項目細分的成本。
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
 如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
-
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -97,4 +162,3 @@ Azure 保留使用量也會顯示在企業版入口網站的 [使用量摘要] �
 - [了解保留項目折扣的套用方式](billing-understand-vm-reservation-charges.md)
 - [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
 - [Windows 軟體成本不包含在 Reservations 內](billing-reserved-instance-windows-software-costs.md)
-

@@ -9,12 +9,12 @@ ms.date: 4/29/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 560f7eb8a8809cdd6ef410a610be9806f9709754
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148310"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409966"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 儲存體生命週期
 
@@ -87,7 +87,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -158,7 +158,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 |----------------|----------------|-------|----------|
 | name           | 字串 |規則名稱可包含最多 256 個的英數字元。 規則名稱會區分大小寫。  它在原則內必須是唯一的。 | True |
 | enabled | Boolean | 選擇性的布林值，以允許規則，以暫時停用。 預設值為 true，如果未設定。 | False | 
-| type           | 列舉值 | 目前有效的型別是`Lifecycle`。 | True |
+| 類型           | 列舉值 | 目前有效的型別是`Lifecycle`。 | True |
 | 定義     | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 | True |
 
 ## <a name="rules"></a>規則
@@ -208,10 +208,10 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 有效的篩選器包括：
 
-| 篩選名稱 | 篩選類型 | 注意 | 必要 |
+| 篩選名稱 | 篩選類型 | 注意 | 必要的 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 預先定義的列舉值陣列。 | 目前的版本支援`blockBlob`。 | 是 |
-| prefixMatch | 要比對前置詞的字串陣列。 每個規則可以定義最多 10 個前置詞。 前置詞字串必須以容器名稱開頭。 例如，如果您想要比對某條規則的「 https://myaccount.blob.core.windows.net/container1/foo/..」下的所有 Blob，則 prefixMatch 會是 `container1/foo`。 | 如果您未定義 prefixMatch，規則會套用至儲存體帳戶內的所有 blob。  | 否 |
+| blobTypes   | 預先定義的列舉值陣列。 | 目前的版本支援`blockBlob`。 | 有 |
+| prefixMatch | 要比對前置詞的字串陣列。 每個規則可以定義最多 10 個前置詞。 前置詞字串必須以容器名稱開頭。 例如，如果您想要比對某條規則的「 https://myaccount.blob.core.windows.net/container1/foo/..」下的所有 Blob，則 prefixMatch 會是 `container1/foo`。 | 如果您未定義 prefixMatch，規則會套用至儲存體帳戶內的所有 blob。  | 無 |
 
 ### <a name="rule-actions"></a>規則動作
 
@@ -230,7 +230,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 執行的條件取決於存在時間。 基底 Blob 使用上次修改時間來追蹤存在時間，而 Blob 快照集使用快照集建立時間來追蹤存在時間。
 
-| 執行條件的動作 | 條件值 | 描述 |
+| 執行條件的動作 | 條件值 | 說明 |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | 表示存在時間的整數值 (以天數為單位) | 基底 Blob 動作的有效條件 |
 | daysAfterCreationGreaterThan     | 表示存在時間的整數值 (以天數為單位) | Blob 快照集動作的有效條件 | 

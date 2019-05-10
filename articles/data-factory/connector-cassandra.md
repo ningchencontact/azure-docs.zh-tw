@@ -244,7 +244,7 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra �
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |具有使用  |
+| 1 |S1 |A  |
 | 1 |S2 |B |
 | 3 |S1 |t |
 
@@ -252,10 +252,10 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra �
 
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |具有使用  |
+| 1 |A  |
 | 1 |B |
 | 1 |C |
-| 3 |具有使用  |
+| 3 |A  |
 | 3 |E |
 
 ## <a name="next-steps"></a>後續步驟

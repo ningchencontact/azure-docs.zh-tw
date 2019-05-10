@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e87e95ec9e4e20ee4785c2b1f448a7ca5f442b8a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205707"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409202"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>安裝及設定 AWS 成本和使用方式報表整合
 
@@ -38,7 +38,7 @@ ms.locfileid: "65205707"
 7. 針對**啟用支援**，沒有選取項目是必要。
 8. 針對**資料重新整理設定**，選取**自動重新整理您的成本&amp;使用量報告時使用的前幾個月偵測費用關閉帳單**。
 9. 单击“下一步”。
-10. 針對**Amazon S3 貯體**，輸入您想要傳遞給報表的 Amazon S3 貯體名稱，然後按一下**確認**。 值區必須是有效的適當權限。 如需有關如何將權限新增到貯體的詳細資訊，請參閱[設定的值區和物件的存取權限](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)。
+10. 針對**Amazon S3 貯體**，輸入您想要傳遞給報表的 Amazon S3 貯體名稱，然後按一下**確認**。 值區必須是有效的適當權限。 如需有關如何將權限新增到貯體的詳細資訊，請參閱[設定的值區和物件的存取權限](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)。
 11. 針對**報表路徑前置詞**，輸入您想要加入至報表的名稱的報表路徑前置詞。
 12. 針對**壓縮**，選取**GZIP**。
 13. 单击“下一步”。

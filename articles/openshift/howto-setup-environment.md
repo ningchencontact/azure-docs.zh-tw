@@ -9,12 +9,12 @@ ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 7c5fbf135c02abf04e90865e20e902a95174598c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 3c265d6695af7ba1bc5833db59966a626cb29cb9
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65078111"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416082"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>設定 Azure 的 Red Hat OpenShift 開發環境
 
@@ -80,7 +80,13 @@ az --version
     az provider register -n Microsoft.Network --wait
     ```
 
-5. 重新整理 Microsoft.ContainerService 資源提供者註冊：
+5. 註冊 Microsoft.KeyVault 提供者：
+
+    ```bash
+    az provider register -n Microsoft.KeyVault --wait
+    ```
+
+6. 重新整理 Microsoft.ContainerService 資源提供者註冊：
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait
@@ -104,6 +110,6 @@ Azure 的 Red Hat OpenShift 需要在您的叢集，例如設定存放裝置上�
 
 請嘗試本教學課程：
 > [!div class="nextstepaction"]
-> [建立 Azure 的 Red Hat OpenShift 叢集](tutorial-create-cluster.md)
+> [建立 Azure Red Hat OpenShift 叢集](tutorial-create-cluster.md)
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli

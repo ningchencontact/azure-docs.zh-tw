@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61445584"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466908"
 ---
 # <a name="add-an-email-action"></a>新增電子郵件動作
 
@@ -49,7 +49,7 @@ ms.locfileid: "61445584"
 
 1. 確定 [規則狀態] 已設為 [已啟用]。
 
-1. 按一下 [套用]。
+1. 按一下 **[套用]**。
 
 ## <a name="create-a-new-rule"></a>建立新的規則
 
@@ -77,7 +77,7 @@ ms.locfileid: "61445584"
 
 1. 確定 [規則狀態] 已設為 [已啟用]。
 
-1. 按一下 [套用]。
+1. 按一下 **[套用]**。
 
 現在已啟用您具有電子郵件動作的規則。 每次觸發此動作時，就會將新的電子郵件傳送給收件者。
 
@@ -102,11 +102,11 @@ ms.locfileid: "61445584"
 
 1. 按一下 [office365-connector]：
 
-    ![API 連線](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
+    ![API 連線](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. 按一下橫幅以開始授權程序：
 
-    ![授權](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
+    ![授權](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
 1. 按一下 [授權]。 系統會提示您登入。 您用來登入的帳戶應該是應用程式用來傳送電子郵件通知的電子郵件地址：
 
@@ -116,7 +116,7 @@ ms.locfileid: "61445584"
 
 1. 若要變更傳來通知的來源電子郵件地址，請按一下 [編輯 API 連線]。
 
-    ![變更電子郵件](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
+    ![變更電子郵件](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
 ### <a name="owner-role-outlook-setup"></a>擁有者角色 Outlook 設定
 
@@ -142,7 +142,7 @@ ms.locfileid: "61445584"
 
 現成的遠端監視解決方案加速器會提供動作電子郵件的基本 HTML 範本。 電子郵件範本會使用來自電子郵件動作設定的值。 以下是範例電子郵件：
 
-![電子郵件範例](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
+![電子郵件範例](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 下列步驟說明如何編輯 HTML 電子郵件範本。 例如，您可以包含更多資訊或新增自訂映像：
 

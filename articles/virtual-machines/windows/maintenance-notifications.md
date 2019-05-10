@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 76e0f496acf37d4220f57a599f0ce449ca130bba
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: fccc99f78d038a5f96b9dfe01b575dedcdcb4cdc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992908"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405620"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>處理 Windows 虛擬機器預定進行的維修作業通知
 
@@ -27,13 +27,13 @@ ms.locfileid: "64992908"
 
 - 如果維護不需要重新開機，Azure 會在主機更新時使用就地移轉來暫停 VM。 這些不需要重新開機的維護作業會逐個容錯網域套用，而且如果收到任何警告健康情況訊號，進度就會停止。 
 
-- 如果維護需要重新開機，您會在規劃維護時收到通知。 在這些情況下，您會獲得一段時間，供您在適合的時間自行開始維修。
+- 如果維護需要重新開機，您會在規劃維護時收到通知。 在這些情況下，您可以使用，這通常是 30 天您可以在其中開始維護，當它適用於您的時間範圍。
 
 
 預定進行的維修作業若需要重新開機，會排定在不同波段。 每一波段有不同的範圍 (區域)。
 
 - 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以使用 Azure [活動記錄警示](../../azure-monitor/platform/activity-logs-overview.md)，對通知新增更多收件者和傳訊選項，例如電子郵件、SMS 和 Webhook。  
-- 接獲通知時，即可使用「自助期間」。 在此期間，這通常是四週，您可以找到的虛擬機器會包含在這一波且主動開始維護根據自己的排程需求。
+- 接獲通知時，即可使用「自助期間」。 在此期間，這通常是 30 天，您可以找到的虛擬機器會包含在這一波且主動開始維護根據自己的排程需求。
 - 在自助期間之後，「排定維護期間」隨即開始。 在此期間的某個時間點，Azure 會排定並將必要的維護套用於您的虛擬機器。 
 
 有兩個期間的目標是要讓您在知道 Azure 何時將會自動開始維修的同時，有足夠時間開始維修，並將虛擬機器重新啟動。
@@ -89,7 +89,7 @@ Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 
 下列是 MaintenanceRedeployStatus 下傳回的內容： 
 
-| Value | 描述   |
+| Value | 說明   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 指出您目前是否可以在 VM 上開始維修 |
 | PreMaintenanceWindowStartTime         | 維修自助期間的開始，此時您可以在 VM 上起始維修 |
@@ -203,7 +203,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 2.  您的 VM 未排程進行維護。 可能是維護波段已經結束、取消或修改，所以您的 VM 不再受到它的影響。
 3.  您尚未將 [維護] 資料行新增至您的虛擬機器清單檢視。 雖然我們已將此資料行新增至預設檢視，但是設定為查看非預設資料行的客戶必須將 [維護] 資料行手動新增至其 VM 清單檢視。
 
-**问：我的 VM 第二次排程進行維護。原因為何？**
+**问：我的 VM 第二次排程進行維護。為什麼？**
 
 **答：** 有數個使用案例，您會在您已完成維修重新部署之後，看到虛擬機器排程進行維修：
 1.  我們已取消維護，並且使用不同的裝載重新啟動它。 可能是我們偵測到發生錯誤的裝載，只是需要部署額外承載。

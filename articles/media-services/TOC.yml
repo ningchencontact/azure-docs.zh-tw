@@ -6,7 +6,7 @@
 - name: Azure 媒體服務影片索引器
   href: video-indexer/
 - name: Azure 媒體播放器
-  href: 'http://amp.azure.net/libs/amp/latest/docs/index.html'
+  href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
 - name: 資源
   items:
     - name: Azure 藍圖

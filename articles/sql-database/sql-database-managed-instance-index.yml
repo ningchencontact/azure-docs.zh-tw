@@ -70,13 +70,13 @@ sections:
         style: unordered
         items:
           - html: '（預覽）<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">設定時區</a>期間建立執行個體。'
+          - html: '建立具有執行個體<a href="https://aka.ms/managed-instance-collation">您選擇的伺服器層級定序</a>。'
           - html: '異地還原功能可讓您<a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">將資料庫還原至另一個資料中心使用 PowerShell</a>。'
           - html: '（預覽）<a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">重新建立卸除資料庫時使用 PowerShell</a>'
           - html: 托管实例由<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">内置防火墙</a>提供保护。
           - html: '(預覽) 移轉已啟用「透明資料加密」(TDE) 的內部部署資料庫時<a href="https://aka.ms/managed-instance-tde-byok">攜帶您自己的加密金鑰</a>。'
           - html: '(預覽) 使用<a href="https://aka.ms/managed-instance-failover-groups">異地分散的容錯移轉群組</a>將執行個體保留在另一個區域中，確保即使在區域性災害案例中，您的資料仍可供使用。'
           - html: '為還原時間點<a href="https://aka.ms/managed-instance-configurable-backup-retention">設定最多 35 天的備份保留期限</a>。 請注意，長期備份保留期間 (最多 10 年) 仍未啟用，因此您可以使用<a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">只複製備份</a>作為替代方案。'
-          - html: '(預覽) 使用<a href="https://aka.ms/managed-instance-collation">您選擇的執行個體定序</a>建立執行個體。'
           - html: '(預覽) 使用 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 建立<a href="https://aka.ms/managed-instance-aadlogins">執行個體層級 Azure AD 伺服器主體 (登入)</a>。'
   - title: 5 分鐘快速入門
     items:
@@ -122,11 +122,29 @@ sections:
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: '/powershell/module/az.sql/restore-azsqlinstancedatabase#examples'
               - href: null
+          - title: 將資料庫還原到另一個執行個體
+            values:
+              - href: null
+              - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/'
+              - href: 'https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase?view=azps-2.0.0#examples'
+              - href: null
           - title: 還原已卸除的資料庫
             values:
               - href: null
               - href: null
               - href: 'https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Recreate-dropped-database-on-Azure-SQL-Managed-Instance/ba-p/386285'
+              - href: null
+          - title: 異地還原資料庫
+            values:
+              - href: null
+              - href: null
+              - href: 'https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa'
+              - href: null
+          - title: 設定公用 IP 端點
+            values:
+              - href: 'sql-database-managed-instance-public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal'
+              - href: null
+              - href: 'sql-database-managed-instance-public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell'
               - href: null
   - title: 逐步教學課程和學習資料
     items:
@@ -139,7 +157,7 @@ sections:
           - html: 深入了解<a href="/azure/sql-database/sql-database-managed-instance-resource-limits">硬體特性和限制</a>， <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">TRANSACT-SQL 語言差異</a>，和<a href="/azure/sql-database/sql-database-managed-instance-create-manage">TRANSACT-SQL、 PowerShell、 Azure CLI API 來設定受控執行個體<a/>.
           - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">配置</a>将在其中部署托管实例的 Azure VNet。'
           - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">驗證</a>您現有的 Azure VNet，可用來部署受管理的執行個體。'
-          - html: '使用 <a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Azure 虛擬機器</a>或<a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">點對站連線</a>或<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">應用程式</a>，連線到您的執行個體。'
+          - html: '連接到您的執行個體使用<a href="sql-database-managed-instance-public-endpoint-securely">公用 IP 端點</a>， <a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Azure 虛擬機器</a>或是<a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">點對站連線</a>，或<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">應用程式</a>。'
           - html: '確認可以使用 <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> 或<a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">資料庫測試助理</a>來遷移您的資料庫。'
           - html: 將資料庫帶到受管理的執行個體使用<a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">原生還原</a>或是<a href="/azure/dms/tutorial-sql-server-managed-instance-online">資料移轉服務</a>。
           - html: '將 SSIS 套件移至 <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>、將 SSAS 表格式模型移至 <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>，以及將 SSRS 報告移至 <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>。'

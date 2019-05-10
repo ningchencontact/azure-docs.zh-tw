@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 096f39eeef54f3a4a1e3d8928dd13b7c22847c8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143199"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511199"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 入口網站中管理函數應用程式 
 
@@ -26,15 +26,23 @@ ms.locfileid: "65143199"
 
 ![Azure 入口網站中的函數應用程式概觀](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## <a name="manage-app-service-settings"></a>函數應用程式設定索引標籤
+您可以瀏覽至您要特別是從 [概觀] 頁面中，管理您的函式應用程式的所有項目**[應用程式設定](#settings)** 並**[平台功能](#platform-features)**.
 
-![Azure 入口網站中的函數應用程式概觀。](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+## <a name="settings"></a>應用程式設定
 
-[設定] 索引標籤可供您更新函數應用程式所使用的 Functions 執行階段版本。 您也可以在此處管理主機金鑰，這些金鑰可用來限制對函數應用程式所裝載之所有函數的 HTTP 存取。
+**應用程式設定** 索引標籤上會維護您的函式應用程式所使用的設定。
 
-Functions 支援「取用」主控方案和 App Service 主控方案。 如需詳細資訊，請參閱[選擇正確的 Azure Functions 服務方案](functions-scale.md)。 為了在「取用」方案中提升可預測性，Functions 可讓您設定每日使用量配額 (以 GB-秒為單位) 來限制平台使用量。 一旦達到每日使用量配額，系統就會停止函數應用程式。 針對因達到花費配額而停止運作的函數應用程式，您可以從與建立每日花費配額相同的內容中予以重新啟用。 如需有關計費的詳細資料，請參閱 [Azure Functions 定價頁面](https://azure.microsoft.com/pricing/details/functions/)。   
+![在 Azure 入口網站中的函式應用程式設定。](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-## <a name="platform-features-tab"></a>平台功能索引標籤
+這些設定會儲存加密，而且您必須選取**顯示值**以查看入口網站中的值。
+
+若要加入的設定中，選取**新的應用程式設定**並加入新的索引鍵 / 值組。
+
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+
+當您開發在本機的函式應用程式時，會維護這些值在 local.settings.json 專案檔案中。
+
+## <a name="platform-features"></a>平台功能
 
 ![函數應用程式平台功能索引標籤。](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
@@ -46,7 +54,6 @@ Functions 支援「取用」主控方案和 App Service 主控方案。 如需�
 本主題的其餘部分將把焦點放在 Azure 入口網站中對 Functions 實用的下列 App Service 功能：
 
 + [App Service 編輯器](#editor)
-+ [應用程式設定](#settings) 
 + [Console](#console)
 + [進階工具 (Kudu)](#kudu)
 + [部署選項](#deployment)
@@ -63,14 +70,6 @@ Functions 支援「取用」主控方案和 App Service 主控方案。 如需�
 | ![函數應用程式 App Service 編輯器。](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | App Service 編輯器是一個進階的入口網站內編輯器，可供您用來修改 JSON 組態檔和類似的程式碼檔案。 選擇此選項會啟動一個含有基本編輯器的個別瀏覽器索引標籤。 這可讓您與 Git 存放庫整合、執行程式碼和進行偵錯，以及修改函數應用程式設定。 與預設的函數應用程式刀鋒視窗相比，此編輯器為您的函數提供一個強化的開發環境。    |
 
 ![App Service 編輯器](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
-
-### <a name="settings"></a>應用程式設定
-
-| | |
-|-|-|
-| ![函數應用程式的應用程式設定。](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service [應用程式設定] 刀鋒視窗可供您設定和管理架構版本、遠端偵錯、應用程式設定及連接字串。 當您將函數應用程式與其他 Azure 和協力廠商服務整合時，可以在這裡修改那些設定值。 若要刪除設定，請捲動到右邊，並選取該行右邊的 **X** 圖示(下圖未顯示)。
-
-![設定應用程式設定](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>主控台
 

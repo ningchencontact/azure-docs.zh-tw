@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: f58d06cd191166f47d864241564bc57019b59132
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72de0ef874659a5d7840689e38bd7857c25b840
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60707310"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464166"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>從 Azure 入口網站管理 IoT Central
 
@@ -29,19 +29,19 @@ ms.locfileid: "60707310"
 
 在搜尋列中輸入 **IoT Central**。
 
-![管理入口網站：搜尋](media/howto-manage-iot-central-from-portal/image0a.png)
+![管理入口網站：搜尋](media/howto-manage-iot-central-from-portal/image0a1.png)
 
 選取  **IoT Central 應用程式**明細項目在搜尋結果中。
 
-![管理入口網站：搜尋結果](media/howto-manage-iot-central-from-portal/image0b.png)
+![管理入口網站：搜尋結果](media/howto-manage-iot-central-from-portal/image0b1.png)
 
 現在，選取 [建立]。
 
-![管理入口網站：IoT 中心資源](media/howto-manage-iot-central-from-portal/image0c.png)
+![管理入口網站：IoT 中心資源](media/howto-manage-iot-central-from-portal/image0c1.png)
 
 填寫表單中的所有欄位。 此表單類似於您填妥以在 IoT Central [Application Manager](https://aka.ms/iotcentral) 頁面上建立應用程式的表單。 如需詳細資訊，請參閱[建立 IoT Central 應用程式](quick-deploy-iot-central.md)快速入門。
 
-![管理入口網站：建立 IoT Central 資源](media/howto-manage-iot-central-from-portal/image1.png)  
+![管理入口網站：建立 IoT Central 資源](media/howto-manage-iot-central-from-portal/image1a.png)  
 
 之後填寫所有欄位，選取**建立**。
 
@@ -54,7 +54,7 @@ ms.locfileid: "60707310"
 
 若要開始使用，請選取**的所有資源**左側主導覽功能表中。 使用搜尋方塊鍵入您應用程式的名稱，以在您的資源清單中找到該名稱。 然後選取您想要管理的 IoT Central 應用程式。
 
-![管理入口網站：資源管理](media/howto-manage-iot-central-from-portal/image2.png)
+![管理入口網站：資源管理](media/howto-manage-iot-central-from-portal/image2a.png)
 
 若要瀏覽至應用程式，選取 IoT Central 應用程式 URL。
 
@@ -62,11 +62,11 @@ ms.locfileid: "60707310"
 
 若要移動到不同的資源群組的應用程式，請選取**變更**旁邊的資源群組。 在 [移動資源] 頁面上，挑選要將此應用程式遷移至的資源群組。
 
-![管理入口網站：資源管理](media/howto-manage-iot-central-from-portal/image4.png)
+![管理入口網站：資源管理](media/howto-manage-iot-central-from-portal/image4a.png)
 
 若要移動到不同的訂用帳戶的應用程式，請選取**變更**訂用帳戶旁的連結。 在出現的對話方塊中，選擇要將此應用程式遷移至的訂用帳戶。
 
-![管理入口網站：資源管理](media/howto-manage-iot-central-from-portal/image5.png)
+![管理入口網站：資源管理](media/howto-manage-iot-central-from-portal/image5a.png)
 
 ## <a name="next-steps"></a>後續步驟
 

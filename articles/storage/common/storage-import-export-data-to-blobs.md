@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479298"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409371"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure Blob 儲存體
 
@@ -64,7 +64,7 @@ ms.locfileid: "61479298"
     
     下表會說明使用的參數：
 
-    |選項  |描述  |
+    |選項  |說明  |
     |---------|---------|
     |/j:     |日誌檔案的名稱 (具有 .jrn 副檔名)。 每個磁碟機都會產生日誌檔案。 我們建議您使用磁碟序號作為日誌檔案名稱。         |
     |/id:     |工作階段識別碼。 針對命令的每個執行個體使用唯一的工作階段號碼。      |
@@ -79,7 +79,7 @@ ms.locfileid: "61479298"
     > [!IMPORTANT]
     > - 與日誌檔案一起，`<Journal file name>_DriveInfo_<Drive serial ID>.xml` 檔案也會建立在工具所在的相同資料夾中。 如果日誌檔案太大，建立作業時會使用 .xml 檔案代替日誌檔案。 
 
-## <a name="step-2-create-an-import-job"></a>步驟 2：建立匯入作業
+## <a name="step-2-create-an-import-job"></a>步驟 2：建立匯入工作
 
 在 Azure 入口網站中執行下列步驟，以建立匯入作業。
 
@@ -114,7 +114,7 @@ ms.locfileid: "61479298"
 4. 在 [寄返資訊] 中：
 
    - 從下拉式清單中選取貨運公司。 如果您想要使用非 FedEx/DHL 貨運公司，請從下拉式清單中選擇現有的選項。 連絡 Azure 資料方塊作業小組`adbops@microsoft.com`您打算使用貨運公司的相關資訊。
-   - 輸入您在該貨運公司中建立的有效貨運帳戶號碼。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 如果您沒有帳戶號碼，請建立 [FedEx](https://www.fedex.com/us/oadr/) 或 [DHL](http://www.dhl.com/) 貨運帳戶。
+   - 輸入您在該貨運公司中建立的有效貨運帳戶號碼。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 如果您沒有帳戶號碼，請建立 [FedEx](https://www.fedex.com/us/oadr/) 或 [DHL](https://www.dhl.com/) 貨運帳戶。
    - 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。 
         
        > [!TIP] 

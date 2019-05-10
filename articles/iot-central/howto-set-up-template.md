@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097133"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466486"
 ---
 # <a name="set-up-a-device-template"></a>設定裝置範本
 
@@ -54,7 +54,7 @@ ms.locfileid: "62097133"
 
 下列小節描述 [裝置範本] 頁面上的每個索引標籤。
 
-## <a name="measurements"></a>量測
+## <a name="measurements"></a>度量
 
 量測是來自裝置的資料。 您可以在裝置範本中新增多個量測，以符合裝置的功能。
 
@@ -68,10 +68,9 @@ ms.locfileid: "62097133"
 
 > [!NOTE]
 > 裝置範本中的欄位名稱必須符合對應裝置程式碼中的屬性名稱，才能在實際的裝置連線時，讓遙測量測顯示在應用程式中。 隨著您繼續在後續幾節定義裝置範本，以設定各項設定、裝置屬性和命令時，請採取相同的做法。
+.png 比方說，您可以在其中新增新的溫度遙測度量：
 
-例如，您可以新增溫度遙測量測：
-
-| 顯示名稱        | 欄位名稱    |  Units    | Min   |max|
+| 顯示名稱        | 欄位名稱    |  單位    | 最小值   |最大值|
 | --------------------| ------------- |-----------|-------|---|
 | 溫度         | temp          |  degC     |  0    |100|
 
@@ -142,7 +141,7 @@ ms.locfileid: "62097133"
 
 比方說，您可以新增風扇速度設定，方法是選取**設定**並輸入新**數目**設定：
 
-| 顯示名稱  | 欄位名稱    |  Units  | 小數位數 |Initial|
+| 顯示名稱  | 欄位名稱    |  單位  | 小數位數 |Initial|
 | --------------| ------------- |---------| ---------|---- |
 | 風扇速度     | fanSpeed      | RPM     | 2        | 0   |
 
@@ -239,7 +238,7 @@ ms.locfileid: "62097133"
 | --------------| -----------|---------------- | --------- |
 | 回應命令  | 回應       |  30             | text      |
 
-![含回應詳細資料的 [設定命令] 表單](./media/howto-set-up-template/commandsecho.png)
+![含回應詳細資料的 [設定命令] 表單](./media/howto-set-up-template/commandsecho1.png)
 
 選取 [儲存] 之後，**回應**命令會顯示為圖格，當您的實際裝置連線時，就能從 [Device Explorer] 使用它。 命令的欄位名稱必須符合對應裝置程式碼中的屬性名稱，命令才能順利執行。
 
@@ -255,7 +254,7 @@ ms.locfileid: "62097133"
 
 例如，您可以從資源庫中選取 [儀表板]，然後選取 [設定及屬性] 圖格來新增該圖格，以顯示目前選取的設定和屬性值：
 
-![含設定和屬性詳細資料的 [設定裝置詳細資料] 表單](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+![含設定和屬性詳細資料的 [設定裝置詳細資料] 表單](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 現在當操作員在 [Device Explorer] 中檢視儀表板時，他們可以看到該圖格。
 

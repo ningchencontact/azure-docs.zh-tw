@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 05/01/219
 ms.author: bwren
-ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453947"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234194"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure 監視器記錄資料匯入至 Power BI
 
@@ -60,7 +60,9 @@ Power BI Desktop 是桌面應用程式，可讓您建立可發行至 Power BI �
 ## <a name="publish-to-power-bi"></a>發行至 Power BI
 您發行至 Power BI 時，會建立資料集和報表。  如果您在 Power BI Desktop 中建立報表，將連同您的資料一起發佈。  如果未建立，則將建立空白報表。  您可以在 Power BI 中修改該報表，也建立依照資料集建立新的報表。
 
-1. 依照資料建立報表。  如果您不熟悉如何進行，請參閱 [Power BI Desktop 文件](https://docs.microsoft.com/power-bi/desktop-report-view)。  您準備將它傳送至 Power BI 時時，請按一下**發行**。  出現提示時，請在 Power BI 帳戶中選取目的地。  除非您有特定的目的地，否則請使用**我的工作區**。
+1. 依照資料建立報表。  如果您不熟悉如何進行，請參閱 [Power BI Desktop 文件](https://docs.microsoft.com/power-bi/desktop-report-view)。  
+1. 您準備將它傳送至 Power BI 時時，請按一下**發行**。  
+1. 出現提示時，請在 Power BI 帳戶中選取目的地。  除非您有特定的目的地，否則請使用**我的工作區**。
 
     ![Power BI Desktop 發佈](media/powerbi/desktop-publish.png)
 
@@ -70,7 +72,10 @@ Power BI Desktop 是桌面應用程式，可讓您建立可發行至 Power BI �
 ### <a name="configure-scheduled-refresh"></a>設定排定的重新整理
 在 Power BI 中建立的資料集將具有與您先前在 Power BI Desktop 看見的相同資料。  您需要重新整理定期要再次執行查詢，並填入 Azure 監視器的最新資料的資料集。  
 
-1. 按一下您上傳報表的工作區，並選取**資料集**功能表。 選取新的資料集旁邊的快顯功能表，並選取**設定**。 在**資料來源認證**下，應該會出現認證無效的訊息。  這是因為您尚未提供資料集重新整理其資料時使用的認證。  按一下 **編輯認證**並存取 Azure 監視器中的 Log Analytics 工作區中指定的認證。
+1. 按一下您上傳報表的工作區，並選取**資料集**功能表。 
+1. 選取新的資料集旁邊的快顯功能表，並選取**設定**。 
+1. 在**資料來源認證**下，應該會出現認證無效的訊息。  這是因為您尚未提供資料集重新整理其資料時使用的認證。  
+1. 按一下 **編輯認證**並存取 Azure 監視器中的 Log Analytics 工作區中指定的認證。 如果您需要雙因素驗證，請選取**OAuth2** for**驗證方法**提示使用您的認證登入。
 
     ![Power BI 排程](media/powerbi/powerbi-schedule.png)
 

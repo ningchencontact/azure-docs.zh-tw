@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 057e8d78b531abc4ee6d1b16c25a1a6f3b382977
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.openlocfilehash: 54493efdc0bffcbb4654b65676554f6707716968
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64537473"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235566"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 服務的資源提供者
 
@@ -115,13 +115,13 @@ ms.locfileid: "64537473"
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure 空間的錨點](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../azure-netapp-files/index.yml) |
-| Microsoft.Network | [虛擬網路](../virtual-network/index.yml)<br />[負載平衡器](../load-balancer/index.yml)<br />[應用程式閘道](/application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN 閘道](../vpn-gateway/index.yml)<br />[流量管理員](../traffic-manager/index.yml)<br />[網路監看員](../network-watcher/index.yml)<br />[Azure 防火牆](../firewall/index.yml)<br />[Azure 的前端服務](../frontdoor/index.yml) |
+| Microsoft.Network | [虛擬網路](../virtual-network/index.yml)<br />[負載平衡器](../load-balancer/index.yml)<br />[應用程式閘道](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN 閘道](../vpn-gateway/index.yml)<br />[流量管理員](../traffic-manager/index.yml)<br />[網路監看員](../network-watcher/index.yml)<br />[Azure 防火牆](../firewall/index.yml)<br />[Azure 的前端服務](../frontdoor/index.yml) |
 | Microsoft.NotificationHubs | [通知中樞](../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure 監視器](../azure-monitor/index.yml) |
 | Microsoft.OperationsManagement | [Azure 監視器](../azure-monitor/index.yml) |
 | Microsoft.PolicyInsights | [Azure 原則](../governance/policy/index.yml) |
-| Microsoft.Portal | [Azure 门户](/azure/azure-portal/) |
+| Microsoft.Portal | [Azure 入口網站](/azure/azure-portal/) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft.RecoveryServices | [站台復原](../site-recovery/index.yml) |

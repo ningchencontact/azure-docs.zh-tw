@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 968bb5317e06b5cf9ac1f939eaf56288122a1ae0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724412"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236329"
 ---
 # <a name="manage-your-application-preferences"></a>管理您的應用程式偏好設定
 
@@ -23,13 +23,16 @@ IoT Central 具備可配合您的需求自訂應用程式的彈性。 也會針�
 
 ## <a name="changing-language"></a>變更語言
 
-IoT Central 是以多種語言支援。 您可以使用，以便切換您慣用的語言**語言選擇器**在上方導覽列上的 [設定] 圖示。 一旦您已經變更您的語言，IoT 中心仍會記住您的選擇，並套用跨所有應用程式。 請注意，這類儀表板映像未當地語系化的應用程式內的自訂。
+IoT Central 是以多種語言支援。 您可以使用，以便切換您慣用的語言**語言選擇器**在上方導覽列上的 [設定] 圖示。 一旦您已經變更您的語言，IoT 中心仍會記住您的選擇，並套用跨所有應用程式。 在這類儀表板映像未當地語系化的應用程式中的自訂。
 
 ## <a name="changing-theme"></a>變更佈景主題
 
-可支援深色佈景主題和淺色佈景主題。 淺色佈景主題時預設值，您可以變更此選取頂端導覽列上的 [設定] 圖示。
+可支援深色佈景主題和淺色佈景主題。 淺色佈景主題時預設值，您可以選取頂端導覽列上的 [設定] 圖示來變更佈景主題。
 
 ![IoT Central 佈景主題選擇器](media/howto-manage-preferences/settings.png)
+
+> [!NOTE]
+> 淺色與深色佈景主題當中選擇如果無法使用您的系統管理員已設定之應用程式的自訂佈景主題。
 
 ## <a name="next-steps"></a>後續步驟
 

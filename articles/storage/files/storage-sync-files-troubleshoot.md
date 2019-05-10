@@ -2,20 +2,20 @@
 title: 對 Azure 檔案同步進行疑難排解 | Microsoft Docs
 description: 針對 Azure 檔案同步常見問題進行疑難排解。
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e399566a67161219e1d778ba1c6f874f7cede251
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190090"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510847"
 ---
-# <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
+# <a name="troubleshoot-azure-file-sync"></a>疑難排解 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
 
 本文旨在協助您針對使用 Azure 檔案同步部署時所發生的問題進行疑難排解，並解決這些問題。 文中也說明如果需要更深入調查問題，如何從系統收集重要的記錄。 如果您找不到問題的答案，可透過下列管道 (依先後順序) 和我們連絡：
@@ -64,7 +64,7 @@ Reset-StorageSyncServer
 > [!Note]  
 > 如果伺服器是叢集的一部分，您可以使用選擇性的 *Reset-StorageSyncServer -CleanClusterRegistration* 參數，一併移除叢集的註冊。
 
-<a id="web-site-not-trusted"></a>**我在註冊伺服器時收到多個「網站不受信任」回應，原因為何？**  
+<a id="web-site-not-trusted"></a>**我在註冊伺服器時收到多個「網站不受信任」回應，為什麼？**  
 如果在伺服器註冊期間啟用了**增強的 Internet Explorer 安全性**原則，便會發生此問題。 若想進一步了解如何正確停用**增強的 Internet Explorer 安全性**原則，請參閱[準備 Windows Server 以搭配 Azure 檔案同步使用](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
 
 ## <a name="sync-group-management"></a>同步群組管理
@@ -275,7 +275,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (十進位)** | -2147023673 | 
 | **錯誤字串** | ERROR_CANCELLED |
-| **需要補救** | 否 |
+| **需要補救** | 無 |
 
 同步工作階段可能因多種不同原因而失敗，包括伺服器正在重新啟動或更新、VSS 快照集等。雖然此錯誤看似需要後續追蹤，但除非錯誤持續存在達數小時，否則皆可安全地加以忽略。
 
@@ -286,7 +286,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT (十進位)** | -2147012889 | 
 | **錯誤字串** | WININET_E_NAME_NOT_RESOLVED |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -297,7 +297,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (十進位)** | -2134376372 |
 | **錯誤字串** | ECS_E_USER_REQUEST_THROTTLED |
-| **需要補救** | 否 |
+| **需要補救** | 無 |
 
 不需要任何動作；伺服器會再試一次。 如果此錯誤持續存在超過兩小時，請建立支援要求。
 
@@ -308,7 +308,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (十進位)** | -2134364065 |
 | **錯誤字串** | ECS_E_CANNOT_ACCESS_EXTERNAL_STORAGE_ACCOUNT |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 之所以發生此錯誤，是因為 Azure 檔案同步代理程式無法存取 Azure 檔案共用，而這可能是因為 Azure 檔案共用或加以裝載的儲存體帳戶已不存在。 您可以透過下列步驟，對此錯誤進行疑難排解：
 
@@ -324,7 +324,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80C83060 |
 | **HRESULT (十進位)** | -2134364064 |
 | **錯誤字串** | ECS_E_STORAGE_ACCOUNT_NAME_UNRESOLVED |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 1. 確認您可以解析來自伺服器的儲存體 DNS 名稱。
 
@@ -341,7 +341,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (十進位)** | -1906441138 |
 | **錯誤字串** | JET_errWriteConflict |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 當 Azure 檔案同步所使用的內部資料庫有問題時，就會發生此錯誤。發生此問題時，請建立支援要求，我們會與您連絡，協助您解決這個問題。
 
@@ -352,7 +352,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80C8306B |
 | **HRESULT (十進位)** | -2134364053 |
 | **錯誤字串** | ECS_E_AGENT_VERSION_BLOCKED |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 如果不支援安裝在伺服器上的 Azure 檔案同步代理程式版本，就會發生此錯誤。 若要解決此問題，請[升級]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths)至[支援的代理程式版本]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)。
 
@@ -363,7 +363,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c8603e |
 | **HRESULT (十進位)** | -2134351810 |
 | **錯誤字串** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 在達到 Azure 檔案共用儲存空間限制時 (可能在 Azure 檔案共用套用了配額，或 Azure 檔案共用的使用量超出限制時發生)，就會發生此錯誤。 如需詳細資訊，請參閱 [Azure 檔案共用目前的限制](storage-files-scale-targets.md)。
 
@@ -389,7 +389,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c86030 |
 | **HRESULT (十進位)** | -2134351824 |
 | **錯誤字串** | ECS_E_AZURE_FILE_SHARE_NOT_FOUND |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 無法存取 Azure 檔案共用時，就會發生此錯誤。 若要進行疑難排解：
 
@@ -405,7 +405,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80C83076 |
 | **HRESULT (十進位)** | -2134364042 |
 | **錯誤字串** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 當 Azure 訂用帳戶暫止時，就會發生此錯誤。 同步將在 Azure 訂用帳戶恢復時重新啟用。 如需詳細資訊，請參閱[我的 Azure 訂用帳戶為何停用，以及如何重新啟動它？](../../billing/billing-subscription-become-disable.md)。
 
@@ -416,7 +416,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c8306c |
 | **HRESULT (十進位)** | -2134364052 |
 | **錯誤字串** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 因為儲存體帳戶有防火牆，或因為儲存體帳戶屬於虛擬網路，而無法存取 Azure 檔案共用時，就會發生此錯誤。 Azure 檔案同步尚不支援這項功能。 若要進行疑難排解：
 
@@ -432,7 +432,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (十進位)** | -2134375911 |
 | **錯誤字串** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **需要補救** | 否 |
+| **需要補救** | 無 |
 
 此錯誤通常會自行解決；若有下列情況，即可能發生：
 
@@ -448,7 +448,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (十進位)** | -2146762487 |
 | **錯誤字串** | CERT_E_UNTRUSTEDROOT |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 如果您的組織目前使用 SSL 終止 Proxy 或惡意實體正在攔截您的伺服器與 Azure 檔案同步服務之間的流量，即可能發生此錯誤。 若您確定這是預期中的情況 (因為您的組織使用 SSL 終止 Proxy)，您可以透過登錄覆寫略過憑證驗證。
 
@@ -473,7 +473,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80072ee2 |
 | **HRESULT (十進位)** | -2147012894 |
 | **錯誤字串** | WININET_E_TIMEOUT |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -484,7 +484,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c80300 |
 | **HRESULT (十進位)** | -2134375680 |
 | **錯誤字串** | ECS_E_SERVER_CREDENTIAL_NEEDED |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 造成此錯誤的原因可能是：
 
@@ -511,12 +511,12 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT (十進位)** | -1906441711 |
 | **錯誤字串** | JET_errLogDiskFull |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 | | |
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (十進位)** | -2134375654 |
 | **錯誤字串** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 發生此錯誤的原因是磁碟區已滿。 之所以發生此錯誤，常是因為伺服器端點以外的檔案即將用盡磁碟區的空間。 請新增額外的伺服器端點、將檔案移至不同的磁碟區，或增加伺服器端點所在磁碟區的大小，以釋出磁碟區的空間。
 
@@ -527,7 +527,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (十進位)** | -2134364145 |
 | **錯誤字串** | ECS_E_REPLICA_NOT_READY |
-| **需要補救** | 否 |
+| **需要補救** | 無 |
 
 之所以發生此錯誤，是因為 Azure 檔案共用有直接的變更，且變更偵測正在進行中。 變更偵測完成後，就會開始進行同步。
 
@@ -540,17 +540,17 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (十進位)** | -2134364145 |
 | **錯誤字串** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (十進位)** | -2134375908 |
 | **錯誤字串** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 | | |
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (十進位)** | -2134375853 |
 | **錯誤字串** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 如果有許多個別檔案同步錯誤，同步工作階段就可能開始失敗。 <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
@@ -564,9 +564,9 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (十進位)** | -2134376423 |
 | **錯誤字串** | ECS_E_SYNC_INVALID_PATH |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
-請確定路徑存在、位於本機 NTFS 磁碟區尚，且不是重新分析點或現有的伺服器端點。
+請確認路徑存在且位於本機 NTFS 磁碟區，而且不是重新剖析點或現有的伺服器端點。
 
 <a id="-2134375817"></a>**同步處理失敗，因為篩選器驅動程式版本與代理程式版本不相容**  
 
@@ -575,7 +575,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (十進位)** | -2134375817 |
 | **錯誤字串** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
-| **需要補救** | 是 |
+| **需要補救** | 有 |
 
 發生此錯誤的原因是，載入的雲端階層處理篩選器驅動程式 (StorageSync.sys) 版本與儲存體同步代理程式 (FileSyncSvc) 服務不相容。 如果 Azure 檔案同步代理程式已升級，請重新啟動伺服器以完成安裝。 如果錯誤持續發生，請解除安裝代理程式、重新啟動伺服器，並重新安裝 Azure 檔案同步代理程式。
 
@@ -586,7 +586,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (十進位)** | -2134376373 |
 | **錯誤字串** | ECS_E_SERVICE_UNAVAILABLE |
-| **需要補救** | 否 |
+| **需要補救** | 無 |
 
 之所以發生此錯誤，是因為 Azure 檔案同步服務無法使用。 此錯誤會在 Azure 檔案同步服務恢復使用時自動解決。
 
@@ -597,7 +597,7 @@ PerItemErrorCount: 1006.
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (十進位)** | -2134375922 |
 | **錯誤字串** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **需要補救** | 否 |
+| **需要補救** | 無 |
 
 之所以發生此錯誤，是因為同步資料庫發生內部錯誤。 此錯誤會在 Azure 檔案同步重試時自動解決。 如果此錯誤持續存在一段時間，請建立支援要求，我們會與您連絡，協助您解決這個問題。
 

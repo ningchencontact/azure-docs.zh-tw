@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870718"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410579"
 ---
 # <a name="automatically-scale-session-hosts"></a>自動調整工作階段主機
 
@@ -26,9 +26,9 @@ ms.locfileid: "60870718"
 
 - Windows 虛擬桌面的租用戶和帳戶或查詢 （例如 RDS 參與者） 該租用戶的權限的服務主體。
 - 工作階段主應用程式集區 Vm 設定和註冊的 Windows 虛擬桌面服務。
-- 其他的 scaler 透過工作排程，會執行排程的工作的 VM 具有工作階段主機的網路存取權。
-- 執行排定的工作在 VM 上安裝 Microsoft Azure Resource Manager PowerShell 模組。
-- 執行排定的工作在 VM 上安裝的 Windows 虛擬桌面的 PowerShell 模組。
+- 其他虛擬機器透過工作排程器執行排定的工作，並具有工作階段主機的網路存取權。 這將會以文件中稍後的 reffered scaler VM。
+- [Microsoft Azure Resource Manager PowerShell 模組](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)執行排定的工作在 VM 上安裝。
+- [Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)執行排定的工作在 VM 上安裝。
 
 ## <a name="recommendations-and-limitations"></a>建議與限制
 
@@ -37,7 +37,7 @@ ms.locfileid: "60870718"
 - 此調整指令碼只能處理一個主應用程式集區，每個執行個體正在執行調整指令碼之排程工作。
 - 在排程的工作執行調整指令碼必須一律位於 VM 上。
 - 建立個別的資料夾，每個執行個體調整指令碼和其組態。
-- 此指令碼不支援使用 multi-factor authentication 的帳戶。 我們建議您用以存取 Windows 的虛擬桌面服務和 Azure 服務主體。
+- 此指令碼不支援使用 Azure AD 使用者帳戶需要多重要素驗證的 Windows 虛擬桌面系統管理員身分登入。 我們建議您用以存取 Windows 的虛擬桌面服務和 Azure 服務主體。 請遵循[本教學課程](create-service-principal-role-powershell.md)使用 PowerShell 建立服務主體和角色指派。
 - Azure 的 SLA 保證只適用於可用性設定組中的 Vm。 目前版本的文件會描述環境進行調整，單一 vm 可能不符合可用性需求。
 
 ## <a name="deploy-the-scaling-script"></a>部署調整指令碼
@@ -48,32 +48,40 @@ ms.locfileid: "60870718"
 
 首先，準備您的環境調整指令碼：
 
-1. 登入 VM (**調整 VM**)，將會執行排定的工作，以網域系統管理帳戶。
-2. 建立資料夾來保存調整指令碼和其設定在調整 VM 上 (例如**c:\\調整 HostPool1**)。
-3. 下載**basicScaler.ps1**， **Config.xml**，並**函式 PSStoredCredentials.ps1**檔案，而**PowershellModules**從資料夾[調整指令碼存放庫](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script)並將它們複製到您在步驟 2 中建立的資料夾。
+1. 登入將會執行排定的工作，以網域系統管理帳戶的 VM (scaler VM)。
+2. Scaler 來保存調整指令碼和其組態的 VM 上建立資料夾 (例如**c:\\調整 HostPool1**)。
+3. 下載**basicScale.ps1**， **Config.xml**，並**函式 PSStoredCredentials.ps1**檔案，而**PowershellModules**從資料夾[調整指令碼存放庫](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script)並將它們複製到您在步驟 2 中建立的資料夾。 有兩種主要的方式，才能將它們複製至 scaler VM 取得這些檔案：
+    - Git 存放庫複製到本機電腦。
+    - 檢視**Raw**版本的每個檔案，複製並貼上到文字編輯器中，每個檔案的內容，然後儲存檔案與檔案類型與對應的檔案名稱。 
 
 ### <a name="create-securely-stored-credentials"></a>建立安全存放的認證
 
 接下來，您必須建立安全存放的認證：
 
 1. 開啟以系統管理員的 PowerShell ISE。
-2. 開啟編輯 窗格和負載**函式 PSStoredCredentials.ps1**檔案。
-3. 运行以下 cmdlet：
+2. 執行下列 cmdlet 來匯入 RDS PowerShell 模組：
+
+    ```powershell
+    Install-Module Microsoft.RdInfra.RdPowershell
+    ```
+    
+3. 開啟編輯 窗格和負載**函式 PSStoredCredentials.ps1**檔案。
+4. 运行以下 cmdlet：
     
     ```powershell
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
     例如， **Set-variable-名稱 KeyPath-全域範圍-值"c:\\調整 HostPool1"**
-4. 執行**新增 StoredCredential KeyPath \$KeyPath** cmdlet。 出現提示時，輸入您的 Windows 虛擬桌面認證查詢的主應用程式集區的權限 (主應用程式集區中指定**config.xml**)。
+5. 執行**新增 StoredCredential KeyPath \$KeyPath** cmdlet。 出現提示時，輸入您的 Windows 虛擬桌面認證查詢的主應用程式集區的權限 (主應用程式集區中指定**config.xml**)。
     - 如果您使用不同的服務主體或標準帳戶，執行**新增 StoredCredential KeyPath \$KeyPath**一旦針對每個帳戶，來建立本機儲存認證的 cmdlet。
-5. 執行**Get StoredCredentials-清單**，確認已成功建立認證。
+6. 執行**Get StoredCredentials-清單**，確認已成功建立認證。
 
 ### <a name="configure-the-configxml-file"></a>設定 config.xml 檔案
 
 要更新調整指令碼設定在 config.xml 中的下列欄位中輸入相關的值：
 
-| 欄位                     | 描述                    |
+| 欄位                     | 說明                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | 將工作階段主機的 Vm 執行所在的訂用帳戶相關聯的 azure AD 租用戶識別碼     |
 | AADApplicationId              | 服務主體的應用程式識別碼                                                       |
@@ -87,7 +95,7 @@ ms.locfileid: "60870718"
 | BeginPeakTime                 | 尖峰使用時間的開始時                                                            |
 | EndPeakTime                   | 尖峰使用時間結束時                                                              |
 | TimeDifferenceInHours         | 當地時間與 UTC 之間的時間差異以小時為單位                                   |
-| SessionThresholdPerCPU        | 每一 CPU 閾值，用來判斷何時需要新的 RDSH 伺服器在尖峰時間內啟動的工作階段數目上限。  |
+| SessionThresholdPerCPU        | 每一 CPU 閾值，用來判斷何時需要新的工作階段主機 VM 在尖峰時間內啟動的工作階段數目上限。  |
 | MinimumNumberOfRDSH           | 主應用程式集區在離峰的使用量期間保持執行的 Vm 數目下限             |
 | LimitSecondsToForceLogOffUser | 強制使用者登出之前要等待的秒數。如果設定為 0，使用者不會強制其登出。  |
 | LogOffMessageTitle            | 訊息傳送給使用者，他們要強制登出之前的標題                  |
@@ -111,11 +119,11 @@ ms.locfileid: "60870718"
 
 此調整指令碼會讀取 config.xml 檔案，包括的開始和結束的當天的尖峰使用量期間中的設定。
 
-在尖峰使用期間，指令碼會檢查目前的工作階段與每個集合的目前執行 RDSH 容量的數目。 它會計算執行 RDSH 伺服器是否有足夠的容量，以支援 config.xml 檔案中所定義之 SessionThresholdPerCPU 參數為基礎的現有工作階段。 如果沒有，則指令碼會啟動其他的 RDSH 伺服器集合中。
+在尖峰使用期間，指令碼會檢查目前的工作階段與每個主應用程式集區的目前執行 RDSH 容量的數目。 它會計算是否執行的工作階段主機 Vm 有足夠的容量，以支援 config.xml 檔案中所定義之 SessionThresholdPerCPU 參數為基礎的現有工作階段。 如果沒有，則指令碼會啟動額外的工作階段主機 Vm 主應用程式集區中。
 
-離峰的使用量期間，指令碼會判斷哪些 RDSH 伺服器應該關閉基礎 MinimumNumberOfRDSH 參數 config.xml 檔案中。 指令碼將 RDSH 伺服器清空模式，以避免新的工作階段連接到主機。 如果您設定**LimitSecondsToForceLogOffUser** config.xml 檔案以非零的正整數值中的參數，指令碼將會通知任何目前已登入儲存的工作，等待已設定的一段時間，然後強制的使用者若要登出使用者。一旦所有使用者工作階段已都簽署 RDSH 伺服器上，指令碼將會關閉伺服器。
+離峰的使用量期間，指令碼會判斷哪些 Vm 應關閉 MinimumNumberOfRDSH 參數中的 config.xml 檔案為基礎的工作階段主機。 清空模式，以避免新的工作階段連接到主機的主機 Vm 時，指令碼會設定工作階段。 如果您設定**LimitSecondsToForceLogOffUser** config.xml 檔案以非零的正整數值中的參數，指令碼將會通知任何目前已登入儲存的工作，等待已設定的一段時間，然後強制的使用者若要登出使用者。一旦工作階段主機 VM 上有已登出所有使用者工作階段，指令碼將會關閉伺服器。
 
-如果您設定**LimitSecondsToForceLogOffUser**為零的 config.xml 檔案中的參數，指令碼可讓工作階段的組態設定集合屬性，以處理簽署登出使用者工作階段中。 如果 RDSH 伺服器上有任何工作階段，它會將 RDSH 伺服器執行。 如果沒有任何工作階段，指令碼將會關閉 RDSH 伺服器。
+如果您設定**LimitSecondsToForceLogOffUser**為零的 config.xml 檔案中的參數，指令碼可讓主應用程式中的工作階段組態設定集區屬性，以處理簽署登出使用者工作階段。 如果工作階段主機 VM 上有任何工作階段，它將保留在工作階段主機 VM 執行。 如果沒有任何工作階段，指令碼將會關閉工作階段主機 VM。
 
 指令碼可使用工作排程器在 scaler VM 伺服器上定期執行。 選取 遠端桌面服務環境的大小為基礎的適當的時間間隔，請記得啟動和關閉虛擬機器可能需要一些時間。 建議您執行調整指令碼每隔 15 分鐘。
 
@@ -125,6 +133,6 @@ ms.locfileid: "60870718"
 
 **WVDTenantUsage.log**檔案會記錄使用中的核心數目和作用中的虛擬機器數目每次您執行調整指令碼。 您可以使用這項資訊來預估 Microsoft Azure Vm 和成本的實際使用量。 檔案會格式化為逗號分隔的值，每個項目包含下列資訊：
 
->時間、 集合、 核心，Vm
+>時間、 主應用程式集區、 Vm 的核心
 
 檔案名稱也可以修改以.csv 副檔名，載入到 Microsoft Excel，並加以分析。

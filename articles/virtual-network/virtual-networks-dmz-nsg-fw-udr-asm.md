@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7927868a9a4bebc80ec995baefbae4c45d747f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362924"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410466"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>範例 3：： 建置周邊網路，以透過防火牆、 UDR 和 Nsg 保護網路
 
@@ -989,7 +989,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 儲存此 XML 檔案以更新的位置。 變更`$NetworkConfigFile`完整上述指令碼連結至已儲存的網路組態檔中使用者定義變數。
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

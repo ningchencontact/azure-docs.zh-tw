@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8605e614574b7ebd45e9f18c4e5685a9c5450e64
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688352"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409907"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活動記錄警示的 Webhook
 在定義動作群組的過程中，您可以設定 Webhook 端點以接收活動記錄警示通知。 您可以使用 Webhook 將這些通知路由到其他系統，以進行後置處理或自訂動作。 本文會說明 HTTP POST 至 Webhook 的承載資料樣貌。
@@ -156,7 +156,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
                 "resourceGroupName": "<resource group>",
                 "resourceProviderName": "Microsoft.Resourcehealth/healthevent/action",
                 "status": "Active",
-                "subscriptionId": "<subscription Id",
+                "subscriptionId": "<subscription Id>",
                 "submissionTimestamp": "2018-09-04T23:11:06.1607287+00:00",
                 "resourceType": "Microsoft.Compute/virtualMachines"
             }
@@ -169,7 +169,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 
 如需了解所有其他活動記錄警示的特定結構詳細資料，請參閱 [Azure 活動記錄的概觀](../../azure-monitor/platform/activity-logs-overview.md)。
 
-| 元素名稱 | 描述 |
+| 元素名稱 | 說明 |
 | --- | --- |
 | status |用於度量警示。 針對活動記錄警示，一律設為「啟動」。 |
 | context |事件的內容。 |
@@ -186,7 +186,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 | 事件 |包含事件相關中繼資料的元素。 |
 | 授權 |事件的角色型存取控制屬性。 這些屬性通常包括動作、角色和範圍。 |
 | category |事件的類別。 支援值包括「管理」、「警示」、「安全性」、「ServiceHealth」和「建議」。 |
-| 呼叫者 |已執行作業的使用者的電子郵件地址，根據可用性的 UPN 宣告或 SPN 宣告。 特定系統呼叫可為 Null。 |
+| 呼叫端 |已執行作業的使用者的電子郵件地址，根據可用性的 UPN 宣告或 SPN 宣告。 特定系統呼叫可為 Null。 |
 | correlationId |通常是字串格式的 GUID。 具有屬於同一個較大動作的 correlationId 的事件，且通常會共用 correlationId。 |
 | eventDescription |事件的靜態文字描述。 |
 | eventDataId |事件的唯一識別碼。 |
@@ -194,7 +194,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 | httpRequest |要求通常包括 “clientRequestId”、“clientIpAddress” 和 HTTP “method” (例如 PUT)。 |
 | 層級 |下列其中一個值：重大、錯誤、警告和告知性。 |
 | operationId |通常是對應至單一作業的事件之間共用的 GUID。 |
-| operationName |操作的名称。 |
+| operationName |作業名稱。 |
 | properties |事件的属性。 |
 | status |字串。 作業的狀態。 常見的值包括︰「已啟動」、「進行中」、「成功」、「失敗」、「使用中」和「已解決」。 |
 | 子狀態 |通常包含對應 REST 呼叫的 HTTP 狀態碼。 它也可以包含其他描述子狀態的字串。 常見的子狀態值包括正常 (HTTP 狀態碼:200)、已建立 (HTTP 狀態碼:201)、已接受 (HTTP 狀態碼:202)、無內容 (HTTP 狀態碼:204)、錯誤的要求 (HTTP 狀態碼:400)、找不到 (HTTP 狀態碼:404)、衝突 (HTTP 狀態碼:409)、內部伺服器錯誤 (HTTP 狀態碼:500)、無法使用服務 (HTTP 狀態碼:503)，以及閘道逾時 (HTTP 狀態碼:504)。 |

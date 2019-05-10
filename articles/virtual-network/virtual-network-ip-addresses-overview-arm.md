@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 30186d0f8197a35db409684775e2ec78288b8818
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726660"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236349"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
 
@@ -105,11 +105,14 @@ ms.locfileid: "64726660"
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS 主機名稱解析
-您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立 domainnamelabel.location.cloudapp.azure.com 與 Azure 受控 DNS 伺服器中的公用 IP 位址的對應。 比方說，如果您建立公用 IP 資源並以 **contoso** 作為**美國西部** Azure 位置中的 domainnamelabel，則完整網域名稱 (FQDN) **contoso.westus.cloudapp.azure.com** 會解析為資源的公用 IP 位址。 您可以使用此 FQDN 來建立自訂網域 CNAME 記錄，其指向 Azure 中的公用 IP 位址。 可改為 (或同時) 使用具有預設尾碼的 DNS 名稱標籤，您可以使用 Azure DNS 服務來設定 DNS 名稱，其具有解析為公用 IP 位址的自訂尾碼。 如需詳細資訊，請參閱[使用具有 Azure 公用 IP 位址的 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。
+您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立 domainnamelabel.location.cloudapp.azure.com 與 Azure 受控 DNS 伺服器中的公用 IP 位址的對應。 比方說，如果您建立公用 IP 資源並以 **contoso** 作為**美國西部** Azure 位置中的 domainnamelabel，則完整網域名稱 (FQDN) **contoso.westus.cloudapp.azure.com** 會解析為資源的公用 IP 位址。
 
 > [!IMPORTANT]
 > 所建立的每個網域名稱標籤必須是 Azure 位置中唯一的。  
 >
+
+### <a name="dns-best-practices"></a>DNS 的最佳作法
+如果您需要移轉至不同的區域，您無法移轉您的公用 IP 位址的 FQDN。 最佳做法，您可以使用 FQDN 來建立自訂網域 CNAME 記錄指向 Azure 中的公用 IP 位址。 如果您需要移至不同的公用 ip 位址，它將需要更新 CNAME 記錄，而不必以手動方式更新到新的地址的 FQDN。 您可以使用[Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)或您的 DNS 記錄的外部 DNS 提供者。 
 
 ### <a name="virtual-machines"></a>虛擬機器
 
@@ -132,9 +135,9 @@ ms.locfileid: "64726660"
 
 | 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |是 |是 |
-| 網際網路對應負載平衡器 |前端組態 |是 |是 |
-| VPN 网关 |閘道 IP 組態 |是 |是 |
+| 虛擬機器 |Linux |有 |有 |
+| 網際網路對應負載平衡器 |前端組態 |有 |有 |
+| VPN 网关 |閘道 IP 組態 |有 |無 |
 | 應用程式閘道 |前端組態 |是 (僅限 V1) |是 (僅限 V2) |
 
 ## <a name="private-ip-addresses"></a>私人 IP 位址
@@ -180,9 +183,9 @@ ms.locfileid: "64726660"
 
 | 最上層資源 | IP 位址關聯 | 动态 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |是 |是 |
-| 負載平衡器 |前端組態 |是 |是 |
-| 應用程式閘道 |前端組態 |是 |是 |
+| 虛擬機器 |Linux |有 |有 |
+| 負載平衡器 |前端組態 |有 |有 |
+| 應用程式閘道 |前端組態 |有 |有 |
 
 ## <a name="limits"></a>限制
 加諸於 IP 位址上的限制，如在 Azure 中的完整[網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)所示。 這些限制是針對每一區域和每一訂用帳戶。 您可以 [連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ，以根據您的業務需求將預設上限調升到最高上限。

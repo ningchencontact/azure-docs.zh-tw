@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616546"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405646"
 ---
 # <a name="creating-and-using-resource-files"></a>建立和使用資源檔
 
@@ -38,7 +38,7 @@ Azure Batch 工作通常需要某種形式的要處理的資料。 資源檔會�
 
 ### <a name="storage-container-url"></a>儲存體容器 URL
 
-使用儲存體容器 URL，表示您可以存取在 Azure 中的任何儲存體容器中的檔案。 使用正確的權限
+使用儲存體容器 URL，表示您可以存取具有正確的權限在 Azure 中的任何儲存體容器中的檔案。
 
 在這個C#範例中，檔案已上傳至 Azure 儲存體容器與 blob 儲存體。 若要存取 建立資源檔所需的資料，我們需要以取得存取權的儲存體容器。
 

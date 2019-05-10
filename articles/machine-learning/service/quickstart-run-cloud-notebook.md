@@ -10,32 +10,34 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149834"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510622"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>快速入門：使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning
 
 建立雲端式 Notebook 伺服器，然後使用它。  在本快速入門中，您會執行 Python 程式碼，以在 [Azure Machine Learning 服務工作區](concept-azure-machine-learning-architecture.md)中記錄值。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎。 
 
 本快速入門示範如何在 Azure Machine Learning 工作區 (已設定執行 Azure Machine Learning 所需的 Python 環境) 中建立雲端資源。 若要改為使用您自己的環境，請參閱[快速入門：使用您自有的 Notebook 伺服器來開始使用 Azure Machine Learning](quickstart-run-local-notebook.md)。  
- 
+
 在本快速入門中，您會執行下列動作：
 
 * 在您的工作區中建立新的雲端式 Notebook 伺服器。
 * 啟動 Jupyter Web 介面。
 * 開啟包含程式碼的 Notebook，以估計每個反覆項目的 pi 和記錄錯誤。
 * 執行 Notebook。
-* 在工作區中檢視記錄錯誤的值。 這個範例示範工作區如何協助您追蹤指令碼中所產生的資訊。 
+* 在工作區中檢視記錄錯誤的值。 這個範例示範工作區如何協助您追蹤指令碼中所產生的資訊。
 
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="create-a-workspace"></a>建立工作區
 
-- Azure Machine Learning 工作區。  立即[建立您的工作區](setup-create-workspace.md#portal) (如果您沒有工作區)。
+如果您有 Azure Machine Learning 服務工作區，請跳至[下一節](#create-a-cloud-based-notebook-server)。 否則，請建立此工作區。
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="create-a-cloud-based-notebook-server"></a>建立雲端式 Notebook 伺服器
 
@@ -57,7 +59,6 @@ ms.locfileid: "65149834"
     ![建立新的 VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. 等待約 4-5 分鐘，直到狀態變更為**執行中**。
-
 
 ## <a name="launch-jupyter-web-interface"></a>啟動 Jupyter Web 介面
 
@@ -102,10 +103,9 @@ ms.locfileid: "65149834"
 
     在最大程式碼儲存格中，您會看到 `run.log` 使用於多個地方。 每個 `run.log` 會將其值新增至您的工作區。
 
-
 ## <a name="view-logged-values"></a>檢視記錄的值
 
-1. `run` 資料格的輸出包含連回 Azure 入口網站的連結，可讓您在工作區中檢視實驗結果。 
+1. `run` 資料格的輸出包含連回 Azure 入口網站的連結，可讓您在工作區中檢視實驗結果。
 
     ![檢視實驗](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -117,7 +117,7 @@ ms.locfileid: "65149834"
 
 用於大致估計 pi 的程式碼會使用隨機值，因此您的圖會顯示不同的值。  
 
-## <a name="clean-up-resources"></a>清除資源 
+## <a name="clean-up-resources"></a>清除資源
 
 ### <a name="stop-the-notebook-vm"></a>停止 Notebook VM
 

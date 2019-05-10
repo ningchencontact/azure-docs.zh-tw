@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: 7324ab1d7aa6e42100c9c6760c17b0ea6445f21d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f3473d83678ffea888dad736a9620006b2961f7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079453"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406399"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>教學課程：使用適用於 PostgreSQL 的 Azure 資料庫 – Hyperscale (Citus) (預覽) 設計即時分析儀表板
 
@@ -21,7 +21,7 @@ ms.locfileid: "65079453"
 
 > [!div class="checklist"]
 > * 建立 Hyperscale (Citus) 伺服器群組
-> * 使用 psql 公用程式來建立結構描述
+> * 使用 psql 公用程式建立結構描述
 > * 進行跨節點的資料表分區化
 > * 產生範例資料
 > * 執行彙總
@@ -54,18 +54,18 @@ ms.locfileid: "65079453"
 
 5. 按一下 [設定伺服器群組]。 讓該區段中的設定維持不變，然後按一下 [儲存]。
 6. 按一下 [檢閱 + 建立]，然後按一下 [建立] 以佈建伺服器。 佈建需要幾分鐘的時間。
-7. 此頁面會重新導向以監視部署。 當即時狀態從 [您的部署正在進行中] 變更為 [您的部署已完成] 時，按一下頁面左邊的 [輸出] 功能表項目。
-8. [輸出] 頁面將包含協調器主機名稱，其旁邊有個按鈕可將此值複製到剪貼簿。 請記錄此資訊，以供稍後使用。
+7. 此頁面會重新導向以監視部署。 當即時狀態從 [您的部署正在進行中] 變更為 [您的部署已完成] 時，按一下頁面左側的 [輸出] 功能表項目。
+8. [輸出] 頁面將包含協調器主機名稱，且旁邊會有按鈕可將此值複製到剪貼簿。 請記錄此資訊，以供後續使用。
 
 ## <a name="configure-a-server-level-firewall-rule"></a>設定伺服器層級防火牆規則
 
-「適用於 PostgreSQL 的 Azure 資料庫」服務會使用伺服器層級的防火牆。 根據預設，防火牆會防止所有外部應用程式和工具連線到伺服器及伺服器上的任何資料庫。 我們必須新增規則，以針對特定 IP 位址範圍開啟防火牆。
+「適用於 PostgreSQL 的 Azure 資料庫」服務會使用伺服器層級的防火牆。 根據預設，防火牆會防止所有外部應用程式和工具連線到伺服器和伺服器上的任何資料庫。 我們必須新增規則，以針對特定 IP 位址範圍開啟防火牆。
 
-1. 從您先前複製協調器節點主機名稱的 [輸出] 區段，按一下 [概觀] 功能表項目。
+1. 在您先前複製協調器節點主機名稱的 [輸出] 區段中，按一下 [上一頁] 返回 [概觀] 功能表項目。
 
 2. 在資料清單中尋找部署的縮放群組，然後按一下該群組。 (其名稱前面會加上 "sg-"。)
 
-3. 按一下左側功能表中 [安全性] 底下的 [防火牆]。
+3. 按一下左側功能表中 [安全性] 下方的 [防火牆]。
 
 4. 按一下[+ 為目前的用戶端 IP 位址新增防火牆規則] 連結。 最後，按一下 [儲存] 按鈕。
 
@@ -97,7 +97,7 @@ ms.locfileid: "65079453"
    psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
    ```
 
-## <a name="use-psql-utility-to-create-a-schema"></a>使用 psql 公用程式來建立結構描述
+## <a name="use-psql-utility-to-create-a-schema"></a>使用 psql 公用程式建立結構描述
 
 使用 psql 連線到適用於 PostgreSQL 的 Azure 資料庫 - Hyperscale (Citus) (預覽) 後，您可以完成一些基本工作。 本教學課程會引導您擷取 Web 分析中的流量資料，然後彙總資料，以便根據該資料提供即時儀表板。
 
@@ -170,7 +170,7 @@ DO $$
       ip_address, status_code, response_time_msec
     ) VALUES (
       trunc(random()*32), clock_timestamp(),
-      concat('http://example.com/', md5(random()::text)),
+      concat('https://example.com/', md5(random()::text)),
       ('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
       concat(
         trunc(random()*250 + 2), '.',
@@ -282,7 +282,7 @@ DELETE FROM http_request_1min WHERE ingest_time < now() - interval '1 month';
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在前述步驟中，您在伺服器群組中建立了 Azure 資源。 如果您認為未來不需要這些資源，請刪除伺服器群組。 在您伺服器群組的 [概觀] 頁面中，按一下 [刪除] 按鈕。 當快顯頁面上出現系統提示時，確認伺服器群組的名稱，然後按一下最後一個 [刪除] 按鈕。
+在前述步驟中，您在伺服器群組中建立了 Azure 資源。 如果您認為未來不需要這些資源，請刪除伺服器群組。 在您伺服器群組的 [概觀] 頁面中，按一下 [刪除] 按鈕。 當快顯頁面上出現提示時，請確認伺服器群組的名稱，然後按一下最後一個 [刪除] 按鈕。
 
 ## <a name="next-steps"></a>後續步驟
 

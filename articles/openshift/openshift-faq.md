@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 77e0e11582808901b10877d0d9284637145aa6f2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/08/2019
+ms.openlocfilehash: 881734caf855ccfc4f001693fe261b8448b49bc4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65078666"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466207"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure 的 Red Hat OpenShift 常見問題集
 
@@ -25,7 +25,7 @@ ms.locfileid: "65078666"
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>可以部署到現有的虛擬網路的叢集嗎？
 
-是。 當您建立叢集時，您可以部署到現有的虛擬網路的 Azure Red Hat OpenShift 叢集。 請參閱[叢集的虛擬網路連線到現有的虛擬網路](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network)如需詳細資訊。
+沒有。 但是，您可以現有的 VNET，透過對等互連來連線 Azure Red Hat OpenShift 叢集。 請參閱[叢集的虛擬網路連線到現有的虛擬網路](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network)如需詳細資訊。
 
 ## <a name="what-cluster-operations-are-available"></a>叢集作業可供使用？
 

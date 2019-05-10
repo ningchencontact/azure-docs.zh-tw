@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a6fe5b0452771cd2e618d1a08cb2f4af52e3cc0d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c55839f7ec4e4c28086912c476a193e31561c3f4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538677"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234122"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>教學課程：使用 .NET API 透過 Azure Batch 執行平行工作負載
 
@@ -140,7 +140,7 @@ Elapsed time: 00:09:14.3418742
 
 ### <a name="authenticate-blob-and-batch-clients"></a>驗證 Blob 和 Batch 用戶端
 
-為了與連結的儲存體帳戶進行互動，應用程式會使用適用於 .NET 的 Azure 儲存體用戶端程式庫。 其使用 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 建立帳戶的參考，並使用共用金鑰驗證進行驗證。 然後會建立 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient)。
+為了與連結的儲存體帳戶進行互動，應用程式會使用適用於 .NET 的 Azure 儲存體用戶端程式庫。 其使用 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 建立帳戶的參考，並使用共用金鑰驗證進行驗證。 然後會建立 [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient)。
 
 ```csharp
 // Construct the Storage account connection string
