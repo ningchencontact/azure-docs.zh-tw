@@ -93,7 +93,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 電子郵件 | 用於 ServiceAuthentication 的服務帳戶電子郵件識別碼。 它只能在自我裝載 Integration Runtime 上使用。  | 否 |
+| email | 用於 ServiceAuthentication 的服務帳戶電子郵件識別碼。 它只能在自我裝載 Integration Runtime 上使用。  | 否 |
 | keyFilePath | .p12 金鑰檔的完整路徑，用來驗證服務帳戶電子郵件地址。 | 否 |
 | trustedCertPath | .pem 檔案的完整路徑，其中包含在透過 SSL 連線時，用來驗證伺服器的受信任 CA 憑證。 只有當您在自我裝載 Integration Runtime 使用 SSL 時，才能設定這個屬性。 預設值為隨整合執行階段安裝的 cacerts.pem 檔案。  | 否 |
 | useSystemTrustStore | 指定是否使用來自系統信任存放區或來自指定 .pem 檔案的 CA 憑證。 預設值為 **false**。  | 否 |

@@ -51,7 +51,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | refreshToken | 從 Google 取得的重新整理權杖，用於針對 UserAuthentication 授權存取 AdWords。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
 | clientId | 用來取得重新整理權杖的 Google 應用程式用戶端識別碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
 | clientSecret | 用來取得重新整理權杖的 Google 應用程式用戶端密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
-| 電子郵件 | 服務帳戶電子郵件識別碼，用於 ServiceAuthentication 且只能在自我裝載 IR 上使用。  | 否 |
+| email | 服務帳戶電子郵件識別碼，用於 ServiceAuthentication 且只能在自我裝載 IR 上使用。  | 否 |
 | keyFilePath | .p12 金鑰檔的完整路徑，用來驗證服務帳戶電子郵件地址且只能在自我裝載 IR上使用。  | 否 |
 | trustedCertPath | .pem 檔案的完整路徑，其中包含在透過 SSL 連線時，用來驗證伺服器的受信任 CA 憑證。 只有在自我裝載 IR 上使用 SSL 時，才能設定這個屬性。 預設值為隨 IR 安裝的 cacerts.pem 檔案。  | 否 |
 | useSystemTrustStore | 指定是否使用來自系統信任存放區或來自指定 PEM 檔案的 CA 憑證。 預設值為 False。  | 否 |
