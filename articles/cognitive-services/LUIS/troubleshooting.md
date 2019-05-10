@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 132ba922fa73c73d0e001e84659b5a24996d406b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072787"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235801"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -294,7 +294,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 * [V3 API 移轉指南的預覽](luis-migration-api-v3.md)
 * [改善的分析儀表板](luis-how-to-use-dashboard.md)
-* [改善預先建置的網域](luis-reference-prebuilt-domains.md)V2 和 V3 Api 工作
+* [改善預先建置的網域](luis-reference-prebuilt-domains.md) 
 
 ## <a name="next-steps"></a>後續步驟
 

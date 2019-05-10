@@ -1,33 +1,68 @@
 ---
 title: 金鑰保存庫密碼與 Azure Resource Manager 範本 | Microsoft Docs
 description: 示範如何在部署期間從金鑰保存庫中傳遞密碼做為參數。
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2019
+ms.date: 05/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 93b92a8a3b8aacd1f665725643314858fe92ad3c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: e47a087e27b6a8ade947e36ded762ce2e518ca25
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233763"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507962"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署期間使用 Azure Key Vault 以傳遞安全的參數值
 
-您可以在部署期間從 [Azure Key Vault](../key-vault/key-vault-whatis.md) 擷取值，而不是將安全的值 (例如密碼) 直接放入參數檔案中。 您可以藉由參考金鑰保存庫和參數檔案中的密碼來擷取值。 您只參考其金鑰保存庫識別碼，因此該值絕不會公開。 金鑰保存庫可以存在於與您部署的資源群組的不同訂用帳戶中。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+而不是安全值 （例如密碼） 直接置於您的範本或參數檔案中，您可以從中擷取值[Azure Key Vault](../key-vault/key-vault-whatis.md)在部署期間。 您可以藉由參考金鑰保存庫和參數檔案中的密碼來擷取值。 您只參考其金鑰保存庫識別碼，因此該值絕不會公開。 金鑰保存庫可以存在於不同的訂用帳戶，您要部署之資源群組。
 
 ## <a name="deploy-key-vaults-and-secrets"></a>部署金鑰保存庫和祕密
 
-若要建立 Key Vault 並新增祕密，請參閱：
+若要在範本部署期間存取金鑰保存庫，請設定`enabledForTemplateDeployment`若要對金鑰保存庫`true`。
+
+下列 Azure CLI 和 Azure PowerShell 範例示範如何建立金鑰保存庫，並新增祕密。
+
+```azurecli
+az group create --name $resourceGroupName --location $location
+az keyvault create \
+  --name $keyVaultName \
+  --resource-group $resourceGroupName \
+  --location $location \
+  --enabled-for-template-deployment true
+az keyvault secret set --vault-name $keyVaultName --name "ExamplePassword" --value "hVFkk965BuUv"
+```
+
+```azurepowershell
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzKeyVault `
+  -VaultName $keyVaultName `
+  -resourceGroupName $resourceGroupName `
+  -Location $location `
+  -EnabledForTemplateDeployment
+$secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
+$secret = Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'ExamplePassword' -SecretValue $secretvalue
+```
+
+做為金鑰保存庫擁有者，您會自動擁有建立祕密的存取權。 如果使用者使用密碼不是金鑰保存庫的擁有者，授與的存取：
+
+```azurecli
+az keyvault set-policy \
+  --upn $userPrincipalName \
+  --name $keyVaultName \
+  --secret-permissions set delete get list
+```
+
+```azurepowershell
+$userPrincipalName = "<Email Address of the deployment operator>"
+
+Set-AzKeyVaultAccessPolicy `
+  -VaultName $keyVaultName `
+  -UserPrincipalName $userPrincipalName `
+  -PermissionsToSecrets set,delete,get,list
+```
+
+如需有關建立金鑰保存庫和新增祕密的詳細資訊，請參閱：
 
 - [使用 CLI 設定和擷取祕密](../key-vault/quick-create-cli.md)
 - [使用 PowerShell 設定和擷取祕密](../key-vault/quick-create-powershell.md)
@@ -35,35 +70,9 @@ ms.locfileid: "56233763"
 - [使用 .NET 設定和擷取祕密](../key-vault/quick-create-net.md)
 - [使用 Node.js 設定和擷取祕密](../key-vault/quick-create-node.md)
 
-整合 Key Vault 與 Resource Manager 範本部署時，有一些其他考量和需求：
-
-- `enabledForTemplateDeployment` 是金鑰保存庫屬性。 若要從 Resource Manager 部署中存取此 Key Vault 內的秘密，`enabledForTemplateDeployment` 必須是 `true`。 
-- 如果您不是金鑰保存庫的擁有者，則擁有者必須更新金鑰保存庫安全性原則設定，以便您新增祕密。
-
-下列 Azure CLI 和 Azure PowerShell 範例示範如何完成此工作：
-
-```azurecli
-# Create a Key Vault
-az keyvault create \
-  --name $keyVaultName \
-  --resource-group $resourceGroupName \
-  --location $location \
-  --enabled-for-template-deployment true
-az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
-```
-
-```azurepowershell
-New-AzKeyVault `
-  -VaultName $keyVaultName `
-  -resourceGroupName $resourceGroupName `
-  -Location $location `
-  -EnabledForTemplateDeployment
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
-```
-
 ## <a name="grant-access-to-the-secrets"></a>授與祕密的存取權
 
-對於包含 Key Vault 的範圍 (包括資源群組和 Key Vault 本身)，部署範本的使用者必須具備 `Microsoft.KeyVault/vaults/deploy/action` 權限。 [擁有者](../role-based-access-control/built-in-roles.md#owner)和[參與者](../role-based-access-control/built-in-roles.md#contributor)角色皆可授與此權限。 如果您建立了 Key Vault，您就是擁有者，因此就會有此權限。 如果 Key Vault 屬於不同的訂用帳戶，則必須由 Key Vault 的擁有者授與存取權。
+會將範本部署的使用者必須擁有`Microsoft.KeyVault/vaults/deploy/action`範圍的資源群組和金鑰保存庫的權限。 [擁有者](../role-based-access-control/built-in-roles.md#owner)和[參與者](../role-based-access-control/built-in-roles.md#contributor)角色皆可授與此權限。 如果您建立金鑰保存庫，您是擁有者，讓您擁有的權限也一樣。
 
 下列程序說明如何建立具有最低權限的角色，以及如何指派使用者
 
@@ -89,14 +98,23 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrin
 
 2. 使用 JSON 檔案建立新的角色：
 
-    ```azurepowershell
-    $resourceGroupName= "<Resource Group Name>" # the resource group which contains the Key Vault
-    $userPrincipalName = "<Email Address of the deployment operator>"
-    New-AzRoleDefinition -InputFile "<PathToTheJSONFile>" 
-    New-AzRoleAssignment -ResourceGroupName $resourceGroupName -RoleDefinitionName "Key Vault resource manager template deployment operator" -SignInName $userPrincipalName
+    ```azurecli
+    az role definition create --role-definition "<PathToRoleFile>"
+    az role assignment create \
+      --role "Key Vault resource manager template deployment operator" \
+      --assignee $userPrincipalName \
+      --resource-group $resourceGroupName
     ```
 
-    `New-AzRoleAssignment` 範例會在資源群組層級上將自訂角色指派給使用者。  
+    ```azurepowershell
+    New-AzRoleDefinition -InputFile "<PathToRoleFile>" 
+    New-AzRoleAssignment `
+      -ResourceGroupName $resourceGroupName `
+      -RoleDefinitionName "Key Vault resource manager template deployment operator" `
+      -SignInName $userPrincipalName
+    ```
+
+    這些範例會將自訂的角色指派給資源群組層級上的使用者。  
 
 將金鑰保存庫與[受控應用程式](../managed-applications/overview.md)的範本搭配使用時，您必須授與**設備資源提供者**服務主體的存取權。 如需詳細資訊，請參閱[在部署 Azure 受控應用程式時存取金鑰保存庫密碼](../managed-applications/key-vault-access.md) (英文)。
 
@@ -106,18 +124,75 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrin
 
 ![Resource Manager 金鑰保存庫整合靜態識別碼圖表](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)會使用此方法。 本教學課程會部署包含系統管理員密碼的虛擬機器。 密碼參數會設定為安全字串：
+[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)會使用此方法。
 
-![Resource Manager 金鑰保存庫整合靜態識別碼範本檔案](./media/resource-manager-keyvault-parameter/resource-manager-key-vault-static-id-template-file.png)
+下列範本會部署包含系統管理員密碼的 SQL server。 密碼參數會設定為安全字串。 但是，範本並未指定該值來自何處。
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminLogin": {
+      "type": "string"
+    },
+    "adminPassword": {
+      "type": "securestring"
+    },
+    "sqlServerName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "name": "[parameters('sqlServerName')]",
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2015-05-01-preview",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "administratorLogin": "[parameters('adminLogin')]",
+        "administratorLoginPassword": "[parameters('adminPassword')]",
+        "version": "12.0"
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
+```
 
 現在，請為前述範本建立參數檔案。 在參數檔案中，指定符合範本中參數名稱的參數。 針對參數值，參考來自金鑰保存庫的密碼。 您可以藉由傳遞金鑰保存庫的資源識別碼和密碼的名稱來參考密碼：
 
-![Resource Manager 金鑰保存庫整合靜態識別碼參數檔案](./media/resource-manager-keyvault-parameter/resource-manager-key-vault-static-id-parameter-file.png)
+在下列的參數檔案中，金鑰保存庫密碼必須已經存在，而且您提供靜態值作為其資源識別碼。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminLogin": {
+            "value": "exampleadmin"
+        },
+        "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+              },
+              "secretName": "ExamplePassword"
+            }
+        },
+        "sqlServerName": {
+            "value": "<your-server-name>"
+        }
+    }
+}
+```
 
 如果需要使用目前版本以外的祕密版本，請使用 `secretVersion` 屬性。
 
 ```json
-"secretName": "examplesecret",
+"secretName": "ExamplePassword",
 "secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
 ```
 

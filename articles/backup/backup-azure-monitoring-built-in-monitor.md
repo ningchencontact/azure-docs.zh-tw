@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809047"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236445"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>監視 Azure 備份工作負載
 
@@ -49,7 +49,7 @@ Azure 備份提供內建監視和警示功能，針對受保護的 Azure 備份�
 下列案例可警示的情況下為服務所定義。
 
   - 備份/還原失敗
-  - 成功但有警告的備份
+  - 備份成功但有警告的 「 Azure 備份代理程式 」 (MAB)
   - 停止保護保留資料/停止保護並刪除資料
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>不會引發警示時的例外狀況
@@ -92,7 +92,7 @@ Azure 備份提供內建監視和警示功能，針對受保護的 Azure 備份�
 如果頻率設定為每小時的摘要和警示已引發，並在一小時內已解決，它不會，即將推出的每小時摘要的一部分。
 
 > [!NOTE]
-> 
+>
 > * 如果破壞性作業，例如**停止保護並刪除資料**會執行，會引發警示，即使復原服務未設定通知，傳送電子郵件訂用帳戶擁有者、 系統管理員和共同管理員保存庫。
 > * 若要設定通知，對於成功的作業，請使用[Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace)。
 

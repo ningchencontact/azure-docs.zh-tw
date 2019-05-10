@@ -4,23 +4,35 @@
   items:
     - name: 關於 Azure 應用程式組態
       href: overview.md
+    - name: 常見問題集
+      href: faq.md
 - name: 快速入門
   expanded: true
   items:
-    - name: 建立 ASP.NET Core 應用程式
-      href: quickstart-aspnet-core-app.md
-    - name: 建立 .NET Core 應用程式
-      href: quickstart-dotnet-core-app.md
-    - name: 建立.NET Framework 應用程式
-      href: quickstart-dotnet-app.md
-    - name: 建立 Azure 函式
-      href: quickstart-azure-function-csharp.md
-    - name: 建立 Java Spring 應用程式
-      href: quickstart-java-spring-app.md
+    - name: 組態
+      items:
+        - name: ASP.NET Core
+          href: quickstart-aspnet-core-app.md
+        - name: .NET Core
+          href: quickstart-dotnet-core-app.md
+        - name: .NET Framework
+          href: quickstart-dotnet-app.md
+        - name: .NET Core 中的 Azure 函式
+          href: quickstart-azure-function-csharp.md
+        - name: Java Spring
+          href: quickstart-java-spring-app.md
+    - name: 功能管理
+      items:
+        - name: ASP.NET Core
+          href: quickstart-feature-flag-aspnet-core.md
 - name: 教學課程
   items:
     - name: 啟用 ASP.NET Core 中的動態組態
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: 在 .NET Core 應用程式中使用功能旗標
+      href: use-feature-flags-dotnet-core.md
+    - name: 管理功能旗標
+      href: manage-feature-flags.md
     - name: 與 CI/CD 管線整合
       href: integrate-ci-cd-pipeline.md
 - name: 範例
@@ -33,24 +45,36 @@
       href: concept-key-value.md
     - name: 時間點快照集
       href: concept-point-time-snapshot.md
+    - name: 功能管理
+      href: concept-feature-management.md
 - name: 使用說明指南
   items:
     - name: 與 Azure 受控服務識別整合
       href: howto-integrate-azure-managed-service-identity.md
     - name: 匯入或匯出設定資料
       href: howto-import-export-data.md
+    - name: 最佳作法
+      href: howto-best-practices.md
 - name: 參考
   items:
-    - name: .NET Core 組態提供者
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
-    - name: .NET Framework 組態建立器
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-    - name: Java Spring 組態提供者
-      href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
-    - name: .NET Azure SDK
-      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
-    - name: REST
-      href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: 組態
+      items:
+        - name: .NET Core 組態提供者
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+        - name: .NET Framework 組態建立器
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+        - name: Java Spring 組態提供者
+          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+        - name: .NET Azure SDK
+          href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
+        - name: REST
+          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: 功能管理
+      items:
+        - name: .NET Core 程式庫
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: ASP.NET Core 程式庫
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091410'
 - name: 資源
   items:
     - name: 使用者入門影片

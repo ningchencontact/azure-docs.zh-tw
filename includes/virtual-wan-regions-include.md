@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe7a7a548050d8d5d81ccecf17b4240ebcea10b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ec5c39342f0477bd2b529da38fd4d1292476c93
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459822"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416268"
 ---
 下表針對 GA 的功能，列出可用的支援區域。
 
@@ -28,6 +28,7 @@ ms.locfileid: "60459822"
 | 澳洲政府 | 澳大利亞中部、澳大利亞中部 2 |
 | 印度 | 印度西部、印度中部、印度南部 |
 | 南韓 | 南韓中部、南韓南部 |
+| 南非 | 南非北部、 南非西部 |
 
 * 如需有關 ExpressRoute 預覽的資訊，請參閱[虛擬 WAN 和 ExpressRoute - 預覽](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register)。
 * 如需有關點對站預覽的資訊，請參閱[虛擬 WAN 和點對站 - 預覽](../articles/virtual-wan/virtual-wan-point-to-site-portal.md#register)。

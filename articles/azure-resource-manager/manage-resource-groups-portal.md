@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551215"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507234"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>使用 Azure 门户管理 Azure 资源管理器资源组
 
@@ -31,7 +31,7 @@ ms.locfileid: "60551215"
 
 ## <a name="what-is-a-resource-group"></a>什么是资源组
 
-資源群組是存放 Azure 方案相關資源的容器。 资源组可以包含解决方案的所有资源，也可以只包含想要作为组来管理的资源。 您可決定如何根據對組織最有利的方式，將資源配置到資源群組。 一般而言，會新增共用相同生命週期的資源到相同資源群組，因此您可以以群組為單位輕鬆地部署、更新、刪除它們。
+資源群組是能夠存放 Azure 解決方案相關資源的容器。 资源组可以包含解决方案的所有资源，也可以只包含想要作为组来管理的资源。 您可決定如何根據對組織最有利的方式，將資源配置到資源群組。 一般而言，會新增共用相同生命週期的資源到相同資源群組，因此您可以以群組為單位輕鬆地部署、更新、刪除它們。
 
 資源群組會儲存資源相關中繼資料。 因此，當您指定資源群組的位置時，您便是指定中繼資料的儲存位置。 基於相容性理由，您可能需要確保您的資料存放在特定區域中。
 
@@ -108,64 +108,7 @@ ms.locfileid: "60551215"
 
 ## <a name="export-resource-groups-to-templates"></a>将资源组导出到模板
 
-成功设置资源组后，可能需要查看资源组的资源管理器模板。 匯出此範本有兩個優點︰
-
-- 由于模板包含整个基础结构，因此将来可以自动完成解决方案的部署。
-- 通过查看代表解决方案的 JavaScript 对象表示法 (JSON)，了解模板语法。
-
-有兩種方式可以匯出範本：
-
-- 可以导出用于部署的实际模板。 匯出的範本包含與原始範本完全相同的所有參數和變數。 如果您透過入口網站部署資源，而且想要知道範本如何建立這些資源，則這種方法十分有用。 此範本立即可用。 
-- 可以导出已生成的表示资源组当前状态的模板。 匯出的範本不是以任何用於部署的範本為基礎。 反而，它所建立的範本是資源群組的「快照集」或「備份」。 匯出的範本會有許多硬式編碼值，但數量可能不如您通常會定義的參數數量。 使用此選項來將資源重新部署至相同的資源群組。 若要對其他資源群組使用此範本，您可能必須大幅修改它。
-
-### <a name="export-templates-from-deployment-history"></a>从部署历史记录导出模板
-
-此方法导出特定部署的模板。 如果已在门户中更改了资源，或者在多个部署中添加/删除了资源，请参阅[从资源组导出模板](#export-templates-from-resource-groups)。
-
-1. 打开要导出的资源组。  参阅[打开资源组](#open-resource-groups)。
-2. 在左窗格中选择“部署”，或者选择“部署”下的链接。  以下屏幕截图显示**有 4 项操作成功**，因为其中显示了四个具有不同部署名称的独立部署。 你可能会看到**有 1 项操作成功**。
-
-    ![Azure 资源组 - 导出模板](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. 从列表中选择一个部署。
-4. 在左窗格中选择“模板”。 Resource Manager 會為您擷取下列六個檔案：
-
-   - **範本** - 用於定義解決方案之基礎結構的範本。 當您透過入口網站建立儲存體帳戶時，Resource Manager 會使用範本來部署它，並且儲存該範本供日後參考。
-   - **參數** - 您可以在部署期間用來傳入值的參數檔案。 它會包含您在第一次部署期間所提供的值。 當您重新部署範本時，即可變更所有這些值。
-   - **CLI** - 您可以為部署範本而使用的 Azure CLI 指令碼檔案。
-   - **PowerShell** - 您可以為了部署範本而使用的 Azure PowerShell 指令碼檔案。
-   - **.NET** - 您可以為了部署範本而使用的 .NET 類別。
-   - **Ruby** - 您可以為了部署範本而使用的 Ruby 類別。
-
-     根據預設，入口網站會顯示範本。
-
-5. 选择“下载”，将模板导出到本地计算机。
-
-    ![Azure 资源组 - 导出模板](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### <a name="export-templates-from-resource-groups"></a>从资源组导出模板
-
-如果在门户中更改了资源，或者在多个部署中添加/删除了资源，则从部署历史记录中检索模板不能反映资源组的当前状态。 本節說明您如何匯出反映資源群組目前狀態的範本。 其目的在作為資源群組的快照集，以供您用來重新部署至相同的資源群組。 若要對其他解決方案使用所匯出的範本，您必須大幅修改它。
-
-1. 打开要导出的资源组。  参阅[打开资源组](#open-resource-groups)。
-2. 在左窗格中选择“导出模板”。 Resource Manager 會為您擷取下列六個檔案：
-
-   - **範本** - 用於定義解決方案之基礎結構的範本。 當您透過入口網站建立儲存體帳戶時，Resource Manager 會使用範本來部署它，並且儲存該範本供日後參考。
-   - **參數** - 您可以在部署期間用來傳入值的參數檔案。 它會包含您在第一次部署期間所提供的值。 當您重新部署範本時，即可變更所有這些值。
-   - **CLI** - 您可以為部署範本而使用的 Azure CLI 指令碼檔案。
-   - **PowerShell** - 您可以為了部署範本而使用的 Azure PowerShell 指令碼檔案。
-   - **.NET** - 您可以為了部署範本而使用的 .NET 類別。
-   - **Ruby** - 您可以為了部署範本而使用的 Ruby 類別。
-
-     根據預設，入口網站會顯示範本。
-3. 选择“下载”，将模板导出到本地计算机。
-
-导出的某些模板需要经过一些编辑才能使用。 若要了解如何开发模板，请参阅[分步教程](/azure/azure-resource-manager/)。
-
-### <a name="export-template-before-deploying"></a>在部署之前导出模板
-
-可以使用门户定义资源。  在部署资源之前，可以查看和导出模板。 如需指示，請參閱[快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本](./resource-manager-quickstart-create-templates-use-the-portal.md)。
+匯出範本的相關資訊，請參閱[單一和多重資源匯出至範本-入口網站](export-template-portal.md)。
 
 ### <a name="fix-export-issues"></a>修正匯出問題
 

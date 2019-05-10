@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a527b928edacc202301f53dbf7852f8446b3aa7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff1d9089f3fb2f3ebf3022b54c442e8338ab983b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834974"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>教學課程：Azure Active Directory 與 Edcor 整合
 
@@ -81,14 +81,14 @@ Edcor 與 Azure AD 整合提供下列優點：
 2. **[設定 Edcor 單一登入](#configure-edcor-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Edcor 測試使用者](#create-edcor-test-user)** - 在 Edcor 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+5. **[建立 Edcor 測試使用者](#create-edcor-test-user)** - 在 Edcor 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Edcor 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 Edcor 設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Edcor] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -124,7 +124,7 @@ Edcor 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-edcor-single-sign-on"></a>設定 Edcor 單一登入
 
-若要在 **Edcor** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [Edcor 支援小組](http://www.edcor.com/contact-us-2/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Edcor** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [Edcor 支援小組](https://www.edcor.com/contact-us/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -153,7 +153,7 @@ Edcor 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Edcor 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會把 Edcor 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Edcor]。
 
@@ -161,7 +161,7 @@ Edcor 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Edcor]。
 
-    ![應用程式清單中的 [Edcor] 連結](common/all-applications.png)
+    ![應用程式清單中的 Edcor 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -179,7 +179,7 @@ Edcor 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-edcor-test-user"></a>建立 Edcor 測試使用者
 
-在本節中，您會在 Edcor 中建立名為 Britta Simon 的使用者。 請與  [Edcor 支援小組](http://www.edcor.com/contact-us-2/)合作，在 Edcor 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Edcor 中建立名為 Britta Simon 的使用者。 請與  [Edcor 支援小組](https://www.edcor.com/contact-us/)合作，在 Edcor 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

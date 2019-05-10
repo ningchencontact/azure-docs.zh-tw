@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d32564808151c4895d2b3802fb48d2bd2d8f753
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6120637bdf52db4b6863fb87feb1d52c78ca088
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729542"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508120"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：將屬性同步處理至 Azure Active Directory
 本主題列出 Azure AD Connect 同步處理所同步處理的屬性。  
@@ -48,7 +48,7 @@ ms.locfileid: "64729542"
 | pwdLastSet |X |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼雜湊同步處理、傳遞驗證和同盟使用。 |
 |samAccountName|X| |
 | sourceAnchor |X |機械屬性。 不可變的識別碼，可維持 ADDS 與 Azure AD 之間的關聯性。 |
-| usageLocation |X |機械屬性。 使用者的國家/地區。 用于进行许可证分配。 |
+| usageLocation |X |機械屬性。 使用者的國家/地區。 用於授權指派。 |
 | userPrincipalName |X |UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
 
 ## <a name="exchange-online"></a>Exchange Online
@@ -251,7 +251,8 @@ ms.locfileid: "64729542"
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |機械屬性。 使用者的國家/地區。 用于进行许可证分配。 |
+| usageLocation |X | | |機械屬性。 使用者的國家/地區
+上也提供本文中使用的原始碼。 用於授權指派。 |
 | userPrincipalName |X | | |UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
 | wWWHomePage |X |X | | |
 
@@ -299,7 +300,7 @@ ms.locfileid: "64729542"
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |機械屬性。 使用者的國家/地區。 用于进行许可证分配。 |
+| usageLocation |X | | |機械屬性。 使用者的國家/地區。 用於授權指派。 |
 | userPrincipalName |X | | |UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
 | wWWHomePage |X |X | | |
 
@@ -315,7 +316,7 @@ ms.locfileid: "64729542"
 | proxyAddresses |X |X |X |機械屬性。 由 Azure AD 所使用。 包含使用者的所有次要電子郵件地址。 |
 | pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 |
 | sourceAnchor |X |X |X |機械屬性。 不可變的識別碼，可維持 ADDS 與 Azure AD 之間的關聯性。 |
-| usageLocation |X | | |機械屬性。 使用者的國家/地區。 用于进行许可证分配。 |
+| usageLocation |X | | |機械屬性。 使用者的國家/地區。 用於授權指派。 |
 | userPrincipalName |X | | |這個 UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
 
 ## <a name="intune"></a>Intune
@@ -333,7 +334,7 @@ ms.locfileid: "64729542"
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼雜湊同步處理、傳遞驗證和同盟使用。 |
 | sourceAnchor |X |X |X |機械屬性。 不可變的識別碼，可維持 ADDS 與 Azure AD 之間的關聯性。 |
-| usageLocation |X | | |機械屬性。 使用者的國家/地區。 用于进行许可证分配。 |
+| usageLocation |X | | |機械屬性。 使用者的國家/地區。 用於授權指派。 |
 | userPrincipalName |X | | |UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
@@ -365,7 +366,7 @@ ms.locfileid: "64729542"
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |機械屬性。 使用者的國家/地區。 用于进行许可证分配。 |
+| usageLocation |X | | |機械屬性。 使用者的國家/地區。 用於授權指派。 |
 | userPrincipalName |X | | |UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
 
 ## <a name="3rd-party-applications"></a>協力廠商應用程式
@@ -381,6 +382,7 @@ ms.locfileid: "64729542"
 | accountEnabled |X | | |定義是否啟用帳戶。 |
 | cn |X | |X | |
 | displayName |X |X |X | |
+| employeeID |X |  |  | |
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
@@ -391,7 +393,7 @@ ms.locfileid: "64729542"
 | pwdLastSet |X | | |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼雜湊同步處理、傳遞驗證和同盟使用。 |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |機械屬性。 不可變的識別碼，可維持 ADDS 與 Azure AD 之間的關聯性。 |
-| usageLocation |X | | |機械屬性。 使用者的國家/地區。 用于进行许可证分配。 |
+| usageLocation |X | | |機械屬性。 使用者的國家/地區。 用於授權指派。 |
 | userPrincipalName |X | | |UPN 是使用者的登入識別碼。 大多数情况下与 [mail] 值相同。 |
 
 ## <a name="windows-10"></a>Windows 10
@@ -420,7 +422,7 @@ ms.locfileid: "64729542"
 ## <a name="exchange-hybrid-writeback"></a>Exchange 混合回寫
 當您選擇啟用「Exchange 混合」 時，系統會將這些屬性從 Azure AD 寫回到內部部署 Active Directory。 根據您的 Exchange 版本有可能會同步處理較少的屬性。
 
-| 屬性名稱 (Connect UI) |屬性名稱 (內部部署 AD) | 使用者 | 联系人 | 群組 | 註解 |
+| 屬性名稱 (內部部署 AD) | 屬性名稱 (Connect UI) | 使用者 | 联系人 | 群組 | 註解 |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |衍生自 Azure AD 中的 cloudAnchor。 這個屬性是 Exchange 2016 和 Windows Server 2016 AD 中的新屬性。 |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |線上封存：可讓客戶封存郵件。 |
