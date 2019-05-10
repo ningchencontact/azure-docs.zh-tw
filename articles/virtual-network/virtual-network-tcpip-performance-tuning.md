@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924779"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410052"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP 的效能微調 Azure Vm
 
@@ -240,7 +240,7 @@ Set-NetTCPSetting
 |已停用|None|None|視窗大小|
 |受限制|4|2^4|視窗大小 * (2 ^4)|
 |很高的限制|2|2^2|視窗大小 * (2 ^2)|
-|正常|8|2^8|視窗大小 * (2 ^8)|
+|標準|8|2^8|視窗大小 * (2 ^8)|
 |實驗性|14|2^14|視窗大小 * (2 ^14)|
 
 這些設定是最有可能會影響 TCP 效能，但請記住，整個網際網路、 Azure 中的控制之外的許多其他因素也可能會影響 TCP 效能。
@@ -276,7 +276,7 @@ Set-NetTCPSetting
 
 接收的端調整 (RSS) 是一種網路驅動程式技術，將接收的網路流量分散更有效率地散發接收跨多個 Cpu 處理，多處理器系統中。 簡單地說，RSS 會讓系統能夠處理接收的流量，因為它會使用所有可用的 Cpu，而不是其中一個。 RSS 更多技術的討論，請參閱[接收端調整簡介](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling)。
 
-若要獲得最佳效能，在 VM 上啟用加速的網路時，您必須啟用 RSS。 RSS 也可以在未使用的 Vm 上的優點加速網路來提供。 如需如何判斷是否已啟用 RSS，以及如何加以啟用的概觀，請參閱 <<c0> [ 最佳化網路輸送量，Azure 虛擬機器的](http://aka.ms/FastVM)。
+若要獲得最佳效能，在 VM 上啟用加速的網路時，您必須啟用 RSS。 RSS 也可以在未使用的 Vm 上的優點加速網路來提供。 如需如何判斷是否已啟用 RSS，以及如何加以啟用的概觀，請參閱 <<c0> [ 最佳化網路輸送量，Azure 虛擬機器的](https://aka.ms/FastVM)。
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT 和 TIME_WAIT 暗殺
 
@@ -316,13 +316,13 @@ Azure 虛擬機器擁有至少一個附加到它們的網路介面。 它們可�
 
 - **通訊協定**：透過所有通訊協定的所有輸出流量都會計入限制。
 
-如需詳細資訊，請參閱 <<c0> [ 虛擬機器的網路頻寬](http://aka.ms/AzureBandwidth)。
+如需詳細資訊，請參閱 <<c0> [ 虛擬機器的網路頻寬](https://aka.ms/AzureBandwidth)。
 
 ### <a name="internet-performance-considerations"></a>網際網路效能考量
 
 如本文所討論，在網際網路和 Azure 的控制之外的因素可能會影響網路效能。 以下是一些因素：
 
-- **延遲**:中繼網路上的問題，不接受 「 最短的 「 距離路徑的流量和次佳的對等互連路徑，可能會影響兩個目的地之間的往返時間。
+- **延遲**：中繼網路上的問題，不接受 「 最短的 「 距離路徑的流量和次佳的對等互連路徑，可能會影響兩個目的地之間的往返時間。
 
 - **封包遺失**:封包遺失可能因網路壅塞、 實體路徑問題，以及績效不佳的網路裝置。
 

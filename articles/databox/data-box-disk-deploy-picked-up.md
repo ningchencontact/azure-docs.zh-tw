@@ -1,20 +1,20 @@
 ---
-title: 寄回 Microsoft Azure 資料箱磁碟 | Microsoft Docs
+title: 寄回 Azure 資料箱磁碟的教學課程 | Microsoft Docs
 description: 使用本教學課程以了解如何將您的 Azure 資料箱磁碟寄回給 Microsoft
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425945"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150755"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>教學課程：退回 Azure 資料箱磁碟，並確認資料上傳至 Azure
 
@@ -54,7 +54,12 @@ ms.locfileid: "59425945"
     - 將標籤黏貼在裝置上。
 
 2. 將包裹密封，並確定退貨標籤清楚可見。
-3. 與 UPS 排定取貨時間。
+3. 與 UPS 排定取貨時間。 若要排定取貨時間：
+
+    - 致電給當地的 UPS (國家/地區特定的免付費電話號碼)。
+    - 在您的電話中提供反向出貨追蹤號碼，如您列印出的標籤所示。
+    - 若未提供追蹤號碼，UPS 將在取貨期間要求您支付額外的費用。
+    - 除了排定取貨時間，您也可以在最接近的托運地點托運該資料箱磁碟。
 
 
 ### <a name="pick-up-in-europe"></a>在歐洲取貨

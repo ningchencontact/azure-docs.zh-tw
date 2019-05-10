@@ -7,45 +7,45 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b6e3335ba78d29896c8a253ac710e6ec0da1829a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 55d4f4bdf204453ccfe353e0d79abedb118bd9d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528368"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021617"
 ---
-# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>REST 教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API (預覽)
+# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>REST 教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API
 
-在本教學課程中，您將了解在 Azure 搜尋服務中使用*認知技能*進行資料擴充程式設計的機制。 技能會受到自然語言處理 (NLP) 與認知服務中的映像分析功能所支援。 透過技能組合和設定，您可以擷取文字，以及映像或所掃描文件檔案的文字表示法。 您也可以偵測語言、實體、關鍵片語等。 其最終結果是，AI 支援的索引管線會在 Azure 搜尋服務索引中建立豐富的額外內容。 
+在此教學課程中，您將了解在 Azure 搜尋服務中使用*認知技能*進行資料擴充程式設計的機制。 技能會受到自然語言處理 (NLP) 與認知服務中的映像分析功能所支援。 透過技能組合和設定，您可以擷取文字，以及映像或所掃描文件檔案的文字表示法。 您也可以偵測語言、實體、關鍵片語等。 其最終結果是，會以索引編製管線中的 AI 擴充資料在 Azure 搜尋服務索引中建立豐富的額外內容。 
 
-在本教學課程中，您會發出 REST API 呼叫以執行下列工作：
+在此教學課程中，您會發出 REST API 呼叫以執行下列工作：
 
 > [!div class="checklist"]
 > * 建立對索引路由中的範例資料進行擴充的索引管線
 > * 套用內建的技能：實體辨識、語言偵測、文字操作和關鍵片語擷取
-> * 了解如何藉由將技能集的輸入對應至輸出，將多項技術串聯在一起
+> * 了解如何藉由將技能集的輸入對應至輸出，將多個技術串聯在一起
 > * 執行要求並檢閱結果
 > * 重設索引和索引子以進行進一步開發
 
 Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用其他標準功能來強化索引，例如[同義字](search-synonyms.md)、[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)、[分析器](search-analyzers.md)和[篩選](search-filters.md)。
 
-本教學課程雖然在免費服務上執行，但可用的交易數目限制為每日 20 份文件。 如果您想要在同一天中多次執行本教學課程，請使用較小的檔案集，如此才能在限制內完成多次執行。
+此教學課程雖然在免費服務上執行，但可用的交易數目限制為每日 20 份文件。 如果您想要在同一天中多次執行此教學課程，請使用較小的檔案集，如此才能在限制內完成多次執行。
 
 > [!NOTE]
-> 當您藉由增加處理次數、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須連結可計費的認知服務資源。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
+> 當您藉由增加處理次數、新增更多文件或新增更多 AI 演算法來擴展範圍時，您需要[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
 >
-> 內建技能的執行會依現有的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。
+> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價如 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)上所描述。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-本教學課程會使用下列服務、工具和資料。 
+此教學課程會使用下列服務、工具和資料。 
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此教學課程的免費服務。
 
 [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。
 
@@ -91,7 +91,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 啟動 Postman 及設定 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Postman 探索 Azure 搜尋服務 REST API](search-fiddler.md)。
 
-本教學課程中使用的要求方法為 **POST**、**PUT** 和 **GET**。 標題金鑰是設定為 "application/json" 的「內容類型」和設定為您 Azure 搜尋服務管理員金鑰的「API 金鑰」。 主體是您放置呼叫實際內容的地方。 
+此教學課程中使用的要求方法為 **POST**、**PUT** 和 **GET**。 標題金鑰是設定為 "application/json" 的「內容類型」和設定為您 Azure 搜尋服務管理員金鑰的「API 金鑰」。 主體是您放置呼叫實際內容的地方。 
 
   ![半結構化搜尋](media/search-semi-structured-data/postmanoverview.png)
 
@@ -106,7 +106,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ### <a name="sample-request"></a>範例要求
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
+POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -129,11 +129,11 @@ api-key: [admin key]
 
   ![入口網站中的資料來源圖格](./media/cognitive-search-tutorial-blob/data-source-tile.png "入口網站中的資料來源圖格")
 
-如果發生 403 或 404 錯誤，請檢查要求建構：`api-version=2017-11-11-Preview` 位於端點上，`api-key` 應位於標頭中的 `Content-Type` 後面，且其值必須是適用於搜尋服務的值。 您可以在本教學課程的其餘步驟中重複使用該標頭。
+如果發生 403 或 404 錯誤，請檢查要求建構：`api-version=2019-05-06` 位於端點上，`api-key` 應位於標頭中的 `Content-Type` 後面，且其值必須是適用於搜尋服務的值。 您可以在此教學課程的其餘步驟中重複使用該標頭。
 
 ## <a name="create-a-skillset"></a>建立技能集
 
-在此步驟中，您會定義一組要套用至資料的擴充步驟。 我們將每個擴充步驟稱為*技能*，一組擴充步驟則稱之為*技能集*。 本教學課程會使用為技能集[內建的認知技能](cognitive-search-predefined-skills.md)：
+在此步驟中，您會定義一組要套用至資料的擴充步驟。 我們將每個擴充步驟稱為*技能*，一組擴充步驟則稱之為*技能集*。 此教學課程會為技能集使用[內建的認知技能](cognitive-search-predefined-skills.md)：
 
 + [語言偵測](cognitive-search-skill-language-detection.md)，用以識別內容的語言。
 
@@ -146,10 +146,10 @@ api-key: [admin key]
 ### <a name="sample-request"></a>範例要求
 在您進行此 REST 呼叫前，如果您的工具不會在呼叫間保留要求標頭，請記得在下方的要求中取代服務名稱和管理金鑰。 
 
-此要求會建立技能集。 在本教學課程的其餘部分請參考技能集名稱 ```demoskillset```。
+此要求會建立技能集。 在此教學課程的其餘部分請參考技能集名稱 ```demoskillset```。
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -238,7 +238,7 @@ Content-Type: application/json
 
 請留意每個頁面套用關鍵片語擷取技能的情形。 藉由將內容設定為 ```"document/pages/*"```，將可擴充每個文件/頁面陣列成員 (文件中的每個頁面) 的這項執行。
 
-每項技術會分別對文件的內容執行。 在處理期間，Azure 搜尋服務會萃取每份文件，以讀取不同檔案格式的內容。 找到來自來源檔案的文字時，會將文字放入產生的 ```content``` 欄位中，每份文件一個欄位。 據此，請將輸入設定為 ```"/document/content"```。
+每個技術會分別對文件的內容執行。 在處理期間，Azure 搜尋服務會萃取每份文件，以讀取不同檔案格式的內容。 找到來自來源檔案的文字時，會將文字放入產生的 ```content``` 欄位中，每份文件一個欄位。 據此，請將輸入設定為 ```"/document/content"```。
 
 以下顯示技能集的圖形化表示法。 
 
@@ -250,7 +250,7 @@ Content-Type: application/json
 
 ## <a name="create-an-index"></a>建立索引
 
-在本節中，您會藉由指定要在可搜尋索引中包含哪些欄位以及每個欄位的搜尋屬性，來定義索引結構描述。 欄位具有類型，並且可取用決定如何使用欄位 (可搜尋、可排序等等) 的屬性。 索引中的欄位名稱不需要完全符合來源中的欄位名稱。 在後續步驟中，您可以在索引子中新增欄位對應以連接來源-目的地欄位。 針對此步驟，請使用與搜尋應用程式相關的欄位命名慣例來定義索引。
+在此節中，您會藉由指定要在可搜尋索引中包含哪些欄位以及每個欄位的搜尋屬性，來定義索引結構描述。 欄位具有類型，並且可取用決定如何使用欄位 (可搜尋、可排序等等) 的屬性。 索引中的欄位名稱不需要完全符合來源中的欄位名稱。 在後續步驟中，您可以在索引子中新增欄位對應以連接來源-目的地欄位。 針對此步驟，請使用與搜尋應用程式相關的欄位命名慣例來定義索引。
 
 此練習會使用下列欄位和欄位類型：
 
@@ -262,10 +262,10 @@ Content-Type: application/json
 ### <a name="sample-request"></a>範例要求
 在您進行此 REST 呼叫前，如果您的工具不會在呼叫間保留要求標頭，請記得在下方的要求中取代服務名稱和管理金鑰。 
 
-此要求會建立索引。 在本教學課程的其餘部分請使用索引名稱 ```demoindex```。
+此要求會建立索引。 在此教學課程的其餘部分請使用索引名稱 ```demoindex```。
 
 ```http
-PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -335,10 +335,10 @@ Content-Type: application/json
 
 在您進行此 REST 呼叫前，如果您的工具不會在呼叫間保留要求標頭，請記得在下方的要求中取代服務名稱和管理金鑰。 
 
-此外也請提供索引子的名稱。 在本教學課程的其餘部分，您可以將其參照為 ```demoindexer```。
+此外也請提供索引子的名稱。 在此教學課程的其餘部分，您可以將其參照為 ```demoindexer```。
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -410,14 +410,14 @@ Content-Type: application/json
 索引子經定義後，將會在您提交要求時自動執行。 根據您所定義的認知技能，索引編製所需的時間可能會超出您的預期。 若要確認索引子是否仍在執行，請傳送下列要求以檢查索引子狀態。
 
 ```http
-GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
 
 回應會指出索引子是否正在執行。 索引編製完成後，請對 STATUS 端點使用另一個 HTTP GET (如上所列)，以查看在擴充期間是否發生任何錯誤和警告的報告。  
 
-某些來源檔案和技能的組合常會出現警告，這並不一定表示有問題。 在本教學課程中，警告是良性的 (例如，沒有來自 JPEG 檔案的文字輸入)。 您可以檢閱狀態回應，以取得在索引編製期間所發出警告的詳細資訊。
+某些來源檔案和技能的組合常會出現警告，這並不一定表示有問題。 在此教學課程中，警告是良性的 (例如，沒有來自 JPEG 檔案的文字輸入)。 您可以檢閱狀態回應，以取得在索引編製期間所發出警告的詳細資訊。
  
 ## <a name="verify-content"></a>驗證內容
 
@@ -426,7 +426,7 @@ Content-Type: application/json
 在驗證步驟中，您會查詢所有欄位的索引。
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -436,7 +436,7 @@ Content-Type: application/json
 提交第二個 `"*"` 查詢，以傳回單一欄位的所有內容，例如 `organizations`。
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations&api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations&api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -528,7 +528,7 @@ Content-Type: application/json
 您可以使用入口網站來刪除索引、索引子和技能集。
 
 ```http
-DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -539,7 +539,7 @@ Content-Type: application/json
 
 ## <a name="takeaways"></a>重要心得
 
-本教學課程示範了藉由建立下列元件組件來建置擴充索引管線的基本步驟：資料來源、技能集、索引和索引子。
+此教學課程示範了藉由建立下列元件組件來建置擴充索引管線的基本步驟：資料來源、技能集、索引和索引子。
 
 [預先定義的技能](cognitive-search-predefined-skills.md)已透過輸入和輸出連同技能集定義和鏈結技能的機制一起導入。 您也已了解在將管線中的擴充值路由至 Azure 搜尋服務上的可搜尋索引時，索引子定義中必須要有 `outputFieldMappings`。
 
@@ -547,7 +547,7 @@ Content-Type: application/json
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在完成教學課程後，最快速的清除方式是刪除包含 Azure 搜尋服務和 Azure Blob 服務的資源群組。 如果您將這兩項服務放在相同群組中，此時刪除資源群組，將會永久刪除其中的所有內容，包括服務與您為此教學課程建立的任何已儲存內容。 在入口網站中，資源群組名稱位在每個服務的 [概觀] 頁面上。
+在完成教學課程後，最快速的清除方式是刪除包含 Azure 搜尋服務和 Azure Blob 服務的資源群組。 如果您將這兩個服務放在相同群組中，此時刪除資源群組，將會永久刪除其中的所有內容，包括服務與您為此教學課程建立的任何已儲存內容。 在入口網站中，資源群組名稱位在每個服務的 [概觀] 頁面上。
 
 ## <a name="next-steps"></a>後續步驟
 

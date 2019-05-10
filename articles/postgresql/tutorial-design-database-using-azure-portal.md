@@ -1,20 +1,20 @@
 ---
-title: 教學課程：使用 Azure 入口網站來設計適用於 PostgreSQL 的 Azure 資料庫
-description: 本教學課程說明如何使用 Azure 入口網站來設計您的第一個「適用於 PostgreSQL 的 Azure 資料庫」。
+title: 教學課程：使用 Azure 入口網站設計適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
+description: 本教學課程說明如何使用 Azure 入口網站設計您的第一個「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 03/20/2018
-ms.openlocfilehash: aed539484ac01d1b18b8374ffb57456364f9bd2c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 5/16/2019
+ms.openlocfilehash: 20eb5a59e98c06d7bce4623a6a8facd998d3be4c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119254"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069156"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站來設計適用於 PostgreSQL 的 Azure 資料庫
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站設計適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
 
 「適用於 PostgreSQL 的 Azure 資料庫」是一個受控服務，可讓您在雲端執行、管理及調整高可用性 PostgreSQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
 
@@ -31,9 +31,6 @@ ms.locfileid: "58119254"
 ## <a name="prerequisites"></a>必要條件
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
-登入 [Azure 入口網站](https://portal.azure.com)。
-
 ## <a name="create-an-azure-database-for-postgresql"></a>建立適用於 PostgreSQL 的 Azure 資料庫
 
 「適用於 PostgreSQL 的 Azure 資料庫」伺服器是以一組已定義的[計算和儲存體資源](./concepts-compute-unit-and-storage.md)所建立。 伺服器會建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
@@ -43,34 +40,40 @@ ms.locfileid: "58119254"
 2. 從 [新增] 頁面中選取 [資料庫]，然後從 [資料庫] 頁面中選取 [適用於 PostgreSQL 的 Azure 資料庫]。
    ![適用於 PostgreSQL 的 Azure 資料庫 - 建立資料庫](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3. 在新伺服器詳細資料表單中填寫下列資訊︰
+3. 選取 [單一伺服器] 部署選項。
 
-   ![建立伺服器](./media/tutorial-design-database-using-azure-portal/2-create.png)
+   ![選取 [適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器] 部署選項](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
 
-   - 伺服器名稱：**mydemoserver** (伺服器的名稱會與 DNS 名稱對應，因此必須是全域唯一的) 
-   - 訂用帳戶：如果您有多個訂用帳戶，請選擇資源所在或作為計費對象的適當訂用帳戶。
-   - 資源群組︰**myresourcegroup**
-   - 您選擇的伺服器管理員登入和密碼
-   - 位置
-   - PostgreSQL 版本
+4. 在 [基本資料] 表單中填寫下列資訊：
 
-   > [!IMPORTANT]
-   > 必須要有您在此處指定的伺服器系統管理員登入和密碼，稍後在本教學課程中才能登入伺服器及其資料庫。 請記住或記錄此資訊，以供稍後使用。
+    ![建立伺服器](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
-4. 按一下 [定價層] 以指定新伺服器的定價層。 針對本教學課程，選取 [一般用途]、[第 5 代] 計算世代、2 個**虛擬核心**、5 GB 的**儲存體**，以及 7 天的**備份保留期限**。 在備份備援選項中選取 [異地備援]，將您伺服器的自動備份儲存在異地備援儲存體。
-   ![適用於 PostgreSQL 的 Azure 資料庫 - 挑選定價層](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+    設定|建議的值|說明
+    ---|---|---
+    訂用帳戶|您的訂用帳戶名稱|您要用於伺服器的 Azure 訂用帳戶。 如果您有多個訂用帳戶，請選擇資源計費的訂用帳戶。
+    資源群組|*myresourcegroup*| 新的資源群組名稱，或您訂用帳戶中現有的資源群組名稱。
+    伺服器名稱 |*mydemoserver*|可識別 Azure Database for PostgreSQL 伺服器的唯一名稱。 網域名稱 postgres.database.azure.com 已附加至您提供的伺服器名稱。 伺服器只能包含小寫字母、數字及連字號 (-) 字元。 它必須包含至少 3 到 63 個字元。
+    資料來源 | *None* | 選取 [無] 從頭建立新的伺服器。 (如果您要從現有「適用於 PostgreSQL 的 Azure 資料庫」伺服器的異地備份建立伺服器，可以選取 [備份])。
+    系統管理員使用者名稱 |myadmin| 連線至伺服器時所要使用之自己的登入帳戶。 管理員登入名稱不能是 **azure_superuser**、**azure_pg_admin****admin****administrator****root****guest** 或 **public**。 它不能以 **pg_** 開頭。
+    密碼 |您的密碼| 伺服器管理帳戶的新密碼。 其必須包含 8 到 128 個字元。 您的密碼必須包含下列類別中三種類別的字元：英文大寫字母、英文小寫字母、數字 (0 到 9) 及非英數字元 (!、$、#、% 等等)。
+    位置|最接近使用者的區域| 最靠近您使用者的位置。
+    版本|最新的主要版本| 最新 PostgreSQL 主要版本 (除非您有其他特定需求)。
+    計算 + 儲存體 | **一般用途**、**Gen 5**、**2 個虛擬核心**、**5 GB**、**7 天**、**異地備援** | 新伺服器的計算、儲存體和備份組態。 選取 [設定伺服器]。 接下來，選取 [一般用途] 索引標籤。Gen 5、4 個虛擬核心、100 GB 和 7 天是 [計算世代]、[虛擬核心]、[儲存體]和 [備份保留期限] 的預設值。 您可以讓這些滑桿保持原狀或加以調整。 若要啟用異地備援儲存體中的伺服器備份，請從 [備份備援選項] 中選取 [異地備援]。 若要儲存此定價層選取項目，請選取 [確定]。 下方螢幕擷取畫面會擷取這些選取項目。
 
-5. 按一下 [確定] 。
+   > [!NOTE]
+   > 如果您的工作負載只需要輕量計算和 I/O，請考慮使用基本定價層。 請注意，在基本定價層中建立的伺服器後續無法調整為「一般用途」或「記憶體最佳化」。 如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/postgresql/)。
+   > 
 
-6. 按一下 [建立] 以佈建伺服器。 佈建需要幾分鐘的時間。
+    ![[定價層] 窗格](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-7. 在工具列上，按一下 [通知] 以監視部署程序。
-   ![適用於 PostgreSQL 的 Azure 資料庫 - 查看通知](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
+5. 選取 [檢閱 + 建立] 以檢閱您的選項。 選取 [建立] 以佈建伺服器。 這項作業可能需要幾分鐘的時間。
 
-   > [!TIP]
-   > 選取 [釘選到儀表板] 選項以輕鬆追蹤部署。
+6. 在工具列上，選取 [通知] 圖示 (鈴鐺) 以監視部署程序。 完成部署後，您可以選取 [釘選到儀表板]，在 Azure 入口網站儀表板上建立此伺服器的圖格，以作為伺服器 [概觀] 頁面的捷徑。 選取 [移至資源] 會開啟伺服器的 [概觀] 頁面。
 
-   根據預設，**postgres** 資料庫會建立在您的伺服器底下。 [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 資料庫是要供使用者、公用程式及第三方應用程式使用的預設資料庫。 
+    ![[通知] 窗格](./media/quickstart-create-database-portal/3-notifications.png)
+   
+   根據預設，**postgres** 資料庫會建立在您的伺服器底下。 [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 資料庫是要供使用者、公用程式及第三方應用程式使用的預設資料庫。 (其他預設資料庫是 **azure_maintenance**。 其功能是分隔受控服務處理程序和使用者動作。 您無法存取此資料庫。)
+
 
 ## <a name="configure-a-server-level-firewall-rule"></a>設定伺服器層級防火牆規則
 

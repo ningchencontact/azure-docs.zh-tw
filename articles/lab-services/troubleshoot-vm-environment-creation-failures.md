@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
-ms.openlocfilehash: a653a785e99619c3e256613d6a4d2c7592f54c8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7baa5e4c113e6c21c6123ac7c8399533a7dfb358
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848454"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410308"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>針對虛擬機器 (VM) 和 Azure DevTest Labs 中的環境建立失敗進行疑難排解
 DevTest Labs 會提供警告的電腦名稱是否無效，或您即將違反實驗室原則。 有時候，您會看到紅色`X`旁您的實驗室 VM 或環境會通知您發生錯誤的狀態。  本文章提供您可用來尋找潛在問題，並希望避免未來發生問題的一些技巧。
@@ -44,7 +44,7 @@ DevTest Labs 會提供警告的電腦名稱是否無效，或您即將違反實�
     ```json
     "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"OperationNotAllowed\",\"message\":\"Operation results in exceeding quota limits of Core. Maximum allowed: 100, Current in use: 100, Additional requested: 8. Please read more about quota increase at http://aka.ms/corequotaincrease.\"}]}}",
+        "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"OperationNotAllowed\",\"message\":\"Operation results in exceeding quota limits of Core. Maximum allowed: 100, Current in use: 100, Additional requested: 8. Please read more about quota increase at https://aka.ms/corequotaincrease.\"}]}}",
     },
     ```
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3940adfaa42de8ac9c3f32a9eadc8f6d643ce3ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c0bb8d7a5a1ea30b704b44c9337cd28043597ff7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149468"
+ms.locfileid: "65209513"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>快速入門-使用 Azure 上的 VMware Vm
 
@@ -37,7 +37,7 @@ ms.locfileid: "65149468"
 
     ![建立 CloudSimple 虛擬機器基本概念](media/create-cloudsimple-virtual-machine-basic-info.png)
 
-    | 欄位 | 描述 |
+    | 欄位 | 說明 |
     | ------------ | ------------- |
     | 訂用帳戶 | 私用雲端相關聯 azure 訂用帳戶。  |
     | 資源群組 | 要將指派給 VM 的資源群組。 您可以選取現有的群組，或建立新的。 |
@@ -60,7 +60,7 @@ ms.locfileid: "65149468"
 
     網路介面、 按一下**新增網路介面**並設定下列設定。
     
-    | 控制 | 描述 |
+    | 控制 | 說明 |
     | ------------ | ------------- |
     | 名稱 | 輸入要識別介面的名稱。  |
     | 網路 | 在您的私用雲端 vSphere 設定分散式的連接埠群組的清單中選取。  |
@@ -69,12 +69,12 @@ ms.locfileid: "65149468"
 
     對於磁碟，按一下**新增磁碟**並設定下列設定。
 
-    | Item | 描述 | 
+    | Item | 說明 | 
     | ------------ | ------------- | 
     | 名稱 | 輸入名稱以識別磁碟。  | 
     | 大小 | 選取其中一個可用的大小。  | 
     | SCSI 控制器 | 選取磁碟的 SCSI 控制器。  |
-    | Mode | 決定磁碟與快照集之間的參與方式。 選擇其中一個選項： <br> 的獨立持續性：寫入磁碟的所有資料都會永久都寫入。<br> 的獨立非持續性：當您關閉電源或重設虛擬機器時，寫入磁碟的變更都會被捨棄。  獨立的非持續性模式可讓您永遠重新啟動 VM，在相同的狀態。 如需詳細資訊，請參閱 < <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware 文件</a>。
+    | 模式 | 決定磁碟與快照集之間的參與方式。 選擇其中一個選項： <br> 的獨立持續性：寫入磁碟的所有資料都會永久都寫入。<br> 的獨立非持續性：當您關閉電源或重設虛擬機器時，寫入磁碟的變更都會被捨棄。  獨立的非持續性模式可讓您永遠重新啟動 VM，在相同的狀態。 如需詳細資訊，請參閱 < <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware 文件</a>。
 
 7. 驗證完成後，檢閱設定，然後按一下**建立**。 若要進行任何變更，請按一下頂端的索引標籤，或按一下。
 
@@ -82,5 +82,5 @@ ms.locfileid: "65149468"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [檢視 CloudSimple 虛擬機器的清單](https://docs.azure.cloudsimple.com/azure-manage-vm/)
-* [從 Azure 中管理 CloudSimple 虛擬機器](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [檢視 CloudSimple 虛擬機器的清單](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [從 Azure 中管理 CloudSimple 虛擬機器](https://docs.azure.cloudsimple.com/azure-manage-vm/)

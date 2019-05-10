@@ -237,6 +237,8 @@
               href: msal-js-prompt-behavior.md
             - name: 提供您自己的 HttpClient (.NET)
               href: msal-net-provide-httpclient.md
+            - name: 與 Azure AD B2C 整合
+              href: msal-b2c-overview.md
             - name: 平台專屬的考量 (.NET)
               items:
                 - name: 網頁瀏覽器

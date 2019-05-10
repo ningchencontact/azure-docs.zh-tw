@@ -1,21 +1,21 @@
 ---
-title: 使用 Ruby 連線至適用於 PostgreSQL 的 Azure 資料庫
-description: 本快速入門提供 Ruby 程式碼範例，您可用於從 Azure Database for PostgreSQL 連線及查詢資料。
+title: 使用 Ruby 連線至適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
+description: 本快速入門提供 Ruby 程式碼範例，供您在連線至「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」及查詢其資料時使用。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 03/12/2019
-ms.openlocfilehash: cdb53685e744401f9d2d229a5deaffa72502e26b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.date: 5/6/2019
+ms.openlocfilehash: 242f5724e81f9b8ac6177e5c9d3844b3fab9a7f2
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730202"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067270"
 ---
-# <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>適用於 PostgreSQL 的 Azure 資料庫：使用 Ruby 連線並查詢資料
+# <a name="azure-database-for-postgresql---single-server-use-ruby-to-connect-and-query-data"></a>適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器：使用 Ruby 連線並查詢資料
 本快速入門示範如何使用 [Ruby](https://www.ruby-lang.org) 應用程式來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文中的步驟假設您已熟悉使用 Ruby 進行開發，但不熟悉適用於 PostgreSQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件

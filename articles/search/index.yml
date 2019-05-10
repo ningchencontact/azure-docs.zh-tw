@@ -11,10 +11,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2019
+  ms.date: 05/02/2019
   ms.author: heidist
 abstract:
-  description: 了解如何使用 Azure 搜尋服務，在私人和異質性內容中建立企業搜尋解決方案。 教學課程、API 參考和其他文件會說明如何使用簡單及進階語法並搭配各種案例，將可搜尋的內容合併到可供查詢的單一快速索引。 <p/><a href="/azure/search/cognitive-search-concept-intro"><b>新的認知搜尋預覽。</b></a> 使用預先發行的 REST API，將由 AI 驅動的演算法繫結至索引管線。 擷取資料，並且叫用自然語言和映像處理，將未經處理的非結構化內容轉換成可在 Azure 搜尋服務索引中搜尋的內容。 <p/>使用<a href="/azure/search/cognitive-search-quickstart-blob">資源與範例資料探索認知搜尋，</a>或在<a href="/azure/search/cognitive-search-concept-intro">概念</a>中深入了解。
+  description: 了解如何使用 Azure 搜尋服務，在私人和異質性內容中建立企業搜尋解決方案。 教學課程、API 參考和其他文件會說明如何使用簡單及進階語法並搭配各種案例，將可搜尋的內容合併到可供查詢的單一快速索引。 <p/><a href="/azure/search/cognitive-search-concept-intro"><b>認知搜尋</b></a>現已公開推出，並具備支援用於生產案例的 AI 擴充資料。<p/><a href="/azure/search/knowledge-store-concept-intro"><b>知識存放區 (預覽)</b></a> 可擴充認知搜尋。 將 AI 擴充資料儲存至可以在 Azure 搜尋服務以外的其他應用程式中檢視、調整及取用擴充資料的儲存體。 立即<a href="/azure/search/knowledge-store-howto"><b>開始使用</b></a>。
   aside:
     image:
       alt: null
@@ -51,11 +51,11 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/search/cognitive-search-tutorial-blob">使用 AI (認知服務) 編製索引</a>
-          - html: <a href="/azure/search/search-howto-dotnet-sdk">如何以 .NET 使用 Azure 搜尋服務</a>
+          - html: <a href="/azure/search/search-get-started-portal">使用入口網站編製索引並進行查詢測試</a>
+          - html: <a href="/azure/search/search-howto-dotnet-sdk">使用 .NET 撰寫第一個搜尋服務方案</a>
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">透過 AI 擴充 (認知服務)</a>
           - html: <a href="/azure/search/search-indexer-tutorial">使用 .NET 為 Azure SQL Database 編製索引</a>
           - html: <a href="/azure/search/search-semi-structured-data">使用 REST 為 Azure Blob 中的半結構資料編製索引</a>
-          - html: <a href="/azure/search/search-get-started-portal">使用入口網站編製索引並進行查詢測試</a>
   - title: 參考
     items:
       - type: list

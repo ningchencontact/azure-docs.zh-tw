@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754573"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442376"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure 中部署資料閘道的系統需求
 
@@ -29,7 +29,7 @@ ms.locfileid: "60754573"
 
 「資料箱閘道」的基礎主機系統能夠將下列資源專門用來佈建您的虛擬裝置：
 
-| 規格                                          | 描述              |
+| 規格                                          | 說明              |
 |---------------------------------------------------------|--------------------------|
 | 虛擬處理器 (核心)   | 最少 4 個 |
 | 記憶體  | 最少 8 GB|
@@ -50,7 +50,7 @@ ms.locfileid: "60754573"
 
 | **作業系統/平台**  |**版本**   |**注意事項**  |
 |---------|---------|---------|
-|Hyper-V  |  2012 R2 <br> 2016  |         |
+|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |不支援 VMware 工具。         |
 
 

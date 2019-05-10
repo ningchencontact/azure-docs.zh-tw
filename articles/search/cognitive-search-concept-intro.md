@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c421d99f1071c7a38cfe315cc3054136f81598e0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8201b4089759fb55fae12820f7495664c502837e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265963"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023638"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>什麼是 Azure 搜尋服務的「認知搜尋」？
 
@@ -32,15 +32,12 @@ Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模
 在資料擷取階段中會套用自然語言和影像處理，且其結果會在 Azure 搜尋服務的可搜尋索引中成為文件撰寫的一部分。 資料會作為 Azure 資料集的來源，然後使用您所需的[內建技能](cognitive-search-predefined-skills.md)透過索引管線推送出去。 其架構是可延伸的，因此如果內建技能不敷使用，您可以建立及附加[自訂技能](cognitive-search-create-custom-skill-example.md)，以整合自訂處理。 其範例包括以特定領域為目標 (例如金融、科學出版品或醫藥) 的自訂實體模組或文件分類器。
 
 > [!NOTE]
-> 從 2018 年 12 月 21 日開始，您可以[連結認知服務資源](cognitive-search-attach-cognitive-services.md)與 Azure 搜尋服務技術集。 據此，我們將開始收取執行技術集的費用。 自這個日期起，我們也會開始收取文件萃取階段中影像擷取的費用。 從文件中擷取文字的功能則繼續免費提供。
+> 當您透過增加處理頻率、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
 >
-> 內建技術的執行包含在認知服務費用中，並會依現行的[預付型方案](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價包含在 Azure 搜尋服務費用中，目前會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)上所述。
-
+> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價的說明請見 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
 ## <a name="components-of-cognitive-search"></a>認知搜尋的元件
 
-認知搜尋是 [Azure 搜尋服務](search-what-is-azure-search.md)的預覽功能。
-
-認知搜尋管線以會搜耙資料來源並提供端對端索引處理的 [Azure 搜尋服務*索引子*](search-indexer-overview.md)為基礎。 技能現在已連結至索引子，會根據您所定義的技能集攔截及擴充文件。 完成索引編製後，您即可使用 [Azure 搜尋服務所支援的所有查詢類型](search-query-overview.md)，透過搜尋要求來存取內容。  如果您不熟悉索引子，本節將引導您逐步完成相關步驟。
+認知搜尋管線以會搜耙資料來源並提供端對端索引處理的 [Azure 搜尋服務*索引子*](search-indexer-overview.md)為基礎。 技能現在已連結至索引子，會根據您所定義的技能集攔截及擴充文件。 完成索引編製後，您即可使用 [Azure 搜尋服務所支援的所有查詢類型](search-query-overview.md)，透過搜尋要求來存取內容。  如果您不熟悉索引子，此節將引導您逐步完成相關步驟。
 
 ### <a name="step-1-connection-and-document-cracking-phase"></a>步驟 1：連線和文件萃取階段
 
@@ -60,9 +57,15 @@ Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模
 
 就內部而言，管線會產生擴充文件的集合。 您可以決定擴充文件的哪些部分應對應至搜尋索引中可編製索引的欄位。 例如，如果您套用關鍵片語擷取和實體辨識技能，則這些新欄位將會成為擴充文件的一部分，並且可對應至索引上的欄位。 若要深入了解輸入/輸出格式，請參閱[註解](cognitive-search-concept-annotations-syntax.md)。
 
+#### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>新增 knowledgeStore 元素以儲存擴充
+
+[搜尋服務 REST api-version=2019-05-06](search-api-preview.md) 可利用提供 Azure 儲存體連線的 knowledgeStore 定義，以及描述擴充儲存方式的投影，來擴展技能集。 
+
+將知識存放區新增到技能集時，讓您能夠針對非全文檢索搜尋案例，投射擴充的表示法。 如需詳細資訊，請參閱[什麼是知識存放區](knowledge-store-concept-intro.md) \(英文\)。
+
 ### <a name="step-3-search-index-and-query-based-access"></a>步驟 3：搜尋索引和以查詢為基礎的存取
 
-處理完成後，您即具有由擴充文件組成、可在 Azure 搜尋服務中進行全文檢索搜尋的搜尋主體。 [查詢索引](search-query-overview.md)是開發人員和使用者存取管線所產生之擴充內容的具體方式。 
+處理完成後，您即具有由擴充文件組成、可在 Azure 搜尋服務中進行全文檢索搜尋的搜尋索引。 [查詢索引](search-query-overview.md)是開發人員和使用者存取管線所產生之擴充內容的具體方式。 
 
 ![搜尋的索引圖示](./media/cognitive-search-intro/search-phase-blowup.png "搜尋的索引圖示")
 
@@ -78,7 +81,7 @@ Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模
 |---------|------------|-------|
 | 技能集 | 包含技能集合的最上層具名資源。 技能集是擴充管線。 在索引子編製索引期間，即會叫用技能集。 | [定義技能集](cognitive-search-defining-skillset.md) |
 | 認知技能 | 擴充管線中不可部分完成的轉換。 它通常是一種擷取或推斷結構的元件，因此能提高我們對輸入資料的了解。 輸出幾乎都是以文字為基礎，而處理則是自然語言處理，或是從影像輸入擷取或產生的文字的影像處理。 技能的輸出可以對應至索引中的欄位，或作為下游擴充的輸入。 技能可以是 Microsoft 預先定義並提供的，或是自訂的：由您建立和部署。 | [預先定義的技能](cognitive-search-predefined-skills.md) |
-| 資料擷取 | 涵蓋多種形式的處理，但與認知搜尋有關，具名實體辨識技能最常用來從原本未提供具體資訊的來源擷取資料 (實體)。 | [具名實體辨識技能](cognitive-search-skill-named-entity-recognition.md)| 
+| 資料擷取 | 涵蓋多種形式的處理，但與認知搜尋有關，實體辨識技能最常用來從原本未提供具體資訊的來源擷取資料 (實體)。 | [實體辨識技能](cognitive-search-skill-entity-recognition.md)| 
 | 影像處理 | 從影像推斷文字 (例如辨識地標的能力)，或從影像擷取文字。 常見的範例包括從掃描的文件 (JPEG) 檔案中挑取字元的 OCR，或是在包含路標的相片中辨識街道名稱。 | [影像分析技能](cognitive-search-skill-image-analysis.md)或 [OCR 技能](cognitive-search-skill-ocr.md)
 | 自然語言處理 | 文字輸入的相關深入解析和資訊的文字處理。 語言偵測、情感分析和關鍵片語擷取都是屬於自然語言處理的技能。  | [關鍵片語擷取技能](cognitive-search-skill-keyphrases.md)、[語言偵測技能](cognitive-search-skill-language-detection.md)、[情感分析技能](cognitive-search-skill-sentiment.md) |
 | 文件萃取 | 在索引編製期間從非文字來源擷取或建立文字內容的程序。 光學字元辨識 (OCR) 也是範例之一，但它通常指涉索引子核心功能，因為索引子會從應用程式檔案中擷取內容。 提供來源檔案位置的資料來源，與提供欄位對應的索引子定義，都是文件萃取的關鍵因素。 | 請參閱[索引子](search-indexer-overview.md)。 |
@@ -86,7 +89,7 @@ Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模
 | 擴充的文件 | 一個暫時性內部結構，無法在程式碼中直接存取。 在處理期間會產生擴充的文件，但只有最終的輸出會保存在搜尋索引中。 欄位對應將決定哪些資料元素會新增至索引。 | 請參閱[存取擴充的文件](cognitive-search-tutorial-blob.md#access-enriched-document)。 |
 | 索引器 |  一種編目程式，可從外部資料來源擷取可搜尋的資料和中繼資料，並根據索引和資料來源之間的欄位對欄位對應填入索引，以進行文件萃取。 在進行認知搜尋擴充時，索引子會叫用技能集，並且包含將擴充輸出與索引中的目標欄位產生關聯的欄位對應。 索引子定義中包含管線作業的所有指示和參考，當您執行索引子時，即會叫用管線。 | [索引子](search-indexer-overview.md) |
 | 資料來源  | 索引子用來與 Azure 上支援的外部資料來源類型連線的物件。 | 請參閱[索引子](search-indexer-overview.md)。 |
-| 索引 | 從定義欄位結構和使用方式的索引結構描述建置，並保存在 Azure 搜尋服務中的搜尋主體。 | [Azure 搜尋服務中的索引](search-what-is-an-index.md) | 
+| 索引 | 從定義欄位結構和使用方式的索引結構描述建置，並保存在 Azure 搜尋服務中的搜尋索引。 | [Azure 搜尋服務中的索引](search-what-is-an-index.md) | 
 
 <a name="where-do-i-start"></a>
 
@@ -100,18 +103,20 @@ Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模
 + [教學課程 (HTTP 要求)](cognitive-search-tutorial-blob.md)
 + [範例自訂技能 (C#)](cognitive-search-create-custom-skill-example.md)
 
-基於學習目的，我們會建議使用免費服務，但請注意，可用的交易數目限制為每天 20 份文件。 若要在一天中執行快速入門和教學課程，請使用較小的檔案集 (10 份文件)，如此才能在限制內完成這兩項練習。
+基於學習目的，我們會建議使用免費服務，但請注意，可用的交易數目限制為每天 20 份文件。 若要在一天中執行快速入門和教學課程，請使用較小的檔案集 (10 份文件)，如此才能在限制內完成這兩個練習。
 
-**步驟 3：檢閱 API (僅限 REST)**
+**步驟 3：檢閱 API**
 
-目前僅提供 REST API。 所有要求均應使用 `api-version=2017-11-11-Preview`。 請使用下列 API 來建立認知搜尋解決方案。 針對認知搜尋僅新增或擴充了兩個 API。 其他 API 的語法與公開上市的版本相同。
+您可以在要求或 .NET SDK 上使用 REST `api-version=2019-05-06`。 
+
+此步驟使用 REST API 建置認知搜尋解決方案。 針對認知搜尋僅新增或擴充了兩個 API。 其他 API 的語法與公開上市的版本相同。
 
 | REST API | 說明 |
 |-----|-------------|
-| [建立資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 一項資源，用以識別提供來源資料以建立擴充文件的外部資料來源。  |
-| [建立技能集 (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 在索引編製期間負責對擴充管線中使用的[預先定義的技能](cognitive-search-predefined-skills.md)和[自訂認知技能](cognitive-search-custom-skill-interface.md)進行用法協調的資源。 |
+| [建立資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 一個資源，用以識別提供來源資料以建立擴充文件的外部資料來源。  |
+| [建立技能集 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 在索引編製期間負責對擴充管線中使用的[預先定義的技能](cognitive-search-predefined-skills.md)和[自訂認知技能](cognitive-search-custom-skill-interface.md)進行用法協調的資源。 |
 | [建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)  | 表示 Azure 搜尋服務索引的結構描述。 索引中與來源資料中的欄位或在擴充階段產生的欄位 (例如，實體辨識所建立之組織名稱的欄位) 相對應的欄位。 |
-| [建立索引子 (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一項資源，用以定義在索引編製期間所使用的元件：包括資料來源、技能集、來源和中繼資料結構與目標索引的欄位關聯性，以及索引本身。 執行索引子是擷取和擴充資料的觸發程序。 輸出是以索引結構描述為基礎、以來源資料填入，並透過技能集進行擴充的搜尋主體。  |
+| [建立索引子 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一個資源，用以定義在索引編製期間所使用的元件：包括資料來源、技能集、來源和中繼資料結構與目標索引的欄位關聯性，以及索引本身。 執行索引子是擷取和擴充資料的觸發程序。 輸出是以索引結構描述為基礎、以來源資料填入，並透過技能集擴充的搜尋索引。  |
 
 **檢查清單：一般工作流程**
 
@@ -140,3 +145,5 @@ Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模
 + [認知搜尋文件](cognitive-search-resources-documentation.md)
 + [快速入門：在入口網站中逐步試用認知搜尋](cognitive-search-quickstart-blob.md)
 + [教學課程：了解認知搜尋 API](cognitive-search-tutorial-blob.md)
++ [知識存放區概觀](knowledge-store-concept-intro.md)
++ [知識存放區逐步解說](knowledge-store-howto.md)

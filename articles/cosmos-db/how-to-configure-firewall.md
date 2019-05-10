@@ -1,17 +1,17 @@
 ---
 title: 設定 Azure Cosmos DB 帳戶的 IP 防火牆
 description: 了解如何設定 IP 存取控制原則，以提供 Azure Cosmos DB 資料庫帳戶上的防火牆支援。
-author: kanshiG
+author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: govindk
-ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.topic: sample
+ms.date: 05/06/2019
+ms.author: mjbrown
+ms.openlocfilehash: cdf2da745cc418190f6546fffc03e2ac2c330e0e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61060785"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068727"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中設定 IP 防火牆
 
@@ -32,7 +32,7 @@ ms.locfileid: "61060785"
 > [!NOTE]
 > 當您啟用 Azure Cosmos DB 帳戶的 IP 存取控制原則之後，即會拒絕所允許 IP 位址範圍清單外部的電腦對 Azure Cosmos DB 帳戶的所有要求。 從入口網站瀏覽 Azure Cosmos DB 資源也會遭到封鎖，以確保存取控制的完整性。
 
-### <a name="allow-requests-from-the-azure-portal"></a>允許來自 Azure 入口網站的要求 
+### <a name="allow-requests-from-the-azure-portal"></a>允許來自 Azure 入口網站的要求
 
 當您以程式設計方式啟用 IP 存取控制原則時，您必須將 Azure 入口網站的 IP 位址加入到 **ipRangeFilter** 屬性以維持存取權。 入口網站 IP 位址是：
 
@@ -80,7 +80,7 @@ ms.locfileid: "61060785"
 
 ### <a name="requests-from-virtual-machines"></a>來自虛擬機器的要求
 
-您也可以使用[虛擬機器](https://azure.microsoft.com/services/virtual-machines/)或[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)，透過 Azure Cosmos DB 裝載中介層服務。 若要設定您的 Cosmos DB 帳戶以允許從虛擬機器存取，您必須[設定 IP 存取控制原則](#configure-ip-policy)，以將虛擬機器和 (或) 虛擬機器擴展集的公用 IP 位址設定為 Azure Cosmos DB 帳戶的其中一個允許 IP 位址。 
+您也可以使用[虛擬機器](https://azure.microsoft.com/services/virtual-machines/)或[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)，透過 Azure Cosmos DB 裝載中介層服務。 若要將您的 Cosmos DB 帳戶設定為允許來自虛擬機器的存取，您必須[設定 IP 存取控制原則](#configure-ip-policy)，以將虛擬機器和 (或) 虛擬機器擴展集的公用 IP 位址設定為 Azure Cosmos DB 帳戶的其中一個允許 IP 位址。 
 
 您可以在 Azure 入口網站中擷取虛擬機器的 IP 位址，如下列螢幕擷取畫面所示：
 
@@ -138,6 +138,37 @@ az cosmosdb update \
       --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
+## <a id="configure-ip-firewall-ps"></a>使用 PowerShell 設定 IP 存取控制原則
+
+下列指令碼說明如何使用 IP 存取控制來建立 Azure Cosmos DB 帳戶：
+
+```azurepowershell-interactive
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "myaccountname"
+
+$locations = @(
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="East US"; "failoverPriority"=1 }
+)
+
+# Add local machine's IP address to firewall, InterfaceAlias is your Network Adapter's name
+$ipRangeFilter = Get-NetIPConfiguration | Where-Object InterfaceAlias -eq "Ethernet 2" | Select-Object IPv4Address
+
+$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy;
+    "ipRangeFilter"=$ipRangeFilter
+}
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
 ## <a id="troubleshoot-ip-firewall"></a>針對 IP 存取控制原則問題進行疑難排解
 
 您可以使用下列選項，針對 IP 存取控制原則問題進行疑難排解： 
@@ -161,5 +192,4 @@ az cosmosdb update \
 
 * [適用於 Azure Cosmos DB 帳戶的虛擬網路和子網路存取控制](vnet-service-endpoint.md)
 * [針對 Azure Cosmos DB 帳戶設定虛擬網路和子網路型存取](how-to-configure-vnet-service-endpoint.md)
-
 

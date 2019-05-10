@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad69c4108d747c44eccf37b81adf2c7c615cb58
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156940"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410732"
 ---
 # <a name="create-a-custom-voice"></a>建立自訂的語音
 
-在 [準備資料以自訂語音](how-to-custom-voice-prepare-data.md)，我們會說明您可用來訓練自訂的語音和不同的格式需求的不同資料類型。 一旦您已備妥您的資料，就可以開始上傳到[自訂語音入口網站](http://aka.ms/custom-voice-portal)，或透過自訂語音訓練 API。 我們在這裡說明的訓練自訂的語音，透過入口網站的步驟。
+在 [準備資料以自訂語音](how-to-custom-voice-prepare-data.md)，我們會說明您可用來訓練自訂的語音和不同的格式需求的不同資料類型。 一旦您已備妥您的資料，就可以開始上傳到[自訂語音入口網站](https://aka.ms/custom-voice-portal)，或透過自訂語音訓練 API。 我們在這裡說明的訓練自訂的語音，透過入口網站的步驟。
 
 > [!NOTE]
 > 本頁面假設您已閱讀[開始使用自訂語音](how-to-custom-voice.md)並[準備資料以自訂語音](how-to-custom-voice-prepare-data.md)，而且已建立的自訂語音專案。
@@ -28,7 +28,7 @@ ms.locfileid: "65156940"
 
 ## <a name="upload-your-datasets"></a>上傳您的資料集
 
-當您準備要上傳您的資料時，請前往[自訂語音入口網站](http://aka.ms/custom-voice-portal)。 建立或選取自訂語音專案。 專案必須共用正確的語言/地區和 gender 屬性做為資料要用於您的語氣訓練課程。 例如，選取`en-GB`如果您有音訊錄製是以英文使用英國腔調字。
+當您準備要上傳您的資料時，請前往[自訂語音入口網站](https://aka.ms/custom-voice-portal)。 建立或選取自訂語音專案。 專案必須共用正確的語言/地區和 gender 屬性做為資料要用於您的語氣訓練課程。 例如，選取`en-GB`如果您有音訊錄製是以英文使用英國腔調字。
 
 移至**資料**索引標籤，然後按一下**將資料上傳**。 在精靈中，選取符合您已備妥正確的資料類型。
 
@@ -46,8 +46,8 @@ ms.locfileid: "65156940"
 
 | State | 意義 |
 | ----- | ------- |
-| Processing | 您的資料集已收到，正在處理中。 |
-| Succeeded | 您的資料集已驗證，而且現在可用來建立語音模型。 |
+| 正在處理 | 您的資料集已收到，正在處理中。 |
+| 成功 | 您的資料集已驗證，而且現在可用來建立語音模型。 |
 | Failed | 您的資料集已失敗，因為許多原因，例如檔案錯誤，資料的問題或網路問題而處理期間。 |
 
 完成驗證之後，您可以看到在您的資料集的每個相符的談話總數**發音**資料行。 如果您已選取的資料類型需要長時間音訊分割，則此資料行只會反映談話，我們已分割，根據您的成績單或透過語音轉譯服務。 您可以進一步下載驗證，以檢視詳細資料的結果已成功匯入的談話，而且其對應的文字記錄的資料集。 提示： 長時間音訊分割可能需要超過一小時才能完成資料處理。
@@ -88,8 +88,8 @@ ms.locfileid: "65156940"
 
 | State | 意義 |
 | ----- | ------- |
-| Processing | 正在建立您的語音模型。 |
-| Succeeded | 您的語音模型已建立，而且可以部署。 |
+| 正在處理 | 正在建立您的語音模型。 |
+| 成功 | 您的語音模型已建立，而且可以部署。 |
 | Failed | 您的語音模型已訓練，因為許多原因，例如未察覺的資料的問題或網路問題而失敗。 |
 
 訓練時間會因所處理的音訊資料量而有所不同。 一般時間範圍為數百個語句 30 分鐘到 20,000 個語句 40 小時。 一旦成功訓練模型，您可以開始測試它。

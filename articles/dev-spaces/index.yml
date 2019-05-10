@@ -18,7 +18,7 @@ sections:
       - type: markdown
         text: |-
           > [!IMPORTANT]
-          > 僅有**美國東部**、**美國東部 2**、**美國中部**、**美國西部 2**、**歐洲北部**、**歐洲西部**、**東南亞**、**加拿大中部**和**加拿大東部**區域的 AKS 叢集支援 Azure Dev Spaces。 Azure Dev Spaces 支援使用[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 或 [Visual Studio Code](https://code.visualstudio.com/download) 搭配在 Linux、MacOS 或 Windows 8 或更新版本上安裝的 [Azure Dev Spaces 擴充功能](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)，以在 AKS 上建置和執行應用程式。 它也支援使用 [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) 搭配在 Windows 8 或更新版本上安裝的 Web 開發工作負載和[適用於 Kubernetes 的 Visual Studio Tools](https://aka.ms/get-vsk8stools)。
+          > 僅有**美國東部**、**美國東部 2**、**美國中部**、**美國西部 2**、**歐洲北部**、**歐洲西部**、**東南亞**、**加拿大中部**和**加拿大東部**區域的 AKS 叢集支援 Azure Dev Spaces。 Azure Dev Spaces 支援使用 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 或 [Visual Studio Code](https://code.visualstudio.com/download) 搭配在 Linux、MacOS 或 Windows 8 或更新版本上安裝的 [Azure Dev Spaces 擴充功能](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)，以在 AKS 上建置和執行應用程式。 它也支援使用 [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) 搭配在 Windows 8 或更新版本上安裝的 Web 開發工作負載和[適用於 Kubernetes 的 Visual Studio Tools](https://aka.ms/get-vsk8stools)。
   - title: 開始使用 Azure Dev Spaces
     items:
       - type: paragraph

@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 98c2ad15d836162608affbfbc89908a15e274cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528809"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149275"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>教學課程：從語句擷取內容相關的資料
 
 在本教學課程中，根據內容尋找相關的資料片段。 例如，從某個城市前往另一個城市的出發地和目的地位置。 可能會需要這兩個資料片段，且這兩者彼此相關。  
 
-本教學課程先前使用階層式實體撰寫。 實體角色取代了對階層式實體類型的需求。 角色可以與任何預先建置或自訂實體型別一起使用，並在範例表達和模式中使用。 
+角色可以與任何預先建置或自訂實體型別一起使用，並在範例表達和模式中使用。 
 
 **在本教學課程中，您將了解如何：**
 
@@ -93,12 +93,8 @@ ms.locfileid: "59528809"
     ![將角色新增至預先建置的實體](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. 從左側導覽中選取 [意圖]，然後選取 [MoveEmployeeToCity] 意圖。 請注意，縣/市名稱會加上預先建置的實體 **geogrpahyV2**。
 1. 在清單的第一個表達中，選取出發地位置。 此時會出現下拉式選單。 在清單中選取 **geographyV2**，然後依照功能表選取 [出發地]。
-
-    [![將縣/市標記為出發地位置的螢幕擷取畫面](media/tutorial-entity-roles/tag-origin-city-with-role.png "將縣/市標記為出發地位置的螢幕擷取畫面")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. 使用上一步中的方法標記所有表達中所有位置的角色。 
 
-    [![在語句上標示的位置實體螢幕擷取畫面](media/tutorial-entity-roles/all-locations-marked-with-roles.png "在語句上標示的位置實體螢幕擷取畫面")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>將範例語句新增至 None 意圖 
 
@@ -117,7 +113,7 @@ ms.locfileid: "59528809"
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. 移至位址中的 URL 尾端並輸入 `Please move Carl Chamerlin from Tampa to Portland`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何已標記的語句都不同，因此這是一個良好的測試，而應該會將 `MoveEmployee` 意圖與所擷取的階層式實體一起傳回。
+1. 移至位址中的 URL 尾端並輸入 `Please move Carl Chamerlin from Tampa to Portland`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `MoveEmployee` 意圖及所擷取的實體。
 
     ```json
     {

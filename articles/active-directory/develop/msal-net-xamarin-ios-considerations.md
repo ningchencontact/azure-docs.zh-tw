@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7621b18f32a90b81dc075c534367981cf44f16e0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bb07fa00b9e1d917cb64df18fff6466dd5c0193d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076326"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406961"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Xamarin iOS 專屬 MSAL.NET 考量
 在 Xamarin iOS 中，有幾個使用 MSAL.NET 時，您必須考慮到的考量
@@ -108,7 +108,7 @@ Msal 2.x 和 ADAL 4.x TeamId 用來存取可讓單一登入 (SSO) 的相同發�
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
   <key>keychain-access-groups</key>
@@ -123,6 +123,6 @@ Msal 2.x 和 ADAL 4.x TeamId 用來存取可讓單一登入 (SSO) 的相同發�
 
 中提供更多詳細資料[iOS 的特定考量](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations)段落下面的範例的 readme.md 檔案：
 
-範例 | 平台 | 描述 
+範例 | 平台 | 說明 
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS、Android、UWP | 展示如何使用 MSAL 來驗證 MSA 與 Azure AD 透過 AAD V2.0 端點，並存取 Microsoft Graph 與產生的語彙基元的簡單 Xamarin Forms 應用程式。 <br>![拓撲](media/msal-net-xamarin-ios-considerations/topology.png)

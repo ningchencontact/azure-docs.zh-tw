@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 0ec0280ab2a39674a1b41120f0a8791dfb8b1922
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499551"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073295"
 ---
 # <a name="what-is-azure-container-instances"></a>什麼是 Azure Container Instances？
 
@@ -56,7 +56,10 @@ Azure Container Instances 可讓您使用相同的 API 來排程 Windows 和 Lin
 * [虛擬網路部署模型](container-instances-vnet.md) (預覽)
 * [GPU 資源](container-instances-gpu.md) (預覽)
 
-Azure 容器執行個體目前支援以長期維護通道 (LTSC) 版本為基礎的 Windows Server 2016 映像。 Windows 半年通道 (SAC) 版本 (例如 1709 和 1803) 不受支援。
+進行 Windows 容器部署時，請使用以常用的 [Windows 基礎映像](container-instances-faq.md#what-windows-base-os-images-are-supported)為基礎的映像。
+
+> [!NOTE]
+> 在 Azure 容器執行個體中使用以 Windows Server 2019 為基礎的映像是預覽功能。
 
 ## <a name="co-scheduled-groups"></a>共同排程的群組
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ca3f537ed52da547f64aa1fb98eb82c4ea73d81d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5f3b0094834b1ca547ba5ddf9726068c9ea36079
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021430"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409095"
 ---
 # <a name="about-the-speech-devices-sdk"></a>關於語音裝置 SDK
 
@@ -32,7 +32,7 @@ ms.locfileid: "65021430"
 
 您也可以使用語音裝置 SDK 來建置環境有自己的裝置[自訂喚醒 word](speech-devices-sdk-create-kws.md)因此是唯一您的品牌的提示，會起始使用者互動。
 
-語音裝置 SDK 有助於各種啟用語音的案例，例如[自訂語音第一個虛擬助理](https://aka.ms/sdsdk-assistant)、 磁碟機透過訂購系統[交談文字記錄](conversation-transcription-service.md)，和智慧說話者。 您可以利用文字來回應使用者、以預設或[自訂語音](how-to-customize-voice-font.md)回答他們、提供搜尋結果、[翻譯](speech-translation.md)成其他語言等等。 我們期待看到您所打造的不凡成果！
+語音裝置 SDK 有助於各種啟用語音的案例，例如[自訂語音第一個虛擬助理](https://aka.ms/bots/speech/va)、 磁碟機透過訂購系統[交談文字記錄](conversation-transcription-service.md)，和智慧說話者。 您可以利用文字來回應使用者、以預設或[自訂語音](how-to-customize-voice-font.md)回答他們、提供搜尋結果、[翻譯](speech-translation.md)成其他語言等等。 我們期待看到您所打造的不凡成果！
 
 ## <a name="next-steps"></a>後續步驟
 

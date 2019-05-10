@@ -12,18 +12,18 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/23/2019
+ms.date: 04/24/2019
 ms.author: pepogors
-ms.openlocfilehash: a0174a5442de7a10e45e9dc2a2f43f5f401d1a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d6b1129724ce4e8a67bde4e56ebe61cd832f3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803180"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231377"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Azure Service Fabric 應用程式與叢集最佳做法
 
-若要成功管理 Azure Service Fabric 應用程式和叢集，我們強烈建議您執行幾項作業，將生產環境最佳化以獲得可靠性；請執行本文件中定義的作業，然後選取我們 [Azure 範例 Service Fabric 叢集範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)的其中之一，以開始設計您的生產解決方案，或修改現有的範本，以結合這些做法。
+若要成功地管理 Azure Service Fabric 應用程式和叢集，有作業，我們強烈建議您執行的實際執行環境; 可靠性最佳化請執行此文件中定義的作業，然後選取其中一個我們[Azure 範例 Service Fabric 叢集範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)開始設計您的生產環境方案，或修改您現有的範本，以納入這些做法。
 
 ## <a name="security"></a>安全性 
 
@@ -45,6 +45,10 @@ ms.locfileid: "60803180"
 ## <a name="monitoring-and-diagnostics"></a>監視和診斷
 
 * [叢集監視和診斷的最佳做法](service-fabric-best-practices-monitoring.md)
+
+## <a name="application-design"></a>應用程式設計
+
+* [應用程式的設計的最佳作法](service-fabric-best-practices-applications.md)
 
 ## <a name="checklist"></a>檢查清單
 

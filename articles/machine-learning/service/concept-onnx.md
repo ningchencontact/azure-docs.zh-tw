@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bda1af8095e7026c79b7d8ffe45b39f6cbb3508
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028691"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442414"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 與 Azure Machine Learning：建立及加速 ML 模型
 
@@ -30,7 +30,7 @@ Microsoft 與合作夥伴社群建立 ONNX 為一項開放標準來表示機器�
 
 ONNX 執行階段會在高延展性 Microsoft 服務，例如 Bing、 Office 和認知服務。 效能提升取決於許多因素，但這些 Microsoft 服務所見__平均 2 倍的 CPU 上的效能改善__。 ONNX 執行階段也會在數百台數百萬個裝置上的 Windows ML 的一部分。 您可以使用 Azure Machine Learning 服務的執行階段。 藉由使用 ONNX 執行階段，您可以從廣泛的生產等級最佳化、 測試和持續改進獲益。
 
-[![顯示訓練、 轉換和部署的 ONNX 流程圖](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![顯示訓練、 轉換和部署的 ONNX 流程圖](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>取得 ONNX 模型
 

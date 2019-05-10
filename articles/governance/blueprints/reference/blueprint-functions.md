@@ -7,12 +7,12 @@ ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 0de3e0add804290cdfe27e2e97d8b1a0f240e0a6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63769297"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209418"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>函式，以搭配 Azure 藍圖
 
@@ -35,17 +35,17 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| artifactName |是 |string |藍圖成品的名稱。 |
+| artifactName |有 |string |藍圖成品的名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
-輸出屬性的物件。 輸出屬性是成品的相依於的 blueprint （藍圖） 所參考類型。 所有類型中，請依照都下列格式：
+輸出屬性的物件。 **輸出**屬性不相依於的 blueprint （藍圖） 所參考的成品類型。 所有類型中，請依照都下列格式：
 
 ```json
 {
-  "output": {collectionOfOutputProperties}
+  "outputs": {collectionOfOutputProperties}
 }
 ```
 
@@ -53,7 +53,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 ```json
 {
-    "output": {
+    "outputs": {
         "policyAssignmentId": "{resourceId-of-policy-assignment}",
         "policyAssignmentName": "{name-of-policy-assignment}",
         "policyDefinitionId": "{resourceId-of-policy-definition}",
@@ -69,7 +69,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 ```json
 {
-    "output": {
+    "outputs": {
         "roleAssignmentId": "{resourceId-of-role-assignment}",
         "roleDefinitionId": "{resourceId-of-role-definition}",
         "principalId": "{principalId-role-is-being-assigned-to}",
@@ -107,14 +107,14 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 擷取資料的一些範例_myTemplateArtifact_範例：
 
-| 運算是 | 類型 | Value |
+| 運算式 | Type | Value |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").output.myArray]` | 陣列 | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").output.myArray[0]]` | 字串 | "first" |
-|`[artifacts("myTemplateArtifact").output.myString]` | 字串 | 「 我的字串值" |
-|`[artifacts("myTemplateArtifact").output.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | 字串 | 「 我的值 」 |
-|`[artifacts("myTemplateArtifact").output.myObject.anotherProperty]` | Bool | True |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | 陣列 | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | 字串 | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | 字串 | 「 我的字串值" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | 字串 | 「 我的值 」 |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 
@@ -124,10 +124,10 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| string1 |是 |string |串連的第一個值。 |
-| 其他引數 |否 |string |額外的值串連的循序順序 |
+| string1 |有 |string |串連的第一個值。 |
+| 其他引數 |無 |string |額外的值串連的循序順序 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -149,9 +149,9 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| parameterName |是 |string |要返回的参数名称。 |
+| parameterName |有 |string |要返回的参数名称。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -270,9 +270,9 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| placeholderName |是 |string |要傳回之資源群組成品的預留位置名稱。 |
+| placeholderName |有 |string |要傳回之資源群組成品的預留位置名稱。 |
 
 ### <a name="return-value"></a>傳回值
 

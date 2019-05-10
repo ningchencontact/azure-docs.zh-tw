@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4389af86e27ddb04f5a3e5f53c5509eeede005
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075336"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407014"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api-的傳統型應用程式取得權杖
 
@@ -502,7 +502,7 @@ static async Task GetATokenForGraph()
   catch (MsalClientException ex) when (ex.ErrorCode == "unknown_user")
   {
    // the username was probably empty
-   // ex.Message = "Could not identify the user logged into the OS. See http://aka.ms/msal-net-iwa for details."
+   // ex.Message = "Could not identify the user logged into the OS. See https://aka.ms/msal-net-iwa for details."
    throw new ArgumentException("U/P: Wrong username", ex);
   }
   catch (MsalClientException ex) when (ex.ErrorCode == "parsing_wstrust_response_failed")
@@ -529,7 +529,7 @@ static async Task GetATokenForGraph()
 
 使用 Azure AD 的互動式驗證需要網頁瀏覽器 (如需詳細資訊，請參閱[使用量的網頁瀏覽器](https://aka.ms/msal-net-uses-web-browser))。 不過，若要驗證的裝置或作業系統不提供網頁瀏覽器上的使用者，裝置程式碼流程讓使用者使用另一個裝置 （例如另一部電腦或行動電話） 登入以互動方式。 藉由使用裝置程式碼流程，應用程式取得權杖，透過特別設計，這些裝置/作業系統雙步驟程序。 這類應用程式的範例包括 iOT、 或命令列工具 (CLI) 上執行的應用程式。 這個概念是：
 
-1. 需要使用者驗證時，應用程式提供的程式碼，並要求使用者使用 （例如連線到網際網路的智慧型手機） 的其他裝置，巡覽至的 URL (例如， `http://microsoft.com/devicelogin`)，輸入程式碼會提示使用者。 完成之後，web 網頁將會導致透過一般的驗證體驗，包括如有必要的同意提示和 multi-factor authentication 使用者。
+1. 需要使用者驗證時，應用程式提供的程式碼，並要求使用者使用 （例如連線到網際網路的智慧型手機） 的其他裝置，巡覽至的 URL (例如， `https://microsoft.com/devicelogin`)，輸入程式碼會提示使用者。 完成之後，web 網頁將會導致透過一般的驗證體驗，包括如有必要的同意提示和 multi-factor authentication 使用者。
 
 2. 驗證成功後，命令列應用程式將會收到需要的語彙基元，透過後頻道，並將它用來執行它所需要的 web API 呼叫。
 
@@ -634,7 +634,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
 
 ## <a name="file-based-token-cache"></a>以檔案基礎的權杖快取
 
-在 MSAL.NET，預設會提供記憶體內部權杖快取。
+在 MSAL.NET 中，預設會提供記憶體內部權杖快取。
 
 ### <a name="serialization-is-customizable-in-windows-desktop-apps-and-web-appsweb-apis"></a>序列化是可自訂的 Windows 傳統型應用程式和 web 應用程式/web Api
 
@@ -643,16 +643,16 @@ static async Task<AuthenticationResult> GetATokenForGraph()
 類別和介面所涉及權杖快取序列化是下列類型：
 
 - ``ITokenCache``其定義權杖快取序列化要求，以及要序列化或還原序列化的各種不同的格式之快取的方法訂閱事件 (ADAL 3.0 版，MSAL 2.x 和 MSAL 3.x = ADAL v5.0)
-- ``TokenCacheCallback`` 回呼傳遞至事件，使您能夠處理序列化。 引數的型別會呼叫它們``TokenCacheNotificationArgs``。
+- ``TokenCacheCallback`` 是傳遞至事件的回呼，以便您處理序列化。 引數的型別會呼叫它們``TokenCacheNotificationArgs``。
 - ``TokenCacheNotificationArgs`` 只提供``ClientId``應用程式和使用者語彙基元是可用的參考
 
   ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
-> MSAL.NET 會為您建立權杖快取，並提供您`IToken`當您呼叫的應用程式時的 cache`GetUserTokenCache`和`GetAppTokenCache`方法。 您不應該自己實作的介面。 就是您的責任，當您實作自訂權杖快取序列化、:
+> MSAL.NET 會為您建立權杖快取，並且在您呼叫應用程式的 `GetUserTokenCache` 和 `GetAppTokenCache` 方法時提供 `IToken` 快取。 您不應該自己實作的介面。 當您實作自訂權杖快取序列化時，您的責任是：
 >
-> - 做出`BeforeAccess`和`AfterAccess`「 事件 」。 `BeforeAccess`委派會負責將快取中，還原序列化，而`AfterAccess`一個負責序列化的快取。
-> - 這些事件的一部分儲存或載入事件引數傳遞到您想要的儲存體的 blob。
+> - 回應 `BeforeAccess` 和 `AfterAccess` 事件。 `BeforeAccess`委派會負責將快取中，還原序列化，而`AfterAccess`一個負責序列化的快取。
+> - 其中有些事件會儲存或載入 Blob，其會透過事件引數傳遞到您想要的儲存體的。
 
 策略並不取決於如果您要撰寫一個公用用戶端應用程式 （桌面），或機密用戶端應用程式 (web 應用程式/web API，精靈應用程式) 的權杖快取序列化。
 
@@ -660,9 +660,9 @@ static async Task<AuthenticationResult> GetATokenForGraph()
 
 自訂權杖快取序列化 SSO 間共用狀態 ADAL.NET 3.x，ADAL.NET 5.x 和 MSAL.NET 會說明部分的下列範例： [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
 
-### <a name="simple-token-cache-serialization-msal-only"></a>簡單權杖快取序列化 (只有 MSAL)
+### <a name="simple-token-cache-serialization-msal-only"></a>簡單權杖快取序列化 (僅限 MSAL)
 
-以下是針對桌面應用程式的權杖快取的自訂序列化的貝氏實作的範例。 以下的檔案與應用程式相同的資料夾中的使用者權杖快取。
+以下是適用於傳統型應用程式的自訂權杖快取序列化的單純實作範例。 以下的檔案與應用程式相同的資料夾中的使用者權杖快取。
 
 建置應用程式之後，您會啟用序列化呼叫``TokenCacheHelper.EnableSerialization()``傳遞應用程式 `UserTokenCache`
 
@@ -722,7 +722,7 @@ static class TokenCacheHelper
  }
 ```
 
-產品品質權杖快取的檔案為基礎 （適用於 Windows、 Mac 和 linux 上執行的桌面應用程式） 的公用用戶端應用程式的序列化程式是可從預覽[Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal)開放原始碼程式庫。 您可以包含在您的應用程式，從下列 nuget 套件：[Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/)。
+產品品質權杖快取的檔案為基礎 （適用於 Windows、 Mac 和 linux 上執行的桌面應用程式） 的公用用戶端應用程式的序列化程式是可從預覽[Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal)開放原始碼程式庫。 您可以從下列 nuget 套件，將它包含在您的應用程式中：[Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
 > 免責聲明。 Microsoft.Identity.Client.Extensions.Msal 程式庫透過 MSAL.NET 是延伸模組。 這些程式庫中的類別可能會變成一直 MSAL.NET 以後，或具有重大變更。
 

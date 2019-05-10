@@ -113,7 +113,7 @@
         - name: 刪除 AKS 叢集
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: 建立虛擬節點 (預覽)
+        - name: 建立虛擬節點
           items:
             - name: Azure CLI
               href: virtual-nodes-cli.md
@@ -123,9 +123,13 @@
           href: virtual-kubelet.md
         - name: 使用叢集自動調整程式 (預覽)
           href: cluster-autoscaler.md
+        - name: 使用多個節點集區 (預覽)
+          href: use-multiple-node-pools.md
         - name: 使用 Terraform 部署 AKS
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: 使用 Kubernetes 儀表板
+          href: kubernetes-dashboard.md
     - name: 設定資料磁碟區
       items:
         - name: Azure 磁碟 - 動態
@@ -173,12 +177,16 @@
           href: kubernetes-service-principal.md
         - name: 叢集組態檔的限制存取
           href: control-kubeconfig-access.md
-        - name: 透過網路原則保護 Pod 流量 (預覽)
+        - name: 透過網路原則保護 Pod 流量
           href: use-network-policies.md
         - name: 使用 Pod 安全性原則 (預覽)
           href: use-pod-security-policies.md
+        - name: 定義 API 伺服器授權的 IP 範圍 (預覽)
+          href: api-server-authorized-ip-ranges.md
         - name: 更新叢集服務主體認證
           href: update-credentials.md
+        - name: 限制和控制叢集輸出流量
+          href: limit-egress-traffic.md
         - name: 啟用 Azure Active Directory 整合
           items:
             - name: 使用 Azure CLI
@@ -285,10 +293,6 @@
         - name: Azure DevOps 專案
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-    - name: Kubernetes 基本概念
-      items:
-        - name: 使用 Kubernetes 儀表板
-          href: kubernetes-dashboard.md
     - name: 疑難排解
       items:
         - name: 常見問題

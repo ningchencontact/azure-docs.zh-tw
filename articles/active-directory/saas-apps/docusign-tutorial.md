@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 72505cfc0a86c00882de37c35dff61a12a9c3fbe
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 35fc4e855ef53bd7e667fc8de7146916b4d05acb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565745"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407071"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>教學課程：Azure Active Directory 與 DocuSign 整合
 
@@ -178,7 +178,7 @@ DocuSign 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][62]
 
-    i. 選擇要與 Azure AD 宣告對應的欄位。 在此範例中，**emailaddress** 宣告的對應值是 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。 這是 Azure AD 針對電子郵件宣告所提供的預設宣告名稱；然後，按一下 [儲存]。
+    i. 選擇要與 Azure AD 宣告對應的欄位。 在此範例中，**emailaddress** 宣告的對應值是 **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。 這是 Azure AD 針對電子郵件宣告所提供的預設宣告名稱；然後，按一下 [儲存]。
 
     ![設定單一登入][57]
 

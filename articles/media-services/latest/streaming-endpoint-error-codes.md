@@ -1,6 +1,6 @@
 ---
 title: Azure 媒體服務封裝和原始錯誤 |Microsoft Docs
-description: 本主題說明您可能會收到來自 Azure 媒體服務封裝服務的錯誤。
+description: 本主題說明您可能會收到來自 Azure 媒體服務串流端點 (Orgin) 服務的錯誤。
 author: Juliako
 manager: femila
 editor: ''
@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: e30c51ff3526bb5ed193b65b3f36a64c552024ff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204126"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411380"
 ---
-# <a name="media-services-packaging-errors"></a>媒體服務封裝錯誤 
+# <a name="streaming-endpoint-origin-errors"></a>串流端點 （來源） 錯誤 
 
-本主題說明您可能會收到來自 Azure 媒體服務的錯誤[封裝服務](streaming-endpoint-concept.md)。
+本主題說明您可能會收到來自 Azure 媒體服務的錯誤[串流端點服務](streaming-endpoint-concept.md)。
 
 ## <a name="400-bad-request"></a>400 不正確的要求
 
@@ -194,7 +194,7 @@ ms.locfileid: "65204126"
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|儲存體作業發生錯誤，會收到 HTTP 伺服器忙碌錯誤 503。|
 
-## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

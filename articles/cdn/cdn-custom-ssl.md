@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1ebac5476c90b3cb49fccbb95ef8dedf413a6127
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: dc43e2ad2668a7d3a808e398857cbf1d28c9aa1c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200288"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150859"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教學課程：在 Azure CDN 自訂網域上設定 HTTPS
 
@@ -90,10 +90,10 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[選項 2：使用您自己的憑證啟用 HTTPS](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> 此選項僅適用於**來自 Microsoft 的 Azure CDN 標準**設定檔。 
+> 此選項僅適用於**來自 Microsoft 的 Azure CDN** 和**來自 Verizon 的 Azure CDN** 設定檔。 
 >
  
-您可以使用自己的憑證啟用 HTTPS 功能。 此程序會透過與 Azure Key Vault 的整合來進行，因為此一整合可讓您安全地儲存憑證。 Azure CDN 使用此安全機制來取得您的憑證，為此您需要執行一些額外的步驟。 當您建立 SSL 憑證時，您必須使用允許的憑證授權單位 (CA) 來加以建立。 否則，如果您使用非允許的 CA，系統會拒絕您的要求。 如需允許 CA 的清單，請參閱[可在 Azure CDN 上啟用自訂 HTTPS 的允許憑證授權單位](cdn-troubleshoot-allowed-ca.md)。
+您可以使用自己的憑證啟用 HTTPS 功能。 此程序會透過與 Azure Key Vault 的整合來進行，因為此一整合可讓您安全地儲存憑證。 Azure CDN 使用此安全機制來取得您的憑證，為此您需要執行一些額外的步驟。 當您建立 SSL 憑證時，您必須使用允許的憑證授權單位 (CA) 來加以建立。 否則，如果您使用非允許的 CA，系統會拒絕您的要求。 如需允許 CA 的清單，請參閱[可在 Azure CDN 上啟用自訂 HTTPS 的允許憑證授權單位](cdn-troubleshoot-allowed-ca.md)。若為**來自 Verizon 的 Azure CDN**，則可接受任何有效的 CA。 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>準備您的 Azure Key Vault 帳戶和憑證
  

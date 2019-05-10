@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: efeadd2e1600e5ee572c4a69dde0ff4c53a13cd7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577656"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209546"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>快速入門-設定私用雲端環境
 
@@ -104,7 +104,7 @@ ms.locfileid: "64577656"
 4. 選取 [使用者]。
 5. 按一下**下載我的 VPN 設定**
 
-    ![下載 VPN 組態](media/download-p2s-vpn-configuration.png)
+    ![下載 VPN 設定](media/download-p2s-vpn-configuration.png)
 
 6. 匯入您的 VPN 用戶端上的設定
 
@@ -135,7 +135,7 @@ ms.locfileid: "64577656"
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>將環境連接到 Azure 虛擬網路
 
-CloudSimple 為您提供為 ExpressRoute 線路的私人雲端。 您可以連接您在 Azure 上的虛擬網路的 ExpressRoute 線路。 如需完整有關設定連接的詳細資訊，請依照下列中的步驟[Azure 使用 ExpressRoute 虛擬網路連線](https://docs.azure.cloudsimple.com/azure-er-connection)
+CloudSimple 為您提供為 ExpressRoute 線路的私人雲端。 您可以連接您在 Azure 上的虛擬網路的 ExpressRoute 線路。 如需完整有關設定連接的詳細資訊，請依照下列中的步驟[Azure 使用 ExpressRoute 虛擬網路連線](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
 
 ## <a name="sign-in-to-vcenter"></a>登入 vCenter
 
@@ -147,7 +147,7 @@ CloudSimple 為您提供為 ExpressRoute 線路的私人雲端。 您可以連�
 
 2. 選取您的慣用的 vSphere 用戶端存取 vCenter，並使用您的使用者名稱和密碼登入。  預設值為：
     * 使用者名稱： **CloudOwner@cloudsimple.local**
-    * 密碼：**CloudSimple123!**  
+    * 密碼:**CloudSimple123!**  
 
 在下一個程序中的 vCenter 畫面是來自 vSphere (HTML5) 用戶端。
 
@@ -176,7 +176,7 @@ CloudSimple 建議您變更您的密碼登入 vCenter 的第一次。
 NSX manager 會使用預設密碼部署。  我們建議您建立私用雲端之後，變更密碼。
 
    * 使用者名稱：**系統管理員**
-   * 密碼：**CloudSimple123!**
+   * 密碼:**CloudSimple123!**
 
 您可以 CloudSimple 入口網站上找到的完整的網域名稱 (FQDN) 和 NSX manager IP 位址。
 

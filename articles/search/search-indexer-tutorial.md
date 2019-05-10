@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528045"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025075"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C# 教學課程：使用 Azure 搜尋索引子搜耙 Azure SQL 資料庫
 
@@ -23,7 +23,7 @@ ms.locfileid: "59528045"
 
 索引子設定的熟練度很有幫助，因為它可簡化您必須撰寫和維護的程式碼數量。 您不需準備及推送結構描述相容的 JSON 資料集，而是可以將索引子附加至資料來源，讓索引子擷取資料並將其插入索引中，並選擇性地依照週期性排程執行索引子，以掌握基礎來源中的變更。
 
-在本教學課程中，使用 [Azure 搜尋服務 .NET 用戶端程式庫](https://aka.ms/search-sdk)和 .NET Core 主控台應用程式，執行下列工作：
+在此教學課程中，使用 [Azure 搜尋服務 .NET 用戶端程式庫](https://aka.ms/search-sdk)和 .NET Core 主控台應用程式，執行下列工作：
 
 > [!div class="checklist"]
 > * 將搜尋服務資訊新增至應用程式設定
@@ -35,20 +35,20 @@ ms.locfileid: "59528045"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-本快速入門會使用下列服務、工具和資料。 
+此快速入門會使用下列服務、工具和資料。 
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此教學課程的免費服務。
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 會儲存索引子所用的外部資料來源。 範例解決方案會提供 SQL 資料檔案，以建立資料表。 本教學課程會提供建立服務和資料庫的步驟。
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 會儲存索引子所用的外部資料來源。 範例解決方案會提供 SQL 資料檔案，以建立資料表。 此教學課程會提供建立服務和資料庫的步驟。
 
 任何版本的 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 都可用來執行解決方案範例。 範例程式碼和指示已在免費的 Community 版本上經過測試。
 
 位在 Azure 範例 GitHub 存放庫中的 [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) 會提供解決方案範例。 下載並擷取解決方案。 根據預設，解決方案會是唯讀狀態。 以滑鼠右鍵按一下方案並清除唯讀屬性，以便您修改檔案。
 
 > [!Note]
-> 如果您使用免費的 Azure 搜尋服務，則受限於三個索引、三個索引子，以及三個資料來源。 本教學課程會各建立一個。 確定您的服務有空間可接受新的資源。
+> 如果您使用免費的 Azure 搜尋服務，則受限於三個索引、三個索引子，以及三個資料來源。 此教學課程會各建立一個。 確定您的服務有空間可接受新的資源。
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
@@ -67,7 +67,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 1. 在 Visual Studio 中，開啟 **DotNetHowToIndexers.sln**檔案。
 
-1. 在 [方案總管] 中，開啟 **appsettings.json**，以便您填入每項設定。  
+1. 在 [方案總管] 中，開啟 **appsettings.json**，以便您填入每個設定。  
 
 您現在就可以使用 Azure 搜尋服務的 URL 和管理員金鑰來填入前兩個項目。 假設端點是 `https://mydemo.search.windows.net`，則要提供的服務名稱就是 `mydemo`。
 
@@ -155,7 +155,7 @@ public string HotelName { get; set; }
 
 結構描述也可以包含其他元素，包括提高搜尋分數、自訂分析城市和其他建構的評分設定檔。 不過，基於我們的目的，結構描述並未嚴密定義，只包含在範例資料集中找到的欄位。
 
-在本教學課程中，索引子會從一個資料來源提取資料。 實際上，您可以將多個索引子附加至相同的索引，並從多個資料來源建立合併的可搜尋索引。 根據您需要彈性的狀況而定，您可以使用相同的索引-索引子配對、不同的資料來源組合，或具有各種索引子和資料來源組合的一個索引。
+在此教學課程中，索引子會從一個資料來源提取資料。 實際上，您可以將多個索引子附加至相同的索引，並從多個資料來源建立合併的可搜尋索引。 根據您需要彈性的狀況而定，您可以使用相同的索引-索引子配對、不同的資料來源組合，或具有各種索引子和資料來源組合的一個索引。
 
 ### <a name="in-programcs"></a>在 Program.cs 中
 
@@ -222,13 +222,13 @@ public string HotelName { get; set; }
 1. 在 [方案總管] 中，於 **DotNetHowToIndexers** 上按一下滑鼠右鍵，然後選取 [建置]。
 2. 同樣地，以滑鼠右鍵按一下 **DotNetHowToIndexers**，接著按一下 [偵錯] > [啟動新執行個體]。
 
-此程式會在偵錯模式中執行。 主控台視窗會報告每項作業的狀態。
+此程式會在偵錯模式中執行。 主控台視窗會報告每個作業的狀態。
 
   ![SQL 指令碼](./media/search-indexer-tutorial/console-output.png)
 
-您的程式碼會在 Visual Studio 本機執行，並連線到您在 Azure 上的搜尋服務，而搜尋服務會使用連接字串連線到 Azure SQL Database 並擷取資料集。 這麼多項作業會有數個潛在的失敗點，但如果發生錯誤，請先檢查下列：
+您的程式碼會在 Visual Studio 本機執行，並連線到您在 Azure 上的搜尋服務，而搜尋服務會使用連接字串連線到 Azure SQL Database 並擷取資料集。 這麼多個作業會有數個潛在的失敗點，但如果發生錯誤，請先檢查下列：
 
-+ 您提供搜尋服務連線資訊受限於本教學課程中的服務名稱。 如果您輸入了完整 URL，作業會在索引建立時停止，出現連線失敗錯誤。
++ 您提供搜尋服務連線資訊受限於此教學課程中的服務名稱。 如果您輸入了完整 URL，作業會在索引建立時停止，出現連線失敗錯誤。
 
 + **appsettings.json** 中的資料庫連線資訊。 它應該是從入口網站取得的 ADO.NET 連接字串，已修改成包含您的資料庫適用的使用者名稱和密碼。 使用者帳戶必須具有擷取資料的權限。
 
@@ -267,7 +267,7 @@ public string HotelName { get; set; }
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以將 AI 功能的演算法附加至索引子的管線。 下一個步驟中，繼續進行下列教學課程。
+您可以將 AI 擴充資料演算法附加至索引子管線。 下一個步驟中，繼續進行下列教學課程。
 
 > [!div class="nextstepaction"]
 > [在 Azure Blob 儲存體中為文件編製索引](search-howto-indexing-azure-blob-storage.md)

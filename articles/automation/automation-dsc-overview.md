@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 926629660c9593c59362bd1bc49c5115ac5e3187
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61071448"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441062"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概觀
 
@@ -62,7 +62,7 @@ Azure Automation State Configuration 為 [PowerShell Desired State Configuration
 
 DSC Linux 扩展支持所有[在 Azure 上认可的](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) Linux 发行版，除了以下这些：
 
-配送映像 | Version
+配送映像 | 版本
 -|-
 Debian  | 所有版本
 Ubuntu  | 18.04
@@ -77,10 +77,20 @@ Ubuntu  | 18.04
 
 如果您的節點位於私人網路內，下列連接埠和 Url 是必要的狀態組態 (DSC) 與自動化進行通訊：
 
-* 連接埠︰只需要 TCP 443 以便進行傳出網際網路存取。
+* 連接埠:只需要 TCP 443 以便進行傳出網際網路存取。
 * 全域 URL：*.azure-automation.net
 * US Gov 維吉尼亞州的全域 URL： *.azure automation.us
 * 代理程式服務： https://\<workspaceId\>.agentsvc.azure-automation.net
+
+#### <a name="proxy-support"></a>Proxy 支援
+
+DSC 代理程式 proxy 支援適用於 Windows 版 1809年和更新版本。
+若要設定此選項，將設定的值**ProxyURL**並**ProxyCredential**中[中繼設定指令碼](automation-dsc-onboarding.md#generating-dsc-metaconfigurations)用來註冊節點。
+無法針對先前版本的 Windows 在 DSC 中使用 proxy。
+
+對於 Linux 節點，DSC 代理程式支援 proxy，並利用 http_proxy 變數，以判斷 url。
+
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Azure 狀態設定網路範圍和命名空間
 
 建議使用定義例外狀況時所列出的位址。 針對 IP 位址，您可以下載 [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 此檔案會每週更新，並具有目前已部署的範圍及任何即將進行的 IP 範圍變更。
 

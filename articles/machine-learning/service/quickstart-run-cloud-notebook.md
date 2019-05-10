@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d4127226037bf28ba677a49f6444ca987118cb9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023912"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149834"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>快速入門：使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning
 
@@ -25,11 +25,11 @@ ms.locfileid: "65023912"
  
 在本快速入門中，您會執行下列動作：
 
-* 在您的工作區中建立新的雲端式 Notebook 伺服器
-* 啟動 Jupyter Web 介面
+* 在您的工作區中建立新的雲端式 Notebook 伺服器。
+* 啟動 Jupyter Web 介面。
 * 開啟包含程式碼的 Notebook，以估計每個反覆項目的 pi 和記錄錯誤。
 * 執行 Notebook。
-* 在工作區中檢視記錄錯誤的值。  這個範例示範工作區如何協助您追蹤指令碼中所產生的資訊。 
+* 在工作區中檢視記錄錯誤的值。 這個範例示範工作區如何協助您追蹤指令碼中所產生的資訊。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -49,13 +49,15 @@ ms.locfileid: "65023912"
 
      ![選取新的 VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. 為您的 VM 提供名稱。 然後選取 [建立]。 
+1. 為您的 VM 提供名稱。 然後選取 [建立]。
+
+    > [!NOTE]
+    > Notebook 虛擬機器名稱長度必須介於 2 到 16 個字元之間。 有效字元包含字母、數字及 - 字元。  名稱在 Azure 訂用帳戶中必須是唯一的。
 
     ![建立新的 VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. 等待大約 4-5 分鐘，然後選取 [重新整理]。  嘗試每隔 30 秒左右重新整理一次，直到狀態為 [執行中] 為止。
+1. 等待約 4-5 分鐘，直到狀態變更為**執行中**。
 
-    ![重新整理](media/quickstart-run-cloud-notebook/refresh.png)
 
 ## <a name="launch-jupyter-web-interface"></a>啟動 Jupyter Web 介面
 
@@ -67,7 +69,11 @@ ms.locfileid: "65023912"
 
     此連結會啟動 Notebook 伺服器，並且在新的瀏覽器索引標籤中開啟 Jupyter Notebook 網頁。此連結只適用於建立 VM 的人員。
 
-1. 在 Jupyter Notebook 網頁上，選取 [範例/快速入門] 資料夾，以查看快速入門 Notebook。
+1. 在 Jupyter Notebook 網頁上，上方的資料夾名稱即為您的使用者名稱。  選取此資料夾。
+
+1. 範例資料夾名稱包含版本號碼，例如 **範例 1.0.33.1**。  選取範例資料夾。
+
+1. 選取**快速入門** Notebook。
 
 ## <a name="run-the-notebook"></a>執行 Notebook
 
@@ -75,15 +81,7 @@ ms.locfileid: "65023912"
 
 1. 選取 **01.run-experiment.ipynb** 以開啟 Notebook。
 
-1. 您可能會看到尚未設定核心的訊息。  選取 [Python 3.6 - AzureML]，然後選取 [設定核心]。
-
-   ![設定核心](./media/quickstart-run-cloud-notebook/set-kernel.png)
-
-1. 狀態區域會指示您等待核心啟動。 核心準備就緒後，此訊息就會消失。
-
-    ![等待核心啟動](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
-
-1.  在第一個程式碼儲存格中按一下，然後選取 [執行]。
+1. 在第一個程式碼儲存格中按一下，然後選取 [執行]。
 
     > [!NOTE]
     > 程式碼儲存格的前面有方括號。 如果方括號是空的 (__[  ]__)，則尚未執行程式碼。 執行程式碼時，您會看到一個星號 (__[*]__)。 程式碼完成後，隨即出現一個數字 **[1]**。  此數字會告訴您儲存格的執行順序。
@@ -94,16 +92,15 @@ ms.locfileid: "65023912"
 
 1. 執行第二個程式碼儲存格。 如果您看到進行驗證的指示，請複製程式碼並遵循連結進行登入。 在您登入後，您的瀏覽器會記住這項設定。  
 
-    > [!TIP]
-    > 請確定不要複製程式碼後的空格。  
-
     ![驗證](media/quickstart-run-cloud-notebook/authenticate.png)
 
 1. 完成時，儲存格編號 __[2]__ 隨即出現。  如果您必須登入，則會看到成功的驗證狀態訊息。   如果您不必登入，則不會看到此儲存格的任何輸出，只會出現顯示儲存格執行成功的數字。
 
     ![成功訊息](media/quickstart-run-cloud-notebook/success.png)
 
-1. 執行剩餘的程式碼儲存格。  當每個資料格執行完成時，您會看到其資料格編號出現。 只有最後一個資料格會顯示任何其他輸出。  在最大程式碼儲存格中，您會看到 `run.log` 使用於多個地方。 每個 `run.log` 會將其值新增至您的工作區。
+1. 執行剩餘的程式碼儲存格。  當每個資料格執行完成時，您會看到其資料格編號出現。 只有最後一個資料格會顯示任何其他輸出。  
+
+    在最大程式碼儲存格中，您會看到 `run.log` 使用於多個地方。 每個 `run.log` 會將其值新增至您的工作區。
 
 
 ## <a name="view-logged-values"></a>檢視記錄的值
@@ -146,11 +143,13 @@ ms.locfileid: "65023912"
 
 在本快速入門中，您已完成下列工作：
 
-* 建立 Notebook VM
-* 在您的 Notebook VM 上啟動 Jupyter Notebook 伺服器
+* 建立 Notebook 虛擬機器。
+* 啟動 Jupyter Web 介面。
 * 開啟包含程式碼的 Notebook，以估計每個反覆項目的 pi 和記錄錯誤。
 * 執行 Notebook。
 * 在工作區中檢視記錄錯誤的值。  這個範例示範工作區如何協助您追蹤指令碼中所產生的資訊。 
+
+在 Jupyter Notebook 網頁的範例資料夾中瀏覽其他 Notebook，進一步了解 Azure Machine Learning 服務。
 
 如需深入的工作流程體驗，請按照 Machine Learning 教學課程來定型和部署模型：  
 

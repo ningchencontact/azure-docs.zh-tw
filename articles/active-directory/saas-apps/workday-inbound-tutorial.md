@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60385323"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407918"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程：設定 Workday 來自動佈建使用者
 
@@ -368,7 +368,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 部署 .NET 4.7.1+ 之後，您便可以**[下載這裡的內部部署佈建代理程式](https://go.microsoft.com/fwlink/?linkid=847801)**，然後依照下方提供的步驟來完成代理程式設定。
 
-1. 登入您要安裝新代理程式的 Windows Server。
+1. 登入您要安裝新的代理程式的 Windows 伺服器。
 2. 啟動佈建代理程式安裝程式，同意條款並按一下 [安裝] 按鈕。
 
    ![安裝畫面](./media/workday-inbound-tutorial/pa_install_screen_1.png "安裝畫面")
@@ -816,7 +816,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>如何得知我的佈建代理程式版本？
 
-* 登入安裝「佈建代理程式」的 Windows Server。
+* 佈建代理程式安裝所在的 Windows 伺服器登入。
 * 移至 [控制台] -> [解除安裝或變更程式] 功能表
 * 尋找與 [Microsoft Azure AD Connect 佈建代理程式] 項目對應的版本
 
@@ -867,8 +867,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 #### <a name="how-do-i-de-register-the-domain-associated-with-my-provisioning-agent"></a>如何將與佈建代理程式相關的網域取消註冊？
 
 * 從 Azure 入口網站中，取得您 Azure AD 租用戶的「租用戶識別碼」。
-* 登入執行「佈建代理程式」的 Windows Server。
-* 以「Windows 系統管理員」身分開啟 PowerShell。
+* 登入執行佈建代理程式的 Windows 伺服器。
+* 在 「 Windows 系統管理員身分開啟 PowerShell。
 * 變更至包含註冊指令碼的目錄，然後執行下列命令，此命令會以您租用戶識別碼的值取代 \[tenant ID\] 參數。
 
   ```powershell
@@ -878,7 +878,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
   ```
 
 * 從顯示的代理程式清單中，從 *resourceName* 與您 AD 網域名稱相等的資源中，複製 [識別碼] 欄位的值。
-* 將識別碼貼到此命令中，然後在 PowerShell 中執行它。
+* 貼入此命令的識別碼值，並在 PowerShell 中執行命令。
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -889,7 +889,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>如何將佈建代理程式解除安裝？
 
-* 登入安裝「佈建代理程式」的 Windows Server。
+* 佈建代理程式安裝所在的 Windows 伺服器登入。
 * 移至 [控制台] -> [解除安裝或變更程式] 功能表
 * 將下列程式解除安裝：
   * Microsoft Azure AD Connect 佈建代理程式
@@ -946,9 +946,9 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>如何根據使用者的部門/國家 (地區)/縣市屬性設定 AD 中的顯示名稱格式，以及處理區域差異？
 
-在 AD 中，設定 *displayName* 屬性以便同時提供有關使用者部門和國家/地區的資訊，是常見的需求。 例如，如果 John Smith 在美國的行銷部門工作，您可以將其 *displayName* 顯示為 *Smith, John (Marketing-US)*。
+它是常見的需求，來設定*displayName*屬性在 AD 中，讓它也提供使用者的部門和國家/地區的相關資訊。 例如，如果 John Smith 在美國的行銷部門工作，您可以將其 *displayName* 顯示為 *Smith, John (Marketing-US)*。
 
-以下說明如何處理這類需求，以將 *CN* 或 *displayName* 建構成包含公司、業務單位、縣市或國家/地區等屬性。
+以下是您可以如何處理這類需求，來建構*CN*或是*displayName*来加入屬性，例如公司、 業務單位、 縣市或國家/地區。
 
 * 擷取每個 Workday 屬性時，都是使用基礎 XPATH API 運算式來擷取，在 [屬性對應] -> [進階] 區段 -> [Edit attribute list for Workday] \(編輯 Workday 的屬性清單\) 即可設定此運算式。 以下是 Workday *PreferredFirstName*, *PreferredLastName*、*Company* 及 *SupervisoryOrganization* 屬性的預設 XPATH API 運算式。
 
@@ -976,7 +976,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
   請向您的 Workday 小組確認上述 API 運算式是否適用於您的 Workday 租用戶設定。 必要時，您可以依照[自訂 Workday 使用者屬性的清單](#customizing-the-list-of-workday-user-attributes)一節所述，編輯這些運算式。
 
-* 若要建置正確的屬性對應運算式，請識別哪個 Workday 屬性「可靠地」代表使用者的名字、姓氏、國家/地區及部門。 假設這些屬性分別是 *PreferredFirstName*、*PreferredLastName*、*CountryReferenceTwoLetter* 及 *SupervisoryOrganization*。 您可以使用這個來建置 AD *displayName* 屬性的運算式，以取得像是 *Smith, John (Marketing-US)* 的顯示名稱，如下所示。
+* 若要建立正確的屬性對應的運算式時，識別哪些 Workday 屬性 「 授權 」 代表使用者的名字、 最後一個名稱、 國家/地區和部門。 假設這些屬性分別是 *PreferredFirstName*、*PreferredLastName*、*CountryReferenceTwoLetter* 及 *SupervisoryOrganization*。 您可以使用這個來建置 AD *displayName* 屬性的運算式，以取得像是 *Smith, John (Marketing-US)* 的顯示名稱，如下所示。
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
@@ -1038,7 +1038,7 @@ SelectUniqueValue(
 
 ### <a name="setting-up-windows-event-viewer-for-agent-troubleshooting"></a>設定 Windows 事件檢視器以進行代理程式疑難排解
 
-* 登入部署「佈建代理程式」的 Windows Server 機器
+* 登入 Windows Server 機器佈建代理程式的部署位置
 * 開啟「Windows Server 事件檢視器」傳統型應用程式。
 * 選取 [Windows 記錄檔 > 應用程式]。
 * 使用 [篩選目前的記錄] 選項來檢視記錄在 [AAD.Connect.ProvisioningAgent] 來源底下的所有事件，並指定 "-5" 篩選條件來排除「事件識別碼」為 "5" 的事件，如下所示。
@@ -1236,7 +1236,7 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -1349,7 +1349,7 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
 您會得到如下所示的回應。 請複製回應中的「id 屬性」。 此值是 **ProvisioningJobId**，且將會用來擷取基礎結構描述中繼資料。
 
-   [![佈建作業識別碼](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
+   [![佈建的作業識別碼](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
 
 #### <a name="step-4-download-the-provisioning-schema"></a>步驟 4：下載佈建結構描述
 

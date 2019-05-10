@@ -16,16 +16,24 @@
   items:
     - name: Android
       items:
-        - name: 使用 Firebase 雲端傳訊傳送推播通知
-          href: notification-hubs-android-push-notification-google-fcm-get-started.md
-        - name: 使用 Google 雲端通訊傳送推播通知
-          href: notification-hubs-android-push-notification-google-gcm-get-started.md
-        - name: 將推播通知傳送至特定裝置
-          href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-        - name: 將推播通知傳送給特定使用者
-          href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-        - name: 將推播通知傳送至 Xamarin Android 應用程式
-          href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Firebase Cloud Messaging
+          items:
+            - name: 將推播通知傳送到所有註冊
+              href: notification-hubs-android-push-notification-google-fcm-get-started.md
+            - name: 將推播通知傳送至特定裝置
+              href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
+            - name: 將推播通知傳送給特定使用者
+              href: push-notifications-android-specific-users-firebase-cloud-messaging.md
+            - name: 將推播通知傳送至 Xamarin Android 應用程式
+              href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Google 雲端通訊 (已淘汰)
+          items:
+            - name: 將推播通知傳送到所有註冊
+              href: notification-hubs-android-push-notification-google-gcm-get-started.md
+            - name: 將推播通知傳送至特定裝置
+              href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+            - name: 將推播通知傳送給特定使用者
+              href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: Baidu
       items:
         - name: 使用百度雲推送傳送推播通知

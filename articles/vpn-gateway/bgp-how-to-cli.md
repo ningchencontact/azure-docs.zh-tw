@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
-ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51402196c8429797b644357822a1e3c08982b384
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390606"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209517"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>如何使用 CLI 在 Azure VPN 閘道上設定 BGP
 
@@ -131,7 +131,7 @@ az network vnet-gateway list -g TestBGPRG1 
 本練習將繼續建置圖中所示的組態。 請務必使用您想用於設定的值來取代該值。 處理區域網路閘道時，請留意下列事項：
 
 * 區域網路閘道可以位於與 VPN 閘道相同的位置和資源群組中，或位於不同的位置和資源群組中。 此範例會顯示閘道位於不同位置的不同資源群組中。
-* 您需要針對區域網路閘道宣告的最小前置詞是 VPN 裝置上 BGP 對等體 IP 位址的主機位址。 在此情況下是 10.52.255.254/32 的前置詞 /32。
+* 您需要針對區域網路閘道宣告的最小前置詞是 VPN 裝置上 BGP 對等體 IP 位址的主機位址。 在此情況下，它是/32 10.51.255.254/32 的前置詞。
 * 請注意，您必須在內部部署網路與 Azure 虛擬網路之間使用不同的 BGP ASN。 在兩者相同的情況下，如果內部部署 VPN 裝置已經使用您的 VNet ASN 來與其他 BGP 芳鄰進行對等，您就需要變更該 ASN。
 
 繼續進行之前，請確定您已完成本練習的[為您的 VPN 閘道啟用 BGP](#enablebgp)一節，且仍然與訂用帳戶 1 保持連線。 請注意，在此範例中，您會建立新的資源群組。 同時，也請注意區域網路閘道的兩個額外參數︰`Asn` 與 `BgpPeerAddress`。

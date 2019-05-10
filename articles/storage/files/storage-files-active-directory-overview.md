@@ -7,19 +7,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687148"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209735"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>針對 Azure 檔案透過 SMB 進行 Azure Active Directory 驗證 (預覽) 的概觀
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 若要了解如何啟用針對 Azure 檔案在 SMB 上進行 Azure AD 驗證，請參閱[啟用針對 Azure 檔案在 SMB 上進行 Azure Active Directory 驗證 (預覽)](storage-files-active-directory-enable.md)。
 
-## <a name="glossary"></a>詞彙 
+## <a name="glossary"></a>字彙 
 最好先了解針對 Azure 檔案透過 SMB 進行 Azure AD 驗證的一些重要詞彙：
 
 -   **Azure Active Directory (Azure AD)**  
@@ -51,7 +51,7 @@ ms.locfileid: "64687148"
     您可以使用 Azure 檔案來備份現有的內部部署檔案共用。 透過 SMB 將檔案共用備份到 Azure 檔案時，Azure 檔案會一起保存您的 ACL 和資料。
 
 ## <a name="how-it-works"></a>運作方式
-Azure 檔案使用 Azure AD Domain Services 來支援從加入網域的 VM 搭配 Azure AD 認證進行 Kerberos 驗證。 您可以使用 Azure AD 與 Azure 檔案之前，必須先啟用 Azure AD Domain Services，並加入打算存取其檔案資料的 VM 網域。 您加入網域的 VM 必須位於與 Azure AD Domain Services 相同的虛擬網路 (VNET) 中。 
+Azure 檔案使用 Azure AD Domain Services 來支援從加入網域的 VM 搭配 Azure AD 認證進行 Kerberos 驗證。 您可以使用 Azure AD 與 Azure 檔案之前，必須先啟用 Azure AD Domain Services，並加入打算存取其檔案資料的 VM 網域。 您已加入網域的 VM 必須位於與 Azure AD 網域服務的相同虛擬網路 (VNET)。 
 
 當與 VM 上執行應用程式相關聯的身分識別嘗試存取 Azure 檔案中的資料時，會傳送一個要求給 Azure AD Domain Services 來驗證身分識別。 如果驗證成功，Azure AD Domain Services 就會傳回 Kerberos 權杖。 應用程式傳送一個包含 Kerberos 權杖的要求，Azure 檔案則使用該權杖來授權 要求。 Azure 檔案只接受權杖，並不會保存 Azure AD 認證。
 

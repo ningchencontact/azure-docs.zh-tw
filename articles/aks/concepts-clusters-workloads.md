@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467398"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230142"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
@@ -99,9 +99,11 @@ AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢�
 
 ### <a name="node-pools"></a>節點集區
 
-相同設定的節點會一起分組到*節點集區*中。 Kubernetes 叢集包含一或多個節點集區。 您在建立 AKS 叢集時會定義初始的節點數目和大小，而建立*預設節點集區*。 AKS 中的這個預設節點集區包含用來執行代理程式節點的基礎 VM。
+相同設定的節點會一起分組到*節點集區*中。 Kubernetes 叢集包含一或多個節點集區。 您在建立 AKS 叢集時會定義初始的節點數目和大小，而建立*預設節點集區*。 AKS 中的這個預設節點集區包含用來執行代理程式節點的基礎 VM。 多個節點的集區支援目前為預覽狀態，AKS 中。
 
-當您調整或升級 AKS 叢集時，相關動作會對預設節點集區執行。 進行升級作業時，執行中的容器會排程於節點集區中的其他節點上，直到所有節點皆成功升級。
+當您調整或升級 AKS 叢集時，相關動作會對預設節點集區執行。 您也可以選擇要調整或升級的特定節點的集區。 進行升級作業時，執行中的容器會排程於節點集區中的其他節點上，直到所有節點皆成功升級。
+
+如需如何使用 AKS 中的多個節點集區的詳細資訊，請參閱[建立及管理在 AKS 叢集中多個節點的集區][use-multiple-node-pools]。
 
 ## <a name="pods"></a>Pod
 
@@ -245,3 +247,4 @@ Kubernetes 資源 (例如 Pod 和部署) 會依邏輯分組到*命名空間*中�
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 4b996effbc03bd1f7c446965b0aa5fb6fa2d0175
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525342"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024380"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST 教學課程：在 Azure 搜尋服務中編製半結構化資料 (JSON Blob) 的索引
 
@@ -28,12 +28,9 @@ Azure 搜尋服務可以在 Azure Blob 儲存體中，使用[索引子](search-i
 > * 設定並執行索引子以讀取容器，並從 Azure Blob 儲存體擷取可搜尋的內容
 > * 搜尋剛剛建立的索引
 
-> [!NOTE]
-> 此教學課程仰賴 JSON 陣列支援，該功能目前是 Azure 搜尋服務中的預覽功能， 因此入口網站並未提供。 基於此因素，我們使用提供這項功能的預覽 REST API 和 REST 用戶端工具來呼叫 API。
+## <a name="prerequisites"></a>先決條件
 
-## <a name="prerequisites"></a>必要條件
-
-此快速入門使用下列服務、工具與資料。 
+此快速入門會使用下列服務、工具和資料。 
 
 [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此教學課程的免費服務。 
 
@@ -81,7 +78,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 我們使用 Postman 來對您的搜尋服務進行三個 API 呼叫，以建立資料來源、索引及索引子。 資料來源包括指向您儲存體帳戶和您 JSON 資料的指標。 您的搜尋服務會在載入資料時進行連線。
 
-查詢字串必須包含一個預覽 API (例如 **api-version=2017-11-11-Preview**)，而每個呼叫都應傳回「201 已建立」。 公開推出的 api-version 尚未具備以 jsonArray 方式處理 json 的功能，目前只有預覽的 api-version 能夠做到。
+查詢字串必須指定 api-version，且每個呼叫都應傳回 **201 Created**。 用於使用 JSON 陣列的公開推出 api-version 為 `2019-05-06`。
 
 從您的 REST 用戶端執行下列三個 API 呼叫。
 
@@ -89,7 +86,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 [建立資料來源 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) 會建立一個 Azure 搜尋服務物件，以指定要編製索引的資料。
 
-此呼叫的端點為 `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`。 使用您的搜尋服務名稱來取代 `[service name]`。 
+此呼叫的端點為 `https://[service name].search.windows.net/datasources?api-version=2019-05-06`。 使用您的搜尋服務名稱來取代 `[service name]`。 
 
 對於此呼叫，要求本文必須包含您的儲存體帳戶名稱、儲存體帳戶金鑰和 Blob 容器名稱。 儲存體帳戶金鑰可以在 Azure入口網站中，於儲存體帳戶的**存取金鑰**內部找到。 下面的影像顯示該位置：
 
@@ -132,7 +129,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
     
 第二次呼叫為[建立索引 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)，進而建立可儲存所有可搜尋資料的 Azure 搜尋服務索引。 索引會指定所有參數及其屬性。
 
-此呼叫的 URL 是 `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`。 使用您的搜尋服務名稱來取代 `[service name]`。
+此呼叫的 URL 是 `https://[service name].search.windows.net/indexes?api-version=2019-05-06`。 使用您的搜尋服務名稱來取代 `[service name]`。
 
 首先，取代 URL。 接著複製下列程式碼並貼至您的主體，然後執行查詢。
 
@@ -222,7 +219,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 索引子會與資料來源連線、將資料匯入至目標搜尋索引，並選擇性地提供排程來將資料重新整理自動化。 REST API 為[建立索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)。
 
-此呼叫的 URL 是 `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`。 使用您的搜尋服務名稱來取代 `[service name]`。
+此呼叫的 URL 是 `https://[service name].search.windows.net/indexers?api-version=2019-05-06`。 使用您的搜尋服務名稱來取代 `[service name]`。
 
 首先，取代 URL。 接著，複製下列程式碼並貼至您的本文，然後傳送要求。 立即處理要求。 當回應傳回時，您將具備可進行全文檢索搜尋的索引。
 
@@ -267,7 +264,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 在 Azure 入口網站中，開啟搜尋服務 [概觀] 頁面，尋找您在 [索引] 清單中建立的索引。
 
-請務必選擇您剛才建立的索引。 API 版本可以是預覽或正式推出的版本。 唯一的預覽要求是編製 JSON 陣列的索引。
+請務必選擇您剛才建立的索引。 
 
   ![非結構化搜尋](media/search-semi-structured-data/indexespane.png)
 

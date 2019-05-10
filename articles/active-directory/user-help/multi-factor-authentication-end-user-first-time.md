@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0749e1acba9f13f9e0e95dfc66f9cf818c752cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334711"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230056"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>對我的帳戶進行雙步驟驗證設定
 雙步驟驗證是額外的安全性步驟，可協助保護您的帳戶使其他人更難以破解。 如果您正在閱讀這篇文章，可能會收到一封來自您工作或學校的系統管理員關於 Multi-Factor Authentication 的電子郵件。 或者也許您嘗試登入並收到訊息，要求您設定其他安全性驗證。 如果是這個情況，**則您在完成自動註冊程序之前將無法登入**。
 
 本文將協助您設定您的**工作或學校帳戶**。 如果您想要對您自己的個人 Microsoft 帳戶啟用雙步驟驗證，請參閱 [雙步驟驗證](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)。
 
-## <a name="set-up-your-account"></a>設定帳戶
+## <a name="set-up-your-account"></a>設定您的帳戶
 
 當貴公司支援人員要求您開始使用雙步驟驗證時，您會看到一個畫面，指出 [系統管理員已要求您為這個帳戶設定額外的安全性驗證]：
 
@@ -40,7 +40,7 @@ ms.locfileid: "60334711"
 
 註冊程序中的第一個問題是您要我們連絡您的方式。 看看資料表中的選項，並使用連結移至每個方法的設定步驟。
 
-| 連絡方法 | 描述 |
+| 連絡方法 | 說明 |
 | --- | --- |
 | [行動應用程式](#use-a-mobile-app-as-the-contact-method) |- **收到驗證的通知。** 這個選項會將通知推送至您智慧型手機或平板電腦上的驗證器應用程式。 檢視通知，如果合法則選取應用程式中的 [驗證]。 您的工作或學校可能會要求您輸入 PIN 後才能進行驗證。<br>- **驗證碼。** 在此模式中，驗證器應用程式會產生每 30 秒更新一次的驗證碼。 在登入介面中輸入最新的驗證碼。<br>Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com/fwlink/?linkid=866594) 和 [iOS](https://go.microsoft.com/fwlink/?linkid=866594)。|
 | [行動電話通話或文字](#use-your-mobile-phone-as-the-contact-method) |- **撥打電話**撥打自動語音電話給您所提供的電話號碼。 接聽電話並按電話鍵盤上的 # 進行驗證。<br>- **簡訊**傳送包含驗證碼的簡訊。 遵循文字中的提示，回覆簡訊或將所提供的驗證碼輸入登入介面。 |
@@ -69,7 +69,7 @@ ms.locfileid: "60334711"
    ![輸入 PIN 的方塊](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. 輸入完 PIN 之後，請選取 [關閉] 。 此時，您的驗證應會成功。
-9. 建議您輸入您的行動電話號碼，以防萬一您無法存取行動裝置應用程式。 請從下拉式清單中指定您的國家/地區，然後在國家/地區名稱旁邊的方塊中輸入您的行動電話號碼。 選取 [下一步] 。
+9. 建議您輸入您的行動電話號碼，以防萬一您無法存取行動裝置應用程式。 指定您的國家/地區從下拉式清單中，並在 國家/地區名稱旁邊的方塊中輸入您的行動電話號碼。 選取 [下一步] 。
 10. 此時，系統會提示您設定非瀏覽器應用程式的應用程式密碼，例如 Outlook 2010 或更舊版本，或是 Apple 裝置上的原生電子郵件應用程式。 這是因為某些應用程式不支援雙步驟驗證。 如果您不使用這些應用程式，按一下 [完成]，並略過其餘的步驟。
 11. 如果您正在使用這類應用程式，複製提供的應用程式密碼並將此密碼而非一般密碼貼到應用程式。 您可以對多個應用程式使用相同的應用程式密碼。 如需詳細資訊，[應用程式密碼協助]。
 12. 按一下 [完成] 。
@@ -87,7 +87,7 @@ ms.locfileid: "60334711"
 1. 從下拉式清單中選取**驗證電話**。  
 
     ![設定](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. 從下拉式清單中選擇您的國家/地區，然後輸入您的行動電話號碼。
+2. 從下拉式清單中，選擇您的國家/地區，並輸入您的行動電話號碼。
 3. 選取您想要用於行動電話的方法 - 簡訊或電話。
 4. 選取 [與我連絡] 以確認您的電話號碼。 根據您選取的模式，我們會傳送文字或撥打電話給您。 遵循螢幕上提供的指示，然後選取 [確認]。
 5. 此時，系統會提示您設定非瀏覽器應用程式的應用程式密碼，例如 Outlook 2010 或更舊版本，或是 Apple 裝置上的原生電子郵件應用程式。 這是因為某些應用程式不支援雙步驟驗證。 如果您不使用這些應用程式，按一下 [完成]，並略過其餘的步驟。

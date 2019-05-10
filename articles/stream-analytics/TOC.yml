@@ -4,6 +4,8 @@
   items:
     - name: 什麼是串流分析？
       href: stream-analytics-introduction.md
+    - name: 端對端解決方案模式
+      href: stream-analytics-solution-patterns.md
 - name: 快速入門
   items:
     - name: 建立作業 - Azure 入口網站
@@ -12,6 +14,8 @@
       href: stream-analytics-quick-create-powershell.md
     - name: 建立作業 - Visual Studio
       href: stream-analytics-quick-create-vs.md
+    - name: 建立作業 - Visual Studio Code
+      href: quick-create-vs-code.md
 - name: 教學課程
   items:
     - name: 1 - 建立/管理作業
@@ -143,7 +147,7 @@
           href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
         - name: 使用適用於 IoT Edge 的 API 作業
           href: stream-analytics-cicd-api.md
-    - name: Visual Studio 工具
+    - name: Visual Studio 和 VS Code
       items:
         - name: 安裝工具
           href: stream-analytics-tools-for-visual-studio-install.md
@@ -159,6 +163,8 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
         - name: 針對邊緣撰寫 .NET UDF
           href: stream-analytics-edge-csharp-udf-methods.md
+        - name: 在 VS Code 中探索串流分析
+          href: vs-code-how-to.md
     - name: 疑難排解
       items:
         - name: 輸入
@@ -435,6 +441,9 @@
               maintainContext: true
             - name: 輪轉時間範圍
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
+              maintainContext: true
+            - name: 彙總時間範圍函式
+              href: /stream-analytics-query/windows-azure-stream-analytics
               maintainContext: true
     - name: 資料類型
       items:

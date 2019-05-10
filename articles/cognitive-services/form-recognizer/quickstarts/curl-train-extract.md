@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cc6e8cdb7cd1719a8cd14cbfe6e576e07c34b32c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1afe9239dcc3f5a24d2e950ec7b563bf53d1f04c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026698"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143226"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>快速入門：搭配使用 REST API 與 cURL 來將表單辨識器模型定型並擷取表單資料
 
@@ -40,7 +40,7 @@ ms.locfileid: "65026698"
 * 將 `<subscription key>` 取代為訂用帳戶金鑰。
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<SAS URL>\"}"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
 您會收到 `200 (Success)` 回應及下列 JSON 輸出：
@@ -90,14 +90,14 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "C
 
 接下來，您會分析文件，並從中擷取機碼值組和資料表。 執行下列 cURL 命令來呼叫**模型 - 分析** API。 執行命令之前，請進行下列變更：
 
-* 將 `<Endpoint>` 取代為您從表單辨識器訂用帳戶金鑰中取得的端點。 您可以在表單辨識器的資源概觀索引標籤中找到此項目。
+* 將 `<Endpoint>` 取代為您從表單辨識器訂用帳戶金鑰中取得的端點。 您可以在表單辨識器的資源**概觀**索引標籤中找到此項目。
 * 將 `<modelID>` 取代為您在上一個定型模型步驟中收到的模型識別碼。
 * 將 `<path to your form>` 取代為表單的檔案路徑。
 * 將 `<subscription key>` 取代為訂用帳戶金鑰。
 * 將 `<file type>` 取代為檔案類型 - 支援的類型為 pdf、影像/jpeg、影像/png。
 
 ```bash
-cURL cmd: curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@<path to your form>;type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>檢查回應

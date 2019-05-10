@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7beb3d986b016688c4ee0a512b9406dbf3dfbb40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 608674d6e049c71d22c7bf91f37fcb16ffccc581
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051694"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144910"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -61,9 +61,9 @@ ms.locfileid: "59051694"
 請參閱本教學課程中的[建立路由](#create-the-routes)一節，了解如何建立這些路由。
 
 >[!NOTE]
->「Azure 防火牆」必須能夠直接連線到網際網路。 根據預設，AzureFirewallSubnet 應該只允許 **NextHopType** 值設為 **Internet** 的 UDR 0.0.0.0/0。
+>「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]，以保有直接網際網路連線。 根據預設，Azure 防火牆不支援對內部部署網路的強制通道。
 >
->如果您透過 ExpressRoute 或應用程式閘道啟用強制通道至內部部署，則可能必須明確地設定 NextHopType 值設為 **Internet** 的 UDR 0.0.0.0/0，然後將其關聯至您的 AzureFirewallSubnet。 如果您的組織需要對 Azure 防火牆流量啟用強制通道，請連絡支援人員，讓我們可將您的訂用帳戶加入允許清單，並確保能夠維持必要的防火牆網際網路連線能力。
+>不過，如果您的設定需要對內部部署網路的強制通道，Microsoft 將以個別案例為原則提供支援。 連絡支援人員，以便我們檢閱您的案例。 受理後，我們會將您的訂用帳戶列入白名單，並確實維持必要的防火牆網際網路連線。
 
 >[!NOTE]
 >即使 UDR 指向「Azure 防火牆」作為預設閘道，系統仍會直接路由直接對等互連之 VNet 間的流量。 在此案例中若要將子網路對子網路流量傳送到防火牆，UDR 必須在這兩個子網路上同時明確包含目標子網路網路首碼。
@@ -138,7 +138,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-要求一個公用 IP 位址，以配置給您將建立給虛擬網路使用的 VPN 閘道。 請注意，AllocationMethod 為 [動態]。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的 VPN 閘道。 
+要求一個公用 IP 位址，以配置給您將建立給虛擬網路使用的 VPN 閘道。 請注意，AllocationMethod 為 [動態]。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的 VPN 閘道。
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -177,7 +177,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-要求一個公用 IP 位址，以配置給您將建立給虛擬網路使用的閘道。 請注意，AllocationMethod 為 [動態]。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的閘道。 
+要求一個公用 IP 位址，以配置給您將建立給虛擬網路使用的閘道。 請注意，AllocationMethod 為 [動態]。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的閘道。
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `

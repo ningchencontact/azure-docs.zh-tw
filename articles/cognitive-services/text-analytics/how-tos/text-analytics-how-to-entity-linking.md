@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997303"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231434"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
@@ -39,37 +39,37 @@ ms.locfileid: "59997303"
 
 ## <a name="supported-types-for-named-entity-recognition"></a>針對具名實體辨識所支援的類型
 
-| 類型  | SubType | 範例 |
+| Type  | SubType | 範例 |
 |:-----------   |:------------- |:---------|
 | Person        | N/A\*         | "Jeff"、"Bill Gates"     |
 | 位置      | N/A\*         | "Redmond, Washington"、"Paris"  |
 | 組織  | N/A\*         | "Microsoft"   |
-| 數量      | 數字        | "6"、"six"     | 
+| 數量      | 數目        | "6"、"six"     | 
 | 數量      | 百分比    | "50%"、"fifty percent"| 
 | 數量      | 序數       | "2nd"、"second"     | 
 | 數量      | 數字範圍   | "4 to 8"     | 
-| 數量      | 年齡           | "90 day old"、"30 years old"    | 
+| 數量      | 天數           | "90 day old"、"30 years old"    | 
 | 數量      | 貨幣      | "$10.99"     | 
 | 數量      | 維度     | "10 miles"、"40 cm"     | 
 | 數量      | 溫度   | "32 degrees"    |
 | DateTime      | N/A\*         | "6:30PM February 4, 2012"      | 
-| DateTime      | 日期          | "May 2nd, 2017"、"05/02/2017"   | 
-| DateTime      | 時間          | "8am"、"8:00"  | 
+| DateTime      | date          | "May 2nd, 2017"、"05/02/2017"   | 
+| DateTime      | Time          | "8am"、"8:00"  | 
 | DateTime      | 日期範圍     | "May 2nd to May 5th"    | 
 | DateTime      | 時間範圍     | "6pm to 7pm"     | 
-| DateTime      | Duration      | "1 minute and 45 seconds"   | 
+| DateTime      | 持續時間      | "1 minute and 45 seconds"   | 
 | DateTime      | 設定           | "every Tuesday"     | 
-| DateTime      | TimeZone      |    | 
+| DateTime      | 時區      |    | 
 | URL           | N/A\*         | "https:\//www.bing.com"    |
 | 電子郵件         | N/A\*         | "support@contoso.com" |
 
-\* 依輸入和擷取的實體而定，某些實體可能會省略 `SubType`。
+\* 依輸入和擷取的實體而定，某些實體可能會省略 `SubType`。  僅適用於英文、 簡體中文、 法文、 德文和西班牙文語言時，所列的所有支援的實體類型。
 
 
 
 ## <a name="preparation"></a>準備工作
 
-您必須具備 JSON 文件格式如下：識別碼、 文字、 語言
+您必須具有此格式的 JSON 文件：識別碼、文字、語言
 
 如需目前支援的語言，請參閱[這份清單](../text-analytics-supported-languages.md)。
 
@@ -279,7 +279,7 @@ ms.locfileid: "59997303"
 在本文中，您已了解在認知服務中使用文字分析的實體連結概念和工作流程。 摘要說明：
 
 + [實體 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) \(英文\) 僅針對特定語言提供。
-+ 要求主體中的 JSON 文件包含 ID、 文字和語言的程式碼。
++ 要求本文中的 JSON 文件包含識別碼、文字和語言代碼。
 + 使用對您訂用帳戶有效的個人化[存取金鑰和端點](text-analytics-how-to-access-key.md)，將要求 POST 到 `/entities` 端點。
 + 由連結實體 (包含每個文件識別碼的信賴分數、位移和網頁連結) 組成的回應輸出可用於任何應用程式
 

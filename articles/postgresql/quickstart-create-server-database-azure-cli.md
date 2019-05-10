@@ -1,21 +1,21 @@
 ---
-title: 快速入門 - 使用 Azure CLI 建立適用於 PostgreSQL 的 Azure 資料庫
-description: 本快速入門指南說明如何使用 Azure CLI (命令列介面) 建立及管理適用於 PostgreSQL 伺服器的 Azure 資料庫。
+title: 快速入門 - 使用 Azure CLI 建立適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
+description: 本快速入門指南說明如何使用 Azure CLI (命令列介面) 建立及管理「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/12/2019
+ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 07e3f1f2dd672fcfd0b7a3a4d102c429ac123c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b16d87a69ecdac578da2a90be22013744c32bd7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902013"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069061"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立 Azure Database for PostgreSQL
+# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
 
 > [!TIP]
 > 請考慮使用較簡單的 [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI 命令 (目前在預覽狀態)。 試用[快速入門](./quickstart-create-server-up-azure-cli.md)。
@@ -33,7 +33,7 @@ ms.locfileid: "57902013"
 az login
 ```
 
-如果您有多個訂用帳戶，請選擇資源計費的適當訂用帳戶。 使用 [az account set](/cli/azure/account) 命令來選取您帳戶底下的特定訂用帳戶 ID。 以訂用帳戶之 **az login** 輸出中的**識別碼**屬性，替代訂用帳戶識別碼的預留位置。
+如果您有多個訂用帳戶，請選擇資源計費的適當訂用帳戶。 使用 [az account set](/cli/azure/account) 命令來選取您帳戶底下的特定訂用帳戶 ID。 以訂用帳戶的 **az login** 輸出中的**識別碼**屬性，替代訂用帳戶識別碼的預留位置。
 ```azurecli-interactive
 az account set --subscription <subscription id>
 ```

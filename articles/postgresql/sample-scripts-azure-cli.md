@@ -1,21 +1,21 @@
 ---
-title: 「適用於 PostgreSQL 的 Azure 資料庫」的 Azuer CLI 範例
-description: 本文列出可與「適用於 PostgreSQL 的 Azure 資料庫」伺服器進行互動的數個 Azure CLI 程式碼範例。
+title: 「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」的 Azure CLI 範例
+description: 本文列出可與「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」進行互動的數個 Azure CLI 程式碼範例。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc
-ms.date: 02/28/2018
-ms.openlocfilehash: b2364448f7994146bf79cdb23d5573003b87076a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: 9b8ff3334c8e31397f68e890c15bec3e2515a1a2
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539858"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073120"
 ---
-# <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>「適用於 PostgreSQL 的 Azure 資料庫」的 Azuer CLI 範例 
+# <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」的 Azure CLI 範例
 下表包含「適用於 PostgreSQL 的 Azure 資料庫」之範例 Azure CLI 指令碼的連結。
 
 | |  |

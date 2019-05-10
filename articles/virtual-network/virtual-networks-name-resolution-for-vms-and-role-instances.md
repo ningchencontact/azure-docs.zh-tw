@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925243"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411365"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虛擬網路中的資源名稱解析
 
@@ -55,7 +55,7 @@ ms.locfileid: "64925243"
 >
 >
 
-### <a name="features"></a>特性
+### <a name="features"></a>功能
 
 Azure 提供的名稱解析包含下列功能：
 * 容易使用。 不需要進行設定。
@@ -169,7 +169,7 @@ DNS 轉送也會實現虛擬網路之間的 DNS 解析，並使內部部署電�
 * 受保護以防止來自網際網路的存取，降低外部代理程式的威脅。
 
 > [!NOTE]
-> 為了達到最佳效能，當您使用 Azure 虛擬機器作為 DNS 伺服器時，應該停用 IPv6。 您應該將[公用 IP 位址](virtual-network-public-ip-address.md)指派給每部 DNS 伺服器虛擬機器。 如需在使用 Windows Server 作為您的 DNS 伺服器時的額外效能分析和最佳化，請參閱[遞迴 Windows DNS Server 2012 R2 的名稱解析效能](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)。
+> 為了達到最佳效能，當您使用 Azure 虛擬機器作為 DNS 伺服器時，應該停用 IPv6。 您應該將[公用 IP 位址](virtual-network-public-ip-address.md)指派給每部 DNS 伺服器虛擬機器。 如需在使用 Windows Server 作為您的 DNS 伺服器時的額外效能分析和最佳化，請參閱[遞迴 Windows DNS Server 2012 R2 的名稱解析效能](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)。
 > 
 > 
 

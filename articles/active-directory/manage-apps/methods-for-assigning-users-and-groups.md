@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 04/26/2019
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdf19d2001f84fab6978bfc34ef14a361b89edea
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291274"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441415"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>將使用者和群組指派至 Azure Active Directory 中的應用程式
 本文說明如何將使用者和群組指派至 Azure Active Directory (Azure AD) 中的應用程式。 首先，務必將使用者指派至應用程式，這樣管理員才能授予他們執行以下操作的存取權限：
@@ -31,6 +31,8 @@ ms.locfileid: "60291274"
 -   看到應用程式出現在其[應用程式存取面板](https://myapps.microsoft.com/)或行動應用程式上。
 
 -   看到應用程式出現在其 [Office 365 應用程式啟動程式](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)上。
+
+群組為基礎的指派的可用性取決於您的授權合約。 僅限安全性群組支援以群組為基礎的指派，目前不支援巢狀的群組成員資格。
 
 ## <a name="prerequisites"></a>必要條件
 在將使用者和群組指派給應用程式之前，您必須先要求使用者指派。 若需要使用者指派：

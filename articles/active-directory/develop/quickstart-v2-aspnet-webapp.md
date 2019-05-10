@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682554"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190907"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
 
@@ -68,13 +68,14 @@ ms.locfileid: "59682554"
 
 #### <a name="step-2-download-your-project"></a>步驟 2：下載您的專案
 
-[下載 Visual Studio 2017 解決方案](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[下載 Visual Studio 2019 解決方案](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>步驟 3：設定您的 Visual Studio 專案
 
 1. 將 ZIP 檔案解壓縮至根資料夾附近的本機資料夾 - 例如 **C:\Azure-Samples**
 1. 在 Visual Studio 中開啟解決方案 (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. 根據 Visual Studio 版本而定，您可能需要在專案 `AppModelv2-WebApp-OpenIDConnect-DotNet` 上按一下滑鼠右鍵並選取 [還原 NuGet 套件]
+1. 開啟套件管理員 (檢視 -> 其他視窗 -> 套件管理員主控台) 並執行 `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. 編輯 **Web.config**，並將 `ClientId` 和 `Tenant` 參數取代為：
 
     ```xml
@@ -95,7 +96,7 @@ ms.locfileid: "59682554"
 
 ## <a name="more-information"></a>詳細資訊
 
-本節會概述登入使用者所需的程式碼。 這可協助您了解程式碼運作方式、主要引數，以及如何將登入新增至現有的 ASP.NET 應用程式。
+本節會概述登入使用者所需的程式碼。 本概觀有助於了解程式碼的運作方式、主要引數，以及如何將登入新增至現有的 ASP.NET 應用程式。
 
 ### <a name="owin-middleware-nuget-packages"></a>OWIN 中介軟體 NuGet 套件
 
@@ -109,7 +110,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>OWIN 啟動類別
 
-OWIN 中介軟體會使用*啟動類別*，該類別會在主機處理序初始化時執行 (在本快速入門中為位於跟資料夾的 *startup.cs* 檔案)。 以下程式碼顯示本快速入門所使用的參數：
+OWIN 中介軟體使用*啟動類別*，此類別會在裝載處理序初始時執行。 在本快速入門中，*startup.cs* 檔案位於根資料夾中。 以下程式碼顯示本快速入門所使用的參數：
 
 ```csharp
 public void Configuration(IAppBuilder app)

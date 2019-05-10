@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138125"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227986"
 ---
 # <a name="action-rules-preview"></a>動作規則 （預覽）
 
@@ -97,7 +97,7 @@ ms.locfileid: "65138125"
 最後，設定執行規則的下列詳細資料
 * 名稱
 * 它會儲存所在的資源群組
-* 描述 
+* 說明 
 
 ## <a name="example-scenarios"></a>範例案例
 
@@ -140,13 +140,13 @@ Contoso 已定義[訂用帳戶層級的計量警示](https://docs.microsoft.com/
 
 從這裡開始，您可以大規模的啟用/停用/刪除動作規則選取旁邊的核取方塊。 按一下任何動作的規則會開啟其 [設定] 頁面中，可讓您更新其定義，並啟用/停用它。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
-記錄警示以建立['的結果數目'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log)選項產生**單一警示的執行個體**使用整個搜尋結果 （這可能是在多部電腦為例）。 在此案例中，如果 「 動作 」 規則會使用 「 警示內容 （裝載） 」 篩選器，它將會執行警示的執行個體上，只要沒有相符項目。 在案例 2 中先前所述，如果產生的記錄警示的搜尋結果同時包含 '電腦-01' 和' 電腦-02'、 整個通知隱藏 （也就是沒有產生 ' 電腦-02' 完全沒有通知）。
+記錄警示以建立['的結果數目'](alerts-unified-log.md)選項產生**單一警示的執行個體**使用整個搜尋結果 （這可能是在多部電腦為例）。 在此案例中，如果 「 動作 」 規則會使用 「 警示內容 （裝載） 」 篩選器，它將會執行警示的執行個體上，只要沒有相符項目。 在案例 2 中先前所述，如果產生的記錄警示的搜尋結果同時包含 '電腦-01' 和' 電腦-02'、 整個通知隱藏 （也就是沒有產生 ' 電腦-02' 完全沒有通知）。
 
 ![動作的規則與記錄警示 （結果數目）](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-最佳運用記錄警示動作的規則，我們建議您建立與記錄警示['計量測量'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log)選項。 使用此選項，個別警示的執行個體產生根據定義的群組欄位。 則在案例 2 中，個別警示的執行個體產生 '電腦-01' 和' 電腦-02'。 與動作規則案例所述的情況下，' 電腦-02' 的通知會引發如往常繼續時，將會隱藏只 ' 電腦-01' 的通知。
+最佳運用記錄警示動作的規則，我們建議您建立與記錄警示['計量測量'](alerts-unified-log.md)選項。 使用此選項，個別警示的執行個體產生根據定義的群組欄位。 則在案例 2 中，個別警示的執行個體產生 '電腦-01' 和' 電腦-02'。 與動作規則案例所述的情況下，' 電腦-02' 的通知會引發如往常繼續時，將會隱藏只 ' 電腦-01' 的通知。
 
 ![動作的規則與記錄警示 （結果數目）](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 

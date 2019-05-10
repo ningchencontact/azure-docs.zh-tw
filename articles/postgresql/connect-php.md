@@ -1,21 +1,21 @@
 ---
-title: 使用 PHP 連線至適用於 PostgreSQL 的 Azure 資料庫
-description: 本快速入門提供 PHP 程式碼範例，您可用於從 Azure Database for PostgreSQL 連線及查詢資料。
+title: 使用 PHP 連線至適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
+description: 本快速入門提供 PHP 程式碼範例，供您在連線至「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」及查詢其資料時使用。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: f07dfabf854cf56e1c3cae87bbd0736839be8039
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 2/28/2018
+ms.openlocfilehash: c6320eabd4d5808e8cfe1d39ec4a72bbbce42f77
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608727"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067288"
 ---
-# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>適用於 PostgreSQL 的 Azure 資料庫：使用 PHP 進行連線並查詢資料
+# <a name="azure-database-for-postgresql---single-server-use-php-to-connect-and-query-data"></a>適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器：使用 PHP 進行連線並查詢資料
 本快速入門示範如何使用 [PHP](https://secure.php.net/manual/intro-whatis.php) 應用程式來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文中的步驟假設您已熟悉使用 PHP 進行開發，但不熟悉適用於 PostgreSQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件

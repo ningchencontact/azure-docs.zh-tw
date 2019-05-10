@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 71856865eb7a0445cdcf39def9c0fc89c1f8dcec
-ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
+ms.openlocfilehash: a04f6fab26a47b87bf55f1714522cad648dc5fad
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951437"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205914"
 ---
 # <a name="customize-your-text-translations"></a>自訂文字翻譯
 
@@ -27,7 +27,7 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 
 利用自訂翻譯工具，您可以建置類神經翻譯系統，以了解您自己的企業和產業中使用的術語。 然後，自訂的翻譯系統會整合到現有的應用程式、工作流程和網站。
 
-### <a name="how-does-it-work"></a>運作方式
+### <a name="how-does-it-work"></a>其運作方式為何?
 
 使用您之前翻譯的文件 (傳單、網頁、文件等) 來建置反映特定領域術語和樣式的翻譯系統，比一般翻譯系統更好。 使用者可以上傳 TMX、XLIFF、TXT、DOCX 和 XLSX 文件。  
 
@@ -51,10 +51,10 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 |:-----|:----:|:----:|
 |自訂功能狀態   | 正式運作  | 正式運作 |
 | 文字 API 版本  | 僅限第 2 版   | 僅限第 3 版 |
-| SMT 自訂 | 是   | 否 |
-| NMT 自訂 | 否    | 是 |
-| 新的統一語音服務自訂 | 否    | 是 |
-| [不追蹤](https://www.aka.ms/notrace) | 是  | 是 |
+| SMT 自訂 | 有   | 無 |
+| NMT 自訂 | 無    | 有 |
+| 新的統一語音服務自訂 | 無    | 有 |
+| [不追蹤](https://www.aka.ms/notrace) | 有  | 有 |
 
 ## <a name="collaborative-translations-framework"></a>共同作業翻譯架構
 

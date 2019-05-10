@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190189"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227916"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的位置條件？ 
 
@@ -32,7 +32,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 - 針對從公司網路外存取服務的使用者要求使用多重要素驗證。
 - 封鎖從特定國家或地區存取服務之使用者的存取權。
 
-位置是網路位置的標籤，代表具名位置或多重要素驗證信任的 IP。
+位置是其中一個代表具名的位置或多重要素驗證信任 Ip 的網路位置的標籤。
 
 ## <a name="named-locations"></a>具名位置
 
@@ -54,7 +54,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 
 - **標記為信任位置** - 您可以為具名位置設定旗標，以指出信任的位置。 一般而言，信任的位置是由您的 IT 部門所控制的網路區域。 除了條件式存取，Azure Identity Protection 與 Azure AD 安全性報告也會使用信任的具名位置以減少[誤判](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1)。
 - **國家/地區** - 此選項可讓您選取一或多個國家或地區，以定義具名位置。
-- **包括未知區域** - 部分 IP 位址未對應至特定國家/地區。 此選項可讓您選擇這些 IP 位址是否應包含在具名位置中。 當使用具名位置的原則應套用到未知位置時，請使用此設定。
+- **包括未知的區域**-部分 IP 位址未對應至特定國家或地區。 此選項可讓您選擇這些 IP 位址是否應包含在具名位置中。 當使用具名位置的原則應套用到未知位置時，請使用此設定。
 
 您可以設定的具名位置數目受到 Azure AD 中相關物件大小的限制。 組織可以設定最高達 90 的具名的位置，每個設定最多 12000 IP 範圍。
 
@@ -65,11 +65,11 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 
 如果原則設定將套用至 「 任何位置 」，它會套用到 IPv4 和 IPv6 流量。 具名的位置設定為指定的國家/地區和區域僅支援 IPv4 位址。 IPv6 流量才包含如果選取 [包含未知的區域] 的選項。
 
-## <a name="trusted-ips"></a>信任的 IP
+## <a name="trusted-ips"></a>可信任 IP
 
-您也可以在[多重要素驗證服務設定](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)中設定代表您組織的近端內部網路的 IP 位址範圍。 這項功能可讓您設定最多 50 個 IP 位址範圍。 IP 位址範圍是 CIDR 格式。 如需詳細資訊，請參閱[信任的 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)。  
+您也可以在[多重要素驗證服務設定](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)中設定代表您組織的近端內部網路的 IP 位址範圍。 這項功能可讓您設定最多 50 個 IP 位址範圍。 IP 位址範圍是 CIDR 格式。 如需詳細資訊，請參閱 <<c0> [ 信任的 Ip](../authentication/howto-mfa-mfasettings.md#trusted-ips)。  
 
-如果您已設定信任的 IP，在位置條件的位置清單中，它們會顯示為 **MFA 信任的 IP**。
+如果您有信任的 Ip 設定，它們會顯示為**MFA 信任的 IP**中的位置條件的位置清單。
 
 ### <a name="skipping-multi-factor-authentication"></a>略過多重要素驗證
 

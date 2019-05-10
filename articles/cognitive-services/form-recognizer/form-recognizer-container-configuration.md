@@ -1,7 +1,7 @@
 ---
 title: 設定容器 - 表單辨識器
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用表單辨識器容器來剖析表單和資料表資料。
+description: 了解如何設定表單辨識器容器來剖析表單和資料表資料。
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 6066e7856ddf8ef757afc2072218c87420a37c10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3f6cc32f6fb2a9fb11220ac1a3134fb3ae4d2f84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026674"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147474"
 ---
 # <a name="configure-form-recognizer-containers"></a>設定表單辨識器容器
 
@@ -70,7 +70,7 @@ ms.locfileid: "65026674"
 
 使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以在 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令中指定 `--mount` 選項，以指定輸入裝載或輸出裝載。
 
-表單辨識器容器需要輸入和輸出掛接。 輸入掛接可以是唯讀模式，且必須有此掛接才能存取將會用於定型和計分的資料。 輸出掛接必須可供寫入，且會用來儲存模型和暫存資料。
+表單辨識器容器需要輸入和輸出裝載。 輸入掛接可以是唯讀模式，且必須有此掛接才能存取將會用於定型和計分的資料。 輸出掛接必須可供寫入，且會用來儲存模型和暫存資料。
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](form-recognizer-container-howto.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。
 

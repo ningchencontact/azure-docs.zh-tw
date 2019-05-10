@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 083ed7209efd88d3d221b55cfb53fe3998dd2987
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703276"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227996"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中啟用年齡管制
 
@@ -25,14 +25,14 @@ ms.locfileid: "64703276"
 
 Azure Active Directory (Azure AD) B2C 中的年齡管制，可讓您識別想要使用您的應用程式的未成年人。 您可以選擇封鎖未成年人，使其無法登入應用程式。 使用者也可以返回應用程式，並確定其年齡群組和家長同意狀態。 Azure AD B2C 可以在不需要家長同意的情況下封鎖未成年人。 Azure AD B2C 也可以設定為允許應用程式決定如何處理未成年人。
 
-在[使用者流程](active-directory-b2c-reference-policies.md)中啟用年齡管制後，系統會詢問使用者出生日期以及他們所居住的國家/地區。 如果使用者登入先前未輸入資訊，則他們需要在下次登入時輸入該資訊。 每次使用者登入時都會套用這些規則。
+年齡管制在啟用後您[使用者流程](active-directory-b2c-reference-policies.md)，當它們由與哪個國家/地區，系統會要求使用者它們都存在於。 如果使用者登入先前未輸入資訊，則他們需要在下次登入時輸入該資訊。 每次使用者登入時都會套用這些規則。
 
 Azure AD B2C 會使用使用者輸入的資訊，來確定他們是否為未成年人。 然後，會更新其帳戶中的 **ageGroup** 欄位。 值可為 `null`、`Undefined`、`Minor`、`Adult` 和 `NotAdult`。  然後，**ageGroup** 和 **consentProvidedForMinor** 欄位用於計算 **legalAgeGroupClassification** 的值。
 
 年齡管制牽涉到兩個年齡值：某人不再被視為未成年人的年齡，以及未成年人必須取得家長同意的年齡。 下表列出可用於定義未成年人和未成年人需要同意的年齡規則。
 
-| 國家 (地區) | 國家/地區名稱 | 未成年人同意年齡 | 未成年人年齡 |
-| ------- | ------------ | ----------------- | --------- |
+| 國家/地區 | 國家/地區名稱 | 未成年人同意年齡 | 未成年人年齡 |
+| -------------- | ------------------- | ----------------- | --------- |
 | 預設值 | None | None | 18 |
 | AE | 阿拉伯聯合大公國 | None | 21 |
 | AT | 奧地利 | 14 | 18 |
@@ -40,7 +40,7 @@ Azure AD B2C 會使用使用者輸入的資訊，來確定他們是否為未成�
 | BG | 保加利亞 | 16 | 18 |
 | BH | 巴林 | None | 21 |
 | CM | 喀麥隆 | None | 21 |
-| CY | 賽浦路斯 | 16 | 18 |
+| CY | 賽普勒斯 | 16 | 18 |
 | CZ | 捷克共和國 | 16 | 18 |
 | DE | 德國 | 16 | 18 |
 | DK | 丹麥 | 16 | 18 |
@@ -58,7 +58,7 @@ Azure AD B2C 會使用使用者輸入的資訊，來確定他們是否為未成�
 | LT | 立陶宛 | 16 | 18 |
 | LU | 盧森堡 | 16 | 18 |
 | LV | 拉脫維亞 | 16 | 18 |
-| MT | 馬爾他 | 16 | 18 |
+| MT | 馬耳他 | 16 | 18 |
 | NA | 納米比亞 | None | 21 |
 | NL | 荷蘭 | 16 | 18 |
 | PL | 波蘭 | 13 | 18 |

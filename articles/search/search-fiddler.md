@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7db3292bc5f377d9728e42994dd3a437cb59958e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269107"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024800"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>快速入門：使用 Postman 探索 Azure 搜尋服務 REST API
 > [!div class="op_single_selector"]
@@ -37,11 +37,11 @@ ms.locfileid: "59269107"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)，然後[註冊 Azure 搜尋服務](search-create-service-portal.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-本快速入門會使用下列服務和工具。 
+此快速入門會使用下列服務和工具。 
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此快速入門的免費服務。 
 
 [Postman 傳統型應用程式](https://www.getpostman.com/)或 [Telerik Fiddler](https://www.telerik.com/fiddler) 會用來將要求傳送至 Azure 搜尋服務。
 
@@ -59,13 +59,13 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
 
-在本節中，您可以使用所選 Web 工具來設定與 Azure 搜尋服務的連線。 每個工具都會保存工作階段的要求標頭資訊，這表示您只需要輸入一次 API 金鑰和內容類型。
+在此節中，您可以使用所選 Web 工具來設定與 Azure 搜尋服務的連線。 每個工具都會保存工作階段的要求標頭資訊，這表示您只需要輸入一次 API 金鑰和內容類型。
 
 針對任何一種工具，您都需要選擇命令 (GET、POST 及 PUT等等) 和提供 URL 端點，並且針對某些工作，在要求本文中提供 JSON。 完整的 URL 大致如下：
 
-    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11
+    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06
 
-您會看到 HTTPS 前置詞、服務名稱、物件名稱 (此案例使用索引集合) 和 [API 版本](search-api-versions.md)。 API 版本是針對目前版本指定的必要小寫字串，例如 "?api-version=2017-11-11"。 API 版本會定期更新。 在每個要求上包括 API 版本可讓您具備所使用之版本的完整控制權。  
+您會看到 HTTPS 前置詞、服務名稱、物件名稱 (此案例使用索引集合) 和 [API 版本](search-api-versions.md)。 API 版本是針對目前版本指定的必要小寫字串，例如 `?api-version=2019-05-06`。 API 版本會定期更新。 在每個要求上包括 API 版本可讓您具備所使用之版本的完整控制權。  
 
 要求標頭組合包含兩個元素：內容類型及用來對 Azure 搜尋服務進行驗證的 API 金鑰：
 
@@ -85,7 +85,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 若要在 Postman 中執行這項操作：
 
 1. 將動詞變更為 **PUT**
-2. 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
+2. 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`
 3. 在要求本文中提供索引定義 (如下所示)
 4. 按一下 [傳送] 
 
@@ -129,7 +129,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 若要在 Postman 中執行這項操作：
 
 1. 將動詞變更為 **POST**
-2. 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+2. 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`
 3. 在要求本文中提供 JSON 文件 (如下所示)
 4. 按一下 [傳送] 
 
@@ -219,7 +219,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 若要在 Postman 中執行這項操作：
 
 + 將動詞變更為 **GET**
-+ 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`
 + 按一下 [傳送] 
 
 此查詢會搜尋 "motel" 一詞，並在搜尋結果中傳回文件計數。 在您按一下 [傳送] 之後，Postman 的要求和回應看起來應該類似下列螢幕擷取畫面。 狀態碼應為 200。
@@ -228,7 +228,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 
 ## <a name="get-index-properties"></a>取得索引屬性
-您也可以查詢系統資訊以取得文件計數和儲存體用量：`https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
+您也可以查詢系統資訊以取得文件計數和儲存體用量：`https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
 
 在 Postman 中，您的要求看起來應該與下方項目類似，回應會包括文件計數和使用的空格 (以位元組表示)。
 
@@ -241,13 +241,13 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="use-fiddler"></a>使用 Fiddler
 
-本節相當於前面的章節，只是改為使用 Fiddler 螢幕擷取畫面和指示
+此節相當於前面的章節，只是改為使用 Fiddler 螢幕擷取畫面和指示
 
 ### <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
 
 制訂如下列螢幕擷取畫面所示的要求。 選擇 **GET** 作為動詞。 Fiddler 會新增 `User-Agent=Fiddler`。 您可以在其下的新行上貼上兩個額外的要求標頭。 使用服務的管理員存取金鑰，包含服務的內容類型和 API 金鑰。
 
-複製此 URL 的修改版本作為目標：`https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
+複製此 URL 的修改版本作為目標：`https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06`
 
 ![Fiddler 要求標頭][1]
 
@@ -256,7 +256,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ### <a name="1---create-an-index"></a>1 - 建立索引
 
-將動詞變更為 **PUT**。 複製此 URL 的已修改版本：`https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`。 將上面提供的索引定義複製到要求本文。 您的頁面應該會看起來如下列螢幕擷取畫面所示。 按一下右上方的 [執行]，即可傳送完成的要求。
+將動詞變更為 **PUT**。 複製此 URL 的已修改版本：`https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`。 將上面提供的索引定義複製到要求本文。 您的頁面應該會看起來如下列螢幕擷取畫面所示。 按一下右上方的 [執行]，即可傳送完成的要求。
 
 ![Fiddler 要求本文][7]
 
@@ -272,11 +272,11 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 **前面的空格會被取代 (in lastRenovationDate desc)：**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06
 
 **後面的空格會以 + 取代 (in lastRenovationDate+desc)：**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2019-05-06
 
 ### <a name="tips-for-viewing-index-statistic-in-fiddler"></a>在 Fiddler 中檢視索引統計資料的提示
 

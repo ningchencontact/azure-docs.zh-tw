@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282656"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024752"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>快速入門：使用內建入口網站工具進行 Azure 搜尋服務的匯入、編製索引和查詢
 > [!div class="op_single_selector"]
@@ -36,15 +36,15 @@ ms.locfileid: "59282656"
 
 如果這些工具過於限制，您可以考慮[使用 .NET 進行 Azure 搜尋服務程式設計的程式碼型簡介](search-howto-dotnet-sdk.md)，或使用[發出 REST API 呼叫的 Postman or Fiddler](search-fiddler.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 您也可以觀看本教學課程中 6 分鐘的步驟示範，大約在此 [Azure 搜尋服務概觀影片](https://channel9.msdn.com/Events/Connect/2016/138)中的第三分鐘處開始。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 您也可以觀看此教學課程中 6 分鐘的步驟示範，大約在此 [Azure 搜尋服務概觀影片](https://channel9.msdn.com/Events/Connect/2016/138)中的第三分鐘處開始。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此快速入門的免費服務。 
 
 ### <a name="check-for-space"></a>檢查空間
 
-許多客戶開始使用此免費服務。 此版本的限制為三個索引、三個資料來源，以及三個索引子。 開始之前，請先確定您有空間可容納額外的項目。 本教學課程會建立各一個物件。
+許多客戶開始使用此免費服務。 此版本的限制為三個索引、三個資料來源，以及三個索引子。 開始之前，請先確定您有空間可容納額外的項目。 此教學課程會建立各一個物件。
 
 服務儀表板上的區段會顯示您已有多少個索引、索引子和資料來源。 
 
@@ -54,7 +54,7 @@ ms.locfileid: "59282656"
 
 搜尋查詢會逐一查看[索引](search-what-is-an-index.md)，其中包含會將特定搜尋行為最佳化的可搜尋資料、中繼資料及其他建構。
 
-在本教學課程中，我們使用可以透過 [匯入資料] 精靈使用[索引子](search-indexer-overview.md)編目的內建資料集範例。 索引子是來源特定的編目程式，可以從支援的 Azure 資料來源讀取中繼資料和內容。 使用索引子時通常會採用程式設計方式，但在入口網站中，您也可以存取透過**匯入資料**精靈存取索引子。 
+在此教學課程中，我們使用可以透過 [匯入資料] 精靈使用[索引子](search-indexer-overview.md)編目的內建資料集範例。 索引子是來源特定的編目程式，可以從支援的 Azure 資料來源讀取中繼資料和內容。 使用索引子時通常會採用程式設計方式，但在入口網站中，您也可以存取透過**匯入資料**精靈存取索引子。 
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>步驟 1 - 啟動匯入資料精靈並建立資料來源
 
@@ -79,11 +79,11 @@ ms.locfileid: "59282656"
    ![跳過認知技術步驟](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> 您可以從[認知搜尋快速入門](cognitive-search-quickstart-blob.md)或是[教學課程](cognitive-search-tutorial-blob.md)，嘗試 Azure 搜尋服務的新認知搜尋預覽功能。
+> 您可以透過[快速入門](cognitive-search-quickstart-blob.md)或[教學課程](cognitive-search-tutorial-blob.md)，逐步執行 AI 索引編製範例。
 
 ### <a name="step-3---configure-index"></a>步驟 3 - 設定索引
 
-索引建立通常是以程式碼為基礎的作業，完成後才會載入資料。 但如本教學課程所指出的，精靈可以為它可搜耙的任何資料來源產生基本索引。 索引至少需要有名稱和欄位的集合；其中一個欄位應標示為文件索引鍵，以便唯一識別每份文件。 此外，如果您需要自動完成或建議查詢，您可以指定語言分析器或建議工具。
+索引建立通常是以程式碼為基礎的作業，完成後才會載入資料。 但如此教學課程所指出的，精靈可以為它可搜耙的任何資料來源產生基本索引。 索引至少需要有名稱和欄位的集合；其中一個欄位應標示為文件索引鍵，以便唯一識別每份文件。 此外，如果您需要自動完成或建議查詢，您可以指定語言分析器或建議工具。
 
 欄位具有資料類型和屬性。 上方的核取方塊為「索引屬性」，可控制欄位的使用方式。
 
@@ -154,7 +154,7 @@ ms.locfileid: "59282656"
 
    ![搜尋總管命令](media/search-get-started-portal/search-explorer-cmd2.png)
 
-2. 按一下命令列上的 [變更索引] 以切換到 realestate-us-sample。 按一下命令列上的 [設定 API 版本] 以查看可用的 REST API。 對於下列查詢，請使用正式運作版本 (2017-11-11)。
+2. 按一下命令列上的 [變更索引] 以切換到 realestate-us-sample。 按一下命令列上的 [設定 API 版本] 以查看可用的 REST API。 針對下面的查詢，請使用公開推出版本 (2019-05-06)。
 
    ![索引和 API 命令](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
@@ -256,7 +256,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 ## <a name="takeaways"></a>重要心得
 
-本教學課程提供了使用 Azure 入口網站執行 Azure 搜尋服務的快速簡介。
+此教學課程提供了使用 Azure 入口網站執行 Azure 搜尋服務的快速簡介。
 
 您已了解如何使用**匯入資料**精靈建立搜尋索引。 您已了解[索引子](search-indexer-overview.md)，以及索引設計的基本工作流程，包括[對已發佈索引支援的修改](https://docs.microsoft.com/rest/api/searchservice/update-index)。
 
@@ -266,7 +266,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 ## <a name="clean-up"></a>清除
 
-如果本教學課程是您第一次使用 Azure 搜尋服務，請刪除包含 Azure 搜尋服務的資源群組。 如果不是，請從服務清單找到正確的資源群組名稱，並刪除適當的群組。
+如果此教學課程是您第一次使用 Azure 搜尋服務，請刪除包含 Azure 搜尋服務的資源群組。 如果不是，請從服務清單找到正確的資源群組名稱，並刪除適當的群組。
 
 ## <a name="next-steps"></a>後續步驟
 

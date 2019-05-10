@@ -4,14 +4,14 @@ description: 了解如何在 Azure Cosmos DB 中管理衝突
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/16/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a6e57dc5b4bcfa3f02e323253e24d68381c3535d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997014"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068743"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理衝突解決原則
 
@@ -19,7 +19,7 @@ ms.locfileid: "59997014"
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>建立最後寫入為準衝突解決原則
 
-這些範例示範如何設定最後寫入為準衝突解決原則的容器。 最後寫入為準的預設路徑是時間戳記欄位或 `_ts` 屬性。 此路徑也可設定為數值類型的使用者定義路徑。 在衝突之中，會以最大值為準。 如果未設定路徑或路徑無效，便會預設為 `_ts`。 已使用此原則解決的衝突將不會出現在衝突摘要中。 此原則可供所有 API 使用。
+這些範例示範如何設定最後寫入為準衝突解決原則的容器。 最後寫入為準的預設路徑是時間戳記欄位或 `_ts` 屬性。 此路徑也可設定為數值類型的使用者定義路徑。 發生衝突時，會以最大值為準。 如果未設定路徑或路徑無效，便會預設為 `_ts`。 已使用此原則解決的衝突將不會出現在衝突摘要中。 此原則可供所有 API 使用。
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -86,14 +86,14 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>使用預存程序建立自訂衝突解決原則
 
-這些範例示範如何使用預存程序來設定自訂衝突解決原則的容器，以解決衝突。 除非預存程序有錯誤，否則以下衝突不會顯示在衝突摘要中。 使用容器建立原則之後，您必須建立預存程序。 下方的 .NET SDK 範例會顯示相關範例。 只有 Core (SQL) API 會支援這個原則。
+這些範例示範如何使用預存程序來設定自訂衝突解決原則的容器，以解決衝突。 除非預存程序有錯誤，否則以下衝突不會顯示在衝突摘要中。 使用容器建立原則之後，您必須建立預存程序。 下方的 .NET SDK 範例顯示相關範例。 只有 Core (SQL) API 會支援這個原則。
 
 ### <a name="sample-custom-conflict-resolution-stored-procedure"></a>自訂衝突解決預存程序範例
 
 您必須使用如下所示的函式簽章來實作自訂衝突解決預存程序。 函式名稱不需要符合向容器註冊預存程序時所使用的名稱，但符合的話可簡化命名程序。 下面會說明必須為此預存程序實作的參數。
 
 - **incomingItem**：在產生衝突的認可中，所要插入或更新的項目。 若為刪除作業，此參數為 null。
-- **existingItem**：目前已認可的項目。 在更新中，此值為非 null，若為插入或刪除作業，則為 null。
+- **existingItem**：目前已認可的項目。 在更新中，此值為非 Null，若為插入或刪除作業，則為 Null。
 - **isTombstone**：布林值，會指出 incomingItem 是否與先前刪除的項目衝突。 若為 true，則 existingItem 也是 null。
 - **conflictingItems**：容器中所有項目的認可版本所構成的陣列，這些項目與 incomingItem 的識別碼或任何其他唯一的索引屬性有所衝突。
 
@@ -361,7 +361,7 @@ while conflict:
 
 * [全域散發 - 運作原理](global-dist-under-the-hood.md)
 * [如何在應用程式中設定多重主機](how-to-multi-master.md)
-* [設定多路連接的用戶端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [設定多路連接的用戶端](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [從您的 Azure Cosmos 帳戶新增或移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [如何在應用程式中設定多重主機](how-to-multi-master.md)。
 * [資料分割和散佈](partition-data.md)

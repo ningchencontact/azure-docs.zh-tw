@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7d2920e84e0e1e61627afe1fe029e047e13ed02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 819f7d12f0554145295a0ec4f1eff7cb404d552d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276406"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406958"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>教學課程：Azure Active Directory 與 LCVista 整合
 
@@ -140,13 +140,13 @@ LCVista 與 Azure AD 整合提供下列優點：
 
     c. 在記事本中開啟從 Azure 入口網站下載的中繼資料 XML 檔案，複製 **X509Certificate** 值，並將其貼在 [x509 憑證] 區段中。
 
-    d. 在 [名字屬性] 文字方塊中，將 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` 值貼上。
+    d. 在 [名字屬性] 文字方塊中，將 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` 值貼上。
 
-    e. 在 [姓氏屬性] 文字方塊中，將 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` 值貼上。
+    e. 在 [姓氏屬性] 文字方塊中，將 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` 值貼上。
 
-    f. 在 [電子郵件屬性] 文字方塊中，將 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 值貼上。
+    f. 在 [電子郵件屬性] 文字方塊中，將 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 值貼上。
 
-    g. 在 [使用者屬性] 文字方塊中，將 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 值貼上。
+    g. 在 [使用者屬性] 文字方塊中，將 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 值貼上。
 
     e. 按一下 [儲存]  來儲存這些設定。
 

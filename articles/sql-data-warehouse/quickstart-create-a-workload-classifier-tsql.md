@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 198faf6791a4a2caa2cefee2181a13ed8185310e
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617332"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150392"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>快速入門：使用 T-SQL 建立工作負載分類器 (預覽)
+# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>快速入門：使用 T-SQL 建立工作負載分類器
 
 在本快速入門中，您會為貴組織執行長快速建立具有高重要性的工作負載分類器。 此工作負載分類器可讓執行長查詢的優先順序高於佇列中重要性較低的其他查詢。
-
-> [!Note]
-> 工作負載分類可在 SQL 資料倉儲 Gen2 上以預覽的方式取得。 工作負載管理和重要性預覽適用於發行日期在 2019 年 4 月 9 日之後的組建。  使用者應該避免使用早於此日期的組建進行工作負載管理測試。  若要判斷您的組建是否以能夠使用工作負載管理功能，請在連線至您的 SQL 資料倉儲執行個體時，執行 select @ @version。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 

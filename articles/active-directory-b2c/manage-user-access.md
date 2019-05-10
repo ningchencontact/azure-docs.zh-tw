@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Active Directory B2C 中管理使用者存取 | Microsoft Docs
-description: 了解如何使用 Azure AD B2C 在您的應用程式中識別未成年人、收集出生日期和國家/地區資料，以及取得同意使用規定的確認。
+description: 了解如何識別未成年使用者、 收集日期的生日及國家/地區的資料，以及取得接受使用規定的應用程式中使用 Azure AD B2C。
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cddaf59a1202c9c19018427c06639686e905bb64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691093"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228014"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理使用者存取
 
@@ -23,7 +23,7 @@ ms.locfileid: "64691093"
 
 - 識別未成年人並控制其對您應用程式的使用者存取。
 - 未成年人需要家長同意才可使用您的應用程式。
-- 對使用者收集生日和國家/地區資料。
+- 使用者的生日及國家/地區的資料收集。
 - 擷取使用規定協議並管制存取。
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -58,11 +58,11 @@ ms.locfileid: "64691093"
 
 如需 **legalAgeGroupClassification**、**consentProvidedForMinor** 和 **ageGroup** 的詳細資訊，請參閱[使用者資源類型](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)。 如需自訂屬性的詳細資訊，請參閱[使用自訂屬性收集取用者的相關資訊](active-directory-b2c-reference-custom-attr.md)。 藉由使用 Azure AD Graph API 來處理擴充屬性時，您必須使用屬性的完整版本，例如 *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*：*2011-01-01T00:00:00Z*。
 
-## <a name="gather-date-of-birth-and-country-data"></a>收集出生日期和國家/地區資料
+## <a name="gather-date-of-birth-and-countryregion-data"></a>收集日期的生日及國家/地區的資料
 
-應用程式在註冊期間可能會仰賴 Azure AD B2C 來收集所有使用者的出生日期 (DOB) 和國家/地區資訊。 如果這樣資訊尚不存在，應用程式將可在使用者下一次驗證 (登入) 時要求提供。 使用者若未提供其 DOB 和國家/地區資訊，將無法繼續操作。 Azure AD B2C 會根據該國家/地區的法規標準，使用這項判斷個人是否被視為未成年人。 
+應用程式可能會仰賴 Azure AD B2C 在註冊期間收集來自所有使用者的出生日期 (DOB) 及國家/地區資訊。 如果這樣資訊尚不存在，應用程式將可在使用者下一次驗證 (登入) 時要求提供。 使用者無法繼續而不需提供其 DOB 和國家/地區資訊。 Azure AD B2C 會使用以判斷個人是否視為次要，以根據該國家/地區的法規標準資訊。 
 
-自訂的使用者流程可收集 DOB 和國家/地區資訊，並使用 Azure AD B2C 宣告轉換來判斷 **ageGroup**，並且將結果保存在目錄中 (或直接保存 DOB 和國家/地區資訊)。
+自訂的使用者流程可蒐集 DOB 和國家/地區資訊及使用 Azure AD B2C 的宣告轉換來判斷**年齡群組**並保存結果 （或直接保存 DOB 和國家/地區資訊） 中目錄。
 
 下列步驟說明用來從使用者的出生日期計算 **ageGroup** 的邏輯：
 
@@ -78,7 +78,7 @@ ms.locfileid: "64691093"
 
 4. 如果兩項計算都未傳回 true，則計算會傳回**成人**。
 
-如果某個應用程式已透過其他方法可靠地收集到 DOB 或國家/地區資料，則該應用程式可使用圖形 API 以這項資訊更新使用者記錄。 例如︰
+如果應用程式已透過其他方式，可靠地收集 DOB 或國家/地區的資料，應用程式可以使用 Graph API，若要使用此資訊來更新使用者記錄。 例如：
 
 - 如果已知使用者是成人，請以**成人**值更新目錄屬性 **ageGroup**。
 - 如果已知使用者是未成年人，請以**未成年人**值更新目錄屬性 **ageGroup**，並視需要設定 **consentProvidedForMinor**。
