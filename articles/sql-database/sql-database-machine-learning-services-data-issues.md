@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 069a2a5b3b26bf517b57034f05ab7080ab392319
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01d3af14963e92393d34a952bddc8097b7b08f18
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702515"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232621"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>使用 Azure SQL Database Machine Learning 服務 （預覽） 中的 R 和 SQL 資料
 
@@ -300,4 +300,4 @@ STDOUT message(s) from external script: $ Amount       : num  3400 16925 20350 1
 - 準備您的輸入的資料，以避免意外情況時，請執行明確的轉型為必要。
 - 避免傳遞的資料行 （例如 GUID 或 rowguids 的資料） 會導致錯誤，而且不適合用於模型化。
 
-如需有關支援與不支援的 R 資料類型的詳細資訊，請參閱 < [R 程式庫和資料類型](/sql/advanced-analytics/r/r-libraries-and-data-types.md)。
+如需有關支援與不支援的 R 資料類型的詳細資訊，請參閱 < [R 程式庫和資料類型](/sql/advanced-analytics/r/r-libraries-and-data-types)。

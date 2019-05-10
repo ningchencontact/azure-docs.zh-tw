@@ -1,28 +1,28 @@
 ---
-title: 快速入門：在 Azure 入口網站中建置採用 AI 技術的索引 - Azure 搜尋服務
+title: 快速入門：在 Azure 入口網站中建置採用 AI 擴充的索引 - Azure 搜尋服務
 description: 使用Azure 入口網站和範例資料，在 Azure 搜尋服務的索引編製入口網站中使用資料擷取、自然語言和影像處理技能。
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cb029530d2c6cdac82fd0d257e10717386eebf0e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265010"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022103"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>快速入門：使用認知技能和範例資料建立 AI 索引管線
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>快速入門：使用 Azure 搜尋服務中的認知技能，建立 AI 索引管線
 
 Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cognitive-services/)整合，藉此將內容料擷取、自然語言處理 (NLP) 和影像處理技能新增至 Azure 搜尋服務索引管線，讓無法搜尋或非結構化的內容變得更便於搜尋。 
 
 許多認知服務資源，例如 [OCR](cognitive-search-skill-ocr.md)、[語言偵測](cognitive-search-skill-language-detection.md)和[實體辨識](cognitive-search-skill-entity-recognition.md)等等，都可連結到編製索引程序。 認知服務的 AI 演算法用來尋找來源資料中的模式、特徵和特性，傳回結構和文字內容，這些資訊可用於以 Azure 搜尋服務為基礎的全文檢索搜尋解決方案。
 
-在本快速入門中，您會先在 [Azure 入口網站中](https://portal.azure.com)建立擴充管線，然後再撰寫單一行程式碼：
+在此快速入門中，您會先在 [Azure 入口網站中](https://portal.azure.com)建立擴充管線，然後再撰寫單一行程式碼：
 
 > [!div class="checklist"]
 > * 從使用 Azure blob 儲存體中的範例資料開始
@@ -30,22 +30,22 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 > * 執行精靈 (會偵測人員、位置和組織的實體技能)
 > * 使用[**搜尋總管**](search-explorer.md)來查詢擴充的資料
 
-本快速入門雖然在免費服務上執行，但可用的交易數目限制為每日 20 份文件。 如果您想要在同一天中多次執行本快速入門，請使用較小的檔案集，如此才能在限制內完成多次執行。
+此快速入門雖然在免費服務上執行，但可用的交易數目限制為每日 20 份文件。 如果您想要每天多次執行此快速入門，請使用較小的檔案集，如此才能在限制內完成多次執行。
 
 > [!NOTE]
-> 當您藉由增加處理次數、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須連結可計費的認知服務資源。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
+> 當您透過增加處理頻率、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
 >
-> 內建技能的執行會依現有的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。
+> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價的說明請見 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此快速入門的免費服務。
 
-[認知服務](https://azure.microsoft.com/services/cognitive-services/)會提供 AI。 本快速入門包含指定管線時新增這些內嵌資源的步驟。 您不需要事先設定帳戶。
+[認知服務](https://azure.microsoft.com/services/cognitive-services/)會提供 AI。 此快速入門包含指定管線時新增這些內嵌資源的步驟。 您不需要事先設定帳戶。
 
-需使用 Azure 服務來提供索引管線的輸入。 您可以使用任何由 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源，除了 Azure 表格儲存體以外，其不支援 AI 索引編製。 本快速入門會使用 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)作為來源資料檔案的容器。 
+需使用 Azure 服務來提供索引管線的輸入。 您可以使用任何由 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源，除了 Azure 表格儲存體以外，其不支援 AI 索引編製。 此快速入門會使用 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)作為來源資料檔案的容器。 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>設定 Azure Blob 服務並載入範例資料
 
@@ -77,11 +77,11 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 
 接著，將擴充步驟新增至管線。 如果您沒有認知服務資源，可以註冊免費版，其可提供您每天 20 筆交易。 範例資料包含 14 個檔案，因此您一旦執行此精靈，就幾乎用盡每日配置。
 
-1. 展開 [附加認知服務] 以檢視認知服務 API 的資源處理選項。 針對本教學課程的目的，您可以使用**免費**資源。
+1. 展開 [附加認知服務] 以檢視認知服務 API 的資源處理選項。 針對此教學課程的目的，您可以使用**免費**資源。
 
    ![附加認知服務](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
-2. 展開 [新增擴充] 然後選取可執行自然語言處理的技能。 針對本快速入們，請選擇適用於人員、組織和位置的實體辨識。
+2. 展開 [新增擴充] 然後選取可執行自然語言處理的技能。 針對此快速入門，請選擇適用於人員、組織和位置的實體辨識。
 
    ![附加認知服務](media/cognitive-search-quickstart-blob/skillset.png)
 
@@ -98,7 +98,7 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 
 此精靈通常可以推斷預設索引。 在此步驟中，您可以檢視所產生的索引結構描述，也可能會修改任何設定。 以下是針對示範 Blob 資料集所建立的預設索引。
 
-在本快速入門中，精靈會妥善地設定好合理的預設值： 
+在此快速入門中，精靈會妥善地設定好合理的預設值： 
 
 + 預設名稱是以資料來源類型為基礎的 azureblob-index。 
 
@@ -156,9 +156,9 @@ CTRL-F 也可協助您判斷指定的結果集中有多少文件。 針對 Azure
 
 ## <a name="takeaways"></a>重要心得
 
-您現在已完成第一個擴充的認知索引編製練習。 本快速入門的目的是要介紹重要概念，並透過精靈引導您完成步驟，讓您可以使用自己的資料，快速完成認知搜尋解決方案的原型。
+您現在已完成第一個擴充的認知索引編製練習。 此快速入門的目的是要介紹重要概念，並透過精靈引導您完成步驟，讓您可以使用自己的資料，快速完成認知搜尋解決方案的原型。
 
-我們希望您了解的一些重要概念包括 Azure 資料來源上的相依性。 認知搜尋擴充會受到索引子的約束，而索引子專屬於 Azure 與來源。 雖然本快速入門使用 Azure Blob 儲存體，但您也可使用其他 Azure 資料來源。 如需詳細資訊，請參閱 [Azure 搜尋服務中的索引子](search-indexer-overview.md)。
+我們希望您了解的一些重要概念包括 Azure 資料來源上的相依性。 認知搜尋擴充會受到索引子的約束，而索引子專屬於 Azure 與來源。 雖然此快速入門使用 Azure Blob 儲存體，但您也可使用其他 Azure 資料來源。 如需詳細資訊，請參閱 [Azure 搜尋服務中的索引子](search-indexer-overview.md)。
 
 另一個重要概念是，技能是透過輸入欄位來運作。 在入口網站中，您必須為所有技能選擇單一來源欄位。 在程式碼中，輸入可以是其他欄位或上游技能的輸出。
 
@@ -170,7 +170,7 @@ CTRL-F 也可協助您判斷指定的結果集中有多少文件。 針對 Azure
 
 如果您的探索已結束，最快速的清除方式是刪除包含 Azure 搜尋服務和 Azure Blob 服務的資源群組。  
 
-如果您將這兩項服務放在相同群組中，現在刪除資源群組表示永久刪除其中所有內容，包括服務與您為此練習建立的任何已儲存內容。 在入口網站中，資源群組名稱位在每個服務的 [概觀] 頁面上。
+如果您將這兩個服務放在相同群組中，現在刪除資源群組表示永久刪除其中所有內容，包括服務與您為此練習建立的任何已儲存內容。 在入口網站中，資源群組名稱位在每個服務的 [概觀] 頁面上。
 
 ## <a name="next-steps"></a>後續步驟
 

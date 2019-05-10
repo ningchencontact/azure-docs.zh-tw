@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a355d18de875ad980e0c2b6c564d3379c2b90ee7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186ecf055cdf7b10690fdb4cbc574778a841b85a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154293"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464798"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
@@ -42,6 +42,15 @@ ms.locfileid: "65154293"
 + 已新增的能夠從 Azure 機器學習服務工作區的 [概觀] 頁面下載的 config.json 檔案的詳細資訊。
 + 支援從 Azure Databricks 工作區的機器學習服務工作區建立 
 
+## <a name="2019-04-26"></a>2019-04-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1033"></a>Azure Machine Learning SDK for Python v1.0.33
++ **新功能**
+  + _Workspace.create_方法現在接受 CPU 和 GPU 叢集的預設叢集設定。
+  + 如果工作區建立失敗，則會清除相依的資源。
+  + 預設 Azure Container Registry SKU 已切換為 basic。
+  + 所需的 執行 或 映像建立時，會以延遲的方式，建立 azure Container Registry。
+  + 支援環境的定型執行。
 
 ### <a name="notebook-virtual-machine"></a>Notebook 的虛擬機器 
 

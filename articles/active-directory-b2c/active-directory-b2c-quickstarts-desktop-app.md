@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 909b9db08b9ee0ed1af716a0847e09264fb9accc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 94e7972530afee15937b13ae35239a64d9bc986e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697522"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190535"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入傳統型應用程式 
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
 ## <a name="prerequisites"></a>必要條件
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/)，其中包含 **ASP.NET 和 Web 部署**工作負載。 
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/)，其中包含 **ASP.NET 和 Web 部署**工作負載。 
 - Facebook、Google、Microsoft 或 Twitter 社交帳戶。
 - [下載 zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)，或從 GitHub 複製範例 Web 應用程式。
 
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
     ![範例應用程式](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-    此範例支援數個登入選項，包括使用社交識別提供者或使用電子郵件地址建立本機帳戶。 在本快速入門中，請使用 Facebook、Google、Microsoft 或 Twitter 的社交身分識別提供者帳戶。 
+    此範例支援數個註冊選項。 這些選項包括使用社交識別提供者或使用電子郵件地址建立本機帳戶。 在本快速入門中，請使用 Facebook、Google、Microsoft 或 Twitter 的社交身分識別提供者帳戶。 
 
 
 2. Azure AD B2C 會針對範例 Web 應用程式，呈現 Wingtip Toys 虛構品牌的自訂登入頁面。 若要使用社交識別提供者註冊，按一下您想要使用之識別提供者的按鈕。 
@@ -88,7 +88,12 @@ Azure AD B2C 提供讓使用者更新其設定檔的功能。 範例 Web 應用�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您使用了範例傳統型應用程式，透過自訂登入頁面登入、透過社交識別提供者登入，建立 Azure AD B2C 帳戶，以及呼叫受 Azure AD B2C 保護的 Web API。 
+在本快速入門中，您已使用範例傳統型應用程式： 
+
+* 使用自訂登入頁面登入
+* 透過社交識別提供者登入
+* 建立 Azure AD B2C 帳戶
+* 呼叫受 Azure AD B2C 保護的 Web API
 
 開始建立您自己的 Azure AD B2C 租用戶。 
 

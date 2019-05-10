@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccddb1ffd86ce95b1ca5563de2f4b04c41d5737d
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622153"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442431"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>使用 Webhook 設定現有問題管理系統的健康情況通知
 
@@ -26,6 +26,10 @@ ms.locfileid: "60622153"
 * [使用 ServiceNow 設定警示](service-health-alert-webhook-servicenow.md)
 * [使用 PagerDuty 設定警示](service-health-alert-webhook-pagerduty.md)
 * [使用 OpsGenie 設定警示](service-health-alert-webhook-opsgenie.md)
+
+### <a name="watch-an-introductory-video"></a>觀看簡介影片
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
 
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>使用服務健康情況 Webhook 承載來設定自訂通知
 如果您想要設定自己的自訂 Webhook 整合，您必須剖析在服務健康狀態通知時傳送的 JSON 承載。

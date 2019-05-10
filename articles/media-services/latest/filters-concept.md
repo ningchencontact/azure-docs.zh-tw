@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734570"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465534"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>定義帳戶篩選器和資產篩選器  
 
@@ -26,7 +26,7 @@ ms.locfileid: "60734570"
 
 篩選器是伺服器端規則，可讓您的客戶執行下列動作： 
 
-- 僅播放視訊的某個區段 (而非播放整個視訊)。 例如︰
+- 僅播放視訊的某個區段 (而非播放整個視訊)。 例如：
   - 縮小資訊清單以顯示即時事件的子剪輯 (「子剪輯篩選」)，或者
   - 修剪視訊開頭 (「修剪視訊」)。
 - 只傳遞用來播放內容的裝置所支援的指定轉譯和/或指定的語言資料軌 (轉譯篩選)。 
@@ -36,7 +36,7 @@ ms.locfileid: "60734570"
 
 下表顯示包含篩選器之 URL 的一些範例：
 
-|通訊協定|範例|
+|Protocol|範例|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>針對 HLS 第 3 版中，使用： `format=m3u8-aapl-v3`。|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
@@ -55,7 +55,7 @@ ms.locfileid: "60734570"
 
 您可以使用下列屬性來描述篩選器。 
 
-|名稱|描述|
+|名稱|說明|
 |---|---|
 |firstQuality|篩選器的首次品質位元速率。|
 |presentationTimeRange|簡報時間範圍。 此屬性用於篩選資訊清單起始/結束點、簡報視窗長度，以及即時起始位置。 <br/>如需詳細資訊，請參閱 [PresentationTimeRange](#presentationtimerange)。|
@@ -65,7 +65,7 @@ ms.locfileid: "60734570"
 
 將此屬性與**資產篩選器**搭配使用。 不建議搭配**帳戶篩選器**設定此屬性。
 
-|名稱|描述|
+|名稱|說明|
 |---|---|
 |**endTimestamp**|適用於點播視訊 (VoD)。<br/>Live Streaming 展示檔，它會以無訊息方式忽略並且套用簡報結束，然後再將資料流時 VoD。<br/>這是簡報的長數值，表示絕對結束點，四捨五入為最接近的下一個 GOP 入門。 單位為的時幅，因此 endTimestamp 1800000000 的會是 3 分鐘。<br/>使用 startTimestamp 和 endTimestamp 修剪會播放清單 （資訊清單） 中的片段。<br/>比方說，startTimestamp = 40000000 和 endTimestamp = 100000000 使用預設的時幅，將會產生包含片段介於 4 秒和 VoD 簡報的 10 秒的播放清單。 如果片段跨越界限，則整個片段都會包含在資訊清單中。|
 |**forceEndTimestamp**|適用於僅即時的資料流。<br/>指出是否必須存在 endTimestamp 屬性。 如果為 true，必須指定 endTimestamp 或傳回不正確的要求程式碼。<br/>允許的值：false、true。|
@@ -80,7 +80,7 @@ ms.locfileid: "60734570"
 
 篩選器資料軌屬性條件描述資料軌類型、值 (下表中所述) 和運算 (Equal、NotEqual)。 
 
-|名稱|描述|
+|名稱|說明|
 |---|---|
 |**Bitrate**|使用資料軌的位元速率來篩選。<br/><br/>建議的值是位元速率範圍 (以每秒位元數為單位)。 例如，"0-2427000"。<br/><br/>注意：雖然您可以使用特定的位元速率值，如 250000 (每秒位元數)，但不建議使用此方法，因為資產之間的確切位元速率可能會變動。|
 |**FourCC**|將資料軌的 FourCC 值用於篩選。<br/><br/>該值是轉碼器格式的第一個元素，如 [RFC 6381](https://tools.ietf.org/html/rfc6381) \(英文\) 中所指定。 目前支援下列轉碼器： <br/>視訊："avc1"、"hev1"、"hvc1"<br/>音訊："mp4a"、"ec-3"<br/><br/>若要判斷在資產中的資料軌的 FourCC 值，取得，並檢查資訊清單檔案。|
@@ -90,7 +90,7 @@ ms.locfileid: "60734570"
 
 ## <a name="associate-filters-with-streaming-locator"></a>串流定位器相關聯的篩選器
 
-您可以指定資產或帳戶會套用到您的串流定位器的篩選器清單。 [動態封裝程式](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[dyanamic 資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器指定的篩選條件。 我們建議您使用這項功能，如果您想要套用篩選，但不是想要公開 （expose） 在 URL 中的篩選條件名稱。
+您可以指定資產或帳戶會套用到您的串流定位器的篩選器清單。 [動態封裝程式](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[動態資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器指定的篩選條件。 我們建議您使用這項功能，如果您想要套用篩選，但不是想要公開 （expose） 在 URL 中的篩選條件名稱。
 
 ## <a name="definition-example"></a>定義範例
 

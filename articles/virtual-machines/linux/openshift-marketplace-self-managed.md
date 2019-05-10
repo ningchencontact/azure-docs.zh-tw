@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773417"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233091"
 ---
 # <a name="configure-prerequisites"></a>設定必要條件
 
@@ -39,8 +39,8 @@ ms.locfileid: "60773417"
 - **磁碟類型**：使用受控磁碟。
 - **網路**：支援新的或現有的網路和自訂的 CIDR 範圍。
 - **CNS**：可以啟用 CNS。
-- **計量**：可以啟用計量。
-- **記錄**：可以啟用記錄。
+- **計量**：您可以啟用 hawkular 計量。
+- **記錄**：您可以啟用 EFK 記錄。
 - **Azure 雲端提供者**：預設啟用，可以停用。
 
 在 Azure 入口網站的左上方，按一下**建立資源**、 在搜尋方塊中輸入 'openshift 容器平台' 並按下 enter 鍵。
@@ -81,7 +81,7 @@ ms.locfileid: "60773417"
 
 | 輸入的參數 | 參數描述 |
 |-----------------------|-----------------|
-| OCP 叢集名稱前置詞 | 若要在所有 VM 執行個體上建立的系統管理員使用者 |
+| OCP 叢集名稱前置詞 | 叢集用來設定所有節點的主機名稱的前置詞。 介於 1 到 20 個字元 |
 | 主要節點大小 | 接受預設 VM 大小，或按一下**變更大小**選取不同的 VM 大小。  選取適當的工作負載的 VM 大小 |
 | 基礎結構節點大小 | 接受預設 VM 大小，或按一下**變更大小**選取不同的 VM 大小。  選取適當的工作負載的 VM 大小 |
 | 應用程式節點數目 | 接受預設 VM 大小，或按一下**變更大小**選取不同的 VM 大小。  選取適當的工作負載的 VM 大小 |
@@ -173,7 +173,7 @@ ms.locfileid: "60773417"
    ![提供額外的 cn 安裝](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
 <br>
 
-**總結**
+**摘要**
 
 在這個階段，來檢查核心配額不足，無法部署為叢集選取的 Vm 總數，就會發生驗證。  檢閱所輸入的所有參數。  如果可接受輸入，請按一下**確定**以繼續。
 

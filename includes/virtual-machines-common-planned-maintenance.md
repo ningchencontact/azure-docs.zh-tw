@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 747fb9a38cc0c27d162192f4f3ed928e8a968f27
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: adf99b941a775f105d8c65da3ac6c11dc7257120
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993125"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416266"
 ---
 Azure 會定期更新平台來提升虛擬機器之主機基礎結構的可靠性、效能及安全性。 這些更新的範圍涵蓋修補主控環境中的軟體元件、升級網路元件，以及硬體解除委任。 這些更新大多數都不影響所裝載的虛擬機器。 不過，在某些情況下，更新的確會造成影響，而 Azure 會選擇影響最小的更新方法：
 
 - 如果可以執行無須重新開機的更新，在更新主機時將會暫停 VM，或是將其即時移轉至已經更新的主機。
 
-- 如果維護需要重新開機，您會在規劃維護時收到通知。 Azure 也會提供一個時間範圍，供您在適合您的時間自行開始進行維護。 自我維護時間範圍通常是四週，除非它是迫切需要執行維護工作。 Azure 也投資技術，以降低的情況下，當 Vm 重新啟動規劃的平台的維護。 
+- 如果維護需要重新開機，您會在規劃維護時收到通知。 Azure 也會提供一個時間範圍，供您在適合您的時間自行開始進行維護。 自我維護時間範圍通常是 30 天，除非它是迫切需要執行維護工作。 Azure 也投資技術，以降低的情況下，當 Vm 重新啟動規劃的平台的維護。 
 
 本頁說明 Azure 如何執行這兩種類型的維護。 如需有關非計劃性事件 (中斷) 的詳細資訊，請參閱管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虛擬機器的可用性。
 
@@ -29,13 +29,13 @@ Azure 會定期更新平台來提升虛擬機器之主機基礎結構的可靠�
 
 ## <a name="maintenance-not-requiring-a-reboot"></a>不需要重新開機的維護
 
-不需要重新開機的最不零影響維護的目標是小於 10 秒暫停 vm。 Azure 會選擇會最不影響客戶 Vm 的更新機制。 在某些情況下，記憶體保留維護機制使用，它會暫停 30 秒的 VM，並會保留在 RAM 中的記憶體。 VM 會接著繼續執行，並會自動同步處理其時鐘。 Azure 正逐漸增加使用即時移轉技術，以及改進記憶體保留維護機制，以縮短暫停持續時間。  
+如上所述，大部分的平台更新完成客戶 Vm 沒有任何影響。 零影響更新是不可能時 Azure 便會選擇是最低的影響力，客戶 vm 的更新機制。 大部分的這些非零衝擊維護會導致小於 10 秒暫停 vm。 在某些情況下，記憶體保留維護機制使用，它會暫停 30 秒的 VM，並會保留在 RAM 中的記憶體。 VM 會接著繼續執行，並會自動同步處理其時鐘。 記憶體保留維護適用於高於 90 %g、 M、 N 和 H 系列除外的 Azure Vm。 Azure 正逐漸增加使用即時移轉技術，以及改進記憶體保留維護機制，以縮短暫停持續時間。  
 
 這些不需要重新開機的維護作業會逐個容錯網域套用，而且如果收到任何警告健康情況訊號，進度就會停止。 
 
 這些類型的更新會對某些應用程式造成影響。 如果是將 VM 即時移轉至不同的主機，有些敏感性工作負載可能會在該幾分鐘內出現些微的效能降低，而導致 VM 暫停。 對於這類應用程式，使用適用於 [Windows](../articles/virtual-machines/windows/scheduled-events.md) 或 [Linux](../articles/virtual-machines/linux/scheduled-events.md) 的 Scheduled Events 來為 VM 維護做準備會很有幫助，可在 Azure 維護期間不造成任何影響。 Azure 也正致力於為這類超敏感的應用程式開發維護控制功能。 
 
-## <a name="live-migration"></a>即時移轉
+### <a name="live-migration"></a>即時移轉
 
 即時移轉非 rebootful 操作，以保留記憶體的 vm，並在有限的結果暫停 」 或 「 凍結，通常維時不能超過 5 秒。 現在，所有的基礎結構即服務 (IaaS) 虛擬機器，除了 G、 M、 N 和 H 系列，可進行即時移轉。 這相當於超過 90%的部署到 Azure 團隊的內的 IaaS Vm。 
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637715"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409604"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP 高可用性準備 Azure 基礎結構
 
@@ -36,6 +36,7 @@ ms.locfileid: "60637715"
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -218,7 +219,7 @@ ms.locfileid: "60637715"
 
 ## <a name="host-names-and-ip-addresses"></a>主機名稱和 IP 位址
 
-| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性設定組 |
+| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性集合 |
 | --- | --- | --- | --- |
 | 第一個叢集節點 ASCS/SCS 叢集 | ascs-1 | 10.0.6.4 | ascs-as |
 | 第二個叢集節點 ASCS/SCS 叢集 | ascs-2 | 10.0.6.5 | ascs-as |
@@ -235,7 +236,7 @@ ms.locfileid: "60637715"
 **表 2**:SAP ASCS/SCS 執行個體詳細資料
 
 
-| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性設定組 |
+| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性集合 |
 | --- | --- | --- | --- |
 | 第一個叢集節點 | sofs-1 | 10.0.6.10 | sofs-as |
 | 第二個叢集節點 | sofs-2 | 10.0.6.11 | sofs-as |
@@ -341,6 +342,16 @@ _**圖 1**:使用受控磁碟的向外延展檔案伺服器資源管理員範本
 _**圖 2**:如需不含受控磁碟的向外延展檔案伺服器的 Azure Resource Manager 範本的 UI 畫面_
 
 在 [儲存體帳戶類型] 方塊中，選取 [進階儲存體]。 所有其他設定與受控磁碟的設定相同。
+
+## <a name="adjust-cluster-timeout-settings"></a>調整叢集逾時設定
+
+已成功安裝在 Windows 向外延展檔案伺服器叢集之後，調整 Azure 中的條件的容錯移轉偵測的逾時臨界值。 需要變更的參數記載於[調整容錯移轉叢集網路閥值][tuning-failover-cluster-network-thresholds]中。 假設您叢集的 Vm 位於相同的子網路，請為這些值來變更下列參數：
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
+
+這些設定已與客戶進行測試，並提供很好的折衷方案。 它們具有足夠的彈性，但它們也提供快速的真實錯誤情況或 VM 失敗不足，無法容錯移轉。
 
 ## <a name="next-steps"></a>後續步驟
 

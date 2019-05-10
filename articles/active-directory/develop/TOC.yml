@@ -342,6 +342,8 @@
               items:
                 - name: 從快取中取得權杖
                   href: msal-net-acquire-token-silently.md
+                - name: 清除權杖快取
+                  href: msal-net-clear-token-cache.md
                 - name: 使用選項具現化公用用戶端
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: 使用選項具現化機密用戶端

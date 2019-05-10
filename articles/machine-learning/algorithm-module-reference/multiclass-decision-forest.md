@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5ff1809886198f7f1e4f4b9c36f877ce61d512e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 10364d014431a500e7c38a02d47f432cd464feb6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029426"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411460"
 ---
 # <a name="multiclass-decision-forest-module"></a>多元決策樹系的模組
 
@@ -36,7 +36,7 @@ ms.locfileid: "65029426"
 + 執行整合式的特徵選取和分類。
 + 也就是彈性呈現雜訊特徵。
 
-在 Azure Machine Learning 中的決策樹系分類器是由一整團的決策樹所組成。 一般而言，集團模型會提供更佳的涵蓋範圍和精確度比單一決策樹。 如需詳細資訊，請參閱 <<c0> [ 決策樹](http://go.microsoft.com/fwlink/?LinkId=403677)。
+在 Azure Machine Learning 中的決策樹系分類器是由一整團的決策樹所組成。 一般而言，集團模型會提供更佳的涵蓋範圍和精確度比單一決策樹。 如需詳細資訊，請參閱 <<c0> [ 決策樹](https://go.microsoft.com/fwlink/?LinkId=403677)。
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>如何設定多級決策樹系
 

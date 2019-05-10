@@ -140,6 +140,8 @@
           href: azure-files-dynamic-pv.md
         - name: Azure 檔案 - 靜態
           href: azure-files-volume.md
+        - name: NFS 伺服器 - 靜態
+          href: azure-nfs-volume.md
     - name: 設定網路功能
       items:
         - name: 建立或使用現有的虛擬網路

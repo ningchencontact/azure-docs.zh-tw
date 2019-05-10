@@ -7,12 +7,12 @@ ms.service: service-health
 ms.topic: landing-page
 ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: cf7084b569e2c90337e475beb9f49563214941d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa00d4b08725eaf4b667fc7b53b225198db95a02
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506867"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441654"
 ---
 # <a name="azure-service-health-documentation"></a>Azure 服務健康情況文件
 
@@ -25,6 +25,11 @@ Azure 提供一套可讓您掌握雲端資源健康情況的體驗，包括目�
 **[Azure 資源健康狀態](resource-health-overview.md)** 提供個別雲端資源的健康情況資訊，例如特定的虛擬機器。 使用 Azure 監視器，您也可以設定警示，以便在雲端資源可用性變更時收到通知。 Azure 資源健康狀態搭配 Azure 監視器通知會協助您及時收到資源可用性的相關通知，並快速評估問題根源是出自於您，或與 Azure 平台事件相關。
 
 這些經驗值加在一起，會提供您更全面細微且最相關的 Azure 健康情況檢視。
+
+### <a name="watch-an-overview-of-the-azure-status-page-azure-service-health-and-azure-resource-health"></a>觀看 Azure 狀態頁面、Azure 服務健康狀態，以及 Azure 資源健康狀態概觀
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
 
 <ul class="panelContent cardsFTitle">
     <li>

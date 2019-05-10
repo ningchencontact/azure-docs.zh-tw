@@ -10,28 +10,34 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 0cd08e1191c68c57975d3e68648134925155e7f2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026686"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143250"
 ---
 # <a name="personalizer-settings"></a>個人化工具設定
 
 服務設定包括服務如何處理報酬、服務進行探索的頻率、模型重新定型的頻率，以及要儲存多少資料。
 
+## <a name="create-personalizer-resource"></a>建立個人化工具資源
+
 請針對每個意見反應迴圈建立一個個人化工具資源。 
+
+1. 登入 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)。 先前的連結會帶您前往個人化工具服務的**建立**頁面。 
+1. 輸入服務名稱、選擇訂用帳戶、位置、定價層及資源群組。
+1. 選擇確認及 [建立]。
 
 ## <a name="configure-service-settings-in-the-azure-portal"></a>在 Azure 入口網站中設定服務設定
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)。
 1. 尋找個人化工具資源。 
 1. 在 [資源管理] 區段中，選取 [設定]。
 
-    ![登入 Azure 入口網站。 尋找個人化工具資源。 在 [資源管理] 區段中，選取 [設定]。](media/settings/how-to-configure.png)
+    離開 Azure 入口網站之前，從**金鑰**頁面中複製其中一個資源金鑰。 您需要此金鑰方可使用[個人化工具 SDK](https://aka.ms/personalizer-dotnet-sdk-docs)。
 
-### <a name="reward-settings-for-the-feedback-loop"></a>意見反應迴圈的報酬設定
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>依使用案例設定意見反應迴圈的報酬設定
 
 就服務對於意見反應迴圈如何使用報酬的設定進行配置。 變更下列設定將會重設目前的個人化工具模型，並會以過去 2 天的資料將模型重新定型：
 
@@ -81,4 +87,4 @@ ms.locfileid: "65026686"
 
 ## <a name="next-steps"></a>後續步驟
 
-[增強式學習](concepts-reinforcement-learning.md) 
+[如何使用個人化工具容器](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)

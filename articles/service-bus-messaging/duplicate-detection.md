@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c419ee1eec9e451cad835d8b4a56818101dc853a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120852"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413648"
 ---
 # <a name="duplicate-detection"></a>重複偵測
 
@@ -36,7 +36,10 @@ ms.locfileid: "62120852"
 
 *MessageId* 永遠都可以是某個 GUID，不過將識別碼錨定在商務程序中會產生可預測的重複性，這是有效運用重複偵測功能不可或缺的一環。
 
-## <a name="enable-duplicate-detection"></a>啟用重複偵測
+> [!NOTE]
+> 如果已啟用重複偵測，而且未設定工作階段識別碼或資料分割索引鍵，將訊息識別碼可做為資料分割索引鍵。 如果也沒有設定的訊息識別碼，.NET 和 AMQP 程式庫會自動產生之訊息的訊息識別碼。 如需詳細資訊，請參閱 <<c0> [ 使用的資料分割索引鍵](service-bus-partitioning.md#use-of-partition-keys)。
+
+## <a name="enable-duplicate-detection"></a>重複資料偵測
 
 在入口網站中，於建立實體時勾選 [啟用重複偵測] 核取方塊可開啟該功能 (預設為關閉)。 建立新主題的設定也是如此。
 

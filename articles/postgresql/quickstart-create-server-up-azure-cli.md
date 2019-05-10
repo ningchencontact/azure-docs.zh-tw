@@ -1,25 +1,25 @@
 ---
-title: 快速入門 - 使用簡單的 Azure CLI 命令建立適用於 PostgreSQL 的 Azure 資料庫 - az postgres up (預覽)
-description: 本快速入門指南說明如何使用 Azure CLI (命令列介面) up 命令建立適用於 PostgreSQL 伺服器的 Azure 資料庫。
+title: 快速入門：使用 CLI 命令 az postgres up 建立適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
+description: 本快速入門指南說明如何使用 Azure CLI (命令列介面) up 命令建立「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/18/2019
-ms.openlocfilehash: 0db49e2c370aee37cca4181cecbe4cf0b5585c51
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.date: 05/06/2019
+ms.openlocfilehash: 49f71c199a2832d763bb3c19d878fade47dfb8e4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136439"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069082"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-a-simple-azure-cli-command---az-postgres-up-preview"></a>快速入門：使用簡單的 Azure CLI 命令建立適用於 PostgreSQL 的 Azure 資料庫 - az postgres up (預覽)
+# <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>快速入門：使用 Azure CLI 命令 az postgres up (預覽) 建立適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
 
 > [!IMPORTANT]
 > [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI 命令在預覽狀態。
 
-「適用於 PostgreSQL 的 Azure 資料庫」是一個受控服務，可讓您在雲端執行、管理及調整高可用性 PostgreSQL 資料庫。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門說明如何使用 [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 命令，使用 Azure CLI 建立適用於 PostgreSQL 的 Azure 資料庫。 除了建立伺服器，`az postgres up` 命令還會建立範例資料庫、資料庫中的根使用者、開啟 Azure 服務的防火牆，以及建立用戶端電腦的預設防火牆規則。 這有助於加速開發程序。
+「適用於 PostgreSQL 的 Azure 資料庫」是一個受控服務，可讓您在雲端執行、管理及調整高可用性 PostgreSQL 資料庫。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門說明如何使用 [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) 命令，使用 Azure CLI 建立適用於 PostgreSQL 的 Azure 資料庫。 除了建立伺服器，`az postgres up` 命令還會建立範例資料庫、資料庫中的根使用者、開啟 Azure 服務的防火牆，以及建立用戶端電腦的預設防火牆規則。 這些預設值有助於加速開發程序。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -27,7 +27,7 @@ ms.locfileid: "58136439"
 
 本文需要您以本機方式執行 Azure CLI 2.0 版或更新版本。 若要查看所安裝的版本，請執行 `az --version` 命令。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
-您必須登入使用 [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) 命令登入您的帳戶。 請記下命令輸出中的**識別碼**屬性，以取得對應的訂用帳戶名稱。
+您必須使用 [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) 命令登入您的帳戶。 請記下命令輸出中的**識別碼**屬性，以取得對應的訂用帳戶名稱。
 
 ```azurecli
 az login
@@ -60,13 +60,13 @@ az postgres up
 server-name | 由系統產生 | 可識別 Azure Database for PostgreSQL 伺服器的唯一名稱。
 resource-group | 由系統產生 | 新的 Azure 資源群組。
 sku-name | GP_Gen5_2 | SKU 的名稱。 遵循簡短形式的慣例 {pricing tier}\_{compute generation}\_{vCores}。 預設是一部一般用途、具有 2 個 vCore 的第 5 代伺服器。 如需關於價格的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/postgresql/)。
-backup-retention | 7 | 備份應保留的時間長度。 單位為天。
+backup-retention | 7 | 保留備份的時間長度。 單位為天。
 geo-redundant-backup | 已停用 | 是否應針對此伺服器啟用異地備援備份。
 location | westus2 | 伺服器的 Azure 位置。
 ssl-enforcement | 已停用 | 是否應針對此伺服器啟用 SSL。
 storage-size | 5120 | 伺服器的儲存體容量 (單位為 MB)。
 version | 10 | PostgreSQL 主要版本。
-admin-user | 由系統產生 | 適用於系統管理員登入的使用者名稱。
+admin-user | 由系統產生 | 系統管理員的使用者名稱。
 admin-password | 由系統產生 | 系統管理員使用者的密碼。
 
 > [!NOTE]

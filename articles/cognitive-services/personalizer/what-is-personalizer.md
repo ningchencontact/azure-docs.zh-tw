@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: c969029bcc0412267507efe81549ec6f8b2988ce
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7eb85aa38815b8fcdfbe68518122563e1b579e17
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026656"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150405"
 ---
 # <a name="what-is-personalizer"></a>什麼是個人化工具？
 
@@ -64,4 +64,5 @@ Azure 個人化工具是雲端式 API 服務，可讓您選擇最佳體驗來對
 
 ## <a name="next-steps"></a>後續步驟
 
-[快速入門：以 C# 建立意見反應迴圈](csharp-quickstart-commandline-feedback-loop.md)
+* [快速入門：以 C# 建立意見反應迴圈](csharp-quickstart-commandline-feedback-loop.md)
+* [使用互動式示範](https://personalizationdemo.azurewebsites.net/)

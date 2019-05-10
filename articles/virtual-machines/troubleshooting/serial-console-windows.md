@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: c6611c75e61f7e381efd2e437b8281cc70601215
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 31811d3d48f791e11bd6b709f59f5f6aaa18be0e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141066"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442103"
 ---
 # <a name="azure-serial-console-for-windows"></a>Windows azure 的序列主控台
 
-在 Azure 入口網站中的序列主控台提供主控台的存取權以文字為基礎的 Windows 虛擬機器 (Vm) 和虛擬機器擴展集 （虛擬機器擴展集） 執行個體。 這個序列連線連線到 VM 或虛擬機器擴展集執行個體，提供存取權的網路或作業系統狀態無關的 COM1 序列埠。 序列主控台只可以使用 Azure 入口網站存取，只允許擁有的參與者存取權角色的使用者或更高版本以 VM 或虛擬機器擴展集。
+在 Azure 入口網站中的序列主控台提供主控台的存取權以文字為基礎的 Windows 虛擬機器 (Vm) 和虛擬機器擴展集執行個體。 這個序列連線連線到 VM 或虛擬機器擴展集執行個體，提供存取權的網路或作業系統狀態無關的 COM1 序列埠。 序列主控台只可以使用 Azure 入口網站存取，只允許擁有的參與者存取權角色的使用者或更高版本以 VM 或虛擬機器擴展集。
 
 序列主控台以相同方式運作的 Vm 和虛擬機器擴展集執行個體。 在此文件中，所有提及的 vm 會以隱含方式都包含虛擬機器擴展集執行個體除非另有指明，否則。
 

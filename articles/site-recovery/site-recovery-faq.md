@@ -8,16 +8,21 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/08/2019
 ms.author: raynew
-ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74ccc76ff139cae21e3583b0fea11596f5fd6b62
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278899"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413918"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
-本文摘要說明 Azure Site Recovery 的相關常見問題的解答。 
+本文摘要說明 Azure Site Recovery 的相關常見問題的解答。</br>
+特定的查詢，在不同的 ASR 案例，請參閱案例特定的常見問題集。<br>
 
+- [Azure VM 災害復原至 Azure](azure-to-azure-common-questions.md)
+- [VMware VM 至 Azure 的災害復原](vmware-azure-common-questions.md)
+- [HYPER-V VM 至 Azure 的災害復原](hyper-v-azure-common-questions.md)
+ 
 ## <a name="general"></a>一般
 
 ### <a name="what-does-site-recovery-do"></a>Site Recovery 的功能是什麼？
@@ -104,7 +109,7 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 
 
 
-## <a name="disaster-recovery"></a>災害復原
+## <a name="disaster-recovery"></a>嚴重損壞修復
 
 ### <a name="what-can-site-recovery-protect"></a>Site Recovery 可以保護什麼？
 * **Azure VM**：Site Recovery 可複寫在支援的 Azure VM 上執行的任何工作負載
