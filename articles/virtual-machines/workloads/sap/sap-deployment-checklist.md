@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648783"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236908"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure 上 SAP 工作負載的規劃和部署檢查清單 
 
@@ -140,9 +140,10 @@ ms.locfileid: "60648783"
       2. 為了避免內部部署 SAP GUI 介面與部署在 Azure 中的 SAP 應用程式層之間發生 GUI 逾時，請檢查 default.pfl 或執行個體設定檔中是否已設定下列參數：
          1.   rdisp/keepalive_timeout = 3600
          2.   rdisp/keepalive = 20
-      3. 如果您使用「Windows 容錯移轉叢集」設定，請確定已為 Azure 設定正確的無回應節點反應時間。 Microsoft 的[調整容錯移轉叢集網路閾值](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) \(英文\) 一文中列出參數，以及這些參數如何影響容錯移轉敏感性。 在所列出的參數當中，下列兩個參數應設定成以下的值：
-         1.   SameSubNetDelay = 2
+      3. 如果您使用「Windows 容錯移轉叢集」設定，請確定已為 Azure 設定正確的無回應節點反應時間。 Microsoft 的[調整容錯移轉叢集網路閾值](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) \(英文\) 一文中列出參數，以及這些參數如何影響容錯移轉敏感性。 假設叢集節點都位於相同子網路，應該變更下列參數：
+         1.   SameSubNetDelay = 2000
          2.   SameSubNetThreshold = 15
+         3.   RoutingHistorylength = 30
 4. 測試您的高可用性和災害復原程序
    1. 藉由關閉 VM (Windows 客體 OS) 或讓作業系統進入緊急模式 (Linux 客體 OS)，以了解您的容錯移轉設定是否按照設計的方式運作，來模擬容錯移轉情況。 
    2. 測量執行容錯移轉所花費的時間。 如果花費的時間太長，請考慮：

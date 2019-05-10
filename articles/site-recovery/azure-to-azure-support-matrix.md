@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1118d1de72ca7cd44844a0b526efd85eb419bc67
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926581"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412767"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm 從一個區域複寫到另一個的支援矩陣
 
@@ -23,7 +23,7 @@ ms.locfileid: "64926581"
 
 **部署** |  **支援**
 --- | ---
-**Azure 门户** | 支援。
+**Azure 入口網站** | 支援。
 **PowerShell** | 支援。 [深入了解](azure-to-azure-powershell.md)
 **REST API** | 支援。
 **CLI** | 目前不支援
@@ -47,7 +47,7 @@ ms.locfileid: "64926581"
 **地理叢集** | **Azure 區域**
 -- | --
 美洲 | 加拿大東部、加拿大中部、美國中南部、美國中西部、美國東部、美國東部 2、美國西部、美國西部 2、美國中部、美國中北部
-歐洲 | 英國西部、英國南部、北歐、西歐、法國中部、法國南部
+歐洲 | 英國西部、 英國南部、 北歐、 西歐、 法國中部、 法國南部、 南非西部、 南非北部
 亞洲 | 印度南部、印度中部、東南亞、東亞、日本東部、日本西部、南韓中部、南韓南部
 澳大利亞   | 澳大利亞東部、澳大利亞東南部、澳大利亞中部、澳大利亞中部 2
 Azure Government    | US Gov 維吉尼亞州、US Gov 愛荷華州、US Gov 亞利桑那州、US Gov 德克薩斯州、US DoD 東部、US DoD 中部
@@ -156,10 +156,11 @@ Azure 資源庫映像 - 第三方發行 | 支援 | 只要 VM 在支援的作業�
 自訂映像 - 第三方發行 | 支援 | 只要 VM 在支援的作業系統上執行即支援。
 使用 Site Recovery 移轉 VM | 支援 | 如果使用 Site Recovery 將 VMware VM 或實體機器遷移到 Azure，您需要將機器上執行的舊版行動服務解除安裝，然後重新啟動機器，再複寫到另一個 Azure 區域。
 RBAC 原則 | 不支援 | 角色型的存取控制 (RBAC) 原則，在 Vm 上的不會複寫容錯移轉目標區域中的 VM。
+擴充功能 | 不支援 | 延伸模組不會複寫容錯移轉目標區域中的 VM。 它必須在容錯移轉之後以手動方式安裝。
 
 ## <a name="replicated-machines---disk-actions"></a>複寫的機器 - 磁碟動作
 
-**Action** | **詳細資料**
+**動作** | **詳細資料**
 -- | ---
 在複寫的 VM 上調整磁碟大小 | 支援
 在複寫的 VM 上新增磁碟 | 不支援。<br/><br/> 您需要停用 VM 的複寫、新增磁碟，然後重新啟用複寫。
@@ -201,7 +202,7 @@ RA-GRS | 支援 |
 ZRS | 不支援 |
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援虛擬機器磁碟
 適用於虛擬網路的 Azure 儲存體防火牆  | 支援 | 如果虛擬網路的存取限於儲存體帳戶，啟用[允許信任的 Microsoft 服務](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
-一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否 | 與一般用途 V1 儲存體帳戶相比，交易成本大幅增加
+一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 無 | 與一般用途 V1 儲存體帳戶相比，交易成本大幅增加
 
 >[!IMPORTANT]
 > 若要避免效能問題，請確定您遵循 VM 磁碟延展性和效能目標[Linux](../virtual-machines/linux/disk-scalability-targets.md)或是[Windows](../virtual-machines/windows/disk-scalability-targets.md) Vm。 如果您使用預設設定，Site Recovery 會建立所需的磁碟和儲存體帳戶，根據來源組態。 如果您自訂並選取您自己的設定，請依照您的來源 Vm 磁碟延展性和效能目標。

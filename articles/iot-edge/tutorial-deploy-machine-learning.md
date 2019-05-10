@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 985f1f73fbfc8c75df8393615fca32f5d1c08b9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f85b0088fac97f4b9f2dd2835e3052cb598a987
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078307"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142750"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>教學課程：將 Azure Machine Learning 部署為 IoT Edge 模組 (預覽)
+
+請使用 Azure Notebooks 來開發機器學習模組，並將模組部署至執行 Azure IoT Edge 的 Linux 裝置。 
 
 您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您部署 Azure Machine Learning 模組，以根據模擬機器的溫度資料來預測裝置何時會故障。 如需與 IoT Edge 上的 Azure Machine Learning 服務有關的詳細資訊，請參閱 [Azure Machine Learning 文件](../machine-learning/service/how-to-deploy-to-iot.md)。
 
@@ -51,58 +53,12 @@ Azure IoT Edge 裝置：
    * 記下工作區名稱、資源群組和訂用帳戶識別碼。 這些值全都適用於 Azure 入口網站中的工作區概觀。 您會在本教學課程稍後使用這些值，來將 Azure 筆記本連線至您的工作區資源。 
 
 
-### <a name="disable-process-identification"></a>停用程序識別
-
->[!NOTE]
->
-> 預覽版的 Azure Machine Learning 不支援 IoT Edge 所預設啟用的程序識別安全性功能。
-> 以下是此功能的停用步驟。 不過，這不適合生產環境使用。 只有在 Linux 裝置上才需要這些步驟。 
-
-若要在 IoT Edge 裝置上停用程序識別，您必須在 IoT Edge 精靈設定的 [連線] 區段中，針對 **workload_uri** 和 **management_uri** 提供 IP 位址和連接埠。
-
-先取得 IP 位址。 在命令列中輸入 `ifconfig`，然後複製 **docker0** 介面的 IP 位址。
-
-編輯 IoT Edge 精靈設定檔：
-
-```cmd/sh
-sudo nano /etc/iotedge/config.yaml
-```
-
-以您的 IP 位址更新設定的 [連線] 區段。 例如︰
-```yaml
-connect:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-在設定的 [接聽] 區段中輸入相同的位址。 例如︰
-
-```yaml
-listen:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-儲存並關閉設定檔。
-
-使用 management_uri 位址建立環境變數 IOTEDGE_HOST (若要永久設定此變數，請將變數新增至 `/etc/environment`)。 例如︰
-
-```cmd/sh
-export IOTEDGE_HOST="http://172.17.0.1:15580"
-```
-
-重新啟動 IoT Edge 服務以讓變更生效。
-
-```cmd/sh
-sudo systemctl restart iotedge
-```
-
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>建立並部署 Azure Machine Learning 模組
 
 在本節中，您會將定型的機器學習模型檔案轉換成 Azure Machine Learning 服務容器。 Docker 映像所需的所有元件都在[適用於 Azure IoT Edge 的 AI 工具組 Git 存放庫](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)中。 請遵循下列步驟，將該存放庫上傳至 Microsoft Azure Notebooks 以建立容器，並將它推送至 Azure Container Registry。
 
 
-1. 巡覽至您的 Azure Notebooks 專案。 您可以從 [Azure 入口網站](https://portal.azure.com)的 Azure Machine Learning 服務工作區中取得它們，或使用您的 Azure 帳戶登入至 [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects) 來取得它們。
+1. 巡覽至您的 Azure Notebooks 專案。 您可以從 [Azure 入口網站](https://portal.azure.com)的 Azure Machine Learning 服務工作區進入，或使用您的 Azure 帳戶登入至 [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects)。
 
 2. 選取 [上傳 GitHub 存放庫]。
 
@@ -151,7 +107,7 @@ sudo systemctl restart iotedge
 
    這些認證可以包含於部署資訊清單中，為您的 IoT Edge 裝置提供存取權限來從登錄中提取容器映像。 
 
-您現在知道 Machine Learning 容器映像的儲存位置。 下一節將逐步解說步驟，以查看如何在您的 IoT Edge 裝置上將其當成已部署的模組來執行。 
+您現在知道 Machine Learning 容器映像的儲存位置。 下一節將逐步解說如何查看在 IoT Edge 裝置上做為模組執行的容器。 
 
 ## <a name="view-generated-data"></a>檢視產生的資料
 

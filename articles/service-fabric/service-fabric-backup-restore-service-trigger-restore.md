@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: a82004fdd6bbb4eda0842670f210f846f9446384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310871"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413721"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>在 Azure Service Fabric 中還原備份
 
@@ -37,6 +37,20 @@ ms.locfileid: "60310871"
 - 若要觸發還原，必須對叢集啟用還原「錯誤分析服務 (FAS)」。
 - 「備份還原服務 (BRS)」已建立備份。
 - 還原只能在分割區觸發。
+- 設定電話安裝 Microsoft.ServiceFabric.Powershell.Http 模組 [預覽]。
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- 請確定叢集已連線使用`Connect-SFCluster`命令，然後再進行任何使用 Microsoft.ServiceFabric.Powershell.Http 模組的組態要求。
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggered-restore"></a>已觸發的還原
 
@@ -50,6 +64,15 @@ ms.locfileid: "60310871"
 如果遺失整個 Service Fabric 叢集，您可以復原可靠具狀態服務和 Reliable Actors 分割區的資料。 您可以使用[具有備份儲存體詳細資料的 GetBackupAPI](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation)，從清單中選取所需的備份。 備份列舉適用於應用程式、服務或分割區。
 
 在下列範例中，我們會假設遺失的叢集是＜[啟用可靠具狀態服務和 Reliable Actors 的定期備份](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors)＞中提到的相同叢集。 在此案例中，`SampleApp` 會在啟用備份原則的情況下進行部署，而備份會設定放在 Azure 儲存體。
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 Microsoft.ServiceFabric.Powershell.Http 模組的 Powershell
+
+```powershell
+Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>使用 Powershell 的 rest 呼叫
 
 請執行 PowerShell 指令碼來使用 REST API，以傳回針對 `SampleApp` 應用程式內所有分割區建立的備份。 API 會要求備份儲存體資訊以列出可用的備份。
 
@@ -142,12 +165,30 @@ FailureError            :
 
 對於「具名分割」，比較名稱值可找出替代叢集中的目標分割區。
 
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 Microsoft.ServiceFabric.Powershell.Http 模組的 Powershell
+
+```powershell
+
+Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>使用 Powershell 的 rest 呼叫
+
 您可以使用下列[還原 API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)，要求對備份叢集分割區進行還原:
 
 ```powershell
+
+$StorageInfo = @{
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
+    ContainerName = 'backup-container'
+    StorageKind = 'AzureBlobStore'
+}
+
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4'
     BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+    BackupStorage  = $StorageInfo
 }
 
 $body = (ConvertTo-Json $RestorePartitionReference) 
@@ -184,6 +225,16 @@ FailureError            :
 
 對於還原 API，請提供 _BackupId_ 和 _BackupLocation_ 詳細資料。 因為叢集已啟用備份，所以 Service Fabric 的「備份還原服務 (BRS)」會依據相關聯的備份原則找出正確的儲存體位置。
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 Microsoft.ServiceFabric.Powershell.Http 模組的 Powershell
+
+```powershell
+Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>使用 Powershell 的 rest 呼叫
+
 ```powershell
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4',
@@ -201,6 +252,14 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ## <a name="track-restore-progress"></a>追蹤還原進度
 
 可靠具狀態服務或 Reliable Actor 的分割區一次只接受一個還原要求。 分割只會在目前的還原要求完成後，再接受另一個要求。 您可以同時在不同的分割區上觸發多個還原要求。
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 Microsoft.ServiceFabric.Powershell.Http 模組的 Powershell
+
+```powershell
+    Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+```
+
+#### <a name="rest-call-using-powershell"></a>使用 Powershell 的 rest 呼叫
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"

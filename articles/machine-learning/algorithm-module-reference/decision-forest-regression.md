@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67016582149824c8deb83b54102190a57bd19383
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d372adf75d46fdedb7a6f2b17e47822475d1f155
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028796"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442369"
 ---
 # <a name="decision-forest-regression-module"></a>決策樹系迴歸模組
 
@@ -39,7 +39,7 @@ ms.locfileid: "65028796"
 
 此迴歸模型是由一整團的決策樹所組成。 在迴歸的決策樹系中的每個樹狀結構會輸出為預測高斯分佈。 透過尋找模型中的所有樹狀結構的結合分佈最接近高斯分佈的樹狀結構的整體執行彙總。
 
-如需有關這個演算法及其實作的理論架構的詳細資訊，請參閱這篇文章：[決策樹系：統一的架構的分類、 迴歸、 密度估計岐管學習和半監督式的學習 ](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+如需有關這個演算法及其實作的理論架構的詳細資訊，請參閱這篇文章：[決策樹系：統一的架構的分類、 迴歸、 密度估計岐管學習和半監督式的學習](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>如何設定決策樹系迴歸模型
 
@@ -53,7 +53,7 @@ ms.locfileid: "65028796"
 
     - **複寫**:在複寫中，每個樹狀結構是完全相同的輸入資料上定型。 決定哪個分割的述詞用於每個樹狀節點保持隨機和樹狀結構將會不同。
 
-         如需詳細資訊與訓練程序的相關**複寫**選項，請參閱[Computer Vision 及醫療影像分析的決策樹系。Criminisi 和 J.Shotton。Springer 2013。](http://research.microsoft.com/projects/decisionforests/).
+         如需詳細資訊與訓練程序的相關**複寫**選項，請參閱[Computer Vision 及醫療影像分析的決策樹系。Criminisi 和 J.Shotton。Springer 2013。](https://research.microsoft.com/projects/decisionforests/).
 
 3. 指定您要模型定型，藉由設定的方式**建立定型模式**選項。
 

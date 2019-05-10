@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92f4616a415c4ddebd0d9b2e466536b2f30c486f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146437"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413707"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>自动缩放 Azure HDInsight 群集（预览）
 
@@ -21,14 +21,17 @@ Azure HDInsight 叢集中自動調整功能會自動調整背景工作節點數�
 
 ## <a name="cluster-compatibility"></a>叢集的相容性
 
+> [!Important]
+> 自動調整功能僅適用於在 2019 年中功能的公開發行之後建立的叢集。 也無法使用預先存在的叢集。
+
 下表說明叢集類型和版本相容的自動調整功能。
 
-| 版本 | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
+| 版本 | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 沒有 ESP | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
-| 沒有 ESP HDInsight 4.0 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
-| 使用 ESP HDInsight 3.6 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
-| 使用 ESP HDInsight 3.6 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
+| HDInsight 3.6 沒有 ESP | 有 | 是 | 否 | 無 | 無 | 無 | 無 |
+| 沒有 ESP HDInsight 4.0 | 有 | 是 | 否 | 無 | 無 | 無 | 無 |
+| 使用 ESP HDInsight 3.6 | 有 | 是 | 否 | 無 | 無 | 無 | 無 |
+| 使用 ESP HDInsight 3.6 | 有 | 是 | 否 | 無 | 無 | 無 | 無 |
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -199,7 +202,7 @@ HDInsight 服務會計算以符合目前的 CPU 和記憶體需求，需要多�
 
 | 叢集狀態 | 說明 |
 |---|---|
-| 執行中 | 叢集運作正常。 所有先前的自動調整活動已順利完成。 |
+| Running | 叢集運作正常。 所有先前的自動調整活動已順利完成。 |
 | 正在更新  | 正在更新叢集中自動調整規模設定。  |
 | HDInsight 設定  | 叢集相應增加或相應減少作業正在進行中。  |
 | 更新錯誤  | HDInsight 會自動調整設定更新期間發生問題。 客戶可以選擇重試更新，或停用自動調整。  |

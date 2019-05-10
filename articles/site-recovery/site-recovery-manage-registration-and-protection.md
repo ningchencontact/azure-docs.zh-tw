@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277156"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415494"
 ---
 # <a name="remove-servers-and-disable-protection"></a>移除伺服器並停用保護
 
@@ -150,6 +150,12 @@ ms.locfileid: "61277156"
 
 > [!NOTE]
 > 在這兩個選項中，行動服務將無法從受保護的伺服器解除安裝，您必須手動解除安裝。 如果您打算再次使用相同的組態伺服器保護伺服器，可以略過解除安裝行動服務。
+
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>停用保護 Azure VM (Azure 至 Azure)
+
+-  在 [受保護的項目] > [已複寫的項目] 中，以滑鼠右鍵按一下機器 > [停用複寫]。
+> [!NOTE]
+> 行動服務將不會解除安裝從受保護的伺服器，您必須手動解除安裝。 如果您打算一次保護伺服器，您可以略過解除安裝行動服務。
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>停用 Hyper-V 虛擬機器的保護 (Hyper-V 至 Azure)
 

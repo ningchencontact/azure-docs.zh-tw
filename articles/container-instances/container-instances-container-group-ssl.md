@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 10c015a9aee4ed8be54805f7adaae5bb4b5c422f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 12de4ef31084d8ac8586c79ffe3d0a8e891727bf
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870383"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411392"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>啟用容器群組中的 SSL 端點
 
@@ -44,7 +44,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 遵循提示來加入的識別資訊。 一般名稱，請輸入與憑證相關聯的主機名稱。 出現提示時輸入密碼，請按 Enter 鍵而不需要輸入，以略過新增密碼。
 
-執行下列命令來建立憑證要求中的自我簽署的憑證 （.crt 檔案）。 例如︰
+執行下列命令來建立憑證要求中的自我簽署的憑證 （.crt 檔案）。 例如：
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
@@ -66,7 +66,7 @@ code nginx.conf
 
 ```console
 # nginx Configuration File
-# http://wiki.nginx.org/Configuration
+# https://wiki.nginx.org/Configuration
 
 # Run as a less privileged user for security reasons.
 user nginx;
@@ -128,7 +128,7 @@ http {
 
 ### <a name="base64-encode-secrets-and-configuration-file"></a>Base64 編碼的祕密和組態檔
 
-Base64 編碼 Nginx 組態檔、 SSL 憑證，以及 SSL 金鑰。 您可以使用已編碼的內容來設定 Nginx 容器。
+Base64 編碼 Nginx 組態檔、 SSL 憑證，以及 SSL 金鑰。 在下一步 區段中，您可以輸入用來部署容器群組的 YAML 檔案的編碼的內容。
 
 ```console
 cat nginx.conf | base64 -w 0 > base64-nginx.conf
@@ -148,7 +148,7 @@ cat ssl.key | base64 -w 0 > base64-ssl.key
 code deploy-aci.yaml
 ```
 
-輸入的 base64 編碼內容檔案，其中的指示下`secret`。 在部署期間，這些檔案會新增至[祕密磁碟區](container-instances-volume-secret.md)群組中的容器。 在此範例中，祕密磁碟區會掛接到 Nginx 容器。
+輸入的 base64 編碼內容檔案，其中的指示下`secret`。 比方說，`cat`每個 base64 編碼檔案，以查看其內容。 在部署期間，這些檔案會新增至[祕密磁碟區](container-instances-volume-secret.md)群組中的容器。 在此範例中，祕密磁碟區會掛接到 Nginx 容器。
 
 ```YAML
 api-version: 2018-10-01
@@ -181,9 +181,9 @@ properties:
           memoryInGB: 1.5
   volumes:
   - secret:
-      ssl.crt: <base64-ssl.crt>
-      ssl.key: <base64-ssl.key>
-      nginx.conf: <base64-nginx.conf>
+      ssl.crt: <Enter contents of base64-ssl.crt here>
+      ssl.key: <Enter contents of base64-ssl.key here>
+      nginx.conf: <Enter contents of base64-nginx.conf here>
     name: nginx-config
   ipAddress:
     ports:

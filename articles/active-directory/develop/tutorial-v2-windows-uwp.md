@@ -16,34 +16,34 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522787"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138261"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>自通用 Windows 平台應用程式 (XAML) 呼叫 Microsoft Graph API
 
 > [!div renderon="docs"]
 > [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-此指南說明原生通用 Windows 平台 (UWP) 應用程式如何要求存取權杖，然後呼叫 Microsoft Graph API。 此指南也適用於需要來自 Microsoft 身分識別平台端點之存取權杖的其他 API。
+本指南說明原生通用 Windows 平台 (UWP) 應用程式如何要求存取權杖，然後呼叫 Microsoft Graph API。 此指南也適用於需要來自 Microsoft 身分識別平台端點之存取權杖的其他 API。
 
-在此指南結尾，您的應用程式會使用個人帳戶呼叫受保護的 API。 例如，outlook.com、live.com 等。 您的應用程式也會從具有 Azure Active Directory (Azure AD) 的任何公司或組織呼叫工作和學校帳戶。
+在本指南結尾，您的應用程式會使用個人帳戶呼叫受保護的 API。 例如，outlook.com、live.com 等。 您的應用程式也會從具有 Azure Active Directory (Azure AD) 的任何公司或組織呼叫工作和學校帳戶。
 
 >[!NOTE]
-> 此指南需安裝具備通用 Windows 平台開發功能的 Visual Studio 2017。 如需下載及設定 Visual Studio 以開發通用 Windows 平台應用程式的說明，請參閱[開始設定](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)。
+> 本指南需安裝具備通用 Windows 平台開發功能的 Visual Studio 2017。 如需下載及設定 Visual Studio 以開發通用 Windows 平台應用程式的說明，請參閱[開始設定](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)。
 
-## <a name="how-this-guide-works"></a>此指南使用方式
+## <a name="how-this-guide-works"></a>本指南使用方式
 
-![示範此教學課程所產生的應用程式範例如何運作](./media/tutorial-v2-windows-uwp/uwp-intro.svg)
+![示範本教學課程所產生的應用程式範例如何運作](./media/tutorial-v2-windows-uwp/uwp-intro.svg)
 
 此指南建立的範例 UWP 應用程式會查詢可接受來自 Microsoft 身分識別平台端點之存取權杖的 Microsoft 圖形 API 或 Web API。 針對這個案例，系統會透過授權標頭將一個權杖新增到 HTTP 要求。 Microsoft 驗證程式庫 (MSAL) 會處理權杖取得和更新作業。
 
 ## <a name="nuget-packages"></a>NuGet 套件
 
-此指南使用下列 NuGet 套件：
+本指南會使用以下 NuGet 套件：
 
 |程式庫|說明|
 |---|---|
@@ -51,9 +51,9 @@ ms.locfileid: "59522787"
 
 ## <a name="set-up-your-project"></a>設定專案
 
-此節提供整合 Windows 傳統型 .NET 應用程式 (XAML) 與「使用 Microsoft 登入」的逐步教學說明。 然後，它會查詢需要權杖的 Web API，例如 Microsoft Graph API。
+本節提供整合 Windows 傳統型 .NET 應用程式 (XAML) 與「使用 Microsoft 登入」的逐步教學說明。 然後，它會查詢需要權杖的 Web API，例如 Microsoft Graph API。
 
-此指南建立的應用程式會顯示查詢圖形 API 的按鈕、登出按鈕以及顯示呼叫結果的文字方塊。
+本指南建立的應用程式會顯示查詢圖形 API 的按鈕、登出按鈕以及顯示呼叫結果的文字方塊。
 
 > [!NOTE]
 > 您想要改為下載此範例的 Visual Studio 專案嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)並跳至[應用程式註冊](#register-your-application "應用程式註冊步驟")步驟，以在執行之前先設定程式碼範例。
@@ -102,7 +102,7 @@ ms.locfileid: "59522787"
     
 ## <a name="use-msal-to-get-a-token-for-microsoft-graph-api"></a>使用 MSAL 取得 Microsoft Graph API 的權杖
 
-此節說明如何使用 MSAL 取得 Microsoft Graph API 的權杖。
+本節說明如何使用 MSAL 取得 Microsoft Graph API 的權杖。
 
 1.  在 **MainPage.xaml.cs** 中，將 MSAL 的參考新增至類別：
 
@@ -333,8 +333,10 @@ ms.locfileid: "59522787"
    - 在 [支援的帳戶類型] 區段中，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶 (例如 Skype、Xbox、Outlook.com)]。
    - 選取 [註冊] 以建立應用程式。
 1. 在應用程式 [概觀] 頁面上，尋找 [應用程式 (用戶端) 識別碼] 值並將它記下供稍後使用。 接著返回 Visual Studio 並開啟 **MainPage.xaml.cs**，然後用您剛註冊的應用程式識別碼取代 ClientId 的值：
-1. 在應用程式頁面清單中，選取 [驗證]：
-   - 在 [重新導向 URI] | [建議的公用用戶端 (行動裝置、桌面) 重新導向 URI] 區段，然後選取 [urn:ietf:wg:oauth:2.0:oob]
+1. 在應用程式頁面清單中，選取 [驗證]。
+   1. 在「重新導向 URI」清單的 [重新導向 URI] 區段中：
+   1. 在 [型別] 欄中，選取 [公開用戶端 (行動裝置及桌上型電腦)]。
+   1. 在 [重新導向 URI] 欄中輸入 `urn:ietf:wg:oauth:2.0:oob`。
 1. 選取 [ **儲存**]。
 1. 在應用程式頁面清單中，選取 [API 權限]
    - 按一下 [新增權限] 按鈕，然後
@@ -384,7 +386,7 @@ ms.locfileid: "59522787"
 |屬性  |格式  |說明 |
 |---------|---------|---------|
 |**使用者名稱** |<span>user@domain.com</span> |識別使用者的使用者名稱。|
-|**權杖到期** |DateTime |權杖的到期時間。 MSAL 會視需要更新權杖來延展到期日。|
+|**權杖到期** |Datetime |權杖的到期時間。 MSAL 會視需要更新權杖來延展到期日。|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>與範圍和委派的權限有關的詳細資訊
 

@@ -6,21 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96e3c0b761a9ed4c5f84d8ece1ba504bd5aacf6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 95e4e3f3acc52c230405f0c0cc4a05b03b21a386
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797562"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153797"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>在區域之間容錯移轉及重新保護 Azure VM
 
-[Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
-
-本教學課程說明如何將 Azure VM 容錯移轉到次要 Azure 區域。 在容錯移轉之後，您會重新保護 VM。 在本教學課程中，您了解如何：
+本教學課程說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 Azure 虛擬機器 (VM) 容錯移轉到次要 Azure 區域。 在容錯移轉之後，您會重新保護 VM。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 容錯移轉 Azure VM
@@ -29,8 +27,10 @@ ms.locfileid: "59797562"
 > [!NOTE]
 > 本教學課程包含採用預設設定和最低自訂的最簡單路徑。 如需更複雜的案例，請使用「操作說明」之下關於 Azure VM 的文章。
 
+
 ## <a name="prerequisites"></a>必要條件
 
+- 開始之前，請檢閱關於容錯移轉的[相關常見問題](site-recovery-faq.md#failover)。
 - 確定您已完成[災害復原演練](azure-to-azure-tutorial-dr-drill.md)，檢查一切是否如預期般運作。
 - 執行測試容錯移轉之前，請確認 VM 屬性。 VM 必須符合 [Azure 需求](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)。
 
@@ -54,6 +54,11 @@ ms.locfileid: "59797562"
 
 6. 一旦您滿意容錯移轉的虛擬機器，您可以 [認可] 容錯移轉。
    認可會刪除服務可用的所有復原點。 您現在無法變更復原點。
+
+> [!NOTE]
+> 您容錯移轉 VM，並且在啟用 VM 的複寫之後新增磁碟時，複寫點就會顯示可用於復原的磁碟。 例如，如果 VM 有單一磁碟，而且您新增磁碟，則新增磁碟之前建立的複寫點就會顯示複寫點包含「1 個磁碟，共 2 個」。
+
+![使用新增的磁碟進行容錯移轉](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>重新保護次要 VM
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7aee10780512e284faccadface0dc928ef8270e
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472245"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501904"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>什麼是 Azure Active Directory 的自助式註冊？
 
@@ -52,7 +52,7 @@ ms.locfileid: "60472245"
 AllowEmailVerifiedUsers 和 AllowAdHocSubscriptions 是用於整個目錄的設定，可以套用至受控或非受控的目錄。 以下是範例，其中：
 
 * 您要管理具有已驗證網域 (例如 contoso.com) 的目錄
-* 您可以使用不同目錄中的 B2B 共同作業來邀請 constoso.com 主目錄中尚未存在的使用者 (userdoesnotexist@contoso.com)
+* 您可以使用不同的目錄中的 B2B 共同作業邀請使用者還不存在 (userdoesnotexist@contoso.com) 在 contoso.com 的主目錄
 * 主目錄已開啟 AllowEmailVerifiedUsers
 
 如果上述條件都成立，則會在主目錄中建立成員使用者，並在邀請目錄中建立 B2B 來賓使用者。

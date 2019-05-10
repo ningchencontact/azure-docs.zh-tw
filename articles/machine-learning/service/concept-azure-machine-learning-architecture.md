@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025226"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65502087"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -32,9 +32,7 @@ ms.locfileid: "65025226"
 1. **提交指令碼**至設定的計算目標以在該環境中執行。 在訓練期間，可以從**資料存放區**讀取或寫入指令碼。 而執行的記錄會在**工作區**中儲存為**執行**，並歸類在**實驗**之下。
 1. **查詢實驗**取得目前和過去回合的記錄計量。 如果計量未指出所要的結果，請回到步驟 1 並逐一查看您的指令碼。
 1. 找到令人滿意的回合之後，請在**模型登錄**中註冊保存的模型。
-1. 開發評分指令碼。
-1. **建立映像**並在**映像登錄**中註冊該映像。
-1. **將映像** 部署為 Azure 中的 **Web 服務**。
+1. 開發使用模型的評分指令碼並**部署模型**作為**web 服務**在 Azure 中，或**IoT Edge 裝置**。
 
 
 > [!NOTE]
@@ -46,7 +44,7 @@ ms.locfileid: "65025226"
 
 工作區會保留一份可用於定型模型的計算目標清單。 它也會保留定型執行記錄，包括記錄、計量、輸出，以及指令碼快照集。 您可以使用此資訊來判斷哪一個定型回合會產生最佳模型。
 
-您要在工作區註冊模型。 您要使用註冊的模型與評分指令碼建立映像。 接著，您可以將映像部署到 Azure 容器執行個體、Azure Kubernetes Service 或現場可程式化閘陣列 (FPGA) 中，作為 REST 型 HTTP 輸出。 您也可以將映像部署到 Azure IoT Edge 裝置作為模組。
+您要在工作區註冊模型。 若要將模型部署至 Azure Container Instances，Azure Kubernetes 服務，或做為 REST 架構 HTTP 端點的欄位可程式化 gate array (FPGA) 中使用已註冊的模型和評分指令碼。 您也可以將映像部署到 Azure IoT Edge 裝置作為模組。 就內部而言，會建立 docker 映像，來裝載已部署的映像。 如有需要您可以指定自己的映像。
 
 您可以建立多個工作區，而且每個工作區都可由多人共用。 當您共用工作區時，您可以將使用者指派給下列角色來控制其存取權：
 
@@ -94,7 +92,7 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時，您可�
 
 註冊模型時，您可以提供額外的中繼資料標記，然後在搜尋模型時使用這些標記。
 
-您無法刪除映像正在使用的模型。
+您無法刪除正在使用的作用中部署的模型。
 
 如需模型註冊的範例，請參閱[使用 Azure Machine Learning 將映像分類模型定型](tutorial-train-models-with-aml.md)。
 
@@ -208,11 +206,11 @@ Azure Machine Learning 服務提供基底映像，預設會使用。 您也可�
 
 ## <a name="deployment"></a>部署
 
-部署是指在可能裝載於雲端的 Web 服務，或在用於整合式裝置部署的 IoT 模組中將影像具現化。
+部署會具現化您的模型為 web 服務可以裝載在雲端中或 IoT 模組進行整合式的裝置的部署。
 
 ### <a name="web-service"></a>Web 服務
 
-已部署的 Web 服務可以使用 Azure 容器執行個體、Azure Kubernetes Service 或 FPGA。 您可以從封裝您模型、指令碼與相關聯檔案的映像建立服務。 映像包含經過負載平衡的 HTTP 端點，可接收傳送至 Web 服務的評分要求。
+已部署的 Web 服務可以使用 Azure 容器執行個體、Azure Kubernetes Service 或 FPGA。 您可以建立服務從您的模型、 指令碼和相關聯的檔案。 這些都封裝在圖中，可提供 web 服務的執行的階段環境。 映像包含經過負載平衡的 HTTP 端點，可接收傳送至 Web 服務的評分要求。
 
 如果已選擇啟用 Application Insight 遙測或模型遙測收集功能，Azure 將可以透過此功能協助您監視 Web 服務部署。 遙測資料只有您才能存取，而且會儲存在您的 Application Insights 與儲存體帳戶執行個體中。
 

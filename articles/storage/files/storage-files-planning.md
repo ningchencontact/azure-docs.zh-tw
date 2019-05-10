@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073363"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232771"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -94,7 +94,7 @@ Azure 備份可供進階檔案共用和 Azure Kubernetes 服務和更新版本 1
 
 在盡可能達成的基礎上，每個佈建之儲存體 Gib 的所有共用都可高載至最多三個 IOPS，並持續 60 分鐘或更久的時間 (視共用大小而定)。 新的共用一開始有以佈建容量為基礎的完整高載額度。
 
-必須佈建共用，以 1 GiB 遞增。 最小大小為 100 GiB 下, 一個大小是 101 GIB 等。
+必須佈建共用，以 1 GiB 遞增。 最小大小為 100 GiB 下, 一個大小是 101 GiB 等。
 
 > [!TIP]
 > 基準 IOPS = 1 * 佈建 GiB。 （最多 100,000 IOPS 的上限）。

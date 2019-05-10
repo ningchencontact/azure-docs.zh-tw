@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: 4a360968285b91b00c8ca1999f81c11951e74482
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dfb34f8c0fca792618860e0a8d5a1bf1736f3611
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479842"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416069"
 ---
-# <a name="machine-learning-integration-in-stream-analytics"></a>在串流分析中整合機器學習服務
+# <a name="machine-learning-integration-in-stream-analytics-preview"></a>Machine Learning 整合，在 Stream Analytics （預覽）
 串流分析支援對外呼叫 Azure Machine Learning 端點的使用者定義函式。 [串流分析 REST API 程式庫](https://msdn.microsoft.com/library/azure/dn835031.aspx)中會詳細說明此功能的 REST API 支援。 本文提供要在串流分析中成功實作這項功能所需的補充資訊。 您也可以在 [這裡](stream-analytics-machine-learning-integration-tutorial.md)取得已發佈的教學課程。
 
 ## <a name="overview-azure-machine-learning-terminology"></a>概觀：Azure Machine Learning 術語

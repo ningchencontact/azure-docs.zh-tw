@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: c01eccb63639a3838c9f726bc48400a76aba8cf0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/01/2019
+ms.openlocfilehash: 131b86fec5fb51c6ff6f29a8e0beed86145a24b7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799028"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136632"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>教學課程：使用 DMS 在線上從 SQL Server 遷移至 Azure SQL Database 中的單一資料庫或集區資料庫
 
@@ -159,7 +159,7 @@ ms.locfileid: "59799028"
 當您滿意評估結果，且認為選取的資料庫也適合遷移至 Azure SQL Database 中的單一資料庫或集區資料庫之後，請使用 DMA 將結構描述遷移至 Azure SQL Database。
 
 > [!NOTE]
-> 在 DMA 中建立移轉專案之前，請務必先確認您已依照必要條件中的說明佈建 Azure SQL Database。 基於本教學課程的目的，Azure SQL Database 的名稱會假設為 **AdventureWorksAzure**，但您可以命名為不同的名稱。
+> 在 DMA 中建立移轉專案之前，請務必先確認您已依照必要條件中的說明佈建 Azure SQL 資料庫。 基於本教學課程的目的，Azure SQL Database 的名稱會假設為 **AdventureWorksAzure**，但您可以命名為不同的名稱。
 > [!IMPORTANT]
 > 如果您使用 SSIS，DMA 目前不支援來源 SSISDB 的移轉，但您可以將 SSIS 專案/套件重新部署到 Azure SQL Database 所裝載的目的地 SSISDB。 如需有關遷移 SSIS 套件的詳細資訊，請參閱[將 SQL Server Integration Services 套件遷移到 Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 一文。
 
@@ -178,7 +178,7 @@ ms.locfileid: "59799028"
 
     ![Data Migration Assistant 來源連線詳細資料](media/tutorial-sql-server-to-azure-sql-online/dma-source-connect.png)
 
-6. 在 [連線到目標伺服器] 下方選取 [下一步]，指定 Azure SQL Database 的目標連線詳細資料、選取 [連線]，然後選取您已在 Azure SQL Database 中預先佈建的 [AdventureWorksAzure] 資料庫。
+6. 在 [連線到目標伺服器] 下方選取 [下一步]，指定 Azure SQL 資料庫的目標連線詳細資料、選取 [連線]，然後選取您已在 Azure SQL Database 中預先佈建的 [AdventureWorksAzure] 資料庫。
 
     ![Data Migration Assistant 目標連線詳細資料](media/tutorial-sql-server-to-azure-sql-online/dma-target-connect.png)
 
@@ -234,9 +234,7 @@ ms.locfileid: "59799028"
 
     如需成本和定價層的詳細資訊，請參閱[定價分頁](https://aka.ms/dms-pricing)。
 
-    如果您需要選擇適當 Azure 資料庫移轉服務層的協助，請參閱[此處](https://go.microsoft.com/fwlink/?linkid=861067) \(英文\) 貼文中的建議。  
-
-     ![設定 Azure 資料庫移轉服務執行個體設定](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
+    ![設定 Azure 資料庫移轉服務執行個體設定](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7. 選取 [建立] 以建立服務。
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d99169fc38f3976b35a0ebbdd6605450fbd3e2e9
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359019"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412868"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -37,13 +37,13 @@ ms.locfileid: "60359019"
   * 合作夥伴第 1 層支援
   * 合作夥伴第 2 層支援
   * Exchange 系統管理員
-  * 商務用 Skype 的管理員
+  * 商務用 Skype 管理員
   * 使用者管理員
-  * 目錄寫入器
+  * 目錄撰寫者
   * 全域管理員或公司系統管理員
   * SharePoint 管理員
   * 規範管理員
-  * 應用程式管理員
+  * 應用程式系統管理員
   * 安全性系統管理員
   * 特殊權限角色管理員
   * Intune 管理員
@@ -110,24 +110,51 @@ ms.locfileid: "60359019"
 1. 使用您的使用者系統管理員或公司系統管理員認證，以連線至 Windows PowerShell。
 1. 執行下列其中一個命令：
 
-   * 若要查看單一使用者的密碼是否設定為永不過期，請執行下列 cmdlet 的 upn (例如*aprilr\@contoso.onmicrosoft.com*) 或您想要檢查之使用者的使用者識別碼： `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
-   * 若要查看所有使用者的**密碼永久有效**設定，請執行下列 Cmdlet：`Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * 若要查看單一使用者的密碼是否設定為永不過期，請執行下列 cmdlet 的 upn (例如*aprilr\@contoso.onmicrosoft.com*) 或您想要檢查之使用者的使用者識別碼：
+
+   ```powershell
+   Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+   ```
+
+   * 若要查看**密碼永久有效**設定所有使用者，執行下列 cmdlet:
+
+   ```powershell
+   Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+   ```
 
 ### <a name="set-a-password-to-expire"></a>設定密碼到期
 
 1. 使用您的使用者系統管理員或公司系統管理員認證，以連線至 Windows PowerShell。
 1. 執行下列其中一個命令：
 
-   * 若要將某位使用者的密碼設為會到期，請透過使用 UPN 或使用者的使用者識別碼，執行下列 Cmdlet：`Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
-   * 若要將組織中所有使用者的密碼設為會到期，請使用下列 Cmdlet：`Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
+   * 若要設定一位使用者的密碼，以便在密碼過期，請使用 UPN 或使用者的使用者識別碼以執行下列 cmdlet:
+
+   ```powershell
+   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
+   ```
+
+   * 若要設定組織中所有使用者的密碼，使它們到期，使用下列 cmdlet:
+
+   ```powershell
+   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
+   ```
 
 ### <a name="set-a-password-to-never-expire"></a>設定密碼為永久有效
 
 1. 使用您的使用者系統管理員或公司系統管理員認證，以連線至 Windows PowerShell。
 1. 執行下列其中一個命令：
 
-   * 若要將某位使用者的密碼設為永不過期，請透過使用使用者主體名稱 (UPN) 或使用者的使用者識別碼，來執行下列 Cmdlet：`Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
-   * 若要將組織中所有使用者的密碼設為永久有效，請執行下列 Cmdlet： `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`
+   * 若要設定為永不過期的某位使用者的密碼，請使用 UPN 或使用者的使用者識別碼以執行下列 cmdlet:
+
+   ```powershell
+   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
+   ```
+
+   * 若要設定為永不過期組織中的所有使用者的密碼，執行下列 cmdlet:
+
+   ```powershell
+   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration
+   ```
 
    > [!WARNING]
    > 設定為 `-PasswordPolicies DisablePasswordExpiration` 的密碼仍然會根據 `pwdLastSet` 屬性計算時效。 如果將使用者密碼設定為永不過期，那麼經過 90 天後，密碼會過期。 根據 `pwdLastSet` 屬性，如果您將到期變更為 `-PasswordPolicies None`，`pwdLastSet` 早於 90 天的所有密碼會要求使用者在下次登入時變更密碼。 這項變更可能會影響大量使用者。 

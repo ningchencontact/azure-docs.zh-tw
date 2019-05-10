@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 2ab8f272fc264f153144803be772d381c1780512
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143275"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235751"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database 無伺服器 （預覽）
 
@@ -72,9 +72,9 @@ SQL Database 無伺服器 （預覽） 是帳單的計算上以每秒為單位�
 
 ## <a name="purchasing-model-and-service-tier"></a>購買模型和服務層
 
-無伺服器的 SQL Database 目前只支援一般用途層中的購買模型的 vcore 第 5 代硬體上。
+無伺服器的 SQL Database 目前只支援一般用途層中的購買模型的 vCore 第 5 代硬體上。
 
-## <a name="autoscaling"></a>自動調整
+## <a name="autoscaling"></a>自動調整規模
 
 ### <a name="scaling-responsiveness"></a>調整回應性
 
@@ -118,7 +118,7 @@ SQL Database 無伺服器 （預覽） 是帳單的計算上以每秒為單位�
 
 如果無伺服器的資料庫已暫停，然後首次登入時會繼續資料庫，並傳回錯誤，指出資料庫目前無法使用。 一旦繼續資料庫時，則必須重試登入來建立連線。 資料庫用戶端連接重試邏輯應該不需要修改。
 
-### <a name="latency"></a>Latency
+### <a name="latency"></a>延遲
 
 Autopause 或 autoresume 無伺服器資料庫的延遲是通常大約 1 分鐘。
 
@@ -148,7 +148,7 @@ Autopausing 和 autoresuming 不支援下列功能。 也就是說，如果使�
    |參數|值選項|預設值|
    |---|---|---|---|
    |最高 vCore|{0.5，1，2，4} 的任何未超過最大的虛擬核心|0.5 的 v 核心|
-   |Autopause 延遲|最小值：360 分鐘 （6 個小時）<br>最大值：10080 分鐘 （7 天）<br>增加：60 Minuten<br>停用 autopause:-1|360 分鐘|
+   |Autopause 延遲|最小值：360 分鐘 （6 個小時）<br>最大值：10080 分鐘 （7 天）<br>增加：60 分鐘<br>停用 autopause:-1|360 分鐘|
 
 > [!NOTE]
 > 使用 T-SQL 將現有的資料庫移到無伺服器，或變更其計算大小目前不支援，但可以透過 Azure 入口網站或 PowerShell 來完成。
@@ -227,7 +227,7 @@ Set-AzSqlDatabase
 
 ### <a name="metrics"></a>指标
 
-|實體|計量|描述|Units|
+|實體|計量|說明|單位|
 |---|---|---|---|
 |應用程式套件|app_cpu_percent|相對於應用程式所允許的最大虛擬核心應用程式所使用的虛擬核心的百分比。|百分比|
 |應用程式套件|app_cpu_billed|在報告期間向您收取應用程式的計算數量。 在這段期間所支付的金額是此計量和 vCore 單價的乘積。<br>此計量的值取決於彙總一段時間的 CPU 最大值使用，並使用每秒的記憶體。<br>如果使用量低於最小的金額佈建所設定的最小虛擬核心和最小記憶體，則佈建的最少是計算費用。  若要比較 CPU 與記憶體，為了計費方便，記憶體會先正規化成單元的虛擬核心藉由調整以 gb 為單位的 3 GB 的記憶體數量，每個虛擬核心。|vCore 秒|
@@ -264,7 +264,7 @@ Get-AzSqlDatabase `
 
 計費每秒數量是計算的使用的 CPU 和記憶體使用每秒的最大值。 如果使用的 CPU 數量，使用的記憶體小於最小的金額佈建每個已佈建的容量的計費。 若要比較 CPU 與記憶體，為了計費方便，記憶體會先正規化成單元的虛擬核心藉由調整以 gb 為單位的 3 GB 的記憶體數量，每個虛擬核心。
 
-- **計費資源**:CPU 和記憶體
+- **計費資源**:CPU 與記憶體
 - **容量計費 （$）**： 虛擬核心單位價格 * max (最小虛擬核心、 使用的虛擬核心、 最小記憶體 GB * 1/3，記憶體使用的 GB * 1/3) 
 - **計費頻率**:每秒
 

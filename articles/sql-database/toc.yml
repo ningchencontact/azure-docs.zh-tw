@@ -462,6 +462,8 @@
           href: sql-database-managed-instance-create-vnet-subnet.md
         - name: 為受控執行個體設定現有的 VNet 和子網路
           href: sql-database-managed-instance-configure-vnet-subnet.md
+        - name: 刪除受控執行個體後刪除子網路
+          href: sql-database-managed-instance-delete-virtual-cluster.md
         - name: 設定自訂 DNS
           href: sql-database-managed-instance-custom-dns.md
         - name: 同步網路組態

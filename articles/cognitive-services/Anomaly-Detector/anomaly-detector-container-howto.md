@@ -9,18 +9,18 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: aahi
-ms.openlocfilehash: 5dcec0d5f313b1c746c0674d0f9bf4d30ed19e5c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cc82e091ae4c033bda7f1d91c9aed36bb081de88
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026788"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233628"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>安裝並執行異常偵測器的容器
 
 異常偵測器都有下列的容器： 
 
-|函式|特性|
+|函式|功能|
 |-|-|
 |異常偵測器| <li> 即時發生，請偵測異常狀況。 <li> 會在您的資料集的異常偵測以批次。 <li> 推斷資料的預期一般的範圍。 <li> 支援的異常偵測敏感度調整使其更符合您的資料。 |
 
@@ -39,7 +39,7 @@ ms.locfileid: "65026788"
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
 |異常偵測器資源 |若要使用這些容器，您必須具備：<br><br>_異常偵測器_Azure 資源，以取得相關聯的計費金鑰和計費的端點 URI。 這兩個值可在 Azure 入口網站的異常偵測器的概觀和 [金鑰] 頁面上，才能啟動容器。<br><br>**{BILLING_KEY}**：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}**：端點 URI 範例為：`https://westus2.api.cognitive.microsoft.com`|
 
-## <a name="request-access-to-the-container-registry"></a>要求存取的容器登錄
+## <a name="request-access-to-the-container-registry"></a>要求存取容器登錄
 
 您必須先完成與提交[異常偵測器容器要求表單](https://aka.ms/adcontainer)要求存取至容器。
 
@@ -49,11 +49,8 @@ ms.locfileid: "65026788"
 
 ## <a name="the-host-computer"></a>主機電腦
 
-**主機**是執行 Docker 容器的電腦。 這可以您內部部署的電腦，或是在 Azure 中裝載服務的 Docker，這些服務包括：
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-* [Azure Kubernetes Service](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-* [Azure 容器執行個體](https://docs.microsoft.com/container-instances/index.yml)
-* 部署至 [Azure Stack](https://docs.microsoft.com/azure-stack/index.yml) 的 [Kubernetes](https://kubernetes.io/) 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)。
 <!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### <a name="container-requirements-and-recommendations"></a>容器的需求和建議
@@ -100,7 +97,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-det
 
 使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來執行三個容器的其中一個。 此命令會使用下列參數：
 
-| Placeholder | Value |
+| 預留位置 | Value |
 |-------------|-------|
 |{BILLING_KEY} | 此金鑰用來啟動容器時，並可在 Azure 入口網站的 [異常偵測器金鑰] 頁面上取得。  |
 |{BILLING_ENDPOINT_URI} | 在 Azure 入口網站的異常偵測器概觀頁面上，您可以使用計費的端點 URI 值。|
@@ -127,11 +124,11 @@ ApiKey={BILLING_KEY}
 
 ### <a name="running-multiple-containers-on-the-same-host"></a>在同一主机上运行多个容器
 
-如果打算使用所公开的端口运行多个容器，请确保使用不同的端口运行每个容器。 例如，在端口 5000 上运行第一个容器，在端口 5001 上运行第二个容器。
+如果打算使用所公开的端口运行多个容器，请确保使用不同的端口运行每个容器。 例如，在連接埠 5000 上執行第一個容器，以及在連接埠 5001 上執行第二個容器。
 
-将 `<container-registry>` 和 `<container-name>` 替换为你使用的容器的值。 它们并非必须是同一容器。 「 異常偵測器容器和 LUIS 容器主機上執行的同時，您可以有或您可以有多個執行的異常偵測器的容器。 
+以您使用的容器值，取代 `<container-registry>` 和 `<container-name>`。 這些容器值不必是相同的容器。 「 異常偵測器容器和 LUIS 容器主機上執行的同時，您可以有或您可以有多個執行的異常偵測器的容器。 
 
-在端口 5000 上运行第一个容器。 
+在連接埠 5000 上執行第一個容器。 
 
 ```bash 
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -141,7 +138,7 @@ Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}
 ```
 
-在端口 5001 上运行第二个容器。
+在連接埠 5001 上執行第二個容器。
 
 
 ```bash 
@@ -152,7 +149,7 @@ Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}
 ```
 
-每个后续容器都应当位于不同的端口上。 
+每個後續容器應該位於不同的連接埠。 
 
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 

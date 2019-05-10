@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400019"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146134"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>教學課程：使用 PowerShell 建立服務主體和角色指派
 
@@ -111,5 +111,5 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $
 
 在本教學課程中，您已了解如何建立服務主體並使用它登入 Windows 虛擬桌面。 若要深入了解如何登入 Windows 虛擬桌面，請繼續進行「連線到 Windows 虛擬桌面」操作說明。
 
-- [連線到 Windows 7 和 Windows 10 上的遠端桌面用戶端](connect-windows-7-and-10.md)
-- [連線到 Windows 虛擬桌面預覽版 Web 用戶端](connect-web.md)
+- [從 Windows 10 或 Windows 7 連線](connect-windows-7-and-10.md)
+- [從網頁瀏覽器連線](connect-web.md)

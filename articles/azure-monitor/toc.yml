@@ -131,6 +131,8 @@
           href: platform/alerts-common-schema.md
         - name: 動作規則
           href: platform/alerts-action-rules.md
+        - name: 變更分析
+          href: app/change-analysis.md
     - name: 顯現資料
       href: visualizations.md
     - name: 合作夥伴整合

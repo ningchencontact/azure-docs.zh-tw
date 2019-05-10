@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/09/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e490ed9d104fc039a79083a94ddaebdeba766d2a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292586"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506648"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>透過 Azure Active Directory 應用程式 Proxy 遠端存取內部部署應用程式 
 
@@ -44,6 +44,8 @@ Azure AD 應用程式 Proxy：
 
 應用程式 Proxy 支援單一登入。 如需有關支援的方法的詳細資訊，請參閱[選擇單一登入方法](what-is-single-sign-on.md#choosing-a-single-sign-on-method)。
 
+建議應用程式 Proxy 讓外部的遠端使用者存取內部資源。 應用程式 Proxy 會取代適用於 VPN 或反向 proxy 的需求。 它並不適用於內部公司網路上的使用者。  不必要地使用應用程式 Proxy 的內部使用者會造成非預期且不想要的效能問題。
+
 ## <a name="how-application-proxy-works"></a>應用程式 Proxy 的運作方式為何
 
 下圖顯示顯示 Azure AD 和應用程式 Proxy 一起運作，以向內部部署應用程式提供單一登入的方式。
@@ -57,7 +59,7 @@ Azure AD 應用程式 Proxy：
 5. 連接器會將要求傳送至內部部署應用程式。  
 6. 回應會透過應用程式 Proxy 服務與連接器傳送給使用者。
 
-| 元件 | 描述 |
+| 元件 | 說明 |
 | --------- | ----------- |
 | 端點  | 端點可以是 URL 或[使用者入口網站](end-user-experiences.md)。 使用者可以藉由存取外部 URL，來連線網路外部的應用程式。 您網路內的使用者可以透過 URL 或使用者入口網站存取應用程式。 使用者存取這些端點的其中一個時，會在 Azure AD 中進行驗證，然後透過連接器路由至內部部署應用程式。|
 | Azure AD | Azure AD 使用儲存在雲端中的租用戶目錄執行驗證。 |

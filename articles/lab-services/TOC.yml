@@ -64,26 +64,34 @@
   items:
     - name: 教室實驗室
       items:
-        - name: 管理實驗室帳戶
-          href: classroom-labs/how-to-manage-lab-accounts.md
-        - name: 管理教室實驗室
-          href: classroom-labs/how-to-manage-classroom-labs.md
-        - name: 設定與發行範本
-          href: classroom-labs/how-to-create-manage-template.md
-        - name: 設定與控制使用量
-          href: classroom-labs/how-to-configure-student-usage.md
-        - name: 存取教室實驗室
-          href: classroom-labs/how-to-use-classroom-lab.md
-        - name: 建立和管理排程
-          href: classroom-labs/how-to-create-schedules.md
-        - name: 使用範本 VM 內的多個 VM 建立環境
-          href: classroom-labs/how-to-enable-multi-vm-environment.md
-        - name: 將實驗室連線至對等虛擬網路
-          href: classroom-labs/how-to-connect-peer-virtual-network.md
-        - name: 附加和使用共用映像資源庫
-          href: classroom-labs/how-to-use-shared-image-gallery.md
-        - name: 啟用 Linux 遠端桌面連線檔案
-          href: classroom-labs/how-to-enable-remote-desktop-linux.md
+        - name: 建立及設定實驗室帳戶
+          items:
+            - name: 建立及管理實驗室帳戶
+              href: classroom-labs/how-to-manage-lab-accounts.md
+            - name: 設定實驗室帳戶
+              href: classroom-labs/how-to-configure-lab-accounts.md
+            - name: 將實驗室連線至對等虛擬網路
+              href: classroom-labs/how-to-connect-peer-virtual-network.md
+            - name: 附加或中斷連結共用映像資源庫
+              href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+        - name: 建立、設定和使用教室實驗室
+          items:
+            - name: 建立和管理教室實驗室
+              href: classroom-labs/how-to-manage-classroom-labs.md
+            - name: 設定與發行範本
+              href: classroom-labs/how-to-create-manage-template.md
+            - name: 設定與控制使用量
+              href: classroom-labs/how-to-configure-student-usage.md
+            - name: 存取教室實驗室
+              href: classroom-labs/how-to-use-classroom-lab.md
+            - name: 建立和管理排程
+              href: classroom-labs/how-to-create-schedules.md
+            - name: 使用範本 VM 內的多個 VM 建立環境
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
+            - name: 使用共用映像資源庫
+              href: classroom-labs/how-to-use-shared-image-gallery.md
+            - name: 啟用 Linux 遠端桌面連線檔案
+              href: classroom-labs/how-to-enable-remote-desktop-linux.md
     - name: DevTest Labs
       items:
         - name: 為實驗室虛擬機器指定資源群組
@@ -166,12 +174,16 @@
               href: connect-environment-lab-virtual-network.md
             - name: 將環境與您的 Azure DevOps CI/CD 管線整合
               href: integrate-environments-devops-pipeline.md
+            - name: 使用平台即服務 (PaaS) 服務
+              href: use-paas-services.md
         - name: 保護對實驗室的存取
           items:
             - name: 加入實驗室擁有者與使用者
               href: devtest-lab-add-devtest-user.md
             - name: 以自訂角色來自訂權限
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+            - name: 自動新增實驗室使用者
+              href: automate-add-lab-user.md
         - name: 設定實驗室
           items:
             - name: 設定原則和排程

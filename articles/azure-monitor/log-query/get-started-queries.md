@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520007"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415904"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>開始使用 Azure 監視器記錄查詢
 
@@ -108,7 +108,7 @@ SecurityEvent
 
 在撰寫篩選條件時，您可以使用下列運算式：
 
-| 運算是 | 描述 | 範例 |
+| 運算式 | 說明 | 範例 |
 |:---|:---|:---|
 | == | 檢查是否相等<br>(區分大小寫) | `Level == 8` |
 | =~ | 檢查是否相等<br>(不區分大小寫) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -184,7 +184,7 @@ SecurityEvent
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Summarize：彙總資料列群組
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>依時間資料行彙總
 群組結果也可以根據時間資料行或其他連續值來進行。 不過，只彙總 `by TimeGenerated` 會針對時間範圍內的每一毫秒建立群組，原因是這些是唯一值。 
 
-若要根據連續值建立群組，最好是使用 **bin** 將範圍分成可管理的單位。 下列查詢會分析 Perf 記錄，這些記錄會測量特定電腦上的可用記憶體 (可用的 MB 數)。 它會計算過去 7 天內每個期間 (假設為 1 小時) 的平均值：
+若要根據連續值建立群組，最好是使用 **bin** 將範圍分成可管理的單位。 下列查詢會分析 Perf 記錄，這些記錄會測量特定電腦上的可用記憶體 (可用的 MB 數)。 它會計算每 1 小時期間內的平均值在過去 7 天：
 
 ```Kusto
 Perf 

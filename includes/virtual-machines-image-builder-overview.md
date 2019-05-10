@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b9b2461d888f37b7ae72a3e097d77856255d7e2e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160001"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416265"
 ---
 標準化的虛擬機器 (VM) 映像可讓組織移轉至雲端，並確保在部署中的一致性。 映像通常包含預先定義的安全性和組態設定和必要的軟體。 設定您自己的映像處理管線需要的時間、 基礎結構和安裝程式，但使用 Azure VM 映像產生器，只是提供描述您的映像的簡單設定、 提交至服務，和建置，並散發映像。
  
@@ -20,7 +20,7 @@ Azure VM 映像產生器 （Azure 映像產生器） 可讓您開始使用 Windo
 > Azure 映像產生器目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-## <a name="preview-features"></a>預覽功能
+## <a name="preview-features"></a>Preview 功能
 
 預覽版本中，支援這些功能：
 
@@ -95,7 +95,7 @@ az role assignment create \
  
 映像產生器會建立使用 D1v2 VM 大小和儲存體和網路的 VM 所需的 vm。 這些資源將持續期間的建置流程，並將會刪除映像產生器完成後建立映像。 
  
-Azure 映像產生器會將映像發佈到您選定的區域中，哪些這可能會產生網路輸出費用。
+Azure 映像產生器會將映像到您選定的區域，可能會產生網路出口流量費用。
  
 ## <a name="next-steps"></a>後續步驟 
  

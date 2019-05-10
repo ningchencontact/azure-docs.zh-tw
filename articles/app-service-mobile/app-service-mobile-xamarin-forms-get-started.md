@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 2e0a4b51e9140b9b3c0032980b7c6cd5a4d55638
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b99513cad34bba1b050a24795ecb21d0357d19c1
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128915"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416086"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 建立 Xamarin.Forms 應用程式
 
@@ -34,9 +34,9 @@ ms.locfileid: "62128915"
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-* Visual Studio Tools for Xamarin (在 Visual Studio 2017 或 Visual Studio for Mac 中)。 如需指示，請參閱 [Xamarin 安裝頁面][Install Xamarin]。
+* Visual Studio Tools for Xamarin，在 Visual Studio 2017 或更新版本或 Visual Studio for mac。 如需指示，請參閱 [Xamarin 安裝頁面][Install Xamarin]。
 
-* (選擇性) 若要建置 iOS 應用程式，則需要安裝了 Xcode 9.0 或更新版本的 Mac。 Visual Studio for Mac 可用來開發 iOS 應用程式，使用 Visual Studio 2017 也可以 (只要網路上有 Mac 可用即可)。
+* (選擇性) 若要建置 iOS 應用程式，則需要安裝了 Xcode 9.0 或更新版本的 Mac。 Visual Studio for Mac 可以用來開發 iOS 應用程式或 Visual Studio 2017 或更新版本可用 （只要 Mac 在網路上可用）。
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>建立新的 Mobile Apps 後端
 
@@ -58,13 +58,13 @@ ms.locfileid: "62128915"
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. 移至 [Azure 门户]。
+1. 移至 [Azure 入口網站]。
 
 2. 在行動應用程式的設定刀鋒視窗上，按一下 [快速入門] \(在 [部署] 之下) > [Xamarin.Forms]。 在步驟 3 中，按一下 建立新的應用程式 \(如果尚未選取的話)。  接著按一下 [下載]  按鈕。
 
    此動作會下載包含連線到您行動裝置應用程式之用戶端應用程式的專案。 將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
-3. 將您下載的專案解壓縮，並在 Visual Studio 2017 中開啟。
+3. 您所下載的專案解壓縮，然後在 Visual Studio 中開啟它。
 
    ![在 Visual Studio 中解壓縮的專案][8]
 
@@ -72,7 +72,7 @@ ms.locfileid: "62128915"
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
-1. 移至 [Azure 门户]。
+1. 移至 [Azure 入口網站]。
 
 2. 在行動應用程式的設定刀鋒視窗上，按一下 [快速入門] \(在 [部署] 之下) > [Xamarin.Forms]。 在步驟 3 中，按一下 建立新的應用程式 \(如果尚未選取的話)。  接著按一下 [下載]  按鈕。
 
@@ -213,4 +213,4 @@ ms.locfileid: "62128915"
 <!-- URLs. -->
 [Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
 [Mobile app SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
-[Azure 门户]: https://portal.azure.com/
+[Azure 入口網站]: https://portal.azure.com/

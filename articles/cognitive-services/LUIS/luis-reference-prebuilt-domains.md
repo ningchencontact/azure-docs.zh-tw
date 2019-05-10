@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6c0ecf70935d4504472156f6bda726d94f130dbb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148188"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233887"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>您 LUIS 應用程式預先建置的網域參考
 此參考提供[預先建立的定義域](luis-how-to-use-prebuilt-domains.md)相關資訊，這是 LUIS 提供之預先建立的意圖和實體集合。
@@ -62,7 +62,6 @@ The table below summarizes the currently supported domains. Support for English 
 |地點|位置包括企業 」、 「 機構 」、 「 餐廳 」、 「 公共空間和 「 地址。 網域支援尋找和詢問有關的公開位置，例如地點、 作業系統小時和距離資訊的位置。|
 |RestaurantReservation|餐廳保留網域支援意圖處理餐廳的保留項目。|
 |ToDo|ToDo 網域提供的使用者新增、 標示及刪除他們的 todo 項目工作清單的類型。|
-|ToDo_IPA|ToDo_IPA ToDo 網域為基礎，是以展開 ToDo 中的實體的自訂的版本。 IPA 版本提供以支援待辦事項清單型別的辨識的意圖和實體。 此模型會定義三種類型的待辦事項清單： 購物清單、 購物清單，以及涵蓋其他情況下的待辦事項清單。|
 |公用事業|公用程式是一般的網域之間所有 LUIS 預先建置的模型，其中包含常見的意圖和發音不同案例中的。|
 |Weather|天氣網域著重於檢查天氣條件，而且有位置和時間的摘要報告，或檢查天氣狀況的時間。|
 |Web|Web 網域提供的意圖和實體搜尋網站。|

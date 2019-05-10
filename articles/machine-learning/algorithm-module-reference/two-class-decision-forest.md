@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3e7cab6e33fa9373095441685f6ecb04f1d91a5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 73b7822c56e2b07eeefdedce1bce6d410d110ebc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029366"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411493"
 ---
 # <a name="two-class-decision-forest-module"></a>二級決策樹系的模組
 
@@ -46,7 +46,7 @@ ms.locfileid: "65029366"
 
 簡單的決策樹可以過度資料，但會較不一般化比樹狀結構的整體項目。
 
-如需詳細資訊，請參閱 <<c0> [ 決策樹系](http://go.microsoft.com/fwlink/?LinkId=403677)。  
+如需詳細資訊，請參閱 <<c0> [ 決策樹系](https://go.microsoft.com/fwlink/?LinkId=403677)。  
 
 ## <a name="how-to-configure"></a>如何設定
   

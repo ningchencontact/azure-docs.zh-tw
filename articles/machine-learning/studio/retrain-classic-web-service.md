@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: peterlu
+author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502408"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234060"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>重新定型並部署傳統的 Studio Web 服務
 
@@ -25,7 +25,7 @@ ms.locfileid: "60502408"
 
 本文假設您進行過了重新定型實驗和預測性實驗。 [重新定型和部署機器學習模型](/azure/machine-learning/studio/retrain-machine-learning-model)一文有講解這些步驟。 不過，無需將您的機器學習模型部署為新 Web 服務，而是要將預測性實驗部署為傳統 Web 服務。
      
-## <a name="add-a-new-endpoint"></a>新增端點
+## <a name="add-a-new-endpoint"></a>加入新的端點
 
 您部署的預測性 Web 服務包含預設評分端點，它會與原始定型和評分實驗定型的模型保持同步。 若要將您的 Web 服務更新為新訓練的模型，您必須建立新的評分端點。
 

@@ -9,17 +9,17 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734349"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235672"
 ---
-# <a name="assets"></a>Assets
+# <a name="assets"></a>資產
 
 在 Azure 媒體服務中，[資產](https://docs.microsoft.com/rest/api/media/assets)包含了數位檔案 (包括視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案)，以及這些檔案的相關中繼資料。 將數位檔案上傳到資產之後，可以用於媒體服務編碼、串流和分析內容工作流程。 如需詳細資訊，請參閱下方的[將數位檔案上傳到資產](#upload-digital-files-into-assets)一節。
 
@@ -33,6 +33,9 @@ ms.locfileid: "60734349"
 ## <a name="upload-digital-files-into-assets"></a>將數位檔案上傳到資產
 
 其中一個常見的媒體服務工作流程是上傳、編碼和串流檔案。 本節將概述一般步驟。
+
+> [!TIP]
+> 您開始開發之前，請檢閱[使用媒體服務 v3 Api 進行開發](media-services-apis-overview.md)（包括存取 Api，等命名慣例的詳細資訊）。
 
 1. 使用媒體服務 v3 API 建立新的「輸入」資產。 這項作業會在與您媒體服務帳戶相關聯的儲存體帳戶中建立容器。 此 API 會傳回容器名稱 (例如 `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`)。
    
@@ -92,7 +95,7 @@ curl -X PUT \
 
 若要保護待用資產，資產應該透過儲存端加密來進行加密。 下表顯示儲存端加密在媒體服務中的運作方式：
 
-|加密選項|描述|媒體服務 v2|媒體服務 v3|
+|加密選項|說明|媒體服務 v2|媒體服務 v3|
 |---|---|---|---|
 |媒體服務的儲存體加密|AES-256 加密，由媒體服務管理金鑰|支援<sup>(1)</sup>|不支援<sup>(2)</sup>|
 |[待用資料的儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure 儲存體提供的伺服器端加密，由 Azure 或客戶管理金鑰|支援|支援|

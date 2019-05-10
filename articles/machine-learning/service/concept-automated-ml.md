@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: cba01b5ad5c2cfea32f1faa6cb67c5ce7ee98fcd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 136141f5b598fd080edf3254fd01200f2742c763
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024909"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235825"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -63,7 +63,7 @@ ms.locfileid: "65024909"
 ### <a name="automatic-preprocessing-standard"></a>自動前置處理 （標準）
 在每個自動化的機器學習實驗，您的資料在自動調整或正規化為協助佳的演算法。  在模型定型期間調整或正規化的下列技術的其中一個會套用至每個模型。
 
-|縮放比例&nbsp;&&nbsp;正規化| 描述 |
+|縮放比例&nbsp;&&nbsp;正規化| 說明 |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 標準化功能藉由移除平均數及調整至單位變異數  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 調整每個功能，由該資料行的最小值和最大值來轉換功能  |
@@ -90,7 +90,7 @@ ms.locfileid: "65024909"
 ## <a name="automated-ml-across-microsoft"></a>Microsoft 自動化的 ML
 
 自動化的 ML 中也會提供其他 Microsoft 解決方案這類：
-+ 在.NET 應用程式中使用 Visual Studio 和 Visual Studio Code 與[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet)
++ 在.NET 應用程式中使用 Visual Studio 和 Visual Studio Code 與[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
 + [在 HDInsight 上](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)、 擴充您在 HDInsight 叢集中，以平行方式在 Spark 上自動化 ML 訓練作業。 
 + [在 Power BI 中](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 

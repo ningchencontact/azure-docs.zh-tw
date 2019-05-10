@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256459"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204023"
 ---
-# <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>範例 - 稽核指定的應用程式是否未安裝於 Linux VM 內
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>範例 - 稽核指定的應用程式是否未安裝於 Linux VM 內
 
-此原則來賓設定方案會稽核指定的應用程式安裝於 Linux 虛擬機器內。 此內建方案的識別碼是 `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`。
+當 Linux 虛擬機器內並未安裝指定的應用程式時，此原則來賓設定方案就會建立稽核事件。 此內建方案的識別碼是 `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`。
 
 > [!IMPORTANT]
 > 所有來賓設定方案都是由 **audit** 和 **deployIfNotExists** 原則定義所組成的。 只指派其中一個原則定義，會導致來賓設定無法正常運作。
@@ -32,9 +32,9 @@ ms.locfileid: "59256459"
 
 此[來賓設定](../concepts/guest-configuration.md)方案是由下列原則所組成的：
 
-- [audit](#audit-definition)：稽核應用程式已安裝於 Linux VM 內
+- [audit](#audit-definition) - 在 Linux VM 內未安裝應用程式時稽核
   - 識別碼：`/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition)：部署 VM 擴充功能，以稽核應用程式已安裝於 Linux VM 內
+- [deployIfNotExists](#deployIfNotExists-definition) - 部署 VM 擴充功能，在 Linux VM 內未安裝應用程式時稽核
   - 識別碼：`/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>計畫定義
@@ -45,7 +45,9 @@ ms.locfileid: "59256459"
 
 ### <a name="initiative-parameters"></a>計畫參數
 
-|名稱 |類型 ||說明 | |---|---||---| |applicationName |字串 |應用程式名稱。 範例：'python'、'powershell' 或以逗號分隔的清單，例如 'python,powershell'。 使用 \* 進行萬用字元比對，例如 'power\*'。|
+|Name |類型 |說明 |
+|---|---|---|
+|applicationName |字串 |應用程式名稱。 範例：'python'、'powershell' 或以逗號分隔的清單，例如 'python,powershell'。 使用 \* 進行萬用字元比對，例如 'power\*'。 |
 
 透過 PowerShell 或 Azure CLI 建立指派時，可以使用 `-PolicyParameter` (PowerShell) 或 `--params` (Azure CLI) 在字串中或透過檔案將參數值當作 JSON 傳遞。
 PowerShell 也支援 `-PolicyParameterObject` ，其要求將名稱/值雜湊表傳遞給 Cmdlet，其中 [名稱] 是參數名稱，而 [值] 是在指派過程中傳遞的單一值或值陣列。
@@ -106,7 +108,7 @@ PowerShell 也支援 `-PolicyParameterObject` ，其要求將名稱/值雜湊表
 
 ### <a name="create-copy-of-audit-definition"></a>建立稽核定義的複本
 
-[![將原則範例部署至 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![將原則範例部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 [![將原則範例部署至 Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 透過入口網站使用這些按鈕來部署，即會建立 **audit** 原則定義複本。
@@ -114,7 +116,7 @@ PowerShell 也支援 `-PolicyParameterObject` ，其要求將名稱/值雜湊表
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>建立 deployIfNotExists 定義的複本
 
-[![將原則範例部署至 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![將原則範例部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 [![將原則範例部署至 Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 透過入口網站使用這些按鈕來部署，即會建立 **deployIfNotExists** 原則定義複本。 如果沒有成對的 **audit** 原則定義，來賓設定將無法正常運作。

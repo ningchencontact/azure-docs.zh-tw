@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911539"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234080"
 ---
 # <a name="azure-security-center-data-security"></a>Azure 資訊安全中心資料安全性
 為了協助客戶防範、偵測和回應威脅，Azure 資訊安全中心會收集和處理安全性的相關資料，包括組態資訊、中繼資料、事件記錄、損毀傾印檔等等。 Microsoft 從撰寫程式碼到運作服務均遵守嚴格的規範與安全性指導方針。
@@ -46,12 +46,18 @@ Azure 資訊安全中心會分析來自下列來源的資料，以掌握您的�
 
 **您的工作區**：會針對下列地區指定工作區，且從 Azure 虛擬機器收集的資料 (包括損毀傾印以及某些類型的警示資料) 會儲存在最近的工作區。
 
-| VM 地區                        | 工作區地區 |
-|-------------------------------|---------------|
-| 美國、巴西、加拿大 | 美國 |
-| 歐洲，英國        | 歐洲        |
-| 亞太地區、日本、印度    | 亞太地區  |
-| 澳大利亞                     | 澳大利亞     |
+| VM 地區                              | 工作區地區 |
+|-------------------------------------|---------------|
+| 美國、 巴西、 南非 | 美國 |
+| 加拿大                              | 加拿大        |
+| 歐洲 （不含 United Kingdom）   | 歐洲        |
+| 英國                      | 英國 |
+| 亞太地區 （不含印度、 日本、 韓國、 中國）   | 亞太地區  |
+| 南韓                              | 亞太地區  |
+| 印度                               | 印度         |
+| 日本                               | 日本         |
+| 中國                               | 中國         |
+| 澳大利亞                           | 澳大利亞     |
 
 
 VM 磁碟快照集會儲存在與 VM 磁碟相同的同一個儲存體帳戶中。
