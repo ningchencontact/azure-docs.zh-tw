@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3e813b8a1709675d0d870d64df83428ab82e25b3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5b9e0dfb88c979618ce4cc5ed56e372cb0f65608
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024304"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472710"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
@@ -89,7 +89,7 @@ ms.locfileid: "65024304"
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3.AI 豐富的編製索引使用認知服務
 
-針對[認知服務與 AI 索引](cognitive-search-concept-intro.md)，您應該規劃將附加的可計費的認知服務資源時 S0 定價層的隨用隨付的處理。 沒有附加認知服務相關聯的任何 「 固定的成本 」。 您只需支付您所需要的處理。
+針對[認知服務與 AI 索引](cognitive-search-concept-intro.md)，您應該規劃附加可計費的認知服務資源，與 Azure 搜尋服務，在 S0 定價層的隨用隨付的處理相同的區域中。 沒有附加認知服務相關聯的任何 「 固定的成本 」。 您只需支付您所需要的處理。
 
 在文件破解的映像擷取是 Azure 搜尋服務的費用，計費依據從您的文件中擷取的映像數目。 文字擷取目前是免費的。 
 

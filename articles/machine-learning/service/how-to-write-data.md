@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0275d27a0a27d0279886f6f7fd15b14d312a44ea
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023740"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471996"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>撰寫並使用 Azure Machine Learning 資料準備 SDK 設定資料
 
@@ -25,6 +25,7 @@ ms.locfileid: "65023740"
 
 > [!Important]
 > 如果您要建立新的方案，請嘗試[Azure Machine Learning 資料集](how-to-explore-prepare-data.md)（預覽） 來轉換您的資料、 快照集資料和儲存已建立版本的資料集定義。 資料集是資料準備供應項目來管理 AI 解決方案中的資料集的擴充的功能 SDK 的下一個版本。
+> 如果您使用`azureml-dataprep`套件來建立資料流程，與您的轉換，而不是使用`azureml-datasets`封裝來建立資料集，您將無法供日後使用快照集或已建立版本的資料集。
 
 由於管線中的寫入步驟數目沒有任何限制，因此您能輕鬆地新增其他寫入步驟，取得要進行疑難排解或針對其他管線使用的中繼結果。
 
@@ -39,7 +40,7 @@ ms.locfileid: "65023740"
 您可以使用 Azure Machine Learning 資料準備 Python SDK，來撰寫資料：
 + 本機檔案系統
 + Azure Blob 儲存體
-+ Azure Data Lake 儲存體
++ Azure Data Lake Storage
 
 ## <a name="spark-considerations"></a>Spark 考量
 
@@ -89,11 +90,11 @@ written_files.head(5)
 
 | | Column1 | Column2 | Column3 | Column4 | Column5 | Column6 | Column7 | Column8 | Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-|0| 10000.0 | 99999.0 | ERROR | 否 | 否 | ENRS | NaN    | NaN | NaN |   
-|1| 10003.0 | 99999.0 | ERROR | 否 | 否 | ENSO |    NaN | NaN | NaN |   
-|2| 10010.0 | 99999.0 | ERROR | 否 | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
-|3| 10013.0 | 99999.0 | ERROR | 否 | 否 |     | NaN | NaN | NaN |
-|4| 10014.0 | 99999.0 | ERROR | 否 | 否 | ENSO |    59783.0 | 5350.0 |  500.0|
+|0| 10000.0 | 99999.0 | 錯誤 | 否 | 否 | ENRS | NaN    | NaN | NaN |   
+|1| 10003.0 | 99999.0 | 錯誤 | 否 | 否 | ENSO |    NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | 錯誤 | 否 | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | 錯誤 | 否 | 否 |     | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | 錯誤 | 否 | 否 | ENSO |    59783.0 | 5350.0 |  500.0|
 
 在上面的輸出中，由於未正確剖析數字，因此數值欄中出現數個錯誤。 寫入 CSV 時，Null 值預設會取代為字串 "ERROR"。
 

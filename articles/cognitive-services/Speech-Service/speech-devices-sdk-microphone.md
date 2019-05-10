@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: c8bc11b8f81fe034ceaa93c7bd8a49771d9407f9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026706"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236999"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>語音裝置 SDK 麥克風陣列建議
 
@@ -29,9 +29,11 @@ ms.locfileid: "65026706"
 
 |          | 循環的陣列    |       |  線性的陣列              |                |
 |----------|-------------------|-------------------|----------------|----------------|
-|          |![7 的 mic 循環的陣列](media/speech-devices-sdk/7-mic-c.png)|![4 的 mic 循環的陣列](media/speech-devices-sdk/4-mic-c.png)|![4 mic 線性陣列](media/speech-devices-sdk/4-mic-l.png)|![2 的 mic 線性陣列](media/speech-devices-sdk/2-mic-l.png)|
+|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Mics  | 7                 | 4                 | 4              | 2              |
 | 幾何 | 6 的外部，1 Center、 Radius = 42.5 公釐，平均分配間距| 3 個外部 1 Center、 Radius = 42.5 公釐，平均分配間距 | 長度 = 120 公釐，間距 = 40 公釐 | 間距 = 40 公釐 |
+
+麥克風通道應該排序依據為每個陣列，從 0 增加上面所述的編號。  Microsoft 音訊堆疊會要求執行回應取消的音訊播放的其他參考資料流。
 
 ## <a name="component-selection"></a>元件選取項目
 
@@ -110,4 +112,4 @@ ms.locfileid: "65026706"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> 深入了解[語音裝置 SDK](speech-devices-sdk.md)
+> [深入了解 Speech 裝置 SDK](speech-devices-sdk.md)

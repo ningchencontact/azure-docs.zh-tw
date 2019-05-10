@@ -10,19 +10,19 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 4416c30f57b469ee125400c696e8b34311a94926
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028181"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406412"
 ---
 # <a name="what-is-azure-blockchain-service"></a>什麼是 Azure 區塊鏈服務？
 
 Azure 區塊鏈 Service 是受到完整管理的交易記錄資料庫服務，可讓使用者能夠成長和操作在 Azure 中大規模的區塊鏈網路。 藉由提供統一的控制基礎結構管理以及區塊鏈網路控管，Azure 區塊鏈服務提供：
 
 * 簡易網路部署和操作
-* 內建協會管理
+* 內建的聯盟管理
 * 開發智能合約使用熟悉的開發工具
 
 Azure 區塊鏈服務被設計來支援多個交易記錄資料庫的通訊協定。 目前，它可讓您以太坊[仲裁](https://www.jpmorgan.com/Quorum)分類帳使用[IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)共識的機制。
@@ -55,7 +55,7 @@ Azure 區塊鏈 Service 提供兩個服務層：*基本*並*標準*。 每個層
 
 透過 Azure Log Analytics，使用者可以檢視相關的仲裁交易紀錄資料庫或其他重要資訊，例如嘗試節點的連線，交易記錄。
 
-## <a name="built-in-consortium-management"></a>內建協會管理
+## <a name="built-in-consortium-management"></a>內建的聯盟管理
 
 在部署您的第一個區塊鏈成員時，您加入或建立新的協會。  一個是用來管理控管和 transact 多方的程序中的區塊鏈成員之間的連線的邏輯群組。  Azure 的區塊鏈 Service 提供內建的管理控制，透過預先定義智能合約，以決定可以採取的動作成員協會。  這些管理控制，可以視需要自訂協會的系統管理員。 當您建立新的協會時，區塊鏈成員時，可讓您以邀請其他人加入您協會協會的預設系統管理員。  您可以在只有當您在先前有已受邀加入協會。  聯結時協會，區塊鏈成員受限於適當加諸的協會的系統管理員的管理控制。
 
@@ -65,7 +65,7 @@ Azure 區塊鏈 Service 提供兩個服務層：*基本*並*標準*。 每個層
 
 ## <a name="develop-using-familiar-development-tools"></a>使用熟悉的開發工具進行開發
 
-根據開放原始碼仲裁以太坊交易記錄資料庫，您可以開發 Azure 區塊鏈服務的應用程式相同的方式就像是為現有的以太坊應用程式。 使用領先業界的合作夥伴，Azure 區塊鏈開發套件 Visual Studio Code 擴充功能可讓開發人員運用熟悉的工具，例如 Truffle 套件，以建立智能合約。 使用 Azure 區塊鏈開發套件延伸模組，開發人員可以建立或連接到與現有協會，讓您可以建置和部署您的智慧合約所有從一個 IDE。 使用 Azure 區塊鏈 Visual Studio Code 延伸模組，您可以建立或連接到現有的協會，可讓您可以建置並部署您從一個 IDE 智能合約。 如需詳細資訊，請參閱 < [VS Code marketplace 中的 Azure 區塊鏈開發套件](http://aka.ms/vscodebcextension)並[Azure 區塊鏈開發套件使用者手冊](http://aka.ms/vscodebcextensionwiki )。
+根據開放原始碼仲裁以太坊交易記錄資料庫，您可以開發 Azure 區塊鏈服務的應用程式相同的方式就像是為現有的以太坊應用程式。 使用領先業界的合作夥伴，Azure 區塊鏈開發套件 Visual Studio Code 擴充功能可讓開發人員運用熟悉的工具，例如 Truffle 套件，以建立智能合約。 使用 Azure 區塊鏈開發套件延伸模組，開發人員可以建立或連接到與現有協會，讓您可以建置和部署您的智慧合約所有從一個 IDE。 使用 Azure 區塊鏈 Visual Studio Code 延伸模組，您可以建立或連接到現有的協會，可讓您可以建置並部署您從一個 IDE 智能合約。 如需詳細資訊，請參閱 < [VS Code marketplace 中的 Azure 區塊鏈開發套件](https://aka.ms/vscodebcextension)並[Azure 區塊鏈開發套件使用者手冊](https://aka.ms/vscodebcextensionwiki )。
 
 ## <a name="support-and-feedback"></a>支援與意見反應
 

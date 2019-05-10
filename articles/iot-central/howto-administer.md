@@ -3,17 +3,17 @@ title: 管理 Azure IoT Central 應用程式 | Microsoft Docs
 description: 身為管理員，如何管理您的 Azure IoT Central 應用程式
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 29ded279e2a76940049c257b954b1dae75f14836
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 87ed31836fcda922b085ec951eb6d9d14542db6a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118896"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467535"
 ---
 # <a name="administer-your-iot-central-application"></a>管理您的 IoT Central 應用程式
 
@@ -26,7 +26,10 @@ ms.locfileid: "62118896"
 - 將試用版轉換為預付型方案
 - 匯出資料
 - 管理裝置連線
-- 使用存取權杖
+- 用於開發人員工具的存取權杖
+- 自訂您的應用程式的 UI
+- 自訂應用程式中的 [說明] 連結
+- 以程式設計方式管理 IoT 中心
 
 若要存取並使用 [管理] 區段，您必須屬於 Azure IoT Central 應用程式的**管理員**角色。 如果您建立 Azure IoT Central 應用程式，就會自動將您指派給該應用程式的**管理員**角色。 本文中的[管理使用者](#manage-users)一節會進一步說明將 [系統管理員] 角色指派給其他使用者的方法。
 
@@ -37,6 +40,8 @@ ms.locfileid: "62118896"
 
 ![[應用程式設定] 頁面](media/howto-administer/image0-a.png)
 
+如果您的系統管理員建立自訂佈景主題為您的應用程式，此頁面包含一個選項來隱藏**應用程式名稱**在 UI 中。 這非常有用，如果應用程式標誌自訂佈景主題中的包含的應用程式名稱。 如需詳細資訊，請參閱 <<c0> [ 來自訂 Azure IoT Central UI](./howto-customize-ui.md)。
+
 > [!Note]
 > 如果您變更 URL，舊的 URL 可能會被其他 Azure IoT Central 客戶所取用。 如果發生這種情況，您將無法再使用該 URL。 當您變更 URL 時，舊的 URL 就不再運作，而您必須通知使用者應使用新的 URL。
 
@@ -46,13 +51,13 @@ ms.locfileid: "62118896"
 ### <a name="copy-an-application"></a>複製應用程式
 您可以建立任何應用程式複本，並減去其中的任何裝置執行個體、裝置資料歷程記錄和使用者資料。 複本是您將支付的隨用隨付應用程式。 如此一來，您無法建立試用版應用程式。
 
-選取 **複製**。 在對話方塊中，輸入新預付型方案應用程式的詳細資料。 然後選取**複製**以確認您想要繼續進行。 在[建立應用程式](quick-deploy-iot-central.md)快速入門中，深入了解此表單中的欄位。
+選取 **複製**。 在對話方塊中，輸入新預付型方案應用程式的詳細資料。 然後選取**複製**以確認您想要繼續。 在[建立應用程式](quick-deploy-iot-central.md)快速入門中，深入了解此表單中的欄位。
 
 ![[應用程式設定] 頁面](media/howto-administer/appcopy2.png)
 
-當應用程式複製作業成功之後，您就可以移至透過使用所出現的連結複製應用程式所建立的新應用程式。
+應用程式複製作業成功之後，您可以瀏覽至新的應用程式使用的連結。
 
-![[應用程式設定] 頁面](media/howto-administer/appCopy3.png)
+![[應用程式設定] 頁面](media/howto-administer/appcopy3a.png)
 
 > [!Note]
 > 複製應用程式也會複製規則和動作的定義。 但是，由於不會將可以存取原始應用程式的使用者複製到所複製的應用程式，因此，您必須手動將使用者新增到動作，例如，向必要使用者寄送電子郵件。 一般而言，檢查規則和動作以確定它們在新應用程式中為最新狀態是個不錯的主意。
@@ -62,7 +67,7 @@ ms.locfileid: "62118896"
 > [!Note]
 > 若要刪除應用程式，您必須在建立應用程式時所選擇的 Azure 訂用帳戶中具有刪除資源的權限。 若要深入了解，請參閱[使用角色型存取控制來管理 Azure 訂用帳戶資源的存取](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)。
 
-使用 [刪除] 按鈕可永久刪除您的 IoT Central 應用程式。 如此一來永久刪除與該應用程式相關聯的所有資料。
+使用 [刪除] 按鈕可永久刪除您的 IoT Central 應用程式。 此動作會永久刪除所有與應用程式相關聯的資料。
 
 ## <a name="manage-users"></a>管理使用者
 
@@ -103,13 +108,13 @@ ms.locfileid: "62118896"
 
 系統會將建立應用程式的使用者自動指派給**管理員**角色。 必須至少有一個使用者擔任 [系統管理員] 角色。
 
-### <a name="application-builder"></a>應用程式建置者
+### <a name="application-builder"></a>應用程式建立器
 
-擔任 [應用程式建置者] 角色的使用者除了管理應用程式之外，可以執行應用程式中的所有工作。 也就是說，建置者可以建立、編輯和刪除裝置範本及裝置、管理裝置集合，以及執行分析和作業。 建置者無法存取應用程式的 [管理] 區段。
+擔任 [應用程式建置者] 角色的使用者除了管理應用程式之外，可以執行應用程式中的所有工作。 產生器可以建立、 編輯和刪除裝置範本及裝置、 管理裝置集合，以及執行分析和作業。 建置者無法存取應用程式的 [管理] 區段。
 
 ### <a name="application-operator"></a>應用程式操作員
 
-擔任 [應用程式操作員] 角色的使用者無法對裝置範本進行變更，也無法管理應用程式。 也就是說，操作員可以新增和刪除裝置、管理裝置集合，以及執行分析和作業。 操作員無法存取應用程式的 [應用程式建置者] 和 [管理] 頁面。
+擔任 [應用程式操作員] 角色的使用者無法對裝置範本進行變更，也無法管理應用程式。 運算子可以加入和刪除裝置、 管理裝置集合，以及執行分析和作業。 操作員無法存取應用程式的 [應用程式建置者] 和 [管理] 頁面。
 
 ## <a name="view-your-bill"></a>檢視您的帳單
 
@@ -119,8 +124,8 @@ ms.locfileid: "62118896"
 
 您可以將試用版應用程式轉換為預付型方案應用程式。 以下是這類應用程式之間的差異。
 
-- **試用版**應用程式可以免費試用 7 天。 此類應用程式可在到期前隨時轉換成預付型方案。
-- **預付型方案**應用程式會依據裝置收費，前 5 個裝置免費。
+- **試用**應用程式可以隨意在到期前 7 天。 此類應用程式可在到期前隨時轉換成預付型方案。
+- **隨用隨付**應用程式收取每個裝置，與可用的前五個裝置。
 
 在 [Azure IoT Central 定價頁面](https://azure.microsoft.com/pricing/details/iot-central/)上深入了解定價。
 
@@ -148,24 +153,32 @@ ms.locfileid: "62118896"
 
 ## <a name="use-access-tokens"></a>使用存取權杖
 
-產生存取權杖，在開發人員工具中使用它們。 目前沒有一個開發人員工具可用來監視裝置的訊息和屬性和設定的變更即 IoT Central 總管。 深入了解 [IoT Central Explorer](howto-use-iotc-explorer.md)。
+產生存取權杖，在開發人員工具中使用它們。 目前提供的唯一的開發人員工具是 IoT Central 總管 中監視裝置的訊息和屬性和設定 中的變更。 深入了解 [IoT Central Explorer](howto-use-iotc-explorer.md)。
 
-## <a name="use-the-azure-sdks-for-control-plane-operations"></a>使用 Azure SDK 進行控制平面作業
+## <a name="customize-your-application"></a>自訂您的應用程式
 
-IoT Central 的 Azure Resource Manager SDK 套件適用於 Node、Python、C#、Ruby、Java 與 Go。 這些程式庫支援適用於 IoT central 的控制平面作業，可讓您建立、列出、更新或刪除 IoT Central 應用程式。 它們也提供協助程式來處理每個語言專屬的驗證和錯誤處理。 
+如需變更色彩和圖示，在您的應用程式的詳細資訊，請參閱 <<c0> [ 來自訂 Azure IoT Central UI](./howto-customize-ui.md)。
+
+## <a name="customize-help"></a>自訂 [說明]
+
+如需有關如何在您的應用程式中加入自訂說明連結的詳細資訊，請參閱[來自訂 Azure IoT Central UI](./howto-customize-ui.md)。
+
+## <a name="manage-programatically"></a>以程式設計方式管理
+
+IoT Central 的 Azure Resource Manager SDK 套件適用於 Node、Python、C#、Ruby、Java 與 Go。 若要建立、 列出、 更新或刪除 IoT Central 應用程式，您可以使用這些封裝。 封裝包含協助程式管理驗證和錯誤處理。
 
 您可以在 [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples) 上找到如何使用 Azure Resource Manager SDK 的範例。
 
-若要深入了解，請在 GitHub 上查看這些套件。
+若要深入了解，請參閱下列的 GitHub 存放庫和套件：
 
-| 語言 | 存放庫 | Package |
+| 語言 | 存放庫 | 封裝 |
 | ---------| ---------- | ------- |
 | 節點 | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
 | Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)
 | C# | [https://github.com/Azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) | [https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral](https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral)
-| Ruby | [https://github.com/Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby) | [https://rubygems.org/gems/azure_mgmt_iot_central](https://rubygems.org/gems/azure_mgmt_iot_central)
+| 拼音 | [https://github.com/Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby) | [https://rubygems.org/gems/azure_mgmt_iot_central](https://rubygems.org/gems/azure_mgmt_iot_central)
 | Java | [https://github.com/Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) | [https://search.maven.org/search?q=a:azure-mgmt-iotcentral](https://search.maven.org/search?q=a:azure-mgmt-iotcentral)
-| Go | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
+| 移至 | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
 
 ## <a name="next-steps"></a>後續步驟
 

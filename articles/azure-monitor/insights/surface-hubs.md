@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器監視 Surface Hub | Microsoft Docs
+title: 使用 Azure 監視器監視 Surface Hub |Microsoft Docs
 description: 使用 Surface Hub 解決方案來追蹤您的 Surface Hub 健康狀態，並了解其使用狀況。
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 902cf62e53581785caf2730f63af3633d8e1e498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e0dbb4c3cd8ae4bb552e7b7f0748f1bde2f51de
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596232"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232778"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>使用 Azure 監視器監視 Surface Hub 以追蹤其健康情況
 

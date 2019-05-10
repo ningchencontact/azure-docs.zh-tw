@@ -17,18 +17,18 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7db73ff8bef553b36408cfae90e32014f875bd3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 39f323c2ac86e8d42319b3d99221f6c20beff3e4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191011"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406662"
 ---
 # <a name="authentication-flows"></a>驗證流程
 
 本文說明提供 Microsoft Authentication Library (MSAL) 不同的驗證流程。  這些流程可以用於各種不同的應用程式案例。
 
-| Flow | 描述 | 使用於|  
+| Flow | 說明 | 使用於|  
 | ---- | ----------- | ------- | 
 | [互動式](#interactive) | 透過互動式處理序會提示使用者輸入認證，透過瀏覽器或快顯視窗中取得的權杖。 | [傳統型應用程式](scenario-desktop-overview.md)，[行動裝置應用程式](scenario-mobile-overview.md) |
 | [隱含授與](#implicit-grant) | 可讓應用程式，以取得權杖，而不需執行的後端伺服器認證交換。 這可讓應用程式登入使用者、維護工作階段，並且取得用戶端 JavaScript 程式碼中所有其他 Web API 的權杖。| [單一頁面應用程式 (SPA)](scenario-spa-overview.md) |
@@ -36,7 +36,7 @@ ms.locfileid: "65191011"
 | [On-behalf-of](#on-behalf-of) | 應用程式會叫用服務 /web API，這又需要呼叫另一個服務/web API。 其概念是透過要求鏈傳播委派的使用者身分識別和權限。 | [Web API](scenario-web-api-call-api-overview.md) |
 | [用戶端認證](#client-credentials) | 可讓您使用的應用程式身分識別來存取 web 主控資源。 通常用於必須在背景執行，無須直接與使用者互動中執行的伺服器對伺服器互動。 | [精靈應用程式](scenario-daemon-overview.md) |
 | [裝置程式碼](#device-code) | 可讓使用者登入輸入受限的裝置，例如智慧型電視、 IoT 裝置或印表機。 | [Desktop/行動裝置應用程式](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
-| [整合式的 Windows 驗證](scenario-desktop-acquire-token.md#integrated-windows-authentication) | 可讓應用程式網域或 Azure AD 已加入來取得權杖，以無訊息模式 （而不需要任何 UI 互動使用者） 的電腦。| [Desktop/行動裝置應用程式](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [整合式 Windows 驗證](scenario-desktop-acquire-token.md#integrated-windows-authentication) | 可讓應用程式網域或 Azure AD 已加入來取得權杖，以無訊息模式 （而不需要任何 UI 互動使用者） 的電腦。| [Desktop/行動裝置應用程式](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
 | [使用者名稱/密碼](scenario-desktop-acquire-token.md#username--password) | 允許應用程式藉由直接處理其密碼登入使用者。 不建議使用此流程。 | [Desktop/行動裝置應用程式](scenario-desktop-acquire-token.md#username--password) | 
 
 ## <a name="interactive"></a>互動式
@@ -126,7 +126,7 @@ MSAL 也支援[OAuth 2 裝置程式碼流程](v2-oauth2-device-code.md)，可讓
 
 ![裝置程式碼流程](media/msal-authentication-flows/device-code.png)
 
-1. 需要使用者驗證時，應用程式提供的程式碼，並要求使用者使用 （例如連線到網際網路的智慧型手機） 的其他裝置，巡覽至的 URL (例如 http://microsoft.com/devicelogin)，輸入程式碼會提示使用者。 完成之後，web 網頁將會導致透過一般的驗證體驗，包括如有必要的同意提示和 multi-factor authentication 使用者。
+1. 需要使用者驗證時，應用程式提供的程式碼，並要求使用者使用 （例如連線到網際網路的智慧型手機） 的其他裝置，巡覽至的 URL (例如 https://microsoft.com/devicelogin)，輸入程式碼會提示使用者。 完成之後，web 網頁將會導致透過一般的驗證體驗，包括如有必要的同意提示和 multi-factor authentication 使用者。
 
 2. 驗證成功後，命令列應用程式將會收到需要的語彙基元，透過後頻道，並將它用來執行它所需要的 web API 呼叫。
 

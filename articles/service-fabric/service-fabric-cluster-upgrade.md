@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711592"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472773"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>升級和更新 Azure Service Fabric 叢集
 
@@ -99,7 +99,7 @@ Service Fabric 會使用您建立叢集時指定的 [X.509 伺服器憑證](serv
 在叢集上可以設定許多不同的組態設定，例如叢集和節點屬性的可靠性層級。 如需詳細資訊，請參閱 [Service Fabric 叢集網狀架構設定](service-fabric-cluster-fabric-settings.md)。
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>修補叢集節點中的 OS
-修補程式協調流程應用程式 (POA) 是 Service Fabric 應用程式，可在 Service Fabric 叢集上將作業系統修補自動化，而不需要停機。 [適用於 Windows 的修補程式協調流程應用程式](service-fabric-patch-orchestration-application.md)或[適用於 Linux 的修補程式協調流程應用程式](service-fabric-patch-orchestration-application-linux.md)可在叢集上部署，以協調的方式安裝修補程式，同時讓服務隨時可供使用。 
+修補程式協調流程應用程式 (POA) 是 Service Fabric 應用程式，可在 Service Fabric 叢集上將作業系統修補自動化，而不需要停機。 [適用於 Windows 的修補程式協調流程應用程式](service-fabric-patch-orchestration-application.md)可在叢集上部署，以協調的方式安裝修補程式，同時讓服務隨時可供使用。
 
 
 ## <a name="next-steps"></a>後續步驟

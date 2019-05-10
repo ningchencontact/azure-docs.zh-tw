@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: 0f1b5f424a71aeccd4b1e57129c0f5b22ff158af
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159386"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470404"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 Comeet 招募軟體
 
@@ -84,7 +84,7 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
 ### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>若要設定 Azure ad 自動使用者佈建 Comeet 招募軟體：
 
-1. 登入[Azure 入口網站](https://portal.azure.com)，然後選取**企業應用程式**，選取**所有應用程式**，然後選取**Comeet 招募軟體**.
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 **企業應用程式**，然後選取**所有應用程式**。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
@@ -104,12 +104,11 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
 6. 在  [Comeet 招募軟體系統管理員主控台](https://app.comeet.co/)，瀏覽至**Comeet > 設定 > 驗證 > Microsoft Azure**，並複製**祕密權杖為您的公司**值**祕密權杖**在 Azure AD 中的欄位。
 
-    ![Comeet 徵才及用人軟體佈建](./media/comeetrecruitingsoftware-provisioning-tutorial/secret-token-1.png)
-    
+    ![Comeet 徵才及用人軟體佈建](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
 7. 填寫後在步驟 5 中所顯示的欄位，按一下**測試連接**以確保 Azure AD 可以連線到 Comeet 招募軟體。 如果連線失敗，請確定您 Comeet 招募軟體的帳戶具有系統管理員權限並再試一次。
 
-    ![token](common/provisioning-testconnection-token.png)
+    ![權杖](common/provisioning-testconnection-token.png)
 
 8. 在 [通知電子郵件] 欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知] 核取方塊。
 
@@ -119,11 +118,11 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
 10. 底下**對應**區段中，選取**同步處理 Azure Active Directory 使用者至 Comeet**。
 
-    ![Comeet 徵才及用人軟體佈建](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mappings.png)
+    ![Comeet 招募軟體的使用者對應](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 
 11. 檢閱從 Azure AD 同步至 Comeet 招募軟體中的使用者屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對 Comeet 招募軟體中的使用者帳戶進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
 
-    ![Comeet 徵才及用人軟體佈建](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mapping-attributes.png)
+    ![Comeet 徵才及用人的軟體的群組屬性](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
 
 12. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
 
@@ -156,7 +155,3 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
 * [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

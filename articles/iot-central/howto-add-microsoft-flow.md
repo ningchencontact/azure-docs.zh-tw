@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693601"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467897"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>在 Microsoft Flow 中使用 IoT Central 連接器建置工作流程
 
@@ -43,7 +43,7 @@ ms.locfileid: "64693601"
 
 1. 您會看到一份工作流程 tha 存取，而且會附加到此 IoT Central 的規則。 按一下 **探索範本**或是**新增 > 從範本建立**和您可以選擇任何可用的範本。 
 
-    ![可用的 Microsoft Flow 範本](media/howto-add-microsoft-flow/flowtemplates.png)
+    ![可用的 Microsoft Flow 範本](media/howto-add-microsoft-flow/flowtemplates1.png)
 
 1. 系統會提示您登入您選擇的範本中的連接器。 連接器會登入之後，您將登陸在設計工具來建立您的工作流程。 工作流程具有已填入您的應用程式和規則的 IoT Central 觸發程序。
 
@@ -52,7 +52,7 @@ ms.locfileid: "64693601"
     > [!NOTE]
     > 選取 **查看更多**動態內容視窗以取得觸發此規則的度量和屬性值中的文字。
 
-    ![動態窗格開啟時的流程編輯動作](./media/howto-add-microsoft-flow/flowdynamicpane.png)
+    ![動態窗格開啟時的流程編輯動作](./media/howto-add-microsoft-flow/flowdynamicpane1.png)
 
 1. 當您完成編輯您的動作，請選取**儲存**。 您將被導向至工作流程的概觀頁面。 在此處您可以看到執行歷程記錄，並將其與其他同事共用。
 
@@ -79,7 +79,7 @@ ms.locfileid: "64693601"
 
 1. 選取 [裝置名稱] 欄位。 在動態內容窗格中，選擇 [裝置名稱]。 這個值會從輸入的使用者透過行動裝置應用程式中，輸入，並為您 IoT Central 中的新裝置的名稱。 在此範例中，唯一的必要欄位是裝置名稱，會以紅色星號指出。 另一個裝置範本可能會有多個必須填入才能建立新裝置的必要欄位。
 
-    ![流程建立裝置動作動態窗格](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+    ![流程建立裝置動作動態窗格](./media/howto-add-microsoft-flow/flowcreatedevice1.png)
 
 1. (選擇性) 根據您建立新裝置時的需要，填寫其他欄位。
 
@@ -110,7 +110,7 @@ ms.locfileid: "64693601"
 
 1. 您可以更新裝置名稱。 若要更新裝置的任何屬性和設定，您必須在 [裝置範本] 下拉式清單中針對您要更新的裝置選取裝置範本。 動作圖格會展開以顯示您可以更新的所有屬性和設定。
 
-    ![流程更新裝置工作流程](./media/howto-add-microsoft-flow/flowupdatedevice.png)
+    ![流程更新裝置工作流程](./media/howto-add-microsoft-flow/flowupdatedevice1.png)
 
 1. 選取您要更新的每個屬性和設定。 在動態內容窗格中，從觸發程序中選擇對應的輸入。 在此範例中，[位置] 值會向下傳播，以更新裝置的 [位置] 屬性。
 
@@ -126,7 +126,7 @@ ms.locfileid: "64693601"
 
 您可以取得資訊，例如裝置名稱、 裝置範本名稱、 屬性值，以及要傳遞至工作流程中的後續動作的設定值。 以下是範例工作流程，一起客戶名稱屬性值從裝置傳送至 Microsoft Teams。
 
-   ![流程取得裝置的工作流程](./media/howto-add-microsoft-flow/flowgetdevice.png)
+   ![流程取得裝置的工作流程](./media/howto-add-microsoft-flow/flowgetdevice1.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>在工作流程中的裝置上執行命令
@@ -137,7 +137,7 @@ ms.locfileid: "64693601"
     
 您可以挑選要執行，並傳入命令的參數，透過此動作的命令。 以下是範例工作流程執行裝置重新開機命令，從 Microsoft Flow 行動裝置應用程式中的按鈕。
 
-   ![流程取得裝置的工作流程](./media/howto-add-microsoft-flow/flowrunacommand.png)
+   ![流程取得裝置的工作流程](./media/howto-add-microsoft-flow/flowrunacommand1.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>刪除工作流程中的裝置
 

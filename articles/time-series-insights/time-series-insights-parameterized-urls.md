@@ -9,36 +9,41 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 11/21/2017
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3b6c4b8cebdff772ea1bd4ac95e4c8c06043f5d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e70eb7ae73e88b37e649d519d0d0428554dd4ab3
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728154"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467486"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 
-若要在時間序列深入解析總管中共用自訂檢視，您可以程式設計方式建立自訂檢視的參數化 URL。
+若要共用自訂檢視時間序列深入解析總管中的，您可以以程式設計方式建立自訂檢視的參數化的 URL。
 
-時間序列深入解析總管支援 URL 查詢參數，以便直接從 URL 指定檢視。  例如，僅使用 URL，您就可以指定目標環境、搜尋述詞，以及所需的時間範圍。 當使用者按一下自訂的 URL 時，介面會在時間序列深入解析入口網站中提供該資產的直接連結。  適用資料存取原則。 
+時間序列深入解析總管支援 URL 查詢參數，直接從 URL 中指定的檢視。 例如，僅使用 URL，您就可以指定目標環境、搜尋述詞，以及所需的時間範圍。 當使用者按一下自訂的 URL 時，介面會在時間序列深入解析入口網站中提供該資產的直接連結。 適用資料存取原則。
+
+> [!TIP]
+> * 檢視免費[時間序列深入解析示範](https://insights.timeseries.azure.com/samples)。
+> * 閱讀隨附[時間序列深入解析總管](./time-series-insights-explorer.md)文件。
 
 ## <a name="environment-id"></a>環境識別碼
 
-`environmentId=<guid>` 參數可指定目標環境識別碼。  這是資料存取 FQDN 的元件，而您可以在 Azure 入口網站中環境概觀的右上角找到此元件。  這是在 `env.timeseries.azure.com` 之前的所有內容。 範例環境識別碼參數為 `?environmentId=10000000-0000-0000-0000-100000000108`。
+`environmentId=<guid>` 參數可指定目標環境識別碼。 它是資料存取 FQDN 的元件，您就可以在 Azure 入口網站中環境概觀的右上角中找到它。 這是在 `env.timeseries.azure.com` 之前的所有內容。
 
-## <a name="time"></a>時間
+範例環境識別碼參數為 `?environmentId=10000000-0000-0000-0000-100000000108`。
+
+## <a name="time"></a>Time
 
 您可以使用參數化 URL 來指定絕對或相對時間值。
 
 ### <a name="absolute-time-values"></a>絕對時間值
 
-對於絕對時間值，使用 `from=<integer>` 和 `to=<integer>` 參數。 
+對於絕對時間值，使用 `from=<integer>` 和 `to=<integer>` 參數。
 
-`from=<integer>` 是搜尋範圍的開始時間值 (以 JavaScript 毫秒為單位)。
-
-`to=<integer>` 是搜尋範圍的結束時間值 (以 JavaScript 毫秒為單位)。 
+* `from=<integer>` 是搜尋範圍的開始時間值 (以 JavaScript 毫秒為單位)。
+* `to=<integer>` 是搜尋範圍的結束時間值 (以 JavaScript 毫秒為單位)。
 
 若要識別日期的 JavaScript 毫秒，請參閱 [Epoch 和 Unix 時間戳記轉換器](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html)。
 
@@ -48,78 +53,75 @@ ms.locfileid: "64728154"
 
 例如，`&relativeMillis=3600000` 可顯示最近 60 分鐘的資料。
 
-接受的值會對應至時間序列深入解析總管 [快速時間] 功能表，並且包含下列項目：
+接受值會對應至時間序列深入解析總管**快速時間** 功能表中，並且包含：
 
-- 1800000 (過去 30 分鐘)
-- 3600000 (過去 60 分鐘)
-- 10800000 (過去 3 小時)
-- 21600000 (過去 6 小時)
-- 43200000 (過去 12 小時)
-- 86400000 (過去 24 小時)
-- 604800000 (過去 7 天)
-- 2592000000 (過去 30 小時)
+* `1800000` （過去 30 分鐘）
+* `3600000` （過去 60 分鐘）
+* `10800000` （過去 3 小時內）
+* `21600000` （過去 6 小時）
+* `43200000` （過去 12 小時）
+* `86400000` （過去 24 小時）
+* `604800000` （過去 7 天）
+* `2592000000` （過去 30 小時）
 
 ### <a name="optional-parameters"></a>選擇性參數
 
-`timeSeriesDefinitions=<collection of term objects>` 參數可指定時間序列深入解析檢視的字詞，其中：
+`timeSeriesDefinitions=<collection of term objects>`參數指定的時間序列深入解析檢視條款：
 
-- "name":"\<string>"
-  - term 的名稱。
-- "splitBy":"\<string>"
-  - split by 的資料行名稱。
-- "measureName":"\<string>"
-  - measure 的資料行名稱。
-- "predicate":"\<string>"
-  - 用於伺服器端篩選的 where 子句。
-- "useSum":"true"
-  - 這是選擇性參數，指定使用總和作為您的量值。  請注意，如果 [事件] 是選取的量值，則預設會選取 [計數]。  如果未選取 [事件]，則預設會選取 [平均值]。  
+| 參數 | URL 項目 | 說明 |
+| --- | --- | --- |
+| **name** | `\<string>` | term 的名稱。 |
+| **splitBy** | `\<string>` | split by 的資料行名稱。 |
+| **measureName** | `\<string>` | measure 的資料行名稱。 |
+| **predicate** | `\<string>` | 用於伺服器端篩選的 where 子句。 |
+| **useSum** | `true` | 指定使用總和作為您的量值的選擇性參數。 </br>  請注意，如果`Events`是選取的量值，預設會選取計數。  </br>  如果`Events`是未選取，平均值會選取預設值。 |
 
-'multiChartStack=<true/false>' 參數可在圖表中啟用堆疊，而 'multiChartSameScale=<true/false>' 參數可在選用參數內的不同時段啟用相同的 Y 軸刻度。  
+* `multiChartStack=<true/false>`索引鍵 / 值組，可讓 「 堆疊圖表中。
+* `multiChartSameScale=<true/false>`索引鍵 / 值組的選擇性參數括住的詞彙之間啟用相同的 y 軸刻度。  
+* `timeBucketUnit=<Unit>&timeBucketSize=<integer>`可讓您調整間隔滑桿，以提供更精細或更平滑、 更彙總的圖表檢視。  
+* `timezoneOffset=<integer>`參數可讓您設定的時區與 UTC 的位移，在中檢視圖表。
 
-- 'multiChartStack=false'
-  - 預設會啟用 'True'，所以傳遞 'false' 進行堆疊。
-- 'multiChartStack=false&multiChartSameScale=true' 
-  - 必須啟用堆疊，才能在不同時段使用相同的 Y 軸刻度。  如果預設為 'false'，則傳遞 'true' 可啟用此功能。  
-  
-`timeBucketUnit=<Unit>&timeBucketSize=<integer>`可讓您調整間隔滑桿，以提供更精細或更平滑、 更彙總的圖表檢視。  
-- `timeBucketUnit=<Unit>&timeBucketSize=<integer>`
-  - 單位 = 天、小時、分鐘、秒、毫秒。  單位一律大寫。
-  - 對 timeBucketSize 傳遞所需的整數，以定義單位數。  請注意，您最多可以平滑處理 7 天。  
-  
-`timezoneOffset=<integer>`參數可讓您設定的時區與 UTC 的位移，在中檢視圖表。  
-  - `timezoneOffset=-<integer>`
-    - 整數一律以毫秒為單位。  
-    - 請注意，這項功能與我們在 TSI 總管中啟用的功能稍有不同，在 TSI 總管中我們可讓您選擇本機 (瀏覽器時間) 或 UTC。  
- 
+| 組 | 說明 |
+| --- | --- |
+| `multiChartStack=false` | `true` 依預設會啟用因此傳遞`false`堆疊。 |
+| `multiChartStack=false&multiChartSameScale=true` | 必須啟用堆疊，才能在不同時段使用相同的 Y 軸刻度。  它有`false`根據預設，所以傳遞 'true'，可讓這項功能。 |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 單位 = 天、小時、分鐘、秒、毫秒。  單位一律大寫。 </br> 對 timeBucketSize 傳遞所需的整數，以定義單位數。  請注意，您最多可以平滑處理 7 天。  |
+| `timezoneOffset=-<integer>` | 整數一律以毫秒為單位。 </br> 請注意，這項功能與我們在 TSI 總管中啟用的功能稍有不同，在 TSI 總管中我們可讓您選擇本機 (瀏覽器時間) 或 UTC。 |
+
 ### <a name="examples"></a>範例
 
-例如，若要將時間序列定義新增為 URL 參數，您可以使用下列：
+若要將時間序列定義新增至 TSI 環境做為 URL 參數，將附加：
 
-```https
+```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-將這些範例時間序列定義使用於 
+使用範例時間序列定義使用於：
 
-- 環境識別碼
-- 過去 60 分鐘的資料
-- 構成選擇性參數的字詞 (F1PressureID、F2TempStation 和 F3VibrationPL)
- 
-您可以為檢視建構下列參數化 URL：
+* 環境識別碼
+* 過去的 60 分鐘的資料
+* 詞彙 （F1PressureID、 F2TempStation 和 F3VibrationPL） 構成的選擇性參數
 
-```https
+您可以建構下列參數化的 URL 以檢視：
+
+```plaintext
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-如果您已使用時間序列深入解析總管來建立上述 URL 所描述的檢視，它會如下所示：
+> [!TIP]
+> 請參閱 [總管] 中即時[使用 URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}])。
 
-![時間序列深入解析總管字詞](media/parameterized-url/url1.png)
+上述的 URL 會告訴您，並建置 TSI 總管檢視：
 
-完整檢視 (包括圖表) 會如下所示：
+[![時間序列深入解析總管字詞](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
-![圖表檢視](media/parameterized-url/url2.png)
+完整的檢視 （包括圖表）：
+
+[![圖表檢視](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[查詢的資料使用C# ](time-series-insights-query-data-csharp.md)。
+* 了解如何[查詢的資料使用C# ](time-series-insights-query-data-csharp.md)。
+
+* 深入了解[時間序列深入解析總管](./time-series-insights-explorer.md)。

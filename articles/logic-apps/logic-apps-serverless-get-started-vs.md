@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
-ms.openlocfilehash: 265ed220b023a9d81fc5af48920152d95d9cac08
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136696"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467438"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>使用 Azure Logic Apps 和 Azure Functions 建置您的第一個無伺服器應用程式 - Visual Studio
 
@@ -34,6 +34,7 @@ ms.locfileid: "65136696"
 
     > [!IMPORTANT]
     > 當您安裝 Visual Studio 2019 或 2017 時，請務必選取 **Azure 開發**工作負載。
+    > 對於 Visual Studio 2019，Cloud Explorer 可以在 Azure 入口網站中開啟邏輯應用程式設計工具，但尚無法開啟內嵌的邏輯應用程式設計工具。
 
   * [Microsoft Azure SDK for .NET (2.9.1 或更新版本)](https://azure.microsoft.com/downloads/)。 
   深入了解 [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet)。

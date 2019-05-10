@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/24/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146031"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501967"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
 
@@ -75,7 +75,7 @@ ms.locfileid: "65146031"
 | Microsoft.Resources/subscriptions/resourceGroups/read | 資源群組 |
 | Microsoft.Resources/deployments/* | 資源群組 |
 
-### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>新的自動化帳戶和新的 Log Analytics 工作區
+#### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>新的自動化帳戶和新的 Log Analytics 工作區
 
 若要部署停機期間啟動/停止 Vm 至新的自動化帳戶和 Log Analytics 工作區部署解決方案的使用者的解決方案需要定義在上一節，以及下列權限的權限：
 
@@ -91,6 +91,30 @@ ms.locfileid: "65146031"
 | Microsoft.Automation/automationAccounts/write | 資源群組 |
 | Microsoft.OperationalInsights/workspaces/write | 資源群組 |
 
+### <a name="region-mappings"></a>區域對應
+
+當啟用時在離峰期間啟動/停止 Vm，只有特定區域的 Log Analytics 工作區和自動化帳戶連結的支援。
+
+下表顯示支援的對應：
+
+|**Log Analytics 工作區區域**|**Azure 自動化區域**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS<sup>1</sup>|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP 和 EastUS 對應至自動化帳戶的 Log Analytics 工作區不是確切的區域對應，但是是正確的對應。
+
+<sup>2</sup>基於容量限制的區域不提供建立新的資源時。 這包括自動化帳戶和 Log Analytics 工作區。 不過，在區域中預先存在連結的資源應該繼續運作。
+
 ## <a name="deploy-the-solution"></a>部署解決方案
 
 執行下列步驟，將「停機期間啟動/停止 VM」解決方案新增至您的自動化帳戶，然後設定變數以自訂解決方案。
@@ -101,6 +125,7 @@ ms.locfileid: "65146031"
 
    > [!NOTE]
    > 您也可以按一下 [建立資源]，在 Azure 入口網站中的任何地方建立它。 在 [Marketplace] 頁面中輸入關鍵字，例如**啟動**或**啟動/停止**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 或者，您可以輸入解決方案完整名稱中的一或多個關鍵字，然後按 Enter 鍵。 從搜尋結果中選取 [停機期間啟動/停止 VM]。
+
 2. 在所選解決方案的 [停機期間啟動/停止 VM] 頁面中，檢閱摘要資訊，然後按一下 [建立]。
 
    ![Azure 入口網站](media/automation-solution-vm-management/azure-portal-01.png)

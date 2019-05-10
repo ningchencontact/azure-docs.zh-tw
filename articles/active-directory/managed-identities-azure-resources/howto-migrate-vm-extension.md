@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440813"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406775"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>如何停止使用虛擬機器管理身分識別擴充功能並開始使用 Azure 執行個體中繼資料服務
 
@@ -35,7 +35,7 @@ ms.locfileid: "60440813"
 
 ### <a name="provision-the-extension"></a>佈建擴充功能 
 
-當您設定虛擬機器或虛擬機器擴展集有受管理的身分識別時，您可以選擇性選擇，您可以選擇性地選擇佈建 Azure 資源的 VM 延伸模組使用的受管理的身分識別`-Type`上的參數[設定 AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet。 您可以傳遞`ManagedIdentityExtensionForWindows`或是`ManagedIdentityExtensionForLinux`，視虛擬機器的類型，並命名它使用`-Name`參數。 `-Settings` 參數會指定 OAuth 權杖端點所使用的連接埠，以用來取得權杖：
+當您設定虛擬機器或虛擬機器擴展集有受管理的身分識別時，您可以選擇性地選擇佈建 Azure 資源的 VM 延伸模組使用的受管理的身分識別`-Type`參數上的[設定 AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet。 您可以傳遞`ManagedIdentityExtensionForWindows`或是`ManagedIdentityExtensionForLinux`，視虛擬機器的類型，並命名它使用`-Name`參數。 `-Settings` 參數會指定 OAuth 權杖端點所使用的連接埠，以用來取得權杖：
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -119,7 +119,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| 元素 | 描述 |
+| 元素 | 說明 |
 | ------- | ----------- |
 | `GET` | HTTP 指令動詞，指出您想要擷取端點中的資料。 在此案例中是 OAuth 存取權杖。 | 
 | `http://localhost:50342/oauth2/token` | Azure 資源受控識別端點，其中 50342 是預設連接埠且可設定。 |
@@ -145,7 +145,7 @@ Content-Type: application/json
 }
 ```
 
-| 元素 | 描述 |
+| 元素 | 說明 |
 | ------- | ----------- |
 | `access_token` | 所要求的存取權杖。 呼叫受保護的 REST API 時，權杖會內嵌在 `Authorization` 要求標頭欄位中成為「持有人」權杖，以允許 API 驗證呼叫端。 | 
 | `refresh_token` | 並未由 Azure 資源受控識別使用。 |

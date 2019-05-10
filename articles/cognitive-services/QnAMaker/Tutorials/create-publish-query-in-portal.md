@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266927"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149914"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>教學課程：從 QnA Maker 入口網站建立知識庫
 
@@ -68,7 +68,7 @@ ms.locfileid: "59266927"
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |該 URL 上的常見問題集內容會格式化為後面附有答案的問題。 QnA Maker 可解譯此格式以擷取問題和相關聯的答案。|
     |檔案 |_本教學課程中未使用_|此設定會上傳問題和答案的檔案。 |
-    |閒聊特質|朋友|此設定可為常見問題和答案賦予友善而非正式的特質。 這些問題和答案可於後續進行編輯。 |
+    |閒聊特質|易記|此設定可為常見問題和答案賦予友善而非正式的特質。 這些問題和答案可於後續進行編輯。 |
 
     ![KB 建立程序的步驟 4](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
@@ -84,9 +84,9 @@ ms.locfileid: "59266927"
 
 1. 從資料表底部選取問題和答案的最後一個頁面。 此頁面會顯示閒聊特質中的問題和答案。 
 
-1. 在問題和答案清單上方的工具列中，選取中繼資料圖示。 這會顯示每個問題和答案的中繼資料標記。 閒聊問題已經設定**編輯：閒聊**中繼資料。 此中繼資料會連同選取的答案傳回至用戶端應用程式。 用戶端應用程式 (例如聊天機器人) 可使用此經果篩選的中繼資料來決定其他處理或與使用者的互動。
+1. 在問題和答案清單上方的工具列中，選取 [檢視選項] 圖示，然後選取 [顯示中繼資料]。 這會顯示每個問題和答案的中繼資料標記。 閒聊問題已經設定**編輯：閒聊**中繼資料。 此中繼資料會連同選取的答案傳回至用戶端應用程式。 用戶端應用程式 (例如聊天機器人) 可使用此經果篩選的中繼資料來決定其他處理或與使用者的互動。
 
-    ![檢視中繼資料標記](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![![View Metadata tags](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png#lightbox)
 
 1. 在頂端功能表列中選取 [儲存並訓練]。
 

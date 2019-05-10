@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b979609374afbd11bde0e15ce540e8930315482f
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024589"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472472"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>在 Azure 搜尋服務中連結認知服務資源與技能 
 
@@ -28,7 +28,7 @@ AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intr
 > [!NOTE]
 > 當您藉由增加處理次數、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須連結可計費的認知服務資源。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
 >
-> 執行內建的技能收費現有[認知服務付移價格](https://azure.microsoft.com/pricing/details/cognitive-services/)。 映像擷取定價會說明[Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
+> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價的說明請見 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
 
 ## <a name="use-free-resources"></a>使用免費資源
 
@@ -60,7 +60,7 @@ AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intr
 
    ![建立認知服務資源](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "建立認知服務資源")
 
-1. 在位置中，選擇 Azure 搜尋服務，以避免跨區域的輸出頻寬費用與相同的區域。
+1. 在位置中，選擇 Azure 搜尋服務與相同的區域。 這是必要的效能考量，但它也，則輸出頻寬費用不必跨區域。
 
 1. 在定價層中，選擇**S0**取得認知服務功能，包括回預先定義的技術，Azure 搜尋服務所使用的願景和語言功能-全方位集合。 
 

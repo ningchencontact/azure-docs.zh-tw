@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414815"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506863"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -39,6 +39,9 @@ ms.locfileid: "60414815"
 * 所有網域控制站服務安裝的 Azure AD 密碼保護，必須執行 Windows Server 2012 或更新版本，取得 DC 代理程式。 這項需求並不表示，Active Directory 網域或樹系必須也是在 Windows Server 2012 網域或樹系功能等級。 中所述[設計原則](concept-password-ban-bad-on-premises.md#design-principles)，沒有任何最低網域功能等級為或 FFL 所需的 DC 代理程式或 proxy 軟體執行。
 * 取得安裝的 DC 代理程式服務的所有機器必須都已安裝.NET 4.5。
 * 取得 proxy 服務已安裝的 Azure AD 密碼保護，必須執行 Windows Server 2012 R2 或更新版本的所有機器。
+   > [!NOTE]
+   > Proxy 服務部署會部署 Azure AD 密碼保護，即使網域控制站可能會有輸出直接的網際網路連線能力是強制性需求。 
+   >
 * 安裝 Azure AD 密碼保護 Proxy 服務的所有機器都必須都有安裝的.NET 4.7。
   完整地進行更新的 Windows Server 上時，應該已安裝.NET 4.7。 如果這不是這樣，下載並執行安裝程式，請參閱[for Windows 的.NET Framework 4.7 離線安裝程式](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)。
 * 所有的機器，包括網域控制站，取得安裝的 Azure AD 密碼保護元件必須安裝的通用 C 執行階段。 您可以確定您已從 Windows Update 的所有更新，以取得執行階段。 或者，您可以將它取得特定 OS 的更新程式封裝中。 如需詳細資訊，請參閱 <<c0> [ 在 Windows 中的通用 C 執行階段更新](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)。
@@ -262,7 +265,7 @@ ms.locfileid: "60414815"
 
    您可以在尚無法在網域控制站的電腦上安裝 DC 代理程式服務。 在此情況下，服務會啟動並執行，但保持非使用中，直到電腦升級為網域控制站。
 
-   您可以使用標準的 MSI 程序，以自動化軟體安裝。 例如︰
+   您可以使用標準的 MSI 程序，以自動化軟體安裝。 例如：
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 

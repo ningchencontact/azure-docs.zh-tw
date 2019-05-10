@@ -19,7 +19,7 @@ sections:
   - title: 5 分鐘快速入門
     items:
       - type: paragraph
-        text: 了解如何在 Azure 中建立邏輯應用程式。
+        text: 了解如何建立在 Azure 中執行的邏輯應用程式。
       - type: list
         style: icon48
         items:
@@ -27,6 +27,14 @@ sections:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'
             text: Azure 入口網站
             href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: Visual Studio
+            href: /azure/logic-apps/quickstart-create-logic-apps-with-visual-studio
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Visual Studio Code
+            href: /azure/logic-apps/quickstart-create-logic-apps-visual-studio-code
   - title: 逐步教學課程
     items:
       - type: paragraph

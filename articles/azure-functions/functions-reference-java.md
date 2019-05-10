@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ce7eb546c342ffd20557a95d5293d83b39ec3afb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922934"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507185"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
@@ -66,7 +66,7 @@ FunctionsProject
 
  Azure 函式可透過觸發程序 (例如，HTTP 要求、計時器或資料的更新) 來叫用。 函式必須處理該觸發程序和任何其他輸入，以產生一或多個輸出。
 
-請使用 [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 套件中所包含的 Java 註釋，以將輸入和輸出繫結至方法。 如需詳細資訊，請參閱 [Java 參考文件](/java/api/com.microsoft.azure.functions.annotation)。
+請使用 [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 套件中所包含的 Java 註釋，以將輸入和輸出繫結至方法。 如需詳細資訊，請參閱 < [Java 參考文件](/java/api/com.microsoft.azure.functions.annotation)。
 
 > [!IMPORTANT] 
 > 您必須在 [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) 中設定 Azure 儲存體帳戶，以在本機執行 Azure 儲存體 Blob、佇列或資料表觸發程序。
@@ -112,6 +112,37 @@ public class Function {
 請從 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 下載並使用 [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK，以在本機開發 Java 函數應用程式。 當您將函數應用程式部署至雲端時，Azure Functions 使用 Azul Java 8 JDK 執行階段。
 
 針對 JDK 和函數應用程式的問題，[Azure 支援](https://azure.microsoft.com/support/)可提供[完整的支援方案](https://azure.microsoft.com/support/plans/)。
+
+## <a name="customize-jvm"></a>自訂 JVM
+
+Functions 可讓您自訂 Java 虛擬機器 (JVM) 用來執行您的 Java 函式。 [下列 JVM 選項](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7)預設會使用：
+
+* `-XX:+TieredCompilation`
+* `-XX:TieredStopAtLevel=1`
+* `-noverify` 
+* `-Djava.net.preferIPv4Stack=true`
+* `-jar`
+
+您可以提供額外的引數中的應用程式設定具名`JAVA_OPTS`。 您可以將應用程式設定加入您的函式應用程式部署至 Azure，在下列其中一種：
+
+### <a name="azure-portal"></a>Azure 入口網站
+
+在 [ [Azure 入口網站](https://portal.azure.com)，使用[應用程式設定] 索引標籤](functions-how-to-use-azure-function-app-settings.md#settings)加入`JAVA_OPTS`設定。
+
+### <a name="azure-cli"></a>Azure CLI
+
+[Az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings)命令可以用來設定`JAVA_OPTS`，如下列範例所示：
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --settings "JAVA_OPTS=-Djava.awt.headless=true"
+    ```
+這個範例會啟用遠端控制模式。 取代`<APP_NAME>`函式應用程式的名稱和`<RESOURCE_GROUP> `與資源群組。
+
+> [!WARNING]  
+> 在中執行時[耗用量計劃](functions-scale.md#consumption-plan)，您必須新增`WEBSITE_USE_PLACEHOLDER`的值設定`0`。  
+此設定會增加 Java 函式的冷啟動時間。
 
 ## <a name="third-party-libraries"></a>第三方程式庫 
 
@@ -189,7 +220,7 @@ public class Function {
 - HTTP 要求承載會傳入作為 引數 `inputReq` 的 `String`
 - 系統會從 Azure 資料表儲存體中擷取一個項目，並傳入作為引數 `inputData` 的 `TestInputData`。
 
-若要接收輸入批次，您可以繫結至 `String[]`、`POJO[]`、`List<String>` 或 `List<POJO>`。
+若要接收的輸入批次，您可以繫結至`String[]`， `POJO[]`， `List<String>`，或`List<POJO>`。
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -263,7 +294,7 @@ public class Function {
     }
 ```
 
-上方的函式會經由 HttpRequest 叫用，將多個值寫入 Azure 佇列中
+此函式 HttpRequest 上叫用，並寫入 Azure 佇列中的多個值。
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage 和 HttpResponseMessage
 
@@ -363,7 +394,7 @@ az webapp log tail --name webappname --resource-group myResourceGroup
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-您必須先在 Azure 入口網站或 Azure CLI 中啟用檔案系統記錄，再執行此命令。
+您必須已啟用登入 Azure 入口網站或 Azure CLI，執行此命令之前的檔案系統。
 
 ## <a name="environment-variables"></a>環境變數
 

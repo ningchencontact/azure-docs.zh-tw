@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/08/2019
 ms.author: juliako
-ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24ee700e326ef61aa6a93aae725e85e7b4780edf
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466726"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465046"
 ---
 # <a name="streaming-locators"></a>串流定位器
 
@@ -34,7 +34,7 @@ ms.locfileid: "61466726"
 
 ## <a name="associate-filters-with-streaming-locators"></a>串流定位器相關聯的篩選器
 
-您可以指定一份[資產或帳戶篩選器](filters-concept.md)，而這會套用至您[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)。 [動態封裝程式](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[dyanamic 資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器指定的篩選條件。 我們建議您使用這項功能，如果您想要套用篩選，但不是想要公開 （expose） 在 URL 中的篩選條件名稱。
+您可以指定一份[資產或帳戶篩選器](filters-concept.md)，而這會套用至您[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)。 [動態封裝程式](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[動態資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器指定的篩選條件。 我們建議您使用這項功能，如果您想要套用篩選，但不是想要公開 （expose） 在 URL 中的篩選條件名稱。
 
 ## <a name="filter-order-page-streaming-locator-entities"></a>篩選、 訂單、 頁面串流定位器實體
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e20a298c34a7b2723963396f8ccaafaa9472e19a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ec8b575157dcf2fe8430f554798af62b966c78d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888326"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>教學課程：Azure Active Directory 與 AirWatch 整合
 
@@ -36,7 +36,7 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 AirWatch 的整合，您需要下列項目：
+若要設定 Azure AD 與 AirWatch 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 AirWatch 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* AirWatch 支援由 **SP** 起始的 SSO
+* AirWatch 支援 **SP** 起始的 SSO
 
 ## <a name="adding-airwatch-from-the-gallery"></a>從資源庫新增 AirWatch
 
@@ -103,7 +103,7 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![AirWatch 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![AirWatch 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
@@ -114,7 +114,7 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
 5. AirWatch 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
@@ -207,15 +207,15 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
     a. 在 [物件識別碼] 文字方塊中，輸入 `http://schemas.microsoft.com/identity/claims/objectidentifier`。
 
-    b. 在 [使用者名稱] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
+    b. 在 [使用者名稱] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
 
-    c. 在 [顯示名稱] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
+    c. 在 [顯示名稱] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
 
-    d. 在 [名字] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
+    d. 在 [名字] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
 
-    e. 在 [姓氏] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`。
+    e. 在 [姓氏] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`。
 
-    f. 在 [電子郵件] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
+    f. 在 [電子郵件] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
 
     g. 按一下 [檔案] 。
 
@@ -254,7 +254,7 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [AirWatch]。
 
-    ![應用程式清單中的 [AirWatch] 連結](common/all-applications.png)
+    ![應用程式清單中的 AirWatch 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

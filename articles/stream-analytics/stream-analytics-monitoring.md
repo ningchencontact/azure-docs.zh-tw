@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ce6fc0a90ad093a6bba5a4720777e409202c73ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43dd8be998e0f8f3b5a2b783c6a01d5b5ef3da12
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479324"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506915"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解串流分析工作監視功能，以及如何監視查詢
 
@@ -33,18 +33,18 @@ Azure 入口網站會顯示關鍵效能計量，可供您用來監視查詢和�
 | 待處理輸入事件數       | 待處理的輸入事件數目。 此計量的非零值表示您的工作無法跟上內送事件數量。 如果這個值會緩慢增加或始終為非零，則您應該相應放大您的作業。 您可以透過瀏覽[了解及調整串流單位](stream-analytics-streaming-unit-consumption.md)來深入了解。 |
 | 資料轉換錯誤 | 無法轉換為預期輸出結構描述的輸出事件數目。 可以將錯誤原則變更為 'Drop' 來卸除遇到此狀況的事件。 |
 | 早期輸入事件       | 應用程序時間戳記早於其抵達時間超過 5 分鐘的事件。 |
-| 失敗的函式要求 | 失敗的 Azure Machine Learning 函式呼叫次數 (如果有的話)。 |
+| 失敗的函數要求 | 失敗的 Azure Machine Learning 函式呼叫次數 (如果有的話)。 |
 | 函数事件数        | 傳送給 Azure Machine Learning 函式的事件數目 (如果有的話)。 |
-| 函式要求      | 對 Azure Machine Learning 函式發出的呼叫次數 (如果有的話)。 |
+| 函數要求      | 對 Azure Machine Learning 函式發出的呼叫次數 (如果有的話)。 |
 | 輸入還原序列化錯誤       | 無法還原序列化的輸入事件數目。  |
 | 輸入事件位元組      | 「串流分析」工作所接收到的資料量 (以位元組為單位)。 這可以用來驗證傳送到輸入來源的事件。 |
-| 輸入事件           | 從輸入事件還原序列化的記錄數目。 |
-| 收到的輸入來源數       | 作業收到的事件數。 這可以用來驗證傳送到輸入來源的事件。 |
+| 輸入事件           | 從輸入事件還原序列化的記錄數目。 這個計數不包括會造成還原序列化錯誤的內送事件。 |
+| 收到的輸入來源數       | 工作接收到的訊息數目。 事件中樞的訊息會是單一的 EventData。 針對 Blob，訊息會是單一的 blob。 請注意，在還原序列化之前計算輸入來源。 還原序列化錯誤時，輸入的來源可以大於輸入事件。 否則，它可以是小於或等於輸入事件，因為每則訊息可以包含多個事件。 |
 | 延遲輸入事件      | 晚於已設定延遲傳入容錯時間抵達的事件。 深入了解 [Azure 串流分析事件的順序考量](stream-analytics-out-of-order-and-late-events.md)。 |
 | 順序錯亂事件    | 所收到順序錯亂的事件數目，這些事件會根據事件順序原則，予以捨棄或指定調整後的時間戳記。 順序錯亂容錯視窗設定的組態可能會造成影響。 |
 | 輸出事件          | 「串流分析」工作所傳送的資料量 (以事件數為單位)。 |
 | 執行階段錯誤         | 与查询处理相关的错误总数（不包括引入事件或输出结果时发现的错误） |
-| SU % 使用率       | 從工作的 [調整] 索引標籤指派給工作的串流處理單元使用率。 若此指標達到 80% 以上，則代表事件處理作業極有可能延遲或暫停。 |
+| SU 使用率 (%)       | 從工作的 [調整] 索引標籤指派給工作的串流處理單元使用率。 若此指標達到 80% 以上，則代表事件處理作業極有可能延遲或暫停。 |
 | 浮水印延遲秒數       | 作業中所有輸出分割區的延遲秒數上限。 |
 
 您可以使用這些計量來[監視串流分析作業的效能](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor)。 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49d06c05af085624a0d495a65e139d3857a13fc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712613"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470236"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -334,7 +334,6 @@ sudo apt-get install servicefabric servicefabricsdkcommon
 * [在 Windows 上準備 Linux 開發環境](service-fabric-local-linux-cluster-windows.md)
 * [使用 Service Fabric CLI 管理應用程式](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows 與 Linux 的差異](service-fabric-linux-windows-differences.md)
-* [在 Linux 叢集上將作業系統修補自動化](service-fabric-patch-orchestration-application-linux.md)
 * [開始使用 Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Links -->

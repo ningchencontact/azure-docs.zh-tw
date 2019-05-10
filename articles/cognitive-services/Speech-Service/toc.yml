@@ -139,8 +139,8 @@
       displayName: 'recognize speech, speech recognition, speech-to-text, stt'
     - name: 使用音訊的輸入資料流 (SDK)
       href: how-to-use-audio-input-streams.md
-    - name: 使用壓縮音訊的輸入資料流 (SDK)
-      href: how-to-use-compressed-audio-input-streams.md
+    - name: 使用轉碼器壓縮音訊輸入資料流 (SDK)
+      href: how-to-use-codec-compressed-audio-input-streams.md
       displayName: 'mp3, opus, ogg, flac'
     - name: 選取音訊輸入裝置 (SDK)
       href: how-to-select-audio-input-devices.md
@@ -184,7 +184,7 @@
               href: record-custom-voice-samples.md
             - name: 微調文字轉換語音輸出
               href: how-to-voice-tuning.md
-        - name: 建立自訂喚醒字 (裝置 SDK)
+        - name: 建立自訂喚醒字詞 (找出關鍵字)
           href: speech-devices-sdk-create-kws.md
           displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
     - name: 移轉
@@ -195,9 +195,9 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: 從翻譯工具語音 API
           href: how-to-migrate-from-translator-speech-api.md
-    - name: 使用容器
+    - name: 使用內部部署容器
       items:
-        - name: 安裝及執行容器
+        - name: 安裝並執行內部部署容器
           displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
           href: speech-container-howto.md
         - name: 設定容器
@@ -220,6 +220,8 @@
         - name: 概觀
           href: speech-sdk.md
           displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
+        - name: 案例可用性
+          href: scenario-availability.md
         - name: 版本資訊
           href: releasenotes.md
         - name: C++
@@ -255,6 +257,9 @@
         - name: 批次轉譯與自訂
           href: 'https://westus.cris.ai/swagger/ui/index'
           displayName: 'Batch transcription, transcription, custom models, customization, model management'
+        - name: 對話轉譯
+          href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+          displayName: 'Conversation transcription, signature generation'
         - name: Webhook
           href: webhooks.md
           displayName: Webhooks

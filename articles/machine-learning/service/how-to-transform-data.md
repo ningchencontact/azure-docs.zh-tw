@@ -12,19 +12,19 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023795"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471841"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來轉換資料
 
-在本文中，您將了解不同的方法，將使用 Azure Machine Learning 資料準備 SDK 資料的轉換。 SDK 還提供讓您輕鬆加入資料行，篩選掉不必要的資料列或資料行，並插補遺漏值的函式。 若要查看 SDK 的參考文件，請參閱[概觀](https://aka.ms/data-prep-sdk)。
+在本文中，您將了解不同的方法，將轉換的資料使用`azureml-dataprep`封裝。 封裝提供了讓您輕鬆加入資料行，篩選掉不必要的資料列或資料行，並插補遺漏值的函式。 請參閱完整的參考文件[azureml dataprep 套件](https://aka.ms/data-prep-sdk)。
 
 > [!Important]
-> 如果您要建立新的方案，請嘗試[Azure Machine Learning 資料集](how-to-explore-prepare-data.md)（預覽） 來轉換您的資料、 快照集資料和儲存已建立版本的資料集定義。 資料集是資料準備供應項目來管理 AI 解決方案中的資料集的擴充的功能 SDK 的下一個版本。
+> 如果您要建立新的方案，請嘗試[Azure Machine Learning 資料集](how-to-explore-prepare-data.md)（預覽） 來轉換您的資料、 快照集資料和儲存已建立版本的資料集定義。 資料集是資料準備供應項目來管理 AI 解決方案中的資料集的擴充的功能 SDK 的下一個版本。 如果您使用`azureml-dataprep`套件來建立資料流程，與您的轉換，而不是使用`azureml-datasets`封裝來建立資料集，您將無法供日後使用快照集或已建立版本的資料集。
 
 此操作說明會顯示下列工作的範例：
 
@@ -46,7 +46,7 @@ dflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dflow.head(3)
 ```
 
-||ID|案例編號|date|區塊|IUCR|主要類型|描述|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置|
+||ID|案例編號|date|封鎖|IUCR|主要類型|說明|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 |0|10140490|HY329907|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|遭竊|$500 以下|街|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|電池|簡單|街|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017、-87.65955018)|
@@ -63,7 +63,7 @@ case_category = dflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||ID|案例編號|案例類別|date|區塊|IUCR|主要類型|描述|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置|
+||ID|案例編號|案例類別|date|封鎖|IUCR|主要類型|說明|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|HY|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|遭竊|$500 以下|街|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|HY|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|電池|簡單|街|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017、-87.65955018)|
@@ -160,7 +160,7 @@ dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfi
 dflow.head(4)
 ```
 
-||日期|REPORTTPYE|HOURLYDRYBULBTEMPF|HOURLYRelativeHumidity|HOURLYWindSpeed|
+||DATE|REPORTTPYE|HOURLYDRYBULBTEMPF|HOURLYRelativeHumidity|HOURLYWindSpeed|
 |----|----|----|----|----|----|
 |0|1/1/2015 0:54|FM-15|22|50|10|
 |1|1/1/2015 1:00|FM-12|22|50|10|
@@ -175,7 +175,7 @@ builder.add_example(source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2
 builder.preview(count=5) 
 ```
 
-||日期|date_timerange|
+||DATE|date_timerange|
 |----|----|----|
 |0|1/1/2015 0:54|Jan 1, 2015 12AM-2AM|
 |1|1/1/2015 1:00|Jan 1, 2015 12AM-2AM|
@@ -196,7 +196,7 @@ builder.preview(count=5)
 builder.preview(skip=30, count=5)
 ```
 
-||日期|date_timerange|
+||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
 |1|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
@@ -211,7 +211,7 @@ builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2
 builder.preview(skip=30, count=5)
 ```
 
-||日期|date_timerange|
+||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
 |1|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
@@ -226,7 +226,7 @@ builder.preview(skip=75, count=5)
 ```
 
 
-||日期|date_timerange|
+||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/3/2015 7:00|2015 年 1 月 3 日上午 6 點-8 AM|
 |1|1/3/2015 7:54|2015 年 1 月 3 日上午 6 點-8 AM|
@@ -239,7 +239,7 @@ builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-
 builder.preview(skip=75, count=5)
 ```
 
-||日期|date_timerange|
+||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/3/2015 7:00|2015 年 1 月 3 日上午 6 點-8 AM|
 |1|1/3/2015 7:54|2015 年 1 月 3 日上午 6 點-8 AM|
@@ -253,7 +253,7 @@ builder.preview(skip=75, count=5)
 examples = builder.list_examples()
 ```
 
-| |日期|範例|example_id|
+| |DATE|範例|example_id|
 | -------- | -------- | -------- | -------- |
 |0|1/1/2015 1:00|Jan 1, 2015 12AM-2AM|-1|
 |1|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|-2|
@@ -270,7 +270,7 @@ dflow = builder.to_dataflow()
 df = dflow.to_pandas_dataframe()
 ```
 
-## <a name="filtering"></a>Filtering
+## <a name="filtering"></a>正在篩選
 
 SDK 包含方法[ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow)並[ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py)可讓您篩選出資料行或資料列。
 
@@ -413,8 +413,8 @@ dflow.head(2)
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|
-|0|ALABAMA|1|101710|Hale County|10171002158| |
-|1|ALABAMA|1|101710|Hale County|10171002162| |
+|0|阿拉巴馬州|1|101710|Hale County|10171002158| |
+|1|阿拉巴馬州|1|101710|Hale County|10171002162| |
 
 精簡資料集，並執行一些基本的轉換，包括移除資料行、 取代值，以及轉換類型。
 
@@ -427,8 +427,8 @@ dflow.head(2)
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|None|
-|1|ALABAMA|Hale County|1.017100e+10|None|
+|0|阿拉巴馬州|Hale County|1.017100e+10|None|
+|1|阿拉巴馬州|Hale County|1.017100e+10|None|
 
 使用下列篩選條件尋找 null 值。
 
@@ -438,8 +438,8 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|None|
-|1|ALABAMA|Hale County|1.017100e+10|None|
+|0|阿拉巴馬州|Hale County|1.017100e+10|None|
+|1|阿拉巴馬州|Hale County|1.017100e+10|None|
 
 ### <a name="transform-partition"></a>轉換分割區
 
@@ -458,8 +458,8 @@ df.head(2)
 
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|0.0|
-|1|ALABAMA|Hale County|1.017100e+10|0.0|
+|0|阿拉巴馬州|Hale County|1.017100e+10|0.0|
+|1|阿拉巴馬州|Hale County|1.017100e+10|0.0|
 
 ### <a name="new-script-column"></a>新的指令碼資料行
 
@@ -477,8 +477,8 @@ dflow.head(2)
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
-|1|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
+|0|阿拉巴馬州|Hale County|Hale County, Alabama|1.017100e+10|0.0|
+|1|阿拉巴馬州|Hale County|Hale County, Alabama|1.017100e+10|0.0|
 
 ### <a name="new-script-filter"></a>新的指令碼篩選條件
 
@@ -495,10 +495,9 @@ dflow.head(2)
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
-|1|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
+|0|阿拉巴馬州|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
+|1|阿拉巴馬州|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
 
 ## <a name="next-steps"></a>後續步驟
 
-* 請參閱 SDK[概觀](https://aka.ms/data-prep-sdk)設計模式和使用方式範例
 * 請參閱 Azure Machine Learning 資料準備 SDK[教學課程](tutorial-data-prep.md)如需解決的特定案例的範例

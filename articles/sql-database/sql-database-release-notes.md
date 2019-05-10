@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/07/2019
 ms.author: carlrab
-ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717421"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406573"
 ---
 # <a name="sql-database-release-notes"></a>SQL 数据库发行说明
 
@@ -25,6 +25,7 @@ ms.locfileid: "64717421"
 
 | 功能 | 詳細資料 |
 | ---| --- |
+| 無伺服器計算層級 | 如需資訊，請參閱[SQL Database 無伺服器 （預覽）](sql-database-serverless.md)。|
 | 彈性資料庫工作 | 如需資訊，請參閱[建立、 設定和管理彈性工作](elastic-jobs-overview.md) |
 | 彈性交易 | [跨雲端資料庫的分散式交易](sql-database-elastic-transactions-overview.md) |
 | 彈性查詢 | 如需資訊，請參閱[彈性查詢概觀](sql-database-elastic-query-overview.md) |
@@ -45,6 +46,16 @@ ms.locfileid: "64717421"
 |SQL Analytics|如需資訊，請參閱[Azure SQL 分析](../azure-monitor/insights/azure-sql.md)|
 | 受管理的執行個體的時區支援|如需詳細資訊，請參閱[Azure SQL Database 受控執行個體的時區](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="may-2019"></a>2019 年
+
+### <a name="service-improvements"></a>服務改進功能
+
+| 服務改進功能 | 詳細資料 |
+| --- | --- |
+|超大規模資料庫服務層級| 如需詳細資訊，請參閱 <<c0> [ 最多 100 TB 的超大規模服務層](sql-database-service-tier-hyperscale.md)。|
+|無伺服器計算層級| 如需詳細資訊，請參閱 < [SQL Database 無伺服器 （預覽）](sql-database-serverless.md)。|
+
 
 ## <a name="april-2019"></a>2019 年 4 月
 

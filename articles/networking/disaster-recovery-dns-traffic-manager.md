@@ -4,7 +4,7 @@ description: 使用 Azure DNS 和流量管理員的災害復原解決方案概�
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507606"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501716"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>使用 Azure DNS 和流量管理員進行災害復原
 
@@ -142,7 +142,8 @@ DNS 是轉移網路流量最有效率的機制之一，因為 DNS 通常是全�
 使用名稱 contoso123 建立新的 Azure 流量管理員設定檔，並選取 [優先順序] 作為 [路由方式]。 如果您有想與之建立關聯的現有資源群組，則您可以選取現有的資源群組，否則請建立新的資源群組。
 
 ![建立流量管理員設定檔](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
-*圖 - 建立流量管理員設定檔*
+
+*圖-建立流量管理員設定檔*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>步驟 2：在流量管理員設定檔中建立端點
 

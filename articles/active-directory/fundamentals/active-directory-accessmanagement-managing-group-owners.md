@@ -12,20 +12,20 @@ ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2541a1d76b56f92b250fb422951769db7877213e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd684e1bd48f877a74280b33b4df65d7baaa0fe7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249863"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507181"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>在 Azure Active Directory 中新增或移除群組擁有者
-Azure Active Directory (Azure AD) 群組是由群組擁有者所擁有及管理。 群組擁有者是由資源擁有者 (系統管理員) 指派來管理群組與其成員。 群組擁有者不需要是該群組的成員。 指派群組擁有者之後，只有資源擁有者可以新增或移除擁有者。
+Azure Active Directory (Azure AD) 群組是由群組擁有者所擁有及管理。 群組擁有者可以是使用者或服務主體，而且能夠管理包括成員資格的群組。 只有現有的群組擁有者或群組管理的系統管理員可以指派群組 onwers。 群組擁有者不需要是該群組的成員。
 
-在某些案例中，身為系統管理員的您可能決定不指派群組擁有者。 在此案例中，您會成為群組擁有者。 此外，擁有者可以指派其他擁有者到其群組，除非您已在群組設定中限制這樣做。
+群組有沒有擁有者，群組管理的系統管理員時仍然能夠管理群組。
 
 ## <a name="add-an-owner-to-a-group"></a>將擁有者新增至群組
-使用 Azure AD 將額外的群組擁有者新增到群組。
+以下指示將使用者新增為擁有者群組會使用 Azure AD 入口網站。 若要新增為群組的擁有者的服務主體，請依照下列指示來執行這項操作使用[PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0)。
 
 ### <a name="to-add-a-group-owner"></a>新增群組擁有者
 1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com)。

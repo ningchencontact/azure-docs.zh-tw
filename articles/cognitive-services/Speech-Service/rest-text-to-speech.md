@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9cbd924f87ff2f5b38f67a1bf7db34c36e9c264b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020442"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237070"
 ---
 # <a name="text-to-speech-rest-api"></a>文字轉換語音 REST API
 
@@ -44,35 +44,35 @@ ms.locfileid: "65020442"
 
 | 區域 | 端點 |
 |--------|----------|
-| 澳洲東部 | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 巴西南部 | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 加拿大中部 | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美國中部 | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 東亞 | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美國東部 | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美國東部 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 法國中部 | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 印度中部 | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 日本東部 | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 南韓中部 | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美國中北部 | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 北歐 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美國中南部 | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 東南亞 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 英國南部 | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 西歐 | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美國西部 | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美國西部 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 澳洲東部 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 巴西南部 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 加拿大中部 | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美國中部 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 東亞 | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美國東部 | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美國東部 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 法國中部 | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 印度中部 | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 日本東部 | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 南韓中部 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美國中北部 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 北歐 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美國中南部 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 東南亞 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 英國南部 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 西歐 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美國西部 | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美國西部 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### <a name="request-headers"></a>要求標頭
 
 下表列出文字轉換語音要求的必要和選擇性標頭。
 
-| 頁首 | 描述 | 必要/選用 |
+| 頁首 | 說明 | 必要/選用 |
 |--------|-------------|---------------------|
 | `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要項 |
 
-### <a name="request-body"></a>Request body
+### <a name="request-body"></a>要求本文
 
 本文並不適用`GET`對此端點的要求。
 
@@ -136,13 +136,13 @@ Authorization: Bearer [Base64 access_token]
 
 每個回應的 HTTP 狀態碼會指出成功或常見的錯誤。
 
-| HTTP 状态代码 | 描述 | 可能的原因 |
+| HTTP 状态代码 | 說明 | 可能的原因 |
 |------------------|-------------|-----------------|
-| 200 | OK | 要求成功。 |
-| 400 | 不正確的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
-| 401 | 未經授權 | 要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。 |
+| 200 | 確定 | 要求成功。 |
+| 400 | 錯誤的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
+| 401 | 未授權 | 要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。 |
 | 429 | 太多要求 | 您已超出訂用帳戶允許的配額或要求率。 |
-| 502 | 錯誤的閘道 | 網路或伺服器端問題。 也可能表示標頭無效。 |
+| 502 | 不正確的閘道 | 網路或伺服器端問題。 也可能表示標頭無效。 |
 
 
 ## <a name="convert-text-to-speech"></a>將文字轉換成語音
@@ -159,7 +159,7 @@ Authorization: Bearer [Base64 access_token]
 
 下表列出文字轉換語音要求的必要和選擇性標頭。
 
-| 頁首 | 描述 | 必要/選用 |
+| 頁首 | 說明 | 必要/選用 |
 |--------|-------------|---------------------|
 | `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要項 |
 | `Content-Type` | 指定所提供文字的內容類型。 接受的值為 `application/ssml+xml`。 | 必要項 |
@@ -183,7 +183,7 @@ Authorization: Bearer [Base64 access_token]
 > [!NOTE]
 > 如果您選取的語音和輸出格式具有不同的位元速率，則會視需要重新進行音訊取樣。 不過，24KHz 語音不支援 `audio-16khz-16kbps-mono-siren` 和 `riff-16khz-16kbps-mono-siren` 輸出格式。
 
-### <a name="request-body"></a>Request body
+### <a name="request-body"></a>要求本文
 
 每個 `POST` 要求的本文都會以[語音合成標記語言 (SSML)](speech-synthesis-markup.md) 形式傳送。 SSML 可讓您選擇文字轉換語音服務所傳回合成語音的語音和語言。 如需支援的完整語音清單，請參閱[語言支援](language-support.md#text-to-speech)。
 
@@ -219,14 +219,14 @@ Authorization: Bearer [Base64 access_token]
 
 每個回應的 HTTP 狀態碼會指出成功或常見的錯誤。
 
-| HTTP 状态代码 | 描述 | 可能的原因 |
+| HTTP 状态代码 | 說明 | 可能的原因 |
 |------------------|-------------|-----------------|
-| 200 | OK | 要求成功；回應主體是音訊檔案。 |
-| 400 | 不正確的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
-| 401 | 未經授權 | 要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。 |
+| 200 | 確定 | 要求成功；回應主體是音訊檔案。 |
+| 400 | 錯誤的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
+| 401 | 未授權 | 要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。 |
 | 413 | 要求實體太大 | SSML 輸入的長度大於 1024 個字元。 |
 | 429 | 太多要求 | 您已超出訂用帳戶允許的配額或要求率。 |
-| 502 | 錯誤的閘道 | 網路或伺服器端問題。 也可能表示標頭無效。 |
+| 502 | 不正確的閘道 | 網路或伺服器端問題。 也可能表示標頭無效。 |
 
 如果 HTTP 狀態為 `200 OK`，則回應主體會包含所要求格式的音訊檔案。 會在將此檔案傳輸、儲存到緩衝區或儲存到檔案時播放。
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691557"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472031"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
@@ -29,7 +29,7 @@ ms.locfileid: "60691557"
 若要將 Application Insights 新增至您的 ASP.NET 網站，您必須：
 
 - 使用下列工作負載，安裝 [Visual Studio 2017 for Windows](https://www.visualstudio.com/downloads/)：
-    - ASP.NET 和 Web 開發
+    - ASP.NET 與網頁程式開發 （不取消勾選的選用元件）
     - Azure 開發
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
@@ -101,7 +101,7 @@ Application Insights 設定畫面：
 
 [深入了解在 Azure 入口網站中使用 Application Insights](../../azure-monitor/app/app-insights-dashboards.md)。
 
-## <a name="step-4-publish-your-app"></a>步驟 4：發佈您的應用程式
+## <a name="step-4-publish-your-app"></a>步驟 4：發行您的應用程式
 將您的應用程式發佈至 IIS 伺服器或 Azure。 監看 [即時計量串流](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) 以確定一切順利執行。
 
 您的遙測會累積在 Application Insights 入口網站，您可以在此監視計量，搜尋您的遙測，以及設定[儀表板](../../azure-monitor/app/app-insights-dashboards.md)。 您也可以使用功能強大的 [Kusto 查詢語言](/azure/kusto/query/)，分析使用狀況和效能或尋找特定事件。

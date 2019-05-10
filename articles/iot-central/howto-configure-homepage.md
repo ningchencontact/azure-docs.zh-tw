@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3168bbbf70c1ffeb3827482459febbcea256eda6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1edd4777839c947cf8f60bb6857f939553e2603
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886955"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467663"
 ---
 # <a name="configure-the-application-dashboard"></a>設定應用程式儀表板
 
@@ -26,19 +26,19 @@ ms.locfileid: "60886955"
 
 下列螢幕擷取畫面顯示從建立應用程式中的儀表板**範例 Contoso**範本。 若要自訂您的應用程式的預設儀表板，請選取**編輯**上方的頁面。
 
-![儀表板的 「 範例 Contoso"範本為基礎的應用程式](media/howto-configure-homepage/image1.png)
+![儀表板的 「 範例 Contoso"範本為基礎的應用程式](media/howto-configure-homepage/image1a.png)
 
 選取**編輯**，開啟 [儀表板程式庫] 面板。 程式庫包含磚和儀表板基本類型，您可以使用來自訂儀表板。
 
-![儀表板程式庫](media/howto-configure-homepage/image2.png)
+![儀表板程式庫](media/howto-configure-homepage/image2a.png)
 
 例如，您可以在其中加入**裝置設定與屬性**磚，以顯示選取的裝置目前的設定和屬性值。 若要這麼做，請先選取 [裝置範本]，然後選取 [裝置執行個體]。 然後，提供圖格標題並選取要顯示的 [設定] 或 [屬性]。 下列螢幕擷取畫面顯示設定，以及選取要新增到 [] 圖格的屬性。 選取 **完成**儀表板中儲存的變更。
 
-![含設定和屬性詳細資料的 [設定裝置詳細資料] 表單](media/howto-configure-homepage/image3.png)
+![含設定和屬性詳細資料的 [設定裝置詳細資料] 表單](media/howto-configure-homepage/image3a.png)
 
 現在當運算子檢視預設應用程式儀表板，他們會看到包含新的磚**設定的溫度**裝置設定：
 
-![含針對圖格顯示之設定和屬性的 [儀表板] 索引標籤](media/howto-configure-homepage/image4.png)
+![含針對圖格顯示之設定和屬性的 [儀表板] 索引標籤](media/howto-configure-homepage/image4a.png)
 
 您可以瀏覽其他 圖格類型程式庫中，以了解如何進一步自訂預設的應用程式儀表板。
 

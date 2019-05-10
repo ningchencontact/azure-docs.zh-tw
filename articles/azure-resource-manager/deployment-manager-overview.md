@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550873"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466563"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>使用 Azure 部署管理員啟用安全部署實務 (個人預覽版)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>啟用安全部署實務與 Azure 部署管理員 （公開預覽）
 
 若要跨多區域部署您的服務，並確定服務在每個區域中皆如預期般執行，您可以使用 Azure 部署管理員來協調服務的分段推出。 如同任何 Azure 部署，您要在 [Resource Manager 範本](resource-group-authoring-templates.md)中定義服務的資源。 在建立範本之後，您要使用部署管理員來描述您服務的拓撲，以及拓撲的推出方式。
 
@@ -200,7 +200,9 @@ Azure Deployment Manager 為個人預覽版。 若要使用 Azure 部署管理�
 
 ### <a name="steps"></a>步驟
 
-您可以定義要在部署作業之前或之後執行的步驟。 目前只有 `wait` 步驟可用。 在繼續進行之前，等候步驟會暫停部署。 這可讓您確認在部署下一個服務單位之前，您的服務正在如預期般執行。 下列範例顯示等候步驟的一般格式。
+您可以定義要在部署作業之前或之後執行的步驟。 目前，只有`wait`步驟和 'healthCheck' 步驟可供使用。 
+
+在繼續進行之前，等候步驟會暫停部署。 這可讓您確認在部署下一個服務單位之前，您的服務正在如預期般執行。 下列範例顯示等候步驟的一般格式。
 
 ```json
 {
@@ -219,7 +221,7 @@ Azure Deployment Manager 為個人預覽版。 若要使用 Azure 部署管理�
 
 持續時間屬性使用 [ISO 8601 標準](https://en.wikipedia.org/wiki/ISO_8601#Durations)。 上述範例會指定一分鐘的等候。
 
-如需詳細資訊，請參閱[步驟範本參考](/azure/templates/Microsoft.DeploymentManager/steps)。
+如需有關健全狀況檢查步驟的詳細資訊，請參閱[]()並[]()如需詳細資訊，請參閱[步驟範本參考](/azure/templates/Microsoft.DeploymentManager/steps)。
 
 ### <a name="rollouts"></a>推出
 

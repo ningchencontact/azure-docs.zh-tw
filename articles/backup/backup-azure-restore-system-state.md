@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 031b3096d919eb3faadf907f0d30e15d8d8fb5e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6619611bee96089e465feb6f50d38caeada06dd9
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246851"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472496"
 ---
 # <a name="restore-system-state-to-windows-server"></a>將系統狀態還原到 Windows Server
 
@@ -27,7 +27,7 @@ ms.locfileid: "60246851"
 
 
 ## <a name="recover-system-state-files-to-the-same-server"></a>將系統狀態檔案復原到相同伺服器
-下列步驟說明如何將 Windows Server 組態復原到先前的狀態。 將伺服器組態復原到已知的穩定狀態是非常有價值的作業。 下列步驟會從復原服務保存庫還原伺服器的系統狀態。 
+下列步驟說明如何將 Windows Server 組態復原到先前的狀態。 將伺服器組態復原到已知的穩定狀態是非常有價值的作業。 下列步驟會從復原服務保存庫還原伺服器的系統狀態。
 
 1. 開啟 **Microsoft Azure 備份**嵌入式管理單元。 如果您不知道快照安裝的位置，請在電腦或伺服器上搜尋 **Microsoft Azure 備份**。
 
@@ -45,7 +45,7 @@ ms.locfileid: "60246851"
 
     ![瀏覽檔案](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-5. 在 [選取磁碟區和日期] 窗格的行事曆上，選取復原點。 
+5. 在 [選取磁碟區和日期] 窗格的行事曆上，選取復原點。
 
     您可以從任何時間的復原點還原。 以 **粗体** 显示的日期表示至少有一个可用的恢复点。 一旦您選取一個日期，如果有多個復原點可用，您可以從 [時間] 下拉式功能表選擇特定的復原點。
 
@@ -91,11 +91,11 @@ ms.locfileid: "60246851"
 5. 提供與「範例保存庫」 相對應的保存庫認證檔。 如果保存庫認證檔無效 (或已過期)，請從 Azure 入口網站中的「範例保存庫」下載新的保存庫認證檔。 一旦提供保存庫認證檔，即會顯示與保存庫認證檔相關聯的復原服務保存庫。
 
 6. 在 [選取備份伺服器] 窗格上，從顯示的電腦清單選取 [來源電腦]。
-7. 在 [選取復原模式] 窗格上，選擇 [系統狀態]，然後按 [下一步]。 
+7. 在 [選取復原模式] 窗格上，選擇 [系統狀態]，然後按 [下一步]。
 
     ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-8. 在 [選取磁碟區和日期] 窗格的行事曆上，選取復原點。 您可以從任何時間的復原點還原。 **粗體**的日期表示至少有一個復原點可用。 一旦您選取一個日期，如果有多個復原點可用，您可以從 [時間] 下拉式功能表選擇特定的復原點。 
+8. 在 [選取磁碟區和日期] 窗格的行事曆上，選取復原點。 您可以從任何時間的復原點還原。 **粗體**的日期表示至少有一個復原點可用。 一旦您選取一個日期，如果有多個復原點可用，您可以從 [時間] 下拉式功能表選擇特定的復原點。
 
     ![搜尋項目](./media/backup-azure-restore-system-state/select-date.png)
 
@@ -107,13 +107,13 @@ ms.locfileid: "60246851"
 
     [建立複本，以擁有兩個版本] 選項會在現有系統狀態檔案封存中建立個別檔案的複本，而不是建立整個系統狀態封存的複本。
 
-11. 確認 [確認] 窗格上的復原詳細資料，然後按一下 [復原]。 
+11. 確認 [確認] 窗格上的復原詳細資料，然後按一下 [復原]。
 
     ![按一下 [復原] 按鈕以確認復原程序](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. 將 WindowsImageBackup 目錄複製到伺服器的非重要磁碟區 (例如 D:\)。 Windows 作業系統磁碟區通常是重要磁碟區。
 
-13. 若要完成復原程序，請使用下一節的步驟[將還原的系統狀態檔案套用到 Windows Server 上](backup-azure-restore-system-state.md#apply-restored-system-state-on-a-windows-server)。
+13. 若要完成復原程序，請使用下一節的步驟[將還原的系統狀態檔案套用到 Windows Server 上](#apply-restored-system-state-on-a-windows-server)。
 
 
 
@@ -143,7 +143,7 @@ ms.locfileid: "60246851"
 
    ![選擇復原到不同伺服器](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
 
-6. 在指定位置類型時，如果您的系統狀態備份已復原到其他伺服器，請選取 [遠端共用資料夾]。 如果您在本機復原系統狀態，則請選取 [本機磁碟機]。 
+6. 在指定位置類型時，如果您的系統狀態備份已復原到其他伺服器，請選取 [遠端共用資料夾]。 如果您在本機復原系統狀態，則請選取 [本機磁碟機]。
 
     ![選取要從本機伺服器還是其他伺服器來復原](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
 
@@ -171,7 +171,7 @@ ms.locfileid: "60246851"
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>針對失敗的系統狀態還原進行疑難排解
 
-如果先前用來套用系統狀態的程序未順利完成，請使用 Windows 修復環境 (Win RE) 來復原您的 Windows Server。 下列步驟說明如何使用 Win RE 來進行復原。 請在 Windows Server 不會於系統狀態還原後正常開機時，才使用此選項。 下列程序會清除非系統資料，請小心使用。 
+如果先前用來套用系統狀態的程序未順利完成，請使用 Windows 修復環境 (Win RE) 來復原您的 Windows Server。 下列步驟說明如何使用 Win RE 來進行復原。 請在 Windows Server 不會於系統狀態還原後正常開機時，才使用此選項。 下列程序會清除非系統資料，請小心使用。
 
 1. 將您的 Windows Server 開機到 Windows 修復環境 (Win RE)。
 

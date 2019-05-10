@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 11d63889555d6899df07e83168813994907476af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691187"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471859"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
@@ -42,7 +42,7 @@ ms.locfileid: "60691187"
 * 工具並非支援所有類型的 .NET 專案。 支援 Web 和 WCF 專案。 對於其他像是傳統型或服務應用程式的專案類型，您仍然可以 [手動將 Application Insights SDK 新增至您的專案](../../azure-monitor/app/windows-desktop.md)。
 * 請確定您有 [Visual Studio 2013 Update 3 或更新版本](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs)。 它會預先安裝開發人員分析工具，這些工具提供 Application Insights SDK。
 * 選取 [工具]、[擴充功能和更新]，檢查 [開發人員分析工具] 是否已安裝並啟用。 如果是，按一下 [更新]  以查看是否有可用的更新。
-* 開啟 [新增專案] 對話方塊，並且選擇 [ASP.NET Web 應用程式]。 如果您在那裡看到 Application Insights 選項，則工具已安裝。 如果沒有，請嘗試解除安裝 Application Insights Tools，再重新安裝。
+* 開啟 [新增專案] 對話方塊，並且選擇 [ASP.NET Web 應用程式]。 如果您在那裡看到 Application Insights 選項，則工具已安裝。 如果沒有，請嘗試解除安裝再重新安裝 Developer Analytics Tools。
 
 ## <a name="q02"></a>新增 Application Insights 失敗
 當我嘗試將 Application Insights 新增至現有的專案時，看到錯誤訊息。
@@ -85,7 +85,7 @@ ms.locfileid: "60691187"
 * 選取 [工具]、[擴充功能和更新]，檢查 [開發人員分析工具] 是否已安裝並啟用。 如果是，按一下 [更新]  以查看是否有可用的更新。
 * 以滑鼠右鍵按一下 [方案總管] 中的專案。 如果您看到命令 [Application Insights] > [設定 Application Insights]，使用它將專案連線至 Application Insights 服務中的資源。
 
-否則，Application Insights 工具不會直接支援您的專案類型。 若要查看您的遙測，請登入 [Azure 入口網站](https://portal.azure.com)，在左側的導覽列中，選擇 [Application Insights]，然後選取您的應用程式。
+否則開發人員分析工具不直接支援您的專案類型。 若要查看您的遙測，請登入 [Azure 入口網站](https://portal.azure.com)，在左側的導覽列中，選擇 [Application Insights]，然後選取您的應用程式。
 
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>從 Visual Studio 開啟 Application Insights 時「拒絕存取」
 *[開啟 Application Insights] 功能表命令帶我前往 Azure 入口網站，但是我收到「拒絕存取」錯誤。*

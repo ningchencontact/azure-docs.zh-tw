@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b80f11ef97a10728f07cebe1fe80b954e506da52
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147884"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406554"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
 
@@ -25,7 +25,11 @@ ms.locfileid: "65147884"
 
 ## <a name="accessing-the-azure-media-services-api"></a>存取 Azure 媒體服務 API
 
-若要存取 Azure 媒體服務資源，您可以使用 Azure Active Directory (AD) 服務主體驗證。
+在獲得存取媒體服務資源和媒體服務 API 的授權之前，您必須先進行驗證。 媒體服務支援[Azure Active Directory (Azure AD) 為基礎](../../active-directory/fundamentals/active-directory-whatis.md)驗證。 兩個常見的驗證選項如下：
+ 
+* **服務主體驗證**-用來驗證服務 (例如： web 應用程式、 函式應用程式、 logic apps、 API 和微服務)。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式。 比方說，適用於 Web 應用程式有一律應該是中介層連接到媒體服務與服務主體。
+* **使用者驗證**-用來驗證使用應用程式互動與媒體服務資源的人員。 互動式應用程式應該會先提示使用者輸入使用者的認證。 例如，授權的使用者用來監控編碼工作或即時串流的管理主控台應用程式。
+
 媒體服務 API 要求的使用者或應用程式進行 REST API 要求媒體服務帳戶資源的存取權，並使用**參與者**或是**擁有者**角色。 API 可以使用存取**讀者**角色但只**取得**或**清單** 作業可使用。 如需詳細資訊，請參閱 <<c0> [ 媒體服務帳戶的角色型存取控制](rbac-overview.md)。
 
 而不是建立服務主體，請考慮使用適用於 Azure 資源管理的身分識別存取媒體服務 API 透過 Azure Resource Manager。 若要深入了解適用於 Azure 資源管理的身分識別，請參閱[什麼是適用於 Azure 資源管理的身分識別](../../active-directory/managed-identities-azure-resources/overview.md)。
@@ -52,6 +56,16 @@ ms.locfileid: "65147884"
 2. Azure AD 存取權杖會傳送至中介層。
 4. 中介層使用該 Azure AD 權杖傳送要求至 Azure 媒體 REST API。
 5. 媒體服務回傳資料給中介層。
+
+### <a name="samples"></a>範例
+
+請參閱下列範例示範如何使用 Azure AD 服務主體連線：
+
+* [使用 REST 連線](media-rest-apis-with-postman.md)  
+* [使用 Java 進行連線](configure-connect-java-howto.md)
+* [使用 .NET 進行連線](configure-connect-dotnet-howto.md)
+* [使用 Node.js 進行連線](configure-connect-nodejs-howto.md)
+* [使用 Python 進行連線](configure-connect-python-howto.md)
 
 ## <a name="naming-conventions"></a>命名慣例
 
@@ -88,7 +102,7 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 
 請參閱[篩選、 排序、 分頁的 Azure 媒體服務實體](entities-overview.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

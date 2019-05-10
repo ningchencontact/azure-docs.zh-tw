@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8c0291997c1ce301083f7d5c19b5067a85cfd0f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024964"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471620"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -288,7 +288,7 @@ Azure Databricks 的運作方式與 Azure Machine Learning 服務：
 | 叢集名稱 |永遠| yourclustername |
 | Databricks 執行階段 |永遠| 任何非 ML 執行階段 (非 ML 4.x、5.x) |
 | Python 版本 |永遠| 3 |
-| 背景工作角色 |永遠| 2 個以上 |
+| 背景工作 |永遠| 2 個以上 |
 | 背景工作節點 VM 類型 <br>（可判斷並行的反覆項目的最大數目） |自動化 ML<br>只有| 建議使用已記憶體最佳化的 VM |
 | 啟用自動調整 |自動化 ML<br>只有| 取消選取 |
 
@@ -299,7 +299,7 @@ Azure Databricks 的運作方式與 Azure Machine Learning 服務：
 
 1. 選擇**只有一個**（支援任何其他的 SDK 安裝） 的選項
 
-   |SDK&nbsp;封裝&nbsp;額外項目|來源|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;封裝&nbsp;額外項目|`Source`|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Databricks| 上傳 Python Egg 或 PyPI | azureml-sdk[databricks]|
    |-加上-的 databricks<br> 自動化的 ML 功能| 上傳 Python Egg 或 PyPI | azureml-sdk[automl_databricks]|
@@ -344,7 +344,7 @@ SDK databricks **WITH**自動化機器學習服務![SDK 會自動安裝在 Datab
 * Azure Machine Learning SDK 已安裝。
 * 在 Azure 入口網站中建立 Azure Machine Learning 服務工作區後，您可以按一下按鈕來自動設定您的 Azure Notebook 環境，以使用工作區。
 
-使用[Azure 入口網站](https://portal.azure.com)若要開始使用 Azure Notebook。  開啟您的工作區往返**概觀**區段中，選取**開始使用 Azure Notebooks**。
+透過 [Azure 入口網站](https://portal.azure.com)開始使用 Azure Notebooks。  開啟您的工作區往返**概觀**區段中，選取**開始使用 Azure Notebooks**。
 
 根據預設，Azure Notebooks 使用免費服務層級，其限制為 4 GB 記憶體和 1GB 資料。 不過，您可以將資料科學虛擬機器執行個體附加到 Azure Notebooks 專案來移除這些限制。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
 
@@ -368,7 +368,7 @@ SDK databricks **WITH**自動化機器學習服務![SDK 會自動安裝在 Datab
 
 * **請依照下列中的步驟[建立 Azure 機器學習服務工作區](setup-create-workspace.md#sdk)**:*config.json* 檔案是在 Azure Notebook 程式庫中建立的。 此檔案包含您工作區的組態資訊。 您可以將此 *config.json* 下載或複製到其他開發環境。
 
-* **下載檔案**:在  [Azure 入口網站](https://ms.portal.azure.com)，選取**下載 config.json**從**概觀**工作區的區段。
+* **下載檔案**:在 Azure 入口網站中，從您工作區的 [概觀] 區段選取 [下載 config.json][](https://ms.portal.azure.com)。
 
      ![Azure 入口網站](./media/how-to-configure-environment/configure.png)
 
@@ -396,5 +396,5 @@ SDK databricks **WITH**自動化機器學習服務![SDK 會自動安裝在 Datab
 
 - 在 Azure Machine Learning 使用 MNIST 資料集[定型模型](tutorial-train-models-with-aml.md) \(英文\)
 - 檢視[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) \(英文\) 參考
-- 深入了解 [Azure Machine Learning 資料準備 SDK](https://aka.ms/data-prep-sdk) \(英文\)
+- 深入了解[Azure Machine Learning 資料準備封裝](https://aka.ms/data-prep-sdk)
 - 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 05/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: fb6a32887703af6d37f8f73d2f9e18ec97f74289
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2c596b49d5587b07fe75cefde72e897478dc3dc8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203547"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472146"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>在 QnA Maker 中以互動方式測試您的知識庫
 
@@ -24,14 +24,10 @@ QnA Maker 知識庫測試，對於用以改善傳回回應正確度的互動流�
 
 ## <a name="test-answer-matching"></a>測試答案比對
 
-1.  選取 [我的知識庫] 頁面上的資料庫名稱來存取知識庫。
-2.  若要存取測試滑出面板，請選取應用程式上方面板中的 [測試]。
-
-    ![存取測試面板](../media/qnamaker-how-to-test-kb/access-test.png)
-
-3.  在文字方塊中輸入查詢，並選取 [輸入]。
-
-4.  會將知識庫中最相符的答案做為回應傳回。
+1. 選取 [我的知識庫] 頁面上的資料庫名稱來存取知識庫。
+1. 若要存取測試滑出面板，請選取應用程式上方面板中的 [測試]。
+1. 在文字方塊中輸入查詢，並選取 [輸入]。
+1. 會將知識庫中最相符的答案做為回應傳回。
 
 ## <a name="clear-test-panel"></a>清除測試面板
 
@@ -65,18 +61,20 @@ QnA Maker 知識庫測試，對於用以改善傳回回應正確度的互動流�
 
 ## <a name="add-a-new-answer"></a>加入新答案
 
-如果任何符合的現有答案不正確，或答案不存在於知識庫 (在資料庫中找不到任何合適的相符項目)，您可以加入新的答案。 在文字方塊中輸入目前問題的新答案，然後按下 Enter 鍵將它加入。 
+如果任何符合的現有答案不正確，或答案不存在於知識庫 (在資料庫中找不到任何合適的相符項目)，您可以加入新的答案。 
+
+答案清單底部，使用文字方塊中輸入新的回應，並按 enter 鍵新增它。 
 
 選取 [Save and train]\(儲存並訓練\) 保留此答案。 新的問答組現在已加入至您的知識庫。 
-
-![新增問答組](../media/qnamaker-how-to-test-kb/add-answer.png)
 
 > [!NOTE]
 > 只有在您按下 [Save and train]\(儲存並訓練\) 按鈕時，才會儲存對於知識庫進行的所有編輯。
 
 ## <a name="test-the-published-knowledge-base"></a>測試已發行的知識庫
 
-在 [測試] 窗格中，您可以測試的知識庫已發行的版本。 一旦發行知識庫，請檢查 「 發行 」 的方塊，並傳送查詢，以便從已發行的知識庫，取得結果。
+在 [測試] 窗格中，您可以測試的知識庫已發行的版本。 一旦您已經發行知識庫，選取**發行知識庫**並傳送查詢，以便從已發行的知識庫，取得結果。
+
+![測試已發佈的 KB](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 6b60e03c8888ad2c9726116f1f3b2e49d9a4e1e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722750"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506431"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地儲存 Web 應用程式的祕密應用程式設定
 
@@ -49,14 +49,16 @@ ms.locfileid: "64722750"
 
     ![新增金鑰保存庫密碼](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-4. 安裝[適用於 Visual Studio 的 Azure 服務驗證延伸模組](https://go.microsoft.com/fwlink/?linkid=862354)。 透過此延伸模組，應用程式將可使用 Visual Studio 登入身分識別來存取金鑰保存庫。
-
-5. 將下列 NuGet 封裝新增至您的專案：
+    > [!NOTE] 
+    > 在 Visual Studio 2017 V15.6 之前我們用來建議適用於 Visual Studio 安裝的 Azure 服務驗證延伸模組。 它已被取代，但現在，因為它整合在 Visual studio。 因此如果您是在較舊版本的 visual Studio 2017，我們建議您至少更新至 VS 2017 15.6年或註冊，讓您可以使用這項功能的原生和存取金鑰保存庫，從使用 Visual Studio 登入身分識別本身。
+    >
+ 
+4. 將下列 NuGet 封裝新增至您的專案：
 
     ```
     Microsoft.Azure.Services.AppAuthentication
     ```
-6. 將下列程式碼新增至 Program.cs 檔案：
+5. 將下列程式碼新增至 Program.cs 檔案：
 
     ```csharp
     public static IWebHost BuildWebHost(string[] args) =>
@@ -79,11 +81,11 @@ ms.locfileid: "64722750"
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-7. 將您的金鑰保存庫 URL 新增至 launchsettings.json 檔案。 環境變數名稱 *KEYVAULT_ENDPOINT* 會定義於您在步驟 6 新增的程式碼中。
+6. 將您的金鑰保存庫 URL 新增至 launchsettings.json 檔案。 環境變數名稱 *KEYVAULT_ENDPOINT* 會定義於您在步驟 6 新增的程式碼中。
 
     ![將金鑰保存庫 URL 新增為專案的環境變數](./media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-8. 開始進行專案偵錯。 此作業應可順利執行。
+7. 開始進行專案偵錯。 此作業應可順利執行。
 
 ## <a name="aspnet-and-net-applications"></a>ASP.NET 和 .NET 應用程式
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470214"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466291"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>識別及解決 Azure Active Directory 中群組的授權指派問題
 
@@ -52,7 +52,7 @@ Azure Active Directory (Azure AD) 中以群組為基礎的授權會介紹使用�
 
 下列幾節描述每個潛在問題及其解決方法。
 
-## <a name="not-enough-licenses"></a>沒有足夠的授權
+## <a name="not-enough-licenses"></a>授權數不足
 
 **問題：** 群組中指定的其中一項產品沒有足夠的可用授權。 您需要為產品購買更多授權，或從其他使用者或群組釋放未使用的授權。
 
@@ -77,7 +77,7 @@ Azure Active Directory (Azure AD) 中以群組為基礎的授權會介紹使用�
 
 **PowerShell：** PowerShell Cmdlet 會將此錯誤報告為 _MutuallyExclusiveViolation_。
 
-## <a name="other-products-depend-on-this-license"></a>其他產品相依於此授權
+## <a name="other-products-depend-on-this-license"></a>其他相依於此授權的產品
 
 **問題：** 群組中指定的其中一個產品包含服務方案，必須在另一個產品中針對另一個服務方案啟用，才能夠運作。 當 Azure AD 嘗試移除基礎服務方案時會發生此錯誤。 比方說，從群組移除使用者時可能會發生這種情形。
 
@@ -107,9 +107,15 @@ Azure Active Directory (Azure AD) 中以群組為基礎的授權會介紹使用�
 > ```
 > Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> 如需此問題的詳細資訊，請參閱 [Exchange Online 中出現「已使用此 Proxy 位址」錯誤訊息](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)。 該文章也包括[如何使用遠端 PowerShell 連線至 Exchange Online](https://technet.microsoft.com/library/jj984289.aspx)的相關資訊。 如需詳細資訊，請參閱[如何在 Azure AD 中填入 proxyAddresses 屬性](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad) \(英文\) 一文。
+> 如需此問題的詳細資訊，請參閱 [Exchange Online 中出現「已使用此 Proxy 位址」錯誤訊息](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)。 該文章也包括[如何使用遠端 PowerShell 連線至 Exchange Online](https://technet.microsoft.com/library/jj984289.aspx)的相關資訊。
 
 為受影響的使用者解決任何 Proxy 位址問題之後，請務必在群組上強制執行授權處理，以確保現在可以套用授權。
+
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Azure AD 郵件和 ProxyAddresses 屬性變更
+
+**問題：** 在更新使用者或群組的授權指派，您可能會看到某些使用者的 Azure AD 郵件和 ProxyAddresses 屬性，會變更。
+
+正在更新 proxy 位址觸發計算使用者原因的授權指派，而可以變更使用者屬性。 若要了解變更的確切的原因和解決問題，請參閱這篇文章[在 Azure AD 中 proxyAddresses 屬性的填入方式](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)。
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>當群組中有一個以上的產品授權時，會發生什麼事？
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: a6635b811dfa9c46facfffee1c57b2871cb4c738
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719714"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506385"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>新增、變更或移除 Azure 網路介面的 IP 位址
 
@@ -51,17 +51,17 @@ ms.locfileid: "64719714"
 4. 在 [IP 設定] 下，選取 [+ 新增]。
 5. 指定下列項目，然後選取 [確定]：
 
-   |設定|必要？|詳細資料|
+   |設定|必要?|詳細資料|
    |---|---|---|
-   |名稱|是|在網路介面中必須是唯一的|
-   |類型|是|由於您要新增 IP 組態至現有的網路介面，而每個網路介面都必須有一個[主要](#primary) IP 組態，所以您只能選擇 [次要]。|
-   |私人 IP 位址指派方法|是|[**動態**](#dynamic)：Azure 會為其中部署網路介面的子網路位址範圍指派下一個可用位址。 [**靜態**](#static)：您會為其中部署網路介面的子網路位址範圍指派未使用的位址。|
-   |公用 IP 位址|否|**已停用：** IP 組態目前沒有相關聯的公用 IP 位址資源。 **已啟用：** 選取現有的 IPv4 公用 IP 位址，或建立一個新的。 若要了解如何建立公用 IP 位址，請閱讀[公用 IP 位址](virtual-network-public-ip-address.md#create-a-public-ip-address)一文。|
+   |名稱|有|在網路介面中必須是唯一的|
+   |Type|有|由於您要新增 IP 組態至現有的網路介面，而每個網路介面都必須有一個[主要](#primary) IP 組態，所以您只能選擇 [次要]。|
+   |私人 IP 位址指派方法|有|[**動態**](#dynamic)：Azure 會為其中部署網路介面的子網路位址範圍指派下一個可用位址。 [**靜態**](#static)：您會為其中部署網路介面的子網路位址範圍指派未使用的位址。|
+   |公用 IP 位址|無|**已停用：** IP 組態目前沒有相關聯的公用 IP 位址資源。 **已啟用：** 選取現有的 IPv4 公用 IP 位址，或建立一個新的。 若要了解如何建立公用 IP 位址，請閱讀[公用 IP 位址](virtual-network-public-ip-address.md#create-a-public-ip-address)一文。|
 6. 請完成[將多個 IP 位址指派給虛擬機器作業系統](virtual-network-multiple-ip-addresses-portal.md#os-config)一文中的指示，以手動方式將次要私人 IP 位址新增至虛擬機器作業系統。 有關手動將 IP 位址新增至虛擬機器作業系統之前的特殊考量，請參閱[私人](#private) IP 位址。 請勿將任何公用 IP 位址新增至虛擬機器作業系統。
 
 **命令**
 
-|工具|命令|
+|Tool|命令|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
@@ -82,7 +82,7 @@ ms.locfileid: "64719714"
 
 **命令**
 
-|工具|命令|
+|Tool|命令|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
@@ -98,7 +98,7 @@ ms.locfileid: "64719714"
 
 **命令**
 
-|工具|命令|
+|Tool|命令|
 |---|---|
 |CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Remove-AzNetworkInterfaceIpConfig](/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
@@ -150,7 +150,7 @@ ms.locfileid: "64719714"
 
 除了讓虛擬機器與同一虛擬網路或已連線虛擬網路內的其他資源通訊，私人 IP 位址也可讓虛擬機器與網際網路進行輸出通訊。 輸出連線是由 Azure 轉譯為不可預測的公用 IP 位址的來源網路位址。 若要深入了解 Azure 輸出網際網路連線能力，請閱讀[Azure 輸出網際網路連線能力](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。 您無法從網際網路對虛擬機器的私人 IP 位址進行輸入通訊。 如果您的輸出連線需要可預測的公用 IP 位址，請建立公用 IP 位址資源與網路介面的關聯。
 
-### <a name="public"></a>公開
+### <a name="public"></a>公用
 
 透過公用 IP 位址資源指派的公用 IP 位址，可從網際網路對虛擬機器進行輸入連線。 對網際網路的輸出連線使用的是可預測的 IP 位址。 如需詳細資訊，請參閱[了解 Azure 中的輸出連線](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 您可以 (但不需要) 對 IP 組態指派公用 IP 位址。 如果您不透過與公用 IP 位址資源建立關聯，來指派公用 IP 位址給虛擬機器，虛擬機器仍然可和網際網路進行輸出通訊。 在此情況下，私人 IP 位址是由 Azure 轉譯為不可預測的公用 IP 位址的來源網路位址。 若要深入了解公用 IP 位址資源，請參閱[公用 IP 位址資源](virtual-network-public-ip-address.md)。
 
@@ -175,7 +175,7 @@ ms.locfileid: "64719714"
 您可以 (選擇性) 指派公用或私人靜態 IPv4 位址給 IP 組態。 您無法指派靜態公用或私人 IPv6 位址給 IP 組態。 若要深入了解 Azure 如何指派靜態公用 IPv4 位址，請參閱[公用 IP 位址](virtual-network-public-ip-address.md)。
 
 - **僅限公用**：Azure 會從每個 Azure 區域專屬的範圍指派位址。 您可以針對 Azure [公開](https://www.microsoft.com/download/details.aspx?id=56519)、[美國政府](https://www.microsoft.com/download/details.aspx?id=57063)、[中國](https://www.microsoft.com/download/details.aspx?id=57062)及[德國](https://www.microsoft.com/download/details.aspx?id=57064)雲端，下載範圍 (前置詞) 清單。 位址不會變更，除非其指派目的地的公用 IP 位址資源遭到刪除，或指派方法變更為動態。 如果公用 IP 位址資源與 IP 設定相關聯，則變更指派方法前，必須先取消與 IP 設定的關聯。
-- **僅限私人**：您選取並指派子網路位址範圍內的位址。 您指派的位址可以是子網路位址範圍內的任何位址，但該位址不是子網路位址範圍內的前四個位址之一，而且目前並未指派給子網路中的任何其他資源。 只有在刪除網路介面後，才會釋出靜態位址。 如果您將配置方法變更為靜態，Azure 會以動態方式將先前指派的靜態 IP 位址指派為動態位址 (即使此位址不是子網路位址範圍內的下一個可用位址)。 如果網路介面已指派給相同虛擬網路內的不同子網路，位址也會跟著變更，但若要將網路介面指派給不同的子網路，您必須先將配置方法從靜態變更為動態。 一旦您將網路介面指派給不同的子網路，您即可將配置方法變回靜態，並從新的子網路位址範圍中指派 IP 位址。
+- **僅限私人**：您選取並指派子網路位址範圍內的位址。 您指派的位址可以是子網路位址範圍內的任何位址，但該位址不是子網路位址範圍內的前四個位址之一，而且目前並未指派給子網路中的任何其他資源。 只有在刪除網路介面後，才會釋出靜態位址。 如果您將配置方法變更為靜態，Azure 以動態方式將先前指派的動態 IP 位址為靜態位址，即使此位址不是子網路的位址範圍中的下一個可用位址。 如果網路介面已指派給相同虛擬網路內的不同子網路，位址也會跟著變更，但若要將網路介面指派給不同的子網路，您必須先將配置方法從靜態變更為動態。 一旦您將網路介面指派給不同的子網路，您即可將配置方法變回靜態，並從新的子網路位址範圍中指派 IP 位址。
 
 ## <a name="ip-address-versions"></a>IP 位址版本
 
@@ -204,7 +204,7 @@ ms.locfileid: "64719714"
 ## <a name="next-steps"></a>後續步驟
 若要建立具有不同 IP 組態的虛擬機器，請閱讀下列文章：
 
-|Task|工具|
+|Task|Tool|
 |---|---|
 |建立具有多個網路介面的 VM|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |建立具有多個 IPv4 位址的單一 NIC VM|[CLI](virtual-network-multiple-ip-addresses-cli.md)、[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

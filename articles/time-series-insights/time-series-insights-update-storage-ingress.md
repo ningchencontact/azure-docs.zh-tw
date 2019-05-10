@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe6848caad7cdac98d6717b7cea4860e7ce2db8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725733"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405706"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的資料儲存體和輸入
 
@@ -51,7 +51,7 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 
 若要深入了解 Parquet 檔案格式，請參閱 [Parquet 文件](https://parquet.apache.org/documentation/latest/) \(英文\)。
 
-## <a name="event-structure-in-parquet"></a>Parquet 中的事件結構
+### <a name="event-structure-in-parquet"></a>Parquet 中的事件結構
 
 時間序列深入解析會以下列兩種格式建立並儲存 Blob 複本：
 
@@ -77,20 +77,20 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 * 所有對應至資料行的其他屬性，都會以 `_string` (字串)、`_bool` (布林值)、`_datetime` (日期時間) 和 `_double` (雙精度浮點數) 結尾，取決於屬性類型。
 * 這是第一版的檔案格式對應結構描述，我們稱為 **V=1**。 隨著這項功能發展，名稱將會遞增為 **V=2**、**V=3**，依此類推。
 
-## <a name="partitions"></a>分割數
+## <a name="partitions"></a>分割區
 
-每個時間序列深入解析預覽環境都必須有時間序列識別碼屬性和時間戳記屬性，以作為唯一識別它的依據。 您的時間序列識別碼作為您資料的邏輯分割，並提供時間序列深入解析預覽環境自然界限，以跨實體分割區散發資料。 實體分割區的管理，是受 Azure 儲存體帳戶中的時間序列深入解析預覽所管理。
+每個時間序列深入解析預覽環境必須具備**時間序列識別碼**屬性並**時間戳記**唯一識別它的屬性。 您的時間序列識別碼作為您資料的邏輯分割，並提供時間序列深入解析預覽環境自然界限，以跨實體分割區散發資料。 實體分割區的管理，是受 Azure 儲存體帳戶中的時間序列深入解析預覽所管理。
 
 時間序列深入解析使用動態分割，透過卸除並重新建立分割區來最佳化儲存體與查詢效能。 時間序列深入解析預覽動態分割演算法會嘗試防止單一實體分割區讓資料有多個不同的邏輯分割區。 換句話說，分割演算法會將單一時間序列識別碼特定的所有資料以獨佔方式保留在 Parquet 檔案中，而不會與其他時間序列識別碼交錯。 動態分割演算法也會嘗試保留單一時間序列識別碼中的事件原始順序。
 
 一開始，在輸入階段，資料會依時間戳記分割，如此一來指定時間範圍內的單一邏輯分割區就可分散到多個實體分割區。 單一實體分割區也可能包含多個或所有邏輯分割區。 由於 Blob 的大小限制，即使已最佳化分割，單一邏輯分割區也可能佔用多個實體分割區。
 
 > [!NOTE]
-> 根據預設，時間戳記的值是您設定之事件來源中的「已加入佇列時間」訊息。 
+> 根據預設，時間戳記的值是您設定之事件來源中的「已加入佇列時間」訊息。
 
 如果您正在上傳歷史資料或批次訊息，請將您要與資料一起儲存的值指派給時間戳記屬性，其會對應至適當的時間戳記。 時間戳記屬性有區分大小寫。 如需詳細資訊，請參閱[時間序列模型](./time-series-insights-update-tsm.md)。
 
-## <a name="physical-partitions"></a>實體分割區
+### <a name="physical-partitions"></a>實體分割區
 
 實體分割區是區塊 Blob，其儲存於您的儲存體帳戶中。 Blob 的實際大小可能會有所不同，因為其大小取決於推送速率。 不過，我們預期 Blob 的大小約在 20 MB 至 50 MB。 此預期讓時間序列深入解析小組選取以 20 MB 作為最佳化查詢效能的大小。 此大小可能隨時間經過而改變，取決於檔案大小和資料輸入的速度。
 
@@ -99,7 +99,7 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 > * Azure Blob 偶爾會被卸除並重新建立以重新分割，來獲取更佳的效能。
 > * 此外，相同的時間序列深入解析資料可能存在於兩個以上的 Blob 中。
 
-## <a name="logical-partitions"></a>邏輯分割區
+### <a name="logical-partitions"></a>邏輯分割區
 
 邏輯分割區是一種實體分割區內的分割區，當中儲存與某個單一分割區索引鍵值相關的所有資料。 時間序列深入解析預覽根據下列兩個屬性，以邏輯方式分割每個 Blob：
 
@@ -110,9 +110,9 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 
 務必選取適當的時間序列識別碼，因為它是不可變的屬性。 如需詳細資訊，請參閱[選擇時間序列識別碼](./time-series-insights-update-how-to-id.md)。
 
-## <a name="your-azure-storage-account"></a>您的 Azure 儲存體帳戶
+## <a name="azure-storage"></a>Azure 儲存體
 
-### <a name="storage"></a>儲存體
+### <a name="your-storage-account"></a>您的儲存體帳戶
 
 當您建立時間序列深入解析隨用隨付環境時，您會建立兩個資源：時間序列深入解析環境和 Azure 儲存體一般用途 V1 帳戶 (資料將儲存於其中)。 我們選擇 Azure 儲存體一般用途 V1 作為預設資源，是因為其互通性、價格和效能。 
 
@@ -132,37 +132,25 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 
 您可以透過三種一般方式存取資料：
 
-* 透過時間序列深入解析預覽總管。
-* 透過時間序列深入解析預覽 API。
-* 直接透過 Azure 儲存體帳戶。
-
-#### <a name="from-the-time-series-insights-preview-explorer"></a>透過時間序列深入解析預覽總管
-
-您可以從時間序列深入解析預覽總管將資料會出為 CSV 檔案。 如需詳細資訊，請參閱 [Azure 時間序列深入解析預覽總管](./time-series-insights-update-explorer.md)。
-
-#### <a name="from-the-time-series-insights-preview-apis"></a>透過時間序列深入解析預覽 API
-
-您可在 `/getRecorded` 觸達 API 端點。 若要深入了解此 API，請參閱[時間序列查詢](./time-series-insights-update-tsq.md)。
+* 從 時間序列深入解析預覽總管： 您可以將資料匯出為 CSV 檔案，從時間序列深入解析預覽總管。 如需詳細資訊，請參閱 [Azure 時間序列深入解析預覽總管](./time-series-insights-update-explorer.md)。
+* 從時間序列深入解析預覽 Api: API 端點可以達到在`/getRecorded`。 若要深入了解此 API，請參閱[時間序列查詢](./time-series-insights-update-tsq.md)。
+* 直接從 Azure 儲存體帳戶 （如下所示）。
 
 #### <a name="from-an-azure-storage-account"></a>透過 Azure 儲存體帳戶
 
 * 無論您使用何種帳戶來存取時間序列深入解析資料，都需要讀取權限。 如需詳細資訊，請參閱[管理儲存體帳戶資源的存取](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources)。
-
 * 如需從 Azure Blob 儲存體直接讀取資料的詳細資訊，請參閱[從儲存體帳戶來回移動資料](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
-
 * 若要從 Azure 儲存體帳戶匯出資料：
-
     * 請先確定您的帳戶符合匯出資料的必要需求。 如需詳細資訊，請參閱[儲存體匯入和會出需求](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)。
-
     * 若要了解從 Azure 儲存體帳戶匯出資料的其他方式，請參閱[從 Blob 匯入和匯出資料](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs)。
 
 ### <a name="data-deletion"></a>刪除資料
 
 請勿刪除 Blob，因為時間序列深入解析預覽其中會維護有關 Blob 的中繼資料。
 
-## <a name="ingress"></a>輸入
+## <a name="time-series-insights-data-ingress"></a>時間序列深入解析資料輸入
 
-### <a name="time-series-insights-ingress-policies"></a>時間序列深入解析輸入原則
+### <a name="ingress-policies"></a>輸入原則
 
 時間序列深入解析預覽支援時間序列深入解析目前支援的相同事件來源和檔案類型。
 
@@ -184,7 +172,7 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 
 > [!IMPORTANT]
 > * 時間序列深入解析正式運作 (GA) 版本將可在叫用事件資料來源的 60 秒內讓資料可供使用。 
-> * 在預覽期間，可能需要較長的時間才能提供資料。 
+> * 在預覽期間，可能需要較長的時間才能提供資料。
 > * 如果您遇到任何明顯的延遲，請務必與我們連絡。
 
 ### <a name="scale"></a>調整

@@ -224,7 +224,8 @@
       items:
         - name: 建立 ML 管線
           href: how-to-create-your-first-pipeline.md
-        - name: 使用 Azure Pipelines 定型和部署 ML 模型
+        - name: 搭配 Azure Pipelines 的 ML 工作流程 CI/CD
+          displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
           mainContext: true
     - name: 管理資源配額
@@ -238,9 +239,6 @@
     - name: 機器學習 SDK
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: 資料準備 SDK
-      displayName: api core package python data prep
-      href: 'https://aka.ms/data-prep-sdk'
     - name: 監視 SDK
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'

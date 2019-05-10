@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: be3cedc4b496f4f64a52217099f64092dfb49228
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 35e57dfcc7b1fd6f8de265ab75de29dedd8fdfc2
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149855"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501656"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務的 CLI 擴充功能
 
@@ -36,7 +36,11 @@ CLI 不是 Azure Machine Learning SDK 的取代項目。 這是已最佳化，�
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
 
-## <a name="install-the-extension"></a>安裝擴充功能
+## <a name="full-reference-docs"></a>完整的參考文件
+
+尋找[完整的 Azure CLI 的 azure-cli-ml 延伸模組的參考文件](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest)。
+
+## <a name="install-the-extension"></a>安裝延伸模組
 
 若要安裝 Machine Learning CLI 擴充功能，請使用下列命令：
 
@@ -45,7 +49,7 @@ az extension add -n azure-cli-ml
 ```
 
 > [!TIP]
-> 可以找到範例檔案，您可以使用下列命令搭配[此處](http://aka.ms/azml-deploy-cloud)。
+> 可以找到範例檔案，您可以使用下列命令搭配[此處](https://aka.ms/azml-deploy-cloud)。
 
 出現提示時，請選取 `y` 來安裝擴充功能。
 
@@ -82,9 +86,12 @@ az extension remove -n azure-cli-ml
     如需詳細資訊，請參閱 < [az ml 工作區建立](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create)。
 
 + 附加到資料夾，以啟用 CLI 內容感知的工作區設定。
+
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
+
+    此命令會建立`.azureml`子目錄，其中包含範例 runconfig 和 conda 環境檔案。 它也包含`config.json`用來與您的 Azure Machine Learning 工作區通訊的檔案。
 
     如需詳細資訊，請參閱 < [az ml 資料夾附加](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)。
 
@@ -121,6 +128,13 @@ az extension remove -n azure-cli-ml
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
+    > [!TIP]
+    > `az ml folder attach`命令會建立`.azureml`子目錄，其中包含兩個範例 runconfig 檔案。 
+    >
+    > 如果您有以程式設計方式建立的回合的組態物件的 Python 指令碼時，您可以使用[RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-)將其儲存為 runconfig 檔案。
+    >
+    > 如以上範例的 runconfig 檔案，請參閱 < [ https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml ](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml)。
+
     如需詳細資訊，請參閱 < [az ml 執行提交指令碼](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)。
 
 * 檢視實驗的清單：
@@ -156,9 +170,26 @@ az extension remove -n azure-cli-ml
     az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
     ```
 
+    以下是範例`inferenceconfig.json`文件：
+
+    ```json
+    {
+    "entryScript": "score.py",
+    "runtime": "python",
+    "condaFile": "myenv.yml",
+    "extraDockerfileSteps": null,
+    "sourceDirectory": null,
+    "enableGpu": false,
+    "baseImage": null,
+    "baseImageRegistry": null
+    }
+    ```
+
     如需詳細資訊，請參閱 < [az ml 模型部署](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy)。
 
 
 ## <a name="next-steps"></a>後續步驟
 
 * [命令的 Machine Learning CLI 擴充功能參考](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest)。
+
+* [定型和部署機器學習模型，使用 Azure 的管線](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)

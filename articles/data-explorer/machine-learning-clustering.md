@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 2358cb2ea411a0077f34798183da30bd32ae067b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: bc72cc21ab525ec82d9ce4b24e80ce82d92a5d21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925134"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233508"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>機器學習服務的 Azure [資料總管] 中的功能
 
@@ -96,7 +96,7 @@ demo_clustering1
 | 2016-08-23 15:00:58.2222707 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 10007007   | 8215dcf6-2de0-42bd-9c90-181c70486c9c |
 | 2016-08-23 15:00:59.9382620 | scus   | su3       | 90d3d2fc7ecc430c9621ece335651a01 | 10007006   | 451e3c4c-0808-4566-a64d-84d85cf30978 |
 
-### <a name="use-autocluster-for-single-record-set-clustering"></a>使用`autocluster()`設定叢集的單一記錄
+### <a name="use-autocluster-for-single-record-set-clustering"></a>用於設定叢集的單一記錄的 autocluster()
 
 即使有不超過一千個例外狀況，它是仍然難以尋找常見的區段，每個資料行中有多個值。 您可以使用[ `autocluster()` ](/azure/kusto/query/autoclusterplugin)立即擷取小型清單的一般區段，並尋找有趣的外掛程式叢集突然增加的兩分鐘內，如下列查詢所示：
 
@@ -120,7 +120,7 @@ demo_clustering1
 
 Autocluster 會使用專屬的演算法，採礦多維度和擷取感興趣的區段。 「 有趣 」 表示每個區段有重大的涵蓋範圍的記錄集和功能集。 也會分歧區段，而這表示每一個都與其他完全不同。 一或多個這些區段可能會與相關的 RCA 程序。 為了減少區段檢閱和評估，autocluster 會擷取小區段清單。
 
-### <a name="use-basket-for-single-record-set-clustering"></a>使用`basket()`設定叢集的單一記錄
+### <a name="use-basket-for-single-record-set-clustering"></a>用於設定叢集的單一記錄的 basket()
 
 您也可以使用[ `basket()` ](/azure/kusto/query/basketplugin)外掛程式，如下列查詢所示：
 

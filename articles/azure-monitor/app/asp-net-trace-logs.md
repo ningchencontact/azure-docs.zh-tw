@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 74cb1b3ec4e0570aa4316e6f45e99719f36815d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150706"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472060"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>在 Application Insights 中探索 .NET/.NET Core 追蹤記錄
 
@@ -147,7 +147,7 @@ NuGet 封裝會安裝必要的組件，並會修改 web.config 或 app.config，
 
 TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如，您可以在該處編碼 POST 資料。
 
-您也可以新增至您的訊息的嚴重性層級。 就像其他遙測，您可以新增屬性值，以協助篩選或搜尋不同的追蹤集。 例如︰
+您也可以新增至您的訊息的嚴重性層級。 就像其他遙測，您可以新增屬性值，以協助篩選或搜尋不同的追蹤集。 例如：
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -177,8 +177,8 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如�
 使用 [Java 記錄配接器](../../azure-monitor/app/java-trace-logs.md)。
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>專案內容功能表上沒有 Application Insights 選項
-* 請確定已在開發電腦上安裝 Application Insights Tools。 在 Visual Studio**工具** > **擴充功能和更新**，尋找**Application Insights Tools**。 如果不是在**已安裝**索引標籤上，開啟**線上**索引標籤，然後安裝它。
-* 這可能是 Application Insights 工具不支援的專案類型。 請使用 [手動安裝](#manual-installation)。
+* 請確定 Developer Analytics Tools 會安裝在開發電腦上。 在 Visual Studio**工具** > **擴充功能和更新**，尋找**Developer Analytics Tools**。 如果不是在**已安裝**索引標籤上，開啟**線上**索引標籤，然後安裝它。
+* 這可能是 Devloper 分析工具不支援的專案類型。 請使用 [手動安裝](#manual-installation)。
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>在 組態工具中沒有記錄配接器選項
 * 第一次安裝記錄架構。

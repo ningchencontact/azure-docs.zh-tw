@@ -81,24 +81,28 @@
           href: data-box-edge-technical-specifications-compliance.md
     - name: 作法
       items:
-        - name: 管理計算
-          href: data-box-edge-manage-compute.md
         - name: '開發 C# 模組'
           href: data-box-edge-create-iot-edge-module.md
-        - name: 管理共用
-          href: data-box-edge-manage-shares.md
-        - name: 管理使用者
-          href: data-box-edge-manage-users.md
-        - name: 管理頻寬排程
-          href: data-box-edge-manage-bandwidth-schedules.md
-        - name: 管理功能、存取、連線能力
-          href: data-box-edge-manage-access-power-connectivity-mode.md
-        - name: 透過 PowerShell 管理
-          href: data-box-edge-connect-powershell-interface.md
+        - name: 管理
+          items:
+            - name: Edge 計算
+              href: data-box-edge-manage-compute.md
+            - name: 共用
+              href: data-box-edge-manage-shares.md
+            - name: 使用者
+              href: data-box-edge-manage-users.md
+            - name: 頻寬排程
+              href: data-box-edge-manage-bandwidth-schedules.md
+            - name: 功能、存取、連線能力
+              href: data-box-edge-manage-access-power-connectivity-mode.md
+            - name: 透過 PowerShell
+              href: data-box-edge-connect-powershell-interface.md
         - name: 疑難排解
           href: data-box-edge-troubleshoot.md
         - name: 監視
           href: data-box-edge-monitor.md
+        - name: 傳回裝置
+          href: data-box-edge-return-device.md
     - name: 版本資訊
       items:
         - name: 正式運作

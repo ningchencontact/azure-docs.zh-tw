@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148988"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235906"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>選擇 虛擬核心服務層，並從 DTU 服務層移轉
 
@@ -44,7 +44,7 @@ ms.locfileid: "65148988"
 |計算|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：2 至 80 vCore<br/>**無伺服器計算**<br/>第 5 代：0.5 - 4 vCore|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：2 至 80 vCore|**佈建計算**:<br/>第 4 代：1 到 24 個虛擬核心<br/>第 5 代：2 至 80 vCore|
 |記憶體|**佈建計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB<br/>**無伺服器計算**<br/>第 5 代：每個虛擬核心 3 GB|**佈建計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB |**佈建計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB|
 |儲存體|使用遠端儲存體：<br/>**單一資料庫佈建計算**:<br/>5 GB – 4 TB<br/>**單一資料庫的無伺服器計算**:<br/>5 GB - 1 TB<br/>**受控執行個體**:32 GB - 8 TB |使用本機 SSD 儲存體：<br/>**單一資料庫佈建計算**:<br/>5 GB – 4 TB<br/>**受控執行個體**:<br/>32 GB - 4 TB |儲存體可依需求彈性地自動成長。 可支援多達 100 TB 以上的儲存體。 本機緩衝區集區快取和本機資料儲存可使用本機 SSD 儲存體。 以 Azure 遠端儲存體作為最終的長期資料存放區。 |
-|記憶體|第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB | 第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB |第 5 代：每個核心 5.1 GB|
+|記憶體|第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB | 第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB |第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB|
 |儲存體|使用遠端儲存體：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 8 TB |使用本機 SSD 儲存體：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 4 TB |儲存體可依需求彈性地自動成長。 可支援多達 100 TB 以上的儲存體。 本機緩衝區集區快取和本機資料儲存可使用本機 SSD 儲存體。 以 Azure 遠端儲存體作為最終的長期資料存放區。 |
 |IO 輸送量 (大約)|單一資料庫：每個虛擬核心 500 IOPS，且 IOPS 上限為 7000</br>受控執行個體：視[檔案大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)而定|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200,000|TBD|
 |可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域備援 HA|1 的讀取/寫入複本，再加上 0 到 4 之間[讀取級別複本](sql-database-read-scale-out.md)|

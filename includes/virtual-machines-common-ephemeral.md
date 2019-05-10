@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7737f73ee4eb9ae9dc8c4845020b7543a5b3495
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159161"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468340"
 ---
 暫時的 OS 磁碟是本機的虛擬機器 (VM) 儲存體上建立，並不會保存到遠端的 Azure 儲存體。 暫時的 OS 磁碟適用於無狀態工作負載，其中的應用程式可容忍的個別 VM 失敗，但關心更大規模的部署所花費的時間或時間來重新安裝映像個別的 VM 執行個體。 它也適合用於部署的應用程式，使用傳統部署模型中，移至 Resource Manager 部署模型。 使用暫時性 OS 磁碟時，您會觀察到較低的讀取/寫入延遲，OS 磁碟並更快的 VM 重新安裝映像。 此外，暫時的作業系統磁碟是免費，您需要支付在 OS 磁碟沒有儲存體費用。 
  
@@ -30,12 +30,12 @@ ms.locfileid: "65159161"
 |                             | 永續性的 OS 磁碟                          | 暫時性 OS 磁碟                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | OS 磁碟的大小限制      | 2 TiB                                                                                        | 快取大小的 VM 大小或 2TiB，取其較小的- [DS](../articles/virtual-machines/linux/sizes-general.md)， [ES](../articles/virtual-machines/linux/sizes-memory.md)， [M](../articles/virtual-machines/linux/sizes-memory.md)， [FS](../articles/virtual-machines/linux/sizes-compute.md)，和[GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| 支援的 VM 大小          | 全部                                                                                          | DSv1、 DSv2、 DSv3、 Esv2、 Fs、 FsV2、 GS、 M                                               |
+| 支援的 VM 大小          | 全部                                                                                          | DSv1、 DSv2、 DSv3、 Esv3、 Fs、 FsV2、 GS、 M                                               |
 | 磁碟型別支援           | 受控和非受控 OS 磁碟                                                                | 僅限受控的 OS 磁碟                                                               |
 | 區域支援              | 所有區域                                                                                  | 所有區域                              |
-| 資料永續性            | OS 磁碟的資料轉遞到作業系統磁碟會儲存在 Azure 儲存體                                  | OS 磁碟寫入的資料會儲存到本機的 VM 儲存體，而不會保存到 Azure 儲存體。 |
+| 資料持續性            | OS 磁碟的資料轉遞到作業系統磁碟會儲存在 Azure 儲存體                                  | OS 磁碟寫入的資料會儲存到本機的 VM 儲存體，而不會保存到 Azure 儲存體。 |
 | 停止並解除配置的狀態      | Vm 和擴展集執行個體可以停止並解除配置並從的停止取消配置狀態重新啟動 | Vm 和擴展集執行個體不能停止並解除配置                                  |
-| 特製化的 OS 磁碟支援 | 是                                                                                          | 否                                                                                 |
+| 特製化的 OS 磁碟支援 | 有                                                                                          | 無                                                                                 |
 | OS 磁碟大小調整              | 支援的 VM 建立期間和之後停止並解除配置 VM                                | 只有在建立 VM 時支援                                                  |
 | 新的 VM 大小調整大小   | OS 磁碟的資料會保留                                                                    | OS 磁碟上的資料會遭到刪除，OS 會重新佈建                                      |
 
@@ -48,13 +48,13 @@ ms.locfileid: "65159161"
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 若要檢查您已註冊預覽版：
 
 ```azurepowershell-interactive
-Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="cli"></a>CLI
@@ -67,7 +67,7 @@ az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 若要檢查您已註冊預覽版：
  
 ```azurecli-interactive
-az provider show –namespace ‘Microsoft.Compute’
+az provider show --namespace Microsoft.Compute
 ```
 
 

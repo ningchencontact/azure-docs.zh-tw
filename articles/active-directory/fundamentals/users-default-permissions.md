@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1736b120b60ab6583a3c38bb13c985d312c021b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: fb05ee4d6e05cb8b56756a761a519e5903b78bbd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190949"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507085"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的預設使用者權限是什麼？
 在 Azure Active Directory (Azure AD) 中，所有使用者都會獲得一組預設權限。 使用者的存取權包含使用者類型、其[角色指派](active-directory-users-assign-role-azure-portal.md)，以及個別物件的擁有權。 本文說明這些預設權限，並包含成員與來賓使用者預設值的比較。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
@@ -37,11 +37,11 @@ ms.locfileid: "65190949"
 使用者和連絡人 | 讀取使用者和連絡人的所有公用屬性<br>邀請來賓<br>變更自己的密碼<br>管理自己的行動電話號碼<br>管理自己的相片<br>使自己的重新整理權杖失效 | 讀取自己的屬性<br>讀取顯示名稱、電子郵件、登入名稱、相片、使用者主體名稱，以及其他使用者和連絡人的使用者類型屬性<br>變更自己的密碼
 群組 | 建立安全性群組<br>建立 Office 365 群組<br>讀取群組的所有屬性<br>讀取非隱藏的群組成員資格<br>讀取已加入群組的隱藏 Office 365 群組成員資格<br>管理使用者擁有之群組的屬性、擁有權及成員資格<br>將來賓新增至擁有的群組<br>管理動態成員資格設定<br>刪除擁有的群組<br>還原擁有的 Office 365 群組 | 讀取群組的所有屬性<br>讀取非隱藏的群組成員資格<br>讀取已加入群組的隱藏 Office 365 群組成員資格<br>管理擁有的群組<br>將來賓新增至擁有的群組 (如果允許)<br>刪除擁有的群組<br>還原擁有的 Office 365 群組<br>讀取所屬群組的屬性，包括成員資格。
 [應用程式] | 註冊 (建立) 新的應用程式<br>讀取已註冊和企業應用程式的屬性<br>管理擁有之應用程式的應用程式屬性、指派及認證<br>建立或刪除使用者的應用程式密碼<br>刪除擁有的應用程式<br>還原擁有的應用程式 | 讀取已註冊和企業應用程式的屬性<br>管理擁有之應用程式的應用程式屬性、指派及認證<br>刪除擁有的應用程式<br>還原擁有的應用程式
-裝置 | 讀取裝置的所有屬性<br>管理擁有之裝置的所有屬性<br> | 沒有權限<br>刪除擁有的裝置<br>
+裝置 | 讀取裝置的所有屬性<br>管理擁有之裝置的所有屬性<br> | 沒有任何權限<br>刪除擁有的裝置<br>
 目錄 | 讀取所有公司資訊<br>讀取所有網域<br>讀取所有夥伴合約 | 讀取顯示名稱和已驗證的網域
-角色和範圍 | 讀取所有系統管理角色和成員資格<br>讀取系統管理單元的所有屬性和成員資格 | 沒有權限 
-Subscriptions | 讀取所有訂用帳戶<br>啟用服務方案成員 | 沒有權限
-原則 | 讀取原則的所有屬性<br>管理擁有之原則的所有屬性 | 沒有權限
+角色和範圍 | 讀取所有系統管理角色和成員資格<br>讀取系統管理單元的所有屬性和成員資格 | 沒有任何權限 
+Subscriptions | 讀取所有訂用帳戶<br>啟用服務方案成員 | 沒有任何權限
+原則 | 讀取原則的所有屬性<br>管理擁有之原則的所有屬性 | 沒有任何權限
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>限制成員使用者的預設權限
 
@@ -50,10 +50,10 @@ Subscriptions | 讀取所有訂用帳戶<br>啟用服務方案成員 | 沒有權
 權限 | 設定說明
 ---------- | ------------
 使用者可以註冊應用程式 | 將此選項設定為 [否] 可防止使用者建立應用程式註冊。 能力可以再授與回特定的個人將它們新增至應用程式開發人員 」 角色。
-允許使用者利用 LinkedIn 連線公司或學校的帳戶 | 將此選項設定為 [否] 可防止使用者連線其 LinkedIn 帳戶的工作或學校帳戶。  請參閱[LinkedIn 帳戶連線資料共用和同意](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/linkedin-user-consent)如需詳細資訊。
+允許使用者利用 LinkedIn 連線公司或學校的帳戶 | 將此選項設定為 [否] 可防止使用者連線其 LinkedIn 帳戶的工作或學校帳戶。  請參閱[LinkedIn 帳戶連線資料共用和同意](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent)如需詳細資訊。
 建立安全性群組的能力 | 將此選項設定為 [否] 可防止使用者建立安全性群組。 全局管理员和用户管理员仍可创建安全组。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
 建立 Office 365 群組的能力 | 將此選項設定為 [否] 可防止使用者建立 Office 365 群組。 將此選項設定為 [部分] 可允許一組特定使用者建立 Office 365 群組。 全局管理员和用户管理员仍可创建 Office 365 组。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
-限制 Azure AD 系統管理入口網站的存取 | 將此選項設定為 [否] 可防止使用者存取 Azure Active Directory。
+Azure AD 管理入口網站的存取限制 | 將此選項設定為 [否] 可防止使用者存取 Azure Active Directory。
 讀取其他使用者的能力 | 此設定僅在 PowerShell 中可用。 將此項目設為 $false，可防止所有不是管理員的人員從目錄讀取使用者資訊。 但這樣做無法防止讀取其他 Microsoft 服務 (例如 Exchange Online) 中的使用者資訊。 這項設定適用於特殊情況，並不建議將此項目設定為 $false。
 
 ## <a name="object-ownership"></a>物件擁有權

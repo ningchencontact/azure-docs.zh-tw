@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/25/2019
+ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdf28418e7e1335dcb1f664964fa6ef03174aa1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709204"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463502"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -53,7 +53,7 @@ ms.locfileid: "64709204"
 ## <a name="error-codes"></a>錯誤碼
 
 
-|Error|描述|
+|Error|說明|
 |---|---|
 |16000|這是內部實作詳細資料，而不是錯誤狀況。 您可以放心地忽略此參考。|
 |20001|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
@@ -177,6 +177,7 @@ ms.locfileid: "64709204"
 |90051| 無效的委派權杖。 指定不正確的國家雲端識別碼 ({cloudId})。|
 |90072| 必須先在租用戶中將帳戶新增為外部使用者。 登出後再使用不同的 Azure AD 帳戶登入。|
 |90094| 進行授與需要系統管理員權限。 詢問您的租用戶系統管理員，以提供對此應用程式的同意。|
+|500021|公司 proxy 會限制租用戶。 拒絕的資源存取權。|
 |500121| 增強式驗證要求期間驗證失敗。|
 |500133| Assert 陳述式不在其有效時間範圍內。 先確認存取權杖未過期，再將它用於使用者 Assert 陳述式，或要求新權杖。|
 |530021|應用程式不符合已核准的條件式存取應用程式需求。|

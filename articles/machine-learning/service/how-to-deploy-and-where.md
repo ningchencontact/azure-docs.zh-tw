@@ -11,18 +11,18 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45421a249642abf37c89aa33e2e8a1b4a9e5e497
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205070"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507012"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
 了解如何部署您的機器學習模型作為 web 服務在 Azure 雲端中，或到 IoT Edge 裝置。 這份文件中的資訊將教導您如何部署至下列的計算目標：
 
-| 計算目標 | 部署類型 | 描述 |
+| 計算目標 | 部署類型 | 說明 |
 | ----- | ----- | ----- |
 | [本機 web 服務](#local) | 測試/偵錯 | 適用於有限的測試和疑難排解。
 | [Azure Kubernetes Service (AKS)](#aks) | 即時推斷 | 適用於大規模生產環境部署。 提供自動調整和快速的回應時間。 |
@@ -42,7 +42,7 @@ ms.locfileid: "65205070"
 
 ## <a name="prerequisites-for-deployment"></a>部署必要條件
 
-- 模型。 如果您不需要定型的模型，您可以使用模型 & 相依性檔案中提供[本教學課程](http://aka.ms/azml-deploy-cloud)。
+- 模型。 如果您不需要定型的模型，您可以使用模型 & 相依性檔案中提供[本教學課程](https://aka.ms/azml-deploy-cloud)。
 
 - [機器學習服務的 Azure CLI 擴充功能](reference-azure-machine-learning-cli.md)，或有[Azure Machine Learning Python SDK](https://aka.ms/aml-sdk)。
 
@@ -458,7 +458,7 @@ image_config.base_image = run.properties["AzureML.DerivedImageName"]
 使用 Azure Machine Learning 計算的批次推斷的逐步解說，請閱讀[如何執行批次預測](how-to-run-batch-predictions.md)文章。
 
 ## <a id="iotedge"></a> IoT Edge 上的推斷
-部署到 edge 支援處於預覽狀態。 如需詳細資訊，請參閱 <<c0> [ 為 IoT Edge 模組部署 Azure Machine Learning](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning)文章。
+部署到 edge 支援處於預覽狀態。 如需詳細資訊，請參閱 <<c0> [ 為 IoT Edge 模組部署 Azure Machine Learning](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning)文章。
 
 ## <a name="next-steps"></a>後續步驟
 * [部署疑難排解](how-to-troubleshoot-deployment.md)

@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 216eae383c704125cd32d9ed4cb1309299af7336
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153387"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472445"
 ---
 # <a name="encoding-with-media-services"></a>使用媒體服務編碼
 
@@ -87,11 +87,15 @@ Azure 媒體服務可讓您將高品質的數位媒體檔案編碼成調適性�
 - [自訂預設使用 CLI](custom-preset-cli-howto.md)
 - [自訂預設使用 REST](custom-preset-rest-howto.md)
 
+## <a name="preset-schema"></a>預設的結構描述
+
+媒體服務 v3 中預設會是強型別的 API 本身中的實體。 您可以找到這些物件中的 「 結構描述 」 定義[Open API 規格 （或 Swagger）](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)。 您也可以檢視的預設的定義 (例如**StandardEncoderPreset**) 中[REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)， [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) （或其他媒體服務 v3 SDK 參考文件）。
+
 ## <a name="scaling-encoding-in-v3"></a>在 v3 中調整編碼
 
 若要調整媒體處理，請參閱[使用 CLI 進行調整](media-reserved-units-cli-how-to.md)。
 
-## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

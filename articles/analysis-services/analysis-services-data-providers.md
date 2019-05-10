@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 05/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 334859aecf3a5f7a5678c0af656c6837d5661dac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 88ded03f636155e4b1a738f388e696a09736cd3b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61023494"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470759"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>可供連接到 Azure Analysis Services 的用戶端程式庫
 
@@ -23,16 +23,16 @@ ms.locfileid: "61023494"
 
 |下載  |產品版本  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.15.26    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.15.26      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.17.1.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.17.1.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.19.24    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.19.24      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   16.1.0.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    16.1.0.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 和 ADOMD (NuGet 套件)
 
 Analysis Services 管理物件 (AMO) 和 ADOMD 用戶端文件庫可從 [NuGet.org](https://www.nuget.org/)作為可安裝套件使用。建議您移轉至 NuGet 參考，而不是使用 Windows Installer。 
 
-|Package  | 產品版本  | 
+|封裝  | 產品版本  | 
 |---------|---------|
 |[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.17.1     |
 |[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.17.1      |

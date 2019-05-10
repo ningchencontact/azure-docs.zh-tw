@@ -10,10 +10,6 @@
       maintainContext: true
 - name: 快速入門
   items:
-    - name: 建立儲存體帳戶
-      displayName: 'resource manager, resource manager template, template, ARM'
-      href: /azure/storage/common/storage-quickstart-create-account
-      maintainContext: true
     - name: 在 Azure 入口網站中建立資料表
       href: table-storage-quickstart-portal.md
 - name: 範例
@@ -70,6 +66,10 @@
       href: table-storage-design-patterns.md
 - name: 使用說明指南
   items:
+    - name: 建立儲存體帳戶
+      displayName: 'resource manager, resource manager template, template, ARM'
+      href: /azure/storage/common/storage-quickstart-create-account
+      maintainContext: true
     - name: 如何使用儲存體模擬器
       href: /azure/storage/common/storage-use-emulator
       maintainContext: true

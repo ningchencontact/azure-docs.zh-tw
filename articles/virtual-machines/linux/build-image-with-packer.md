@@ -13,17 +13,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/03/2018
+ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0ec2616d8bdcf3cfd6d649f12e9bfceea33690a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543085"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467753"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何在 Azure 中使用 Packer 來建立 Linux 虛擬機器映像
 Azure 中的每個虛擬機器 (VM) 都是透過映像所建立，而映像則會定義 Linux 散發套件和作業系統版本。 映像中可包含預先安裝的應用程式與組態。 Azure Marketplace 提供了許多第一方和第三方映像，這些映像適用於最常見的散發套件和應用程式環境，而您也可以建立自己自訂的映像，以符合您的需求。 本文詳述如何使用開放原始碼工具 [Packer](https://www.packer.io/)，在 Azure 中定義並建置自訂映像。
+
+> [!NOTE]
+> Azure 現在會有一項服務，Azure 映像產生器 （預覽），來定義和建立您自己的自訂映像。 Azure 映像產生器的基礎 Packer，因此您甚至可以使用現有的 Packer shell 佈建程式指令碼使用它。 若要開始使用 Azure 映像產生器，請參閱[使用 Azure 映像產生器中建立 Linux VM](image-builder.md)。
 
 
 ## <a name="create-azure-resource-group"></a>建立 Azure 資源群組
@@ -232,6 +235,4 @@ az vm open-port \
 
 
 ## <a name="next-steps"></a>後續步驟
-在此範例中，您已使用 Packer 來建立已安裝 NGINX 的 VM 映像。 您可以使用這個 VM 映像以及現有的部署工作流程，來進行「將應用程式部署至使用 Ansible、Chef 或 Puppet 從映像所建立的 VM」之類的作業。
-
-如需其他 Linux 散發套件的其他 Packer 範本範例，請參閱[這個 GitHub 存放庫](https://github.com/hashicorp/packer/tree/master/examples/azure)。
+您也可以使用現有的 Packer 佈建程式指令碼與[Azure 映像產生器](image-builder.md)。

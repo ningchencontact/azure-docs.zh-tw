@@ -67,27 +67,29 @@
                 - name: 使用 VMSS 擴充排序的磁碟加密
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: 磁碟加密附錄
-              href: azure-security-disk-encryption-appendix.md
-            - name: 磁碟加密常見問題
-              href: azure-security-disk-encryption-faq.md
-            - name: 疑難排解
-              href: azure-security-disk-encryption-tsg.md
-            - name: Azure 磁碟加密與 Azure AD 應用程式 (舊版)
-              displayName: active directory
-              items:
-                - name: 磁碟加密與 Azure AD 應用程式的必要條件
+                  href: azure-security-disk-encryption-appendix.md
+                - name: 磁碟加密常見問題
+                  href: azure-security-disk-encryption-faq.md
+                - name: 疑難排解
+                  href: azure-security-disk-encryption-tsg.md
+                - name: Azure 磁碟加密與 Azure AD 應用程式 (舊版)
                   displayName: active directory
-                  href: azure-security-disk-encryption-prerequisites-aad.md
-                - name: 適用於 Windows VM 的磁碟加密與 Azure AD 應用程式
-                  displayName: active directory
-                  href: azure-security-disk-encryption-windows-aad.md
-                - name: 適用於 Linux VM 的磁碟加密與 Azure AD 應用程式
-                  displayName: active directory
-                  href: azure-security-disk-encryption-linux-aad.md
+                  items:
+                    - name: 磁碟加密與 Azure AD 應用程式的必要條件
+                      displayName: active directory
+                      href: azure-security-disk-encryption-prerequisites-aad.md
+                    - name: 適用於 Windows VM 的磁碟加密與 Azure AD 應用程式
+                      displayName: active directory
+                      href: azure-security-disk-encryption-windows-aad.md
+                    - name: 適用於 Linux VM 的磁碟加密與 Azure AD 應用程式
+                      displayName: active directory
+                      href: azure-security-disk-encryption-linux-aad.md
     - name: Azure 儲存體安全性
       href: security-storage-overview.md
     - name: 儲存體安全性指南
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: 客戶加密箱
+      href: azure-customer-lockbox-overview.md
 - name: 平台與基礎結構
   items:
     - name: 基礎結構安全性

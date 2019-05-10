@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 30de4da43569abf4d7bd668fd0fa481ecac23f4d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4271d94f07125a870cc4aa859b01db819d583f40
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080026"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406437"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立適用於 PostgreSQL 的 Azure 資料庫 – Hyperscale (Citus) (預覽)
 
@@ -34,8 +34,8 @@ Azure Database for PostgreSQL 是一種受控服務，您用來在雲端執行�
 4. 在新伺服器詳細資料表單中填寫下列資訊︰
    - 資源群組：按一下此欄位的文字方塊下方的 [新建] 連結。 輸入名稱，例如 **myresourcegroup**。
    - 伺服器群組名稱：輸入新伺服器群組的唯一名稱，該名稱也會用於伺服器子網域。
-   - 系統管理員使用者名稱：輸入唯一的使用者名稱 (稍後用於連線到資料庫)。
-   - 密碼：長度必須至少有 8 個字元，且必須包含下列類別中其中三種的字元 – 英文大寫字母、英文小寫字母、數字 (0-9) 和非英數字元 (!、$、#、% 等)。
+   - 管理員使用者名稱：輸入唯一的使用者名稱 (稍後將用來連線到資料庫)。
+   - 密碼：長度必須至少有 8 個字元，且必須包含下列三種類別的字元 – 英文大寫字母、英文小寫字母、數字 (0-9) 和非英數字元 (!、$、#、% 等)。
    - 位置：使用最接近使用者的位置，讓他們能以最快速度存取資料。
 
    > [!IMPORTANT]
@@ -43,8 +43,8 @@ Azure Database for PostgreSQL 是一種受控服務，您用來在雲端執行�
 
 5. 按一下 [設定伺服器群組]。 讓該區段中的設定維持不變，然後按一下 [儲存]。
 6. 按一下 [檢閱 + 建立]，然後按一下 [建立] 以佈建伺服器。 佈建需要幾分鐘的時間。
-7. 此頁面會重新導向以監視部署。 當即時狀態從 [您的部署正在進行中] 變更為 [您的部署已完成] 時，按一下頁面左邊的 [輸出] 功能表項目。
-8. [輸出] 頁面將包含協調器主機名稱，其旁邊有個按鈕可將此值複製到剪貼簿。 請記錄此資訊，以供稍後使用。
+7. 此頁面會重新導向以監視部署。 當即時狀態從 [您的部署正在進行中] 變更為 [您的部署已完成] 時，按一下頁面左側的 [輸出] 功能表項目。
+8. [輸出] 頁面將包含協調器主機名稱，且旁邊會有按鈕可將此值複製到剪貼簿。 請記錄此資訊，以供後續使用。
 
 ## <a name="configure-a-server-level-firewall-rule"></a>設定伺服器層級防火牆規則
 
@@ -169,7 +169,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-到目前為止，查詢已獨家參與 github\_events，但我們可以結合此資訊與 github\_users。 因為我們已將相同識別碼 (`user_id`) 上的 users 和 events 分區化，所以使用者識別碼相符的這兩個資料表上的資料列將[共置](http://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation)於相同的資料庫節點上，並可輕鬆地聯結。
+到目前為止，查詢已獨家參與 github\_events，但我們可以結合此資訊與 github\_users。 因為我們已將相同識別碼 (`user_id`) 上的 users 和 events 分區化，所以使用者識別碼相符的這兩個資料表上的資料列將[共置](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation)於相同的資料庫節點上，並可輕鬆地聯結。
 
 如果我們在 `user_id` 上聯結，Hyperscale 可以將聯結執行向下推送到分區，進而以平行方式在背景工作角色節點上執行。 例如，讓我們找出建立最多存放庫的使用者：
 
@@ -186,7 +186,7 @@ ORDER BY count(*) DESC;
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在前述步驟中，您在伺服器群組中建立了 Azure 資源。 如果您認為未來不需要這些資源，請刪除伺服器群組。 在您伺服器群組的 [概觀] 頁面中，按一下 [刪除] 按鈕。 當快顯頁面上出現系統提示時，確認伺服器群組的名稱，然後按一下最後一個 [刪除] 按鈕。
+在前述步驟中，您在伺服器群組中建立了 Azure 資源。 如果您認為未來不需要這些資源，請刪除伺服器群組。 在您伺服器群組的 [概觀] 頁面中，按一下 [刪除] 按鈕。 當快顯頁面上出現提示時，請確認伺服器群組的名稱，然後按一下最後一個 [刪除] 按鈕。
 
 ## <a name="next-steps"></a>後續步驟
 

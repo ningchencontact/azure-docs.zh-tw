@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473958"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65404911"
 ---
 您可以利用許多機會，藉由收集、檢視及分析診斷和記錄資料來監視 VM。 若要執行簡單的 VM [監視](../articles/azure-monitor/overview.md)，您可以在 Azure 入口網站中使用 VM 的 [概觀] 畫面。 您可以使用[擴充功能](../articles/virtual-machines/windows/extensions-features.md)來設定 VM 診斷，以收集其他計量資料。 您也可以使用更進階的監視選項，例如 [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 和 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)。
 
@@ -23,7 +23,7 @@ ms.locfileid: "61473958"
 
     當 VM 開機，開機診斷代理程式會擷取開機輸出，並儲存在 Azure 儲存體。 這項資料可以用於 VM 開機問題的疑難排解。 當您從命令列工具建立 VM 時，不會自動啟用開機診斷。 啟用開機診斷之前，需要建立儲存體帳戶用來儲存開機記錄。 如果您在 Azure 入口網站中啟用開機診斷，系統會自動為您建立儲存體帳戶。
 
-    如果您未在建立 VM 時啟用開機診斷，您稍後一律可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostics) 或 [Azure Resource Manager 範本](../articles/virtual-machines/windows/extensions-diagnostics-template.md)來啟用它。
+    如果您未在建立 VM 時啟用開機診斷，您稍後一律可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic) 或 [Azure Resource Manager 範本](../articles/virtual-machines/windows/extensions-diagnostics-template.md)來啟用它。
 
 - **啟用客體 OS 診斷資料的收集。** 當您建立 VM 時，您有機會在 [設定] 畫面上啟用客體 OS 診斷。 當您啟用診斷資料的收集時，[適用於 Linux 的 IaaSDiagnostics 擴充功能](../articles/virtual-machines/linux/diagnostic-extension.md)或[適用於 Windows 的 IaaSDiagnostics 擴充功能](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)會新增至 VM，以便您收集其他磁碟、CPU 和記憶體資料。
 

@@ -7,18 +7,18 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: d10ee8c1af85de5eb79cd4a4af6882c7a8f084f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b0a6c016b2be12ac6686b3748b4b16281899323e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159551"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511069"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>建立映像，並使用使用者指派的受控身分識別存取 Azure 儲存體中的檔案 
 
 Azure 映像產生器支援使用指令碼，或從多個位置，例如 GitHub 和 Azure 儲存體等複製的檔案。若要使用這些範本，他們必須已從外部存取 Azure 映像產生器，但您無法保護使用 SAS 權杖的 Azure 儲存體 blob。
 
-這篇文章示範如何建立使用 Azure VM 映像產生器，服務將在其中使用自訂映像[指派使用者給受控身分識別](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)來存取 Azure 儲存體中的檔案之映像自訂項目，不含您不必進行公開存取，或設定的 SAS 權杖的檔案。
+這篇文章示範如何建立使用 Azure VM 映像產生器，服務將在其中使用自訂映像[指派使用者給受控身分識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)來存取 Azure 儲存體中的檔案之映像自訂項目，不含您不必進行公開存取，或設定的 SAS 權杖的檔案。
 
 在下列範例中，您將建立兩個資源群組，其中將會用於自訂的映像，而且另會裝載 Azure 儲存體帳戶，包含指令碼檔。 這會模擬真實生活案例中，您可能會在其中有組建成品或在不同的儲存體帳戶中，映像產生器之外的映像檔案。 您將建立使用者指派的身分識別，則指令碼檔案中，讀取權限的授與，但不是會將任何的公用存取該檔案。 然後，您會使用 Shell 自訂下載並執行該指令碼，從儲存體帳戶。
 
@@ -130,7 +130,7 @@ az role assignment create \
 
 ## <a name="create-user-assigned-managed-identity"></a>建立使用者指派給受控身分識別
 
-建立身分識別，並指派指令碼儲存體帳戶的權限。 如需詳細資訊，請參閱 <<c0> [ 使用者所指派的受控身分識別](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity)。
+建立身分識別，並指派指令碼儲存體帳戶的權限。 如需詳細資訊，請參閱 <<c0> [ 使用者所指派的受控身分識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity)。
 
 ```azurecli-interactive
 # Create the user assigned identity 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327134"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506824"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -23,14 +23,14 @@ ms.locfileid: "60327134"
 
 |資料來源  |記憶體內  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   是      |    是      |
-|Azure SQL 資料倉儲     |   是      |   是       |
-|Azure Blob 儲存體<sup>[1](#tab1400a)</sup>     |   是       |    否      |
-|Azure 資料表儲存體<sup>[1](#tab1400a)</sup>    |   是       |    否      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  是        |  否        |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   是       |    否      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     是     |   否       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>、<sup>[3](#databricks)</sup>     |   是       |   否       |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   有      |    有      |
+|Azure SQL 資料倉儲     |   有      |   有       |
+|Azure Blob 儲存體<sup>[1](#tab1400a)</sup>     |   有       |    無      |
+|Azure 資料表儲存體<sup>[1](#tab1400a)</sup>    |   有       |    無      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  有        |  無        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   有       |    無      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     有     |   無       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>、<sup>[3](#databricks)</sup>     |   有       |   無       |
 ||||
 
 <a name="tab1400a">1</a> - 僅限 Tabular 1400 和更高模型。   
@@ -52,7 +52,7 @@ ms.locfileid: "60327134"
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server 資料倉儲 |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| Oracle |Microsoft OLE DB Provider for Oracle、Oracle Data Provider for .NET |Oracle Data Provider for .NET |
+| Oracle | OLE DB Provider for Oracle，Oracle Data Provider for.NET |Oracle Data Provider for .NET |
 | Teradata |OLE DB Provider for Teradata、Teradata Data Provider for .NET |Teradata Data Provider for .NET |
 | | | |
 
@@ -72,7 +72,7 @@ ms.locfileid: "60327134"
 |IBM Informix<sup>[1](#tab1400b)</sup> (搶鮮版 (Beta)) |
 |JSON 文件<sup>[1](#tab1400b)</sup>     |  
 |二進位檔中的程式行<sup>[1](#tab1400b)</sup>     | 
-|MySQL Database     | 
+|MySQL 資料庫     | 
 |OData 摘要<sup>[1](#tab1400b)</sup>     |  
 |ODBC 查詢     | 
 |OLE DB     |   

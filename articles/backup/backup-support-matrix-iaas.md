@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685939"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471655"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)備份內部部署機器和工作負載和 Azure 虛擬機器 (Vm)。 本文摘要說明支援設定和限制，當您使用 Azure 備份的 Azure Vm 備份。
@@ -38,12 +38,12 @@ ms.locfileid: "64685939"
 
 ## <a name="supported-backup-actions"></a>支援的備份動作
 
-**Action** | **支援**
+**動作** | **支援**
 --- | ---
 建立 Windows Azure VM 時啟用備份 | 支援：Windows Server 2019 (資料中心/Datacenter Core)、 Windows Server 2016 (資料中心/Datacenter Core);Windows Server 2012 R2 Datacenter;Windows Server 2008 R2 （RTM 和 SP1）
-建立 Linux VM 時啟用備份 | 支援：<br/><br/> - Ubuntu Server：1710、1704、1604 (LTS)、1404 (LTS)<br/><br/> - Red Hat：RHEL 6.7、6.8、6.9、7.2、7.3、7.4<br/><br/> - SUSE Linux Enterprise Server：11 SP4，12 SP2，12 SP3，15 <br/><br/> - Debian：8、9<br/><br/> - CentOS：6.9、7.3<br/><br/> -Oracle Linux:6.7、6.8、6.9、7.2、7.3
+建立 Linux VM 時啟用備份 | 支援：<br/><br/> - Ubuntu Server：18.04 17.10、 17.04，16.04 (LTS)、 14.04 (LTS)<br/><br/> - Red Hat：RHEL 6.7、6.8、6.9、7.2、7.3、7.4<br/><br/> - SUSE Linux Enterprise Server：11 SP4，12 SP2，12 SP3，15 <br/><br/> - Debian：8、9<br/><br/> - CentOS：6.9、7.3<br/><br/> -Oracle Linux:6.7、6.8、6.9、7.2、7.3
 備份 VM 關機/離線的 VM | 支援。<br/><br/> 僅建立絕對一致快照集，而非應用程式一致快照集。
-備份後移轉至受控磁碟的磁碟 | 支援。<br/><br/> 備份會繼續運作。 不需採取任何動作。
+備份後移轉至受控磁碟的磁碟 | 支援。<br/><br/> 備份會繼續運作。 不需要任何動作。
 啟用資源群組鎖定後備份受控磁碟 | 不支援。<br/><br/> Azure 備份無法刪除較舊的資源點，且備份會開始失敗時還原點的最大限制為止。
 修改 VM 的備份原則 | 支援。<br/><br/> VM 將備份在新原則中使用的排程和保留設定。 如果延長保留期設定，就會標示現有的復原點，並加以保留。 如果它們縮減，就會在下一步 的清除作業中剪除並最終刪除現有的復原點。
 取消備份作業 | 在快照集程序中支援。<br/><br/> 在快照集傳輸至保存庫期間不支援。
@@ -69,7 +69,7 @@ ms.locfileid: "64685939"
 
 以下是您備份 Linux 機器時所支援的項目。
 
-**Action** | **支援**
+**動作** | **支援**
 --- | ---
 使用 Linux Azure VM 代理程式備份 Linux Azure VM | 檔案一致備份。<br/><br/> 使用[自訂指令碼](backup-azure-linux-app-consistent.md)進行應用程式一致備份。<br/><br/> 在還原期間，您可以建立新的 VM，還原磁碟並使用它來建立 VM 時，或還原磁碟並使用它來取代現有的 VM 上的磁碟。 您也可以還原個別檔案和資料夾。
 使用 MARS 代理程式備份 Linux Azure VM | 不支援。<br/><br/> MARS 代理程式只能安裝在 Windows 機器上。
@@ -150,6 +150,7 @@ VM 大小 |   至少有 2 個 CPU 核心和 1 GB RAM 的任何 Azure VM 大小�
 將自訂映像 （第三方） 從備份部署的 Vm |   支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。
 將 Vm 移轉至 Azure 備份  | 支援。<br/><br/> 若要備份 VM，必須在已移轉的機器上安裝 VM 代理程式。
 備份多部 VM 一致性 | Azure 備份不提供跨多個 Vm 的資料和應用程式的一致性。
+備份與[診斷設定](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | 不支援。 <br/><br/> 還原 Azure VM 的診斷設定使用來觸發[新建](backup-azure-arm-restore-vms.md#create-a-vm)選項則還原會失敗。
 
 
 ## <a name="vm-storage-support"></a>VM 儲存體支援
@@ -214,10 +215,10 @@ Azure 備份支援傳輸中和待用資料的加密：
 
 **機器** | **傳輸中** | **待用**
 --- | --- | ---
-不含 DPM/MABS 的內部部署 Windows 機器 | ![是][green] | ![是][green]
-Azure VM | ![是][green] | ![是][green]
-使用 DPM 的內部部署/Azure VM | ![是][green] | ![是][green]
-使用 MABS 的內部部署/Azure VM | ![是][green] | ![是][green]
+不含 DPM/MABS 的內部部署 Windows 機器 | ![有][green] | ![有][green]
+Azure VM | ![有][green] | ![有][green]
+使用 DPM 的內部部署/Azure VM | ![有][green] | ![有][green]
+使用 MABS 的內部部署/Azure VM | ![有][green] | ![有][green]
 
 
 
@@ -230,10 +231,10 @@ Backup 支援備份的資料傳輸的壓縮下, 表摘要說明。 請注意：
 
 **機器** | **壓縮到 MABS DPM (TCP)** | **壓縮至保存庫 (HTTPS)**
 --- | --- | ---
-不含 DPM/MABS 的內部部署 Windows 機器 | NA | ![是][green]
+不含 DPM/MABS 的內部部署 Windows 機器 | NA | ![有][green]
 Azure VM | NA | NA
-使用 DPM 的內部部署/Azure VM | ![是][green] | ![是][green]
-使用 MABS 的內部部署/Azure VM | ![是][green] | ![是][green]
+使用 DPM 的內部部署/Azure VM | ![有][green] | ![有][green]
+使用 MABS 的內部部署/Azure VM | ![有][green] | ![是][green]
 
 
 ## <a name="next-steps"></a>後續步驟

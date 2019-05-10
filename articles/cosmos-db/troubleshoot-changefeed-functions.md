@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404684"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510535"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>診斷和 Azure Functions 中使用 Azure Cosmos DB 觸發程序時，針對問題進行疑難排解
 
@@ -27,17 +27,19 @@ Azure Cosmos DB 觸發程序和繫結取決於延伸模組套件的基底的 Azu
 
 本文章一律會參考 Azure Functions V2 每當執行階段所述，除非明確指定。
 
-## <a name="consuming-the-cosmos-db-sdk-separately-from-the-trigger-and-bindings"></a>使用 Cosmos DB SDK，分開的觸發程序和繫結
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>單獨使用 Azure Cosmos DB SDK
 
 延伸模組套件的主要功能是提供 Azure Cosmos DB 觸發程序和繫結支援。 它也包含[Azure Cosmos DB.NET SDK](sql-api-sdk-dotnet-core.md)，這有幫助，如果您想要以程式設計的方式互動使用 Azure Cosmos DB 未使用的觸發程序和繫結。
 
-如果想要使用 Azure Cosmos DB SDK，請確定您未新增至您的專案其他的 NuGet 套件參考。 相反地，**可讓透過 Azure Functions 的延伸模組套件所解析的 SDK 參考**。
+如果想要使用 Azure Cosmos DB SDK，請確定您未新增至您的專案其他的 NuGet 套件參考。 相反地，**可讓透過 Azure Functions 的延伸模組套件所解析的 SDK 參考**。 使用 Azure Cosmos DB SDK 分開的觸發程序和繫結
 
 此外，如果您要以手動方式建立您自己的執行個體[Azure Cosmos DB SDK 用戶端](./sql-api-sdk-dotnet-core.md)，您應該遵循的模式只有一個執行個體的用戶端[使用單一模式方法](../azure-functions/manage-connections.md#documentclient-code-example-c). 此程序可避免潛在的通訊端問題，在您的作業。
 
-## <a name="common-known-scenarios-and-workarounds"></a>已知的常見案例和因應措施
+## <a name="common-scenarios-and-workarounds"></a>常見的案例和因應措施
 
-### <a name="azure-function-fails-with-error-message-either-the-source-collection-collection-name-in-database-database-name-or-the-lease-collection-collection2-name-in-database-database2-name-does-not-exist-both-collections-must-exist-before-the-listener-starts-to-automatically-create-the-lease-collection-set-createleasecollectionifnotexists-to-true"></a>Azure 函式會失敗，錯誤訊息 「 任一來源 '集合-name' （資料庫中的集合' database_name '） 或租用 'collection2-name' （資料庫中的集合' database2-name'） 不存在。 啟動接聽程式之前，必須存在於這兩個集合。 若要自動建立租用集合，設定為 'true' 的 'CreateLeaseCollectionIfNotExists' 」
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Azure 函式會失敗，錯誤訊息集合並不存在
+
+Azure 函式會失敗，錯誤訊息 「 任一來源 '集合-name' （資料庫中的集合' database_name '） 或租用 'collection2-name' （資料庫中的集合' database2-name'） 不存在。 啟動接聽程式之前，必須存在於這兩個集合。 若要自動建立租用集合，設定為 'true' 的 'CreateLeaseCollectionIfNotExists' 」
 
 這表示一個或兩個所需的觸發程序運作的 Azure Cosmos 容器不存在或未連線至 Azure 函式。 **錯誤本身會告訴您哪一個 Azure Cosmos 資料庫和容器是觸發程序尋找**根據您的設定。
 
@@ -78,7 +80,8 @@ Azure Cosmos DB 觸發程序和繫結取決於延伸模組套件的基底的 Azu
 
 在此案例中，最好的做法是加入`try/catch blocks`程式碼中，並可能正在處理的變更，來偵測特定項目子集的任何失敗，並據以處理它們在迴圈內 （將它們傳送至另一個儲存體的進一步分析或重試）。 
 
-> **Azure Cosmos DB 觸發程序，根據預設，不會再試一次變更批次發生未處理的例外狀況時**在您的程式碼執行期間。 這表示，所做的變更並未到達目的地的原因是因為您無法加以處理。
+> [!NOTE]
+> Azure Cosmos DB 觸發程序，根據預設，不會重試變更批次在您的程式碼執行期間發生未處理例外狀況。 這表示，所做的變更並未到達目的地的原因是因為您無法加以處理。
 
 如果您發現您的觸發程序未完全收到一些變更，最常見的案例是，則**另一個 Azure 函式執行**。 它可能是部署在 Azure 中的另一個 Azure 函式或開發人員的電腦上本機執行 Azure 函式具有**完全相同的組態**（相同的監視和租用容器），以及此 Azure 函式竊取您預期您的 Azure 函式，來處理變更的子集。
 

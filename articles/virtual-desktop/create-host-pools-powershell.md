@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924949"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236670"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>使用 PowerShell 建立主機集區
 
@@ -100,17 +100,6 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
    - 下載[Windows 虛擬桌面的代理程式的開機載入器](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)。
    - 以滑鼠右鍵按一下 下載的安裝程式中，選取**屬性**，選取**解除封鎖**，然後選取**確定**。 這可讓您信任安裝程式的系統。
    - 執行安裝程式。
-4. 安裝或啟用 Windows 的虛擬桌面並排顯示堆疊。 步驟將會不同虛擬機器使用的 OS 版本而定。
-   - 如果您的虛擬機器的作業系統是 Windows Server 2016:
-     - 下載[Windows 的虛擬桌面並排顯示堆疊](https://go.microsoft.com/fwlink/?linkid=2084270)。
-     - 以滑鼠右鍵按一下 下載的安裝程式中，選取**屬性**，選取**解除封鎖**，然後選取**確定**。 這可讓您信任安裝程式的系統。
-     - 執行安裝程式。
-   - 如果您的虛擬機器的作業系統是 Windows 10 1809年或更新版本或 Windows Server 2019 或更新版本：
-     - 下載[指令碼](https://go.microsoft.com/fwlink/?linkid=2084268)啟用並排顯示堆疊。
-     - 以滑鼠右鍵按一下 下載的指令碼中，選取**屬性**，選取**解除封鎖**，然後選取**確定**。 這可讓您信任的指令碼的系統。
-     - 從**開始** 功能表中，搜尋 Windows PowerShell ISE 中，按一下滑鼠右鍵，然後選取**系統管理員身分執行**。
-     - 選取 **檔案**，然後**開啟...**，然後尋找 PowerShell 指令碼從下載的檔案，並開啟它。
-     - 選取綠色的播放按鈕，以執行指令碼。
 
 >[!IMPORTANT]
 >為了保護您在 Azure 中的 Windows 虛擬桌面環境，建議您不要在 VM 上開啟輸入連接埠 3389。 Windows 虛擬桌面不需要開啟輸入連接埠 3389 讓使用者存取主機集區的 VM。 如果您為了要進行疑難排解而必須開啟連接埠 3389，建議您使用 [Just-In-Time VM 存取](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)。

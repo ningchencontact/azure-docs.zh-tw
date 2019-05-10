@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428062"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416141"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
 
@@ -37,7 +37,7 @@ ms.locfileid: "60428062"
 
 針對系統指派的受控識別，您不需要手動建立該身分識別。 若要為您的邏輯應用程式設定系統指派的受控識別，您可以使用下列方式： 
 
-* [Azure 门户](#azure-portal) 
+* [Azure 入口網站](#azure-portal) 
 * [Azure 資源管理員範本](#template) 
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
 
@@ -59,7 +59,7 @@ ms.locfileid: "60428062"
 
    ![適用於物件識別碼的 GUID](./media/create-managed-service-identity/object-id.png)
 
-   | 屬性 | Value | 描述 | 
+   | 屬性 | Value | 說明 | 
    |----------|-------|-------------| 
    | **物件識別碼** | <*identity-resource-ID*> | 代表 Azure AD 租用戶中邏輯應用程式之系統指派受控識別的全域唯一識別碼 (GUID) | 
    ||| 
@@ -76,7 +76,7 @@ ms.locfileid: "60428062"
 }
 ```
 
-例如︰
+例如：
 
 ```json
 {
@@ -111,7 +111,7 @@ ms.locfileid: "60428062"
 }
 ```
 
-| 屬性 | Value | 描述 | 
+| 屬性 | Value | 說明 | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | 代表 Azure AD 租用戶中的邏輯應用程式，且有時會以「物件識別碼」或 `objectID` 之形式呈現的全域唯一識別碼 (GUID) | 
 | tenantId | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
@@ -132,7 +132,7 @@ ms.locfileid: "60428062"
 
 1. 在 Azure 入口網站中，移至您想要針對受控識別指派存取權的 Azure 資源。 
 
-1. 從資源的功能表中，選取 [存取控制 (IAM)]，然後選擇 [新增角色指派]。 
+1. 從 資源功能表中，選取 **存取控制 (IAM)**。 在工具列上，選擇**新增** > **新增角色指派**。
 
    ![新增角色指派](./media/create-managed-service-identity/add-permissions-logic-app.png)
 

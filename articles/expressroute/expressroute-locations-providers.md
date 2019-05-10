@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.author: pareshmu
-ms.openlocfilehash: af8927ddaac4295a49d46f57a48225435dd59b29
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ac1d5f43d5711e6a688608e4cfc78e39221b8fac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191147"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467784"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -50,9 +50,9 @@ ms.locfileid: "65191147"
 | **印度** | 2 |印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
 | **日本** | 2 |日本西部、日本東部 |大阪、東京 |
 | **南韓** | 2 |南韓中部、南韓南部 |釜山、首爾|
-| **UAE** | 3 | 阿拉伯聯合大公國中部、 阿拉伯聯合大公國北部 | 杜拜 |
+| **UAE** | 3 | 阿拉伯聯合大公國中部、 阿拉伯聯合大公國北部 | Dubai |
 | **南非** | 3 |南非西部、 南非北部 |開普敦、約翰尼斯堡 |
-| **南美洲** | 3 |巴西南部 |聖保羅 |
+| **南美洲** | 3 |巴西南部 |Sao Paulo |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>國家雲端的區域和地理政治界限
 下表提供了有关国家/地区云的区域和地缘政治边界的信息。
@@ -88,11 +88,11 @@ ms.locfileid: "65191147"
 | **丹佛** | CoreSite | CoreSite、 Megaport、 Zayo |
 | **Dubai** | Etisalat 阿拉伯聯合大公國 | Etisalat 阿拉伯聯合大公國 |
 | **都柏林** | Equinix | Colt、eir、Equinix、Interxion、Megaport |
-| **法蘭克福** | Interxion | Interxion |
+| **法蘭克福** | Interxion | DE-CIX、 Interxion |
 | **中國香港特別行政區** | Equinix | Aryaka Networks、British Telecom、China Telecom Global、Equinix、Megaport、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Verizon |
 | **約翰尼斯堡** | Teraco | Internet Solutions - Cloud Connect、Liquid Telecom、Teraco |
 | **吉隆坡** | TIME dotCom | TIME dotCom |
-| **拉斯維加斯** | Switch | CenturyLink Cloud Connect、Megaport |
+| **拉斯維加斯** | 切換 | CenturyLink Cloud Connect、Megaport |
 | **倫敦** | Equinix | AT&T NetBond、British Telecom、Colt、Equinix、InterCloud、Internet Solutions - Cloud Connect、Interxion、Jisc、Level 3 Communications、Megaport、MTN、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Telehouse - KDDI、Telenor、Telia Carrier、Verizon、Vodafone、Zayo |
 | **London2** | Telehouse | IX 觸達、 Equinix |
 | **洛杉磯** | CoreSite | CoreSite、Equinix、Megaport、Neutrona Networks、NTT、Zayo |
@@ -105,7 +105,7 @@ ms.locfileid: "65191147"
 | **紐約** | Equinix | CenturyLink Cloud Connect、 Coresite、 Equinix、 InterCloud、 Megaport、 封包、 Zayo |
 | **Newport(Wales)** | 新一代資料 | British Telecom、Level 3 Communications、Next Generation Data |
 | **大阪** | Equinix | Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT SmartConnect、Softbank |
-| **巴黎** | Interxion | Colt、 Equinix、 Intercloud、 Interxion、 Orange、 Zayo |
+| **巴黎** | Interxion | Colt、 Equinix、 Intercloud、 Interxion、 Orange、 Telia 電信業者、 Zayo |
 | **伯斯** | NEXTDC | Megaport、 NextDC |
 | **魁北克市** | 4Degrees | Bell Canada、Megaport |
 | **聖安東尼奧** | CyrusOne | CenturyLink Cloud Connect、Megaport |
@@ -119,8 +119,8 @@ ms.locfileid: "65191147"
 | **雪梨** | Equinix | AARNet、 AT & T NetBond，British Telecom，Devoli，Equinix，Kordia 的 Megaport、 NEXTDC、 NTT Communications，Optus，橙色，Telstra Corporation，TPG Telecom、 Verizon |
 | **台北** | Chief Telecom | 首席 Telecom、 FarEasTone |
 | **東京** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink Cloud Connect、Colt、Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT EAST、Orange、Softbank、Verizon |
-| **多倫多** | Cologix | AT&T NetBond、Bell Canada、CenturyLink Cloud Connect、Cologix、Equinix、Megaport、Telus、Zayo |
-| **華盛頓** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、Cologix、Comcast、Coresite、Equinix、Internet2、InterCloud、Level 3 Communications、Megaport、NTT Communications、Orange、PacketFabric、Sprint、Tata Communications、Telia Carrier、Verizon、Zayo |
+| **多倫多** | Cologix | At&t netbond、 Bell Canada、 CenturyLink Cloud Connect、 Cologix、 Equinix、 IX 觸達 Megaport、 Telus、 Zayo |
+| **華盛頓** | Equinix | Aryaka Networks、 AT & At&t NetBond、 British Telecom、 Cologix、 Comcast、 Coresite、 Equinix、 Internet2、 InterCloud、 Level 3 Communications、 Megaport、 Neutrona Networks、 NTT Communications、 Orange、 PacketFabric、 衝刺 （sprint）、 Tata Communications、 Telia 貨運公司，Verizon、 Zayo |
 | **華盛頓特區2** | Coresite | Coresite | 
 | **Zurich** | Interxion | Interxion |
 

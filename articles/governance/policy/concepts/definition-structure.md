@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716762"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506698"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -24,7 +24,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 使用 JSON 來建立原則定義。 原則定義中包含以下的項目︰
 
-- 模式
+- mode
 - parameters
 - 顯示名稱
 - description
@@ -46,7 +46,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -70,7 +70,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>模式
 
 **Mode** 決定原則要評估哪些資源類型。 支援的模式如下：
 
@@ -114,7 +114,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -229,6 +229,10 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 使用 **like** 和 **notLike** 條件時，您可以在值中提供 `*` 萬用字元。
@@ -416,15 +420,25 @@ Azure 原則支援下列類型的效果：
 
 ### <a name="policy-functions"></a>原則函式
 
-除了下列函式，所有的 [Resource Manager 範本函式](../../../azure-resource-manager/resource-group-template-functions.md)都可供在原則規則內使用：
+所有[Resource Manager 範本函式](../../../azure-resource-manager/resource-group-template-functions.md)就可以使用在原則規則中，下列函式和使用者定義函式除外：
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+下列函式可在原則規則中，使用，但不同於在 Azure Resource Manager 範本中使用：
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **dateTime**: [必要] 字串-通用的 ISO 8601 日期時間格式字串 ' yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [必要] 整數-要新增的天數
+- utcnow （)-與不同的是 Resource Manager 範本，這可以用 defaultValue 之外。
+  - 傳回設定為目前的日期和時間通用的 ISO 8601 日期時間格式字串 ' yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
 此外，`field` 函式可用於原則規則。 `field` 主要是與 **AuditIfNotExists** 和 **DeployIfNotExists** 搭配使用，以參考所評估資源上的欄位。 如需此用法的範例，請參閱 [DeployIfNotExists 範例](effects.md#deployifnotexists-example)。
 
@@ -484,7 +498,7 @@ Azure 原則支援下列類型的效果：
 
 ### <a name="understanding-the--alias"></a>了解 [*] 別名
 
-許多可用的別名都有會一個顯示為「正常」名稱的版本，和另一個附加 **[\*]** 的版本。 例如︰
+許多可用的別名都有會一個顯示為「正常」名稱的版本，和另一個附加 **[\*]** 的版本。 例如：
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
@@ -515,7 +529,7 @@ Azure 原則支援下列類型的效果：
 
 有关详细信息，请参阅[评估 [\*] 别名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
 
-## <a name="initiatives"></a>計畫
+## <a name="initiatives"></a>方案
 
 計畫可讓您將數個相關的原則定義組成群組來簡化指派和管理，因為您可以將一個群組當作單一項目來使用。 例如，您可以將相關的標籤原則定義組成單一方案。 您可以套用該計畫，而不個別指派每個原則。
 

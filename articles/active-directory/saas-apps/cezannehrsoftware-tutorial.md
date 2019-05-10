@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 949b5b1aaab60e5b1d160963ac3f024dbbfbe552
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834949"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>教學課程：Azure Active Directory 與 Cezanne HR Software 整合
 
@@ -74,20 +74,20 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Cezanne HR Software 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Cezanne HR Software 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Cezanne HR Software 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Cezanne HR Software 設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Cezanne HR Software 單一登入](#configure-cezanne-hr-software-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Cezanne HR Software 測試使用者](#create-cezanne-hr-software-test-user)** - 在 Cezanne HR Software 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+5. **[建立 Cezanne HR Software 測試使用者](#create-cezanne-hr-software-test-user)** - 在 Cezanne HR Software 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Cezanne HR Software 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 Cezanne HR Software 設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Cezanne HR Software] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -103,7 +103,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Cezanne HR Software 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
+    ![Cezanne HR Software 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
@@ -156,7 +156,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
 
     d. 在 [Security Token Service 端點] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] 值。
 
-    e. 在 [使用者識別碼屬性名稱] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    e. 在 [使用者識別碼屬性名稱] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
 
     f. 按一下 [上傳] 圖示來上傳從 Azure 入口網站下載的憑證。
 
@@ -193,7 +193,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Cezanne HR Software 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會把 Cezanne HR Software 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Cezanne HR Software]。
 

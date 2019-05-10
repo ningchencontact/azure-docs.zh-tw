@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205725"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508413"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -67,7 +67,9 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 是。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)。 子網路位址空間不能互相重疊。
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>在這些子網路內使用 IP 位址是否有任何限制？
-是。 Azure 會在每個子網路中保留 5 個 IP 位址。 每個子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及每個子網路用於 Azure 服務的 x.x.x.1-x.x.x.3 位址。
+是。 Azure 會在每個子網路中保留 5 個 IP 位址。 這些是 x.x.x.0-x.x.x.3 和最後一個子網路的位址。    
+- 通訊協定的規定保留 x.x.x.0 和最後一個子網路的位址。
+- x.x.x.1-x.x.x.3 會保留在 Azure 服務的每個子網路。
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 和子網路的大小限制為何？
 支援的最小子網路是 /29，最大則是 /8 (使用 CIDR 子網路定義)。
@@ -225,7 +227,7 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 - PowerShell 來透過 [Resource Manager](/powershell/module/az.network)與[傳統](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)部署模型管理 VNet。
 - Azure 命令列介面 (CLI)，來部署與管理透過 [Resource Manager](/cli/azure/network/vnet) 與[傳統](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources)部署模型所部署的 VNet。  
 
-## <a name="vnet-peering"></a>VNet 對等互連
+## <a name="vnet-peering"></a>VNet 對等
 
 ### <a name="what-is-vnet-peering"></a>什麼是 VNet 對等互連？
 VNet 對等互連 (或虛擬網路對等互連) 可讓您將虛擬網路連線。 虛擬網路之間的 VNet 對等互連連線可讓您私下透過 IPv4 位址在虛擬網路之間路由傳送流量。 所對等互連 VNet 中的虛擬機器可以彼此通訊，彷彿它們位於相同的網路內。 這些虛擬網路可位於相同或不同的區域 (也稱為全域 VNet 對等互連)。 VNet 對等互連連線也可以跨 Azure 訂用帳戶來建立。
@@ -242,7 +244,7 @@ VNet 對等互連 (或虛擬網路對等互連) 可讓您將虛擬網路連線�
 - 應用程式閘道 (v1) SKU
 - Service Fabric
 - SQL MI
-- API 取決
+- API 管理
 - Active Directory 網域服務 (ADDS)
 - Logic Apps
 - HD Insight
@@ -281,6 +283,9 @@ VNet 對等互連 (或虛擬網路對等互連) 可讓您將虛擬網路連線�
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>對等互連連線是否有任何頻寬限制？
 沒有。 VNet 對等互連 (不論本機或全域) 並未施加任何頻寬限制。 頻寬只受限於 VM 或計算資源。
+
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>如何疑難排解 VNet 對等互連的問題？
+以下是 [疑難排解指南] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues)可以再試。
 
 ## <a name="virtual-network-tap"></a>虛擬網路 TAP
 

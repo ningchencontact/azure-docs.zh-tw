@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: 580a8baa19e8ed4fc3f4449ead9d8aedbc4c039a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8c1b4a4ab834b2203a7e0b6e4e9e366c3fc38774
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160901"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472219"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>SensorTile.box 裝置連接到您的 Azure IoT Central 應用程式
 
@@ -23,14 +23,14 @@ ms.locfileid: "65160901"
 
 若要完成這篇文章中的步驟，您需要下列資源：
 
-* SensorTile.box 裝置，請參閱[SensorTile.box](https://www.st.com/content/st_com/en/products/evaluation-tools/SensorTile.box)如需詳細資訊。
-* ST BLE 感應器應用程式安裝在您的 Android 裝置，您可以 [從這裡下載] (https://play.google.com/store/apps/details?id=com.st.bluems)。 如需詳細資訊，請造訪: [ST BLE 感應器] (http://www.st.com/stblesensor)
+* SensorTile.box 裝置。 如需詳細資訊，請參閱 < [SensorTile.box](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mems-motion-sensor-eval-boards/steval-mksbox1v1.html)。
+* 在 Android 裝置上安裝 ST BLE 感應器應用程式的情況下，您可以[從這裡下載](https://play.google.com/store/apps/details?id=com.st.bluems)。 如需詳細資訊，請造訪：[ST BLE 感應器](https://www.st.com/stblesensor)
 * 從建立 Azure IoT Central 應用程式**DevKits**應用程式範本。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
-* 新增**SensorTile.box**到您的 IoT Central 應用程式，請瀏覽裝置範本**裝置範本**頁面上，按一下 **+ 新增**，然後選取**SensorTile**範本。
+* 新增**SensorTile.box**到您的 IoT Central 應用程式，請瀏覽裝置範本**裝置範本**頁面上，按一下 **+ 新增**，然後選取**SensorTile.box**範本。
 
 ### <a name="get-your-device-connection-details"></a>取得您的裝置連線詳細資料
 
-Azure IoT Central 應用程式中加入實際的裝置，從**SensorTile.box**裝置範本，並記下的裝置連線詳細資料：**範圍識別碼、 裝置識別碼和主索引鍵**:
+Azure IoT Central 應用程式中加入實際的裝置，從**SensorTile.box**裝置範本，並記下的裝置連線詳細資料：**範圍 ID**，**裝置識別碼**，以及**主索引鍵**:
 
 1. 新增 Device Explorer 中的 裝置。 選取 [ **+ 新增] > 實際**將實際的裝置。
 
@@ -47,7 +47,8 @@ Azure IoT Central 應用程式中加入實際的裝置，從**SensorTile.box**�
 
 ## <a name="set-up-the-sensortilebox-with-the-mobile-application"></a>設定行動應用程式與 SensorTile.box
 
-在本節中，您將學習如何將推送到裝置的應用程式韌體和裝置將資料傳送至 IoT 中心 ST BLE 感應器行動應用程式透過藍牙低功耗 (BLE) 連線。
+在本節中，您會學習如何推送到裝置的應用程式韌體。 您接著如何將裝置資料傳送至 IoT 中心，透過使用藍牙低功耗 (BLE) 連線的行動裝置應用程式 ST BLE 感應器。
+
 1. 開啟 [ST BLE 感應器應用程式，然後按**建立新的應用程式**] 按鈕。
 
     ![建立應用程式](media/howto-connect-sensortile/create-app.png)
@@ -58,11 +59,12 @@ Azure IoT Central 應用程式中加入實際的裝置，從**SensorTile.box**�
     ![Barometer 上傳](media/howto-connect-sensortile/barometer-upload.png)
 
 1. 按下您 SensorTile.box 相關聯的 [播放] 按鈕。
-1. 此程序完成時，SensorTile.box 會透過 BLE 串流溫度、 壓力和溼度。
+1. 此程序完成時，SensorTile.box 透過 BLE 會串流溫度、 壓力和溼度。
 
 ## <a name="connect-the-sensortilebox-to-the-cloud"></a>連線到雲端的 SensorTile.box
 
-在本節中，您將學習如何 SensorTile.box 連接至行動應用程式中，並連接到雲端的行動應用程式。
+在本節中，您了解如何連接 SensorTile.box 行動應用程式，和行動應用程式連接到雲端的內容。
+
 1. 使用左側的功能表中，選取**雲端記錄** 按鈕。
 
     ![雲端記錄](media/howto-connect-sensortile/cloud-logging.png)
@@ -74,7 +76,7 @@ Azure IoT Central 應用程式中加入實際的裝置，從**SensorTile.box**�
 
 1. 選取 **應用程式金鑰**選項按鈕。
 1. 按一下  **Connect** ，然後選取您想要上傳的遙測資料。
-1. 幾秒鐘後，資料會出現在 IoT Central 應用程式儀表板上。
+1. 幾秒後的資料會顯示 IoT Central 應用程式儀表板上。
 
 ## <a name="sensortilebox-device-template-details"></a>SensorTile.box 裝置範本詳細資料
 
@@ -82,7 +84,7 @@ Azure IoT Central 應用程式中加入實際的裝置，從**SensorTile.box**�
 
 ### <a name="telemetry"></a>遙測
 
-| 欄位名稱     | Units  | 最小值 | 最大值 | 小數位數 |
+| 欄位名稱     | 單位  | 最小值 | 最大值 | 小數位數 |
 | -------------- | ------ | ------- | ------- | -------------- |
 | 溼度       | %      | 30       | 90     | 1              |
 | temp           | °C     | 0     | 40     | 1              |
@@ -100,7 +102,6 @@ Azure IoT Central 應用程式中加入實際的裝置，從**SensorTile.box**�
 | FFT_Y     |    |    |     |               |
 | FFT_Z     |    |    |     |               |
 
-
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何連接到您的 Azure IoT Central 應用程式的 SensorTile.box，建議的下一個步驟是了解如何[設定自訂裝置範本](howto-set-up-template.md)IoT 裝置。
+既然您已了解如何連接到您的 Azure IoT Central 應用程式的 SensorTile.box，建議的下一個步驟是了解[如何設定自訂裝置範本](howto-set-up-template.md)IoT 裝置。

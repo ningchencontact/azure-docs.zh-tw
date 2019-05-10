@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 5/8/2019
 ms.author: barclayn
-ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118973"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467728"
 ---
 # <a name="frequently-asked-questions-faq"></a>常見問題集 (FAQ)
 
@@ -233,7 +233,7 @@ Microsoft 無法連線至配置給客戶的 HSM。 客戶必須自行升級與�
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>問：如果我需要重新啟動我的 HSM 嗎？
 
- HSM 具有命令列 reboot 選項，請注意，必須使用 「 強制重新開機 」 選項。 如果因為任何原因失敗，引發與 Microsoft 的支援要求，且我們可以實際重新啟動裝置。 
+HSM 具有命令列 reboot 選項，不過，我們會間歇性發生重新開機懸置問題基於這個理由，建議的最安全的方式重新啟動您提高與 Microsoft 的支援要求，讓裝置實際重新開機。 
 
 ## <a name="cryptography-and-standards"></a>密碼編譯和標準
 

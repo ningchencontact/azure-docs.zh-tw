@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025224"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506979"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
 
@@ -98,7 +98,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 不一定要指定參數。 會套用預設值。
 
-| 名稱             | 類型  | 描述  |預設值  |
+| 名稱             | 類型  | 說明  |預設值  |
 |------------------|-------|--------------|---------|
 | `Type`           | 例舉  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
 | `CommitMode`     | 例舉  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
@@ -201,42 +201,9 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 1.  複製或下載存放庫。 開啟 RestApiSample 解決方案。
 2.  找到 **client.BaseAddress = …** 這一行 並提供您的[基底 URL](#base-url)。
 
-此程式碼範例可以使用互動式登入、使用者名稱/密碼，或[服務主體](#service-principal)。
+此程式碼範例會使用[服務主體](#service-principal)驗證。
 
-#### <a name="interactive-login-or-usernamepassword"></a>互動式登入或使用者名稱/密碼
-
-要使用這種形式的驗證，前提是 Azure 應用程式在建立時已指派必要的 API 權限。 
-
-1.  在 Azure 入口網站中，選取 [建立資源]  >  [Azure Active Directory]  >  [應用程式註冊]  >  [新應用程式註冊]。
-
-    ![新應用程式註冊](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  在 [建立] 輸入名稱，選取 [原生] 應用程式類型。 在 [重新導向 URI] 輸入**urn: ietf:wg:oauth:2.0:oob**，然後按一下 [建立]。
-
-    ![設定](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  選取您的應用程式，複製並儲存 [應用程式識別碼]。
-
-    ![複製應用程式識別碼](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  在 [設定] 中，按一下 [必要權限]  >  [新增]。
-
-    ![新增 API 存取權](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  在 [選取 API] 的搜尋方塊中輸入 **Azure Analysis Services**，然後加以選取。
-
-    ![選取 API](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  選取 [讀取和寫入所有模型]，然後按一下 [選取]。 兩者皆選取後，按一下 [完成] 以新增權限。 可能需要數分鐘來完成傳播。
-
-    ![選取讀取和寫入所有模型](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  在程式碼範例中，找到 **UpdateToken()** 方法。 細看這個方法的內容。
-8.  找到 **string clientID = …**，然後輸入在步驟 3 中複製的**應用程式識別碼**。
-9.  執行範例。
-
-#### <a name="service-principal"></a>服務主體
+### <a name="service-principal"></a>服務主體
 
 如需關於如何在 Azure 中設定服務主體及指派必要權限的詳細資訊，請參閱[建立服務主體 - Azure 入口網站](../active-directory/develop/howto-create-service-principal-portal.md)和[將服務主體新增至伺服器管理員角色](analysis-services-addservprinc-admins.md)。 完成這些步驟後，請完成下列額外步驟：
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920422"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407576"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>適用於 Azure App Service 中設定 Linux PHP 應用程式
 
@@ -187,7 +187,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 > 在 App Service 中的內建的 Linux 容器 */首頁*做為保存的共用儲存體。 
 >
 
-例如，若要變更的值[expose_php](http://php.net/manual/ini.core.php#ini.expose-php)執行下列命令：
+例如，若要變更的值[expose_php](https://php.net/manual/ini.core.php#ini.expose-php)執行下列命令：
 
 ```bash
 cd /home/site

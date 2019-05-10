@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9d7b9673101ed3b6ff85a9981ba061bc870762b1
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492306"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405674"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站部署和設定 Azure 防火牆
 
@@ -236,12 +236,12 @@ Azure 防火牆包含內建的規則集合，適用於依預設允許的基礎�
 1. 從 Azure 入口網站中，檢閱 **Srv-Work** 虛擬機器的網路設定，並記下私人 IP 位址。
 2. 將遠端桌面連線到 **Srv-Jump** 虛擬機器，然後登入。 從那裡，開啟對 **Srv-Work** 私人 IP 位址的遠端桌面連線。
 
-3. 開啟 Internet Explorer 並瀏覽至 http://www.google.com。
+3. 開啟 Internet Explorer 並瀏覽至 https://www.google.com。
 4. 在 Internet Explorer 安全性警示上選取 [確認] > [關閉]。
 
    您應該會看到 Google 首頁。
 
-5. 瀏覽至 http://www.microsoft.com 。
+5. 瀏覽至 https://www.microsoft.com 。
 
    您應該會遭到防火牆封鎖。
 

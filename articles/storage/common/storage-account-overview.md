@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483636"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236748"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 儲存體帳戶概觀
 
-Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔案、佇列、資料表和磁碟。 Azure 儲存體帳戶中的資料具有持久性和高可用性、安全、可大規模調整，而且可以透過 HTTP 或 HTTPS 從世界各地存取任。
+Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔案、佇列、資料表和磁碟。 儲存體帳戶提供唯一的命名空間為您的 Azure 儲存體資料可存取的任何地方在世界各地透過 HTTP 或 HTTPS。 持久性和高可用性、 安全且可大幅擴充您的 Azure 儲存體帳戶中的資料。
 
 若要了解如何建立 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
 
@@ -30,7 +30,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 一般用途 v2 儲存體帳戶能支援最新的 Azure 儲存體功能，而且包含一般用途 v1 與 Blob 儲存體帳戶的所有功能。 一般用途 v2 帳戶能針對 Azure 儲存體提供最低的每 GB 容量價格，以及極具業界競爭力的交易價格。 一般用途 v2 儲存體帳戶支援這些 Azure 儲存體服務：
 
 - Blob (所有類型：區塊、附加、分頁)
-- 檔案
+- 文件
 - 磁碟
 - 佇列
 - 資料表
@@ -47,7 +47,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 一般用途 v1 帳戶可讓使用者存取所有 Azure 儲存體服務，但可能不包含最新功能，每 GB 的定價也並非最低。 一般用途 v1 儲存體帳戶支援這些 Azure 儲存體服務：
 
 - Blobs (所有類型)
-- 檔案
+- 文件
 - 磁碟
 - 佇列
 - 資料表

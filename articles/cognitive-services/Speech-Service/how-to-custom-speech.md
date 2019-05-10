@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: f2441d5660ed84a8680c1861e2e20a1a17ee4762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026714"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511129"
 ---
 # <a name="what-is-custom-speech"></a>自訂語音是什麼？
 
@@ -43,7 +43,7 @@ ms.locfileid: "65026714"
 
 ## <a name="set-up-your-azure-account"></a>設定您的 Azure 帳戶
 
-您可以使用自訂語音入口網站來建立自訂模型之後，才需要語音服務的訂用帳戶。 請遵循這些指示來建立標準的語音服務訂用帳戶：[建立語音訂閱](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#new-azure-account)。
+您可以使用自訂語音入口網站來建立自訂模型之後，才需要語音服務的訂用帳戶。 請遵循這些指示來建立標準的語音服務訂用帳戶：[建立語音訂閱](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account)。
 
 > [!NOTE]
 > 請務必建立標準 (S0) 訂用帳戶，免費試用 (F0) 訂用帳戶不支援。

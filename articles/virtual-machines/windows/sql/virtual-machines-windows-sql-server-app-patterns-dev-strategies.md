@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 988acec8d7044afe87523637e46c9a4deb92b55e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51d572ac324d0bc875e7ed81879f2456eeea4fbb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477658"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506622"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="summary"></a>摘要：
+## <a name="summary"></a>摘要:
 判斷要針對 Azure 環境中以 SQL Server 為基礎應用程式使用哪種或哪些應用程式模式，是相當重要的設計決策，這需要深入了解 SQL Server 與 Azure 的每個基礎結構元件是如何搭配運作。 您可以透過 Azure 基礎結構服務中的 SQL Server，輕鬆地維護和監視建置於 Windows Server 上的現有 SQL Server 應用程式，或移轉至 Azure 的虛擬機器中。
 
 本文的目的在於為解決方案架構師和開發人員提供基礎良好的應用程式架構和設計，讓他們將現有應用程式移轉至 Azure，以及在 Azure 中開發新應用程式時可以採用。
@@ -41,7 +41,7 @@ ms.locfileid: "61477658"
 
 典型的 *多層式架構* 應用程式包含展示層、商務層和資料層：
 
-| 層 | 描述 |
+| 層 | 說明 |
 | --- | --- |
 | **展示** |*展示層* (Web 層、前端層) 是使用者與應用程式互動的層。 |
 | **商務** |*商務層* (中間層) 是讓展示層和資料層彼此通訊的層，並含有系統的核心功能。 |
@@ -271,7 +271,7 @@ ms.locfileid: "61477658"
 | **跨單位連線** |您可以使用 Azure 虛擬網路連線到內部部署。 |您可以使用 Azure 虛擬網路連線到內部部署。 |支援 Azure 虛擬網路。 如需詳細資訊，請參閱 [Web Apps Virtual Network Integration (Web Apps 虛擬網路整合)](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)。 |
 | **延展性** |可透過增加虛擬機器大小或新增更多硬碟來相應增加。 如需關於虛擬機器大小的詳細資訊，請參閱 [Azure 的虛擬機器大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。<br/><br/>**資料庫伺服器**︰向外延展可透過資料庫資料分割技術和 SQL Server AlwaysOn 可用性群組提供。<br/><br/>對於大量讀取工作負載，您可以在多個次要節點以及 SQL Server 複寫上使用 [AlwaysOn 可用性群組](https://msdn.microsoft.com/library/hh510230.aspx)。<br/><br/>對於大量寫入工作負載，您可以在多部實體伺服器實作水平資料分割，提供應用程式向外延展。<br/><br/>此外，您可以使用 [SQL Server 與資料相依路由](https://technet.microsoft.com/library/cc966448.aspx)來實作向外延展。 使用資料依存路由 (DDR) 時，您必須在用戶端應用程式 (通常是在商務層) 中，實作資料分割機制，以將資料庫要求路由傳送至多個 SQL Server 節點。 商務層中包含如何分割資料，以及哪個節點包含資料的對應。<br/><br/>您可以為執行虛擬機器的應用程式調整規模。 如需詳細資訊，請參閱[如何調整應用程式](../../../cloud-services/cloud-services-how-to-scale-portal.md)。<br/><br/>**重要注意事項**：Azure 中的「自動調整規模」功能可讓您自動增加或減少應用程式所使用的虛擬機器數量。 這項功能可保證使用者的體驗不會在尖峰期間受到影響，且 VM 不會在需求降低時關機。 如果雲端服務含有 SQL Server VM，建議您不要為雲端服務設定「自動調整規模」選項。 原因是「自動調整規模」功能會讓 Azure 在該 VM 中的 CPU 使用率高於某個臨界值時，開啟虛擬機器；以及在 CPU 使用率低於該臨界值時，關閉虛擬機器。 「自動調整規模」功能對於無狀態的應用很實用，例如 Web 伺服器，其中所有 VM 均可管理工作負載，且不用參考任何先前的狀態。 但「自動調整規模」功能不適用於可設定狀態的應用程式，例如 SQL Server，其中只有一個執行個體允許寫入資料庫。 |透過使用多個 Web 角色和背景工作角色來相應增加。 如需 Web 角色和背景工作角色之虛擬機器大小的詳細資訊，請參閱[設定雲端服務的大小](../../../cloud-services/cloud-services-sizes-specs.md)。<br/><br/>當使用**雲端服務**時，您可以定義多個角色來分散處理，並達到彈性調整應用程式。 每個雲端服務包含一或多個 Web 角色和/或背景工作角色，且各有自己的應用程式檔案和組態。 您可以增加針對某個角色而部署的角色執行個體 (虛擬機器) 數目，藉此調升雲端服務的規模；或是減少角色執行個體數目，以調降雲端服務的規模。 如需詳細資訊，請參閱 [Azure 執行模型](../../../cloud-services/cloud-services-choose-me.md)。<br/><br/>向外延展可透過[雲端服務、虛擬機器和虛擬網路服務等級協定](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)和負載平衡器，透過內建的 Azure 高可用性支援提供使用。<br/><br/>針對多層式應用程式，我們建議您透過 Azure 虛擬網路，將 web/背景工作角色應用程式連接至資料庫伺服器 VM。 此外，Azure 會為相同雲端服務中的 VM 提供負載平衡，以平均分配使用者要求。 以這種方式連接的虛擬機器能夠透過本機網路在 Azure 資料中心內直接相互通訊。<br/><br/>您可以在 Azure 入口網站上設定**自動調整**以及排程時間。 如需詳細資訊，請參閱[如何在入口網站中設定雲端服務的自動調整](../../../cloud-services/cloud-services-how-to-scale-portal.md)。 |**相應增加和減少**：您可以增加/減少保留給您網站的執行個體 (VM) 大小。<br/><br/>相應放大：您可以為您的網站新增更多保留的執行個體 (VM)。<br/><br/>您可以在入口網站上設定**自動調整**以及排程的時間。 如需詳細資訊，請參閱[如何調整 Web Apps](../../../app-service/web-sites-scale.md)。 |
 
-如需有關如何在這些程式設計方法之間做選擇的詳細資訊，請參閱 [Azure Web Apps、雲端服務和 VM：每一項的使用時機](../../../app-service/overview-compare.md)。
+如需有關如何在這些程式設計方法之間做選擇的詳細資訊，請參閱 [Azure Web Apps、雲端服務和 VM：每一項的使用時機](/azure/architecture/guide/technology-choices/compute-decision-tree)。
 
 ## <a name="next-steps"></a>後續步驟
 如需在 Azure 虛擬機器中執行 SQL Server 的詳細資訊，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-windows-sql-server-iaas-overview.md)。

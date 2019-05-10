@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331874"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506857"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>跨雲端資料庫的分散式交易
 
@@ -99,7 +99,7 @@ SQL DB 的彈性資料庫交易也支援協調分散式交易，您需要使用�
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Azure 雲端服務的 .NET 安裝
 
-Azure 會提供數個供應項目，以裝載 .NET 應用程式。 如需不同供應項目的比較，請參閱 [Azure App Service、雲端服務與虛擬機器之比較](../app-service/overview-compare.md)。 如果供應項目的客體 OS 小於彈性交易所需的 .NET 4.6.1，則您必須將客體 OS 升級至 4.6.1。 
+Azure 會提供數個供應項目，以裝載 .NET 應用程式。 如需不同供應項目的比較，請參閱 [Azure App Service、雲端服務與虛擬機器之比較](/azure/architecture/guide/technology-choices/compute-decision-tree)。 如果供應項目的客體 OS 小於彈性交易所需的 .NET 4.6.1，則您必須將客體 OS 升級至 4.6.1。 
 
 對於 Azure App Service，目前將不支援升級至客體 OS。 對於 Azure 虛擬機器，只要登入 VM，並執行最新的 .NET Framework 的安裝程式即可。 對於 Azure 雲端服務，您需要將新版 .NET 的安裝包含在您部署的啟動工作中。 [在雲端服務角色上安裝 .NET](../cloud-services/cloud-services-dotnet-install-dotnet.md)中說明概念和步驟。  
 
@@ -135,8 +135,8 @@ Azure 會提供數個供應項目，以裝載 .NET 應用程式。 如需不同�
 使用下列 PowerShell Cmdlet 管理跨伺服器的通訊關聯性，以進行彈性資料庫交易：
 
 * **New-AzSqlServerCommunicationLink**：使用這個 Cmdlet 建立 Azure SQL Database 中兩部 SQL Database 伺服器之間的新通訊關聯性。 此關聯性是對稱的，也就是說，這兩部伺服器彼此都可以起始交易。
-* **Get-AzSqlServerCommunicationLink**：使用這個 Cmdlet 擷取現有的通訊關聯性及其屬性。
-* **Remove-AzSqlServerCommunicationLink**：使用這個 Cmdlet 移除現有的通訊關聯性。 
+* **Get-AzSqlServerCommunicationLink**:使用這個 Cmdlet 擷取現有的通訊關聯性及其屬性。
+* **Remove-AzSqlServerCommunicationLink**:使用這個 Cmdlet 移除現有的通訊關聯性。 
 
 ## <a name="monitoring-transaction-status"></a>監視交易狀態
 

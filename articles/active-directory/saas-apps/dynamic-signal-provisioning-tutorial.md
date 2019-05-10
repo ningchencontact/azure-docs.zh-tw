@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: fec6a7e3433eb5d657deac8c1b2ceb327f8d32e4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f79bc083105f997b08f7cfa6f8e08a8f4f455455
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159401"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470574"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 Dynamic Signal
 
@@ -84,7 +84,7 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
 ### <a name="to-configure-automatic-user-provisioning-for-dynamic-signal-in-azure-ad"></a>若要設定 Azure ad 自動使用者佈建的 Dynamic Signal:
 
-1. 登入[Azure 入口網站](https://portal.azure.com)，然後選取**企業應用程式**，選取**所有應用程式**，然後選取**Dynamic Signal**。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 **企業應用程式**，然後選取**所有應用程式**。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
@@ -104,11 +104,11 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
 6. 在 Dynamic Signal 管理主控台中，瀏覽至**系統管理員 > 進階 > API**。
 
-    ![Dynamic Signal 佈建](./media/dynamicsignal-provisioning-tutorial/secret-token-1.png)
+    ![Dynamic Signal 佈建](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
 
     複製**SCIM API URL**要**租用戶 URL**。 按一下 **產生新權杖**產生**持有人權杖**並複製到值**祕密權杖**。
 
-    ![Dynamic Signal 佈建](./media/dynamicsignal-provisioning-tutorial/secret-token-2.png)
+    ![Dynamic Signal 佈建](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
 
 7. 填寫後在步驟 5 中所顯示的欄位，按一下**測試連接**以確保 Azure AD 可以連線到 Dynamic Signal。 如果連線失敗，請確定您的 Dynamic Signal 帳戶具有系統管理員權限並再試一次。
 
@@ -122,11 +122,11 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
 10. 底下**對應**區段中，選取**同步處理 Azure Active Directory 使用者至 Dynamic Signal**。
 
-    ![Dynamic Signal 使用者對應](media/dynamicsignal-provisioning-tutorial/user-mappings.png)
+    ![Dynamic Signal 使用者對應](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 
 11. 檢閱從 Azure AD 同步至 Dynamic Signal 中的使用者屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對進行更新作業的 Dynamic Signal 中的使用者帳戶。 選取 [儲存] 按鈕以認可所有變更。
 
-    ![Keeper 使用者屬性](media/dynamicsignal-provisioning-tutorial/user-mapping-attributes.png)
+    ![Dynamic Signal 使用者屬性](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 
 12. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
 
@@ -160,7 +160,3 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
 * [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

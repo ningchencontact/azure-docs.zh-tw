@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/01/2019
+ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679302"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236584"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的備份與還原
 
@@ -83,7 +83,7 @@ SQL 資料倉儲每天都會對[配對的資料中心](../best-practices-availab
 
 如果您正在使用異地備援儲存體，您會收到個別的儲存體收費項目。 異地備援儲存體是依據標準讀取權限異地備援儲存體 (RA-GRS) 費率收費。
 
-如需 SQL 資料倉儲價格的相關詳細資訊，請參閱 [SQL 資料倉儲價格](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)，以及用於跨區域還原的[輸出費用](https://azure.microsoft.com/pricing/details/bandwidth/)。
+如需有關 SQL 資料倉儲價格的詳細資訊，請參閱 [SQL 資料倉儲價格]。 您不會支付資料輸出，跨區域還原時。
 
 ## <a name="restoring-from-restore-points"></a>從還原點還原
 

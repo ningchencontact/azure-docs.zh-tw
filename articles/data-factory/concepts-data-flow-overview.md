@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 5064f47444b4ca6d9194ed66144938e6e3d51a4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051886f98d6d35594336291bbb2defb2a4acdfc5
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61261809"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233059"
 ---
-# <a name="what-are-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory 中的對應資料流程是什麼？
+# <a name="what-are-mapping-data-flows"></a>什麼是對應的資料流動？
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-對應資料流程可讓工程師在無須撰寫程式碼的情況下開發圖形化的轉換邏輯。 結果的資料流程會以活動的形式在 Azure Data Factory [管線] 內執行，並使用擴充的 Azure Databricks 叢集。
+對應資料流程會在 Azure Data Factory 中以視覺化方式設計的資料轉換。 資料流可讓資料工程師能夠開發圖形化的資料轉換邏輯，而不需要撰寫程式碼。 結果的資料流程會以活動的形式在 Azure Data Factory [管線] 內執行，並使用擴充的 Azure Databricks 叢集。
 
 Azure Data Factory 資料流程的目的，是為了在無須撰寫程式碼的情況下，提供完全視覺化的體驗。 您的資料流程將會在您自己的執行叢集上執行，以取得擴充的資料處理。 Azure Data Factory 會處理所有的程式碼轉譯、路徑最佳化，以及您資料流程作業的執行。
 

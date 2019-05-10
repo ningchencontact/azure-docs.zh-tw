@@ -7,12 +7,12 @@ ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi
-ms.openlocfilehash: 34dd5efda2c9f6cc9a7b5ddcde06e8f7d27de901
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e4196cf59537be5194ceb510a1b7b066c97de19a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65157336"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410212"
 ---
 # <a name="tutorial-create-custom-provider-and-deploy-custom-resources"></a>教學課程：建立自訂提供者並部署自訂資源
 

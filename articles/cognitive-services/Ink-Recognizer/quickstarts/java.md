@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 43dc388c9f24e3975d6efddbeec6e096bf062548
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: c3f5c3ae8501f3114920f3b06f7f8cafa05e83bb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026782"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406568"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>快速入門：辨識筆墨辨識器 REST API 與 Java 的數位筆跡
 
@@ -30,7 +30,7 @@ ms.locfileid: "65026782"
 
 ## <a name="prerequisites"></a>必要條件
 
-- [Java&trade;開發 Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)或更新版本。
+- [Java&trade;開發 Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)或更新版本。
 
 - 從 Maven 儲存機制匯入這些程式庫
     - [在 Java 中的 JSON](https://mvnrepository.com/artifact/org.json/json)封裝
@@ -142,9 +142,9 @@ static void recognizeInk(String requestData) {
 > [REST API 參考資料](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-若要查看數位筆跡應用程式中的筆墨辨識 API 運作方式，看看下列的範例應用程式在 GitHub 上：
-* [C#和通用 Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#和 Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [Javascript 的網頁瀏覽器應用程式](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Java 和 Android 的行動裝置應用程式](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [Swift 和 iOS 的行動裝置應用程式](https://go.microsoft.com/fwlink/?linkid=2089805)
+若要了解筆跡辨識 API 在數位筆跡應用程式中的運作方式，請看位於 GitHub 上的下列應用程式範例：
+* [C# 和通用 Windows 平台 (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# 和 Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [Javascript 網頁瀏覽器應用程式](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Java 和 Android 行動裝置應用程式](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Swift 和 iOS 行動裝置應用程式](https://go.microsoft.com/fwlink/?linkid=2089805)

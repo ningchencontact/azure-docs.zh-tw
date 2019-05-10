@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: f03593292289cbc093832667505da2738c2b1633
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: 800cf66e15c25540eac4809a27317598b72b8124
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026784"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406747"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>快速入門：辨識與筆跡的辨識器 REST API 的數位筆跡和C#
 
@@ -36,7 +36,7 @@ ms.locfileid: "65026784"
         1. 以滑鼠右鍵按一下**Solution Manager**
         2. 按一下 [管理 NuGet 套件...]
         3. 搜尋`Newtonsoft.Json`並安裝套件
-- 如果您使用 Linux/MacOS，可以使用執行此應用程式[Mono](http://www.mono-project.com/)。
+- 如果您使用 Linux/MacOS，可以使用執行此應用程式[Mono](https://www.mono-project.com/)。
 
 - 在本快速入門範例筆墨筆劃資料可於[GitHub](https://go.microsoft.com/fwlink/?linkid=2089502)。
 
@@ -167,9 +167,9 @@ public static JObject LoadJson(string fileLocation){
 > [REST API 參考資料](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-若要查看數位筆跡應用程式中的筆墨辨識 API 運作方式，看看下列的範例應用程式在 GitHub 上：
-* [C#和通用 Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#和 Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [Javascript 的網頁瀏覽器應用程式](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Java 和 Android 的行動裝置應用程式](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [Swift 和 iOS 的行動裝置應用程式](https://go.microsoft.com/fwlink/?linkid=2089805)
+若要了解筆跡辨識 API 在數位筆跡應用程式中的運作方式，請看位於 GitHub 上的下列應用程式範例：
+* [C# 和通用 Windows 平台 (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# 和 Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [Javascript 網頁瀏覽器應用程式](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Java 和 Android 行動裝置應用程式](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Swift 和 iOS 行動裝置應用程式](https://go.microsoft.com/fwlink/?linkid=2089805)

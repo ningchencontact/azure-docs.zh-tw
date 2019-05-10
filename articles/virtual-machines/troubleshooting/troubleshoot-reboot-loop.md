@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 032bc1b9c4b1b0e3bf8040ed52bf4db65ba7b6c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318967"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472300"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM 的 Windows 重新開機迴圈
 本文說明您在 Microsoft Azure 中的 Windows 虛擬機器 (VM) 上可能會遇到的重新開機迴圈。
@@ -102,6 +102,8 @@ ms.locfileid: "60318967"
 將 VM 還原到最後一個已知的正確組態，並依照[如何使用最後一個已知的正確組態啟動 Azure Windows VM](https://support.microsoft.com/help/4016731/) 中的步驟操作。
 
 ### <a name="solution-for-cause-3"></a>原因 3 的解決方案
+>[!NOTE]
+>下列程序應視為最後的手段。 雖然從 regback 還原後可恢復對機器的存取，但 OS 實際上並不穩定，因為在登錄區的時間戳記與目前的日期之間，登錄中有資料遺失。 您必須建立新的 VM，並擬定移轉資料的計畫。
 
 1. 磁碟連結至疑難排解中的 VM 後，請確定該磁碟在磁碟管理主控台中標示為 [線上]。
 
@@ -113,5 +115,4 @@ ms.locfileid: "60318967"
 
 5. [從 OS 磁碟建立新的 VM](../windows/create-vm-specialized.md)。
 
->[!NOTE]
->下列程序應視為最後的手段。 雖然從 regback 還原後可恢復對機器的存取，但 OS 實際上並不穩定，因為在登錄區的時間戳記與目前的日期之間，登錄中有資料遺失。 您必須建立新的 VM，並擬定移轉資料的計畫。
+
