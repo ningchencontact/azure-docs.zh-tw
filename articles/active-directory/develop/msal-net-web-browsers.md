@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6e13ec3d822ba8a8cd2484f42ea81e615bae268
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d4b4c4cd4dbab10a9d4796a8393cc7f479b90cc4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190976"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406773"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>使用網頁瀏覽器中 MSAL.NET
 網頁瀏覽器不需要互動式驗證。 根據預設，支援 MSAL.NET[系統的網頁瀏覽器](#system-web-browser-on-xamarinios-and-xamarinandroid)在 Xamarin.iOS 上並[Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser)。 但是[您也可以啟用內嵌的網頁瀏覽器](#enable-embedded-webviews)依據您的需求 (UX，讓單一登入 (SSO) 安全性的需求) 中[Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios)並[Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid)應用程式。 您甚至可以與[動態選擇](#detecting-the-presence-of-custom-tabs-on-xamarinandroid)的網頁瀏覽器使用根據 Chrome 或瀏覽器支援 Chrome 自訂索引標籤，在 Android 中的目前狀態。
@@ -122,7 +122,7 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 
 根據這種方法，以及您所傳回的值，您可以決定：
 
-- 您可以將自訂錯誤訊息傳回給使用者。 例如︰[請安裝 Chrome 中，才能繼續進行驗證]-或-
+- 您可以將自訂錯誤訊息傳回給使用者。 例如：[請安裝 Chrome 中，才能繼續進行驗證]-或-
 - 您可以改為使用內嵌 web 檢視選項，並啟動 UI 中的以內嵌 web 檢視。
 
 下列程式碼顯示內嵌 web 檢視選項：

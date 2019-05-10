@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: b5d035308c50525449edf47131c4a6a8c62b750b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 981b78345a0d9ea589e9c39ddaa2e253f1dd343f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784755"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412828"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>刪除 Site Recovery 復原服務保存庫
 
@@ -22,8 +22,12 @@ ms.locfileid: "59784755"
 
 ## <a name="delete-a-site-recovery-vault"></a>刪除 Site Recovery 保存庫 
 請依照針對您案例的建議步驟刪除保存庫。
+### <a name="azure-vms-to-azure"></a>Azure VM 至 Azure
 
-### <a name="vmware-vms-to-azure"></a>VMware VM 到 Azure
+1. 依照[停用 VMware 保護](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure)中的步驟刪除所有受保護的 VM。
+2. 刪除保存庫。
+
+### <a name="vmware-vms-to-azure"></a>VMware VM 至 Azure
 
 1. 依照[停用 VMware 保護](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)中的步驟刪除所有受保護的 VM。
 

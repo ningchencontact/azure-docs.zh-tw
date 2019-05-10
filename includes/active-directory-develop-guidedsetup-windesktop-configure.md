@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c4dc3d422e18d9ee41bf16ac3e6f22c3d7e466d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799521"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198896"
 ---
 ## <a name="register-your-application"></a>註冊您的應用程式
 
@@ -43,7 +43,9 @@ ms.locfileid: "59799521"
    - 在 [支援的帳戶類型] 區段中，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]，例如 Skype、Xbox、Outlook.com。
    - 選取 [註冊] 以建立應用程式。
 1. 在應用程式頁面清單中，選取 [驗證]。
-1. 在 [重新導向 URI] 區段中，找出 [建議的公用用戶端 (行動裝置、桌面) 重新導向 URI] 區段，然後選取 **"urn:ietf:wg:oauth:2.0:oob**。
+   1. 在 [重新導向 URL] 區段的 [重新導向 URL] 清單中：
+   1. 在 [型別] 欄中，選取 [公開用戶端 (行動裝置及桌上型電腦)]。
+   1. 在 [重新導向 URI] 欄中輸入 `urn:ietf:wg:oauth:2.0:oob`。
 1. 選取 [ **儲存**]。
 1. 移至 Visual Studio，開啟 App.xaml.cs 檔案，然後將 `Enter_the_Application_Id_here` 取代為您剛剛註冊及複製的應用程式 ID。
 

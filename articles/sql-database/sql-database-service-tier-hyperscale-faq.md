@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 55b18051f2376a59fa79b11cccc9e71cad5debbc
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.date: 05/06/2019
+ms.openlocfilehash: 4f0691dcc8a0c4b0ebbfe26a49b75b86fa50f597
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067797"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236008"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
 
@@ -73,11 +73,7 @@ ms.locfileid: "65067797"
 
 ### <a name="what-regions-currently-support-hyperscale"></a>目前有哪些區域支援超大規模資料庫
 
-Azure SQL Database 的超大規模層有目前在下列區域：
-
-澳大利亞東部、 澳洲東南部、 巴西南部、 加拿大中部、 美國中部、 東亞、 美國東部、 東亞我們 2、 法國中部、 日本東部、 日本西部、 北美美國中部、 北歐、 南非北部和美國中南部、 東南亞、 英國南部、 英國西部、 西歐美國西部、 美國西部 2
-
-請參閱[Azure SQL Database 的超大規模概觀](sql-database-service-tier-hyperscale-faq.md)程序，如果您需要存取另一個區域中的。
+Azure SQL Database 的超大規模層目前已在推出下所列的地區[Azure SQL Database 的超大規模概觀](sql-database-service-tier-hyperscale.md#regions)。
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>是否可為每個邏輯伺服器建立多個超大規模資料庫
 

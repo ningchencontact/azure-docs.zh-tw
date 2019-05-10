@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870484"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234024"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>找出診斷功能的問題
 
@@ -118,7 +118,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 
 錯誤狀況會分類為服務的內部和外部至 Windows 虛擬桌面。
 
-* 內部問題： 指定不能降低租用戶系統管理員，且需要解析為支援問題的案例。 當提出票證提供活動識別碼、 租用戶名稱和大約的時間範圍內問題時發生。
+* 內部問題： 指定不能降低租用戶系統管理員，而且需要解析為支援問題的案例。 提供透過意見反應時[Windows 虛擬桌面技術社群](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)、 包含的活動識別碼，以及估計的問題發生的時間範圍。
 * 外部的問題： 與相關可減輕系統管理員的案例。 這些都是外部至 Windows 虛擬桌面。
 
 下表列出您的系統管理員可能會遇到的常見錯誤。

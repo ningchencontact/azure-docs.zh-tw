@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 91e1780462021430913a1354b4add7c5f047ec15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76db7381985853a81843df812dffcd8ab2bd8f9a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263174"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407473"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>教學課程：Azure Active Directory 與 InsideView 整合
 
@@ -142,13 +142,13 @@ InsideView 與 Azure AD 整合提供下列優點：
 
     c. 開啟您從 Azure 入口網站下載的 base-64 編碼憑證，將它的內容複製到您的剪貼簿，然後在 [STS 憑證] 文字方塊貼上。
 
-    d. 在 [Crm 使用者識別碼對應] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
+    d. 在 [Crm 使用者識別碼對應] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
 
-    e. 在 [Crm 電子郵件對應] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
+    e. 在 [Crm 電子郵件對應] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
 
-    f. 在 [Crm 名字對應] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
+    f. 在 [Crm 名字對應] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
 
-    g. 在 [Crm 姓氏對應] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`。  
+    g. 在 [Crm 姓氏對應] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`。  
 
     h. 按一下 [檔案] 。
 

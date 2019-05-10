@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 209a91453875531e81ddbcead8c1ed2fb309a0a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 996111fbe23000182dab774ba3bbad0cc6435824
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147453"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412711"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>在本機部署遠端監視解決方案加速器 - IntelliJ
 
@@ -27,7 +27,7 @@ ms.locfileid: "65147453"
 
 若要部署遠端監視解決方案加速器所使用的 Azure 服務，您需要一個有效的 Azure 訂用帳戶。
 
-如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ### <a name="machine-setup"></a>電腦設定
 
@@ -100,9 +100,9 @@ ms.locfileid: "65147453"
     * WebService (services\iothub-manager)
     * WebService (services\storage-adapter)
 
-舉例來說，下圖顯示為某個服務新增設定：
+例如下, 圖示範加入服務組態：
 
-[![新增設定](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![新增設定](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### <a name="create-compound-configuration"></a>建立複合設定
@@ -111,14 +111,11 @@ ms.locfileid: "65147453"
 1. 輸入 [Name] \(名稱\)，然後**新增 SBT 工作**
 1. 按一下 [Apply] \(套用\) > [Ok] \(確定\) 以儲存您的選擇。
 
-舉例來說，下圖顯示將所有 SBT 工作新增至單一設定：
+例如下, 圖會顯示所有 sbt 工作都加入單一組態：
 
+[![新增所有服務](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-[![新增所有服務](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
-
-
-
-1. 按一下 [Run] \(執行\)以在本機電腦上建置並執行 Web 服務。
+按一下 [Run] \(執行\)以在本機電腦上建置並執行 Web 服務。
 
 每個 Web 服務都會開啟一個命令提示字元和 Web 瀏覽器視窗。 您可以在命令提示字元中看到執行中服務的輸出，還有瀏覽器視窗可讓您監視狀態。 請不要關閉命令提示字元或網頁，這個動作會停止 Web 服務。
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77118edd08faf6d40897a916ee85e2b6e20d3bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58a8d3b62fab7614375436846888b78113740ce2
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298252"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406607"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Azure AD SAML 權杖參考
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種�
 ## <a name="claims-in-saml-tokens"></a>SAML 權杖中的宣告
 
 > [!div class="mx-codeBreakAll"]
-> | Name | 對等的 JWT 宣告 | 描述 | 範例 |
+> | 名稱 | 對等的 JWT 宣告 | 說明 | 範例 |
 > | --- | --- | --- | ------------|
 > |對象 | `aud` |權杖的預定接收者。 接收權杖的應用程式必須確認對象值正確無誤，並拒絕任何適用於不同對象的權杖。 | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 > | 驗證時刻 | |記錄驗證發生的日期和時間。 | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
@@ -44,24 +44,24 @@ Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種�
 > |IssuedAt | `iat` |儲存權杖簽發的時間。 通常用于度量令牌新鲜度。 | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |簽發者 | `iss` |識別負責建構並傳回權杖的 Security Token Service (STS)。 在 Azure AD 傳回的權杖中，簽發者為 sts.windows.net。 簽發者宣告值中的 GUID 是 Azure AD 目錄的租用戶識別碼。 租用戶識別碼是目錄的不可變且可靠的識別碼。 | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
 > |姓氏 | `family_name` |按照 Azure AD 用户对象中的定义，指定用户的姓氏。 | `<Attribute Name=" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">`<br>`<AttributeValue>Miller<AttributeValue>` |
-> |Name | `unique_name` |提供一个用户可读值，用于标识令牌使用者。 此值不一定在租户中唯一，且仅供显示。 | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
+> |名稱 | `unique_name` |提供一个用户可读值，用于标识令牌使用者。 此值不一定在租户中唯一，且仅供显示。 | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |物件識別碼 | `oid` |包含 Azure AD 中物件的唯一識別碼。 這個值不可變，而且無法重新指派或重複使用。 使用物件識別碼來識別 Azure AD 查詢中的物件。 | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |角色 | `roles` |表示透過群組成員資格，直接或間接授與主體的所有應用程式角色，而且可用來強制執行角色型存取控制。 應用程式角色是透過應用程式資訊清單的 `appRoles` 屬性，針對每個應用程式進行定義。 每個應用程式角色的 `value` 屬性就是出現在角色宣告中的值。 | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
 > |Subject | `sub` |識別權杖判斷提示其相關資訊的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用，因此可用來安全地執行授權檢查。 因為主體一律存在於 Azure AD 簽發的權杖中，所以建議您將此值使用於一般用途授權系統中。 <br> `SubjectConfirmation` 不是宣告。 它會描述如何驗證權杖的主體。 `Bearer` 表示通过对令牌的持有来确认使用者。 | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
 > |租户 ID | `tid` |不可變、無法重複使用的識別碼，用以識別簽發權杖的目錄租用戶。 您可以使用此值來存取多租用戶應用程式中的租用戶特定目錄資源。 例如，您可以使用此值來識別在圖形 API 呼叫中的租用戶。 | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
-> |權杖存留期 | `nbf`、`exp` |定義權杖有效的時間間隔。 验证令牌的服务应验证当前日期是否在令牌生存期内，如果不是，则应拒绝令牌。 此服務最多允許超過權杖存留期範圍五分鐘，以考量 Azure AD 與服務之間的時鐘時間差異 (「時間偏差」)。 | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
+> |權杖存留期 | `nbf`、 `exp` |定義權杖有效的時間間隔。 验证令牌的服务应验证当前日期是否在令牌生存期内，如果不是，则应拒绝令牌。 此服務最多允許超過權杖存留期範圍五分鐘，以考量 Azure AD 與服務之間的時鐘時間差異 (「時間偏差」)。 | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
 
 ## <a name="sample-saml-token"></a>SAML 權杖範例
 
 這是典型的 SAML 權杖範例。
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <t:RequestSecurityTokenResponse xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+    <t:RequestSecurityTokenResponse xmlns:t="https://schemas.xmlsoap.org/ws/2005/02/trust">
       <t:Lifetime>
         <wsu:Created xmlns:wsu="https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-12-24T05:15:47.060Z</wsu:Created>
         <wsu:Expires xmlns:wsu="https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-12-24T06:15:47.060Z</wsu:Expires>
       </t:Lifetime>
-      <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+      <wsp:AppliesTo xmlns:wsp="https://schemas.xmlsoap.org/ws/2004/09/policy">
         <EndpointReference xmlns="https://www.w3.org/2005/08/addressing">
           <Address>https://contoso.onmicrosoft.com/MyWebApp</Address>
         </EndpointReference>
@@ -151,7 +151,7 @@ Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種�
         </SecurityTokenReference>
       </t:RequestedUnattachedReference>
       <t:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</t:TokenType>
-      <t:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
+      <t:RequestType>https://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
       <t:KeyType>http://schemas.xmlsoap.org/ws/2005/05/identity/NoProofKey</t:KeyType>
     </t:RequestSecurityTokenResponse>
 

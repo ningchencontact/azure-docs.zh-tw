@@ -3,7 +3,7 @@ title: 使用安全性原則 | Microsoft Docs
 description: 這篇文章說明如何使用 Azure 資訊安全中心的安全性原則。
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 5/05/2019
 ms.author: monhaber
-ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111505"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236298"
 ---
 # <a name="working-with-security-policies"></a>使用安全性原則
 
@@ -110,6 +110,9 @@ Azure 原則由下列元件組成：
    ![原則管理](./media/tutorial-security-policy/policy-management.png)
 
 2. 按一下您要停用建議的訂用帳戶或管理群組。
+
+   > [!Note]
+   > 請記住，管理群組就會套用其原則至其訂用帳戶。 因此，如果您停用訂用帳戶的原則，而且訂用帳戶所屬的管理群組仍使用相同的原則，則您會繼續接收建議的原則。 仍會從管理層級套用原則，仍會產生建議。
 
 1. 按一下 指派的原則。
 
@@ -233,7 +236,7 @@ Azure 原則中的重要概念：
 |自適性應用程式控制 |在 Azure 資訊安全中心中監視可能的應用程式允許清單 |adaptiveApplicationControlsMonitoringEffect|
 |網路安全性群組 |在 Azure 資訊安全中心中監視寬鬆的網路存取 |networkSecurityGroupsMonitoringEffect| 
 |安全性設定 |在 Azure 資訊安全中心中監視 OS 弱點 |systemConfigurationsMonitoringEffect| 
-|端點保護 |在 Azure 資訊安全中心中監視缺少的 Endpoint Protection |endpointProtectionMonitoringEffect |
+|Endpoint Protection |在 Azure 資訊安全中心中監視缺少的 Endpoint Protection |endpointProtectionMonitoringEffect |
 |磁碟加密 |在 Azure 資訊安全中心中監視未加密的 VM 磁碟 |diskEncryptionMonitoringEffect|
 |弱點評估 |在 Azure 資訊安全中心中監視 VM 的弱點 |vulnerabilityAssessmentMonitoringEffect|
 |Web 應用程式防火牆 |在 Azure 資訊安全中心中監視未受保護的 Web 應用程式 |webApplicationFirewallMonitoringEffect |

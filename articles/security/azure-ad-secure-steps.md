@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587823"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236756"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>可保護身分識別基礎結構的五個步驟
 
@@ -59,12 +59,12 @@ ms.locfileid: "60587823"
 
 有許多組織都是使用傳統的複雜性規則 (要求特殊字元、數字、大寫及小寫) 和密碼到期規則。 [Microsoft 的研究](https://aka.ms/passwordguidance) \(英文\) 顯示，這些原則會導致使用者選擇較容易猜到的密碼。
 
-Azure AD 的[動態禁用密碼](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)功能會使用目前的攻擊者行為來防止使用者設定可輕易猜到的密碼。 此功能先前在雲端中建立使用者時便已持續開啟，但現在也可供混合式組織在部署[適用於 Windows Server Active Directory 的 Azure AD 密碼保護](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises)時使用。 Azure AD 密碼保護會阻止使用者選擇這些常見密碼，並可延伸以封鎖包含您所指定之自訂關鍵字的密碼。 例如，您可以避免使用者選擇包含您公司產品名稱或當地球隊的密碼。
+Azure AD 的[動態禁用密碼](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)功能會使用目前的攻擊者行為來防止使用者設定可輕易猜到的密碼。 此功能先前在雲端中建立使用者時便已持續開啟，但現在也可供混合式組織在部署[適用於 Windows Server Active Directory 的 Azure AD 密碼保護](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises)時使用。 Azure AD 密碼保護會阻止使用者選擇這些常見密碼，並可延伸以封鎖包含您所指定之自訂關鍵字的密碼。 例如，您可以避免使用者選擇包含您公司產品名稱或當地球隊的密碼。
 
 Microsoft 建議採用下列根據 [NIST 指導方針](https://pages.nist.gov/800-63-3/sp800-63b.html) \(英文\) 的新式密碼原則：
 
 1. 要求密碼至少要有 8 個字元。 密碼並非越長越好，密碼越長會導致使用者選擇可預測的密碼、將密碼儲存在檔案中或寫下來。
-2. 停用到期規則，因為到期規則會讓使用者想要使用容易猜測的密碼，例如 **Summer2018!**
+2. 停用到期規則，讓使用者輕易猜到的密碼，例如**Spring2019 ！**
 3. 停用字元組合規定，防止使用者選擇常常受到攻擊的密碼，原因是這些規定會導致使用者在密碼中選擇可預測的替代字元。
 
 如果您是直接在 Azure AD 中建立身分識別，則可以使用 [PowerShell 來防止使用者的密碼到期](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy)。 混合式組織應使用[網域群組原則設定](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) \(英文\) 或 [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy) \(英文\) 來實作這些原則。
@@ -166,7 +166,7 @@ Azure AD Identity Protection 能提供兩個您應該每天監視的重要報告
 
 ### <a name="audit-apps-and-consented-permissions"></a>稽核應用程式和已同意的權限
 
-使用者可能會被誘騙而瀏覽至被入侵的網站或應用程式，並使它們取得其設定檔資訊和使用者資料 (例如其電子郵件)。 惡意的執行者可以使用其所接收到的已同意權限來對使用者的信箱內容進行加密，並要求使用者支付贖金以重新存取其信箱資料。 [系統管理員應該檢閱並稽核](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) \(英文\) 使用者所提供的權限。
+使用者可能會被誘騙而瀏覽至被入侵的網站或應用程式，並使它們取得其設定檔資訊和使用者資料 (例如其電子郵件)。 惡意的執行者可以使用其所接收到的已同意權限來對使用者的信箱內容進行加密，並要求使用者支付贖金以重新存取其信箱資料。 [系統管理員應該檢閱並稽核](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) \(英文\) 使用者所提供的權限。
 
 ## <a name="step-5---enable-end-user-self-help"></a>步驟 5 - 啟用使用者自助服務
 

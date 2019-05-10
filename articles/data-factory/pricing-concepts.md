@@ -9,16 +9,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935738"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233940"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>透過範例了解 Data Factory 定價
 
 此文章透過詳細範例說明及示範 Azure Data Factory 的定價模型。
+
+> [!NOTE]
+> 下列這些範例中使用的價格是假設，並不代表實際的定價。
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>每小時將資料從 AWS S3 複製到 Azure Blob 儲存體
 
@@ -122,13 +125,13 @@ ms.locfileid: "64935738"
   - 管線活動 = $0.00003 (依比例分配 1 分鐘的執行時間。 Azure 整合執行階段上每小時 $0.002 美元)
   - 外部管線活動 = $0.000041 (依比例分配 10 分鐘的執行時間。 Azure 整合執行階段上每小時 0.00025 美元)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>使用一般的 workday 的對應資料流程偵錯
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>使用一般的 workday （預覽定價） 的對應資料流程偵錯
 
 資料工程師為您負責設計、 建置和測試對應的資料流動每一天。 您在登入 ADF UI，並為資料流程中啟用偵錯模式。 偵錯工作階段的預設 TTL 為 60 分鐘。 您工作一整天為 10 小時，讓您偵錯工作階段永遠不過期。 因此，您一天的費用會是：
 
 **10 （小時） x 8 （核心） x $0.112 = $8.96**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>對應資料流的 blob 存放區中的資料轉換
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>將對應 （預覽定價） 的資料流的 blob 存放區中的資料轉換
 
 在此案例中，您會想要以視覺化方式 ADF 對應資料流程中的每小時的排程上的 Blob 存放區中的資料轉換。
 

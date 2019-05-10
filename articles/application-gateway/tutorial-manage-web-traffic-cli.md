@@ -1,34 +1,31 @@
 ---
-title: 教學課程 - 管理網路流量 - Azure CLI
+title: 管理網路流量 - Azure CLI
 description: 了解如何使用 Azure CLI 建立具有虛擬機器擴展集的應用程式閘道以管理網路流量。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.topic: article
+ms.date: 5/1/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 264e1050e74c64c003e08bc6a8ba1c115b83032c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: d60c756fcf0b527731b8a1f31a8d93f108c91665
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749065"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146219"
 ---
-# <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>教學課程：使用 Azure CLI 以應用程式閘道管理網路流量
+# <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>使用 Azure CLI 以應用程式閘道管理網路流量
 
-針對您維護的伺服器，可以使用應用程式閘道來管理及保護其網路流量。 您可以使用 Azure CLI 來建立[應用程式閘道](overview.md)，它使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)作為後端伺服器以管理 Web 流量。 在此範例中，該擴展集包含兩個虛擬機器執行個體，這些執行個體會新增至應用程式閘道的預設後端集區。
+針對您維護的伺服器，可以使用應用程式閘道來管理及保護其網路流量。 您可以使用 Azure CLI 來建立[應用程式閘道](overview.md)，它使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)作為後端伺服器。 在此範例中，擴展集會包含兩個虛擬機器執行個體。 會將擴展集新增至應用程式閘道的預設後端集區。
 
-在本教學課程中，您了解如何：
+在本文中，您將了解：
 
 > [!div class="checklist"]
 > * 設定網路
 > * 建立應用程式閘道
 > * 建立包含預設後端集區的虛擬機器擴展集
 
-如果您想要的話，可以使用 [Azure PowerShell](tutorial-manage-web-traffic-powershell.md) 完成本教學課程。
+如果您想要的話，可以使用 [Azure PowerShell](tutorial-manage-web-traffic-powershell.md) 完成本程序。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -38,7 +35,7 @@ ms.locfileid: "55749065"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [az group create](/cli/azure/group#az-group-create) 建立資源群組。 
+資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [az group create](/cli/azure/group#az-group-create) 建立資源群組。
 
 下列範例會在 eastus 位置建立名為 myResourceGroupAG 的資源群組。
 
@@ -136,7 +133,7 @@ az vmss extension set \
 
 若要取得應用程式閘道的公用 IP 位址，請使用 [az network public-ip show](/cli/azure/network/public-ip)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -156,12 +153,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
-
-> [!div class="checklist"]
-> * 設定網路
-> * 建立應用程式閘道
-> * 建立包含預設後端集區的虛擬機器擴展集
-
-> [!div class="nextstepaction"]
-> [使用 Web 應用程式防火牆來限制網路流量](./tutorial-restrict-web-traffic-cli.md)
+[使用 Web 應用程式防火牆來限制網路流量](./tutorial-restrict-web-traffic-cli.md)

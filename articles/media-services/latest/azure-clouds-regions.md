@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733295"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409291"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>存在 Azure 媒體服務 v3 的雲端和區域
 
@@ -26,19 +26,16 @@ Azure 媒體服務 v3 可透過 Azure Resource Manager 資訊清單在全域 Azu
 
 | 功能|全域 Azure 區域 | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | 可用 | 尚未提供 | 尚未提供 | 尚未提供 |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  可用 | 尚未提供 | 尚未提供 | 尚未提供 |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  可用 | 尚未提供 | 尚未提供 | 尚未提供 |
+| [Azure EventGrid](reacting-to-media-services-events.md) | 可用 | 無 | 無 | 無 |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  可用 | 無 | 無 | 無 |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  可用 | 無 | 無 | 無 |
 | [StandardEncoderPreset](encoding-concept.md) | 可用 | 可用 | 可用 | 可用 |
 | [LiveEvents](live-streaming-overview.md) | 可用 | 可用 | 可用 | 可用 |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | 可用 | 可用 | 可用 | 可用 |
 
 ## <a name="regionsgeographieslocations"></a>區域/地理位置/位置
 
-* [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)
-* [依區域的產品](https://azure.microsoft.com/global-infrastructure/services/)
-* [Azure 地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)
-* [Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)
+[Azure 媒體服務的服務部署所在的區域](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>區域碼名稱 
 
@@ -67,7 +64,7 @@ az account list-locations
 
 從不同國家/地區的 Azure 雲端連線到媒體服務帳戶時，下列端點非常重要。
 
-### <a name="global-azure"></a>全域 Azure
+### <a name="global-azure"></a>全球 Azure
 
 |端點 ||
 | --- | --- | 
@@ -98,6 +95,12 @@ az account list-locations
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Authentication | `https://login.chinacloudapi.cn/` |
 | 權杖對象 |  `https://management.core.chinacloudapi.cn/` |
+
+## <a name="see-also"></a>請參閱
+
+* [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Azure 地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Azure 位置](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="next-steps"></a>後續步驟
 

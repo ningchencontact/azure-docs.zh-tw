@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ad6f82d7b9bd7c4957df1dd37d0f2ddf7462e9e
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60695410"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410957"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>啟用及使用 Azure 實驗室服務中的實驗室中的 Linux 虛擬機器的遠端桌面
 這篇文章會示範如何執行下列工作：
@@ -64,7 +64,7 @@ ms.locfileid: "60695410"
 ## <a name="students-connecting-to-the-student-vm"></a>連接到 VM 的學生的學生
 學生在實驗室擁有者 （老師/教授） 之後可以在其 Linux vm 的 RDP**發佈**電腦上安裝的範本 VM 使用 RDP 和 GUI 的套件。 步驟如下： 
 
-1. 當學生登入實驗室入口網站直接 (`http://labs.azure.com`) 或使用的註冊連結 (`http://labs.azure.com/register/<registrationCode>`)，顯示圖格的每個實驗室學生具有存取權。 
+1. 當學生登入實驗室入口網站直接 (`https://labs.azure.com`) 或使用的註冊連結 (`https://labs.azure.com/register/<registrationCode>`)，顯示圖格的每個實驗室學生具有存取權。 
 2. 在 [] 磚中，選取**啟動**如果 VM 已停止。 
 3. 選取 [ **連接**]。 此動作會下載至您的機器的 RDP 檔案。 儲存它，並開啟，即可連線到 Linux 機器，透過 RDP。 
 

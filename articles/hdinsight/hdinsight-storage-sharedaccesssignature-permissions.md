@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 04/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7fa46e3a5f0ed6504e4bc927caa0378d75fcc4a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f7f6fe31afe35d9ccfd6ee33617bd7e4fbe46b7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686992"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409552"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取
 
@@ -25,26 +25,32 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 > [!WARNING]  
 > HDInsight 必須有叢集預設儲存體的完整存取權。
 
-## <a name="requirements"></a>需求
+## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* Azure 訂用帳戶。
 
-* Azure 訂用帳戶
-* C# 或 Python。 已提供 C# 示例代码作为 Visual Studio 解决方案。
+* SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](./hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-  * Visual Studio 的版本必須是 2013、2015 或 2017
-  * Python 的版本必須是 2.7 或更新版本
+* 將現有[儲存體容器](../storage/blobs/storage-quickstart-blobs-portal.md)。  
 
-* 以 Linux 為基礎的 HDInsight 叢集「或」[Azure PowerShell][powershell] - 如果您有以 Linux 為基礎的現有叢集，則可以使用 Apache Ambari 將共用存取簽章新增至叢集。 如果沒有，您可以使用 Azure PowerShell 建立叢集，並在叢集建立期間新增共用存取簽章。
+* 如果使用 PowerShell，您必須[Az 模組](https://docs.microsoft.com/powershell/azure/overview)。
 
-    > [!IMPORTANT]  
-    > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+* 如果想要使用 Azure CLI，您可能尚未安裝它，請參閱 <<c0> [ 安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+
+* 如果使用[Python](https://www.python.org/downloads/)，2.7 或更新版本的版本。
+
+* 如果使用C#，Visual Studio 必須是 2013年或更高版本。
+
+* [URI 配置](./hdinsight-hadoop-linux-information.md#URI-and-scheme)儲存體帳戶。 這會是`wasb://`Azure 儲存體而言`abfs://`針對 Azure Data Lake 儲存體 Gen2 或`adl://`針對 Azure Data Lake 儲存體 Gen1。 如果 Azure 儲存體或 Data Lake 儲存體 Gen2 啟用安全傳輸，則 URI 會是`wasbs://`或是`abfss://`分別另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
+
+* 要加入至共用存取簽章的現有 HDInsight 叢集。 如果沒有，您可以使用 Azure PowerShell 建立叢集，並在叢集建立期間新增共用存取簽章。
 
 * 範例檔案來自 [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)。 此儲存機制包含下列項目：
 
   * Visual Studio 專案，可以建立儲存體容器、預存原則，以及搭配 HDInsight 使用的 SAS
   * Python 指令碼，可以建立儲存體容器、預存原則，以及搭配 HDInsight 使用的 SAS
-  * PowerShell 指令碼，可以建立 HDInsight 叢集，並將它設定為使用 SAS。
+  * PowerShell 指令碼，可以建立 HDInsight 叢集，並將它設定為使用 SAS。 更新的版本會使用下面會詳細。
+  * 範例檔案： `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>共用存取簽章
 
@@ -74,11 +80,136 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 如需共用存取簽章的詳細資訊，請參閱 [了解 SAS 模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
-### <a name="create-a-stored-policy-and-sas-using-c"></a>使用 C\# 建立預存原則和 SAS
+## <a name="create-a-stored-policy-and-sas"></a>建立預存的原則和 SAS
+
+儲存在每個方法結束時產生的 SAS 權杖。 權杖看起來如下所示：
+
+```output
+?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
+```
+
+### <a name="using-powershell"></a>使用 PowerShell
+
+取代`RESOURCEGROUP`， `STORAGEACCOUNT`，和`STORAGECONTAINER`您現有的儲存體容器的適當值。 將目錄變更為`hdinsight-dotnet-python-azure-storage-shared-access-signature-master`或修訂`-File`參數，以包含的絕對路徑`Set-AzStorageblobcontent`。 輸入下列 PowerShell 命令：
+
+```PowerShell
+$resourceGroupName = "RESOURCEGROUP"
+$storageAccountName = "STORAGEACCOUNT"
+$containerName = "STORAGECONTAINER"
+$policy = "myPolicyPS"
+
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+
+# Get the access key for the Azure Storage account
+$storageAccountKey = (Get-AzStorageAccountKey `
+                                -ResourceGroupName $resourceGroupName `
+                                -Name $storageAccountName)[0].Value
+
+# Create an Azure Storage context
+$storageContext = New-AzStorageContext `
+                                -StorageAccountName $storageAccountName `
+                                -StorageAccountKey $storageAccountKey
+
+# Create a stored access policy for the Azure storage container
+New-AzStorageContainerStoredAccessPolicy `
+   -Container $containerName `
+   -Policy $policy `
+   -Permission "rl" `
+   -ExpiryTime "12/31/2025 08:00:00" `
+   -Context $storageContext
+
+# Get the stored access policy or policies for the Azure storage container
+Get-AzStorageContainerStoredAccessPolicy `
+    -Container $containerName `
+    -Context $storageContext
+
+# Generates an SAS token for the Azure storage container
+New-AzStorageContainerSASToken `
+    -Name $containerName `
+    -Policy $policy `
+    -Context $storageContext
+
+<# Removes a stored access policy from the Azure storage container
+Remove-AzStorageContainerStoredAccessPolicy `
+    -Container $containerName `
+    -Policy $policy `
+    -Context $storageContext
+#>
+
+# upload a file for a later example
+Set-AzStorageblobcontent `
+    -File "./sampledata/sample.log" `
+    -Container $containerName `
+    -Blob "samplePS.log" `
+    -Context $storageContext
+```
+
+### <a name="using-azure-cli"></a>使用 Azure CLI
+
+使用本節中的變數根據 Windows 環境。 將 bash 或其他環境需要稍有變化。
+
+1. 取代`STORAGEACCOUNT`，和`STORAGECONTAINER`您現有的儲存體容器的適當值。
+
+    ```azurecli
+    # set variables
+    set AZURE_STORAGE_ACCOUNT=STORAGEACCOUNT
+    set AZURE_STORAGE_CONTAINER=STORAGECONTAINER
+
+    #Login
+    az login
+
+    # If you have multiple subscriptions, set the one to use
+    # az account set --subscription SUBSCRIPTION
+
+    # Retrieve the primary key for the storage account
+    az storage account keys list --account-name %AZURE_STORAGE_ACCOUNT% --query "[0].{PrimaryKey:value}" --output table
+    ```
+
+2. 擷取主索引鍵設變數，以供稍後使用。 取代`PRIMARYKEY`與擷取值在先前步驟中，然後輸入下列命令：
+
+    ```azurecli
+    #set variable for primary key
+    set AZURE_STORAGE_KEY=PRIMARYKEY
+    ```
+
+3. 將目錄變更為`hdinsight-dotnet-python-azure-storage-shared-access-signature-master`或修訂`--file`參數，以包含的絕對路徑`az storage blob upload`。 執行剩餘的命令：
+
+    ```azurecli
+    # Create stored access policy on the containing object
+    az storage container policy create --container-name %AZURE_STORAGE_CONTAINER% --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT% --expiry 2025-12-31 --permissions rl
+
+    # List stored access policies on a containing object
+    az storage container policy list --container-name %AZURE_STORAGE_CONTAINER% --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+
+    # Generate a shared access signature for the container
+    az storage container generate-sas --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+
+    # Reversal
+    # az storage container policy delete --container-name %AZURE_STORAGE_CONTAINER% --name myPolicyCLI --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT%
+
+    # upload a file for a later example
+    az storage blob upload --container-name %AZURE_STORAGE_CONTAINER% --account-key %AZURE_STORAGE_KEY% --account-name %AZURE_STORAGE_ACCOUNT% --name sampleCLI.log --file "./sampledata/sample.log"
+    ```
+
+### <a name="using-python"></a>使用 Python
+
+開啟`SASToken.py`檔案，並將`storage_account_name`， `storage_account_key`，和`storage_container_name`您現有的儲存體容器，然後執行指令碼的適當值。
+
+您可能需要執行`pip install --upgrade azure-storage`如果您收到錯誤訊息`ImportError: No module named azure.storage`。
+
+### <a name="using-c"></a>使用 C#
 
 1. 在 Visual Studio 中開啟解決方案。
 
-2. 在 [方案總管] 中，於 **SASToken** 專案上按一下滑鼠右鍵，然後選取 [屬性]。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下**SASExample**專案，然後選取**屬性**。
 
 3. 選取 [設定]  ，並新增下列項目的值：
 
@@ -90,109 +221,142 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
    * FileToUpload：上傳至容器之檔案的路徑。
 
-4. 執行專案。 在 SAS 產生後，將顯示類似下列文字的資訊：
-
-        Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-
-    儲存 SAS 原則權杖、儲存體帳戶名稱和容器名稱。 將儲存體帳戶與您的 HDInsight 叢集相關聯時，會使用這些值。
-
-### <a name="create-a-stored-policy-and-sas-using-python"></a>使用 Python 建立預存原則和 SAS
-
-1. 開啟 SASToken.py 檔案並且變更下列值：
-
-   * policy\_name：要建立的預存原則所要使用的名稱。
-
-   * storage\_account\_name：儲存體帳戶的名稱。
-
-   * storage\_account\_key：儲存體帳戶的金鑰。
-
-   * storage\_container\_name：您想要限制存取的儲存體帳戶中的容器。
-
-   * example\_file\_path：上傳至容器之檔案的路徑。
-
-2. 執行指令碼。 指令碼完成時，它會顯示類似下列文字的 SAS 權杖：
-
-        sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-
-    儲存 SAS 原則權杖、儲存體帳戶名稱和容器名稱。 將儲存體帳戶與您的 HDInsight 叢集相關聯時，會使用這些值。
+4. 執行專案。 儲存 SAS 原則權杖、儲存體帳戶名稱和容器名稱。 將儲存體帳戶與您的 HDInsight 叢集相關聯時，會使用這些值。
 
 ## <a name="use-the-sas-with-hdinsight"></a>搭配 HDInsight 使用 SAS
 
 在建立 HDInsight 叢集時，您必須指定主要儲存體帳戶，您可以選擇性地指定其他儲存體帳戶。 這兩種新增儲存體的方法都需要所使用的儲存體帳戶和容器的完整存取權。
 
-若要使用共用存取簽章來限制對容器的存取，請將自訂項目新增至叢集的 [核心網站] 組態。
-
-* 對於**以 Windows 為基礎**或**以 Linux 為基礎**的 HDInsight 叢集，您可以使用 PowerShell 在建立叢集期間新增該項目。
-* 對於**以 Linux 為基礎**的 HDInsight 叢集，在建立叢集之後使用 Ambari 變更組態。
+若要使用共用存取簽章來限制對容器的存取，請將自訂項目新增至叢集的 [核心網站] 組態。 使用 PowerShell 建立叢集期間或使用 Ambari 在叢集建立之後，您可以新增項目。
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>建立使用 SAS 的叢集
 
-存储库的 `CreateCluster` 目录中包含创建使用 SAS 的 HDInsight 群集的示例。 若要使用它，請使用下列步驟：
+取代`CLUSTERNAME`， `RESOURCEGROUP`， `DEFAULTSTORAGEACCOUNT`， `STORAGECONTAINER`， `STORAGEACCOUNT`，和`TOKEN`以適當的值。 輸入 PowerShell 命令：
 
-1. 在文字編輯器中開啟 `CreateCluster\HDInsightSAS.ps1` 檔案，並在文件開頭修改下列值。
+```powershell
 
-    ```powershell
-    # Replace 'mycluster' with the name of the cluster to be created
-    $clusterName = 'mycluster'
-    # Valid values are 'Linux' and 'Windows'
-    $osType = 'Linux'
-    # Replace 'myresourcegroup' with the name of the group to be created
-    $resourceGroupName = 'myresourcegroup'
-    # Replace with the Azure data center you want to the cluster to live in
-    $location = 'North Europe'
-    # Replace with the name of the default storage account to be created
-    $defaultStorageAccountName = 'mystorageaccount'
-    # Replace with the name of the SAS container created earlier
-    $SASContainerName = 'sascontainer'
-    # Replace with the name of the SAS storage account created earlier
-    $SASStorageAccountName = 'sasaccount'
-    # Replace with the SAS token generated earlier
-    $SASToken = 'sastoken'
-    # Set the number of worker nodes in the cluster
-    $clusterSizeInNodes = 3
-    ```
+$clusterName = 'CLUSTERNAME'
+$resourceGroupName = 'RESOURCEGROUP'
 
-    例如，將 `'mycluster'` 變更為您想要建立的叢集的名稱。 建立儲存體帳戶和 SAS 權杖時，SAS 值應該符合先前步驟中的值。
+# Replace with the Azure data center you want to the cluster to live in
+$location = 'eastus'
 
-    一旦您變更值，請儲存檔案。
+# Replace with the name of the default storage account TO BE CREATED
+$defaultStorageAccountName = 'DEFAULTSTORAGEACCOUNT'
 
-2. 打开新的 Azure PowerShell 提示符。 如果不熟悉或尚未安装 Azure PowerShell，请参阅[安装和配置 Azure PowerShell][powershell]。
+# Replace with the name of the SAS container CREATED EARLIER
+$SASContainerName = 'STORAGECONTAINER'
 
-1. 從提示字元使用下列命令來驗證您的 Azure 訂用帳戶：
+# Replace with the name of the SAS storage account CREATED EARLIER
+$SASStorageAccountName = 'STORAGEACCOUNT'
 
-    ```powershell
+# Replace with the SAS token generated earlier
+$SASToken = 'TOKEN'
+
+# Default cluster size (# of worker nodes), version, and type
+$clusterSizeInNodes = "4"
+$clusterVersion = "3.6"
+$clusterType = "Hadoop"
+
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
     Connect-AzAccount
-    ```
+}
 
-    出现提示时，请使用 Azure 订阅帐户登录。
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
-    如果您的帳戶會與多個 Azure 訂用帳戶相關聯，您可能需要使用 `Select-AzSubscription` 來選取您想要使用的訂用帳戶。
+# Create an Azure Storage account and container
+New-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $defaultStorageAccountName `
+    -Location $location `
+    -SkuName Standard_LRS `
+    -Kind StorageV2 `
+    -EnableHttpsTrafficOnly 1
 
-4. 從提示字元中，將目錄變更至包含 HDInsightSAS.ps1 檔案的 `CreateCluster` 目錄。 然後使用下列命令以執行指令碼
+$defaultStorageAccountKey = (Get-AzStorageAccountKey `
+                                -ResourceGroupName $resourceGroupName `
+                                -Name $defaultStorageAccountName)[0].Value
 
-    ```powershell
-    .\HDInsightSAS.ps1
-    ```
+$defaultStorageContext = New-AzStorageContext `
+                                -StorageAccountName $defaultStorageAccountName `
+                                -StorageAccountKey $defaultStorageAccountKey
 
-    當指令碼執行時，它會在建立資源群組和儲存體帳戶時，將輸出記錄到 PowerShell 命令提示字元。 系統會提示您輸入 HDInsight 叢集的 HTTP 使用者。 這是用來保護叢集的 HTTP/s 存取的帳戶。
 
-    如果您是建立以 Linux 為基礎的叢集，系統會提示您輸入 SSH 使用者帳戶名稱和密碼。 此帐户用于远程登录到群集。
+# Create a blob container. This holds the default data store for the cluster.
+New-AzStorageContainer `
+    -Name $clusterName `
+    -Context $defaultStorageContext 
 
-   > [!IMPORTANT]  
-   > 出現 HTTP/s 或 SSH 使用者名稱和密碼提示時，您必須提供符合下列準則的密碼：
-   >
-   > * 長度必須小於 10 個字元。
-   > * 必須包含至少一個數字。
-   > * 必須包含至少一個非英數字元。
-   > * 必須包含至少一個大寫或小寫字元。
+# Cluster login is used to secure HTTPS services hosted on the cluster
+$httpCredential = Get-Credential `
+    -Message "Enter Cluster login credentials" `
+    -UserName "admin"
+
+# SSH user is used to remotely connect to the cluster using SSH clients
+$sshCredential = Get-Credential `
+    -Message "Enter SSH user credentials" `
+    -UserName "sshuser"
+
+# Create the configuration for the cluster
+$config = New-AzHDInsightClusterConfig 
+
+$config = $config | Add-AzHDInsightConfigValues `
+    -Spark2Defaults @{} `
+    -Core @{"fs.azure.sas.$SASContainerName.$SASStorageAccountName.blob.core.windows.net"=$SASToken}
+
+# Create the HDInsight cluster
+New-AzHDInsightCluster `
+    -Config $config `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $clusterName `
+    -Location $location `
+    -ClusterSizeInNodes $clusterSizeInNodes `
+    -ClusterType $clusterType `
+    -OSType Linux `
+    -Version $clusterVersion `
+    -HttpCredential $httpCredential `
+    -SshCredential $sshCredential `
+    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultStorageContainer $clusterName
+
+<# REVERSAL
+Remove-AzHDInsightCluster `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $clusterName
+
+Remove-AzStorageContainer `
+    -Name $clusterName `
+    -Context $defaultStorageContext
+
+Remove-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $defaultStorageAccountName
+
+Remove-AzResourceGroup `
+    -Name $resourceGroupName
+#>
+```
+
+> [!IMPORTANT]  
+> 出現 HTTP/s 或 SSH 使用者名稱和密碼提示時，您必須提供符合下列準則的密碼：
+>
+> * 長度必須小於 10 個字元。
+> * 必須包含至少一個數字。
+> * 必須包含至少一個非英數字元。
+> * 必須包含至少一個大寫或小寫字元。
 
 需要一段時間讓此指令碼完成，通常大約是 15 分鐘。 指令碼完成且沒有發生任何錯誤時，叢集即已建立。
 
 ### <a name="use-the-sas-with-an-existing-cluster"></a>對現有的叢集使用 SAS
 
-如果您有現有的以 Linux 為基礎的叢集，您可以使用下列步驟，將 SAS 新增至 [核心網站]  組態：
+如果您有現有的叢集，您可以新增 SAS**核心網站**組態使用下列步驟：
 
-1. 開啟叢集的 Ambari Web UI。 此頁面的位址是 https://YOURCLUSTERNAME.azurehdinsight.net。 出現提示時，使用您建立叢集時所使用的 admin 名稱 (admin) 和密碼來驗證叢集。
+1. 開啟叢集的 Ambari Web UI。 此頁面的位址是 `https://YOURCLUSTERNAME.azurehdinsight.net`。 出現提示時，使用您建立叢集時所使用的 admin 名稱 (admin) 和密碼來驗證叢集。
 
 2. 叢 Ambari Web UI 的左側，選擇 [HDFS]，然後選取頁面中間的 [設定] 索引標籤。
 
@@ -200,10 +364,10 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 4. 展開 [自訂核心網站] 區段，然後捲動至結尾，並且選取 [新增屬性...] 連結。 針對 [金鑰] 和 [值] 欄位使用下列值：
 
-   * **金鑰**：fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
-   * **值**：您先前執行的 C# 或 Python 應用程式傳回的 SAS
+   * **索引鍵**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+   * **值**：其中一個先前執行的方法所傳回的 SAS。
 
-     將 **CONTAINERNAME** 取代為您用於 C# 或 SAS 應用程式的容器名稱。 將 **STORAGEACCOUNTNAME** 取代為您使用的儲存體帳戶名稱。
+     取代`CONTAINERNAME`容器的名稱，您搭配使用C#或 SAS 應用程式。 取代`STORAGEACCOUNTNAME`與您所使用的儲存體帳戶名稱。
 
 5. 按一下 [新增] 按鈕以儲存這個金鑰和值，然後按一下 [儲存] 按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]。
 
@@ -220,40 +384,44 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 ## <a name="test-restricted-access"></a>測試限制的存取
 
-若要验证是否已限制访问，请通过 SSH 连接到群集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+若要確認您可以在 SAS 儲存體帳戶只有讀取和清單的項目使用下列步驟。
 
-連接到叢集後，使用下列步驟確認您在 SAS 儲存體帳戶僅能讀取和列出項目：
+1. 連線到叢集。 取代`CLUSTERNAME`與您的叢集名稱，然後輸入下列命令：
 
-1. 若要列出容器中的內容物，請使用提示中的下列命令： 
-
-    ```bash
-    hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    將 **SASCONTAINER** 取代為針對 SAS 儲存體帳戶建立的容器名稱。 將 **SASACCOUNTNAME** 取代為用於 SAS 的儲存體帳戶名稱。
+2. 若要列出容器中的內容物，請使用提示中的下列命令：
+
+    ```bash
+    hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```
+
+    取代`SASCONTAINER`SAS 儲存體帳戶所建立的容器的名稱。 取代`SASACCOUNTNAME`用於 SAS 的儲存體帳戶的名稱。
 
     此清單包含容器與 SAS 建立時上傳的檔案。
 
-2. 使用下列命令以確認您可以讀取檔案的內容。 如上一步中所述，替换 **SASCONTAINER** 和 **SASACCOUNTNAME**。 將 **FILENAME** 取代為前一個命令中顯示的名稱：
+3. 使用下列命令以確認您可以讀取檔案的內容。 取代`SASCONTAINER`和`SASACCOUNTNAME`如同前一個步驟。 取代`sample.log`中前一個命令顯示檔案的名稱：
 
     ```bash
-    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
     ```
 
     此命令會列出檔案的內容。
 
-3. 使用下列命令將檔案下載到本機檔案系統：
+4. 使用下列命令將檔案下載到本機檔案系統：
 
     ```bash
-    hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+    hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
     此命令會將檔案下載到本機檔案，名為 **testfile.txt**。
 
-4. 使用下列命令將本機檔案上傳至 SAS 儲存體上的新檔案，名為 **testupload.txt** ：
+5. 使用下列命令將本機檔案上傳至 SAS 儲存體上的新檔案，名為 **testupload.txt** ：
 
     ```bash
-    hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     ```
 
     您會收到類似以下文字的訊息：
@@ -263,32 +431,10 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
     发生此错误的原因是存储位置仅支持读取和列出。 使用下列命令將資料放在叢集的預設儲存體，它是可寫入的：
 
     ```bash
-    hdfs dfs -put testfile.txt wasb:///testupload.txt
+    hdfs dfs -put testfile.txt wasbs:///testupload.txt
     ```
 
-    这一次操作应该会成功完成。
-
-## <a name="troubleshooting"></a>疑難排解
-
-### <a name="a-task-was-canceled"></a>已取消工作
-
-**徵兆**：當使用 PowerShell 指令碼建立叢集時，您可能會收到下列錯誤訊息：
-
-    New-AzHDInsightCluster : A task was canceled.
-    At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
-    +     New-AzHDInsightCluster `
-    +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : NotSpecified: (:) [New-AzHDInsightCluster], CloudException
-        + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
-
-**原因**：如果您使用用於叢集或 (對於以 Linux 為基礎的叢集) SSH 使用者的 admin/HTTP 密碼，則會發生此錯誤。
-
-**解決方案**：使用符合下列準則的密碼：
-
-* 長度必須小於 10 個字元。
-* 必須包含至少一個數字。
-* 必須包含至少一個非英數字元。
-* 必須包含至少一個大寫或小寫字元。
+    此時，作業應該已順利完成。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -298,4 +444,3 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 * [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
 * [〈搭配 HDInsight 使用 MapReduce〉](hadoop/hdinsight-use-mapreduce.md)
 
-[powershell]: /powershell/azureps-cmdlets-docs

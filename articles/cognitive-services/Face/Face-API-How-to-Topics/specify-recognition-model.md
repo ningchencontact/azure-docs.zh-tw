@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 33348e637143b923719425b9674f99a475d848d9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 88b0ac853c64e1e32a2d1c429bdf8655158f030d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58806678"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411499"
 ---
 # <a name="specify-a-face-recognition-model"></a>指定臉部辨識模式
 
@@ -52,7 +52,7 @@ ms.locfileid: "58806678"
 如果您將它保留未指定，預設的模型版本 (_recognition_01_) 會使用。 請參閱下列程式碼範例.NET 用戶端程式庫。
 
 ```csharp
-string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 

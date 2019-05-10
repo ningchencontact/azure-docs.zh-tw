@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: c80a9ac30e79607d2a255debf73f6542df7c6498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bed3402de83984cae9134fe44058980ec18861b3
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310888"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413944"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Azure Service Fabric 中的隨選備份
 
@@ -28,6 +28,22 @@ ms.locfileid: "60310888"
 Azure Service Fabric 具有用來[定期備份資料](service-fabric-backuprestoreservice-quickstart-azurecluster.md)及依照需求備份資料的功能。 隨選備份很實用，因為可防範由於基礎服務或其環境中的計劃性變更所造成的資料遺失/資料損毀。
 
 在您手動觸發服務或服務環境作業之前，隨選備份功能對於擷取服務狀態很有幫助。 例如，如果您在升級或降級服務時變更了服務二進位檔。 在此情況下，隨選備份可協助防範由應用程式程式碼錯誤 (bug) 造成的資料損毀。
+## <a name="prerequisites"></a>必要條件
+
+- 設定電話安裝 Microsoft.ServiceFabric.Powershell.Http 模組 [預覽]。
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- 請確定叢集已連線使用`Connect-SFCluster`命令，然後再進行任何使用 Microsoft.ServiceFabric.Powershell.Http 模組的組態要求。
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggering-on-demand-backup"></a>觸發隨選備份
 
@@ -38,6 +54,16 @@ Azure Service Fabric 具有用來[定期備份資料](service-fabric-backupresto
 您可以設定定期備份原則，以使用可靠具狀態服務或 Reliable Actors 的分割區來作為儲存體的額外隨選備份。
 
 下列案例接續＜[啟用可靠具狀態服務和 Reliable Actors 的定期備份](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors)＞中的案例。 在此案例中，您會啟用備份原則來使用 Azure 儲存體中以所設定頻率發生的分割和備份。
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 Microsoft.ServiceFabric.Powershell.Http 模組的 Powershell
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' 
+
+```
+
+#### <a name="rest-call-using-powershell"></a>使用 Powershell 的 rest 呼叫
 
 使用 [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API 可設定分割區識別碼 `974bd92a-b395-4631-8a7f-53bd4ae9cf22` 的隨選備份觸發。
 
@@ -52,6 +78,17 @@ Invoke-WebRequest -Uri $url -Method Post -ContentType 'application/json' -Certif
 ### <a name="on-demand-backup-to-specified-storage"></a>隨選備份至指定的儲存體
 
 您可以要求對可靠具狀態服務或 Reliable Actor 的分割區進行隨選備份。 提供儲存體資訊以當作隨選備份要求的一部分。
+
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 Microsoft.ServiceFabric.Powershell.Http 模組的 Powershell
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlobStore -ConnectionString  'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>使用 Powershell 的 rest 呼叫
 
 使用 [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API 可設定分割區識別碼 `974bd92a-b395-4631-8a7f-53bd4ae9cf22` 的隨選備份觸發。 包括下列 Azure 儲存體資訊：
 
@@ -79,6 +116,16 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 可靠具狀態服務或 Reliable Actor 的分割區一次只接受一個隨選備份要求。 只有當目前的隨選備份要求完成後，才可以接受另一個要求。
 
 不同的分割區可同時觸發多個隨選備份要求。
+
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 Microsoft.ServiceFabric.Powershell.Http 模組的 Powershell
+
+```powershell
+
+Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+
+```
+#### <a name="rest-call-using-powershell"></a>使用 Powershell 的 rest 呼叫
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"
