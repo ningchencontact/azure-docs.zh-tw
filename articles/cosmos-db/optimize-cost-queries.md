@@ -1,6 +1,6 @@
 ---
 title: 最佳化在 Azure Cosmos DB 中執行查詢的要求單位和成本
-description: 了解如何評估查詢的要求單位費用，並在效能和成本方面最佳化查詢。
+description: 瞭解如何評估查詢的要求單位費用，並在效能和成本方面最佳化查詢。
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -27,11 +27,11 @@ Azure Cosmos DB 中的查詢通常已依輸送量排序，從最快/最有效率
 
 * 不含篩選的查詢。
 
-從一或多個分割區讀取資料的查詢會產生較高的延遲，並使用更多的要求單位。 由於每個分割區都會針對所有屬性自動編製索引，因此就能有效率地從索引中提供查詢。 您可以使用平行處理原則選項，更快速地進行使用多個分割區的查詢。 若要深入了解分割區和分割區索引鍵，請參閱[在 Azure Cosmos DB 中進行資料分割](partitioning-overview.md)。
+從一或多個分割區讀取資料的查詢會產生較高的延遲，並使用更多的要求單位。 由於每個分割區都會針對所有屬性自動編製索引，因此就能有效率地從索引中提供查詢。 您可以使用平行處理原則選項，更快速地進行使用多個分割區的查詢。 若要深入瞭解分割區和分割區索引鍵，請參閱[在 Azure Cosmos DB 中進行資料分割](partitioning-overview.md)。
 
 ## <a name="evaluate-request-unit-charge-for-a-query"></a>評估查詢的要求單位費用
 
-將一些資料儲存在 Azure Cosmos 容器中後，可以使用 Azure 入口網站中的 [資料總管] 來建構及執行您的查詢。 您也可以使用 [資料總管] 取得查詢的成本。 這個方法可讓您了解系統支援的典型查詢和作業所涉及的實際費用。
+將一些資料儲存在 Azure Cosmos 容器中後，可以使用 Azure 入口網站中的 [資料總管] 來建構及執行您的查詢。 您也可以使用 [資料總管] 取得查詢的成本。 這個方法可讓您瞭解系統支援的典型查詢和作業所涉及的實際費用。
 
 您還可以使用 SDK 以程式設計方式取得查詢的成本。 若要測量任何作業 (如建立、更新或刪除) 的額外負荷，請在使用 REST API 時檢查 `x-ms-request-charge` 標頭。 如果您使用.NET 或 Java SDK，`RequestCharge`屬性是要取得的要求費用的對等屬性，這個屬性是 ResourceResponse 或 FeedResponse 內出現。
 
@@ -53,7 +53,7 @@ while (queryable.HasMoreResults)
 
 ## <a name="factors-influencing-request-unit-charge-for-a-query"></a>影響查詢的要求單位費用的因素
 
-查詢的要求單位取決於許多因素。 例如，加载/返回的 Azure Cosmos 项的数量、对索引的查找次数、查询编译时间等详细信息。 Azure Cosmos DB 保證在相同資料上執行時，相同的查詢將一律使用相同數量的要求單位，即使重複執行也是如此。 使用查詢執行計量的查詢設定檔，可讓您清楚了解要求單位的使用情況。  
+查詢的要求單位取決於許多因素。 例如，加載/返回的 Azure Cosmos 項的數量、對索引的查找次數、查詢編譯時間等詳細信息。 Azure Cosmos DB 保證在相同資料上執行時，相同的查詢將一律使用相同數量的要求單位，即使重複執行也是如此。 使用查詢執行計量的查詢設定檔，可讓您清楚瞭解要求單位的使用情況。  
 
 在某些情況下，您可能會在分頁式查詢執行中看到一連串的 200 和 429 回應以及變數的要求單位，這是因為查詢會根據可用的 RU 盡快執行。 您可能會看到查詢執行分成伺服器和用戶端之間的多個頁面/來回行程。 例如，10,000 個項目可能會以多個頁面傳回，每個頁面根據該頁面上執行的計算來收費。 當您加總這些頁面時，您應該取得與整個查詢相同的 RU 數。  
 
@@ -101,14 +101,13 @@ Total Query Execution Time               :   �
 
 ## <a name="next-steps"></a>後續步驟
 
-接下來，您可以利用下列文章繼續深入了解 Azure Cosmos DB 中有關成本最佳化的詳細資訊：
+接下來，您可以利用下列文章繼續深入瞭解 Azure Cosmos DB 中有關成本最佳化的詳細資訊：
 
-* 深入了解 [Azure Cosmos 定價的運作方式](how-pricing-works.md)
-* 深入了解[最佳化開發與測試](optimize-dev-test.md)
-* 深入了解 [Azure Cosmos DB 帳單](understand-your-bill.md)
-* 深入了解[最佳化輸送量成本](optimize-cost-throughput.md)
-* 深入了解[最佳化儲存體成本](optimize-cost-storage.md)
-* 深入了解[最佳化讀取和寫入的成本](optimize-cost-reads-writes.md)
-* 深入了解[最佳化多重區域 Azure Cosmos 帳戶的成本](optimize-cost-regions.md)
-* 深入了解 [Azure Cosmos DB 保留容量](cosmos-db-reserved-capacity.md)
-
+* 深入瞭解 [Azure Cosmos 定價的運作方式](how-pricing-works.md)
+* 深入瞭解[最佳化開發與測試](optimize-dev-test.md)
+* 深入瞭解 [Azure Cosmos DB 帳單](understand-your-bill.md)
+* 深入瞭解[最佳化輸送量成本](optimize-cost-throughput.md)
+* 深入瞭解[最佳化儲存體成本](optimize-cost-storage.md)
+* 深入瞭解[最佳化讀取和寫入的成本](optimize-cost-reads-writes.md)
+* 深入瞭解[最佳化多重區域 Azure Cosmos 帳戶的成本](optimize-cost-regions.md)
+* 深入瞭解 [Azure Cosmos DB 保留容量](cosmos-db-reserved-capacity.md)
