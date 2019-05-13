@@ -55,8 +55,8 @@ ms.locfileid: "61400469"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type |類型屬性必須設定為：**MongoDb** |是 |
-| 伺服器 |MongoDB 伺服器的 IP 位址或主機名稱。 |是 |
-| 連接埠 |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 27017) |
+| server |MongoDB 伺服器的 IP 位址或主機名稱。 |是 |
+| port |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 27017) |
 | databaseName |您想要存取之 MongoDB 資料庫的名稱。 |是 |
 | authenticationType | 用來連線到 MongoDB 資料庫的驗證類型。<br/>允許的值包括：**基本**與**匿名**。 |是 |
 | username |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
@@ -178,12 +178,12 @@ Azure Data Factory 服務會使用 MongoDB 集合中**最新的 100 份文件**�
 |:--- |:--- |
 | Binary |Byte[] |
 | Boolean |Boolean |
-| date |DateTime |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |字串 |
-| 字串 |字串 |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
 | Object |以 "_" 作為巢狀分隔符號來重新標準化為壓平合併資料行 |
 
