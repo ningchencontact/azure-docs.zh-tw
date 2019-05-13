@@ -58,7 +58,7 @@ ms.locfileid: "65234053"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | **type** 屬性必須設定為 **HttpServer**。 | 有 |
+| type | **type** 屬性必須設定為 **HttpServer**。 | 有 |
 | url | Web 伺服器的基底 URL。 | 有 |
 | enableServerCertificateValidation | 指定是否在您連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 如果 HTTPS 伺服器使用自我簽署的憑證，請將此屬性設定為 **false**。 | 無<br /> (預設值為 **true**) |
 | authenticationType | 指定驗證類型。 允許的值為**匿名**、**基本**、**摘要**、**Windows** 和 **ClientCertificate**。 <br><br> 如需更多關於這些驗證類型的屬性和 JSON 範例，請參閱此表格後面幾節。 | 有 |
@@ -171,7 +171,7 @@ ms.locfileid: "65234053"
 
 | 屬性    | 描述                                                  | 必要項 |
 | ----------- | ------------------------------------------------------------ | -------- |
-| 類型        | [類型] 屬性底下`location`資料集內必須設定為**HttpServerLocation**。 | 有      |
+| type        | [類型] 屬性底下`location`資料集內必須設定為**HttpServerLocation**。 | 有      |
 | relativeUrl | 包含資料之資源的相對 URL。       | 無       |
 
 > [!NOTE]
@@ -212,7 +212,7 @@ ms.locfileid: "65234053"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 資料集的 **type** 屬性必須設定為 **HttpFile**。 | 有 |
+| type | 資料集的 **type** 屬性必須設定為 **HttpFile**。 | 有 |
 | relativeUrl | 包含資料之資源的相對 URL。 若未指定此屬性，則只會使用在連結服務定義中指定的 URL。 | 無 |
 | requestMethod | HTTP 方法。 允許的值為 **Get** (預設值) 和 **Post**。 | 無 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
@@ -279,7 +279,7 @@ ms.locfileid: "65234053"
 
 | 屬性                 | 描述                                                  | 必要項 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| 類型                     | [類型] 屬性底下`storeSettings`必須設為**HttpReadSetting**。 | 有      |
+| type                     | [類型] 屬性底下`storeSettings`必須設為**HttpReadSetting**。 | 有      |
 | requestMethod            | HTTP 方法。 <br>允許的值為 **Get** (預設值) 和 **Post**。 | 無       |
 | addtionalHeaders         | 其他 HTTP 要求標頭。                             | 否       |
 | requestBody              | HTTP 要求的主體。                               | 無       |
@@ -336,7 +336,7 @@ ms.locfileid: "65234053"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| 類型 | 複製活動來源的 **type** 屬性必須設定為 **HttpSource**。 | 有 |
+| type | 複製活動來源的 **type** 屬性必須設定為 **HttpSource**。 | 有 |
 | httpRequestTimeout | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。  | 無 |
 
 **範例**
