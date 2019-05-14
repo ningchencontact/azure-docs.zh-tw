@@ -124,7 +124,7 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 | userScopeFilterUri | 當`allowedGroups`未指定屬性，您可以使用會套用至整個租用戶，以擷取從 Office 365 的特定資料列篩選述詞運算式。 述詞的格式應該符合查詢的格式 Microsoft Graph Api，例如`https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`。 | 無 |
 | dateFilterColumn | 日期時間篩選條件資料行的名稱。 您可以使用這個屬性來限制哪些 Office 365 擷取資料的時間範圍。 | 如果資料集有一或多個日期時間資料行，[是]。 請參閱[此處](https://docs.microsoft.com/graph/data-connect-filtering#filtering)如需要這個日期時間篩選器的資料集的清單。 |
 | startTime | 開始日期時間值，做為篩選條件。 | [是] 如果`dateFilterColumn`指定 |
-| EndTime | 結束日期時間值，做為篩選條件。 | [是] 如果`dateFilterColumn`指定 |
+| endTime | 結束日期時間值，做為篩選條件。 | [是] 如果`dateFilterColumn`指定 |
 
 **範例**
 
