@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 34161989bf98f2605cbc2e238cb832523b2f23cb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0bb5fa25301fa86564c7f7aadb3285bdd5898a08
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843318"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511169"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>快速入門：使用適用於 .NET Framework 的語音 SDK 來翻譯語音
+
+另備有[語音轉換文字](quickstart-csharp-dotnet-windows.md)和[文字轉換語音](quickstart-text-to-speech-dotnet-windows.md)的快速入門。
 
 在此快速入門中，您將會建立簡單的 .NET Framework 應用程式以從電腦的麥克風即時擷取使用者語音，翻譯該語音，然後將翻譯的文字轉譯到命令列。 此應用程式是設計來在 64 位元的 Windows 上執行，並使用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget) \(英文\) 與 Microsoft Visual Studio 2017 所建置。
 

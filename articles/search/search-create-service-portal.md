@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264024"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471613"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
@@ -67,11 +67,13 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 > [!TIP]
 > 刪除資源群組也會刪除其中的服務。 針對使用多個服務的原型專案，將它們全部放入同一個資源群組，在專案結束之後就能更容易清除。
 
-## <a name="select-a-hosting-location"></a>選取裝載位置
+## <a name="select-a-location"></a>選取位置
 
 做為 Azure 服務，Azure 搜尋服務可以裝載於世界各地的資料中心。 各地理位置的[價格可能不同](https://azure.microsoft.com/pricing/details/search/)。
 
-如果您要對位於 Azure 服務 (Azure 儲存體、Azure Cosmos DB、Azure SQL Database) 中的內容編製索引，請在您資料所在的相同區域中建立 Azure 搜尋服務，以避免產生頻寬費用。 這些服務位於相同區域時，輸出資料無須收費。
+如果您要依其他 Azure 服務 (Azure 儲存體、Azure Cosmos DB、Azure SQL Database) 提供的資料編製索引，請在相同區域中建立 Azure 搜尋服務，以避免產生頻寬費用。 這些服務位於相同區域時，輸出資料無須收費。
+
+如果您使用認知服務 AI 擴充資料，請在與認知服務資源所在之相同的區域中建立服務。 服務必須位於相同位置，方可使用 AI 擴充資料。
 
 ## <a name="select-a-pricing-tier-sku"></a>選取定價層 (SKU)
 

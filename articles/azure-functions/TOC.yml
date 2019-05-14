@@ -118,8 +118,8 @@
       href: functions-networking-options.md
     - name: IP 位址
       href: ip-addresses.md
-    - name: 內部部署函式
-      href: functions-runtime-overview.md
+    - name: Kubernetes 中的函式
+      href: functions-kubernetes-keda.md
 - name: 使用說明指南
   items:
     - name: 開發
@@ -142,6 +142,8 @@
           href: create-function-app-linux-app-service-plan.md
         - name: 偵錯本機 PowerShell 函式
           href: functions-debug-powershell-local.md
+        - name: 相依性插入
+          href: functions-dotnet-dependency-injection.md
         - name: 管理連線
           href: manage-connections.md
         - name: 錯誤處理
@@ -173,6 +175,7 @@
       items:
         - name: 管理函式應用程式
           href: functions-how-to-use-azure-function-app-settings.md
+          displayName: 'app setting, application setting'
         - name: 設定執行階段版本
           href: set-runtime-version.md
         - name: 手動登錄擴充功能

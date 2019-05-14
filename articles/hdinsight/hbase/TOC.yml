@@ -1,8 +1,8 @@
 - name: Azure HDInsight 文件
   href: /azure/hdinsight
-- name: HDInsight 上的 Apache HBase
+- name: 概觀
   items:
-    - name: 概觀
+    - name: HDInsight 中的 Apache HBase
       href: apache-hbase-overview.md
     - name: HDInsight 上的 Apache Hadoop 元件
       href: ../hdinsight-component-versioning.md
@@ -10,6 +10,10 @@
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
       maintainContext: true
+- name: 快速入門
+  items:
+    - name: 查詢 Apache HBase - HBase Shell
+      href: ./query-hbase-with-hbase-shell.md
 - name: 開始使用
   items:
     - name: 開始使用 Apache HBase 與 NoSQL

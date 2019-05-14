@@ -4,7 +4,7 @@ description: 了解如何使用 OpenID Connect 標準在搭配傳統網頁瀏覽
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191034"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231163"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
 
@@ -38,7 +38,7 @@ ms.locfileid: "65191034"
 
 開始之前，請先確定您符合以下先決條件：
 
-* 已安裝 Visual Studio 2015 Update 3 或 Visual Studio 2019。 沒有嗎？ [免費下載 Visual Studio 2019](https://www.visualstudio.com/downloads/)
+* 請確定您有 Visual Studio 2015 Update 3 或更新版本。 沒有嗎？ [免費下載 Visual Studio 2019](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>案例：在您的 ASP.NET 應用程式中從公司和學校帳戶登入使用者
 
@@ -70,9 +70,10 @@ ms.locfileid: "65191034"
 ## <a name="step-2-create-your-aspnet-project"></a>步驟 2：建立 ASP.NET 專案
 
 1. 在 Visual Studio 中，前往 [檔案] > [新增] > [專案]。
-2. 在 [Visual C#\Web] 底下，選取 [ASP.NET Web 應用程式 (.NET Framework)]。
-3. 為您的應用程式命名並選取 [確定]。
-4. 選取 [空白]，然後選取核取方塊來新增 **MVC** 參考。
+2. 針對**專案類型**，選取 [Web]、[ASP.NET Web 應用程式 /(.NET Framework/)].
+3. 為應用程式命名並選取 [建立]。
+4. 在 [新增資料夾和核心參考] 下選取 [空白] 及 [MVC]，以新增 MVC 參考。
+5. 選取 [建立] 。
 
 ## <a name="step-3-add-authentication-components"></a>步驟 3：新增驗證元件
 
@@ -125,7 +126,7 @@ ms.locfileid: "65191034"
 建立新的控制器來公開登入和登出方法。
 
 1.  以滑鼠右鍵按一下 **Controllers** 資料夾，然後選取 [新增] > [控制器]。
-2.  選取 [MVC (.NET 版本) 控制器 – 空白]。
+2.  選取 [MVC {版本} 控制器 – 空白]。
 3.  選取 [新增] 。
 4.  將它命名為 `HomeController` 並選取 [新增]。
 5.  將 **OWIN** 命名空間新增至類別：

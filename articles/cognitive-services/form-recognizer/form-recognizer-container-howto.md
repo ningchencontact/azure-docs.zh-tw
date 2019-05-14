@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: c7d5d9421ec89f1d75723d3538ee9a73e56dc6a3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a7159fccc9c4ef232cfca08b173e712e268343ea
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143030"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507825"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>安裝及執行表單辨識器容器
 表單辨識器運用機器學習技術來識別和擷取表單中的索引鍵值組和資料表。 它會讓值和資料表項目關聯至表單，然後輸出在原始檔中包含關聯性的結構化資料。 您可以使用簡單的 REST API 呼叫您的自訂表單辨識器模型，以降低複雜度並輕鬆地在您的工作流程自動化程序或其他應用程式中整合它。 只需要五份文件 (或空的表單)，以便您快速且精確地取得針對特定內容量身打造的結果，而不需大量手動操作或廣泛的資料科學專業知識。 不需要資料標記或資料註解。
@@ -261,7 +261,7 @@ formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=form
 
 ### <a name="form-recognizer"></a>表單辨識器
 
-容器會提供 REST 端點 API，您可在[這裡](https://docs.microsoft.com/azure/cognitive-services/formrecognizer-service/rest-apis#formrecognier-api)找到這類 API，並可在[這裡](https://azure.microsoft.com/resources/samples/cognitive-formrecognizer)找到範例。
+容器會提供 REST 端點 API，您可在[這裡](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel)找到。
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]

@@ -76,6 +76,8 @@
           href: overview-authentication-authorization.md
         - name: 作業系統和執行階段修補
           href: overview-patch-os-runtime.md
+        - name: 安全性屬性
+          href: app-service-security-attributes.md
     - name: 輸入和輸出 IP
       href: overview-inbound-outbound-ips.md
     - name: 混合式連線

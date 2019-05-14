@@ -175,6 +175,8 @@
           href: stream-analytics-troubleshoot-query.md
         - name: 活動和診斷記錄
           href: stream-analytics-job-diagnostic-logs.md
+        - name: 資料錯誤
+          href: data-errors.md
     - name: 與 Machine Learning 整合
       items:
         - name: 使用 ML 模型進行情感分析

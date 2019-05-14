@@ -6,36 +6,36 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: 2a904cfb049af413887798c8aab449561bc2b73f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030046"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471747"
 ---
 # <a name="how-to-get-started-with-knowledge-store"></a>如何開始使用知識存放區
 
 [知識存放區](knowledge-store-concept-intro.md)是 Azure 搜尋服務中的新預覽功能，可儲存在索引管線中建立的 AI 擴充資料，以供使用其他應用程式進行知識採礦。 您也可以使用已儲存的擴充資料，以了解 Azure 搜尋服務索引管線並縮小其範圍。
 
-知識存放區是由技能集定義的。 對於一般的 Azure 搜尋服務全文檢索搜尋案例，技能集的目的在於提供 AI 擴充資料，提高內容的可搜尋性。 對於知識存放區案例，技能集的角色是建立和填入多種資料結構，以用於知識採礦。
+知識存放區是由技能集定義的。 對於一般的 Azure 搜尋服務全文檢索搜尋案例，技能集的目的在於提供 AI 擴充資料，提高內容的可搜尋性。 在知識採礦的情況下，技能集的角色會在其他應用程式和處理程序中建立、填入和儲存多個用於分析或模型化的資料結構。
 
 這個練習會從範例資料、服務和工具開始，逐步了解建立和使用您第一個知識存放區的基本工作流程，並將重點放在技能集定義。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-此快速入門會使用下列服務、工具和資料。 
+本快速入門會使用下列服務、工具和資料。 
 
-+ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此教學課程的免費服務。 
++ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。 
 
-+ [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。 您的知識存放區將存在於 Azure 儲存體中。
++ [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。 您的知識存放區將存在於 Azure 儲存體中。 
 
-+ 在 S0 預付型方案層[建立認知服務資源](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) \(機器翻譯\)，以廣泛取得在 AI 擴充資料中使用的完整技能。
++ 在 S0 預付型方案層[建立認知服務資源](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) \(機器翻譯\)，以廣泛取得在 AI 擴充資料中使用的完整技能。 此資訊和伙 Azure 搜尋服務都必須位於相同區域。
 
 + [Postman 傳統型應用程式](https://www.getpostman.com/)可將要求傳送至 Azure 搜尋服務。
 
-+ [Postman 集合](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/caselaw)包含預先準備的要求，可用於建立資料來源、索引、技能集和索引子。 有幾個物件定義因為太長而無法包含在此文章中。 您必須取得此集合，才能查看完整的索引和技能集定義。
++ [Postman 集合](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Caselaw)包含預先準備的要求，可用於建立資料來源、索引、技能集和索引子。 有幾個物件定義因為太長而無法包含在此文章中。 您必須取得此集合，才能查看完整的索引和技能集定義。
 
 + [Caselaw 範例資料](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) \(英文\) 源自 [Caselaw 存取專案](https://case.law/bulk/download/) \(英文\) Public Bulk Data 下載頁面。 具體來說，此練習會使用第一個下載項目 (Arkansas) 的前 10 個文件。 我們為此練習上傳了包含 10 個文件的範例至 GitHub。
 
@@ -55,7 +55,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]，然後按一下 [+ 容器]。
 
-1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)以容納範例資料。 您可以將公用存取層級設定為任何有效值。
+1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)以容納範例資料。 使用容器名稱 "caselaw-test"。 您可以將公用存取層級設定為任何有效值。
 
 1. 建立容器之後，請加以開啟，然後選取命令列的 [上傳]。
 
@@ -66,19 +66,19 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="set-up-postman"></a>設定 Postman
 
-啟動 Postman 及設定 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Postman 探索 Azure 搜尋服務 REST API](search-fiddler.md)。
+啟動 Postman 並匯入 Caselaw Postman 集合。 或者，設定一系列的 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Postman 探索 Azure 搜尋服務 REST API](search-fiddler.md)。
 
-+ 此逐步解說中每個呼叫的要求方法都是 **POST**。
++ 此逐步解說中每個呼叫的要求方法都是 **PUT** 或 **POST**。
 + 要求標頭 (2) 包括：分別將 "Content-type" 設定為 "application/json"，將 "api-key" 設為您的「管理金鑰」(管理金鑰是您搜尋主索引鍵的預留位置)。 
 + 要求本文是您放置呼叫實際內容的地方。 
 
   ![半結構化搜尋](media/search-semi-structured-data/postmanoverview.png)
 
-我們使用 Postman 對您的搜尋服務進行四個 API 呼叫，以建立資料來源、索引、技能集及索引子。 資料來源包括指向您儲存體帳戶和 JSON 資料的指標。 您的搜尋服務會在匯入資料時進行連線。
+我們使用 Postman 對您的搜尋服務進行四個 API 呼叫，並按此順序建立資料來源、索引、技能集及索引子。 資料來源包括指向您 Azure 儲存體帳戶和 JSON 資料的指標。 您的搜尋服務會在匯入資料時進行連線。
 
 [建立技能集](#create-skillset)是此逐步解說的重點：它會指定擴充步驟和在知識存放區中保存資料的方式。
 
-URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**。 用於建立支援知識存放區之技能集的預覽 api-version 為 `2019-05-06-Preview`。
+URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**。 用於建立支援知識存放區之技能集的預覽 api-version 為 `2019-05-06-Preview` (區分大小寫)。
 
 從您的 REST 用戶端執行下列 API 呼叫。
 
@@ -101,10 +101,10 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
         "type": "azureblob",
         "subtype": null,
         "credentials": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
         },
         "container": {
-            "name": "<your blob container name>",
+            "name": "<YOUR-BLOB-CONTAINER-NAME>",
             "query": null
         },
         "dataChangeDetectionPolicy": null,
@@ -318,24 +318,23 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
    }
    ```
 
-3. 請先設定 `cognitiveServices` 和 `knowledgeStore` 金鑰與連接字串。 在範例中，這些字串位於技能集定義後方，靠近要求本文的結尾處。
+3. 請先設定 `cognitiveServices` 和 `knowledgeStore` 金鑰與連接字串。 在範例中，這些字串位於技能集定義後方，靠近要求本文的結尾處。 使用認知服務資源，在位於與 Azure 搜尋服務相同區域的 S0 服務層級中佈建。
 
     ```json
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "<your cognitive services resource name>",
-        "key": "<your cognitive services key>"
+        "description": "YOUR-SAME-REGION-S0-COGNITIVE-SERVICES-RESOURCE",
+        "key": "YOUR-COGNITIVE-SERVICES-KEY"
     },
     "knowledgeStore": {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your storage account key>;EndpointSuffix=core.windows.net",
+        "storageConnectionString": "YOUR-STORAGE-ACCOUNT-CONNECTION-STRING",
     ```
 
 3. 檢閱技能集合，特別是分別位於第 85 和 170 行的 Shaper 技能。 Shaper 技能很重要，因為它會組合您進行知識採礦時所需的資料結構。 技能集在執行期間，這些結構只會存在於記憶體內部，但當您移至下一個步驟時，就會了解此輸出如何儲存至知識存放區以供進一步探索。
 
-   下列程式碼片段來自第 207 行。 
+   下列程式碼片段來自第 217 行。 
 
     ```json
-    {
     "name": "Opinions",
     "source": null,
     "sourceContext": "/document/casebody/data/opinions/*",
@@ -361,44 +360,46 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
                     "name": "EntityType",
                     "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/category"
                 }
-             ]
-          }
-     ]
-   }
+            ]
+        }
+    ]
    . . .
    ```
 
-3. 檢閱 `knowledgeStore` 中的 `projections` 元素 (從第 253 行開始)。 投影會指定知識存放區組合。 投影是在資料表-物件組中指定的，但目前有時只有一個。 如您在第一個投影中所見，已指定 `tables` 但未指定 `objects`。 在第二個中則是相反的。
+3. 檢閱 `knowledgeStore` 中的 `projections` 元素 (從第 262 行開始)。 投影會指定知識存放區組合。 投影是在資料表-物件組中指定的，但目前有時只有一個。 如您在第一個投影中所見，已指定 `tables` 但未指定 `objects`。 在第二個中則是相反的。
 
    在 Azure 儲存體中，您建立的每個資料表都會在資料表儲存體中建立，而且每個物件都會在 Blob 儲存體中取得一個容器。
 
-   物件通常包含擴充資料的完整運算式。 資料表通常包含您針對特定用途所安排組合中的部分擴充資料。 此範例顯示一個 Cases 資料表，但沒有顯示其他資料表，例如 Entities、Judges 和 Opinions。
+   Blob 物件通常包含擴充資料的完整運算式。 資料表通常包含您針對特定用途所安排組合中的部分擴充資料。 此範例顯示一個 Cases 資料表及 Opinions 資料表，但沒有顯示其他資料表，例如 Entities、Attorneys、Judges 和 Parties。
 
     ```json
     "projections": [
-    {
-        "tables": [
-            {
-              "tableName": "Opinions",
-              "generatedKeyName": "OpinionId",
-              "source": "/document/Case/OpinionsSnippets/*"
-            },
-          . . . 
-        ],
-        "objects": []
-    },
-    {
-        "tables": [],
-        "objects": [
-            {
-                "storageContainer": "enrichedcases",
-                "key": "/document/CaseFull/Id",
-                "source": "/document/CaseFull"
-            }
-          ]
+        {
+            "tables": [
+                {
+                    "tableName": "Cases",
+                    "generatedKeyName": "CaseId",
+                    "source": "/document/Case"
+                },
+                {
+                    "tableName": "Opinions",
+                    "generatedKeyName": "OpinionId",
+                    "source": "/document/Case/OpinionsSnippets/*"
+                }
+            ],
+            "objects": []
+        },
+        {
+            "tables": [],
+            "objects": [
+                {
+                    "storageContainer": "enrichedcases",
+                    
+                    "source": "/document/CaseFull"
+                }
+            ]
         }
-      ]
-    }
+    ]
     ```
 
 5. 傳送要求。 回應應為 **201**，且看起來應該類似以下範例 (僅顯示回應的前面部分)。

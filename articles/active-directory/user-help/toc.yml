@@ -28,9 +28,10 @@
       href: user-help-auth-app-overview.md
     - name: 下載並安裝應用程式
       href: user-help-auth-app-download-install.md
-    - name: 新增帳戶概觀
-      href: user-help-auth-app-add-account-overview.md
+    - name: 新增帳戶
       items:
+        - name: 概觀
+          href: user-help-auth-app-add-account-overview.md
         - name: 新增公司或學校帳戶
           href: user-help-auth-app-add-work-school-account.md
         - name: 新增個人的 Microsoft 帳戶
@@ -63,9 +64,10 @@
       href: user-help-security-info-overview.md
     - name: 在登入期間新增安全性資訊
       href: security-info-setup-signin.md
-    - name: 新增或更新安全性資訊的方法概觀
-      href: security-info-add-update-methods-overview.md
+    - name: 新增或更新安全性資訊方法
       items:
+        - name: 概觀
+          href: security-info-add-update-methods-overview.md
         - name: 設定驗證器應用程式
           href: security-info-setup-auth-app.md
         - name: 安裝文字傳訊

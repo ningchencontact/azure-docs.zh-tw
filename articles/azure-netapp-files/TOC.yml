@@ -21,6 +21,10 @@
       href: azure-netapp-files-metrics.md
     - name: 適用於 Azure NetApp Files 的效能基準測試
       href: azure-netapp-files-performance-benchmarks.md
+    - name: 適用於 Azure NetApp Files 的成本模型
+      href: azure-netapp-files-cost-model.md
+    - name: 適用於 Azure NetApp Files 網路方案的指導方針
+      href: azure-netapp-files-network-topologies.md
 - name: 使用說明指南
   items:
     - name: 註冊 Azure NetApp Files

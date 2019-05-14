@@ -11,14 +11,16 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: ee7649dccf1ca50933e29cec9d40e4f5e16bd721
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e2b25875a0dff12bba32b033bca0c35394d407aa
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074114"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465634"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>快速入門：使用語音 SDK、UWP 建立語音優先虛擬助理
+
+另備有[語音轉換文字](quickstart-csharp-uwp.md)和[語音翻譯](quickstart-translate-speech-uwp.md)的快速入門。
 
 在本文中，您會使用[語音 SDK](speech-sdk.md)來開發 C# 通用 Windows 平台 (UWP) 應用程式。 此程式會連線到先前撰寫和設定的 Bot，讓您從用戶端應用程式獲得語音優先虛擬助理體驗。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 (任何版本) 所建置的。
 
@@ -80,16 +82,16 @@ ms.locfileid: "65074114"
             <MediaElement x:Name="mediaElement"/>
         </Grid>
     </Page>
-        ```
+    ```
 
-1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
+1. 開啟程式碼後置原始檔`MainPage.xaml.cs`。 您會發現 `MainPage.xaml` 以下的項目均已分組。 使用以下列程式碼取代內容。 以下是此範例的涵蓋內容： 
 
-    * Using statements for the Speech and Speech.Dialog namespaces
-    * A simple implementation to ensure microphone access, wired to a button handler
-    * Basic UI helpers to present messages and errors in the application
-    * A landing point for the initialization code path that will be populated later
-    * A helper to play back text-to-speech (without streaming support)
-    * An empty button handler to start listening that will be populated later
+    * 在 Speech 和 Speech.Dialog 命名空間中使用陳述式
+    * 進行簡單的實作，確認麥克風存取正常並連線至按鈕處理常式
+    * 應用程式中的基本 UI 協助程式會顯示訊息及錯誤
+    * 初始程式碼路徑登陸點，稍後會填入資訊
+    * 協助程式會播放文字轉換語音資訊 (無需串流支援)
+    * 稍後會填入即將開始接聽的空白按鈕處理常式
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -239,7 +241,7 @@ ms.locfileid: "65074114"
             }
         }
     }
-     ```
+    ```
 
 1. 接下來，您將使用您的訂用帳戶資訊建立 `SpeechBotConnector`。 將下列內容新增到 `InitializeBotConnector` 的方法主體，並針對您的 Bot、語音訂用帳戶和[區域](regions.md)，以您自己的值取代字串 `YourChannelSecret`、`YourSpeechSubscriptionKey` 和 `YourServiceRegion`。
 

@@ -8,7 +8,7 @@ metadata:
   manager: carmonm
   ms.service: governance
   ms.topic: landing-page
-  ms.date: 09/18/2018
+  ms.date: 05/07/2019
   ms.author: dacoulte
 abstract:
   description: Azure Governance 是多個概念和服務的集合，其設計訴求是要能夠大規模管理各種 Azure 資源。 這些服務能夠以邏輯方式組織及建構您的訂用帳戶、建立及部署可重複使用的 Azure 資源原生套件，以及定義、稽核及補救您的資源等。 使用此頁面來深入了解這些概念與服務，以及如何在您的環境中啟用及使用每項服務。
@@ -53,16 +53,16 @@ sections:
               alt: 藍圖
               src: ./media/blueprints-illustration.svg
             title: 藍圖
-  - title: 實作
+  - title: 雲端採用架構
   - items:
       - type: list
         style: cards
         className: cardsZ
         columns: 3
         items:
-          - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-            html: <p>在過去，企業要承擔從基礎結構到軟體等所有技術層級的擁有權和責任。 現在，雲端可以視需要佈建及耗用資源，因而具有轉換企業利用技術方式的潛能。</p>
-            title: 企業雲端採用
-          - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-            html: <p>可讓系統管理員確保工作負載符合組織的最低治理需求，而不會阻礙事業群和開發人員快速達成他們自己的目標。<br /><br /></p>
-            title: 企業 Scaffold
+          - href: /azure/architecture/cloud-adoption/index?toc=/azure/governance/toc.json
+            html: <p>雲端採用架構提供適用於 Microsoft Azure 的技術指導。 由於客戶可能仍在選擇雲端供應商的過程中，這個架構提供任何雲端均適用的指導，以便在可能情況下促進更高層級的決策。</p>
+            title: 概觀
+          - href: /azure/architecture/cloud-adoption/governance/index?toc=/azure/governance/toc.json
+            html: <p>針對使用現有原則治理內部部署 IT 環境的組織而言，雲端治理應該可以補強這些商務原則。<br /><br /></p>
+            title: 治理概觀

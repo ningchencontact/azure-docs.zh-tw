@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: bidishac
-ms.openlocfilehash: 4e9010bed54d0b2a7cb1a95b9e01e5ba02ea9fd5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 83149a8422db25106a97b1711c0ae9ce3c6603eb
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026628"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465671"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>快速入門：使用語音 SDK、Java 建立語音優先虛擬助理
+
+另備有[語音轉換文字](quickstart-java-jre.md)和[語音翻譯](quickstart-translate-speech-java-jre.md)的快速入門。
 
 在本文中，您會使用[認知服務語音 SDK](speech-sdk.md)，建立 Java 主控台應用程式。 此應用程式會連線到先前撰寫的 Bot，該 Bot 設定為使用 Direct Line Speech 頻道、傳送語音要求，以及傳回語音回應活動 (若已設定的話)。 此應用程式是使用語音 SDK Maven 套件，以及Windows、Ubuntu Linux 或 macOS 上的 Eclipse Java IDE 來建置。 它會在 64 位元 Java 8 Runtime Environment (JRE) 上執行。
 
@@ -78,17 +80,18 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
     ```java
     package speechsdk.quickstart;
 
-    import java.io.IOException;
-    import java.io.PipedOutputStream;
-    import java.util.HashMap;
-
+    import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
+    import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
+    import com.microsoft.cognitiveservices.speech.dialog.BotConnectorConfig;
+    import com.microsoft.cognitiveservices.speech.dialog.SpeechBotConnector;
     import org.slf4j.Logger;
     import org.slf4j.LoggerFactory;
 
-    import com.microsoft.cognitiveservices.speech.ResultReason;
-    import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
-    import com.microsoft.cognitiveservices.speech.dialog.BotConnectorConfig;
-    import com.microsoft.cognitiveservices.speech.dialog.SpeechBotConnector;
+    import javax.sound.sampled.AudioFormat;
+    import javax.sound.sampled.AudioSystem;
+    import javax.sound.sampled.DataLine;
+    import javax.sound.sampled.SourceDataLine;
+    import java.io.InputStream;
 
     public class Main {
         final Logger log = LoggerFactory.getLogger(Main.class);
@@ -96,6 +99,46 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
         public static void main(String[] args) {
             // New code will go here
         }
+
+        private void playAudioStream(PullAudioOutputStream audio) {
+            ActivityAudioStream stream = new ActivityAudioStream(audio);
+            final ActivityAudioStream.ActivityAudioFormat audioFormat = stream.getActivityAudioFormat();
+            final AudioFormat format = new AudioFormat(
+                    AudioFormat.Encoding.PCM_SIGNED,
+                    audioFormat.getSamplesPerSecond(),
+                    audioFormat.getBitsPerSample(),
+                    audioFormat.getChannels(),
+                    audioFormat.getFrameSize(),
+                    audioFormat.getSamplesPerSecond(),
+                    false);
+            try {
+                int bufferSize = format.getFrameSize();
+                final byte[] data = new byte[bufferSize];
+
+                SourceDataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
+                SourceDataLine line = (SourceDataLine) AudioSystem.getLine(info);
+                line.open(format);
+
+                if (line != null) {
+                    line.start();
+                    int nBytesRead = 0;
+                    while (nBytesRead != -1) {
+                        nBytesRead = stream.read(data);
+                        if (nBytesRead != -1) {
+                            line.write(data, 0, nBytesRead);
+                        }
+                    }
+                    line.drain();
+                    line.stop();
+                    line.close();
+                }
+                stream.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
     ```
 
@@ -153,11 +196,14 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
         botConnector.disconnectAsync();
     });
 
-    // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
+    // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
     botConnector.activityReceived.addEventListener((o, activityEventArgs) -> {
-        String act = activityEventArgs.getActivity().serialize();
-        log.info("Received activity: {}", act);
-    });
+        final String act = activityEventArgs.getActivity().serialize();
+            log.info("Received activity {} audio", activityEventArgs.hasAudio() ? "with" : "without");
+            if (activityEventArgs.hasAudio()) {
+                playAudioStream(activityEventArgs.getAudio());
+            }
+        });
     ```
 
 1. 叫用 `connectAsync()` 方法，以將 `SpeechBotConnector` 連線到 Direct Line Speech。 若要測試您的 Bot，您可以叫用 `listenOnceAsync` 方法，以傳送來自麥克風的音訊輸入。 此外，您也可以使用 `sendActivityAsync` 方法，以序列化字串的形式傳送自訂活動。 這些自訂活動可以提供您的 Bot 會在交談中使用的其他資料。
@@ -173,104 +219,260 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 
 1. 將變更儲存到 `Main` 檔案。
 
-1. 為了支援回應播放，您會新增一個額外類別，其中包含可支援音訊的公用程式方法。 若要啟用音訊，請將另一個空的新類別新增至 Java 專案：選取 [檔案] > [新增] > [類別]。
+1. 如需支援回應播放，請在 Java inputStream 中新增額外的類別以轉換從 getAudio() API 傳回的 PullAudioOutputStream 物件，以便輕鬆處理。 此 ActivityAudioStream 是特殊的類別，可處理來自 Direct Line Speech 通道的語音回應。 也會提供處理播放所需的存取子，以擷取音訊格式資訊：如需此功能，請選取 [檔案]  >  [新建]  >  [類別]。
 
-1. 在 [新增 Java 類別] 視窗中，於 [套件] 欄位中輸入 **speechsdk.quickstart**，並在 [名稱] 欄位中輸入 **AudioPlayer**。
+1. 在 [新建 Java 類別] 視窗中，將 **speechsdk.quickstart** 輸入 [套件] 欄位；並將 **ActivityAudioStream** 輸入 [名稱]欄位。
 
-   ![[新增 Java 類別] 視窗的螢幕擷取畫面](media/sdk/qs-java-jre-06-create-main-java.png)
-
-1. 開啟新建立的 **AudioPlayer** 類別，並以下面提供的程式碼取代。
+1. 開啟新建立的 **ActivityAudioStream** 類別，並以下面提供的程式碼取代。
 
     ```java
-    import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
+    package com.speechsdk.quickstart;
 
+    import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
+
+    import java.io.IOException;
     import java.io.InputStream;
-    import java.io.PipedInputStream;
-    import java.io.PipedOutputStream;
-    import java.util.concurrent.ExecutorService;
-    import java.util.concurrent.Executors;
-    import java.util.concurrent.atomic.AtomicBoolean;
-
-    import javax.sound.sampled.AudioFormat;
-    import javax.sound.sampled.AudioSystem;
-    import javax.sound.sampled.DataLine;
-    import javax.sound.sampled.SourceDataLine;
-
-    import org.slf4j.Logger;
-    import org.slf4j.LoggerFactory;
 
 
-    public class AudioPlayer {
-
-        public static final int SAMPLE_RATE = 16000; // 16Hz sampling rate
-        public static final int SAMPLE_SIZE_IN_BITS = 16; // 16 bit PCM
-        public static final int CHANNELS = 1; // Use Mono / Single channel
-
-        public static final int FRAME_RATE = 16000;
+    public final class ActivityAudioStream extends InputStream {
+        /**
+         * The number of samples played per second. (16 kHz)
+         */
+        public static final long SAMPLE_RATE = 16000;
+        /**
+         * The number of bits in each sample of a sound that has this format. (16 bits)
+         */
+        public static final int BITS_PER_SECOND = 16;
+        /**
+         * The number of audio channels in this format (1 for mono).
+         */
+        public static final int CHANNELS = 1;
+        /**
+         * The number of bytes in each frame of a sound that has this format (2).
+         */
         public static final int FRAME_SIZE = 2;
 
-        private static final Logger log = LoggerFactory.getLogger(AudioPlayer.class);
-        private AtomicBoolean isPlaying = new AtomicBoolean(false);
-        private ExecutorService executorService = Executors.newSingleThreadExecutor();
-
-        public boolean isPlaying() {
-            return isPlaying.get();
+        /**
+         * Reads up to a specified maximum number of bytes of data from the audio
+         * stream, putting them into the given byte array.
+         *
+         * @param b   the buffer into which the data is read
+         * @param off the offset, from the beginning of array <code>b</code>, at which
+         *            the data will be written
+         * @param len the maximum number of bytes to read
+         * @return the total number of bytes read into the buffer, or -1 if there
+         * is no more data because the end of the stream has been reached
+         */
+        @Override
+        public int read(byte[] b, int off, int len) {
+            byte[] tempBuffer = new byte[len];
+            int n = (int) this.pullStreamImpl.read(tempBuffer);
+            for (int i = 0; i < n; i++) {
+                if (off + i > b.length) {
+                    throw new ArrayIndexOutOfBoundsException(b.length);
+                }
+                b[off + i] = tempBuffer[i];
+            }
+            if (n == 0) {
+                return -1;
+            }
+            return n;
         }
 
-        public void stopPlaying() {
-            isPlaying.set(false);
+        /**
+         * Reads the next byte of data from the activity audio stream if available.
+         *
+         * @return the next byte of data, or -1 if the end of the stream is reached
+         * @see #read(byte[], int, int)
+         * @see #read(byte[])
+         * @see #available
+         * <p>
+         */
+        @Override
+        public int read() {
+            byte[] data = new byte[1];
+            int temp = read(data);
+            if (temp <= 0) {
+                // we have a weird situation if read(byte[]) returns 0!
+                return -1;
+            }
+            return data[0] & 0xFF;
         }
 
-        public void play(final PipedOutputStream pipedOutputStream) {
-            // The current audio supported by the Microsoft Bot framework ~ 16-bit PCM encoding, 16KHz sampling rate.
-            final AudioFormat defaultFormat = new AudioFormat(PCM_SIGNED, SAMPLE_RATE, SAMPLE_SIZE_IN_BITS, CHANNELS, FRAME_SIZE, FRAME_RATE, false);
-            try {
-                final PipedInputStream inputStream = new PipedInputStream(pipedOutputStream);
+        /**
+         * Reads up to a specified maximum number of bytes of data from the activity audio stream
+         * putting them into the given byte array.
+         *
+         * @param b the buffer into which the data is read
+         * @return the total number of bytes read into the buffer, or -1 if there
+         * is no more data because the end of the stream has been reached
+         */
+        @Override
+        public int read(byte[] b) {
+            int n = (int) pullStreamImpl.read(b);
+            if (n == 0) {
+                return -1;
+            }
+            return n;
+        }
 
-                executorService.submit(() -> {
-                    try {
-                        isPlaying.set(true);
-                        play(inputStream, defaultFormat);
-                        inputStream.close();
-                    } catch (Exception e) {
-                        log.error("Exception thrown during playback. Message: {}", e.getMessage(), e);
-                    }
-                });
-            } catch (Exception e) {
-                log.error("Exception thrown during playback. Message: {}", e.getMessage(), e);
+        /**
+         * Skips over and discards a specified number of bytes from this
+         * audio input stream.
+         *
+         * @param n the requested number of bytes to be skipped
+         * @return the actual number of bytes skipped
+         * @throws IOException if an input or output error occurs
+         * @see #read
+         * @see #available
+         */
+        @Override
+        public long skip(long n) {
+            if (n <= 0) {
+                return 0;
+            }
+            if (n <= Integer.MAX_VALUE) {
+                byte[] tempBuffer = new byte[(int) n];
+                return read(tempBuffer);
+            }
+            long count = 0;
+            for (long i = n; i > 0; i -= Integer.MAX_VALUE) {
+                int size = (int) Math.min(Integer.MAX_VALUE, i);
+                byte[] tempBuffer = new byte[size];
+                count += read(tempBuffer);
+            }
+            return count;
+        }
+
+        /**
+         * Closes this audio input stream and releases any system resources associated
+         * with the stream.
+         */
+        @Override
+        public void close() {
+            this.pullStreamImpl.close();
+        }
+
+        /**
+         * Fetch the audio format for the ActivityAudioStream. The ActivityAudioFormat defines the sample rate, bits per sample and the # channels
+         *
+         * @return instance of the ActivityAudioFormat associated with the stream
+         */
+        public ActivityAudioStream.ActivityAudioFormat getActivityAudioFormat() {
+            return activityAudioFormat;
+        }
+
+        /**
+         * Returns the maximum number of bytes that can be read (or skipped over) from this
+         * audio input stream without blocking.
+         *
+         * @return the number of bytes that can be read from this audio input stream without blocking.
+         * As this implementation does not buffer this will be defaulted to 0
+         */
+        @Override
+        public int available() {
+            return 0;
+        }
+
+        public ActivityAudioStream(final PullAudioOutputStream stream) {
+            pullStreamImpl = stream;
+            this.activityAudioFormat = new ActivityAudioStream.ActivityAudioFormat(SAMPLE_RATE, BITS_PER_SECOND, CHANNELS, FRAME_SIZE, AudioEncoding.PCM_SIGNED);
+        }
+
+        private PullAudioOutputStream pullStreamImpl;
+
+        private ActivityAudioFormat activityAudioFormat;
+
+        /**
+         * ActivityAudioFormat is an internal format which contains metadata regarding the type of arrangement of
+         * audio bits in this activity audio stream.
+         */
+        static class ActivityAudioFormat {
+
+            private long samplesPerSecond;
+            private int bitsPerSample;
+            private int channels;
+            private int frameSize;
+            private AudioEncoding encoding;
+
+            public ActivityAudioFormat(long samplesPerSecond, int bitsPerSample, int channels, int frameSize, AudioEncoding encoding) {
+                this.samplesPerSecond = samplesPerSecond;
+                this.bitsPerSample = bitsPerSample;
+                this.channels = channels;
+                this.encoding = encoding;
+                this.frameSize = frameSize;
+            }
+
+            /**
+             * Fetch the number of samples played per second for the associated audio stream format.
+             *
+             * @return the number of samples played per second
+             */
+            public long getSamplesPerSecond() {
+                return samplesPerSecond;
+            }
+
+            /**
+             * Fetch the number of bits in each sample of a sound that has this audio stream format.
+             *
+             * @return the number of bits per sample
+             */
+            public int getBitsPerSample() {
+                return bitsPerSample;
+            }
+
+            /**
+             * Fetch the number of audio channels used by this audio stream format.
+             *
+             * @return the number of channels
+             */
+            public int getChannels() {
+                return channels;
+            }
+
+            /**
+             * Fetch the default number of bytes in a frame required by this audio stream format.
+             *
+             * @return the number of bytes
+             */
+            public int getFrameSize() {
+                return frameSize;
+            }
+
+            /**
+             * Fetch the audio encoding type associated with this audio stream format.
+             *
+             * @return the encoding associated
+             */
+            public AudioEncoding getEncoding() {
+                return encoding;
             }
         }
 
-        private void play(final InputStream inputStream, final AudioFormat targetFormat) throws Exception {
-            final byte[] buffer = new byte[1024];
-            final DataLine.Info info = new DataLine.Info(SourceDataLine.class, targetFormat);
-            final SourceDataLine line = (SourceDataLine) AudioSystem.getLine(info);
-            line.open();
-            if (line != null) {
-                line.start();
-                int bytesRead = 0;
-                while (bytesRead != -1) {
-                    bytesRead = inputStream.read(buffer, 0, buffer.length);
-                    if (bytesRead != -1) {
-                        line.write(buffer, 0, bytesRead);
-                    }
-                }
-                line.drain();
-                line.stop();
-                line.close();
+        /**
+         * Enum defining the types of audio encoding supported by this stream
+         */
+        public enum AudioEncoding {
+            PCM_SIGNED("PCM_SIGNED");
+
+            String value;
+
+            AudioEncoding(String value) {
+                this.value = value;
             }
         }
     }
+
     ```
 
-1. 將變更儲存到 `AudioPlayer` 檔案。
+1. 將變更儲存到 `ActivityAudioStream` 檔案。
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
 按 F11 鍵，或選取 [執行] > [偵錯]。
 主控台會顯示「說一些話」訊息。此時，您可以說您的 Bot 可理解的英文片語或句子。 您的語音將透過 Direct Line Speech 頻道傳輸到您的 Bot，您的 Bot 將會辨識、處理語音，並以活動形式傳回回應。 如果您的 Bot 傳回語音作為回應，則會使用 `AudioPlayer` 類別播放音訊。
 
-![成功辨識後主控台輸出的螢幕擷取畫面](media/sdk/qs-java-jre-07-console-output.png)
+![成功辨識後主控台輸出的螢幕擷取畫面](media/sdk/qs-java-jre-08-console-output.png)
 
 ## <a name="next-steps"></a>後續步驟
 

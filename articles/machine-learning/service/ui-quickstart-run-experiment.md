@@ -9,16 +9,16 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 985ad59a1ffa5bd68f97824f7f50af604174b543
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030056"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65440944"
 ---
-# <a name="quickstart-prepare-and-visualize-data-without-writing-code"></a>快速入門：準備資料並加以視覺化 (不需撰寫程式碼)
+# <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>快速入門：準備資料並加以視覺化，不需在 Azure Machine Learning 中撰寫程式碼
 
-使用拖放使用者介面準備資料並將其視覺化。 您將使用的資料包含許多個別汽車的項目，包括製造、模型、技術規格和價格等資訊。  
+在具備拖放功能的 Azure Machine Learning 介面中準備資料並加以視覺化。 您將使用的資料包含許多個別汽車的項目，包括製造、模型、技術規格和價格等資訊。  
 
 在本快速入門中，您將瀏覽並準備資料：
 

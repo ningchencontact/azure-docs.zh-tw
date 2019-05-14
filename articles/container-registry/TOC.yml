@@ -23,8 +23,10 @@
       items:
         - name: 1 - 在 Azure 中建置映像
           href: container-registry-tutorial-quick-task.md
-        - name: 2 - 自動化映像建置
+        - name: 2a - 在程式碼認可時自動建置
           href: container-registry-tutorial-build-task.md
+        - name: 2b - 在程式碼認可時進行多步驟工作
+          href: container-registry-tutorial-multistep-task.md
         - name: 3 - 基底映像更新建置
           href: container-registry-tutorial-base-image-update.md
     - name: 異地複寫登錄
@@ -84,7 +86,7 @@
               href: container-registry-auth-aci.md
             - name: 從 Azure Kubernetes Service (AKS) 進行驗證
               href: container-registry-auth-aks.md
-        - name: 內容信任 (預覽)
+        - name: 內容信任
           href: container-registry-content-trust.md
     - name: 建置和修補
       items:

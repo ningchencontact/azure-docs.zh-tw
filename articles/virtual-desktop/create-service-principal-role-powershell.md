@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146134"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236935"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>教學課程：使用 PowerShell 建立服務主體和角色指派
 
@@ -38,7 +38,7 @@ ms.locfileid: "65146134"
     Install-Module AzureAD
     ```
 
-2. 使用引號中由您工作階段相關值所取代的值執行下列 Cmdlet。
+2. 使用引號中由您工作階段相關值所取代的值執行下列 Cmdlet。 如果您剛在[在 Windows 虛擬桌面教學課程](./tenant-setup-azure-active-directory.md)中建立了 Windows 虛擬桌面租用戶，請使用「預設租用戶群組」做為您的租用戶群組名稱。
 
     ```powershell
     $myTenantGroupName = "<my-tenant-group-name>"
@@ -109,7 +109,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何建立服務主體並使用它登入 Windows 虛擬桌面。 若要深入了解如何登入 Windows 虛擬桌面，請繼續進行「連線到 Windows 虛擬桌面」操作說明。
+一旦建立了服務主體並將 Windows 虛擬桌面租用戶中的角色指派給租用戶，您就可以使用此租用戶建立主機集區。 若要深入了解主機集區，請繼續進行在 Windows 虛擬桌面中建立主機集區的教學課程。
 
-- [從 Windows 10 或 Windows 7 連線](connect-windows-7-and-10.md)
-- [從網頁瀏覽器連線](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Windows 虛擬桌面主機集區教學課程](./create-host-pools-azure-marketplace.md)

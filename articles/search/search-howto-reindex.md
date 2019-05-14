@@ -20,7 +20,7 @@ ms.locfileid: "60871143"
 
 本文說明如何重建 Azure 搜尋服務索引、需要重建索引的情況為何，以及降低重建索引對進行中查詢要求之影響的建議。
 
-「重建」是指卸除並重新建立與索引 (包括所有欄位型反向索引) 相關聯的實體資料結構。 在 Azure 搜尋服務中，您無法卸除並重新建立個別的欄位。 若要重建索引，必須刪除所有的欄位儲存體，根據現有的或修訂過的索引結構描述來重新建立，然後填入推送至索引的資料，或從外部來源提取的資料。 在開發期間通常會重建索引，但您可能也需要重建生產層級的索引，以配合結構變更 (如新增複雜類型)，或新增欄位至建議工具。
+「重建」是指卸除並重新建立與索引 (包括所有欄位型反向索引) 相關聯的實體資料結構。 在 Azure 搜尋服務中，您無法卸除並重新建立個別的欄位。 若要重建索引，必須刪除所有的欄位儲存體，根據現有的或修訂過的索引結構描述來重新建立，然後填入推送至索引的資料，或從外部來源提取的資料。 在開發期間重建索引十分常見，但您可能也需要重建生產層級的索引以配合結構變更 (如新增複雜類型或新增欄位至建議工具等等)。
 
 相較於使索引離線時的重建，「資料重新整理」執行為背景工作。 您可以新增、移除及取代文件查詢工作負載，且對查詢工作負載的中斷最短，不過查詢通常需要較長的時間才能完成。 如需有關更新索引內容的詳細資訊，請參閱[新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\)。
 
@@ -67,7 +67,7 @@ ms.locfileid: "60871143"
 
 進行索引更新時需要具備服務層級的讀寫權限。 
 
-您無法在入口網站中重建索引。 以程式設計的方式來說，您可以呼叫[更新索引 REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) /(英文/) 或[等同的 .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexesoperations.createorupdatewithhttpmessagesasync?view=azure-dotnet) /(英文/)，以用於完整重建。 更新索引要求與[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\) 相同，但其內容不同。
+您無法在入口網站中重建索引。 以程式設計的方式來說，您可以呼叫[更新索引 REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) \(英文\) 或[等同的 .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexesoperations.createorupdatewithhttpmessagesasync?view=azure-dotnet) \(英文\)，以用於完整重建。 更新索引要求與[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\) 相同，但其內容不同。
 
 下列工作流程雖然偏向 REST API，但同樣適用於 .NET SDK。
 

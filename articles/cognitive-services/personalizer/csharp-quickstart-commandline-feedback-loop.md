@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: f0aca3e387d675064cf798b4efdeb66cfe906520
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 85252680fcc4d2592d242762d01040c3859b14a2
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153538"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442080"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>快速入門：使用 C# 將內容個人化 
 
 使用個人化工具服務顯示此 C# 快速入門中的個人化內容。
 
-這個範例會示範如何使用適用於 C# 的個人化用戶端程式庫來執行下列動作： 
+這個範例會示範如何使用適用於 C# 的個人化工具用戶端程式庫來執行下列動作： 
 
  * 為個人化的動作清單排名。
  * 報告要根據使用者為指定事件所做的選擇，配置給最佳排名動作的報酬。
 
-開始使用個人化會涉及下列步驟：
+開始使用個人化工具會涉及下列步驟：
 
 1. 參考 SDK 
 1. 撰寫程式碼來針對您要顯示給使用者的動作進行排名
@@ -34,9 +34,15 @@ ms.locfileid: "65153538"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 您需要[個人化工具服務](how-to-settings.md)以取得訂用帳戶金鑰及權杖，方可簽發服務 URL。 
+* 您需要[個人化工具服務](how-to-settings.md)以取得訂用帳戶金鑰及端點服務 URL。 
 * [Visual Studio 2015 或 2017](https://visualstudio.microsoft.com/downloads/).
-* Microsoft.Azure.CognitiveServices.Personalization SDK NuGet 套件。 下面會提供安裝指示。
+* The Microsoft.Azure.CognitiveServices.Personalizer SDK NuGet 套件。 下面會提供安裝指示。
+
+## <a name="change-the-model-update-frequency"></a>變更模型更新頻率
+
+在 Azure 入口網站的個人化資源中，將 [模型更新頻率] 變更為 10 秒。 如此可快速定型服務，讓您查看最上次的動作如何針對每個反覆項目變更
+
+![變更模型更新頻率](./media/settings/configure-model-update-frequency-settings.png)
 
 ## <a name="creating-a-new-console-app-and-referencing-the-personalizer-sdk"></a>建立新的主控台應用程式並參考個人化工具 SDK 
 
@@ -45,9 +51,9 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 -->
 
 1. 在 Visual Studio 中建立 Visual C# 主控台應用程式。
-1. 安裝「個人化」用戶端程式庫 NuGet 套件。 在功能表上，選取 [工具]，選取 [NuGet 套件管理員]，然後選取 [管理解決方案的 NuGet 套件]。
-1. 選取 [瀏覽] 索引標籤，然後在 [搜尋] 方塊中鍵入 `Microsoft.Azure.CognitiveServices.Personalization`。
-1. 在 **Microsoft.Azure.CognitiveServices.Personalization** 出現時加以選取。
+1. 安裝個人化工具用戶端程式庫 NuGet 套件。 在功能表上，選取 [工具]，選取 [NuGet 套件管理員]，然後選取 [管理解決方案的 NuGet 套件]。
+1. 選取 [瀏覽] 索引標籤，然後在 [搜尋] 方塊中鍵入 `Microsoft.Azure.CognitiveServices.Personalizer`。
+1. 在 **Microsoft.Azure.CognitiveServices.Personalizer** 出現時加以選取。
 1. 選取專案名稱旁邊的核取方塊，然後選取 [安裝]。
 
 ## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>新增程式碼並於其中放入個人化工具和 Azure 金鑰

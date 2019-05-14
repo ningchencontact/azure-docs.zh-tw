@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 61c5d60f0c2fab3786aa6adfa194c0716e621ea3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8081be7f411b38d2418d893654a5691bd1ad7cc1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023656"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470620"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 發生什麼事？
 
@@ -68,7 +68,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 您現有的資料準備檔案無法攜帶到最新的版本，因為我們已經沒有 Machine Learning Workbench。 但您仍可準備任何規模的資料集來進行模型化。   
 
-對於任何規模的資料集，您可以藉由撰寫 Python 程式碼，使用 [Azure Machine Learning 資料準備 SDK](https://aka.ms/data-prep-sdk) 在模型化之前快速準備您的資料。 
+對於任何規模的資料集，您可以藉由撰寫 Python 程式碼，使用 [Azure Machine Learning 資料準備套件](https://aka.ms/data-prep-sdk)，在模型化之前快速準備您的資料。 
 
 您可以遵循[本教學課程](tutorial-data-prep.md)，來深入了解如何使用 Azure Machine Learning 資料準備 SDK。
 

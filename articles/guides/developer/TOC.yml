@@ -67,7 +67,7 @@
     - name: 帳單及訂用帳戶
       href: 'https://docs.microsoft.com/azure/billing/billing-getting-started'
     - name: 主機比較
-      href: 'https://docs.microsoft.com/azure/app-service/overview-compare'
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
     - name: 什麼是 App Service？
       href: 'https://docs.microsoft.com/azure/app-service/overview'
     - name: 虛擬機器

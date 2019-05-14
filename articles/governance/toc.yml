@@ -22,25 +22,12 @@
       href: policy/overview.md
     - name: 藍圖
       href: blueprints/overview.md
-- name: 實作
-  expanded: true
+- name: 雲端採用架構
   items:
-    - name: 企業雲端採用
-      items:
-        - name: 什麼是雲端資源治理？
-          href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-        - name: Azure 的資源存取管理
-          href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-        - name: 單一小組的控管設計
-          href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-        - name: 多個小組的控管設計
-          href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
-    - name: Azure 企業 Scaffold
-      items:
-        - name: 規定的訂用帳戶治理
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-        - name: 實作 Azure 企業 Scaffold
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+    - name: 概觀
+      href: /azure/architecture/cloud-adoption/index?toc=/azure/governance/toc.json
+    - name: 治理概觀
+      href: /azure/architecture/cloud-adoption/governance/index?toc=/azure/governance/toc.json
 - name: 資源
   items:
     - name: Azure 藍圖

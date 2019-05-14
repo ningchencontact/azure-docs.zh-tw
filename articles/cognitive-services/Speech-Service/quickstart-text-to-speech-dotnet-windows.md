@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
-ms.openlocfilehash: a013189e45b1c1c8eeb88d62a718d495c0c415a2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3b7addd369d5e26554dd4300e65bee66b8a62768
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012489"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465568"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>快速入門：使用適用於 .NET Framework (Windows) 的語音 SDK 來合成語音
+
+另備有[語音辨識](quickstart-csharp-dotnet-windows.md)和[語音翻譯](quickstart-translate-speech-dotnetframework-windows.md)的快速入門。
 
 您可以使用本指南，透過 .NET Framework for Windows 和語音 SDK 建立文字轉語音的主控台應用程式。 完成後，您可以從文字合成語音，並即時以喇叭聽取語音。
 
