@@ -288,8 +288,8 @@ ms.locfileid: "60546619"
 | Key | 描述 |
 |:--- |:--- |
 | AbsoluteUrl | 指示 URL 發出下一個要求。 它可以是**絕對 URL 或相對 URL**。 |
-| QueryParameters.*request_query_parameter* 或 QueryParameters['request_query_parameter'] | 使用者定義的 "request_query_parameter" 會參考下一個 HTTP 要求 URL 中的一個查詢參數名稱。 |
-| Headers.*request_header* 或 Headers['request_header'] | 使用者定義的 "request_header" 會參考下一個 HTTP 要求中的一個標頭名稱。 |
+| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | 使用者定義的 "request_query_parameter" 會參考下一個 HTTP 要求 URL 中的一個查詢參數名稱。 |
+| Headers.*request_header* OR Headers['request_header'] | 使用者定義的 "request_header" 會參考下一個 HTTP 要求中的一個標頭名稱。 |
 
 分頁規則中的**支援值**：
 
