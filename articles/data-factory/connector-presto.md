@@ -48,7 +48,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | host | Presto 伺服器的 IP 位址或主機名稱。 (亦即 192.168.222.160)  | 是 |
 | serverVersion | Presto 伺服器的版本。 (亦即 0.148-t)  | 是 |
 | catalog | 對伺服器之所有要求的目錄內容。  | 是 |
-| 連接埠 | Presto 伺服器用來接聽用戶端連線的 TCP 連接埠。 預設值為 8080。  | 否 |
+| port | Presto 伺服器用來接聽用戶端連線的 TCP 連接埠。 預設值為 8080。  | 否 |
 | authenticationType | 用來連線到 Presto 伺服器的驗證機制。 <br/>允許的值包括：**Anonymous**、**LDAP** | 是 |
 | username | 用來連線到 Presto 伺服器的使用者名稱。  | 否 |
 | password | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
