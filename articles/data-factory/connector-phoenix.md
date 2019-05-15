@@ -44,7 +44,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Phoenix** | 是 |
 | host | Phoenix 伺服器的 IP 位址或主機名稱。 (也就是 192.168.222.160)  | 是 |
-| 連接埠 | Phoenix 伺服器用來接聽用戶端連線的 TCP 連接埠。 預設值為 8765。 如果您連線到 Azure HDInsights，請將連接埠指定為 443。 | 否 |
+| port | Phoenix 伺服器用來接聽用戶端連線的 TCP 連接埠。 預設值為 8765。 如果您連線到 Azure HDInsights，請將連接埠指定為 443。 | 否 |
 | httpPath | 對應至 Phoenix 伺服器的部分 URL。 (也就是 /gateway/sandbox/phoenix/version)。 如果使用 HDInsights 叢集，請指定 `/hbasephoenix0`。  | 否 |
 | authenticationType | 用來連線到 Phoenix 伺服器的驗證機制。 <br/>允許的值包括：**Anonymous**、**UsernameAndPassword**、**WindowsAzureHDInsightService** | 是 |
 | username | 用來連線到 Phoenix 伺服器的使用者名稱。  | 否 |
