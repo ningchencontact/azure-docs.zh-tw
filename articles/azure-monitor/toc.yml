@@ -249,8 +249,6 @@
               href: platform/data-sources-json.md
             - name: CollectD 效能資料
               href: platform/data-sources-collectd.md
-            - name: Nagios 和 Zabbix 的警示
-              href: platform/data-sources-alerts-nagios-zabbix.md
             - name: syslog
               href: platform/data-sources-syslog.md
             - name: 效能計數器
