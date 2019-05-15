@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a33812dedaed81a1ed0b6fca8285f70f44decced
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f919a04b47aa6fdef9500f3d7e6bef4ddaa239e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198907"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65515516"
 ---
 1. 登入 [Firebase 主控台](https://firebase.google.com/console/)。 建立新的 Firebase 專案 (如果您還沒有 Firebase 專案的話)。
 2. 建立專案之後，請選取 [將 Firebase 新增至 Android 應用程式]。 
@@ -54,6 +54,6 @@ ms.locfileid: "65198907"
 8. 在 Firebase 主控台中，選取您專案的齒輪圖示。 然後選取 [專案設定]。
 
     ![選取專案設定](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
-4. 如果您尚未將 **google-services.json** 檔案下載到 Android Studio 專案的**應用程式**資料夾，您可以在此頁面下載。 
+4. 如果您尚未將 **google-services.json** 檔案下載到 Android Studio 專案 [應用程式] 資料夾，可以在此頁面下載。 
 5. 切換到頂端的 [雲端通訊] 索引標籤。 
 6. 複製並儲存**伺服器金鑰**以供稍後使用。 您可使用此值來設定通知中樞。

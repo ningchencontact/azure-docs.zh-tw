@@ -6,15 +6,15 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 05/09/2019
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0b7a7ac7b8a71f33871247a1117c16609bbbcd88
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2728ac93abd18f929dc6e82cfb471ce33fe8866f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191045"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508033"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>快速入門：使用 .NET 在物件儲存體中建立 Blob
 
@@ -24,7 +24,7 @@ ms.locfileid: "65191045"
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-接下來，請下載並安裝您的作業系統適用的 .NET Core 2.0。 如果執行 Windows，您可以安裝 Visual Studio 並使用 .NET Framework (視您的喜好而定)。 您也可以選擇安裝編輯器來搭配您的作業系統使用。
+接下來請下載並安裝適用於您作業系統的 .NET Core 2.1。 如果執行 Windows，您可以安裝 Visual Studio 並使用 .NET Framework (視您的喜好而定)。 您也可以選擇安裝編輯器來搭配您的作業系統使用。
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -288,8 +288,8 @@ File.Delete(destinationFile);
 
 ### <a name="binaries-and-source-code"></a>二進位檔和原始程式碼
 
-- 針對 Azure 儲存體最新版的 [.NET 用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)下載 NuGet 套件。
-- 在 GitHub 上檢視 [.NET 用戶端程式庫原始程式碼](https://github.com/Azure/azure-storage-net)。
+- 下載 Azure Blob 儲存體最新版 [.NET 用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) \(英文\) 適用的 NuGet 套件。
+- 檢視 GitHub 上的 [Microsoft Azure Storage Blob SDK for .NET 原始程式碼](https://github.com/Azure/azure-storage-net/tree/master/Blob) \(英文\)。
 
 ### <a name="client-library-reference-and-samples"></a>用戶端程式庫參考和範例
 
@@ -300,10 +300,10 @@ File.Delete(destinationFile);
 
 在本快速入門中，您已了解如何使用 .NET 上傳、下載及列出 Blob。
 
-若要了解如何建立可將映像上傳至 Blob 儲存體的 Web 應用程式，請繼續進行[使用 Azure 儲存體在雲端上傳影像資料](storage-upload-process-images.md)。
+若要了解如何建立可上傳映像至 Blob 儲存體的 Web 應用程式，請繼續了解下列作業：
 
 > [!div class="nextstepaction"]
-> [Blob 儲存體作業操作說明](storage-dotnet-how-to-use-blobs.md)
+> [上傳及處理映像](storage-upload-process-images.md)
 
 - 若要深入了解 .NET Core，請參閱[在 10 分鐘內開始使用 .NET](https://www.microsoft.com/net/learn/get-started/)。
 - 若要探索您可以從 Visual Studio for Windows 部署的範例應用程式，請參閱[使用 Azure Blob 儲存體的 .NET 相片圖庫 Web 應用程式範例](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)。

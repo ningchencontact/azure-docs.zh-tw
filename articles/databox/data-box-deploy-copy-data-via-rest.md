@@ -1,25 +1,25 @@
 ---
-title: 透過 REST API 將資料複製到 Azure 資料箱 Blob 儲存體 | Microsoft Docs
+title: 透過 REST API 將資料複製到 Azure 資料箱 Blob 儲存體的教學課程 | Microsoft Docs
 description: 了解如何透過 REST API 將資料複製到您的 Azure 資料箱 Blob 儲存體
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 2a4c4c7431752ade60161af84b4cc15f010af656
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b3d53b7d5fceb303259823198731b5198cfce82c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995739"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508292"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>教學課程：透過 REST API 將資料複製到 Azure 資料箱 Blob 儲存體  
 
-本教學課程說明透過 REST API (透過 *http* 或 *https*) 連線到 Azure 資料箱 Blob 儲存體的程序。 連線之後，也會說明將資料複製到資料箱 Blob 儲存體並準備寄送資料箱所需的步驟。
+此教學課程說明透過 REST API (透過 *http* 或 *https*) 連線到 Azure 資料箱 Blob 儲存體的程序。 連線之後，也會說明將資料複製到資料箱 Blob 儲存體並準備寄送資料箱所需的步驟。
 
-在本教學課程中，您了解如何：
+在此教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 必要條件
@@ -46,7 +46,7 @@ ms.locfileid: "59995739"
 - https 是連線到資料箱 Blob 儲存體的安全建議方式。
 - 透過受信任的網路連線時，會使用 *http*。
 
-當您透過 http 或 https 連線到資料箱 Blob 儲存體時，所使用的連線步驟會不同。
+透過 *http* 或 *https* 連線至資料箱 Blob 時，兩者的連線步驟是不同的。
 
 ## <a name="connect-via-http"></a>透過 HTTP 連線
 
@@ -92,7 +92,7 @@ ms.locfileid: "59995739"
 
 必須有裝置的 SSL 憑證，才能透過 HTTPS 存取資料箱 Blob 儲存體。 讓用戶端應用程式可以使用此憑證的方式，會隨著應用程式和作業系統與散發套件而有所不同。 某些應用程式可以存取已匯入到系統憑證存放區中的憑證，某些應用程式則無法利用該機制。
 
-本節會說明某些應用程式的特定資訊。 如需其他應用程式的詳細資訊，請參閱所使用應用程式和作業系統的文件。
+此節會說明某些應用程式的特定資訊。 如需其他應用程式的詳細資訊，請參閱所使用應用程式和作業系統的文件。
 
 請遵循下列步驟來將 `.cer` 檔案匯入到 Windows 或 Linux 用戶端的根存放區。 在 Windows 系統上，您可以使用 Windows PowerShell 或 Windows Server UI 在系統上匯入並安裝憑證。
 
@@ -112,11 +112,11 @@ ms.locfileid: "59995739"
 
     ![使用 PowerShell 匯入憑證](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
-3.  選取 [將所有憑證放入以下的存放區]，然後按一下 [瀏覽]。 導覽至遠端主機的根存放區，然後按一下 [ **下一步**]。
+3.  選取 [將所有憑證放入以下的存放區]，然後按一下 [瀏覽]。 導覽至遠端主機的根存放區，然後按一下 [下一步]。
 
     ![使用 PowerShell 匯入憑證](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
-4.  按一下 [完成] 。 會出現訊息告訴您匯入成功。
+4.  按一下 [完成]。 會出現訊息告訴您匯入成功。
 
     ![使用 PowerShell 匯入憑證](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
@@ -151,7 +151,7 @@ RHEL、Fedora 及 CentOS 的新近版本則使用 `update-ca-trust` 命令。
 -  複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱限制](data-box-limits.md)中所述的大小限制。
 - 如果資料 (由資料箱上傳) 同時會由資料箱以外的其他應用程式上傳，這可能導致上傳作業失敗且資料損毀。
 
-在本教學課程中，會使用 AzCopy 來將資料複製到資料箱 Blob 儲存體。 您也可以使用 Azure 儲存體總管 (如果您偏好 GUI 型工具) 或合作夥伴軟體來複製資料。
+在此教學課程中，會使用 AzCopy 來將資料複製到資料箱 Blob 儲存體。 您也可以使用 Azure 儲存體總管 (如果您偏好 GUI 型工具) 或合作夥伴軟體來複製資料。
 複製程序的步驟如下：
 
 - 建立容器
@@ -220,7 +220,7 @@ RHEL、Fedora 及 CentOS 的新近版本則使用 `update-ca-trust` 命令。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解 Azure 資料箱的相關主題，像是：
+在此教學課程中，您已了解 Azure 資料箱的相關主題，像是：
 
 > [!div class="checklist"]
 > * 必要條件
