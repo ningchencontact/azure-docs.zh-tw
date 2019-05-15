@@ -165,7 +165,7 @@
           href: grant-access-to-create-subscription.md
         - name: 跨租用戶進行驗證
           href: authenticate-multi-tenant.md
-    - name: 稽核部署
+    - name: 稽核變更
       items:
         - name: 檢視活動記錄
           href: resource-group-audit.md

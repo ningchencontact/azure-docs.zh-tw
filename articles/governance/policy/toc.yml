@@ -280,6 +280,9 @@
     - name: 補救不相容的資源
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
+    - name: 啟用適用於 VM 的 Azure 監視器 (預覽)
+      displayName: 'insights, log analytics, builtin'
+      href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
 - name: 參考
   items:
     - name: Azure CLI

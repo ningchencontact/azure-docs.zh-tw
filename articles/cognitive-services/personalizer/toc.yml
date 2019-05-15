@@ -27,9 +27,14 @@
         - name: 功能：動作和內容
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: 獎勵
+          href: concept-rewards.md
+          displayName: 'reward, wait time, default reward'
         - name: 增強式學習
           href: concepts-reinforcement-learning.md
           displayName: 'RL, contextual bandits, Vowpal Wabbit'
+        - name: 探索
+          href: concepts-exploration.md
     - name: 分析
       items:
         - name: 離線評估

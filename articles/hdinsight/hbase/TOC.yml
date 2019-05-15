@@ -12,6 +12,8 @@
       maintainContext: true
 - name: 快速入門
   items:
+    - name: 查詢 Apache HBase - Apache Phoenix
+      href: apache-hbase-phoenix-squirrel-linux.md
     - name: 查詢 Apache HBase - HBase Shell
       href: ./query-hbase-with-hbase-shell.md
 - name: 開始使用
@@ -52,8 +54,6 @@
         - name: HDInsight 中的 Apache Phoenix
           href: ../hdinsight-phoenix-in-hdinsight.md
           maintainContext: true
-        - name: 使用 Apache Phoenix 和 SQLLine
-          href: apache-hbase-phoenix-squirrel-linux.md
         - name: 使用 Apache Phoenix Query Server REST SDK
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
     - name: 分析巨量資料
@@ -115,7 +115,7 @@
             - name: 使用 cURL 和 Azure REST API
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: 使用 Azure 傳統 CLI
+            - name: 使用 Azure CLI
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: 建立隨選叢集
