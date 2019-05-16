@@ -138,18 +138,16 @@
               href: 'https://docs.azure.cloudsimple.com/set-vcenter-identity/'
             - name: Azure 應用程式閘道與 VMware VM
               href: 'https://docs.azure.cloudsimple.com/azure-application-gateway/'
-            - name: Azure Load Balancer 與 VMware VM
-              href: 'https://docs.azure.cloudsimple.com/load-balancers/'
             - name: 將私人雲端 vCenter 伺服器設定為 vRealize 自動化端點
               href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
             - name: 將工作負載 VM 遷移至私人雲端
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
             - name: 確保 Azure 上 VMware 中的應用程式高可用性
-              href: 'https://docs.azure.cloudsimple.com/ha-ensuring/'
+              href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
         - name: VMware 生態系統
           items:
             - name: 備份工作負載虛擬機器
-              href: 'https://docs.azure.cloudsimple.com/veeam/'
+              href: 'https://docs.azure.cloudsimple.com/backup-workloads-veeam/'
             - name: VMware 水平解決方案指南
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
             - name: 設定私人雲端的 vSAN 加密
@@ -161,6 +159,6 @@
             - name: 私人雲端 vCenter 上的 Azure AD 身分識別來源
               href: 'https://docs.azure.cloudsimple.com/azure-ad/'
             - name: 透過 ExpressRoute 的內部部署網路連線
-              href: 'https://docs.azure.cloudsimple.com/er-connection/'
+              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
             - name: 透過 ExpressRoute 的 Azure 虛擬網路連線
-              href: 'https://docs.azure.cloudsimple.com/azure-er-connection/'
+              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'

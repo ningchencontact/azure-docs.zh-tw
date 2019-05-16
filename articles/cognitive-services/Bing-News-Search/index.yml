@@ -6,15 +6,15 @@ metadata:
   title: Bing 新聞搜尋文件 - 教學課程、快速入門和 API 參考 | Microsoft Docs
   description: 了解如何使用 Bing 新聞搜尋 API 來搜尋網路上的新聞。
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/16/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: Bing 新聞搜尋 API 可讓您將 Bing 的新聞搜尋功能整合到應用程式中。 藉由透過 API 傳送搜尋查詢，您可以從多個類別和來源取得相關新聞，類似於 bing.com/新聞。
 sections:

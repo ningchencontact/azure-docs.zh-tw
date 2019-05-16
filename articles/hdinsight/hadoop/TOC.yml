@@ -4,6 +4,7 @@
   items:
     - name: 關於 HDInsight 上的 Apache Hadoop
       href: apache-hadoop-introduction.md
+      maintainContext: true
     - name: HDInsight 上的 Apache Hadoop 架構
       href: ../hdinsight-hadoop-architecture.md
       maintainContext: true

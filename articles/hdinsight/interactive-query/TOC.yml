@@ -11,8 +11,7 @@
 - name: 快速入門
   items:
     - name: 執行 Apache Hive 查詢 - Apache Zeppelin
-      href: ../hdinsight-connect-hive-zeppelin.md
-      maintainContext: true
+      href: ./hdinsight-connect-hive-zeppelin.md
 - name: 開始使用
   items:
     - name: 開始使用互動式查詢

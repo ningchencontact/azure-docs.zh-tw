@@ -182,7 +182,6 @@
             - name: 使用 Postman 連線
               href: media-rest-apis-with-postman.md
         - name: 使用 SDK 開發
-          href: developers-guide.md
           items:
             - name: 使用 Java 連線
               href: configure-connect-java-howto.md
@@ -222,10 +221,13 @@
         - name: 使用自訂轉換進行編碼
           items:
             - name: 透過 .NET
+              displayName: 'encode, encoding, custom, transform'
               href: customize-encoder-presets-how-to.md
             - name: 透過 CLI
+              displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
             - name: 透過 REST
+              displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
     - name: 使用事件方格
       items:

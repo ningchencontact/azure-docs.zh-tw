@@ -46,8 +46,6 @@
       href: video-indexer-view-edit.md
     - name: 使用編輯器來建立專案
       href: use-editor-create-project.md
-    - name: 從現有影片建立影片深入解析
-      href: video-indexer-create-new.md
     - name: 將小工具內嵌至您的應用程式
       href: video-indexer-embed-widgets.md
     - name: 自訂內容模型

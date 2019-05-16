@@ -5,15 +5,15 @@ metadata:
   title: Bing 實體搜尋 API 文件 - 教學課程、快速入門和 API 參考 | Microsoft Docs
   description: 如何使用 Bing 實體搜尋 API 取得人員、地點或其他定義的主題相關資訊。 教學課程會解說如何建置使用該服務的應用程式。
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-entity-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/01/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: Bing 實體搜尋 API 可讓您的應用程式在搜尋查詢中獲得偵測到的實體相關資訊。 實體可以是人員、位置、媒體標題和其他。
 sections:

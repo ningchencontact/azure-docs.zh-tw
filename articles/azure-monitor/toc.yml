@@ -557,6 +557,7 @@
             - name: Web 應用程式 Analytics 解決方案
               href: insights/azure-web-apps-analytics.md
             - name: 監視 Kubernetes 應用程式
+              displayname: 'aks, microservice, istio, service mesh, application monitoring'
               href: app/kubernetes.md
         - name: 監視容器
           items:
