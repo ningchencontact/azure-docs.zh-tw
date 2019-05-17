@@ -1,46 +1,44 @@
 ---
-title: 使用 Ansible 以 Azure 應用程式閘道管理 Web 流量
+title: 教學課程 - 使用 Ansible 以 Azure 應用程式閘道管理 Web 流量 | Microsoft Docs
 description: 了解如何使用 Ansible 建立並設定 Azure 應用程式閘道以管理 Web 流量
-ms.service: azure
 keywords: ansible, azure, devops, bash, 劇本, 應用程式閘道, 負載平衡器, web 流量
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 09/20/2018
-ms.openlocfilehash: 83f21573af7ec523acc376c4b3364cdcfb47f96f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: 9f8ed3e1da72db3e1b13d5d2aef1cce8fc3922a2
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792135"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231249"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>使用 Ansible 以 Azure 應用程式閘道管理 Web 流量
+# <a name="tutorial-manage-web-traffic-with-azure-application-gateway-using-ansible"></a>教學課程：使用 Ansible 以 Azure 應用程式閘道管理 Web 流量
 
-[Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/)是網路流量負載平衡器，可讓您管理 Web 應用程式的流量。
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-Ansible 有助於將環境中的資源部署和設定自動化。 本文說明如何使用 Ansible 建立應用程式閘道。 此外也說明如何使用閘道管理在 Azure 容器執行個體中執行的兩個 Web 伺服器的流量。
+[Azure 應用程式閘道](/azure/application-gateway/overview)是網路流量負載平衡器，可讓您管理 Web 應用程式的流量。 根據來源 IP 位址和連接埠，傳統負載平衡器會將流量路由至目的地 IP 位址和連接埠。 應用程式閘道可讓您更精細地控制可根據 URL 路由流量的位置。 例如，您可以定義如果 `images` 是 URL 的路徑，則流量可以路由至一組針對映像而設定的特定伺服器 (也稱為集區)。
 
-本教學課程說明如何：
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
+>
 > * 設定網路
 > * 使用 HTTPD 映像建立兩個 Azure 容器執行個體
 > * 在伺服器集區中建立與 Azure 容器執行個體搭配運作的應用程式閘道
 
 ## <a name="prerequisites"></a>必要條件
 
-- **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-
-> [!Note]
-> 必須使用 Ansible 2.7，才能執行此教學課程中的下列範例劇本。 
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-資源群組是在其中部署與管理 Azure 資源的邏輯容器。  
+本節中的劇本程式碼會建立 Azure 資源群組。 資源群組是 Azure 資源設定所在的邏輯容器。  
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+請下列腳本儲存為 `rg.yml`：
 
 ```yml
 - hosts: localhost
@@ -54,7 +52,12 @@ Ansible 有助於將環境中的資源部署和設定自動化。 本文說明�
         location: "{{ location }}"
 ```
 
-將此劇本儲存為 *rg.yml*。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+在執行劇本之前，請參閱下列注意事項：
+
+- 資源群組名稱為 `myResourceGroup`。 本教學課程中一律使用此值。
+- 此資源群組會建立在 `eastus` 位置中。
+
+使用 `ansible-playbook` 命令執行劇本：
 
 ```bash
 ansible-playbook rg.yml
@@ -62,9 +65,9 @@ ansible-playbook rg.yml
 
 ## <a name="create-network-resources"></a>建立網路資源
 
-首先，請建立可讓應用程式閘道與其他資源進行通訊的虛擬網路。
+本節中的劇本程式碼會建立可讓應用程式閘道與其他資源進行通訊的虛擬網路。
 
-下列範例會建立名為 **myVNet** 的虛擬網路、名為 **myAGSubnet** 的子網路，以及名為 **myAGPublicIPAddress** 的公用 IP 位址，且網域名稱為 **mydomain**。
+請下列腳本儲存為 `vnet_create.yml`：
 
 ```yml
 - hosts: localhost
@@ -102,7 +105,12 @@ ansible-playbook rg.yml
         domain_name_label: "{{ publicip_domain }}"
 ```
 
-請將此劇本儲存為 *vnet_create.yml*。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+在執行劇本之前，請參閱下列注意事項：
+
+* `vars` 區段包含用來建立網路資源的值。 
+* 您必須為特定環境變更這些值。
+
+使用 `ansible-playbook` 命令執行劇本：
 
 ```bash
 ansible-playbook vnet_create.yml
@@ -110,7 +118,9 @@ ansible-playbook vnet_create.yml
 
 ## <a name="create-servers"></a>建立伺服器
 
-下列範例將說明如何使用 HTTPD 映像建立兩個 Azure 容器執行個體，作為應用程式閘道的 Web 伺服器。  
+本節中的劇本程式碼會使用 HTTPD 映像建立兩個 Azure 容器執行個體，作為應用程式閘道的 Web 伺服器。  
+
+請下列腳本儲存為 `aci_create.yml`：
 
 ```yml
 - hosts: localhost
@@ -153,7 +163,7 @@ ansible-playbook vnet_create.yml
               - 80
 ```
 
-請將此劇本儲存為 *aci_create.yml*。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+使用 `ansible-playbook` 命令執行劇本：
 
 ```bash
 ansible-playbook aci_create.yml
@@ -161,14 +171,9 @@ ansible-playbook aci_create.yml
 
 ## <a name="create-the-application-gateway"></a>建立應用程式閘道
 
-下列範例會使用後端、前端與 HTTP 的設定建立名為 **myAppGateway** 的應用程式閘道。  
+本節中的劇本程式碼會建立名為 `myAppGateway` 的應用程式閘道。  
 
-* **appGatewayIP** 定義於 **gateway_ip_configurations** 區塊中。 閘道的 IP 設定需要子網路參考。
-* **appGatewayBackendPool** 定義於 **backend_address_pools** 區塊中。 應用程式閘道必須至少有一個後端位址集區。
-* **appGatewayBackendHttpSettings** 定義於 **backend_http_settings_collection** 區塊中。 它會指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
-* **appGatewayHttpListener** 定義於 **backend_http_settings_collection** 區塊中。 這是與 appGatewayBackendPool 相關聯的預設接聽程式。
-* **appGatewayFrontendIP** 定義於 **frontend_ip_configurations** 區塊中。 它會將 myAGPublicIPAddress 指派給 appGatewayHttpListener。
-* **rule1** 定義於 **request_routing_rules** 區塊中。 這是與 appGatewayHttpListener 相關聯的預設路由規則。
+請下列腳本儲存為 `appgw_create.yml`：
 
 ```yml
 - hosts: localhost
@@ -252,7 +257,16 @@ ansible-playbook aci_create.yml
             name: rule1
 ```
 
-請將此劇本儲存為 *appgw_create.yml*。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+在執行劇本之前，請參閱下列注意事項：
+
+* `appGatewayIP` 定義於 `gateway_ip_configurations` 區塊中。 閘道的 IP 設定需要子網路參考。
+* `appGatewayBackendPool` 定義於 `backend_address_pools` 區塊中。 應用程式閘道必須至少有一個後端位址集區。
+* `appGatewayBackendHttpSettings` 定義於 `backend_http_settings_collection` 區塊中。 它會指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
+* `appGatewayHttpListener` 定義於 `backend_http_settings_collection` 區塊中。 這是與 appGatewayBackendPool 相關聯的預設接聽程式。
+* `appGatewayFrontendIP` 定義於 `frontend_ip_configurations` 區塊中。 它會將 myAGPublicIPAddress 指派給 appGatewayHttpListener。
+* `rule1` 定義於 `request_routing_rules` 區塊中。 這是與 appGatewayHttpListener 相關聯的預設路由規則。
+
+使用 `ansible-playbook` 命令執行劇本：
 
 ```bash
 ansible-playbook appgw_create.yml
@@ -262,13 +276,23 @@ ansible-playbook appgw_create.yml
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-在網路資源的範例劇本中，您已在 **eastus** 中建立網域 **mydomain**。 請在瀏覽器中移至 `http://mydomain.eastus.cloudapp.azure.com`。 如果您看到下列頁面，表示應用程式閘道正常運作。
+1. 在 [[建立資源群組](#create-a-resource-group)] 區段中，您會指定位置。 請記下其值。
 
-![運作中的應用程式閘道測試成功](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
+1. 在 [[建立網路資源](#create-network-resources)] 區段中，您會指定網域。 請記下其值。
+
+1. 針對測試 URL，請將下列格式取代為位置和網域：`http://<domain>.<location>.cloudapp.azure.com`。
+
+1. 瀏覽至測試 URL。
+
+1. 如果您看到下列頁面，表示應用程式閘道正常運作。
+
+    ![運作中的應用程式閘道測試成功](media/ansible-application-gateway-configure/application-gateway.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不需要這些資源，可以執行下列程式碼將其刪除。 它會刪除名為 **myResourceGroup** 的資源群組。
+如果不再需要本文中建立的資源，請予以刪除。 
+
+將下列程式碼儲存為 `cleanup.yml`：
 
 ```yml
 - hosts: localhost
@@ -281,13 +305,13 @@ ansible-playbook appgw_create.yml
         state: absent
 ```
 
-請將此劇本儲存為 *rg_delete*.yml。 若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+使用 `ansible-playbook` 命令執行劇本：
 
 ```bash
-ansible-playbook rg_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible on Azure](/azure/ansible/)

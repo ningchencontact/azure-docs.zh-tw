@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c9e62cf3dfc259d7064be9fd6b80cad0140336eb
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1c1317726cf29f23e4729c67a5a5794fa459220b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549264"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410846"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 SQL Server 2017 Windows 虛擬機器
 
@@ -44,7 +44,7 @@ ms.locfileid: "59549264"
 
 1. 在 Azure 入口網站中，選取 [建立資源]。 
 
-1. 在搜尋欄位中輸入 `SQL Server 2017 Developer on Windows Server 2016`，然後按 ENTER 鍵。
+1. 在搜尋欄位中輸入 `SQL Server 2017 Developer on Windows Server 2016`，然後按 ENTER 鍵。 展開 Windows Server 2016 上的 SQL Server 2017 選項。 
 
 1. 選取**免費的 SQL Server 授權：Windows Server 2016 上的 SQL Server 2017 Developer** 影像。 本教學課程中使用 Developer 版本，因為它是免費供開發測試使用的 SQL Server 完整功能版。 您只需支付執行 VM 的費用。 如需完整的定價考量，請參閱 [SQL Server Azure VM 的定價指導方針](virtual-machines-windows-sql-server-pricing-guidance.md)。
 
