@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 22cc195b7808ad4a9111aafcf883a68c51f3709f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/15/2019
+ms.openlocfilehash: 5182a5e325bd7883af1a7d102d3e02b277a5089e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076101"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788704"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Red Hat OpenShift 的 azure 資源
 
@@ -21,17 +21,7 @@ ms.locfileid: "65076101"
 
 ## <a name="azure-regions"></a>Azure 區域
 
-您可以將 Azure Red Hat OpenShift 叢集部署到在世界各地的下列 Azure 區域：
-
-|區域|CLI 程式碼|
-|-|-|
-|🇦🇺 澳大利亞東部|`australiaeast`|
-|🇨🇦 加拿大中部|`canadacentral`|
-|🇨🇦 加拿大東部|`canadaeast`|
-|🇺🇸 美國東部|`eastus`|
-|🇺🇸 美國西部|`westus`|
-|🇪🇺 西歐|`westeurope`|
-|🇪🇺 北歐|`northeurope`|
+請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all)的最新的清單，您可以在其中部署 Azure 的 Red Hat OpenShift 的區域的叢集。
 
 ## <a name="virtual-machine-sizes"></a>虛擬機器大小
 

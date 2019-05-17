@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154474"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799113"
 ---
 # <a name="public-ip-address-prefix"></a>公用 IP 位址首碼
 
@@ -55,7 +55,7 @@ ms.locfileid: "65154474"
 ## <a name="constraints"></a>條件約束
 
 - 您無法指定首碼的 IP 位址。 Azure 會根據您指定的大小為首碼配置 IP 位址。
-- 前置詞的預設大小是/28 或 16 公用 IP 位址。
+- 您可以建立最多 16 個 IP 位址或/28 的前置詞。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 - 建立首碼之後，就無法變更範圍。
 - 範圍僅適用於 IPv4 位址。 範圍不包含 IPv6 位址。
 - 只能從首碼的範圍指派使用標準 SKU 建立的靜態公用 IP 位址。 若要深入了解公用 IP 位址 SKU，請參閱[公用 IP 位址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。

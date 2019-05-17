@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18a80af8422e30ce3e87395449fca7b5f6a73762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d02318db4deae6f0a6acdae9382ce47116c95110
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025025"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800860"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps:使用 Azure Machine Learning Service 來管理、部署及監視模型
 
@@ -34,11 +34,14 @@ MLOps / 部署工作流程包含下列步驟：
 
 [![' Azure Machine Learning 持續整合/持續部署 (CI/CD) 週期 '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
 ## <a name="step-1-register-model"></a>步驟 1：註冊模型
 
 模型註冊可讓您在 Azure 雲端自己的工作區中儲存模型和控制模型版本。 模型註冊可讓您更輕鬆地組織和追蹤已定型模型。
+
+> [!TIP]
+> 您也可以註冊外部 Azure 機器學習服務訓練的模型。
  
 已註冊的模型是透過名稱和版本來識別。 每次註冊與現有模型名稱相同的模型時，登錄都會遞加版本。 您也可以在可於搜尋模型時使用的註冊期間提供額外中繼資料標記。 Azure Machine Learning 服務支援可以載入使用 Python 3.5.2 或更高版本的任何模型。
 
@@ -92,5 +95,7 @@ Microsoft Power BI 支援的資料分析使用機器學習服務模型。 如需
 ## <a name="next-steps"></a>後續步驟
 
 深入了解使用 Azure Machine Learning 服務[部署模型的方式和位置](how-to-deploy-and-where.md)。 如需部署範例，請參閱[教學課程：部署 Azure Container Instances 中的影像分類模型](tutorial-deploy-models-with-aml.md)。
+
+了解如何建立[搭配 Azure 管線的 ML 模型的連續整合和部署](/azure/devops/pipelines/targets/azure-machine-learning)。 
 
 了解如何建立[使用部署為 Web 服務之模型](how-to-consume-web-service.md)的用戶端應用程式和服務。

@@ -3,16 +3,16 @@ title: 建立 Azure 映像產生器範本 （預覽）
 description: 了解如何建立範本以使用 Azure 映像產生器。
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b4646879eb7eeecf41852baab7ab64e4053b05e1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159596"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538285"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>預覽：建立 Azure 映像產生器範本 
 
@@ -32,7 +32,7 @@ Azure 映像產生器會將資訊傳遞到映像產生器服務使用的.json �
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
-        "<build timeout in minutes>": {}, 
+        "buildTimeoutInMinutes": <minutes>, 
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -447,7 +447,7 @@ Azure 共用映像庫中是新的映像管理服務，可讓您的映像區域�
 > [!NOTE]
 > 您可以使用 Azure 映像產生器位於不同的區域，以資源庫中，但 Azure 映像產生器服務需要在資料中心之間傳輸映像，這會花費較多。 映像產生器會自動版本的映像中，然後再根據 單純的整數，您目前無法加以指定。 
 
-### <a name="distribute-vhd"></a>將散發：VHD   
+### <a name="distribute-vhd"></a>將散發：VHD  
 您可以輸出至 VHD。 您可以複製 VHD，然後使用它來發佈至 Azure MarketPlace，或搭配 Azure Stack 使用。  
 
 ```json

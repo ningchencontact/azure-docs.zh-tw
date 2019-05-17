@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66b3e68ff2199c6a8bf4da9e02caaf93ee69342b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414442"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812821"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者
 
@@ -27,11 +27,15 @@ ms.locfileid: "60414442"
 > [!IMPORTANT]
 > 請按照[操作說明：在 Azure Active Directory 中新增組織的隱私權資訊](https://aka.ms/adprivacystatement)中的步驟，新增貴組織隱私權聲明的 URL。 在第一次邀請兌換程序中，受邀的使用者必須同意您的隱私權條款才能繼續進行。 
 
+## <a name="before-you-begin"></a>開始之前
+
+請確定您的組織外部共同作業設定，您可以邀請來賓。 根據預設，所有使用者和系統管理員可都邀請來賓。 但您組織的外部共同作業的原則可能會設定為預防特定類型的使用者或系統管理員邀請來賓。 若要了解如何檢視和設定這些原則，請參閱[啟用 B2B 外部共同作業和管理誰可以邀請來賓](delegate-invitations.md)。
+
 ## <a name="add-guest-users-to-the-directory"></a>將來賓使用者新增到目錄
 
 若要將 B2B 共同作業使用者新增至目錄，請遵循下列步驟：
 
-1. 登入[Azure 入口網站](https://portal.azure.com)身為使用者指派任何受限的管理員目錄角色。
+1. 登入[Azure 入口網站](https://portal.azure.com)以使用者獲指派受限的管理員目錄角色或來賓邀請者角色。
 2. 在導覽窗格中，選取 [Azure Active Directory]。
 3. 在 [管理] 底下選取 [使用者]。
 4. 選取 [新增來賓使用者]。
@@ -41,7 +45,7 @@ ms.locfileid: "60414442"
    > [!NOTE]
    > [新增來賓使用者] 選項也在 [組織關係] 頁面上。 在 [Azure Active Directory] 中，[管理] 下方，選取 [組織關係]。
 
-5. 在 [使用者名稱] 下，輸入外部使用者的電子郵件地址。 您也可以選擇納入歡迎訊息。 例如︰
+5. 在 [使用者名稱] 下，輸入外部使用者的電子郵件地址。 您也可以選擇納入歡迎訊息。 例如：
 
    ![顯示 [新增來賓使用者] 在 UI 中的位置](./media/add-users-administrator/InviteGuest.png) 
 
@@ -56,7 +60,7 @@ ms.locfileid: "60414442"
 ![顯示 B2B 使用者與「來賓」使用者類型](./media/add-users-administrator/GuestUserType.png)  
 
 ## <a name="add-guest-users-to-a-group"></a>將來賓使用者新增到群組
-如果您需要透過手動方式，以 Azure AD 系統管理員身分將 B2B 共同作業使用者新增到群組，請遵循下列步驟：
+如果您需要以手動方式將 B2B 共同作業使用者新增至群組，請遵循下列步驟：
 
 1. 以 Azure AD 系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在導覽窗格中，選取 [Azure Active Directory]。
@@ -73,7 +77,7 @@ ms.locfileid: "60414442"
 
 ## <a name="add-guest-users-to-an-application"></a>將來賓使用者新增到應用程式
 
-若要以 Azure AD 系統管理員身分將 B2B 共同作業使用者新增到應用程式，請遵循下列步驟：
+若要新增 B2B 共同作業使用者到應用程式，請遵循下列步驟：
 
 1. 以 Azure AD 系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在導覽窗格中，選取 [Azure Active Directory]。

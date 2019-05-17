@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec62639988dca4b216087e8235be6053140644ee
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406365"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790419"
 ---
-# <a name="understand-data-retention-in-time-series-insights"></a>了解時間序列深入解析中的資料保留
+# <a name="understand-data-retention-in-azure-time-series-insights"></a>了解 Azure Time Series Insights 中的資料保留
 
-本文說明時間序列深入解析 (TSI) 環境中，影響資料保留的兩個設定。
+本文說明兩個會影響您的 Azure Time Series Insights 環境中的資料保留期的設定。
 
 ## <a name="video"></a>影片
 
@@ -36,7 +36,7 @@ ms.locfileid: "65406365"
 - **暫停輸入**
 
 > [!NOTE]
-> 根據預設，建立新環境時，保留期會設定為**清除舊資料**。 這個設定可以在建立後視需要使用 Azure 入口網站，在 TSI 環境的 [設定] 頁面上切換。
+> 根據預設，建立新環境時，保留期會設定為**清除舊資料**。 可以切換此設定，在建立期間，使用 Azure 入口網站中，在後視**設定**的 Time Series Insights 環境的頁面。
 
 如需切換保留行為的相關資訊，請檢閱[在時間序列深入解析中設定保留](time-series-insights-how-to-configure-retention.md)。
 
@@ -44,8 +44,8 @@ ms.locfileid: "65406365"
 
 ## <a name="purge-old-data"></a>清除舊資料
 
-- 此行為是 TSI 環境的預設行為，而且會表現出和 TSI 環境相同的行為，因為它會在公開預覽中啟動。  
-- 當使用者想要在其 TSI 環境中一律看到「最新的資料」時，建議使用此行為。 
+- 此行為是 Time Series Insights 環境的預設行為。  
+- 此行為是慣用的當使用者想要一律會看到他們*最新的資料*Time Series Insights 環境中。
 - 在達到環境限制 (保留時間、大小或計數，以先達到者為準) 時，此行為就會「清除」資料。 保留期預設值為 30 天。
 - 最舊的內嵌資料會先清除 (FIFO 方法)。
 
@@ -75,7 +75,7 @@ ms.locfileid: "65406365"
 
 ### <a name="example-three"></a>範例三
 
-考慮保留期行為設定為**暫停輸入**的環境。 在此範例中，[資料保留期間] 設定為 60 天。 [容量] 設定為 S1 的 3 個單位。 假設此環境每天輸入 2 GB 資料。 在此環境中，一旦達到最大容量就會暫停輸入。
+考慮保留期行為設定為**暫停輸入**的環境。 在此範例中，[資料保留期間] 設定為 60 天。 **容量**設為三 （3） 個 S1 單位。 假設此環境每天輸入 2 GB 資料。 在此環境中，一旦達到最大容量就會暫停輸入。
 
 屆時，環境會顯示相同的資料集直到恢復輸入或直到**繼續輸入**已啟用 （這會清除較舊的資料，以騰出空間給新的資料）。
 
@@ -91,7 +91,7 @@ ms.locfileid: "65406365"
 
 [![事件中樞訊息保留。](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-如果不設定事件來源的任何屬性 (`timeStampPropertyName`)，TSI 預設值為 x 軸抵達事件中樞的時間戳記。 如果`timeStampPropertyName`設定為其他項目，已設定的環境看起來`timeStampPropertyName`資料封包時所剖析出的事件中。
+如果不設定事件來源的任何屬性 (`timeStampPropertyName`)，預設為抵達事件中樞為 x 軸的時間戳記的時間序列深入解析。 如果`timeStampPropertyName`設定為其他項目，已設定的環境看起來`timeStampPropertyName`資料封包時所剖析出的事件中。
 
 如果您需要相應增加環境以容納更多容量，或需要延長保留長度，請參閱[如何調整您的時間序列深入解析環境規模](time-series-insights-how-to-scale-your-environment.md)以了解詳細資訊。  
 

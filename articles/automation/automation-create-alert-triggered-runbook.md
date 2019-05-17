@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5d8e7bba6d43ba1daa3173ce5d7e043e2310a482
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8a1ae906a72d781f638fb171a409b860ffa6d501
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230001"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517711"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警示來觸發 Azure 自動化 Runbook
 
@@ -22,7 +22,7 @@ ms.locfileid: "65230001"
 
 ## <a name="alert-types"></a>警示類型
 
-您可以使用自動化 runbook 與四種警示類型：
+您可以將自動化 Runbook 與三種警示類型搭配使用：
 
 * 常見的警示
 * 活動記錄警示

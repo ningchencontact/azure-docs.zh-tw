@@ -5,23 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 24a77561d08cc3db5356dd0e931f62bf2d16406d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577040"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785865"
 ---
 # <a name="assign-access-to-cost-management-data"></a>指派成本管理資料的存取權
 
 對於具有 Azure Enterprise 合約的使用者，在 Azure 入口網站和企業 (EA) 入口網站中授與的權限組合，定義了使用者對 Azure 成本管理資料的存取權層級。 對於其他 Azure 帳戶類型的使用者，使用者在成本管理資料上的存取層級會比較簡單。 本文逐步引導您指派對 Azure 成本管理資料的存取權。 指派權限組合之後，使用者依他們有存取權的範圍和他們在 Azure 入口網站中選取的範圍，來檢視成本管理中的資料。
 
 使用者選取的範圍使用於成本管理，以提供資料彙總及控制對成本資訊的存取權。 使用範圍時，使用者不能多重選取範圍。 相反地，他們是選取子範圍彙總至的較大範圍，然後再篩選出想要檢視的部分。 請務必了解資料彙總，因為有些人員不應存取子範圍所彙總至的父範圍。
+
+監看式[如何使用 Azure 成本管理的存取權指派](https://www.youtube.com/watch?v=J997ckmwTa8)影片以深入了解指派存取權可以檢視成本和使用 Azure 角色型存取控制的費用。
+
+>[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
 ## <a name="cost-management-scopes"></a>成本管理範圍
 
@@ -33,8 +37,8 @@ ms.locfileid: "60577040"
 
 | **範圍** | **定義於** | **檢視資料所需的存取權** | **事先的 EA 設定** | **資料彙總至** |
 | --- | --- | --- | --- | --- |
-| 計費帳戶<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | 企業管理員 | None | Enterprise 合約中的所有訂用帳戶 |
-| department | [https://ea.azure.com](https://ea.azure.com/) | 部門管理員 | 啟用 **DA 檢視費用** | 連結至部門的註冊帳戶所含的所有訂用帳戶 |
+| 計費帳戶<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | 企業系統管理員 | None | Enterprise 合約中的所有訂用帳戶 |
+| 部門 | [https://ea.azure.com](https://ea.azure.com/) | 部門管理員 | 啟用 **DA 檢視費用** | 連結至部門的註冊帳戶所含的所有訂用帳戶 |
 | 註冊帳戶<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | 帳戶擁有者 | 啟用 **AO 檢視費用** | 註冊帳戶中的所有訂用帳戶 |
 | 管理群組 | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 管理群組下的所有訂用帳戶 |
 | 訂用帳戶 | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 訂用帳戶中的所有資源/資源群組 |

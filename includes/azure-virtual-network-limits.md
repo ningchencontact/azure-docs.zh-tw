@@ -5,42 +5,42 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 04/10/2019
+ms.date: 05/15/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 79c4530878783cbdb62cac630d81b65dc73c52a4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8cee74696d9636a8ac1d6fcbab493f18184355e1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733775"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787606"
 ---
-<a name="virtual-networking-limits-classic"></a>下列限制僅適用於透過每個訂用帳戶的傳統部署模型所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
+<a name="virtual-networking-limits-classic"></a>下列限制僅適用於網路資源，透過管理**傳統**每訂用帳戶的部署模型。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
-| Resource | 預設限制 | 上限 |
+| 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
 | 虛擬網路 |50 |100 |
 | 區域網路網站 |20 |請連絡支援人員。 |
 | 每个虚拟网络的 DNS 服务器数 |20 |20 |
 | 每个虚拟网络的专用 IP 地址数 |4,096 |4,096 |
 | 虛擬機器或角色執行個體之每個 NIC 的並行 TCP 或 UDP 流程 |如果 NIC 至少有两个，则为 500,000（至多 1,000,000）。 |如果 NIC 至少有两个，则为 500,000（至多 1,000,000）。 |
-| 網路安全性群組 (NSG) |100 |200 |
-| 每个 NSG 的 NSG 规则数 |200 |1,000 |
-| 用户定义路由表数 |100 |200 |
-| 每个路由表的用户定义的路由数 |100 |400 |
-| 公用 IP 位址 (動態) |5 |請連絡支援人員。 |
-| 保留的公用 IP 位址 |20 |請連絡支援人員。 |
-| 每個部署的公用 VIP |5 |請連絡支援人員。 |
+| 網路安全性群組 (NSG) |200 |200 |
+| 每一 NSG 的 NSG 規則 |1,000 |1,000 |
+| 用户定义路由表数 |200 |200 |
+| 每个路由表的用户定义的路由数 |400 |400 |
+| 公用 IP 位址 (動態) |5 |請連絡支援人員 |
+| 保留的公用 IP 位址 |20 |請連絡支援人員 |
+| 每個部署的公用 VIP |5 |請連絡支援人員 |
 | 每个部署的专用 VIP（内部负载均衡） |1 |1 |
 | 终结点访问控制列表 (ACL) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>網路限制-Azure Resource Manager
-下列限制僅適用於透過每個訂用帳戶每一區域的 Azure Resource Manager 所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
+下列限制僅適用於網路資源，透過管理**Azure Resource Manager**每個訂用帳戶每區域。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
 > [!NOTE]
 > 我們最近已將所有預設限制提升至其最大限制。 如果没有最大限制列，则资源没有可调整的限制。 如果过去已通过客户支持提高了这些上限，因此在以下表中看不到更新的限制，可[免费提交联机客户支持请求](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Resource | 預設限制/最大限制 | 
+| 資源 | 預設值/最大限制 | 
 | --- | --- |
 | 虛擬網路 |1,000 |
 | 每一虛擬網路的子網路 |3,000 |
@@ -65,17 +65,17 @@ ms.locfileid: "64733775"
 | 每個虛擬網路 TAP 的網路介面 TAP 設定 |100 |
 
 #### <a name="publicip-address"></a>公用 IP 位址限制
-| Resource | 預設限制 | 上限 |
+| 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
 | 公用 IP 位址 - 動態 | 基本版为 1,000。 |請連絡支援人員。 |
 | 公用 IP 位址 - 靜態 | 基本版为 1,000。 |請連絡支援人員。 |
 | 公用 IP 位址 - 靜態 | 标准版为 200。|請連絡支援人員。 |
-| 公用 IP 前置詞大小 （預覽） | /28 | /28 |
+| 公用 IP 前置詞大小 （預覽） | /28 | 請連絡支援人員。 |
 
 #### <a name="load-balancer"></a>負載平衡器限制
 下列限制僅適用於透過每個訂用帳戶每一區域的 Azure Resource Manager 所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
-| Resource | 預設限制 |
+| 資源 | 預設值/最大限制 |
 | --- | --- |
 | 負載平衡器 | 1,000 | 
 | 每個資源的規則，基本 | 250 |

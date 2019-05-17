@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/03/2017
+ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322660"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796352"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>匯入和匯出大量的 IoT 中樞裝置身分識別
 
@@ -84,6 +84,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+## <a name="device-importexport-job-limits"></a>裝置匯入/匯出作業限制
+
+1 個作用中裝置匯入或匯出作業可用於所有的 IoT 中樞層，一次。 IoT 中樞也會有限制的工作作業速率。 若要進一步了解，請參閱[參考-IoT 中樞配額和節流](iot-hub-devguide-quotas-throttling.md)。
 
 ## <a name="export-devices"></a>匯出裝置
 
@@ -253,7 +257,7 @@ JobProperties importJob =
 
 在每個裝置的匯入序列化資料中使用選擇性的 **importMode** 屬性控制每個裝置的匯入程序。 **ImportMode** 屬性具有下列選項：
 
-| importMode | 描述 |
+| importMode | 說明 |
 | --- | --- |
 | **createOrUpdate** |如果裝置不存在具有指定之**識別碼**，它新註冊。 <br/>如果裝置已存在，則會以所提供的輸入資料覆寫現有資訊，而不管 **ETag** 值為何。 <br> 用户可以选择在指定设备数据的同时指定孪生数据。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
 | **create** |如果裝置不存在具有指定之**識別碼**，它新註冊。 <br/>如果裝置已存在，則會在記錄檔中寫入錯誤。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
@@ -390,7 +394,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>取得容器 SAS URI
 
-下列程式碼範例示範如何產生具有 Blob 容器之讀取、寫入和刪除權限的 [SAS URI](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)：
+下列程式碼範例示範如何產生具有 Blob 容器之讀取、寫入和刪除權限的 [SAS URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md)：
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -420,7 +424,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 在本文中，您已了解如何對 IoT 中樞內的身分識別登錄執行大量操作。 遵循下列連結以深入了解如何管理 Azure IoT 中樞：
 
 * [IoT 中樞計量](iot-hub-metrics.md)
-* [作業監視](iot-hub-operations-monitoring.md)
+* [IoT 中樞的記錄檔](iot-hub-monitor-resource-health.md)
 
 若要進一步探索 IoT 中樞的功能，請參閱︰
 

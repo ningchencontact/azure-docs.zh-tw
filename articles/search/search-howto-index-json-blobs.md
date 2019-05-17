@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5b04cabe734b97436421595dbb0ab7584efd4911
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024951"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523079"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>如何使用 Azure 搜尋服務 Blob 索引子編製 JSON blob
 本文說明如何設定 Azure 搜尋服務 blob [indexer](search-indexer-overview.md)擷取 Azure Blob 儲存體中的 JSON 文件中的結構化的內容，並使其可在 Azure 搜尋服務。 此工作流程建立 Azure 搜尋服務索引，並將其載入具有現有從 JSON blob 擷取的文字。 
@@ -128,7 +128,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 JSON 實體�
 
 Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 」 的 JSON。 Azure 搜尋服務中的 Blob 索引子可以剖析其中一種結構，取決於您如何設定在要求上的 **parsingMode** 參數。
 
-| JSON 文件 | parsingMode | 描述 | 可用性 |
+| JSON 文件 | parsingMode | 說明 | 可用性 |
 |--------------|-------------|--------------|--------------|
 | 一個 blob 一個 | `json` | 將 JSON blob 當作單一文字區塊來剖析。 每一個 JSON blob 會變成單一 Azure 搜尋服務文件。 | 在正式推出[其餘](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)API 並[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK。 |
 | 一個 blob 多個 | `jsonArray` | 剖析 blob 中的 JSON 陣列，陣列的每個元素會變成不同的 Azure 搜尋服務文件。  | 在正式推出[其餘](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)API 並[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK。 |
@@ -279,7 +279,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 ## <a name="use-net-sdk"></a>使用 .NET SDK
 
-.NET SDK 與 REST API 完全對等。 建議您檢閱先前的 REST API 章節，以了解其概念、工作流程和需求。 然後，您可以參閱下列 .NET API 參考文件，以在受控程式碼中實作 JSON 索引子。
+.NET SDK 有完全相同，使用 REST API。 建議您檢閱先前的 REST API 章節，以了解其概念、工作流程和需求。 然後，您可以參閱下列 .NET API 參考文件，以在受控程式碼中實作 JSON 索引子。
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -292,7 +292,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 JSON blob 可以假設多個表單。 **ParsingMode** JSON 索引子上的參數可決定如何剖析並在 Azure 搜尋服務索引中結構化 JSON blob 內容：
 
-| parsingMode | 描述 |
+| parsingMode | 說明 |
 |-------------|-------------|
 | `json`  | 索引為單一文件的每個 blob。 這是預設值。 |
 | `jsonArray` | 如果您的 blob 包含 JSON 陣列，而您需要成為 Azure 搜尋服務中的個別文件陣列的每個項目，請選擇這個模式。 |

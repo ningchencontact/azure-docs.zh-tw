@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: e0ad1e85a4cd47de823bc4f224b5a8834b1068b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3701a69ab72abf20a4f1608a1cee56c9cea38aca
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459312"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523629"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>設定 web 應用程式防火牆速率限制規則使用 Azure PowerShell
 Azure web 應用程式防火牆 (WAF) 速率限制規則的 Azure 大門會控制一分鐘期間允許從單一用戶端 IP 的要求數目。
@@ -55,17 +55,17 @@ Install-Module -Name Az.FrontDoor
 請遵循[快速入門：建立前端的設定檔](quickstart-create-front-door.md)
 
 ## <a name="define-url-match-conditions"></a>定義 url 比對條件
-定義 URL 比對條件 （URL 會包含 /promo） 使用[新增 AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject)。
+定義 URL 比對條件 （URL 會包含 /promo） 使用[新增 AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject)。
 下列範例會比對 */promo*的值為*RequestUri*變數：
 
 ```powershell-interactive
-   $promoMatchCondition = New-AzFrontDoorMatchConditionObject `
+   $promoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
      -MatchVariable RequestUri `
      -OperatorProperty Contains `
      -MatchValue "/promo"
 ```
 ## <a name="create-a-custom-rate-limit-rule"></a>建立自訂的速率限制規則
-使用速率限制設定[新增 AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject)。 在下列範例中，限制是設為 1000年。 在一分鐘內超過 1000年的促銷頁面從任何用戶端要求會遭到封鎖，直到下一分鐘會啟動。
+使用速率限制設定[新增 AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject)。 在下列範例中，限制是設為 1000年。 在一分鐘內超過 1000年的促銷頁面從任何用戶端要求會遭到封鎖，直到下一分鐘會啟動。
 
 ```powershell-interactive
    $promoRateLimitRule = New-AzFrontDoorCustomRuleObject `
@@ -79,14 +79,14 @@ Install-Module -Name Az.FrontDoor
 
 ## <a name="configure-a-security-policy"></a>設定安全性原則
 
-使用 `Get-AzureRmResourceGroup` 尋找包含 Front Door 設定檔的資源群組名稱。 接下來，設定自訂的速率限制規則使用的 安全性原則[新增 AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy)包含前門設定檔指定的資源群組中。
+使用 `Get-AzureRmResourceGroup` 尋找包含 Front Door 設定檔的資源群組名稱。 接下來，設定自訂的速率限制規則使用的 安全性原則[新增 AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)包含前門設定檔指定的資源群組中。
 
 下列範例會使用資源群組名稱 myResourceGroupFD1，並假設您已使用[快速入門：建立 Front Door](quickstart-create-front-door.md) 一文中所提供的指示建立 Front Door 設定檔。
 
- 使用[新增 AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy)。
+ 使用[新增 AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)。
 
 ```powershell-interactive
-   $ratePolicy = New-AzFrontDoorFireWallPolicy `
+   $ratePolicy = New-AzFrontDoorWafPolicy `
      -Name "RateLimitPolicyExamplePS" `
      -resourceGroupName myResourceGroupFD1 `
      -Customrule $promoRateLimitRule `

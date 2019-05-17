@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 22484885663a4f9a908ae988882b87612129251a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9a6a63748ef36bbbceb00bc815616f2cb12692a7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693228"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799800"
 ---
 # <a name="monitor-cluster-performance"></a>監視叢集效能
 
@@ -27,10 +27,10 @@ ms.locfileid: "64693228"
 
 若要查看您叢集的節點及其負載概況，請登入 [Ambari Web UI](hdinsight-hadoop-manage-ambari.md)，然後選取 [主機]。會依主機的完整網域名稱加以列出。 每個主機的操作狀態是依彩色的健康情況指示器來顯示：
 
-| 色彩 | 描述 |
+| 色彩 | 說明 |
 | --- | --- |
 | 紅色 | 主機上至少有一個主要元件已關閉。 暫留以查看列出受影響元件的工具提示。 |
-| 橙色 | 主機上至少有一個從屬元件已關閉。 暫留以查看列出受影響元件的工具提示。 |
+| 橘色 | 至少一個主機上的次要元件已關閉。 暫留以查看列出受影響元件的工具提示。 |
 | 黃色 | Ambari 伺服器超過 3 分鐘未收到主機的活動訊號。 |
 | 綠色 | 一般執行狀態。 |
 

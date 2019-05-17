@@ -10,14 +10,19 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 193ed7099293fb1ee4c056abcc5c2f34d78627b7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e7d959e77d27fb04b18f402e4056d4dea1607039
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024686"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522905"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>使用 Azure 搜尋服務 Blob 索引子編製索引 CSV Blob
+
+> [!Note]
+> delimitedText 剖析模式是處於預覽階段，應用程式不是用於生產環境而定。 [REST API 版本 2019年-05-06-Preview](search-api-preview.md)提供這項功能。 沒有.NET SDK 支援這一次。
+>
+
 根據預設， [Azure 搜尋服務 Blob 索引子](search-howto-indexing-azure-blob-storage.md) 會將分隔符號文字 Blob 剖析為單一的文字區塊。 不過，使用包含 CSV 資料的 blob，您通常想要將 blob 中的每一行當做個別文件。 例如，在給訂下列分隔文字時，您可能想要將它剖析為 2 個文件，每個都包含 [識別碼]、[發佈日期] 和 [標籤] 欄位： 
 
     id, datePublished, tags
@@ -26,13 +31,11 @@ ms.locfileid: "65024686"
 
 在本文中，您將了解如何使用 Azure 搜尋服務 blob indexerby 設定剖析 CSV blob`delimitedText`剖析模式。 
 
-`delimitedText`剖析模式目前處於公開預覽狀態，並不建議用於生產工作負載。
-
 > [!NOTE]
 > 請依照下列中的索引子組態建議[-一對多編製索引](search-howto-index-one-to-many-blobs.md)輸出從一個 Azure blob 的多個搜尋文件。
 
 ## <a name="setting-up-csv-indexing"></a>設定 CSV 編製索引
-若要對 CSV blob 編製索引，請使用 `delimitedText` 剖析模式建立或更新索引子定義︰  
+編製索引 CSV blob、 建立或更新與索引子定義`delimitedText`剖析模式[建立索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)要求：
 
     {
       "name" : "my-csv-indexer",
@@ -40,14 +43,12 @@ ms.locfileid: "65024686"
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
     }
 
-如需建立索引子 API 的詳細資訊，請參閱 [建立索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)。
-
 `firstLineContainsHeaders` 指出每個 blob 的第一個 (非空白) 行包含標頭。
 如果 blob 不包含初始的標頭行，應該在索引子組態中指定標頭︰ 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-您可以使用 `delimitedTextDelimiter` 組態集來自訂分隔符號字元。 例如︰
+您可以使用 `delimitedTextDelimiter` 組態集來自訂分隔符號字元。 例如：
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 

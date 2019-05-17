@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d323a93773a8459d097c1fe3502d2ccd88ae9695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ad4a1a9fff8e011638eb7c532bf7619c87c1996
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687914"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785197"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 Azure Active Directory 帳戶進行登入 
 
@@ -55,7 +55,7 @@ ms.locfileid: "64687914"
 
 1. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 2. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-3. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]。
+3. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 4. 選取 [原則金鑰]，然後選取 [新增]。
 5. 針對 [選項] 選擇 `Manual`。
 6. 輸入原則金鑰的 [名稱]。 例如： `ContosoAppSecret`。  金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
@@ -118,7 +118,7 @@ ms.locfileid: "64687914"
     </ClaimsProvider>
     ```
 
-4. 在 **ClaimsProvider** 元素底下，將 **Domain** 的值更新成可用來與其他識別提供者做區別的唯一值。 例如 `Contoso` 。 您不應在此網域設定的結尾放置 `.com`。
+4. 在 **ClaimsProvider** 元素底下，將 **Domain** 的值更新成可用來與其他識別提供者做區別的唯一值。 例如 `Contoso`。 您不應在此網域設定的結尾放置 `.com`。
 5. 在 **ClaimsProvider** 元素下，將 **DisplayName** 的值更新成可用來與其他識別提供者區別的唯一值。 目前不使用此值。
 
 ### <a name="update-the-technical-profile"></a>更新技術設定檔
@@ -129,7 +129,7 @@ ms.locfileid: "64687914"
 2. 更新 **DisplayName** 的值。 這個值會顯示在登入畫面的登入按鈕上。
 3. 更新 [描述] 的值。
 4. Azure AD 使用 OpenID Connect 通訊協定，因此請確定 [通訊協定] 的值為 `OpenIdConnect`。
-5. 將 **METADATA** 的值設定為 `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`，其中 `your-AD-tenant-name` 是您的 Azure AD 租用戶名稱。 例如， `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
+5. 將 **METADATA** 的值設定為 `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`，其中 `your-AD-tenant-name` 是您的 Azure AD 租用戶名稱。 例如： `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration` 
 6. 開啟您的瀏覽器並移至您剛才更新的 **METADATA** URL，查看**簽發者**物件，並將其值複製並貼到 XML 檔案的 **ProviderName** 值中。
 8. 將 **client_id** 和 **IdTokenAudience** 設定為來自應用程式註冊的應用程式識別碼。
 9. 在 **CryptograhicKeys** 下方，將 **StorageReferenceId** 的值更新為您所定義的原則金鑰。 例如： `ContosoAppSecret`。

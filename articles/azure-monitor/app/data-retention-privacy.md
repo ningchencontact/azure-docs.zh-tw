@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 05/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204879"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518850"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
@@ -86,6 +86,9 @@ Application Insights SDK 可用於多種應用程式類型：裝載於您自己�
 未經處理資料點 (亦即您可以在「分析」中查詢並在「搜尋」中檢查的項目) 最多可保留 90 天。 如果您需要保留資料的時間超過該範圍，您可以使用 [連續匯出](../../azure-monitor/app/export-telemetry.md) ，將它複製到儲存體帳戶。
 
 彙總的資料 (也就是您在計量瀏覽器中看到的計數、平均和其他統計資料) 在 1 分鐘的資料粒度中保存 90 天。
+
+> [!NOTE]
+> 變數的保留期的 Application Insights 現在處於預覽狀態。 [在此](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031)深入了解。 
 
 [偵錯快照集](../../azure-monitor/app/snapshot-debugger.md)15 天儲存。 此保留原則會就個別的應用程式而設定。 如果您需要增加此值，您可以在 Azure 入口網站中建立支援案例，以提出增加的要求。
 
@@ -192,7 +195,7 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 |平台/語言 | 支援 | 相關資訊 |
 | --- | --- | --- |
-| Azure App Service  | 支援，可能需要設定。 | 已在 2018 年 4 月宣告支援。 請參閱公告以了解[設定的詳細資訊](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)。  |
+| Azure 應用程式服務  | 支援，可能需要設定。 | 已在 2018 年 4 月宣告支援。 請參閱公告以了解[設定的詳細資訊](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)。  |
 | Azure 函式應用程式 | 支援，可能需要設定。 | 已在 2018 年 4 月宣告支援。 請參閱公告以了解[設定的詳細資訊](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)。 |
 |.NET | 支援，設定會因版本不同而有所差異。 | 如需 .NET 4.7 和更早版本的詳細設定資訊，請參閱[這些指示](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)。  |
 |狀態監視器 | 支援，需要設定 | 狀態監視須依賴 [OS 組態](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 組態](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)來支援 TLS 1.2。
@@ -237,15 +240,15 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 | 您的動作 | 收集的資料類別 (請參閱下一個資料表) |
 | --- | --- |
-| [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] |ServerContext<br/>推斷<br/>效能計數器<br/>Requests<br/>**例外狀況**<br/>工作階段<br/>users |
+| [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] |ServerContext<br/>推斷<br/>效能計數器<br/>Requests<br/>**例外狀況**<br/>工作階段<br/>使用者 |
 | [在 IIS 上安裝狀態監視器][redfield] |相依項目<br/>ServerContext<br/>推斷<br/>效能計數器 |
-| [將 Application Insights SDK 新增至 Java Web 應用程式][java] |ServerContext<br/>推斷<br/>要求<br/>工作階段<br/>users |
-| [將 JavaScript SDK 新增至網頁][client] |ClientContext  <br/>推斷<br/>Page<br/>ClientPerf<br/>Ajax |
+| [將 Application Insights SDK 新增至 Java Web 應用程式][java] |ServerContext<br/>推斷<br/>要求<br/>工作階段<br/>使用者 |
+| [將 JavaScript SDK 新增至網頁][client] |ClientContext  <br/>推斷<br/>頁面<br/>ClientPerf<br/>Ajax |
 | [定義預設屬性][apiproperties] |**屬性**  |
 | [呼叫 TrackMetric][api] |數值<br/>**屬性** |
 | [呼叫 Track*][api] |事件名稱<br/>**屬性** |
 | [呼叫 TrackException][api] |**例外狀況**<br/>堆疊傾印<br/>**屬性** |
-| SDK 無法收集資料。 例如︰ <br/> - 無法存取效能計數器<br/> - 遙測初始設定式中發生例外狀況 |SDK 診斷 |
+| SDK 無法收集資料。 例如： <br/> - 無法存取效能計數器<br/> - 遙測初始設定式中發生例外狀況 |SDK 診斷 |
 
 如需[適用於其他平台的 SDK][platforms]，請參閱其文件。
 
@@ -278,7 +281,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 > [!NOTE]
 > 用戶端 IP 會用來推斷地理位置，但預設不會再儲存 IP 資料，而且所有的零會寫入相關聯的欄位。 若要深入了解個人資料的處理，建議您閱讀這篇[文章](../../azure-monitor/platform/personal-data-mgmt.md#application-data)。 如果您需要儲存 IP 位址，可以透過[遙測初始設定式](./../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)來完成此作業。
 
-## <a name="credits"></a>學分
+## <a name="credits"></a>參與名單
 此產品包含由 MaxMind 建立的 GeoLite2 資料，可從 [https://www.maxmind.com](https://www.maxmind.com) 取得。
 
 

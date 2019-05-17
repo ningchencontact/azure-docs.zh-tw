@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 08f2dac6317f294c3c7360cc00cf9aaa60c9a7ca
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715092"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799852"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>建立連線到 Azure 的影片索引器帳戶
 
@@ -56,7 +57,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
 ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>連接到 Azure
+## <a name="connect-to-azure"></a>連線至 Azure
 
 1. 瀏覽至[影片索引子](https://www.videoindexer.ai/)網站並登入。
 
@@ -136,7 +137,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
 在對話方塊中，提供下列資訊︰
 
-|設定|描述|
+|設定|說明|
 |---|---|
 |影片索引器帳戶區域|影片索引器帳戶區域的名稱。 為了達到較佳的效能和較低的成本，強烈建議您指定 Azure 媒體服務資源和 Azure 儲存體帳戶所在區域的名稱。 |
 |Azure Active Directory (AAD) 租用戶|Azure AD 租用戶的名稱，例如 "contoso.onmicrosoft.com"。 租用戶資訊可從 Azure 入口網站擷取。 將游標放在右上角登入的使用者名稱上方。 尋找**網域**右邊的名稱。|

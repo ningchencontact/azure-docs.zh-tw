@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: a103526ef63c02913862510c01e9fde6570d89c0
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2392d0ef9d6257b93b76f13a5354eeba57d78ddd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515440"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800285"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>將 Java enterprise edition (EE) 應用程式移轉至 Azure
 本文將引導您完成程序的現有 Java EE 工作負載移轉至 Azure 中：
@@ -67,7 +67,7 @@ ms.locfileid: "65515440"
 移轉之後，您會執行使用 Azure 服務匯流排的應用程式。
 
 ## <a name="prerequisites"></a>必要條件
-若要將 Java web 應用程式部署至 Azure，您會需要 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費的 Azure 帳戶]((https://azure.microsoft.com/pricing/free-trial/))。
+若要將 Java web 應用程式部署至 Azure，您會需要 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費的 Azure 帳戶](https://azure.microsoft.com/en-us/free/)。
 
 此外，您將需要下列必要條件：
 
@@ -936,7 +936,7 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
 
 其他資訊，請參閱： 
  
- - [部署在 JBoss/WildFly 泛型 JMS RA 配接器](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+ - [部署在 JBoss/WildFly 泛型 JMS RA 配接器](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
  - [JBoss/WildFly CLI 指南](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
  - [從您的開發電腦的 SSH 工作階段開啟至 App Service Linux](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)
 

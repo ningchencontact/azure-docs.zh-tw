@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 21374e20a2ba2c9134ed12e4b1072ff5c320c75e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d72901653e995e811a1d3e89cef8a5f77a9ea8bd
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149771"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523812"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure 搜尋服務中的 API 版本
 「Azure 搜尋服務」會定期推出功能更新。 有時候 (但並不一定)，這些更新會需要新版本的 API，以維持回溯相容性。 發行新版本可讓您控制在程式碼中整合搜尋服務更新的時機與方式。
@@ -33,7 +33,7 @@ ms.locfileid: "65149771"
 | 介面 | 最新主要版本 | 狀態 |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |9.0 |正式推出，發行 2019 年 |
-| [.NET SDK 預覽版](https://aka.ms/search-sdk-preview) |8.0.0-preview |預覽版，發行 2019 年 4 月 |
+| [.NET SDK 預覽版](https://aka.ms/search-sdk-preview) |8.0-preview |預覽版，發行 2019 年 4 月 |
 | [服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |正式推出 |
 | [Service REST API 2019-05-06-Preview](search-api-preview.md) |2019-05-06-Preview |預覽 |
 | [.NET 管理 SDK](https://aka.ms/search-mgmt-sdk) |3.0 |正式推出 |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: f3e7cc2ed71dda0eb34328432b26a4016b62be1c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466424"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65524034"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>將建議或自動完成功能新增至您的 Azure 搜尋服務應用程式
 
@@ -164,7 +164,7 @@ $(function () {
 
 您可能會注意到第一件事是一種方法呼叫的類別頂端`InitSearch`。 此方法會建立已對 Azure 搜尋服務進行驗證的 HTTP 索引用戶端。 如需詳細資訊，請參閱 <<c0> [ 如何使用 Azure 搜尋服務.NET 應用程式](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)。
 
-該行 41 時，請注意建議函式。 它根據[DocumentsOperationsExtensions.Suggest 方法](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview)。
+該行 41 時，請注意建議函式。 它根據[DocumentsOperationsExtensions.Suggest 方法](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet)。
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -198,7 +198,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 
 建議函式會採用兩個參數，以決定是要傳回命中結果醒目提示，還是要使用搜尋字詞輸入外加模糊比對。 此方法會建立[SuggestParameters 物件](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet)，然後傳遞到建議 API。 結果接著會轉換為 JSON，以供在用戶端中顯示。
 
-在第 69 行，請注意自動完成函式。 它根據[DocumentsOperationsExtensions.Autocomplete 方法](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet-preview)。
+在第 69 行，請注意自動完成函式。 它根據[DocumentsOperationsExtensions.Autocomplete 方法](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet)。
 
 ```csharp
 public ActionResult AutoComplete(string term)

@@ -18,12 +18,12 @@ ms.date: 12/14/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355648"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785384"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的條件？ 
 
@@ -57,29 +57,23 @@ ms.locfileid: "60355648"
 
 * [使用者和群組] 會以幾組特定的使用者作為目標。 例如，在選取 HR 應用程式作為雲端應用程式時，您可以選取包含 HR 部門所有成員的群組。 群組可以是 Azure AD 中任何類型的群組，包括動態或已指派的安全性與通訊群組。
 
-您也可以將特定使用者或群組自原則中排除。 其中一個常見的使用案例，是原則強制執行多重要素驗證 (MFA) 時的服務帳戶。 
+您也可以將特定使用者或群組自原則中排除。 其中一個常見的使用案例，是原則強制執行多重要素驗證 (MFA) 時的服務帳戶。
 
-對於部署新原則來說，以特定的幾組使用者為目標會相當有用。 在新原則中，您應該僅以一組初始使用者為目標來驗證原則行為。 
+對於部署新原則來說，以特定的幾組使用者為目標會相當有用。 在新原則中，您應該僅以一組初始使用者為目標來驗證原則行為。
 
+## <a name="cloud-apps-and-actions"></a>雲端應用程式和動作
 
+雲端應用程式是網站、 服務或受 Azure AD 應用程式 Proxy 的端點。 如需所支援雲端應用程式的詳細描述，請參閱[雲端應用程式指派](technical-reference.md#cloud-apps-assignments)。 **雲端應用程式或動作**條件是條件式存取原則中的必要條件。 在原則中，您可以選取**所有雲端應用程式**，或指定的應用程式**選取 應用程式**。
 
-## <a name="cloud-apps"></a>雲端應用程式 
+組織可以從下列選擇：
 
-雲端應用程式是網站或服務。 受 Azure 應用程式 Proxy 保護的網站，也是雲端應用程式。 如需所支援雲端應用程式的詳細描述，請參閱[雲端應用程式指派](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments)。 
+* **所有雲端應用程式**時套用基準原則套用至整個組織。 使用此選項，任何雲端應用程式偵測到登入風險時需要多重要素驗證的原則。 存取原則套用至所有雲端應用程式適用於所有網站與服務。 此設定不會出現在選取的應用程式清單中的雲端應用程式的限制。
+* **選取應用程式**，以依據原則將特定服務當作目標。 例如，您可以要求使用者必須符合規範的裝置來存取 SharePoint Online。 當使用者存取 SharePoint 內容時，此原則也會套用至其他服務。 Microsoft Teams 即為一例。
 
-**雲端應用程式**條件是條件式存取原則中的必要條件。 在原則中，您可以選取 [所有雲端應用程式] 或選取特定的應用程式。
+> [!NOTE]
+> 您可以將特定應用程式從原則中排除。 不過，這些應用程式仍須遵循它們存取的服務所套用的原則。
 
-![包含雲端應用程式](./media/conditions/03.png)
-
-選取：
-
-- [所有雲端應用程式]，以針對要套用至整個組織的原則設定基準。 在偵測到任何雲端應用程式有登入風險時，請為需要執行多重要素驗證的原則使用此選項。 套用至**所有雲端應用程式**的原則，也會套用至所有網站和服務的存取。 此設定並非僅限於 [選取應用程式] 清單上顯示的雲端應用程式。 
-
-- **選取應用程式**，以依據原則將特定服務當作目標。 例如，您可以要求使用者必須具備[符合規範的裝置](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)，才能存取 SharePoint Online。 當使用者存取 SharePoint 內容時，此原則也會套用至其他服務。 Microsoft Teams 即為一例。 
-
-您可以將特定應用程式從原則中排除。 不過，這些應用程式仍須遵循它們存取的服務所套用的原則。 
-
-
+**使用者動作**是可以由使用者執行的工作。 只有目前支援的動作**註冊安全性資訊 （預覽）**，可讓使用者註冊安全性資訊時強制執行條件式存取原則。
 
 ## <a name="sign-in-risk"></a>登入風險
 

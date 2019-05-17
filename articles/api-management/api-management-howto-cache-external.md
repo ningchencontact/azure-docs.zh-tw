@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 05/15/2019
 ms.author: apimpm
-ms.openlocfilehash: 8e3f34210627fbb455a1eca0b415cdd6de9b3681
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2362d06fa0ef795122a2d47a7a621b66fdd9470
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527839"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780346"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>在 Azure API 管理中使用外部 Azure Redis 快取
 
@@ -40,11 +40,6 @@ ms.locfileid: "60527839"
 
 > [!div class="checklist"]
 > * 在 API 管理中新增外部快取
-
-## <a name="availability"></a>可用性
-
-> [!NOTE]
-> 這項功能目前僅適用於 Azure API 管理的 [耗用量] 層。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -94,6 +89,7 @@ ms.locfileid: "60527839"
 在 Azure API 管理中設定外部快取後，它即可用於所有快取原則。 如需詳細步驟，請參閱[新增快取以改善 Azure API 管理的效能](api-management-howto-cache.md)。
 
 ## <a name="next-steps"> </a>後續步驟
+
 * 如需快取原則的詳細資訊，請參閱 [API 管理原則參考文件][API Management policy reference]中的[快取原則][Caching policies]。
 * 如需使用原則運算式依索引鍵快取項目的詳細資訊，請參閱 [在 Azure API 管理中自訂快取](api-management-sample-cache-by-key.md)。
 

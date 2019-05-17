@@ -10,14 +10,20 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024730"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522843"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>如何使用 Azure 搜尋服務索引子的 Cosmos DB 編製索引
+
+
+> [!Note]
+> MongoDB API 支援是處於預覽階段，應用程式不是用於生產環境而定。 [REST API 版本 2019年-05-06-Preview](search-api-preview.md)提供這項功能。 沒有任何入口網站或.NET SDK 支援此功能。
+>
+> SQL API 已正式推出。
 
 本文說明如何設定 Azure Cosmos DB [indexer](search-indexer-overview.md)擷取內容，並使其可在 Azure 搜尋服務。 此工作流程建立 Azure 搜尋服務索引，並將其載入與擷取自 Azure Cosmos DB 的現有文字。 
 
@@ -26,7 +32,7 @@ ms.locfileid: "65024730"
 您可以使用[入口網站](#cosmos-indexer-portal)，REST Api 或.NET SDK Cosmos 內容索引。 Azure 搜尋服務中的 Cosmos DB 索引子可以搜耙[Azure Cosmos 項目](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items)透過這些通訊協定存取：
 
 * [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) （Azure 搜尋服務支援此 api 處於公開預覽狀態）  
+* [MongoDB API （預覽）](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
 > User Voice 有其他 API 支援的現有項目。 您可以轉型 Cosmos api 您想要查看支援 Azure 搜尋服務中的投票：[資料表 API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab)，[圖形 API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4)， [Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)。
@@ -118,7 +124,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 您可以使用 REST API 來建立 Azure Cosmos DB 的資料，Azure 搜尋服務中的所有索引子來遵循常見的三段式工作流程： 建立資料來源、 建立索引、 建立索引子。 當您建立索引子要求提交，就會發生從 Cosmos 存放區的資料擷取。 完成此要求之後，您必須可供查詢的索引。 
 
-如果您正在評估 MongoDB，您必須使用 REST API 來建立資料來源。
+如果您正在評估 MongoDB，您必須使用 REST`api-version=2019-05-06-Preview`來建立資料來源。
 
 在您的 Cosmos DB 帳戶中，您可以選擇是否要讓集合自動編製所有文件的索引。 根據預設，所有文件會自動編制索引，但您可以關閉自動編制索引。 關閉編製索引時，只能透過文件自己的連結或使用文件識別碼透過查詢來存取文件。 「Azure 搜尋服務」會要求在將由「Azure 搜尋服務」編製索引的集合中，必須開啟 Cosmos DB 自動編製索引功能。 
 
@@ -168,7 +174,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 要求的主體包含資料來源定義，其中應包含下列欄位：
 
-| 欄位   | 描述 |
+| 欄位   | 說明 |
 |---------|-------------|
 | **name** | 必要。 選擇任何名稱，以代表您的資料來源物件。 |
 |**type**| 必要。 必須是 `cosmosdb`。 |
@@ -279,7 +285,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 ## <a name="use-net"></a>使用 .NET
 
-.NET SDK 與 REST API 完全對等。 建議您檢閱先前的 REST API 章節，以了解其概念、工作流程和需求。 然後，您可以參閱下列 .NET API 參考文件，以在受控程式碼中實作 JSON 索引子。
+正式推出的.NET SDK 已正式推出的 REST api 的完全相同。 建議您檢閱先前的 REST API 章節，以了解其概念、工作流程和需求。 然後，您可以參閱下列 .NET API 參考文件，以在受控程式碼中實作 JSON 索引子。
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -354,12 +360,6 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
             "softDeleteMarkerValue": "true"
         }
     }
-
-## <a name="watch-this-video"></a>觀看這部影片
-
-在此舊一點的 7 分鐘影片中，Azure Cosmos DB 程式管理員 Andrew Liu 會示範如何新增到 Azure Cosmos DB 容器的 Azure 搜尋服務索引。 影片中所示的入口網站頁面都已過時、 但仍有相關資訊。
-
->[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 ## <a name="NextSteps"></a>接續步驟
 

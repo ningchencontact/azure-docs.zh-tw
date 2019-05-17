@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686298"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522324"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL 数据库中托管实例的连接体系结构
 
@@ -86,7 +86,7 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 此终结
 
 在虚拟网络中的专用子网内部署托管实例。 该子网必须具有以下特征：
 
-- **专用子网：** 托管实例的子网不能包含其他任何关联的云服务，且不能是网关子网。 该子网不能包含除该托管实例以外的其他任何资源，以后无法在该子网中添加资源。
+- **专用子网：** 托管实例的子网不能包含其他任何关联的云服务，且不能是网关子网。 子網路不能包含任何資源，但在受管理的執行個體，您稍後無法在子網路中新增其他類型的資源。
 - **網路安全性群組 (NSG)：** 与虚拟网络关联的 NSG 必须在其他任何规则的前面定义[入站安全规则](#mandatory-inbound-security-rules)和[出站安全规则](#mandatory-outbound-security-rules)。 您可以使用 NSG 來篩選流量的連接埠 1433年上控制受管理的執行個體資料端點的存取權和連接埠 11000-11999 當受管理的執行個體設定為連線重新導向。
 - **用户定义的路由 (UDR) 表：** 与虚拟网络关联的 UDR 表必须包含特定的[条目](#user-defined-routes)。
 - **没有服务终结点：** 不应将任何服务终结点与托管实例的子网相关联。 创建虚拟网络时，请务必禁用“服务终结点”选项。
@@ -97,7 +97,7 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 此终结
 
 ### <a name="mandatory-inbound-security-rules"></a>必要輸入安全性規則
 
-| 名稱       |Port                        |Protocol|來源           |目的地| 動作|
+| 名稱       |Port                        |Protocol|`Source`           |目的地| 動作|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |管理  |9000、9003、1438、1440、1452|TCP     |任意              |MI SUBNET  |允許 |
 |mi_subnet   |任意                         |任意     |MI SUBNET        |MI SUBNET  |允許 |
@@ -105,7 +105,7 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 此终结
 
 ### <a name="mandatory-outbound-security-rules"></a>必要輸出安全性規則
 
-| 名稱       |Port          |Protocol|來源           |目的地| 動作|
+| 名稱       |Port          |Protocol|`Source`           |目的地| 動作|
 |------------|--------------|--------|-----------------|-----------|------|
 |管理  |80、443、12000|TCP     |MI SUBNET        |AzureCloud |允許 |
 |mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允許 |
@@ -125,105 +125,105 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 此终结
 |名稱|位址首碼|下一跃点|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|虛擬網路|
-|mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
-|mi-13-96-13-nexthop-internet|13.96.0.0/13|Internet|
-|mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
-|mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
-|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
-|mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
-|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
-|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
-|mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
-|mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
-|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
-|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
-|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
-|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
-|mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
-|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
-|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
-|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
-|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
-|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
-|mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
-|mi-104-146-15-nexthop-internet|104.146.0.0/15|Internet|
-|mi-104-208-13-nexthop-internet|104.208.0.0/13|Internet|
-|mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
-|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
-|mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
-|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
-|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
-|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
-|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
-|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
-|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
-|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
-|mi-138-196-16-nexthop-internet|138.196.0.0/16|Internet|
-|mi-139-217-16-nexthop-internet|139.217.0.0/16|Internet|
-|mi-139-219-16-nexthop-internet|139.219.0.0/16|Internet|
-|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
-|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
-|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
-|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
-|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
-|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
-|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
-|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
-|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
-|mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
-|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
-|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
-|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
-|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
-|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
-|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
-|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
-|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
-|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
-|mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
-|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
-|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
-|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
-|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
-|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
-|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
-|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
-|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
-|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
-|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|Internet|
-|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
-|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
-|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
-|mi-204-13-120-21-nexthop-internet|204.13.120.0/21|Internet|
-|mi-204-14-180-22-nexthop-internet|204.14.180.0/22|Internet|
-|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|Internet|
-|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|Internet|
-|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|Internet|
-|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|Internet|
-|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|Internet|
-|mi-204-79-196-23-nexthop-internet|204.79.196.0/23|Internet|
-|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|Internet|
-|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|Internet|
-|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
-|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|Internet|
-|mi-204-231-194-23-nexthop-internet|204.231.194.0/23|Internet|
-|mi-204-231-197-24-nexthop-internet|204.231.197.0/24|Internet|
-|mi-204-231-198-23-nexthop-internet|204.231.198.0/23|Internet|
-|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
-|mi-204-231-208-20-nexthop-internet|204.231.208.0/20|Internet|
-|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|Internet|
-|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
-|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
-|mi-206-191-224-19-nexthop-internet|206.191.224.0/19|Internet|
-|mi-207-46-16-nexthop-internet|207.46.0.0/16|Internet|
-|mi-207-68-128-18-nexthop-internet|207.68.128.0/18|Internet|
-|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
-|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
-|mi-208-84-21-nexthop-internet|208.84.0.0/21|Internet|
-|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
-|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
-|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
-|mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
+|mi-13-64-11-nexthop-internet|13.64.0.0/11|網際網路|
+|mi-13-96-13-nexthop-internet|13.96.0.0/13|網際網路|
+|mi-13-104-14-nexthop-internet|13.104.0.0/14|網際網路|
+|mi-20-8-nexthop-internet|20.0.0.0/8|網際網路|
+|mi-23-96-13-nexthop-internet|23.96.0.0/13|網際網路|
+|mi-40-64-10-nexthop-internet|40.64.0.0/10|網際網路|
+|mi-42-159-16-nexthop-internet|42.159.0.0/16|網際網路|
+|mi-51-8-nexthop-internet|51.0.0.0/8|網際網路|
+|mi-52-8-nexthop-internet|52.0.0.0/8|網際網路|
+|mi-64-4-18-nexthop-internet|64.4.0.0/18|網際網路|
+|mi-65-52-14-nexthop-internet|65.52.0.0/14|網際網路|
+|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|網際網路|
+|mi-70-37-17-nexthop-internet|70.37.0.0/17|網際網路|
+|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|網際網路|
+|mi-91-190-216-21-nexthop-internet|91.190.216.0/21|網際網路|
+|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|網際網路|
+|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|網際網路|
+|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|網際網路|
+|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|網際網路|
+|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|網際網路|
+|mi-104-40-13-nexthop-internet|104.40.0.0/13|網際網路|
+|mi-104-146-15-nexthop-internet|104.146.0.0/15|網際網路|
+|mi-104-208-13-nexthop-internet|104.208.0.0/13|網際網路|
+|mi-111-221-16-20-nexthop-internet|111.221.16.0/20|網際網路|
+|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|網際網路|
+|mi-129-75-16-nexthop-internet|129.75.0.0/16|網際網路|
+|mi-131-253-16-nexthop-internet|131.253.0.0/16|網際網路|
+|mi-132-245-16-nexthop-internet|132.245.0.0/16|網際網路|
+|mi-134-170-16-nexthop-internet|134.170.0.0/16|網際網路|
+|mi-134-177-16-nexthop-internet|134.177.0.0/16|網際網路|
+|mi-137-116-15-nexthop-internet|137.116.0.0/15|網際網路|
+|mi-137-135-16-nexthop-internet|137.135.0.0/16|網際網路|
+|mi-138-91-16-nexthop-internet|138.91.0.0/16|網際網路|
+|mi-138-196-16-nexthop-internet|138.196.0.0/16|網際網路|
+|mi-139-217-16-nexthop-internet|139.217.0.0/16|網際網路|
+|mi-139-219-16-nexthop-internet|139.219.0.0/16|網際網路|
+|mi-141-251-16-nexthop-internet|141.251.0.0/16|網際網路|
+|mi-146-147-16-nexthop-internet|146.147.0.0/16|網際網路|
+|mi-147-243-16-nexthop-internet|147.243.0.0/16|網際網路|
+|mi-150-171-16-nexthop-internet|150.171.0.0/16|網際網路|
+|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|網際網路|
+|mi-157-54-15-nexthop-internet|157.54.0.0/15|網際網路|
+|mi-157-56-14-nexthop-internet|157.56.0.0/14|網際網路|
+|mi-157-60-16-nexthop-internet|157.60.0.0/16|網際網路|
+|mi-167-220-16-nexthop-internet|167.220.0.0/16|網際網路|
+|mi-168-61-16-nexthop-internet|168.61.0.0/16|網際網路|
+|mi-168-62-15-nexthop-internet|168.62.0.0/15|網際網路|
+|mi-191-232-13-nexthop-internet|191.232.0.0/13|網際網路|
+|mi-192-32-16-nexthop-internet|192.32.0.0/16|網際網路|
+|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|網際網路|
+|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|網際網路|
+|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|網際網路|
+|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|網際網路|
+|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|網際網路|
+|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|網際網路|
+|mi-193-149-64-19-nexthop-internet|193.149.64.0/19|網際網路|
+|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|網際網路|
+|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|網際網路|
+|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|網際網路|
+|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|網際網路|
+|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|網際網路|
+|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|網際網路|
+|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|網際網路|
+|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|網際網路|
+|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|網際網路|
+|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|網際網路|
+|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|網際網路|
+|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|網際網路|
+|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|網際網路|
+|mi-204-13-120-21-nexthop-internet|204.13.120.0/21|網際網路|
+|mi-204-14-180-22-nexthop-internet|204.14.180.0/22|網際網路|
+|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|網際網路|
+|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|網際網路|
+|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|網際網路|
+|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|網際網路|
+|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|網際網路|
+|mi-204-79-196-23-nexthop-internet|204.79.196.0/23|網際網路|
+|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|網際網路|
+|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|網際網路|
+|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|網際網路|
+|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|網際網路|
+|mi-204-231-194-23-nexthop-internet|204.231.194.0/23|網際網路|
+|mi-204-231-197-24-nexthop-internet|204.231.197.0/24|網際網路|
+|mi-204-231-198-23-nexthop-internet|204.231.198.0/23|網際網路|
+|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|網際網路|
+|mi-204-231-208-20-nexthop-internet|204.231.208.0/20|網際網路|
+|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|網際網路|
+|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|網際網路|
+|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|網際網路|
+|mi-206-191-224-19-nexthop-internet|206.191.224.0/19|網際網路|
+|mi-207-46-16-nexthop-internet|207.46.0.0/16|網際網路|
+|mi-207-68-128-18-nexthop-internet|207.68.128.0/18|網際網路|
+|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|網際網路|
+|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|網際網路|
+|mi-208-84-21-nexthop-internet|208.84.0.0/21|網際網路|
+|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|網際網路|
+|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|網際網路|
+|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|網際網路|
+|mi-216-220-208-20-nexthop-internet|216.220.208.0/20|網際網路|
 ||||
 
 此外，还可以将条目添加到路由表，以通过虚拟网络网关或虚拟网络设备 (NVA) 路由发往本地专用 IP 范围的流量。

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba0a9bc0886b9487b0c61b6091bd122fe6e370d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 04dde608f5885cdafe18b49a388de8dbb596cbfe
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191548"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539365"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -229,7 +229,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 201 已建立*
 ```json
 {
@@ -262,7 +262,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ###### <a name="request"></a>要求
 *GET /Users/5d48a0a8e9f04aa38008* 
 
-###### <a name="response"></a>Response
+###### <a name="response"></a>回應
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -293,7 +293,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -332,7 +332,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *GET/使用者？ filter = 使用者名稱 eq"不存在的使用者 」*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -367,7 +367,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -409,7 +409,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -442,7 +442,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *DELETE /Users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 204 沒有內容*
 
 ### <a name="group-operations"></a>群組作業
@@ -460,7 +460,6 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
     "externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
-    "id": "c4d56c3c-bf3b-4e96-9b64-837018d6060e",
     "displayName": "displayName",
     "members": [],
     "meta": {
@@ -469,7 +468,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 201 已建立*
 ```json
 {
@@ -492,7 +491,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *GET/群組/40734ae655284ad3abcc？ excludedAttributes = HTTP/1.1*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -513,7 +512,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *取得 /Groups？ excludedAttributes = 成員 filter = displayName eq"displayName"HTTP/1.1*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -550,7 +549,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 204 沒有內容*
 
 ### <a name="update-group-add-members"></a>更新群組 [新增成員]
@@ -571,7 +570,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 204 沒有內容*
 
 #### <a name="update-group-remove-members"></a>更新群組 [移除成員]
@@ -592,7 +591,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 204 沒有內容*
 
 #### <a name="delete-group"></a>刪除群組
@@ -600,7 +599,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>回應
 *HTTP/1.1 204 沒有內容*
 
 
@@ -624,7 +623,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 * 支援將 ASP.NET Framework 4.5 用作 SCIM 端點的 Windows 電腦。 這部電腦必須能夠從雲端中使用。
 * [具有 Azure AD Premium 試用版或授權版的 Azure 訂用帳戶](https://azure.microsoft.com/services/active-directory/)
 
-### <a name="getting-started"></a>開始使用
+### <a name="getting-started"></a>使用者入門
 實作可以接受來自 Azure AD 的佈建要求的 SCIM 端點的最簡單的方式是建置和部署會將佈建的使用者輸出至以逗號分隔值 (CSV) 檔案的程式碼範例。
 
 #### <a name="to-create-a-sample-scim-endpoint"></a>建立範例 SCIM 端點
@@ -1254,7 +1253,7 @@ Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  
 | displayName |externalId |
 | mail |emails[type eq "work"].value |
 | mailNickname |displayName |
-| members |members |
+| 成員 |members |
 | objectId |ID |
 | proxyAddresses |emails[type eq "other"].Value |
 

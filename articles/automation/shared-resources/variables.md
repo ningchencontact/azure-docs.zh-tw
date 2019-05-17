@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc26c0357dcb071c4c75e8684fe47144a04177e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880235"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786197"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自動化中的變數資產
 
@@ -42,7 +42,7 @@ ms.locfileid: "60880235"
 以下是可在自動化中使用的變數類型清單：
 
 * 字串
-* 整數 
+* Integer
 * DateTime
 * Boolean
 * Null
@@ -51,7 +51,7 @@ ms.locfileid: "60880235"
 
 針對 AzureRM，下表中的 Cmdlet 可透過 Windows PowerShell 來建立和管理自動化認證資產。 可在自动化 Runbook 和 DSC 配置中使用的 [AzureRM.Automation 模块](/powershell/azure/overview)已随附了这些 cmdlet。
 
-| Cmdlet | 描述 |
+| Cmdlet | 說明 |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable)|擷取現有變數的值。|
 |[New-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable)|建立新的變數並設定其值。|
@@ -62,7 +62,7 @@ ms.locfileid: "60880235"
 
 下表中的活動用來存取中 Runbook 和 DSC 設定的認證。
 
-| 活動 | 描述 |
+| 活動 | 說明 |
 |:---|:---|
 |Get-AutomationVariable|擷取現有變數的值。|
 |Set-AutomationVariable|設定現有的變數的值。|
@@ -72,7 +72,7 @@ ms.locfileid: "60880235"
 
 下表中的函式可用來存取和取出 Python2 Runbook 中的變數。
 
-|Python2 函式|描述|
+|Python2 函式|說明|
 |:---|:---|
 |automationassets.get_automation_variable|擷取現有變數的值。 |
 |automationassets.set_automation_variable|設定現有的變數的值。 |
@@ -135,45 +135,6 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
     Write-Output "$i`: $SampleMessage"
 }
 Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
-```
-
-#### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>設定和擷取變數中的複雜物件
-
-下列範例程式碼顯示如何在文字式Runbook 中使用複雜值來更新變數。 在此範例中，會使用 **Get-AzureVM** 擷取 Azure 虛擬機器並儲存至現有的自動化變數。  如 [變數型別](#variable-types)中所述，這會儲存為 PSCustomObject。
-
-```powershell
-$vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
-Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
-```
-
-在下列程式碼中，值是從變數擷取，且用來啟動虛擬機器。
-
-```powershell
-$vmObject = Get-AutomationVariable -Name "MyComplexVariable"
-if ($vmObject.PowerState -eq 'Stopped') {
-    Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
-}
-```
-
-#### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>設定和擷取變數中的集合
-
-下列範例程式碼顯示如何在文字式Runbook 中使用變數搭配複雜值的集合。 在此範例中，會使用 **Get-AzureVM** 擷取多部 Azure 虛擬機器並儲存至現有的自動化變數。 如 [變數型別](#variable-types)中所述，這會儲存為 PSCustomObject 的集合。
-
-```powershell
-$vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}
-Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
-```
-
-在下列程式碼中，集合是從變數擷取，且用來啟動每部虛擬機器。
-
-```powershell
-$vmValues = Get-AutomationVariable -Name "MyComplexVariable"
-ForEach ($vmValue in $vmValues)
-{
-    if ($vmValue.PowerState -eq 'Stopped') {
-        Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
-    }
-}
 ```
 
 #### <a name="setting-and-retrieving-a-variable-in-python2"></a>設定和取出 Python2 中的變數

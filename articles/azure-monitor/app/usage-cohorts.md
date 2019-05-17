@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785039"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604114"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 世代
 
@@ -123,13 +123,13 @@ ms.locfileid: "60785039"
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. 選取 [執行查詢]。 如果您沒有看到使用者識別碼出現在資料表中，請變更為其中應用程式有使用者的國家/地區。
+3. 選取 [執行查詢]。 如果您沒有看到使用者識別碼出現在資料表中，變更為您的應用程式有使用者的所在國家/地區。
 
 4. 儲存世代並為其命名。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
-_我已從特定國家/地區定義使用者世代。當我將「使用者」工具中的此世代，與直接設定該國家/地區的篩選條件進行比較時，我看到不同的結果。原因為何？_
+_我定義從特定國家/地區的使用者世代。當我比較此世代中 使用者 工具，以只設定該國家/地區中的 篩選器時，我會看到不同的結果。為什麼？_
 
 世代與篩選並不相同。 假設您有來自英國的使用者世代 (如前面範例所定義)，並將其結果與設定「國家或地區 = 英國」篩選條件相比較。
 

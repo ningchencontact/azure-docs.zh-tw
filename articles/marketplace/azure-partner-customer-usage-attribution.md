@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: cfe9b469cfac848c9e57f1fc10193208722be109
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935712"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800984"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -247,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>報告
 
-您可以在合作夥伴中心分析儀表板中的客戶使用方式屬性找到報表。 ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+您可以在合作夥伴中心分析儀表板中的客戶使用方式屬性找到報表。 ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 若要查看報表，您必須使用合作夥伴中心認證來登入。 如果您遇到任何問題的報表，或登入，建立支援要求，遵循 [取得支援] 區段中的指示。
 
 追蹤範本的清單中選擇下拉式清單中的夥伴關聯型別，以查看報表。
 
@@ -267,6 +267,10 @@ foreach ($deployment in $deployments){
 
 ## <a name="get-support"></a>取得支援
 
+如果您遇到任何問題的報表或登入合作夥伴中心，請使用合作夥伴中心支援小組建立支援要求： [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+
 如果您是 Marketplace 上架及/或客戶使用方式屬性需要協助，請遵循下列步驟。
 
 1. 移至[支援連結](https://go.microsoft.com/fwlink/?linkid=844975)。
@@ -282,7 +286,7 @@ foreach ($deployment in $deployments){
 
 1. 選取 [提出要求]。
 
-1. 在下一頁，輸入必要值。 選取 [繼續]。
+1. 在下一頁，輸入必要值。 選取 **繼續**。
 
 1. 在下一頁，輸入必要值。
 

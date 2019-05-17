@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618016"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538372"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>在 Azure 中可使用哪些磁碟類型？
 
@@ -29,7 +29,7 @@ Azure 受控的磁碟目前提供四種磁碟類型，其中三個已正式運�
 |案例   |IO 密集的工作負載 (例如 SAP HANA)、最上層資料庫 (例如 SQL、Oracle)，以及其他高交易量的工作負載。   |生產環境和重視效能的工作負載   |網頁伺服器，輕量使用的企業應用程式和開發/測試   |備份、不重要、存取不頻繁   |
 |磁碟大小   |65,536 GiB (預覽)   |32,767 GiB    |32,767 GiB   |32,767 GiB   |
 |最大輸送量   |2,000 MiB/秒 (預覽)   |900 MiB/秒   |750 MiB/秒   |500 MiB/秒   |
-|最大 IOPS   |160,000 (預覽)   |20,000   |6,000   |2,000   |
+|IOPS 上限   |160,000 (預覽)   |20,000   |6,000   |2,000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra SSD (預覽)
 
@@ -44,6 +44,7 @@ Ultra SSD 的主要功能包括：
 - 磁碟容量：Ultra SSD 容量的範圍介於 4 GiB 到 64 TiB。
 - 磁碟 IOPS：Ultra SSD 支援 300 IOPS/GiB 的 IOPS 限制，最多可達每個磁碟 160 K 的 IOPS。 若要達到您所佈建的 IOPS，請確定選取的磁碟 IOPS 小於 VM IOPS。 最小的磁碟 IOPS 為 100 IOPS。
 - 磁碟輸送量：使用 Ultra SSD 時，對於每個佈建的 IOPS，單一磁碟的輸送量上限為 256 KiB/秒，最多可達每個磁碟 2000 MBps (其中，MBps = 10 ^6 位元組/秒)。 最小的磁碟輸送量為 1 MiB。
+- 強力的 Ssd 支援調整磁碟效能屬性 （IOPS 和輸送量） 在執行階段不卸離磁碟與虛擬機器。 向磁碟發出磁碟效能調整作業後，最多可能需要一個小時，變更才會實際生效。
 
 ### <a name="disk-size"></a>磁碟大小
 
@@ -58,6 +59,10 @@ Ultra SSD 的主要功能包括：
 |256     |76,800         |2,000         |
 |512     |80,000         |2,000         |
 |1,024-65,536 (此範圍中的大小會以 1 TiB 為單位遞增)     |160,000         |2,000         |
+
+### <a name="transactions"></a>交易
+
+強力的 Ssd，每個 I/O 作業小於或等於 256 KiB 的輸送量會被視為單一 I/O 作業。 大於 256 KiB 的輸送量的 I/O 作業會被視為多個 I/o 大小 256 KiB。
 
 ### <a name="preview-scope-and-limitations"></a>預覽版的範圍和限制
 

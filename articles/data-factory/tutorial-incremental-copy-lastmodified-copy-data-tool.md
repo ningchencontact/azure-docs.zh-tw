@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 8308190e0e68365343fb50ca33f9bea75c3e4e66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61098466"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519138"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>以累加方式複製新的和變更的檔案，使用複製資料工具，根據 LastModifiedDate
 
 在本教學課程中，您將使用 Azure 入口網站來建立資料處理站。 然後，您將會使用複製資料工具建立管線，以累加方式複製新的和變更檔案時，可以根據他們**LastModifiedDate**從 Azure Blob 儲存體的 Azure Blob 儲存體。
+
+如此一來，ADF 會掃描來源存放區的所有檔案、 套用檔案篩選器，由其 LastModifiedDate，並將只有自上次的新增和更新的檔案複製到目的地存放區。  請注意，是否您讓 ADF 掃描了大量的檔案，但只將少數檔案複製到目的地，您仍希望也很花時間很長的持續時間，因為檔案掃描。   
 
 > [!NOTE]
 > 如果您不熟悉 Azure Data Factory，請參閱 [Azure Data Factory 簡介](introduction.md)。

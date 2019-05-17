@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26f6502f63b39d3f1ecf8dfeb09c8df4daa63b68
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025518"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786121"
 ---
 # <a name="call-a-function-from-powerapps"></a>從 PowerApps 呼叫函式
 [PowerApps](https://powerapps.microsoft.com) 平台的設計是為了讓商務專家不需要傳統應用程式程式碼，就能建置應用程式。 專業開發人員可以使用 Azure Functions 來擴充 PowerApps 的功能，同時透過技術詳細資料來防護 PowerApps 應用程式建立器。
@@ -39,8 +39,7 @@ ms.locfileid: "61025518"
 > * 新增控制項以呼叫函式並顯示資料。
 > * 執行應用程式以判斷修復是否符合成本效益。
 
-> [!IMPORTANT]
-> OpenAPI 功能目前處於預覽狀態，並且僅適用於 1.x 版的 Azure Functions 執行階段。
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -101,7 +100,7 @@ ms.locfileid: "61025518"
 
     1. 在 [資料] 面板中，按一下 [對應用程式新增靜態資料]。
 
-        ![新增資料來源](media/functions-powerapps-scenario/add-static-data.png)
+        ![加入資料來源](media/functions-powerapps-scenario/add-static-data.png)
 
         在一般情況下，您可以從外部來源讀取和寫入資料，但由於這是範例，因此您將新增 Excel 資料作為靜態資料。
 

@@ -1,7 +1,7 @@
 ---
 title: 管線：最佳化機器學習服務工作流程
 titleSuffix: Azure Machine Learning service
-description: 在本文中，您將深入了解機器學習管線 (使用適用於 Python 的 Azure Machine Learning 來建置)，以及了解使用管線的優點。 資料科學家會使用機器學習 (ML) 管線來建置、最佳化及管理他們的機器學習工作流程。
+description: 在本文中，您將深入了解機器學習管線 (使用適用於 Python 的 Azure Machine Learning 來建置)，以及了解使用管線的優點。 資料科學家使用 Machine learning (ML) 管線來建置、管理他們的機器學習工作流程，以及將其最佳化。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 12/04/2018
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9049e22d15dacb91e86fd0ba623d69c9d17c789
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ff693ac34382ea5673989ecb6cbb38e19e176ad3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024832"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65801070"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務建置機器學習管線
 
@@ -62,9 +62,9 @@ Azure 雲端提供數個其他管線，各有不同的用途。 下表列出不�
 
 為機器學習工作流程建置管線的主要優點如下：
 
-|主要優點|描述|
+|主要優點|說明|
 |:-------:|-----------|
-|**自動&nbsp;執行**|以自動且可靠的方式排定要平行執行或依序執行的幾個步驟。 由於資料準備和模型化可持續數天或數週，因此，您現在可以在管線執行的同時專注於其他工作。 |
+|**自動&nbsp;執行**|排程一些步驟以可靠且自動地平行或依序執行。 由於資料準備和模型化可持續數天或數週，因此，您現在可以在管線執行的同時專注於其他工作。 |
 |**混合和多元計算**|您可以使用多個管線，這些管線可在異質且可調整的計算和儲存體中可靠地進行協調。 您可以在不同計算目標上執行個別的管線步驟，例如 HDInsight、GPU 資料科學 VM 及 Databricks。 這可有效地使用可用的計算選項。|
 |**再使用性**|您可以針對特定案例 (例如重新定型和批次評分) 將管線範本化。 您可以透過簡單的 REST 呼叫從外部系統觸發這些管線。|
 |**追蹤和版本控制**|使用管線 SDK 明確地為您的資料來源、輸入及輸出命名與設定版本，而不需在逐一查看時手動追蹤資料和結果路徑。 您也可以個別管理指令碼和資源，以提升產能。|

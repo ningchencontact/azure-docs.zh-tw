@@ -1,6 +1,6 @@
 ---
-title: 如何將適用於容器的 Azure 監視器上線 | Microsoft Docs
-description: 本文說明您如何將適用於容器的 Azure 監視器上線並加以設定，讓您可以了解容器的執行方式，以及已識別出哪些效能相關問題。
+title: 如何啟用適用於容器的 Azure 監視器 |Microsoft Docs
+description: 這篇文章說明如何啟用和設定適用於容器的 Azure 監視器，因此您可以了解如何執行您的容器，以及目前已確認哪些效能相關問題。
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: 10b80a9749c5698195ac5d3493ac3b07fd6e24e1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5e149fa96e0a62656804906b52adf10273321d17
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073300"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521905"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers"></a>如何將適用於容器的 Azure 監視器上線  
+# <a name="how-to-enable-azure-monitor-for-containers"></a>如何啟用適用於容器的 Azure 監視器  
 
 本文提供可用來設定適用於容器的 Azure 監視器來監視部署至 Kubernetes 環境和裝載於工作負載的效能選項的概觀[Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/)。
 
@@ -55,7 +55,7 @@ ms.locfileid: "65073300"
 
 您啟用適用於容器的 Azure 監視器使用下表所述的下列方法之一。
 
-| 部署狀態 | 方法 | 描述 | 
+| 部署狀態 | 方法 | 說明 | 
 |------------------|--------|-------------| 
 | 新的 AKS 叢集 | [使用 Azure CLI 建立叢集](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| 您可以啟用新的 AKS 叢集，您使用 Azure CLI 建立監視。 | 
 | | [使用 Terraform 建立叢集](container-insights-enable-new-cluster.md#enable-using-terraform)| 您可以啟用新的 AKS 叢集，您使用開放原始碼工具 Terraform 所建立的監視。 | 

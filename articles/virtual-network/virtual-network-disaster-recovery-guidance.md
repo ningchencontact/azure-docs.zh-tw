@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: f8068524a33c6d29056af456a26b8bd87fc3e3d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68a9523dcc9c4dd84399c68fc7e31a692c011487
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60742696"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523265"
 ---
 # <a name="virtual-network--business-continuity"></a>虛擬網路 – 商務持續性
 
 ## <a name="overview"></a>概觀
 「虛擬網路」(VNet) 是您網路在雲端的邏輯呈現方式。 它可讓您定義自己的私人 IP 位址空間，並將網路分割成子網路。 VNet 可做為信任界限來裝載您的運算資源，例如「Azure 虛擬機器」和「雲端服務」(Web/背景工作角色)。 VNet 可允許其裝載的資源之間進行直接私人 IP 通訊。 您可以透過「VPN 閘道」或 ExpressRoute 將虛擬網路連結至內部部署網路。
 
-VNet 是在區域的範圍內建立。 您可以在兩個不同的區域 (例如美國東部和美國西部) 中建立具有相同位址空間的 VNet，但無法將它們連線在一起。 
+VNet 是在區域的範圍內建立。 您可以*建立*具有相同的 Vnet 位址空間中兩個不同的區域 （例如，美國東部和美國西部），但因為它們具有相同的位址空間，您無法將它們連線在一起。 
 
 ## <a name="business-continuity"></a>商務持續性
 

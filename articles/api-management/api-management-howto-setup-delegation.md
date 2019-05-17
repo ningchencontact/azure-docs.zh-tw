@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4db99f23019b34e7361e3ead4096939b9499320d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657728"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518098"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派使用者註冊和產品訂閱
 
@@ -130,7 +130,7 @@ ms.locfileid: "60657728"
      > 
    * 比較以上計算的雜湊和 **sig** 查詢參數的值。 如果兩個雜湊相符，則繼續下一步，否則拒絕要求。
 3. 根据在 **operation** 中请求的操作类型（例如请求计费信息、提问更多问题，等等）处理产品订阅。
-4. 當使用者在您這邊成功訂閱產品時， [呼叫 REST API 來訂閱產品]，讓使用者訂閱 API 管理產品。
+4. 成功訂閱產品您這端的使用者，讓使用者透過 「 API 管理產品訂閱[呼叫 REST API 的訂用帳戶]。
 
 ## <a name="delegate-example-code"> </a> 範例程式碼
 
@@ -186,7 +186,7 @@ var signature = digest.toString('base64');
 [Delegating product subscription]: #delegate-product-subscription
 [要求單一登入 (SSO) 權杖]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [建立使用者]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[呼叫 REST API 來訂閱產品]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[呼叫 REST API 的訂用帳戶]: https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate
 [Next steps]: #next-steps
 [以下提供範例程式碼]: #delegate-example-code
 

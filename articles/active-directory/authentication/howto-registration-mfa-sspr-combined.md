@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/1/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abe9cba604100a42a4cd29ccd5af47e8898ea409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358056"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812907"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>結合的啟用安全性資訊註冊 （預覽）
 
@@ -51,6 +51,37 @@ ms.locfileid: "60358056"
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 * [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
+## <a name="conditional-access-policies-for-combined-registration"></a>合併的註冊的條件式存取原則
+
+保護時，以及如何針對 Azure Multi-factor Authentication 與自助式密碼重設的使用者註冊，就可以使用條件式存取原則中的使用者動作。 這項預覽功能可供已啟用的組織[結合註冊預覽](../authentication/concept-registration-mfa-sspr-combined.md)。 可能會在組織中，他們想讓 HR 上架期間註冊 Azure Multi-factor Authentication 和從中央位置，例如受信任的網路位置的 SSPR 的使用者啟用這項功能。 如需有關條件式存取中建立受信任的位置的詳細資訊，請參閱[什麼是 Azure Active Directory 條件式存取中的位置條件？](../conditional-access/location-condition.md#named-locations)
+
+### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>建立原則，需要註冊從受信任的位置
+
+下列原則會套用到所有選取的使用者，使用者嘗試註冊使用合併的註冊體驗，並封鎖存取權，除非它們要連接從標示為受信任的網路位置。
+
+![建立 CA 原則來控制安全性資訊註冊](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+
+1. 在  **Azure 入口網站**，瀏覽至**Azure Active Directory** > **條件式存取**
+1. 選取 [新增原則]
+1. 在 [名稱] 中，輸入此原則的名稱。 比方說，**結合安全性資訊註冊受信任網路上**
+1. 底下**指派**，按一下**使用者和群組**，並選取 使用者和您想要套用此原則的群組
+
+   > [!WARNING]
+   > 使用者必須能夠進行[結合註冊預覽](../authentication/howto-registration-mfa-sspr-combined.md)。
+
+1. 底下**雲端應用程式或動作**，選取**使用者動作**，檢查**註冊安全性資訊 （預覽）**
+1. 底下**條件** > **位置**
+   1. 設定 **[是]**
+   1. 包含**的任何位置**
+   1. 排除**所有信任的位置**
+   1. 按一下 **完成**上 位置 刀鋒視窗
+   1. 按一下 **完成**條件 刀鋒視窗上
+1. 底下**存取控制** > **授與**
+   1. 按一下 **封鎖存取**
+   1. 然後按一下 **選取**
+1. 設定**啟用原則**到**上**
+1. 然後按一下 **建立**
+
 ## <a name="next-steps"></a>後續步驟
 
 [可用的方法進行多重要素驗證和 SSPR](concept-authentication-methods.md)
@@ -60,3 +91,5 @@ ms.locfileid: "60358056"
 [設定 Azure Multi-factor Authentication](howto-mfa-getstarted.md)
 
 [疑難排解合併安全性資訊註冊](howto-registration-mfa-sspr-combined-troubleshoot.md)
+
+[什麼是 Azure Active Directory 條件式存取中的位置條件？](../conditional-access/location-condition.md)

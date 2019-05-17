@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371380"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604031"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>了解您的 Microsoft 客戶合約發票上的字詞
 
@@ -41,12 +41,12 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 
 ![發票摘要區段](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
-| 詞彙 | 描述 |
+| 詞彙 | 說明 |
 | --- | --- |
 | 買方 |您的法律實體，計費帳戶內容中找到的位址|
 | 帳單收件者 |帳單計費接收發票，計費的設定檔屬性中找到的設定檔的地址|
-| 帳單設定檔 |接收的發票計費的設定檔的名稱 |
-| P.O. number |您選擇性指派以進行追蹤的訂購單號碼 |
+| 計費設定檔 |接收的發票計費的設定檔的名稱 |
+| P.O. 號 |您選擇性指派以進行追蹤的訂購單號碼 |
 | 發票編號 |用於追蹤 Microsoft 所產生的唯一發票編號 |
 | 發票日期 |會產生發票，通常在計費週期結束後的 5 到 12 天的日期。 您可以檢查您發票的日期在計費的設定檔屬性。|
 | 付款條件 |您如何需支付您 Microsoft 帳單。 *Net 30 天*表示日期的 30 天內用多少付多少。 |
@@ -57,13 +57,13 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 
 ![帳單摘要區段](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
-| 詞彙 | 描述 |
+| 詞彙 | 說明 |
 | --- | --- |
-| Charges|此計費的設定檔，自上次計費期間，Microsoft 會收費的總數 |
-| 學分 |您已收到傳回的信用額度 |
+| 收費|此計費的設定檔，自上次計費期間，Microsoft 會收費的總數 |
+| 參與名單 |您已收到傳回的信用額度 |
 | 套用 azure 信用額度 | 會自動套用至 Azure 的費用每個計費週期的 azure 信用額度 |
 | 小計 |稅前金額 |
-| 稅金 |類型和您用多少付多少，根據您的帳單設定檔的國家/地區的稅務數量。 如果您沒有要支付稅金，您就不會看到您發票上的稅金。 |
+| 稅金 |類型和您用多少付多少，根據您的帳單設定檔之國家/地區的稅務數量。 如果您沒有要支付稅金，您就不會看到您發票上的稅金。 |
 | 預估的總節省 |預估的總金額，您儲存從有效的折扣。 如果適用的話，有效的折扣率依照採購單明細項目，在詳細資料下方發票一節。 |
 
 ### <a name="invoice-sections"></a>發票區段
@@ -82,7 +82,7 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 
 ![發票區段的詳細資料](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
-| 詞彙 |描述 |
+| 詞彙 |說明 |
 | --- | --- |
 | 單價 | 有效的單位價格 （在定價貨幣） 服務的使用頻率的使用方式。 這是唯一的產品、 服務系列、 計量、 和供應項目。 |
 | Qty | 購買或計費期間取用的數量 |

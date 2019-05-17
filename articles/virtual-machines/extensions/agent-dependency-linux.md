@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 16491ccc8a9cdc24b82c4c4e27705fa30da61088
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 750393e6dba17ab8ba024f9f1fbb2f9127dd81ab
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800225"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521691"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>適用於 Linux 的 azure 監視相依性的虛擬機器擴充功能
 
@@ -30,7 +30,7 @@ ms.locfileid: "60800225"
 
 ### <a name="operating-system"></a>作業系統
 
-適用於 Linux 的 Azure VM 的相依性代理程式擴充功能可以執行支援的作業系統中所列[Supported operating systems](../../azure-monitor/insights/vminsights-onboard.md#supported-operating-systems) Azure 監視的 Vm 部署文件的區段。
+適用於 Linux 的 Azure VM 的相依性代理程式擴充功能可以執行支援的作業系統中所列[Supported operating systems](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) Azure 監視的 Vm 部署文件的區段。
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
@@ -78,7 +78,7 @@ ms.locfileid: "60800225"
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
-| type | DependencyAgentLinux |
+| 類型 | DependencyAgentLinux |
 | typeHandlerVersion | 9.5 |
 
 ## <a name="template-deployment"></a>範本部署

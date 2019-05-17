@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95a5e1ed89b6330a0b6a49cb20d8bf0ef3587d48
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074736"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784946"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Web 應用程式呼叫 web Api-程式碼組態
 
@@ -34,7 +34,7 @@ ms.locfileid: "65074736"
 
 支援的 Web 應用程式的授權碼流程的程式庫是：
 
-| MSAL 程式庫 | 描述 |
+| MSAL 程式庫 | 說明 |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 是.NET Framework 和.NET Core 的平台，支援的平台 （不 UWP、 Xamarin.iOS 和為這些平台 Xamarin.Android 來建置公用用戶端應用程式） |
 | ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 進度-公開預覽中的程式開發 |
@@ -184,12 +184,12 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 ### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>MSAL.NET 權杖快取 （核心） 的 ASP.NET Web 應用程式
 
-在 web 應用程式 （或 web Api 的事實） 的權杖快取實作是不同於傳統型應用程式權杖快取實作 (通常[檔案型](scenario-desktop-acquire-token.md#file-based-token-cache)。 它可以使用 ASP.NET/ASP.NET 核心工作階段中，或是 Redis 快取，或資料庫或甚至是 Azure Blob 儲存體。 在程式碼中這個上面的程式碼片段是物件`EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);`方法呼叫，後者則繫結的快取服務。 這裡已超出本指南的範圍案例，但下面提供的連結，就會發生什麼的詳細資料。
+在 web 應用程式 （或 web Api 的事實） 的權杖快取實作是不同於傳統型應用程式權杖快取實作 (通常[檔案型](scenario-desktop-acquire-token.md#file-based-token-cache)。 它可以使用 ASP.NET/ASP.NET 核心工作階段中，或 Redis 快取，或資料庫或甚至是 Azure Blob 儲存體。 在程式碼中這個上面的程式碼片段是物件`EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);`方法呼叫，後者則繫結的快取服務。 這裡已超出本指南的範圍案例，但下面提供的連結，就會發生什麼的詳細資料。
 
 > [!IMPORTANT]
-> 非常重要的是，web 應用程式和 web Api，應該會有每位使用者 （每個帳戶） 的一個權杖快取。 您需要序列化權杖快取中的每個帳戶。
+> 非常重要的是，web 應用程式和 web Api，應該會有每位使用者 （每個帳戶） 的一個權杖快取。 您需要將每個帳戶的權杖快取序列化。
 
-如何使用權杖快取的 Web 應用程式和 web Api 的範例可用於[ASP.NET Core Web 應用程式教學課程](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)在階段[2-2 權杖快取](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)。 實作有下列資料夾看[TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders)中[microsoft 驗證-擴充功能-針對-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet)程式庫 (在[Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web)資料夾。
+如何使用權杖快取的 Web 應用程式和 web Api 的範例可用於[ASP.NET Core Web 應用程式教學課程](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)在階段[2-2 權杖快取](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)。 如需實作，請查看 [microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) 程式庫中的下列資料夾 [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) (在 [Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 資料夾中)。
 
 ## <a name="next-steps"></a>後續步驟
 

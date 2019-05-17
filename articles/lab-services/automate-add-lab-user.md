@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 0eed874d405fcf99241a702292f8ceadae6c5a07
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502038"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522952"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>自動加入 Azure DevTest Labs 中實驗室的實驗室使用者
 Azure DevTest Labs 可讓您快速地建立使用 Azure 入口網站的 自助服務的開發 / 測試環境。 不過，如果您有數個小組和數個 DevTest Labs 執行個體，自動在建立程序可以節省時間。 [Azure Resource Manager 範本](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)可讓您建立實驗室、 實驗室 Vm、 自訂映像、 公式，並以自動化方式新增使用者。 本文特別著重於將使用者新增至 DevTest Labs 執行個體。
@@ -85,7 +85,7 @@ Azure DevTest Labs 可讓您快速地建立使用 Azure 入口網站的 自助�
 
 ```
 
-如果您要指派相同的範本建立實驗室中的角色，請記得將角色指派資源和實驗室之間的相依性。 如需詳細資訊，請參閱 < [Azure Resource Manager 範本中定義相依性](/azure-resource-manager/resource-group-define-dependencies.md)文章。
+如果您要指派相同的範本建立實驗室中的角色，請記得將角色指派資源和實驗室之間的相依性。 如需詳細資訊，請參閱 < [Azure Resource Manager 範本中定義相依性](../azure-resource-manager/resource-group-define-dependencies.md)文章。
 
 ### <a name="role-assignment-resource-information"></a>角色指派資源資訊
 角色指派資源，就必須指定的型別和名稱。

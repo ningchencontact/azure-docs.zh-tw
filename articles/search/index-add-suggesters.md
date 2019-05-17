@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021883"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521892"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>將建議工具新增至 Azure 搜尋服務中的自動提示的索引
 
@@ -101,7 +101,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 定義建議工具的屬性包含如下：
 
-|屬性      |描述      |
+|屬性      |說明      |
 |--------------|-----------------|
 |`name`        |建議工具名稱。 呼叫時，使用的建議工具名稱[建議 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)或是[自動完成 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)。|
 |`searchMode`  |用來搜尋候選片語的策略。 目前唯一支援的模式是 `analyzingInfixMatching`，其可在句子開頭或中間執行彈性的片語比對。|
@@ -119,7 +119,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 建議工具會參考針對要求的作業。 例如，在 GET REST 呼叫中指定`suggest`或`autocomplete`文件集合。 其餘部分，會建立建議工具之後，請使用[建議 API](https://docs.microsoft.com/rest/api/searchservice/suggestions)或[自動完成 API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)在您的查詢邏輯。
 
-適用於.NET，使用[SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview)或是[AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet)。
+適用於.NET，使用[SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)或是[AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)。
 
 如需示範這兩個要求的範例，請參閱 <<c0> [ 新增 Azure 搜尋服務中的 自動完成和建議的範例](search-autocomplete-tutorial.md)。
 

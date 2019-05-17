@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 9b779021eca11638e8ee52ec11d082e5b0e89cd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506690"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786467"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes 服務的支援原則
 
@@ -146,7 +146,7 @@ AKS 支援穩定功能只在上游 Kubernetes 專案內。 除非另有說明，
 
 這些功能處於預覽狀態並不打算實際執行和在營業時間內只支援由 AKS 技術支援小組，現供公開預覽的功能將會位於 '盡力' 支援。 如需詳細資訊請參閱：
 
-* [Azure 支援常見問題集](https://azure.microsoft.com/en-us/support/faq/)
+* [Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > 在 Azure 預覽功能才會生效*訂用帳戶*層級。 請勿在生產訂用帳戶上安裝預覽功能。 生產訂用帳戶，預覽功能可以變更預設 API 行為，並會影響正常的作業。

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545326"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518896"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>藉由使用指令碼動作來自訂 Azure HDInsight 叢集
 
@@ -45,23 +45,21 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 指令碼動作是在 HDInsight 叢集中節點上執行的 Bash 指令碼。 指令碼動作的特性和功能如下：
 
 * 必須儲存在可從 HDInsight 叢集存取的 URI 上。 以下是可能的儲存位置：
+    
+    * 一般叢集：
+    
+      * ADLS Gen1:HDInsight 用來存取 Data Lake Storage 的服務主體必須具有指令碼的讀取存取權。 Data Lake Storage Gen1 中所儲存指令碼的 URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
+      
+      * 本身是 HDInsight 叢集主要或額外儲存體帳戶之「Azure 儲存體」帳戶中的 Blob。 在建立叢集期間，已將這兩種儲存體帳戶的存取權都授與 HDInsight。
 
-    * HDInsight 叢集可存取的 Azure Data Lake Storage 帳戶。 如需搭配 HDInsight 使用 Azure Data Lake Storage 的相關資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
-
-        Data Lake Storage Gen1 中所儲存指令碼的 URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
-
-        > [!NOTE]  
-        > HDInsight 用來存取 Data Lake Storage 的服務主體必須具有指令碼的讀取存取權。
-
-    * 本身是 HDInsight 叢集主要或額外儲存體帳戶之「Azure 儲存體」帳戶中的 Blob。 在建立叢集期間，已將這兩種儲存體帳戶的存取權都授與 HDInsight。
-
-    * 公用檔案共用服務。 例如 Azure Blob、GitHub、OneDrive 及 Dropbox。
+      * 公用檔案共用的服務可透過 http:// 路徑存取。 範例包括 Azure Blob、 GitHub、 OneDrive。
 
         如需範例 URI，請參閱[範例指令碼動作指令碼](#example-script-action-scripts)。
 
-        > [!WARNING]  
-        > HDInsight 僅支援具有標準效能層級之 Azure 儲存體帳戶中的 Blob。 
-
+     * 使用 ESP 時的叢集：
+         
+         * Wasb [s]:// 或 http [s]:// 支援的 Uri。
+            
 * 可限制為只在特定節點類型上執行。 例如前端節點或背景工作節點。
 
 * 可以是持續性或臨時性。

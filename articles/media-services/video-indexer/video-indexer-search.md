@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93376059dac2a8336e581269d8289d893779b291
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560320"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799100"
 ---
 # <a name="find-exact-moments-within-videos"></a>尋找影片中的確切時間
 
@@ -49,7 +50,7 @@ ms.locfileid: "60560320"
 
 一旦您找到想使用的影片後，您可以繼續處理該影片，如以下其中一個主題中所述： 
 
-- [根據現有影片建立新的影片深入解析](video-indexer-create-new.md)
+- [使用您的影片深入解析](use-editor-create-project.md)
 - [使用影片索引器 REST API 處理內容](video-indexer-use-apis.md)
 - [將視覺介面控件內嵌到應用程式](video-indexer-embed-widgets.md)
 

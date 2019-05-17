@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: c6a8322998b391b9021292a3a7213ded56b67feb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61386439"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522127"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>如何使用適用於 VM 的 Azure 監視器 (預覽) 來停用對虛擬機器的監視
 
@@ -56,7 +56,7 @@ ms.locfileid: "61386439"
 5. 在解決方案清單中，選取 [InfrastructureInsights (工作區名稱)]，然後在解決方案的 [概觀] 頁面上，按一下 [刪除]。  在系統提示您確認時，按一下 [Yes] (是)。  
 6. 從解決方案清單中，選取 [ServiceMap (工作區名稱)]，然後在解決方案的 [概觀] 頁面上，按一下 [刪除]。  在系統提示您確認時，按一下 [Yes] (是)。  
 
-如果在將「適用於 VM 的 Azure 監視器」上線之前，您沒有針對工作區中的 Windows 或 Linux 型 VM [收集已啟用的效能計數器](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled)，則必須依照[這裡](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters)所述的步驟，為 Windows 和 Linux 停用這些規則。
+如果在將「適用於 VM 的 Azure 監視器」上線之前，您沒有針對工作區中的 Windows 或 Linux 型 VM [收集已啟用的效能計數器](vminsights-enable-overview.md#performance-counters-enabled)，則必須依照[這裡](../platform/data-sources-performance-counters.md#configuring-performance-counters)所述的步驟，為 Windows 和 Linux 停用這些規則。
 
 ## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>停用 Azure VM 的監視並保留工作區  
 

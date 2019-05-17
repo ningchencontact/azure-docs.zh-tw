@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b40fc631e84336b684f981a2fef1515a1febec0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413628"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65811914"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 共同作業常見問題集
 
@@ -57,7 +57,7 @@ ms.locfileid: "60413628"
 除非使用者獲指派受限的管理員角色，B2B 共同作業使用者不需要存取 Azure 入口網站。 不過，獲指派受限的管理員角色的 B2B 共同作業使用者可以存取入口網站。 此外，如果未獲指派其中一個管理員角色的來賓使用者存取入口網站，使用者可能可以存取特定部份的體驗。 來賓使用者角色在目錄中具有某些權限。
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>我可以封鎖來賓使用者存取 Azure 入口網站嗎？
-可以！ 當您設定此原則時，請小心避免不慎封鎖成員和管理員的存取權。
+是! 當您設定此原則時，請小心避免不慎封鎖成員和管理員的存取權。
 若要封鎖來賓使用者的 [Azure 入口網站](https://portal.azure.com)存取權，請在 Windows Azure 傳統部署模型 API 中使用條件式存取原則︰
 1. 將**所有使用者**群組修改為只包含成員。
    ![顯示所有使用者 」 群組 UserType 不等於來賓的螢幕擷取畫面](media/faq/modify-all-users-group.png)

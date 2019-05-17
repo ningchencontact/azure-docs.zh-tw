@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdfd7794961b0254526b124525c6e978d13b0114
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402763"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800267"
 ---
 # <a name="message-expiration-time-to-live"></a>訊息到期 (存留時間)
 
@@ -35,6 +35,11 @@ ms.locfileid: "60402763"
 ## <a name="entity-level-expiration"></a>實體層級的到期
 
 傳送到佇列或主題的所有訊息都受限於預設的到期，其設定於具 [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) 屬性的實體層級，同時也可在建立期間於入口網站中加以設定且稍後進行調整。 預設的到期適用於所有傳送至實體且未明確設定 [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) 的訊息。 預設到期也可用來作為 **TimeToLive** 值的上限。 若訊息的 **TimeToLive** 到期比預設值還長，則會在加入佇列之前，以無訊息方式調整為 **defaultMessageTimeToLive** 值。
+
+> [!NOTE]
+> 預設值[TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive)值為代理的訊息[TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue)如果未指定。
+>
+> 適用於訊息實體 （佇列和主題） 的預設到期時間是也[TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue)的服務匯流排標準和高階層次。  基本層中，預設的到期時間為 14 天。
 
 您可以藉由設定 [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) 屬性，或在入口網站中勾選相對的方塊，選擇性地將過期的訊息移到[無效信件佇列](service-bus-dead-letter-queues.md)。 如果將選項保留為已停用，即會卸除過期的訊息。 移至無效信件佇列的過期訊息可以藉由評估訊息代理程式儲存於使用者屬性區段的 [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) 屬性來區分；在此案例中，值為 [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq)。
 
@@ -69,7 +74,7 @@ ms.locfileid: "60402763"
     - 沒有傳送  
     - 沒有對主題的更新  
     - 沒有排定的訊息 
-- 訂用帳戶
+- Subscriptions
     - 沒有接收  
     - 沒有對訂用帳戶的更新  
     - 沒有新規則新增到訂用帳戶  

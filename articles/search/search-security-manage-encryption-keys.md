@@ -1,5 +1,5 @@
 ---
-title: 在加密在 Azure Key Vault-Azure 搜尋服務中使用客戶管理金鑰
+title: 在加密在 Azure 金鑰保存庫 （預覽）-Azure 搜尋服務中使用客戶管理金鑰
 description: 索引和在 Azure 搜尋服務的同義字地圖，透過您建立和管理 Azure 金鑰保存庫中的索引鍵的補充伺服器端加密。
 author: NatiNimni
 manager: jlembicz
@@ -9,14 +9,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 987b56a9571fd50f605dbe6fb4112ef857021530
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029171"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523084"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>在 Azure Key Vault 中使用客戶管理金鑰的 azure 搜尋服務加密
+
+> [!Note]
+> 使用客戶管理金鑰的加密是處於預覽階段，應用程式不是用於生產環境而定。 [REST API 版本 2019年-05-06-Preview](search-api-preview.md)提供這項功能。 您也可以使用.NET SDK 版本 8.0-preview。
+>
+> 這項功能不適用於免費服務。 您必須使用建立當天或之後於 2019年-01-01 的可計費的搜尋服務。 沒有任何入口網站支援此功能。
 
 根據預設，Azure 搜尋服務會加密待用與使用者的內容[服務管理的金鑰](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models)。 您可以使用您建立和管理在 Azure Key Vault 的金鑰額外的加密層級來補充預設加密。 這篇文章會引導您逐步完成。
 
@@ -26,20 +31,17 @@ ms.locfileid: "65029171"
 
 您可以使用不同的索引鍵，從不同的金鑰保存庫。 這表示在單一搜尋服務可以裝載多個加密的 indexes\synonym 對應，每個可能使用不同的客戶管理金鑰，不會使用客戶管理金鑰加密的 indexes\synonym 對應與加密。 
 
->[!Note]
-> **功能可用性**:使用客戶管理金鑰的加密是預覽功能，不適用於免費服務。 付費的服務，它僅適用於在或之後於 2019年-01-01，使用最新預覽 api 版本建立的搜尋服務 (api 版本 = 2019年-05-06-Preview)。 目前沒有任何入口網站的支援。 這項功能。
-
 ## <a name="prerequisites"></a>必要條件
 
 此範例中，會使用下列服務。 
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
++ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
 
-[建立 Azure Key Vault 資源](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault)或尋找現有的保存庫訂用帳戶。
++ [建立 Azure Key Vault 資源](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault)或尋找現有的保存庫訂用帳戶。
 
-[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)或是[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)用於設定工作。
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)或是[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)用於設定工作。
 
-[Postman](search-fiddler.md)， [Azure PowerShell](search-create-index-rest-api.md)並[Azure 搜尋服務 SDK](https://aka.ms/search-sdk-preview)可以用來呼叫 REST API 的預覽。 沒有任何入口網站或客戶管理的加密，在此階段的.NET SDK 支援。
++ [Postman](search-fiddler.md)， [Azure PowerShell](search-create-index-rest-api.md)並[Azure 搜尋服務 SDK](https://aka.ms/search-sdk-preview)可以用來呼叫 REST API 的預覽。 沒有任何入口網站或客戶管理的加密，在此階段的.NET SDK 支援。
 
 ## <a name="1---enable-key-recovery"></a>1-啟用金鑰修復
 

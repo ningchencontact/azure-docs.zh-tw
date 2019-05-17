@@ -14,22 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: aca34ee40bfe10c55c478d9aaeb01a65d139e1e2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471771"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522385"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
 > 
 > [!IMPORTANT]
 > 應用程式 1.2 版。 * 即將於 30 年 4 月 2019年的支援。 請升級至最新版本。
-
-> 
-> [!IMPORTANT]
-> 在 linux 上的修補程式協調流程應用程式已被取代。 請瀏覽[Azure 虛擬機器擴展集作業系統映像的自動升級](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)來協調在 linux 上的更新。
 
 
 [Azure 虛擬機器擴展集的 OS 映像自動升級](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)是讓您的作業系統在 Azure 中修補的最佳做法，而修補程式協調流程應用程式 (POA) 則是 Service Fabrics Repair Manager Systems 服務相關的包裝函式，可針對非 Azure 託管的叢集，設定作業系統的修補排程。 非 Azure 託管的叢集不需要 POA，但需要排程升級網域安裝修補程式，才可以在不需要停機的情況下，修補 Service Fabric 叢集主機。
@@ -241,7 +237,7 @@ RebootRequired | true - 需要重新開機<br> false - 不需要重新開機 | �
 
 如果尚未排程更新，JSON 結果會是空的。
 
-登入叢集，查詢 Windows Update 的結果。 接著，找出主要協調器服務的複本位址，然後點閱瀏覽器的 URL： http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults。
+登入叢集，查詢 Windows Update 結果。 接著，找出主要協調器服務的複本位址，然後點閱瀏覽器的 URL： http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults。
 
 協調器服務的 REST 端點具有動態連接埠。 若要知道確切 URL，請查看 Service Fabric Explorer。 例如，可在 `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults` 找到結果。
 
@@ -263,7 +259,7 @@ RebootRequired | true - 需要重新開機<br> false - 不需要重新開機 | �
 
 收集修補程式協調流程應用程式的記錄，是 Service Fabric 執行階段記錄的一部分。
 
-以免您想要透過您選擇的診斷工具/管線擷取記錄。 修補程式協調流程應用程式使用以下的固定提供者識別碼，透過 [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1) 記錄事件
+以免您想要透過您選擇的診斷工具/管線擷取記錄。 若要記錄事件，透過修補程式協調流程應用程式會使用以下的固定提供者識別碼[事件來源](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -312,7 +308,7 @@ A. 檢查針對應用程式所公佈的健康情況報告，是否為根本原�
 
 A. 當叢集健康情況不良時，修補程式協調流程應用程式就不會安裝更新。 請嘗試使叢集處於良好的健康情況，以便將修補程式協調流程應用程式工作流程解除封鎖。
 
-問： **我是否應該針對叢集將 TaskApprovalPolicy 設為 'NodeWise' 或 'UpgradeDomainWise'？**
+問： **應該設定 TaskApprovalPolicy 'NodeWise' 或 'UpgradeDomainWise' 為我的叢集？**
 
 A. 'UpgradeDomainWise' 可以藉由平行修補屬於升級網域的所有節點，來加快整體叢集修補。 這表示屬於整個升級網域的節點在修補程序期間都無法使用 (處於[已停用](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)狀態)。
 
@@ -346,6 +342,10 @@ A. 某些產品更新只會出現在其各自的更新/修補歷程記錄中。 
 問： **「修補協調流程」應用程式可用來更新我的開發叢集 (單一節點叢集) 嗎？**
 
 A. 否，修補協調流程應用程式無法用來修補單一節點的叢集。 此限制的設計：因為 [Service Fabric 系統服務](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services)或任何客戶應用程式將會面臨停機時間，所以修復管理員決不會核准以任何修復作業進行修補。
+
+問： **我要如何修補 Linux 上的叢集節點？**
+
+A. 請參閱[Azure 虛擬機器擴展集作業系統映像的自動升級](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)來協調在 linux 上的更新。
 
 ## <a name="disclaimers"></a>免責聲明
 
@@ -413,7 +413,7 @@ A. 否，修補協調流程應用程式無法用來修補單一節點的叢集�
 
 - 現在，將 InstallWindowsOSOnlyUpdates 設定為 false 便會安裝所有可用的更新。
 - 已變更停用自動更新的邏輯。 這會修正 Server 2016 和以上版本未停用自動更新的錯誤。
-- 已針對進階使用案例將 POA 兩個微服務的放置條件約束參數化。
+- 參數化的 POA 進階的使用案例的兩個微服務的放置條件約束。
 
 ### <a name="version-131"></a>1.3.1 版
 - 修正 POA 1.3.0 在 Windows Server 2012 R2 或較低版本上因為停用自動更新失敗而無法運作的迴歸。 
@@ -421,4 +421,4 @@ A. 否，修補協調流程應用程式無法用來修補單一節點的叢集�
 - 將 InstallWindowsOSOnlyUpdates 的預設值變更為 False。
 
 ### <a name="version-132"></a>1.3.2 版
-- 修正會影響修補-週期的節點上，如果有 節點名稱，也就是目前的節點名稱的一部分的問題。 對於這類節點，很可能會遺漏修補或者會擱置重新開機。 
+- 修正會影響修補的生命週期，在節點上，如果有 節點名稱，也就是目前的節點名稱的一部分的問題。 對於這類節點，很可能會遺漏修補或者會擱置重新開機。 

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
+ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548625"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791949"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -64,16 +64,16 @@ ms.locfileid: "59548625"
 
 | 監視資料庫的遙測 | 單一資料庫和集區資料庫支援 | 執行個體的資料庫支援 |
 | :------------------- | ----- | ----- |
-| [所有計量](#all-metrics)：包含 DTU/CPU 百分比、DTU/CPU 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作角色百分比、儲存體、儲存體百分比和 XTP 儲存體百分比。 | 是 | 否 |
+| [基本計量](#basic-metrics):包含 DTU/CPU 百分比、DTU/CPU 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作角色百分比、儲存體、儲存體百分比和 XTP 儲存體百分比。 | 是 | 否 |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含關於查詢執行階段統計資料的資訊，例如 CPU 使用率和查詢持續時間統計資料。 | 是 | 是 |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含 （項目查詢等候） 的查詢等候統計資料的相關資訊這類是 CPU、 LOG 和 LOCKING。 | 是 | 是 |
-| [錯誤](#errors-dataset)：包含在資料庫上的 SQL 錯誤的相關資訊。 | 是 | 是 |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含資料庫花費在不同等候類型的等候時間的資訊。 | 是 | 否 |
-| [逾時](#time-outs-dataset)：包含在資料庫上逾時的相關資訊。 | 是 | 否 |
-| [封鎖](#blockings-dataset)：包含有關在資料庫上的事件資訊。 | 是 | 否 |
-| [死結](#deadlocks-dataset):包含在資料庫上死結事件的相關資訊。 | 是 | 否 |
-| [AutomaticTuning](#automatic-tuning-dataset):包含資料庫的自動調整建議的相關資訊。 | 是 | 否 |
-| [SQLInsights](#intelligent-insights-dataset)：包含 Intelligent Insights 資料庫效能。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
+| [錯誤](#errors-dataset)：包含有关数据库发生的 SQL 错误的信息。 | 是 | 是 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含有关数据库针对不同等待类型花费多少时间等待的信息。 | 是 | 否 |
+| [逾時](#time-outs-dataset)：包含有关数据库发生的超时的信息。 | 是 | 否 |
+| [封鎖](#blockings-dataset)：包含有关数据库发生的阻塞事件的信息。 | 是 | 否 |
+| [死锁数](#deadlocks-dataset)：包含有关数据库发生的死锁事件的信息。 | 是 | 否 |
+| [AutomaticTuning](#automatic-tuning-dataset)：包含有关数据库的自动优化建议的信息。 | 是 | 否 |
+| [SQLInsights](#intelligent-insights-dataset)：包含针对数据库性能的智能见解。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
 
 > [!IMPORTANT]
 > 彈性集區和受管理的執行個體都有自己個別的診斷遙測，從其所包含的資料庫。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。
@@ -93,7 +93,7 @@ ms.locfileid: "59548625"
 
 | 資源 | 監視遙測 |
 | :------------------- | ------------------- |
-| **彈性集區** | [所有計量](sql-database-metrics-diag-logging.md#all-metrics)包含 eDTU/CPU 百分比、eDTU/CPU 限制、實體資料讀取百分比、記錄寫入百分比、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、儲存體限制，以及 XTP 儲存體百分比。 |
+| **彈性集區** | [基本計量](sql-database-metrics-diag-logging.md#basic-metrics)包含 eDTU/CPU 百分比、 eDTU/CPU 限制、 實體資料讀取百分比、 記錄寫入百分比、 工作階段百分比、 背景工作百分比、 儲存體、 儲存體百分比、 儲存體限制和 XTP 儲存體百分比。 |
 
 若要設定的彈性集區和彈性集區中的資料庫的診斷遙測串流，您必須個別設定**兩者**下列動作：
 
@@ -113,7 +113,7 @@ ms.locfileid: "59548625"
 1. 輸入供您自己參考的設定名稱。
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
 1. Log analytics，請選取**設定**並選取來建立新的工作區 **+ 建立新的工作區**，或選取現有的工作區。
-1. 選取彈性集區診斷遙測的核取方塊：**AllMetrics**。
+1. 選取彈性集區診斷遙測的核取方塊：**基本**計量。
    ![設定彈性集區的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. 選取 [ **儲存**]。
 1. 此外，設定診斷遙測，為您想要在下一節中所述的下列步驟來監視彈性集區中每個資料庫的資料流。
@@ -127,7 +127,7 @@ ms.locfileid: "59548625"
 
 若要为单一数据库或入池数据库启用诊断遥测数据的流式传输，请执行以下步骤：
 
-1. 移至 Azure **SQL database**資源。
+1. 转到 Azure **SQL 数据库**资源。
 1. 選取 [診斷設定]。
 1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
    - 您最多可建立三個平行連線來串流處理診斷遙測。
@@ -137,10 +137,10 @@ ms.locfileid: "59548625"
 1. 輸入供您自己參考的設定名稱。
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
 1. 若為標準的事件型監視體驗，請勾選下列的資料庫診斷記錄遙測核取方塊：**SQLInsights**、**AutomaticTuning**、**QueryStoreRuntimeStatistics**、**QueryStoreWaitStatistics**、**錯誤**、**DatabaseWaitStatistics**、**逾時**、**區塊**和**死結**。
-1. 對於歷時一分鐘的進階監視體驗，請勾選 **AllMetrics** 的核取方塊。
+1. 進階、 一分鐘基礎的監視體驗，選取核取方塊**基本**計量。
    ![設定診斷單一、 集區，或執行個體資料庫](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. 選取 [ **儲存**]。
-1. 針對您想要監視每個資料庫重複這些步驟。
+1. 针对要监视的每个数据库重复上述步骤。
 
 > [!NOTE]
 > （雖然畫面所示），無法啟用安全性稽核和 SQLSecurityAuditEvents 記錄從資料庫的診斷設定。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
@@ -385,7 +385,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-例如，所有計量的 blob 名稱可能是︰
+例如，基本計量的 blob 名稱可能是：
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -409,25 +409,28 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ## <a name="metrics-and-logs-available"></a>可用的計量和記錄
 
-監視 Azure SQL Database 所提供的遙測，彈性集區和受管理的執行個體是如下所述。 在 SQL Analytics 收集的監視遙測可用於您自己自訂的分析和應用程式開發使用[Azure 監視器的記錄檔查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)語言。
+監視 Azure SQL Database 所提供的遙測，彈性集區和受管理的執行個體是如下所述。 可以使用 [Azure Monitor 日志查询](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)语言将在 SQL Analytics 内收集的监视遥测数据用于你自己的自定义分析和应用程序开发。
 
-## <a name="all-metrics"></a>所有計量
+## <a name="basic-metrics"></a>基本計量
 
-若要進一步了解按資源區分的所有計量，請參閱下表。
+下表的基本計量的詳細參考資源。
 
-### <a name="all-metrics-for-elastic-pools"></a>彈性集區的所有計量
+> [!NOTE]
+> 所有計量以前都稱為基本計量選項。 所做的變更已命名的只有且不會變更監視的計量。 這項變更被起始以供未來推出的其他計量類別目錄。
+
+### <a name="basic-metrics-for-elastic-pools"></a>彈性集區的基本計量
 
 |**Resource**|**計量**|
 |---|---|
 |彈性集區|eDTU 百分比、使用的 eDTU、eDTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、儲存體限制、XTP 儲存體百分比 |
 
-### <a name="all-metrics-for-azure-sql-databases"></a>Azure SQL Database 的所有計量
+### <a name="basic-metrics-for-azure-sql-databases"></a>Azure SQL database 的基本計量
 
 |**Resource**|**計量**|
 |---|---|
 |Azure SQL 資料庫|DTU 百分比、使用的 DTU、DTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、XTP 儲存體百分比和死結 |
 
-## <a name="all-logs"></a>所有日志
+## <a name="basic-logs"></a>基本的記錄檔
 
 下表中記載的所有記錄檔可用的遙測的詳細資料。 請參閱[支援診斷記錄](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases)來了解特定的資料庫類別-單一 Azure SQL 支援的記錄集區，或執行個體的資料庫。
 

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 42ab8be45d4086589f0793531003700e7552a440
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 268467796e67caf2d20fedb44d83fd455a09b83e
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64743970"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538359"
 ---
 **輸出資料傳輸**：[出站数据传输](https://azure.microsoft.com/pricing/details/bandwidth/)（传出 Azure 数据中心的数据）会产生带宽使用费。
 
-**交易**：將依據您在標準受控磁碟上執行的交易數向您收費。 標準的 Ssd，針對 256 KiB 的 I/O 單位大小適用於帳戶處理的交易數目。 更大的 I/O 大小則會視為大小是 256 KiB 的多個 I/O。 針對標準的 Hdd，每個的 IO 作業都會被視為單一交易，不論的 I/O 大小。
+**交易**：將依據您在標準受控磁碟上執行的交易數向您收費。 標準的 Ssd，每個 I/O 作業小於或等於 256 KiB 的輸送量會被視為單一 I/O 作業。 大於 256 KiB 的輸送量的 I/O 作業會被視為多個 I/o 大小 256 KiB。 針對標準的 Hdd，每個的 IO 作業都會被視為單一交易，不論的 I/O 大小。
 
 有关托管磁盘定价的详细信息（包括事务成本），请参阅[托管磁盘定价](https://azure.microsoft.com/pricing/details/managed-disks)。
 

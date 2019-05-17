@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 5f9fc128af4e89788e648fcfc238da300ff91724
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068760"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521758"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>對適用於容器的 Azure 監視器進行疑難排解
 
@@ -80,7 +80,7 @@ ms.locfileid: "65068760"
 
 4. 檢查代理程式記錄。 容器化的代理程式完成部署時，它會執行 OMI 命令並顯示代理程式與提供者版本，以執行快速檢查。 
 
-5. 執行下列命令，以確認代理程式已順利上線：`kubectl logs omsagent-484hw --namespace=kube-system`
+5. 若要確認代理程式已成功部署，執行命令： `kubectl logs omsagent-484hw --namespace=kube-system`
 
     狀態應該會像下列範例：
 
@@ -113,7 +113,7 @@ ms.locfileid: "65068760"
 | ---- | --- |  
 | 錯誤訊息 `No data for selected filters`  | 為新建立的叢集打造監視資料流程可能需要點時間。 允許至少 10 到 15 分鐘才會出現叢集的資料。 |   
 | 錯誤訊息 `Error retrieving data` | 雖然 Azure Kubenetes Service 叢集是為監視健康情況和效能而設定，但這個叢集和 Azure Log Analytics 工作區之間有所連結。 Log Analytics 工作區是用來儲存叢集的所有監視資料。 Log Analytics 工作區遭刪除或消失時可能會發生此錯誤。 請查看[管理存取權](../platform/manage-access.md#view-workspace-details)，檢查工作區是否可使用。 遺漏工作區時，您必須重新啟用您的叢集使用 Azure 監視器監視容器。 若要重新啟用，您將需要[停用](container-insights-optout.md)監視叢集並[啟用](container-insights-enable-new-cluster.md)再次容器的 Azure 監視器。 |  
-| 透過 az aks cli 新增適用於容器的 Azure 監視器後，會出現 `Error retrieving data` | 當啟用 使用監視`az aks cli`，適用於容器的 Azure 監視器可能無法正確使用。 檢查這個解決方案是否已上架。 若要檢查，請前往 Log Analytics 工作區，選取左側窗格的 [Solutions (解決方案)]，查看解決方案是否可使用。 若要解決此問題，您必須按照[如何部署適用於容器的 Azure 監視器](container-insights-onboard.md)的指示，重新部署這個解決方案 |  
+| 透過 az aks cli 新增適用於容器的 Azure 監視器後，會出現 `Error retrieving data` | 當啟用 使用監視`az aks cli`，適用於容器的 Azure 監視器可能無法正確部署。 請檢查是否已部署解決方案。 若要檢查，請前往 Log Analytics 工作區，選取左側窗格的 [Solutions (解決方案)]，查看解決方案是否可使用。 若要解決此問題，您必須按照[如何部署適用於容器的 Azure 監視器](container-insights-onboard.md)的指示，重新部署這個解決方案 |  
 
 為協助診斷問題，[在此](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script)提供疑難排解指令碼。  
 

@@ -11,19 +11,19 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 05/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115769"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522168"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>使用適用於 VM 的 Azure 監視器 (預覽) 對應來了解應用程式元件
-檢視在 Azure 中執行之 Windows 和 Linux 虛擬機器上探索到的應用程式元件，可搭配適用於 VM 的 Azure 監視器使用下列兩種方式來觀測您的環境：直接從虛擬機器，或者從 Azure 監視器跨 VM 群組進行。 
+在您的環境，可以觀察到在兩種方式使用 Azure 監視器中的 Vm，從虛擬機器直接或透過 Azure 監視器中的 Vm 群組在 Azure 中執行的 Windows 和 Linux 虛擬機器上檢視探索到的應用程式的元件。 
 
-本文將協助您了解這兩個檢視方塊之間的體驗，以及對應功能的使用方式。 如需設定適用於 VM 的 Azure 監視器相關資訊，請參閱[啟用適用於 VM 的 Azure 監視器](vminsights-onboard.md)。
+本文將協助您了解這兩個檢視方塊之間的體驗，以及對應功能的使用方式。 如需設定適用於 VM 的 Azure 監視器相關資訊，請參閱[啟用適用於 VM 的 Azure 監視器](vminsights-enable-overview.md)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
@@ -60,7 +60,7 @@ ms.locfileid: "62115769"
 
 ![網路連線能力圖表窗格範例](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
 
-### <a name="failed-connections"></a>失敗的連線
+### <a name="failed-connections"></a>連接失敗
 對應中會顯示處理序和電腦的失敗連線，並以紅色虛線指出用戶端系統無法連線到處理序或連接埠。 任何具有相依性代理程式的系統如果就是嘗試進行失敗連線的系統，則會報告失敗的連線。 對應會觀測無法建立連線的 TCP 通訊端，藉以衡量此處理序。 連線失敗的原因可能是防火牆、用戶端或伺服器設定不正確，或遠端服務無法使用。
 
 ![對應中的失敗連線範例](./media/vminsights-maps/map-group-failed-connection-01.png)
@@ -97,6 +97,21 @@ ms.locfileid: "62115769"
 
 ![直接 VM 對應概觀](./media/vminsights-maps/map-direct-vm-01.png)
 
+## <a name="view-map-directly-from-a-virtual-machine-scale-set"></a>檢視對應直接從虛擬機器擴展集
+
+若要直接從虛擬機器擴展集 Vm 存取 Azure 監視器，執行下列命令。
+
+1. 在 Azure 入口網站中，選取**虛擬機器擴展集**。
+2. 從清單中選擇 VM，然後在 [監視] 區段中選擇 [Insights (預覽)]。  
+3. 選取 [對應] 索引標籤。
+
+Map 以視覺化方式呈現所有擴展集以及群組的相依性群組 節點中的執行個體。 展開的節點會列出擴展集中捲動 10 次的執行個體。 若要載入特定的執行個體的對應，請選取該在地圖上，執行個體，然後按一下省略符號，它適合，選擇**載入伺服器對應**。 這會載入該執行個體，可讓您查看處理程序群組與作用中的網路連線的處理序在指定的時間範圍內的對應。 根據預設，對應會顯示過去 30 分鐘。 使用**TimeRange**您可以查詢選取器的過往時間範圍的一小時的時間來顯示相依性的過往情形在過去 （比方說，在發生事件或變更發生之前）。  
+
+![直接 VM 對應概觀](./media/vminsights-maps/map-direct-vmss-01.png)
+
+>[!NOTE]
+>您也可以從執行個體檢視存取的特定執行個體的對應，虛擬機器擴展集。 瀏覽至**執行個體**下方**設定**區段，然後選擇**Insights （預覽）**。
+
 ## <a name="view-map-from-azure-monitor"></a>從 Azure 監視器檢視對應
 從 Azure 監視器，對應功能可提供您虛擬機器及其相依性的全域檢視。  若要從 Azure 監視器存取對應功能，請執行下列動作。 
 
@@ -106,7 +121,7 @@ ms.locfileid: "62115769"
 
 ![Azure 監視器多部 VM 對應概觀](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-在頁面頂端的 [工作區] 選取器中，如果您有多個 Log Analytics 工作區，請選擇已可處理解決方案、且有虛擬機器要向其報告的工作區。 [群組] 選取器會傳回與選取的工作區有關的訂用帳戶、資源群組、[電腦群組](../../azure-monitor/platform/computer-groups.md)與電腦的 VM 擴展集。 您的選取只會套用至「對應」功能，而不會擴及「效能」或「健康情況」。
+在頁面頂端的 [工作區] 選取器中，如果您有多個 Log Analytics 工作區，請選擇已可處理解決方案、且有虛擬機器要向其報告的工作區。 **群組**選取器會傳回訂用帳戶、 資源群組[電腦群組](../../azure-monitor/platform/computer-groups.md)，和的電腦與所選工作區相關的虛擬機器擴展集。 您的選取只會套用至「對應」功能，而不會擴及「效能」或「健康情況」。
 
 根據預設，對應會顯示過去 30 分鐘。 使用 [時間範圍] 選取器，可查詢過往時間範圍 (最長可達一小時)，以顯示相依性的過往情形 (例如在事件發生期間或變更發生之前)。   
 

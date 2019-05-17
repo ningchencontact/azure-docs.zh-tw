@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dbbc43bc7a2f42f8a72ce12d84da1ae406a588d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714568"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799357"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
 此文章分析 Microsoft Azure 目前提供之下列兩種不同類型佇列的差異與相同處：儲存體佇列和服務匯流排佇列。 透過使用這項資訊，您可以比較和比對個別的技術，而且對於哪一種方案最符合您的需求，也能夠做出更旁徵博引的決定。
@@ -74,8 +74,8 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 | 推送型 API |**否** |**是**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) 和 **OnMessage** 工作階段的 .NET API。 |
 | 接收模式 |**查看與租用** |**查看與鎖定**<br/><br/>**接收與刪除** |
 | 獨佔存取模式 |**以租用為基礎** |**以鎖定為基礎** |
-| 租用/鎖定持續時間 |**30 秒 (預設值)**<br/><br/>**7 天 (上限)** (您可以使用 [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API 更新或釋放訊息租用。) |**60 秒 (預設值)**<br/><br/>您可以使用 [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API 更新訊息鎖定。 |
-| 租用/鎖定精確度 |**訊息層級**<br/><br/>(每個訊息都可以具有不同的逾時值，您稍後可以在處理訊息時，視需要使用 [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API 更新這個逾時值) |**佇列層級**<br/><br/>(每個佇列都有套用至所有訊息的鎖定精確度，但是您可以使用 [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API 更新鎖定。) |
+| 租用/鎖定持續時間 |**30 秒 (預設值)**<br/><br/>**7 天 (上限)** (您可以使用 [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API 更新或釋放訊息租用。) |**60 秒 (預設值)**<br/><br/>您可以使用 [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API 更新訊息鎖定。 |
+| 租用/鎖定精確度 |**訊息層級**<br/><br/>(每個訊息都可以具有不同的逾時值，您稍後可以在處理訊息時，視需要使用 [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API 更新這個逾時值) |**佇列層級**<br/><br/>(每個佇列都有套用至所有訊息的鎖定精確度，但是您可以使用 [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API 更新鎖定。) |
 | 批次接收 |**是**<br/><br/>(在擷取訊息時明確指定訊息計數，最多 32 個訊息) |**是**<br/><br/>(隱含啟用預先擷取屬性或明確透過使用交易) |
 | 批次傳送 |**否** |**是**<br/><br/>(透過使用交易或用戶端批次) |
 
@@ -121,7 +121,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 * 佇列自動轉送可讓數以千計的佇列將其訊息自動轉送至單一佇列，而接收端應用程式將從中取用訊息。 您可以使用這個機制來達成安全性、控制流程，並在每個訊息發佈者之間隔離儲存體。
 * 儲存體佇列支援更新訊息內容。 您可以使用這項功能，將狀態資訊和累加進度更新保存至訊息中，以便從最後已知的檢查點處理訊息，而不用從頭開始處理。 使用服務匯流排佇列時，您可以透過使用訊息工作階段來實現相同案例。 工作階段可讓您使用 [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) 和 [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState) 儲存和擷取應用程式處理狀態。
 * 只有服務匯流排佇列支援的[無效信件處理](service-bus-dead-letter-queues.md)可用於隔離接收端應用程式無法順利處理的訊息，或是由於存留時間 (TTL) 屬性過期而無法送達目的地的訊息。 TTL 值會指定訊息保留在佇列中的時間長度。 在服務匯流排中，當 TTL 期限到期時，訊息將會移至稱為 $DeadLetterQueue 的特殊佇列。
-* 為了在儲存體佇列中找出「有害」訊息，應用程式會在清除佇列中的訊息時，檢查訊息的 [DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx) 屬性。 如果 **DequeueCount** 大於給定的臨界值，應用程式就會將訊息移至應用程式定義的「無效信件」佇列。
+* 為了在儲存體佇列中找出「有害」訊息，應用程式會在清除佇列中的訊息時，檢查訊息的 [DequeueCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.dequeuecount) 屬性。 如果 **DequeueCount** 大於給定的臨界值，應用程式就會將訊息移至應用程式定義的「無效信件」佇列。
 * 儲存體佇列可讓您取得針對佇列執行之所有交易的詳細記錄，以及彙總的計量資料。 這兩個選項有助於偵錯和了解應用程式的儲存體佇列使用狀況。 也有助於對您的應用程式進行效能微調，以及降低使用佇列的成本。
 * 服務匯流排所支援之「訊息工作階段」的概念可讓屬於特定邏輯群組的訊息與給定的接收者產生關聯，進而在訊息與其個別的接收者之間建立類似工作階段的密切關係。 您可以設定訊息上的 [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) 屬性，以在服務匯流排中啟用這項進階功能。 然後，接收者就可以接聽特定的工作階段 ID，並且接收共用指定之工作階段識別項的訊息。
 * 服務匯流排佇列所支援的重複偵測功能會根據 [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) 屬性的值，自動移除傳送至佇列或主題的重複訊息。

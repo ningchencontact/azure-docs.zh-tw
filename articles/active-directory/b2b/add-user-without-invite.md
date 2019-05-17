@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5db5eb9c0e0493d906345892fcc5f2872a3e0e14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357132"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812450"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>新增 B2B 共同作業來賓使用者，而不需要邀請連結或電子郵件
 
 您現在可以送出共用應用程式的直接連結，來邀請來賓使用者。 透過此方法，除了某些特殊情況，來賓使用者已不再需要使用邀請電子郵件。 來賓使用者可以按一下應用程式連結、檢閱並接受隱私權條款，然後順暢地存取應用程式。 如需詳細資訊，請參閱 [B2B 共同作業邀請兌換](redemption-experience.md)。   
 
-在有此新方法可用之前，若要在不需要邀請電子郵件的情況下邀請來賓使用者，您可以將邀請者 (從您的組織或從合作夥伴組織) 新增至**來賓邀請者**目錄角色，再讓邀請者透過 UI 或透過 PowerShell 將來賓使用者新增至目錄、群組或應用程式 (如果使用 PowerShell，您可以完全隱藏邀請電子郵件)。 例如︰
+在有此新方法可用之前，若要在不需要邀請電子郵件的情況下邀請來賓使用者，您可以將邀請者 (從您的組織或從合作夥伴組織) 新增至**來賓邀請者**目錄角色，再讓邀請者透過 UI 或透過 PowerShell 將來賓使用者新增至目錄、群組或應用程式 (如果使用 PowerShell，您可以完全隱藏邀請電子郵件)。 例如：
 
 1. 主組織 (例如，WoodGrove) 中的使用者邀請合作夥伴組織 (例如，Sam@litware.com) 的使用者做為「來賓」。
 2. 主組織中的管理員會[設定原則](delegate-invitations.md)，以允許 Sam 識別及新增來自合作夥伴組織 (Litware) 的其他使用者。 (必須將 Sam 新增至**來賓邀請者**角色)。

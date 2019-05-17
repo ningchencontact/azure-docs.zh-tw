@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 0e55c372c6f5dc3484bd64cf4f328479d2d0b245
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461311"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65211939"
 ---
-## <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>金鑰交易 (每個區域的每個在 10 秒，允許的最大交易保存庫<sup>1</sup>):
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>金鑰交易 (每個區域的每個在 10 秒，允許的最大交易保存庫<sup>1</sup>):
 
 |金鑰類型|HSM 金鑰<br>建立金鑰|HSM 金鑰<br>所有其他交易|軟體金鑰<br>建立金鑰|軟體金鑰<br>所有其他交易|
 |:---|---:|---:|---:|---:|
@@ -34,7 +34,7 @@ ms.locfileid: "60461311"
 > - 125 RSA 4096 位元 HSM 金鑰取得交易
 > - 124 的 RSA 4096 位元的 HSM 金鑰取得交易和 8 的 RSA 2,048 位元 HSM 金鑰取得交易
 
-## <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>祕密、 受管理的儲存體帳戶金鑰及保存庫交易：
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>祕密、 受管理的儲存體帳戶金鑰及保存庫交易：
 | 交易類型 | 每個區域的每個在 10 秒，允許的最大交易保存庫<sup>1</sup> |
 | --- | --- |
 | 所有交易 |2,000 |

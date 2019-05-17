@@ -3,25 +3,25 @@ title: 在入口網站中建立 Azure App 的身分識別 | Microsoft Docs
 description: 描述如何建立可以與 Azure 資源管理員中的角色型存取控制搭配使用來管理資源存取權的新 Active Directory 應用程式和服務主體。描述如何建立可以與 Azure 資源管理員中的角色型存取控制搭配使用來管理資源存取權的新 Active Directory 應用程式和服務主體。
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/14/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300743"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764971"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>作法：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體
 
@@ -42,7 +42,7 @@ ms.locfileid: "60300743"
 
 1. 選取 [新增應用程式註冊]。
 
-   ![新增應用程式](./media/howto-create-service-principal-portal/select-add-app.png)
+   ![加入應用程式](./media/howto-create-service-principal-portal/select-add-app.png)
 
 1. 提供應用程式的名稱和 URL。 針對您想要建立的應用程式類型，選取 [Web 應用程式/API]。 您無法建立[原生應用程式](../manage-apps/application-proxy-configure-native-client-application.md)的認證。 您無法將該類型使用於自動化應用程式。 設定值之後，選取 [建立]。
 
@@ -106,18 +106,18 @@ ms.locfileid: "60300743"
 
    ![用戶端識別碼](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. 選取 [Settings] \(設定) 。
+1. 選取 **憑證與祕密**。
 
-   ![選取 [設定]](./media/howto-create-service-principal-portal/select-settings.png)
+   ![選取 [設定]](./media/howto-create-service-principal-portal/select-certs-secrets.png)
 
-1. 選取 [金鑰]。
-1. 提供金鑰的描述和金鑰的持續時間。 完成時，選取 [儲存]。
+1. 選取 **用戶端祕密-> 新的用戶端祕密**。
+1. 提供的祕密和持續時間的描述。 完成時，選取**新增**。
 
-   ![儲存金鑰](./media/howto-create-service-principal-portal/save-key.png)
+   ![儲存祕密](./media/howto-create-service-principal-portal/save-secret.png)
 
-   儲存金鑰之後會顯示金鑰的值。 請複製此值，因為您之後就無法擷取金鑰。 您需要提供金鑰值和應用程式識別碼，以應用程式身分登入。 將金鑰值儲存在應用程式可擷取的地方。
+   儲存用戶端祕密之後, 會顯示用戶端祕密的值。 請複製此值，因為您之後就無法擷取金鑰。 您需要提供金鑰值和應用程式識別碼，以應用程式身分登入。 將金鑰值儲存在應用程式可擷取的地方。
 
-   ![儲存的金鑰](./media/howto-create-service-principal-portal/copy-key.png)
+   ![複製祕密](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>所需的權限
 
@@ -146,7 +146,7 @@ ms.locfileid: "60300743"
 
 若要檢查訂用帳戶權限：
 
-1. 在右上角中，選取您的帳戶，然後選取 [我的權限]。
+1. 在右上角選取您的帳戶，然後選取 **...]-> [我的權限**。
 
    ![選取使用者權限](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -154,7 +154,7 @@ ms.locfileid: "60300743"
 
    ![尋找使用者](./media/howto-create-service-principal-portal/view-details.png)
 
-1. 檢視指派的角色，並判斷是否有足夠的權限可將 AD 應用程式指派給角色。 如果沒有，請洽詢訂用帳戶管理員，將您新增至「使用者存取系統管理員」角色。 在下圖中，使用者已指派給「擁有者」角色，這表示該使用者具有足夠的權限。
+1. 選取 **角色指派**檢視指派的角色，並判斷是否有足夠的權限指派給某個角色的 AD 應用程式。 如果沒有，請洽詢訂用帳戶管理員，將您新增至「使用者存取系統管理員」角色。 在下圖中，使用者已指派給「擁有者」角色，這表示該使用者具有足夠的權限。
 
    ![顯示權限](./media/howto-create-service-principal-portal/view-user-role.png)
 

@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 56a11a17de3c66a3d45edb71c72be20ce1a1c89e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8ed9d84cba7cb9eeca94a1376fc03f1d256afa85
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683759"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779227"
 ---
-# <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight 上的 ML 服務與開放原始碼 R 功能簡介
+# <a name="what-is-ml-services-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 ML 服務
 
 > [!NOTE]  
 > 在 2017 年 9 月，Microsoft R Server 以全新的 **Microsoft Machine Learning Server** 或 ML Server 名稱發行。 因此，HDInsight 上的 R 伺服器叢集現在稱為 HDInsight 上的**機器學習服務**或 **ML 服務**叢集。 如需 R 伺服器名稱變更的相關資訊，請參閱 [Microsoft R 伺服器現為 Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server)。
@@ -60,7 +60,7 @@ HDInsight 中的 ML 服務提供下列優點︰
 
 HDInsight 上的 ML 服務包含下列功能。
 
-| 功能分類 | 描述 |
+| 功能分類 | 說明 |
 |------------------|-------------|
 | 已啟用 R | [R 套件](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference)適用於以 R 撰寫的解決方案、具有 R 的開放原始碼散佈，以及用於執行指令碼的執行階段基礎結構。 |
 | 已啟用 Python | [Python 套件](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference)適用於以 Python 撰寫的解決方案、具有 Python 的開放原始碼散佈，以及用於執行指令碼的執行階段基礎結構。

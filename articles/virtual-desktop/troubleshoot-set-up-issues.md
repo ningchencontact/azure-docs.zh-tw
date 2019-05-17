@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 9f52d1b949310792ffedc6e4723fbfb423fb5dfc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 88e843c410a750387ecf58497dec79586e2a59d8
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928493"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523337"
 ---
-# <a name="tenant-and-host-pool-creation"></a>建立租用戶和主應用程式集區
+# <a name="tenant-and-host-pool-creation"></a>建立租用戶和主機集區
 
 本文章涵蓋的 Windows 虛擬桌面租用戶和相關的工作階段主應用程式集區的基礎結構的初始設定期間的問題。
 
@@ -300,7 +300,6 @@ The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d2
 
 ```PowerShell
 Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
-Set-RdsContext -Name <Windows Virtual Desktop tenant group name>
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName “RDS Contributor” -SignInName <UPN>
 ```
 
@@ -321,7 +320,7 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 如果您執行 Azure Marketplace 供應項目，提供正確驗證到 Windows 虛擬桌面的下列參數的值：
 
 - Windows 虛擬桌面租用戶 RDS 的擁有者：服務主體
-- 應用程式識別碼：建立新的服務主體的應用程式識別
+- 應用程式識別碼:建立新的服務主體的應用程式識別
 - 密碼/確認密碼：您產生服務主體的密碼祕密
 - Azure AD 租用戶識別碼：您所建立的服務主體的 Azure AD 租用戶識別碼
 

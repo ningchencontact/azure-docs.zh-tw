@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f29ab7b908184533885929040ca8eccf56cda92d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 06112361434a8217df6714a70d0059c175e98ac8
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464407"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521707"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>關於 Azure Active Directory 的常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -210,4 +210,4 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 - - -
 **問：是否可以設定與 Azure AD 之間的安全 LDAP 連線？**
 
-**答：** 沒有。 Azure AD 不支援輕量型目錄存取通訊協定 (LDAP) 通訊協定。 不過，就可以使用已正確設定的網路安全性群組，以透過 Azure 網路中的 Azure AD Domain Services (Azure AD DS)，來達成 LDAP 連線。 如需詳細資訊，請參閱 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap。
+**答：** 沒有。 Azure AD 不支援輕量型目錄存取通訊協定 (LDAP) 通訊協定或安全 LDAP 直接。 不過，就可以啟用 Azure AD 租用戶使用透過 Azure 網路來達成 LDAP 連線已正確設定的網路安全性群組上的 Azure AD Domain Services (Azure AD DS) 執行個體。 如需詳細資訊，請參閱 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap。

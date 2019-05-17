@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1a3382e560287502ae8afccae556bc5f56245904
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684137"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812955"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,15 +38,15 @@ ms.locfileid: "64684137"
 
 **TrustFrameworkPolicy** 元素包含下列屬性：
 
-| 屬性 | 必要項 | 描述 |
+| 屬性 | 必要項 | 說明 |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | 是 | 用來執行此原則的結構描述版本。 值必須是 `0.3.0.0` |
-| TenantObjectId | 否 | Azure Active Directory (Azure AD) B2C 租用戶的唯一物件識別碼。 |
-| TenantId | 是 | 此原則所屬之租用戶的唯一識別碼。 |
-| `PolicyId` | 是 | 原則的唯一識別碼。 此識別碼必須加上前置詞 *B2C_1A_* |
-| PublicPolicyUri | 是 | 原則的 URI，也就是租用戶識別碼和原則識別碼的組合。 |
-| DeploymentMode | 否 | 可能的值：`Production`、`Debugging` 或 `Development`。 `Production` 為預設值。 使用此屬性以偵錯您的原則。 如需詳細資訊，請參閱[收集記錄](active-directory-b2c-troubleshoot-custom.md)。 |
-| UserJourneyRecorderEndpoint | 否 | 當 **DeploymentMode** 設為 `Development` 時，可使用端點。 值必須是 `urn:journeyrecorder:applicationinsights`。 如需詳細資訊，請參閱[收集記錄](active-directory-b2c-troubleshoot-custom.md)。 |
+| PolicySchemaVersion | 有 | 用來執行此原則的結構描述版本。 值必須是 `0.3.0.0` |
+| TenantObjectId | 無 | Azure Active Directory (Azure AD) B2C 租用戶的唯一物件識別碼。 |
+| TenantId | 有 | 此原則所屬之租用戶的唯一識別碼。 |
+| `PolicyId` | 有 | 原則的唯一識別碼。 此識別碼必須加上前置詞 *B2C_1A_* |
+| PublicPolicyUri | 有 | 原則的 URI，也就是租用戶識別碼和原則識別碼的組合。 |
+| DeploymentMode | 無 | 可能的值：`Production`、`Debugging` 或 `Development`。 `Production` 為預設值。 使用此屬性以偵錯您的原則。 如需詳細資訊，請參閱[收集記錄](active-directory-b2c-troubleshoot-custom.md)。 |
+| UserJourneyRecorderEndpoint | 無 | 當 **DeploymentMode** 設為 `Development` 時，可使用端點。 值必須是 `urn:journeyrecorder:applicationinsights`。 如需詳細資訊，請參閱[收集記錄](active-directory-b2c-troubleshoot-custom.md)。 |
 
 
 下列範例顯示如何指定 **TrustFrameworkPolicy** 元素：
@@ -88,7 +88,7 @@ ms.locfileid: "64684137"
 
 **BasePolicy** 元素包含下列元素：
 
-| 元素 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 說明 |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Azure AD B2C 租用戶的識別碼。 |
 | `PolicyId` | 1:1 | 父代原則的識別碼。 |
@@ -116,7 +116,7 @@ ms.locfileid: "64684137"
 
 ## <a name="policy-execution"></a>原則執行
 
-信賴憑證者應用程式 (例如 Web、行動或桌面應用程式) 會呼叫[信賴憑證者 (RP) 原則](relyingparty.md)。 RP 原則檔會執行特定工作，例如登入、重設密碼或編輯設定檔。 RP 原則會設定信賴憑證者應用程式收到的宣告清單，做為已簽發之權杖的一部分。 多個應用程式可使用相同的原則。 所有應用程式都會透過宣告接收相同的權杖，而使用者會經歷相同的使用者旅程圖。 單一應用程式可使用多個原則。
+信賴憑證者應用程式 (例如 Web、行動或桌面應用程式) 會呼叫[信賴憑證者 (RP) 原則](relyingparty.md)。 RP 原則檔會執行特定工作，例如登入、重設密碼或編輯設定檔。 RP 原則會設定信賴憑證者應用程式收到的宣告清單，做為已簽發之權杖的一部分。 多個應用程式可使用相同的原則。 所有應用程式收到相同的權杖，利用宣告，而且使用者會經歷相同的使用者旅程圖。 單一應用程式可使用多個原則。
 
 在 RP 原則檔中，指定 **DefaultUserJourney** 元素，該元素指向 [UserJourney](userjourneys.md)。 通常是在基底或擴充原則中定義使用者旅程圖。
 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase 或 B2C_1A_TrustFrameworkExtensionPolicy：
 
 使用者旅程圖定義使用者經歷的商務邏輯。 每個使用者旅程圖都是一組協調流程步驟，依照驗證和資訊集合的順序，執行一系列動作。 
 
-[starter pack](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies)中的 **SocialAndLocalAccounts** 原則檔包含 SignUpOrSignIn、ProfileEdit、PasswordReset 使用者旅程圖。 您可以針對其他情況新增更多使用者旅程圖，例如變更電子郵件地址、連結和取消連結社交帳戶，或重設密碼。 
+[starter pack](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies)中的 **SocialAndLocalAccounts** 原則檔包含 SignUpOrSignIn、ProfileEdit、PasswordReset 使用者旅程圖。 您可以新增更多的使用者旅程圖，請在其他情況下，例如變更電子郵件地址或連結和取消連結的社交帳戶。 
 
 協調流程步驟可呼叫[技術設定檔](technicalprofiles.md)。 技術設定檔提供一個架構，其中包含與不同類型的對象進行通訊的內建機制。 例如，技術設定檔可以執行以下動作：
 
@@ -157,4 +157,3 @@ B2C_1A_TrustFrameWorkBase 或 B2C_1A_TrustFrameworkExtensionPolicy：
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [RelyingParty](relyingparty.md)
-

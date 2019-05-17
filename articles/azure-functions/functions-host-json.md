@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737177"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521385"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
@@ -35,7 +35,6 @@ ms.locfileid: "60737177"
 ## <a name="sample-hostjson-file"></a>範例 host.json 檔案
 
 下列範例 *host.json* 檔案已指定所有可能的選項。
-
 
 ```json
 {
@@ -82,7 +81,10 @@ ms.locfileid: "60737177"
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -112,7 +114,7 @@ ms.locfileid: "60737177"
 > [!NOTE]
 > 記錄取樣可能會造成一些執行不會顯示在 Application Insights 監視器刀鋒視窗。
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設值 | 說明 |
 |---------|---------|---------| 
 |isEnabled|true|啟用或停用取樣。| 
 |maxTelemetryItemsPerSecond|5|取樣的開始臨界值。| 
@@ -133,7 +135,7 @@ ms.locfileid: "60737177"
 
 傳回包含所有繫結特定設定 (例如 [http](#http) 和 [eventHub](#eventhub)) 之物件的屬性。
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>函數
 
 作业主机运行的函数列表。 空陣列表示已執行所有函式。 預定只能在[本機執行](functions-run-local.md)時使用。 在 Azure 的函数应用中，应改为按照[如何在 Azure Functions 中禁用函数](disable-function.md)中的步骤禁用特定函数，而不是使用此设置。
 
@@ -169,7 +171,7 @@ ms.locfileid: "60737177"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設值 | 說明 |
 |---------|---------|---------| 
 |enabled|true|指定是否已启用该功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
@@ -194,20 +196,23 @@ ms.locfileid: "60737177"
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設值 | 說明 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|定義已啟用何種檔案記錄層級。  選項為 `never`、`always`、`debugOnly`。 |
 |logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2.x 版會依循 ASP.NET Core 的記錄類別篩選配置。 這可讓您篩選特定函式的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
-|console|n/a| [主控台](#console)記錄設定。 |
+|主控台|n/a| [主控台](#console)記錄設定。 |
 |applicationInsights|n/a| [applicationInsights](#applicationinsights) 設定。 |
 
-## <a name="console"></a>console
+## <a name="console"></a>主控台
 
 此設定是 [logging](#logging) 的子系。 它會在非處於偵錯模式時控制主控台記錄。
 
@@ -223,7 +228,7 @@ ms.locfileid: "60737177"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設值 | 說明 |
 |---------|---------|---------| 
 |isEnabled|false|啟用或停用主控台記錄。| 
 
@@ -255,7 +260,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設值 | 說明 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|取得函式層級鎖定的期間。 鎖定會自動更新。| 
 |listenerLockPeriod|00:01:00|接聽程式鎖定所需的期間。| 
@@ -274,6 +279,18 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+受管理的相依性是預覽功能，目前僅支援使用 PowerShell 型的函式。 它可讓服務自動管理的相依性。 當已啟用的屬性設定為 true 時， [requirements.psd1](functions-reference-powershell.md#dependency-management)會處理檔案。 任何次要版本發行時，將會更新相依性。
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

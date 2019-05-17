@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c5c5f4c8125f801edc89d47851871d8eb06a2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591280"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518971"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>使用 Azure SQL VM CLI 來設定 Azure VM 上的 SQL Server Always On 可用性群組
 這篇文章說明如何使用[Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-latest/)部署在 Windows 容錯移轉叢集 (WSFC)，並將 SQL Server Vm 加入至叢集，以及建立內部負載平衡器和 Always On 可用性群組接聽程式。  Always On 可用性群組的實際的部署仍然是以手動方式透過 SQL Server Management Studio (SSMS)。 
@@ -42,7 +42,7 @@ ms.locfileid: "60591280"
 叢集需要儲存體帳戶做為雲端見證。 您可以使用任何現有的儲存體帳戶，或您可以建立新的儲存體帳戶。 如果您想要使用現有的儲存體帳戶，請直接跳到下一節。 
 
 下列程式碼片段會建立儲存體帳戶： 
-```azurecli
+```azurecli-interactive
 # Create the storage account
 # example: az storage account create -n 'cloudwitness' -g SQLVM-RG -l 'West US' `
 #  --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
@@ -58,7 +58,7 @@ az storage account create -n <name> -g <resource group name> -l <region ex:eastu
 Azure SQL VM CLI [az sql vm 群組](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest)群組管理的 Windows 容錯移轉叢集 (WSFC) 服務來裝載可用性群組的中繼資料的命令。 叢集中繼資料包含 AD 網域的叢集帳戶、 儲存體帳戶，以用來當做雲端見證和 SQL Server 版本。 使用[az sql vm 群組建立](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create)wsfc 定義之中繼資料，以便新增第一個 SQL Server VM 時，建立叢集時所定義。 
 
 下列程式碼片段會定義叢集的中繼資料：
-```azurecli
+```azurecli-interactive
 # Define the cluster metadata
 # example: az sql vm group create -n Cluster -l 'West US' -g SQLVM-RG `
 #  --image-offer SQL2017-WS2016 --image-sku Enterprise --domain-fqdn domain.com `
@@ -79,7 +79,7 @@ az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource grou
 
 下列程式碼片段會建立叢集，並將第一個 SQL Server VM: 
 
-```azurecli
+```azurecli-interactive
 # Add SQL Server VMs to cluster
 # example: az sql vm add-to-group -n SQLVM1 -g SQLVM-RG --sqlvm-group Cluster `
 #  -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
@@ -105,7 +105,7 @@ Always On 可用性群組 (AG) 接聽程式需要內部 Azure 負載平衡器 (I
 
 下列程式碼片段會建立內部負載平衡器：
 
-```azurecli
+```azurecli-interactive
 # Create the Internal Load Balancer
 # example: az network lb create --name sqlILB -g SQLVM-RG --sku Standard `
 # --vnet-name SQLVMvNet --subnet default
@@ -125,7 +125,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
    1. 瀏覽至您的資源群組中[Azure 入口網站](https://portal.azure.com)。 
    1. 選取 vNet 的資源。 
    1. 選取 **屬性**中**設定**窗格。 
-   1. 找出之 vNet 的資源識別碼，並附加`/subnets/<subnetname>`至結尾，以便在建立子網路的資源識別碼。 例如︰
+   1. 找出之 vNet 的資源識別碼，並附加`/subnets/<subnetname>`至結尾，以便在建立子網路的資源識別碼。 例如：
         - 我的 vNet 資源識別碼是： `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
         - 我的子網路名稱是`default`。
         - 因此，我的子網路的資源識別碼是： `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
@@ -133,7 +133,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
 
 下列程式碼片段會建立可用性群組接聽程式：
 
-```azurecli
+```azurecli-interactive
 # Create the AG listener
 # example: az sql vm group ag-listener create -n AGListener -g SQLVM-RG `
 #  --ag-name SQLAG --group-name Cluster --ip-address 10.0.0.27 `
@@ -157,7 +157,7 @@ az sql vm group ag-listener create -n <listener name> -g <resource group name> `
 若要加入新的複本至可用性群組，執行下列作業：
 
 1. 將 SQL Server VM 新增至叢集：
-   ```azurecli
+   ```azurecli-interactive
    # Add SQL Server VM to the Cluster
    # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
    # -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
@@ -167,7 +167,7 @@ az sql vm group ag-listener create -n <listener name> -g <resource group name> `
    ```
 1. 使用 SQL Server Management Studio (SSMS) 將 SQL Server 執行個體為可用性群組內的複本。
 1. 將 SQL Server VM 的中繼資料新增至接聽程式：
-   ```azurecli
+   ```azurecli-interactive
    # Update the listener metadata with the new VM
    # example: az sql vm group ag-listener update -n AGListener `
    # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
@@ -182,7 +182,7 @@ az sql vm group ag-listener create -n <listener name> -g <resource group name> `
 
 1. 從使用 SQL Server Management Studio (SSMS) 的可用性群組移除複本。 
 1. 移除接聽程式的 SQL Server VM 中繼資料：
-   ```azurecli
+   ```azurecli-interactive
    # Update the listener metadata by removing the VM from the SQLVMs list
    # example: az sql vm group ag-listener update -n AGListener `
    # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
@@ -191,7 +191,7 @@ az sql vm group ag-listener create -n <listener name> -g <resource group name> `
    -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs that remain>
    ```
 1. 從叢集移除 SQL Server VM:
-   ```azurecli
+   ```azurecli-interactive
    # Remove SQL VM from cluster
    # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
 
@@ -203,7 +203,7 @@ az sql vm group ag-listener create -n <listener name> -g <resource group name> `
 
 下列程式碼片段會同時從 SQL 資源提供者和您的可用性群組中刪除 SQL 可用性群組接聽程式： 
 
-```azurecli
+```azurecli-interactive
 # Remove the AG listener
 # example: az sql vm group ag-listener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
 

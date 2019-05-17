@@ -10,39 +10,39 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596593"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522215"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>適用於 VM 的 Azure 監視器 (預覽) 常見問題集
 此 Microsoft 常見問題集是適用於 VM 的 Azure 監視器常見問題清單。 若您有任何關於解決方案的其他問題，請前往[討論論壇](https://feedback.azure.com/forums/34192--general-feedback)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>我可以將現有的工作區上線嗎？
-如果您的虛擬機器已經連線到 Log Analytics 工作區，則您可以在上線到適用於 VM 的 Azure 監視器時繼續使用該工作區，但前提是它位於[此處](vminsights-onboard.md#prerequisites)所列的其中一個支援區域。
+如果您的虛擬機器已經連線到 Log Analytics 工作區，則您可以在上線到適用於 VM 的 Azure 監視器時繼續使用該工作區，但前提是它位於[此處](vminsights-enable-overview.md#prerequisites)所列的其中一個支援區域。
 
 上線時，我們會設定工作區的效能計數器，這將導致所有 VM 都會向工作區回報資料，開始收集此資訊，以便在適用於 VM 的 Azure 監視器中加以顯示和分析。  因此，您將會看到來自所有連線到所選工作區之 VM 的效能資料。  健康情況和對應功能只能針對您已指定來上線的 VM 加以啟用。
 
-如需要啟用哪些效能計數器的詳細資訊，請參閱我們的[上線](vminsights-onboard.md)文章。
+如已啟用的效能計數器的詳細資訊，請參閱我們[啟用概觀](vminsights-enable-overview.md#performance-counters-enabled)文章。
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>我可以上線到新的工作區嗎？ 
-如果您的 VM 目前並未連線到現有的 Log Analytics 工作區，您需要建立新的工作區來儲存資料。  如果您透過 Azure 入口網站為適用於 VM 的 Azure 監視器設定單一 Azure VM，建立新的預設工作區即會自動完成。
+如果您的 VM 目前並未連線到現有的 Log Analytics 工作區，您需要建立新的工作區來儲存資料。 如果您透過 Azure 入口網站為適用於 VM 的 Azure 監視器設定單一 Azure VM，建立新的預設工作區即會自動完成。
 
-如果您選擇使用指令碼型方法，則可在[上線](vminsights-onboard.md)文章中找到這些步驟。 
+如果您選擇要使用的指令碼為基礎的方法，這些步驟所述[啟用 Azure 監視器 （預覽） 的 vm 使用 Azure PowerShell 或 Resource Manager 範本](vminsights-enable-at-scale-powershell.md)文章。 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>如果我的 VM 已經向現有的工作區回報，我該怎麼做？
 如果您已經從虛擬機器收集資料，則您可能已經將它設為向現有的 Log Analytics 工作區回報資料。  只要該工作區位於我們支援的其中一個區域，您就可以針對該預先存在的工作區啟用適用於 VM 的 Azure 監視器。  如果您已經使用的工作區不在我們支援的其中一個區域，目前將無法上線到適用於 VM 的 Azure 監視器。  我們正積極努力地支援更多區域。
 
 >[!NOTE]
->我們會針對工作區設定效能計數器，其會影響要向該工作區回報的所有 VM，而不論您是否已選擇要將它們上線到適用於 VM 的 Azure 監視器。 如需如何針對工作區設定效能計數器的詳細資訊，請參閱我們的[文件](../../azure-monitor/platform/data-sources-performance-counters.md)。 如需針對適用於 VM 的 Azure 監視器所設定的計數器相關資訊，請參閱我們的[上線文件](vminsights-onboard.md#performance-counters-enabled)。  
+>我們會針對工作區設定效能計數器，其會影響要向該工作區回報的所有 VM，而不論您是否已選擇要將它們上線到適用於 VM 的 Azure 監視器。 如需如何針對工作區設定效能計數器的詳細資訊，請參閱我們的[文件](../../azure-monitor/platform/data-sources-performance-counters.md)。 如需針對 Vm 設定 Azure 監視的計數器資訊，請參閱我們[啟用 vm 的 Azure 監視器](vminsights-enable-overview.md#performance-counters-enabled)文章。  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>為什麼無法將我的 VM 上線？
 從 Azure 入口網站將 Azure VM 上線時，請執行下列步驟：
 
 * 如果已選取該選項，即會建立預設的 Log Analytics 工作區。
-* 已針對所選工作區設定效能計數器。 如果這個步驟失敗，您會注意到某些效能圖表和表格不會顯示您所上線之 VM 的資料。 您可以執行[此處](vminsights-onboard.md#enable-with-powershell)所述的 PowerShell 指令碼來修正此問題。
+* 已針對所選工作區設定效能計數器。 如果這個步驟失敗，您會注意到某些效能圖表和表格不會顯示您所上線之 VM 的資料。 您可以執行[此處](vminsights-enable-at-scale-powershell.md#enable-performance-counters)所述的 PowerShell 指令碼來修正此問題。
 * 如果決定需要使用 Log Analytics 代理程式，可使用 VM 延伸模組在 Azure VM 上進行安裝。  
 * 如果決定需要使用適用於 VM 的 Azure 監視器對應 Dependency Agent，可使用延伸模組在 Azure VM 上進行安裝。  
 * 視需要設定支援健康情況功能的 Azure 監視器元件，並設定 VM 來回報健康情況資料。
@@ -89,7 +89,7 @@ ms.locfileid: "60596593"
 為每個健全準則所定義的警示規則不會顯示於 Azure 入口網站中。 您只能在[工作負載監視 API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components) \(英文\) 中啟用或停用健康情況警示規則。 此外，您無法從 Azure 入口網站指派健康情況警示的 [Azure 監視器動作群組](../../azure-monitor/platform/action-groups.md)。 您只可以使用通知設定 API，設定在健康情況警示引發時所要觸發的動作群組。 目前，您可以針對 VM 指派動作群組，因此，對 VM 引發的所有「健康情況警示」會觸發相同的動作群組。 不同於傳統的 Azure 警示，每個健康情況警示規則均不具個別動作群組的概念。 此外，在觸發健康情況警示時，僅支援設定來提供電子郵件或簡訊通知的動作群組。 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>我在適用於 VM 的效能圖表中看不到部分或任何資料
-如果您在磁碟表格中或在某些效能圖表中看不到效能資料，則您可能未在工作區中設定效能計數器。 若要解決此問題，請執行下列 [PowerShell 指令碼](vminsights-onboard.md#enable-with-powershell)。
+如果您在磁碟表格中或在某些效能圖表中看不到效能資料，則您可能未在工作區中設定效能計數器。 若要解決此問題，請執行下列 [PowerShell 指令碼](vminsights-enable-at-scale-powershell.md#enable-with-powershell)。
 
 ## <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>適用於 VM 的 Azure 監視器對應功能與服務對應有何不同？
 適用於 VM 的 Azure 監視器對應功能會以服務對應為根據，但有下列差異：
@@ -138,4 +138,4 @@ ms.locfileid: "60596593"
 在此情況下，當您開啟 VM 並從左側窗格選取 [Insights (預覽)] 時 (即使它已安裝在 VM 上)，系統會以 [立即試用] 選項提示您。  不過，如果此 VM 並未在適用於 VM 的 Azure 監視器上線，就不會以通常會出現的選項提示您。 
 
 ## <a name="next-steps"></a>後續步驟
-檢閱[將適用於 VM 的 Azure 監視器上線](vminsights-onboard.md)，了解啟用虛擬機器監視的需求和方法。
+檢閱[啟用 Vm 的 Azure 監視器](vminsights-enable-overview.md)了解需求和方法，以監視您的虛擬機器。

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e70eb7ae73e88b37e649d519d0d0428554dd4ab3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3ddde600c2ac15c56b59051fbcd6bb0e8fbae1f6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467486"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787534"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 
@@ -86,11 +86,11 @@ ms.locfileid: "65467486"
 | `multiChartStack=false` | `true` 依預設會啟用因此傳遞`false`堆疊。 |
 | `multiChartStack=false&multiChartSameScale=true` | 必須啟用堆疊，才能在不同時段使用相同的 Y 軸刻度。  它有`false`根據預設，所以傳遞 'true'，可讓這項功能。 |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 單位 = 天、小時、分鐘、秒、毫秒。  單位一律大寫。 </br> 對 timeBucketSize 傳遞所需的整數，以定義單位數。  請注意，您最多可以平滑處理 7 天。  |
-| `timezoneOffset=-<integer>` | 整數一律以毫秒為單位。 </br> 請注意，這項功能與我們在 TSI 總管中啟用的功能稍有不同，在 TSI 總管中我們可讓您選擇本機 (瀏覽器時間) 或 UTC。 |
+| `timezoneOffset=-<integer>` | 整數一律以毫秒為單位。 </br> 請注意，這項功能會稍有不同於我們在時間序列深入解析總管中，我們可讓您選擇本機 （瀏覽器時間） 或 UTC 所啟用的。 |
 
 ### <a name="examples"></a>範例
 
-若要將時間序列定義新增至 TSI 環境做為 URL 參數，將附加：
+若要將時間序列定義新增至 Time Series Insights 環境做為 URL 參數，將附加：
 
 ```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -112,7 +112,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 > [!TIP]
 > 請參閱 [總管] 中即時[使用 URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}])。
 
-上述的 URL 會告訴您，並建置 TSI 總管檢視：
+上述的 URL 將告訴您，並建置時間序列深入解析總管檢視：
 
 [![時間序列深入解析總管字詞](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 

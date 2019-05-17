@@ -9,20 +9,32 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: 55c5a61be8dadd538b73bd6378c030b98d837341
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.custom: 80e4ff38-5174-43
+ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508205"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603405"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
 Azure Functions Core Tools 可讓您從命令提示字元或終端機，在本機電腦上開發及測試您的函式。 您的本機函式可以連線到即時 Azure 服務，而且您可以在本機電腦上使用完整的 Functions 執行階段進行您的函式偵錯。 您甚至可以將函式應用程式部署至您的 Azure 訂用帳戶。
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+開發您的本機電腦上的函式，然後發佈到 Azure 中使用的 Core Tools 會遵循下列基本步驟：
+
+> [!div class="checklist"]
+> * [安裝 Core Tools 和相依性。](#v2)
+> * [從語言特定的範本建立的函式應用程式專案。](#create-a-local-functions-project)
+> * [註冊觸發程序和繫結延伸模組。](#register-extensions)
+> * [定義儲存體和其他連接。](#local-settings-file)
+> * [建立函式，從觸發程序和特定語言的範本。](#create-func)
+> * [在本機執行函式](#start)
+> * [將專案發佈至 Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Core Tools 版本
 
@@ -41,9 +53,6 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 ### <a name="v2"></a>版本 2.x
 
 工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本，包括 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 您必須先安裝 .NET Core 2.x SDK。
-
-> [!IMPORTANT]
-> 當您啟用專案的 host.json 檔案中的延伸模組套件組合時，您不需要安裝.NET Core 2.x SDK。 如需詳細資訊，請參閱 <<c0> [ 本機開發與 Azure Functions Core Tools 與擴充功能的配套](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 延伸組合需要 Core Tools 2.6.1071 版或更新版本。
 
 #### <a name="windows-npm"></a>Windows
 
@@ -186,14 +195,20 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
 | 設定      | 說明                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | 设置为 `true` 时，使用本地计算机密钥加密所有值。 需搭配 `func settings` 命令使用。 預設值為 `true`。 當`true`，使用新增的所有設定`func settings add`會使用本機電腦金鑰加密。 這會反映函式應用程式設定儲存在 Azure 中的應用程式設定的方式。 加密的本機設定值提供額外保護寶貴的資料應該 local.settings.json 公開。  |
+| **`IsEncrypted`** | 设置为 `true` 时，使用本地计算机密钥加密所有值。 需搭配 `func settings` 命令使用。 預設值為 `false`。 |
 | **`Values`** | 於本機執行時使用的應用程式設定集合與連接字串。 这些值对应于 Azure 中你的函数应用中的应用设置，例如 [`AzureWebJobsStorage`]。 许多触发器和绑定都有一个引用连接字符串应用设置的属性，例如 [Blob 存储触发器](functions-bindings-storage-blob.md#trigger---configuration)的 `Connection`。 对于此类属性，你需要一个在 `Values` 数组中定义的应用程序设置。 <br/>对于 HTTP 之外的触发器，[`AzureWebJobsStorage`] 是一个必需的应用设置。 <br/>2.x 版的 Functions 运行时需要 [`FUNCTIONS_WORKER_RUNTIME`] 设置，该设置是由 Core Tools 为项目生成的。 <br/> 在本地安装 [Azure 存储模拟器](../storage/common/storage-use-emulator.md)后，可以将 [`AzureWebJobsStorage`] 设置为 `UseDevelopmentStorage=true`，以便 Core Tools 使用此模拟器。 此功能在開發期間非常實用，但您應在部署前先透過實際的儲存體連接進行測試。 |
 | **`Host`** | 此區段中的設定能自訂於本機執行的 Functions 主機處理序。 |
 | **`LocalHttpPort`** | 設定於執行本機 Functions 主機 (`func host start` 和 `func run`) 時所使用的預設連接埠。 `--port` 命令列選項的優先順序高於此值。 |
 | **`CORS`** | 定義針對[跨來源資源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 所允許的來源。 來源是以不含空格的逗號分隔清單提供。 支援萬用字元值 (\*)，它允許來自任何來源的要求。 |
 | **`ConnectionStrings`** | 請勿將此集合用於您函式繫結所使用的連接字串。 此集合仅供通常从配置文件的 `ConnectionStrings` 节获取连接字符串的框架使用，例如[实体框架](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此物件中的連接字串會新增至具有 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 提供者類型的環境。 此集合中的項目不會發佈至具備其他應用程式設定的 Azure。 必须将这些值显式添加到函数应用设置的 `Connection strings` 集合中。 如果要在函数代码中创建 [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)，则应将连接字符串值与其他连接一起存储在门户的“应用程序设置”中。 |
 
-[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+這些函數應用程式設定值在您的程式碼中也可以做為環境變數加以讀取。 如需詳細資訊，請參閱這些特定語言參考主題的「環境變數」章節：
+
+* [先行編譯 C#](functions-dotnet-class-library.md#environment-variables)
+* [C# 指令碼 (.csx)](functions-reference-csharp.md#environment-variables)
+* [F# 指令碼 (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
 如果没有为 [`AzureWebJobsStorage`] 设置有效的存储连接字符串并且没有使用模拟器，则会显示以下错误消息：
 
@@ -307,7 +322,6 @@ func host start
 | **`--script-root --prefix`** | 用來為要執行或部署的函式應用程式指定根目錄的路徑。 此選項可用於在子資料夾中產生專案檔的編譯專案。 例如，當您建置 C# 類別庫專案時，將會以類似於 `MyProject/bin/Debug/netstandard2.0` 的路徑在 *root* 子資料夾中產生 host.json、local.settings.json 和 function.json 等檔案。 在此情況下，請將前置詞設為 `--script-root MyProject/bin/Debug/netstandard2.0`。 這是函式應用程式在 Azure 中執行時的根目錄。 |
 | **`--timeout -t`** | Functions 主機要啟動的逾時 (以秒為單位)。 預設值：20 秒。|
 | **`--useHttps`** | 繫結至 `https://localhost:{port}` 而不是 `http://localhost:{port}` 。 根據預設，此選項會在您的電腦上建立受信任的憑證。|
-| **`--enableAuth`** | 啟用處理管線的完整驗證。|
 
 針對 C# 類別庫專案 (.csproj)，您必須包含 `--build` 選項才能產生程式庫 .dll。
 
@@ -440,7 +454,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--list-included-files`** | 顯示要發佈的檔案清單，以 .funcignore 檔案為準。 |
 | **`--nozip`** | 關閉預設 `Run-From-Zip` 模式。 |
 | **`--build-native-deps`** | 發行 python 函式應用程式時，略過產生 .wheels 資料夾。 |
-| **`--additional-packages`** | 建置原生相依性時將安裝的套件清單。 例如： `python3-dev libevent-dev`。 |
+| **`--additional-packages`** | 建置原生相依性時將安裝的套件清單。 例如： `python3-dev libevent-dev` 。 |
 | **`--force`** | 在設定情況下忽略發佈前驗證。 |
 | **`--csx`** | 發佈 C# 指令碼 (.csx) 專案。 |
 | **`--no-build`** | 略過建置 dotnet 函式的作業。 |
@@ -474,7 +488,6 @@ func deploy
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 若要深入了解，請參閱[監視 Azure Functions](functions-monitoring.md)。
-
 ## <a name="next-steps"></a>後續步驟
 
 Azure Functions Core Tools 是[開放原始碼且裝載於 GitHub 上](https://github.com/azure/azure-functions-cli)。  

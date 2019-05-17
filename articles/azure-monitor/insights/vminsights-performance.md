@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2019
+ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61385878"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522096"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>如何使用適用於 VM 的 Azure 監視器 (預覽) 來繪製效能圖表
 適用於 VM 的 Azure 監視器包含一組以關鍵效能指標 (KPI) 為目標的效能圖表，可協助您判斷虛擬機器的執行狀況。 那些圖表會顯示一段時間的資源使用率，讓您能夠找出瓶頸、異常狀況，或切換至列出每部機器的檢視方塊，以根據所選計量來檢視資源使用率。 雖然在處理效能時要考量許多元素，不過適用於 VM 的 Azure 監視器著重於監視與處理器、記憶體、網路介面卡和磁碟使用率相關的主要作業系統指標。 效能可彌補健康狀態監視功能，並有助於揭示可能導致系統元件故障的問題、支援調整和最佳化以實現效率，或支援容量規劃。  
@@ -105,6 +105,21 @@ ms.locfileid: "61385878"
 按一下任一圖表的針腳右上角的釘選圖示選取的圖表，到最後一個的 Azure 儀表板檢視。 從儀表板，您可以調整大小，並調整圖表的位置。 從儀表板中選取圖表會將您導向 Azure 監視器的 Vm，並載入 VM 的效能詳細資料檢視。  
 
 ![直接從 VM 檢視查看 VM insights 效能](./media/vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="view-performance-directly-from-an-azure-virtual-machine-scale-set"></a>直接從 Azure 虛擬機器擴展集的檢視效能
+若要存取此選項，直接從 Azure 虛擬機器擴展集，執行下列步驟。
+
+1. 在 Azure 入口網站中，選取**虛擬機器擴展集**。
+2. 從清單中，選擇 [VM 和在**監視**區段中選擇**Insights （預覽）** 若要檢視**效能**] 索引標籤。
+
+此頁面會載入 Azure 監視器的效能檢視中，範圍設定為所選的擴展集。 這可讓您查看前 n 個執行個體，在擴展集中的一組受監視的計量、 檢視彙總效能跨擴展集，並查看所選計量的趨勢的個別執行個體 n 跨擴展集。 從清單檢視中選取執行個體，可讓您載入它的對應，或瀏覽至該執行個體的詳細的效能檢視。
+
+按一下任一圖表的針腳右上角的釘選圖示選取的圖表，到最後一個的 Azure 儀表板檢視。 從儀表板，您可以調整大小，並調整圖表的位置。 從儀表板中選取圖表會將您導向 Azure 監視器的 Vm，並載入 VM 的效能詳細資料檢視。  
+
+![VM insights 效能直接從虛擬機器擴展集檢視](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+
+>[!NOTE]
+>您也可以存取執行個體檢視中的特定執行個體的詳細的效能檢視擴展集。 瀏覽至**執行個體**下方**設定**區段，然後選擇**Insights （預覽）**。
 
 ## <a name="alerts"></a>警示  
 啟用作為「適用於 VM 的 Azure 監視器」一部分的效能計量不會包含預先設定的警示規則。 有[健康情況警示](vminsights-health.md#alerts)對應至您的 Azure VM 上偵測到的效能問題，例如 CPU 使用率過高，記憶體不足的可用性、 低磁碟空間，等等。不過，這些健康情況警示僅適用於 Azure 監視器啟用 vm 的所有 Vm。 

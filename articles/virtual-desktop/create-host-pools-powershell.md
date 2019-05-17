@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8e6783bb56f55949824e4ce94c85145f53dd9f4b
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236670"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523964"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>使用 PowerShell 建立主機集區
 
@@ -26,12 +26,6 @@ ms.locfileid: "65236670"
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
-```
-
-之後，執行下列 cmdlet 來設定您的租用戶群組的內容。 如果您還沒有租用戶群組的名稱，您的租用戶是在 「 預設租用戶群組中，「 最有可能因此您可以略過這個指令程式。
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 接下來，執行這個指令程式可在您的 Windows 虛擬桌面租用戶中建立新的主應用程式集區：

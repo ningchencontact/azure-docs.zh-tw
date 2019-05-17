@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596758"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518765"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>探索及評定大型 VMware 環境
 
@@ -52,15 +52,15 @@ Azure Migrate 需要存取 VMware 伺服器，才能自動探索 VM 以進行評
 在進行單次探索 (現在已被取代) 時，探索能以「射後不理」(Fire and Forget) 模式運作；一旦探索完成後，您可以使用相同收集器從不同的 vCenter Server 收集資料，或將資料傳送到不同的移轉專案。
 
 > [!NOTE]
-> 一次性探索設備現在已被取代，因為這個方法依賴 vCenter Server 的統計資料設定來取得效能資料點可用性，而且收集到的平均效能計數器會導致 VM 大小不足，而無法遷移至 Azure。 建議您移至單次探索設備。
+> 一次性探索設備現在已被取代，因為這個方法依賴 vCenter Server 的統計資料設定來取得效能資料點可用性，而且收集到的平均效能計數器會導致 VM 大小不足，而無法遷移至 Azure。 建議您移至持續探索設備。
 
 根據下列限制來規劃探索和評定：
 
 | **實體** | **機器限制** |
 | ---------- | ----------------- |
-| 隨附此逐步解說的專案    | 1,500             |
+| 專案    | 1,500             |
 | 探索  | 1,500             |
-| 評量 | 1,500             |
+| 評定 | 1,500             |
 
 請記住下列規劃考量：
 
