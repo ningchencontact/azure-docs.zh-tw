@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: fc95ce4aad4e8597b02b9c862be33bfcf6185541
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 12565d2b8004a5119add25473e5b088c9162035f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073794"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780488"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中安裝和使用 Istio
 
@@ -40,7 +40,7 @@ ms.locfileid: "65073794"
 
 這篇文章中詳述的步驟假設您已建立 AKS 叢集 (Kubernetes`1.11`和更新版本，使用 RBAC 啟用)，並已建立`kubectl`與叢集的連線。 如果您需要前述任何方面的協助，請參閱 [AKS 快速入門][aks-quickstart]。
 
-您將需要[Helm] [ helm]遵循這些指示，並安裝 Istio。 建議您有版本`2.12.2`或更新版本正確安裝並設定您的叢集中。 如果您需要安裝 Helm 的協助，則會看到[AKS Helm 安裝的指導][helm-install]。 所有 Istio pod，則也必須都排程在 Linux 節點上執行。
+您將需要[Helm] [ helm]遵循這些指示，並安裝 Istio。 建議您有版本`2.12.2`或更新版本正確安裝並設定您的叢集中。 如果您需要安裝 Helm 的協助，則會看到[AKS Helm 安裝的指導][helm-install]。
 
 本文將 Istio 安裝指引分成數個獨立的步驟。 最終結果的結構與官方的 Istio 安裝[指引][istio-install-helm]相同。
 
@@ -337,9 +337,6 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 
 `istio` Helm 圖表部署大量的物件。 您可以看到的輸出清單您`helm install`上述命令。 Istio 元件部署可能需要 4 到 5 分鐘的時間才能完成，取決於您的叢集環境。
 
-> [!NOTE]
-> 在排程所有 Istio pod 時，必須在 Linux 節點上執行。 如果您除了 Linux 節點集區中有 Windows Server 的節點集區，在叢集上，確認所有 Istio pod，已都排程在 Linux 節點上執行。
-
 此時，您已部署 Istio 至您的 AKS 叢集。 若要確保我們有 Istio 成功部署，讓我們移至下一節[驗證 Istio 安裝](#validate-the-istio-installation)。
 
 ## <a name="validate-the-istio-installation"></a>驗證 Istio 安裝
@@ -536,6 +533,9 @@ kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete
 
 您也可以使用 [Istio Bookinfo 應用程式範例][istio-bookinfo-example]來跟隨其他案例。
 
+若要了解如何監視使用 Application Insights 和 Istio AKS 應用程式，請參閱下列 Azure 監視器文件：
+- [Kubernetes 零檢測應用程式監視裝載之應用程式][app-insights]
+
 <!-- LINKS - external -->
 [istio]: https://istio.io
 [helm]: https://helm.sh
@@ -561,6 +561,8 @@ kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete
 [prometheus]: https://prometheus.io/
 [jaeger]: https://www.jaegertracing.io/
 [kiali]: https://www.kiali.io/
+
+[app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/kubernetes
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

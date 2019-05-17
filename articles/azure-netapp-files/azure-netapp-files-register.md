@@ -1,6 +1,6 @@
 ---
 title: 註冊 Azure NetApp Files | Microsoft Docs
-description: 說明如何提交在 Azure NetApp Files 服務中進行註冊的要求。
+description: 描述如何使用 Azure NetApp 檔案註冊。
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,25 +12,39 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/04/2018
+ms.date: 05/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 86c016a5dbcc0d78378e59bc6b3606ddf2c54f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbe0b82008d7b15332c4e2cd62c49c611f20fe89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452756"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794702"
 ---
 # <a name="register-for-azure-netapp-files"></a>註冊 Azure NetApp Files
-在使用 Azure NetApp Files 之前，您必須先提交在 Azure NetApp Files 服務中進行註冊的要求。  註冊之後，您即可註冊使用服務。
 
-## <a name="request-to-enroll-in-the-service"></a>要求在服務中註冊
-您必須加入「公開預覽計畫」，並列入可存取 Microsoft.NetApp Azure 資源提供者的允許清單中。 如需有關加入「公開預覽」方案的詳細資訊，請參閱 [Azure NetApp Files 公開預覽註冊頁面](https://aka.ms/nfspublicpreview)。 
+> [!IMPORTANT] 
+> 再註冊 Azure NetApp 檔案資源提供者，您一定會收到一封電子郵件確認您已獲得服務的存取權的 Azure NetApp 檔案小組。 
 
+在這篇文章，了解如何註冊 Azure NetApp 檔案，以便您可以開始使用服務。
 
-## <a name="register-the-netapp-resource-provider"></a>註冊 NetApp 資源提供者
+## <a name="waitlist"></a>提交的等候清單要求存取服務
 
-若要使用服務，您必須註冊 Azure NetApp Files 的 Azure 資源提供者。 
+1. 用於存取 Azure NetApp 檔案服務透過等候清單要求提交[Azure NetApp 檔案等候清單提交頁面](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u)。 
+
+    等候清單註冊並不保證立即服務存取。 
+
+2. 與其他工作繼續之前，以等候來自 Azure NetApp 檔案團隊的官方的確認電子郵件。 
+
+## <a name="resource-provider"></a>註冊 NetApp 資源提供者
+
+若要使用服務，您必須註冊 Azure NetApp Files 的 Azure 資源提供者。
+
+> [!NOTE] 
+> 您將能夠成功註冊 NetApp 資源提供者，即使沒有被授與存取服務。 不過，存取授權，而任何的 Azure 入口網站或建立 NetApp 帳戶或任何其他 Azure NetApp 檔案資源的 API 要求將會遭到拒絕，發生下列錯誤：  
+>
+> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
+
 
 1. 在 Azure 入口網站中，按一下右上角的 Azure Cloud Shell 圖示：
 
@@ -50,6 +64,8 @@ ms.locfileid: "60452756"
        "name": "Microsoft.NetApp/publicPreviewADC" 
        
    `<SubID>` 是您的訂用帳戶識別碼。
+
+    如果您看不到功能名稱`Microsoft.NetApp/publicPreviewADC`，您沒有服務的存取權。 在此步驟中停止。 遵循指示[提交存取服務的等候清單要求](#waitlist)要求服務存取，然後再繼續。 
 
 4. 在 Azure Cloud Shell 中輸入下列命令，以註冊 Azure 資源提供者： 
     
@@ -78,6 +94,6 @@ ms.locfileid: "60452756"
       ![已註冊的 Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
 
-## <a name="next-steps"></a>後續步驟  
+## <a name="next-steps"></a>後續步驟
 
 [建立 NetApp 帳戶](azure-netapp-files-create-netapp-account.md)

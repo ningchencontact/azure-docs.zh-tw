@@ -3,8 +3,8 @@ title: 如何辨識委派與應用程式權限之間的差異 | Microsoft Docs
 description: 了解委派與應用程式權限、用戶端如何使用它們，以及如何由您搭配 Azure AD 開發之應用程式的資源來公開
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90f24d787c09de99f076d1edffabb3dbbbe19a57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87eca33e43777504d395f72eaa87aedc464ea355
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299833"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540341"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>如何辨識委派與應用程式權限之間的差異
 
-## <a name="recommended-documents"></a>建議的文件
+## <a name="recommended-documents"></a>建議文件
 
 - 深入了解用戶端應用程式如何使用[委派與應用程式權限要求](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions)來存取資源。
 - 查看有關如何[設定用戶端應用程式的權限要求](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)的逐步指示。

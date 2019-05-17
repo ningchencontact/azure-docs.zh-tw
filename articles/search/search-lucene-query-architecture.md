@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cb8e42400847ba9fb13568d05dffac86d9cec85f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024627"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797488"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>全文檢索搜尋如何在 Azure 搜尋服務中運作
 
@@ -281,7 +281,7 @@ Spacious,||air-condition*+"Ocean view"
 | north | 2
 | ocean | 1, 2, 3
 | of | 2
-| on |2
+| 於 |2
 | quiet | 4
 | rooms  | 1, 3
 | secluded | 4
@@ -291,7 +291,7 @@ Spacious,||air-condition*+"Ocean view"
 | to | 1
 | view | 1, 2, 3
 | walking | 1
-| 取代為 | 3
+| 根據 | 3
 
 
 **比對查詢詞彙與索引的詞彙**
@@ -392,8 +392,6 @@ Azure 搜尋服務中的所有索引會自動分成多個分區，讓我們可�
 + 了解如何套用[特定語言的語彙分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)。
 
 + [設定自訂分析器](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)以進行最少的處理，或是在特定欄位上進行特殊的處理。
-
-+ 在這個示範網站上同時[比較標準和英文分析器](https://alice.unearth.ai/)。 
 
 ## <a name="see-also"></a>請參閱
 

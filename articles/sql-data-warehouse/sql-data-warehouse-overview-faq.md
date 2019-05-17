@@ -2,20 +2,20 @@
 title: Azure SQL 資料倉儲常見問題集 | Microsoft Docs
 description: 此文章列出客戶和開發人員針對 Azure SQL 資料倉儲的常見問題集
 services: sql-data-warehouse
-author: acomet
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: acomet
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 596ed857b39cf106ed2e37ad81c5fe9e939cca61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c16d95ea15fc358cb81b17b42570cb35f2e8c52d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747603"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795557"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 資料倉儲常見問題集
 
@@ -31,7 +31,7 @@ A. 請造訪 [Microsoft 合規性 (英文)]頁面，依產品取得不同的合�
 
 問： 可以連接 PowerBI 嗎？
 
-A. 可以！ 雖然 PowerBI 針對 SQL DW 支援直接查詢，但它並不適用於具有大量使用者或即時資料的情況。 針對 PowerBI 的生產用途，建議您在 Azure Analysis Services 或 Analysis Service IaaS 之上使用 PowerBI。 
+A. 是! 雖然 PowerBI 針對 SQL DW 支援直接查詢，但它並不適用於具有大量使用者或即時資料的情況。 針對 PowerBI 的生產用途，建議您在 Azure Analysis Services 或 Analysis Service IaaS 之上使用 PowerBI。 
 
 問： SQL 資料倉儲的容量限制為何？
 

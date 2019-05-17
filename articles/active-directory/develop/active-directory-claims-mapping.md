@@ -2,23 +2,23 @@
 title: 為 Azure AD 租用戶中特定應用程式的權杖，自訂發出的宣告 (公開預覽)
 description: 此頁面說明 Azure Active Directory 宣告對應。
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300473"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546194"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>作法：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
 
@@ -44,7 +44,7 @@ ms.locfileid: "60300473"
 
 有些宣告集界定了自己在權杖中的使用方式和使用時機。
 
-| 宣告集 | 描述 |
+| 宣告集 | 說明 |
 |---|---|
 | 核心宣告集 | 無論原則為何，都存在於每個權杖中。 這些宣告也都將被視為受限制的宣告，無法予以修改。 |
 | 基本宣告集 | 包含會根據預設向權杖發出的宣告 (除了核心宣告集以外)。 您可以使用宣告對應原則，省略或修改基本宣告。 |
@@ -156,10 +156,10 @@ ms.locfileid: "60300473"
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| resource |
+| 資源 |
 | role |
 | 角色 |
-| scope |
+| 範圍 |
 | scp |
 | sid |
 | signature |
@@ -284,7 +284,7 @@ ms.locfileid: "60300473"
 
 #### <a name="table-3-valid-id-values-per-source"></a>表 3：每個來源的有效識別碼值
 
-| 來源 | ID | 描述 |
+| `Source` | ID | 說明 |
 |-----|-----|-----|
 | 使用者 | surname | 姓氏 |
 | 使用者 | givenname | 名字 |
@@ -358,7 +358,7 @@ ms.locfileid: "60300473"
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>表 4：轉換方法和預期的輸入和輸出
 
-|TransformationMethod|預期的輸入|預期的輸出|描述|
+|TransformationMethod|預期的輸入|預期的輸出|說明|
 |-----|-----|-----|-----|
 |联接|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|擷取電子郵件地址的本機部分。 例如：mail:"foo@bar.com" 會導致 outputClaim:"foo"。 如果沒有 \@ 符號，原始輸入字串會以現狀傳回。|
@@ -384,7 +384,7 @@ ms.locfileid: "60300473"
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>表 5：允許作為 SAML NameID 資料來源的屬性
 
-|來源|ID|描述|
+|`Source`|ID|說明|
 |-----|-----|-----|
 | 使用者 | mail|電子郵件地址|
 | 使用者 | userprincipalname|使用者主體名稱|
@@ -411,7 +411,7 @@ ms.locfileid: "60300473"
 | TransformationMethod | 限制 |
 | ----- | ----- |
 | ExtractMailPrefix | None |
-| Join | 所聯結的尾碼必須是資源租用戶的已驗證網域。 |
+| 加入 | 所聯結的尾碼必須是資源租用戶的已驗證網域。 |
 
 ### <a name="custom-signing-key"></a>自訂簽署金鑰
 

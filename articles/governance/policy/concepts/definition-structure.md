@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506698"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779298"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -238,7 +238,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 使用 **like** 和 **notLike** 條件時，您可以在值中提供 `*` 萬用字元。
 值不應包含多個 `*` 萬用字元。
 
-使用 **match** 和 **notMatch** 條件時，請提供 `#` 來比對數字、`?` 來比對字母、`.` 來比對所有字元，以及任何其他字元來比對該實際字元。
+使用時**符合**並**notMatch**條件時，提供`#`來比對是數字，`?`的字母，`.`來比對任何字元和任何其他字元來比對該實際字元。
 **match** 和 **notMatch** 都會區分大小寫。 不會區分大小寫的替代項目，可在 **matchInsensitively** 和 **notMatchInsensitively** 中取得。 如需範例，請參閱[允許數個名稱模式](../samples/allow-multiple-name-patterns.md)。
 
 ### <a name="fields"></a>欄位

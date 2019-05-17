@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703268"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791504"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的單一和集區資料庫
 
@@ -127,7 +127,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>我會透過哪個連接埠連接到 SQL Database
 
-連接埠 1433。 SQL Database 會透過此連接埠來通訊。 若要從公司網路內連接，您必須在組織的防火牆設定中新增輸出規則。 一般來說，請避免公開超出 Azure 界限的連接埠 1433。 您可以使用 [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps) 在 Azure 中執行 SSMS。 這麼一來，您不需要開放連接埠 1433 的連出連線，IP 是靜態的，所以可以只對 RemoteApp 開放資料庫，並且可支援多重要素驗證 (MFA)。
+連接埠 1433。 SQL Database 會透過此連接埠來通訊。 若要從公司網路內連接，您必須在組織的防火牆設定中新增輸出規則。 一般來說，請避免公開超出 Azure 界限的連接埠 1433。
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>如何監視和管理我的伺服器和 SQL Database 中資料庫上的活動
 

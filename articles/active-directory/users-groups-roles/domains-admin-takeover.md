@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472420"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780529"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 
@@ -37,7 +37,7 @@ ms.locfileid: "60472420"
 
 有些包含 SharePoint 和 OneDrive 的產品 (例如 Office 365) 並不支援外部接管。 如果您的情況與此相符，或如果您是管理員，而想要接管使用自助式註冊之使用者所建立的非受控或「影子」租用戶，則您可以藉由內部管理員接管來執行此操作。
 
-1. 透過以 Power BI 之類的工具進行註冊，在非受控租用戶中建立使用者內容。 為了便於範例說明，這些步驟會假設該路徑。
+1. 在受管理的租用戶透過註冊 Power BI 中建立的使用者內容。 為了便於範例說明，這些步驟會假設該路徑。
 
 2. 開啟 [Power BI 網站](https://powerbi.com)，然後選取 [免費開始]。 輸入使用組織網域名稱的使用者帳戶，例如 `admin@fourthcoffee.xyz`。 輸入驗證碼之後，請查看您的電子郵件是否有確認碼。
 
@@ -82,7 +82,7 @@ ms.locfileid: "60472420"
 當您驗證網域名稱的擁有權時，Azure AD 會將網域名稱從非受控租用戶中移除，然後移至您現有的租用戶。 非受控目錄之外部管理員接管所需的 DNS TXT 驗證程序與內部管理員接管相同。 差異在於下列項目也會隨著網域名稱一起移過去：
 
 - 使用者
-- 訂用帳戶
+- Subscriptions
 - 授權指派
 
 ### <a name="support-for-external-admin-takeover"></a>對外部管理員接管的支援
@@ -153,7 +153,7 @@ Cmdlet | 使用量
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. 複製從此命令傳回的值 (挑戰)。 例如︰
+4. 複製從此命令傳回的值 (挑戰)。 例如：
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -164,7 +164,7 @@ Cmdlet | 使用量
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
-   例如︰
+   例如：
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

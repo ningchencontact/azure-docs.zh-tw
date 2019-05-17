@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4a4677b5db730001df75d201d8e6d3149cb928e6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0418d325f3b3719549181a48fc0432a677f695d5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409851"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795895"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 作業安全性最佳做法
 本文提供一組作業的最佳作法，來保護您的資料、 應用程式和在 Azure 中的其他資產。
@@ -153,7 +153,7 @@ Azure 作業安全性是指使用者可在 Azure 中用來保護其資料、應�
 **詳細資料**：[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) \(英文\) 是用於自動化多階段部署及管理發行程序的解決方案。 建立受控持續部署管線以快速、輕鬆且經常發行。 您可以使用 Azure Pipelines，將發行程序自動化，而且可以擁有預先定義的核准工作流程。 在內部部署及部署至雲端、擴充，並視需要自訂。
 
 **最佳做法**：在您啟動應用程式或將更新部署至生產環境之前，請先檢查該應用程式的效能。  
-**詳細資料**：執行雲端[負載測試](https://docs.microsoft.com/azure/devops/test/load-test/overview.md?view=azure-devops#alternatives)來：
+**詳細資料**：執行雲端[負載測試](/azure/devops/test/load-test/overview#alternatives)來：
 
 - 尋找您應用程式中的效能問題。
 - 提升部署品質。

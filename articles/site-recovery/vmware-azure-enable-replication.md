@@ -3,15 +3,15 @@ title: 啟用 VMware Vm 複寫至 Azure Site Recovery 與 Azure 的災害復原 
 description: 本文說明如何使用 Azure Site Recovery 將 VMware Vm 啟用複寫至 Azure 的災害復原。
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 4/18/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922706"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540773"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 
@@ -43,16 +43,17 @@ ms.locfileid: "60922706"
 * 只有透過 Representational State Transfer (REST) API 和 Powershell 使用新的虛擬機器的儲存體帳戶的複寫。 使用 Azure REST API 2016-08-10 或 2018年-01-10 版本複寫到儲存體帳戶。
 
 1. 移至**步驟 2:** 複寫應用程式 > 來源。 為第一次啟用複寫之後，請選取 **+ 複寫**保存庫啟用額外的虛擬機器的複寫中。
-1. 在 [來源] 頁面 > [來源] 中，選取組態伺服器。
-1. 針對**機器類型**，選取**虛擬機器**或是**實體機器**。
-1. 在 [vCenter/vSphere Hypervisor] 中，選取管理 vSphere 主機的 vCenter 伺服器，或選取主機。 此設定不相關，如果您複寫實體電腦。
-1. 選取處理序伺服器，會設定伺服器，如果您尚未建立任何額外的處理序伺服器。 然後選取 [確定]。
+2. 在 [來源] 頁面 > [來源] 中，選取組態伺服器。
+3. 針對**機器類型**，選取**虛擬機器**或是**實體機器**。
+4. 在 [vCenter/vSphere Hypervisor] 中，選取管理 vSphere 主機的 vCenter 伺服器，或選取主機。 此設定不相關，如果您複寫實體電腦。
+5. 選取處理序伺服器。 如果不沒有建立任何額外的處理序伺服器，組態伺服器的內建的處理序伺服器可在下拉式清單中。 每個處理序伺服器的健全狀況狀態會顯示根據建議的限制和其他參數。 選擇 狀況良好的處理序伺服器。 A[重要](vmware-physical-azure-monitor-process-server.md#process-server-alerts)無法選擇處理序伺服器。 您可以[疑難排解及解決](vmware-physical-azure-troubleshoot-process-server.md)錯誤**或是**設定[向外延展處理序伺服器](vmware-azure-set-up-process-server-scale.md)。
+    ![啟用複寫來源視窗](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![啟用複寫來源視窗](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> 從[9.24 版本](service-updates-how-to.md#links-to-currently-supported-update-rollups)，以增強的處理序伺服器的健康情況警示導入其他警示。 升級所有警示，以便產生 9.24 版本或更新版本的 Site Recovery 元件。
 
-1. 針對**目標**，選取您想要用來建立容錯移轉虛擬機器的訂用帳戶和資源群組。 選擇您想要在 Azure 中用於容錯移轉 Vm 的部署模型。
-
-1. 選取 Azure 網路和 Azure Vm 在容錯移轉之後，將會連接到的子網路。 網路必須位於與 Site Recovery 服務保存庫相同的區域。
+6. 針對**目標**，選取您想要用來建立容錯移轉虛擬機器的訂用帳戶和資源群組。 選擇您想要在 Azure 中用於容錯移轉 Vm 的部署模型。
+2. 選取 Azure 網路和 Azure Vm 在容錯移轉之後，將會連接到的子網路。 網路必須位於與 Site Recovery 服務保存庫相同的區域。
 
    選取 **立即設定選取的機器**將網路設定套用到您選定要提供保護的所有虛擬機器。 選取 **稍後再設定**以選取每個虛擬機器的 Azure 網路。 如果您沒有網路，則必須建立一個。 若要使用 Azure Resource Manager 建立網路，請選取**新建**。 選取的子網路，如果適用的話，，然後選取**確定**。
    
@@ -91,7 +92,7 @@ ms.locfileid: "60922706"
     * Azure VM 名稱：如有必要，請修改以符合 Azure 需求，名稱。
     * 目標 VM 大小或 VM 類型：預設 VM 大小會選擇根據目標 Azure 區域中包含的磁碟計數、 NIC 計數、 CPU 核心計數、 記憶體和可用的 VM 角色大小的幾個參數。 Azure Site Recovery 會挑選第一個可用 VM 大小能符合所有準則。 您可以選取不同的 VM 大小，根據您的需求，在容錯移轉之前的任何時間。 請注意，VM 磁碟大小也根據來源磁碟大小，而且只能在容錯移轉之後加以變更。 深入了解磁碟大小和 IOPS 比率[在 Windows 上的虛擬機器磁碟的延展性和效能目標](../virtual-machines/windows/disk-scalability-targets.md)。
 
-    *  資源群組：您可以選取[資源群組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)，從虛擬電腦將成為其後置容錯移轉的一部分。 您可以變更此設定在容錯移轉之前的任何時間。 容錯移轉之後，如果您將虛擬機器移轉至不同的資源群組，該虛擬機器的保護設定會中斷。
+    *  資源群組:您可以選取[資源群組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)，從虛擬電腦將成為其後置容錯移轉的一部分。 您可以變更此設定在容錯移轉之前的任何時間。 容錯移轉之後，如果您將虛擬機器移轉至不同的資源群組，該虛擬機器的保護設定會中斷。
     * 可用性設定組：您可以選取[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)如果您的虛擬機器需要容錯移轉後的一部分。 當您選取可用性設定組時，記住下列資訊：
 
         * 只有屬於指定的資源群組的可用性設定組列出。  

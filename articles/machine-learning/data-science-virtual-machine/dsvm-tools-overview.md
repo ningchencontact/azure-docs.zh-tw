@@ -14,20 +14,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: f1a791e7a063c2bf2ae75cb3ca8d4fbdd35ddd90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1defaea3743ebb8ddb688cef28efb7eee8ecb07c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598537"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597119"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>了解資料科學虛擬機器
 
 資料科學虛擬機器 (DSVM) 包含熱門的資料科學、機器學習/AI 工具，以及資料平台的詳盡清單。 工具組態皆已經由 Microsoft 的資料科學家和開發人員，以及由更廣泛的資料科學社群進行完善的測試，以確保它們的穩定性和一般的可行性。
 
-DSVM 也包含多個以 Jupyter Notebook 的形式呈現，且可於本機執行的程式碼範例和逐步解說。 此外，也有針對這些範例提供文件以協助理解。 
+DSVM 也包含多個程式碼範例和逐步解說，可以在本機執行的 Jupyter Notebook 的形式。另外還有以協助理解這些範例的文件。 
+
+> [!NOTE]
+> 您可以使用[Azure Notebooks](/azure/notebooks/azure-notebooks-overview.md)來建立、 執行和共用雲端中的 Jupyter notebook。 您可以[將資料科學 VM 連接至 Azure Notebooks](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)以展開 可用的計算能力。
 
 包含在資料科學 VM 中的工具、平台、公用程式和範例，皆已整理至下列各節：
 

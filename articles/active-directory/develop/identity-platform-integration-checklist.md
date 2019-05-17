@@ -3,8 +3,8 @@ title: 與 Microsoft 身分識別平台整合 |Azure
 description: 當手寫筆與 Microsoft 身分識別平台 (v2.0) 整合時，深入了解最佳做法與常見疏漏。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 1f5a6d7501fd387548b111fcb0888515c8f8db25
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076401"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540180"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft 身分識別平台整合檢查清單
 
@@ -45,14 +45,14 @@ Microsoft 身分識別平台整合檢查清單的目的是引導您以高品質�
 |---|---|
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 請確定您用來註冊和管理應用程式的帳戶相關聯的資訊是最新狀態。 |
 
-### <a name="branding"></a>商標
+### <a name="branding"></a>品牌
 
 |   |   |
 |---|---|
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 遵守[商標指導方針的應用程式](howto-add-branding-in-azure-ad-apps.md)。 |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 您的應用程式，請提供有意義的名稱和標誌。 這項資訊會出現在您的應用程式的同意提示。 請確定您的名稱和標誌是代表您的公司/產品，因此使用者可以做出明智的決策。 請確定您在不違反任何的商標。 |
 
-### <a name="privacy"></a>隱私權
+### <a name="privacy"></a>隱私權聲明
 
 |   |   |
 |---|---|

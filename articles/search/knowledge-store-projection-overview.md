@@ -1,5 +1,5 @@
 ---
-title: 使用知識存放區-Azure 搜尋服務中的投影
+title: 使用知識存放區 （預覽）-Azure 搜尋服務中的投影
 description: 儲存並塑造您已充實的資料，從搜尋以外的情況下使用 AI 編製索引的管線
 manager: eladz
 author: vkurpad
@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
-ms.openlocfilehash: 3ab5ffafd1b20eb0e3e453d3e730840baf9233e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028361"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540814"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>使用 Azure 搜尋服務中的知識存放區中的投影
 
+> [!Note]
+> 知識存放區是處於預覽階段，應用程式不是用於生產環境而定。 [REST API 版本 2019年-05-06-Preview](search-api-preview.md)提供這項功能。 沒有.NET SDK 支援這一次。
+>
+
 Azure 搜尋服務可讓透過 AI 認知技能和編製索引的一部分的自訂技術內容擴充。 類將結構新增至您的文件，並讓搜尋更有效率。 在許多情況下，很適用於搜尋服務中，例如，針對知識採礦以外的案例的豐富的文件。
 
-投影、 的元件[知識存放區 （預覽）](knowledge-store-concept-intro.md)，是豐富知識採礦用途的實體儲存體可以儲存的文件的檢視。 投影可讓您配合您的需求，保留關聯性，讓 Power BI 等工具可以讀取透過任何額外資料的圖形到 「 專案 」 您的資料。 
+投影、 的元件[知識市集](knowledge-store-concept-intro.md)，是豐富知識採礦用途的實體儲存體可以儲存的文件的檢視。 投影可讓您配合您的需求，保留關聯性，讓 Power BI 等工具可以讀取透過任何額外資料的圖形到 「 專案 」 您的資料。 
 
 投射可以是表格式、 資料儲存在資料列和資料行，在 Azure 資料表儲存體，或在 Azure Blob 儲存體中儲存的 JSON 物件。 您可以定義多個預測的資料，如擴充它。 當您想針對個別的使用案例採用不同的形狀相同的資料時，這非常有用。 
 

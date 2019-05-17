@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e9ad91967b5423539f28089bbf2da22edcf8f9a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6a66d45028b9fbf9c421b10ffb7863fcb9be5bec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714961"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779852"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中開始使用自訂原則
 
@@ -33,7 +33,7 @@ ms.locfileid: "64714961"
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 請確定您使用包含 Azure AD B2C 租用戶的目錄。 按一下 **目錄和訂用帳戶篩選**頂端的功能表，然後選擇包含您的租用戶的目錄中。 
 3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
-4. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]。
+4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 
 ### <a name="create-the-signing-key"></a>建立簽署金鑰
 

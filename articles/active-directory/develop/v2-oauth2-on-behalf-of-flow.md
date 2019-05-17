@@ -3,8 +3,8 @@ title: Microsoft 身分識別平台和 OAuth2.0 代理者的流程 |Azure
 description: 本文說明如何使用 HTTP 訊息，以利用 OAuth2.0 代理者流程實作服務對服務驗證。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce0c1c4dcf7e4ff0c82157af83aa15544cf092e2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296861"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544765"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 代理者流程
 
@@ -67,7 +67,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 使用共用密碼時，服務對服務存取權杖要求包含下列參數：
 
-| 參數 |  | 描述 |
+| 參數 |  | 說明 |
 | --- | --- | --- |
 | `grant_type` | 必要項 | 權杖要求的類型。 對於使用 JWT 的要求，值必須是 `urn:ietf:params:oauth:grant-type:jwt-bearer`。 |
 | `client_id` | 必要項 | （用戶端） 應用程式識別碼[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面已指派給您的應用程式。 |
@@ -99,7 +99,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 使用憑證的服務對服務存取權杖要求包含下列參數：
 
-| 參數 |  | 描述 |
+| 參數 |  | 說明 |
 | --- | --- | --- |
 | `grant_type` | 必要項 | 權杖要求的類型。 對於使用 JWT 的要求，值必須是 `urn:ietf:params:oauth:grant-type:jwt-bearer`。 |
 | `client_id` | 必要項 |  （用戶端） 應用程式識別碼[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面已指派給您的應用程式。 |
@@ -135,7 +135,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 成功的回應是 JSON OAuth 2.0 回應，包含下列參數。
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `token_type` | 表示權杖類型值。 唯一的輸入身分識別平台支援是由 Microsoft `Bearer`。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。 |
 | `scope` | 在權杖中授與的存取範圍。 |

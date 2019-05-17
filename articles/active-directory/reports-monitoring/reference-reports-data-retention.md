@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 報告保留原則 | Microsoft Docs
-description: Azure Active Directory 中報告資料的保留原則
+title: Azure AD 多久儲存報告資料？ | Microsoft Docs
+description: 了解 Azure 儲存各種類型的報告資料的時間長度。
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,14 +17,14 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41fa12c9d79d14a6602d995ed93b5d1a23be8a4d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437051"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781050"
 ---
-# <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 報告保留原則
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 多久儲存報告資料？
 
 在本文中，您會了解 Azure Active Directory 中不同活動報告的資料保留原則。 
 
@@ -33,7 +33,7 @@ ms.locfileid: "60437051"
 | Azure AD 版本 | 開始收集 |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | 當您註冊訂用帳戶 |
-| Azure AD Free <br /> Azure AD Basic | 首次開啟 [Azure Active Directory 刀鋒視窗](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)或使用[報告 API](https://aka.ms/aadreports)  |
+| Azure AD 免費版 <br /> Azure AD 基本版 | 首次開啟 [Azure Active Directory 刀鋒視窗](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)或使用[報告 API](https://aka.ms/aadreports)  |
 
 ---
 
@@ -66,7 +66,7 @@ ms.locfileid: "60437051"
 
 **活動報告**    
 
-| 報告                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| 報告                 | Azure AD 免費版 | Azure AD 基本版 | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
 | 稽核記錄             | 7 天        |  7 天        | 30 天             | 30 天             |
 | 登入               | N/A           |  N/A           | 30 天             | 30 天             |
@@ -76,9 +76,9 @@ ms.locfileid: "60437051"
 
 **安全性訊號**
 
-| 報告         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| 報告         | Azure AD 免費版 | Azure AD 基本版 | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--            | :--                 | :--                 |
-| 有風險的使用者  | 7 天        | 7 天         | 30 天             | 90 天             |
+| 具有風險的使用者  | 7 天        | 7 天         | 30 天             | 90 天             |
 | 有風險的登入 | 7 天        | 7 天         |  30 天            | 90 天             |
 
 ---

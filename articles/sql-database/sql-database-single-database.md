@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 4406789e3f9a10ff814aca0c2fd114de8a2abb69
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572659"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794395"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>什麼是 Azure SQL Database 中的單一資料庫
 
@@ -30,7 +30,7 @@ ms.locfileid: "64572659"
 
 ## <a name="dynamic-scalability"></a>動態延展性
 
-您可以每個月在低性價比服務層級支付少量費用，在小型單一資料庫中建置第一個應用程式，然後，隨時以手動或程式設計方式將[服務層級變更為](sql-database-single-database-scale.md)較高性價比的服務層級，以符合您的解決方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
+您可以在無伺服器 （預覽） 計算層中的低成本或佈建的計算層中的小型計算大小的小型、 單一資料庫上建置第一個應用程式。 您變更[計算或服務層](sql-database-single-database-scale.md)手動或以程式設計方式在任何時間，以符合您的方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
 
 ## <a name="single-databases-and-elastic-pools"></a>單一資料庫和彈性集區
 

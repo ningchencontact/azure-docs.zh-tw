@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/09/2019
-ms.openlocfilehash: 7b470c20397aac456d34d5e3b877c7d4126d8279
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.date: 05/14/2019
+ms.openlocfilehash: dc8ba315d08f3a130ff0adf91afc90f545baf4e4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465119"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604432"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>疑難排解常見的 Azure 資料庫移轉服務的問題和錯誤
 
@@ -24,7 +24,7 @@ ms.locfileid: "65465119"
 
 ## <a name="migration-activity-in-queued-state"></a>已排入佇列的狀態中的移轉活動
 
-當您建立新的活動上的 Azure 資料庫移轉服務專案時，活動會維持在已排入佇列的狀態。
+當您的 Azure 資料庫移轉服務專案中建立新的活動時，活動會維持在已排入佇列的狀態。
 
 | 原因         | 解決方案 |
 | ------------- | ------------- |
@@ -44,13 +44,13 @@ ms.locfileid: "65465119"
 
 移轉時從 MySQL 到 Azure Database for MySQL 使用 Azure 資料庫移轉服務，移轉活動失敗，發生下列錯誤：
 
-* **錯誤**：Error:資料庫移轉錯誤-'TaskID' 工作已因 [n] 的後續復原失敗而停用。
+* **錯誤**：資料庫移轉錯誤-'TaskID' 工作已因 [n] 的後續復原失敗而停用。
 
 | 原因         | 解決方案 |
 | ------------- | ------------- |
-| 執行移轉的使用者遺漏 ReplicationAdmin 角色和 （或） 的複寫用戶端、 複寫複本和超級 （MySQL 5.6.6 之前的版本） 的權限時，可能會發生此錯誤。<br> <br><br><br> <br> <br> <br> <br> <br> <br> | 請確定[必要的權限](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites)使用者帳戶已正確 Azure MySQL 執行個體上。 例如，若要建立名為 'migrateuser' 與必要權限的使用者可以遵循下列步驟：<br>1.CREATE USER migrateuser@'%' 識別的 'secret'; <br>2.授與 'migrateuser'@'%' 'secret'; 所識別的 db_name.* 的所有權限重複此步驟，授與在多個資料庫的存取權 <br>3.授與複寫從屬上的 *。* 若要識別 'secret'; 'migrateuser'@'%'<br>4.授與複寫用戶端上的 *。* 若要識別 'secret'; 'migrateuser'@'%'<br>5.排清權限; |
+| 執行移轉的使用者遺漏 ReplicationAdmin 角色和 （或） 的複寫用戶端、 複寫複本和超級 （MySQL 5.6.6 之前的版本） 的權限時，可能會發生此錯誤。<br> <br><br><br> <br> <br> <br> <br> <br> <br> | 請確定[必要的權限](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites)使用者帳戶已正確上 Azure Database for MySQL 執行個體。 例如，若要建立名為 'migrateuser' 與必要權限的使用者可以遵循下列步驟：<br>1.CREATE USER migrateuser@'%' 識別的 'secret'; <br>2.授與 'migrateuser'@'%' 'secret'; 所識別的 db_name.* 的所有權限重複此步驟，授與在多個資料庫的存取權 <br>3.在授與複寫從屬 *。* 若要識別 'secret'; 'migrateuser'@'%'<br>4.授與複寫用戶端上的 *。* 若要識別 'secret'; 'migrateuser'@'%'<br>5.排清的權限; |
 
-## <a name="error-when-attempting-to-stop-the-azure-database-migration-service-instance"></a>嘗試停止 Azure 資料庫移轉服務執行個體時的錯誤
+## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>正在嘗試停止 Azure 資料庫移轉服務時發生錯誤
 
 您會收到下列錯誤時停止的 Azure 資料庫移轉服務執行個體：
 
@@ -60,7 +60,7 @@ ms.locfileid: "65465119"
 | ------------- | ------------- |
 | 當您嘗試停止的服務執行個體包含在移轉專案中的活動，仍在執行，或出現時，則會顯示此錯誤。 <br><br><br><br><br><br> | 請確定沒有任何您想要停止的 Azure 資料庫移轉服務的執行個體中執行的活動。 您也可能會嘗試停止服務之前，刪除活動或專案。 下列步驟說明如何移除專案，以清除 刪除所有執行中工作的 移轉服務執行個體：<br>1.Install-Module -Name AzureRM.DataMigration <br>2.Login-AzureRmAccount <br>3.Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4.Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
 
-## <a name="error-restoring-database-while-migrating-from-sql-server-to-an-azure-sql-database-managed-instance"></a>還原資料庫，而從 SQL Server 移轉至 Azure SQL Database 受控執行個體時發生錯誤
+## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>還原資料庫時移轉 SQL 到 Azure SQL DB 受控執行個體時發生錯誤
 
 當您從 SQL Server 執行線上移轉至 Azure SQL Database 受控執行個體時，完全移轉失敗，發生下列錯誤：
 
@@ -88,11 +88,11 @@ ms.locfileid: "65465119"
 | ------------- | ------------- |
 | 使用時[ExpressRoute](https://azure.microsoft.com/services/expressroute/)，Azure 資料庫移轉服務[需要](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online)佈建服務相關聯的虛擬網路子網路上的三個服務端點：<br> --服務匯流排端點<br> -儲存體端點<br> -目標資料庫端點 （例如 SQL 端點，Cosmos DB 端點）<br><br><br><br> | [啟用](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online)來源和 Azure 資料庫移轉服務之間的 ExpressRoute 連線能力的所需的服務端點。 <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-database-for-mysql"></a>當將 MySQL 資料庫移轉到 Azure Database 中，適用於 MySQL 的逾時錯誤
+## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>將 MySQL 資料庫移轉至 Azure MySQL 時的逾時錯誤
 
 當您移轉到 Azure Database for MySQL 執行個體，透過 Azure 資料庫移轉服務的 MySQL 資料庫時，移轉會失敗，發生下列的逾時錯誤：
 
-    * **錯誤**：Error:資料庫移轉錯誤-無法載入檔案-無法啟動檔案的載入程序 'n' RetCode:SQL_ERROR SqlState:HY000 NativeError:1205 訊息: [MySQL] [ODBC Driver] [mysqld] 鎖定等候的逾時超過;請嘗試重新啟動的交易
+* **錯誤**：資料庫移轉錯誤-無法載入檔案-無法啟動檔案的載入程序 'n' RetCode:SQL_ERROR SqlState:HY000 NativeError:1205 訊息: [MySQL] [ODBC Driver] [mysqld] 鎖定等候的逾時超過;請嘗試重新啟動的交易
 
 | 原因         | 解決方案    |
 | ------------- | ------------- |
@@ -100,13 +100,13 @@ ms.locfileid: "65465119"
 
 ## <a name="additional-known-issues"></a>其他已知的問題
 
-* [線上移轉到 Azure SQL DB 的已知問題/移轉限制](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [適用於 MySQL 的 Azure db 的線上移轉的已知的問題/移轉限制](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
-* [適用於 PostgreSQL 的 Azure db 的線上移轉的已知的問題/移轉限制](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
+* [使用線上移轉到 Azure SQL Database 的已知的問題/移轉限制](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
+* [使用線上移轉至 Azure Database for MySQL 的已知的問題/移轉限制](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
+* [使用線上移轉至 Azure Database for PostgreSQL 的已知的問題/移轉限制](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
 
-## <a name="additional-resources"></a>其他資源
+## <a name="next-steps"></a>後續步驟
 
-* [Azure 資料庫移轉服務的 PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration)
-* [如何使用 Azure 入口網站中的 Azure 資料庫設定伺服器參數適用於 MySQL](https://docs.microsoft.com/azure/mysql/howto-server-parameters)
-* [使用 Azure 資料庫移轉服務的必要條件概觀](https://docs.microsoft.com/azure/dms/pre-reqs)
-* [使用 Azure 資料庫移轉服務相關常見問題集](https://docs.microsoft.com/azure/dms/faq)
+* 檢視發行項[Azure 資料庫移轉服務 PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration)。
+* 檢視發行項[如何使用 Azure 入口網站中的 Azure 資料庫設定伺服器參數適用於 MySQL](https://docs.microsoft.com/azure/mysql/howto-server-parameters)。
+* 檢視發行項[使用 Azure 資料庫移轉服務的必要條件概觀](https://docs.microsoft.com/azure/dms/pre-reqs)。
+* 請參閱[使用 Azure 資料庫移轉服務相關常見問題集](https://docs.microsoft.com/azure/dms/faq)。

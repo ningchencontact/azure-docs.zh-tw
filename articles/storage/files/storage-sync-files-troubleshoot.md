@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510847"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555954"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>疑難排解 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -300,6 +300,17 @@ PerItemErrorCount: 1006.
 | **需要補救** | 無 |
 
 不需要任何動作；伺服器會再試一次。 如果此錯誤持續存在超過兩小時，請建立支援要求。
+
+<a id="-2134364043"></a>**同步處理會被封鎖，直到還原後的變更偵測完成**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83075 |
+| **HRESULT (十進位)** | -2134364043 |
+| **錯誤字串** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
+| **需要補救** | 無 |
+
+不需要任何動作。 當檔案共用 （雲端端點） 會使用 Azure 備份來還原、 同步處理會被封鎖，直到變更偵測完成 Azure 檔案共用上。 變更偵測會在還原完成，且持續時間為基礎的檔案共用中的檔案數目之後，立即執行。
 
 <a id="-2134364065"></a>**同步作業無法存取雲端端點中指定的 Azure 檔案共用。**  
 

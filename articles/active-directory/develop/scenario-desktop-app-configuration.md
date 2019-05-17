@@ -15,12 +15,12 @@ ms.date: 05/o7/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52f6fc66187d961dc93089a9f81f6de4d67fe41
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: eadcae393128d9721f2c988f713af07913c5fd1d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075936"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545512"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>傳統型應用程式呼叫 web Api-程式碼組態
 
@@ -98,8 +98,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 若要深入了解如何設定 MSAL.NET 桌面應用程式：
 
-- 如需所有修飾詞上可用的清單`PublicClientApplicationBuilder`，請參閱參考文件[PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationbuilder?view=azure-dotnet-preview#methods)
-- 如需中公開的所有選項的描述`PublicClientApplicationOptions`請參閱 < [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationoptions?view=azure-dotnet-preview)，參考文件中
+- 如需所有修飾詞上可用的清單`PublicClientApplicationBuilder`，請參閱參考文件[PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
+- 如需中公開的所有選項的描述`PublicClientApplicationOptions`請參閱 < [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)，參考文件中
 
 ## <a name="complete-example-with-configuration-options"></a>使用的組態選項的完整範例
 

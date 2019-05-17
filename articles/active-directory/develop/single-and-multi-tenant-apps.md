@@ -3,8 +3,8 @@ title: Azure Active Directory 中的單一和多租用戶應用程式
 description: 深入了解 Azure AD 中單一租用戶與多租用戶應用程式之間的功能和差異。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57ec1939dd1f5445583200776e489f7596f572f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8db590c8c79db9bc47edbbef69a11d3b0e4b51f6
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250312"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540356"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Azure Active Directory 中的租用戶
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) 會將例如使用者和應用程式的物件�
 
 | 對象 | 單一/多租用戶 | 誰可以登入 | 
 |----------|--------| ---------|
-| 只有這個目錄中的帳戶 | 單一租用戶 | 您目錄中的所有使用者和來賓帳戶都可以使用您的應用程式或 API。<br>若您的目標對象是組織內部的人員，請使用此選項。 |
+| 只有這個目錄中的帳戶 | 單一租用戶 | 您目錄中的所有使用者及來賓都能使用您的應用程式或 API。<br>若您的目標對象是組織內部的人員，請使用此選項。 |
 | 任何 Azure AD 目錄中的帳戶 | 多租用戶 | 所有使用者及來賓只要具備 Microsoft 提供的公司或學校帳戶，都能使用您的應用程式或 API。 這包括使用 Office 365 的學校及公司。<br>若您的目標對象是商務界或教育界的客戶，請使用此選項。 |
 | 任何 Azure AD 目錄中的帳戶和個人 Microsoft 帳戶 (例如 Skype、Xbox、Outlook.com) | 多租用戶 | 任何使用者只要具有公司、學校或個人的 Microsoft 帳戶，都能使用您的應用程式或 API。 這也包括了使用 Office 365 的學校和公司，以及用來登入例如 Xbox 和 Skype 服務的個人帳戶。<br>使用此選項將目標設為 Microsoft 帳戶的最廣泛集合。 | 
 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.openlocfilehash: 5795cde35d53a64620c4fdb6c3af99a7f56b12d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bfb66f54ec09e86b46a41499211e93a0083e8d1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61440687"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779919"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在您的 Azure IoT 中樞中設定 X.509 安全性
 
@@ -37,6 +37,9 @@ ms.locfileid: "61440687"
 
 * 使用第三方工具建立您自己的 X.509 憑證，例如 [OpenSSL](https://www.openssl.org/)。 這適合進行測試和開發。 如需使用 PowerShell 或 Bash 產生測試 CA 憑證的相關資訊，請參閱[管理用於範例和教學課程的測試 CA 憑證](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)產生的相關資訊。 本教學課程的其餘部分會使用依照[管理用於範例和教學課程的測試 CA 憑證](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)中的指示而產生的測試 CA 憑證。
 
+* 產生[X.509 中繼 CA 憑證](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust)由現有的根 CA 憑證簽署，並將它上傳到 IoT 中樞。 中繼憑證是上傳並驗證之後，依照下列指示，它可以用於下面所述的根 CA 憑證取代。 OpenSSL 之類的工具 ([openssl req](https://www.openssl.org/docs/manmaster/man1/openssl-req.html)並[openssl ca](https://www.openssl.org/docs/manmaster/man1/openssl-ca.html)) 可用來產生並簽署中繼 CA 憑證。
+
+
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>向 IoT 中樞註冊 X.509 CA 憑證
 
 這些步驟示範如何透過入口網站將新的「憑證授權單位」新增至您的 IoT 中樞。
@@ -49,7 +52,7 @@ ms.locfileid: "61440687"
 
 4. 一旦取得您的憑證已成功上傳的通知後，請按一下 [儲存]。
 
-    ![Upload certificate](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
+    ![上傳憑證](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
 
    這會在 [憑證總管] 清單中顯示您的憑證。 請注意，這個憑證的 [狀態] 是 [未驗證]。
 

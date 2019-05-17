@@ -3,8 +3,8 @@ title: 安裝應用程式 Proxy 代理程式連接器時遇到問題 | Microsoft
 description: 如何針對在安裝應用程式 Proxy 代理程式連接器時可能遇到的問題進行疑難排解
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87d828e596c42b786d1c54a7158e1151f374c560
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c82bba6ccb1eaa1933176362e34b8c3e30c37f8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440244"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783623"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>安裝應用程式 Proxy 代理程式連接器時遇到問題
 

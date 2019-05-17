@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: efeab014c7d92a6c19d516a121fbc4436925be75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82e8936a888cbc99088ab18423e55dd57a3c2e77
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850983"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604178"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>設定 Windows 的 Azure App Service 的 Java 應用程式
 
@@ -27,7 +27,7 @@ Azure App Service 可讓 Java 開發人員快速建置、 部署及調整其 Tom
 本指南提供重要概念和適用於 Java 開發人員使用 App Service 中的指示。 如果您從未使用過 Azure App Service，您應該閱讀[Java 快速入門](app-service-web-get-started-java.md)第一次。 中的關於使用 App Service 不是專用的 Java 開發的一般問題會有所解答[應用程式服務 Windows 常見問題集](faq-configuration-and-management.md)。
 
 > [!NOTE]
-> 找不到您要尋找的內容嗎？ 請參閱[Windows OSS 常見問題集](faq-configuration-and-management.md)或[Java Linux 設定指南](containers/app-service-linux-java.md)如需部署和保護您的 Java 應用程式。
+> 找不到您要尋找的內容嗎？ 請參閱[Windows OSS 常見問題集](faq-configuration-and-management.md)或[Java Linux 設定指南](containers/configure-language-java.md)如需部署和保護您的 Java 應用程式。
 
 ## <a name="configuring-tomcat"></a>設定 Tomcat
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2d84a4dd0b69ce9ca7fc594dffce3238c620c426
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18d10afc9132c81c2dcfbb1aa17ded81a21336ca
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852629"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780037"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 支援 SSH
 
@@ -54,7 +54,7 @@ ms.locfileid: "60852629"
 使用 [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 命令，開啟您應用程式的遠端連線。 指定_\<訂用帳戶識別碼 >_， _\<群組名稱 >_ 並\_< 應用程式名稱 > _，您的應用程式。
 
 ```azurecli-interactive
-az webapp remote-connection create --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
+az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
 > [!TIP]

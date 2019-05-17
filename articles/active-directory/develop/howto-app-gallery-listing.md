@@ -3,8 +3,8 @@ title: 在 Azure Active Directory 應用程式庫中列出您的應用程式 | M
 description: 了解如何列出 Azure Active Directory 應用程式庫中支援單一登入的應用程式
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5ec950a91f3ed0099873e40c7235a9d59f0cb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299980"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540538"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>作法：在 Azure Active Directory 應用程式庫中列出您的應用程式
 

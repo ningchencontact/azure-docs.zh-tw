@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 317a480c13c5c6e00653fd61878a379df3f65ac4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305211"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "65753974"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>什麼是 ExpressRoute Global Reach？
 
@@ -29,19 +29,19 @@ ExpressRoute Global Reach 是可透過 Microsoft 的全球網路經由 ExpressRo
 
 ### <a name="how-will-i-be-charged-for-expressroute-global-reach"></a>ExpressRoute Global Reach 如何計費？
 
-ExpressRoute 可從內部部署網路連線到 Microsoft 雲端服務。 ExpressRoute Global Reach 能夠利用 Microsoft 的全球網路，透過現有的 ExpressRoute 線路來連線您自己的內部部署網路。 ExpressRoute Global Reach 會與現有 ExpressRoute 服務分開計費。 在每條 ExpressRoute 線路上啟用這項功能需要附加費用。 ExpressRoute Global Reach 所啟用內部部署網路之間的流量，在來源會以輸出速率計費，而在目的地會以輸入速率計費。 費率是以線路所在的區域為基礎。 請參閱 <pricing page>
+ExpressRoute 可從內部部署網路連線到 Microsoft 雲端服務。 ExpressRoute Global Reach 能夠利用 Microsoft 的全球網路，透過現有的 ExpressRoute 線路來連線您自己的內部部署網路。 ExpressRoute Global Reach 會與現有 ExpressRoute 服務分開計費。 在每條 ExpressRoute 線路上啟用這項功能需要附加費用。 ExpressRoute Global Reach 所啟用內部部署網路之間的流量，在來源會以輸出速率計費，而在目的地會以輸入速率計費。 費率是以線路所在的區域為基礎。
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>哪裡支援 ExpressRoute Global Reach？
 
-[選定的國家/地區或位置](../articles/expressroute/expressroute-global-reach.md)支援 ExpressRoute Global Reach。 您必須在這些國家/地區或位置的對等互連位置建立 ExpressRoute 線路。
+ExpressRoute 觸及全球範圍支援[選取國家/地區或地方](../articles/expressroute/expressroute-global-reach.md)。 在這些國家/地區或位置中的對等互連位置，必須建立 ExpressRoute 線路。
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>我有兩個以上的內部部署網路，每個網路都會連線到 ExpressRoute 線路。 可以啟用 ExpressRoute Global Reach 將所有內部部署網路連在一起嗎？
 
-是的，您可以，只要線路位於支援的國家/地區中。 您需要一次連接兩條 ExpressRoute 線路。 若要建立完整網狀網路，您需要列舉所有的線路配對並重複進行設定。 
+是的您可以，只要是支援的國家/地區的線路。 您需要一次連接兩條 ExpressRoute 線路。 若要建立完整網狀網路，您需要列舉所有的線路配對並重複進行設定。 
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>可以在位於相同對等互連位置的兩條 ExpressRoute 線路之間啟用 ExpressRoute Global Reach 嗎？
 
-沒有。 這兩條線路必須來自不同的對等互連位置。 如果支援的國家/地區中的捷運有一個以上的 ExpressRoute 對等互連位置，您可以將在該條捷運不同對等互連位置建立的 ExpressRoute 線路連在一起。 
+沒有。 這兩條線路必須來自不同的對等互連位置。 如果在支援的國家/地區的城市中有一個以上的 ExpressRoute 對等互連位置，您可以連接在一起在不同的對等互連位置，該 metro 中建立的 ExpressRoute 線路。 
 
 ### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>如果在線路 X 與線路 Y 以及線路 Y 與線路 Z 之間啟用 ExpressRoute Global Reach，連線到線路 X 和線路 Z 的內部部署網路會透過 Microsoft 的網路彼此通訊嗎？
 

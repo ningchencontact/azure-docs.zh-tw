@@ -3,8 +3,8 @@ title: 使用 OAuth2.0 進行 Azure AD 服務對服務驗證 | Microsoft Docs
 description: 本文說明如何使用 HTTP 訊息，以利用 OAuth2.0 用戶端認證授與流程實作服務對服務驗證。
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c79dbfb397a8e6d87de75b5468414f2b7adf2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d734db7fbedaf3e3f3cd71c31f9391a2237f5b4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251700"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545271"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>使用用戶端認證 (共用密碼或憑證) 的服務對服務呼叫
 
@@ -57,12 +57,12 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>第一種情況︰使用共用密碼的存取權杖要求
 使用共用密碼時，服務對服務存取權杖要求包含下列參數：
 
-| 參數 |  | 描述 |
+| 參數 |  | 說明 |
 | --- | --- | --- |
 | grant_type |必要 |指定要求的授與類型。 在用戶端認證授與流程中，值必須是 **client_credentials**。 |
 | client_id |必要 |指定呼叫端 Web 服務的 Azure AD 用戶端識別碼。 若要尋找呼叫應用程式的用戶端識別碼，請在 [Azure 入口網站](https://portal.azure.com)中按一下 [Azure Active Directory]，並按一下 [應用程式註冊]，再按一下應用程式。 client_id 是*應用程式 ID* |
 | client_secret |必要 |輸入在 Azure AD 中針對呼叫端 Web 服務或精靈應用程式所註冊的金鑰。 若要建立金鑰，請在 Azure 入口網站中按一下 [Azure Active Directory]，並按一下 [應用程式註冊]，按一下應用程式，接著依序按一下 [設定] 和 [金鑰]，並新增金鑰。  在提供此祕密時對其進行 URL 編碼。 |
-| resource |必要 |輸入接收端 Web 服務的應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 入口網站中，按一下 [Azure Active Directory]，並按一下 [應用程式註冊]，再按一下服務應用程式，接著按一下 [設定] 和 [屬性]。 |
+| 資源 |必要 |輸入接收端 Web 服務的應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 入口網站中，按一下 [Azure Active Directory]，並按一下 [應用程式註冊]，再按一下服務應用程式，接著按一下 [設定] 和 [屬性]。 |
 
 #### <a name="example"></a>範例
 下列 HTTP POST 會要求提供 https://service.contoso.com/ Web 服務的[存取權杖](access-tokens.md)。 `client_id` 會識別要求存取權杖的 Web 服務。
@@ -78,7 +78,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ### <a name="second-case-access-token-request-with-a-certificate"></a>第二種情況︰使用憑證的存取權杖要求
 使用憑證的服務對服務存取權杖要求包含下列參數：
 
-| 參數 |  | 描述 |
+| 參數 |  | 說明 |
 | --- | --- | --- |
 | grant_type |必要 |指定要求的回應類型。 在用戶端認證授與流程中，值必須是 **client_credentials**。 |
 | client_id |必要 |指定呼叫端 Web 服務的 Azure AD 用戶端識別碼。 若要尋找呼叫應用程式的用戶端識別碼，請在 [Azure 入口網站](https://portal.azure.com)中按一下 [Azure Active Directory]，並按一下 [應用程式註冊]，再按一下應用程式。 client_id 是*應用程式 ID* |
@@ -103,14 +103,14 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 
 成功的回應中包含 JSON OAuth 2.0 回應與下列參數：
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | access_token |请求的访问令牌。 呼叫端 Web 服務可以使用此權杖來向接收端 Web 服務進行驗證。 |
 | token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人] 。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有者令牌用法 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)。 |
 | expires_in |存取權杖的有效期 (以秒為單位)。 |
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
 | not_before |存取權杖自此時間開始可使用。 日期會表示為從 1970-01-01T0:0:0Z UTC 至權杖的有效時間。|
-| resource |接收端 Web 服務的應用程式識別碼 URI。 |
+| 資源 |接收端 Web 服務的應用程式識別碼 URI。 |
 
 #### <a name="example-of-response"></a>回應範例
 下列範例顯示向 Web 服務所提出之存取權杖要求的成功回應。

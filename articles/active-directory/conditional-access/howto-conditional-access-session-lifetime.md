@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190211"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65766862"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>設定驗證工作階段管理使用條件式存取
 
@@ -80,7 +80,7 @@ ms.locfileid: "65190211"
 1. 選擇所有必要的條件。
 
    > [!NOTE]
-   > 請注意 做為條件，此控制項需要選擇 所有雲端應用程式
+   > 請注意這個控制項需要選擇 [所有雲端應用程式] 做為條件。 瀏覽器工作階段持續性會受到驗證工作階段權杖。 所有的索引標籤，在瀏覽器工作階段中共用的單一工作階段權杖，因此它們都必須共用持續性狀態。
 
 1. 移至**存取控制** > **工作階段**按一下**永續性的瀏覽器工作階段**
 1. 從下拉式清單中選取的值

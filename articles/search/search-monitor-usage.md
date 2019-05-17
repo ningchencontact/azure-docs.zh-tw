@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035364"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797387"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>監視 Azure 搜尋服務中的資源耗用量和查詢活動
 
@@ -58,7 +58,7 @@ ms.locfileid: "65035364"
 
 下表將儲存記錄與透過 Application Insights 新增服務作業和查詢工作負載之深入監視的選項做比較。
 
-| Resource | 用於 |
+| 資源 | 用於 |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | 記錄的事件和查詢度量，根據下列結構描述與您的應用程式中的使用者事件相互關聯。 這是唯一會將使用者動作或信號列入考量的解決方案，其中會將來自使用者所起始搜尋的事件與應用程式碼所提交的篩選要求對應。 若要使用此方法，請複製檢測程式碼並貼到您的原始程式檔中，以將要求資訊路由傳送至 Application Insights。 如需詳細資訊，請參閱[搜尋流量分析](search-traffic-analytics.md)。 |
 | [Azure 監視器記錄](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 記錄的事件和查詢度量，根據下列結構描述。 事件會記錄到 Log Analytics 工作區。 您可以對工作區執行查詢，以從記錄傳回詳細的資訊。 如需詳細資訊，請參閱[開始使用 Azure 監視器記錄檔](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
@@ -77,13 +77,15 @@ Azure 監視器記錄檔和 Blob 儲存體是免費的共用服務的形式提�
 
 1. 如果您還沒有儲存體帳戶，請[建立一個儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。 您可以將它放在與「Azure 搜尋服務」相同的資源群組中，以在稍後當您想要刪除本練習中使用的所有資源時，可簡化清除步驟。
 
+   您的儲存體帳戶必須存在於 Azure 搜尋服務與相同的區域。
+
 2. 開啟您的搜尋服務 [概觀] 頁面。 在左側導覽窗格中，向下捲動至 [監視]，然後按一下 [啟用監視]。
 
    ![啟用監視](./media/search-monitor-usage/enable-monitoring.png "啟用監視")
 
 3. 選擇您想要匯出的資料：記錄、計量或兩者。 您可以將它複製到儲存體帳戶、 將它傳送到事件中樞，或將它匯出至 Azure 監視器記錄檔。
 
-   若要封存至 Blob 儲存體，只有儲存體帳戶必須存在。 容器和 Blob 將在匯出記錄資料時建立。
+   若要封存至 Blob 儲存體，只有儲存體帳戶必須存在。 容器和 blob 會視需要時建立記錄檔資料會匯出。
 
    ![設定 Blob 儲存體封存](./media/search-monitor-usage/configure-blob-storage-archive.png "設定 Blob 儲存體封存")
 
@@ -109,23 +111,23 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>記錄檔結構描述
 包含您搜尋服務流量記錄的 Blob 會結構化，如本節所述。 每個 Blob 都有一個名為**記錄**的根物件，其中包含記錄物件的陣列。 每個 Blob 都包含在同一小時內發生之所有作業的記錄。
 
-| 名稱 | 類型 | 範例 | 注意 |
+| 名稱 | Type | 範例 | 注意 |
 | --- | --- | --- | --- |
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
 | operationName |string |"Query.Search" |作業的名稱 |
 | operationVersion |string |"2019-05-06" |使用的 api-version |
 | category |string |"OperationLogs" |常數 |
-| resultType |string |"Success" |可能的值：成功或失敗 |
+| resultType |string |"Success" |可能的值:成功或失敗 |
 | resultSignature |int |200 |HTTP 結果碼 |
 | durationMS |int |50 |作業的持續時間 (以毫秒為單位) |
 | properties |物件 |請參閱下表 |包含作業特定資料的物件 |
 
 **屬性結構描述**
 
-| 名稱 | 類型 | 範例 | 注意 |
+| 名稱 | Type | 範例 | 注意 |
 | --- | --- | --- | --- |
-| 描述 |string |"GET /indexes('content')/docs" |作業的端點 |
+| 說明 |string |"GET /indexes('content')/docs" |作業的端點 |
 | 查詢 |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |查詢參數 |
 | 文件 |int |42 |處理的文件數目 |
 | IndexName |string |"testindex" |與作業相關聯的索引名稱 |
@@ -134,16 +136,16 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 針對查詢要求，會擷取計量。
 
-| 名稱 | 類型 | 範例 | 注意 |
+| 名稱 | Type | 範例 | 注意 |
 | --- | --- | --- | --- |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
 | metricName |string |"Latency" |度量的名稱 |
 | 分析 |datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
-| average |int |64 |度量時間間隔中原始範例的平均值 |
-| minimum |int |37 |度量時間間隔中原始範例的最小值 |
-| maximum |int |78 |度量時間間隔中原始範例的最大值 |
-| total |int |258 |度量時間間隔中原始範例的總和值 |
-| count |int |4 |用來產生度量的原始樣本數 |
+| 平均 |int |64 |度量時間間隔中原始範例的平均值 |
+| 最小值 |int |37 |度量時間間隔中原始範例的最小值 |
+| 最大值 |int |78 |度量時間間隔中原始範例的最大值 |
+| 總計 |int |258 |度量時間間隔中原始範例的總和值 |
+| 計數 |int |4 |用來產生度量的原始樣本數 |
 | timegrain |string |"PT1M" |採用 ISO 8601 的度量時間粒紋 |
 
 每隔一分鐘就會回報所有計量。 每個度量會顯示每分鐘的最小值、最大值和平均值。

@@ -2,8 +2,8 @@
 title: 授與建立 Azure 企業版訂用帳戶的權限 | Microsoft Docs
 description: 了解如何授與使用者或服務主體以程式設計方式建立 Azure 企業版訂用帳戶的權限。
 services: azure-resource-manager
-author: adpick
-manager: adpick
+author: jureid
+manager: jureid
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: adpick
-ms.openlocfilehash: 7a2397328f715dbf63246e8d4aaa789b5986b3b4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 04/09/2019
+ms.author: jureid
+ms.openlocfilehash: 742658e36da956c46bd932b59903e68786c65b93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112558"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794570"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>授與建立 Azure 企業版訂用帳戶的權限 (預覽)
 
@@ -26,14 +26,118 @@ ms.locfileid: "56112558"
 
 若要建立訂用帳戶，請參閱[以程式設計方式建立 Azure 企業版訂用帳戶 (預覽)](programmatically-create-subscription.md)。
 
-## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>使用 RBAC 來委派註冊帳戶的存取權
+## <a name="grant-subscription-creation-access-to-a-user-or-group"></a>授與訂用帳戶建立存取權的使用者或群組
 
-若要讓另一個使用者或服務主體能夠針對特定帳戶建立訂用帳戶，請[將註冊帳戶範圍的 RBAC 擁有者角色授與他們](../active-directory/role-based-access-control-manage-access-rest.md)。 下列範例會將註冊帳戶上的「擁有者」角色授與租用帳戶中 `principalId` 為 `<userObjectId>` (用於 SignUpEngineering@contoso.com) 的使用者。 若要尋找註冊帳戶識別碼與服務主體識別碼，請參閱[以程式設計方式建立 Azure 企業版訂用帳戶 (預覽)](programmatically-create-subscription.md)。
+若要建立的註冊帳戶的訂用帳戶，使用者必須擁有[RBAC 擁有者角色](../role-based-access-control/built-in-roles.md#owner)上該帳戶。 您可以授與使用者或一群使用者註冊帳戶的 RBAC 擁有者角色遵循下列步驟：
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+### <a name="1-get-the-object-id-of-the-enrollment-account-you-want-to-grant-access-to"></a>1.取得您想要授與存取權的註冊帳戶的物件識別碼
+
+若要授與其他人註冊帳戶的 RBAC 擁有者角色，您必須是帳戶擁有者或帳戶的 「 RBAC 擁有者。
+
+### <a name="resttabrest"></a>[REST](#tab/rest)
+
+若要列出您具有存取權的所有註冊帳戶的要求：
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
+```
+
+Azure 會以您可以存取的所有註冊帳戶清單來回應：
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "SignUpEngineering@contoso.com"
+      }
+    },
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "BillingPlatformTeam@contoso.com"
+      }
+    }
+  ]
+}
+```
+
+使用`principalName`屬性來識別您想要授與 RBAC 擁有者存取權的帳戶。 複製`name`該帳戶。 例如，如果您想要授與 RBAC 擁有者存取權SignUpEngineering@contoso.com註冊帳戶，您會複製```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```。 這是註冊帳戶的物件識別碼。 貼上此值，因此，您可以使用它做為下一個步驟中某處`enrollmentAccountObjectId`。
+
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+開啟[Azure Cloud Shell](https://shell.azure.com/) ，然後選取 PowerShell。
+
+使用 [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) Cmdlet 來列出您可以存取的所有註冊帳戶。
+
+```azurepowershell-interactive
+Get-AzEnrollmentAccount
+```
+
+Azure 會以回應一份您可以存取的註冊帳戶：
+
+```azurepowershell
+ObjectId                               | PrincipalName
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
+```
+
+使用`principalName`屬性來識別您想要授與 RBAC 擁有者存取權的帳戶。 複製`ObjectId`該帳戶。 例如，如果您想要授與 RBAC 擁有者存取權SignUpEngineering@contoso.com註冊帳戶，您會複製```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```。 某處，讓您可以使用它做為下一個步驟中，貼上此物件識別碼`enrollmentAccountObjectId`。
+
+### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+使用 [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) 命令來列出您可以存取的所有註冊帳戶。
+
+```azurecli-interactive 
+az billing enrollment-account list
+```
+
+Azure 會以回應一份您可以存取的註冊帳戶：
+
+```json
+[
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "SignUpEngineering@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  },
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "BillingPlatformTeam@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  }
+]
+
+```
+
+使用`principalName`屬性來識別您想要授與 RBAC 擁有者存取權的帳戶。 複製`name`該帳戶。 例如，如果您想要授與 RBAC 擁有者存取權SignUpEngineering@contoso.com註冊帳戶，您會複製```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```。 這是註冊帳戶的物件識別碼。 貼上此值，因此，您可以使用它做為下一個步驟中某處`enrollmentAccountObjectId`。
+
+<a id="userObjectId"></a>
+
+### <a name="2-get-object-id-of-the-user-or-group-you-want-to-give-the-rbac-owner-role-to"></a>2.取得物件識別碼的使用者或群組，您想要提供 RBAC 擁有者角色
+
+1. 在 Azure 入口網站中，搜尋**Azure Active Directory**。
+1. 如果您想要授與使用者存取權，按一下**使用者**在左側功能表中。 如果您想要授與存取權的群組，按一下**群組**。
+1. 選取您想要授與 RBAC 擁有者角色，以群組的使用者。
+1. 如果您選取使用者，您會發現的物件識別碼設定檔 頁面。 如果您選取的群組時，會在 [概觀] 頁面中的物件識別碼。 複製**ObjectID**按一下文字方塊右邊的圖示。 貼上此位置，讓您可以使用它做為下一個步驟中`userObjectId`。
+
+### <a name="3-grant-the-user-or-group-the-rbac-owner-role-on-the-enrollment-account"></a>3.授與使用者或群組註冊帳戶的 RBAC 擁有者角色
+
+使用您在前兩個步驟中收集的值，授與使用者或群組註冊帳戶的 RBAC 擁有者角色。
+
+### <a name="resttabrest-2"></a>[REST](#tab/rest-2)
+
+執行下列命令，取代```<enrollmentAccountObjectId>```具有`name`您在第一個步驟中複製 (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)。 取代```<userObjectId>```與您從第二個步驟中複製的物件識別碼。
+
+```json
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -62,27 +166,27 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershelltabazure-powershell-2"></a>[PowerShell](#tab/azure-powershell-2)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-使用 [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) 將您註冊帳戶的「擁有者」存取權授與另一個使用者。
+執行下列[新增 AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md)命令，將```<enrollmentAccountObjectId>```具有`ObjectId`第一個步驟中收集 (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)。 取代```<userObjectId>```第二個步驟中收集的物件識別碼。
 
 ```azurepowershell-interactive
-New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-clitabazure-cli-2"></a>[Azure CLI](#tab/azure-cli-2)
 
-使用 [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md) 將您註冊帳戶的「擁有者」存取權授與另一個使用者。
+執行下列[az 角色指派建立](../active-directory/role-based-access-control-manage-access-azure-cli.md)命令，將```<enrollmentAccountObjectId>```具有`name`您在第一個步驟中複製 (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```)。 取代```<userObjectId>```第二個步驟中收集的物件識別碼。
 
-```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```azurecli-interactive
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
 ```
 
 ----
 
-在使用者成為您註冊帳戶的「RBAC 擁有者」之後，他們便能以程式設計方式在該帳戶下建立訂用帳戶。 由委派的使用者所建立的訂用帳戶仍然會以原始「帳戶擁有者」作為「服務管理員」，但預設也會以委派的使用者作為「擁有者」。 
+一旦使用者成為您註冊帳戶的 「 RBAC 擁有者，進而[以程式設計方式建立訂用帳戶](programmatically-create-subscription.md)其下。 委派的使用者所建立的訂用帳戶仍有原始的帳戶擁有者，為服務系統管理員，但它也有委派的使用者作為 「 RBAC 擁有者預設。
 
 ## <a name="audit-who-created-subscriptions-using-activity-logs"></a>使用活動記錄來稽核建立訂用帳戶的人員
 
@@ -95,7 +199,6 @@ az role assignment create --role Owner --assignee-object-id <userObjectId> --sco
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'" 
 ```
 
-> [!NOTE]
 > 若要以便利的方式從命令列呼叫此 API，請嘗試 [ARMClient](https://github.com/projectkudu/ARMClient)。
 
 ## <a name="next-steps"></a>後續步驟

@@ -3,8 +3,8 @@ title: 使用 Azure AD App Proxy 發佈遠端桌面 | Microsoft Docs
 description: 涵蓋 Azure AD 應用程式 Proxy 連接器的基本概念。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: celested
+ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ecd55cbb3a8eefc150db731901458561d90f033
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440680"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783415"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈遠端桌面
 
@@ -68,7 +68,7 @@ ms.locfileid: "60440680"
    - 內部 URL：`https://\<rdhost\>.com/`，其中 `\<rdhost\>` 是 RD Web 和 RD 閘道共用的一般根。
    - 外部 URL：會根據應用程式名稱自動填入這個欄位，但您可以修改。 您的使用者在存取 RDS 時，將會移到此 URL。
    - 預先驗證方法：Azure Active Directory
-   - 轉譯 URL 標頭：否
+   - 轉譯 URL 標頭：無
 2. 將使用者指派給已發佈 RD 應用程式。 並請確定它們都可存取 RDS。
 3. 保留應用程式的單一登入方法，因為 **Azure AD 單一登入已停用**。 系統會要求您的使用者分別驗證一次 Azure AD 及 RD Web，但可單一登入 RD 閘道。
 4. 移至 [Azure Active Directory] > [應用程式註冊] > [您的應用程式] > [設定]。

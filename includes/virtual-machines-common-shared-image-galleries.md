@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192376"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546715"
 ---
 共用映像庫服務可協助您圍繞自訂受控虛擬機器映像來建置結構和組織。 共用映像庫提供：
 
@@ -266,4 +266,4 @@ ms.locfileid: "65192376"
 
 **問：** 我應該使用哪些 API 版本來建立共用映像庫、映像定義、映像版本，以及從映像版本建立 VM/VMSS？
 
- A. 對於使用映像版本來部署 VM 和虛擬機器擴展集，建議您使用 API 版本 2018-04-01 或更高版本。 若要處理共用映像庫、映像定義及映像版本，建議您使用 API 版本 2018-06-01。 
+ A. 對於使用映像版本來部署 VM 和虛擬機器擴展集，建議您使用 API 版本 2018-04-01 或更高版本。 若要處理共用映像庫、映像定義及映像版本，建議您使用 API 版本 2018-06-01。 區域備援儲存體 (ZRS) 需要 2019年-03-01 版或更新版本。

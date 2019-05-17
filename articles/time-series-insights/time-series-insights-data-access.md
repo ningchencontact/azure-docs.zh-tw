@@ -11,18 +11,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6853637ba23e17f3a7ca5420bdd84425c81a67be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236385"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791015"
 ---
 # <a name="grant-data-access-to-an-environment"></a>授與環境的資料存取權
 
 本文討論兩種 Azure 時間序列深入解析預覽存取原則。
 
-## <a name="sign-in-to-tsi"></a>登入至 TSI
+## <a name="sign-in-to-time-series-insights"></a>登入時間序列深入解析
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 1. 找到您的時間序列深入解析環境。 在 [搜尋] 方塊中，輸入 `Time Series`。 選取搜尋結果中的 [時間序列環境]。

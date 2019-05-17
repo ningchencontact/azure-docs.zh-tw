@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: cbdc9ff3fc56b96b6b7817946abc0a8fb0f4259c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/10/2019
+ms.openlocfilehash: 8a7f334984d92707e4afa7cd595197e4dea83f33
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150930"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546467"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比較：Azure SQL Database 與 SQL Server
 
@@ -56,10 +56,10 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [定序 - 資料庫](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | 是 | 是 |
 | [定序 - 伺服器/執行個體](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | 否，預設 logicla 伺服器定序`SQL_Latin1_General_CP1_CI_AS`一律會使用。 | 是，可以設定的時機[會建立執行個體](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)，而且無法在稍後更新。 |
 | [資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | 是 - [進階層、標準層 - S3 以上、一般用途層和業務關鍵層](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |是 |
-| [通用語言執行平台 (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 否 | 是的但沒有在檔案系統的存取權`CREATE ASSEMBLY`陳述式-請參閱[CLR 差異](sql-database-managed-instance-transact-sql-information.md#clr) |
-| [自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | 是 | 目前沒有[由於瑕疵中包括時間點還原還原](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database)。 這是將推出修正缺失。 |
+| [通用語言執行平台 (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 無 | 是的但沒有在檔案系統的存取權`CREATE ASSEMBLY`陳述式-請參閱[CLR 差異](sql-database-managed-instance-transact-sql-information.md#clr) |
+| [自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | 有 | 目前沒有[由於瑕疵中包括時間點還原還原](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database)。 這是將推出修正缺失。 |
 | [自主使用者](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | 是 | 是 |
-| [控制流程語言關鍵字](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | 是 | 是 |
+| [控制流程語言關鍵字](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | 是 | 有 |
 | [認證](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/credentials-database-engine) | 是的但只有[資料庫範圍認證](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql)。 | 是的但只有**Azure Key Vault**並`SHARED ACCESS SIGNATURE`支援請參閱[詳細資料](sql-database-managed-instance-transact-sql-information.md#credential) |
 | [跨資料庫查詢](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 請參閱[彈性查詢](sql-database-elastic-query-overview.md) | 是，再加上[彈性查詢](sql-database-elastic-query-overview.md) |
 | [跨資料庫交易](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 | 是，在執行個體。 請參閱[連結伺服器的差異](sql-database-managed-instance-transact-sql-information.md#linked-servers)跨執行個體查詢。 |
@@ -67,7 +67,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [資料壓縮](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | 是 |是 |
 | [Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | 否 | 是 |
 | [資料移轉服務 (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | 是 | 是 |
-| [資料庫鏡像](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | 否 | [否](sql-database-managed-instance-transact-sql-information.md#database-mirroring) |
+| [資料庫鏡像](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | 無 | [否](sql-database-managed-instance-transact-sql-information.md#database-mirroring) |
 | [資料庫組態設定](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) | 是 | 是 |
 | [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | 否 | 否 |
 | [資料庫快照集](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | 否 | 否 |
@@ -87,7 +87,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [擴充事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 部分請參閱 [SQL Database 中的擴充事件](sql-database-xevent-db-diff-from-svr.md) | 是 - 請參閱[擴充事件差異](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [擴充預存程序](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | 否 | 否 |
 | [檔案和檔案群組](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | 僅限主要檔案群組 | 是。 檔案路徑會自動指派，而且不能指定檔案位置`ALTER DATABASE ADD FILE`[陳述式](sql-database-managed-instance-transact-sql-information.md#alter-database-statement)。  |
-| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 否 | [否](sql-database-managed-instance-transact-sql-information.md#filestream-and-filetable) |
+| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 無 | [否](sql-database-managed-instance-transact-sql-information.md#filestream-and-filetable) |
 | [全文檢索搜尋](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  不支援 [是]，但協力廠商斷詞工具 | 是的但[不支援協力廠商斷詞工具](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) |
 | [函式](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大部分 - 請參閱個別函式 | 是 - 請參閱[預存程序、函式、觸發程序差異](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [異地還原](sql-database-recovery-using-backups.md#geo-restore) | 所有服務層以外的超大規模的是- | 是-使用[Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa)。 |
@@ -109,7 +109,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)|是的才能從 Azure Blob 儲存體匯入。 |是，只有其他的 Azure SQL Database 和 SQL Server，並從 Azure Blob 儲存體匯入。 請參閱[T-SQL 差異](sql-database-managed-instance-transact-sql-information.md)|
 | [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|是|是|
 | [運算子](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | 大部分 - 請參閱個別運算子 |是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
-| [分割](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | 是 | 是 |
+| [分割](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | 是 | 有 |
 | 公用 IP 位址 | 是。 您可以使用防火牆或服務的端點限制存取。  | 是。 必須是明確地啟用和連接埠 3342 必須啟用 NSG 規則。 如有需要可以停用公用 IP。 請參閱[公用端點](sql-database-managed-instance-public-endpoint-securely.md)如需詳細資訊。 | 
 | [資料庫還原時間點](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 是-請參閱超大規模-以外的所有服務層[SQL Database 復原](sql-database-recovery-using-backups.md#point-in-time-restore) | 是 - 請參閱 [SQL Database 復原](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | 否 | 否 |
@@ -119,7 +119,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [查詢效能深入解析](sql-database-query-performance.md) | 是 | 否 |
 | [R 服務](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 是，現已在[公開預覽版](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)中推出  | 否 |
 | [資源管理員](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 否 | 是 |
-| [RESTORE 陳述式](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 否 | 是，使用強制`FROM URL`放在 Azure Blob 儲存體的備份檔案的選項。 請參閱[還原差異](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
+| [RESTORE 陳述式](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 無 | 是，使用強制`FROM URL`放在 Azure Blob 儲存體的備份檔案的選項。 請參閱[還原差異](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [從備份還原資料庫](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 僅限從自動備份 - 請參閱[SQL Database 復原](sql-database-recovery-using-backups.md) | 從自動備份-請參閱[SQL Database 復原](sql-database-recovery-using-backups.md)並從完整備份放在 Azure Blob 儲存體-請參閱[備份差異](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [資料列層級安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | 是 | 是 |
 | [語意搜尋](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | 否 | 否 |

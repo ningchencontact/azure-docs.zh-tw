@@ -11,20 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 87620cb0c7aafb78b2c8fe610f42ad092313d305
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153471"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550970"
 ---
 # <a name="live-events-and-live-outputs"></a>即時事件與即時輸出
 
-Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 若要設定媒體服務 v3 中的即時串流事件，您需要了解本文所討論的概念。 <br/>區段的清單會列在頁面的右邊。
+Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 若要設定媒體服務 v3 中的即時串流事件，您需要了解本文所討論的概念。
 
-## <a name="live-events"></a>即時活動
+> [!TIP]
+> 媒體服務 v2 Api，從移轉的客戶**即時事件**實體取代**通道**v2 中並**Live 輸出**取代**程式**.
+
+
+## <a name="live-events"></a>即時事件
 
 [實況活動](https://docs.microsoft.com/rest/api/media/liveevents)負責內嵌和處理即時視訊摘要。 當您建立「實況活動」時，系統會建立輸入端點，供您用來從遠端編碼器傳送即時訊號。 遠端即時編碼器使用 [RTMP](https://www.adobe.com/devnet/rtmp.html) 或是 [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (分散式 MP4) 通訊協定，傳送發佈摘要至該輸入端點。 針對 Smooth Streaming 內嵌通訊協定，支援的 URL 配置為 `http://` 或 `https://`。 RTMP 內嵌通訊協定支援的 URL 配置為 `rtmp://` 或 `rtmps://`。 
 
@@ -144,7 +148,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 如需詳細資訊，請參閱[使用雲端 DVR](live-event-cloud-dvr.md)。
 
-## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

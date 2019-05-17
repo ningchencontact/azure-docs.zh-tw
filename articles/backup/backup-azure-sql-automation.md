@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 3a424335a1e7d7775f6be0980e7009669e354ea7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d17d5c2c0eaebc694abe820318f6ac0c70b0be8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717897"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544600"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>備份和還原 SQL Database 中使用 PowerShell 的 Azure Vm
 
@@ -110,7 +110,7 @@ ms.locfileid: "64717897"
 3. 指定要用於保存庫儲存體備援類型。
 
     * 您可以使用[本機備援儲存體](../storage/common/storage-redundancy-lrs.md)或[異地備援儲存體](../storage/common/storage-redundancy-grs.md)。
-    * 下列範例會設定 **-BackupStorageRedundancy**選項[組 AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0)的 cmd **testvault**設為**異地備援**。
+    * 下列範例會設定 **-BackupStorageRedundancy**選項[組 AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty)的 cmd **testvault**設為**異地備援**。
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -222,7 +222,7 @@ $SQLDB = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemTy
 Enable-AzRecoveryServicesBackupProtection -ProtectableItem $SQLDB -Policy $NewSQLPolicy
 ````
 
-此命令會等到完成設定備份，並傳回下列輸出。
+该命令将一直等到配置备份完成并返回以下输出。
 
 ```powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -459,9 +459,9 @@ MSSQLSERVER/m... Backup               InProgress           3/18/2019 8:41:27 PM 
 
 如果輸出已遺失，或如果您想要取得相關的作業識別碼[取得作業清單](#track-azure-backup-jobs)從 Azure 備份服務，然後追蹤 以及其詳細資料。
 
-### <a name="change-policy-for-backup-items"></a>變更備份項目原則
+### <a name="change-policy-for-backup-items"></a>更改备份项的策略
 
-使用者可以修改現有的原則，或從 [policy1] 中變更的原則備份的項目，為 Policy2。 若要切換原則備份的項目，只要擷取相關的原則和備份項目，並使用[啟用 AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0)命令與備份的項目，做為參數。
+用户可以修改现有策略，也可以将备份项的策略从 Policy1 更改为 Policy2。 若要切换备份项的策略，只需提取相关策略并备份项，并使用 [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) 命令以备份项作为参数。
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -469,7 +469,7 @@ $anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType MSSQL -BackupMa
 Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1
 ````
 
-此命令會等到完成設定備份，並傳回下列輸出。
+该命令将一直等到配置备份完成并返回以下输出。
 
 ```powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -491,9 +491,9 @@ Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManag
 
 ### <a name="stop-protection"></a>停止保護
 
-#### <a name="retain-data"></a>保留資料
+#### <a name="retain-data"></a>保留数据
 
-如果使用者想要停止保護，則可以使用[停用 AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS 指令程式。 這將會停止排定的備份，但直到備份的資料現在會永遠保留。
+如果用户想要停止保护，他们可以使用 [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet。 此命令将停止计划的备份，但到目前为止备份的数据将永远保留。
 
 ````powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $targetVault.ID
@@ -502,7 +502,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 #### <a name="delete-backup-data"></a>刪除備份資料
 
-若要完全移除備份的資料儲存在保存庫，只要新增 '-RemoveRecoveryPoints' 旗標/切換到['disable' 保護命令](#retain-data)。
+若要完全删除保管库中存储的备份数据，只需将“-RemoveRecoveryPoints”标志/开关添加到[“disable”保护命令](#retain-data)。
 
 ````powershell
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
@@ -530,7 +530,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 請務必請注意，Azure 備份只會追蹤 SQL 備份中的使用者觸發作業。 在入口網站 /powershell 中看不到 排定的備份 （包括記錄備份）。 不過，如果有任何排定的工作失敗，[備份警示](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)會產生並顯示在入口網站中。 [使用 Azure 監視器](backup-azure-monitoring-use-azuremonitor.md)來追蹤所有排程的工作和其他相關資訊。
 
-使用者可以追蹤觸發臨機操作/使用者作業中傳回的 JobID[輸出](#on-demand-backup)的非同步作業，例如備份。 使用[Get AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetails?view=azps-1.5.0) PS cmdlet，來追蹤工作和其詳細資料。
+使用者可以追蹤觸發臨機操作/使用者作業中傳回的 JobID[輸出](#on-demand-backup)的非同步作業，例如備份。 使用[Get AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS cmdlet，來追蹤工作和其詳細資料。
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

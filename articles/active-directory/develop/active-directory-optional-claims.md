@@ -2,9 +2,9 @@
 title: 了解如何提供選擇性宣告給 Azure AD 應用程式 | Microsoft Docs
 description: 將自訂或額外宣告新增至 Azure Active Directory 所簽發之 SAML 2.0 和 JSON Web Token (JWT) 權杖的指南。
 documentationcenter: na
-author: CelesteDG
+author: rwike77
 services: active-directory
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/27/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd7b05a5411c03e1324871fbff3c29061ce7b3d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139232"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544571"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>作法：提供給您的 Azure AD 應用程式的選擇性宣告
 
@@ -52,7 +52,7 @@ ms.locfileid: "65139232"
 
 **表 2：V1.0 與 V2.0 選擇性宣告集**
 
-| 名稱                       |  描述   | 權杖類型 | 使用者類型 | 注意  |
+| 名稱                       |  說明   | Token 類型 | 使用者類型 | 注意  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 上次驗證使用者的時間。 請參閱 OpenID Connect 規格。| JWT        |           |  |
 | `tenant_region_scope`      | 資源租用戶的區域 | JWT        |           | |
@@ -81,7 +81,7 @@ ms.locfileid: "65139232"
 
 **表 3：僅適用於 V2.0 的選擇性宣告**
 
-| JWT 宣告     | 名稱                            | 描述                                | 注意 |
+| JWT 宣告     | 名稱                            | 說明                                | 注意 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 位址                      | 用戶端的登入來源 IP 位址。   |       |
 | `onprem_sid`  | 內部部署安全性識別碼 |                                             |       |
@@ -99,10 +99,10 @@ ms.locfileid: "65139232"
 
 **表 4：用來設定選擇性宣告的值**
 
-| 屬性名稱  | 額外屬性名稱 | 描述 |
+| 屬性名稱  | 額外屬性名稱 | 說明 |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | 可同時用於 SAML 和 JWT 回應，以及用於 v1.0 和 v2.0 權杖。 |
-|                | `include_externally_authenticated_upn`  | 包含儲存在資源租用戶中的來賓 UPN。 例如， `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn`  | 包含儲存在資源租用戶中的來賓 UPN。 例如： `foo_hometenant.com#EXT#@resourcetenant.com`  |             
 |                | `include_externally_authenticated_upn_without_hash` | 同上，只是將井號 (`#`) 取代成底線 (`_`)，例如 `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>額外屬性範例
@@ -163,7 +163,7 @@ ms.locfileid: "65139232"
 
 **表 5：OptionalClaims 類型屬性**
 
-| 名稱        | 類型                       | 描述                                           |
+| 名稱        | 類型                       | 說明                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 集合 (OptionalClaim) | 在 JWT 識別碼權杖中傳回的選擇性宣告。 |
 | `accessToken` | 集合 (OptionalClaim) | 在 JWT 存取權杖中傳回的選擇性宣告。 |
@@ -176,7 +176,7 @@ ms.locfileid: "65139232"
 
 **表 6：OptionalClaim 類型屬性**
 
-| 名稱                 | 類型                    | 描述                                                                                                                                                                                                                                                                                                   |
+| 名稱                 | 類型                    | 說明                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 選擇性宣告的名稱。                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | 宣告的來源 (目錄物件)。 有來自延伸模組屬性的預先定義宣告和使用者定義宣告。 如果來源值為 null，宣告便是預先定義的選擇性宣告。 如果來源值為 user，名稱屬性中的值即為來自使用者物件的延伸模組屬性。 |
@@ -217,7 +217,7 @@ ms.locfileid: "65139232"
    - 「 DistributionList"
    - "DirectoryRole"
 
-   例如︰
+   例如：
 
    ```json
    "groupMembershipClaims": "SecurityGroup"
@@ -250,8 +250,8 @@ ms.locfileid: "65139232"
    | 選擇性宣告結構描述 | Value |
    |----------|-------------|
    | **名稱：** | 必須是 「 群組 」 |
-   | **來源：** | 不使用。 省略或指定 null |
-   | **重要：** | 不使用。 省略或指定 false |
+   | **來源：** | 未使用。 省略或指定 null |
+   | **重要：** | 未使用。 省略或指定 false |
    | **additionalProperties:** | 其他屬性的清單。  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
 
    在 additionalProperties 只有其中一個 「 sam_account_name"，"dns_domain_and_sam_account_name"，"netbios_domain_and_sam_account_name 」 則是必要項目。  如果多個存在，則第一個和任何其他人被忽略。

@@ -3,8 +3,8 @@ title: 使用 Node.js 模組
 description: 了解如何在使用 Azure App Service 或雲端服務時使用 Node.js 模組。
 services: ''
 documentationcenter: nodejs
-author: TomArcher
-manager: routlaw
+author: rloutlaw
+manager: rloutlaw
 editor: ''
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
 ms.service: multiple
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: tarcher
-ms.openlocfilehash: 08f3a2dcf9d36eb76b2f657232a426b078066273
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: rloutlaw
+ms.openlocfilehash: 67ae9eec4e6cd4fc7697e54dfd74c5e0c8f1f59c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60634911"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540941"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>使用 Node.js 模組與 Azure 應用程式搭配
 本文提供有關使用 Node.js 模組與 Azure 上代管之應用程式搭配的指引。 它提供有關確保應用程式使用模組特定版本，以及搭配使用原生模組與 Azure 的指引。

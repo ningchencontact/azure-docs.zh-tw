@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 881734caf855ccfc4f001693fe261b8448b49bc4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 06051eff73a83ff97a733d1863580885c5d0e174
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466207"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551729"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure 的 Red Hat OpenShift 常見問題集
 
@@ -66,3 +66,7 @@ Docker 登錄是可從`https://docker-registry.apps.<clustername>.<region>.azmos
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>主要節點和基礎結構節點抽離不使用 Azure Kubernetes Service (AKS)？
 
 沒有。 所有資源，包括叢集主機上，都執行您的客戶訂用帳戶中。 這些類型的資源會放在唯讀模式的資源群組。
+
+## <a name="is-open-service-broker-for-azure-osba-supported"></a>是 Open Service Broker for Azure (OSBA) 支援？
+
+是。 您可以使用 OSBA 與 Azure 的 Red Hat OpenShift。 請參閱[Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template)如需詳細資訊。

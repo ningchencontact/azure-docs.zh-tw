@@ -1,6 +1,6 @@
 ---
 title: Azure 執行個體中繼資料服務 | Microsoft Docs
-description: RESTful 介面，用以取得 Linux VM 的計算、網路和近期維護事件的相關資訊。
+description: RESTful 介面，用以取得 Linux VM 的計算、 網路和近期維護事件的相關資訊。
 services: virtual-machines-linux
 documentationcenter: ''
 author: KumariSupriya
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 84821a24ceb8624a1a7033c43c44548fe5eff315
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 88de601caf984d2511229cd68190554086c3da38
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993131"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779548"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -108,9 +108,9 @@ API | 預設資料格式 | 其他格式
 --------|---------------------|--------------
 /instance | json | 文字
 /scheduledevents | json | None
-/attested | json | None
+/attested | JSON | None
 
-若要存取非預設的回應格式，請指定要求的格式作為要求中的查詢字串參數。 例如︰
+若要存取非預設的回應格式，請指定要求的格式作為要求中的查詢字串參數。 例如：
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -340,11 +340,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>下列 Api 都是透過中繼資料端點：
 
-資料 | 描述 | 引進的版本
+資料 | 說明 | 引進的版本
 -----|-------------|-----------------------
 attested | 請參閱[證明資料](#attested-data) | 2018-10-01
 身分識別 | 適用於 Azure 資源的受控識別。 請參閱[取得存取權杖](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-instance | 請參閱[執行個體 API](#instance-api) | 2017-04-02
+執行個體 | 請參閱[執行個體 API](#instance-api) | 2017-04-02
 scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>執行個體 API
@@ -353,23 +353,23 @@ scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
 > [!NOTE]
 > 中繼資料端點，透過下列類別是透過計算執行個體/存取
 
-資料 | 描述 | 引進的版本
+資料 | 說明 | 引進的版本
 -----|-------------|-----------------------
 azEnvironment | VM 运行时所在的 Azure 环境 | 2018-10-01
 customData | 請參閱[自訂資料](#custom-data) | 2019-02-01
 location | VM 執行所在的 Azure 區域 | 2017-04-02
 name | VM 的名稱 | 2017-04-02
-供應項目 | 提供 VM 映像的資訊。 此值只會針對從 Azure 映像庫部署的映像呈現。 | 2017-04-02
+供應項目 | 提供 VM 映像的資訊，並會從 Azure 映像庫部署映像才存在 | 2017-04-02
 osType | Linux 或 Windows | 2017-04-02
 placementGroupId | 虛擬機器擴展集的[放置群組](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
-計劃 | 在 Azure 市场映像中 VM 的[计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)，包含名称、产品和发布者 | 2018-04-02
+計劃 | [計劃](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)包含名稱、 產品和 「 發行者 」 的 vm，如果其 Azure Marketplace 映像 | 2018-04-02
 platformUpdateDomain |  VM 執行所在的[更新網域](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM 執行所在的[容錯網域](manage-availability.md) | 2017-04-02
-provider | VM 的提供商 | 2018-10-01
+提供者 | VM 的提供商 | 2018-10-01
 publicKeys | [公钥的集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey)，已分配给 VM 和路径 | 2018-04-02
 publisher | VM 映像的發佈者 | 2017-04-02
 resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
-sku | VM 映像的特定 SKU | 2017-04-02
+SKU | VM 映像的特定 SKU | 2017-04-02
 subscriptionId | 虛擬機器的 Azure 訂用帳戶 | 2017-08-01
 tags | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 version | VM 映像的版本 | 2017-04-02
@@ -383,7 +383,7 @@ vmSize | [VM 大小](sizes.md) | 2017-04-02
 > [!NOTE]
 > 透過中繼資料端點，透過執行個體/網路/介面存取下列類別
 
-資料 | 描述 | 引進的版本
+資料 | 說明 | 引進的版本
 -----|-------------|-----------------------
 ipv4/privateIpAddress | VM 的本機 IPv4 位址 | 2017-04-02
 ipv4/publicIpAddress | VM 的公用 IPv4 位址 | 2017-04-02
@@ -604,7 +604,7 @@ Verification successful
 }
 ```
 
-資料 | 描述
+資料 | 說明
 -----|------------
 nonce | 使用者隨要求提供的選擇性字串。 如果要求中未提供 nonce，則會傳回目前的 UTC 時間戳記
 計劃 | VM 在其 Azure Marketplace 映像中的[方案](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) \(英文\)，包含名稱、產品及發行者
@@ -688,9 +688,17 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="custom-data"></a>自訂資料
-執行個體中繼資料服務提供的 VM 具有其自訂資料的存取權的能力。 二進位資料必須是小於 64 KB，並且提供 base64 編碼格式的 vm。 如需如何使用自訂的資料來建立 VM 的詳細資訊，請參閱 <<c0> [ 部署虛擬機器使用 CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)。
+執行個體中繼資料服務提供的 VM 具有其自訂資料的存取權的能力。 二進位資料必須是小於 64 KB，並且提供 base64 編碼格式的 vm。
+
+Azure 的自訂資料可以透過 REST Api、 PowerShell Cmdlet、 Azure 命令列介面 (CLI) 或 ARM 範本的 vm 插入。
+
+如需 Azure 命令列介面 」 範例，請參閱[自訂資料和 Cloud-init 在 Microsoft Azure 上](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/)。
+
+如需 ARM 範本範例，請參閱[部署虛擬機器使用 CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)。
 
 在 VM 中執行的所有處理程序使用自訂的資料。 建議客戶不要將祕密資訊插入自訂資料。
+
+目前，自訂資料保證可以在 VM 的啟動程序期間使用。 如果更新作用於例如新增磁碟或調整 VM 大小的 VM，執行個體中繼資料服務將不會提供自訂的資料。 提供自訂的資料持續透過執行個體中繼資料服務目前正在進行中。
 
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>擷取虛擬機器中的自訂資料
 Base64 編碼格式中的 VM 執行個體中繼資料服務提供自訂的資料。 下列範例將解碼的 base64 編碼字串。
@@ -714,8 +722,8 @@ My custom data.
 
 語言 | 範例
 ---------|----------------
-Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+拼音     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+移至  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

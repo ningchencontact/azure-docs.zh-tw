@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 70712b68cc26a461f702850dbf6064b65b4ff130
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494658"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780014"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>適用於容器的 Azure 監視器常見問題集
 
@@ -76,6 +76,12 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>為什麼無法升級叢集上架後？
 
 如果您啟用 Azure 監視器適用於 AKS 叢集中的容器之後，您刪除 Log Analytics 工作區的叢集中已傳送其資料，當您嘗試將叢集升級時它將會失敗。 若要解決這個問題，您必須停用監視，然後再重新啟用它參考不同的有效工作區，您的訂用帳戶中。 當您嘗試再次執行叢集升級時，應該處理並順利完成。  
+
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>哪些連接埠及網域我要開啟/允許清單的代理程式？
+- *.ods.opinsights.azure.com   443
+- *.oms.opinsights.azure.com   443
+- *.blob.core.windows.net      443
+- dc.services.visualstudio.com 443
 
 ## <a name="next-steps"></a>後續步驟
 

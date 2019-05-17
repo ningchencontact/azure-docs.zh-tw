@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121787"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790908"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>將語言分析器新增至 Azure 搜尋服務索引
 
@@ -45,9 +45,6 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 + Lucene 的英文分析器能擴充標準分析器。 它會從字詞中移除所有格 (結尾的 's)、為每個 Porter 詞幹演算法套用詞幹，然後移除英文停用字詞。  
 
 + Microsoft 的英文分析器會執行詞形的歸併還原，而不是詞幹分析。 這表示它可以把變形和不規則的字詞形式處理得更好，以得到相關性更強的搜尋結果 
-
-  > [!Tip]
-  > [搜尋分析器示範](https://alice.unearth.ai/) \(英文\) 會顯示由標準 Lucene 分析器、Lucene 的英文語言分析器，以及 Microsoft 的英文版自然語言處理器所產生之結果的並排比較。 針對您所提供的每個搜尋輸入，每個分析器的結果都會顯示在相鄰的窗格中。
 
 ## <a name="configuring-analyzers"></a>設定分析器
 
@@ -76,7 +73,7 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 |捷克文|cs.microsoft|cs.lucene|  
 |丹麥文|da.microsoft|da.lucene|  
 |荷蘭文|nl.microsoft|nl.lucene|  
-|English|en.microsoft|en.lucene|  
+|英文|en.microsoft|en.lucene|  
 |愛沙尼亞文|et.microsoft||  
 |芬蘭文|fi.microsoft|fi.lucene|  
 |法文|fr.microsoft|fr.lucene|  
@@ -104,7 +101,7 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 |波蘭文|pl.microsoft|pl.lucene|  
 |葡萄牙文 (巴西)|pt-Br.microsoft|pt-Br.lucene|  
 |葡萄牙文 (葡萄牙)|pt-Pt.microsoft|pt-Pt.lucene|  
-|旁遮普文|pa.microsoft||  
+|旁遮普語|pa.microsoft||  
 |羅馬尼亞文|ro.microsoft|ro.lucene|  
 |俄文|ru.microsoft|ru.lucene|  
 |塞爾維亞文 (斯拉夫)|sr-cyrillic.microsoft||  

@@ -6,13 +6,13 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 3c7f0b263cc775b7f9fec62e4d5388250e5124fb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/13/2019
+ms.openlocfilehash: 04d710f4d60b776f8059d87ea4d009bed6f7f8ba
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079116"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551693"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>建立 Azure AD 租用戶的 Azure Red Hat OpenShift
 
@@ -34,7 +34,7 @@ ms.locfileid: "65079116"
 
     ![在右上方顯示租用戶名稱的入口網站的螢幕擷取畫面][tenantcallout]  
 
-8. 請記下的*租用戶識別碼*以便您稍後可以指定要建立您的 Azure Red Hat OpenShift 叢集的位置。 在入口網站中，您現在應該會看到 Azure Active Directory 概觀 刀鋒視窗的 新的租用戶。 選取 **屬性**，並將複製的值為您**Directory 識別碼**。 我們會將此值作為`tenant id`中[建立 Azure 的 Red Hat OpenShift 叢集](tutorial-create-cluster.md)教學課程。
+8. 請記下的*租用戶識別碼*以便您稍後可以指定要建立您的 Azure Red Hat OpenShift 叢集的位置。 在入口網站中，您現在應該會看到 Azure Active Directory 概觀 刀鋒視窗的 新的租用戶。 選取 **屬性**，並將複製的值為您**Directory 識別碼**。 我們會將此值作為`TENANT`中[建立 Azure 的 Red Hat OpenShift 叢集](tutorial-create-cluster.md)教學課程。
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5267f81c9886e2d1d8d62c134156aedb3b2b8763
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023684"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540836"
 ---
 #   <a name="shaper-cognitive-skill"></a>塑形器認知技能
 
@@ -29,7 +29,7 @@ API 版本會決定可以達到塑造您的深度。
 | 2019-05-06-preview 版 REST API （不支援.NET SDK） | 複雜物件，多個可以在其中一個深度層級**Shaper**技能定義。 |
 | 2019-05-06 * * （正式推出） 2017年-11-11-預覽| 複雜的物件，一個層級深度。 多層級的圖形需要將 shaper 的幾個步驟鏈結在一起。|
 
-預覽**Shaper**中所述的技能[案例 3](#nested-complex-types)，將新選擇性*sourceContext*輸入的屬性。 *來源*並*sourceContext*屬性互斥。 如果輸入是在技能的內容，只需使用*來源*。 如果輸入是在*不同*技能內容中，使用內容*sourceContext*。 *SourceContext*需要您定義的巢狀的輸入與處理做為來源的特定項目。 
+所提供`api-version=2019-05-06-Preview`，則**Shaper**中所述的技巧[案例 3](#nested-complex-types)新增選擇性*sourceContext*的輸入屬性。 *來源*並*sourceContext*屬性互斥。 如果輸入是在技能的內容，只需使用*來源*。 如果輸入是在*不同*技能內容中，使用內容*sourceContext*。 *SourceContext*需要您定義的巢狀的輸入與處理做為來源的特定項目。 
 
 在回應中，所有的 API 版本，輸出名稱是一律"output"。 就內部而言，管線可以對應不同的名稱，例如"analyzedText 」 所示，在以下範例中，但**Shaper**本身的技能在回應中傳回 「 輸出 」。 如果您正在對擴充文件進行偵錯，並發現命名差異，或如果您建置自訂技能並自行建構回應，這可能十分重要。
 
@@ -196,7 +196,7 @@ Microsoft.Skills.Util.ShaperSkill
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>案例 3： 從巢狀內容的輸入彙總
 
 > [!NOTE]
-> 巢狀結構支援 api-version = 可用於 2019年-05-06-Preview[知識存放區](knowledge-store-concept-intro.md)或在 Azure 搜尋服務索引中。
+> 巢狀結構中支援[REST API 版本 2019年-05-06-Preview](search-api-preview.md)可用於[知識市集](knowledge-store-concept-intro.md)或在 Azure 搜尋服務索引中。
 
 假設您有標題、 章節和活頁簿的內容和實體辨識和金鑰的片語上執行內容而現在彙總結果需要從不同的技巧，進入 「 單一 」 圖形與章節名稱、 實體和關鍵片語。
 

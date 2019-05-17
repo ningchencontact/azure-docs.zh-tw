@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
-ms.openlocfilehash: 1006cc902cf4b6f763d86165a039a1fec5dc97a1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467077"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796264"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>導入健康情況整合首度發行至 Azure 部署管理員 （公開預覽）
 
@@ -32,7 +32,7 @@ ms.locfileid: "65467077"
 
 ## <a name="how-service-health-is-determined"></a>如何判斷服務健全狀況
 
-[健全狀況監視提供者](#health-monitoring-providers)提供數種機制，來監視服務和警示的任何服務健康情況問題。 [Azure 監視器](/services/monitor/)舉例說明一個這類的供應項目。 Azure 監視器可以用於超過特定閾值時建立警示。 比方說，您的記憶體和 CPU 使用量突然增加超過預期的層級時您將新的更新部署到您的服務。 當通知時，您可以採取修正動作。
+[健全狀況監視提供者](#health-monitoring-providers)提供數種機制，來監視服務和警示的任何服務健康情況問題。 [Azure 監視器](../azure-monitor/overview.md)舉例說明一個這類的供應項目。 Azure 監視器可以用於超過特定閾值時建立警示。 比方說，您的記憶體和 CPU 使用量突然增加超過預期的層級時您將新的更新部署到您的服務。 當通知時，您可以採取修正動作。
 
 這些健康狀態提供者通常會提供 REST Api，以便能以程式設計方式檢查您的服務監視的狀態。 使用簡單的狀況良好或狀況不良 signal （由 HTTP 回應碼表示），及/或收到訊號的詳細資訊與 REST Api 可以是回復運作。
 

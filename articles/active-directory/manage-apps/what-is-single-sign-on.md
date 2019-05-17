@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/15/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12c68a268b901f3525c2af9cd381dc277d6d8167
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441479"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770898"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory 中的單一登入應用程式
 
@@ -45,7 +45,7 @@ ms.locfileid: "60441479"
 | [OpenID Connect 和 OAuth](#openid-connect-and-oauth) | 僅限雲端 | 開發新的應用程式時，請使用 OpenID Connect 和 OAuth。 此通訊協定可簡化應用程式設定、具備容易使用的 SDK，而且可讓您的應用程式使用 MS Graph。
 | [SAML](#saml-sso) | 雲端和內部部署 | 請盡可能為不使用 OpenID Connect 或 OAuth 的現有應用程式選擇 SAML。 SAML 適用於使用其中一個 SAML 通訊協定進行驗證的應用程式。|
 | [密碼式](#password-based-sso) | 雲端和內部部署 | 當應用程式使用使用者名稱和密碼進行驗證時，請選擇密碼式。 密碼式單一登入可以使用網頁瀏覽器擴充功能或行動應用程式，安全儲存應用程式的密碼以及重新執行。 此方法會使用應用程式提供的現有登入程序，但讓系統管理員可以管理密碼。 |
-| [已連結](#linked-sso) | 雲端和內部部署 | 當應用程式已經在其他識別提供者服務中設定單一登入時，選擇已連結的單一登入。 此選項不會將單一登入新增至應用程式。 不過，應用程式可能已經使用另一個服務 (例如 Active Directory 同盟服務) 來實作單一登入。|
+| [已連結](#linked-sign-on) | 雲端和內部部署 | 針對 單一登入另一個身分識別提供者服務中設定應用程式時，請選擇連結型登入。 此選項不會將單一登入新增至應用程式。 不過，應用程式可能已經使用另一個服務 (例如 Active Directory 同盟服務) 來實作單一登入。|
 | [Disabled](#disabled-sso) | 雲端和內部部署 | 當應用程式尚未準備好設定單一登入時，請選擇已停用的單一登入。 使用者每次啟動此應用程式時，都需要輸入其使用者名稱和密碼。|
 | [整合式 Windows 驗證 (IWA)](#integrated-windows-authentication-iwa-sso) | 僅內部部署 | 請針對使用[整合式 Windows 驗證 (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) 的應用程式或宣告感知的應用程式，選擇 IWA 單一登入。 至於 IWA，應用程式 Proxy 連接器會使用 Kerberos 限制委派 (KCD) 來向應用程式驗證使用者。 | 
 | [標頭式](#header-based-sso) | 僅內部部署 | 當應用程式是使用標頭進行驗證時，請使用標頭式單一登入。 標頭式單一登入需要適用於 Azure AD 的 PingAccess。 應用程式 Proxy 會使用 Azure AD 來驗證使用者，然後透過連接器服務傳遞流量。  | 
@@ -122,12 +122,12 @@ ms.locfileid: "60441479"
 - 系統管理員仍可設定應用程式的新認證。
 
 
-## <a name="linked-sso"></a>已連結的 SSO
+## <a name="linked-sign-on"></a>連結型登入
 已連結的登入可讓 Azure AD 對已在其他服務設定單一登入的應用程式提供單一登入。 已連結的應用程式可以在 Office 365 入口網站或 Azure AD MyApps 入口網站中向使用者顯示。 例如，使用者可以從 Office 365 入口網站啟動已在 Active Directory Federation Services 2.0 (AD FS) 中設定單一登入的應用程式。 從 Office 365 入口網站或 Azure AD MyApps 入口網站啟動的已連結的應用程式也可以取得其他報告。 
 
-### <a name="linked-sso-for-application-migration"></a>用於應用程式移轉的已連結 SSO
+### <a name="linked-sign-on-for-application-migration"></a>連結型登入應用程式移轉
 
-當您於一段時間內移轉應用程式時，已連結的 SSO 可以提供一致的使用者體驗。 如果您要將應用程式移轉至 Azure Active Directory，您可以使用已連結的單一登入快速將連結發行至您想要移轉的所有應用程式。  使用者可以在 [MyApps 入口網站](../user-help/active-directory-saas-access-panel-introduction.md)或 [Office 365 應用程式啟動器](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)中找到所有連結。 使用者不會知道他們存取的是已連結的應用程式或已移轉的應用程式。  
+連結型登入可以提供一致的使用者體驗時您移轉應用程式經過一段時間。 如果您要移轉至 Azure Active Directory 的應用程式，您可以使用連結型登入快速發行至您想要移轉的所有應用程式的連結。  使用者可以在 [MyApps 入口網站](../user-help/active-directory-saas-access-panel-introduction.md)或 [Office 365 應用程式啟動器](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)中找到所有連結。 使用者不會知道他們存取的是已連結的應用程式或已移轉的應用程式。  
 
 使用者與連結的應用程式驗證之後，需要先建立帳戶記錄，系統才會提供使用者單一登入存取權。 佈建此帳戶記錄可以是自動執行，或是由系統管理員手動執行。
 
@@ -175,7 +175,7 @@ ms.locfileid: "60441479"
 
 若要設定標頭式驗證，請參閱[適用於使用應用程式 Proxy 之單一登入的標頭式驗證](application-proxy-configure-single-sign-on-with-ping-access.md)。 
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>什麼是 Azure AD 的 PingAccess？
+### <a name="what-is-pingaccess-for-azure-ad"></a>什麼是適用於 Azure AD 的 PingAccess?
 
 使用適用於 Azure AD 的 PingAccess，使用者就能存取和單一登入至使用標頭驗證的應用程式。 應用程式 Proxy 會如同任何其他應用程式一樣處理這些應用程式，使用 Azure AD 驗證存取，然後透過連接器服務傳遞流量。 驗證發生之後，PingAccess 服務會將 Azure AD 存取權杖翻譯成傳送到應用程式的標頭格式。
 

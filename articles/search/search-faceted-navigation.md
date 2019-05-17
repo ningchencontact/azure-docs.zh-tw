@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023965"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793631"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>如何在 Azure 搜尋服務中實作多面向導覽
 多面向導覽是一個篩選機制，它在搜尋應用程式中提供自動導向的向下鑽研導覽。 「多面向導覽」一詞可能讓您感到陌生，但您可能早已使用過它。 如下列範例所示，多面向導覽其實就是用來篩選結果的類別。
 
- ![Azure 搜尋服務作業入口網站示範][1]
+ ![Azure 搜尋服務作業入口網站示範](media/search-faceted-navigation/azure-search-faceting-example.png "Azure 搜尋服務作業入口網站示範")
 
 多面向導覽是替代的搜尋進入點。 它提供了方便的替代功能，讓您不必手動輸入複雜搜尋運算式。 多面向可協助您找到要找的項目，同時確保您不會得到沒有項目的結果。 身為開發人員，面向可讓您公開最有用的搜尋準則，瀏覽您的搜尋服務索引。 在線上零售應用程式中，通常會根據品牌、部門 (童鞋)、尺寸、價格、熱門程度和評分來建置多面向導覽。 
 
@@ -341,7 +341,7 @@ Azure Search 透過提供兩種方法進行範圍運算，來簡化範圍建構�
 **方法 2：使用值清單**  
  針對數值資料，您可以使用值清單。  請設想 `listPrice` 欄位的面向範圍，其呈現如下：
 
-  ![範例值清單][5]
+  ![範例值清單](media/search-faceted-navigation/Facet-5-Prices.PNG "範例值清單")
 
 若要指定與先前螢幕擷取畫面類似的面向範圍，請使用值清單︰
 
@@ -352,7 +352,7 @@ Azure Search 透過提供兩種方法進行範圍運算，來簡化範圍建構�
 ### <a name="build-a-filter-for-a-range"></a>針對範圍建置篩選條件
 若要根據您選取的範圍篩選文件，您可以在定義範圍端點的兩段式運算式中使用 `"ge"` 與 `"lt"` 篩選運算子。 例如，如果您選擇 10-25 作為 `listPrice` 欄位的範圍，篩選條件會是 `$filter=listPrice ge 10 and listPrice lt 25`。 在程式碼範例中，篩選條件運算式使用 **priceFrom** 與 **priceTo** 參數來設定端點。 
 
-  ![查詢某範圍的值][6]
+  ![查詢範圍的值](media/search-faceted-navigation/Facet-6-buildfilter.PNG "查詢範圍的值")
 
 <a name="geofacets"></a> 
 
@@ -385,11 +385,11 @@ Azure 搜尋服務作業入口網站示範包含了本文所參考的範例。
    
    多面向導覽結構會隨搜尋結果一併傳回。 在搜尋結果頁面中，多面向導覽結構會包含各面向結果計數。 我們並未選取任何面向，因此會傳回所有符合的結果。
    
-   ![選取面向之前的搜尋結果][11]
+   ![選取面向之前搜尋結果](media/search-faceted-navigation/faceted-search-before-facets.png "選取面向之前搜尋結果")
 
 4. 按一下 [職稱]、[位置] 或 [最低工資]。 初始搜尋時面向會是 Null，但是隨著它們取得值，搜尋結果會修剪不再符合的項目。
    
-   ![選取面向之後的搜尋結果][12]
+   ![搜尋結果選取面向之後](media/search-faceted-navigation/faceted-search-after-facets.png "搜尋結果選取面向之後")
 
 5. 若要清除多面向查詢，以便能夠嘗試不同的查詢行為，請按一下所選面向後面的 `[X]` 以清除面向。
    
@@ -400,42 +400,6 @@ Azure 搜尋服務作業入口網站示範包含了本文所參考的範例。
 
 如需多面向導覽設計原則的深入見解，推薦您下列連結：
 
-* [多面向搜尋的設計](http://www.uie.com/articles/faceted_search/)
 * [設計模式：多面向導覽](https://alistapart.com/article/design-patterns-faceted-navigation)
-
-
-<!--Anchors-->
-[How to build it]: #howtobuildit
-[Build the presentation layer]: #presentationlayer
-[Build the index]: #buildindex
-[Check for data quality]: #checkdata
-[Build the query]: #buildquery
-[Tips on how to control faceted navigation]: #tips
-[Faceted navigation based on range values]: #rangefacets
-[Faceted navigation based on GeoPoints]: #geofacets
-[Try it out]: #tryitout
-
-<!--Image references-->
-[1]: ./media/search-faceted-navigation/azure-search-faceting-example.PNG
-[2]: ./media/search-faceted-navigation/Facet-2-CSHTML.PNG
-[3]: ./media/search-faceted-navigation/Facet-3-schema.PNG
-[4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
-[5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
-[6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
-[10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
-[11]: ./media/search-faceted-navigation/faceted-search-before-facets.png
-[12]: ./media/search-faceted-navigation/faceted-search-after-facets.png
-
-<!--Link references-->
-[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
+* [實作多面向搜尋 – 第 1 部分時，會產生前端考量。 ](https://articles.uie.com/faceted_search2/)
 

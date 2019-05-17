@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405353"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550045"
 ---
 # <a name="recommended-live-streaming-encoders"></a>建議使用即時串流編碼器
 
@@ -59,6 +59,9 @@ ms.locfileid: "60405353"
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live 和 Hero 4K (UHD/HEVC)
+
+> [!TIP]
+>  如果您要串流即時事件，以多種語言 （例如，一個英文音訊資料軌及一個西班牙文音訊資料軌），您可以使用媒體 Excel 即時編碼器設定成將即時摘要傳送至傳遞的即時事件來完成。
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>設定內部部署即時編碼器設定
 

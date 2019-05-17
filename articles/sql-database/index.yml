@@ -6,7 +6,7 @@ metadata:
   title: Azure SQL Database 文件 - 教學課程和 API 參考
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: CarlRabeler
+  author: stevestein
   manager: craigg
   ms.service: sql-database
   ms.subservice: service
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: null
   ms.topic: overview
   ms.date: 03/04/2019
-  ms.author: carlrab
+  ms.author: sstein
 abstract:
   description: Azure SQL Database 是一般用途關聯式資料庫即服務 (DBaaS)，它是根據最新穩定版本的 Microsoft SQL Server 資料庫引擎而建置。 SQL Database 是高效能、可靠且安全的雲端資料庫，您可以使用選定的程式設計語言來建置資料驅動的應用程式和網站，無需管理基礎結構。 了解如何透過我們的快速入門、教學課程和範例使用 SQL Database。
   aside:

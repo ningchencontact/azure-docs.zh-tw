@@ -4,7 +4,7 @@ description: 使用 Xamarin Android 使用 Microsoft Authentication Library for.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4b4c4cd4dbab10a9d4796a8393cc7f479b90cc4
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 4f7f91e6ab1fb12132068b839e66fafd3ab1bc73
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406773"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65543949"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>使用網頁瀏覽器中 MSAL.NET
 網頁瀏覽器不需要互動式驗證。 根據預設，支援 MSAL.NET[系統的網頁瀏覽器](#system-web-browser-on-xamarinios-and-xamarinandroid)在 Xamarin.iOS 上並[Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser)。 但是[您也可以啟用內嵌的網頁瀏覽器](#enable-embedded-webviews)依據您的需求 (UX，讓單一登入 (SSO) 安全性的需求) 中[Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios)並[Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid)應用程式。 您甚至可以與[動態選擇](#detecting-the-presence-of-custom-tabs-on-xamarinandroid)的網頁瀏覽器使用根據 Chrome 或瀏覽器支援 Chrome 自訂索引標籤，在 Android 中的目前狀態。

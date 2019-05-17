@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/26/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 767f087910136ce558d71602a1c4c632090168cd
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925525"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540632"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -182,7 +182,7 @@ Site Recovery 會遵循到 N-4 支援模型。 [了解更多](https://aka.ms/asr
 雖然建議，但並不是每次升級都必須這麼做。 [深入了解](https://aka.ms/asr_vmware_upgrades)。
 
 
-## <a name="configuration-server"></a>組態伺服器
+## <a name="configuration-server"></a>設定伺服器
 
 ### <a name="what-does-the-configuration-server-do"></a>組態伺服器有何功用？
 
@@ -251,13 +251,13 @@ Site Recovery 會遵循到 N-4 支援模型。 [了解更多](https://aka.ms/asr
 
 ## <a name="process-server"></a>處理序伺服器
 
-### <a name="unable-to-select-process-server-during-enable-replication"></a>無法啟用複寫期間選取處理序伺服器
+### <a name="why-am-i-unable-to-select-process-server-during-enable-replication"></a>為何我無法選取期間的處理序伺服器會啟用複寫？
 
-從 9.24 版本，以提供做改進[處理伺服器警示](vmware-physical-azure-monitor-process-server.md#process-server-alerts)上設定向外延展處理序伺服器的時機。 這是為了避免處理序伺服器節流並避免的狀況不良的處理序伺服器的使用方式。
+從 9.24 版本，以顯示做改進[在啟用複寫期間的處理序伺服器的健全狀況](vmware-azure-enable-replication.md#enable-replication)。 這是為了避免處理序伺服器節流並處於不健全狀況的處理序伺服器的使用量降到最低。
 
-### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>我該怎麼取得精確的健全狀況狀態的處理序伺服器？
+### <a name="what-is-meant-by-upgrading-process-server-to-924-or-higher-versions-for-accurate-health"></a>藉由升級 9.24 或更高版本的版本正確的健全狀況的處理序伺服器可代表什麼意思？
 
-升級至 Site Recovery 元件[最新版本](service-updates-how-to.md#links-to-currently-supported-update-rollups)(至少 9.24 或更新版本)。
+從[9.24 版本](service-updates-how-to.md#links-to-currently-supported-update-rollups)，以增強的處理序伺服器的健康情況警示導入其他警示。 升級所有警示，以便產生 9.24 版本或更新版本的 Site Recovery 元件。
 
 ## <a name="failover-and-failback"></a>容錯移轉和容錯回復
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>是否可用於處理序伺服器在內部部署容錯回復？

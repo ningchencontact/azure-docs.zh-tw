@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6e7b3b316a8a6dcde95bdf872dbda4cd1372f072
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b1a79f2798fc98fd7361c47788c79e329e2cb827
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721804"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556196"
 ---
 # <a name="scaling-media-processing"></a>調整媒體處理
 
@@ -47,7 +47,7 @@ Azure 媒體服務可讓您藉由管理媒體保留單元 (MRU)，在帳戶中�
 > [!NOTE]
 > 針對由媒體服務 v3 或影片索引子觸發的音訊分析和影片分析作業，強烈建議您使用 10 個 S3 MRU 佈建帳戶。 如果您需要 10 個以上的 S3 MRU，請使用 [Azure 入口網站](https://portal.azure.com/)開立支援票證。
 >
-> 目前，您無法使用 Azure 入口網站來管理其他 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](developers-guide.md)。
+> 目前，您無法使用 Azure 入口網站來管理其他 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](media-services-apis-overview.md#sdks)。
 
 ## <a name="prerequisites"></a>必要條件 
 

@@ -3,8 +3,8 @@ title: Microsoft 身分識別平台範圍、 權限及同意 |Microsoft Docs
 description: Microsoft 身分識別平台端點，包括範圍、 權限及同意授權的描述。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87103b1052b5d9168928193eacc78a935e68067f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112072"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544874"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>權限及同意 Microsoft 身分識別平台端點中
 
@@ -85,7 +85,7 @@ Microsoft 身分識別平台的 OpenID Connect 實作有一些定義妥善的範
 
 如果應用程式使用 [OpenID Connect](active-directory-v2-protocols.md) 來執行登入，它就必須要求 `openid` 範圍。 `openid` 範圍會在工作帳戶同意頁面上顯示為「將您登入」權限，而在個人 Microsoft 帳戶同意頁面上會顯示為「檢視您的設定檔並使用您的 Microsoft 帳戶連接到應用程式和服務」權限。 有了此權限之後，應用程式便能夠以 `sub` 宣告的形式接收使用者的唯一識別碼。 它也會為應用程式提供 UserInfo 端點的存取權。 `openid`範圍可以在 Microsoft 身分識別平台的權杖端點用來取得識別碼權杖，應用程式可以使用來進行驗證。
 
-### <a name="email"></a>電子郵件
+### <a name="email"></a>email
 
 `email` 範圍可以與 `openid` 範圍及任何其他範圍搭配使用。 它會以 `email` 宣告的形式為應用程式提供使用者主要電子郵件地址的存取權。 `email`宣告已包含在權杖中，只有電子郵件地址是相關聯的使用者帳戶，不一定要這樣。 如果它使用 `email` 範圍，您的應用程式就應該做好準備，以處理權杖中沒有 `email` 宣告的情況。
 
@@ -197,7 +197,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| 參數 | 條件 | 描述 |
+| 參數 | 條件 | 說明 |
 | --- | --- | --- |
 | `tenant` | 必要項 | 您想要要求權限的目錄租用戶。 可以提供 GUID 或易記的名稱格式，或是一般會參考使用 `common` (如範例所示)。 |
 | `client_id` | 必要項 | **應用程式 （用戶端） 識別碼**可[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的體驗。 |
@@ -206,7 +206,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 此時，Azure AD 會要求租用戶系統管理員登入來完成要求。 系統會請系統管理員核准您在應用程式註冊入口網站中，為您應用程式要求的所有權限。
 
-#### <a name="successful-response"></a>成功回應
+#### <a name="successful-response"></a>成功的回應
 
 如果系統管理員為您的應用程式核准權限，則成功的回應看起來會像這樣︰
 
@@ -214,7 +214,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `tenant` | 將應用程式所要求的權限授與應用程式的目錄租用戶 (採用 GUID 格式)。 |
 | `state` | 一個包含在要求中而將一併在權杖回應中傳回的值。 可以是所需的任何内容的字符串。 此狀態用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
@@ -228,7 +228,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `error` | 用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | `error_description` | 可協助開發人員識別錯誤根本原因的特定錯誤訊息。 |
@@ -275,7 +275,7 @@ Content-Type: application/json
 
 因為`/.default` 在功能上等同於以 `resource` 為中心的 v1.0 端點行為，所以也會提供 v1.0 端點的同意行為。 也就是說，如果使用者尚未在用戶端與資源之間授與任何權限，`/.default` 只會觸發同意提示。 如果存在這類同意，則會傳回權杖，其中包含該資源的使用者授與的所有範圍。 不過，如果尚未授與權限，或已提供 `prompt=consent` 參數，則會對用戶端應用程式註冊的所有範圍顯示同意提示。
 
-#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>範例 1：使用者 (或租用戶管理員) 已授與權限
+#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>範例 1:使用者 (或租用戶管理員) 已授與權限
 
 使用者 (或租用戶管理員) 已對用戶端授與 Microsoft Graph 權限 `mail.read` 和 `user.read`。 如果用戶端對 `scope=https://graph.microsoft.com/.default` 提出要求，則不論向 Microsoft Graph 註冊權限的用戶端應用程式的內容為何，都不會顯示同意提示。 系統會傳回一個權杖，其中包含 `mail.read` 和 `user.read` 範圍。
 

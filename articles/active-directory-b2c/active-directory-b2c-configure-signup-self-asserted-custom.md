@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6eaace7589488a9466e78597e0091c84dabb5155
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685280"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768017"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來新增宣告並自訂使用者輸入
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-在本文中，您會在您的 Azure Active Directory (Azure AD) B2C 註冊使用者旅程圖中新增使用者所提供的輸入 (宣告)。  您會將輸入設定為下拉式清單，並定義它是否為必要項目。
+在本文中，您會在您的 Azure Active Directory (Azure AD) B2C 註冊使用者旅程圖中新增使用者所提供的輸入 (宣告)。  您將項目設定為在下拉式清單中，並定義它是否必要。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,12 +29,12 @@ ms.locfileid: "64685280"
 
 ## <a name="add-claims"></a>新增宣告
 
-使用註冊或登入使用者旅程圖即可收集使用者的初始資料。 其他宣告則可在稍後透過使用設定檔編輯使用者旅程圖來收集。 每當 Azure AD B2C 以互動方式直接從使用者收集資訊時，身分識別體驗架構會使用其 selfasserted 提供者。
+使用註冊或登入使用者旅程圖即可收集使用者的初始資料。 其他宣告則可在稍後透過使用設定檔編輯使用者旅程圖來收集。 每當 Azure AD B2C 直接從使用者收集資訊的互動方式，身分識別體驗架構會使用其自我判斷提示的提供者。
 
 
 ### <a name="define-the-claim"></a>定義宣告
 
-讓我們要求使用者輸入他們的所在城市。 在 TrustFrameworkBase 原則檔的 **ClaimsSchema** 元素中新增下列元素：
+讓我們來要求使用者提供他們的所在城市。 在 TrustFrameworkBase 原則檔的 **ClaimsSchema** 元素中新增下列元素：
 
 ```xml
 <ClaimType Id="city">

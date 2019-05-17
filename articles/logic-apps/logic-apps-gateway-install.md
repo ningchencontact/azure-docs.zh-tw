@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405004"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544465"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -32,7 +32,7 @@ ms.locfileid: "60405004"
 *   IBM Informix
 *   IBM MQ
 *   MySQL
-*   Oracle 資料庫
+*   Oracle Database
 *   PostgreSQL
 *   SAP 應用程式伺服器 
 *   SAP 訊息伺服器
@@ -51,7 +51,7 @@ ms.locfileid: "60405004"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 具有 [Azure 訂用帳戶](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)的[公司或學校帳戶](../active-directory/fundamentals/sign-up-organization.md) 
+* 具有 [Azure 訂用帳戶](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)的[公司或學校帳戶](../active-directory/fundamentals/sign-up-organization.md) 
 
   在閘道安裝期間，您會登入此帳戶，以便將閘道安裝與您的 Azure 訂用帳戶相關聯。 
   之後，在 Azure 入口網站中為您的閘道安裝建立 Azure 資源時，也會使用相同的帳戶。 
@@ -238,7 +238,7 @@ TcpTestSucceeded       : True
 
 閘道會使用這些完整的網域名稱：
 
-| 網域名稱 | 輸出連接埠 | 描述 | 
+| 網域名稱 | 輸出連接埠 | 說明 | 
 | ------------ | -------------- | ----------- | 
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
@@ -363,7 +363,7 @@ TcpTestSucceeded       : True
 **問**：閘道 Windows 服務可以使用 Azure Active Directory 帳戶執行嗎？ <br/>
 **答**：否，Windows 服務必須要有有效的 Windows 帳戶。
 
-### <a name="disaster-recovery"></a>災害復原
+### <a name="disaster-recovery"></a>嚴重損壞修復
 
 **問**：災害復原有哪些選項？ <br/>
 **答**：您可以使用修復金鑰還原或移動閘道。 當您安裝閘道時，請指定修復金鑰。
@@ -485,7 +485,7 @@ TcpTestSucceeded       : True
 
    2. 若要尋找查詢，請搜尋活動類型，例如： 
 
-      | 活動類型 | 描述 | 
+      | 活動類型 | 說明 | 
       |---------------|-------------| 
       | MGEQ | 透過 ADO.NET 執行的查詢。 | 
       | MGEO | 透過 OLEDB 執行的查詢。 | 

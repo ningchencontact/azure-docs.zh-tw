@@ -4,7 +4,7 @@ description: 深入了解初始化公用用戶端與機密用戶端應用程式�
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6197d472bdfaf03c9f99baa7691354e735cc91e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2f22ff41e380a16af2aa45df9a61eefbf293ff83
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075801"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544324"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>初始化使用 MSAL.NET 的用戶端應用程式
 本文說明初始化公用用戶端與機密用戶端應用程式使用 Microsoft Authentication Library for.NET (MSAL.NET)。  若要了解用戶端應用程式類型與應用程式組態選項的詳細資訊，請閱讀[概觀](msal-client-applications.md)。
@@ -100,7 +100,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 您可以設定公用用戶端或機密用戶端應用程式產生器的修飾詞為：
 
-|參數 | 描述|
+|參數 | 說明|
 |--------- | --------- |
 |`.WithAuthority()` 7 覆寫 | 將應用程式預設授權單位設定為 Azure AD 授權單位，可能會選擇 Azure 雲端，對象，租用戶 （租用戶識別碼或網域名稱），或直接提供授權單位 URI。|
 |`.WithAdfsAuthority(string)` | 設定應用程式預設權限是 ADFS 授權單位。|
@@ -119,7 +119,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 您可以在 Xamarin.iOS 上公開用戶端應用程式產生器設定的修飾詞為：
 
-|參數 | 描述|
+|參數 | 說明|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin.iOS 只**:設定 iOS 鑰匙圈的安全性群組 （適用於快取持續性）。|
 
@@ -127,7 +127,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 您可以設定機密用戶端應用程式產生器的修飾詞為：
 
-|參數 | 描述|
+|參數 | 說明|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | 設定用來識別與 Azure AD 應用程式的憑證。|
 |`.WithClientSecret(string clientSecret)` | 設定用來識別與 Azure AD 應用程式的用戶端密碼 （應用程式密碼）。|

@@ -3,8 +3,8 @@ title: 應用程式的服務及隱私權聲明條款 |Azure
 description: 了解如何為註冊使用 Azure AD 的應用程式，設定服務條款和隱私權聲明。
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410522"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540195"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>作法：設定應用程式的服務及隱私權聲明條款
 
@@ -44,7 +44,7 @@ ms.locfileid: "60410522"
 
 在新增應用程式的服務條款和隱私權聲明文件連結前，請確定 URL 符合下列指導方針。
 
-| 指導方針     | 描述                           |
+| 指導方針     | 說明                           |
 |---------------|---------------------------------------|
 | 格式        | 有效的 URL                             |
 | 有效的結構描述 | HTTP 和 HTTPS<br/>建議使用 HTTPS |

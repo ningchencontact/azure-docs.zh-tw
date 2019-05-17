@@ -7,19 +7,19 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507847"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790391"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>適用於單一資料庫的 Azure SQL Database 以虛擬核心為基礎的購買模型限制
+# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>使用以 vCore 為基礎的購買模型的單一資料庫資源限制
 
 本文使用以虛擬核心為基礎的購買模型，提供 Azure SQL Database 單一資料庫的詳細資源限制。
 
@@ -129,7 +129,7 @@ ms.locfileid: "65507847"
 
 ### <a name="serverless-compute-tier"></a>無伺服器計算層級
 
-[無伺服器計算層](sql-database-serverless.md)處於公開預覽狀態，並僅針對單一資料庫時使用 vCore 的購買模型。
+[無伺服器計算層](sql-database-serverless.md)處於預覽狀態，僅針對單一資料庫時使用 vCore 的購買模型。
 
 #### <a name="generation-5-compute-platform"></a>第 5 代計算平台
 

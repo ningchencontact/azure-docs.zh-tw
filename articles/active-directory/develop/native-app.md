@@ -3,8 +3,8 @@ title: Azure Active Directory 中的原生應用程式
 description: 說明何謂原生應用程式，以及此應用程式類型的通訊協定流程、註冊與權杖到期的基本概念。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e37e40cd0dbba7961cbde75b5dde44f2666dc21
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918604"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545849"
 ---
 # <a name="native-apps"></a>原生應用程式
 

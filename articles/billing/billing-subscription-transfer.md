@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ffebdd5b88603113dd7624e97dcf7353ab5d1ba
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371066"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605577"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 
@@ -94,7 +94,7 @@ ms.locfileid: "60371066"
 | [MSDN 平台](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
 | [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
 | [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
-| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
+| [Visual Studio 企業版](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
 | [Visual Studio Enterprise：BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
 | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
 | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
@@ -119,7 +119,7 @@ VM、磁碟和網站等所有資源都會轉移給新的擁有者。 不過，�
 
 ### <a id="no-button"></a> 為什麼看不到 [移轉訂用帳戶] 按鈕？
 
-很抱歉，您的供應項目或國家/地區無法使用自助式訂閱移轉。 若要移轉訂閱，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+不幸的是，自助式訂閱移轉不適用於您的供應項目或國家/地區。 若要移轉訂閱，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>移轉訂閱會造成服務中斷嗎？
 
@@ -156,9 +156,9 @@ Azure 訂用帳戶建立在帳戶管理員所屬的目錄中。 若要變更目�
 
 供應項目必須維持不變。 若要變更供應項目，請參閱[切換至不同的 Azure 訂用帳戶供應項目](billing-how-to-switch-azure-offer.md)。
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>可以將訂閱移轉給其他國家/地區的使用者帳戶嗎？
+### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>可以移轉訂用帳戶以另一個國家/地區中的使用者帳戶嗎？
 
-否，不支援將訂用帳戶轉移給另一個國家/地區的使用者帳戶。 接受者的使用者帳戶必須在相同的國家/地區。
+否，不支援將訂用帳戶傳輸到另一個國家/地區中的使用者帳戶。 收件者的使用者帳戶必須位於相同的國家/地區。
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>接受者可以使用與該訂閱不同的付款方式嗎？
 

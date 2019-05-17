@@ -3,8 +3,8 @@ title: Microsoft 身分識別平台和 OAuth 授權碼流程 |Azure
 description: 建置 web 應用程式使用 OAuth 2.0 驗證通訊協定的 Microsoft 身分識別平台實作。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79e0ebce5704e7b61956568f5ebbce6ea6cbc3af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d3ab6f53fdb11b0b8d643868d0692667c8672f9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299235"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545188"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 授權碼流程
 
@@ -62,7 +62,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 按一下下面的連結以執行此要求！ 登入之後，您的瀏覽器應重新導向至在位址列中有 `code` 的 `https://localhost/myapp/`。
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| 參數    | 必要/選用 | 描述 |
+| 參數    | 必要/選用 | 說明 |
 |--------------|-------------|--------------|
 | `tenant`    | 必要    | 要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 可以使用的值包括 `common`、`organizations`、`consumers` 和租户标识符。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。  |
 | `client_id`   | 必要    | **應用程式 （用戶端） 識別碼**可[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的體驗。  |
@@ -71,17 +71,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `scope`  | 必要    | 您要使用者同意的 [範圍](v2-permissions-and-consent.md) 空格分隔清單。 |
 | `response_mode`   | 建議使用 | 指定將產生的權杖送回到應用程式所應該使用的方法。 可以是下列其中一項：<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` 會提供程式碼，以作為重新導向 URI 的查詢字串參數。 如果您要求使用隱含流程的識別碼權杖時，就無法使用`query`中所指定[OpenID 規格](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)。如果您只要求程式碼，您可以使用 `query`、`fragment` 或 `form_post`。 `form_post` 會執行 POST，其中包含您重新導向 URI 的程式碼。 如需詳細資訊，請參閱 [OpenID Connect 通訊協定](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)。  |
 | `state`                 | 建議使用 | 同样随令牌响应返回的请求中所包含的值。 其可以是您想要之任何內容的字串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此值也可以將驗證要求發生前使用者在應用程式中的狀態相關資訊 (例如他們所在的網頁或檢視) 編碼。 |
-| `prompt`  | 選用    | 表示需要的使用者互動類型。 此時唯有 `login`、`none` 及 `consent` 是有效值。<br/><br/>- `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。<br/>- `prompt=none` 則相反-它會確保使用者不顯示任何互動式提示。 如果要求不能透過單一登入以無訊息方式完成，Microsoft 身分識別平台端點會傳回`interaction_required`時發生錯誤。<br/>- `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
-| `login_hint`  | 選用    | 如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。   |
-| `domain_hint`  | 選用    | 可以是 `consumers` 或 `organizations` 其中一個。<br/><br/>如果包含，它會略過電子郵件為基礎的探索程序，使用者會經歷在登入頁面上，導致稍微更流暢的使用者體驗。 通常應用程式會在重新驗證 (擷取上一次登入的 `tid` ) 期間使用此參數。 如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，您應該使用 `domain_hint=consumers`。 否則，使用 `domain_hint=organizations`。  |
-| `code_challenge_method` | 選用    | 用來為 `code_challenge` 參數編碼 `code_verifier` 的方法。 可以是下列其中一個值：<br/><br/>- `plain` <br/>- `S256`<br/><br/>如果排除，則當包含 `code_challenge` 時，會假設 `code_challenge` 是純文字。 Microsoft 身分識別平台支援兩者`plain`和`S256`。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
-| `code_challenge`  | 選用 | 用來透過來自原生用戶端的「代碼交換的證明金鑰」(PKCE) 保護授權碼授與。 如果包含 `code_challenge_method`，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
+| `prompt`  | 選擇性    | 表示需要的使用者互動類型。 此時唯有 `login`、`none` 及 `consent` 是有效值。<br/><br/>- `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。<br/>- `prompt=none` 則相反-它會確保使用者不顯示任何互動式提示。 如果要求不能透過單一登入以無訊息方式完成，Microsoft 身分識別平台端點會傳回`interaction_required`時發生錯誤。<br/>- `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
+| `login_hint`  | 選擇性    | 如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。   |
+| `domain_hint`  | 選擇性    | 可以是 `consumers` 或 `organizations` 其中一個。<br/><br/>如果包含，它會略過電子郵件為基礎的探索程序，使用者會經歷在登入頁面上，導致稍微更流暢的使用者體驗。 通常應用程式會在重新驗證 (擷取上一次登入的 `tid` ) 期間使用此參數。 如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，您應該使用 `domain_hint=consumers`。 否則，使用 `domain_hint=organizations`。  |
+| `code_challenge_method` | 選擇性    | 用來為 `code_challenge` 參數編碼 `code_verifier` 的方法。 可為下列其中一個值：<br/><br/>- `plain` <br/>- `S256`<br/><br/>如果排除，則當包含 `code_challenge` 時，會假設 `code_challenge` 是純文字。 Microsoft 身分識別平台支援兩者`plain`和`S256`。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
+| `code_challenge`  | 選擇性 | 用來透過來自原生用戶端的「代碼交換的證明金鑰」(PKCE) 保護授權碼授與。 如果包含 `code_challenge_method`，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
 
 此時，會要求使用者輸入其認證並完成驗證。 Microsoft 身分識別平台端點也會確保使用者已經同意中指出的權限`scope`查詢參數。 如果使用者未曾同意這些權限的任何一項，就會要求使用者同意要求的權限。 [這裡提供權限、同意與多租用戶應用程式](v2-permissions-and-consent.md)的詳細資料。
 
 一旦使用者驗證，並授與同意，Microsoft 身分識別平台端點會將回應傳回給您的應用程式所指定`redirect_uri`，使用中指定的方法`response_mode`參數。
 
-#### <a name="successful-response"></a>成功回應
+#### <a name="successful-response"></a>成功的回應
 
 使用 `response_mode=query` 的成功回應如下所示：
 
@@ -91,7 +91,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
 ```
 
-| 參數 | 描述  |
+| 參數 | 說明  |
 |-----------|--------------|
 | `code` | 應用程式要求的 authorization_code。 應用程式可以使用授權碼要求目標資源的存取權杖。 Authorization_code 的有效期短，通常約 10 分鐘後到期。 |
 | `state` | 如果要求中包含狀態參數，回應中就應該出現相同的值。 应用应该验证请求和响应中的 state 值是否完全相同。 |
@@ -106,7 +106,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| 參數 | 描述  |
+| 參數 | 說明  |
 |----------|------------------|
 | `error`  | 用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | `error_description` | 協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -115,7 +115,7 @@ error=access_denied
 
 下表說明各種可能在錯誤回應的 `error` 參數中傳回的錯誤碼。
 
-| 错误代码  | 描述    | 客户端操作   |
+| 错误代码  | 說明    | 客户端操作   |
 |-------------|----------------|-----------------|
 | `invalid_request` | 通訊協定錯誤，例如遺漏必要的參數。 | 修正並重新提交要求。 這是通常會在初始測試期間擷取到的開發錯誤。 |
 | `unauthorized_client` | 用戶端應用程式不允許要求授權碼。 | 當用戶端應用程式未在 Azure AD 中註冊，或不會新增至使用者的 Azure AD 租用戶時，通常會發生此錯誤。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
@@ -149,7 +149,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > 嘗試在 Postman 中執行這項要求！ (別忘了取代 `code`) [![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-| 參數  | 必要/選用 | 描述     |
+| 參數  | 必要/選用 | 說明     |
 |------------|-------------------|----------------|
 | `tenant`   | 必要   | 要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 可以使用的值包括 `common`、`organizations`、`consumers` 和租户标识符。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。  |
 | `client_id` | 必要  | （用戶端） 應用程式識別碼[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的頁面。 |
@@ -158,9 +158,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `code`          | 必要  | 您在流程的第一個階段中取得的 authorization_code。 |
 | `redirect_uri`  | 必要  | 用來取得 authorization_code 的相同 redirect_uri 值。 |
 | `client_secret` | Web Apps 所需 | 您在應用程式註冊入口網站中為應用程式建立的應用程式密碼。 您不應該在原生應用程式中使用應用程式祕密，因為 client_secret 無法可靠地儲存在裝置上。 您需要 web 應用程式和 web Api，能夠將 client_secret 安全地儲存在伺服器端。  用戶端密碼必須在傳送之前先進行 URL 編碼。  |
-| `code_verifier` | 選用  | 用來取得 authorization_code 的相同 code_verifier。 如果在授權碼授與要求中已使用 PKCE，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
+| `code_verifier` | 選擇性  | 用來取得 authorization_code 的相同 code_verifier。 如果在授權碼授與要求中已使用 PKCE，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
 
-### <a name="successful-response"></a>成功回應
+### <a name="successful-response"></a>成功的回應
 
 成功的令牌响应如下：
 
@@ -175,7 +175,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 參數     | 描述   |
+| 參數     | 說明   |
 |---------------|------------------------------|
 | `access_token`  | 所要求的存取權杖。 應用程式可以使用這個權杖驗證受保護的資源，例如 Web API。  |
 | `token_type`    | 表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 |
@@ -201,7 +201,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 參數         | 描述    |
+| 參數         | 說明    |
 |-------------------|----------------|
 | `error`       | 用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | `error_description` | 協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -212,7 +212,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 ### <a name="error-codes-for-token-endpoint-errors"></a>令牌终结点错误的错误代码
 
-| 錯誤碼         | 描述        | 客户端操作    |
+| 錯誤碼         | 說明        | 客户端操作    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | 通訊協定錯誤，例如遺漏必要的參數。 | 修正並重新提交要求   |
 | `invalid_grant`    | 授權碼或 PKCE 代碼驗證器無效或已過期。 | 嘗試向 `/authorize` 端點提出新的要求，並確認 code_verifier 參數正確。  |
@@ -262,7 +262,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 嘗試在 Postman 中執行這項要求！ (別忘了取代 `refresh_token`) [![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 > 
 
-| 參數     |                | 描述        |
+| 參數     |                | 說明        |
 |---------------|----------------|--------------------|
 | `tenant`        | 必要     | 要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 可以使用的值包括 `common`、`organizations`、`consumers` 和租户标识符。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。   |
 | `client_id`     | 必要    | **應用程式 （用戶端） 識別碼**可[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的體驗。 |
@@ -271,7 +271,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `refresh_token` | 必要    | 您在流程的第二個階段中取得的 refresh_token。 |
 | `client_secret` | Web Apps 所需 | 您在應用程式註冊入口網站中為應用程式建立的應用程式密碼。 它應該不能在原生應用程式中，因為 client_secret 無法可靠地儲存在裝置上。 您需要 web 應用程式和 web Api，能夠將 client_secret 安全地儲存在伺服器端。 |
 
-#### <a name="successful-response"></a>成功回應
+#### <a name="successful-response"></a>成功的回應
 
 成功的令牌响应如下：
 
@@ -285,7 +285,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
-| 參數     | 描述         |
+| 參數     | 說明         |
 |---------------|-------------------------------------------------------------|
 | `access_token`  | 所要求的存取權杖。 應用程式可以使用這個權杖驗證受保護的資源，例如 Web API。 |
 | `token_type`    | 表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 |
@@ -309,7 +309,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 參數         | 描述                                                                                        |
+| 參數         | 說明                                                                                        |
 |-------------------|----------------------------------------------------------------------------------------------------|
 | `error`           | 用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | `error_description` | 協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。           |

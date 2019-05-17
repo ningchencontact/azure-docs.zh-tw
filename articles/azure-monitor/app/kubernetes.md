@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器-監視 Kubernetes 託管的應用程式零檢測應用程式 |Microsoft Docs
-description: 監視裝載的 Kubernetes 應用程式零檢測應用程式是監視解決方案，可讓您收集有關在 Kubernetes 叢集中所執行的 pod 往返傳入和傳出要求的 Application Insights 遙測資料使用服務網格技術稱為 Istio。
+title: 使用 Application Insights 來監視 Azure Kubernetes Service (AKS) 或其他 Kubernetes 裝載的應用程式-Azure 監視器 |Microsoft Docs
+description: Azure 監視器使用服務網格技術，Istio，在您的 Kubernetes 叢集，以提供應用程式監視的任何裝載的 Kubernetes 應用程式。 這可讓您收集有關傳入和傳出的要求與您的叢集中執行的 pod 的 Application Insights 遙測資料。
 services: application-insights
 author: tokaplan
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
-ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408217"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555825"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Kubernetes 零檢測應用程式監視裝載的應用程式
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Kubernetes 零檢測應用程式監視裝載之應用程式
 
 > [!IMPORTANT]
 > 這項功能目前處於公開預覽狀態。

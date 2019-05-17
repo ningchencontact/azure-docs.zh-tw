@@ -3,8 +3,8 @@ title: Azure Active Directory Graph API | Microsoft Docs
 description: Azure AD Graph API 的概觀和快速入門指南，可讓您以程式設計方式透過 REST API 端點存取 Azure AD。
 services: active-directory
 documentationcenter: ''
-author: lleonard-msft
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/01/2019
-ms.author: alleonar
+ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47233d593e9539e5755daf331ce9dbff73207942
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77730ea7302b4abd6c17ebfe5620c0dc55fa407c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300422"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544593"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 圖形 API
 
@@ -50,7 +50,7 @@ Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端
 
 若要開始使用 Azure Active Directory Graph API，請參閱 [Azure AD Graph API 快速入門指南](active-directory-graph-api-quickstart.md)，或檢視[互動式 Azure AD Graph API 參考文件](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 Azure AD 圖形 API 提供下列功能：
 

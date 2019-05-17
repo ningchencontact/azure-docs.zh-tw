@@ -3,8 +3,8 @@ title: Azure 單一登入 SAML 通訊協定 | Microsoft Docs
 description: 本文說明 Azure Active Directory 中的單一登入 SAML 通訊協定
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 033740d1ae75bb6f6fe8509d9ad123d55d9c6770
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704999"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545288"
 ---
 # <a name="single-sign-on-saml-protocol"></a>單一登入 SAML 通訊協定
 
@@ -47,10 +47,10 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| 參數 |  | 描述 |
+| 參數 |  | 說明 |
 | --- | --- | --- |
 | ID | 必要項 | Azure AD 使用這個屬性來填入所傳回回應的 `InResponseTo` 屬性。 識別碼的開頭不能是數字，因此常見的策略是在 GUID 的字串表示法前面加上 "id" 等字串。 例如， `id6c1c178c166d486687be4aaf5e482730` 便是有效的識別碼。 |
-| Version | 必要項 | 此參數應該設定為 **2.0**。 |
+| 版本 | 必要項 | 此參數應該設定為 **2.0**。 |
 | IssueInstant | 必要項 | 這是具有 UTC 值和 [來回行程格式 ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)的日期時間字串。 Azure AD 必須要有這種類型的日期時間值，但不會評估或使用此值。 |
 | AssertionConsumerServiceUrl | 選用 | 如果提供，此參數必須符合 Azure AD 中雲端服務的 `RedirectUri`。 |
 | ForceAuthn | 選用 | 這是布林值。 如果為 true，表示即使使用者在 Azure AD 中具有有效的工作階段，也會強制使用者重新驗證。 |
@@ -103,7 +103,7 @@ Azure AD 會忽略 `AllowCreate` 屬性。
 ### <a name="subject"></a>Subject
 Azure AD 會忽略 `AuthnRequest` 元素中的 `Subject` 元素。
 
-## <a name="response"></a>Response
+## <a name="response"></a>回應
 當要求的登入成功完成時，Azure AD 會將回應張貼至雲端服務。 登入嘗試成功的回應看起來會像下列範例︰
 
 ```
@@ -149,7 +149,7 @@ Azure AD 會忽略 `AuthnRequest` 元素中的 `Subject` 元素。
 </samlp:Response>
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 `Response` 元素包含授權要求的結果。 Azure AD 會設定 `Response` 元素中的 `ID`、`Version` 和 `IssueInstant` 值。 它也會設定下列屬性︰
 

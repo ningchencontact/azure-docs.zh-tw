@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 05/03/2019
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e00ecde5550b5ef4f1698fa879a039dee8aad12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3880a62d58b15ef07e524d69c38ba723ea56178f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441682"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781080"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory 中的應用程式使用者體驗
 Azure Active Directory (Azure AD) 提供幾種可自訂的方式，來對您組織中的使用者部署應用程式：
@@ -53,7 +53,9 @@ Azure Active Directory (Azure AD) 提供幾種可自訂的方式，來對您組�
 ## <a name="direct-sign-on-links"></a>直接登入連結
 Azure AD 也支援對支援密碼單一登入、已連結的單一登入，以及任何形式的同盟單一登入的個別應用程式使用直接單一登入連結。
 
-這些連結是特別撰寫的 URL，會透過 Azure AD 登入程序針對特定應用程式傳送給使用者，使用者不需要從 Azure AD 存取面板或 Office 365 啟動。 這些**使用者存取 Url**可以在 Azure Active Directory 在 Azure 入口網站中的可用的企業應用程式的內容 下找到。
+這些連結是特別撰寫的 URL，會透過 Azure AD 登入程序針對特定應用程式傳送給使用者，使用者不需要從 Azure AD 存取面板或 Office 365 啟動。 這些**使用者存取 Url**可以找到可用的企業應用程式的內容。 在 Azure 入口網站中，選取**Azure Active Directory** > **企業應用程式**。 選取的應用程式，然後按**屬性**。
+
+![在 Twitter 屬性中的使用者存取 URL 的範例](media/end-user-experiences/direct-sign-on-link.png)
 
 您可以複製這些連結，然後貼到任何您想要提供選取應用程式登入連結的位置。 可以是在電子郵件中，或是任何您已設定使用者應用程式存取權的自訂網頁型入口網站中。 以下是 Azure AD 直接單一登入 Twitter 的 URL 範例：
 
