@@ -14,7 +14,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60728996"
 ---
-# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的生存時間 (TTL) 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的存留時間 (TTL) 
 
 利用**生存時間**（簡稱 TTL），Azure Cosmos DB 能夠在特定一段時間後自動將項從容器中刪除。 根據預設，您可以在容器層級設定存留時間，且覆寫每個項目的值。 在容器或項目層級設定 TTL 之後，Azure Cosmos DB 會在自從上次修改以來的時間週期後自動移除這些項目。 存留時間值會以秒設定。 配置 TTL 後，系統會基於 TTL 值自動刪除已過期的項，不需要客戶端應用程序顯式發出的 delete 操作。
 
