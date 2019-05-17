@@ -12,12 +12,12 @@ ms.date: 05/09/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb3a3d85c9cac85b6658167806cea59b6d5163de
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c2ecc458183006872d5a4c6712cdf00a97993dbc
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782856"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825546"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>透過 Azure Active Directory 應用程式 Proxy 遠端存取內部部署應用程式 
 
@@ -44,7 +44,7 @@ Azure AD 應用程式 Proxy：
 
 應用程式 Proxy 支援單一登入。 如需有關支援的方法的詳細資訊，請參閱[選擇單一登入方法](what-is-single-sign-on.md#choosing-a-single-sign-on-method)。
 
-建議應用程式 Proxy 讓外部的遠端使用者存取內部資源。 應用程式 Proxy 會取代適用於 VPN 或反向 proxy 的需求。 它並不適用於內部公司網路上的使用者。  不必要地使用應用程式 Proxy 的內部使用者會造成非預期且不想要的效能問題。
+應用程式 Proxy 並建議能讓遠端使用者存取內部資源。 應用程式 Proxy 會取代適用於 VPN 或反向 proxy 的需求。 它並不適用於內部公司網路上的使用者。  這些不必要地使用應用程式 Proxy 的使用者會造成非預期且不想要的效能問題。
 
 ## <a name="how-application-proxy-works"></a>應用程式 Proxy 的運作方式為何
 

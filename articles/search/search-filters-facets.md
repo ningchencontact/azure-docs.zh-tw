@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8dffc5b87aefe23953d3a74f1d96b5ee03e0315d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939865"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597384"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>如何在 Azure 搜尋服務中建置 Facet 篩選條件 
 
@@ -37,50 +37,48 @@ Facet 是動態且會在查詢中傳回。 搜尋回應會為它們提供用來�
 
 Facet 可透過單一值欄位以及集合來計算。 最適合在多面向導覽的欄位具有較低的基數： 少量的搜尋主體 （例如色彩、 國家/地區或品牌名稱的清單） 中的文件內重複的相異值。 
 
-當您建立索引時，可藉由將下列屬性設為 TRUE，逐欄位啟用 Facet：`filterable`、`facetable`。 只有可篩選的欄位可以面向化。
+設定建立索引時，將會啟用欄位的欄位為基礎的多面向`facetable`屬性設定為`true`。 一般來說，您應該也設定`filterable`屬性設定為`true`針對這類欄位，使您的搜尋應用程式可以根據使用者選取的 facet 的欄位上篩選。 
 
-任何可能用於多面向導覽的[欄位類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)都會標記為 "facetable"：
+建立使用 REST API，任何索引時[欄位中輸入](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)，可能無法用在多面向導覽會標示為`facetable`預設：
 
-+ Edm.String
-+ Edm.DateTimeOffset
-+ Edm.Boolean
-+ Edm.Collections
-+ 數值欄位類型：Edm.Int32、Edm.Int64、Edm.Double
++ `Edm.String`
++ `Edm.DateTimeOffset`
++ `Edm.Boolean`
++ 數值欄位類型： `Edm.Int32`， `Edm.Int64`， `Edm.Double`
++ 上述型別的集合 (例如`Collection(Edm.String)`或`Collection(Edm.Double)`)
 
-您無法在多面向導覽中使用 Edm.GeographyPoint。 Facet 是從人類可讀取的文字或數字建構的。 因此，不支援針對地理座標使用 Facet。 您必須依位置來為城市或區域欄位設定 Facet。
+您無法使用`Edm.GeographyPoint`或`Collection(Edm.GeographyPoint)`多面向導覽中的欄位。 Facet 上成效最佳欄位使用較低的基數。 由於地理座標的解析度，很少，任何兩個座標集將會等於指定的資料集。 因此，不支援針對地理座標使用 Facet。 您必須依位置來為城市或區域欄位設定 Facet。
 
 ## <a name="set-attributes"></a>設定屬性
 
-控制如何使用欄位的索引屬性會新增至索引中的個別欄位定義。 在下列範例中，具有較低基數且適用於 Facet 的欄位包括：類別 (hotel、motel、hostel)、便利設施及評等。 
-
-在 .NET API 中，必須明確設定篩選屬性。 在 REST API 中，預設會啟用 Facet 和篩選，這表示當您想要關閉屬性時，只需明確地設定它們即可。 雖然這在技術上並非必要，但我們會基於教學目的在下列 REST 範例中顯示屬性。 
+控制如何使用欄位的索引屬性會新增至索引中的個別欄位定義。 在下列範例中，具有較低基數且適用於 facet 的欄位所組成： `category` （hotel、 motel、 hostel） `tags`，和`rating`。 這些欄位有`filterable`和`facetable`屬性明確設定於下列範例說明之用。 
 
 > [!Tip]
-> 適用於效能和儲存體最佳化的最佳做法是，針對永遠不應作為 Facet 使用的欄位關閉 Facet。 尤其是適用於單一值的字串欄位 (例如識別碼或產品名稱)，應該將它們設定為 "Facetable": false，以防止意外 (且不應) 被用於多面向導覽。
+> 適用於效能和儲存體最佳化的最佳做法是，針對永遠不應作為 Facet 使用的欄位關閉 Facet。 特別的是，唯一的值，例如識別碼或產品名稱的字串欄位應該設定為`"facetable": false`來防止其意外 （且不） 用於多面向導覽。
 
 
-```http
+```json
 {
-    "name": "hotels",  
-    "fields": [
-        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "baseRate", "type": "Edm.Double"},
-        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-        {"name": "hotelName", "type": "Edm.String", "facetable": false},
-        {"name": "category", "type": "Edm.String", "filterable": true, "facetable": true},
-        {"name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true},
-        {"name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false},
-        {"name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false},
-        {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-        {"name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true},
-        {"name": "location", "type": "Edm.GeographyPoint"}
-    ]
+  "name": "hotels",  
+  "fields": [
+    { "name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false },
+    { "name": "baseRate", "type": "Edm.Double" },
+    { "name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
+    { "name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene" },
+    { "name": "hotelName", "type": "Edm.String", "facetable": false },
+    { "name": "category", "type": "Edm.String", "filterable": true, "facetable": true },
+    { "name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true },
+    { "name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false },
+    { "name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false },
+    { "name": "lastRenovationDate", "type": "Edm.DateTimeOffset" },
+    { "name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true },
+    { "name": "location", "type": "Edm.GeographyPoint" }
+  ]
 }
 ```
 
 > [!Note]
-> 此索引定義是從[使用 REST API 建立 Azure 搜尋服務索引](https://docs.microsoft.com/azure/search/search-create-index-rest-api)複製。 在欄位定義中，除了外表差異之外，其餘的都一樣。 可篩選項和可 Facet 項屬性已明確新增於 category、tags、parkingIncluded、smokingAllowed 及 rating 欄位中。 在實務上，您可以免費取得 Edm.String、Edm.Boolean 與 Edm.Int32 欄位類型上的可篩選項和可 Facet 項。 
+> 此索引定義是從[使用 REST API 建立 Azure 搜尋服務索引](https://docs.microsoft.com/azure/search/search-create-index-rest-api)複製。 在欄位定義中，除了外表差異之外，其餘的都一樣。 `filterable`並`facetable`屬性已明確新增於`category`， `tags`， `parkingIncluded`， `smokingAllowed`，和`rating`欄位。 在實務上，`filterable`和`facetable`會啟用根據預設，這些欄位中，使用 REST API 時。 使用.NET SDK 時，必須明確啟用這些屬性。
 
 ## <a name="build-and-load-an-index"></a>建置和載入索引
 
@@ -91,25 +89,26 @@ Facet 可透過單一值欄位以及集合來計算。 最適合在多面向導�
 在應用程式的程式碼中，建構一個查詢，以指定有效查詢的所有部分，包括搜尋運算式、Facet、篩選條件、評分設定檔 (制訂要求使用的任何項目)。 下列範例會建置一個要求，根據住宿、評等及其他便利設施的類型來建立多面向導覽。
 
 ```csharp
-SearchParameters sp = new SearchParameters()
+var sp = new SearchParameters()
 {
-  ...
-  // Add facets
-  Facets = new List<String>() { "category", "rating", "parkingIncluded", "smokingAllowed" },
+    ...
+    // Add facets
+    Facets = new[] { "category", "rating", "parkingIncluded", "smokingAllowed" }.ToList()
 };
 ```
 
 ### <a name="return-filtered-results-on-click-events"></a>傳回 Click 事件的篩選結果
 
-篩選條件運算式會處理面向值的點擊事件。 指定一個類別 Facet，按一下 "motel" 類別是透過選取該類型之住宿的 `$filter` 運算式來實作。 當使用者按一下 [motels] 來表示僅應顯示汽車旅館，應用程式傳送的下一個查詢就會包含 $filter=category eq ‘motels’。
+當使用者按一下 facet 的值時，click 事件處理常式應該使用篩選條件運算式，來了解使用者的意圖。 給定`category`facet，按一下"motel"類別透過實作`$filter`選取之住宿的該類型的運算式。 當使用者按一下"motel"來表示應該顯示只有屋時，應用程式傳送的下一個查詢會包含`$filter=category eq 'motel'`。
 
 如果使用者從類別 Facet 選取值，下列程式碼片段就會將類別 新增至篩選條件。
 
 ```csharp
-if (categoryFacet != "")
-  filter = "category eq '" + categoryFacet + "'";
+if (!String.IsNullOrEmpty(categoryFacet))
+    filter = $"category eq '{categoryFacet}'";
 ```
-使用 REST API，要求會以 `$filter=category eq 'c1'` 形式來聯結。 若要將類別設定為多重值欄位，請使用下列語法：`$filter=category/any(c: c eq 'c1')`
+
+如果使用者按一下 facet 值的集合欄位，例如`tags`，例如"pool"值時，您的應用程式應該使用下列的篩選語法： `$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>祕訣和因應措施
 

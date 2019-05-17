@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5cfe91cfcc124ef3073cfb6bbeda683505ff8e1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716263"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561370"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系統健康狀態報告進行疑難排解
 Azure Service Fabric 元件會針對現成叢集中的所有實體，提供系統健康情況報告。 [健康狀態資料存放區](service-fabric-health-introduction.md#health-store) 會根據系統報告來建立和刪除實體。 它也會將這些實體組織為階層以擷取實體的互動。
@@ -632,11 +632,11 @@ HealthEvents          :
 
 - **IStatefulServiceReplica.Close**並**IStatefulServiceReplica.Abort**:最常見的案例是服務不接受取消語彙基元傳遞至`RunAsync`。 也可能是那個 `ICommunicationListener.CloseAsync`，或者覆寫的 `OnCloseAsync` 是否已停滯。
 
-- **IStatefulServiceReplica.ChangeRole (S)** 並**istatefulservicereplica.changerole （n)**:最常見的案例是服務不接受取消語彙基元傳遞至`RunAsync`。
+- **IStatefulServiceReplica.ChangeRole (S)** 並**istatefulservicereplica.changerole （n)**:最常見的案例是服務不接受取消語彙基元傳遞至`RunAsync`。 在此案例中，最好的解決方案是重新啟動複本。
 
 - **IStatefulServiceReplica.ChangeRole(P)**:最常見的案例是服務尚未從工作傳回`RunAsync`。
 
-其他可能停滯的 API 呼叫均位於 **IReplicator** 介面上。 例如︰
+其他可能停滯的 API 呼叫均位於 **IReplicator** 介面上。 例如：
 
 - **IReplicator.CatchupReplicaSet**:這個警告表示下列其中一種。 啟動的複本數不足。 若要了解是否為這種情況，請查看分割區中複本的複本狀態或 System.FM 健康情況報告，以進行停滯重新設定。 或者複本未認可作業。 PowerShell Cmdlet `Get-ServiceFabricDeployedReplicaDetail` 可用來判斷所有複本的進度。 問題出在其 `LastAppliedReplicationSequenceNumber` 值位於主要複本之 `CommittedSequenceNumber` 值後面的複本。
 

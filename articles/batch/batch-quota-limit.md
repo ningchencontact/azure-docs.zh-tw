@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 820eddff7da3bb52ca94ea0cb7e2361d89892a4a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776363"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595326"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -34,8 +34,6 @@ ms.locfileid: "60776363"
 
 > [!NOTE]
 > 配額是一種信用限制，不是容量保證。 如果您有大規模的容量需求，請連絡 Azure 支援。
-> 
-> 
 
 ## <a name="resource-quotas"></a>資源配額
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -65,10 +63,10 @@ ms.locfileid: "60776363"
 | [並行工作](batch-parallel-node-tasks.md)  | 4 x 節點的核心數目 |
 | [應用程式](batch-application-packages.md)  | 20 |
 | 每個應用程式的應用程式封裝 | 40 |
-| 每個集區的應用程式封裝 | 10 |
+| 每个池的应用程序包数 | 10 |
 | 工作存留期上限 | 180 天<sup>1</sup> |
 
-<sup>1</sup> 工作的最長存留期 (從它新增至作業到完成時) 為 180 天。 已完成的工作會保留 7 天；無法存取未在最長存留期內完成之工作的資料。
+<sup>1</sup> 工作的最長存留期 (從它新增至作業到完成時) 為 180 天。 已完成的工作保留七天;無法存取資料的最大存留期內未完成的工作。
 
 ## <a name="view-batch-quotas"></a>檢視 Batch 配額
 
@@ -84,45 +82,57 @@ ms.locfileid: "60776363"
 
 使用 [Azure 入口網站][portal]，遵循下列步驟來要求增加您 Batch 帳戶或訂用帳戶的配額。 增加配額的類型取決於您 Batch 帳戶的集區配置模式。 若要要求增加配額，您必須包含您想要增加配額的 VM 系列。 套用增加配額時，它會套用至所有系列的 Vm。
 
-### <a name="increase-a-batch-cores-quota"></a>增加 Batch 的核心配額 
+### <a name="increase-cores-quota-in-batch"></a>增加批次中的核心配額 
 
 1. 選取入口網站儀表板上的 [說明 + 支援] 圖格或入口網站右上角的問號 (**？**)。
 1. 選取 [新增支援要求] > [基本]。
 1. 在 [基本] 中：
    
-    a. **問題類型** > **配額**
+    a. **問題類型** > **服務和訂用帳戶的限制 （配額）**
    
     b. 選取您的訂用帳戶。
    
     c. **配額類型** > **批次**
-   
-    d. **支援方案** > **配額支援 - 已包含**
-   
-    单击“下一步”。
-1. 在 [問題]：
-   
-    a. 根據[商業影響][support_sev]選取 [嚴重性]。
-   
-    b. 在 [詳細資料] 中，指定每個您想要變更的配額、Batch 帳戶名稱和新限制。
-   
-    单击“下一步”。
+      
+    選取 [下一步] 。
+    
+1. 在 [詳細資料] 中：
+      
+    a. 在 **提供詳細資料，**、 指定位置、 配額類型和 Batch 帳戶。
+    
+    ![批次配額增加][quota_increase]
+
+    配額類型包括：
+
+    * **每個 Batch 帳戶**  
+        單一批次的值特定帳戶，包括專用和低優先順序核心，以及作業和集區的數目。
+        
+    * **每個區域**  
+        套用至區域中的所有 Batch 帳戶，並包含每個訂用帳戶區域的批次帳戶數目的值。
+
+    低優先順序配額是跨所有 VM 系列的單一值。 如果您需要受條件約束的 Sku，您必須選取**低優先順序核心**並包含要求的 VM 系列。
+
+    b. 根據[商業影響][support_sev]選取 [嚴重性]。
+
+    選取 [下一步] 。
+
 1. 在 [合約資訊] 中：
    
     a. 選取 [偏好的連絡方式]。
    
     b. 確認並輸入必要的連絡人詳細資料。
    
-    按一下 [建立]  提交支援要求。
+    選取 **建立**提交支援要求。
 
-一旦您上傳支援要求，Azure 支援會與您連絡。 請注意，完成要求最多需要花費 2 個工作天。
+一旦您上傳支援要求，Azure 支援會與您連絡。 配額要求可能在幾分鐘的時間內，或最多兩個工作天內完成。
 
 ## <a name="related-quotas-for-vm-pools"></a>適用於 VM 集區的相關配額
 
 部署於 Azure 虛擬網路之虛擬機器設定中的 Batch 集區會自動配置額外的 Azure 網路資源。 針對虛擬網路中每 50 個集區節點，將會需要下列資源：
 
-* 1 個[網路安全性群組](../virtual-network/security-overview.md#network-security-groups)
-* 1 個[公用 IP 位址](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* 1 個[負載平衡器](../load-balancer/load-balancer-overview.md)
+* 一個[網路安全性群組](../virtual-network/security-overview.md#network-security-groups)
+* 一個[公用 IP 位址](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* 一個[負載平衡器](../load-balancer/load-balancer-overview.md)
 
 這些資源會配置於包含在建立 Batch 集區時所提供之虛擬網路的訂用帳戶中。 這些資源會被訂用帳戶的[資源配額](../azure-subscription-service-limits.md)所限制。 如果您計畫在虛擬網路中進行大型的集區部署，請檢查這些資源的訂用帳戶配額。 若有需要，請在 Azure 入口網站中選取 [説明 + 支援] 來要求提升配額。
 
@@ -137,3 +147,4 @@ ms.locfileid: "60776363"
 [support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
+[quota_increase]: ./media/batch-quota-limit/quota-increase.png

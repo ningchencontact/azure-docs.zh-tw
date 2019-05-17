@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540180"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823356"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft 身分識別平台整合檢查清單
 
@@ -31,13 +31,13 @@ Microsoft 身分識別平台整合檢查清單的目的是引導您以高品質�
 
 ## <a name="testing-your-integration"></a>測試您的整合
 
-使用下列檢查清單，以確保您的應用程式會與有效地整合[Microsoft 身分識別平台](https://docs.microsoft.com/legal/mdsa)。
+使用下列檢查清單，以確保您的應用程式會與有效地整合[Microsoft 身分識別平台](https://docs.microsoft.com/azure/active-directory/develop/)。
 
 ### <a name="basics"></a>基本概念
 
 |   |   |
 |---|---|
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 閱讀並了解[Microsoft 平台原則](https://docs.microsoft.com/legal/mdsa)。 請確定您的應用程式遵守條款所述，專門用來保護使用者與平台。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 閱讀並了解[Microsoft 平台原則](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409)。 請確定您的應用程式遵守條款所述，專門用來保護使用者與平台。 |
 
 ### <a name="ownership"></a>擁有權
 

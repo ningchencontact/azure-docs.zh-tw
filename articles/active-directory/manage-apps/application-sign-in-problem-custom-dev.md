@@ -1,10 +1,10 @@
 ---
 title: 登入自訂開發應用程式的問題 | Microsoft Docs
-description: 會造成您無法登入您使用 Azure AD 所開發應用程式的常見錯誤
+description: 您在開發與 Azure AD 的會導致您無法登入應用程式的常見錯誤
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4365c87f0028fe3a9c4ba35f40599359eb1455f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8ad2499aea8bf4e41ca00d6c78d76e112f0493e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438773"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825228"
 ---
-# <a name="problems-signing-in-to-an-custom-developed-application"></a>登入自訂開發應用程式的問題
+# <a name="problems-signing-in-to-a-custom-developed-application"></a>登入自訂開發的應用程式的問題
 
 有數種錯誤會導致您無法登入應用程式。 會遇到此問題的最大原因是應用程式設定錯誤。
 

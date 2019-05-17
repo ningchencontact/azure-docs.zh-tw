@@ -1,10 +1,10 @@
 ---
 title: 如何設定應用程式 Proxy 應用程式 | Microsoft Docs
-description: 了解如何使用幾個簡單步驟來建立及設定應用程式 Proxy 應用程式
+description: 了解如何建立及設定應用程式 Proxy 應用程式在幾個簡單步驟
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f22f064043467bf52c23cab547a7e6c8ba2205
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc9287aac567c8989564094564b92b82662e603f
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443165"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825925"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>如何設定應用程式 Proxy 應用程式
 
-本文協助您了解如何在 Azure AD 內設定應用程式 Proxy 應用程式，以向雲端公開您的內部部署應用程式。
+這篇文章可協助您了解如何設定應用程式 Proxy 應用程式在 Azure AD 內公開您的內部部署應用程式到雲端。
 
-## <a name="recommended-documents"></a>建議的文件 
+## <a name="recommended-documents"></a>建議文件 
 
 若要深入了解應用程式 Proxy 應用程式透過管理入口網站的初始設定與建立，請遵循[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)。
 
@@ -49,7 +49,7 @@ ms.locfileid: "60443165"
 
 -   URL 應該是網域名稱，而非 IP 位址
 
-當您建立應用程式時，錯誤訊息應該會在右上角顯示。 您也可以選取通知圖示來查看錯誤訊息。
+當您建立應用程式時，應該會在右上角顯示的錯誤訊息。 您也可以選取通知圖示來查看錯誤訊息。
 
    ![通知提示](./media/application-proxy-config-how-to/error-message.png)
 
@@ -71,7 +71,7 @@ ms.locfileid: "60443165"
 
 -   憑證沒有私密金鑰
 
-當您嘗試上傳憑證時，錯誤訊息會顯示在右上角。 您也可以選取通知圖示來查看錯誤訊息。
+在右上角的錯誤訊息顯示，當您嘗試上傳的憑證。 您也可以選取通知圖示來查看錯誤訊息。
 
    ![通知提示](./media/application-proxy-config-how-to/error-message2.png)
 

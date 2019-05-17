@@ -3,8 +3,8 @@ title: 登入 Microsoft 應用程式的問題 | Microsoft Docs
 description: 為使用 Azure AD 登入第一方 Microsoft 應用程式 (如 Office 365) 時遇到的問題疑難排解
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292192"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825222"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>登入 Microsoft 應用程式的問題
 
@@ -435,7 +435,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 6. 按一下您想要檢查的原則。
 
-7. 檢查有無特定的條件、指派，或其他可能會封鎖使用者存取的設定。
+7. 檢查有無特定的條件、 指派或可能會封鎖使用者存取其他設定。
 
    >[!NOTE]
    >您可能會想要暫時停用此原則，以確保不會影響登入。若要這麼做，請設定 [啟用原則] 切換至 [否]，然後按一下 [儲存] 按鈕。
@@ -456,7 +456,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 5.  按一下 [所有應用程式]。
 
-6.  搜尋您感興趣的應用程式，或依應用程式顯示名稱或應用程式識別碼搜尋使用者嘗試登入的應用程式。
+6.  搜尋您感興趣的應用程式或使用者嘗試登入應用程式顯示名稱或應用程式的識別碼。
 
      >[!NOTE]
      >如果您看不到正在尋找的應用程式，請按一下 [篩選] 按鈕，然後將清單範圍展開至 [所有應用程式]。 如果您想要看到更多的資料行，請按一下 [資料行] 按鈕為應用程式新增其他詳細資料。

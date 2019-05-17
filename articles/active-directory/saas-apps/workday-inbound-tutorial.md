@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2019
+ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 31cf1f6da515aa9b453987383e78f466c5ba4fb9
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407918"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827300"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程：設定 Workday 來自動佈建使用者
 
-本教學課程的目標是要說明將人員設定檔從 Workday 匯入到 Active Directory 和 Azure Active Directory，以及視需要將電子郵件地址回寫至 Workday，所需執行的步驟。
+本教學課程的目的是要說明的步驟，您需要執行背景工作設定檔從 Workday 匯入到 Active Directory 與 Azure Active Directory，和選擇性回寫至 Workday 的使用者名稱的電子郵件地址。
 
 ## <a name="overview"></a>概觀
 
@@ -34,7 +34,7 @@ ms.locfileid: "65407918"
 
 * **將僅限雲端使用者佈建至 Azure Active Directory** - 在未使用內部部署 Active Directory 的情況下，使用 Azure AD 使用者佈建服務可以直接將使用者從 Workday 佈建至 Azure Active Directory。
 
-* **將電子郵件地址回寫至 Workday** - Azure AD 使用者佈建服務可以將 Azure AD 使用者電子郵件地址回寫至 Workday。
+* **回寫電子郵件地址和使用者名稱 Workday** -Azure AD 使用者佈建服務可以將電子郵件地址和使用者名稱從 Azure AD 回至 Workday。
 
 ### <a name="what-human-resources-scenarios-does-it-cover"></a>它涵蓋了哪些人力資源案例？
 
@@ -67,7 +67,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 本節針對常見的混合式環境，說明端對端使用者佈建方案架構。 有兩個相關的流程：
 
 * **授權 HR 資料流程 – 從 Workday 到內部部署 Active Directory：** 在此流程中，人員事件 (例如新雇用、調動、解雇) 會先發生在雲端 Workday HR 租用戶，然後事件資料會透過 Azure AD 和佈建代理程式流入內部部署 Active Directory。 視事件而定，它可能會在 AD 中產生建立/更新/啟用/停用作業。
-* **電子郵件回寫流程 – 從內部部署 Active Directory 到 Workday：** 一旦在 Active Directory 中完成建立帳號之後，它就會透過 Azure AD Connect 與 Azure AD 同步處理，而來自 Active Directory 的電子郵件屬性可回寫到 Workday。
+* **電子郵件和使用者名稱回寫的流程-從 workday 的內部部署 Active Directory:** 一旦完成 Active Directory 中建立帳戶，它會與 Azure AD 透過 Azure AD Connect 同步處理和電子郵件和使用者名稱的屬性可以寫回至 Workday。
 
 ![概觀](./media/workday-inbound-tutorial/wd_overview.png)
 
@@ -79,7 +79,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 4. Azure AD Connect 佈建代理程式使用服務帳戶來新增/更新 AD 帳戶資料。
 5. Azure AD Connect / AD 同步引擎會執行差異同步來提取 AD 中的更新。
 6. Active Directory 會與 Azure Active Directory 同步更新。
-7. 如果已設定 Workday 回寫連接器，它會將電子郵件屬性回寫到 Workday (根據所使用的比對屬性)。
+7. 如果設定 Workday Writeback 連接器，寫回電子郵件屬性和使用者名稱 Workday，根據使用的比對屬性。
 
 ## <a name="planning-your-deployment"></a>規劃您的部署
 
@@ -285,7 +285,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
    * *人員資料：所有職位*
    * *人員資料：目前人員配置資訊*
    * *人員資料：人員個人檔案的職稱*
-
+   * *Workday 帳戶*
+   
      ![網域安全性原則](./media/workday-inbound-tutorial/wd_isu_07.png "網域安全性原則")  
 
      ![網域安全性原則](./media/workday-inbound-tutorial/wd_isu_08.png "網域安全性原則") 
@@ -313,6 +314,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
    | 取得 | 人員資料：所有職位 |
    | 取得 | 人員資料：目前人員配置資訊 |
    | 取得 | 人員資料：人員個人檔案的職稱 |
+   | Get 和 Put | Workday 帳戶 |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>設定商務程序安全性原則權限
 
@@ -369,18 +371,21 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 部署 .NET 4.7.1+ 之後，您便可以**[下載這裡的內部部署佈建代理程式](https://go.microsoft.com/fwlink/?linkid=847801)**，然後依照下方提供的步驟來完成代理程式設定。
 
 1. 登入您要安裝新的代理程式的 Windows 伺服器。
-2. 啟動佈建代理程式安裝程式，同意條款並按一下 [安裝] 按鈕。
+
+1. 啟動佈建代理程式安裝程式，即表示同意條款，然後按一下**安裝** 按鈕。
 
    ![安裝畫面](./media/workday-inbound-tutorial/pa_install_screen_1.png "安裝畫面")
-3. 安裝完成之後，精靈將會啟動，而您將會看到 [連線 Azure AD] 畫面。 按一下 [驗證] 按鈕以連線到您的 Azure AD 執行個體。
+   
+1. 安裝完成之後，精靈將會啟動，而您將會看到 [連線 Azure AD] 畫面。 按一下 [驗證] 按鈕以連線到您的 Azure AD 執行個體。
 
    ![連線 Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "連線 Azure AD")
+   
 1. 使用全域管理員認證驗證您的 Azure AD 執行個體。
 
    ![管理員驗證](./media/workday-inbound-tutorial/pa_install_screen_3.png "管理員驗證")
 
-> [!NOTE]
-> Azure AD 系統管理員認證僅供用來連線至您的 Azure AD 租用戶。 代理程式不會將認證儲存在本機伺服器上。
+   > [!NOTE]
+   > Azure AD 系統管理員認證僅供用來連線至您的 Azure AD 租用戶。 代理程式不會將認證儲存在本機伺服器上。
 
 1. 成功使用 Azure AD 驗證之後，您會看到 [連線 Active Directory] 畫面。 在此步驟中，請輸入您的 AD 網域名稱，然後按一下 [Add Directory] \(新增目錄\) 按鈕。
 
@@ -389,21 +394,27 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 1. 現在系統會提示您輸入認證，才能連線至 AD 網域。 在相同畫面中，您可以使用 [選取網域控制站優先權] 來指定代理程式應用來傳送佈建要求的網域控制站。
 
    ![網域認證](./media/workday-inbound-tutorial/pa_install_screen_5.png)
+   
 1. 設定網域之後，安裝程式會顯示已設定的網域清單。 在此畫面上，您可以重複步驟 #5 和 #6 來新增更多網域，或是按一下 [下一步] 來繼續進行代理程式註冊。
 
    ![已設定的網域](./media/workday-inbound-tutorial/pa_install_screen_6.png "已設定的網域")
 
    > [!NOTE]
-   > 如果您有多個 AD 網域 (例如 a.contoso.com、emea.contoso.com)，則請將每個網域個別新增至清單。 只新增父系網域 (例如 contoso.com) 是不夠的。 您必須向代理程式註冊每個子網域。
+   > 如果您有多個 AD 網域 (例如 a.contoso.com、emea.contoso.com)，則請將每個網域個別新增至清單。
+   > 只新增父系網域 (例如 contoso.com) 是不夠的。 您必須向代理程式註冊每個子網域。
+   
 1. 檢閱設定詳細資料，並按一下 [確認] 以註冊代理程式。
   
    ![確認畫面](./media/workday-inbound-tutorial/pa_install_screen_7.png "確認畫面")
+   
 1. 設定精靈會顯示代理程式註冊的進度。
   
    ![代理程式註冊](./media/workday-inbound-tutorial/pa_install_screen_8.png "代理程式註冊")
+   
 1. 一旦代理程式註冊成功之後，您可以按一下 [結束] 來結束精靈。
   
    ![結束畫面](./media/workday-inbound-tutorial/pa_install_screen_9.png "結束畫面")
+   
 1. 開啟 [服務] 嵌入式管理單元，並尋找名稱為「Microsoft Azure AD Connect 佈建代理程式」的服務，以確認此代理程式的安裝及確定它是否正在執行
   
    ![服務](./media/workday-inbound-tutorial/services.png)
@@ -438,13 +449,14 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
    * **Active Directory 容器 -** 輸入容器 DN，其中是代理程式預設應建立使用者帳戶的位置。
         範例：*OU=Standard Users,OU=Users,DC=contoso,DC=test*
+        
      > [!NOTE]
      > 如果並未在屬性對應中設定 *parentDistinguishedName* 屬性，此設定僅適用於使用者帳戶建立。 此設定不適用於使用者搜尋或更新作業。 整個網域的子樹狀會落在搜尋作業的範圍中。
 
    * **通知電子郵件** – 輸入您的電子郵件地址，然後勾選 [發生失敗時傳送電子郵件] 核取方塊。
 
-> [!NOTE]
-> 如果佈建作業進入[隔離](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine)狀態，Azure AD 佈建服務會傳送電子郵件通知。
+     > [!NOTE]
+     > 如果佈建作業進入[隔離](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine)狀態，Azure AD 佈建服務會傳送電子郵件通知。
 
    * 按一下 [測試連線] 按鈕。 如果連線測試成功，請按一下頂端的 [儲存] 按鈕。 如果失敗，請仔細檢查代理程式上設定的 Workday 認證和 AD 認證是否有效。
 
@@ -458,7 +470,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 1. 在 [佈建] 索引標籤的 [對應] 底下，按一下 [Synchronize Workday Workers to On Premises Active Directory] \(將 Workday 人員同步至內部部署 Active Directory\)。
 
-2. 在 [來源物件範圍] 欄位中，您可以透過定義一組屬性型篩選，選取應該佈建至 AD 的 Workday 使用者集合範圍。 預設範圍是「Workday 中的所有使用者」。 範例篩選：
+1. 在 [來源物件範圍] 欄位中，您可以透過定義一組屬性型篩選，選取應該佈建至 AD 的 Workday 使用者集合範圍。 預設範圍是「Workday 中的所有使用者」。 範例篩選：
 
    * 範例：人員識別碼介於 1000000 到 2000000 （不含 2000000） 之間的使用者範圍
 
@@ -474,8 +486,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
       * 運算子：IS NOT NULL
 
-> [!TIP]
-> 第一次設定佈建應用程式時，您將需要測試及確認屬性對應和運算式，以確保它提供您所需的結果。 Microsoft 建議您使用 [來源物件範圍] 底下的範圍篩選，利用幾個來自 Workday 的測試使用者來測試您的對應。 確認對應能夠運作之後，您便可以移除篩選，或逐漸擴大篩選來包含更多使用者。
+   > [!TIP]
+   > 第一次設定佈建應用程式時，您將需要測試及確認屬性對應和運算式，以確保它提供您所需的結果。 Microsoft 建議您使用 [來源物件範圍] 底下的範圍篩選，利用幾個來自 Workday 的測試使用者來測試您的對應。 確認對應能夠運作之後，您便可以移除篩選，或逐漸擴大篩選來包含更多使用者。
 
 1. 在 [目標物件動作] 欄位中，您可以全域篩選在 Active Directory 上執行的動作。 最常見的動作是 [建立] 和 [更新]。
 
@@ -649,9 +661,9 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 完成屬性對應設定之後，您現在便可以[啟用及啟動使用者佈建服務](#enable-and-launch-user-provisioning)。
 
-## <a name="configuring-writeback-of-email-addresses-to-workday"></a>設定將電子郵件地址回寫至 Workday
+## <a name="configuring-azure-ad-attribute-writeback-to-workday"></a>設定 Azure AD 屬性的回寫至 Workday
 
-請遵循下列指示來設定將使用者電子郵件地址從 Azure Active Directory 回寫至 Workday。
+請遵循下列指示來設定回寫至 Workday 的使用者名稱和 Azure Active Directory 的使用者電子郵件地址以及。
 
 * [新增回寫連接器應用程式和建立 Workday 連線](#part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday)
 * [設定回寫屬性對應](#part-2-configure-writeback-attribute-mappings)
@@ -689,7 +701,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 ### <a name="part-2-configure-writeback-attribute-mappings"></a>第 2 部分：設定回寫屬性對應
 
-在本節中，您將設定回寫屬性從 Azure AD 流向 Workday 的方式。
+在本節中，您將設定回寫屬性從 Azure AD 流向 Workday 的方式。 目前，連接器只支援回寫至 Workday 的使用者名稱的電子郵件地址。
 
 1. 在 [佈建] 索引標籤的 [對應] 底下，按一下 [Synchronize Azure Active Directory Users to Workday] \(將 Azure Active Directory 使用者同步至 Workday\)。
 
@@ -697,9 +709,9 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 3. 在 [屬性對應] 區段中，更新相符的識別碼，代表 Azure Active Directory 中儲存了 Workday 人員識別碼或員工識別碼的屬性。 常用的比對方法是將 Workday 人員識別碼或員工識別碼同步至 Azure AD 中的 extensionAttribute1-15，然後在 Azure AD 中使用此屬性再次比對 Workday 的使用者。
 
-4. 若要儲存您的對應，請按一下 [屬性對應] 區段頂端的 [儲存]。
+4. 您通常會對應的 Azure AD *userPrincipalName* workday 屬性*UserID*屬性，並將對應的 Azure AD *mail* workday 屬性*EmailAddress*屬性。 若要儲存您的對應，請按一下 [屬性對應] 區段頂端的 [儲存]。
 
-完成屬性對應設定之後，您現在便可以[啟用及啟動使用者佈建服務](#enable-and-launch-user-provisioning)。 
+完成屬性對應設定之後，您現在便可以[啟用及啟動使用者佈建服務](#enable-and-launch-user-provisioning)。
 
 ## <a name="enable-and-launch-user-provisioning"></a>啟用及啟動使用者佈建
 
@@ -782,6 +794,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 * Get_Workers (v21.1)：用於擷取人員資訊
 * Maintain_Contact_Information (v26.1)：用於「工作電子郵件回寫」功能
+* Update_Workday_Account (v31.2) 的使用者名稱回寫功能
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>是否可以搭配兩個 Azure AD 租用戶來設定我的 Workday HCM 租用戶？
 
@@ -952,7 +965,6 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 * 擷取每個 Workday 屬性時，都是使用基礎 XPATH API 運算式來擷取，在 [屬性對應] -> [進階] 區段 -> [Edit attribute list for Workday] \(編輯 Workday 的屬性清單\) 即可設定此運算式。 以下是 Workday *PreferredFirstName*, *PreferredLastName*、*Company* 及 *SupervisoryOrganization* 屬性的預設 XPATH API 運算式。
 
-     [!div class="mx-tdCol2BreakAll"]
      | Workday 屬性 | API XPath 運算式 |
      | ----------------- | -------------------- |
      | PreferredFirstName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |
@@ -1008,7 +1020,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 SelectUniqueValue(
     Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,1), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
     Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,2), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
-    Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,3), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
+    Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,3), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , )
 )
 ```
 
@@ -1236,7 +1248,7 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: juliako
-ms.openlocfilehash: e64e980d42086603c9eb8ce39a96a9766a78afcb
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 01b386c820a09af0e616698aabc58a886c30bb09
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472469"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550936"
 ---
 # <a name="transforms-and-jobs"></a>轉換與工作
 
@@ -55,9 +55,15 @@ ms.locfileid: "65472469"
 
 使用**轉換**可設定視訊編碼或分析的一般工作。 每個**轉換**都會描述配方或工作流程，以便處理您的視訊或音訊檔案。 單一轉換可套用多個規則。 例如，轉換可以指定每個視訊以指定的位元速率編碼至 MP4 檔案，並從影片第一幀畫面產生縮圖映像。 您將為每個您要加入轉換的規則新增 TransformOutput 項目。 您可以使用預設值來告訴轉換應該如何處理輸入的媒體檔案。
 
+### <a name="viewing-schema"></a>檢視結構描述
+
 媒體服務 v3 中預設會是強型別的 API 本身中的實體。 您可以找到這些物件中的 「 結構描述 」 定義[Open API 規格 （或 Swagger）](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)。 您也可以檢視的預設的定義 (例如**StandardEncoderPreset**) 中[REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)， [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) （或其他媒體服務 v3 SDK 參考文件）。
 
+### <a name="creating-transforms"></a>建立轉換
+
 您可以建立使用 REST，CLI，轉型，或使用任何已發行的 Sdk。 媒體服務 v3 API 是由 Azure Resource Manager 所驅動，因此您也可以使用 Resource Manager 範本，在您的媒體服務帳戶中建立及部署轉換。 角色型存取控制可用於鎖定轉換的存取權。
+
+### <a name="updating-transforms"></a>更新轉換
 
 如果您需要更新您[轉換](https://docs.microsoft.com/rest/api/media/transforms)，使用**更新**作業。 它適用於變更描述，或是基礎 TransformOutputs 的優先順序。 建議您在所有進行中的工作都完成時，再執行這類更新。 如果您想要重寫此配方時，您需要建立新的轉換。
 
@@ -71,11 +77,19 @@ ms.locfileid: "65472469"
 
 **作業**是要媒體服務將已建立的**轉換**套用至指定輸入視訊或音訊內容的實際要求。 一旦建立轉換，您就可以使用媒體服務 API 或使用任何已發佈的 SDK 提交作業。 **作業**會指定輸入影片的位置、輸出的位置等資訊。 您可以使用下列項目指定輸入影片的位置：HTTPS URL、SAS URL 或[資產](https://docs.microsoft.com/rest/api/media/assets)。  
 
+### <a name="job-input-from-https"></a>從 HTTPS 的工作輸入
+
 使用[作業的 HTTPS 輸入](job-input-from-http-how-to.md)如果您的內容已可透過 URL 存取，而且您不需要在 Azure 中儲存的原始程式檔 （例如，從匯入 S3）。 這個方法也是適合的如果您在 Azure Blob 儲存體中有內容，但不需要針對要在資產中的檔案。 目前，這個方法只會支援單一檔案的輸入。
- 
+
+### <a name="asset-as-job-input"></a>做為作業輸入資產
+
 使用[做為作業輸入資產](job-input-from-local-file-how-to.md)如果輸入的內容已經在資產中，或內容會儲存在本機檔案。 也很不錯的選項。 如果您打算發佈串流或下載 （假設您想要發佈的 mp4 下載，但也要看語音轉換文字或臉部偵測） 的輸入的資產。 這個方法支援多檔案資產 (例如，串流集在本機編碼的 MBR)。
- 
+
+### <a name="checking-job-progress"></a>檢查工作進度
+
 您可以透過事件格線的監視事件取得作業的進度和狀態。 如需詳細資料，請參閱[使用事件格線監視事件](job-state-events-cli-how-to.md)。
+
+### <a name="updating-jobs"></a>更新作業
 
 [作業](https://docs.microsoft.com/rest/api/media/jobs)實體上的更新作業可用於修改「描述」，以及修改作業提交後的「優先順序」屬性。 只有在作業仍處於排入佇列的狀態時，才能有效變更「優先順序」屬性。 如果作業已開始處理，或已經處理完成，則變更優先順序不會有任何作用。
 

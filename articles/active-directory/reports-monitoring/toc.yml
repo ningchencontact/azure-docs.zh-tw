@@ -31,6 +31,8 @@
       href: concept-audit-logs.md
     - name: 登入記錄
       href: concept-sign-ins.md
+    - name: 使用量和深入解析報告
+      href: concept-usage-insights-report.md
     - name: 有風險的登入
       href: concept-risky-sign-ins.md
     - name: 風險事件

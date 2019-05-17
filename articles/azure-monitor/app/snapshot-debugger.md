@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: 074b701422f32f4cd18fd2eb05e3453e139e17ae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205590"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595578"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 發生例外狀況時，您可以自動從即時 Web 應用程式收集偵錯快照集。 快照集會顯示擲回例外狀況時原始程式碼和變數的狀態。 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的快照集偵錯工具 (預覽) 會監視 web 應用程式的例外狀況遙測。 它會收集前幾個擲回例外狀況的快照集，讓您取得診斷生產環境中問題所需的資訊。 將[快照集收集器 NuGet 套件](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)納入您的應用程式，並選擇性地設定 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 中的集合參數。快照集會顯示在 Application Insights 入口網站中的[例外狀況](../../azure-monitor/app/asp-net-exceptions.md)。
 
-您可以檢視入口網站中的偵錯快照集，以查看呼叫堆疊並檢查每個呼叫堆疊框架的變數。 若要使用原始程式碼取得更強大的偵錯體驗，請以 Visual Studio 2017 Enterprise 開啟快照集。 在 Visual Studio 中，您也可以[設定貼齊點以互動方式建立快照集](https://aka.ms/snappoint)，而不需等待例外狀況。
+您可以檢視入口網站中的偵錯快照集，以查看呼叫堆疊並檢查每個呼叫堆疊框架的變數。 若要取得更強大的偵錯體驗，與原始程式碼，請使用 Visual Studio 2019 Enterprise 開啟快照集。 在 Visual Studio 中，您也可以[設定貼齊點以互動方式建立快照集](https://aka.ms/snappoint)，而不需等待例外狀況。
 
 偵錯快照集會儲存 7 天。 此保留原則會就個別的應用程式而設定。 如果您需要增加此值，您可以在 Azure 入口網站中建立支援案例，以提出增加的要求。
 
@@ -81,9 +81,9 @@ ms.locfileid: "65205590"
 快照集可能包含機密資訊，依預設為不可檢視。 若要檢視快照集，您必須有指派給您的 `Application Insights Snapshot Debugger` 角色。
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>檢視快照集在 Visual Studio 2017 Enterprise 或更新版本
-1. 按一下 [下載快照集] 按鈕，下載可利用 Visual Studio 2017 Enterprise 開啟的 `.diagsession` 檔案。
+1. 按一下 [**下載快照集**] 按鈕，下載`.diagsession`可利用 Visual Studio Enterprise 開啟的檔案。
 
-2. 若要開啟 `.diagsession` 檔案，您必須已安裝快照偵錯工具 VS 元件。 快照偵錯工具元件是 VS 中的 ASP.net 工作負載所需的必要元件，可從 VS 安裝程式中 [個別元件] 清單中選取。 如果您使用 Visual Studio 2017 15.5 之前的版本必須安裝延伸模組，從[VS marketplace](https://aka.ms/snapshotdebugger)。
+2. 若要開啟 `.diagsession`檔案，您必須已安裝的快照集偵錯工具 Visual Studio 元件。 快照偵錯工具元件是在 Visual Studio 中的 ASP.net 工作負載的必要的元件，並且可以從 Visual Studio 安裝程式中的個別元件清單中選取。 如果您使用 Visual Studio 2017 15.5 版之前的 Visual Studio 的版本，您必須安裝從延伸模組[Visual Studio Marketplace](https://aka.ms/snapshotdebugger)。
 
 3. 開啟快照集檔案之後，Visual Studio 中的 [小型傾印偵錯] 分頁隨即出現。 按一下 [偵錯受控碼] 以開始偵錯快照集。 快照集會開啟至擲回例外狀況的程式碼行，您可將程序的目前狀態進行偵錯。
 

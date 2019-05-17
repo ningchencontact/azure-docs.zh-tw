@@ -1,30 +1,31 @@
 ---
-title: 使用 Ansible 在 Azure 中建立 Linux 虛擬機器
-description: 了解如何使用 Ansible 在 Azure 中建立 Linux 虛擬機器
-ms.service: virtual-machines-linux
+title: 快速入門 - 使用 Ansible 在 Azure 中設定 Linux 虛擬機器 | Microsoft Docs
+description: 在本快速入門中，您將了解如何使用 Ansible 在 Azure 中建立 Linux 虛擬機器
 keywords: ansible, azure, devops, 虛擬機器
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: quickstart
-ms.date: 08/22/2018
-ms.openlocfilehash: 38cc6cd8f375fe7c60a706541bc74313e8ea2c4f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/30/2019
+ms.openlocfilehash: ce99b537dd5958c2bec43759c58a9c182dd05142
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090248"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237059"
 ---
-# <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>使用 Ansible 在 Azure 中建立 Linux 虛擬機器
-使用宣告式語言時，Ansible 可讓您透過 Ansible *腳本*自動建立、設定及部署 Azure 資源。 本文的各節將分別顯示 Ansible 腳本的各個區段在建立及設定 Linux 虛擬機器的不同層面時所呈現的樣貌。 [完整 Ansible 腳本](#complete-sample-ansible-playbook)會列在本文結尾處。
+# <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>快速入門：使用 Ansible 在 Azure 中設定 Linux 虛擬機器
+
+使用宣告式語言時，Ansible 可讓您透過 Ansible *腳本*自動建立、設定及部署 Azure 資源。 本文會提供 Ansible 劇本範例來設定 Linux 虛擬機器。 [完整 Ansible 腳本](#complete-sample-ansible-playbook)會列在本文結尾處。
 
 ## <a name="prerequisites"></a>必要條件
 
-- **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
 
 ## <a name="create-a-resource-group"></a>建立資源群組
+
 Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本區段會在 `eastus` 位置中建立名為 `myResourceGroup` 的資源群組：
 
 ```yaml
@@ -35,6 +36,7 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
 ```
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
+
 當您建立 Azure 虛擬機器時，您必須建立[虛擬網路](/azure/virtual-network/virtual-networks-overview)或使用現有的虛擬網路。 您也需要決定如何在虛擬網路上存取您的虛擬機器。 下列範例 Ansible 腳本區段會在 `10.0.0.0/16` 位址空間中建立名為 `myVnet` 的虛擬網路：
 
 ```yaml
@@ -59,7 +61,12 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
 ```
 
 ## <a name="create-a-public-ip-address"></a>建立公用 IP 位址
-[公用 IP 位址](/azure/virtual-network/virtual-network-ip-addresses-overview-arm)可讓網際網路資源向 Azure 資源進行輸入通訊。 公用 IP 位址也可透過指派給資源的 IP 位址，讓 Azure 資源向網際網路和公眾對應的 Azure 服務進行輸出通訊。 位址是資源專用，直到您取消指派為止。 如果未將公用 IP 位址指派給資源，資源仍可向網際網路進行輸出通訊，但 Azure 會以動態方式指派非資源專用的可用 IP 位址。 
+
+
+
+
+
+[公用 IP 位址](/azure/virtual-network/virtual-network-ip-addresses-overview-arm)可讓網際網路資源向 Azure 資源進行輸入通訊。 公用 IP 位址也可讓 Azure 資源向公開的 Azure 服務進行輸出通訊。 在這兩個案例中，IP 位址會指派給正在存取的資源。 在您取消指派之前，位址會專屬於資源。 如果公用 IP 位址未指派給資源，資源仍可對網際網路進行輸出通訊。 建立連線的方式是由 Azure 動態指派可用的 IP 位址。 動態指派的位址不會專屬於資源。
 
 下列範例 Ansible 腳本區段會建立名為 `myPublicIP` 的公用 IP 位址：
 
@@ -72,9 +79,10 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
 ```
 
 ## <a name="create-a-network-security-group"></a>建立網路安全性群組
-[網路安全性群組](/azure/virtual-network/security-overview)可讓您篩選在 Azure 虛擬網路中進出於 Azure 資源的網路流量。 網路安全性群組包含安全性規則，可允許或拒絕進出於多種 Azure 資源類型的輸入和輸出網路流量。 
 
-下列範例 Ansible 腳本區段會建立名為 `myNetworkSecurityGroup` 的網路安全性群組，並定義規則以允許 TCP 通訊埠 22 上的 SSH 流量：
+[網路安全性群組](/azure/virtual-network/security-overview)可在虛擬網路中篩選 Azure 資源之間的流量。 安全性規則的定義是管理在 Azure 資源上往來的輸入和輸出流量。 如需有關 Azure 資源和網路安全性群組的詳細資訊，請參閱 [Azure 服務的虛擬網路整合](/azure/virtual-network/virtual-network-for-azure-services)
+
+下列劇本會建立名為 `myNetworkSecurityGroup` 的網路安全性群組。 網路安全性群組規則包括允許 TCP 通訊埠 22 上的 SSH 流量。
 
 ```yaml
 - name: Create Network Security Group that allows SSH
@@ -90,11 +98,11 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
         direction: Inbound
 ```
 
-
 ## <a name="create-a-virtual-network-interface-card"></a>建立虛擬網路介面卡
+
 虛擬網路介面卡會將您的虛擬機器連線至指定的虛擬網路、公用 IP 位址和網路安全性群組。 
 
-範例 Ansible 腳本的下列區段會建立名為 `myNIC` 的虛擬網路介面卡，並連線至您所建立的虛擬網路資源：
+範例 Ansible 劇本的下列區段會建立名為 `myNIC` 的虛擬網路介面卡，並連線至您所建立的虛擬網路資源：
 
 ```yaml
 - name: Create virtual network inteface card
@@ -108,6 +116,7 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
 ```
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
+
 最後一個步驟是建立虛擬機器，並使其使用您在本文的前面幾節中建立的所有資源。 
 
 本節介紹的範例 Ansible 腳本區段會建立名為 `myVM` 的虛擬機器，並連接名為 `myNIC` 的虛擬網路介面卡。 請將 &lt;your-key-data> 預留位置取代為您自己的完整公開金鑰資料。
@@ -278,5 +287,6 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
     ```
 
 ## <a name="next-steps"></a>後續步驟
+
 > [!div class="nextstepaction"] 
-> [使用 Ansible 在 Azure 中管理 Linux 虛擬機器](./ansible-manage-linux-vm.md)
+> [快速入門：使用 Ansible 在 Azure 中管理 Linux 虛擬機器](./ansible-manage-linux-vm.md)

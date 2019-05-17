@@ -1,26 +1,26 @@
 ---
 title: 調整叢集大小 - Azure HDInsight
-description: 調整 HDInsight 叢集以因應工作負載。
+description: 調整彈性，以符合您的工作負載的 Azure HDInsight 叢集。
 author: ashishthaps
+ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.author: ashish
-ms.openlocfilehash: a172024e4662e647b39fe999f1be3cfcef04b5ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/13/2019
+ms.openlocfilehash: 59b9c2bf6e17dadc0d084d3e3f257f8ad91073ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698255"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595861"
 ---
 # <a name="scale-hdinsight-clusters"></a>調整 HDInsight 叢集
 
 HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的背景工作節點數。 此彈性能夠讓您在下班後或是週末時縮小叢集，並於業務需求達到高峰的期間擴大叢集。
 
-例如，如果您有一些發生頻率為一天一次或一個月一次的批次處理，HDInsight 叢集可以在該排程事件開始前幾分鐘相應增加，以便提供足夠的記憶體和 CPU 計算能力。  之後，當處理完成且使用量再次降低時，您可以將 HDInsight 叢集相應減少為較少的背景工作節點。
+比方說，如果您有一些批次處理一天一次或每月一次發生此情形，HDInsight 叢集可以相應增加該排程事件開始前幾分鐘，因此會有足夠的記憶體和 CPU 計算能力。  之後，當處理完成且使用量再次降低時，您可以將 HDInsight 叢集相應減少為較少的背景工作節點。
 
+您可以調整叢集，以手動方式使用其中一種，如下所述的方法，或使用[自動調整規模](hdinsight-autoscale-clusters.md)選項，以讓系統自動相應增加和減少以回應 CPU、 記憶體和其他度量。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,13 +28,13 @@ HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的�
 
 Microsoft 提供以下实用程序来缩放群集：
 
-|实用程序 | 描述|
+|实用程序 | 說明|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<群集名称> -TargetInstanceCount \<NewSize>|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<群集名称> -TargetInstanceCount \<NewSize>|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<资源组> --name \<群集名称> --target-instance-count \<NewSize>|
-|[Azure 傳統 CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<目标实例计数>|
-|[Azure 门户](https://portal.azure.com)|打开 HDInsight 群集的窗格，在左侧菜单中选择“群集大小”，然后在“群集大小”窗格中键入工作节点数并选择“保存”。|  
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<资源组> --name \<群集名称> --target-instance-count \<NewSize>|
+|[Azure 傳統 CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<目标实例计数> |
+|[Azure 入口網站](https://portal.azure.com)|打开 HDInsight 群集的窗格，在左侧菜单中选择“群集大小”，然后在“群集大小”窗格中键入工作节点数并选择“保存”。|  
 
 ![調整叢集](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
@@ -74,7 +74,7 @@ Microsoft 提供以下实用程序来缩放群集：
 yarn application -kill <application_id>
 ```
 
-例如︰
+例如：
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -326,6 +326,6 @@ hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     
 ## <a name="next-steps"></a>後續步驟
 
+* [自動調整 Azure HDInsight 叢集](hdinsight-autoscale-clusters.md)
 * [Azure HDInsight 簡介](hadoop/apache-hadoop-introduction.md)
 * [調整叢集](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [使用 Apache Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)

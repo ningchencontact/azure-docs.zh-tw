@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ff291bda87ca4b2b4055e36989b035cf410b3b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744226"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561228"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>描述 Service Fabric 叢集
 Service Fabric 群集 Resource Manager 提供多种用于描述群集的的机制。 在執行階段，叢集資源管理員會使用此資訊，以確保叢集中執行之服務的高可用性。 在強制執行這些重要規則時，它也會嘗試將叢集的資源消耗量最佳化。
@@ -33,7 +33,7 @@ Service Fabric 群集 Resource Manager 提供多种用于描述群集的的机�
 * 節點容量
 
 ## <a name="fault-domains"></a>容錯網域
-容錯網域是任何連鎖故障區域。 單一電腦是一個容錯網域 (因為它本身可能因各種原因而失敗，例如電源供應器故障、磁碟機故障或 NIC 韌體不正確)。 連線至相同乙太網路交換器的電腦位於相同的容錯網域，共用單一位置之單一電源的電腦也是如此。 由於硬體故障天生就會重疊，容錯網域本質上就具備階層性，且在 Service Fabric 中以 URI 表示。
+容錯網域是任何連鎖故障區域。 單一電腦是一個容錯網域 (因為它本身可能因各種原因而失敗，例如電源供應器故障、磁碟機故障或 NIC 韌體不正確)。 連線至相同乙太網路交換器的電腦位於相同的容錯網域，共用單一位置之單一電源的電腦也是如此。 因為這是重疊的硬體故障天生，容錯網域是原本就是階層式，而且在 Service Fabric 中以 Uri 表示。
 
 必須正確設定容錯網域，因為 Service Fabric 會使用這項資訊來安全地放置服務。 Service Fabric 放置服務時會注意不要因為遺失容錯網域 (某個元件失敗所造成) 而導致服務中斷。 在 Azure 環境中，Service Fabric 會使用環境所提供的容錯網域資訊，代替您正確地設定叢集中的節點。 對於 Service Fabric Standalone，容錯網域會在叢集設定時定義。 
 
@@ -95,13 +95,17 @@ Service Fabric 的叢集資源管理員不在乎容錯網域階層中有多少�
 ![容错域和升级域布局][Image4]
 </center>
 
-對於選擇哪個配置並沒有最佳答案，每個答案都各有優缺點。 例如，1FD:1UD 模型相當容易設定。 每個節點 1 個升級網域模型，是使用者最常使用的模型。 在升級期間每個節點會獨立更新。 這類似於以往手動升級小型集合機器的方式。 
+對於選擇哪個配置並沒有最佳答案，每個答案都各有優缺點。 例如，1FD:1UD 模型相當容易設定。 每個節點 1 個升級網域模型，是使用者最常使用的模型。 在升級期間每個節點會獨立更新。 這類似於以往手動升級小型集合機器的方式。
 
 最常見的模型是 FD/UD 矩陣，其中 FD 和 UD 形成一個表格，而節點沿著對角線開始放置。 這是在 Azure 中的 Service Fabric 叢集預設使用的模型。 對於具有許多節點的叢集，所有項目最後看起來就像是上述的密集矩陣模式。
 
+> [!NOTE]
+> 在 Azure 中裝載的 Service Fabric 叢集不支援變更預設策略。 只有獨立叢集可提供該自訂。
+>
+
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>容錯網域和升級網域的條件約束和導致的行為
 ### <a name="default-approach"></a>預設方法
-根據預設，「叢集資源管理員」會讓「容錯網域」與「升級網域」之間的服務保持平衡。 這會經由模型化成為[條件約束](service-fabric-cluster-resource-manager-management-integration.md)。 「容錯網域」和「升級網域」條件約束陳述：「針對特定的服務分割區，相同階層層級上任兩個網域之間的服務物件 (無狀態服務執行個體或具狀態服務複本) 數目差異應該一律不能大於一」。 假設此條件約束提供「差異上限」保證。 此「容錯網域」和「升級網域」條件約束可防止違反上述規則的某些措施或安排。 
+根據預設，「叢集資源管理員」會讓「容錯網域」與「升級網域」之間的服務保持平衡。 這會經由模型化成為[條件約束](service-fabric-cluster-resource-manager-management-integration.md)。 「容錯網域」和「升級網域」條件約束陳述：「針對特定的服務分割區，相同階層層級上任兩個網域之間的服務物件 (無狀態服務執行個體或具狀態服務複本) 數目差異應該一律不能大於一」。 假設此條件約束提供「差異上限」保證。 此「容錯網域」和「升級網域」條件約束可防止違反上述規則的某些措施或安排。
 
 讓我們來看看一個範例。 假設我們的叢集有六個節點，且已設定五個容錯網域和五個升級網域。
 
@@ -339,7 +343,7 @@ ClusterManifest.xml
 >
 
 ## <a name="node-properties-and-placement-constraints"></a>節點屬性和放置條件約束
-有時候 (事實上是大部分的情況下) 您會想要確保工作負載只在叢集中的特定節點類型上執行。 例如，某些工作負載可能需要 GPU 或 SSD，而有些則不用。 將硬體專用於特定工作負載的最佳例子幾乎都是多層式架構。 特定電腦作為應用程式的前端或 API 供應端，並且公開至用戶端或網際網路。 其他電腦 (通常有不同的硬體資源) 處理計算層或儲存層的工作。 它們通常_不會_直接公開至用戶端或網際網路。 Service Fabric 認為特定的工作負載有時需要在特定硬體設定上執行。 例如︰
+有時候 (事實上是大部分的情況下) 您會想要確保工作負載只在叢集中的特定節點類型上執行。 例如，某些工作負載可能需要 GPU 或 SSD，而有些則不用。 將硬體專用於特定工作負載的最佳例子幾乎都是多層式架構。 特定電腦作為應用程式的前端或 API 供應端，並且公開至用戶端或網際網路。 其他電腦 (通常有不同的硬體資源) 處理計算層或儲存層的工作。 它們通常_不會_直接公開至用戶端或網際網路。 Service Fabric 認為特定的工作負載有時需要在特定硬體設定上執行。 例如：
 
 * 現有的多層式架構應用程式已「提升並移轉」到 Service Fabric 環境
 * 出于性能、规模或安全性隔离原因，某个工作负荷需要在特定硬件上运行
@@ -365,7 +369,7 @@ Service Fabric 定義一些預設節點屬性，可自動使用，而不需要�
 
 1) 建立特定陳述式的條件式檢查
 
-| 陳述式 | 語法 |
+| 聲明 | 語法 |
 | --- |:---:|
 | 「等於」 | "==" |
 | 「不等於」 | "!=" |
@@ -447,7 +451,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 服務放置條件約束其中很棒的一點是它們可以在執行階段動態更新。 所以如果您需要，可以在叢集中移動服務、加入和移除需求等等。Service Fabric 會負責確保服務保持執行且可用，即使進行這類變更。
 
-C#：
+C#: 
 
 ```csharp
 StatefulServiceUpdateDescription updateDescription = new StatefulServiceUpdateDescription();
@@ -484,7 +488,7 @@ Service Fabric 以 `Metrics` 表示資源。 度量是您想要向 Service Fabri
 ![群集节点和容量][Image7]
 </center>
 
-C#：
+C#: 
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();

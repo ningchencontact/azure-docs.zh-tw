@@ -3,8 +3,8 @@ title: 建立應用程式 Proxy 應用程式時發生問題 | Microsoft Docs
 description: 如何針對在 Azure AD 管理入口網站中建立應用程式 Proxy 應用程式時所發生的問題進行疑難排解
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7aad73331d06828a4bfe909dbb3b98350b1d0d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 104b98cba0948ec5d0896877e54eab1e7cd4049f
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293578"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825809"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>建立應用程式 Proxy 應用程式時發生問題 
 
 以下是建立新的應用程式 Proxy 應用程式時會遇到的一些常見問題。
 
-## <a name="recommended-documents"></a>建議的文件 
+## <a name="recommended-documents"></a>建議文件 
 
 若要深入了解透過管理入口網站建立應用程式 Proxy 應用程式，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)。
 

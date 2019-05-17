@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3fcedc74cde9e26ea53d2475f0e9805788787f2d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 355f61d6282c822e18cf4752044c1e1a5cbbc6a0
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228624"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560765"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Data Lake Storage Gen2 來回複製資料
 
@@ -516,6 +516,66 @@ Azure Data Lake Storage Gen2 連接器支援下列驗證類型，請參閱詳細
 | false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | 會以下列結構建立目標資料夾 Folder1： <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>系統不會挑選含有 File3、File4、File5 的 Subfolder1。 |
 | false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | 會以下列結構建立目標資料夾 Folder1： <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;針對 File1 自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;針對 File2 自動產生的名稱<br/><br/>系統不會挑選含有 File3、File4、File5 的 Subfolder1。 |
 | false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | 會以下列結構建立目標資料夾 Folder1<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 的內容會合併成一個檔案，並具有自動產生的檔案名稱。 針對 File1 自動產生的名稱<br/><br/>系統不會挑選含有 File3、File4、File5 的 Subfolder1。 |
+
+## <a name="preserve-acls-from-data-lake-storage-gen1"></a>保留從 Data Lake 儲存體 Gen1 的 Acl
+
+>[!TIP]
+>複製資料從 Azure Data Lake 儲存體 Gen1 至 Gen2 一般情況下，請參閱[將資料從 Azure Data Lake 儲存體 Gen1 複製至使用 Azure Data Factory 的 Gen2](load-azure-data-lake-storage-gen2-from-gen1.md)逐步解說，以及最佳作法。
+
+當複製將檔案從 Azure Data Lake 儲存體 (ADLS) Gen1 到 Gen2 時，您可以選擇保留的 POSIX 存取控制清單 (Acl) 以及資料。 詳細資料的存取控制，請參閱[Azure Data Lake 儲存體 Gen1 中的存取控制](../data-lake-store/data-lake-store-access-control.md)並[存取控制，在 Azure Data Lake 儲存體 Gen2](../storage/blobs/data-lake-storage-access-control.md)。
+
+可以使用 Azure Data Factory 複製活動會保留下列類型的 Acl，您可以選取一或多個類型：
+
+- **ACL**:複製並保存**POSIX 存取控制清單**檔案和目錄上。 它會從來源到接收複製完整現有的 Acl。 
+- **擁有者**：複製並保存**擁有使用者**的檔案和目錄。 需要接收 ADLS Gen2 超級使用者存取。
+- **群組**:複製並保存**擁有的群組**的檔案和目錄。 需要超級使用者存取權 （如果擁有使用者也是目標群組的成員），接收 ADLS Gen2 或擁有使用者。
+
+如果您指定要複製資料夾中，Data Factory 會複寫該指定的資料夾，以及檔案和其下的目錄的 Acl (如果`recursive`設為 true)。 如果您指定要在複製單一檔案，Acl 會複製該檔案。
+
+>[!IMPORTANT]
+>當您選擇保留 Acl 時，請確定您將授與最高接收器 ADLS Gen2 帳戶對其運算的 ADF 的足夠權限。 例如，使用帳戶金鑰驗證，或將儲存體 Blob 資料擁有者角色指派給服務主體/受管理身分識別。
+
+當您設定來源與 ADLS Gen1 二進位複製選項/二進位格式，與接收為 ADLS Gen2 二進位複製選項/二進位格式時，您可以發現**保留**選項**複製資料工具設定頁面**或在 **複製活動-> 設定**的活動撰寫功能 索引標籤。
+
+![ADLS Gen1 至 Gen2 保留 ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+
+以下是範例 JSON 設定 (請參閱`preserve`): 
+
+```json
+"activities":[
+    {
+        "name": "CopyFromGen1ToGen2",
+        "type": "Copy",
+        "typeProperties": {
+            "source": {
+                "type": "AzureDataLakeStoreSource",
+                "recursive": true
+            },
+            "sink": {
+                "type": "AzureBlobFSSink",
+                "copyBehavior": "PreserveHierarchy"
+            },
+            "preserve": [
+                "ACL",
+                "Owner",
+                "Group"
+            ]
+        },
+        "inputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen1 input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen2 output dataset name>",
+                "type": "DatasetReference"
+            }
+        ]
+    }
+]
+```
 
 ## <a name="mapping-data-flow-properties"></a>對應資料流程屬性
 

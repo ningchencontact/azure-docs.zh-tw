@@ -2,22 +2,22 @@
 title: 應用程式 Proxy Cookie 設定 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory (Azure AD) 有可透過「應用程式 Proxy」存取內部部署應用程式的存取和工作階段 Cookie。 在本文中，您將了解如何使用及設定 Cookie 設定。
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/16/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06fd83ee815e9e207c1fa5a1c6767280122c4d0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2e7f1bb54ce316a10eca0d020519779b0536c9e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440525"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825753"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Azure Active Directory 中用於存取內部部署網站的 Cookie 設定
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) 有可透過「應用程式 Proxy」存取內�
 
 [應用程式 Proxy](application-proxy.md) 會使用下列存取和工作階段 Cookie 設定。
 
-| Cookie 設定 | 預設值 | 描述 | 建議 |
+| Cookie 設定 | 預設值 | 說明 | 建議 |
 | -------------- | ------- | ----------- | --------------- |
 | 使用僅限 HTTP Cookie | **否** | 使用 [是] 時，可讓「應用程式 Proxy」在 HTTP 回應標頭中包含 HTTPOnly 旗標。 此旗標提供額外的安全性優點，例如可防止用戶端指令碼處理 (CSS) 複製或修改 Cookie。<br></br><br></br>在我們支援「僅限 HTTP」設定之前，「應用程式 Proxy」是透過受保護的 SSL 通道來加密和傳輸 Cookie，以防止修改。 | 為了獲得額外的安全性優點，請使用 [是]。<br></br><br></br>針對不需要存取工作階段 Cookie 的用戶端或使用者代理程式，請使用 [否]。 例如，針對透過「應用程式 Proxy」連線到「遠端桌面閘道伺服器」地 RDP 或 MTSC 用戶端，請使用 [否]。|
 | 使用安全的 Cookie | **否** | 使用 [是] 時，可讓「應用程式 Proxy」在 HTTP 回應標頭中包含 Secure 旗標。 安全 Cookie 可藉由透過 TLS 安全防護通道 (例如 HTTPS) 傳輸 Cookie 來提升安全性。 這可防止因以純文字傳輸 Cookie 而讓未經授權的對象得以看見 Cookie。 | 為了獲得額外的安全性優點，請使用 [是]。|

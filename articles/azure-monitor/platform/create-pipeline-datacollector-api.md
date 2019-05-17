@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205952"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603245"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>使用資料收集器 API 建立資料管線
 
@@ -27,7 +27,7 @@ ms.locfileid: "65205952"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>問題範例
-在本文的其餘部分中，我們將透過 Application Insights 檢查頁面檢視資料。 在我們的虛構案例中，我們要將預設由 Application Insights SDK 收集的地理資訊，聯結至包含世界中各個國家/地區人口的自訂資料，以識別應該在何處投入最多行銷預算。 
+在本文的其餘部分中，我們將透過 Application Insights 檢查頁面檢視資料。 在我們的虛構案例，我們想要根據預設，Application Insights SDK 收集自訂資料包含的每個國家/地區在世界中，識別應該花我們的目標母體擴展的地理資訊相互關聯最行銷的預算。 
 
 我們會使用 [UN World Population Prospects](https://esa.un.org/unpd/wpp/) (聯合國世界人口展望) 等公開資料來源來完成此目的。 資料會有下列簡易結構描述：
 

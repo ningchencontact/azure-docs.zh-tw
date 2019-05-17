@@ -3,22 +3,22 @@ title: 註冊應用程式以使用 Azure Active Directory | Microsoft Docs
 description: 針對 IT 專業人員所撰寫，本文提供整合 Azure 應用程式與 Active Directory 的指導方針。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: celested
+ms.author: mimart
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 341d7667f039a7272a7ad3fec80a445aa95b619d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd51bfd377aed2a7edd8c64d2f3dc99c3388e45a
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440227"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824677"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>開發適用於 Azure Active Directory 的企業營運應用程式
 本指南提供開發適用於 Azure Active Directory (AD) 的企業營運 (LoB) 應用程式的概觀。適用對象為 Active Directory/Office 365 全域系統管理員。
@@ -41,8 +41,8 @@ ms.locfileid: "60440227"
   * 使用 Azure Active Directory 作为 oAuth 授权服务器（保护应用程序公开的 API）
 * 宣告讓應用程式如預期般運作所需的必要權限，包括：
 
-     - 應用程式權限 (僅限全域系統管理員)。 例如︰另一個 Azure AD 應用程式中的角色成員資格，或與「Azure 資源」、「資源群組」或「訂用帳戶」相關的角色成員資格
-     - 委派的權限 (任何使用者)。 例如︰Azure AD、「登入」及「讀取設定檔」
+     - 應用程式權限 (僅限全域系統管理員)。 例如：另一個 Azure AD 應用程式中的角色成員資格，或與「Azure 資源」、「資源群組」或「訂用帳戶」相關的角色成員資格
+     - 委派的權限 (任何使用者)。 例如：Azure AD、「登入」及「讀取設定檔」
 
 > [!NOTE]
 > 根據預設，任何成員都可以註冊應用程式。 若要了解如何限制向特定成員註冊應用程式的權限，請參閱 [如何將應用程式新增到 Azure AD](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)。

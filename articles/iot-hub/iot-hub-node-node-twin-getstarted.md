@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: f93abac563d47f6505f42d29e882698ef31174bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61444769"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597428"
 ---
 # <a name="get-started-with-device-twins-node"></a>開始使用裝置對應項 (Node)
 
@@ -31,7 +31,7 @@ ms.locfileid: "61444769"
 
 若要完成此教學課程，您需要下列項目：
 
-* Node.js 4.0.x 版或更新版本。
+* Node.js 版本 10.0.x 或更新版本。
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 

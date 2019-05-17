@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598477"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544513"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 
@@ -25,7 +25,7 @@ ms.locfileid: "60598477"
 
 ## <a name="consumption-pricing-model"></a>取用量定價模式
 
-对于在公共或“全球”Azure 逻辑应用服务中运行的新逻辑应用，只需根据实际使用的资源付费。 這些邏輯應用程式會使用以取用量為基礎的方案和定價模型。 在邏輯應用程式定義中，每一個步驟都是一個動作。 例如，操作包括： 
+对于在公共或“全球”Azure 逻辑应用服务中运行的新逻辑应用，只需根据实际使用的资源付费。 這些邏輯應用程式會使用以取用量為基礎的方案和定價模型。 在邏輯應用程式定義中，每一個步驟都是一個動作。 例如，操作包括：
 
 * 触发器（特殊的操作）。 所有逻辑应用需将一个触发器用作第一个步骤。
 * “内置”或本机操作，例如 HTTP、对 Azure Functions 和 API 管理的调用，等等
@@ -38,12 +38,16 @@ Azure 逻辑应用对逻辑应用中运行的所有操作进行计量。 详细�
 
 ## <a name="fixed-pricing-model"></a>固定定價模式
 
-[ *Integration service 環境*(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)提供私用、 隔離和專用的方法，讓您建立和執行可存取 Azure 虛擬網路中的資源的邏輯應用程式。 針對新的邏輯應用程式在 ISE 中執行，您需支付每月費用固定內建動作和標準的連接器。 您的 ISE 也包括一個免費的企業連接器，其中包含您想要的連線數目上限。 其他企業連接器的使用方式是依據 Enterprise 耗用量價格來收費的。 
+[ *Integration service 環境*(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)提供私用、 隔離和專用的方法，讓您建立和執行可存取 Azure 虛擬網路中的資源的邏輯應用程式。 針對新的邏輯應用程式在 ISE 中執行，您會支付每月費用固定的內建動作和觸發程序以及標準連接器。
 
-ISE 基底單元有固定的容量，因此如果您需要更多的輸送量，您可以[新增更多縮放單位](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity)，請在建立期間或之後。
+您的 ISE 也包括一個免費的企業連接器，其中包含您想要的連線數目上限。 其他企業連接器的使用方式是依據 Enterprise 耗用量價格來收費的。
 
 > [!NOTE]
-> ISE 處於[*公開預覽*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 有关具体的定价信息，请参阅 [Azure 逻辑应用定价](https://azure.microsoft.com/pricing/details/logic-apps)。
+> 在 ISE、 內建的觸發程序和動作顯示**Core**加上標籤，並在您的 logic apps 為相同的 ISE 中執行。 標準和企業連接器，顯示**ISE**在為您的 logic apps 相同的 ISE 中執行的標籤。 不會顯示在全域的 Logic Apps 服務中執行的 ISE 標籤的連接器。
+
+ISE 基底單元有固定的容量，因此如果您需要更多的輸送量，您可以[新增更多縮放單位](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity)，請在建立期間或之後。 
+
+有关具体的定价信息，请参阅 [Azure 逻辑应用定价](https://azure.microsoft.com/pricing/details/logic-apps)。
 
 <a name="connectors"></a>
 

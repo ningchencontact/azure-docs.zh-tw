@@ -34,6 +34,8 @@
           href: virtual-machines-windows-sql-automated-backup-v2.md
     - name: 管理性
       items:
+        - name: 擴充 SQL 2008 和 R2 的支援
+          href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
         - name: 連接到 VM
           href: virtual-machines-windows-sql-connect.md
         - name: 設定儲存體

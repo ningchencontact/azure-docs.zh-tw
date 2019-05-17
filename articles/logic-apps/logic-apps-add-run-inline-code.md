@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 9ef11eb2099ff617fb4da4b9a924dc3f0550f226
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/14/2019
+ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160541"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602112"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>新增並執行 Azure Logic Apps 中使用內嵌程式碼的程式碼片段
 
@@ -23,7 +23,10 @@ ms.locfileid: "65160541"
 * 在 JavaScript 中執行。 即將推出更多的語言。
 * 在五秒或更少執行的完成。
 * 處理資料最多 50 MB 的大小。
-* 使用 Node.js 版本 8.11.1。 如需詳細資訊，請參閱 <<c0> [ 標準的內建物件](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects)。
+* 使用 Node.js 版本 8.11.1。 如需詳細資訊，請參閱 <<c0> [ 標準的內建物件](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects)。 
+
+  > [!NOTE]
+  > Require （） 函式不支援**內嵌程式碼**執行 JavaScript 的動作。
 
 此動作會執行程式碼片段，並從該程式碼片段會傳回輸出，作為名為權杖**結果**，讓您可以在邏輯應用程式中用於後續的動作。 如需其他案例中，您要建立您的程式碼的函式，請嘗試[建立，然後呼叫 Azure 函式](../logic-apps/logic-apps-azure-functions.md)邏輯應用程式中。
 
@@ -124,7 +127,7 @@ ms.locfileid: "65160541"
 
 下表包含這些子屬性的詳細資訊：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | 說明 |
 |----------|------|-------|
 | `actions` | 物件集合 | 從您的程式碼片段執行前執行的動作結果物件。 每個物件都*鍵值*配對，其中索引鍵是動作的名稱，而此值相當於呼叫[actions() 函式](../logic-apps/workflow-definition-language-functions-reference.md#actions)使用`@actions('<action-name>')`。 動作的名稱會使用相同的動作名稱，用於基礎的工作流程定義，這會取代空格 ("") 中動作名稱以底線 (_)。 從目前執行的工作流程執行個體，這個物件會提供存取至動作的屬性值。 |
 | `trigger` | Object | 從觸發程序和對等項目呼叫的結果物件[trigger() 函式](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 從目前執行的工作流程執行個體，這個物件會提供存取至觸發程序的屬性值。 |
@@ -214,7 +217,7 @@ ms.locfileid: "65160541"
 
    ![新增參數](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
-   | 參數 | 描述 |
+   | 參數 | 說明 |
    |-----------|-------------|
    | **動作** | 包含來自先前動作的結果。 請參閱[包含動作結果](#action-results)。 |
    | **觸發程序** | 包含來自觸發程序的結果。 請參閱[包含觸發程序結果](#trigger-results)。 |

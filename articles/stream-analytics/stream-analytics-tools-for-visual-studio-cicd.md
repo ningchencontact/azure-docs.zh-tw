@@ -1,26 +1,26 @@
 ---
-title: 使用串流分析工具持續進行整合及開發
-description: 本文說明如何使用 Azure 串流分析的 Visual Studio 工具設定持續整合及部署程序。
+title: 持續整合及開發與 Azure Stream Analytics 的 CI/CD NuGet 套件
+description: 本文說明如何使用 Azure Stream Analytics 的 CI/CD NuGet 封裝來設定持續整合和部署程序。
 services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.openlocfilehash: 641254be37ac0019ee6a256fc99f96fc3bfb75a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: f34139dafffe3d4890f17988114dffdd8b480d2d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761500"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827301"
 ---
-# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>使用串流分析工具持續進行整合及開發
-本文說明如何使用適用於 Visual Studio 的 Azure 串流分析工具來設定持續整合及部署程序。
+# <a name="continuously-integrate-and-develop-with-azure-stream-analytics-cicd-nuget-package"></a>持續整合及開發與 Azure Stream Analytics 的 CI/CD NuGet 套件
+本文說明如何使用 Azure Stream Analytics 的 CI/CD NuGet 封裝來設定持續整合和部署程序。
 
 使用 2.3.0000.0 版或更新版本的[適用於 Visual Studio 的串流分析工具](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio)來取得 MSBuild 支援。
 
-提供 NuGet 套件：[Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/)。 它提供的本機執行與部署工具 MSBuild，可針對串流分析 Visual Studio 專案，支援連續整合及部署程序。 
+提供 NuGet 套件：[Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/)。 它提供的 MSBuild，本機執行，與部署工具，支援的持續整合和部署程序[Stream Analytics 中的 Visual Studio 專案](stream-analytics-vs-tools.md)。 
 > [!NOTE]
 > NuGet 套件僅能搭配 2.3.0000.0 或更新版本之適用於 Visual Studio 的串流分析工具使用。 如果您有使用舊版 Visual Studio 工具建立的專案，請直接使用 2.3.0000.0 或更新版本加以開啟並儲存。 接著啟用新功能。 
 
@@ -90,3 +90,9 @@ arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-O
 ```
 
 
+
+## <a name="next-steps"></a>後續步驟
+
+* [快速入門：在 Visual Studio 建立 Azure Stream Analytics 雲端作業](stream-analytics-quick-create-vs.md)
+* [使用 Visual Studio 在本機測試串流分析查詢](stream-analytics-vs-tools-local-run.md)
+* [探索使用 Visual Studio 的 Azure Stream Analytics 作業](stream-analytics-vs-tools.md)

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/10/2019
+ms.openlocfilehash: a320f584ff82f2b8a2b3d784e1995aa043004587
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147735"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597482"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -120,7 +120,7 @@ ms.locfileid: "65147735"
 
 以下是單一 HTTP 要求或同步連接器呼叫的限制：
 
-#### <a name="timeout"></a>逾時
+#### <a name="timeout"></a>等候逾時
 
 某些連接器作業會進行非同步呼叫或接聽 Webhook 要求，因此這些作業的逾時可能會超過這些限制。 如需詳細資訊，請參閱特定連接器的技術詳細資料以及[工作流程觸發程序和動作](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)。
 
@@ -143,7 +143,7 @@ ms.locfileid: "65147735"
 
 | 名稱 | 限制 | 注意 |
 | ---- | ----- | ----- |
-| 重試次數 | 90 | 預設值為 4。 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
+| 重試嘗試 | 90 | 預設值為 4。 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 | 重試延遲上限 | 1 天 | 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 | 重試延遲下限 | 5 秒 | 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 ||||
@@ -162,7 +162,7 @@ ms.locfileid: "65147735"
 
 <a name="managed-identity"></a>
 
-## <a name="managed-identities"></a>受控身分識別
+## <a name="managed-identities"></a>受控識別
 
 | 名稱 | 限制 |
 | ---- | ----- |

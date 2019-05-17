@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: b-juche
-ms.openlocfilehash: d55e11ace4ca306c3d3ec8c0094a751966289db6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523056"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826367"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files 的資源限制
 
@@ -36,6 +36,7 @@ ms.locfileid: "65523056"
 |  每個容量集區的磁碟區數目     |    500   |    有     |
 |  每個磁碟區的快照集數目       |    255     |    無        |
 |  委派給 Azure NetApp 檔案 (Microsoft.NetApp/volumes) 每個 Azure 虛擬網路的子網路數目    |   1   |    無    |
+|  Vm 的最大數目 （包括對等互連的 Vnet） 可以連接至磁碟區     |    1000   |    無   |
 |  單一的容量集區大小下限   |  4 TiB     |    無  |
 |  單一的容量集區大小上限    |  500 TiB   |   無   |
 |  單一磁碟區的大小下限    |    100 GiB    |    無    |

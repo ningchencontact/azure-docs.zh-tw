@@ -1,30 +1,40 @@
 ---
-title: 使用 Ansible 來管理 Azure 動態清查
+title: 教學課程 - 使用 Ansible 設定 Azure 資源的動態清查 | Microsoft Docs
 description: 了解如何使用 Ansible 來管理 Azure 動態清查
-ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, 動態清查
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/09/2018
-ms.topic: tutorial
-ms.openlocfilehash: 0ef754b792654281f2a12b8eee613434896d5476
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/30/2019
+ms.openlocfilehash: 46b13fae437a555edf0bdd0b0d4c1496d7596e0f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092203"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230682"
 ---
-# <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>使用 Ansible 來管理 Azure 動態清查
-您可以使用 Ansible 從各種來源 (包括如 Azure 等雲端來源) 將清查資訊提取至動態清查。 在本文中，您使用 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) 來設定 Ansible Azure 動態清查，並在其中建立兩部虛擬機器、標記其中一部虛擬機器，然後在已標記的虛擬機器上安裝 Nginx。
+# <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>教學課程：使用 Ansible 設定 Azure 資源的動態清查
+
+您可以使用 Ansible 從各種來源 (包括如 Azure 等雲端來源) 將清查資訊提取至動態清查。 
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * 設定兩個測試虛擬機器。 
+> * 標記其中一個虛擬機器
+> * 在標記的虛擬機器上安裝 Nginx
+> * 設定包含已設定 Azure 資源的動態清查
 
 ## <a name="prerequisites"></a>必要條件
 
-- **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-- **Azure 認證** - [建立 Azure 認證和設定 Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
-
-## <a name="create-the-test-virtual-machines"></a>建立測試虛擬機器
+## <a name="create-the-test-vms"></a>建立測試 VM
 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
@@ -57,7 +67,8 @@ ms.locfileid: "58092203"
                      --image UbuntuLTS --generate-ssh-keys
         ```
 
-## <a name="tag-a-virtual-machine"></a>標記虛擬機器
+## <a name="tag-a-vm"></a>標記 VM
+
 您可以依使用者定義的類別[使用標記來組織 Azure 資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli)。 
 
 輸入下列 [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) 命令來標記具有 `nginx` 金鑰的虛擬機器 `ansible-inventory-test-vm1`：
@@ -65,9 +76,13 @@ ms.locfileid: "58092203"
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
-
 ## <a name="generate-a-dynamic-inventory"></a>產生動態清查
-一旦您定義虛擬機器 (並標記) 後，就可以產生動態清查。 Ansible 提供名為 [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) 的 Python 指令碼，會向 Azure Resource Manager 提出 API 要求，以產生您 Azure 資源的動態清單。 下列步驟將引導您使用 `azure_rm.py` 指令碼，以連線到您的兩部測試 Azure 虛擬機器：
+
+一旦您定義虛擬機器 (並標記) 後，就可以產生動態清查。
+
+### <a name="using-ansible-version--28"></a>使用 < 2.8 的 Ansible 版本
+
+Ansible 提供名為 [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) 的 Python 指令碼，會產生 Azure 資源的動態清單。 下列步驟將引導您使用 `azure_rm.py` 指令碼，以連線到您的兩部測試 Azure 虛擬機器：
 
 1. 使用 GNU `wget` 命令來取出 `azure_rm.py` 指令碼：
 
@@ -102,20 +117,64 @@ az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resou
     }
     ```
 
-## <a name="enable-the-virtual-machine-tag"></a>啟用虛擬機器標記
-一旦您設定所需的標記後，必須「啟用」標記。 啟用標記的方式之一，是透過 **export** 命令將標記匯出至名為 `AZURE_TAGS` 的環境變數：
+### <a name="ansible-version--28"></a>>= 2.8 的 Ansible 版本
+
+從 Ansible 2.8 開始，Ansible 提供 [Azure 動態清查外掛程式](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py)。 下列步驟會引導您使用此外掛程式：
+
+1. 清查外掛程式需要組態檔。 組態檔的結尾必須是 `azure_rm`，且必須具有副檔名 `yml` 或 `yaml`。 在此教學課程範例中，請將下列劇本儲存為 `myazure_rm.yml`：
+
+    ```yml
+    plugin: azure_rm
+    include_vm_resource_groups:
+    - ansible-inventory-test-rg
+    auth_source: auto
+    ```
+
+1. 執行下列命令以在資源群組中偵測 VM：
+
+    ```bash
+    ansible all -m ping -i ./myazure_rm.yml
+    ```
+
+1. 執行上述命令時，您可能會收到下列錯誤：
+
+    ```Output
+    Failed to connect to the host via ssh: Host key verification failed.
+    ```
+    
+    如果您收到「主機金鑰驗證」錯誤，請將下面這一行新增至 Ansible 組態檔。 Ansible 組態檔位於 `/etc/ansible/ansible.cfg`。
+
+    ```bash
+    host_key_checking = False
+    ```
+
+1. 執行劇本後，您會看到類似下列輸出的結果：
+  
+    ```Output
+    ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ```
+
+## <a name="enable-the-vm-tag"></a>啟用 VM 標記
+設定標記後，您必須「啟用」該標記。 啟用標記的方式之一，是透過 `export` 命令將標記匯出至環境變數 `AZURE_TAGS`：
 
 ```azurecli-interactive
 export AZURE_TAGS=nginx
 ```
 
-將標記匯出後，您就可以再次嘗試 `ansible` 命令：
+- 如果您使用 < 2.8 的 Ansible，請執行下列命令：
 
-```azurecli-interactive
-ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
-```
+    ```bash
+    ansible -i azure_rm.py ansible-inventory-test-rg -m ping
+    ```
 
-您現在只會看到一部虛擬機器 (虛擬機器的標記符合匯出至 **AZURE_TAGS** 環境變數的值)：
+- 如果您使用 >= 2.8 的 Ansible，請執行下列命令：
+  
+    ```bash
+    ansible all -m ping -i ./myazure_rm.yml
+    ```
+
+您現在只會看到一個虛擬機器 (標記符合匯出至 `AZURE_TAGS` 環境變數之值的虛擬機器)：
 
 ```Output
 ansible-inventory-test-vm1 | SUCCESS => {
@@ -126,57 +185,69 @@ ansible-inventory-test-vm1 | SUCCESS => {
 ```
 
 ## <a name="set-up-nginx-on-the-tagged-vm"></a>設定已標記 VM 上的 Nginx
+
 標記的目的是要讓您能夠快速且輕鬆地使用您虛擬機器的子群組。 例如，假設您只需要在已指派 `nginx` 標記的虛擬機器上安裝 Nginx。 下列步驟說明可如何輕鬆完成：
 
-1. 建立名為 `nginx.yml` 的檔案 (以包含您腳本)，如下所示：
+1. 建立名為 `nginx.yml` 的檔案：
 
    ```azurecli-interactive
-   vi nginx.yml
+   code nginx.yml
    ```
 
-1. 將下列程式碼插入新建的 `nginx.yml` 檔案：
+1. 將下列範例程式碼貼到編輯器中：
 
     ```yml
     ---
     - name: Install and start Nginx on an Azure virtual machine
-    hosts: azure
-    become: yes
-    tasks:
-    - name: install nginx
-      apt: pkg=nginx state=installed
-      notify:
-      - start nginx
+      hosts: all
+      become: yes
+      tasks:
+      - name: install nginx
+        apt: pkg=nginx state=installed
+        notify:
+        - start nginx
 
-    handlers:
-    - name: start nginx
-      service: name=nginx state=started
+      handlers:
+        - name: start nginx
+          service: name=nginx state=started
     ```
 
-1. 執行 `nginx.yml` 腳本：
+1. 儲存檔案並結束編輯器。
 
-    ```azurecli-interactive
+1. 使用 `ansible-playbook` 命令執行劇本：
+
+   - Ansible < 2.8：
+
+    ```bash
     ansible-playbook -i azure_rm.py nginx.yml
     ```
 
-1. 一旦執行腳本後，您會看到類似下列輸出的結果：
+   - Ansible >= 2.8：
+
+    ```bash
+     ansible-playbook  -i ./myazure_rm.yml  nginx.yml
+    ```
+
+1. 執行劇本後，您會看到類似下列結果的輸出：
 
     ```Output
-    PLAY [Install and start Nginx on an Azure virtual machine] **********
+    PLAY [Install and start Nginx on an Azure virtual machine] 
 
-    TASK [Gathering Facts] **********
+    TASK [Gathering Facts] 
     ok: [ansible-inventory-test-vm1]
 
-    TASK [install nginx] **********
+    TASK [install nginx] 
     changed: [ansible-inventory-test-vm1]
 
-    RUNNING HANDLER [start nginx] **********
+    RUNNING HANDLER [start nginx] 
     ok: [ansible-inventory-test-vm1]
 
-    PLAY RECAP **********
+    PLAY RECAP 
     ansible-inventory-test-vm1 : ok=3    changed=1    unreachable=0    failed=0
     ```
 
 ## <a name="test-nginx-installation"></a>測試 Nginx 安裝
+
 本節說明的一項技術，可測試 Nginx 已安裝在您的虛擬機器上。
 
 1. 使用 [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) 命令來取出 `ansible-inventory-test-vm1` 虛擬機器的 IP 位址。 接著，傳回值 (虛擬機器的 IP 位址) 會用來作為連線到虛擬機器之 SSH 命令的參數。
@@ -199,13 +270,13 @@ ansible-inventory-test-vm1 | SUCCESS => {
     tom@ansible-inventory-test-vm1:~$ nginx -v
 
     nginx version: nginx/1.10.3 (Ubuntu)
-    
+
     tom@ansible-inventory-test-vm1:~$
     ```
 
-1. 按 **&lt;Ctrl>D** 鍵盤組合，將 SSH 工作階段中斷連線。
+1. 按一下 `<Ctrl>D` 鍵盤組合，將 SSH 工作階段中斷連線。
 
-1. 執行上述 `ansible-inventory-test-vm2` 虛擬機器的步驟時，會產生參考用訊息，指出您可以取得 Nginx (表示您此時未安裝) 的位置：
+1. 為 `ansible-inventory-test-vm2` 虛擬機器執行上述步驟時會產生參考訊息，指出您可以取得 Nginx (表示您此時未安裝) 的位置：
 
     ```Output
     tom@ansible-inventory-test-vm2:~$ nginx -v
@@ -218,5 +289,6 @@ ansible-inventory-test-vm1 | SUCCESS => {
     ```
 
 ## <a name="next-steps"></a>後續步驟
+
 > [!div class="nextstepaction"] 
-> [使用 Ansible 在 Azure 中建立基本虛擬機器](/azure/virtual-machines/linux/ansible-create-vm)
+> [快速入門：使用 Ansible 在 Azure 中設定 Linux 虛擬機器](/azure/virtual-machines/linux/ansible-create-vm)

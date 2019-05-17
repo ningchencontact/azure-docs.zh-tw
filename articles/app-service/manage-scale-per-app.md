@@ -1,6 +1,6 @@
 ---
-title: 使用個別應用程式調整的高密度託管 - Azure App Service | Microsoft Docs
-description: Azure App Service 上的高密度託管
+title: 使用每個應用程式的高密度裝載調整大小-Azure App Service |Microsoft Docs
+description: Azure App Service 上的高密度裝載
 author: btardif
 manager: erikre
 editor: ''
@@ -12,27 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 824abbdfd1b3980b419e6d6c46814bb0318adf13
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104564"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602324"
 ---
-# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>對 Azure App Service 上的高密度託管使用個別應用程式調整
+# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>使用每個應用程式調整的 Azure App Service 上的高密度裝載
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-根據預設，您會藉由調整執行 App Service 應用程式的 [App Service 方案](overview-hosting-plans.md)來調整這些應用程式。 當有多個應用程式執行於相同 App Service 方案中時，每個向外延展的執行個體都會執行方案中的所有應用程式。
+使用 App Service 時，您可以藉由調整來調整您的應用程式[App Service 方案](overview-hosting-plans.md)它們所執行。 當有多個應用程式執行於相同 App Service 方案中時，每個向外延展的執行個體都會執行方案中的所有應用程式。
 
-您可以在 App Service 方案層級啟用「個別應用程式調整」。 它會獨立調整應用程式，不受託管它的 App Service 方案所影響。 如此一來，App Service 方案可以調整為 10 個執行個體，但是應用程式可以設定為僅使用五個。
+*每個應用程式調整*可以在 App Service 方案層級啟用，以便進行調整的應用程式獨立於裝載它的 App Service 方案。 如此一來，App Service 方案可以調整為 10 個執行個體，但是應用程式可以設定為僅使用五個。
 
 > [!NOTE]
 > 個別應用程式調整僅適用於**標準**、**進階**、**進階 V2** 及**獨立** 定價層。
 >
+
+應用程式會配置給可用的 App Service 方案，最佳的工作方法用於跨執行個體的平均分配。 雖然不保證的平均分配，平台可確保兩個相同的應用程式執行個體未裝載在相同的 App Service 方案執行個體上。
+
+平台不會依賴度量，以決定背景工作角色配置。 加入或移除 App Service 方案執行個體時，才，則會重新平衡的應用程式。
 
 ## <a name="per-app-scaling-using-powershell"></a>使用 PowerShell 進行個別應用程式調整
 
@@ -60,10 +64,10 @@ Set-AzAppServicePlan -ResourceGroupName $ResourceGroup `
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
 $newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
-    
+
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
-    
+
 # Post updated app back to azure
 Set-AzWebApp $newapp
 ```
@@ -128,17 +132,18 @@ App Service 方案會將 **PerSiteScaling** 屬性設為 true (`"perSiteScaling"
 ```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>高密度裝載的建議組態
-個別應用程式調整是全域 Azure 區域和 [App Service 環境](environment/app-service-app-service-environment-intro.md)中啟用的功能。 不過，建議策略是使用 App Service 環境，以利用其進階功能和較大的容量集區。  
 
-請遵循下列步驟來設定應用程式的高密度裝載：
+個別應用程式調整是全域 Azure 區域和 [App Service 環境](environment/app-service-app-service-environment-intro.md)中啟用的功能。 不過，建議使用的策略是使用 App Service 環境，以利用其進階的功能和較大的 App Service 規劃產能。  
 
-1. 設定 App Service 環境，並選擇專用於高密度裝載案例的背景工作角色集區。
-2. 建立單一 App Service 方案，並將其調整為使用背景工作角色集區上所有可用的容量。
-3. 在 App Service 方案上將 `PerSiteScaling` 旗標設定為 true。
-4. 新應用程式會建立並指派給該 App Service 方案，其中 **numberOfWorkers** 屬性會設定為 **1**。 使用此設定會產生此背景工作角色集區上所能允許的最高密度。
-5. 背景工作角色數目可依每個應用程式單獨設定，以視需要授與額外資源。 例如︰
-    - 高用量應用程式可以將 **numberOfWorkers** 設定為 **3**，讓該應用程式具有更多的處理容量。 
-    - 低用量應用程式會將 **numberOfWorkers** 設定為 **1**。
+請遵循下列步驟來設定應用程式的高密度裝載︰
+
+1. 將 App Service 方案指定為高密度的計劃，並相應放大所需的容量。
+1. 在 App Service 方案上將 `PerSiteScaling` 旗標設定為 true。
+1. 新應用程式會建立並指派給該 App Service 方案，其中 **numberOfWorkers** 屬性會設定為 **1**。
+   - 使用此組態會產生可能的最高密度。
+1. 背景工作角色數目可依每個應用程式單獨設定，以視需要授與額外資源。 例如：
+   - 高用量應用程式可以將 **numberOfWorkers** 設定為 **3**，讓該應用程式具有更多的處理容量。
+   - 低用量應用程式會將 **numberOfWorkers** 設定為 **1**。
 
 ## <a name="next-steps"></a>後續步驟
 

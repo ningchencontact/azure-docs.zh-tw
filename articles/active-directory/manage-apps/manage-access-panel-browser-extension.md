@@ -3,8 +3,8 @@ title: 疑難排解適用於 IE 的 Azure 存取面板延伸模組 |Microsoft Do
 description: 如何使用群組原則針對我的 app 入口網站部署 Internet Explorer 附加元件。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63dfece713657df4450f18b8a7ce212ce2c41687
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f08a02842c97b0f4076a1b311aa918df6d83c592
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291521"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824507"
 ---
 # <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>疑難排解 Internet explorer 的存取面板延伸模組
 

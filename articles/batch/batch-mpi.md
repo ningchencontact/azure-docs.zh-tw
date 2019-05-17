@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7fe75dabe098cf98f0c3c04d592a32d6a44cebf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a4184fa361ba863cdaf916ef4853eda8b6e8188
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775302"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595939"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>在 Batch 中使用多重執行個體工作來執行訊息傳遞介面 (MPI) 應用程式
 
@@ -281,7 +281,7 @@ GitHub 上的 [MultiInstanceTasks][github_mpi] 程式碼範例示範如何使用
 
 ### <a name="execution"></a>執行
 1. 從 GitHub 下載 [azure-batch-samples][github_samples_zip]。
-2. 在 Visual Studio 2017 中開啟 MultiInstanceTasks **方案**。 `MultiInstanceTasks.sln` 方案檔位於︰
+2. 開啟 MultiInstanceTasks**解決方案**在 Visual Studio 2019。 `MultiInstanceTasks.sln` 方案檔位於︰
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. 在 **Microsoft.Azure.Batch.Samples.Common** 專案的 `AccountSettings.settings` 中輸入 Batch 和儲存體帳戶的認證。

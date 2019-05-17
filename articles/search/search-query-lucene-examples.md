@@ -7,15 +7,15 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 108dd80aa90772eb01fe3c7f0176ddd37e27acaa
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024444"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595909"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>使用 「 完整 」 的 Lucene 搜尋語法 （Azure 搜尋服務中的進階查詢） 的查詢範例
 
@@ -81,11 +81,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 本文中的所有範例會指定 **queryType=full** 搜尋參數，表示 Lucene 查詢剖析器處理的完整語法。 
 
-## <a name="example-1-field-scoped-query"></a>範例 1：欄位範圍查詢
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>範例 1:查詢範圍的欄位清單
 
-第一個範例不是 Lucene 特有的但我們會導致與它導入第一個基本查詢概念： 內含項目。 此範例會將查詢執行和回應範圍限定為少數特定欄位。 當您的工具是 Postman 或搜尋總管時，了解如何建構可讀取的 JSON 回應很重要。 
+第一個範例不是 Lucene 特有的但我們會導致與它導入第一個基本查詢概念： 欄位範圍。 此範例會設定整個查詢，並在短短的特定欄位的回應。 當您的工具是 Postman 或搜尋總管時，了解如何建構可讀取的 JSON 回應很重要。 
 
-為求簡潔，查詢僅以 *business_title* 欄位為目標，且指定僅傳回公司職稱。 語法為 **searchFields** 可將執行查詢限制為只有 business_title 欄位，而 **select** 可指定要包含在回應中的欄位。
+為求簡潔，查詢僅以 *business_title* 欄位為目標，且指定僅傳回公司職稱。 **SearchFields**參數會限制只 business_title 欄位中，執行查詢並**選取**指定要在回應中包含哪些欄位。
 
 ### <a name="partial-query-string"></a>部分查詢字串
 
@@ -99,6 +99,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
+在逗號後面的空格是選擇性的。
+
+> [!Tip]
+> 使用 REST API，從您的應用程式程式碼時，別忘了以 URL 編碼的參數，例如`$select`和`searchFields`。
+
 ### <a name="full-url"></a>完整的 URL
 
 ```http
@@ -109,41 +114,44 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
   ![Postman 範例回應](media/search-query-lucene-examples/postman-sample-results.png)
 
-您可能已注意到在回應中的搜尋分數。 沒有排名時，分數一律為 1，這是因為搜尋不是全文檢索搜尋，或是未套用任何準則。 若是未套用任何準則的 Null 搜尋，資料列會以任意順序傳回。 當您包含實際準則時，您會發現搜尋分數逐漸具有其實質意義。
+您可能已注意到在回應中的搜尋分數。 沒有排名時，分數一律為 1，這是因為搜尋不是全文檢索搜尋，或是未套用任何準則。 若是未套用任何準則的 Null 搜尋，資料列會以任意順序傳回。 當您包含實際的搜尋準則時，您會看到的搜尋分數發展成有意義的值。
 
-## <a name="example-2-intra-field-filtering"></a>範例 2：內部欄位篩選
+## <a name="example-2-fielded-search"></a>範例 2：加入欄位的搜尋
 
-完整 Lucene 語法支援在欄位內使用運算式。 此範例會搜尋中，而不是包含 junior 詞彙資深職稱。
+完整的 Lucene 語法支援的特定欄位的範圍設定個別的搜尋運算式。 此範例會搜尋中，而不是包含 junior 詞彙資深職稱。
 
 ### <a name="partial-query-string"></a>部分查詢字串
 
 ```http
-searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+$select=business_title&search=business_title:(senior NOT junior)
 ```
 
 以下是使用多個欄位相同的查詢。
 
 ```http
-searchFields=business_title, posting_type&$select=business_title, posting_type&search=business_title:senior+NOT+junior AND posting_type:external
+$select=business_title, posting_type&search=business_title:(senior NOT junior) AND posting_type:external
 ```
 
 ### <a name="full-url"></a>完整的 URL
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
   ![Postman 範例回應](media/search-query-lucene-examples/intrafieldfilter.png)
 
-藉由指定 **fieldname:searchterm** 建構，您可以定義加入欄位的查詢作業，其中的欄位是單字，搜尋字詞也是單字或片語，並選擇性使用布林運算子。 某些範例包括以下內容：
+您可以定義加入欄位的搜尋作業與**fieldName:searchExpression**語法，其中的搜尋運算式可以是單一文字或片語或括弧括住，並選擇性地使用布林運算子更複雜的運算式。 以下為部分範例：
 
-* business_title:(senior NOT junior)
-* state:("New York" AND "New Jersey")
-* business_title:(senior NOT junior) AND posting_type:external
+- `business_title:(senior NOT junior)`
+- `state:("New York" OR "New Jersey")`
+- `business_title:(senior NOT junior) AND posting_type:external`
 
-如果您想要將字串視為單一實體評估，請務必將多個字串放在引號中，例如搜尋 [位置] 欄位中兩個不同城市的情況。 此外，請確定運算子是大寫，如同您看到的 NOT 和 AND。
+請務必將放在引號中的多個字串，如果您想要評估為單一實體，以在此情況下搜尋兩個不同的位置中的兩個字串`state`欄位。 此外，請確定運算子是大寫，如同您看到的 NOT 和 AND。
 
-**fieldname:searchterm** 中指定的欄位必須是可搜尋的欄位。 如需欄位定義中索引屬性使用方式的詳細資訊，請參閱 [建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) 。
+中指定的欄位**fieldName:searchExpression**必須是可搜尋的欄位。 如需欄位定義中索引屬性使用方式的詳細資訊，請參閱 [建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) 。
+
+> [!NOTE]
+> 在上述範例中，我們不需要使用`searchFields`參數因為查詢的每個組件有明確指定的欄位名稱。 不過，您仍然可以使用`searchFields`參數，如果您想要執行的查詢，其中一些組件的範圍設定為特定的欄位，而其餘無法套用至數個欄位。 例如，查詢`search=business_title:(senior NOT junior) AND external&searchFields=posting_type`會比對`senior NOT junior`只`business_title`欄位中，而它將會比對"external"與`posting_type`欄位。 中提供的欄位名稱**fieldName:searchExpression**一定會優先於`searchFields`參數，也就是為什麼在此範例中，我們不需要包含`business_title`在`searchFields`參數。
 
 ## <a name="example-3-fuzzy-search"></a>範例 3：模糊搜尋
 

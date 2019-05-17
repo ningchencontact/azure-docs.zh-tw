@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/18/2018
+ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 3b770c3e51b17fa5d70abb03360e17e1073974d8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51222224"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815521"
 ---
 若要在 Azure 入口網站中建立一般用途 v2 儲存體帳戶，請遵循下列步驟：
 
@@ -33,7 +33,7 @@ ms.locfileid: "51222224"
    |部署模型     |Resource Manager         |
    |效能     |標準         |
    |帳戶類型     |StorageV2 (一般用途 v2)         |
-   |複寫     |本機備援儲存體 (LRS)         |
+   |複寫     |讀取權限異地備援儲存體 (RA-GRS)         |
    |存取層     |經常性存取         |
 
 1. 選取 [檢閱 + 建立]，以檢閱您的儲存體帳戶設定並建立帳戶。

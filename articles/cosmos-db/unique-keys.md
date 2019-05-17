@@ -1,19 +1,18 @@
 ---
 title: 使用 Azure Cosmos DB 中的唯一索引鍵
 description: 了解如何在 Azure Cosmos 資料庫中使用唯一索引鍵
-author: rockboyfor
-ms.author: v-yeche
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 04/15/2019
+ms.date: 04/08/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3c5e8a2c85898175772dc353258e77fc8e0a74f2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c3524f27cc14050647c457fdb5e87b2b83dbdfc0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115718"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595875"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一索引鍵限制式
 
@@ -27,14 +26,14 @@ ms.locfileid: "62115718"
 
 例如，容器可以包含具有下列值的項目，其中每個項目都會遵守唯一索引鍵限制式。
 
-| CompanyID | 名字 | 姓氏 |   電子郵件地址    |
-|-----------|------------|-----------|--------------------|
-|  Contoso  |    Gaby    |  Duperre  |  gaby@contoso.com  |
-|  Contoso  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
-| Fabrikam  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
-| Fabrikam  |    Ivan    |  Duperre  | gaby@fabrikam.com  |
-|  Fabrkam  |            |  Duperre  | gaby@fabraikam.com |
-|  Fabrkam  |            |           | gaby@fabraikam.com |
+|CompanyID|名字|姓氏|電子郵件地址|
+|---|---|---|---|
+|Contoso|Gaby|Duperre|gaby@contoso.com |
+|Contoso|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
+|Fabrkam|   |Duperre|gaby@fabraikam.com|
+|Fabrkam|   |   |gaby@fabraikam.com|
 
 如果您嘗試使用上表中列出的組合插入另一個項目，則會收到錯誤。 此錯誤表示不符合唯一索引鍵限制式。 你会收到作为返回消息的 `Resource with specified ID or name already exists` 或 `Resource with specified ID, name, or unique index already exists`。 
 
@@ -56,6 +55,5 @@ ms.locfileid: "62115718"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解[邏輯分割區](partition-data.md)。
-
-<!-- Update_Description: update meta propreties, wording update -->
+* 深入了解[邏輯分割區](partition-data.md)
+* 瀏覽[如何定義唯一索引鍵](how-to-define-unique-keys.md)建立容器時

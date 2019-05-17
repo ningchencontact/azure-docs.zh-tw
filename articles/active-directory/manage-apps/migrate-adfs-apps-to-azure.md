@@ -2,8 +2,8 @@
 title: 從 AD FS 將應用程式移至 Azure AD。 | Microsoft Docs
 description: 本文旨在協助組織了解如何將應用程式移至 Azure AD (內容著重於同盟 SaaS 應用程式)。
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2739b5d2d944ea9a8b8cefdcc741abc8a2b632a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f77e322ffd7eec78fe13650f40c93f914706d557
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291729"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824616"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>從 AD FS 將應用程式移至 Azure AD 
 
@@ -96,7 +96,7 @@ AD FS 與 Azure AD 的運作方式相似，所以設定信任、登入及登出 
 - AD FS 字詞：信賴憑證者或信賴憑證者信任。
 - Azure AD 字詞：企業應用程式或應用程式註冊 (取決於應用程式的類型)。
 
-|應用程式組態元素|描述|AD FS 組態中的位置|Azure AD 組態中的相對應位置|SAML 權杖元素|
+|應用程式組態元素|說明|AD FS 組態中的位置|Azure AD 組態中的相對應位置|SAML 權杖元素|
 |-----|-----|-----|-----|-----|
 |應用程式登入 URL|此應用程式的登入頁面 URL。 在 SP 所起始的 SAML 流程中，使用者會前往此處以登入應用程式。|N/A|在 Azure AD 中，登入 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為登入 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到登入 URL)。|N/A|
 |應用程式回覆 URL|以識別提供者 (IdP) 觀點看待的應用程式 URL。 使用者在 IdP 登入後，使用者和權杖會被送往此 URL。</br></br> 有時候，這稱為「SAML 判斷提示消費者端點」。|可在應用程式的 AD FS 信賴憑證者信任中找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|在 Azure AD 中，此回覆 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為回覆 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到回覆 URL)。|對應至 SAML 權杖中的 [目的地] 元素。</br></br> 值範例：`https://contoso.my.salesforce.com`|
@@ -119,11 +119,11 @@ AD FS 與 Azure AD 的運作方式相似，所以設定信任、登入及登出 
 
 下表說明在應用程式中進行 SSO 設定時所需的重要 IdP 設定元素，以及其在 AD FS 和 Azure AD 中的值或位置。 下表的參考架構是 SaaS 應用程式，而 SaaS 應用程式必須知道會將驗證要求傳送到哪裡，以及如何驗證所收到的權杖。
 
-|設定元素|描述|AD FS|Azure AD|
+|設定元素|說明|AD FS|Azure AD|
 |---|---|---|---|
 |IdP </br>登入 </br>URL|以應用程式觀點看待的 IdP 登入 URL (使用者會被重新導向以便登入)。|AD FS 登入 URL 為 AD FS 同盟服務名稱後面加上 “/adfs/ls/”。 例如：https&#58;//fs.contoso.com/adfs/ls/|Azure AD 的對應值會遵循此模式，其中 {tenant-id} 會取代為您的租用戶識別碼。 此項目即為 Azure 入口網站中 [Azure Active Directory] > [屬性] 下的 [目錄識別碼]。</br></br>若為使用 SAML-P 通訊協定的應用程式：https&#58;//login.microsoftonline.com/{tenant-id}/saml2 </br></br>若為使用 WS-同盟通訊協定的應用程式：https&#58;//login.microsoftonline.com/{tenant-id}/wsfed|
 |IdP </br>登出 </br>URL|以應用程式觀點看待的 IdP 登出 URL (使用者選擇登出應用程式時會被重新導向)。|在 AD FS 中，登出 URL 與登入 URL 相同，或是附加 “wa=wsignout1.0” 的相同 URL。 例如：https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Azure AD 的對應值取決於應用程式是否支援 SAML 2.0 登出。</br></br>如果應用程式支援 SAML 登出，此值會遵循此模式，其中 {tenant-id} 會取代為租用戶識別碼。 此項目即為 Azure 入口網站中 [Azure Active Directory] > [屬性] 下的 [目錄識別碼]：https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>如果應用程式不支援 SAML 登出：https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
-|token </br>簽署 </br>憑證|IdP 使用其私密金鑰來簽署已發行權杖的憑證。 它會驗證權杖是否來自應用程式設定要信任的相同 IdP。|在 AD FS 管理的 [憑證] 之下可找到 AD FS 權杖簽署憑證。|在 Azure AD 中，您可以在 Azure 入口網站內應用程式的 [單一登入] 屬性中 [SAML 簽署憑證] 標頭之下找到權杖簽署憑證。 您可以在該處下載憑證以便上傳至應用程式。</br></br> 如果應用程式有多個憑證，您可以在同盟中繼資料 XML 檔案中找到所有的憑證。|
+|權杖 </br>簽署 </br>憑證|IdP 使用其私密金鑰來簽署已發行權杖的憑證。 它會驗證權杖是否來自應用程式設定要信任的相同 IdP。|在 AD FS 管理的 [憑證] 之下可找到 AD FS 權杖簽署憑證。|在 Azure AD 中，您可以在 Azure 入口網站內應用程式的 [單一登入] 屬性中 [SAML 簽署憑證] 標頭之下找到權杖簽署憑證。 您可以在該處下載憑證以便上傳至應用程式。</br></br> 如果應用程式有多個憑證，您可以在同盟中繼資料 XML 檔案中找到所有的憑證。|
 |識別碼/</br>「簽發者」|以應用程式觀點看待的 IdP 識別碼 (有時稱為「簽發者識別碼」)。</br></br>在 SAML 權杖中，此值會顯示為 [簽發者] 元素。|AD FS 的識別碼通常是 AD FS 管理中 [服務] > [編輯同盟服務屬性] 之下的同盟服務識別碼。 例如：http&#58;//fs.contoso.com/adfs/services/trust|Azure AD 的對應值會遵循此模式，其中 {tenant-id} 的值會取代為租用戶識別碼。 此項目即為 Azure 入口網站中 [Azure Active Directory] > [屬性] 下的 [目錄識別碼]：https&#58;//sts.windows.net/{tenant-id}/|
 |IdP </br>同盟 </br>中繼資料|IdP 的公開可用同盟中繼資料位置。 (有些應用程式會使用同盟中繼資料，作為系統管理員個別設定 URL、識別碼和權杖簽署憑證的替代方式)。|在 AD FS 管理中的 [服務] > [端點] > [中繼資料] > [類型:同盟中繼資料] 之下尋找 AD FS 同盟中繼資料 URL。 例如：https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Azure AD 的對應值會遵循此模式 https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml。 {TenantDomainName} 的值會取代為您的租用戶名稱 (格式為 “contoso.onmicrosoft.com”)。 </br></br>如需詳細資訊，請參閱[同盟中繼資料](../develop/azure-ad-federation-metadata.md)。
 

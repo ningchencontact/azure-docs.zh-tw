@@ -14,16 +14,18 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3934dbb01c3b9f3219c5e649d97371850b8daadc
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793936"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230619"
 ---
-# <a name="what-is-api-management"></a>什麼是 API 管理？
+# <a name="about-api-management"></a>關於 API 管理
 
-「API 管理 (APIM)」可協助組織將 API 發佈給外部、合作夥伴及內部開發人員，以發揮其資料與服務的潛力。 各地的公司都想要將其作業延伸為數位平台、建立新的管道、尋找新客戶並對現有客戶促進更深入的參與。 「API 管理」提供的核心專長認證，透過開發人員參與、商務洞察力、分析、安全性和保護，可確保 API 程式獲致成功。 您可以使用 Azure API 管理來取得任何後端，並根據該後端來啟用完善的 API 方案。
+API 管理 (APIM) 可用來為現有的後端服務建立一致的現代化 API 閘道。
+
+「API 管理」可協助組織將 API 發佈給外部、合作夥伴及內部開發人員，以發揮其資料與服務的潛力。 各地的公司都想要將其作業延伸為數位平台、建立新的管道、尋找新客戶並對現有客戶促進更深入的參與。 「API 管理」提供的核心專長認證，透過開發人員參與、商務洞察力、分析、安全性和保護，可確保 API 程式獲致成功。 您可以使用 Azure API 管理來取得任何後端，並根據該後端來啟用完善的 API 方案。
 
 本文提供涉及 APIM 之常見案例的概觀。  同時也提供 APIM 系統之主要元件的簡短概觀。 然後，本文會提供每個元件的更詳細概觀。
 

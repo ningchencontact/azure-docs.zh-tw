@@ -3,8 +3,8 @@ title: 在 Azure Active Directory 中從企業應用程式移除使用者或群�
 description: 如何在 Azure Active Directory 中從企業應用程式移除使用者或群組的存取權指派
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97759ae992ebe38aa85e9b4724edeebb5285db4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4ad995db26b67f365cd8ed9b2aeba5e47fe9c01
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443074"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826061"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中從企業應用程式移除使用者或群組指派
 它很容易就能移除使用者或群組指派存取權，您的企業應用程式，Azure Active Directory (Azure AD) 中的其中一個。 您需要適當的權限，才能管理企業應用程式。 而且，您必須是目錄全域管理員。

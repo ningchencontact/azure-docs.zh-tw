@@ -15,13 +15,22 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60549847"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595373"
 ---
+> [!NOTE] 
+> 這篇文章所述的使用者帳戶是不同的使用者帳戶用於遠端桌面通訊協定 (RDP) 或安全殼層 (SSH)，基於安全性考量。 
+>
+> 若要連線到透過 SSH 執行 Linux 虛擬機器設定的節點，請參閱[在 Azure 中使用 Linux VM 的遠端桌面](../virtual-machines/virtual-machines-linux-use-remote-desktop.md)。 若要連線到透過 RDP 執行 Windows 的節點，請參閱[連線到 Windows Server VM](../virtual-machines/windows/connect-logon.md)。<br /><br />
+> 若要連線到透過 RDP 執行雲端服務設定的節點，請參閱[在 Azure 雲端服務中啟用角色的遠端桌面連線](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)。
+>
+>
+
+
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的使用者帳戶執行工作
 
 Azure Batch 中的工作一律會在使用者帳戶下執行。 根據預設，會在標準使用者帳戶中執行工作，而不需要系統管理員權限。 這些預設使用者帳戶設定通常已足夠。 不過，在特定案例中，最好能夠在您想要執行工作的使用者帳戶進行設定。 本文討論使用者帳戶的類型，以及如何針對您的案例來設定它們。
@@ -36,14 +45,6 @@ Azure Batch 提供執行工作所需的兩種使用者帳戶類型︰
 
 > [!IMPORTANT] 
 > Batch 服務版本 2017-01-01.4.0 導入了重大變更，要求您更新程式碼以呼叫該版本。 如果您是從較舊版本的 Batch 移轉程式碼，請注意，REST API 或 Batch 用戶端程式庫不再支援 **runElevated** 屬性。 使用工作的新 **userIdentity** 屬性來指定提高權限層級。 如果您使用的是其中一個用戶端程式庫，請參閱標題為[將您的程式碼更新至最新的 Batch 用戶端程式庫](#update-your-code-to-the-latest-batch-client-library)的章節，以取得更新 Batch 程式碼的快速指導方針。
->
->
-
-> [!NOTE] 
-> 基於安全性考量，本文所討論的使用者帳戶不支援遠端桌面通訊協定 (RDP) 或安全殼層 (SSH)。 
->
-> 若要連線到透過 SSH 執行 Linux 虛擬機器設定的節點，請參閱[在 Azure 中使用 Linux VM 的遠端桌面](../virtual-machines/virtual-machines-linux-use-remote-desktop.md)。 若要連線到透過 RDP 執行 Windows 的節點，請參閱[連線到 Windows Server VM](../virtual-machines/windows/connect-logon.md)。<br /><br />
-> 若要連線到透過 RDP 執行雲端服務設定的節點，請參閱[在 Azure 雲端服務中啟用角色的遠端桌面連線](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)。
 >
 >
 

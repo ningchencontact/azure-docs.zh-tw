@@ -3,8 +3,8 @@ title: Microsoft 身分識別平台和 OpenID Connect 通訊協定 |Azure
 description: 使用 OpenID Connect 驗證通訊協定的 Microsoft 身分識別平台實作，以建置 web 應用程式。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfac577d7582caa5b538f05273a02e4c3baf71ff
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 23a8eaaf095be1d59944791bd793047886dda40c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918465"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544802"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft 身分識別平台和 OpenID Connect 通訊協定
 
@@ -48,11 +48,11 @@ OpenID Connect 所描述的中繼資料文件，其中包含大部分的應用�
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP]
-> 試試看！ 按一下 [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) 以查看 `common` 租用戶設定。
+> 試用! 按一下 [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) 以查看 `common` 租用戶設定。
 
 `{tenant}` 可以接受下列四個值的其中一個：
 
-| Value | 描述 |
+| Value | 說明 |
 | --- | --- |
 | `common` |使用個人 Microsoft 帳戶和工作或學校帳戶從 Azure AD 使用者可以登入應用程式。 |
 | `organizations` |只有具有來自 Azure AD 之工作或學校帳戶的使用者可以登入應用程式。 |
@@ -91,7 +91,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 > [!IMPORTANT]
 > 若要成功地從 /authorization 端點，該應用程式註冊要求識別碼權杖[註冊入口網站](https://portal.azure.com)必須在 [驗證] 索引標籤中啟用的 id_token 的隱含授與 (可設定`oauth2AllowIdTokenImplicitFlow`中的旗標[應用程式資訊清單](reference-app-manifest.md)至`true`)。 如果未啟用，`unsupported_response`便會傳回錯誤：「 此用戶端不允許的輸入參數 'response_type' 提供的值。 Expected value is 'code'" (此用戶端的 'response_type' 輸入參數不允許使用所提供的值。預期的值為 'code')
 
-例如︰
+例如：
 
 ```
 // Line breaks are for legibility only.
@@ -110,7 +110,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 請按一下以下連結來執行此要求。 登入之後，您的瀏覽器將會重新導向至 `https://localhost/myapp/`，網址列中會有識別碼權杖。 請注意，此要求會使用 `response_mode=fragment` (僅限用於示範)。 建議您使用 `response_mode=form_post`。
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| 參數 | 條件 | 描述 |
+| 參數 | 條件 | 說明 |
 | --- | --- | --- |
 | `tenant` | 必要項 | 您可以要求路徑中使用 `{tenant}` 值來控制可登入應用程式的人員。 允許的值為 `common`、`organizations`、`consumers` 及租用戶識別碼。 如需詳細資訊，請參閱[通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。 |
 | `client_id` | 必要項 | **應用程式 （用戶端） 識別碼**可[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的體驗。 |
@@ -128,7 +128,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 使用者驗證並授與同意，Microsoft 身分識別平台端點將回應傳回給您的應用程式，在指定之後使用重新導向 URI 中指定的方法`response_mode`參數。
 
-### <a name="successful-response"></a>成功回應
+### <a name="successful-response"></a>成功的回應
 
 使用 `response_mode=form_post` 時的成功回應看起來像這樣：
 
@@ -140,7 +140,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `id_token` | 應用程式所要求的識別碼權杖。 您可以使用 `id_token` 參數來確認使用者的身分識別，並開始與使用者的工作階段。 如需識別碼權杖及其內容的詳細資料，請參閱 [`id_tokens` 參考](id-tokens.md)。 |
 | `state` | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
@@ -157,7 +157,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `error` | 您可用來分類發生的錯誤類型並對錯誤做出反應的錯誤碼字串。 |
 | `error_description` | 可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -166,7 +166,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 下表說明可能在錯誤回應的 `error` 參數中傳回的錯誤碼：
 
-| 錯誤碼 | 描述 | 客户端操作 |
+| 錯誤碼 | 說明 | 客户端操作 |
 | --- | --- | --- |
 | `invalid_request` | 通訊協定錯誤，例如遺漏必要的參數。 |修正並重新提交要求。 這是通常在初始測試期間擷取到的開發錯誤。 |
 | `unauthorized_client` | 用戶端應用程式無法要求授權碼。 |當用戶端應用程式未在 Azure AD 中註冊，或不會新增至使用者的 Azure AD 租用戶，這通常會發生。 應用程式可以對使用者提示一些指示，來安裝應用程式並將它新增到 Azure AD。 |
@@ -201,7 +201,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| 參數 | 條件 | 描述 |
+| 參數 | 條件 | 說明 |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | 建議 | 使用者在成功登出之後，要重新導致到的 URL。如果參數未包含，使用者就會顯示一般訊息所產生的 Microsoft 身分識別平台的端點。 此 URL 必須與您在應用程式註冊入口網站中為應用程式註冊的其中一個重新導向 URI 相符。 |
 
@@ -241,7 +241,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 
 在要求中包含權限範圍，以及使用`response_type=id_token code`，Microsoft 身分識別平台端點可確保使用者已經同意中指出的權限`scope`查詢參數。 它會將授權碼傳回給到您的應用程式以交換存取權杖。
 
-### <a name="successful-response"></a>成功回應
+### <a name="successful-response"></a>成功的回應
 
 使用 `response_mode=form_post` 的成功回應看起來像這樣：
 
@@ -253,7 +253,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `id_token` | 应用请求的 ID 令牌。 您可以使用識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 如需有關識別碼權杖及其內容的更多詳細資料，請參閱 [`id_tokens` 參考](id-tokens.md)。 |
 | `code` | 應用程式所要求的授權碼。 應用程式可以使用授權碼要求目標資源的存取權杖。 授權碼是短期的。 授權碼的有效期通常大約是 10 分鐘。 |
@@ -271,7 +271,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | `error` | 您可用來分類發生的錯誤類型並對錯誤做出反應的錯誤碼字串。 |
 | `error_description` | 可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |

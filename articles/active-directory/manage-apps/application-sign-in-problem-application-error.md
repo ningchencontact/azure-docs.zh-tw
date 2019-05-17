@@ -3,8 +3,8 @@ title: 登入後應用程式頁面的錯誤 | Microsoft Docs
 description: 如何解決當應用程式本身發生錯誤時 Azure AD 登入方面的問題
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 438f4f60c80cb798c3c40f57e22c9194a9fd5f86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 234fc94a0a2ad3d3bee49853cf1dfc6a805a0166
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442806"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825412"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>登入後應用程式頁面的錯誤
 

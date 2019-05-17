@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195484"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603204"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>使用 Power BI 分析 Azure Data Lake Storage Gen1 中的資料
 在本文中，您將了解如何使用 Power BI Desktop 分析儲存在 Azure Data Lake Storage Gen1 的資料並加以視覺化。
@@ -74,23 +74,23 @@ ms.locfileid: "60195484"
 14. 更新查詢之後，[欄位]  索引標籤將會顯示可用於視覺效果的新欄位。
     
     ![更新的欄位](./media/data-lake-store-power-bi/updated-query-fields.png "更新的欄位")
-15. 讓我們建立圓形圖，以代表指定國家/地區的每個城市中的驅動程式。 若要這麼做，請進行下列選擇。
+15. 讓我們建立圓形圖，以代表指定國家/地區的每個縣 （市） 中的驅動程式。 若要這麼做，請進行下列選擇。
     
     1. 從 [視覺效果] 索引標籤中，按一下圓形圖的符號。
        
         ![建立圓形圖](./media/data-lake-store-power-bi/create-pie-chart.png "建立圓形圖")
-    2. 我們將使用的資料行是 [資料行 4]\(城市名稱) 和 [資料行 7]\(國家/地區名稱)。 將這些資料行從 [欄位] 索引標籤拖曳到 [視覺效果] 索引標籤 (如下所示)。
+    2. 我們將使用的資料行都**資料行 4** （城市名稱） 及**資料行 7** （國家/地區的名稱）。 將這些資料行從 [欄位] 索引標籤拖曳到 [視覺效果] 索引標籤 (如下所示)。
        
         ![建立視覺效果](./media/data-lake-store-power-bi/create-visualizations.png "建立視覺效果")
     3. 圓形圖現在應該與下面類似。
        
         ![圓形圖](./media/data-lake-store-power-bi/pie-chart.png "建立視覺效果")
-16. 透過從頁面層級篩選中選取特定國家/地區，您現在可以看到所選國家/地區的每個城市中的驅動程式數目。 例如，在 [視覺效果] 索引標籤的 [頁面層級篩選] 下，選取 [巴西]。
+16. 從頁面層級篩選中選取特定國家/地區，您現在可以看到所選的國家/地區的每個城市中的驅動程式數目。 例如，在 [視覺效果] 索引標籤的 [頁面層級篩選] 下，選取 [巴西]。
     
     ![選取國家/地區](./media/data-lake-store-power-bi/select-country.png "選取國家/地區")
 17. 圓形圖會自動更新以顯示巴西城市中的驅動程式。
     
-    ![國家/地區中的驅動程式](./media/data-lake-store-power-bi/driver-per-country.png "每個國家的驅動程式")
+    ![國家/地區中的驅動程式](./media/data-lake-store-power-bi/driver-per-country.png "每個國家/地區的驅動程式")
 18. 從 [檔案] 功能表中，按一下 [儲存] 將視覺效果儲存為 Power BI Desktop 檔案。
 
 ## <a name="publish-report-to-power-bi-service"></a>將報表發佈到 Power BI 服務

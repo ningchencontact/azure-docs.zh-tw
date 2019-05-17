@@ -7,14 +7,13 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
-ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480153"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826585"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用析診斷記錄對 Azure 串流分進行疑難排解
 
@@ -83,7 +82,7 @@ ms.locfileid: "61480153"
 
 ## <a name="diagnostics-log-categories"></a>診斷記錄類別
 
-我們目前會擷取兩種診斷記錄︰
+Azure Stream Analytics 會擷取診斷記錄的兩個的類別：
 
 * **編寫**：擷取與作業編寫作業相關之記錄事件，例如作業建立、新增及刪除輸入與輸出、新增及更新查詢、開始及停止作業。
 
@@ -98,7 +97,7 @@ ms.locfileid: "61480153"
 
 所有記錄會儲存為 JSON 格式。 每個項目皆包含下列常見的字串欄位︰
 
-名稱 | 描述
+名稱 | 說明
 ------- | -------
 time | 記錄的時間戳記 (UTC 時間)。
 resourceId | 作業執行資源的識別碼 (大寫)。 其中包含訂用帳戶識別碼、資源群組，以及作業名稱。 例如，**/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**。
@@ -110,34 +109,38 @@ properties | 記錄項目特定詳細資料 (序列化為 JSON 字串)。 如需
 
 ### <a name="execution-log-properties-schema"></a>執行記錄屬性結構描述
 
-執行記錄包含在執行串流分析作業期間所發生事件的資訊。 屬性結構描述會根據事件類型而有所不同。 我們目前有下列類型的執行記錄︰
+執行記錄包含在執行串流分析作業期間所發生事件的資訊。 屬性結構描述會根據事件是資料錯誤，或是一般的事件而有所不同。
 
 ### <a name="data-errors"></a>資料錯誤
 
 作業處理資料時發生的任何錯誤皆包含於此類記錄中。 這些記錄最常於資料讀取、序列化和寫入作業時建立。 這些記錄不包含連線錯誤。 連線錯誤視為一般事件。
 
-名稱 | 描述
+名稱 | 說明
 ------- | -------
-來源 | 發生錯誤的作業輸入或輸出名稱。
-訊息 | 與錯誤相關的訊息。
-類型 | 錯誤類型。 例如，**DataConversionError**、**CsvParserError** 或 **ServiceBusPropertyColumnMissingError**。
+`Source` | 發生錯誤的作業輸入或輸出名稱。
+`Message` | 與錯誤相關的訊息。
+Type | 錯誤類型。 例如，**DataConversionError**、**CsvParserError** 或 **ServiceBusPropertyColumnMissingError**。
 資料 | 包含有助於正確找到錯誤來源的資料。 視其大小，資料可能會遭到截斷。
 
 資料錯誤會隨 **operationName** 值的不同而有下列結構描述：
-* **序列化事件**。 序列化事件會在事件讀取作業期間發生。 當輸入上的資料不符合查詢結構描述時就會發生這類事件，發生原因可能是下列其中一個：
-    * *事件 (還原) 序列化期間類型不相符*：找出造成錯誤的欄位。
-    * *無法讀取事件，序列化無效*：針對發生錯誤的輸入資料位置列出相關資訊。 包含 Blob 輸入的 Blob 名稱、位移和資料範例。
-* **傳送事件**。 傳送事件會發生在寫入作業期間。 這些事件會識別造成錯誤的串流事件。
+
+* **序列化事件**事件讀取作業期間發生。 當輸入上的資料不符合查詢結構描述時就會發生這類事件，發生原因可能是下列其中一個：
+
+   * *事件 (還原) 序列化期間類型不相符*：找出造成錯誤的欄位。
+
+   * *無法讀取事件，序列化無效*：針對發生錯誤的輸入資料位置列出相關資訊。 包含 Blob 輸入的 Blob 名稱、位移和資料範例。
+
+* **將事件傳送**寫入作業期間發生。 這些事件會識別造成錯誤的串流事件。
 
 ### <a name="generic-events"></a>一般事件
 
 一般事件涵蓋所有其他事件。
 
-名稱 | 描述
+名稱 | 說明
 -------- | --------
 Error | (選用) 錯誤資訊。 這通常是例外狀況資訊 (如果有的話)。
-訊息| 記錄訊息。
-類型 | 訊息類型。 對應至錯誤的內部分類。 例如，**JobValidationError**或 **BlobOutputAdapterInitializationFailure**。
+`Message`| 記錄訊息。
+Type | 訊息類型。 對應至錯誤的內部分類。 例如，**JobValidationError**或 **BlobOutputAdapterInitializationFailure**。
 相互關連識別碼 | 唯一識別作業執行的 [GUID (英文)](https://en.wikipedia.org/wiki/Universally_unique_identifier)。 從作業開始直到作業停止的所有執行記錄項目皆具有同一個**相互關聯識別碼**值。
 
 ## <a name="next-steps"></a>後續步驟

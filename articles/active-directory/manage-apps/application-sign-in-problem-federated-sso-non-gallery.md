@@ -3,8 +3,8 @@ title: 登入針對同盟單一登入設定之非資源庫應用程式的問題 
 description: 當登入使用 Azure AD 針對 SAML 型同盟單一登入設定之應用程式時，您可能會碰到特定問題的指引
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0139227012be610977df3240f74a03f53be7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440193"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825447"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>登入針對同盟單一登入設定之非資源庫應用程式的問題
 
@@ -58,7 +58,7 @@ ms.locfileid: "60440193"
 
 7. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
-8. 應用程式載入之後，開啟**基本 SAML 組態**。 確認 [識別碼] 文字方塊中的值符合錯誤中所顯示的識別碼值的值。
+8. 在應用程式載入後，開啟 [基本 SAML 組態]。 確認 [識別碼] 文字方塊中的值符合錯誤中所顯示的識別碼值的值。
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>回覆位址不符合為應用程式設定的回覆位址。 
 
@@ -88,7 +88,7 @@ SAML 要求中的 AssertionConsumerServiceURL 值不符合在 Azure AD 中設定
 
 7. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
-8. 應用程式載入之後，開啟**基本 SAML 組態**。 確認或更新以符合 [回覆 URL] 文字方塊中的值`AssertionConsumerServiceURL`SAML 要求中的值。    
+8. 在應用程式載入後，開啟 [基本 SAML 組態]。 確認或更新以符合 [回覆 URL] 文字方塊中的值`AssertionConsumerServiceURL`SAML 要求中的值。    
     
 您已在 Azure AD 中，更新 [回覆 URL] 值，而且它符合 SAML 要求中的應用程式所傳送的值之後，您應該能夠登入應用程式。
 
@@ -188,7 +188,7 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 
 1.  選取您要設為單一登入的應用程式。
 
-1.  應用程式載入之後，開啟**基本 SAML 組態**。 確認 [識別碼] 文字方塊中的值符合錯誤中所顯示的識別碼值的值。
+1.  在應用程式載入後，開啟 [基本 SAML 組態]。 確認 [識別碼] 文字方塊中的值符合錯誤中所顯示的識別碼值的值。
 
 ## <a name="certificate-or-key-not-configured"></a>未設定憑證或金鑰
 
@@ -264,7 +264,7 @@ Azure AD 無法識別 HTTP 要求中 URL 參數內的 SAML 要求。 如果應�
 
 6.  選取您要設為單一登入的應用程式。
 
-7.  應用程式載入之後，開啟**基本 SAML 組態**。 在 **回覆 URL (判斷提示取用者服務 URL)**，由系統建立刪除未使用 或 預設回覆 Url。 例如： `https://127.0.0.1:444/applications/default.aspx`。
+7.  在應用程式載入後，開啟 [基本 SAML 組態]。 在 **回覆 URL (判斷提示取用者服務 URL)**，由系統建立刪除未使用 或 預設回覆 Url。 例如： `https://127.0.0.1:444/applications/default.aspx`。
 
 
 

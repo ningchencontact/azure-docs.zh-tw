@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031160"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544734"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions 的進階方案 （預覽）
 
@@ -34,7 +34,7 @@ Azure Functions Premium 方案是函式應用程式的裝載選項。 「 進階
 az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --number-of-workers 1 --sku EP1
 ```
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 部署到進階方案的函式應用程式提供下列功能。
 
@@ -44,7 +44,7 @@ az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --numb
 
 在 「 進階 」 方案，您可以讓您預先準備的執行個體，但不超過最小的計劃大小的指定數目的應用程式。  已預先準備的執行個體也可讓您預先調整之前高負載的應用程式。 應用程式相應放大，它首先會調整成預先 warmed 的執行個體。 其他執行個體會繼續緩衝和暖立即在下一個調整規模作業的準備。 擁有已預先準備的執行個體的緩衝區，您可以有效避免冷啟動延遲。  已預先準備的執行個體是 「 進階 」 方案的功能和您需要保留至少一個執行的執行個體，可在所有時間計劃是使用中。
 
-您也可以選取 Azure 入口網站中設定預先準備的執行個體數目**相應放大**中**平台功能** 索引標籤。
+您可以設定預先準備的執行個體數目，在 Azure 入口網站會藉由選取您**函式應用程式**、 負責**平台功能**索引標籤，然後選取**Scale Out**選項。 在函式應用程式的 [編輯] 視窗中，已預先準備的執行個體是針對該應用程式，但最小和最大執行個體套用至整個計劃。
 
 ![彈性的調整規模設定](./media/functions-premium-plan/scale-out.png)
 
@@ -114,6 +114,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |法國中部|
 |日本西部|
 |南韓中部|
+|美國中北部|
 |北歐|
 |美國中南部|
 |印度南部|

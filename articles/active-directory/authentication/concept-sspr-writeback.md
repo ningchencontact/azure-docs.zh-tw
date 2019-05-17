@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190736"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823305"
 ---
 # <a name="what-is-password-writeback"></a>什麼是密碼回寫？
 
@@ -42,9 +42,8 @@ ms.locfileid: "65190736"
 * **支援在管理員從 Azure 入口網站重設密碼時將密碼回寫**：每當管理員在 [Azure 入口網站](https://portal.azure.com)中重設使用者密碼時，如果該使用者為已同盟的或已同步處理密碼雜湊的使用者，系統就會將密碼回寫至內部部署環境。 Office 管理入口網站目前不支援此功能。
 * **不需要任何輸入防火牆規則**：密碼回寫會使用「Azure 服務匯流排」轉送作為基礎通訊通道。 所有通訊都會透過連接埠 443 來輸出。
 
-> [!Note]
+> [!NOTE]
 > 存在於內部部署 Active Directory 中受保護群組內的使用者帳戶，無法使用密碼回寫。 內部部署 AD 中的受保護群組所包含的系統管理員帳戶無法用於密碼回寫。 如需受保護群組的詳細資訊，請參閱 [Active Directory 中的受保護帳戶和群組](https://technet.microsoft.com/library/dn535499.aspx)。
->
 
 ## <a name="licensing-requirements-for-password-writeback"></a>密碼回寫的授權需求
 
@@ -63,7 +62,6 @@ ms.locfileid: "65190736"
 
 > [!WARNING]
 > 獨立的 Office 365 授權方案不支援「自助式密碼重設/變更/使用內部部署回寫來解鎖」，而且需要您具備上述其中一個方案，這項功能才能運作。
->
 
 ## <a name="how-password-writeback-works"></a>密碼回寫的運作方式
 
@@ -90,7 +88,6 @@ ms.locfileid: "65190736"
 1. 如果密碼設定作業成功，系統會告訴使用者其密碼已變更。
    > [!NOTE]
    > 如果將使用者的密碼雜湊同步處理至 Azure AD 時使用的是密碼雜湊同步處理，內部部署密碼原則就有可能比雲端密碼原則弱。 在此情況下，系統會強制執行內部部署原則。 此原則可確保不論您是使用密碼雜湊同步處理還是同盟來提供單一登入，都會在雲端強制執行內部部署原則。
-   >
 
 1. 如果密碼設定作業失敗，系統會顯示錯誤以提示使用者再試一次。 作業可能會因下列原因而失敗：
     * 服務已停止運作。
@@ -155,6 +152,7 @@ ms.locfileid: "65190736"
    * 任何系統管理員自助式強制變更密碼作業 (例如密碼到期)
    * 任何源自[密碼重設入口網站](https://passwordreset.microsoftonline.com)的系統管理員自助式密碼重設
    * 系統管理員從 [Azure 入口網站](https://portal.azure.com)起始的任何使用者密碼重設
+   * 任何系統管理員起始的使用者密碼重設[Microsoft 365 系統管理中心](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>不支援的回寫作業
 
@@ -163,11 +161,10 @@ ms.locfileid: "65190736"
 * **不支援的使用者作業**
    * 任何由使用者使用 PowerShell 第 1 版、第 2 版或 Azure AD Graph API 來進行的自有密碼重設
 * **不支援的系統管理員作業**
-   * 系統管理員從 [Office 管理入口網站](https://portal.office.com)起始的任何使用者密碼重設
    * 任何由系統管理員從 PowerShell 第 1 版、第 2 版或 Azure AD Graph API 起始的使用者密碼重設
 
 > [!WARNING]
-> 不支援的核取方塊 」 使用者必須變更密碼在下次登入時 」 等 Active Directory 使用者和電腦或 Active Directory 管理中心在內部部署 Active Directory 系統管理工具中的使用。 變更密碼時在內部部署環境就不會檢查此選項。 
+> 不支援的核取方塊 」 使用者必須變更密碼在下次登入時 」 等 Active Directory 使用者和電腦或 Active Directory 管理中心在內部部署 Active Directory 系統管理工具中的使用。 變更密碼時在內部部署環境就不會檢查此選項。
 
 ## <a name="next-steps"></a>後續步驟
 

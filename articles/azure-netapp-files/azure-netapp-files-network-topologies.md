@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 2afd5f0a574fd15c4327b141901d2651dbe2b9e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524231"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826469"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>適用於 Azure NetApp Files 網路方案的指導方針
 
@@ -42,7 +42,7 @@ Azure NetApp 檔案磁碟區設計用來呼叫的特殊用途子網路中可包�
 
 下列的網路限制適用於 Azure NetApp 檔案：
 
-* 數個從 VNet （包含對等互連的 Vnet） 的 Ip 連線到 VNet 中的磁碟區不能超過 1000年。
+* 可以連接到磁碟區 （與 VNet 或對等互連的 Vnet 間） 的 Vm 數目不得超過 1000年。
 * 在每個 Azure 虛擬網路 (VNet) 中，都只有一個子網路可委派給 Azure NetApp Files。
 
 
