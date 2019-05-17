@@ -53,7 +53,7 @@ ms.locfileid: "65233461"
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Sftp**。 |有 |
 | host | SFTP 伺服器的名稱或 IP 位址。 |是 |
-| 連接埠 | SFTP 伺服器所接聽的連接埠。<br/>允許的值為：整數，預設值為 **22**。 |無 |
+| port | SFTP 伺服器所接聽的連接埠。<br/>允許的值為：整數，預設值為 **22**。 |無 |
 | skipHostKeyValidation | 指定是否略過主機金鑰驗證。<br/>允許的值為：**true**、**false** (預設值)。  | 無 |
 | hostKeyFingerprint | 指定主機金鑰的指紋。 | 如果 "skipHostKeyValidation" 設定為 false，則為必要。  |
 | authenticationType | 指定驗證類型。<br/>允許的值包括：**Basic**、**SshPublicKey**。 請參閱[使用基本驗證](#using-basic-authentication)和[使用 SSH 公開金鑰驗證](#using-ssh-public-key-authentication)章節，分別取得更多屬性和 JSON 範例。 |有 |
@@ -182,7 +182,7 @@ ms.locfileid: "65233461"
 
 | 屬性   | 描述                                                  | 必要項 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| 類型       | [類型] 屬性底下`location`資料集內必須設定為**SftpLocation**。 | 有      |
+| type       | [類型] 屬性底下`location`資料集內必須設定為**SftpLocation**。 | 有      |
 | folderPath | 資料夾的路徑。 如果您想要使用萬用字元來篩選的資料夾，略過這項設定，並在 活動來源設定中指定。 | 否       |
 | fileName   | 指定 folderPath 檔案名稱。 如果您想要使用萬用字元來篩選檔案，略過這項設定，並在 活動來源設定中指定。 | 否       |
 
@@ -281,7 +281,7 @@ ms.locfileid: "65233461"
 
 | 屬性                 | 描述                                                  | 必要項                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| 類型                     | [類型] 屬性底下`storeSettings`必須設為**SftpReadSetting**。 | 有                                           |
+| type                     | [類型] 屬性底下`storeSettings`必須設為**SftpReadSetting**。 | 有                                           |
 | recursive                | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當遞迴設定為 true 且接收是檔案型存放區時，就不會在接收上複製或建立空的資料夾或子資料夾。 允許的值為 **true** (預設值) 和 **false**。 | 否                                            |
 | wildcardFolderPath       | 使用萬用字元來篩選來源資料夾的資料夾路徑。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。 <br>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 否                                            |
 | wildcardFileName         | 在給定篩選來源檔案 folderPath/wildcardFolderPath 萬用字元在檔名。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。  如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | [是] 如果`fileName`未指定資料集中 |
