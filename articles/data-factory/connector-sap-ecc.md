@@ -162,14 +162,14 @@ ms.locfileid: "62128112"
 
 | OData 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| Edm.Binary | 字串 |
+| Edm.Binary | String |
 | Edm.Boolean | Bool |
-| Edm.Byte | 字串 |
+| Edm.Byte | String |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
-| Edm.Guid | 字串 |
+| Edm.Guid | String |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
