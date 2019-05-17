@@ -1,6 +1,6 @@
 ---
-title: 了解您的 Azure Cosmos DB 帳單
-description: 此文章利用一些範例說明如何了解您的 Azure Cosmos DB 帳單。
+title: 瞭解您的 Azure Cosmos DB 帳單
+description: 此文章利用一些範例說明如何瞭解您的 Azure Cosmos DB 帳單。
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -14,13 +14,13 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "62115532"
 ---
-# <a name="understand-your-azure-cosmos-db-bill"></a>了解您的 Azure Cosmos DB 帳單
+# <a name="understand-your-azure-cosmos-db-bill"></a>瞭解您的 Azure Cosmos DB 帳單
 
-Azure Cosmos DB 是一個完全受控的雲端原生資料庫服務，透過只針對已佈建輸送量與已取用儲存體收費以簡化計費流程。 与本地或 IaaS 托管的替代方案相比，无需额外的许可费、硬件、使用成本或设施成本。 若想使用 Azure Cosmos DB 的多区域功能，与现有本地或 IaaS 解决方案相比，数据库服务可显着降低成本。
+Azure Cosmos DB 是一個完全受控的雲端原生資料庫服務，透過只針對已佈建輸送量與已取用儲存體收費以簡化計費流程。 與本地或 IaaS 託管的替代方案相比，無需額外的許可費、硬件、使用成本或設施成本。 若想使用 Azure Cosmos DB 的多區域功能，與現有本地或 IaaS 解決方案相比，數據庫服務可顯著降低成本。
 
 採用 Azure Cosmos DB 之後，系統會依時數向您收取已佈建輸送量與已取用儲存體的費用。 針對已佈建的輸送量，計費單位為每小時 100 RU/秒，每小時收費 $0.008，假設標準的公開定價，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。 針對已取用的儲存體，計費單位為每 1 GB 儲存體 $0.25，採月結方式每個月向您收取費用，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。 
 
-此文章使用一些範例協助您了解在每月帳單中看到的詳細資料。 如果您的 Azure Cosmos 容器佈建了不同數量的輸送量、跨越多個區域，或是在一個月的不同期間執行，實際數字可能會與範例中所示數字不一樣。
+此文章使用一些範例協助您瞭解在每月帳單中看到的詳細資料。 如果您的 Azure Cosmos 容器佈建了不同數量的輸送量、跨越多個區域，或是在一個月的不同期間執行，實際數字可能會與範例中所示數字不一樣。
 
 ## <a name="billing-examples"></a>計費範例
 
@@ -120,7 +120,7 @@ Azure Cosmos DB 是一個完全受控的雲端原生資料庫服務，透過只�
 
 ### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>計費範例︰具備多重主機、資料庫層級輸送量 (包含某些容器的專用輸送量模式) 的 Azure Cosmos 帳戶
 
-請看一下下面的範例，假設我們有一個所有區域都可寫入 (多重主機設定)的多重區域 Azure Cosmos 帳戶。 為了讓您容易了解，我們將假設儲存體大小維持不變，並在這裡略過它以便讓範例維持簡單易懂。 佈建的輸送量在整個月的變化 (假設為 30 天或 720 個小時) 為： 
+請看一下下面的範例，假設我們有一個所有區域都可寫入 (多重主機設定)的多重區域 Azure Cosmos 帳戶。 為了讓您容易瞭解，我們將假設儲存體大小維持不變，並在這裡略過它以便讓範例維持簡單易懂。 佈建的輸送量在整個月的變化 (假設為 30 天或 720 個小時) 為： 
 
 [0-100 小時]：  
 
@@ -258,12 +258,12 @@ Azure Cosmos DB 保留容量可讓您預先購買佈建的輸送量 (保留容�
 
 ## <a name="next-steps"></a>後續步驟
 
-接下來，您可以利用下列文章繼續了解 Azure Cosmos DB 中有關成本最佳化的詳細資訊：
+接下來，您可以利用下列文章繼續瞭解 Azure Cosmos DB 中有關成本最佳化的詳細資訊：
 
-* 深入了解 [Cosmos DB 定價模型如何為客戶提供符合成本效益的解決方案](total-cost-ownership.md)
-* 深入了解[最佳化開發與測試](optimize-dev-test.md)
-* 深入了解[最佳化輸送量成本](optimize-cost-throughput.md)
-* 深入了解[最佳化儲存體成本](optimize-cost-storage.md)
-* 深入了解[最佳化讀取和寫入的成本](optimize-cost-reads-writes.md)
-* 深入了解[最佳化查詢成本](optimize-cost-queries.md)
-* 深入了解[最佳化多重區域 Azure Cosmos 帳戶的成本](optimize-cost-regions.md)
+* 深入瞭解 [Cosmos DB 定價模型如何為客戶提供符合成本效益的解決方案](total-cost-ownership.md)
+* 深入瞭解[最佳化開發與測試](optimize-dev-test.md)
+* 深入瞭解[最佳化輸送量成本](optimize-cost-throughput.md)
+* 深入瞭解[最佳化儲存體成本](optimize-cost-storage.md)
+* 深入瞭解[最佳化讀取和寫入的成本](optimize-cost-reads-writes.md)
+* 深入瞭解[最佳化查詢成本](optimize-cost-queries.md)
+* 深入瞭解[最佳化多重區域 Azure Cosmos 帳戶的成本](optimize-cost-regions.md)
