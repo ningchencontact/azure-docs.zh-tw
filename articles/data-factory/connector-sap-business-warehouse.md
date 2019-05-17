@@ -61,7 +61,7 @@ ms.locfileid: "60309108"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SapBw** | 是 |
-| 伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
+| server | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
 | systemNumber | SAP BW 系統的系統編號。<br/>允許的值：以字串表示的二位數十進位數字。 | 是 |
 | clientId | SAP W 系統中用戶端的用戶端識別碼。<br/>允許的值：以字串表示的三位數十進位數字。 | 是 |
 | userName | 能夠存取 SAP 伺服器的使用者名稱。 | 是 |
@@ -184,7 +184,7 @@ ms.locfileid: "60309108"
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| 單位 | String |
+| UNIT | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |
