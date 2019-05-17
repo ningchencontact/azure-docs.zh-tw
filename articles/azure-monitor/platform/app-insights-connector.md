@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346723"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606736"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights Connector 管理解決方案 (取代)
 
@@ -49,12 +49,12 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 不同於大部分其他 Log Analytics 解決方案，代理程式不會收集 Application Insights Connector 的資料。 解決方案使用的所有資料直接來自於 Azure。
 
-| 連接的來源 | 支援 | 描述 |
+| 連接的來源 | 支援 | 說明 |
 | --- | --- | --- |
-| [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
-| [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
-| [SCOM 管理群組](../../azure-monitor/platform/om-agents.md) | 否 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
-| [Azure 儲存體帳戶](collect-azure-metrics-logs.md) | 否 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
+| [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 無 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
+| [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 無 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
+| [SCOM 管理群組](../../azure-monitor/platform/om-agents.md) | 無 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
+| [Azure 儲存體帳戶](collect-azure-metrics-logs.md) | 無 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -183,7 +183,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 屬性 | 描述 |
 | --- | --- |
-| 類型 | ApplicationInsights |
+| Type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | 記錄的時間 |
 | ApplicationId | Application Insights 應用程式的檢測金鑰 |
@@ -192,9 +192,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | DeviceType | 用戶端裝置 |
 | ScreenResolution |   |
 | Continent | 要求的起源洲 |
-| 國家 (地區) | 要求的起源國家/地區 |
-| Province | 要求的起源省、州或地區設定 |
-| City | 要求的起源城市或鄉鎮 |
+| 國家/地區 | 要求的起源國家/地區 |
+| 省份 | 要求的起源省、州或地區設定 |
+| 縣/市 | 要求的起源城市或鄉鎮 |
 | isSynthetic | 指出要求是由使用者或自動化方法建立。 True = 使用者產生，或 false = 自動化方法 |
 | SamplingRate | 由傳送至入口網站之 SDK 所產生的遙測百分比。 範圍 0.0-100.0。 |
 | SampledCount | 100/(SamplingRate)。 例如，4 =&gt; 25% |
@@ -207,7 +207,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="availability-specific-fields"></a>可用性專屬欄位
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | TelemetryType | 可用性 |
 | AvailabilityTestName | Web 測試的名稱 |
@@ -232,7 +232,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="exception-specific-fields"></a>例外狀況專屬欄位
 
-| 類型 | ApplicationInsights |
+| Type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | 例外狀況 |
 | ExceptionType | 例外狀況的類型 |
@@ -251,7 +251,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 屬性 | 描述 |
 | --- | --- |
-| 類型 | ApplicationInsights |
+| Type | ApplicationInsights |
 | TelemetryType | 要求 |
 | ResponseCode | 傳送至用戶端的 HTTP 回應 |
 | RequestSuccess | 指出成功或失敗。 True 或 False。 |

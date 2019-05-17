@@ -1,28 +1,26 @@
 ---
-title: Azure Cosmos DB Spark API 簡介
-description: 了解如何使用 Azure Cosmos DB Spark API 執行作業分析與 AI
+title: Azure Cosmos DB 中使用 Apache Spark 的內建作業分析簡介
+description: 了解如何在 Azure Cosmos DB 中使用 Apache Spark 內建支援執行作業分析與 AI
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 05/06/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: de920f40f2968942b7ac66414170b43bd9317cfb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 504f463f55edf1a22f99e1ba02449121e8bf5efc
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080016"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472267"
 ---
-# <a name="introduction-to-the-azure-cosmos-db-spark-api-preview"></a>Azure Cosmos DB Spark API 簡介 (預覽) 
+# <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Azure Cosmos DB 中使用 Apache Spark (預覽) 的內建作業分析 
 
-Azure Cosmos DB 中的 Spark API 可讓您從 Apache Spark 對 Azure Cosmos 帳戶中儲存的資料執行分析。
-
-Azure Cosmos DB 中的 Spark API 提供 Apache Spark 作業的原生支援，以直接在散佈全球的 Cosmos 資料庫上執行。 有了這些功能，開發人員、資料工程師和資料科學家可以使用 Azure Cosmos DB 作為有彈性、可擴充和高效能的資料平台，以執行 **OLTP 和 OLAP/HTAP** 工作負載。 
+Azure Cosmos DB 中的 Apache Spark 內建支援可讓您從 Apache Spark 對 Azure Cosmos 帳戶中儲存的資料執行分析。 它會提供 Apache Spark 作業的原生支援，以直接在散佈全球的 Cosmos 資料庫上執行。 有了這些功能，開發人員、資料工程師和資料科學家可以使用 Azure Cosmos DB 作為有彈性、可擴充和高效能的資料平台，以執行 **OLTP 和 OLAP/HTAP** 工作負載。 
 
 > [!NOTE]
-> Azure Cosmos DB Spark API 目前以有限預覽形式提供。 若要註冊預覽版，請巡覽至[註冊預覽版](https://aka.ms/cosmos-spark-preview)頁面。 
+> Azure Cosmos DB 中的 Apache Spark 內建支援目前以有限預覽形式提供。 若要註冊預覽版，請巡覽至[註冊預覽版](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB)頁面。 
 
-Azure Cosmos DB 中的 Spark API 提供下列優點：
+Azure Cosmos DB 中的 Apache Spark 支援提供下列優點：
 
 * 您可以最快的速度深入了解分散各地的使用者和資料。
 
@@ -32,13 +30,13 @@ Azure Cosmos DB 中的 Spark API 提供下列優點：
 
 * 提供由嚴苛 SLA 所支援的「持續上線」或[高可用性](high-availability.md)使用者分析。
 
-![Azure Cosmos DB Spark API 視覺效果](./media/spark-api-introduction/spark-api-visualization.png)
+![Azure Cosmos DB 中的 Apache Spark 支援視覺效果](./media/spark-api-introduction/spark-api-visualization.png)
  
-您可以使用 Azure Cosmos DB Spark API 建置及部署解決方案，例如 AI 和深度學習模型、預測性分析、建議、IoT、Customer 360、詐騙偵測、文字情感、點擊流分析。 這些直接對您的 Azure Cosmos DB 資料。
+您可以使用 Azure Cosmos DB 中的 Apache Spark 支援建置及部署解決方案，例如 AI 和深度學習模型、預測性分析、建議、IoT、Customer 360、詐騙偵測、文字情感、點擊流分析。 這些解決方案直接對您的 Azure Cosmos DB 資料運作。
 
 您可以在 Azure Cosmos DB 中設定批次和串流 ETL 作業，而不需離開資料庫服務，或新增其他計算服務。 當您需要執行 ETL 作業時，您可以彈性擴充計算環境，並在作業完成時將計算環境相應縮小。
 
-Azure Cosmos DB 中的 Spark API 在 Apache Spark 執行階段支援內建 Machine Learning 支援。 執行階段包括 Spark MLLib、適用於 Spark 的 Microsoft Machine Learning、Azure Machine Learning 和認知服務。 透過這些功能，資料科學家、資料工程師和資料分析師可以直接在 Azure Cosmos DB 內建置和實作機器學習模型，而此花費更少時間和更低成本。
+Azure Cosmos DB 中的 Apache Spark 支援在 Apache Spark 執行階段提供內建 Machine Learning 支援。 執行階段包括 Spark MLLib、適用於 Spark 的 Microsoft Machine Learning、Azure Machine Learning 和認知服務。 透過這些功能，資料科學家、資料工程師和資料分析師可以直接在 Azure Cosmos DB 內建置和實作機器學習模型，而此花費更少時間和更低成本。
 
 
 ## <a name="key-benefits"></a>主要權益
@@ -57,7 +55,7 @@ Azure Cosmos DB 中的 Spark API 在 Apache Spark 執行階段支援內建 Machi
 
 Azure Cosmos DB 為多模型資料庫，現在透過索引鍵值、文件、圖形、資料行系列資料模型提供**統一的 Apache Spark 無伺服器體驗**，進而擴充其 OSS API 支援。 使用 MongoDB、Cassandra、Gremlin、Etcd 和 SQL API 支援不同的資料模型 - 全都在相同的基礎資料上運作。 
 
-使用 Spark API 時，您可以原生方式支援以 Scala、Python、Java 撰寫的應用程式，以及使用數個適用於 SQL 且緊密整合的程式庫。 這些程式庫包括 ([Spark SQL](https://spark.apache.org/sql/))、機器學習 (Spark [MLlib](https://spark.apache.org/mllib/))、串流處理 ([Spark 結構化串流](https://spark.apache.org/streaming/))，以及圖形處理 (Spark [GraphFrames]( https://docs.databricks.com/spark/latest/graph-analysis/graphframes/user-guide-python.html))。 這些工具可讓您更輕鬆地將 Spark API 運用於各種使用案例。 您不必處理 Spark 或 Spark 叢集的管理。 您可以使用熟悉的 Apache Spark API 和 **Jupyter Notebook** 進行分析，以及使用 SQL API 或任何 OSS NoSQL API (如 Cassandra ) 同時對相同的基礎資料進行交易處理。
+使用 Azure Cosmos DB 中的 Apache Spark 支援時，您可以原生方式支援以 Scala、Python、Java 撰寫的應用程式，以及使用數個適用於 SQL 且緊密整合的程式庫。 這些程式庫包括 ([Spark SQL](https://spark.apache.org/sql/))、機器學習 (Spark [MLlib](https://spark.apache.org/mllib/))、串流處理 ([Spark 結構化串流](https://spark.apache.org/streaming/))，以及圖形處理 (Spark [GraphFrames]( https://docs.databricks.com/spark/latest/graph-analysis/graphframes/user-guide-python.html))。 這些工具可讓您更輕鬆地將 Apache Spark 運用於各種使用案例。 您不必處理 Spark 或 Spark 叢集的管理。 您可以使用熟悉的 Apache Spark API 和 **Jupyter Notebook** 進行分析，以及使用 SQL API 或任何 OSS NoSQL API (如 Cassandra ) 同時對相同的基礎資料進行交易處理。
 
 ### <a name="no-schema-or-index-management"></a>不需要任何結構描述或索引管理
 

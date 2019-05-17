@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: dekapur
-ms.openlocfilehash: 5657ac9f10c42c2201641c9af447b7ad2e6a3507
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 99882bd23d7b94afc550247172e5b70deb23bec9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079011"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791387"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure 容器執行個體相關的常見問題集
 
@@ -77,7 +77,7 @@ Azure 容器執行個體的目標是為無伺服器的隨選容器服務，因�
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>ACI 何時可以在特定區域？
 
-發行目前的區域可用性[此處](container-instances-region-availability.md#availability---general)，以及最新狀態資訊是否可透過[清單功能](/rest/api/container-instances/listcapabilities)API。 如果您有特定區域的需求，請連絡 Azure 支援。
+發行目前的區域可用性[此處](container-instances-region-availability.md#availability---general)。 如果您有特定區域的需求，請連絡 Azure 支援。
 
 ## <a name="features-and-scenarios"></a>功能和案例
 

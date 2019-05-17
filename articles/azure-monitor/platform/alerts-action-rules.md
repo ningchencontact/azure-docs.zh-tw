@@ -8,25 +8,28 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227986"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620008"
 ---
 # <a name="action-rules-preview"></a>動作規則 （預覽）
 
-這篇文章描述動作的規則是什麼，以及如何設定和管理方式。
-
-## <a name="what-are-action-rules"></a>什麼是動作規則？
-
 動作規則可讓您在任何 Resource Manager 範圍 （訂用帳戶、 資源群組或資源） 定義動作 （或隱藏項目之動作）。 它們有各種不同的篩選器可讓您縮小至您想要在處理的警示執行個體的特定子集。 
 
-您可以使用動作的規則：
+## <a name="why-and-when-should-you-use-action-rules"></a>為何和何時應該使用動作規則？
 
-* 如果您已規劃的維護期間或週末/假日，而不需要停用每個警示規則個別，隱藏動作和通知。
-* 定義動作和大規模的通知：不需要定義個別針對每個警示的規則動作群組，您現在可以定義在任何範圍所產生的警示觸發的動作群組。 比方說，我可以選擇將動作群組 'ContosoActionGroup' 觸發程序來產生我的訂用帳戶內的每個警示。
+### <a name="suppression-of-alerts"></a>警示的隱藏項目
+
+通常有許多案例，其中會有用來抑制警示，以隱藏項目在非上班時間範圍從隱藏項目計劃的維護期間所產生的通知。 比方說，負責 'ContosoVM' 團隊想要隱藏的警示通知即將推出的週末，因為 'ContosoVM' 正在進行規劃的維護。 雖然可以停用每個警示規則，以手動方式設定上 'ContosoVM' （和重新啟用它張貼維護），它不是簡單的體驗。 動作規則可讓您能夠彈性地設定隱藏項目定義大規模的警示歸併。 回到前一個範例，小組現在可以定義會抑制所有的警示通知週末的 'ContosoVM' 上的一項動作規則。
+
+
+### <a name="actions-at-scale"></a>大規模的動作
+
+警示規則可讓您定義的觸發程序時，會產生警示的動作群組，雖然客戶通常通常會在其作業的範圍都具有一般的動作群組。 例如，小組負責的資源群組 'ContosoRG' 將可能會定義相同的動作群組 'ContosoRG' 中定義的所有警示規則。 動作規則可讓您簡化這個程序可讓您定義動作大規模的情況下，如此可針對已設定的領域上產生任何警示觸發的動作群組。 回到前一個範例，小組現在可以定義 'ContosoRG' 將會觸發相同的動作群組，其內所產生的所有警示的上一個動作規則。
+
 
 ## <a name="configuring-an-action-rule"></a>設定動作規則
 

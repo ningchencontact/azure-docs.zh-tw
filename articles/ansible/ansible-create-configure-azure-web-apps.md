@@ -1,36 +1,47 @@
 ---
-title: 使用 Ansible 建立 Azure Web Apps
-description: 深入了解如何使用 Ansible 建立在 Linux 上的 App Service 中具有 Java 8 和 Tomcat 容器執行階段的 Web Apps
-ms.service: azure
+title: 教學課程 - 使用 Ansible 在 Azure App Service 中設定應用程式 | Microsoft Docs
+description: 了解如何在 Azure App Service 中建立具有 Java 8 和 Tomcat 容器執行階段的應用程式
 keywords: ansible、azure、devops、bash、劇本、Azure App Service、Web App、Java
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/08/2018
-ms.openlocfilehash: 5f67a9f7d629eec9ab1462a25940355869c1cd28
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: aed09baf410ce25f2e5383aa746344a440e2a052
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791217"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231233"
 ---
-# <a name="create-azure-app-service-web-apps-by-using-ansible"></a>使用 Ansible 建立 Azure App Service Web Apps
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (或簡稱 Web Apps) 可裝載 Web 應用程式、REST API 和行動後端。 您可以使用您慣用的語言進行開發&mdash;.NET、.NET Core、Java、Ruby、Node.js、PHP 或 Python 均可。
+# <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>教學課程：使用 Ansible 在 Azure App Service 中設定應用程式
 
-Ansible 可讓您將環境中的資源部署和設定自動化。 本文說明如何使用 Ansible 和 Java 執行階段來建立 Web 應用程式。 
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-app-service.md](../../includes/open-source-devops-intro-app-service.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * 在 Azure App Service 中建立具有 Java 8 和 Tomcat 容器執行階段的應用程式
+> * 建立 Azure 流量管理員設定檔
+> * 使用已建立的應用程式定義流量管理員端點
 
 ## <a name="prerequisites"></a>必要條件
-- **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> 必須使用 Ansible 2.7，才能執行此教學課程中的下列範例劇本。
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-a-simple-app-service"></a>建立簡單的 App Service
-本節提供會定義下列資源的範例 Ansible 腳本：
-- 資源群組，這是您 App Service 方案和 Web 應用程式的部署目標
-- 在 Linux 上的 App Service 中具有 Java 8 和 Tomcat 容器執行階段的 Web 應用程式
+## <a name="create-a-basic-app-service"></a>建立基本應用程式服務
+
+本節中的劇本程式碼會定義下列資源︰
+
+* 在其中部署 App Service 方案和應用程式的 Azure 資源群組
+* Linux 上具有 Java 8 和 Tomcat 容器執行階段的應用程式服務
+
+請下列腳本儲存為 `firstwebapp.yml`：
 
 ```yml
 - hosts: localhost
@@ -63,46 +74,49 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 本文說明�
               java_container: tomcat
               java_container_version: 8.5
 ```
-將上述劇本儲存為 **firstwebapp.yml**。
 
-若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+使用 `ansible-playbook` 命令執行劇本：
+
 ```bash
 ansible-playbook firstwebapp.yml
 ```
 
-執行 Ansible 劇本後的輸出會顯示已成功建立 Web 應用程式：
+執行劇本後，您會看到類似下列結果的輸出：
 
 ```Output
-PLAY [localhost] *************************************************
+PLAY [localhost] 
 
-TASK [Gathering Facts] *************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Create a resource group] *************************************************
+TASK [Create a resource group] 
 changed: [localhost]
 
-TASK [Create App Service on Linux with Java Runtime] *************************************************
+TASK [Create App Service on Linux with Java Runtime] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 changed: [localhost]
 
-PLAY RECAP *************************************************
+PLAY RECAP 
 localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ```
 
-## <a name="create-an-app-service-by-using-traffic-manager"></a>具有流量管理員建立 App Service
-您可以使用 [Azure 流量管理員](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager)，來控制如何將來自 Web 用戶端的要求分散至 Azure App Service 中的應用程式。 App Service 端點新增至 Azure 流量管理員設定檔後，流量管理員會追蹤您 App Service 應用程式的狀態。 這些狀態包括執行中、已停止和已刪除。 接著，流量管理員即可決定其中哪些端點應接收流量。
+## <a name="create-an-app-and-use-azure-traffic-manager"></a>建立應用程式並使用 Azure 流量管理員
 
-在 App Service 中，應用程式會在 [App Service 方案](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
-)中執行。 App Service 方案會針對要執行的 Web 應用程式定義一組計算資源。 您可以在不同的群組中管理 App Service 方案和 Web 應用程式。
+[Azure 流量管理員](/azure/app-service/web-sites-traffic-manager)可讓您控制如何將來自 Web 用戶端的要求分散至 Azure App Service 中的應用程式。 App Service 端點新增至 Azure 流量管理員設定檔後，流量管理員會追蹤您 App Service 應用程式的狀態。 這些狀態包括執行中、已停止和已刪除。 流量管理員可用來決定哪些端點應接收流量。
 
-本節提供會定義下列資源的範例 Ansible 腳本：
-- 資源群組，這是您 App Service 方案的部署目標
-- App Service 方案
-- 次要資源群組，這是您 Web 應用程式的部署目標
-- 在 Linux 上的 App Service 中具有 Java 8 和 Tomcat 容器執行階段的 Web 應用程式
-- 流量管理員設定檔
-- 流量管理員端點，使用已建立的網站
+在 App Service 中，應用程式會在 [App Service 方案](/azure/app-service/overview-hosting-plans)中執行。 App Service 方案會針對要執行的應用程式定義一組計算資源。 您可以在不同的群組中管理 App Service 方案和 Web 應用程式。
+
+本節中的劇本程式碼會定義下列資源︰
+
+* 在其中部署 App Service 方案的 Azure 資源群組
+* App Service 方案
+* 在其中部署應用程式的 Azure 資源群組
+* Linux 上具有 Java 8 和 Tomcat 容器執行階段的應用程式服務
+* 流量管理員設定檔
+* 使用已建立的應用程式的流量管理員端點
+
+請下列腳本儲存為 `webapp.yml`：
 
 ```yml
 - hosts: localhost
@@ -184,52 +198,54 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
       location: "{{ location }}"
       target_resource_id: "{{ webapp.webapps[0].id }}"
 ```
-將上述劇本儲存為 **webapp.yml**，或[下載劇本](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml)。
 
-若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
+使用 `ansible-playbook` 命令執行劇本：
+
 ```bash
 ansible-playbook webapp.yml
 ```
 
-執行 Ansible 劇本後的輸出會顯示已成功建立 App Service 方案、Web 應用程式、流量管理員設定檔及端點：
-```Output
-PLAY [localhost] *************************************************
+執行劇本後，您會看到類似下列結果的輸出：
 
-TASK [Gathering Facts] *************************************************
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Create resource group] ****************************************************************************
+TASK [Create resource group] 
 changed: [localhost]
 
-TASK [Create resource group for app service plan] ****************************************************************************
+TASK [Create resource group for app service plan] 
 changed: [localhost]
 
-TASK [Create App Service Plan] ****************************************************************************
+TASK [Create App Service Plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 changed: [localhost]
 
-TASK [Create App Service on Linux with Java Runtime] ****************************************************************************
+TASK [Create App Service on Linux with Java Runtime] 
 changed: [localhost]
 
-TASK [Get web app facts] *****************************************************************************
+TASK [Get web app facts] 
 ok: [localhost]
 
-TASK [Create Traffic Manager Profile] *****************************************************************************
+TASK [Create Traffic Manager Profile] 
  [WARNING]: Azure API profile latest does not define an entry for TrafficManagerManagementClient
 
 changed: [localhost]
 
-TASK [Add endpoint to traffic manager profile, using the web site created above] *****************************************************************************
+TASK [Add endpoint to traffic manager profile, using the web site created above] 
 changed: [localhost]
 
-TASK [Get Traffic Manager Profile facts] ******************************************************************************
+TASK [Get Traffic Manager Profile facts] 
 ok: [localhost]
 
-PLAY RECAP ******************************************************************************
+PLAY RECAP 
 localhost                  : ok=9    changed=6    unreachable=0    failed=0
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 > [!div class="nextstepaction"] 
-> [使用 Ansible 調整 Azure App Service Web Apps 的規模](https://docs.microsoft.com/azure/ansible/ansible-scale-azure-web-apps)
+> [教學課程：使用 Ansible 調整 Azure App Service 中的應用程式](/azure/ansible/ansible-scale-azure-web-apps)

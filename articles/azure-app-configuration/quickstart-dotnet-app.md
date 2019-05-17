@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 33deea0805ffa89bcc6a64f34a97a4e080690da9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: acf1608257bc5416ff52ed9fbd4209008712f2d7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008812"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408699"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 .NET Framework 應用程式
 
@@ -37,7 +37,7 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 選取 [索引鍵/值總管]  >  [+ 建立] 來新增下列索引鍵/值組：
+6. 選取 [組態總管]  >  [+ 建立] 來新增下列索引鍵/值組：
 
     | Key | 值 |
     |---|---|

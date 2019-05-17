@@ -12,14 +12,16 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3ce20b56fc2cbebbed4b525eeccc2c12d14cccc3
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406554"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556236"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
+
+身為開發人員，您可以使用媒體服務 [REST API](https://aka.ms/ams-v3-rest-ref)，或是可讓您與 REST API 互動的用戶端程式庫，輕鬆建立、管理及維護自訂媒體工作流程。 [媒體服務 v3](https://aka.ms/ams-v3-rest-sdk) API 以 OpenAPI 規格 (先前稱為 Swagger) 作為基礎。
 
 這篇文章會討論使用媒體服務 v3 進行開發時套用至實體和 Api 的規則。
 
@@ -98,6 +100,32 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 * 停止 StreamingEndpoint
 * 調整 StreamingEndpoint
 
+
+## <a name="sdks"></a>SDK
+
+> [!NOTE]
+> Azure 媒體服務 v3 SDK 不一定是安全執行緒。 在開發多執行緒應用程式時，您應新增本身的執行緒同步處理邏輯以保護用戶端，或為每個執行緒使用新的 AzureMediaServicesClient 物件。 您也應留意程式碼提供給用戶端 (例如 .NET 中的 HttpClient 執行個體) 的選擇性物件所引起的多執行緒處理問題。
+
+|SDK|參考|
+|---|---|
+|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET 參考](https://aka.ms/ams-v3-dotnet-ref)|
+|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java 參考](https://aka.ms/ams-v3-java-ref)|
+|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python 參考](https://aka.ms/ams-v3-python-ref)|
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js 參考](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go 參考](https://aka.ms/ams-v3-go-ref)|
+|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+
+### <a name="see-also"></a>請參閱
+
+- [包含媒體服務事件的 EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [媒體服務事件的定義](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+
+## <a name="azure-media-services-explorer"></a>Azure 媒體服務總管
+
+[Azure 媒體服務總管](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) 是想要了解媒體服務的 Windows 客戶可用的工具。 AMSE 是 Winforms/C# 應用程式，可利用媒體服務上傳、下載、編碼、串流 VOD 和即時內容。 AMSE 工具適用於想要測試媒體服務，而不要撰寫任何程式碼的用戶端。 AMSE 程式碼會當作資源提供給想要使用媒體服務開發的客戶。
+
+AMSE 是一個開放原始碼專案，由社群提供支援 (可將問題回報給 https://github.com/Azure/Azure-Media-Services-Explorer/issues)。 此專案採用 [Microsoft 開放原始碼管理辦法](https://opensource.microsoft.com/codeofconduct/)。 如需詳細資訊，請參閱[管理辦法常見問題集](https://opensource.microsoft.com/codeofconduct/faq/)，如有任何其他問題或意見請連絡 opencode@microsoft.com。
+
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>媒體服務實體的篩選、排序、分頁
 
 請參閱[篩選、 排序、 分頁的 Azure 媒體服務實體](entities-overview.md)
@@ -108,4 +136,7 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 
 ## <a name="next-steps"></a>後續步驟
 
-[開始使用媒體服務 v3 API 使用 Sdk/工具進行開發](developers-guide.md)
+* [連接到使用 Java 的媒體服務](configure-connect-java-howto.md)
+* [連接到使用.NET 的媒體服務](configure-connect-dotnet-howto.md)
+* [連線到媒體服務搭配 Node.js](configure-connect-nodejs-howto.md)
+* [連線到媒體服務，使用 Python](configure-connect-python-howto.md)

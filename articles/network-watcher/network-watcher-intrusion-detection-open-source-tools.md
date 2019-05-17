@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: e1b0e49dcc69a7458c22b859df1a4721342f0728
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730154"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605712"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>使用網路監看員和開放原始碼工具執行網路入侵偵測
 
@@ -255,7 +255,7 @@ tail -f /var/log/suricata/fast.log
 
 範例儀表板會提供 Suricata 警示記錄的數個視覺效果︰
 
-1. 依 GeoIP 發佈警示 –根據地理位置 (由 IP 判斷) 依其國家/地區顯示警示分佈的地圖
+1. 依 geoip 發佈-依地理位置 （由 IP 判斷） 為基礎的原始其國家/地區顯示警示分佈的對應警示
 
     ![地理 IP][3]
 

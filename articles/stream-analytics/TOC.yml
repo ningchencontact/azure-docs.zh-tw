@@ -34,6 +34,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: 概念
   items:
+    - name: 選擇串流分析技術
+      href: streaming-technologies.md
     - name: 作業的輸入類型
       items:
         - name: 輸入概觀

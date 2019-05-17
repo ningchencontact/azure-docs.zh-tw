@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e992aae17f1217803b411a49c5d942efc501fbdc
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386817"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606987"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -41,7 +41,7 @@ ms.locfileid: "60386817"
 |CrlCheckingFlag|單位，預設值為 0x40000000 |動態| 應用程式/服務信任鏈結驗證旗標，例如 CRL 檢查 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單： https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |以秒為單位的時間。 預設值為 120 |動態|以秒為單位指定時間範圍。  針對在 http 應用程式閘道中所處理的 http 要求提供預設要求逾時。 |
 |ForwardClientCertificate|布林值，預設值為 FALSE|動態|當設為 false 時，反向 Proxy 將不會要求用戶端憑證。當設為 true 時，則反向 Proxy 將會在 SSL 交換期間要求用戶端憑證，並將採用 Base 64 編碼的 PEM 格式字串轉送至名為 X-Client-Certificate 標頭中的服務。這個服務在檢查憑證資料之後，可能會讓要求失敗，並包含適當的狀態碼。 如果為 true 且用戶端未出示憑證，反向 Proxy 會轉送空白標頭，以讓服務處理這種情況。 反向 Proxy 將作為透明圖層。 若要深入了解，請參閱[設定用戶端憑證驗證](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)。 |
-|GatewayAuthCredentialType |字串，預設值為 "None" |靜態| 表示要在 http 應用程式閘道端點使用的安全性認證類型。有效值為 "None/X509。 |
+|GatewayAuthCredentialType |字串，預設值為 "None" |靜態| 表示要在 http 應用程式閘道端點有效的值中使用的安全性認證類型為 None / X509。 |
 |GatewayX509CertificateFindType |字串，預設值為 "FindByThumbprint" |動態| 指出如何搜尋以下列 GatewayX509CertificateStoreName 支援值指定之存放區中的憑證︰FindByThumbprint、FindBySubjectName。 |
 |GatewayX509CertificateFindValue | 字串，預設值為 "" |動態| 搜尋用來找出 http 應用程式閘道憑證的篩選值。 此憑證設定於 https 端點上，如果服務需要，也可用來驗證應用程式的身分識別。 首先會查閱 FindValue，如果不存在，則會查閱 FindValueSecondary。 |
 |GatewayX509CertificateFindValueSecondary | 字串，預設值為 "" |動態|搜尋用來找出 http 應用程式閘道憑證的篩選值。 此憑證設定於 https 端點上，如果服務需要，也可用來驗證應用程式的身分識別。 首先會查閱 FindValue，如果不存在，則會查閱 FindValueSecondary。|
@@ -128,13 +128,13 @@ ms.locfileid: "60386817"
 |AppDiagnosticStoreAccessRequiresImpersonation |布林值，預設值為 true | 動態 |在代表應用程式存取診斷存放區時是否需要模擬。 |
 |AppEtwTraceDeletionAgeInDays |整數，預設值為 3 | 動態 |天數，在此時間過後便會刪除含有應用程式 ETW 追蹤的舊有 ETL 檔案。 |
 |ApplicationLogsFormatVersion |整數，預設值為 0 | 動態 |應用程式記錄格式的版本。 支援的值為 0 和 1。 版本 1 所包含的 ETW 事件記錄欄位比版本 0 多。 |
-|ClusterId |String | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
-|ConsumerInstances |String | 動態 |DCA 取用者執行個體的清單。 |
+|ClusterId |字串 | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
+|ConsumerInstances |字串 | 動態 |DCA 取用者執行個體的清單。 |
 |DiskFullSafetySpaceInMB |整數，預設值為 1024 | 動態 |要防止 DCA 使用的剩餘磁碟空間 (MB)。 |
 |EnableCircularTraceSession |布林值，預設值為 false | 靜態 |旗標會指出是否應使用循環追蹤工作階段。 |
 |EnableTelemetry |布林值，預設值為 true | 動態 |這會用來啟用或停用遙測。 |
 |MaxDiskQuotaInMB |整數，預設值為 65536 | 動態 |Windows Fabric 記錄檔的磁碟配額 (MB)。 |
-|ProducerInstances |String | 動態 |DCA 產生者執行個體的清單。 |
+|ProducerInstances |字串 | 動態 |DCA 產生者執行個體的清單。 |
 
 ## <a name="dnsservice"></a>DnsService
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
@@ -313,7 +313,7 @@ ms.locfileid: "60386817"
 |MaxPercentDeltaUnhealthyNodes|整數，預設值為 10|靜態|叢集升級健康狀態評估原則︰要讓叢集被評估為狀況良好所允許的差異狀況不良節點百分比上限 |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|整數，預設值為 15|靜態|叢集升級健康狀態評估原則︰要讓叢集被評估為狀況良好所允許的升級網域中狀況不良節點差異百分比上限 |
 
-## <a name="hosting"></a>裝載
+## <a name="hosting"></a>裝載中
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
@@ -484,7 +484,7 @@ ms.locfileid: "60386817"
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|Counters |String | 動態 |要收集之效能計數器的逗號分隔清單。 |
+|Counters |字串 | 動態 |要收集之效能計數器的逗號分隔清單。 |
 |IsEnabled |布林值，預設值為 true | 動態 |旗標會指出是否啟用本機節點的效能計數器收集。 |
 |MaxCounterBinaryFileSizeInMB |整數，預設值為 1 | 動態 |每個效能計數器之二進位檔案的大小上限 (MB)。 |
 |NewCounterBinaryFileCreationIntervalInMinutes |整數，預設值為 10 | 動態 |間隔上限 (秒)，在此時間過後便會建立新的效能計數器二進位檔案。 |
@@ -533,7 +533,7 @@ ms.locfileid: "60386817"
 |PlacementConstraintValidationCacheSize | 整數，預設值為 10000 |動態| 用來進行快速驗證和快取放置條件約束運算式的資料表大小限制。 |
 |PlacementSearchTimeout | 時間 (秒)，預設值為 0.5 |動態| 以秒為單位指定時間範圍。 在放置服務時，至少搜尋這麼長的時間再傳回結果。 |
 |PLBRefreshGap | 時間 (秒)，預設值為 1 |動態| 以秒為單位指定時間範圍。 定義在 PLB 再次重新整理狀態之前，必須經過的時間量下限。 |
-|PreferredLocationConstraintPriority | 整數，預設值為 2| 動態|決定慣用位置條件約束的優先順序︰0︰硬式、1︰軟式、2︰最佳化、負數：略過 |
+|PreferredLocationConstraintPriority | 整數，預設值為 2| 動態|決定慣用位置條件約束的優先順序︰0︰硬式、1︰軟式、2︰最佳化、負數：忽略 |
 |PreferUpgradedUDs|布林值，預設值為 TRUE|動態|開啟或關閉偏好移至已升級之 UD 的邏輯。|
 |PreventTransientOvercommit | 布林值，預設值為 false | 動態|決定 PLB 是否應立即計算所起始之移動將釋放的資源。 根據預設，PLB 可以在相同節點上起始移出和移入，以便能建立暫時性的過量使用。 將此參數設為 true 將會避免這類過量使用，且會停用隨選重組 (也稱為 placementWithMove)。 |
 |ScaleoutCountConstraintPriority | 整數，預設值為 0 |動態| 決定向外擴充計數條件約束的優先順序︰0︰硬式、1︰軟式、負數︰忽略。 |
@@ -804,11 +804,11 @@ ms.locfileid: "60386817"
 | --- | --- | --- | --- |
 |ContainerNetworkName|字串，預設值為 ""| 靜態 |要在設定容器網路時使用的網路名稱。|
 |ContainerNetworkSetup|布林值，預設值為 FALSE| 靜態 |是否要設定容器網路。|
-|FabricDataRoot |String | 不允許 |Service Fabric 資料的根目錄。 預設為 Azure d:\svcfab |
-|FabricLogRoot |String | 不允許 |Service Fabric 記錄的根目錄。 這是放置 SF 記錄和追蹤的位置。 |
+|FabricDataRoot |字串 | 不允許 |Service Fabric 資料的根目錄。 預設為 Azure d:\svcfab |
+|FabricLogRoot |字串 | 不允許 |Service Fabric 記錄的根目錄。 這是放置 SF 記錄和追蹤的位置。 |
 |NodesToBeRemoved|字串，預設值為 ""| 動態 |應在設定升級過程中移除的節點。 (僅適用於獨立部署)|
-|ServiceRunAsAccountName |String | 不允許 |用來執行網狀架構主機服務的帳戶名稱。 |
-|SkipContainerNetworkResetOnReboot|布林值，預設值為 FALSE|NotAllowed|是否在重新開機時跳過重設容器網路。|
+|ServiceRunAsAccountName |字串 | 不允許 |用來執行網狀架構主機服務的帳戶名稱。 |
+|SkipContainerNetworkResetOnReboot|布林值，預設值為 FALSE|不允許|是否在重新開機時跳過重設容器網路。|
 |SkipFirewallConfiguration |布林值，預設值為 false | 不允許 |指定是否需要由系統設定防火牆設定。 這只有當您使用 Windows 防火牆時才適用。 如果您使用協力廠商防火牆，則您必須開啟要供系統和應用程式使用的連接埠 |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService

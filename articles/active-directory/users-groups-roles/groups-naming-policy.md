@@ -1,5 +1,5 @@
 ---
-title: 強制執行群組命名原則-Office 365 群組-Azure Active Directory |Microsoft Docs
+title: 強制執行群組命名原則，在 Office 365 群組-Azure Active Directory |Microsoft Docs
 description: 如何在 Azure Active Directory 中設定 Office 365 群組的命名原則 (預覽)
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 846eb3a43955fe05531f619869878b3978ad5b9d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690248"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605560"
 ---
-# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>強制執行命名原則的 Azure Active Directory 中的 Office 365 群組
+# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>強制執行命名原則，在 Azure Active Directory 中的 Office 365 群組
 
 若要對使用者所建立或編輯的 Office 365 群組強制執行一致的命名慣例，請在 Azure Active Directory (Azure AD) 中為租用戶設定群組命名原則。 例如，您可以使用命名原則來傳達群組的功能、成員資格、地理區域或群組的建立者。 您也可以使用命名原則將通訊錄中的群組分類。 您可以使用原則來防止群組名稱和別名中使用特定字組。
 
@@ -74,9 +74,9 @@ ms.locfileid: "64690248"
 - 合作夥伴第 1 層支援
 - 合作夥伴第 2 層支援
 - 使用者管理員
-- 目錄寫入器
+- 目錄撰寫者
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>設定群組命名原則的租用戶使用 Azure 入口網站 （預覽）
+## <a name="configure-naming-policy-in-azure-portal-preview"></a>在 Azure 入口網站 （預覽） 中設定命名原則
 
 1. 使用使用者管理員帳戶登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
 1. 選取 **群組**，然後選取**命名原則**以開啟 命名原則 頁面。
@@ -90,7 +90,7 @@ ms.locfileid: "64690248"
 1. 從清單中移除前置詞或後置詞，選取 前置詞或後置字元，然後選取**刪除**。 在此同時，可以刪除多個項目。
 1. 儲存您的變更生效所選取新的原則**儲存**。
 
-### <a name="view-or-edit-the-custom-blocked-words"></a>檢視或編輯自訂封鎖字組
+### <a name="edit-custom-blocked-words"></a>編輯自訂封鎖字組
 
 1. 在 **命名原則**頁面上，選取**封鎖字組**。
 
@@ -100,35 +100,36 @@ ms.locfileid: "64690248"
 1. 選取 [檔案] 圖示來上傳新的自訂封鎖字組清單。
 1. 儲存您的變更生效所選取新的原則**儲存**。
 
-## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>安裝 PowerShell Cmdlet 來設定命名原則
+## <a name="install-powershell-cmdlets"></a>安裝 PowerShell Cmdlet
 
 請務必要將 Windows PowerShell 的任何舊版 Azure Active Directory PowerShell for Graph 模組解除安裝，並安裝 [Azure Active Directory PowerShell for Graph - 公開預覽版本 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)，然後才執行 PowerShell 命令。
 
 1. 以系統管理理員身分開啟 Windows PowerShell 應用程式。
 2. 將任何舊版的 AzureADPreview 解除安裝。
   
-   ```powershell
+   ``` PowerShell
    Uninstall-Module AzureADPreview
    ```
 
 3. 安裝最新版的 AzureADPreview。
   
-   ```powershell
+   ``` PowerShell
    Install-Module AzureADPreview
    ```
 
    如果系統提示您有關存取不受信任的存放庫，請輸入**Y**。新模組可能需要幾分鐘的時間才能安裝完成。
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>使用 Azure AD PowerShell 設定租用戶的群組命名原則
+## <a name="configure-naming-policy-in-powershell"></a>在 PowerShell 中設定命名原則
 
 1. 在電腦上開啟 Windows PowerShell 視窗。 不需較高的權限即可將它開啟。
 
 1. 執行下列命令，以準備執行 Cmdlet。
   
-   ```powershell
+   ``` PowerShell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
+
    在所開啟的 [登入帳戶] 畫面中，輸入系統管理員帳戶和密碼以連線到服務，然後選取 [登入]。
 
 1. 請遵循[用於進行群組設定的 Azure Active Directory Cmdlet](groups-settings-cmdlets.md) 中的步驟，建立此租用戶的群組設定。
@@ -137,13 +138,13 @@ ms.locfileid: "64690248"
 
 1. 擷取目前的命名原則，以檢視目前的設定。
   
-   ```powershell
+   ``` PowerShell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
   
 1. 顯示目前的群組設定。
   
-   ```powershell
+   ``` PowerShell
    $Setting.Values
    ```
   
@@ -151,38 +152,38 @@ ms.locfileid: "64690248"
 
 1. 在 Azure AD PowerShell 中設定群組名稱前置詞和後置詞。 設定中必須包含 [GroupName]，此功能才能正常運作。
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
   
 1. 設定想要限制的自訂封鎖字組。 下列範例說明如何新增自己的自訂字組。
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
 1. 儲存新的原則生效，例如在下列範例中的設定。
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
 就這麼簡單。 您已設定命名原則並新增封鎖字組。
 
-## <a name="export-or-import-the-list-of-custom-blocked-words-using-azure-ad-powershell"></a>匯出或匯入使用 Azure AD PowerShell 的自訂封鎖字組的清單
+## <a name="export-or-import-custom-blocked-words"></a>匯出或匯入自訂封鎖字組
 
 如需詳細資訊，請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](groups-settings-cmdlets.md) 一文。
 
 以下 PowerShell 指令碼範例可匯出多個封鎖字組：
 
-```powershell
+``` PowerShell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
 以下 PowerShell 指令碼範例可匯入多個封鎖字組：
 
-```powershell
+``` PowerShell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -192,7 +193,6 @@ if ($Settings.Count -eq 0)
     New-AzureADDirectorySetting -DirectorySetting $Settings
     $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}}
 $Settings["CustomBlockedWordsList"] = $BadWords
-$Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ```
 
@@ -203,27 +203,27 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 1. 在 **命名原則**頁面上，選取**刪除原則**。
 1. 確認刪除之後，命名原則移除，包括所有前置詞後置詞命名原則和任何自訂封鎖字組。
 
-### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>移除命名的原則，使用 Azure AD Powershell
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>移除命名的原則，使用 Azure AD PowerShell
 
 1. 在 Azure AD PowerShell 中將群組名稱前置詞和後置詞設為空的。
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
   
 1. 將自訂封鎖字組設為空的。
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=""
    ```
   
 1. 儲存設定。
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="naming-policy-experiences-across-office-365-apps"></a>跨 Office 365 應用程式的命名原則體驗
+## <a name="experience-across-office-365-apps"></a>跨 Office 365 應用程式體驗
 
 在 Azure AD 中設定群組命名原則後，使用者若於 Office 365 應用程式建立群組，將會看見：
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 04760ab570ffc213950c28c22c499d8e9252d574
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42c3f0ce70467c6a90bcc4e2e6b8a21d7570edc4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690203"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606176"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
 
@@ -33,11 +33,11 @@ ms.locfileid: "64690203"
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * **Azure 儲存體帳戶**。 請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
-* **Visual Studio 2013、Visual Studio 2015 或 Visual Studio 2017**。
+* **Visual Studio**。
 
 ## <a name="create-clusters"></a>建立叢集
 
-1. 開啟 Visual Studio 2017。
+1. 開啟 Visual Studio。
 2. 建立新的 Visual C# 主控台應用程式。
 3. 在 [工具] 功能表中按一下 [NuGet 套件管理員]，然後按一下 [套件管理員主控台]。
 4. 在主控台中執行下列命令，以安裝套件：

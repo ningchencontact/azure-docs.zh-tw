@@ -3,8 +3,8 @@ title: 自訂 SAML 權杖對 Azure AD 中的企業應用程式發出的宣告 | 
 description: 了解如何針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231338"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764656"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 
@@ -121,7 +121,7 @@ ms.locfileid: "65231338"
 | **Extract （)-之前比對** | 傳回子字串，直到比對指定的值。<br/>比方說，如果輸入的值為"BSimon_US 」，相符的值是"_US 」，然後宣告的輸出是"是 BSimon"。 |
 | **Extract （)-之間比對** | 傳回子字串，直到比對指定的值。<br/>比方說，如果輸入的值為"Finance_BSimon_US 」，第一個相符的值是"Finance_ 」，第二個相符的值是"_US 」，然後宣告的輸出是"是 BSimon"。 |
 | **ExtractAlpha()-前置詞** | 傳回字串的前置詞依字母順序排列的一部分。<br/>例如，如果輸入的值為"BSimon_123 」，然後它會傳回"是 BSimon"。 |
-| **ExtractAlpha() - Suffix** | 傳回字串的後置詞依字母順序排列的一部分。<br/>例如，如果輸入的值為"123_Simon 」，然後它會傳回"是 BSimon"。 |
+| **ExtractAlpha() - Suffix** | 傳回字串的後置詞依字母順序排列的一部分。<br/>例如，如果輸入的值為"123_Simon 」，然後它會傳回"名為 Simon"。 |
 | **ExtractNumeric() - Prefix** | 傳回字串的前置詞數值部分。<br/>例如，如果輸入的值為"123_BSimon 」，然後它會傳回"123"。 |
 | **ExtractNumeric() - Suffix** | 傳回字串的後置詞數值部分。<br/>例如，如果輸入的值為"BSimon_123 」，然後它會傳回"123"。 |
 | **IfEmpty()** | 輸出的屬性或常數，如果輸入是 null 或空白。<br/>比方說，如果您想要輸出儲存在 extensionattribute，如果是空的指定使用者的 employeeid 屬性。 若要這樣做，您會設定下列值：<br/>參數 1(input): user.employeeid<br/>參數 2 （輸出）： user.extensionattribute1<br/>參數 3 （如果沒有相符的輸出）： user.employeeid |

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234951"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596734"
 ---
 # <a name="manage-and-configure-projects"></a>管理及設定專案
 
@@ -37,38 +37,7 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 ## <a name="compute-tier"></a>計算層
 
-專案儀表板上的 [執行] 下拉式清單是您選取專案要在上面執行之計算層的位置。 根據預設，專案是在**免費計算**層上執行，受限為 4GB 的記憶體和 1GB 的資料，以防止不當使用：
-
-![專案儀表板上的計算層下拉式清單](media/project-compute-tier-list.png)
-
-您可以藉由使用已佈建在 Azure 訂用帳戶中的其他虛擬機器來繞過這些限制。 您必須在該虛擬機器上安裝並執行 JupyterHub。 「資料科學虛擬機器」映像 (任何作業系統) 是很好的選擇，因為它們預設就包含 JupyterHub。
-
-在您有了適當設定的 Azure 虛擬機器之後，請從下拉式清單中選取 [Direct Compute] \(直接計算\) 選項，此選項會提示您輸入名稱 (會在清單中顯示)、VM 的 IP 位址和連接埠 (通常是 8000，這是 JupyterHub 接聽的預設連接埠)，以及 VM 認證：
-
-![收集 [直接計算] 選項伺服器資訊的提示](media/project-compute-tier-direct.png)
-
-如果下列條件成立，下拉式清單也會顯示[資料科學虛擬機器 (DSVM)](/azure/machine-learning/data-science-virtual-machine) 執行個體。 (如果未符合這些條件中的任一個，您仍然可以使用 [直接連線] 選項連線到 DSVM，並輸入從 Azure 入口網站取得的值。)
-
-- 您以使用 Azure Active Directory (AAD) 的帳戶 (如公司帳戶) 登入 Azure Notebooks。
-- 您的帳戶已連接到 Azure 訂用帳戶。
-- 您在該訂用帳戶中有一或多個虛擬機器 (至少有「讀者」存取權)，這些虛擬機器使用「適用於 Linux (Ubuntu) 的資料科學虛擬機器」映像。
-
-![專案儀表板上的下拉式清單中的資料科學虛擬機器執行個體](media/project-compute-tier-dsvm.png)
-
-當您選取 DSVM 執行個體時，Azure Notebooks 可能會提示您輸入您在建立 VM 時使用的特定機器認證。
-
-若要建立新的 DSVM 執行個體，請依照[建立 Ubuntu 資料科學 VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) 中的指示執行。 如果您希望 DSVM 出現在 Azure Notebooks 的下拉式清單中，請使用**適用於 Linux (Ubuntu) 的資料科學虛擬機器**映像。  如果基於其他原因，您需要使用 Windows 或 CentOS 映像，您可以使用 [Direct Compute] \(直接計算\) 選項來手動連線至 DSVM。
-
-> [!IMPORTANT]
-> 使用直接計算或資料科學虛擬機器時，您在其執行的 notebook 必須是完全獨立的。 目前，Azure Notebooks 只複製 *.ipynb*至 VM 的檔案，但不複製任何其他檔案專案中。 如此一來，其他 Vm 上執行的 notebook 會找不到 其他專案檔案。
->
-> 您可以解決這個問題有兩種：
->
-> 1. 手動將專案檔複製到 VM。
->
-> 2. 內嵌安裝 notebook 中的檔案，您先執行之前的主要的 notebook。 在安裝 notebook 中，建立每個檔案其中的資料格包含檔案內容的程式碼儲存格。 然後，在每個資料格的頂端插入命令`%%writefile <filename>`，其中`<filename>`是要接收內容的檔案名稱。 當您執行 notebook 時，它會建立在 VM 上的所有這些檔案。 如需範例，請參閱[setup.ipynb 檔案，在 Microsoft 寵物偵測器示範](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb)(GitHub)。
->
->     ![使用 %%writefile 命令的程式碼儲存格的開頭](media/setup-notebook-writefile-command.png)
+根據預設，專案則是在上執行**免費計算**層，也就是限制為 4 GB 的記憶體和 1 GB 的資料，以避免不當使用。 您可以略過這些限制，並使用不同的虛擬機器，您已佈建的 Azure 訂用帳戶中增加計算能力。 如需詳細資訊，請參閱 <<c0> [ 如何使用資料科學虛擬機器](use-data-science-virtual-machine.md)。
 
 ## <a name="edit-project-metadata"></a>編輯專案中繼資料
 

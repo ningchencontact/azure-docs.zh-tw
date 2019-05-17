@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678644"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233454"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>開始導覽 Azure IoT 中心 UI
 
@@ -33,7 +33,6 @@ ms.locfileid: "59678644"
 - 針對裝置問題進行移難排解並修復。
 - 佈建新裝置。
 
-
 ## <a name="use-the-left-navigation-menu"></a>使用左側導覽功能表
 
 您可以使用左側導覽功能表來存取應用程式的不同區域。 您可以選取 **<** 或 **>** 將導覽列展開或摺疊：
@@ -51,11 +50,14 @@ ms.locfileid: "59678644"
 - 若要搜尋裝置範本與裝置，請輸入 [搜尋] 值。
 - 若要變更 UI 語言或佈景主題，請選擇 [語言] 圖示。
 - 若要登出應用程式，請選擇 [帳戶] 圖示。
-- 若要取得說明及支援，請選擇 [說明] 下拉式功能表以取得資源清單。
+- 若要取得說明及支援，請選擇 [說明] 下拉式功能表以取得資源清單。 在試用版的應用程式中，支援資源會包括[即時聊天](howto-show-hide-chat.md)的存取權。
 
 您可以為 UI 選擇淺色佈景主題或深色調佈景主題：
 
 ![選擇 UI 的佈景主題](media/overview-iot-central-tour/themes.png)
+
+> [!NOTE]
+> 如果您的系統管理員已為應用程式設定自訂佈景主題，則無法選擇淺色與深色佈景主題選項。
 
 ## <a name="dashboard"></a>儀表板
 

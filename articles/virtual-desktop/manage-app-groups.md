@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578742"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233915"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>教學課程：管理 Windows 虛擬桌面預覽版的應用程式群組
 
@@ -73,7 +73,7 @@ ms.locfileid: "58578742"
 
 ## <a name="next-steps"></a>後續步驟
 
-在您建立應用程式群組後，您會建立服務主體並將角色指派給您的使用者。 若要了解做法，請參閱如何使用 PowerShell 建立服務主體和角色指派的教學課程。
+在本教學課程中，您已了解如何建立應用程式群組、以 RemoteApps 填入群組，以及將使用者指派給應用程式群組。 若要深入了解如何登入 Windows 虛擬桌面，請繼續進行「連線到 Windows 虛擬桌面」操作說明。
 
-> [!div class="nextstepaction"]
-> [使用 PowerShell 建立服務主體和角色指派](create-service-principal-role-powershell.md)
+- [連線到 Windows 7 和 Windows 10 上的遠端桌面用戶端](connect-windows-7-and-10.md)
+- [連線到 Windows 虛擬桌面預覽版 Web 用戶端](connect-web.md)

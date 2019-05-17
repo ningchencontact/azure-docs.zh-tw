@@ -195,7 +195,7 @@
         - name: Blob、佇列、資料表和檔案
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: 資料移動
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
+          href: /dotnet/api/microsoft.azure.storage.datamovement
         - name: Resource Manager
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java
@@ -257,21 +257,21 @@
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: NuGet 套件
       items:
-        - name: 適用於 .NET 的 Azure 儲存體用戶端程式庫
-          href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
-        - name: Azure 儲存體資料移動程式庫
+        - name: Azure 儲存體常見用戶端程式庫
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+        - name: Azure 佇列儲存體用戶端程式庫
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/'
+        - name: Azure 儲存體資料移動用戶端程式庫
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
         - name: Azure 組態管理員
-          href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
     - name: 原始程式碼
       items:
         - name: .NET
           items:
-            - name: Blob、佇列、資料表及檔案
+            - name: Blob、佇列和檔案儲存體
               href: 'https://github.com/Azure/azure-storage-net'
-            - name: 資料移動
-              href: 'https://github.com/Azure/azure-storage-net-data-movement'
-            - name: 資源提供者
+            - name: 儲存體資源提供者
               href: 'https://github.com/Azure/azure-sdk-for-net'
         - name: Node.js
           href: 'https://azure.github.io/azure-storage-node/'

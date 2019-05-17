@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: 2fe448f3ed91f2c6dd242c24aa378c3541eceecc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a344e4a068ac6791403f686fa728530b3c4f17e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857941"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65209360"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>教學課程：使用 Azure 通知中樞和 Google Firebase 雲端通訊將通知推送至 Android 裝置
 
@@ -111,7 +111,8 @@ ms.locfileid: "57857941"
 1. 在**應用程式**的 `Build.Gradle` 檔案中，於 **dependencies** 區段中新增下列幾行 (如果尚未存在的話)。 
 
     ```gradle
-    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
     ```
 
 2. 在檔案結尾處新增下列外掛程式 (如果尚未存在的話)。 
@@ -119,22 +120,11 @@ ms.locfileid: "57857941"
     ```gradle
     apply plugin: 'com.google.gms.google-services'
     ```
+3. 在工具列上選取 [立即同步]。
 
 ### <a name="updating-the-androidmanifestxml"></a>更新 AndroidManifest.xml
 
-1. 若要支援 FCM，您必須在程式碼中實作執行個體識別碼接聽程式服務，以便使用 [Google 的 FirebaseInstanceId API](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId) 來[取得註冊權杖](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register)。 在本教學課程中，類別名稱為 `MyInstanceIDService`。
-
-    將下列服務定義新增至 AndroidManifest.xml 檔案的 `<application>` 標籤內。
-
-    ```xml
-    <service android:name=".MyInstanceIDService">
-        <intent-filter>
-            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-        </intent-filter>
-    </service>
-    ```
-
-2. 一旦從 FirebaseInstanceId API 收到 FCM 註冊權杖，您會用它來[向 Azure 通知中樞註冊](notification-hubs-push-notification-registration-management.md)。 您會使用名為 `RegistrationIntentService` 的 `IntentService` 在背景支援此註冊。 此服務也會負責重新整理 FCM 註冊權杖。
+1. 在您收到 FCM 註冊權杖後，您會用它來[向 Azure 通知中樞註冊](notification-hubs-push-notification-registration-management.md)。 您會使用名為 `RegistrationIntentService` 的 `IntentService` 在背景支援此註冊。 此服務也會負責重新整理 FCM 註冊權杖。
 
     將下列服務定義新增至 AndroidManifest.xml 檔案的 `<application>` 標籤內。
 
@@ -145,7 +135,7 @@ ms.locfileid: "57857941"
     </service>
     ```
 
-3. 您也必須定義要接收通知的接收者。 將下列接收者定義新增至 AndroidManifest.xml 檔案的 `<application>` 標籤內。 
+2. 您也必須定義要接收通知的接收者。 將下列接收者定義新增至 AndroidManifest.xml 檔案的 `<application>` 標籤內。 
 
     ```xml
     <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
@@ -159,8 +149,7 @@ ms.locfileid: "57857941"
 
     > [!IMPORTANT]
     > 以 `AndroidManifest.xml` 檔案頂端顯示的實際套件名稱取代 `<your package NAME>` 預留位置。
-4. 在工具列上選取 [立即同步]。
-5. 在 `</application>` 標籤**下面**新增下列必要的 FCM 相關權限。
+3. 在 `</application>` 標籤**下面**新增下列必要的 FCM 相關權限。
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -188,29 +177,6 @@ ms.locfileid: "57857941"
 
      > [!IMPORTANT]
      > 請輸入通知中樞的**名稱**和 **DefaultListenSharedAccessSignature**，再繼續進行。 
-2. 新增另一個名為 `MyInstanceIDService`的類別。 此類別是您的執行個體識別碼接聽程式服務實作。
-
-    此類別的程式碼會呼叫 `IntentService` 以在背景[重新整理 FCM 權杖](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)。
-
-    ```java
-    import android.content.Intent;
-    import android.util.Log;
-    import com.google.firebase.iid.FirebaseInstanceIdService;
-
-    public class MyInstanceIDService extends FirebaseInstanceIdService {
-
-        private static final String TAG = "MyInstanceIDService";
-
-        @Override
-        public void onTokenRefresh() {
-
-            Log.d(TAG, "Refreshing FCM Registration Token");
-
-            Intent intent = new Intent(this, RegistrationIntentService.class);
-            startService(intent);
-        }
-    };
-    ```
 
 3. 將另一個新類別新增至名為 `RegistrationIntentService`的專案。 此類別會實作 `IntentService` 介面，並處理[重新整理 FCM 權杖](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)和[向通知中樞註冊](notification-hubs-push-notification-registration-management.md)。
 
@@ -222,12 +188,16 @@ ms.locfileid: "57857941"
     import android.content.SharedPreferences;
     import android.preference.PreferenceManager;
     import android.util.Log;
+    import com.google.android.gms.tasks.OnSuccessListener;
     import com.google.firebase.iid.FirebaseInstanceId;
+    import com.google.firebase.iid.InstanceIdResult;
     import com.microsoft.windowsazure.messaging.NotificationHub;
+    import java.util.concurrent.TimeUnit;
 
     public class RegistrationIntentService extends IntentService {
 
         private static final String TAG = "RegIntentService";
+        String FCM_token = null;
 
         private NotificationHub hub;
 
@@ -244,8 +214,14 @@ ms.locfileid: "57857941"
             String storedToken = null;
 
             try {
-                String FCM_token = FirebaseInstanceId.getInstance().getToken();
-                Log.d(TAG, "FCM Registration Token: " + FCM_token);
+                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() { 
+                    @Override 
+                    public void onSuccess(InstanceIdResult instanceIdResult) { 
+                        FCM_token = instanceIdResult.getToken(); 
+                        Log.d(TAG, "FCM Registration Token: " + FCM_token); 
+                    } 
+                }); 
+                TimeUnit.SECONDS.sleep(1);
 
                 // Storing the registration ID that indicates whether the generated token has been
                 // sent to your server. If it is not stored, send the token to your server,
@@ -541,13 +517,13 @@ ms.locfileid: "57857941"
 ### <a name="run-the-mobile-app-on-emulator"></a>在模擬器上執行行動應用程式
 如果您要在模擬器中測試推播通知，請確定您的模擬器映像支援您為應用程式選擇的 Google API 層級。 如果您的映像不支援原生 Google API，您會遇到 **SERVICE\_NOT\_AVAILABLE** 例外狀況。
 
-除此之外，請確定已將 Google 帳戶新增至執行中模擬器的 [設定] > [帳戶] 之下。 否則，嘗試向 GCM 註冊可能會導致 **AUTHENTICATION\_FAILED** 例外狀況。
+除此之外，請確定已將 Google 帳戶新增至執行中模擬器的 [設定] > [帳戶] 之下。 否則，嘗試向 FCM 註冊可能會導致 **AUTHENTICATION\_FAILED** 例外狀況。
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已使用 Firebase 雲端通訊將通知推送至 Android 裝置。 若想了解如何使用 Google 雲端通訊推送通知，請繼續進行下列教學課程：
+在本教學課程中，您已使用 Firebase 雲端通訊將通知廣播至所有向服務註冊的 Android 裝置。 若想了解如何將通知推送至特定裝置，請繼續進行下列教學課程：
 
 > [!div class="nextstepaction"]
->[使用 Google 雲端通訊將通知推送至 Android 裝置](notification-hubs-android-push-notification-google-gcm-get-started.md)
+>[教學課程：將通知推播至特定的 Android 裝置](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Images. -->
 
@@ -556,6 +532,4 @@ ms.locfileid: "57857941"
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure 入口網站]: https://portal.azure.com

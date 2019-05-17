@@ -1,62 +1,51 @@
 - name: Azure HDInsight 文件
   href: /azure/hdinsight
-- name: 企業安全性
+- name: 概觀
   items:
-    - name: 概觀
+    - name: 什麼是 HDInsight 中的企業安全性套件
       href: apache-domain-joined-introduction.md
+- name: 概念
+  items:
     - name: 針對 ESP 叢集進行規劃
       href: apache-domain-joined-architecture.md
     - name: 使用 Azure AD DS 設定 ESP 叢集
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: 將 Azure AD 使用者同步處理至 HDInsight 叢集
       href: ../hdinsight-sync-aad-users-to-cluster.md
-      maintainContext: true
     - name: 設定 Apache Hive 原則
       href: apache-domain-joined-run-hive.md
     - name: Apache HBase RBAC with Apache Ranger
       href: apache-domain-joined-run-hbase.md
     - name: Apache Kafka RBAC with Apache Ranger
       href: apache-domain-joined-run-kafka.md
-      maintainContext: true
     - name: 使用 VSCode 來連結到 ESP 叢集
       href: ../hdinsight-for-vscode.md
-      maintainContext: true
     - name: 使用 IntelliJ 來連結到 ESP 叢集
       href: ../spark/apache-spark-intellij-tool-plugin.md
-      maintainContext: true
     - name: 使用 Eclipse 來連結到 ESP 叢集
       href: ../spark/apache-spark-eclipse-tool-plugin.md
-      maintainContext: true
     - name: 在 ESP 叢集中使用 Apache Oozie
       href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: 保護資料
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-  maintainContext: true
 - name: 網路存取
   items:
     - name: Azure VNet 中的 HDInsight
       href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
     - name: 將 HDInsight 與內部部署網路連線
       href: ../connect-on-premises-network.md
-      maintainContext: true
     - name: 在 Azure VNet 中建立 Apache HBase 叢集
       href: ../hbase/apache-hbase-provision-vnet.md
-      maintainContext: true
     - name: Azure VNet 中的 Apache HBase 叢集複寫
       href: ../hbase/apache-hbase-replication.md
-      maintainContext: true
 - name: 使用 Azure 監視器記錄監視
   items:
     - name: 使用 Azure 監視器記錄
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
     - name: 使用 Azure 監視器記錄查詢
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-      maintainContext: true
     - name: 監視叢集效能
       href: ../hdinsight-key-scenarios-to-monitor.md
-      maintainContext: true
 - name: 參考
   items:
     - name: 程式碼範例
@@ -86,10 +75,8 @@
       items:
         - name: 目前的版本資訊
           href: ../hdinsight-release-notes.md
-          maintainContext: true
         - name: 封存的版本資訊
           href: ../hdinsight-release-notes-archive.md
-          maintainContext: true
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 在論壇上取得協助
@@ -102,4 +89,3 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: HDInsight 適用的 Windows 工具
       href: ../hdinsight-hadoop-windows-tools.md
-      maintainContext: true

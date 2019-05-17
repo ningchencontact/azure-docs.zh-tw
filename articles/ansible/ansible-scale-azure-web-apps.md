@@ -1,34 +1,52 @@
 ---
-title: 使用 Ansible 調整 Azure App Service Web Apps 的規模
-description: 深入了解如何使用 Ansible 建立在 Linux 上的 App Service 中具有 Java 8 和 Tomcat 容器執行階段的 Web Apps
-ms.service: azure
+title: 教學課程 - 使用 Ansible 調整 Azure App Service 中的應用程式 | Microsoft Docs
+description: 了解如何相應增加 Azure App Service 中的應用程式
 keywords: ansible, azure, devops, bash, 劇本, Azure App Service, Web App, 調整規模, Java
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/08/2018
-ms.openlocfilehash: 2bafb73afa35c7670ac45f7027545277c70075ef
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: d63708cd87afa426f2712da6d0fcb11c84590798
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792271"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230955"
 ---
-# <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>使用 Ansible 調整 Azure App Service Web Apps 的規模
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (或簡稱 Web Apps) 可裝載 Web 應用程式、REST API 和行動後端。 您可以使用您慣用的語言進行開發&mdash;.NET、.NET Core、Java、Ruby、Node.js、PHP 或 Python 均可。
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>教學課程：使用 Ansible 調整 Azure App Service 中的應用程式
 
-Ansible 可讓您將環境中的資源部署和設定自動化。 本文將說明如何使用 Ansible 在 Azure App Service 中調整應用程式的規模。
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-app-service.md](../../includes/open-source-devops-intro-app-service.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * 取得現有 App Service 方案的資訊
+> * 將 App Service 方案相應增加為具有三個背景工作的 S2
 
 ## <a name="prerequisites"></a>必要條件
-- **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **Azure App Service Web Apps** - 如果您還沒有 Azure 應用程式服務的 Web 應用程式，您可以[使用 Ansible 建立 Azure Web Apps](ansible-create-configure-azure-web-apps.md)。
 
-## <a name="scale-up-an-app-in-app-service"></a>在 App Service 中相應增加應用程式
-您可以藉由變更應用程式所屬的 App Service 方案定價層來相應增加。 本節提供會定義下列作業的範例 Ansible 劇本：
-- 取得現有 App Service 方案的資訊
-- 將 App Service 方案更新為具有三個背景工作角色的 S2
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+- **Azure App Service 應用程式** - 如果您沒有 Azure App Service 應用程式，請[使用 Ansible 在 Azure App Service 中設定應用程式](ansible-create-configure-azure-web-apps.md)。
+
+## <a name="scale-up-an-app"></a>相應增加應用程式
+
+調整有兩個工作流程：*相應增加*和*相應放大*。
+
+**相應增加：** 相應增加的實質意義，是取得更多資源。 這些資源包括 CPU、記憶體、磁碟空間、VM 等。 您可以藉由變更應用程式所屬 App Service 方案的定價層，將應用程式相應增加。 
+**相應放大：** 相應放大的實質意義，是增加執行應用程式的 VM 執行個體數目。 視 App Service 方案的定價層而定，您最多可以相應放大至 20 個執行個體。 [自動調整](/azure/azure-monitor/platform/autoscale-get-started)可讓您根據預先定義的規則和排程自動調整執行個體計數。
+
+本節中的劇本程式碼會定義下列作業︰
+
+* 取得現有 App Service 方案的資訊
+* 將 App Service 方案更新為具有三個背景工作角色的 S2
+
+請下列腳本儲存為 `webapp_scaleup.yml`：
 
 ```yml
 - hosts: localhost
@@ -66,26 +84,26 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 本文將說�
       var: facts.appserviceplans[0].sku
 ```
 
-將此劇本儲存為 webapp_scaleup.yml。
+使用 `ansible-playbook` 命令執行劇本：
 
-若要執行劇本，請使用 **ansible-playbook** 命令，如下所示：
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-執行劇本後，類似於下列範例的輸出會顯示 App Service 方案已成功更新為具有三個背景工作角色的 S2：
-```Output
-PLAY [localhost] **************************************************************
+執行劇本後，您會看到類似下列結果的輸出：
 
-TASK [Gathering Facts] ********************************************************
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Get facts of existing App service plan] **********************************************************
+TASK [Get facts of existing App service plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
 
-TASK [debug] ******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 1,
@@ -96,13 +114,13 @@ ok: [localhost] => {
     }
 }
 
-TASK [Scale up the App service plan] *******************************************
+TASK [Scale up the App service plan] 
 changed: [localhost]
 
-TASK [Get facts] ***************************************************************
+TASK [Get facts] 
 ok: [localhost]
 
-TASK [debug] *******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 3,
@@ -113,10 +131,11 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP **********************************************************************
+PLAY RECAP 
 localhost                  : ok=6    changed=1    unreachable=0    failed=0 
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 > [!div class="nextstepaction"] 
-> [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible on Azure](/azure/ansible/)

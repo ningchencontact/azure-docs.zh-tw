@@ -3,8 +3,8 @@ title: 了解 Azure Active Directory 應用程式資訊清單 | Microsoft Docs
 description: 詳細說明 Azure Active Directory 應用程式資訊清單；此資訊清單代表應用程式在 Azure AD 租用戶中的身分識別組態，可用來協助進行 OAuth 授權、同意體驗等等。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18ff5c4c54cdfe03eca572e2aa42f2330597c94d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d02642b0c069124ddcfbef1ea655438c906739a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918763"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545661"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 應用程式資訊清單
 
@@ -48,7 +48,7 @@ ms.locfileid: "64918763"
 > [!NOTE]
 > 如果您看不到 [描述] 之後的 [範例值] 資料行，請將瀏覽器視窗放到最大並捲動/撥動，直到您看到 [範例值] 資料行為止。
 
-| Key  | 值類型 | 描述  | 範例值 |
+| Key  | 值類型 | 說明  | 範例值 |
 |---------|---------|---------|---------|
 | `accessTokenAcceptedVersion` | 可為 null 的 Int32 | 指定資源所需的存取權杖版本。 與用於要求存取權杖的端點或用戶端無關，這會變更另外產生之 JWT 的版本和格式。<br/><br/>由客戶端選擇的使用端點 v1.0 或 v2.0 僅影響 id_tokens 的版本。 資源必須明確設定 `accesstokenAcceptedVersion`，以表示支援的存取權杖格式。<br/><br/>`accesstokenAcceptedVersion` 的可能值為 1、2 或 Null。 如果值為 Null，則預設值為 1，其對應至 v1.0 端點。 | `2` |
 | `addIns` | 集合 | 定義取用服務可用來在特定內容中呼叫應用程式的自訂行為。 比方說，可以轉譯檔案資料流的應用程式可能會設定 addIns 屬性為其"FileHandler"功能。 這可讓使用者使用文件的內容中呼叫應用程式 Office 365 等服務。 | <code>{<br>&nbsp;&nbsp;&nbsp;"id":"968A844F-7A47-430C-9163-07AE7C31D407"<br>&nbsp;&nbsp;&nbsp;"type": "FileHandler",<br>&nbsp;&nbsp;&nbsp;"properties": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"key": "version", "value": "2" }<br>&nbsp;&nbsp;&nbsp;]<br>}</code>|
@@ -94,7 +94,7 @@ ms.locfileid: "64918763"
 應用程式資訊清單有稱為集合; 的多個屬性比方說，approles、 keycredentials、 knownClientApplications、 identifierUris、 rediretUris、 requiredResourceAccess 和 oauth2Permissions。 在任一应用程序的完整应用程序清单中，所有合并集合中的条目总数不能超过 1200 个。 如果您已經有 100 的重新導向 Uri 會指定應用程式資訊清單中，您便只有左側 1100年其餘的項目結合的所有其他集合的使用資訊清單所組成。
 
 > [!NOTE]
-> 如果您嘗試將超過 1200年的項目加入應用程式資訊清單中，您可能會看到錯誤 **」 無法更新應用程式 xxxxxx。錯誤詳細資料：清单大小已超过其限制。請減少值的數目，然後重試要求。 」**
+> 如果您嘗試將超過 1200年的項目加入應用程式資訊清單中，您可能會看到錯誤 **」 無法更新應用程式 xxxxxx。錯誤詳細資料:清单大小已超过其限制。請減少值的數目，然後重試要求。 」**
 
 ### <a name="unsupported-attributes"></a>不支援的屬性
 

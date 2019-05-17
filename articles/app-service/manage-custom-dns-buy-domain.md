@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61272403"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619730"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>針對 Azure App Service 購買自訂網域名稱
 
-App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它們可以讓 [Azure App Service](overview.md) 的自訂網域管理作業變得很簡單。 本教學課程會示範如何購買 App Service 網域，並將 DNS 名稱指派給 Azure App Service。
+App Service 網域是直接在 Azure 中管理的最上層網域。 它們可以讓 [Azure App Service](overview.md) 的自訂網域管理作業變得很簡單。 本教學課程會示範如何購買 App Service 網域，並將 DNS 名稱指派給 Azure App Service。
 
 若為 Azure VM 或 Azure 儲存體，請參閱[將 App Service 網域指派給 Azure VM 或 Azure 儲存體](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/)。 若為雲端服務，請參閱[設定 Azure 雲端服務的自訂網域名稱](../cloud-services/cloud-services-custom-domain-name-portal.md)。
 
@@ -69,7 +69,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 選取任何非免費層 (**D1**、**B1**、**B2**、**B3** 或「生產」類別中的任何一層)。 如需其他選項，請按一下 [查看其他選項]。
 
-按一下 [套用]。
+按一下 **[套用]**。
 
 ![檢查定價層](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -80,7 +80,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 ## <a name="buy-the-domain"></a>購買網域
 
 ### <a name="pricing-information"></a>定價資訊
-如需 Azure App Service 網域的定價資訊，請瀏覽 [App Service 定價頁面](https://azure.microsoft.com/pricing/details/app-service/windows/)並向下捲動至＜App Service 網域＞。
+如需 Azure App Service 網域定價資訊，請瀏覽[App Service 定價頁面](https://azure.microsoft.com/pricing/details/app-service/windows/)並捲動至 App Service 網域。
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
 開啟 [Azure 入口網站](https://portal.azure.com/)並使用您的 Azure 帳戶登入。
@@ -116,7 +116,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 接下來，請為網域選取所需選項。 請參閱下表中的說明：
 
-| 設定 | 建議的值 | 描述 |
+| 設定 | 建議的值 | 說明 |
 |-|-|-|
 |隱私權保護 | 啟用 | 選擇加入「隱私權保護」，此服務已 _免費_ 包含在購買價格中。 有些頂層網域受控於不支援隱私權保護的註冊機構，會將之列在 [隱私權保護] 頁面中。 |
 | 指派預設主機名稱 | **www** 和 **\@** | 如有需要，請選取所需的主機名稱繫結。 網域購買作業完成時，即可從選取的主機名稱存取應用程式。 如果應用程式受 [Azure 流量管理員](https://azure.microsoft.com/services/traffic-manager/)管理，您就不會看到指派根網域 (@) 的選項，因為流量管理員不支援 A 記錄。 您可以在網域購買完成之後變更主機名稱指派。 |
@@ -150,7 +150,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 ## <a name="assign-hostnames-to-app"></a>將主機名稱指派給應用程式
 
-如果您在購買程序期間選擇不指派一個或多個預設主機名稱給應用程式，或是需要指派未列出的主機名稱，您隨時都可以指派主機名稱。
+如果您選擇不要將一或多個預設主機名稱指派給您的應用程式中，在購買過程中，或如果您需要指派未列出的主機名稱，您可以隨時指派主機名稱。
 
 您也可以將 App Service 網域中的主機名稱指派給其他任何應用程式。 其步驟需視 App Service 網域和應用程式是否屬於同一訂用帳戶而定。
 
@@ -174,7 +174,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 選取 [新增主機名稱]。
 
 ### <a name="configure-hostname"></a>設定主機名稱
-在 [新增主機名稱] 對話方塊中，輸入 App Service 網域或任何子網域的完整網域名稱。 例如︰
+在 [新增主機名稱] 對話方塊中，輸入 App Service 網域或任何子網域的完整網域名稱。 例如：
 
 - kontoso.net
 - www\.kontoso.net
@@ -278,7 +278,3 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 ## <a name="direct-default-url-to-a-custom-directory"></a>將預設 URL 導向自訂目錄
 
 根據預設，App Service 會將 Web 要求導向應用程式程式碼的根目錄。 若要將這些要求導向子目錄 (例如 `public`)，請參閱[將預設 URL 導向自訂目錄](app-service-web-tutorial-custom-domain.md#virtualdir)。
-
-## <a name="more-resources"></a>其他資源
-
-[常見問題集：App Service 網域 (預覽) 與自訂網域](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/) \(英文\)

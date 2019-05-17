@@ -167,6 +167,8 @@
           href: application-provisioning-config-problem.md
         - name: 在設定使用者佈建資源庫應用程式的情況下儲存管理員認證時發生問題
           href: application-provisioning-config-problem-storage-limit.md
+        - name: 同步屬性以對應 - 資源庫應用程式
+          href: user-provisioning-sync-attributes-for-mapping.md
         - name: 未佈建使用者 - 資源庫應用程式
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: 佈建錯誤的使用者 - 資源庫應用程式

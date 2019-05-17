@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d1c10d9df85b04cf7b8ea7e0020bc8e802a0d5d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698923"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463551"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>教學課程：Azure Active Directory 與 BlueJeans 整合
 
@@ -102,18 +102,17 @@ ms.locfileid: "59698923"
 
 3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
 
-    ![編輯基本 SAML 組態](common/edit-urls.png)
+    ![編輯基本 SAML 組態](media/bluejeans-tutorial/edit-urls-bluejeans.png)
 
-4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
+4. 在 [基本 SAML 組態] 對話方塊中，輸入下列值：
 
-    ![BlueJeans 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![BlueJeans 網域及 URL 單一登入資訊](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<companyname>.BlueJeans.com`
-
-    b. 在 [識別碼] 文字方塊中，鍵入 URL：`http://samlsp.bluejeans.com`
-
-    > [!NOTE]
-    > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [BlueJeans 用戶端支援小組](https://support.bluejeans.com/contact)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+   - 在 [識別碼] 文字方塊中，輸入下列值：`https://samlsp.bluejeans.com`
+    
+   - 在 [登入 URL] 文字方塊中，輸入 BlueJeans 提供給您的登陸頁面 URL (若要取得此值，您可以連絡 [BlueJeans 用戶端支援小組](https://support.bluejeans.com/contact))：`https://<companyname>.bluejeans.com`
+    
+   - 按一下 [檔案] 。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
@@ -161,9 +160,9 @@ ms.locfileid: "59698923"
 
     ![儲存變更](./media/bluejeans-tutorial/ic785874.png "儲存變更")
 
-    a. 在 [使用者識別碼] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    a. 在 [使用者識別碼] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
 
-    b. 在 [電子郵件] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    b. 在 [電子郵件] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
 
     c. 按一下 [儲存變更]。
 

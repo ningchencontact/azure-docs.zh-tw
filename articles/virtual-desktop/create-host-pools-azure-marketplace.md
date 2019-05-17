@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: c4ab209d63a01d9e1089eec351eff64fc116f403
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924982"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236759"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>教學課程：透過 Azure Marketplace 建立主機集區
 
@@ -70,7 +70,7 @@ ms.locfileid: "64924982"
 
 1. 針對包含您租用戶的租用戶群組，輸入 [Windows 虛擬桌面租用戶群組名稱]。 如果您未規劃特定租用戶群組名稱，請將它保留為預設值。
 2. 針對您將在其中建立此主機集區的租用戶，輸入 [Windows 虛擬桌面租用戶名稱]。
-3. 指定您想要用來以 Windows 虛擬桌面租用戶 RDS 擁有者的身分進行驗證的認證類型。 如果您選取 [服務主體]，則也必須提供與服務主體相關聯的 [Azure AD 租用戶識別碼]。
+3. 指定您想要用來以 Windows 虛擬桌面租用戶 RDS 擁有者的身分進行驗證的認證類型。 如果您已完成[使用 PowerShell 建立服務主體和角色指派的教學課程](./create-service-principal-role-powershell.md)，請選取 [服務主體]。 您現在必須針對包含服務主體的 Azure Active Directory 輸入 **Azure AD 租用戶識別碼**。
 4. 輸入租用戶管理帳戶的認證。 僅支援具有密碼認證的服務主體。
 5. 選取 [確定] 。
 

@@ -17,11 +17,11 @@ ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65738064"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>教學課程：Azure Active Directory 與多個 Amazon Web Services (AWS) 帳戶整合
 
@@ -131,11 +131,11 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
-    ![映像](common/preintegrated.png)
+    ![image](common/preintegrated.png)
 
 5. Amazon Web Services (AWS) 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性與宣告] 區段中管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性與宣告] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
@@ -279,7 +279,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     ![Graph 總管對話方塊](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
-    h. 現在，您必須為您的應用程式產生新角色。 
+    h.如果该值不存在，请单击“添加行”。 現在，您必須為您的應用程式產生新角色。 
 
     i. 以下 JSON 是 appRoles 物件的範例。 請建立類似的物件，以新增您的應用程式所需的角色。
 

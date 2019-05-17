@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614490"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604369"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>在 Azure 監視器中收集 IIS 記錄
 Internet Information Services (IIS) 會將使用者活動儲存在記錄檔中，並可由 Azure 監視器進行收集並儲存為[記錄資料](data-platform.md)。
@@ -51,7 +51,7 @@ IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 | csUriStem |要求的目標，例如網頁。 |
 | csUriQuery |用戶端正在嘗試執行的查詢 (如果有的話)。 |
 | ManagementGroupName |Operations Manager 代理程式的管理群組名稱。  若為其他代理程式，此為 AOI-\<工作區 ID\> |
-| RemoteIPCountry |用戶端 IP 位址的國家/地區。 |
+| RemoteIPCountry |國家/地區的用戶端的 IP 位址。 |
 | RemoteIPLatitude |用戶端 IP 位址的緯度。 |
 | RemoteIPLongitude |用戶端 IP 位址的經度。 |
 | scStatus |HTTP 狀態碼。 |

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e370916d420a7bc4cd16d021c69a2f8609093d30
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406412"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544710"
 ---
 # <a name="what-is-azure-blockchain-service"></a>什麼是 Azure 區塊鏈服務？
 
@@ -77,7 +77,7 @@ Azure 區塊鏈 Service 提供兩個服務層：*基本*並*標準*。 每個層
 ## <a name="next-steps"></a>後續步驟
 
 若要開始，請嘗試快速入門或了解從這些資源的更多詳細資料。
-* [建立使用 Azure 入口網站的區塊鏈成員](create-member.md)或[建立區塊鏈成員，使用 Azure CLI]()
+* [建立使用 Azure 入口網站的區塊鏈成員](create-member.md)或[建立區塊鏈成員，使用 Azure CLI](create-member-cli.md)
 * 如需成本和計算機，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/blockchain-service)。
 * 建置第一個應用程式使用[Azure 區塊鏈開發套件](https://github.com/Azure-Samples/blockchain-devkit)
 * Azure 區塊鏈 VSCode 擴充功能[使用者指南](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki)

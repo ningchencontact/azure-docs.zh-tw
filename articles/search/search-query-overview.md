@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 7ed675e4c6988cf4c1340613323440de55a36843
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024475"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595973"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>如何在 Azure 搜尋服務中撰寫查詢
 
@@ -26,7 +26,7 @@ ms.locfileid: "65024475"
 
 下表列出使用 API 和工具來提交查詢的方法。
 
-| 方法 | 描述 |
+| 方法 | 說明 |
 |-------------|-------------|
 | [搜尋總管 (入口網站)](search-explorer.md) | 提供搜尋列以及選取索引和 API 版本的選項。 結果會以 JSON 文件的形式傳回。 <br/>[深入了解。](search-get-started-portal.md#query-index) | 
 | [Postman 或 Fiddler](search-fiddler.md) | Web 測試工具是擬定 REST 呼叫的絕佳選擇。 REST API 支援 Azure 搜尋服務中之每個可能的作業。 在本文中，了解如何設定 HTTP 要求標頭和主體，以傳送要求到 Azure 搜尋服務。  |
@@ -122,7 +122,7 @@ Azure 搜尋服務支援廣泛的查詢類型。
 | 經過篩選的搜尋 | [OData 篩選條件運算式](query-odata-filter-orderby-syntax.md)和任一剖析器 | 篩選查詢會對索引中的所有「可篩選」欄位評估布林運算式。 不同於搜尋，篩選查詢會比對欄位的確切內容，包括字串欄位的大小寫。 另一個差異是篩選查詢會以 OData 語法來表示。 <br/>[篩選條件運算式範例](search-query-simple-examples.md#example-3-filter-queries) |
 | 地區搜尋 | 欄位上的 [Edm.GeographyPoint 類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)、篩選條件運算式和任一剖析器 | 座標若儲存在具有 Edm.GeographyPoint 的欄位中，可用於 "find near me" 或以地圖為基礎的搜尋控制項。 <br/>[地理搜尋範例](search-query-simple-examples.md#example-5-geo-search)|
 | 範圍搜尋 | 篩選條件運算式和簡單的剖析器 | Azure 搜尋服務會使用篩選參數來建置範圍查詢。 <br/>[範圍篩選範例](search-query-simple-examples.md#example-4-range-filters) | 
-| [內部欄位篩選](query-lucene-syntax.md#bkmk_fields) | 搜尋參數和完整剖析器 | 建置以單一欄位為目標的複合查詢運算式。 <br/>[內部欄位篩選範例](search-query-lucene-examples.md#example-2-intra-field-filtering) |
+| [加入欄位的搜尋](query-lucene-syntax.md#bkmk_fields) | 搜尋參數和完整剖析器 | 建置以單一欄位為目標的複合查詢運算式。 <br/>[加入欄位的搜尋範例](search-query-lucene-examples.md#example-2-fielded-search) |
 | [模糊搜尋](query-lucene-syntax.md#bkmk_fuzzy) | 搜尋參數和完整剖析器 | 比對具有類似建構或拼法的字詞。 <br/>[模糊搜尋範例](search-query-lucene-examples.md#example-3-fuzzy-search) |
 | [鄰近搜尋](query-lucene-syntax.md#bkmk_proximity) | 搜尋參數和完整剖析器 | 尋找文件中彼此相近的字詞。 <br/>[鄰近搜尋範例](search-query-lucene-examples.md#example-4-proximity-search) |
 | [詞彙提升](query-lucene-syntax.md#bkmk_termboost) | 搜尋參數和完整剖析器 | 如果文件包含已提升的字詞 (相較於其他未提升的字詞)，則將文件的順位提高。 <br/>[字詞提升範例](search-query-lucene-examples.md#example-5-term-boosting) |

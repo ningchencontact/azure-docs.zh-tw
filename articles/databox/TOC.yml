@@ -36,6 +36,8 @@
           items:
             - name: 閱讀安全性方針
               href: data-box-safety.md
+            - name: 追蹤和記錄
+              href: data-box-logs.md
             - name: 檢閱需求
               items:
                 - name: 適用於資料箱

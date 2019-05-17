@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/25/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4308eea3384b20f21ffcf378f711a705f9f9e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077338"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473254"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -36,12 +36,12 @@ Microsoft Azure 資料箱混合式解決方案可讓您以快速、實惠且可�
 A.  Azure 資料箱服務是針對離線資料擷取而設計的。 此服務管理一系列不同儲存容量的產品，這些產品都是為了資料傳輸而量身訂做。 
 
 ### <a name="q-what-is-azure-data-box"></a>問： 什麼是 Azure 資料箱？
-A. Azure 資料箱可讓您快速、實惠且安全地將數 TB 的資料輸入及輸出 Azure。 您可以透過 Azure 入口網站訂購資料箱裝置。 Microsoft 會透過區域性貨運公司，將有 80 TB 可用容量的存放裝置寄送給您。 
+A. Azure 資料箱可讓您快速、實惠且安全地將數 TB 的資料輸入 Azure 中。 您可以透過 Azure 入口網站訂購資料箱裝置。 Microsoft 會透過區域性貨運公司，將有 80 TB 可用容量的存放裝置寄送給您。 
 
 一旦收到裝置之後，您就可以快速地使用本機 Web UI 來設定它。 將您伺服器的資料複製到裝置上，然後將裝置寄回給 Azure。 在 Azure 資料中心內，您的資料會自動從裝置上傳到 Azure。 Azure 入口網站中的資料箱服務會以端對端的方式追蹤這整個程序。
 
 ### <a name="q-when-should-i-use-data-box"></a>問： 何時應使用資料箱？
-A. 如果您有 40 - 500 TB 的資料要傳輸到 Azure，則使用資料箱將可獲益。 若資料大小 < 40 TB，請使用資料箱磁碟；若資料大小 > 500 TB，請註冊 Data Box Heavy。
+A. 如果您有 40 - 500 TB 的資料要傳輸到 Azure，則使用資料箱將可獲益。 若資料大小 < 40 TB，請使用資料箱磁碟；若資料大小 > 500 TB，請註冊 [Data Box Heavy](data-box-heavy-overview.md)。
 
 ### <a name="q-what-is-the-price-of-data-box"></a>問： 資料箱的價格為何？
 A. 資料箱僅收取少許費用，提供 10 天使用。 當您在 Azure 入口網站中建立訂單時，選取產品型號會顯示該裝置的費用。 此服務不需要運費，但會套用 Azure 儲存體費用。 如需詳細資訊，請移至 [Azure 資料箱定價](https://azure.microsoft.com/pricing/details/storage/databox/)。 

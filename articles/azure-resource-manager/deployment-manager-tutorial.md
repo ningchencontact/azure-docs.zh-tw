@@ -13,19 +13,22 @@ ms.devlang: na
 ms.date: 04/02/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a0730073a8d17e063ee3f1364d5914200259c10f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880044"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466308"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>教學課程：使用 Azure Deployment Manager 搭配 Resource Manager 範本 (個人預覽版)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本 (公開預覽)
 
 了解如何使用 [Azure 部署管理員](./deployment-manager-overview.md)跨多個區域部署您的應用程式。 若要使用部署管理員，您必須建立兩個範本：
 
 * **拓撲範本**：說明構成應用程式的 Azure 資源及其部署位置。
 * **首度發行範本**：說明部署應用程式時所應採取的步驟。
+
+> [!IMPORTANT]
+> 如果您的訂用帳戶標示針對 Canary 測試新的 Azure 功能，您只能使用 Azure 部署管理員部署到 Canary 區域。 
 
 本教學課程涵蓋下列工作：
 
@@ -432,4 +435,4 @@ Azure PowerShell 可用來部署範本。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用 Azure 部署管理員。 若要深入了解，請參閱 [Azure Resource Manager 文件](/azure/azure-resource-manager/)。
+在本教學課程中，您已了解如何使用 Azure 部署管理員。 若要在 Azure 部署管理員中整合健康情況監視，請參閱[教學課程：在 Azure 部署管理員中使用健康情況檢查](./deployment-manager-tutorial-health-check.md)。

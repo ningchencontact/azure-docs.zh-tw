@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b561091eedb43e1c77f3c97951beeb92bfcf4751
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 15441f70052950748f07b96ff234557462f268cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202933"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786332"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>購買及設定 Azure App Service 的 SSL 憑證
 
@@ -111,7 +111,7 @@ ms.locfileid: "65202933"
 
 使用下表來協助您在 [SSL 繫結] 對話方塊中設定繫結，然後按一下 [新增繫結]。
 
-| 設定 | 描述 |
+| 設定 | 說明 |
 |-|-|
 | 主機名稱 | 要新增 SSL 繫結的網域名稱。 |
 | 私人憑證指紋 | 要繫結的憑證。 |
@@ -166,4 +166,4 @@ ms.locfileid: "65202933"
 * [強制使用 HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [強制使用 TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](app-service-web-ssl-cert-load.md)
-* [常見問題集：App Service 憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [常見問題集：App Service 憑證](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)

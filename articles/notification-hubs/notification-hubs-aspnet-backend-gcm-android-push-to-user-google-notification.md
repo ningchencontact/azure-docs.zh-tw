@@ -15,14 +15,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: fc248292e2323d44a353473be87c2b0f1be8ea12
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d125e0c0818efbc6ec8f317122859411a37a0d20
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091662"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232742"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至特定 Android 應用程式使用者
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>教學課程：使用 Azure 通知中樞和 Google 雲端通訊 (已淘汰) 將通知推送至特定 Android 應用程式使用者
+
+> [!WARNING]
+> Google 已於 2018 年 4 月 10 日淘汰 Google 雲端通訊 (GCM)。 GCM 伺服器和用戶端 API 會由其他項目取代，並且很快就會在 2019 年 5 月 29 日進行移除。 如需詳細資訊，請參閱 [GCM 和 FCM 常見問題集](https://developers.google.com/cloud-messaging/faq)。
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -141,7 +144,7 @@ ms.locfileid: "55091662"
     ```xml
     <string name="usernameHint">Username</string>
     <string name="passwordHint">Password</string>
-    <string name="loginButton">1. Log in</string>
+    <string name="loginButton">1. Sign in</string>
     <string name="send_button">2. Send Notification</string>
     <string name="notification_message_hint">Notification message</string>
     <string name="notification_message_tag_hint">Recipient username</string>
@@ -319,7 +322,7 @@ ms.locfileid: "55091662"
     Button sendPush = (Button) findViewById(R.id.sendbutton);
     sendPush.setEnabled(false);
     ```
-9. 然後，新增下列方法來處理 [ **登入** ] 按鈕 click 事件及傳送推播通知。
+9. 然後，新增下列方法來處理 [登入] 按鈕 click 事件及傳送推播通知。
 
     ```java
     public void login(View view) throws UnsupportedEncodingException {
@@ -467,7 +470,7 @@ ms.locfileid: "55091662"
 
 1. 在使用 Android Studio 的裝置或模擬器上執行應用程式。
 2. 在 Android 應用程式中，輸入使用者名稱和密碼。 兩者必須是相同的字串值，而且不得包含空格或特殊字元。
-3. 在 Android 應用程式中，按一下 [ **登入**]。 等待快顯訊息出現，指出 [ **已登入並註冊**]。 這會啟用 [傳送通知] 按鈕。
+3. 在 Android 應用程式中，按一下 [登入]。 等待快顯訊息出現，指出 [ **已登入並註冊**]。 這會啟用 [傳送通知] 按鈕。
 
     ![][A2]
 4. 按一下切換按鈕，啟用您已執行應用程式並註冊使用者的所有平台。

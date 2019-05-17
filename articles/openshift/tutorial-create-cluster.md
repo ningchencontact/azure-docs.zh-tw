@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/06/2019
-ms.openlocfilehash: 5bc71a2d0f29fed163fb5c93ebd27df7f66a1325
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/08/2019
+ms.openlocfilehash: baada8a5238725456ca4a2ec7e8257c229066115
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079473"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466184"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>教學課程：建立 Azure Red Hat OpenShift 叢集
 
@@ -35,7 +35,7 @@ ms.locfileid: "65079473"
 開始進行本教學課程之前：
 
 請確定您已[設定開發環境](howto-setup-environment.md)，其中包括：
-- 安裝最新的 CLI
+- 安裝最新的 CLI (2.0.64 版或更新版本)
 - 建立租用戶
 - 建立 Azure 應用程式物件
 - 建立 Active Directory 使用者，用來登入在叢集上執行的應用程式。
@@ -101,7 +101,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 ### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>選用：將叢集的虛擬網路連線到現有的虛擬網路
 
-如果您不需將所建立叢集的虛擬網路 (VNET) 連線到現有的 VNET，請略過此步驟。
+如果您不需透過對等互連將所建立叢集的虛擬網路 (VNET) 連線到現有的 VNET，請略過此步驟。
 
 首先，取得現有 VNET 的識別碼。 識別碼的格式會是：`/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`。
 
@@ -132,7 +132,7 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 
 ## <a name="step-3-sign-in-to-the-openshift-console"></a>步驟 3：登入 OpenShift 主控台
 
-您現在即可登入新叢集的 OpenShift 主控台。 [OpenShift Web 主控台](https://docs.openshift.com/dedicated/architecture/infrastructure_components/web_console.html)可讓您以視覺化方式呈現、瀏覽及管理 OpenShift 專案的內容。
+您現在即可登入新叢集的 OpenShift 主控台。 [OpenShift Web 主控台](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html)可讓您以視覺化方式呈現、瀏覽及管理 OpenShift 專案的內容。
 
 我們將以您為了測試建立的[新 Azure AD 使用者](howto-aad-app-configuration.md#create-a-new-active-directory-user)登入。 若要這麼做，您需要全新瀏覽器執行個體，該執行個體尚未快取您平常用來登入 Azure 入口網站的身分識別。
 
@@ -147,13 +147,13 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 
 您現在已登入叢集主控台。
 
-[OpenShift 叢集主控台的螢幕擷取畫面](./media/aro-console.png)
+![OpenShift 叢集主控台的螢幕擷取畫面](./media/aro-console.png)
 
- 您可以深入了解如何[使用 OpenShift 主控台](https://docs.openshift.com/dedicated/getting_started/developers_console.html)，以建立 [Red Hat OpenShift](https://docs.openshift.com/dedicated/welcome/index.html) 文件中的映像。
+ 深入了解如何[使用 OpenShift 主控台](https://docs.openshift.com/aro/getting_started/developers_console.html)，以建立 [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) 文件中的映像。
 
 ## <a name="step-4-install-the-openshift-cli"></a>步驟 4：安裝 OpenShift CLI
 
-[OpenShift CLI](https://docs.openshift.com/dedicated/cli_reference/get_started_cli.html) (或 OC 工具) 會提供用於管理應用程式和較低層級公用程式的命令，以便與 OpenShift 叢集的各種元件互動。
+[OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (或 OC 工具) 會提供用於管理應用程式和較低層級公用程式的命令，以便與 OpenShift 叢集的各種元件互動。
 
 在 OpenShift 主控台中，按一下右上角您登入名稱旁邊的問號，然後選取 [命令列工具]。  請遵循 [最新版本] 連結來下載和安裝 Linux、 MacOS 或 Windows 支援的 oc CLI。
 

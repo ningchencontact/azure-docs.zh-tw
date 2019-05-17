@@ -3,8 +3,8 @@ title: 移除使用 Microsoft 身分識別平台所註冊的應用程式 | Azure
 description: 了解如何移除使用 Microsoft 身分識別平台所註冊的應用程式。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20d7218b9b1d53b3cfb72a12ee34a77956327ce2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 271fe45082749afc310e8f217e8119d3931c3cac
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093189"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413722"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>快速入門：移除使用 Microsoft 身分識別平台所註冊的應用程式 (預覽)
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>快速入門：移除使用 Microsoft 身分識別平台所註冊的應用程式
 
 已使用 Microsoft 身分識別平台註冊應用程式的企業開發人員和軟體即服務 (SaaS) 提供者，可能需要移除應用程式的註冊。
 
@@ -35,10 +35,7 @@ ms.locfileid: "58093189"
 
 ## <a name="prerequisites"></a>必要條件
 
-開始之前，請先確定您已完成以下先決條件：
-
-* 擁有已有應用程式在其中註冊的租用戶。 若要了解如何新增和註冊應用程式，請參閱[使用 Microsoft 身分識別平台來註冊應用程式](quickstart-register-app.md)。
-* 在 Azure 入口網站中選擇加入應用程式註冊預覽版體驗。 本快速入門中的步驟會對應到新的 UI，而且必須選擇加入預覽版體驗才能進行。
+您必須擁有已有應用程式在其中註冊的租用戶。 若要了解如何新增和註冊應用程式，請參閱[使用 Microsoft 身分識別平台來註冊應用程式](quickstart-register-app.md)。
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>移除您或組織所編寫的應用程式
 
@@ -47,8 +44,8 @@ ms.locfileid: "58093189"
 ### <a name="to-remove-an-application"></a>移除應用程式
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-2. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取您的帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-3. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)]。 尋找並選取您要設定的應用程式。 在選取應用程式後，您會看到應用程式的 [概觀] 頁面。
+2. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
+3. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊]。 尋找並選取您要設定的應用程式。 在選取應用程式後，您會看到應用程式的 [概觀] 頁面。
 4. 從 [概觀] 頁面上，選取 [刪除]。
 5. 選取 [是] 以確認要刪除應用程式。
 

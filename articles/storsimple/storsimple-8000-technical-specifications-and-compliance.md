@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631884"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606930"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>適用於 StorSimple 裝置的技術規格和相容性
 
@@ -44,7 +44,7 @@ EBOD 機箱使用 580 W PCM，而主要機箱會使用 764 W PCM。 下表列出
 | 輸出 |5V 待機電壓 \@ 2.0 A |5V 待機電壓 \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| 隨插即用 |是 |是 |
+| 隨插即用 |有 |有 |
 | 開關和 LED |AC ON/OFF 開關和四個狀態指示器 LED |AC ON/OFF 開關和六個狀態指示器 LED |
 | 機箱冷卻 |具有變動風扇速度控制的軸流散熱風扇 |具有變動風扇速度控制的軸流散熱風扇 |
 
@@ -173,7 +173,7 @@ StorSimple 裝置混合搭載 8100 及 8600 的硬碟與固態磁碟機。 8100 
 
 ## <a name="ac-power-cord-compliance"></a>AC 電源線相容性
 
-插頭和完整電源線組件必須符合適用於使用裝置之國家或地區的標準，而且必須具有該國家或地區可接受的安全核可。 下表列出適用於美國和歐洲的標準。
+插頭和完整電源線組件必須符合適用於以裝置正在使用中，國家/地區的標準，而且必須具有該國可接受該國家/地區中安全核。 下表列出適用於美國和歐洲的標準。
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC 電源線 - 美國 (必須由 NRTL 列名)
 
@@ -188,7 +188,7 @@ StorSimple 裝置混合搭載 8100 及 8600 的硬碟與固態磁碟機。 8100 
 | 元件 | 規格 |
 | --- | --- |
 | 電源線類型 |諧波，H05-VVF-3G1.0 |
-| 插座 |IEC 320 C-13、250 V、10 A |
+| 通訊端 |IEC 320 C-13、250 V、10 A |
 
 ## <a name="supported-network-cables"></a>支援的網路纜線
 

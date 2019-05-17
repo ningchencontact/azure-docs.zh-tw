@@ -16,6 +16,12 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: 使用 Python
           href: quickstarts/detect-data-anomalies-python.md
+- name: 教學課程
+  items:
+    - name: 使用 Power BI 將異常情況以批次方式加以視覺化
+      href: tutorials/batch-anomaly-detection-powerbi.md
+    - name: 使用 Azure Databricks 對串流資料進行異常情況偵測
+      href: tutorials/anomaly-detection-streaming-databricks.md
 - name: 使用說明指南
   items:
     - name: 識別資料中的異常情況

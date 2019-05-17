@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462322"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604451"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>開啟 Azure 資料箱的支援票證 
 
@@ -56,10 +56,10 @@ ms.locfileid: "60462322"
 4. 在 [新增支援要求] 中，按一下 [步驟 3 連絡人資訊]。 在 [連絡人資訊] 中，執行下列步驟：
 
    1. 在 [連絡人選項] 中，提供您偏好的連絡方法 (電話或電子郵件) 以及語言。 會根據您的訂用帳戶方案自動選擇回應時間。
-   2. 在 [連絡人資訊] 中，提供您的姓名、電子郵件、選用連絡方法、國家/地區。 選取 [儲存連絡人變更，以供後續支援要求使用]。
+   2. 在 **連絡人資訊**，提供您的名稱、 電子郵件、 選用連絡、 國家/地區。 選取 [儲存連絡人變更，以供後續支援要求使用]。
    3. 按一下頁面底部的 [新增] 。
    
-       ![連絡人資訊](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
+       ![連絡資訊](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
       Microsoft 支援服務會利用此資訊來連絡您，以取得進一步資訊、進行診斷及解決。
       提交您的要求之後，支援工程師會儘速連絡您來處理您的要求。

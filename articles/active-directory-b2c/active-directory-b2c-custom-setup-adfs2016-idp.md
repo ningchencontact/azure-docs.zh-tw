@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 91db42a003bdbb7614faba2122c30826b62ee20f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: df4acf72a1a6ea134e1192512fda1d8cf1e92f0a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698650"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65767999"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則將 ADFS 新增為 SAML 識別提供者
 
@@ -35,7 +35,7 @@ ms.locfileid: "64698650"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 請確定您使用包含 Azure AD B2C 租用戶的目錄。 選取 **目錄和訂用帳戶篩選**上方功能表中，然後選擇包含您的租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-4. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]。
+4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 5. 選取 [原則金鑰]，然後選取 [新增]。
 6. 針對 [選項] 選擇 `Upload`。
 7. 輸入原則金鑰的 [名稱]。 例如： `SamlCert`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
@@ -170,9 +170,9 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
     | LDAP 屬性 | 傳出宣告類型 |
     | -------------- | ------------------- |
     | 使用者主體名稱 | userPrincipalName |
-    | Surname | family_name |
+    | 姓氏 | family_name |
     | 指定的名稱 | given_name |
-    | 電子郵件地址 | 電子郵件 |
+    | 電子郵件地址 | email |
     | 顯示名稱 | name |
     
 12.  根據不同憑證類型，您可能需要設定雜湊演算法。 在信賴憑證者信任 (B2C 示範) 屬性視窗上，選取 [進階] 索引標籤、將 [安全雜湊演算法] 變更為 `SHA-256`，然後按一下 [確定]。  

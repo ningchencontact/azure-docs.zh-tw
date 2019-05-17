@@ -3,8 +3,8 @@ title: Azure Active Directory 驗證程式庫 | Microsoft Docs
 description: Azure AD 驗證程式庫 (ADAL) 可讓用戶端應用程式開發人員輕鬆地向雲端或內部部署 Active Directory (AD) 驗證使用者，然後取得存取權杖來保護 API 呼叫。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf54e2d660e44bfb06f6c0ccb56fd5c7aea907e3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b71585c178efbc30892cf95c5c2149818f0dcb3c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917244"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764575"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 驗證程式庫
 
@@ -46,7 +46,7 @@ Azure Active Directory 驗證程式庫 (ADAL) v1.0 可讓應用程式開發人�
 | .NET 用戶端、Windows 市集、Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [傳統型應用程式](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[單一頁面應用程式](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | iOS、macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [參考](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
-| Android |ADAL |[中央存储库](https://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|
+| Android |ADAL |[Maven](https://search.maven.org/search?q=g:com.microsoft.aad+AND+a:adal&core=gav) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Node.js Web 應用程式](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[參考](https://docs.microsoft.com/javascript/api/adal-node/?view=azure-node-latest) |
 | Java |ADAL4J |[Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java Web 應用程式](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) |[參考](https://javadoc.io/doc/com.microsoft.azure/adal4j) |
 | Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Python Web 應用程式](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[參考](https://adal-python.readthedocs.io/) |

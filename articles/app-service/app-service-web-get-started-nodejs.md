@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4dbd65a391bdc5726436ba461a34e1ca7cab87b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c103e6cb3626750414ee5083dad3e34b6be4986c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855175"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408952"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式
 
@@ -54,7 +54,7 @@ const port = process.env.PORT || 1337;
 
 App Service 會將 process.env.PORT 插入您的應用程式中，讓程式碼使用變數來知道要接聽哪個通訊埠。 
 
-在終端機視窗中，瀏覽至 Node.js 專案範例的根目錄 (包含 _index.js_ 的目錄)。
+在終端機視窗中，瀏覽至 Node.js 專案範例的**根目錄** (包含 index.js 的目錄)。
 
 ## <a name="run-the-app-locally"></a>在本機執行應用程式
 
@@ -75,7 +75,19 @@ npm start
 > [!NOTE]
 > 在 Azure App Service 中，應用程式會使用 [iisnode](https://github.com/Azure/iisnode) 執行於 IIS 中。 為了讓應用程式可使用 iisnode 執行，應用程式的根目錄會包含 web.config 檔案。 此檔案可供 IIS 讀取，且 iisnode 相關設定記錄在 [iisnode GitHub 存放庫](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config)中。
 
-[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
+## <a name="create-a-project-zip-file"></a>建立專案 ZIP 檔案
+
+確定您仍在專案範例的**根目錄**中 (包含 index.js 的目錄)。 在專案中建立所有項目的 ZIP 封存。 下列命令會使用您終端機中的預設工具：
+
+```
+# Bash
+zip -r myAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myAppFiles.zip
+```
+
+稍後，您要將此 ZIP 檔案上傳至 Azure，並將它部署到 App Service。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -153,7 +165,7 @@ Node.js 範例程式碼正在 Azure App Service Web 應用程式中執行。
 response.end("Hello Azure!");
 ```
 
-在本機的終端機視窗中，瀏覽至應用程式的根目錄，然後為更新後的專案建立新的 ZIP 檔案。
+在本機的終端機視窗中，瀏覽至應用程式的**根目錄** (包含 index.js 的目錄)，然後為更新後的專案建立新的 ZIP 檔案。
 
 ```azurecli-interactive
 # Bash

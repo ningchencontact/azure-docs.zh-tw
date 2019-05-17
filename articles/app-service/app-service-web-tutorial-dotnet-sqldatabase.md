@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 59b390776a5e23c08d8793125747742cee4e473e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f010e7564f097f28269070d85e2895e73f454054
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487018"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415588"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 
@@ -44,7 +44,7 @@ ms.locfileid: "58487018"
 
 若要完成本教學課程：
 
-安裝包含 **ASP.NET 和 Web 開發**工作負載的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>。
+安裝包含 **ASP.NET 和 Web 開發**工作負載的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>。
 
 如果您已安裝 Visual Studio，請按一下 [工具] > [取得工具和功能] 在 Visual Studio 中新增工作負載。
 

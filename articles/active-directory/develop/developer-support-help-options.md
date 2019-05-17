@@ -3,8 +3,8 @@ title: Azure AD 應用程式開發人員的支援和協助選項 | Microsoft Doc
 description: 了解如何在建立應用程式以與 Microsoft 身分識別 (Azure Active Directory 和 Microsoft 帳戶) 整合時，取得開發相關疑難和問題的協助和支援
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c4882e991045b4a79c0ea0a19ad8fedc2fb8892
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299731"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540374"
 ---
 # <a name="support-and-help-options-for-developers"></a>開發人員的支援和協助選項
 
@@ -52,7 +52,7 @@ ms.locfileid: "60299731"
 
 ## <a name="use-the-development-support-tools"></a>使用開發支援工具
 
-| 工具  | 描述  |
+| Tool  | 說明  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | 貼上識別碼或存取權杖以將宣告名稱和值解碼。 |
 | [Microsoft Graph 總管](https://developer.microsoft.com/graph/graph-explorer)| 此工具可讓您針對 Microsoft Graph API 提出要求並查看回應。 |
@@ -63,7 +63,7 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 開發人員社�
 
 若無法透過搜尋找到問題的解答，請將新問題提交至 Stack Overflow。 在提出問題時使用下列其中一個標記，以協助社群更快速地識別和回答您的問題：
 
-|元件/區域  | 標記 |
+|元件/區域  | Tags |
 |---------|---------|
 | ADAL 程式庫 | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL 程式庫     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |

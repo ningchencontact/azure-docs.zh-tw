@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cb7cf932433927d4ead853952ff74d55c55b9cf7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160016"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546758"
 ---
 共用映像組件庫可讓您使用 RBAC 共用映像。 您可以使用 RBAC 外部租用戶內您的租用戶，或甚至個人共用影像。 但是，如果您想要共用您的 Azure 租用戶，大規模的情況下，外部的映像，您就應該建立以促進共用應用程式註冊。  使用應用程式註冊，可以啟用更複雜的共享案例，例如： 
 
@@ -44,7 +44,9 @@ ms.locfileid: "65160016"
 1. 底下**選取 **，型別*myGalleryApp*並加以選取，當它出現在清單中。 當您完成時，選取**儲存**。
 
 
-建立租用戶 2，用來存取應用程式藉由使用瀏覽器登入要求的服務主體。 取代*<Tenant2 ID>* 與您想要共用您的圖像藝廊與租用戶的租用戶識別碼。 取代 *< 應用程式 （用戶端） 識別碼 >* 與您所建立的應用程式註冊的應用程式識別碼。 完成取代項目，請將此 URL 貼入瀏覽器，並遵循登入提示登入租用戶 2。
+## <a name="give-tenant-2-access"></a>授與租用戶 2 的存取權
+
+讓應用程式的租用戶 2 存取，藉由使用瀏覽器登入要求。 取代*<Tenant2 ID>* 與您想要共用您的圖像藝廊與租用戶的租用戶識別碼。 取代 *< 應用程式 （用戶端） 識別碼 >* 與您所建立的應用程式註冊的應用程式識別碼。 完成取代項目，請將此 URL 貼入瀏覽器，並遵循登入提示登入租用戶 2。
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

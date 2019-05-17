@@ -14,22 +14,22 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fd790d27c958bf982f95b98426c6ab4d94c5f17f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433802"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412713"
 ---
-# <a name="what-is-azure-cache-for-redis"></a>什麼是 Azure Cache for Redis
+# <a name="azure-cache-for-redis-description"></a>Azure Cache for Redis 描述
 
 Azure Cache for Redis 以廣受使用的軟體 [Redis](https://redis.io/) 為基礎。 通常用來作為快取，可為高度依賴後端資料存放區的系統改善效能及延展性。 藉由暫時將經常存取的資料複製到靠近應用程式的快速儲存體中，進而改善效能。 透過 [Azure Cache for Redis](https://redis.io/) \(英文\)，此快速儲存體會與 Azure Cache for Redis 同樣位於記憶體中，而不會由資料庫從磁碟載入。
 
 Azure Cache for Redis 也可用來作為記憶體中的資料結構存放區、分散式非關聯資料庫和訊息代理程式。 利用 Redis 引擎的低延遲與高輸送量效能可提升應用程式效能。
 
-Azure Cache for Redis 可讓您從 Azure 內部或外部的任何應用程式，存取由 Microsoft 管理且裝載於 Azure 內的安全、專用 Azure Cache for Redis。
+Azure Cache for Redis 可讓您存取安全、專用的 Redis 快取。 Azure Cache for Redis 會由 Microsoft 管理並裝載於 Azure 內，且可讓您從 Azure 內部或外部的任何應用程式存取。
 
-## <a name="why-use-azure-cache-for-redis"></a>為什麼要使用 Azure Cache for Redis
+## <a name="using-azure-cache-for-redis"></a>使用 Azure Cache for Redis
 
 Azure Cache for Redis 用來支援應用程式架構或改善應用程式效能的常見模式有很多。 最常見的一些模式包括：
 
@@ -49,7 +49,7 @@ Azure Cache for Redis 可在以下層級使用：
 |---|---|
 基本 | 單一節點快取。 本層支援多種記憶體大小 (250 MB - 53 GB)。 本層適用於開發/測試和非重大的工作量。 基本層沒有服務等級協定 (SLA) |
 | 標準 | 複寫的快取是兩節點 (主要/次要) 組態，由 Microsoft 管理且具高可用 SLA (99.9%) |
-| 進階 | 進階層是企業就緒層。 進階層快取支援更多功能，而且具有較高的輸送量和較低的延遲。 進階層中的快取是部署在更強大的硬體上，因此效能優於基本或標準層。 這項優勢表示，針對大小相同的快取，其輸送量在進階層中會比在標準層中高 |
+| 進階 | 進階層是可供企業使用的層級。 進階層快取支援更多功能，而且具有較高的輸送量和較低的延遲。 進階層中的快取是部署在更強大的硬體上，因此效能優於基本或標準層。 這項優勢表示，針對大小相同的快取，其輸送量在進階層中會比在標準層中高。 |
 
 > [!TIP]
 > 如需進階快取的大小、輸送量和頻寬的詳細資訊，請參閱 [Azure Cache for Redis 常見問題集](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)。
@@ -67,9 +67,10 @@ Azure Cache for Redis 可在以下層級使用：
 | [Redis 資料永續性](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Redis 叢集](cache-how-to-premium-clustering.md) |✔|-|-|
 | [透過防火牆規則保護的安全性](cache-configure.md#firewall) |✔|✔|✔|
+| 傳輸中加密 |✔|✔|✔|
 | [透過 VNet 增強的安全性和隔離](cache-how-to-premium-vnet.md) |✔|-|-|
 | [匯入/匯出](cache-how-to-import-export-data.md) |✔|-|-|
-| [排程更新](cache-administration.md#schedule-updates) |✔|-|-|
+| [排程的更新](cache-administration.md#schedule-updates) |✔|✔|✔|
 | [異地複寫](cache-how-to-geo-replication.md) |✔|-|-|
 | [重新啟動](cache-administration.md#reboot) |✔|✔|✔|
 

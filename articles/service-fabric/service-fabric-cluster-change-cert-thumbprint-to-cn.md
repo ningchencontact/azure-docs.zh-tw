@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: aljo
-ms.openlocfilehash: d6860cdfb2e453a2151b4c5e425cfe0b12d88f8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c199bd7314cb076def497bc18030f783eb23f4be
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387177"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620237"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>將叢集從憑證指紋變更為通用名稱
 由於憑證的指紋皆不相同，導致叢集憑證變換或管理變成艱難的任務。 然而，不同的憑證卻能擁有相同的通用名稱或主體。  將使用憑證指紋的已部署叢集切換為使用憑證通用名稱，有助於大幅簡化憑證管理作業。 本文章描述如何更新執行中的 Service Fabric 叢集，改為使用憑證通用名稱，而非憑證指紋。
@@ -127,7 +127,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
     },
     ```
 
-    另外，請考慮移除 *certificateThumbprint*，因為我們不再需要它了。
+    也請考慮移除*certificateThumbprint*，它可能不會再參考 Resource Manager 範本中。
 
 2. 在 **Microsoft.Compute/virtualMachineScaleSets** 資源中，更新虛擬機器擴充功能以在憑證設定中使用通用名稱，而非使用指紋。  在 **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**，新增 `"commonNames": ["[parameters('certificateCommonName')]"],` 和移除 `"thumbprint": "[parameters('certificateThumbprint')]",`。
     ```json

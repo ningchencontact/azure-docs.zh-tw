@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: d9d57df3ec8e859a1f3257cb54e423d0006286b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/08/2019
+ms.openlocfilehash: 12a0ebeebbc3bdc205816c5534f59b1385cecb12
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880180"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413761"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>教學課程：使用 DMS 將 SQL Server 線上移轉至 Azure SQL Database 受控執行個體
 
@@ -44,17 +44,17 @@ ms.locfileid: "58880180"
 
 若要完成本教學課程，您需要：
 
-- 使用 Azure Resource Manager 部署模型建立 Azure 資料庫移轉服務的 Azure 虛擬網路 (VNET)，以使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 為您的內部部署來源伺服器提供站對站連線能力。 [了解使用 Azure 資料庫移轉服務進行 Azure SQL Database 受控執行個體移轉的網路拓樸](https://aka.ms/dmsnetworkformi)。
+- 使用 Azure Resource Manager 部署模型建立 Azure 資料庫移轉服務的 Azure 虛擬網路 (VNet)，以使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 為您的內部部署來源伺服器提供站對站連線能力。 [了解使用 Azure 資料庫移轉服務進行 Azure SQL Database 受控執行個體移轉的網路拓樸](https://aka.ms/dmsnetworkformi)。 如需建立 VNet 的詳細資訊，請參閱[虛擬網路文件](https://docs.microsoft.com/azure/virtual-network/)，特別是快速入門文章，裡面會提供逐步操作詳細資料。
 
     > [!NOTE]
-    > 在 VNET 設定期間，如果您搭配與 Microsoft 對等互連的網路使用 ExpressRoute，請將下列服務[端點](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)新增至將佈建服務的子網路：
+    > 在 VNet 設定期間，如果您搭配與 Microsoft 對等互連的網路使用 ExpressRoute，請將下列服務[端點](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)新增至將佈建服務的子網路：
     > - 目標資料庫端點 (例如，SQL 端點、Cosmos DB 端點等)
     > - 儲存體端點
     > - 服務匯流排端點
     >
     > 此為必要設定，因為 Azure 資料庫移轉服務沒有網際網路連線。
 
-- 確定您的 VNET 網路安全性群組規則不會對 Azure 資料庫移轉服務封鎖下列輸入通訊埠：443、53、9354、445、12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
+- 確定您的 VNet 網路安全性群組規則不會對 Azure 資料庫移轉服務封鎖下列輸入通訊埠：443、53、9354、445、12000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 - 設定[用於來源資料庫引擎存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
 - 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server，其預設會通過 TCP 連接埠 1433。
 - 如果您使用動態連接埠執行多個具名 SQL Server 執行個體，您可以啟用 SQL Browser 服務並允許通過防火牆存取 UDP 連接埠 1434，讓 Azure 資料庫移轉服務連線來源伺服器上的具名執行個體。
@@ -71,7 +71,8 @@ ms.locfileid: "58880180"
 
 1. 登入 Azure 入口網站，選取 [所有服務]，然後選取 [訂用帳戶]。
 
-    ![顯示入口網站訂用帳戶](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)        
+    ![顯示入口網站訂用帳戶](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)
+
 2. 選取您要在其中建立 Azure 資料庫移轉服務執行個體的訂用帳戶，然後選取 [資源提供者]。
 
     ![顯示資源提供者](media/tutorial-sql-server-to-managed-instance-online/portal-select-resource-provider.png)
@@ -94,18 +95,18 @@ ms.locfileid: "58880180"
 
 4. 選取您要建立 DMS 執行個體的位置。
 
-5. 選取現有的虛擬網路 (VNET) 或建立虛擬網路。
+5. 選取現有 VNet 或建立一個。
 
-    VNET 會為 Azure 資料庫移轉服務提供來源 SQL Server 和目標 Azure SQL Database 受控執行個體的存取權。
+    VNet 會為 Azure 資料庫移轉服務提供來源 SQL Server 和目標 Azure SQL Database 受控執行個體的存取權。
 
-    如需有關如何在 Azure 入口網站中建立 VNET 的詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路](https://aka.ms/DMSVnet)一文。
+    如需有關如何在 Azure 入口網站中建立 VNet 的詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路](https://aka.ms/DMSVnet)一文。
 
     如需其他詳細資訊，請參閱[了解使用 Azure 資料庫移轉服務進行 Azure SQL Database 受控執行個體移轉的網路拓樸](https://aka.ms/dmsnetworkformi)一文。
 
 6. 從「進階」定價層選取 SKU。
 
     > [!NOTE]
-    > 只有在使用「進階」層的情況下，才支援線上移轉。 
+    > 只有在使用「進階」層的情況下，才支援線上移轉。
 
     如需成本和定價層的詳細資訊，請參閱[定價分頁](https://aka.ms/dms-pricing)。
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 82b568d5a6abae1f061166afc1c80ef639df036c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 245e5ca6e2d7d1f48951d63ba6539180a35f1358
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371541"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604155"
 ---
 # <a name="view-the-tax-documents-for-your-microsoft-customer-agreement"></a>檢視您的 Microsoft 客戶合約稅務文件
 
@@ -36,7 +36,7 @@ ms.locfileid: "60371541"
 3. 選取 [發票]。
 4. 在發票方格中，尋找您想要下載的稅務文件對應的發票的資料列。
 5. 按一下省略符號 (`...`) 結尾的資料列。
-6. 選取 **稅務文件**。 根據您帳單的設定檔的國家/地區，您可能會看到每筆發票的多個稅務文件。
+6. 選取 **稅務文件**。 根據您帳單的設定檔國家/地區，您可能會看到每筆發票的多個稅務文件。
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取權
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

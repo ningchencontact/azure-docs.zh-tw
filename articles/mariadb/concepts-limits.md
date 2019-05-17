@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61041270"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550500"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫相關限制
 下列各節說明資料庫服務中的容量、儲存引擎支援、權限支援、資料操作陳述式支援，以及功能限制。
@@ -29,11 +29,11 @@ ms.locfileid: "61041270"
 |一般用途| 16| 2500|
 |一般用途| 32| 5000|
 |一般用途| 64| 10000|
-|記憶體最佳化| 2| 600|
-|記憶體最佳化| 4| 1250|
-|記憶體最佳化| 8| 2500|
-|記憶體最佳化| 16| 5000|
-|記憶體最佳化| 32| 10000|
+|記憶體已最佳化| 2| 600|
+|記憶體已最佳化| 4| 1250|
+|記憶體已最佳化| 8| 2500|
+|記憶體已最佳化| 16| 5000|
+|記憶體已最佳化| 32| 10000|
 
 當連線超過限制時，則可能會收到下列錯誤：
 > 錯誤 1040 (08004)：太多連線
@@ -82,6 +82,9 @@ ms.locfileid: "61041270"
 
 ### <a name="vnet-service-endpoints"></a>VNet 服務端點
 - VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。
+
+### <a name="storage-size"></a>儲存體大小
+- 請參閱[定價層](concepts-pricing-tiers.md)的儲存體大小限制，每個定價層。
 
 ## <a name="current-known-issues"></a>目前已知問題
 - MariaDB 伺服器執行個體於建立連線後會顯示不正確的伺服器版本。 若要取得正確的伺服器執行個體引擎版本，請使用 `select version();` 命令。

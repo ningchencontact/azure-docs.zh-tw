@@ -67,8 +67,10 @@
           href: data-box-edge-deploy-connect-setup-activate.md
         - name: 4 - 新增並連線到共用
           href: data-box-edge-deploy-add-shares.md
-        - name: 5 - 設定計算
+        - name: 5A - 設定計算 (簡單)
           href: data-box-edge-deploy-configure-compute.md
+        - name: 5B - 設定計算 (進階)
+          href: data-box-edge-deploy-configure-compute-advanced.md
     - name: 概念
       items:
         - name: 檢閱需求

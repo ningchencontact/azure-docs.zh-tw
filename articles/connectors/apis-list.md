@@ -8,26 +8,33 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
-ms.date: 08/23/2018
-ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/08/2019
+ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722983"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551873"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的連接器
 
 連接器從 Azure Logic Apps，事件、 資料和動作跨其他應用程式、 服務、 系統、 通訊協定，與平台，提供快速存取。 在您的 logic apps 中使用連接器，您可以展開雲端和內部部署應用程式執行工作所建立，且已有的資料功能。
 
-儘管 Logic Apps 提供 [200 個以上的連接器](https://docs.microsoft.com/connectors)，但本文說明由數千個應用程式及數百萬次執行成功用於處理資料和資訊的熱門常用連接器。 若要尋找的連接器和每個連接器的參考資訊，例如觸發程序、 動作和限制，完整的清單檢閱連接器參考頁面底下[連接器概觀](https://docs.microsoft.com/connectors)。 此外，深入了解[觸發程序和動作](#triggers-actions)。
+儘管 Logic Apps 提供 [200 個以上的連接器](https://docs.microsoft.com/connectors)，但本文說明由數千個應用程式及數百萬次執行成功用於處理資料和資訊的熱門常用連接器。 若要尋找的連接器和每個連接器的參考資訊，例如觸發程序、 動作和限制，完整的清單檢閱連接器參考頁面底下[連接器概觀](https://docs.microsoft.com/connectors)。 此外，深入了解[觸發程序和動作](#triggers-actions)， [Logic Apps 的定價模型](../logic-apps/logic-apps-pricing.md)，並[Logic Apps 的定價詳細資料](https://azure.microsoft.com/pricing/details/logic-apps/)。 
 
 > [!NOTE]
 > 若要整合的服務或沒有連接器的 API，您可以直接透過 HTTP 等通訊協定呼叫服務，或建立[自訂連接器](#custom)。
 
 內建的觸發程序和動作，或是做為受管理的連接器，連接器可供使用：
 
-* [**内置操作**](#built-ins)：這些內建動作和觸發程序是 「 原生 」 至 Azure Logic Apps 和可幫助您建立邏輯應用程式，在自訂排程上執行，與其他端點進行通訊、 接收和回應要求，並呼叫 Azure functions、 Azure API 應用程式 （Web 應用程式）、 您自己的 Api受管理及使用已發行的 Azure API 管理，以及可以接收要求的巢狀的邏輯應用程式。 您也可以使用內建動作，協助您組織及控制邏輯應用程式的工作流程，以及處理資料。
+* [**内置操作**](#built-ins)：這些內建的觸發程序和動作就是 「 原生 」 至 Azure Logic Apps 和可幫助您建立邏輯應用程式，在自訂排程上執行，與其他端點進行通訊、 接收和回應要求，並呼叫 Azure functions、 Azure API 應用程式 （Web 應用程式）、 您自己的 Api受管理及使用已發行的 Azure API 管理，以及可以接收要求的巢狀的邏輯應用程式。 您也可以使用內建動作，協助您組織及控制邏輯應用程式的工作流程，以及處理資料。
+
+  > [!NOTE]
+  > 邏輯應用程式內[整合服務環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)可以直接存取 Azure 虛擬網路中的資源。
+  > 當您使用 ISE 時，內建的觸發程序和動作，會顯示**Core**在為您的 logic apps 相同的 ISE 中執行的標籤。 Logic apps、 內建的觸發程序，以及執行 ISE 使用定價方案的耗用量為基礎的定價方案從不同的內建動作。
+  >
+  > 如需建立應用程式的詳細資訊，請參閱 <<c0> [ 從 Azure Logic Apps 連線至 Azure 虛擬網路](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)。 
+  > 如需有關定價的詳細資訊，請參閱 < [Logic Apps 的定價模型](../logic-apps/logic-apps-pricing.md)。
 
 * **受控連接器**：部署和管理由 Microsoft，這些連接器提供觸發程序和動作來存取雲端服務、 內部部署系統，或兩者，包括 Office 365、 Azure Blob 儲存體、 SQL Server、 Dynamics、 Salesforce、 SharePoint 等等。 某些連接器特別支援企業對企業 (B2B) 通訊案例，而且需要[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)連結到邏輯應用程式。 之前使用特定連接器，您可能必須先建立 Azure Logic Apps 所管理的連線。 
 
@@ -36,7 +43,7 @@ ms.locfileid: "64722983"
 
   连接器分类为“标准”或“企业”连接器。 
   [企業連接器](#enterprise-connectors)提供企業系統例如 SAP、 IBM MQ 和 IBM 3270 存取產生額外費用。 若要判斷連接器是否為 Standard 或 Enterprise，請參閱底下的每個連接器的參考頁面中的技術細節[連接器概觀](https://docs.microsoft.com/connectors)。 
-  
+
   您也可以識別連接器使用這些分類中，雖然某些連接器可以跨越多個類別。 
   例如，SAP 是企業連接器和內部部署連接器：
 
@@ -47,8 +54,15 @@ ms.locfileid: "64722983"
   | [**整合帳戶連接器**](#integration-account-connectors) | 當您建立並支付整合帳戶時，這些連接器會轉換和驗證 XML、進行一般檔案的編碼和解碼，以及透過 AS2、EDIFACT 和 X12 通訊協定處理企業對企業 (B2B) 訊息。 |
   |||
 
-> [!NOTE]
-> 完整清單的連接器和每個連接器的參考資訊，例如動作和任何觸發程序，其中所定義以 OpenAPI (以前稱為 Swagger) 描述，再加上任何限制，您可以找到完整的清單底下[連接器概觀](/connectors/). 如需定價資訊，請參閱 [Logic Apps 定價詳細資料](https://azure.microsoft.com/pricing/details/logic-apps/)和 [Logic Apps 定價模型](../logic-apps/logic-apps-pricing.md)。 
+  > [!NOTE]
+  > 邏輯應用程式內[整合服務環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)可以直接存取 Azure 虛擬網路中的資源。 當您使用 ISE 時，標準和企業連接器，顯示**ISE**在為您的 logic apps 相同的 ISE 中執行的標籤。 不會顯示在全域的 Logic Apps 服務中執行的 ISE 標籤的連接器。
+  >
+  > 針對連線到 Azure 虛擬網路的內部部署系統會將該網路插入您 ISE 讓邏輯應用程式可以使用直接存取這些系統有任一個連接器**ISE**標籤、 HTTP 動作或[自訂連接器](#custom)。 Logic apps 和連接器執行 ISE 使用定價計劃不同於以使用量為基礎的定價方案。 
+  >
+  > 如需建立應用程式的詳細資訊，請參閱 <<c0> [ 從 Azure Logic Apps 連線至 Azure 虛擬網路](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)。
+  > 如需有關定價的詳細資訊，請參閱 < [Logic Apps 的定價模型](../logic-apps/logic-apps-pricing.md)。
+
+  完整清單的連接器和每個連接器的參考資訊，例如動作和任何觸發程序，其中所定義以 OpenAPI (以前稱為 Swagger) 描述，再加上任何限制，您可以找到完整的清單底下[連接器概觀](/connectors/). 如需定價資訊，請參閱[Logic Apps 的定價模型](../logic-apps/logic-apps-pricing.md)，並[Logic Apps 的定價詳細資料](https://azure.microsoft.com/pricing/details/logic-apps/)。 
 
 <a name="built-ins"></a>
 
@@ -66,7 +80,7 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 
 ### <a name="control-workflow"></a>控制工作流程
 
-以下的內建動作可供建構及控制邏輯應用程式工作流程中的動作：
+Logic Apps 會提供內建動作，來建構與控制邏輯應用程式的工作流程中的動作：
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -77,7 +91,7 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 
 ### <a name="manage-or-manipulate-data"></a>管理或操作資料
 
-以下的內建動作可供處理資料輸出及其格式：  
+Logic Apps 會提供內建動作，使用 資料輸出和其格式：  
 
 |   |   | 
 |---|---| 
@@ -90,7 +104,7 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 
 ## <a name="managed-api-connectors"></a>受控 API 連接器
 
-以下是比較熱門的連接器，可供自動執行下列服務或系統的工作、程序和工作流程：
+Logic Apps 會提供這些熱門的標準連接器適用於工作、 處理程序及與這些服務或系統的工作流程自動化。
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -100,25 +114,25 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 | [![API 圖示][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | 連線到 Dynamics 365 帳戶，以便建立和管理記錄、項目等等。 | [![API 圖示][ftp-icon]<br/>**FTP**][ftp-doc] | 連線到可從網際網路存取的 FTP 伺服器，以便使用您的檔案和資料夾。 | 
 | [![API 圖示][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | 連線到 Salesforce 帳戶，以便建立和管理記錄、作業、物件等項目。 | [![API 圖示][twitter-icon]<br/>**Twitter**][twitter-doc] | 連線到 Twitter 帳戶，以便管理推文、追蹤者、您的時間軸等等。 將您的推文儲存到 SQL、Excel 或 SharePoint。 | 
 | [![API 圖示][azure-event-hubs-icon]<br/>**Azure 事件中樞**][azure-event-hubs-doc] | 透過事件中樞取用和發佈事件。 例如，透過事件中樞從邏輯應用程式取得輸出，然後將輸出傳送給即時分析提供者。 | [![API 圖示][azure-event-grid-icon]<br/>**Azure Event**</br>**Grid**][azure-event-grid-doc] | 當 Azure 資源或第三方資源變更時，監視 Event Grid 所發佈的事件。 | 
-||||| 
+|||||
 
 <a name="on-premises-connectors"></a>
 
 ## <a name="on-premises-connectors"></a>內部部署連接器 
 
-以下是一些常用的連接器，可供存取內部部署系統中的資料和資源。 您必須先[下載、安裝及設定內部部署資料閘道][gateway-doc]，才可建立內部部署系統連線。 此閘道會提供安全的通訊通道，而不需設定必要的網路基礎結構。 
+以下是一些常用的標準連接器，Logic Apps 提供用來存取內部部署系統中的資料和資源。 您必須先[下載、安裝及設定內部部署資料閘道][gateway-doc]，才可建立內部部署系統連線。 此閘道會提供安全的通訊通道，而不需設定必要的網路基礎結構。 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
 | ![API 圖示][biztalk-server-icon]<br/>**BizTalk**</br> **伺服器** | [![API 圖示][file-system-icon]<br/>**檔案</br>系統**][file-system-doc] | [![API 圖示][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API 圖示][ibm-informix-icon]<br/>**IBM**</br> **Informix**][ibm-informix-doc] | ![API 圖示][mysql-icon]<br/>**MySQL** | 
 | [![API 圖示][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API 圖示][postgre-sql-icon]<br/>**PostgreSQL** | [![API 圖示][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![API 圖示][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![API 圖示][teradata-icon]<br/>**Teradata** | 
-||||| 
+|||||
 
 <a name="integration-account-connectors"></a>
 
-## <a name="integration-account-connectors"></a>整合帳戶連接器 
+## <a name="integration-account-connectors"></a>整合帳戶連接器
 
-當您建立並支付[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) (可透過 Azure 中的企業整合套件 (EIP) 取得) 時，以下的連接器可供利用邏輯應用程式建置企業對企業 (B2B) 解決方案。 使用此帳戶，您可以建立並儲存一些 B2B 構件，例如交易夥伴、合約、地圖、結構描述、憑證等等。 若要使用這些構件，請建立您的邏輯應用程式與整合帳戶的關聯。 如果您目前使用 BizTalk Server，可能已經熟悉這些連接器。
+Logic Apps 會提供標準連接器來建置邏輯應用程式的企業對企業 (B2B) 解決方案，當您建立並支付[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，可透過企業整合套件 (EIP)在 Azure 中。 使用此帳戶，您可以建立並儲存一些 B2B 構件，例如交易夥伴、合約、地圖、結構描述、憑證等等。 若要使用這些構件，請建立您的邏輯應用程式與整合帳戶的關聯。 如果您目前使用 BizTalk Server，可能已經熟悉這些連接器。
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -131,7 +145,7 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 
 ## <a name="enterprise-connectors"></a>企業連接器
 
-您的邏輯應用程式可以存取企業系統，例如 SAP 和 IBM MQ：
+Logic Apps 會提供用於存取企業系統，例如 SAP 和 IBM MQ 下列企業連接器：
 
 |   |   |   | 
 |---|---|---| 
@@ -172,11 +186,13 @@ Azure Logic Apps 的觸發程序引發之後，建立邏輯應用程式的執行
 若要呼叫可執行自訂程式碼或不可作為連接器的 API，您可[建立自訂 API Apps](../logic-apps/logic-apps-create-api-app.md)，以擴充 Logic Apps 平台。 您也可以針對「任何」以 REST 或 SOAP 為基礎的 API [建立自訂連接器](../logic-apps/custom-connector-overview.md)，以便將這些 API 提供給 Azure 訂用帳戶中的任何邏輯應用程式使用。
 若要對任何人公開自訂 API Apps 或連接器以使用於 Azure，您可以[提交連接器進行 Microsoft 認證](../logic-apps/custom-connector-submit-certification.md)。
 
-## <a name="get-support"></a>取得支援
-
-* 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-
-* 若要提出或票選 Azure Logic Apps 和連接器的想法，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+> [!NOTE]
+> 邏輯應用程式內[整合服務環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)可以直接存取 Azure 虛擬網路中的資源。
+> 如果您有需要則內部部署資料閘道的自訂連接器，您建立這些外部 ISE 的連接器，在 ISE 中的邏輯應用程式也可以使用這些連接器。
+>
+> 在 ISE 中建立的自訂連接器不使用內部部署資料閘道。 不過，這些連接器，可以直接存取內部部署資料來源連接到裝載 ISE 的 Azure 虛擬網路。 因此，在 ISE 中的邏輯應用程式很可能不需要部署資料閘道與這些資源進行通訊時。
+>
+> 如需建立應用程式的詳細資訊，請參閱 <<c0> [ 從 Azure Logic Apps 連線至 Azure 虛擬網路](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)。
 
 ## <a name="next-steps"></a>後續步驟
 

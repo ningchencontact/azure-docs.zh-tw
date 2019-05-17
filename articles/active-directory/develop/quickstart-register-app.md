@@ -1,10 +1,10 @@
 ---
-title: 使用 Microsoft 身分識別平台來註冊應用程式 (預覽) | Azure
+title: 使用 Microsoft 身分識別平台來註冊應用程式 - Microsoft 身分識別平台
 description: 了解如何使用 Microsoft 身分識別平台來新增和註冊應用程式。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
-ms.author: celested
+ms.date: 05/09/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6943ad460bb5d852220e704492f892961992a59f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090707"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413593"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>快速入門：使用 Microsoft 身分識別平台來註冊應用程式 (預覽)
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>快速入門：使用 Microsoft 身分識別平台來註冊應用程式
 
 企業開發人員和軟體即服務 (SaaS) 提供者可以開發可與 Microsoft 身分識別平台整合的商業雲端服務或企業營運應用程式，以提供安全的登入和授權給其服務。
 
-本快速入門會說明如何在 Azure 入口網站中使用**應用程式註冊 (預覽)** 體驗新增和註冊應用程式，以便讓應用程式可以和 Microsoft 身分識別平台整合。 若要深入了解新應用程式註冊體驗中的新功能與功能改善，請參閱[此部落格文章](https://developer.microsoft.com/graph/blogs/new-app-registration/)。 
-
-## <a name="prerequisite"></a>必要條件
-
-若要開始，您必須在 Azure 入口網站中選擇加入應用程式註冊預覽版體驗。 本快速入門中的步驟會對應到新的 UI，而且必須選擇加入預覽版體驗才能進行。
+本快速入門會說明如何在 Azure 入口網站中使用**應用程式註冊**體驗新增和註冊應用程式，以便讓應用程式可以和 Microsoft 身分識別平台整合。 若要深入了解新應用程式註冊體驗中的新功能與功能改善，請參閱[此部落格文章](https://developer.microsoft.com/graph/blogs/new-app-registration/)。
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>使用 Azure 入口網站註冊新的應用程式
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)] > [新增註冊]。
+1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊] > [新增註冊]。
 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
 
    - **名稱** - 輸入會顯示給應用程式使用者的有意義應用程式名稱。

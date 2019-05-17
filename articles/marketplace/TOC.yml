@@ -463,3 +463,25 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: 取得支援
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
+- name: 合作夥伴中心中的商務 Marketplace 入口網站
+  items:
+    - name: 概觀
+      items:
+        - name: 什麼是商務 Marketplace？
+          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: 帳戶管理
+      items:
+        - name: 建立新的合作夥伴中心帳戶
+          href: ./partner-center-portal/create-account.md
+        - name: 管理合作夥伴中心帳戶
+          href: ./partner-center-portal/manage-account.md
+        - name: 尋找或建立公司工作帳戶
+          href: ./partner-center-portal/company-work-accounts.md
+    - name: 建立新的供應項目
+      items:
+        - name: 建立 SaaS 供應項目
+          href: ./partner-center-portal/create-new-saas-offer.md
+    - name: 發佈狀態
+      href: ./partner-center-portal/publishing-status.md
+    - name: 更新現有供應項目
+      href: ./partner-center-portal/update-existing-offer.md

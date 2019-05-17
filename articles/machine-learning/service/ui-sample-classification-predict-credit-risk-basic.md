@@ -1,7 +1,7 @@
 ---
 title: 分類：預測信用風險
 titleSuffix: Azure Machine Learning service
-description: 這個視覺化介面的範例實驗示範如何執行的二元分類以預測信用風險根據信用應用程式中提供的資訊。
+description: 了解如何建置機器學習的分類器，而不需要撰寫一行程式碼使用視覺化介面。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 3d4ec3c71aaed6bddb012fb17ee5bb96da00cd76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028526"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789408"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>範例 3-分類：預測信用風險
 
-這個視覺化介面的範例實驗示範如何執行的二元分類以預測信用風險根據信用應用程式中提供的資訊。 它會顯示如何執行基本的分類，包括資料處理作業、 將資料集分割成訓練和測試集、 定型、 評分測試資料集，並評估預測。
+了解如何建置機器學習的分類器，而不需要撰寫一行程式碼使用視覺化介面。 此範例來定型**二元推進式的決策樹**來預測信用風險 （高或低） 會根據信用應用程式資訊，例如信用記錄、 年齡和信用卡的數目。
+
+因為我們想要回答問題"哪一個？ 」 這稱為分類問題。 不過，您可以套用相同的基本程序來處理任何類型的機器學習服務問題，無論是迴歸、 分類、 叢集、 等等。
+
+以下是完成這項實驗圖形：
+
+![實驗的圖形](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -40,7 +46,6 @@ ms.locfileid: "65028526"
 
 ## <a name="experiment-summary"></a>實驗摘要
 
-
 我們遵循下列步驟來建立實驗：
 
 1. 德國信用卡 UCI 資料集模組拖曳至實驗畫布。
@@ -50,11 +55,10 @@ ms.locfileid: "65028526"
 1. 新增**定型模型**模組。 從上一個步驟的分類器連線的左側輸入連接埠**定型模型**。 將定型集 (左側輸出連接埠**資料分割**) 的右側輸入連接埠**定型模型**。 **訓練模型**將定型分類器。
 1. 新增**評分模型**模組並連線**定型模型**給它的模組。 然後加入測試集 (右側連接埠**資料分割**) 來**評分模型**。 **評分模型**會做出預測。 您可以選取它的輸出連接埠，來查看預測和正類別的機率。
 1. 新增**評估模型**模組和評分的資料集連接到其左側的輸入連接埠。 若要查看評估結果，請選取 輸出連接埠**評估模型**模組，然後選取**視覺化**。
-    
+
 以下是完整的實驗圖形：
 
 ![實驗的圖形](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
-
 
 ## <a name="results"></a>結果
 

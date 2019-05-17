@@ -15,14 +15,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 1c777f705d9b2d3df713642349fe4dbd413e48e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af08d3ca6eaa95663b0bb669f6dc82a13df5ab39
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872857"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233104"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging"></a>教學課程：使用 Azure 通知中樞和 Google 雲端通訊將通知推送至特定 Android 裝置
+# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>教學課程：使用 Azure 通知中樞和 Google 雲端通訊 (已淘汰) 將通知推送至特定 Android 裝置
+
+> [!WARNING]
+> Google 已於 2018 年 4 月 10 日淘汰 Google 雲端通訊 (GCM)。 GCM 伺服器和用戶端 API 會由其他項目取代，並且很快就會在 2019 年 5 月 29 日進行移除。 如需詳細資訊，請參閱 [GCM 和 FCM 常見問題集](https://developers.google.com/cloud-messaging/faq)。
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 

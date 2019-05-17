@@ -9,31 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 25b3209bed98ea217db9e414caa6f08cee6d8c89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472445"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761899"
 ---
 # <a name="encoding-with-media-services"></a>使用媒體服務編碼
 
-Azure 媒體服務可讓您將高品質的數位媒體檔案編碼成調適性位元速率 MP4 檔案，因此可以在各種不同的瀏覽器和裝置上播放您的內容。 成功的媒體服務編碼作業建立的輸出資產與一組調適性位元速率 mp4 和串流處理組態檔。 組態檔包含.ism、.ismc、.mpi 和其他您不應該修改的檔案。 編碼作業完成後，您可以善用[動態封裝](dynamic-packaging-overview.md)和啟動資料流。
+媒體服務中的詞彙編碼套用至轉換包含數位視訊和 （或） 到另一個目的是減少檔案的大小，（a） 及/或 （b） 產生與相容的格式從一種標準格式的音訊檔案的程序將範圍廣泛的裝置和應用程式。 此程序也稱為視訊壓縮或轉碼。 請參閱[資料壓縮](https://en.wikipedia.org/wiki/Data_compression)並[編碼及轉碼是什麼？](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx)概念的進一步討論。
 
-要在輸出中的視訊播放的用戶端可用的資產，您必須建立**串流定位器**並建置串流 Url。 然後，根據指定的格式資訊清單中，您的用戶端收到資料流他們選擇的通訊協定。
+視訊通常會傳遞至裝置與應用程式[漸進式下載](https://en.wikipedia.org/wiki/Progressive_download)或透過[調適性位元速率串流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)。 
 
-下圖顯示使用動態封裝工作流程上隨選資料流。
+* 若要依漸進式下載進行傳遞，您可以使用 Azure 媒體服務將數位媒體檔案 （夾層） 到[MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14)檔案，其中包含與已編碼的視訊[H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC)轉碼器，及使用已編碼的音訊[AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)轉碼器。 這個的 MP4 檔案會寫入儲存體帳戶中的資產。 您可以使用 Azure 儲存體 Api 或 Sdk (例如[儲存體 REST API](../../storage/common/storage-rest-api-auth.md)， [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md)，或[.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) 直接下載檔案。 如果您已建立輸出資產使用特定的容器名稱，在儲存體，使用該位置。 否則，您可以使用媒體服務[列出資產容器 Url](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)。 
+* 若要準備的調適性位元速率串流傳遞內容，將夾層檔必須編碼多個位元速率 （高到低）。 若要確保、 非失誤性轉換，如為位元速率降低，因此是品質的影片的解析度。 這會導致所謂的編碼階梯 – 解析度和位元速率的資料表 (請參閱[自動產生的調適性位元速率階梯](autogen-bitrate-ladder.md))。 您可以使用媒體服務編碼夾層檔在多個位元速率 – 在此情況下，您會收到一組 MP4 檔案和相關聯資料流的組態檔，寫入至儲存體帳戶中的資產。 然後您可以使用[動態封裝](dynamic-packaging-overview.md)媒體服務功能的視訊透過串流處理通訊協定，例如傳遞[MPEG DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP)並[HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming)。 這需要您建立[串流定位器](streaming-locators-concept.md)並建置串流 Url 對應至支援的通訊協定，可以稍後可遞交給其功能為基礎的裝置/應用程式。
 
-![動態封裝](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+下圖顯示隨編碼使用動態封裝的工作流程。
+
+![動態封裝](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 本主題會指導您如何使用媒體服務 v3 將內容編碼。
 
 ## <a name="transforms-and-jobs"></a>轉換和作業
 
-若要使用媒體服務 v3 來編碼，您需要建立[轉換](https://docs.microsoft.com/rest/api/media/transforms) \(英文\) 和[作業](https://docs.microsoft.com/rest/api/media/jobs) \(英文\)。 轉換可定義編碼的設定和輸出配方，作業則是配方的執行個體。 如需詳細資訊，請參閱[轉換和作業](transforms-jobs-concept.md)
+若要使用媒體服務 v3 來編碼，您需要建立[轉換](https://docs.microsoft.com/rest/api/media/transforms) \(英文\) 和[作業](https://docs.microsoft.com/rest/api/media/jobs) \(英文\)。 轉換是定義方法，以在您的編碼設定與輸出;工作是配方的執行個體。 如需詳細資訊，請參閱[轉換和作業](transforms-jobs-concept.md)
 
 使用媒體服務編碼時，需使用預設來告訴編碼器應該如何處理輸入媒體檔案。 例如，您可以指定所編碼內容中需要的視訊解析度及/或音訊聲道數目。 
 

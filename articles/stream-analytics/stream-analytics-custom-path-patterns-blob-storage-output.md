@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771768"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789413"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure 串流分析自訂 Blob 輸出資料分割
 
@@ -26,7 +26,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 
 ### <a name="partition-key-options"></a>分割區索引鍵選項
 
-用於分割輸入資料的分割區索引鍵或資料行名稱可能包含帶有連字號、底線和空白字元的英數字元。 除非搭配別名使用，否則無法將巢狀欄位作為分割區索引鍵。
+用於分割輸入資料的分割區索引鍵或資料行名稱可能包含帶有連字號、底線和空白字元的英數字元。 除非搭配別名使用，否則無法將巢狀欄位作為分割區索引鍵。 資料分割索引鍵必須是 nvarchar （max）。
 
 ### <a name="example"></a>範例
 
@@ -58,11 +58,11 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
-   * cluster1/{date}/{time}/{aFieldInMyData}  
-
+   * cluster1/{date}/{time}/{aFieldInMyData} 
+   
 2. 分割區索引鍵不區分大小寫，因此 "John" 和 "john" 之類的分割區索引鍵是相等的。 此外，運算式不能作為分割區索引鍵。 例如，**{columnA + columnB}** 無法運作。  
 
-3. 當輸入資料流由分割區索引鍵基數低於 8000 的記錄組成時，記錄將附加至現有的 Blob，並且僅在必要時建立新的 Blob。 如果基數超過 8000，則不保證會寫入至現有的 Blob，並且不會為具有相同分割區索引鍵的任意數目的記錄建立新的 Blob。  
+3. 當輸入資料流由分割區索引鍵基數低於 8000 的記錄組成時，記錄將附加至現有的 Blob，並且僅在必要時建立新的 Blob。 如果基數超過 8000，則不保證會寫入至現有的 Blob，並且不會為具有相同分割區索引鍵的任意數目的記錄建立新的 Blob。
 
 ## <a name="custom-datetime-path-patterns"></a>自訂日期時間路徑模式
 
@@ -72,7 +72,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 
 下列格式規範權杖可以單獨使用，或者合併使用以達成自訂日期時間格式：
 
-|格式規範   |描述   |範例時間 2018-01-02T10:06:08 的結果|
+|格式規範   |說明   |範例時間 2018-01-02T10:06:08 的結果|
 |----------|-----------|------------|
 |{datetime:yyyy}|四位數的年份|2018|
 |{datetime:MM}|從 01 到 12 的月份|01|

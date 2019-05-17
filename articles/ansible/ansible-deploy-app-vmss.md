@@ -1,37 +1,47 @@
 ---
-title: 使用 Ansible 將應用程式部署至 Azure 中的虛擬機器擴展集
-description: 了解如何使用 Ansible 來設定虛擬機器擴展集，並在 Azure 中的虛擬機器擴展集上部署應用程式
-ms.service: azure
+title: 教學課程 - 使用 Ansible 將應用程式部署至 Azure 中的虛擬機器擴展集 | Microsoft Docs
+description: 了解如何使用 Ansible 設定 Azure 虛擬機器擴展集，並在擴展集上部署應用程式
 keywords: ansible, azure, devops, bash, 腳本, 虛擬機器, 虛擬機器擴展集, vmss
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 09/11/2018
-ms.openlocfilehash: 2214dd9505dff86ac26f01967a360140dee0069f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: a44fd06ace9b21122f5f4253ac7d9601b54e6b62
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791727"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231036"
 ---
-# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>使用 Ansible 將應用程式部署至 Azure 中的虛擬機器擴展集
-Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 將應用程式部署至 Azure。 本文說明如何將 Java 應用程式部署至 Azure 虛擬機器擴展集 (VMSS)。
+# <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>教學課程：使用 Ansible 將應用程式部署至 Azure 中的虛擬機器擴展集
+
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * 擷取 Azure VM 群組的主機資訊
+> * 複製並建置應用程式範例
+> * 在擴展集上安裝 JRE (Java Runtime Environment)
+> * 將 Java 應用程式部署至擴展集
 
 ## <a name="prerequisites"></a>必要條件
-- **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **虛擬機器擴展集** - 如果您還沒有虛擬機器擴展集，您可以[使用 Ansible 建立虛擬機器擴展集](ansible-create-configure-vmss.md)。
+
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
+[!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
 - **git** - [git](https://git-scm.com) 可用來下載本教學課程中使用的 Java 範例。
 - **Java SE 開發套件 (JDK)** - [JDK](https://aka.ms/azure-jdks) 可用來建置範例 Java 專案。
-- **Apache Maven 建置工具** - [Apache Maven 建置工具](https://maven.apache.org/download.cgi)可用來建置範例 Java 專案。
-
-> [!Note]
-> 必須使用 Ansible 2.6，才能執行本教學課程中的下列範例腳本。
+- **Apache Maven** - [Apache Maven](https://maven.apache.org/download.cgi) 可用來建置範例 Java 專案。
 
 ## <a name="get-host-information"></a>取得主機資訊
 
-本節說明如何使用 Ansible 擷取 Azure 虛擬機器群組的主機資訊。 以下是範例 Ansible 腳本。 下列程式碼會取得資源群組內指定的公用 IP 位址和負載平衡器，並在清查中建立名為 **scalesethosts** 的主機群組。
+本節中的劇本程式碼會擷取虛擬機器群組的主機資訊。 下列程式碼會取得資源群組內指定的公用 IP 位址和負載平衡器，並在清查中建立名為 `scalesethosts` 的主機群組。
 
 請下列範例腳本儲存為 `get-hosts-tasks.yml`：
 
@@ -61,7 +71,9 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 ## <a name="prepare-an-application-for-deployment"></a>準備應用程式以進行開發
 
-在本節中，您會使用 git 從 GitHub 複製 Java 範例專案，然後建置專案。 請下列腳本儲存為 `app.yml`：
+本節中的劇本程式碼會使用 `git` 從 GitHub 複製 Java 範例專案，然後建置專案。 
+
+請下列腳本儲存為 `app.yml`：
 
   ```yml
   - hosts: localhost
@@ -85,79 +97,97 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
   ansible-playbook app.yml
   ```
 
-ansible-playbook 命令的輸出會顯示如下，在其中您可以看到，此命令建置了從 GitHub 複製的範例應用程式：
+執行劇本後，您會看到類似下列結果的輸出：
 
   ```Output
-  PLAY [localhost] **********************************************************
+  PLAY [localhost] 
 
-  TASK [Gathering Facts] ****************************************************
+  TASK [Gathering Facts] 
   ok: [localhost]
 
-  TASK [Git Clone sample app] ***************************************************************************
+  TASK [Git Clone sample app] 
   changed: [localhost]
 
-  TASK [Build sample app] ***************************************************
+  TASK [Build sample app] 
   changed: [localhost]
 
-  PLAY RECAP ***************************************************************************
+  PLAY RECAP 
   localhost                  : ok=3    changed=2    unreachable=0    failed=0
 
   ```
 
-## <a name="deploy-the-application-to-vmss"></a>將應用程式部署至 VMSS
+## <a name="deploy-the-application-to-a-scale-set"></a>將應用程式部署至擴展集
 
-Ansible 腳本中的下一節會在名為 **saclesethosts** 的主機群組上安裝 JRE (Java Runtime Environment)，並 Java 應用程式部署至名為 **saclesethosts** 的主機群組：
+本節中的劇本程式碼會用來：
 
-(請將 `admin_password` 變更為您自己的密碼。)
+* 在名為 `saclesethosts` 的主機群組上安裝 JRE
+* 將 Java 應用程式部署至名為 `saclesethosts` 的主機群組
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      scaleset_name: myVMSS
-      loadbalancer_name: myVMSSlb
-      admin_username: azureuser
-      admin_password: "your_password"
-    tasks:
-    - include: get-hosts-tasks.yml
+有兩種方式可取得範例劇本：
 
-  - name: Install JRE on VMSS
-    hosts: scalesethosts
-    become: yes
-    vars:
-      workspace: ~/src/helloworld
-      admin_username: azureuser
+* [下載劇本](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-setup-deploy.yml)並將其儲存至 `vmss-setup-deploy.yml`。
+* 建立名為 `vmss-setup-deploy.yml` 的新檔案，並在其中複製下列內容：
 
-    tasks:
-    - name: Install JRE
-      apt:
-        name: default-jre
-        update_cache: yes
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    scaleset_name: myScaleSet
+    loadbalancer_name: myScaleSetLb
+    admin_username: azureuser
+    admin_password: "{{ admin_password }}"
+  tasks:
+  - include: get-hosts-tasks.yml
 
-    - name: Copy app to Azure VM
-      copy:
-        src: "{{ workspace }}/complete/target/gs-spring-boot-0.1.0.jar"
-        dest: "/home/{{ admin_username }}/helloworld.jar"
-        force: yes
-        mode: 0755
+- name: Install JRE on a scale set
+  hosts: scalesethosts
+  become: yes
+  vars:
+    workspace: ~/src/helloworld
+    admin_username: azureuser
 
-    - name: Start the application
-      shell: java -jar "/home/{{ admin_username }}/helloworld.jar" >/dev/null 2>&1 &
-      async: 5000
-      poll: 0
-  ```
+  tasks:
+  - name: Install JRE
+    apt:
+      name: default-jre
+      update_cache: yes
 
-您可以將上述範例 Ansible 腳本儲存為 `vmss-setup-deploy.yml`，或[下載整個範例腳本](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss)。
+  - name: Copy app to Azure VM
+    copy:
+      src: "{{ workspace }}/complete/target/gs-spring-boot-0.1.0.jar"
+      dest: "/home/{{ admin_username }}/helloworld.jar"
+      force: yes
+      mode: 0755
 
-若要使用需要密碼的 SSH 連線類型，您必須安裝 sshpass 程式。
-  - 針對 Ubuntu 16.04，請執行命令 `apt-get install sshpass`。
-  - 針對 CentOS 7.4，請執行命令 `yum install sshpass`。
+  - name: Start the application
+    shell: java -jar "/home/{{ admin_username }}/helloworld.jar" >/dev/null 2>&1 &
+    async: 5000
+    poll: 0
+```
 
-您可能會看到如下的錯誤：**無法使用 SSH 密碼而不使用金鑰，因為已啟用主機金鑰檢查，但 sshpass 不支援此功能。請將此主機的指紋新增至您的 known_hosts 檔案，以管理此主機。** 如果出現此錯誤，您可以在 `/etc/ansible/ansible.cfg` 檔案或 `~/.ansible.cfg` 檔案中加入以下一行，以停用主機金鑰檢查：
-  ```bash
-  [defaults]
-  host_key_checking = False
-  ```
+在執行劇本之前，請參閱下列注意事項：
+
+* 在 `vars` 區段中，將 `{{ admin_password }}` 預留位置取代為您自己的密碼。
+* 若要使用需要密碼的 SSH 連線類型，請安裝 sshpass 程式：
+
+    Ubuntu：
+
+    ```bash
+    apt-get install sshpass
+    ```
+
+    CentOS：
+
+    ```bash
+    yum install sshpass
+    ```
+
+* 在某些環境中，您可能會看到關於使用了 SSH 密碼而非金鑰的錯誤。 如果出現此錯誤，您可以在 `/etc/ansible/ansible.cfg` 或 `~/.ansible.cfg` 中新增以下這一行，以停用主機金鑰檢查：
+
+    ```bash
+    [defaults]
+    host_key_checking = False
+    ```
 
 使用下列命令執行腳本：
 
@@ -165,47 +195,50 @@ Ansible 腳本中的下一節會在名為 **saclesethosts** 的主機群組上�
   ansible-playbook vmss-setup-deploy.yml
   ```
 
-執行 ansible-playbook 命令的輸出會指出範例 Java 應用程式已安裝至虛擬機器擴展集的主機群組：
+執行 ansible-playbook 命令的輸出，會指出範例 Java 應用程式已安裝至擴展集的主機群組：
 
   ```Output
-  PLAY [localhost] **********************************************************
+  PLAY [localhost]
 
-  TASK [Gathering Facts] ****************************************************
+  TASK [Gathering Facts]
   ok: [localhost]
 
-  TASK [Get facts for all Public IPs within a resource groups] **********************************************
+  TASK [Get facts for all Public IPs within a resource groups]
   ok: [localhost]
 
-  TASK [Get loadbalancer info] ****************************************************************************
+  TASK [Get loadbalancer info]
   ok: [localhost]
 
-  TASK [Add all hosts] *****************************************************************************
+  TASK [Add all hosts]
   changed: [localhost] ...
 
-  PLAY [Install JRE on VMSS] *****************************************************************************
+  PLAY [Install JRE on scale set]
 
-  TASK [Gathering Facts] *****************************************************************************
+  TASK [Gathering Facts]
   ok: [40.114.30.145_50000]
   ok: [40.114.30.145_50003]
 
-  TASK [Copy app to Azure VM] *****************************************************************************
+  TASK [Copy app to Azure VM]
   changed: [40.114.30.145_50003]
   changed: [40.114.30.145_50000]
 
-  TASK [Start the application] ********************************************************************
+  TASK [Start the application]
   changed: [40.114.30.145_50000]
   changed: [40.114.30.145_50003]
 
-  PLAY RECAP ************************************************************************************************
+  PLAY RECAP
   40.114.30.145_50000        : ok=4    changed=3    unreachable=0    failed=0
   40.114.30.145_50003        : ok=4    changed=3    unreachable=0    failed=0
   localhost                  : ok=4    changed=1    unreachable=0    failed=0
   ```
 
-恭喜！ 您的應用程式現在已執行於 Azure 中。 現在，您可以瀏覽至虛擬機器擴展集的負載平衡器 URL：
+## <a name="verify-the-results"></a>驗證結果
 
-![在 Azure 中的虛擬機器擴展集上執行的 Java 應用程式。](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
+瀏覽至您擴展集的負載平衡器 URL，以確認您的工作結果：
+
+![在 Azure 中的擴展集上執行的 Java 應用程式。](media/ansible-vmss-deploy/ansible-deploy-app-vmss.png)
 
 ## <a name="next-steps"></a>後續步驟
+
 > [!div class="nextstepaction"]
-> [使用 Ansible 自動調整虛擬機器擴展集](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
+> [教學課程：使用 Ansible 自動調整 Azure 中的虛擬機器擴展集](./ansible-auto-scale-vmss.md)

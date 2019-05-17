@@ -187,7 +187,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: 更新叢集服務主體認證
           href: update-credentials.md
-        - name: 限制和控制叢集輸出流量
+        - name: 限制和控制叢集輸出流量 (預覽)
           href: limit-egress-traffic.md
         - name: 啟用 Azure Active Directory 整合
           items:

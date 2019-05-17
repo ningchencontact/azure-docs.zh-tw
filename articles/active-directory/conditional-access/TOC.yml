@@ -50,6 +50,8 @@
       href: app-protection-based-conditional-access.md
     - name: 需要受控裝置
       href: require-managed-devices.md
+    - name: 需要受信任的網路進行 MFA 註冊
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: 需要 MFA 以便嘗試從不受信任的網路存取
       href: untrusted-networks.md
     - name: 需要使用規定

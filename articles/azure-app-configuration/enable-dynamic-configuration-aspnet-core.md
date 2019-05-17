@@ -9,27 +9,27 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cf872766a18c5691f6c094d71a0c29f6bcf736da
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579031"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408821"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>教學課程：在 ASP.NET Core 應用程式中使用動態設定
 
-ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料。 它可以隨時處理變更，而不會造成應用程式重新啟動。 ASP.NET Core 支援將組態設定繫結至強型別 .NET 類別。 它會使用各種 `IOptions<T>` 模式，將它們插入您的程式碼中。 這些模式其中之一 (具體而言即 `IOptionsSnapshot<T>`) 會在基礎資料變更時，自動重新載入應用程式的設定。 
+ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料。 它可以隨時處理變更，而不會造成應用程式重新啟動。 ASP.NET Core 支援將組態設定繫結至強型別 .NET 類別。 它會使用各種 `IOptions<T>` 模式，將它們插入您的程式碼中。 這些模式其中之一 (具體而言即 `IOptionsSnapshot<T>`) 會在基礎資料變更時，自動重新載入應用程式的設定。
 
 您可以將 `IOptionsSnapshot<T>` 插入應用程式中的控制器，以存取儲存在 Azure 應用程式設定中的最新設定。 此外，您也可以設定應用程式組態 ASP.NET Core 用戶端程式庫，以持續監視並擷取應用程式組態存放區中的任何變更。 您需定義定期的輪詢間隔。
 
 本教學課程會示範如何在程式碼中實作動態設定更新。 本文會以快速入門中介紹的 Web 應用程式作為基礎。 繼續進行之前，請先完成[使用應用程式設定建立 ASP.NET Core 應用程式](./quickstart-aspnet-core-app.md)。
 
-您可以使用任何程式碼編輯器來進行本快速入門中的步驟。 Windows、macOS 及 Linux 平台上都有提供的 [Visual Studio Code](https://code.visualstudio.com/) 是一個絕佳的選項。
+您可以使用任何程式碼編輯器來進行本教學課程中的步驟。 Windows、macOS 及 Linux 平台上都有提供的 [Visual Studio Code](https://code.visualstudio.com/) 是一個絕佳的選項。
 
 在本教學課程中，您了解如何：
 
@@ -39,7 +39,7 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
 
 ## <a name="prerequisites"></a>必要條件
 
-若要進行本快速入門，請安裝 [.NET Core SDK](https://dotnet.microsoft.com/download)。
+若要進行本教學課程，請安裝 [.NET Core SDK](https://dotnet.microsoft.com/download)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -64,7 +64,7 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
 
     `.Watch` 方法中的第二個參數是 ASP.NET 用戶端程式庫查詢應用程式組態存放區的輪詢間隔。 用戶端程式庫會檢查特定的組態設定，以了解是否發生任何變更。
 
-2. 新增一個定義並實作新 `Settings` 類別的 Settings.cs 檔案。
+2. 新增 Settings.cs 檔案，以定義及實作新的 `Settings` 類別。
 
     ```csharp
     namespace TestAppConfig
@@ -79,7 +79,7 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
     }
     ```
 
-3. 開啟 Startup.cs，然後更新 `ConfigureServices` 方法以將設定資料繫結至 `Settings` 類別。
+3. 開啟 Startup.cs，然後更新 `ConfigureServices` 方法以將組態資料繫結至 `Settings` 類別。
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -98,7 +98,13 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
 
 ## <a name="use-the-latest-configuration-data"></a>使用最新的設定資料
 
-1. 開啟 [Controllers] 目錄中的 HomeController.cs。 將 `HomeController` 類別更新為透過相依性插入來接收 `Settings`，並使用其值。
+1. 在控制器目錄中開啟 HomeController.cs，並將參考新增至 `Microsoft.Extensions.Options` 套件。
+
+    ```csharp
+    using Microsoft.Extensions.Options;
+    ```
+
+2. 將 `HomeController` 類別更新為透過相依性插入來接收 `Settings`，並使用其值。
 
     ```csharp
     public class HomeController : Controller
@@ -121,7 +127,7 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
     }
     ```
 
-2. 開啟 [Views] > [Home] 目錄中的 Index.cshtml，然後以下列程式碼取代其內容：
+3. 開啟 [Views] > [Home] 目錄中的 Index.cshtml，然後以下列程式碼取代其內容：
 
     ```html
     <!DOCTYPE html>
@@ -160,11 +166,11 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
 
 4. 登入 [Azure 入口網站](https://aka.ms/azconfig/portal)。 選取 [所有資源]，然後選取您在快速入門中建立的應用程式組態存放區執行個體。
 
-5. 選取 [索引鍵/值總管]，然後更新下列索引鍵的值：
+5. 選取 [組態總管]，然後更新下列索引鍵的值：
 
     | Key | 值 |
     |---|---|
-    | TestAppSettings:BackgroundColor | 藍色 |
+    | TestAppSettings:BackgroundColor | 綠色 |
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | Azure 應用程式設定的值 - 現在可以即時更新了！ |
 

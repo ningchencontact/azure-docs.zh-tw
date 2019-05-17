@@ -9,12 +9,12 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4245c44ceaf907512187d7db4a9d6f087a855f70
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507882"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787968"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>驗證適用於 Azure 資源的存取權的 blob 和佇列與 Azure Active Directory 與受管理的身分識別
 
@@ -48,12 +48,12 @@ Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../ac
 
 應用程式驗證用戶端程式庫會自動管理驗證。 程式庫會使用開發人員的認證，在本機開發期間進行驗證。 在本機開發期間使用開發人員認證會比較安全，因為您不需要建立 Azure AD 認證，或在開發人員之間共用認證。 當解決方案在稍後部署至 Azure 中時，程式庫會自動切換成使用應用程式認證。
 
-若要使用 Azure 儲存體應用程式中的應用程式驗證程式庫，安裝最新的預覽套件，從[Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)，以及最新版[適用於.NET 的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)。 新增下列**使用**陳述式，以您的程式碼：
+若要使用 Azure 儲存體應用程式中的應用程式驗證程式庫，安裝最新的預覽套件，從[Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)，以及最新版[Azure 儲存體一般用戶端程式庫.NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)而[適用於.NET 的 Azure Blob 儲存體用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)。 新增下列**使用**陳述式，以您的程式碼：
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.Azure.Storage.Blob;
 ```
 
 應用程式驗證程式庫會提供**azureservicetokenprovider 會**類別。 此類別的執行個體可以傳遞至回呼取得的權杖，然後在到期前更新權杖。

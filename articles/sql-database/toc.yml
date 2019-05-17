@@ -368,7 +368,7 @@
   items:
     - name: 概觀
       href: sql-database-howto.md
-    - name: 單一資料庫
+    - name: 單一資料庫和彈性集區
       items:
         - name: 概觀
           href: sql-database-howto-single-database.md
@@ -720,6 +720,10 @@
       href: sql-database-glossary-terms.md
     - name: 透過 Microsoft Learn 增進您的技巧
       href: /learn/browse/?products=azure-sql-database
+    - name: SQL Server 部落格
+      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: Microsoft Azure 部落格
+      href: 'https://azure.microsoft.com/blog/'
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 公用資料集

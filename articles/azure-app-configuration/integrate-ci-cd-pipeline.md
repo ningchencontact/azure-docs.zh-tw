@@ -12,30 +12,38 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7db796b33bab941f038afab1b80127aded50b54a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 26bd49af7245d6e6dde3162a2e1d95c54f13e35b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000008"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415926"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>與 CI/CD 管線整合
 
-您可以藉由避免無法取得 Azure 應用程式組態的極小可能性，來增強應用程式的復原能力。 若要達到此目的，可以將目前的組態資料封裝至檔案，此檔案會與應用程式一起部署，並在應用程式啟動期間載入。 此方法可確保應用程式至少有預設的設定值。 當您有應用程式設定存放區時，這些值會被其中任何較新的變更覆寫。
+本文說明各種不同的方法，讓您了解如何將 Azure 應用程式組態的資料用於持續整合和持續部署系統中。
+
+## <a name="use-app-configuration-in-your-azure-devops-pipeline"></a>在 Azure DevOps 管線中使用應用程式組態
+
+如果您有 Azure DevOps 管線，則可以從應用程式組態中擷取索引鍵值，並將其設為工作變數。 [Azure 應用程式組態 DevOps 擴充功能](https://go.microsoft.com/fwlink/?linkid=2091063)是可提供這項功能的附加元件模組。 只需依照其指示，便可在建置或發行工作順序中使用此擴充功能。
+
+## <a name="deploy-app-configuration-data-with-your-application"></a>請使用應用程式來部署應用程式組態資料
+
+應用程式如果仰賴 Azure 應用程式組態卻又無法與其連線，就可能無法執行。 您可以增強應用程式的復原能力來處理這種情況，不過這種情況不太可能發生就是了。 若要達到此目的，可以將目前的組態資料封裝至檔案，此檔案會與應用程式一起部署，並在應用程式啟動期間載入。 此方法可確保應用程式至少有預設的設定值。 當您有應用程式設定存放區時，這些值會被其中任何較新的變更覆寫。
 
 透過 Azure 應用程式組態的[匯出](./howto-import-export-data.md#export-data)功能，您可以自動化將目前組態資料擷取為單一檔案的程序。 接著，將此檔案內嵌至持續整合和持續部署 (CI/CD) 管線中的建置或部署步驟。
 
 下列範例會示範如何在快速入門所介紹的 Web 應用程式中，將應用程式組態資料納入建置步驟。 繼續進行之前，請先完成[使用應用程式設定建立 ASP.NET Core 應用程式](./quickstart-aspnet-core-app.md)。
 
-您可以使用任何程式碼編輯器來進行本快速入門中的步驟。 於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
+您可以使用任何程式碼編輯器來進行本教學課程中的步驟。 Windows、macOS 及 Linux 平台上都有提供的 [Visual Studio Code](https://code.visualstudio.com/) 是一個絕佳的選項。
 
-## <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>必要條件
 
 如果您在本機建置，請下載並安裝 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (如果您還沒有這麼做)。
 
 若要執行雲端建置 (例如搭配 Azure DevOps)，請確定 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 已安裝在您的建置系統中。
 
-## <a name="export-an-app-configuration-store"></a>匯出應用程式設定存放區
+### <a name="export-an-app-configuration-store"></a>匯出應用程式設定存放區
 
 1. 開啟 .csproj 檔案，並新增下列指令碼：
 
@@ -64,7 +72,7 @@ ms.locfileid: "60000008"
             .UseStartup<Startup>();
     ```
 
-## <a name="build-and-run-the-app-locally"></a>於本機建置並執行應用程式
+### <a name="build-and-run-the-app-locally"></a>於本機建置並執行應用程式
 
 1. 設定名為 **ConnectionString** 的環境變數，並將其設定為應用程式設定存放區的存取金鑰。 如果您使用 Windows 命令提示字元，請執行下列命令，然後重新啟動命令提示字元以讓變更生效：
 

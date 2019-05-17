@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3b10a91499dbe7e627025be8487efa15890861b9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301214"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764731"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -33,7 +33,7 @@ ms.locfileid: "60301214"
 
 ## <a name="cloud-apps-assignments"></a>雲端應用程式指派
 
-使用條件式存取原則，您就能控制使用者存取您[雲端應用程式](conditions.md#cloud-apps)的方式。 當您設定條件式存取原則時，必須選取至少一個雲端應用程式。 
+使用條件式存取原則，您就能控制使用者存取您[雲端應用程式](conditions.md#cloud-apps-and-actions)的方式。 當您設定條件式存取原則時，必須選取至少一個雲端應用程式。 
 
 ![選取您原則適用的雲端應用程式](./media/technical-reference/09.png)
 
@@ -102,7 +102,7 @@ ms.locfileid: "60301214"
 
 在條件式存取原則中，您可以設定[用戶端應用程式](conditions.md#client-apps)條件，將原則繫結至已啟動存取嘗試的用戶端應用程式。 當有人從下列類型的用戶端應用程式嘗試存取時，將用戶端應用程式條件設定為授與或封鎖存取：
 
-- [瀏覽器]
+- 瀏覽器
 - 行動裝置應用程式和桌面應用程式
 
 ![控制對用戶端應用程式的存取](./media/technical-reference/03.png)
@@ -141,18 +141,18 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 
 |    |    |
 | --- | --- |
-| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
-| 類型 | REG_SZ (字串) |
+| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| 名稱 | 1 |
+| Type | REG_SZ (字串) |
 | 資料 | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 如需 **Windows 8.1 和 7** 中的 Chrome 支援，請建立下列登錄機碼：
 
 |    |    |
 | --- | --- |
-| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
-| 類型 | REG_SZ (字串) |
+| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| 名稱 | 1 |
+| Type | REG_SZ (字串) |
 | 資料 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 這些瀏覽器支援裝置驗證，因此可以根據原則來識別和驗證裝置。 如果瀏覽器在私用模式中執行，裝置檢查將會失敗。
@@ -170,7 +170,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 | Azure 遠端應用程式 | Azure 遠端應用程式服務 | Windows 10、Windows 8.1、Windows 7、iOS、Android 及 macOS |
 | Dynamics CRM 應用程式 | Dynamics CRM | Windows 10、Windows 8.1、iOS 和 Android |
 | [電子郵件]/[行事曆]/[人員] 應用程式、Outlook 2016、Outlook 2013 (使用新式驗證)| Office 365 Exchange Online | Windows 10 |
-| 應用程式的 MFA 和位置原則。 不支援裝置型原則。| 任何 My Apps 應用程式服務| Android 和 iOS |
+| 應用程式的 MFA 和位置原則。 不支援裝置型原則。| 任何 My Apps 應用程式服務| Android 及 iOS |
 | Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、iOS、Android、WP 和 Web 用戶端 | Microsoft Teams | Windows 10、Windows 8.1、Windows 7、iOS、Android 及 macOS |
 | Office 2016 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) | Office 365 SharePoint Online | Windows 8.1、Windows 7 |
 | Office 2016 應用程式、通用 Office 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))、預計未來提供的 Office Groups 支援、預計未來提供的 SharePoint 應用程式支援 | Office 365 SharePoint Online | Windows 10 |
@@ -203,6 +203,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 此設定適用於下列用戶端應用程式：
 
 - Microsoft Azure 資訊保護
+- Microsoft Bookings
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow

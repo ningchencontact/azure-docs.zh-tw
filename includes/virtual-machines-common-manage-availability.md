@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f57c2cacca9bb3e4526ec6261b8aa0ff6c18448a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613822"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546734"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>了解 VM 重新開機 - 維護與停機時間
 有三種情況可能會導致 Azure 中的虛擬機器受到影響：未規劃的硬體維護、未預期的停機時間以及規劃的維護。
 
-* **未規劃的硬體維護事件**發生在 Azure 平台預測與實體機器相關聯的硬體或任何平台元件即將失敗 (故障) 時。 平台會在預測到發生失敗時發出未規劃的硬體維護事件，以減少對該硬體上裝載之虛擬機器的影響。 Azure 會使用即時移轉技術將虛擬機器從故障硬體移轉至狀況良好的實體機器。 即時移轉是只會短時間暫停虛擬機器的 VM 保留作業。 系統會維護記憶體、開啟的檔案和網路連線，但在事件之前及 (或) 之後的效能可能會降低。 如果無法使用即時移轉，VM 將會發生未預期的停機時間，如下所述。
+* **未規劃的硬體維護事件**發生在 Azure 平台預測與實體機器相關聯的硬體或任何平台元件即將失敗 (故障) 時。 平台會在預測到發生失敗時發出未規劃的硬體維護事件，以減少對該硬體上裝載之虛擬機器的影響。 Azure 會使用[即時移轉](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates)技術，可將虛擬機器從故障硬體移轉至狀況良好的實體機器。 即時移轉是只會短時間暫停虛擬機器的 VM 保留作業。 系統會維護記憶體、開啟的檔案和網路連線，但在事件之前及 (或) 之後的效能可能會降低。 如果無法使用即時移轉，VM 將會發生未預期的停機時間，如下所述。
 
 
 * **非預期的停機時間**是指虛擬機器的硬體或實體基礎結構發生意外失敗的時間。 這可能包含本機網路失敗、本機磁碟失敗，或其他機架層級的失敗。 在偵測到失敗時，Azure 平台會自動將虛擬機器移轉 (修復) 至相同資料中心內狀況良好的實體機器。 在修復程序期間，虛擬機器會停機 (重新開機)，而在某些情況下，還會遺失暫存磁碟機。 連結的 OS 和資料磁碟一律會予以保留。 

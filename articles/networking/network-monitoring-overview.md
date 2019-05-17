@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 42fb5d69a1f32d669ad5191e342b3f2f880b8c98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564752"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620426"
 ---
 # <a name="network-monitoring-solutions"></a>網路監視解決方案 
 
@@ -41,7 +41,7 @@ Azure 提供許多可監視網路資產的解決方案。 Azure 擁有的解決�
 
 效能監控是 NPM 的一部分，可供監視雲端、混合式和內部部署環境的網路。 您可以監視遠端分公司和辦事處、商店位置、資料中心和雲端之間的網路連線。 您可以在使用者提出抱怨之前偵測到網路問題。 主要優點如下：
 
-* 監視各種子網路的遺失和延遲並設定警示
+* 監視不同子網路之間的遺漏與延遲，並設定警示
 * 監視網路上的所有路徑 (包括備援路徑)
 * 針對難以複寫的暫時性和時間點網路問題進行疑難排解
 * 判斷導致效能衰退的特定網路區段
@@ -53,7 +53,9 @@ Azure 提供許多可監視網路資產的解決方案。 Azure 擁有的解決�
 
 * [在 Azure 監視器記錄檔中設定網路效能監控解決方案](../azure-monitor/insights/network-performance-monitor.md) 
 * [使用案例](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-*  產品更新：[2017 年 2 月](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)， [2017 年 8 月](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+* 產品更新：
+  * [2017 年 2 月](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
+  * [2017 年 8 月](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>ExpressRoute 監視
 
@@ -120,6 +122,6 @@ Expressroute 的 NPM 提供對於 Azure 私用對等連線和 Microsoft 對等�
 相關連結：
 * [部落格文章](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/)、[文件](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="miscellaneous"></a>其他資訊
+## <a name="miscellaneous"></a>其他
 
 * [新定價](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

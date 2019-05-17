@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198870"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65607041"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -201,7 +201,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 **標準 SSD 是否支援「單一執行個體虛擬機器 SLA」？**
 否，標準 SSD 沒有單一執行個體虛擬機器 SLA。 請針對單一執行個體虛擬機器 SLA 使用進階 SSD 磁碟。
 
-## <a name="migrate-to-managed-disks"></a>移轉到受控磁碟
+## <a name="migrate-to-managed-disks"></a>遷移到受控磁碟
 
 **移轉對於受控磁碟的效能是否有任何影響？**
 
@@ -237,7 +237,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 移轉至受控磁碟？**
 
-是
+有
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>受控磁碟和儲存體服務加密
 
@@ -274,7 +274,7 @@ Microsoft 負責管理加密金鑰。
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 轉換為受控磁碟？**
 
-是
+有
 
 **從受控磁碟或快照集匯出的 VHD 是否也會加密？**
 
@@ -365,7 +365,7 @@ Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB�
 
 **有哪些區域？ 8 TiB、 16 TiB 和中支援的 32 TiB 的受控的磁碟大小**
 
-在全域 Azure 的所有區域都支援 8 TiB、 16 TiB，以及 32 TiB 磁碟 Sku。 支援 Microsoft Azure Government 及 Azure 中國 21Vianet 尚無法使用。
+在全域 Azure、 Microsoft Azure Government 和 Azure 中國 21vianet 經營的所有區域都支援 8 TiB、 16 TiB，以及 32 TiB 磁碟 Sku。
 
 **我們支援所有的磁碟大小上啟用 主機快取？**
 

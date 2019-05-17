@@ -16,16 +16,19 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 6e82ec9563832c7569fa1cff735a46dad50a8b3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 929977913fdbf0c6f59d69ec536a2638bca7b97c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887573"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232734"
 ---
-# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>教學課程：使用 Azure 通知中樞和 Google 雲端通訊將通知推送至 Android 裝置
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>教學課程：使用 Azure 通知中樞和 Google 雲端通訊 (已淘汰) 將通知推送至 Android 裝置
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!WARNING]
+> Google 已於 2018 年 4 月 10 日淘汰 Google 雲端通訊 (GCM)。 GCM 伺服器和用戶端 API 會由其他項目取代，並且很快就會在 2019 年 5 月 29 日進行移除。 如需詳細資訊，請參閱 [GCM 和 FCM 常見問題集](https://developers.google.com/cloud-messaging/faq)。
 
 ## <a name="overview"></a>概觀
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5aab5fea5a80eb3ab1b37e08a5e22ca296cb633e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 05432f5a38c3d907afa95ac7b1b3adfe9c5515fe
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680293"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236332"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中備份虛擬機器
 
@@ -72,11 +72,11 @@ ms.locfileid: "59680293"
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. 使用 [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) 變更保存庫的儲存體備援組態 (LRS/GRS)，如下所示：
+3. 使用[Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty) 變更保存庫的儲存體備援組態 (LRS/GRS)，如下所示：
     
     ```powershell
     Get-AzRecoveryServicesVault `
-        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
     > [!NOTE]
     > 只有當保存庫中沒有受保護的備份項目時，才可以修改儲存體備援。

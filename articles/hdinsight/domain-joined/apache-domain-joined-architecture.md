@@ -8,12 +8,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f81aa1e493014f192dc11ca698e9793075ac26ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 069b3fe89183d7897cea39e2a8a1fe1bbed80bb0
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725607"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556339"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企業安全性套件
 
@@ -66,7 +66,7 @@ HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集
 1. 安裝 Azure AD PowerShell 模組。
 
    ```
-   Install-Module AzureAD
+   Install-Module AzureADPreview
    ```
 
 2. 使用全域管理員 (租用戶系統管理員) 認證來輸入 `Connect-AzureAD`。

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 550755b1215dd25045845d78ab3d6248ef840062
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705943"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467439"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返於虛擬機器的網路流量
 
@@ -93,6 +93,9 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
     | 資源群組 | 選取 [使用現有的]，然後選取 [myResourceGroup] |
 
     建立儲存體帳戶可能需要一分鐘的時間。 建好儲存體帳戶之前，請不要繼續其餘步驟。 如果您使用現有儲存體帳戶，而不是新建一個，請確定在所選儲存體帳戶的 [設定] 下方，[防火牆與虛擬網路] 的 [所有網路] (預設值) 已選取。
+    
+    > [!NOTE]
+    > 雖然 Microsoft.Insight 和 Microsoft.Network 提供者目前支援 Azure 儲存體，但 NSG 流量記錄仍未完全上線。 為了啟用 NSG 流量記錄，必須仍可選取 [所有網路]，直到這項功能完全上線為止。 
 4. 在入口網站的左上角，選取 [所有服務]。 在 [篩選] 方塊中，輸入*網路監看員*。 當搜尋結果中出現**網路監看員**時，請加以選取。
 5. 在 [記錄] 下，選取 [NSG 流量記錄]，如下列圖所示：
 

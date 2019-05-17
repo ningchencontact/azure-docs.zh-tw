@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 80c98bea08018780ba1d439e369ab42343d1e615
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 83a1026cd9426e1b1651e0ec4f556b8babccb107
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680320"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236237"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure 事件中樞 — 巨量資料串流平台和事件擷取服務
 Azure 事件中樞是巨量資料串流平台和事件擷取服務。 其每秒可接收和處理數百萬個事件。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。
@@ -86,7 +86,8 @@ Azure 事件中樞也整合了 [Azure Functions](/azure/azure-functions/) 來達
 - [Node.js](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (僅傳送)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (僅接收)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (僅接受)](event-hubs-storm-getstarted-receive.md)
+
 
 若要深入了解事件中樞，請參閱下列文章：
 

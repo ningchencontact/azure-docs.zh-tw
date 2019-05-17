@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: banders
-ms.openlocfilehash: 8dc5918ac539abde2586e29a1608e9dc496a5e37
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7caa7df3817c51d63dfa2838e4223d3fba88e529
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794781"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827390"
 ---
 # <a name="pay-azure-subscription-by-invoice"></a>依發票支付 Azure 訂用帳戶
 
@@ -65,14 +65,14 @@ ms.locfileid: "65794781"
          (New quota) Requested cores:
          Specific region & series of Subscription:
 
-- **公司名稱**並**公司地址**應符合您的 Azure 帳戶所提供的資訊。  若要檢視或更新的資訊，請參閱[變更您的 Azure 帳戶設定檔資訊](billing-how-to-change-azure-account-profile.md)。
-- 可以核准的信用額度，您必須在 Azure 入口網站中新增您的帳單連絡人。 應該與公司的 Accounts Payable 或財務部門相關之連絡人詳細資料。 若要更新帳單連絡人，請前往[Azure 帳戶中心](https://account.azure.com/Profile)。
+    - **公司名稱**並**公司地址**應符合您的 Azure 帳戶所提供的資訊。  若要檢視或更新的資訊，請參閱[變更您的 Azure 帳戶設定檔資訊](billing-how-to-change-azure-account-profile.md)。
+    - 可以核准的信用額度，您必須在 Azure 入口網站中新增您的帳單連絡人。 應該與公司的 Accounts Payable 或財務部門相關之連絡人詳細資料。 若要更新帳單連絡人，請前往[Azure 帳戶中心](https://account.azure.com/Profile)。
 
 5. 確認您的連絡資訊和慣用的連絡方法，然後按一下 [建立]。
 
 如果我們需要進行信用查核因為您需要的信用額度的金額，我們會傳送您的信用額度檢查應用程式。
 
-## <a name="switch-your-azure-subscription-to-invoice-payment"></a>切換到發票支付 Azure 訂用帳戶
+## <a name="switch-to-invoice-pay"></a>切換到發票支付
 
 一旦您獲准依發票付款，您可以切換您 Azure 訂用帳戶中使用發票付款方法[Azure 入口網站](https://portal.azure.com)。
 

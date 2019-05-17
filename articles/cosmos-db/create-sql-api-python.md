@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: b257c1dbbed225bee9adfdb427bd036f0230ea47
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 91a5bf71983511f58fc13a0edf4a1109c3829602
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565056"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410685"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB：使用 Azure Cosmos DB SQL API 帳戶建置 Python 應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "59565056"
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值和圖形資料庫。 所有這些作業都受惠於 Azure Cosmos DB 的散發和調整。
 
-此快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帳戶、文件資料庫和容器。 接著，您要建置和執行以適用於 [SQL API](sql-api-sdk-python.md) 的 Python SDK 為基礎的主控台應用程式。 本快速入門使用 3.0 版的 [Python SDK]。(https://pypi.org/project/azure-cosmos)
+此快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帳戶、文件資料庫和容器。 接著，您要建置和執行以適用於 [SQL API](sql-api-sdk-python.md) 的 Python SDK 為基礎的主控台應用程式。 本快速入門使用 3.0 版的 [Python SDK](https://pypi.org/project/azure-cosmos)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

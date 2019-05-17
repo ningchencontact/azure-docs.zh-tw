@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728822"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596976"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -177,7 +177,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>錯誤「上游連線錯誤或是在標頭前中斷連線/重設」
 您在嘗試存取服務時，可能會看到這個錯誤。 例如，當您在瀏覽器中移至服務的 URL 時。 
 
-### <a name="reason"></a>原因 
+### <a name="reason"></a>`Reason` 
 容器連接埠無法使用。 這個問題發生的原因： 
 * 容器仍處於建置和部署程序。 如果您執行 `azds up` 或啟動偵錯工具，然後在容器成功部署之前嘗試存取容器，就有可能發生這個問題。
 * 您的 _Dockerfile_、Helm 圖表及開啟連接埠的任何伺服器代碼之間的連接埠組態不一致。
@@ -193,7 +193,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 ## <a name="config-file-not-found"></a>找不到組態檔
 您執行 `azds up` 並且收到下列錯誤︰`Config file not found: .../azds.yaml`
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 您必須從想要執行的程式碼根目錄執行 `azds up`，而且您必須初始化程式碼資料夾，才能執行 Azure Dev Spaces。
 
 ### <a name="try"></a>請嘗試︰
@@ -210,7 +210,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 ## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>偵錯錯誤「找不到 coreclr 類型的偵測工具擴充」
 執行 VS Code 偵錯工具會回報錯誤：`Failed to find debugger extension for type:coreclr.`
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 您的開發機器上未安裝適用於 C# 的 VS Code 延伸模組。 C#的擴充功能包含偵錯.NET Core (CoreCLR) 支援。
 
 ### <a name="try"></a>請嘗試︰
@@ -219,7 +219,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>偵錯錯誤「不支援設定的偵錯類型 'coreclr'」
 執行 VS Code 偵錯工具會回報錯誤：`Configured debug type 'coreclr' is not supported.`
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 您沒有 VS Code 擴充功能可以讓 Azure Dev Spaces 在您的開發機器上安裝。
 
 ### <a name="try"></a>請嘗試︰
@@ -228,7 +228,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 ## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>偵錯錯誤「無效的 'cwd' 值 '/src'。 系統找不到指定的檔案。」 或「launch: program '/src/[專案二進位檔案路徑]' 不存在」
 執行 VS Code 偵錯工具回報 `Invalid 'cwd' value '/src'. The system cannot find the file specified.` 和/或 `launch: program '/src/[path to project executable]' does not exist` 錯誤
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 VS Code 延伸模組預設會使用 `src` 作為容器上專案的工作目錄。 如果您已將 `Dockerfile` 更新成指定不同的工作目錄，就可能看到此錯誤。
 
 ### <a name="try"></a>請嘗試︰
@@ -236,7 +236,7 @@ VS Code 延伸模組預設會使用 `src` 作為容器上專案的工作目錄�
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>找不到類型或命名空間名稱 'MyLibrary'
 
-### <a name="reason"></a>原因 
+### <a name="reason"></a>`Reason` 
 此建置內容預設是在專案/服務層級，因此找不到您所使用的程式庫專案。
 
 ### <a name="try"></a>請嘗試︰
@@ -251,7 +251,7 @@ VS Code 延伸模組預設會使用 `src` 作為容器上專案的工作目錄�
 您需要 Azure 訂用帳戶中的「擁有者」或「參與者」權限才能管理 Azure Dev Spaces。 如果您嘗試管理 Dev Spaces，卻沒有相關聯 Azure 訂用帳戶的「擁有者」或「參與者」權限，就可能會看到此錯誤。
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 選取的 Azure 訂用帳戶尚未註冊 `Microsoft.DevSpaces` 命名空間。
 
 ### <a name="try"></a>請嘗試︰
@@ -263,7 +263,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>AKS 虛擬節點在執行到「正在等待容器映像組建...」步驟時，Dev Spaces 發生逾時
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 當您嘗試執行設定上執行的 service fabric 中使用開發人員空間時，就會發生此逾時[AKS 虛擬節點](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)。 Dev Spaces 目前不支援在虛擬節點上建置服務或對服務進行偵錯。
 
 如果您執行 `azds up` 並搭配 `--verbose` 參數，或在 Visual Studio 中啟用詳細資訊記錄，則會看到其他詳細資料：
@@ -287,7 +287,7 @@ Container image build failed
 
 ## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>啟動 Dev Spaces 時出現「錯誤：找不到就緒的 Tiller Pod」
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 如果 Helm 用戶端無法再與叢集中執行的 Tiller Pod 通訊，就會發生此錯誤。
 
 ### <a name="try"></a>請嘗試︰
@@ -295,7 +295,7 @@ Container image build failed
 
 ## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>「 錯誤： 發行 azds-\<識別碼\>-\<spacename\>-\<servicename\>失敗： 服務\<servicename\>' 已經存在 」 或 「 提取拒絕的存取權\<servicename\>，存放庫不存在或可能需要 [docker 登入] 」
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 如果您混用執行直接的 Helm 命令，可能會發生這些錯誤 (例如`helm install`， `helm upgrade`，或`helm delete`) 開發空格命令 (例如`azds up`和`azds down`) 相同的開發人員空間內。 其發生原因開發空間自己 Tiller 的執行個體，與在相同的開發環境中執行您自己 Tiller 執行個體成員互相衝突。
 
 ### <a name="try"></a>請嘗試︰
@@ -305,7 +305,7 @@ Container image build failed
 
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev Spaces Proxy 可能會干擾在開發空間中執行的其他 Pod
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 當您在 AKS 叢集中的命名空間上啟用 Dev Spaces 時，即會在每個於該命名空間內執行的 Pod 中額外安裝名為 _mindaro proxy_ 的容器。 此容器會攔截對 Pod 中之服務的呼叫，這對 Dev Spaces 小組開發功能而言是不可或缺的；不過，其可能會干擾在這些 Pod 中執行的特定服務。 它稱為適用於 Redis 執行 Azure 快取，這將導致連線錯誤和失敗的主要/次要通訊的 pod 會干擾。
 
 ### <a name="try"></a>請嘗試︰
@@ -313,7 +313,7 @@ Container image build failed
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces 似乎未使用我現有的 Dockerfile 來建置容器
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 Azure Dev Spaces 可以設定為指向您專案中的特定 _Dockerfile_。 如果發生 Azure Dev Spaces 未使用您預期的 Dockerfile 來建置容器的情形，您可能需要明確告訴 Azure Dev Spaces 要使用哪個 Dockerfile。 
 
 ### <a name="try"></a>請嘗試︰
@@ -329,7 +329,7 @@ configurations:
 
 ## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>錯誤 「 失敗的內部監看式： 觀看 ENOSPC"附加偵錯 Node.js 應用程式時
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 
 執行 Node.js 應用程式，您嘗試偵錯工具附加至的 pod 的節點已超過*fs.inotify.max_user_watches*值。 在某些情況下，[的預設值*fs.inotify.max_user_watches*可能會太小，無法處理偵錯工具直接附加至的 pod](https://github.com/Azure/AKS/issues/772)。
 
@@ -338,7 +338,7 @@ configurations:
 
 ## <a name="new-pods-are-not-starting"></a>不啟動新的 pod
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 
 Kubernetes 的初始設定式無法套用新的 pod，RBAC 權限變更會針對 PodSpec*叢集系統管理員*叢集中的角色。 新的 pod 可能也會有無效的 PodSpec，例如 pod 相關聯的服務帳戶不存在。 若要查看中的 pod*暫止*狀態，因為初始設定式問題，而使用`kubectl get pods`命令：
 
@@ -370,7 +370,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 ## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>不正確的 RBAC 權限，呼叫開發空間控制器和 Api
 
-### <a name="reason"></a>原因
+### <a name="reason"></a>`Reason`
 存取 Azure 開發人員空格控制器的使用者必須具有系統管理員的讀取權限*kubeconfig* AKS 叢集上。 例如，此權限可用於[內建 Azure Kubernetes 服務叢集系統管理員角色](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)。 存取 Azure 開發人員空格控制器的使用者也必須擁有*參與者*或是*擁有者*控制站的 RBAC 角色。
 
 ### <a name="try"></a>嘗試
@@ -389,3 +389,18 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
     * 針對*存取權指派給*選取*Azure AD 使用者、 群組或服務主體*。
     * 針對*選取*搜尋您想要授與權限的使用者。
 1. 按一下 [檔案] 。
+
+## <a name="controller-create-failing-due-to-controller-name-length"></a>控制站建立失敗的原因是控制器名稱長度
+
+### <a name="reason"></a>`Reason`
+Azure 開發人員空格控制站的名稱長度不能超過 31 個字元。 如果您的控制器名稱超過 31 個字元，當您 AKS 叢集上啟用開發人員的空格，或建立一個控制站，您會收到類似的錯誤：
+
+*無法建立叢集的開發人員空格控制站 'a-controller-name-that-is-way-too-long-aks-east-us':'A-controller-name-that-is-way-too-long-aks-east-us' 的 azure 開發人員空格控制器名稱無效。違反條件約束：Azure 開發人員空格控制站名稱只能是最多 31 個字元*
+
+### <a name="try"></a>嘗試
+
+使用替代名稱中建立一個控制站：
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```

@@ -1,10 +1,10 @@
 ---
-title: 設定應用程式以公開 Web API (預覽) | Azure
+title: 設定應用程式以公開 Web API - Microsoft 身分識別平台
 description: 了解如何設定應用程式來公開新的權限/範圍和角色，以便讓應用程式可供用戶端應用程式使用。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1148fb221e82963ea39ece3e18598e38d633238d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080840"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413961"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>快速入門：設定應用程式以公開 Web API (預覽)
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>快速入門：設定應用程式以公開 Web API
 
 您可以開發 Web API，並藉由公開[權限/範圍](developer-glossary.md#scopes)和[角色](developer-glossary.md#roles)，使其可供用戶端應用程式使用。 正確設定的 web API 即可供使用，就像其他 Microsoft web API 一樣，包括 Graph API 和 Office 365 API。
 
@@ -37,15 +37,14 @@ ms.locfileid: "58080840"
 * 了解所支援的[權限和同意](v2-permissions-and-consent.md)，在建置其他使用者或應用程式需要使用的應用程式時，這些是務必了解的重要資訊。
 * 擁有已有應用程式在其中註冊的租用戶。
   * 如果您尚未註冊應用程式，請[了解如何使用 Microsoft 身分識別平台來註冊應用程式](quickstart-register-app.md)。
-* 在 Azure 入口網站中選擇加入應用程式註冊預覽版體驗。 本快速入門中的步驟會對應到新的 UI，而且必須選擇加入預覽版體驗才能進行。
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>登入 Azure 入口網站，然後選取應用程式
 
 請先遵循下列步驟，然後才能設定應用程式：
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取您的帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)]。
+1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
+1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊]。
 1. 尋找並選取您要設定的應用程式。 在選取應用程式後，您會看到應用程式的 [概觀] 或主要註冊頁面。
 1. 選擇您想要使用哪一個方法 (UI 還是應用程式資訊清單) 來公開新的範圍：
     * [透過 UI 公開新的範圍](#expose-a-new-scope-through-the-ui)

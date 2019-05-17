@@ -7,19 +7,19 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e23297d8cd6cab5abeedc1a12fa1a37c93e94283
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943606"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606893"
 ---
 <a name="seller-insights-definitions"></a>Seller Insights 定義
 =======================
 
 下表提供 Seller Insights 中使用的許多字詞的定義。
 
-|  **字詞**                 |  **定義**                                                                                                                              |
+|  **詞彙**                 |  **定義**                                                                                                                              |
 |  --------------------------------------------    |  ---------------------------------------------------------------------------------------------------------------------------------           |
 | **Azure 授權類型**                               | 客戶用來購買 Azure 的授權合約類型。  也稱為「通道」。                                                  |
 | **Azure 授權類型：雲端解決方案提供者**      | 終端客戶透過其雲端解決方案提供者 (作為您的轉銷商) 取得 Azure 和您的 Marketplace 供應項目。                 |
@@ -37,7 +37,7 @@ ms.locfileid: "64943606"
 | **客戶縣 （市)**  | 提供由客戶縣 （市） 名稱。 這可能是不同客戶的 Azure 訂用帳戶中的城市。  |
 | **客戶通訊語言**        | 客戶慣用於通訊的語言。                                  |
 | **客戶的公司名稱**                  | 提供由客戶公司名稱。 這可能是不同客戶的 Azure 訂用帳戶中的城市。                                  |
-| **客戶的國家/地區**                       | 提供由客戶的國家/地區名稱。  這可能是不同的國家/地區客戶的 Azure 訂用帳戶中。                               |
+| **客戶的國家/地區**                       | 提供客戶的國家/地區名稱。  這可能是不同國家/地區客戶的 Azure 訂用帳戶中。                               |
 | **客戶貨幣 (CC)**                 | 客戶的慣用定價與計費貨幣。                            |
 | **客戶的電子郵件**                         | 終端客戶所提供的電子郵件地址。  這可能是不同客戶的 Azure 訂用帳戶中的電子郵件地址。                   |
 | **客戶名字**                              | 客戶所提供的名字。  這可能是不同客戶的 Azure 訂用帳戶中提供的名稱。                    |

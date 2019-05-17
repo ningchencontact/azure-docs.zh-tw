@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394371"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540709"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  Service Fabric 有相當大的介面區，不過，要了解的方面很多。  本文提供 Service Fabric 的概述，並描述核心概念、程式設計模型、應用程式生命週期、測試、叢集及健康情況監視。 如需相關簡介及了解如何使用 Service Fabric 來建立微服務，請參閱[概觀](service-fabric-overview.md)和[什麼是微服務？](service-fabric-overview-microservices.md)。 本文並未包含完整的內容清單，但有連結到 Service Fabric 每個領域的概觀與入門文章。 
@@ -30,7 +30,7 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>設計階段：應用程式類型、服務類型、應用程式套件和資訊清單、服務套件和資訊清單
 應用程式類型是指派給服務類型集合的名稱/版本。 這是在 *ApplicationManifest.xml* 檔案中定義，此檔案內嵌在應用程式套件目錄中。 然後，系統會將應用程式套件複製到 Service Fabric 叢集的映像存放區。 您可以接著從這個應用程式類型建立一個具名應用程式，然後在叢集內執行該應用程式。 
 
-服務類型是指派給服務的程式碼封裝、資料封裝及組態封裝的名稱/版本。 這是在 ServiceManifest.xml 檔案中定義，此檔案內嵌在服務套件目錄中。 然後，應用程式套件的 *ApplicationManifest.xml* 檔案會參考此服務套件目錄。 在叢集內，建立具名應用程式之後，可以從應用程式類型的其中一個服務類型建立具名服務。 服務類型會由其 *ServiceManifest.xml* 檔案來描述。 服務類型包含在執行階段載入的可執行程式碼服務組態設定，以及服務所取用的靜態資料。
+服務類型是指派給服務的程式碼封裝、資料封裝及組態封裝的名稱/版本。 這是在 ServiceManifest.xml 檔案中定義，此檔案內嵌在服務套件目錄中。 然後，應用程式套件的 *ApplicationManifest.xml* 檔案會參考此服務套件目錄。 在叢集內，建立具名應用程式之後，可以從應用程式類型的其中一個服務類型建立具名服務。 服務類型會由其 *ServiceManifest.xml* 檔案來描述。 服務類型是由可執行程式碼和服務組態設定，會在執行階段載入，以及靜態資料是由服務所組成。
 
 ![Service Fabric 應用程式類型和服務類型][cluster-imagestore-apptypes]
 
@@ -144,7 +144,7 @@ Service Fabric 提供安裝套件，可讓您在內部部署環境或任何雲�
 
 如需詳細資訊，請參閱[保護叢集](service-fabric-cluster-security.md)。
 
-### <a name="scaling"></a>調整大小
+### <a name="scaling"></a>縮放
 若您新增節點至叢集，則 Service Fabric 會重新平衡全體增加節點數的資料分割複本和執行個體。 整體應用程式效能會有所改善，改善，並減少爭用記憶體的存取權。 若未有效率地使用叢集中的節點，您可減少叢集中的節點數目。 Service Fabric 會再次重新平衡全體減少節點數的資料分割複本和執行個體，以善加使用每個節點上的硬體。 您可透過[手動](service-fabric-cluster-scale-up-down.md)或[程式設計方式](service-fabric-cluster-programmatic-scaling.md)，調整 Azure 上叢集的規模。 您可[手動](service-fabric-cluster-windows-server-add-remove-nodes.md)調整獨立叢集的規模。
 
 ### <a name="cluster-upgrades"></a>叢集升級

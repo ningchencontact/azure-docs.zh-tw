@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: cf1ea32e9b023db2e1a066c2baa6adf46ab51066
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152755"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415634"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>教學課程：透過媒體服務 v3 使用 .NET 分析影片
 
@@ -100,7 +100,7 @@ ms.locfileid: "65152755"
 
 #### <a name="transform"></a>轉換
 
-建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)執行個體時，您需要指定想要其產生的輸出是什麼。 必要的參數是 **TransformOutput** 物件，如上方程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)**。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 此範例中會使用 **VideoAnalyzerPreset** 預設，以及將語言 ("en-US") 傳遞至其建構函式。 此預設可讓您從影片擷取多個音訊和影片見解。 如果您需要從影片擷取多個音訊見解，可以使用 **AudioAnalyzerPreset** 預設。 
+建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)執行個體時，您需要指定想要其產生的輸出是什麼，**TransformOutput** 是必要參數。 每個 **TransformOutput** 都會包含 **Preset (預設)**。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 此範例中會使用 **VideoAnalyzerPreset** 預設，以及將語言 ("en-US") 傳遞至其建構函式 (`new VideoAnalyzerPreset("en-US")`)。 此預設可讓您從影片擷取多個音訊和影片見解。 如果您需要從影片擷取多個音訊見解，可以使用 **AudioAnalyzerPreset** 預設。 
 
 建立**轉換**時，您應該先使用 **Get** 方法檢查是否已有轉換存在，如下列程式碼所示。  在媒體服務 v3 中，如果實體不存在，對實體執行的 **Get** 方法會傳回 **null** (檢查名稱時不區分大小寫)。
 

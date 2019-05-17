@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: a323cbe4188207fa77525648297b366c9c57121b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244718"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205408"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>快速入門：串流影片檔案 - CLI
 
@@ -83,7 +83,7 @@ az ams account create --n amsaccount -g amsResourceGroup --storage-account amsst
 
 ## <a name="start-the-streaming-endpoint"></a>啟動串流端點
 
-以下 Azure CLI 命令會啟動預設**串流端點**。
+下列 Azure CLI 命令會啟動預設**串流端點**。
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -356,4 +356,4 @@ az group delete --name amsResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-> [CLI 範例](cli-samples.md)
+[媒體服務概觀](media-services-overview.md)

@@ -4,22 +4,22 @@ description: 概略說明設定資料如何儲存在 Azure 應用程式設定中
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011277"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408733"
 ---
-# <a name="key-value-store"></a>索引鍵-值存放區
+# <a name="keys-and-values"></a>索引鍵和值
 
 Azure 應用程式設定會將設定資料儲存為索引鍵/值組。 索引鍵/值組以簡單卻彈性的方式，呈現開發人員熟悉的各種應用程式設定。
 
@@ -45,29 +45,27 @@ Azure 應用程式設定會將設定資料儲存為索引鍵/值組。 索引鍵
 
 以下是如何將索引鍵名稱建構至階層的幾個範例：
 
-* 以環境為基礎
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * 以元件服務為基礎
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * 以部署區域為基礎
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### <a name="label-keys"></a>標籤索引鍵
+
+應用程式設定中的索引鍵值可選擇性地使用標籤屬性。 標籤會用來區分具有相同索引鍵的索引鍵值。 具有標籤 A 和 B 的索引鍵 app1，會在應用程式設定存放區中形成兩個個別的索引鍵。 根據預設，索引鍵值的標籤會是空的，或是 `null`。
+
+標籤可提供便利的方式來建立索引鍵變體。 標籤的常見用法是為相同索引鍵指定多個環境：
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### <a name="version-key-values"></a>版本索引鍵值
-
-應用程式設定中的索引鍵值可選擇性地使用標籤屬性。 標籤會用來區分具有相同索引鍵的索引鍵值。 具有標籤 *v1* 和 *v2* 的索引鍵 *app1*，會在應用程式設定存放區中形成兩個個別的索引鍵值。 根據預設，索引鍵值的標籤會是空的，或是 `null`。
 
 應用程式設定不會在索引鍵值受到修改時自動編排版本。 請使用標籤作為建立多個索引鍵值版本的方式。 例如，您可以在標籤內輸入應用程式版本號碼或 Git 認可識別碼，以識別與特定軟體組建相關聯的索引鍵值。
 
@@ -106,5 +104,5 @@ Azure 應用程式設定會將設定資料儲存為索引鍵/值組。 索引鍵
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [時間點快照集](./concept-point-time-snapshot.md)  
+* [時間點快照集](./concept-point-time-snapshot.md)  
+* [功能管理](./concept-feature-management.md)  

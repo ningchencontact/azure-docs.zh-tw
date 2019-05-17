@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: bf0c6a5234846499d7b8a49f427dba7af36edc15
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5dc311538055d9ecb7aba21f95d819a914cd1db7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937964"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826560"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace ‎商業交易功能和考量
 
@@ -137,11 +137,14 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 |*由 Microsoft 向客戶收取的費用*    |  *每月 $100.00 (注意：發行者必須在授權費用中計算任何產生的或處理的基礎結構成本)*  |
 
 * 在此案例中，Microsoft 針對您的軟體授權收費 $100.00，並支付 $80.00 給發行者。
+* 降低 Marketplace 服務費用有資格的合作夥伴將會看到減少的交易費用 SaaS 上提供從 2019 年直到 2020 年 6 月。 在此案例中，Microsoft 會針對您的軟體授權的 $100.00 美元，並支付美金，鍵入 90.00 出到 「 發行者 」。
 
 |Microsoft 收取的費用  | 每月 $100.00  |
 |---------|---------|
-|Microsoft 向您支付授權成本的 80%    |   每月 $80.00     |
-|Microsoft 保留授權成本的 20%   |  每月 $20.00       |
+|Microsoft 向您支付授權成本的 80% <br> \* Microsoft 向您支付授權成本的 90%的任何合格的 SaaS 應用程式   |   每月 $80.00 <br> \* $，鍵入 90.00 每月    |
+|Microsoft 保留授權成本的 20% <br> \* Microsoft 保留授權成本的任何合格的 SaaS 應用程式的 10%。  |  每月 $20.00 <br> \* $10.00     |
+
+* **降低的 Marketplace 服務費用：** 某些您在我們的商業 Marketplace 發佈的 SaaS 產品，Microsoft 會減少其 Marketplace 服務費用從 20%（如 Microsoft Publisher Agreement 所述） 到 10%。  為了讓您符合資格的產品，您的產品中至少一個必須指定由 Microsoft 為 IP 共同銷售準備就緒或 IP 共同銷售排定優先順序。 若要接收此縮減的 Marketplace 服務費用的月份，資格必須符合該行事曆月份結束前至少五 （5） 工作天。 減少 Marketplace 服務費用不會套用到 Vm、 受管理應用程式或任何其他商業 Marketplace 透過提供的產品。  此降低 Marketplace 服務費用會提供完整的供應項目，於 2019 5 月 31 日和 2020 年 6 月 30 日之間的 Microsoft 所收集的授權費用。  該時間之後，Marketplace 服務費用將會回到其正常的數量而定。
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>客戶發票開立、付款和收帳
 
@@ -159,7 +162,7 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 
 例如，如果客戶使用信用卡購買：
 
-|描述    |    date  |
+|說明    |    Date  |
 |----------|----------|
 |訂單期間   | 2018 年 8 月 15 日 - 2018 年 8 月 30 日 |
 |期間結束 (月)   | 2018 年 8 月 30 日 |
@@ -173,7 +176,7 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 
 如果客戶使用 Enterprise 合約購買：
 
-| 描述 |    date  |
+| 說明 |    Date  |
 |----------|----------|
 |訂單期間 | 2018 年 8 月 15 日 - 2018 年 8 月 30 日 |
 |期間結束 (季) | 2018 年 9 月 30 日 |

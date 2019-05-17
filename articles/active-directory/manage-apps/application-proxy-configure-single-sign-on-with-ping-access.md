@@ -3,8 +3,8 @@ title: 標頭型驗證搭配 Azure AD 應用程式 Proxy 的 PingAccess | Micros
 description: 使用 PingAccess 與應用程式 Proxy 來發行應用程式可支援標頭型驗證。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eef15098eed8959655ae2904bf41a8c3dffc9f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecba35a54c530e97a3f96bd8cfb5fa217d300f83
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293811"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783585"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
 Azure Active Directory 應用程式 Proxy 和 PingAccess 通力合作，為 Azure Active Directory 客戶提供甚至更多應用程式的存取權。 PingAccess 會展開[現有應用程式 Proxy 供應項目](application-proxy.md)以包含單一登入存取使用標頭進行驗證的應用程式。
 
-## <a name="what-is-pingaccess-for-azure-ad"></a>什麼是 Azure AD 的 PingAccess？
+## <a name="what-is-pingaccess-for-azure-ad"></a>什麼是適用於 Azure AD 的 PingAccess?
 
 Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提供使用者存取權，以及單一登入使用驗證標頭的應用程式。 應用程式 Proxy 會如同任何其他應用程式一樣處理這些應用程式，使用 Azure AD 驗證存取，然後透過連接器服務傳遞流量。 PingAccess 位於前方的應用程式，並將 Azure AD 的存取權杖轉譯為標頭，使應用程式以它可以讀取的格式收到驗證。
 
@@ -80,7 +80,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
      > 針對此類型的 SSO，內部 URL 必須使用 https，而無法使用 http。
 
    - **預先驗證方法**：Azure Active Directory
-   - **標頭中的轉譯 URL**：否
+   - **標頭中的轉譯 URL**：無
 
    >[!NOTE]
    >如果這是您的第一個應用程式，請在變更 PingAccess 設定時，使用連接埠 3000 啟動並返回以更新這項設定。 如果這是您的第二個或更後面的應用程式，則這必須符合您已在 PingAccess 中設定的接聽程式。 深入了解 [PingAccess 中的接聽程式](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html)。

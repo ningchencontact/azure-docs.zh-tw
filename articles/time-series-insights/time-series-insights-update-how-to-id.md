@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81877ad23728ad76cb5d4dc5084990511257c6df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4b2f538831ee9410eaf1a2d272f01fd30a9236e6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695053"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519443"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>選擇時間序列識別碼的最佳做法
 
@@ -29,6 +29,7 @@ ms.locfileid: "64695053"
 > 時間序列識別碼區分大小寫且不可變 (設定之後無法變更)。
 
 因此請記住，選取適當的時間序列識別碼非常重要。 選取時間序列識別碼時，請考慮以下最佳做法：
+
 * 請選擇具有各種不同的值、且有平均存取模式的屬性名稱。 最佳做法是讓分割區索引鍵具有許多相異值 (例如數百個或數千個)。 對許多客戶來說，這會像是您 JSON 中的 DeviceID 或 SensorID 一樣。
 * 在您[時間序列模型](./time-series-insights-update-tsm.md).的分葉節點層級，時間序列識別碼應該是唯一的。
 * 時間序列識別碼屬性名稱字元字串最多可以有 128 個字元，時間序列識別碼屬性值最多可以有 1024 個字元。
@@ -41,13 +42,13 @@ ms.locfileid: "64695053"
 
 下列案例描述選取超過一個索引鍵屬性作為時間序列識別碼：  
 
-### <a name="scenario-1"></a>案例 1
+### <a name="scenario-one"></a>其中一個案例
 
-* 您有舊的資產群，每項資產都具備一個唯一索引鍵。 
-* 例如，某個資產群透過屬性 *deviceId* 識別，而另一個資產群的唯一屬性為 *objectId*。 兩個資產群都沒有包含對方的唯一屬性。 在此範例中，您會選取兩個索引鍵作為唯一索引鍵，分別是 deviceId 和 objectId。 
+* 您有舊的資產群，每項資產都具備一個唯一索引鍵。
+* 例如，某個資產群透過屬性 *deviceId* 識別，而另一個資產群的唯一屬性為 *objectId*。 兩個資產群都沒有包含對方的唯一屬性。 在此範例中，您會選取兩個索引鍵作為唯一索引鍵，分別是 deviceId 和 objectId。
 * 我們接受 null 值，而事件裝載中缺少屬性存在會計為 `null` 值。 這也是將資料傳送到兩個不同的事件來源時適當的處理方式，其中每個事件來源中的資料都會有唯一的時間序列識別碼。
 
-### <a name="scenario-2"></a>案例 2
+### <a name="scenario-two"></a>案例二
 
 * 您需要讓同一資產群內的多個特性都必須是唯一的。 
 * 例如，假設您是一位優秀的建築師，並且要在每個房間內部署感應器。 在每個房間內，*sensorId* 的值通常都是相同的，例如*sensor1*、*sensor2* 及 *sensor3*。

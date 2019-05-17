@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 29cea7e72d6bd7f64f6cf2a68b7620090ea4eef3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e53f0bd1af3940b4d2f653b5ef43170212c09a43
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995926"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408692"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 ASP.NET Core 應用程式
 
@@ -27,7 +27,9 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定，來建置一個以索引鍵-值為基礎的設定物件。 這些資料來源稱為「設定提供者」。 因為應用程式設定的 .NET Core 用戶端會實作為這類提供者，服務看來就像其他資料來源。
 
-您可以使用任何程式碼編輯器來進行本快速入門中的步驟。 於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
+您可以使用任何程式碼編輯器來進行本快速入門中的步驟。 Windows、macOS 及 Linux 平台上都有提供的 [Visual Studio Code](https://code.visualstudio.com/) 是一個絕佳的選項。
+
+![快速入門應用程式啟動本機](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -39,7 +41,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 選取 [索引鍵/值總管]  >  [+ 建立] 來新增下列索引鍵/值組：
+6. 選取 [組態總管]  >  [+ 建立] 來新增下列索引鍵/值組：
 
     | Key | 值 |
     |---|---|
@@ -64,7 +66,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
 將[祕密管理員工具](https://docs.microsoft.com/aspnet/core/security/app-secrets) \(機器翻譯\) 新增至您的專案。 祕密管理員工具能儲存專案樹狀結構外開發工作的敏感性資料。 此作法能協助避免於原始程式碼內意外共用應用程式祕密。
 
-- 開啟您的 *.csproj* 檔案。 新增 `UserSecretsId` 元素 (如下所示)，並將其值更換為您自己的值 (此值通常是 GUID)。 儲存檔案。
+- 開啟 .csproj 檔案。 新增 `UserSecretsId` 元素 (如下所示)，並將其值更換為您自己的值 (此值通常是 GUID)。 儲存檔案。
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -86,7 +88,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
 1. 透過執行下列命令，將參考新增至 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 套件：
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
 2. 執行下列命令以還原您專案的套件：
 
@@ -100,11 +102,11 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
-    祕密管理員僅可用於在本機測試 Web 應用程式。 部署應用程式時 (例如，部署至 [Azure App Service](https://azure.microsoft.com/services/app-service/web))，您會使用應用程式設定 (例如 App Service 中的**連接字串**)。 您要使用此字串，而不是使用祕密管理員來儲存連接字串。
+    祕密管理員僅可用於在本機測試 Web 應用程式。 例如，將應用程式部署至 [Azure App Service](https://azure.microsoft.com/services/app-service/web) 時，您會使用 App Service 中的應用程式設定**連接字串**，而不會使用祕密管理員來儲存連接字串。
 
     此祕密可使用設定 API 來存取。 在所有支援的平台上，組態 API 的組態名稱中都適用冒號 (:)。 請參閱[取決於環境的組態](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0)。
 
-4. 開啟 Program.cs，並新增應用程式設定 .NET Core 設定提供者的參考。
+4. 開啟 Program.cs，並將參考新增至 .NET Core 應用程式組態提供者。
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -118,10 +120,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .SetOfflineCache(new OfflineFileCache());
-                });
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
             })
             .UseStartup<Startup>();
     ```
@@ -190,8 +189,6 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
         dotnet run
 
 3. 開啟瀏覽器視窗，並前往 `http://localhost:5000` (這是本機所裝載 Web 應用程式的預設 URL)。
-
-    ![快速入門應用程式啟動本機](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 

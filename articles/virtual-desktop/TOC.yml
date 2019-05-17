@@ -14,6 +14,8 @@
       href: create-host-pools-azure-marketplace.md
     - name: 4. 管理應用程式群組
       href: manage-app-groups.md
+    - name: 5. 建立主機集區以驗證服務更新
+      href: create-validation-host-pool.md
 - name: 作法
   items:
     - name: 連線至 Windows 虛擬桌面資源

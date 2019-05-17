@@ -10,95 +10,111 @@ ms.reviewer: anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 12/03/2018
-ms.openlocfilehash: de5e853db6c6a0e98dea9251cc07b526288574e1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 04/22/2019
+ms.openlocfilehash: dbdbfc797d37ed38936d6cfd354383d412c6b52d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276820"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205811"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>快速入門：探索 Azure 時間序列深入解析預覽版示範環境
 
-本快速入門將說明如何在免費的示範環境中使用 Azure 時間序列深入解析預覽版總管。 您將了解如何使用網頁瀏覽器將大量的歷史產業 IoT 資料視覺化，並導覽時間序列深入解析預覽版總管的主要功能。
+本快速入門可讓您開始使用 Azure 時間序列深入解析預覽版。 透過免費的示範，您將導覽時間序列深入解析預覽版中已新增的主要功能。
 
-時間序列深入解析會提供端對端的平台即服務 (PaaS) 供應項目。 它可以內嵌、處理、儲存和查詢進行拼湊的資料瀏覽的高度相關的語境、時間序列最佳化 IoT 規模資料。 它還提供操作分析。 時間序列深入解析是針對產業 IoT 部署的獨特需求而量身訂做的特殊供應項目。
+此預覽版示範環境包含虛構公司 Contoso，這家公司經營兩個風力渦輪機發電廠，各有 10 個渦輪機。 每台渦輪機都有 20 個感應器，每分鐘向 Azure IoT 中樞回報資料。 感應器會收集有關天氣狀況、葉片俯仰和偏擺位置的資訊。 此外也會收集發電機效能、變速箱行為，以及安全監視器的相關資訊。
 
-示範環境顯示了一家電力公司 Contoso。 在環境中，您可以使用時間序列深入解析，在 Contoso 資料中尋找可操作的見解，並進行簡短的根本原因分析。 Contoso 會操作兩個風力渦輪機伺服器陣列，每個都有 10 個渦輪機。 每台渦輪機都有 20 個感應器，每分鐘向 Azure IoT 中樞回報資料。 感應器會收集有關天氣狀況、葉片的俯仰和偏擺位置、發電機效能、變速箱行為，以及安全監視器的相關資訊。
-
-您可以使用時間序列深入解析預覽版來分析過去兩年中 Contoso 不斷成長的資料集，目前該資料集為 40 GB。 它可以協助您深入了解，並預測發生嚴重失敗和移動緩慢的維護問題。
-
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費 Azure 帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
+ 您將了解如何使用時間序列深入解析，在 Contoso 資料中尋找可操作的見解。 此外也將進行簡短的根本原因分析，以準確地預測重大故障並執行維護工作。
 
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>在示範環境中來探索時間序列深入解析
 
-1. 在瀏覽器中，移至  [Contoso 風力發電廠環境](https://insights.timeseries.azure.com/preview/samples)。  
+時間序列深入解析預覽版總管會顯示歷史資料和根本原因分析。 開始進行之前：
+
+1. 建立 [免費的 Azure 帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)  (如果尚未建立)。
+
+1. 瀏覽至  [Contoso 風力發電廠示範](https://insights.timeseries.azure.com/preview/samples)環境。  
 
 1. 如果出現提示，請使用您的 Azure 帳戶認證登入時間序列深入解析。
 
-### <a name="demo-step-1"></a>示範步驟 1
+## <a name="work-with-historical-data"></a>使用歷史資料
 
-1. 讓我們來觀察 **Contoso Plant 1** 中的風力渦輪機 **W7**。  
+1. 觀察 **Contoso Plant 1** 中的風力渦輪機 **W7**。  
 
-    * **動作**：將檢視範圍更新為 **1/1/17 20:00 to 3/10/17 20:00 (UTC)**，新增 **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed** 感應器，然後顯示結果值。
+    * 將檢視範圍更新為 **1/1/17 20:00 至 3/10/17 20:00 (UTC)**。
+    * 選取 [Contoso Plant 1] > [W7] > [發電機系統] > [GeneratorSpeed] 感應器。 然後，檢閱產生的值。
 
-       ![快速入門一][1]
+      [![Contoso Plant 1 中的 W7](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
-1. 近期，Contoso 發現風力發電機 **W7** 曾經起火。 我們將由此深入探究。 我們可以看到，在火災期間啟動了起火警示感應器。
+1. 近期，Contoso 發現風力發電機 **W7** 曾經起火。 關於起火的直接成因，意見並不一致。 經仔細檢查，我們發現起火警示感應器在起火期間是啟動的。
 
-    * **動作**：將視圖範圍更新為 [3/9/17 20:00 to 3/10/17 20:00 (UTC)]，並新增 [安全性系統] > [FireAlert] 感應器。
+    * 將檢視範圍更新為 **3/9/17 20:00 至 3/10/17 20:00 (UTC)**。
+    * 選取 [安全系統] > [FireAlert]感應器。
 
-      ![快速入門二][2]
+      [![Contoso 發現風力渦輪機 W7 曾經起火](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
 
-1. 我們將查看在火災期間還發生了哪些狀況。 油壓和作用中警告在起火之前都急遽升高，但在這個時間點已來不及阻止問題發生。
+1. 檢閱起火時間點前後的其他事件，以了解發生了哪些狀況。 油壓和作用中警告在起火之前都急遽升高。
 
-    * **動作**：新增 [音調系統] > [HydraulicOilPressure] 感應器和 [音調系統] > [ActiveWarning] 感應器。
+    * 選取 [變槳系統] > [HydraulicOilPressure] 感應器。
+    * 選取 [變槳系統] > [ActiveWarning] 感應器。
 
-      ![快速入門三][3]
+      [![檢閱同一時間點前後的其他事件](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
 
-1. 如果縮小範圍，我們可以看到有個導致火災發生的跡象。 這兩個感應器都出現波動。 以前發生過此問題嗎？
+1. 油壓和作用中警告感應器在起火之前都急遽升高。 展開顯示的時間序列，以查看其他導致起火的徵象。 兩個感應器都持續波動一段時間，而顯現持續而有安全疑慮的模式。
 
-    * **動作**：將檢視範圍更新為 **2/24/17 20:00 to 3/10/17 20:00 (UTC)**。
+    * 將檢視範圍更新為 **2/24/17 20:00 至 3/10/17 20:00 (UTC)**。
 
-      ![快速入門四][4]
+      [![油壓和作用中警告感應器也急遽升高](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
-1. 如果我們查看整個兩年間的所有資料，我們會發現先前的起火事件也有相同的跡象。 透過這項資料，我們可以建置及早發現此類問題的系統。
+1. 查看兩年的歷史資料時，會發現有另一個起火事件具有相同的感應器波動。
 
-    * **動作**：將檢視範圍更新為 **1/1/16 to 12/31/17** (所有資料)。
+    * 將檢視範圍更新為 **1/1/16 至 12/31/17** (所有資料)。
 
-       ![快速入門五][5]
+      [![尋找歷史模式](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-### <a name="demo-step-2"></a>示範步驟 2
+透過 Azure 時間序列深入解析和感應器遙測，我們發現歷史資料中隱藏了長時間且有問題的趨勢。 透過這些新的深入解析，我們可以：
 
-1. 其他問題更細微，且更難以診斷。 時間序列深入解析提供了各式各樣的方式，有助於追蹤困難的問題。 我們可以從中看出，**W6** 的警告感應器曾在 **6/25** 中斷運作。 但實際情況究竟為何？
+> [!div class="checklist"]
+> * 說明實際發生的狀況。
+> * 更正問題。
+> * 設置妥善的警示通知系統。
 
-    * **動作**：移除目前的感應器，將檢視範圍更新為 [6/1/17 20:00 to 7/1/17 20:00 (UTC)]，然後新增 [Contoso Plant 1] > [W6] > [安全性系統] > [VoltageActuatorSwitchWarning] 感應器。
+## <a name="root-cause-analysis"></a>根本原因分析
 
-       ![快速入門六][6]
+1. 在某些情況下，必須經由複雜的分析，才能在資料中找出細微的線索。 選取 **6/25** 這個日期的風車 **W6**
 
-1. 警告指出發電機輸出的電壓有問題。 但其原因為何？ 發電機的整體電力輸出以密集的時間間隔來看是正常的。 但在彙總資料後，我們可以看到明顯的下降。
+    * 將檢視範圍更新為 **6/1/17 20:00 至 7/1/17 20:00 (UTC)**。
+    * 然後，選取 [Contoso Plant 1] > [W6] > [安全系統] > [VoltageActuatorSwitchWarning] 感應器。
 
-    * **動作**：移除 [VoltageActuatorSwitchWarning] 感應器，新增 [發電機系統] > [ActivePower] 感應器，並將間隔更新為 [3d]。
+      [![更新檢視範圍並選取 W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-       ![快速入門七][7]
+1. 警告指出發電機輸出的電壓有問題。 以目前的時間間隔來看，發電機的整體電力輸出均在正常參數內運作。 藉由增加時間間隔，將會形成另一種模式，而出現明確的下降。
 
-1. 如果我們往前瀏覽資料集，我們會發現這不只是暫時性的問題。 它還在持續發生中。
+    * 移除 **VoltageActuatorSwitchWarning** 感應器。
+    * 選取 [發電機系統] > [ActivePower] 感應器。
+    * 將時間間隔更新為 **3d**。
 
-    * **動作**：將時間範圍往右延伸。
+      [![將時間間隔更新為 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
 
-       ![快速入門八][8]
+1. 藉由擴充時間範圍，我們可以判斷問題是否已停止或繼續。
 
-1. 我們將進一步深入探詢。 我們可以新增其他感應器資料點，依階段檢視電壓。 但所有的資料點看起來都差不多。 我們將置放標記，以查看實際的值。 階段 3 的輸出似乎有問題。
+    * 將時間範圍延伸至 60 天。
 
-    * **動作**：新增 [發電機系統] > [GridVoltagePhase1]、[GridVoltagePhase2] 和 [GridVoltagePhase3] 感應器。 在可見區域的最後一個資料點上置放標記。
+      [![將時間範圍延伸至 60 天](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
 
-       ![快速入門八][8]
+1. 我們可以新增其他感應器資料點，以提供更詳盡的內容。 我們可以檢視的感應器愈多，就愈能充分了解問題的本質。 我們將置放標記，以查看實際的值。 
 
-1. 如果三個資料點全都以相同的比例來檢視，階段 3 的下降就會更為明顯。 至此，我們已可將此問題交由維護團隊處理，並為其提供警告成因的可靠線索。  
+    * 選取 [發電機系統] > [GridVoltagePhase1]、[GridVoltagePhase2] 和 [GridVoltagePhase3] 感應器。
+    * 在可見區域的最後一個資料點上置放標記。
 
-    * **動作**：更新顯示畫面，使所有感應器以相同的圖表比例重疊。
+      [![置放標記](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
 
-       ![快速入門九][9]
+    有三個電壓感應器同等地在正常參數內運作。 看來問題出在 **GridVoltagePhase3** 感應器上。
+
+1. 藉由新增內容相關度高的資料，就更能看出階段 3 的下降就是問題所在。 現在，我們已可將此問題交由維護團隊處理，並為其提供警告成因的可靠線索。  
+
+    * 更新顯示畫面，使所有**發電機系統**感應器以相同的圖表比例重疊。
+
+       [![更新顯示畫面以包含所有項目](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -107,13 +123,7 @@ ms.locfileid: "53276820"
 > [!div class="nextstepaction"]
 > [規劃時間序列深入解析預覽版環境](time-series-insights-update-plan.md)
 
-<!-- Images -->
-[1]: media/v2-update-quickstart/quickstart-one.png
-[2]: media/v2-update-quickstart/quickstart-two.png
-[3]: media/v2-update-quickstart/quickstart-three.png
-[4]: media/v2-update-quickstart/quickstart-four.png
-[5]: media/v2-update-quickstart/quickstart-five.png
-[6]: media/v2-update-quickstart/quickstart-six.png
-[7]: media/v2-update-quickstart/quickstart-seven.png
-[8]: media/v2-update-quickstart/quickstart-eight.png
-[9]: media/v2-update-quickstart/quickstart-nine.png
+了解如何瀏覽示範及其功能：
+
+> [!div class="nextstepaction"]
+> [時間序列深入解析預覽版總管](time-series-insights-update-explorer.md)

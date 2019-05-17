@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 58c4f42859f735a81a3e3edc801daff5d26194a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757837"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785802"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>管理 Azure Data Box Edge 上的計算
 
 本文說明如何管理 Azure Data Box Edge 上的計算。 您可以透過 Azure 入口網站或本機 Web UI 來管理計算。 使用 Azure 入口網站來管理模組、觸發程序及計算設定，以及使用本機 Web UI 來管理計算設定。
-
-> [!IMPORTANT]
-> Data Box Edge 目前處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
 
 在本文中，您將了解：
 
@@ -80,7 +76,7 @@ ms.locfileid: "60757837"
 
 3. 系統提示您進行確認時，按一下 [是] 。
 
-    ![Confirm delete](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![確認刪除](media/data-box-edge-manage-compute/add-trigger-1.png)
 
 觸發程序清單會更新以反映刪除。
 

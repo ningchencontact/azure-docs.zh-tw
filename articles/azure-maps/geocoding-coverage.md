@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: b8caa5cd7476489a92ce97570794a1d397f32630
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a5e5f4ab286289e223a2fe10ff8cf45f43309f04
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230902"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785945"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure 地圖地理編碼涵蓋範圍
 
@@ -83,8 +83,8 @@ ms.locfileid: "65230902"
 | 美利堅合眾國                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 烏拉圭                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 委內瑞拉                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| 英屬維京群島                            |                 |                |              |      ✓     |          ✓         |
-| 美屬維京群島                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| 英屬維爾京群島                              |                 |                |              |      ✓     |          ✓         |
+| 美國美屬維爾京群島                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>亞太地區
 
@@ -293,7 +293,6 @@ ms.locfileid: "65230902"
 | 突尼西亞                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | 烏干達                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | 阿拉伯聯合大公國                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| 約旦河西岸地區                                           |                 |                |              |      ✓     |          ✓         |
 | 葉門                                               |                 |                |              |      ✓     |          ✓         |
 | 尚比亞                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | 辛巴威                                            |                 |                |       ✓      |      ✓     |          ✓         |

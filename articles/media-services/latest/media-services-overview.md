@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 91297a02966000899ab79dfb86446890e9c4439a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4fb42014e2c5389cf2a849ddf5114ab1f59c9e28
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148705"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414034"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure 媒體服務 v3 概觀
 
@@ -48,7 +48,8 @@ Azure 媒體服務是雲端式平台，可讓您建置的解決方案擁有廣�
 
 了解如何使用媒體服務 v3 來編碼和封裝內容、串流隨選影片、即時廣播及分析您的影片。 教學課程、API 參考和其他文件會示範如何安全地提供可針對數百萬位使用者調整的隨選和即時視訊或音訊串流。
 
-在開始開發之前，請檢閱[基本概念](concepts-overview.md)<br/>
+> [!TIP]
+> 在開始開發之前，請檢閱：<br/>* [基本概念](concepts-overview.md) (包括重要概念：封裝、編碼、保護等等)。<br/>* [使用媒體服務 v3 API 進行開發](media-services-apis-overview.md) (包括存取 API、命名慣例等的詳細資訊)。
 
 ### <a name="quickstarts"></a>快速入門  
 
@@ -86,9 +87,5 @@ Azure 媒體服務是雲端式平台，可讓您建置的解決方案擁有廣�
 
 ## <a name="next-steps"></a>後續步驟
 
-如何開始使用 v3？ 
-
-> [!div class="nextstepaction"]
-> [了解基本概念](concepts-overview.md)<br/>
-> [使用 SDK 透過媒體服務 v3 API 進行開發](developers-guide.md) 
+[了解基本概念](concepts-overview.md)
 

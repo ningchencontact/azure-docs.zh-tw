@@ -21,7 +21,7 @@ sections:
   - title: 逐步教學課程
     items:
       - type: paragraph
-        text: 了解如何與 Azure AD 整合內部部署已加入 AD 的裝置。
+        text: 了解如何將內部部署已加入 AD 的裝置與 Azure AD 整合。
       - type: list
         style: icon48
         items:

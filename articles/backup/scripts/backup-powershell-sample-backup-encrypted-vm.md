@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bc54832b300bf7a70d067f07b9eb7cc67404f2e7
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 62d0c7a66e37d0796655bd20f780fa7e0847474c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496798"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228692"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>使用 PowerShell 備份已加密的 Azure 虛擬機器
 
@@ -48,7 +48,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 |---|---| 
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 | 
 | [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) | 建立復原服務保存庫來儲存備份。 | 
-| [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties) | 在復原服務保存庫上設定備份儲存體屬性。 | 
+| [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) | 在復原服務保存庫上設定備份儲存體屬性。 | 
 | [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy)| 在復原服務保存庫中，使用排程原則和保留原則來建立保護原則。 | 
 | [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) | 在 Key Vault 上設定權限，以授與服務主體對加密金鑰的存取權。 | 
 | [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) | 使用指定的備份保護原則來啟用項目的備份。 | 

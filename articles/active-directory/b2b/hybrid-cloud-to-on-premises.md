@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0e9536f009d478796bc9367a66630c02019dcd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2447aac825874779a543d25b0a70c339dcbf1473
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412679"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768448"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權
 
@@ -61,7 +61,7 @@ ms.locfileid: "60412679"
 
 ### <a name="lifecycle-management-policies"></a>生命週期管理原則
 
-您可以透過生命週期管理原則管理內部部署 B2B 使用者物件。 例如︰
+您可以透過生命週期管理原則管理內部部署 B2B 使用者物件。 例如：
 
 - 您可以為來賓使用者設定多重要素驗證 (MFA) 原則，以在應用程式 Proxy 驗證期間使用 MFA。 如需詳細資訊，請參閱 [B2B 共同作業使用者的條件式存取](conditional-access.md)。
 - 任何對雲端 B2B 使用者執行的贊助、存取權檢閱、帳戶驗證等，皆適用於內部部署使用者。 例如，如果透過生命週期管理原則刪除雲端使用者，則也會由 MIM 同步處理或透過 Azure AD Connect 同步處理刪除內部部署使用者。如需詳細資訊，請參閱[使用 Azure AD 存取權檢閱來管理來賓存取權](../governance/manage-guest-access-with-access-reviews.md)。

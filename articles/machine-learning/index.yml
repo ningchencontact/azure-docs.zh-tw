@@ -7,7 +7,7 @@ metadata:
   description: 了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。
   ms.author: jmartens
   ms.subservice: core
-  ms.date: 12/04/2018
+  ms.date: 5/14/2019
   ms.devlang: na
   ms.service: machine-learning
   ms.tgt_pltfrm: na
@@ -34,20 +34,28 @@ sections:
       - items:
           - html: <a href="service/quickstart-run-cloud-notebook">在雲端中執行實驗</a> (無需安裝)
           - html: <a href="service/quickstart-run-local-notebook">使用本機 Notebook 伺服器執行實驗</a> (本機 SDK 安裝)
+          - html: <a href="service/ui-quickstart-run-experiment">在虛擬介面中執行實驗</a> (無需程式碼)
         style: unordered
         type: list
-      - text: <b>MNIST 資料的影像分類教學課程：</b>
+      - text: <b>教學課程：使用 SDK 的 MNIST 資料影像分類：</b>
         type: paragraph
       - items:
           - html: 第 1 部分：<a href="service/tutorial-train-models-with-aml">讓自有模型定型</a>
           - html: 第 2 部分：<a href="service/tutorial-deploy-models-with-aml">部署該模型</a>
         style: unordered
         type: list
-      - text: <b>紐約市計程車資料的迴歸模型教學課程：</b>
+      - text: <b>教學課程：使用 SDK 預測計程車費用：</b>
         type: paragraph
       - items:
           - html: 第 1 部分：<a href="service/tutorial-data-prep">準備資料以進行模型化</a>
           - html: 第 2 部分：<a href="service/tutorial-auto-train-models">讓自動化 ML 將模型定型</a>
+        style: unordered
+        type: list
+      - text: <b>教學課程：使用視覺化介面預測汽車價格：</b>
+        type: paragraph
+      - items:
+          - html: 第 1 部分：<a href="service/ui-tutorial-automobile-price-train-score">預測汽車價格</a>
+          - html: 第 2 部分：<a href="service/ui-tutorial-automobile-price-deploy">部署迴歸模型</a>
         style: unordered
         type: list
       - text: <b>取用您的模型：</b>

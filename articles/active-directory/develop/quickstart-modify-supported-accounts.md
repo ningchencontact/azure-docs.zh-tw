@@ -3,8 +3,8 @@ title: 修改使用 Microsoft 身分識別平台註冊的應用程式所支援�
 description: 設定使用 Microsoft 身分識別平台所註冊的應用程式，以變更可以存取應用程式的使用者或帳戶。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a2c68d607e7afc2e3eac675511734c8d054c427
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2c52bd0bf6c1e385248bd379a8001756d28ac2d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174192"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413592"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application-preview"></a>快速入門：修改應用程式所支援的帳戶 (預覽)
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>快速入門：修改應用程式所支援的帳戶
 
 在 Microsoft 身分識別平台註冊應用程式時，您可以只讓組織中的使用者存取您的應用程式。 或者，您可能也會想讓應用程式可供外部組織的使用者、外部組織的使用者，以及不一定屬於組織的使用者 (個人帳戶) 存取。
 
@@ -37,15 +37,14 @@ ms.locfileid: "56174192"
 * 了解所支援的[權限和同意](v2-permissions-and-consent.md)，在建置其他使用者或應用程式需要使用的應用程式時，這些是務必了解的重要資訊。
 * 擁有已有應用程式在其中註冊的租用戶。
   * 如果您尚未註冊應用程式，請[了解如何使用 Microsoft 身分識別平台來註冊應用程式](quickstart-register-app.md)。
-* 在 Azure 入口網站中選擇加入應用程式註冊預覽版體驗。 本快速入門中的步驟會對應到新的 UI，而且必須選擇加入預覽版體驗才能進行。
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>登入 Azure 入口網站，然後選取應用程式
 
 請先遵循下列步驟，然後才能設定應用程式：
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取您的帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)]。
+1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
+1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊]。
 1. 尋找並選取您要設定的應用程式。 在選取應用程式後，您會看到應用程式的 [概觀] 或主要註冊頁面。
 1. 遵循相關步驟來[變更應用程式註冊以支援不同的帳戶](#change-the-application-registration-to-support-different-accounts)。
 1. 如果您有單頁應用程式，請[啟用 OAuth 2.0 隱含授與](#enable-oauth-20-implicit-grant-for-single-page-applications)。
