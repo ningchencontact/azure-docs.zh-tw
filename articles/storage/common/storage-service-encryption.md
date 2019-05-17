@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e95adbd1a564fb34d3f0506ac1cc25bc5a63c62
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153094"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790060"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>待用資料的 azure 儲存體加密
 
@@ -51,6 +51,9 @@ Azure 儲存體加密會啟用所有新的和現有的儲存體帳戶，而且�
 - [設定客戶管理的金鑰，從 Azure 入口網站的 Azure 儲存體加密](storage-encryption-keys-portal.md)
 - [設定客戶管理的金鑰，從 PowerShell 的 Azure 儲存體加密](storage-encryption-keys-powershell.md)
 - [使用客戶管理的金鑰，以從 Azure CLI 的 Azure 儲存體加密](storage-encryption-keys-cli.md)
+
+> [!IMPORTANT]
+> 受管理的身分識別，如需 Azure 資源，Azure Active Directory (Azure AD) 的一項功能依賴客戶管理的金鑰。 當您轉移訂用帳戶從一個 Azure AD 目錄到另一個、 受管理的身分識別不會更新及客戶管理的金鑰可能無法再運作。 如需詳細資訊，請參閱 < **Azure AD 目錄之間轉移訂閱**中[常見問題和已知的問題與管理 Azure 資源的身分識別](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)。  
 
 > [!NOTE]  
 > 不支援客戶管理的金鑰[Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)。

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: cb5e41feb9be978592a1c1708ade0188ba20d504
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873155"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604060"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 資料總管中的時間序列分析
 
@@ -34,7 +34,7 @@ demo_make_series1 | take 10
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | TimeStamp | BrowserVer | OsVer | 國家 (地區) |
+|   | 時間戳記 | BrowserVer | OsVer | 國家/地區 |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | 英國 |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | 英國 |
@@ -72,7 +72,7 @@ demo_make_series1
 在本節中，我們將執行一般序列處理函式。
 建立一組時間序列之後，ADX 就能支援持續增長的函式清單來處理和分析它們，您可以在[時間序列文件](/azure/kusto/query/machine-learning-and-tsa) \(英文\) 中找到這些函式。 我們將說明數個可用來處理和分析時間序列的代表性函式。
 
-### <a name="filtering"></a>Filtering
+### <a name="filtering"></a>正在篩選
 
 篩選是單一處理中的常見做法，非常適合用於時間序列處理工作 (例如，緩和吵雜的訊號、變更偵測)。
 - 有兩個泛型篩選函式：

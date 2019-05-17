@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06e61d30f0d4e598c48f190572b8b4343f351043
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61482035"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762795"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 伺服器的 SQL Database 資源限制
 
@@ -28,7 +28,7 @@ ms.locfileid: "61482035"
 
 ## <a name="maximum-resource-limits"></a>資源限制上限
 
-| Resource | 限制 |
+| 資源 | 限制 |
 | :--- | :--- |
 | 每一伺服器的資料庫 | 5000 |
 | 任何區域中每個訂用帳戶的伺服器預設數目 | 20 |

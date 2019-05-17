@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325604"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787552"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>從套件檔案執行 Azure Functions
 
@@ -42,7 +42,7 @@ ms.locfileid: "60325604"
 
 若要讓函式應用程式能夠從套件執行，您只需要將 `WEBSITE_RUN_FROM_PACKAGE` 設定新增至函式應用程式的設定。 `WEBSITE_RUN_FROM_PACKAGE` 設定可具有下列其中一個值：
 
-| Value  | 描述  |
+| Value  | 說明  |
 |---------|---------|
 | **`1`**  | 建议用于在 Windows 上运行的函数应用。 從函式應用程式中 `d:\home\data\SitePackages` 資料夾內的套件檔案執行。 如果不[使用 zip deploy 进行部署](#integration-with-zip-deployment)，则此选项要求该文件夹同时包含名为 `packagename.txt` 的文件。 此檔案只會包含資料夾內套件檔案的名稱，且不含任何空白字元。 |
 |**`<url>`**  | 所要執行的特定套件檔案所在的位置。 使用 Blob 儲存體時，請搭配使用私用容器與[共用存取簽章 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) 來讓 Functions 執行階段能夠存取套件。 您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)將套件檔案上傳至 Blob 儲存體帳戶。         |
@@ -64,6 +64,13 @@ ms.locfileid: "60325604"
 ## <a name="adding-the-websiterunfrompackage-setting"></a>新增 WEBSITE_RUN_FROM_PACKAGE 設定
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+## <a name="troubleshooting"></a>疑難排解
+
+- 執行從套件可讓`wwwroot`唯讀，因此這個目錄中寫入檔案時，您會收到錯誤。
+- 不支援 tar 和 gzip 格式。
+- 這項功能無法使用本機快取組成。
+- 為了改善冷啟動效能，請使用本機的 Zip 選項 (`WEBSITE_RUN_FROM_PACKAGE`= 1)。
 
 ## <a name="next-steps"></a>後續步驟
 

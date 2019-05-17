@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e12b89d0469587d7d7326bbee30f6467ada06bd5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f184178343f69f522148777752c51afc5c5dcb6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574079"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790417"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database 進階 RS 服務層 (預覽狀態) 進入淘汰階段 - 移轉選項
 
@@ -27,7 +27,7 @@ ms.locfileid: "64574079"
 
 - 虛擬核心服務層
 
-  [以虛擬核心為基礎購買模型](sql-database-service-tiers-vcore.md)中的**一般用途**與**業務關鍵**服務層。 這兩個服務層可供一般使用。 以虛擬核心為基礎的購買模型也提供**超大規模**服務層 (處於公開預覽狀態)，此服務層會視需要調整至您的工作負載需求，可自動調整至自每資料庫最多 100 TB。 超大規模的服務層提供相當於[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)中的進階服務層，價格更接近進階 RS 服務層。
+  [以虛擬核心為基礎購買模型](sql-database-service-tiers-vcore.md)中的**一般用途**與**業務關鍵**服務層。 這兩個服務層可供一般使用。 以 vCore 為基礎的購買模型也提供**超大規模**配合視您的工作負載需求自動調整每個資料庫最多 100 TB 的服務層。 超大規模的服務層提供相當於[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)中的進階服務層，價格更接近進階 RS 服務層。
 - 開發/測試定價
 
   [開發/測試定價](https://azure.microsoft.com/pricing/dev-test/)可讓 Visual Studio 訂用帳戶省下高達 55% 的隨附授權費率。
@@ -70,10 +70,10 @@ ms.locfileid: "64574079"
 
 |**如果您目前使用的是…**|**移轉至可相比的以虛擬核心為基礎…**|**移轉至可相比的以 DTU 為基礎…**|
 |---|---|---|
-|進階 RS 1|(預覽) 超大規模資料庫 1 虛擬核心 (第 4 代) 或商務關鍵性 1 虛擬核心 (第 4 代)|進階 1|
-|進階 RS 2|(預覽) 超大規模資料庫 2 虛擬核心 (第 4 代) 或商務關鍵性 2 虛擬核心 (第 4 代)|進階 2|
-|進階 RS 4|(預覽) 超大規模資料庫 4 虛擬核心 (第 4 代) 或商務關鍵性 4 虛擬核心 (第 4 代)|進階 4
-|進階 RS 6|(預覽) 超大規模資料庫 6 虛擬核心 (第 4 代) 或商務關鍵性 6 虛擬核心 (第 4 代)|進階 6|
+|進階 RS 1| 超大規模 1 虛擬核心 （第 4 代） 或業務關鍵 1 虛擬核心 （第 4 代）|進階 1|
+|進階 RS 2| 超大規模的 2 個 Vcore （第 4 代） 或業務關鍵 2 虛擬核心 （第 4 代|進階 2|
+|進階 RS 4| 超大規模的 4 個 Vcore （第 4 代） 或業務關鍵的 4 個 Vcore （第 4 代）|進階 4
+|進階 RS 6| 超大規模 6 虛擬核心 （第 4 代） 或業務關鍵 6 虛擬核心 （第 4 代）|進階 6|
 
 |**如果您目前使用的是…**|**移轉至可相比的以虛擬核心為基礎…**|**移轉至可相比的以 DTU 為基礎…**|
 |---|---|---|

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12ce37579a6f93ba600c39416c7566ac673e9560
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6bcb8e8d5b8b6ef1ebac8141dd13964ecf62af6f
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723337"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601698"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>教學課程：建立 Active Directory B2C 租用戶
 
@@ -40,7 +40,7 @@ ms.locfileid: "64723337"
 
 3. 選擇 Azure 入口網站左上角的 [建立資源]。
 4. 搜尋並選取 [Active Directory B2C]，然後按一下 [建立]。
-5. 選擇 [建立新的 Azure AD B2C 租用戶]、輸入組織名稱和初始網域名稱 (用於租用戶名稱中)、選取國家/地區 (之後就無法變更)，然後按一下 [建立]。
+5. 選擇**建立新的 Azure AD B2C 租用戶**，輸入組織名稱和初始網域名稱，用於租用戶名稱、 選取國家/地區 （它之後無法變更），然後按一下**建立**.
 
     ![建立租用戶](./media/tutorial-create-tenant/create-tenant.png)
 

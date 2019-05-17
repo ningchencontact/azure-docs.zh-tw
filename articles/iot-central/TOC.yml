@@ -89,6 +89,8 @@
               href: howto-export-data-event-hubs-service-bus.md
             - name: 匯出至 Blob 儲存體
               href: howto-export-data-blob-storage.md
+        - name: 建立自訂規則
+          href: howto-create-custom-rules.md
         - name: 在 Power BI 中將資料視覺化
           href: howto-connect-powerbi.md
         - name: 連線其他 IoT 雲端

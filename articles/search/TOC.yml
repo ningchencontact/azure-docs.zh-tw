@@ -27,6 +27,8 @@
       href: search-fiddler.md
     - name: PowerShell
       href: search-create-index-rest-api.md
+    - name: Python
+      href: search-get-started-python.md
 - name: 教學課程
   items:
     - name: 為 Azure SQL Database 編製索引
@@ -322,8 +324,6 @@
           href: 'https://aka.ms/jfkfiles'
         - name: NYC 作業示範
           href: 'https://aka.ms/azjobsdemo'
-        - name: 搜尋分析器示範
-          href: 'https://alice.unearth.ai/'
         - name: 搜尋使用案例
           href: 'https://searchsamples.azurewebsites.net/'
     - name: 常見問題集

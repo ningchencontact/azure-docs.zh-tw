@@ -5,27 +5,48 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/10/2019
+ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 4c5279d1ddf3153493ebc01dc010114ff7e6b5e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 519cec0951305db60e0994134f8c680f6c560752
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917233"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792421"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL 資料倉儲版本資訊
 
 本文將摘要說明 [Azure SQL 資料倉儲](sql-data-warehouse-overview-what-is.md)最新版本中的新功能與改進功能。 本文也會列出值得注意不直接相關的發行版本但發行相同的時間範圍內的內容更新。 其他 Azure 服務的增強功能，請參閱 <<c0> [ 服務更新](https://azure.microsoft.com/updates)。
 
+## <a name="check-your-azure-sql-data-warehouse-version"></a>檢查您的 Azure SQL 資料倉儲版本
+
+連接到您的資料倉儲透過 SQL Server Management Studio (SSMS)，並執行下列語法來傳回目前版本的 SQL 資料倉儲。
+
+```sql
+SELECT @@VERSION AS 'SQL Data Warehouse';
+```
+
+範例輸出︰![SQL 資料倉儲版本](./media/release-notes/sql_data_warehouse_version.png)
+
+使用辨識，以確認哪些版本的日期已套用至您的 Azure SQL 資料倉儲。
+
+## <a name="may-2019"></a>2019 年
+
+| 服務改進功能 | 詳細資料 |
+| --- | --- |
+|**動態資料遮罩 （預覽）**|動態資料遮罩 (DDM) 亂上即時在查詢結果中，根據您定義的遮罩規則，您在資料倉儲中的機密資料以防止未經授權的存取。 如需詳細資訊，請參閱 < [SQL Database 動態資料遮罩](/azure/sql-database/sql-database-dynamic-data-masking-get-started)。|
+|**工作負載重要性現已正式推出**|工作負載管理分類和重要性提供的功能來影響查詢的執行的順序。 如需有關工作負載重要性的詳細資訊，請參閱[分類](sql-data-warehouse-workload-classification.md)並[重要性](sql-data-warehouse-workload-importance.md)文件中的概觀文章。 請參閱[建立工作負載分類](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)以及文件。<br/><br/>請參閱中的作用中的工作負載重要性以下影片：<br/> -[工作負載管理概念](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[工作負載管理案例](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**其他的 T-SQL 支援**|SQL 資料倉儲的 T-SQL 語言介面區已經擴充成包含的支援： </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
+|**JSON 函式**|商務分析師現在可以使用熟悉的 T-SQL 語言來查詢及管理文件格式化為 JSON 資料，在 Azure 資料倉儲中使用下列的新 JSON 函式：</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
+|**結果集的快取 （預覽）**|結果集快取，可讓商務分析師之減少時間-深入解析和報告使用者立即查詢回應時間。 如需詳細資訊，請參閱</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET 選項 (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [設定結果集快取 & Amp;#40;transact-SQL&AMP;#41](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET 陳述式 & Amp;#40;transact-SQL&AMP;#41](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases & Amp;#40;transact-SQL&AMP;#41](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+
 ## <a name="march-2019"></a>2019 年 3 月
 
 | 服務改進功能 | 詳細資料 |
 | --- | --- |
-|**現在可供 Gen2 預覽工作負載重要性**|工作負載的重要性會讓資料工程師能夠使用重要性來分類要求。 以高重要性的要求保證快速地存取資源，進而符合 Sla。  工作負載重要性可讓高商業值工作，以符合 Sla，在共用環境中使用較少的資源。<br/><br/>工作負載管理分類和重要性的 preview 是組建與發行日期 2019 年 4 月 9 日的或更新版本。 使用者應該避免使用早於此日期的組建進行工作負載管理測試。 若要判斷您的組建是否工作負載管理功能，請執行`select @@version`當連接到您的 SQL 資料倉儲執行個體。</br></br>如需有關工作負載重要性的詳細資訊，請參閱[分類](sql-data-warehouse-workload-classification.md)並[重要性](sql-data-warehouse-workload-importance.md)文件中的概觀文章。 請參閱[建立工作負載分類](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)以及文件。<br/><br/>請參閱中的作用中的工作負載重要性以下影片：<br/>[工作負載管理概念](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[工作負載管理案例](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**資料探索與分類**|Azure SQL 資料倉儲的資料探索與分類現在提供公開預覽。 請務必保護敏感資料與客戶的隱私權。 隨著您的業務和客戶的資料資產的擴增，變得難以管理，來探索、 分類及保護您的資料。 我們使用 Azure SQL 資料倉儲原生導入的資料探索與分類功能，有助於保護您的資料更容易管理。 這個功能的整體優點包括：<br/>&bull; &nbsp; 會議資料隱私權標準和法規合規性需求。<br/>&bull; &nbsp; 限制存取權，並強化安全性的資料倉儲包含高度敏感性資料。<br/>&bull; &nbsp; 監視和警示的異常存取敏感性資料。<br/>&bull; &nbsp; 在 Azure 入口網站上的中央儀表板中的敏感性資料的視覺效果。 </br></br>資料探索與分類是適用於 Azure SQL 資料倉儲中所有的 Azure 區域，它的進階資料安全性，包括弱點評定和威脅偵測的一部分。 如需有關資料探索與分類的詳細資訊，請參閱 <<c0> [ 部落格文章](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/)與我們的線上[文件](/azure/sql-database/sql-database-data-discovery-and-classification)。|
 |**GROUP BY 彙總套件**|彙總套件現在是支援的 GROUP BY 選項在 Azure 資料倉儲中。   GROUP BY ROLLUP 會建立每個資料行運算式組合的群組。 GROUP BY 也 「 積存 」 結果到小計和總計。 GROUP BY 函式會處理由右至左，減少對其建立群組和從右向的資料行運算式數目。  資料行順序會影響 ROLLUP 的輸出，而且可能會影響結果集中的資料列數目。<br/><br/>如需有關群組的彙總的詳細資訊，請參閱[GROUP BY & Amp;#40;transact-SQL&AMP;#41;](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**改善的精確度，已使用的 DWU 和 CPU 入口網站計量**|SQL 資料倉儲大幅增強 Azure 入口網站計量的精確度。  此版本包含的修正程式的 CPU 和 Dwu 計量定義，以正確反映所有計算節點的 您的工作負載。 此修正之前, 已正在 undereported 度量值。 預期會看見已使用的 DWU 增加和 Azure 入口網站中的 CPU 計量。 |

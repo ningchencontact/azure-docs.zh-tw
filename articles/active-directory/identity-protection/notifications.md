@@ -18,12 +18,12 @@ ms.date: 12/07/2017
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 482b69752cc889ff99c3d9082d3bc20a7caa6d76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0065ec03695ee977133ae2ec43aafba7d5bfff78
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294456"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784350"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection 通知
 
@@ -39,6 +39,8 @@ Azure AD Identity Protection 會傳送兩種自動化通知電子郵件，協助
 
 當偵測到具有風險的帳戶時，Azure AD Identity Protection 會產生主旨為**偵測到具有風險的使用者**的電子郵件警示來作為回應。 此電子郵件會包含**[標幟為有風險的使用者](../reports-monitoring/concept-user-at-risk.md)** 報告的連結。 最佳做法是應立即調查具有風險的使用者。
 
+此警示的組態可讓您指定哪些使用者風險層級中，您想要產生警示。 使用者風險層級可讓您達到指定; 時，將會產生電子郵件不過，您不會收到新的使用者，在偵測到的風險這位使用者的電子郵件警示，它們移動到這個使用者風險層級之後。 例如，如果您設定原則來警示使用者風險和您 John 移至中度風險的使用者，您會收到上偵測到的風險電子郵件的使用者 John。 不過，您不會收到第二個使用者在偵測到的風險的警示，如果 John 然後移至高風險，或有額外風險事件。
+
 ![「偵測到具有風險的使用者」電子郵件](./media/notifications/01.png)
 
 
@@ -46,7 +48,7 @@ Azure AD Identity Protection 會傳送兩種自動化通知電子郵件，協助
 
 如果您是系統管理員，您可以設定：
 
-- **觸發產生此電子郵件的風險層級** - 此風險層級預設為「高」風險。
+- **觸發產生此電子郵件的使用者風險層級**-根據預設，風險層級設定為 「 高 」 風險。
 - **此電子郵件的收件者** - 收件者預設包含所有「全域管理員」。 「全域管理員」也可以新增其他「全域管理員」、「安全性管理員」、「安全性讀取者」作為收件者。  
 
 
@@ -60,7 +62,7 @@ Azure AD Identity Protection 會傳送兩種自動化通知電子郵件，協助
 每週精選文章電子郵件包含新風險事件的摘要。  
 其中包括：
 
-- 有風險的使用者
+- 具有風險的使用者
 
 - 可疑的活動
 

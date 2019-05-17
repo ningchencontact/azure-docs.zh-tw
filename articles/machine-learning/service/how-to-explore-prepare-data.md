@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409831"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603147"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>探索及準備資料的資料集類別 （預覽）
 
 了解如何探索及準備資料[Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。 [資料集](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)類別 （預覽） 可讓您探索及準備您的資料，例如提供函式： 取樣、 摘要統計資料和智慧型的轉換。 轉換步驟就會存入[資料集定義](how-to-manage-dataset-definitions.md)高度可調整的方式處理不同的結構描述的多個大型檔案的能力。
 
 > [!Important]
-> 某些資料集類別 （預覽） 具有相依性資料準備 SDK (GA)。 雖然轉換函式可以直接使用 GA'ed[資料準備 SDK 函式](how-to-transform-data.md)，我們建議您在本文中所述，如果您要建立新方案的資料集封裝包裝函式。 Azure Machine Learning 資料集 （預覽） 可讓您不只將您的資料，但也[快照集資料](how-to-create-dataset-snapshots.md)並儲存[建立版本的資料集定義](how-to-manage-dataset-definitions.md)。 資料集是資料準備 SDK 中，供應項目擴充的功能管理 AI 解決方案中的資料集的下一個版本。
+> 某些資料集類別 （預覽） 有相依性[azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)封裝 (GA)。 雖然轉換函式可以直接使用 GA'ed[資料準備函式](how-to-transform-data.md)，我們建議您在本文中所述，如果您要建立新方案的資料集封裝包裝函式。 Azure Machine Learning 資料集 （預覽） 可讓您不只將您的資料，但也[快照集資料](how-to-create-dataset-snapshots.md)並儲存[建立版本的資料集定義](how-to-manage-dataset-definitions.md)。 資料集是資料準備 SDK 中，供應項目擴充的功能管理 AI 解決方案中的資料集的下一個版本。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -63,7 +63,7 @@ top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|案例編號|date|封鎖|IUCR|主要類型|...|
+||ID|案例編號|Date|封鎖|IUCR|主要類型|...|
 -|--|-----------|----|-----|----|------------|---
 0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|詐騙的作法|...
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|遭竊|...
@@ -80,7 +80,7 @@ simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|案例編號|date|封鎖|IUCR|主要類型|...|
+||ID|案例編號|Date|封鎖|IUCR|主要類型|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|遭竊|...
 1|10519196|HZ261252|4/15/2016 10:00|104XX S 沙加緬度 AVE|1154|詐騙的作法|...
@@ -103,7 +103,7 @@ sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fra
 sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|案例編號|date|封鎖|IUCR|主要類型|...|
+||ID|案例編號|Date|封鎖|IUCR|主要類型|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|遭竊|...
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|遭竊|...
@@ -121,7 +121,7 @@ dataset.get_profile()
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
 案例編號|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 封鎖|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 主要類型|FieldType.STRING|詐騙的作法|遭竊|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -288,7 +288,7 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||ID|案例編號|date|封鎖|...|
+||ID|案例編號|Date|封鎖|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
@@ -310,7 +310,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 
 下表中，請注意，新的資料行，Date_Time_Range 包含指定之格式的記錄。
 
-||ID|date|Date_Time_Range
+||ID|Date|Date_Time_Range
 -|--------|-----|----
 0|10498554|2016-04-04 23:56:00|2016-04-04 10PM-12AM
 1|10516598|2016-04-15 17:00:00|2016-04-15 4PM-6PM

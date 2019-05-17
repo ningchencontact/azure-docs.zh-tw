@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: HT
+ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415904"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519007"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>開始使用 Azure 監視器記錄查詢
 
@@ -28,7 +28,7 @@ ms.locfileid: "65415904"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-在本教學課程，您將了解如何撰寫 Azure 監視器記錄的查詢。 它會告訴您如何：
+在本教程中，你将学习编写 Azure Monitor 日志查询。 它會告訴您如何：
 
 - 了解查詢的結構
 - 排序查詢結果
@@ -179,12 +179,12 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** 會在結果集內保留所有原始資料行，並定義其他資料行。 下列查詢會使用 **extend** 來新增 localtime 資料行，其中包含當地語系化的 TimeGenerated 值。
+**extend** 會在結果集內保留所有原始資料行，並定義其他資料行。 以下查询使用 **extend** 添加 *EventCode* 列。 请注意，此列可能不会显示在表结果的末尾，在这种情况下，你需要展开记录的详细信息才能查看此列。
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated -8h
+| extend EventCode=substring(Activity, 0, 4)
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Summarize：彙總資料列群組
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>依時間資料行彙總
 群組結果也可以根據時間資料行或其他連續值來進行。 不過，只彙總 `by TimeGenerated` 會針對時間範圍內的每一毫秒建立群組，原因是這些是唯一值。 
 
-若要根據連續值建立群組，最好是使用 **bin** 將範圍分成可管理的單位。 下列查詢會分析 Perf 記錄，這些記錄會測量特定電腦上的可用記憶體 (可用的 MB 數)。 它會計算每 1 小時期間內的平均值在過去 7 天：
+若要根據連續值建立群組，最好是使用 **bin** 將範圍分成可管理的單位。 下列查詢會分析 Perf 記錄，這些記錄會測量特定電腦上的可用記憶體 (可用的 MB 數)。 它计算过去 7 天内每 1 小时时段的平均值：
 
 ```Kusto
 Perf 

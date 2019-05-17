@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 12/04/2018
+ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa425b6dfeb076448d14fc35cbea964516d603b0
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: f9734a5d8f34536558fbf0c861889f3c7d6719da
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765865"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523991"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>管理及要求 Azure 資源的配額
 
@@ -52,9 +52,9 @@ ms.locfileid: "63765865"
 就 Azure Machine Learning Compute 而言，對於訂用帳戶中的每個區域允許的核心數目與特有計算資源數目，均有預設的配額限制。 此配額不同於上述 VM 核心配額，而且目前在兩個資源類型之間不共用核心限制。
 
 可用的資源：
-+ 每個區域的專用核心預設限制為 10 - 24 個。  您可以增加每個訂用帳戶的專用核心數目。 請連絡 Azure 支援以討論增加選項。
++ 每個區域的專用的核心有預設限制為 24-300 取決於您的訂用帳戶優惠類型。  您可以增加每個訂用帳戶的專用核心數目。 請連絡 Azure 支援以討論增加選項。
 
-+ 每個區域的低優先順序核心預設限制為 10 - 24 個。  您可以增加每個訂用帳戶的低優先順序核心數目。 請連絡 Azure 支援以討論增加選項。
++ 每個區域的低優先順序核心有預設限制為 24-300，視您的訂用帳戶優惠類型而定。  您可以增加每個訂用帳戶的低優先順序核心數目。 請連絡 Azure 支援以討論增加選項。
 
 + 每個區域的叢集都有預設的限制 (100 個) 和上限 (200 個)。 如果您想要要求增加到超過此限制，請連絡 Azure 支援。
 
@@ -66,10 +66,12 @@ ms.locfileid: "63765865"
 | 單一 Azure Machine Learning Compute (AmlCompute) 資源中的節點數上限 | 100 個節點 |
 | 每個節點的最大 GPU MPI 流程數 | 1 - 4 |
 | 每個節點的最大 GPU 背景工作角色數 | 1 - 4 |
-| 作業存留期上限 | 7 天<sup>1</sup> |
+| 作業存留期上限 | 90 天<sup>1</sup> |
+| 低優先順序節點上的最大工作存留期 | 1 天<sup>2</sup> |
 | 每個節點的最大參數伺服器數 | 1 |
 
 <sup>1</sup> 存留期上限是指執行開始到完成的時間。 已完成的執行會無限期保留；未在存留期上限內完成的執行，其資料將無法存取。
+<sup>2</sup>低優先順序節點上的作業可能會預先清空容量條件約束的任何時間。 建議您在工作時實作檢查點。
 
 ### <a name="container-instances"></a>容器執行個體
 
@@ -80,20 +82,20 @@ ms.locfileid: "63765865"
 如需配額限制的詳細資訊與最新清單，請查看[這裡](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits)的全 Azure 配額文章。
 
 ### <a name="storage"></a>儲存體
-針對每個區域以及指定的訂用帳戶中的儲存體帳戶數目有限制。 預設限制為 200 個，包括標準與進階儲存體帳戶兩者。 如果您在指定區域需要超過 200 個儲存體帳戶，請透過  [Azure 支援](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)提出要求。 Azure 儲存體小組將會檢閱您的商務案例，而且可以針對指定區域核准多達 250 個儲存體帳戶。
+針對每個區域以及指定的訂用帳戶中的儲存體帳戶數目有限制。 預設限制為 200 個，包括標準與進階儲存體帳戶兩者。 如果您在指定區域需要超過 200 個儲存體帳戶，請透過 [Azure 支援](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)提出要求。 Azure 儲存體小組將會檢閱您的商務案例，而且可以針對指定區域核准多達 250 個儲存體帳戶。
 
 
 ## <a name="find-your-quotas"></a>找出您的配額
 
 透過 Azure 入口網站檢視各種資源 (例如虛擬機器、儲存體、網路) 的配額非常簡單。
 
-1. 在左窗格中選取 [所有服務] ****，然後選取 [一般] 類別下方的 [訂用帳戶]。
+1. 在左窗格中，選取 [所有服務]，然後選取 [一般] 類別底下的 [訂用帳戶]。
 
 1. 從訂用帳戶清單中，選取您要尋找其配額的訂用帳戶。
 
    **有一點需要注意**，具體而言是檢視 Azure Machine Learning Compute 配額時。 如上所述，該配額與您訂用帳戶上的計算配額是分開的。
 
-1. 在左窗格中選取 [Machine Learning 服務] ****，然後從顯示的清單中選取任何工作區
+1. 在左窗格中，選取**Machine Learning 服務**然後從顯示的清單中選取任何工作區
 
 1. 在下一個刀鋒視窗的 [支援與疑難排解] 區段下方，選取 [使用量 + 配額]，以檢視目前配額限制與使用量。
 
@@ -102,9 +104,9 @@ ms.locfileid: "63765865"
 
 ## <a name="request-quota-increases"></a>要求增加配額
 
-如果您想要將限制或配額提升到預設限制以上，您可以免費 [建立線上客戶支援要求](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)。
+如果您想要將限制或配額提升到預設限制以上，您可以免費[建立線上客戶支援要求](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)。
 
-您無法將限制提升至高於下表所示的上限值。 如果沒有上限，表示資源沒有調整限制。 [這篇](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors)文章涵蓋配額增加程序的詳細資料。
+您無法將限制提升到高於下表中所示的上限值。 如果沒有上限，資源即沒有可調整的限制。 [這篇](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors)文章涵蓋配額增加程序的詳細資料。
 
 要求增加配額時，您必須選取您要求提升配額的服務，這可以是 Machine Learning 服務配額、容器執行個體或儲存體的配額。 除了 Azure Machine Learning Compute 以外，您也可以在依照前述步驟檢視配額時直接按一下 [要求配額] 按鈕。
 

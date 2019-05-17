@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: b1c7d1fe561ebc11f88644a5bf2fd8bda1c9a6c6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4df8b854a94374346eec6f77d761e65a04ef78a2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924985"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523973"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立主機集區
 
@@ -58,12 +58,6 @@ GitHub 的 Azure Resource Manager 範本完成之後，請在您開始測試您�
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-接下來，設定要搭配這個指令程式的 Azure Resource Manager 範本中指定的租用戶群組的內容：
-
-```powershell
-Set-RdsContext -TenantGroupName <Tenant Group name>
 ```
 
 在那之後，將使用者新增至這個指令程式的桌面應用程式群組：

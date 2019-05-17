@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 864e9586082ed95bf17135414ec4b879e3034ace
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589618"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602722"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的彙總
 
@@ -29,9 +29,9 @@ ms.locfileid: "60589618"
 
 本文說明 Azure 監視器記錄查詢中提供實用方式來分析資料的彙總函式。 這些函式都可搭配 `summarize` 運算子使用，以產生具有輸入表格之彙總結果的表格。
 
-## <a name="counts"></a>計數
+## <a name="counts"></a>數量
 
-### <a name="count"></a>count
+### <a name="count"></a>計數
 計算套用任何篩選之後結果集中的列數。 下列範例會傳回過去 30 分鐘內 _Perf_ 表中的總列數。 除非您指定特定欄名，否則結果會以名為 *count_* 的欄傳回：
 
 
@@ -79,7 +79,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>評估子群組
-若要為您資料中的子群組執行計算或其他彙總，請使用 `by` 關鍵字。 例如，若要計算在每個國家/地區傳送活動訊號的相異 Linux 電腦數目：
+若要為您資料中的子群組執行計算或其他彙總，請使用 `by` 關鍵字。 例如，若要計算每個國家/地區傳送活動訊號的不同 Linux 電腦數目：
 
 ```Kusto
 Heartbeat 
@@ -96,7 +96,7 @@ Heartbeat
 |荷蘭      | 2                   |
 
 
-若要分析更小的資料子群組，請將額外欄名加到 `by` 區段。 例如，您可能想要計算每個國家/地區依 OSType 的相異電腦數：
+若要分析更小的資料子群組，請將額外欄名加到 `by` 區段。 比方說，您可能想要計算每個國家/地區每 OSType 從不同的電腦：
 
 ```Kusto
 Heartbeat 

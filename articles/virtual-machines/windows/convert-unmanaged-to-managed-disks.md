@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 21505da414b29f2ae9eeea7f9fcad9db2e57c4fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c45c8587e3ca19b32ccd8dc66575333622b3cf1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702818"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796574"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>將 Windows 虛擬機器從非受控磁碟轉換成受控磁碟
 
@@ -99,7 +99,6 @@ ms.locfileid: "64702818"
 如果在轉換期間發生錯誤，或如果 VM 因為先前轉換問題而處於失敗狀態，請再次執行 `ConvertTo-AzVMManagedDisk` Cmdlet。 簡單重試通常會讓這種情況解除封鎖。
 轉換之前，請確定所有 VM 延伸模組都處於 「佈建成功」狀態，否則轉換將會失敗，錯誤碼 409。
 
-
 ## <a name="convert-using-the-azure-portal"></a>使用 Azure 入口網站進行轉換
 
 您也可以使用 Azure 入口網站將非受控磁碟轉換為受控磁碟。
@@ -108,7 +107,7 @@ ms.locfileid: "64702818"
 2. 從入口網站的 VM 清單中選取 VM。
 3. 在 VM 刀鋒視窗中，從功能表選取 [磁碟]。
 4. 在 [磁碟] 刀鋒視窗頂端，選取 [遷移至受控磁碟]。
-5. 如果您的 VM 位於可用性設定組中，[遷移至受控磁碟] 刀鋒視窗上會出現警告，您需要先轉換可用性設定組。 此警告應有一個連結，您可以按一下該連結來轉換可用性設定組。 轉換可用性設定組後，或者如果您的 VM 不在可用性設定組中，請按一下 [遷移] 開始將磁碟遷移至受控磁碟的程序。 
+5. 如果您的 VM 位於可用性設定組中，[遷移至受控磁碟] 刀鋒視窗上會出現警告，您需要先轉換可用性設定組。 此警告應有一個連結，您可以按一下該連結來轉換可用性設定組。 轉換可用性設定組後，或者如果您的 VM 不在可用性設定組中，請按一下 [遷移] 開始將磁碟遷移至受控磁碟的程序。
 
 VM 將會停止，並且在移轉完成後重新啟動。
 

@@ -12,18 +12,18 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 95d1681c9ff9981990d873a58a2d01833d690e0f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411982"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791381"
 ---
 # <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>刪除子網路之後刪除 Azure SQL Database 受控執行個體
 
 本文章提供有關如何刪除最後一個 Azure SQL Database 受控執行個體位於它之後，手動刪除子網路的指導方針。
 
-[虛擬叢集](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture)，包含已刪除受管理的執行個體將保留 12 個小時，從執行個體刪除。 設計用來啟用更快速建立受管理的執行個體位於相同子網路，虛擬叢集會保持運作的。 在這段期間，無法刪除與虛擬叢集相關聯的子網路。
+[虛擬叢集](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture)，包含已刪除受管理的執行個體將保留 12 個小時，從執行個體刪除。 設計用來啟用更快速建立受管理的執行個體位於相同子網路，虛擬叢集會保持運作的。 保留空白的虛擬叢集是免費。 在這段期間，無法刪除與虛擬叢集相關聯的子網路。
 
 可以透過手動刪除的虛擬叢集，空的虛擬叢集所使用的子網路的最新消息。 刪除虛擬叢集，可以透過 Azure 入口網站或虛擬叢集 API 來達成。
 

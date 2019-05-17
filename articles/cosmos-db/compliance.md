@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c8a74df19c012613807d39fb3ee529173e82d5ba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bbfc31e5eab2c2beb232a9ec2e0d5e11e4107be5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128816"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606279"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 中的合規性 
 
@@ -28,7 +28,7 @@ ms.locfileid: "62128816"
 
 * **Azure Government for Department of Defense (DoD)** 在北美洲的兩個區域中提供給美國國防部使用。
 
-為了協助客戶符合其在全球受管制產業和市場的合規性義務，Azure 在廣度 (供應項目總數) 和深度 (評估範圍內面向客戶服務的數量) 兩方面維持著業界最大的合規性組合。  Azure 合規性供應項目分為四大塊 - 全球適用，US Government、業界專屬，以及區域或國家/地區專屬。  合規性供應項目會以各種類型的保證為基礎，包括由獨立第三方稽核公司所產生的正式認證、證明、驗證、授權及評量，以及由 Microsoft 產生的契約修訂、自我評量及客戶指引文件。
+為了協助客戶符合其在全球受管制產業和市場的合規性義務，Azure 在廣度 (供應項目總數) 和深度 (評估範圍內面向客戶服務的數量) 兩方面維持著業界最大的合規性組合。  Azure 合規性供應項目分組為四個區段-全球適用、 美國政府、 業界特定，區域或國家/地區特定。  合規性供應項目會以各種類型的保證為基礎，包括由獨立第三方稽核公司所產生的正式認證、證明、驗證、授權及評量，以及由 Microsoft 產生的契約修訂、自我評量及客戶指引文件。
 
 ## <a name="azure-cosmos-db-certifications"></a>Azure Cosmos DB 的認證  
 

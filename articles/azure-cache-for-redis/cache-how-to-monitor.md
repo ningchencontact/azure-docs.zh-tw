@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 32d0fb2ba17d322c0a273ebaf0a21d2b3ca0668f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2cfd5a99144af1120afbf06fe6222228a9332bb6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830631"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787431"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>如何監視 Azure Cache for Redis
 Azure Cache for Redis 使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)提供數個選項來監視您的快取執行個體。 您可以檢視度量、將度量圖表釘選到「開始面板」、自訂監視圖表的日期和時間範圍、新增和移除圖表中的度量，以及設定符合特定條件時的警示。 這些工具可讓您監視 Azure Cache for Redis 執行個體的健康情況，並協助您管理快取應用程式。
@@ -105,7 +105,7 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/
 | 缓存写入量 |所指定報告間隔期間，寫入至快取的資料量 (以 MB/s 為單位)。 這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 此值對應從用戶端傳送給快取之資料的網路頻寬。 |
 | 連線的用戶端 |所指定報告間隔期間的快取用戶端連線數目。 這會對應至 Redis INFO 命令的 `connected_clients` 。 一旦達到 [連接限制](cache-configure.md#default-redis-server-configuration) 之後，後續對快取所做的連接嘗試都將失敗。 請注意，因為內部處理序和連線，所以即使沒有作用中用戶端應用程式，可能還是會有一些連線的用戶端執行個體。 |
 | CPU |所指定報告間隔期間的 Azure Cache for Redis 伺服器 CPU 使用率 (百分比)。 這個值會對應至作業系統 `\Processor(_Total)\% Processor Time` 效能計數器。 |
-| Errors | 在指定的報告間隔期間，快取可能遇到的特定失敗和效能問題。 此計量有八個代表不同錯誤類型的維度，但未來可能新增更多。 現在代表的錯誤類型如下所示： <br/><ul><li>**容錯移轉** – 當快取容錯移轉時 (從屬會提升至主要)</li><li>**損毀** – 當快取在任何一個節點意外損毀時</li><li>**資料遺失** – 當快取有資料遺失時</li><li>**UnresponsiveClients** – 當用戶端無法從速度夠快的伺服器讀取資料時</li><li>**AOF** – 有 AOF 持續性相關的問題時</li><li>**RDB** – 有 RDB 持續性相關的問題時</li><li>**匯入**– 有匯入 RDB 相關的問題時</li><li>**匯出**– 有匯出 RDB 相關的問題時</li></ul> |
+| Errors | 在指定的報告間隔期間，快取可能遇到的特定失敗和效能問題。 此計量有八個代表不同錯誤類型的維度，但未來可能新增更多。 現在代表的錯誤類型如下所示： <br/><ul><li>**容錯移轉**– 當快取會容錯移轉 （下層會提升至主要）</li><li>**損毀** – 當快取在任何一個節點意外損毀時</li><li>**資料遺失** – 當快取有資料遺失時</li><li>**UnresponsiveClients** – 當用戶端無法從速度夠快的伺服器讀取資料時</li><li>**AOF** – 有 AOF 持續性相關的問題時</li><li>**RDB** – 有 RDB 持續性相關的問題時</li><li>**匯入**– 有匯入 RDB 相關的問題時</li><li>**匯出**– 有匯出 RDB 相關的問題時</li></ul> |
 | 收回的金鑰 |因 `maxmemory` 限制，在所指定報告間隔期間從快取收回的項目數。 這會對應至 Redis INFO 命令的 `evicted_keys` 。 |
 | 过期的密钥数 |所指定報告間隔期間的快取到期項目數。 這個值會對應至 Redis INFO 命令的 `expired_keys` 。|
 | 取得 |所指定報告間隔期間的快取 get 作業數目。 這個值是 Redis INFO all 命令的下列值總和：`cmdstat_get`、`cmdstat_hget``cmdstat_hgetall`、`cmdstat_hmget``cmdstat_mget`、`cmdstat_getbit` 和 `cmdstat_getrange`，而且等於報告期間的快取點擊和遺漏。 |

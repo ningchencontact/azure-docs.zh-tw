@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6fb95d43bff79ca91988549114daa91e5d41f358
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60649595"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789611"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 備份伺服器來備份 VMware VM
 
@@ -39,7 +39,7 @@ ms.locfileid: "60649595"
 
 ### <a name="before-you-start"></a>開始之前
 
-- 如果您不想使用 HTTPS，您可以[停用預設設定](backup-azure-backup-server-vmware.md)。
+- 如果您不想要使用 HTTPS 即可[停用所有的 VMware 伺服器的 HTTPS 憑證驗證](backup-azure-backup-server-vmware.md#disable-https-certificate-validation)。
 - 通常您會使用 vSphere Web 用戶端，從 Azure 備份伺服器電腦上的瀏覽器連線到 vCenter/ESXi 伺服器。 您在第一次這麼做時，連線並不安全，且會顯示下列內容。
 - 請務必了解 Azure 備份伺服器處理備份的方式。
     - 作為第一個步驟，Azure 備份伺服器會將資料備份到本機磁碟儲存體上。 Azure 備份伺服器使用儲存體集區，這是一組磁碟，而 Azure 備份伺服器可在磁碟上的磁碟區儲存受保護資料的磁碟復原點。 儲存體集區可直接連結儲存體 (DAS)、光纖通道 SAN，或 iSCSI 存放裝置或 SAN。 請務必確定您有足夠的儲存體以供 VMware VM 資料的本機備份使用。
@@ -101,7 +101,7 @@ ms.locfileid: "60649595"
 
 
 
-### <a name="disable-default-https"></a>停用預設 HTTPS
+### <a name="disable-https-certificate-validation"></a>停用 HTTPS 憑證驗證
 
 如果您組織內有安全的界限，且您不想在 VMware 伺服器和 Azure 備份伺服器電腦之間使用 HTTPS 通訊協定，請依下列方式停用 HTTPS：
 1. 複製以下文字並貼到 .txt 檔案中。
@@ -124,7 +124,7 @@ Azure 備份伺服器需要具有存取 v-Center Server/ESXi 主機權限的使�
 1. 登入 vCenter Server (或 ESXi 主機，如果您並非使用 vCenter Server)。
 2. 在 [導覽器] 面板中，按一下 [系統管理]。
 
-    ![系統管理](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
+    ![管理](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
 3. 在 [系統管理] > [角色] 中，按一下新增角色圖示 (+ 符號)。
 

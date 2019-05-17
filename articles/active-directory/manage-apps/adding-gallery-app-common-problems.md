@@ -3,8 +3,8 @@ title: 新增 Azure AD 資源庫應用程式時遇到問題 | Microsoft Docs
 description: 了解新增 Azure AD 資源庫應用程式時的常見問題及如何解決
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438790"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784433"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>新增 Azure AD 資源庫應用程式時遇到問題
 
@@ -40,7 +40,7 @@ ms.locfileid: "60438790"
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>我在新增應用程式之後不知道如何設定
 
-如果您需要了解應用程式，建議從[如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)一文開始。
+如果您需要了解應用程式，幫助[的教學課程清單如何整合 SaaS 應用程式與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)文件會是不錯的起點。
 
 此外，[Azure AD 應用程式文件庫](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index)也可幫助您進一步了解搭配 Azure AD 的單一登入及其運作方式。
 
@@ -48,7 +48,7 @@ ms.locfileid: "60438790"
 
 您可以依照下列步驟來查看任何入口網站通知的詳細資料：
 
-1.  選取下 Azure 入口網站右上方的 [通知] 圖示 (鈴)
+1.  選取 **通知**中的 Azure 入口網站右上角的圖示 （鐘）
 
 2.  選取處於**錯誤**狀態的任何通知 (旁邊有紅色 (!))。
 
@@ -93,7 +93,7 @@ ms.locfileid: "60438790"
 
   -   範例 - **2017-03-23T19:50:43.7583681Z**
 
-- **內部交易識別碼** – 可用來在系統中查閱錯誤的內部識別碼
+- **內部交易識別碼**– 可用來在系統中查閱錯誤的內部識別碼
 
   -   範例 - **71a2f329-ca29-402f-aa72-bc00a7aca603**
 

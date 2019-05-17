@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e49f0077444f86eabeed22cc7cecf5e0ac7f8b5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ede412292caf682c3078002d23e1956bd68d1378
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141193"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602181"
 ---
 # <a name="review-access-to-azure-resource-roles-in-pim"></a>檢閱在 PIM 中的 Azure 資源角色的存取權
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 簡化了企業管理特殊權限的存取，在 Azure 中的資源。 
@@ -45,12 +45,12 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 簡化了
 1. 瀏覽至 Azure AD PIM 應用程式。
 2. 選取 [檢閱存取權] 刀鋒視窗。
 
-   ![PIM 應用程式的螢幕擷取畫面，其中已選取檢閱存取權刀鋒視窗](media/azure-pim-resource-rbac/rbac-access-review-complete.png)
+   ![PIM 應用程式的螢幕擷取畫面，其中已選取檢閱存取權刀鋒視窗](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
 3. 選取您想要完成的檢閱。 
 4. 選擇 [核准] 或 [拒絕]。 您可能需要在 [提供原因]  方塊中包含您的決定原因。
 
-   ![檢閱詳細資料頁面的螢幕擷取畫面](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+   ![檢閱詳細資料頁面的螢幕擷取畫面](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## <a name="next-steps"></a>後續步驟
 

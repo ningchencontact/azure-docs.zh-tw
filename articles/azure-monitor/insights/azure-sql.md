@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 03f330f429be583d3a400eb1ee00875f7c305e74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0617dc617309d49cdc7c8cddd4e91619b873b914
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64923022"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785691"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>使用 Azure SQL 分析來監視 Azure SQL Database (預覽)
 
@@ -193,7 +193,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - 若要設定此警示，先決條件是受監視的資料庫會將診斷計量 (「所有計量」選項) 串流至解決方案。
+> - 此警示所設定的預先需求是該受監視的資料庫資料流至解決方案的基本計量。
 > - 請將 MetricName 值 cpu_percent 更換為 dtu_consumption_percent，即可改為取得高 DTU 結果。
 
 #### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Azure SQL Database 彈性集區上的高 CPU
@@ -208,7 +208,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - 若要設定此警示，先決條件是受監視的資料庫會將診斷計量 (「所有計量」選項) 串流至解決方案。
+> - 此警示所設定的預先需求是該受監視的資料庫資料流至解決方案的基本計量。
 > - 請將 MetricName 值 cpu_percent 更換為 dtu_consumption_percent，即可改為取得高 DTU 結果。
 
 #### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>過去 1 小時的平均 Azure SQL Database 儲存體高於 95%
@@ -225,7 +225,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - 若要設定此警示，先決條件是受監視的資料庫會將診斷計量 (「所有計量」選項) 串流至解決方案。
+> - 此警示所設定的預先需求是該受監視的資料庫資料流至解決方案的基本計量。
 > - 這項查詢需要將警示規則設定為會在有查詢結果 (> 0 個結果) 時引發警示，這表示某些資料庫上有此情況。 其輸出中會列出所定義 time_range 內高於 storage_threshold 的資料庫資源。
 > - 其輸出中會列出所定義 time_range 內高於 storage_threshold 的資料庫資源。
 

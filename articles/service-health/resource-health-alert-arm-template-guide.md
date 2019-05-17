@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 71856f9de3d67590d524fa8bb1119a384d156d2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3d9a5ebb2e25cfbabf8cfdbd94c2d1d04ae1bbee
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700151"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788461"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>使用 Resource Manager 範本設定資源健康狀態警示
 
@@ -31,7 +31,7 @@ Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康�
 1. 您需要安裝[Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. 您需要[建立或重複使用動作群組](../azure-monitor/platform/action-groups.md)，該動作群組會設定來通知您
 
-## <a name="instructions"></a>範例的指示
+## <a name="instructions"></a>指示
 1. 使用 PowerShell、使用您的帳戶登入 Azure，然後選取您想要與之互動的訂用帳戶
 
         Login-AzAccount
@@ -43,7 +43,7 @@ Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康�
 
         (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
-3. 建立適用於資源健康狀態警示的 Resource Manager 範本並儲存為 `resourcehealthalert.json` ([請參閱下方的詳細資料](#resource-manager-template-for-resource-health-alerts))
+3. 建立適用於資源健康狀態警示的 Resource Manager 範本並儲存為 `resourcehealthalert.json` ([請參閱下方的詳細資料](#resource-manager-template-options-for-resource-health-alerts))
 
 4. 使用此範本建立新的 Azure Resource Manager 部署
 
@@ -76,7 +76,7 @@ Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康�
 
 請注意，如果您打算將此程序完全自動化，只需編輯 Resource Manager 範本，使其不提示您輸入步驟 5 中的值。
 
-## <a name="resource-manager-template-for-resource-health-alerts"></a>適用於資源健康狀態警示的 Resource Manager 範本
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>資源健康狀態警示的 resource Manager 範本選項
 
 您可以使用這個基底範本，做為建立資源健康狀態警示的起點。 此範本將如撰寫般運作，而且會將您註冊，以便在訂用帳戶中的所有資源上接收所有新啟動資源健康狀態事件的警示。
 
@@ -284,7 +284,9 @@ Azure 資源健康狀態可以使用測試執行器持續監視資源，以向�
 },
 ```
 
-在此範例中，我們只會通知目前和先前健康狀態沒有「未知」的事件。 如果您的警示會直接傳送到您的行動電話或電子郵件，則此變更可能是很有用的新增項目。
+在此範例中，我們只會通知目前和先前健康狀態沒有「未知」的事件。 如果您的警示會直接傳送到您的行動電話或電子郵件，則此變更可能是很有用的新增項目。 
+
+請注意，它可能 currentHealthStatus 和 previousHealthStatus 屬性不得為 null，在某些事件。 例如，已更新事件發生時只有可用的其他事件資訊很可能，最後一份報表之後, 並未變更資源的健全狀況狀態 （例如導致）。 因此，使用上述的子句可能會導致某些警示不會被觸發，因為 properties.currentHealthStatus 和 properties.previousHealthStatus 值將會設為 null。
 
 ### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>調整警示以避免由使用者初始化的事件
 
@@ -304,12 +306,12 @@ Azure 資源健康狀態可以使用測試執行器持續監視資源，以向�
     ]
 }
 ```
+請注意，可將 [原因] 欄位不得為 null，在某些事件。 也就是健康狀態轉換發生 （例如可為無法使用），並立即以避免通知延遲，系統會記錄事件。 因此，使用上述的子句可能會產生警示不會被觸發，因為 properties.clause 屬性值將設為 null。
 
-## <a name="recommended-resource-health-alert-template"></a>建議的資源健康狀態警示範本
+## <a name="complete-resource-health-alert-template"></a>完整的資源健康狀態警示範本
 
-使用上一節所述的不同調整，我們可以建立完整的警示範本，並設定為要將訊號雜訊比率最大化。
+使用上一節中所述的不同調整，以下是設定為最大化的訊號雜訊比以的範例範本。 請記住先前其中 currentHealthStatus、 previousHealthStatus 和原因的屬性值可能為 null 的一些事件中所述的警告。
 
-以下是我們建議您使用的內容：
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

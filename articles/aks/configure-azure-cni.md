@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 61968265670c53ebc4187c983996caa8c94a4cde
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508012"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780377"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中設定 Azure CNI 網路
 
@@ -58,7 +58,7 @@ Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派
 
 ## <a name="maximum-pods-per-node"></a>每個節點的最大 Pod 數目
 
-AKS 叢集中每個節點的最大 Pod 數目是 110。 每個節點「預設」的最大 Pod 數目，會根據 *kubenet* 和 *Azure CNI* 網路以及叢集部署的方法而有所不同。
+每個節點在 AKS 叢集中的 pod 的數目上限為 250。 每個節點「預設」的最大 Pod 數目，會根據 *kubenet* 和 *Azure CNI* 網路以及叢集部署的方法而有所不同。
 
 | 部署方法 | Kubenet 預設值 | Azure CNI 預設值 | 可在部署時設定 |
 | -- | :--: | :--: | -- |

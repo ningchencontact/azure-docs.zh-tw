@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2d01b74e7db275f4b2e3933415bbae40911b114b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bc44d8e755af3d212d616425c6a1fd925172298
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60399281"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602930"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>使用 SQL 和 Python 對 SQL Server 中的資料建立功能
 本文件說明如何針對儲存在 Azure 上的 SQL Server VM 中資料產生特徵，以協助演算法更有效率地從資料學習。 若要完成這項工作，您可以使用 SQL 或程式設計語言 (例如 Python)。 以下示範這兩種方法。
@@ -68,7 +68,7 @@ ms.locfileid: "60399281"
 * 正負號表示是位於地球的北方或南方、東方或西方。
 * 非零的數百個數字表示經度，而非使用緯度。
 * 數十個位數可提供大約 1,000 公里的位置。 它會提供身處哪個大陸或海洋的實用資訊。
-* 單位數 (一個十進位度數) 提供一個最多可達 111 公里 (60 海浬，大約 69 英哩) 的位置。 它表示大致上位於哪一個大的州或國家/地區中。
+* 單位數 (一個十進位度數) 提供一個最多可達 111 公里 (60 海浬，大約 69 英哩) 的位置。 大致上來說，它指出哪些大的州或國家/地區中。
 * 第一個小數點最多可達 11.1 km：它能夠分辨某一個大型縣 (市) 的位置與鄰近的大型縣 (市)。
 * 第二個小數位數最多可達 1.1 km：它可以將某一個村莊與下一個村莊分隔開來。
 * 第三個小數位數最多可達 110 m：它可以識別大型農場或學術機構校區。

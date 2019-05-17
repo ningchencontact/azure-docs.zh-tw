@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61061448"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606384"
 ---
 # <a name="core-reports-from-verizon"></a>來自 Verizon 的核心報告
 
@@ -29,7 +29,7 @@ ms.locfileid: "61061448"
 
 * 頻寬
 * 傳輸的資料
-* 點擊
+* 點閱數
 * 快取狀態
 * 快取點擊率
 * 已轉送的 IPV4/IPV6 資料
@@ -96,7 +96,7 @@ ms.locfileid: "61061448"
   
   * Cache-Control: s-maxage
   * Cache-Control: max-age
-  * Expires
+  * 過期
 * TCP_MISS:這個狀態指出，要求資產的快取的版本已找不到最接近用戶端的 POP 上。 資產會從原始伺服器或原始保護盾伺服器要求。 如果原始伺服器或原始保護盾伺服器傳回資產，它會提供給用戶端並在用戶端及邊緣伺服器上快取。 否則，會傳回非 200 狀態碼 (例如，403 禁止或 404 找不到)。
 * TCP_EXPIRED_HIT:當目標 ttl 過期的資產的要求已直接從 POP 提供給用戶端時，會回報此狀態。 例如，當資產的 max-age 過期時。 
   
@@ -119,7 +119,7 @@ ms.locfileid: "61061448"
 
 報告不包含：
 
-* 因為國家 (地區) 篩選選項而拒絕的要求。
+* 因國家/地區篩選選項而拒絕的要求。
 * 資產的要求，其標頭指出他們不應該快取。 例如，`Cache-Control: private`、`Cache-Control: no-cache` 或 `Pragma: no-cache` 標頭可防止資產受到快取。
 * 部分快取內容的位元組範圍要求。
 

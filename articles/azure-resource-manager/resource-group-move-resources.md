@@ -1,23 +1,17 @@
 ---
 title: 將 Azure 資源移至新的訂用帳戶或資源群組 | Microsoft Docs
 description: 使用 Azure Resource Manager 將資源移到新的資源群組或訂用帳戶。
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698479"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792690"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -68,14 +62,14 @@ ms.locfileid: "64698479"
 * Azure 監視器記錄
 * Azure 轉送
 * Azure Stack - 註冊
-* Batch
+* 批次
 * BizTalk 服務
 * Bot 服務
 * CDN
 * 雲端服務 - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 認知服務
 * Container Registry
-* 內容仲裁
+* Content Moderator
 * 成本管理
 * Customer Insights
 * 資料目錄
@@ -104,7 +98,7 @@ ms.locfileid: "64698479"
 * Power BI - Power BI Embedded 和 Power BI 工作區集合
 * 公用 IP - 可以移動基本 SKU 公用 IP。 不能移動標準 SKU 公用 IP。
 * 復原服務保存庫 - 註冊[預覽版](#recovery-services-limitations)。
-* SAP HANA on Azure
+* Azure 上的 SAP HANA
 * 排程器
 * 搜尋 - 您無法在一個作業中移動不同區域中的數個搜尋資源， 而是要在不同作業中移動它們。
 * 服務匯流排
@@ -113,6 +107,7 @@ ms.locfileid: "64698479"
 * SignalR Service
 * 儲存體 - 不同區域中的儲存體帳戶無法在相同的作業中移動。 請改為針對每個區域使用個別的作業。
 * 儲存體 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
+* 儲存體同步服務
 * 串流分析 - 無法移動執行中狀態的串流分析作業。
 * SQL Database 伺服器 - 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 此行為會套用至 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。
 * 時間序列深入解析
@@ -138,7 +133,7 @@ ms.locfileid: "64698479"
 * Azure NetApp Files
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
 * 傳統應用程式
-* Container Instances
+* 容器執行個體
 * 容器服務
 * 資料箱
 * Dev Spaces
@@ -215,7 +210,7 @@ ms.locfileid: "64698479"
 在_訂用帳戶之間_移動 Web 應用程式時，適用下列限制：
 
 - 目的地資源群組中必須沒有任何已存在的 App Service。 App Service 資源包括：
-    - Web Apps
+    - Web 應用程式
     - App Service 方案
     - 已上傳或已匯的入 SSL 憑證
     - App Service 環境

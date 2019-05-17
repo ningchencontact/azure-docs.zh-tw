@@ -7,18 +7,17 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 03/04/2019
-ms.openlocfilehash: 8d0d81d9c140c15f2e60d3f6e3033a8b0b629228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: craigg
+ms.date: 01/25/2019
+ms.openlocfilehash: 6c35d51c1029c0305c86cefd786e60b6547e0dee
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702464"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799870"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>將資料從 CSV 載入 Azure SQL Database (一般檔案)
 
@@ -125,4 +124,3 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-<!--Update_Description: update metadata-->

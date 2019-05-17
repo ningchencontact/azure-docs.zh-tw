@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
-ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483217"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604233"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>針對匯入/匯出作業開啟支援票證
 
@@ -58,10 +58,10 @@ ms.locfileid: "61483217"
 4. 在 [新增支援要求] 中，按一下 [步驟 3 連絡人資訊]。 在 [連絡人資訊] 中，執行下列步驟：
 
    1. 在 [連絡人選項] 中，提供您偏好的連絡方法 (電話或電子郵件) 以及語言。 會根據您的訂用帳戶方案自動選擇回應時間。
-   2. 在 [連絡人資訊] 中，提供您的姓名、電子郵件、選用連絡方法、國家/地區。 選取 [儲存連絡人變更，以供後續支援要求使用] 核取方塊。
+   2. 連絡人的資訊，請提供姓名、 電子郵件、 選用連絡、 國家/地區。 選取 [儲存連絡人變更，以供後續支援要求使用] 核取方塊。
    3. 按一下頁面底部的 [新增] 。
    
-       ![連絡人資訊](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+       ![連絡資訊](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
       Microsoft 支援服務會利用此資訊來連絡您，以取得進一步資訊、進行診斷及解決。
       提交您的要求之後，支援工程師會儘速連絡您來處理您的要求。

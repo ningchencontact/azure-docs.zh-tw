@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: d05cbd30565ced73352736508fc4bcc376985554
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b5a13dfd760f0c94343b151c9b4c1148c949e854
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149027"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790001"
 ---
 # <a name="transfer-data-with-azcopy-v10"></a>使用 AzCopy v10 轉送資料
 
@@ -53,7 +53,7 @@ AzCopy 不需要安裝。 只需打开首选的命令行应用程序，并浏览
 
 使用 Azure 儲存體進行驗證時，AzCopy 會支援下列選項：
 - **Azure Active Directory** (支援**Blob 和 Data Lake 儲存體 Gen2 服務**)。 使用```.\azcopy login```使用 Azure Active Directory 登入。  使用者應該擁有[「 儲存體 Blob 資料參與者 」 角色指派](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)寫入 Blob 儲存體與 Azure Active Directory 驗證。 針對透過 Azure 資源管理的身分識別驗證，使用`azcopy login --identity`。
-- **共享访问签名令牌 [支持 Blob 和文件服务]**。 在命令行中将共享访问签名 (SAS) 令牌追加到 Blob 路径即可使用该令牌。 可以使用 Azure 门户、[存储资源管理器](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 或所选的其他工具生成 SAS 令牌。 如需詳細資訊，請參閱[範例](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
+- **共享访问签名令牌 [支持 Blob 和文件服务]**。 在命令行中将共享访问签名 (SAS) 令牌追加到 Blob 路径即可使用该令牌。 可以使用 Azure 门户、[存储资源管理器](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 或所选的其他工具生成 SAS 令牌。 如需詳細資訊，請參閱[範例](https://docs.microsoft.com/azure/storage/blobs/common/storage-dotnet-shared-access-signature-part-1)。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -221,7 +221,7 @@ export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
 
 如需複製使用 AzCopy，將資料從 AWS S3 的詳細資訊，請參閱頁面[此處](https://github.com/Azure/azure-storage-azcopy/wiki/Copy-from-AWS-S3)。
 
-## <a name="advanced-configuration"></a>進階組態
+## <a name="advanced-configuration"></a>進階設定
 
 ### <a name="configure-proxy-settings"></a>進行 Proxy 設定
 

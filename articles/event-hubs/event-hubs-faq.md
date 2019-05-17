@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690276"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789254"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中樞常見問題集
 
@@ -23,6 +23,15 @@ ms.locfileid: "64690276"
 
 ### <a name="what-is-an-event-hubs-namespace"></a>什麼是事件中樞命名空間？
 命名空間是適用於事件中樞/Kafka 主題的範圍容器。 它可為您提供唯一的 [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) \(英文\)。 命名空間會用來作為應用程式容器，可裝載多個事件中樞/Kafka 主題。 
+
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>何時建立新的命名空間，與使用現有的命名空間？
+容量配置 ([輸送量單位 (Tu)](#throughput-units)) 命名空間層級收費。 也與區域相關聯的命名空間。
+
+若要建立新的命名空間，而不是使用現有的各個下列案例： 
+
+- 您需要新的區域相關聯的事件中樞。
+- 您需要不同的訂用帳戶相關聯的事件中樞。
+- 您需要使用不同的容量配置的事件中樞 （也就是容量必須針對加入的事件中樞命名空間會超過 40 的 TU 臨界值，而且您不想要尋求專用的叢集）  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>事件中樞基本層和標準層之間的差異為何？
 
@@ -173,7 +182,7 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>如何建立事件中樞專用叢集？
 您可以藉由提交[加大配額支援要求](https://portal.azure.com/#create/Microsoft.Support)或連絡[事件中樞小組](mailto:askeventhubs@microsoft.com)，來建立事件中樞專用叢集。 通常需要大約兩週的時間，才能部署該叢集並將控制權移交給您以供使用。 在透過 Azure 入口網站或 Azure Resource Manager 範本讓完整的自助功能可供使用之前，此程序是暫時性，大約需要兩個小時來部署叢集。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 ### <a name="how-many-partitions-do-i-need"></a>我需要多少個分割區？
 

@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106965"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787679"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>從 Microsoft Flow 呼叫函式
 
@@ -36,6 +36,8 @@ ms.locfileid: "62106965"
 > * 如果修復符合成本效益，就建立流程來傳送電子郵件。
 > * 執行流程。
 
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 + 使用中的 [Microsoft Flow 帳戶](https://flow.microsoft.com/documentation/sign-up-sign-in/)，其登入認證與您的 Azure 帳戶相同。 
@@ -48,10 +50,10 @@ ms.locfileid: "62106965"
 | 清單資料行     | 数据类型           | 注意                                    |
 |-----------------|---------------------|------------------------------------------|
 | **標題**           | 單行文字 | 渦輪機的名稱                      |
-| **LastServiceDate** | date                |                                          |
-| **MaxOutput**       | 數字              | 渦輪機的輸出，以 KwH 為單位            |
+| **LastServiceDate** | Date                |                                          |
+| **MaxOutput**       | 數目              | 渦輪機的輸出，以 KwH 為單位            |
 | **ServiceRequired** | 是/否              |                                          |
-| **EstimatedEffort** | 數字              | 修復的預估時間，以小時為單位 |
+| **EstimatedEffort** | 數目              | 修復的預估時間，以小時為單位 |
 
 1. 在 SharePoint 網站中，依序按一下或點選 [新增] 和 [清單]。
 
@@ -229,7 +231,7 @@ ms.locfileid: "62106965"
     | **標題**           | 渦輪機 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | 是 |
+    | **ServiceRequired** | 有 |
     | **EstimatedEffort** | 10 |
 
 3. 按一下 [完成] 。
@@ -244,7 +246,7 @@ ms.locfileid: "62106965"
 
 5. 在 [執行歷程記錄] 下方，按一下流程執行。
 
-    ![執行記錄](media/functions-flow-scenario/run-history.png)
+    ![執行歷程記錄](media/functions-flow-scenario/run-history.png)
 
     如果執行成功，您可以在下一個頁面上檢閱流程作業。 如果執行基於任何因素而失敗，下一個頁面就會提供疑難排解資訊。
 

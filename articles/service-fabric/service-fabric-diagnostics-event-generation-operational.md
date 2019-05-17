@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 7a4cccf774d89229810c1668f38e4e2ef99fa79d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393034"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788602"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric 事件清單 
 
@@ -40,7 +40,7 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 您可以在[這裡](service-fabric-cluster-upgrade-windows-server.md)找到有關叢集升級的其他詳細資料。
 
-| EventId | Name | 類別 | 描述 |來源 (工作) | Level | 
+| EventId | 名稱 | 類別 | 說明 |來源 (工作) | Level | 
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | 升級 | 已啟動叢集更新 | CM | 資訊 |
 | 29628 | ClusterUpgradeCompleted | 升級 | 已完成叢集更新 | CM | 資訊 | 
@@ -52,7 +52,7 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **節點生命週期事件** 
 
-| EventId | Name | 類別 | 描述 |來源 (工作) | Level |
+| EventId | 名稱 | 類別 | 說明 |來源 (工作) | Level |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | 已完成停用節點 | FM | 資訊 | 
 | 18603 | NodeUp | StateTransition | 叢集偵測到節點已啟動 | FM | 資訊 | 
@@ -69,17 +69,17 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **應用程式生命週期事件**
 
-| EventId | Name | 類別 | 描述 |來源 (工作) | Level | 
+| EventId | 名稱 | 類別 | 說明 |來源 (工作) | Level | 
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | LifeCycle | 已建立新的應用程式 | CM | 資訊 | 
 | 29625 | ApplicationDeleted | LifeCycle | 已刪除現有的應用程式 | CM | 資訊 | 
-| 23083 | ApplicationProcessExited | LifeCycle | 已結束應用程式中的處理程序 | 裝載 | 資訊 | 
+| 23083 | ApplicationProcessExited | LifeCycle | 已結束應用程式中的處理程序 | 裝載中 | 資訊 | 
 
 **應用程式升級事件**
 
 您可以在[這裡](service-fabric-application-upgrade.md)找到有關應用程式升級的其他詳細資料。
 
-| EventId | Name | 類別 | 描述 |來源 (工作) | Level | 
+| EventId | 名稱 | 類別 | 說明 |來源 (工作) | Level | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | 升級 | 已啟動應用程式更新 | CM | 資訊 | 
 | 29622 | ApplicationUpgradeCompleted | 升級 | 已完成應用程式更新 | CM | 資訊 | 
@@ -91,7 +91,7 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **服務生命週期事件**
 
-| EventId | Name | 類別 | 描述 |來源 (工作) | Level | 
+| EventId | 名稱 | 類別 | 說明 |來源 (工作) | Level | 
 | --- | --- | ---| --- | --- | --- |
 | 18657 | ServiceCreated | LifeCycle | 已建立新服務 | FM | 資訊 | 
 | 18658 | ServiceDeleted | LifeCycle | 已刪除現有服務 | FM | 資訊 | 
@@ -100,19 +100,53 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **分割移動事件**
 
-| EventId | Name | 類別 | 描述 |來源 (工作) | Level | 
+| EventId | 名稱 | 類別 | 說明 |來源 (工作) | Level | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | 已完成重新設定分割 | RA | 資訊 | 
+
+## <a name="replica-events"></a>複本事件
+
+**複本生命週期事件**
+
+| EventId | 名稱 | 類別 | 說明 |來源 (工作) | Level |
+| --- | --- | ---| --- | --- | --- |
+| 61701 | ReliableDictionaryOpened | LifeCycle | 可靠的字典已開啟 | DistributedDictionary | 資訊 |
+| 61702 | ReliableDictionaryClosed | LifeCycle | 可靠的字典已關閉 | DistributedDictionary | 資訊 |
+| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | 可靠的字典已復原其檢查點 | DistributedDictionary | 資訊 |
+| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | 複本已傳送可靠的字典的檢查點檔案 | DistributedDictionary | 資訊 |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | 複本已經接收到可靠的字典的檢查點檔案 | DistributedDictionary | 資訊 |
+| 61963 | ReliableQueueOpened | LifeCycle | 可靠的佇列已開啟 | DistributedQueue | 資訊 |
+| 61964 | ReliableQueueClosed | LifeCycle | 可靠的佇列已關閉 | DistributedQueue | 資訊 |
+| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | 可靠的佇列已復原其檢查點 | DistributedQueue | 資訊 |
+| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | 複本已傳送可靠的佇列檢查點檔案 | DistributedQueue | 資訊 |
+| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | 複本已經接收到可靠的佇列檢查點檔案 | DistributedQueue | 資訊 |
+| 63648 | ReliableConcurrentQueueOpened | LifeCycle | 可靠的並行佇列已開啟 | ReliableConcurrentQueue | 資訊 |
+| 63649 | ReliableConcurrentQueueClosed | LifeCycle | 可靠的並行佇列已關閉 | ReliableConcurrentQueue | 資訊 |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | 可靠的並行佇列已復原其檢查點 | ReliableConcurrentQueue | 資訊 |
+| 61687 | TStoreError | 失敗 | 可靠的集合已收到未預期的錯誤 | TStore | Error |
+| 63831 | PrimaryFullCopyInitiated | LifeCycle | 主要複本已啟動的完整複本 | TReplicator | 資訊 |
+| 63832 | PrimaryPartialCopyInitiated | LifeCycle | 主要複本已起始部分複本 | TReplicator | 資訊 |
+| 16831 | BuildIdleReplicaStarted | LifeCycle | 主要複本已開始建置的閒置複本 | 複寫 | 資訊 |
+| 16832 | BuildIdleReplicaCompleted | LifeCycle | 主要複本已完成建置的閒置複本 | 複寫 | 資訊 |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | 主要複本失敗建置的閒置複本 | 複寫 | 警告 |
+| 16834 | PrimaryReplicationQueueFull | 健康情況 | 主要複本的複寫佇列已滿 | 複寫 | 警告 |
+| 16835 | PrimaryReplicationQueueWarning | 健康情況 | 主要複本的複寫佇列已接近全文 | 複寫 | 警告 |
+| 16836 | PrimaryReplicationQueueWarningMitigated | 健康情況 | 主要複本的複寫佇列也沒關係 | 複寫 | 資訊 |
+| 16837 | SecondaryReplicationQueueFull | 健康情況 | 次要複本的複寫佇列已滿 | 複寫 | 警告 |
+| 16838 | SecondaryReplicationQueueWarning | 健康情況 | 次要複本的複寫佇列已接近全文 | 複寫 | 警告 |
+| 16839 | SecondaryReplicationQueueWarningMitigated | 健康情況 | 次要複本的複寫佇列也沒關係 | 複寫 | 資訊 |
+| 16840 | PrimaryFaultedSlowSecondary | 健康情況 | 主要複本發生錯誤的緩慢次要複本 | 複寫 | 警告 |
+| 16841 | ReplicatorFaulted | 健康情況 | 複本發生錯誤 | 複寫 | 警告 |
 
 ## <a name="container-events"></a>容器事件
 
 **容器生命週期事件** 
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
-| 23074 | ContainerActivated | 容器已啟動 | 裝載 | 資訊 | 1 |
-| 23075 | ContainerDeactivated | 容器已停止 | 裝載 | 資訊 | 1 |
-| 23082 | ContainerExited | 容器已結束 - 查看 UnexpectedTermination 旗標 | 裝載 | 資訊 | 1 |
+| 23074 | ContainerActivated | 容器已啟動 | 裝載中 | 資訊 | 1 |
+| 23075 | ContainerDeactivated | 容器已停止 | 裝載中 | 資訊 | 1 |
+| 23082 | ContainerExited | 容器已結束 - 查看 UnexpectedTermination 旗標 | 裝載中 | 資訊 | 1 |
 
 ## <a name="health-reports"></a>健康狀態報告
 
@@ -124,21 +158,21 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **叢集健康情況報表事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | 有新的叢集健康情況報告可用 | HM | 資訊 | 1 |
 | 54437 | ClusterHealthReportExpired | 現有的叢集健康情況報告已過期 | HM | 資訊 | 1 |
 
 **節點健康情況報表事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | 有新的節點健康情況報告可用 | HM | 資訊 | 1 |
 | 54432 | NodeHealthReportExpired | 現有的節點健康情況報告已過期 | HM | 資訊 | 1 |
 
 **應用程式健康情況報表事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | 已建立新的應用程式健康情況報告。 這適用於已解除部署的應用程式。 | HM | 資訊 | 1 |
 | 54426 | DeployedApplicationNewHealthReport | 已建立新的已部署應用程式健康情況報告 | HM | 資訊 | 1 |
@@ -149,21 +183,21 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **服務健康情況報表事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | 已建立新的服務健康情況報告 | HM | 資訊 | 1 |
 | 54433 | ServiceHealthReportExpired | 現有的服務健康情況報告已過期 | HM | 資訊 | 1 |
 
 **分割健康情況報表事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | 已建立新的分割健康情況報告 | HM | 資訊 | 1 |
 | 54431 | PartitionHealthReportExpired | 現有的分割健康情況報告已過期 | HM | 資訊 | 1 |
 
 **複本健康情況報表事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | 已建立具狀態的複本健康情況報告 | HM | 資訊 | 1 |
 | 54430 | StatelessInstanceNewHealthReport | 已建立新的具狀態執行個體健康情況報告 | HM | 資訊 | 1 |
@@ -174,28 +208,28 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **混沌工作階段事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | 已啟動混沌測試工作階段 | 可測試性 | 資訊 | 1 |
 | 50023 | ChaosStopped | 已停止混沌測試工作階段 | 可測試性 | 資訊 | 1 |
 
 **混沌節點事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | 已排定將節點重新啟動為混沌測試工作階段的一部分 | 可測試性 | 資訊 | 1 |
 | 50087 | ChaosNodeRestartCompleted | 已完成將節點重新啟動為混沌測試工作階段的一部分 | 可測試性 | 資訊 | 1 |
 
 **混沌應用程式事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | 已在混沌測試工作階段期間排定程式碼套件重新啟動 | 可測試性 | 資訊 | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | 已在混沌測試工作階段期間完成程式碼套件重新啟動 | 可測試性 | 資訊 | 1 |
 
 **混沌分割事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | 已排定將主要磁碟分割移為混沌測試工作階段的一部分 | 可測試性 | 資訊 | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | 已排定將次要磁碟分割移為混沌測試工作階段的一部分 | 可測試性 | 資訊 | 1 |
@@ -203,7 +237,7 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **混沌複本事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | 已將複本重新啟動排定為混沌測試工作階段的一部份 | 可測試性 | 資訊 | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | 已將複本移除排定為混沌測試工作階段的一部份 | 可測試性 | 資訊 | 1 |
@@ -213,7 +247,7 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **相互關連事件**
 
-| EventId | Name | 描述 |來源 (工作) | Level | Version |
+| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | 已偵測到相互關聯 | 可測試性 | 資訊 | 1 |
 
@@ -221,7 +255,7 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 以下是 Service Fabric 6.2 版之前所提供事件的完整清單。
 
-| EventId | Name | 來源 (工作) | 等級 |
+| EventId | 名稱 | 來源 (工作) | 等級 |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | 資訊 |
 | 25621 | NodeOpenedSuccess | FabricNode | 資訊 |
@@ -236,7 +270,7 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 | 29630 | ClusterUpgradeRollbackComplete | CM | 資訊 |
 | 29631 | ClusterUpgradeDomainComplete | CM | 資訊 |
 | 23074 | ContainerActivated | 裝載 | 資訊 |
-| 23075 | ContainerDeactivated | 裝載 | 資訊 |
+| 23075 | ContainerDeactivated | 裝載中 | 資訊 |
 | 29620 | ApplicationCreated | CM | 資訊 |
 | 29621 | ApplicationUpgradeStart | CM | 資訊 |
 | 29622 | ApplicationUpgradeComplete | CM | 資訊 |

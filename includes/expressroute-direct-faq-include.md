@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 41f62d095c1a0cbdd0a888326b263a3294066637
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 1bcadc18172535649a0ceb482939ca6a75477e25
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118441"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794780"
 ---
 ### <a name="what-is-expressroute-direct"></a>什麼是 ExpressRoute Direct？
 
@@ -30,15 +30,21 @@ ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對
 * 阿姆斯特丹
 * 坎培拉
 * 芝加哥
-* 華盛頓
+* 華盛頓特區
 * 達拉斯 
 * 香港特別行政區
+* 倫敦
 * 洛杉磯
 * New York City
 * 巴黎
+* 伯斯
+* 多倫多
 * San Antonio
+* Seattle
+* Seoul
 * 矽谷
 * 新加坡 
+* 雪梨
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>ExpressRoute Direct 的 SLA 為何？
 

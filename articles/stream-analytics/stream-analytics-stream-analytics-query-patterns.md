@@ -7,35 +7,35 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/08/2017
-ms.openlocfilehash: ef302ecaa6defc6ac0dc1dd58d4f8acc0f2fd263
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711443"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761960"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 
-## <a name="introduction"></a>簡介
-Azure 串流分析的查詢會以類似 SQL 的查詢語言表達。 語言建構記載在[串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)指南中。 
+Azure 串流分析的查詢會以類似 SQL 的查詢語言表達。 語言建構記載在[串流分析查詢語言參考](/stream-analytics-query/stream-analytics-query-language-reference)指南中。 
 
-查詢設計能傳達簡單的傳遞邏輯，將事件資料從某個輸入資料流移動到輸出資料存放區。 也可以執行豐富的模式比對和時態分析，計算不同時間範圍內的彙總值 (如 TollApp 範例所示)。 您可以聯結多個輸入的資料來合併串流事件，以及查閱靜態參考資料，從而擴充事件值。 此外，您也可以將資料寫入多個輸出。
+查詢設計，可以表示簡單的傳遞邏輯，以將事件資料從一個輸入資料流移至輸出資料存放區中，或它可以執行豐富的模式比對和時態性分析，以計算彙總中的各種時間範圍[建置 IoT使用 Stream Analytics 的解決方案](stream-analytics-build-an-iot-solution-using-stream-analytics.md)指南。 您可以將資料從多個輸入合併資料流的事件，而且您可以執行查閱，針對要擴充的事件值的靜態參考資料。 您也可以將資料寫入多個輸出中。
 
-本文章根據真實世界案例概述幾個常見查詢模式的解決方案。 這是進行中的工作，會繼續不間斷使用新模式進行更新。
+這篇文章概述幾個真實世界案例為基礎的常見查詢模式的解決方案。
 
-## <a name="work-with-complex-data-types-in-json-and-avro"></a>在 JSON 和 AVRO 中使用複雜資料類型 
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>在 JSON 和 AVRO 中使用複雜資料類型
+
 Azure 串流分析可處理資料格式為 CSV、JSON 和 Avro 的事件。
-JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若要使用這些複雜的資料類型，請參閱[剖析 JSON 和 AVRO 資料](stream-analytics-parsing-json.md)一文。
 
+JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如需有關使用這些複雜的資料類型的詳細資訊，請參閱[剖析 JSON 和 AVRO 資料](stream-analytics-parsing-json.md)文章。
 
 ## <a name="query-example-convert-data-types"></a>查詢範例：轉換資料類型
-**描述**：在輸入資料流上定義屬性類型。
-例如，汽車重量即將以字串形式出現在輸入資料流，並且需要轉換為 **INT** 以執行 **SUM** 來將它加總。
+
+**描述**：在輸入資料流上定義屬性類型。 比方說，汽車重量即將在輸入資料流為字串，而必須轉換成**INT**來執行**總和**。
 
 **輸入**：
 
-| 請確定 | 時間 | Weight |
+| 請確定 | Time | 權數 |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -59,15 +59,16 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
         TumblingWindow(second, 10)
 ```
 
-**說明**：使用 [Weight] 欄位中的 **CAST** 陳述式來指定其資料類型。 請參閱[資料類型 (Azure 串流分析)](https://msdn.microsoft.com/library/azure/dn835065.aspx) 中的支援資料類型清單。
+**說明**：使用 [Weight] 欄位中的 **CAST** 陳述式來指定其資料類型。 請參閱[資料類型 (Azure 串流分析)](/stream-analytics-query/data-types-azure-stream-analytics) 中的支援資料類型清單。
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>查詢範例：使用 Like/Not like 進行模式比對
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>查詢範例：使用 LIKE/NOT 等進行模式比對
+
 **描述**：檢查事件上的欄位值是否符合特定模式。
 例如，檢查結果是否會傳回開頭為 A 且結尾為 9 的車牌。
 
 **輸入**：
 
-| 請確定 | LicensePlate | 時間 |
+| 請確定 | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -75,7 +76,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
 **输出**：
 
-| 請確定 | LicensePlate | 時間 |
+| 請確定 | LicensePlate | Time |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -91,15 +92,15 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
         LicensePlate LIKE 'A%9'
 ```
 
-**說明**：使用 **LIKE** 陳述式檢查 [LicensePlate] 欄位值。 開頭應該為 A，接著是長度為零或更多字元的字串，並以 9 結尾。 
+**說明**：使用 **LIKE** 陳述式檢查 [LicensePlate] 欄位值。 它應該以字母 A 開頭然後有任何零或多個字元的字串數字 9 結尾。 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>查詢範例：針對不同的案例/值指定邏輯 (CASE 陳述式)
-**描述**：根據特定準則，針對欄位提供不同的計算方式。
-例如，針對通過的相同廠牌汽車中有多少部符合 1 的特殊情況提供字串描述。
+
+**描述**：根據特定準則，針對欄位提供不同的計算方式。 例如，針對通過的相同廠牌汽車中有多少部符合 1 的特殊情況提供字串描述。
 
 **輸入**：
 
-| 請確定 | 時間 |
+| 請確定 | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -107,7 +108,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
 **輸出**：
 
-| CarsPassed | 時間 |
+| CarsPassed | Time |
 | --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
@@ -120,7 +121,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
             ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
         END AS CarsPassed,
-        System.TimeStamp AS Time
+        System.TimeStamp() AS Time
     FROM
         Input TIMESTAMP BY Time
     GROUP BY
@@ -128,15 +129,15 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
         TumblingWindow(second, 10)
 ```
 
-**說明**：**CASE** 運算式會比較運算式和一組簡單運算式來決定結果。 在此範例中，計數為 1 的車輛傳回的字串描述與計數並非為 1 的車輛所傳回者不同。 
+**說明**：**CASE** 運算式會比較運算式和一組簡單運算式來決定結果。 在此範例中，計數為 1 的車輛傳回的字串描述與計數並非為 1 的車輛所傳回者不同。
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>查詢範例：將資料傳送至多個輸出
-**描述**：將資料從單一作業傳送到多個輸出目標。
-例如，分析臨界值警示的資料，並將所有事件封存到 Blob 儲存體。
+
+**描述**：將資料從單一作業傳送到多個輸出目標。 例如，分析臨界值警示的資料，並將所有事件封存到 Blob 儲存體。
 
 **輸入**：
 
-| 請確定 | 時間 |
+| 請確定 | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -146,7 +147,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
 **Output1**：
 
-| 請確定 | 時間 |
+| 請確定 | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -156,7 +157,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
 **Output2**：
 
-| 請確定 | 時間 | 計數 |
+| 請確定 | Time | 計數 |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -172,7 +173,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
     SELECT
         Make,
-        System.TimeStamp AS Time,
+        System.TimeStamp() AS Time,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
@@ -185,12 +186,11 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
         [Count] >= 3
 ```
 
-**說明**：**INTO** 子句會告訴串流分析要從此陳述式將資料寫入哪個輸出。
-第一個查詢將接收到的資料傳遞至名稱為 **ArchiveOutput** 的輸出。
-第二個查詢會執行一些簡單的彙總和篩選，並將結果傳送至下游的警示系統。
+**說明**：**INTO** 子句會告訴串流分析要從此陳述式將資料寫入哪個輸出。 第一個查詢是傳遞至名為輸出接收的資料**ArchiveOutput**。 第二個的查詢會執行一些簡單的彙總及篩選，並將結果傳送至下游的警示系統**AlertOutput**。
 
 請注意，您也可以在多個輸出陳述式中重複使用通用資料表運算式 (CTE) 的結果 (例如 **WITH** 陳述式)。 此選項多了一項優點，就是對輸入來源開放的讀取器較少。
-例如︰ 
+
+例如： 
 
 ```SQL
     WITH AllRedCars AS (
@@ -206,12 +206,12 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 ```
 
 ## <a name="query-example-count-unique-values"></a>查詢範例：計算唯一值
-**描述**：計算在某個時間範圍內於串流中出現之唯一欄位值的數目。
-例如，在 2 秒鐘時間範圍內有多少部某一獨特廠牌的汽車通過收費亭？
+
+**描述**：計算在某個時間範圍內於串流中出現之唯一欄位值的數目。 例如，在 2 秒鐘時間範圍內有多少部某一獨特廠牌的汽車通過收費亭？
 
 **輸入**：
 
-| 請確定 | 時間 |
+| 請確定 | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -221,7 +221,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
 **輸出：**
 
-| CountMake | 時間 |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -231,7 +231,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 ```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP AS TIME
+     System.TIMESTAMP() AS TIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
@@ -242,12 +242,12 @@ GROUP BY
 **COUNT(DISTINCT Make)** 會傳回一個時間範圍內 **Make** 資料行的相異值數目。
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>查詢範例：判斷值是否已變更
-**描述**：查看前一個值來判斷該值是否與目前的值不同。
-例如收費道路上前一輛汽車的品牌，是否與目前汽車的品牌相同？
+
+**描述**：查看前一個值來判斷該值是否與目前的值不同。 例如收費道路上前一輛汽車的品牌，是否與目前汽車的品牌相同？
 
 **輸入**：
 
-| 請確定 | 時間 |
+| 請確定 | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -273,11 +273,12 @@ GROUP BY
 **說明**：使用 **LAG** 查看前一個事件的輸入資料流，並取得 **Make** 值。 然後將其和目前事件中的 **Make** 值比較，並且在兩者不同時輸出事件。
 
 ## <a name="query-example-find-the-first-event-in-a-window"></a>查詢範例：尋找時間範圍內的第一個事件
+
 **描述**：每隔 10 分鐘尋找該時間範圍內的第一輛車。
 
 **輸入**：
 
-| LicensePlate | 請確定 | 時間 |
+| LicensePlate | 請確定 | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -289,7 +290,7 @@ GROUP BY
 
 **輸出**：
 
-| LicensePlate | 請確定 | 時間 |
+| LicensePlate | 請確定 | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -307,9 +308,9 @@ GROUP BY
         IsFirst(minute, 10) = 1
 ```
 
-現在讓我們來變更問題，每隔 10 分鐘尋找特定廠牌的第一輛車。
+现在，我们来变一下这个问题，查找每 10 分钟时间间隔内特定制造商的第一辆汽车。
 
-| LicensePlate | 請確定 | 時間 |
+| LicensePlate | 請確定 | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -331,11 +332,12 @@ GROUP BY
 ```
 
 ## <a name="query-example-find-the-last-event-in-a-window"></a>查詢範例：尋找時間範圍內的最後一個事件
+
 **描述**：每隔 10 分鐘尋找該時間範圍內的最後一輛車。
 
 **輸入**：
 
-| LicensePlate | 請確定 | 時間 |
+| LicensePlate | 請確定 | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -347,7 +349,7 @@ GROUP BY
 
 **輸出**：
 
-| LicensePlate | 請確定 | 時間 |
+| LicensePlate | 請確定 | Time |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
@@ -378,12 +380,13 @@ GROUP BY
 **說明**：查詢中有兩個步驟。 第一個步驟會尋找 10 分鐘時間範圍內最新的時間戳記。 第二個步驟會將第一個查詢的結果與原始串流聯結在一起，在每個時間範圍內尋找符合最後一個時間戳記的事件。 
 
 ## <a name="query-example-detect-the-absence-of-events"></a>查詢範例：偵測不存在的事件
+
 **描述**：檢查串流中是否沒有和特定準則相符的值。
 例如，在最後的 90 秒內連續有 2 部相同廠牌的車輛進入收費道路？
 
 **輸入**：
 
-| 請確定 | LicensePlate | 時間 |
+| 請確定 | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -392,7 +395,7 @@ GROUP BY
 
 **輸出**：
 
-| 請確定 | 時間 | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| 請確定 | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -414,13 +417,14 @@ GROUP BY
 **說明**：使用 **LAG** 查看前一個事件的輸入資料流，並取得 **Make** 值。 將該值和目前事件中的 **MAKE** 值比較，如果相同則輸出該事件。 您也可以使用 **LAG** 取得上一輛車的相關資料。
 
 ## <a name="query-example-detect-the-duration-between-events"></a>查詢範例：偵測事件之間的持續時間
+
 **描述**：尋找指定事件的持續時間。 例如，指定某一網頁點選流，以判斷在某一功能上花費的時間。
 
 **輸入**：  
 
-| 使用者 | 功能 | 事件 | 時間 |
+| 使用者 | 功能 | 事件 | Time |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |開始 |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |结束 |2015-01-01T00:00:08.0000000Z |
 
 **输出**：  
@@ -447,7 +451,7 @@ GROUP BY
 
 **輸入**：
 
-| 請確定 | 時間 | Weight |
+| 請確定 | Time | 權數 |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -488,8 +492,8 @@ GROUP BY
 **說明**：使用 **LAG** 來檢視 24 小時內的輸入資料流，並尋找其中 **StartFault** 和 **StopFault** 介於 weight (重量) < 20000 的案例。
 
 ## <a name="query-example-fill-missing-values"></a>查詢範例：填入遺漏值
-**描述**：針對有遺漏值的事件串流，產生具有固定間隔的事件串流。
-例如，每隔 5 秒產生事件，報告最近所見的資料點。
+
+**描述**：針對有遺漏值的事件串流，產生具有固定間隔的事件串流。 例如，每隔 5 秒產生事件，報告最近所見的資料點。
 
 **輸入**：
 
@@ -521,19 +525,19 @@ GROUP BY
 
 ```SQL
     SELECT
-        System.Timestamp AS windowEnd,
+        System.Timestamp() AS windowEnd,
         TopOne() OVER (ORDER BY t DESC) AS lastEvent
     FROM
         input TIMESTAMP BY t
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 ```
 
-**說明**：此查詢會每隔 5 秒產生事件，並輸出先前所收到的最後一個事件。 [跳動視窗](https://msdn.microsoft.com/library/dn835041.aspx "跳動視窗 - Azure 串流分析")持續時間會決定查詢回溯到多久之前以找出最新的事件 (在此範例中為 300 秒)。
+**說明**：此查詢會每隔 5 秒產生事件，並輸出先前所收到的最後一個事件。 [跳跃窗口](/stream-analytics-query/hopping-window-azure-stream-analytics)持续时间决定了查询在查找最新事件时会回溯多久（在本例中为 300 秒）。
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>查詢範例：將相同串流內的兩個事件類型相互關聯
-**描述**：有時會需要根據在特定時間範圍內發生的多個事件類型來產生警示。
-例如，在家用烤爐的 IoT 案例中，風扇溫度低於 40 且過去 3 分鐘的最大功率低於 10 時，必須發出警示。
+
+**描述**：有時會需要根據在特定時間範圍內發生的多個事件類型來產生警示。 例如，在家用烤爐的 IoT 案例中，風扇溫度低於 40 且過去 3 分鐘的最大功率低於 10 時，必須發出警示。
 
 **輸入**：
 
@@ -569,7 +573,7 @@ GROUP BY
 ```SQL
 WITH max_power_during_last_3_mins AS (
     SELECT 
-        System.TimeStamp AS windowTime,
+        System.TimeStamp() AS windowTime,
         deviceId,
         max(value) as maxPower
     FROM
@@ -602,15 +606,15 @@ WHERE
     AND t2.maxPower > 10
 ```
 
-**說明**：第一個查詢 `max_power_during_last_3_mins` 會使用[滑動視窗](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) \(英文\) 來尋找過去 3 分鐘內每個裝置的功率感應器最大值。 系統會將第二個查詢加入第一個查詢，以找出目前事件最近相關時間範圍內的功率值。 然後，假如條件符合，就會針對裝置產生警示。
+**說明**：第一個查詢 `max_power_during_last_3_mins` 會使用[滑動視窗](/stream-analytics-query/sliding-window-azure-stream-analytics) \(英文\) 來尋找過去 3 分鐘內每個裝置的功率感應器最大值。 系統會將第二個查詢加入第一個查詢，以找出目前事件最近相關時間範圍內的功率值。 然後，假如條件符合，就會針對裝置產生警示。
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>查詢範例：獨立於裝置時鐘誤差 (子串流) 的處理事件
-**描述**：事件會因事件產生器之間的時鐘誤差、分割之間的時鐘誤差或網路延遲，而導致延遲發生或順序錯誤。 在下列範例中，TollID 2 的裝置時鐘為 TollID 1 背後的五秒且裝置時鐘 TollID 3 是 10 秒背後 TollID 1。 
 
+**描述**：事件會因事件產生器之間的時鐘誤差、分割之間的時鐘誤差或網路延遲，而導致延遲發生或順序錯誤。 在下列範例中，TollID 2 的裝置時鐘為 TollID 1 背後的五秒且裝置時鐘 TollID 3 是 10 秒背後 TollID 1。 
 
 **輸入**：
 
-| LicensePlate | 請確定 | 時間 | TollID |
+| LicensePlate | 請確定 | Time | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
@@ -643,14 +647,15 @@ FROM input
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ```
 
-**說明**：[TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) \(英文\) 子句會使用子串流個別查看每個裝置時間軸。 計算時會產生每個 TollID 的輸出事件，這表示事件的順序均與每個 TollID 有關，而不會重新排列順序，就像所有裝置都依據同一個時鐘一般。
+**說明**：[TIMESTAMP BY OVER](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) \(英文\) 子句會使用子串流個別查看每個裝置時間軸。 計算時會產生每個 TollID 的輸出事件，這表示事件的順序均與每個 TollID 有關，而不會重新排列順序，就像所有裝置都依據同一個時鐘一般。
 
 ## <a name="query-example-remove-duplicate-events-in-a-window"></a>查詢範例：移除時間範圍內的重複事件
-**描述**：執行如計算指定時間範圍內事件平均值的作業時，應該要將重複的事件篩選出來。
+
+**描述**：執行如計算指定時間範圍內事件平均值的作業時，應該要將重複的事件篩選出來。 在下列範例中，第二個事件是第一個重複的。
 
 **輸入**：  
 
-| deviceId | 時間 | 屬性 | Value |
+| DeviceId | Time | 屬性 | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
@@ -661,7 +666,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **輸出**：  
 
-| AverageValue | deviceId |
+| AverageValue | DeviceId |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
@@ -679,7 +684,7 @@ With Temp AS (
     GROUP BY
         Value,
         DeviceId,
-        SYSTEM.TIMESTAMP
+        SYSTEM.TIMESTAMP()
 )
 
 SELECT
@@ -689,9 +694,10 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**說明**：[COUNT(DISTINCT Time)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) 會傳回時間範圍內 Time 資料行中的相異值數目。 您可以接著使用此步驟的輸出，透過捨棄重複項目來計算每個裝置的平均值。
+**說明**：[COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) 會傳回時間範圍內 Time 資料行中的相異值數目。 您可以接著使用此步驟的輸出，透過捨棄重複項目來計算每個裝置的平均值。
 
 ## <a name="get-help"></a>取得說明
+
 如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟

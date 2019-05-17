@@ -3,8 +3,8 @@ title: 新增應用程式時如何選擇要使用的應用程式類型 | Microso
 description: 了解支援與 Azure AD 整合的應用程式類型及其相關的設定選項
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b0c03f03012058616dba21536cfc3f292fff4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6e1a1c614bfa126d58cf9343f945d16fd1c2733
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441255"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781020"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>在 Azure Active Directory 中新增應用程式時，選擇應用程式類型
 了解您可以對 Azure Active Directory (Azure AD) 新增的 4 個應用程式類型。 當您在 Azure Active Directory 中新增應用程式時，系統會提示您選擇四個應用程式類型中的其中一個。 

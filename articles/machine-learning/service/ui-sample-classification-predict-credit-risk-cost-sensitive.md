@@ -1,7 +1,7 @@
 ---
 title: 分類：預測信用風險 （成本機密）
 titleSuffix: Azure Machine Learning service
-description: 這個視覺化介面的範例實驗示範如何使用自訂的 Python 指令碼執行成本導向的二元分類。 預測信用風險根據信用應用程式中提供的資訊。
+description: 這篇文章會示範如何建置複雜的機器學習實驗使用視覺化介面。 您將了解如何實作自訂的 Python 指令碼，並比較多個模型以選擇最佳選項。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,26 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 433c258f86705f66e0163100407be7996d68bc6b
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440952"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787823"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>範例 4-分類：預測信用風險 （成本機密）
 
-這個視覺化介面的範例實驗示範如何使用自訂的 Python 指令碼來執行成本導向的二元分類。 成本多出的正樣本是五次的成本多出的負數範例。
+這篇文章會示範如何建置複雜的機器學習實驗使用視覺化介面。 您將了解如何實作使用 Python 指令碼的自訂邏輯和比較多個模型以選擇最佳選項。
 
-此範例可預測的錯誤分類成本納入考量的信用額度應用程式中提供的資訊為基礎的信用風險。
+此範例來定型分類器預測信用風險使用信用應用程式資訊，例如信用記錄、 年齡和信用卡的數目。 不過，您可以套用來處理您自己的機器學習問題的這篇文章中的概念。
 
-在此實驗中，我們會比較兩個不同的方法，來產生模型，以解決此問題：
+如果您剛開始使用 machine learning，您可以看看[基本分類器範例](ui-sample-classification-predict-credit-risk-basic.md)第一次。
 
-- 訓練與原始資料集。
-- 訓練與複寫的資料集。
+以下是完成這項實驗圖形：
 
-利用兩種方法中，我們會使用複寫中的測試資料集，以確保結果會配合此成本函式評估模型。 我們來測試兩個分類器，利用兩種方法：**二級支援向量機器**並**二級促進式的決策樹**。
+[![實驗的圖形](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,15 +37,18 @@ ms.locfileid: "65440952"
 
     ![開啟實驗](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="related-sample"></a>相關的範例
-
-請參閱[範例 3-分類：信用風險預測 （基本）](ui-sample-classification-predict-churn.md)基本實驗可以解決這項實驗中相同的問題，而不調整的錯誤分類成本。
-
 ## <a name="data"></a>資料
 
 我們從 UC Irvine 存放庫使用德國信用卡資料集。 此資料集包含 1,000 範例，其中含有 20 個功能和 1 個標籤。 每個範例代表個人。 20 個功能包括數值和分類特徵。 請參閱[UCI 網站](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29)取得的資料集的詳細資訊。 最後一個資料行是標籤，表示信用風險，且其只有兩個可能的值： 高信用風險 = 2，而低信用風險 = 1。
 
 ## <a name="experiment-summary"></a>實驗摘要
+
+在此實驗中，我們會比較兩個不同的方法，來產生模型，以解決此問題：
+
+- 訓練與原始資料集。
+- 訓練與複寫的資料集。
+
+利用兩種方法中，我們會使用複寫中的測試資料集，以確保結果會配合此成本函式評估模型。 我們來測試兩個分類器，利用兩種方法：**二級支援向量機器**並**二級促進式的決策樹**。
 
 誤判為高的低風險範例成本為 1，且成本誤判為低風險範例為 5。 我們會使用**執行 Python 指令碼**考量成本此分類誤判的模組。
 
@@ -71,7 +73,7 @@ ms.locfileid: "65440952"
 
 若要複寫的高風險資料，我們將此 Python 程式碼**執行 Python 指令碼**模組：
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -104,12 +106,11 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 1. 初始化學習演算法，使用**二級支援向量機器**並**二級促進式決策樹**。
 1. 使用**定型模型**將演算法套用至資料，並建立實際的模型。
-3. 使用**評分模型**來產生分數，使用測試範例。
+1. 使用**評分模型**來產生分數，使用測試範例。
 
 下圖顯示此實驗中，在它的原始和複寫的定型集用來定型兩個不同的 SVM 模型的一部分。 **訓練模型**連線至定型集，並**評分模型**連接至測試集。
 
 ![實驗圖形](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
-
 
 在實驗的評估階段中，我們會計算每四個模型的精確度。 此實驗中，我們會使用**評估模型**比較範例具有相同的錯誤分類成本。
 
@@ -121,7 +122,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 **評估模型**模組會產生具有單一資料列，其中包含各種度量的資料表。 若要建立一組傳回精確度結果，我們先使用**加入資料列**結合成單一資料表的結果。 我們接著使用下列中的 Python 指令碼**執行 Python 指令碼**模組以新增的模型名稱和每個資料列的訓練方法的結果資料表中：
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -138,7 +139,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     result = pd.concat([new_cols, dataframe1], axis=1)
     return result,
 ```
-
 
 ## <a name="results"></a>結果
 

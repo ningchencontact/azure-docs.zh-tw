@@ -12,27 +12,50 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 04/22/2019
 ms.author: b-juche
-ms.openlocfilehash: c2086eb0c5529d8e570a545e35fc716f70c7541f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f9c427045c9d42f6a11cc4bcc798cfc47a4428c
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691048"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523113"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Azure NetApp Files 的服務等級
-Azure NetApp Files 支援兩個服務層級：「進階」和「標準」。 
+服務層級為容量集區的屬性。 服務層級定義和以磁碟區指派給磁碟區的配額為基礎的容量集區中允許的最大輸送量來區分。
 
-## <a name="Premium"></a>進階儲存體
+## <a name="supported-service-levels"></a>支援的服務層級
 
-「進階」儲存體能提供最多每 TiB 64 MiB/秒的輸送量。 輸送量效能是針對磁碟區配額編製索引。 例如，來自進階儲存體並具有 2 TiB 已佈建配額 (無論實際耗用量為何) 的磁碟區，將具有 128 MiB/秒的輸送量。
+Azure 的 NetApp 檔案服務支援三種服務層級：*強力*， *Premium*，以及*標準*。 
 
-## <a name="Standard"></a>標準儲存體
+* <a name="Ultra"></a>強力的儲存體
 
-「標準」儲存體能提供最多每 TiB 16 MiB/秒的輸送量。 輸送量效能是針對磁碟區配額編製索引。 例如，來自標準儲存體並具有 2 TiB 已佈建配額 (無論實際耗用量為何) 的磁碟區，將具有 32 MiB/秒的輸送量。
+    強力的儲存層提供最多 128 MiB/秒的輸送量每 1 TiB 的磁碟區指派的配額。 
+
+* <a name="Premium"></a>進階儲存體
+
+    進階儲存層提供最多 64 MiB/秒的輸送量每 1 TiB 的磁碟區指派的配額。 
+
+* <a name="Standard"></a>標準儲存體
+
+    標準儲存層提供最多 16 MiB/秒的輸送量每 1 TiB 的磁碟區指派的配額。
+
+## <a name="throughput-limits"></a>輸送量限制
+
+磁碟區的輸送量限制取決於下列因素的組合：
+* 磁碟區所屬的容量集區服務層級
+* 指派給磁碟區的配額  
+
+下圖說明這個概念：
+
+![服務層級圖](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
+
+在上述範例 1，從已指派的配額 2 TiB 進階儲存層的容量集區的磁碟區會指派的輸送量限制為 128 MiB/秒 (2 TiB * 64 MiB/秒)。 此案例適用於無論容量集區的大小或實際的磁碟區耗用量。
+
+在上面的範例 2，從已指派的配額 100 GiB 的進階儲存層的容量集區的磁碟區會指派 6.25 MiB/秒的輸送量限制 (0.09765625 TiB * 64 MiB/秒)。 此案例適用於無論容量集區的大小或實際的磁碟區耗用量。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 如需不同服務層級的價格，請參閱 [Azure NetApp Files 定價頁面](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- 請參閱[適用於 Azure NetApp 檔案的成本模型](azure-netapp-files-cost-model.md)容量集區中的容量耗用量的計算 
 - [設定容量集區](azure-netapp-files-set-up-capacity-pool.md)

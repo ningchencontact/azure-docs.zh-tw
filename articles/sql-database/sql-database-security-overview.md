@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 584f30cc12aee722aed1079d5cefaee06d403cba
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867656"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790150"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -125,17 +125,11 @@ SQL Server 始终对所有连接强制要求加密 (SSL/TLS)。 这样可以确�
 
 [一律加密](/sql/relational-databases/security/encryption/always-encrypted-database-engine)功能的設計訴求是要保護特定資料庫資料行中儲存的敏感性資料以防存取 (例如，信用卡號碼、身分證號碼，或「必須知道」的資料)。 這包括資料庫管理員或其他特殊權限的使用者，該使用者經授權存取資料庫以執行管理工作，但沒有存取已加密資料行中特定資料的商務需求。 資料一律會加密，這表示加密的資料會解密，僅供可存取加密金鑰的用戶端應用程式進行處理。  加密金鑰決不會公開給 SQL，而且可以存放於 [Windows 憑證存放區](sql-database-always-encrypted.md)或 [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)。
 
-### <a name="masking"></a>遮罩
+### <a name="dynamic-data-masking"></a>動態資料遮罩
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
-#### <a name="dynamic-data-masking"></a>動態資料遮罩
-
 SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用者無法看見機密資料。 動態資料遮罩會自動探索 Azure SQL Database 中的可能敏感性資料，並提供可動作的建議來為這些欄位加上遮罩，盡量避免對應用程式層造成影響。 其運作方式為針對指定的資料庫欄位隱匿查詢結果集中的敏感性資料，而不變更資料庫中的資料。 如需詳細資訊，請參閱[開始使用 SQL Database 動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)。
-
-#### <a name="static-data-masking"></a>靜態資料遮罩
-
-[靜態資料遮罩](/sql/relational-databases/security/static-data-masking)是 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 預覽版 5 和更新版本中可用的用戶端工具。  靜態資料遮罩可讓使用者建立資料庫複本，其中所選資料行中的資料已經永久遮罩處理。 可用的遮罩函式包括 NULL 遮罩、單一值遮罩、隨機播放和群組隨機遮罩，以及字串複合遮罩。 有了資料庫的遮罩複本，組織便能夠藉由共用遮罩複本來區隔生產和測試環境。 敏感性資料受到充分保護，所有其他資料庫特性都受到維護。 需要對資料庫的第三方存取時，建議進行資料庫遮罩處理。
 
 ## <a name="security-management"></a>安全性管理
 

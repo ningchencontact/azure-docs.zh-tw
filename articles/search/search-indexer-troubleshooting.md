@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 81987115ba0406e704f2198061c6ee3cae8a72df
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024682"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539255"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>針對 Azure 搜尋服務中的常見索引子問題進行疑難排解
 
@@ -71,7 +71,7 @@ api-key: [admin key]
 
 Blob 索引子會[從容器的 Blob 中尋找並擷取文字](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs)。 擷取文字的某些問題包括：
 
-* 文件僅包含掃描的影像。 具有非文字內容的 PDF Blob (例如掃描的影像 (JPG)) 不會在標準 Blob 編製索引管線中產生結果。 若您具有包含文字項目的影像內容，您可以使用[認知搜尋](cognitive-search-concept-image-scenarios.md)來尋找及擷取文字。
+* 文件僅包含掃描的影像。 具有非文字內容的 PDF Blob (例如掃描的影像 (JPG)) 不會在標準 Blob 編製索引管線中產生結果。 如果您有文字項目使用的映像內容，您可以使用[認知搜尋](cognitive-search-concept-image-scenarios.md)尋找及擷取文字。
 * Blob 索引子已設為只為中繼資料建立索引。 若要擷取內容，Blob 索引子必須設為[同時擷取內容和中繼資料](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)：
 
 ```
@@ -94,5 +94,5 @@ api-key: [admin key]
 * 尚未為文件建立索引。 檢查入口網站以了解成功的索引子執行。
 * 文件已在索引子執行後更新。 若您的索引子是根據[排程](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule)執行，它最後將重新執行並擷取文件。
 * 資料來源中指定的[查詢](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax)排除了文件。 若文件並非資料來源的一部分，索引子將無法為文件建立索引。
-* [欄位對應](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings)或[認知搜尋](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro)已將文件變更，導致其看起來與您預期的不同。
+* [欄位對應](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings)或是[認知搜尋](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro)已變更的文件，它看起來與預期不同。
 * 請使用[查閱文件 API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) 來尋找您的文件。

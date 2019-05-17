@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: 32002f8b88a2fbeba29f15b3b9289ecf3d7560d0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942722"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794332"
 ---
 # <a name="prepare-your-container-technical-assets"></a>準備容器技術資產
 
@@ -45,7 +45,7 @@ ms.locfileid: "64942722"
 
 -   [Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   擴充功能：[Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) \(英文\)
+    *   分機號碼:[Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) \(英文\)
     *   擴充功能：[Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify) \(英文\)
     *   擴充功能：[Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
@@ -53,9 +53,10 @@ ms.locfileid: "64942722"
 
 ## <a name="create-the-container-image"></a>建立容器映像
 
-- 建立和設定容器虛擬機器 (VM) 的虛擬硬碟 (VHD)。 此 VHD 包含容器的作業系統 (Windows、Linux 或 Ubuntu)。 可能需要額外的資料磁碟。
-- 設定 VM 作業系統、VM 大小、要開放的連接埠，以及任何附加的資料磁碟。
-- 安裝供應項目所需的應用程式和其他軟體。 例如：資料庫軟體、協力廠商軟體或自訂應用程式。
+如需詳細資訊，請參閱下列主題：
+
+* [教學課程：建立容器映像部署至 Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [教學課程：建置和部署使用 Azure 容器登錄工作在雲端中的容器映像](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>後續步驟
 

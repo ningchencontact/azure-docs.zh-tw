@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5404d1b85821458aedef64b72ae635ea49aa1ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287541"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602500"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>使用資源的儀表板在 PIM 中執行存取權檢閱
 
@@ -31,9 +31,9 @@ ms.locfileid: "60287541"
 - 依指派類型顯示角色指派分佈的兩個圖表。
 - 關於新增角色指派的資料區域。
 
-![顯示圖表的系統管理員檢視儀表板螢幕擷取畫面](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![顯示圖表的系統管理員檢視儀表板螢幕擷取畫面](media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
-![顯示資料清單的系統管理員檢視儀表板螢幕擷取畫面](media/azure-pim-resource-rbac/role-settings.png)
+![顯示資料清單的系統管理員檢視儀表板螢幕擷取畫面](media/pim-resource-roles-overview-dashboards/role-settings.png)
 
 展示過去七天資源角色啟用的圖表。 此資料範圍限制在所選資源，並會顯示最常見角色的啟用 (擁有者、參與者和使用者存取系統管理員)，也會將所有角色的啟用結合顯示。
 

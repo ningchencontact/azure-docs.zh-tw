@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2018
+ms.date: 05/14/2019
 ms.author: b-juche
-ms.openlocfilehash: f08eaee038ad18c600826dea6fe0fd85935de59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c58ceef57b984f46b86bb2a8577c53b75082b78b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452903"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794620"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>調整容量集區或磁碟區的大小
 您可以視需要變更容量集區或磁碟區的大小。 
 
 ## <a name="resize-the-capacity-pool"></a>調整容量集區的大小 
 
-您可以用 4 TiB 作為遞增或遞減單位，來變更容量集區大小。 調整容量集區的大小後，將會變更已購買的 Azure NetApp Files 容量。
+您可以變更在 1 TiB 遞增或遞減的容量集區大小。 不過，容量集區大小不能小於 4 TiB。 調整容量集區的大小後，將會變更已購買的 Azure NetApp Files 容量。
 
 1. 在 [管理 NetApp 帳戶] 刀鋒視窗中，按一下要調整大小的容量集區。 
 2. 以滑鼠右鍵按一下容量集區名稱，或按一下容量集區資料列結尾處的 ["..."] 圖示，以顯示內容功能表。 

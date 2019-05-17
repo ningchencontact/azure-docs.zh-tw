@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4d3a9c5e985949d813b638806f60bc86f5a163a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550575"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789260"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
 
@@ -46,7 +46,9 @@ ms.locfileid: "60550575"
 
 ## <a name="incremental-mode"></a>累加模式
 
-在累加模式中，Resource Manager 會讓現存於資源群組中但未在範本內指定的資源**保持不變**。 以累加模式重新部署資源時，指定資源的所有屬性值，而不只是您正在更新的屬性值。 如果您未指定特定屬性，Resource Manager 會將更新解譯為覆寫這些值。
+在累加模式中，Resource Manager 會讓現存於資源群組中但未在範本內指定的資源**保持不變**。
+
+不過，當重新部署現有的資源，以累加模式，結果會不同。 指定的資源，而不只是您正在更新所有屬性。 常見的誤解是認為未指定的屬性保持不變。 如果您未指定特定屬性，Resource Manager 會將更新解譯為覆寫這些值。
 
 ## <a name="example-result"></a>範例結果
 
