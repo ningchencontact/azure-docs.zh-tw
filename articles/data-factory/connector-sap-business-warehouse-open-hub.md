@@ -100,10 +100,10 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SapOpenHub** | 是 |
-| 伺服器 | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
+| server | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
 | systemNumber | SAP BW 系統的系統編號。<br/>允許的值：以字串表示的二位數十進位數字。 | 是 |
 | clientId | SAP W 系統中用戶端的用戶端識別碼。<br/>允許的值：以字串表示的三位數十進位數字。 | 是 |
-| 語言 | SAP 系統使用的語言。 | 否 (預設值為 **EN**)|
+| language | SAP 系統使用的語言。 | 否 (預設值為 **EN**)|
 | userName | 能夠存取 SAP 伺服器的使用者名稱。 | 是 |
 | password | 使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
