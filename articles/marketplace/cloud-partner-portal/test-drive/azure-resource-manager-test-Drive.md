@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941580"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606428"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 試用產品
 
@@ -82,7 +82,7 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 ### <a name="accepted-parameter-metadata-types"></a>接受的參數中繼資料類型
 
-| 中繼資料類型   | 參數類型  | 描述     | 範例值    |
+| 中繼資料類型   | 參數類型  | 說明     | 範例值    |
 |---|---|---|---|
 | **baseuri**     | string          | 您部署套件的基底 URI| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
 | **username**    | string          | 新的隨機使用者名稱。| admin68876      |
@@ -382,7 +382,7 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 ![Azure Active Directory 租用戶清單](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![定義 Azure AD 租用戶的組織、網域與國家/地區](./media/azure-resource-manager-test-drive/subdetails5.png)
+![定義 Azure AD 租用戶的組織、 網域和國家/地區](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![確認選取範圍](./media/azure-resource-manager-test-drive/subdetails6.png)
 
