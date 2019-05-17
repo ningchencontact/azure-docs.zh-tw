@@ -126,23 +126,23 @@
       items:
         - name: 輸出連線 (傳統)
           href: load-balancer-outbound-connections-classic.md
-    - name: 為雲端服務設定多個 IP 位址
-      href: load-balancer-multivip.md
-      items:
-        - name: 設定雲端服務的內部 Load Balancer
-          href: load-balancer-get-started-ilb-classic-cloud.md
+        - name: 為雲端服務設定多個 IP 位址
+          href: load-balancer-multivip.md
           items:
-            - name: 設定雲端服務的內部 Load Balancer (PowerShell)
-              href: load-balancer-get-started-ilb-classic-ps.md
-            - name: 設定雲端服務的內部 Load Balancer (CLI)
-              href: load-balancer-get-started-ilb-classic-cli.md
-        - name: 設定公用 Load Balancer (傳統 PowerShell)
-          href: load-balancer-get-started-internet-classic-ps.md
-          items:
-            - name: 設定公用 Load Balancer (傳統雲端)
-              href: load-balancer-get-started-internet-classic-cloud.md
-            - name: 設定公用 Load Balancer (傳統 CLI)
-              href: load-balancer-get-started-internet-classic-cli.md
+            - name: 設定雲端服務的內部 Load Balancer
+              href: load-balancer-get-started-ilb-classic-cloud.md
+              items:
+                - name: 設定雲端服務的內部 Load Balancer (PowerShell)
+                  href: load-balancer-get-started-ilb-classic-ps.md
+                - name: 設定雲端服務的內部 Load Balancer (CLI)
+                  href: load-balancer-get-started-ilb-classic-cli.md
+            - name: 設定公用 Load Balancer (傳統 PowerShell)
+              href: load-balancer-get-started-internet-classic-ps.md
+              items:
+                - name: 設定公用 Load Balancer (傳統雲端)
+                  href: load-balancer-get-started-internet-classic-cloud.md
+                - name: 設定公用 Load Balancer (傳統 CLI)
+                  href: load-balancer-get-started-internet-classic-cli.md
 - name: 參考
   items:
     - name: 程式碼範例

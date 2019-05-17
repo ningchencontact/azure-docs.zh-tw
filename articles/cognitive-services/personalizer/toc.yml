@@ -49,14 +49,6 @@
       items:
         - name: 離線評估
           href: how-to-offline-evaluation.md
-    - name: 使用容器
-      items:
-        - name: 安裝及執行容器
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey'
-          href: personalizer-container-howto.md
-        - name: 設定容器
-          href: personalizer-container-configuration.md
-          displayName: 'docker, run, apikey'
 - name: 參考
   items:
     - name: 範例
