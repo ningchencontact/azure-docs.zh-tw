@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404190"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606499"
 ---
 # <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 有了服務對應，您就可將伺服器視為您心目中提供重要服務的互連式系統。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序、輸入和輸出連線的延遲，和連接埠之間的連線。
@@ -142,9 +142,9 @@ ms.locfileid: "60404190"
 ## <a name="role-icons"></a>角色圖示
 某些處理序在機器上扮演特殊角色︰Web 伺服器、應用程式伺服器及資料庫等。 服務對應會為程序和機器方塊加上角色圖示註解，以協助您一下就識別出程序或伺服器所扮演的角色。
 
-| 角色圖示 | 描述 |
+| 角色圖示 | 說明 |
 |:--|:--|
-| ![Web 伺服器](media/service-map/role-web-server.png) | Web 伺服器 |
+| ![Web 伺服器](media/service-map/role-web-server.png) | 網頁伺服器 |
 | ![應用程式伺服器](media/service-map/role-application-server.png) | 應用程式伺服器 |
 | ![資料庫伺服器](media/service-map/role-database.png) | 資料庫伺服器 |
 | ![LDAP 伺服器](media/service-map/role-ldap.png) | LDAP 伺服器 |
@@ -153,10 +153,10 @@ ms.locfileid: "60404190"
 ![角色圖示](media/service-map/role-icons.png)
 
 
-## <a name="failed-connections"></a>失敗的連線
+## <a name="failed-connections"></a>連接失敗
 「服務對應」對應內會顯示處理序和機器的失敗連線，並以紅色虛線指示用戶端系統無法連線到處理序或連接埠。 已部署服務對應代理程式的系統如果就是嘗試進行失敗連線的系統，則會報告失敗的連線。 服務對應會觀察無法建立連線的 TCP 通訊端，藉以衡量此處理序。 連線失敗的原因可能是防火牆、用戶端或伺服器設定不正確，或遠端服務無法使用。
 
-![失敗的連線](media/service-map/failed-connections.png)
+![連接失敗](media/service-map/failed-connections.png)
 
 了解失敗的連線有助於疑難排解、移轉驗證、安全性分析和整體架構理解。 失敗的連線有時無害，但它們通常直指問題所在，例如容錯移轉環境突然變成無法連線，或兩個應用程式層在雲端移轉之後無法通訊。
 
@@ -174,10 +174,10 @@ ms.locfileid: "60404190"
 
 ![伺服器連接埠群組](media/service-map/server-port-groups.png)
 
-## <a name="context-menu"></a>內容功能表
+## <a name="context-menu"></a>操作功能表
 按一下任何伺服器右上角的省略符號 (...)，會顯示該伺服器的內容功能表。
 
-![失敗的連線](media/service-map/context-menu.png)
+![連接失敗](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>載入伺服器對應
 按一下 [載入伺服器對應] 會導向新的對應，並以所選取的伺服器做為新的焦點機器。
@@ -297,7 +297,7 @@ Linux：
 
 為了管理成本和複雜度，連線記錄不代表個別的實體網路連線。 將多個實體網路連線群組為一個邏輯連線，其接著會反映於各自的資料表中。  這表示，*VMConnection* 資料表中的記錄代表一個邏輯群組，而非觀測到的個別實體連線。 在指定的一分鐘時間間隔內，共用下列屬性相同值的實體網路連線會彙總為 *VMConnection* 中的單一邏輯記錄。 
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--|:--|
 | `Direction` |連線的方向，值為 *inbound* 或 *outbound* |
 | `Machine` |電腦 FQDN |
@@ -309,7 +309,7 @@ Linux：
 
 為了說明群組的影響，會在記錄的下列屬性中提供群組實體連線數目的相關資訊：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--|:--|
 | `LinksEstablished` |已在報告時間範圍內建立的實體網路連線數目 |
 | `LinksTerminated` |已在報告時間範圍內終止的實體網路連線數目 |
@@ -320,7 +320,7 @@ Linux：
 
 除了連線計數計量，在指定邏輯連線或網路連接埠上傳送與接收的資料量相關資訊也會包含於記錄的下列屬性中：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--|:--|
 | `BytesSent` |已在報告時間範圍內傳送的位元組總數 |
 | `BytesReceived` |已在報告時間範圍內接收的位元組總數 |
@@ -346,16 +346,16 @@ Linux：
 #### <a name="geolocation"></a>地理位置
 *VMConnection* 也會在記錄的下列屬性中，包含每個連線記錄遠端的地理位置資訊： 
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--|:--|
-| `RemoteCountry` |裝載 RemoteIp 的國家/地區名稱。  例如，*United States* |
+| `RemoteCountry` |裝載 RemoteIp 國家/地區名稱。  例如，*United States* |
 | `RemoteLatitude` |地理位置緯度。  例如，*47.68* |
 | `RemoteLongitude` |地理位置經度。  例如：*-122.12* |
 
 #### <a name="malicious-ip"></a>惡意 IP
 *VMConnection* 資料表中的每個 RemoteIp 屬性均會根據一組具有已知惡意活動的 IP 進行檢查。 如果 RemoteIp 被識別為惡意的，將在記錄的下列屬性中填入下列屬性 (如果 IP 被視為不是惡意的，則它們是空的)：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--|:--|
 | `MaliciousIp` |RemoteIp 位址 |
 | `IndicatorThreadType` |偵測到的威脅指標是下列值之一：*殭屍網路*、*C2*、*CryptoMining*、*Darknet*、*DDos*、*MaliciousUrl*、*惡意程式碼*、*網路釣魚*、*Proxy*、*PUA*、*關注清單*。   |
@@ -372,7 +372,7 @@ Linux：
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 記錄
 類型為 *ServiceMapComputer_CL* 的記錄會有伺服器 (具有服務對應代理程式) 的清查資料。 這些記錄具有下表中的屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -397,7 +397,7 @@ Linux：
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL 類型記錄
 類型為 *ServiceMapProcess_CL* 的記錄會有伺服器 (具有服務對應代理程式) 上 TCP 連線處理程序的清查資料。 這些記錄具有下表中的屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |

@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848723"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593792"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>啟用適用於 Azure-SSIS Integration Runtime 的 Azure Active Directory 驗證
 
@@ -60,7 +60,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  將 ADF 的受控識別新增至群組。 您可以遵循本文[Data factory 受控 identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)取得主體的服務識別識別碼 (例如 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc，但是不會針對此用途使用服務身分識別應用程式識別碼)。
+3.  將 ADF 的受控識別新增至群組。 您可以遵循本文[Data factory 受控 identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)取得的主體管理身分識別物件識別碼 (例如 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc，但是不會針對此用途使用受控身分識別應用程式識別碼)。
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -170,12 +170,12 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 4.  在 [master] 資料庫上按一下滑鼠右鍵，然後選取 [新增查詢]。
 
-5.  取得 ADF 的受控識別。 您可以遵循本文[Data factory 受控 identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)來取得主體的服務身分識別應用程式識別碼 （但不是會針對此目的使用服務識別識別碼）。
+5.  取得 ADF 的受控識別。 您可以遵循本文[Data factory 受控 identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)來取得主體管理身分識別應用程式識別碼 （但不是會針對此目的使用受控身分識別的物件識別碼）。
 
 6.  在查詢視窗中，執行下列 T-SQL 指令碼，將 ADF 的受控識別轉換為二進位類型：
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
+    DECLARE @applicationId uniqueidentifier = '{your Managed Identity Application ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -184,7 +184,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 7.  清除查詢視窗，並執行下列 T-SQL 指令碼，以使用者的身分，新增 ADF 的受控識別
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your Managed Identity Application ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
@@ -216,7 +216,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 1.  安裝 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018)  模組。
 
-2.  在您的指令碼中，請勿設定 `CatalogAdminCredential` 參數。 例如︰
+2.  在您的指令碼中，請勿設定 `CatalogAdminCredential` 參數。 例如：
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

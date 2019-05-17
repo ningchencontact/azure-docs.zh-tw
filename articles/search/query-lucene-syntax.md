@@ -4,7 +4,7 @@ description: 用於 Azure 搜尋服務的完整 Lucene 語法參考。
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024232"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596567"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure 搜尋服務中的 Lucene 查詢語法
 您可以基礎根據適用於特殊查詢形式的豐富 [Lucene 查詢剖析器](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)語法，為 Azure 搜尋服務撰寫查詢：萬用字元、模糊搜尋、鄰近搜尋、規則運算式只是其中一些範例。 大部分的 Lucene 查詢剖析器語法都可[完整移植到 Azure 搜尋服務中實作](search-lucene-query-architecture.md)，唯一的例外是*範圍搜尋*，這必須在 Azure 搜尋服務中透過 `$filter` 運算式來建構。 
@@ -121,16 +121,19 @@ NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "w
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a>萬用字元和 regex 查詢的評分
  Azure 搜尋服務對文字查詢會使用以頻率為基礎的評分 ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf))。 不過，針對字詞範圍可能很廣泛的萬用字元和 regex 查詢，則會忽略頻率因素，以防止罕見字詞的相符項目誤獲較高的排名。 系統對於萬用字元和 regex 搜尋的所有相符項目，會同等視之。
 
-##  <a name="bkmk_fields"></a>欄位範圍查詢  
- 您可以指定 `fieldname:searchterm` 建構以定義特定欄位的查詢作業，其中的欄位是單字，搜尋字詞也是單字或片語，並選擇性使用布林運算子。 某些範例包括以下內容：  
+##  <a name="bkmk_fields"></a> 加入欄位的搜尋  
+您可以定義加入欄位的搜尋作業與`fieldName:searchExpression`語法，其中的搜尋運算式可以是單一文字或片語或括弧括住，並選擇性地使用布林運算子更複雜的運算式。 以下為部分範例：  
 
 - genre:jazz NOT history  
 
 - artists:("Miles Davis" "John Coltrane")
 
-  如果您想要將字串視為單一實體評估，請務必將多個字串放在引號中，就此案例而言，即搜尋 `artists` 欄位中的兩個不同藝人。  
+如果您想要將字串視為單一實體評估，請務必將多個字串放在引號中，就此案例而言，即搜尋 `artists` 欄位中的兩個不同藝人。  
 
-  `fieldname:searchterm` 中指定的欄位必須是 `searchable` 欄位。  如需欄位定義中索引屬性使用方式的詳細資訊，請參閱[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)。  
+`fieldName:searchExpression` 中指定的欄位必須是 `searchable` 欄位。  如需欄位定義中索引屬性使用方式的詳細資訊，請參閱[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)。  
+
+> [!NOTE]
+> 當使用回覆搜尋運算式時，您不需要使用`searchFields`參數，因為每個回覆搜尋運算式有明確指定的欄位名稱。 不過，您仍然可以使用`searchFields`參數，如果您想要執行的查詢，其中一些組件的範圍設定為特定的欄位，而其餘無法套用至數個欄位。 例如，查詢`search=genre:jazz NOT history&searchFields=description`會比對`jazz`只`genre`欄位中，而它會比對`NOT history`使用`description`欄位。 中提供的欄位名稱`fieldName:searchExpression`一定會優先於`searchFields`參數，也就是為什麼在此範例中，我們不需要包含`genre`在`searchFields`參數。
 
 ##  <a name="bkmk_fuzzy"></a>模糊搜尋  
  模糊搜尋會尋找具有類似建構的相符項目。 在每個 [Lucene 文件](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)中，模糊搜尋以 [Damerau-Levenshtein 距離](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)為基礎。 模糊搜尋可將一個字詞擴充為最多 50 個符合距離準則的字詞。 

@@ -15,16 +15,16 @@ ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb0acd1534bab11eb57a7aa0e695f192b5999ed2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: d9978905f8ae0719f6a77ca2351f2c43bbf94ee0
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076491"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550353"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>案例：呼叫 web Api 的行動應用程式
 
-了解所有您要建置呼叫 web Api 的行動應用程式。
+了解所有您需要知道建置行動應用程式呼叫 web Api。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -43,23 +43,23 @@ ms.locfileid: "65076491"
 
 ## <a name="overview"></a>概觀
 
-建置行動應用程式，個人化、 運作更為順暢的使用者體驗時不可或缺。  Microsoft 身分識別平台可讓行動裝置開發人員若要這樣做只適用於 iOS 和 Android 的使用者。 您的應用程式可以在 Azure AD 中，個人 Microsoft 帳戶登入與 Azure AD B2C 使用者，並取得權杖來代表他們執行呼叫 web API。 若要實作這些流程，我們將使用 Microsoft Authentication Library (MSAL) 會實作的業界標準[OAuth2.0 授權碼流程](v2-oauth2-auth-code-flow.md)。
+個人化、 順暢的使用者體驗是不可或缺的行動裝置應用程式。  Microsoft 身分識別平台可讓行動裝置開發人員建立適用於 iOS 和 Android 的使用者經驗。 登入 Azure Active Directory (Azure AD) 使用者、 個人的 Microsoft 帳戶使用者和 Azure AD B2C 使用者並取得權杖以呼叫 web API，其代表您的應用程式。 若要實作這些流程，我們將使用 Microsoft Authentication Library (MSAL)，它會實作的業界標準[OAuth2.0 授權碼流程](v2-oauth2-auth-code-flow.md)。
 
 ![精靈應用程式](./media/scenarios/mobile-app.svg)
 
 行動裝置應用程式的考量：
 
-- ***使用者體驗是關鍵***:允許使用者登入時，要求之前，請先查看您的應用程式的值，並只要求所需的權限。
-- ***支援所有的使用者設定***:許多行動商務使用者會在 條件式存取與裝置合規性政策下。 請務必在支援這些重要的案例。
-- ***實作單一登入 (SSO)***:MSAL 和 Microsoft 身分識別平台可讓啟用單一登入裝置的瀏覽器或透過 Microsoft Authenticator （在 Android 上的 Intune 公司入口網站） 的簡單。
+- **使用者體驗是關鍵**:允許使用者登入時，要求之前，請先查看您的應用程式的值，並要求的必要權限。
+- **支援所有的使用者設定**:許多行動商務使用者會在 條件式存取與裝置合規性政策下。 請務必在支援這些重要的案例。
+- **實作單一登入 (SSO)**:MSAL 和 Microsoft 身分識別平台可讓啟用單一登入裝置的瀏覽器或透過 Microsoft Authenticator （在 Android 上的 Intune 公司入口網站） 的簡單。
 
 ## <a name="specifics"></a>詳細資料
 
-Microsoft 身分識別平台上建置行動應用程式時, 的端對端體驗有幾個考量：
+Microsoft 身分識別平台上建置行動應用程式時，請記住這些考量：
 
-- 根據平台，而不需要任何互動登入可能無法在第一次登入。 iOS，比方說，需要取得 SSO 第一次透過 Microsoft Authenticator （及在 Android 上的 Intune 公司入口網站） 時，顯示使用者互動的應用程式。
-- 在 iOS 和 Android 上，MSAL 可能使用外部瀏覽器 （這可能會出現在您的應用程式頂端），讓使用者登入。 這可以自訂要改為使用中的應用程式 web 檢視。
-- 永遠不會使用行動應用程式中的 祕密，則會由所有使用者存取。
+- 根據平台，某些使用者互動可能需要使用者登入第一次。 例如，iOS 需要 Microsoft Authenticator （和 Android 上的 Intune 公司入口網站） 在第一次使用 SSO 時，顯示使用者互動的應用程式。
+- 在 iOS 和 Android 上，MSAL 可能會使用外部瀏覽器 （這可能會出現在您的應用程式頂端），讓使用者登入。 您可以自訂要改為使用中的應用程式 web 檢視的組態。
+- 永遠不會使用行動應用程式中的密碼。 它可讓所有使用者。
 
 ## <a name="next-steps"></a>後續步驟
 

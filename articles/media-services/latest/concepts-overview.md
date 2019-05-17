@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152639"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762316"
 ---
 # <a name="media-services-concepts"></a>媒體服務概念
 
@@ -26,7 +26,7 @@ ms.locfileid: "65152639"
 請先檢閱這些主題所述的基本概念再開始進行開發。
 
 > [!NOTE]
-> 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](developers-guide.md)。
+> 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](media-services-apis-overview.md#sdks)。
 
 ## <a name="terminology"></a>術語
 
@@ -76,7 +76,7 @@ A**串流端點**代表可以直接向用戶端播放器應用程式，使用其
 
 不論您串流處理實況或點播內容，使用動態封裝。 下圖顯示使用動態封裝工作流程上隨選資料流。
 
-![動態封裝](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![動態封裝](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 使用媒體服務中，您可以傳遞利用進階加密標準 (AES-128) 動態加密的即時與隨內容或 / 和三個主要數位版權管理 (DRM) 系統中任一個：Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，可傳遞 AES 金鑰和 DRM (PlayReady、Widevine 和 FairPlay) 授權給授權用戶端。
 
@@ -134,7 +134,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 - [Azure 媒體播放器概觀](use-azure-media-player.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

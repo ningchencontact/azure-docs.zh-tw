@@ -1,6 +1,6 @@
 ---
-title: 呼叫 web Api-取得權杖的應用程式的行動裝置應用程式 |Microsoft 身分識別平台
-description: 了解如何建置行動應用程式呼叫 web Api （取得應用程式權杖）
+title: 行動裝置應用程式呼叫 web Api-應用程式取得權杖 |Microsoft 身分識別平台
+description: 了解如何建置行動應用程式呼叫 web Api （應用程式取得權杖）
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -15,43 +15,43 @@ ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6933bfbbff574495655ef9065a786fa313b02bd6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 88c9215ed221e24099eeb219a4db599a1955920a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075171"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550333"
 ---
-# <a name="mobile-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api-的行動裝置應用程式取得權杖
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>呼叫 web Api-的行動裝置應用程式取得權杖
 
-您可以開始呼叫受保護之前的 web Api，您的應用程式需要存取權杖。 本節會引導您使用 Microsoft Authentication Library (MSAL) 取得權杖的程序。
+您可以開始呼叫受保護之前的 web Api，您的應用程式需要存取權杖。 這篇文章會引導您使用 Microsoft Authentication Library (MSAL) 取得權杖的程序。
 
 ## <a name="scopes-to-request"></a>要求的範圍
 
-當要求權杖時，範圍永遠都會是必要的。 範圍可決定您的應用程式可以存取哪些資料。  
+當您要求權杖時，您需要定義的範圍。 範圍可決定您的應用程式可以存取哪些資料。  
 
-簡單的方法是將所需的 web API 的`App ID URI`與範圍`.default`。 這會告訴 Microsoft 身分識別應用程式需要在入口網站中設定的所有範圍。
+簡單的方法是將所需的 web API 的`App ID URI`與範圍`.default`。 如此一來，就會告訴您的應用程式需要在入口網站中設定的所有領域的 Microsoft 身分識別平台。
 
-Android
+#### <a name="android"></a>Android
 ```Java
 String[] SCOPES = {"https://graph.microsoft.com/.default"};
 ```
 
-iOS
+#### <a name="ios"></a>iOS
 ```swift
 let scopes: [String] = ["https://graph.microsoft.com/.default"]
 ```
 
-Xamarin
+#### <a name="xamarin"></a>Xamarin
 ```CSharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
-## <a name="acquiring-tokens"></a>取得權杖
+## <a name="get-tokens"></a>取得權杖
 
-### <a name="via-msal"></a>via MSAL
+### <a name="via-msal"></a>Via MSAL
 
-MSAL 可讓應用程式取得權杖，以無訊息方式和互動方式。 只會呼叫這些方法，MSAL 會傳回所要求的範圍的存取權杖。 正確的模式是要執行無訊息的要求，然後回到互動式要求。
+MSAL 可讓應用程式取得權杖，以無訊息方式和互動方式。 只會呼叫這些方法，MSAL 會傳回存取權杖要求的範圍。 正確的模式是以執行無訊息的要求，並改為使用互動式要求。
 
 #### <a name="android"></a>Android
 
@@ -61,32 +61,32 @@ PublicClientApplication sampleApp = new PublicClientApplication(
                     this.getApplicationContext(),
                     R.raw.auth_config);
 
-// Check if there are any accounts we can sign in silently
-// Result is in our silent callback (success or error)
+// Check if there are any accounts we can sign in silently.
+// Result is in the silent callback (success or error).
 sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
     @Override
     public void onAccountsLoaded(final List<IAccount> accounts) {
 
         if (accounts.isEmpty() && accounts.size() == 1) {
-            // TODO: Create a silent callback to catch successful or failed request
+            // TODO: Create a silent callback to catch successful or failed request.
             sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
         } else {
-            /* No accounts or >1 account */
+            /* No accounts or > 1 account. */
         }
     }
 });    
 
 [...]
 
-// No accounts found, interactively request a token 
-// TODO: Create an interactive callback to catch successful or failed request
+// No accounts found. Interactively request a token.
+// TODO: Create an interactive callback to catch successful or failed request.
 sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
 ```
 
 #### <a name="ios"></a>iOS
 
 ```swift
-// Initialize our app 
+// Initialize the app.
 guard let authorityURL = URL(string: kAuthority) else {
     self.loggingText.text = "Unable to create authority URL"
     return
@@ -95,14 +95,14 @@ let authority = try MSALAADAuthority(url: authorityURL)
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 
-// Get tokens
+// Get tokens.
 let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
 applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
     if let error = error {
         let nsError = error as NSError
 
-        // interactionRequired means we need to ask the user to sign-in. This usually happens
-        // when the user's Refresh Token is expired or if the user has changed their password
+        // interactionRequired means you need to ask the user to sign in. This usually happens
+        // when the user's refresh token is expired or when the user has changed the password,
         // among other possible reasons.
         if (nsError.domain == MSALErrorDomain) {
             if (nsError.code == MSALError.interactionRequired.rawValue) {    
@@ -136,7 +136,7 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
         return
     }
 
-    // Token is ready via silent acquisition 
+    // Token is ready via silent acquisition.
     self.accessToken = result.accessToken
 }
 ```
@@ -160,13 +160,13 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-### <a name="via-protocol"></a>透過通訊協定
+### <a name="via-the-protocol"></a>透過通訊協定
 
-不建議使用進行直接對通訊協定。 您的應用程式將無法支援的許多單一登入 (SSO) 的案例，並不能支援所有的裝置管理與條件式存取案例。
+我們不建議直接使用通訊協定。 如果您這樣做，應用程式不支援某些單一登入 (SSO)、 裝置管理和條件式存取案例。
 
-當使用通訊協定的行動裝置應用程式取得權杖，您必須提出 2 的要求： 取得授權碼，並用它交換權杖。 
+當您使用的通訊協定為行動裝置應用程式取得權杖時，您需要進行兩項要求： 取得授權碼，並用它交換權杖。
 
-#### <a name="getting-authorization-code"></a>取得授權碼
+#### <a name="get-authorization-code"></a>取得授權碼
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -178,7 +178,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="getting-access-and-refresh-token"></a>取得存取和重新整理權杖
+#### <a name="get-access-and-refresh-token"></a>取得存取權和重新整理權杖
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1

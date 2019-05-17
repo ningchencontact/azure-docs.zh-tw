@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 6dcec5b72be8868a83a5760ef95117d3e751bcc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9100a764ba3922e0254b7fa5cd03b18e204925f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60399389"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596011"
 ---
 # <a name="get-started-with-device-management-java"></a>開始使用裝置管理 (Java)
 
@@ -57,7 +57,7 @@ ms.locfileid: "60399389"
 
 * Maven 3。  <br/> [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 [Maven](https://maven.apache.org/what-is-maven.html)。
 
-* [Node.js 版本 0.10.0 或更新版本](https://nodejs.org)。
+* 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 

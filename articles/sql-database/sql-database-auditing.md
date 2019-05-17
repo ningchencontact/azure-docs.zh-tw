@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924750"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827762"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -110,10 +110,11 @@ ms.locfileid: "64924750"
 10. 如果您想要自訂稽核的事件，您可以透過 [PowerShell Cmdlet](#subheading-7) 或 [REST API](#subheading-9) 來自訂。
 11. 設定您的稽核設定之後，您可以開啟新的威脅偵測功能，並設定電子郵件以接收安全性警示。 使用威脅偵測時，您會接收與指示潛在安全性威脅的異常資料庫活動相關的主動式警示。 如需詳細資訊，請參閱[開始使用威脅偵測](sql-database-threat-detection-get-started.md)。
 
-
 > [!IMPORTANT]
->在 Azure SQL 資料倉儲或擁有 Azure SQL 資料倉儲的伺服器上啟用稽核，**將導致資料倉儲恢復運作** (即使先前已暫停)。 **啟用稽核之後，請務必再次暫停資料倉儲**。
+> 啟用稽核暫停 Azure SQL 資料倉儲上不可能。 若要啟用它，請取消暫停資料倉儲。
 
+> [!WARNING]
+> 可在其上的 「 Azure SQL 資料倉儲的伺服器上啟用稽核**將會導致資料倉儲正在繼續執行，而再度重新暫停**這可能會產生計費費用。
 
 ## <a id="subheading-3"></a>分析稽核記錄和報告
 

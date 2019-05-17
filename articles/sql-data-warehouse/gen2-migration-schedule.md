@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987933"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596105"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>將您的資料倉儲升級為 Gen2
 
@@ -39,9 +39,9 @@ Microsoft 協助降低執行資料倉儲的初階的成本。  低廉的計算�
 | 加拿大東部 |\* |\* |
 | 美國中部 |可用 |2019 年 6 月 1日日 |
 | 中國東部 |\* |\* |
-| 中國東部 2 |\* |\* |
+| 中國東部 2 |\* |只有 Gen2 |
 | 中國北部 |\* |\* |
-| 中國北部 2 |\* |\* |
+| 中國北部 2 |可用 |只有 Gen2 |
 | 東亞 |可用 |2019 年 6 月 1日日 |
 | 美國東部 |可用 |2019 年 6 月 1日日 |
 | 美國東部 2 |可用 |2019 年 6 月 1日日 |

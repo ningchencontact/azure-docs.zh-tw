@@ -4,7 +4,7 @@ description: 了解公用用戶端與機密用戶端設定選項的應用程式�
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a48eea9fedd2d82f44693d58b31ee0d5c8c288d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d731a8153dc6a70382c0d87cc20d8c961d9fe24
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138541"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546019"
 ---
 # <a name="application-configuration-options"></a>Možnosti konfigurace aplikace
 
@@ -35,7 +35,7 @@ ms.locfileid: "65138541"
     - [用戶端祕密](#client-secret)（針對機密用戶端應用程式）。
 - [記錄選項](#logging)，包括記錄層級、 控制項的個人資料，以及使用程式庫元件的名稱。
 
-## <a name="authority"></a>授權單位
+## <a name="authority"></a>授權
 授權單位是表示 MSAL 可以要求權杖的目錄的 URL。 一般的授權單位是：
 
 - https://login.microsoftonline.com/&lt租用戶&gt;/，其中&lt;租用戶&gt;是 Azure AD 租用戶或網域，此 Azure AD 租用戶相關聯的租用戶識別碼。  只能用來登入特定組織的使用者。
@@ -58,7 +58,7 @@ Azure AD 雲端授權單位 」 包含兩個部分：
 
 執行個體和對象可串連，並在提供做為授權單位 URL。 在 MSAL.NET MSAL 之前的版本 3.x 中，您必須撰寫的授權單位自行取決於您想要的目標和登入對象的雲端。  下圖顯示如何將授權單位 URL 由所組成。
 
-![授權單位](media/msal-client-application-configuration/authority.png)
+![授權](media/msal-client-application-configuration/authority.png)
 
 ## <a name="cloud-instance"></a>雲端執行個體
 **執行個體**用來指定從 Microsoft Azure 公用雲端，或國家/地區雲端的使用者時，是否要簽署您的應用程式。 在您的程式碼中，使用 MSAL，Azure 雲端執行個體可以設定使用列舉型別，或傳遞的 URL[國家雲端執行個體](authentication-national-cloud.md#azure-ad-authentication-endpoints)做為`Instance`成員 （如果知道）。

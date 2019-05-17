@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699085"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796435"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
@@ -232,10 +232,10 @@ ms.locfileid: "64699085"
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. 若要關閉此警告。 移至 複寫的項目 > VM > 按一下 解除警示，在 概觀 區段下。
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>看不見 Azure VM，無法在「啟用複寫」中選取
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>無法查看 「 啟用複寫 」 中的選取範圍的 Azure VM 或資源群組
 
  **原因 1：資源群組和來源虛擬機器位於不同的位置** <br>
-Azure Site Recovery 目前要求來源區域資源群組和虛擬機器應該位在相同的位置。 如果情況不是這樣，那麼在保護期間您就無法尋找虛擬機器。
+Azure Site Recovery 目前規定，來源區域的資源群組和虛擬機器應該位於相同的位置。 如果情況不是這樣，那麼在保護期間您就無法尋找虛擬機器。 因應措施，您可以啟用複寫，從 VM 而不是復原服務保存庫。 移至 Sourece VM > 屬性 > 嚴重損壞修復並啟用複寫。
 
 **原因 2：資源群組不在選取的訂用帳戶中** <br>
 如果資源群組不是指定的訂用帳戶的一部分，則可能無法在保護時尋找該資源組。 請確定資源群組屬於正在使用的訂用帳戶。
@@ -252,7 +252,7 @@ Azure Site Recovery 目前要求來源區域資源群組和虛擬機器應該位
 >
 >請務必在使用下列指令碼之前，先更新 ""AzureRM.Resources"" 模組。
 
-您可以使用[移除過時 ASR 組態指令碼](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)，並移除 Azure VM 上的過時 Site Recovery 組態。 在移除過時的設定之後，您應該就能看到該 VM。
+您可以使用[移除過時 ASR 組態指令碼](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)，並移除 Azure VM 上的過時 Site Recovery 組態。 在移除過時的設定之後，您應該就能看到該 VM。
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>無法選取虛擬機器進行保護
  **原因 1：虛擬機器在失敗或沒有回應的狀態下安裝了某些延伸模組** <br>
@@ -311,7 +311,7 @@ Azure Site Recovery 目前要求來源區域資源群組和虛擬機器應該位
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>啟用保護失敗，原因是 GRUB 組態中所提的裝置名稱，而不是 UUID (錯誤碼 151126)
 
 **可能的原因：** </br>
-GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") 可能包含 **root** 和 **resume** 參數的值作為實際裝置名稱，而不是 UUID。 Site Recovery 會強制執行 UUID 方法，因為裝置名稱可能會經由 VM 重新開機而變更，而且 VM 可能不會提出容錯移轉時的相同名稱而造成問題。 例如︰ </br>
+GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") 可能包含 **root** 和 **resume** 參數的值作為實際裝置名稱，而不是 UUID。 Site Recovery 會強制執行 UUID 方法，因為裝置名稱可能會經由 VM 重新開機而變更，而且 VM 可能不會提出容錯移轉時的相同名稱而造成問題。 例如： </br>
 
 
 - 下面這一行來自 GRUB 檔案 **/boot/grub2/grub.cfg**。 <br>
@@ -327,7 +327,7 @@ GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.
 裝置名稱應該取代為對應的 UUID。<br>
 
 
-1. 執行命令來尋找裝置的 UUID"blkid\<裝置名稱 >"。 例如︰<br>
+1. 執行命令來尋找裝置的 UUID"blkid\<裝置名稱 >"。 例如：<br>
    ```
    blkid /dev/sda1
    ```<br>

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 5/16/2019
 ms.author: victorh
-ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510826"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827432"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>自動調整和區域備援應用程式閘道 
 
@@ -62,7 +62,7 @@ V2 SKU 的定價模型驅動耗用量與不再附加至執行個體計數或大�
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-[定價頁面](https://azure.microsoft.com/pricing/details/application-gateway/)將會更新以反映於 2019 5 月 14 日的地區的價格。 已排定於 2019 年 6 月 1 日開始計費。
+如需定價資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/application-gateway/)。 已排定於 2019 年 7 月 1 日開始計費。
 
 **範例 1**
 
@@ -100,7 +100,7 @@ V2 SKU 的定價模型驅動耗用量與不再附加至執行個體計數或大�
 您可以設定應用程式閘道和 WAF 用於相應縮小兩種模式：
 
 - **自動調整**-已啟用自動調整，應用程式閘道和 WAF v2 Sku 相應增加或減少依據應用程式的流量需求。 此模式為提供更佳的彈性，您的應用程式，並且讓您不需要猜測應用程式閘道大小或執行個體計數。 此模式也可讓您不需要執行閘道在預期的最大流量負載的尖峰佈建容量來節省成本。 客戶必須指定最小值和選擇性的最大執行個體計數。 最小容量可確保您的應用程式閘道和 WAF v2 不會因為下列指定，即使在流量不存在的最小執行個體計數。 您將支付此最小容量，即使在沒有任何流量。 您可以選擇性地指定最大執行個體計數，以確保應用程式閘道無法擴充超過指定的執行個體數目。 您將會繼續由閘道的流量數量向您收費。 執行個體計數的範圍可以從 0 到 125。 如果未指定，則執行個體計數上限的預設值為 20。
-- **手動**-您也可以選擇手動模式中，閘道將不會自動調整規模。 在此模式中，如果沒有更多的流量多於哪些應用程式閘道或 WAF 是能夠處理，它可能會導致流量遺失。 手動模式中，指定執行個體計數是必要的。 執行個體計數從 1 變更到 125 的執行個體。
+- **手動**-您也可以選擇手動模式中，閘道將不會自動調整規模。 在此模式中，如果沒有更多的流量，比什麼應用程式閘道或 WAF 可處理，它可能會導致流量遺失。 手動模式中，指定執行個體計數是必要的。 執行個體計數從 1 變更到 125 的執行個體。
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>SKU v1 與 v2 SKU 之間的功能比較
 

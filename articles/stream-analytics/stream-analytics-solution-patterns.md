@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4f4f22628d2c2a6beb7974aa9b776a2148a3fee0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65238058"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761984"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics 解決方案模式
 
@@ -58,7 +58,7 @@ SQL 不是高輸送量資料存放區中，並從 Azure Stream Analytics 到 SQL
 
 大部分的 web 服務和 web 應用程式立即使用要求/回應模式提供展示層。 要求/回應模式很容易建置，而且可以輕鬆地調整使用無狀態前端和可調整的存放區，像是 Cosmos DB 的低回應時間。
 
-高的資料磁碟區通常會建立以 CRUD 為基礎的系統中的效能瓶頸。 [事件溯源解決方案模式](/azure/architecture/patterns/event-sourcing.md)用來解決效能瓶頸。 時態性的模式和深入資訊也是困難且效率不佳，從傳統的資料存放區擷取。 現代的大量資料導向應用程式通常會採用以資料流程為基礎的架構。 Azure Stream Analytics，做為移動中的資料計算引擎是在該架構中的採用。
+高的資料磁碟區通常會建立以 CRUD 為基礎的系統中的效能瓶頸。 [事件溯源解決方案模式](/azure/architecture/patterns/event-sourcing)用來解決效能瓶頸。 時態性的模式和深入資訊也是困難且效率不佳，從傳統的資料存放區擷取。 現代的大量資料導向應用程式通常會採用以資料流程為基礎的架構。 Azure Stream Analytics，做為移動中的資料計算引擎是在該架構中的採用。
 
 ![ASA 事件來源的應用程式](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 

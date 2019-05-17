@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6e09ec1f070f9ee0f4162524e4bd80d1f81adc3
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546138"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560647"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Data Lake Storage Gen1 複製到 Gen2
 
@@ -130,14 +130,49 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 
 16. 確認資料已複製到 Data Lake Storage Gen2 帳戶中。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
-從檔案型資料存放區複製大量資料時，建議您：
+若要評估升級從 Azure Data Lake 儲存體 (ADLS) Gen1 至 Gen2 一般情況下，請參閱[從 Azure Data Lake 儲存體 Gen1 的巨量資料分析解決方案升級至 Azure Data Lake 儲存體 Gen2](../storage/blobs/data-lake-storage-upgrade.md)。 下列各節會介紹使用 ADF 從 Gen1 的資料升級至 Gen2 的最佳作法。
 
-- 將檔案分割成 10TB 到 30TB 的檔案集。
-- 請勿觸發太多並行複製執行，以避免來源或接收資料存放區的節流。 您可以從一個複製執行開始並且監視輸送量，然後視需要逐漸增加。
+### <a name="data-partition-for-historical-data-copy"></a>資料分割的歷程記錄資料的複本
+
+- 如果在 ADLS Gen1 中的總資料大小小於**30 TB**的檔案數目，而且小於**1 百萬個**，您可以執行的單一複製活動中複製所有的資料。
+- 如果您有要複製的資料的大小時，或您想管理批次中的資料移轉並使每個 windows 特定的時間內完成的彈性，建議您的資料分割，在此情況下它也會降低任何非預期的 iss 的風險ue。
+
+強烈建議 PoC （概念證明），以驗證端對端解決方案，並測試您的環境中的複製輸送量。 主要的 PoC 步驟： 
+
+1. 使用單一複製活動從 ADLS Gen1 將數 Tb 的資料複製到 ADLS Gen2 以取得複製效能基準線，開始建立一個 ADF 管線[資料整合單位 (DIUs)](copy-activity-performance.md#data-integration-units)為 128。 
+2. 根據您在步驟 1 中取得的複製輸送量，計算整個資料移轉所需的預估的時間。 
+3. （選擇性）建立一個控制資料表，並定義檔案篩選器來分割要移轉的檔案。 讓您分割的檔案，依照下列方式： 
+
+    - 萬用字元篩選條件 （建議） 使用分割的資料夾名稱或資料夾名稱 
+    - 分割檔案的上次修改時間 
+
+### <a name="network-bandwidth-and-storage-io"></a>網路頻寬和儲存體 I/O 
+
+以便您可以管理儲存體 I/O 上的使用量，以便在移轉期間不會影響 ADLS Gen1 的一般商務工作，您可以控制從 ADLS Gen1 讀取資料，並將資料寫入至 ADLS Gen2 ADF 複製作業的並行存取。
+
+### <a name="permissions"></a>權限 
+
+在 Data Factory [ADLS Gen1 連接器](connector-azure-data-lake-store.md)服務主體和受管理的身分識別支援 Azure 資源驗證;[ADLS Gen2 連接器](connector-azure-data-lake-storage.md)支援帳戶金鑰，服務主體，並管理 Azure 資源驗證身分識別。 若要能夠瀏覽的 Data Factory 和複製所有檔案/Acl 視需要都請確定您授與最高之帳戶的權限不足您提供給存取/讀取/寫入所有的檔案，並設定 Acl，如果您選擇。 若要授與其做 super-使用者/擁有者角色，在移轉期間的建議。 
+
+### <a name="preserve-acls-from-data-lake-storage-gen1"></a>保留從 Data Lake 儲存體 Gen1 的 Acl
+
+如果您想要複寫的 Acl，以及資料檔案，從 Data Lake 儲存體 Gen1 升級至 Gen2 時，請參閱[保留的 Acl，從 Data Lake 儲存體 Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1)。 
+
+### <a name="incremental-copy"></a>增量複製 
+
+數種方法可用來從 ADLS Gen1 載入只將新的或更新檔案：
+
+- 載入新的或更新的檔案依時間分割資料夾或檔案名稱，例如/2019年/05/13 / *;
+- 載入新的或更新檔案： 依 LastModifiedDate;
+- 任何第 3 方工具/解決方案，來識別新的或更新的檔案，然後將 ADF 管線中的檔案或資料夾名稱，透過參數或資料表/檔案。  
+
+若要執行累加式載入適當的頻率取決於 ADLS Gen1 中的檔案總數以及要載入每次新的或更新檔案的磁碟區。  
 
 ## <a name="next-steps"></a>後續步驟
 
-* [複製活動概觀](copy-activity-overview.md)
-* [Azure Data Lake Storage Gen2 連接器](connector-azure-data-lake-storage.md)
+> [!div class="nextstepaction"]
+> [複製活動概觀](copy-activity-overview.md)
+> [Azure Data Lake 儲存體 Gen1 連接器](connector-azure-data-lake-store.md)
+> [Azure Data Lake 儲存體 Gen2 連接器](connector-azure-data-lake-storage.md)

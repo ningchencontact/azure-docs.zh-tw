@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 該 power Azure 開發人員空格和 azds.yaml 組態檔中的設定方式說明的程序
 keywords: azds.yaml，Azure 開發人員空格、 開發空格、 Docker、 Kubernetes、 Azure，AKS，Azure Kubernetes Service，容器
-ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687146"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605422"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 開發空間的運作方式，並已設定
 
@@ -29,7 +29,7 @@ Azure 開發人員的空間會建立並部署、 執行和偵錯您在 AKS 的 K
 
 * [使用 CLI 和 Visual Studio Code 的 Java](quickstart-java.md)
 * [使用 CLI 和 Visual Studio Code 的.NET core](quickstart-netcore.md)
-* [使用 Visual Studio 2017 的.NET core](quickstart-netcore-visualstudio.md)
+* [使用 Visual Studio 的.NET core](quickstart-netcore-visualstudio.md)
 * [使用 CLI 和 Visual Studio Code 的 Node.js](quickstart-nodejs.md)
 
 ## <a name="how-azure-dev-spaces-works"></a>Azure 開發空間的運作方式
@@ -66,7 +66,7 @@ Azure 的 Dev 空間有兩個不同的元件，與您互動： 控制器和用�
 您可以使用用戶端從命令列工具的一部分`azds`命令。 您也可以使用工具與用戶端：
 
 * Visual Studio 程式碼使用[Azure 開發人員空間延伸模組](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)。
-* Visual Studio 2017 [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)。
+* Visual Studio 中的使用[Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)。
 
 以下是設定和使用 Azure 開發空間的基本流程：
 1. 適用於 Azure 開發人員空間準備您的 AKS 叢集
@@ -337,7 +337,7 @@ install:
 
 在上述範例中， *install.set.replicaCount*屬性就會告知控制器，您的應用程式開發人員空間中執行的執行個體數目。 根據您的案例中，您可以增加此值，但其會影響偵錯工具附加至您的應用程式 pod。 如需詳細資訊，請參閱 <<c0> [ 疑難排解文章](troubleshooting.md)。
 
-在產生的 Helm 圖表中，容器映像設定為 *{{。Values.image.repository}}:{{。Values.image.tag}}*。 `azds.yaml`檔案會定義*install.set.image.tag*屬性設為 *$(tag)* 預設情況下，它會使用做為值 *{{。Values.image.tag}}*。 藉由設定*install.set.image.tag*以這種方式的屬性，它可讓您的應用程式執行 Azure 開發人員空格時，要以不同方式標記容器映像。 這種情況下，將映像會標記為 *<value from image.repository>: $(tag)*。 您必須使用 *$(tag)* 變數的值設定為*install.set.image.tag*為了讓開發人員空間辨識，並找出在 AKS 叢集中的容器。
+在產生的 Helm 圖表中，容器映像設定為 *{{。Values.image.repository}}:{{。Values.image.tag}}*。 `azds.yaml`檔案會定義*install.set.image.tag*屬性設為 *$(tag)* 預設情況下，它會使用做為值 *{{。Values.image.tag}}*。 藉由設定*install.set.image.tag*以這種方式的屬性，它可讓您的應用程式執行 Azure 開發人員空格時，要以不同方式標記容器映像。 這種情況下，將映像會標記為 *\<image.repository 值 >: $(tag)*。 您必須使用 *$(tag)* 變數的值設定為*install.set.image.tag*為了讓開發人員空間辨識，並找出在 AKS 叢集中的容器。
 
 在上述範例中，`azds.yaml`定義*install.set.ingress.hosts*。 *Install.set.ingress.hosts*屬性會定義公用端點的主機名稱格式。 這個屬性也會使用 *$(spacePrefix)*， *$(rootSpacePrefix)*，並 *$(hostSuffix)*，這是控制器所提供的值。 
 
@@ -404,11 +404,11 @@ ingress:
 
 ## <a name="debug-your-code"></a>偵錯程式碼
 
-對於 Java、.NET 和 Node.js 應用程式，您可以偵錯您直接在您使用 Visual Studio Code 或 Visual Studio 2017 的開發人員空間中執行的應用程式。 Visual Studio Code 和 Visual Studio 2017 提供工具，以連接到您開發的空間、 啟動您的應用程式，並附加偵錯工具。 執行後`azds prep`，您可以在 Visual Studio Code 或 Visual Studio 2017 中開啟您的專案。 Visual Studio Code 或 Visual Studio 2017 會產生自己的設定檔，以連接即分開執行`azds prep`。 從 Visual Studio Code 或 Visual Studio 2017，可以設定中斷點，以及啟動您的應用程式，您的開發人員分享空間。
+對於 Java、.NET 和 Node.js 應用程式，您可以偵錯您直接在您使用 Visual Studio Code 或 Visual Studio 的開發人員空間中執行的應用程式。 Visual Studio Code 和 Visual Studio 提供工具，以連接到您開發的空間、 啟動您的應用程式，並附加偵錯工具。 執行後`azds prep`，您可以在 Visual Studio Code 或 Visual Studio 中開啟您的專案。 Visual Studio Code 或 Visual Studio 會產生自己的設定檔，以連接即分開執行`azds prep`。 從 Visual Studio Code 或 Visual Studio 中，可以設定中斷點，以及啟動您的應用程式，您的開發人員分享空間。
 
 ![偵錯您的程式碼](media/get-started-node/debug-configuration-nodejs2.png)
 
-當您啟動您的應用程式進行偵錯使用 Visual Studio Code 或 Visual Studio 2017 時，它們會處理啟動並執行相同的方式連接到您的開發人員空間`azds up`。 在 Visual Studio Code 和 Visual Studio 2017 中的用戶端工具也會提供額外的參數，以偵錯的特定資訊。 參數會包含偵錯工具映像，在偵錯工具的映像，在偵錯工具的位置和目的地位置掛接偵錯工具資料夾的應用程式的容器內的名稱。 
+當您啟動您使用 Visual Studio Code 或 Visual Studio 進行偵錯的應用程式時，它們會處理啟動並執行相同的方式連接到您的開發人員空間`azds up`。 Visual Studio Code 和 Visual Studio 中的用戶端工具也會提供額外的參數，以偵錯的特定資訊。 參數會包含偵錯工具映像，在偵錯工具的映像，在偵錯工具的位置和目的地位置掛接偵錯工具資料夾的應用程式的容器內的名稱。 
 
 偵錯工具的映像自動取決於用戶端工具。 它會使用的方法類似於用於 Dockerfile 和 Helm 圖表產生執行時`azds prep`。 偵錯工具會在應用程式的映像掛接後，就會執行使用`azds exec`。
 
@@ -420,7 +420,7 @@ ingress:
 
 衍生的開發空間也以智慧方式會將它自己的應用程式和從其父代共用的應用程式之間的要求路由傳送。 嘗試衍生的開發空間中的應用程式的路由要求，並回到共用的應用程式從父代的開發人員空間路由的運作。 路由會回復為祖系空間中共用的應用程式如果應用程式不在父空間中。
 
-例如︰
+例如：
 * 開發空間*預設*的應用程式*serviceA*並*serviceB* 。
 * 開發空間*azureuser*衍生自*預設*。
 * 更新的版本*serviceA*部署到*azureuser*。
@@ -433,12 +433,12 @@ ingress:
 
 * [使用 CLI 和 Visual Studio Code 的 Java](quickstart-java.md)
 * [使用 CLI 和 Visual Studio Code 的.NET core](quickstart-netcore.md)
-* [使用 Visual Studio 2017 的.NET core](quickstart-netcore-visualstudio.md)
+* [使用 Visual Studio 的.NET core](quickstart-netcore-visualstudio.md)
 * [使用 CLI 和 Visual Studio Code 的 Node.js](quickstart-nodejs.md)
 
 若要開始進行小組開發，請參閱下列的使用說明文章：
 
 * [小組開發-使用 CLI 和 Visual Studio Code 的 Java](team-development-java.md)
 * [小組開發-使用 CLI 和 Visual Studio Code 的.NET Core](team-development-netcore.md)
-* [小組開發-使用 Visual Studio 2017 的.NET Core](team-development-netcore-visualstudio.md)
+* [小組開發-使用 Visual Studio 的.NET Core](team-development-netcore-visualstudio.md)
 * [小組開發-使用 CLI 和 Visual Studio Code 的 Node.js](team-development-nodejs.md)

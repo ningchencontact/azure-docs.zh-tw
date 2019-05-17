@@ -4,7 +4,7 @@ description: 使用 Azure AD B2C 使用 Microsoft Authentication Library for.NET
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c608518a9eb80d807297f010778ae452c0f61f5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6c26a5007c2dcaa5d41be46f685f0f259866ca2c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075771"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544065"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>使用 MSAL.NET 具社交識別的使用者登入
 
@@ -78,7 +78,7 @@ AuthenticationResult ar = await application .AcquireToken(scopes, parentWindow)
 取代為
 
 - `policy` 正在其中一個先前的字串 (例如`PolicySignUpSignIn`)。
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` 是一種方法，以尋找特定原則的帳戶。 例如︰
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` 是一種方法，以尋找特定原則的帳戶。 例如：
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -183,6 +183,6 @@ AcquireTokenByUsernamePassword(
 
 下列範例提供取得權杖以互動方式使用 MSAL.NET 的 Azure AD B2C 應用程式的更多詳細的。
 
-| 範例 | 平台 | 描述|
+| 範例 | 平台 | 說明|
 |------ | -------- | -----------|
 |[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS、 Xamarin Android、 UWP | 展示如何透過 Azure AD B2C 中，驗證使用者，並存取 Web API 使用產生的權杖使用 MSAL.NET 的簡單 Xamarin Forms 應用程式。|

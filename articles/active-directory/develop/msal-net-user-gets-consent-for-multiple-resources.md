@@ -4,7 +4,7 @@ description: 了解使用者如何取得預先同意使用 Microsoft Authenticat
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45bad9a03e8eff6f22ebb99fd2ef4bcd5fecf9b5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8f7d24a1e14cfbb1163ab78b94dd36ec288dce50
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158816"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544056"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>使用者取得同意使用 MSAL.NET 的幾項資源
 Microsoft 身分識別平台端點不允許您一次取得多項資源的權杖。 當使用 Microsoft Authentication Library for.NET (MSAL.NET)，在取得權杖方法的範圍參數應該只包含單一資源的範圍。 不過，您可以預先同意預付數個資源指定使用的其他範圍`.WithExtraScopeToConsent`產生器方法。

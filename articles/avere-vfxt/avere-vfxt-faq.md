@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409938"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595419"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure 常見問題集
 
@@ -204,7 +204,7 @@ Avere vFXT 環境類似任何其他的 Azure VM，它需要透過網路閘道或
 
 一般情況下，您可以在 vnet 上設定額外的安全性，如有需要但一些限制可能會干擾叢集操作。
 
-比方說，限制輸出網際網路存取，從您的 vnet 會導致叢集問題除非您也將新增規則明確允許存取 AzureConnectors 和 AzureCloud。 這種情況下所述[GitHub 上的補充文件](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md)。
+比方說，限制輸出網際網路存取，從您的 vnet 會導致叢集問題除非您也將新增一個規則，明確允許存取 AzureCloud。 這種情況下所述[GitHub 上的補充文件](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md)。
 
 具有自訂安全性的說明，請連絡支援服務中所述[取得協助與您的系統](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)。
 

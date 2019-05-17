@@ -3,8 +3,8 @@ title: 如何為指定的 API 選取權限 | Microsoft Docs
 description: 了解權限要求如何針對您正在開發之應用程式的用戶端及資源應用程式運作
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8af7206b94342a4844cf272784aff4e4dc5a35f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42d5ce8a890f6f02e03a16b60f358d9430a09f88
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443529"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545823"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>如何为给定 API 选择权限 
 
-## <a name="recommended-documents"></a>建議的文件
+## <a name="recommended-documents"></a>建議文件
 
 - 深入了解用戶端應用程式如何使用[委派與應用程式權限要求](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions)來存取資源。
 - 查看有關如何[設定用戶端應用程式的權限要求](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)的逐步指示。

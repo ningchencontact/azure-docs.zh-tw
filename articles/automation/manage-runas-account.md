@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/26/2019
+ms.date: 05/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61301087"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595694"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>管理 Azure 自動化執行身分帳戶
 
@@ -37,6 +37,9 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
   
   > [!NOTE]
   > 「Azure 雲端解決方案提供者」(Azure CSP) 訂用帳戶僅支援 Azure Resource Manager 模型，因此本方案未提供非 Azure Resource Manager 服務。 使用 CSP 訂用帳戶時，不會建立「Azure 傳統執行身分帳戶」。 但仍然會建立「Azure 執行身分帳戶」。 若要深入了解 CSP 訂用帳戶，請參閱 [CSP 訂用帳戶中可用的服務](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)。
+
+  > [!NOTE]
+  > 執行身分帳戶的服務主體並沒有預設讀取 Azure Active Directory 的權限。 如果您想要新增來讀取或管理 Azure Active directory 的權限，您必須授與該權限的服務主體下**API 的權限**。 若要進一步了解，請參閱[新增以存取 web Api 的權限](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)。
 
 ## <a name="permissions"></a>設定執行身分帳戶的權限
 

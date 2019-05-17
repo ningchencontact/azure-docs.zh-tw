@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: ba79e2b9552f0c27ac11501b2b125a126e40eb1d
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: HT
+ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551629"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823306"
 ---
 # <a name="sql-database-serverless-preview"></a>Azure SQL Database 無伺服器 (預覽)
 
@@ -73,7 +73,7 @@ SQL Database 無伺服器 (預覽) 是一個計算層級，可針對單一資料
 
 目前只有虛擬核心購買模型中第 5 代硬體的一般用途層級支援 SQL Database 無伺服器。
 
-## <a name="autoscaling"></a>自動調整
+## <a name="autoscaling"></a>自動調整規模
 
 ### <a name="scaling-responsiveness"></a>調整回應性
 
@@ -117,7 +117,7 @@ SQL Database 無伺服器 (預覽) 是一個計算層級，可針對單一資料
 
 如果無伺服器的資料庫已暫停，則首次登入會繼續執行資料庫並傳回錯誤 (錯誤碼 40613)，指出該資料庫無法使用。 資料庫一旦繼續，則必須重試登入來建立連線。 具有連線重試邏輯的資料庫用戶端應該不需要修改。
 
-### <a name="latency"></a>Latency
+### <a name="latency"></a>延遲
 
 自動暫停或自動繼續無伺服器資料庫的延遲通常大約 1 分鐘。
 
@@ -136,7 +136,7 @@ SQL Database 無伺服器 (預覽) 是一個計算層級，可針對單一資料
 
 1. 指定服務目標名稱。 服務目標可指定服務層級、硬體世代和最大虛擬核心數。 下表顯示服務目標選項：
 
-   |服務目標名稱|服務層級|硬體世代|最大虛擬核心數|
+   |服務目標名稱|服務層|硬體世代|最大虛擬核心數|
    |---|---|---|---|
    |GP_S_Gen5_1|一般用途|Gen5|1|
    |GP_S_Gen5_2|一般用途|Gen5|2|
@@ -204,11 +204,11 @@ Set-AzSqlDatabase
 
 ### <a name="minimum-vcores"></a>最小虛擬核心數
 
-在 PowerShell 中使用 [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 命令搭配 `MinVcore` 引數，可修改最大虛擬核心數。
+修改最小虛擬核心透過執行[組 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令在 PowerShell 中使用`MinVcore`引數。
 
 ### <a name="autopause-delay"></a>自動暫停延遲
 
-在 PowerShell 中使用 [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 命令搭配 `AutoPauseDelay` 引數，可修改最大虛擬核心數。
+修改 autopause 延遲透過執行[組 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令在 PowerShell 中使用`AutoPauseDelay`引數。
 
 ## <a name="monitor-serverless-database"></a>監視無伺服器資料庫
 
@@ -224,9 +224,9 @@ Set-AzSqlDatabase
 
 不論資料庫是在無伺服器或佈建計算層級中，使用者資源集區都是資料庫的最內層資源管理界限。 使用者資源集區可界定 DDL 查詢 (例如，CREATE、ALTER 等) 和 DML 查詢 (例如，SELECT、INSERT、UPDATE、DELETE 等) 所產生使用者工作負載的 CPU 和 IO。 這些查詢通常代表應用程式套件內很大的使用率比例。
 
-### <a name="metrics"></a>度量
+### <a name="metrics"></a>指标
 
-|實體|計量|說明|Units|
+|實體|計量|說明|單位|
 |---|---|---|---|
 |應用程式套件|app_cpu_percent|應用程式所使用的虛擬核心百分比，相對於應用程式所允許的最大虛擬核心數。|百分比|
 |應用程式套件|app_cpu_billed|在報告期間內針對應用程式計費的計算數量。 在這段期間所支付的金額為此計量與虛擬核心單價的乘積。 <br><br>彙總一段時間內每秒使用的最大 CPU 與記憶體，即可判斷此計量的值。 如果使用的數量小於依照最小虛擬核心數與最小記憶體所設定的最小佈建數量，就會收取最小佈建數量的費用。 為了比較 CPU 與記憶體以供計費用途，記憶體會依每個虛擬核心 3 GB 重新調整記憶體量，藉此規範成虛擬核心單位。|虛擬核心秒數|
@@ -263,7 +263,7 @@ Get-AzSqlDatabase `
 
 計算數量的計費方式為每秒使用的最大 CPU 與記憶體。 若使用的 CPU 與使用的記憶體數量小於各自的最小佈建數量，就會收取佈建數量的費用。 為了比較 CPU 與記憶體以供計費用途，記憶體會依每個虛擬核心 3 GB 重新調整記憶體量，藉此規範成虛擬核心單位。
 
-- **計費的資源**：CPU 和記憶體
+- **計費的資源**：CPU 與記憶體
 - **計費數量 ($)**：虛擬核心單價 * 最大值 (最小虛擬核心數, 使用的虛擬核心, 最小記憶體 GB * 1/3, 使用的記憶體 GB * 1/3) 
 - **計費頻率**：每秒
 
@@ -277,19 +277,21 @@ Get-AzSqlDatabase `
 
 此數量會每秒計算，並彙總超過 1 分鐘。
 
-**範例**：請考慮使用 GP_S_Gen5_4 且在一小時內具有下列使用量的資料庫：
+請考慮無伺服器資料庫設定為 1 分鐘虛擬核心和最大的 4 個 vcore。  這會對應至約 3 GB 最小記憶體和 12 GB 的記憶體上限。  假設自動暫停延遲設定為 6 小時，而資料庫工作負載是 24 小時內的第一個 2 小時期間，否則為非作用中。    
 
-|時間 (小時：分鐘)|app_cpu_billed (虛擬核心秒數)|
-|---|---|
-|0:01|63|
-|0:02|123|
-|0:03|95|
-|0:04|54|
-|0:05|41|
-|0:06 - 1:00|1255|
-||總計：1631|
+在此情況下，資料庫是計算和儲存體計費期間第一次的 8 小時。  即使資料庫是在第 2 個小時之後的非作用中啟動，就仍會計費根據佈建資料庫在線上時的最小計算後續 6 小時內的計算。  資料庫暫停時，只有儲存體的計費期間 24 小時內的其餘部分。
 
-假設計算單價為 $0.000073/虛擬核心/秒。 接著使用下列公式來判斷針對這一小時期間內計費的計算：**$0.000073/虛擬核心/秒 * 1631 虛擬核心秒數 = $0.1191**
+更精確地說，在此範例中的計算帳單的計算方式如下：
+
+|時間間隔|使用每秒的 v 核心|使用每秒 GB|計算計費的維度|虛擬核心計費一段時間間隔的秒數|
+|---|---|---|---|---|
+|0:00-1:00|4|9|使用的 v 核心|4 個 Vcore * 3600 秒 = 14400 vCore 秒|
+|1:00-2:00|1|12|使用記憶體|12 Gb * 1/3 * 3600 秒 = 14400 vCore 秒|
+|2:00-8:00|0|0|佈建的最小記憶體|3 Gb * 1/3 * 21600 秒 = 21600 vCore 秒|
+|8:00-24:00|0|0|計費而暫停的任何計算|0 的 vCore 秒|
+|總虛擬核心計費過去 24 小時內的秒數||||50400 vCore 秒|
+
+假設計算單價為 $0.000073/虛擬核心/秒。  這 24 小時的期間向您收取計算的計算單位價格和 vcore 秒計費產品就： $0.000073/vCore/second * 50400 vCore 秒 = $3.68
 
 ## <a name="available-regions"></a>可用區域
 

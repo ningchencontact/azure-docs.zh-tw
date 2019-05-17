@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 58471dc539f72c49b041638e928dda751f4bf5a2
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9df4be5534a1cbe6aa4ffb9c60bb180fd4587d32
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410585"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551034"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>準備和自訂主要 VHD 映像
 
-這篇文章會告訴您如何準備上傳至 Azure，包括如何建立虛擬機器 (Vm) 並安裝，並在其上設定軟體的主要虛擬硬碟 (VHD) 映像。 這些指示是針對適用於您的組織現有的程序的 Windows 虛擬桌面預覽專屬組態。
+這篇文章會告訴您如何準備上傳至 Azure，包括如何建立虛擬機器 (Vm)，並在其上安裝軟體的主要虛擬硬碟 (VHD) 映像。 這些指示是針對適用於您的組織現有的程序的 Windows 虛擬桌面預覽專屬組態。
 
 ## <a name="create-a-vm"></a>建立 VM
 
@@ -24,11 +24,11 @@ Windows 10 企業版多重工作階段可由 Azure 映像庫。 有兩個選項�
 
 第一個選項是佈建虛擬機器 (VM) 在 Azure 中的指示[從受控映像建立 VM](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)，然後直接跳至[軟體準備及安裝](set-up-customize-master-image.md#software-preparation-and-installation)。
 
-第二個選項是在本機建立映像，下載映像、 佈建為 HYPER-V VM，並自訂它以符合您的需求，我們將在下一節中討論。
+第二個選項是在本機建立映像，下載映像、 佈建為 HYPER-V VM，並自訂它以符合您的需求，我們在下一節中討論。
 
 ### <a name="local-image-creation"></a>建立本機映像
 
-一旦您已下載的映像至本機位置，開啟**HYPER-V 管理員**使用您剛才複製的 VHD 建立 VM。 以下是最簡單的版本，但是您可以找到更詳細的指示，在[建立虛擬機器在 HYPER-V 中](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v)。
+一旦您已下載的映像至本機位置，開啟**HYPER-V 管理員**與您所複製的 VHD 建立 VM。 下列指示的簡單版本，但您可以找到更詳細的指示，在[建立虛擬機器在 HYPER-V 中](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v)。
 
 若要複製的 VHD 建立 VM:
 
@@ -62,101 +62,11 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>軟體準備及安裝
 
-本章節涵蓋如何準備及安裝 Office365 ProPlus、 OneDrive、 FSLogix、 Windows Defender 和其他常見的應用程式。 如果您的使用者需要存取特定的 LOB 應用程式，我們建議您完成本章節的指示進行之後，安裝它們。
+本章節涵蓋如何準備及安裝 FSLogix、 Windows Defender 和其他常見的應用程式。 
 
-本節假設您有更高的存取在 VM 上是否已在 Azure 或 HYPER-V 管理員中佈建。
+如果您要在 VM 上安裝 Office 365 ProPlus 和 OneDrive，請參閱[主要的 VHD 映像上安裝的 Office](install-office-on-wvd-master-image.md)。 請遵循該文章，回到這篇文章，並完成主要的 VHD 程序的下一個步驟中的連結。
 
-### <a name="install-office-in-shared-computer-activation-mode"></a>將 Office 安裝在共用的電腦啟用模式
-
-使用[Office 部署工具](https://www.microsoft.com/download/details.aspx?id=49117)安裝 Office。 Windows 10 企業版多重工作階段只會支援 Office 365 專業增強版，Office 2019 Perpetual 項目。
-
-Office 部署工具需要的組態 XML 檔案。 若要自訂下列的範例，請參閱[Office 部署工具的設定選項](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool)。
-
-此範例組態中，我們提供的 XML 將會執行下列動作：
-
-- 安裝 Office 的內部通道，並從測試人員通道傳遞更新，它們正在執行時。
-- 使用 x64 架構。
-- 停用自動更新。
-- 安裝 Visio 及專案。
-- 移除任何現有的 Office 安裝，並將其設定移轉。
-- 啟用共用的電腦，在終端機伺服器環境中作業的授權。
-
-以下是此範例組態 XML 不會執行的動作：
-
-- 安裝商務用 Skype for Business
-- 在每個使用者模式下安裝 OneDrive。 若要進一步了解，請參閱[安裝在每台機器模式中的 OneDrive](#install-onedrive-in-per-machine-mode)。
-
->[!NOTE]
->共用的電腦授權可以透過設定群組原則物件 (Gpo) 或登錄設定。 GPO 是位於**電腦組態\\原則\\系統管理範本\\Microsoft Office 2016 （電腦）\\授權設定**
-
-Office 部署工具包含 setup.exe。 若要安裝 Office，請在命令列執行下列命令：
-
-```batch
-Setup.exe /configure configuration.xml
-```
-
-#### <a name="sample-configurationxml"></a>範例 configuration.xml
-
-欞眭 XML 跖會安裝測試人員版本中，也就是快速測試人員或測試人員 Main。
-
-```xml
-<Configuration>
-    <Add OfficeClientEdition="64" SourcePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
-        <Product ID="O365ProPlusRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Groove" />
-            <ExcludeApp ID="Lync" />
-            <ExcludeApp ID="OneDrive" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-        <Product ID="VisioProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" /> 
-        </Product>
-        <Product ID="ProjectProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-    </Add>
-    <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
-    <Display Level="None" AcceptEULA="TRUE" />
-    <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
-    <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
-    <Property Value="1" Name="SharedComputerLicensing"/>
-    <Property Value="TRUE" Name="PinIconsToTaskbar"/>
-</Configuration>
-```
-
->[!NOTE]
->Office 小組建議使用 64 位元安裝，如**OfficeClientEdition**參數。
-
-安裝 Office 之後, 您可以更新預設 Office 行為。 個別或批次檔來更新的行為，請執行下列命令。
-
-```batch
-rem Mount the default user registry hive
-reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
-rem Must be executed with default registry hive mounted.
-reg add HKU\TempDefault\SOFTWARE\Policies\Microsoft\office\16.0\common /v InsiderSlabBehavior /t REG_DWORD /d 2 /f
-rem Set Outlook's Cached Exchange Mode behavior
-rem Must be executed with default registry hive mounted.
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v enable /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v syncwindowsetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSettingMonths  /t REG_DWORD /d 1 /f
-rem Unmount the default user registry hive
-reg unload HKU\TempDefault
-
-rem Set the Office Update UI behavior.
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideupdatenotifications /t REG_DWORD /d 1 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
-```
+如果您的使用者需要存取特定的 LOB 應用程式，我們建議您完成本章節的指示進行之後，安裝它們。
 
 ### <a name="disable-automatic-updates"></a>停用自動更新
 
@@ -179,63 +89,13 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdat
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
-### <a name="install-onedrive-in-per-machine-mode"></a>在每台機器模式中安裝 OneDrive
-
-OneDrive 是通常已安裝的每個使用者。 在此環境中，它應該安裝每台電腦。
-
-以下是如何在每台機器模式中安裝 OneDrive:
-
-1. 首先，建立暫存 OneDrive 安裝程式的位置。 本機磁碟資料夾或 [\\\\unc] (file://unc) 位置是沒問題。
-
-2. 下載 OneDriveSetup.exe 至您的預備位置，此連結： <https://aka.ms/OneDriveWVD-Installer>
-
-3. 如果您已安裝 office 使用 OneDrive 省略 **\<ExcludeApp 識別碼 = 「 OneDrive 」 /\>**，執行下列命令從提升權限的命令提示字元解除安裝任何現有的 OneDrive 每位使用者安裝命令：
-    
-    ```batch
-    "[staged location]\OneDriveSetup.exe" /uninstall
-    ```
-
-4. 執行此命令從提升權限的命令提示字元來設定**AllUsersInstall**登錄值：
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
-    ```
-
-5. 執行此命令，以在每台機器模式中安裝 OneDrive:
-
-    ```batch
-    Run "[staged location]\OneDriveSetup.exe" /allusers
-    ```
-
-6. 執行此命令來設定開始所有使用者的登入 OneDrive:
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
-    ```
-
-7. 啟用**設定使用者帳戶，以無訊息方式**藉由執行下列命令。
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
-    ```
-
-8. 重新導向，並移動 Windows 知道到 OneDrive 的資料夾，執行下列命令。
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
-    ```
-
-### <a name="teams-and-skype"></a>小組及 Skype
-
-Windows 虛擬桌面不正式支援的商務和小組 Skype。
-
 ### <a name="set-up-user-profile-container-fslogix"></a>設定使用者設定檔的容器 (FSLogix)
 
 若要納入 FSLogix 容器映像，請依照中的指示[設定主應用程式集區的使用者設定檔共用](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)。 您可以測試的 FSLogix 容器與功能[本快速入門](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start)。
 
 ### <a name="configure-windows-defender"></a>設定 Windows Defender
 
-如果 Windows Defender 會在 VM 中設定，請確定其設定為不掃描整個 VHD 和 VHDX 檔案的內容在附件的相同期間。
+如果 Windows Defender 會在 VM 中設定，請確定其設定為不掃描 VHD 和 VHDX 檔案的整個內容期間附件。
 
 這項設定只會移除掃描期間的附件，VHD 和 VHDX 檔案，但不會影響即時掃描。
 
@@ -308,7 +168,7 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\S
 本章節涵蓋應用程式和作業系統組態。 在本節中的所有組態都透過可以由命令列執行的登錄項目和 regedit 工具。
 
 >[!NOTE]
->您可以在具有一般原則物件 (Gpo) 或登錄匯入實作最佳作法。 系統管理員可以選擇其中一個選項，根據其組織的需求。
+>您可以使用群組原則物件 (Gpo) 或登錄匯入的組態中實作最佳作法。 系統管理員可以選擇其中一個選項，根據其組織的需求。
 
 意見反應中樞收集遙測資料的 Windows 10 企業版多的工作階段上，執行下列命令：
 

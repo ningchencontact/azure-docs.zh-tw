@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 78402d3e388f08eae6652859a71c93ff408a5b0d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f36658d57fb514ff279c39e9cb1644cf56341ec4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152982"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761839"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Azure 網路安全性最佳作法
 這篇文章討論一系列的 Azure 強化您的網路安全性的最佳做法。 這些最佳作法衍生自我們的 Azure 網路經驗和客戶的經驗。
@@ -129,7 +129,7 @@ Azure 網路安全性設備可提供比網路層級控制更佳的安全性。 �
 
 在混合式 IT 案例中，通常沒有某種形式的跨單位連線。 跨單位連線可讓公司將其內部部署網路連線到 Azure 虛擬網路。 可用的跨單位連線解決方案有兩個︰
 
-* [站對站 VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)。 可靠且完備的技術，但連線是透過網際網路來建立。 頻寬會受限於約 200 Mbps 的最大值。 站對站 VPN 是較理想的選項，在某些情況下。
+* [站對站 VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)。 可靠且完備的技術，但連線是透過網際網路來建立。 頻寬限制為大約 1.25 Gbps 的最大值。 站對站 VPN 是較理想的選項，在某些情況下。
 * **Azure ExpressRoute**。 我們建議您針對跨單位連線改用 [ExpressRoute](../expressroute/expressroute-introduction.md)。 ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部部署網路延伸至 Microsoft 雲端。 透過 ExpressRoute，您可以建立 Microsoft 雲端服務，例如 Azure、 Office 365 和 Dynamics 365 的連線。 ExpressRoute 是專用的 WAN 連結您的內部部署位置或 Microsoft Exchange 主機服務提供者之間。 因為這是電信公司連線，您的資料不會透過網際網路傳輸，因此它不公開的網際網路通訊有潛在的風險。
 
 防火牆容量、 延展性、 可靠性和網路流量的可見性，可能會影響您的 ExpressRoute 連線的位置。 您必須識別要終止現有的 （在內部部署） 網路中的 ExpressRoute 位置。 您可以：

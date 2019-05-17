@@ -3,8 +3,8 @@ title: Azure Active Directory 中的權限 | Microsoft Docs
 description: 了解 Azure Active Directory 中的權限及其使用方式。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee58c2a3bed7544ff68e7d6ec756c35bee1d05b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250794"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545201"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 端點中的權限和同意
 
@@ -61,7 +61,7 @@ Azure AD 中的權限有許多屬性，可協助使用者、系統管理員或�
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| 屬性名稱 | 描述 | 範例 |
+| 屬性名稱 | 說明 | 範例 |
 | --- | --- | --- |
 | `ID` | 是可唯一識別此權限的 GUID 值。 | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | 指出此權限是否可供使用。 | true |
@@ -86,7 +86,7 @@ Azure AD 中的應用程式需仰賴同意，才能取得所需資源或 API 的
   
 * **系統管理員同意** - 當應用程式需要特定高權限的存取權時，就需要此同意。 系統管理員同意可確保在系統管理員授權應用程式或使用者存取組織中的高權限資料之前，有某些額外的控制能力。 [深入了解如何授與系統管理員同意](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 ### <a name="client-best-practices"></a>用戶端最佳作法
 
@@ -106,7 +106,7 @@ Azure AD 中的應用程式需仰賴同意，才能取得所需資源或 API 的
   - `Permission` 對應於使用者可對該資料採取的動作
   - `Modifier` 選擇性地用來說明另一個權限的特製化
     
-    例如︰
+    例如：
   - Mail.Read - 可讓使用者讀取郵件。
   - Mail.ReadWrite - 可讓使用者閱讀或撰寫郵件。
   - Mail.ReadWrite.All - 可讓系統管理員或使用者存取組織中的所有郵件。

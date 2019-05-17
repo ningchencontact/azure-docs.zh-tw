@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e12b3cbcb8f7a433b37c450c84bd34745f68a22d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9c08b5b5278045341ed86d987557d03cb46754e6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711517"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601592"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中建立使用者流程
 
@@ -76,7 +76,7 @@ ms.locfileid: "64711517"
 4. 輸入有效的電子郵件地址，按一下 [傳送驗證碼]，然後輸入您收到的驗證碼。
 5. 輸入新密碼並確認密碼。
 6. 輸入您想要顯示的名稱、選取您的國家/地區和區域、輸入郵遞區號，然後按一下 [建立]。 權杖會傳回到 `https://jwt.ms`，而且應該會向您顯示。
-7. 您現在可以再次執行使用者流程，且您應能夠使用您建立的帳戶登入。 傳回的權杖包含您所選名稱、國家/地區和郵遞區號的宣告。
+7. 您現在可以再次執行使用者流程，且您應能夠使用您建立的帳戶登入。 傳回的權杖會包含您所選取的名稱、 國家/地區和郵遞區號的宣告。
 
 ## <a name="create-a-profile-editing-user-flow"></a>建立設定檔編輯使用者流程
 
@@ -94,7 +94,7 @@ ms.locfileid: "64711517"
 1. 在您所建立使用者流程的 [概觀] 頁面上，選取 [執行使用者流程]。
 2. 針對 [應用程式]，選取您先前註冊名為 *webapp1* 的 Web 應用程式。 **Reply URL** 應顯示 `https://jwt.ms`。
 3. 按一下 [執行使用者流程]，然後使用您先前建立的帳戶登入。
-4. 現在您有機會變更使用者的顯示名稱和職稱。 按一下 [繼續]。 權杖會傳回到 `https://jwt.ms`，而且應該會向您顯示。
+4. 現在您有機會變更使用者的顯示名稱和職稱。 按一下 [ **繼續**]。 權杖會傳回到 `https://jwt.ms`，而且應該會向您顯示。
 
 ## <a name="create-a-password-reset-user-flow"></a>建立密碼重設使用者流程
 
@@ -113,7 +113,7 @@ ms.locfileid: "64711517"
 1. 在您所建立使用者流程的 [概觀] 頁面上，選取 [執行使用者流程]。
 2. 針對 [應用程式]，選取您先前註冊名為 *webapp1* 的 Web 應用程式。 **Reply URL** 應顯示 `https://jwt.ms`。
 3. 按一下 [執行使用者流程]，然後使用您先前建立的帳戶登入。
-4. 您現在應該有機會變更使用者的密碼。 按一下 [繼續]。 權杖會傳回到 `https://jwt.ms`，而且應該會向您顯示。
+4. 您現在應該有機會變更使用者的密碼。 按一下 [ **繼續**]。 權杖會傳回到 `https://jwt.ms`，而且應該會向您顯示。
 
 ## <a name="next-steps"></a>後續步驟
 

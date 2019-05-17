@@ -4,17 +4,17 @@ description: Azure 時間序列深入解析客戶資料要求功能摘要。
 author: ashannon7
 ms.author: anshan
 manager: cshankar
-ms.date: 05/17/2018
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 30f6b1fd953f89170a18d56bf0353c643853074e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67aea6b3d535eeb0838da4ac6990c50e607617bf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880703"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546380"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客戶資料要求功能的摘要
 
@@ -65,3 +65,11 @@ Azure 時間序列深入解析會將個人資料視為與時間序列深入解�
 時間序列深入解析目前不支援細微刪除資料。 不過，時間序列深入解析可設定保留原則，以便移除在時間序列深入解析內儲存的客戶資料。 您可以將整個時間序列深入解析環境的保留期限調整為任何天數，以支援您的刪除需求。
 
 如需詳細資訊，請參閱[設定時間序列深入解析中的保留期](time-series-insights-how-to-configure-retention.md)。
+
+## <a name="next-steps"></a>後續步驟
+
+* 深入了解[至 TSI 環境的資料存取權授與](./time-series-insights-data-access.md)。
+
+* 檢視[Azure Time Series Insights 總管](time-series-insights-explorer.md)。
+
+* 深入了解[在時間序列深入解析中設定保留](time-series-insights-how-to-configure-retention.md)。

@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285170"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594029"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 報告延遲
 
@@ -41,10 +41,10 @@ ms.locfileid: "60285170"
 > **延遲 (第 95 個百分位數)** 指的是報告 95% 記錄所花費的時間，**延遲 (第 99 個百分位數)** 指的則是報告 99% 記錄所花費的時間。 
 >
 
-| 報告 | 延遲 (第 95 個百分位數) |延遲 (第 99 個百分位數)|將報告記錄的時間範圍|
-| :-- | --- | --- | --- |
-| 稽核記錄 | 2 分鐘  | 5 分鐘  | 2-60 分鐘 |
-| 登入 | 2 分鐘  | 5 分鐘 | 2-120 分鐘 |
+| 報告 | 延遲 (第 95 個百分位數) |延遲 (第 99 個百分位數)|
+| :-- | --- | --- |
+| 稽核記錄 | 2 分鐘  | 5 分鐘  |
+| 登入 | 2 分鐘  | 5 分鐘 |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>在取得進階授權之後，我能夠多快能看見活動資料？
 
@@ -62,7 +62,7 @@ ms.locfileid: "60285170"
 | 報告 | 最小值 | 平均值 | 最大值 |
 | :-- | --- | --- | --- |
 | 有風險的使用者          | 5 分鐘   | 15 分鐘  | 2 小時  |
-| 有風險的登入         | 5 分鐘   | 15 分鐘  | 2 小時  |
+| 具風險的登入         | 5 分鐘   | 15 分鐘  | 2 小時  |
 
 ## <a name="risk-events"></a>風險事件
 
@@ -73,9 +73,9 @@ Azure AD 會使用調適性機器學習服務演算法和啟發學習法，來�
 | 報告 | 最小值 | 平均值 | 最大值 |
 | :-- | --- | --- | --- |
 | 從匿名 IP 位址登入 |5 分鐘 |15 分鐘 |2 小時 |
-| 從不熟悉的位置登入 |5 分鐘 |15 分鐘 |2 小時 |
+| 從不熟悉的位置登入的次數 |5 分鐘 |15 分鐘 |2 小時 |
 | 認證外洩的使用者 |2 小時 |4 小時 |8 小時 |
-| 不可能到達非典型位置的移動 |5 分鐘 |1 小時 |8 小時  |
+| 不可能進入非慣用位置 |5 分鐘 |1 小時 |8 小時  |
 | 從受感染的裝置登入 |2 小時 |4 小時 |8 小時  |
 | 從具有可疑活動的 IP 位址登入 |2 小時 |4 小時 |8 小時  |
 

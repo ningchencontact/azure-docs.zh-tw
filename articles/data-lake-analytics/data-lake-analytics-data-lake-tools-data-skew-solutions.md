@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61399872"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606705"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>使用 Azure Data Lake Tools for Visual Studio 解決資料扭曲問題
 
@@ -36,7 +36,7 @@ Azure Data Lake Tools for Visual Studio 可協助偵測出您的作業是否有�
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>選項 2：挑選不同的分割區或散發索引鍵
 
-在前面的範例中，如果您只想要檢查全國各地的稅務稽核工作量，您可以選取 ID 號碼做為索引鍵，以改善資料散發。 有時候，選擇不同的分割區或散發索引鍵可以更平均地散發資料，但您必須確保此舉不會影響商務邏輯。 比方說，為了計算各州的總稅額，您可以指定_州別_做為資料分割索引鍵。 如果您仍然遇到這個問題，請嘗試使用選項 3。
+在上述範例中，如果您只想要檢查稅務稽核工作量，各地國家/地區，您可以改善資料分佈所選取 ID 號碼做為您的索引鍵。 有時候，選擇不同的分割區或散發索引鍵可以更平均地散發資料，但您必須確保此舉不會影響商務邏輯。 比方說，為了計算各州的總稅額，您可以指定_州別_做為資料分割索引鍵。 如果您仍然遇到這個問題，請嘗試使用選項 3。
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>選項 3：新增多個分割區或散發索引鍵
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919957"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594271"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -39,13 +39,15 @@ ms.locfileid: "64919957"
 
 **設定執行階段堆疊時，在 [啟動檔案] 區段應該使用哪些值？**
 
-| 堆疊     | 需要的值                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | 一個命令以啟動您`.jar`應用程式                                    |
-| Tomcat    | 若要執行應用程式的任何設定指令碼的位置          |
-| Node.js   | PM2 組態檔或指令碼檔案                                |
-| .Net Core | 已編譯的 DLL 名稱 `dotnet <myapp>.dll`                                 |
-| Ruby      | 您想要初始化您的應用程式的 Ruby 指令碼                     |
+| 堆疊           | 需要的值                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | 用以啟動應用程式 JAR 的命令 (例如`java -jar my-app.jar --server.port=80`) |
+| Tomcat Wildfly | 若要執行任何必要的設定指令碼的位置 (例如`/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | PM2 組態檔或指令碼檔案                                |
+| .Net Core       | 已編譯的 DLL 名稱 `dotnet <myapp>.dll`                                 |
+| 拼音            | 您想要初始化您的應用程式的 Ruby 指令碼                     |
+
+這些命令或指令碼會執行之後，內建的 Docker 容器已啟動，但您的應用程式之前啟動程式碼。
 
 ## <a name="management"></a>管理性
 
@@ -65,7 +67,7 @@ ms.locfileid: "64919957"
 
 您應該將 App Service 的 **reserved** 欄位設定為 true。
 
-## <a name="continuous-integration-and-deployment"></a>持續整合及部署
+## <a name="continuous-integration-and-deployment"></a>持續整合和部署
 
 **我的 Web 應用程式在我已更新 Docker Hub 上的映像之後，仍然使用舊的 Docker 容器映像。您是否支援自訂容器的連續整合和部署？**
 
@@ -202,5 +204,5 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 ## <a name="next-steps"></a>後續步驟
 
 - [何謂 Linux 上的 Azure App Service？](app-service-linux-intro.md)
-- [在 Azure App Service 中設定預備環境](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [設定 Azure App Service 中的預備環境](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [使用用於容器的 Web 應用程式進行持續部署](./app-service-linux-ci-cd.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254094"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595445"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>開始使用 Azure 計量瀏覽器
 
@@ -24,7 +24,7 @@ Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，
 
 1. 請嘗試[套用維度篩選及分割](#apply-dimension-filters-and-splitting)。 篩選及分割可讓您分析計量的哪些市場區隔對整體度量的值，並找出可能的極端值。
 
-1. 使用[進階設定](#advanced-chart-settings-and-next-steps)自訂圖表，再釘選到儀表板。 [設定警示](alerts-metric-overview.md)計量值超過或低於臨界值時收到通知。
+1. 使用[進階設定](#advanced-chart-settings)自訂圖表，再釘選到儀表板。 [設定警示](alerts-metric-overview.md)計量值超過或低於臨界值時收到通知。
 
 ## <a name="create-your-first-metric-chart"></a>建立您第一次的計量圖表
 
@@ -61,12 +61,13 @@ Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，
 
 請參閱[的圖表範例](metric-chart-samples.md)，進行篩選及分割套用。 本文說明的步驟用來設定圖表。
 
-## <a name="advanced-chart-settings-and-next-steps"></a>進階的圖表設定和後續步驟
+## <a name="advanced-chart-settings"></a>進階的圖表設定
 
 您可以自訂圖表樣式的標題，並修改進階的圖表設定。 當完成自訂，請將其釘選到儀表板，以儲存您的工作。 您也可以設定計量警示。 請遵循[產品文件](metrics-charts.md)若要了解這些和其他進階的 Azure 監視器計量瀏覽器的功能。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [請參閱 Azure 服務的可用計量清單](metrics-supported.md)
 * [深入了解計量瀏覽器進階功能](metrics-charts.md)
+* [疑難排解 計量瀏覽器](metrics-troubleshoot.md)
+* [請參閱 Azure 服務的可用計量清單](metrics-supported.md)
 * [請參閱設定圖表的範例](metric-chart-samples.md)

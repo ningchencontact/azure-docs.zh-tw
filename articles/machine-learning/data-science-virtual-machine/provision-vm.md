@@ -13,14 +13,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712427"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596496"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
 
@@ -105,6 +105,8 @@ DSVM 可快速啟動分析專案。 您可以用各種語言處理工作，包�
 ## <a name="how-to-access-the-dsvm"></a>如何存取 DSVM
 
 建立及佈建 VM 之後，您可以使用您在前面 [基本] 區段中設定的系統管理員帳戶認證從遠端桌面登入 VM。 您已準備好開始使用在 VM 上安裝及設定的工具。 許多工具都可以透過開始功能表圖格和桌面圖示存取。
+
+您也可以附加至要在 VM 上執行的 Jupyter notebook，並略過的 「 免費 」 服務層限制的 Azure Notebooks 的資料科學 VM。 如需詳細資訊，請參閱 <<c0> [ 管理和設定 Notebook 專案-計算層](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft 資料科學虛擬機器上所安裝的工具
 

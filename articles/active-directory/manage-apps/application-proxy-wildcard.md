@@ -3,8 +3,8 @@ title: Azure Active Directory 應用程式 Proxy 中的萬用字元應用程式 
 description: 了解如何在 Azure Active Directory 應用程式 Proxy 中使用萬用字元應用程式。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fb57052cc550a659dcd8a514fbb71ad0f7d8df5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc82f69c8dee4cc8c45e9fcf7fbf6fa184ad72b6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442329"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783060"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 應用程式 Proxy 中的萬用字元應用程式 
 
@@ -169,7 +169,7 @@ ms.locfileid: "60442329"
 
 ![AppId](./media/application-proxy-wildcard/05.png)
 
-| 色彩 | 描述 |
+| 色彩 | 說明 |
 | ---   | ---         |
 | 藍色  | 明確發行並顯示在 Azure 入口網站的應用程式。 |
 | 灰色  | 可以透過父代應用程式存取的應用程式。 |

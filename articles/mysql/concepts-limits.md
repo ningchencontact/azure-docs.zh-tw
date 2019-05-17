@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 55106f855d1f2cab82b751b306a3a289bd740e9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9088e9ad98633b46dc3a7f0ee9002a0dd9fc5a55
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525396"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551883"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>「適用於 MySQL 的 Azure 資料庫」中的限制
 下列各節說明資料庫服務中的容量、儲存引擎支援、權限支援、資料操作陳述式支援，以及功能限制。 另請參閱適用於 MySQL 資料庫引擎的[一般限制](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) \(英文\)。
@@ -29,11 +29,11 @@ ms.locfileid: "60525396"
 |一般用途| 16| 2500|
 |一般用途| 32| 5000|
 |一般用途| 64| 10000|
-|記憶體最佳化| 2| 600|
-|記憶體最佳化| 4| 1250|
-|記憶體最佳化| 8| 2500|
-|記憶體最佳化| 16| 5000|
-|記憶體最佳化| 32| 10000|
+|記憶體已最佳化| 2| 600|
+|記憶體已最佳化| 4| 1250|
+|記憶體已最佳化| 8| 2500|
+|記憶體已最佳化| 16| 5000|
+|記憶體已最佳化| 32| 10000|
 
 當連線超過限制時，則可能會收到下列錯誤：
 > 錯誤 1040 (08004)：太多連線
@@ -81,9 +81,12 @@ ms.locfileid: "60525396"
 ### <a name="vnet-service-endpoints"></a>VNet 服務端點
 - VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。
 
+### <a name="storage-size"></a>儲存體大小
+- 請參閱[定價層](concepts-pricing-tiers.md)的儲存體大小限制，每個定價層。
+
 ## <a name="current-known-issues"></a>目前已知問題
 - MySQL 伺服器執行個體於建立連線後會顯示錯誤的伺服器版本。 若要取得正確的伺服器執行個體引擎版本，請使用 `select version();` 命令。
 
 ## <a name="next-steps"></a>後續步驟
-- [每個服務層中可用的項目](concepts-pricing-tiers.md)
+- [每個服務層級中可用的項目](concepts-pricing-tiers.md)
 - [支援的 MySQL 資料庫版本](concepts-supported-versions.md)

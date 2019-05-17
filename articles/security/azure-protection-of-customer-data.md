@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589084"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603142"
 ---
 # <a name="azure-customer-data-protection"></a>Azure 客戶資料保護   
 預設會拒絕 Microsoft 運作與支援人員對於客戶資料的存取。 授與客戶資料的存取權時，需要經由主管核准，才能仔細管理和記錄存取權。 存取控制需求是由下列 Azure 安全性原則所建立：
@@ -48,8 +48,8 @@ Azure 以預設和設為客戶選項的方式為客戶提供強大的資料安�
 
 **資料備援**：如果資料中心發生網路攻擊或實體損毀，Microsoft 可協助確保資料受到保護。 客戶可以選擇：
 
-- 在國內儲存，以符合合規性或延遲考量。
-- 在國外儲存，以符合安全性或災害復原目。
+- 如需合規性或延遲的考量中-國家/地區/區域內儲存體。
+- 基於安全性或災害復原目的外的-國家 （地區）/out-區域儲存區。
 
 資料可以在所選地理區域內複寫以提供備援性，但不會傳輸到其外部。 客戶有多個選項可複寫資料，包括複本數目以及複寫資料中心的的數目和數目。
 

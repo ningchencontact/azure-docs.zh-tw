@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/13/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466563"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595795"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>啟用安全部署實務與 Azure 部署管理員 （公開預覽）
 
@@ -38,15 +38,11 @@ Azure Deployment Manager 為個人預覽版。 若要使用 Azure 部署管理�
 
 在[這裡](https://docs.microsoft.com/rest/api/deploymentmanager/)可以找到 Azure 部署管理員 REST API 參考。
 
-## <a name="supported-locations"></a>支援的位置
-
-針對預覽版，可支援部署管理員資源的區域有美國中部和美國東部 2。 當您在拓撲和推出範本中定義資源時，例如服務單位、成品來源及本文中所述的推出等，您必須指定其中一個區域作為位置。 不過，您為建立服務所部署的資源 (例如虛擬機器、儲存體帳戶和 Web 應用程式)，在其所有的[標準位置](https://azure.microsoft.com/global-infrastructure/services/?products=all)中皆受支援。  
-
 ## <a name="identity-and-access"></a>身分識別與存取
 
 透過部署管理員，[user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) 會執行部署動作。 在開始部署之前，您要建立此身分識別。 此身分識別必須可存取其中將部署服務的訂用帳戶，並且有足夠的權限可完成部署。 如需透過角色所授與的動作相關資訊，請參閱[適用於 Azure 資源的內建角色](../role-based-access-control/built-in-roles.md)。
 
-身分識別必須位於部署管理員支援的其中一個位置，而且必須與推出位於相同位置。
+身分識別必須位於與首度發行相同的位置。
 
 ## <a name="topology-template"></a>拓撲範本
 
@@ -221,7 +217,9 @@ Azure Deployment Manager 為個人預覽版。 若要使用 Azure 部署管理�
 
 持續時間屬性使用 [ISO 8601 標準](https://en.wikipedia.org/wiki/ISO_8601#Durations)。 上述範例會指定一分鐘的等候。
 
-如需有關健全狀況檢查步驟的詳細資訊，請參閱[]()並[]()如需詳細資訊，請參閱[步驟範本參考](/azure/templates/Microsoft.DeploymentManager/steps)。
+如需有關健全狀況檢查步驟的詳細資訊，請參閱[導入健康情況整合首度發行至 Azure 部署管理員](./deployment-manager-health-check.md)和[教學課程：使用 Azure 部署管理員 」 中的健康情況檢查](./deployment-manager-tutorial-health-check.md)。
+
+如需詳細資訊，請參閱[步驟範本參考](/azure/templates/Microsoft.DeploymentManager/steps)。
 
 ### <a name="rollouts"></a>推出
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9b9b6d08fd14a850838590ce003e889e8e652c7c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148054"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827064"
 ---
 ## <a name="sign-in-to-azure"></a>登入 Azure 
 
@@ -51,7 +51,7 @@ ms.locfileid: "65148054"
 1. 針對**發行者**，型別*myPublisher*。 
 1. 針對**優惠**，型別*myOffer*。
 1. 針對**SKU**，型別*mySKU*。
-1. 請確定 **[是]** 選取我們**啟用**，然後選取**檢閱 + 建立**。
+1. 完成後，選取**檢閱 + 建立**。
 1. 映像定義通過驗證之後，請選取**建立**。
 1. 部署完成時，選取**移至資源**。
 
@@ -61,7 +61,7 @@ ms.locfileid: "65148054"
 
 從受控映像建立映像版本。 在此範例中，映像版本為 *1.0.0*，且它會被複寫到「美國中西部」和「美國中南部」資料中心。 當選擇針對複寫的目標區域，請記住，您也必須包含*來源*做為複寫的目標區域。
 
-映像版本允許的字元是數字及句點。 數字必須在 32 位元整數的範圍內。 格式：*MajorVersion*。*MinorVersion*。*修補程式*。
+映像版本允許的字元是數字及句點。 數字必須在 32 位元整數的範圍內。 格式:*MajorVersion*。*MinorVersion*。*修補程式*。
 
 1. 在您的映像定義的頁面，選取**新增版本**從頁面頂端。
 1. 在 **地區**，選取您的受控映像儲存所在的區域。 需要建立相同區域中的受管理的映像從建立映像版本。

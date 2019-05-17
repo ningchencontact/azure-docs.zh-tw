@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ca473b9947a9b0df610a9c3dac66914b06cc9217
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881448"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595492"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>對 Service Fabric 中的具狀態服務進行單元測試
 
@@ -36,7 +36,7 @@ ms.locfileid: "60881448"
 
 ## <a name="common-practices"></a>常見做法
 
-下一節會針對進行具狀態服務單元測試時最常見的做法提出建議。 其中也會建議模擬層應該具有怎樣的環境，才能緊密配合 Service Fabric 協調流程和狀態管理。 所模擬的程式庫必須是確實提供這項功能的程式庫。 [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) 3.3.0 以上的版本便是這樣的程式庫，其可提供所建議的模擬功能，並遵循下面所述的做法。
+下一節會針對進行具狀態服務單元測試時最常見的做法提出建議。 其中也會建議模擬層應該具有怎樣的環境，才能緊密配合 Service Fabric 協調流程和狀態管理。 [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) 3.3.0 以上的版本便是這樣的程式庫，其可提供所建議的模擬功能，並遵循下面所述的做法。
 
 ### <a name="arrangement"></a>安排
 

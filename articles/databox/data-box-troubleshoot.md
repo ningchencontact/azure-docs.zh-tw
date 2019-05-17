@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 329ea6ac52e972c42e0e2aab247a7ad8e04c76e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927353"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594010"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box"></a>針對 Azure 資料箱的相關問題進行疑難排解
 
@@ -36,7 +36,7 @@ ms.locfileid: "64927353"
     - 名稱只能包含字母、 數字和連字號。
     - 名稱不能啟動，或連字號結尾。
     - 名稱不能有連續的連字號。
-    - 有效名稱的範例： `my-folder-1`， `my-really-extra-long-folder-111`</li><li>
+    - 有效名稱的範例： `my-folder-1`， `my-really-extra-long-folder-111`。
     - 不是有效的名稱的範例： `my-folder_1`， `my`， `--myfolder`， `myfolder--`， `myfolder!`
 
     如需詳細資訊，請參閱 Azure 命名慣例[容器名稱](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)並[共用名稱](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)。

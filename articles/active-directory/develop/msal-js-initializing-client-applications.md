@@ -4,7 +4,7 @@ description: 深入了解初始化用戶端應用程式使用的 Microsoft Authe
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7990566ca9cd93e79b8356cfd15fda03a7469695
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cd26f36356affbc8c272bd093757a8482773baf2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138308"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544032"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>初始化使用 MSAL.js 的用戶端應用程式
 本文會說明初始化 Microsoft Authentication Library for JavaScript (MSAL.js) 與使用者代理程式應用程式的執行個體。 使用者代理程式應用程式是一種用戶端程式碼執行在例如網頁瀏覽器使用者代理程式所在的公用用戶端應用程式。 由於瀏覽器內容是可公開存取，這些用戶端就不會儲存祕密。 若要了解用戶端應用程式類型與應用程式組態選項的詳細資訊，請閱讀[概觀](msal-client-applications.md)。
@@ -62,7 +62,7 @@ myMSALObj.handleRedirectCallback(authCallback);
 
 MSAL.js 設計為具有單一執行個體和設定`UserAgentApplication`來代表單一驗證內容。 如有衝突的快取項目和行為會在瀏覽器中，不建議您使用多個執行個體。
 
-## <a name="configuration-options"></a>組態選項
+## <a name="configuration-options"></a>設定選項
 
 MSAL.js 具有組態，如下所示的物件提供的可設定的選項可用來建立的執行個體群組`UserAgentApplication`。
 
@@ -123,7 +123,7 @@ export type Configuration = {
 
 - **validateAuthority**:選用。  驗證權杖的簽發者。 預設值為 `true`。 對於 B2C 應用程式，因為授權值已知，而且可能會不同，每個原則，授權單位驗證將無法運作且已設為`false`。
 
-- **redirectUri**:選用。  應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，只是它必須是採用 URL 編碼。 預設為 `window.location.href`。
+- **redirectUri**:選用。  應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，只是它必須是採用 URL 編碼。 預設值為 `window.location.href`。
 
 - **postLogoutRedirectUri**:選用。  若要將使用者重新導向`postLogoutRedirectUri`登出後。預設值為 `redirectUri`。
 
@@ -140,6 +140,6 @@ export type Configuration = {
 - **tokenRenewalOffsetSeconds**:選用。 的毫秒數的設定更新權杖到期之前所需的位移的視窗。 預設值是 300 毫秒。
 
 這些只是適用於從 MSAL Angular 的包裝函式程式庫，向下傳遞：
-- **unprotectedResources**:選用。  未受保護資源的 Uri 的陣列。 MSAL 會附加到具有下列 URI 的連出要求的語彙基元。 預設為 `null`。
+- **unprotectedResources**:選用。  未受保護資源的 Uri 的陣列。 MSAL 會附加到具有下列 URI 的連出要求的語彙基元。 預設值為 `null`。
 
-- **protectedResourceMap**:選用。  這對應的資源給 MSAL 用於自動附加在 web API 呼叫中的存取權杖的範圍。 單一的存取權杖取得資源。 因此您可以將特定的資源路徑，如下所示: {"https://graph.microsoft.com/v1.0/me」，["user.read"]}，或做為資源的應用程式 URL: {"https://graph.microsoft.com/」，["user.read"，"mail.send"]}。 這是必要的 CORS 呼叫。 預設為 `null`。
+- **protectedResourceMap**:選用。  這對應的資源給 MSAL 用於自動附加在 web API 呼叫中的存取權杖的範圍。 單一的存取權杖取得資源。 因此您可以將特定的資源路徑，如下所示: {"https://graph.microsoft.com/v1.0/me」，["user.read"]}，或做為資源的應用程式 URL: {"https://graph.microsoft.com/」，["user.read"，"mail.send"]}。 這是必要的 CORS 呼叫。 預設值為 `null`。

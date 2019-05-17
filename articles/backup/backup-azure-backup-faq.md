@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646722"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551373"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。
@@ -93,7 +93,7 @@ ms.locfileid: "60646722"
 ### <a name="what-operating-systems-are-supported-for-backup"></a>支援使用哪些作業系統來進行備份？
 「Azure 備份」支援使用下列作業系統來備份檔案和資料夾，以及受「Azure 備份伺服器」和 DPM 保護的應用程式。
 
-**作業系統** | **SKU** | **詳細資料**
+**OS** | **SKU** | **詳細資料**
 --- | --- | ---
 Workstation | |
 Windows 10 64 位元 | 企業版、專業版、家用版 | 機器應該執行最新的服務套件和更新。
@@ -174,8 +174,8 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>若每個復原點就像一個完整的復原點，則其是否會影響可計費的備份儲存體總數？
 典型的長期保留復原點產品會將備份資料儲存為完整的復原點。
 
-    - 完整的復原點是「效率不佳的」  儲存體，但可以更輕鬆且更快速地進行還原。
-    - 增量複本「符合儲存體效益」，但需要您還原一連串的資料，而這會影響復原時間
+- 完整的復原點是「效率不佳的」  儲存體，但可以更輕鬆且更快速地進行還原。
+- 增量複本「符合儲存體效益」，但需要您還原一連串的資料，而這會影響復原時間
 
 Azure 備份的儲存體架構透過最佳化儲存資料以進行快速還原，並降低儲存體成本支出，可讓您魚與熊掌兼得。 這可確保有效率地使用您的輸入和輸出頻寬。 資料儲存體數量及復原資料所需的時間都會維持在最低。 深入了解[增量備份](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)。
 

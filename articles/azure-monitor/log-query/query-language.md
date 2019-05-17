@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fae245e4d72f7f6f7809d85da17023deb1518e5
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425957"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560859"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure 監視器記錄查詢
 Azure 監視器記錄以 Azure 資料總管為基礎建置，且 Azure 監視器記錄查詢使用相同的 Kusto 查詢語言版本。 [Kusto 查詢語言文件](/azure/kusto/query)涵蓋語言的所有詳細資料，而且應該是您用來撰寫 Azure 監視器記錄查詢的主要資源。 此頁面所提供的其他資源連結可用來了解如何撰寫查詢，以及對語言進行 Azure 監視器實作的差異。
@@ -61,7 +61,7 @@ Azure 監視器記錄以 Azure 資料總管為基礎建置，且 Azure 監視器
 ## <a name="cheatsheets"></a>速查表
 
 -  [從 SQL 到 Azure 監視器記錄查詢](sql-cheatsheet.md)可協助已熟悉 SQL 的使用者。
--  [從 Splunk 到 Azure 監視器記錄查詢](sql-cheatsheet.md)可協助已熟悉 Splunk 的使用者。
+-  [從 Splunk 到 Azure 監視器記錄查詢](splunk-cheatsheet.md)可協助已熟悉 Splunk 的使用者。
  
 ## <a name="next-steps"></a>後續步驟
 

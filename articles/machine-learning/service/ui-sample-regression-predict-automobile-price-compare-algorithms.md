@@ -1,7 +1,7 @@
 ---
 title: 迴歸分析：預測價格，並比較演算法
 titleSuffix: Azure Machine Learning service
-description: 這個視覺化介面的範例實驗示範如何比較兩個預測汽車價格迴歸模型的效能。 程序包括訓練、 測試和評估模型的汽車價格資料 （原始） 資料集。
+description: 這篇文章會示範如何建置複雜的機器學習服務實驗，而不需要撰寫一行程式碼使用視覺化介面。 了解如何定型和比較多個迴歸模型來預測汽車的價格在根據技術功能
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 2a4a9e74fa7f56b67f0f4a64f6619db1c5c69a2c
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442147"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787803"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>範例 2-迴歸：預測價格，並比較演算法
 
-這個視覺化介面的範例實驗示範如何比較兩個預測汽車價格迴歸模型的效能。 程序包括訓練、 測試和使用評估模型**汽車價格資料 （原始）** 資料集。
+了解如何建置複雜的機器學習服務實驗，而不需要撰寫一行程式碼使用視覺化介面。 此範例來定型，並比較多個迴歸模型來預測汽車的價格，根據其技術的功能。 在此實驗中進行，因此您可以處理您自己的機器學習問題的選項，我們將提供的基本原理。
+
+如果您剛開始使用 machine learning，您可以看看[基本版](ui-sample-regression-predict-automobile-price-basic.md)這項實驗，以查看基本迴歸實驗。
+
+以下是完成這項實驗圖形：
+
+[![實驗的圖形](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,10 +35,6 @@ ms.locfileid: "65442147"
 
     ![開啟實驗](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="related-sample"></a>相關的範例
-
-[範例 1-迴歸：汽車價格預測 （基本）](ui-sample-regression-predict-automobile-price-basic.md)提供更簡單的實驗，可以解決這項實驗中相同的問題，但使用只有一個迴歸模型。 如果您要尋找的迴歸的基本範例，請參考它。
-
 ## <a name="experiment-summary"></a>實驗摘要
 
 我們可以使用下列步驟來建立實驗：
@@ -41,11 +43,6 @@ ms.locfileid: "65442147"
 1. 前置處理資料。
 1. 定型模型。
 1. 測試、 評估和比較模型。
-
-以下是實驗的完整的圖形:
-
-[![實驗的圖形](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
-
 
 ## <a name="get-the-data"></a>取得資料
 

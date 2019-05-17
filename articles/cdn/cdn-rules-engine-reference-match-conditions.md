@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f87667516d6c76bc1c21ba5e175b3b2a7ebc3f39
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869518"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556319"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN 規則引擎比對條件 
 本文會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用比對條件的詳細描述。
@@ -101,9 +101,12 @@ ms.locfileid: "64869518"
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>規則引擎比對條件的參考
+
 <a name="main"></a>
+
 ---
-### <a name="always"></a>一律
+
+### <a name="always"></a>永遠
 
 「一律」比對條件可將一組預設功能套用至所有要求。
 
@@ -158,10 +161,10 @@ AS 號碼網路是由其自發系統編號 (ASN) 所定義。
 
 重要資訊：
 - 使用 CIDR 標記法。
-- 使用單一空格來分隔每個 IP 位址及/或 IP 位址區塊，藉以指定多個 IP 位址及/或 IP 位址區塊。 例如︰
+- 使用單一空格來分隔每個 IP 位址及/或 IP 位址區塊，藉以指定多個 IP 位址及/或 IP 位址區塊。 例如：
   - **IPv4 範例**：1.2.3.4 10.20.30.40 會比對來自位址 1.2.3.4 或 10.20.30.40 的任何要求。
   - **IPv6 範例**：1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 會比對來自位址 1:2:3:4:5:6:7:8 或 10:20:30:40:50:60:70:80 的任何要求。
-- IP 位址區塊的語法是基底 IP 位址，後面接著正斜線和首碼大小。 例如︰
+- IP 位址區塊的語法是基底 IP 位址，後面接著正斜線和首碼大小。 例如：
   - **IPv4 範例**：5.5.5.64/26 會比對來自 5.5.5.64 到 5.5.5.127 的任何要求。
   - **IPv6 範例**：1:2:3:/48 會比對來自位址 1:2:3:0:0:0:0:0 到 1:2:3:ffff:ffff:ffff:ffff:ffff 的任何要求。
 - 由於追蹤快取設定的行為，因而導致此比對條件與下列功能不相容：
@@ -234,7 +237,7 @@ AS 號碼網路是由其自發系統編號 (ASN) 所定義。
 </br>
 
 ---
-### <a name="country"></a>國家 (地區)
+### <a name="country"></a>國家/地區
 您可以指定國家/地區透過其國家/地區程式碼。 
 
 [符合]/[不符合] 選項決定符合「國家/地區」比對條件所依據的條件：
@@ -306,7 +309,7 @@ AS 號碼網路是由其自發系統編號 (ASN) 所定義。
 #### <a name="string-type"></a>字串類型
 WURFL 功能通常會接受數字、字母和符號的任何組合。 由於這項功能具有彈性的本質，您必須選擇如何解譯與此比對條件相關聯的值。 下表描述可用選項組：
 
-類型     | 描述
+Type     | 說明
 ---------|------------
 常值  | 選取此選項可防止大部分字元使用其[常值](cdn-rules-engine-reference.md#literal-values)來採用特殊的意義。
 萬用字元 | 選取此選項以使用所有 [萬用字元] [萬用字元值](cdn-rules-engine-reference.md#wildcard-values)。
@@ -320,7 +323,7 @@ WURFL 功能是指說明行動裝置的類別。 選取的功能會決定要用�
 > [!NOTE] 
 > 下列變數在 [修改用戶端要求標頭] 和 [修改用戶端回應標頭] 功能中受到支援。
 
-功能 | 變數 | 描述 | 範例值
+功能 | 變數 | 說明 | 範例值
 -----------|----------|-------------|----------------
 品牌名稱 | %{wurfl_cap_brand_name} | 字串，表示裝置的品牌名稱。 | Samsung
 裝置作業系統 | %{wurfl_cap_device_os} | 字串，表示裝置上安裝的作業系統。 | iOS
@@ -472,7 +475,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 - POST 
 - OPTIONS 
 - PUT 
-- 刪除 
+- DELETE 
 - TRACE 
 - CONNECT 
 
@@ -758,7 +761,7 @@ Value                   | 相對於    | 結果
 /80ABCD/origin/text/*   | 根           | 要求的資產符合下列準則時，會比對此模式： <br />- 必須位於名為 "origin" 的客戶原點。 <br />- 相對路徑必須以名為 "text" 的資料夾為開頭。 也就是所要求的資產可以位於 "text" 資料夾中，或是位於該資料夾的其中一個遞迴子資料夾中。
 /css/ /js/          | 根或原點 | 此模式會依所有包含 css 或 js 資料夾的 CDN 或邊緣 CNAME URL 進行比對。
 *.jpg *.gif *.png       | 根或原點 | 此模式會依所有以 .jpg、.gif 或 .png 結尾的 CDN 或邊緣 CNAME URL 進行比對。 指定此模式的替代方式是使用 [URL 路徑副檔名比對條件](#url-path-extension)。
-/images/\* /media/\*      | 來源         | 此模式會依相對路徑開頭為「映像」或「媒體」資料夾的 CDN 或邊緣 CNAME URL 進行比對。 <br />- CDN URL：http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- 範例邊緣 CNAME URL：http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | 原始         | 此模式會依相對路徑開頭為「映像」或「媒體」資料夾的 CDN 或邊緣 CNAME URL 進行比對。 <br />- CDN URL：http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- 範例邊緣 CNAME URL：http:\//cdn.mydomain.com/images/sales/event1.png
 
 [回到頁首](#main)
 
@@ -784,7 +787,7 @@ Value                   | 相對於    | 結果
 
    Character | URL 編碼
    ----------|---------
-   空白字元     | %20
+   空格鍵     | %20
    &         | %25
 
 - 由於追蹤快取設定的行為，因而導致此比對條件與下列功能不相容：
@@ -820,12 +823,12 @@ Value                   | 相對於    | 結果
 
        Character | URL 編碼
        ----------|---------
-       空白字元     | %20
+       空格鍵     | %20
        &         | %25
 
 - 使用單一空格來分隔每個查詢字串參數值，藉以指定多個查詢字串參數值。 當要求包含其中一個指定的名稱/值組合時，才符合此比對條件。
 
-   - 範例 1：
+   - 範例 1:
 
      - 組態:
 
@@ -897,14 +900,14 @@ Value                   | 相對於    | 結果
 
    Character | URL 編碼 | Value
    ----------|--------------|------
-   空白字元     | %20          | \%20
+   空格鍵     | %20          | \%20
    &         | %25          | \%25
 
    請注意必須逸出百分比符號。
 
 - 要在規則運算式中包含一個反斜線的規則運算式雙逸出特殊字元 (例如，\^$.+)。
 
-   例如︰
+   例如：
 
    Value | 解譯為 
    ------|---------------
@@ -939,12 +942,12 @@ Value                   | 相對於    | 結果
 
      Character | URL 編碼
      ----------|---------
-     空白字元     | %20
+     空格鍵     | %20
      &         | %25
 
 - 使用單一空格來分隔每個值，藉以指定多個值。
 
-   例如︰*Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   例如：*Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - 只有精確符合至少其中一個指定的查詢字串模式才符合此比對條件。
     
@@ -960,7 +963,7 @@ Value                   | 相對於    | 結果
 #### <a name="sample-scenarios"></a>範例案例
 下列範例會示範這個選項在特定情況中的運作方式：
 
- 名稱                 | 描述
+ 名稱                 | 說明
  ---------------------|------------
 user=joe              | 當所要求 URL 的查詢字串為 "?user=joe" 時，會比對此模式。
 \*user=\* \*optout=\* | 當 CDN URL 查詢包含 user 或 optout 參數時，會比對此模式。

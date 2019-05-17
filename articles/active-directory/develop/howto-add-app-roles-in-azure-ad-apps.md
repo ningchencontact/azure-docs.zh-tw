@@ -4,7 +4,7 @@ description: 了解如何在 Azure Active Directory 註冊的應用程式中新�
 services: active-directory
 documentationcenter: ''
 author: kkrishna
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fd78e98c37bea0fed1787e1e07a026fa35597f47
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138363"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593921"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>作法：在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色
 
@@ -62,7 +62,7 @@ ms.locfileid: "65138363"
 下列範例顯示您可以指派給 `users` 的 `appRoles`。
 
 > [!NOTE]
->  `id` 必須是唯一的 GUID。
+>`id` 必須是唯一的 GUID。
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -80,6 +80,9 @@ ms.locfileid: "65138363"
   ],
 "availableToOtherTenants": false,
 ```
+
+> [!NOTE]
+>`displayName`不能包含空格。
 
 您可以將應用程式角色定義成以 `users`、`applications` 或兩者為目標。 可供 `applications` 使用時，應用程式角色就會在 [必要權限] 刀鋒視窗中顯示為應用程式權限。 下列範例顯示以 `Application` 為目標的應用程式角色。
 
@@ -99,6 +102,8 @@ ms.locfileid: "65138363"
   ],
 "availableToOtherTenants": false,
 ```
+
+角色定義的數量會影響應用程式資訊清單有限制。 它們具有已更詳細討論[資訊清單限制](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits)頁面。
 
 ### <a name="assign-users-and-groups-to-roles"></a>將使用者和群組指派給角色
 

@@ -13,12 +13,12 @@ ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373171"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604188"
 ---
 # <a name="impact-analysis-with-application-insights"></a>使用 Application Insights 進行影響分析
 
@@ -63,7 +63,7 @@ ms.locfileid: "60373171"
 2. 在 [分析其] 下拉式清單中，選擇 [國家或地區]
 3. 針對 [影響下列項目的使用量] 下拉式清單，請選取和您在步驟 1 中於頁面檢視上所選 UI 元素相對應的自訂事件。
 
-在此案例中，結果已不再適用於它們在第一個範例中的連續 X 軸模型。 相反地，會顯示與區段漏斗圖類似的視覺效果。 依據 [使用量] 排序以檢視您的自訂事件依據國家/地區所呈現的轉換變化。
+在此案例中，結果已不再適用於它們在第一個範例中的連續 X 軸模型。 相反地，會顯示與區段漏斗圖類似的視覺效果。 排序依據**使用量**若要檢視轉換成您的自訂事件依據國家/地區的變化。
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>「影響」工具如何計算這些轉換率？

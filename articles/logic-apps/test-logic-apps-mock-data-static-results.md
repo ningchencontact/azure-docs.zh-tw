@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/18/2019
-ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511715"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597203"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>設定靜態的結果，以測試邏輯應用程式使用模擬 （mock） 的資料
 
@@ -46,7 +46,7 @@ ms.locfileid: "60511715"
 
       例如，以下是 HTTP 動作的必要的屬性：
 
-      | 屬性 | 描述 |
+      | 屬性 | 說明 |
       |----------|-------------|
       | **狀態** | 要傳回動作的狀態 |
       | **狀態碼** | 要傳回的特定狀態碼 |
@@ -137,11 +137,9 @@ ms.locfileid: "60511715"
 
    ![停用靜態的結果](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="get-support"></a>取得支援
+## <a name="reference"></a>參考
 
-* 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+如需此設定基準的工作流程定義中的詳細資訊，請參閱[靜態結果-工作流程定義語言結構描述參考](../logic-apps/logic-apps-workflow-definition-language.md#static-results)和[runtimeConfiguration.staticResult-執行階段組態設定](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
 ## <a name="next-steps"></a>後續步驟
 

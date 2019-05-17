@@ -2,41 +2,36 @@
 title: 將 Azure 訂用帳戶擁有權轉移給另一個帳戶 |Microsoft 文件
 description: 描述如何將 Azure 訂用帳戶轉移給另一位使用者，以及一些關於此程序的常見問題集 (FAQ)
 keywords: 轉移 azure 訂用帳戶,azure 轉移訂用帳戶,將 azure 訂用帳戶移到另一個帳戶,azure 變更訂用帳戶擁有者,將 azure 訂用帳戶轉移給另一個帳戶
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+author: bandersmsft
+manager: amberb
 tags: billing,top-support-issue
-ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ffebdd5b88603113dd7624e97dcf7353ab5d1ba
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605577"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826750"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 
 將您的訂用帳戶轉移給帳戶中心的另一位使用者，可變更帳戶管理員，並交出訂用帳戶的帳單擁有權。 若要將您的訂用帳戶變更至不同的供應項目，請參閱[切換至不同的 Azure 訂用帳戶供應項目](billing-how-to-switch-azure-offer.md)。
 
 > [!IMPORTANT]
-> 
+>
 > 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。 您也必須以手動方式重新建立適用於 Azure 資源管理的身分識別。 如需詳細資訊，請參閱 <<c0> [ 常見問題集和已知的問題的受管理身分識別](../active-directory/managed-identities-azure-resources/known-issues.md)。
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>轉移 Azure 訂用帳戶的擁有權
 
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
->
->
+
 
 1. 以帳戶管理員身分登入 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)。若要找出誰是訂用帳戶的帳戶管理員，請參閱[常見問題集](#faq)。
 
@@ -51,7 +46,7 @@ ms.locfileid: "65605577"
 1. 指定接受者。
 
    > [!IMPORTANT]
-   > 
+   >
    > 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。 您也必須以手動方式重新建立適用於 Azure 資源管理的身分識別。 如需詳細資訊，請參閱 <<c0> [ 常見問題集和已知的問題的受管理身分識別](../active-directory/managed-identities-azure-resources/known-issues.md)。
 
    ![移轉訂用帳戶對話方塊](./media/billing-subscription-transfer/image2.PNG)
@@ -68,22 +63,22 @@ ms.locfileid: "65605577"
 
 <a id="EA"></a>
 
-## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>轉送 Enterprise 合約 (EA) 客戶的訂用帳戶擁有權
+## <a name="transfer-subscription-ownership-for-ea-customers"></a>EA 客戶轉移訂用帳戶擁有權
 
 企業系統管理員可以轉送註冊內之訂用帳戶的擁有權。 若要開始使用，請參閱 EA 入口網站中的[轉送帳戶擁有權](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription)。
 
-## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>接受訂用帳戶擁有權後的後續步驟
+## <a name="next-steps-after-accepting-ownership"></a>接受擁有權後的後續步驟
 
 1. 您現在是帳戶管理員。請檢閱並更新服務管理員、共同管理員和其他 RBAC 角色。 若要深入了解，請參閱[新增或變更 Azure 訂用帳戶管理員](billing-add-change-azure-subscription-administrator.md)和[使用 RBAC 和 Azure 入口網站來管理存取權](../role-based-access-control/role-assignments-portal.md)。
 1. 更新與此訂用帳戶服務相關聯的認證，包括：
    1. 可將使用者管理權限授與給訂用帳戶資源的管理憑證。 如需詳細資訊，請參閱 [建立和上傳 Azure 的管理憑證](../cloud-services/cloud-services-certs-create.md)
    1. 存储空间等服务的访问密钥。 如需詳細資訊，請參閱[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)
-   1. 服務 (例如 Azure 虛擬機器) 的遠端存取認證。 
+   1. 服務 (例如 Azure 虛擬機器) 的遠端存取認證。
 1. 如果您正與合作夥伴協力作業，請考慮更新此訂用帳戶的合作夥伴 ID。 您可以在 [Azure 入口網站](https://portal.azure.com)更新合作夥伴識別碼。
 
 <a id="supported"></a>
 
-## <a name="whats-supported"></a>支援的項目：
+## <a name="supported-offers"></a>支援的供應項目
 
 下表中的供應項目和訂閱類型可採用自助式訂閱移轉。 您目前無法移轉免費試用版或 [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) 訂閱。 如需因應措施，請參閱[將資源移動到新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。 若要移轉[贊助](https://azure.microsoft.com/offers/ms-azr-0036p/)或支援方案等其他訂閱，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 
@@ -119,7 +114,12 @@ VM、磁碟和網站等所有資源都會轉移給新的擁有者。 不過，�
 
 ### <a id="no-button"></a> 為什麼看不到 [移轉訂用帳戶] 按鈕？
 
-不幸的是，自助式訂閱移轉不適用於您的供應項目或國家/地區。 若要移轉訂閱，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+不幸的是，自助式訂閱移轉不適用於您的供應項目。 檢視中的支援供應項目清單[支援供應項目](#supported-offers)一節。
+
+### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>可以移轉擁有權至另一個國家/地區中的帳戶嗎？
+
+不幸的是，Azure 不允許跨國家/地區的傳輸。 您的訂用帳戶移轉跨國家/地區[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>移轉訂閱會造成服務中斷嗎？
 
@@ -175,3 +175,7 @@ Azure 訂用帳戶建立在帳戶管理員所屬的目錄中。 若要變更目�
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
 如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+
+## <a name="next-steps"></a>後續步驟
+
+- 請檢閱並更新服務管理員、共同管理員和其他 RBAC 角色。 若要深入了解，請參閱[新增或變更 Azure 訂用帳戶管理員](billing-add-change-azure-subscription-administrator.md)和[使用 RBAC 和 Azure 入口網站來管理存取權](../role-based-access-control/role-assignments-portal.md)。

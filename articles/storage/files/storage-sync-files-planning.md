@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696507"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597084"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -113,7 +113,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 ### <a name="system-requirements"></a>系統需求
 - 執行 Windows Server 2012 R2、Windows Server 2016 或 Windows Server 2019 的伺服器：
 
-    | Version | 支援的 SKU | 支援的部署選項 |
+    | 版本 | 支援的 SKU | 支援的部署選項 |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
     | Windows Server 2016 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
@@ -150,7 +150,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
 ### <a name="files-skipped"></a>跳過的檔案
 
-| 檔案/資料夾 | 附註 |
+| 檔案/資料夾 | 注意 |
 |-|-|
 | Desktop.ini | 系統專用檔案 |
 | ethumbs.db$ | 暫存檔案的縮圖 |
@@ -235,31 +235,39 @@ Azure 檔案同步僅於下列區域提供：
 
 | 區域 | 資料中心位置 |
 |--------|---------------------|
-| 澳洲東部 | 新南威爾斯 |
-| 澳大利亞東南部 | 維多利亞 |
+| 澳洲東部 | New South Wales |
+| 澳大利亞東南部 | Victoria |
 | 巴西南部 | 聖保羅 Paolo 狀態 |
 | 加拿大中部 | 多倫多 |
 | 加拿大東部 | 魁北克市 |
 | 印度中部 | 浦那 |
-| 美國中部 | 愛荷華州 |
+| 美國中部 | Iowa |
 | 東亞 | 香港特別行政區 |
-| 美國東部 | 維吉尼亞州 |
-| 美國東部 2 | 維吉尼亞州 |
-| 南韓中部| 首爾 |
-| 南韓南部| 斧山 |
+| 美國東部 | Virginia |
+| 美國東部 2 | Virginia |
+| 南韓中部| Seoul |
+| 南韓南部| Busan |
 | 日本東部 | 東京，埼玉 |
 | 日本西部 | 大阪 |
-| 美國中北部 | 伊利諾州 |
+| 美國中北部 | Illinois |
 | 北歐 | 愛爾蘭 |
 | 美國中南部 | Texas |
 | 印度南部 | 辰內 |
 | 東南亞 | 新加坡 |
 | 英國南部 | 倫敦 |
 | 英國西部 | 卡地夫 |
+| 美國亞歷桑那 （預覽） | 美國亞歷桑那時間 |
+| 美國德克薩斯州政府 （預覽） | Texas |
+| 美國維吉尼亞州政府 （預覽） | Virginia |
 | 西歐 | 荷蘭 |
+| 美國中西部 | Wyoming |
 | 美國西部 | California |
+| 美國西部 2 | Washington |
 
 Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中的 Azure 檔案共用進行同步。
+
+> [!Note]  
+> Azure 檔案同步目前僅提供給政府區域的私人預覽。 請參閱我們[版本資訊](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020)如需註冊預覽計劃中的指示。
 
 ### <a name="azure-disaster-recovery"></a>Azure 災害復原
 為防範遺失 Azure 區域，Azure 檔案同步會與[異地備援儲存體備援](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) 選項整合。 GRS 儲存體的運作方式是在主要區域中您通常與其互動的儲存體，與配對的次要區域中的儲存體之間，使用非同步區塊複寫。 發生導致 Azure 區域暫時或永久離線的災害時，Microsoft 會將儲存體容錯移轉到配對的區域。 
@@ -271,8 +279,9 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 
 | 主要區域      | 配對的區域      |
 |---------------------|--------------------|
-| 澳洲東部      | 澳大利亞東南部 |
+| 澳洲東部      | 澳大利亞東南部|
 | 澳大利亞東南部 | 澳洲東部     |
+| 巴西南部        | 美國中南部   |
 | 加拿大中部      | 加拿大東部        |
 | 加拿大東部         | 加拿大中部     |
 | 印度中部       | 印度南部        |
@@ -280,16 +289,24 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 | 東亞           | 東南亞     |
 | 美國東部             | 美國西部            |
 | 美國東部 2           | 美國中部         |
+| 日本東部          | 日本西部         |
+| 日本西部          | 日本東部         |
 | 南韓中部       | 南韓南部        |
 | 南韓南部         | 南韓中部      |
 | 北歐        | 西歐        |
 | 美國中北部    | 美國中南部   |
+| 美國中南部    | 美國中北部   |
 | 印度南部         | 印度中部      |
 | 東南亞      | 東亞          |
 | 英國南部            | 英國西部            |
 | 英國西部             | 英國南部           |
+| US Gov 亞利桑那州      | US Gov 德克薩斯州       |
+| US Gov 愛荷華州         | 美國政府維吉尼亞州    |
+| US Gov Virgini      | US Gov 德克薩斯州       |
 | 西歐         | 北歐       |
+| 美國中西部     | 美國西部 2          |
 | 美國西部             | 美國東部            |
+| 美國西部 2           | 美國中西部    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

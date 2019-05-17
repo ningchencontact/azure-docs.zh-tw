@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 96c3a3eb5e4c07ad9cad8ea5060a27c0c33eec5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466811"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550154"
 ---
 # <a name="cloud-upload-and-storage"></a>雲端上傳和儲存體
 
@@ -44,13 +44,24 @@ ms.locfileid: "61466811"
 
 若要保護待用資產，資產應該透過儲存端加密來進行加密。 下表顯示儲存端加密在媒體服務 v3 中的運作方式：
 
-|加密選項|描述|媒體服務 v3|
+|加密選項|說明|媒體服務 v3|
 |---|---|---|
 |媒體服務的儲存體加密| AES-256 加密，由媒體服務管理金鑰|不受支援<sup>(1)</sup>|
 |[待用資料的儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure 儲存體提供的伺服器端加密，由 Azure 或客戶管理金鑰|支援|
 |[儲存體用戶端加密](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure 儲存體提供的用戶端加密，由客戶管理 Key Vault 中的金鑰|不支援|
 
 <sup>1</sup> 在媒體服務 v3 中，如果您的資產是以媒體服務 v2 建立，則儲存體加密 (AES-256 加密) 只對回溯相容性有所支援。 這表示 v3 可用於現有的儲存體加密資產，但不允許建立新的。
+
+## <a name="storage-account-errors"></a>儲存體帳戶錯誤
+
+媒體服務帳戶的 「 中斷連接 」 狀態指出帳戶不再在儲存體存取金鑰具有一或多個連結的儲存體帳戶，由於變更的存取權。 最新的儲存體存取金鑰，才能由 Media Services 帳戶中執行許多工作。
+
+以下是可能會導致無法存取連結的儲存體帳戶的媒體服務帳戶的主要案例。 
+
+|問題|解決方法|
+|---|---|
+|媒體服務帳戶或連結的儲存體帳戶已移轉至不同的訂用帳戶中。 |將媒體服務帳戶的儲存體帳戶的移轉，使它們全都放在相同的訂用帳戶。 |
+|媒體服務帳戶不同的訂用帳戶中使用連結的儲存體帳戶，因為它是早期的媒體服務帳戶，這支援。 所有早期的媒體服務帳戶已轉換為最新的 Azure 資源管理員 (ARM) 架構帳戶，而且必須中斷連線的狀態。 |移轉儲存體帳戶或媒體服務帳戶，使它們全都放在相同的訂用帳戶。|
 
 ## <a name="next-steps"></a>後續步驟
 

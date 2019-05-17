@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6fd9ce1947b8207aced44204fc2989622a1998f2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926289"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761911"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM 適用的 Azure 磁碟加密常見問題集
 
@@ -43,7 +43,7 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 
 不由 Azure 背書的 Linux 伺服器散發套件不支援 Azure 磁碟加密，而且這些所背書的只有下列散發套件和版本支援 Azure 磁碟加密：
 
-| Linux 散發套件 | Version | 支援加密的磁碟區類型|
+| Linux 散發套件 | 版本 | 支援加密的磁碟區類型|
 | --- | --- |--- |
 | Ubuntu | 18.04| 作業系統和資料磁碟 |
 | Ubuntu | 16.04| 作業系統和資料磁碟 |
@@ -59,12 +59,7 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 | CentOS | 7.4 | 作業系統和資料磁碟 |
 | CentOS | 7.3 | 作業系統和資料磁碟 |
 | CentOS | 7.2n | 作業系統和資料磁碟 |
-| CentOS | 6.8 | 作業系統和資料磁碟 |
-| CentOS | 7.1 | 資料磁碟 |
-| CentOS | 7.0 | 資料磁碟 |
-| CentOS | 6.7 | 資料磁碟 |
-| CentOS | 6.6 | 資料磁碟 |
-| CentOS | 6.5 | 資料磁碟 |
+| CentOS | 6.8 | 資料磁碟 |
 | openSUSE | 42.3 | 資料磁碟 |
 | SLES | 12-SP4 | 資料磁碟 |
 | SLES | 12-SP3 | 資料磁碟 |
@@ -158,7 +153,7 @@ Windows 的 "Bek volume" 或 Linux 的 "/mnt/azure_bek_disk" 均為本機資料�
 否，不會從已使用「Azure 磁碟加密」進行加密的資料磁碟機中清除資料。 就像 EncryptFormatAll 不會重新加密 OS 磁碟機一樣，它也不會重新加密已加密的資料磁碟機。 如需詳細資訊，請參閱 [EncryptFormatAll 準則](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)。        
 
 ## <a name="is-xfs-filesystem-supported"></a>是否支援 XFS 檔案系統？
-只能搭配 EncryptFormalAll 的資料磁碟加密支援 XFS 磁碟區。 這會重新格式化磁碟區，並清除任何資料之前發生。 如需詳細資訊，請參閱 [EncryptFormatAll 準則](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)。
+只能搭配 EncryptFormatAll 的資料磁碟加密支援 XFS 磁碟區。 這會重新格式化磁碟區，並清除任何資料之前發生。 如需詳細資訊，請參閱 [EncryptFormatAll 準則](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)。
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>我可以備份與還原加密的 VM？ 
 

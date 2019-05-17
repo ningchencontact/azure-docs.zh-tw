@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74afb98387172f6c58398673862274c7b1880d86
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6280068303e66ca9a930f94d9a754afe1f88f4f2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922944"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604260"
 ---
 # <a name="change-your-azure-account-profile-information"></a>變更您的 Azure 帳戶設定檔資訊
 
@@ -51,9 +51,9 @@ ms.locfileid: "64922944"
 
 若要了解如何更新帳單資訊，請參閱[變更用來支付 Azure 訂用帳戶的信用卡](billing-how-to-change-credit-card.md)。
 
-### <a name="you-cant-update-your-country"></a>您無法更新您的國家/地區
+### <a name="you-cant-update-your-countryregion"></a>您無法更新您的國家/地區
 
-由於技術限制，我們現在無法變更現有帳戶的國家/地區。 不過，您可以在想要的國家/地區建立帳戶，然後連絡 Azure 支援將服務移轉至該帳戶。
+由於技術限制，我們無法變更現有的帳戶國家/地區。 不過，您可以在想要的國家/地區中建立的帳戶，然後連絡 Azure 支援服務，將服務移轉至該帳戶。
 
 ## <a name="service-and-marketing-emails"></a>服務 」 和 「 行銷電子郵件
 

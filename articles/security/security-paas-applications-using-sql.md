@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057ec69db300c3ec95cbc63bd5056a78c24d5660
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596665"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601656"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>保護 Azure 中 PaaS 資料庫的最佳做法
 
@@ -78,7 +78,7 @@ Azure SQL 會管理 TDE 的金鑰相關問題。 如同 TDE，在移動資料庫
 
 Azure SQL 可透過 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 提供資料行加密。 如此僅有獲得授權的應用程式得以存取敏感的資料行。 使用此類加密可讓加密資料行的 SQL 查詢限制於相等值。
 
-應用程式層級加密也應該用於選擇性資料。 藉由使用保存在正確國家/地區的金鑰來加密資料，有時即可緩和資料主權問題的疑慮。 這甚至可以防止意外資料轉送造成問題，因為在沒有金鑰的情況下，就無法將資料解密，這裡是假設使用增強式演算法 (例如 AES 256)。
+應用程式層級加密也應該用於選擇性資料。 資料會加密使用金鑰保存在正確的國家/地區，有時即可緩和資料主權問題的疑慮。 這甚至可以防止意外資料轉送造成問題，因為在沒有金鑰的情況下，就無法將資料解密，這裡是假設使用增強式演算法 (例如 AES 256)。
 
 您可以採取其他預防措施來協助保護資料庫，例如設計安全系統、加密機密資產，以及建置圍繞資料庫伺服器的防火牆。
 

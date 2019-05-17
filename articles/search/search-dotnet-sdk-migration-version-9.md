@@ -7,17 +7,17 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f540bc304920073bcd823adcf6c9dd47cb2cf93b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159746"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541772"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-9"></a>升級至 Azure 搜尋服務.NET SDK 版本 9
+# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>升級至 Azure 搜尋服務.NET SDK 版本 9
 
 如果您使用 7.0 預覽版或更舊版本[Azure 搜尋服務.NET SDK](https://aka.ms/search-sdk)，本文將協助您升級您的應用程式使用 9 版。
 
@@ -70,7 +70,7 @@ Azure 搜尋服務.NET SDK 第 9 版為目標的最新的 Azure 搜尋服務 RES
 > [!NOTE]
 > 變更下方的清單並不詳盡。 某些變更可能不會導致建置錯誤，但就技術上而言重大，因為它們可能會中斷相依於舊版的 Azure 搜尋服務.NET SDK 組件的組件的二進位相容性。 這類變更不會列出如下。 請升級至版本 9，以避免任何二進位碼相容性問題時，重建您的應用程式。
 
-### <a name="making-properties-immutable"></a>建立不可變的屬性
+### <a name="immutable-properties"></a>不可變的屬性
 
 數個模型類別的公用屬性現在為不可變的。 如果您需要建立自訂的執行個體，這些類別進行測試，您可以使用新的參數化建構函式：
 
@@ -103,7 +103,7 @@ Azure 搜尋服務.NET SDK 第 9 版為目標的最新的 Azure 搜尋服務 RES
 
 無參數建構函式`Field`發出`internal`。 從現在起，每個`Field`建構期間需要明確的名稱和資料類型。
 
-### <a name="simplification-of-batch-and-results-types"></a>簡化的批次和結果的類型
+### <a name="simplified-batch-and-results-types"></a>簡化的批次和結果型別
 
 在版本 7.0-preview 及更早版本中，各種封裝群組的文件的類別已結構化成平行類別階層：
 
@@ -118,7 +118,7 @@ Azure 搜尋服務.NET SDK 第 9 版為目標的最新的 Azure 搜尋服務 RES
 
 從版本 8.0-preview 開始，基底類別和衍生的類別的非泛型所有已移除。 動態類型的情況下，您可以使用`IndexBatch<Document>`， `DocumentSearchResult<Document>`，依此類推。
  
-### <a name="removal-of-extensibleenum"></a>移除的 ExtensibleEnum
+### <a name="removed-extensibleenum"></a>已移除的 ExtensibleEnum
 
 `ExtensibleEnum`基底類別已移除。 所有從它衍生的類別為現在結構，例如`AnalyzerName`， `DataType`，和`DataSourceType`例如。 其`Create`方法也已經移除。 您可以只移除呼叫`Create`因為這些類型都會從字串隱含轉換。 如果這會導致編譯器錯誤，您可以明確叫用透過轉型轉換運算子，明確執行型別。 例如，您可以變更如下的程式碼：
 
@@ -150,9 +150,9 @@ var index = new Index()
 
 保留這些類型的選擇性值的屬性現在會明確輸入為可為 null 上，因此它們會繼續為選擇性。
 
-### <a name="removal-of-facetresults-and-hithighlights"></a>移除 FacetResults 和 HitHighlights
+### <a name="removed-facetresults-and-hithighlights"></a>已移除的 FacetResults 和 HitHighlights
 
-`FacetResults`和`HitHighlights`類別已移除。 面向結果現在會輸入成`IDictionary<string, IList<FacetResult>>`並點擊反白顯示為`IDictionary<string, IList<string>>`。 解決建置錯誤，這項變更所引進的快速方法是新增`using`頂端移除的類型會使用每個檔案的別名。 例如︰
+`FacetResults`和`HitHighlights`類別已移除。 面向結果現在會輸入成`IDictionary<string, IList<FacetResult>>`並點擊反白顯示為`IDictionary<string, IList<string>>`。 解決建置錯誤，這項變更所引進的快速方法是新增`using`頂端移除的類型會使用每個檔案的別名。 例如：
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;

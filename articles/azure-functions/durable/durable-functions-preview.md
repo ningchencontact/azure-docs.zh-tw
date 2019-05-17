@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6b3b49049ea1ed36a08fad9619183017b0f07d99
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077736"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596071"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2.0 預覽 (Azure Functions)
 
@@ -26,7 +26,7 @@ Durable Functions 是 Azure Functions 的 GA （正式推出） 功能，但也�
 > [!NOTE]
 > 這些預覽功能是 Durable Functions 2.0 版本中，也就是目前的一部分**alpha 品質版本**具有幾項重大變更。 與版本的形式在 nuget.org 上可以找到 Azure Functions 長期延伸模組套件建置**2.0.0-alpha**。 這些組建並不適合任何生產工作負載，及後續版本可能包含其他的重大變更。
 
-## <a name="breaking-changes"></a>重大變更
+## <a name="breaking-changes"></a>中斷性變更
 
 在 Durable Functions 2.0 導入幾項重大變更。 現有的應用程式不應該為無須變更程式碼與 Durable Functions 2.0 相容。 此區段會列出的一些變更：
 
@@ -36,7 +36,7 @@ Durable Functions 是 Azure Functions 的 GA （正式推出） 功能，但也�
 
 ### <a name="hostjson-schema"></a>Host.json 結構描述
 
-下列程式碼片段說明 host.json 的新結構描述。 主要的變更，要注意我們的新`"storageProvider"`區段中，而`"azureStorage"`區段底下。 這項變更為了支援[替代儲存體提供者](durable-functions-preview.md#alternate-storage-providers)。
+下列程式碼片段說明 host.json 的新結構描述。 要注意的主要變更是新`"storageProvider"`區段中，而`"azureStorage"`區段底下。 這項變更為了支援[替代儲存體提供者](durable-functions-preview.md#alternate-storage-providers)。
 
 ```json
 {
@@ -93,11 +93,12 @@ Durable Functions 所支援的各種 「 內容 」 物件具有適合在單元�
 
 實體函式定義作業讀取及更新小片段狀態，稱為*長期實體*。 協調器函式，例如實體函式函式是特殊的觸發程序型別*實體的觸發程序*。 不同協調器函式中，於實體函式沒有任何特定的程式碼條件約束。 實體函式也會管理狀態明確而不是以隱含方式代表透過控制流程的狀態。
 
-下列程式碼是簡單實體函式定義的範例*計數器*實體。 此函式定義三項作業， `add`， `remove`，並`reset`，每個的整數值，它更新`currentValue`。
+下列程式碼是簡單實體函式定義的範例*計數器*實體。 此函式定義三項作業， `add`， `subtract`，並`reset`，每個的整數值，它更新`currentValue`。
 
 ```csharp
+[FunctionName("Counter")]
 public static async Task Counter(
-    [EntityTrigger(EntityName = "Counter")] IDurableEntityContext ctx)
+    [EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
     int operand = ctx.GetInput<int>();
@@ -200,21 +201,25 @@ public static async Task Counter(
 比方說，請考慮需要測試兩個播放程式是否可使用，協調流程，然後將它們指派至遊戲。 可以使用重要區段，如下所示來實作這項工作：
 
 ```csharp
-
-EntityId player1 = /* ... */;
-EntityId player2 = /* ... */;
-
-using (await ctx.LockAsync(player1, player2))
+[FunctionName("Orchestrator")]
+public static async Task RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext ctx)
 {
-    bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
-    bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
+    EntityId player1 = /* ... */;
+    EntityId player2 = /* ... */;
 
-    if (available1 && available2)
+    using (await ctx.LockAsync(player1, player2))
     {
-        Guid gameId = ctx.NewGuid();
+        bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
+        bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
 
-        await ctx.CallEntityAsync(player1, "assign-game", gameId);
-        await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        if (available1 && available2)
+        {
+            Guid gameId = ctx.NewGuid();
+
+            await ctx.CallEntityAsync(player1, "assign-game", gameId);
+            await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        }
     }
 }
 ```

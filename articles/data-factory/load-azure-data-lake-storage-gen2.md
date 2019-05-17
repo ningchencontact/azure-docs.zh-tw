@@ -9,20 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8af34207eddb613f7a59bd3e3d300555e10f985
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60547531"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560740"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 中
 
 Azure Data Lake Storage Gen2 是一組巨量資料分析的專屬功能，內建於 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)。 此功能可讓您使用檔案系統和物件儲存範例連接您的資料。
 
-Azure Data Factory 是完全受控的雲端式資料整合服務。 您可以使用此服務，在建置分析解決方案時，於 Lake 中置入來自豐富的內部部署集合和雲端式資料存放區的資料，並節省時間。 如需受支援連接器的詳細清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)資料表。
+Azure Data Factory (ADF) 是一項完全受控的雲端架構資料整合服務。 您可以使用此服務，在建置分析解決方案時，於 Lake 中置入來自豐富的內部部署集合和雲端式資料存放區的資料，並節省時間。 如需受支援連接器的詳細清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)資料表。
 
 Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由於 ADF 具有相應放大架構，因此能以高輸送量來內嵌資料。 如需詳細資料，請參閱[複製活動效能](copy-activity-performance.md)。
 
@@ -130,13 +130,6 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
     ![監視活動執行詳細資料](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
 
 16. 確認資料已複製到 Data Lake Storage Gen2 帳戶中。
-
-## <a name="best-practices"></a>最佳作法
-
-從檔案型資料存放區複製大量資料時，建議您：
-
-- 將檔案分割成 10TB 到 30TB 的檔案集。
-- 請勿觸發太多並行複製執行，以避免來源或接收資料存放區的節流。 您可以從一個複製執行開始並且監視輸送量，然後視需要逐漸增加。
 
 ## <a name="next-steps"></a>後續步驟
 

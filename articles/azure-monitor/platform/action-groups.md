@@ -5,34 +5,34 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 5/10/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fba5119feb1ff7a0170a573371e479caa5fc33eb
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919078"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544461"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
 動作群組是 Azure 訂用帳戶擁有者定義的通知喜好設定集合。 Azure 監視器和服務健康狀態警示使用動作群組來通知使用者警示已被觸發。 根據使用者的需求而定，不同的警示可能使用相同的動作群組或不同的動作群組。 一個訂用帳戶中最多可設定 2,000 個動作群組。
 
-您設定要通知的人員，透過電子郵件或 SMS，他們會收到確認訊息，指出已新增到動作群組的動作。
+当配置操作来通过电子邮件或短信通知某个人员时，该人员将收到确认，指出其已被添加到操作组。
 
 本文將說明如何在 Azure 入口網站中建立和管理動作群組。
 
 每個動作是由下列屬性所組成：
 
 * **名稱**：動作群組內的唯一識別碼。  
-* **動作類型**：執行此動作。 範例包括傳送語音電話、SMS、電子郵件或觸發各種類型的自動化動作。 請參閱本文稍後的類型。 
-* **詳細資料**：對應的詳細資料會因*動作類型*。 
+* **動作類型**：执行的操作。 範例包括傳送語音電話、SMS、電子郵件或觸發各種類型的自動化動作。 請參閱本文稍後的類型。
+* **詳細資料**：因“操作类型”而异的相应详细信息。
 
 如需如何使用 Azure Resource Manager 範本設定動作群組的資訊，請參閱[動作群組 Resource Manager 範本](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)。
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站建立動作群組 ##
-1. 在 [入口網站](https://portal.azure.com) 中，選取 **監視**。 **監視器**窗格會合併所有監視設定和一個檢視中的資料。
+1. 在 [入口網站](https://portal.azure.com) 中，選取 **監視**。 “监视器”窗格将所有监视设置和数据合并到一个视图中。
 
     ![監視」服務](./media/action-groups/home-monitor.png)
 1. 選取 [警示]，然後選取 [管理動作群組]。
@@ -49,7 +49,7 @@ ms.locfileid: "64919078"
 
 1. 選取要在其中儲存動作群組的 [資源群組]。
 
-1. 定義動作的清單。 提供下列每個動作：
+1. 定义一个操作列表。 为每个操作提供以下信息：
 
     a. **名稱**：輸入此動作的唯一識別碼。
 
@@ -60,7 +60,7 @@ ms.locfileid: "64919078"
 1. 選取 [確定] 來建立動作群組。
 
 ## <a name="manage-your-action-groups"></a>管理您的動作群組 ##
-建立動作群組之後，它會顯示在**動作群組**一節**監視器**窗格。 選取您要管理的動作群組：
+创建操作组后，它会显示在“监视器”边栏选项卡的“操作组”部分中。 選取您要管理的動作群組：
 
 * 新增、編輯或移除動作。
 * 刪除動作群組。
@@ -69,28 +69,28 @@ ms.locfileid: "64919078"
 > [!NOTE]
 > 請參閱[監視的訂用帳戶服務限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits)數值限制在每個以下項目。  
 
-**Azure app 推播**-您可以在動作群組中的有限的數目的 Azure 應用程式的動作。 此時，Azure 應用程式動作目前只支援 ServiceHealth 警示。 將會忽略任何其他警示類型。 請參閱[設定每當服務健康狀態通知公佈時的警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
+**Azure app 推播**-您可能在動作群組中的有限的數目的 Azure 應用程式動作。
 
 **電子郵件** - 將會從下列電子郵件地址傳送電子郵件。 請確定已適當設定您的電子郵件篩選
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-在動作群組中，您可能必須為數有限的電子郵件動作。 請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)一文
+一个操作组中可以存在有限数量的电子邮件操作。 請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)一文
 
 **ITSM** -您可能在動作群組中的有限的數目的 ITSM 動作。 ITSM 動作需要 ITSM 連線。 了解如何建立 [ITSM 連線](../../azure-monitor/platform/itsmc-overview.md)。
 
-**邏輯應用程式**-您可能在動作群組中的有限的數量的邏輯應用程式動作。
+**逻辑应用** - 一个操作组中可以存在有限数量的逻辑应用操作。
 
-**函式應用程式**-函式金鑰的函式應用程式設定為透過目前需要 v2 函式應用程式，若要設定之應用程式設定 」 AzureWebJobsSecretStorageType"函式 API 讀取動作，以 「 檔案 」。 如需詳細資訊，請參閱 <<c0> [ 變更為函式 V2 中的金鑰管理]( https://aka.ms/funcsecrets)。
+**Function App** - 配置为操作的 Function App 的函数密钥通过函数 API 读取，这当前需要 v2 函数应用将应用设置“AzureWebJobsSecretStorageType”配置为“文件”。 有关详细信息，请参阅 [Functions V2 中对密钥管理的更改]( https://aka.ms/funcsecrets)。
 
-**Runbook** -您可能在動作群組中的有限的數目的 Runbook 動作。 請參閱[Azure 訂用帳戶服務限制](../../azure-subscription-service-limits.md)如需 Runbook 承載的限制。
+**Runbook** - 一个操作组中可以存在有限数量的 Runbook 操作。 有关 Runbook 有效负载的限制，请参考 [Azure 订阅服务限制](../../azure-subscription-service-limits.md)。
 
-**SMS** -您可能必須為數有限的 SMS 動作的動作群組中。 另請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)並[SMS 警示行為](../../azure-monitor/platform/alerts-sms-behavior.md)如其他的重要資訊。 
+**短信** - 一个操作组中可以存在有限数量的短信操作。 有关其他重要信息，另请参阅[速率限制信息](./../../azure-monitor/platform/alerts-rate-limiting.md)和[短信警报行为](../../azure-monitor/platform/alerts-sms-behavior.md)。 
 
-**語音**-在動作群組中可能有限的數目的語音的動作。 請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)文章。
+**语音** - 一个操作组中可以存在有限数量的语音操作。 请参阅[速率限制信息](./../../azure-monitor/platform/alerts-rate-limiting.md)一文。
 
-**Webhook** -您可能在動作群組中的有限的數目的 Webhook 動作。 Webhook 會使用下列規則來重試。 Webhook 呼叫重試一次最多 2 倍的下列的 HTTP 狀態碼傳回時：408、429、503、504 或 HTTP 端點沒有回應。 第一次重試會在 10 秒後執行。 第二次重試會在 100 秒後執行。 兩次失敗後, 沒有動作群組會在 30 分鐘內呼叫端點。 
+**Webhook** - 一个操作组中可以存在有限数量的 Webhook 操作。 Webhook 使用以下规则进行重试。 当返回的 HTTP 状态代码为 408、429、503、504 或者 HTTP 终结点未响应时，408、429、503、504 或 HTTP 端點沒有回應。 第一次重試會在 10 秒後執行。 第二次重試會在 100 秒後執行。 在失败两次后，操作组在 30 分钟内不会再调用该终结点。 
 
 來源 IP 位址範圍
  - 13.72.19.232
@@ -101,11 +101,12 @@ ms.locfileid: "64919078"
  - 13.106.38.148
  - 13.106.57.196
  - 52.244.68.117
+ - 52.244.65.137
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19
 
-若要接收這些 IP 位址變更的相關的更新，建議您設定服務健康情況警示，會監視 「 動作群組 」 服務的相關資訊通知。
+若要接收有关这些 IP 地址更改的更新，我们建议你配置服务运行状况警报，以监视有关操作组服务的信息通知。
 
 ## <a name="next-steps"></a>後續步驟 ##
 * 進一步了解 [SMS 警示行為](../../azure-monitor/platform/alerts-sms-behavior.md)。  

@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1de17429dfe89506445b2d47999b102f3becb15b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920160"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604393"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>為 Office 365 群組設定到期原則
 
-您現在可以為 Office 365 群組設定到期原則，來管理這些群組的生命週期。 您只能為 Azure Active Directory (Azure AD) 中的 Office 365 群組設定到期日。 
+您現在可以為 Office 365 群組設定到期原則，來管理這些群組的生命週期。 您只能為 Azure Active Directory (Azure AD) 中的 Office 365 群組設定到期日。
 
 一旦您為群組設定到期日：
 
@@ -54,7 +54,7 @@ ms.locfileid: "64920160"
 
 1. 開啟其帳戶在 Azure AD 租用戶中為全域系統管理員的 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
 
-2. 選取 [群組]，然後選取 [到期]，以開啟到期設定。
+2. 選取 **群組**，然後選取**到期**以開啟到期設定。
   
    ![群組到期設定](./media/groups-lifecycle/expiration-settings.png)
 
@@ -66,8 +66,8 @@ ms.locfileid: "64920160"
   * 當您完成時，選取 [儲存] 會儲存您的設定。
 
 > [!NOTE]
-> * 當您第一次設定到期日時，任何早於到期間隔的群組會設定為 30 後到期。 第一封續訂通知電子郵件會在第一天發出。 例如，400 天前已建立群組 A，而且到期間隔設定為 180 天。 您套用了到期設定，除非擁有者續訂群組 A，不然該群組就會在 30 天後刪除。
-> * 刪除並還原動態群組時，會將其視為新群組，並根據規則重新填入。 此流程可能需要多達 24 小時的時間。
+> 當您第一次設定到期日時，任何早於到期間隔的群組會設定為 30 後到期。 第一封續訂通知電子郵件會在第一天發出。 例如，400 天前已建立群組 A，而且到期間隔設定為 180 天。 當您套用到期原則時，群組 A 會有 30 天後刪除它，除非擁有者續訂。
+> 當刪除並還原動態群組時，它被視為新的群組，並根據規則重新填入。 此程序可能需要最多 24 小時。
 
 ## <a name="email-notifications"></a>電子郵件通知
 

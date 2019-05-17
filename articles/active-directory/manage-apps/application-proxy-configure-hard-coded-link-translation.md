@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec6caecde3e90f7113f60286e95cdaeb996003f7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437712"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784046"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>重新導向使用 Azure AD Application Proxy 發佈之應用程式的硬式編碼連結
 
@@ -59,13 +59,14 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 
 若要使用此功能，使用者必須下載延伸模組並登入。 管理員或使用者不需要任何其他設定。 
 
- 
+若要進一步了解，包括如何設定此選項時，請參閱[MyApps 瀏覽器延伸模組](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension)文件。
 
 ### <a name="option-3-link-translation-setting"></a>選項 3：連結轉譯設定 
 
-當連結轉譯啟用時，應用程式 Proxy 服務會透過 HTML 和 CSS 搜尋已發佈的內部連結並轉譯它們，讓您的使用者能夠獲得不受干擾的體驗。 
+當連結轉譯啟用時，應用程式 Proxy 服務會透過 HTML 和 CSS 搜尋已發佈的內部連結並轉譯它們，讓您的使用者能夠獲得不受干擾的體驗。 使用 MyApps 瀏覽器延伸模組是慣用的連結轉譯設定，因為它可讓使用者更多的高效能體驗。
 
-
+> [!NOTE]
+> 如果您使用選項 2 或 3，則只有其中一個應該啟用一次。
 
 ## <a name="how-link-translation-works"></a>連結轉譯的運作方式
 
@@ -96,14 +97,14 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 * iframe
 * 影像
 * input
-* link
+* 連結
 * menuitem
 * meta
 * 物件
 * script
-* 來源
+* source
 * 追蹤
-* video
+* 影片
 
 此外，在 CSS URL 屬性是也會轉譯。
 

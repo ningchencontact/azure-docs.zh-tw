@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304012"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546266"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
@@ -36,7 +36,7 @@ ms.locfileid: "60304012"
 
 * 您的閘道安裝尚未與 Azure 中的閘道資源相關聯。 您可以將閘道安裝只連結至一個閘道資源，當建立閘道資源並選取閘道安裝時會發生這種情況。 此連結讓其他資源無法使用閘道安裝。
 
-* 當您登入 Azure 入口網站並建立閘道資源時，請確定您使用先前用來[安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md#requirements)的同一個登入帳戶，以及用來安裝閘道的相同 [Azure 訂用帳戶](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)。 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
+* 當您登入 Azure 入口網站並建立閘道資源時，請確定您使用先前用來[安裝內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md#requirements)的同一個登入帳戶，以及用來安裝閘道的相同 [Azure 訂用帳戶](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)。 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
 * 若要在 Azure 入口網站中建立和維護閘道資源，[Windows 服務帳戶](../logic-apps/logic-apps-gateway-install.md#windows-service-account)必須至少具備**參與者**權限。 內部部署資料閘道會以 Windows 服務身分執行，並且設定成使用 `NT SERVICE\PBIEgwService` 作為 Windows 服務登入認證。 
 
@@ -63,7 +63,7 @@ ms.locfileid: "60304012"
 
 3. 在 [建立連線閘道] 頁面上，為閘道資源提供這項資訊：
 
-   | 屬性 | 描述 | 
+   | 屬性 | 說明 | 
    |----------|-------------|
    | **名稱** | 您的閘道資源名稱 | 
    | **訂用帳戶** | 您的 Azure 訂用帳戶名稱，該名稱必須是與邏輯應用程式相同的訂用帳戶。 預設的訂用帳戶會由您用來登入的 Azure 帳戶決定。 | 
