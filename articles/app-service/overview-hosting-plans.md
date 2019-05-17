@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
-ms.tgt_pltfrm: na
+ms.tgt1pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
@@ -25,7 +25,7 @@ ms.locfileid: "60839006"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 方案概觀
 
-在 App Service 中，應用程式會在 _App Service 方案_中執行。 App Service 方案會針對要執行的 Web 應用程式定義一組計算資源。 這些計算資源類似於傳統 Web 裝載中的[_伺服器陣列_](https://wikipedia.org/wiki/Server_farm)。 一或多個應用程式可設定為在相同的計算資源上執行 (或在相同的 App Service 方案中執行)。
+在 App Service 中，應用程式會在 App Service 方案中執行。 App Service 方案會針對要執行的 Web 應用程式定義一組計算資源。 這些計算資源類似於傳統 Web 裝載中的[_伺服器陣列_](https://wikipedia.org/wiki/Server_farm)。 一或多個應用程式可設定為在相同的計算資源上執行 (或在相同的 App Service 方案中執行)。
 
 當您在特定區域 (例如，西歐) 建立 App Service 方案時，會為該區域的方案建立一組計算資源。 無論您將何種應用程式置入此 App Service 方案，都會在該 App Service 方案定義的計算資源上執行。 每個 App Service 方案可定義：
 
@@ -34,7 +34,7 @@ ms.locfileid: "60839006"
 - 虛擬機器執行個體的大小 (小、中、大)
 - 定價層 (免費、共用、基本、標準、進階、PremiumV2、隔離、耗用)
 
-App Service 方案的_定價層_可決定您獲得哪些 App Service 功能，以及為該方案支付多少費用。 定價層有幾個類別：
+App Service 方案的定價層可決定您獲得哪些 App Service 功能，以及為該方案支付多少費用。 定價層有幾個類別：
 
 - **共用計算**：**免費**和**共用**，這兩個基底層會在與其他 App Service 應用程式相同的 Azure VM 上執行應用程式，包括其他客戶的應用程式。 這些層會將 CPU 配額配置到在共用資源上執行的每個應用程式，而且該資源無法向外延展。
 - **專用計算**：**基本**、**標準**、**進階**和 **PremiumV2** 層會在專用的 Azure VM 上執行應用程式。 只有位於同個 App Service 方案中的應用程式，才會共用相同的計算資源。 層越高，可用於向外延展的 VM 執行個體就越多。
@@ -78,9 +78,9 @@ App Service 方案的_定價層_可決定您獲得哪些 App Service 功能，�
 
 除了**免費**層以外，App Service 方案會根據其每小時使用的計算資源計費。
 
-- 在**共用**層，每個應用程式會收到 CPU 分鐘數的配額，因此_每個應用程式_會針對 CPU 配額每小時計費。
-- 在專用的計算層 (**基本**、**標準**、**進階**、**PremiumV2**)，App Service 方案會定義調整應用程式的 VM 執行個體數目，因此，App Service 方案中的_每個 VM 執行個體_會每小時計費。 無論有多少個應用程式在 VM 執行個體上執行，這些 VM 執行個體皆採相同收費。 為了避免產生非預期的費用，請參閱[清除 App Service 方案](app-service-plan-manage.md#delete)。
-- 在**隔離**層，App Service 環境會定義執行您應用程式的隔離背景工作角色數目，且_每個背景工作角色_會每小時計費。 此外，執行 App Service 環境本身也有每小時的基本費用。 
+- 在**共用**層，每個應用程式會收到 CPU 分鐘數的配額，因此每個應用程式會針對 CPU 配額每小時計費。
+- 在專用的計算層 (**基本**、**標準**、**進階**、**PremiumV2**)，App Service 方案會定義調整應用程式的 VM 執行個體數目，因此，App Service 方案中的每個 VM 執行個體會每小時計費。 無論有多少個應用程式在 VM 執行個體上執行，這些 VM 執行個體皆採相同收費。 為了避免產生非預期的費用，請參閱[清除 App Service 方案](app-service-plan-manage.md#delete)。
+- 在**隔離**層，App Service 環境會定義執行您應用程式的隔離背景工作角色數目，且每個背景工作角色會每小時計費。 此外，執行 App Service 環境本身也有每小時的基本費用。 
 - (僅限 Azure Functions) **耗用**層會動態配置 VM 執行個體以處理函數應用程式的工作負載，且 Azure 會每秒動態計費。 如需詳細資訊，請參閱 [Azure Functions 價格](https://azure.microsoft.com/pricing/details/functions/)。
 
 使用可用的 App Service 功能 (設定自訂網域、SSL 憑證、部署位置、備份等等) 不會向您收取費用。 例外狀況為：
