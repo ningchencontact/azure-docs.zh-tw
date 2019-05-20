@@ -17,12 +17,12 @@ ms.locfileid: "65415447"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 語言參考 
 
-Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 SQL (結構式查詢語言) 查詢文件，無需明確的結構描述，也不用建立次要索引。 本文提供的文檔適用於在 SQL API 帳戶中使用的 SQL 查詢語言語法。 有關示例 SQL 查詢的演練，請參閱 [Cosmos DB 中的 SQL 查詢示例](how-to-sql-query.md)。  
+Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 SQL (結構式查詢語言) 查詢文件，無需明確的結構描述，也不用建立次要索引。 本文提供的文档适用于在 SQL API 帐户中使用的 SQL 查询语言语法。 有关示例 SQL 查询的演练，请参阅 [Cosmos DB 中的 SQL 查询示例](how-to-sql-query.md)。  
   
-請訪問[查詢操場](https://www.documentdb.com/sql/demo)，可在其中嘗試 Cosmos DB，並針對示例數據集運行 SQL 查詢。  
+请访问[查询操场](https://www.documentdb.com/sql/demo)，可在其中尝试 Cosmos DB，并针对示例数据集运行 SQL 查询。  
   
 ## <a name="select-query"></a>SELECT 查詢  
-根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。 通常情況下，對於每個查詢，需枚舉 FROM 子句中的源，然後將 WHERE 子句中的篩選器應用到源以檢索 JSON 文檔的子集。 最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。 如需範例，請參閱 [SELECT 查詢範例](how-to-sql-query.md#SelectClause)
+根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。 通常情况下，对于每个查询，需枚举 FROM 子句中的源，然后将 WHERE 子句中的筛选器应用到源以检索 JSON 文档的子集。 最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。 如需範例，請參閱 [SELECT 查詢範例](how-to-sql-query.md#SelectClause)
   
 **語法**  
   
@@ -71,7 +71,7 @@ SELECT 陳述式中的子句的順序必須如上所述。 您可以省略任一
 若空白字元和註解在文法中不具備任何重要性，則必須用來分隔權杖。 例如：`-1e5` 是單一數字的權杖，而 `: – 1 e5` 則是加上減號的權杖，後面接著數字 1 和識別碼 e5。  
 
 ##  <a name="bk_select_query"></a> SELECT 子句  
-SELECT 語句中的子句必須採用上面顯示的順序。 您可以省略任一選用子句。 但是，若使用了選用子句，則這些子句必須以正確的順序出現。 如需範例，請參閱 [SELECT 查詢範例](how-to-sql-query.md#SelectClause)。
+SELECT 语句中的子句必须采用上面显示的顺序。 您可以省略任一選用子句。 但是，若使用了選用子句，則這些子句必須以正確的順序出現。 如需範例，請參閱 [SELECT 查詢範例](how-to-sql-query.md#SelectClause)。
 
 **語法**  
 
@@ -116,7 +116,7 @@ SELECT <select_specification>
   
 **備註**  
   
-`SELECT *` 語法只有在 FROM 子句已明顯宣告一個別名時才會有效。 `SELECT *` 提供一個身份識別投影，在無需投影的情況下會非常實用。 SELECT * 只有在已指定 FROM 子句且只導入單一輸入來源時才有效。  
+`SELECT *` 語法只有在 FROM 子句已明顯宣告一個別名時才會有效。 `SELECT *` 提供一個身分識別投影，在無需投影的情況下會非常實用。 SELECT * 只有在已指定 FROM 子句且只導入單一輸入來源時才有效。  
   
 請注意，`SELECT <select_list>` 和 `SELECT *` 為「語法捷徑」，可以使用如下所示的簡單 SELECT 陳述式另外表示。  
   
@@ -128,7 +128,7 @@ SELECT <select_specification>
   
 2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
   
-   等效於：  
+   等效于：  
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
@@ -250,7 +250,7 @@ FROM <from_specification>
   
     {4, 5} 為 `input_alias1 = C,`  
   
-- FROM 子句 `<from_source1> JOIN <from_source2>` 將生成以下元組：  
+- FROM 子句 `<from_source1> JOIN <from_source2>` 将生成以下元组：  
   
     (`input_alias1, input_alias2`):  
   
@@ -460,7 +460,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
 - `unary_operator <scalar_expression>`  
   
-   代表已套用至單一值的運算子。 有關詳細信息，請參閱[運算符](#bk_operators)部分。  
+   代表已套用至單一值的運算子。 有关详细信息，请参阅[运算符](#bk_operators)部分。  
   
 - `<scalar_expression> binary_operator <scalar_expression>`  
   
@@ -510,7 +510,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 |**arithmetic**|運算子預期的輸入為數字。 輸出也是數字。 若有任何**未定義的**輸入，或輸入了數字以外的類型，則會產生**未定義**的結果。|  
 |**bitwise**|運算子預期的輸入為 32 位元的帶正負號整數。 輸出也為 32 位元的帶正負號整數。<br /><br /> 任何非整數值均會進行四捨五入。 正值會無條件捨去，負值則會進位。<br /><br /> 除了 32 位元整數範圍的任何值，都會以去掉其兩個元件標記法的最後 32 位元進行轉換。<br /><br /> 若有任何**未定義的**輸入，或輸入了數字以外的類型，則會產生**未定義**的結果。<br /><br /> **附註：** 以上行為會與 JavaScript 位元運算子行為相容。|  
 |**logical**|運算子預期的輸入為布林值。 輸出也是布林值。<br />若有任何**未定義的**輸入，或輸入了布林值以外的類型，則會產生**未定義**的結果。|  
-|**比較**|運算子預期的輸入具有相同的未定義類型。 輸出也是布林值。<br /><br /> 若有任何**未定義的**輸入，或是不同類型的輸入，則會產生**未定義**的結果。<br /><br /> 請參閱**比較值順序**表格以取得值順序的詳細資料。|  
+|**比较**|運算子預期的輸入具有相同的未定義類型。 輸出也是布林值。<br /><br /> 若有任何**未定義的**輸入，或是不同類型的輸入，則會產生**未定義**的結果。<br /><br /> 請參閱**比較值順序**表格以取得值順序的詳細資料。|  
 |**字串**|運算子預期的輸入為字串。 輸出也是字串。<br />若有任何**未定義的**輸入，或輸入了字串以外的類型，則會產生**未定義**的結果。|  
   
  **一元運算子**  
@@ -540,12 +540,12 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
  **比較值順序**  
   
-|**類型**|**值順序**|  
+|**类型**|**值順序**|  
 |-|-|  
 |**未定義**|無法比較。|  
 |**Null**|單一值：**Null**|  
 |**Number**|自然實數。<br /><br /> 負的無限值小於其他任何數值。<br /><br /> 正無限值大於其他任何數值。**NaN** 值無法比較。 與 **NaN** 比較會產生**未定義的**值。|  
-|**String**|詞彙編纂順序。|  
+|**String**|詞彙編篡順序。|  
 |**Array**|沒有順序，但合理。|  
 |**物件**|沒有順序，但合理。|  
   
@@ -573,10 +573,10 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 |**未定義**|單一值： **未定義**|  
 |**Null**|單一值：**Null**|  
 |**布林值**|值：**False**，**True**。|  
-|**數字**|雙精確度浮點數，符合 IEEE 754 標準。|  
+|**数字**|雙精確度浮點數，符合 IEEE 754 標準。|  
 |**String**|零或更多 Unicode 字元的序列。 字串必須以單引號或雙引號括住。|  
 |**Array**|零或更多元素的序列。 除了未定義的類型，每個元素都可以是任何純量資料類型的值。|  
-|**對象**|未排序的零或更多名稱/值組。 名稱為 Unicode 字串；除了**未定義**的類型，值可以是任何純量資料類型。|  
+|**对象**|未排序的零或更多名稱/值組。 名稱為 Unicode 字串；除了**未定義**的類型，值可以是任何純量資料類型。|  
   
  **語法**  
   
@@ -608,7 +608,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
 ```  
   
- **參數**  
+ **参数**  
   
 * `<undefined_constant>; undefined`  
   
@@ -704,7 +704,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
     |'符號'|常值符號，為語法的一部分。|  
     |&#124; (分隔號)|語法項目的替代項目。 您僅可使用其中一個指定項目。|  
     |[ ] /(方括號)|方括號會括住一或多個選用項目。|  
-    |[ ,...n ]|表示前面的項可以重複 n 次。 以逗號分隔項目。|  
+    |[ ,...n ]|表示前面的项可以重复 n 次。 以逗號分隔項目。|  
     |[ ...n ]|指出先前項目可以重複 n 次。 以空格分隔項目。|  
   
 ##  <a name="bk_built_in_functions"></a>內建函式  
@@ -713,7 +713,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 |函式|說明|  
 |--------------|-----------------|  
 |[數學函式](#bk_mathematical_functions)|每個數學函數都會執行計算，通常以提供做為引數的輸入值為基礎，並且會傳回數值。|  
-|[類型檢查函式](#bk_type_checking_functions)|類型檢查函數允許檢查 SQL 查詢內表達式的類型。|  
+|[類型檢查函式](#bk_type_checking_functions)|类型检查函数允许检查 SQL 查询内表达式的类型。|  
 |[字串函式](#bk_string_functions)|下列字串函式會對字串輸入值執行作業，並傳回字串、數值或布林值。|  
 |[陣列函式](#bk_array_functions)|下列陣列函式會對陣列輸入值執行作業，並傳回數值、布林值或陣列值。|
 |[日期和時間函數](#bk_date_and_time_functions)|日期和時間函數可讓您以兩種形式，取得目前的 UTC 日期和時間數值的時間戳記，其值為 Unix epoch 以來毫秒，或為符合 ISO 8601 格式的字串。|
@@ -736,7 +736,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 ####  <a name="bk_abs"></a> ABS  
  傳回指定之數值運算式的絕對 (正) 值。  
   
- **語法**  
+ **语法**  
   
 ```  
 ABS (<numeric_expression>)  
@@ -746,7 +746,7 @@ ABS (<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -779,7 +779,7 @@ ACOS(<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -812,7 +812,7 @@ ASIN(<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -845,7 +845,7 @@ ATAN(<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -878,7 +878,7 @@ ATN2(<numeric_expression>, <numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -911,7 +911,7 @@ CEILING (<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -944,7 +944,7 @@ COS(<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -977,7 +977,7 @@ COT(<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -1010,7 +1010,7 @@ DEGREES (<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -1043,7 +1043,7 @@ FLOOR (<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -1076,11 +1076,11 @@ EXP (<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
-  返回一個數值表達式。  
+  返回一个数值表达式。  
   
   **備註**  
   
@@ -1137,7 +1137,7 @@ LOG (<numeric_expression> [, <base>])
   
   **傳回類型**  
   
-  返回一個數值表達式。  
+  返回一个数值表达式。  
   
   **備註**  
   
@@ -1186,11 +1186,11 @@ LOG10 (<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
-  返回一個數值表達式。  
+  返回一个数值表达式。  
   
   **備註**  
   
@@ -1223,7 +1223,7 @@ PI ()
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -1262,7 +1262,7 @@ POWER (<numeric_expression>, <y>)
   
    為要提高至 `numeric_expression` 的乘冪。  
   
-  **返回類型**  
+  **返回类型**  
   
   傳回數值運算式。  
   
@@ -1293,7 +1293,7 @@ RADIANS (<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -1332,11 +1332,11 @@ ROUND(<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
-  返回一個數值表達式。  
+  返回一个数值表达式。  
   
   **備註**
   
@@ -1376,7 +1376,7 @@ SIGN(<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -1409,7 +1409,7 @@ SIN(<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -1442,7 +1442,7 @@ SQRT(<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -1463,7 +1463,7 @@ SELECT SQRT(1) AS s1, SQRT(2.0) AS s2, SQRT(3) AS s3
 ```  
   
 ####  <a name="bk_square"></a> SQUARE  
- 返回指定數字值的平方。  
+ 返回指定数字值的平方。  
   
  **語法**  
   
@@ -1475,7 +1475,7 @@ SQUARE(<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -1508,7 +1508,7 @@ TAN (<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -1541,7 +1541,7 @@ TRUNC(<numeric_expression>)
   
 - `numeric_expression`  
   
-   是一個數值表達式。  
+   是一个数值表达式。  
   
   **傳回類型**  
   
@@ -1884,7 +1884,7 @@ SELECT
 ```  
   
 ###  <a name="bk_string_functions"></a> 字串函式  
- 下面的標量函數對字符串輸入值執行操作，並返回字符串、數值或布爾值。  
+ 下面的标量函数对字符串输入值执行操作，并返回字符串、数值或布尔值。  
   
 ||||  
 |-|-|-|  
@@ -1898,7 +1898,7 @@ SELECT
 |[TRIM](#bk_trim)|[UPPER](#bk_upper)||
   
 ####  <a name="bk_concat"></a> CONCAT  
- 返回一個字符串，該字符串是連接兩個或多個字符串值的結果。  
+ 返回一个字符串，该字符串是连接两个或多个字符串值的结果。  
   
  **語法**  
   
@@ -1964,7 +1964,7 @@ SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2
 ```  
   
 ####  <a name="bk_endswith"></a> ENDSWITH  
- 返回一個布爾值，指示第一個字符串表達式是否以第二個字符串表達式結尾。  
+ 返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式结尾。  
   
  **語法**  
   
@@ -2060,7 +2060,7 @@ LEFT(<str_expr>, <num_expr>)
 SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2 
 ```  
   
- 下面是結果集。  
+ 下面是结果集。  
   
 ```  
 [{"l1": "a", "l2": "ab"}]  
@@ -2134,7 +2134,7 @@ SELECT LOWER("Abc") AS lower
 ```  
   
 ####  <a name="bk_ltrim"></a> LTRIM  
- 返回刪除前導空格後的字符串表達式。  
+ 返回删除前导空格后的字符串表达式。  
   
  **語法**  
   
@@ -2376,7 +2376,7 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 ```  
 
   ####  <a name="bk_stringtoarray"></a> StringToArray  
- 返回已轉換為數組的表達式。 如果表達式無法轉換，則返回未定義的表達式。  
+ 返回已转换为数组的表达式。 如果表达式无法转换，则返回未定义的表达式。  
   
  **語法**  
   
@@ -2388,17 +2388,17 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   是否會將任何有效的標量表達式作為 JSON 數組表達式來計算？ 請注意，嵌套字符串值必須使用雙引號編寫，否則無效。 有關 JSON 格式的詳細信息，請參閱 [json.org](https://json.org/)
+   是否会将任何有效的标量表达式作为 JSON 数组表达式来计算？ 请注意，嵌套字符串值必须使用双引号编写，否则无效。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)
   
   **傳回類型**  
   
-  返回一個數組表達式或未定義的表達式。  
+  返回一个数组表达式或未定义的表达式。  
   
   **範例**  
   
-  以下示例演示 StringToArray 在不同類型中的行為方式。 
+  以下示例演示 StringToArray 在不同类型中的行为方式。 
   
- 下面是輸入有效的示例。
+ 下面是输入有效的示例。
 
 ```
 SELECT 
@@ -2415,10 +2415,10 @@ SELECT
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
-下面是輸入無效的示例。 
+下面是输入无效的示例。 
    
- 在數組中使用單引號不是有效的 JSON。
-即使它們在查詢中有效，系統也不會將其解析為有效數組。 必須將數組字符串中的字符串轉義為 "[\\"\\"]"，否則其引號必須為單個 '[""]'。
+ 在数组中使用单引号不是有效的 JSON。
+即使它们在查询中有效，系统也不会将其解析为有效数组。 必须将数组字符串中的字符串转义为 "[\\"\\"]"，否则其引号必须为单个 '[""]'。
 
 ```
 SELECT
@@ -2431,9 +2431,9 @@ SELECT
 [{}]
 ```
 
-下面是輸入無效的示例。
+下面是输入无效的示例。
    
- 傳遞的表達式將會解析為 JSON 數組；下面的示例不會計算為類型數組，因此返回未定義。
+ 传递的表达式将会解析为 JSON 数组；下面的示例不会计算为类型数组，因此返回未定义。
    
 ```
 SELECT
@@ -2451,7 +2451,7 @@ SELECT
 ```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
- 返回已轉換為布爾值的表達式。 如果表達式無法轉換，則返回未定義的表達式。  
+ 返回已转换为布尔值的表达式。 如果表达式无法转换，则返回未定义的表达式。  
   
  **語法**  
   
@@ -2463,19 +2463,19 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   是否會將任何有效的標量表達式作為布爾表達式來計算？  
+   是否会将任何有效的标量表达式作为布尔表达式来计算？  
   
   **傳回類型**  
   
-  返回一個布爾表達式或未定義的表達式。  
+  返回一个布尔表达式或未定义的表达式。  
   
   **範例**  
   
-  以下示例演示 StringToBoolean 在不同類型中的行為方式。 
+  以下示例演示 StringToBoolean 在不同类型中的行为方式。 
  
- 下面是輸入有效的示例。
+ 下面是输入有效的示例。
 
-只能在 "true"/"false" 之前或之後使用空格。
+只能在 "true"/"false" 之前或之后使用空格。
 
 ```  
 SELECT 
@@ -2490,9 +2490,9 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
-下面是輸入無效的示例。
+下面是输入无效的示例。
 
- 布爾值區分大小寫，必須全用小寫字符（即 "true" 和 "false"）來表示。
+ 布尔值区分大小写，必须全用小写字符（即 "true" 和 "false"）来表示。
 
 ```  
 SELECT 
@@ -2506,7 +2506,7 @@ SELECT
 [{}]
 ``` 
 
-傳遞的表達式將會解析為布爾表達式；以下輸入不會計算為布爾類型，因此會返回未定義。
+传递的表达式将会解析为布尔表达式；以下输入不会计算为布尔类型，因此会返回未定义。
 
 ```  
 SELECT 
@@ -2524,7 +2524,7 @@ SELECT
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
- 返回已轉換為 Null 的表達式。 如果表達式無法轉換，則返回未定義的表達式。  
+ 返回已转换为 Null 的表达式。 如果表达式无法转换，则返回未定义的表达式。  
   
  **語法**  
   
@@ -2536,19 +2536,19 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   是否會將任何有效的標量表達式作為 Null 表達式來計算？
+   是否会将任何有效的标量表达式作为 Null 表达式来计算？
   
   **傳回類型**  
   
-  返回一個 Null 表達式或未定義的表達式。  
+  返回一个 Null 表达式或未定义的表达式。  
   
   **範例**  
   
-  以下示例演示 StringToNull 在不同類型中的行為方式。 
+  以下示例演示 StringToNull 在不同类型中的行为方式。 
 
-下面是輸入有效的示例。
+下面是输入有效的示例。
 
- 只能在 "null" 之前或之後使用空格。
+ 只能在 "null" 之前或之后使用空格。
 
 ```  
 SELECT 
@@ -2563,9 +2563,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
-下面是輸入無效的示例。
+下面是输入无效的示例。
 
-Null 值區分大小寫，必須全用小寫字符（即 "null"）來表示。
+Null 值区分大小写，必须全用小写字符（即 "null"）来表示。
 
 ```  
 SELECT    
@@ -2579,7 +2579,7 @@ SELECT
 [{}]
 ```  
 
-傳遞的表達式將會解析為 null 表達式；以下輸入不會計算為 null 類型，因此會返回未定義。
+传递的表达式将会解析为 null 表达式；以下输入不会计算为 null 类型，因此会返回未定义。
 
 ```  
 SELECT    
@@ -2596,7 +2596,7 @@ SELECT
 ```  
 
 ####  <a name="bk_stringtonumber"></a> StringToNumber  
- 返回已轉換為數字值的表達式。 如果表達式無法轉換，則返回未定義的表達式。  
+ 返回已转换为数字值的表达式。 如果表达式无法转换，则返回未定义的表达式。  
   
  **語法**  
   
@@ -2608,17 +2608,17 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   是否會將任何有效的標量表達式作為 JSON 數字表達式來計算？ JSON 中的數字必須是整數或浮點數。 有關 JSON 格式的詳細信息，請參閱 [json.org](https://json.org/)  
+   是否会将任何有效的标量表达式作为 JSON 数字表达式来计算？ JSON 中的数字必须是整数或浮点数。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
   
   **傳回類型**  
   
-  返回一個數字表達式或未定義的表達式。  
+  返回一个数字表达式或未定义的表达式。  
   
   **範例**  
   
-  以下示例演示 StringToNumber 在不同類型中的行為方式。 
+  以下示例演示 StringToNumber 在不同类型中的行为方式。 
 
-只能在 Number 之前或之後使用空格。
+只能在 Number 之前或之后使用空格。
 
 ```  
 SELECT 
@@ -2634,7 +2634,7 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
-在 JSON 中，有效的 Number 必須是整數或浮點數。
+在 JSON 中，有效的 Number 必须是整数或浮点数。
 
 ```  
 SELECT   
@@ -2647,7 +2647,7 @@ SELECT
 {{}}
 ```  
 
-傳遞的表達式將會解析為 Number 表達式；以下輸入不會計算為 Number 類型，因此會返回未定義。 
+传递的表达式将会解析为 Number 表达式；以下输入不会计算为 Number 类型，因此会返回未定义。 
 
 ```  
 SELECT 
@@ -2666,7 +2666,7 @@ SELECT
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
- 返回已轉換為對象的表達式。 如果表達式無法轉換，則返回未定義的表達式。  
+ 返回已转换为对象的表达式。 如果表达式无法转换，则返回未定义的表达式。  
   
  **語法**  
   
@@ -2678,17 +2678,17 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   是否會將任何有效的標量表達式作為 JSON 對象表達式來計算？ 請注意，嵌套字符串值必須使用雙引號編寫，否則無效。 有關 JSON 格式的詳細信息，請參閱 [json.org](https://json.org/)  
+   是否会将任何有效的标量表达式作为 JSON 对象表达式来计算？ 请注意，嵌套字符串值必须使用双引号编写，否则无效。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
   
   **傳回類型**  
   
-  返回一個對象表達式或未定義的表達式。  
+  返回一个对象表达式或未定义的表达式。  
   
   **範例**  
   
-  以下示例演示 StringToObject 在不同類型中的行為方式。 
+  以下示例演示 StringToObject 在不同类型中的行为方式。 
   
- 下面是輸入有效的示例。
+ 下面是输入有效的示例。
 
 ``` 
 SELECT 
@@ -2707,10 +2707,10 @@ SELECT
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
 
- 下面是輸入無效的示例。
-即使它們在查詢中有效，系統也不會將其解析為有效對象。 必須將對象字符串中的字符串轉義為 "{\\"a\\":\\"str\\"}"，否則其引號必須為單個 '{"a": "str"}'。
+ 下面是输入无效的示例。
+即使它们在查询中有效，系统也不会将其解析为有效对象。 必须将对象字符串中的字符串转义为 "{\\"a\\":\\"str\\"}"，否则其引号必须为单个 '{"a": "str"}'。
 
-屬性名稱的單引號不是有效的 JSON。
+属性名称的单引号不是有效的 JSON。
 
 ``` 
 SELECT 
@@ -2723,7 +2723,7 @@ SELECT
 [{}]
 ```  
 
-沒有引號的屬性名稱不是有效的 JSON。
+没有引号的属性名称不是有效的 JSON。
 
 ``` 
 SELECT 
@@ -2736,9 +2736,9 @@ SELECT
 [{}]
 ``` 
 
-下面是輸入無效的示例。
+下面是输入无效的示例。
 
- 傳遞的表達式將會解析為 JSON 對象；以下輸入不會計算為對象類型，因此會返回未定義。
+ 传递的表达式将会解析为 JSON 对象；以下输入不会计算为对象类型，因此会返回未定义。
 
 ``` 
 SELECT 
@@ -3283,7 +3283,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
 - `spatial_expr`  
   
-   是任何有效的 GeoJSON 點、多邊形或 LineString 對象表達式。  
+   是任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
  
 - `spatial_expr`  
   
@@ -3325,7 +3325,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
 - `spatial_expr`  
   
-   是任何有效的 GeoJSON 點、多邊形或 LineString 對象表達式。  
+   是任何有效的 GeoJSON 点、多边形或 LineString 对象表达式。  
  
 - `spatial_expr`  
   
@@ -3379,7 +3379,7 @@ ST_ISVALID(<spatial_expr>)
   
   例如，此點的維度值不在數值 [-90, 90] 的有效範圍內，因此查詢會傳回 False。  
   
-  對於多邊形，GeoJSON 規格需要此資料；若要建立一個封閉的形狀，最後一個座標組應該與第一個座標組相同。 多邊形內的點必須以逆時針順序指定。 以順時針順序指定多邊形，代表區域內的反轉。  
+  對於多邊形，GeoJSON 規格需要此資料；若要建立一個封閉的形狀，最後一個座標組應該與第一個座標組相同。 多边形内的点必须以逆时针顺序指定。 以順時針順序指定多邊形，代表區域內的反轉。  
   
 ```  
 SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b 
@@ -3392,7 +3392,7 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b
 ```  
   
 ####  <a name="bk_st_isvaliddetailed"></a> ST_ISVALIDDETAILED  
- 如果指定的 GeoJSON 點、多邊形或 LineString 表達式有效，則返回包含布爾值的 JSON 值；如果無效，則額外加上作為字符串值的原因。  
+ 如果指定的 GeoJSON 点、多边形或 LineString 表达式有效，则返回包含布尔值的 JSON 值；如果无效，则额外加上作为字符串值的原因。  
   
  **語法**  
   
@@ -3408,7 +3408,7 @@ ST_ISVALIDDETAILED(<spatial_expr>)
   
   **傳回類型**  
   
-  如果指定的 GeoJSON 點或多邊形表達式有效，則返回包含布爾值的 JSON 值；如果無效，則額外以字符串值提供原因。  
+  如果指定的 GeoJSON 点或多边形表达式有效，则返回包含布尔值的 JSON 值；如果无效，则额外以字符串值提供原因。  
   
   **範例**  
   
