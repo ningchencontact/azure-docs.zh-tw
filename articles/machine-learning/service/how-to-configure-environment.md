@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471620"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606422"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -26,7 +26,7 @@ ms.locfileid: "65471620"
 
 本文著重於下列環境和工具：
 
-* 您自己[雲端為基礎的 notebook server](#notebookvm):在您的工作站中使用的計算資源，執行 Jupyter notebook。 這是最簡單的入門方式，因為已經安裝了 Azure Machine Learning SDK。
+* 您自己[雲端為基礎的 notebook VM](#notebookvm):在您的工作站中使用的計算資源，執行 Jupyter notebook。 這是最簡單的入門方式，因為已經安裝了 Azure Machine Learning SDK。
 
 * [資料科學虛擬機器 (DSVM)](#dsvm)：Azure 雲端中預先設定的開發或實驗環境，此環境專為資料科學工作而設計，並可部署至純 CPU VM 執行個體或 GPU 型執行個體。 已安裝 Python 3、Conda、Jupyter Notebook 和 Azure Machine Learning SDK。 VM 隨附適用於開發機器學習解決方案的常用機器學習和深度學習架構、工具及編輯器。 針對 Azure 平台上的機器學習，它可能是最完整的開發環境。
 
@@ -42,9 +42,7 @@ ms.locfileid: "65471620"
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure Machine Learning 服務工作區。 若要建立工作區，請參閱[建立 Azure 機器學習服務工作區](setup-create-workspace.md)。
-
-工作區是您只需要開始使用您自己[雲端為基礎的 notebook 伺服器](#notebookvm)，則[DSVM](#dsvm)， [Azure Databricks](#aml-databricks)，或[Azure Notebooks](#aznotebooks).
+Azure Machine Learning 服務工作區。 若要建立工作區，請參閱[建立 Azure 機器學習服務工作區](setup-create-workspace.md)。 工作區是您只需要開始使用您自己[雲端為基礎的 notebook 伺服器](#notebookvm)，則[DSVM](#dsvm)， [Azure Databricks](#aml-databricks)，或[Azure Notebooks](#aznotebooks).
 
 若要安裝的 SDK 環境您[本機電腦](#local)， [Jupyter Notebook 伺服器](#jupyter)或是[Visual Studio Code](#vscode)也需要：
 
@@ -57,16 +55,30 @@ ms.locfileid: "65471620"
 
 - 在 Windows 上，您需要命令提示字元或 Anaconda 提示字元 (由 Anaconda 和 Miniconda 安裝)。
 
-## <a id="notebookvm"></a>您自己的雲端架構的 notebook 伺服器
+## <a id="notebookvm"></a>您的雲端為基礎的 notebook VM
 
-在您的 Azure Machine Learning 工作區的最簡單的方式，若要開始使用 Azure Machine Learning 開發中建立 notebook 伺服器。
+Notebook 的虛擬機器 （預覽） 是安全、 以雲端為基礎的 Azure 工作站，為資料科學家提供 Jupyter notebook 伺服器、 JupyterLab，與完全備妥的 ML 環境。 
 
-* Azure Machine Learning SDK 已安裝。
-* Notebook 在 VM 環境會自動設定為使用您的工作區中。
-* 資源會在您的工作區中建立，而且可以那里管理
+Notebook 是 VM: 
 
-若要開始使用雲端架構的 notebook server 進行開發，請參閱[快速入門：若要開始使用 Azure Machine Learning 中使用雲端架構的 notebook 伺服器](quickstart-run-cloud-notebook.md)。
++ **安全**。 依預設使用 HTTPS 與 Azure Active Directory 保護 VM 和 notebook 的存取，因為 IT 專業人員可以輕鬆地強制執行，單一登入和其他安全性功能，例如多重要素驗證。
 
++ **預先設定**。 這完全備妥的 Python ML 環境從受歡迎的 IaaS 資料科學 VM 中繪製它的歷史，並且包含：
+  + Azure ML Python SDK （最新版）
+  + 若要使用您的工作區的自動設定
+  + Jupyter notebook 伺服器
+  + JupyterLab notebook IDE
+  + 預先設定的 GPU 驅動程式 
+  + 選取的深度學習架構
+ 
+
+  如果您是程式碼時，VM 會包括教學課程和範例，可協助您探索和了解如何使用 Azure Machine Learning 服務。 範例筆記本會儲存在您讓它們可共用跨 Vm 的工作區的 Azure Blob 儲存體帳戶。 當執行時，他們也能存取資料存放區，並計算工作區的資源。 
+
++ **簡單的安裝程式**:建立一個可以隨時從您的 Azure Machine Learning 工作區中。 提供的名稱，並指定 Azure VM 類型。 立即試用與這個[快速入門：若要開始使用 Azure Machine Learning 中使用雲端架構的 notebook 伺服器](quickstart-run-cloud-notebook.md)。
+
++ **可自訂**。 受管理和保護 VM，供應項目，同時您要保留的完整存取權的硬體功能，並根據您喜好的需求進行自訂。 例如，快速建立最新 NVidia V100 電源的 VM 來執行新奇的類神經網路架構的逐步偵錯。
+
+若要停止產生 notebook VM 費用，[停止 VM 的 notebook](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)。 
 
 ## <a id="dsvm"></a>資料科學虛擬機器
 
@@ -368,7 +380,7 @@ SDK databricks **WITH**自動化機器學習服務![SDK 會自動安裝在 Datab
 
 * **請依照下列中的步驟[建立 Azure 機器學習服務工作區](setup-create-workspace.md#sdk)**:*config.json* 檔案是在 Azure Notebook 程式庫中建立的。 此檔案包含您工作區的組態資訊。 您可以將此 *config.json* 下載或複製到其他開發環境。
 
-* **下載檔案**:在 Azure 入口網站中，從您工作區的 [概觀] 區段選取 [下載 config.json][](https://ms.portal.azure.com)。
+* **下載檔案**:在 [Azure 入口網站](https://ms.portal.azure.com)中，從您工作區的 [概觀] 區段選取 [下載 config.json]。
 
      ![Azure 入口網站](./media/how-to-configure-environment/configure.png)
 
@@ -397,4 +409,3 @@ SDK databricks **WITH**自動化機器學習服務![SDK 會自動安裝在 Datab
 - 在 Azure Machine Learning 使用 MNIST 資料集[定型模型](tutorial-train-models-with-aml.md) \(英文\)
 - 檢視[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) \(英文\) 參考
 - 深入了解[Azure Machine Learning 資料準備封裝](https://aka.ms/data-prep-sdk)
-- 
