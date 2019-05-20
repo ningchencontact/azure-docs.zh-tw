@@ -55,8 +55,8 @@ ms.locfileid: "61473054"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Sybase** | 是 |
-| 伺服器 | Sybase 伺服器的名稱。 |是 |
-| 資料庫 | Sybase 資料庫的名稱。 |是 |
+| server | Sybase 伺服器的名稱。 |是 |
+| database | Sybase 資料庫的名稱。 |是 |
 | authenticationType | 用來連接到 Sybase 資料庫的驗證類型。<br/>允許的值包括：**基本**和 **Windows**。 |是 |
 | username | 指定連線到 Sybase 資料庫時所要使用的使用者名稱。 |是 |
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
