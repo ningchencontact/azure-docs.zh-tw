@@ -63,8 +63,9 @@
     - name: 調整
       href: concepts-scale.md
     - name: 最佳作法
-      href: best-practices.md
       items:
+        - name: 概觀
+          href: best-practices.md
         - name: 針對叢集運算子
           items:
             - name: 多租用戶和叢集隔離
@@ -115,9 +116,9 @@
           maintainContext: true
         - name: 建立虛擬節點
           items:
-            - name: Azure CLI
+            - name: 使用 Azure CLI
               href: virtual-nodes-cli.md
-            - name: Azure 入口網站
+            - name: 使用 Azure 入口網站
               href: virtual-nodes-portal.md
         - name: 使用 Virtual Kubelet
           href: virtual-kubelet.md
@@ -165,9 +166,10 @@
             - name: 使用 TLS 搭配自己的憑證
               href: ingress-own-tls.md
             - name: 使用 TLS 搭配 Let's Encrypt
-              href: ingress-tls.md
               items:
-                - name: 使用靜態公用 IP
+                - name: 使用動態公用 IP 位址
+                  href: ingress-tls.md
+                - name: 使用靜態公用 IP 位址
                   href: ingress-static-ip.md
         - name: 輸出流量
           href: egress.md
@@ -212,6 +214,20 @@
         - name: 檢視即時的容器記錄 (預覽)
           href: ../azure-monitor/insights/container-insights-live-logs.md
           maintainContext: true
+    - name: 使用 Windows Server 容器 (預覽)
+      items:
+        - name: 建立 AKS 叢集
+          href: windows-container-cli.md
+        - name: 遠端連線
+          href: rdp.md
+        - name: 已知限制
+          href: windows-node-limitations.md
+        - name: 使用 Kubernetes 儀表板
+          href: kubernetes-dashboard.md
+        - name: 建立適用於 Windows Server 容器的 Dockerfiles
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context'
+        - name: 最佳化適用於 Windows Server 容器的 Dockerfiles
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
     - name: 開發及執行應用程式
       items:
         - name: 使用 Dev Spaces 部署

@@ -46,6 +46,8 @@
           href: security-overview.md
         - name: 調查有風險的使用者和登入記錄
           href: howto-investigate-risky-users-signins.md
+        - name: 上提供風險事件的意見反應
+          href: howto-provide-risk-event-feedback.md
         - name: 設定風險原則
           href: howto-configure-risk-policies.md
         - name: 改善偵測精確度

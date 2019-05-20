@@ -176,6 +176,8 @@
               href: integrate-environments-devops-pipeline.md
             - name: 使用平台即服務 (PaaS) 服務
               href: use-paas-services.md
+            - name: 部署巢狀範本
+              href: deploy-nested-template-environments.md
         - name: 保護對實驗室的存取
           items:
             - name: 加入實驗室擁有者與使用者
@@ -188,6 +190,8 @@
           items:
             - name: 設定原則和排程
               href: devtest-lab-set-lab-policy.md
+            - name: 傳送自動關閉通知
+              href: devtest-lab-auto-shutdown.md
             - name: 設定成本管理
               href: devtest-lab-configure-cost-management.md
             - name: 設定 Azure Marketplace 映像
