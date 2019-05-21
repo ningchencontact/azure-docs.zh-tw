@@ -80,6 +80,12 @@
     - name: 服務 的運作方式
       displayName: architecture concepts definitions
       href: concept-azure-machine-learning-architecture.md
+    - name: 工作區
+      displayName: concept definitions architecture
+      href: concept-workspace.md
+    - name: 視覺化介面
+      displayName: concept
+      href: ui-concept-visual-interface.md
     - name: 自動化機器學習
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md

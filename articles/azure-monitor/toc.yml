@@ -819,51 +819,45 @@
       items:
         - name: 警示
           items:
-            - name: 使用計量警示
-              items:
-                - name: 在 Azure 監視器中建立、檢視及管理計量警示
-                  href: platform/alerts-metric.md
-                - name: 在 Azure 監視器中建立、檢視及管理傳統計量警示
-                  href: platform/alerts-classic-portal.md
-                - name: 搭配動態閾值的計量警示
-                  href: platform/alerts-dynamic-thresholds.md
-                - name: 在記錄上設定計量警示
-                  href: platform/alerts-metric-logs.md
-                - name: 使用 Resource Manager 範本建立較新的計量警示
-                  href: platform/alerts-metric-create-templates.md
-                - name: 使用 Resource Manager 範本建立傳統計量警示
-                  href: platform/alerts-enable-template.md
-                - name: 讓傳統計量警示呼叫 Webhook
-                  href: platform/alerts-webhooks.md
-            - name: 使用記錄警示
-              items:
-                - name: 在分析查詢上設定警示
-                  href: platform/alerts-log.md
-                - name: 記錄警示查詢
-                  href: platform/alerts-log-query.md
-                - name: Webhook 動作記錄警示
-                  href: platform/alerts-log-webhook.md
-                - name: 針對記錄警示進行疑難排解
-                  href: platform/alert-log-troubleshoot.md
-            - name: 使用活動記錄警示
-              items:
-                - name: 在活動記錄事件中設定警示
-                  href: platform/alerts-activity-log.md
-                - name: 移轉至活動記錄警示
-                  href: platform/migrate-management-alerts.md
-                - name: 設定服務通知警示
-                  href: platform/alerts-activity-log-service-notifications.md
-            - name: 使用應用程式警示
+            - name: 應用程式警示規則
               items:
                 - name: 可用性
                   href: app/monitor-web-app-availability.md
                 - name: 度量警示
                   href: app/alerts.md
-            - name: 使用動作群組搭配警示
+            - name: 平台計量警示規則
+              items:
+                - name: 管理計量警示
+                  href: platform/alerts-metric.md
+                - name: 使用動態閾值
+                  href: platform/alerts-dynamic-thresholds.md
+                - name: 記錄上的計量警示
+                  href: platform/alerts-metric-logs.md
+                - name: 使用 Resource Manager 範本
+                  href: platform/alerts-metric-create-templates.md
+            - name: 記錄警示規則
+              items:
+                - name: 在分析查詢上設定警示
+                  href: platform/alerts-log.md
+                - name: 查詢
+                  href: platform/alerts-log-query.md
+                - name: Webhook 動作
+                  href: platform/alerts-log-webhook.md
+                - name: 疑難排解
+                  href: platform/alert-log-troubleshoot.md
+            - name: 活動記錄警示規則
+              items:
+                - name: 活動記錄事件警示
+                  href: platform/alerts-activity-log.md
+                - name: 將管理事件遷移至活動記錄警示
+                  href: platform/migrate-management-alerts.md
+                - name: 服務健康情況警示
+                  href: platform/alerts-activity-log-service-notifications.md
+            - name: 使用動作群組
               items:
                 - name: 建立動作群組
                   href: platform/action-groups.md
-                - name: 了解 Webhook 結構描述
+                - name: Webhook 結構描述
                   href: platform/activity-log-alerts-webhook.md
                 - name: 常見的警示結構描述定義
                   href: platform/alerts-common-schema-definitions.md
@@ -875,9 +869,9 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: 實作邏輯應用程式動作
                   href: platform/action-groups-logic-app.md
-            - name: 來自 Operations Manager 的警示
+            - name: 警示管理解決方案
               href: platform/alert-management-solution.md
-            - name: 管理警示
+            - name: 警示使用者介面
               items:
                 - name: 管理警示執行個體
                   href: platform/alerts-managing-alert-instances.md
@@ -887,19 +881,31 @@
                   href: platform/alerts-managing-alert-states.md
                 - name: 管理來自其他監視服務的警示
                   href: platform/alerts-managing-nagios-zabbix-scom.md
-            - name: 遷移傳統警示
+            - name: 遷移傳統警示規則
               items:
-                - name: 使用移轉工具
-                  href: platform/alerts-using-migration-tool.md
-                - name: 移轉準備工作
+                - name: 為移轉做準備
                   href: platform/alerts-prepare-migration.md
                 - name: 了解移轉工具
                   href: platform/alerts-understand-migration.md
+                - name: 使用移轉工具
+                  href: platform/alerts-using-migration-tool.md
+                - name: 管理傳統計量警示
+                  href: platform/alerts-classic-portal.md
+                - name: 使用 Resource Manager 範本的傳統計量警示
+                  href: platform/alerts-enable-template.md
+                - name: 傳統計量警示呼叫 Webhook
+                  href: platform/alerts-webhooks.md
+        - name: 活動記錄中的服務健康情況通知
+          items:
+            - name: 檢視通知
+              href: platform/service-notifications.md
+            - name: 設定通知事件警示
+              href: platform/alerts-activity-log-service-notifications.md
         - name: Autoscale
           items:
-            - name: 自動調整規模的逐步解說
+            - name: 逐步介紹
               href: platform/autoscale-get-started.md
-            - name: 了解自動調整設定
+            - name: 設定
               href: platform/autoscale-understanding-settings.md
             - name: 最佳作法
               href: platform/autoscale-best-practices.md
@@ -907,20 +913,14 @@
               href: platform/autoscale-common-metrics.md
             - name: 常見模式
               href: platform/autoscale-common-scale-patterns.md
-            - name: 使用自訂計量來自動調整規模
+            - name: 依自訂計量縮放
               href: platform/autoscale-custom-metric.md
+            - name: 自動調整虛擬機器擴展集
+              href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
             - name: 使用 Resource Manager 範本自動調整虛擬機器擴展集
               href: platform/autoscale-virtual-machine-scale-sets.md
-            - name: 在虛擬機器擴展集中自動調整機器
-              href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-            - name: 設定自動調整規模的 Webhook 與電子郵件通知
+            - name: 使用 Webhook 與電子郵件通知
               href: platform/autoscale-webhook-email.md
-        - name: 服務通知
-          items:
-            - name: 檢視服務通知
-              href: platform/service-notifications.md
-            - name: 設定服務通知警示
-              href: platform/alerts-activity-log-service-notifications.md
         - name: IT 服務管理
           items:
             - name: IT 服務管理連接器

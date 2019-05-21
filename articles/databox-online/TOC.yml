@@ -89,6 +89,8 @@
           items:
             - name: Edge 計算
               href: data-box-edge-manage-compute.md
+            - name: Edge 計算網路
+              href: data-box-edge-extend-compute-access-modules.md
             - name: 共用
               href: data-box-edge-manage-shares.md
             - name: 使用者

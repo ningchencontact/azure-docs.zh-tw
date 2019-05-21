@@ -303,9 +303,9 @@
         - name: 關於
           href: speech-devices-sdk.md
         - name: 授權
-          href: speech-devices-sdk-license.md
+          href: 'https://aka.ms/sdsdk-license'
         - name: 協力廠商通知
-          href: devices-sdk-third-party-notices.md
+          href: 'https://aka.ms/sdsdk-toctpn'
     - name: 針對語音 SDK 進行疑難排解
       href: troubleshooting.md
     - name: 針對語音裝置 SDK 進行疑難排解
