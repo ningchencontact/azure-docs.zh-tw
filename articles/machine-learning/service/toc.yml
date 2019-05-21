@@ -6,6 +6,9 @@
     - name: 什麼是 Azure Machine Learning 服務？
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
+    - name: 服務 的運作方式
+      displayName: architecture concepts definitions
+      href: concept-azure-machine-learning-architecture.md
 - name: 設定
   items:
     - name: 建立工作區
@@ -77,9 +80,6 @@
           href: ui-sample-classification-predict-churn.md
 - name: 概念
   items:
-    - name: 服務 的運作方式
-      displayName: architecture concepts definitions
-      href: concept-azure-machine-learning-architecture.md
     - name: 工作區
       displayName: concept definitions architecture
       href: concept-workspace.md

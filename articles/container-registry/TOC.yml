@@ -75,9 +75,10 @@
       items:
         - name: 限制虛擬網路的存取 (預覽)
           href: container-registry-vnet.md
-        - name: 驗證概觀
-          href: container-registry-authentication.md
+        - name: Authentication
           items:
+            - name: 驗證概觀
+              href: container-registry-authentication.md
             - name: 服務主體驗證
               href: container-registry-auth-service-principal.md
             - name: 受控識別驗證
@@ -143,3 +144,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-registry'
     - name: 影片
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'
+    - name: 常見問題集
+      href: container-registry-faq.md
