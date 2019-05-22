@@ -131,12 +131,12 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動的類型屬性必須設定為：**複製** | 是 |
-| 輸入 | 指定您所建立指向來源資料的資料集。 複製活動僅支援單一輸入。 | 是 |
-| 輸出 | 指定您所建立指向接收資料的資料集。 複製活動僅支援單一輸出。 | 是 |
+| inputs | 指定您所建立指向來源資料的資料集。 複製活動僅支援單一輸入。 | 是 |
+| outputs | 指定您所建立指向接收資料的資料集。 複製活動僅支援單一輸出。 | 是 |
 | typeProperties | 要設定複製活動的屬性群組。 | 是 |
 | source | 指定關於如何擷取資料的複製來源類型和對應的屬性。<br/><br/>如需詳細資料，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列之連接器發行項的＜複製活動屬性＞一節。 | 是 |
-| 接收 | 指定複製接收類型和關於如何寫入資料的對應屬性。<br/><br/>如需詳細資料，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列之連接器發行項的＜複製活動屬性＞一節。 | 是 |
-| 轉譯程式 | 指定從來源到接收的明確資料行對應。 適用於預設複製行為無法滿足您的需求時。<br/><br/>如需詳細資料，請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)。 | 否 |
+| sink | 指定複製接收類型和關於如何寫入資料的對應屬性。<br/><br/>如需詳細資料，請參閱[支援的資料存放區和格式](#supported-data-stores-and-formats)中所列之連接器發行項的＜複製活動屬性＞一節。 | 是 |
+| translator | 指定從來源到接收的明確資料行對應。 適用於預設複製行為無法滿足您的需求時。<br/><br/>如需詳細資料，請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)。 | 否 |
 | dataIntegrationUnits | 指定 [Azure 整合執行階段](concepts-integration-runtime.md)以執行資料複製。 之前稱為「資料移動單位」(DMU)。 <br/><br/>如需詳細資訊，請參閱[資料整合單位](copy-activity-performance.md#data-integration-units)。 | 否 |
 | parallelCopies | 指定從來源讀取資料和寫入資料到接收時，「複製活動」要使用的平行處理原則。<br/><br/>如需詳細資料，請參閱[平行複製](copy-activity-performance.md#parallel-copy)。 | 否 |
 | enableStaging<br/>stagingSettings | 選擇暫存過度資料中的 blob 儲存體，而不是直接從來源到接收複製資料。<br/><br/>如需實用案例和設定的詳細資料，請參閱[分段複製](copy-activity-performance.md#staged-copy)。 | 否 |
