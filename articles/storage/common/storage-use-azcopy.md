@@ -498,7 +498,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:https:/
 AzCopy /@:"C:\responsefiles\copyoperation.txt"
 ```
 
-您可以在回應檔案中包含任何 AzCopy 命令列參數。 AzCopy 處理檔案中的參數，就好像在命令列上指定這些參數一様，執行使用檔案內容的直接取代。
+您可以在回應檔案中包含任何 AzCopy 命令列參數。 AzCopy 會處理檔案中的參數，就好像參數是在命令列上指定一樣，執行使用檔案內容的直接取代。
 
 假設名為 `copyoperation.txt`且包含下列資料行的回應檔案。 每個 AzCopy 參數可以指定在同一行
 
