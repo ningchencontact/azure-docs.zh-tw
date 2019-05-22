@@ -55,7 +55,7 @@ ms.locfileid: "61347644"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Teradata** | 是 |
-| 伺服器 | Teradata 伺服器的名稱。 | 是 |
+| server | Teradata 伺服器的名稱。 | 是 |
 | authenticationType | 用來連接到 Teradata 資料庫的驗證類型。<br/>允許的值包括：**基本**和 **Windows**。 | 是 |
 | username | 指定連線到 Teradata 資料庫時所要使用的使用者名稱。 | 是 |
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
@@ -167,41 +167,41 @@ ms.locfileid: "61347644"
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |字串 |
-| Clob |字串 |
-| date |DateTime |
+| Char |String |
+| Clob |String |
+| Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
-| 圖形 |字串 |
-| 整數  |Int32 |
-| 間隔日 |TimeSpan |
-| 間隔日至小時 |TimeSpan |
-| 間隔日至分鐘 |TimeSpan |
-| 間隔日至秒鐘 |TimeSpan |
-| 間隔小時 |TimeSpan |
-| 間隔小時至分鐘 |TimeSpan |
-| 間隔小時至秒鐘 |TimeSpan |
-| 間隔分鐘 |TimeSpan |
-| 間隔分鐘至秒鐘 |TimeSpan |
-| 間隔月 |字串 |
-| 間隔第二 |TimeSpan |
-| 間隔年 |字串 |
-| 間隔年至月 |字串 |
-| 數字 |Double |
-| Period(Date) |字串 |
-| Period(Time) |字串 |
-| Period(Time With Time Zone) |字串 |
-| Period(Timestamp) |字串 |
-| Period(Timestamp With Time Zone) |字串 |
+| Graphic |String |
+| Integer |Int32 |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Month |String |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Number |Double |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
 | SmallInt |Int16 |
-| 時間 |TimeSpan |
-| 時區的時間 |字串 |
+| Time |TimeSpan |
+| Time With Time Zone |String |
 | Timestamp |DateTime |
-| 時區的時間戳記 |DateTimeOffset |
+| Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
-| VarChar |字串 |
-| VarGraphic |字串 |
-| Xml |字串 |
+| VarChar |String |
+| VarGraphic |String |
+| Xml |String |
 
 
 ## <a name="next-steps"></a>後續步驟
