@@ -25,7 +25,7 @@ ms.locfileid: "60839006"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 方案概觀
 
-在 App Service 中，應用程式會在 App Service 方案中執行。 App Service 方案會針對要執行的 Web 應用程式定義一組計算資源。 這些計算資源類似於傳統 Web 裝載中的[_伺服器陣列_](https://wikipedia.org/wiki/Server_farm)。 一或多個應用程式可設定為在相同的計算資源上執行 (或在相同的 App Service 方案中執行)。
+在 App Service 中，應用程式會在 App Service 方案中執行。App Service 方案會針對要執行的 Web 應用程式定義一組計算資源。 這些計算資源類似於傳統 Web 裝載中的[_伺服器陣列_](https://wikipedia.org/wiki/Server_farm)。 一或多個應用程式可設定為在相同的計算資源上執行 (或在相同的 App Service 方案中執行)。
 
 當您在特定區域 (例如，西歐) 建立 App Service 方案時，會為該區域的方案建立一組計算資源。 無論您將何種應用程式置入此 App Service 方案，都會在該 App Service 方案定義的計算資源上執行。 每個 App Service 方案可定義：
 
