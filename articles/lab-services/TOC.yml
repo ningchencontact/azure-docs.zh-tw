@@ -116,8 +116,9 @@
             - name: 設定保留原則並執行清除指令碼
               href: image-factory-set-retention-policy-cleanup.md
         - name: 企業中的 DevTest Labs
-          href: devtest-lab-guidance-prescriptive-adoption.md
           items:
+            - name: 企業規模的 DevTest Labs
+              href: devtest-lab-guidance-prescriptive-adoption.md
             - name: 參考架構
               href: devtest-lab-reference-architecture.md
             - name: 相應增加您的 DevTest Labs 部署
