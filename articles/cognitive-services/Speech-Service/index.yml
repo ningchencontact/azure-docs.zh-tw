@@ -18,19 +18,7 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: |
-    了解如何使用語音服務搭配 REST API，或使用我們的語音 SDK，將支援語音的功能新增到您的應用程式。 您可以使用語音 SDK，將下列 (或更多) 功能新增到您的應用程式&colon; 
-    <div class="row" style="font-size:16px"><div class="column"><ul>
-    <li><b><a href="speech-to-text.md">語音轉換文字</a></b> (語音-辨識/SR)</li>
-    <li><b><a href="speech-devices-sdk-create-kws.md">自訂喚醒文字</a></b> (關鍵字-尋找程式/KWS)</li>
-    <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">意圖</a></b></li>
-    <li><b><a href="speech-translation.md">翻譯</a></b></li>
-    <li><b><a href="speech-container-howto.md">內部部署容器</a></b></li></ul></div><div class="column"><ul>
-    <li><b><a href="text-to-speech.md">文字轉換語音</a></b> (TTS)</li>
-    <li><b><a href="conversation-transcription-service.md">對話轉譯</a></b> (CTS)</li>
-    <li><b><a href="how-to-phrase-lists.md">片語清單個人化</a>/<a href="how-to-custom-speech.md">採用自訂語音</a></b></li>
-    <li><b><a href="voice-first-virtual-assistants.md">語音優先虛擬助理</a></b></li>
-    <li><b><a href="call-center-transcription.md">話務中心轉譯</a></b></li></ul></div></div>
+  description: 透過我們的語音 SDK 或 REST API 使用。
 sections:
   - items:
       - type: list
@@ -53,10 +41,26 @@ sections:
             image:
               src: ../media/index/i_guidelines.svg
             title: 語音裝置 SDK
+  - title: 簡介
+    items:
+      - type: paragraph
+        text: |
+          您可以使用語音 SDK，將下列 (或更多) 功能新增到您的應用程式&colon; 
+          <div class="row"><div class="column"><ul>
+          <li><b><a href="speech-to-text.md">語音轉換文字</a></b> (語音-辨識/SR)</li>
+          <li><b><a href="speech-devices-sdk-create-kws.md">自訂喚醒文字</a></b> (關鍵字-尋找程式/KWS)</li>
+          <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">意圖</a></b></li>
+          <li><b><a href="speech-translation.md">翻譯</a></b></li>
+          <li><b><a href="speech-container-howto.md">內部部署容器</a></b></li></ul></div><div class="column"><ul>
+          <li><b><a href="text-to-speech.md">文字轉換語音</a></b> (TTS)</li>
+          <li><b><a href="conversation-transcription-service.md">對話轉譯</a></b> (CTS)</li>
+          <li><b><a href="how-to-phrase-lists.md">片語清單個人化</a>/<a href="how-to-custom-speech.md">採用自訂語音</a></b></li>
+          <li><b><a href="voice-first-virtual-assistants.md">語音優先虛擬助理</a></b></li>
+          <li><b><a href="call-center-transcription.md">話務中心轉譯</a></b></li></ul></div></div>
   - title: 5 分鐘快速入門
     items:
       - type: paragraph
-        text: 選取箭號連結，了解如何下載、安裝和使用 SDK <img src="media/index/link.jpg" height="15" width="15"></img>上也提供本文中使用的原始碼。<br/><br/>所有箭號連結 <img src="media/index/link.jpg" height="15" width="15"></img> 語音轉換文字的快速入門預設值。 您可在此選取 (<a href="scenario-availability.md">其他可用的</a>) 快速入門，例如文字轉換語音或語音優先虛擬助理。
+        text: 選取箭號連結，了解如何下載、安裝和使用 SDK <img src="media/index/link.jpg" height="15" width="15"></img>上也提供本文中使用的原始碼。<br/>所有箭號連結 <img src="media/index/link.jpg" height="15" width="15"></img> 語音轉換文字的快速入門預設值。 您可在此選取 (<a href="scenario-availability.md">其他可用的</a>) 快速入門，例如文字轉換語音或語音優先虛擬助理。
       - type: table
         style: dataMatrix
         columns:

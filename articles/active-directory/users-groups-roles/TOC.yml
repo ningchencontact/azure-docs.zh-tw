@@ -44,6 +44,8 @@
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 還原已刪除的使用者
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 關閉非受控目錄中的帳戶
+          href: users-close-account.md
         - name: 新增 B2B 使用者
           href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: 將角色指派給 B2B 使用者

@@ -21,13 +21,12 @@
     - name: 線路和對等互連
       href: expressroute-circuit-peerings.md
     - name: 位置與合作夥伴
-      href: expressroute-locations.md
       items:
         - name: 依位置的提供者
           href: expressroute-locations-providers.md
         - name: 依提供者的位置
           href: expressroute-locations.md
-    - name: 關於虛擬網路閘道
+    - name: ExpressRoute 虛擬網路閘道和 FastPath
       href: expressroute-about-virtual-network-gateways.md
     - name: 必要條件
       href: expressroute-prerequisites.md
