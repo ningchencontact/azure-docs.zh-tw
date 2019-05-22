@@ -42,7 +42,7 @@ AzCopy 是個命令列公用程式，專為使用針對最佳效能而設計的�
 
 ### <a name="post-installation-step"></a>後續安裝步驟
 
-使用安裝程式安裝 AzCopy on Windows 之後，請開啟命令視窗並瀏覽至電腦上的 AzCopy 安裝目錄，也就是 `AzCopy.exe` 可執行檔的所在位置。 若有需要，您可以在您的系統路徑中加入 AzCopy 安裝位置。 默认情况下，AzCopy 安装到 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` 或 `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`。
+使用安裝程式在 Windows 上安裝 AzCopy 之後，請開啟命令視窗並瀏覽至電腦上的 AzCopy 安裝目錄，也就是 `AzCopy.exe` 可執行檔的所在位置。 若有需要，您可以將 AzCopy 安裝位置新增到您的系統路徑。 根據預設，AzCopy 會安裝到 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` 或 `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`。
 
 ## <a name="writing-your-first-azcopy-command"></a>撰寫第一個 AzCopy 命令
 
