@@ -138,6 +138,18 @@
         - name: 新增和註冊資料集
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
+        - name: 探索資料
+          displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
+          href: how-to-explore-prepare-data.md
+        - name: 設定資料定義的版本及加以管理
+          displayName: 'data, etl, dataset, data preparation, dataprep, version'
+          href: how-to-manage-dataset-definitions.md
+        - name: 製作您的資料快照集
+          displayName: 'snapshots, profile, summary statistics, data copy'
+          href: how-to-create-dataset-snapshots.md
+        - name: 從資料存放區取得資料
+          displayName: blob get fileshare access storage
+          href: how-to-access-data.md
         - name: 透過 azureml.dataprep 準備
           items:
             - name: 載入資料
@@ -149,18 +161,6 @@
             - name: 寫入資料
               displayName: 'data, etl, data prep, dataprep'
               href: how-to-write-data.md
-        - name: 透過資料集準備 (預覽)
-          displayName: 'data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
-          href: how-to-explore-prepare-data.md
-        - name: 設定資料定義的版本及加以管理
-          displayName: 'data, etl, dataset, data preparation, dataprep, version'
-          href: how-to-manage-dataset-definitions.md
-        - name: 製作您的資料快照集
-          displayName: 'snapshots, profile, summary statistics, data copy'
-          href: how-to-create-dataset-snapshots.md
-        - name: 從資料存放區取得資料
-          displayName: blob get fileshare access storage
-          href: how-to-access-data.md
     - name: 將模型定型
       items:
         - name: 設定訓練環境

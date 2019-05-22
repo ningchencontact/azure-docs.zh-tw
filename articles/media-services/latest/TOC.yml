@@ -57,7 +57,7 @@
         - name: 概觀
           href: encoding-concept.md
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
-        - name: 轉換和作業 API
+        - name: 轉換與工作
           href: transforms-jobs-concept.md
           displayName: 'preset, schema'
         - name: 標準編碼器格式
@@ -74,7 +74,7 @@
         - name: 概觀
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyzing, presets, jobs'
-        - name: 轉換和作業 API
+        - name: 轉換與工作
           href: transforms-jobs-concept.md
         - name: 作業錯誤碼
           href: job-error-codes.md
@@ -85,15 +85,15 @@
           href: dynamic-packaging-overview.md
         - name: 動態資訊清單
           href: filters-dynamic-manifest-overview.md
-        - name: 篩選 API
+        - name: 篩選器
           href: filters-concept.md
-        - name: 串流端點 API
+        - name: 串流端點
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
-        - name: 串流定位器 API
+        - name: 串流定位器
           displayName: URLs
           href: streaming-locators-concept.md
-        - name: 串流原則 API
+        - name: 串流原則
           href: streaming-policy-concept.md
         - name: 串流端點錯誤碼
           href: streaming-endpoint-error-codes.md
@@ -112,15 +112,15 @@
               href: widevine-license-template-overview.md
             - name: FairPlay 授權需求
               href: fairplay-license-overview.md
-        - name: 串流原則 API
+        - name: 串流原則
           href: streaming-policy-concept.md
-        - name: 內容金鑰原則 API
+        - name: 內容金鑰原則
           href: content-key-policy-concept.md
     - name: 即時串流
       items:
         - name: 概觀
           href: live-streaming-overview.md
-        - name: 實況活動和實況輸出 API
+        - name: 即時事件與即時輸出
           href: live-events-outputs-concept.md
         - name: 建議的即時編碼器
           href: recommended-on-premises-live-encoders.md
