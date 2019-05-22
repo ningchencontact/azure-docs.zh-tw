@@ -91,7 +91,7 @@ ms.locfileid: "64875808"
 | 屬性 | 描述                                                  | 必要項 |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | 來源或接收器的資料行名稱。                           | 是      |
-| 序數  | 資料行索引。 從 1 開始。 <br>套用並使用分隔標頭行沒有文字時所需。 | 否       |
+| ordinal  | 資料行索引。 從 1 開始。 <br>套用並使用分隔標頭行沒有文字時所需。 | 否       |
 | path     | 每個欄位來擷取，或對應的 JSON 路徑運算式。 適用於階層式資料例如 MongoDB/REST。<br>根物件下的欄位，JSON 路徑的開頭根 $;所選陣列內的欄位`collectionReference`屬性中，JSON 路徑的開頭的陣列項目。 | 否       |
 | type     | Data Factory 過渡期資料類型的來源或接收器的資料行。 | 否       |
 | culture  | 來源或接收器的資料行的文化特性。 <br>類型是時，適用`Datetime`或`Datetimeoffset`。 預設值為 `en-us`。 | 否       |
@@ -287,7 +287,7 @@ Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-data
 
 * Byte[]
 * Boolean
-* DateTime
+* Datetime
 * Datetimeoffset
 * Decimal
 * Double
@@ -296,7 +296,7 @@ Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-data
 * Int32
 * Int64
 * Single
-* 字串
+* String
 * Timespan
 
 ## <a name="next-steps"></a>後續步驟
