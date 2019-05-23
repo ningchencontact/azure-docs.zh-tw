@@ -21,6 +21,8 @@
       href: tutorial-restore-disk.md
     - name: 還原個別檔案
       href: tutorial-restore-files.md
+    - name: 在 Azure VM 上備份 SQL Server
+      href: tutorial-sql-backup.md
     - name: 備份 Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: 將檔案還原到 Windows Server
