@@ -45,6 +45,8 @@
           href: publish-portal.md
         - name: 使用 Key Vault 中的祕密
           href: key-vault-access.md
+        - name: 使用受控識別進行部署
+          href: publish-managed-identity.md
     - name: 取用者
       items:
         - name: 監視受控應用程式
