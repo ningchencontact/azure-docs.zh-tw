@@ -257,6 +257,10 @@
       items:
         - name: 分析工作負載
           href: analyze-your-workload.md
+        - name: 管理及監視工作負載的重要性
+          href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+        - name: 設定工作負載的重要性
+          href: sql-data-warehouse-how-to-configure-workload-importance.md
     - name: 管理和監視
       items:
         - name: 升級至 Gen2
