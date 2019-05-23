@@ -152,7 +152,7 @@ ms.locfileid: "57535989"
    |:--- |:--- |
    | clusterSize |指定 HDInsight 叢集的大小。 |
    | timeToLive | 指定刪除 HDInsight 叢集前的閒置時間。 |
-   | 預設容器 | 指定用來儲存 HDInsight 產生之記錄的儲存體帳戶。 |
+   | linkedServiceName | 指定用來儲存 HDInsight 產生之記錄的儲存體帳戶。 |
 
     請注意下列幾點：
 
@@ -212,7 +212,7 @@ ms.locfileid: "57535989"
    | 屬性 | 說明 |
    |:--- |:--- |
    | type |類型屬性會設為 **AzureBlob**，因為資料位於 Blob 儲存體。 |
-   | 預設容器 |表示您先前建立的 AzureStorageLinkedService。 |
+   | linkedServiceName |表示您先前建立的 AzureStorageLinkedService。 |
    | folderPath | 指定包含輸入 Blob 的 Blob 容器和資料夾。 | 
    | fileName |這是選用屬性。 如果您省略此屬性，會挑選位於 folderPath 的所有檔案。 在本教學課程中，只會處理 input.log 檔案。 |
    | type |記錄檔為文字格式，因此我們會使用 **TextFormat**。 |
