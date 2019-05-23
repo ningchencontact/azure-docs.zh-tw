@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9bb721221f8f90a39b1c84bcdd66429bbd628494
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020392"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912658"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "65020392"
 
 測試認知語音 SDK 會在 Windows 10 和 Windows Server 2016 上進行測試。
 
-認知服務語音 SDK 需要系統上的[適用於 Visual Studio 2017 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。 您可以在此下載最新版 `Microsoft Visual C++ Redistributable for Visual Studio 2017` 的安裝程式：
+認知服務語音 SDK 需要[Microsoft VisualC++可轉散發套件的 Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)系統上。 您可以在此下載最新版 `Microsoft Visual C++ Redistributable for Visual Studio 2019` 的安裝程式：
 
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
@@ -45,7 +45,7 @@ ms.locfileid: "65020392"
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 受控部署所需
 
 >[!NOTE]
-> 从版本 1.3.0 开始，不再需要 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 文件（在以前的版本中提供）。 此功能现在集成到核心 SDK 中。
+> 從版本 1.3.0 開始檔案`Microsoft.CognitiveServices.Speech.csharp.bindings.dll`（隨附於之前的版本），則不需要再。 功能現已整合在 SDK 的核心。
 
 ## <a name="linux"></a> Linux
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 671d76b6c0a5a2cdac5797668fb0e5651b5823e0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281738"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954964"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>將受保護的 Sharepoint 資料來源新增至您的知識庫
 
@@ -53,7 +53,7 @@ ms.locfileid: "59281738"
 
 ![驗證使用者帳戶](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-一旦 QnA Maker manager 選取的帳戶，Active Directory 系統管理員就會收到通知，他必須允許 QnA Maker (不 QnA Maker manager) 應用程式存取 Sharepoint 資源。 若要這樣做的每個 Sharepoint 資源，但該資源不是每個文件需要 Active Directory 管理員。 
+一旦 QnA Maker manager 選取的帳戶，Active Directory 系統管理員就會收到通知，他們必須允許 QnA Maker (不 QnA Maker manager) 應用程式存取 Sharepoint 資源。 若要這樣做的每個 Sharepoint 資源，但該資源不是每個文件需要 Active Directory 管理員。 
 
 ### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Active directory 管理員： 檔案讀取權限授與 QnA Maker
 
@@ -142,7 +142,7 @@ Use the following steps to transform the Sharepoint URL into a sharing token.
 
 ### Add or update a Sharepoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) or [updating a knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {

@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 800cf66e15c25540eac4809a27317598b72b8124
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: 9bb9c23cc1f807cae1d0d22f1652e8f4408f1f91
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406747"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518679"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>快速入門：辨識與筆跡的辨識器 REST API 的數位筆跡和C#
 
@@ -38,7 +38,7 @@ ms.locfileid: "65406747"
         3. 搜尋`Newtonsoft.Json`並安裝套件
 - 如果您使用 Linux/MacOS，可以使用執行此應用程式[Mono](https://www.mono-project.com/)。
 
-- 在本快速入門範例筆墨筆劃資料可於[GitHub](https://go.microsoft.com/fwlink/?linkid=2089502)。
+- 在本快速入門範例筆墨筆劃資料可於[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json)。
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -158,7 +158,7 @@ public static JObject LoadJson(string fileLocation){
 
 ## <a name="run-the-application-and-view-the-response"></a>執行應用程式，以及檢視回應
 
-執行應用程式。 成功的回應是以 JSON 格式傳回。 您也可以在找到 JSON 回應[GitHub](https://go.microsoft.com/fwlink/?linkid=2089502)。
+執行應用程式。 成功的回應是以 JSON 格式傳回。 您也可以在找到 JSON 回應[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json)。
 
 
 ## <a name="next-steps"></a>後續步驟

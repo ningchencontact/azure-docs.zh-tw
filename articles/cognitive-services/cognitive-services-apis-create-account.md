@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: 6950cba5ac958233e7ea77c8dc783ca86cc5a386
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: b5adb5b8bddd0f379ac581f3268f0121791cf0bc
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519879"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546378"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立認知服務帳戶
 
@@ -56,7 +56,7 @@ ms.locfileid: "58519879"
     | **訂用帳戶** | 選取您其中一個可用的 Azure 訂用帳戶。 |
     | **位置** | 您的認知服務執行個體的位置。 位置不同可能會造成延遲，但不會影響您資源執行階段的可用性。 |
     | **定價層** | 認知服務帳戶的費用取決於您選擇的選項和使用方式。 如需詳細資訊，請參閱 API [定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/)。
-    | **資源群組** | [Azure 資源群組](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group)，將包含您的認知服務資源。 您可以建立新的群組，或將群組新增到既有的群組。 |
+    | **資源群組** | [Azure 資源群組](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group)，將包含您的認知服務資源。 您可以建立新的群組，或將群組新增到既有的群組。 |
 
     ![資源建立畫面](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
 
@@ -78,7 +78,7 @@ ms.locfileid: "58519879"
     | **訂用帳戶** | 選取您其中一個可用的 Azure 訂用帳戶。 |
     | **位置** | 您的認知服務執行個體的位置。 位置不同可能會造成延遲，但不會影響您資源執行階段的可用性。 |
     | **定價層** | 認知服務帳戶的費用取決於您選擇的選項和使用方式。 如需詳細資訊，請參閱 API [定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/)。
-    | **資源群組** | [Azure 資源群組](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group)，將包含您的認知服務資源。 您可以建立新的群組，或將群組新增到既有的群組。 |
+    | **資源群組** | [Azure 資源群組](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group)，將包含您的認知服務資源。 您可以建立新的群組，或將群組新增到既有的群組。 |
 
     ![資源建立畫面](media/cognitive-services-apis-create-account/resource_create_screen.png)
 

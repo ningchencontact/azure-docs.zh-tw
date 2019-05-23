@@ -9,14 +9,32 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 2b0d8b8a86c3105b1bda7fb0d72cbcb72ed82995
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b4e449b9260debbe90523141cacc4ed76219490
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785720"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787958"
 ---
 # <a name="custom-vision-service-release-notes"></a>自訂視覺服務版本資訊
+
+## <a name="may-2-2019-and-may-10-2019"></a>2019 5 月 2 日和 2019 5 月 10 日
+
+- 錯誤修正和後端的增強功能
+
+## <a name="may-23-2019"></a>2019 5 月 23日日
+
+- 改善的入口網站 UX 體驗與 Azure 訂用帳戶，讓您更輕鬆地選取您的 Azure 目錄。
+
+## <a name="april-18-2019"></a>2019 年 4 月 18日日 
+
+- 新增的視覺 AI 開發套件的物體偵測匯出。
+- UI 調整需求，包括專案的搜尋。
+
+## <a name="april-3-2019"></a>2019 年 4 月 3日日
+
+- 增加每個影像為 200 的週框方塊的數目上限。 
+- 錯誤修正，包括大幅的效能更新模型匯出至 TensorFlow。 
 
 ## <a name="march-26-2019"></a>2019 年 3 月 26 日
 

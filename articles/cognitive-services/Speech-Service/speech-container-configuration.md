@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: 424396c7b92fb58993c74e672c4c3ea9c8f814c7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e2ed29bb61f553f68b9f9802884169361d5d983f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026774"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797916"
 ---
 # <a name="configure-speech-service-containers"></a>設定語音服務容器
 
@@ -50,9 +50,9 @@ ms.locfileid: "65026774"
 
 * Azure 入口網站：**語音的**概觀，標示為 `Endpoint`
 
-|必要項| 名稱 | 資料類型 | 描述 |
+|必要項| 名稱 | 数据类型 | 說明 |
 |--|------|-----------|-------------|
-|是| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
+|有| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -62,11 +62,15 @@ ms.locfileid: "65026774"
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
+## <a name="http-proxy-credentials-settings"></a>HTTP Proxy 認證設定
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-settings"></a>記錄設定
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>裝載設定
+## <a name="mount-settings"></a>掛接設定
 
 使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以在 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令中指定 `--mount` 選項，以指定輸入裝載或輸出裝載。
 
@@ -74,10 +78,10 @@ ms.locfileid: "65026774"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](speech-container-howto.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選用| 名稱 | 資料類型 | 描述 |
+|選用| 名稱 | 数据类型 | 說明 |
 |-------|------|-----------|-------------|
-|不允許| `Input` | 字串 | 語音容器不要使用這個動作。|
-|選用| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
+|不允許| `Input` | String | 語音容器不要使用這個動作。|
+|選用| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 
 
@@ -88,7 +92,7 @@ ms.locfileid: "65026774"
 
 請將 {_argument_name_} 取代為您自己的值：
 
-| Placeholder | Value | 格式或範例 |
+| 預留位置 | Value | 格式或範例 |
 |-------------|-------|---|
 |{BILLING_KEY} | 語音資源端點索引鍵。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | 包括區域的計費端點值。|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|

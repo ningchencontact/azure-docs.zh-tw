@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: a1bd8ba36f208936ce52b3a46a72516da89a0e9a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: HT
+ms.openlocfilehash: d844b171ff99dc97e5d1107bcb745f9e8d5b3e9d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507866"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519836"
 ---
 # <a name="scenario-availability"></a>案例的可用性
 
@@ -34,8 +34,9 @@ ms.locfileid: "65507866"
   - Java/Windows Linux & Android （語音裝置 SDK）
   - 線上醒機字 (關鍵字車/KWS) 功能可能會使用任何麥克風型別，官方 KWS 支援，不過，目前僅限麥克風陣列中找到 Azure Kinect DK 硬體或語音裝置 SDK
 - **語音第一個虛擬助理**
-  - C#/ UWP
-  - Java/Windows
+  - C++/ Windows 與 Linux 及 macOS
+  - C#/Windows
+  - Java/Windows 和 Linux、 macOS & Android (語音裝置 SDK)
 - **對話轉譯**
   - C++/ Windows 和 Linux
   - C#（framework 和.NET Core） / Windows UWP & Linux

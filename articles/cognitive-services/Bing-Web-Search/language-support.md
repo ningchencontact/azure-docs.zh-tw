@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: f5e75b30a7c196bb238c7bcb9c4704c1aec5e771
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e657c4678c76e8ff667c1a3f30409fc157f52d16
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999111"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798250"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web 搜尋 API 支援的語言和區域
 
@@ -25,9 +25,9 @@ Bing Web 搜尋 API 支援三十多個國家/地區，許多國家/地區具有�
 
 或者，您也可以使用 `mkt` 查詢參數和**市場**資料表的代碼來指定市場。 指定市場同時會指定國家/地區和慣用的語言。 您可以使用 `setLang` 查詢參數明確設定語言。
 
-## <a name="countriesregions"></a>國家/區域
+## <a name="countriesregions"></a>國家/地區
 
-|國家/區域|代碼|
+|國家/地區|代碼|
 |-------|----|
 |阿根廷|AR|
 |澳大利亞|AU|
@@ -68,15 +68,15 @@ Bing Web 搜尋 API 支援三十多個國家/地區，許多國家/地區具有�
 
 ## <a name="markets"></a>市場
 
-|國家/區域|語言|市場代碼|
+|國家/地區|語言|市場代碼|
 |-------|--------|-----------|
 |阿根廷|西班牙文|es-AR|
-|澳大利亞|English|en-AU|
+|澳大利亞|英文|en-AU|
 |奧地利|德文|de-AT|
 |比利時|荷蘭文|nl-BE|
 |比利時|法文|fr-BE|
 |巴西|葡萄牙文|pt-BR|
-|加拿大|English|en-CA|
+|加拿大|英文|en-CA|
 |加拿大|法文|fr-CA|
 |智利|西班牙文|es-CL|
 |丹麥|丹麥文|da-DK|
@@ -84,29 +84,33 @@ Bing Web 搜尋 API 支援三十多個國家/地區，許多國家/地區具有�
 |法國|法文|fr-FR|
 |德國|德文|de-DE|
 |香港特別行政區|繁體中文|zh-HK|
-|印度|English|en-IN|
-|印尼|English|en-ID|
+|印度|英文|en-IN|
+|印尼|英文|en-ID|
 |義大利|義大利文|it-IT|
 |日本|日文|ja-JP|
 |南韓|韓文|ko-KR|
-|馬來西亞|English|en-MY|
+|馬來西亞|英文|en-MY|
 |墨西哥|西班牙文|es-MX|
 |荷蘭|荷蘭文|nl-NL|
-|紐西蘭|English|en-NZ|
+|紐西蘭|英文|en-NZ|
 |挪威|挪威文|no-NO|
 |中國|中文|zh-CN|
 |波蘭|波蘭文|pl-PL|
 |葡萄牙|葡萄牙文|pt-PT|
-|菲律賓|English|en-PH|
+|菲律賓|英文|en-PH|
 |俄羅斯|俄文|ru-RU|
 |沙烏地阿拉伯|阿拉伯文|ar-SA|
-|南非|English|en-ZA|
+|南非|英文|en-ZA|
 |西班牙|西班牙文|es-ES|
 |瑞典|瑞典文|sv-SE|
 |瑞士|法文|fr-CH|
 |瑞士|德文|de-CH|
 |台灣|繁體中文|zh-TW|
 |土耳其|土耳其文|tr-TR|
-|英國|English|en-GB|
-|美國|English|en-US|
+|英國|英文|en-GB|
+|美國|英文|zh-TW|
 |美國|西班牙文|es-US|
+
+## <a name="next-steps"></a>後續步驟
+
+* [Bing 影像搜尋 API 參考](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

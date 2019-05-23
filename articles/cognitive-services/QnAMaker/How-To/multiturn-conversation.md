@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/14/2019
 ms.author: diberry
-ms.openlocfilehash: 24158d5949c0a31e5444c609cbfced970bdeca07
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f12b55e9b00e933e13f84832b8cc36267a1da05f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471948"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954885"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>若要建立多個開啟的交談使用後續的提示
 
@@ -52,7 +52,7 @@ ms.locfileid: "65471948"
 
 ![![匯入時 PDF 文件，QnA Maker 可決定後續提示建立交談式流程結構。 ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-## <a name="filter-questions-and-answers-by-context"></a>篩選內容的問題和答案
+## <a name="show-questions-and-answers-with-context"></a>顯示問題和答案內容
 
 1. 減少顯示只是那些具有內容的交談的問題和答案組。 選取 **檢視選項**，然後選取**顯示內容 （預覽）**。 清單會是空的直到您將新增後續提示的第一個問題和答案組。 
 
@@ -64,22 +64,36 @@ ms.locfileid: "65471948"
 1. 輸入新的問題文字`Give feedback.`的解答與`What kind of feedback do you have?`。
 
 1. 在 **答案**針對這個問題，選取的資料行**新增後續的提示字元**。 
-1. **後續提示**快顯對話方塊可讓您搜尋現有的問題，或輸入新的問題。 在此程序中，輸入文字`Feedback on an QnA Maker service`，如**顯示文字**。 
-1. 請檢查**僅限內容**。 **內容專用**選項，指出此使用者的文字都能瞭解_只_如果上一個問題的回應中指定。 對於此案例中，提示的文字沒有意義獨立的問題，它才有意義從上一個問題的內容。
-1. 在 **連結來回答**文字方塊中，輸入的答案， `How would you rate QnA Maker?`。
-1. 選取 **新建**然後選取**儲存**。 
+1. **後續提示 （預覽）** 快顯視窗可讓您搜尋現有的問題，或輸入新的問題。 建立新的提示字元輸入下列值： 
+
+    |文字欄位|Value|
+    |--|--|
+    |**顯示文字**|`Feedback on an QnA Maker service`|
+    |**若要回答的連結**|`How would you rate QnA Maker??`|
+    |||
 
     ![建立新的提示 QnA](../media/conversational-context/create-child-prompt-from-parent.png)
 
-    這會建立新的問題和答案組，並連結選取的問題，做為後續的提示。 **內容**資料行，這兩個問題，表示後續的提示關聯性。 
+1. 請檢查**僅限內容**。 **內容專用**選項，指出此使用者的文字都能瞭解_只_如果上一個問題的回應中指定。 對於此案例中，提示的文字沒有意義獨立的問題，它才有意義從上一個問題的內容。
+1. 選取 **新建**然後選取**儲存**。 
+
+    這會建立新的問題和答案組，並連結選取的問題，做為後續的提示。 **內容**資料行，這兩個問題中，指出後續提示關聯性。 
 
     ![![內容資料行，這兩個問題，表示後續的提示關聯性]。(../ media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. 選取 **新增後續的提示字元**如`Give feedback`加入另一個待處理提示的問題。 
-1. 輸入來建立新的問題`Feedback on an existing feature`，用這個答案`Which feature would you like to give feedback on?`。  
+1. 選取 **新增後續的提示字元**如`Give feedback`加入另一個待處理提示的問題。 這會開啟**後續提示 （預覽）** 快顯視窗。
 
-1.  請檢查**僅限內容**。 **內容專用**選項，指出此使用者的文字都能瞭解_只_如果上一個問題的回應中指定。 對於此案例中，提示的文字沒有意義獨立的問題，它才有意義從上一個問題的內容。
-1.  選取 [ **儲存**]。 
+1. 建立新的提示字元輸入下列值：
+
+    |文字欄位|Value|
+    |--|--|
+    |**顯示文字**|`Feedback on an existing feature`|
+    |**若要回答的連結**|`Which feature would you like to give feedback on?`|
+    |||
+
+1. 請檢查**僅限內容**。 **內容專用**選項，指出此使用者的文字都能瞭解_只_如果上一個問題的回應中指定。 對於此案例中，提示的文字沒有意義獨立的問題，它才有意義從上一個問題的內容。
+
+1. 選取 [ **儲存**]。 
 
     此建立新的問題和後續提示的問題，以作為連結問題`Give feedback`問題。
     
@@ -93,26 +107,34 @@ ms.locfileid: "65471948"
 
 1. 如果您想要連結現有的 QnA 組做為後續的提示，請選取問題和答案組的資料列。
 1. 選取 **新增後續提示**該資料列中。
-1. 在快顯對話方塊中，輸入 [搜尋] 方塊中的問題文字。 會傳回所有相符項目。 選取您想要當作後續追蹤步驟，並檢查的問題**內容專用**，然後選取**儲存**。 
+1. 在 **後續提示 （預覽）** 快顯視窗中，在搜尋方塊中輸入的回應文字。 會傳回所有相符項目。 選取您想要當作後續追蹤步驟，並檢查的答案**內容專用**，然後選取**儲存**。 
 
-    一旦 ou 加入後續的提示字元，請記得選取**儲存並訓練**。
+    ![搜尋使用的回應文字回應對話方塊，在現有的問答，後續提示字元的連結。](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+
+    一旦您加入後續的提示字元，請記得選取**儲存並訓練**。
   
-## <a name="add-metadata-to-follow-up-prompts"></a>將中繼資料新增至後續的提示 
+<!--
 
-中的知識時的問題和答案組會連結至, 待處理提示、 中繼資料篩選條件會先套用，然後再傳回後續動作。
+## To find best prompt answer, add metadata to follow-up prompts 
 
-1. 兩個後續的 QnA 配對，請為每個新增中繼資料：
+If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
 
-    |問題|新增中繼資料|
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
+
+1. For the two follow-up QnA pairs, add metadata to each one:
+
+    |Question|Add metadata|
     |--|--|
-    |`Feedback on an QnA Maker service`|「 功能 」:"all"|
+    |`Feedback on an QnA Maker service`|"Feature":"all"|
     |`Feedback on an existing feature`|"Feature":"one"|
     
-    ![將中繼資料新增到後續的命令提示字元，因此它可以從服務的交談回應篩選](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
 
-1. 儲存並訓練。 
+1. Save and train. 
 
-    當您將問題傳送`Give feedback`與中繼資料篩選條件`Feature`值為`all`，只有 QnA 組與該中繼資料將會傳回。 因為它們都不相符的篩選器，不會傳回這兩個 QnA 組。 
+    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+-->
 
 ## <a name="test-the-qna-set-to-get-all-the-follow-up-prompts"></a>測試集以取得所有後續追蹤的 QnA 提示
 
@@ -145,7 +167,7 @@ ms.locfileid: "65471948"
             "questions": [
                 "Accounts and signing in"
             ],
-            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way he or she likes. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
+            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way they like. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
             "score": 86.96,
             "id": 37,
             "source": "surface-pro-4-user-guide-EN .pdf",
@@ -269,15 +291,11 @@ QnA Maker _GenerateAnswer_ JSON 回應中會包含在後續的提示`context`屬
 
 ## <a name="displaying-prompts-and-sending-context-in-the-client-application"></a>顯示提示，並傳送用戶端應用程式中的內容 
 
-用戶端應用程式會顯示為建議的動作或按鈕顯示提示使用者選擇的所有問題。
-接著，用戶端應用程式會將目前的 QnA 組，以及使用者查詢儲存為所傳送的下一個使用者查詢的內容。 
+如果您已在您的知識庫中加入提示，並已測試流程，在 測試 窗格中，提示不會自動開始出現在 用戶端應用程式。 您可以顯示提示做為建議的動作或按鈕使用者的查詢回應的一部分在用戶端應用程式包括這[Bot Framework 範例](https://aka.ms/qnamakermultiturnsample)程式碼中。 用戶端應用程式應該會儲存目前的 QnA 識別碼和使用者查詢，並將其在傳遞[GenerateAnswer API 的內容物件](#json-request-to-return-non-initial-answer-and-follow-up-prompts)下一步 的使用者查詢。
 
-使用此[Bot Framework 範例](https://aka.ms/qnamakermultiturnsample)若要查看多開啟的對話方塊使用端對端 QnA Maker bot 中。
+## <a name="display-order-supported-in-api"></a>在 API 中支援的顯示順序
 
-
-## <a name="prompt-order-supported-in-api"></a>在 API 中支援的提示順序
-
-編輯 api 只支援提示的順序，在 JSON 回應中傳回。 
+編輯 api 只支援的顯示順序，在 JSON 回應中傳回。 
 
 ## <a name="next-steps"></a>後續步驟
 

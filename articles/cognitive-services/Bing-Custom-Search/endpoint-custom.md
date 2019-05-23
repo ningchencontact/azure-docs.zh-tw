@@ -3,19 +3,19 @@ title: Bing 自訂搜尋端點
 titlesuffix: Azure Cognitive Services
 description: Bing 自訂搜尋 API 端點的摘要。
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: v-gedod
-ms.openlocfilehash: d01f863f0c42754e2dcc36f6cab1bed1f3dc3b6c
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.author: aahi
+ms.openlocfilehash: d8c2c69a81597c2702d608ccac8dceed1e832aff
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337799"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790233"
 ---
 # <a name="custom-search"></a>自訂搜尋
 Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋經驗。 您的使用者會看到針對他們感興趣的內容量身訂做的搜尋結果，而不需要逐頁查看包含不相關內容的搜尋結果。

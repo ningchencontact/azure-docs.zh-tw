@@ -9,14 +9,14 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 68b99e7f0763f46c705a1ff2ba3a0e90216429c2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fa02c0913329ec740e3066b05b2e44a36ad379ce
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878590"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797812"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>如何逐頁檢視 Bing Web 搜尋 API 的搜尋結果
 
@@ -24,7 +24,7 @@ ms.locfileid: "55878590"
 
 下列範例顯示 Web 解答包含的 `totalEstimatedMatches` 欄位。  
 
-```
+```json
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -65,3 +65,7 @@ Web 搜尋 API 會傳回包含網頁的結果，其中可能包含影像、影�
 
 > [!NOTE]
 > `TotalEstimatedAnswers` 欄位是針對您可從目前查詢中擷取之搜尋結果總數的估計。  當您設定 `count` 和 `offset` 參數時，`TotalEstimatedAnswers` 的數目可能會變更。 
+
+## <a name="next-steps"></a>後續步驟
+
+* [什麼是 Bing Web 搜尋 API](overview.md)？

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918802"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796869"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
@@ -41,7 +41,7 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 它們目�
 
 若要強制讓特定資料中心來處理要求，請將 API 要求中的全域端點變更為所需的區域端點：
 
-|描述|區域|基底 URL|
+|說明|區域|基底 URL|
 |:--|:--|:--|
 |Azure|全域|  api.cognitive.microsofttranslator.com|
 |Azure|北美洲|   api-nam.cognitive.microsofttranslator.com|
@@ -55,7 +55,7 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 它們目�
 
 有三個標頭可供用來驗證您的訂用帳戶。 下表提供其各自的使用方式說明：
 
-|headers|描述|
+|標頭|說明|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。|
 |授權|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶。<br/>此值是持有人權杖：`Bearer <token>`。|
@@ -126,7 +126,7 @@ Authorization: Bearer <Base64-access_token>
 ```
 錯誤碼是 6 位數的數字，其中結合了 3 位數的 HTTP 狀態碼，後面接著將錯誤進一步分類的 3 位數數字。 常見的錯誤碼包括：
 
-| 代碼 | 描述 |
+| 代碼 | 說明 |
 |:----|:-----|
 | 400000| 其中一個要求輸入無效。|
 | 400001| "scope" 參數無效。|
@@ -161,7 +161,7 @@ Authorization: Bearer <Base64-access_token>
 | 405000| 要求方法不是所要求資源支援的方法。|
 | 408001| 所要求的自訂翻譯系統尚無法使用。 請稍待數分鐘後重試。|
 | 415000| Content-Type 標頭遺漏或無效。|
-| 429000、429001、429002| 伺服器拒絕要求，因為用戶端傳送太多要求。 請降低要求的頻率以避免節流。|
-| 500000| 發生意外錯誤。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
+| 429000、429001、429002| 伺服器拒絕要求，因為用戶端已超過要求限制。|
+| 500000| 發生未預期的錯誤。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
 | 503000| 服務暫時無法使用。 請再試一次。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
 

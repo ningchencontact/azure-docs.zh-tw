@@ -3,19 +3,19 @@ title: 使用 ImageInsightsToken 尋找先前搜尋中的類似影像 - Bing 圖
 titleSuffix: Azure Cognitive Services
 description: 使用 Bing 圖像式搜尋 SDK 來取得 ImageInsightsToken 所指定影像的 URL。
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: 39a95e877c766eb8f491c166edeb9d96f21db7dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ebe54f5319986f0588e06a980a6f914beb6adbcc
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493940"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909390"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>使用 ImageInsightsToken 尋找先前搜尋中的類似影像
 
@@ -25,7 +25,7 @@ ms.locfileid: "59493940"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+* 任何版本的[Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 * 如果您使用 Linux/MacOS，您可以執行此應用程式使用[Mono](https://www.mono-project.com/)。
 * NuGet 圖像式搜尋和 Bing 影像搜尋套件。
     - 在 Visual Studio 中方案總管 中以滑鼠右鍵按一下專案，然後選取**管理 NuGet 套件**從功能表。 安裝 `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 套件和 `Microsoft.Azure.CognitiveServices.Search.ImageSearch` 套件。 安裝 NuGet 套件也會安裝：
@@ -144,4 +144,4 @@ if (visualSearchResults.Tags.Count > 0)
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [建立圖像式搜尋單一頁面 web 應用程式](tutorial-bing-visual-search-single-page-app.md)
+> [建立圖像式搜尋單頁 Web 應用程式](tutorial-bing-visual-search-single-page-app.md)

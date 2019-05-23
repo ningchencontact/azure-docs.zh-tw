@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 85087ce5a4fa3dd733f47a35bc18d76f1f4bc652
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232887"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606699"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web 搜尋 API 回應結構和回應類型  
 
@@ -290,7 +290,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 |符號|說明|
 |------------|-----------------|
-|+|加法|
+|+|新增|
 |-|減法|
 |/|除法|
 |*|乘法|
@@ -330,7 +330,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 `timeZone` 回答可提供位置的名稱、指定位置目前的 UTC 日期和時間，以及 UTC 時差。 如果位置的界限在多個時區內，則回答會包含目前的 UTC 日期和時間以及界限內的所有時區。 例如，因為佛羅里達州位於兩個時區內，回應會包含兩個時區的當地日期和時間。  
 
-如果查詢要求州或國家/地區的時間，Bing 會判斷位於位置地理界限內的主要城市，並且在 `primaryCityTime` 欄位中傳回。 如果界限包含多個時區，其餘時區會在 `otherCityTimes` 欄位中傳回。
+如果查詢要求的州或國家/地區的時間，Bing 判斷主要城市位置的地理界限內，並傳回它在`primaryCityTime`欄位。 如果界限包含多個時區，其餘時區會在 `otherCityTimes` 欄位中傳回。
 
 以下顯示查詢傳回 `timeZone` 回答的範例。
 
@@ -441,7 +441,7 @@ Query: What time is it in the U.S.
 |-|-|
 |`X-MSEdge-ClientID`|Bing 已指派給使用者的唯一識別碼|
 |`BingAPIs-Market`|用來履行要求的市場|
-|`BingAPIs-TraceId`|此要求 (適用於支援) 的 Bing API 伺服器上的記錄項目|
+|`BingAPIs-TraceId`|這項要求 (適用於支援) 的 Bing API 伺服器上的記錄項目|
 
 保存用戶端識別碼，並將它與後續要求一起傳回尤其重要。 當您這麼做時，搜尋會在排名搜尋結果中使用過去的內容，也會提供一致的使用者體驗。
 
@@ -479,6 +479,6 @@ Query: What time is it in the U.S.
 
 * 檢閱[要求節流](throttling-requests.md)文件。  
 
-## <a name="see-also"></a>另請參閱  
+## <a name="see-also"></a>請參閱  
 
 * [Bing Web 搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

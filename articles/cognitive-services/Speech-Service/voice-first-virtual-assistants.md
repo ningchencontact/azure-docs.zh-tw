@@ -11,24 +11,26 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138173"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603473"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>關於自訂的語音第一個虛擬助理預覽
 
-使用 Azure 語音服務的自訂虛擬助理，讓開發人員建立自然、 擬人之交談的介面，其應用程式和體驗。 Bot Framework 直接列語音通道會提供相容機器人的框架，可讓具備低延遲和高可靠性等特性的互動語音中語音的協調、 協調的進入點，以增強這些功能。 Microsoft 的 Language Understanding (LUIS) 可以使用這些 bot 自然語言互動。 直接列語音使用語音軟體開發套件 (SDK) 的裝置來存取。
+使用 Azure 語音服務自訂虛擬助理，賦予開發人員建立自然、擬人的對話介面，供應用程式和體驗之用。 Bot Framework 的 Direct Line Speech 頻道提供相容 Bot 有組織且協調的進入點，具備低延遲性和高可靠性的互動語音功能。 Microsoft 的 Language Understanding (LUIS) 可以使用這些 bot 自然語言互動。 直接列語音使用語音軟體開發套件 (SDK) 的裝置來存取。
 
    ![直線語音協調流程服務流程的概念圖](media/voice-first-virtual-assistants/overview.png "語音通道流程")
 
-直接列語音和其相關聯的功能，為自訂的語音第一個虛擬助理是理想補充[虛擬助理 （jlca） 解決方案](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction)並[Enterprise 範本](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)。 雖然直接列語音可以使用任何相容的 bot 時，這些資源會提供可重複使用的基準的高品質的交談式體驗，以及常見的支援技術和使用者快速入門的模型。
+
+直接列語音和其相關聯的功能，為自訂的語音第一個虛擬助理是理想補充[虛擬助理 （jlca） 的方案和 Enterprise 範本](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)。 雖然直接列語音可以使用任何相容的 bot 時，這些資源會提供可重複使用的基準的高品質的交談式體驗，以及常見的支援技術和使用者快速入門的模型。
+
 
 ## <a name="core-features"></a>核心功能
 
-| 類別 | 特性 |
+| Category | 功能 |
 |----------|----------|
 |[自訂的網路喚醒 word](speech-devices-sdk-create-kws.md) | 您可以讓使用者以使用自訂的關鍵字 「 嘿，Contoso。 」 類似的機器人開始交談 完成這項工作與自訂的網路喚醒 word 引擎在語音 SDK 中，可以設定以文字做為自訂的網路喚醒[您可以在這裡產生](speech-devices-sdk-create-kws.md)。 直接列語音通道包括更為精確的線上醒機 word 啟用，與單獨裝置的服務端喚醒文字驗證。
 |[語音轉換文字](speech-to-text.md) | 直接列語音通道包含音訊的已辨識的文字所使用的即時轉譯[語音轉換文字](speech-to-text.md)Azure 語音服務。 因為它謄寫，此文字是可供您的機器人和用戶端應用程式。

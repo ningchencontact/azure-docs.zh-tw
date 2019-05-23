@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 02c079e9cda88c969e5382b2c70c551cf9a88e14
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789531"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522501"
 ---
 # <a name="testing-example-utterances-in-luis"></a>在 LUIS 中測試範例語句
 
@@ -46,7 +46,7 @@ ms.locfileid: "59789531"
 如果您對端點進行測試，而不想要記錄語句，請記得使用 `logging=false` 查詢字串設定。
 
 ## <a name="where-to-find-utterances"></a>語句尋找位置
-LUIS 會將所有已記錄的語句儲存在查詢記錄中，從 [LUIS](luis-reference-regions.md) 網站的 [應用程式] 清單頁面以及 LUIS [撰寫 API](https://aka.ms/luis-authoring-apis) 都可下載此記錄。 
+LUIS 會將所有已記錄的語句儲存在查詢記錄中，從 [LUIS](luis-reference-regions.md) 網站的 [應用程式] 清單頁面以及 LUIS [撰寫 API](https://go.microsoft.com/fwlink/?linkid=2092087) 都可下載此記錄。 
 
 任何 LUIS 不確定的語句都會列在 [LUIS](luis-reference-regions.md) 網站的[檢閱端點語句](luis-how-to-review-endpoint-utterances.md) 頁面中。 
 
@@ -55,7 +55,7 @@ LUIS 會將所有已記錄的語句儲存在查詢記錄中，從 [LUIS](luis-re
 ## <a name="remember-to-train"></a>請務必定型
 在您對模型進行變更之後，請務必進行 LUIS [定型](luis-how-to-train.md)。 對 LUIS 應用程式所做的變更必須等到應用程式進行定型之後，才會顯示。 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 了解[最佳做法](luis-concept-best-practices.md)。
 
 ## <a name="next-steps"></a>後續步驟

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 1e689d7ce65fda43e5657383ed44890c90c095cd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026722"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785780"
 ---
 # <a name="prepare-data-for-custom-speech"></a>準備資料以自訂語音
 
@@ -25,11 +25,11 @@ ms.locfileid: "65026722"
 
 下表列出可接受的資料類型時應該使用每種資料類型及建議的數量。 並非每個資料類型，才能建立模型。 資料需求會根據您是在建立測試或定型模型而有所不同。
 
-| 資料類型 | 使用的測試 | 數量 | 用於定型 | 數量 |
+| 数据类型 | 使用的測試 | 數量 | 用於定型 | 數量 |
 |-----------|-----------------|----------|-------------------|----------|
-| [音訊](#audio-data-for-testing) | 是<br>使用進行視覺檢查 | 5 + 音訊檔案 | 否 | N/a |
-| [音訊 + 人類看得標示的文字記錄](#audio--human-labeled-transcript-data-for-testingtraining) | 是<br>用來評估精確度 | 0.5-5 小時的音訊 | 是 | 1-1,000 小時音訊 |
-| [相關的文字方塊](##related-text-data-for-training) | 否 | N/a | 是 | 1-200 MB 的相關的文字 |
+| [音訊](#audio-data-for-testing) | 有<br>使用進行視覺檢查 | 5 + 音訊檔案 | 無 | N/a |
+| [音訊 + 人類看得標示的文字記錄](#audio--human-labeled-transcript-data-for-testingtraining) | 有<br>用來評估精確度 | 0.5-5 小時的音訊 | 有 | 1-1,000 小時音訊 |
+| [相關的文字方塊](##related-text-data-for-training) | 無 | N/a | 有 | 1-200 MB 的相關的文字 |
 
 檔案應該依類型至資料集，和上傳為 zip 檔案。 每個資料集只能包含單一資料類型。
 
@@ -55,7 +55,7 @@ ms.locfileid: "65026722"
 | 屬性 | Value |
 |----------|-------|
 | 檔案格式 | RIFF (WAV) |
-| 取樣率 | 8,000 Hz 或 16,000 Hz |
+| 採樣速率 | 8,000 Hz 或 16,000 Hz |
 | 聲道 | 1 (mono) |
 | 每個音訊的最大長度 | 2 小時 |
 | 樣本格式 | PCM，16 位元 |
@@ -64,7 +64,7 @@ ms.locfileid: "65026722"
 
 如果您音訊不滿足這些屬性，或您想要檢查 如果沒有，我們建議您下載[sox](http://sox.sourceforge.net)檢查或轉換音訊。 以下是如何完成這些活動的每個透過命令列的一些範例：
 
-| 活動 | 描述 | Sox 命令 |
+| 活動 | 說明 | Sox 命令 |
 |----------|-------------|-------------|
 | 核取音訊格式 | 您可以使用此命令來檢查音訊檔案格式。 | `soxi <filename>.wav` |
 | 將音訊格式轉換 | 使用此命令將音訊檔案轉換成單一通道，16 位元、 48 KHz。 | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
@@ -76,7 +76,7 @@ ms.locfileid: "65026722"
 | 屬性 | Value |
 |----------|-------|
 | 檔案格式 | RIFF (WAV) |
-| 取樣率 | 8,000 Hz 或 16,000 Hz |
+| 採樣速率 | 8,000 Hz 或 16,000 Hz |
 | 聲道 | 1 (mono) |
 | 每個音訊的最大長度 | 60 s |
 | 樣本格式 | PCM，16 位元 |
@@ -85,7 +85,7 @@ ms.locfileid: "65026722"
 
 像是 word 刪除或替換、 大量資料，才能改善辨識，就會解決問題。 一般而言，建議您提供大約 10 到 1,000 小時的音訊 word 的 word 轉譯。 所有 WAV 檔案的文字記錄應包含在單一純文字檔案中。 文字記錄檔案的每一行都應包含其中一個音訊檔案的名稱，然後後面接著相對應的文字記錄。 檔案名稱和文字記錄應該以定位字元 (\t) 分隔。
 
-  例如︰
+  例如：
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -104,7 +104,7 @@ ms.locfileid: "65026722"
 
 如果您有產品名稱或功能，是唯一的而且您想要確定正確地辨識，務必包含相關的文字資料進行訓練。 兩種類型的相關的文字資料可供改善辨識：
 
-| 資料類型 | 這項資料可辨識的改善 |
+| 数据类型 | 這項資料可辨識的改善 |
 |-----------|------------------------------------|
 | 談話和/或句子 | 這些可以辨認的產品名稱或業界特定詞彙，句子的內容中時，改善精確度。 |
 | 發音 | 這些可以改善未定義的發音與不常見的詞彙、 首字母縮略字或其他文字的發音。 |
@@ -142,15 +142,15 @@ ms.locfileid: "65026722"
 |--------------|--------------------------|
 | 三個 c p o | 3CPO |  
 | n 個產品 k | CNTK |
-| i 三倍 e | IEE |
+| i 三倍 e | IEEE |
 
 出口語的形式會是語音拼出的順序。它可以包含字母、 字組、 音節或所有的三種組合。
 
 英文 (EN-US) 和德文 (DE-DE) 使用自訂的發音。 下表顯示依語言的支援的字元：
 
-| 語言 | 地區設定 | 字元 |
+| 語言 | 地區設定 | 人物 |
 |----------|--------|------------|
-| English | en-US | a、 b、 c、 d、 e、 f、 g、 h、 i、 j、 k、 l、 m、 n、 o、 p、 q、 r、 s、 t、 u、 v、 w、 x、 y、 z |
+| 英文 | zh-TW | a、 b、 c、 d、 e、 f、 g、 h、 i、 j、 k、 l、 m、 n、 o、 p、 q、 r、 s、 t、 u、 v、 w、 x、 y、 z |
 | 德文 | de-DE | ä、 ö，ü，a、 b、 c、 d、 e、 f、 g、 h、 i、 j、 k、 l、 m、 n、 o、 p、 q、 r、 s、 t、 u、 v、 w、 x、 y、 z |
 
 您可以使用此表格來確保您的發音的相關的資料檔案的格式正確。 發音檔案很小，且不應超過幾 Kb。

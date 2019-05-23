@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f80e6a765cc165033a548ba6a5ee7bead0de872e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144981"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594065"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>若要改善您的知識庫中使用 作用中學習
 
@@ -46,7 +46,7 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 執行階段 4.4.0 版和更新版本可支援主動式學習。 如果您的知識庫是在舊版中建立的，請[升級執行階段](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates)以使用這項功能。 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 如需使用主動式學習時的最佳做法，請參閱[最佳做法](../Concepts/best-practices.md#active-learning)。
 
@@ -60,9 +60,9 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 依預設會關閉主動式學習。 開啟它以查看建議的問題。 
 
-1. 選取 **發佈**來發行知識庫。 主動學習查詢會從 GenerateAnswer API 預測端點只收集。 Qna Maker 入口網站中測試 窗格的查詢不會影響主動式學習。
+1. 選取 **發佈**來發行知識庫。 主動學習查詢會從 GenerateAnswer API 預測端點只收集。 QnA Maker 入口網站中測試 窗格的查詢不會影響主動式學習。
 
-1. 若要開啟主動式學習，請在 QnA Maker 入口網站中，按一下您的 [名稱]，然後移至右上角的 [服務設定][](https://www.qnamaker.ai/UserSettings)。  
+1. 若要開啟 作用中的學習上，按一下您**名稱**，請前往[**服務設定**](https://www.qnamaker.ai/UserSettings)在 QnA Maker 入口網站右上角。  
 
     ![開啟主動式學習建議的問題從服務的 [設定] 頁面的替代項目。 在右上方功能表中，選取您的使用者名稱，然後選取 服務設定。](../media/improve-knowledge-base/Endpoint-Keys.png)
 
@@ -173,7 +173,7 @@ Content-Type: application/json
 |--|--|--|--|
 |URL 路由參數|知識庫識別碼|string|測試您知識庫的 GUID。|
 |主機的子網域|QnAMaker 資源名稱|string|您在您的 Azure 訂用帳戶中的 QnA Maker 的主機名稱。 在發行知識庫之後，這是可在 [設定] 頁面上取得。 |
-|頁首|Content-Type|string|傳送至 API 的本文媒體類型。 預設值為： `application/json`|
+|頁首|內容類型|string|傳送至 API 的本文媒體類型。 預設值為： `application/json`|
 |頁首|授權|string|您的端點金鑰 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。|
 |張貼本文|JSON 物件|JSON|訓練意見反應|
 
@@ -181,10 +181,10 @@ JSON 主體具有數個設定：
 
 |JSON 本文屬性|Type|目的|
 |--|--|--|--|
-|`feedbackRecords`|array|意見反應的清單。|
+|`feedbackRecords`|陣列|意見反應的清單。|
 |`userId`|string|接受建議的問題之人員的使用者識別碼。 使用者識別碼的格式是由您決定。 例如，電子郵件地址可以是在架構中的有效使用者識別碼。 選用。|
 |`userQuestion`|string|問題的確切文字。 必要。|
-|`qnaID`|number|識別碼中找到的問題[GenerateAnswer 回應](metadata-generateanswer-usage.md#generateanswer-response-properties)。 |
+|`qnaID`|號|識別碼中找到的問題[GenerateAnswer 回應](metadata-generateanswer-usage.md#generateanswer-response-properties)。 |
 
 範例 JSON 主體看起來像：
 
@@ -208,7 +208,7 @@ JSON 主體具有數個設定：
 
 當您的應用程式已啟用，主動式學習，並匯出應用程式， `SuggestedQuestions` tsv 檔案中的資料行，保留使用中的學習資料。 
 
-`SuggestedQuestions`資料行是隱含的資訊的 JSON 物件 (`autosuggested`) 和明確 (`usersuggested`) 的意見反應。 此 JSON 物件的單一使用者提交問題範例`help`是：
+`SuggestedQuestions`資料行是 JSON 物件的資訊的隱含`autosuggested`，和明確`usersuggested`意見反應。 此 JSON 物件的單一使用者提交問題範例`help`是：
 
 ```JSON
 [

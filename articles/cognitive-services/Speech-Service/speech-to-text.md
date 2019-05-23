@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7596670e794c090b04f81cf6b235a4bc54c1f3c4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916826"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800091"
 ---
 # <a name="what-is-speech-to-text"></a>什麼是語音轉換文字？
 
@@ -24,7 +24,7 @@ ms.locfileid: "64916826"
 
 根據預設，語音轉換文字服務會使用通用的語言模型。 使用 Microsoft 所擁有的資料定型此模型，而且是已部署的雲端。 它是適合交談和語音輸入案例。 如果您在獨特的環境中使用語音轉文字進行辨識及轉譯，您可以建立並定型自訂原音、語言和發音模型，以處理環境噪音或業界專有詞彙。 
 
-您可以輕鬆地擷取從麥克風的音訊、 讀取從資料流中，或從儲存體與 Speech SDK 和 REST Api 存取音訊檔案。 語音 SDK 支援語音辨識 WAV/PCM 16 位元、 16 kHz、 單一通道音訊。 使用可支援額外的音訊格式[語音轉換文字 REST 端點](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)或[batch 轉譯服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)。
+您可以輕鬆地擷取從麥克風的音訊、 讀取從資料流中，或從儲存體與 Speech SDK 和 REST Api 存取音訊檔案。 語音 SDK 支援 WAV PCM/16 位元，16 kHz/8 kHz、 單一通道語音辨識的音訊。 使用可支援額外的音訊格式[語音轉換文字 REST 端點](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)或[batch 轉譯服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)。
 
 ## <a name="core-features"></a>核心功能
 
@@ -32,14 +32,14 @@ ms.locfileid: "64916826"
 
 | 使用案例 | SDK | REST |
 |----------|-----|------|
-| Ip-pbx 簡短的表達方式 (< 15 秒)。 僅支援最終轉譯結果。 | 是 | 是 |
-| 連續的 long 談話和串流音訊轉譯項目 (> 15 秒)。 支援中期與最終轉譯結果。 | 是 | 否 |
-| 是衍生自與辨識結果的意圖[LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)。 | 是 | 否\* |
-| 以非同步方式的批次音訊檔轉譯項的目。 | 否 | 是\** |
-| 建立和管理語音模型。 | 否 | 是\** |
-| 建立和管理自訂模型部署。 | 否 | 是\** |
-| 建立精確度測試以測量基準模型，與自訂模型的精確度。 | 否 | 是\** |
-| 管理訂用帳戶。 | 否 | 是\** |
+| Ip-pbx 簡短的表達方式 (< 15 秒)。 僅支援最終轉譯結果。 | 有 | 有 |
+| 連續的 long 談話和串流音訊轉譯項目 (> 15 秒)。 支援中期與最終轉譯結果。 | 有 | 無 |
+| 是衍生自與辨識結果的意圖[LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)。 | 有 | 否\* |
+| 以非同步方式的批次音訊檔轉譯項的目。 | 無 | 是\** |
+| 建立和管理語音模型。 | 無 | 是\** |
+| 建立和管理自訂模型部署。 | 無 | 是\** |
+| 建立精確度測試以測量基準模型，與自訂模型的精確度。 | 無 | 是\** |
+| 管理訂用帳戶。 | 無 | 是\** |
 
 \* *您可以使用個別的 LUIS 訂用帳戶來衍伸出 LUIS 意圖和實體。與此訂用帳戶，可以為您呼叫 LUIS SDK，並將其提供實體和意圖結果中。若使用 REST API，您可以自行呼叫 LUIS，以使用您的 LUIS 訂用帳戶來衍伸出意圖和實體。*
 
@@ -49,7 +49,7 @@ ms.locfileid: "64916826"
 
 我們以最受歡迎的程式設計語言提供快速入門，目的是讓您能在 10 分鐘內執行程式碼。 此資料表包括依語言的語音 SDK 快速入門的完整清單。
 
-| 快速入門 | 平台 | API 參考資料 |
+| 快速入門 | 平台 | API 參考 |
 |------------|----------|---------------|
 | [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#.NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
@@ -80,10 +80,10 @@ ms.locfileid: "64916826"
 
 除了使用語音服務的通用模型，您可以建立體驗的特定自訂的原音、 語言和發音模型。 以下是自訂選項的清單：
 
-| 模型 | 描述 |
+| 模型 | 說明 |
 |-------|-------------|
 | [原音模型](how-to-customize-acoustic-models.md) | 建立自訂的原音模型是有幫助，如果您的應用程式、 工具或裝置中使用特定的環境中，例如在車上或特定的記錄條件的處理站。 例如，帶有口音的語音、特定背景雜音或使用特定麥克風來錄音。 |
-| [語言模型](how-to-customize-language-model.md) | 建立自訂語言模型，以改善的業界特定詞彙及文法檢查，例如醫療術語中或 IT 專業術語轉譯項目。 |
+| [語言模型](how-to-customize-language-model.md) | 建立自訂語言模型來提升特定產業的詞彙和文法轉譯，例如醫療術語或 IT 專業術語。 |
 | [發音模型](how-to-customize-pronunciation.md) | 使用自訂發音模型，您可以定義語音形式和顯示字組或字詞。 它可用於處理自訂的字詞，如產品名稱或縮略字。 您只需要有發音檔 - 簡單的 .txt 檔。 |
 
 > [!NOTE]

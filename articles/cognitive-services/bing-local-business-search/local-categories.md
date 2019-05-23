@@ -3,18 +3,18 @@ title: Bing 當地商家搜尋 API 的搜尋類別 | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: 使用本文了解如何針對 Bing 當地商家搜尋 API 端點指定搜尋類別。
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b96c4e0ebfb12f48917febcc8ad623de18758935
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 61bd230ffdb79b31390e96179e5beb3646902142
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773659"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796736"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>搜尋 Bing 當地商家搜尋 API 的類別
 

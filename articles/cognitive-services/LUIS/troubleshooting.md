@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: 132ba922fa73c73d0e001e84659b5a24996d406b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: b4c1de8edf04e15b540adeac01bcbf0cb1d1b8af
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235801"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65766938"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -46,7 +46,7 @@ ms.locfileid: "65235801"
 請參閱 [Bing 拼字檢查 API V7](luis-tutorial-bing-spellcheck.md) 教學課程。 LUIS 會強制執行 Bing 拼字檢查 API V7 所公開的限制。
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>如何以程式設計方式編輯 LUIS 應用程式？
-若要以程式設計方式編輯 LUIS 應用程式，請使用[撰寫 API](https://aka.ms/luis-authoring-apis)。 如需如何呼叫撰寫 API 的範例，請參閱[呼叫 LUIS 撰寫 API](./luis-quickstart-node-add-utterance.md)和[使用 Node.js 以程式設計方式建置 LUIS 應用程式](./luis-tutorial-node-import-utterances-csv.md)。 撰寫 API 需要您使用[撰寫金鑰](luis-concept-keys.md#authoring-key)，而非端點金鑰。 以程式設計撰寫允許每個月有最多 1,000,000 次呼叫，而且每秒五次交易。 如需與 LUIS 搭配使用之金鑰的詳細資訊，請參閱[管理金鑰](./luis-concept-keys.md)。
+若要以程式設計方式編輯 LUIS 應用程式，請使用[撰寫 API](https://go.microsoft.com/fwlink/?linkid=2092087)。 如需如何呼叫撰寫 API 的範例，請參閱[呼叫 LUIS 撰寫 API](./luis-quickstart-node-add-utterance.md)和[使用 Node.js 以程式設計方式建置 LUIS 應用程式](./luis-tutorial-node-import-utterances-csv.md)。 撰寫 API 需要您使用[撰寫金鑰](luis-concept-keys.md#authoring-key)，而非端點金鑰。 以程式設計撰寫允許每個月有最多 1,000,000 次呼叫，而且每秒五次交易。 如需與 LUIS 搭配使用之金鑰的詳細資訊，請參閱[管理金鑰](./luis-concept-keys.md)。
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>提供規則運算式比對的模式功能位置為何？
 先前的**模式功能**目前已淘汱，並取代為**[模式](luis-concept-patterns.md)**。
@@ -295,6 +295,8 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 * [V3 API 移轉指南的預覽](luis-migration-api-v3.md)
 * [改善的分析儀表板](luis-how-to-use-dashboard.md)
 * [改善預先建置的網域](luis-reference-prebuilt-domains.md) 
+* [動態清單的實體](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [外部實體](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 ## <a name="next-steps"></a>後續步驟
 

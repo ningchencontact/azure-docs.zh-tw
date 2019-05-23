@@ -3,19 +3,19 @@ title: 語言支援 - Bing 自訂搜尋 API
 titleSuffix: Azure Cognitive Services
 description: Bing 自訂搜尋 API 支援的語言和區域清單。
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1f53dc60a74f0b558525897bef97bf2500442b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.author: aahi
+ms.openlocfilehash: 56870a63f42c10b48cc2d8f0ae2995862be46d8f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867840"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790250"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing 自訂搜尋 API 支援的語言和區域
 
@@ -29,7 +29,7 @@ Bing 自訂搜尋 API 支援三十多個國家/地區，許多國家/地區具�
 
 ## <a name="countriesregions"></a>國家/地區
 
-|國家/區域|代碼|
+|國家/地區|代碼|
 |-------|----|
 |阿根廷|AR|
 |澳大利亞|AU|
@@ -71,15 +71,15 @@ Bing 自訂搜尋 API 支援三十多個國家/地區，許多國家/地區具�
 
 ## <a name="markets"></a>市場
 
-|國家/區域|語言|市場代碼|
+|國家/地區|語言|市場代碼|
 |-------|--------|-----------|
 |阿根廷|西班牙文|es-AR|
-|澳大利亞|English|en-AU|
+|澳大利亞|英文|en-AU|
 |奧地利|德文|de-AT|
 |比利時|荷蘭文|nl-BE|
 |比利時|法文|fr-BE|
 |巴西|葡萄牙文|pt-BR|
-|加拿大|English|en-CA|
+|加拿大|英文|en-CA|
 |加拿大|法文|fr-CA|
 |智利|西班牙文|es-CL|
 |丹麥|丹麥文|da-DK|
@@ -87,29 +87,29 @@ Bing 自訂搜尋 API 支援三十多個國家/地區，許多國家/地區具�
 |法國|法文|fr-FR|
 |德國|德文|de-DE|
 |中國香港特別行政區|繁體中文|zh-HK|
-|印度|English|en-IN|
-|印尼|English|en-ID|
+|印度|英文|en-IN|
+|印尼|英文|en-ID|
 |義大利|義大利文|it-IT|
 |日本|日文|ja-JP|
 |南韓|韓文|ko-KR|
-|馬來西亞|English|en-MY|
+|馬來西亞|英文|en-MY|
 |墨西哥|西班牙文|es-MX|
 |荷蘭|荷蘭文|nl-NL|
-|紐西蘭|English|en-NZ|
+|紐西蘭|英文|en-NZ|
 |挪威|挪威文|no-NO|
 |中國|中文|zh-CN|
 |波蘭|波蘭文|pl-PL|
 |葡萄牙|葡萄牙文|pt-PT|
-|菲律賓|English|en-PH|
+|菲律賓|英文|en-PH|
 |俄羅斯|俄文|ru-RU|
 |沙烏地阿拉伯|阿拉伯文|ar-SA|
-|南非|English|en-ZA|
+|南非|英文|en-ZA|
 |西班牙|西班牙文|es-ES|
 |瑞典|瑞典文|sv-SE|
 |瑞士|法文|fr-CH|
 |瑞士|德文|de-CH|
 |台灣|繁體中文|zh-TW|
 |土耳其|土耳其文|tr-TR|
-|英國|English|en-GB|
-|美國|English|en-US|
+|英國|英文|en-GB|
+|美國|英文|zh-TW|
 |美國|西班牙文|es-US|

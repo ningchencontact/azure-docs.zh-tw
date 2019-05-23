@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ba4af5d3b6612614dee54db7fdb1287ff7136321
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: d41f1b61345d365bb315a7a5c5570f729f140324
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245757"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791092"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>如何使用搭配 Node.js 的 QnA Maker REST API 
 <a name="HOLTop"></a>
@@ -40,7 +40,7 @@ ms.locfileid: "56245757"
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您將需要 [Node.js 6](https://nodejs.org/en/download/) 才能執行此程式碼。
 
@@ -50,7 +50,7 @@ ms.locfileid: "56245757"
 
 ## <a name="create-knowledge-base"></a>建立知識庫
 
-以下程式碼使用 [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) 方法來建立新的知識庫。
+以下程式碼使用 [Create](https://go.microsoft.com/fwlink/?linkid=2092179) 方法來建立新的知識庫。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -162,7 +162,7 @@ let req = {
   "qnaList": [
     {
       "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -246,7 +246,7 @@ create_kb (path, content, function (result) {
 
 ## <a name="update-knowledge-base"></a>更新知識庫
 
-以下程式碼使用 [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) 方法來更新現有的知識庫。
+以下程式碼使用 [Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) 方法來更新現有的知識庫。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -361,7 +361,7 @@ let req = {
     'qnaList': [
       {
         'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
+        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
         'source': 'Custom Editorial',
         'questions': [
           'How can I change the default message from QnA Maker?'
@@ -439,7 +439,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>取得要求狀態
 
-您可以呼叫 [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) 方法，以查看建立或更新知識庫要求的狀態。 若要了解如何使用此方法，請參閱 [Create](#Create) 或 [Update](#Update) 方法的範例程式碼。
+您可以呼叫 [Operation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) 方法，以查看建立或更新知識庫要求的狀態。 若要了解如何使用此方法，請參閱 [Create](#Create) 或 [Update](#Update) 方法的範例程式碼。
 
 [回到頁首](#HOLTop)
 
@@ -447,7 +447,7 @@ Press any key to continue.
 
 ## <a name="publish-knowledge-base"></a>發佈知識庫
 
-以下程式碼使用 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 方法來發行現有的知識庫。
+以下程式碼使用 [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 方法來發行現有的知識庫。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -559,7 +559,7 @@ publish_kb (path, '', function (result) {
 
 ## <a name="replace-knowledge-base"></a>取代知識庫
 
-以下程式碼使用 [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) 方法來取代指定知識庫的內容。
+以下程式碼使用 [Replace](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace) 方法來取代指定知識庫的內容。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -653,7 +653,7 @@ let req = {
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -692,7 +692,7 @@ replace_kb (path, content, function (result) {
 
 ## <a name="download-the-contents-of-a-knowledge-base"></a>下載知識庫的內容
 
-以下程式碼使用 [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) 方法來下載指定知識庫的內容。
+以下程式碼使用 [Download knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download) 方法來下載指定知識庫的內容。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -791,7 +791,7 @@ get_qna (path, function (result) {
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -954,7 +954,7 @@ get_answers (method, content, function (result) {
 
 ## <a name="get-information-about-a-knowledge-base"></a>取得知識庫的相關資訊
 
-以下程式碼使用 [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 方法來取得特定知識庫的相關資訊。
+以下程式碼使用 [Get knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) 方法來取得特定知識庫的相關資訊。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -1069,7 +1069,7 @@ get_kb (path, function (result) {
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>取得使用者的所有知識庫
 
-以下程式碼使用 [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) 方法，以取得指定使用者的所有知識庫相關資訊。
+以下程式碼使用 [Get knowledge bases for user](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/listall) 方法，以取得指定使用者的所有知識庫相關資訊。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -1197,7 +1197,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>刪除知識庫
 
-以下程式碼使用 [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) 方法來刪除指定的知識庫。
+以下程式碼使用 [Delete knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete) 方法來刪除指定的知識庫。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -1309,7 +1309,7 @@ delete_kb (path, '', function (result) {
 
 ## <a name="get-endpoint-keys"></a>取得端點金鑰
 
-以下程式碼使用 [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) 方法來取得目前的端點金鑰。
+以下程式碼使用 [Get endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys) 方法來取得目前的端點金鑰。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -1410,7 +1410,7 @@ get_keys (path, function (result) {
 
 ## <a name="refresh-endpoint-keys"></a>重新整理端點金鑰
 
-以下程式碼使用 [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) 方法來重新產生目前的端點金鑰。
+以下程式碼使用 [Refresh endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/refreshkeys) 方法來重新產生目前的端點金鑰。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -1536,7 +1536,7 @@ refresh_keys (path, content, function (result) {
 
 ## <a name="get-word-alterations"></a>取得文字變異形式
 
-以下程式碼使用 [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) 方法來取得目前的文字變異形式。
+以下程式碼使用 [Download alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/get) 方法來取得目前的文字變異形式。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -1643,7 +1643,7 @@ get_alterations (path, function (result) {
 
 ## <a name="replace-word-alterations"></a>取代文字變異形式
 
-以下程式碼使用 [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) 方法來取代目前的文字變異形式。
+以下程式碼使用 [Replace alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) 方法來取代目前的文字變異形式。
 
 1. 在您偏好的 IDE 中建立新的 Node.js 專案。
 2. 新增下方提供的程式碼。
@@ -1764,8 +1764,8 @@ put_alterations (path, content, function (result) {
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker (V4) REST API 參考](https://go.microsoft.com/fwlink/?linkid=2092179)
 
-## <a name="see-also"></a>另請參閱 
+## <a name="see-also"></a>請參閱 
 
 [QnA Maker 概觀](../Overview/overview.md)

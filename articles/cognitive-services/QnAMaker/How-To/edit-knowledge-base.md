@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577199"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541578"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>在 QnA Maker 中編輯知識庫
 
@@ -72,8 +72,7 @@ QnA Maker 可讓您提供方便使用的編輯方式，藉以管理知識庫的�
 
 ## <a name="add-metadata"></a>新增中繼資料
 
-
-選取 [中繼資料] 圖示，以將中繼資料組。 中繼資料組是由一個索引鍵和一個值所組成。
+新增第一個選取的中繼資料組**檢視選項**，然後選取**顯示中繼資料**。 這會顯示中繼資料行。 接下來，選取**+** 符號以加入中繼資料組。 此組是由一個索引鍵和一個值所組成。
 
 ![新增中繼資料](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

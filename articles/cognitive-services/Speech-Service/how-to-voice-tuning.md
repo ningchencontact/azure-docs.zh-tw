@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 8d3e25f8217f3cc8772de9fbbb06a407008ca6f6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508396"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593881"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>微調文字轉換語音輸出
 
@@ -35,7 +35,7 @@ Azure 的語音服務可讓您調整速度、 發音、 磁碟區、 音調、 �
    >當您在 Azure 入口網站中建立語音資源時，Azure 位置資訊必須符合與 TTS 語音區域。 類神經 TTS 語音支援的子集合的 Azure 位置。 如需支援的完整清單，請參閱 <<c0> [ 區域](regions.md#text-to-speech)。
 
    >[!NOTE]
-   >您需要有 F0 或 S0 金鑰建立在 Azure 入口網站中，您才能使用服務。 語音微調**不**支援[30 天免費試用版金鑰](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial)。
+   >您需要有 F0 或 S0 金鑰建立在 Azure 入口網站中，您才能使用服務。 語音微調**不**支援[30 天免費試用版金鑰](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial)。
 
 4. 登入[語音微調](https://aka.ms/voicetuning)入口網站中，並連接您的語音服務訂用帳戶。 選擇單一語音服務的訂用帳戶，然後建立專案。
 5. 選取 **新的微調**。 接著，遵循下列步驟：
@@ -43,7 +43,7 @@ Azure 的語音服務可讓您調整速度、 發音、 磁碟區、 音調、 �
    * 找出並選取**所有訂用帳戶**。  
    * 選取 [連線到現有的訂用帳戶]。  
      ![連接現有的訂用帳戶](./media/custom-voice/custom-voice-connect-subscription.png)。
-   * 輸入您 Azure 語音服務的訂用帳戶金鑰，然後選取**新增**。 您的訂用帳戶金鑰可用於語音自訂入口網站中，從[訂用帳戶頁面](https://go.microsoft.com/fwlink/?linkid=2090458)。 您也可以從 [資源管理] 窗格中來取得索引鍵[Azure 入口網站](https://portal.azure.com/)。 
+   * 輸入您 Azure 語音服務的訂用帳戶金鑰，然後選取**新增**。 您的訂用帳戶金鑰可用於語音自訂入口網站中，從[訂用帳戶頁面](https://go.microsoft.com/fwlink/?linkid=2090458)。 您也可以從 [資源管理] 窗格中來取得索引鍵[Azure 入口網站](https://portal.azure.com/)。
    * 如果您有多個語音服務訂用帳戶，您打算使用時，請為每個訂用帳戶重複這些步驟。
 
 ## <a name="customize-the-text-to-speech-output"></a>自訂文字轉換語音輸出

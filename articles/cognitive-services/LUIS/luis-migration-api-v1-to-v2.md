@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793535"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522353"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 應用程式 API v1 至 v2 的移轉指南
-第 1 版的[端點](https://aka.ms/v1-endpoint-api-docs)和[編寫](https://aka.ms/v1-authoring-api-docs) API 會被取代。 使用本指南可了解如何移轉到第 2 版的[端點](https://aka.ms/luis-endpoint-apis)和[編寫](https://aka.ms/luis-authoring-apis) API。 
+第 1 版的[端點](https://aka.ms/v1-endpoint-api-docs)和[編寫](https://aka.ms/v1-authoring-api-docs) API 會被取代。 使用本指南可了解如何移轉到第 2 版的[端點](https://go.microsoft.com/fwlink/?linkid=2092356)和[編寫](https://go.microsoft.com/fwlink/?linkid=2092087) API。 
 
 ## <a name="new-azure-regions"></a>新的 Azure 區域
 LUIS 針對 LUIS API 提供新的[區域](https://aka.ms/LUIS-regions)。 LUIS 會提供不同的入口網站的地區群組。 編寫應用程式的區域必須與您預期查詢的區域相同。 應用程式不會自動移轉區域。 您要從一個區域匯出應用程式，然後匯入至另一個區域，才能在新的區域中使用。
@@ -169,6 +169,6 @@ V1 允許加上標籤的語句，在單字或片語的開頭或結尾包含空�
 
 ## <a name="next-steps"></a>後續步驟
 
-使用 v2 API 文件，更新現有 REST 呼叫 LUIS [端點](https://aka.ms/luis-endpoint-apis)和[撰寫](https://aka.ms/luis-authoring-apis) API。 
+使用 v2 API 文件，更新現有 REST 呼叫 LUIS [端點](https://go.microsoft.com/fwlink/?linkid=2092356)和[撰寫](https://go.microsoft.com/fwlink/?linkid=2092087) API。 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

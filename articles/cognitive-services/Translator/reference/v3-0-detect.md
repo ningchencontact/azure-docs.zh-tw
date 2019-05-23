@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: fa618c5c623a631e7a88f8235a0b7b16fcb2bc88
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: ea8fe989dd0ef7026957153fb5c9836742d008dd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578652"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797502"
 ---
-# <a name="translator-text-api-30-detect"></a>翻譯工具文字 API 3.0：Detect
+# <a name="translator-text-api-30-detect"></a>翻譯工具文字 API 3.0：偵測
 
 識別一段文字的語言。
 
@@ -35,7 +35,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 <table width="100%">
   <th width="20%">查詢參數</th>
-  <th>描述</th>
+  <th>說明</th>
   <tr>
     <td>api-version</td>
     <td>必要參數。<br/>用戶端要求的 API 版本。 值必須是 `3.0`。</td>
@@ -45,14 +45,14 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 要求標頭包括：
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>描述</th>
+  <th width="20%">標頭</th>
+  <th>說明</th>
   <tr>
     <td>驗證標頭</td>
     <td>必要的要求標頭。<br/>請參閱<a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">可用的驗證選項</a>。</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
+    <td>內容類型</td>
     <td>必要的要求標頭。<br/>指定承載的內容類型。 可能的值為：`application/json`。</td>
   </tr>
   <tr>
@@ -65,7 +65,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   </tr>
 </table> 
 
-## <a name="request-body"></a>Request body
+## <a name="request-body"></a>要求本文
 
 要求的本文是 JSON 陣列。 每個陣列項目都是字串屬性名為 `Text` 的 JSON 物件。 語言偵測會套用到 `Text` 屬性的值。 範例回應本文應如下所示：
 
@@ -125,8 +125,8 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 ## <a name="response-headers"></a>回應標頭
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>描述</th>
+  <th width="20%">標頭</th>
+  <th>說明</th>
   <tr>
     <td>X-RequestId</td>
     <td>服務產生的值，用於識別要求。 作為疑難排解之用。</td>
@@ -139,7 +139,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 <table width="100%">
   <th width="20%">狀態碼</th>
-  <th>描述</th>
+  <th>說明</th>
   <tr>
     <td>200</td>
     <td>成功。</td>
@@ -150,7 +150,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   </tr>
   <tr>
     <td>401</td>
-    <td>無法驗證要求。 請確認認證已指定且有效。</td>
+    <td>無法驗證此要求。 請確認認證已指定且有效。</td>
   </tr>
   <tr>
     <td>403</td>
@@ -158,11 +158,11 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>呼叫者傳送過多要求。</td>
+    <td>伺服器拒絕要求，因為用戶端已超過要求限制。</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
+    <td>發生未預期的錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>

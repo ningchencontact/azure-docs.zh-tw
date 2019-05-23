@@ -3,19 +3,19 @@ title: 教學課程：使用 Bing 圖像式搜尋 SDK 裁剪影像
 description: 使用 Bing 圖像式搜尋 SDK 從影像上的特定區域取得深入解析。
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: a6a98d9ddf76e86feb35c6d3d71f7777b0edd51d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a65994ffb2fc707c59e507cad71699211b6a64a5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491129"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896264"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>教學課程：使用適用於 C# 的 Bing 圖像式搜尋 SDK 裁剪影像
 
@@ -33,7 +33,7 @@ Bing 視覺化搜尋服務 SDK 可讓您裁剪影像，再尋找相似的線上�
 
 ## <a name="prerequisites"></a>必要條件
 
-* 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+* 任何版本的[Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 * 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/)來執行此應用程式。
 * 已安裝 [NuGet 自訂搜尋](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)套件。
     - 在 Visual Studio 中方案總管 中以滑鼠右鍵按一下專案，然後選取**管理 NuGet 套件**從功能表。 安裝 `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 套件。 安裝 NuGet 自訂搜尋套件也會一併安裝下列組件：
@@ -110,7 +110,7 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
-> [建立圖像式搜尋單一頁面 web 應用程式](tutorial-bing-visual-search-single-page-app.md)
+> [建立圖像式搜尋單頁 Web 應用程式](tutorial-bing-visual-search-single-page-app.md)
 
 ## <a name="see-also"></a>請參閱
 > [什麼是 Bing 圖像式搜尋 API？](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

@@ -3,20 +3,20 @@ title: 使用 Bing 影像搜尋 API 來搜尋 GIF 影像
 titleSuffix: Azure Cognitive Services
 description: 使用 Bing 影像搜尋 API 來搜尋 Web 中的 .gif 影像。
 services: cognitive-services
-author: MikeDodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
-ms.author: rosh
+ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e7b2c43e06c8fbc1f561defebf29fdd37bc8bfab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4b396c3b99c143f20caa774ee3c4c6ee25f96150
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100899"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777129"
 ---
 # <a name="search-for-gif-images"></a>搜尋 GIF 影像 
 

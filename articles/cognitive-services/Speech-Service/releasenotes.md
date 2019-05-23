@@ -8,17 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465609"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606344"
 ---
 # <a name="release-notes"></a>版本資訊
+
+## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
+
+這是修正程式的版本，只會影響原生 SDK。 它不會影響 JavaScript 版本的 sdk。
+
+**錯誤修正**
+
+* 修正 FromSubscription 交談文字記錄搭配使用時。
+* 修正錯誤，找出語音第一個虛擬助理的關鍵字。
+
 
 ## <a name="speech-sdk-150-2019-may-release"></a>語音 SDK 1.5.0:2019 年發行
 
@@ -45,7 +55,7 @@ ms.locfileid: "65465609"
 * 修正的問題，演講者備忘資源已解構過早在文字轉換語音的位置。
 ## <a name="speech-sdk-142"></a>Speech SDK 1.4.2
 
-这是一个 Bug 修复版本，只影响本机/托管 SDK。 它不影响 SDK 的 JavaScript 版本。
+這是修正程式的版本，只會影響原生 SDK。 它不會影響 JavaScript 版本的 sdk。
 
 ## <a name="speech-sdk-141"></a>Speech SDK 1.4.1
 
@@ -81,13 +91,13 @@ ms.locfileid: "65465609"
 * Python： 改善錯誤處理中 Python 回呼的引數。
 * JavaScript：已修正錯誤的狀態報告語音已經在 RequestSession 結束。
 
-## <a name="speech-sdk-131-2019-february-refresh"></a>语音 SDK 1.3.1：2019 年 2 月刷新
+## <a name="speech-sdk-131-2019-february-refresh"></a>語音 SDK 1.3.1:2019 年 2 月重新整理
 
-这是一个 Bug 修复版本，只影响本机/托管 SDK。 它不影响 SDK 的 JavaScript 版本。
+這是修正程式的版本，只會影響原生 SDK。 它不會影響 JavaScript 版本的 sdk。
 
 **Bug 修复**
 
-* 修复了使用麦克风输入时出现的内存泄漏问题。 基于流的输入或文件输入不受影响。
+* 使用麥克風的輸入時，已修正記憶體流失。 不會影響基礎 Stream 或輸入的檔案。
 
 ## <a name="speech-sdk-130-2019-february-release"></a>語音 SDK 1.3.0：2019 年 2 月版本
 
@@ -95,7 +105,7 @@ ms.locfileid: "65465609"
 
 * 語音 SDK 支援透過 AudioConfig 類別來選取輸入麥克風。 這可讓您將音訊資料串流到語音服務從非預設麥克風。 如需詳細資訊，請參閱文件描述[音訊輸入裝置選取](how-to-select-audio-input-devices.md)。 這項功能尚無法從 JavaScript 使用。
 * 語音 SDK 現在支援搶鮮版 (Beta) Unity。 透過在 [問題] 區段提供意見反應[GitHub 範例存放庫](https://aka.ms/csspeech/samples)。 此版本可在 Windows x86 和 x64 (桌面或通用 Windows 平台應用程式) 以及 Android (ARM32/64、x86) 上支援 Unity。 詳情請參閱 [Unity 快速入門](quickstart-csharp-unity.md)。
-* 不再需要 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 文件（在以前的版本中提供）。 此功能现在集成到核心 SDK 中。
+* 檔案`Microsoft.CognitiveServices.Speech.csharp.bindings.dll`（隨附於之前的版本），則不需要再。 功能現在已整合至核心 SDK。
 
 
 **範例**
@@ -125,7 +135,7 @@ ms.locfileid: "65465609"
   * 初次支援和實作片語提示。
   * 傳回含有服務 JSON 的屬性集合以供辨識
 * Windows DLL 現在會包含版本資源。
-* 如果创建识别器 `FromEndpoint`，则可将参数直接添加到终结点 URL。 使用`FromEndpoint`您無法設定辨識器，透過標準的組態屬性。
+* 如果您建立的辨識器`FromEndpoint`您可以將參數，直接加入的端點 URL。 使用`FromEndpoint`您無法設定辨識器，透過標準的組態屬性。
 
 **錯誤修正**
 

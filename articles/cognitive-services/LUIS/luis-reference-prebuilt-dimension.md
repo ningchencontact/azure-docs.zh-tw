@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9099cdbb91e41998065d953b9d48b3b501df7c10
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e77cd2290981de62ba7fce7f04174cd0c5ec2af3
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336932"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65072192"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的維度預先建置實體
 預先建置的 dimension 實體可偵測各種維度類型，無論 LUIS 應用程式文化特色為何。 因為此實體已經定型，所以您不需要將包含維度的範例語句加入應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援 dimension 實體。 
@@ -27,6 +27,9 @@ ms.locfileid: "57336932"
 
 
 ## <a name="resolution-for-dimension-entity"></a>解析 dimension 實體
+
+### <a name="api-version-2x"></a>API 版本 2.x
+
 下列範例顯示解析的 **builtin.dimension** 實體。
 
 ```json
@@ -54,6 +57,70 @@ ms.locfileid: "57336932"
       }
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>預覽 API 版本 3.x
+
+下列 JSON 是以`verbose`參數設定為`false`:
+
+```json
+{
+    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+    "prediction": {
+        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.400049
+            }
+        },
+        "entities": {
+            "dimension": [
+                {
+                    "number": 10.5,
+                    "unit": "Mile"
+                }
+            ]
+        }
+    }
+}
+```
+
+下列 JSON 是以`verbose`參數設定為`true`:
+
+```json
+{
+    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+    "prediction": {
+        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.400049
+            }
+        },
+        "entities": {
+            "dimension": [
+                {
+                    "number": 10.5,
+                    "unit": "Mile"
+                }
+            ],
+            "$instance": {
+                "dimension": [
+                    {
+                        "type": "builtin.dimension",
+                        "text": "10 1/2 miles",
+                        "startIndex": 19,
+                        "length": 12,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 4/05/2019
+ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1860b788b9f33a6a2ec806be68a67aa2df10cbd4
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493870"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914263"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>使用深入解析權杖來取得深入資訊的影像
 
@@ -64,7 +64,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 ### <a name="c-prerequisites"></a>C#必要條件
 
-- 任何版本的[Visual Studio 2017](https://www.visualstudio.com/downloads/)以取得在 Windows 上執行此程式碼。
+- 任何版本的[Visual Studio 2019](https://www.visualstudio.com/downloads/)以取得在 Windows 上執行此程式碼。
 - Azure 訂用帳戶。 本快速入門中，您可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)訂用帳戶金鑰或付費訂用帳戶金鑰。
 
 ## <a name="run-the-application"></a>執行應用程式
@@ -475,7 +475,7 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>後續步驟
 
-[建立圖像式搜尋單一頁面 web 應用程式](tutorial-bing-visual-search-single-page-app.md)  
+[建立圖像式搜尋單頁 Web 應用程式](tutorial-bing-visual-search-single-page-app.md)  
 [什麼是 Bing 圖像式搜尋 API？](overview.md)  
 [試用認知服務](https://aka.ms/bingvisualsearchtryforfree)  
 [取得免費試用的存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  

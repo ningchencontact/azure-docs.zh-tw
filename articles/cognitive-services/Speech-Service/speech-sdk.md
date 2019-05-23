@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: wolfma
-ms.openlocfilehash: a16874dc9536518874fb6a9d1f219b3b31e16364
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2bfe111cbe1e352c16c9cbdd6d2ecc999bbe444f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020413"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003016"
 ---
 # <a name="about-the-speech-sdk"></a>關於語音 SDK
 
@@ -33,7 +33,7 @@ ms.locfileid: "65020413"
 
 * C# (UWP 與 .NET)，C++：您可以參考並使用語音 SDK NuGet 套件的最新版本。 此套件包括 32 位元和 64 位元的用戶端程式庫，以及受控 (.NET) 程式庫。 使用 NuGet 即可在 Visual Studio 中安裝此 SDK。 請搜尋 **Microsoft.CognitiveServices.Speech**。
 
-* Java：您可以參考並使用我們的最新版「語音 SDK」Maven 套件，此版本只支援 Windows x64。 在您的 Maven 專案中，新增 `https://csspeechstorage.blob.core.windows.net/maven/` 作為額外的存放庫，並參考 `com.microsoft.cognitiveservices.speech:client-sdk:1.5.0` 作為相依性。
+* Java：您可以參考並使用我們的最新版「語音 SDK」Maven 套件，此版本只支援 Windows x64。 在您的 Maven 專案中，新增 `https://csspeechstorage.blob.core.windows.net/maven/` 作為額外的存放庫，並參考 `com.microsoft.cognitiveservices.speech:client-sdk:1.5.1` 作為相依性。
 
 ### <a name="linux"></a> Linux
 
@@ -49,24 +49,24 @@ sudo apt-get update
 sudo apt-get install libssl1.0.0 libasound2
 ```
 
-在 Debian 9:
+在 Debian 9 上：
 
 ```sh
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
 
-* C#：您可以參考並使用語音 SDK NuGet 套件的最新版本。 若要參考 SDK，請在專案中新增下列套件參考：
+* C#: 您可以參考並使用語音 SDK NuGet 套件的最新版本。 若要參考 SDK，請在專案中新增下列套件參考：
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.5.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.5.1" />
   ```
 
-* Java：您可以參考並使用語音 SDK Maven 套件的最新版本。 在您的 Maven 專案中，新增 `https://csspeechstorage.blob.core.windows.net/maven/` 作為額外的存放庫，並參考 `com.microsoft.cognitiveservices.speech:client-sdk:1.5.0` 作為相依性。
+* Java：您可以參考並使用語音 SDK Maven 套件的最新版本。 在您的 Maven 專案中，新增 `https://csspeechstorage.blob.core.windows.net/maven/` 作為額外的存放庫，並參考 `com.microsoft.cognitiveservices.speech:client-sdk:1.5.1` 作為相依性。
 
 * C++：將 SDK 下載為 [.tar 套件](https://aka.ms/csspeech/linuxbinary)，然後將檔案解壓縮至您選擇的目錄。 下表顯示 SDK 資料夾結構：
 
-  |`Path`|描述|
+  |`Path`|說明|
   |-|-|
   |`license.md`|授權|
   |`ThirdPartyNotices.md`|協力廠商通知|
@@ -78,7 +78,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ### <a name="android"></a>Android
 
-適用於 Android 的 Java SDK 會封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library) \(英文\)，其中包含必要的程式庫及所需的 Android 權限。 它會以 `com.microsoft.cognitiveservices.speech:client-sdk:1.5.0` 套件的形式裝載在位於 `https://csspeechstorage.blob.core.windows.net/maven/` 的 Maven 存放庫中。
+適用於 Android 的 Java SDK 會封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library) \(英文\)，其中包含必要的程式庫及所需的 Android 權限。 它會以 `com.microsoft.cognitiveservices.speech:client-sdk:1.5.1` 套件的形式裝載在位於 `https://csspeechstorage.blob.core.windows.net/maven/` 的 Maven 存放庫中。
 
 若要從 Android Studio 專案取用套件，請進行下列變更：
 
@@ -91,7 +91,7 @@ sudo apt-get install libssl1.0.2 libasound2
 * 在模組層級的 build.gradle 檔案中，將下列內容新增至 `dependencies` 區段：
 
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.5.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.5.1'
   ```
 
 Java SDK 也是[語音裝置 SDK](speech-devices-sdk.md) 的一部分。

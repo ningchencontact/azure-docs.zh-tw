@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522740"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956991"
 ---
 # <a name="collaborating-with-other-authors"></a>其他作者與共同作業
 
@@ -52,7 +52,7 @@ LUIS 不提供擁有權轉移，不過任何共同作業者都可以匯出應用
 ## <a name="manage-multiple-versions-inside-the-same-app"></a>管理相同應用程式內的多個版本
 針對每個作者，一開始先從基底版本[複製](luis-how-to-manage-versions.md#clone-a-version)。 
 
-每個作者對自己的應用程式版本進行變更。 在每個作者對模型感到滿意之後，請將新版本匯出成 JSON 檔案。  
+每位作者在其自己的應用程式版本中會變更。 在每個作者對模型感到滿意之後，請將新版本匯出成 JSON 檔案。  
 
 匯出的應用程式會是 JSON 格式的檔案，可用來比較變更。 結合檔案以建立新版本的單一 JSON 檔案。 變更 JSON 中的 **versionId** 屬性，以表示新的合併版本。 將該版本匯入至原始應用程式。 
 

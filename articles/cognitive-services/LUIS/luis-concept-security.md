@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 499854bcf6774c3e4eee350c1dd4a2204885f3b1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894178"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522484"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>撰寫和端點的使用者存取權
 撰寫存取權適用於擁有者和共同作業者。 就私人應用程式而言，端點存取權適用於擁有者和共同作業者。 就公用應用程式而言，端點存取權適用於擁有自己 LUIS 帳戶且擁有公用應用程式識別碼的所有使用者。 
 
 ## <a name="access-to-authoring"></a>存取撰寫
-從 [LUIS](luis-reference-regions.md#luis-website) 網站或[撰寫 API](https://aka.ms/luis-authoring-apis) 存取應用程式時，會受到應用程式擁有者所控制。 
+從 [LUIS](luis-reference-regions.md#luis-website) 網站或[撰寫 API](https://go.microsoft.com/fwlink/?linkid=2092087) 存取應用程式時，會受到應用程式擁有者所控制。 
 
 擁有者和所有共同作業者都具備可撰寫應用程式的存取權。 
 

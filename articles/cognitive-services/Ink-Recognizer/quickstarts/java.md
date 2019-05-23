@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: c3f5c3ae8501f3114920f3b06f7f8cafa05e83bb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: 6237253922544dc47bb11aec4dd58139f99eb0da
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406568"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518620"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>快速入門：辨識筆墨辨識器 REST API 與 Java 的數位筆跡
 
@@ -36,7 +36,7 @@ ms.locfileid: "65406568"
     - [在 Java 中的 JSON](https://mvnrepository.com/artifact/org.json/json)封裝
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)封裝
 
-- 在本快速入門範例筆墨筆劃資料可於[GitHub](https://go.microsoft.com/fwlink/?linkid=2089904)。
+- 在本快速入門範例筆墨筆劃資料可於[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json)。
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -134,7 +134,7 @@ static void recognizeInk(String requestData) {
 
 ## <a name="run-the-application-and-view-the-response"></a>執行應用程式，以及檢視回應
 
-執行應用程式。 成功的回應是以 JSON 格式傳回。 您也可以在找到 JSON 回應[GitHub](https://go.microsoft.com/fwlink/?linkid=2089904)。
+執行應用程式。 成功的回應是以 JSON 格式傳回。 您也可以在找到 JSON 回應[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json)。
 
 ## <a name="next-steps"></a>後續步驟
 

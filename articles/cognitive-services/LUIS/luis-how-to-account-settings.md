@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d7d63ad642ab2d3b336e15dcca606077762ceb9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116617"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523509"
 ---
 # <a name="manage-account-and-authoring-key"></a>管理帳戶和撰寫金鑰
 
@@ -24,7 +24,7 @@ LUIS 帳戶的兩個重要資訊為使用者帳戶和撰寫金鑰。 您的登�
 
 ## <a name="authoring-key"></a>撰寫金鑰
 
-單一的特定地區的此編寫索引鍵，在**設定**頁面上，可讓您撰寫從所有應用程式[LUIS](luis-reference-regions.md)入口網站，以及[編寫 Api](https://aka.ms/luis-authoring-api)。 為了方便起見，允許撰寫金鑰每個月建立[有限](luis-boundaries.md)數量的端點查詢。
+單一的特定地區的此編寫索引鍵，在**設定**頁面上，可讓您撰寫從所有應用程式[LUIS](luis-reference-regions.md)入口網站，以及[編寫 Api](https://go.microsoft.com/fwlink/?linkid=2092087)。 為了方便起見，允許撰寫金鑰每個月建立[有限](luis-boundaries.md)數量的端點查詢。
 
 [![LUIS 設定頁面](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 

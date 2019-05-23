@@ -10,38 +10,49 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861565"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796899"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator Text 的要求限制
 
 本文提供 Translator Text API 的節流限制。 服務包括翻譯、直譯、句子長度偵測、語言偵測和替代翻譯。
 
-## <a name="character-limits-per-request"></a>每個要求的字元限制
+## <a name="character-and-array-limits-per-request"></a>每個要求的字元和陣列限制
 
-每個要求受限於 5,000 個字元。 系統會依照每個字元收費，而不是依照要求數目收費。 建議您傳送較短的要求，且在任何指定的時間有一些未處理的要求。
+每個翻譯要求僅限於 5,000 個字元。 系統會依照每個字元收費，而不是依照要求數目收費。 建議您傳送較短的要求。
 
-Translator Text API 未處理的要求數目沒有限制。
+下列表格列出陣列項目和字元限制每 Translator Text API 的作業。
+
+| 作業 | 陣列元素的大小上限 |   陣列元素的最大數目 |  要求大小上限 （字元） |
+|:----|:----|:----|:----|
+| 轉譯 | 5,000 | 100   | 5,000 |
+| Transliterate | 5,000 | 10    | 5,000 |
+| 偵測 | 10,000 | 100 |   50,000 |
+| BreakSentence | 10,000    | 100 | 5,0000 |
+| 字典查閱| 100 |  10  | 1,000 |
+| 字典範例 | 100 之文字和 100 翻譯 (總 200)| 10|   2,000 |
 
 ## <a name="character-limits-per-hour"></a>每小時的字元限制
 
-每小時的字元限制是以 Translator Text 訂用帳戶層為基礎。 如果您達到或超過這些限制，您可能會收到超出配額回應：
+每小時的字元限制是以 Translator Text 訂用帳戶層為基礎。 每小時配額應該取用整個小時的平均。 如果您觸達或超過這些限制，或在短時間內傳送過大的配額中某個部分，您可能會收到超出配額的回應。 
 
 | 層 | 字元限制 |
 |------|-----------------|
 | F0 | 每小時 2 百萬個字元 |
 | S1 | 每小時 4 千萬個字元 |
-| S2 | 每小時 4 千萬個字元 |
-| S3 | 每小時 1 億 2000 萬個字元 |
-| S4 | 每小時 2 億個字元 |
+| S2 / C2 | 每小時 4 千萬個字元 |
+| S3 / C3 | 每小時 1 億 2000 萬個字元 |
+| S4 / C4 | 每小時 2 億個字元 |
 
-這些限制受限於 Microsoft 的一般系統。 使用 Microsoft Translator 中樞的自訂翻譯系統受限於每秒 1,800 個字元。
+限制[多服務的訂用帳戶](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)S1 層相同。
 
-## <a name="latency"></a>Latency
+這些限制僅限於 Microsoft 的標準轉譯模型。 使用自訂轉譯器的自訂轉譯模型僅限於 1,800 秒的字元。
+
+## <a name="latency"></a>延遲
 
 Translator Text API 有使用標準模式的 15 秒的延遲上限。 使用自訂模型的轉譯有 25 秒的最大延遲時間。 在此時間之前，您會收到結果或逾時回應。 回應通常會在 150 毫秒到 300 毫秒之間傳回。 回應時間會因要求和語言組的大小。 如果您未收到翻譯或[錯誤回應](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)在該時間範圍內，您應該檢查您的網路連線，並再試一次。
 
@@ -58,7 +69,7 @@ Translator Text API 有使用標準模式的 15 秒的延遲上限。 使用自�
 | 葡萄牙文 | pt | 290 |
 | 西班牙文 | es | 280 |
 | 義大利文 | it | 280 |
-| 泰文 | th | 258 |
+| 泰文 |  個 | 258 |
 
 > [!NOTE]
 > 這項限制不適用於翻譯。

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0612770c823e30578e7f4675878fc4ce2aee2bd9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702990"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792737"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的信賴分數
 當使用者查詢與某個知識庫相符時，QnA Maker 會傳回相關的答案以及信賴分數。 此分數表示該答案針對指定之使用者查詢正確比對的信賴度。 
@@ -58,7 +58,7 @@ ms.locfileid: "64702990"
 > 較新的 QnA Maker 版本包括改善評分邏輯，並可能影響您的閾值。 每當您更新服務時，請務必視需要測試和調整閾值。 您可以[在此](https://www.qnamaker.ai/UserSettings)檢查您的 QnA 服務版本，並[在此](../How-To/troubleshooting-runtime.md)了解如何取得最新的更新。
 
 ## <a name="improve-confidence-scores"></a>改善信賴分數
-若要改善使用者查詢特定回應的信賴分數，您可以將使用者查詢加入至知識庫做為該回應的替代問題。 您也可以使用不區分大小寫的[文字變異形式](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) \(英文\)，來將同義字新增至 KB 中的關鍵字。
+若要改善使用者查詢特定回應的信賴分數，您可以將使用者查詢加入至知識庫做為該回應的替代問題。 您也可以使用不區分大小寫的[文字變異形式](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) \(英文\)，來將同義字新增至 KB 中的關鍵字。
 
 
 ## <a name="similar-confidence-scores"></a>類似的信賴分數

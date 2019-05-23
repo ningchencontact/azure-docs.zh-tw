@@ -3,18 +3,18 @@ title: 快速入門 - 傳送查詢至以 C# 撰寫的 Bing 當地商家搜尋 AP
 titleSuffix: Azure Cognitive Services
 description: 使用本文開始使用以 C# 撰寫的 Bing 當地商家搜尋 API。
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 04/26/2019
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 91ff4c8e6f8487a2b0e5849f881e0cdb9c10385f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 39ec68beaa1550b955c4605947896b48bd6565ed
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763795"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65884661"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>快速入門：傳送查詢至以 C# 撰寫的 Bing 當地商家搜尋 API
 
@@ -24,7 +24,7 @@ ms.locfileid: "57763795"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+* 任何版本的[Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 * 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/)來執行此應用程式。
 
 您必須有具備 Bing 搜尋 API 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) \(英文\)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。

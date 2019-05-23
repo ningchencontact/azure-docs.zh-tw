@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 90e7abf229e0ee1ca396150fee0c1f0970d257aa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 239633950e4672693e3684345749f9c46f01c037
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876396"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605647"
 ---
 # <a name="create-a-qna-maker-service"></a>建立 QnA Maker 服務
 
@@ -26,11 +26,7 @@ ms.locfileid: "58876396"
 
 此程序會部署一些 Azure 資源。 這些資源會一同管理知識庫內容，並透過端點提供問答功能。
 
-1. 登入 [Azure 入口網站](<https://portal.azure.com>)。
-
-1. 選取 **加入新的資源**，並在搜尋中，輸入 「 qna maker"，然後選取 QnA Maker 資源
-
-    ![建立新的 QnA Maker 服務 - 新增資源](../media/qnamaker-how-to-setup-service/create-new-resource.png)
+1. 登入 Azure 入口網站並[建立 QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)資源。
 
 1. 選取 **建立**閱讀條款和條件之後。
 
@@ -42,8 +38,9 @@ ms.locfileid: "58876396"
 
     * 在 [名稱] 中填入識別此 QnA Maker 服務的唯一名稱。 此名稱也會識別將與知識庫產生關聯的 QnA Maker 端點。
     * 選擇將部署 QnA Maker 資源的**訂用帳戶**。
-    * 選取 QnA Maker 管理服務 (入口網站和管理 API) 的 [管理定價層]。 關於 SKU 價格的詳細資料，請參閱[這裡](https://aka.ms/qnamaker-pricing)。
+    * 選取 **定價層**QnA Maker 管理服務 （入口網站和管理 Api）。 關於 SKU 價格的詳細資料，請參閱[這裡](https://aka.ms/qnamaker-pricing)。
     * 建立新的**資源群組** (建議選項)，或使用部署此 QnA Maker 資源的現有資源群組。 QnA Maker 會建立數個 Azure 資源;當您建立資源群組來保存這些資源，您可以輕鬆地尋找、 管理和刪除這些資源的資源群組名稱。
+    * 選取 **資源群組位置**。
     * 選擇 Azure 搜尋服務的 [定價層搜尋]。 如果您看到免費層選項呈現灰色，表示您已經有免費的 Azure 搜尋層部署於您的訂用帳戶中。 在此情況下，您必須先開始使用基本 Azure 搜尋服務層。 關於 Azure 搜尋服務定價的詳細資料，請參閱[這裡](https://azure.microsoft.com/pricing/details/search/)。
     * 選擇您要部署 Azure 搜尋服務資料的**搜尋位置**。 必須儲存客戶資料的限制會通知您對於 Azure 搜尋服務選擇的位置。
     * 在 [應用程式名稱] 中，設定應用程式服務的名稱。

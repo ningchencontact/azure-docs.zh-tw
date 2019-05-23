@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 319623487f37308b5b8fe3fd107b01733825184d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: cdfa5212f321cc6ec976ea9df301243acc54a23f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454713"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794849"
 ---
 # <a name="qna-maker-api-http-response-codes"></a>QnA Maker API HTTP 回應碼
-[管理](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)和預測 API 傳回 HTTP 回應碼。 當回應訊息包含專屬於要求的資訊時，HTTP 回應狀態碼為一般。 
+[管理](https://go.microsoft.com/fwlink/?linkid=2092179)和預測 API 傳回 HTTP 回應碼。 當回應訊息包含專屬於要求的資訊時，HTTP 回應狀態碼為一般。 
 
 ### <a name="management"></a>管理性
 

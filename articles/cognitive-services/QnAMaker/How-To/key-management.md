@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c1d8104f94d3f215108000b904848f3b968492ee
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 458d587c7ac73f7c8dacdceae3c9f923263533b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341902"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792534"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>如何管理 QnA Maker 中的金鑰
 
@@ -24,7 +24,7 @@ QnA Maker 服務會處理兩種類型的金鑰，即**訂用帳戶金鑰**和**�
 
 ![金鑰管理](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **訂用帳戶金鑰**：這些金鑰可用來存取 [QnA Maker 管理服務 API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)。 這些 API 可讓您對知識庫執行編輯。  
+1. **訂用帳戶金鑰**：這些金鑰可用來存取 [QnA Maker 管理服務 API](https://go.microsoft.com/fwlink/?linkid=2092179)。 這些 API 可讓您對知識庫執行編輯。  
 
 2. **端點金鑰**：這些金鑰可用來存取知識庫端點，以取得使用者問題的回應。 您通常會在您的聊天機器人或使用 QnA Maker 服務的應用程式程式碼中使用此端點。
  

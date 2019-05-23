@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8ff3c497372a761bd8a02ae81bc897c8ee297bd0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264313"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794874"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>使用匯出-匯入移轉知識庫
 
@@ -56,7 +56,7 @@ ms.locfileid: "59264313"
     此時，所有知識庫內容 (問題、解答和中繼資料，以及來源檔案名稱和 URL) 都會匯入新的知識庫。 
 
 ## <a name="chat-logs-and-alterations"></a>聊天記錄和變動
-不會自動匯入不區分大小寫的變異形式 (同義字)。 使用 [V2 API](https://aka.ms/qnamaker-v2-apis) 從舊的知識匯出變動，然後使用 [V4 API](https://aka.ms/qnamaker-v4-apis) 將變動移至新的知識庫。
+不會自動匯入不區分大小寫的變異形式 (同義字)。 使用[V4 Api](https://go.microsoft.com/fwlink/?linkid=2092179)移動新的知識庫中的變更。
 
 沒有任何方法可移轉聊天記錄，因為新的知識庫會使用 Application Insights 來儲存聊天記錄。 
 

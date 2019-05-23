@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2e956b099022751712f96ab0b15aa57c752b458
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873371"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954714"
 ---
 # <a name="analyzer-names"></a>分析器名稱
 
@@ -43,10 +43,10 @@ ms.locfileid: "55873371"
 不過，在特定的種類中，不同專家對於特定現象的分析方式可能意見不合。
 不同於程式設計語言，其做法並沒有清楚而確切的定義。
 
-舉例來說，假設我們嘗試在英文句子 "He didn't go" 中尋找語彙基元。
+例如，假設我們嘗試尋找英文句子中的權杖，「 它們不去吧。 」
 請特別考慮字串 "didn't"。
 一個可能的解譯：這應該分成兩個語彙基元："did" 和 "not"。
-那麼替代句子 "He did not go" 就會有同一組語彙基元。
+然後替代句子"它們並沒有送"會有相同語彙基元的集合。
 另一個可能性就是，假設它應該分成 "did" 和 "n't"。
 後面的語彙基元通常會被視為一個字，但這種方法會保留更多關於表面字串的資訊，此資訊有時候很有用。
 或許應該將該縮讀字視為單一個字。

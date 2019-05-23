@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153693"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540991"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>在知識庫中新增閒聊
 
@@ -24,17 +24,19 @@ ms.locfileid: "65153693"
 
 此資料集有約 100 個案例的 chit 交談中的多個角色，例如 Professional、 方便和 Witty 語音。 選擇最類似您 Bot 聲音的角色。 假設有使用者查詢，QnA Maker 會嘗試將它與最接近的已知閒聊 QnA 比對。  
 
-不同人物的一些範例如下。 您可以看到連同自身個性遭到的詳細資料的所有個性資料集[此處](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)。
+不同人物的一些範例如下。 您可以看到所有個性[資料集](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)連同自身個性遭到的詳細資料。
+
+使用者查詢的`When is your birthday?`，每個個性具有已設定樣式的回應：
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|使用者查詢|專業|易記|詼諧|
-|--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
-|`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
-
-
+|人格|範例|
+|--|--|
+|專業|年齡真的不適用於我。|
+|易記|我真的沒有存留期。|
+|詼諧|我是年齡免費。|
+|在意|我沒有 「 年齡 」。|
+|很有興趣|因此我不需要的時代，我 bot。|
+||
 
 > [!NOTE]
 > 閒聊支援目前僅以英文提供。 
