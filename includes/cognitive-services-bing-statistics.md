@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
 ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193340"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124743"
 ---
 Bing 統計資料可為 Bing 搜尋 API 提供分析。 Analytics 包括呼叫量、熱門查詢字串、地理分佈等等。 若要在 Bing 搜尋付費訂用帳戶中啟用 Bing 統計資料，請瀏覽至 [Azure 儀表板](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)，選取您的付費訂用帳戶，然後按一下 [啟用 Bing 統計資料]。 啟用 Bing 統計資料會稍微增加訂用帳戶的費率 (請參閱[定價](https://aka.ms/bingstatisticspricing))。
 

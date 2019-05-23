@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 6412f0a2e295a19f741c70e7870a4d198ee03b71
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233541"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123877"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>預覽：移轉至的 API 版本 3.x 的 LUIS 應用程式
 
@@ -343,6 +343,9 @@ _選擇性_`resolution`預測回應，可讓您傳入與外部的實體，相關
 
 **V3**，以將此實體標記`startIndex`和`entityLength`。
 
+## <a name="deprecation"></a>淘汰 
+
+V2 API 不會針對至少 V3 預覽結束後 9 個月被取代。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
 ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123537"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Microsoft Azure 流量管理員管理幾個金鑰之間的端點配額
 Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。 
@@ -104,7 +104,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |-Type|ExternalEndpoints|如需詳細資訊，請參閱[流量管理員端點][traffic-manager-endpoints] |
     |-Target|eastus.api.cognitive.microsoft.com|這是 LUIS 端點的網域。|
     |-EndpointLocation|"eastus"|端點的區域|
-    |-EndpointStatus|已啟用|在端點建立時啟用端點|
+    |-EndpointStatus|Enabled|在端點建立時啟用端點|
 
     成功的回應看起來會像這樣：
 
@@ -173,7 +173,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |-Type|ExternalEndpoints|如需詳細資訊，請參閱[流量管理員端點][traffic-manager-endpoints] |
     |-Target|westus.api.cognitive.microsoft.com|這是 LUIS 端點的網域。|
     |-EndpointLocation|"westus"|端點的區域|
-    |-EndpointStatus|已啟用|在端點建立時啟用端點|
+    |-EndpointStatus|Enabled|在端點建立時啟用端點|
 
     成功的回應看起來會像這樣：
 
@@ -239,7 +239,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |-TrafficManagerProfile|$parentprofile|要將此端點指派至的設定檔|
     |-Type|NestedEndpoints|如需詳細資訊，請參閱 <<c0> [ 新增 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)。 |
     |-TargetResourceId|$eastprofile.Id|子系設定檔的識別碼|
-    |-EndpointStatus|已啟用|新增至父系之後的端點狀態|
+    |-EndpointStatus|Enabled|新增至父系之後的端點狀態|
     |-EndpointLocation|"eastus"|資源的 [Azure 區域名稱](https://azure.microsoft.com/global-infrastructure/regions/)|
     |-MinChildEndpoints|1|子端點的數目下限|
 
@@ -276,7 +276,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |-TrafficManagerProfile|$parentprofile|要將此端點指派至的設定檔|
     |-Type|NestedEndpoints|如需詳細資訊，請參閱 <<c0> [ 新增 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)。 |
     |-TargetResourceId|$westprofile.Id|子系設定檔的識別碼|
-    |-EndpointStatus|已啟用|新增至父系之後的端點狀態|
+    |-EndpointStatus|Enabled|新增至父系之後的端點狀態|
     |-EndpointLocation|"westus"|資源的 [Azure 區域名稱](https://azure.microsoft.com/global-infrastructure/regions/)|
     |-MinChildEndpoints|1|子端點的數目下限|
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: b5adb5b8bddd0f379ac581f3268f0121791cf0bc
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: 831f1d22c4da215bed3ed55b659332aa3b57472b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546378"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145950"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立認知服務帳戶
 
@@ -92,6 +92,8 @@ ms.locfileid: "65546378"
 在認知服務資源中，您可以使用 [概觀] 區段中的端點 URL 和金鑰，開始在應用程式中進行 API 呼叫。
 
 ![資源畫面](media/cognitive-services-apis-create-account/resourceScreen.png)
+
+請記下的位置和索引鍵。 您可以選取來取得索引鍵**按鍵**下方**資源管理**。
 
 ## <a name="next-steps"></a>後續步驟
 

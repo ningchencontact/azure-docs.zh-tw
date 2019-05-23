@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
 ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671823"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145393"
 ---
 ## <a name="authentication"></a>Authentication
 
 每個要求都需要授權標頭。 下表會列出各項服務支援的標頭：
 
-| 支援的授權標頭 | 語音轉文字 | 文字轉換語音 |
+| 支援的授權標頭 | 語音轉換文字 | 文字轉換語音 |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | 是 | 否 |
-| 授權：Bearer | 是 | 是 |
+| Ocp-Apim-Subscription-Key | 有 | 無 |
+| 授權：Bearer | 有 | 有 |
 
-當使用 `Ocp-Apim-Subscription-Key` 標頭，只需要提供您的訂用帳戶金鑰。 例如︰
+當使用 `Ocp-Apim-Subscription-Key` 標頭，只需要提供您的訂用帳戶金鑰。 例如：
 
 ```
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'

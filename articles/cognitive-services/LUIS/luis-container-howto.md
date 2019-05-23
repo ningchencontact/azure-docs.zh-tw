@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072996"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124306"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
@@ -53,12 +53,12 @@ Language Understanding (LUIS) 容器會將您已定型或發佈的 Language Unde
 
 此容器支援設定的最小值和建議值：
 
-|容器| 最小值 | 建議 | TPS<br>(最小值, 最大值)|
+|容器| 最小值 | 建議 | TPS<br>（最小值、 最大值）|
 |-----------|---------|-------------|--|
 |LUIS|1 核心，2 GB 記憶體|1 核心，4 GB 記憶體|20,40|
 
 * 每個核心必須至少 2.6 GHz 或更快。
-* TPS - 每秒事务数
+* TPS - 每秒的交易數
 
 核心和記憶體會對應至 `--cpus` 和 `--memory` 設定，用來作為 `docker run` 命令的一部分。
 
@@ -109,7 +109,7 @@ LUIS 容器需要以已定型或發佈的 LUIS 應用程式來回應使用者語
 |套件類型|查詢端點 API|查詢可用性|套件檔案名稱格式|
 |--|--|--|--|
 |已定型|Get, Post|僅限容器|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|預備|Get, Post|Azure 和容器|`{APPLICATION_ID}_STAGING.gz`|
+|預備環境|Get, Post|Azure 和容器|`{APPLICATION_ID}_STAGING.gz`|
 |Production|Get, Post|Azure 和容器|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Value |
+| 預留位置 | Value |
 |-------------|-------|
 |{APPLICATION_ID} | 已發佈 LUIS 應用程式的應用程式識別碼。 |
 |{APPLICATION_ENVIRONMENT} | 已發佈 LUIS 應用程式的環境。 請使用下列其中一個值：<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -196,7 +196,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Value |
+| 預留位置 | Value |
 |-------------|-------|
 |{APPLICATION_ID} | 已定型 LUIS 應用程式的應用程式識別碼。 |
 |{APPLICATION_VERSION} | 已定型 LUIS 應用程式的應用程式版本。 |
@@ -218,7 +218,7 @@ https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLIC
 
 將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 此命令會使用下列參數：
 
-| Placeholder | Value |
+| 預留位置 | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | 此金鑰可用來啟動容器。 請勿使用入門金鑰。 |
 |{BILLING_ENDPOINT} | 在 Azure 入口網站的計費的端點值可用`Cognitive Services`概觀 頁面。 您需要新增`luis/v2.0`傳送至端點 URI，如下列範例所示： `https://westus.api.cognitive.microsoft.com/luis/v2.0`。|
@@ -256,15 +256,19 @@ ApiKey={ENDPOINT_KEY}
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+## <a name="endpoint-apis-supported-by-the-container"></a>容器支援的 Api 端點
+
+這兩種 V2 並[V3 （預覽）](luis-migration-api-v3.md)的 API 版本可供與容器。 
+
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 
 容器會提供以 REST 為基礎的查詢預測端點 API。 已發佈 (預備或生產) 應用程式的端點具有與已定型應用程式的端點_不同_的路由。 
 
 針對容器 API 請使用主機 `https://localhost:5000`。 
 
-|套件類型|方法|路由|查詢參數|
+|封裝類型|方法|路由|查詢參數|
 |--|--|--|--|
-|Published|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
+|已發行|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
 |已定型|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
 
 查詢參數會設定傳回查詢回應的方式和內容：
@@ -272,7 +276,7 @@ ApiKey={ENDPOINT_KEY}
 |查詢參數|Type|目的|
 |--|--|--|
 |`q`|string|使用者的語句。|
-|`timezoneOffset`|number|TimezoneOffset 可讓您[變更時區](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) (預先建置的實體 datetimeV2 所使用的時區)。|
+|`timezoneOffset`|號|TimezoneOffset 可讓您[變更時區](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) (預先建置的實體 datetimeV2 所使用的時區)。|
 |`verbose`|boolean|設為 true 時，會傳回所有意圖及其分數。 預設值為 false，只會傳回最高分意圖。|
 |`staging`|boolean|設為 true 時，會從預備環境的結果中傳回查詢。 |
 |`log`|boolean|記錄查詢，可供後續的[主動式學習](luis-how-to-review-endpoint-utterances.md)使用。 預設值為 true。|

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571883"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124762"
 ---
 Bing 支援搜尋結果醒目提示，可在某些回答的顯示字串中標示查詢詞彙 (或 Bing 找到的其他相關詞彙)。 例如，網頁的 `name`、`displayUrl` 和 `snippet` 欄位可標示查詢詞彙。
 
