@@ -216,7 +216,7 @@ ms.locfileid: "54019226"
    | 屬性 | 說明 |
    |:--- |:--- |
    | type |類型屬性設為 AzureBlob，因為資料位於 Azure Blob 儲存體。 |
-   | 預設容器 |表示您稍早建立的 StorageLinkedService。 |
+   | linkedServiceName |表示您稍早建立的 StorageLinkedService。 |
    | fileName |這是選用屬性。 如果您省略此屬性，會挑選位於 folderPath 的所有檔案。 在這種情況下，只會處理 input.log。 |
    | type |記錄檔為文字格式，因此我們會使用 TextFormat。 |
    | columnDelimiter |記錄檔案中的資料行會以逗號字元 (,) 分隔。 |
