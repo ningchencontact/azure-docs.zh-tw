@@ -72,7 +72,7 @@ ms.locfileid: "60486578"
 | password |指定使用者 (使用者名稱) 的密碼。 |否 |&nbsp; |
 | encryptedCredential |指定用來存取 FTP 伺服器的加密認證。 |否 |&nbsp; |
 | gatewayName |指定資料管理閘道中連結至內部部署 FTP 伺服器的閘道器名稱。 |否 |&nbsp; |
-| 連接埠 |指定 FTP 伺服器所接聽的連接埠 |否 |21 |
+| port |指定 FTP 伺服器所接聽的連接埠 |否 |21 |
 | enableSsl |指定是否使用透過 SSL/TLS 的 FTP 通道。 |否 |true |
 | enableServerCertificateValidation |指定是否在使用透過 SSL/TLS 的 FTP 通道時啟用伺服器 SSL 憑證驗證。 |否 |true |
 
@@ -206,7 +206,7 @@ ms.locfileid: "60486578"
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
-| 遞迴 |指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 |True/False (預設值為 False) |否 |
+| recursive |指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 |True/False (預設值為 False) |否 |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON 範例：將資料從 FTP 伺服器複製至 Azure Blob
 此範例示範如何將資料從 FTP 伺服器複製至 Azure Blob 儲存體。 不過，您可以使用資料處理站中的複製活動，把資料直接複製到 [支援的資料存放區及格式](data-factory-data-movement-activities.md#supported-data-stores-and-formats)一文中所述的任何接收器。
