@@ -9,11 +9,11 @@ ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622071"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66151590"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>在 Resource Manager 部署模型中取得 ARP 表格
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "58622071"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="address-resolution-protocol-arp-and-arp-tables"></a>地址解析协议 (ARP) 和 ARP 表
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>位址解析通訊協定 (ARP) 和 ARP 表格
 位址解析通訊協定 (ARP) 是 [RFC 826](https://tools.ietf.org/html/rfc826)中定義的第 2 層通訊協定。 ARP 可用於利用 IP 位址來對應乙太網路位址 (MAC 位址)。
 
 ARP 表格針對特定的對等互連提供 IPv4 位址與 MAC 位址的對應。 適用於 ExpressRoute 線路對等互連的 ARP 表格會針對每個介面 (主要和次要) 提供下列資訊
@@ -68,7 +68,7 @@ ARP 表格可協助您驗證第 2 層組態，並為第 2 層的基礎連線問�
 ## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>取得適用於 ExpressRoute 線路的 ARP 表格
 本節將指示您如何使用 PowerShell 來為每個對等互連檢視 ARP 表格。 您或您的連線提供者必須先設定對等互連，才能有進一步的進展。 每個線路都有兩個路徑 (主要和次要)。 您可以單獨檢查每個路徑的 ARP 表格。
 
-### <a name="arp-tables-for-azure-private-peering"></a>Azure 专用对等互连的 ARP 表
+### <a name="arp-tables-for-azure-private-peering"></a>適用於 Azure 私用對等互連的 ARP 表格
 下列 Cmdlet 提供適用於 Azure 私用對等互連的 ARP 表格
 
         # Required Variables
@@ -148,7 +148,7 @@ ARP 表格可協助您驗證第 2 層組態，並為第 2 層的基礎連線問�
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>當內部部署 / 連線提供者端發生問題時的 ARP 表格
-如果本地或连接提供商有问题，则可能会看到只有一个条目出现在 ARP 表中，或者本地 MAC 地址会显示不完整。 並為 Microsoft 端所使用的 MAC 位址與 IP 位址顯示其間的對應。 
+如果內部部署的問題，或您可能會看到其中一個只有一個項目會出現在 ARP 資料表或在內部部署 MAC 位址的連線提供者會顯示不完整。 並為 Microsoft 端所使用的 MAC 位址與 IP 位址顯示其間的對應。 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    

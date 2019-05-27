@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 348f7bdd333da4f4a6cb41a438b7aee08d6a6bbb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556290"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161168"
 ---
 若要從遠端連線至裝置的程序會視用戶端作業系統，而不同。
 

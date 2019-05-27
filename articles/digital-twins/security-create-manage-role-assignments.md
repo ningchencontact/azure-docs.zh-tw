@@ -10,11 +10,11 @@ ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
 ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162160"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>在 Azure Digital Twins 中建立及管理角色指派
 
@@ -39,13 +39,13 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 
 下表描述每個屬性：
 
-| 屬性 | 名稱 | 必要項 | 類型 | 描述 |
+| 屬性 | 名稱 | 必要項 | 類型 | 說明 |
 | --- | --- | --- | --- | --- |
-| roleId | 角色定義識別碼 | 是 | 字串 | 所需角色指派的唯一識別碼。 藉由查詢系統 API 或檢閱下表，來尋找角色定義及其識別碼。 |
-| objectId | 物件識別碼 | 是 | 字串 | Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱。 角色指派的指派內容以及指派給誰。 角色指派必須根據其相關聯的類型進行格式化。 對於 `DomainName` objectIdType，objectId 必須以 `“@”` 字元開頭。 |
-| objectIdType | 物件識別碼類型 | 是 | 字串 | 使用的物件識別項類型。 請參閱以下**支援的 ObjectIdTypes**。 |
-| path | 空間路徑 | 是 | 字串 | `Space` 物件的完整存取路徑。 例如 `/{Guid}/{Guid}`。 如果某個識別碼需要整個圖形的角色指派，請指定 `"/"`。 這個字元會指定根目錄，但不鼓勵使用。 一律遵循最低權限原則。 |
-| tenantId | 租用戶識別碼 | 視情況而異 | 字串 | 在大部分的情況下為Azure Active Directory 租用戶識別碼。 不允許用於 `DeviceId` 和 `TenantId` ObjectIdTypes。 必須用於 `UserId` 和 `ServicePrincipalId` ObjectIdTypes。 DomainName ObjectIdType 可選用。 |
+| roleId | 角色定義識別碼 | 有 | String | 所需角色指派的唯一識別碼。 藉由查詢系統 API 或檢閱下表，來尋找角色定義及其識別碼。 |
+| objectId | 物件識別碼 | 有 | String | Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱。 角色指派的指派內容以及指派給誰。 角色指派必須根據其相關聯的類型進行格式化。 對於 `DomainName` objectIdType，objectId 必須以 `“@”` 字元開頭。 |
+| objectIdType | 物件識別碼類型 | 有 | String | 使用的物件識別項類型。 請參閱以下**支援的 ObjectIdTypes**。 |
+| path | 空間路徑 | 有 | String | `Space` 物件的完整存取路徑。 例如 `/{Guid}/{Guid}`。 如果某個識別碼需要整個圖形的角色指派，請指定 `"/"`。 這個字元會指定根目錄，但不鼓勵使用。 一律遵循最低權限原則。 |
+| tenantId | 租用戶識別碼 | 視情況而異 | String | 在大部分的情況下為Azure Active Directory 租用戶識別碼。 不允許用於 `DeviceId` 和 `TenantId` ObjectIdTypes。 必須用於 `UserId` 和 `ServicePrincipalId` ObjectIdTypes。 DomainName ObjectIdType 可選用。 |
 
 ### <a name="supported-role-definition-identifiers"></a>支援的角色定義識別碼
 
@@ -165,10 +165,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **參數值** | **必要** |  **類型** |  **說明** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | 字串 |   UserId objectIdType 的 objectId。 |
-| YOUR_PATH | True | 字串 |   用來檢查存取權的選擇路徑。 |
-| YOUR_ACCESS_TYPE |  True | 字串 |   要檢查的存取類型。 |
-| YOUR_RESOURCE_TYPE | True | 字串 |  要檢查的資源。 |
+| YOUR_USER_ID |  True | String |   UserId objectIdType 的 objectId。 |
+| YOUR_PATH | True | String |   用來檢查存取權的選擇路徑。 |
+| YOUR_ACCESS_TYPE |  True | String |   要檢查的存取類型。 |
+| YOUR_RESOURCE_TYPE | True | String |  要檢查的資源。 |
 
 成功的要求會傳回布林值 `true` 或 `false`，指示是否已為指定的路徑和資源，指派存取權類型給使用者。
 
@@ -180,7 +180,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| 值 | 更換為 |
+| Value | 更換為 |
 | --- | --- |
 | YOUR_PATH | 空間的完整路徑 |
 

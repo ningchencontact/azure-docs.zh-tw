@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 2138eed9975abe804442c476d19b5b7229685362
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442662"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146630"
 ---
 # <a name="security-best-practices-for-internet-of-things-iot"></a>物聯網 (IoT) 的安全性最佳做法
 
@@ -45,7 +45,7 @@ ms.locfileid: "61442662"
 
 * **保護升級安全**:在裝置存留期間升級韌體是不可避免的。 建置安全的裝置升級路徑和韌體版本加密保證，將可保護裝置在升級期間和升級之後的安全。
 
-## <a name="iot-solution-developer"></a>IoT 解决方案开发人员
+## <a name="iot-solution-developer"></a>IoT 解決方案開發人員
 
 以下是 IoT 解決方案開發人員的最佳做法︰
 
@@ -55,7 +55,7 @@ ms.locfileid: "61442662"
 
 * **小心整合**:程式庫和 Api 的界限中存在許多軟體安全性問題。 目前部署中不需要的功能仍可能透過 API 層使用。 若要確保整體安全性，請務必檢查所有整合元件介面的安全性問題。
 
-## <a name="iot-solution-deployer"></a>IoT 解决方案部署人员
+## <a name="iot-solution-deployer"></a>IoT 解決方案部署人員
 
 以下是 IoT 解決方案部署人員的最佳做法︰
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2a366a9030104c885adb1a4f773de04cdc439044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420705ef6b2e38d147b7033d2fb3ad57bbc216ac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480488"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159292"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>將資料作為輸入串流處理至串流分析中
 
@@ -44,7 +44,7 @@ Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中
 ### <a name="stream-data-from-event-hubs"></a>來自事件中樞的串流資料
 下表說明 Azure 入口網站的 [新的輸入] 頁面中用來從事件中樞串流處理資料輸入的每個屬性：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | **輸入別名** |在作業查詢中用來參考這個輸入的易記名稱。 |
 | **訂用帳戶** | 選擇事件中樞資源所在的訂用帳戶。 | 
@@ -58,10 +58,10 @@ Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中
 
 如果您的資料來自事件中樞資料流輸入，您將可在串流分析查詢中存取下列中繼資料欄位：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
-| **EventProcessedUtcTime** |流分析处理事件的日期和时间。 |
-| **EventEnqueuedUtcTime** |事件中心收到事件的日期和时间。 |
+| **EventProcessedUtcTime** |資料流分析處理事件的日期與時間。 |
+| **EventEnqueuedUtcTime** |事件中樞收到事件的日期與時間。 |
 | **PartitionId** |輸入配接器以零起始的資料分割識別碼。 |
 
 例如，您可以使用這些欄位來撰寫類似下列範例的查詢：
@@ -89,7 +89,7 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>將 IoT 中樞設定為資料流輸入
 下表說明在 Azure 入口網站中將 IoT 中樞設定為資料流輸入時，[新的輸入] 頁面中的每個屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | **輸入別名** | 在作業查詢中用來參考這個輸入的易記名稱。|
 | **訂用帳戶** | 選擇 IoT 中樞資源所在的訂用帳戶。 | 
@@ -105,7 +105,7 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 
 當您使用來自 IoT 中樞的串流資料時，您將可在串流分析查詢中存取下列中繼資料欄位：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | **EventProcessedUtcTime** | 處理事件的日期與時間。 |
 | **EventEnqueuedUtcTime** | IoT 中心收到事件的日期與時間。 |
@@ -132,11 +132,13 @@ CSV 格式的輸入*需要*以標頭資料列來定義資料集的欄位，且�
 > 串流分析不支援將內容加入現有的 blob 檔案。 串流分析只會檢視每個檔案一次，在作業讀取資料之後，不會處理檔案中發生的任何變更。 最佳做法是一次上傳 blob 檔案的所有資料，然後將其他較新的事件新增到不同的新 blob 檔案。
 > 
 
+一次上傳非常大量的 blob 可能會導致 Stream Analytics，以略過讀取在少數情況下的幾個 blob。 建議您將 blob 上傳至少 2 秒間隔至 Blob 儲存體。 如果此選項不是可行的您可以使用事件中樞的事件資料流大型的磁碟區。 
+
 ### <a name="configure-blob-storage-as-a-stream-input"></a>將 Blob 儲存體設定為資料流輸入 
 
 下表說明在 Azure 入口網站中將 Blob 儲存體設定為資料流輸入時，[新的輸入] 頁面中的每個屬性。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | **輸入別名** | 在作業查詢中用來參考這個輸入的易記名稱。 |
 | **訂用帳戶** | 選擇 IoT 中樞資源所在的訂用帳戶。 | 
@@ -144,7 +146,7 @@ CSV 格式的輸入*需要*以標頭資料列來定義資料集的欄位，且�
 | **儲存體帳戶金鑰** | 与存储帐户关联的密钥。 此選項會自動填入，除非您選取手動提供 Blob 儲存體設定的選項。 |
 | **容器** | Blob 輸入的容器。 容器提供邏輯分組給儲存在 Microsoft Azure Blob 服務中的 blob。 將 blob 上傳至 Azure Blob 儲存體服務時，您必須指定該 blob 的容器。 您可以選擇**使用現有的**容器，或選擇**新建**以使用新建立的容器。|
 | **路徑模式** (選用) | 用來在指定的容器中找出 blob 的檔案路徑。 在該路徑內，您可以指定下列三個變數的一個或多個執行個體：`{date}`、`{time}` 或 `{partition}`<br/><br/>範例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>範例 2：`cluster1/logs/{date}`<br/><br/>`*` 字元不是路徑前置詞允許的值。 僅允許有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字元</a>。 請勿包含容器名稱或檔案名稱。 |
-| **日期格式** (選用) | 在路徑中使用日期變數時，用來組織檔案的日期格式。 示例： `YYYY/MM/DD` |
+| **日期格式** (選用) | 在路徑中使用日期變數時，用來組織檔案的日期格式。 範例： `YYYY/MM/DD` |
 | **時間格式** (選用) |  在路徑中使用時間變數時，用來組織檔案的時間格式。 目前唯一支援的值為 `HH` (表示小時)。 |
 | **事件序列化格式** | 傳入資料流的序列化格式 (JSON、CSV 或 Avro)。  確認 JSON 格式與規格一致，並且不包含以 0 開頭的十進位數字。 |
 | **編碼** | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
@@ -152,11 +154,11 @@ CSV 格式的輸入*需要*以標頭資料列來定義資料集的欄位，且�
 
 當您的資料來自 Blob 儲存體來源時，您可以在串流分析查詢中存取下列中繼資料欄位：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --- | --- |
 | **BlobName** |事件來源的輸入 Blob 名稱。 |
 | **EventProcessedUtcTime** |資料流分析處理事件的日期與時間。 |
-| **BlobLastModifiedUtcTime** |上次修改 blob 的日期和时间。 |
+| **BlobLastModifiedUtcTime** |上次修改 Blob 的時間與日期。 |
 | **PartitionId** |輸入配接器以零起始的資料分割識別碼。 |
 
 例如，您可以使用這些欄位來撰寫類似下列範例的查詢：

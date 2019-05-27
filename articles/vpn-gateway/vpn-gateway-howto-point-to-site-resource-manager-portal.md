@@ -1,21 +1,21 @@
 ---
-title: 使用点到站点和本机 Azure 证书身份验证将计算机连接到 Azure 虚拟网络：Azure 入口網站 | Microsoft Docs
+title: 使用點對站和原生 Azure 憑證驗證將電腦連線至 Azure 虛擬網路︰Azure 入口網站 | Microsoft Docs
 description: 使用 P2S 和自我簽署或 CA 核發的憑證，將 Windows、Mac OS X 和 Linux 用戶端安全地連線至 Azure 虛擬網路。 本文使用 Azure 入口網站。
 services: vpn-gateway
 author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105903"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157245"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：Azure 入口網站
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>請使用原生 Azure 憑證驗證設定 VNet 的點對站連線：Azure 入口網站
 
 本文可協助您將執行 Windows、Linux 或 Mac OS X 的個別用戶端安全地連線至 Azure VNet。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 如果您只有少數用戶端必須連線至 VNet，您也可以使用 P2S，而不使用站對站 VPN。 點對站連線不需要 VPN 裝置或公眾對應 IP 位址。 P2S 會建立透過 SSTP (安全通訊端通道通訊協定) 或 IKEv2 的 VPN 連線。 如需點對站 VPN 的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
 
@@ -35,20 +35,20 @@ ms.locfileid: "62105903"
 
 您可以使用下列值來建立測試環境，或參考這些值來進一步了解本文中的範例：
 
-* **VNet 名称：** VNet1
-* **地址空间：** 192.168.0.0/16<br>在此範例中，我們只使用一個位址空間。 您可以針對 VNet 使用一個以上的位址空間。
-* **子網路名稱：** FrontEnd
+* **VNet 名稱：** VNet1
+* **位址空間︰** 192.168.0.0/16<br>在此範例中，我們只使用一個位址空間。 您可以針對 VNet 使用一個以上的位址空間。
+* **子網路名稱：** 前端
 * **子網路位址範圍︰** 192.168.1.0/24
-* **订阅：** 如果有多个订阅，请确保使用正确的订阅。
-* **资源组：** TestRG
+* **訂用帳戶︰** 如果您有一個以上的訂用帳戶，請確認您使用正確的訂用帳戶。
+* **資源群組：** TestRG
 * **位置：** 美國東部
 * **GatewaySubnet：** 192.168.200.0/24<br>
 * **DNS 伺服器：**(選擇性) 您想要用於名稱解析之 DNS 伺服器的 IP 位址。
 * **虛擬網路閘道名稱：** VNet1GW
 * **閘道類型：** VPN
-* **VPN 類型：** 基于路由
+* **VPN 類型：** 依路由
 * **公用 IP 位址名稱：** VNet1GWpip
-* **连接类型：** 點對站
+* **連線類型：** 點對站
 * **用戶端位址集區：** 172.16.201.0/24<br>使用這個點對站連線來連線到 VNet 的 VPN 用戶端，會收到來自用戶端位址集區的 IP 位址。
 
 ## <a name="createvnet"></a>1.建立虛擬網路
@@ -64,7 +64,7 @@ ms.locfileid: "62105903"
 
 ## <a name="dns"></a>3.指定 DNS 伺服器 (選擇性)
 
-建立虛擬網路之後，您可以新增 DNS 伺服器的 IP 位址，以便處理名稱解析。 在此此組態中，DNS 伺服器為選擇性，但如果您想要進行名稱解析則，為必要。 指定一個值並不會建立新的 DNS 伺服器。 指定的 DNS 服务器 IP 地址应该是可以解析所连接的资源名称的 DNS 服务器。 在此範例中，我們使用了私人 IP 位址，但這可能不是您 DNS 伺服器的 IP 位址。 請務必使用您自己的值。 您指定的值會供部署至 VNet 的資源使用，而非供 P2S 連線或 VPN 用戶端使用。
+建立虛擬網路之後，您可以新增 DNS 伺服器的 IP 位址，以便處理名稱解析。 在此此組態中，DNS 伺服器為選擇性，但如果您想要進行名稱解析則，為必要。 指定一個值並不會建立新的 DNS 伺服器。 您指定的 DNS 伺服器 IP 位址應該是可以解析您所連線之資源名稱的 DNS 伺服器。 在此範例中，我們使用了私人 IP 位址，但這可能不是您 DNS 伺服器的 IP 位址。 請務必使用您自己的值。 您指定的值會供部署至 VNet 的資源使用，而非供 P2S 連線或 VPN 用戶端使用。
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
@@ -108,7 +108,7 @@ ms.locfileid: "62105903"
 
 ## <a name="tunneltype"></a>7.設定通道類型
 
-您可以選取通道類型。 通道有 SSTP 和 IKEv2 兩種選項。 Android 和 Linux 上的 strongSwan 用戶端以及 iOS 和 OSX 上的原生 IKEv2 VPN 用戶端只會使用 IKEv2 通道來進行連線。 Windows 用戶端會先嘗試 IKEv2，如果無法連線，就會切換回使用 SSTP。 您可以選擇啟用其中一個或兩個都啟用。 選取您的方案所需的核取方塊。
+您可以選取通道類型。 [通道] 選項是 OpenVPN、 SSTP 和 IKEv2。 Android 和 Linux 上的 strongSwan 用戶端以及 iOS 和 OSX 上的原生 IKEv2 VPN 用戶端只會使用 IKEv2 通道來進行連線。 Windows 用戶端會先嘗試 IKEv2，如果無法連線，就會切換回使用 SSTP。 您可以使用 OpenVPN 用戶端連接到 OpenVPN 通道類型。
 
 ![通道類型](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 
@@ -124,10 +124,10 @@ ms.locfileid: "62105903"
 
 1. 新增憑證時，是在 [點對站組態] 頁面的 [根憑證] 區段中新增。
 2. 請確定您以 Base-64 編碼 X.509 (.cer) 檔案形式匯出根憑證。 您需要以這種格式匯出憑證，以便可以使用文字編輯器開啟憑證。
-3. 使用记事本之类的文本编辑器打开该证书。 复制证书数据时，请确保将文本复制为一个无回车符或换行符的连续行。 您可能必須將文字編輯器中的檢視修改成 [顯示符號] 或 [顯示所有字元]，才能看到歸位字元和換行字元。 請只以連續一行的形式複製下列區段：
+3. 使用文字編輯器 (例如「記事本」) 開啟憑證。 複製憑證資料時，請確定您是以連續一行的形式複製文字，而不含歸位字元或換行字元。 您可能必須將文字編輯器中的檢視修改成 [顯示符號] 或 [顯示所有字元]，才能看到歸位字元和換行字元。 請只以連續一行的形式複製下列區段：
 
-   ![证书数据](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
-4. 將憑證資料貼到 [公開憑證資料] 欄位中。 提供憑證「名稱」，然後按一下 [儲存]。 最多可以添加 20 个受信任的根证书。
+   ![憑證資料](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
+4. 將憑證資料貼到 [公開憑證資料] 欄位中。 提供憑證「名稱」，然後按一下 [儲存]。 您最多可新增 20 個受信任的根憑證。
 
    ![憑證上傳](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
 5. 按一下頁面頂端的 [儲存]，以儲存所有的組態設定。
@@ -146,7 +146,7 @@ ms.locfileid: "62105903"
 
 VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S 連線來連線至 VNet。 如需產生和安裝 VPN 用戶端組態檔的指示，請參閱[建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔](point-to-site-vpn-client-configuration-azure-cert.md)。
 
-## <a name="connect"></a>12.連接到 Azure
+## <a name="connect"></a>12.連線至 Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>從 Windows VPN 用戶端連線
 
@@ -181,7 +181,7 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
 這些指示適用於 Windows 用戶端。
 
 1. 若要驗證您的 VPN 連線為作用中狀態，請開啟提升權限的命令提示字元，並執行 *ipconfig/all*。
-2. 查看结果。 請注意，您接收到的 IP 位址是您在組態中指定的點對站 VPN 用戶端位址集區中的其中一個位址。 結果類似於此範例：
+2. 檢視結果。 請注意，您接收到的 IP 位址是您在組態中指定的點對站 VPN 用戶端位址集區中的其中一個位址。 結果類似於此範例：
 
    ```
    PPP adapter VNet1:

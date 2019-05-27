@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419215"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147484"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>在 Service Fabric Mesh 應用程式中裝載以 Service Fabric 可靠磁碟為基礎的高可用性磁碟區 
 保存容器應用程式狀態的常見方法是使用遠端儲存體 (例如 Azure 檔案儲存體) 或資料庫 (例如 Azure Cosmos DB)。 這會對遠端存放區產生大量的讀取和寫入網路延遲。
@@ -73,7 +73,7 @@ az group deployment show --name counter.sfreliablevolume.linux --resource-group 
 
 應用程式成功部署後，即可取得應用程式閘道資源的 ipAddress。 使用您在上節中記下的閘道名稱。
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 輸出應該會有 `ipAddress` 屬性，這是服務端點的公用 IP 位址。 從瀏覽器將其開啟。 網頁會隨即出現，其中包含每秒更新的計數器值。

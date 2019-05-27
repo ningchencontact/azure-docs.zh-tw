@@ -1,5 +1,5 @@
 ---
-title: 比較 （&) 重現一段時間，與快照集的資料
+title: 比較 （&) 重現與資料集的快照集的資料
 titleSuffix: Azure Machine Learning service
 description: 了解如何比較經過一段時間的資料，並確保資料集的快照集的重現性
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
-ms.date: 05/02/2019
-ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/23/2019
+ms.openlocfilehash: 525660be0f38c9458590e52cfcd575acb4cf5444
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205004"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162063"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>比較資料，並確保快照集 （預覽） 的重現性
 
@@ -41,7 +41,7 @@ ms.locfileid: "65205004"
 
 ## <a name="create-dataset-snapshots"></a>建立資料集的快照集
 
-若要建立資料集的快照集，請使用[ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-)從 Azure 機器學習服務 SDK。
+若要建立資料集的快照集，請使用[ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-)從資料集的 azureml 封裝 Azure 機器學習服務 sdk。
 
 根據預設，快照集會儲存資料的最新的設定檔 （摘要統計資料）[資料集定義](how-to-manage-dataset-definitions.md)套用。 資料集定義包含任何資料所定義的轉換步驟的記錄。 它是讓您使用的資料準備可重現的好方法。
 
@@ -128,11 +128,11 @@ snapshot.get_profile()
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
 案例編號|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-區塊|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+封鎖|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 主要類型|FieldType.STRING|詐騙的作法|遭竊|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-描述|FieldType.STRING|假的核取|透過 $500|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+說明|FieldType.STRING|假的核取|透過 $500|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 位置描述|FieldType.STRING||學校、 公用，建置|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
 阻止|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 國內|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -151,7 +151,7 @@ Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0.0|1|5|1|9|22.5|40|48|48|48|2
 snapshot.to_pandas_dataframe().head(3)
 ```
 
-||ID|案例編號|date|區塊|IUCR|主要類型|描述|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置
+||ID|案例編號|Date|封鎖|IUCR|主要類型|說明|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置
 -|--|-----------|----|-----|----|------------|-----------|--------------------|------|--------|---|----|--------------|--------|------------|------------|----|----------|--------|---------|--------
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|詐騙的作法|透過美金 300 元的金融身分遭竊|OTHER|False|False|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|890|遭竊|從建立|居住地|False|False|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)

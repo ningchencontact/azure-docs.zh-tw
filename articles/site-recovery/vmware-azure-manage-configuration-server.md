@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171730"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>管理 VMware VM 災害復原的設定伺服器
 
@@ -135,7 +135,7 @@ ms.locfileid: "60149490"
 
 ## <a name="upgrade-the-configuration-server"></a>升級設定伺服器
 
-您執行更新彙總來更新設定伺服器。 更新最多可以套用到 N-4 版本。 例如︰
+您執行更新彙總來更新設定伺服器。 更新最多可以套用到 N-4 版本。 例如：
 
 - 如果您執行 9.7、9.8、9.9 或 9.10，就可以直接升級至 9.11。
 - 如果您執行 9.6 或更早版本，而且想要升級至 9.11，則在升級到 9.11 之前，必須先升級到 版本 9.7。
@@ -183,7 +183,7 @@ ms.locfileid: "60149490"
 
 ### <a name="parameters"></a>參數
 
-|參數名稱| 類型 | 描述| 值|
+|參數名稱| Type | 說明| 值|
 |-|-|-|-|
 | /ServerMode|必要項|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|
 |/InstallLocation|必要項|安裝元件的資料夾| 電腦上的任何資料夾|

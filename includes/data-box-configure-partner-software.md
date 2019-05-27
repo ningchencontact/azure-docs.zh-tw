@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
 ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550242"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150722"
 ---
 設定合作夥伴軟體以連線至用戶端。 若要連線至合作夥伴軟體，您通常需要下列資訊 (可能會有所不同)，這些資訊是您從上一個步驟中本機 Web UI 的 [連線並複製] 頁面所收集的：
 

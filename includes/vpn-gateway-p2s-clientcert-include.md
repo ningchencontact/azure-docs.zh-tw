@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60319987"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157342"
 ---
 每個使用點對站連線來連線至 VNet 的用戶端電腦都必須安裝用戶端憑證。 您會從根憑證產生用戶端憑證，並將其安裝在每部用戶端電腦上。 如果您沒有安裝有效的用戶端憑證，用戶端嘗試連線至 VNet 時所進行的驗證將會失敗。
 

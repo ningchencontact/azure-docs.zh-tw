@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: d6753b319bc5bc4cbda18fe486695e5b0266acae
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794979"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169646"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>補救不符合 Azure 原則規範的資源
 
-您可以透過「補救」讓不符合 **deployIfNotExists** 原則規範的資源變成符合規範狀態。 若要完成補救，需指示「原則」在您現有的資源上執行所指派原則的 **deployIfNotExists** 效果。 本文說明了解和完成使用「原則」來進行補救所需的步驟。
+您可以透過「補救」讓不符合 **deployIfNotExists** 原則規範的資源變成符合規範狀態。 補救指示 Azure 原則來執行，即可**deployIfNotExists**對您現有的資源所指派之原則的影響。 本文說明以了解，並完成修復與 Azure 原則所需的步驟。
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>補救安全性的運作方式
 
-當「原則」執行 **deployIfNotExists** 原則定義中的範本時，會使用[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)來執行。
-「原則」會為每個指派項目建立受控識別，但您必須提供有關要將哪些角色授與受控識別的詳細資料。 如果受控識別缺少角色，在指派原則或方案時，就會顯示此錯誤。 使用入口網站時，在開始指派之後，「原則」會自動將所列出的角色授與受控識別。
+當 Azure 原則執行範本時**deployIfNotExists**它原則定義，會使用[受控身分識別](../../../active-directory/managed-identities-azure-resources/overview.md)。
+Azure 原則建立受管理的身分識別，每個指派，但必須有關於何種角色來授與受管理的身分識別詳細資料。 如果受控識別缺少角色，在指派原則或方案時，就會顯示此錯誤。 當使用入口網站，Azure 原則會自動授與受管理的身分識別列出的角色指派啟動之後。
 
 ![受控識別 - 遺漏角色](../media/remediate-resources/missing-role.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "59794979"
 "details": {
     ...
     "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
         "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
     ]
 }
@@ -57,7 +57,7 @@ Get-AzRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>手動設定受控識別
 
-使用入口網站來建立指派時，「原則」會產生受控識別並授與它 **roleDefinitionIds** 中所定義的角色。 在下列情況下，必須手動執行建立受控識別並為它指派權限的步驟：
+在建立時指派使用入口網站，Azure 原則產生受管理的身分識別並授與該中定義的角色**roleDefinitionIds**。 在下列情況下，必須手動執行建立受控識別並為它指派權限的步驟：
 
 - 使用 SDK (例如 Azure PowerShell) 時
 - 當範本修改指派範圍外的資源時
@@ -126,7 +126,8 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. 按一下資源頁面中的 [存取控制 (IAM)] 連結，然後按一下存取控制頁面頂端的 [+ 新增角色指派]。
 
-1. 從原則定義中選取符合 **roleDefinitionIds** 的適當角色。 將 [存取權指派對象為] 保留設定為預設的 [Azure AD 使用者、群組或應用程式]。 在 [選取] 方塊中，貼上或輸入稍早找到的指派資源識別碼部分。 在搜尋完成之後，按一下具有相同名稱的物件以選取識別碼，然後按一下 [儲存]。
+1. 從原則定義中選取符合 **roleDefinitionIds** 的適當角色。
+   將 [存取權指派對象為] 保留設定為預設的 [Azure AD 使用者、群組或應用程式]。 在 [選取] 方塊中，貼上或輸入稍早找到的指派資源識別碼部分。 在搜尋完成之後，按一下具有相同名稱的物件以選取識別碼，然後按一下 [儲存]。
 
 ## <a name="create-a-remediation-task"></a>建立補救工作
 
@@ -193,9 +194,9 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在 [Azure 原則範例](../samples/index.md)檢閱範例
-- 檢閱[原則定義結構](../concepts/definition-structure.md)
-- 檢閱[了解原則效果](../concepts/effects.md)
-- 了解如何[以程式設計方式建立原則](programmatically-create.md)
-- 了解如何[取得合規性資料](getting-compliance-data.md)
-- 檢閱[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)，以了解何謂管理群組
+- 檢閱範例[「 Azure 原則範例](../samples/index.md)。
+- 檢閱 [Azure 原則定義結構](../concepts/definition-structure.md)。
+- 檢閱[了解原則效果](../concepts/effects.md)。
+- 了解如何[以程式設計方式建立原則](programmatically-create.md)。
+- 了解如何[取得合規性資料](getting-compliance-data.md)。
+- 檢閱管理群組是使用[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)。

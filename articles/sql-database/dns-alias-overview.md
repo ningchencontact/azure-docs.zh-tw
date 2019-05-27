@@ -7,17 +7,18 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: WenJason
+ms.author: v-jay
 ms.reviewer: genemi,ayolubek, jrasnick
-manager: craigg
-ms.date: 03/12/2019
+manager: digimobile
+origin.date: 03/12/2019
+ms.date: 04/08/2019
 ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160794"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database 的 DNS 別名
 
@@ -89,7 +90,7 @@ Comment as of:  2018-01-26
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 PowerShell Cmdlet 可用於呼叫 REST API。
 

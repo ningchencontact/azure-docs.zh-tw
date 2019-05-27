@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 25cf9c3b7968be16dcc22f4140725efc22d785f2
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156540"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 指令碼參考
 > [!NOTE]
@@ -996,7 +996,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
-| SqlReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 範例： `select * from MyTable`. |否 |
+| sqlReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 範例： `select * from MyTable`. |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 |預存程序的名稱。 |否 |
 | storedProcedureParameters |預存程序的參數。 |名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
 
@@ -1171,7 +1171,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
-| SqlReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如： `select * from MyTable` 。 |否 |
+| sqlReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如： `select * from MyTable` 。 |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 |預存程序的名稱。 |否 |
 | storedProcedureParameters |預存程序的參數。 |名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
 
@@ -1595,7 +1595,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | 伺服器 |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
-| 連接埠 |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值：5439 |
+| port |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值：5439 |
 | 資料庫 |Amazon Redshift 資料庫的名稱。 |是 |
 | username |可存取資料庫之使用者的名稱。 |是 |
 | password |使用者帳戶的密碼。 |是 |
@@ -1707,7 +1707,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | 伺服器 |DB2 伺服器的名稱。 |是 |
-| 資料庫 |DB2 資料庫的名稱。 |是 |
+| database |DB2 資料庫的名稱。 |是 |
 | 結構描述 |在資料庫中的結構描述名稱。 結構描述名稱會區分大小寫。 |否 |
 | authenticationType |用來連接到 DB2 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
@@ -2543,7 +2543,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
-| SqlReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如： `select * from MyTable` 。 可以參考輸入資料集所參考資料庫中的多個資料表。 如果未指定，執行的 SQL 陳述式：select from MyTable。 |否 |
+| sqlReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如： `select * from MyTable` 。 可以參考輸入資料集所參考資料庫中的多個資料表。 如果未指定，執行的 SQL 陳述式：select from MyTable。 |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 |預存程序的名稱。 |否 |
 | storedProcedureParameters |預存程序的參數。 |名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
 
@@ -2672,7 +2672,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | 伺服器 |Sybase 伺服器的名稱。 |是 |
-| 資料庫 |Sybase 資料庫的名稱。 |是 |
+| database |Sybase 資料庫的名稱。 |是 |
 | 結構描述 |在資料庫中的結構描述名稱。 |否 |
 | authenticationType |用來連接到 Sybase 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
@@ -2906,7 +2906,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | host |一或多個 Cassandra 伺服器 IP 位址或主機名稱。<br/><br/>指定以逗號分隔的 IP 位址或主機名稱清單，以同時連線到所有伺服器。 |是 |
-| 連接埠 |Cassandra 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否，預設值：9042 |
+| port |Cassandra 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否，預設值：9042 |
 | authenticationType |基本或匿名 |是 |
 | username |指定使用者帳戶的使用者名稱。 |是，如果 authenticationType 設定為 [基本]。 |
 | password |指定使用者帳戶的密碼。 |是，如果 authenticationType 設定為 [基本]。 |
@@ -3033,7 +3033,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | 伺服器 |MongoDB 伺服器的 IP 位址或主機名稱。 |是 |
-| 連接埠 |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |選用，預設值︰27017 |
+| port |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |選用，預設值︰27017 |
 | authenticationType |基本或匿名。 |是 |
 | username |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
 | password |使用者的密碼。 |是 (如果使用基本驗證)。 |
@@ -3867,7 +3867,7 @@ auto-
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | host | SFTP 伺服器的名稱或 IP 位址。 |是 |
-| 連接埠 |SFTP 伺服器所接聽的連接埠。 預設值為：21 |否 |
+| port |SFTP 伺服器所接聽的連接埠。 預設值為：21 |否 |
 | authenticationType |指定驗證類型。 允許的值：**Basic**、**SshPublicKey**。 <br><br> 請參閱「使用基本驗證」和[使用 SSH 公開金鑰驗證](#using-ssh-public-key-authentication)章節，分別取得更多屬性和 JSON 範例。 |是 |
 | skipHostKeyValidation | 指定是否略過主機金鑰驗證。 | 沒有。 預設值：false |
 | hostKeyFingerprint | 指定主機金鑰的指紋。 | 如果 `skipHostKeyValidation` 設為 false，則為 [是]。  |
@@ -4351,7 +4351,7 @@ auto-
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| path |OData 資源的路徑 |否 |
+| path |OData 資源的路徑 |無 |
 
 #### <a name="example"></a>範例
 

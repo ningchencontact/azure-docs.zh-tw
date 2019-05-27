@@ -1,7 +1,7 @@
 ---
 title: 建立、 執行及追蹤 ML 管線
 titleSuffix: Azure Machine Learning service
-description: 使用適用於 Python 的 Azure Machine Learning SDK 來建立及執行機器學習管線。 您可以使用管線建立和管理結合多個機器學習 (ML) 階段的工作流程。 這些階段包括資料準備、模型訓練、模型部署和推斷等階段。
+description: 使用適用於 Python 的 Azure Machine Learning SDK 來建立及執行機器學習管線。 您可以使用管線建立和管理結合多個機器學習 (ML) 階段的工作流程。 這些階段包括資料準備、 模型訓練、 模型部署和評分推斷 /。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914898"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165867"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
@@ -251,6 +251,8 @@ trainStep = PythonScriptStep(
 )
 ```
 
+重複使用先前的結果 (`allow_reuse`) 時使用管線的協同環境裡，由於消除不必要重新執行提供靈活度，索引鍵。 當 script_name、 輸入和步驟的參數保持不變，這是預設行為。 步驟的輸出重複使用時，作業不會提交到計算，相反地，從上次執行結果會立即提供給下一個步驟執行。 如果設為 false，新的執行一律會產生此步驟中，但會在管線執行期間。 
+
 定義步驟之後，您必須使用這些步驟中的部分或全部步驟來建置管線。
 
 > [!NOTE]
@@ -315,6 +317,10 @@ pipeline_run1.wait_for_completion()
 
 如需詳細資訊，請參閱 <<c0> [ 實驗類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)參考。
 
+## <a name="github-tracking-and-integration"></a>GitHub 追蹤和整合
+
+當您啟動定型，執行 [source] 目錄所在的本機 Git 儲存機制時，儲存機制的資訊會儲存執行歷程記錄中。 例如，存放庫的最新的認可識別碼會記錄做為歷程記錄的一部分。
+
 ## <a name="publish-a-pipeline"></a>發佈管線
 
 您可以發佈管線以稍後使用不同的輸入來執行它。 若要讓已發佈之管線的 REST 端點接受參數，您必須在發佈管線前將其參數化。 
@@ -373,11 +379,11 @@ response = requests.post(published_pipeline1.endpoint,
 ## <a name="caching--reuse"></a>快取與重複使用  
 
 若要最佳化並自訂您的管線，您可以執行一些作業周圍快取並重複使用的行為。 例如，您可以選擇：
-+ **關閉 預設的重複使用執行輸出的步驟**splittunneling`allow_reuse=False`期間[步驟定義](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **關閉 預設的重複使用執行輸出的步驟**splittunneling`allow_reuse=False`期間[步驟定義](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)。 重複使用時，索引鍵的協同環境裡使用管線，由於消除不必要的執行提供的靈活度。 不過，您可以退出此。
 + **擴充超出指令碼雜湊**，也包含絕對路徑或相對路徑到其他檔案和目錄使用 source_directory `hash_paths=['<file or directory']` 
 + **強制執行中的所有步驟的輸出重新產生**與 `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-根據預設，步驟重複使用已啟用，而且只有主要指令碼檔案會進行雜湊。 因此，如果指定的步驟的指令碼會維持不變 (`script_name`，輸入和參數)、 重複使用先前的步驟執行的輸出、 作業不會提交到計算，和先前的執行結果會改為立即提供下一個步驟.  
+根據預設，`allow-reuse`的步驟已啟用，而且只有主要指令碼檔案會進行雜湊。 因此，如果指定的步驟的指令碼會維持不變 (`script_name`，輸入和參數)、 重複使用先前的步驟執行的輸出、 作業不會提交到計算，和先前的執行結果會改為立即提供下一個步驟.  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

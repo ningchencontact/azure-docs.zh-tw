@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
 ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66169216"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
 在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL 資料庫中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  

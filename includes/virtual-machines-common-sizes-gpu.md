@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 7a13dab50b5735d1a1e54a029daba742176bedfb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: c0d73b2e37046f75a1cea700d9099c5bbb5f6e0c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64743992"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170397"
 ---
 GPU 最佳化的 VM 大小，為搭配單一或多個 NVIDIA GPU 提供的特製化虛擬機器。 這些大小是專門針對計算密集型、圖形密集型及視覺效果的工作負載所設計。 本文章提供有關 GPU、vCPU、資料磁碟及 NIC 之數量和類型的資訊。 另說明此群組中每個大小的輸送量和網路頻寬。 
 
@@ -23,7 +23,7 @@ GPU 最佳化的 VM 大小，為搭配單一或多個 NVIDIA GPU 提供的特製
 
 * **NCSv3**、**NCSv2** 及 **ND** 大小搭載 Intel Xeon® E5-2690 v4 2.60GHz 處理器。
                       
-* **NV 和 NVv2** 大小則會針對遠端視覺效果、串流、遊戲、編碼及利用 OpenGL 和 DirectX 這類架構的 VDI 案例進行最佳化和設計。  這些 VM 是由 NVIDIA Tesla M60 GPU 提供支援。
+* **內華達州拉斯維加斯和 NVv3**大小已最佳化，並針對遠端視覺效果、 串流、 遊戲、 編碼及利用 OpenGL 和 DirectX 這類架構的 VDI 案例所設計。  這些 VM 是由 NVIDIA Tesla M60 GPU 提供支援。
 
 
 ## <a name="nc-series"></a>NC 系列
@@ -108,7 +108,7 @@ NDv2 系列虛擬機器是 GPU 家族的新增項目，專為 HPC、AI 和機器
 <br>
 
 
-| 大小              | vCPU | GPU              | 記憶體  | NIC 数（最大值） | 最大 磁碟大小           | 最大 資料磁碟 (每個 1023 GB) | 最大網路頻寬 | 
+| 大小              | vCPU | GPU              | 記憶體  | NIC (最大) | 最大 磁碟大小           | 最大 資料磁碟 (每個 1023 GB) | 最大網路頻寬 | 
 |-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
 | Standard_ND40s_v2 | 40   | 8 V100 (NVLink) | 672 GiB | 8          | 暫存 1344 / 2948XIO | 32                             | 24,000 Mbps           |
 
@@ -153,22 +153,24 @@ NV 執行個體中的每個 GPU 均隨附 GRID 授權。 此授權可讓您彈�
 
 1 GPU = 1/2 M60 卡。
 
-## <a name="nvv2-series-preview"></a>NVv2 系列 (預覽)
+## <a name="nvv3-series-preview-sup1sup"></a>NVv3 系列 （預覽） <sup>1</sup>
 
 進階儲存體：支援
 
 進階儲存體快取：支援
 
-NVv2 系列的虛擬機器採用 [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 以及具備 Intel Broadwell CPU 的 NVIDIA GRID 技術。 這些虛擬機器專用於 GPU 高速圖形應用程式以及虛擬桌面，客戶可用於將其資料視覺化、將結果模擬到檢視中、運用於 CAD 之上，或是轉譯內容及串流內容。 除此之外，這些虛擬機器可以執行單一的精密工作負載，像是編碼及轉譯。 NVv2 虛擬機器支援進階儲存體，同時相較於之前的 NV 系列，配備兩倍的系統記憶體 (RAM)。  
+NVv3 系列虛擬機器由[NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) Gpu 和 NVIDIA GRID 技術的 Intel Broadwell Cpu。 這些虛擬機器專用於 GPU 高速圖形應用程式以及虛擬桌面，客戶可用於將其資料視覺化、將結果模擬到檢視中、運用於 CAD 之上，或是轉譯內容及串流內容。 除此之外，這些虛擬機器可以執行單一的精密工作負載，像是編碼及轉譯。 NVv3 虛擬機器支援進階儲存體，並隨附兩倍的系統記憶體 (RAM)，相較於其前身 NV 系列。  
 
-NVv2 執行個體中的每個 GPU 均隨附 GRID 授權。 此授權可讓您彈性地使用 NV 執行個體作為單一使用者的虛擬工作站，或讓 25 位並行使用者可以針對某個虛擬應用程式案例連線至 VM。
+NVv3 執行個體中的每個 GPU 均隨附 GRID 授權。 此授權可讓您彈性地使用 NV 執行個體作為單一使用者的虛擬工作站，或讓 25 位並行使用者可以針對某個虛擬應用程式案例連線至 VM。
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | GPU 記憶體：GiB | 最大資料磁碟 | 最大 NIC | 虛擬工作站 | 虛擬應用程式 | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6s_v2 |6 |112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
-| Standard_NV12s_v2 |12 |224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
-| Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |
+| Standard_NV6s_v3 | 12 | 112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
+| Standard_NV12s_v3 | 24 | 224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
+| Standard_NV24s_v3 | 48 | 448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |
 
 1 GPU = 1/2 M60 卡。
+
+<sup>1</sup> NVv3 系列 VM 的功能 Intel® 超執行緒技術
 
  

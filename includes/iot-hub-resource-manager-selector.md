@@ -1,13 +1,18 @@
 ---
+author: robinsh
+ms.author: robinsh
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
 ms.openlocfilehash: e9b60c65f73a802958f9dd001422b7119d88064a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741961"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146624"
 ---
 > [!div class="op_single_selector"]
-> * [Azure 门户](../articles/iot-hub/iot-hub-create-through-portal.md)
+> * [Azure 入口網站](../articles/iot-hub/iot-hub-create-through-portal.md)
 > * [適用於 VS Code 的 Azure IoT 中樞工具組](../articles/iot-hub/iot-hub-create-use-iot-toolkit.md)
 > * [PowerShell](../articles/iot-hub/iot-hub-create-using-powershell.md)
 > * [Azure CLI](../articles/iot-hub/iot-hub-create-using-cli.md)

@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 4341d06f09c60933bfc0512f54e024b35a19d8dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57908122"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151327"
 ---
 您現在可以使用資料總管將資料新增至您的新資料表。
 

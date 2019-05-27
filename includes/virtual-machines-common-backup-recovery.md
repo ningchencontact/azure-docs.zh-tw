@@ -2,19 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: virtual-machines
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 03/09/2018
-ms.date: 04/16/2018
-ms.author: v-yeche
+ms.date: 03/09/2018
+ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: be71b269e618d13a126e4005754b307e9c6517d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543700"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160056"
 ---
 ## <a name="azure-backup"></a>Azure 備份
 
@@ -23,6 +22,7 @@ ms.locfileid: "60543700"
 如需 Azure VM 適用的簡單實際操作 Azure 備份簡介，請參閱適用於 [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) 或 [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md) 的「備份 Azure 虛擬機器」教學課程。
 
 如需有關 Azure 備份運作方式的詳細資訊，請參閱[在 Azure 中規劃您的 VM 備份基礎結構](../articles/backup/backup-azure-vms-introduction.md)
+
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -40,6 +40,8 @@ ms.locfileid: "60543700"
 
 * [在 Windows 中建立 VHD 複本並儲存為受控磁碟](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [在 Linux 中建立 VHD 複本並儲存為受控磁碟](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+
+
 
 ## <a name="next-steps"></a>後續步驟
 您可以試用 Azure 備份，方法是遵循適用於 [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) 或 [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md) 的「備份 Windows 虛擬機器教學課程」。

@@ -9,11 +9,11 @@ ms.topic: sample
 ms.date: 10/26/2018
 ms.reviewer: sngun
 ms.openlocfilehash: a8af5b7b035b67b5f09b1f16f26394f28941ec8d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66154651"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>使用 Azure CLI 重新產生 Azure Cosmos DB 帳戶金鑰
 

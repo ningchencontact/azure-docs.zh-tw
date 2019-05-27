@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 56514f5dcf4bfe205ef46ee64dcf4dcf638d4f62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61489037"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171521"
 ---
 #### <a name="to-configure-and-register-the-device"></a>設定和註冊裝置
 
@@ -22,7 +22,7 @@ ms.locfileid: "61489037"
 4. 在顯示的序列主控台功能表中，選擇選項 1 [以完整存取權登入]。
      完成步驟 5-12，為裝置設定最小的必要網路設定。 **這些設定步驟必須在裝置的主動控制器上執行。**  序列主控台功能表會在橫幅訊息中指出控制站狀態。 如果您未連接到主動控制器，請中斷連線，然後連接到主動控制器。
 
-5. 在命令提示符下键入密码。 預設裝置密碼是 **Password1**。
+5. 在命令提示字元中，輸入您的密碼。 預設裝置密碼是 **Password1**。
 
 6. 輸入以下命令： `Invoke-HcsSetupWizard`。
 
@@ -84,7 +84,7 @@ ms.locfileid: "61489037"
         Administrator Password:********
         Confirm Administrator Password:********
     ```
-11. 安裝精靈的最後一個步驟，是向 StorSimple 裝置管理員服務註冊您的裝置。 基於此因素，您需要使用在步驟 2 中取得的服務註冊金鑰。 提供注册密钥后，可能需要等待 2-3 分钟，然后再注册设备。
+11. 安裝精靈的最後一個步驟，是向 StorSimple 裝置管理員服務註冊您的裝置。 基於此因素，您需要使用在步驟 2 中取得的服務註冊金鑰。 提供註冊金鑰之後，您可能需要等待 2-3 分鐘，才能註冊裝置。
     
     > [!NOTE]
     > 您可以隨時按 Ctrl + C 來結束安裝精靈。 如果您輸入所有網路設定 (Data 0 的 IP 位址、子網路遮罩和閘道器)，則會保留您的項目。

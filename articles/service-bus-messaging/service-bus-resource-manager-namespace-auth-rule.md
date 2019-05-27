@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: f2c82c8ff353889f06dfc1c2ff5c3f316013c54b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171252"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立命名空間和佇列的服務匯流排授權規則
 
@@ -32,9 +32,9 @@ ms.locfileid: "59047997"
 > [!NOTE]
 > 下列 Azure Resource Manager 範本可供下載和部署。
 > 
-> * [创建服务总线命名空间](service-bus-resource-manager-namespace.md)
+> * [建立服務匯流排命名空間](service-bus-resource-manager-namespace.md)
 > * [建立服務匯流排命名空間與佇列](service-bus-resource-manager-namespace-queue.md)
-> * [创建包含主题和订阅的服务总线命名空间](service-bus-resource-manager-namespace-topic.md)
+> * [建立服務匯流排命名空間與主題和訂用帳戶](service-bus-resource-manager-namespace-topic.md)
 > * [建立服務匯流排命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > 若要檢查最新的範本，請造訪 [Azure 快速入門範本][Azure Quickstart Templates]資源庫並搜尋**服務匯流排**。
@@ -58,7 +58,7 @@ ms.locfileid: "59047997"
 範本會定義下列參數。
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-要创建的服务总线命名空间的名称。
+要建立的服務匯流排命名空間名稱。
 
 ```json
 "serviceBusNamespaceName": {
@@ -169,8 +169,8 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>後續步驟
 現在您已使用 Azure Resource Manager 建立並部署資源，請檢視這些文件，了解如何管理這些資源︰
 
-* [使用 PowerShell 管理服务总线](service-bus-powershell-how-to-provision.md)
-* [使用服务总线资源管理器管理服务总线资源](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [使用 PowerShell 管理服務匯流排](service-bus-powershell-how-to-provision.md)
+* [使用服務匯流排總管管理服務匯流排資源](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md

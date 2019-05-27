@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
 ms.openlocfilehash: b4d9a469e46d964055d9459901ebdb9c6d04cf24
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66157468"
 ---
-# <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型配置强制隧道
+# <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型設定強制通道
 
 強制通道可讓您透過站對站 VPN 通道，重新導向或「強制」所有網際網路繫結流量傳回內部部署位置，以便進行檢查和稽核。 這是多數企業 IT 原則的重要安全性需求。 若不使用強制通道處理，則來自您 Azure 中 VM 的網際網路繫結流量一律會從 Azure 網路基礎結構直接向外周遊到網際網路，而您無法選擇檢查或稽核流量。 未經授權的網際網路存取可能會導致資訊洩漏或其他類型的安全性漏洞。
 
@@ -42,7 +42,7 @@ ms.locfileid: "58078341"
 
 下圖說明如何使強制通道正常運作。 
 
-![强制隧道](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
+![強制通道](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
 
 在上述範例中，前端子網路不會使用強制通道。 前端子網路中的工作負載可以直接從網際網路繼續接受並回應客戶要求。 中間層和後端的子網路會使用強制通道。 任何從這兩個子網路到網際網路的輸出連接會強制或重新導向回 S2S VPN 通道的其中一個內部部署網站。
 

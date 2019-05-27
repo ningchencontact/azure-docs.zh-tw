@@ -8,11 +8,11 @@ ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66148698"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
@@ -438,11 +438,11 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 
 下表說明每個記錄項目的內容。
 
-| Azure 儲存體欄位或屬性 | Azure Monitor 日志属性 | 描述 |
+| Azure 儲存體欄位或屬性 | Azure Monitor 日志属性 | 說明 |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | 作業發生的日期和時間 (UTC)。 |
 | **resourceId** | **Resource** | 啟用記錄的 Azure Cosmos DB 帳戶。|
-| **類別** | **類別** | 對於 Azure Cosmos DB 記錄，**DataPlaneRequests** 是唯一的可用值。 |
+| **類別** | **分類** | 對於 Azure Cosmos DB 記錄，**DataPlaneRequests** 是唯一的可用值。 |
 | **operationName** | **OperationName** | 作業名稱。 這個值可以是下列任一作業：Create、Update、Read、ReadFeed、Delete、Replace、Execute、SqlQuery、Query、JSQuery、Head、HeadFeed 或 Upsert。   |
 | **properties** | n/a | 此欄位的內容說明於下列資料列中。 |
 | **activityId** | **activityId_g** | 所記錄作業的唯一 GUID。 |

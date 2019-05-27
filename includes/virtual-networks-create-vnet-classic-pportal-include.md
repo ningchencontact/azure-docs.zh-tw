@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: aa88bf3bd6c5037b41c09e9ffe47921f1b9dc9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60937351"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171977"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>如何在 Azure 入口網站中建立傳統 VNet
 若要以上述案例為基礎建立傳統 VNet，請遵循下列步驟執行。

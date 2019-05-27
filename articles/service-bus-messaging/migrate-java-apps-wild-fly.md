@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: 2392d0ef9d6257b93b76f13a5354eeba57d78ddd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 60f4e410c7c4e3854235029acade550c9279c981
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800285"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158703"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>將 Java enterprise edition (EE) 應用程式移轉至 Azure
 本文將引導您完成程序的現有 Java EE 工作負載移轉至 Azure 中：
@@ -67,7 +67,7 @@ ms.locfileid: "65800285"
 移轉之後，您會執行使用 Azure 服務匯流排的應用程式。
 
 ## <a name="prerequisites"></a>必要條件
-若要將 Java web 應用程式部署至 Azure，您會需要 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費的 Azure 帳戶](https://azure.microsoft.com/en-us/free/)。
+若要將 Java web 應用程式部署至 Azure，您會需要 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 此外，您將需要下列必要條件：
 
@@ -1070,7 +1070,7 @@ open https://websocket-hello-app.azurewebsites.net
 
 - [App Service 的 Linux 上的 Java 企業指南](../app-service/containers/app-service-java-enterprise.md)
 - [適用於 Azure App Service 的 maven 外掛程式](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable)
-- [部署在 JBoss/WildFly 泛型 JMS RA 配接器](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+- [部署在 JBoss/WildFly 泛型 JMS RA 配接器](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
 - [WildFly/JBoss 傳訊設定](https://docs.jboss.org/author/display/WFLY/Messaging+configuration)
 - [JBoss/WildFly CLI 指南](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
 - [從您的開發電腦中開啟 SSH 連線](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)

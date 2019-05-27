@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b34d37fa79ccb8344fdacd99877403d61ba5f5c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138932"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157938"
 ---
 ## <a name="update-resources"></a>更新資源
 
 有一些限制可以更新項目。 可以更新下列項目： 
 
 共用映像庫：
-- 描述
+- 說明
 
 映像定義：
 - 建議的 vCPU
 - 建議的記憶體
-- 描述
+- 說明
 - 生命週期結束日期
 
 映像版本：
@@ -33,6 +33,8 @@ ms.locfileid: "65138932"
 - 目標區域
 - 從最新版排除
 - 生命週期結束日期
+
+如果您打算加入複本區域，不會刪除來源受控映像。 來源受控映像所需的映像版本複寫到其他地區。 
 
 更新資源庫使用的描述 ([az sig 更新](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update)。 
 

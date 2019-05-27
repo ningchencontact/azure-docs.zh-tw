@@ -2,19 +2,19 @@
 title: 教學課程 - 使用 Linux 虛擬機器和 Python 應用程式將秘密儲存在 Azure Key Vault 中 | Microsoft Docs
 description: 在本教學課程中，您將了解如何設定 Python 應用程式以從 Azure Key Vault 讀取祕密。
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: a5923c3d5ea7888a3737d7976caded8eef9c1661
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e5fbb4e6f6599d8f9560561fc219dbf57ac0cee1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702111"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "66147762"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>教學課程：使用 Linux VM 和 Python 應用程式將這些秘密儲存在 Azure Key Vault 中
 

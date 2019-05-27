@@ -9,11 +9,11 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61449619"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147711"
 ---
 > [!div class="op_single_selector"]
 > * [Windows 上的 C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -26,8 +26,8 @@ ms.locfileid: "61449619"
 在此教學課程中，您會實作一個 **Chiller** 裝置，此裝置會將下列遙測資料傳送給遠端監視[解決方案加速器](../articles/iot-accelerators/about-iot-accelerators.md)：
 
 * 溫度
-* 壓力
-* 溼度
+* Pressure
+* 濕度
 
 為了簡單起見，程式碼會產生 **Chiller** 的範例遙測值。 您可以將實際感應器連線到您的裝置並傳送實際的遙測來擴充範例。
 
@@ -37,7 +37,7 @@ ms.locfileid: "61449619"
 * 回應從解決方案中的**裝置**頁面觸發的動作。
 * 回應從解決方案中的**裝置**頁面傳送的設定變更。
 
-若要完成此教學課程，您需要一個有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+若要完成此教學課程，您需要一個有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="before-you-start"></a>開始之前
 
@@ -58,9 +58,9 @@ ms.locfileid: "61449619"
 
 對於連線到解決方案加速器的裝置，該裝置必須使用有效的認證向 IoT 中樞識別自己。 當您將裝置新增至解決方案時，會有機會儲存包含這些認證的裝置連接字串。 稍後在本教學課程中，您會將裝置連接字串包含在您的用戶端應用程式中。
 
-若要在远程监视解决方案中添加设备，请在解决方案中的 **Device Explorer** 页上完成以下步骤：
+若要新增至遠端監視解決方案的裝置，請完成下列步驟在**Device Explorer**方案中的頁面：
 
-1. 选择“+ 新建设备”，并选择“真实”作为设备类型：
+1. 選擇 **+ 新增裝置**，然後選擇**實際**作為**裝置類型**:
 
     ![新增真實裝置](media/iot-suite-selector-connecting/devicesprovision.png)
 

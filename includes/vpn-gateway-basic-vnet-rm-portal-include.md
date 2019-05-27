@@ -9,11 +9,11 @@ ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 835f23f98ebe56e0b19081f07dc3302ef93b27b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109220"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171613"
 ---
 您可以使用下列步驟，透過 Resource Manager 部署模型和 Azure 入口網站建立 VNet。 如需虛擬網路的詳細資訊，請參閱[虛擬網路概觀](../articles/virtual-network/virtual-networks-overview.md)。
 

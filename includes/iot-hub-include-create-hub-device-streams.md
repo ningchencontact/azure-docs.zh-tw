@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: d1cfe3d998c08aef2b845315a16d881dea1cd1f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ede897054a6cbef254c06bd1d810b933ec09016a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124349"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158640"
 ---
 本節將說明如何使用 [Azure 入口網站](https://portal.azure.com)建立 IoT 中樞。
 
@@ -23,7 +23,7 @@ ms.locfileid: "58124349"
 
 3. 按一下右側清單中的 [IoT 中樞]。 您會看到用於建立 IoT 中樞的第一個畫面。
 
-   ![顯示在 Azure 入口網站中建立中樞的螢幕擷取畫面](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-1.png)
+   ![顯示在 Azure 入口網站中建立中樞的螢幕擷取畫面](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-01.png)
 
    填寫欄位：
 
@@ -37,9 +37,9 @@ ms.locfileid: "58124349"
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-4. 按一下 **[下一步大小與級別] 繼續建立 IoT 中樞。
+4. 按一下 **[下一步大小與級別]** 繼續建立 IoT 中樞。
 
-   ![顯示使用 Azure 入口網站之新 IoT 中樞的設定大小與級別的螢幕擷取畫面](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-2-free.png)
+   ![顯示使用 Azure 入口網站之新 IoT 中樞的設定大小與級別的螢幕擷取畫面](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
 
    在此畫面上，您可以接受預設值，只需按一下底部的 [檢閱 + 建立] 即可。
 
@@ -51,6 +51,6 @@ ms.locfileid: "58124349"
 
 5. 按一下 [檢閱 + 建立] 以檢閱您的選擇。 您會看到類似這個畫面的內容。
 
-   ![檢閱有關建立新 IoT 中樞之資訊的螢幕擷取畫面](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-3-free.png)
+   ![檢閱有關建立新 IoT 中樞之資訊的螢幕擷取畫面](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-03.png)
 
 6. 按一下 [建立] 以建立新的 IoT 中樞。 建立中樞需要幾分鐘的時間。
