@@ -8,16 +8,26 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 06051eff73a83ff97a733d1863580885c5d0e174
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 4f11eac106fe984aa06e41083c2d4f66c7d0e62c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551729"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872905"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure 的 Red Hat OpenShift 常見問題集
 
 本文說明常見問題 (Faq) Microsoft Azure 的 Red Hat OpenShift。
+
+## <a name="how-do-i-get-started"></a>如何開始使用？
+
+您可以使用 Azure 的 Red Hat OpenShift 之前，您將需要購買至少 4 個 Azure 保留的 Red Hat OpenShift 的應用程式節點。
+
+如果您是 Azure 的客戶[購買 Azure 保留的 Red Hat OpenShift 的執行個體](https://aka.ms/openshift/buy)透過 Azure 入口網站。 之後購買，您的訂用帳戶將會啟用在 24 小時內之後, 您將能夠佈建叢集。
+
+如果您不是 Azure 的客戶[連絡銷售員](https://aka.ms/openshift/contact-sales)並填妥頁面底部的啟動程序的銷售表單。
+
+請參閱[Azure 定價頁面上的 Red Hat OpenShift](https://aka.ms/openshift/pricing)如需詳細資訊。
 
 ## <a name="which-azure-regions-are-supported"></a>支援哪些 Azure 區域？
 

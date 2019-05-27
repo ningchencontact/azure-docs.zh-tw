@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 883042e7c8abb43338c55a76bba3d64844ce1c56
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
+ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604339"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66179807"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用於 Azure App Service 的 Linux Java 應用程式
 
@@ -65,7 +65,7 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在全受控 Linux 服務
 
 適用於 Linux 的 azure App Service 支援的微調方塊和透過 Azure 入口網站和 CLI 進行自訂。 請檢閱以下文章中的非特定 Java web 應用程式組態：
 
-- [設定 App Service 設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [設定應用程式設定](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
 - [設定自訂網域](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [啟用 SSL](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [新增 CDN](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -73,7 +73,7 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在全受控 Linux 服務
 
 ### <a name="set-java-runtime-options"></a>設定 Java 執行階段選項
 
-若要設定配置的記憶體或其他 JVM 執行階段選項 Tomcat 和 Java SE 環境中，建立[應用程式設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)名為`JAVA_OPTS`的選項。 App Service Linux 會在啟動時將此設定當成環境變數傳遞至 Java 執行階段。
+若要設定配置的記憶體或其他 JVM 執行階段選項 Tomcat 和 Java SE 環境中，建立[應用程式設定](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)名為`JAVA_OPTS`的選項。 App Service Linux 會在啟動時將此設定當成環境變數傳遞至 Java 執行階段。
 
 在 Azure 入口網站中，於 Web 應用程式的 [應用程式設定] 下，建立名為 `JAVA_OPTS` 且包含其他設定的新應用程式設定 (例如 `-Xms512m -Xmx1204m`)。
 
@@ -140,11 +140,45 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### <a name="authenticate-users"></a>驗證使用者
 
-設定使用 Azure 入口網站中的應用程式驗證**驗證和授權**選項。 在這裡，您可以使用 Azure Active Directory 或社交登入 (例如 Facebook、Google 或 GitHub) 來啟用驗證。 只有在設定單一驗證提供者時，Azure 入口網站設定才會運作。 如需詳細資訊，請參閱[設定 App Service 應用程式使用 Azure Active Directory 登入](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，以及其他身分識別提供者的相關文章。
+設定使用 Azure 入口網站中的應用程式驗證**驗證和授權**選項。 在這裡，您可以使用 Azure Active Directory 或社交登入 (例如 Facebook、Google 或 GitHub) 來啟用驗證。 只有在設定單一驗證提供者時，Azure 入口網站設定才會運作。 如需詳細資訊，請參閱[設定 App Service 應用程式使用 Azure Active Directory 登入](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，以及其他身分識別提供者的相關文章。 如果您需要啟用多個登入提供者，請遵循[自訂 App Service 驗證](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)一文中的指示。
 
-如果您需要啟用多個登入提供者，請遵循[自訂 App Service 驗證](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)一文中的指示。
+#### <a name="tomcat"></a>Tomcat
 
- Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易版](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable)，以利用熟悉的 Spring Security 註釋和 API 來保護應用程式。 請務必要在 `application.properties` 檔案中增加標頭大小上限。 建議值為 `16384`。
+Tomcat 應用程式存取使用者的宣告直接來自轉換之主體的 Tomcat servlet 物件複製到 Map 物件。 Map 物件會對應至該類型的宣告集合的每個宣告類型。 在下面的程式碼`request`的執行個體`HttpServletRequest`。
+
+```java
+Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
+```
+
+現在您可以檢查`Map`任何特定的宣告的物件。 比方說，下列程式碼片段會逐一查看所有宣告類型，並會列印每個集合的內容。
+
+```java
+for (Object key : map.keySet()) {
+        Object value = map.get(key);
+        if (value != null && value instanceof Collection {
+            Collection claims = (Collection) value;
+            for (Object claim : claims) {
+                System.out.println(claims);
+            }
+        }
+    }
+```
+
+若要登出使用者，並執行其他動作，請參閱文件[App Service 驗證與授權使用量](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to)。 另外還有在 Tomcat 上的官方文件[HttpServletRequest 介面](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html)和其方法。 下列 servlet 也會提供方法，會根據您的應用程式服務組態：
+
+```java
+public boolean isSecure()
+public String getRemoteAddr()
+public String getRemoteHost()
+public String getScheme()
+public int getServerPort()
+```
+
+若要停用這項功能，建立名為應用程式設定`WEBSITE_AUTH_SKIP_PRINCIPAL`值為`1`。 若要停用所有 App Service 所加入的 servlet 篩選器，建立名為的設定`WEBSITE_SKIP_FILTERS`值為`1`。
+
+#### <a name="spring-boot"></a>Spring Boot
+
+Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易版](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable)，以利用熟悉的 Spring Security 註釋和 API 來保護應用程式。 請務必要在 `application.properties` 檔案中增加標頭大小上限。 建議值為 `16384`。
 
 ### <a name="configure-tlsssl"></a>設定 TLS/SSL
 
@@ -232,7 +266,7 @@ App Service Linux 要求路由傳送連入連接埠 80，讓您的應用程式�
 </appSettings>
 ```
 
-或是在 Azure 入口網站的 [應用程式設定] 刀鋒視窗中設定環境變數。
+或中設定環境變數**組態** > **應用程式設定**在 Azure 入口網站中的頁面。
 
 接著，決定資料來源應僅供在 Tomcat Servlet 上執行的一個應用程式還是所有應用程式使用。
 
@@ -327,10 +361,7 @@ App Service Linux 要求路由傳送連入連接埠 80，讓您的應用程式�
 
 若要連接至 Spring Boot 應用程式中的資料來源，我們建議建立的連接字串，並插入到您`application.properties`檔案。
 
-1. 在 [App Service] 刀鋒視窗的 [應用程式設定] 區段中，設定字串的名稱、 將您的 JDBC 連接字串貼到 [值] 欄位中，以及設定為 「 自訂 」 型別。 您可以選擇設定此連接字串，做為位置設定。
-
-    ![在入口網站中建立的連接字串]。
-    
+1. 在 [應用程式服務] 頁面的 [設定] 區段中，設定字串的名稱、 將您的 JDBC 連接字串貼到 [值] 欄位中，以及設定為 「 自訂 」 型別。 您可以選擇設定此連接字串，做為位置設定。
 
     此連接字串是可存取我們的應用程式作為環境變數，名為`CUSTOMCONNSTR_<your-string-name>`。 例如，前面所建立的連接字串將會命名為`CUSTOMCONNSTR_exampledb`。
 
@@ -383,13 +414,13 @@ Web 應用程式執行個體為無狀態，因此必須在啟動時設定每個�
 
 將 Azure 入口網站中的 [啟動指令碼] 欄位設定為您啟動殼層指令碼的位置，例如 `/home/site/deployments/tools/your-startup-script.sh`。
 
-提供[應用程式設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)應用程式組態，將指令碼中使用的環境變數中。 應用程式設定會保留設定應用程式脫離版本控制所需的連接字串和其他祕密。
+提供[應用程式設定](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)應用程式組態，將指令碼中使用的環境變數中。 應用程式設定會保留設定應用程式脫離版本控制所需的連接字串和其他祕密。
 
 ### <a name="modules-and-dependencies"></a>模組和相依性
 
 若要透過 JBoss CLI 將模組及其相依性安裝至 Wildfly Classpath，您將必須在它們自己的目錄中建立下列檔案。 部分模組和相依性可能需要其他設定 (例如 JNDI 命名或其他 API 特有的設定)，因此，這份清單是您將需要在大多數情況下設定相依性之項目的基本組合。
 
-- [XML 模組描述元](https://jboss-modules.github.io/jboss-modules/manual/#descriptors) \(英文\)。 這個 XML 檔案會定義模組的名稱、屬性和相依性。 這個[範例 module.xml 檔案](https://access.redhat.com/documentation/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) \(英文\) 會定義 Postgres 模組、它的 JAR 檔案 JDBC 相依性，以及其他所需的模組相依性。
+- [XML 模組描述元](https://jboss-modules.github.io/jboss-modules/manual/#descriptors) \(英文\)。 這個 XML 檔案會定義模組的名稱、屬性和相依性。 這個[範例 module.xml 檔案](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) \(英文\) 會定義 Postgres 模組、它的 JAR 檔案 JDBC 相依性，以及其他所需的模組相依性。
 - 所有適用於您模組的必要 JAR 檔案相依性。
 - 含有您 JBoss CLI 命令的指令碼，可用來設定新的模組。 這個檔案所包含的命令將透過 JBoss CLI 執行，以設定伺服器來使用相依性。 如需用來新增模組、資料來源和傳訊提供者的相關文件，請參閱[這份文件](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli) \(英文\)。
 - Bash 啟動指令碼，會在上一個步驟中呼叫 JBoss CLI 並執行此指令碼。 重新啟動您的 App Service 執行個體時，或在向外延展期間佈建新的執行個體時，將執行這個檔案。這個啟動指令碼是在將 JBoss 命令傳遞給 JBoss CLI 時，您可針對應用程式執行任何其他設定的地方。 至少，這個檔案可以是用來將您的 JBoss CLI 命令指令碼傳遞至 JBoss CLI 的單一命令：
@@ -401,7 +432,7 @@ Web 應用程式執行個體為無狀態，因此必須在啟動時設定每個�
 當您擁有適用於模組的檔案和內容之後，請遵循下列步驟來將模組新增至 Wildfly 應用程式伺服器。
 
 1. 將檔案 FTP 至您 App Service 執行個體中的 `/home/site/deployments/tools`。 如需取得 FTP 認證的相關指示，請參閱這份文件。
-2. 在 Azure 入口網站的 [應用程式設定] 刀鋒視窗中，將 [啟動指令碼] 欄位設定為您啟動殼層指令碼的位置，例如 `/home/site/deployments/tools/your-startup-script.sh`。
+2. 在 **組態** > **一般設定**頁面上的 Azure 入口網站中，將 啟動指令碼 欄位設為啟動殼層指令碼的位置，例如`/home/site/deployments/tools/your-startup-script.sh`。
 3. 重新啟動您的 App Service 執行個體，藉由按下**重新啟動**按鈕**概觀**入口網站或使用 Azure CLI 的區段。
 
 ### <a name="configure-data-source-connections"></a>設定資料來源連接

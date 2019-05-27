@@ -16,11 +16,11 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0966fe01c90d5bf0bdaefba893b678f877805c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835158"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898215"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icims"></a>教學課程：Azure Active Directory 與 ICIMS 整合
 
@@ -36,7 +36,7 @@ ICIMS 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 ICIMS 的整合，您需要下列項目：
+若要設定 Azure AD 與 ICIMS 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 ICIMS 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ ICIMS 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* ICIMS 支援由 **SP** 起始的 SSO
+* ICIMS 支援 **SP** 起始的 SSO
 
 ## <a name="adding-icims-from-the-gallery"></a>從資源庫新增 ICIMS
 
@@ -71,10 +71,10 @@ ICIMS 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 ICIMS 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 ICIMS 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 ICIMS 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 ICIMS 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 ICIMS 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 ICIMS 單一登入](#configure-icims-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -128,7 +128,7 @@ ICIMS 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-icims-single-sign-on"></a>設定 ICIMS 單一登入
 
-若要在 **ICIMS** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和複製的適當 URL 傳送給 [ICIMS 支援小組](https://www.icims.com/contact-us)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **ICIMS** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [ICIMS 支援小組](https://www.icims.com/contact-us)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -165,7 +165,7 @@ ICIMS 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [ICIMS] 。
 
-    ![應用程式清單中的 [ICIMS] 連結](common/all-applications.png)
+    ![應用程式清單中的 ICIMS 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -183,13 +183,13 @@ ICIMS 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-icims-test-user"></a>建立 ICIMS 測試使用者
 
-在本節中，您會在 ICIMS 中建立名為 Britta Simon 的使用者。 請與 [ICIMS 支援小組](https://www.icims.com/contact-us)合作，在 ICIMS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 ICIMS 中建立名為 Britta Simon 的使用者。 請與 [ICIMS 支援小組](https://www.icims.com/contact-us)合作，在 ICIMS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [ICIMS] 圖格時，應該會自動登入您已設定 SSO 的 ICIMS。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 ICIMS 圖格時，應該會自動登入您已設定 SSO 的 ICIMS。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

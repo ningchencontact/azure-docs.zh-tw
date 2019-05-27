@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 556c10cc5ec5e528857a120dadb16c2a10202ed3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe548b0e8c791d5e7e3bdbc7bd4612a130ff8168
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61250633"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873293"
 ---
 # <a name="get-started-with-device-management-netnet"></a>開始使用裝置管理 (.NET/.NET)
 
@@ -22,7 +22,7 @@ ms.locfileid: "61250633"
 
 本教學課程說明如何：
 
-* 使用 Azure 门户创建 IoT 中心，以及如何在 IoT 中心创建设备标识。
+* 使用 Azure 入口網站來建立 IoT 中樞，並且在 IoT 中樞建立裝置識別。
 
 * 建立模擬裝置應用程式，其包含可將該裝置重新開機的直接方法。 直接方法是從雲端叫用。
 
@@ -36,7 +36,7 @@ ms.locfileid: "61250633"
 
 若要完成此教學課程，您需要下列項目：
 
-* Visual Studio 2017。
+* Visual Studio。
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
@@ -56,7 +56,7 @@ ms.locfileid: "61250633"
 
 在本節中，您會建立 .NET 主控台應用程式 (使用 C#)，此應用程式會使用直接方法起始遠端重新開機。 應用程式使用裝置對應項查詢來探索該裝置的上次重新開機時間。
 
-1. 在 Visual Studio 中，使用 [主控台應用程式 (.NET Framework)] 專案範本，將 Visual C# Windows 傳統桌面專案新增至新的解決方案。 确保 .NET Framework 版本为 4.5.1 或更高。 將專案命名為 **TriggerReboot**。
+1. 在 Visual Studio 中，使用 [主控台應用程式 (.NET Framework)] 專案範本，將 Visual C# Windows 傳統桌面專案新增至新的解決方案。 確定 .NET Framework 為 4.5.1 或更新版本。 將專案命名為 **TriggerReboot**。
 
     ![新的 Visual C# Windows 傳統桌面專案](./media/iot-hub-csharp-csharp-device-management-get-started/createserviceapp.png)
 
@@ -108,7 +108,7 @@ ms.locfileid: "61250633"
    }
    ```
 
-7. 最后，在 **Main** 方法中添加以下行：
+7. 最後，將下列幾行新增至 **Main** 方法：
    
    ```csharp
    registryManager = RegistryManager.CreateFromConnectionString(connString);

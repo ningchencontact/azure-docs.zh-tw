@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: magoedte
-ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 531e51fbddb99ebba11284d5291b4cca26559bc1
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148838"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906781"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用適用於容器的 Azure 監視器來了解 AKS 叢集效能 
 使用適用於容器的 Azure 監視器，您可以使用效能圖和健全狀態，從下列兩個檢視方塊中監視 Azure Kubernetes Service (AKS) 叢集的工作負載：直接從 AKS 叢集，或者從 Azure 監視器監視訂用帳戶中的所有 AKS 叢集。 當您監視特定的 AKS 叢集時，也可以檢視 Azure 容器執行個體 (ACI)。
@@ -26,10 +26,6 @@ ms.locfileid: "65148838"
 本文將協助您了解這兩個檢視方塊之間的體驗，以及如何協助您快速地評估、調查和解決所偵測到的問題。
 
 如需啟用適用於容器的 Azure 監視器相關資訊，請參閱[將適用於容器的 Azure 監視器上線](container-insights-onboard.md)。
-
-> [!IMPORTANT]
-> 容器支援 azure 監視器 」 來監視執行 Windows Server 2019 的 AKS 叢集目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 2019 跨訂用帳戶中的資源群組部署的所有受監視 AKS 叢集的健康情況狀態。  它也會顯示探索到且未受到解決方案監視的 AKS 叢集。 您可以立即了解叢集健康情況，並從這裡向下切入到節點和控制器效能頁面，或者瀏覽以查看叢集的效能圖。  針對探索到且識別為未受監視的 AKS 叢集，您隨時都可針對該叢集啟用監視。  
 
@@ -75,17 +71,17 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 | |狀態 |可用性 |  
 |-------|-------|-----------------|  
 |**使用者 Pod**| | |  
-| |Healthy |100% |  
+| |狀況良好 |100% |  
 | |警告 |90 - 99% |  
 | |重要 |<90% |  
 | |不明 |如果未在過去 30 分鐘內報告 |  
 |**系統 Pod**| | |  
-| |Healthy |100% |
+| |狀況良好 |100% |
 | |警告 |N/A |
 | |重要 |<100% |
 | |不明 |如果未在過去 30 分鐘內報告 |
 |**Node** | | |
-| |Healthy |>85% |
+| |狀況良好 |>85% |
 | |警告 |60 - 84% |
 | |重要 |<60% |
 | |不明 |如果未在過去 30 分鐘內報告 |
@@ -97,7 +93,7 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 
 - 叢集
 - 節點 
-- Controllers  
+- 控制器  
 - 容器
 
 當您按一下 [Insights] 時所開啟的預設頁面為 [叢集]，其包含四個效能折線圖來顯示您叢集的關鍵效能計量。 
@@ -113,10 +109,10 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 
 您可以使用向左/向右鍵循環顯示圖表上的每個資料點，使用向上/向下鍵來循環顯示百分位數線。
 
-適用於容器的 azure 監視器也支援 Azure 監視器[計量瀏覽器](../platform/metrics-getting-started.md)，您可以建立您自己的盒狀圖，相互關聯和調查趨勢，並釘選到儀表板。 在指标资源管理器中，还可以使用所设置的条件将指标可视化为[基于指标的警报规则](../platform/alerts-metric.md)的基础。  
+適用於容器的 azure 監視器也支援 Azure 監視器[計量瀏覽器](../platform/metrics-getting-started.md)，您可以建立您自己的盒狀圖，相互關聯和調查趨勢，並釘選到儀表板。 從計量瀏覽器中，您也可以使用您設定用來視覺化您的計量作為基礎的準則[度量型警示規則](../platform/alerts-metric.md)。  
 
-## <a name="view-container-metrics-in-metrics-explorer"></a>在指标资源管理器中查看容器指标
-在指标资源管理器中，可以通过适用于容器的 Azure Monitor 查看聚合的节点和 Pod 利用率指标。 下表汇总了详细信息，这些信息有助于你了解如何使用指标图表来可视化容器指标。
+## <a name="view-container-metrics-in-metrics-explorer"></a>在 計量瀏覽器中檢視容器計量
+在計量瀏覽器中，您可以檢視彙總的節點，和 pod 容器從 Azure 監視器使用率計量。 下表摘要說明可協助您了解如何使用以視覺化方式檢視容器計量的度量圖表的詳細資料。
 
 |命名空間 | 計量 |
 |----------|--------|
@@ -131,16 +127,16 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 | insights.container/pods | |
 | | PodCount |
 
-可以应用指标[拆分](../platform/metrics-charts.md#apply-splitting-to-a-chart)，以便按维度来查看它，并以可视化方式表现其片段相互之间的不同之处。 对于节点，可以按“主机”维度将图表分段，并可在 Pod 中按以下维度将其分段：
+您可以套用[分割](../platform/metrics-charts.md#apply-splitting-to-a-chart)計量維度來檢視它，並以視覺化方式檢視其中的不同區段的比較彼此。 對於節點，您可以分割圖表*主機*維度，並從 pod 您可以透過區隔其下列維度：
 
-* Controller
-* Kubernetes 命名空间
+* 控制器
+* Kubernetes 命名空間
 * 節點
 * 階段
 
-## <a name="analyze-nodes-controllers-and-container-health"></a>分析节点、控制器和容器运行状况
+## <a name="analyze-nodes-controllers-and-container-health"></a>分析節點、 控制器及容器健康情況
 
-當您切換至 [節點]、[控制站] 和 [容器] 索引標籤時，頁面右邊會自動顯示屬性窗格。 它显示所选项的属性，包括定义用于组织 Kubernetes 对象的标签。 在 Linux 節點選取時，它也會顯示在下一節**本機的磁碟容量**可用磁碟空間以及用來向之節點的每個磁碟的百分比。 按一下窗格中的 **>>** 連結，以檢視\隱藏此窗格。 
+當您切換至 [節點]、[控制站] 和 [容器] 索引標籤時，頁面右邊會自動顯示屬性窗格。 它會顯示選取項目-，的內容包括您組織的 Kubernetes 物件定義的標籤。 在 Linux 節點選取時，它也會顯示在下一節**本機的磁碟容量**可用磁碟空間以及用來向之節點的每個磁碟的百分比。 按一下窗格中的 **>>** 連結，以檢視\隱藏此窗格。 
 
 ![範例 Kubernetes 觀點屬性窗格](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
@@ -177,7 +173,7 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 
 當您將滑鼠暫留在 [趨勢] 資料行底下的長條圖上方時，每個長條圖都會依據所選取的計量，在 15 分鐘的取樣期間內顯示 CPU 或記憶體使用量。 透過鍵盤選取趨勢圖後，您可以使用 Alt+PageUp 或 Alt+PageDown 鍵來循環顯示每個橫條，並取得和滑鼠指標置於其上時相同的詳細資訊。
 
-![“趋势”条形图悬停示例](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![橫條圖停留在範例中的趨勢](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 在下列範例中，請注意清單中的第一個節點 *aks-nodepool1-*，**容器**的值為 9，這是已部署容器總數的彙總。
 
@@ -187,15 +183,15 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 
 當您檢視節點時所顯示的資訊已詳述於下表：
 
-| 欄 | 描述 | 
+| 欄 | 說明 | 
 |--------|-------------|
 | 名稱 | 主機的名稱。 |
 | 狀態 | 節點狀態的 Kubernetes 檢視。 |
 | Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 根據選取期間內百分位數的平均節點百分比。 |
 | Avg、Min、Max、50th、90th | 根據所選取時間的期間內百分位數的平均節點實際值。 從為節點設定的 CPU/記憶體限制測量所得的平均值；對於 Pod 與容器而言，則是主機所報告的平均值。 |
 | 容器 | 容器的數目。 |
-| Uptime | 呈現自節點啟動或重新啟動以來經過的時間。 |
-| Controllers | 僅適用於容器與 Pod。 顯示它位在哪個控制器之中。 並非所有 Pod 都位在控制器之中，因此有些可能會顯示 **N/A**。 | 
+| 執行時間 | 呈現自節點啟動或重新啟動以來經過的時間。 |
+| 控制器 | 僅適用於容器與 Pod。 顯示它位在哪個控制器之中。 並非所有 Pod 都位在控制器之中，因此有些可能會顯示 **N/A**。 | 
 | Trend Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 長條圖趨勢代表控制器的平均百分位數計量百分比。 |
 
 在選取器中，選取 [控制器]。
@@ -216,7 +212,7 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 
 在您檢視控制器時所顯示的資訊已詳述於下表：
 
-| 欄 | 描述 | 
+| 欄 | 說明 | 
 |--------|-------------|
 | 名稱 | 控制器的名稱。|
 | 狀態 | 容器的彙總狀態，就是當其完成執行後的狀態，例如「確定」、「終止」、「失敗」、「停止」或「暫停」。 如果容器在執行中，但狀態卻未正確呈現或未由代理程式擷取，而且超過 30 分鐘都沒有回應時，則狀態為 [未知]。 下表中提供狀態圖示的其他詳細資料。|
@@ -224,7 +220,7 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 | Avg、Min、Max、50th、90th  | 彙總容器所選百分位數的平均 CPU millicore 或記憶體效能。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
 | 容器 | 該控制器或 Pod 的容器總數。 |
 | Restarts | 積存容器中的重新啟動計數。 |
-| Uptime | 代表自容器啟動以來經過的時間。 |
+| 執行時間 | 代表自容器啟動以來經過的時間。 |
 | 節點 | 僅適用於容器與 Pod。 顯示它位在哪個控制器之中。 | 
 | Trend Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;%| 長條圖趨勢代表控制器的平均百分位數計量。 |
 
@@ -253,7 +249,7 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 
 在您檢視容器時所顯示的資訊已詳述於下表：
 
-| 欄 | 描述 | 
+| 欄 | 說明 | 
 |--------|-------------|
 | 名稱 | 控制器的名稱。|
 | 狀態 | 容器的狀態，若有的話。 下一個表格會提供狀態圖示的其他詳細資料。|
@@ -261,8 +257,8 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 | Avg、Min、Max、50th、90th  | 容器針對所選取百分位數的平均 CPU millicore 或記憶體效能彙總。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
 | Pod | Pod 所在的容器。| 
 | 節點 |  容器所在的節點。 | 
-| Restarts | 代表自容器啟動以來經過的時間。 |
-| Uptime | 代表自容器啟動或重新啟動以來經過的時間。 |
+| 重新啟動 | 代表自容器啟動以來經過的時間。 |
+| 執行時間 | 代表自容器啟動或重新啟動以來經過的時間。 |
 | Trend Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 長條圖趨勢代表容器的平均百分位數計量百分比。 |
 
 [狀態] 欄位中的圖示會指出 Pod 的線上狀態，如下表所述：

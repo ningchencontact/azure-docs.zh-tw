@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: workload management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 024b3f9c6d1fdd0d4bcb1126e4577387a6415a59
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61435023"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873480"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的記憶體和並行存取限制
 檢視在 Azure SQL 資料倉儲 中配置給不同效能等級與資源類別的記憶體和並行存取限制。 如需詳細資訊，並將這些功能套用到工作負載管理計劃，請參閱[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。 
@@ -78,7 +78,7 @@ Gen1 的服務等級範圍從 DW100 到 DW6000。
 
 下表針對每個[靜態資源類別](resource-classes-for-workload-management.md)顯示並行查詢數量和並行位置數量的最大值。  
 
-| 服務等級 | 並行查詢上限 | 可用的並行位置數量 | staticrc10 使用的槽数 | staticrc20 使用的槽数 | staticrc30 使用的槽数 | staticrc40 使用的槽数 | staticrc50 使用的槽数 | staticrc60 使用的槽数 | staticrc70 使用的槽数 | staticrc80 使用的槽数 |
+| 服務等級 | 並行查詢上限 | 可用的並行位置數量 | Staticrc10 所使用的插槽 | Staticrc20 所使用的插槽 | Staticrc30 所使用的插槽 | Staticrc40 所使用的插槽 | Staticrc50 所使用的插槽 | Staticrc60 所使用的插槽 | Staticrc70 所使用的插槽 | Staticrc80 所使用的插槽 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -133,7 +133,7 @@ Gen1 的服務等級範圍從 DW100 到 DW6000。
 
 下表針對 **Gen1** 上每個[靜態資源類別](resource-classes-for-workload-management.md)顯示並行查詢數量和並行位置數量的最大值。
 
-| 服務等級 | 並行查詢上限 | 並行位置數量最大值 | staticrc10 使用的槽数 | staticrc20 使用的槽数 | staticrc30 使用的槽数 | staticrc40 使用的槽数 | staticrc50 使用的槽数 | staticrc60 使用的槽数 | staticrc70 使用的槽数 | staticrc80 使用的槽数 |
+| 服務等級 | 並行查詢上限 | 並行位置數量最大值 | Staticrc10 所使用的插槽 | Staticrc20 所使用的插槽 | Staticrc30 所使用的插槽 | Staticrc40 所使用的插槽 | Staticrc50 所使用的插槽 | Staticrc60 所使用的插槽 | Staticrc70 所使用的插槽 | Staticrc80 所使用的插槽 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |

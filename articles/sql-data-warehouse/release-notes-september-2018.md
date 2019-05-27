@@ -2,20 +2,20 @@
 title: 2018 年 9 月 Azure SQL 資料倉儲版本資訊 | Microsoft Docs
 description: Azure SQL 資料倉儲的版本資訊。
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 10/08/2018
-ms.author: mausher
-ms.reviewer: twounder
-ms.openlocfilehash: bc559a1224aace2ee599c24c8dce07a6d55173fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474961"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912169"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 9 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 9 月導入的新功能和變更。
@@ -99,7 +99,7 @@ Commands completed successfully.
 
 ## <a name="bug-fixes"></a>錯誤修正
 
-| 標題 | 描述 |
+| 標題 | 說明 |
 |:---|:---|
 | **針對唯一條件約束的發行版本建立統計資料時的修正** | 此修正可解決使用者遇到的錯誤，若在只有指定資料表時執行 UPDATE STATISTICS，且資料表定義了唯一條件約束，使用者就會遇到此錯誤。 |
 | **針對外部資料表編譯查詢時的修正** | 此修正可解決會對涉及外部資料表的查詢影響其編譯時間的缺失。|

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 28d52a6eb5018aac8ebeb48b0a2a60a1dd9e1a43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260250"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>教學課程：Azure Active Directory 與 Montage Online 整合
 

@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 85e162773f95272ac2af36469480f1786b260e26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ebf371c45868d8e620413f8f54b3531b1a17f817
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806247"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949587"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>在合作夥伴中心商業 Marketplace 入口網站的概觀
 
@@ -36,7 +36,7 @@ ms.locfileid: "65806247"
 
 ### <a name="improvements-on-user-experience-and-billing"></a>改善使用者體驗和計費
 
-轉換至合作夥伴中心，新功能是提供給發佈者，除了對使用者體驗的增強功能。 這可以在每個月或每年計費的 SaaS 供應項目支援每個使用者的授權 （以基座為基礎） 除了每個站台 （固定費率）。 這個新的營收模型非常適合商務軟體。 新的功能讓客戶以完成在 AppSource 中，Microsoft 的商務和產業解決方案的商業 marketplace 購買項目對齊 SaaS 每一使用者授權的簡介。 
+轉換至合作夥伴中心，新功能是提供給發佈者，除了對使用者體驗的增強功能。 SaaS 供應項目，可以以月或每年，支援每個使用者的授權 （以基座為基礎） 除了每個網站的授權 （統一計費）。 這個新的營收模型非常適合商務軟體。 SaaS 每一使用者授權的簡介與新功能，可讓完成購買的客戶在 AppSource 中，Microsoft 商業 marketplace 中的商務和產業的解決方案。 
 
 ### <a name="account-and-user-management-updates"></a>帳戶和使用者管理更新
 
@@ -58,3 +58,4 @@ ms.locfileid: "65806247"
 
 - 全新的 Microsoft 合作夥伴想要發佈的 SaaS 優惠至 marketplace，請參閱[在合作夥伴中心建立商業的 Marketplace 帳戶](./create-account.md)。
 - 先前已發佈的供應項目在 Cloud Partner 入口網站中中的現有合作夥伴[管理您的商業的 Marketplace 帳戶在合作夥伴中心](./manage-account.md)。 
+- 深入了解雲端 marketplace 管理在此將移至合作夥伴中心[合作夥伴社群部落格文章](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293)，包括示範影片。

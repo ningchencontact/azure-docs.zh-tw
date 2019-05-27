@@ -17,15 +17,15 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27a61205426cbf43fd3b3b549909ffa13ff07dc7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500357"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65903902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>教學課程：Azure Active Directory 與 Salesforce 整合
 
-在此教學課程中，您會了解如何整合 Salesforce 與 Azure Active Directory (Azure AD)。
+在本教學課程中，您會了解如何整合 Salesforce 與 Azure Active Directory (Azure AD)。
 Salesforce 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Salesforce 的人員。
@@ -44,7 +44,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
 ## <a name="scenario-description"></a>案例描述
 
-在此教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * Salesforce 支援 **SP** 起始的 SSO
 
@@ -76,7 +76,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在此節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Salesforce 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Salesforce 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Salesforce 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Salesforce 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
@@ -90,7 +90,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在此節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
+在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
 若要設定與 Salesforce 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
@@ -191,7 +191,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
-此節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
@@ -215,7 +215,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在此節中，您會將 Salesforce 的存取權授與 Britta Simon，讓 Britta Simon 能夠使用 Azure 單一登入。
+在本節中，您會將 Salesforce 的存取權授與 Britta Simon，讓 Britta Simon 能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Salesforce]。
 
@@ -241,11 +241,11 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-salesforce-test-user"></a>建立 Salesforce 測試使用者
 
-此節會在 Salesforce 中建立名為 Britta Simon 的使用者。 Salesforce 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 如果 Salesforce 中還沒有該使用者，當您嘗試存取 Salesforce 時，就會建立新的使用者。 Salesforce 也支援自動使用者佈建，您可以在[這裡](salesforce-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
+本節會在 Salesforce 中建立名為 Britta Simon 的使用者。 Salesforce 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 如果 Salesforce 中還沒有該使用者，當您嘗試存取 Salesforce 時，就會建立新的使用者。 Salesforce 也支援自動使用者佈建，您可以在[這裡](salesforce-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-在此節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Salesforce] 圖格時，應該會自動登入您已設定 SSO 的 Salesforce。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 

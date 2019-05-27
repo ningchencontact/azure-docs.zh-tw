@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: yegu
 ms.openlocfilehash: 23b8e4e7e88f5b993f9b0f9981bbae6b884e2818
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65911347"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>使用範本來建立 Web 應用程式加 Azure Redis 快取
 
@@ -46,7 +46,7 @@ ms.locfileid: "57880002"
 
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
-## <a name="variables-for-names"></a>名称变量
+## <a name="variables-for-names"></a>名稱的變數
 這個範本會使用變數來建構資源的名稱。 它會使用 [uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) 函式，根據資源群組識別碼來建構值。
 
     "variables": {

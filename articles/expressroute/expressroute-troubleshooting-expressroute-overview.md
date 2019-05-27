@@ -9,11 +9,11 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117821"
 ---
 # <a name="verifying-expressroute-connectivity"></a>確認 ExpressRoute 連線
 本文將協助您確認 ExpressRoute 連線及針對連線問題進行疑難排解。 ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路擴充至 Microsoft 雲端，涉及三個不同的網路區域：
@@ -25,7 +25,7 @@ ms.locfileid: "58121514"
 本文件的目的是協助使用者識別連線有沒有問題、在哪一個區域，藉此尋找適當的小組來解決問題。 如果需要 Microsoft 支援服務解決問題，請利用 [Microsoft 支援服務][Support]開啟支援票證。
 
 > [!IMPORTANT]
-> 本文件旨在協助診斷並修正簡單的問題。 它不是为了替代 Microsoft 支持部门。 如果無法使用本文提供的指引來解決問題，請利用 [Microsoft 支援服務][Support]開啟支援票證。
+> 本文件旨在協助診斷並修正簡單的問題。 它無法取代 Microsoft 支援服務。 如果無法使用本文提供的指引來解決問題，請利用 [Microsoft 支援服務][Support]開啟支援票證。
 >
 >
 
@@ -52,7 +52,7 @@ ms.locfileid: "58121514"
 如果使用任何對任何 (IPVPN) 連線模型，PE (面對 MSEE)(4) 會建立與 MSEE (5) 的 BGP 對等互連。 然後，路由會透過 IPVPN 服務網路提供者的網路傳播回客戶網路。
 
 > [!NOTE]
->為了讓 ExpressRoute 有高可用性，Microsoft 需要在 MSEE (5) 和 PE-MSEE (4) 之間有一組備援的 BGP 工作階段。 我們也鼓勵您在客戶網路和 PE-CE 之間有一組備援的網路路徑。 但是，在“任意位置之间的连接 (IPVPN)”模型中，单个 CE 设备 (2) 可能会连接到一个或多个 PE (3)。
+>為了讓 ExpressRoute 有高可用性，Microsoft 需要在 MSEE (5) 和 PE-MSEE (4) 之間有一組備援的 BGP 工作階段。 我們也鼓勵您在客戶網路和 PE-CE 之間有一組備援的網路路徑。 不過，在任何對任何 (IPVPN) 連線模型中，單一 CE 裝置 (2) 可能會連線到一或多個 PE (3)。
 >
 >
 
@@ -157,7 +157,7 @@ ms.locfileid: "58121514"
     Sku                              : Standard
     Status                           : Enabled
 
-若要確認 ExpressRoute 路線是否在運作，請特別注意下列欄位︰ServiceProviderProvisioningState :Provisioned Status                           :已啟用
+若要確認 ExpressRoute 路線是否在運作，請特別注意下列欄位︰ServiceProviderProvisioningState :Provisioned Status                           :Enabled
 
 > [!NOTE]
 > 如果 Status 不是 enabled，請連絡 [Microsoft 支援服務][Support]。 如果 ServiceProviderProvisioningState 不是 provisioned，請連絡您的服務提供者。
@@ -208,7 +208,7 @@ ms.locfileid: "58121514"
     MicrosoftPeeringConfig     : null
     ProvisioningState          : Succeeded
 
- 成功启用的对等互连上下文会列出主要的和辅助的地址前缀。 /30 子網路是用於 MSEE 和 PE-MSEE 的介面 IP 位址。
+ 成功啟用的對等互連內容也會列出主要和次要位址前置詞。 /30 子網路是用於 MSEE 和 PE-MSEE 的介面 IP 位址。
 
 若要取得 Azure 公用對等互連的組態詳細資料，使用下列命令︰
 
@@ -261,7 +261,7 @@ ms.locfileid: "58121514"
 
     Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 
-若要获取 Microsoft 对等互连配置详细信息，请使用以下命令：
+若要取得 Microsoft 對等互連的組態詳細資料，使用下列命令︰
 
     Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
@@ -279,7 +279,7 @@ ms.locfileid: "58121514"
 本節使用 PowerShell (傳統) 命令。 如果您一向使用 PowerShell 的 Azure Resource Manager 命令，請確定您具有可以存取訂用帳戶的系統管理員/共同管理員存取權。 如需針對使用 Azure Resource Manager 命令進行疑難排解，請參閱[在 Resource Manager 部署模型中取得 ARP 資料表][ARP]文件。
 
 > [!NOTE]
->若要获取 ARP，可以使用 Azure 门户和 Azure Resource Manager PowerShell 命令。 如果使用 Azure Resource Manager PowerShell 命令時發生錯誤，傳統 PowerShell 命令也可以用於 Azure Resource Manager 的 ExpressRoute 路線。
+>若要取得 ARP，可以使用 Azure 入口網站和 Azure Resource Manager PowerShell 命令。 如果使用 Azure Resource Manager PowerShell 命令時發生錯誤，傳統 PowerShell 命令也可以用於 Azure Resource Manager 的 ExpressRoute 路線。
 >
 >
 
@@ -304,7 +304,7 @@ ms.locfileid: "58121514"
 > [!NOTE]
 > 如果 ARP 表沒有對應到 MAC 位址之介面的 IP 位址，請檢閱下列條件︰
 >1. 針對 MSEE-PR 和 MSEE 之間的連結所指派的 /30 子網路的第一個 IP 位址，是用在 MSEE-PR 的介面上。 Azure 一律為 MSEE 使用第二個 IP 位址。
->2. 验证客户型 (C-Tag) 和服务型 (S-Tag) VLAN 标记在 MSEE-PR 和 MSEE 对上是否均匹配。
+>2. 確認客戶 (C 標籤) 和服務 (S 標籤) VLAN 標籤是否都和「MSEE-PR 與 MSEE」對上的相符。
 >
 >
 
@@ -339,7 +339,7 @@ ms.locfileid: "58121514"
 >
 >
 
-对于特定的“专用”路由上下文，若要获取“主要”路径上的 MSEE 提供的完整路由表，请使用以下命令：
+若要從 Primary 路徑上的 MSEE 取得完整路由用於特定 Private 路由內容，使用下列命令︰
 
     Get-AzureDedicatedCircuitPeeringRouteTableInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 
@@ -390,7 +390,7 @@ ms.locfileid: "58121514"
 [2]: ./media/expressroute-troubleshooting-expressroute-overview/portal-all-resources.png "所有資源圖示"
 [3]: ./media/expressroute-troubleshooting-expressroute-overview/portal-overview.png "概觀圖示"
 [4]: ./media/expressroute-troubleshooting-expressroute-overview/portal-circuit-status.png "ExpressRoute 基本資料螢幕擷取畫面範例"
-[5]: ./media/expressroute-troubleshooting-expressroute-overview/portal-private-peering.png "ExpressRoute 概要示例屏幕截图"
+[5]: ./media/expressroute-troubleshooting-expressroute-overview/portal-private-peering.png "ExpressRoute 基本資料螢幕擷取畫面範例"
 
 <!--Link References-->
 [Support]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade

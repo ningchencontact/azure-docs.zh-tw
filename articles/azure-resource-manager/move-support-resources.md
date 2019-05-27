@@ -4,14 +4,14 @@ description: 列出可移至新資源群組或訂用帳戶的 Azure 資源類型
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/16/2019
+ms.date: 5/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: d662607eaaabb8ccfad89f625165c542af81b0fa
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: dcac557f29a987ea732744c1b82f90f858623ec5
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794524"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872563"
 ---
 # <a name="move-operation-support-for-resources"></a>資源的移動作業支援
 此文章列出 Azure 資源類型是否支援移動作業。 雖然資源類型支援作業，但可能會有導致無法移動資源的情況。 如需有關影響移動作業之情況的詳細資料，請參閱[將資源移動到新的資源群組或訂用帳戶](resource-group-move-resources.md)。
@@ -848,7 +848,7 @@ ms.locfileid: "65794524"
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| deviceservices | 有 | 有 |
+| deviceservices | 無 | 無 |
 
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
 | 資源類型 | 資源群組 | 訂用帳戶 |

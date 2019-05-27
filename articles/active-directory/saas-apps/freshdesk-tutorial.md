@@ -16,11 +16,11 @@ ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4bdeecc5682eb09ac0a65d3834ad1770258c4e0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874722"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>教學課程：Azure Active Directory 與 FreshDesk 整合
 
@@ -114,7 +114,7 @@ FreshDesk 與 Azure AD 整合提供下列優點：
 
 5. FreshDesk 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示上述的範例。 [唯一的使用者識別碼] 的預設值是 **user.userprincipalname**，但是 FreshDesk 會預期它是與使用者電子郵件地址對應的值。 對此您可以使用清單中的 **user.mail** 屬性，或者根據組織組態使用適當的屬性值。 
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
     

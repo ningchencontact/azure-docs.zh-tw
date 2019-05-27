@@ -2,20 +2,20 @@
 title: 將 Contoso 零售資料載入 Azure SQL 資料倉儲 | Microsoft Docs
 description: 使用 PolyBase 和 T-SQL 命令來將 Contoso 零售資料的兩個資料表載入至 Azure SQL 資料倉儲。
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 33a5f9eebeb68981a9ccd13bb24834f5a9eabd85
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 946d7685839b949a50604bf255809cb00086af99
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875671"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873566"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>將 Contoso 零售資料載入 Azure SQL 資料倉儲
 
@@ -30,10 +30,10 @@ ms.locfileid: "64875671"
 ## <a name="before-you-begin"></a>開始之前
 若要執行本教學課程中，您需要 Azure 帳戶已有 SQL 資料倉儲。 如果您尚未佈建的資料倉儲，請參閱[建立 SQL 資料倉儲，並設定伺服器層級防火牆規則][Create a SQL Data Warehouse]。
 
-## <a name="1-configure-the-data-source"></a>1.配置数据源
+## <a name="1-configure-the-data-source"></a>1.設定資料來源
 PolyBase 使用 T-SQL 外部物件以定義外部資料的位置和屬性。 外部物件定義會儲存在 SQL 資料倉儲中。 資料會儲存在外部。
 
-### <a name="11-create-a-credential"></a>1.1. 创建凭据
+### <a name="11-create-a-credential"></a>1.1. 建立認證
 **略過此步驟** 。 您不需要的公開資料的安全存取，因為它已經可以存取的任何人。
 
 **請勿跳過此步驟**如果您使用本教學課程做為範本來載入您自己的資料。 若要透過認證存取資料，請使用下列指令碼來建立資料庫範圍的認證，然後在定義資料來源的位置時使用它。
@@ -71,7 +71,7 @@ WITH (
 );
 ```
 
-### <a name="12-create-the-external-data-source"></a>1.2. 创建外部数据源
+### <a name="12-create-the-external-data-source"></a>1.2. 建立外部資料來源
 使用此 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 命令以儲存資料的位置及類型。 
 
 ```sql
@@ -205,7 +205,7 @@ WITH
 有不同的方式來存取外部資料。  您可以直接從外部資料表查詢資料、 將資料載入至新的資料表在資料倉儲中，或加入現有的資料倉儲資料表的外部資料。  
 
 ### <a name="41-create-a-new-schema"></a>4.1. 建立新的結構描述
-CTAS 會建立包含資料的新資料表。  首先，请创建 Contoso 数据的架构。
+CTAS 會建立包含資料的新資料表。  首先，請建立 Contoso 資料的結構描述。
 
 ```sql
 CREATE SCHEMA [cso]
@@ -276,7 +276,7 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-有关维护列存储索引的详细信息，请参阅 [管理列存储索引][manage columnstore indexes] 一文。
+如需維護資料行存放區索引的詳細資訊，請參閱[管理資料行存放區索引][manage columnstore indexes]一文。
 
 ## <a name="6-optimize-statistics"></a>6.最佳化統計資料
 最好的方式是在載入後立刻建立單一資料行統計資料。 如果您知道特定資料行不會查詢述詞中，您可以直接這些資料行建立統計資料。 如果您在每個資料行上建立單一資料行統計資料，可能需要很長的時間，若要重建所有統計資料。 

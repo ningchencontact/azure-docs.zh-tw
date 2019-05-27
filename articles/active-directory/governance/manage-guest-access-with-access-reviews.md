@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fc5bcdbbe821008f74e85a91889044c8975ce93
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350961"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113266"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來管理來賓存取權
 
@@ -31,16 +31,13 @@ ms.locfileid: "60350961"
 您可以輕易確保來賓使用者有適當的存取權。 您可藉由要求來賓本身或決策者參與存取權檢閱，並重新證實 (或「證明」) 來賓的存取權。 檢閱者可以根據 Azure AD 的建議，對每位使用者的持續存取需求給予其意見。 存取權檢閱完成時，您可以接著進行變更，並為不再需要存取的來賓移除存取權。
 
 > [!NOTE]
-> 本文件著重於檢閱來賓使用者的存取權。 如果您想檢閱所有使用者的存取權 (不只來賓)，請參閱[使用存取權檢閱管理使用者存取權](manage-user-access-with-access-reviews.md)。 若您想要檢閱使用者的系統管理角色 (例如全域系統管理員) 成員資格，請參閱[在 Azure AD Privileged Identity Management 中開始存取權檢閱](../privileged-identity-management/pim-how-to-start-security-review.md)。 
->
->
+> 本文件著重於檢閱來賓使用者的存取權。 如果您想檢閱所有使用者的存取權 (不只來賓)，請參閱[使用存取權檢閱管理使用者存取權](manage-user-access-with-access-reviews.md)。 若您想要檢閱使用者的系統管理角色 (例如全域系統管理員) 成員資格，請參閱[在 Azure AD Privileged Identity Management 中開始存取權檢閱](../privileged-identity-management/pim-how-to-start-security-review.md)。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>必要條件
 
+- Azure AD Premium P2
 
-存取權檢閱是 Microsoft Enterprise Mobility + Security, E5 中所含之 Azure AD Premium P2 版本的一項功能。 如需詳細資訊，請參閱 [Azure Active Directory 版本](../fundamentals/active-directory-whatis.md)。 透過這項功能進行互動 (包括建立檢閱、填寫檢閱或確認其存取權) 的每個使用者，都需要授權。 
-
-您也可以要求來賓使用者檢閱自己的存取權。 至於您對於貴組織使用者指派的每個付費 Azure AD Premium P2 授權，在「外部使用者額度」下，您可以使用 B2B 邀請最多 5 位使用者。 這些來賓使用者也可以使用 Azure AD Premium P2 功能。 如需詳細資訊，請參閱 [Azure AD B2B 共同作業授權](../b2b/licensing-guidance.md)。
+如需詳細資訊，請參閱 <<c0> [ 哪些使用者必須有授權？](access-reviews-overview.md#which-users-must-have-licenses)。
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>建立和執行來賓的存取權檢閱
 

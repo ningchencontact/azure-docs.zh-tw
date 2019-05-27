@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce20b56fc2cbebbed4b525eeccc2c12d14cccc3
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.openlocfilehash: ca4e343ea4774bbe4ff992ad671575b150b3c045
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556236"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890977"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
 
@@ -133,6 +133,10 @@ AMSE 是一個開放原始碼專案，由社群提供支援 (可將問題回報�
 ## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
+
+## <a name="see-also"></a>請參閱
+
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>後續步驟
 

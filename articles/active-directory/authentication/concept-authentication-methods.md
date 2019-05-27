@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359246"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119356"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
 
@@ -33,7 +33,7 @@ Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方�
 | 電子郵件地址 | 僅 SSPR |
 | Microsoft Authenticator 應用程式 | MFA 和 SSPR 的公開預覽版 |
 | OATH 硬體權杖 | MFA 和 SSPR 的公開預覽版 |
-| sms | MFA 和 SSPR |
+| SMS | MFA 和 SSPR |
 | 語音通話 | MFA 和 SSPR |
 | 應用程式密碼 | 只有在某些情況下的 MFA |
 
@@ -60,15 +60,15 @@ Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方�
 
 ### <a name="predefined-questions"></a>預先定義的問題
 
-* 您在哪個城市遇見第一個配偶/伴侶？
+* 您在哪個城市遇見第一個配偶/伴侶?
 * 您的父母在哪個城市相遇？
 * 您最親近的手足住在哪個城市？
 * 您的父親在哪個城市出生？
 * 您的第一份工作是在哪個城市？
 * 您的母親在哪個城市出生？
-* 您在哪個城市渡過 2000 年的新年？
-* 您最喜愛的高中老師姓什麼？
-* 您已申請但未就讀的大專名稱為何？
+* 2000 年的新年，您在哪個城市?
+* 您高中最喜愛的老師姓什麼?
+* 您曾經申請但沒有入學的大學校名是?
 * 您舉辦第一次婚宴的地點名稱為何？
 * 您父親的中間名是什麼？
 * 您最愛的食物是什麼？
@@ -94,7 +94,7 @@ Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方�
 * 您的第一份工作是什麼？
 * 您兒時電話號碼的末四碼是什麼？
 * 在您年輕時，您長大想做什麼？
-* 您遇過最有名的人物是誰？
+* 您遇過最知名的人物是誰?
 
 所有預先定義的安全性問題會依據使用者的瀏覽器地區設定，翻譯並當地語系化成完整的 O365 語言集。
 
@@ -144,7 +144,7 @@ Microsoft Authenticator 應用程式可協助防止未經授權即存取帳戶�
 > [!NOTE]
 > 如果您的組織有人員在運作，或用於中國，進而**行動應用程式的通知**方法**Android 裝置**不適用於該國家/地區。 替代方法應該可供這些使用者。
 
-### <a name="verification-code-from-mobile-app"></a>行動應用程式傳回的驗證碼
+### <a name="verification-code-from-mobile-app"></a>行動應用程式的驗證碼
 
 Microsoft Authenticator 應用程式或其他第三方應用程式可以作為軟體權杖來產生 OATH 驗證碼。 在輸入您的使用者名稱和密碼後，必須在登入畫面出現提示時輸入應用程式提供的驗證碼。 驗證碼提供第二種形式的驗證。
 
@@ -165,7 +165,7 @@ OATH 硬體權杖已支援作為公開預覽的一部分。 如需有關預覽�
 取得權杖後，必須使用逗號分隔值 (CSV) 檔案格式加以上傳，包括 UPN、序號、祕密金鑰、時間間隔、製造商和模型，如下列範例所示。
 
 ```csv
-upn,serial number,secret key,timeinterval,manufacturer,model
+upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```
 
@@ -204,7 +204,7 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 > [!IMPORTANT]
 > 從於 2019 年 3 月開始撥打電話選項將無法使用免費/試用 Azure AD 租用戶中的 MFA 和 SSPR 的使用者。 這項變更不會影響簡訊。 通話會繼續在使用者可使用付費 Azure AD 租用戶。 這項變更只會影響免費/試用 Azure AD 租用戶。
 
-## <a name="office-phone"></a>辦公室電話
+## <a name="office-phone"></a>公司電話
 
 撥打自動語音電話給您所提供的電話號碼。 接聽電話並按電話鍵盤上的 # 進行驗證。
 
@@ -231,7 +231,7 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 * 應用程式密碼由 Azure AD 驗證，因此會略過同盟。 唯有在設定應用程式密碼時才會使用同盟。 對於同盟 (SSO) 使用者，密碼會儲存在組織識別碼中。 如果使用者離開公司，這些資訊必須使用 DirSync 流向組織識別碼。 停用/刪除帳戶可能需要長達三個小時才能完成同步處理，導致 Azure AD 中停用/刪除應用程式密碼時延遲。
 * 應用程式密碼不會遵守內部部署用戶端存取控制設定。
 * 應用程式密碼不適用內部部署驗證記錄/稽核功能。
-* 某些進階架構設計在使用雙步驟驗證時，可能需要搭配使用組織使用者名稱和密碼及應用程式密碼，需視驗證的位置而定。 對於根據內部部署基礎結構進行驗證的用戶端，您可以使用組織使用者名稱和密碼。 对于针对 Azure AD 进行身份验证的客户端，会使用应用密码。
+* 某些進階架構設計在使用雙步驟驗證時，可能需要搭配使用組織使用者名稱和密碼及應用程式密碼，需視驗證的位置而定。 對於根據內部部署基礎結構進行驗證的用戶端，您可以使用組織使用者名稱和密碼。 對於根據 Azure AD 進行驗證的用戶端，您需要使用應用程式密碼。
 * 根據預設，使用者無法建立應用程式密碼。 如果您需要允許使用者建立應用程式密碼，請選取服務設定下的 [允許使用者建立應用程式密碼以登入非瀏覽器應用程式] 選項。
 
 ## <a name="next-steps"></a>後續步驟

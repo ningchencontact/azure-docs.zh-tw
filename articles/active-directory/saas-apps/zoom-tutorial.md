@@ -16,11 +16,11 @@ ms.date: 03/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 641fe5439e320208d41969b9563293257648d488
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842085"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65895950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>教學課程：Azure Active Directory 與 Zoom 整合
 
@@ -114,7 +114,7 @@ Zoom 與 Azure AD 整合提供下列優點：
 
 5. Zoom 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示，以開啟 [使用者屬性] **** 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 除了以上屬性外，Zoom 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
     

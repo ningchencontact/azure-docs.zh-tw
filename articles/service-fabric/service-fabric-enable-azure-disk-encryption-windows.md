@@ -14,11 +14,11 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66119152"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-windows-cluster-nodes"></a>為服務網狀架構 Windows 叢集節點啟用磁碟加密 
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 * 安裝最新版[Azure CLI](/cli/azure/install-azure-cli) ，其中包含新的加密命令。
 * 安裝最新版的 [Azure SDK (來自 Azure PowerShell)](https://github.com/Azure/azure-powershell/releases) 版本。 以下是虛擬機器擴展集 ADE Cmdlet，其可用來啟用 ([設定](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) 加密功能、擷取 ([取得](/powershell/module/az.compute/get-azvmssvmdiskencryption)) 加密狀態，以及移除 ([停用](/powershell/module/az.compute/disable-azvmssdiskencryption)) 擴展集執行個體的加密功能。
 
-| 命令 | 版本 |  來源  |
+| 命令 | 版本 |  `Source`  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 或更新版本 | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 或更新版本 | Az.Compute |

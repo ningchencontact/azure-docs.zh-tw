@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61488632"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66118289"
 ---
 ### <a name="to-configure-and-register-the-device"></a>設定和註冊裝置
 1. 存取 StorSimple 裝置序列主控台上的 Windows PowerShell 介面。 如需相關指示，請參閱 [使用 PuTTY 來連接至裝置序列主控台](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) 。 **請務必確實依照此程序，否則將無法存取主控台。**
@@ -34,7 +34,7 @@ ms.locfileid: "61488632"
       * 適用於 DATA 0 網路介面的 IP 位址
       * 子網路遮罩
       * 閘道器
-      * 主 DNS 服务器的 IP 地址
+      * 適用於主要 DNS 伺服器的 IP 位址
       * 適用於主要 NTP 伺服器的 IP 位址
       
       > [!NOTE]

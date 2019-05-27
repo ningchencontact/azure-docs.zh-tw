@@ -16,11 +16,11 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 550ffb146db9bb644b46467a7feb8c30792f6ad8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877406"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900197"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>教學課程：Azure Active Directory 與 Cornerstone OnDemand 整合
 
@@ -104,7 +104,7 @@ Cornerstone OnDemand 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Cornerstone OnDemand 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![Cornerstone OnDemand 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<company>.csod.com`
 
@@ -166,7 +166,7 @@ Cornerstone OnDemand 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入並選取 **Cornerstone OnDemand**。
 
-    ![應用程式清單中的 [Cornerstone OnDemand] 連結](common/all-applications.png)
+    ![應用程式清單中的 Cornerstone OnDemand 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

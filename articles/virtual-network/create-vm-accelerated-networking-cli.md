@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713722"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873425"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>使用加速網路建立 Linux 虛擬機器
 
@@ -224,6 +224,10 @@ vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
 現在已啟用您 VM 的加速網路。
+
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>處理動態繫結和撤銷的虛擬函式 
+應用程式必須透過綜合 NIC 公開 VM 中執行。 如果 VF NIC 上直接執行應用程式，它不會收到**所有**VM，因為透過綜合介面顯示某些封包所指向的封包。
+如果您執行應用程式透過綜合 NIC 時，它就會保證應用程式接收**所有**所指向的封包。 它也可確保，則會繼續執行應用程式，即使 VF 被撤銷時主機正在接受服務。 應用程式繫結至綜合 NIC**強制**利用所有的應用程式需求**加速網路**。
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>在現有的 VM 上啟用加速網路
 如果您已建立不含加速網路的 VM，那麼在現有 VM 上啟用此功能是可能的。  VM 必須符合前面也說明過的下列必要條件，才能支援加速網路：

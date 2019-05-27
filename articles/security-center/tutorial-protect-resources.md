@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: monhaber
-ms.openlocfilehash: 6e8c10ecb85addf2ef6a995e3c0b8ac611343cfa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: v-mohabe
+ms.openlocfilehash: 8fc287826d1a98b5d61229979544fdb3780455d4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110336"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967933"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>教學課程：使用 Azure 資訊安全中心保護您的資源
 資訊安全中心使用存取和應用程式控制原則來阻擋惡意活動，以限制您暴露於威脅的風險。 Just-in-Time (JIT) 虛擬機器 (VM) 存取透過讓您拒絕對 VM 的持續存取，進而減少您暴露於攻擊的風險。 不過，您可以只在需要的時候，提供對 VM 的受控制及稽核的存取。 自適性應用程式控制透過控制可在 VM 上執行的應用程式，進而協助強化 VM 以抵禦惡意軟體。 資訊安全中心會利用機器學習服務來分析在 VM 中執行的程序，並協助您利用此情報來套用列入允許清單規則。

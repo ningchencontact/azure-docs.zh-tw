@@ -9,11 +9,11 @@ ms.date: 12/03/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 72ddd0b6cd6c3e12417d3698c403f89312b531f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411793"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121194"
 ---
 VNet 對 VNet 常見問題集適用於 VPN 閘道連線。 如需 VNet 對等互連的資訊，請參閱[虛擬網路對等互連](../articles/virtual-network/virtual-network-peering-overview.md)。
 
@@ -75,7 +75,7 @@ VNet 對 VNet 常見問題集適用於 VPN 閘道連線。 如需 VNet 對等互
 
 ### <a name="do-vpn-tunnels-share-bandwidth"></a>VPN 通道是否共用頻寬？
 
-是。 虚拟网络的所有 VPN 隧道共享 Azure VPN 网关上的可用带宽，以及 Azure 中的相同 VPN 网关运行时间 SLA。
+是。 虛擬網路的所有 VPN 通道一起共用 Azure VPN 閘道上可用的頻寬，以及 Azure 中相同的 VPN 閘道運作時間 SLA。
 
 ### <a name="are-redundant-tunnels-supported"></a>是否支援備援通道？
 

@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 04/26/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: cfb90dc31635001291b1661f31ec2ee1fc378404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7365fa4cac5e32962477ef7f2441825327a0eb64
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894436"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912709"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業
 
@@ -24,7 +24,7 @@ ms.locfileid: "60894436"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 如果尚未安裝 Visual Studio 2017，您可以下載並使用 [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 Azure 開發。
+* 如果您還沒有安裝 Visual Studio 2019，您可以下載並使用[Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 Azure 開發。
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。 
 

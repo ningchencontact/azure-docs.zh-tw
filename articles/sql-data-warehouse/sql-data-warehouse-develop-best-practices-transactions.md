@@ -2,20 +2,20 @@
 title: 將 Azure SQL 資料倉儲的交易最佳化 | Microsoft Docs
 description: 了解如何在 Azure SQL 資料倉儲中將您的交易程式碼效能最佳化，同時將長時間回復的風險降至最低。
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/19/2018
-ms.author: cakarst
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f5e0b2b75ac111f3221108936f84e5883aebfc1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ab1da9fce74359448311591986d57abbbcef066
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478822"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873628"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>將 Azure SQL 資料倉儲的交易最佳化
 了解如何在 Azure SQL 資料倉儲中將您的交易程式碼效能最佳化，同時將長時間回復的風險降至最低。
@@ -68,10 +68,10 @@ CTAS 和 INSERT...SELECT 都是大量載入作業。 不過，兩者都會受到
 | 主要索引 | 載入案例 | 記錄模式 |
 | --- | --- | --- |
 | 堆積 |任意 |**最低限度** |
-| 聚集索引 |空的目標資料表 |**最少** |
+| 叢集索引 |空的目標資料表 |**最低限度** |
 | 叢集索引 |載入的資料列不會與目標中的現有頁面重疊 |**最低限度** |
 | 叢集索引 |載入的資料列會與目標中的現有頁面重疊 |完整 |
-| 聚集列存储索引 |每個與分割對齊的散發套件之批次大小 >= 102,400 |**最低限度** |
+| 叢集資料行存放區索引 |每個與分割對齊的散發套件之批次大小 >= 102,400 |**最低限度** |
 | 叢集資料行存放區索引 |批次大小 < 每個與分割對齊的散發套件 102,400 |完整 |
 
 值得注意的是任何更新次要或非叢集索引的寫入一定是完整記錄作業。

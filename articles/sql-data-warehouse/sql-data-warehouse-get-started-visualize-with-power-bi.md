@@ -2,20 +2,20 @@
 title: 使用 Power BI 來將 SQL 資料倉儲資料視覺化 | Microsoft Azure
 description: 使用 Power BI 視覺化 SQL 資料倉儲資料
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94ec38bc2cad3566fad88dc2ac56648f79aa16b2
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474661"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873363"
 ---
 # <a name="visualize-data-with-power-bi"></a>使用 Power BI 視覺化資料
 本教學課程會示範如何使用 Power BI 來連接到 SQL 資料倉儲，並建立一些基本的視覺效果。
@@ -39,7 +39,7 @@ ms.locfileid: "61474661"
 3. 按一下 [在 Power BI 中開啟] 按鈕。
    
     ![Power BI 按鈕](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-button.png)
-4. 您現在應該會看到 SQL 資料倉儲連接頁面顯示您的資料庫網址。 单击“下一步”。
+4. 您現在應該會看到 SQL 資料倉儲連接頁面顯示您的資料庫網址。 按 [下一步]。
    
     ![Power BI 連接](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-connect-to-azure.png)
 5. 輸入您的 Azure SQL 伺服器使用者名稱和密碼。

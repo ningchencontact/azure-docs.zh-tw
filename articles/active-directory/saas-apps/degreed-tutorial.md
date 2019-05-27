@@ -16,11 +16,11 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6741cf58208e972c85d41f2fa657e7dd82cc4f2b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877678"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>教學課程：Azure Active Directory 與 Degreed 整合
 
@@ -76,7 +76,7 @@ Degreed 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Degreed 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Degreed 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Degreed 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Degreed 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Degreed 單一登入](#configure-degreed-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -105,7 +105,7 @@ Degreed 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Degreed 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![Degreed 網域和 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://degreed.com/?orgsso=<company code>`
 
@@ -167,7 +167,7 @@ Degreed 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Degreed] 。
 
-    ![應用程式清單中的 [Degreed] 連結](common/all-applications.png)
+    ![應用程式清單中的 Degreed 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

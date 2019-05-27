@@ -16,11 +16,11 @@ ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 896f24ee20aece111c496a5b16d4b3dade119f85
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842374"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900527"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridge"></a>教學課程：Azure Active Directory 與 Bridge 整合
 

@@ -2,20 +2,20 @@
 title: 使用 Azure SQL 資料倉儲的 Striim 快速入門 | Microsoft Docs
 description: 快速開始使用 Striim 和 Azure SQL 資料倉儲。
 services: sql-data-warehouse
-author: hirokib
-manager: jrj
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: integration
 ms.date: 10/12/2018
-ms.author: elbutter
-ms.reviewer: craigg
-ms.openlocfilehash: a835fbd427408afae9ea6ae1b1bc2a84c18b0c34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: martinle
+ms.reviewer: igorstan
+ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475167"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873402"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace 供應項目安裝指南
 

@@ -15,11 +15,11 @@ ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8252dea33ff5cde07e021421d9772a69ea9f143b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840829"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899959"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>教學課程：Azure Active Directory 與 Collaborative Innovation 整合
 
@@ -115,7 +115,7 @@ Collaborative Innovation 與 Azure AD 整合提供下列優點：
 
 5. Collaborative Innovation 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
 

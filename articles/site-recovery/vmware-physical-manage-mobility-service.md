@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 69b8e1c533747d1bade69949911ea43f299f49e9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794230"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117315"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>管理受保護機器上的行動代理程式
 
@@ -21,7 +21,7 @@ ms.locfileid: "59794230"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="update-mobility-service-from-azure-portal"></a>从 Azure 门户更新移动服务
+## <a name="update-mobility-service-from-azure-portal"></a>更新行動服務，從 Azure 入口網站
 
 1. 在開始之前，請先確定已更新設定伺服器、向外延展處理伺服器，以及要一起部署的所有主要目標伺服器，然後才更新受保護機器上的行動服務。
 2. 在入口網站中，開啟保存庫 > [複寫的項目]。
@@ -35,9 +35,9 @@ ms.locfileid: "59794230"
 
 5. 「更新行動服務」作業會針對每個選取的機器啟動。
 
-## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>在 Windows 服务器上通过 powershell 脚本更新移动服务
+## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>透過 powershell 指令碼，在 Windows 伺服器上更新行動服務
 
-使用以下脚本通过 power shell cmdlet 更新服务器上的移动服务
+請使用下列指令碼，以升級 power shell cmdlet 透過在伺服器上的行動服務
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]

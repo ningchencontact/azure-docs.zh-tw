@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 82c9aa961221b582bb16438f30a0584232164393
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442341"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65915109"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>定型 TensorFlow 和 Keras 的模型，使用 Azure Machine Learning 服務
 
@@ -28,7 +28,7 @@ ms.locfileid: "65442341"
 
 由於`TensorFlow`估算器類別是基底類似[ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)，我們建議您第一次讀取[基底的評估工具操作說明文章](how-to-train-ml-models.md)了解為名的概念。
 
-若要開始使用 Azure Machine Learning 服務[完成此快速入門](quickstart-run-cloud-notebook.md)。 完成之後，就會看到[Azure Machine Learning 工作區](concept-azure-machine-learning-architecture.md#workspace)及其所有我們[範例 notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml)包括用於定型 TensorFlow 與 Keras 的 Dnn。
+若要開始使用 Azure Machine Learning 服務[完成此快速入門](quickstart-run-cloud-notebook.md)。 完成之後，就會看到[Azure Machine Learning 工作區](concept-workspace.md)及其所有我們[範例 notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml)包括用於定型 TensorFlow 與 Keras 的 Dnn。
 
 ## <a name="single-node-training"></a>單一節點定型
 

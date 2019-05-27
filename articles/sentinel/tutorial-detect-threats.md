@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 319ec5d09a6daddb5c1fc36f680ee6d0d856e337
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205435"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921806"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>教學課程：偵測到以 Azure Sentinel 預覽版的威脅
 
@@ -59,6 +59,10 @@ ms.locfileid: "65205435"
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
         | where ActivityStatus == "Succeeded"
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+
+   > [!NOTE]
+   > 查詢長度必須介於 1 到 10000 個字元，而且不能包含 「 搜尋 *"和"union *"。
+
 
 5. 在 **實體對應**區段中，使用底下的欄位**實體類型**在查詢中的資料行對應至 Azure Sentinel 可辨識的實體欄位。 針對每個欄位，對應中建立 Log Analytics 中的適當實體欄位的查詢的相關資料行。 選取相關的資料行名稱之下**屬性**。 每個實體都包含多個欄位，例如 SID、 GUID、 等等。您可以將對應的欄位，而不只是上方的層級實體的任何實體。
 

@@ -2,20 +2,20 @@
 title: 2018 年 4 月 Azure SQL 資料倉儲版本資訊 | Microsoft Docs
 description: Azure SQL 資料倉儲的版本資訊。
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 07/23/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: a9fae37acd653b05502737756baf463188ef631d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5fd2d5e2022cc1cf552ee7b525dcc484cc718f1f
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475009"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912251"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-april-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 4 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 4 月導入的新功能和變更。

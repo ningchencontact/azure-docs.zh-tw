@@ -2,20 +2,20 @@
 title: 教學課程：將資料載入 Azure SQL 資料倉儲 | Microsoft Docs
 description: 教學課程使用 Azure 入口網站和 SQL Server Management Studio，將 WideWorldImportersDW 資料倉儲從公用 Azure Blob 載入 Azure SQL 資料倉儲中。
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bc1431ace55538c489d73e0a62d18f274c06d57
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61081293"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873767"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>教學課程：將資料載入到 Azure SQL 資料倉儲
 
@@ -57,7 +57,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 3. 在 SQL 資料倉儲表單中填寫下列資訊︰   
 
-   | 設定 | 建議的值 | 描述 | 
+   | 設定 | 建議值 | 說明 | 
    | ------- | --------------- | ----------- | 
    | **資料庫名稱** | SampleDW | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 | 
    | **訂用帳戶** | 您的訂用帳戶  | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
@@ -68,7 +68,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 4. 按一下 [伺服器] 為您的新資料庫建立及設定新的伺服器。 在**新伺服器表單**表單中填寫下列資訊︰ 
 
-    | 設定 | 建議的值 | Description | 
+    | 設定 | 建議值 | Description | 
     | ------- | --------------- | ----------- |
     | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 | 
     | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
@@ -85,7 +85,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
     ![設定效能](media/load-data-wideworldimportersdw/configure-performance.png)
 
-8. 按一下 [套用]。
+8. 按一下 **[套用]**。
 9. 在 [SQL 資料倉儲] 頁面上，針對空白資料庫選取 [定序]。 本教學課程使用預設值。 如需定序的詳細資訊，請參閱[定序](/sql/t-sql/statements/collations)。
 
 11. 您現在已完成 SQL Database 表單，請按一下 [建立] 來佈建資料庫。 佈建需要幾分鐘的時間。 
@@ -145,15 +145,15 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 1. 開啟 SQL Server Management Studio。
 
-2. 在“连接到服务器”对话框中，输入以下信息：
+2. 在 [連接到伺服器] 對話方塊中，輸入下列資訊：
 
-    | 設定      | 建議的值 | 描述 | 
+    | 設定      | 建議值 | 說明 | 
     | ------------ | --------------- | ----------- | 
     | 伺服器類型 | 資料庫引擎 | 這是必要值 |
     | 伺服器名稱 | 完整伺服器名稱 | 例如，**sample-svr.database.windows.net** 是完整的伺服器名稱。 |
     | Authentication | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
-    | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時所指定的帳戶。 |
-    | 密碼 | 服务器管理员帐户的密码 | 這是您在建立伺服器時所指定的密碼。 |
+    | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時指定的帳戶。 |
+    | 密碼 | 伺服器系統管理員帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
 
     ![連接到伺服器](media/load-data-wideworldimportersdw/connect-to-server.png)
 

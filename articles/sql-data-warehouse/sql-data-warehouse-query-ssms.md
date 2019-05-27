@@ -2,20 +2,20 @@
 title: 連線到 Azure SQL 資料倉儲 - SSMS | Microsoft Docs
 description: 使用 SQL Server Management Studio (SSMS) 連接及查詢 Azure SQL 資料倉儲。
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 809802bc34a6cdc45f4b018d35895939e4b8f667
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64ea7c175b733f974eba6c081ee2c98814cbcda2
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476464"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873712"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>連接 SQL 資料倉儲與 SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -32,16 +32,16 @@ ms.locfileid: "61476464"
 ## <a name="prerequisites"></a>必要條件
 若要使用本教學課程，您需要：
 
-* 现有 SQL 数据仓库。 若要建立資料倉儲，請參閱 [建立 SQL 資料倉儲][Create a SQL Data Warehouse]。
+* 現有的 SQL 資料倉儲。 若要建立資料倉儲，請參閱 [建立 SQL 資料倉儲][Create a SQL Data Warehouse]。
 * SQL Server Management Studio (SSMS) 已安裝。 如果您尚未安裝，可以免費[安裝 SSMS][Install SSMS]。
 * 完整的 SQL 伺服器名稱。 若要找到此名稱，請參閱 [連線至 SQL 資料倉儲][Connect to SQL Data Warehouse]。
 
-## <a name="1-connect-to-your-sql-data-warehouse"></a>1.连接到 SQL 数据仓库
-1. 打开 SSMS。
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1.連接到您的 SQL 資料倉儲
+1. 開啟 SSMS。
 2. 開啟物件總管。 若要這樣做，請選取 [檔案]  >  [連接物件總管]。
    
     ![SQL Server 物件總管][1]
-3. 填写“连接到服务器”窗口中的字段。
+3. 填寫 [連線到伺服器] 視窗中的欄位。
    
     ![連線到伺服器][2]
    
@@ -53,7 +53,7 @@ ms.locfileid: "61476464"
    
     ![探索 AdventureWorksDW][3]
 
-## <a name="2-run-a-sample-query"></a>2.运行示例查询
+## <a name="2-run-a-sample-query"></a>2.執行範例查詢
 現已建立對您的資料庫的連線，接著繼續撰寫查詢。
 
 1. 在 [SQL Server 物件總管] 中您的資料庫上按一下滑鼠右鍵。
@@ -70,7 +70,7 @@ ms.locfileid: "61476464"
     ![執行查詢][5]
 5. 查看查詢結果。 在此範例中，FactInternetSales 資料表有 60398 個資料列。
    
-    ![查询结果][6]
+    ![查詢結果][6]
 
 ## <a name="next-steps"></a>後續步驟
 您現在可以連線並查詢，請嘗試[使用 PowerBI 將資料視覺化][visualizing the data with PowerBI]。

@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120665"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908164"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 連接到 Azure SQL Database
 
-本文章示範如何使用 Azure Functions 建立可連線至 Azure SQL Database 執行個體的排程作業。 函式程式碼會清除資料庫中資料表中的資料列。 新的 C# 函數是根據 Visual Studio 2017 中預先定義的計時器觸發程序範本所建立。 若要支援此案例，您也必須在函式應用程式中設定資料庫連接字串以作為設定。 此案例會對資料庫使用大量作業。 
+本文章示範如何使用 Azure Functions 建立可連線至 Azure SQL Database 執行個體的排程作業。 函式程式碼會清除資料庫中資料表中的資料列。 新C#函式會根據預先定義的計時器觸發程序範本在 Visual Studio 2019 中建立。 若要支援此案例，您也必須在函式應用程式中設定資料庫連接字串以作為設定。 此案例會對資料庫使用大量作業。 
 
 如果這是您第一次使用 C# Functions，則您應該先閱讀 [Azure Functions C# 開發人員參考資料](functions-dotnet-class-library.md)。
 
@@ -64,7 +64,7 @@ ms.locfileid: "62120665"
 
 您需要新增包含 SqlClient 程式庫的 NuGet 套件。 連接到 SQL Database 需要此資料存取程式庫。
 
-1. 在 Visual Studio 2017 中開啟您的本機函數應用程式專案。
+1. 在 Visual Studio 2019 開啟區域函式應用程式專案。
 
 1. 在 [方案總管] 中，於函數應用程式上按一下滑鼠右鍵，然後選擇 [管理 NuGet 套件]。
 

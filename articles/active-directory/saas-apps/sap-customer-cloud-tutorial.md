@@ -16,11 +16,11 @@ ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ba76692ec35ddfd0b6c8c49306d6056709d684e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840676"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>教學課程：Azure Active Directory 與 SAP Cloud for Customer 整合
 
@@ -114,13 +114,13 @@ SAP Cloud for Customer 與 Azure AD 整合提供下列優點：
 
 5. SAP Cloud for Customer 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性與宣告] 對話方塊的 [使用者屬性] 區段中，執行下列步驟：
 
     a. 按一下 [編輯] 圖示以開啟 [管理使用者宣告] 對話方塊。
 
-    ![映像](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
     ![映像](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 

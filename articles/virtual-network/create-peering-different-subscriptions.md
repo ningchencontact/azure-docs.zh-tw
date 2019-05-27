@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528249"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122007"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>建立虛擬網路對等互連 - Resource Manager，不同訂用帳戶
 
@@ -28,7 +28,7 @@ ms.locfileid: "59528249"
 |Azure 部署模型  | Azure 訂用帳戶  |
 |--------- |---------|
 |[兩者皆使用 Resource Manager](tutorial-connect-virtual-networks-portal.md) |相同|
-|[一个为资源管理器模型，一个为经典模型](create-peering-different-deployment-models.md) |相同|
+|[一個使用 Resource Manager、一個使用傳統部署模型](create-peering-different-deployment-models.md) |相同|
 |[一個使用 Resource Manager、一個使用傳統部署模型](create-peering-different-deployment-models-subscriptions.md) |不同|
 
 虛擬網路對等互連無法在透過傳統部署模型建立的兩個虛擬網路之間建立。 如果您需要將兩個都是透過傳統部署模型建立的虛擬網路連接，可以使用 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來連接這些虛擬網路。
@@ -134,7 +134,7 @@ ms.locfileid: "59528249"
     ```
 
 3. 使用 `az logout` 命令來以 UserA 身分登出 Azure，然後以 UserB 身分登入 Azure。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#permissions)。
-4. 建立 myVnetB。 將步驟 2 中的指令碼內容複製到您電腦上的文字編輯器中。 将 `<SubscriptionA-Id>` 替换为订阅 B 的 ID。 將 10.0.0.0/16 變更為 10.1.0.0/16、將所有 A 變更為 B，以及將所有 B 變更為 A。複製修改過的指令碼並貼到您的 CLI 工作階段中，然後按 `Enter`。
+4. 建立 myVnetB。 將步驟 2 中的指令碼內容複製到您電腦上的文字編輯器中。 使用 SubscriptionB 的 ID 來取代 `<SubscriptionA-Id>`。 將 10.0.0.0/16 變更為 10.1.0.0/16、將所有 A 變更為 B，以及將所有 B 變更為 A。複製修改過的指令碼並貼到您的 CLI 工作階段中，然後按 `Enter`。
 5. 以 UserB 身分登出 Azure，然後以 UserA 身分登入 Azure。
 6. 建立從 myVnetA 到 myVnetB 的虛擬網路對等互連。 將下列指令碼內容複製到您電腦上的文字編輯器中。 使用 SubscriptionB 的 ID 來取代 `<SubscriptionB-Id>`。 若要執行指令碼，請複製修改過的指令碼並貼到您的 CLI 工作階段中，然後按 Enter。
 
@@ -167,7 +167,7 @@ ms.locfileid: "59528249"
 
 8. 將 UserA 登出 Azure，然後以 UserB 身分登入 Azure。
 9. 建立從 myVnetB 到 myVnetA 的對等互連。 將步驟 6 中的指令碼內容複製到您電腦上的文字編輯器中。 使用 SubscriptionA 的 ID 來取代 `<SubscriptionB-Id>`，並將所有 A 變更為 B，以及將所有 B 變更為 A。變更完成之後，複製修改過的指令碼並貼到您的 CLI 工作階段中，然後按 `Enter`。
-10. 查看 myVnetB 的对等互连状态。 將步驟 7 中的指令碼內容複製到您電腦上的文字編輯器中。 針對資源群組和虛擬網路名稱將 A 變更為 B，複製指令碼、將修改過的指令碼貼到您的 CLI 工作階段中，然後按 `Enter`。 對等互連狀態為 **Connected**。 在您建立從 myVnetB 到 myVnetA 的對等互連之後，myVnetA 的對等互連狀態就會變更為 **Connected**。 您可以將 UserA 重新登入 Azure，然後再次完成步驟 7 以確認 myVnetA 的對等互連狀態。 
+10. 檢視 myVnetB 的對等互連狀態。 將步驟 7 中的指令碼內容複製到您電腦上的文字編輯器中。 針對資源群組和虛擬網路名稱將 A 變更為 B，複製指令碼、將修改過的指令碼貼到您的 CLI 工作階段中，然後按 `Enter`。 對等互連狀態為 **Connected**。 在您建立從 myVnetB 到 myVnetA 的對等互連之後，myVnetA 的對等互連狀態就會變更為 **Connected**。 您可以將 UserA 重新登入 Azure，然後再次完成步驟 7 以確認 myVnetA 的對等互連狀態。 
 
     > [!NOTE]
     > 必須等到兩個虛擬網路的對等互連狀態都變成 **Connected** 之後，才算已建立對等互連。
@@ -189,7 +189,7 @@ ms.locfileid: "59528249"
 1. 請確認您有 Azure PowerShell 1.0.0 版或更高版本。 您可以藉由執行`Get-Module -Name Az`我們建議您安裝最新版本的 powershell [Az 模組](/powershell/azure/install-az-ps)。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。 
 2. 啟動 PowerShell 工作階段。
 3. 在 PowerShell 中，輸入 `Connect-AzAccount` 命令來以 UserA 身分登入 Azure。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#permissions)。
-4. 建立資源群組和虛擬網路 A。將下列指令碼複製到您電腦上的文字編輯器中。 使用 SubscriptionA 的 ID 來取代 `<SubscriptionA-Id>`。 如果不知道订阅 ID，请输入 `Get-AzSubscription` 命令查看。 傳回之輸出中的 **Id** 值就是您的訂用帳戶 ID。 若要執行指令碼，請複製修改過的指令碼並貼到 PowerShell 中，然後按 `Enter`。
+4. 建立資源群組和虛擬網路 A。將下列指令碼複製到您電腦上的文字編輯器中。 使用 SubscriptionA 的 ID 來取代 `<SubscriptionA-Id>`。 如果您不知道您的訂用帳戶 ID，請輸入 `Get-AzSubscription` 命令來檢視它。 傳回之輸出中的 **Id** 值就是您的訂用帳戶 ID。 若要執行指令碼，請複製修改過的指令碼並貼到 PowerShell 中，然後按 `Enter`。
 
     ```powershell
     # Create a resource group.
@@ -314,7 +314,7 @@ ms.locfileid: "59528249"
    ```
 
 2. 以 UserA 身分登出 Azure，然後以 UserB 身分登入。
-3. 執行以下命令：
+3. 執行下列命令：
 
    ```azurecli-interactive
    az group delete --name myResourceGroupB --yes
@@ -329,7 +329,7 @@ ms.locfileid: "59528249"
    ```
 
 2. 以 UserA 身分登出 Azure，然後以 UserB 身分登入。
-3. 執行以下命令：
+3. 執行下列命令：
 
    ```powershell
    Remove-AzResourceGroup -Name myResourceGroupB -force

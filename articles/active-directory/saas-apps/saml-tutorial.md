@@ -16,11 +16,11 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2692d4109b5ca673b2acffe19eac1b141e5b8067
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891445"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>教學課程：Azure Active Directory 與 SAML 1.1 Token enabled LOB App 整合
 
@@ -45,7 +45,7 @@ ms.locfileid: "57891445"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* SAML 1.1 Token enabled LOB App 支援由 **SP** 起始的 SSO
+* SAML 1.1 Token enabled LOB App 支援 **SP** 起始的 SSO
 
 ## <a name="adding-saml-11-token-enabled-lob-app-from-the-gallery"></a>從資源庫新增 SAML 1.1 Token enabled LOB App
 
@@ -67,11 +67,11 @@ ms.locfileid: "57891445"
 
 4. 在搜尋方塊中，輸入 **SAML 1.1 Token enabled LOB App**，從結果面板中選取 [SAML 1.1 Token enabled LOB App]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 SAML 1.1 Token enabled LOB App](common/search-new-app.png)
+     ![結果清單中的 [SAML 1.1 Token enabled LOB App]](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 SAML 1.1 Token enabled LOB App 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 SAML 1.1 Token enabled LOB App 來設定和測試 Azure AD 單一登入。
 若要讓單一登入得以運作，需要在 Azure AD 使用者和 SAML 1.1 Token enabled LOB App 中的相關使用者之間建立連結關聯性。
 
 若要搭配 SAML 1.1 Token enabled LOB App 設定和測試 Azure AD 單一登入，您需要完成下列基本工作：
@@ -87,7 +87,7 @@ ms.locfileid: "57891445"
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 SAML 1.1 Token enabled LOB App 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要搭配 SAML 1.1 Token enabled LOB App 設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [SAML 1.1 Token enabled LOB App] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -128,7 +128,7 @@ ms.locfileid: "57891445"
 
 ### <a name="configure-saml-11-token-enabled-lob-app-single-sign-on"></a>設定 SAML 1.1 Token enabled LOB App Single Sign-On
 
-若要在 **SAML 1.1 Token enabled LOB App** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 SAML 1.1 Token enabled LOB App 支援小組。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要設定 **SAML 1.1 Token enabled LOB App** 端的單一登入，您必須將從 Azure 入口網站下載的**憑證 (Base64)** 和複製的適當 URL 傳送給 SAML 1.1 Token enabled LOB App 支援小組。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -189,7 +189,7 @@ ms.locfileid: "57891445"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 SAML 1.1 Token enabled LOB App 圖格時，應該就會自動登入您已設定 SSO 的 SAML 1.1 Token enabled LOB App。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 SAML 1.1 Token enabled LOB App 圖格時，應該就會自動登入您設定 SSO 的 SAML 1.1 Token enabled LOB App。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

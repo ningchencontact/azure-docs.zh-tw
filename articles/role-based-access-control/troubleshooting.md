@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dda2eafe86d037faab6284c2af0d8026c194d11
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344394"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921152"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>針對適用於 Azure 資源的 RBAC 進行疑難排解
 
@@ -36,7 +36,7 @@ ms.locfileid: "60344394"
 - 如果您需要如何建立自訂角色的步驟，請參閱使用自訂角色教學課程[Azure PowerShell](tutorial-custom-role-powershell.md)或是[Azure CLI](tutorial-custom-role-cli.md)。
 - 如果您無法更新現有的自訂角色時，請檢查您目前登入的使用者指派的角色`Microsoft.Authorization/roleDefinition/write`權限，例如[擁有者](built-in-roles.md#owner)或[使用者存取系統管理員](built-in-roles.md#user-access-administrator).
 - 如果您無法刪除自訂角色並收到錯誤訊息「有參考角色的現有角色指派 (代碼：RoleDefinitionHasAssignments)」，則有仍在使用自訂角色的角色指派。 請移除這些角色指派，並試著再次刪除自訂角色。
-- 如果您收到「已超過角色定義限制」錯誤訊息。 您可以建立沒有更多的角色定義 (程式碼：RoleDefinitionLimitExceeded) 「 當您嘗試建立新的自訂角色時，刪除不會使用的任何自訂角色。 Azure 支援每個租用戶中最多 **2000** 個自訂角色。
+- 如果您收到「已超過角色定義限制」錯誤訊息。 您可以建立沒有更多的角色定義 (程式碼：RoleDefinitionLimitExceeded) 「 當您嘗試建立新的自訂角色時，刪除不會使用的任何自訂角色。 Azure 支援最多**5000**租用戶中的自訂角色。 （若為特製化的雲端，例如 Azure Government、 Azure 德國和 Azure 中國 21Vianet 限制為 2000年自訂角色）。
 - 如果您收到的錯誤類似於 「 用戶端有對範圍 ' / 訂用帳戶 / {subscriptionid}'，執行動作 'Microsoft.Authorization/roleDefinitions/write'，但找不到連結的訂用帳戶的權限 」 當您嘗試更新自訂角色，請檢查是否一或多個[可指派範圍](role-definitions.md#assignablescopes)已刪除租用戶中。 如果範圍已刪除，則可以建立支援票證，因為此時已沒有可用的自助解決方案。
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>當訂用帳戶在租用戶之間移動時復原 RBAC
@@ -63,7 +63,7 @@ Azure Resource Manager 有時候會快取組態和資料來改善效能。 建�
 如果您授與對單一 Web 應用程式授與使用者唯讀存取權限，部分功能可能會在未預期的情況下停用。 以下管理功能需要 Web 應用程式的**寫入**存取權限 (參與者或擁有者)，而且無法在任何唯讀情況中使用。
 
 * 命令 (像是開始、停止等)
-* 更改设置（如常规配置、缩放设置、备份设置和监视设置）
+* 變更像是一般組態的設定、調整設定、備份設定與監視設定
 * 存取發佈認證與其他機密，像是應用程式設定與連接字串
 * 串流記錄
 * 診斷記錄組態
@@ -87,7 +87,7 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具
 
 * 檢視 Web 應用程式的定價層 (免費或標準)  
 * 調整組態 (執行個體數量、虛擬機器大小、自動調整設定)  
-* 配额（存储空间、带宽、CPU）  
+* 配額 (儲存容量、頻寬、CPU)  
 
 這些項目都需要包含您網站的整個「資源群組」的**寫入**權：  
 
@@ -112,7 +112,7 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。 以下是具
 
 這些項目都需要同時具備「虛擬機器」與所屬之「資源群組」(連同網域名稱) 的**寫入**權：  
 
-* 可用性設定組  
+* 可用性集合  
 * 負載平衡集合  
 * 警示規則  
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60877420"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900872"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 對 Azure Data Lake Storage Gen1 進行帳戶管理作業。
 > [!div class="op_single_selector"]
@@ -32,22 +32,16 @@ ms.locfileid: "60877420"
 如需有關如何使用 .NET SDK 對 Data Lake Storage Gen1 執行資料管理作業的指示，請參閱[使用 .NET SDK 對 Data Lake Storage Gen1 進行檔案系統作業](data-lake-store-data-operations-net-sdk.md)。
 
 ## <a name="prerequisites"></a>必要條件
-* **Visual Studio 2013、2015 或 2017**。 以下指示使用 Visual Studio 2017。
+* **Visual Studio 2013 或更新版本**。 以下指示使用 Visual Studio 2019。
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="create-a-net-application"></a>建立 .NET 應用程式
-1. 開啟 Visual Studio，建立主控台應用程式。
-2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
-3. 在 [ **新增專案**] 中，輸入或選取下列值：
+1. 在 Visual Studio 中，選取**檔案** 功能表**新增**，然後**專案**。
+2. 選擇**主控台應用程式 (.NET Framework)**，然後選取**下一步**。
+3. 在 **專案名稱**，輸入`CreateADLApplication`，然後選取**建立**。
 
-   | 屬性 | Value |
-   | --- | --- |
-   | Category |範本/Visual C#/Windows |
-   | 範本 |主控台應用程式 |
-   | 名稱 |CreateADLApplication |
-4. 按一下 [確定]  以建立專案。
-5. 將 NuGet 套件新增至您的專案。
+4. 將 NuGet 套件新增至您的專案。
 
    1. 在方案總管中以滑鼠右鍵按一下專案名稱，然後按一下 [ **管理 NuGet 封裝**]。
    2. 在 [NuGet 套件管理員] 索引標籤中，確定 [套件來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
@@ -58,7 +52,7 @@ ms.locfileid: "60877420"
 
         ![新增 NuGet 來源](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "建立新的 Azure Data Lake 帳戶")
    4. 關閉 [NuGet 套件管理員]。
-6. 開啟 **Program.cs**，刪除現有的程式碼，然後納入下列陳述式以新增命名空間的參考。
+5. 開啟 **Program.cs**，刪除現有的程式碼，然後納入下列陳述式以新增命名空間的參考。
 
         using System;
         using System.IO;
@@ -74,7 +68,7 @@ ms.locfileid: "60877420"
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. 宣告變數，並提供預留位置的值。 此外，請確定電腦上有您提供的本機路徑和檔案名稱。
+6. 宣告變數，並提供預留位置的值。 此外，請確定電腦上有您提供的本機路徑和檔案名稱。
 
         namespace SdkSample
         {

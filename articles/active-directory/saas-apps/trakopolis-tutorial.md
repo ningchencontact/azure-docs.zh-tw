@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 66fb18542fe35c586af11139dff3cd5dfb7bde73
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269311"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905593"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakopolis"></a>教學課程：Azure Active Directory 與 Trakopolis 整合
 

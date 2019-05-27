@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/29/2098
+ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925704"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922155"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>在 Azure 至 Azure 複寫的行動服務的自動更新
 
@@ -535,3 +535,14 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 - **錯誤**：找不到執行身分帳戶。 下列其中一個項目已刪除或未建立：Azure Active Directory 應用程式、服務主體、角色、自動化憑證資產、自動化連線資產，或憑證與連線之間的指紋不相同。 
 
     **建議的動作**:刪除，然後[重新建立執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)。
+
+-  **錯誤**：Azure 執行身分自動化帳戶所使用的憑證即將到期。 
+
+    建立執行身分帳戶的自我簽署的憑證到期從建立日期起一年。 您可以在該憑證到期前隨時更新憑證。 如果您已註冊的電子郵件通知，您也會在您這端所需採取動作時收到電子郵件。 此錯誤將會顯示 2 個月到期日之前，如果憑證已過期，會變成嚴重的錯誤。 憑證到期後，直到您更新相同，將無法正常運作自動更新。
+
+   **建議的動作**:按一下 [修復]，然後再續約憑證若要解決此問題。
+    
+   ![renew-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+
+> [!NOTE]
+> 一旦您更新憑證，請重新整理頁面，讓目前的狀態會更新。

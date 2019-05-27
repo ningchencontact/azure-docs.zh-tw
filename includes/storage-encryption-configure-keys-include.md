@@ -9,11 +9,11 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.custom: include
 ms.openlocfilehash: 3076065d23d4701711c0ecb60349e77ee5c9b7c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61593528"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66115435"
 ---
 Azure 儲存體支援待用加密，使用 Microsoft 管理的金鑰或客戶管理的金鑰。 客戶管理的金鑰可讓您建立、 輪替、 停用和撤銷的存取控制。
 

@@ -9,11 +9,11 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 364d4a11772e6bb72e2e258503f3cce49dc61453
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141713"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66112248"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>建立一或多個存取權檢閱
 
@@ -53,7 +53,7 @@ ms.locfileid: "65141713"
     - **選取的使用者**-使用此選項，如果您不知道誰需要存取權。 使用此選項，您可以指派資源擁有者或群組管理員完成檢閱。
     - **（本身） 的成員**-使用此選項可讓使用者檢閱自己的角色指派。
 
-### <a name="upon-completion-settings"></a>完成時的設定
+### <a name="upon-completion-settings"></a>當設定完成時
 
 1. 若要指定檢閱完成後所應執行的動作，請展開 [完成時的設定] 區段。
 
