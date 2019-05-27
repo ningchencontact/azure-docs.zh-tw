@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 7619b8831d75ce639c6f6c773c7c7d491abc93e7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d446be664d695af946d46abc48389d4f7be92cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122024"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791046"
 ---
 # <a name="move-azure-vms-to-another-region"></a>將 Azure VM 移動到另一個區域
 
@@ -56,7 +56,7 @@ ms.locfileid: "58122024"
     - 若為 Windows VM，請安裝所有最新的 Windows 更新，讓所有的受信任根憑證都在機器上。 在中斷連線的環境中，請遵循您組織的標準 Windows Update 和憑證更新程序。
     - 若為 Linux VM，請遵循 Linux 散發者提供的指引，以取得最新的受信任根憑證及 VM 的憑證撤銷清單。
 1. 請確定您未使用驗證 Proxy 來控制所要移動 VM 的網路連線能力。
-1. 如果嘗試移動的 VM 無法存取網際網路，或使用防火牆 Proxy 控制輸出存取，請[檢查需求](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity)。
+1. 如果嘗試移動的 VM 無法存取網際網路，或使用防火牆 Proxy 控制輸出存取，請[檢查需求](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms)。
 1. 識別來源網路配置，以及您目前使用的所有資源。 這包括但不限於負載平衡器、網路安全性群組 (NSG)、公用 IP 等。
 
 ## <a name="prepare-the-target-region"></a>準備目標區域
@@ -74,7 +74,7 @@ ms.locfileid: "58122024"
 
    - [網路安全性群組](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
    - [負載平衡器](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [公用 IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [公用 IP](../virtual-network/virtual-network-public-ip-address.md)
     
      如需任何其他網路元件，請參閱[網路文件](https://docs.microsoft.com/azure/#pivot=products&panel=network)。
 
@@ -96,7 +96,7 @@ ms.locfileid: "58122024"
 1. 選取 Resource Manager 部署模型。 然後，選取 [來源訂用帳戶] 和 [來源資源群組]。
 1. 選取 [確定] 來儲存設定。
 
-### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>為 Azure VM 啟用複寫，並開始複製資料
+### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>為 Azure VM 啟用複寫並開始複製資料
 
 Site Recovery 會擷取與訂用帳戶和資源群組建立關聯的 VM 清單。
 

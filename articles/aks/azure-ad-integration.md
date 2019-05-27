@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a6ed8ec37a3b20ccdbd2b013ba308518d8e3b97c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192114"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849881"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>整合 Azure Active Directory 與 Azure Kubernetes Service
 
@@ -23,7 +23,6 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 套用下列限制：
 
 - 只有建立啟用 RBAC 功能的新叢集時，才能啟用 Azure AD。 您無法在現有的 AKS 叢集上啟用 Azure AD。
-- *客體*使用者在 Azure AD 中，例如，如果您使用不同的目錄中，從同盟的登入不支援。
 
 ## <a name="authentication-details"></a>驗證詳細資料
 
@@ -40,7 +39,7 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 
 第一個 Azure AD 應用程式用來取得使用者的 Azure AD 群組成員資格。 在 Azure 入口網站中建立此應用程式。
 
-1. 選取  **Azure Active Directory** > **應用程式註冊** > **新增註冊**。
+1. 選取 [Azure Active Directory] > [應用程式註冊] > [新註冊]
 
     * 指定應用程式的名稱，例如*AKSAzureADServer*。
     * 針對**支援的帳戶類型**，選擇*只有此組織目錄中的帳戶*。
@@ -62,9 +61,9 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 1. 在 Azure AD 應用程式的左側導覽中，選取**API 的權限**，然後選擇 **+ 新增權限**。
 
     * 底下**Microsoft Api**，選擇*Microsoft Graph*。
-    * 選擇**委派的權限**，然後旁邊加上核取**目錄 > Directory.Read.All （讀取目錄資料）**。
+    * 選擇**委派的權限**，然後旁邊加上核取**目錄 > Directory.Read.All （讀取目錄資料）** 。
         * 如果預設委派的權限**使用者 > User.Read (登入及讀取使用者設定檔)** 不存在，請勾選此權限。
-    * 選擇**應用程式權限**，然後旁邊加上核取**目錄 > Directory.Read.All （讀取目錄資料）**。
+    * 選擇**應用程式權限**，然後旁邊加上核取**目錄 > Directory.Read.All （讀取目錄資料）** 。
 
         ![設定 graph 權限](media/aad-integration/graph-permissions.png)
 
@@ -93,7 +92,7 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 
 第二個 Azure AD 應用程式可在登入 Kubernetes CLI (`kubectl`)。
 
-1. 選取  **Azure Active Directory** > **應用程式註冊** > **新增註冊**。
+1. 選取 [Azure Active Directory] > [應用程式註冊] > [新註冊]
 
     * 指定應用程式的名稱，例如*AKSAzureADClient*。
     * 針對**支援的帳戶類型**，選擇*只有此組織目錄中的帳戶*。
@@ -114,6 +113,10 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
         成功授與權限時，入口網站會顯示下列通知：
 
         ![成功授與權限的通知](media/aad-integration/permissions-granted.png)
+
+1. 在 Azure AD 應用程式的左側導覽中，選取**驗證**。
+
+    * 底下**預設用戶端類型**，選取**Yes**來*視為公開用戶端的用戶端*。
 
 1. 在 Azure AD 應用程式左側導覽中，記下**應用程式識別碼**。 部署已啟用 Azure AD 的 AKS 叢集時，這個值就是指 `Client application ID`。
 
@@ -242,13 +245,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 完成時，會快取驗證權杖。 您只被 reprompted 登入的權杖已過期時，或重新建立的 Kubernetes 組態檔。
 
 如果成功登入後看到授權錯誤訊息，請檢查：
-1. 使用者登入，是 Azure AD 執行個體 （此案例通常是如果您使用已同盟的帳戶，從不同的目錄） 中的來賓。
-2. 使用者不是 200 個以上的群組成員。
-3. 伺服器的應用程式註冊中所定義的密碼不符合使用-aad 伺服器-應用程式密碼設定的值
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
+
+1. 您可以定義適當的物件識別碼或 UPN，取決於使用者帳戶是否在相同的 Azure AD 租用戶中。
+2. 使用者不是 200 個以上的群組成員。
+3. 伺服器的應用程式註冊中所定義的密碼符合使用所設定的值 `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>後續步驟
 

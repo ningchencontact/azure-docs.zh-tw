@@ -16,11 +16,11 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65867831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>教學課程：Azure Active Directory 與 SAP HANA 整合
 
@@ -36,7 +36,7 @@ SAP HANA 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 SAP HANA 的整合，您需要下列項目：
+若要設定 Azure AD 與 SAP HANA 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
 - 已啟用單一登入 (SSO) 的 SAP Hana 訂用帳戶
@@ -82,10 +82,10 @@ SAP HANA 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 SAP HANA 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 SAP HANA 設定及測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 SAP HANA 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 SAP HANA 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 SAP HANA 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 SAP HANA 單一登入](#configure-sap-hana-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -98,7 +98,7 @@ SAP HANA 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 SAP HANA 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 SAP HANA 設定 Azure AD 單一登入功能，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [SAP Hana] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -114,24 +114,24 @@ SAP HANA 與 Azure AD 整合提供下列優點：
 
 4. 在 [以 SAML 設定單一登入] 頁面上，執行下列步驟：
 
-    ![SAP HANA 網域及 URL 單一登入資訊](common/idp-intiated.png)
+    ![SAP HANA 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，輸入下列值：`HA100`
 
     b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [SAP HANA 用戶端支援小組](https://cloudplatform.sap.com/contact.html)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [SAP HANA 客戶支援小組](https://cloudplatform.sap.com/contact.html)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. SAP HANA 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性與宣告] 對話方塊的 [使用者屬性] 區段中，執行下列步驟：
  
     a. 按一下 [編輯] 圖示以開啟 [管理使用者宣告] 對話方塊。
 
-    ![映像](./media/saphana-tutorial/tutorial_usermail.png)
+    ![image](./media/saphana-tutorial/tutorial_usermail.png)
 
     ![映像](./media/saphana-tutorial/tutorial_usermailedit.png)
 
@@ -212,7 +212,7 @@ SAP HANA 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入 **SAP HANA** 並加以選取。
 
-    ![應用程式清單中的 [SAP HANA] 連結](common/all-applications.png)
+    ![應用程式清單中的 SAP HANA 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -264,7 +264,7 @@ SAP Hana 支援預設啟用的 **Just-In-Time** 佈建。
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [SAP HANA] 圖格時，應該會自動登入您已設定 SSO 的 SAP HANA。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [SAP HANA] 圖格時，應該會自動登入您設定 SSO 的 SAP HANA。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

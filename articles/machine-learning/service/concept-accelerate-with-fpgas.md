@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 648dc462477570a692eff588c558a18a3121e4e7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025243"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851017"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>欄位可程式化閘陣列 (FPGA) 有哪些？
 
@@ -30,7 +30,7 @@ FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階
 
 ![Azure Machine Learning 服務 FPGA 比較圖](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|處理器||描述|
+|處理器||說明|
 |---|:-------:|------|
 |應用程式特定的積體電路|ASIC|自訂電路 (例如，Google 的 TensorFlow 處理器 (TPU)) 可提供最高效率。 它們無法隨著您需求的變更加以重新設定。|
 |現場可程式化閘陣列|FPGA|FPGA (例如 Azure 上所提供的那些陣列) 可提供接近 ASIC 的效能。 它們也會隨著時間而具有彈性且可重新設定，以實作新邏輯。|
@@ -39,7 +39,7 @@ FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階
 
 在 Azure 上的 Fpga 為基礎的資料科學家和開發人員用來加速即時 AI 計算的 Intel FPGA 裝置。 這個具有 FPGA 功能的架構可提供效能、彈性和擴展能力，並且可在 Azure 上使用。
 
-FPGA 可以實現低延遲的即時推斷請求。 不需要非同步要求 (批次處理)。 批次處理可能會造成延遲 (因為需要處理更多資料)。 類神經的處理單位的實作不需要批次處理;因此延遲可能會多次低，相較於 CPU 和 GPU 的處理器。
+Fpga 使您能夠達成即時的推斷 （或模型計分） 的低延遲要求。 不需要非同步要求 (批次處理)。 批次處理可能會造成延遲 (因為需要處理更多資料)。 類神經的處理單位的實作不需要批次處理;因此延遲可能會多次低，相較於 CPU 和 GPU 的處理器。
 
 ### <a name="reconfigurable-power"></a>可重新設定的電源
 您可以針對不同類型的機器學習模型重新設定 FPGA。 擁有此種彈性，就更易於依據最佳的數值有效位數和所用的記憶體模型來加速應用程式。 由於 FPGA 可重新設定，因此您可以與 AI 演算法快速變化的需求保持同步。

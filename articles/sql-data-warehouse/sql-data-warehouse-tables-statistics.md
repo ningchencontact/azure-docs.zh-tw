@@ -2,21 +2,21 @@
 title: 建立、更新統計資料 - Azure SQL 資料倉儲 | Microsoft Docs
 description: 建立和更新 Azure SQL 資料倉儲中資料表的查詢最佳化統計資料。
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 05/09/2018
-ms.author: kevin
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937281"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851533"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的資料表統計資料
 
@@ -50,7 +50,7 @@ SET AUTO_CREATE_STATISTICS ON
 - INSERT-SELECT
 - CTAS
 - UPDATE
-- 刪除
+- DELETE
 - 說明當偵測到包含聯結或述詞存在時
 
 > [!NOTE]
@@ -77,7 +77,7 @@ Table_name 是資料表的包含要顯示的統計資料名稱。 不能是外�
 
 |||
 |-|-|
-| **統計資料更新的頻率**  | 保守：每日 </br> 載入或轉換資料之後 |
+| **統計資料更新的頻率**  | 保守：每天 </br> 載入或轉換資料之後 |
 | **取樣** |  小於 1 億個資料列，使用預設取樣 （20%)。 </br> 超過 1 億個資料列，使用兩個 %的取樣。 |
 
 為查詢疑難排解時，首先要詢問的問題之一就是「統計資料是最新的嗎？」
@@ -140,7 +140,7 @@ WHERE
 
 ### <a name="create-single-column-statistics-with-default-options"></a>使用預設選項建立單一資料行統計資料
 
-若要基于某个列创建统计信息，只需提供统计信息对象的名称和列的名称。
+若要建立資料行的統計資料，只需提供統計資料物件的名稱和資料行的名稱。
 
 此語法會使用所有預設選項。 根據預設，SQL 資料倉儲在建立統計資料時會取樣 **20%** 的資料表。
 
@@ -148,7 +148,7 @@ WHERE
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-例如︰
+例如：
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -164,7 +164,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-例如︰
+例如：
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -361,13 +361,13 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 ### <a name="update-one-specific-statistics-object"></a>更新一個特定統計資料物件
 
-使用以下语法来更新特定的统计信息对象：
+使用下列語法來更新特定統計資料物件：
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-例如︰
+例如：
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -383,7 +383,7 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-例如︰
+例如：
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -406,7 +406,7 @@ UPDATE STATISTICS 陳述式很容易使用。 只要記住這會更新資料表�
 
 這些系統檢視提供統計資料的相關資訊：
 
-| 目錄檢視 | 描述 |
+| 目錄檢視 | 說明 |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |每個資料行有一個資料列。 |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |資料庫中每個物件有一個資料列。 |
@@ -420,7 +420,7 @@ UPDATE STATISTICS 陳述式很容易使用。 只要記住這會更新資料表�
 
 這些系統函式很適合用於處理統計資料：
 
-| 系統函式 | 描述 |
+| 系統函式 | 說明 |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |上次更新統計資料物件的日期。 |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |有關統計資料物件所理解之值散發的摘要層級和詳細資訊。 |
@@ -483,7 +483,7 @@ DBCC SHOW_STATISTICS() 顯示統計資料物件中保存的資料。 此資料�
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-例如︰
+例如：
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -497,7 +497,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-例如︰
+例如：
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

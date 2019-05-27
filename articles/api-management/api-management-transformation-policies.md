@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407600"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833420"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理轉換原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -79,7 +79,7 @@ ms.locfileid: "65407600"
 |名稱|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
 |套用|此屬性必須設為下列其中一個值。<br /><br /> -   always - 一律套用轉換。<br />-   content-type-json - 只有當回應中的 Content-type 標頭指出 JSON 存在時才轉換。|有|N/A|
-|consider-accept-header|属性必须设置为以下值之一。<br /><br /> -   true - 如果在要求的 Accept 標頭中要求 JSON，才套用轉換。<br />-   false - 一律套用轉換。|無|true|
+|consider-accept-header|此屬性必須設為下列其中一個值。<br /><br /> -   true - 如果在要求的 Accept 標頭中要求 JSON，才套用轉換。<br />-   false - 一律套用轉換。|無|true|
 |剖析日期|設定為 `false` 時，只會在轉換期間複製日期值|無|true|
 
 ### <a name="usage"></a>使用量
@@ -215,7 +215,7 @@ ms.locfileid: "65407600"
 ```
 
 > [!NOTE]
-> 后端实体可以通过管理 [API](https://docs.microsoft.com/rest/api/apimanagement/backend) 和[PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) 进行管理。
+> 後端實體可以透過管理來管理[API](https://docs.microsoft.com/rest/api/apimanagement/backend)並[PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)。
 
 ### <a name="example"></a>範例
 
@@ -269,11 +269,11 @@ ms.locfileid: "65407600"
 
 |名稱|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
-|base-url|新的後端服務基底 URL。|必须存在 `base-url` 或 `backend-id` 中的一个。|N/A|
-|backend-id|要傳送至的後端識別碼。 （后端实体通过 [API](https://docs.microsoft.com/rest/api/apimanagement/backend) 和 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) 进行管理。）|必须存在 `base-url` 或 `backend-id` 中的一个。|N/A|
+|base-url|新的後端服務基底 URL。|其中一個`base-url`或`backend-id`必須存在。|N/A|
+|backend-id|要傳送至的後端識別碼。 (透過管理後端實體[API](https://docs.microsoft.com/rest/api/apimanagement/backend)並[PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)。)|其中一個`base-url`或`backend-id`必須存在。|N/A|
 |sf-partition-key|僅適用於後端為 Service Fabric 服務並使用 'backend-id' 指定時。 用於從名稱解析服務解析特定資料分割。|無|N/A|
 |sf-replica-type|僅適用於後端為 Service Fabric 服務並使用 'backend-id' 指定時。 控制要求應移至資料分割的主要或次要複本。 |無|N/A|
-|sf-resolve-condition|只有在后端为 Service Fabric 服务时才适用。 識別新的解析是否必須重複呼叫 Service Fabric 後端的條件。|無|N/A|
+|sf-resolve-condition|僅適用於後端為 Service Fabric 服務時。 識別新的解析是否必須重複呼叫 Service Fabric 後端的條件。|無|N/A|
 |sf-service-instance-name|僅適用於後端為 Service Fabric 服務時。 允許在執行階段變更服務執行個體。 |無|N/A|
 |sf-listener-name|僅適用於後端為 Service Fabric 服務並使用 ‘backend-id’ 指定時。 Service Fabric Reliable Services 可讓您在服務中建立多個接聽程式。 後端 Reliable Service 有多個接聽程式時，可使用此屬性來選取特定的接聽程式。 如果未指定此屬性，API 管理會嘗試使用沒有名稱的接聽程式。 沒有名稱的接聽程式通常適用於只有一個接聽程式的 Reliable Services。 |無|N/A|
 
@@ -375,7 +375,7 @@ ms.locfileid: "65407600"
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>使用 Liquid 範本將 JSON 轉換成 SOAP
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -385,7 +385,7 @@ ms.locfileid: "65407600"
 </set-body>
 ```
 
-#### <a name="transform-json-using-a-liquid-template"></a>使用 Liquid 模板转换 JSON
+#### <a name="transform-json-using-a-liquid-template"></a>使用 Liquid 範本的 JSON 轉換
 ```xml
 {
 "order": {
@@ -405,7 +405,7 @@ ms.locfileid: "65407600"
 
 |名稱|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
-|樣板|用來變更設定本文原則將在其中執行的範本化模式。 目前唯一支援的值為：<br /><br />- liquid - 設定本文原則將會使用 Liquid 範本化引擎 |無|liquid|
+|樣板|用來變更設定本文原則將在其中執行的範本化模式。 目前唯一支援的值為：<br /><br />- liquid - 設定本文原則將會使用 Liquid 範本化引擎 |無||
 
 為了存取要求與回應的相關資訊，Liquid 範本可以繫結至具有下列屬性的內容物件： <br />
 <pre>context.
@@ -450,7 +450,7 @@ OriginalUrl.
 ### <a name="usage"></a>使用量
  此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
--   **策略节：** 入站、出站、后端
+-   **原則區段︰** 輸入、輸出、後端
 
 -   **原則範圍︰** 全域、產品、API、作業
 
@@ -573,7 +573,7 @@ OriginalUrl.
 
 |名稱|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
-|exists-action|指定當已指定查詢參數時要採取的動作。 此属性必须具有下列值之一。<br /><br /> -   override - 取代現有參數的值。<br />-   skip - 不取代現有的查詢參數值。<br />-   append - 將值附加至現有查詢參數值之後。<br />-   delete - 移除要求中的查詢參數。<br /><br /> 設為 `override` 時，編列多個相同名稱的項目會導致根據所有項目來設定查詢參數 (列出多次)；只有列出的值才會設定在結果中。|無|override|
+|exists-action|指定當已指定查詢參數時要採取的動作。 此屬性必須具有下列其中一個值。<br /><br /> -   override - 取代現有參數的值。<br />-   skip - 不取代現有的查詢參數值。<br />-   append - 將值附加至現有查詢參數值之後。<br />-   delete - 移除要求中的查詢參數。<br /><br /> 設為 `override` 時，編列多個相同名稱的項目會導致根據所有項目來設定查詢參數 (列出多次)；只有列出的值才會設定在結果中。|無|override|
 |name|指定要設定之查詢參數的名稱。|有|N/A|
 
 ### <a name="usage"></a>使用量

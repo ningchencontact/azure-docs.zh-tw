@@ -12,16 +12,16 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 08920a25fc7213a773ef0d76a5daddbab3f765c2
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866855"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852137"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異
 
-本文汇总并解释了 Azure SQL 数据库托管实例与本地 SQL Server 数据库引擎之间的语法和行为差异。 將討論下列主題： <a name="Differences"></a>
+本文摘要說明，並說明 Azure SQL Database 受控執行個體和內部部署 SQL Server Database Engine 之間的語法和行為差異。 將討論下列主題： <a name="Differences"></a>
 
 - [可用性](#availability)包含的差異[Alwayson](#always-on-availability)並[備份](#backup)。
 - [安全性](#security)包含的差異[稽核](#auditing)，[憑證](#certificates)，[認證](#credential)，[密碼編譯提供者](#cryptographic-providers)，[登入和使用者](#logins-and-users)，而[服務金鑰和服務主要金鑰](#service-key-and-service-master-key)。
@@ -32,7 +32,7 @@ ms.locfileid: "64866855"
 
 受控執行個體的部署選項提供對內部部署 SQL Server 資料庫引擎的高度相容性。 受控執行個體支援大部分的 SQL Server 資料庫引擎功能。
 
-![移轉](./media/sql-database-managed-instance/migration.png)
+![遷移](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>可用性
 
@@ -471,7 +471,7 @@ MSDTC 和[彈性交易](sql-database-elastic-transactions-overview.md)目前並�
 
 ### <a name="tempdb-size"></a>TEMPDB 大小
 
-檔案大小上限的`tempdb`不能大於 24 GB，每個一般用途層上的核心。 最大值`tempdb`業務關鍵層上的大小會限制執行個體儲存體大小。 `tempdb`資料庫一律會分割成 12 個資料檔案。 無法變更此最大的大小，每個檔案，而且可以將新檔案新增至`tempdb`。 有些查詢可能會傳回錯誤，如果他們需要 24 GB 以上每個核心在`tempdb`。
+檔案大小上限的`tempdb`不能大於 24 GB，每個一般用途層上的核心。 最大值`tempdb`業務關鍵層上的大小會限制執行個體儲存體大小。 `tempdb`資料庫一律會分割成 12 個資料檔案。 無法變更每個檔案最大，而且無法加入新檔案`tempdb`。 有些查詢可能會傳回錯誤，如果他們需要 24 GB 以上每個核心在`tempdb`。 `tempdb` 一定會重新建立為空的資料庫執行個體啟動或容錯移轉和任何變更時建立在`tempdb`將不予保留。 
 
 ### <a name="cant-restore-contained-database"></a>無法還原自主的資料庫
 
@@ -479,7 +479,7 @@ MSDTC 和[彈性交易](sql-database-elastic-transactions-overview.md)目前並�
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>小型資料庫檔案造成儲存空間超出限制
 
-`CREATE DATABASE`、`ALTER DATABASE ADD FILE` 和 `RESTORE DATABASE` 语句可能会失败，因为实例可能会达到 Azure 存储限制。
+`CREATE DATABASE``ALTER DATABASE ADD FILE`，和`RESTORE DATABASE`陳述式可能會失敗，因為執行個體可以連線到 Azure 儲存體限制。
 
 每個一般目的受控執行個體具有最多 35 TB 的儲存體保留給 Azure 進階磁碟空間。 每個資料庫檔案會放在不同的實體磁碟。 磁碟大小可以是 128 GB、256 GB、512 GB、1 TB 或 4 TB。 未使用的磁碟空間不收費，但 Azure 進階磁碟大小總計的總和不得超過 35 TB。 在某些情況下，總計不需 8 TB 的 managed 執行個體可能會超過的 35 TB 的 Azure 限制因內部分散的儲存體大小。
 

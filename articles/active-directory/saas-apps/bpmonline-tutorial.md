@@ -17,15 +17,15 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e2bc30a5b856cba5f1fcca254603c35dfd3764d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563621"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>教學課程：Azure Active Directory 與 Bpm’online 整合
 
-在此教學課程中，您將了解如何整合 Bpm’online 與 Azure Active Directory (Azure AD)。
+在本教學課程中，您將了解如何整合 Bpm’online 與 Azure Active Directory (Azure AD)。
 將 Bpm’online 與 Azure AD 整合可提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Bpm’online 的人員。
@@ -44,7 +44,7 @@ ms.locfileid: "59563621"
 
 ## <a name="scenario-description"></a>案例描述
 
-在此教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * Bpm’online 支援由 **SP 和 IDP** 起始的 SSO
 
@@ -86,7 +86,7 @@ ms.locfileid: "59563621"
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在此節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
+在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
 若要搭配 Bpm’online 設定 Azure AD 單一登入，請執行下列步驟：
 
@@ -129,7 +129,7 @@ ms.locfileid: "59563621"
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
-此節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
@@ -153,7 +153,7 @@ ms.locfileid: "59563621"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在此節中，您會將 Bpm’online 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 Bpm’online 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Bpm’online]。
 
@@ -179,11 +179,11 @@ ms.locfileid: "59563621"
 
 ### <a name="create-bpmonline-test-user"></a>建立 Bpm’online 測試使用者
 
-在此節中，您會在 Bpm’online 中建立名為 Britta Simon 的使用者。 請與  [Bpm’online 支援小組](mailto:support@bpmonline.com)合作，在 Bpm’online 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Bpm’online 中建立名為 Britta Simon 的使用者。 請與  [Bpm’online 支援小組](mailto:support@bpmonline.com)合作，在 Bpm’online 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 
-在此節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Bpm’online] 圖格時，應該會自動登入您已設定 SSO 的 Bpm’online。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 

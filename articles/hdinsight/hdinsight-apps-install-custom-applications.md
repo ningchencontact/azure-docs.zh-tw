@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: ec2e53624ad48650f922439c5f16d1cf1f25c280
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0acac29ee49bc94c195d0e13e55fff3a735ad36b
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706380"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859819"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝自訂的 Apache Hadoop 應用程式
 
@@ -116,8 +116,8 @@ HDInsight 應用程式可以在您建立叢集時安裝，或安裝至現有的 
 ### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 使用 Azure PowerShell，您就可以刪除叢集或刪除資源群組。 請參閱 [使用 Azure PowerShell 刪除叢集](hdinsight-administer-use-powershell.md#delete-clusters)。
 
-### <a name="use-azure-classic-cli"></a>使用 Azure 傳統 CLI
-使用 Azure 傳統 CLI，您就可以刪除叢集或刪除資源群組。 請參閱[使用 Azure 傳統 CLI 刪除叢集](hdinsight-administer-use-command-line.md#delete-clusters)。
+### <a name="use-azure-cli"></a>使用 Azure CLI
+使用 Azure CLI，您就可以刪除叢集或刪除資源群組。 請參閱 [使用 Azure CLI 刪除叢集](hdinsight-administer-use-command-line.md#delete-clusters)。
 
 ## <a name="next-steps"></a>後續步驟
 * [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)︰了解如何開發 Resource Manager 範本以供部署 HDInsight 應用程式。

@@ -16,11 +16,11 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eaa00690cab2cf8bc1ef7c1c3ab279a9f59fcabf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65858547"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>教學課程：Azure Active Directory 與 SAML SSO for Bitbucket by resolution GmbH 整合
 
@@ -36,7 +36,7 @@ SAML SSO for Bitbucket by resolution GmbH 與 Azure AD 整合提供下列優點�
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 SAML SSO for Bitbucket by resolution GmbH 的整合，您需要下列項目：
+若要設定 Azure AD 與 SAML SSO for Bitbucket by resolution GmbH 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 SAML SSO for Bitbucket by resolution GmbH 單一登入的訂用帳戶
@@ -76,7 +76,7 @@ SAML SSO for Bitbucket by resolution GmbH 與 Azure AD 整合提供下列優點�
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 SAML SSO for Bitbucket by resolution GmbH 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 SAML SSO for Bitbucket by resolution GmbH 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 SAML SSO for Bitbucket by resolution GmbH 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 SAML SSO for Bitbucket by resolution GmbH 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 SAML SSO for Bitbucket by resolution GmbH 單一登入](#configure-saml-sso-for-bitbucket-by-resolution-gmbh-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -91,7 +91,7 @@ SAML SSO for Bitbucket by resolution GmbH 與 Azure AD 整合提供下列優點�
 
 若要設定與 SAML SSO for Bitbucket by resolution GmbH 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [SAML SSO for Bitbucket by resolution GmbH] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [SAML SSO for Bitbucket by resolution GmbH] 應用程式整合頁面中，選取 [單一登入]。
 
     ![設定單一登入連結](common/select-sso.png)
 
@@ -105,7 +105,7 @@ SAML SSO for Bitbucket by resolution GmbH 與 Azure AD 整合提供下列優點�
 
 4. 若您想要以 **IDP** 起始模式設定應用程式，請在 [基本 SAML 組態] 區段執行下列步驟：
 
-    ![SAML SSO for Bitbucket by resolution GmbH 網域及 URL 單一登入資訊](common/idp-intiated.png)
+    ![SAML SSO for Bitbucket by resolution GmbH 網域和 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -113,7 +113,7 @@ SAML SSO for Bitbucket by resolution GmbH 與 Azure AD 整合提供下列優點�
 
     c. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![SAML SSO for Bitbucket by resolution GmbH 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![SAML SSO for Bitbucket by resolution GmbH 網域和 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -199,7 +199,7 @@ SAML SSO for Bitbucket by resolution GmbH 與 Azure AD 整合提供下列優點�
 
 2. 在應用程式清單中輸入 [SAML SSO for Bitbucket by resolution GmbH]，並加以選取。
 
-    ![應用程式清單中的 [SAML SSO for Bitbucket by resolution GmbH] 連結](common/all-applications.png)
+    ![應用程式清單中的 SAML SSO for Bitbucket by resolution GmbH](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

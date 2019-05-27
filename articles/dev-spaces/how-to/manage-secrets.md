@@ -9,12 +9,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker、Kubernetes、Azure、AKS、Azure Container Service、容器
-ms.openlocfilehash: 9fe29e8717c76c353f3e95d4693011f3925c4e1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ee50289083b12b7b2abd3b9ece2c8de345df9fe
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686435"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851423"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>如何在使用 Azure 開發人員空間時管理祕密
 
@@ -24,7 +24,7 @@ Azure 開發人員空間提供兩個儲存秘密的建議選項：儲存在 valu
  
 ## <a name="method-1-valuesdevyaml"></a>方法 1：values.dev.yaml
 1. 透過可使用 Azure 開發人員空間的專案來開啟 VS Code。
-2. 在現有 _values.yaml_ 的所在位置中，新增名為 _values.dev.yaml_ 的檔案，並定義您的祕密金鑰和值，如下列範例所示：
+2. 新增名為的檔案_values.dev.yaml_現有的相同資料夾中_azds.yaml_並定義您的祕密金鑰和值，如下列範例所示：
 
     ```yaml
     secrets:
@@ -34,12 +34,13 @@ Azure 開發人員空間提供兩個儲存秘密的建議選項：儲存在 valu
         key: "secretkeyhere"
     ```
      
-3. 更新 _azds.yaml_ 以告知 Azure 開發人員空間使用新的 _values.dev.yaml_ 檔案。 若要這樣做，請在 configurations.develop.container 區段下新增此組態：
+3. _azds.yaml_已經參考_values.dev.yaml_檔案若有的話。 如果您偏好不同的檔案名稱，更新 install.values 區段：
 
     ```yaml
-           container:
-             values:
-             - "charts/webfrontend/values.dev.yaml"
+    install:
+      values:
+      - values.dev.yaml?
+      - secrets.dev.yaml?
     ```
  
 4. 修改您的服務程式碼，以便將這些祕密當作環境變數來參考，如下列範例所示：
@@ -76,17 +77,17 @@ Azure 開發人員空間提供兩個儲存秘密的建議選項：儲存在 valu
           set:
             secrets:
               redis:
-                port: "$REDIS_PORT_DEV"
-                host: "$REDIS_HOST_DEV"
-                key: "$REDIS_KEY_DEV"
+                port: "$REDIS_PORT"
+                host: "$REDIS_HOST"
+                key: "$REDIS_KEY"
     ```
      
 2.  在 _azds.yaml_ 所在的資料夾中建立 _.env_ 檔案。 使標準的「索引鍵=值」標記法來輸入祕密。 請不要將 _.env_ 檔案認可至原始檔控制。 (若要從 git 版控制系統的原始檔控制中移除，請將該檔案新增至 _.gitignore_ 檔案。)_.env_ 檔案如下列範例所示：
 
     ```
-    REDIS_PORT_DEV=3333
-    REDIS_HOST_DEV=myredishost
-    REDIS_KEY_DEV=myrediskey
+    REDIS_PORT=3333
+    REDIS_HOST=myredishost
+    REDIS_KEY=myrediskey
     ```
 2.  修改您服務的原始程式碼，以在程式碼中參考這些祕密，如下列範例所示：
 

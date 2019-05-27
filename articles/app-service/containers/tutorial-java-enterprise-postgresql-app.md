@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 472ff85adaf72f91948c4072b12cca3ff8e59f37
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 6b9c9500423392ec07482f049697d9b49dc060bf
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545345"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603197"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java EE 和 Postgres Web 應用程式
 
@@ -158,7 +158,7 @@ az postgres server create -n <desired-name> -g <same-resource-group> --sku-name 
 
 ## <a name="configure-the-wildfly-application-server"></a>設定 WildFly 應用程式伺服器
 
-在部署重新設定過的應用程式之前，我們必須先使用 Postgres 模組和其相依性來更新 WildFly 應用程式伺服器。 您可以在[設定 WildFly 伺服器](configure-language-java.md#configure-wildfly-server)中找到組態的詳細資訊。
+在部署重新設定過的應用程式之前，我們必須先使用 Postgres 模組和其相依性來更新 WildFly 應用程式伺服器。 您可以在[設定 WildFly 伺服器](configure-language-java.md#configure-java-ee-wildfly)中找到組態的詳細資訊。
 
 若要設定伺服器，我們需要 `wildfly_config/` 目錄中的四個檔案：
 

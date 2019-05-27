@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/24/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad6570a3f30e40e4074502a8ce85bf739f58d3f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 312658bd653d94f3e1a32204b3c5ae4ae290558e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866429"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832628"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權限管理 （預覽） 中建立新的存取封裝
 
@@ -112,7 +112,7 @@ ms.locfileid: "64866429"
 
 [!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
 
-## <a name="review--create"></a>檢閱 + 建立
+## <a name="review--create"></a>檢閱及建立
 
 在 **檢閱 + 建立**索引標籤上，您可以檢閱您的設定和檢查是否有任何驗證錯誤。
 
@@ -126,5 +126,5 @@ ms.locfileid: "64866429"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [編輯和管理現有的存取封裝](entitlement-management-access-package-edit.md)
+- [編輯和管理現有的存取套件](entitlement-management-access-package-edit.md)
 - [建立和管理目錄](entitlement-management-catalog-create.md)

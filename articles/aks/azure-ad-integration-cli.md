@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920173"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835193"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>整合 Azure Active Directory 以 Azure Kubernetes 服務使用 Azure CLI
 
@@ -25,7 +25,6 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 套用下列限制：
 
 - 只有建立啟用 RBAC 功能的新叢集時，才能啟用 Azure AD。 您無法在現有的 AKS 叢集上啟用 Azure AD。
-- *客體*使用者在 Azure AD 中，例如，如果您使用不同的目錄中，從同盟的登入不支援。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -79,7 +78,7 @@ serverApplicationSecret=$(az ad sp credential reset \
 Azure AD 需要權限來執行下列動作：
 
 * 讀取目錄資料
-* 登入及讀取使用者設定檔
+* 登入及讀取使用者個人檔案
 
 指派這些權限[az ad 應用程式權限新增][ az-ad-app-permission-add]命令：
 
@@ -237,8 +236,9 @@ kube-system   tunnelfront-6ff887cffb-xkfmq            1/1     Running   0       
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* 使用者因為無法在您登*客體*（這通常是如果您使用不同的目錄的同盟登入） 的 Azure AD 執行個體中。
+* 您可以定義適當的物件識別碼或 UPN，取決於使用者帳戶是否在相同的 Azure AD 租用戶中。
 * 使用者不是 200 個以上的群組成員。
+* 伺服器的應用程式註冊中所定義的密碼符合使用所設定的值 `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>後續步驟
 

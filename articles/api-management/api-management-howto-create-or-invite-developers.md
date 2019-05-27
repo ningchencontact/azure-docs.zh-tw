@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 362df8cee163bcd2d1dac73c650e42ee4f0f7751
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3d50746324ddac21f222d4c743f4b7bf6ee9b773
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920109"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864811"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>如何在 Azure API 管理中管理使用者帳戶
 
-在 API 管理中，開發人員是指您使用 API 管理所公開之 API 的使用者。 本指南演示如何创建和邀请开发人员使用通过 API 管理实例向其提供的 API 和产品。 如需以程式設計方式管理使用者帳戶的相關資訊，請參閱 [API 管理 REST](/rest/api/apimanagement/) 參考中的[使用者實體](https://docs.microsoft.com/rest/api/apimanagement/user)文件。
+在 API 管理中，開發人員是指您使用 API 管理所公開之 API 的使用者。 本指南示範如何建立並邀請開發人員使用您以 API 管理執行個體提供給他們的 API 和產品。 如需以程式設計方式管理使用者帳戶的相關資訊，請參閱 [API 管理 REST](/rest/api/apimanagement/) 參考中的[使用者實體](https://docs.microsoft.com/rest/api/apimanagement/user)文件。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
-完成此文中的任务：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
+完成這篇文章中的工作：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -53,7 +53,7 @@ ms.locfileid: "64920109"
 
 這時會顯示確認訊息，但剛獲邀的開發人員在尚未接受邀請之前，都不會出現在清單中。 
 
-邀請開發人員時，有一封電子郵件會傳送給開發人員。 此电子邮件使用模板生成并可自定义。 如需詳細資訊，請參閱 [設定電子郵件範本][Configure email templates]。
+邀請開發人員時，有一封電子郵件會傳送給開發人員。 此電子郵件是以範本產生，可自訂。 如需詳細資訊，請參閱 [設定電子郵件範本][Configure email templates]。
 
 接受邀請時，帳戶就會變成作用中。
 
@@ -69,7 +69,7 @@ ms.locfileid: "64920109"
 
 ## <a name="reset-a-user-password"></a>重設使用者密碼
 
-若要以程式設計方式使用使用者帳戶，請參閱 [API 管理 REST](/rest/api/apimanagement/) 參考中的[使用者實體](https://docs.microsoft.com/rest/api/apimanagement/user)文件。 若要將使用者帳戶密碼重設為特定值，您可以使用 [更新使用者](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) 作業並指定所要的密碼。
+若要以程式設計方式使用使用者帳戶，請參閱中的使用者實體文件[API 管理 REST API](/rest/api/apimanagement/)參考。 若要將使用者帳戶密碼重設為特定值，您可以使用 [更新使用者](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) 作業並指定所要的密碼。
 
 ## <a name="next-steps"> </a>後續步驟
 建立開發人員帳戶之後，您可以將它與角色建立關聯，並讓它訂閱產品和 API。 如需詳細資訊，請參閱[如何建立和使用群組][How to create and use groups]。

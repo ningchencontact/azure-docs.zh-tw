@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 963769315302ba4e7d1600253b617c7cb0f02bc5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257224"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794251"
 ---
 # <a name="what-is-qna-maker"></a>什麼是 QnA Maker？
 
@@ -57,7 +57,7 @@ QnA Maker 可為您的資料提供兩項主要服務：
 
 QnA Maker 架構由下列兩個元件組成：
 
-1. **QnA Maker 管理服務**：QnA Maker 知識庫的管理體驗，其中包含初始建立、更新、訓練及發佈。 這些活動可以透過[入口網站](https://qnamaker.ai)或[管理 API](https://aka.ms/qnamaker-v4-apis) 來完成。 
+1. **QnA Maker 管理服務**：QnA Maker 知識庫的管理體驗，其中包含初始建立、更新、訓練及發佈。 這些活動可以透過[入口網站](https://qnamaker.ai)或[管理 API](https://go.microsoft.com/fwlink/?linkid=2092179) 來完成。 
 
 2. **QnA Maker 資料和執行階段**：這會部署在指定區域中的 Azure 訂用帳戶。 您的 KB 內容儲存在 [Azure 搜尋服務](https://azure.microsoft.com/services/search/)中，而且端點會部署為[應用程式服務](https://azure.microsoft.com/services/app-service/)。 您也可以選擇部署 [Application Insights](https://azure.microsoft.com/services/application-insights/) 資源來進行分析。
 

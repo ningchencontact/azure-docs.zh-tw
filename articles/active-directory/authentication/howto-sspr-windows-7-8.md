@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08794a7605ffbd3cd5d4b021b783f32afb190727
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414654"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861586"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>作法：從 Windows 7、8 和 8.1 啟用密碼重設
 
@@ -35,7 +35,7 @@ ms.locfileid: "60414654"
 > [!WARNING]
 > 必須啟用 TLS 1.2，而不能只是設定為自動交涉。
 
-## <a name="install"></a>Install
+## <a name="install"></a>安裝
 
 1. 下載適用於所要啟用 Windows 版本的安裝程式。
 
@@ -60,6 +60,8 @@ ms.locfileid: "60414654"
 ![重設密碼所需要的其他安全性資訊](media/howto-sspr-windows-7-8/windows-7-sspr-need-security-info.png)
 
 在此初始版本中，無法使用 Microsoft Authenticator 應用程式獲取通知和程式碼來重設密碼。 使用者必須註冊可符合原則需求的替代方法。
+
+如果您的電腦上啟用多個第 3 個合作對象認證提供者時，使用者會看到一個以上的使用者設定檔登入畫面。
 
 ## <a name="troubleshooting"></a>疑難排解
 

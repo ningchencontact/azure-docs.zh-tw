@@ -16,11 +16,11 @@ ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eba63f8295fb5bebffdc8480f763c852521e331b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65859266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>教學課程：Azure Active Directory 與 ADP
 
@@ -36,7 +36,7 @@ ms.locfileid: "57880903"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 ADP 的整合，您需要下列項目：
+若要設定 Azure AD 與 ADP 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 ADP 單一登入的訂用帳戶
@@ -115,7 +115,7 @@ ms.locfileid: "57880903"
 
 5. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![ADP 網域及 URL 單一登入資訊](common/idp-identifier.png)
+    ![ADP 網域與 URL 單一登入資訊](common/idp-identifier.png)
 
     在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：`https://fed.adp.com`
 
@@ -123,7 +123,7 @@ ms.locfileid: "57880903"
 
     會透過 **employeeid** 完成從 Azure AD 到 ADP 的使用者對應，但您也可以根據應用程式設定，將其對應到不同的值。 因此，請先與 [ADP 支援小組](https://www.adp.com/contact-us/overview.aspx)合作以使用正確的使用者識別碼，然後將該值與 **"PersonImmutableID"** 宣告對應。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
     
@@ -276,7 +276,7 @@ ms.locfileid: "57880903"
 
 2. 在應用程式清單中，輸入 **ADP** 並加以選取。
 
-    ![應用程式清單中的 [ADP] 連結](common/all-applications.png)
+    ![應用程式清單中的 ADP 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

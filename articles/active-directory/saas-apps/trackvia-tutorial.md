@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: a04622d0c35a93d954dcca38859ea3a48a8d5416
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865975"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>教學課程：Azure Active Directory 與 TrackVia 整合
 

@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d02318db4deae6f0a6acdae9382ce47116c95110
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 416bebc070cfcad52c6180e65f0066c46c826cbe
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800860"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849654"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps:使用 Azure Machine Learning Service 來管理、部署及監視模型
 
@@ -72,7 +72,7 @@ MLOps / 部署工作流程包含下列步驟：
 
 ### <a name="iot-edge-devices"></a>IoT Edge 裝置
 
-您可以使用模型與 IoT 裝置，透過**Azure IoT Edge 模組**。 IoT Edge 模組部署到硬體裝置，可在裝置上的推斷。
+您可以使用模型與 IoT 裝置，透過**Azure IoT Edge 模組**。 IoT Edge 模組部署到啟用推斷或模型評分，在裝置上的硬體裝置。
 
 如需詳細資訊，請參閱 <<c0> [ 部署模型](how-to-deploy-and-where.md)。
 

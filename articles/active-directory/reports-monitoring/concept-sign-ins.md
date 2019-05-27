@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287887"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864460"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -100,7 +100,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 - Application
 - 登入狀態
 - 條件式存取
-- date
+- Date
 
 ![登入活動](./media/concept-sign-ins/04.png "登入活動")
 
@@ -131,21 +131,28 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 當您選取自訂時間範圍時，可以設定開始時間和結束時間。
 
-如果您將其他欄位新增至您的登入檢視，這些欄位就會自動新增至篩選條件清單。 例如，藉由將 [用戶端應用程式] 欄位新增至您的清單，同時也會取得其他篩選選項，可讓您設定下列篩選條件：
-
-- [瀏覽器]      
-- Exchange ActiveSync (支援)               
-- Exchange ActiveSync (不支援)
-- 其他用戶端               
-    - IMAP
-    - MAPI
-    - 舊版 Office 用戶端
-    - POP
-    - SMTP
-
-
+如果您將其他欄位新增至您的登入檢視，這些欄位就會自動新增至篩選條件清單。 例如，藉由將 [用戶端應用程式] 欄位新增至您的清單，同時也會取得其他篩選選項，可讓您設定下列篩選條件：  
 ![登入活動](./media/concept-sign-ins/12.png "登入活動")
 
+- **[瀏覽器]**  
+    此篩選會顯示所有事件，請登入嘗試使用瀏覽器流程所執行。
+- **Exchange ActiveSync （支援）**  
+    此篩選會顯示所有登入嘗試的 Exchange ActiveSync (EAS) 通訊協定已嘗試從支援的平台，例如 iOS、 Android 和 Windows Phone。
+- **Exchange ActiveSync （不支援）**  
+    此篩選會顯示所有登入嘗試的 EAS 通訊協定已嘗試從像是 Linux 散發版本不支援的平台。
+- **行動應用程式和桌面用戶端**此篩選會顯示所有登入嘗試未使用的瀏覽器流程。 這可以是從任何平台上使用任何通訊協定或桌面用戶端應用程式，例如在 Windows 或 MacOS 上的 Office 行動裝置的應用程式。
+  
+- **其他用戶端**
+    - **IMAP**  
+        舊版的郵件用戶端使用 IMAP 擷取電子郵件。
+    - **MAPI**  
+        Office 2013，其中 ADAL 已啟用，而且它使用 MAPI。
+    - **舊版 Office 用戶端**  
+        在未啟用 ADAL，其預設組態中的 office 2013 使用 MAPI 或 Office 2016 ADAL 其中已停用。
+    - **POP**  
+        舊版的郵件用戶端使用 POP3 擷取電子郵件。
+    - **SMTP**  
+        舊版的郵件用戶端使用 SMTP 來傳送電子郵件。
 
 ## <a name="download-sign-in-activities"></a>下載登入活動
 
@@ -183,7 +190,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 按一下項目，即可取得有關登入作業的更多詳細資料：
 
-- 使用者識別碼
+- 使用者 ID
 - 使用者
 - 使用者名稱
 - 應用程式識別碼
@@ -191,7 +198,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 - 用戶端
 - 位置
 - IP 位址
-- date
+- Date
 - 需要 MFA
 - 登入狀態
 
@@ -230,7 +237,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ## <a name="office-365-activity-logs"></a>Office 365 活動記錄
 
-可以从 [Microsoft 365 管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)查看 Office 365 活动日志。 尽管 Office 365 活动和 Azure AD 活动日志共享大量的目录资源，但只有 Microsoft 365 管理中心提供 Office 365 活动日志的完整视图。 
+您可以檢視從 Office 365 活動記錄[Microsoft 365 系統管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)。 即使 Office 365 活動和 Azure AD 活動記錄共用許多目錄資源，只在 Microsoft 365 系統管理中心會提供 Office 365 活動記錄檔的完整檢視。 
 
 您也可以透過使用 [Office 365 管理 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)，以程式設計的方式存取 Office 365 活動記錄。
 

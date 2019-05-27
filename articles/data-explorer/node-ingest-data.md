@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: d530ed3710a3406e5cd8115d615e91d5056a5f8c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 42a4d2e34eab3679f98d5a62099ab57e5924fcc3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047648"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800430"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>快速入門：使用 Azure 資料總管 Node 程式庫擷取資料
 
@@ -33,7 +33,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 安裝 *azure-kusto-ingest* 和 *azure-kusto-data*
 
 ```bash
-npm i --save azure-kusto-ingest azure-kusto-data
+npm i azure-kusto-ingest azure-kusto-data
 ```
 
 ## <a name="add-import-statements-and-constants"></a>新增 Import 陳述式和常數

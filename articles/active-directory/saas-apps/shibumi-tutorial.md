@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 445e24732edc1bc7e4d1cfe3ff49a54115c7ea3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65867459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shibumi"></a>教學課程：Azure Active Directory 與 Shibumi 整合
 

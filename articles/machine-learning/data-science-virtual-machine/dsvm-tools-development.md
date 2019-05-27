@@ -16,77 +16,77 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 7983169c2b1123c57a48471e3f4d9ad6f19c84dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4e101e45dc1641c5731e246f7fdeeb37ebc0823
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502294"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864407"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>資料科學虛擬機器的開發工具
 
 資料科學虛擬機器 (DSVM) 提供組合數個常用工具和 IDE 的開發生產環境。 以下是 DSVM 提供的一些工具。 
 
-## <a name="visual-studio-2017"></a>Visual Studio 2017  
+## <a name="visual-studio-2019"></a>Visual Studio 2019  
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 一般用途 IDE      |
+| 這是什麼?   | 一般用途 IDE      |
 | 支援的 DSVM 版本      |  Windows      |
 | 典型的使用案例      | 軟體開發    |
 | 它是如何在 DSVM 上設定/安裝的？      | 資料科學工作負載 (Python 和 R 工具)、Azure 工作負載 (Hadoop、Data Lake)、Node.js、SQL Server 工具、[適用於 Visual Studio Code 的 Azure Machine Learning](https://github.com/Microsoft/vs-tools-for-ai)    |
-| 如何使用/執行它？      | 桌面捷徑 (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
+| 如何使用/執行它？      | 桌面捷徑 (`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`)    |
 | DSVM 上的相關工具      |     Visual Studio Code、RStudio、Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 一般用途 IDE      |
+| 這是什麼?   | 一般用途 IDE      |
 | 支援的 DSVM 版本      | Windows、Linux     |
 | 典型的使用案例      | 程式碼編輯器和 Git 整合   |
 | 如何使用/執行它？      | Windows 的桌面捷徑 (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`)、Linux 的桌面捷徑或終端機 (`code`)    |
-| DSVM 上的相關工具      |     Visual Studio 2017、RStudio、Juno  |
+| DSVM 上的相關工具      |     Visual Studio 2019, RStudio, Juno  |
 
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 適用於 R 的用戶端 IDE    |
+| 這是什麼?   | 適用於 R 的用戶端 IDE    |
 | 支援的 DSVM 版本      | Windows、Linux      |
 | 典型的使用案例      |  R 開發     |
 | 如何使用/執行它？      | Windows 的桌面捷徑 (`C:\Program Files\RStudio\bin\rstudio.exe`)、Linux 的桌面捷徑 (`/usr/bin/rstudio`)      |
-| DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、Juno      |
+| DSVM 上的相關工具      |   Visual Studio 2019, Visual Studio Code, Juno      |
 
 ## <a name="rstudio--server"></a>RStudio  Server 
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 適用於 R 的網頁型 IDE    |
+| 這是什麼?   | 適用於 R 的網頁型 IDE    |
 | 支援的 DSVM 版本      |  Linux      |
 | 典型的使用案例      |  R 開發     |
 | 如何使用/執行它？      | 使用 systemctl enable rstudio-server 來啟用服務，然後使用 systemctl start rstudio-server 來啟動服務。 您可以再登入 RStudio server http:\// 您的 vm-ip:8787。       |
-| DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、RStudio Desktop      |
+| DSVM 上的相關工具      |   Visual Studio 2019, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | Julia 語言的用戶端 IDE   |
+| 這是什麼?   | Julia 語言的用戶端 IDE   |
 | 支援的 DSVM 版本      | Windows、Linux      |
 | 典型的使用案例      |  Julia 開發     |
 | 如何使用/執行它？      | Windows 的桌面捷徑 (`C:\JuliaPro-0.5.1.1\Juno.bat`)、Linux 的桌面捷徑 (`/opt/JuliaPro-VERSION/Juno`)      |
-| DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、RStudio      |
+| DSVM 上的相關工具      |   Visual Studio 2019, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | Python 語言的用戶端 IDE    |
+| 這是什麼?   | Python 語言的用戶端 IDE    |
 | 支援的 DSVM 版本      |  Linux      |
 | 典型的使用案例      |  Python 開發     |
 | 如何使用/執行它？      | Linux 的桌面捷徑 (`/usr/bin/pycharm`)      |
-| DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、RStudio      |
+| DSVM 上的相關工具      |   Visual Studio 2019, Visual Studio Code, RStudio      |
 
 
 
@@ -94,9 +94,9 @@ ms.locfileid: "60502294"
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 互動式資料視覺效果和 BI 工具    |
+| 這是什麼?   | 互動式資料視覺效果和 BI 工具    |
 | 支援的 DSVM 版本      |  Windows  |
 | 典型的使用案例      |  資料視覺效果和建立儀表板   |
 | 如何使用/執行它？      | 桌面捷徑 (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、Juno      |
+| DSVM 上的相關工具      |   Visual Studio 2019, Visual Studio Code, Juno      |
 

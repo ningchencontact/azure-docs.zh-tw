@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 828de7e3e91a0ccdc123dc893dce158d644c5d38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57876947"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adoddle-csaas-platform"></a>教學課程：Azure Active Directory 與 Adoddle cSaas Platform 整合
 
@@ -76,7 +76,7 @@ Adoddle cSaas Platform 與 Azure AD 整合可提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Adoddle cSaas Platform 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Adoddle cSaas Platform 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Adoddle cSaas Platform 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Adoddle cSaas Platform 搭配運作的 Azure AD 單一登入，您必須完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Adoddle cSaas Platform 單一登入](#configure-adoddle-csaas-platform-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -105,7 +105,7 @@ Adoddle cSaas Platform 與 Azure AD 整合可提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
-    ![Adoddle cSaas Platform 網域及 URL 單一登入資訊](common/preintegrated.png)
+    ![Adoddle cSaas Platform 網域和 URL 單一登入資訊](common/preintegrated.png)
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -160,7 +160,7 @@ Adoddle cSaas Platform 與 Azure AD 整合可提供下列優點：
 
 2. 在應用程式清單中，選取 [Adoddle cSaas Platform]。
 
-    ![應用程式清單中的 [Adoddle cSaas Platform] 連結](common/all-applications.png)
+    ![應用程式清單中的 Adoddle cSaas Platform 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 77e58ea830de1e8ab7e3643ee5694a5e3f609c53
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: dda1447a049071a0871079f2cabd046ed7c479d6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564912"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>教學課程：Azure Active Directory 與 FM:Systems 整合
 
@@ -107,7 +107,7 @@ FM:Systems 與 Azure AD 整合提供下列優點：
     在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
     
     > [!NOTE]
-    > 這不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [FM:Systems 客戶支援小組](https://fmsystems.com/ask-us/) \(英文\) 以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [FM:Systems 客戶支援小組](https://fmsystems.com/support-services/) \(英文\) 以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -125,7 +125,7 @@ FM:Systems 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-fmsystems-single-sign-on"></a>設定 FM:Systems 單一登入
 
-若要在 **FM:Systems** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [FM:Systems 支援小組](https://fmsystems.com/ask-us/) \(英文\)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **FM:Systems** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [FM:Systems 支援小組](https://fmsystems.com/support-services/) \(英文\)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 

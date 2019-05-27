@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: 89df3a981ba3710e848f834c303772e94e10b139
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947187"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000962"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>請重寫應用程式閘道的 HTTP 標頭
 
@@ -60,7 +60,7 @@ HTTP 標頭可讓用戶端和伺服器，將與要求或回應的其他資訊。
 
 應用程式閘道支援這些伺服器變數：
 
-| 變數名稱 | 描述                                                  |
+| 變數名稱 | 說明                                                  |
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | 使用 X 轉送的用戶端要求標頭欄位`client_ip`變數 （請參閱本表中的稍後說明） 附加於格式 IP1，IP2、 lt;ip3，等等。 如果 X 轉送的欄位不是在用戶端要求標頭`add_x_forwarded_for_proxy`變數等於`$client_ip`變數。 當您想要重寫應用程式閘道所設定，以便標頭包含只有不含連接埠資訊的 IP 位址 X 轉送的標頭，此變數會特別有用。 |
 | ciphers_supported          | 一份支援的用戶端的密碼。          |
@@ -157,9 +157,7 @@ HTTP 標頭可讓用戶端和伺服器，將與要求或回應的其他資訊。
 
 - 標頭名稱可以包含任何英數字元和特定符號，如同[RFC 7230](https://tools.ietf.org/html/rfc7230#page-27)。 我們目前不支援底線 (\_) 標頭名稱中的特殊字元。
 
-## <a name="need-help"></a>需要協助嗎？
-
-與我們連絡[ AGHeaderRewriteHelp@microsoft.com ](mailto:AGHeaderRewriteHelp@microsoft.com)如果您需要這項功能的協助。
+- 如果回應包含具有相同名稱的多個標頭，然後重寫其中一個這些標頭的值會導致在回應中卸除其他標頭。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,18 +10,18 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 19873256f8253fff75cfd42df7b876106a9e98e5
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 70f9c34957b977aff9fc6211bf79415ed9abe255
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464782"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016516"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>開始使用適用於 Visual Studio Code 的 Azure Machine Learning
 
-在本文中，您將了解如何使用適用於 Visual Studio Code 的 Azure Machine learning 的延伸模組來定型和部署機器學習和深入學習 Visual Studio Code 中使用 Azure Machine Learning 服務的模型。
+在本文中，您將了解如何使用適用於 Visual Studio Code 的 Azure Machine learning 的延伸模組來定型和部署機器學習和深度學習模型。
 
-Azure Machine Learning 服務在本機和遠端計算目標上執行的實驗支援。 對於每個實驗，您可以持續追蹤多個回合，因為您通常需要反覆嘗試不同的技術、超參數和更多功能。 您可以使用 Azure Machine Learning 來追蹤自訂計量和實驗回合，從而能夠重現與稽核資料科學。
+[Azure Machine Learning 服務](overview-what-is-azure-ml.md)提供支援，針對您在本機和遠端執行的實驗的計算目標。 對於每個實驗，您可以持續追蹤多個回合，因為您通常需要反覆嘗試不同的技術、超參數和更多功能。 您可以使用 Azure Machine Learning 來追蹤自訂計量和實驗回合，從而能夠重現與稽核資料科學。
 
 您也可以部署這些模型，針對您測試和生產環境的需求。
 
@@ -69,13 +69,13 @@ Azure Machine Learning 服務在本機和遠端計算目標上執行的實驗支
 
    ![選擇解譯器](./media/vscode-tools-for-ai/python.png)
 
-1. 在視窗的右下角，通知隨即出現，指出 Azure 機器學習服務 SDK 會自動安裝。 新建立的 Python 環境為本機和私用，而且其使用 Azure Machine Learning 服務的 Visual Studio Code 必要條件。
+1. 在視窗的右下角，通知會出現，表示[Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)自動安裝。 新建立的 Python 環境為本機和私用，而且其使用 Azure Machine Learning 服務的 Visual Studio Code 必要條件。
 
    ![安裝適用於 Python 的 Azure Machine Learning SDK](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>開始使用 Azure Machine Learning
 
-開始訓練和部署機器學習服務模型，在 Visual Studio Code 中的，您需要建立之前[Azure 機器學習服務工作區](concept-azure-machine-learning-architecture.md#workspace)在雲端中。 此工作區會包含您的模型和資源。 
+開始訓練和部署機器學習服務模型，在 Visual Studio Code 中的，您需要建立之前[Azure 機器學習服務工作區](concept-workspace.md)在雲端中。 此工作區會包含您的模型和資源。 
 
 若要建立工作區，並新增您的第一個實驗：
 

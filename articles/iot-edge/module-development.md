@@ -3,18 +3,18 @@ title: 開發適用於 Azure IoT Edge 的模組 | Microsoft Docs
 description: 開發可與執行階段和 IoT 中樞通訊的 Azure IoT Edge 自訂模組
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 02/25/2019
-ms.date: 03/25/2019
+ms.author: kgremban
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.custom: seodec18
+ms.openlocfilehash: 5285490ca1a27494cbcd3ea3d6527b78c7d38c8c
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322413"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833428"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>開發您自己的 IoT Edge 模組
 
@@ -48,7 +48,7 @@ IoT Edge 中樞會根據[模組資訊清單](module-composition.md)中所述的�
 
 最後，使用下列系統屬性來為 Edge 中樞所處理的裝置到雲端訊息加上戳記：
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | -------- | ----------- |
 | $connectionDeviceId | 傳送訊息之用戶端的裝置識別碼 |
 | $connectionModuleId | 傳送訊息之模組的模組識別碼 |
@@ -65,9 +65,9 @@ IoT Edge 中樞會根據[模組資訊清單](module-composition.md)中所述的�
 
 ## <a name="next-steps"></a>後續步驟
 
-[为 IoT Edge 准备开发和测试环境](development-environment.md)
+[準備 IoT Edge 開發和測試環境](development-environment.md)
 
-[使用 Visual Studio 2017 开发适用于 IoT Edge 的 C# 模块](how-to-visual-studio-develop-csharp-module.md)
+[使用 Visual Studio 來開發C#適用於 IoT Edge 模組](how-to-visual-studio-develop-module.md)
 
-[使用 Visual Studio Code 开发适用于 IoT Edge 的模块](how-to-vs-code-develop-module.md)
+[使用 Visual Studio Code 開發 IoT Edge 模組](how-to-vs-code-develop-module.md)
 

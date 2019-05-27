@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0cc00b4f2075ba77490d310080b9968bedb8dc1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cc3307a4f32d77b9b8d259ac846c4db1c1ae4a99
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701766"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002520"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>部署 Windows 混合式 Runbook 背景工作角色
 
@@ -60,8 +60,10 @@ ms.locfileid: "64701766"
    * *SubscriptionID* (必要)：您的自動化帳戶所在的 Azure 訂用帳戶識別碼。
    * *WorkspaceName* (選擇性)：Log Analytics 工作區名稱。 如果您沒有 Log Analytics 工作區，此指令碼就會建立並設定一個 Log Analytics 工作區。
 
-     > [!NOTE]
-     > 目前，支援與 Azure 監視器記錄檔整合的自動化區域只是**澳大利亞東南部**，**美國東部 2**，**東南亞**，以及**西歐**。 如果您的「自動化」帳戶不在上述其中一個區域，指令碼會建立 Log Analytics 工作區，但會警告您，指出無法將它們連結在一起。
+   > [!NOTE]
+   > 啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
+   >
+   > 如需支援的對應配對的清單，請參閱 <<c0> [ 自動化帳戶和 Log Analytics 工作區的區域對應](how-to/region-mappings.md)。
 
 2. 在您的電腦上，從 [開始] 畫面以系統管理員模式開啟 **Windows PowerShell**。
 3. 從 PowerShell 命令列殼層，瀏覽至包含您所下載指令碼的資料夾。 變更參數 *-AutomationAccountName*、*-AAResourceGroupName*、*-OMSResourceGroupName*、*-HybridGroupName*、*-SubscriptionId* 及 *-WorkspaceName* 的值。 然後執行指令碼。

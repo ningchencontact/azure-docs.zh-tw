@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 17acd4eebe53704699d3ec9a3f4f121eed79794d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b2ff67e207f8a3a2b79635b080c78021162f0ac6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310382"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519241"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
@@ -115,7 +115,11 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 當您完成時，選取 [確定] 以移至下一個區段。
 
-### <a name="2-prepare-source"></a>2：準備來源
+### <a name="2-select-deployment-planning"></a>2：選取部署規劃
+
+在 [完成部署規劃了嗎] 中，選取 [稍後再進行]，然後選取 [確定]。
+
+### <a name="3-prepare-source"></a>3：準備來源
 
 在 [準備來源] 頁面上，選取 [+ 組態伺服器]。
 
@@ -140,7 +144,7 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 組態伺服器設定完成時，請回到入口網站，並選取您剛才針對 [組態伺服器] 建立的伺服器。 選取 [確定] 以前往 3：準備目標。
 
-### <a name="3-prepare-target"></a>3：準備目標
+### <a name="4-prepare-target"></a>4：準備目標
 
 在本節中，針對您稍早在本教學課程的[準備 Azure 資源](#prepare-azure-resources)中所建立的資源，輸入相關資訊。
 
@@ -149,8 +153,7 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 3. Site Recovery 會確認您是否有一或多個相容的 Azure 儲存體帳戶和網路。 這些應該是您稍早在本教學課程的[準備 Azure 資源](#prepare-azure-resources)中所建立的資源。
 4. 完成後，選取 [確定]。
 
-
-### <a name="4-prepare-replication-settings"></a>4：準備複寫設定
+### <a name="5-prepare-replication-settings"></a>5：準備複寫設定
 
 您必須先建立複寫原則，才能啟用複寫。
 
@@ -158,12 +161,7 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 2. 在 [名稱] 中，輸入 **myReplicationPolicy**。
 3. 保留其餘的預設設定，然後選取 [確定] 以建立原則。 新原則會自動與設定伺服器產生關聯。
 
-### <a name="5-select-deployment-planning"></a>5：選取部署規劃
-
-在 [完成部署規劃了嗎] 中，選取 [稍後再進行]，然後選取 [確定]。
-
 當您完成 [準備基礎結構] 下的所有五個區段時，選取 [確定]。
-
 
 ## <a name="enable-replication"></a>啟用複寫
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656586"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834536"
 ---
 # <a name="api-management-policy-expressions"></a>API 管理原則運算式
 本文討論的原則運算式語法是 C# 7。 每個運算式皆可存取以隱含方式提供的[內容](api-management-policy-expressions.md#ContextVariables)變數，以及允許的 .NET Framework 類型[子集](api-management-policy-expressions.md#CLRTypes)。
@@ -34,12 +34,12 @@ ms.locfileid: "60656586"
 - 若要下載原則陳述式，請參閱 [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub 存放庫。
 
 
-## <a name="Syntax"></a>語法
+## <a name="Syntax"></a> 語法
 單一陳述式的運算式會以 `@(expression)` 括住，其中 `expression` 是格式正確的 C# 運算式陳述式。
 
 多重陳述式的運算式則會以 `@{expression}` 括住。 多重陳述式運算式內的所有程式碼路徑都必須以 `return` 陳述式結尾。
 
-## <a name="PolicyExpressionsExamples"></a>範例
+## <a name="PolicyExpressionsExamples"></a> 範例
 
 ```
 @(true)
@@ -74,10 +74,10 @@ ms.locfileid: "60656586"
 ## <a name="CLRTypes"></a>原則運算式中允許的 .NET Framework 類型
 下表列出原則運算式中允許的 .NET Framework 類型和其成員。
 
-|類型|支援的成員|
+|Type|支援的成員|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|全部|
-|Newtonsoft.Json.JsonConvert|SerializeObject、DeserializeObject|
+|Newtonsoft.Json.JsonConvert|SerializeObject DeserializeObject|
 |Newtonsoft.Json.Linq.Extensions|全部|
 |Newtonsoft.Json.Linq.JArray|全部|
 |Newtonsoft.Json.Linq.JConstructor|全部|
@@ -108,7 +108,7 @@ ms.locfileid: "60656586"
 |System.Collections.Generic.Queue<T>|全部|
 |System.Collections.Generic.Stack<T>|全部|
 |System.Convert|全部|
-|System.DateTime|（构造函数）、Add、AddDays、AddHours、AddMilliseconds、AddMinutes、AddMonths、AddSeconds、AddTicks、AddYears、Date、Day、DayOfWeek、DayOfYear、DaysInMonth、Hour、IsDaylightSavingTime、IsLeapYear、MaxValue、Millisecond、Minute、MinValue、Month、Now、Parse、Second、Subtract、Ticks、TimeOfDay、Today、ToString、UtcNow、Year|
+|System.DateTime|（建構函式），AddDays、 AddHours、 AddMilliseconds、 AddMinutes、 AddMonths、 AddSeconds、 AddTicks、 AddYears、 日期、 天、 DayOfWeek、 DayOfYear、 DaysInMonth、 小時、 IsDaylightSavingTime、 IsLeapYear、 MaxValue、 毫秒、 分鐘、 MinValue、 月、 立即加入剖析，第二，減去，刻度、 TimeOfDay、 今天、 ToString，UtcNow、 年|
 |System.DateTimeKind|Utc|
 |System.DateTimeOffset|全部|
 |System.Decimal|全部|
@@ -172,7 +172,7 @@ ms.locfileid: "60656586"
 |System.Text.RegularExpressions.Group|擷取、成功|
 |System.Text.RegularExpressions.GroupCollection|計數、項目|
 |System.Text.RegularExpressions.Match|空白、群組、結果|
-|System.Text.RegularExpressions.Regex|（构造函数）、IsMatch、Match、Matches、Replace、Unescape、Split|
+|System.Text.RegularExpressions.Regex|（建構函式）、 IsMatch、 Match、 Matches、 取代、 不要逸出，分割|
 |System.Text.RegularExpressions.RegexOptions|全部|
 |System.Text.StringBuilder|全部|
 |System.TimeSpan|全部|
@@ -192,7 +192,7 @@ ms.locfileid: "60656586"
 |System.Xml.Linq.XComment|全部|
 |System.Xml.Linq.XContainer|全部|
 |System.Xml.Linq.XDeclaration|全部|
-|System.Xml.Linq.XDocument|全部，除了：載入|
+|System.Xml.Linq.XDocument|您的所有項目，除非：載入|
 |System.Xml.Linq.XDocumentType|全部|
 |System.Xml.Linq.XElement|全部|
 |System.Xml.Linq.XName|全部|
@@ -210,22 +210,22 @@ ms.locfileid: "60656586"
 
 |內容變數|允許的方法、屬性和參數值|
 |----------------------|-------------------------------------------------------|
-|context|Api：IApi<br /><br /> 部署<br /><br /> Elapsed：TimeSpan - 時間戳記值與目前時間之間的時間間隔<br /><br /> LastError<br /><br /> 作業<br /><br /> Products<br /><br /> 要求<br /><br /> RequestId：Guid - 唯一要求識別碼<br /><br /> Response<br /><br /> 訂用帳戶<br /><br /> Timestamp：日期時間 - 收到要求的時間點<br /><br /> 追蹤：bool - 指出追蹤是開啟還是關閉 <br /><br /> 使用者<br /><br /> Variables：IReadOnlyDictionary<string, object><br /><br /> void Trace(訊息：字串)|
+|context|Api：IApi<br /><br /> 部署<br /><br /> Elapsed：TimeSpan - 時間戳記值與目前時間之間的時間間隔<br /><br /> LastError<br /><br /> 作業<br /><br /> 產品<br /><br /> 要求<br /><br /> RequestId：Guid - 唯一要求識別碼<br /><br /> 回應<br /><br /> 訂用帳戶<br /><br /> Timestamp：日期時間 - 收到要求的時間點<br /><br /> 追蹤：bool - 指出追蹤是開啟還是關閉 <br /><br /> 使用者<br /><br /> Variables：IReadOnlyDictionary<string, object><br /><br /> void Trace(訊息：字串)|
 |context.Api|識別碼︰字串<br /><br /> IsCurrentRevision: bool<br /><br />  名稱︰字串<br /><br /> 路徑︰字串<br /><br /> 修訂：字串<br /><br /> ServiceUrl：IUrl<br /><br /> 版本：字串 |
 |context.Deployment|區域︰字串<br /><br /> ServiceName︰字串<br /><br /> Certificates：IReadOnlyDictionary<string, X509Certificate2>|
-|context.LastError|來源︰字串<br /><br /> 原因︰字串<br /><br /> 訊息︰字串<br /><br /> 範圍︰字串<br /><br /> 區段︰字串<br /><br /> Path：string<br /><br /> PolicyId︰字串<br /><br /> 如需 context.LastError 的詳細資訊，請參閱[錯誤處理](api-management-error-handling-policies.md)。|
-|context.Operation|識別碼︰字串<br /><br /> 方法︰字串<br /><br /> Name：string<br /><br /> UrlTemplate︰字串|
+|context.LastError|來源︰字串<br /><br /> 原因︰字串<br /><br /> 訊息︰字串<br /><br /> 範圍︰字串<br /><br /> 區段︰字串<br /><br /> 路徑︰字串<br /><br /> PolicyId︰字串<br /><br /> 如需 context.LastError 的詳細資訊，請參閱[錯誤處理](api-management-error-handling-policies.md)。|
+|context.Operation|識別碼︰字串<br /><br /> 方法︰字串<br /><br /> 名稱︰字串<br /><br /> UrlTemplate︰字串|
 |context.Product|Apis：IEnumerable<IApi\><br /><br /> ApprovalRequired：bool<br /><br /> Groups：IEnumerable<IGroup\><br /><br /> 識別碼︰字串<br /><br /> 名稱︰字串<br /><br /> 狀態︰列舉 ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit：int?<br /><br /> SubscriptionRequired：bool|
-|context.Request|主體：IMessageBody<br /><br /> Certificate：System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers：IReadOnlyDictionary<string, string[]><br /><br /> IpAddress︰字串<br /><br /> MatchedParameters︰IReadOnlyDictionary<string, string[]><br /><br /> 方法︰字串<br /><br /> OriginalUrl︰IUrl<br /><br /> URL：IUrl|
-|string context.Request.Headers.GetValueOrDefault(headerName︰字串、defaultValue︰字串)|headerName：string<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的要求標頭值或 `defaultValue`。|
-|context.Response|主體：IMessageBody<br /><br /> Headers：IReadOnlyDictionary<string, string[]><br /><br /> StatusCode：int<br /><br /> StatusReason︰字串|
+|context.Request|本文:IMessageBody<br /><br /> Certificate：System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers：IReadOnlyDictionary<string, string[]><br /><br /> IpAddress︰字串<br /><br /> MatchedParameters︰IReadOnlyDictionary<string, string[]><br /><br /> 方法︰字串<br /><br /> OriginalUrl︰IUrl<br /><br /> URL：IUrl|
+|string context.Request.Headers.GetValueOrDefault(headerName︰字串、defaultValue︰字串)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的要求標頭值或 `defaultValue`。|
+|context.Response|本文:IMessageBody<br /><br /> Headers：IReadOnlyDictionary<string, string[]><br /><br /> StatusCode：int<br /><br /> StatusReason︰字串|
 |string context.Response.Headers.GetValueOrDefault(headerName︰字串、defaultValue︰字串)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的回應標頭值或 `defaultValue`。|
 |context.Subscription|CreatedTime：DateTime<br /><br /> EndDate：DateTime?<br /><br /> 識別碼︰字串<br /><br /> 索引鍵︰字串<br /><br /> 名稱︰字串<br /><br /> PrimaryKey︰字串<br /><br /> SecondaryKey︰字串<br /><br /> StartDate：DateTime?|
 |context.User|電子郵件︰字串<br /><br /> FirstName︰字串<br /><br /> Groups：IEnumerable<IGroup\><br /><br /> 識別碼︰字串<br /><br /> Identities：IEnumerable<IUserIdentity\><br /><br /> LastName︰字串<br /><br /> 附註︰字串<br /><br /> RegistrationDate：DateTime|
 |IApi|識別碼︰字串<br /><br /> 名稱︰字串<br /><br /> 路徑︰字串<br /><br /> 通訊協定：IEnumerable<string\><br /><br /> ServiceUrl：IUrl<br /><br /> subscriptionKeyParameterNames：ISubscriptionKeyParameterNames|
 |IGroup|識別碼︰字串<br /><br /> 名稱︰字串|
 |IMessageBody|作為 < T\>(preserveContent: bool = false)：其中 T：string、JObject、JToken、JArray、XNode、XElement、XDocument<br /><br /> `context.Request.Body.As<T>` 和 `context.Response.Body.As<T>` 方法是用來讀取指定類型 `T` 的要求和回應訊息主體。 根據預設，該方法會使用原始訊息本文資料流，並使它在傳回後無法使用。 若要避免那種情況，並讓方法在本文資料流的複本上進行操作，請將 `preserveContent` 參數設定為 `true`。 請移至[這裡](api-management-transformation-policies.md#SetBody)來查看範例。|
-|IUrl|主機︰字串<br /><br /> 路徑︰字串<br /><br /> 連接埠︰int<br /><br /> 查詢：IReadOnlyDictionary<string, string[]><br /><br /> QueryString︰字串<br /><br /> 配置︰字串|
+|IUrl|主機︰字串<br /><br /> 路徑︰字串<br /><br /> 連接埠︰int<br /><br /> 查詢: IReadOnlyDictionary<string, string[]><br /><br /> QueryString︰字串<br /><br /> 配置︰字串|
 |IUserIdentity|識別碼︰字串<br /><br /> 提供者︰字串|
 |ISubscriptionKeyParameterNames|標頭︰字串<br /><br /> 查詢︰字串|
 |string IUrl.Query.GetValueOrDefault(queryParameterName︰字串、defaultValue︰字串)|queryParameterName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到參數，則傳回以逗號分隔的查詢參數值或 `defaultValue`。|
@@ -235,7 +235,7 @@ ms.locfileid: "60656586"
 |BasicAuthCredentials|密碼︰字串<br /><br /> UserId︰字串|
 |Jwt AsJwt(輸入：此字串)|輸入︰字串<br /><br /> 如果輸入參數包含有效的 JWT 權杖值，則方法會傳回類型為 `Jwt` 的物件；否則方法會傳回 `null`。|
 |bool TryParseJwt(輸入：此字串、結果：out Jwt)|輸入︰字串<br /><br /> 結果：out Jwt<br /><br /> 如果輸入參數包含有效的 JWT 權杖值，則方法會傳回 `true`，且結果參數包含類型為 `Jwt` 的值；否則方法會傳回 `false`。|
-|Jwt|演算法︰字串<br /><br /> Audience：IEnumerable<string\><br /><br /> Claims：IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime：DateTime?<br /><br /> 識別碼︰字串<br /><br /> 簽發者︰字串<br /><br /> IssuedAt：DateTime?<br /><br /> NotBefore：DateTime?<br /><br /> 主旨︰字串<br /><br /> 類型：字串|
+|Jwt|演算法︰字串<br /><br /> Audience：IEnumerable<string\><br /><br /> Claims：IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime：DateTime?<br /><br /> 識別碼︰字串<br /><br /> 簽發者︰字串<br /><br /> IssuedAt:DateTime?<br /><br /> NotBefore：DateTime?<br /><br /> 主旨︰字串<br /><br /> 類型：字串|
 |string Jwt.Claims.GetValueOrDefault(claimName：字串、defaultValue：字串)|claimName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的宣告值或 `defaultValue`。|
 |byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|輸入 - 要加密的純文字<br /><br />alg - 對稱加密演算法的名稱<br /><br />金鑰 - 加密金鑰<br /><br />iv - 初始化向量<br /><br />傳回加密的純文字。|
 |byte[] Encrypt(input: this byte[], alg︰System.Security.Cryptography.SymmetricAlgorithm)|輸入 - 要加密的純文字<br /><br />alg - 加密演算法<br /><br />傳回加密的純文字。|
@@ -243,6 +243,7 @@ ms.locfileid: "60656586"
 |byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|輸入 - 要解密的 Cypher 文字<br /><br />alg - 對稱加密演算法的名稱<br /><br />金鑰 - 加密金鑰<br /><br />iv - 初始化向量<br /><br />傳回純文字。|
 |byte[] Decrypt(input: this byte[], alg︰System.Security.Cryptography.SymmetricAlgorithm)|輸入 - 要解密的 Cypher 文字<br /><br />alg - 加密演算法<br /><br />傳回純文字。|
 |byte[] Decrypt(input: this byte[], alg︰System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|輸入 - 要解密的 Cypher 文字<br /><br />alg - 加密演算法<br /><br />金鑰 - 加密金鑰<br /><br />iv - 初始化向量<br /><br />傳回純文字。|
+|bool VerifyNoRevocation (輸入： 此 System.Security.Cryptography.X509Certificates.X509Certificate2)|您可以執行 X.509 鏈結驗證而不檢查憑證撤銷狀態。<br /><br />輸入-憑證物件<br /><br />傳回`true`如果驗證成功;`false`若驗證失敗。|
 
 
 ## <a name="next-steps"></a>後續步驟

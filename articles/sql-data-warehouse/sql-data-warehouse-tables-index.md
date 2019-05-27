@@ -2,21 +2,21 @@
 title: 在 Azure SQL 資料倉儲中編製資料表的索引 | Microsoft Azure
 description: 在 Azure SQL 資料倉儲中編製資料表索引的建議與範例。
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/18/2019
-ms.author: rortloff
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: eab64d9494ef2d2838e16c55eed6ecf0db9736e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309798"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851656"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中編製資料表的索引
 
@@ -44,17 +44,17 @@ CREATE TABLE myTable
 WITH ( CLUSTERED COLUMNSTORE INDEX );
 ```
 
-在某些情况下，聚集列存储可能不是很好的选择：
+在有些情況下，叢集資料行存放區可能不是很好的選擇︰
 
 - 資料行存放區資料表不支援 varchar(max)、nvarchar(max) 和 varbinary(max)。 請改為考慮堆積或叢集索引。
 - 資料行存放區資料表可能比暫時性資料沒有效率。 請考慮堆積，甚至是暫時性資料表。
-- 包含少于 6000 万行的小型表。 請考慮堆積資料表。
+- 具有少於 60 萬個資料列的小型資料表。 請考慮堆積資料表。
 
 ## <a name="heap-tables"></a>堆積資料表
 
-将数据暂时移入 SQL 数据仓库时，可能会发现使用堆表可让整个过程更快速。 這是因為堆積的載入速度比索引資料表還要快，而在某些情況下，可以從快取進行後續的讀取。  如果您載入資料只是在做執行更多轉換之前的預備，將資料表載入堆積資料表會遠快於將資料載入叢集資料行存放區資料表。 此外，將資料載入[暫存資料表](sql-data-warehouse-tables-temporary.md)會比將資料表載入永久儲存體快速。  
+當您在 SQL 資料倉儲中暫時登陸資料時，您可能會發現，使用堆積資料表會使整體的程序更快速。 這是因為堆積的載入速度比索引資料表還要快，而在某些情況下，可以從快取進行後續的讀取。  如果您載入資料只是在做執行更多轉換之前的預備，將資料表載入堆積資料表會遠快於將資料載入叢集資料行存放區資料表。 此外，將資料載入[暫存資料表](sql-data-warehouse-tables-temporary.md)會比將資料表載入永久儲存體快速。  
 
-对于包含少于 6000 万行的小型查找表，堆表通常比较适合。  超过 6000 万行后，聚集列存储表开始达到最佳压缩性能。
+對於小型查閱資料表，小於 60 萬個資料列，堆積資料表通常具有意義。  叢集資料行存放區資料表就會開始以達到最佳的壓縮，一旦超過 60 萬個資料列。
 
 若要建立堆積資料表，只需在 WITH 子句中指定 HEAP︰
 
@@ -84,7 +84,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-若要对表添加非聚集索引，请使用以下语法：
+若要加入非叢集索引的資料表上，使用下列語法：
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -152,27 +152,27 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
         OR INVISIBLE_rowgroup_rows_AVG < 100000
 ```
 
-运行查询后就可以开始查看数据并分析结果。 此表格會說明在您的資料列群組分析中要尋找的項目。
+一旦您執行查詢，就可以開始查看資料，並分析您的結果。 此表格會說明在您的資料列群組分析中要尋找的項目。
 
 | 欄 | 如何使用這項資料 |
 | --- | --- |
-| [table_partition_count] |如果資料表已分割，您可能會預期看到較高的開放資料列群組計數。 散發套件中的每個分割在理論上有與其相關聯的開放資料列群組。 请在分析中考虑这一点。 已分割的小型資料表可以藉由移除分割進行最佳化，因為這樣會改善壓縮。 |
-| [row_count_total] |表的行总数。 例如，您可以使用此值來計算資料列的百分比 (壓縮的狀態)。 |
+| [table_partition_count] |如果資料表已分割，您可能會預期看到較高的開放資料列群組計數。 散發套件中的每個分割在理論上有與其相關聯的開放資料列群組。 將這個因素納入您的分析。 已分割的小型資料表可以藉由移除分割進行最佳化，因為這樣會改善壓縮。 |
+| [row_count_total] |資料表的資料列計數。 例如，您可以使用此值來計算資料列的百分比 (壓縮的狀態)。 |
 | [row_count_per_distribution_MAX] |如果所有資料列平均分配，這個值會是每個散發的目標資料列數目。 比較此值與 compressed_rowgroup_count。 |
-| [COMPRESSED_rowgroup_rows] |表的列存储格式的行的总数。 |
+| [COMPRESSED_rowgroup_rows] |資料表的資料行存放區格式中的資料列總數。 |
 | [COMPRESSED_rowgroup_rows_AVG] |如果平均資料列數目遠小於資料群組最大的資料列數目，則可考慮使用 CTAS 或 ALTER INDEX REBUILD 重新壓縮資料 |
-| [COMPRESSED_rowgroup_count] |列存储格式的行组数。 如果该值相对于表的大小显得非常高，那么它表示列存储密度低。 |
+| [COMPRESSED_rowgroup_count] |資料行存放區格式中的資料列群組數目。 如果相對於資料表的這個數目很高，表示資料行存放區密度很低。 |
 | [COMPRESSED_rowgroup_rows_DELETED] |資料行存放區格式中的資料列會以邏輯方式刪除。 如果相對於資料表大小的這個數目很高，請考慮重新建立分割或重建索引，因為這樣會將其實際移除。 |
-| [COMPRESSED_rowgroup_rows_MIN] |將它與 AVG 和 MAX 資料行搭配使用，以了解資料行存放區中資料列群組的值範圍。 如果该值稍微高出加载阈值（每分区对齐的分布区 102,400 行），则提示可在数据加载中进行优化 |
+| [COMPRESSED_rowgroup_rows_MIN] |將它與 AVG 和 MAX 資料行搭配使用，以了解資料行存放區中資料列群組的值範圍。 載入臨界值上較低的數目 (每個分割對齊散發套件 102,400) 表示資料載入可進行最佳化 |
 | [COMPRESSED_rowgroup_rows_MAX] |同上。 |
-| [OPEN_rowgroup_count] |開放資料列群組都正常。 每個資料表散發都應該有一個開放資料列群組 (60)。 如果该值过大，则提示需要跨分区进行数据加载。 重複檢查分割策略並確定它是正確的 |
-| [OPEN_rowgroup_rows] |每个行组最多可以具有 1,048,576 行。 使用這個值查看開放資料列群組目前的飽和度 |
+| [OPEN_rowgroup_count] |開放資料列群組都正常。 每個資料表散發都應該有一個開放資料列群組 (60)。 過多的數目表示資料跨分割載入。 重複檢查分割策略並確定它是正確的 |
+| [OPEN_rowgroup_rows] |每個資料列群組可以有最多 1,048,576 個資料列。 使用這個值查看開放資料列群組目前的飽和度 |
 | [OPEN_rowgroup_rows_MIN] |開放群組會指出資料是緩慢移動載入資料表，或是先前的載入將剩餘的資料列溢出到此資料列群組。 使用 MIN、MAX、AVG 欄位查看多少資料位於開放資料列群組。 對於小型資料表，可能是所有資料的 100%！ 在此情況下，ALTER INDEX REBUILD 來強制資料進入資料行存放區。 |
 | [OPEN_rowgroup_rows_MAX] |同上。 |
 | [OPEN_rowgroup_rows_AVG] |同上。 |
-| [CLOSED_rowgroup_rows] |查看已关闭行组的行以进行健全性检查。 |
+| [CLOSED_rowgroup_rows] |查看關閉的資料列群組資料列做為例行性檢查。 |
 | [CLOSED_rowgroup_count] |如果發現任何關閉資料列群組，其數目應該很小。 關閉資料列群組可以使用 ALTER INDEX 轉換成壓縮資料列群組...REORGANIZE 命令。 不過，通常並不需要。 關閉群組會透過背景 "tuple mover" 程序自動轉換成資料行存放區的資料列群組。 |
-| [CLOSED_rowgroup_rows_MIN] |已关闭的行组应具有非常高的填充率。 如果已关闭的行组的填充率较低，则需要进一步分析列存储。 |
+| [CLOSED_rowgroup_rows_MIN] |關閉資料列群組應該具有極高的填滿率。 如果關閉資料列群組的填滿率很低，就需要進一步分析資料行存放區。 |
 | [CLOSED_rowgroup_rows_MAX] |同上。 |
 | [CLOSED_rowgroup_rows_AVG] |同上。 |
 | [Rebuild_Index_SQL] |用來重建資料表的資料行存放區索引的 SQL |
@@ -204,7 +204,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 ### <a name="small-or-trickle-load-operations"></a>小型或緩慢移動的載入作業
 
-流入 SQL 数据仓库的小型负载有时也称为渗透负载。 它們通常代表系統接近連續擷取的串流。 不過，因為這個串流已接近連續狀態，所以資料列的容量並沒有特別大。 通常資料遠低於直接載入資料行存放區格式所需的閾值。
+流入 SQL 資料倉儲的小型負載，有時也稱為緩慢移動的負載。 它們通常代表系統接近連續擷取的串流。 不過，因為這個串流已接近連續狀態，所以資料列的容量並沒有特別大。 通常資料遠低於直接載入資料行存放區格式所需的閾值。
 
 在這些情況下，最好先將資料登陸到 Azure Blob 儲存體中，並讓它在載入之前累積。 這項技術通常稱為 *微批次處理*。
 

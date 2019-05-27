@@ -5,18 +5,21 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.author: pabutler
-ms.openlocfilehash: 8817c8aa7d5d589be5e03cdd04e3a505d7e2be21
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 2195c9a5e1f0d3683ea8cf6564d97cbabd072f81
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941651"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834206"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>更新現有的 SaaS 應用程式供應項目
 
 在您的供應項目發佈並上線之後，您可能想要對它進行多種更新。 您對供應項目新版本所做的任何變更都應該儲存並重新發行，以在 Marketplace 中反映您所做的變更。 本文將逐步說明在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)中更新 SaaS 供應項目的各個層面。
+
+> [!IMPORTANT] 
+> SaaS 提供的功能正移轉至[Microsoft 合作夥伴中心](https://partner.microsoft.com/dashboard/directory)。  所有新的發行者必須使用合作夥伴中心建立新的 SaaS 供應項目，以及管理現有的供應項目。  SaaS 供應項目目前的發行者 batchwise 移轉從 Cloud Partner 入口網站來合作夥伴中心。  Cloud Partner 入口網站會顯示狀態訊息，指出何時已移轉特定的現有供應項目。
 
 您可能會因為某些原因而想要更新供應項目，例如：
 
@@ -75,7 +78,7 @@ ms.locfileid: "64941651"
 
 ![查看 Cloud Partner 入口網站的供應項目記錄](./media/saas-offer-history.png)
 
-您可以使用 [稽核記錄] 頁面來搜尋特定的供應項目，並套用發行者、供應項目和事件類型之類的篩選條件 (例如 OfferGoLiveRequested)。您也可以將稽核記錄下載為 csv 檔案。
+您可以使用 [稽核記錄] 頁面來搜尋特定的供應項目，並套用篩選條件，例如發行者、 優惠和事件類型 (例如 OfferGoLiveRequested。)您也可以將稽核記錄下載為 csv 檔案。
 
 
 ## <a name="next-steps"></a>後續步驟

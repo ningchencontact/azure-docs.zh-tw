@@ -16,11 +16,11 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1fc3068c8db4a02344c0ce6670134ac2a2d104c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848757"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-encompass"></a>教學課程：Azure Active Directory 與 Encompass 整合
 
@@ -36,7 +36,7 @@ Encompass 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Encompass 的整合，您需要下列項目：
+若要設定 Azure AD 與 Encompass 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Encompass 單一登入的訂用帳戶
@@ -74,7 +74,7 @@ Encompass 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Encompass 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Encompass 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Encompass 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Encompass 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Encompass 單一登入](#configure-encompass-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -87,7 +87,7 @@ Encompass 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Encompass 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 Encompass 設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Encompass] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -128,7 +128,7 @@ Encompass 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-encompass-single-sign-on"></a>設定 Encompass 單一登入
 
-若要在 **Encompass** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Encompass 支援小組](https://www.voxmobile.com/contact/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要設定 **Encompass** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Encompass 支援小組](https://www.voxmobile.com/contact/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -165,7 +165,7 @@ Encompass 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Encompass]。
 
-    ![應用程式清單中的 [Encompass] 連結](common/all-applications.png)
+    ![應用程式清單中的 Encompass 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -183,7 +183,7 @@ Encompass 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-encompass-test-user"></a>建立 Encompass 測試使用者
 
-在本節中，您會在 Encompass 中建立名為 Britta Simon 的使用者。 請與 [Encompass 支援小組](https://www.voxmobile.com/contact/)合作，在 Encompass 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Encompass 中建立名為 Britta Simon 的使用者。 與  [Encompass 支援小組](https://www.voxmobile.com/contact/)合作，在 Encompass 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

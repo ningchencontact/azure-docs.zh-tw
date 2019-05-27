@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7cdd185cddbd2403b72ff0e06530913af0b031de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233117"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833919"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中使用的平台為-即服務 (PaaS) 服務
 DevTest Labs 支援 PaaS 透過環境功能。 在 DevTest Labs 中的環境受到 Git 存放庫中預先設定的 Azure Resource Manager 範本。 環境可以包含 PaaS 和 IaaS 資源。 可讓您建立複雜的系統，其中可以包含 Azure 資源，例如虛擬機器、 資料庫、 虛擬網路和 Web 應用程式，專為可一起搭配。 這些範本可讓一致的部署和使用原始程式碼控制的環境的改良的管理。 
@@ -53,7 +53,7 @@ DevTest Labs 資源提供者建立實驗室使用者代表資源，因此不需�
 [連接到實驗室的虛擬網路的環境](connect-environment-lab-virtual-network.md)篇文章說明如何修改您的 Resource Manager 範本，以使用`$(LabSubnetId)`語彙基元。 建立環境時，`$(LabSubnetId)`語彙基元會取代第一個子網路標示所在**建立虛擬機器中的可使用**選項設定為 **，則為 true**。 它可讓我們的環境，以使用先前建立的網路。 如果您想要在測試中的環境中使用相同的 Resource Manager 範本，做為預備和生產環境，使用`$(LabSubnetId)`做為 Resource Manager 範本參數中的預設值。 
 
 #### <a name="environment-storage-account"></a>環境的儲存體帳戶
-DevTest Labs 支援使用[Resource Manager 範本的巢狀](../azure-resource-manager/resource-group-linked-templates.md)。 [如何 Azure DevTest Labs 可讓巢狀的 Resource Manager 範本部署用於測試環境更容易](https://azure.microsoft.com/updates/azure-devtest-labs-streamlined-nested-arm-template-deployment-support-for-arm-template-based-environments)篇文章說明如何使用`_artifactsLocation`和`_artifactsLocationSasToken`語彙基元，以建立 Resource Manager 範本中的 URI相同的資料夾或在主要範本巢狀資料夾中。 如需有關這兩個權杖的詳細資訊，請參閱 <<c0>  **部署成品**一節[Azure Resource Manager-最佳作法指南](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)。
+DevTest Labs 支援使用[Resource Manager 範本的巢狀](../azure-resource-manager/resource-group-linked-templates.md)。 [[巢狀的 Azure Resource Manager 範本，用於測試環境部署](deploy-nested-template-environments.md)篇文章說明如何使用`_artifactsLocation`和`_artifactsLocationSasToken`語彙基元，以建立 Resource Manager 範本的 URI，在相同的資料夾或巢狀在主要範本的資料夾。 如需有關這兩個權杖的詳細資訊，請參閱 <<c0>  **部署成品**一節[Azure Resource Manager-最佳作法指南](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)。
 
 ## <a name="user-experience"></a>使用者體驗
 

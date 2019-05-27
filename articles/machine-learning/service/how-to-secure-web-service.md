@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0487fe0331bfce3d0302fe997562cb124ac317d6
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 527f16e34e0f21d435fbd166328235566687bc88
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561072"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852012"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>使用 SSL 來保護具有 Azure Machine Learning 服務的 Web 服務
 
@@ -154,5 +154,5 @@ TLS 和 SSL 同時依賴__數位憑證__，用來執行加密和身分識別驗�
 ## <a name="next-steps"></a>後續步驟
 了解如何：
 + [使用部署為 Web 服務的機器學習模型](how-to-consume-web-service.md)
-+ [在 Azure 虛擬網路內安全地執行實驗與推斷](how-to-enable-virtual-network.md)
++ [安全地執行實驗和在 Azure 虛擬網路內的推斷](how-to-enable-virtual-network.md)
 

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d9f736b0b976ac6ec0da45a672d2e992405625cd
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578786"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619764"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>教學課程：在 Azure Blockchain Workbench 中建立區塊鏈應用程式
 
@@ -271,7 +271,7 @@ contract HelloBlockchain {
 
 ### <a name="constructor"></a>建構函式
 
-建構函式可定義工作流程新的智慧合約執行個體的輸入參數。 建構函式會宣告為具有與合約相同名稱的函式。 建構函式所需要的參數會定義為組態檔中的建構函式參數。 兩個檔案中的參數數目、順序和類型都必須相符。
+建構函式可定義工作流程新的智慧合約執行個體的輸入參數。 建構函式所需要的參數會定義為組態檔中的建構函式參數。 兩個檔案中的參數數目、順序和類型都必須相符。
 
 在建構函式中，撰寫您想要在建立合約之前執行的任何商務邏輯。 例如，使用起始值對狀態變數進行初始化。
 

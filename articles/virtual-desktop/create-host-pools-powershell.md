@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 8e6783bb56f55949824e4ce94c85145f53dd9f4b
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: a58e059e800b13d01ba8e50880bd75077d4418ae
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523964"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833958"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>使用 PowerShell 建立主機集區
 
@@ -78,6 +78,9 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 3. 選取 **電腦名稱**，選取**變更設定**，然後選取 **變更...**
 4. 選取 **網域**，然後輸入虛擬網路上的 Active Directory 網域。
 5. 驗證程式的電腦加入網域的權限的網域帳戶。
+
+    >[!NOTE]
+    > 如果您正加入您的 Vm 到 Azure AD 網域服務環境，請確定您的網域加入使用者也是成員[AAD DC 系統管理員群組](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group)。
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>註冊至 Windows 虛擬桌面預覽主應用程式集區的虛擬機器
 

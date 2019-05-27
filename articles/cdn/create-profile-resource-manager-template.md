@@ -210,7 +210,7 @@ az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o t
 
 ![檢視 CDN 端點](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
 
-使用主機名稱來檢視內容。 例如，使用您的瀏覽器存取 https://cdndemo-azurewebsites-net.azureedge.net。
+使用主機名稱來檢視內容。 例如，使用您的瀏覽器存取 https://cdndemo-azurewebsites-net.azureedge.net 。
 
 ## <a name="clean-up"></a>清除
 

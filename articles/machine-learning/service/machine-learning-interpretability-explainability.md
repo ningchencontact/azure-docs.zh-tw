@@ -10,25 +10,25 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/29/2019
-ms.openlocfilehash: 62d51a0075d8b6864e4b10fa6c1eb423a440d6d0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4261e869fe17283886d7d8ea8101e03110d6dad4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926450"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851984"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務的模型 interpretability
 
 在本文中，您將了解如何解釋為什麼您的模型進行預測一樣 interpretability 套件的 Azure Machine Learning Python SDK。
 
 此套件中使用的類別和方法，您可以取得：
-+ Interpretability 大規模的實際資料集上定型時間和推斷期間。 
++ Interpretability 大規模的實際資料集上定型和推斷期間。 
 + 若要協助您在訓練階段探索的資料與說明中的模式的互動式視覺效果
 + 功能重要性的值： 原始和工程設計的功能
 
 在開發週期的訓練階段中，模型設計師和評估工具可以使用來建置信任的專案關係人說明模型的輸出。  他們也使用模型的深入解析進行偵錯、 驗證模型的行為符合其目標，並且檢查的偏差。
 
-在推斷階段中，資料科學家可以使用 interpretability 說明的人使用您的模型的預測。 比方說，為什麼沒有模型拒絕抵押貸款，或預測投資組合會帶來更高的風險嗎？
+推斷，或模型計分，是階段已部署的模型用於預測，最常在實際執行資料的位置。 在這個階段，資料科學家可以解釋結果的預測，來使用您的模型的人員。 比方說，為什麼沒有模型拒絕抵押貸款，或預測投資組合會帶來更高的風險嗎？
 
 使用這些供應項目，您可以說明機器學習服務模型**上的所有資料的全域**，或**在本機上的特定資料點**使用最新技術，以方便使用且可調整的方式。
 
@@ -229,7 +229,7 @@ __中繼 explainers__自動選取適當的直接說明，並產生根據給定�
 
 下圖提供定型的模型，以及其預測和說明的全域檢視。
 
-|繪圖|描述|
+|繪圖|說明|
 |----|-----------|
 |資料探索| 資料集，以及預測值的概觀。|
 |全域的重要性|全域顯示的最上層的 K (可設定 K) 很重要的功能。 此圖表適合用來了解通用行為之基礎模型。|
@@ -241,7 +241,7 @@ __中繼 explainers__自動選取適當的直接說明，並產生根據給定�
 ### <a name="local-visualizations"></a>本機的視覺效果
 在上述的繪圖，載入指定的資料點的局部特徵重要性任何的繪圖時間，您可以按一下任何個別的資料點。
 
-|繪圖|描述|
+|繪圖|說明|
 |----|-----------|
 |本機的重要性|全域顯示的最上層的 K (可設定 K) 很重要的功能。 此圖表適合用來了解基礎模型的特定資料點的本機行為。|
 
@@ -287,7 +287,7 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-## <a name="interpretability-in-inferencing"></a>在 推斷的 interpretability
+## <a name="interpretability-in-inference"></a>在 推斷的 interpretability
 
 說明可以部署以及原始的模型，而且可以用在評分時間，來提供本機說明的資訊。 部署評分說明的程序類似於部署模型，並包含下列步驟：
 

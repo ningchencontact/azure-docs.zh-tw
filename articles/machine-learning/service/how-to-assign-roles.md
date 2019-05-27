@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 02/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5cc86c40f56cee28ff6a6912acd67961285bffc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2410787c3307136f827ea7fc34df9a545a59cbf4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025316"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850911"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>管理 Azure Machine Learning 工作區的存取權
 
@@ -113,5 +113,5 @@ az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientis
 ## <a name="next-steps"></a>後續步驟
 
 - [企業安全性概觀](concept-enterprise-security.md)
-- [安全地執行實驗和在虛擬網路內的推斷](how-to-enable-virtual-network.md)
+- [安全地執行實驗和在虛擬網路內的推斷/分數](how-to-enable-virtual-network.md)
 - [教學課程：將模型定型](tutorial-train-models-with-aml.md)

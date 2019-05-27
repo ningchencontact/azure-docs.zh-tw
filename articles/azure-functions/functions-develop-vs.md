@@ -1,6 +1,6 @@
 ---
 title: 使用 Visual Studio 開發 Azure Functions |Microsoft 文件
-description: 了解如何使用 Azure Functions Tools for Visual Studio 2017 開發和測試 Azure Functions。
+description: 了解如何開發及測試 Azure Functions 使用 Azure Functions Tools for Visual Studio 2019。
 services: functions
 documentationcenter: .net
 author: ggailey777
@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403574"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864538"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 來開發 Azure Functions  
 
-Azure Functions Tools for Visual Studio 2017 是 Visual Studio 的延伸模組，可讓您開發、測試 C# 函數及將它部署到 Azure。 如果這是您第一次體驗 Azure Functions，可至 [Azure Functions 簡介](functions-overview.md)深入了解。
+Azure Functions Tools for Visual Studio 2019 是可讓您開發、 測試及部署的 Visual Studio 的擴充功能C#至 Azure 的函式。 如果這是您第一次體驗 Azure Functions，可至 [Azure Functions 簡介](functions-overview.md)深入了解。
 
 Azure Functions Tools 提供下列優點： 
 
@@ -29,16 +29,16 @@ Azure Functions Tools 提供下列優點：
 * 開發及部署預先編譯的 C# 函數。 預先編譯的函數提供的冷啟動效能比 C# 指令碼型函數更好。 
 * 在 C# 中編寫函數，同時享有 Visual Studio 開發的所有優點。 
 
-本文提供如何使用 Azure Functions Tools for Visual Studio 2017 來開發 C# 函式並將其發佈至 Azure 的詳細資料。 閱讀本文之前，您應該先完成[適用於 Visual Studio 的 Functions 快速入門](functions-create-your-first-function-visual-studio.md)。 
+這篇文章提供有關如何開發使用 Azure Functions Tools for Visual Studio 2019 的詳細資料C#函式，並將其發行至 Azure。 閱讀本文之前，您應該先完成[適用於 Visual Studio 的 Functions 快速入門](functions-create-your-first-function-visual-studio.md)。 
 
 > [!IMPORTANT]
 > 請勿在相同函式應用程式中混用本機開發與入口網站開發。 當您從本機專案發佈至函式應用程式時，部署程序將會覆寫您在入口網站開發的任何函式。
 
 ## <a name="prerequisites"></a>必要條件
 
-[Visual Studio 2017 15.5 版](https://www.visualstudio.com/vs/) 與更新版本的 Azure 開發工作負載中包含了 Azure Functions 工具。 請確認您的 Visual Studio 2017 安裝中包含了 **Azure 開發**工作負載：
+Azure 開發工作負載中包含 azure Functions Tools [Visual Studio 2017](https://www.visualstudio.com/vs/)，或更新版本。 請確定您包含**Azure 開發**Visual Studio 2019 安裝中的工作負載：
 
-![安裝包含 Azure 開發工作負載的 Visual Studio 2017](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+![安裝 Azure 開發工作負載的 Visual Studio 2019](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 請確定您的 Visual Studio 是最新的，且您使用的是[最新版本](#check-your-tools-version)的 Azure Functions 工具。
 

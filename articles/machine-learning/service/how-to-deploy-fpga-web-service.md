@@ -1,7 +1,7 @@
 ---
 title: 在 FPGA 上部署模型
 titleSuffix: Azure Machine Learning service
-description: 了解如何使用 Azure Machine Learning 服務以 FPGA 上執行的模型來部署 Web 服務，以提供超低延遲的推斷。
+description: 了解如何部署 web 服務與 Azure Machine Learning 服務超低延遲推斷 FPGA 上執行模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d667d45e1831e0fcc939d302a16f63d4a282963
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149617"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852040"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務在 FPGA 上將模型部署為 Web 服務
 
-您可以將模型部署為 web 服務上[欄位可程式化閘陣列 (Fpga)](concept-accelerate-with-fpgas.md)與 Azure Machine Learning 的硬體加速的模型。 使用 FPGA 時，即使是透過單一批次大小，也提供超低延遲推斷。
+您可以將模型部署為 web 服務上[欄位可程式化閘陣列 (Fpga)](concept-accelerate-with-fpgas.md)與 Azure Machine Learning 的硬體加速的模型。 使用 Fpga 提供超低延遲推斷，即使有了單一批次大小。 推斷，或模型計分，是階段已部署的模型用於預測，最常在實際執行資料的位置。
 
 目前可使用以下模型：
   - ResNet 50
@@ -162,7 +162,7 @@ print(output_tensors)
 > [!IMPORTANT]
 > 儲存的輸入和輸出 tensors，因為您將需要這些模型轉換和推斷要求。
 
-可用的模型和對應的預設分類器輸出 tensors 如下，其中是您想用於推斷期間如果您使用的預設分類器。
+可用的模型和對應的預設分類器輸出 tensors 如下，其中是您想用於推斷如果您使用的預設分類器。
 
 + Resnet50, QuantizedResnet50 ``
 output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"

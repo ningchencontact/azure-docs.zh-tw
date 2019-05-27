@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/14/2019
-ms.openlocfilehash: dc8ba315d08f3a130ff0adf91afc90f545baf4e4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/22/2019
+ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604432"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002217"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>疑難排解常見的 Azure 資料庫移轉服務的問題和錯誤
 
@@ -28,7 +28,7 @@ ms.locfileid: "65604432"
 
 | 原因         | 解決方案 |
 | ------------- | ------------- |
-| Azure 資料庫移轉服務執行個體達到最大容量的進行中同時執行的工作時，就會發生這個問題。 任何新的活動已排入佇列，直到可用的容量。 | 驗證資料移轉服務執行個體已執行跨專案的活動。 您可以繼續建立新的活動，會自動新增至執行的佇列。 只要任何現有執行中的活動完成時下, 一個已排入佇列的活動開始執行和狀態會變更為自動執行狀態。 您不需要採取任何額外的動作，來開始移轉已排入佇列的活動。<br> |
+| Azure 資料庫移轉服務執行個體達到最大容量的進行中同時執行的工作時，就會發生這個問題。 任何新的活動已排入佇列，直到可用的容量。 | 驗證資料移轉服務執行個體已執行跨專案的活動。 您可以繼續建立新的活動，會自動新增至執行的佇列。 只要任何現有執行中的活動完成時下, 一個已排入佇列的活動開始執行和狀態會變更為自動執行狀態。 您不需要採取任何額外的動作，來開始移轉已排入佇列的活動。<br><br> |
 
 ## <a name="max-number-of-databases-selected-for-migration"></a>選取要移轉資料庫的最大數目
 
@@ -48,7 +48,7 @@ ms.locfileid: "65604432"
 
 | 原因         | 解決方案 |
 | ------------- | ------------- |
-| 執行移轉的使用者遺漏 ReplicationAdmin 角色和 （或） 的複寫用戶端、 複寫複本和超級 （MySQL 5.6.6 之前的版本） 的權限時，可能會發生此錯誤。<br> <br><br><br> <br> <br> <br> <br> <br> <br> | 請確定[必要的權限](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites)使用者帳戶已正確上 Azure Database for MySQL 執行個體。 例如，若要建立名為 'migrateuser' 與必要權限的使用者可以遵循下列步驟：<br>1.CREATE USER migrateuser@'%' 識別的 'secret'; <br>2.授與 'migrateuser'@'%' 'secret'; 所識別的 db_name.* 的所有權限重複此步驟，授與在多個資料庫的存取權 <br>3.在授與複寫從屬 *。* 若要識別 'secret'; 'migrateuser'@'%'<br>4.授與複寫用戶端上的 *。* 若要識別 'secret'; 'migrateuser'@'%'<br>5.排清的權限; |
+| 在移轉使用者遺漏 ReplicationAdmin 角色和 （或） 的複寫用戶端、 複寫複本和超級 （MySQL 5.6.6 之前的版本） 的權限時，可能會發生這個錯誤。<br><br><br><br><br><br><br><br><br><br><br><br><br> | 請確定[必要的權限](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites)使用者帳戶已正確上 Azure Database for MySQL 執行個體。 例如，若要建立名為 'migrateuser' 與必要權限的使用者可以遵循下列步驟：<br>1.CREATE USER migrateuser@'%' 識別的 'secret'; <br>2.授與 'migrateuser'@'%' 'secret'; 所識別的 db_name.* 的所有權限重複此步驟，授與在多個資料庫的存取權 <br>3.在授與複寫從屬 *。* 若要識別 'secret'; 'migrateuser'@'%'<br>4.授與複寫用戶端上的 *。* 若要識別 'secret'; 'migrateuser'@'%'<br>5.排清的權限; |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>正在嘗試停止 Azure 資料庫移轉服務時發生錯誤
 
@@ -68,7 +68,7 @@ ms.locfileid: "65604432"
 
 | 原因         | 解決方案    |
 | ------------- | ------------- |
-| 此錯誤表示用於從 SQL Server 的線上移轉至 Azure SQL Database 受控執行個體的應用程式主體不提供訂用帳戶的權限。 目前與受控執行個體的特定 API 呼叫會需要此權限，訂用帳戶上的，還原作業。 <br><br><br><br><br><br><br><br><br><br> | 使用`Get-AzureADServicePrincipal`PowerShell cmdlet 搭配`-ObjectId`提供的錯誤訊息，列出所使用的應用程式識別碼的顯示名稱。<br><br> 驗證此應用程式的權限，並確定它具有[參與者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor)訂用帳戶層級。 <br><br> Azure 資料庫移轉服務工程小組努力限制需要從目前的存取權提供訂用帳戶上的角色。 如果您有不允許使用的商務需求提供角色、 連絡 Azure 支援人員以取得其他協助。 |
+| 此錯誤表示用於從 SQL Server 的線上移轉至 Azure SQL Database 受控執行個體的應用程式主體不提供訂用帳戶的權限。 目前與受控執行個體的特定 API 呼叫會需要此權限，訂用帳戶上的，還原作業。 <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | 使用`Get-AzureADServicePrincipal`PowerShell cmdlet 搭配`-ObjectId`提供的錯誤訊息，列出所使用的應用程式識別碼的顯示名稱。<br><br> 驗證此應用程式的權限，並確定它具有[參與者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor)訂用帳戶層級。 <br><br> Azure 資料庫移轉服務工程小組努力限制需要從目前的存取權提供訂用帳戶上的角色。 如果您有不允許使用的商務需求提供角色、 連絡 Azure 支援人員以取得其他協助。 |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>刪除 NIC 相關聯 Azure 資料庫移轉服務時發生錯誤
 
@@ -78,7 +78,7 @@ ms.locfileid: "65604432"
 
 | 原因         | 解決方案    |
 | ------------- | ------------- |
-| Azure 資料庫移轉服務執行個體仍可能出現時，會發生這個問題及使用的 nic。 <br><br><br><br><br><br> | 若要刪除此 NIC，請刪除 DMS 服務執行個體，會自動刪除該服務所使用的 NIC。<br><br> **重要**：確定要刪除的 Azure 資料庫移轉服務執行個體具有任何執行中的活動。<br><br> 刪除所有的專案和 Azure 資料庫移轉服務執行個體相關聯的活動之後，您可以刪除服務執行個體。 刪除服務的一部分，會自動清除服務執行個體所使用的 NIC。 |
+| Azure 資料庫移轉服務執行個體仍可能出現時，會發生這個問題及使用的 nic。 <br><br><br><br><br><br><br><br> | 若要刪除此 NIC，請刪除 DMS 服務執行個體，會自動刪除該服務所使用的 NIC。<br><br> **重要**：確定要刪除的 Azure 資料庫移轉服務執行個體具有任何執行中的活動。<br><br> 刪除所有的專案和 Azure 資料庫移轉服務執行個體相關聯的活動之後，您可以刪除服務執行個體。 刪除服務的一部分，會自動清除服務執行個體所使用的 NIC。 |
 
 ## <a name="connection-error-when-using-expressroute"></a>使用 ExpressRoute 時的連線錯誤
 
@@ -86,7 +86,7 @@ ms.locfileid: "65604432"
 
 | 原因         | 解決方案    |
 | ------------- | ------------- |
-| 使用時[ExpressRoute](https://azure.microsoft.com/services/expressroute/)，Azure 資料庫移轉服務[需要](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online)佈建服務相關聯的虛擬網路子網路上的三個服務端點：<br> --服務匯流排端點<br> -儲存體端點<br> -目標資料庫端點 （例如 SQL 端點，Cosmos DB 端點）<br><br><br><br> | [啟用](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online)來源和 Azure 資料庫移轉服務之間的 ExpressRoute 連線能力的所需的服務端點。 <br><br><br><br><br><br><br><br> |
+| 使用時[ExpressRoute](https://azure.microsoft.com/services/expressroute/)，Azure 資料庫移轉服務[需要](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online)佈建服務相關聯的虛擬網路子網路上的三個服務端點：<br> --服務匯流排端點<br> -儲存體端點<br> -目標資料庫端點 （例如 SQL 端點，Cosmos DB 端點）<br><br><br><br><br> | [啟用](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online)來源和 Azure 資料庫移轉服務之間的 ExpressRoute 連線能力的所需的服務端點。 <br><br><br><br><br><br><br><br> |
 
 ## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>將 MySQL 資料庫移轉至 Azure MySQL 時的逾時錯誤
 
@@ -96,7 +96,17 @@ ms.locfileid: "65604432"
 
 | 原因         | 解決方案    |
 | ------------- | ------------- |
-| 當在移轉期間移轉失敗時因為鎖定等候逾時，就會發生此錯誤。<br><br> | 請考慮增加伺服器參數的值 **'innodb_lock_wait_timeout'**。 允許的最大值是 1073741824。 |
+| 當在移轉期間移轉失敗時因為鎖定等候逾時，就會發生此錯誤。 | 請考慮增加伺服器參數的值 **'innodb_lock_wait_timeout'**。 允許的最大值是 1073741824。 |
+
+## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>使用動態連接埠時，連接至來源 SQL Server 或具名執行個體時發生錯誤
+
+當您嘗試連接到具名執行個體或動態連接埠執行的 SQL Server 來源的 Azure 資料庫移轉服務時，連接失敗會發生此錯誤：
+
+* **錯誤**:-1-失敗的 SQL 連接。 和 SQL Server 建立連線時，發生與網路相關或執行個體特定的錯誤。 找不到或無法存取伺服器。 請確認執行個體名稱正確，且 SQL Server 設定為允許遠端連接。 (提供者：SQL 網路介面，錯誤：26-尋找指定的伺服器/執行個體時發生錯誤)
+
+| 原因         | 解決方案    |
+| ------------- | ------------- |
+| Azure 資料庫移轉服務會嘗試連接至來源 SQL Server 執行個體具有動態連接埠，或使用具名執行個體時，就會發生這個問題。 使用動態連接埠時，SQL Server Browser 服務會接聽內送連接到具名執行個體或 UDP 連接埠 1434年。 動態連接埠可能會變更每個 SQL Server 服務重新啟動的時間。 您可以檢查指派給執行個體，透過 SQL Server 組態管理員 」 中的網路設定的動態連接埠。<br><br><br> |確認 Azure 資料庫移轉服務可以連線到來源 UDP 通訊埠 1434年的 SQL Server Browser 服務和 SQL Server 執行個體，透過動態指派的 TCP 連接埠，視情況。 |
 
 ## <a name="additional-known-issues"></a>其他已知的問題
 

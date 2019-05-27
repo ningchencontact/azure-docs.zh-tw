@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192917"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793731"
 ---
 # <a name="move-azure-vms-to-another-region"></a>將 Azure VM 移動到另一個區域
 
@@ -53,7 +53,7 @@ ms.locfileid: "57192917"
     - 若為 Windows VM，請安裝最新的 Windows 更新，讓所有的受信任根憑證都在機器上。 在中斷連線的環境中，請遵循您組織的標準 Windows Update 和憑證更新程序。
     - 若為 Linux VM，請遵循 Linux 散發者提供的指引，以取得最新的受信任根憑證和憑證撤銷清單。
 2. 請確定您未使用驗證 Proxy 來控制打算移動 VM 的網路連線能力。
-3. 如果您要移動的 VM 無法存取網際網路並使用防火牆 Proxy 控制輸出存取，請檢查[需求](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity)。
+3. 如果您要移動的 VM 無法存取網際網路並使用防火牆 Proxy 控制輸出存取，請檢查[需求](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms)。
 4. 記載來源網路配置以及您目前使用的所有資源，包括 (但不限於) 要驗證的負載平衡器、網路安全性群組和公用 IP 位址。
 
 ## <a name="prepare-the-target-region"></a>準備目標區域

@@ -7,14 +7,14 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b885a90728df8cb15c75141b7bce81aec3968359
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791604"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779575"
 ---
-# <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>使用 Azure 藍圖資源鎖定保護新資源
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>教學課程：使用 Azure 藍圖資源鎖定保護新資源
 
 Azure 藍圖[資源鎖定](../concepts/resource-locking.md)能夠防止新部署的資源遭人竄改，即使是具有「擁有者」角色的帳戶也無法修改資源。 您可以從藍圖定義中，將這項保護措施新增至由 Resource Manager 範本成品建立的資源。
 

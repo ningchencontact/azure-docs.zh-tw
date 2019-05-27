@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: f88dee579e44a01dc1a7404ef6a670de34063552
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522931"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833562"
 ---
 # <a name="remote-desktop-client-connections"></a>遠端桌面用戶端連線
 
@@ -28,9 +28,9 @@ ms.locfileid: "65522931"
 
 使用**nslookup**確認 DNS 可將 FQDN 解析：
 
-    ```cmd
-    nslookup rdweb.wvd.microsoft.com
-    ```
+```cmd
+nslookup rdweb.wvd.microsoft.com
+```
 
 請嘗試使用另一個用戶端，例如適用於 Windows 7 或 Windows 10 中，並檢查看看是否您可以開啟 web 用戶端的遠端桌面用戶端連線。
 
@@ -111,20 +111,20 @@ Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
 4. 使用**Get RdsHostPool**並**Get RdsSessionHost** cmdlet，可讓您確認的疑難排解是在正確的主應用程式集區。
 5. 執行下列命令來取得所有失敗的活動，針對指定的時間範圍的連接類型的清單：
 
-    ```cmd
+    ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
 6. 使用**ActivityId**從先前的 cmdlet 輸出中，執行下列命令：
 
-    ```
+    ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
 7. 此命令會產生輸出類似如下所示的輸出。 使用**ErrorCodeSymbolic**並**ErrorMessage**進行疑難排解的根本原因。
 
-    ```
+    ```PowerShell
     ErrorSource       : <Source>
     ErrorOperation    : <Operation>
     ErrorCode         : <Error code>
@@ -159,7 +159,7 @@ Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
 
 確認使用者回報的問題已藉由使用這個命令列指派給應用程式群組：
 
-```cmd
+```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 

@@ -10,19 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: ad0d990554d9ff49bed3e9da7097c87c06c7152f
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/16/2019
+ms.openlocfilehash: 3260ffaba2ab91ee561a0430310883bda8f65269
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415557"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794084"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>教學課程：使用 DMS 在離線狀態下將 MongoDB 遷移至 Azure Cosmos DB 的 Mongo 版 API
+
 您可以使用 Azure 資料庫移轉服務，在離線狀態下將資料庫從內部部署或雲端的 MongoDB 執行個體 (單次) 移轉至 Azure Cosmos DB 的 Mongo 版 API。
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
+>
 > * 建立 Azure 資料庫移轉服務的執行個體。
 > * 使用 Azure 資料庫移轉服務來建立移轉專案。
 > * 執行移轉。
@@ -40,7 +42,7 @@ ms.locfileid: "65415557"
 
     > [!NOTE]
     > 在 VNet 設定期間，如果您搭配與 Microsoft 對等互連的網路使用 ExpressRoute，請將下列服務[端點](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)新增至將佈建服務的子網路：
-
+    >
     > * 目標資料庫端點 (例如，SQL 端點、Cosmos DB 端點等)
     > * 儲存體端點
     > * 服務匯流排端點
@@ -115,10 +117,22 @@ ms.locfileid: "65415557"
 
 1. 在 [來源詳細資料] 畫面上，指定來源 MongoDB 伺服器的連線詳細資料。
 
-   您也可以使用連接字串模式，並為 Blob 存放區檔案容器 (您已在其中傾印您想要移轉的集合資料) 提供位置。
+    有三種模式可連線至來源：
+   * **標準模式**，可接受完整網域名稱或 IP 位址、連接埠號碼和連線認證。
+   * **連接字串模式**，可接受[連接字串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中說明的 MongoDB 連接字串。
+   * **來自 Azure 儲存體的資料**，可接受 Blob 容器 SAS URL。 如果 Blob 容器含有 MongoDB [bsondump 工具](https://docs.mongodb.com/manual/reference/program/bsondump/)所產生的 BSON 傾印，請選取 [Blob 包含 BSON 傾印]，如果容器包含 JSON 檔案，則將其取消選取。
 
-   > [!NOTE]
-   > Azure 資料庫移轉服務也可以將 bson 文件或 json 文件遷移至 Azure Cosmos DB 的 Mongo 版 API 集合。
+    如果您選取此選項，請確定儲存體帳戶連接字串以下列格式顯示：
+
+     ```
+     https://blobnameurl/container?SASKEY
+     ```
+
+     此外，根據 Azure 儲存體中的類型傾印資訊，請留意下列詳細資料。
+
+     * 就 BSON 傾印而言，Blob 容器內的資料必須採用 bsondump 格式，使資料檔案以 collection.bson 的格式放入依所屬資料庫命名的資料夾中。 中繼資料檔案 (如果有的話) 則應使用 *collection*.metadata.json 的格式命名。
+
+     * 就 JSON 傾印而言，Blob 容器中的檔案必須放入依所屬資料庫命名的資料夾中。 在每個資料庫資料夾中，資料檔案必須放在名為「資料」的子資料夾中，並使用 *collection*.json 的格式命名。 中繼資料檔案 (如果有的話) 必須放在名為「中繼資料」的子資料夾中，並使用相同的格式 *collection*.json 命名。 中繼資料檔案必須採用 MongoDB bsondump 工具所產生的相同格式。
 
    如果無法解析 DNS 名稱，您也可以使用 IP 位址。
 

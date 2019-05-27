@@ -172,8 +172,8 @@ ms.locfileid: "61347644"
 | Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
-| Graphic |String |
-| Integer |Int32 |
+| 圖形 |String |
+| 整數  |Int32 |
 | Interval Day |TimeSpan |
 | Interval Day To Hour |TimeSpan |
 | Interval Day To Minute |TimeSpan |
@@ -183,10 +183,10 @@ ms.locfileid: "61347644"
 | Interval Hour To Second |TimeSpan |
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
-| Interval Month |String |
+| 間隔月 |String |
 | Interval Second |TimeSpan |
-| Interval Year |String |
-| Interval Year To Month |String |
+| 間隔年 |String |
+| 間隔年至月 |String |
 | Number |Double |
 | Period(Date) |String |
 | Period(Time) |String |
@@ -195,7 +195,7 @@ ms.locfileid: "61347644"
 | Period(Timestamp With Time Zone) |String |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Time With Time Zone |String |
+| 時區的時間 |String |
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |

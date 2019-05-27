@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 78d2392e32465b3091c49032dc5df5f3a5b6061a
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: acfd5230d1bd572ea5179651558e3f736a8570af
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416019"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833129"
 ---
 # <a name="what-is-ip-address-1686312916"></a>IP 位址 168.63.129.16 是什麼？
 
@@ -38,7 +38,7 @@ IP 位址 168.63.129.16 是虛擬公用 IP 位址，有助於建構 Azure 平台
 
 [Azure 負載平衡器健康情況探查](../load-balancer/load-balancer-custom-probe-overview.md)來自此 IP 位址。 如果您封鎖此 IP 位址，您的探查將會失敗。
 
-在非虛擬網路案例中，健康情況探查源自私人 ip 位址，並不會使用 168.63.129.16。
+在非虛擬網路案例 （傳統） 中，健康情況探查源自私人 ip 位址，並不會使用 168.63.129.16。
 
 ## <a name="next-steps"></a>後續步驟
 

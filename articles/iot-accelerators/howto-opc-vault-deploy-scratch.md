@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 990b13d362b796f5e71f1bd41eb35fce9720fff4
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450324"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835154"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>從頭開始部署 OPC 保存庫
 
@@ -45,7 +45,7 @@ OPC 保存庫是一項微服務，可以設定、註冊和管理雲端中的 OPC
 
 Visual Studio 可讓您快速開啟應用程式，而不使用命令提示字元，而不需要設定在 IDE 外面的任何項目。
 
-使用 Visual Studio 2017 的步驟：
+若要執行和偵錯使用 Visual Studio 的應用程式：
 
 1. 開啟方案使用`iot-opc-gds-service.sln`檔案。
 

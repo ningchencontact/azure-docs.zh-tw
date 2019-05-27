@@ -3,19 +3,19 @@ title: 快速入門：使用適用於 Node.js 的 Bing 實體搜尋 SDK 來傳�
 titleSuffix: Azure Cognitive Services
 description: 使用本快速入門，透過適用於 Node.js 的 Bing 實體搜尋 SDK 來搜尋實體
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: v-gedod
-ms.openlocfilehash: 015a2d344b066bd7b65c3228a2795c3395793f2b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aahi
+ms.openlocfilehash: 9c178b8278dd7854e4f79fbfae1bafc117a1970e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097025"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813672"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing 實體搜尋 SDK 來傳送搜尋要求
 

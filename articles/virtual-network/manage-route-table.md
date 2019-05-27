@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: 1f20cc7ded40d6eccf000a9ddcd52fb407ba470d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a39d9f9c5a138ece5d40cc5afe1d1dcdd8e7a41a
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682656"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849793"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>建立、變更或刪除路由表
 
@@ -29,207 +29,208 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 
 在完成本文任一節的步驟之前，請先完成下列工作︰
 
-- 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
-- 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 1.0.0 版或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
-- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
+* 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。<br>
+* 如果使用入口網站，開啟 https://portal.azure.com，並使用您的 Azure 帳戶登入。<br>
+* 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 1.0.0 版或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。<br>
+* 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
-您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+您登入，或連接到 Azure 中，使用的帳戶必須指派給[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或者[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)指派適當的動作中所列[權限](#permissions).
 
 ## <a name="create-a-route-table"></a>建立路由表
 
 每個 Azure 位置和訂用帳戶可以建立的路由表數目有所限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 1. 在入口網站的左上角，選取 [+ 建立資源]。
-2. 選取 [網路]，然後選取 [路由表]。
-3. 輸入路由表的 [名稱]，選取您的 [訂用帳戶]，建立新的 [資源群組] 或選取現有的資源群組，選取 [位置]，然後選取 [建立]。 如果您打算透過 VPN 閘道將路由表關聯至虛擬網路中連線到內部部署網路的子網路，而且停用 [BGP 路由傳播]，您的內部部署路由並不會傳播至子網路中的網路介面。
+1. 選取 [網路]，然後選取 [路由表]。
+1. 輸入路由表的 [名稱]，選取您的 [訂用帳戶]，建立新的 [資源群組] 或選取現有的資源群組，選取 [位置]，然後選取 [建立]。 如果您打算關聯至子網路連線到內部部署網路透過 VPN 閘道，虛擬網路中的路由表，但您停用**虛擬網路閘道路由傳播**，不是您的內部部署路由傳播至子網路中的網路介面。
 
-**命令**
+### <a name="create-route-table---commands"></a>建立路由表-命令
 
-- Azure CLI：[az network route-table create](/cli/azure/network/route-table/route)
-- PowerShell：[New-AzRouteTable](/powershell/module/az.network/new-azroutetable)
+* Azure CLI：[az network route-table create](/cli/azure/network/route-table/route)<br>
+* PowerShell：[New-AzRouteTable](/powershell/module/az.network/new-azroutetable)
 
 ## <a name="view-route-tables"></a>檢視路由表
 
 在入口網站頂端的搜尋方塊中，輸入「路由表」。 當搜尋結果中出現**路由表**時加以選取。 列出的是存在訂用帳戶的路由表。
 
-**命令**
+### <a name="view-route-table---commands"></a>檢視路由表-命令
 
-- Azure CLI：[az network route-table list](/cli/azure/network/route-table/route)
-- PowerShell：[Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
+* Azure CLI：[az network route-table list](/cli/azure/network/route-table/route)<br>
+* PowerShell：[Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
 
 ## <a name="view-details-of-a-route-table"></a>檢視路由表的詳細資料
 
 1. 在入口網站頂端的搜尋方塊中，輸入「路由表」。 當搜尋結果中出現**路由表**時加以選取。
-2. 選取清單中您想要檢視其詳細資料的路由表。 在 [設定] 下，您可以檢視路由表中的 [路由] 以及與路由表建立關聯的 [子網路]。
-3. 若要深入了解 Azure 的一般設定，請參閱下列資訊：
-    *   [活動記錄檔](../azure-monitor/platform/activity-logs-overview.md)
-    *   [存取控制 (IAM)](../role-based-access-control/overview.md)
-    *   [標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [自动化脚本](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+1. 選取清單中您想要檢視其詳細資料的路由表。 在 [設定] 下，您可以檢視路由表中的 [路由] 以及與路由表建立關聯的 [子網路]。
+1. 若要深入了解 Azure 的一般設定，請參閱下列資訊：
 
-**命令**
+    * [活動記錄檔](../azure-monitor/platform/activity-logs-overview.md)<br>
+    * [存取控制 (IAM)](../role-based-access-control/overview.md)<br>
+    * [標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
+    * [鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
+    * [自動化指令碼](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
-- Azure CLI：[az network route-table show](/cli/azure/network/route-table/route)
-- PowerShell：[Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
+### <a name="view-details-of-route-table---commands"></a>檢視路由表-命令的詳細資料
+
+* Azure CLI：[az network route-table show](/cli/azure/network/route-table/route)<br>
+* PowerShell：[Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
 
 ## <a name="change-a-route-table"></a>變更路由表
 
 1. 在入口網站頂端的搜尋方塊中，輸入「路由表」。 當搜尋結果中出現**路由表**時加以選取。
-2. 選取您想要變更的路由表。 [新增](#create-a-route)或[移除](#delete-a-route)路由以及將子網路和路由表[建立關聯](#associate-a-route-table-to-a-subnet)或從子網路與路由表[中斷關聯](#dissociate-a-route-table-from-a-subnet)，都是最常見的變更。
+1. 選取您想要變更的路由表。 [新增](#create-a-route)或[移除](#delete-a-route)路由以及將子網路和路由表[建立關聯](#associate-a-route-table-to-a-subnet)或從子網路與路由表[中斷關聯](#dissociate-a-route-table-from-a-subnet)，都是最常見的變更。
 
-**命令**
+### <a name="change-a-route-table---commands"></a>變更路由表-命令
 
-- Azure CLI：[az network route-table update](/cli/azure/network/route-table/route)
-- PowerShell：[Set-AzRouteTable](/powershell/module/az.network/set-azroutetable)
+* Azure CLI：[az network route-table update](/cli/azure/network/route-table/route)<br>
+* PowerShell：[Set-AzRouteTable](/powershell/module/az.network/set-azroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>建立路由表與子網路的關聯
 
-子網路可以有零個或一個與其相關聯的路由表。 路由表可以與零個或多個子網路建立關聯。 由於路由表並未與虛擬網路建立關聯，所以您必須和想要路由表與之相關聯的每個子網路建立關聯。 如果虛擬網路連線到 Azure 虛擬網路閘道 (ExpressRoute 或在利用 VPN 閘道使用 BGP 時為 VPN)，離開子網路的所有流量都會根據您在路由表內建立的路由、[預設路由](virtual-networks-udr-overview.md#default)以及從內部部署網路傳播的路由來路由傳送。 您只能在以路由表形式存在於相同的 Azure 位置和訂用帳戶的虛擬網路中，將路由表與子網路建立關聯。
+子網路可以有零個或一個與其相關聯的路由表。 路由表可以與零個或多個子網路建立關聯。 由於路由表並未與虛擬網路建立關聯，所以您必須和想要路由表與之相關聯的每個子網路建立關聯。 離開子網路的所有流量會路由都傳送，根據您已建立路由表內的路由[預設路由](virtual-networks-udr-overview.md#default)，並從內部部署網路，如果虛擬網路連線到 Azure 虛擬網路閘道 （傳播的路由ExpressRoute 或 VPN）。 您只能在以路由表形式存在於相同的 Azure 位置和訂用帳戶的虛擬網路中，將路由表與子網路建立關聯。
 
 1. 在入口網站頂端的搜尋方塊中輸入「虛擬網路」。 當搜尋結果中出現**虛擬網路**時加以選取。
-2. 在清單中所選取的虛擬網路須包含要和路由表建立關聯的子網路。
-3. 在 [設定] 底下，選取 [子網路]。
-4. 選取您要和路由表建立關聯的子網路。
-5. 選取 [路由表]，選取您要和子網路建立關聯的路由表，然後選取 [儲存]。
+1. 在清單中所選取的虛擬網路須包含要和路由表建立關聯的子網路。
+1. 在 [設定] 底下，選取 [子網路]。
+1. 選取您要和路由表建立關聯的子網路。
+1. 選取 [路由表]，選取您要和子網路建立關聯的路由表，然後選取 [儲存]。
 
 如果虛擬網路連線至 Azure VPN 閘道，請勿將路由表關聯至所含路由的目的地為 0.0.0.0/0 的[閘道子網路](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 這麼做會讓閘道無法正常運作。 如需關於在路由中使用 0.0.0.0/0 的詳細資訊，請參閱[虛擬網路流量路由](virtual-networks-udr-overview.md#default-route)。
 
-**命令**
+### <a name="associate-a-route-table---commands"></a>關聯路由表-命令
 
-- Azure CLI：[az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)
-- PowerShell：[Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
+* Azure CLI：[az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)<br>
+* PowerShell：[Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>從子網路中斷與路由表的關聯
 
 當您從子網路中斷與路由表的關聯時，Azure 會根據其[預設路由](virtual-networks-udr-overview.md#default)來路由傳送流量。
 
 1. 在入口網站頂端的搜尋方塊中輸入「虛擬網路」。 當搜尋結果中出現**虛擬網路**時加以選取。
-2. 選取的虛擬網路須包含要從中與路由表中斷關聯的子網路。
-3. 在 [設定] 底下，選取 [子網路]。
-4. 選取您要從中與路由表中斷關聯的子網路。
-5. 選取 [路由表]，選取 [無]，然後選取 [儲存]。
+1. 選取的虛擬網路須包含要從中與路由表中斷關聯的子網路。
+1. 在 [設定] 底下，選取 [子網路]。
+1. 選取您要從中與路由表中斷關聯的子網路。
+1. 選取 [路由表]，選取 [無]，然後選取 [儲存]。
 
-**命令**
+### <a name="dissociate-a-route-table---commands"></a>中斷關聯路由表-命令
 
-- Azure CLI：[az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)
-- PowerShell：[Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
+* Azure CLI：[az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)<br>
+* PowerShell：[Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
 
 ## <a name="delete-a-route-table"></a>刪除路由表
 
 若有任何子網路與路由表相關聯，則無法刪除該路由表。 請從所有子網路與路由表[中斷關聯](#dissociate-a-route-table-from-a-subnet)之後，再嘗試予以刪除。
 
 1. 在入口網站頂端的搜尋方塊中，輸入「路由表」。 當搜尋結果中出現**路由表**時加以選取。
-2. 選取您想要刪除的路由表右側的 [...]。
-3. 選取 [刪除]，然後選取 [是]。
+1. 選取您想要刪除的路由表右側的 [...]。
+1. 選取 [刪除]，然後選取 [是]。
 
-**命令**
+### <a name="delete-a-route-table---commands"></a>刪除路由表-命令
 
-- Azure CLI：[az network route-table delete](/cli/azure/network/route-table/route)
-- PowerShell：[Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable)
+* Azure CLI：[az network route-table delete](/cli/azure/network/route-table/route)<br>
+* PowerShell：[Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable)
 
 ## <a name="create-a-route"></a>建立路由
 
 每個 Azure 位置和訂用帳戶可在每個路由表建立的路由數目有所限制。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 1. 在入口網站頂端的搜尋方塊中，輸入「路由表」。 當搜尋結果中出現**路由表**時加以選取。
-2. 從清單中選取您想要新增路由的路由表。
-3. 在 [設定] 底下，選取 [路由]。
-4. 選取 [+ 新增] 。
-5. 為路由表內的路由輸入唯一的**名稱**。
-6. 以 CIDR 標記法輸入您要路由傳送流量的**位址首碼**。 雖然首碼可以在另一個首碼內，但不可在路由表內的多個路由中重複。 例如，如果您將 10.0.0.0/16 定義為某路由的首碼，您仍能以 10.0.0.0/24 位址首碼定義另一個路由。 Azure 會根據最長首碼比對來為流量選取路由。 若要深入了解 Azure 選取路由的方式，請參閱[路由概觀](virtual-networks-udr-overview.md#how-azure-selects-a-route)。
-7. 選取 [下一個躍點類型]。 如需所有下一個躍點類型的詳細說明，請參閱[路由概觀](virtual-networks-udr-overview.md)。
-8. 輸入 [下一個躍點位址] 的 IP 位址。 如果您選取的 [下一個躍點類型] 為「虛擬設備」，您只能輸入一個位址。
-9. 選取 [確定] 。
+1. 從清單中選取您想要新增路由的路由表。
+1. 在 [設定] 底下，選取 [路由]。
+1. 選取  **+ 新增**。
+1. 為路由表內的路由輸入唯一的**名稱**。
+1. 以 CIDR 標記法輸入您要路由傳送流量的**位址首碼**。 雖然首碼可以在另一個首碼內，但不可在路由表內的多個路由中重複。 例如，如果您將 10.0.0.0/16 定義為某路由的首碼，您仍能以 10.0.0.0/24 位址首碼定義另一個路由。 Azure 會根據最長首碼比對來為流量選取路由。 若要深入了解 Azure 選取路由的方式，請參閱[路由概觀](virtual-networks-udr-overview.md#how-azure-selects-a-route)。
+1. 選取 [下一個躍點類型]。 如需所有下一個躍點類型的詳細說明，請參閱[路由概觀](virtual-networks-udr-overview.md)。
+1. 輸入 [下一個躍點位址] 的 IP 位址。 如果您選取的 [下一個躍點類型] 為「虛擬設備」，您只能輸入一個位址。
+1. 選取 [確定] 。
 
-**命令**
+### <a name="create-a-route---commands"></a>建立的路由-命令
 
-- Azure CLI：[az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell：[New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig)
+* Azure CLI：[az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
+* PowerShell：[New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig)
 
 ## <a name="view-routes"></a>檢視路由
 
 路由表包含零個或多個路由。 若要深入了解檢視路由時列出的資訊，請參閱[路由概觀](virtual-networks-udr-overview.md)。
 
 1. 在入口網站頂端的搜尋方塊中，輸入「路由表」。 當搜尋結果中出現**路由表**時加以選取。
-2. 從清單中選取您想要檢視路由的路由表。
-3. 在 [設定] 底下，選取 [路由]。
+1. 從清單中選取您想要檢視路由的路由表。
+1. 在 [設定] 底下，選取 [路由]。
 
-**命令**
+### <a name="view-routes---commands"></a>檢視路由-命令
 
-- Azure CLI：[az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell：[Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
+* Azure CLI：[az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
+* PowerShell：[Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
 
 ## <a name="view-details-of-a-route"></a>檢視路由的詳細資料
 
 1. 在入口網站頂端的搜尋方塊中，輸入「路由表」。 當搜尋結果中出現**路由表**時加以選取。
-2. 選取您想要檢視其路由詳細資料的路由表。
-3. 選取 [路由]。
-4. 選取您想要檢視其詳細資料的路由。
+1. 選取您想要檢視其路由詳細資料的路由表。
+1. 選取 [路由]。
+1. 選取您想要檢視其詳細資料的路由。
 
-**命令**
+### <a name="view-details-of-a-route---commands"></a>檢視的路由-命令的詳細資料
 
-- Azure CLI：[az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell：[Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
+* Azure CLI：[az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
+* PowerShell：[Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
 
 ## <a name="change-a-route"></a>變更路由
 
 1. 在入口網站頂端的搜尋方塊中，輸入「路由表」。 當搜尋結果中出現**路由表**時加以選取。
-2. 選取您想要變更其路由的路由表。
-3. 選取 [路由]。
-4. 選取您想要變更的路由。
-5. 將現有的設定變更為新設定，然後選取 [儲存]。
+1. 選取您想要變更其路由的路由表。
+1. 選取 [路由]。
+1. 選取您想要變更的路由。
+1. 將現有的設定變更為新設定，然後選取 [儲存]。
 
-**命令**
+### <a name="change-a-route---commands"></a>變更的路由-命令
 
-- Azure CLI：[az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell：[Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig)
+* Azure CLI：[az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
+* PowerShell：[Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig)
 
 ## <a name="delete-a-route"></a>刪除路由
 
 1. 在入口網站頂端的搜尋方塊中，輸入「路由表」。 當搜尋結果中出現**路由表**時加以選取。
-2. 選取您想要刪除其路由的路由表。
-3. 選取 [路由]。
-4. 從路由清單中選取您想要刪除的路由右側的 [...]。
-5. 選取 [刪除]，然後選取 [是]。
+1. 選取您想要刪除其路由的路由表。
+1. 選取 [路由]。
+1. 從路由清單中選取您想要刪除的路由右側的 [...]。
+1. 選取 [刪除]，然後選取 [是]。
 
-**命令**
+### <a name="delete-a-route---commands"></a>刪除路由-命令
 
-- Azure CLI：[az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)
-- PowerShell：[Remove-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig)
+* Azure CLI：[az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
+* PowerShell：[Remove-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig)
 
 ## <a name="view-effective-routes"></a>檢視有效的路由
 
 結合您建立的路由表、Azure 的預設路由以及經由 Azure 虛擬網路閘道透過 BGP 從內部部署網路傳播的任何路由，即形成連結至虛擬機器之每個網路介面的有效路由。 了解網路介面的有效路由，在對路由問題進行疑難排解時會很有幫助。 您可以檢視連結至執行中虛擬機器之任何網路介面的有效路由。
 
 1. 在入口網站頂端的搜尋方塊中，輸入您要檢視其有效路由的虛擬機器名稱。 如果您不知道虛擬機器的名稱，請在搜尋方塊中輸入「虛擬機器」。 當搜尋結果中出現**虛擬機器**時加以選取，然後從清單中選取虛擬機器。
-2. 在 [設定] 底下，選取 [網路]。
-3. 選取網路介面的名稱。
-4. 在 [支援 + 疑難排解] 底下，選取 [有效路由]。
-5. 檢閱有效路由的清單，以判斷您要路由傳送流量的目標是否有正確的路由存在。 請參閱[路由概觀](virtual-networks-udr-overview.md)，深入了解您在此清單中看到的下一個躍點類型。
+1. 在 [設定] 底下，選取 [網路]。
+1. 選取網路介面的名稱。
+1. 在 [支援 + 疑難排解] 底下，選取 [有效路由]。
+1. 檢閱有效路由的清單，以判斷您要路由傳送流量的目標是否有正確的路由存在。 請參閱[路由概觀](virtual-networks-udr-overview.md)，深入了解您在此清單中看到的下一個躍點類型。
 
-**命令**
+### <a name="view-effective-routes---commands"></a>檢視有效路由命令
 
-- Azure CLI：[az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest)
-- PowerShell：[Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
+* Azure CLI：[az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest)<br>
+* PowerShell：[Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
 
 ## <a name="validate-routing-between-two-endpoints"></a>驗證兩個端點之間的路由
 
 您可以判斷虛擬機器與另一個 Azure 資源的 IP 位址、內部部署資源或網路網路上資源之間的下一個躍點類型。 對路由問題進行疑難排解時，判斷 Azure 的路由會很有幫助。 您必須要有現有的網路監看員，才能完成此工作。 如果您沒有現有的網路監看員，請建立一個網路監看員，方法是完成[建立網路監看員執行個體](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)中的各步驟。
 
 1. 在入口網站頂端的搜尋方塊中輸入「網路監看員」。 當搜尋結果中出現**網路監看員**時加以選取。
-2. 在 [網路診斷工具] 底下，選取 [下一個躍點]。
-3. 選取您要從其驗證路由的來源虛擬機器的 [訂用帳戶] 與 [資源群組]。
-4. 選取 [虛擬機器]、連結至虛擬機器的 [網路介面]，以及指派給您要從其驗證路由之網路介面的 [來源 IP 位址]。
-5. 輸入您要對其驗證路由的 [目的地 IP 位址]。
-6. 選取 [下一個躍點]。
-7. 短暫等候之後，傳回的資訊會告訴您路由傳送流量的下一個躍點類型和路由識別碼。 請參閱[路由概觀](virtual-networks-udr-overview.md)，深入了解您看到傳回的下一個躍點類型。
+1. 在 [網路診斷工具] 底下，選取 [下一個躍點]。
+1. 選取您要從其驗證路由的來源虛擬機器的 [訂用帳戶] 與 [資源群組]。
+1. 選取 [虛擬機器]、連結至虛擬機器的 [網路介面]，以及指派給您要從其驗證路由之網路介面的 [來源 IP 位址]。
+1. 輸入您要對其驗證路由的 [目的地 IP 位址]。
+1. 選取 [下一個躍點]。
+1. 短暫等候之後，傳回的資訊會告訴您路由傳送流量的下一個躍點類型和路由識別碼。 請參閱[路由概觀](virtual-networks-udr-overview.md)，深入了解您看到傳回的下一個躍點類型。
 
-**命令**
+### <a name="validate-routing-between-two-endpoints---commands"></a>驗證兩個端點-命令之間的路由
 
-- Azure CLI：[az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)
-- PowerShell：[Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)
+* Azure CLI：[az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)<br>
+* PowerShell：[Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)
 
 ## <a name="permissions"></a>權限
 
@@ -249,5 +250,5 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 範例指令碼，或使用 Azure [Resource Manager 範本](template-samples.md)建立路由表
-- 為虛擬網路建立及套用 [Azure 原則](policy-samples.md)
+* 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 範例指令碼，或使用 Azure [Resource Manager 範本](template-samples.md)建立路由表<br>
+* 為虛擬網路建立及套用 [Azure 原則](policy-samples.md)

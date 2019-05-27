@@ -16,11 +16,11 @@ ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d5c79709344d8a110495b16afdc61a5ff1f68cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65857796"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>教學課程：Azure Active Directory 與 Capriza Platform 整合
 
@@ -39,7 +39,7 @@ ms.locfileid: "57849188"
 若要設定 Azure AD 與 Capriza Platform 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 Capriza Platform 單一登入的訂用帳戶
+* 已啟用 Capriza Platform 單一登入功能的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -81,7 +81,7 @@ ms.locfileid: "57849188"
 2. **[設定 Capriza Platform 單一登入](#configure-capriza-platform-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Capriza Platform 測試使用者](#create-capriza-platform-test-user)** - 在 Capriza Platform 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+5. **[建立 Capriza Platform 測試使用者](#create-capriza-platform-test-user)** - 在 Capriza Platform 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -164,7 +164,7 @@ ms.locfileid: "57849188"
 
 2. 在應用程式清單中，選取 [Capriza Platform]。
 
-    ![應用程式清單中的 [Capriza Platform] 連結](common/all-applications.png)
+    ![應用程式清單中的 Capriza Platform 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -190,7 +190,7 @@ ms.locfileid: "57849188"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Capriza Platform] 圖格時，應該會自動登入您已設定 SSO 的 Capriza Platform。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Capriza Platform] 圖格時，應該會自動登入您設定 SSO 的 Capriza Platform。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

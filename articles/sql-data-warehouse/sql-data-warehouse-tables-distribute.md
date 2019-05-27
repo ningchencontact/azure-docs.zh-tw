@@ -2,20 +2,20 @@
 title: 分散式資料表設計指引 - Azure SQL 資料倉儲 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中設計雜湊分散式資料表和循環配置資源分散式資料表的建議。
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c3de7b46449b8075d17a19733eda88d692b1d876
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b101a4e19d00d44805c7eb5f44d449a18d756804
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60935783"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851625"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計分散式資料表的指引
 在 Azure SQL 資料倉儲中設計雜湊分散式資料表和循環配置資源分散式資料表的建議。
@@ -61,7 +61,7 @@ ms.locfileid: "60935783"
 - 如果沒有明顯的聯結索引鍵
 - 如果沒有合適的候選資料行可供雜湊散發資料表
 - 如果資料表並未與其他資料表共用常見的聯結索引鍵
-- 该联接比查询中的其他联接更不重要时
+- 如果此聯結比查詢中的其他聯結較不重要
 - 當資料表是暫存預備資料表時
 
 [將紐約計程車資料載入 Azure SQL 資料倉儲](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse)教學課程會提供範例，示範如何將資料載入循環配置資源的暫存資料表。
