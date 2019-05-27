@@ -9,11 +9,11 @@ ms.date: 03/02/2018
 ms.author: mandia
 ms.custom: include file
 ms.openlocfilehash: 11280e1678f52ede928cb2a85ea83add222e15fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61462520"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149217"
 ---
 1. 在 [Azure 入口網站](https://portal.azure.com) 中，建立空白的邏輯應用程式。 
 

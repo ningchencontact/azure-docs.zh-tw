@@ -16,19 +16,19 @@ ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 361e921af65b33ac0a7a8d12e28db1cb305b0fa1
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548114"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66138835"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>教學課程：在 Azure 中建置 Node.js 和 MongoDB 應用程式
 
 > [!NOTE]
-> 此文章會將應用程式部署至 Windows 上的 App Service。 若要在 _Linux_ 上部署至 App Service，請參閱[在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB 應用程式](./containers/tutorial-nodejs-mongodb-app.md)。
+> 本文會將應用程式部署至 Windows 上的 App Service。 若要在 _Linux_ 上部署至 App Service，請參閱[在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB 應用程式](./containers/tutorial-nodejs-mongodb-app.md)。
 >
 
-Azure App Service 提供可高度擴充、自我修復的 Web 裝載服務。 此教學課程示範如何在 App Service 中建立 Node.js 應用程式，並將它連線到 MongoDB 資料庫。 完成之後，您的 MEAN 應用程式 (MongoDB、Express、AngularJS 及 Node.js) 將會在 [Azure App Service](overview.md) 中執行。 為了簡單起見，範例應用程式會使用 [MEAN.js web 架構](https://meanjs.org/)。
+Azure App Service 提供可高度擴充、自我修復的 Web 裝載服務。 本教學課程示範如何在 App Service 中建立 Node.js 應用程式，並將它連線到 MongoDB 資料庫。 完成之後，您的 MEAN 應用程式 (MongoDB、Express、AngularJS 及 Node.js) 將會在 [Azure App Service](overview.md) 中執行。 為了簡單起見，範例應用程式會使用 [MEAN.js web 架構](https://meanjs.org/)。
 
 ![在 Azure App Service 中執行的 MEAN.js 應用程式](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -46,7 +46,7 @@ Azure App Service 提供可高度擴充、自我修復的 Web 裝載服務。 �
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程：
+若要完成本教學課程：
 
 1. [安裝 Git](https://git-scm.com/)
 2. [安裝 Node.js 和 NPM](https://nodejs.org/)
@@ -56,7 +56,7 @@ Azure App Service 提供可高度擴充、自我修復的 Web 裝載服務。 �
 
 ## <a name="test-local-mongodb"></a>測試本機的 MongoDB
 
-開啟終端機視窗，然後 `cd` 至 MongoDB 安裝的 `bin` 目錄。 您可使用這個終端機視窗來執行此教學課程中的所有命令。
+開啟終端機視窗，然後 `cd` 至 MongoDB 安裝的 `bin` 目錄。 您可使用這個終端機視窗來執行本教學課程中的所有命令。
 
 在終端機上執行 `mongo`，以連接到本機的 MongoDB 伺服器。
 
@@ -119,7 +119,7 @@ MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果�
 如需隨時停止 Node.js，請在終端機上按下 `Ctrl+C`。 
 
 > [!NOTE]
-> [Node.js 快速入門](app-service-web-get-started-nodejs.md)中提到，應用程式的根目錄中必須要有 web.config。 不過，在此教學課程中，當您使用[本機 Git 部署](deploy-local-git.md) (而非 ZIP 檔案部署) 來部署檔案時，App Service 部署即會自動產生此 web.config 檔案。 
+> [Node.js 快速入門](app-service-web-get-started-nodejs.md)中提到，應用程式的根目錄中必須要有 web.config。 不過，在本教學課程中，當您使用[本機 Git 部署](deploy-local-git.md) (而非 ZIP 檔案部署) 來部署檔案時，App Service 部署即會自動產生此 web.config 檔案。 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -127,7 +127,7 @@ MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果�
 
 在此步驟中，您要在 Azure 中建立 MongoDB 資料庫。 當您的應用程式部署至 Azure 時，它會使用此雲端資料庫。
 
-針對 MongoDB，此教學課程使用 [Azure Cosmos DB](/azure/documentdb/)。 Cosmos DB 支援 MongoDB 用戶端連線。
+針對 MongoDB，本教學課程使用 [Azure Cosmos DB](/azure/documentdb/)。 Cosmos DB 支援 MongoDB 用戶端連線。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
@@ -136,7 +136,7 @@ MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果�
 ### <a name="create-a-cosmos-db-account"></a>建立 Cosmos DB 帳戶
 
 > [!NOTE]
-> 在此教學課程中，當您在自己的 Azure 訂用帳戶中建立 Azure Cosmos DB 資料庫時會產生費用。 若要使用為期七天的免費 Azure Cosmos DB 帳戶，您可以使用[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 的體驗。 直接按一下 [MongoDB] 圖格中的 [建立] 按鈕，在 Azure 上建立免費的 MongoDB 資料庫。 資料庫建立好之後，在入口網站中瀏覽至**連接字串**，並擷取 Azure Cosmos DB 連線字串以供在此教學課程稍後使用。
+> 在本教學課程中，當您在自己的 Azure 訂用帳戶中建立 Azure Cosmos DB 資料庫時會產生費用。 若要使用為期七天的免費 Azure Cosmos DB 帳戶，您可以使用[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 的體驗。 直接按一下 [MongoDB] 圖格中的 [建立] 按鈕，在 Azure 上建立免費的 MongoDB 資料庫。 資料庫建立好之後，在入口網站中瀏覽至**連接字串**，並擷取 Azure Cosmos DB 連線字串以供在本教學課程稍後使用。
 >
 
 在 Cloud Shell 中，使用 [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) 命令來建立 Cosmos DB 帳戶。

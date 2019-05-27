@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576601"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130994"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>在執行階段使用 Application Insights 狀態監視器檢測 Web 應用程式
 
@@ -149,6 +149,8 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 * 若要輸出詳細資訊記錄，請修改組態檔 `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` 並將 `<add key="TraceLevel" value="All" />` 新增至 `appsettings`。
 然後重新啟動狀態監視器。
 
+* 狀態監視器是一個.NET 應用程式，您也可以啟用[藉由新增適當的診斷組態檔的.net 追蹤](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)。 比方說，在某些情況下很有用，若要查看在網路層級的事情[設定網路追蹤](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+
 ### <a name="insufficient-permissions"></a>權限不足
   
 * 如果您在伺服器上看到有關「權限不足」的訊息，請嘗試下列操作：
@@ -184,7 +186,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 * Windows Server 2012 R2
 * Windows Server 2016
 
-(含最新版 SP 和 .NET Framework 4.5)
+使用最新版 SP 和.NET Framework 4.5 （狀態監視建置在這個版本的 framework）
 
 在用戶端：Windows 7、8、8.1 和 10，一樣需含有 .NET Framework 4.5
 
@@ -276,7 +278,9 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>狀態監視器安裝哪個版本的 Application Insights SDK？
 
-目前，狀態監視器只能安裝 Application Insights SDK 版本 2.3 或 2.4。
+目前，狀態監視器只能安裝 Application Insights SDK 版本 2.3 或 2.4。 
+
+是 Application Insights SDK 版本 2.4[最新版本支援.NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1)已[EOL 2016 年 1 月](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/)。 因此，目前狀態監視器可以用來檢測.NET 4.0 應用程式。 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>每次更新應用程式時，是否需要執行狀態監視器？
 

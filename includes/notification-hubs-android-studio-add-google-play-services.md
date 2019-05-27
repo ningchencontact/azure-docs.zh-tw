@@ -9,11 +9,11 @@ ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: fb27386881e89cd9056d0efccb7d3c301867bd83
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965982"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156855"
 ---
 1. 在 [Android Studio] 中，選取 [工具] 功能表，然後選取 [SDK 管理員]。 
 2. 選取您專案中使用的 Android SDK 目標版本，然後選取 [顯示套件詳細資料]。 

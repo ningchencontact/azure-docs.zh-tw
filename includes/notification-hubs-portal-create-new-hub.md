@@ -9,11 +9,11 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: a5d29e77f6ba10ed3069cb3f5a3c8089f49c237d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60423169"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140547"
 ---
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取左功能表上的 [所有服務]，然後選取 [行動] 區段中的 [通知中樞]。 選取服務名稱旁邊的星號 (`*`)，將它加到左功能表上的 [我的最愛] 區段。 在 [通知中樞] 加到 [我的最愛] 之後，在左功能表上予以選取。 

@@ -9,13 +9,13 @@ ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468340"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145928"
 ---
-暫時的 OS 磁碟是本機的虛擬機器 (VM) 儲存體上建立，並不會保存到遠端的 Azure 儲存體。 暫時的 OS 磁碟適用於無狀態工作負載，其中的應用程式可容忍的個別 VM 失敗，但關心更大規模的部署所花費的時間或時間來重新安裝映像個別的 VM 執行個體。 它也適合用於部署的應用程式，使用傳統部署模型中，移至 Resource Manager 部署模型。 使用暫時性 OS 磁碟時，您會觀察到較低的讀取/寫入延遲，OS 磁碟並更快的 VM 重新安裝映像。 此外，暫時的作業系統磁碟是免費，您需要支付在 OS 磁碟沒有儲存體費用。 
+暫時的 OS 磁碟是本機的虛擬機器 (VM) 儲存體上建立，並不會保存到遠端的 Azure 儲存體。 暫時的 OS 磁碟適用於無狀態工作負載，其中的應用程式可容忍的個別 VM 失敗，但關心更大規模的部署所花費的時間或時間來重新安裝映像個別的 VM 執行個體。 它也適合用於部署的應用程式，使用傳統部署模型中，移至 Resource Manager 部署模型。 使用暫時性 OS 磁碟時，您會發現 OS 磁碟的讀寫延遲較低，而重新安裝 VM 映像的速度較快。 此外，暫時的作業系統磁碟是免費，您需要支付在 OS 磁碟沒有儲存體費用。 
  
 暫時磁碟的主要功能如下： 
 - 它們可以搭配 Marketplace 映像和自訂映像。

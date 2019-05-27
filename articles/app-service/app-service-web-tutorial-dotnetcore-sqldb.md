@@ -15,19 +15,19 @@ ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: c83e14d65b30775f0dad54ab9ade1a7bed5ac821
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66139487"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>教學課程：在 Azure App Service 中建置 ASP.NET Core 和 SQL Database 應用程式
 
 > [!NOTE]
-> 此文章會將應用程式部署至 Windows 上的 App Service。 若要在 _Linux_ 上部署至 App Service，請參閱[在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式](./containers/tutorial-dotnetcore-sqldb-app.md)。
+> 本文會將應用程式部署至 Windows 上的 App Service。 若要在 _Linux_ 上部署至 App Service，請參閱[在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式](./containers/tutorial-dotnetcore-sqldb-app.md)。
 >
 
-[App Service](overview.md) 可在 Azure 中提供可高度擴充、自我修復的 Web 主控服務。 此教學課程示範如何建立 .NET Core 應用程式，並將它連線到 SQL Database。 當您完成時，您就會有在 App Service 中執行的 .NET Core MVC 應用程式。
+[App Service](overview.md) 可在 Azure 中提供可高度擴充、自我修復的 Web 主控服務。 本教學課程示範如何建立 .NET Core 應用程式，並將它連線到 SQL Database。 當您完成時，您就會有在 App Service 中執行的 .NET Core MVC 應用程式。
 
 ![在 App Service 中執行的應用程式](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "59548862"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程：
+若要完成本教學課程：
 
 * [安裝 Git](https://git-scm.com/)
 * [安裝 .NET Core](https://www.microsoft.com/net/core/)
@@ -89,7 +89,7 @@ dotnet run
 
 在此步驟中，您要在 Azure 中建立 SQL Database。 當您的應用程式部署至 Azure 時，它會使用此雲端資料庫。
 
-對於 SQL Database，此教學課程使用 [Azure SQL Database](/azure/sql-database/)。
+對於 SQL Database，本教學課程使用 [Azure SQL Database](/azure/sql-database/)。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
@@ -299,7 +299,7 @@ dotnet ef database update
 
 ### <a name="use-the-new-property"></a>使用新屬性
 
-在您的程式碼中進行一些變更以使用 `Done` 屬性。 為了簡單起見，在此教學課程中，您僅需變更 `Index` 和 `Create` 檢視，以查看作用中的屬性。
+在您的程式碼中進行一些變更以使用 `Done` 屬性。 為了簡單起見，在本教學課程中，您僅需變更 `Index` 和 `Create` 檢視，以查看作用中的屬性。
 
 開啟 _Controllers\TodosController.cs_。
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 3217383b105c022aef42d8000f3a41cefea542fe
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133098"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140914"
 ---
 1. 瀏覽 [Azure 入口網站]。
 2. 按一下 [應用程式服務] > 您建立的後端。

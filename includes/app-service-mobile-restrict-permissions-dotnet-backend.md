@@ -1,10 +1,15 @@
 ---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
 ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113520"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66139870"
 ---
 根據預設，可以匿名方式叫用 Mobile Apps 後端中的 API。 接下來，您必須限制只有經過驗證的用戶端才有存取權。  
 
@@ -15,17 +20,13 @@ ms.locfileid: "62113520"
 
     在伺服器專案中，瀏覽至 [控制器]  >  [TodoItemController.cs]。 將 `[Authorize]` 屬性加入 **TodoItemController** 類別，如下所示。 若要限制只有特定方法才能存取，也可以將此屬性套用至這些方法，而不是類別。 發佈伺服器專案。
 
-    ```
-    [Authorize]
-    public class TodoItemController : TableController<TodoItem>
-    ```
+        [Authorize]
+        public class TodoItemController : TableController<TodoItem>
 
 * **Node.js 後端 (透過 Node.js 程式碼)** ：  
 
     如需要求資料表存取驗證，請將下行加入 Node.js 伺服器指令碼：
 
-    ```
-    table.access = 'authenticated';
-    ```
+        table.access = 'authenticated';
 
     如需詳細資訊，請參閱[How to:需要驗證才能存取資料表](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)。 若要了解如何從您的網站下載的快速入門程式碼專案，請參閱[How to:下載 Node.js 後端快速入門程式碼專案使用 Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)。

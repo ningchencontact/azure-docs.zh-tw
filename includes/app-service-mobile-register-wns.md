@@ -1,10 +1,15 @@
 ---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
 ms.openlocfilehash: 75bcb9d27ee6f66a1d9c15093d9f933a3ad25881
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114329"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140583"
 ---
 1. 在 Visual Studio 方案總管中，以滑鼠右鍵按一下 Windows 市集應用程式專案。 然後選取 [市集] > [將應用程式與市集建立關聯]。
 
@@ -15,7 +20,7 @@ ms.locfileid: "62114329"
 5. 移至 [Windows 開發人員中心](https://dev.windows.com/en-us/overview)，然後使用您的 Microsoft 帳戶登入。 在 [我的應用程式] 中，選取新的應用程式註冊。 然後展開 [服務] > [推播通知]。
 6. 在 [推播通知] 頁面上，在 [Windows 推播通知服務 (WNS) 和 Microsoft Azure Mobile Apps] 下，選取 [線上服務網站]。  請記下**套件 SID** 的值和**應用程式密碼**中的*目前*值。 
 
-    ![开发人员中心中的应用设置](./media/app-service-mobile-register-wns/mobile-services-win8-app-push-auth.png)
+    ![開發人員中心的應用程式設定](./media/app-service-mobile-register-wns/mobile-services-win8-app-push-auth.png)
 
    > [!IMPORTANT]
    > 應用程式密碼與封裝 SID 是重要的安全性認證。 請勿與任何人共用這些值，或與您的應用程式一起散發密碼。

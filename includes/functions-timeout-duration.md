@@ -5,22 +5,21 @@ services: functions
 author: nzthiago
 ms.service: azure-functions
 ms.topic: include
-origin.date: 02/21/2018
-ms.date: 03/25/2019
-ms.author: v-junlch
+ms.date: 02/21/2018
+ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: ffb29fc76313e8870b52cb0a63936da7853ea6ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61036218"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131360"
 ---
-## <a name="timeout"></a>函数应用超时持续时间 
+## <a name="timeout"></a>函式應用程式逾時持續期間 
 
-函数应用的超时持续时间可通过 [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) 项目文件中的 functionTimeout 属性定义。 下表显示两种计划和两种运行时版本的默认值和最大值（以分钟为单位）：
+FunctionTimeout 屬性中所定義的函式應用程式的逾時持續時間[host.json](../articles/azure-functions/functions-host-json.md#functiontimeout)專案檔。 下表顯示的預設值和最大值，以分鐘為單位的這兩個方案和兩個執行階段版本：
 
-| 規劃 | 运行时版本 | 預設值 | 最大值 |
+| 方案 | Runtime 版本 | 預設值 | 最大值 |
 |------|---------|---------|---------|
 | 耗用量 | 1.x | 5 | 10 |
 | 耗用量 | 2.x | 5 | 10 |
@@ -28,5 +27,4 @@ ms.locfileid: "61036218"
 | App Service 方案 | 2.x | 30 | 無限 |
 
 > [!NOTE] 
-> 不管函数应用超时设置如何，230 秒是 HTTP 触发的函数在响应请求时需要的最长时间。 这起因于 [Azure 负载均衡器的默认空闲超时](../articles/app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds)。 对于处理时间较长的情况，考虑使用 [Durable Functions 异步模式](../articles/azure-functions/durable/durable-functions-concepts.md#async-http)或[延迟实际工作并返回即时响应](../articles/azure-functions/functions-best-practices.md#avoid-long-running-functions)。
-
+> 函式應用程式逾時設定，無論 230 秒會是 HTTP 觸發函式可以長時間來回應要求的最大數量。 這是因為[預設的 Azure Load Balancer 的閒置逾時](../articles/app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds)。 對於較長的處理時間，請考慮使用[長期函式非同步模式](../articles/azure-functions/durable/durable-functions-concepts.md#async-http)或是[延後實際工作，並傳回立即回應](../articles/azure-functions/functions-best-practices.md#avoid-long-running-functions)。

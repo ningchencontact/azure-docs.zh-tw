@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
 ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883406"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130927"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>使用 PowerShell 建立 Application Insights 資源
 
@@ -201,7 +201,7 @@ ms.locfileid: "58883406"
 |priceCode|計劃|
 |---|---|
 |1|基本|
-|2|Enterprise|
+|2|企業|
 
 * 如果您只想要使用預設基本價格方案，您可以從範本中省略 CurrentBillingFeatures 資源。
 * 如果您想在建立元件資源之後變更價格方案，可以使用省略 "microsoft.insights/components" 資源的範本。 此外，也從計費資源省略 `dependsOn` 節點。 

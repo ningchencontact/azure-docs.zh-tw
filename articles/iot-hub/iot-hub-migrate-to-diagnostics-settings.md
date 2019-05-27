@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
 ms.openlocfilehash: b6cde8402c699a7477cd0efc79a44b3f5e150ad0
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146342"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>將 IoT 中樞從作業監視移轉至診斷設定
 
@@ -32,7 +32,7 @@ ms.locfileid: "57792645"
 > [!NOTE]
 > 當做的 2019 年 3 月 11 日，監視功能會從 IoT 中樞的 Azure 入口網站介面移除的作業。 下列步驟不再適用。 若要移轉，請確定正確的分類會開啟 Azure 監視器上述的診斷設定中。
 
-在工作流中测试新的诊断设置后，可以关闭操作监视功能。 
+一旦您在工作流程中測試新的診斷設定，您可以關閉作業監視功能。 
 
 1. 在您的「IoT 中樞」功能表上，選取 [作業監視]。
 
@@ -44,7 +44,7 @@ ms.locfileid: "57792645"
 
 作業監視與診斷設定的結構描述有些微差異。 請務必更新目前使用作業監視的應用程式，以對應診斷設定所使用的結構描述。 
 
-此外，诊断设置还提供了五个新的跟踪类别。 在您針對現有的結構描述更新應用程式之後，請一併新增新的類別：
+此外，診斷設定會提供追蹤的五個新的類別。 在您針對現有的結構描述更新應用程式之後，請一併新增新的類別：
 
 * 雲端到裝置對應項作業
 * 裝置到雲端對應項作業

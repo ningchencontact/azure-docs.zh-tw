@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 6d2ed8ba13fac03a60d9a0730776bc8348876b62
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153429"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153580"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -149,7 +149,7 @@ ms.locfileid: "65153429"
 4. 如同您一般對 SQL 使用者或其他人所做的一樣，**將所需的權限授與服務主體**。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
 
     ```sql
-    EXEC sp_addrolemember [role name], [your application name];
+    EXEC sp_addrolemember db_owner, [your application name];
     ```
 
 5. 在 Azure Data Factory 中，**設定 Azure SQL 資料倉儲連結服務**。
@@ -199,7 +199,7 @@ ms.locfileid: "65153429"
 3. **授與 Data Factory 受控身分識別所需的權限**像您一般的 SQL 使用者和其他項目。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Data Factory name];
+    EXEC sp_addrolemember db_owner, [your Data Factory name];
     ```
 
 5. 在 Azure Data Factory 中，**設定 Azure SQL 資料倉儲連結服務**。
@@ -375,7 +375,7 @@ GO
 | rejectValue | 指定在查詢失敗前可以拒絕的資料列數目或百分比。<br/><br/>在 [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)的＜引數＞一節中，深入了解 PolyBase 的拒絕選項。 <br/><br/>允許的值為 0 (預設值)、1、2 等其他值。 |否 |
 | rejectType | 指定 **rejectValue** 選項為常值或百分比。<br/><br/>允許的值為**值** (預設值) 和**百分比**。 | 否 |
 | rejectSampleValue | 決定在 PolyBase 重新計算已拒絕的資料列百分比之前，所要擷取的資料列數目。<br/><br/>允許的值為 1、2 等其他值。 | 是，如果 **rejectType** 是**百分比**。 |
-| useTypeDefault | 指定當 PolyBase 從文字檔擷取資料時，如何處理分隔符號文字檔中的遺漏值。<br/><br/>從 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx) 的＜引數＞一節深入了解這個屬性。<br/><br/>允許的值為 **True** 和 **False** (預設值)。 | 否 |
+| useTypeDefault | 指定當 PolyBase 從文字檔擷取資料時，如何處理分隔符號文字檔中的遺漏值。<br/><br/>從 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx) 的＜引數＞一節深入了解這個屬性。<br/><br/>允許的值為 **True** 和 **False** (預設值)。<br><br>**請參閱[疑難排解祕訣](#polybase-troubleshooting)與這項設定。** | 無 |
 | writeBatchSize | 要插入至 SQL 資料表的資料列的數目**每個批次**。 只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**整數** (資料列數目)。 依預設，Data Factory 以動態方式決定適當的批次大小為基礎的資料列大小。 | 否 |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**時間範圍**。 範例：“00:30:00” (30 分鐘)。 | 否 |
 | preCopyScript | 指定一個供「複製活動」在每次執行時將資料寫入到「Azure SQL 資料倉儲」前執行的 SQL 查詢。 使用此屬性來清除預先載入的資料。 | 否 |
@@ -405,6 +405,9 @@ GO
 * 如果您的來源資料位於**Azure Blob、 Azure Data Lake 儲存體 Gen1 或 Azure Data Lake 儲存體 Gen2**，而**格式不相容的 PolyBase**，您可以使用複製活動，直接叫用 PolyBase 讓 AzureSQL 資料倉儲會從來源提取資料。 如需詳細資料，請參閱**[使用 PolyBase 直接複製](#direct-copy-by-using-polybase)**。
 * 如果您的來源資料存放區與格式不受 PolyBase 支援，您可以改用**[使用 PolyBase 分段複製](#staged-copy-by-using-polybase)** 功能。 分段複製功能也能提供更好的輸送量。 它會自動將資料轉換成與 PolyBase 相容的格式。 並會將資料儲存在 Azure Blob 儲存體中。 然後，它會將資料載入 SQL 資料倉儲。
 
+>[!TIP]
+>深入了解[使用 PolyBase 最佳做法](#best-practices-for-using-polybase)。
+
 ### <a name="direct-copy-by-using-polybase"></a>使用 PolyBase 直接複製
 
 SQL 資料倉儲 PolyBase 直接支援 Azure Blob、 Azure Data Lake 儲存體 Gen1 和 Azure Data Lake 儲存體 Gen2。 如果您的來源資料符合本節所述的準則，請直接從來源資料存放區複製到 Azure SQL 資料倉儲使用 PolyBase。 否則，請利用[使用 PolyBase 分段複製](#staged-copy-by-using-polybase)。
@@ -418,9 +421,12 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、 Azure Data Lake 儲存體 G
 
     | 支援的來源資料存放區類型 | 支援的來源驗證類型 |
     |:--- |:--- |
-    | [Azure Blob](connector-azure-blob-storage.md) | 帳戶金鑰驗證 |
+    | [Azure Blob](connector-azure-blob-storage.md) | 帳戶金鑰的驗證、 受控身分識別驗證 |
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | 服務主體驗證 |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | 帳戶金鑰驗證 |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | 帳戶金鑰的驗證、 受控身分識別驗證 |
+
+    >[!IMPORTANT]
+    >如果您的 Azure 儲存體設定為使用 VNet 服務端點，您必須使用受控身分識別驗證。 請參閱[使用 VNet 服務端點搭配 Azure 儲存體的影響](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
 
 2. **來源資料格式**屬於**Parquet**， **ORC**，或**分隔文字**，具備下列組態：
 
@@ -515,9 +521,28 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、 Azure Data Lake 儲存體 G
 
 ### <a name="row-size-and-data-type-limits"></a>資料列大小和資料類型限制
 
-PolyBase 負載的限制為小於 1 MB 的資料列。 這些資料列不可載入 VARCHR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX)。 如需詳細資訊，請參閱 [SQL 資料倉儲服務容量限制](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads)。
+PolyBase 負載的限制為小於 1 MB 的資料列。 它不能載入至 VARCHR、 nvarchar （max） 或 varbinary （max）。 如需詳細資訊，請參閱 [SQL 資料倉儲服務容量限制](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads)。
 
 當您來源資料中的資料列大於 1 MB 時，您可能要將來源資料表垂直分割成幾個小的資料表。 務必確認每一列的大小不會超過限制。 然後可以使用 PolyBase 載入較小的資料表，並且在 Azure SQL 資料倉儲中將其合併在一起。
+
+或者，使用這類寬的資料行的資料，您可以使用非 PolyBase 載入資料使用 ADF，關閉 [允許 PolyBase] 設定。
+
+### <a name="polybase-troubleshooting"></a>PolyBase，疑難排解
+
+**載入至十進位資料行**
+
+如果您的來源資料是以文字格式，其中包含要載入 SQL 資料倉儲十進位資料行的空值，可能會發生下列錯誤：
+
+```
+ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
+```
+
+解決方法是取消選取 「**使用類型預設值**「 複製活動接收器中的選項 （做為 false)]-> [PolyBase 設定。 「[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+)」 是 PolyBase 的原生組態指定如何處理分隔符號的文字檔中的遺漏值，當 PolyBase 從文字檔擷取資料時。 
+
+**其他**
+
+如需更多 knonw PolyBase 的問題，請參閱[疑難排解 Azure SQL 資料倉儲 PolyBase 載入](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase)。
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL 資料倉儲資源類別
 
@@ -558,15 +583,18 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 
 從「Azure SQL 資料倉儲」複製資料或將資料複製到該處時，會使用下列從「Azure SQL 資料倉儲」資料類型對應到 Azure Data Factory 過渡期資料類型的對應。 請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動如何將來源結構描述和資料類型對應至接收。
 
+>[!TIP]
+>請參閱[資料表的 Azure SQL 資料倉儲中的資料類型](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md)文章 SQL DW 支援資料類型和因應措施不支援的。
+
 | Azure SQL 資料倉儲資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | bigint | Int64 |
 | binary | Byte[] |
 | bit | Boolean |
 | char | String, Char[] |
-| date | Datetime |
-| Datetime | Datetime |
-| datetime2 | Datetime |
+| date | DateTime |
+| DateTime | DateTime |
+| datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
 | Decimal | Decimal |
 | FILESTREAM attribute (varbinary(max)) | Byte[] |
@@ -575,23 +603,18 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 | int | Int32 |
 | money | Decimal |
 | nchar | String, Char[] |
-| ntext | String, Char[] |
 | numeric | Decimal |
 | nvarchar | String, Char[] |
 | real | Single |
 | rowversion | Byte[] |
-| smalldatetime | Datetime |
+| smalldatetime | DateTime |
 | smallint | Int16 |
 | smallmoney | Decimal |
-| sql_variant | Object |
-| text | String, Char[] |
 | time | TimeSpan |
-| timestamp | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
 | varbinary | Byte[] |
 | varchar | String, Char[] |
-| Xml | Xml |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收端的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md##supported-data-stores-and-formats)。

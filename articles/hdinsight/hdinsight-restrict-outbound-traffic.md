@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/13/2019
-ms.openlocfilehash: f244a67abab5c7f8cd14277f87f055ac6d48b8d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762422"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978006"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters"></a>設定 Azure HDInsight 叢集的輸出網路流量限制
+# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>設定 Azure HDInsight 叢集 （預覽） 的輸出網路流量限制
 
 這篇文章提供您保護輸出流量從您的 HDInsight 叢集使用 Azure 防火牆的步驟。 下列步驟假設您要設定現有叢集的 Azure 防火牆。 如果您要部署新的叢集，而且在防火牆後面，先建立您的 HDInsight 叢集和子網路，並依照本指南中的步驟。
 
@@ -27,7 +27,7 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
 
 使用 Fqdn，不需要其背後的靜態 IP 位址幾乎已完全定義 HDInsight 輸出流量相依性。 靜態位址缺乏表示網路安全性群組 (Nsg)，不能用來鎖定從叢集中的輸出流量。 其中一個不能用來設定目前的名稱解析為基礎的規則，然後使用它來設定 NSG 規則，則位址會變更通常足以。
 
-保護輸出位址的解決方案是使用可以控制根據網域名稱的輸出流量的防火牆裝置。 Azure 防火牆可以依據目的地的 FQDN 限制 HTTP 和 HTTPS 流量輸出。
+保護輸出位址的解決方案是使用可以控制根據網域名稱的輸出流量的防火牆裝置。 Azure 防火牆可以限制輸出的目的地 FQDN 為基礎的 HTTP 和 HTTPS 流量或[FQDN 標記](https://docs.microsoft.com/azure/firewall/fqdn-tags)。
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>使用 HDInsight 中設定 Azure 防火牆
 
@@ -80,7 +80,7 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
         1. 輸入`https:443`底下**通訊協定： 連接埠**並`sqm.telemetry.microsoft.com`之下**目標 FQDN**。
     1. 如果您的叢集做為後盾 WASB，而且您不想要使用上述的服務端點，然後新增規則的 WASB:
         1. 在 **目標 Fqdn**區段中，提供**名稱**，並設定**來源地址**至`*`。
-        1. 輸入`wasb`底下**通訊協定： 連接埠**並`*`之下**目標 FQDN**。
+        1. 輸入`http`或 [https] 取決於您是否正在使用 wasb: / / 或 wasbs: / / 底下**通訊協定： 連接埠**下的儲存體帳戶 url 並**目標 FQDN**。
 1. 按一下 [新增] 。
 
 ![標題:輸入應用程式規則集合的詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)

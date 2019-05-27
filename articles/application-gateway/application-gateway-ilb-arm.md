@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: 3b9108e08e1b1ad13fac75d00816755043d84672
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 70b350e228785e47a41cb83ce0d80b93c8a601c1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308715"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135232"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>利用內部負載平衡器 (ILB) 建立應用程式閘道
 
 可以使用網際網路對向的 VIP 或不會對網際網路公開的內部端點 (也稱為內部負載平衡器 (ILB) 端點) 來設定 Azure 應用程式閘道。 使用 ILB 設定閘道適合不會對網際網路公開的內部企業營運應用程式。 對於位在不會對網際網路公開的安全性界限中的多層式應用程式內的服務/階層也十分實用，但仍需要循環配置資源負載散發、工作階段綁定或安全通訊端層 (SSL) 終止。
 
-本文介绍如何配置具有 ILB 的应用程序网关。
+本文會逐步引導您完成使用 ILB 設定應用程式閘道。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -33,7 +33,7 @@ ms.locfileid: "57308715"
 
 1. 安裝最新版的 Azure PowerShell 模組[安裝指示](/powershell/azure/install-az-ps)。
 2. 您會建立應用程式閘道的虛擬網路和子網路。 請確定沒有虛擬機器或是雲端部署正在使用子網路。 應用程式閘道必須單獨在虛擬網路子網路中。
-3. 必须存在配置为使用应用程序网关的服务器，或者必须在虚拟网络中为其创建终结点，或者必须为其分配公共 IP/VIP。
+3. 您要設定來使用應用程式閘道的伺服器必須存在，或是在虛擬網路中建立其端點，或是已指派公用 IP/VIP。
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>建立應用程式閘道需要什麼？
 
@@ -53,9 +53,9 @@ ms.locfileid: "57308715"
 1. 建立資源管理員的資源群組
 2. 建立應用程式閘道的虛擬網路和子網路
 3. 建立應用程式閘道組態物件
-4. 创建应用程序网关资源
+4. 建立應用程式閘道資源
 
-## <a name="create-a-resource-group-for-resource-manager"></a>创建 Resource Manager 的资源组
+## <a name="create-a-resource-group-for-resource-manager"></a>建立資源管理員的資源群組
 
 請確定您切換 PowerShell 模式以使用 Azure 資源管理員 Cmdlet。 如需詳細資訊，可在 [搭配使用 Windows PowerShell 與資源管理員](../powershell-azure-resource-manager.md)取得。
 
@@ -73,7 +73,7 @@ Connect-AzAccount
 Get-AzSubscription
 ```
 
-系统会提示使用凭据进行身份验证。
+系統會提示使用您的認證進行驗證。
 
 ### <a name="step-3"></a>步驟 3
 
@@ -200,13 +200,13 @@ $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity
 $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-這個步驟會利用上述步驟中的所有組態項目來建立應用程式閘道。 示例中的应用程序网关名为“appgwtest”。
+這個步驟會利用上述步驟中的所有組態項目來建立應用程式閘道。 範例中的應用程式閘道名為 "appgwtest"。
 
 ## <a name="delete-an-application-gateway"></a>刪除應用程式閘道
 
 若要刪除應用程式閘道，您需要依序執行下列步驟：
 
-1. 使用 `Stop-AzApplicationGateway` cmdlet 停止该网关。
+1. 使用 `Stop-AzApplicationGateway` Cmdlet 停止閘道。
 2. 使用 `Remove-AzApplicationGateway` Cmdlet 移除閘道。
 3. 使用 `Get-AzureApplicationGateway` Cmdlet 確認已移除閘道。
 

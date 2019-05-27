@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128660"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的部署函式 
 
@@ -165,9 +165,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| parameterName |yes |字串 |要傳回的參數名稱。 |
+| parameterName |有 |string |要傳回的參數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -252,13 +252,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
-| stringOutput | 字串 | 選項 1 |
+| stringOutput | String | 選項 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | 陣列 | [1, 2, 3] |
-| crossOutput | 字串 | 選項 1 |
+| crossOutput | String | 選項 1 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -281,9 +281,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| variableName |yes |字串 |要傳回的變數名稱。 |
+| variableName |有 |String |要傳回的變數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -355,11 +355,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
-| exampleOutput1 | 字串 | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | 陣列 | [1, 2, 3, 4] |
-| exampleOutput3 | 字串 | myVariable |
+| exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 若要使用 Azure CLI 部署此範例範本，請使用：

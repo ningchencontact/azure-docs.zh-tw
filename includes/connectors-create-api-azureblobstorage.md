@@ -9,11 +9,11 @@ ms.date: 05/21/2018
 ms.author: estfan
 ms.custom: include file
 ms.openlocfilehash: 4d9d0f132a2cc754cd9f69bb54ef4dbb78a2c493
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60958558"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145238"
 ---
 1. 當系統提示您需要連線資訊時，請提供以下詳細資料：
 
@@ -25,7 +25,7 @@ ms.locfileid: "60958558"
    | 儲存體帳戶 | <*儲存體帳戶*> | 從清單中選取您的儲存體帳戶。 | 
    ||| 
 
-   例如︰
+   例如：
 
    ![建立連線](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
 

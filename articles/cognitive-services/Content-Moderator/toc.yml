@@ -139,3 +139,5 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 法規遵循
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

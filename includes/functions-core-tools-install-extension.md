@@ -9,11 +9,11 @@ ms.date: 09/25/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733275"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131425"
 ---
 延伸模組套件組合請透過在設定 Azure Functions 小組所發行的所有繫結*host.json*檔案。 針對本機開發，請確定您有最新版[Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)。
 
@@ -36,7 +36,7 @@ ms.locfileid: "64733275"
 
 一旦您在專案中參考延伸模組套件組合，然後所有的預設繫結可供您的函式。 提供的繫結[延伸模組套件組合](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json)是：
 
-|Package  |Version  |
+|封裝  |版本  |
 |---------|---------|
 |Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
 |Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|

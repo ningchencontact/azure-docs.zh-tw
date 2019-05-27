@@ -9,11 +9,11 @@ ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61448388"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143407"
 ---
 ## <a name="access-the-virtual-machine"></a>存取虛擬機器
 
@@ -23,7 +23,7 @@ ms.locfileid: "61448388"
 
 1. 列出包含解決方案加速器資源的資源群組內容：
 
-    ```azurecli
+    ```azurecli-interactive
     az resource list -g contoso-simulation -o table
     ```
 
@@ -31,7 +31,7 @@ ms.locfileid: "61448388"
 
 1. 更新網路安全性群組以允許進行 SSH 存取。 下列命令假設網路安全性群組的名稱是 **contoso-simulation-nsg** -- 請將此值更換為網路安全性群組的名稱：
 
-    ```azurecli
+    ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
@@ -39,13 +39,13 @@ ms.locfileid: "61448388"
 
 1. 將虛擬機器上的 **azureuser** 密碼，更新為您知道的密碼。 當您執行下列命令時，請選擇您自己的密碼：
 
-    ```azurecli
+    ```azurecli-interactive
     az vm user update --name vm-vikxv --username azureuser --password YOURSECRETPASSWORD  -g contoso-simulation
     ```
 
 1. 尋找虛擬機器的公用 IP 位址。 下列命令假設虛擬機器的名稱是 **vm-vikxv** -- 請將此值更換為您先前記下的虛擬機器名稱：
 
-    ```azurecli
+    ```azurecli-interactive
     az vm list-ip-addresses --name vm-vikxv -g contoso-simulation -o table
     ```
 

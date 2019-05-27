@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 505eac0996129a17b6b68e8ab4ea2d4fc80fd473
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133861"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140995"
 ---
 1. 瀏覽 [Azure 入口網站]。 按一下 [瀏覽全部] > [行動應用程式] > 您剛才建立的後端。 在行動應用程式設定中，按一下 [快速入門] > [Android]。 在 [設定用戶端應用程式] 下方，按一下 [下載]。 這樣會為已預先設定成連接到您後端的應用程式，下載完整的 Android 專案。 
 2. 使用 **Android Studio**、**匯入專案 (Eclipse ADT、Gradle 等等)** 開啟專案。 請確認選取此匯入選項，以避免發生 JDK 錯誤。

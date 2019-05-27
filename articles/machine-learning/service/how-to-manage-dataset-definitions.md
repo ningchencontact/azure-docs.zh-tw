@@ -1,5 +1,5 @@
 ---
-title: 資料集定義和版本控制
+title: 資料集定義和使用 azureml 資料集進行版本控制
 titleSuffix: Azure Machine Learning service
 description: 了解如何更新資料集定義，以及管理定義的生命週期
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 7c861c8cdc9985caa42bd2beb5236a4f4e93e4c7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028676"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146211"
 ---
 # <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>更新和管理資料集定義的生命週期
 
@@ -172,11 +172,11 @@ ds_def_old.head(5)
       <th></th>
       <th>ID</th>
       <th>案例編號</th>
-      <th>date</th>
-      <th>區塊</th>
+      <th>Date</th>
+      <th>封鎖</th>
       <th>IUCR</th>
       <th>主要類型</th>
-      <th>描述</th>
+      <th>說明</th>
       <th>位置描述</th>
       <th>阻止</th>
       <th>國內</th>
@@ -344,7 +344,7 @@ dataset.get_definition(version_id=1)
 
 您可以獨立管理生命週期的每個資料集定義。 有三個階段的生命週期： 作用中，已被取代，或保存。
 
-### <a name="active"></a>Active
+### <a name="active"></a>有效
 
 建立新的資料集定義時，它是設為預設。 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 495326c172f900dc8bcff78b0df38f2cb64ed27e
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 326382339e2b4aeaa488d3d7f76b7ff35f9bc620
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546528"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147768"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>啟用並部署 Azure 的強力 Ssd （預覽）
 
@@ -27,7 +27,7 @@ Azure 的強力索引固態硬碟 (SSD) （預覽） 供應項目高輸送量、
 
 PowerShell：`Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
-CLI：`az vm list-skus --resource-type disks --query “[?name==UltraSSD_LRS]”`
+CLI：`az vm list-skus --resource-type disks --query "[?name=='UltraSSD_LRS'].locationInfo"`
 
 回應將類似下面的表單，其中 X 是要用於部署在美國東部 2 區域。 X 可能是 1、2 或 3。
 

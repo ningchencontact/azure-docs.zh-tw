@@ -9,12 +9,12 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1bb5534d2f98a4e5143038ab1d5fbbcc76184fe
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739161"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133193"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>讓更新管理、變更追蹤和清查解決方案上線
 
@@ -32,27 +32,10 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ![讓清查解決方案上線](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
-
-下表顯示支援的對應：
-
-|**Log Analytics 工作區區域**|**Azure 自動化區域**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP 和 EastUS 對應至自動化帳戶的 Log Analytics 工作區不是確切的區域對應，但是是正確的對應。
-
-<sup>2</sup>基於容量限制的區域不提供建立新的資源時。 這包括自動化帳戶和 Log Analytics 工作區。 不過，在區域中預先存在連結的資源應該繼續運作。
+> [!NOTE]
+> 啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
+>
+> 如需支援的對應配對的清單，請參閱 <<c0> [ 自動化帳戶和 Log Analytics 工作區的區域對應](how-to/region-mappings.md)。
 
 變更追蹤和清查解決方案可讓您在虛擬機器上[追蹤變更](automation-vm-change-tracking.md)和[進行清查](automation-vm-inventory.md)。 在此步驟中，您會在虛擬機器上啟用解決方案。
 
@@ -76,20 +59,20 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 如果選取的工作區已有解決方案，則不會重新部署解決方案，也不會新增範圍設定。
 
-## <a name="saved-searches"></a>已儲存的搜尋
+## <a name="saved-searches"></a>儲存的搜尋
 
 當電腦新增至「更新管理」或「變更追蹤」和「清查」解決方案時，它們會被新增至工作區中兩個已儲存搜尋的其中一個。 這些已儲存的搜尋都是查詢，其中包含這些解決方案的目標電腦。
 
 瀏覽至您的自動化帳戶，然後選取 [一般] 下的 [已儲存搜尋]。 下表顯示這些解決方案所使用的兩個已儲存搜尋：
 
-|名稱     |Category  |Alias  |
+|名稱     |Category  |別名  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 更新        | Updates__MicrosoftDefaultComputerGroup         |
 
 選取任一個已儲存搜尋，以檢視用來填入群組的查詢。 下圖顯示查詢與其結果：
 
-![已儲存的搜尋](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
+![儲存的搜尋](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
 
 ## <a name="onboard-azure-vms"></a>使 Azure VM 上線
 
@@ -111,7 +94,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 選取 [管理機器]。 此動作會開啟 [管理機器] 頁面。 此頁面可讓您啟用一組特定機器、所有可用機器上的解決方案，或啟用所有目前機器的解決方案，以及啟用未來所有機器的解決方案。 如果您先前選擇 [在所有可用及未來的機器上啟用] 選項，則 [管理機器] 按鈕可能會呈現灰色。
 
-![已儲存的搜尋](media/automation-onboard-solutions-from-automation-account/managemachines.png)
+![儲存的搜尋](media/automation-onboard-solutions-from-automation-account/managemachines.png)
 
 ### <a name="all-available-machines"></a>所有可用的機器
 
@@ -130,7 +113,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 下列解決方案相依於 Log Analytics 工作區：
 
 * [更新管理](automation-update-management.md)
-* [更改跟踪](automation-change-tracking.md)
+* [變更追蹤](automation-change-tracking.md)
 * [於下班時間啟動/停止 VM](automation-solution-vm-management.md)
 
 如果您決定您不再想要整合您的自動化帳戶與 Log Analytics 工作區，您可以取消連結您的帳戶，直接從 Azure 入口網站。  繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
@@ -161,6 +144,8 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 * 啟動及停止 VM Runbook 排程
 * 啟動及停止 VM Runbook
 * 變數
+
+或者您也可以取消連結您的工作區從您的自動化帳戶從您的 Log Analytics 工作區。 在您的工作區中，選取**自動化帳戶**下方**相關資源**。 在 [自動化帳戶] 頁面上選取**取消連結帳戶**。
 
 ## <a name="next-steps"></a>後續步驟
 

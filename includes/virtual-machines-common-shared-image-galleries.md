@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546715"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145881"
 ---
 共用映像庫服務可協助您圍繞自訂受控虛擬機器映像來建置結構和組織。 共用映像庫提供：
 
@@ -30,7 +30,7 @@ ms.locfileid: "65546715"
 
 共用映像庫具有多個資源類型：
 
-| 資源 | 說明|
+| Resource | 說明|
 |----------|------------|
 | **受控映像** | 可單獨使用或用來建立的基本映像**映像版本**映像庫中。 受控映像是從一般化 VM 建立的。 受控映像是一種特殊的 VHD 類型，可用來產生多個 VM，現在可以用來建立共用映像版本。 |
 | **映像庫** | 和 Azure Marketplace 一樣，**映像庫**是用於管理和共用映像的存放庫，但您可以控制哪些使用者能夠存取。 |

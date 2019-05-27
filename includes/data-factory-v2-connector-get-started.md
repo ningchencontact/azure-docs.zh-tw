@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 74ae5cab5430c508f31a5ba4ad7fbdefe89abdd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60927566"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122534"
 ---
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
@@ -17,7 +17,7 @@ ms.locfileid: "60927566"
 您可以使用下列其中一個工具或 SDK 來搭配使用複製活動與管線。 選取逐步執行指示的連結：
 
 - [複製資料工具](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
-- [Azure 门户](../articles/data-factory/quickstart-create-data-factory-portal.md)
+- [Azure 入口網站](../articles/data-factory/quickstart-create-data-factory-portal.md)
 - [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)

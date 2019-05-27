@@ -15,11 +15,11 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66137074"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本立 ASE
 
@@ -108,7 +108,7 @@ $fileContentEncoded | set-content ($fileName + ".b64")
 azuredeploy.parameters.json 檔案中有以下參數︰
 
 * *appServiceEnvironmentName*：所要設定之 ILB ASE 的名稱。
-* *existingAseLocation*：包含已部署 ILB ASE 之 Azure 區域的文字字串。  例如︰"South Central US"。
+* *existingAseLocation*：包含已部署 ILB ASE 之 Azure 區域的文字字串。  例如："South Central US"。
 * *pfxBlobString*：.pfx 檔案的 based64 編碼字串表示法。 使用稍早的程式碼片段，複製 "exportedcert.pfx.b64" 中的字串。 貼上字串作為 pfxBlobString 屬性的值。
 * *password*：用來保護 .pfx 檔案的密碼。
 * *certificateThumbprint*：憑證的指紋。 如果您從 Powershell 擷取此值 (例如先前程式碼片段中的 $certificate.Thumbprint )，可以直接使用該值。 如果您從 Windows 憑證對話方塊中複製此值，請記得去除多餘的空格。 CertificateThumbprint 應該像這樣：AF3143EB61D43F6727842115BB7F17BBCECAECAE。

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236686"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153515"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory 中執行資料的流程活動
 用於執行資料流活動觸發的管線執行和管線偵錯 (sandbox) 執行中執行您的 ADF 資料流。
@@ -64,6 +64,10 @@ ms.locfileid: "65236686"
 這是必要的欄位定義要用於您的 資料流程的活動執行的整合執行階段。 根據預設，Data Factory 會使用預設的自動解決 Azure 整合執行階段。 不過，您可以建立您的 Azure 整合執行階段定義特定區域，您的資料流活動執行的計算類型、 核心計數和 TTL。
 
 Data Flow 執行的預設值是 8 核心的一般計算，當 TTL 為 60 分鐘的時間。
+
+您的資料流活動的 Spark 執行環境的控制權。 在  [Azure 整合執行階段](concepts-integration-runtime.md)是設定來設定的計算類型 （一般用途、 記憶體最佳化，並計算最佳化），背景工作角色核心數目和存留時間以符合與您的資料流計算的執行引擎需求。 此外，設定 TTL 可讓您維護暖立即可供工作執行的叢集。
+
+![Azure 整合執行階段](media/data-flow/ir-new.png "Azure 整合執行階段")
 
 ### <a name="staging-area"></a>臨時區域
 

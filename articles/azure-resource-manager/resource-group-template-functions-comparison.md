@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268699"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128681"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的比較函式
 
@@ -40,10 +40,10 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |整數、字串、陣列或物件 |要檢查是否相等的第一個值。 |
-| arg2 |yes |整數、字串、陣列或物件 |要檢查是否相等的第二個值。 |
+| arg1 |有 |整數、字串、陣列或物件 |要檢查是否相等的第一個值。 |
+| arg2 |有 |整數、字串、陣列或物件 |要檢查是否相等的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -135,7 +135,7 @@ equals 函式通常會搭配 `condition` 元素，用來測試是否已部署資
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | True |
@@ -173,7 +173,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 前述範例的輸出為：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -196,10 +196,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |整數或字串 |用於大於比較的第一個值。 |
-| arg2 |yes |整數或字串 |用於大於比較的第二個值。 |
+| arg1 |有 |整數或字串 |用於大於比較的第一個值。 |
+| arg2 |有 |整數或字串 |用於大於比較的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -248,7 +248,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -272,10 +272,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |整數或字串 |用於大於或等於比較的第一個值。 |
-| arg2 |yes |整數或字串 |用於大於或等於比較的第二個值。 |
+| arg1 |有 |整數或字串 |用於大於或等於比較的第一個值。 |
+| arg2 |有 |整數或字串 |用於大於或等於比較的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -324,7 +324,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -348,10 +348,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |整數或字串 |用於小於比較的第一個值。 |
-| arg2 |yes |整數或字串 |用於小於比較的第二個值。 |
+| arg1 |有 |整數或字串 |用於小於比較的第一個值。 |
+| arg2 |有 |整數或字串 |用於小於比較的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -400,7 +400,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
@@ -424,10 +424,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |整數或字串 |用於小於或等於比較的第一個值。 |
-| arg2 |yes |整數或字串 |用於小於或等於比較的第二個值。 |
+| arg1 |有 |整數或字串 |用於小於或等於比較的第一個值。 |
+| arg2 |有 |整數或字串 |用於小於或等於比較的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -476,7 +476,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |

@@ -170,7 +170,7 @@
               href: how-to-custom-speech-train-model.md
             - name: 部署自訂模型
               href: how-to-custom-speech-deploy-model.md
-            - name: 指南：建立人為標記的轉譯
+            - name: 建立人為標記轉譯的指南
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: 文字轉換語音
           items:
@@ -195,14 +195,14 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: 從翻譯工具語音 API
           href: how-to-migrate-from-translator-speech-api.md
-    - name: 使用內部部署容器
+    - name: 使用容器
       items:
-        - name: 安裝並執行內部部署容器
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+        - name: 安裝及執行容器
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
           href: speech-container-howto.md
         - name: 設定容器
           href: speech-container-configuration.md
-          displayName: 'docker, container, billing, apikey, pull, logging'
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
 - name: 範例
   items:
     - name: 語音 SDK
@@ -314,6 +314,8 @@
       href: support.md
     - name: 價格和限制
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: 法規遵循
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: 隱私權與 Cookie
